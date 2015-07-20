@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/18/2015" 
+	ms.date="07/08/2015" 
 	ms.author="eugenesh"/>
 
 #인덱서를 사용하여 Azure 검색에 Azure SQL 데이터베이스 연결#
@@ -261,5 +261,6 @@ A: 예. 인덱서는 검색 서비스의 노드 중 하나에서 실행되므로
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

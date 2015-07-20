@@ -57,16 +57,25 @@ Eclipse를 사용하지 않는 경우 [여기]에서 지침을 읽어볼 수 있
 			    <category android:name="android.intent.category.DEFAULT" />
 			  </intent-filter>
 			</activity>
-			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
-			  android:exported="false">
+			<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog">
+			  <intent-filter>
+			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
+			    <category android:name="android.intent.category.DEFAULT"/>
+			  </intent-filter>
+			</activity>
+			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver" android:exported="false">
 			  <intent-filter>
 			    <action android:name="android.intent.action.BOOT_COMPLETED"/>
 			    <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
 			    <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
 			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
 			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
-			    <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
 			    <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
+			  </intent-filter>
+			</receiver>
+			<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachDownloadReceiver">
+			  <intent-filter>
+			    <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
 			  </intent-filter>
 			</receiver>
 
@@ -95,6 +104,19 @@ Eclipse를 사용하지 않는 경우 [여기]에서 지침을 읽어볼 수 있
 
 			-dontwarn android.**
 			-keep class android.support.v4.** { *; }
+
+## 네이티브 푸시
+
+이제 도달률 모듈을 구성했으므로 장치에서 캠페인을 받을 수 있도록 네이티브 푸시를 구성해야 합니다.
+
+Android에서는 다음 두 가지 서비스를 지원합니다.
+
+  - Google Play 장치: [GCM과 Engagement 통합 방법](mobile-engagement-android-gcm-integrate.md) 가이드에 따라 [Google Cloud Messaging] 사용
+  - Amazon 장치: [ADM과 Engagement 통합 방법 가이드](mobile-engagement-android-adm-integrate.md)에 따라 [Amazon Device Messaging] 사용
+
+Amazon 및 Google Play 장치를 모두 대상으로 하려는 경우 개발을 위한 단일 AndroidManifest.xml/APK 내에 모든 것을 포함할 수 있습니다. 하지만 Amazon에 제출할 경우 GCM 코드가 발견되면 응용 프로그램이 거부될 수 있습니다.
+
+이러한 경우에는 여러 APK를 사용해야 합니다.
 
 **이제 응용 프로그램이 도달률 캠페인을 수신하여 표시할 준비가 되었습니다!**
 
@@ -148,19 +170,6 @@ Eclipse를 사용하지 않는 경우 [여기]에서 지침을 읽어볼 수 있
 
 -   `Replied`은(는) 브로드캐스트 수신기 중 하나가 `true` 또는 `false`을(를) 반환한 경우에 증가됩니다.
 -   `Actioned`은(는) 브로드캐스트 수신기 중 하나가 `true`을(를) 반환한 경우에만 증가됩니다.
-
-##항상 캠페인을 수신하는 방법
-
-위에서 설명한 통합 절차를 따를 경우 Engagement 서비스는 통계를 보고해야 하는 때에만(1분의 제한 시간 있음) Engagement 서버에 연결합니다. 따라서 **도달률 캠페인은 사용자 세션 중에만 수신될 수 있습니다**. 장치가 절전 모드에 있는 경우를 비롯하여 **언제든지 응용 프로그램이 도달률 캠페인을 받을 수 있도록** Engagement를 구성할 수 있습니다. 물론 장치는 활성 네트워크에 연결되어 있어야 하며, 장치가 오프라인 상태인 동안에는 메시지가 지연됩니다.
-
-"항상" 푸시의 이점을 얻으려면 다음과 같이 대상 장치에 따라 네이티브 푸시 서비스를 하나 이상 사용해야 합니다.
-
-  - Google Play 장치: [GCM과 Engagement 통합 방법](mobile-engagement-android-gcm-integrate.md) 가이드에 따라 [Google Cloud Messaging] 사용
-  - Amazon 장치: [ADM과 Engagement 통합 방법 가이드](mobile-engagement-android-adm-integrate.md)에 따라 [Amazon Device Messaging] 사용
-
-Amazon 및 Google Play 장치를 모두 대상으로 하려는 경우 개발을 위한 단일 AndroidManifest.xml/APK 내에 모든 것을 포함할 수 있습니다. 하지만 Amazon에 제출할 경우 GCM 코드가 발견되면 응용 프로그램이 거부될 수 있습니다.
-
-이러한 경우에는 여러 APK를 사용해야 합니다.
 
 ##캠페인을 사용자 지정하는 방법
 
@@ -274,7 +283,7 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 
 처리기에서 사용된 현재 범주는 `EngagementDefaultNotifier`에서 재정의할 수 있는 대다수 메서드의 매개 변수로 전달됩니다.
 
-그 범주는`String`  매개 변수로 전달되거나 `getCategory()` 메서드가 있는 `EngagementReachContent` 개체에서 간접적으로 전달됩니다.
+그 범주는`String` 매개 변수로 전달되거나 `getCategory()` 메서드가 있는 `EngagementReachContent` 개체에서 간접적으로 전달됩니다.
 
 또한 `EngagementDefaultNotifier`에서 메서드를 다시 정의하여 알림 생성 프로세스의 대부분을 변경할 수 있습니다. 고급 사용자 지정을 더 수행하려면 기술 문서 및 소스 코드를 살펴보세요.
 
@@ -636,5 +645,6 @@ Reach SDK에서 제공하는 `Engagement*Activity` 클래스 중 하나를 확�
 [여기]: http://developer.android.com/tools/extras/support-library.html#Downloading
 [Google Cloud Messaging]: http://developer.android.com/guide/google/gcm/index.html
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

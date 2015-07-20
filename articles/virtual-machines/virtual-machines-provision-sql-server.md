@@ -3,7 +3,7 @@
 	description="Azure에서 SQL Server 가상 컴퓨터를 만들고 구성하는 방법을 설명하는 자습서입니다." 
 	services="virtual-machines" 
 	documentationCenter="" 
-	authors="jeffgoll" 
+	authors="rothja" 
 	manager="jeffreyg" 
 	editor="monicar"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/06/2015" 
-	ms.author="jeffreyg"/>
+	ms.date="06/17/2015" 
+	ms.author="jroth"/>
 
 # Azure에서 SQL Server 가상 컴퓨터 프로비전 #
 
@@ -27,9 +27,9 @@ Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개
 * [다른 컴퓨터의 SQL Server Management Studio를 사용하여 가상 컴퓨터에 연결하는 구성 단계 완료](#SSMS)
 * [다음 단계](#Optional)
 
-##<a id="Provision">Azure 관리 포털에 연결 및 갤러리에서 가상 컴퓨터 프로비전</a>
+##<a id="Provision"> 갤러리에서 SQL Server 가상 컴퓨터 프로비전 </a>
 
-1. 사용자 계정을 사용하여 [Azure 관리 포털](http://manage.windowsazure.com)에 로그인합니다. Azure 계정이 없는 경우 [Azure 무료 평가판](http://www.windowsazure.com/pricing/free-trial/)을 방문하십시오.
+1. 사용자 계정을 사용하여 [Azure 관리 포털](http://manage.windowsazure.com)에 로그인합니다. Azure 계정이 없는 경우 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 방문하십시오.
 
 2. Azure 관리 포털 웹 페이지의 왼쪽 아래에서 **+새로 만들기**, **계산**, **가상 컴퓨터**, **갤러리에서**를 차례로 클릭합니다.
 
@@ -39,7 +39,7 @@ Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개
 Azure에서 지원되는 SQL Server 이미지에 대한 최신 정보는 [Azure 가상 컴퓨터의 SQL Server](http://go.microsoft.com/fwlink/p/?LinkId=294720) 문서 집합의 [Azure 가상 컴퓨터에서 SQL Server 시작](http://go.microsoft.com/fwlink/p/?LinkId=294719) 토픽을 참조하십시오.
 
    
->[AZURE.NOTE]플랫폼 이미지인 SQL Server 평가 버전을 사용하여 만든 가상 컴퓨터가 있는 경우 갤러리에서 분당 유료 버전 이미지로 업그레이드할 수 없습니다. 다음 두 옵션 중 하나를 선택할 수 있습니다. 갤러리에서 분당 지불하는 SQL Server 에디션을 사용하여 새 가상 컴퓨터를 만들고 [데이터 디스크](http://go.microsoft.com/fwlink/p/?LinkId=294738), **또는 **를 사용하여 Azure의 가상 컴퓨터 간에 SQL Server 데이터베이스 파일 및 스키마를 마이그레이션하는 방법의 단계에 따라 이 새 가상 컴퓨터로 데이터베이스 파일을 마이그레이션할 수 있으며, [SQL Server 2014의 다른 에디션으로 업그레이드](http://go.microsoft.com/fwlink/?LinkId=396915)의 단계에 따라 [Azure 계약에 관한 Software Assurance을 통한 라이선스 이동](http://www.windowsazure.com/pricing/license-mobility/)으로 SQL Server 평가판의 기존 인스턴스를 다른 버전의 SQL Server로 업그레이드할 수 있습니다. 라이선스가 부여된 SQL Server를 구입하는 방법에 대한 자세한 내용은 [SQL Server 구매 방법](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx)(영문)을 참조하십시오.
+>[AZURE.NOTE]플랫폼 이미지인 SQL Server 평가 버전을 사용하여 만든 가상 컴퓨터가 있는 경우 갤러리에서 분당 유료 버전 이미지로 업그레이드할 수 없습니다. 다음 두 옵션 중 하나를 선택할 수 있습니다. 갤러리에서 분당 지불하는 SQL Server 에디션을 사용하여 새 가상 컴퓨터를 만들고 [데이터 디스크](http://go.microsoft.com/fwlink/p/?LinkId=294738), **또는 **를 사용하여 Azure의 가상 컴퓨터 간에 SQL Server 데이터베이스 파일 및 스키마를 마이그레이션하는 방법의 단계에 따라 이 새 가상 컴퓨터로 데이터베이스 파일을 마이그레이션할 수 있으며, [SQL Server 2014의 다른 에디션으로 업그레이드](http://go.microsoft.com/fwlink/?LinkId=396915)의 단계에 따라 [Azure 계약에 관한 Software Assurance을 통한 라이선스 이동](http://azure.microsoft.com/pricing/license-mobility/)으로 SQL Server 평가판의 기존 인스턴스를 다른 버전의 SQL Server로 업그레이드할 수 있습니다. 라이선스가 부여된 SQL Server를 구입하는 방법에 대한 자세한 내용은 [SQL Server 구매 방법](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx)(영문)을 참조하십시오.
 
 
 4. 첫 번째 **가상 컴퓨터 구성** 페이지에서 다음 정보를 입력합니다.
@@ -54,7 +54,7 @@ Azure에서 지원되는 SQL Server 이미지에 대한 최신 정보는 [Azure 
 
 	오른쪽 아래에 있는 다음 화살표를 클릭하여 계속합니다.
 
-	![VM 구성](./media/virtual-machines-provision-sql-server/4VM-Config.png)
+	![VM 구성][Image4]
 
 
 5. 두 번째 **가상 컴퓨터 구성** 페이지에서 네트워킹, 저장소 및 가용성에 대한 리소스를 구성합니다.
@@ -80,7 +80,7 @@ Azure에서 지원되는 SQL Server 이미지에 대한 최신 정보는 [Azure 
 	- 실행 중
 	
 
-##<a id="RemoteDesktop">원격 데스크톱을 사용하여 가상 컴퓨터 열기 및 설치 완료</a>
+##<a id="RemoteDesktop">원격 데스크 톱을 사용하여 VM을 엽니다</a>
 
 1. 프로비전이 완료되면 가상 컴퓨터의 이름을 클릭하여 대시보드 페이지로 이동합니다. 페이지 맨 아래에 있는 **Connect**를 클릭합니다.
 2. **열기** 단추를 클릭합니다. ![열기 단추 클릭][Image37]
@@ -92,9 +92,11 @@ Azure에서 지원되는 SQL Server 이미지에 대한 최신 정보는 [Azure 
 
 Windows 원격 데스크톱을 사용하여 가상 컴퓨터에 연결된 후 가상 컴퓨터는 다른 컴퓨터와 상당히 유사하게 작동합니다. SQL Server Management Studio(가상 컴퓨터에서 실행 중인)가 설치되어 있는 기본 SQL Server 인스턴스에 일반적인 방식으로 연결합니다.
 
-##<a id="SSMS">다른 컴퓨터에서 SQL Server Management Studio를 사용하여 가상 컴퓨터에 연결하는 구성 단계 완료</a>
+##<a id="SSMS">다른 컴퓨터에서 SQL Server VM 인스턴스를 SSMS에서 연결</a>
 
-인터넷에서 SQL Server의 인스턴스에 연결하려면 먼저 아래의 섹션에 설명된 대로 다음 작업을 완료해야 합니다.
+다음 단계는 SQL Server Management Studio (SSMS)를 사용하여 인터넷을 통해 SQL Server 인스턴스에 연결하는 방법을 보여줍니다. 그러나 동일한 단계는 온 프레미스 및 Azure에서 실행중인 응용 프로그램에 대해 SQL Server 가상 컴퓨터를 액세스할 수 있게 만들도록 적용합니다.
+
+인터넷 또는 다른 VM에서 SQL Server의 인스턴스에 연결하기 전에 먼저 아래의 섹션에 설명된 대로 다음 작업을 완료해야 합니다.
 
 - [가상 컴퓨터에 대한 TCP 끝점 만들기](#Endpoint)
 - [Windows 방화벽에서 TCP 포트 열기](#FW)
@@ -109,9 +111,11 @@ Windows 원격 데스크톱을 사용하여 가상 컴퓨터에 연결된 후 �
 
 ![SQL Server 가상 컴퓨터에 연결][Image8b]
 
-##<a id="Endpoint">가상 컴퓨터에 대한 TCP 끝점 만들기</a>
+###<a id="Endpoint">가상 컴퓨터에 대한 TCP 끝점 만들기</a>
 
-가상 컴퓨터에는 들어오는 TCP 통신을 수신 대기하는 끝점이 있어야 합니다. 이 Azure 구성 단계에서는 들어오는 TCP 포트 트래픽을 가상 컴퓨터에 액세스 가능한 TCP 포트로 보냅니다.
+인터넷에서 SQL 서버에 연결하려면, 가상 컴퓨터에 들어오는 TCP 통신을 수신하는 끝점이 있어야 합니다. 이 Azure 구성 단계에서는 들어오는 TCP 포트 트래픽을 가상 컴퓨터에 액세스 가능한 TCP 포트로 보냅니다.
+
+>[AZURE.NOTE]동일한 클라우드 서버 또는 가상 네트워크 내에서 연결하는 경우, 공개적으로 엑세스 할 수 있는 끝점을 만들 필요가 없습니다. 이 경우, 다음 단계를 계속 할 수 있습니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 연결 고려사항](https://msdn.microsoft.com/library/azure/dn133152.aspx)를 참조하십시오.
 
 1. Azure 관리 포털에서 **가상 컴퓨터**를 클릭합니다.
 	
@@ -128,7 +132,7 @@ Windows 원격 데스크톱을 사용하여 가상 컴퓨터에 연결된 후 �
 
 6. 확인 표시를 클릭하여 계속합니다. 끝점이 만들어집니다.
 
-##<a id="FW">데이터베이스 엔진의 기본 인스턴스에 대한 Windows 방화벽에서 TCP 포트 열기</a>
+###<a id="FW">데이터베이스 엔진의 기본 인스턴스에 대한 Windows 방화벽에서 TCP 포트 열기</a>
 
 1. Windows 원격 데스크톱을 통해 가상 컴퓨터에 연결합니다. 시작 화면에서 로그인한 후 **WF.msc**를 입력하고 ENTER를 누릅니다. 
 
@@ -151,7 +155,7 @@ Windows 원격 데스크톱을 사용하여 가상 컴퓨터에 연결된 후 �
 
 	![연결 허용][Image15]
 
-7. **프로필** 대화 상자에서 **공개**를 선택한 후 **다음**을 클릭합니다.
+7. **프로필** 대화 상자에서, **공용**, **개인** 및 **도메인**을 선택합니다. 그런 후 **Next**를 클릭합니다.
 
     **보안 정보:** **공개**를 선택하면 인터넷을 통한 액세스가 허용됩니다. 가능하면 더 제한적인 프로필을 선택하세요.
 
@@ -186,7 +190,9 @@ SQL Server 데이터베이스 엔진용 프로토콜 사용 설정에 대한 자
 
 ###<a id="Mixed">혼합 모드 인증을 위해 SQL Server 구성</a>
 
-SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증을 사용할 수 있습니다. 다른 컴퓨터에서 데이터베이스 엔진에 연결하려면 혼합 모드 인증을 위해 SQL Server를 구성하십시오. 혼합 모드 인증은 SQL Server 인증과 Windows 인증을 모두 허용합니다. Azure 가상 네트워크를 구성한 경우에는 혼합 모드 인증을 구성할 필요가 없습니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server](http://go.microsoft.com/fwlink/?LinkId=294723) 문서 집합의 [Azure 가상 컴퓨터의 SQL Server에 대한 연결 고려 사항](http://go.microsoft.com/fwlink/?LinkId=294719) 토픽을 참조하십시오.
+SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증을 사용할 수 있습니다. 다른 컴퓨터에서 데이터베이스 엔진에 연결하려면 혼합 모드 인증을 위해 SQL Server를 구성하십시오. 혼합 모드 인증은 SQL Server 인증과 Windows 인증을 모두 허용합니다.
+
+>[AZURE.NOTE]Azure 가상 네트워크를, 구성된 도메인 환경으로 구성한 경우, 혼합 모드 인증은 구성할 필요가 없습니다.
 
 1. 가상 컴퓨터에 연결되어 있는 동안 시작 페이지에서 **SQL Server 2014 Management Studio**를 입력하고 선택한 아이콘을 클릭합니다.
 
@@ -194,7 +200,7 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 
 	처음으로 Management Studio를 열 때 사용자 Management Studio 환경이 만들어져야 합니다. 어느 정도 시간이 걸릴 수 있습니다.
 
-2. Management Studio에서 **서버에 연결** 대화 상자가 표시됩니다. **서버 이름** 상자에, 개체 탐색기를 사용하여 데이터베이스 엔진에 연결할 가상 컴퓨터의 이름을 입력합니다. 가상 컴퓨터 이름 대신 **(로컬)** 또는 단일 기간을 **서버 이름**으로 사용할 수도 있습니다. **Windows 인증**을 선택하고, **사용자 이름** 상자의 _**VM_이름**\로컬_관리자_를 그대로 둡니다. **Connect**를 클릭합니다.
+2. Management Studio에서 **서버에 연결** 대화 상자가 표시됩니다. **서버 이름** 상자에, 개체 탐색기를 사용하여 데이터베이스 엔진에 연결할 가상 컴퓨터의 이름을 입력합니다. 가상 컴퓨터 이름 대신 **(로컬)** 또는 단일 기간을 **서버 이름**으로 사용할 수도 있습니다. **Windows 인증**을 선택하고, **사용자 이름** 상자의 _**VM_이름**\\로컬_관리자_를 그대로 둡니다. **Connect**를 클릭합니다.
 
 	![서버에 연결][Image19]
 
@@ -276,11 +282,11 @@ SQL Server 로그인에 대한 자세한 내용은 [로그인 만들기](http://
 
 	![SSMS를 사용하여 연결][Image33]
 
-### <a id="cdea"> 응용 프로그램에서 데이터베이스 엔진에 연결</a>
+## <a id="cdea">응용 프로그램에서 데이터베이스 연결</a>
 
 Management Studio를 사용하여 Azure 가상 컴퓨터에서 실행 중인 SQL Server 인스턴스에 연결하는 경우 다음과 유사한 연결 문자열을 사용하여 연결할 수 있어야 합니다.
 
-	connectionString="Server=<DNS_Name>;Integrated Security=false;User ID=<login_name>;Password=<your_password>;"providerName="System.Data.SqlClient"
+	connectionString = "Server=tutorialtestVM.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
 자세한 내용은 [SQL Server 데이터베이스 엔진에 연결하는 문제를 해결하는 방법](http://social.technet.microsoft.com/wiki/contents/articles/how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx)(영문)을 참조하십시오.
 
@@ -306,10 +312,6 @@ Management Studio를 사용하여 Azure 가상 컴퓨터에서 실행 중인 SQL
 
 [Azure 가상 컴퓨터의 SQL Server에 대한 연결 고려 사항](http://go.microsoft.com/fwlink/p/?LinkId=294723)
 
-- 자습서: 동일한 클라우드 서비스의 SQL Server에 연결 
-- 자습서: 다른 클라우드 서비스의 SQL Server에 연결 
-- 자습서: 가상 네트워크를 통해 Azure의 SQL Server에 ASP.NET 응용 프로그램 연결 
-
 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 고려 사항](http://go.microsoft.com/fwlink/?LinkId=294724)
 
 [Azure 가상 컴퓨터의 SQL Server에 대한 보안 고려 사항](http://go.microsoft.com/fwlink/p/?LinkId=294725)
@@ -322,10 +324,6 @@ Management Studio를 사용하여 Azure 가상 컴퓨터에서 실행 중인 SQL
 - 자습서: Azure의 AlwaysOn 가용성 그룹(PowerShell)
 - 자습서: AlwaysOn 가용성 그룹의 리스너 구성
 - 자습서: Azure Replica Wizard 추가
-- 자습서: Azure에서 재해 복구를 위한 데이터베이스 미러링
-- 자습서: Hybrid IT에서 재해 복구를 위한 데이터베이스 미러링 
-- 자습서: Azure에서 고가용성을 위한 데이터베이스 미러링
-- 자습서: Hybrid IT의 재해 복구를 위한 로그 전달 
 - Azure에서 가용성 그룹 리스너 문제 해결
 
 [Azure 가상 컴퓨터에서 SQL Server의 백업 및 복원](http://go.microsoft.com/fwlink/p/?LinkId=294728)
@@ -340,16 +338,15 @@ Management Studio를 사용하여 Azure 가상 컴퓨터에서 실행 중인 SQL
 
 [Azure 가상 컴퓨터의 SQL Server 관련 기술 문서](http://msdn.microsoft.com/library/azure/dn248435.aspx)
 
-- [백서: Azure 가상 컴퓨터의 Azure SQL 데이터베이스 및 SQL Server 이해](http://azure.microsoft.com/documentation/articles/data-management-azure-sql-database-and-sql-server-iaas/)
+- [백서: Azure 가상 컴퓨터의 Azure SQL 데이터베이스 및 SQL Server 이해](sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
 
 - [백서: Azure 가상 컴퓨터의 SQL Server를 위한 응용 프로그램 패턴 및 개발 전략](http://msdn.microsoft.com/library/azure/dn574746.aspx)
 
 - [백서: Azure 가상 컴퓨터에 SQL Server Business Intelligence 배포](http://msdn.microsoft.com/library/windowsazure/dn321998.aspx)
 
-- [백서: Azure 가상 컴퓨터의 SQL Server에 대한 성능 지침](http://msdn.microsoft.com/library/windowsazure/dn248436.aspx)
-
 - [백서: Reporting Services 보고서 뷰어 컨트롤 및 Microsoft Azure 가상 컴퓨터 기반 보고서 서버](http://msdn.microsoft.com/library/azure/dn753698.aspx)
 
+[Image4]: ./media/virtual-machines-provision-sql-server/4VM-Config.png
 [Image5]: ./media/virtual-machines-provision-sql-server/5VM-Mode.png
 [Image5b]: ./media/virtual-machines-provision-sql-server/5VM-Connect.png
 [Image6]: ./media/virtual-machines-provision-sql-server/6VM-Options.png
@@ -361,7 +358,7 @@ Management Studio를 사용하여 Azure 가상 컴퓨터에서 실행 중인 SQL
 [Image13]: ./media/virtual-machines-provision-sql-server/13New-FW-Rule.png
 [Image14]: ./media/virtual-machines-provision-sql-server/14Port-1433.png
 [Image15]: ./media/virtual-machines-provision-sql-server/15Allow-Connection.png
-[Image16]: ./media/virtual-machines-provision-sql-server/16Public-Profile.png
+[Image16]: ./media/virtual-machines-provision-sql-server/16Public-Private-Domain-Profile.png
 [Image17]: ./media/virtual-machines-provision-sql-server/17Rule-Name.png
 [Image18]: ./media/virtual-machines-provision-sql-server/18Start-SSMS.png
 [Image19]: ./media/virtual-machines-provision-sql-server/19Connect-to-Server.png
@@ -382,5 +379,6 @@ Management Studio를 사용하여 Azure 가상 컴퓨터에서 실행 중인 SQL
 [Image36]: ./media/virtual-machines-provision-sql-server/sql-vm-port-number.png
 [Image37]: ./media/virtual-machines-provision-sql-server/click-open-to-connect.png
 [Image38]: ./media/virtual-machines-provision-sql-server/credentials.png
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

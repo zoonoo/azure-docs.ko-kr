@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="06/24/2015" 
 	ms.author="patshea123"/>
 
 # Azure 저장소 시작(클라우드 서비스 프로젝트)
@@ -418,7 +418,7 @@ Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 �
 <ul>
 <li>사용 가능한 API에 대한 자세한 내용은 테이블 서비스 참조 설명서를 참조하세요.
   <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Storage Client Library for .NET 참조</a>
+    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731">Storage Client Library for .NET 참조</a>
     </li>
     <li><a href="http://msdn.microsoft.com/library/azure/dd179355">REST API 참조</a></li>
   </ul>
@@ -444,7 +444,7 @@ Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 �
   [Blob9]: ./media/storage-dotnet-how-to-use-table-storage/blob9.png
   
   [블로그 게시글]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-  [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
+  [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731
   [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
   [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
@@ -456,4 +456,4 @@ Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 �
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

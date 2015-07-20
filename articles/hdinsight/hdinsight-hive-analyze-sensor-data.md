@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="Hive 및 Hadoop을 사용하여 센서 데이터 분석 | Microsoft Azure" 
-	description="HDInsight(Hadoop)에서 Hive 쿼리 콘솔을 사용하여 센서 데이터를 분석한 다음 Microsoft Excel에서 Power View를 사용하여 데이터를 시각화하는 방법에 대해 알아봅니다." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="Blackmist" 
-	manager="paulettm" 
+<properties
+	pageTitle="Hive 및 Hadoop을 사용하여 센서 데이터 분석 | Microsoft Azure"
+	description="HDInsight(Hadoop)에서 Hive 쿼리 콘솔을 사용하여 센서 데이터를 분석한 다음 Microsoft Excel에서 Power View를 사용하여 데이터를 시각화하는 방법에 대해 알아봅니다."
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/20/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/06/2015" 
 	ms.author="larryfr"/>
 
-# HDInsight의 Hadoop에서 Hive 쿼리 콘솔을 사용하여 센서 데이터 분석
+#HDInsight의 Hadoop에서 Hive 쿼리 콘솔을 사용하여 센서 데이터 분석
 
 HDInsight(Hadoop)에서 Hive 쿼리 콘솔을 사용하여 센서 데이터를 분석한 다음 Microsoft Excel에서 Power View를 사용하여 데이터를 시각화하는 방법에 대해 알아봅니다.
 
@@ -31,7 +31,7 @@ HDInsight(Hadoop)에서 Hive 쿼리 콘솔을 사용하여 센서 데이터를 �
 
 ![솔루션 아키텍처 다이어그램](./media/hdinsight-hive-analyze-sensor-data/hvac-architecture.png)
 
-## 필수 조건
+##필수 조건
 
 * HDInsight(Hadoop) 클러스터: 클러스터를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터 프로비전](hdinsight-provision-clusters.md)을 참조하세요.
 
@@ -41,7 +41,7 @@ HDInsight(Hadoop)에서 Hive 쿼리 콘솔을 사용하여 센서 데이터를 �
 
 * [Microsoft Hive ODBC 드라이버](http://www.microsoft.com/download/details.aspx?id=40886)
 
-## 샘플을 실행하려면
+##샘플을 실행하려면
 
 1. Azure 포털에서 샘플을 실행할 클러스터를 클릭한 다음 아래쪽에서 **쿼리 콘솔**을 클릭합니다. 다음 URL을 사용하여 쿼리 콘솔을 직접 열 수도 있습니다.
 
@@ -53,4 +53,4 @@ HDInsight(Hadoop)에서 Hive 쿼리 콘솔을 사용하여 센서 데이터를 �
 
 3. 웹 페이지에서 제공되는 지침에 따라 샘플을 완료합니다.
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -1,6 +1,6 @@
 <properties 
    pageTitle="Azure Mobile Engagement 사용자 인터페이스 - 도달률 콘텐츠" 
-   description="Azure Mobile Engagement에서 다양한 푸시 알림 캠페인 유형의 고유한 콘텐츠를 관리하는 방법을 알아봅니다."
+   description="Azure Mobile Engagement에서 다양한 푸시 알림 캠페인 유형의 고유한 콘텐츠를 관리하는 방법을 알아봅니다." 
    services="mobile-engagement" 
    documentationCenter="" 
    authors="piyushjo" 
@@ -50,8 +50,8 @@
 
 - **Android + iOS 작업**
     - 웹 페이지 열기
-    - http://web-site-domain 
-    - 예http://www.azure.com
+    - http://[web-site-domain\] 
+    - 예:http://www.azure.com
     - 메일 보내기
     - mailto:[메일 수신자]?subject=[제목]&body=[메시지] 
     - 예: mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
@@ -63,19 +63,19 @@
     - 예: tel:2125551212
 - **Android 전용 작업**
     - PlayStore에서 응용 프로그램 다운로드
-    - market:details?id=[app 패키지] 
+    - market://details?id=[app 패키지] 
     - 예:market://details?id=com.microsoft.office.word
     - 지리적 위치에 따른 검색 시작
     - geo:0,0?q=[검색 쿼리] 
     - 예: geo:0,0?q=starbucks,paris
 - **iOS 전용 작업**
     - 앱 스토어에서 응용 프로그램 다운로드
-    - http://itunes.apple.com/[country]/app/[app 이름]/id[app id]?mt=8 
-    - 예http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
+    - http://itunes.apple.com/[country]/app/[app name]/id[app id]?mt=8 
+    - 예:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
     - Windows 작업
     - 웹 페이지 열기
-    - http://[web-site-domain] 
-    - 예http://www.azure.com
+    - http://[web-site-domain\] 
+    - 예:http://www.azure.com
     - 메일 보내기
     - mailto:[메일 수신자]?subject=[제목]&body=[메시지] 
     - 예: mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
@@ -108,8 +108,7 @@
 - [UI 설명서 - 도달률 - 새 푸시 기준][Link 28]
 
 ## 설문 조사의 내용
-![도달률 콘텐츠2][31] 
-알림의 제목, 설명 및 단추 텍스트를 입력합니다. 그런 다음 질문 및 질문에 대한 대답의 선택 항목을 추가합니다. 사용자가 이 캠페인에 응답한 방법과 관련한 도달률 피드백을 기반으로 하여 이후 캠페인의 대상을 지정할 수 있습니다. 이 캠페인에 대한 응답 방법(푸시만, 회신, 작업, 종료)에 따라 대상을 지정할 수 있습니다. 설문 조사 대답 피드백을 기준으로 대상을 지정할 수도 있습니다. 이 경우 질문과 대답 선택 항목이 기준으로 사용됩니다.
+![도달률 콘텐츠2][31] 알림의 제목, 설명 및 단추 텍스트를 입력합니다. 그런 다음 질문 및 질문에 대한 대답의 선택 항목을 추가합니다. 사용자가 이 캠페인에 응답한 방법과 관련한 도달률 피드백을 기반으로 하여 이후 캠페인의 대상을 지정할 수 있습니다. 이 캠페인에 대한 응답 방법(푸시만, 회신, 작업, 종료)에 따라 대상을 지정할 수 있습니다. 설문 조사 대답 피드백을 기준으로 대상을 지정할 수도 있습니다. 이 경우 질문과 대답 선택 항목이 기준으로 사용됩니다.
 
 ### 참고 항목
 - [UI 설명서 - 도달률 - 새 푸시 기준][Link 28]
@@ -229,5 +228,6 @@
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

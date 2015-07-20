@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="04/29/2015"
+   ms.date="06/29/2015"
    ms.author="cherylmc"/>
 
 #  네트워크 서비스 공급자를 통해 Express 경로 연결 구성
@@ -89,7 +89,7 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자�
 		Verizon              Silicon Valley,Washington DC   10Mbps:10, 50Mbps:50, 100Mbps:100, 500Mbps:500, 1Gbps:1000
 		
 
-3. **서비스 키에 대한 요청을 확인하고 exchange 공급자에 전달합니다.**
+3. **서비스 키에 대한 요청을 확인하고 네트워크 서비스 공급자에 전달합니다.**
 
 	PowerShell cmdlet를 사용하여 이 요청을 수행합니다. 이 예에서는 AT&T Netbond를 서비스 공급자로 사용하며 Silicon Valley에서 50Mbps Express 경로 회로를 지정합니다. 다른 공급자와 다른 설정을 사용하는 경우, 요청을 수행할 때 해당 정보를 대체합니다.
 
@@ -150,4 +150,4 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자�
 		
 		Provisioned 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

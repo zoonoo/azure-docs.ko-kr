@@ -85,4 +85,4 @@ WebHCat(이전의 Templeton)을 사용하여 HDInsight를 사용하는 경우 �
 [max-age-ms]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.6.0/ds_Hadoop/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

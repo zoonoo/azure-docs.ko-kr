@@ -1,5 +1,5 @@
 <properties
-	pageTitle="R로 실험 확장 | Azure"
+	pageTitle="R로 실험 확장 | Microsoft Azure"
 	description="R 스크립트 실행 모듈을 사용하여 R 언어를 통해 Azure 기계 학습 스튜디오의 기능을 확장하는 방법."
 	services="machine-learning"
 	documentationCenter=""
@@ -40,7 +40,7 @@
 
 ##패키지 가져오기
 
-[R 스크립트 실행][execute-r-script] 모듈 및  압축된 패키지 아카이브에서 다음 명령을 사용하여 스테이징된 기계 학습 스튜디오 리포지토리에서 아직 설치되지 않은 패키지도 가져올 수 있습니다.
+[R 스크립트 실행][execute-r-script] 모듈 및 압축된 패키지 아카이브에서 다음 명령을 사용하여 스테이징된 기계 학습 스튜디오 리포지토리에서 아직 설치되지 않은 패키지도 가져올 수 있습니다.
 
     install.packages("src/my_favorite_package.zip", lib = ".", repos = NULL, verbose = TRUE)
     success <- library("my_favorite_package", lib.loc = ".", logical.return = TRUE, verbose = TRUE)
@@ -73,8 +73,8 @@
 | 보험 통계 | 보험 통계 함수 |
 | ade4 | 생태계 데이터 분석: 환경 과학의 예비 및 유클리드 메서드 |
 | AdMit | Adaptive Mixture of Student-t 분산 |
-| aod | 과잉 분포된 데이터의 분석 |
-| ape | 계통학 및 진화의 분석 |
+| aod | Analysis of Overdispersed Data |
+| ape | Analyses of Phylogenetics and Evolution |
 | 근사기 | 복잡한 컴퓨터 코드의 Bayesian 예측 |
 | arm | 회귀 및 여러 수준/계층 구조 모델을 사한 데이터 분석 |
 | arules | 연결 규칙 및 자주 발생하는 항목 집합 마이닝 |
@@ -351,7 +351,7 @@
 | PottsUtils | Potts 모델의 유틸리티 함수 |
 | predmixcor | 기능 선택 편향 수정이 포함된 Bayesian 혼합 모델을 기반으로 하는 분류 규칙 |
 | PresenceAbsence | 현재 상태 부재 모델 평가 |
-| prodlim | 제품 한계 추정. 중도절단 이벤트 기록(생존) 분석을 위한 카플란-마이어 및  Aalen-Johansson 메서드 |
+| prodlim | 제품 한계 추정. 중도절단 이벤트 기록(생존) 분석을 위한 카플란-마이어 및 Aalen-Johansson 메서드 |
 | profdpm | 프로필 디리슈레 프로세스 혼합 |
 | profileModel | 다양한 모델 클래스의 인터페이스 함수를 프로파일링하는 도구 |
 | proto | 프로토타입 개체 기반 프로그래밍 |
@@ -367,7 +367,7 @@
 | R2HTML | R 개체의 HTML 내보내기 |
 | R2jags | R에서 jags를 실행하기 위한 패키지 |
 | R2OpenBUGS | R에서 OpenBUGS 실행 |
-| R2WinBUGS |  R / S-PLUS에서 WinBUGS 및 OpenBUGS 실행 |
+| R2WinBUGS | R / S-PLUS에서 WinBUGS 및 OpenBUGS 실행 |
 | ramps | RAMPS를 사용하는 Bayesian 지구통계학 모델링 |
 | RandomFields | 임의 필드 분석 및 시뮬레이션 |
 | randomForest | 분류 및 회귀에 대한 Breiman and Cutler의 임의 포리스트 |
@@ -501,5 +501,6 @@
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -1,29 +1,30 @@
-<properties 
-	pageTitle="Windows 유니버설 앱용 Azure Mobile Engagement 시작" 
+<properties
+	pageTitle="Windows 유니버설 앱용 Azure Mobile Engagement 시작"
 	description="Windows 유니버설 앱에 대해 분석 및 푸시 알림과 함께 Azure Mobile Engagement를 사용하는 방법을 알아봅니다."
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/30/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article" 
+	ms.date="04/30/2015"
 	ms.author="piyushjo" />
-	
+
 # Windows 유니버설 앱용 Azure Mobile Engagement 시작
 
 > [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md) 
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md) 
-- [iOS - Obj C](mobile-engagement-ios-get-started.md) 
+- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
+- [iOS - Obj C](mobile-engagement-ios-get-started.md)
 - [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
-- [Android](mobile-engagement-android-get-started.md) 
+- [Android](mobile-engagement-android-get-started.md)
+- [Cordova](mobile-engagement-cordova-get-started.md)
 
 이 항목에서는 Azure Mobile Engagement를 사용하여 Windows 유니버설 응용 프로그램에서 구분된 사용자에게 푸시 알림을 보내고 앱 사용량을 파악하는 방법을 설명합니다. 이 자습서에서는 Mobile Engagement를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다. WNS(Windows 알림 서비스)를 사용하여 푸시 알림을 받고 기본적인 앱 사용 데이터를 수집하는 빈 Windows 유니버설 앱을 만듭니다. 이 과정을 완료하면 장치 속성에 따라 특정 사용자를 대상으로 지정하거나 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다. Mobile Engagement를 사용하여 장치의 특정 사용자 및 그룹을 처리하는 방법을 알아보려면 다음 자습서도 함께 완료해야 합니다.
 
@@ -43,11 +44,11 @@
    	![][7]
 
 3. 팝업이 표시되면 다음 정보를 입력합니다.
- 
+
    	![][8]
 
 	- **응용 프로그램 이름**: 응용 프로그램의 이름을 입력합니다. 원하는 모든 문자를 사용할 수 있습니다.
-	- **플랫폼**: 앱의 대상 플랫폼(**Windows 유니버설**)을 선택합니다. 앱의 대상 플랫폼이 여러 개이면 각 플랫폼에 대해 이 자습서의 작업을 반복합니다. 
+	- **플랫폼**: 앱의 대상 플랫폼(**Windows 유니버설**)을 선택합니다. 앱의 대상 플랫폼이 여러 개이면 각 플랫폼에 대해 이 자습서의 작업을 반복합니다.
 	- **응용 프로그램 리소스 이름**: API 및 URL을 통해 이 응용 프로그램에 액세스하는 데 사용되는 이름입니다. 기본 URL 문자만 사용해야 합니다. 자동으로 생성되는 이름을 기준으로 사용할 수 있습니다. 또한 이 이름은 고유해야 하므로 이름 충돌을 방지하기 위해 플랫폼 이름을 추가해야 합니다.
 	- **위치**: 이 앱과 해당 컬렉션을 호스트할 데이터 센터를 선택합니다.
 	- **컬렉션**: 응용 프로그램을 이미 만든 경우 이전에 만든 컬렉션을 선택하고 그렇지 않으면 새 컬렉션을 선택합니다.
@@ -58,7 +59,7 @@
 4. **응용 프로그램** 탭에서 방금 만든 앱을 선택합니다.
 
 5. **연결 정보**를 클릭하여 모바일 앱의 SDK 통합에 적용할 연결 설정을 표시합니다.
- 
+
    	![][10]
 
 6. **연결 문자열** 복사 - 응용 프로그램 코드에서 이 앱을 식별하고 유니버설 앱에서 Mobile Engagement와 연결하는 데 필요합니다.
@@ -83,12 +84,12 @@
 
 이제 Azure Mobile Engagement SDK를 통합할 새 Windows 유니버설 앱 프로젝트가 만들어졌습니다.
 
-###Mobile Engagement 백 엔드에 앱 연결 
+###Mobile Engagement 백 엔드에 앱 연결
 
-1. 프로젝트에서 [Mobile Engagement Windows 유니버설 SDK] NuGet 패키지를 설치합니다. Windows와 Windows Phone 플랫폼을 모두 대상으로 하는 경우 두 프로젝트에 대해 이 작업을 수행해야 합니다. 동일한 Nuget 패키지는 각 프로젝트에서 올바른 플랫폼 특정 이진 파일을 배치합니다. 
+1. 프로젝트에서 [Mobile Engagement Windows 유니버설 SDK] NuGet 패키지를 설치합니다. Windows와 Windows Phone 플랫폼을 모두 대상으로 하는 경우 두 프로젝트에 대해 이 작업을 수행해야 합니다. 동일한 Nuget 패키지는 각 프로젝트에서 올바른 플랫폼 특정 이진 파일을 배치합니다.
 
 2. `Package.appxmanifest`을(를) 열고 다음이 자동으로 추가되지 않으면 추가합니다.
-		
+
 		Internet (Client)
 
 	![][20]
@@ -106,11 +107,11 @@
 			using Microsoft.Azure.Engagement;
 
 	b. SDK를 `OnLaunched` 메서드에서 초기화:
-			
+
 			protected override void OnLaunched(LaunchActivatedEventArgs e)
 			{
 			  EngagementAgent.Instance.Init(e);
-			
+
 			  //... rest of the code
 			}
 
@@ -119,7 +120,7 @@
 			protected override void OnActivated(IActivatedEventArgs e)
 			{
 			  EngagementAgent.Instance.Init(e);
-			
+
 			  //... rest of the code
 			}
 
@@ -140,7 +141,7 @@
 	a. 다음 줄을 네임스페이스 선언에 추가합니다.
 
 			xmlns:engagement="using:Microsoft.Azure.Engagement"
-	
+
 	b. xml 태그 이름의 `Page`을(를) `engagement:EngagementPage`(으)로 바꿉니다.
 
 ###앱이 실시간 모니터링과 연결되어 있는지 확인
@@ -195,7 +196,7 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
 ###알림을 보내도록 Mobile Engagement 액세스 권한 부여
 
-1. 다음으로는 앱을 Windows 스토어 앱에 연결하여 `Package security identifier (SID)` 및 `Secret Key`(클라이언트 암호)을(를) 가져와야 합니다. [Windows 스토어 개발자 센터]에서 앱을 만들 수 있으며, 그런 다음 Visual Studio의 **스토어와 앱 연결**을 해야 합니다. 
+1. 다음으로는 앱을 Windows 스토어 앱에 연결하여 `Package security identifier (SID)` 및 `Secret Key`(클라이언트 암호)을(를) 가져와야 합니다. [Windows 스토어 개발자 센터]에서 앱을 만들 수 있으며, 그런 다음 Visual Studio의 **스토어와 앱 연결**을 해야 합니다.
 
 2. Mobile Engagement 포털의 **설정**으로 이동하여 왼쪽의 `Native Push` 섹션을 클릭합니다.
 
@@ -256,5 +257,6 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [38]: ./media/mobile-engagement-windows-store-dotnet-get-started/campaign-first-params.png
 [39]: ./media/mobile-engagement-windows-store-dotnet-get-started/campaign-content.png
 [41]: ./media/mobile-engagement-windows-store-dotnet-get-started/campaign-activate.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

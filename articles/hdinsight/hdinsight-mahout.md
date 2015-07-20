@@ -362,9 +362,9 @@ Mahout은 HDInsight 3.1 클러스터에 설치되며, 다음 단계를 사용하
 
 			mvn -Dhadoop2.version=2.2.0 -DskipTests clean package
 
-    	해당 빌드가 완료된 이후 JAR 파일을 __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__에서 확인할 수 있습니다.
+    	After the build completes, you can find the JAR file at __mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar__.
 
-    	> [AZURE.NOTE] Mahout 1.0이 릴리스될 경우 HDInsight 3.0과 함께 미리 빌드된 패키지를 사용할 수 있습니다.
+    	> [AZURE.NOTE] When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
 
 2. 클러스터용 기본 저장소의 __example/jars__에 jar 파일을 업로드합니다. 다음 예제에서는 [HDInsight-Tools][tools]의 add-hdinsightfile을 사용하여 파일을 업로드합니다.
 
@@ -410,9 +410,9 @@ Windows PowerShell에서 사용하는 경우 다음 클래스를 사용하는 Ma
 
 이제 Mahout을 사용하는 방법을 배웠으므로 HDInsight에서 데이터로 작업하는 다른 방법을 검색합니다.
 
-* [HDInsight에서 Hive](../hadoop-use-hive.md)
-* [HDInsight에서 Pig](../hadoop-use-pig.md)
-* [HDInsight에서 MapReduce](../hadoop-use-mapreduce.md)
+* [HDInsight에서 Hive 사용](../hadoop-use-hive.md)
+* [HDInsight에서 Pig 사용](../hadoop-use-pig.md)
+* [HDInsight에서 MapReduce 사용](../hadoop-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [aps]: ../powershell-install-configure.md
@@ -429,4 +429,4 @@ Windows PowerShell에서 사용하는 경우 다음 클래스를 사용하는 Ma
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

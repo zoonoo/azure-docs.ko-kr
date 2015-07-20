@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure 기계 학습 권장 사항 API 설명서" 
-	description="Azure 기계 학습 권장 사항 API 설명서" 
+	pageTitle="기계 학습 권장 사항 API 설명서 | Microsoft Azure" 
+	description="Microsoft Azure 마켓플레이스에서 사용할 수 있는 권장 사항 엔진에 대한 Azure 기계 학습 권장 사항 API 설명서입니다." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="AharonGumnik" 
@@ -13,45 +13,47 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/29/2015" 
-	ms.author="AharonGumnik"/>
+	ms.date="06/10/2015" 
+	ms.author="LuisCa"/>
 
-# Azure 기계 학습 권장 사항 API 설명서
+#Azure 기계 학습 권장 사항 API 설명서
 
 이 문서에서는 Microsoft Azure 기계 학습 권장 사항 API에 대해 설명합니다.
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## 1. 일반 개요
+##1. 일반 개요
 이 문서는 API 참조입니다. “Azure 기계 학습 권장 사항 – 빠른 시작” 문서로 시작해야 합니다.
 
-Azure 기계 학습 권장 사항 API는 다음 8개 그룹으로 나뉩니다.
+Azure 기계 학습 권장 사항 API는 다음 10개의 논리 그룹으로 나뉩니다.
 
-1.	<ins>모델 기본</ins> – 모델에 대한 기본 작업(예: 모델 만들기, 업데이트 및 삭제)을 수행할 수 있는 API입니다.
+1.	<ins>모델 기본</ins> - 모델에 대한 기본 작업(예: 모델 만들기, 업데이트 및 삭제)을 수행할 수 있는 API입니다.
 2.	<ins>모델 고급</ins> – 모델에 대한 고급 데이터 정보를 얻을 수 있는 API입니다.
 3.	<ins>모델 비즈니스 규칙</ins> – 모델 권장 사항 결과에서 비즈니스 규칙을 관리할 수 있는 API입니다.
 4.	<ins>카탈로그</ins> – 모델 카탈로그에 대한 기본 작업을 수행할 수 있는 API입니다. 카탈로그에는 사용 데이터의 항목에 대한 메타데이터 정보가 포함되어 있습니다.
-5.	<ins>사용 데이터</ins> – 모델 사용 데이터에 대한 기본 작업을 수행할 수 있는 API입니다. 기본 형식의 사용 데이터는 쌍을 포함하는 행으로 구성됩니다.
-6.	<ins>빌드</ins> – 모델 빌드를 트리거하고 이 빌드와 관련된 기본 작업을 수행할 수 있는 API입니다. 유용한 사용 데이터가 있으면 모델 빌드를 트리거할 수 있습니다.
-7.	<ins>권장 사항</ins> – 모델 빌드가 종료되면 권장 사항을 사용할 수 있는 API입니다.
-8.	<ins>알림</ins> - API 작업과 관련된 문제에 대한 알림을 받을 수 있는 API입니다. 예를 들어 데이터 취득을 통해 사용 데이터를 보고하고 대부분의 이벤트 처리에 실패한 경우 오류 알림이 발생합니다.
+5.	<ins>기능</ins> - 항목에 대한 정보를 카탈로그로 작성하고 이 정보를 사용하여 더 나은 권장 사항을 작성하는 방법을 알 수 있도록 하는 API입니다.
+6.	<ins>사용 데이터</ins> - 모델 사용 데이터에 대한 기본 작업을 수행할 수 있는 API입니다. 기본 형식의 사용 데이터는 &#60;userId&#62;,&#60;itemId&#62; 쌍을 포함하는 행으로 구성됩니다.
+7.	<ins>빌드</ins> – 모델 빌드를 트리거하고 이 빌드와 관련된 기본 작업을 수행할 수 있는 API입니다. 유용한 사용 데이터가 있으면 모델 빌드를 트리거할 수 있습니다.
+8.	<ins>권장 사항</ins> – 모델 빌드가 종료되면 권장 사항을 사용할 수 있는 API입니다.
+9.	<ins>사용자 데이터</ins> - 사용자의 사용 현황 데이터 관련 정보를 가져올 수 있는 API입니다.
+10.	<ins>알림</ins> - API 작업과 관련된 문제에 대한 알림을 받을 수 있는 API입니다. 예를 들어 데이터 취득을 통해 사용 데이터를 보고하고 대부분의 이벤트 처리에 실패한 경우 오류 알림이 발생합니다.
 
-## 2. 고급 항목
+##2. 고급 항목
 
-### 2.1. 권장 사항 품질
+###2.1. 권장 사항 품질
 
 권장 사항 모델 만들기는 일반적으로 시스템에서 권장 사항을 제공하도록 하는 데 충분합니다. 그러나 권장 사항 품질은 처리한 사용 현황 및 카탈로그의 적용 범위에 따라 달라집니다. 예를 들어 콜드 항목(중요한 사용 현황이 없는 항목)이 많은 경우에는 시스템에서 해당 항목에 대한 권장 사항을 제공하거나 해당 항목을 권장 항목으로 사용하기 어렵습니다. 콜드 항목 문제를 해결하기 위해 시스템에서는 항목의 메타데이터를 사용하여 권장 사항을 개선할 수 있도록 합니다. 이 메타데이터를 기능이라고 합니다. 일반적인 기능은 책의 저자 또는 동영상의 배우입니다. 기능은 키/값 문자열 형식으로 카탈로그를 통해 제공됩니다. 카탈로그 파일의 전체 형식은 [카탈로그 가져오기 섹션](#81-import-catalog-data)을 참조하세요. 다음 섹션에서는 기능을 사용한 권장 사항 모델 개선에 대해 설명합니다.
 
-### 2.2. 순위 빌드
+###2.2. 순위 빌드
 
 기능은 권장 사항 모델을 개선할 수 있지만 그러려면 의미 있는 기능을 사용해야 합니다. 이를 위해 순위 빌드라는 새 빌드가 도입되었습니다. 이 빌드는 기능의 유용성 순위를 매깁니다. 의미 있는 기능은 순위 점수가 2 이상인 기능입니다. 의미 있는 기능을 이해한 후에는 의미 있는 기능 목록(또는 하위 목록)으로 권장 사항 빌드를 트리거합니다. 이러한 기능을 사용하여 웜 항목과 콜드 항목 모두를 개선할 수 있습니다. 웜 항목에 사용하려면 `UseFeatureInModel` 빌드 매개 변수를 설정해야 합니다. 콜드 항목에 사용하려면 `AllowColdItemPlacement` 빌드 매개 변수를 설정해야 합니다. 참고: `UseFeatureInModel`을 설정하지 않고 `AllowColdItemPlacement`를 사용할 수 없습니다.
 
-### 2.3. 권장 사항 추론
+###2.3. 권장 사항 추론
 
 권장 사항 추론은 기능 사용의 또 다른 측면입니다. 실제로 Azure 기계 학습 권장 사항 엔진은 기능을 사용하여 권장 사항 설명(추론이라고도 함)을 제공할 수 있으며, 이는 권장 소비자에게 권장 항목에 대한 확신을 심어 줍니다. 추론을 사용하려면 권장 사항 빌드를 요청하기 전에 `AllowFeatureCorrelation` 및 `ReasoningFeatureList` 매개 변수를 설정해야 합니다.
 
-## 3. 제한 사항
+##3. 제한 사항
 
 - 구독당 최대 모델 수는 10개입니다.
 - 카탈로그에 포함할 수 있는 최대 항목 수는 100,000개입니다.
@@ -59,37 +61,36 @@ Azure 기계 학습 권장 사항 API는 다음 8개 그룹으로 나뉩니다.
 - POST로 전송할 수 있는 최대 데이터 크기(예: 카탈로그 데이터 가져오기, 사용 데이터 가져오기)는 200MB입니다.
 - 활성화되지 않은 권장 사항 모델 빌드에 대한 초당 트랜잭션 수는 최대 2TPS입니다. 활성화된 권장 사항 모델 빌드는 최대 20TPS를 유지할 수 있습니다.
 
-## 4. API – 일반 정보
+##4. API – 일반 정보
 
-### 4.1. 인증
+###4.1. 인증
 인증과 관련된 Microsoft Azure 마켓플레이스 지침을 따르세요. 마켓플레이스에서는 기본 또는 OAuth 인증 방법을 지원합니다.
 
-### 4.2. 서비스 URI
-Azure 기계 학습 권장 사항 API에 대한 서비스 루트 URI는 [여기](https://api.datamarket.azure.com/amla/recommendations/v2/)입니다.
+###4.2. 서비스 URI
+Azure 기계 학습 권장 사항 API에 대한 서비스 루트 URI는 [여기](https://api.datamarket.azure.com/amla/recommendations/v3/)입니다.
 
 전체 서비스 URI는 OData 사양의 요소를 사용하여 표현됩니다.
 
-### 4.3. API 버전
+###4.3. API 버전
 각 API 호출은 1.0으로 설정해야 하는 apiVersion이라는 쿼리 매개 변수 종료 시 포함됩니다.
 
-### 4.4. ID 대/소문자 구분
+###4.4. ID 대/소문자 구분
 API에서 반환되는 ID는 대/소문자를 구분하며, 후속 API 호출에서 매개 변수로 전달될 때에도 마찬가지입니다. 예를 들어 모델 ID와 카탈로그 ID는 대/소문자를 구분합니다.
 
-## 5. 모델 기본
+##5. 모델 기본
 
-### 5.1. 모델 만들기
+###5.1. 모델 만들기
 "모델 만들기" 요청을 만듭니다.
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
 |POST |`<rootURI>/CreateModel?modelName=%27<model_name>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/CreateModel?modelName=%27MyFirstModel%27&apiVersion=%271.0%27`|
 
-|	매개 변수 이름 |	유효한 값						|
+|	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
-|	modelName	|	문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br>최대 길이: 20 |
+|	modelName |	문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br>최대 길이: 20 |
 |	apiVersion | 1.0 |
-|||
-| 요청 본문 | 없음 |
+||| | 요청 본문 | 없음 |
 
 
 **응답**:
@@ -100,18 +101,18 @@ HTTP 상태 코드: 200
 
 OData XML
 
-	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/CreateModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/CreateModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	  <title type="text" />
 	  <subtitle type="text">Create A New Model</subtitle>
-	  <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/CreateModel?modelName='MyFirstModel'&amp;apiVersion='1.0'</id>
+	  <id>https://api.datamarket.azure.com/amla/recommendations/v3/CreateModel?modelName='MyFirstModel'&amp;apiVersion='1.0'</id>
 	  <rights type="text" />
 	  <updated>2014-10-05T06:35:21Z</updated>
- 	 <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/CreateModel?modelName='MyFirstModel'&amp;apiVersion='1.0'" />
+ 	 <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/CreateModel?modelName='MyFirstModel'&amp;apiVersion='1.0'" />
 	  <entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/CreateModel?modelName='MyFirstModel'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v3/CreateModel?modelName='MyFirstModel'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
     <title type="text">CreateANewModelEntity2</title>
     <updated>2014-10-05T06:35:21Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/CreateModel?modelName='MyFirstModel'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/CreateModel?modelName='MyFirstModel'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">a658c626-2baa-43a7-ac98-f6ee26120a12</d:Id>
@@ -128,7 +129,7 @@ OData XML
 	  </entry>
 	</feed>
 
-### 5.2. 모델 가져오기
+###5.2. 모델 가져오기
 "모델 가져오기" 요청을 만듭니다.
 
 | HTTP 메서드 | URI |
@@ -139,8 +140,7 @@ OData XML
 |:--------			|:--------								|
 |	id |	모델의 고유 식별자(대/소문자 구분) |
 |	apiVersion | 1.0 |
-|||
-| 요청 본문 | 없음 |
+||| | 요청 본문 | 없음 |
 
 **응답**:
 
@@ -161,18 +161,18 @@ HTTP 상태 코드: 200
 
 OData XML
 
-	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetAllModels" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	  <title type="text" />
 	  <subtitle type="text">Get A List Of All Models</subtitle>
-	  <id>https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels?apiVersion='1.0'</id>
+	  <id>https://api.datamarket.azure.com/amla/recommendations/v3/GetAllModels?apiVersion='1.0'</id>
 	  <rights type="text" />
 	  <updated>2014-10-28T14:35:51Z</updated>
- 	 <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels?apiVersion='1.0'" />
+ 	 <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetAllModels?apiVersion='1.0'" />
 	  <entry>
-    <id>https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels?apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v3/GetAllModels?apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
     <title type="text">GetAListOfAllModelsEntity</title>
     <updated>2014-10-28T14:35:51Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels?apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetAllModels?apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">68b232f2-1037-45f7-8f49-af822695ee63</d:Id>
@@ -192,7 +192,7 @@ OData XML
 	  </entry>
 	</feed>
 
-### 5.3. 모든 모델 가져오기
+###5.3. 모든 모델 가져오기
 현재 사용자의 모든 모델을 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -202,8 +202,7 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	apiVersion | 1.0 |
-|||
-| 요청 본문 | 없음 |
+||| | 요청 본문 | 없음 |
 
 **응답**:
 
@@ -227,18 +226,18 @@ HTTP 상태 코드: 200
 OData XML
 
 
-    <feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+    <feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetAllModels" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
 		<subtitle type="text">Get A List Of All Models</subtitle>
-		<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels?apiVersion='1.0'</id>
+		<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetAllModels?apiVersion='1.0'</id>
 		<rights type="text" />
 		<updated>2014-10-28T14:35:51Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels?apiVersion='1.0'" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetAllModels?apiVersion='1.0'" />
 		<entry>
-			<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels?apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetAllModels?apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 			<title type="text">GetAListOfAllModelsEntity</title>
     <updated>2014-10-28T14:35:51Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetAllModels?apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetAllModels?apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:Id m:type="Edm.String">68b232f2-1037-45f7-8f49-af822695ee63</d:Id>
@@ -258,7 +257,7 @@ OData XML
 		</entry>
 	</feed>
 
-### 5.4. 모델 업데이트
+###5.4. 모델 업데이트
 
 모델 설명 또는 활성 빌드 ID를 업데이트할 수 있습니다.<br> <ins>활성 빌드 ID</ins> - 모든 모델에 대한 모든 빌드에는 "빌드 ID"가 있습니다. 활성 빌드 ID는 모든 새 모델 중 처음 성공한 빌드입니다. 활성 빌드 ID가 있는데 같은 모델에 대한 추가 빌드를 수행하려면 이 활성 빌드 ID를 기본 빌드 ID로 명시적으로 설정해야 합니다. 권장 사항을 소비할 때 사용할 빌드 ID를 지정하지 않으면 자동으로 기본 빌드 ID가 사용됩니다.<br> 이 메커니즘을 사용하면 프로덕션에 권장 사항 모델을 포함하고 나서 새 모델을 빌드하고 프로덕션으로 수준을 올리기 전에 테스트할 수 있습니다.
 
@@ -267,18 +266,17 @@ OData XML
 |:--------|:--------|
 |PUT |`<rootURI>/UpdateModel?id=%27<modelId>%27&apiVersion=%271.0%27`<br>예:<br>`<rootURI>/UpdateModel?id=%279559872f-7a53-4076-a3c7-19d9385c1265%27&apiVersion=%271.0%27`|
 
-|	매개 변수 이름 |	유효한 값						|
+|	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
-|	id		| 모델의 고유 식별자(대/소문자 구분)  |
-|	apiVersion		| 1.0 |
-|||
-| 요청 본문 | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>XML 태그 Description 및 ActiveBuildId는 선택 사항입니다. Description 또는 ActiveBuildId를 설정하지 않으려면 전체 태그를 제거합니다.|
+|	id | 모델의 고유 식별자(대/소문자 구분) |
+|	apiVersion | 1.0 |
+||| | 요청 본문 | `<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>XML 태그 Description 및 ActiveBuildId는 선택 사항입니다. Description 또는 ActiveBuildId를 설정하지 않으려면 전체 태그를 제거합니다.|
 
 **응답**:
 
 HTTP 상태 코드: 200
 
-### 5.5. 모델 삭제
+###5.5. 모델 삭제
 ID별로 기존 모델을 삭제합니다.
 
 | HTTP 메서드 | URI |
@@ -289,8 +287,7 @@ ID별로 기존 모델을 삭제합니다.
 |:--------			|:--------								|
 |	id |	모델의 고유 식별자(대/소문자 구분) |
 |	apiVersion | 1.0 |
-|||
-| 요청 본문 | 없음 |
+||| | 요청 본문 | 없음 |
 
 **응답**:
 
@@ -298,18 +295,18 @@ HTTP 상태 코드: 200
 
 OData XML
 
-	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/DeleteModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/DeleteModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	  <title type="text" />
 	  <subtitle type="text">Delete Model by Id</subtitle>
-	  <id>https://api.datamarket.azure.com/amla/recommendations/v2/DeleteModel?id='1cac7b76-def4-41f1-bc81-29b806adb1de'&amp;apiVersion='1.0'</id>
+	  <id>https://api.datamarket.azure.com/amla/recommendations/v3/DeleteModel?id='1cac7b76-def4-41f1-bc81-29b806adb1de'&amp;apiVersion='1.0'</id>
 	  <rights type="text" />
 	  <updated>2014-10-28T10:39:33Z</updated>
- 	 <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/DeleteModel?id='1cac7b76-def4-41f1-bc81-29b806adb1de'&amp;apiVersion='1.0'" />
+ 	 <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/DeleteModel?id='1cac7b76-def4-41f1-bc81-29b806adb1de'&amp;apiVersion='1.0'" />
 	  <entry>
-    <id>https://api.datamarket.azure.com/amla/recommendations/v2/DeleteModel?id='1cac7b76-def4-41f1-bc81-29b806adb1de'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v3/DeleteModel?id='1cac7b76-def4-41f1-bc81-29b806adb1de'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
     <title type="text">DeleteModelByIdEntity</title>
     <updated>2014-10-28T10:39:33Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/DeleteModel?id='1cac7b76-def4-41f1-bc81-29b806adb1de'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/DeleteModel?id='1cac7b76-def4-41f1-bc81-29b806adb1de'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
 		<d:string m:type="Edm.String"></d:string>
@@ -318,9 +315,9 @@ OData XML
 	  </entry>
 	</feed>
 
-## 6. 모델 고급
+##6. 모델 고급
 
-### 6.1. 모델 데이터 정보
+###6.1. 모델 데이터 정보
 이 모델을 빌드할 때 사용된 사용 데이터에 대한 통계 데이터를 반환합니다.
 
 권장 사항 빌드에만 사용할 수 있습니다.
@@ -333,8 +330,7 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
 |	apiVersion | 1.0 |
-|||
-| 요청 본문 | 없음 |
+||| | 요청 본문 | 없음 |
 
 **응답**:
 
@@ -367,18 +363,18 @@ HTTP 상태 코드: 200
 
 OData XML
 
-	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	<title type="text" />
 	<subtitle type="text">Get data insight statistics</subtitle>
-	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'</id>
+	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'</id>
 	<rights type="text" />
 	<updated>2014-10-27T14:21:21Z</updated>
-	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'" />
+	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'" />
 	<entry>
-	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
     <title type="text">GetDataInsightStatisticsEntity</title>
     <updated>2014-10-27T14:21:21Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Key m:type="Edm.String">AvgItemLength</d:Key>
@@ -387,10 +383,10 @@ OData XML
     </content>
 	</entry>
 	<entry>
-    <id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
     <title type="text">GetDataInsightStatisticsEntity</title>
     <updated>2014-10-27T14:21:21Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Key m:type="Edm.String">AvgUserLength</d:Key>
@@ -399,10 +395,10 @@ OData XML
     </content>
     </entry>
     <entry>
-	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
+	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
     <title type="text">GetDataInsightStatisticsEntity</title>
     <updated>2014-10-27T14:21:21Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Key m:type="Edm.String">DensificationNumberOfItems</d:Key>
@@ -411,10 +407,10 @@ OData XML
     </content>
     </entry>
     <entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1</id>
 	<title type="text">GetDataInsightStatisticsEntity</title>
 	<updated>2014-10-27T14:21:21Z</updated>
-	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1" />
+	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Key m:type="Edm.String">DensificationNumberOfRecords</d:Key>
@@ -423,10 +419,10 @@ OData XML
     </content>
     </entry>
     <entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1</id>
 	<title type="text">GetDataInsightStatisticsEntity</title>
 	<updated>2014-10-27T14:21:21Z</updated>
-	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1" />
+	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1" />
 	<content type="application/xml">
 		<m:properties>
 			<d:Key m:type="Edm.String">DensificationNumberOfUsers</d:Key>
@@ -435,10 +431,10 @@ OData XML
     </content>
     </entry>
     <entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1</id>
 		<title type="text">GetDataInsightStatisticsEntity</title>
 		<updated>2014-10-27T14:21:21Z</updated>
-    	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1" />
+    	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Key m:type="Edm.String">MaxItemLength</d:Key>
@@ -447,10 +443,10 @@ OData XML
 		</content>
     </entry>
     <entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1</id>
 		<title type="text">GetDataInsightStatisticsEntity</title>
 		<updated>2014-10-27T14:21:21Z</updated>
-    	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1" />
+    	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1" />
     	<content type="application/xml">
 			<m:properties>
 				<d:Key m:type="Edm.String">MaxUserLength</d:Key>
@@ -459,10 +455,10 @@ OData XML
     	</content>
     </entry>
     <entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1</id>
 		<title type="text">GetDataInsightStatisticsEntity</title>
 		<updated>2014-10-27T14:21:21Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Key m:type="Edm.String">MinItemLength</d:Key>
@@ -471,10 +467,10 @@ OData XML
     	</content>
     </entry>
     <entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1</id>
 		<title type="text">GetDataInsightStatisticsEntity</title>
 		<updated>2014-10-27T14:21:21Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Key m:type="Edm.String">MinUserLength</d:Key>
@@ -483,10 +479,10 @@ OData XML
 		</content>
     </entry>
     <entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1</id>
 		<title type="text">GetDataInsightStatisticsEntity</title>
 		<updated>2014-10-27T14:21:21Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Key m:type="Edm.String">RawNumberOfItems</d:Key>
@@ -495,10 +491,10 @@ OData XML
 		</content>
     </entry>
     <entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=10&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=10&amp;$top=1</id>
 		<title type="text">GetDataInsightStatisticsEntity</title>
 		<updated>2014-10-27T14:21:21Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=10&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=10&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Key m:type="Edm.String">RawNumberOfRecords</d:Key>
@@ -507,10 +503,10 @@ OData XML
 		</content>
     </entry>
     <entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=11&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=11&amp;$top=1</id>
 		<title type="text">GetDataInsightStatisticsEntity</title>
 		<updated>2014-10-27T14:21:21Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=11&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=11&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Key m:type="Edm.String">RawNumberOfUsers</d:Key>
@@ -519,10 +515,10 @@ OData XML
 		</content>
     </entry>
     <entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=12&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=12&amp;$top=1</id>
 		<title type="text">GetDataInsightStatisticsEntity</title>
 		<updated>2014-10-27T14:21:21Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=12&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=12&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Key m:type="Edm.String">SampelingNumberOfItems</d:Key>
@@ -531,10 +527,10 @@ OData XML
 		</content>
     </entry>
     <entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=13&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=13&amp;$top=1</id>
 		<title type="text">GetDataInsightStatisticsEntity</title>
 		<updated>2014-10-27T14:21:21Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=13&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=13&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Key m:type="Edm.String">SampelingNumberOfRecords</d:Key>
@@ -543,10 +539,10 @@ OData XML
 		</content>
     </entry>
     <entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=14&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=14&amp;$top=1</id>
 		<title type="text">GetDataInsightStatisticsEntity</title>
 		<updated>2014-10-27T14:21:21Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=14&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetDataInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=14&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Key m:type="Edm.String">SampelingNumberOfUsers</d:Key>
@@ -556,7 +552,7 @@ OData XML
     </entry>
     </feed>
 
-### 6.2. 모델 정보
+###6.2. 모델 정보
 활성 빌드 또는 특정 빌드(지정된 경우)에 대한 모델 정보를 반환합니다.
 
 권장 사항 빌드에만 사용할 수 있습니다.
@@ -570,8 +566,7 @@ OData XML
 |	modelId |	모델의 고유 식별자 |
 |	buildId |	(선택 사항) - 성공적인 빌드를 식별하는 번호 |
 |	apiVersion | 1.0 |
-|||
-| 요청 본문 | 없음 |
+||| | 요청 본문 | 없음 |
 
 **응답**:
 
@@ -594,18 +589,18 @@ HTTP 상태 코드: 200
 
 OData XML
 
-	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/GetModelInsight" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelInsight" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	<title type="text" />
 	<subtitle type="text">Get model insight statistics</subtitle>
-	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'</id>
+	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'</id>
 	<rights type="text" />
 	<updated>2014-10-27T14:27:11Z</updated>
-	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'" />
+	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'" />
 	<entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 		<title type="text">GetModelInsightStatisticsEntity</title>
 		<updated>2014-10-27T14:27:11Z</updated>
-	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Key m:type="Edm.String">CatalogCoverage</d:Key>
@@ -614,10 +609,10 @@ OData XML
 		</content>
 	</entry>
 	<entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
 		<title type="text">GetModelInsightStatisticsEntity</title>
 		<updated>2014-10-27T14:27:11Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Key m:type="Edm.String">Mpr</d:Key>
@@ -626,10 +621,10 @@ OData XML
 		</content>
 	</entry>
 	<entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
 		<title type="text">GetModelInsightStatisticsEntity</title>
 		<updated>2014-10-27T14:27:11Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelInsight?modelId='6254b40d-0514-49cb-a298-b81256d2b3ca'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Key m:type="Edm.String">NumberOfDimensions</d:Key>
@@ -639,7 +634,7 @@ OData XML
 	</entry>
 	</feed>
 
-### 6.3. 모델 샘플 가져오기
+###6.3. 모델 샘플 가져오기
 권장 사항 모델의 샘플을 가져옵니다.
 
 | HTTP 메서드 | URI |
@@ -650,8 +645,7 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
 |	apiVersion | 1.0 |
-|||
-| 요청 본문 | 없음 |
+||| | 요청 본문 | 없음 |
 
 **응답**:
 
@@ -790,11 +784,11 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 
 </pre>
 
-## 7. 모델 비즈니스 규칙
+##7. 모델 비즈니스 규칙
 4가지 유형의 규칙이 있습니다. <strong>BlockList</strong> - 권장 사항 결과에서 반환하지 않을 항목 목록을 제공할 수 있습니다. <strong>Upsale</strong> - 권장 사항 결과에서 항목을 강제로 반환할 수 있습니다. <strong>WhiteList</strong> - 권장 사항 결과로 반환할 수 있는 항목 목록만 제공할 수 있습니다(BlockList와 반대). <strong>PerSeedBlockList</strong> - 권장 사항 결과로 반환할 수 없는 항목 목록을 항목별로 제공할 수 있습니다.
 
 
-### 7.1. 모델 규칙 가져오기
+###7.1. 모델 규칙 가져오기
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -804,8 +798,7 @@ d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
 |	apiVersion | 1.0 |
-|||
-| 요청 본문 | 없음 |
+||| | 요청 본문 | 없음 |
 
 **응답**:
 
@@ -817,18 +810,18 @@ HTTP 상태 코드: 200
 
 OData XML
 
-	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/GetModelRules" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelRules" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	<title type="text" />
 	<subtitle type="text">Get a list of rules for a model</subtitle>
-	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetModelRules?modelId='5e824626-50d3-469d-a824-564d38453103'&amp;apiVersion='1.0'</id>
+	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetModelRules?modelId='5e824626-50d3-469d-a824-564d38453103'&amp;apiVersion='1.0'</id>
 	<rights type="text" />
 	<updated>2014-11-05T12:58:57Z</updated>
-	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetModelRules?modelId='5e824626-50d3-469d-a824-564d38453103'&amp;apiVersion='1.0'" />
+	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelRules?modelId='5e824626-50d3-469d-a824-564d38453103'&amp;apiVersion='1.0'" />
 	<entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetModelRules?modelId='5e824626-50d3-469d-a824-564d38453103'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetModelRules?modelId='5e824626-50d3-469d-a824-564d38453103'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 		<title type="text">GetAListOfRulesForAModelEntity</title>
 		<updated>2014-11-05T12:58:57Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetModelRules?modelId='5e824626-50d3-469d-a824-564d38453103'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelRules?modelId='5e824626-50d3-469d-a824-564d38453103'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Id m:type="Edm.String">1000043</d:Id>
@@ -838,10 +831,10 @@ OData XML
 		</content>
 	</entry>
 	<entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetModelRules?modelId='5e824626-50d3-469d-a824-564d38453103'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetModelRules?modelId='5e824626-50d3-469d-a824-564d38453103'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
 		<title type="text">GetAListOfRulesForAModelEntity</title>
 		<updated>2014-11-05T12:58:57Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetModelRules?modelId='5e824626-50d3-469d-a824-564d38453103'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelRules?modelId='5e824626-50d3-469d-a824-564d38453103'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Id m:type="Edm.String">1000044</d:Id>
@@ -852,7 +845,7 @@ OData XML
 	</entry>
 	</feed>
 
-### 7.2. 규칙 추가
+###7.2. 규칙 추가
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -861,8 +854,7 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	apiVersion | 1.0 |
-|||
-| 요청 본문 | <ins>BlockList 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>Upsale 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>WhiteList 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>PerSeedBlockList 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+||| | 요청 본문 | <ins>BlockList 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>Upsale 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"]}</Value></ApiFilter>`<br><br><ins>WhiteList 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>PerSeedBlockList 규칙을 추가할 경우:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 **응답**:
 
@@ -876,18 +868,18 @@ HTTP 상태 코드: 200
 
 OData XML
 
-	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/AddRule" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/AddRule" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	<title type="text" />
 	<subtitle type="text">Add A Rule</subtitle>
-	<id>https://api.datamarket.azure.com/amla/recommendations/v2/AddRule?apiVersion='1.0'</id>
+	<id>https://api.datamarket.azure.com/amla/recommendations/v3/AddRule?apiVersion='1.0'</id>
 	<rights type="text" />
 	<updated>2014-11-05T11:13:28Z</updated>
-	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/AddRule?apiVersion='1.0'" />
+	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/AddRule?apiVersion='1.0'" />
 	<entry>
-		<id>https://api.datamarket.azure.com/amla/recommendations/v2/AddRule?apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+		<id>https://api.datamarket.azure.com/amla/recommendations/v3/AddRule?apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 		<title type="text">AddARuleEntity</title>
 		<updated>2014-11-05T11:13:28Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/AddRule?apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/AddRule?apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Id m:type="Edm.String">1000041</d:Id>
@@ -898,7 +890,7 @@ OData XML
 	</entry>
 	</feed>
 
-### 7.3. 규칙 삭제
+###7.3. 규칙 삭제
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -909,14 +901,13 @@ OData XML
 |	modelId |	모델의 고유 식별자 |
 |	filterId |	필터의 고유 식별자 |
 |	apiVersion | 1.0 |
-|||
-| 요청 본문 | 없음 |
+||| | 요청 본문 | 없음 |
 
 **응답**:
 
 HTTP 상태 코드: 200
 
-### 7.4. 모든 규칙 삭제
+###7.4. 모든 규칙 삭제
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -926,16 +917,15 @@ HTTP 상태 코드: 200
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
 |	apiVersion | 1.0 |
-|||
-| 요청 본문 | 없음 |
+||| | 요청 본문 | 없음 |
 
 **응답**:
 
 HTTP 상태 코드: 200
 
-## 8. 카탈로그
+##8. 카탈로그
 
-### 8.1. 카탈로그 데이터 가져오기
+###8.1. 카탈로그 데이터 가져오기
 
 여러 번 호출하여 여러 카탈로그 파일을 같은 모델에 업로드하면 새 카탈로그 항목만 삽입됩니다. 기존 항목은 원래 값으로 유지됩니다. 이 메서드를 사용하여 카탈로그 데이터를 업데이트할 수 없습니다.
 
@@ -947,11 +937,11 @@ HTTP 상태 코드: 200
 
 참고: 최대 파일 크기는 200MB입니다.
 
-**형식 세부 정보**
+** 형식 세부 정보**
 
 | 이름 | 필수 | 형식 | 설명 |
 |:---|:---|:---|:---|
-| 항목 ID |예 | [A-z], [a-z], [0-9], [_] &#40;밑줄&#41;, [\-] &#40;대시&#41;<br> 최대 길이: 50 | 항목의 고유 식별자 |
+| 항목 ID |예 | [A-z], [a-z], [0-9], [_] &#40;밑줄&#41;, [-] &#40;대시&#41;<br> 최대 길이: 50 | 항목의 고유 식별자 |
 | Item Name | 예 | 영숫자 문자<br> 최대 길이: 255 | 항목 이름 | 
 | Item Category | 예 | 영숫자 문자 <br> 최대 길이: 255 | 이 항목이 속하는 범주(예: 요리책, 드라마...). 비어 있을 수 있습니다. |
 | 설명 | 아니요, 기능이 없는 경우(그러나 비어 있을 수 있음) | 영숫자 문자 <br> 최대 길이: 4000 | 이 항목에 대한 설명 |
@@ -967,32 +957,29 @@ HTTP 상태 코드: 200
 |	modelId |	모델의 고유 식별자 |
 | filename | 카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br>최대 길이: 50 |
 |	apiVersion | 1.0 |
-|||
-| 요청 본문 | 예(기능 사용):<br/>`2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> `|
+||| | 요청 본문 | 예(기능 사용):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
 
 **응답**:
 
 HTTP 상태 코드: 200
 
-이 API는 가져오기 보고서를 반환합니다.
- - `feed\entry\content\properties\LineCount` – 허용되는 줄 수
- - `feed\entry\content\properties\ErrorCount` – 오류로 인해 삽입되지 않은 줄 수
+이 API는 가져오기 보고서를 반환합니다. - `feed\entry\content\properties\LineCount` – 허용되는 줄 수 - `feed\entry\content\properties\ErrorCount` – 오류로 인해 삽입되지 않은 줄 수
 
 OData XML
 
-    <feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/ImportCatalogFile" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+    <feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/ImportCatalogFile" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	<title type="text" />
 	<subtitle type="text">Import catalog file</subtitle>
-	<id>https://api.datamarket.azure.com/amla/recommendations/v2/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'</id>
+	<id>https://api.datamarket.azure.com/amla/recommendations/v3/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'</id>
 	<rights type="text" />
 	<updated>2014-10-05T06:58:04Z</updated>
-	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'" />
+	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'" />
 	<entry>
-   	<id>https://api.datamarket.azure.com/amla/recommendations/v2/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+   	<id>https://api.datamarket.azure.com/amla/recommendations/v3/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 		<title type="text">ImportCatalogFileEntity2</title>
 		<updated>2014-10-05T06:58:04Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/ImportCatalogFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='catalog10_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:LineCount m:type="Edm.String">4</d:LineCount>
@@ -1002,7 +989,7 @@ OData XML
 	</entry>
 	</feed>
 
-### 8.2. 카탈로그 가져오기
+###8.2. 카탈로그 가져오기
 모든 카탈로그 항목을 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -1013,8 +1000,7 @@ OData XML
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
 |	apiVersion | 1.0 |
-|||
-| 요청 본문 | 없음 |
+||| | 요청 본문 | 없음 |
 
 **응답**:
 
@@ -1032,18 +1018,18 @@ HTTP 상태 코드: 200
 
 OData XML
 
-    <feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalog" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+    <feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetCatalog" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
 		<subtitle type="text">Get All Catalog Items</subtitle>
-		<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'</id>
+		<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'</id>
 		<rights type="text" />
 		<updated>2014-10-29T11:13:26Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'" />
 		<entry>
-        	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+        	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 		<title type="text">AllCatalogItemsEntity</title>
 		<updated>2014-10-29T11:13:26Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:ExternalId m:type="Edm.String">552A1940-21E4-4399-82BB-594B46D7ED54</d:ExternalId>
@@ -1056,10 +1042,10 @@ OData XML
 		</content>
 	</entry>
 	<entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
 		<title type="text">AllCatalogItemsEntity</title>
 		<updated>2014-10-29T11:13:26Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:ExternalId m:type="Edm.String">2406E770-769C-4189-89DE-1C9283F93A96</d:ExternalId>
@@ -1072,10 +1058,10 @@ OData XML
 		</content>
 	</entry>
 	<entry>
-		<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
+		<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
 		<title type="text">AllCatalogItemsEntity</title>
 		<updated>2014-10-29T11:13:26Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:ExternalId m:type="Edm.String">3BB5CB44-D143-4BDD-A55C-443964BF4B23</d:ExternalId>
@@ -1088,10 +1074,10 @@ OData XML
 		</content>
 	</entry>
 	<entry>
-    		<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1</id>
+    		<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1</id>
 		<title type="text">AllCatalogItemsEntity</title>
 		<updated>2014-10-29T11:13:26Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetCatalog?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:ExternalId m:type="Edm.String">21BF8088-B6C0-4509-870C-E1C7AC78304A</d:ExternalId>
@@ -1105,7 +1091,7 @@ OData XML
 	</entry>
 	</feed>
 
-### 8.3. 토큰별 카탈로그 항목 가져오기
+###8.3. 토큰별 카탈로그 항목 가져오기
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -1116,8 +1102,7 @@ OData XML
 |	modelId |	모델의 고유 식별자 |
 |	token |	카탈로그 항목 이름의 토큰 3자 이상 포함해야 합니다. |
 |	apiVersion | 1.0 |
-|||
-| 요청 본문 | 없음 |
+||| | 요청 본문 | 없음 |
 
 **응답**:
 
@@ -1134,18 +1119,18 @@ HTTP 상태 코드: 200
 
 OData XML
 
-	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalogItemsByToken" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetCatalogItemsByToken" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
 		<subtitle type="text">Get Catalog items that contain a token</subtitle>
-		<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalogItemsByToken?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;token='Cla'&amp;apiVersion='1.0'</id>
+		<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetCatalogItemsByToken?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;token='Cla'&amp;apiVersion='1.0'</id>
 		<rights type="text" />
 		<updated>2014-10-29T11:48:19Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalogItemsByToken?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;token='Cla'&amp;apiVersion='1.0'" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetCatalogItemsByToken?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;token='Cla'&amp;apiVersion='1.0'" />
 		<entry>
-			<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalogItemsByToken?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;token='Cla'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetCatalogItemsByToken?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;token='Cla'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 			<title type="text">CatalogItemsThatContainATokenEntity</title>
 			<updated>2014-10-29T11:48:19Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetCatalogItemsByToken?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;token='Cla'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetCatalogItemsByToken?modelId='0dbb55fa-7f11-418d-8537-8ff2d9d1d9c6'&amp;token='Cla'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
     		<content type="application/xml">
       			<m:properties>
 					<d:Id m:type="Edm.String">2406E770-769C-4189-89DE-1C9283F93A96</d:Id>
@@ -1159,9 +1144,9 @@ OData XML
 		</entry>
 	</feed>
 
-## 9. 사용 데이터
-### 9.1. 사용 데이터 가져오기
-#### 9.1.1. 파일 업로드
+##9. 사용 데이터
+###9.1. 사용 데이터 가져오기
+####9.1.1. 파일 업로드
 이 섹션에서는 파일을 사용하여 사용 데이터를 업로드하는 방법을 보여 줍니다. 사용 데이터를 사용하여 이 API를 여러 번 호출할 수 있습니다. 모든 호출에 대한 모든 사용 데이터가 저장됩니다.
 
 | HTTP 메서드 | URI |
@@ -1173,8 +1158,7 @@ OData XML
 |	modelId |	모델의 고유 식별자 |
 | filename | 카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br>최대 길이: 50 |
 |	apiVersion | 1.0 |
-|||
-| 요청 본문 | 사용 데이터 형식:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Name</th><th>필수</th><th>유형</th><th>설명</th></tr><tr><td>User Id</td><td>예</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;밑줄&#41;, [-] &#40;대시&#41;</td><td>사용자의 고유 식별자</td></tr><tr><td>Item Id</td><td>예</td><td>[A-z], [a-z], [0-9], [_] &#40;밑줄&#41;, [-] &#40;대시&#41;<br> 최대 길이: 50</td><td>항목의 고유 식별자</td></tr><tr><td>Time</td><td>아니요</td><td>다음 형식의 날짜: YYYY/MM/DDTHH:MM:SS(예: 2013/06/20T10:00:00)</td><td>데이터의 시간</td></tr><tr><td>Event</td><td>아니요, 제공한 경우 날짜도 입력해야 함</td><td>다음 중 하나:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>최대 파일 크기: 200MB<br><br>예:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+||| | 요청 본문 | 사용 데이터 형식:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>이름</th><th>필수</th><th>유형</th><th>설명</th></tr><tr><td>사용자 Id</td><td>예</td><td>[A-z], [a-z], [0-9], [_] &#40;밑줄&#41;, [-] &#40;대시&#41;<br> 최대 길이: 255 </td><td>고유 식별자</td></tr><tr><td>Item Id</td><td>예</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;밑줄&#41;, [-] &#40;대시&#41;<br> 최대 길이: 50</td><td>항목의 고유 식별자</td></tr><tr><td>Time</td><td>아니요</td><td>다음 형식의 날짜: YYYY/MM/DDTHH:MM:SS(예: 2013/06/20T10:00:00)</td><td>데이터의 시간</td></tr><tr><td>Event</td><td>아니요, 제공한 경우 날짜도 입력해야 함</td><td>다음 중 하나:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>최대 파일 크기: 200MB<br><br>예:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **응답**:
 
@@ -1186,18 +1170,18 @@ HTTP 상태 코드: 200
 
 OData XML
 
-	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ImportUsageFile" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/ImportUsageFile" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
   	<title type="text" />
   	<subtitle type="text">Add bulk usage data (usage file)</subtitle>
-  	<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'</id>
+  	<id>https://api.datamarket.azure.com/amla/recommendations/v3/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'</id>
   	<rights type="text" />
   	<updated>2014-10-05T07:21:44Z</updated>
-  	<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'" />
+  	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'" />
   	<entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v3/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
     <title type="text">AddBulkUsageDataUsageFileEntity2</title>
     <updated>2014-10-05T07:21:44Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/ImportUsageFile?modelId='a658c626-2baa-43a7-ac98-f6ee26120a12'&amp;filename='ImplicitMatrix10_Guid_small.txt'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:LineCount m:type="Edm.String">33</d:LineCount>
@@ -1209,7 +1193,7 @@ OData XML
 	</feed>
 
 
-#### 9.1.2. 데이터 취득 사용
+####9.1.2. 데이터 취득 사용
 이 섹션에서는 일반적으로 웹 사이트에서 Azure 기계 학습 권장 사항에 실시간으로 이벤트를 전송하는 방법을 보여 줍니다.
 
 | HTTP 메서드 | URI |
@@ -1274,26 +1258,9 @@ OData XML
   		</EventData>
 		</Event>
 
-- 'Purchase' 이벤트의 예: 
-
-		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
-		<SessionId>11112222</SessionId>
-		<EventData>
-		<EventData>
-			<Name>Purchase</Name> 
-			<PurchaseItems>
-			<PurchaseItems>
-				<ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId>
-				<Count>3</Count>
-			</PurchaseItems>
-		</PurchaseItems>
-		</EventData>
-		</EventData>
-		</Event>
+- 'Purchase' 이벤트의 예: <Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> <ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId> <SessionId>11112222</SessionId> <EventData> <EventData> <Name>Purchase</Name> <PurchaseItems> <PurchaseItems> <ItemId>21BF8088-B6C0-4509-870C-E1C7AC78304A</ItemId> <Count>3</Count> </PurchaseItems> </PurchaseItems> </EventData> </EventData> </Event>
 
 - 두 개의 이벤트 'Click' 및 'AddShopCart'를 보내는 예:
-
 
 		<Event xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   		<ModelId>2779c063-48fb-46c1-bae3-74acddc8c1d1</ModelId>
@@ -1315,7 +1282,7 @@ OData XML
 
 **응답**: HTTP 상태 코드: 200
 
-### 9.2. 모델 사용 파일 나열
+###9.2. 모델 사용 파일 나열
 모든 모델 사용 파일의 메타데이터를 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -1326,8 +1293,7 @@ OData XML
 |:--------			|:--------								|
 |	forModelId |	모델의 고유 식별자 |
 |	apiVersion | 1.0 |
-|||
-| 요청 본문 | 없음 |
+||| | 요청 본문 | 없음 |
 
 **응답**:
 
@@ -1342,18 +1308,18 @@ HTTP 상태 코드: 200
 
 OData XML
 
-	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/ListModelUsageFiles" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/ListModelUsageFiles" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
 		<subtitle type="text">Get a list of model's usage files info</subtitle>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/ListModelUsageFiles?forModelId='1c1110f8-7d9f-4c64-a807-4c9c5329993a'&amp;apiVersion='1.0'</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v3/ListModelUsageFiles?forModelId='1c1110f8-7d9f-4c64-a807-4c9c5329993a'&amp;apiVersion='1.0'</id>
 		<rights type="text" />
 		<updated>2014-10-30T09:40:25Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/ListModelUsageFiles?forModelId='1c1110f8-7d9f-4c64-a807-4c9c5329993a'&amp;apiVersion='1.0'" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/ListModelUsageFiles?forModelId='1c1110f8-7d9f-4c64-a807-4c9c5329993a'&amp;apiVersion='1.0'" />
 		<entry>
-			<id>https://api.datamarket.azure.com/amla/recommendations/v2/ListModelUsageFiles?forModelId='1c1110f8-7d9f-4c64-a807-4c9c5329993a'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/amla/recommendations/v3/ListModelUsageFiles?forModelId='1c1110f8-7d9f-4c64-a807-4c9c5329993a'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 			<title type="text">GetAListOfModelsUsageFilesInfoEntity</title>
 			<updated>2014-10-30T09:40:25Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/ListModelUsageFiles?forModelId='1c1110f8-7d9f-4c64-a807-4c9c5329993a'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/ListModelUsageFiles?forModelId='1c1110f8-7d9f-4c64-a807-4c9c5329993a'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:Id m:type="Edm.String">4c067b42-e975-4cb2-8c98-a6ab80ed6d63</d:Id>
@@ -1364,10 +1330,10 @@ OData XML
 			</content>
 		</entry>
 	<entry>
-		<id>https://api.datamarket.azure.com/amla/recommendations/v2/ListModelUsageFiles?forModelId='1c1110f8-7d9f-4c64-a807-4c9c5329993a'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
+		<id>https://api.datamarket.azure.com/amla/recommendations/v3/ListModelUsageFiles?forModelId='1c1110f8-7d9f-4c64-a807-4c9c5329993a'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
 		<title type="text">GetAListOfModelsUsageFilesInfoEntity</title>
 		<updated>2014-10-30T09:40:25Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/ListModelUsageFiles?forModelId='1c1110f8-7d9f-4c64-a807-4c9c5329993a'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/ListModelUsageFiles?forModelId='1c1110f8-7d9f-4c64-a807-4c9c5329993a'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Id m:type="Edm.String">3126d816-4e80-4248-8339-1ebbdb9d544d</d:Id>
@@ -1379,7 +1345,7 @@ OData XML
 	</entry>
 </feed>
 
-### 9.3. 사용 통계 가져오기
+###9.3. 사용 통계 가져오기
 사용 통계를 가져옵니다.
 
 | HTTP 메서드 | URI |
@@ -1389,12 +1355,11 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 | modelId |	모델의 고유 식별자 |
-| startDate |	시작 날짜 형식: yyyy/MM/ddTHH:mm:ss |
-| endDate |	종료 날짜 형식: yyyy/MM/ddTHH:mm:ss |
+| startDate |	시작 날짜입니다. 형식: yyyy/MM/ddTHH:mm:ss |
+| endDate |	종료 날짜입니다. 형식: yyyy/MM/ddTHH:mm:ss |
 | eventTypes |	쉼표로 구분된 이벤트 유형 문자열이거나 null(모든 이벤트를 가져오려는 경우) |
 | apiVersion | 1.0 |
-|||
-| 요청 본문 | 없음 |
+||| | 요청 본문 | 없음 |
 
 **응답**:
 
@@ -1407,18 +1372,18 @@ HTTP 상태 코드: 200
 
 OData XML
 
-	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/GetUsageStatistics" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetUsageStatistics" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
 		<subtitle type="text">Get usage statistics</subtitle>
-        <id>https://api.datamarket.azure.com/amla/recommendations/v2/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'</id>
+        <id>https://api.datamarket.azure.com/amla/recommendations/v3/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'</id>
 	<rights type="text" />
 	<updated>2014-11-18T11:39:16Z</updated>
-	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'" />
+	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'" />
 	<entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 		<title type="text">GetUsageStatisticsEntity</title>
 		<updated>2014-11-18T11:39:16Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Event m:type="Edm.String">11/9/2014 8:00:00 AM;Click</d:Event>
@@ -1427,10 +1392,10 @@ OData XML
 		</content>
 	</entry>
 	<entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
 		<title type="text">GetUsageStatisticsEntity</title>
 		<updated>2014-11-18T11:39:16Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Event m:type="Edm.String">11/9/2014 8:00:00 AM;RecommendationClick</d:Event>
@@ -1439,10 +1404,10 @@ OData XML
 		</content>
 	</entry>
 	<entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
 		<title type="text">GetUsageStatisticsEntity</title>
 		<updated>2014-11-18T11:39:16Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
         <content type="application/xml">
 			<m:properties>
 				<d:Event m:type="Edm.String">11/1/2014 8:00:00 AM;RemoveShopCart</d:Event>
@@ -1451,10 +1416,10 @@ OData XML
         </content>
 	</entry>
 	<entry>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1</id>
 		<title type="text">GetUsageStatisticsEntity</title>
 		<updated>2014-11-18T11:39:16Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetUsageStatistics?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;startDate='2014/10/12T00:00:00'&amp;endDate='2014/11/10T00:00:00'&amp;eventTypes=''&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Event m:type="Edm.String">11/5/2014 8:00:00 AM;RemoveShopCart</d:Event>
@@ -1464,7 +1429,7 @@ OData XML
 	</entry>
 	</feed>
 
-### 9.4. 사용 파일 샘플 가져오기
+###9.4. 사용 파일 샘플 가져오기
 사용 파일 내용의 처음 2KB를 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -1476,34 +1441,16 @@ OData XML
 | modelId |	모델의 고유 식별자 |
 | fileId |	모델 사용 파일의 고유 식별자 |
 | apiVersion | 1.0 |
-|||
-| 요청 본문 | 없음 |
+||| | 요청 본문 | 없음 |
 
 **응답**:
 
 HTTP 상태 코드: 200
 
-Response is returned in raw text format:
-<pre>
-85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-</pre>
+응답은 원시 텍스트 형식으로 반환됨: <pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 </pre>
 
 
-### 9.5. 모델 사용 파일 가져오기
+###9.5. 모델 사용 파일 가져오기
 사용 파일의 전체 내용을 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -1516,50 +1463,15 @@ Response is returned in raw text format:
 | fid |	모델 사용 파일의 고유 식별자 |
 | 다운로드 | 1 |
 | apiVersion | 1.0 |
-|||
-| 요청 본문 | 없음 |
+||| | 요청 본문 | 없음 |
 
 **응답**:
 
 HTTP 상태 코드: 200
 
-<pre>
-85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-244881,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-50547,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-213090,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-260655,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-72214,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-189334,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-36326,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-189336,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-189334,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-260655,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-162100,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-54946,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-260965,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-102758,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-112602,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-163925,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-262998,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-</pre>
+응답은 원시 텍스트 형식으로 반환됨: <pre> 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15 ,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 244881,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 50547,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15 ,True,1 213090,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 260655,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 72214,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 36326,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189336,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260655,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 162100,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15 ,True,1 54946,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260965,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 102758,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 112602,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 163925,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 262998,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 </pre>
 
-### 9.6. 사용 파일 삭제
+###9.6. 사용 파일 삭제
 지정한 모델 사용 파일을 삭제합니다.
 
 | HTTP 메서드 | URI |
@@ -1571,15 +1483,14 @@ HTTP 상태 코드: 200
 | modelId |	모델의 고유 식별자 |
 | fileId | 삭제할 파일의 고유 식별자 |
 | apiVersion | 1.0 |
-|||
-| 요청 본문 | 없음 |
+||| | 요청 본문 | 없음 |
 
 **응답**:
 
 HTTP 상태 코드: 200
 
 
-### 9.7. 모든 사용 파일 삭제
+###9.7. 모든 사용 파일 삭제
 모든 모델 사용 파일을 삭제합니다.
 
 | HTTP 메서드 | URI |
@@ -1590,17 +1501,16 @@ HTTP 상태 코드: 200
 |:--------			|:--------								|
 | modelId |	모델의 고유 식별자 |
 | apiVersion | 1.0 |
-|||
-| 요청 본문 | 없음 |
+||| | 요청 본문 | 없음 |
 
 **응답**:
 
 HTTP 상태 코드: 200
 
-## 10. 기능
+##10. 기능
 이 섹션에서는 가져온 기능과 해당 값, 해당 순위 및 이 순위가 할당된 시점 등 기능 정보를 검색하는 방법을 보여 줍니다. 기능은 카탈로그 데이터의 일부로 가져오며, 순위 빌드가 완료되면 해당 순위가 연결됩니다. 기능 순위는 사용 데이터의 패턴 및 항목 유형에 따라 변경될 수 있습니다. 그러나 일관된 사용/항목을 위해 순위는 조금만 변동되어야 합니다. 기능의 순위는 음수가 아닌 숫자입니다. 숫자 0은 기능의 순위가 매겨지지 않았음을 의미합니다(첫 번째 순위 빌드가 완료되기 전에 이 API를 호출한 경우에 발생). 순위가 지정된 날짜를 점수 유효 시간이라고 합니다.
 
-### 10.1. 기능 정보 가져오기(마지막 순위 빌드)
+###10.1. 기능 정보 가져오기(마지막 순위 빌드)
 마지막으로 성공한 순위 빌드에 대해 순위를 포함한 기능 정보를 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -1612,8 +1522,7 @@ HTTP 상태 코드: 200
 | modelId |	모델의 고유 식별자 |
 |samplingSize| 카탈로그에 있는 데이터에 따라 각 기능에 대해 포함할 값 수 <br/>가능한 값은 다음과 같습니다.<br> -1 - 모든 샘플 <br>0 - 샘플링 없음 <br>N - 각 기능 이름별로 N개의 샘플 반환|
 | apiVersion | 1.0 |
-|||
-| 요청 본문 | 없음 |
+||| | 요청 본문 | 없음 |
 
 
 **응답**:
@@ -1629,18 +1538,18 @@ HTTP 상태 코드: 200
 
 OData XML
 
-	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelFeatures" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 	<title type="text" />
 	<subtitle type="text">Get the features of a model</subtitle>
-	<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;apiVersion='1.0'</id>
+	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;apiVersion='1.0'</id>
 	<rights type="text" />
 	<updated>2015-01-08T13:15:02Z</updated>
-	<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;apiVersion='1.0'" />
+	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;apiVersion='1.0'" />
 	<entry>
-		<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+		<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 		<title type="text">ModelFeaturesEntity</title>
 		<updated>2015-01-08T13:15:02Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Name m:type="Edm.String">Author</d:Name>
@@ -1651,10 +1560,10 @@ OData XML
 		</content>
 	</entry>
 	<entry>
-		<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
+		<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
 		<title type="text">ModelFeaturesEntity</title>
 		<updated>2015-01-08T13:15:02Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
 		<content type="application/xml">
 			<m:properties>
 				<d:Name m:type="Edm.String">Publisher</d:Name>
@@ -1665,10 +1574,10 @@ OData XML
 		</content>
 	</entry>
 	<entry>
-		<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
+		<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
 		<title type="text">ModelFeaturesEntity</title>
 		<updated>2015-01-08T13:15:02Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1"/>
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1"/>
 		<contenttype="application/xml">
 		<m:properties>
 			<d:Name m:type="Edm.String">Year</d:Name>
@@ -1681,7 +1590,7 @@ OData XML
 </feed>
 
 
-### 10.2. 기능 정보 가져오기(특정 순위 빌드)
+###10.2. 기능 정보 가져오기(특정 순위 빌드)
 
 특정 순위 빌드에 대해 순위를 포함한 기능 정보를 검색합니다.
 
@@ -1695,8 +1604,7 @@ OData XML
 |samplingSize| 카탈로그에 있는 데이터에 따라 각 기능에 대해 포함할 값 수<br/> 가능한 값은 다음과 같습니다.<br> -1 - 모든 샘플 <br>0 - 샘플링 없음 <br>N - 각 기능 이름별로 N개의 샘플 반환|
 |rankBuildId| 순위 빌드의 고유 식별자 또는 마지막 순위 빌드의 경우 -1|
 | apiVersion | 1.0 |
-|||
-| 요청 본문 | 없음 |
+||| | 요청 본문 | 없음 |
 
 
 **응답**:
@@ -1712,18 +1620,18 @@ HTTP 상태 코드: 200
 
 OData
 
-	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelFeatures" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
 		<subtitle type="text">Get the features of a model</subtitle>
-		<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;rankBuildId=1000653&amp;apiVersion='1.0'</id>
+		<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;rankBuildId=1000653&amp;apiVersion='1.0'</id>
 		<rights type="text" />
 		<updated>2015-01-08T13:54:22Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;rankBuildId=1000653&amp;apiVersion='1.0'" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;rankBuildId=1000653&amp;apiVersion='1.0'" />
 		<entry>
-			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;rankBuildId=1000653&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;rankBuildId=1000653&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 			<title type="text">ModelFeaturesEntity</title>
 			<updated>2015-01-08T13:54:22Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;rankBuildId=1000653&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;rankBuildId=1000653&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:Name m:type="Edm.String">Author</d:Name>
@@ -1734,10 +1642,10 @@ OData
 			</content>
 		</entry>
 		<entry>
-			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;rankBuildId=1000653&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;rankBuildId=1000653&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
 			<title type="text">ModelFeaturesEntity</title>
 			<updated>2015-01-08T13:54:22Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;rankBuildId=1000653&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
+			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;rankBuildId=1000653&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:Name m:type="Edm.String">Publisher</d:Name>
@@ -1748,10 +1656,10 @@ OData
 			</content>
 		</entry>
 		<entry>
-			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;rankBuildId=1000653&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;rankBuildId=1000653&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
 			<title type="text">ModelFeaturesEntity</title>
 			<updated>2015-01-08T13:54:22Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;rankBuildId=1000653&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
+			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelFeatures?modelId='f13ab2e8-b530-4aa1-86f7-2f4a24714765'&amp;samplingSize='10'&amp;rankBuildId=1000653&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:Name m:type="Edm.String">Year</d:Name>
@@ -1764,20 +1672,13 @@ OData
 	</feed>
 
 
-## 11. 빌드
+##11. 빌드
 
-  이 섹션에서는 빌드와 관련된 다른 API를 설명합니다. 세 가지 유형의 빌드(권장 사항 빌드, 순위 빌드 및 FBT 빌드)가 있습니다.
+  이 섹션에서는 빌드와 관련된 다른 API를 설명합니다. 세 가지 유형의 빌드(권장 사항 빌드, 순위 빌드 및 FBT(자주 함께 구매됨) 빌드)가 있습니다.
 
-권장 빌드는 예측에 사용되는 권장 사항 모델을 생성하는 데 사용됩니다.
+권장 빌드는 예측에 사용되는 권장 사항 모델을 생성하는 데 사용됩니다. 예측(이 유형의 빌드 관련)은 다음 두 가지 유형으로 제공됩니다. * I2I (항목-항목 권장 사항) - 항목 또는 항목 목록이 제공될 경우 이 옵션은 가장 높은 관심을 받을 항목 목록을 예측합니다. * U2I (사용자-항목 권장 사항) - 사용자 ID(필요에 따라 항목 목록)가 제공될 경우 이 옵션은 지정된 사용자(및 추가 선택 항목)에 대해 가장 높은 관심을 받을 항목 목록을 예측합니다. U2I 권장 사항은 모델이 작성되었을 때까지 사용자에 대해 관심을 받은 항목의 기록을 기반으로 합니다.
 
-순위 빌드는 기능의 유용성에 대해 알아볼 수 있는 기술 빌드입니다. 일반적으로 기능과 관련된 권장 사항 모델에 대한 최상의 결과를 얻으려면 다음 단계를 수행해야 합니다.
- - 순위 빌드를 트리거(기능 점수가 안정적이지 않은 경우)하고 기능 점수를 얻을 때까지 기다립니다.
- - [기능 정보 가져오기](#101-get-features-info-for-last-rank-build) API를 호출하여 기능의 순위를 검색합니다.
- - 다음 매개 변수를 사용하여 권장 사항 빌드를 구성합니다.
-	- `useFeatureInModel` - True로 설정합니다.
-	- `ModelingFeatureList` - 점수가 2.0 이상인 기능의 쉼표로 구분된 목록으로 설정합니다(이전 단계에서 검색한 순위에 따름).
-	- `AllowColdItemPlacement` - True로 설정합니다.
-	- 필요한 경우 `EnableFeatureCorrelation`을 True로 설정하고 `ReasoningFeatureList`를 설명에 사용할 기능 목록(일반적으로 모델링에 사용된 기능 목록 또는 하위 목록과 동일)으로 설정합니다. - 구성된 매개 변수를 사용하여 권장 사항 빌드를 트리거합니다.
+순위 빌드는 기능의 유용성에 대해 알아볼 수 있는 기술 빌드입니다. 일반적으로 기능과 관련된 권장 사항 모델에 대한 최상의 결과를 얻으려면 다음 단계를 수행해야 합니다. - 순위 빌드를 트리거(기능 점수가 안정적이지 않은 경우)하고 기능 점수를 얻을 때까지 기다립니다. - [기능 정보 가져오기](#101-get-features-info-for-last-rank-build) API를 호출하여 기능의 순위를 검색합니다. - 다음 매개 변수를 사용하여 권장 사항 빌드를 구성합니다. - `useFeatureInModel` - True로 설정합니다. - `ModelingFeatureList` - 점수가 2.0 이상인 기능의 쉼표로 구분된 목록으로 설정합니다(이전 단계에서 검색한 순위에 따름). - `AllowColdItemPlacement` - True로 설정합니다. - 필요한 경우 `EnableFeatureCorrelation`을 True로 설정하고 `ReasoningFeatureList`를 설명에 사용할 기능 목록(일반적으로 모델링에 사용된 기능 목록 또는 하위 목록과 동일)으로 설정합니다. - 구성된 매개 변수를 사용하여 권장 사항 빌드를 트리거합니다.
 
 참고: 매개 변수를 구성하지 않은 경우(예: 매개 변수 없이 권장 사항 빌드를 호출한 경우) 또는 기능 사용을 명시적으로 해제하지 않은 경우(예: `UseFeatureInModel`을 False로 설정) 순위 빌드가 있으면 기능 관련 매개 변수가 위에 설명된 값으로 자동으로 설정됩니다.
 
@@ -1785,17 +1686,17 @@ OData
 
 FBT(자주 함께 구매됨) 빌드는 유형이 다른(같은 유형: 책, 영화, 일부 음식, 패션, 다른 유형: 컴퓨터와 장치, 크로스 도메인, 고도로 다양) 카탈로그에 적합한 “보수적인" 추천이라고도 하는 다른 권장 사항 알고리즘입니다.
 
-참고: 업로드한 사용 파일에 선택적 필드 "event type"이 포함된 경우에는 FBT 모델링에 "Purchase" 이벤트만 사용됩니다. 이벤트 유형이 제공되지 않은 경우에는 모든 이벤트가 모델링됩니다.
+참고: 업로드한 사용 파일에 선택적 필드 "event type"이 포함된 경우에는 FBT 모델링에 "Purchase" 이벤트만 사용됩니다. 이벤트 유형이 제공되지 않은 경우에는 모든 이벤트가 구매로 간주됩니다.
 
 
-#### 11.1 빌드 매개 변수
+####11.1 빌드 매개 변수
 
 각 빌드 형식은 매개 변수 집합(아래 설명)을 통해 구성될 수 있습니다. 매개 변수를 구성하지 않으면 빌드를 트리거할 때 존재한 정보에 따라 매개 변수 값이 자동으로 할당됩니다.
 
-##### 11.1.1. 사용 콘덴서
+#####11.1.1. 사용 콘덴서
 사용 포인트가 거의 없는 사용자 또는 항목은 정보보다 노이즈를 더 많이 포함할 수 있습니다. 시스템에서는 모델에서 사용할 사용자/항목당 최소 사용 포인트 수를 예측합니다. 이 수는 항목의 경우 ItemCutoffLowerBound 및 ItemCutoffUpperBound 매개 변수로 정의되는 범위 내에 속하며, 사용자의 경우 UserCutOffLowerBound 및 UserCutoffUpperBound 매개 변수로 정의되는 범위 내에 속합니다. 항목 또는 사용자에 대한 콘덴서 효과는 해당 경계 중 하나 이상을 0으로 설정하여 최소화할 수 있습니다.
 
-##### 11.1.2. 순위 빌드 매개 변수
+#####11.1.2. 순위 빌드 매개 변수
 
 아래 표에서는 순위 빌드에 대한 빌드 매개 변수를 설명합니다.
 
@@ -1808,7 +1709,7 @@ FBT(자주 함께 구매됨) 빌드는 유형이 다른(같은 유형: 책, 영�
 |UserCutOffLowerBound| 콘덴서의 사용자 하한을 정의합니다. 위의 사용 콘덴서를 참조하세요. | Integer | 2 이상(0 - 콘덴서 사용 안 함) |
 |UserCutOffUpperBound| 콘덴서의 사용자 상한을 정의합니다. 위의 사용 콘덴서를 참조하세요. | Integer | 2 이상(0 - 콘덴서 사용 안 함) |
 
-##### 11.1.3. 권장 사항 빌드 매개 변수
+#####11.1.3. 권장 사항 빌드 매개 변수
 아래 표에서는 권장 사항 빌드에 대한 빌드 매개 변수를 설명합니다.
 
 |키|설명|형식|유효한 값|
@@ -1826,8 +1727,9 @@ FBT(자주 함께 구매됨) 빌드는 유형이 다른(같은 유형: 책, 영�
 | AllowColdItemPlacement | 권장 사항에서 기능 유사성을 통해 콜드 항목을 푸시해야 하는지 나타냅니다. | Boolean | True/False |
 | EnableFeatureCorrelation | 추론에서 기능을 사용할 수 있는지 나타냅니다. | Boolean | True/False |
 | ReasoningFeatureList | 추론 문장(예: 권장 사항 설명)에 사용할 기능 이름의 쉼표로 구분된 목록입니다. | String | 기능 이름, 최대 512자 |
+| EnableU2I | U2I(사용자-항목 권장 사항)라고도 하는 개인 설정된 권장 구성을 허용합니다. | Boolean | True/False(기본값 true) |
 
-##### 11.1.4. FBT 빌드 매개 변수
+#####11.1.4. FBT 빌드 매개 변수
 아래 표에서는 권장 사항 빌드에 대한 빌드 매개 변수를 설명합니다.
 
 |키|설명|형식|유효한 값(기본값)|
@@ -1836,7 +1738,7 @@ FBT(자주 함께 구매됨) 빌드는 유형이 다른(같은 유형: 책, 영�
 |FbtMaxItemSetSize | FBT 집합의 항목 수를 제한합니다.| Integer | 2-3(2) |
 |FbtMinimalScore | 반환된 결과에 포함하기 위해 필요한 FBT 집합의 최소 점수입니다. 높을수록 좋습니다.| Double | 0 이상(0) |
 
-### 11.2. 권장 사항 빌드 트리거
+###11.2. 권장 사항 빌드 트리거
 
   기본적으로 이 API는 권장 사항 모델 빌드를 트리거합니다. 기능의 점수를 매기기 위해 순위 빌드를 트리거하려면 빌드 형식 매개 변수가 있는 빌드 API 변형을 사용해야 합니다.
 
@@ -1848,10 +1750,9 @@ FBT(자주 함께 구매됨) 빌드는 유형이 다른(같은 유형: 책, 영�
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 | modelId |	모델의 고유 식별자 |
-| userDescription | 카탈로그의 텍스트 식별자 공백을 사용하는 경우 대신 %20을 사용하여 인코드해야 합니다. 위 예제를 참조하세요.<br>최대 길이: 50 |
+| userDescription | 카탈로그의 텍스트 식별자입니다. 공백을 사용하는 경우 대신 %20을 사용하여 인코드해야 합니다. 위 예제를 참조하세요.<br>최대 길이: 50 |
 | apiVersion | 1.0 |
-|||
-| 요청 본문 | 왼쪽이 비어 있으면 빌드가 기본 빌드 매개 변수로 실행됩니다.<br><br>빌드 매개 변수를 설정하려면 다음 샘플과 같이 매개 변수를 본문에 XML로 보내야 합니다. 매개 변수에 대한 설명은 "빌드 매개 변수" 섹션을 참조하세요.`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
+||| | 요청 본문 | 왼쪽이 비어 있으면 빌드가 기본 빌드 매개 변수로 실행됩니다.<br><br>빌드 매개 변수를 설정하려면 다음 샘플과 같이 매개 변수를 본문에 XML로 보내야 합니다. 매개 변수에 대한 설명은 "빌드 매개 변수" 섹션을 참조하세요.`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
 **응답**:
 
@@ -1863,31 +1764,31 @@ HTTP 상태 코드: 200
 
 유효한 빌드 상태:
 
-- Create – 모델을 만듬
-- Queued – 모델 빌드가 트리거되고 쿼리됨
-- Building – 모델을 빌드하는 중
+- Create - 빌드 요청이 만들어짐
+- Queued – 빌드 요청을 보냈으며 큐에 대기됨
+- Building – 빌드가 진행 중임
 - Success – 빌드가 성공적으로 종료됨
 - Error – 오류로 인해 빌드가 종료됨
 - Cancelled – 빌드가 취소됨
-- Cancelling – 빌드 취소 중
+- Cancelling – 빌드에 대한 취소 요청을 보냄
 
 
 다음 경로에서 빌드 ID를 찾을 수 있습니다. `Feed\entry\content\properties\Id`
 
 OData XML
 
-    <feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+    <feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/BuildModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
   	<title type="text" />
   	<subtitle type="text">Build a Model with RequestBody</subtitle>
-  	<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First build'&amp;apiVersion='1.0'</id>
+  	<id>https://api.datamarket.azure.com/amla/recommendations/v3/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First build'&amp;apiVersion='1.0'</id>
   	<rights type="text" />
   	<updated>2014-10-05T08:56:34Z</updated>
-  	<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First%20build'&amp;apiVersion='1.0'" />
+  	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First%20build'&amp;apiVersion='1.0'" />
   	<entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First build'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v3/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First build'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
     <title type="text">BuildAModelEntity2</title>
     <updated>2014-10-05T08:56:34Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First%20build'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First%20build'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">1000272</d:Id>
@@ -1913,7 +1814,7 @@ OData XML
   	</entry>
 	</feed>
 
-### 11.3. 빌드(권장 사항, 순위 또는 FBT) 트리거
+###11.3. 빌드(권장 사항, 순위 또는 FBT) 트리거
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -1922,11 +1823,10 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 | modelId |	모델의 고유 식별자 |
-| userDescription | 카탈로그의 텍스트 식별자 공백을 사용하는 경우 대신 %20을 사용하여 인코드해야 합니다. 위 예제를 참조하세요.<br>최대 길이: 50 |
+| userDescription | 카탈로그의 텍스트 식별자입니다. 공백을 사용하는 경우 대신 %20을 사용하여 인코드해야 합니다. 위 예제를 참조하세요.<br>최대 길이: 50 |
 | buildType | 호출할 빌드의 형식: <br/> - 권장 사항 빌드의 경우 'Recommendation' <br> - 순위 빌드의 경우 'Ranking' <br/> - FBT 빌드의 경우 'Fbt'
 | apiVersion | 1.0 |
-|||
-| 요청 본문 | 왼쪽이 비어 있으면 빌드가 기본 빌드 매개 변수로 실행됩니다.<br><br>빌드 매개 변수를 설정하려면 다음 샘플과 같이 매개 변수를 본문에 XML로 보내야 합니다. 매개 변수에 대한 설명은 "빌드 매개 변수" 섹션을 참조하세요.`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
+||| | 요청 본문 | 왼쪽이 비어 있으면 빌드가 기본 빌드 매개 변수로 실행됩니다.<br><br>빌드 매개 변수를 설정하려면 다음 샘플과 같이 매개 변수를 본문에 XML로 보내야 합니다. 매개 변수에 대한 설명 및 매개 변수 전체 목록을 보려면 "빌드 매개 변수" 섹션을 참조하세요.`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
 **응답**:
 
@@ -1950,18 +1850,18 @@ HTTP 상태 코드: 200
 
 OData XML
 
-    <feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+    <feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/BuildModel" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
   	<title type="text" />
   	<subtitle type="text">Build a Model with RequestBody</subtitle>
-  	<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First build'&amp;apiVersion='1.0'</id>
+  	<id>https://api.datamarket.azure.com/amla/recommendations/v3/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First build'&amp;apiVersion='1.0'</id>
   	<rights type="text" />
   	<updated>2014-10-05T08:56:34Z</updated>
-  	<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First%20build'&amp;apiVersion='1.0'" />
+  	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First%20build'&amp;apiVersion='1.0'" />
   	<entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First build'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v3/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First build'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
     <title type="text">BuildAModelEntity2</title>
     <updated>2014-10-05T08:56:34Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First%20build'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/BuildModel?modelId='9559872f-7a53-4076-a3c7-19d9385c1265'&amp;userDescription='First%20build'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">1000272</d:Id>
@@ -1990,8 +1890,7 @@ OData XML
 
 
 
-
-### 11.4. 모델의 빌드 상태 가져오기
+###11.4. 모델의 빌드 상태 가져오기
 지정된 모델의 빌드 및 해당 상태를 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -2033,18 +1932,18 @@ HTTP 상태 코드: 200
 
 OData XML
 
-	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/GetModelBuildsStatus" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelBuildsStatus" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
 		<subtitle type="text">Get builds status of a model</subtitle>
-    	<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetModelBuildsStatus?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;onlyLastBuild=False&amp;apiVersion='1.0'</id>
+    	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetModelBuildsStatus?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;onlyLastBuild=False&amp;apiVersion='1.0'</id>
 		<rights type="text" />
 		<updated>2014-11-05T17:51:10Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetModelBuildsStatus?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;onlyLastBuild=False&amp;apiVersion='1.0'" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelBuildsStatus?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;onlyLastBuild=False&amp;apiVersion='1.0'" />
 		<entry>
-    		<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetModelBuildsStatus?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;onlyLastBuild=False&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    		<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetModelBuildsStatus?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;onlyLastBuild=False&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 			<title type="text">GetBuildsStatusEntity</title>
 			<updated>2014-11-05T17:51:10Z</updated>
-    		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetModelBuildsStatus?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;onlyLastBuild=False&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetModelBuildsStatus?modelId='1d20c34f-dca1-4eac-8e5d-f299e4e4ad66'&amp;onlyLastBuild=False&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:UserName m:type="Edm.String">b-434e-b2c9-84935664ff20@dm.com</d:UserName>
@@ -2067,7 +1966,7 @@ OData XML
 	</feed>
 
 
-### 11.5. 빌드 상태 가져오기
+###11.5. 빌드 상태 가져오기
 사용자의 모든 모델에 대한 빌드 상태를 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -2109,18 +2008,18 @@ HTTP 상태 코드: 200
 
 OData XML
 
-	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/GetUserBuildsStatus" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetUserBuildsStatus" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
 		<subtitle type="text">Get builds status of a user</subtitle>
-		<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetUserBuildsStatus?onlyLastBuilds=False&amp;apiVersion='1.0'</id>
+		<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetUserBuildsStatus?onlyLastBuilds=False&amp;apiVersion='1.0'</id>
 		<rights type="text" />
 		<updated>2014-11-05T18:41:21Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetUserBuildsStatus?onlyLastBuilds=False&amp;apiVersion='1.0'" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetUserBuildsStatus?onlyLastBuilds=False&amp;apiVersion='1.0'" />
 		<entry>
-			<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetUserBuildsStatus?onlyLastBuilds=False&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetUserBuildsStatus?onlyLastBuilds=False&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 			<title type="text">GetBuildsStatusEntity</title>
 			<updated>2014-11-05T18:41:21Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetUserBuildsStatus?onlyLastBuilds=False&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetUserBuildsStatus?onlyLastBuilds=False&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:UserName m:type="Edm.String">b-434e-b2c9-84935664ff20@dm.com</d:UserName>
@@ -2143,7 +2042,7 @@ OData XML
 	</feed>
 
 
-### 11.6. 빌드 삭제
+###11.6. 빌드 삭제
 빌드를 삭제합니다.
 
 참고: <br>활성 빌드는 삭제할 수 없습니다. 활성 빌드를 삭제하려면 먼저 모델을 다른 활성 빌드로 업데이트해야 합니다.<br>진행 중인 빌드는 삭제할 수 없습니다. 먼저 <strong>빌드 취소</strong>를 호출하여 빌드를 취소해야 합니다.
@@ -2161,7 +2060,7 @@ OData XML
 
 HTTP 상태 코드: 200
 
-### 11.7. 빌드 취소
+###11.7. 빌드 취소
 빌드 중 상태인 빌드를 취소합니다.
 
 | HTTP 메서드 | URI |
@@ -2177,7 +2076,7 @@ HTTP 상태 코드: 200
 
 HTTP 상태 코드: 200
 
-### 11.8. 빌드 매개 변수 가져오기
+###11.8. 빌드 매개 변수 가져오기
 빌드 매개 변수를 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -2193,9 +2092,7 @@ HTTP 상태 코드: 200
 
 HTTP 상태 코드: 200
 
-이 API는 키/값 요소의 컬렉션을 반환합니다. 각 요소는 매개 변수와 해당 값을 나타냅니다.
- - `feed/entry/content/properties/Key` – 빌드 매개 변수 이름
- - `feed/entry/content/properties/Value` – 빌드 매개 변수 값
+이 API는 키/값 요소의 컬렉션을 반환합니다. 각 요소는 매개 변수와 해당 값을 나타냅니다. - `feed/entry/content/properties/Key` – 빌드 매개 변수 이름 - `feed/entry/content/properties/Value` – 빌드 매개 변수 값
 
 아래 표에서는 각 키가 나타내는 값을 설명합니다.
 
@@ -2218,18 +2115,18 @@ HTTP 상태 코드: 200
 
 OData XML
 
-	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
 		<subtitle type="text">Get build parameters</subtitle>
-		<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'</id>
+		<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'</id>
 		<rights type="text" />
 		<updated>2015-01-08T13:50:57Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'" />
 		<entry>
-			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 			<title type="text">GetBuildParametersEntity</title>
 			<updated>2015-01-08T13:50:57Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:Key m:type="Edm.String">UseFeaturesInModel</d:Key>
@@ -2238,10 +2135,10 @@ OData XML
 			</content>
 		</entry>
 		<entry>
-			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
 			<title type="text">GetBuildParametersEntity</title>
 			<updated>2015-01-08T13:50:57Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
+			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:Key m:type="Edm.String">AllowColdItemPlacement</d:Key>
@@ -2250,10 +2147,10 @@ OData XML
 			</content>
 		</entry>
 		<entry>
-			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
 			<title type="text">GetBuildParametersEntity</title>
 			<updated>2015-01-08T13:50:57Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
+			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:Key m:type="Edm.String">EnableFeatureCorrelation</d:Key>
@@ -2262,10 +2159,10 @@ OData XML
 			</content>
 		</entry>
 		<entry>
-			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1</id>
 			<title type="text">GetBuildParametersEntity</title>
 			<updated>2015-01-08T13:50:57Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1" />
+			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:Key m:type="Edm.String">EnableModelingInsights</d:Key>
@@ -2274,10 +2171,10 @@ OData XML
 			</content>
 		</entry>
 		<entry>
-			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1</id>
 			<title type="text">GetBuildParametersEntity</title>
 			<updated>2015-01-08T13:50:57Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1" />
+			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:Key m:type="Edm.String">NumberOfModelIterations</d:Key>
@@ -2286,10 +2183,10 @@ OData XML
 			</content>
 		</entry>
 		<entry>
-			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1</id>
 			<titletype="text">GetBuildParametersEntity</title>
 			<updated>2015-01-08T13:50:57Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1" />
+			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:Key m:type="Edm.String">NumberOfModelDimensions</d:Key>
@@ -2298,10 +2195,10 @@ OData XML
 			</content>
 		</entry>
 		<entry>
-			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1</id>
 			<title type="text">GetBuildParametersEntity</title>
 			<updated>2015-01-08T13:50:57Z</updated>
-			<linkrel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1" />
+			<linkrel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:Key m:type="Edm.String">ItemCutOffLowerBound</d:Key>
@@ -2310,10 +2207,10 @@ OData XML
 			</content>
 		</entry>
 		<entry>
-			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1</id>
 			<title type="text">GetBuildParametersEntity</title>
 			<updated>2015-01-08T13:50:57Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1" />
+			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:Key m:type="Edm.String">ItemCutOffUpperBound</d:Key>
@@ -2322,10 +2219,10 @@ OData XML
 			</content>
 		</entry>
 		<entry>
-			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1</id>
 			<title type="text">GetBuildParametersEntity</title>
 			<updated>2015-01-08T13:50:57Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1" />
+			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:Key m:type="Edm.String">UserCutOffLowerBound</d:Key>
@@ -2334,10 +2231,10 @@ OData XML
 			</content>
 		</entry>
 		<entry>
-			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1</id>
 			<title type="text">GetBuildParametersEntity</title>
 			<updated>2015-01-08T13:50:57Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1" />
+			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:Key m:type="Edm.String">UserCutOffUpperBound</d:Key>
@@ -2346,10 +2243,10 @@ OData XML
 			</content>
 		</entry>
 		<entry>
-			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=10&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=10&amp;$top=1</id>
 			<title type="text">GetBuildParametersEntity</title>
 			<updated>2015-01-08T13:50:57Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=10&amp;$top=1" />
+			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=10&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:Key m:type="Edm.String">ModelingFeatureList</d:Key>
@@ -2358,10 +2255,10 @@ OData XML
 			</content>
 		</entry>
 		<entry>
-			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=11&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=11&amp;$top=1</id>
 			<title type="text">GetBuildParametersEntity</title>
 			<updated>2015-01-08T13:50:57Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=11&amp;$top=1" />
+			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=11&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:Key m:type="Edm.String">ReasoningFeatureList</d:Key>
@@ -2370,10 +2267,10 @@ OData XML
 			</content>
 		</entry>
 		<entry>
-			<id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=12&amp;$top=1</id>
+			<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=12&amp;$top=1</id>
 			<title type="text">GetBuildParametersEntity</title>
 			<updated>2015-01-08T13:50:57Z</updated>
-			<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=12&amp;$top=1" />
+			<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetBuildParameters?buildId='1000653'&amp;apiVersion='1.0'&amp;$skip=12&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:Key m:type="Edm.String">Description</d:Key>
@@ -2383,10 +2280,10 @@ OData XML
 		</entry>
 	</feed>
 
-## 12. 권장 사항
-### 12.1. 권장 사항 가져오기
+##12. 권장 사항
+###12.1. 항목 권장 사항 가져오기(활성 빌드)
 
-활성 빌드 형식이 "Recommendation" 또는 "Fbt"인 권장 사항을 가져옵니다.
+활성 빌드 형식이 "Recommendation" 또는 시드(입력) 항목 목록을 기반으로 하는 "Fbt"인 권장 사항을 가져옵니다.
 
 | HTTP 메서드 | URI |
 |:--------|:--------|
@@ -2400,33 +2297,29 @@ OData XML
 | includeMetatadata | 나중에 사용, 항상 false |
 | apiVersion | 1.0 |
 
-**응답**:
+**응답:**
 
 HTTP 상태 코드: 200
 
 
-응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다.
- - `Feed\entry\content\properties\Id` – 권장 항목 ID
- - `Feed\entry\content\properties\Name` – 항목의 이름
- - `Feed\entry\content\properties\Rating` – 권장 사항의 순위(숫자가 클수록 신뢰도가 높음)
- - `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
+응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다. - `Feed\entry\content\properties\Id` – 권장 항목 ID - `Feed\entry\content\properties\Name` – 항목의 이름 - `Feed\entry\content\properties\Rating` – 권장 사항의 순위(숫자가 클수록 신뢰도가 높음) - `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
 
 아래 예제 응답은 10개의 권장 항목을 포함합니다.
 
 OData XML
 
-	<feed xmlns:base="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/ItemRecommend" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
   	<title type="text" />
  	 <subtitle type="text">Get Recommendation</subtitle>
- 	 <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'</id>
+ 	 <id>https://api.datamarket.azure.com/amla/recommendations/v3/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'</id>
   	<rights type="text" />
   	<updated>2014-10-05T12:28:48Z</updated>
-  	<link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'" />
+  	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'" />
   	<entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v3/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
     <title type="text">GetRecommendationEntity</title>
     <updated>2014-10-05T12:28:48Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">159</d:Id>
@@ -2437,10 +2330,10 @@ OData XML
     </content>
  	 </entry>
  	 <entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v3/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
     <title type="text">GetRecommendationEntity</title>
     <updated>2014-10-05T12:28:48Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">52</d:Id>
@@ -2451,10 +2344,10 @@ OData XML
     </content>
  	 </entry>
  	 <entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v3/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
     <title type="text">GetRecommendationEntity</title>
     <updated>2014-10-05T12:28:48Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">35</d:Id>
@@ -2465,10 +2358,10 @@ OData XML
     </content>
  	 </entry>
  	 <entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v3/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1</id>
     <title type="text">GetRecommendationEntity</title>
     <updated>2014-10-05T12:28:48Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=3&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">124</d:Id>
@@ -2479,10 +2372,10 @@ OData XML
     </content>
   	</entry>
  	 <entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v3/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1</id>
     <title type="text">GetRecommendationEntity</title>
     <updated>2014-10-05T12:28:48Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=4&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">120</d:Id>
@@ -2493,10 +2386,10 @@ OData XML
     </content>
  	 </entry>
  	 <entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v3/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1</id>
     <title type="text">GetRecommendationEntity</title>
     <updated>2014-10-05T12:28:48Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=5&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">96</d:Id>
@@ -2507,10 +2400,10 @@ OData XML
     </content>
   	</entry>
  	 <entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v3/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1</id>
     <title type="text">GetRecommendationEntity</title>
     <updated>2014-10-05T12:28:48Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=6&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">69</d:Id>
@@ -2521,10 +2414,10 @@ OData XML
     </content>
  	 </entry>
  	 <entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v3/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1</id>
     <title type="text">GetRecommendationEntity</title>
     <updated>2014-10-05T12:28:48Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=7&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">172</d:Id>
@@ -2535,10 +2428,10 @@ OData XML
     </content>
  	 </entry>
  	 <entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v3/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1</id>
     <title type="text">GetRecommendationEntity</title>
     <updated>2014-10-05T12:28:48Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=8&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">155</d:Id>
@@ -2549,10 +2442,10 @@ OData XML
     </content>
  	 </entry>
  	 <entry>
-    <id>https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1</id>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v3/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1</id>
     <title type="text">GetRecommendationEntity</title>
     <updated>2014-10-05T12:28:48Z</updated>
-    <link rel="self" href="https://api.datamarket.azure.com/Data.ashx/amla/recommendations/v2/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1" />
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/ItemRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=10&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=9&amp;$top=1" />
     <content type="application/xml">
       <m:properties>
         <d:Id m:type="Edm.String">32</d:Id>
@@ -2564,7 +2457,7 @@ OData XML
  	 </entry>
 	</feed>
 
-### 12.2. 권장 사항 가져오기(특정 빌드)
+###12.2. 항목 권장 사항 가져오기(특정 빌드)
 
 특정 빌드 형식 "Recommendation" 또는 "Fbt"의 권장 사항을 가져옵니다.
 
@@ -2581,27 +2474,311 @@ OData XML
 | buildId | 이 권장 사항 요청에 사용할 빌드 ID |
 | apiVersion | 1.0 |
 
-**응답**:
+**응답:**
 
 HTTP 상태 코드: 200
 
 
-응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다.
- - `Feed\entry\content\properties\Id` – 권장 항목 ID
- - `Feed\entry\content\properties\Name` – 항목의 이름
- - `Feed\entry\content\properties\Rating` – 권장 사항의 순위(숫자가 클수록 신뢰도가 높음)
- - `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
+응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다. - `Feed\entry\content\properties\Id` – 권장 항목 ID - `Feed\entry\content\properties\Name` – 항목의 이름 - `Feed\entry\content\properties\Rating` – 권장 사항의 순위(숫자가 클수록 신뢰도가 높음) - `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
 
 12.1의 응답 예제 참조
 
-## 13. 알림
-Azure 기계 학습 권장 사항에서는 시스템에서 영구적 오류가 발생한 경우 알림을 생성합니다. 다음과 같은 세 가지 유형의 알림이 있습니다.
- 1. 빌드 오류 – 이 알림은 모든 빌드 오류에 대해 트리거됩니다.
- 2. 데이터 취득 처리 오류 - 이 알림은 지난 5분간의 사용 이벤트 처리에서 모델당 오류가 100개가 넘는 경우 트리거됩니다.
- 3. 권장 사항 소비 오류 - 이 알림은 지난 5분간의 권장 사항 요청 처리에서 모델당 오류가 100개가 넘는 경우 트리거됩니다.
+###12.3. FBT 권장 사항 가져오기(활성 빌드)
+
+활성 빌드 형식이 시드(입력) 항목 목록을 기반으로 하는 "Fbt"인 권장 사항을 가져옵니다.
+
+| HTTP 메서드 | URI |
+|:--------|:--------|
+|GET |`<rootURI>/ItemFbtRecommend?modelId=%27<modelId>%27&itemId=%27<itemId>%27&numberOfResults=<int>&minimalScore=<double>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/ItemFbtRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemId=%271003%27&numberOfResults=10&minimalScore=<double>&includeMetadata=false&apiVersion=%271.0%27`|
+
+|	매개 변수 이름 |	유효한 값 |
+|:--------			|:--------								|
+| modelId | 모델의 고유 식별자 |
+| itemId | 권장할 항목입니다. <br>최대 길이: 1024 |
+| numberOfResults | 필요한 결과 수 |
+| minimalScore | 반환된 결과에 포함하기 위해 필요한 FBT 집합의 최소 점수입니다. |
+| includeMetatadata | 나중에 사용, 항상 false |
+| apiVersion | 1.0 |
+
+**응답:**
+
+HTTP 상태 코드: 200
 
 
-### 13.1. 알림 가져오기
+응답은 권장 항목 집합(일반적으로 시드/입력 항목과 함께 구매하는 항목 집합)당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다. - `Feed\entry\content\properties\Id1` – 권장 항목 ID - `Feed\entry\content\properties\Name1` – 항목의 이름 - `Feed\entry\content\properties\Id2` – 두 번째 권장 항목 ID(선택 사항) - `Feed\entry\content\properties\Name2` - 두 번째 항목의 이름(선택 사항) - `Feed\entry\content\properties\Rating` – 권장 사항의 등급(숫자가 클수록 신뢰도가 높음) - `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
+
+아래 예제 응답은 3개의 권장 항목 집합을 포함합니다.
+
+OData XML
+
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/ItemFbtRecommend" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+  	<title type="text" />
+ 	 <subtitle type="text">Get Recommendation</subtitle>
+ 	 <id>https://api.datamarket.azure.com/amla/recommendations/v3/ItemFbtRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemId='1003'&amp;numberOfResults=3&amp;minimalScore=0.1&amp;includeMetadata=false&amp;apiVersion='1.0'</id>
+  	<rights type="text" />
+  	<updated>2014-10-05T12:28:48Z</updated>
+  	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/ItemFbtRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=3&amp;minimalScore=0.1&amp;includeMetadata=false&amp;apiVersion='1.0'" />
+  	<entry>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v3/ItemFbtRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=3&amp;minimalScore=0.1&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+    <title type="text">GetFbtRecommendationEntity</title>
+    <updated>2014-10-05T12:28:48Z</updated>
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/ItemFbtRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=3&amp;minimalScore=0.1&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    <content type="application/xml">
+      <m:properties>
+        <d:Id1 m:type="Edm.String">159</d:Id1>
+        <d:Name1 m:type="Edm.String">159</d:Name1>
+		<d:Id2 m:type="Edm.String"></d:Id2>
+        <d:Name2 m:type="Edm.String"></d:Name2>
+        <d:Rating m:type="Edm.Double">0.543343480387708</d:Rating>
+        <d:Reasoning m:type="Edm.String">People who bought '1003' also bought '159'</d:Reasoning>
+      </m:properties>
+    </content>
+ 	 </entry>
+ 	 <entry>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v3/ItemFbtRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=3&amp;minimalScore=0.1&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1</id>
+    <title type="text">GetFbtRecommendationEntity</title>
+    <updated>2014-10-05T12:28:48Z</updated>
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/ItemFbtRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=3&amp;minimalScore=0.1&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=1&amp;$top=1" />
+    <content type="application/xml">
+      <m:properties>
+        <d:Id1 m:type="Edm.String">52</d:Id1>
+        <d:Name1 m:type="Edm.String">52</d:Name1>
+		<d:Id2 m:type="Edm.String"></d:Id2>
+        <d:Name2 m:type="Edm.String"></d:Name2>
+        <d:Rating m:type="Edm.Double">0.533343480387708</d:Rating>
+        <d:Reasoning m:type="Edm.String">People who bought '1003' also bought '52'</d:Reasoning>
+      </m:properties>
+    </content>
+ 	 </entry>
+ 	 <entry>
+    <id>https://api.datamarket.azure.com/amla/recommendations/v3/ItemFbtRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=3&amp;minimalScore=0.1&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1</id>
+    <title type="text">GetFbtRecommendationEntity</title>
+    <updated>2014-10-05T12:28:48Z</updated>
+    <link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/ItemFbtRecommend?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;itemIds='1003'&amp;numberOfResults=3&amp;minimalScore=0.1&amp;includeMetadata=false&amp;apiVersion='1.0'&amp;$skip=2&amp;$top=1" />
+    <content type="application/xml">
+      <m:properties>
+        <d:Id1 m:type="Edm.String">35</d:Id1>
+        <d:Name1 m:type="Edm.String">35</d:Name1>
+		<d:Id2 m:type="Edm.String">102</d:Id2>
+        <d:Name2 m:type="Edm.String">102</d:Name2>
+        <d:Rating m:type="Edm.Double">0.523343480387708</d:Rating>
+        <d:Reasoning m:type="Edm.String">People who bought '1003' also bought '35' and '102'</d:Reasoning>
+      </m:properties>
+    </content>
+ 	 </entry>
+	</feed>
+
+###12.4. FBT 권장 사항 가져오기(특정 빌드)
+
+특정 빌드 유형 "Fbt"의 권장 사항 가져오기
+
+| HTTP 메서드 | URI |
+|:--------|:--------|
+|GET |`<rootURI>/ItemFbtRecommend?modelId=%27<modelId>%27&itemId=%27<itemId>%27&numberOfResults=<int>&minimalScore=<double>&includeMetadata=<bool>&buildId=<int>&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/ItemFbtRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&itemId=%271003%27&numberOfResults=10&minimalScore=0.1&includeMetadata=false&buildId=1234&apiVersion=%271.0%27`|
+
+|	매개 변수 이름 |	유효한 값 |
+|:--------			|:--------								|
+| modelId | 모델의 고유 식별자 |
+| itemId | 권장할 항목입니다. <br>최대 길이: 1024 |
+| numberOfResults | 필요한 결과 수 |
+| minimalScore | 반환된 결과에 포함하기 위해 필요한 FBT 집합의 최소 점수입니다. |
+| includeMetatadata | 나중에 사용, 항상 false |
+| buildId | 이 권장 사항 요청에 사용할 빌드 ID |
+| apiVersion | 1.0 |
+
+**응답:**
+
+HTTP 상태 코드: 200
+
+
+응답은 권장 항목 집합(일반적으로 시드/입력 항목과 함께 구매하는 항목 집합)당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다. - `Feed\entry\content\properties\Id1` – 권장 항목 ID - `Feed\entry\content\properties\Name1` – 항목의 이름 - `Feed\entry\content\properties\Id2` – 두 번째 권장 항목 ID(선택 사항) - `Feed\entry\content\properties\Name2` - 두 번째 항목의 이름(선택 사항) - `Feed\entry\content\properties\Rating` – 권장 사항의 등급(숫자가 클수록 신뢰도가 높음) - `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
+
+12.3의 응답 예제 참조
+
+###12.5. 사용자 권장 사항 가져오기(활성 빌드)
+
+빌드 형식이 활성 빌드로 표시된 "Recommendation"인 사용자 권장 사항을 가져옵니다.
+
+API는 사용자의 사용 기록에 따라 예측된 항목의 목록을 반환합니다.
+
+참고: 1. FBT 빌드에 대한 사용자 권장 사항은 없습니다. 2. 활성 빌드가 FBT이면 이 메서드는 오류를 반환합니다.
+
+| HTTP 메서드 | URI |
+|:--------|:--------|
+|GET |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
+
+|	매개 변수 이름 |	유효한 값 |
+|:--------			|:--------								|
+| modelId | 모델의 고유 식별자 |
+| userId | 사용자의 고유 식별자 |
+| numberOfResults | 필요한 결과 수 |
+| includeMetatadata | 나중에 사용, 항상 false |
+| apiVersion | 1.0 |
+
+**응답:**
+
+HTTP 상태 코드: 200
+
+
+응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다. - `Feed\entry\content\properties\Id` – 권장 항목 ID - `Feed\entry\content\properties\Name` – 항목의 이름 - `Feed\entry\content\properties\Rating` – 권장 사항의 순위(숫자가 클수록 신뢰도가 높음) - `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
+
+12.1의 응답 예제 참조
+
+###12.6. 항목 목록이 있는 사용자 권장 사항 가져오기(활성 빌드)
+
+추가 항목 목록이 있으며 빌드 형식이 활성 빌드로 표시된 "Recommendation"인 사용자 권장 사항을 가져옵니다.
+
+API는 사용자의 사용 기록에 따른 예측된 항목의 목록과 제공된 추가 항목을 반환합니다.
+
+참고: 1. FBT 빌드에 대한 사용자 권장 사항은 없습니다. 2. 활성 빌드가 FBT이면 이 메서드는 오류를 반환합니다.
+
+
+| HTTP 메서드 | URI |
+|:--------|:--------|
+|GET |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>&itemIds=%27<itemIds>%27&numberOfResults=<int>&includeMetadata=<bool>&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&apiVersion=%271.0%27`|
+
+|	매개 변수 이름 |	유효한 값 |
+|:--------			|:--------								|
+| modelId | 모델의 고유 식별자 |
+| userId | 사용자의 고유 식별자 |
+| itemIds | 권장할 항목의 쉼표로 구분된 목록입니다. 최대 길이: 1024 |
+| numberOfResults | 필요한 결과 수 |
+| includeMetatadata | 나중에 사용, 항상 false |
+| apiVersion | 1.0 |
+
+**응답:**
+
+HTTP 상태 코드: 200
+
+
+응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다. - `Feed\entry\content\properties\Id` – 권장 항목 ID - `Feed\entry\content\properties\Name` – 항목의 이름 - `Feed\entry\content\properties\Rating` – 권장 사항의 순위(숫자가 클수록 신뢰도가 높음) - `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
+
+12.1의 응답 예제 참조
+
+###12.7. 사용자 권장 사항 가져오기(특정 빌드)
+
+특정 빌드 형식이 "Recommendation"인 사용자 권장 사항을 가져옵니다.
+
+API는 사용자의 사용 기록에 따라 예측된 항목의 목록을 반환합니다(특정 빌드에 사용).
+
+참고: FBT 빌드에 대한 사용자 권장 사항은 없습니다.
+
+| HTTP 메서드 | URI |
+|:--------|:--------|
+|GET |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>%27&numberOfResults=<int>&includeMetadata=<bool>&buildId=<int>&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&numberOfResults=10&includeMetadata=false&buildId=50012&apiVersion=%271.0%27`|
+
+
+|	매개 변수 이름 |	유효한 값 |
+|:--------			|:--------								|
+| modelId | 모델의 고유 식별자 |
+| userId | 사용자의 고유 식별자 |
+| numberOfResults | 필요한 결과 수 |
+| includeMetatadata | 나중에 사용, 항상 false |
+| buildId | 이 권장 사항 요청에 사용할 빌드 ID |
+| apiVersion | 1.0 |
+
+**응답:**
+
+HTTP 상태 코드: 200
+
+
+응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다. - `Feed\entry\content\properties\Id` – 권장 항목 ID - `Feed\entry\content\properties\Name` – 항목의 이름 - `Feed\entry\content\properties\Rating` – 권장 사항의 순위(숫자가 클수록 신뢰도가 높음) - `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
+
+12.1의 응답 예제 참조
+
+
+###12.8. 항목 목록이 있는 사용자 권장 사항 가져오기(특정 빌드)
+
+특정 빌드 형식이 "Recommendation"인 사용자 권장 사항과 추가 항목 목록을 가져옵니다.
+
+API는 사용자의 사용 기록에 따른 예측된 항목 목록과 추가 항목 목록을 반환합니다.
+
+참고: FBT 빌드에 대한 사용자 권장 사항은 없습니다.
+
+| HTTP 메서드 | URI |
+|:--------|:--------|
+|GET |`<rootURI>/UserRecommend?modelId=%27<modelId>%27&userId=%27<userId>%27&itemIds=%27<itemId>%27&numberOfResults=<int>&includeMetadata=<bool>&buildId=<int>&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/UserRecommend?modelId=%272779c063-48fb-46c1-bae3-74acddc8c1d1%27&userId=%27u1101%27&itemIds=%271003%27&numberOfResults=10&includeMetadata=false&buildId=50012&apiVersion=%271.0%27`|
+
+
+
+|	매개 변수 이름 |	유효한 값 |
+|:--------			|:--------								|
+| modelId | 모델의 고유 식별자 |
+| userId | 사용자의 고유 식별자 |
+| itemIds | 권장할 항목의 쉼표로 구분된 목록입니다. 최대 길이: 1024 |
+| numberOfResults | 필요한 결과 수 |
+| includeMetatadata | 나중에 사용, 항상 false |
+| buildId | 이 권장 사항 요청에 사용할 빌드 ID |
+| apiVersion | 1.0 |
+
+**응답:**
+
+HTTP 상태 코드: 200
+
+
+응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다. - `Feed\entry\content\properties\Id` – 권장 항목 ID - `Feed\entry\content\properties\Name` – 항목의 이름 - `Feed\entry\content\properties\Rating` – 권장 사항의 순위(숫자가 클수록 신뢰도가 높음) - `Feed\entry\content\properties\Reasoning` – 권장 사항 추론(예: 권장 사항 설명)
+
+12.1의 응답 예제 참조
+
+##13. 사용자 사용 기록
+권장 모델이 작성되면 시스템은 작성에 사용된 사용자 기록(특정 사용자와 관련된 항목)을 검색할 수 있습니다. 이 API를 통해 사용자 기록을 검색할 수 있습니다.
+
+참고: 이 사용자 기록은 현재 권장 사항 작성에만 사용할 수 있습니다.
+
+###13.1 사용자 기록 검색
+활성 빌드 또는 지정된 사용자 ID에 대해 지정된 빌드에 사용되는 항목 목록을 검색합니다.
+
+| HTTP 메서드 | URI |
+|:--------|:--------|
+|GET | 활성 빌드에 대한 사용자 기록을 가져오기<br/>`<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&apiVersion=%271.0%27`<br/><br/>지정된 빌드에 대한 사용자 기록 가져오기 `<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&buildId=<int>&apiVersion=%271.0%27`<br/><br/>예제:`<rootURI>/GetUserHistory?modelId=%2727967136e8-f868-4258-9331-10d567f87fae%27&&userId=%27u_1013%27&apiVersion=%271.0%277`|
+
+
+|	매개 변수 이름 |	유효한 값 |
+|:--------			|:--------								|
+| modelId | 모델의 고유 식별자입니다.|
+| userId | 사용자의 고유 식별자입니다.
+| buildId | 사용자 기록을 가져올 원본 빌드를 나타내기 위한 선택적 매개 변수입니다.
+| apiVersion | 1.0 |
+
+
+**응답:**
+
+HTTP 상태 코드: 200
+
+응답은 권장 항목당 하나의 항목을 포함합니다. 각 항목에는 다음 데이터가 있습니다. - `Feed\entry\content\properties\Id` – 권장 항목 ID - `Feed\entry\content\properties\Name` – 항목의 이름 - `Feed\entry\content\properties\Rating` – 해당 없음.- `Feed\entry\content\properties\Reasoning` – 해당 없음
+
+OData XML
+
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetUserHistory" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<title type="text" />
+	<subtitle type="text">Get User History</subtitle>
+	<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetUserHistory?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;userId='u_1013'&amp;apiVersion='1.0'</id>
+	<rights type="text" />
+	<updated>2015-05-26T15:32:47Z</updated>
+	<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetUserHistory?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;userId='u_1013'&amp;apiVersion='1.0'" />
+	<entry>
+		<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetUserHistory?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;userId='u_1013'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+		<title type="text">CatalogItemsThatContainATokenEntity</title>
+		<updated>2015-05-26T15:32:47Z</updated>
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetUserHistory?modelId='2779c063-48fb-46c1-bae3-74acddc8c1d1'&amp;userId='u_1013'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+		<content type="application/xml">
+			<m:properties>
+				<d:Id m:type="Edm.String">2406E770-769C-4189-89DE-1C9283F93A96</d:Id>
+				<d:Name m:type="Edm.String">Clara Callan</d:Name>
+				<d:Rating m:type="Edm.Double">0</d:Rating>
+				<d:Reasoning m:type="Edm.String"/>
+				<d:Metadata m:type="Edm.String"/>
+				<d:FormattedRating m:type="Edm.Double" m:null="true"/>
+			</m:properties>
+		</content>
+	</entry>
+</feed>
+
+##14. 알림
+Azure 기계 학습 권장 사항에서는 시스템에서 영구적 오류가 발생한 경우 알림을 생성합니다. 다음과 같은 세 가지 유형의 알림이 있습니다. 1. 빌드 오류 – 이 알림은 모든 빌드 오류에 대해 트리거됩니다. 2. 데이터 취득 처리 오류 - 이 알림은 지난 5분간의 사용 이벤트 처리에서 모델당 오류가 100개가 넘는 경우 트리거됩니다. 3. 권장 사항 소비 오류 - 이 알림은 지난 5분간의 권장 사항 요청 처리에서 모델당 오류가 100개가 넘는 경우 트리거됩니다.
+
+
+###14.1. 알림 가져오기
 모든 모델 또는 단일 모델에 대한 모든 알림을 검색합니다.
 
 | HTTP 메서드 | URI |
@@ -2613,10 +2790,9 @@ Azure 기계 학습 권장 사항에서는 시스템에서 영구적 오류가 �
 |:--------			|:--------								|
 | modelId | 선택적 매개 변수. 생략한 경우 모든 모델에 대한 모든 알림을 가져옵니다. <br>유효한 값: 모델의 고유 식별자|
 | apiVersion | 1.0 |
-|||
-| 요청 본문 | 없음 |
+||| | 요청 본문 | 없음 |
 
-**응답**:
+**응답:**
 
 HTTP 상태 코드: 200
 
@@ -2629,18 +2805,18 @@ OData XML
 		* feed\entry\content\properties\DateCreated – Date that this notification was created in UTC format.
 		* feed\entry\content\properties\NotificationType – Notification types. Values are BuildFailure, RecommendationFailure, and DataAquisitionFailure.
 
-	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v2/GetNotifications" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+	<feed xmlns:base="https://api.datamarket.azure.com/amla/recommendations/v3/GetNotifications" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
 		<title type="text" />
 		<subtitle type="text">Get a list of Notifications for a user</subtitle>
-		<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetNotifications?modelId='967136e8-f868-4258-9331-10d567f87fae'&amp;apiVersion='1.0'</id>
+		<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetNotifications?modelId='967136e8-f868-4258-9331-10d567f87fae'&amp;apiVersion='1.0'</id>
 		<rights type="text" />
 		<updated>2014-11-04T13:24:23Z</updated>
-		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetNotifications?modelId='967136e8-f868-4258-9331-10d567f87fae'&amp;apiVersion='1.0'" />
+		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetNotifications?modelId='967136e8-f868-4258-9331-10d567f87fae'&amp;apiVersion='1.0'" />
 		<entry>
-				<id>https://api.datamarket.azure.com/amla/recommendations/v2/GetNotifications?modelId='967136e8-f868-4258-9331-10d567f87fae'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
+				<id>https://api.datamarket.azure.com/amla/recommendations/v3/GetNotifications?modelId='967136e8-f868-4258-9331-10d567f87fae'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1</id>
 			<title type="text">GetAListOfNotificationsForAUserEntity</title>
 			<updated>2014-11-04T13:24:23Z</updated>
-    		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v2/GetNotifications?modelId='967136e8-f868-4258-9331-10d567f87fae'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
+    		<link rel="self" href="https://api.datamarket.azure.com/amla/recommendations/v3/GetNotifications?modelId='967136e8-f868-4258-9331-10d567f87fae'&amp;apiVersion='1.0'&amp;$skip=0&amp;$top=1" />
 			<content type="application/xml">
 				<m:properties>
 					<d:UserName m:type="Edm.String">515506bc-3693-4dce-a5e2-81cb3e8efb56@dm.com</d:UserName>
@@ -2653,7 +2829,7 @@ OData XML
 		</entry>
 	</feed>
 
-### 13.2. 모델 알림 삭제
+###14.2. 모델 알림 삭제
 모델에 대한 읽은 알림을 모두 삭제합니다.
 
 | HTTP 메서드 | URI |
@@ -2665,14 +2841,13 @@ OData XML
 |:--------			|:--------								|
 | modelId | 모델의 고유 식별자 |
 | apiVersion | 1.0 |
-|||
-| 요청 본문 | 없음 |
+||| | 요청 본문 | 없음 |
 
 **응답**:
 
 HTTP 상태 코드: 200
 
-### 13.3. 사용자 알림 삭제
+###14.3. 사용자 알림 삭제
 모든 모델에 대한 모든 알림을 삭제합니다.
 
 | HTTP 메서드 | URI |
@@ -2683,15 +2858,17 @@ HTTP 상태 코드: 200
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 | apiVersion | 1.0 |
-|||
-| 요청 본문 | 없음 |
+||| | 요청 본문 | 없음 |
 
 **응답**:
 
 HTTP 상태 코드: 200
 
-## 14. 법적 정보
-이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 뷰는 통지 없이 변경될 수 있습니다.<br><br> 여기에서 설명하는 일부 예는 설명 목적으로만 제공되는 가상의 예이며, 어떠한 실제 사례와도 연관시킬 의도가 없으며 그렇게 유추해서도 안 됩니다.<br><br> 이 문서는 Microsoft 제품의 지적 소유권에 대한 법적 권한을 사용자에게 제공하지 않습니다. 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다.<br><br> © 2015 Microsoft. All rights reserved.
 
-<!--HONumber=52-->
+
+
+##15. 법적 정보
+이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 뷰는 통지 없이 변경될 수 있습니다.<br><br> 여기에서 설명하는 일부 예는 설명 목적으로만 제공되는 가상의 예이며, 어떠한 실제 사례와도 연관시킬 의도가 없으며 그렇게 유추해서도 안 됩니다.<br><br> 이 문서는 Microsoft 제품의 지적 소유권에 대한 법적 권한을 사용자에게 제공하지 않습니다. 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다.<br><br> © 2015 Microsoft. All rights reserved.
  
+
+<!---HONumber=July15_HO2-->

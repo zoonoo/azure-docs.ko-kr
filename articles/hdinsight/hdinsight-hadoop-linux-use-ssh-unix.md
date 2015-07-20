@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/20/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Linux, Unix 또는 OS X에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용(미리 보기)
@@ -61,7 +61,7 @@ Linux 기반 HDInsight 클러스터를 만드는 경우 SSH 키를 사용할 때
 
 	다음 정보를 묻는 메시지가 나타납니다.
 
-	* 파일 위치 - 위치는 기본적으로 ~/.ssh/id_rsa로 설정됩니다.
+	* 파일 위치 - 위치는 기본적으로 ~/.ssh/id\\_rsa로 설정됩니다.
 	* 암호 - 이것을 다시 입력하라는 메시지가 표시됩니다.
 
 		> [AZURE.NOTE]키에 대한 보안 암호를 사용하는 것이 좋습니다. 그러나 암호를 잊은 경우 복구할 수 있는 방법이 없습니다.
@@ -76,7 +76,7 @@ Linux 기반 HDInsight 클러스터를 만들 때 이전에 생성한 공개 키
 
 * **Mac, Linux 및 Windows용 Azure CLI** - 명령줄 명령을 사용하여 클러스터를 만듭니다.
 
-이러한 각 메서드는 각각의 암호 또는 공개 키가 필요합니다. Linux 기반 HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 <a href="/documentation/articles/hdinsight-hadoop-provision-linux-clusters/" target="_blank">Linux 기반 HDInsight 클러스터 프로비전</a>을 참조하세요.
+이러한 각 메서드는 각각의 암호 또는 공개 키가 필요합니다. Linux 기반 HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [Linux 기반 HDInsight 클러스터 프로비전](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
 
 ###Azure 포털
 
@@ -84,8 +84,7 @@ Linux 기반 HDInsight 클러스터를 만들 때 이전에 생성한 공개 키
 
 ![공개 키를 묻는 양식의 이미지](./media/hdinsight-hadoop-linux-use-ssh-unix/ssh-key.png)
 
-> [AZURE.NOTE]키 파일은 단순한 텍스트 파일입니다. 내용은 다음과 유사합니다. 
-```
+> [AZURE.NOTE]키 파일은 단순한 텍스트 파일입니다. 내용은 다음과 유사합니다. ```
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KGz90pgMk3VRJk4PEUSELfXKxP3NtsVwLVPN1l09utI/tKHQ6WL3qy89WVVVLiwzL7tfJ2B08Gmcw8mC/YoieT/YG+4I4oAgPEmim+6/F9S0lU2I2CuFBX9JzauX8n1Y9kWzTARST+ERx2hysyA5ObLv97Xe4C2CQvGE01LGAXkw2ffP9vI+emUM+VeYrf0q3w/b1o/COKbFVZ2IpEcJ8G2SLlNsHWXofWhOKQRi64TMxT7LLoohD61q2aWNKdaE4oQdiuo8TGnt4zWLEPjzjIYIEIZGk00HiQD+KCB5pxoVtp user@system
 > ```
 
@@ -95,7 +94,7 @@ ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCelfkjrpYHYiks4TM+r1LVsTYQ4jAXXGeOAF9Vv/KG
 
 [Mac, Linux 및 Windows용 Azure CLI](../xplat.md)를 사용하여 `azure hdinsight cluster create` 명령을 통해 새 클러스터를 만들 수 있습니다.
 
-이 명령은 사용에 대한 자세한 내용은 <a href="../hdinsight-hadoop-provision-linux-clusters/" target="_blank">사용자 지정 옵션을 사용하여 HDInsight에서 Hadoop Linux 클러스터 프로비전</a>을 참조하세요.
+이 명령 사용에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight에서 Hadoop Linux 클러스터 프로비전](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
 
 ##Linux 기반 HDInsight 클러스터에 연결
 
@@ -140,7 +139,7 @@ SSH 키를 사용하여 사용자 계정을 인증하는 경우 클라이언트�
 
         /tmp/ssh-rfSUL1ldCldQ/agent.1792
 
-    아무 것도 반환되지 않으면 **ssh-agent**가 실행되고 있지 않음을 나타냅니다. 운영 체제 설명서에서 **ssh-agent**를 설치 및 구성하는 특정 단계를 참조하거나 <a href="http://mah.everybody.org/docs/ssh" target="_blank">ssh와 함께 ssh-agent 사용</a>을 참조하세요.
+    아무 것도 반환되지 않으면 **ssh-agent**가 실행되고 있지 않음을 나타냅니다. 운영 체제 설명서에서 **ssh-agent**를 설치 및 구성하는 특정 단계를 참조하거나 [ssh와 함께 ssh-agent 사용](http://mah.everybody.org/docs/ssh)을 참조하세요.
 
 4. **ssh-agent**가 실행 중인지 확인한 후에는 다음을 사용하여 SSH 개인 키를 에이전트에 추가합니다.
 
@@ -242,11 +241,11 @@ SSH 터널을 만들고 브라우저를 구성하여 클러스터에 연결하�
 
 	> [AZURE.NOTE]**Remote DNS**를 선택하면 HDInsight 클러스터를 통해 DNS(Domain Name System) 요청이 확인됩니다. 선택하지 않은 경우 DNS가 로컬로 확인됩니다.
 
-	Firefox에서 프록시 설정을 사용하거나 사용하지 않도록 설정한 상태에서 <a href="http://www.whatismyip.com/" target="_blank">http://www.whatismyip.com/</a>과 같은 사이트를 방문하여 트래픽이 터널을 통해 라우팅되는지 확인할 수 있습니다. 설정이 활성화되어 있는 동안 IP 주소는 Microsoft Azure 데이터 센터에 있는 컴퓨터의 주소입니다.
+	Firefox에서 프록시 설정을 사용하거나 사용하지 않도록 설정한 상태에서 [http://www.whatismyip.com/](http://www.whatismyip.com/)과 같은 사이트를 방문하여 트래픽이 터널을 통해 라우팅되는지 확인할 수 있습니다. 설정이 활성화되어 있는 동안 IP 주소는 Microsoft Azure 데이터 센터에 있는 컴퓨터의 주소입니다.
 
 ###브라우저 확장
 
-작동하는 터널을 사용하여 브라우저를 구성하는 동안 보통 터널을 통해 모든 트래픽을 라우팅하지 않으려고 할 수 있습니다. <a href="http://getfoxyproxy.org/" target="_blank">FoxyProxy</a> 같은 브라우저 확장 프로그램이 URL 요청에 대해 일치하는 패턴을 지원하므로(FoxyProxy Standard 또는 Plus만 해당) 특정 URL에 대한 요청만 터널을 통해 전송됩니다.
+작동하는 터널을 사용하여 브라우저를 구성하는 동안 보통 터널을 통해 모든 트래픽을 라우팅하지 않으려고 할 수 있습니다. [FoxyProxy](http://getfoxyproxy.org/) 같은 브라우저 확장 프로그램이 URL 요청에 대해 일치하는 패턴을 지원하므로(FoxyProxy Standard 또는 Plus만 해당) 특정 URL에 대한 요청만 터널을 통해 전송됩니다.
 
 FoxyProxy 표준을 설치한 경우 터널을 통해 HDInsight에 대한 트래픽을 전달만 하도록 구성하려면 다음 단계를 따르세요.
 
@@ -295,6 +294,5 @@ FoxyProxy 표준을 설치한 경우 터널을 통해 HDInsight에 대한 트래
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

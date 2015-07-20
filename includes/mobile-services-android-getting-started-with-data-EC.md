@@ -157,4 +157,4 @@
 <!-- URLs. -->
 [모바일 서비스 Android SDK]: http://aka.ms/Iajk6q
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

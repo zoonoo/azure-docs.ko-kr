@@ -68,5 +68,6 @@ Azure SQL 데이터베이스는 기본적으로 DTU(데이터베이스 처리량
   [AzureDb datamasking]: http://azure.microsoft.com/documentation/articles/sql-database-dynamic-data-masking-get-started/
 
  
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

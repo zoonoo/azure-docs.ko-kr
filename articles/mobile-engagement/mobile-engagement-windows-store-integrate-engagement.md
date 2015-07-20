@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/06/2015" 
+	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
 #Windows 유니버설 앱 Engagement SDK 통합
@@ -220,7 +220,7 @@ Engagement에서 사용자, 세션, 활동, 작동 중단 및 기술 통계를 �
 
 > [AZURE.IMPORTANT]세션을 올바르게 종료해야 합니다.
 > 
-> 응용 프로그램을 닫을 때 Windows 유니버설 SDK는 `EndActivity` 메서드를 자동으로 호출합니다. 따라서 사용자 활동이 변경될 때마다 `StartActivity` 메서드를 호출하는 것이 *상당히* 좋으며 `EndActivity` 메서드는 호출하지 *않는* 것이 좋습니다. 이 메서드를 호출하면 현재 세션이 강제로 종료되기 때문입니다.
+> 응용 프로그램을 닫을 때 Windows 유니버설 SDK는 `EndActivity` 메서드를 자동으로 호출합니다. 따라서 사용자 활동이 변경될 때마다 `StartActivity` 메서드를 호출하는 것이 **상당히** 좋으며 `EndActivity` 메서드는 호출하지 **않는** 것이 좋습니다. 이 메서드는 현재 사용자가 응용 프로그램을 떠난 Engagement 서버에 보내며 이는 모든 응용 프로그램 로그에 영향을 미칩니다.
 
 ##고급 보고
 
@@ -263,11 +263,12 @@ EngagementConfiguration 개체를 사용하여 작동 중단 보고를 false로 
 
 인수는 **밀리초** 단위의 값입니다. 언제든지 실시간 로깅을 다시 활성화하려면 매개 변수를 포함하지 않거나 값을 0으로 설정하여 메서드를 호출하면 됩니다.
 
-버스트 모드를 사용하는 경우 배터리 수명은 약간 길어지지만 Engagement 모니터에 영향을 주게 됩니다. 모든 세션 및 작업 기간이 버스트 임계값으로 반올림되므로 버스트 임계값보다 짧은 세션과 작업은 표시되지 않을 수도 있습니다. 30000(30초) 이하의 버스트 임계값을 사용하는 것이 좋습니다.
+버스트 모드를 사용하는 경우 배터리 수명은 약간 길어지지만 Engagement 모니터에 영향을 주게 됩니다. 모든 세션 및 작업 기간이 버스트 임계값으로 반올림되므로 버스트 임계값보다 짧은 세션과 작업은 표시되지 않을 수도 있습니다. 30000(30초) 이하의 버스트 임계값을 사용하는 것이 좋습니다. 저장된 로드는 300개 항목으로 제한됩니다. 보내는 로그가 너무 길면 일부 로그가 손실될 수 있습니다.
 
 > [AZURE.WARNING]1초보다 짧은 기간으로 버스트 임계값을 구성할 수는 없습니다. 버스트 임계값을 1초보다 짧게 구성하면 SDK에는 오류가 포함된 추적이 표시되며, 값은 자동으로 기본값인 0초로 다시 설정됩니다. 그러면 SDK에서 실시간 로그 보고가 트리거됩니다.
 
 [here]: http://www.nuget.org/packages/Capptain.WindowsCS
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

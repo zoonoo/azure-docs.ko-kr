@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="04/17/2015"
+   ms.date="07/08/2015"
    ms.author="brjohnst"/>
 
 # .NET 응용 프로그램에서 Azure 검색을 사용하는 방법 #
@@ -29,11 +29,11 @@ SDK는 클라이언트 라이브러리 `Microsoft.Azure.Search`로 구성되어 
 - [Microsoft.Azure.Search](https://msdn.microsoft.com/library/azure/microsoft.azure.search.aspx)
 - [Microsoft.Azure.Search.Models](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.aspx)
 
-Azure 검색.NET SDK의 현재 버전은 `0.10.0-preview`입니다. 이는 SDK의 시험판 버전입니다. 첫 번째 안정적인 버전에 반영하기 위한 피드백을 제공하려는 경우 [피드백 페이지](http://feedback.azure.com/forums/263029-azure-search)를 방문하십시오.
+Azure 검색.NET SDK의 현재 버전은 시험판입니다. 첫 번째 안정적인 버전에 반영하기 위한 피드백을 제공하려는 경우 [피드백 페이지](http://feedback.azure.com/forums/263029-azure-search)를 방문하십시오.
 
-.NET SDK는 [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 문서화된 Azure 검색 REST API의 `2015-02-28` 버전을 지원합니다. Microsoft의 자연어 프로세서 또는 `moreLikeThis` 매개 변수 검색 등 이 버전의 일부가 *아닌* 새로운 기능들은 [미리 보기](../search-api-2015-02-28-preview/)에 있으나 SDK에서는 아직 사용할 수 없습니다. 기능에 대한 업데이트 여부는 [검색 서비스 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx) 또는 [Azure 검색의 최신 업데이트](../search-latest-updates/)에서 다시 확인할 수 있습니다 
+.NET SDK는 [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 문서화된 Azure 검색 REST API의 `2015-02-28` 버전을 지원합니다. Microsoft의 자연어 프로세서 또는 `moreLikeThis` 매개 변수 검색 등 이 버전의 일부가 *아닌* 새로운 기능들은 [미리 보기](search-api-2015-02-28-preview.md)에 있으나 SDK에서는 아직 사용할 수 없습니다. 기능에 대한 업데이트 여부는 [검색 서비스 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx) 또는 [Azure 검색의 최신 업데이트](search-latest-updates.md)에서 다시 확인할 수 있습니다
 
-이 SDK에서 지원되지 않는 기타 기능에는 
+이 SDK에서 지원되지 않는 기타 기능에는
 
   - [관리 작업](https://msdn.microsoft.com/library/azure/dn832684.aspx)이 있습니다. 관리 작업에는 Azure 검색 서비스 프로비전과 API 키 관리가 있습니다. 이들 기능은 향후 별도의 Azure 검색.NET 관리 SDK에서 지원됩니다.
 
@@ -41,7 +41,7 @@ Azure 검색.NET SDK의 현재 버전은 `0.10.0-preview`입니다. 이는 SDK�
 
 1. Visual Studio 2013 또는 최신 버전
 
-2. Azure 검색 서비스 SDK를 사용하려면 서비스 이름과 하나 이상의 API 키가 필요합니다. [포털에서 서비스 만들기](../search-create-service-portal/)는 이들 단계를 통해 도움을 받을 수 있습니다.
+2. Azure 검색 서비스 SDK를 사용하려면 서비스 이름과 하나 이상의 API 키가 필요합니다. [포털에서 서비스 만들기](search-create-service-portal.md)는 이들 단계를 통해 도움을 받을 수 있습니다.
 
 3. Visual Studio에서 "NuGet 패키지 관리"를 사용하여 Azure 검색.NET SDK [NuGet 패키지](http://www.nuget.org/packages/Microsoft.Azure.Search)를 다운로드하십시오. NuGet.org에서 패키지 이름 `Microsoft.Azure.Search`을(를) 검색하십시오. "시험판 포함"을 선택하여 검색 결과에 시험판 SDK가 나타나도록 하십시오.
 
@@ -362,7 +362,7 @@ Azure 검색.NET SDK가 어떻게 `Hotel`와(과) 같은 사용자 정의 클래
         }
     }
 
-첫째, 이 메서드는 새로운 `SearchParameters` 개체를 만듭니다  이는 정렬, 필터링, 페이징, 패시팅 같은 쿼리에 대한 추가 옵션을 지정하는 데 사용됩니다. 이 예에서는 `Filter` 속성만 설정합니다.
+첫째, 이 메서드는 새로운 `SearchParameters` 개체를 만듭니다 이는 정렬, 필터링, 페이징, 패시팅 같은 쿼리에 대한 추가 옵션을 지정하는 데 사용됩니다. 이 예에서는 `Filter` 속성만 설정합니다.
 
 다음 단계를 실제로 검색 쿼리를 실행합니다. 이는 `Documents.Search` 메서드를 사용하여 실행됩니다. 이 경우, 문자열로 사용할 검색 텍스트와 앞서 만든 검색 매개 변수를 전달합니다. 또한 SDK에 검색 결과 내 문서를 `Hotel` 유형의 개체로 역직렬화하도록 명령하는 `Documents.Search`에 대한 유형 매개 변수로 `Hotel`을(를) 지정할 수도 있습니다.
 
@@ -623,5 +623,6 @@ Hotel.cs:
             }
         }
     }
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

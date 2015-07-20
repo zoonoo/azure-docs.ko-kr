@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure 알림 허브 시작" 
-	description="Azure 알림 허브를 사용하여 알림을 푸시하는 방법에 대해 알아봅니다." 
-	services="notification-hubs" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Azure 알림 허브 시작"
+	description="Azure 알림 허브를 사용하여 알림을 푸시하는 방법에 대해 알아봅니다."
+	services="notification-hubs"
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor="dwrede"/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="hero-article" 
-	ms.date="03/16/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article" 
+	ms.date="06/09/2015"
 	ms.author="wesmc"/>
 
 # 알림 허브 시작
@@ -49,15 +49,15 @@
 
 2. **앱 이름**에 앱의 이름을 입력하고 **앱 이름 예약**을 클릭한 후 **저장**을 클릭합니다.
 
-	   ![][1]
-	
-	   이렇게 하면 앱을 새로 Windows 스토어에 등록하게 됩니다.
+   	![][1]
+
+   	이렇게 하면 앱을 새로 Windows 스토어에 등록하게 됩니다.
 
 3. Visual Studio에서 **새 응용 프로그램** 템플릿을 사용하여 새 Visual C# 스토어 앱을 만듭니다.
 
    	![][2]
 
-4. 솔루션 탐색기에서 Windows 스토어 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고 **스토어**를 클릭한 후 **응용 프로그램을 스토어에 연결...**을 클릭합니다. 
+4. 솔루션 탐색기에서 Windows 스토어 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고 **스토어**를 클릭한 후 **응용 프로그램을 스토어에 연결...**을 클릭합니다.
 
    	![][3]
 
@@ -71,9 +71,9 @@
 
    	이렇게 하면 필요한 Windows 스토어 등록 정보가 응용 프로그램 매니페스트에 추가됩니다.
 
-7. (옵션) Windows Phone 스토어 앱 프로젝트에 대해 4~6단계를 반복합니다.  
+7. (옵션) Windows Phone 스토어 앱 프로젝트에 대해 4~6단계를 반복합니다.
 
-7. 새 앱의 Windows 개발자 센터 페이지로 돌아가서 **서비스**를 클릭합니다.
+7. 새 앱의 Windows 개발자 센터 페이지로 돌아가서 **Services**를 클릭합니다.
 
    	![][5]
 
@@ -81,11 +81,11 @@
 
    	![][17]
 
-9. **앱 설정** 탭에서 **클라이언트 암호** 및 **패키지 SID(보안 식별자)**를 적어둡니다. 
+9. **앱 설정** 탭에서 **클라이언트 암호** 및 **패키지 SID(보안 식별자)**를 적어둡니다.
 
    	![][6]
 
- 	>[AZURE.NOTE]**보안 정보** 클라이언트 암호와 패키지 SID는 중요한 보안 자격 증명입니다. 다른 사람과 공유하지 말고 앱과 함께 분산하지 마세요.
+ 	> [AZURE.NOTE]**보안 정보** 클라이언트 암호와 패키지 SID는 중요한 보안 자격 증명입니다. 다른 사람과 공유하지 말고 앱과 함께 분산하지 마세요.
 
 ##알림 허브 구성
 
@@ -119,7 +119,7 @@
 
 ##알림 허브에 앱 연결
 
-1. Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다. 
+1. Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
 
 	그러면 NuGet 패키지 관리 대화 상자가 표시됩니다.
 
@@ -129,23 +129,23 @@
 
 	그러면 <a href="http://nuget.org/packages/WindowsAzure.Messaging.Managed/">WindowsAzure.Messaging.Managed NuGet 패키지</a>를 사용하여 모든 프로젝트에서 Windows용 Azure 메시징 라이브러리에 대한 참조가 다운로드, 설치 및 추가됩니다.
 
-3. App.xaml.cs 프로젝트 파일을 열고 다음 `using` 문을 추가합니다.
+3. App.xaml.cs 프로젝트 파일을 열고 다음 `using` 문을 추가합니다. 범용 프로젝트에서는 이 파일이 `<project_name>.Shared` 폴더에 위치해 있습니다.
 
         using Windows.Networking.PushNotifications;
         using Microsoft.WindowsAzure.Messaging;
 		using Windows.UI.Popups;
 
-	범용 프로젝트에서는 이 파일이 `<project_name>.Shared` 폴더에 위치해 있습니다.
+	
 
 4. 또한 App.xaml.cs에서 다음과 같은 **InitNotificationsAsync** 메서드 정의를 **App** 클래스에 추가합니다.
-	
+
 	    private async void InitNotificationsAsync()
         {
             var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-			
-            var hub = new NotificationHub("<hub name>", "<connection string with listen access>");              
+
+            var hub = new NotificationHub("<hub name>", "<connection string with listen access>");
 			var result = await hub.RegisterNativeAsync(channel.Uri);
-            
+
             // Displays the registration ID so you know it was successful
             if (result.RegistrationId != null)
             {
@@ -155,11 +155,11 @@
             }
 
         }
-	
+
     이 코드는 WNS에서 앱의 ChannelURI를 검색한 후 해당 ChannelURI를 알림 허브에 등록합니다.
 
     >[AZURE.NOTE]"hub name" 자리 표시자를 포털의 **알림 허브** 탭에 나타나는 알림 허브의 이름으로 바꿔야 합니다(예: 이전 예제의 **mynotificationhub2**). 또한 연결 문자열 자리 표시자를 이전 섹션에서 가져온 **DefaultListenSharedAccessSignature** 연결 문자열로 바꿉니다.
-    
+
 5. App.xaml.cs에서 **OnLaunched** 이벤트 처리기의 맨 위에 다음과 같은 새 **InitNotificationsAsync** 메서드 호출을 추가합니다.
 
         InitNotificationsAsync();
@@ -175,7 +175,7 @@
 7. (옵션) Windows Phone 스토어 앱 프로젝트에서 이전 단계를 반복합니다.
 
 8. **F5** 키를 눌러 앱을 실행합니다. 등록 키가 포함된 팝업 대화 상자가 표시됩니다.
-   
+
    	![][19]
 
 9. (옵션) 이전 단계를 반복하여 다른 프로젝트를 실행합니다.
@@ -186,20 +186,20 @@
 
 <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 인터페이스</a>를 사용하는 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다. 이 자습서에서는 .NET 콘솔 응용 프로그램을 사용하여 알림을 보냅니다. 알림 허브와 통합된 Azure 모바일 서비스 백 엔드에서 알림을 보내는 방법에 대한 예제는 **모바일 서비스에서 푸시 알림 시작**([.NET 백 엔드](../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [JavaScript 백 엔드](../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md))을 참조하세요. REST API를 사용하여 알림을 보내는 방법에 대한 예제는 **Java/PHP에서 알림 허브를 사용하는 방법**([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md))을 참조하세요.
 
-1. 솔루션을 마우스 오른쪽 단추로 클릭하고, **추가** 및 **새 프로젝트...**를 선택한 후에 **Visual C#** 아래에서 **Windows** 및 **콘솔 응용 프로그램**을 클릭하고 **확인**을 클릭합니다. 
+1. 솔루션을 마우스 오른쪽 단추로 클릭하고, **추가** 및 **새 프로젝트...**를 선택한 후에 **Visual C#** 아래에서 **Windows** 및 **콘솔 응용 프로그램**을 클릭하고 **확인**을 클릭합니다.
 
    	![][13]
 
-	새 Visual C# 콘솔 응용 프로그램이 솔루션에 추가됩니다. 별도의 솔루션에서 이 작업을 수행할 수도 있습니다. 
+	그러면 새 Visual C# 콘솔 응용 프로그램이 솔루션에 추가됩니다. 별도의 솔루션에서 이 작업을 수행할 수도 있습니다.
 
-4. Visual Studio에서 **도구**를 클릭하고 **Nuget 패키지 관리자**를 클릭한 다음 **패키지 관리자 콘솔**을 클릭합니다. 
+4. Visual Studio에서 **도구**를 클릭하고 **Nuget 패키지 관리자**를 클릭한 다음 **패키지 관리자 콘솔**을 클릭합니다.
 
 	그러면 Visual Studio에 패키지 관리자 콘솔이 표시됩니다.
 
 6. 패키지 관리자 콘솔 창에서 **기본 프로젝트**를 새 콘솔 응용 프로그램 프로젝트로 설정한 후 콘솔 창에서 다음 명령을 실행합니다.
 
         Install-Package WindowsAzure.ServiceBus
-    
+
 	이 명령은 <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet 패키지</a>를 사용하여 Azure 서비스 버스 SDK에 대한 참조를 추가합니다.
 
 5. Program.cs 파일을 열고 다음 `using` 문을 추가합니다.
@@ -216,9 +216,9 @@
             await hub.SendWindowsNativeNotificationAsync(toast);
         }
 
-   "hub name" 자리 표시자를 포털의 **알림 허브** 탭에 나타나는 알림 허브의 이름으로 바꿔야 합니다. 또한 연결 문자열 자리 표시자를 "알림 허브 구성" 섹션에서 가져온 **DefaultFullSharedAccessSignature**라는 연결 문자열로 바꿉니다.
+   	"hub name" 자리 표시자를 포털의 **알림 허브** 탭에 나타나는 알림 허브의 이름으로 바꿔야 합니다. 또한 연결 문자열 자리 표시자를 "알림 허브 구성" 섹션에서 가져온 **DefaultFullSharedAccessSignature**라는 연결 문자열로 바꿉니다.
 
-	>[AZURE.NOTE]수신 대기 권한이 아닌 모든 권한이 있는 연결 문자열을 사용해야 합니다. 수신 대기 권한 문자열은 알림을 보낼 수 있는 권한이 없습니다.
+	>[AZURE.NOTE]**수신 대기** 권한이 아니라 **모든** 권한을 가진 연결 문자열을 사용해야 합니다. 수신 대기 권한 문자열은 알림을 보낼 수 있는 권한이 없습니다.
 
 7. 그런 다음 **Main** 메서드에 다음 줄을 추가합니다.
 
@@ -229,7 +229,7 @@
 
    	![][14]
 
-	그러면 등록된 모든 장치에 대한 알림 메시지를 수신하게 됩니다.알림 배너를 클릭하거나 누르면 앱이 로드됩니다.
+	그러면 등록된 모든 장치에 대한 알림 메시지를 수신하게 됩니다. 알림 배너를 클릭하거나 누르면 앱이 로드됩니다.
 
 MSDN의 [알림 카탈로그], [타일 카탈로그] 및 [배지 개요] 항목에서 지원되는 모든 페이로드를 찾을 수 있습니다.
 
@@ -272,6 +272,6 @@ MSDN의 [알림 카탈로그], [타일 카탈로그] 및 [배지 개요] 항목�
 [알림 카탈로그]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [타일 카탈로그]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [배지 개요]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

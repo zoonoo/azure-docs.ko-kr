@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Python에서 Blob 저장소를 사용하는 방법 | Microsoft Azure "
-	description="Azure Blob 서비스를 사용하여 Python에서 Blob을 업로드, 나열, 다운로드 및 삭제하는 방법을 알아봅니다." 
+	pageTitle="Python에서 Blob 저장소를 사용하는 방법 | Microsoft Azure" 
+	description="Azure Blob 서비스를 사용하여 Python에서 Blob을 업로드, 나열, 다운로드 및 삭제하는 방법을 알아봅니다.&quot;" 
 	services="storage" 
 	documentationCenter="python" 
 	authors="huguesv" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="05/11/2015" 
 	ms.author="huvalo"/>
 
 # Python에서 Blob 저장소를 사용하는 방법
@@ -22,9 +22,7 @@
 
 ## 개요
 
-이 가이드에서는 Azure Blob 서비스를 사용하여
-Azure Blob 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다. 샘플은 Python으로 작성되었으며 [Python Azure 패키지][]를 사용합니다. 여기서 다루는 시나리오에는 Blob **업로드**, **나열**,
-**다운로드** 및 **삭제**가 포함됩니다.
+이 가이드에서는 Azure Blob 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Python으로 작성되었으며 [Python Azure 패키지][]를 사용합니다. Blob **업로드**, **나열**, **다운로드** 및 **삭제** 시나리오를 다룹니다.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -32,18 +30,19 @@ Azure Blob 저장소 서비스를 사용하여 일반 시나리오를 수행하�
 
 ## 방법: 컨테이너 만들기
 
-> [AZURE.NOTE] Python 또는 [Python Azure 패키지][]를 설치해야 하는 경우 [Python 설치 가이드](../python-how-to-install.md)를 참조하세요.
+> [AZURE.NOTE]Python 또는 [Python Azure 패키지][]를 설치해야 하는 경우 [Python 설치 가이드](../python-how-to-install.md)를 참조하세요.
 
-
-**BlobService** 개체를 통해 컨테이너 및 Blob에 대한 작업을 수행할 수 있습니다. 다음 코드는 **BlobService** 개체를 만듭니다. 프로그래밍 방식으로 Azure 저장소에 액세스하려는 Python 파일의 맨 위쪽에 다음을 추가합니다.
+**BlobService** 개체를 통해 컨테이너 및 Blob에 대한 작업을 할 수 있습니다. 다음 코드는 **BlobService** 개체를 만듭니다. 프로그래밍 방식으로 Azure 저장소에 액세스하려는 Python 파일의 맨 위쪽에 다음을 추가합니다.
 
 	from azure.storage import BlobService
 
-다음 코드는 저장소 계정 이름 및 계정 키를 사용하는 **BlobService** 개체를 만듭니다.   'myaccount' 및 'mykey'를 실제 계정 및 키로 바꾸세요.
+다음 코드는 저장소 계정 이름 및 계정 키를 사용하는 **BlobService** 개체를 만듭니다. 'myaccount' 및 'mykey'를 실제 계정 및 키로 바꾸세요.
 
 	blob_service = BlobService(account_name='myaccount', account_key='mykey')
 
-모든 저장소 Blob은 컨테이너에 있습니다. **BlobService** 개체를 사용하면 컨테이너가 없는 경우 새로 만들 수 있습니다.
+[AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
+
+**BlobService** 개체를 사용하면 컨테이너가 없는 경우 새로 만들 수 있습니다.
 
 	blob_service.create_container('mycontainer')
 
@@ -57,13 +56,13 @@ Azure Blob 저장소 서비스를 사용하여 일반 시나리오를 수행하�
 
 이렇게 변경한 후에는 인터넷의 모든 사용자가 공용 컨테이너의 Blob을 볼 수 있지만 수정하거나 삭제는 할 수 없습니다.
 
-## 방법: 컨테이너에 Blob 업로드
+## 컨테이너에 Blob을 업로드하는 방법
 
 Blob에 데이터를 업로드하려면 **put_block_blob_from_path**, **put_block_blob_from_file**, **put_block_blob_from_bytes** 또는 **put_block_blob_from_text** 메서드를 사용합니다. 이러한 메서드는 데이터의 크기가 64MB를 초과할 경우 필요한 청크를 수행하는 고급 메서드입니다.
 
-**put_block_blob_from_path**는 지정된 경로에서 파일의 내용을 업로드하고, **put_block_blob_from_file**은 이미 열려 있는 파일/스트림에서 내용을 업로드합니다. **put_block_blob_from_bytes**는 바이트 배열을 업로드하고, **put_block_blob_from_text**는 지정된 인코딩(기본값: UTF-8)을 사용하여 지정된 텍스트 값을 업로드합니다.
+**put_block_blob_from_path**는 지정된 경로에서 파일의 내용을 업로드하고, **put_block_blob_from_file**은 이미 열린 파일/스트림에서 내용을 업로드합니다. **put_block_blob_from_bytes**는 바이트 배열을 업로드하고, **put_block_blob_from_text**는 지정된 인코딩을 사용하여 지정된 텍스트 값을 업로드합니다(기본값은 UTF-8).
 
-다음 예제에서는 **task1.txt** 파일의 내용을 **myblob** Blob에 업로드합니다.
+다음 예제에서는 **sunset.png** 파일의 내용을 **myblob** Blob에 업로드합니다.
 
 	blob_service.put_block_blob_from_path(
         'mycontainer',
@@ -72,27 +71,26 @@ Blob에 데이터를 업로드하려면 **put_block_blob_from_path**, **put_bloc
         x_ms_blob_content_type='image/png'
     )
 
-## 방법: 컨테이너의 Blob 나열
+## 컨테이너에 Blob 나열하는 방법
 
-컨테이너의 Blob을 나열하려면 **list_blobs** 메서드를
-**for** 루프와 함께 사용하여 컨테이너에 있는 각 Blob의 이름을 표시합니다. 다음 코드는 컨테이너에 있는 각 Blob의 **이름** 및 **URL**을 콘솔에 출력합니다.
+컨테이너의 Blob을 나열하려면 **list_blobs** 메서드를 **for** 루프와 함께 사용하여 컨테이너의 각 Blob 이름을 표시합니다. 다음 코드는 컨테이너에 있는 각 Blob의 **이름** 및 **url**을 콘솔에 출력합니다.
 
 	blobs = blob_service.list_blobs('mycontainer')
 	for blob in blobs:
 		print(blob.name)
 		print(blob.url)
 
-## 방법: Blob 다운로드
+## Blob 다운로드하는 방법
 
 Blob에서 데이터를 다운로드하려면 **get_blob_to_path**, **get_blob_to_file**, **get_blob_to_bytes** 또는 **get_blob_to_text**를 사용합니다. 이러한 메서드는 데이터의 크기가 64MB를 초과할 경우 필요한 청크를 수행하는 고급 메서드입니다.
 
-다음 예제에서는 **get_blob_to_path**를 사용하여 **myblob** Blob의 내용을 다운로드하여 **out-sunset.png** 파일에 저장하는 방법을 보여 줍니다.
+다음 예제에서는 **get_blob_to_path**를 사용하여 **myblob**의 내용을 다운로드 후 **out-sunset.png** 파일에 저장하는 방법을 보여 줍니다.
 
 	blob_service.get_blob_to_path('mycontainer', 'myblob', 'out-sunset.png')
 
-## 방법: Blob 삭제
+## Blob을 삭제하는 방법
 
-끝으로, Blob을 삭제하려면 **delete_blob**을 호출합니다.
+마지막으로 Blob을 삭제하려면 **delete_blob**을 호출합니다.
 
 	blob_service.delete_blob('mycontainer', 'myblob') 
 
@@ -100,11 +98,12 @@ Blob에서 데이터를 다운로드하려면 **get_blob_to_path**, **get_blob_t
 
 이제 Blob 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업에 대해 알아보세요.
 
--   MSDN 참조: [Azure에 데이터 저장 및 액세스][]를 참조하세요.
+-   다음 MSDN 참조를 확인하세요. [Azure에 데이터 저장 및 액세스][]
 -   [Azure 저장소 팀 블로그][](영문)를 방문하세요.
 
 [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
-[Python Azure 패키지]: https://pypi.python.org/pypi/azure  
+[Python Azure 패키지]: https://pypi.python.org/pypi/azure
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

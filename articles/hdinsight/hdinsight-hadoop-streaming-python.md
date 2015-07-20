@@ -203,4 +203,4 @@ HDInsight에서 스트리밍 MapRedcue 작업을 사용하는 방법을 배웠�
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

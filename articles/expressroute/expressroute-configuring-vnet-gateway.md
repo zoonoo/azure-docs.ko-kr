@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/21/2015"
+   ms.date="06/25/2015"
    ms.author="cherylmc"/>
 
 #  Express 경로에 대한 가상 네트워크 구성
@@ -39,6 +39,8 @@
 	- **이름** - 로컬(온-프레미스) 네트워크 사이트를 호출할 이름입니다.
 	- **주소 공간** - 시작 IP 및 CIDR(주소 수)를 포함합니다. 가상 네트워크에 대한 주소 범위와 겹치지 않는 한 임의의 주소 범위를 지정할 수 있습니다.
 	- **주소 공간 추가** -이 설정은 Express 경로와 관련이 없습니다.
+	- 
+**참고:** Express 경로에 대한 로컬 네트워크 사이트를 만들어야 합니다. 로컬 네트워크 사이트에 대해 지정된 주소 접두사는 무시됩니다. Express 경로 회로를 통해 Microsoft에 보급된 주소 접두사가 라우팅에 사용됩니다.
 
 6. **가상 네트워크 주소 공간** 페이지에서 다음 정보를 입력한 후 오른쪽 아래의 확인란을 클릭하여 네트워크를 구성합니다. 가상 네트워크 주소 공간에 대한 다음 몇 가지 규칙이 있으므로, 자세한 내용은 [가상 네트워크 주소 공간 페이지](https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNET_ADDRESS)를 참조할 수 있습니다.
 
@@ -72,4 +74,4 @@ Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](expr
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

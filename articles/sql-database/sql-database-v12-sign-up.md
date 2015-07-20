@@ -65,4 +65,6 @@ V12 옵션 권한을 활성화하고 나면 아래 Azure 미리 보기 포털 �
 <!-- References, Images. -->
 [Image1]: ./media/sql-database-v12-sign-up/V12Preview-YesNo-Option-New-SQLDatabase-Server-Newserver-Screenshot-e23.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

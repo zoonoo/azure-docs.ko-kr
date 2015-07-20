@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="05/27/2015" 
 	ms.author="juliako"/>
 
 #Azure 미디어 서비스를 사용하여 라이브 인코딩을 수행할 수 있는 채널 작업(미리 보기)
@@ -40,6 +40,16 @@ Azure 미디어 서비스에서 **채널**은 라이브 스트리밍 콘텐츠�
 다음 다이어그램은 채널이 RTMP, 부드러운 스트리밍 또는 RTP(MPEG-TS) 프로토콜 중 하나로 단일 비트 전송률 스트림을 받은 다음 다중 비트 전송률 스트림으로 인코딩하는 라이브 스트리밍 워크플로를 나타냅니다.
 
 ![라이브 워크플로][live-overview]
+
+>[AZURE.NOTE]일부 데이터 센터에서는 Azure 미디어 서비스를 통한 라이브 인코딩을 지원하지 않습니다.
+>
+>Azure 관리 포털을 사용하여 채널을 만들 경우 두 가지 채널 인코딩 유형 옵션인 **없음** 및 **표준**을 사용할 수 있습니다. **없음** 옵션만 표시되면 데이터 센터에서 AMS를 통한 라이브 인코딩을 지원하지 않는 것입니다.
+>
+>.NET SDK 또는 REST API를 사용하고 있다면 확인하기 위해 다음과 같이 합니다.
+>
+>1. 인코딩 유형을 표준으로 설정하고 채널을 만들어 봅니다. 
+>2. 반환된 결과가 *"이 지역에서는 라이브 인코딩이 지원되지 않습니다. EncodingType을 '없음'으로 설정해야 합니다."*라는 메시지가 포함된 HTTP 오류 코드 412(사전 조건 실패)인 경우 데이터 센터에서 라이브 인코딩을 지원하지 않습니다.
+
 
 ##항목 내용
 
@@ -69,7 +79,7 @@ Azure 미디어 서비스에서 **채널**은 라이브 스트리밍 콘텐츠�
 
 	Azure 관리 포털을 사용하는 경우 프로그램을 만들면 자산도 만들어집니다.
 
-	.NET SDK 또는 REST를 사용하는 경우 자산을 만들고 프로그램을 만들 때 이 자산을 사용하도록 지정해야 합니다.
+	.NET SDK 또는 REST를 사용하는 경우 자산을 만들고 프로그램을 만들 때 이 자산을 사용하도록 지정해야 합니다. 
 1. 프로그램과 연결된 자산을 게시합니다.   
 
 	콘텐츠를 스트림하려는 스트리밍 끝점에서 최소 1개의 스트리밍 예약 단위가 있어야 합니다.
@@ -107,29 +117,29 @@ Azure 미디어 서비스에서 **채널**은 라이브 스트리밍 콘텐츠�
 - 지원되는 코덱은 다음과 같습니다.
 	- MPEG-2 / H.262 비디오 
 		
-		- Main Profile (4:2:0)
-		- High Profile (4:2:0, 4:2:2)
-		- 422 Profile (4:2:0, 4:2:2)
+		- 기본 프로필(4:2:0)
+		- 상위 프로필(4:2:0, 4:2:2)
+		- 422 프로필(4:2:0, 4:2:2)
 
-	- MPEG-4 AVC / H.264 비디오  
+	- MPEG-4 AVC / H.264 비디오
 	
-		- Baseline, Main, High Profile (8-bit 4:2:0)
-		- High 10 Profile (10-bit 4:2:0)
-		- High 422 Profile (10-bit 4:2:2)
+		- 기준, 기본, 상위 프로필(8비트 4:2:0)
+		- 상위 10 프로필(10비트 4:2:0)
+		- 상위 422 프로필(10비트 4:2:2)
 
 
-	- MPEG-2 AAC-LC Audio 
+	- MPEG-2 AAC-LC 오디오
 	
-		- Mono, Stereo, Surround (5.1, 7.1)
-		- MPEG-2 style ADTS packaging
+		- 모노, 스테레오, 서라운드(5.1, 7.1)
+		- Mpeg-2 스타일 ADTS 패키징
 
-	- Dolby Digital (AC-3) Audio 
+	- Dolby Digital(AC-3) 오디오
 
-		- Mono, Stereo, Surround (5.1, 7.1)
+		- 모노, 스테레오, 서라운드(5.1, 7.1)
 
-	- MPEG Audio (Layer II and III) 
+	- MPEG 오디오(Layer II 및 III)
 			
-		- Mono, Stereo
+		- 모노, 스테레오
 
 - 권장되는 브로드캐스트 인코더는 다음과 같습니다.
 	- Ateme AM2102
@@ -158,15 +168,15 @@ Azure 미디어 서비스에서 **채널**은 라이브 스트리밍 콘텐츠�
 
 	- MPEG-4 AVC / H.264 비디오  
 	
-		- Baseline, Main, High Profile (8-bit 4:2:0)
-		- High 10 Profile (10-bit 4:2:0)
-		- High 422 Profile (10-bit 4:2:2)
+		- 기준, 기본, 상위 프로필(8비트 4:2:0)
+		- 상위 10 프로필(10비트 4:2:0)
+		- 상위 422 프로필(10비트 4:2:2)
 
 	- MPEG-2 AAC-LC 오디오
 
-		- Mono, Stereo, Surround (5.1, 7.1)
-		- 44.1 kHz sampling rate
-		- MPEG-2 style ADTS packaging
+		- 모노, 스테레오, 서라운드(5.1, 7.1)
+		- 44.1kHz 샘플링 주기
+		- Mpeg-2 스타일 ADTS 패키징
 	
 - 권장되는 인코더는 다음과 같습니다.
 
@@ -304,9 +314,10 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 
 ###슬레이트 표시
 
-선택 사항입니다. 중간 광고 중에 기본 슬레이트 이미지로 전환하고 들어오는 비디오 피드를 숨기도록 라이브 인코더에 신호를 보냅니다. 슬레이트 중에는 오디오도 음소거됩니다. 기본값은 **false**입니다.
+선택 사항입니다. 중간 광고 중에 [기본 슬레이트](media-services-manage-live-encoder-enabled-channels.md#default_slate) 이미지로 전환하고 들어오는 비디오 피드를 숨기도록 라이브 인코더에 신호를 보냅니다. 슬레이트 중에는 오디오도 음소거됩니다. 기본값은 **false**입니다.
  
 사용되는 이미지는 채널을 만들 때 기본 슬레이트 자산 ID 속성을 통해 지정된 이미지입니다. 슬레이트는 표시 이미지 크기에 맞게 확장됩니다.
+
 
 ##슬레이트 이미지 삽입
 
@@ -322,14 +333,17 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 
 이 설정은 true로 설정되면 중간 광고 중에 슬레이트 이미지를 삽입하도록 라이브 인코더를 구성합니다. 기본값은 true입니다.
 
-###기본 슬레이트 자산 ID
+###<a id="default_slate"></a>기본 슬레이트 자산 ID
 
 선택 사항입니다. 슬레이트 이미지를 포함하는 미디어 서비스 자산의 자산 ID를 지정합니다. 기본값은 null입니다.
 
-**참고**: 채널을 만들기 전에 최대 해상도가 1920x1080이고 최대 크기가 3MB인 JPEG 형식의 슬레이트 이미지가 전용 자산(다른 파일이 이 자산에 없어야 함)으로 업로드되어야 합니다. 파일 이름에는 *.jpg 확장명이 있어야 하고 이 자산 파일은 해당 자산의 기본 파일로 표시되어야 합니다. 이 자산은 암호화된 저장소일 수 없습니다.
+**참고**: 채널을 만들기 전에 다음 제약 조건이 있는 슬레이트 이미지가 전용 자산(다른 파일이 이 자산에 없어야 함)으로 업로드되어야 합니다.
+
+- 최대 1920x1080 해상도.
+- 최대 3MB 크기.
+- 파일 이름에는 *.jpg 확장명이 있어야 합니다.- 이미지는 자산의 유일한 자산 파일로 해당 자산에 업로드되어야 하고 이 자산 파일은 기본 파일로 표시되어야 합니다. 자산은 암호화된 저장소일 수 없습니다.
 
 **기본 슬레이트 자산 ID**를 지정하지 않고 **광고 표식에서 슬레이트 삽입**을 **true**로 설정하는 경우 기본 Azure 미디어 서비스 이미지가 입력 비디오 스트림을 숨기는 데 사용됩니다. 슬레이트 중에는 오디오도 음소거됩니다.
-
 
 
 ##채널의 프로그램
@@ -378,8 +392,7 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 </table>
 
 
->[AZURE.NOTE]현재 미리 보기로 제공됩니다. 채널 시작에는 최대 30분까지 걸릴 수 있습니다. 채널 다시 설정에는 최대 5분까지 걸릴 수 있습니다.
-
+>[AZURE.NOTE]현재 미리 보기로 제공됩니다. 채널 시작에는 20분 이상 걸릴 수 있습니다. 채널 다시 설정에는 최대 5분까지 걸릴 수 있습니다.
 
 
 ##<a id="Considerations"></a>고려 사항
@@ -390,6 +403,12 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 - 기본적으로 미디어 서비스 계정에 5개의 채널만 추가할 수 있습니다. 이는 모든 새 계정에 대한 소프트 할당량입니다. 자세한 내용은 [할당량 및 제한 사항](media-services-quotas-and-limitations.md)을 참조하세요.
 - 채널 또는 연결된 프로그램이 실행 중인 동안에는 입력 프로토콜을 변경할 수 없습니다. 다른 프로토콜을 요청하는 경우 각각의 입력 프로토콜에 대한 개별 채널을 만들어야 합니다.
 - 채널이 **실행 중** 상태일 때만 청구됩니다. 자세한 내용은 [이](media-services-manage-live-encoder-enabled-channels.md#states) 섹션을 참조하세요.
+
+##알려진 문제
+
+- 채널 시작이 20분 이상 걸릴 수 있습니다.
+- RTP 지원은 전문 방송인을 위해 제공됩니다. [이](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) 블로그에서 RTP에 대한 설명을 검토하세요.
+- 슬레이트 이미지는 [여기](media-services-manage-live-encoder-enabled-channels.md#default_slate) 설명된 제한 사항을 따라야 합니다. 1920x1080보다 큰 기본 슬레이트를 사용하여 채널을 만들려고 하면 결국 요청이 오류로 처리됩니다.
 
 
 ##<a id="tasks"></a>라이브 스트리밍 관련 작업
@@ -420,10 +439,14 @@ Azure 미디어 서비스에 프로그래밍 방식으로 연결할 **.NET** 또
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
-- [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-- [REST](https://msdn.microsoft.com/library/azure/dn783458.aspx
+- [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 
 ###자산 보호
+
+**개요**:
+
+[콘텐츠 보호 개요](media-services-content-protection-overview.md)
 
 프로그램과 연결된 자산을 AES(Advanced Encryption Standard)(128비트 암호화 키 사용) 또는 PlayReady DRM을 사용하여 암호화하려면 콘텐츠 키를 만들어야 합니다.
 
@@ -435,12 +458,17 @@ Azure 미디어 서비스에 프로그래밍 방식으로 연결할 **.NET** 또
 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
+####파트너와 통합
+
+[castLabs를 사용하여 Azure 미디어 서비스에 DRM 라이선스 제공](media-services-castlabs-integration.md)
+
+
 ###자산 게시 및 제공
 
 **개요**:
 
 - [동적 패키징 개요](../media-services-dynamic-overview.md)
-- [콘텐츠 배달 개요](media-services-deliver-content-overview.md)
+
 
 **.NET** 또는 **REST API**를 사용하여 자산 배달 정책을 구성합니다.
 
@@ -450,6 +478,11 @@ Azure 미디어 서비스에 프로그래밍 방식으로 연결할 **.NET** 또
 
 [AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
 
+
+콘텐츠 배달
+
+> [AZURE.SELECTOR]
+- [Overview](media-services-deliver-content-overview.md)
 
 ###Azure CDN 사용하기
 
@@ -467,8 +500,9 @@ Azure 미디어 서비스에 프로그래밍 방식으로 연결할 **.NET** 또
 
 [미디어 서비스 개념](media-services-concepts.md)
 
+[Azure 미디어 서비스 조각화된 MP4 라이브 수집 사양](media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

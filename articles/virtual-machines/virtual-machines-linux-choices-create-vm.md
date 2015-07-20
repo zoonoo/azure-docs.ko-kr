@@ -97,4 +97,4 @@ Azure PowerShell의 경우, [Azure PowerShell을 사용하여 Linux 기반 가�
 [기본 구성 테스트 환경]: virtual-machines-base-configuration-test-environment.md
 [Azure 하이브리드 클라우드 테스트 환경]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

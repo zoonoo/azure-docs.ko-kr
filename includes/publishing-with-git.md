@@ -6,7 +6,7 @@
 
 > [AZURE.NOTE]이 문서에 설명되어 있는 대부분의 Git 명령은 [Mac 및 Linux용 Azure 명령줄 도구](/develop/nodejs/how-to-guides/command-line-tools/)를 사용하여 웹 앱을 만드는 경우 자동으로 수행됩니다.
 
-<h2><a id="Step1"></a>1단계: Git 설치</h2>
+## <a id="Step1"></a>1단계: Git 설치
 
 Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. 운영 체제 특정 배포 및 설치 지침은 [Git 설치]를 참조하십시오.
 
@@ -18,7 +18,7 @@ Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. �
 
 1. Git 리포지토리와 웹 앱 파일을 포함할 MyGitRepository라는 이름의 디렉터리를 만듭니다.
 
-2. **GitBash**(Windows) 또는 **Bash**(Unix Shell)와 같은 명령줄을 엽니다. OS X 시스템에서는 **터미널** 응용 프로그램을 통해 명령줄에 액세스할 수 있습니다.
+2. **GitBash**(Windows) 또는 **Bash**(Unix Shell)와 같은 명령줄 도구를 엽니다. OS X 시스템에서는 **터미널** 응용 프로그램을 통해 명령줄에 액세스할 수 있습니다.
 
 3. 명령줄에서 MyGitRepository 디렉터리로 변경합니다.
 
@@ -32,7 +32,7 @@ Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. �
 
 ## <a id="Step3"></a>3단계: 웹 페이지 추가
 
-웹 앱에서 다양한 프로그래밍 언어로 만들어진 응용 프로그램을 지원합니다. 이 예에서는 고정 .html 파일을 사용합니다. 다른 프로그래밍 언어로 Azure에 웹 앱을 게시하는 방법에 대한 내용은 [Azure 개발자 센터]를 참조하세요.
+웹 앱에서 다양한 프로그래밍 언어로 만들어진 응용 프로그램을 지원합니다. 이 예에서는 고정 .html 파일을 사용합니다.
 
 1. 텍스트 편집기를 사용하여 Git 리포지토리(앞서 만든 MyGitRepository 디렉터리)의 루트에 이름이 **index.html**인 파일을 새로 만듭니다.
 
@@ -56,39 +56,37 @@ Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. �
 		 1 file changed, 1 insertion(+)
 		 create mode 100644 index.html
 
-<h2><a id="Step4"></a>웹앱 리포지토리 사용</h2>
+## <a id="Step4"></a>웹앱 리포지토리 사용
 
-[Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)을 사용하여 웹 앱에서 Git 리포지토리를 사용할 수 있도록 하려면 다음 단계를 수행합니다.
+웹앱에서 Git 리포지토리를 사용할 수 있도록 하려면 다음 단계를 수행합니다.
 
-1. [Azure 포털]에 로그인합니다.
+1. [Azure Preview 포털]에 로그인합니다.
 
 2. 웹 앱의 블레이드에서 **배포** 섹션까지 아래로 스크롤하고 **연속 배포 설정**을 클릭합니다. **소스 선택**을 클릭한 다음 **로컬 Git 리포지토리**를 클릭하고 **확인**을 클릭합니다.
 
-2. 웹 앱 만들기 프로세스가 완료될 때까지 대기하고 웹 앱 블레이드에서 웹 앱을 선택합니다.
+	![로컬 Git 리포지토리](./media/publishing-with-git/azure1-local-git.png)
 
-	![선택한 웹앱을 표시하는 이미지](./media/publishing-with-git/azure1-local-git.png)
-
-4. Azure에서 리포지토리를 처음 설정하는 경우 로그인 자격 증명을 만들어야 합니다. 이를 사용하여 Azure 리포지토리에 로그인하고 로컬 Git 리포지토리에서 변경 내용을 푸시합니다. 웹 앱의 블레이드에서 **배포 자격 증명 설정**을 클릭한 다음 배포 사용자 이름 및 암호를 구성합니다. 완료되면 **확인**을 클릭합니다.
+4. Azure에서 리포지토리를 처음 설정하는 경우 로그인 자격 증명을 만들어야 합니다. 이를 사용하여 Azure 리포지토리에 로그인하고 로컬 Git 리포지토리에서 변경 내용을 푸시합니다. 웹앱의 블레이드에서 **설정> 배포 자격 증명 설정**을 클릭한 다음 배포 사용자 이름 및 암호를 구성합니다. 완료되면 **확인**을 클릭합니다.
 
 	![](./media/publishing-with-git/azure2-credentials.png)
 
-<h2><a id="Step5"></a>프로젝트 배포</h2>
+## <a id="Step5"></a>프로젝트 배포
 
 * [Azure에 로컬 파일 푸시(로컬 Git)](#Step6)
 * [BitBucket, CodePlex, Dropbox, GitHub 또는 Mercurial과 같은 리포지토리 웹 사이트에서 파일 배포](#Step7)
 * [BitBucket, CodePlex, Dropbox, GitHub 또는 Mercurial에서 Visual Studio 솔루션 배포](#Step75)
 
-로컬 Git를 사용하여 웹 앱을 Azure에 게시하려면 다음 단계를 사용합니다.
+로컬 Git를 사용하여 웹앱을 Azure에 게시하려면 다음 단계를 사용합니다.
 
 1. 웹 앱의 블레이드의 배포 섹션에서 **찾을 수 없는 배포**를 클릭합니다.
 
 	![](./media/publishing-with-git/azure3-repo-details.png)
 
-	**Git URL**은 로컬 리포지토리로(부터) 배포할 원격 참조입니다.
+	**Git URL**은 로컬 리포지토리로(부터) 배포할 원격 참조입니다. 다음 단계에서 이 URL을 사용합니다.
 
 1. 앞서 만든 index.html 파일을 포함하는 로컬 Git 리포지토리의 루트에 있는지 명령줄을 사용하여 확인합니다.
 
-2. git 원격을 사용하여 1단계의 **Git URL**에 나열된 원격 참조를 추가합니다. 명령은 다음과 유사합니다.
+2. `git remote`을(를) 사용하여 1단계의 **Git URL**에 나열된 원격 참조를 추가합니다. 명령은 다음과 유사합니다.
 
 		git remote add azure https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
 
@@ -118,7 +116,7 @@ Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. �
 
 	![](./media/publishing-with-git/azure4-deployed.png)
 
-2. 포털의 위쪽에 있는 URL을 클릭하여 **index.html**이 배포되었는지 확인합니다. 'Hello Git!'가 포함된 페이지가 나타납니다.
+2. 웹앱 블레이드 위쪽에 있는 **URL** 아래에서 링크를 클릭하여 **index.html**이 배포되었는지 확인합니다. 'Hello Git!'가 포함된 페이지가 나타납니다.
 
 	!['Hello Git!'가 포함된 웹 페이지][hello-git]
 
@@ -132,9 +130,7 @@ Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. �
 
 	일단 **push** 명령이 완료되면 브라우저를 새로 고치고(제대로 새로 고치기 위해 Ctrl+F5를 눌러야 할 수도 있음) 그리고 나면 페이지 콘텐츠에 최신 커밋 변경 내용이 반영됩니다.
 
-	!['Yay!'가 포함된 웹 페이지][yay]
-
-<h3><a id="Step7"></a>BitBucket, CodePlex, Dropbox, GitHub 또는 Mercurial과 같은 리포지토리 사이트에서 파일 배포</h3>
+### <a id="Step7"></a>BitBucket, CodePlex, Dropbox, GitHub 또는 Mercurial과 같은 리포지토리 사이트에서 파일 배포
 
 로컬 Git를 사용하여 Azure에 로컬 파일을 푸시하면 업데이트를 로컬 프로젝트에서 Azure의 웹 앱으로 수동으로 푸시할 수 있으며, BitBucket, CodePlex, Dropbox, GitHub 또는 Mercurial에서 배포하면 Azure가 프로젝트에서 최신 업데이트를 가져오는 지속적인 배포 프로세스가 수행됩니다.
 
@@ -192,13 +188,13 @@ Azure 앱 서비스에서 웹 앱에 Visual Studio 솔루션을 푸시하는 것
 
 -	전체 솔루션의 디렉터리 트리를 리포지토리에 추가하고 .sln 파일을 리포지토리 루트에 둡니다.
 
--	Visual Studio 솔루션에서 [NuGet 패키지 복원을 사용하도록 설정](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages)하여 Visual Studio에서 누락된 패키지를 자동으로 복원하도록 합니다.
+-	Visual Studio 솔루션에서 [NuGet 패키지 복원을 사용하도록 설정](http://docs.nuget.org/Consume/Package-Restore)하여 Visual Studio에서 누락된 패키지를 자동으로 복원하도록 합니다.
 
 설명된 대로 리포지토리를 설정하고, 온라인 Git 리포지토리 중 하나에서 연속 게시에 대해 Azure에서 웹 앱을 구성한 후에는 Visual Studio에서 ASP.NET 응용 프로그램을 로컬로 개발하고 온라인 Git 리포지토리에 변경 내용을 푸시하여 코드를 지속적으로 배포할 수 있습니다.
 
-<h2>지속적 배포 사용 안 함</h2>
+## 지속적 배포 사용 안 함
 
-**배포** 블레이드에서 지속적인 배포를 사용하지 않도록 설정할 수 있습니다. 웹앱 블레이드의 **배포** 섹션에서 활성 배포를 클릭합니다. 그런 다음 **연결 끊기**를 클릭합니다.
+**배포** 블레이드에서 지속적인 배포를 사용하지 않도록 설정할 수 있습니다. 웹앱 블레이드의 **배포** 섹션에서 **활성 배포**를 클릭합니다. 그런 다음 **연결 끊기**를 클릭합니다.
 
 ![git-DisconnectFromGitHub](./media/publishing-with-git/azure5-disconnect.png)
 
@@ -247,7 +243,7 @@ Azure 앱 서비스에서 웹 앱에 Visual Studio 솔루션을 푸시하는 것
 
 ****
 
-**증상**: 오류 - 변경 내용이 원격 리포지토리에 커밋되었으나 웹 앱이 업데이트되지 않음
+**증상**: 오류 - 변경 내용이 원격 리포지토리에 커밋되었으나 웹앱이 업데이트되지 않음
 
 **원인**: 이 오류는 추가 필수 모듈을 지정하는 package.json 파일이 포함된 Node.js 응용 프로그램을 배포하는 경우에 발생할 수 있습니다.
 
@@ -277,8 +273,8 @@ Azure 앱 서비스에서 웹 앱에 Visual Studio 솔루션을 푸시하는 것
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
-[Azure 개발자 센터]: http://www.windowsazure.com/ko-kr/develop/overview/
-[Azure 포털]: https://portal.azure.com
+[Azure Developer Center]: http://azure.microsoft.com/develop/overview/
+[Azure Preview 포털]: https://portal.azure.com
 [Git website]: http://git-scm.com
 [Git 설치]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Azure용 PowerShell 사용 방법]: ../articles/install-configure-powershell.md
@@ -304,4 +300,4 @@ Azure 앱 서비스에서 웹 앱에 Visual Studio 솔루션을 푸시하는 것
 [Using Dropbox to Share Git Repositories]: https://gist.github.com/trey/2722927
 [Visual Studio Online을 사용하여 Azure에 지속적으로 전송]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

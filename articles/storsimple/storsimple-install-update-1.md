@@ -100,4 +100,4 @@ GA 버전을 실행하는 장치를 업데이트 하려면 Azure 관리 포털�
 
 [Microsoft Azure StorSimple](storsimple-overview.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

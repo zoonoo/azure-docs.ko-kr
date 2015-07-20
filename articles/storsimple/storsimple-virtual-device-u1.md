@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor=""/>
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="05/27/2015"
-   ms.author="alkohli"/>
+   ms.author="alkohli" />
 
 # StorSimple 가상 장치
 
@@ -385,4 +385,4 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
 
 [백업 세트에서 복원](../storsimple-restore-from-backupset.md)하는 방법 배우기
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -1,3 +1,4 @@
+
 #### Windows Server 호스트의 IQN을 가져오려면
 
 1. Windows 호스트에서 Microsoft iSCSI 초기자를 시작합니다.
@@ -8,4 +9,4 @@
 
 3. 이 문자열을 저장합니다.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

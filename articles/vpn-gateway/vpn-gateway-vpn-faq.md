@@ -6,7 +6,6 @@
    authors="cherylmc"
    manager="jdial"
    editor="tysonn" />
-
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
@@ -245,4 +244,4 @@ Azure VPN 게이트웨이 통해 트래픽을 전송할 수 있지만, NETCFG �
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

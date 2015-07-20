@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="06/18/2015"
    ms.author="piyushjo"/>
 
 # 분석, 모니터링, 구분 및 대시보드 문제에 대한 문제 해결 가이드
@@ -40,10 +40,6 @@
 - 분석 기간은 사용자 장치 설정의 날짜를 기준으로 하므로 휴대폰에 날짜가 잘못 설정된 사용자의 경우 잘못된 기간의 데이터가 표시됩니다.
 - 푸시를 "테스트"하는 단추를 사용할 때는 서버 쪽 데이터가 기록되지 않으며 실제 푸시 캠페인에 대해서만 데이터기 기록됩니다.
 
-### 참고 항목
-
-- [문제 해결 가이드 - SDK][Link 25], [API 설명서][Link 4], [UI 설명서 - 세그먼트][Link 18]
-
 ## UI에서 항목을 찾을 수 없음
 
 ### 문제
@@ -57,10 +53,6 @@
 - 세그먼트에 추가할 수 없는 기본 제공 항목 및 앱 정보 태그의 경우 세그먼트 기준 대상 지정과 같은 기능을 수행하도록 각 캠페인에서 대상 기준 목록을 설정해야 합니다.
 - 자세한 도움말과 방법 정보는 Azure Mobile Engagement UI에서 분석, 모니터링, 구분 또는 대시보드 섹션의 상황에 맞는 메뉴를 참조하세요.
 
-### 참고 항목
-
-- [UI 설명서 - 대상 지정을 위한 도달률 새 푸시 기준][Link 28]
- 
 ## 작동 중단 문제 해결
 
 ### 문제
@@ -71,39 +63,6 @@
 - 분석, 모니터링 또는 대시보드에서 나타나는 응용 프로그램 작동 중단 문제를 해결하려면 릴리스 정보에서 이전 버전 SDK의 알려진 문제를 확인하세요.
 - 응용 프로그램 작동 중단 문제를 추가로 해결하려면 응용 프로그램이 설치된 테스트 장치에서 이벤트를 수행한 다음 Azure Mobile Engagement UI의 "모니터 - 이벤트" 섹션에서 장치 ID를 조회합니다. 그런 다음 응용 프로그램 작동 중단의 원인이 되는 이벤트를 수행하여 Azure Mobile Engagement UI의 "모니터 - 이벤트" 섹션에서 추가 정보를 조회합니다. 
 
-### 참고 항목
+ 
 
-- [개념 - FAQ][Link 6], [개념 - 용어집][Link 6], [UI 설명서][Link 1], [SDK 설명서 - 릴리스 정보][Link 5], [SDK 설명서 - 업그레이드 가이드][Link 5]
-
-<!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
-[Link 2]: mobile-engagement-troubleshooting-guide.md
-[Link 3]: mobile-engagement-how-tos.md
-[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: mobile-engagement-user-interface-home.md
-[Link 14]: mobile-engagement-user-interface-my-account.md
-[Link 15]: mobile-engagement-user-interface-analytics.md
-[Link 16]: mobile-engagement-user-interface-monitor.md
-[Link 17]: mobile-engagement-user-interface-reach.md
-[Link 18]: mobile-engagement-user-interface-segments.md
-[Link 19]: mobile-engagement-user-interface-dashboard.md
-[Link 20]: mobile-engagement-user-interface-settings.md
-[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Link 24]: mobile-engagement-troubleshooting-guide-service.md
-[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Link 27]: mobile-engagement-user-interface-reach-campaign.md
-[Link 28]: mobile-engagement-user-interface-reach-criterion.md
-[Link 29]: mobile-engagement-user-interface-reach-content.md
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

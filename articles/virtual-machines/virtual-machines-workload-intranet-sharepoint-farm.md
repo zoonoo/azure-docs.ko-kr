@@ -121,4 +121,4 @@ Azure의 기능적인 고가용성 인트라넷 SharePoint 팜에 대한 기본�
 
 [Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

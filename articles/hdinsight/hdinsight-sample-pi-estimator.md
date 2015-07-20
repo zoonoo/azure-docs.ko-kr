@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2015" 
+	ms.date="03/30/2015"
 	ms.author="bradsev"/>
 
 # HDInsight의 Pi 추정 Hadoop 샘플
 
 이 항목에서는 Azure HDInsight에서 Azure Powershell을 사용하여 수학 상수 Pi 값을 추정하는 Hadoop MapReduce 프로그램의 실행 방법을 보여 줍니다. 또한 검사할 Pi 값을 추정하는 데 사용되는 MapReduce 프로그램의 Java 코드도 제공합니다.
+
+> [AZURE.NOTE]이 문서의 단계에는 Windows 기반 HDInsight 클러스터가 필요합니다. Linux 기반 클러스터에서 이 샘플 및 다른 샘플을 실행하는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 샘플 실행](hdinsight-hadoop-run-samples-linux.md)을 참조하세요.
 
 이 프로그램에서는 통계(준난수 몬테카를로) 방법을 사용하여 Pi 값을 추정합니다. 단위 정사각형 내에 무작위로 놓인 점은 원의 영역과 같은 확률인 Pi/4로 해당 정사각형 내의 내접원 안에 들어갑니다. Pi의 값은 4R의 값에서 추정할 수 있습니다. 여기에서 R은 정사각형 내에 있는 점의 총수에 대한 원 내부에 있는 점 개수의 비율입니다. 사용한 점 샘플이 크면 클수록 추정이 향상됩니다.
 
@@ -471,6 +473,5 @@ HDInsight를 사용하여 MapReduce 작업을 실행하는 데 도움이 될 수
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

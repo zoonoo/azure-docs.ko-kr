@@ -1,29 +1,30 @@
-<properties 
-	pageTitle="Windows Phone Silverlight 앱용 Azure Mobile Engagement 시작" 
+<properties
+	pageTitle="Windows Phone Silverlight 앱용 Azure Mobile Engagement 시작"
 	description="Windows Phone Silverlight 앱에서 분석 및 푸시 알림 기능이 포함된 Azure Mobile Engagement를 사용하는 방법에 대해 알아봅니다."
-	services="mobile-engagement" 
-	documentationCenter="windows" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="windows"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/30/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article" 
+	ms.date="04/30/2015"
 	ms.author="piyushjo" />
-	
+
 # Windows Phone Silverlight 앱용 Azure Mobile Engagement 시작
 
 > [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md) 
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md) 
-- [iOS - Obj C](mobile-engagement-ios-get-started.md) 
+- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
+- [iOS - Obj C](mobile-engagement-ios-get-started.md)
 - [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
-- [Android](mobile-engagement-android-get-started.md) 
+- [Android](mobile-engagement-android-get-started.md)
+- [Cordova](mobile-engagement-cordova-get-started.md)
 
 이 항목에서는 Azure Mobile Engagement를 사용하여 Windows Phone Silverlight 응용 프로그램에서 구분된 사용자에게 푸시 알림을 보내고 앱 사용량을 파악하는 방법을 설명합니다. 이 자습서에서는 Mobile Engagement를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다. 여기서는 MPNS(Microsoft 푸시 알림 서비스)를 사용하여 푸시 알림을 받고 기본적인 데이터를 수집하는 빈 Windows Phone Silverlight 앱을 만듭니다. 이 과정을 완료하면 장치 속성(MPNS 사용)에 따라 특정 사용자를 대상으로 지정하거나 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다. Mobile Engagement를 사용하여 장치의 특정 사용자 및 그룹을 처리하는 방법을 알아보려면 다음 자습서도 함께 완료해야 합니다.
 
@@ -45,11 +46,11 @@
    	![][7]
 
 3. 팝업이 표시되면 다음 정보를 입력합니다.
- 
+
    	![][8]
 
 	- **응용 프로그램 이름**: 응용 프로그램의 이름을 입력합니다. 원하는 모든 문자를 사용할 수 있습니다.
-	- **플랫폼**: 앱의 대상 플랫폼(**Windows Phone Silverlight**)을 선택합니다. 앱의 대상 플랫폼이 여러 개이면 각 플랫폼에 대해 이 자습서의 작업을 반복합니다. 
+	- **플랫폼**: 앱의 대상 플랫폼(**Windows Phone Silverlight**)을 선택합니다. 앱의 대상 플랫폼이 여러 개이면 각 플랫폼에 대해 이 자습서의 작업을 반복합니다.
 	- **응용 프로그램 리소스 이름**: API 및 URL을 통해 이 응용 프로그램에 액세스하는 데 사용되는 이름입니다. 기본 URL 문자만 사용해야 합니다. 자동으로 생성되는 이름을 기준으로 사용할 수 있습니다. 또한 이 이름은 고유해야 하므로 이름 충돌을 방지하기 위해 플랫폼 이름을 추가해야 합니다.
 	- **위치**: 이 앱과 해당 컬렉션을 호스트할 데이터 센터를 선택합니다.
 	- **컬렉션**: 응용 프로그램을 이미 만든 경우 이전에 만든 컬렉션을 선택하고 그렇지 않으면 새 컬렉션을 선택합니다.
@@ -58,7 +59,7 @@
 4. **응용 프로그램** 탭에서 방금 만든 앱을 선택합니다.
 
 5. **연결 정보**를 클릭하여 모바일 앱의 SDK 통합에 적용할 연결 설정을 표시합니다.
- 
+
    	![][10]
 
 6. **연결 문자열** 복사 - 응용 프로그램 코드에서 이 앱을 식별하고 Phone 앱에서 Mobile Engagement와 연결하는 데 필요합니다.
@@ -83,12 +84,12 @@
 
 이제 Azure Mobile Engagement SDK를 통합할 새 Windows Phone Silverlight 앱이 만들어졌습니다.
 
-###Mobile Engagement 백 엔드에 앱 연결 
+###Mobile Engagement 백 엔드에 앱 연결
 
 1. 프로젝트에서 [Mobile Engagement Windows Phone SDK] NuGet 패키지를 설치합니다.
 
 2. 속성 폴더 아래에 있는 `WMAppManifest.xml`을(를) `<Capabilities />` 태그에서 다음이 선언되도록 합니다(없으면 추가합니다).
-		
+
 		<Capability Name="ID_CAP_NETWORKING" />
 		<Capability Name="ID_CAP_IDENTITY_DEVICE" />
 
@@ -104,8 +105,8 @@
 
 			using Microsoft.Azure.Engagement;
 
-	b. SDK를 `Application_Launching` 메서드에서 초기화합니다.
-			
+	b. SDK를 `Application_Launching` 메서드에서 초기화:
+
 			private void Application_Launching(object sender, LaunchingEventArgs e)
 			{
 			  EngagementAgent.Instance.Init();
@@ -133,7 +134,7 @@
 3. `MainPage.xml` 파일에서: a. 다음 줄을 네임스페이스 선언에 추가합니다.
 
 			xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
-	
+
 	b. xml 태그 이름의 `phone:PhoneApplicationPage`을(를) `engagement:EngagementPage`(으)로 바꿉니다.
 
 ###앱이 실시간 모니터링과 연결되어 있는지 확인
@@ -164,8 +165,8 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
 새 기능을 `WMAppManifest.xml` 파일에 추가합니다.
 
-		ID_CAP_PUSH_NOTIFICATION 
-		ID_CAP_WEBBROWSERCOMPONENT 
+		ID_CAP_PUSH_NOTIFICATION
+		ID_CAP_WEBBROWSERCOMPONENT
 
 ![][34]
 
@@ -206,7 +207,7 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
 4. 아래로 스크롤하여 콘텐츠 섹션에서 **Notification only(알림만)**를 선택합니다. ![][37]
 
-5. 이제 가능한 가장 기본적인 캠페인 설정을 완료했습니다. 다시 아래쪽으로 스크롤하여 **만들기**를 눌러 저장해 보세요. 
+5. 이제 가능한 가장 기본적인 캠페인 설정을 완료했습니다. 다시 아래쪽으로 스크롤하여 **만들기**를 눌러 저장해 보세요.
 
 6. 마지막 단계로 **활성화**를 클릭하여 캠페인을 활성화하고 푸시 알림을 보냅니다. ![][39]
 
@@ -234,5 +235,6 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [37]: ./media/mobile-engagement-windows-phone-get-started/campaign-content.png
 [39]: ./media/mobile-engagement-windows-phone-get-started/campaign-activate.png
 [40]: ./media/mobile-engagement-windows-phone-get-started/push-screenshot.png
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

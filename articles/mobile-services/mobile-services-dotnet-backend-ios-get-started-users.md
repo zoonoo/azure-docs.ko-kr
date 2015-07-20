@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="04/13/2015"
+	ms.date="07/01/2015"
 	ms.author="krisragh"/>
 
 # 기존 Azure 모바일 서비스 앱에 인증 추가
@@ -22,27 +22,27 @@
 
 이 자습서에서는 지원되는 ID 공급자를 사용하여 퀵 스타트 프로젝트에 인증을 추가합니다. 이 자습서는 먼저 완료해야 하는 [모바일 서비스 퀵 스타트 자습서]를 기반으로 합니다.
 
-## <a name="register"></a>인증을 위해 앱 등록 및 모바일 서비스 구성
+##<a name="register"></a>인증을 위해 앱 등록 및 모바일 서비스 구성
 
 [AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../../includes/mobile-services-dotnet-backend-aad-server-extension.md)]
 
-## <a name="permissions"></a>사용 권한을 인증된 사용자로 제한
+##<a name="permissions"></a>사용 권한을 인증된 사용자로 제한
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 Xcode에서 프로젝트를 엽니다. **실행** 단추를 눌러 앱을 시작합니다. 앱이 시작된 후 상태 코드 401(인증되지 않음)의 예외가 발생하는지 확인합니다. 이는 앱이 인증되지 않은 사용자로 모바일 서비스에 액세스하려고 시도하지만 _TodoItem_ 테이블에서 이제 인증을 요구하기 때문에 발생합니다.
 
-## <a name="add-authentication"></a>앱에 인증 추가
+##<a name="add-authentication"></a>앱에 인증 추가
 
 [AZURE.INCLUDE [mobile-services-ios-authenticate-app](../../includes/mobile-services-ios-authenticate-app.md)]
 
-## <a name="store-authentication"></a>앱에 인증 토큰 저장
+##<a name="store-authentication"></a>앱에 인증 토큰 저장
 
 [AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../../includes/mobile-services-ios-authenticate-app-with-token.md)]
 
-## <a name="next-steps"></a>다음 단계
+##<a name="next-steps"></a>다음 단계
 
 다음 자습서인 [모바일 서비스 사용자의 서비스 쪽 권한 부여]에서는 사용자 ID 값을 사용하여 반환되는 데이터를 필터링합니다.
 
@@ -65,4 +65,4 @@ Xcode에서 프로젝트를 엽니다. **실행** 단추를 눌러 앱을 시작
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

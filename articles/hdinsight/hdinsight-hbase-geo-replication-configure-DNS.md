@@ -220,4 +220,4 @@ DNS 서버 구성을 업데이트하려면 가상 네트워크에 배포된 모�
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-DNS/HDInsight.HBase.VPN.diagram.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

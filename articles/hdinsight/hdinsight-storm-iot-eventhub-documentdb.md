@@ -13,7 +13,7 @@ ms.devlang="java"
 ms.topic="article"
 ms.tgt_pltfrm="na"
 ms.workload="big-data"
-ms.date="04/28/2015"
+ms.date="07/06/2015"
 ms.author="larryfr"/>
 
 #HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 차량 센서 데이터를 처리하는 방법에 대해 알아봅니다.
@@ -57,6 +57,5 @@ Storm 토폴로지에서 사용되는 구성 요소는 다음과 같습니다.
 ## 다음 단계
 
 Storm 토폴로지에 대한 자세한 내용은 [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)를 참조하세요.
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

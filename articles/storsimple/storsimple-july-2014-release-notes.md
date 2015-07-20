@@ -1,24 +1,25 @@
 <properties 
-    pageTitle="StorSimple 릴리스 정보 - 2014년 7월"
+    pageTitle="StorSimple 8000 시리즈 릴리스 버전 릴리스 정보-2014 년 7 월"
     description="2014년 7월 Microsoft Azure StorSimple 릴리스에 대한 새 기능, 문제 및 해결 방법을 설명합니다."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
     manager="adinah"
-    editor="tysonn" /> <tags 
+    editor="tysonn" />
+ <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="04/28/2015"
+    ms.date="05/27/2015"
     ms.author="v-sharos" />
 
-# StorSimple 릴리스 정보 - 2014년 7월 
+# StorSimple 8000 시리즈 릴리스 버전 릴리스 정보-2014 년 7 월 
 
 ## 개요
 
-다음 릴리스 정보는 Microsoft Azure StorSimple의 2014년 7월 GA(General Availability) 릴리스에 대한 중요한 미해결 문제를 식별합니다. 이 릴리스는 6.3.9600.17215 소프트웨어 버전에 해당합니다.
+다음 릴리스 정보는 Microsoft Azure StorSimple의 StorSimple 8000 시리즈 2014년 7월 GA(General Availability) 릴리스에 대한 중요한 미해결 문제를 식별합니다. 이 릴리스는 6.3.9600.17215 소프트웨어 버전에 해당합니다.
 
 따로 지정한 경우가 아니면 이 릴리스 정보는 StorSimple 장치의 모든 모델에 적용됩니다. 릴리스 정보는 계속 업데이트 됩니다. 해결 방법이 필요한 중요 한 문제가 발견되면 추가됩니다. Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 정보를 고려합니다.
 
@@ -39,6 +40,6 @@
 | 10 | 네트워크 인터페이스 | 네트워크 인터페이스 데이터 2 및 데이터 3은 소프트웨어에서 전환되었습니다. | 이러한 인터페이스를 구성해야 하는 경우 Microsoft 지원에 문의하세요. | 예 | 아니요 |
 
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

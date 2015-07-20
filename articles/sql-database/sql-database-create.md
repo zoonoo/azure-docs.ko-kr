@@ -64,4 +64,6 @@ Microsoft Azure에서 차세대 SQL 데이터베이스를 활용하려면 SQL �
 [11]: ./media/sql-database-create/resourcegroup.png
 [12]: ./media/sql-database-create/create.png
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

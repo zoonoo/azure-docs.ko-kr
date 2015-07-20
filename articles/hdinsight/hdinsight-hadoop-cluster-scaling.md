@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/02/2015"
+   ms.date="06/30/2015"
    ms.author="jgao"/>
 
 #Hadoop, HBase, 또는 Apache Storm 클러스터의 크기를 조정하여 HDInsight에서 데이터 노드 수를 변경 
@@ -145,4 +145,4 @@ HDInsight SDK를 사용하여 Hadoop 클러스터 크기를 변경하려면 다�
 HDInsight .NET SDK 사용 정보에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight에서 Hadoop 클러스터 프로비전](hdinsight-provision-clusters.md) 주제를 참조하세요.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

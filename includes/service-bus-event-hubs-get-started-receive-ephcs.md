@@ -1,6 +1,6 @@
 ## EventProcessorHost를 사용하여 메시지 수신
 
-[EventProcessorHost]는 영구적 검사점을 관리하여 이벤트 허브의 이벤트 수신을 간소화하고 이러한 이벤트에서 병렬 수신하는 .NET 클래스입니다. [EventProcessorHost]를 사용하면 다른 노드에 호스트된 수신기를 비롯한 여러 수신기 간에 이벤트를 분할할 수 있습니다. 이 예제에서는 단일 수신기에 대해 [EventProcessorHost]를 사용하는 방법을 보여 줍니다. [확장된 이벤트 처리 샘플]에서는 여러 수신기에서 [EventProcessorHost]를 사용하는 방법을 보여 줍니다.
+[EventProcessorHost]는 영구적 검사점을 관리하여 이벤트 허브의 이벤트 수신을 간소화하고 이러한 이벤트에서 병렬 수신하는 .NET 클래스입니다. [EventProcessorHost]를 사용하면 다른 노드에 호스트된 수신기를 비롯한 여러 수신기 간에 이벤트를 분할할 수 있습니다. 이 예제에서는 단일 수신기에 대해 [EventProcessorHost]를 사용하는 방법을 보여 줍니다. [확장된 이벤트 처리] 샘플에서는 여러 수신기에서 [EventProcessorHost]를 사용하는 방법을 보여 줍니다.
 
 [EventProcessorHost]를 사용하려면 [Azure 저장소 계정]이 있어야 합니다.
 
@@ -8,17 +8,17 @@
 
 2. **데이터 서비스**, **저장소**, **빠른 생성**을 차례로 클릭한 다음 저장소 계정 이름을 입력합니다. 원하는 지역을 선택하고 **저장소 계정 만들기**를 클릭합니다.
 
-  ![][11]
+    ![][11]
 
 3. 새로 만든 저장소 계정을 클릭한 후 **액세스 키 관리**를 클릭합니다.
 
-  ![][12]
+    ![][12]
 
-	Copy the access key to use later in this tutorial.
+    이 자습서에서 나중에 사용할 액세스 키를 복사합니다.
 
 4. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# 데스크톱 응용 프로그램 프로젝트를 새로 만듭니다. 프로젝트 이름을 **Receiver**로 지정합니다.
 
-  ![][14]
+    ![][14]
 
 5. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
 
@@ -26,9 +26,9 @@
 
 6. `Microsoft Azure Service Bus Event Hub - EventProcessorHost`를 검색하고 **설치**를 클릭한 후 사용 약관에 동의합니다.
 
-  ![][13]
+    ![][13]
 
-	This downloads, installs, and adds a reference to the <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost">Azure Service Bus Event Hub - EventProcessorHost NuGet package</a>, with all its dependencies.
+	그러면 <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost">Azure 서비스 버스 이벤트 허브 - EventProcessorHost NuGet 패키지</a>에 대한 참조 및 해당하는 모든 종속성이 다운로드, 설치 및 추가됩니다.
 
 7. **Receiver** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 후 **클래스**를 클릭합니다. 새 클래스의 이름을 **SimpleEventProcessor**로 지정하고 **확인**을 클릭하여 클래스를 생성합니다.
 
@@ -113,6 +113,7 @@
 
 <!-- Links -->
 [이벤트 허브 개요]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[확장된 이벤트 처리]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [확장된 이벤트 처리 샘플]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [Azure 저장소 계정]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
@@ -129,4 +130,4 @@
 [Async Await in Console Apps]: http://blogs.msdn.com/b/pfxteam/archive/2012/01/20/10259049.aspx
 [AsyncPump.cs]: http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-components-postattachments/00-10-25-90-49/AsyncPump_2E00_cs
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

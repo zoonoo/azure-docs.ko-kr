@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
-# Curl을 사용하여 HDInsight에서 Hadoop으로 Hive 쿼리 실행
+#Curl을 사용하여 HDInsight에서 Hadoop으로 Hive 쿼리 실행
 
 [AZURE.INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
@@ -24,25 +24,25 @@
 
 Curl은 실행, 모니터링 및 Hive 쿼리 검색 결과를 원시 HTTP 요청을 사용하여 HDInsight와 함께 작용하는 방법을 설명하기 위해 사용됩니다. 이 Curl은 HDInsight 클러스터에서 제공하는 WebHCat REST API(이전의 Templeton)를 사용하여 작동합니다.
 
-> [AZURE.NOTE]Linux 기반 Hadoop 서버를 익숙하게 사용하지만 HDInsight는 처음인 경우 <a href="../hdinsight-hadoop-linux-information/" target="_blank">HDInsight의 Linux 기반 Hadoop에 대해 알아야 할 정보</a>를 참조하세요.
+> [AZURE.NOTE]Linux 기반 Hadoop 서버를 익숙하게 사용하지만 HDInsight는 처음인 경우 [HDInsight의 Linux 기반 Hadoop에 대해 알아야 할 정보](hdinsight-hadoop-linux-information.md)를 참조하세요.
 
-## <a id="prereq"></a>필수 조건
+##<a id="prereq"></a>필수 조건
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
 * HDInsight 클러스터에서 Hadoop(Linux 또는 Windows 기반)
 
-* <a href="http://curl.haxx.se/" target="_blank">Curl</a>
+* [Curl](http://curl.haxx.se/)
 
-* <a href="http://stedolan.github.io/jq/" target="_blank">jq</a>
+* [jq](http://stedolan.github.io/jq/)
 
-## <a id="curl"></a>Curl을 사용하여 Hive 쿼리 실행
+##<a id="curl"></a>Curl을 사용하여 Hive 쿼리 실행
 
 > [AZURE.NOTE]WebHCat에서 Curl 또는 다른 모든 REST 통신을 사용하는 경우 HDInsight 클러스터 관리자의 사용자 이름 및 암호를 제공하여 요청을 인증해야 합니다. 또한 클러스터 이름을 서버로 요청을 보내는 데 사용되는 URI(Uniform Resource Identifier)의 일부로 사용해야 합니다.
-> 
+>
 > 이 섹션의 명령에서 **USERNAME**은 클러스터에 대해 인증할 사용자로 바꾸고 **PASSWORD**는 사용자 계정의 암호로 바꿉니다. **CLUSTERNAME**을 클러스터의 이름으로 바꿉니다.
-> 
-> REST API는 <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">기본 인증</a>을 통해 보안이 유지됩니다. 자격 증명이 안전하게 서버에 전송되도록 하려면 항상 보안 HTTP(HTTPS)를 사용하여 요청해야 합니다.
+>
+> REST API는 [기본 인증](http://en.wikipedia.org/wiki/Basic_access_authentication)을 통해 보안됩니다. 자격 증명이 안전하게 서버에 전송되도록 하려면 항상 보안 HTTP(HTTPS)를 사용하여 요청해야 합니다.
 
 1. 명령줄에서 다음 명령을 사용하여 HDInsight 클러스터에 연결할 수 있는지 확인합니다.
 
@@ -74,15 +74,15 @@ Curl은 실행, 모니터링 및 Hive 쿼리 검색 결과를 원시 HTTP 요청
     * **-d** - `-G`는 사용되지 않으므로 요청은 기본적으로 POST 메서드로 설정됩니다. `-d`는 요청과 함께 전송되는 데이터 값을 지정합니다.
 
         * **user.name** - 명령을 실행하는 사용자입니다.
-        
+
         * **execute** - 실행할 HiveQL 문입니다.
-        
+
         * **statusdir** - 이 작업의 상태를 기록할 디렉터리입니다.
 
     이러한 문은 다음 작업을 수행합니다.
 
     * **DROP TABLE** - 테이블이 이미 있는 경우 테이블과 데이터 파일을 삭제합니다.
-    
+
     * **CREATE EXTERNAL TABLE** - Hive에서 새 ‘외부’ 테이블을 만듭니다. 외부 테이블은 테이블 정의만 Hive에 저장합니다. 데이터는 원래 위치에 그대로 유지됩니다.
 
 		> [AZURE.NOTE]자동화된 데이터 업로드 프로세스와 같은 외부 원본이나 또 다른 MapReduce 작업을 통해 기본 데이터를 업데이트해야 하지만 Hive 쿼리에서 항상 최신 데이터를 사용하려고 할 경우 외부 테이블을 사용해야 합니다.
@@ -90,9 +90,9 @@ Curl은 실행, 모니터링 및 Hive 쿼리 검색 결과를 원시 HTTP 요청
 		> 외부 테이블을 삭제하면 데이터는 삭제되지 **않고** 테이블 정의만 삭제됩니다.
 
     * **ROW FORMAT** - 데이터의 형식 지정 방식을 Hive에 알립니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.
-    
+
     * **STORED AS TEXTFILE LOCATION** - 데이터가 저장된 위치(example/data 디렉터리) 및 텍스트로 저장되었음을 Hive에 알립니다.
-    
+
     * **SELECT** - **t4** 열에 **[ERROR]** 값이 포함된 모든 행의 수를 선택합니다. 이 경우 이 값을 포함하는 행이 3개 있으므로 **3** 값이 반환되어야 합니다.
 
     > [AZURE.NOTE]Curl과 함께 사용할 경우 HiveQL 문 사이의 공백이 `+` 문자로 바뀝니다. 구분 기호와 같이 공백을 포함하는 따옴표로 묶인 값은 `+`로 바뀌지 않아야 합니다.
@@ -132,19 +132,19 @@ Curl은 실행, 모니터링 및 Hive 쿼리 검색 결과를 원시 HTTP 요청
 		> [AZURE.NOTE]외부 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
 
     * **STORED AS ORC** - 데이터를 ORC(Optimized Row Columnar) 형식으로 저장합니다. Hive 데이터를 저장하기 위한 고도로 최적화되고 효율적인 형식입니다.
-    * **INSERT OVERWRITE ... SELECT** - **[ERROR]**가 포함된 **log4jLogs** 테이블에서 행을 선택하고 데이터를 **errorLogs** 테이블에 삽입합니다.
+    * **덮어쓰기 삽입... SELECT** - **[ERROR]**가 포함된 **log4jLogs** 테이블에서 행을 선택하고 데이터를 **errorLogs** 테이블에 삽입합니다.
     * **SELECT** - 새 **errorLogs** 테이블에서 모든 행을 선택합니다.
 
 7. 작업 상태를 확인하려면 반환된 작업 ID를 사용합니다. 작업이 성공하면 이전에 설명한 대로 Mac, Linux 및 Windows용 Azure CLI를 사용하여 결과를 다운로드하고 볼 수 있습니다. 결과는 **[ERROR]**를 포함하여 모두 3줄이어야 합니다.
 
 
-## <a id="summary"></a>요약
+##<a id="summary"></a>요약
 
 이 문서에서 볼 수 있듯이, 실행, 모니터링 및 HDInsight 클러스터의 Hive 작업의 결과 확인하려면 원시 HTTP 요청을 사용할 수 있습니다.
 
 이 문서에 사용된 REST 인터페이스에 대한 자세한 내용은 <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference" target="_blank">WebHCat 참조</a>를 참조하세요.
 
-## <a id="nextsteps"></a>다음 단계
+##<a id="nextsteps"></a>다음 단계
 
 HDInsight Hive에 대한 일반적인 내용입니다.
 
@@ -189,4 +189,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="05/11/2015"
+    ms.date="07/02/2015"
     ms.author="banders"/>
 
 # Operational Insights 솔루션
@@ -42,11 +42,15 @@ Microsoft Azure Operational Insights는 기본 구성 평가 모듈을 포함합
 
 - [SQL 및 Active Directory 평가](operational-insights-assessment.md)
 
-그러나 다음 솔루션은 Microsoft Monitoring Agent로 지원되지 *않습니다*.
+그러나 다음 솔루션은 Microsoft Monitoring Agent을 지원하지 *않고* System Center Operations Manager(SCOM)를 필요로 합니다.
 
 - [용량 관리](operational-insights-capacity.md)
 
-- [구성 평가](../operational-insights-configuration-assessment.md)
+- [경고 관리](operational-insights-alerts.md)
+
+- [구성 평가](operational-insights-solutions.md#configuration-assessment)
+
+Operations Manager로 이러한 솔루션을 사용하는 것에 대한 지침은 [Operational Insights를 사용하는 Operations Manager 고려 사항](operational-insights-operations-manager.md)을 참조하십시오.
 
 IIS 로그 수집은 다음이 설치된 컴퓨터에서 지원됩니다.
 
@@ -85,6 +89,5 @@ IIS 로그 수집은 다음이 설치된 컴퓨터에서 지원됩니다.
 
 
 3. 확인 페이지에서 **예**를 클릭하여 솔루션을 제거합니다.
- 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

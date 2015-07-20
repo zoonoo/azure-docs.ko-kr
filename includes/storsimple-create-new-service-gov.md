@@ -1,3 +1,4 @@
+
 #### 새 서비스를 만들려면
 
 1. Microsoft 계정 자격 증명을 사용하여 [Microsoft Azure Government 포털](https://manage.windowsazure.us/)에 로그온합니다.
@@ -17,4 +18,4 @@
  
        ![서비스 만들기](./media/storsimple-create-new-service-gov/HCS_StorSimpleManagerServicePage-gov-include.png)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

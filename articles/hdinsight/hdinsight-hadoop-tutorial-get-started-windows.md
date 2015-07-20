@@ -276,4 +276,4 @@ Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight의 작�
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

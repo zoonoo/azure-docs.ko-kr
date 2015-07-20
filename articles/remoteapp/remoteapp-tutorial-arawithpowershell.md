@@ -13,24 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="04/14/2015"
-   ms.author="guscatal;spatnaik"/>
+   ms.date="07/07/2015"
+   ms.author="guscatal;spatnaik;elizapo"/>
 
 
 
-Azure RemoteApp에서 Powershell 시작하기
+# Azure RemoteApp에서 Powershell 시작하기
 =====================================
 
 
-cmdlet 가져오기 
-------------- 
-먼저 [여기서](http://go.microsoft.com/?linkid=9811175) Azure Powershell commandlet을 다운로드해야 합니다. 그러면 RemoteApp cmdlet이 Azure Powershell commandlet에 포함됩니다.
+## cmdlet 받기 
+-------------
+먼저 [여기](http://go.microsoft.com/?linkid=9811175)에서 Azure Powershell cmdlet을 받아야 합니다. RemoteApp도 여기에 포함되어 있습니다.
 
-구독을 사용하도록 Azure cmdlet 구성
+## 구독을 사용하도록 Azure cmdlet 구성
 ------------------
 Azure 구독에 대해 cmdlet을 사용할 수 있도록 [이 가이드](../powershell-install-configure.md)를 따릅니다.
 
-클라우드 컬렉션 만들기
+## 클라우드 컬렉션 만들기
 --------------------
 간단히 다음 명령을 수행하면 됩니다.
 
@@ -49,6 +49,7 @@ Azure 구독에 대해 cmdlet을 사용할 수 있도록 [이 가이드](../powe
 
 완료되었습니다! 사용자는 [여기에](https://www.remoteapp.windowsazure.com/) 있는 Azure RemoteApp 클라이언트를 사용하여 응용 프로그램에 연결할 수 있습니다.
 
+## 사용할 수 있는 cmdlet
 설명서에서는 일부만 다루지만 사용할 수 있는 많은 명령이 있습니다.
 
 기본 RemoteApp 컬렉션 cmdlet:
@@ -96,6 +97,6 @@ RemoteApp 템플릿 이미지 cmdlet:
 - Get-AzureRemoteAppWorkspace
 - Set-AzureRemoteAppWorkspace
 - Get-AzureRemoteAppOperationResult
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

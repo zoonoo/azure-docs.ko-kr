@@ -499,5 +499,6 @@ vm-disk-utils-0.1.sh는 azure-quickstart-tempates github 리포지토리 내 **s
 -	모든 배포 후 작업(예: 제품 설치, 구성 등)의 경우 스크립트 배포 확장을 활용하고 각 기술에 특정한 스크립트를 만듭니다.
 
 자세한 내용은 [Azure 리소스 관리자 템플릿 언어](https://msdn.microsoft.com/library/azure/dn835138.aspx)를 참조하세요.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

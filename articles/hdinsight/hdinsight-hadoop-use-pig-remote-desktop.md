@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/03/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
-# 원격 데스크탑 연결에서 Pig 작업 실행
+#원격 데스크탑 연결에서 Pig 작업 실행
 
 [AZURE.INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
@@ -24,7 +24,7 @@
 
 이 문서에서는 다음 작업 방법에 대해 알아봅니다.
 
-## <a id="prereq"></a>필수 조건
+##<a id="prereq"></a>필수 조건
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
@@ -32,11 +32,11 @@
 
 * Windows 10, Window 8 또는 Windows 7을 실행하는 클라이언트 컴퓨터
 
-## <a id="connect"></a>원격 데스크톱을 사용하여 연결
+##<a id="connect"></a>원격 데스크톱을 사용하여 연결
 
-HDInsight 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">RDP를 사용하여 HDInsight 클러스터에 연결</a>의 지침에 따라 연결합니다.
+HDInsight 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 [RDP를 사용하여 HDInsight 클러스터에 연결](hdinsight-administer-use-management-portal.md#rdp)의 지침에 따라 연결합니다.
 
-## <a id="pig"></a>Pig 명령 사용
+##<a id="pig"></a>Pig 명령 사용
 
 2. 원격 데스크톱 연결이 설정되면 바탕 화면의 아이콘을 사용하여 **Hadoop 명령줄**을 시작합니다.
 
@@ -90,7 +90,7 @@ HDInsight 클러스터에 대해 원격 데스크톱을 사용하도록 설정�
 
 		QUIT;
 
-### Pig Latin 배치 파일
+###Pig Latin 배치 파일
 
 Pig 명령을 사용하여 파일에 포함된 Pig Latin을 실행할 수도 있습니다.
 
@@ -119,11 +119,11 @@ Pig 명령을 사용하여 파일에 포함된 Pig Latin을 실행할 수도 있
 		(ERROR,6)
 		(FATAL,2)
 
-## <a id="summary"></a>요약
+##<a id="summary"></a>요약
 
 이처럼 Pig 명령을 사용하면 MapReduce 작업 또는 배치 파일에 저장된 Pig Latin 작업을 대화형으로 실행할 수 있습니다.
 
-## <a id="nextsteps"></a>다음 단계
+##<a id="nextsteps"></a>다음 단계
 
 HDInsight의 Pig에 대한 일반적인 정보:
 
@@ -135,4 +135,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 * [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # Visual Studio용 Hadoop 도구를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발
@@ -26,23 +26,23 @@ Visual Studio에 HDInsight 도구를 사용하여 C# Storm 토폴로지를 만�
 
 -	다음과 같은 Visual Studio 버전 중 하나
 
-	-	Visual Studio 2012 <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">업데이트 4</a>
+	-	Visual Studio 2012 [업데이트 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
-	-	Visual Studio 2013 <a href="http://www.microsoft.com/download/details.aspx?id=44921" target="_blank">업데이트 4</a> 또는 <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community</a>
+	-	Visual Studio 2013 [업데이트 4](http://www.microsoft.com/download/details.aspx?id=44921) 또는 [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
 
-	-	<a href="http://visualstudio.com/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
+	-	[Visual Studio 2015 CTP6](http://visualstudio.com/downloads/visual-studio-2015-ctp-vs)
 
 -	Azure SDK 2.5.1 이상
 
--	Visual Studio용 HDInsight 도구: Visual Studio용 HDInsight 도구를 설치하고 구성하려면 <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Visual Studio용 HDInsight 도구 사용 시작</a>을 참조하세요.
+-	Visual Studio용 HDInsight 도구: Visual Studio용 HDInsight 도구를 설치하고 구성하려면 [Visual Studio용 HDInsight 도구 사용 시작](hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
--	HDInsight의 Apache Storm 클러스터: 클러스터를 만드는 단계는 <a href="../hdinsight-storm-getting-started/" target="_blank">HDInsight에서 Apache Storm 시작</a>을 참조하세요.
+-	HDInsight의 Apache Storm 클러스터: 클러스터를 만드는 단계는 [HDInsight에서 Apache Storm 시작](hdinsight-storm-getting-started.md)을 참조하세요.
 
 	> [AZURE.NOTE]현재 Visual Studio용 HDInsight 도구는 HDInsight 버전 3.2 클러스터의 Storm만 지원합니다.
 
 ##C# 토폴로지 만들기
 
-1.	최신 버전의 Visual Studio용 HDInsight 도구를 아직 설치하지 않은 경우 <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Visual Studio용 HDInsight 도구 사용 시작</a>을 참조하세요.
+1.	최신 버전의 Visual Studio용 HDInsight 도구를 아직 설치하지 않은 경우 [Visual Studio용 HDInsight 도구 사용 시작](hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
 2.	Visual Studio를 열고 **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
 
@@ -58,7 +58,7 @@ Visual Studio에 HDInsight 도구를 사용하여 C# Storm 토폴로지를 만�
 
 	-	**Bolt.cs**: Spout에서 내보낸 숫자의 개수를 유지하는 예제 Bolt입니다.
 
-	프로젝트 만들기의 일부로 최신 <a href="https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/" target="_blank">SCP.NET 패키지</a>가 NuGet에서 다운로드됩니다.
+	프로젝트 만들기의 일부로 최신 [SCP.NET 패키지](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/)가 NuGet에서 다운로드됩니다.
 
 다음 섹션에서 이 프로젝트를 기본 WordCount 응용 프로그램으로 수정합니다.
 
@@ -579,7 +579,7 @@ SCP.Net 버전 0.9.4.203은 이벤트 허브 spout(이벤트 허브로부터 읽
 
 6.	변경 내용을 저장한 다음 **F5** 또는 **디버그** > **디버깅 시작**을 선택하여 프로젝트를 시작합니다. 콘솔 창이 나타나며 로그 상태가 테스트로 진행됩니다. **테스트 완료**가 나타나면 아무 키나 눌러 창을 닫습니다.
 
-7.	**Windows 탐색기**를 사용하여 프로젝트가 들어 있는 디렉터리(예: **C:\Users<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**)를 찾습니다. 이 디렉터리에서 **Bin**을 열고 **디버그**를 클릭합니다. 테스트가 실행될 때 생성된 텍스트 파일(sentences.txt, counter.txt 및 splitter.txt)이 표시됩니다. 각각의 텍스트 파일을 열고 데이터를 검사합니다.
+7.	**Windows 탐색기**를 사용하여 프로젝트가 들어 있는 디렉터리(예: **C:\\Users<your_user_name>\\Documents\\Visual Studio 2013\\Projects\\WordCount\\WordCount**)를 찾습니다. 이 디렉터리에서 **Bin**을 열고 **디버그**를 클릭합니다. 테스트가 실행될 때 생성된 텍스트 파일(sentences.txt, counter.txt 및 splitter.txt)이 표시됩니다. 각각의 텍스트 파일을 열고 데이터를 검사합니다.
 
 	> [AZURE.NOTE]문자열 데이터는 이러한 파일에서 10진수 값의 배열로 유지됩니다. 예를 들어, **splitter.txt** 파일에서 [[97,103,111]]은 'and'라는 단어입니다.
 
@@ -638,6 +638,5 @@ HDInsight 사용 방법 및 HDInsight의 Storm에 대한 추가 샘플은 다음
 **HDInsight의 Apache HBase**
 
 -	[HDInsight에서 HBase 시작](../hdinsight-hbase-get-started.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

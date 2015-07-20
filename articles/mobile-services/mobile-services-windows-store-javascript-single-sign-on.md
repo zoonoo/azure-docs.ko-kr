@@ -18,7 +18,7 @@
 
 # Microsoft 계정을 사용하여 클라이언트 관리 인증으로 Windows 스토어 앱 인증
 
-[AZURE.INCLUDE [mobile-services-selector-single-signon](../../includes/mobile-services-selector-single-signon.md)] 
+[AZURE.INCLUDE [mobile-services-selector-single-signon](../../includes/mobile-services-selector-single-signon.md)]
 
 ##개요
 이 항목에서는 Windows 스토어 앱에서 Azure 모바일 서비스의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 Live Connect를 사용하여 빠른 시작 프로젝트에 인증을 추가합니다. Live Connect에 의해 인증되고 나면 로그인한 사용자는 이름과 함께 환영의 메시지를 보게 되고 사용자 ID 값이 표시됩니다.
@@ -41,7 +41,7 @@
 
 이제 *TodoItems* 테이블이 로그인한 사용자만 액세스할 수 있도록 하는 경우, 리소스에 액세스를 제한해야 합니다.
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../../includes/mobile-services-restrict-permissions-windows.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-windows](../../includes/mobile-services-restrict-permissions-windows.md)]
 
 ##<a name="add-authentication"></a>앱에 인증 추가
 
@@ -143,5 +143,6 @@
 [스크립트를 통해 사용자 권한 부여]: ../mobile-services-windows-store-javascript-authorize-users-in-scripts.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

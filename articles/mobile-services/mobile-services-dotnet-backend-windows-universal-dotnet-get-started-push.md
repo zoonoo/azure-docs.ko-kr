@@ -1,6 +1,6 @@
 <properties 
-	pageTitle=".NET 백 엔드 모바일 서비스를 사용하여 푸시 알림 시작" 
-	description="Azure 모바일 서비스와 알림 허브를 사용하여 범용 Windows 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." 
+	pageTitle="유니버설 Windows 8.1 앱에 푸시 알림 보내기 | Azure 모바일 서비스" 
+	description="Azure 알림 허브를 사용하여 .NET 백 엔드 모바일 서비스에서 유니버설 Windows 8.1 앱에 푸시 알림을 보내는 방법을 알아봅니다." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,30 +13,24 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/09/2015" 
+	ms.date="07/01/2015" 
 	ms.author="glenga"/>
 
 # 모바일 서비스 앱에 푸시 알림 추가
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
-# 개요
-이 항목에서는 .NET 백 엔드와 함께 Azure 모바일 서비스를 사용하여 범용 Windows 앱에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 범용 Windows 앱 프로젝트에서 Azure 알림 허브를 사용하여 푸시 알림을 사용하도록 설정합니다. 이 작업을 완료하면 TodoList 테이블에 레코드를 삽입할 때마다 모바일 서비스가 .NET 백 엔드에서 Windows 스토어 및 Windows Phone 스토어에 등록된 모든 앱으로 푸시 알림을 보냅니다. 모바일 서비스를 통해 무료로 만드는 알림 허브는 모바일 서비스와 별도로 관리할 수 있으며, 다른 응용 프로그램과 서비스에서도 사용 가능합니다.
 
->[AZURE.NOTE]이 항목에서는 Visual Studio Professional 2013 업데이트 3의 도구를 사용하여 모바일 서비스에서 범용 Windows 앱으로의 푸시 알림에 대한 지원을 추가하는 방법을 보여 줍니다. 같은 단계를 사용하여 모바일 서비스에서 Windows 스토어 또는 Windows Phone 스토어 8.1 앱으로의 푸시 알림을 추가할 수 있습니다. Windows Phone 8 또는 Windows Phone Silverlight 8.1 앱으로의 푸시 알림을 추가하려면 [모바일 서비스에서 푸시 알림 시작](mobile-services-dotnet-backend-windows-phone-get-started-push.md) 버전을 참조하세요.
+##개요
+이 항목에서는 .NET 백 엔드와 함께 Azure 모바일 서비스를 사용하여 유니버설 Windows 앱에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 유니버설 Windows 앱 프로젝트에서 Azure 알림 허브를 사용하여 푸시 알림을 사용하도록 설정합니다. 이 작업을 완료하면 TodoList 테이블에 레코드를 삽입할 때마다 모바일 서비스가 .NET 백 엔드에서 Windows 스토어 및 Windows Phone 스토어에 등록된 모든 앱으로 푸시 알림을 보냅니다. 모바일 서비스를 통해 무료로 만드는 알림 허브는 모바일 서비스와 별도로 관리할 수 있으며, 다른 응용 프로그램과 서비스에서도 사용 가능합니다.
 
-이 자습서에서는 푸시 알림을 사용하도록 설정하는 다음 기본 단계를 단계별로 안내합니다.
-
-1. [푸시 알림에 대해 앱 등록](#register)
-2. [푸시 알림을 전송하도록 서비스 업데이트](#update-service)
-3. [로컬 테스트에 푸시 알림 사용](#local-testing)
-4. [앱에서 푸시 알림 테스트](#test)
+>[AZURE.NOTE]이 항목에서는 Visual Studio Professional 2013 업데이트 3의 도구를 사용하여 모바일 서비스에서 유니버설 Windows 앱으로의 푸시 알림에 대한 지원을 추가하는 방법을 보여 줍니다. 같은 단계를 사용하여 모바일 서비스에서 Windows 스토어 또는 Windows Phone 스토어 8.1 앱으로의 푸시 알림을 추가할 수 있습니다. Windows Phone 8 또는 Windows Phone Silverlight 8.1 앱으로의 푸시 알림을 추가하려면 [모바일 서비스에서 푸시 알림 시작](mobile-services-dotnet-backend-windows-phone-get-started-push.md) 버전을 참조하세요.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * 활성 [Microsoft 스토어 계정](http://go.microsoft.com/fwlink/p/?LinkId=280045)
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Community 2013</a>. 
 
-## <a id="register"></a>푸시 알림에 대해 앱 등록
+##<a id="register"></a>푸시 알림에 대해 앱 등록
 
 [AZURE.INCLUDE [mobile-services-create-new-push-vs2013](../../includes/mobile-services-create-new-push-vs2013.md)]
 
@@ -51,13 +45,13 @@
 
 이제 앱에서 푸시 알림을 사용하도록 설정했으므로 모바일 서비스가 푸시 알림을 보내도록 업데이트해야 합니다.
 
-## <a id="update-service"></a>푸시 알림을 전송하도록 서비스 업데이트
+##<a id="update-service"></a>푸시 알림을 전송하도록 서비스 업데이트
 
 다음 단계를 수행하면 새 항목 삽입 시 등록된 모든 장치로 푸시 알림을 보내도록 기존 TodoItemController 클래스를 업데이트합니다. 모든 사용자 지정 [ApiController](https://msdn.microsoft.com/library/system.web.http.apicontroller.aspx), [TableController](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.tables.tablecontroller.aspx) 또는 백 엔드 서비스의 모든 위치에서도 비슷한 코드를 구현할 수 있습니다.
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-update-server-push](../../includes/mobile-services-dotnet-backend-update-server-push.md)]
 
-## <a id="local-testing"></a> 로컬 테스트에 푸시 알림 사용
+##<a id="local-testing"></a> 로컬 테스트에 푸시 알림 사용
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push-vs2013](../../includes/mobile-services-dotnet-backend-configure-local-push-vs2013.md)]
 
@@ -76,7 +70,7 @@ public static MobileServiceClient todolistClient = new MobileServiceClient(
 </code></pre><p>이 <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a>를 사용하는 경우 앱은 Azure에서 호스트되는 버전이 아닌 로컬 서비스에 연결합니다. 다시 이전과 같이 Azure에서 호스트되는 모바일 서비스에 대해 앱을 실행하려면 원래 <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> 정의로 다시 변경하면 됩니다.</p></li>
 </ol>
 
-## <a id="test"></a> 앱에서 푸시 알림 테스트
+##<a id="test"></a> 앱에서 푸시 알림 테스트
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-windows-universal-test-push](../../includes/mobile-services-dotnet-backend-windows-universal-test-push.md)]
 
@@ -86,20 +80,15 @@ public static MobileServiceClient todolistClient = new MobileServiceClient(
 
 다음 항목에서 모바일 서비스 및 알림 허브에 대해 알아보세요.
 
-* [기존 앱에 모바일 서비스 추가][Get started with data] 
-  <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법을 자세히 알아봅니다.
+* [기존 앱에 모바일 서비스 추가][Get started with data] <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법을 자세히 알아봅니다.
 
-* [앱에 인증 추가][Get started with authentication] 
-  <br/>모바일 서비스를 사용하여 서로 다른 계정 유형의 앱 사용자를 인증하는 방법에 대해 알아봅니다.
+* [앱에 인증 추가][Get started with authentication] <br/>모바일 서비스를 사용하여 서로 다른 계정 유형의 앱 사용자를 인증하는 방법에 대해 알아봅니다.
 
-* [알림 허브 정의] 
-  <br/>모든 주요 클라이언트 플랫폼에 걸쳐 알림 허브가 앱에 알림을 전달하는 방법에 대해 알아봅니다.
+* [알림 허브 정의] <br/>모든 주요 클라이언트 플랫폼에 걸쳐 알림 허브가 앱에 알림을 전달하는 방법에 대해 알아봅니다.
 
-* [알림 허브 응용 프로그램 디버깅](http://go.microsoft.com/fwlink/p/?linkid=386630) 
-  </br>알림 허브 솔루션 문제를 해결하고 디버깅하기 위한 지침을 얻습니다.
+* [알림 허브 응용 프로그램 디버깅](http://go.microsoft.com/fwlink/p/?linkid=386630) </br>알림 허브 솔루션 문제를 해결하고 디버깅하기 위한 지침을 얻습니다.
 
-* [Azure 모바일 서비스용 .NET 클라이언트를 사용하는 방법] 
-  <br/>C# Windows 앱에서 모바일 서비스를 사용하는 방법에 대해 자세히 알아봅니다.
+* [Azure 모바일 서비스용 .NET 클라이언트를 사용하는 방법] <br/>C# Windows 앱에서 모바일 서비스를 사용하는 방법에 대해 자세히 알아봅니다.
 
 <!-- Anchors. -->
 
@@ -118,5 +107,6 @@ public static MobileServiceClient todolistClient = new MobileServiceClient(
 [알림 허브 정의]: ../notification-hubs-overview.md
 
 [Azure 모바일 서비스용 .NET 클라이언트를 사용하는 방법]: mobile-services-windows-dotnet-how-to-use-client-library.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

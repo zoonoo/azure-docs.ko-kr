@@ -4,16 +4,16 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   editor="tysonn"/>
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/09/2015"
-   ms.author="v-sharos"/>
+   ms.date="07/08/2015"
+   ms.author="v-sharos" />
 
 # StorSimple 8100 장치 설치
 
@@ -45,9 +45,9 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 
 2. 상자를 개봉합니다. 다음 이미지는 Azure StorSimple 장치의 개봉된 모습을 보여줍니다.
 
-    **그림 1 저장소 장치가 개봉된 상태**
-
      ![저장소 장치 개봉하기](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
+
+    **그림 1: 저장소 장치가 개봉된 상태**
 
      레이블 | 설명 
      ----- | -------------
@@ -113,14 +113,14 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 
 2. 일반적으로 이러한 레일은 공장에서 설치됩니다. 그렇지 않은 경우에는 왼쪽 레일과 오른쪽 레일의 슬라이드를 인클로저 섀시의 측면에 설치합니다. 각 면에서 6개의 미터 나사를 사용하여 연결합니다. 방향을 잡는 데 도움이 되도록 레일 슬라이드는 **LH – Front(전면)** 및 **RH – Front(전면)**라고 표시되어 있으며 인클로저의 뒷면 쪽에 부착된 끝은 테이퍼 모양입니다.<br/>
 
-    **그림 2 레일 슬라이드를 인클로저의 측면에 연결**
-
     ![인클로저 섀시에 레일 슬라이드 장착](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
-    레이블 | 설명
+   **그림 2: 레일 슬라이드를 인클로저의 측면에 연결**
+
+    Label | Description
     ----- | -----------
-    1 | M 3 x 4 단추 머리 나사
-    2 | 섀시 슬라이드
+    1     | M 3x4 button-head screws
+    2     | Chassis slides
 
 3. 왼쪽 레일 및 오른쪽 레일 어셈블리를 랙 캐비닛 수직재에 연결합니다. 브라켓에 **LH**, **RH**, **This side up(위쪽)**이 표시되어 있어서 방향을 올바르게 잡을 수 있습니다.
 
@@ -130,9 +130,9 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 
 6. 다른 레일 어셈블리에 대해서도 이들 단계를 반복합니다.<br/>
 
-    **그림 3 레일 어셈블리를 랙에 연결**
-
      ![랙 캐비닛에 레일 슬라이드 장착](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
+
+    **그림 3: 레일 어셈블리를 랙에 연결**
 
      레이블 | 설명
      ----- | -----------
@@ -152,18 +152,18 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 
 2. 주의를 기울여 장치를 레일에 삽입하고 랙 캐비닛으로 완전히 밀어 넣습니다.<br/>
 
-    **그림 4 랙에 장치 탑재**
-
     ![랙에 장치 삽입](./media/storsimple-8100-hardware-installation/HCSInsertingDeviceintheRack.png)
+
+    **그림 4: 랙에 장치 탑재**
 
 3. 왼쪽 및 오른쪽 각 플랜지를 통해 제공된 십자 머리 나사 하나를 설치하여 인클로저를 랙에 고정합니다.
 
 4. 플랜지 캡을 제자리에 밀어 넣어 설치합니다.<br/>
 
-    **그림 5 플랜지 캡 설치**
-
      ![플랜지 캡 설치](./media/storsimple-8100-hardware-installation/HCSInstallingFlangeCaps.png)
  
+    **그림 5: 플랜지 캡 설치**
+
      레이블 | 설명
      ----- | -----------
      1 | 인클로저 잠금 나사
@@ -213,10 +213,9 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 
     >[AZURE.NOTE]시스템의 고가용성을 보장하려면 다음 다이어그램에서 설명하는 전원 케이블 연결 방식을 엄격히 준수해야 합니다.
 
+    ![전원에 2U 장치를 케이블로 연결](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforPower.png)
 
-    **그림 6 전원 장치 케이블 연결**
-
-     ![전원에 2U 장치를 케이블로 연결](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforPower.png)
+    **그림 6: 장치에 전원 케이블 연결**
 
      레이블 | 설명
      ----- | -----------
@@ -236,9 +235,9 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 
 1. 장치에는 각 컨트롤러에 4개의 1Gbps 이더넷 포트와 2개의 10Gbps 이더넷 포트, 모두 6개의 네트워크 인터페이스가 있습니다. 장치의 백플레인에서 다양한 데이터 포트를 구별합니다.
 
-    **그림 7 데이터 포트를 표시하는 장치의 뒷면**
-
     ![8100 장치의 백플레인](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
+
+    **그림 7: 데이터 포트를 표시하는 장치의 뒷면**
  
      레이블 | 설명
      ------- | -----------
@@ -255,21 +254,21 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
     2. 각 컨트롤러의 인터페이스와 최소 2개의 스위치를 연결하여 스위치 장애 발생 시 가용성 보장
     3. DATA 0 포트와 기본 LAN(인터넷에 연결된 네트워크) 의도한 역할에 따라 다른 데이터 포트를 네트워크의 SAN/iSCSI LAN(VLAN) 세그먼트에 연결할 수 있습니다.
 
-   최소한 하나의 네트워크 인터페이스를 클라우드 액세스에, 하나는 iSCSI용으로 구성하십시오. 높은 수준의 가용성과 성능을 위해 각 컨트롤러에서 네트워크 인터페이스 두 쌍을 구성하십시오. 네트워크 케이블 연결에 대해서는 다음 다이어그램을 참조하십시오. (최소 네트워크 구성은 파란색 실선으로 표시 됩니다. 높은 가용성과 성능을 위해 필요한 추가 구성을 점선으로 표시했습니다.)
+    최소한 하나의 네트워크 인터페이스를 클라우드 액세스에, 하나는 iSCSI용으로 구성하십시오. 높은 수준의 가용성과 성능을 위해 각 컨트롤러에서 네트워크 인터페이스 두 쌍을 구성하십시오. 네트워크 케이블 연결에 대해서는 다음 다이어그램을 참조하십시오. (최소 네트워크 구성은 파란색 실선으로 표시 됩니다. 높은 가용성과 성능을 위해 필요한 추가 구성을 점선으로 표시했습니다.)
 
-   **그림 8 장치에 네트워크 케이블 연결**
+    ![네트워크에 2U 장치를 케이블로 연결](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
-   ![네트워크에 2U 장치를 케이블로 연결](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
+    **그림 8: 장치에 네트워크 케이블 연결**
 
-    Label | Description
+    레이블 | 설명
     ----- | -----------
-     A    | LAN with Internet access
-     B    | Controller 0
-     C    | PCM 0
-     D    | Controller 1
-     E    | PCM 1
-     F,G  | Hosts
-     0-5  | Network interfaces
+     문자열(UTF-8 형식) 또는 | 인터넷 액세스 LAN
+     B | 컨트롤러 0
+     C | PCM 0
+     D | 컨트롤러 1
+     E | PCM 1
+     F,G | 호스트
+     0-5 | 네트워크 인터페이스
    
 ### 직렬 포트 케이블 연결
 
@@ -298,4 +297,4 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 이제 [온-프레미스 StorSimple 장치를 배포 및 구성](storsimple-deployment-walkthrough.md)할 준비가 되었습니다.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

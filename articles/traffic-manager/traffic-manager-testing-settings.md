@@ -75,4 +75,6 @@
 
 [트래픽 관리자에 대한 작업(REST API 참조)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #PowerShell을 사용하여 HDInsight에서 Hadoop과 Hive 쿼리 실행
@@ -28,11 +28,11 @@
 
 - **Azure HDInsight(HDInsight의 Hadoop) 클러스터(Windows 기반 또는 Linux 기반)**
 
-- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 사용](http://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)을 참조하세요.
+- **Azure PowerShell이 포함된 워크스테이션**. [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요.
 
 ##<a id="powershell"></a>Azure PowerShell을 사용하여 MapReduce 작업 실행
 
-Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 수 있는 *cmdlet*을 제공합니다. 내부적으로는 HDInsight 클러스터에서 실행되는 <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a>(이전의 Templeton)에 대한 REST 호출을 사용하여 이 작업을 수행합니다.
+Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 수 있는 *cmdlet*을 제공합니다. 내부적으로는 HDInsight 클러스터에서 실행되는 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat)(이전의 Templeton)에 대한 REST 호출을 사용하여 이 작업을 수행합니다.
 
 다음 cmdlet은 원격 HDInsight 클러스터에서 MapReduce 작업을 실행할 때 사용됩니다.
 
@@ -99,7 +99,7 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
 		JobId           : job_1415949758166_0071
 
 	이 출력은 작업이 성공적으로 완료되었음을 나타냅니다.
-	
+
 	> [AZURE.NOTE]**ExitCode**가 0이 아닌 값이면 [문제 해결](#troubleshooting)을 참조하세요.
 
 ##<a id="results"></a>작업 출력 보기
@@ -172,6 +172,5 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 * [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
 
 * [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

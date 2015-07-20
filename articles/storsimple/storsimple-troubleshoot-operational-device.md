@@ -5,7 +5,8 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -45,5 +46,6 @@
 | 4 | Invoke-HcsSetupWizard: 예상 범위 내에 값이 없습니다. | 잘못된 서브넷 마스크 때문에 이 오류가 발생합니다. 가능한 원인: <ul><li> 서브넷 마스크가 누락되었거나 비어 있습니다.</li><li>Ipv6 접두사 형식이 잘못되었습니다.</li><li>인터페이스는 클라우드 사용되지만 게이트웨이가 누락되었거나 잘못되었습니다.</li></ul>설치 마법사를 통해 구성된 경우 데이터 0은 자동으로 클라우드 설정됩니다. | 문제를 확인하려면 0.0.0.0 또는 256.256.256.256, 서브넷을 사용한 다음 출력을 확인합니다. 필요에 따라 서브넷 마스크, 게이트웨이 및 Ipv6 접두사에 대한 올바른 값을 입력합니다. |
  
 ## 다음 단계
-문제를 해결할 수 없는 경우 [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하세요.<!--HONumber=52-->
- 
+문제를 해결할 수 없는 경우 [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하세요.
+
+<!---HONumber=July15_HO2-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Mobile Services .NET 백 엔드로 Leaderboard 앱 만들기" 
-	description=".NET 백 엔드와 함께 Azure 모바일 서비스를 사용하여 Windows 스토어 앱을 빌드하는 방법에 대해 알아봅니다." 
+	pageTitle=".NET 백 엔드를 사용하여 Windows 스토어 Leaderboard 앱 만들기 | Azure 모바일 서비스" 
+	description=".NET 백 엔드와 함께 Azure 모바일 서비스를 사용하여 Windows 스토어 Leaderboard 앱을 빌드하는 방법에 대해 알아봅니다." 
 	documentationCenter="windows" 
 	authors="MikeWasson" 
 	manager="dwrede" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
-	ms.author="mwasson"/>
+	ms.date="06/24/2015" 
+	ms.author="glenga"/>
 
 # Azure Mobile Services .NET 백 엔드로 Leaderboard 앱 만들기
 
@@ -113,7 +113,7 @@ Visual Studio 2013에서 ASP.NET 웹 응용 프로그램 프로젝트에는 Azur
 
 `PlayerRank` 클래스에는 관련된 `Player` 엔터티를 가리키는 [탐색 속성](http://msdn.microsoft.com/data/jj713564.aspx)이 있습니다. **[ForeignKey]** 특성은 EF에 `Player` 속성이 외래 키를 나타내도록 지정합니다.
 
-# Web API 컨트롤러 추가
+## Web API 컨트롤러 추가
 
 그런 다음 `Player` 및 `PlayerRank`에 대한 Web API 컨트롤러를 추가합니다. 일반 Web API 컨트롤러 대신 Azure 모바일 서비스를 위해 특별히 디자인된 *테이블 컨트롤러*라는 특별한 종류의 컨트롤러를 추가합니다.
 
@@ -314,7 +314,7 @@ LINQ Select 문을 사용하는 대신 AutoMapper를 사용하는 옵션도 있�
 2.	플레이어의 점수를 업데이트합니다.
 3.	모든 플레이어 순위를 일괄로 업데이트하는 SQL 쿼리를 실행합니다.
 
-이 메서드에 대한 사용자 지정 경로를 정의하기 위한 **[Route]** 특성:
+**[Route]** 특성은 이 메서드에 대한 사용자 지정 경로를 정의합니다.
 
 	[Route("api/score")]
 
@@ -332,7 +332,7 @@ NuGet 패키지 관리자를 사용해서 모바일 서비스 클라이언트 �
 
 	Install-Package WindowsAzure.MobileServices -Project LeaderboardApp
 
-\-Project 스위치는 패키지를 설치할 프로젝트를 지정합니다.
+-Project 스위치는 패키지를 설치할 프로젝트를 지정합니다.
 
 ## 모델 클래스 추가
 
@@ -760,5 +760,6 @@ MVVM(Model-View-ViewModel)은 MVC(Model-View-Controller)의 변형 중 하나입
 [푸시 알림 추가]: ../notification-hubs-windows-store-dotnet-get-started.md
 [인증 시작]: /develop/mobile/tutorials/get-started-with-users-dotnet
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

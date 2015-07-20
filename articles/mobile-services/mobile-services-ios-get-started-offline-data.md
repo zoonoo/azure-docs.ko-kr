@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/19/2015"
+	ms.date="07/01/2015"
 	ms.author="krisragh;donnam"/>
 
 # 모바일 서비스에서 오프라인 데이터 동기화 시작
@@ -226,7 +226,7 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 
 * [클라우드 커버: Azure 모바일 서비스의 오프라인 동기화]
 
-* [Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱] \(참고: 데모는 Windows용이지만 기능 설명은 모든 플랫폼에 적용\)
+* [Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱](참고: 데모는 Windows용이지만 기능 설명은 모든 플랫폼에 적용)
 
 <!-- URLs. -->
 
@@ -272,4 +272,4 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 
 [모바일 서비스 퀵 스타트 자습서]: mobile-services-ios-get-started.md
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

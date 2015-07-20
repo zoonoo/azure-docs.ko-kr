@@ -70,4 +70,6 @@ SQL Server Management Studio 또는 SQLCMD.EXE를 사용하여 데이터베이�
 
 - 데이터베이스 연결 이벤트의 메트릭은 [**sys.database_connection_stats (Azure SQL Database)**](https://msdn.microsoft.com/library/dn269986.aspx) 뷰를 쿼리하여 액세스할 수 있습니다.
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

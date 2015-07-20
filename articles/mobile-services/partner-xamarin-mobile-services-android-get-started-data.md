@@ -18,7 +18,7 @@
 
 # 기존 앱에 모바일 서비스 추가
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)] 
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
 이 항목에서는 Azure 모바일 서비스를 사용하여 Xamarin.Android 앱에서 데이터를 활용하는 방법을 보여 줍니다. 이 자습서에서는 데이터를 메모리에 저장하는 앱을 다운로드하여 새 모바일 서비스를 만들고 모바일 서비스를 앱과 통합한 후 Azure 관리 포털에 로그인하여 앱을 실행할 때 수행된 데이터 변경 내용을 확인합니다.
 
@@ -32,7 +32,7 @@
 4. [모바일 서비스를 사용하도록 앱 업데이트]
 5. [모바일 서비스에 대해 앱 테스트]
 
-> [AZURE.IMPORTANT]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5"%20target="_blank)을 참조하십시오.
+> [AZURE.IMPORTANT]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5"%20target="_blank)을 참조하세요.
 
 이 자습서에는 [Azure 모바일 서비스 구성 요소], [Xamarin.Android] 및 Android SDK 4.2 이상 버전이 필요합니다.
 
@@ -234,19 +234,15 @@
 
 다음에는 이 자습서에서 만든 GetStartedWithData 앱을 기반으로 하는 다음 자습서 중 하나를 완료해보세요.
 
-* [스크립트를 사용하여 데이터 유효성 검사 및 수정]
-  모바일 서비스에서 서버 스크립트를 사용하여 앱에서 전송된 데이터의 유효성을 검사하고 변경하는 방법을 알아봅니다.
+* [스크립트를 사용하여 데이터 유효성 검사 및 수정] 모바일 서비스에서 서버 스크립트를 사용하여 앱에서 전송된 데이터의 유효성을 검사하고 변경하는 방법을 알아봅니다.
 
-* [페이징을 사용하여 쿼리 구체화]
-  쿼리에 페이징을 사용하여 단일 요청으로 처리되는 데이터 양을 제어하는 방법을 알아봅니다.
+* [페이징을 사용하여 쿼리 구체화] 쿼리에 페이징을 사용하여 단일 요청으로 처리되는 데이터 양을 제어하는 방법을 알아봅니다.
 
 데이터 시리즈를 완료한 후에는 다른 Xamarin.Android 자습서 중 하나를 시도해 보세요.
 
-* [인증 시작]
-  앱 사용자를 인증하는 방법을 알아봅니다.
+* [인증 시작] 앱 사용자를 인증하는 방법을 알아봅니다.
 
-* [푸시 알림 시작]
-  모바일 서비스를 사용하여 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
+* [푸시 알림 시작] 모바일 서비스를 사용하여 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
 <!-- Anchors. -->
 
@@ -285,5 +281,6 @@
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
 [완성된 예제 프로젝트]: http://go.microsoft.com/fwlink/p/?LinkId=331302
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

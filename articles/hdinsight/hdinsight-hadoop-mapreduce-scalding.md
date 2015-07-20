@@ -12,7 +12,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="04/17/2015"
+ ms.date="07/06/2015"
  ms.author="larryfr"/>
 
 # HDInsight에서 Apache Hadoop을 사용하여 Scalding MapReduce 작업 개발
@@ -168,7 +168,7 @@ Scalding은 Hadoop MapReduce 작업을 쉽게 만들 수 있도록 해주는 Sca
 
           //Tokenizer to split sentance into words
           def tokenize(text : String) : Array[String] = {
-            text.toLowerCase.replaceAll("[^a-zA-Z0-9\s]", "").split("\s+")
+            text.toLowerCase.replaceAll("[^a-zA-Z0-9\\s]", "").split("\\s+")
           }
         }
 
@@ -288,6 +288,5 @@ Scalding을 사용하여 HDInsight용 MapRedcue 작업을 만드는 방법을 �
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

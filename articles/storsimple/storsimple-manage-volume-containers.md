@@ -64,5 +64,6 @@ Microsoft Azure StorSimple 장치의 볼륨 컨테이너는 저장소 계정, �
 ## 다음 단계
 
 [StorSimple 볼륨 관리](storsimple-manage-volumes.md)에 대해 자세히 알아보세요.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

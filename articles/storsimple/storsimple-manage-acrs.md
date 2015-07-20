@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn"/>
+   editor="tysonn" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="06/10/2015"
-   ms.author="alkohli"/>
+   ms.author="alkohli" />
 
 # StorSimple에서 액세스 제어 레코드 관리
 
@@ -94,4 +94,4 @@ ACR을 편집하려면 다음 단계를 수행합니다.
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

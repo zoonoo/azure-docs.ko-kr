@@ -28,7 +28,7 @@ UI의 내 계정 섹션에서는 프로필 설정, 테스트 장치 ID 등 계�
 계정 설정을 확인하거나 변경할 수 있습니다. 이러한 설정에는 암호, 이름, 성, 조직, 전화 번호, 표준 시간대 또는 전자 메일 업데이트 옵트인(opt in)/옵트아웃(opt out) 등이 있습니다. "홈"의 전자 메일 주소를 기준으로 다른 사용자에게 응용 프로그램 사용 권한을 부여할 수도 있습니다.
 
 ### 참고 항목
--  [UI 설명서-홈][Link 13]
+-  [UI 설명서 - 홈][Link 13]
 
 ![MyAccount2][8]
 
@@ -141,4 +141,8 @@ UI의 내 계정 섹션에서는 프로필 설정, 테스트 장치 ID 등 계�
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
 
-<!--HONumber=54--> 
+
+ 
+ 
+
+<!---HONumber=July15_HO2-->

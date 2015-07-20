@@ -13,21 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="05/20/2015" 
 	ms.author="glenga"/>
 
 
 # 모바일 서비스 .NET 백 엔드가 포함된 기존 SQL 데이터베이스를 사용해서 서비스 구축
 
 모바일 서비스 .NET 백 엔드를 사용하면 모바일 서비스를 구축할 때 기존 자산을 쉽게 활용할 수 있습니다. 특히 한 가지 흥미로운 시나리오는 다른 응용 프로그램에서 이미 사용 중일 수 있는 기존의 SQL 데이터베이스(온-프레미스 또는 클라우드)를 사용해서 기존 데이터를 모바일 클라이언트에서도 사용할 수 있다는 점입니다. 이 경우에는 기존 솔루션이 계속 작동할 수 있도록 데이터베이스 모델(또는 *스키마*)이 변경되지 않은 상태로 유지되어야 합니다.
-
-이 자습서는 다음과 같은 섹션으로 구성되어 있습니다.
-
-1. [기존 데이터베이스 모델 내보내기](#ExistingModel)
-2. [모바일 서비스를 위한 DTO(데이터 전송 개체) 만들기](#DTOs)
-3. [DTO와 모델 간 매핑 설정](#Mapping)
-4. [도메인별 논리 구현](#DomainManager)
-5. [DTO를 사용하여 TableController 구현](#Controller)
 
 <a name="ExistingModel"></a>
 ## 기존 데이터베이스 모델 내보내기
@@ -158,7 +150,7 @@
         using System.ComponentModel.DataAnnotations;
         using System;
 
-    그런 후 각 클래스에 다음과 같은 속성을 추가합니다.
+4. 그다음에 각 클래스에 다음과 같은 속성을 추가합니다.
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Index]
@@ -187,7 +179,7 @@
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
         using System.Linq;
 
-    그런 다음 **ExistingContext** 본문에서 [**OnModelCreating**](http://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating.aspx)을 재정의합니다.
+5. **ExistingContext** 본문에서 [**OnModelCreating**](http://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating.aspx)을 재정의합니다.
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -621,5 +613,6 @@ AutoMapper가 이제 개체를 다른 개체에 매핑합니다. 이름이 일�
 
     }
 
-다음 단계에서는 서비스에 액세스하기 위한 클라이언트 앱을 작성할 수 있습니다.
-<!--HONumber=54--> 
+다음 단계에서는 서비스에 액세스하기 위한 클라이언트 앱을 작성할 수 있습니다. 자세한 내용은 [기존 앱에 모바일 서비스 추가](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service)를 참조하세요.
+
+<!---HONumber=July15_HO2-->

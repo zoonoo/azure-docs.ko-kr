@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/30/2015" 
+	ms.date="03/30/2015"
 	ms.author="bradsev"/>
 
 # HDInsight의 10GB GraySort Hadoop MapReduce 샘플
 
 이 샘플 항목은 Azure PowerShell을 사용하여 Azure HDInsight에서 범용 GraySort Hadoop MapReduce 프로그램을 실행하는 방법을 보여 줍니다. GraySort는 메트릭이 대량의 데이터를 정렬하는 동안 도달하는 정렬 속도(TB/분)가 일반적으로 최소 100TB인 벤치마크 정렬입니다.
+
+> [AZURE.NOTE]이 문서의 단계에는 Windows 기반 HDInsight 클러스터가 필요합니다. Linux 기반 클러스터에서 이 샘플 및 다른 샘플을 실행하는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 샘플 실행](hdinsight-hadoop-run-samples-linux.md)을 참조하세요.
 
 이 샘플에서는 비교적 빠르게 실행할 수 있도록 적절한 10GB의 데이터를 사용합니다. 또한 2009년에 0.578TB/분(173분에 100TB)의 속도로 연간 범용("daytona") 테라바이트 정렬 벤치마크를 획득한 Owen O'Malley 및 Arun Murthy가 개발한 MapReduce 응용 프로그램을 사용합니다. 이 정렬 벤치마크 및 다른 정렬 벤치마크에 대한 자세한 내용은 [정렬 벤치마크](http://sortbenchmark.org/)(영문) 사이트를 참조하십시오.
 
@@ -429,6 +431,5 @@
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

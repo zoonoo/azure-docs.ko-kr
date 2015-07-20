@@ -50,8 +50,7 @@ HDInsight 클러스터에 R을 설치하기 위한 [샘플 스크립트](https:/
 		<td>사용자 지정 스크립트가 실행되는 노드를 지정합니다. <b>모든 노드</b>, <b>헤드 노드만</b> 또는 <b>작업자 노드만</b>을 선택할 수 있습니다.
 	<tr><td>매개 변수</td>
 		<td>스크립트에 필요한 경우 매개 변수를 지정합니다. 그러나 R을 설치하는 스크립트는 매개 변수가 필요하지 않으므로 공백으로 둘 수 있습니다.</td></tr>
-	</table>
-	두 개 이상의 스크립트 작업을 추가하여 클러스터에 여러 구성 요소를 설치할 수 있습니다. 스크립트를 추가한 후 확인 표시를 클릭하여 클러스터 프로비저닝을 시작합니다.
+</table>두 개 이상의 스크립트 작업을 추가하여 클러스터에 여러 구성 요소를 설치할 수 있습니다. 스크립트를 추가한 후 확인 표시를 클릭하여 클러스터 프로비저닝을 시작합니다.
 
 스크립트를 사용하여 Azure PowerShell 또는 HDInsight.NET SDK로 HDInsight에 R을 설치할 수도 있습니다. 이 절차에 대한 자세한 내용은 이 문서의 뒷부분에 제공됩니다.
 
@@ -128,7 +127,7 @@ HDInsight 클러스터에 R을 설치하기 위한 [샘플 스크립트](https:/
 <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">스크립트 작업의 이름입니다.</td></tr>
 <tr>
 <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">ClusterRoleCollection</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">사용자 지정 스크립트가 실행되는 노드를 지정합니다. 유효한 값은 <strong>HeadNode</strong>(헤드 노드에 설치) 또는 <strong>DataNode</strong>(데이터 노드에 설치)입니다. 두 값 중 하나 또는 모두 사용할 수 있습니다.</td></tr>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">사용자 지정 스크립트가 실행되는 노드를 지정합니다. 유효한 값은 **HeadNode**(헤드 노드에 설치) 또는 **DataNode**(데이터 노드에 설치)입니다. 두 값 중 하나 또는 모두 사용할 수 있습니다.</td></tr>
 <tr>
 <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">매개 변수</td>
 <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">스크립트에 필요한 매개 변수입니다. 
@@ -282,5 +281,6 @@ Azure PowerShell 콘솔을 열고 프로젝트를 저장한 위치로 이동하�
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

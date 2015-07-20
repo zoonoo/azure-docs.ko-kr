@@ -99,4 +99,4 @@ IP 주소 *10.0.0.7*을 *TestVnet*이라는 이름의 VNet에서 사용할 수 �
 [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

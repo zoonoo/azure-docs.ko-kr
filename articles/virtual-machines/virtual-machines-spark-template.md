@@ -57,7 +57,7 @@ Azure 리소스 관리자 및 이 배포에 사용할 템플릿과 관련된 자
 
 ### 1-a단계: PowerShell을 사용하여 템플릿 파일 다운로드
 
-JSON 템플릿과 기타 연결된 파일을 저장할 로컬 폴더(예: C:\Azure\Templates\Spark)를 만듭니다.
+JSON 템플릿과 기타 연결된 파일을 저장할 로컬 폴더(예: C:\\Azure\\Templates\\Spark)를 만듭니다.
 
 로컬 폴더의 폴더 이름을 대신 입력하여 다음 명령을 실행합니다.
 
@@ -91,7 +91,7 @@ foreach ($file in $files)
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-완료되면 C:\Azure\Templates 디렉터리에서 **spark-on-ubuntu** 폴더를 찾습니다.
+완료되면 C:\\Azure\\Templates 디렉터리에서 **spark-on-ubuntu** 폴더를 찾습니다.
 
 ### 2단계: (선택 사항) 템플릿 매개 변수 파악
 
@@ -416,7 +416,7 @@ Azure CLI를 통해 Spark 클러스터를 배포하려면 먼저 이름과 위�
 
 이 섹션에서는 Spark 클러스터용 **azuredeploy.json** 파일의 구조를 단계별로 설명합니다.
 
-템플릿 파일의 복사본을 아직 다운로드하지 않은 경우 파일 위치로 로컬 폴더(예: C:\Azure\Templates\Spark)를 지정하여 해당 폴더를 만듭니다. 폴더 이름을 입력하고 다음 명령을 실행합니다.
+템플릿 파일의 복사본을 아직 다운로드하지 않은 경우 파일 위치로 로컬 폴더(예: C:\\Azure\\Templates\\Spark)를 지정하여 해당 폴더를 만듭니다. 폴더 이름을 입력하고 다음 명령을 실행합니다.
 
 ```powershell
 $folderName="<folder name, such as C:\Azure\Templates\Spark>"
@@ -542,7 +542,7 @@ Spark 클러스터 배포의 크기를 사용자 지정하려는 경우 azuredep
 
 이러한 두 템플릿을 호출한 후 **azuredeploy.json**은 모든 Spark 클러스터 노드 VM 및 연결된 리소스(예: 네트워크 카드, 개인 IP 등)를 프로비전합니다. 또한 이 템플릿은 각 노드에 Spark를 물리적으로 설치 및 설정하기 위해 VM 확장(Linux용 사용자 지정 스크립트)을 배포하고 bash 스크립트(**spark-cluster-install.sh**)를 호출합니다.
 
-이 마지막 템플릿, 즉 **azuredeploy.json**은 템플릿 개발 관점에서 가장 흥미로운 항목 중 하나이므로 사용 *방법*{b>을 <b}좀 더 자세히 살펴보겠습니다. 한 가지 중요한 개념은 단일 템플릿 파일에서 단일 리소스 유형의 여러 복사본을 배포하고 각 인스턴스에 대해 필요한 설정의 고유 값을 설정하는 방법입니다. 이 개념은 **리소스 루핑**이라고 합니다.
+이 마지막 템플릿, 즉 **azuredeploy.json**은 템플릿 개발 관점에서 가장 흥미로운 항목 중 하나이므로 사용 *방법*을 좀 더 자세히 살펴보겠습니다. 한 가지 중요한 개념은 단일 템플릿 파일에서 단일 리소스 유형의 여러 복사본을 배포하고 각 인스턴스에 대해 필요한 설정의 고유 값을 설정하는 방법입니다. 이 개념은 **리소스 루핑**이라고 합니다.
 
 "copy" 요소를 사용하는 리소스는 "copy" 요소의 "count" 매개 변수에 지정된 횟수만큼 자체적으로 “복사"됩니다. 배포된 리소스의 여러 인스턴스 간에 고유한 값을 지정하는 데 필요한 모든 설정의 경우 **copyindex()** 함수를 사용하여 해당 특정 리소스 루프 만들기에서 현재 인덱스를 나타내는 숫자 값을 가져올 수 있습니다. **azuredeploy.json**의 다음 조각에서, Spark 클러스터에 대해 생성 중인 여러 네트워크 카드, VM 및 VM 확장에 이 개념이 적용된 것을 볼 수 있습니다.
 
@@ -844,4 +844,4 @@ Spark 클러스터 배포의 크기를 사용자 지정하려는 경우 azuredep
 [템플릿 배포 문제를 해결](resource-group-deploy-debug.md)합니다.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

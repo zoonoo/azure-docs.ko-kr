@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="05/29/2015" 
 	ms.author="josephd"/>
 
 # Azure 하이브리드 클라우드 테스트 환경
@@ -22,7 +22,7 @@
 
 ## 하이브리드 클라우드 기본 구성
 
- [하이브리드 클라우드 기본 구성](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)은 다음과 같습니다.
+[하이브리드 클라우드 기본 구성](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)은 다음과 같습니다.
 
 - 네 개의 가상 컴퓨터(도메인 컨트롤러, 응용 프로그램 서버, 클라이언트 컴퓨터 및 Windows 서버와 라우팅 및 원격 액세스를 실행하는 VPN 장치)가 있는 간단한 온-프레미스 네트워크
 - 복제본 도메인 컨트롤러가 있는 Azure 가상 네트워크
@@ -30,15 +30,15 @@
 
 ## 하이브리드 클라우드의 SharePoint 인트라넷 팜
 
- [하이브리드 클라우드 테스트 환경의 SharePoint 인트라넷 팜](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)은 SQL Server 2014 서버와 SharePoint Server 2013 서버를 하이브리드 클라우드 기본 구성에 추가합니다. 따라서 간단한 온-프레미스 네트워크의 클라이언트 컴퓨터에서 액세스할 수 있는 2계층 SharePoint 팜이 만들어집니다.
+[하이브리드 클라우드 테스트 환경의 SharePoint 인트라넷 팜](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)은 SQL Server 2014 서버와 SharePoint Server 2013 서버를 하이브리드 클라우드 기본 구성에 추가합니다. 따라서 간단한 온-프레미스 네트워크의 클라이언트 컴퓨터에서 액세스할 수 있는 2계층 SharePoint 팜이 만들어집니다.
 
 ## 하이브리드 클라우드의 웹 기반 LOB(기간 업무) 응용 프로그램
 
- [하이브리드 클라우드 테스트 환경의 웹 기반 LOB 응용 프로그램](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)은 SQL Server 2014 서버와 IIS(인터넷 정보 서비스) 서버를 하이브리드 클라우드 기본 구성에 추가합니다. 따라서 계층화된 웹 기반 LOB 응용 프로그램을 배포하고 테스트할 수 있는 인프라가 만들어집니다.
+[하이브리드 클라우드 테스트 환경의 웹 기반 LOB 응용 프로그램](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)은 SQL Server 2014 서버와 IIS(인터넷 정보 서비스) 서버를 하이브리드 클라우드 기본 구성에 추가합니다. 따라서 계층화된 웹 기반 LOB 응용 프로그램을 배포하고 테스트할 수 있는 인프라가 만들어집니다.
 
 ## 하이브리드 클라우드의 Office 365 디렉터리 동기화(DirSync) 서버
 
- [하이브리드 클라우드 테스트 환경의 Office 365 DirSync 서버](../virtual-network/virtual-networks-setup-dirsync-hybrid-cloud-testing.md)는 DirSync 서버를 하이브리드 클라우드 기본 구성에 추가하고 평가판 Office 365 구독에 대한 암호 동기화를 사용하여 Office 365 DirSync를 보여 줍니다.
+[하이브리드 클라우드 테스트 환경의 Office 365 DirSync 서버](../virtual-network/virtual-networks-setup-dirsync-hybrid-cloud-testing.md)는 DirSync 서버를 하이브리드 클라우드 기본 구성에 추가하고 평가판 Office 365 구독에 대한 암호 동기화를 사용하여 Office 365 DirSync를 보여 줍니다.
 
 ## 시뮬레이션된 하이브리드 클라우드 테스트 환경
 
@@ -53,6 +53,9 @@
 
 [Microsoft Azure에서 Office 365 디렉터리 동기화(DirSync) 배포](https://technet.microsoft.com/library/dn635310.aspx)
 
+[Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!--HONumber=52-->
+
  
+
+<!---HONumber=July15_HO2-->

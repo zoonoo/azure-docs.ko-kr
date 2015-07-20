@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/03/2015"
+	ms.date="07/01/2015"
 	ms.author="krisragh"/>
 
 # 인증된 사용자에게 푸시 알림 보내기
@@ -24,15 +24,15 @@
 
 이 자습서에서는 인증된 사용자만 해당 알림을 보내기 위해 먼저 인증하고, 푸시 알림에 대한 알림 허브에 등록하고, 서버 스크립트를 업데이트하도록 사용자에게 요청합니다.
 
-## <a name="register"></a>등록에 인증이 필요하도록 서비스 업데이트
+##<a name="register"></a>등록에 인증이 필요하도록 서비스 업데이트
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-push-notifications-app-users](../../includes/mobile-services-dotnet-backend-push-notifications-app-users.md)]
 
-## <a name="update-app"></a>등록 전에 로그인하도록 앱 업데이트
+##<a name="update-app"></a>등록 전에 로그인하도록 앱 업데이트
 
 [AZURE.INCLUDE [mobile-services-ios-push-notifications-app-users-login](../../includes/mobile-services-ios-push-notifications-app-users-login.md)]
 
-## <a name="test"></a>앱 테스트
+##<a name="test"></a>앱 테스트
 
 [AZURE.INCLUDE [mobile-services-ios-push-notifications-app-users-test-app](../../includes/mobile-services-ios-push-notifications-app-users-test-app.md)]
 
@@ -50,4 +50,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

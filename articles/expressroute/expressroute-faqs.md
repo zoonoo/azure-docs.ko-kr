@@ -1,17 +1,18 @@
-<properties 
+<properties
    pageTitle="Express 경로 FAQ"
    description="Express 경로 FAQ는 Azure 서비스, 비용, 데이터 및 연결, SLA, 공급자 및 위치, 대역폭 및 추가 기술 세부 정보에 대한 정보를 포함합니다."
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
    manager="adinah"
-   editor="tysonn"/> <tags 
+   editor="tysonn"/>
+<tags
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="article" 
+   ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="05/05/2015"
+   ms.workload="infrastructure-services"
+   ms.date="06/26/2015"
    ms.author="cherylmc"/>
 
 # Express 경로 FAQ
@@ -101,7 +102,7 @@ NSP를 통해 연결하는 경우, NSP는 사용자를 대신해 중복 링크 �
 ### 다른 서비스 공급자의 Express 경로 회로를 사용할 수 있나요?
 예. 여러 서비스 공급자의 Express 경로 회로가 있을 수 있습니다. 각 Express 경로 회로는 하나의 서비스 공급자화만 연결됩니다.
 
-### 어떻게 내 가상 네트워크를 Express 경로 회로에 연결하나요?
+### 가상 네트워크를 Express 경로 회로에 연결하려면 어떻게 해야 하나요?
 기본 단계는 다음과 같습니다.
 
 - Express 경로 회로를 설정하고 서비스 공급자를 사용하도록 설정해야 합니다.
@@ -110,8 +111,8 @@ NSP를 통해 연결하는 경우, NSP는 사용자를 대신해 중복 링크 �
 
 다음 자습서는 다음 작업을 수행하는 데 도움이 됩니다.
 
-- [네트워크 서비스 공급자를 통해 Express 경로 연결 구성](expressroute-configuring-exps.md)
-- [Exchange 공급자를 통해 Express 경로 연결 구성](expressroute-configuring-nsps.md)
+- [네트워크 서비스 공급자를 통해 Express 경로 연결 구성](expressroute-configuring-nsps.md)
+- [Exchange 공급자를 통해 Express 경로 연결 구성](expressroute-configuring-exps.md)
 - [Express 경로에 대한 가상 네트워크 및 게이트웨이 구성](expressroute-configuring-vnet-gateway.md)을.참조하세요.
 
 ### 내 Express 경로 회로에 대한 연결 경계가 있나요?
@@ -120,7 +121,7 @@ NSP를 통해 연결하는 경우, NSP는 사용자를 대신해 중복 링크 �
 ### 둘 이상의 가상 네트워크를 Express 경로 회로에 연결할 수 있나요?
 예. 최대 10개의 가상 네트워크를 Express 경로 회로에 연결할 수 있습니다.
 
-### 여러 구독에 속한 가상 네트워크를 Express 경로 회로에 연결할 수 있나요?
+### 가상 네트워크를 포함하는 여러 Azure 구독을 가지고 있습니다. 개별 구독에 속한 가상 네트워크를 단일 Express 경로 회로에 연결할 수 있나요?
 예. 단일 Express 경로 회로를 사용하여 다른 Azure 구독을 최대 10개까지 권한을 부여할 수 있습니다. Express 경로 프리미엄 기능을 사용하여이 한도를 늘릴 수 있습니다.
 
 자세한 내용은 [여러 구독에서 Express 경로 회로 공유](https://msdn.microsoft.com/library/azure/dn835110.aspx)를 참조하세요.
@@ -140,8 +141,8 @@ NSP를 통해 연결하는 경우, NSP는 사용자를 대신해 중복 링크 �
 ### 동일한 Express 경로 회로에 연결된 가상 네트워크가 서로 통신할 수 있나요?
 예. 동일한 Express 경로 회로에 연결된 가상 네트워크에 배포된 가상 컴퓨터는 서로 통신할 수 있습니다.
 
-### Express 경로와 함께 가상 네트워크에 대 한 사이트 간 및 지점과 사이트 간 연결을 사용할 수 있나요?
-예. Express경로는사이트 간 및 지점과 사이트 간 VPN과 함께 사용할 수 있습니다. 동작하려면 동일 가상 네트워크에 대해 Express 경로 게이트웨이, 동적 라우팅 게이트웨이 순서로 만들어야 합니다.
+### Express 경로와 함께 가상 네트워크에 대한 사이트 간 연결을 사용할 수 있나요?
+예. Express 경로는 사이트 간 VPN과 공존할 수 있습니다.
 
 ### Express 경로를 사용하여 사이트 간 / 지점과 사이트 간 구성에서 가상 네트워크를 이동할 수 있나요?
 예. 가상 네트워크 내에 Express 경로 게이트웨이를 만들어야 합니다. 프로세스와 연관되어 잠시 가동 중지됩니다.
@@ -160,29 +161,29 @@ BGP를 통해 보급되는 접두사는 /29 이상(/28 ~ /8)이어야 합니다.
 ### BGP 제한을 초과하면 어떻게 되나요?
 BGP 세션이 삭제됩니다. 접두사 개수가 제한보다 적으면 재설정됩니다.
 
-### 가상 네트워크에 기본 경로(0.0.0.0/0)를 보급한 후 Azure VM에서 실행되는 Windows를 활성화할 수 없습니다. 어떻게 해야 하나요?
+### 가상 네트워크에 기본 경로(0.0.0.0/0)를 보급한 후 Azure VM에서 실행되는 Windows를 활성화할 수 없습니다. 이 문제를 해결하려면 어떻게 해야 하나요?
 다음 단계는 Azure가 정품 인증 요청을 인식하는 데 도움이 됩니다.
 
 1. Express 경로 회로에 공용 피어링을 설정합니다.
 2. DNS 조회를 수행하고 **kms.core.windows.net**의 IP 주소를 찾습니다.
 3. 다음 두 항목 중 하나를 수행하면 키 관리 서비스가 Azure에서 해당 정품 인증 요청을 인식하고 요청을 인증합니다.
 	- 온-프레미스 네트워크에서 공용 피어링을 통해 Azure에 다시 IP 주소(2단계에서 얻은)를 대상으로 하는 트래픽을 라우팅합니다.
-	- NSP 공급자는 공용 피어링을 통해 Azure에 다시 트래픽을 hair-pin합니다. 
+	- NSP 공급자는 공용 피어링을 통해 Azure에 다시 트래픽을 hair-pin합니다.
 
 ### Express 경로 회로의 대역폭을 변경할 수 있나요?
 예. 종료하지 않고 Express 경로 회로의 대역폭을 늘릴 수 있습니다. 연결 공급자는 네트워크 내 스로틀을 업데이트하여 대역폭 증가를 지원하도록 후속 작업해야 합니다. 그러나 Express 경로 회로의 대역폭을 줄일 수 없습니다. 대역폭을 낮춰야 한다는 것은 Express 경로 회로의 삭제 및 재생성을 의미합니다.
 
-### Express 경로 회로의 대역폭을 어떻게 변경할 수 있나요? 
+### Express 경로 회로의 대역폭을 변경하려면 어떻게 해야 하나요?
 업데이트 전용 회로 API 및 PowerShell cmdlet을 사용하여 Express 경로 회로의 대역폭을 업데이트할 수 있습니다.
 
 ## Express 경로 프리미엄:
 
 ### Express 경로 프리미엄이란?
 Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
- 
+
  - 증가된 라우팅 테이블은 공용 피어링 및 개인 피어링에 대해 4000개의 경로에서 경로 10, 000개의 경로로 제한합니다.
  - Express 경로 회로에 연결할 수 있는 VNets 수가 증가합니다(기본값은 10). 자세한 내용은 다음 표를 참조하세요.
- - Microsoft 핵심 네트워크를 통해 전역 연결합니다. 이제 다른 지역의 Express 경로 회로를 지역의 VNet에 연결할 수 있습니다. **예:** 실리콘밸리에서 만든 Express 경로 회로에 서부 유럽에서에서 만든 VNet을 연결할 수 있습니다. 
+ - Microsoft 핵심 네트워크를 통해 전역 연결합니다. 이제 다른 지역의 Express 경로 회로를 지역의 VNet에 연결할 수 있습니다. **예:** 실리콘밸리에서 만든 Express 경로 회로에 서부 유럽에서에서 만든 VNet을 연결할 수 있습니다.
 
 ### Express 경로 프리미엄을 사용하는 경우, 얼마나 많은 VNet를 Express 경로 회로에 연결할 수 있나요?
 아래 표에서 Express 경로 회로에 연결할 수 있는 Vnet의 수에 대해 늘어난 수를 제공합니다. 기본 제한은 10입니다.
@@ -195,7 +196,7 @@ Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
 | 50Mbps | 10 | 20 |
 | 100Mbps | 10 | 25 |
 | 500Mbps | 10 | 40 |
-| 1Gbps | 10 | 50                                                                                     
+| 1Gbps | 10 | 50
 |
 
 
@@ -236,20 +237,20 @@ Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
 1. [Express 경로 필수 구성 요소 페이지](expressroute-prerequisites.md)를 검토하여 요구 사항을 만족 하는지 확인합니다.
 2. 서비스 공급자 및 위치 목록을 [Express 경로 파트너 및 위치](expressroute-locations.md)에서 검토하여 사용자 연결 요구 사항이 충족하는지 확인합니다.
 3. [네트워크 계획 및 Office 365에 대한 성능 튜닝](http://aka.ms/tune/)을 검토하여 용량 요구 사항을 계획합니다.
-4. 워크플로 아래에 나열된 단계에 따라 연결을 설정합니다. 
+4. 워크플로 아래에 나열된 단계에 따라 연결을 설정합니다.
 
 	- [네트워크 서비스 공급자를 통해 Express 경로 연결 구성](expressroute-configuring-nsps.md)
 	- [Exchange 공급자를 통해 Express 경로 연결 구성](expressroute-configuring-exps.md)
 
 ### 기존 내 Express 경로 회로가 Office 365 서비스에 대한 연결을 지원할 수 있나요?
-예. 기존 Express 경로 회로가 Office 365 서비스에 대한 연결을 지원하도록 구성할 수 있나요? Office 365 서비스에 연결하는데 용량이  충분한 지 확인합니다. [Office 365에 대한 네트워크 계획 및 성능 튜닝](http://aka.ms/tune/)은 연결 요구 사항을 계획하는 데 도움이 됩니다.
+예. 기존 Express 경로 회로가 Office 365 서비스에 대한 연결을 지원하도록 구성할 수 있나요? Office 365 서비스에 연결하는데 용량이 충분한 지 확인합니다. [Office 365에 대한 네트워크 계획 및 성능 튜닝](http://aka.ms/tune/)은 연결 요구 사항을 계획하는 데 도움이 됩니다.
 
 다음 자습서는 다음 작업을 수행하는 데 도움이 됩니다.
 
 - [네트워크 서비스 공급자를 통해 Express 경로 연결 구성](expressroute-configuring-nsps.md)
 - [Exchange 공급자를 통해 Express 경로 연결 구성](expressroute-configuring-exps.md)
 
-### Express 경로 연결을 통해 어느 Office 365 서비스에 액세스할 수 있나요? 
+### Express 경로 연결을 통해 어느 Office 365 서비스에 액세스할 수 있나요?
 
 **다음 Office 365 서비스가 지원됩니다.**
 
@@ -258,7 +259,6 @@ Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
 - 비즈니스 온라인용 Skype
 - Office Online
 - Azure AD 및 Azure AD 동기화
-- CRM Online
 - Office 365 비디오
 - Power BI
 - Delve
@@ -268,7 +268,7 @@ Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
 
 - Yammer
 - Office 365 ProPlus 클라이언트 다운로드
-- 온-프레미스 ID 공급자 로그인 
+- 온-프레미스 ID 공급자 로그인
 - 중국에서의 Office 365(21 Vianet에서 운영) 서비스
 
 인터넷을 통해 이 서비스에 연결할 수 있습니다.
@@ -284,4 +284,6 @@ NSP 및 EXP 모두를 통해 Office 365 서비스에 대한 연결을 지원합�
 
 ### Express 경로가 내 조직에 대해 구성된 경우라도 인터넷을 통해 Office 365에 액세스할 수 있나요?
 예. Express 경로가 네트워크에 대해 구성된 경우라도 인터넷을 통해 Office 365 서비스 끝점에 연결할 수 있습니다. Express 경로를 통해 Office 365 서비스에 연결하도록 구성된 위치에 있는 경우 Express 경로를 통해 연결됩니다.
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=July15_HO2-->

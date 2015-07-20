@@ -1,24 +1,25 @@
 <properties 
 	pageTitle="Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결" 
-	description="문제의 발생지를 격리하는 단계와 진단을 통해 Azure 가상 컴퓨터에 대한 원격 데스크톱(RDP) 연결을 복원하는 방법에 알아봅니다."
+	description="Windows 기반 Azure 가상 컴퓨터에 연결할 수 없는 경우, 문제의 원인을 격리하기 위해 진단 프로그램 및 단계를 사용합니다."
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/27/2015" 
+	ms.date="07/07/2015" 
 	ms.author="josephd"/>
 
 # Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결
 
-이 항목에서는 Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결의 문제 해결 및 근본 원인 파악을 위한 체계적인 접근법에 대해 설명합니다.
+Windows 기반 Azure 가상 컴퓨터에 접속할 수 없는 경우, 이 문서는 원격 데스크톱 연결의 문제 해결 및 근본 원인 파악을 위한 체계적인 접근법에 대해 설명합니다.
 
 ## 1단계: Azure IaaS 진단 패키지 실행
 
@@ -35,7 +36,7 @@ Azure IaaS 진단 패키지를 실행해도 문제가 해결되지 않거나 진
 
 ## 2단계: 원격 데스크톱 클라이언트에서 오류 메시지 확인
 
-표시되는 오류 메시지에 따라 이러한 섹션을 사용합니다.
+연결을 시도할 때 보이는 오류 메시지에 따라 이러한 섹션을 사용합니다.
 
 ### 원격 데스크톱 연결 메시지 창: 라이선스를 제공할 수 있는 원격 데스크톱 라이선스 서버가 없으므로 원격 세션이 끊겼습니다.
 
@@ -60,12 +61,24 @@ Azure 관리 포털에서 생성된 RDP 파일의 예는 다음과 같습니다.
 	full address:s:tailspin-azdatatier.cloudapp.net:55919
 	prompt for credentials:i:1
 
-주소 부분은 가상 컴퓨터(이 예에서는 tailspin azdatatier.cloudapp.net) 및 원격 데스크톱 트래픽 끝점의 외부 TCP 포트(55919)를 포함하는 클라우드 서비스의 정규화된 도메인 이름으로 구성됩니다.
+이 예에서, 주소 부분은 가상 컴퓨터(이 예에서는 tailspin azdatatier.cloudapp.net) 및 원격 데스크톱 트래픽 끝점의 외부 TCP 포트(55919)를 포함하는 클라우드 서비스의 정규화된 도메인 이름으로 구성됩니다.
 
 이 문제의 가능한 해결책:
 
 - 조직 인트라넷을 사용하는 경우 컴퓨터가 프록시 서버에 액세스할 수 있고 HTTPS 트래픽을 보낼 수 있는지 확인합니다.
-- 로컬에 저장된 RDP 파일을 사용 중인 경우 Azure 관리 포털에서 생성된 파일을 사용하여 가상 컴퓨터의 클라우드 서비스 및 끝점 포트에 대한 올바른 이름을 사용합니다.
+- 로컬에 저장된 RDP 파일을 사용 중인 경우 Azure 관리 포털에서 생성된 파일을 사용하여 가상 컴퓨터의 클라우드 서비스 및 가상 컴퓨터의 끝점 포트에 대한 올바른 DNS 이름을 사용합니다.
+
+### 원격 데스크톱 연결 메시지 창: 인증 오류가 발생했습니다. 로컬 보안 기관에 연결할 수 없습니다.
+
+원인:연결 중인 가상 컴퓨터는 자격 증명의 사용자 이름 부분에 표시된 보안 기관을 찾을 수 없습니다.
+
+사용자 이름이 *SecurityAuthority*\\*UserName* (예: CORP\\User1) 형식인 경우, *SecurityAuthority* 부분은 가상 컴퓨터 이름(로컬 보안 기관)이거나 활성 디렉토리 도메인 이름입니다.
+
+이 문제의 가능한 해결책:
+
+- 사용자 계정이 가상 컴퓨터에 대해 로컬인 경우, 가상 컴퓨터 이름의 철자를 확인합니다.
+- 사용자 계정이 Active Directory 도메인 계정인 경우, 도메인 이름의 철자를 확인합니다.
+- 사용자 계정이 Active Directory 도메인 계정이고 해당 도메인 이름 철자가 올바르게 입력된 경우, Active Directory 도메인에 대한 도메인 컨트롤러를 사용할 수 있는지 확인합니다. 도메인 컨트롤러를 포함한 Azure 가상 네트워크에 일반적인 문제가 생길 수 있으며, 도메인 컨트롤러 컴퓨터가 시작되지 않을 수 있습니다. 임시적인 문제 해결법은, 도메인 계정이 아닌 로컬 관리자 계정을 사용하는 것입니다.
 
 ### Windows 보안 메시지 창: 자격 증명이 작동하지 않습니다.
 
@@ -73,8 +86,8 @@ Azure 관리 포털에서 생성된 RDP 파일의 예는 다음과 같습니다.
 
 Windows 기반 컴퓨터는 로컬 계정 또는 도메인 기반 계정 자격 증명의 유효성을 검사할 수 있습니다.
 
-- 로컬 계정의 경우 <computer name><account name> 구문(예: SQL1\\Admin4798)을 사용합니다. 
-- 도메인 계정의 경우 <domain name><account name> 구문(예: CONTOSO\\johndoe)을 사용합니다.
+- 로컬 계정의 경우 *ComputerName*\\*UserName* 구문 (예: SQL1\\Admin4798)을 사용합니다. 
+- 도메인 계정의 경우*DomainName*\\*UserName* 구문(예: CONTOSO\\johndoe)을 사용합니다.
 
 새 AD 포리스트의 도메인 컨트롤러로 승격하는 컴퓨터의 경우 승격을 수행할 때 사용자가 로그인된 로컬 관리자 계정이 새 포리스트 및 도메인과 같은 암호를 가진 동일한 계정으로 변환됩니다. 이전 로컬 관리자 계정은 삭제됩니다. 예를 들어 DC1\\DCAdmin 로컬 관리자 계정으로 로그인하고 가상 컴퓨터를 corp.contoso.com 도메인에 대한 새 포리스트의 도메인 컨트롤러로 승격하는 경우 DC1\\DCAdmin 로컬 계정이 삭제되고 같은 암호를 가진 새 도메인 계정 CORP\\DCAdmin이 생성됩니다.
 
@@ -100,7 +113,7 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 기반 계정 자격 
  
 단계별 문제 해결 프로세스를 살펴보기 전에 마지막으로 원격 데스크톱 연결을 성공적으로 설정한 이후로 변경된 사항을 마음속으로 생각해보고 이를 바탕으로 문제를 해결하면 유용합니다. 예:
 
-- 원격 데스크톱 연결을 설정한 후 가상 컴퓨터를 포함하는 클라우드 서비스의 공용 IP 주소(가상 IP 주소, 즉 [VIP]라고도 함)를 변경한 경우 DNS 클라이언트 캐시에는 클라우드 서비스의 DNS 이름 및 *이전 IP 주소*에 대한 항목이 있을 수 있습니다. DNS 클라이언트 캐시를 플러시하고 다시 시도하세요. 또는 새 VIP를 사용하여 연결을 설정해 보세요.
+- 원격 데스크톱 연결을 설정한 후 가상 컴퓨터를 포함하는 가상 컴퓨터 또는 클라우드 서비스의 공용 IP 주소(가상 IP 주소, 즉 [VIP]라고도 함)를 변경한 경우 DNS 클라이언트 캐시에는 DNS 이름 및 *이전 IP 주소*에 대한 항목이 있을 수 있습니다. DNS 클라이언트 캐시를 플러시하고 다시 시도하세요. 또는 새 VIP를 사용하여 연결을 설정해 보세요.
 - Azure 관리 포털 또는 Azure Preview 포털을 사용하다가 응용 프로그램을 사용하여 원격 데스크톱 연결을 관리하는 경우 응용 프로그램 구성에 원격 데스크톱 트래픽에 대한 무작위 지정 TCP 포트가 포함되어 있는지 확인하세요. 
 
 다음 섹션에서는 단계별로 이 문제의 다양한 근본 원인을 별도로 확인하고 솔루션 및 해결 방법을 제공합니다.
@@ -146,7 +159,7 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 기반 계정 자격 
 
 ![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_2.png)
  
-인터넷에 직접 연결된 컴퓨터가 없는 경우 자체 클라우드 서비스에서 새 Azure 가상 컴퓨터를 손쉽게 만들고 사용할 수 있습니다. 자세한 내용은 [Azure에서 Windows를 실행하는 가상 컴퓨터 만들기](virtual-machines-windows-tutorial.md)를 참조하세요. 테스트가 완료되면 가상 컴퓨터 및 클라우드 서비스를 삭제합니다.
+인터넷에 직접 연결된 컴퓨터가 없는 경우 자체 리소스 그룹 또는 클라우드 서비스에서 새 Azure 가상 컴퓨터를 손쉽게 만들고 사용할 수 있습니다. 자세한 내용은 [Azure에서 Windows를 실행하는 가상 컴퓨터 만들기](virtual-machines-windows-tutorial.md)를 참조하세요. 테스트가 완료되면 리소스 그룹 또는 가상 컴퓨터 및 클라우드 서비스를 삭제합니다.
 
 인터넷에 직접 연결된 컴퓨터로 원격 데스크톱에 연결할 수 있는 경우 조직 인트라넷 에지 장치에서 다음을 확인합니다.
 
@@ -158,24 +171,26 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 기반 계정 자격 
 
 ### 발생지 3: 클라우드 서비스 끝점 및 ACL
 
-문제 또는 잘못된 구성의 발생지인 클라우드 서비스 끝점 및 ACL을 제거하려면 동일한 클라우드 서비스에 있는 다른 Azure 가상 컴퓨터가 Azure 가상 컴퓨터에 원격 데스크톱 연결을 설정할 수 있는지 확인합니다.
+서비스 관리에서 만든 가상 컴퓨터에 대한 문제 또는 잘못된 구성의 발생지인 클라우드 서비스 끝점 및 ACL을 제거하려면 동일한 클라우드 서비스 또는 가상 컴퓨터인 다른 Azure 가상 컴퓨터가 사용자의 Azure 가상 컴퓨터에 원격 데스크톱 연결을 설정할 수 있는지 확인합니다.
 
 ![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_3.png)
  
-동일한 클라우드 서비스에 다른 가상 컴퓨터가 없을 경우 새 가상 컴퓨터를 손쉽게 만들 수 있습니다. 자세한 내용은 [Azure에서 Windows를 실행하는 가상 컴퓨터 만들기](virtual-machines-windows-tutorial.md)를 참조하세요. 테스트가 완료되면 추가한 가상 컴퓨터를 삭제합니다.
+> [AZURE.NOTE]리소스 관리자에서 만든 가상 컴퓨터의 경우, [소스 4: 네트워크 보안 그룹](#nsgs)으로 건너뜁니다.
 
-동일한 클라우드 서비스의 가상 컴퓨터와 원격 데스크톱 연결을 설정할 수 있는 경우 다음을 확인합니다.
+동일한 클라우드 서비스 또는 가상 네트워크에 다른 가상 컴퓨터가 없는 경우, 새 가상 컴퓨터를 손쉽게 만들 수 있습니다. 자세한 내용은 [Azure에서 Windows를 실행하는 가상 컴퓨터 만들기](virtual-machines-windows-tutorial.md)를 참조하세요. 테스트가 완료되면 추가한 가상 컴퓨터를 삭제합니다.
+
+동일한 클라우드 서비스 또는 가상 네트워크에 가상 컴퓨터와 원격 데스크톱 연결을 설정할 수 있는 경우 다음을 확인합니다.
 
 - 대상 가상 컴퓨터의 원격 데스크톱 트래픽에 대 한 끝점 구성. 끝점의 개인 TCP 포트는 가상 컴퓨터에서 원격 데스크톱 서비스를 수신하는 TCP 포트(기본값 3389)와 일치해야 합니다. 
 - 대상 가상 컴퓨터의 원격 데스크톱 트래픽 끝점에 대한 ACL. ACL은 인터넷에서 들어오는 트래픽을 원본 IP 주소에 따라 허용 또는 거부하도록 지정하는 데 사용됩니다. ACL이 잘못 구성될 경우 끝점에 원격 데스크톱 트래픽이 들어오지 못할 수 있습니다. ACL을 살펴보고 프록시 또는 다른 에지 서버의 공용 IP 주소에서 들어오는 트래픽이 허용되어 있는지 확인하세요. 자세한 내용은 [네트워크 ACL(액세스 제어 목록) 정보](https://msdn.microsoft.com/library/azure/dn376541.aspx)를 참조하세요.
 
 문제의 발생지인 끝점을 제거하려면 현재 끝점을 제거하고 새 끝점을 만든 후 외부 포트 번호에 49152-65535 범위의 임의 포트를 선택합니다. 자세한 내용은 [Azure의 가상 컴퓨터에 끝점 설정](virtual-machines-set-up-endpoints.md)을 참조하세요.
 
-### 발생지 4: 네트워크 보안 그룹
+### <a id="nsgs"></a>발생지 4: 네트워크 보안 그룹
 
 네트워크 보안 그룹은 허용되는 인바운드 및 아웃바운드 트래픽을 더 세부적으로 제어하는 데 사용됩니다. Azure 가상 네트워크의 서브넷 및 클라우드 서비스에 적용되는 규칙을 만들 수 있습니다. 네트워크 보안 그룹 규칙을 살펴보고 인터넷에서 들어오는 원격 데스크톱 트래픽이 허용되어 있는지 확인하세요.
 
-자세한 내용은 [네트워크 보안 그룹 정보](https://msdn.microsoft.com/library/azure/dn848316.aspx)를 참조하세요.
+자세한 내용은 [네트워크 보안 그룹 정보](../virtual-network/virtual-networks-nsg.md)를 참조하세요.
 
 ### 발생지 5: Windows 기반 Azure 가상 컴퓨터
 
@@ -195,7 +210,7 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 기반 계정 자격 
 - Windows 방화벽 또는 다른 로컬 방화벽에 원격 데스크톱 트래픽을 방지하는 아웃바운드 규칙이 있습니다.
 - Azure 가상 컴퓨터에서 실행 중인 침입 탐지 또는 네트워크 모니터링 소프트웨어가 원격 데스크톱 연결을 방지하고 있습니다.
 
-이러한 문제를 해결하기 위해 Azure 가상 컴퓨터에 대한 원격 PowerShell 세션을 사용할 수 있습니다. 먼저 가상 컴퓨터의 호스팅 클라우드 서비스에 대 인증서를 설치해야 합니다. [Azure 가상 컴퓨터에 대한 보안 원격 PowerShell 액세스 구성](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe)으로 이동하고 **InstallWinRMCertAzureVM.ps1** 스크립트 파일을 로컬 컴퓨터의 폴더에 다운로드합니다.
+서비스 관리자에서 만든 가상 컴퓨터에 대한 이러한 잠재적 문제를 해결하기 위해 Azure 가상 컴퓨터에 대한 원격 PowerShell 세션을 사용할 수 있습니다. 먼저 가상 컴퓨터의 호스팅 클라우드 서비스에 대 인증서를 설치해야 합니다. [Azure 가상 컴퓨터에 대한 보안 원격 PowerShell 액세스 구성](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe)으로 이동하고 **InstallWinRMCertAzureVM.ps1** 스크립트 파일을 로컬 컴퓨터의 폴더에 다운로드합니다.
 
 다음으로, 아직 없는 경우 Azure PowerShell을 설치합니다. [Azure PowerShell 설치 및 구성 방법](../install-configure-powershell.md)을 참조하세요.
 
@@ -268,9 +283,8 @@ Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azu
 
 [Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)
 
-[가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
+[Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결](virtual-machines-troubleshoot-ssh-connections.md)
 
-[Azure 가상 컴퓨터 FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
+[Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-troubleshoot-access-application.md)
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -436,4 +436,4 @@ SQL 표준 클러스터의 경우, 계획되지 않은 장애 조치 후의 장�
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -1,18 +1,18 @@
-<properties 
+<properties
    pageTitle="Operational Insights에 대해 지원되는 구성"
    description="Operational Insights에 필요한 구성을 알아봅니다."
    services="operational-insights"
    documentationCenter=""
    authors="bandersmsft"
    manager="jwhit"
-   editor="tysonn" /> 
-<tags 
+   editor="tysonn" />
+<tags
    ms.service="operational-insights"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/30/2015"
+   ms.date="07/02/2015"
    ms.author="banders" />
 
 # Operational Insights에 대해 지원되는 구성
@@ -39,14 +39,8 @@ Operational Insights를 연결된 서비스로 사용하려면 다음과 같은 
 
 설치 및 구성 지침은 [Operational Insights 경고 보기](http://go.microsoft.com/fwlink/?LinkID=293793)를 참조하세요.
 
-SharePoint Server 2010, Lync Server 2013, Lync Server 2010 또는 System Center 2012 SP1 - Virtual Machine Manager에 대한 Operational Insights 경고를 보려면 해당 작업에 대해 실행 계정을 구성해야 합니다. 다음 정보를 참조하세요.
+SharePoint Server 2010, Lync Server 2013, Lync Server 2010 또는 System Center 2012 SP1 - Virtual Machine Manager에 대한 Operational Insights 경고를 보려면 해당 작업에 대해 실행 계정을 구성해야 합니다. 실행을 계정으로 설정하는 방법에 대한 정보는 [Operational Insights와 작업 관리자 고려 사항](operational-insights-operations-manager.md)을 참조하십시오.
 
-
-- [SharePoint에 대한 실행 계정 설정](../operational-insights-run-as.md)
-
-- [Lync Server에 대한 실행 계정 설정](../operational-insights-run-as.md)
-
-- [VMM(Virtual Machine Manager)에 대한 실행 계정 설정](../operational-insights-run-as.md)
 
 ### Operations Manager 운영 체제
 
@@ -106,5 +100,4 @@ SQL Server의 경우 분석에 대해 다음과 같은 32비트 및 64비트 버
 
 또한 WOW64 구현에서 실행하는 경우 SQL Server 32비트 버전이 지원됩니다.
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

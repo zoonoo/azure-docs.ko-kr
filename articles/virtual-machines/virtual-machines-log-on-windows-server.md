@@ -38,4 +38,4 @@ Azure 포털의 **연결** 단추를 사용하여 원격 데스크톱 세션을 
  
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

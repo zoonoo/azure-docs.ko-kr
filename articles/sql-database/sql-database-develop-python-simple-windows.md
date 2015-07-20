@@ -114,4 +114,6 @@ SQL 데이터베이스에서 [IDENTITY](https://msdn.microsoft.com/library/ms186
 	cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
 	cnxn.rollback()
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

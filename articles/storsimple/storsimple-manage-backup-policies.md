@@ -84,4 +84,4 @@ StorSimple 장치에 대한 백업 정책을 삭제하려면 관리 포털에서
 
 [StorSimple 스냅숏 관리자](https://msdn.microsoft.com/library/azure/dn772365.aspx)를 사용하여 StorSimple 백업을 관리하는 방법에 대해 알아봅니다.
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -5,13 +5,14 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/06/2015"
+   ms.date="05/27/2015"
    ms.author="v-sharos" />
 
 # StorSimple 장치 배포 문제 해결
@@ -29,7 +30,7 @@
 처음으로 장치를 배포할 때 문제가 발생하는 경우 다음 사항을 고려합니다.
 
 - 물리적 장치 문제를 해결하는 경우 [장치의 하드웨어 설치](https://msdn.microsoft.com/library/azure/dn772375.aspx)에서 설명한 대로 하드웨어가 설치 및 구성되어 있는지 확인합니다.
-- 배포를 위한 필수 구성 요소를 확인합니다. [배포 검사 목록](storsimple-deployment-walkthrough.md#pre-installation checklist)에 설명된 모든 정보가 있는지 확인합니다.
+- 배포를 위한 필수 구성 요소를 확인합니다. [배포 검사 목록](storsimple-deployment-walkthrough.md#pre-installation-checklist)에 모든 정보가 설명되어 있는지 확인합니다.
 - StorSimple 릴리스 정보를 검토하여 해당 문제가 설명되어 있는지 확인합니다. 릴리스 정보는 알려진 설치 문제에 대 한 해결 방법을 포함합니다. 
 
 장치 배포 중 사용자가 접하는 가장 일반적인 문제는 해당 설치 마법사를 실행하는 경우 및 StorSimple용 Windows PowerShell을 통해 장치를 등록하는 경우에 발생합니다. (StorSimple에 대해 Windows PowerShell을 사용하여 StorSimple 장치를 등록하고 구성합니다. 장치 등록에 대한 자세한 내용은 [장치 등록](https://msdn.microsoft.com/library/azure/dn757742.aspx)을 참조하세요.)
@@ -38,7 +39,7 @@
 
 ## 처음 설치 마법사 프로세스
 
-다음 단계에서는 설치 마법사 프로세스를 간략하게 설명합니다. 자세한 설치 정보는 [StorSimple 배포 연습](storsimple-deployment-walkthrough.md)을 참조하세요.
+다음 단계에서는 설치 마법사 프로세스를 간략하게 설명합니다. 자세한 설치 정보는 [온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough.md)를 참조하세요.
 
 1. [Invoke-HcsSetupWizard](https://technet.microsoft.com/library/dn688135.aspx) cmdlet을 실행하여 나머지 과정을 안내하는 설치 마법사를 시작합니다. 
 2. 네트워크 구성: 설치 마법사를 사용하면 StorSimple 장치에서 데이터 0 네트워크 인터페이스에 대한 네트워크 설정을 구성합니다. 이 설정은 다음을 포함합니다.
@@ -46,8 +47,8 @@
   - 기본 DNS 서버 - [Set-HcsDnsClientServerAddress](https://technet.microsoft.com/library/dn688172.aspx) cmdlet이 백그라운드에서 실행됩니다. StorSimple 솔루션에 대한 DNS 설정을 구성합니다.
   - NTP 서버 – [Set-HcsNtpClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet이 백그라운드에서 실행됩니다. StorSimple 솔루션에 대한 NTP 서버 설정을 구성합니다.
   - 선택적 웹 프록시 - [Set-HcsWebProxy](https://technet.microsoft.com/library/dn688154.aspx) cmdlet이 백그라운드에서 실행됩니다. StorSimple 솔루션에 대한 웹 프록시 구성을 설정하고 사용합니다.
-3. 암호 설정: 다음 단계는 장치 관리자 및 StorSimple 스냅숏 관리자 암호 설정입니다.
-  - 장치 관리자 암호는 장치에 로그온하는 데 사용됩니다. 기본 장치 암호는 *Password1*입니다.
+3. 암호 설정: 다음 단계는 장치 관리자 및 StorSimple 스냅숏 관리자 암호 설정입니다. 업데이트 1을 실행하는 경우에는 StorSimple 스냅숏 관리자 암호를 설정할 필요가 없습니다.
+  - 장치 관리자 암호는 장치에 로그온하는 데 사용됩니다. 기본 장치 암호는 **Password1**입니다.
   - StorSimple 스냅숏 관리자를 사용하도록 장치를 구성할 때 StorSimple 스냅숏 관리자 암호가 필요합니다. 먼저 설치 마법사에서 암호를 설정한 다음 StorSimple Manager 서비스에서 설정하고 변경할 수 있습니다. 이 암호는 StorSimple 스냅숏 관리자 장치를 인증합니다.
  
     > [AZURE.IMPORTANT]등록 하기 전에 암호가 수집되지만 장치를 성공적으로 등록한 후에만 적용됩니다. 암호를 적용하지 못한 경우 필요한 암호(복잡성 요구 사항에 맞는)가 수집될 때까지 다시 암호를 입력하라는 메시지가 표시됩니다.
@@ -87,7 +88,7 @@
 
 ### 장치 관리자 및 StorSimple 스냅숏 관리자 암호를 설정할 때 발생하는 오류
 
-기본 장치 관리자 암호는 *Password1*입니다. 처음 로그온한 후 이 암호가 만료되므로 변경하려면 설치 마법사를 사용해야 합니다. 처음으로 장치를 등록하는 경우 새 장치 관리자 암호를 입력해야 합니다.
+기본 장치 관리자 암호는 **Password1**입니다. 처음 로그온한 후 이 암호가 만료되므로 변경하려면 설치 마법사를 사용해야 합니다. 처음으로 장치를 등록하는 경우 새 장치 관리자 암호를 입력해야 합니다.
 
 장치를 관리하는 Windows Server 호스트에서 실행 중인 StorSimple 스냅숏 관리자 소프트웨어를 사용하는 경우, 첫 번째 등록 시 StorSimple 스냅숏 관리자 암호도 입력해야 합니다.
 
@@ -182,6 +183,16 @@ StorSimple은 StorSimple 솔루션 문제를 해결하는데 사용할 수 있�
 - Test-Connection: 네트워크의 내부 및 외부에서 네트워크 연결을 확인하려면 이 cmdlet을 사용합니다.
 
 - Test-HcsmConnection: 이 cmdlet을 사용하여 성공적으로 등록된 장치의 연결을 확인합니다.
+
+StorSimple 장치에 업데이트 1을 실행 하는 경우 다음 진단 cmdlet을 사용할 수도 있습니다.
+
+- 동기화-HcsTime: 이 cmdlet을 사용하여 장치 시간을 표시하고 NTP 서버와 강제로 시간을 동기화합니다.
+
+- HcsPing 활성화 및 HcsPing 비활성화: 이 cmdlet을 사용하여 호스트가 StorSimple 장치에서 네트워크 인터페이스에 ping 하도록 합니다. 기본적으로 StorSimple 네트워크 인터페이스는 ping 요청에 응답하지 않습니다.
+
+- Trace-HcsRoute: 경로 추적 도구로 이 cmdlet를 사용합니다. 일정 기간 동안 최종 대상으로 각 라우터에 패킷이 전송을 전송하고 각 홉에서 반환되는 패킷에 기준으로 결과를 계산 합니다. Trace-HcsRoute가 특정 라우터의 패킷 손실의 정도를 표시하기 때문에 어떤 라우터 또는 링크가 네트워크 문제를 초래할 수 있는지 파악할 수 있습니다.
+
+- Get-HcsRoutingTable: 로컬 IP 라우팅 테이블을 표시하려면 cmdlet을 사용합니다.
 
 ## Get NetAdapter cmdlet 문제 해결
 
@@ -298,9 +309,7 @@ Test-Connection cmdlet 출력의 다음 샘플을 참조하세요.
    - ErrorCode.CiSApplianceDNSError – WebExceptionStatus.NameResolutionFailure 예외를 표시합니다. 이름 확인자 서비스는 호스트 이름을 확인할 수 없습니다.
    - ErrorCode.CiSApplianceACSError – 서비스가 인증 오류를 반환했지만 연결되었음을 나타냅니다.
    
-   웹 예외가 발생하지 않은 경우 다음을 확인하세요.
-
-   - ErrorCode.CiSApplianceFailure – 기기가 실패했음을 나타냅니다.
+    웹 예외가 발생하지 않은 경우 ErrorCode.CiSApplianceFailure을 확인하세요. 이 오류는 어플라이언스가 실패했음을 나타냅니다.
 
 5. 클라우드 서비스 연결을 확인하세요. 서비스에서 웹 예외가 발생한 경우 다음 오류가 나타낼 수 있습니다.
 
@@ -309,7 +318,7 @@ Test-Connection cmdlet 출력의 다음 샘플을 참조하세요.
   - ErrorCode.CiSApplianceDNSError – WebExceptionStatus.NameResolutionFailure 예외를 표시합니다. 이름 확인자 서비스는 호스트 이름을 확인할 수 없습니다.
   - ErrorCode.CiSApplianceACSError – 서비스가 인증 오류를 반환했지만 연결되었음을 나타냅니다.
   
-  웹 예외가 발생하지 않은 경우, 다음을 확인하세요. ErrorCode.CiSApplianceSaasServiceError – StorSimple 관리자 서비스와의 문제를 표시합니다.
+    웹 예외가 발생하지 않은 경우 ErrorCode.CiSApplianceSaasServiceError를 확인하세요. 이 오류는 StorSimple 관리자 서비스에 문제가 있음을 나타냅니다.
  
 6. Azure 서비스 버스 연결을 확인합니다. ErrorCode.CiSApplianceServiceBusError는 장치가 서비스 버스에 연결할 수 없음을 나타냅니다.
  
@@ -321,7 +330,7 @@ Cmdlet을 사용하는 방법에 대한 자세한 내용은 Windows PowerShell �
  
 Test-HcsmConnection cmdlet 출력의 다음 샘플을 참조하세요.
 
-**샘플 출력 – 성공적으로 등록된 장치**
+**예제 출력 – StorSimple 릴리스를 실행하는 성공적으로 등록된 장치 (2014년 7월)**
 
 첫 번째 샘플은 StorSimple Manager 서비스로 성공적으로 등록된 장치에 있는 것이며 연결 문제가 없습니다.
 
@@ -335,7 +344,39 @@ Test-HcsmConnection cmdlet 출력의 다음 샘플을 참조하세요.
      Checking connectivity from StorSimple Manager service to StorSimple device. .... Success.
      Controller1>
 
-**샘플 출력 – 오프라인 장치**
+**예제 출력 – StorSimple 업데이트 1을 실행하는 성공적으로 등록된 장치 (2015년 5월)**
+
+StorSimple 장치에 업데이트 1을 실행하는 경우 자세한 정보 표시 스위치와 함께 업데이트 1을 실행할 필요는 없습니다.
+
+      Controller1>Test-HcsmConnection
+       
+      Checking device registration state  ... Success
+      Device registered successfully
+       
+      Checking primary NTP server [time.windows.com] ... Success
+       
+      Checking web proxy  ... NOT SET
+       
+      Checking primary IPv4 DNS server [10.222.118.154] ... Success
+      Checking primary IPv6 DNS server  ... NOT SET
+      Checking secondary IPv4 DNS server [10.222.120.24] ... Success
+      Checking secondary IPv6 DNS server  ... NOT SET
+       
+      Checking device online  ... Success
+ 
+      Checking device authentication  ... This will take a few minutes.
+      Checking device authentication  ... Success
+       
+      Checking connectivity from device to service  ... This will take a few minutes.
+       
+      Checking connectivity from device to service  ... Success
+       
+      Checking connectivity from service to device  ... Success
+       
+      Checking connectivity to Microsoft Update servers  ... Success
+      Controller1>
+
+**예제 출력 – StorSimple 릴리스를 실행하는 오프라인 장치 (2014년 7월)**
 
 이 샘플은 관리 포털에서 **오프라인** 상태인 장치에 있습니다.
 
@@ -345,6 +386,133 @@ Test-HcsmConnection cmdlet 출력의 다음 샘플을 참조하세요.
 
 장치는 현재 웹 프록시 구성을 사용하여 연결할 수 없습니다. 웹 프록시 구성 또는 네트워크 연결에 문제가 발생할 수 있습니다. 이 경우, 웹 프록시 설정이 올바르며 웹 프록시 서버가 온라인 상태이고 연결할 수 있는지 확인해야 합니다.
 
+## Sync-HcsTime cmdlet를 사용하여 문제해결
+
+이 cmdlet을 사용하여 장치 시간을 표시합니다. 장치 시간에 NTP 서버와 오프셋에 있는 경우 이 cmdlet을 사용하여 NTP 서버와 시간을 강제로 동기화 할 수 있습니다. NTP 서버와 장치 간의 오프셋이 5 분 이상이면 경고가 표시 됩니다. 오프셋이 15분을 초과하면 장치가 오프라인 상태가 됩니다. 이 cmdlet를 시간을 강제로 동기화 하는 데 계속 사용할 수 있습니다. 그러나 오프셋이 15 시간을 초과할 경우에는 시간을 강제 동기화할 수 없으며 오류 메시지가 표시 됩니다.
+
+**샘플 출력 – Sync-HcsTime을 사용하여 강제 시간 동기화**
+ 
+     Controller0>Sync-HcsTime
+     The current device time is 4/24/2015 4:05:40 PM UTC.
+ 
+     Time difference between NTP server and appliance is 00.0824069 seconds. Do you want to resync time with NTP server?
+     [Y] Yes [N] No (Default is "Y"): Y
+     Controller0>
+
+## HcsPing 활성화 및 HcsPing cmdlet 비활성화를 사용하여 문제 해결
+
+장치의 네트워크 인터페이스가 ICMP ping 요청에 응답하도록 이 cmdlet를 사용하세요. 기본적으로 StorSimple 네트워크 인터페이스는 ping 요청에 응답하지 않습니다. 이 cmdlet을 사용하는 것이 장치가 온라인 상태이고 연결할 수 있는지 확인할 수 있는 가장 쉬운 방법입니다.
+
+**샘플 출력 – HcsPing 사용 및 HcsPing 사용 안함**
+
+     Controller0>
+     Controller0>Enable-HcsPing
+     Successfully enabled ping.
+     Controller0>
+     Controller0>
+     Controller0>Disable-HcsPing
+     Successfully disabled ping.
+     Controller0>
+
+## Trace-HcsRoute cmdle을 사용하여 문제해결
+
+경로 추적 도구로 이 cmdlet를 사용합니다. 일정 기간 동안 최종 대상으로 각 라우터에 패킷이 전송을 전송하고 각 홉에서 반환되는 패킷에 기준으로 결과를 계산 합니다. cmdlet가 특정 라우터 또는 링크의 패킷 손실의 정도를 표시하기 때문에 어떤 라우터 또는 링크가 네트워크 문제를 초래할 수 있는지 파악할 수 있습니다.
+
+** Trace-HcsRoute를 사용하여 패킷의 경로 추적 방법을 보여주는 샘플 출력**
+
+     Controller0>Trace-HcsRoute -Target 10.126.174.25
+     
+     Tracing route to contoso.com [10.126.174.25]
+     over a maximum of 30 hops:
+       0  HCSNode0 [10.126.173.90]
+       1  contoso.com [10.126.174.25]
+      
+     Computing statistics for 25 seconds...
+                 Source to Here   This Node/Link
+     Hop  RTT    Lost/Sent = Pct  Lost/Sent = Pct  Address
+       0                                           HCSNode0 [10.126.173.90]
+                                     0/ 100 =  0%   |
+       1    0ms     0/ 100 =  0%     0/ 100 =  0%  contoso.com
+      [10.126.174.25]
+      
+     Trace complete.
+
+## Get HcsRoutingTable cmdlet를 사용하여 문제해결
+
+StorSimple 장치에 대한 라우팅 테이블을 보려면 이 cmdlet을 사용합니다. 라우팅 테이블은 IP (인터넷 프로토콜) 네트워크를 통해 이동하는 데이터 패킷이 어디로 이동하는지 결정하는 데 도움이 되는 규칙 집합입니다.
+
+라우팅 테이블은 지정 네트워크에 데이터를 라우팅하는 인터페이스와 게이트웨이를 보여줍니다. 또한 특정 대상에 연결된 경로에 대한 의사 결정자인 라우팅 메트릭을 제공 합니다. 라우팅 메트릭이 낮을수록 기본 설정이 높습니다.
+
+예를 들면 네트워크 인터페이스가 2개(DATA 2, DATA 3) 있는 경우 데이터 2와 데이터 3을 인터넷에 연결 합니다. 데이터 2 및 데이터 3 에 대한 라우팅 메트릭이 각각 15, 261인 경우에는 라우팅 메트릭이 가장 낮은 데이터 2는 인터넷에 연결하는데 사용되는 기본 인터페이스입니다.
+
+StorSimple 장치에 업데이트 1을 실행하는 경우 데이터 0 네트워크 인터페이스에는 클라우드 트래픽에 대한 가장 높은 기본 설정을 합니다. 이는 다른 클라우드 가능 인터페이스가 있는 경우에도 클라우드 트래픽이 DATA 0 통해 라우팅되는 것을 의미합니다.
+
+(다음 예와 같이) 매개 변수를 지정하지 않고 Get HcsRoutingTable cmdlet을 실행하면 cmdlet는 IPv4 및 IPv6 라우팅 테이블을 모두 출력 합니다. 아니면 `Get-HcsRoutingTable -IPv4` 또는 `Get-HcsRoutingTable -IPv6`을 지정하여 관련 라우팅 테이블을 가져올 수 있습니다.
+
+      Controller0>
+      Controller0>Get-HcsRoutingTable
+      ===========================================================================
+      Interface List
+       14...00 50 cc 79 63 40 ......Intel(R) 82574L Gigabit Network Connection
+       12...02 9a 0a 5b 98 1f ......Microsoft Failover Cluster Virtual Adapter
+       13...28 18 78 bc 4b 85 ......HCS VNIC
+        1...........................Software Loopback Interface 1
+       21...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #2
+       22...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #3
+      ===========================================================================
+       
+      IPv4 Route Table
+      ===========================================================================
+      Active Routes:
+      Network Destination        Netmask          Gateway       Interface  Metric
+                0.0.0.0          0.0.0.0  192.168.111.100  192.168.111.101     15
+              127.0.0.0        255.0.0.0         On-link         127.0.0.1    306
+              127.0.0.1  255.255.255.255         On-link         127.0.0.1    306
+        127.255.255.255  255.255.255.255         On-link         127.0.0.1    306
+            169.254.0.0      255.255.0.0         On-link     169.254.1.235    261
+          169.254.1.235  255.255.255.255         On-link     169.254.1.235    261
+        169.254.255.255  255.255.255.255         On-link     169.254.1.235    261
+          192.168.111.0    255.255.255.0         On-link   192.168.111.101    266
+        192.168.111.101  255.255.255.255         On-link   192.168.111.101    266
+        192.168.111.255  255.255.255.255         On-link   192.168.111.101    266
+              224.0.0.0        240.0.0.0         On-link         127.0.0.1    306
+              224.0.0.0        240.0.0.0         On-link     169.254.1.235    261
+              224.0.0.0        240.0.0.0         On-link   192.168.111.101    266
+        255.255.255.255  255.255.255.255         On-link         127.0.0.1    306
+        255.255.255.255  255.255.255.255         On-link     169.254.1.235    261
+        255.255.255.255  255.255.255.255         On-link   192.168.111.101    266
+      ===========================================================================
+      Persistent Routes:
+        Network Address          Netmask  Gateway Address  Metric
+                0.0.0.0          0.0.0.0  192.168.111.100       5
+      ===========================================================================
+       
+      IPv6 Route Table
+      ===========================================================================
+      Active Routes:
+       If Metric Network Destination      Gateway
+        1    306 ::1/128                  On-link
+       13    276 fd99:4c5b:5525:d80b::/64 On-link
+       13    276 fd99:4c5b:5525:d80b::1/128
+                                          On-link
+       13    276 fd99:4c5b:5525:d80b::3/128
+                                          On-link
+       13    276 fe80::/64                On-link
+       12    261 fe80::/64                On-link
+       13    276 fe80::17a:4eba:7c80:727f/128
+                                          On-link
+       12    261 fe80::fc97:1a53:e81a:3454/128
+                                          On-link
+        1    306 ff00::/8                 On-link
+       13    276 ff00::/8                 On-link
+       12    261 ff00::/8                 On-link
+       14    266 ff00::/8                 On-link
+      ===========================================================================
+      Persistent Routes:
+        None
+       
+      Controller0>
+ 
 ## 단계별 StorSimple 문제 해결 예제
 
 다음 예제에서는 StorSimple 배포의 단계별 문제 해결을 보여줍니다. 예제 시나리오에서 네트워크 설정 또는 DNS 이름이 올바르지 않음을 나타내는 오류 메시지와 함께 장치 등록이 실패합니다.
@@ -395,16 +563,16 @@ Test-HcsmConnection cmdlet 출력의 다음 샘플을 참조하세요.
 
 7. 방화벽 간섭을 확인합니다. 가상 IP(VIP), 서브넷, 게이트웨이 및 DNS 설정이 모두 올바른지 확인하고 연결 문제가 계속 나타나면, 방화벽이 장치와 외부 네트워크 간의 통신을 차단하고 있을 수 있습니다. 80 및 443 포트가 아웃바운드 통신을 위한 StorSimple 장치에서 사용할 수 있는지 확인해야 합니다. 자세한 내용은 [StorSimple 장치에 대한 네트워킹 요구 사항](https://msdn.microsoft.com/library/azure/dn772371.aspx)을 참조하세요.
 
-8. 로그를 살펴봅니다. [문제 해결에 사용 가능한 지원 패키지 및 장치 로그](#support-packages-and-device logs-for-troubleshooting)로 이동합니다.
+8. 로그를 살펴봅니다. [문제 해결에 사용 가능한 지원 패키지 및 장치 로그](#support-packages-and-device-logs-available-for-troubleshooting)로 이동합니다.
 
 9. 앞의 단계로 문제가 해결되지 않으면 [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하세요.
 
 ## 다음 단계
-[작동 가능 장치 문제 해결](../storsimple-troubleshoot-an-operational-device.md)
+[작동 가능 장치 문제 해결](storsimple-troubleshoot-operational-device.md)
 
 <!--Link references-->
 
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
-<!--HONumber=52-->
- 
+
+<!---HONumber=July15_HO2-->

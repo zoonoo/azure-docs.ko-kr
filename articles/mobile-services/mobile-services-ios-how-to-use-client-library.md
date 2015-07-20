@@ -13,11 +13,8 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="03/18/2015"
+	ms.date="07/01/2015"
 	ms.author="krisragh"/>
-
-
-
 
 # Azure 모바일 서비스에 iOS 클라이언트 라이브러리를 사용하는 방법
 
@@ -29,11 +26,11 @@
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
-## <a name="Setup"></a>설정 및 필수 조건
+##<a name="Setup"></a>설정 및 필수 조건
 
 이 가이드에서는 이미 모바일 서비스 및 테이블을 만들었다고 가정합니다. 자세한 내용은 [테이블 만들기]를 참조하거나 [모바일 서비스 퀵 스타트] 또는 [기존 앱에 모바일 서비스 추가]에서 만든 `TodoItem` 테이블을 다시 사용합니다. 이 가이드에서는 해당 테이블에 이러한 자습서의 테이블과 동일한 스키마가 있다고 가정합니다. 또한 이 가이드에서는 Xcode가 `WindowsAzureMobileServices.framework`을(를) 참조하며 `WindowsAzureMobileServices/WindowsAzureMobileServices.h`을(를) 가져온다고 가정합니다.
 
-## <a name="create-client"></a>방법: 모바일 서비스 클라이언트 만들기
+##<a name="create-client"></a>방법: 모바일 서비스 클라이언트 만들기
 
 프로젝트에서 Azure 모바일 서비스에 액세스하려면 `MSClient` 클라이언트 개체를 만듭니다. `AppUrl` 및 `AppKey`을(를) 각각 모바일 서비스 URL 및 응용 프로그램 키 대시보드 값으로 바꿉니다.
 
@@ -41,7 +38,7 @@
 MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl" applicationKey:@"AppKey"];
 ```
 
-## <a name="table-reference"></a>방법: 테이블 참조 만들기
+##<a name="table-reference"></a>방법: 테이블 참조 만들기
 
 Azure 모바일 서비스에 대한 데이터에 액세스 또는 업데이트하려면 테이블에 대한 참조를 만듭니다. `TodoItem`을(를) 테이블의 이름으로 바꿉니다.
 
@@ -49,7 +46,7 @@ Azure 모바일 서비스에 대한 데이터에 액세스 또는 업데이트�
 	MSTable *table = [client tableWithName:@"TodoItem"];
 ```
 
-## <a name="querying"></a>방법: 데이터 쿼리
+##<a name="querying"></a>방법: 데이터 쿼리
 
 데이터베이스 쿼리를 만들려면 `MSTable` 개체를 쿼리합입니다. 다음 쿼리는 `TodoItem`의 모든 항목을 가져오며 각 항목의 텍스트를 기록합니다.
 
@@ -65,7 +62,7 @@ Azure 모바일 서비스에 대한 데이터에 액세스 또는 업데이트�
 }];
 ```
 
-## <a name="filtering"></a>방법: 반환된 데이터 필터링
+##<a name="filtering"></a>방법: 반환된 데이터 필터링
 
 결과를 필터링하는 데 사용할 수 있는 많은 옵션이 있습니다.
 
@@ -86,7 +83,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 }];
 ```
 
-## <a name="query-object"></a>방법: MSQuery 사용
+##<a name="query-object"></a>방법: MSQuery 사용
 
 복잡한 쿼리(정렬 및 페이징 포함)를 수행하려면 직접 또는 조건자를 사용하여 `MSQuery` 개체를 만듭니다.
 
@@ -174,7 +171,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 	};
 ```
 
-## <a name="inserting"></a>방법: 데이터 삽입
+##<a name="inserting"></a>방법: 데이터 삽입
 
 새 테이블 행을 삽입하려면 새 `NSDictionary`을(를) 만들고 `table insert`을(를) 호출합니다. 모바일 서비스는 [동적 스키마]를 사용하지 않는 것으로 설정된 경우 `NSDictionary`에 기반하여 새 열을 자동으로 생성합니다.
 
@@ -194,7 +191,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 	}];
 ```
 
-## <a name="modifying"></a>방법: 데이터 수정
+##<a name="modifying"></a>방법: 데이터 수정
 
 기존 행을 업데이트하려면 항목을 수정하고 `update`을(를) 호출합니다.
 
@@ -216,7 +213,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 최소한 업데이트할 때에는 `id` 특성이 설정되어야 합니다.
 
-## <a name="deleting"></a>방법: Blob 삭제
+##<a name="deleting"></a>방법: Blob 삭제
 
 항목을 삭제하려면 항목과 함께 `delete`을(를) 호출합니다.
 
@@ -237,7 +234,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 최소한 삭제할 때에는 `id` 특성이 설정되어야 합니다.
 
 
-## <a name="authentication"></a>방법: 사용자 인증
+##<a name="authentication"></a>방법: 사용자 인증
 
 Azure 모바일 서비스는 다양한 ID 공급자를 지원합니다. 기본 자습서는 [인증]을 참조하세요.
 
@@ -269,11 +266,11 @@ Single Sign-On을 사용하도록 설정하거나 앱이 ID 공급자에게 직�
 	}];
 ```
 
-## <a name="caching-tokens"></a>방법: 인증 토큰 캐시
+##<a name="caching-tokens"></a>방법: 인증 토큰 캐시
 
 [모바일 서비스 퀵 스타트] 프로젝트에서 토큰을 캐시하는 방법을 살펴보겠습니다. 다른 프로젝트에도 유사한 단계를 적용할 수 있습니다.[AZURE.INCLUDE [mobile-services-ios-authenticate-app-with-token](../../includes/mobile-services-ios-authenticate-app-with-token.md)]
 
-## <a name="errors"></a>방법: 오류 처리
+##<a name="errors"></a>방법: 오류 처리
 
 모바일 서비스를 호출할 때는 완료 블록에 `NSError *error` 매개 변수가 포함됩니다. 오류가 발생하면 이 매개 변수는 null이 아닌 값입니다. 코드에서 이 매개 변수를 확인하여 필요한 경우 오류를 처리해야 합니다.
 
@@ -329,4 +326,4 @@ Single Sign-On을 사용하도록 설정하거나 앱이 ID 공급자에게 직�
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [충돌 처리기]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

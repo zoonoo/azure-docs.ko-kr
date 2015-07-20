@@ -23,27 +23,88 @@
 
 여러 SDK 버전을 건너뛴 경우에는 여러 절차를 수행해야 할 수 있습니다. 예를 들어 1.4.0에서 1.6.0으로 마이그레이션하는 경우 먼저 "1.4.0에서 1.5.0으로" 절차를 따른 다음 "1.5.0에서 1.6.0으로" 절차를 따라야 합니다.
 
-업그레이드를 수행하려는 원본 버전이 무엇이든, 모든 `mobile-engagement-VERSION.jar`을(를) 새로운 파일로 바꾸세요.
+업그레이드를 수행하려는 소스 버전이 무엇이든, `mobile-engagement-VERSION.jar`을 새로운 파일로 바꾸세요.
 
-###2.4.0에서 3.0.0으로 마이그레이션
+##3.0.0에서 4.0.0으로
 
-아래에서는 SDK 통합을 Capptain SAS 제공 Capptain 서비스에서 Azure Mobile Engagement 구동 앱으로 마이그레이션하는 방법을 설명합니다.
+### 네이티브 푸시
+
+네이티브 푸시(GCM/ADM)가 이제 앱 알림에도 사용되므로 모든 푸시 캠페인 유형에 대한 네이티브 푸시 자격 증명을 구성해야 합니다.
+
+아직 하지 않았다면 [이 절차](mobile-engagement-android-integrate-engagement-reach.md#native-push)를 따르세요.
+
+### AndroidManifest.xml
+
+도달률 통합이 ``AndroidManifest.xml``에서 수정되었습니다.
+
+다음을 바꿉니다.
+
+    <receiver
+      android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
+      android:exported="false">
+      <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+        <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
+        <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
+        <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
+      </intent-filter>
+    </receiver>
+
+기준
+
+    <receiver
+      android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver"
+      android:exported="false">
+      <intent-filter>
+        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+        <action android:name="com.microsoft.azure.engagement.intent.action.AGENT_CREATED"/>
+        <action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
+      </intent-filter>
+    </receiver>
+    <receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachDownloadReceiver">
+      <intent-filter>
+        <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
+      </intent-filter>
+    </receiver>
+
+이제 공지(텍스트/웹 콘텐츠 포함) 또는 설문 조사를 클릭할 때 로딩 화면이 있을 수 있습니다. 해당 캠페인이 4.0.0에서 작동하려면 이를 추가해야 합니다.
+
+    <activity
+      android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity"
+      android:theme="@android:style/Theme.Dialog">
+      <intent-filter>
+        <action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+      </intent-filter>
+    </activity>
+
+### 리소스
+
+새 `res/layout/engagement_loading.xml` 파일을 프로젝트에 포함합니다.
+
+##2.4.0에서 3.0.0으로 마이그레이션
+
+아래에서는 SDK 통합을 Capptain SAS 제공 Capptain 서비스에서 Azure Mobile Engagement 구동 앱으로 마이그레이션하는 방법을 설명합니다. 이전 버전에서 마이그레이션하는 경우 Capptain 웹 사이트를 참조하여 먼저 2.4.0으로 마이그레이션한 후 다음 절차를 적용하세요.
 
 >[AZURE.IMPORTANT]Capptain과 Mobile Engagement는 같은 서비스가 아니며, 아래에서 제공하는 절차에서는 클라이언트 앱을 마이그레이션하는 방법만 중점적으로 설명합니다. 앱에서 SDK를 마이그레이션해도 데이터가 Capptain 서버에서 Mobile Engagement 서버로 마이그레이션되지는 않습니다.
 
-이전 버전에서 마이그레이션하는 경우 Capptain 웹 사이트를 참조하여 먼저 2.4로 마이그레이션한 후 다음 절차를 적용하세요.
-
-#### JAR 파일
+### JAR 파일
 
 `libs` 폴더에서 `capptain.jar`을(를) `mobile-engagement-VERSION.jar`로 바꿉니다.
 
-#### 리소스 파일
+### 리소스 파일
 
 제공하는 모든 리소스 파일(`capptain_`이(가) 접두사로 지정됨)을 새 파일(`engagement_`이(가) 접두사로 지정됨)로 바꿔야 합니다.
 
 해당 파일을 사용자 지정한 경우 새 파일에 대해 모든 사용자 지정 내용을 다시 적용해야 하며, **리소스 파일의 모든 식별자 이름이 바뀝니다**.
 
-#### 응용 프로그램 UI
+### 응용 프로그램 UI
 
 이제 Engagement에서 연결 문자열을 사용하여 응용 프로그램 식별자와 같은 SDK 식별자를 구성합니다.
 
@@ -63,7 +124,7 @@
 
 			<meta-data android:name="capptain:appId" android:value="<YOUR_APPID>"/>
 
-#### Java API
+### Java API
 
 SDK의 모든 Java 클래스를 호출할 때마다 이름을 바꿔야 합니다. 예를 들어 `CapptainAgent.getInstance(this)`의 이름은 `EngagementAgent.getInstance(this)`(으)로 바꿔야 하고, `extends CapptainActivity`의 이름은 `extends EngagementActivity`(으)로 바꿔야 하는 식입니다.
 
@@ -71,7 +132,7 @@ SDK의 모든 Java 클래스를 호출할 때마다 이름을 바꿔야 합니�
 
 웹 공지를 만들 때 Javascript 바인더는 이제 `engagementReachContent`입니다.
 
-#### AndroidManifest.xml
+### AndroidManifest.xml
 
 많은 변경이 발생했으며, 서비스가 더 이상 공유되지 않고 많은 수신기를 더 이상 탐색할 수 없습니다.
 
@@ -79,7 +140,7 @@ SDK의 모든 Java 클래스를 호출할 때마다 이름을 바꿔야 합니�
 
 또한 모든 항목이 Engagement를 사용하도록 이름이 바뀝니다.
 
-이제 다음과 같아야 합니다.
+이제 다음과 같습니다.
 
 			<service
 			  android:name="com.microsoft.azure.engagement.service.EngagementService"
@@ -289,7 +350,7 @@ and
 
 			sendXMPPMessage(android.os.Bundle msg)
 
-#### Proguard
+### Proguard
 
 Proguard 구성은 브랜드 재지정의 영향을 받을 수 있으며, 규칙은 이제 다음과 같습니다.
 
@@ -300,5 +361,6 @@ Proguard 구성은 브랜드 재지정의 영향을 받을 수 있으며, 규칙
 			-keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
 			  <methods>;
 			}
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

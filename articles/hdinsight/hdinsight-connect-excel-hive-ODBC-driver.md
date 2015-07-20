@@ -127,4 +127,4 @@ Excel에서 Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDIns
 [img-hdi-simbahiveodbc.excel.dataconnection]: ./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

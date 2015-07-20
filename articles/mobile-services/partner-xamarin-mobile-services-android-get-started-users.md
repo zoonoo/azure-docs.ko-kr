@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="05/14/2015" 
 	ms.author="donnam"/>
 
 # 모바일 서비스 앱에 인증 추가
@@ -28,18 +28,18 @@
 2. [테이블 사용 권한을 인증된 사용자로 제한]
 3. [앱에 인증 추가]
 
-이 자습서는 모바일 서비스 quickstart를 기반으로 합니다. 먼저 [모바일 서비스 시작] 자습서를 완료해야 합니다.
+이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 먼저 [모바일 서비스 시작] 자습서를 완료해야 합니다.
 
 이 자습서를 완료하려면 Xamarin.Android 및 Android SDK 4.2 이상 버전이 필요합니다.
 
-## <a name="register"></a>인증을 위해 앱 등록 및 모바일 서비스 구성
+##<a name="register"></a>인증을 위해 앱 등록 및 모바일 서비스 구성
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-## <a name="permissions"></a>사용 권한을 인증된 사용자로 제한
+##<a name="permissions"></a>사용 권한을 인증된 사용자로 제한
 
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
 3. Eclipse에서 [모바일 서비스 시작] 자습서를 완료했을 때 생성된 프로젝트를 엽니다. 
@@ -50,13 +50,13 @@
 
 다음에는 모바일 서비스의 리소스를 요청하기 전에 사용자를 인증하도록 앱을 업데이트합니다.
 
-## <a name="add-authentication"></a>앱에 인증 추가
+##<a name="add-authentication"></a>앱에 인증 추가
 
-1. **TodoActivity** 클래스에 다음 속성을 추가합니다.
+1. **ToDoActivity** 클래스에 다음 속성을 추가합니다.
 
-		private MobileServiceUser user;
+		private MobileServiceUser user;
 
-2. **TodoActivity** 클래스에 다음 메서드를 추가합니다.
+2. **ToDoActivity** 클래스에 다음 메서드를 추가합니다.
 
         private async Task Authenticate()
         {
@@ -85,14 +85,17 @@
 
         private async Task CreateTable()
         {
-            // Get the Mobile Service Table instance to use
-            todoTable = client.GetTable<TodoItem>();
+            
+            await InitLocalStoreAsync();
 
-            textNewTodo = FindViewById<EditText>(Resource.Id.textNewTodo);
+            // Get the Mobile Service Table instance to use
+            toDoTable = client.GetTable<ToDoItem>();
+
+            textNewToDo = FindViewById<EditText>(Resource.Id.textNewToDo);
 
             // Create an adapter to bind the items with the view
-            adapter = new TodoItemAdapter(this, Resource.Layout.Row_List_To_Do);
-            var listViewTodo = FindViewById<ListView>(Resource.Id.listViewTodo);
+            adapter = new ToDoItemAdapter(this, Resource.Layout.Row_List_To_Do);
+            var listViewTodo = FindViewById<ListView>(Resource.Id.listViewToDo);
             listViewTodo.Adapter = adapter;
 
             // Load the items from the Mobile Service
@@ -133,5 +136,6 @@
 [스크립트를 통해 사용자 권한 부여]: mobile-services-javascript-backend-service-side-authorization.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [완성된 예제 프로젝트]: http://go.microsoft.com/fwlink/p/?LinkId=331328
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

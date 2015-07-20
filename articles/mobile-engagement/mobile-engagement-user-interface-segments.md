@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Mobile Engagement 사용자 인터페이스 - 세그먼트" 
-	description="Azure Mobile Engagement를 사용하여 사용자의 세그먼트를 만들고 관리하여 사용 패턴을 식별하는 방법 알아보기" 
-	services="mobile-engagement" 
-	documentationCenter="" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor=""/>
+   pageTitle="Azure Mobile Engagement 사용자 인터페이스 - 세그먼트" 
+   description="Azure Mobile Engagement를 사용하여 사용자의 세그먼트를 만들고 관리하여 사용 패턴을 식별하는 방법 알아보기" 
+   services="mobile-engagement" 
+   documentationCenter="" 
+   authors="piyushjo" 
+   manager="dwrede" 
+   editor=""/>
 
 <tags
-	ms.service="mobile-engagement"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="mobile-multiple"
-	ms.workload="mobile" 
-	ms.date="02/17/2015"
-	ms.author="piyushjo"/>
+   ms.service="mobile-engagement"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="mobile-multiple"
+   ms.workload="mobile" 
+   ms.date="02/17/2015"
+   ms.author="piyushjo"/>
 
 # 사용자의 세그먼트를 만들고 관리하여 사용 패턴을 식별하는 방법
 UI의 세그먼트 섹션에서는 응용 프로그램에서 확인할 수 있으며 세그먼트 API를 통해서도 액세스할 수 있는 다양한 동작 및 분석 정보에 따라 사용자 구분 작업을 수행할 수 있습니다. 세그먼트는 작성된 지 24시간 후에 먼저 계산된 다음 최신 분석 정보를 기준으로 24시간마다 다시 계산됩니다. 계산된 세그먼트는 매일 "일 단위 기록" 차트에 표시됩니다.
@@ -186,5 +186,6 @@ UI의 세그먼트 섹션에서는 응용 프로그램에서 확인할 수 있�
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

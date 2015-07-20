@@ -13,10 +13,10 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/16/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
-# Azure 검색에서 검색 결과를 페이징하는 방법#
+#Azure 검색에서 검색 결과를 페이징하는 방법#
 
 이 문서는 총 횟수, 문서 검색, 정렬 순서, 탐색과 같은 검색 결과 페이지의 표준 요소를 구현하기 위한 Azure 검색 서비스의 사용 방법에 대한 지침을 제공합니다.
  
@@ -113,4 +113,5 @@ Azure 검색에서는 `"Sortable": true.`(으)로 인덱싱되는 모든 필드�
 [3]: ./media/search-pagination-page-layout/Pages-3-SortBy.png
 [4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
 [5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

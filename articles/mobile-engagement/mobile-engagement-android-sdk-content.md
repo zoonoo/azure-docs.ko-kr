@@ -18,7 +18,7 @@
 
 #SDK 콘텐츠
 
-이 문서에서는 SDK 보관 파일을 나열하고 내용을 설명합니다.
+이 문서에서는 SDK 보관 파일의 콘텐츠를 소개 및 설명합니다.
 
 `mobile-engagement-VERSION.jar`
 
@@ -32,13 +32,13 @@
 
 > Engagement SDK 소스 코드입니다.
 >
-> 서비스의 원본이 포함 되지 않습니다(`com.microsoft.azure.engagement.service.EngagementService` 및 관련된 소스 파일).
+> 서비스의 소스가 포함되지 않습니다(`com.microsoft.azure.engagement.service.EngagementService` 및 관련된 소스 파일).
 
 `documentation.html`
 
 > 다운로드 가능한 버전의 SDK에 해당하는 설명서 사이트의 바로 가기입니다.
 
 다른 파일은 소프트웨어 라이선스의 복사본입니다.
-
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO2-->

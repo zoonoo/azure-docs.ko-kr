@@ -1,3 +1,4 @@
+
 #### 관리 포털에서 업데이트 1을 설치하려면
 
 1. StorSimple 서비스 페이지에서 장치를 선택합니다. **장치** > **유지 관리**로 이동합니다.
@@ -44,4 +45,4 @@
 
     ![유지 관리 페이지](./media/storsimple-install-update-via-portal/HCS_SoftwareUpdates7-include.png)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

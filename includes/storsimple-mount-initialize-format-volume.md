@@ -1,3 +1,4 @@
+
 #### 볼륨을 탑재, 초기화 및 포맷하려면
 
 1. Microsoft iSCSI 초기자를 시작합니다.
@@ -29,4 +30,4 @@
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

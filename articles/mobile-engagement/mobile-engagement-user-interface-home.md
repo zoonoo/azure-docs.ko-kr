@@ -149,4 +149,8 @@ UI의 홈 섹션에는 내 응용 프로그램의 모든 응용 프로그램 목
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
 
-<!--HONumber=54--> 
+
+ 
+ 
+
+<!---HONumber=July15_HO2-->

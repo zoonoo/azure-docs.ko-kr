@@ -31,7 +31,8 @@
 
 
 - [Python 2.7.6](https://www.python.org/download/releases/2.7.6/).
-
+- [FreeTDS](https://github.com/brianb/FreeTDS)
+- [pymssql](https://github.com/pymssql/pymssql)
 
 ### 필요한 모듈 설치
 
@@ -117,4 +118,4 @@ SQL 데이터베이스에서 [IDENTITY](https://msdn.microsoft.com/library/ms186
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

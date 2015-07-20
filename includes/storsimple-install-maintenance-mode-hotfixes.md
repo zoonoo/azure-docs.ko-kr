@@ -1,3 +1,4 @@
+
 #### StorSimple용 Windows PowerShell을 통해 유지 관리 모드 핫픽스를 설치하려면
 
 > [AZURE.IMPORTANT]유지 관리 모드에서는 핫픽스를 각 컨트롤러에 차례대로 적용해야 합니다.
@@ -16,4 +17,4 @@
 
 6. 핫픽스를 적용한 후 유지 관리 모드를 종료합니다. 지침은 [유지 관리 모드 종료](#exit-maintenance-mode)를 참조하세요.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

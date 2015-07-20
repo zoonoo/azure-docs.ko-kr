@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure 알림 허브 시작" 
-	description="Azure 알림 허브를 사용하여 푸시 알림을 보내는 방법에 대해 알아봅니다." 
-	services="notification-hubs" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Azure 알림 허브 시작"
+	description="Azure 알림 허브를 사용하여 푸시 알림을 보내는 방법에 대해 알아봅니다."
+	services="notification-hubs"
+	documentationCenter=""
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-kindle" 
-	ms.devlang="Java" 
-	ms.topic="hero-article" 
-	ms.date="03/16/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-kindle"
+	ms.devlang="Java"
+	ms.topic="get-started-article" 
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # 알림 허브 시작
@@ -89,7 +89,7 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 
 		xmlns:amazon="http://schemas.amazon.com/apk/res/android"
 
-2. 사용 권한을 매니페스트 요소 아래에 첫 번째 요소로 추가합니다. **[YOUR PACKAGE NAME]**을 앱을 만드는 데 사용한 패키지로 대체합니다. 
+2. 사용 권한을 매니페스트 요소 아래에 첫 번째 요소로 추가합니다. **[YOUR PACKAGE NAME]**을 앱을 만드는 데 사용한 패키지로 바꿉니다.
 
 		<permission
 	     android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE"
@@ -98,15 +98,15 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 		<uses-permission android:name="android.permission.INTERNET"/>
 
 		<uses-permission android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE" />
- 
+
 		<!-- This permission allows your app access to receive push notifications
 		from ADM. -->
 		<uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />
- 
+
 		<!-- ADM uses WAKE_LOCK to keep the processor from sleeping when a message is received. -->
 		<uses-permission android:name="android.permission.WAKE_LOCK" />
 
-3. 응용 프로그램 요소의 첫 번째 자식으로 다음 요소를 삽입합니다. **[YOUR SERVICE NAME]**을 다음 섹션에서 만드는 ADM 메시지 처리기의 이름(패키지 포함)으로 대체하고, **[YOUR PACKAGE NAME]**을 앱을 만들 때 사용한 패키지 이름으로 바꿔야 합니다.
+3. 응용 프로그램 요소의 첫 번째 자식으로 다음 요소를 삽입합니다. **[YOUR SERVICE NAME]**을 다음 섹션에서 만드는 ADM 메시지 처리기의 이름(패키지 포함)으로 바꾸고, **[YOUR PACKAGE NAME]**을 앱을 만들 때 사용한 패키지 이름으로 바꿉니다.
 
 		<amazon:enable-feature
 		      android:name="com.amazon.device.messaging"
@@ -114,18 +114,18 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 		<service
 		    android:name="[YOUR SERVICE NAME]"
 		    android:exported="false" />
-		 
+
 		<receiver
 		    android:name="[YOUR SERVICE NAME]$Receiver"
-		 
+
 		    <!-- This permission ensures that only ADM can send your app registration broadcasts. -->
 		    android:permission="com.amazon.device.messaging.permission.SEND" >
-		 
+
 		    <!-- To interact with ADM, your app must listen for the following intents. -->
 		    <intent-filter>
 		  <action android:name="com.amazon.device.messaging.intent.REGISTRATION" />
 		  <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
-		 
+
 		  <!-- Replace the name in the category tag with your app's package name. -->
 		  <category android:name="[YOUR PACKAGE NAME]" />
 		    </intent-filter>
@@ -164,7 +164,7 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 		public MyADMMessageHandler() {
 				super("MyADMMessageHandler");
 			}
-	
+
 			public static class Receiver extends ADMMessageReceiver
     		{
         		public Receiver()
@@ -172,10 +172,10 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
             		super(MyADMMessageHandler.class);
         		}
     		}
-	
+
 			private void sendNotification(String msg) {
 				Context ctx = getApplicationContext();
-		
+
 	   		 mNotificationManager = (NotificationManager)
 	    			ctx.getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -194,12 +194,11 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 	     	mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
 		}
 
-
 4. `OnMessage()` 메서드에 다음 코드를 추가합니다.
-	
+
 		String nhMessage = intent.getExtras().getString("msg");
 		sendNotification(nhMessage);
- 
+
 5. `OnRegistered` 메서드에 다음 코드를 추가합니다.
 
 			try {
@@ -218,7 +217,7 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 
 7. 그런 다음 `MainActivity` 메서드에 다음 import 문을 추가합니다.
 
-		import com.amazon.device.messaging.ADM;				
+		import com.amazon.device.messaging.ADM;
 
 8. 이제 `OnCreate` 메서드의 끝에 다음 코드를 추가합니다.
 
@@ -280,6 +279,6 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 [5]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-cmd-window.png
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

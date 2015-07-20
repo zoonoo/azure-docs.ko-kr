@@ -37,31 +37,31 @@
 
 [모바일 서비스 시작]을 완료하면 프로젝트에 [Xamarin.Android] 및 [Azure 모바일 서비스][Azure Mobile Services Component] 구성 요소가 설치되어 있어야 합니다.
 
-## <a id="register"></a>Google Cloud Messaging 사용
+##<a id="register"></a>Google Cloud Messaging 사용
 
 [AZURE.INCLUDE [GCM 사용](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
-## <a id="configure"></a>푸시 요청을 전송하도록 모바일 서비스 구성
+##<a id="configure"></a>푸시 요청을 전송하도록 모바일 서비스 구성
 
 [AZURE.INCLUDE [mobile-services-android-configure-push](../../includes/mobile-services-android-configure-push.md)]
 
-## <a id="update-server"></a>푸시 알림을 전송하도록 모바일 서비스 업데이트
+##<a id="update-server"></a>푸시 알림을 전송하도록 모바일 서비스 업데이트
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-android-push-update-service](../../includes/mobile-services-dotnet-backend-android-push-update-service.md)]
 
-## <a id="configure-app"></a>푸시 알림에 대한 기존 프로젝트 구성
+##<a id="configure-app"></a>푸시 알림에 대한 기존 프로젝트 구성
 
 [AZURE.INCLUDE [mobile-services-xamarin-android-push-configure-project](../../includes/mobile-services-xamarin-android-push-configure-project.md)]
 
-## <a id="add-push"></a>앱에 푸시 알림 코드 추가
+##<a id="add-push"></a>앱에 푸시 알림 코드 추가
 
 [AZURE.INCLUDE [mobile-services-xamarin-android-push-add-to-app](../../includes/mobile-services-xamarin-android-push-add-to-app.md)]
 
-## <a name="test-app"></a>게시된 모바일 서비스에 대해 앱 테스트
+##<a name="test-app"></a>게시된 모바일 서비스에 대해 앱 테스트
 
 USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에서 가상 장치를 사용하여 앱을 테스트할 수 있습니다.
 
-### <a id="local-testing"></a> 로컬 테스트에 푸시 알림 사용
+###<a id="local-testing"></a> 로컬 테스트에 푸시 알림 사용
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
@@ -74,4 +74,5 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [Google Cloud Messaging 클라이언트 구성 요소]: http://components.xamarin.com/view/GCMClient/
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

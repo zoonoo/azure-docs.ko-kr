@@ -16,11 +16,11 @@
 	ms.date="04/06/2015" 
 	ms.author="piyushjo" />
 
-# Windows 유니버설 앱 SDK 콘텐츠
+#Windows 유니버설 앱 SDK 콘텐츠
 
 이 문서는 응용 프로그램에서 SDK가 배포한 콘텐츠를 나열하고 설명합니다.
 
-## `/Resources` 폴더
+##`/Resources` 폴더
 
 이 폴더에는 Mobile Engagement에 필요한 모든 리소스가 포함되어 있습니다. 앱에 맞게 리소스를 사용자 지정할 수도 있습니다.
 
@@ -53,5 +53,6 @@
 - `EngagementOverlayNotification.xaml.cs` : `EngagementOverlayNotification.xaml` 연결된 코드.
  
 - `EngagementPageOverlay.cs` : `Overlay` 공지 및 알림 표시 코드.
- 
-<!--HONumber=54--> 
+  
+
+<!---HONumber=July15_HO2-->

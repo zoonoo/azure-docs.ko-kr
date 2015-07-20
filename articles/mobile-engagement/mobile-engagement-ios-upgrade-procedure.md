@@ -58,5 +58,6 @@ SmartAd 추적이 SDK에서 제거되었으므로 `AETrackModule` 클래스의 �
 -   클래스 `CapptainTableViewController`의 이름은 `EngagementTableViewController`(으)로 바뀌었습니다.
 -   클래스 `CapptainUtils`의 이름은 `EngagementUtils`(으)로 바뀌었습니다.
 -   클래스 `CapptainViewController`의 이름은 `EngagementViewController`(으)로 바뀌었습니다.
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

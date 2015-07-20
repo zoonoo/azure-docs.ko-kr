@@ -129,7 +129,7 @@ DNS 서버는 선택 사항이지만 반드시 필요한 경우도 있습니다.
 	<tr><td>헤드 노드 크기</td><td><p>헤드 노드에 대한 VM 크기를 선택합니다.</p></td></tr>
 	<tr><td>데이터 노드 크기</td><td><p>데이터 노드에 대한 VM 크기를 선택합니다.</p></td></tr>
 	<tr><td>Zookeeper 크기</td><td><p>Zookeeper 노드에 대한 VM 크기를 선택합니다.</p></td></tr>
-</table>[AZURE.NOTE]선택한 VM에 따라 비용이 달라질 수 있습니다. HDInsight에서는 클러스터 노드에 모든 표준 계층 VM을 사용합니다. VM 크기가 가격에 미치는 영향에 대한 자세한 내용은 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 가격</a>을 참조하세요.
+</table>>[AZURE.NOTE]선택한 VM에 따라 비용이 달라질 수 있습니다. HDInsight에서는 클러스터 노드에 모든 표준 계층 VM을 사용합니다. VM 크기가 가격에 미치는 영향에 대한 자세한 내용은 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 가격</a>을 참조하세요.
 
 	오른쪽 단추를 클릭합니다.
 
@@ -427,4 +427,4 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "스크립트 작업을 사용하여 HBase 클러스터 사용자 지정"
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

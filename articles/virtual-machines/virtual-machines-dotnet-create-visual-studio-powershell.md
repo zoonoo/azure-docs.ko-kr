@@ -53,7 +53,8 @@ Azure 웹 사이트용 웹 프로젝트를 만들면 Azure에서 가상 컴퓨�
 
 <br/> 13. (선택 사항)새 가상 컴퓨터에 연결할 수 있습니다. **Server Explorer(서버 탐색기)**에서 **Virtual Machines(가상 컴퓨터)** 노드를 확장하고 만든 가상 컴퓨터에 대한 노드를 선택한 후 **Connect with Remote Desktop(원격 데스크톱으로 연결)**을 선택합니다.
 
-	![][5]
+ ![][5]
+
 
 ## 다음 단계
 
@@ -64,7 +65,6 @@ Azure 웹 사이트용 웹 프로젝트를 만들면 Azure에서 가상 컴퓨�
 [2]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_CreateVM.PNG
 [3]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_Provisioning.png
 [4]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_SolutionExplorer.png
-[5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_CreateVM_Connect.png
- 
+[5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_Create_VM_Connect.png
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

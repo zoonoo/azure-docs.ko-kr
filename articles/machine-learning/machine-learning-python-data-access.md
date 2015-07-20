@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="기계 학습 Python 클라이언트 라이브러리를 사용하여 Python에서 데이터 집합에 액세스 | Azure" 
+	pageTitle="기계 학습 Python 클라이언트 라이브러리를 사용하여 데이터 집합에 액세스 | Microsoft Azure" 
 	description="Python 클라이언트 라이브러리를 설치하고 사용하여 로컬 Python 환경에서 안전하게 Azure 기계 학습 데이터에 액세스하고 관리합니다." 
 	services="machine-learning" 
 	documentationCenter="python" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/07/2015" 
 	ms.author="huvalo;bradsev" />
 
 
@@ -44,7 +44,7 @@ Python 클라이언트 라이브러리는 다음과 같은 환경에서 테스�
  - python-dateutil
  - pandas
 
-Python, IPython 및 설치된 것으로 위에 나열된 세 가지 패키지와 함께 제공되는  [Anaconda](http://continuum.io/downloads#all) 또는 [Canopy](https://store.enthought.com/downloads/) 등의 Python 배포판을 사용하는 것이 좋습니다. IPython은 반드시 필요하지는 않지만 데이터를 대화식으로 조작하고 시각화는 데 훌륭한 환경입니다.
+Python, IPython 및 설치된 것으로 위에 나열된 세 가지 패키지와 함께 제공되는 [Anaconda](http://continuum.io/downloads#all) 또는 [Canopy](https://store.enthought.com/downloads/) 등의 Python 배포판을 사용하는 것이 좋습니다. IPython은 반드시 필요하지는 않지만 데이터를 대화식으로 조작하고 시각화는 데 훌륭한 환경입니다.
 
 
 ###<a name="installation"></a>Azure 기계 학습 Python 클라이언트 라이브러리를 설치하는 방법
@@ -80,12 +80,15 @@ Python 클라이언트 라이브러리를 사용하면 실행된 기존 데이�
 
 권한 부여 토큰을 가져오기 위해 다음 중 하나를 수행할 수 있습니다.
 
-1. 소유자에서 토큰을 요청합니다. 소유자가 스튜디오의 작업 영역에 있는 설정 페이지에서 권한 부여 토큰에 액세스할 수 있습니다. 왼쪽 창에서 **설정**을 선택하고 **권한 부여 토큰**을 클릭하여 기본 및 보조 토큰을 확인할 수 있습니다. ![](http://i.imgur.com/h33GoZX.jpg) 기본 또는 보조 권한 부여 토큰을 코드 조각에서 사용할 수 있지만, 소유자가 보조 권한 부여 토크만 공유하는 것이 좋습니다.
+1. 소유자에서 토큰을 요청합니다. 소유자가 스튜디오의 작업 영역에 있는 설정 페이지에서 권한 부여 토큰에 액세스할 수 있습니다. 왼쪽 창에서 **설정**을 선택하고 **권한 부여 토큰**을 클릭하여 기본 및 보조 토큰을 확인할 수 있습니다. 기본 또는 보조 권한 부여 토큰을 코드 조각에서 사용할 수 있지만, 소유자가 보조 권한 부여 토크만 공유하는 것이 좋습니다.
+
+    ![](http://i.imgur.com/h33GoZX.jpg)
+
 2. 소유자의 역할로 승격하도록 요청합니다. 그러려면 작업 영역의 현재 소유자가 먼저 작업 영역에서 사용자를 제거한 다음 소유자로 다시 초대해야 합니다.
 
 개발자가 작업 영역 ID와 권한 부여 토큰을 얻고 나면 역할에 상관 없이 코드 조각을 사용하여 작업 영역에 액세스할 수 있습니다.
 
-권한 부여 토큰은 **설정**의  **권한 부여 토큰** 페이지에서 관리합니다. 토큰을 다시 생성할 수 있지만 이 절차를 수행하면 이전 토큰에 대한 액세스 권한이 취소됩니다.
+권한 부여 토큰은 **설정**의 **권한 부여 토큰** 페이지에서 관리합니다. 토큰을 다시 생성할 수 있지만 이 절차를 수행하면 이전 토큰에 대한 액세스 권한이 취소됩니다.
 
 ### <a name="accessingDatasets"></a>로컬 Python 응용 프로그램에서 데이터 집합에 액세스
 
@@ -362,5 +365,6 @@ Python 클라이언트 라이브러리에서 Pandas DataFrame을 다은 형식�
 <!-- Module References -->
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

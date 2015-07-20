@@ -1,21 +1,21 @@
 
 <properties 
-pageTitle="Blob 저장소에 대한 속성 및 메타 데이터 설정 및 검색 | Microsoft Azure" 
-description="Azure 저장소 컨테이너 및 Blob에 대한 속성 및 메타 데이터를 설정하고 검색하는 방법에 대해 알아봅니다." 
-services="storage" 
-documentationCenter="" 
-authors="tamram" 
-manager="adinah" 
-editor=""/>
+  pageTitle="설정 및 Blob 저장소에 대한 속성 및 메타데이터를 검색 | Microsoft Azure" 
+  description="설정 및 속성, Azure 저장소 컨테이너 및 blob에 대한 메타데이터를 검색 하는 방법에 알아봅니다." 
+  services="storage" 
+  documentationCenter="" 
+  authors="tamram" 
+  manager="adinah" 
+  editor=""/>
 
 <tags 
-ms.service="storage" 
-ms.workload="storage" 
-ms.tgt_pltfrm="na" 
-ms.devlang="na" 
-ms.topic="article" 
-ms.date="04/21/2015" 
-ms.author="tamram"/>
+  ms.service="storage" 
+  ms.workload="storage" 
+  ms.tgt_pltfrm="na" 
+  ms.devlang="na" 
+  ms.topic="article" 
+  ms.date="04/21/2015" 
+  ms.author="tamram"/>
 
 
 # 속성 및 메타 데이터 설정 및 검색 #
@@ -159,6 +159,6 @@ Blob 또는 컨테이너 리소스에 하나 이상의 이름-값 쌍으로 메�
 
 - [Azure Storage Client Library 참조](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
 - [.NET용 Blob 저장소 시작](storage-dotnet-how-to-use-blobs.md)  
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

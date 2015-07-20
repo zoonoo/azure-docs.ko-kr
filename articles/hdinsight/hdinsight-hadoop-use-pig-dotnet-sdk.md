@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
-# HDInsight에서 Hadoop용 .NET SDK를 사용하여 Pig 작업 실행
+#HDInsight에서 Hadoop용 .NET SDK를 사용하여 Pig 작업 실행
 
 [AZURE.INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
@@ -24,7 +24,7 @@
 
 HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다. Pig를 사용하면 일련의 데이터 변환을 모델링하여 MapReduce 작업을 만들 수 있습니다. HDInsight 클러스터에는 Pig 작업을 제출하는 기본 C# 응용 프로그램을 사용하는 방법에 대해 배웁니다.
 
-## <a id="prereq"></a>필수 조건
+##<a id="prereq"></a>필수 조건
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
@@ -32,19 +32,19 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 
 * Visual Studio 2012 또는 2013
 
-## <a id="certificate"></a>관리 인증서 만들기
+##<a id="certificate"></a>관리 인증서 만들기
 
 Azure HDInsight에 응용 프로그램을 인증하려면 자체 서명된 인증서를 만들고 개발 워크스테이션에 설치하여 Azure 구독에 업로드해야 합니다.
 
-이 작업을 수행하는 방법에 대한 지침은 <a href="http://go.microsoft.com/fwlink/?LinkId=511138" target="_blank">자체 서명된 인증서 만들기</a>를 참조하세요.
+이 작업을 수행하는 방법에 대한 지침은 [자체 서명된 인증서 만들기](http://go.microsoft.com/fwlink/?LinkId=511138)를 참조하세요.
 
 > [AZURE.NOTE]인증서를 만들 때 나중에 사용할 것이므로 친숙한 이름을 사용해야 합니다.
 
-## <a id="subscriptionid"></a>구독 ID 찾기
+##<a id="subscriptionid"></a>구독 ID 찾기
 
 각각의 Azure 구독은 구독 ID라는 GUID 값으로 식별됩니다. 이 값을 찾으려면 다음 단계를 이용합니다.
 
-1. <a href="https://manage.windowsazure.com/" target="_blank">Azure 관리 콘솔</a>을 방문합니다.
+1. [Azure 관리 콘솔](https://manage.windowsazure.com/)을 방문합니다.
 
 2. 포털 왼쪽에 있는 막대에서 **설정**을 선택합니다.
 
@@ -52,7 +52,7 @@ Azure HDInsight에 응용 프로그램을 인증하려면 자체 서명된 인�
 
 나중에 사용할 것이므로 구독 ID를 저장합니다.
 
-## <a id="create"></a>응용 프로그램 만들기
+##<a id="create"></a>응용 프로그램 만들기
 
 1. Visual Studio 2012 또는 2013 열기
 
@@ -94,14 +94,14 @@ Azure HDInsight에 응용 프로그램을 인증하려면 자체 서명된 인�
 		using System.Linq;
 		using System.Text;
 		using System.Threading.Tasks;
-		
+
 		using System.IO;
 		using System.Threading;
 		using System.Security.Cryptography.X509Certificates;
-		
+
 		using Microsoft.WindowsAzure.Management.HDInsight;
 		using Microsoft.Hadoop.Client;
-		
+
 		namespace SubmitPigJob
 		{
 		    class Program
@@ -113,13 +113,13 @@ Azure HDInsight에 응용 프로그램을 인증하려면 자체 서명된 인�
 
 		            // Get the certificate name
 		            string certFriendlyName = PromptForInput("Enter the management certificate name:");
-		
+
 		            // Get the cluster name
 		            string clusterName = PromptForInput("Enter the HDInsight cluster name:");
-		
+
 		            // Set the folder that job status is written to
 		            string statusFolderName = @"/tutorials/usepig/status";
-		
+
 		            // The Pig Latin statements to run
 		            string queryString = "LOGS = LOAD 'wasb:///example/data/sample.log';" +
 		                "LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;" +
@@ -128,32 +128,32 @@ Azure HDInsight에 응용 프로그램을 인증하려면 자체 서명된 인�
 		                "FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;" +
 		                "RESULT = order FREQUENCIES by COUNT desc;" +
 		                "DUMP RESULT;";
-		
+
 		            // Define the Pig job
 		            PigJobCreateParameters myJobDefinition = new PigJobCreateParameters()
 		            {
 		                Query = queryString,
 		                StatusFolder = statusFolderName
 		            };
-		
+
 		            // Get the certificate object from certificate store using the friendly name to identify it
 		            X509Store store = new X509Store();
 		            store.Open(OpenFlags.ReadOnly);
 		            X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
-		
+
 		            JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
-		
+
 		            // Create a hadoop client to connect to HDInsight
 		            var jobClient = JobSubmissionClientFactory.Connect(creds);
-		
+
 		            // Run the MapReduce job
 		            Console.WriteLine("----- Submit the Pig job ...");
 		            JobCreationResults mrJobResults = jobClient.CreatePigJob		(myJobDefinition);
-		
+
 		            // Wait for the job to complete
 		            Console.WriteLine("----- Wait for the Pig job to complete ...");
 		            WaitForJobCompletion(mrJobResults, jobClient);
-		
+
 		            // Display the error log
 		            Console.WriteLine("----- The Pig job error log.");
 		            using (Stream stream = jobClient.GetJobErrorLogs(mrJobResults.JobId))
@@ -161,7 +161,7 @@ Azure HDInsight에 응용 프로그램을 인증하려면 자체 서명된 인�
 		                var reader = new StreamReader(stream);
 		                Console.WriteLine(reader.ReadToEnd());
 		            }
-		
+
 		            // Display the output log
 		            Console.WriteLine("----- The Pig job output log.");
 		            using (Stream stream = jobClient.GetJobOutput(mrJobResults.JobId))
@@ -169,11 +169,11 @@ Azure HDInsight에 응용 프로그램을 인증하려면 자체 서명된 인�
 		                var reader = new StreamReader(stream);
 		                Console.WriteLine(reader.ReadToEnd());
 		            }
-		
+
 		            Console.WriteLine("----- Press ENTER to continue.");
 		            Console.ReadLine();
 		        }
-		
+
 		        private static void WaitForJobCompletion(JobCreationResults jobResults, IJobSubmissionClient client)
 		        {
 		            JobDetails jobInProgress = client.GetJob(jobResults.JobId);
@@ -183,7 +183,7 @@ Azure HDInsight에 응용 프로그램을 인증하려면 자체 서명된 인�
 		                Thread.Sleep(TimeSpan.FromSeconds(10));
 		            }
 		        }
-		
+
 		        private static string PromptForInput(string message)
 		        {
 		            Console.WriteLine(message);
@@ -195,7 +195,7 @@ Azure HDInsight에 응용 프로그램을 인증하려면 자체 서명된 인�
 
 7. 파일을 저장합니다.
 
-## <a id="run"></a>응용 프로그램 실행
+##<a id="run"></a>응용 프로그램 실행
 
 **F5** 키를 눌러 응용 프로그램을 시작합니다. 메시지가 표시되면 **구독 ID**, **인증서 이름** 및 **HDInsight 클러스터 이름**을 입력합니다. 응용 프로그램이 실행되면 다음과 유사하게 끝나는 여러 줄의 정보를 생성합니다.
 
@@ -213,11 +213,11 @@ Azure HDInsight에 응용 프로그램을 인증하려면 자체 서명된 인�
 
 **Enter** 키를 눌러 응용 프로그램을 종료합니다.
 
-## <a id="summary"></a>요약
+##<a id="summary"></a>요약
 
 이처럼 Hadoop용 .NET SDK를 사용하면 Pig 작업을 HDInsight 클러스터를 제출 하고, 작업 상태를 모니터링하며, 출력을 검색하는 .NET 응용 프로그램을 만들 수 있습니다.
 
-## <a id="nextsteps"></a>다음 단계
+##<a id="nextsteps"></a>다음 단계
 
 HDInsight에서 Pig에 대한 일반 정보.
 
@@ -229,4 +229,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 내용입니�
 
 * [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

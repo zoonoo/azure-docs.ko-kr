@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="06/15/2015" 
 	ms.author="wesmc"/>
 
 # 모바일 서비스 및 Azure Active Directory의 역할 기반 액세스 제어
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../../includes/mobile-services-selector-rbac.md)]
 
-# 개요
+##개요
 
 RBAC(역할 기반 액세스 제어)는 사용자가 가질 수 있는 역할에 권한을 할당하여 사용자의 특정 클래스가 수행할 수 있는 작업과 수행할 수 없는 작업에 대한 경계를 효율적으로 정의하는 방식입니다. 이 자습서에서는 Azure 모바일 서비스에 기본 RBAC를 추가하는 방법을 안내합니다.
 
@@ -29,7 +29,7 @@ RBAC(역할 기반 액세스 제어)는 사용자가 가질 수 있는 역할에
 
 >[AZURE.NOTE]이 자습서에서는 권한 부여 방식을 포함하여 인증에 대한 다양한 지식 정보를 제공합니다. 이 자습서 이전에 Azure Active Directory 인증 공급자를 사용하여 [모바일 서비스 앱에 인증 추가] 자습서를 완료해야 합니다. 이 자습서에서는 [모바일 서비스 앱에 인증 추가] 자습서에서 사용된 TodoItem 응용 프로그램을 계속 업데이트합니다.
 
-## 필수 조건
+##필수 조건
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
@@ -39,12 +39,12 @@ RBAC(역할 기반 액세스 제어)는 사용자가 가질 수 있는 역할에
  
 
 
-## 멤버 자격이 포함된 Sales 그룹 만들기
+##멤버 자격이 포함된 Sales 그룹 만들기
 
 [AZURE.INCLUDE [mobile-services-aad-rbac-create-sales-group](../../includes/mobile-services-aad-rbac-create-sales-group.md)]
 
 
-## 통합 응용 프로그램에 대한 키 생성
+##통합 응용 프로그램에 대한 키 생성
 
 
 [모바일 서비스 앱에 인증 추가] 자습서에서는 [Azure Active Directory 로그인 사용 등록] 단계를 완료할 때 통합 응용 프로그램에 대한 등록을 만들었습니다. 이 섹션에서는 해당 통합 응용 프로그램의 클라이언트 ID로 디렉터리 정보를 읽을 때 사용할 키를 생성합니다.
@@ -57,7 +57,7 @@ RBAC(역할 기반 액세스 제어)는 사용자가 가질 수 있는 역할에
 
 
 
-## 멤버 자격을 확인하는 공유 스크립트를 모바일 서비스에 추가
+##멤버 자격을 확인하는 공유 스크립트를 모바일 서비스에 추가
 
 이 섹션에서는 Git를 사용하여 *rbac.js*라는 공유 스크립트 파일을 모바일 서비스에 배포합니다. 이 공유 스크립트 파일에는 사용자의 그룹 멤버 자격을 확인하기 위해 [그래프 API]를 사용하는 함수가 포함됩니다.
 
@@ -167,7 +167,7 @@ Git를 사용하여 모바일 서비스에 스크립트를 배포하는 데 익�
 
 8. *rbac.js* 변경 사항을 저장합니다.
 
-## 역할 기반 액세스 확인을 데이터베이스 작업에 추가
+##역할 기반 액세스 확인을 데이터베이스 작업에 추가
 
 
 [모바일 서비스 앱에 인증 추가] 자습서를 완료했으면 아래 표시된 것처럼 인증을 필요로 하는 테이블 작업이 이미 설정된 것입니다.
@@ -254,7 +254,7 @@ Git를 사용하여 모바일 서비스에 스크립트를 배포하는 데 익�
 
     ![][4]
 
-## 클라이언트의 액세스 테스트
+##클라이언트의 액세스 테스트
 
 [AZURE.INCLUDE [mobile-services-aad-rbac-test-app](../../includes/mobile-services-aad-rbac-test-app.md)]
 
@@ -284,4 +284,5 @@ Git를 사용하여 모바일 서비스에 스크립트를 배포하는 데 익�
 [그래프 API 오류 참조]: http://msdn.microsoft.com/library/azure/hh974480.aspx
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [Azure Active Directory 그래프 정보 액세스]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

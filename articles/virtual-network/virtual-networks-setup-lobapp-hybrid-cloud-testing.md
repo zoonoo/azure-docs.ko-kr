@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-network" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2015" 
+	ms.date="07/08/2015" 
 	ms.author="josephd"/>
 
 # 테스트용 하이브리드 클라우드에 웹 기반 LOB 응용 프로그램 설치
@@ -22,7 +23,7 @@
 
 ![](./media/virtual-networks-setup-lobapp-hybrid-cloud-testing/CreateLOBAppHybridCloud_3.png)
 
-Azure에서 호스트되는 프로덕션 LOB 응용 프로그램의 예는 [Microsoft 소프트웨어 아키텍처 다이어그램 및 청사진](http://msdn.microsoft.com/dn630664)에서 **LOB(기간 업무) 응용 프로그램** 아키텍처 청사진을 참조하세요.
+Azure에서 호스트되는 프로덕션 LOB 응용 프로그램의 예는 **Microsoft 소프트웨어 아키텍처 다이어그램 및 청사진**에서 [LOB(기간 업무) 응용 프로그램](http://msdn.microsoft.com/dn630664) 아키텍처 청사진을 참조하십시오.
 
 이 구성에서는 인터넷상의 현재 위치에서 Azure 프로덕션 환경의 LOB 응용 프로그램을 시뮬레이션하며, 다음으로 구성됩니다.
 
@@ -42,49 +43,50 @@ Azure에서 호스트되는 프로덕션 LOB 응용 프로그램의 예는 [Micr
 2.	SQL Server 컴퓨터(SQL1) 구성
 3.	LOB 서버(LOB1) 구성
 
-Azure 구독이 아직 없는 경우 [Azure 평가판 사용](http://azure.microsoft.com/pricing/free-trial/)에서 무료 평가판에 등록할 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
+아직 Azure 구독이 없는 경우에는 [Azure 평가판 사용](http://azure.microsoft.com/pricing/free-trial/)에서 무료로 가입할 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
 
-## 단계 1: 하이브리드 클라우드 환경 설정
+## 1 단계: 하이브리드 클라우드 환경 설정
 
-[테스트용 하이브리드 클라우드 환경 설정](virtual-networks-setup-hybrid-cloud-environment-testing.md) 항목의 지침을 사용합니다. 이 테스트 환경에는 APP1 서버가 Corpnet 서브넷에 있을 필요가 없으므로 지금은 종료해도 됩니다.
+[테스트용 하이브리드 클라우드 환경 설정](virtual-networks-setup-hybrid-cloud-environment-testing.md) 항목의 지침을 따르십시오. 이 테스트 환경에는 APP1 서버가 Corpnet 서브넷에 있을 필요가 없으므로 지금은 종료해도 됩니다.
 
 다음은 현재 구성입니다.
 
 ![](./media/virtual-networks-setup-lobapp-hybrid-cloud-testing/CreateLOBAppHybridCloud_1.png)
+
+> [AZURE.NOTE]1 단계에서는 시뮬레이션된 하이브리드 클라우드 테스트 환경 또한 설정할 수 있습니다. 자세한 내용은 [테스트용 하이브리드 클라우드 환경 설정](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md) 지침을 참조하십시오.
  
-## 단계 2: SQL Server 컴퓨터(SQL1) 구성
+## 2단계: SQL Server 컴퓨터(SQL1) 구성
 
 Azure 관리 포털에서 DC2 컴퓨터(필요한 경우)를 시작합니다.
 
-그런 다음 로컬 컴퓨터의 Azure PowerShell 명령 프롬프트에서 다음 명령을 사용하여 SQL1용 Azure 가상 컴퓨터를 만듭니다. 이러한 명령을 실행하기 전에 변수 값을 작성하고 < 및 > 문자를 제거합니다.
+그런 다음 로컬 컴퓨터의 Azure PowerShell 명령 프롬프트에서 다음 명령을 사용하여 SQL1용 Azure 가상 컴퓨터를 만듭니다. 이러한 명령을 실행하기 전에 변수 값을 작성하고 < and > 문자를 제거합니다.
 
 	$storageacct="<Name of the storage account for your TestVNET virtual network>"
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
-	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<The password for the local administrator account>"
-	$User1Password="<The password for the CORP\User1 account>"
-	Set-AzureStorageAccount -StorageAccountName $storageacct
+	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for SQL1."
+	$cred2=Get-Credential –UserName "CORP\User1" –Message "Now type the password for the CORP\User1 account."
+	Set-AzureStorageAccount –StorageAccountName $storageacct
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name SQL1 -InstanceSize Large -ImageName $image
-	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
+	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel SQLFiles -LUN 0 -HostCaching None
-	New-AzureVM -ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
+	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel SQLFiles –LUN 0 -HostCaching None
+	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
-그런 다음 *using the local administrator account* 새 SQL1 가상 컴퓨터에 연결합니다.
+다음으로 *로컬 관리자 계정*을 사용하여 새 SQL1 가상 컴퓨터에 연결합니다.
 
 1.	Azure 관리 포털의 왼쪽 창에서 **가상 컴퓨터**를 클릭한 다음 SQL1에 대한 상태 열에서 **실행 중**을 클릭합니다.
 2.	작업 표시줄에서 **연결**을 클릭합니다. 
 3.	SQL1.rdp를 열라는 메시지가 나타나면 **열기**를 클릭합니다.
 4.	원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **연결**을 클릭합니다.
 5.	자격 증명을 묻는 메시지가 나타나면 다음을 사용합니다.
-	- 이름: **SQL1**[로컬 관리자 계정 이름]
+	- 이름: **SQL1\**[로컬 관리자 계정 이름]
 	- 암호: [로컬 관리자 계정 암호]
-6.	인증서를 참조하는 원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **연결**을 클릭합니다.
+6.	인증서를 참조하는 원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **예**를 클릭합니다.
 
 그런 다음 기본 연결 테스트 및 SQL Server에 대한 트래픽을 허용하도록 Windows 방화벽 규칙을 구성합니다. SQL1의 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
 
-	New-NetFirewallRule -DisplayName "SQL Server" -Direction Inbound -Protocol TCP -LocalPort 1433,1434,5022 -Action allow 
+	New-NetFirewallRule -DisplayName “SQL Server” -Direction Inbound –Protocol TCP –LocalPort 1433,1434,5022 -Action allow 
 	Set-NetFirewallRule -DisplayName "File and Printer Sharing (Echo Request - ICMPv4-In)" -enabled True
 	ping dc1.corp.contoso.com
 
@@ -116,14 +118,14 @@ SQL1의 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합�
 3.	개체 탐색기 트리 창에서 **SQL1**을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 4.	**서버 속성** 창에서 **데이터베이스 설정**을 클릭합니다.
 5.	**데이터베이스 기본 위치**를 찾아서 다음 값을 설정합니다. 
-	- **데이터**에 경로 **f:\Data**를 입력합니다.
-	- **로그**에 경로 **f:\Log**를 입력합니다.
-	- **백업**에 경로 **f:\Backup**을 입력합니다.
+	- **데이터**에 경로 **f:\\Data**를 입력합니다.
+	- **로그**에 경로 **f:\\Log**를 입력합니다.
+	- **백업**에 경로 **f:\\Backup**을 입력합니다.
 	- 참고: 새 데이터베이스에서만 이러한 위치를 사용합니다.
 6.	**확인**을 클릭하여 창을 닫습니다.
 7.	**개체 탐색기** 트리 창에서 **보안**을 엽니다.
 8.	**로그인**을 마우스 오른쪽 단추로 클릭하고 **새 로그인**을 클릭합니다.
-9.	**로그인 이름**에 **CORP\User1**을 입력합니다.
+9.	**로그인 이름**에 **CORP\\User1**을 입력합니다.
 10.	**서버 역할** 페이지에서 **sysadmin**을 클릭한 다음 **확인**을 클릭합니다.
 11.	Microsoft SQL Server Management Studio를 닫습니다.
 
@@ -131,21 +133,20 @@ SQL1의 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합�
 
 ![](./media/virtual-networks-setup-lobapp-hybrid-cloud-testing/CreateLOBAppHybridCloud_2.png)
  
-## 단계 3: LOB 서버(LOB1) 구성
+## 3단계: LOB 서버(LOB1) 구성
 
 먼저 로컬 컴퓨터의 Azure PowerShell 명령 프롬프트에서 다음 명령을 사용하여 LOB1용 Azure 가상 컴퓨터를 만듭니다.
 
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
-	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<The password for the local administrator account>"
-	$User1Password="<The password for the CORP\User1 account>"
+	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for LOB1."
+	$cred2=Get-Credential –UserName "CORP\User1" –Message "Now type the password for the CORP\User1 account."
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name LOB1 -InstanceSize Medium -ImageName $image
-	$vm1 | Add-AzureProvisioningConfig -AdminUserName $LocalAdminName -Password $LocalAdminPW -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $User1Password -JoinDomain "corp.contoso.com"
+	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
-	New-AzureVM -ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
+	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
-그런 다음 CORP\User1 계정 자격 증명을 사용하여 LOB1 가상 컴퓨터에 연결합니다.
+그런 다음 CORP\\User1 계정 자격 증명을 사용하여 LOB1 가상 컴퓨터에 연결합니다.
 
 그런 다음 기본 연결 테스트에 대한 트래픽을 허용하도록 Windows 방화벽 규칙을 구성합니다. LOB1의 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
 
@@ -167,9 +168,8 @@ Ping 명령을 실행한 경우 IP 주소 10.0.0.1에서 성공적인 회신 4�
 9.	역할 서비스 선택 페이지에서 LOB 응용 프로그램을 테스트하는 데 필요한 서비스의 확인란을 선택하거나 선택 취소하고 **다음**을 클릭합니다.
 10.	설치 선택 확인 페이지에서 **설치**를 클릭합니다.
 11.	구성 요소 설치가 완료될 때까지 기다렸다가 **닫기**를 클릭합니다.
-12.	CORP\User1 계정 자격 증명으로 CLIENT1 컴퓨터에 로그온한 다음 Internet Explorer를 시작합니다.
+12.	CORP\\User1 계정 자격 증명으로 CLIENT1 컴퓨터에 로그온한 다음 Internet Explorer를 시작합니다.
 13.	주소 표시줄에 **http://lob1/**을 입력하고 Enter 키를 누릅니다. 기본 IIS 8 웹 페이지가 표시됩니다.
-
 다음은 현재 구성입니다.
 
 ![](./media/virtual-networks-setup-lobapp-hybrid-cloud-testing/CreateLOBAppHybridCloud_3.png)
@@ -186,8 +186,13 @@ Ping 명령을 실행한 경우 IP 주소 10.0.0.1에서 성공적인 회신 4�
 
 [테스트용 하이브리드 클라우드에 SharePoint 인트라넷 팜 설치](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-[테스트용 하이브리드 클라우드에 Office 365 디렉터리 동기화(DirSync) 설치](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
+[테스트를 위한 하이브리드 클라우드에서 Office 365 디렉터리 동기화(DirSync) 설정](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
 
-[테스트용 시뮬레이션된 하이브리드 클라우드 환경 설정](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
-<!--HONumber=47-->
+[테스트를 위한 시뮬레이션된 하이브리드 클라우드 환경 설정](virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
+
+[Azure 하이브리드 클라우드 테스트 환경](../virtual-machines/virtual-machines-hybrid-cloud-test-environments.md)
+
+[Azure 인프라 서비스 구현 지침](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
+
+<!---HONumber=July15_HO2-->

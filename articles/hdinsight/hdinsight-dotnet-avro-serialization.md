@@ -19,7 +19,6 @@
 
 # Microsoft Avro 라이브러리로 Hadoop의 데이터 직렬화
 
-##개요
 이 항목에서는 <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro 라이브러리</a>를 사용하여 개체 및 기타 데이터 구조를 메모리, 데이터베이스 또는 파일에 보관하기 위해 바이트의 스트림으로 직렬화하는 방법과 역직렬화하여 원본 개체를 복구하는 방법을 보여 줍니다.
 
 
@@ -1397,9 +1396,14 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
 클러스터를 정리하려면 다음 명령을 실행합니다.
 
     AvroHDISample clean
+
+
+
+
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

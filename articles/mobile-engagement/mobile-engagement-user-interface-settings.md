@@ -249,5 +249,6 @@ ADM을 사용하여 네이티브 푸시를 사용하도록 설정하려면 클�
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

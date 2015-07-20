@@ -1,6 +1,6 @@
 <properties
 	pageTitle="HDInsight의 Apache Storm 소개 | Microsoft Azure"
-	description="Apache Storm에 대한 일반적인 사항을 소개하고, HDInsight의 Apache Storm을 사용하여 클라우드에서 실시간 데이터 분석 솔루션을 빌드하는 방법에 대해 알아봅니다."
+	description="Apache Storm을 소개하고, HDInsight의 Storm을 사용하여 클라우드에서 실시간 데이터 분석 솔루션을 빌드하는 방법을 알아봅니다."
 	keywords="apache storm,real time analytics"
 	services="hdinsight"
 	documentationCenter=""
@@ -14,18 +14,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
-# HDInsight의 Apache Storm 소개: Hadoop에 대한 실시간 분석
+#HDInsight의 Apache Storm 소개: Hadoop에 대한 실시간 분석
 
 HDInsight의 Apache Storm을 사용하면 [Apache Hadoop](http://hadoop.apache.org)을 통해 Azure 환경에서 분산형 실시간 분석 솔루션을 만들 수 있습니다.
 
-## Apache Storm의 정의
+##Apache Storm의 정의
 
 Apache Storm은 Hadoop을 통해 실시간으로 데이터를 처리할 수 있는 분산형 내결함성 오픈 소스 계산 시스템입니다. 또한 Storm 솔루션은 처음에 정상적으로 처리되지 않은 데이터를 재생하는 기능을 통해 데이터 처리를 보장할 수 있습니다.
 
-## HDInsight의 Storm을 사용하는 이유
+##HDInsight의 Storm을 사용하는 이유
 
 HDInsight의 Apache Storm은 Azure 환경에 통합된 관리되는 클러스터로서, 다음과 같은 주요 이점을 제공합니다.
 
@@ -47,7 +47,7 @@ HDInsight의 Apache Storm은 Azure 환경에 통합된 관리되는 클러스터
 
 Storm 사용을 시작하려면 [HDInsight에서 Storm 시작][gettingstarted]을 참조하세요.
 
-### 프로비전 편의성
+###프로비전 편의성
 
 새 HDInsight Storm 클러스터를 몇 분 내에 프로비전할 수 있습니다. 클러스터 이름, 크기, 관리자 계정 및 저장소 계정을 지정합니다. Azure에서 샘플 토폴로지 및 웹 관리 대시보드가 포함된 클러스터를 만듭니다.
 
@@ -57,7 +57,7 @@ Storm 사용을 시작하려면 [HDInsight에서 Storm 시작][gettingstarted]�
 
 요청을 제출한 후 15분 이내에 새 Storm 클러스터가 실행되고 첫 번째 실시간 분석 파이프라인에 사용할 수 있는 준비가 완료됩니다.
 
-### 사용 편의성
+###사용 편의성
 
 Visual Studio를 사용하는 경우 Visual Studio용 HDInsight 도구를 통해 C# 및 하이브리드 C#/Java 토폴로지를 만든 다음 HDInsight의 Storm 클러스터에 제출할 수 있습니다.
 
@@ -79,7 +79,7 @@ Storm 대시보드 사용에 대한 자세한 내용은 [HDInsight에서 Apache 
 
 **이벤트 허브 Spout**를 통해 HDInsight의 Storm을 Azure 이벤트 허브와 쉽게 통합할 수도 있습니다. 각 Storm 클러스터(**%STORM_HOME%\\examples\\eventhubspout\\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**)에서 이 Spout를 사용할 수 있습니다. Storm 토폴로지에서 이 Spout를 사용하는 예제는 [이벤트 허브 시작](service-bus-event-hubs-c-storm-getstarted.MD) 및 [Storm 및 HBase를 사용하여 센서 데이터 분석](hdinsight-storm-sensor-data-analysis.MD)을 참조하세요.
 
-### 안정성
+###안정성
 
 Apache Storm은 데이터 분석이 수백 개의 노드에 걸쳐 있는 경우에도 항상 들어오는 각 메시지의 완전한 처리를 보장합니다.
 
@@ -89,17 +89,17 @@ Apache Storm의 기본 구성에는 하나의 Nimbus 노드만 있습니다. HDI
 
 ![nimbus, zookeeper 및 감독자 다이어그램](./media/hdinsight-storm-overview/nimbus.png)
 
-### 확장
+###확장
 
 만드는 동안 클러스터의 노드 수를 지정할 수 있지만 작업과 일치하도록 클러스터를 확장하거나 축소할 수도 있습니다. 모든 HDInsight 클러스터에서는 데이터를 처리하는 동안 클러스터의 노드 수를 변경할 수 있습니다.
 
 ![포털의 데이터 노드 인스턴스 수](./media/hdinsight-storm-overview/scale.png)
 
-### 지원
+###지원
 
 HDInsight의 Storm에는 완전한 엔터프라이즈 수준의 24/7 지원이 제공됩니다. HDInsight의 Storm에는 99.9%의 SLA도 있습니다. 따라서 클러스터가 최소 99.9%의 시간 동안 외부 연결을 사용할 수 있도록 보장됩니다.
 
-## 실시간 분석의 일반적인 사용 사례
+##실시간 분석의 일반적인 사용 사례
 
 아래에는 HDInsight의 Apache Storm을 사용할 수 있는 몇 가지 일반적인 시나리오가 나와 있습니다. 실제 시나리오에 대한 자세한 내용은 [기업에서 Storm을 사용하는 방식](https://storm.incubator.apache.org/documentation/Powered-By.html)을 참조하세요.
 
@@ -111,7 +111,7 @@ HDInsight의 Storm에는 완전한 엔터프라이즈 수준의 24/7 지원이 �
 * 검색
 * 모바일 고객 관리
 
-## HDInsight Storm의 데이터 처리 방법
+##HDInsight Storm의 데이터 처리 방법
 
 Apache Storm에서는 HDInsight 또는 Hadoop에서 친숙한 MapReduce 작업 대신 **토폴로지**를 실행합니다. HDInsight의 Storm 클러스터는 **Nimbus**를 실행하는 헤드 노드와 **감독자**를 실행하는 작업자 노드의 두 가지 노드 유형을 포함합니다.
 
@@ -140,7 +140,7 @@ Apache Storm에서는 HDInsight 또는 Hadoop에서 친숙한 MapReduce 작업 �
 Storm 구성 요소에 대한 자세한 내용은 apache.org에서 [Storm 자습서][apachetutorial]를 참조하세요.
 
 
-## 사용 가능한 프로그래밍 언어
+##사용 가능한 프로그래밍 언어
 
 HDInsight의 Storm 클러스터는 C#, Java 및 Python에 대한 지원을 제공합니다.
 
@@ -150,7 +150,7 @@ Visual Studio용 HDInsight 도구를 통해 .NET 개발자는 C#으로 토폴로
 
 자세한 내용은 [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](hdinsight-storm-develop-csharp-visual-studio-topology.md)을 참조하세요.
 
-### Java
+###Java
 
 흔히 확인할 수 있는 대부분의 Java 예제는 일반 Java 또는 Trident입니다. Trident는 조인, 집계, 그룹화, 필터링 등의 작업을 보다 쉽게 수행할 수 있도록 하는 고급 추상화입니다. 그러나 Trident는 튜플 배치에 대해 작동하며 이 경우 원시 Java 솔루션은 한 번에 한 튜플씩 스트림을 생성합니다.
 
@@ -158,19 +158,19 @@ Trident에 대한 자세한 내용은 apache.org에서 [Trident 자습서](https
 
 원시 Java 및 Trident 토폴로지의 예제는 HDInsight Storm 클러스터의 **%storm_home%\\contrib\\storm-starter** 디렉터리를 참조하세요.
 
-## 몇 가지 일반적인 개발 패턴
+##몇 가지 일반적인 개발 패턴
 
-### 시지 처리 보장
+###메시지 처리 보장
 
 Storm은 다양한 수준에서 메시지 처리를 보장할 수 있습니다. 예를 들어 기본적인 Storm 응용 프로그램은 최소한 한 번 처리를 보장할 수 있고 Trident는 정확히 한 번 처리를 보장할 수 있습니다.
 
 자세한 내용은 apache.org에서 [데이터 처리 보장](https://storm.apache.org/about/guarantees-data-processing.html)을 참조하세요.
 
-### IBasicBolt
+###IBasicBolt
 
 입력 튜플을 읽고 튜플을 내보내지 않거나 하나 이상 내보낸 다음 실행 메서드 끝에서 입력 튜플을 즉시 승인하는 패턴은 매우 흔히 사용되기 때문에 Storm은 이 패턴을 자동화하는 [IBasicBolt](https://storm.apache.org/apidocs/backtype/storm/topology/IBasicBolt.html) 인터페이스를 제공합니다.
 
-### 조인
+###조인
 
 두 데이터 스트림을 조인하는 방법은 응용 프로그램별로 다릅니다. 예를 들어 여러 스트림의 각 튜플을 새 스트림 하나에 조인할 수도 있고 특정 창에 대한 튜플 배치만 조인할 수도 있습니다. 어떤 방식에서든 튜플을 Bolt로 라우팅하는 방법을 정의하는 방식인 [fieldsGrouping](http://javadox.com/org.apache.storm/storm-core/0.9.1-incubating/backtype/storm/topology/InputDeclarer.html#fieldsGrouping%28java.lang.String,%20backtype.storm.tuple.Fields%29)을 사용하면 조인을 수행할 수 있습니다.
 
@@ -178,7 +178,7 @@ Storm은 다양한 수준에서 메시지 처리를 보장할 수 있습니다. 
 
 	builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
 
-### 일괄 처리
+###일괄 처리
 
 여러 가지 방법으로 일괄 처리를 수행할 수 있습니다. 기본 Storm Java 토폴로지에서는 간단한 카운터를 사용하여 X개의 튜플을 내보내기 전에 일괄 처리하거나 틱 튜플이라는 내부 타이밍 메커니즘을 사용하여 X초마다 배치를 내보낼 수 있습니다.
 
@@ -186,17 +186,17 @@ Storm은 다양한 수준에서 메시지 처리를 보장할 수 있습니다. 
 
 Trident를 사용하는 경우에는 튜플 배치 처리를 기준으로 일괄 처리가 수행됩니다.
 
-### 구성
+###구성
 
 메모리 내 캐싱은 자주 사용되는 자산을 메모리에 저장하므로 처리 속도를 높이기 위한 메커니즘으로 사용되는 경우가 많습니다. 토폴로지는 여러 노드 및 각 노드 내의 여러 프로세스로 분산되므로 [fieldsGrouping](http://javadox.com/org.apache.storm/storm-core/0.9.1-incubating/backtype/storm/topology/InputDeclarer.html#fieldsGrouping%28java.lang.String,%20backtype.storm.tuple.Fields%29)을 사용하여 캐시 조회에 사용되는 필드가 포함된 튜플은 항상 같은 프로세스로 라우팅되도록 해야 합니다. 그러면 프로세스 간 캐시 항목 중복을 방지할 수 있습니다.
 
-### 상위 N 값 스트리밍
+###상위 N 값 스트리밍
 
 토폴로지에서 Twitter의 상위 5개 추세와 같은 “상위” N 값을 계산하는 경우에는 상위 N 값을 병렬로 계산한 다음 해당 계산의 출력을 전역 값으로 병합해야 합니다. 이 작업을 수행하려면 [fieldsGrouping](http://javadox.com/org.apache.storm/storm-core/0.9.1-incubating/backtype/storm/topology/InputDeclarer.html#fieldsGrouping%28java.lang.String,%20backtype.storm.tuple.Fields%29)을 사용하여 값을 필드별로 병렬 Bolt에 라우팅한 다음(데이터가 필드 값별로 분할됨) 상위 N 값을 전역적으로 확인하는 Bolt로 라우팅합니다.
 
 이 작업의 예제는 [RollingTopWords](https://github.com/nathanmarz/storm-starter/blob/master/src/jvm/storm/starter/RollingTopWords.java) 예제를 참조하세요.
 
-## 다음 단계
+##다음 단계
 
 HDInsight의 Apache Storm을 사용한 실시간 분석 솔루션에 대해 자세히 알아봅니다.
 
@@ -209,4 +209,4 @@ HDInsight의 Apache Storm을 사용한 실시간 분석 솔루션에 대해 자�
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: ../hdinsight-storm-getting-started.md
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

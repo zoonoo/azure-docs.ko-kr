@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # 원격 데스크톱을 사용하는 HDInsight에서 Hadoop과 MapReduce 사용
@@ -22,7 +22,7 @@
 
 이 문서에서는 원격 데스크톱을 사용하여 HDInsight 클러스터에서 Hadoop에 연결한 다음 Hadoop 명령을 사용하여 MapReduce 작업을 실행하는 방법을 배웁니다.
 
-## <a id="prereq"></a>필수 조건
+##<a id="prereq"></a>필수 조건
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
@@ -30,11 +30,11 @@
 
 * Windows 10, Window 8 또는 Windows 7을 실행하는 클라이언트 컴퓨터
 
-## <a id="connect"></a>원격 데스크톱을 사용하여 연결
+##<a id="connect"></a>원격 데스크톱을 사용하여 연결
 
-HDInsight 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">RDP를 사용하여 HDInsight 클러스터에 연결</a>의 지침에 따라 연결합니다.
+HDInsight 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 [RDP를 사용하여 HDInsight 클러스터에 연결](hdinsight-administer-use-management-portal.md#rdp)의 지침에 따라 연결합니다.
 
-## <a id="hadoop"></a>Hadoop 명령 사용
+##<a id="hadoop"></a>Hadoop 명령 사용
 
 HDInsight 클러스터에 대한 데스크톱에 연결된 후 Hadoop 명령을 사용하여 MapReduce 작업을 실행하려면 다음 단계를 따르세요.
 
@@ -79,11 +79,11 @@ HDInsight 클러스터에 대한 데스크톱에 연결된 후 Hadoop 명령을 
 		wretched        6
 		wriggling       1
 
-## <a id="summary"></a>요약
+##<a id="summary"></a>요약
 
 여기에서 볼 수 있듯이 Hadoop 명령은 HDInsight 클러스터에서 MapReduce 작업을 실행하고 작업 출력을 볼 수 있는 쉬운 방법을 제공합니다.
 
-## <a id="nextsteps"></a>다음 단계
+##<a id="nextsteps"></a>다음 단계
 
 HDInsight의 MapReduce 작업에 대한 일반적인 정보:
 
@@ -95,4 +95,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 * [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

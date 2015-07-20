@@ -54,9 +54,9 @@ Power BI 미리 보기를 사용하여 데이터를 보고서 또는 대시보�
 
 ## Power BI 응용 프로그램 등록
 
-1. [Power BI 빠른 시작](https://msdn.microsoft.com/ko-kr/library/dn931989.aspx) 단계에 따라 Power BI에 등록합니다.
+1. [Power BI 빠른 시작](https://msdn.microsoft.com/en-US/library/dn931989.aspx) 단계에 따라 Power BI에 등록합니다.
 
-2. [앱 등록](https://msdn.microsoft.com/ko-kr/library/dn877542.aspx) 단계에 따라 응용 프로그램 등록을 만듭니다. 이는 Power BI REST API에 액세스할 때 사용됩니다.
+2. [앱 등록](https://msdn.microsoft.com/en-US/library/dn877542.aspx) 단계에 따라 응용 프로그램 등록을 만듭니다. 이는 Power BI REST API에 액세스할 때 사용됩니다.
 
     > [AZURE.IMPORTANT]응용 프로그램 등록을 위한 **클라이언트 ID**를 저장합니다.
 
@@ -139,4 +139,4 @@ Power BI 미리 보기를 사용하여 데이터를 보고서 또는 대시보�
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

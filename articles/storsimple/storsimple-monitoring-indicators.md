@@ -1,20 +1,21 @@
 <properties 
-    pageTitle="모니터링 표시기 문제 해결"
+    pageTitle="StorSimple 모니터링 표시기"
     description="StorSimple 장치의 상태를 모니터링하는 데 사용되는 LED 및 경보에 대해 설명합니다."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
     manager="adinah"
-    editor="tysonn" /> <tags 
+    editor="tysonn" />
+ <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="04/07/2015"
+    ms.date="06/11/2015"
     ms.author="v-sharos" />
 
-# 모니터링 표시기 문제 해결   
+# StorSimple 모니터링 표시기   
 
 ## 개요
 
@@ -33,6 +34,8 @@ StorSimple 장치에는 모듈 및 StorSimple 장치의 모듈 및 전반적인 
 *작업 패널* 또는 *ops 패널*이라고도 하는 전면 패널은 시스템에서 모든 모듈의 집계 상태를 표시합니다. 전면 패널은 StorSimple 장비 및 EBOD 인클로저에서 동일하며 아래에서 설명됩니다.
 
    ![][1]
+
+**그림 1: 장치 전면 패널**
  
 전면 패널은 다음과 같은 표시기를 포함합니다.
 
@@ -66,11 +69,14 @@ PCM(전원 냉각 모듈) 표시기 LED는 각 PCM 모듈의 기본 인클로저
 - EBOD 인클로저의 PCM LED
 
 ## 기본 인클로저의 PCM LED  
+
 StorSimple 장치에는 764W PCM 모듈과 추가 배터리가 있습니다. 다음 그림에서는 장치의 LED 패널을 보여줍니다.
 
    ![][2]
+
+**그림 2: 기본 인클로저의 PCM LED**
  
-**LED 범례**
+LED 범례
 
 1. AC 전원 오류
 2. 팬 오류
@@ -109,6 +115,8 @@ PCM 상태는 LED 패널에 표시됩니다. 장치 PCM LED 패널에는 6개의
 EBOD 인클로저에 580W PCM이 있으며 추가 배터리는 없습니다. EBOD 인클로저의 PCM 패널에 전원 공급 장치 및 팬을 위한 표시기 LED만 있습니다. 다음 그림에서는 이러한 LED를 보여줍니다.
 
    ![][3]
+
+**그림 3: EBOD 인클로저의 PCM LED**
  
 다음 표는 PCM 상태를 확인하는 데 사용할 수 있습니다.
 
@@ -132,6 +140,8 @@ StorSimple 장치에는 기본 컨트롤러 및 EBOD 컨트롤러 모듈에 대 
 
    ![][4]
  
+**그림 4: LED -기본 컨트롤러 모니터링**
+
 다음 표를 사용하여 컨트롤러 모듈이 올바르게 작동하는지 확인할 수 있습니다.
 
 ### 컨트롤러 표시기 LED  
@@ -148,15 +158,17 @@ StorSimple 장치에는 기본 컨트롤러 및 EBOD 컨트롤러 모듈에 대 
 >[AZURE.IMPORTANT]오류 LED가 켜져 있으면 컨트롤러를 다시 시작하여 해결할 수 있는 컨트롤러 모듈에 문제가 있습니다. 컨트롤러를 다시 시작해도 이 문제가 해결되지 않으면 Microsoft 기술 지원 서비스에 문의하십시오.
 
 
-###EBOD의 모니터링 LED(EBOD 인클로저)  
+### EBOD의 모니터링 LED(EBOD 인클로저)  
 
 각 6Gb/s SAS EBOD 컨트롤러에 다음 그림과 같이 해당 상태를 나타내는 LED가 있습니다.
 
   ![][5]
+
+**그림 5: LED-EBOD 인클로저 모니터링**
  
 다음 표를 사용하여 EBOD 컨트롤러 모듈이 올바르게 작동하는지 확인할 수 있습니다.
 
-###EBOD 컨트롤러 모듈 표시기 LED  
+### EBOD 컨트롤러 모듈 표시기 LED  
 
 |상태 | I/O 모듈 정상(녹색) | I/O 모듈 결함(주황색) | 호스트 포트 활동(녹색) |
 |-------|----------------------|-------------------------------|----------------------------|
@@ -169,6 +181,8 @@ StorSimple 장치에는 기본 인클로저 및 EBOD 인클로저에 둘 다 있
 디스크 드라이브의 경우 드라이브 상태는 각 드라이브 캐리어 모듈 전면에 장착된 녹색 LED 및 빨간색-주황색 LED를 통해 나타납니다. 다음 그림에서는 이러한 LED를 보여줍니다.
 
   ![][6]
+
+**그림 6: 디스크 드라이브 LED**
  
 다음 표를 사용하여 전체적인 전면 패널 LED 상태에 차례로 영향을 주는 각 디스크 드라이브의 상태를 확인할 수 있습니다.
 
@@ -207,7 +221,7 @@ StorSimple 장치는 기본 인클로저 및 EBOD 인클로저 둘 다와 관련
 | S3 | 음소거 모드: 무음 | 없음 |
 | S4 | 심각한 결함 모드: 경보 지속 | 사용할 수 없음: 음소거가 활성화 되어있지 않음 |
 
-> [AZURE.NOTE] 
+> [AZURE.NOTE]
 
 >  - 경보 상태 S1에서 2분 이내에 음소거를 누르지 않으면 상태가 S2 또는 S3으로 자동 전환됩니다.  
 >  - 경보 상태 S1에서 S4는 결함 조건이 지워진 후 S0으로 돌아갑니다.  
@@ -240,6 +254,7 @@ ops 패널에 있는 음소거 단추를 눌러 청각적 경보를 음소거할
 | 드라이브 전원 컨트롤 결함 | 결함 - 중요, 드라이브 전원 손실 | S1 | 모듈 결함 |
 | 드라이브 제거됨 | 경고 | 없음 | 모듈 결함 |
 | 전원 부족 | 경고 | 없음 | 모듈 결함 |
+
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png
 [3]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE03.png
@@ -247,6 +262,6 @@ ops 패널에 있는 음소거 단추를 눌러 청각적 경보를 음소거할
 [5]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE05.png
 [6]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE06.png
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

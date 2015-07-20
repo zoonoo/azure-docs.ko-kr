@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="기계 학습 웹 서비스에 대해 로깅 사용 | Azure" 
-	description="기계 학습 웹 서비스에 대해 로깅을 사용하도록 설정하는 방법을 알아봅니다." 
+	pageTitle="기계 학습 웹 서비스에 대한 로깅 | Microsoft Azure" 
+	description="기계 학습 웹 서비스에 대해 로깅을 사용하도록 설정하는 방법을 알아봅니다. 로깅은 API 문제를 해결하는 데 도움이 되는 추가 정보를 제공합니다." 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="raymondlaghaeian" 
@@ -13,9 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data" 
-	ms.date="02/12/2015"
-	ms.author="garye"/>
-
+	ms.date="06/30/2015"
+	ms.author="raymondl;garye"/>
 
 #기계 학습 웹 서비스에 대해 로깅 사용  
 
@@ -35,10 +34,8 @@
 		-	요청-응답 메서드 실행  
 		-	요청-응답 컨테이너 초기화  
 	-	각 Blob의 이름에는 {Workspace Id}-{Web service Id}-{Endpoint Id}/{Log type} 형식의 접두사가 있습니다.  
--	로그 유형은 
-	batch 
-	score/requests 
-	score/init 값 중 하나를 사용합니다.  
+-	로그 유형은 batch score/requests score/init 값 중 하나를 사용합니다.  
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

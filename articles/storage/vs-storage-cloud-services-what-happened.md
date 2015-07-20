@@ -3,7 +3,7 @@
 	description="Visual Studio 클라우드 서비스 프로젝트에서 Azure 저장소를 만들 때 발생하는 상황을 설명합니다." 
 	services="storage" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="patshea123" 
 	manager="douge" 
 	editor="tglee"/>
 
@@ -13,19 +13,20 @@
 	ms.tgt_pltfrm="vs-what-happened" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
-	ms.author="kempb"/>
+	ms.date="04/20/2015" 
+	ms.author="patshea123"/>
+
+# 내 프로젝트에서 무엇이 변경되었습니까?
 
 > [AZURE.SELECTOR]
-> - [시작하기](vs-storage-cloud-services-getting-started-blobs.md)
-> - [변경된 내용](vs-storage-cloud-services-what-happened.md)
+> - [Getting Started](vs-storage-cloud-services-getting-started-blobs.md)
+> - [What Happened](vs-storage-cloud-services-what-happened.md)
 
 ###<span id="whathappened">내 프로젝트에서 무엇이 변경되었습니까?</span>
 
 ###### 참조 추가됨
 
-Azure Storage NuGet 패키지가 Visual Studio 프로젝트에 추가되었습니다.  
-이 패키지는 다음.NET 참조를 추가합니다.
+Azure Storage NuGet 패키지가 Visual Studio 프로젝트에 추가되었습니다. 이 패키지는 다음.NET 참조를 추가합니다.
 
 - `Microsoft.Data.Edm`
 - `Microsoft.Data.OData`
@@ -43,6 +44,6 @@ Azure Storage NuGet 패키지가 Visual Studio 프로젝트에 추가되었습�
 - `ServiceConfiguration.Cloud.cscfg`
 - `ServiceConfiguration.Local.cscfg`
 
-
-<!--HONumber=46--> 
  
+
+<!---HONumber=July15_HO2-->

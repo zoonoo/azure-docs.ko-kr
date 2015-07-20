@@ -271,4 +271,4 @@ SSH를 통해 클러스터에 연결한 후에는 다음 명령을 사용하여 
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

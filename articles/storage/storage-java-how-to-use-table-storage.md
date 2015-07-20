@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Java에서 테이블 저장소를 사용하는 방법 | Microsoft Azure" 
+	pageTitle="Java에서 테이블 저장소를 사용하는 방법 | Microsoft Azure&quot;" 
 	description="Azure에서 테이블 저장소 서비스를 사용하는 방법을 알아봅니다. 코드 샘플은 Java 코드로 작성되었습니다." 
 	services="storage" 
 	documentationCenter="java" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="06/03/2015" 
 	ms.author="robmcm"/>
 
 
@@ -23,9 +23,9 @@
 
 ## 개요
 
-이 가이드에서는 Azure 테이블 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure 저장소 SDK][](영문)를 사용합니다. 여기서 다루는 시나리오에는 테이블 **만들기**, **나열** 및 **삭제**와 테이블의 엔터티 **삽입**, **쿼리**, **수정** 및 **삭제**가 포함됩니다. 테이블에 대한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하세요.
+이 가이드에서는 Azure 테이블 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure Storage SDK][](영문)를 사용합니다. 여기에서 다루는 시나리오에는 **creating**, **listing**, **deleting** 테이블과 테이블의 **inserting**, **querying**, **modifying**, **deleting** 엔터티가 포함됩니다. 테이블에 대한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하십시오.
 
-참고: SDK는 Android 장치에서 Azure 저장소를 사용하는 개발자에게 제공됩니다. 자세한 내용은 [Android용 Azure 저장소 SDK][]를 참조하세요. 
+SDK는 Android 장치에서 Azure 저장소를 사용하는 개발자에게 제공됩니다. 자세한 내용은 [Android용 Azure Storage SDK][]를 참조하세요.
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -35,7 +35,7 @@
 
 이 가이드에서는 Java 응용 프로그램 내에서 로컬로 또는 Azure의 웹 역할 또는 작업자 역할 내에서 실행되는 코드에서 실행할 수 있는 저장소 기능을 사용합니다.
 
-그러려면 JDK(Java Development Kit)를 설치하고 Azure 구독에서 Azure 저장소 계정을 만들어야 합니다. 그런 다음에는 개발 시스템이 GitHub의 [Java용 Azure 저장소 SDK][ ]리포지토리ㄴ에 나열된 최소 요구 사항 및 종속성을 충족하는지 확인해야 합니다. 시스템에서 해당 요구 사항을 충족하는 경우에는 리포지토리에서 시스템의 Java용 Azure Storage Library를 다운로드 및 설치하기 위한 지침을 따를 수 있습니다. 작업을 완료하고 나면 이 문서의 예를 사용하는 Java 응용 프로그램을 만들 수 있습니다.
+그러려면 JDK(Java Development Kit)를 설치하고 Azure 구독에서 Azure 저장소 계정을 만들어야 합니다. 그러고 나면 개발 시스템에서 GitHub의 [Java용 Azure Storage SDK][] 리포지토리에 있는 최소 요구 사항과 종속성을 충족하는지 확인해야 합니다. 시스템에서 해당 요구 사항을 충족하는 경우에는 리포지토리에서 시스템의 Java용 Azure Storage Library를 다운로드 및 설치하기 위한 지침을 따를 수 있습니다. 작업을 완료하고 나면 이 문서의 예를 사용하는 Java 응용 프로그램을 만들 수 있습니다.
 
 ## 테이블 저장소에 액세스하도록 응용 프로그램 구성
 
@@ -48,7 +48,7 @@
 
 ## Azure 저장소 연결 문자열 설정
 
-Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 끝점 및 자격 증명을 저장합니다. 클라이언트 응용 프로그램에서 실행 중인 경우 관리 포털에 나열된 저장소 계정의 이름 및 저장소 계정의 기본 액세스 키를 *AccountName* 및 *AccountKey* 값에 사용하여 저장소 연결 문자열을 다음 형식으로 지정해야 합니다. 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.
+Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 끝점 및 자격 증명을 저장합니다. 클라이언트 응용 프로그램에서 실행할 경우, 저장소 계정의 이름 및 관리 포털에 나열된 저장소 계정의 기본 액세스 키를 *AccountName*과 *AccountKey* 값의 형식으로 사용하여 저장소 연결 문자열을 제공해야 합니다. 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.
 
     // Define the connection-string with your values.
     public static final String storageConnectionString = 
@@ -56,7 +56,7 @@ Azure 저장소 클라이언트는 저장소 연결 문자열을 사용하여 �
         "AccountName=your_storage_account;" + 
         "AccountKey=your_storage_account_key";
 
-Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 이 문자열이 서비스 구성 파일 *ServiceConfiguration.cscfg*에 저장될 수 있고, **RoleEnvironment.getConfigurationSettings** 메서드 호출을 통해 이 문자열에 액세스할 수 있습니다. 다음은 서비스 구성 파일에서 이름이 *StorageConnectionString*인 **설정** 요소에서 연결 문자열을 가져오는 예제입니다.
+Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 이 문자열이 서비스 구성 파일 *ServiceConfiguration.cscfg*에 저장될 수 있고, **RoleEnvironment.getConfigurationSettings** 메서드 호출을 통해 이 문자열에 액세스할 수 있습니다. 다음은 서비스 구성 파일에서 이름이 **StorageConnectionString**인 *설정* 요소에서 연결 문자열을 가져오는 예제입니다.
 
     // Retrieve storage account from connection-string.
     String storageConnectionString = 
@@ -66,9 +66,7 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
 ## 방법: 테이블 만들기
 
-**CloudTableClient** 개체를 통해 테이블 및 엔터티에 대한 참조 개체를 가져올 수
-있습니다. 다음 코드는 **CloudTableClient** 개체를 만든 다음
-이 개체를 사용하여 "people"이라는 테이블을 나타내는 새 **CloudTable** 개체를 만듭니다. 참고: **CloudStorageAccount** 개체를 만들 수 있는 방법이 더 있습니다. 자세한 내용은 [Azure Storage Client SDK 참조]에서 **CloudStorageAccount**를 참조하세요.
+**CloudTableClient** 개체를 사용하면 테이블 및 엔터티에 대한 참조 개체를 가져올 수 있습니다. 다음 코드에서는 한 **CloudTableClient** 개체를 만들고 이 개체를 사용하여 “people”이라는 테이블을 나타내는 새 **CloudTable**테이블 개체를 만듭니다. (참고: **CloudStorageAccount** 개체를 만들 수 있는 방법이 더 있습니다. 자세한 내용은 [Azure 저장소 클라이언트 SDK 참조]에서 **CloudStorageAccount**를 참조하세요.)
 
     try
     {
@@ -90,7 +88,7 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
         e.printStackTrace();
     }
 
-## 방법: 테이블 나열
+## 테이블 나열하는 방법
 
 테이블의 목록을 가져오려면 **CloudTableClient.listTables()** 메서드를 호출하여 반복 가능한 테이블 이름 목록을 검색합니다.
 
@@ -116,9 +114,9 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
         e.printStackTrace();
     }
 
-## 방법: 테이블에 엔터티 추가
+## 방법: 테이블에 엔티티 추가
 
-엔터티는 **TableEntity**를 구현하는 사용자 지정 클래스를 사용하여 Java 개체에 매핑됩니다. 사용 편의를 위해 **TableServiceEntity** 클래스는 **TableEntity**를 구현하고 리플렉션을 사용하여 속성에 대해 명명된 getter 및 setter 메서드에 속성을 매핑합니다. 테이블에 엔터티를 추가하려면 먼저 엔터티의 속성을 정의하는 클래스를 만듭니다. 다음 코드는 고객의 이름을 행 키로 사용하고 성을 파티션 키로 사용하는 엔터티 클래스를 정의합니다. 엔터티의 파티션과 행 키가 결합되어 테이블에서 엔터티를 고유하게 식별합니다. 동일한 파티션 키를 가진 엔터티는 다른 파티션 키를 가진 엔터티보다 더 빨리 쿼리할 수 있습니다.
+엔터티는 **TableEntity**를 구현하는 사용자 지정 클래스를 사용하여 Java 개체에 매핑됩니다. 사용 편의를 위해 **TableServiceEntity** 클래스는 **TableEntity**를 구현하고, 리플렉션을 사용하여 속성에 맞춰 명명된 getter 및 setter 메서드에 속성을 매핑합니다. 테이블에 엔터티를 추가하려면 먼저 엔터티의 속성을 정의하는 클래스를 만듭니다. 다음 코드에서는 고객의 이름을 행 키로 사용하고 성을 파티션 키로 사용하는 엔터티 클래스를 정의합니다. 엔터티의 파티션과 행 키가 결합되어 테이블에서 엔터티를 고유하게 식별합니다. 동일한 파티션 키를 가진 엔터티는 다른 파티션 키를 가진 엔터티보다 더 빨리 쿼리할 수 있습니다.
 
     public class CustomerEntity extends TableServiceEntity {
         public CustomerEntity(String lastName, String firstName) {
@@ -148,7 +146,7 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
         }
     }
 
-엔터티를 포함하는 테이블 작업에는 **TableOperation** 개체가 필요합니다. 이 개체는 엔터티에서 수행할 작업을 정의하며, **CloudTable** 개체와 함께 실행할 수 있습니다. 다음 코드는 저장할 일부 고객 데이터와 함께 **CustomerEntity** 클래스의 새 인스턴스를 만듭니다. 그런 다음 엔터티를 테이블에 삽입하기 위해 **TableOperation.insertOrReplace**를 호출하여 **TableOperation** 개체를 만들고, 새로운 **CustomerEntity**를 이 개체와 연결합니다. 끝으로 이 코드는 **CloudTable** 개체에 대해 **execute** 메서드를 호출하여 "people" 테이블 및 새로운 **TableOperation**을 지정한 후, 새 고객 엔터티를 "people" 테이블에 삽입하거나, 이미 있는 경우 바꾸기 위해 저장소 서비스로 요청을 보냅니다.
+엔터티를 포함하는 테이블 작업에는 **TableOperation** 개체가 필요합니다. 이 개체는 엔터티에서 수행될 작업을 정의하고, 이 작업은 **CloudTable** 개체와 함께 실행될 수 있습니다. 다음 코드에서는 **CustomerEntity** 클래스의 새 인스턴스를 저장될 일부 고객 데이터와 함께 만듭니다. 그런 다음 엔터티를 테이블에 삽입하기 위해 **TableOperation.insertOrReplace**를 호출하여 **TableOperation** 개체를 만들고, 새로운 **CustomerEntity**를 이 개체와 연결합니다. 끝으로 이 코드는 **CloudTable** 개체에 대해 **execute** 메서드를 호출하여 'people' 테이블 및 새로운 **TableOperation**을 지정한 후, 새 고객 엔터티를 'people' 테이블에 삽입하거나, 이미 있는 경우 바꾸기 위해 저장소 서비스로 요청을 보냅니다.
 
     try
     {
@@ -181,7 +179,7 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
 ## 방법: 엔터티 일괄 삽입
 
-하나의 쓰기 작업으로 테이블 서비스에 엔터티를 일괄 삽입할 수 있습니다. 다음 코드는 **TableBatchOperation** 개체를 만든 다음, 이 개체에 3개의 삽입 작업을 추가합니다. 각 삽입 작업을 추가하기 위해 새 엔터티 개체를 만들고 값을 설정한 후 **insert** 메서드를 **TableBatchOperation** 개체에 대해 호출하여 해당 엔터티를 새로운 삽입 작업과 연결합니다. 그런 다음 **CloudTable** 개체에 대해 **execute**를 호출하여 "people" 테이블 및 **TableBatchOperation** 개체를 지정한 후, 테이블 일괄 작업을 단일 요청으로 저장소 서비스로 보냅니다.
+하나의 쓰기 작업으로 테이블 서비스에 엔터티를 일괄 삽입할 수 있습니다. 다음 코드는 **TableBatchOperation** 개체를 만든 다음, 이 개체에 3개의 삽입 작업을 추가합니다. 각 삽입 작업을 추가하기 위해 새 엔터티 개체를 만들고 값을 설정한 후 **insert** 메서드를 **TableBatchOperation** 개체에 대해 호출하여 해당 엔터티를 새로운 삽입 작업과 연결합니다. 그런 다음, 이 코드는 **CloudTable** 개체에 대해 **execute**를 호출하여 'people' 테이블 및 **TableBatchOperation** 개체를 지정한 후, 테이블 일괄 작업을 단일 요청으로 저장소 서비스로 보냅니다.
 
     try
     {
@@ -234,7 +232,7 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
 ## 방법: 파티션의 모든 엔터티 검색
 
-테이블에서 파티션의 엔터티를 쿼리하려는 경우 **TableQuery**를 사용할 수 있습니다. 지정된 결과 유형을 반환하는 쿼리를 특정 테이블에 대해 만들려면 **TableQuery.from**을 호출하세요. 다음 코드는 'Smith'가 파티션 키인 엔터티에 대한 필터를 지정합니다. **TableQuery.generateFilterCondition**은 쿼리에 필요한 필터를 만들기 위한 도우미 메서드입니다. 쿼리에 필터를 적용하려면 **TableQuery.from** 메서드에서 반환된 참조에 대해 **where**를 호출하세요. **CloudTable** 개체에 대해 **execute**를 호출하여 쿼리가 실행되면 쿼리는 **CustomerEntity** 결과 유형이 지정된 **반복기**를 반환합니다. 그러면 반환된 **반복기**를 for each 루프에서 사용하여 결과를 이용할 수 있습니다. 이 코드는 쿼리 결과에 있는 각 엔터티의 필드를 콘솔에 출력합니다.
+테이블에서 파티션의 엔터티를 쿼리하려는 경우 **TableQuery**를 사용할 수 있습니다. 지정된 결과 유형을 반환하는 쿼리를 특정 테이블에 대해 만들려면 **TableQuery.from**을 호출하십시오. 다음 코드는 'Smith'가 파티션 키인 엔터티에 대한 필터를 지정합니다. **TableQuery.generateFilterCondition**은 쿼리에 필요한 필터를 만들기 위한 도우미 메서드입니다. 쿼리에 필터를 적용하려면 **TableQuery.from** 메서드에 의해 반환된 참조에 대해 **where**를 호출하십시오. **CloudTable** 개체에 대해 **execute**를 호출하여 쿼리가 실행되면 쿼리는 **CustomerEntity** 결과 유형이 지정된 **반복기**를 반환합니다. 그러면 반환된 **반복기**를 for each 루프에서 사용하여 결과를 이용할 수 있습니다. 이 코드는 쿼리 결과에 있는 각 엔터티의 필드를 콘솔에 출력합니다.
 
     try
     {
@@ -337,7 +335,7 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
 ## 방법: 단일 엔터티 검색
 
-단일 특정 엔터티를 검색하는 쿼리를 작성할 수 있습니다. 다음 코드는 **TableQuery**를 만들고 필터를 사용하는 대신 **TableOperation.retrieve**를 파티션 키 및 행 키 매개 변수와 함께 호출하여 고객 "Jeff Smith"를 지정합니다. 코드가 실행되면 검색 작업은 컬렉션 대신 엔터티 1개만 반환합니다. **getResultAsType** 메서드는 결과를 할당 대상, 즉 **CustomerEntity** 개체의 형식으로 캐스트합니다. 이 형식이 쿼리에 지정된 형식과 호환되지 않으면 예외가 발생합니다. 파티션과 행 키가 정확하게 일치하는 엔터티가 없는 경우 null 값이 반환됩니다. 쿼리에 파티션과 행 키를 모두 지정하는 것이 테이블 서비스에서 단일 엔터티를 검색하는 가장 빠른 방법입니다.
+단일 특정 엔터티를 검색하는 쿼리를 작성할 수 있습니다. 다음 코드는 **TableQuery**를 만들고 필터를 사용하는 대신, **TableOperation.retrieve**를 파티션 키 및 행 키 매개 변수와 함께 호출하여 고객 'Jeff Smith'를 지정합니다. 코드가 실행되면 검색 작업은 컬렉션 대신 엔터티 1개만 반환합니다. **getResultAsType** 메서드는 결과를 할당 대상, 즉 **CustomerEntity** 개체의 형식으로 캐스트합니다. 이 형식이 쿼리에 지정된 형식과 호환되지 않으면 예외가 발생합니다. 파티션과 행 키가 정확하게 일치하는 엔터티가 없는 경우 null 값이 반환됩니다. 쿼리에 파티션과 행 키를 모두 지정하는 것이 테이블 서비스에서 단일 엔터티를 검색하는 가장 빠른 방법입니다.
 
     try
     {
@@ -374,9 +372,9 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
         e.printStackTrace();
     }
 
-## 방법: 엔터티 수정
+## 엔터티 수정하는 방법
 
-엔터티를 수정하려면 테이블 서비스에서 엔터티를 검색하고 엔터티 개체를 변경한 후, 바꾸기 또는 병합 작업으로 변경 사항을 테이블 서비스에 다시 저장하세요. 다음 코드는 기존 고객의 전화 번호를 변경합니다. 삽입하기 위해 사용했던 **TableOperation.insert**를 호출하는 대신, 이 코드는 **TableOperation.replace**를 호출합니다. 이 응용 프로그램에서 엔터티를 검색한 이후에 다른 응용 프로그램에서 엔터티를 변경하지 않은 경우 **CloudTable.execute** 메서드가 테이블 서비스를 호출하고 엔터티가 교체됩니다. 다른 응용 프로그램에서 엔터티를 변경한 경우에는 예외가 발생하고 엔터티를 다시 검색하고 수정한 다음 저장해야 합니다. 이 낙관적 동시성 다시 시도 패턴은 분산된 저장소 시스템에서 일반적으로 발생합니다.
+엔터티를 수정하려면 테이블 서비스에서 엔터티를 검색하고 엔터티 개체를 변경한 후, 바꾸기 또는 병합 작업으로 변경 사항을 테이블 서비스에 다시 저장하세요. 다음 코드에서는 기존 고객의 전화 번호를 변경합니다. 삽입하기 위해 사용했던 **TableOperation.insert**를 호출하는 대신, 이 코드는 **TableOperation.replace**를 호출합니다. 이 응용 프로그램에서 엔터티를 검색한 이후에 다른 응용 프로그램에서 엔터티를 변경하지 않은 경우 **CloudTable.execute** 메서드가 테이블 서비스를 호출하고 엔터티는 교체됩니다. 다른 응용 프로그램에서 엔터티를 변경한 경우에는 예외가 발생하고 엔터티를 다시 검색하고 수정한 다음 저장해야 합니다. 이 낙관적 동시성 다시 시도 패턴은 분산된 저장소 시스템에서 일반적으로 발생합니다.
 
     try
     {
@@ -415,7 +413,7 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
 ## 방법: 엔터티 속성 하위 집합 쿼리
 
-테이블 쿼리에서는 엔터티에서 일부 속성만 검색할 수 있습니다. 프로젝션이라고 하는 이 기술은 특히 대역폭을 줄이며 큰 엔터티에 대한 쿼리 성능을 향상할 수 있습니다. 다음 코드의 쿼리는 **select** 메서드를 사용하여 테이블에 있는 엔터티의 메일 주소만 반환합니다. 결과는 서버에서 반환된 엔터티에 대해 형식 변환을 수행하는 **EntityResolver**를 통해 **String** 컬렉션에 프로젝션됩니다. 이 [블로그 게시물][]에서 프로젝션에 대해 자세히 알아볼 수 있습니다. 로컬 저장소 에뮬레이터에서는 프로젝션이 지원되지 않으므로 이 코드는 테이블 서비스의 계정을 사용하는 경우에만 실행됩니다.
+테이블 쿼리에서는 엔터티에서 일부 속성만 검색할 수 있습니다. 프로젝션이라고 하는 이 기술은 특히 대역폭을 줄이며 큰 엔터티에 대한 쿼리 성능을 향상할 수 있습니다. 다음 코드의 쿼리는 **select** 메서드를 사용하여 테이블에 있는 엔터티의 전자 메일 주소만 반환합니다. 이 결과는 서버에서 반환된 엔터티에 대해 형식 변환을 수행하는 **EntityResolver**를 통해 **String** 컬렉션에 프로젝트됩니다. 이 [블로그 게시글][]에서 프로젝션에 대해 자세히 알아볼 수 있습니다. 로컬 저장소 에뮬레이터에서는 프로젝션이 지원되지 않으므로 이 코드는 테이블 서비스의 계정을 사용하는 경우에만 실행됩니다.
 
     try
     {
@@ -454,9 +452,9 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
         e.printStackTrace();
     }
 
-## 방법: 엔터티 삽입 또는 바꾸기
+## 엔티티 삽입 또는 바꾸는 방법
 
-엔터티가 테이블에 이미 있는지 모르는 상태에서 테이블에 엔터티를 추가할 수 있습니다. 이 경우 삽입 또는 바꾸기 작업을 사용하여 엔터티가 없는 경우 엔터티를 삽입하고 엔터티가 있는 경우 기존 엔터티를 바꾸도록 하는 단일 요청을 생성할 수 있습니다. 이전 예제를 기반으로 하는 다음 코드는 'Walter Harp'에 대한 엔터티를 삽입하거나 바꿉니다. 이 코드는 새 엔터티를 만든 후 **TableOperation.insertOrReplace** 메서드를 호출합니다. 그런 다음 테이블 및 테이블 삽입 또는 바꾸기 작업을 매개 변수로 하여 **CloudTable** 개체에 대해 **execute**를 호출합니다. 엔터티의 일부만 업데이트하려면 **TableOperation.insertOrMerge** 메서드를 대신 사용할 수 있습니다. 로컬 저장소 에뮬레이터에서는 삽입 또는 바꾸기가 지원되지 않으므로 이 코드는 테이블 서비스의 계정을 사용하는 경우에만 실행됩니다. 이 [블로그 게시물][]에서 삽입 또는 바꾸기 및 삽입 또는 병합에 대해 자세히 알아볼 수 있습니다.
+엔터티가 테이블에 이미 있는지 모르는 상태에서 테이블에 엔터티를 추가할 수 있습니다. 이 경우 삽입 또는 바꾸기 작업을 사용하여 엔터티가 없는 경우 엔터티를 삽입하고 엔터티가 있는 경우 기존 엔터티를 바꾸도록 하는 단일 요청을 생성할 수 있습니다. 이전의 예를 기반으로 하는 다음 코드에서는 'Walter Harp'에 대한 엔터티를 삽입하거나 바꿉니다. 이 코드에서는 새 엔터티를 만든 후 **TableOperation.insertOrReplace** 메서드를 호출합니다. 그런 다음, 이 코드는 테이블 및 테이블 삽입 또는 바꾸기 작업을 매개 변수로 하여 **CloudTable** 개체에 대해 **execute**를 호출합니다. 엔터티의 일부만 업데이트하려면 **TableOperation.insertOrMerge** 메서드를 대신 사용할 수 있습니다. 로컬 저장소 에뮬레이터에서는 삽입 또는 바꾸기가 지원되지 않으므로 이 코드는 테이블 서비스의 계정을 사용하는 경우에만 실행됩니다. 이 [블로그 게시물][]에서 삽입 또는 바꾸기 및 삽입 또는 병합에 대해 자세히 알아볼 수 있습니다.
 
     try
     {
@@ -487,9 +485,9 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
         e.printStackTrace();
     }
 
-## 방법: 엔터티 삭제
+## 방법: 엔티티 삭제
 
-엔터티를 검색한 다음 쉽게 삭제할 수 있습니다. 엔터티를 검색한 후, 삭제할 엔터티와 함께 **TableOperation.delete**를 호출합니다. 그런 다음 **CloudTable** 개체에 대해 **execute**를 호출합니다. 다음 코드는 고객 엔터티를 검색하고 삭제합니다.
+엔터티를 검색한 다음 쉽게 삭제할 수 있습니다. 엔터티를 검색한 후, 삭제할 엔터티와 함께 **TableOperation.delete**를 호출하십시오. 그런 다음 **CloudTable** 개체에 대해 **execute**를 호출합니다. 다음 코드는 고객 엔터티를 검색하고 삭제합니다.
 
     try
     {
@@ -550,16 +548,19 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 이제 테이블 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업을 수행하는 방법을 알아보세요.
 
 - [Java용 Azure 저장소 SDK]
-- [Azure Storage Client SDK 참조]
+- [Azure 저장소 클라이언트 SDK 참조]
 - [Azure 저장소 REST API]
 - [Azure 저장소 팀 블로그]
 
-[Java용 Azure SDK]: http://azure.microsoft.com/develop/java/
+[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+[Java용 Azure Storage SDK]: https://github.com/azure/azure-storage-java
 [Java용 Azure 저장소 SDK]: https://github.com/azure/azure-storage-java
-[Android용 Azure 저장소 SDK]: https://github.com/azure/azure-storage-android
-[Azure Storage Client SDK 참조]: http://dl.windowsazure.com/storage/javadoc/
+[Android용 Azure Storage SDK]: https://github.com/azure/azure-storage-android
+[Azure 저장소 클라이언트 SDK 참조]: http://dl.windowsazure.com/storage/javadoc/
 [Azure 저장소 REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
+[블로그 게시글]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 [블로그 게시물]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

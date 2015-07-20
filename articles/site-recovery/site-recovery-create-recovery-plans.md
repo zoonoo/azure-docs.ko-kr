@@ -77,11 +77,11 @@ VMM 원본 사이트가 있는 경우 VMM 서버에 스크립트를 생성하고
 - Windows PowerShel을 사용하여 스크립트 작성
 - VMM cmdlet은 Windows PowerShell 모듈로 배달됩니다. VMM Windows PowerShell 모듈은 VMM 콘솔을 설치할 때 설치됩니다. 스크립트에서 다음 명령을 사용하여 스크립트에 VMM 모듈을 로드할 수 있습니다. Import-module-Name virtualmachinemanager [자세한 내용 보기](hhttps://technet.microsoft.com/library/hh875013.aspx).
 - VMM 배포에 최소 1개의 라이브러리 서버가 있는지 확인합니다. 기본적으로 라이브러리는 VMM 서버에 대한 경로를 공유하며, MSCVMMLibrary라는 폴더 이름으로 VMM 서버에 로컬로 위치해 있습니다.
-- 라이브러리 공유 경로가 원격인 경우(또는 로컬이지만 MSCVMMLibrary와 공유하지 않는 경우), 공유를 다음처럼 구성합니다( \libserver2.contoso.com\share\를 예제로 사용).
+- 라이브러리 공유 경로가 원격인 경우(또는 로컬이지만 MSCVMMLibrary와 공유하지 않는 경우), 공유를 다음처럼 구성합니다( \\libserver2.contoso.com\\share\\를 예제로 사용).
 	- 레지스트리 편집기를 엽니다.
-	- HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Server\DRAdapter\Registration으로 이동합니다.
+	- HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Microsoft System Center Virtual Machine Manager Server\\DRAdapter\\Registration으로 이동합니다.
 	- ScriptLibraryPath 값을 편집합니다.
-	- 값을 \libserver2.contoso.com\share로 넣습니다. 전체 FQDN을 지정합니다.
+	- 값을 \\libserver2.contoso.com\\share로 넣습니다. 전체 FQDN을 지정합니다.
 	- 공유 위치에 대한 사용 권한을 제공합니다.
 
 - 복구 계획 내 스크립트는 VMM 서비스 계정의 컨텍스트에서 실행됩니다. 이 스크립트가 위치한 원격 공유에서 이 계정에 읽기 권한이 있는지 확인하고 VMM 서비스 계정 권한 수준에서 실행하는 스크립트를 테스트합니다.
@@ -96,9 +96,9 @@ VMM 원본 사이트가 있는 경우 VMM 서버에 스크립트를 생성하고
 
 스크립트를 다음과 같이 만듭니다.
 
-1. 라이브러리 공유에 새 폴더를 만듭니다. 예: <VMMServerName>\MSSCVMMLibrary\RPScripts. 원본 및 대상 VMM 서버에 놓습니다.
+1. 라이브러리 공유에 새 폴더를 만듭니다. 예: <VMMServerName>\\MSSCVMMLibrary\\RPScripts. 원본 및 대상 VMM 서버에 놓습니다.
 2. 스크립트(예: RPScript)를 만들고 예상한 대로 작동하는지 확인합니다.
-3. 원본 및 대상 VMM 서버에서 <VMMServerName>\MSSCVMMLibrary 위치에 스크립트를 놓습니다.
+3. 원본 및 대상 VMM 서버에서 <VMMServerName>\\MSSCVMMLibrary 위치에 스크립트를 놓습니다.
 
 #### Azure 자동화 Runbook 만들기
 
@@ -110,7 +110,7 @@ Azure 자동화 Runbook을 계획의 일환으로 실행하여 복구 계획을 
 1. 사용자 지정하려는 복구 계획을 엽니다.
 2. 클릭하여 가상 컴퓨터나 새 그룹을 추가합니다.
 3. 스크립트나 수동 작업을 추가하려면 **단계** 목록에서 아무 항목이나 클릭하고 **스크립트** 또는 **수동 작업**을 클릭합니다. 스크립트나 작업을 선택한 항목의 앞 또는 뒤에 추가할 것인지 지정합니다. **위로 이동** 및 **아래로 이동** 명령 단추를 사용하여 스크립트의 위치를 위/아래로 이동합니다.
-4. VMM 스크립트를 추가하는 경우 **VMM 스크립트에 대한 장애 조치**를 선택하고 **스크립트 경로** 유형에서 공유에 대한 상대 경로를 입력합니다. 따라서, 여기 예제에서 공유가 \<VMMServerName>\MSSCVMMLibrary\RPScripts에 위치해 있는 경우 경로를 다음과 같이 지정합니다. \RPScripts\RPScript.PS1.
+4. VMM 스크립트를 추가하는 경우 **VMM 스크립트에 대한 장애 조치**를 선택하고 **스크립트 경로** 유형에서 공유에 대한 상대 경로를 입력합니다. 따라서, 여기 예제에서 공유가 \<VMMServerName>\\MSSCVMMLibrary\\RPScripts에 위치해 있는 경우 경로를 다음과 같이 지정합니다. \\RPScripts\\RPScript.PS1.
 5. Azure 자동화 Runbook을 추가하는 경우 Runbook이 위치한 **Azure 자동화 계정**을 지정하고 적절한 **Azure Runbook 스크립트**를 선택합니다.
 5. 복구 계획의 장애 조치를 실행하여 스크립트가 예상대로 작동하는지 확인합니다.
 
@@ -122,4 +122,4 @@ Azure 자동화 Runbook을 계획의 일환으로 실행하여 복구 계획을 
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

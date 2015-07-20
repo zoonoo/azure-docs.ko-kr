@@ -210,4 +210,4 @@ Docker가 컨테이너 포트 80을 VM 포트 49153에 할당했음을 확인할
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

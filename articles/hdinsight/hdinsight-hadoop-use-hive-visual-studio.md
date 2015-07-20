@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/03/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Visual Studio용 HDInsight 도구를 사용하여 Hive 쿼리 실행
@@ -22,7 +22,7 @@
 
 이 문서에서는 Visual Studio용 HDInsight 도구를 사용하여 HDInsight 클러스터에 Hive 쿼리를 제출하는 방법에 대해 알아봅니다.
 
-> [AZURE.NOTE]이 문서에는 예제에 사용된 HiveQL 문이 수행하는 작업에 대해 자세한 설명을 제공하지 않습니다. 이 예제에서 사용된 HiveQL에 대한 자세한 내용은 <a href="hdinsight-use-hive.md" target="_blank">HDInsight에서 Hadoop과 Hive 사용</a>을 참조하세요.
+> [AZURE.NOTE]이 문서에는 예제에 사용된 HiveQL 문이 수행하는 작업에 대해 자세한 설명을 제공하지 않습니다. 이 예제에서 사용된 HiveQL에 대한 자세한 내용은 [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)을 참조하세요.
 
 ##<a id="prereq"></a>필수 조건
 
@@ -30,7 +30,7 @@
 
 * Azure HDInsight(HDInsight의 Hadoop)클러스터(Linux 또는 Windows 기반)
 
-* Visual Studio 2012 <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">업데이트 4</a>, Visual Studio 2013 <a href="http://go.microsoft.com/fwlink/?LinkId=390465" target="_blank">업데이트 3</a> 또는 <a href="http://www.microsoft.com/download/details.aspx?id=40769" target="_blank">Visual Studio Express 2013</a>
+* Visual Studio 2012 [업데이트 4](http://www.microsoft.com/download/details.aspx?id=39305), Visual Studio 2013 [업데이트 3](http://go.microsoft.com/fwlink/?LinkId=390465) 또는 [Visual Studio Express 2013](http://www.microsoft.com/download/details.aspx?id=40769)
 
 ##<a id="run"></a> Visual Studio용 HDInsight 도구를 사용하여 Hive 쿼리 실행
 
@@ -120,19 +120,17 @@ Visual Studio용 HDInsight 도구에 대한 자세한 내용은 다음을 참조
 
 
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

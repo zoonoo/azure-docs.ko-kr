@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="06/30/2015" 
 	ms.author="jgao"/>
 
 
@@ -43,7 +43,7 @@
 
 ### 새로운 기능 
  
-* 모든 Apache Hadoop 서비스의 자동 시작 또는 수동 시작 설정을 간소화하는 스크립트가 추가되었습니다. 기본값은 이전처럼 자동이지만 이제 C:\Hadoop에 설치된 set-onebox-manualstart.cmd 또는 set-onebox-autostart.cmd 스크립트를 사용하여 모든 서비스를 변경할 수 있습니다. 
+* 모든 Apache Hadoop 서비스의 자동 시작 또는 수동 시작 설정을 간소화하는 스크립트가 추가되었습니다. 기본값은 이전처럼 자동이지만 이제 C:\\Hadoop에 설치된 set-onebox-manualstart.cmd 또는 set-onebox-autostart.cmd 스크립트를 사용하여 모든 서비스를 변경할 수 있습니다. 
 
 * 필요한 설치 종속성 수는 크게 줄었으며 설치 속도는 더욱 빨라졌습니다.
 
@@ -110,7 +110,7 @@
 
 	대시보드에 "local(hdfs)"이라는 기본 로컬 클러스터가 표시됩니다. Azure Blob 저장소를 로컬 설치를 위한 저장소로 사용하려면 다음을 수행합니다.
 
-	1. C:\Hadoop\hadoop-1.1.0-SNAPSHOT\conf에 있는 core-site.xml에 account 태그를 추가합니다.       
+	1. C:\\Hadoop\\hadoop-1.1.0-SNAPSHOT\\conf에 있는 core-site.xml에 account 태그를 추가합니다.       
 
 			<property>
         		<name>fs.azure.account.key.{AccountName}</name>
@@ -245,7 +245,7 @@
 
 * 임시 디렉터리
 	
-	hadoop.tmp.dir 파일이 잘못된 위치를 나타냅니다. C:\hadoop\hdfs를 가리키지 않고 잘못된 위치인 C:\hdfs를 가리킵니다. 이 버그는 HDP 비트의 다음 업데이트에서 수정됩니다.
+	hadoop.tmp.dir 파일이 잘못된 위치를 나타냅니다. C:\\hadoop\\hdfs를 가리키지 않고 잘못된 위치인 c:\\hdfs를 가리킵니다. 이 버그는 HDP 비트의 다음 업데이트에서 수정됩니다.
 
 * OS 제한
 
@@ -276,4 +276,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

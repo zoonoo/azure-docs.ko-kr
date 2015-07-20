@@ -1,4 +1,4 @@
-###작성기를 통해 설치
+### 작성기를 통해 설치
 
 1. [Git를 설치][install-git]합니다. 
 
@@ -25,11 +25,11 @@
 
 3. 프로젝트 루트에 **[composer.phar][composer-phar]**을 다운로드합니다.
 
-4. 명령 프롬프트를 열고 프로젝트 루트에서 이 파일을 실행합니다.
+4. 명령 프롬프트를 열고 프로젝트 루트에서 다음 명령을 실행합니다.
 
 		php composer.phar install
 
-###수동으로 설치
+### 수동으로 설치
 
 Azure용 PHP 클라이언트 라이브러리를 수동으로 다운로드하고 설치하려면 다음 단계를 따르세요.
 
@@ -49,4 +49,4 @@ Azure용 PHP 클라이언트 라이브러리 설치에 대한 자세한 내용(P
 [download-SDK-PHP]: ../articles/php-download-sdk.md
 [composer-phar]: http://getcomposer.org/composer.phar
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

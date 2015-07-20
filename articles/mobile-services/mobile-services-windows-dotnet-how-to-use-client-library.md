@@ -20,13 +20,13 @@
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
-## 개요
+##개요
 
 이 가이드에서는 Windows 스토어 앱 및 Windows Phone 앱에서 Azure 서비스용 .NET 클라이언트를 사용하는 일반적인 시나리오를 수행하는 방법을 보여 줍니다. 여기서 다루는 시나리오에는 데이터 쿼리, 삽입, 업데이트, 삭제 및 사용자 인증과 오류 처리가 포함됩니다. 모바일 서비스를 처음 접하는 경우 먼저 [모바일 서비스 퀵 스타트]() 자습서 또는 [기존 앱에 모바일 서비스 추가]() 자습서를 완료하는 것이 좋습니다.
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
-## <a name="setup"></a>설정 및 필수 조건
+##<a name="setup"></a>설정 및 필수 조건
 
 이미 모바일 서비스 및 테이블을 만들었다고 가정합니다. 자세한 내용은 [테이블 만들기](http://go.microsoft.com/fwlink/?LinkId=298592)를 참조하십시오. 이 항목에 사용되는 코드에서 테이블은 이름이 `TodoItem`(이)고 `Id`, `Text` 및 `Complete` 열이 있습니다.
 
@@ -46,7 +46,7 @@
 
 동적 스키마가 사용하도록 설정된 경우 Azure 모바일 서비스에서 삽입 또는 업데이트 요청의 개체를 기준으로 새 열을 자동으로 생성합니다. 자세한 내용은 [동적 스키마](http://go.microsoft.com/fwlink/?LinkId=296271)를 참조하십시오.
 
-## <a name="create-client"></a>방법: 모바일 서비스 클라이언트 만들기
+##<a name="create-client"></a>방법: 모바일 서비스 클라이언트 만들기
 
 다음 코드는 모바일 서비스에 액세스하는 데 사용되는 `MobileServiceClient` 개체를 만듭니다.
 
@@ -60,7 +60,7 @@
 
 >[AZURE.IMPORTANT]응용 프로그램 키는 모바일 서비스에 대한 임의 요청을 필터링하기 위한 것이며 응용 프로그램과 함께 배포됩니다. 이 키는 암호화되지 않으므로 안전하다고 볼 수 없습니다. 모바일 서비스 데이터를 안전하게 유지하려면 액세스를 허용하기 전에 사용자를 인증해야 합니다. 자세한 내용은 [방법: 사용자 인증](#authentication)을 참조하세요.
 
-## <a name="instantiating"></a>방법: 테이블 참조 만들기
+##<a name="instantiating"></a>방법: 테이블 참조 만들기
 
 모바일 서비스 테이블의 데이터에 액세스하거나 데이터를 수정하는 모든 코드는 `MobileServiceTable` 개체에 대한 함수를 호출합니다. `MobileServiceClient` 인스턴스에 대해 [GetTable](http://msdn.microsoft.com/library/windowsazure/jj554275.aspx) 함수를 호출하여 테이블에 대한 참조를 구합니다.
 
@@ -69,7 +69,7 @@
 
 형식화된 serialization 모델입니다. 아래의 <a href="#untyped">형식화되지 않은 serialization 모델</a>을 참조하십시오.
 
-## <a name="querying"></a>방법: 모바일 서비스에서 데이터 쿼리
+##<a name="querying"></a>방법: 모바일 서비스에서 데이터 쿼리
 
 이 섹션에서는 다음 기능을 비롯하여 모바일 서비스에 대한 쿼리를 실행하는 방법을 설명합니다.
 
@@ -165,9 +165,9 @@
 
 이것은 하드 코드된 페이징 값을 `Take` 및 `Skip` 메서드에 전달하는 간소화된 시나리오입니다. 실제 앱에서는 Pager 컨트롤이나 이와 비슷한 UI에서 위와 비슷한 쿼리를 사용하여 사용자가 이전 및 다음 페이지로 이동하도록 만들 수 있습니다.
 
-#### .NET 백 엔드 모바일 서비스에 대한 페이징 고려 사항
+####.NET 백 엔드 모바일 서비스에 대한 페이징 고려 사항
 
-.NET 백 엔드 모바일 서비스에서 50행 제한을 재정의하려면  [EnableQueryAttribute](https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx)를 public GET 메서드에 적용하고 페이징 동작을 지정해야 합니다.  메서드에 적용할 때 다음은 최대 반환 행을 1000으로 설정합니다.
+.NET 백 엔드 모바일 서비스에서 50행 제한을 재정의하려면 [EnableQueryAttribute](https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx)를 public GET 메서드에 적용하고 페이징 동작을 지정해야 합니다. 메서드에 적용할 때 다음은 최대 반환 행을 1000으로 설정합니다.
 
     [EnableQuery(MaxTop=1000)]
 
@@ -202,7 +202,7 @@
 	// This query filters out the item with the ID of 37BBF396-11F0-4B39-85C8-B319C729AF6D
 	TodoItem item = await todoTable.LookupAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D");
 
-## <a name="inserting"></a>방법: 모바일 서비스에 데이터 삽입
+##<a name="inserting"></a>방법: 모바일 서비스에 데이터 삽입
 
 > [AZURE.NOTE]형식에 대해 삽입, 조회, 삭제 또는 업데이트 작업을 수행하려는 경우 **Id**라는 멤버를 만들어야 합니다. 이 때문에 예제 클래스 **TodoItem**에 이름이 **Id**인 멤버가 있습니다. 업데이트 및 삭제 작업에서 항상 유효한 id 값이 있어야 합니다.
 
@@ -228,7 +228,7 @@
 	var inserted = await table.InsertAsync(jo);
 
 
-### ID 값으로 작업
+###ID 값으로 작업
 
 모바일 서비스는 테이블의 **id** 열에 대한 고유한 사용자 지정 문자열 값을 지원합니다. 이를 통해 응용 프로그램에서 전자 메일 주소 또는 사용자 이름과 같은 사용자 지정 값을 ID에 사용할 수 있습니다.
 
@@ -242,7 +242,7 @@
 
 또한 테이블에 정수 ID를 사용할 수 있습니다. 정수 ID를 사용하려면 `mobile table create` 명령으로 `--integerId` 옵션을 사용하여 테이블을 만들어야 합니다. 이 명령은 Azure용 CLI(명령줄 인터페이스)와 함께 사용됩니다. CLI 사용에 대한 자세한 내용은 [모바일 서비스 테이블 관리 CLI](../virtual-machines-command-line-tools.md#Mobile_Tables)(영문)를 참조하십시오.
 
-## <a name="modifying"></a>방법: 모바일 서비스의 데이터 수정
+##<a name="modifying"></a>방법: 모바일 서비스의 데이터 수정
 
 다음 코드는 ID가 같은 기존 인스턴스를 새 정보로 업데이트하는 방법을 보여 줍니다. 매개 변수에는 .NET 개체로 업데이트할 데이터가 포함되어 있습니다.
 
@@ -260,7 +260,7 @@
 "Id" 값을 제공하지 않고 항목을 업데이트하려고 시도하는 경우 서비스에서 업데이트할 인스턴스를 구분할 수 없으므로, 모바일 서비스 SDK에서 `ArgumentException`을(를) throw합니다.
 
 
-## <a name="deleting"></a>방법: 모바일 서비스의 데이터 삭제
+##<a name="deleting"></a>방법: 모바일 서비스의 데이터 삭제
 
 다음 코드는 기존 인스턴스를 삭제하는 방법을 보여 줍니다. 인스턴스는 `todoItem`에 설정된 "Id" 필드로 식별됩니다.
 
@@ -274,7 +274,7 @@
 
 "Id" 필드가 설정되지 않은 항목을 삭제하려고 하면 서비스가 삭제할 인스턴스를 구분할 수 없으므로 서비스에서 `MobileServiceInvalidOperationException`이(가) 반환됩니다. 마찬가지로, "Id" 필드가 설정되지 않은 형식화되지 않은 항목을 삭제하려는 경우에도 서비스에서 `MobileServiceInvalidOperationException`이(가) 반환됩니다.
 
-## <a name="#custom-api"></a>방법: 사용자 지정 API 호출
+##<a name="#custom-api"></a>방법: 사용자 지정 API 호출
 
 사용자 지정 API는 삽입, 업데이트, 삭제 또는 읽기 작업에 매핑되지 않는 서버 기능을 노출하는 사용자 지정 끝점을 정의할 수 있게 합니다. 사용자 지정 API를 사용하면 HTTP 메시지 헤더 읽기와 설정 및 JSON 이외의 메시지 본문 형식 정의를 비롯하여 더 효율적으로 메시징을 제어할 수 있습니다. 모바일 서비스에서 사용자 지정 API를 만드는 방법을 비롯해 전체 예제를 확인하려면 [클라이언트에서 사용자 지정 API 호출]을 참조하십시오.
 
@@ -286,7 +286,7 @@
 
 이 형식화된 메서드 호출을 실행하려면 **MarkAllResult** 반환 형식을 정의해야 합니다. 형식화된 메서드와 형식화되지 않은 메서드가 모두 지원됩니다. 이는 형식화되어 있고 페이로드를 보내지 않으며 쿼리 매개 변수가 없고 요청 헤더를 변경하지 않으므로 대체로 단순한 예제입니다. [InvokeApiAsync]의 보다 실질적인 예와 자세한 설명을 확인하려면 [Azure 모바일 서비스 클라이언트 SDK의 사용자 지정 API]를 참조하십시오.
 
-## 방법: 푸시 알림 등록
+##방법: 푸시 알림 등록
 
 모바일 서비스 클라이언트를 사용하면 Azure 알림 허브로 푸시 알림을 등록할 수 있습니다. 등록할 때 Windows 플랫폼에서 가져오는 채널 URI를 가져옵니다. 그런 다음 등록을 만들 때 태그와 함께 이 값을 제공합니다. 다음 코드는 WNS(Windows 알림 서비스)를 사용하는 Windows 스토어 앱에서 푸시 알림을 등록합니다.
 
@@ -307,7 +307,7 @@
 >[AZURE.NOTE]특정 등록 사용자에게 알림을 보내야 하는 경우, 등록하기 전에 인증을 요청한 다음 해당 사용자가 특정 태그로 등록하도록 인증되었는지 확인하는 것이 중요합니다. 예를들어, 사용자가 다른 사람의 사용자 ID인 태그로 등록하지 않았는지 확인해야 합니다. 자세한 내용은 [인증된 사용자에게 푸시 알림 보내기](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md)를 참조하세요.
 
 
-## <a name="optimisticconcurrency"></a>방법: 낙관적 동시성 사용
+##<a name="optimisticconcurrency"></a>방법: 낙관적 동시성 사용
 
 일부 시나리오에서 두 개 이상의 클라이언트가 동시에 동일 항목의 변경 내용을 작성할 수 있습니다. 충돌 검색 없이, 마지막으로 쓴 내용이 원하는 결과가 아닌 경우에도 이전 업데이트를 덮어씁니다. 낙관적 동시성 제어에서는 각 트랜잭션을 커밋할 수 있으며 따라서 리소스 잠금이 사용되지 않는다고 가정합니다. 트랜잭션을 커밋하기 전에 낙관적 동시성 제어는 다른 트랜잭션에서 데이터를 수정하지 않았음을 확인합니다. 데이터가 수정된 경우에는 커밋 중인 트랜잭션이 롤백됩니다.
 
@@ -398,7 +398,7 @@
 모바일 서비스에 낙관적 동시성을 사용하는 전체 예제는 [낙관적 동시성 자습서](영문)를 참조하십시오.
 
 
-## <a name="binding"></a>방법: 모바일 서비스에서 사용자 인터페이스에 데이터 바인딩
+##<a name="binding"></a>방법: 모바일 서비스에서 사용자 인터페이스에 데이터 바인딩
 
 이 섹션에서는 반환된 데이터 개체를 UI 요소를 사용해서 표시하는 방법을 보여 줍니다. `todoTable`에서 완료되지 않은 항목을 쿼리하고 이를 매우 간단한 목록으로 표시하려면 다음 예제 코드를 실행하여 목록 원본을 쿼리와 바인딩하면 됩니다. `MobileServiceCollection`을(를) 사용하면 모바일 서비스 인식 바인딩 컬렉션이 만들어집니다.
 
@@ -433,13 +433,13 @@ Windows Phone에서 새 컬렉션을 사용하려면 `IMobileServiceTableQuery<T
 
 마지막으로, 테이블에 필드가 많지만 컨트롤에 일부 필드만 표시하려는 경우를 가정하겠습니다. 위에 나온 <a href="#selecting">"특정 열 선택"</a> 섹션의 지침에 따라 UI에 표시할 특정 열을 선택할 수 있습니다.
 
-## <a name="authentication"></a>방법: 사용자 인증
+##<a name="authentication"></a>방법: 사용자 인증
 
 모바일 서비스는 Facebook, Google, Microsoft 계정, Twitter 및 Azure Active Directory와 같이 다양한 외부 ID 공급자를 사용하여 앱 사용자의 인증 및 권한 부여를 지원합니다. 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 서버 스크립트에 인증 규칙을 구현할 수도 있습니다. 자세한 내용은 [앱에 인증 추가] 자습서를 참조하세요.
 
 두 가지의 인증 흐름, 즉 _서버 흐름_과 _클라이언트 흐름_이 지원됩니다. 서버 흐름의 경우 공급자의 웹 인증 인터페이스를 사용하므로 인증 경험이 가장 단순합니다. 클라이언트 흐름의 경우 공급자 특정 장치별 SDK를 사용하므로 장치 특정 기능을 통해 더욱 강력한 통합이 가능합니다.
 
-### 서버 흐름
+###서버 흐름
 모바일 서비스가 Windows 스토어 또는 Windows Phone 앱에서 인증 프로세스를 관리하게 하려면 앱을 ID 공급자에 등록해야 합니다. 그런 다음, 모바일 서비스에서 공급자로부터 제공된 응용 프로그램 ID 및 암호를 구성해야 합니다. 자세한 내용은 [앱에 인증 추가] 자습서를 참조하세요.
 
 ID 공급자를 등록하고 나면 공급자의 [MobileServiceAuthenticationProvider] 값을 사용하여 [LoginAsync 메서드]를 호출합니다. 예를 들어 다음 코드는 Facebook을 사용한 서버 흐름 로그인을 시작합니다.
@@ -474,7 +474,7 @@ Facebook 이외의 ID 공급자를 사용하는 경우 위의 [MobileServiceAuth
 
 > [AZURE.NOTE]**Windows 스토어 앱** Windows 스토어 앱 사용자를 인증하는 데 Microsoft 계정 로그인 공급자를 사용하는 경우 앱 패키지를 모바일 서비스에도 등록해야 합니다. 모바일 서비스에 Windows 스토어 앱 패키지 정보를 등록하는 경우 클라이언트에서 Single Sign-On 환경을 위해 Microsoft 계정 로그인 자격 증명을 다시 사용할 수 있습니다. 그렇지 않으면 로그인 메서드가 호출될 때마다 Microsoft 계정 로그인 사용자에게 로그인 프롬프트가 표시됩니다. Windows 스토어 앱 패키지를 등록하는 방법을 자세히 알아보려면 [Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank")을 참조하십시오. 패키지 정보가 모바일 서비스에 등록된 후에는 [useSingleSignOn](http://go.microsoft.com/fwlink/p/?LinkId=311594%20target="_blank") 매개 변수에서 자격 증명을 다시 사용하도록 **true** 값을 제공하여 _LoginAsync_ 메서드를 호출합니다.
 
-### 클라이언트 흐름
+###클라이언트 흐름
 
 앱이 독립적으로 ID 공급자에 연결한 후 반환된 토큰을 인증을 위해 모바일 서비스에 제공할 수도 있습니다. 이 클라이언트 흐름을 사용하면 단일 로그인 환경을 사용자에게 제공하거나 ID 공급자로부터 더 많은 사용자 데이터를 검색할 수 있습니다.
 
@@ -519,7 +519,7 @@ Microsoft 계정을 사용하는 경우 다음과 같은 로그인을 사용합�
 
 Microsoft 계정을 사용하여 단일 로그인 환경을 제공하는 방법을 보여 주는 예제는 "단일 로그인으로 앱 인증" 자습서([Windows 스토어](/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/)/[Windows Phone](/develop/mobile/tutorials/single-sign-on-wp8/))를 참조하십시오.
 
-### <a name="caching"></a>인증 토큰 캐시
+###<a name="caching"></a>인증 토큰 캐시
 일부 경우, 사용자가 처음으로 인증된 후에 login 메서드 호출을 방지할 수 있습니다. Windows 스토어 앱용 [PasswordVault]를 사용하여 사용자가 처음 로그인할 때 현재 사용자 ID를 캐시하고 이후에 매번 캐시에서 해당 사용자 ID가 이미 있는지 여부를 확인할 수 있습니다. 캐시가 비어 있는 경우에도 사용자가 로그인 프로세스를 거치도록 해야 합니다.
 
 	// After logging in
@@ -550,7 +550,7 @@ Microsoft 계정을 사용하여 단일 로그인 환경을 제공하는 방법�
 
 Windows Phone 앱의 경우 [ProtectedData] 클래스를 사용하여 데이터를 암호화 및 캐시하고 격리된 저장소에 중요 정보를 저장할 수 있습니다.
 
-## <a name="errors"></a>방법: 오류 처리
+##<a name="errors"></a>방법: 오류 처리
 
 모바일 서비스에서 오류가 발생하고, 오류의 유효성을 검사하고, 오류를 해결하는 방법이 몇 가지 있습니다.
 
@@ -584,7 +584,7 @@ Windows Phone 앱의 경우 [ProtectedData] 클래스를 사용하여 데이터�
 		}
 	}
 
-## <a name="untyped"></a>방법: 형식화되지 않은 데이터 작업
+##<a name="untyped"></a>방법: 형식화되지 않은 데이터 작업
 
 .NET 클라이언트는 강력한 형식의 시나리오에 맞게 설계되었습니다. 하지만 예를 들어 개방형 스키마로 개체를 처리하는 경우처럼 보다 느슨한 형식의 환경이 편리한 경우도 있습니다. 이 시나리오는 다음과 같이 실행됩니다. 쿼리에서 LINQ를 사용하지 않고 통신 형식을 사용합니다.
 
@@ -596,11 +596,11 @@ Windows Phone 앱의 경우 [ProtectedData] 클래스를 사용하여 데이터�
 
 속성 모음처럼 사용할 수 있는 JSON 값이 반환됩니다. JToken 및 JSON.NET에 대한 자세한 내용은 [JSON.NET](http://json.codeplex.com/)(영문)을 참조하십시오.
 
-## <a name="unit-testing"></a>방법: 설계 단위 테스트
+##<a name="unit-testing"></a>방법: 설계 단위 테스트
 
 `MobileServiceClient.GetTable` 및 쿼리에서 반환되는 값은 인터페이스입니다. 이 값을 사용하면 테스트 목적으로 쉽게 인터페이스를 "모방"할 수 있으므로, 테스트 논리를 구현하는 `MyMockTable : IMobileServiceTable<TodoItem>`을(를) 만들 수 있습니다.
 
-## <a name="customizing"></a>방법: 클라이언트 사용자 지정
+##<a name="customizing"></a>방법: 클라이언트 사용자 지정
 
 이 섹션에서는 요청 헤더를 사용자 지정하고 응답에서 JSON 개체의 serialization을 사용자 지정할 수 있는 방법을 보여줍니다.
 
@@ -699,5 +699,6 @@ Windows Phone 앱의 경우 [ProtectedData] 클래스를 사용하여 데이터�
 [Azure 모바일 서비스 클라이언트 SDK의 사용자 지정 API]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
 [클라이언트에서 사용자 지정 API 호출]: mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api.md
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

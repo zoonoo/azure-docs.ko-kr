@@ -49,7 +49,7 @@ Azure CLI에는 오류를 방지하고 수행 중에 잘못된 사항을 감지�
           "location": "East US,West US,West Europe,East Asia,Southeast Asia,North Europe"
         }
 
-- **azure group template validate <resource group>**. 이 명령은 템플릿과 템플릿 매개 변수를 사용하기 전에 유효성을 검사합니다. 사용자 지정 또는 갤러리 템플릿과 사용할 템플릿 매개 변수 값을 입력합니다. 이 cmdlet은 템플릿이 내부적으로 일관되고 설정된 매개 변수 값이 템플릿과 일치하는지 여부를 테스트합니다.
+- **azure group template validate <resource group>**. 이 명령은 템플릿과 템플릿 매개 변수를 사용하기 전에 유효성을 검사합니다. 사용자 지정 또는 갤러리 템플릿과 사용할 템플릿 매개 변수 값을 입력합니다.
 
     다음 예에서는 템플릿과 필수 매개 변수의 유효성을 검사하는 방법을 보여 주고, Azure CLI에서 필요한 매개 변수 값을 묻습니다.
 
@@ -115,7 +115,7 @@ Azure CLI에는 오류를 방지하고 수행 중에 잘못된 사항을 감지�
                                        Subnet-1
                                        "}}}]}}
 
-        Use the **--last-deployment** option to retrieve only the log for the most recent deployment. The following script uses the **--json** option and **jq** to search the log for deployment failures.
+**--마지막-배포**옵션을 사용하여 가장 최근의 배포에 대한 로그를 검색합니다. 다음의 스크립트를 사용하여 **--json** 옵션 및 **jq**의 배포 오류에 대한 로그를 검색 합니다.
 
         azure group log show templates --json | jq '.[] | select(.status.value == "Failed")'
 
@@ -213,6 +213,26 @@ AzureResourceManager 모듈에는 오류를 방지하는 데 유용한 cmdlet이
 
 또한 리소스 그룹, 구독, 계정 및 기타 범위당 배포 기본 할당량에 도달할 경우 문제가 발생할 수 있습니다. 적절하게 배포할 수 있는 리소스가 있는지 확인합니다. 전체 할당량 정보는 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
 
+코어에 대한 고유의 구독 할당량을 검사하려면 `azure vm list-usage` Azure CLI 명령 및 `Get-AzureVMUsage` powershell의 cmdlet을 사용하세요. 다음은 Azure CLI에 명령과 무료 평가판 계정에 대한 코어 할당량이 4개 임을 보여줍니다.
+
+    azure vm list-usage
+    info:    Executing command vm list-usage
+    Location: westus
+    data:    Name   Unit   CurrentValue  Limit
+    data:    -----  -----  ------------  -----
+    data:    Cores  Count  0             4    
+    info:    vm list-usage command OK
+
+상기 구독을 미국 서부지역에서 4개 이상의 코어를 만드는 템플릿을 배포하려고 한다면, (포털에서나 혹은 배포 로그를 조사하여) 이와 같은 오류를 얻게 됩니다
+
+    statusCode:Conflict
+    serviceRequestId:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    statusMessage:{"error":{"code":"OperationNotAllowed","message":"Operation results in exceeding quota limits of Core. Maximum allowed: 4, Current in use: 4, Additional requested: 2."}}
+
+이러한 경우 포털로 이동하여 사용자가 배포하고 싶은 지역의 할당량을 올려서 지원 문제를 해결합니다.
+
+> [AZURE.NOTE]리소스 그룹에 대해서는 이것을 기억하세요. 할당량은 개별적인 지역을 위한 것이지, 전체 구독을 위한 것이 아닙니다. 사용자가 미국 서부에 30코어를 배포하려고 한다면, 30 리소스 관리 코어를 요청해야 합니다. 사용자가 액세스 할 수 있는 임의적인 지역에 30코어를 배포해야 하는 경우, 모든 지역에서 30 리소스 관리 코어를 요청 해야 합니다. <!-- -->예를 들어, 특정한 코어를 만들려면 json 구문 분석을 위해 **jq**를 빼낸 아래의 명령을 이용하여 적정한 할당량을 요청해야 하는 지역을 확인 할 수 있습니다. <!-- -->azure 공급자 표시 Microsoft.Compute--json | q '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
+     
 
 ## Azure CLI 및 PowerShell 모드 문제
 
@@ -243,7 +263,7 @@ Azure CLI를 사용하여 공급자가 사용하도록 등록되어 있는지 �
         data:    Microsoft.Sql                    Registered
         info:    provider list command OK
 
-    Again, if you want more information about providers, including their regional availability, type `azure provider list --json`. The following selects only the first one in the list to view:
+마찬가지로, 국가별 가용성을 포함한 공급자에 대한 더 많은 정보를 원한다면, Type`azure provider list --json` 다음은 살펴보기 위해 목록의 오직 첫 번째 것만을 추려낸 것입니다.
 
         azure provider list --json | jq '.[0]'
         {
@@ -351,8 +371,6 @@ Azure CLI를 사용하여 공급자가 사용하도록 등록되어 있는지 �
 
     }
 
-
-
 ## 다음 단계
 
 템플릿 만들기를 마스터하려면 [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)을 읽고 [AzureRMTemplates 리포지토리](https://github.com/azurermtemplates/azurermtemplates)에서 배포 가능한 예제를 살펴보세요. **dependsOn** 속성의 예로는 [인바운드 NAT 규칙을 통한 부하 분산 장치 템플릿](https://github.com/azurermtemplates/azurermtemplates/blob/master/101-create-internal-loadbalancer/azuredeploy.json)이 있습니다.
@@ -367,6 +385,6 @@ Azure CLI를 사용하여 공급자가 사용하도록 등록되어 있는지 �
 [gog]: http://google.com/
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

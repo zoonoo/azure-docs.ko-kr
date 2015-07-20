@@ -5,4 +5,4 @@ Azure 저장소의 모든 Blob은 컨테이너에 있어야 합니다. 컨테이
  
 > [AZURE.IMPORTANT]컨테이너의 이름은 항상 소문자여야 합니다. 컨테이너 이름에 대문자를 포함하거나 컨테이너 명명 규칙을 위반하는 경우에 400 오류(잘못된 요청) 메시지를 받을 수 있습니다. 컨테이너 명명 규칙에 대해서는 [컨테이너와 Blob, 메타데이터의 명명 및 참조](https://msdn.microsoft.com/library/azure/dd135715.aspx)를 참조하세요.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

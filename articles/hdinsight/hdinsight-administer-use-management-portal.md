@@ -202,4 +202,4 @@ Azure PowerShell cmdlet을 통해 이 작업을 수행할 수도 있습니다.
 [image-hdiclustercreate-uploadcert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

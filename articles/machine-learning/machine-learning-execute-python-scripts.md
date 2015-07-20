@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="Azure 기계 학습에서 Python 스크립트 실행 | Azure" 
-	description="Azure 기계 학습에서 Python을 지원하는 데 기본이 되는 디자인 원칙 및 기본 사용 시나리오, 기능 및 제한 사항을 간략히 설명합니다." 
+	pageTitle="Python 기계 학습 스크립트 실행 | Microsoft Azure" 
+	description="Azure 기계 학습에서 Python 스크립트를 지원하는 데 기본이 되는 디자인 원칙 및 기본 사용 시나리오, 기능 및 제한 사항을 간략히 설명합니다." 
+	keywords="python machine learning,pandas,python pandas,python scripts"
 	services="machine-learning"
 	documentationCenter="" 
 	authors="garyericson" 
@@ -17,11 +18,9 @@
 	ms.author="bradsev;garye" />
 
 
-# Azure 기계 학습에서 Python 스크립트 실행
+# Azure 기계 학습 스튜디오에서 Python 기계 학습 스크립트 실행
 
-## 소개
-
-이 항목에서는 Azure 기계 학습에서 현재 Python을 지원하는 데 기본이 되는 디자인 원칙을 설명합니다. 기존 코드 가져오기와 시각화 내보내기 지원을 포함하는 주요 기능이 설명되어 있으며, 마지막으로 일부 제한 및 진행 중인 작업에 대해서도 설명합니다.
+이 항목에서는 Azure 기계 학습에서 현재 Python 스크립트를 지원하는 데 기본이 되는 디자인 원칙을 설명합니다. 기존 코드 가져오기와 시각화 내보내기 지원을 포함하는 주요 기능이 설명되어 있으며, 마지막으로 일부 제한 및 진행 중인 작업에 대해서도 설명합니다.
 
 [Python](https://www.python.org/)은 여러 데이터 과학자들의 도구 상자에 필수적인 도구입니다. 세련되고 간결한 구문, 크로스 플랫폼 지원, 방대한 양의 강력한 라이브러리 컬렉션 및 완성도 있는 개발 도구가 포함되어 있습니다. Python은 데이터 수집 및 처리에서 시작하여 기능 생성을 거쳐 교육, 유효성 검사 및 모델 배포에 이르기까지 일반적으로 기계 학습 모델링에서 사용하는 워크플로의 모든 단계에서 사용 중입니다.
 
@@ -30,12 +29,12 @@ Azure 기계 학습 스튜디오에서는 기계 학습 환경의 다양한 부�
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 
-## 디자인 원칙
+## 기계 학습에서 Python 스크립트의 디자인 원칙
 Azure 기계 학습 스튜디오에서 Python의 기본 인터페이스는 그림 1에 표시된 [Python 스크립트 실행][execute-python-script] 모듈을 통해 실행됩니다.
 
-![image1](./media/machine-learning-execute-python-scripts/figure1a.png)
+![image1](./media/machine-learning-execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
-![image2](./media/machine-learning-execute-python-scripts/figure1b.png)
+![image2](./media/machine-learning-execute-python-scripts/embedded-machine-learning-python-script.png)
 
 그림 1. **Python 스크립트 실행** 모듈입니다.
 
@@ -50,14 +49,16 @@ Azure 기계 학습 스튜디오에서 Python의 기본 인터페이스는 그�
   * R을 사용하여 결과 평가 및 사후 처리.
 
 
-## 기본 사용법
-이 섹션에서는 [Python 스크립트 실행][execute-python-script] 모듈의 몇 가지 기본 사용에 대해 살펴봅니다. 앞서 언급한 대로 Python 모듈에 입력되는 모든 사항은 Pandas 데이터 프레임으로 노출됩니다. Pandas에 대한 정보 및 Pandas를 사용하여 효과적이고 효율적으로 데이터를 조작하는 방법은 W, McKinney의 저서 *Python for Data Analysis*(Sebastopol, CA.: O'Reilly, 2012)에서 찾을 수 있습니다. 이 함수는 튜플, 목록 또는 Numpy 배열과 같이 Python [시퀀스](https://docs.python.org/2/c-api/sequence.html) 내부에 패키지된 단일 Pandas 데이터 프레임을 반환해야 합니다. 그러면 이 시퀀스의 첫 번째 요소가 모듈의 첫 번째 출력 포트에 반환됩니다. 이 스키마는 그림 2에 표시됩니다.
+## Python 스크립트에 대한 기계 학습의 기본 사용 시나리오
+이 섹션에서는 [Python 스크립트 실행][execute-python-script] 모듈의 몇 가지 기본 사용에 대해 살펴봅니다. 앞서 언급한 대로 Python 모듈에 입력되는 모든 사항은 Pandas 데이터 프레임으로 노출됩니다. Python Pandas에 대한 정보 및 Python Pandas를 사용하여 효과적이고 효율적으로 데이터를 조작하는 방법은 W, McKinney의 저서 *Python for Data Analysis*(Sebastopol, CA.: O'Reilly, 2012)에서 찾을 수 있습니다. 이 함수는 튜플, 목록 또는 Numpy 배열과 같이 Python [시퀀스](https://docs.python.org/2/c-api/sequence.html) 내부에 패키지된 단일 Pandas 데이터 프레임을 반환해야 합니다. 그러면 이 시퀀스의 첫 번째 요소가 모듈의 첫 번째 출력 포트에 반환됩니다. 이 스키마는 그림 2에 표시됩니다.
 
-![image3](./media/machine-learning-execute-python-scripts/figure2.png) 그림 2. 입력 포트를 매개 변수에 매핑 및 출력 포트에 값 반환.
+![image3](./media/machine-learning-execute-python-scripts/map-of-python-script-inputs-outputs.png)
+
+그림 2. 입력 포트를 매개 변수에 매핑 및 출력 포트에 값 반환.
 
 입력 포트가 `azureml_main` 함수에 매핑되는 방법에 대한 자세한 의미 체계는 표 1에 표시되어 있습니다.
 
-![image1T](./media/machine-learning-execute-python-scripts/table-1.png)
+![image1T](./media/machine-learning-execute-python-scripts/python-script-inputs-mapped-to-parameters.png)
 
 표 1. 입력 포트를 함수 매개 변수에 매핑.
 
@@ -68,20 +69,20 @@ Azure 기계 학습 스튜디오에서 Python의 기본 인터페이스는 그�
 
 1.	문자열과 숫자 열은 현상태 그대로 변환되고, 데이터 집합의 누락된 값은 Pandas에서 ‘NA’ 값으로 변환됩니다. 그 반대의 경우에도 마찬가지로 변환됩니다(Pandas의 NA 값은 Azure 기계 학습의 누락된 값으로 변환됨).
 2.	Pandas의 인덱스 벡터는 Azure 기계 학습에서 지원되지 않고, Python 함수의 모든 입력 데이터 프레임에는 항상 0부터 시작하여 행 수에서 1을 뺀 인덱스까지 64비트의 숫자 인덱스가 있습니다. 
-3.	Azure 기계 학습 데이터 집합에는 중복된 열 이름과 문자열이 아닌 열 이름이 있을 수 없습니다. 출력 데이터 프레임에 숫자가 아닌 열이 포함된 경우 프레임워크를 통해 해당 열에서 `str`을 호출합니다. 마찬가지로 중복된 모든 열 이름은 손상된 것으로 자동 처리하여 이름을 고유하게 유지합니다.  접미사(2)는 첫 번째 중복에 추가되고 (3)은 두 번째 중복에 추가되는 식입니다.
+3.	Azure 기계 학습 데이터 집합에는 중복된 열 이름과 문자열이 아닌 열 이름이 있을 수 없습니다. 출력 데이터 프레임에 숫자가 아닌 열이 포함된 경우 프레임워크를 통해 해당 열에서 `str`을 호출합니다. 마찬가지로 중복된 모든 열 이름은 손상된 것으로 자동 처리하여 이름을 고유하게 유지합니다. 접미사(2)는 첫 번째 중복에 추가되고 (3)은 두 번째 중복에 추가되는 식입니다.
 
 ## Python 스크립트 운영 가능화
 점수 매기기 실험에서 모든 [Python 스크립트 실행][execute-python-script] 모듈은 웹 서비스로 게시될 때 호출됩니다. 예를 들어, 그림 3에서는 단일 Python 식을 평가하는 코드가 포함된 점수 매기기 실험을 보여줍니다.
 
 ![image4](./media/machine-learning-execute-python-scripts/figure3a.png)
 
-![image5](./media/machine-learning-execute-python-scripts/figure3b.png)
+![image5](./media/machine-learning-execute-python-scripts/python-script-with-python-pandas.png)
 
 그림 3. Python 식을 평가하기 위한 웹 서비스입니다.
 
 이 실험에서 생성된 웹 서비스는 Python 식(문자열로)을 입력으로 받아, Python 인터프리터에 보낸 다음, 식과 평가된 값 모두를 포함하는 표를 반환합니다.
 
-## 기존 Python 모듈 가져오기
+## 기존 Python 스크립트 모듈 가져오기
 많은 과학자들이 일반적으로 사용하는 사례는 기존 Python 스크립트를 Azure 기계 학습 실험으로 통합하는 것입니다. 모든 코드를 단일 스크립트 상자에 연결하고 붙여넣는 대신 [Python 스크립트 실행][execute-python-script] 모듈에서는 Python 모듈을 포함하는 zip 파일이 연결될 수 있는 세 번째 입력 포트를 허용합니다. 그런 다음 런타임 시 실행 프레임워크에서 파일의 압축을 해제하고 Python 인터프리터의 라이브러리 경로에 내용을 추가합니다. 그러면 `azureml_main` 진입점 함수가 이러한 모듈을 직접 가져올 수 있습니다.
 
 예를 들어, 간단한 “Hello, World” 함수를 포함하는 Hello.py라는 파일을 살펴보겠습니다.
@@ -104,8 +105,7 @@ Azure 기계 학습 스튜디오에서 Python의 기본 인터페이스는 그�
 
 그림 6. zip 파일로 업로드된 사용자 정의 Python 코드를 사용하는 샘플 실험.
 
-모듈 출력에는 zip 파일의 패키지가 해제되었으며, `print_hello` 함수도 실행되었음을 표시합니다. 
-![image10](./media/machine-learning-execute-python-scripts/figure7.png)
+모듈 출력에는 zip 파일의 패키지가 해제되었으며, `print_hello` 함수도 실행되었음을 표시합니다. ![image10](./media/machine-learning-execute-python-scripts/figure7.png)
  
 그림 7. [Python 스크립트 실행][execute-python-script] 모듈에서 사용 중인 사용자 정의 함수.
 
@@ -169,5 +169,6 @@ Azure 기계 학습에 설치된 Anaconda 환경에는 NumPy, SciPy 및 Scikits-
 <!-- Module References -->
 [execute-python-script]: https://msdn.microsoft.com/library/azure/cdb56f95-7f4c-404d-bde7-5bb972e6f232/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -3,17 +3,17 @@
    description="이 문서에서는 사용자의 회사 도메인 이름이 트래픽 관리자 도메인 이름을 가리킵니다."
    services="traffic-manager"
    documentationCenter=""
-   authors="cherylmc"
+   authors="joaoma"
    manager="adinah"
    editor="tysonn" />
-<tags 
+<tags
    ms.service="traffic-manager"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/27/2015"
-   ms.author="cherylmc" />
+   ms.date="05/27/2015"
+   ms.author="joaoma;cherylmc" />
 
 # 회사 인터넷 도메인이 트래픽 관리자 도메인을 가리키도록 설정
 
@@ -21,11 +21,11 @@
 
 예를 들어, 회사 도메인 이름 **www.contoso.com**을 트래픽 관리자 도메인 이름 **contoso.trafficmanager.net**으로 가리키도록 하려면 DNS 리소스 레코드를 다음과 같이 업데이트하세요.
 
-    www.contoso.com IN CNAME contoso.trafficmanager.net 
+    www.contoso.com IN CNAME contoso.trafficmanager.net
 
-이제  *www.contoso.com*에 대한 모든 트래픽 요청이  *contoso.trafficmanager.net*에 전달됩니다 .
+이제 *www.contoso.com*으로 요청되는 모든 트래픽이 *contoso.trafficmanager.net*으로 이동됩니다.
 
->[AZURE.IMPORTANT] *contoso.com*과 같은 두 번째 수준의 도메인이 트래픽 관리자를 가리킬 수 없습니다. DNS 프로토콜의 제한사항이며, CNAME 레코드를 두 번째 수준 도메인 이름으로 허용하지 않습니다.
+>[AZURE.IMPORTANT]*contoso.com*과 같은 두 번째 수준의 도메인이 트래픽 관리자 도메인을 가리킬 수 없습니다. DNS 프로토콜의 제한사항이며, CNAME 레코드를 두 번째 수준 도메인 이름으로 허용하지 않습니다.
 
 ## 참고 항목
 
@@ -34,5 +34,6 @@
 [트래픽 관리자 구성 작업](https://msdn.microsoft.com/library/azure/hh744830.aspx)
 
 [트래픽 관리자 개요](traffic-manager-overview.md)
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

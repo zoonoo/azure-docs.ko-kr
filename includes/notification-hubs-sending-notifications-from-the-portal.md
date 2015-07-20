@@ -12,4 +12,4 @@
 
 이 자습서의 다음 섹션에서는 [알림 허브 REST 인터페이스](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx)를 사용하여 앱에서 직접 알림 메시지를 보내는 방법을 알아봅니다. 장치에서 보낸 알림이 등록된 모든 장치에 수신됩니다.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

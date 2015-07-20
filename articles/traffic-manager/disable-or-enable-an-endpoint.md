@@ -3,7 +3,7 @@
    description="이 문서는 트래픽 관리자 프로필 끝점을 사용하거나 사용하지 않도록 설정하는 데 도움이 됩니다."
    services="traffic-manager"
    documentationCenter="na"
-   authors="cherylmc"
+   authors="joaoma"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="02/23/2015"
-   ms.author="cherylmc" />
+   ms.date="05/27/2015"
+   ms.author="joaoma;cherylmc" />
 
 # 트래픽 관리자 끝점 사용 안 함 또는 사용
 
 트래픽 관리자 프로필의 일부인 개별 끝점을 사용하지 않도록 설정할 수도 있습니다. 끝점에는 클라우드 서비스와 웹 사이트가 둘 다 포함됩니다. 끝점을 사용하지 않도록 설정하는 경우 프로필의 일부로 유지되지만 끝점이 없는 것처럼 프로필이 작동합니다. 이 작업은 유지 관리 모드이거나 다시 배포할 예정인 끝점을 일시적으로 제거하는 데 매우 유용합니다. 끝점이 다시 작동하여 실행되면 사용하도록 설정할 수 있습니다.
 
-[AZURE.NOTE] **끝점을 사용하지 않도록 설정하는 경우 Azure의 끝점 배포 상태에는 영향을 주지 않습니다. 정상 끝점은 실행 상태로 유지되며 트래픽 관리자에서 사용하지 않도록 설정된 경우에도 트래픽을 수신할 수 있습니다. 또한 한 프로필에서 끝점을 사용하지 않도록 설정해도 다른 프로필의 해당 끝점 상태에는 영향을 주지 않습니다.**
+[AZURE.NOTE]**끝점을 해제해도 Azure의 배포 상태에는 영향을 주지 않습니다. 정상 끝점은 실행 상태로 유지되며 트래픽 관리자에서 사용하지 않도록 설정된 경우에도 트래픽을 수신할 수 있습니다. 또한 한 프로필에서 끝점을 해제 해도 다른 프로필의 끝점 상태는 변경 되지 않습니다.**.
 
 ## 끝점을 사용하지 않도록 설정하려면
 
@@ -44,9 +44,10 @@
 
 [클라우드 서비스](http://go.microsoft.com/fwlink/?LinkId=314074)
 
-[웹 사이트](http://go.microsoft.com/fwlink/p/?LinkId=393327)
+[웹사이트](http://go.microsoft.com/fwlink/p/?LinkId=393327)
 
 
 [트래픽 관리자 작업(REST API 참조)](http://go.microsoft.com/fwlink/?LinkId=313584)
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

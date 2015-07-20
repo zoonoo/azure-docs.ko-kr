@@ -6,7 +6,6 @@
    authors="cherylmc"
    manager="jdial"
    editor="tysonn" />
-
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
@@ -150,4 +149,4 @@ VPN 게이트웨이 라우팅 유형을 변경해야 하는 경우 기존 게이
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

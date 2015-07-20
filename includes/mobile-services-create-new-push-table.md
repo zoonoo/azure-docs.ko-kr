@@ -20,4 +20,4 @@
 <!-- URLs -->
 [Azure 관리 포털]: https://manage.windowsazure.com/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

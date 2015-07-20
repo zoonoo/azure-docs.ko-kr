@@ -65,5 +65,6 @@
 
 * [Azure에서 Linux 및 오픈 소스 컴퓨팅](virtual-machines-linux-opensource.md)
 * [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-linux-how-to-log-on.md)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

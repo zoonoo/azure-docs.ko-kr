@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="RemoteApp의 하이브리드 컬렉션을 만드는 방법" 
+	pageTitle="Azure RemoteApp용 하이브리드 컬렉션을 만드는 방법" 
 	description="내부 네트워크에 연결되는 RemoteApp 배포를 만드는 방법에 대해 알아봅니다." 
 	services="remoteapp" 
 	documentationCenter="" 
@@ -13,19 +13,19 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="05/28/2015" 
 	ms.author="elizapo"/>
 
-# RemoteApp의 하이브리드 컬렉션을 만드는 방법
+# Azure RemoteApp용 하이브리드 컬렉션을 만드는 방법
 
 다음과 같은 두 가지 종류의 RemoteApp 컬렉션이 있습니다.
 
 - 클라우드: 완전히 Azure에서 상주하며 Azure 관리 포털의 **빠른 생성** 옵션을 사용하여 만들어집니다.  
 - 하이브리드: 온-프레미스 액세스를 위한 가상 네트워크를 포함하며 관리 포털의 **VNET으로 만들기** 옵션을 사용하여 생성됩니다.
 
-이 자습서에서는 하이브리드 컬렉션을 만드는 프로세스를 단계별로 안내합니다. 이 프로세스는 다음 7개의 단계로 구성됩니다.
+이 자습서에서는 하이브리드 컬렉션을 만드는 프로세스를 단계별로 안내합니다. 8가지 단계가 있습니다.
 
-1.	[RemoteApp에 대한 사용자 지정 이미지](remoteapp-imageoptions.md)를 만들거나 구독에 포함된 이미지 중 하나를 선택합니다.
+1.	컬렉션에 사용할 [이미지](remoteapp-imageoptions.md)를 결정합니다. 사용자 지정 이미지를 만들거나 구독에 포함된 Microsoft 이미지 중 하나를 선택할 수 있습니다.
 2. 가상 네트워크를 설정합니다.
 2.	RemoteApp 컬렉션을 만듭니다.
 2.	컬렉션을 가상 네트워크에 연결합니다.
@@ -42,8 +42,8 @@
 - RemoteApp 서비스 계정으로 사용할 Active Directory의 사용자 계정을 만듭니다. 이 계정의 권한은 도메인에 컴퓨터를 가입시킬 수 있는 권한만으로 제한합니다.
 - 온-프레미스 네트워크에 대한 정보 수집: IP 주소 정보 및 VPN 장치 세부 정보입니다.
 - [Azure PowerShell](../install-configure-powershell.md) 모듈을 설치합니다.
-- 액세스 권한을 부여할 사용자에 대한 정보를 수집합니다. 이 정보는 Microsoft 계정 정보나 Active Directory 작업 계정 정보가 될 수 있습니다.
-- 템플릿 이미지를 만듭니다. RemoteApp 템플릿 이미지는 사용자를 위해 게시하려는 앱 및 프로그램을 포함합니다. 자세한 내용은 [RemoteApp 이미지 만들기](remoteapp-imageoptions.md)를 참조하세요. 
+- 액세스 권한을 부여할 사용자에 대한 정보를 수집합니다. 각 사용자당 하나의 Azure Active Directory 사용자 계정 이름(예: name@contoso.com)이 필요합니다.
+- 템플릿 이미지를 선택합니다. RemoteApp 템플릿 이미지는 사용자를 위해 게시하려는 앱 및 프로그램을 포함합니다. 자세한 내용은 [RemoteApp 이미지 옵션](remoteapp-imageoptions.md)을 참조하세요. 
 - [RemoteApp에 대해 Azure Active Directory를 구성합니다](remoteapp-ad.md).
 
 
@@ -134,5 +134,6 @@ RemoteApp 컬렉션을 만들었으므로 원격 리소스를 사용할 수 있�
 RemoteApp 하이브리드 컬렉션을 성공적으로 만들고 배포했습니다. 다음 단계는 사용자가 원격 데스크톱 클라이언트를 다운로드하여 설치하도록 설정하는 것입니다. RemoteApp 빠른 시작 페이지에서 클라이언트의 URL을 찾을 수 있습니다. 그런 다음 사용자가 클라이언트에 로그인하여 게시된 앱에 액세스하도록 합니다.
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

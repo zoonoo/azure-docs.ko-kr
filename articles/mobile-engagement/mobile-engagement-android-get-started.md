@@ -1,29 +1,30 @@
-<properties 
-	pageTitle="Azure Mobile Engagement 시작" 
+<properties
+	pageTitle="Azure Mobile Engagement 시작"
 	description="Android 앱에 대해 분석 및 푸시 알림과 함께 Azure Mobile Engagement를 사용하는 방법을 알아봅니다."
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="05/01/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="get-started-article" 
+	ms.date="05/01/2015"
 	ms.author="piyushjo" />
-	
+
 # Android 앱용 Azure Mobile Engagement 시작
 
 > [AZURE.SELECTOR]
 - [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
-- [iOS - Obj C](mobile-engagement-ios-get-started.md) 
+- [iOS - Obj C](mobile-engagement-ios-get-started.md)
 - [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
 - [Android](mobile-engagement-android-get-started.md)
+- [Cordova](mobile-engagement-cordova-get-started.md)
 
 이 항목에서는 Azure Mobile Engagement를 사용하여 앱 사용을 이해하고 Android 응용 프로그램의 분할된 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 Mobile Engagement를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다. 해당 시나리오에서 기본 데이터를 수집하고 GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 앱을 만듭니다. 이 과정을 완료하면 장치 속성에 따라 특정 사용자를 대상으로 지정하거나 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다. Mobile Engagement를 사용하여 장치의 특정 사용자 및 그룹을 처리하는 방법을 알아보려면 다음 자습서도 함께 완료해야 합니다.
 
@@ -33,7 +34,7 @@
 + Android SDK(Android Studio를 사용한다고 가정). [여기](http://go.microsoft.com/fwlink/?LinkId=389797)에서 다운로드할 수 있습니다.
 + [Mobile Engagement Android SDK]
 
-> [AZURE.IMPORTANT]Android 앱의 다른 모든 Mobile Engagement 자습서를 사용하기 전에 이 자습서를 완료해야 하며, 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하십시오.
+> [AZURE.IMPORTANT]Android 앱의 다른 모든 Mobile Engagement 자습서를 사용하기 전에 이 자습서를 완료해야 하며, 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
 <!--
 ##<a id="register"></a>Enable Google Cloud Messaging
@@ -45,14 +46,14 @@ You will use your GCM API key later when setting up your app for Mobile Engageme
 
 ##<a id="setup-azme"></a>앱용 Mobile Engagement 설정
 
-1. [Azure 관리 포털]에 로그온하고 화면 맨 아래에 있는 **+새로 만들기**를 클릭합니다.
+1. [Azure 관리 포털](https://manage.windowsazure.com)에 로그온하고 화면 맨 아래에 있는 **+새로 만들기**를 클릭합니다.
 
 2. **앱 서비스**, **Mobile Engagement**, **만들기**를 차례로 클릭합니다.
 
    	![][7]
 
 3. 팝업이 표시되면 다음 정보를 입력합니다.
- 
+
    	![][8]
 
 	1. **응용 프로그램 이름**: 응용 프로그램의 이름을 입력할 수 있습니다. 원하는 모든 문자를 사용할 수 있습니다.
@@ -66,11 +67,11 @@ You will use your GCM API key later when setting up your app for Mobile Engageme
 	작업을 완료한 후 확인 단추를 클릭하여 앱 만들기를 완료합니다.
 
 4. 이제 **응용 프로그램** 탭에서 다음과 같이 방금 만든 앱을 클릭/선택합니다.
- 
+
    	![][9]
 
 5. 그런 다음 **연결 정보**를 클릭하여 SDK 통합에 적용할 연결 설정을 표시합니다.
- 
+
    	![][10]
 
 6. 마지막으로 이 앱을 응용 프로그램 코드에서 식별하는 데 필요한 **연결 문자열**을 작성합니다.
@@ -118,7 +119,7 @@ SDK 라이브러리를 다운로드하여 통합합니다.
 
 1. [Mobile Engagement Android SDK]를 다운로드합니다.
 2. 보관 파일을 컴퓨터의 폴더로 추출합니다.
-3. 이 SDK의 최신 버전에 대한 .jar 라이브러리를 확인하고(이 설명서는 3.0.0 버전용으로 작성되었음) 클립보드로 복사합니다.
+3. 이 SDK의 최신 버전에 대한 .jar 라이브러리를 확인하고 클립보드로 복사합니다.
 
 	![][17]
 
@@ -154,34 +155,27 @@ SDK 라이브러리를 다운로드하여 통합합니다.
 ###권한 및 서비스 선언 추가
 
 1. 프로젝트의 Manifest.xml에서 `<application>` 태그 바로 앞에 다음 권한을 추가합니다.
-	
+
 		<uses-permission android:name="android.permission.INTERNET"/>
 		<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 		<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 		<uses-permission android:name="android.permission.VIBRATE" />
-		<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 		<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
 
 	결과는 다음과 같아야 합니다.
 
 	![][21]
 
-2. < application > 태그와 </application > 태그 사이에 다음을 추가하여 에이전트 서비스를 선언합니다.
+2. `<application>` 태그와 `</application>` 태그 사이에 다음을 추가하여 에이전트 서비스를 선언합니다.
 
 		<service
  			android:name="com.microsoft.azure.engagement.service.EngagementService"
  			android:exported="false"
- 			android:label="<Your application name>Service"
+ 			android:label="<Your application name>"
  			android:process=":Engagement"/>
 
-3. 방금 붙여넣은 코드에서 label의 "< Your application name>"을 바꿉니다. 예:
-
-		<service
- 			android:name="com.microsoft.azure.engagement.service.EngagementService"
- 			android:exported="false"
- 			android:label="MySuperAppService"
- 			android:process=":Engagement"/>
+3. 방금 붙여넣은 코드에서 레이블의 `"<Your application name>"`을 바꿉니다. 이는 사용자가 장치에서 실행 중인 서비스를 확인할 수 있는 설정 메뉴에 표시되는 내용입니다. 예를 들어 해당 레이블에 "서비스"라는 단어를 추가할 수 있습니다.
 
 ###Mobile Engagement에 화면 보내기
 
@@ -197,7 +191,7 @@ SDK 라이브러리를 다운로드하여 통합합니다.
 
 1. Mobile Engagement 포털로 이동합니다.
 
-	Azure 포털에서 이 프로젝트용으로 사용 중인 앱이 열려 있는지 확인하고 아래쪽에서 **참여**를 클릭합니다.
+	Azure 포털에서 이 프로젝트에 사용하고 있는 앱으로 이동한 후 하단에 있는 **Engage** 단추를 클릭합니다.
 
 	![][26]
 
@@ -218,7 +212,7 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
 ### 앱 내 메시징 사용
 
-1. 아래의 앱 내 메시징 리소스를 Manifest.xml 파일의 < application > 태그와 </application > 태그 사이에 복사합니다.
+1. 아래의 앱 내 메시징 리소스를 Manifest.xml 파일의 `<application>` 태그와 `</application>` 태그 사이에 복사합니다.
 
 		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementTextAnnouncementActivity" android:theme="@android:style/Theme.Light">
   			<intent-filter>
@@ -240,6 +234,12 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 				<category android:name="android.intent.category.DEFAULT" />
 			</intent-filter>
 		</activity>
+		<activity android:name="com.microsoft.azure.engagement.reach.activity.EngagementLoadingActivity" android:theme="@android:style/Theme.Dialog">
+			<intent-filter>
+				<action android:name="com.microsoft.azure.engagement.reach.intent.action.LOADING"/>
+				<category android:name="android.intent.category.DEFAULT"/>
+			</intent-filter>
+		</activity>
 		<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachReceiver" android:exported="false">
 			<intent-filter>
 				<action android:name="android.intent.action.BOOT_COMPLETED"/>
@@ -247,33 +247,49 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 				<action android:name="com.microsoft.azure.engagement.intent.action.MESSAGE"/>
 				<action android:name="com.microsoft.azure.engagement.reach.intent.action.ACTION_NOTIFICATION"/>
 				<action android:name="com.microsoft.azure.engagement.reach.intent.action.EXIT_NOTIFICATION"/>
-				<action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
 				<action android:name="com.microsoft.azure.engagement.reach.intent.action.DOWNLOAD_TIMEOUT"/>
+			</intent-filter>
+		</receiver>
+		<receiver android:name="com.microsoft.azure.engagement.reach.EngagementReachDownloadReceiver">
+			<intent-filter>
+				<action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
 			</intent-filter>
 		</receiver>
 
 2. 다음 단계에 따라 리소스를 프로젝트에 복사합니다.
-	1. SDK 다운로드 콘텐츠로 돌아가 'res' 폴더를 엽니다.
-	2. 2개의 폴더를 선택하고 클립보드에 복사합니다.
+	1. 다시 SDK 다운로드 콘텐츠로 돌아가서 'res' 폴더를 복사합니다.
 
 		![][23]
 
-	4. Android Studio로 돌아가 프로젝트의 'res' 부분을 선택하고 프로젝트에 리소스를 붙여넣어 추가합니다.
+	2. Android Studio로 돌아가서 프로젝트 파일의 ‘main’ 디렉터리를 선택하고 프로젝트에 리소스를 붙여넣어 추가합니다.
 
 		![][24]
 
-###알림의 기본 아이콘 지정
-다음 코드는 알림과 함께 표시될 기본 아이콘을 정의합니다. 여기에서는 Android Studio에서 생성한 프로젝트와 함께 제공되는 아이콘을 사용했습니다. 이 xml 조각을 Manifest.xml 파일의 < application > 태그와 </application > 태그 사이에 붙여넣을 수 있습니다. 응용 프로그램이나 다른 아이콘 파일에 해당 ic_launcher가 존재하는지 확인합니다. 없으면 알림이 표시되지 않습니다.
+###알림 아이콘 지정
 
-		<meta-data android:name="engagement:reach:notification:icon" android:value="ic_launcher" />
+다음 코드에서는 앱 및 시스템 알림에 둘 다 표시하는 데 사용되는 아이콘을 정의합니다.
+
+이 아이콘은 앱 내 알림에는 선택 사항이지만 시스템 알림에는 필수입니다. 잘못된 아이콘을 사용하면 Android에서는 시스템 알림을 거부합니다.
+
+이 xml 조각을 Manifest.xml 파일의 `<application>` 태그와 `</application>` 태그 사이에 붙여넣을 수 있습니다.
+
+**drawable** 폴더(예: ``engagement_close.png``)의 하나에 있는 아이콘을 사용하고 있는지 확인하세요. **mipmap** 폴더는 지원하지 않습니다.
+	
+		<meta-data android:name="engagement:reach:notification:icon" android:value="engagement_close"/>
+
+구문을 표시하는 예일 뿐이지만 [Android 디자인 지침](http://developer.android.com/design/patterns/notifications.html)에 따라 알림에 적합한 아이콘을 사용해야 합니다.
+
+시작 관리자 아이콘을 사용하면 안 됩니다. 시작 관리자는 다른 해상도이고 일반적으로 지원되지 않는 mipmap 폴더에 있습니다.
+
+>[AZURE.TIP]올바른 아이콘 해상도를 사용하는지 확인하려면 [해당 예제](https://www.google.com/design/icons)를 확인하세요. *알림* 섹션까지 아래로 스크롤하고 아이콘을 클릭하고 `PNGS`를 클릭하여 아이콘 drawable 집합을 다운로드합니다. 각 아이콘 버전에 대해 어던 해상도와 어떤 drawable 폴더를 사용하는지 확인할 수 있습니다.
 
 ###앱이 GCM 푸시 알림을 받을 수 있도록 설정
 
-1. 다음을 복사하여 Manifest.xml 파일의 < application > 태그와 </application > 태그 사이에 붙여넣어 gcm:sender 메타데이터를 입력합니다. 아래에서 별표로 숨겨진 값은 Google Play 콘솔에서 가져온 `project number`입니다. \\n은 의도적으로 프로젝트 번호를 종료하도록 합니다. 
+1. 다음을 복사하여 Manifest.xml 파일의 `<application>` 태그와 `</application>` 태그 사이에 붙여넣어 gcm:sender 메타데이터를 입력합니다. 아래에서 별표로 숨겨진 값은 Google Play 콘솔에서 가져온 `project number`입니다. \\n은 의도적으로 프로젝트 번호를 종료하도록 합니다.
 
 		<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 
-2. 아래 코드를 Manifest.xml 파일의 < application > 태그와 </application > 태그 사이에 붙여넣습니다. `<category android:name="com.mycompany.mysuperapp" />`에서는 프로젝트의 패키지 이름을 사용했습니다. 고유한 프로덕션 프로젝트에서는 달라질 수 있습니다.
+2. 아래 코드를 Manifest.xml 파일의 `<application>` 태그와 `</application>` 태그 사이에 붙여넣습니다. 패키지 이름을 <Your package name>로 바꿉니다.
 
 		<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMEnabler"
 		android:exported="false">
@@ -281,20 +297,20 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 				<action android:name="com.microsoft.azure.engagement.intent.action.APPID_GOT" />
 			</intent-filter>
 		</receiver>
-		
+
 		<receiver android:name="com.microsoft.azure.engagement.gcm.EngagementGCMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
 			<intent-filter>
 				<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 				<action android:name="com.google.android.c2dm.intent.RECEIVE" />
-				<category android:name="com.mycompany.mysuperapp" />
+				<category android:name="<Your package name>" />
 			</intent-filter>
 		</receiver>
 
-3. 아래에 강조 표시된 마지막 권한 집합을 < application> 태그 아래 또는 뒤에 추가합니다. 여기에서 사용한 이 프로젝트 패키지 이름도 고유한 프로덕션 앱에서는 바꾸어야 합니다.
+3. 강조 표시된 마지막 권한 집합을 `<application>` 태그 앞에 추가합니다. `<Your package name>`을 응용 프로그램의 실제 패키지 이름으로 바꿉니다.
 
 		<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-		<uses-permission android:name="com.mycompany.mysuperapp.permission.C2D_MESSAGE" />
-		<permission android:name="com.mycompany.mysuperapp.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+		<uses-permission android:name="<Your package name>.permission.C2D_MESSAGE" />
+		<permission android:name="<Your package name>.permission.C2D_MESSAGE" android:protectionLevel="signature" />
 
 ###Mobile Engagement에 GCM API 키에 대한 액세스 권한 부여
 
@@ -326,7 +342,7 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
 2. **새 알림**을 클릭하여 푸시 캠페인을 만듭니다. ![][35]
 
-3. ![][36] 단계를 수행하여 캠페인의 첫 번째 필드를 설정합니다.
+3. 다음 단계를 수행하여 캠페인의 첫 번째 필드를 설정합니다. ![][36]
 
 	1. 캠페인 이름을 원하는 이름으로 지정합니다.
 	2. **Delivery 유형**을 *시스템 알림/심플*로 선택: 이 알림은 제목 및 몇 줄의 텍스트를 특징으로 하는 간단한 Android 푸시 알림 유형입니다.
@@ -378,4 +394,4 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [38]: ./media/mobile-engagement-android-get-started/campaign-create.png
 [39]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

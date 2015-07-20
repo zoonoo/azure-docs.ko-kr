@@ -42,5 +42,6 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure 서비
 
 * Azure 자동화 [시작 자습서](../automation-create-runbook-from-samples.md) 참조
 * [PowerShell을 사용하여 서비스 버스 관리](service-bus-powershell-how-to-provision.md) 문서 참조
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

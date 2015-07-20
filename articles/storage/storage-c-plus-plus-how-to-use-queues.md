@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/06/2015" 
+    ms.date="06/22/2015" 
     ms.author="tamram"/>
 
 # C++에서 큐 저장소를 사용하는 방법  
@@ -21,9 +21,9 @@
 [AZURE.INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
 ## 개요
-이 가이드에서는 Azure 큐 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 C++로 작성되었으며 [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/v0.5.0-preview/README.md)를 사용합니다. 여기서 다루는 시나리오에는 큐 메시지 **삽입**, **보기**, **가져오기** 및 **삭제**와 **큐 만들기 및 삭제**가 포함됩니다.
+이 가이드에서는 Azure 큐 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 C++로 작성되었으며 [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/v1.0.0/README.md)를 사용합니다. 여기서 다루는 시나리오에는 큐 메시지 **삽입**, **보기**, **가져오기** 및 **삭제**와 **큐 만들기 및 삭제**가 포함됩니다.
 
->[AZURE.NOTE]이 가이드는 Azure Storage Client Library for C++ 버전 0.5.0 이상을 대상으로 합니다. 권장되는 버전은 Storage Client Library 0.5.0이며, [NuGet](http://www.nuget.org/packages/wastorage) 또는 [GitHub](https://github.com/)를 통해 사용 가능합니다.
+>[AZURE.NOTE]이 가이드는 Azure Storage Client Library for C++ 버전 1.0.0 이상을 대상으로 합니다. 권장되는 버전은 Storage Client Library 1.0.0이며, [NuGet](http://www.nuget.org/packages/wastorage) 또는 [GitHub](https://github.com/)를 통해 사용 가능합니다.
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -38,8 +38,8 @@ Azure Storage Client Library for C++를 설치하려면 다음 메서드를 사�
 -	**Linux:** [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 페이지의 지침을 따릅니다.  
 -	**Windows:** Visual Studio에서 **도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔**을 클릭합니다. [NuGet 패키지 관리자 콘솔](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)에 다음 명령을 입력하고 **ENTER**를 누릅니다.  
 
-			Install-Package wastorage -Pre
-
+		Install-Package wastorage 
+ 
 ## 큐 저장소에 액세스하도록 응용 프로그램 구성
 Azure 저장소 API를 사용하여 큐에 액세스하려는 C++ 파일의 맨 위에 다음 include 문을 추가합니다.
 
@@ -83,7 +83,7 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 선택�
 	azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
 
 	// Create the queue if it doesn't already exist.
-	queue.create_if_not_exists();
+ 	queue.create_if_not_exists();  
 
 ## 방법: 큐에 메시지 삽입
 기존 큐에 메시지를 삽입하려면 먼저 새 **cloud_queue_message**를 만듭니다. 그런 다음, **add_message** 메서드를 호출합니다. **cloud_queue_message**는 문자열(UTF-8 형식) 또는 **바이트** 배열에서 만들 수 있습니다. 다음은 큐가 없는 경우 새로 만들고 'Hello, World' 메시지를 삽입하는 코드입니다.
@@ -119,7 +119,7 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 선택�
 	// Peek at the next message.
 	azure::storage::cloud_queue_message peeked_message = queue.peek_message();
 
-	// Output the message value.
+	// Output the message content.
 	std::wcout << U("Peeked message content: ") << peeked_message.content_as_string() << std::endl;
 
 ## 방법: 대기 중인 메시지의 콘텐츠 변경
@@ -142,6 +142,8 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 선택�
 
 	changed_message.set_content(U("Changed message"));
 	queue.update_message(changed_message, std::chrono::seconds(60), true);
+
+	// Output the message content.
 	std::wcout << U("Changed message content: ") << changed_message.content_as_string() << std::endl;  
 
 ## 방법: 큐에서 다음 메시지 제거
@@ -161,8 +163,7 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 선택�
 	std::wcout << U("Dequeued message: ") << dequeued_message.content_as_string() << std::endl;
 
 	// Delete the message.
-	queue.delete_message(dequeued_message);  
-
+	queue.delete_message(dequeued_message); 
 
 ## 방법: 큐에서 메시지를 제거하는 추가 옵션 활용
 큐에서 메시지 검색을 사용자 지정할 수 있는 방법으로는 두 가지가 있습니다. 먼저, 메시지의 배치(최대 32개)를 가져올 수 있습니다. 두 번째로, 표시하지 않는 제한 시간을 더 길거나 더 짧게 설정하여 코드에서 각 메시지를 완전히 처리하는 시간을 늘리거나 줄일 수 있습니다. 다음 코드 예제는 **get_messages** 메서드를 사용하여 한 번 호출에 20개의 메시지를 가져옵니다. 그런 다음 **for** 루프를 사용하여 각 메시지를 처리합니다. 또한 각 메시지에 대해 표시하지 않는 제한 시간을 5분으로 설정합니다. 5분은 모든 메시지에 대해 동시에 시작되므로, **get_messages**에 대한 호출 이후로 5분이 지나고 나면 삭제되지 않은 모든 메시지가 다시 표시됩니다.
@@ -184,12 +185,10 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 선택�
 	// Retrieve 20 messages from the queue with a visibility timeout of 300 seconds.
 	std::vector<azure::storage::cloud_queue_message> messages = queue.get_messages(20, std::chrono::seconds(300), options, context);
 		
-	std::vector<azure::storage::cloud_queue_message>::const_iterator i;
-
-	for (i = messages.cbegin(); i != messages.cend(); ++i)
+	for (auto it = messages.cbegin(); it != messages.cend(); ++it)
 	{
-    	// Display the contents of the message.
-    	std::wcout << U("Get: ") << i->content_as_string() << std::endl;
+		// Display the contents of the message.
+		std::wcout << U("Get: ") << it->content_as_string() << std::endl;
 	}
 
 ## 방법: 큐 길이 가져오기
@@ -237,6 +236,6 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 선택�
 -	[Azure 저장소 MSDN 참조](https://msdn.microsoft.com/library/azure/gg433040.aspx)
 -	[Azure 저장소 설명서](http://azure.microsoft.com/documentation/services/storage/)
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

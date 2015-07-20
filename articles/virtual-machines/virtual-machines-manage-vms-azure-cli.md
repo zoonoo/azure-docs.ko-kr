@@ -1,9 +1,9 @@
 <properties
-   pageTitle="Mac, Linux 및 Windows용 Azure CLI를 사용하여 Azure VM 관리"
+   pageTitle="Mac, Linux 및 Windows | Microsoft Azure용 Azure CLI를 사용하여 Azure VM 관리"
    description="Mac, Linux 및 Windows용 Azure CLI를 사용하여 Azure VM을 생성, 관리 및 삭제하는 방법을 설명합니다."
    services="virtual-machines"
    documentationCenter="virtual-machines"
-   authors="squillace"
+   authors="dlepow"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="04/23/2015"
-   ms.author="rasquill"/>
+   ms.date="06/09/2015"
+   ms.author="danlep"/>
 
 # Mac, Linux 및 Windows용 Azure CLI를 사용하여 가상 컴퓨터 관리
 
@@ -38,7 +38,7 @@ VM에 대한 정보를 가져오려면 이 명령을 실행하고 < and > 문자
 JSON 문서로 $vm 변수에 출력을 저장하려면 다음을 실행합니다.
 
     vmInfo=$(azure vm show -g <group name> -n <virtual machine name> --json)
-    
+
 또는 stdout를 파일에 파이프할 수 있습니다.
 
 ## Linux 기반 가상 컴퓨터에 로그온
@@ -62,7 +62,7 @@ JSON 문서로 $vm 변수에 출력을 저장하려면 다음을 실행합니다
 
 새 디스크를 연결하려면 다음 명령을 실행합니다.
 
-     azure vm disk attach-new <resource-group> <vm-name> <size-in-gb> 
+     azure vm disk attach-new <resource-group> <vm-name> <size-in-gb>
 
 기존 데이터 디스크를 연결하려면 다음 명령을 실행합니다.
 
@@ -73,20 +73,12 @@ JSON 문서로 $vm 변수에 출력을 저장하려면 다음을 실행합니다
 새 Linux 기반 VM을 만들려면 리소스 그룹 이름, 위치, 이미지 이름, VM 이름 및 백업 .vhd 이미지를 저장할 저장소 계정 등 여러 값을 직접 입력해야 합니다. 사용하려는 정보가 있는 경우 다음을 입력하면 Azure CLI에서 대화형 세션을 만들어 해당 값을 입력하라는 메시지를 표시할 수 있습니다.
 
     azure vm create
-    
+
 물론 이러한 값이 이미 있는 경우 `azure help vm create`를 입력하면 적절한 스위치를 찾아서 해당 값을 직접 전달할 수 있습니다.
 
 ## 다음 단계
 
 **arm** 모드의 Azure CLI 사용에 대한 더 많은 예제는 [Azure 리소스 관리에 Mac, Linux 및 Windows용 Microsoft Azure CLI 사용](../xplat-cli-resource-manager.md)을 참조하세요. Azure 리소스 및 해당 개념에 대한 자세한 내용은 [Azure 리소스 관리자 개요](../resource-group-overview.md)를 참조하세요.
-
-
-
-
-
-
-
-
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

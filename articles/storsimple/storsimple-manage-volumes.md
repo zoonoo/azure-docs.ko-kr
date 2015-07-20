@@ -5,7 +5,8 @@
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -178,6 +179,6 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 [StorSimple 볼륨 복제](storsimple-clone-volume.md) 방법에 대해 배웁니다.
 
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

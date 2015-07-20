@@ -32,7 +32,7 @@
 
 ##Android 프로젝트에 Engagement SDK 및 서비스 포함
 
-`mobile-engagement-VERSION.jar`을(를) 가져와 Android 프로젝트의 `libs` 폴더에 넣습니다(libs 폴더가 아직 존재하지 않은 경우 생성).
+[여기](http://go.microsoft.com/?linkid=9863935&clcid=0x409)에서 Android SDK를 다운로드합니다. `mobile-engagement-VERSION.jar`을 가져와서 Android 프로젝트의 폴더에 넣습니다(`libs` 폴더가 아직 존재하지 않는 경우 생성).
 
 > [AZURE.IMPORTANT]ProGuard로 응용 프로그램 패키지를 빌드하는 경우 일부 클래스를 유지해야 합니다. 다음 구성 코드 조각을 사용할 수 있습니다.
 >
@@ -165,7 +165,7 @@ Engagement에서 사용자, 세션, 작업, 충돌 및 기술 통계를 계산�
 
 ##테스트
 
-이제 Android에서 Engagement 통합을 테스트하는 방법을 읽어보고 통합을 확인하세요.
+이제 에뮬레이터와 장치에서 모바일 앱을 실행하고 모니터 탭에서 세션을 등록하는지 확인하여 통합을 확인하세요.
 
 다음 섹션은 선택 사항입니다.
 
@@ -309,5 +309,6 @@ Engagement는 이 설정을 관리하기 위한 기본 설정 파일 내에서 �
 
 <!-- URLs. -->
 [장치 API]: http://go.microsoft.com/?linkid=9876094
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

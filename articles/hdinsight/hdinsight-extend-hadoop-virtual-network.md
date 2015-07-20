@@ -8,13 +8,13 @@
 	editor="cgronlun"/>
 
 <tags
-	ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="04/28/2015"
-	ms.author="larryfr"/>
+   ms.service="hdinsight"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="07/06/2015"
+   ms.author="larryfr"/>
 
 
 #Azure 가상 네트워크를 사용하여 HDInsight 기능 확장
@@ -173,4 +173,4 @@ HDInsight에서 서비스에 액세스하는 문제가 발생하는 경우 네�
 
 Azure 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 개요](http://msdn.microsoft.com/library/azure/jj156007.aspx)(영문)를 참조하세요.
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

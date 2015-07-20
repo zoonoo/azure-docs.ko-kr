@@ -5,13 +5,14 @@
    documentationCenter=""
    authors="alkohli"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/17/2015"
+   ms.date="05/29/2015"
    ms.author="alkohli" />
 
 # StorSimple 장치에 대한 장애 조치 및 재해 복구
@@ -56,7 +57,7 @@ DR(재해 복구) 시나리오에서 기본 장치가 작동을 중지합니다.
 
 	1. 볼륨 컨테이너 목록에서 장애 조치할 볼륨 컨테이너를 선택합니다.
 
-		>[AZURE.NOTE] **클라우드 스냅숏과 연관된 볼륨 컨테이너와 오프라인 볼륨만 표시됩니다.**
+		>[AZURE.NOTE]**클라우드 스냅숏과 연결된 볼륨 컨테이너와 오프라인 볼륨만 표시됩니다.**
 
 	1. 선택한 컨테이너의 볼륨에 대한 **대상 장치 선택** 아래에서 사용 가능한 장치의 드롭다운 목록에서 대상 장치를 선택합니다. 사용할 용량이 있는 장치만 드롭다운 목록에 표시됩니다.
 
@@ -110,11 +111,13 @@ DR(재해 복구) 시나리오에서 기본 장치가 작동을 중지합니다.
 
 1. 열리는 마법사의 **장애 조치할 볼륨 컨테이너 선택**에서 다음을 완료합니다.
 													
-	1. 볼륨 컨테이너 목록에서 장애 조치할 볼륨 컨테이너를 선택합니다.
+	a. 볼륨 컨테이너 목록에서 장애 조치할 볼륨 컨테이너를 선택합니다.
 
-		>[AZURE.NOTE] **Only the volume containers with associated cloud snapshots and offline volumes are displayed.**
+	>[AZURE.NOTE]**클라우드 스냅숏과 연결된 볼륨 컨테이너와 오프라인 볼륨만 표시됩니다.**
 
-1. **선택한 컨테이너에서 볼륨에 대한 대상 장치 선택**의 사용 가능한 장치 드롭다운 목록에서 StorSimple 가상 장치를 선택합니다. 충분한 용량이 있는 장치만 드롭다운 목록에 표시됩니다.
+	b. **선택한 컨테이너에서 볼륨에 대한 대상 장치 선택**의 사용 가능한 장치 드롭다운 목록에서 StorSimple 가상 장치를 선택합니다. 충분한 용량이 있는 장치만 드롭다운 목록에 표시됩니다.
+	
+	>[AZURE.NOTE]**물리적 장치에서 업데이트 1을 실행하는 경우, 업데이트 1만 실행하는 가상 장치에 장애 조치를 할 수 있습니다. 대상 가상 장치에 더 낮은 소프트웨어 버전이 실행되는 경우 대상 장치 소프트웨어를 업데이트해야 한다는 오류가 표시됩니다.**
 
 1. 마지막으로 장애 조치 확인에서 모든 장애 조치 설정을 검토합니다. 확인 아이콘![확인 아이콘](./media/storsimple-device-failover-disaster-recovery/IC740895.png)을 클릭합니다.
 
@@ -135,6 +138,6 @@ StorSimple 관리자 서비스를 사용하여 장치를 관리하는 방법에 
 
 - [관리자 가이드](https://msdn.microsoft.com/library/dn772401.aspx)
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

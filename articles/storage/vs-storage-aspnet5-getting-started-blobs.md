@@ -35,10 +35,11 @@ ASP.NET 5 프로젝트에서 Blob에 프로그래밍 방식으로 액세스하�
 
 1. 프로그래밍 방식으로 Azure 저장소에 액세스하려는 C# 파일의 맨 위에 다음과 같은 코드 네임스페이스 선언을 추가합니다.
 
-		using Microsoft.Framework.ConfigurationModel;
+		using Microsoft.Framework.Configuration;
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
 		using System.Threading.Tasks;
+		using LogLevel = Microsoft.Framework.Logging.LogLevel;
 
 2. 다음 코드를 사용하여 구성 설정을 가져옵니다.
 
@@ -148,8 +149,7 @@ Blob을 삭제하려면 먼저 Blob에 대한 참조를 가져온 다음 **Delet
 	// Delete the blob.
 	await blockBlob.DeleteAsync();
 
-[Azure 저장소에 대한 자세한 정보](http://azure.microsoft.com/documentation/services/storage/)
-[서버 탐색기에서 저장소 리소스 탐색](http://msdn.microsoft.com/library/azure/ff683677.aspx) 및 [ASP.NET 5](http://www.asp.net/vnext)도 참조하세요.
+[Azure 저장소에 대한 자세한 정보](http://azure.microsoft.com/documentation/services/storage/) [서버 탐색기에서 저장소 리소스 탐색](http://msdn.microsoft.com/library/azure/ff683677.aspx) 및 [ASP.NET 5](http://www.asp.net/vnext)도 참조하세요.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/06/2015" 
+    ms.date="06/22/2015" 
     ms.author="tamram"/>
 
 # C++에서 테이블 저장소를 사용하는 방법
@@ -21,9 +21,9 @@
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
 ## 개요  
-이 가이드에서는 Azure 테이블 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 C++로 작성되었으며 [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/v0.5.0-preview/README.md)를 사용합니다. **테이블 만들기 및 삭제**, **테이블 엔터티 작업** 등의 시나리오를 다룹니다.
+이 가이드에서는 Azure 테이블 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 C++로 작성되었으며 [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/v1.0.0/README.md)를 사용합니다. **테이블 만들기 및 삭제**, **테이블 엔터티 작업** 등의 시나리오를 다룹니다.
 
->[AZURE.NOTE]이 가이드는 Azure Storage Client Library for C++ 버전 0.5.0 이상을 대상으로 합니다. 권장되는 버전은 Storage Client Library 0.5.0이며, [NuGet](http://www.nuget.org/packages/wastorage) 또는 [GitHub](https://github.com/)를 통해 사용 가능합니다.
+>[AZURE.NOTE]이 가이드는 Azure Storage Client Library for C++ 버전 1.0.0 이상을 대상으로 합니다. 권장되는 버전은 Storage Client Library 1.0.0이며, [NuGet](http://www.nuget.org/packages/wastorage) 또는 [GitHub](https://github.com/)를 통해 사용 가능합니다.
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 [AZURE.INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
@@ -37,12 +37,12 @@ Azure Storage Client Library for C++를 설치하려면 다음 메서드를 사�
 -	**Linux:** [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) 페이지의 지침을 따릅니다.  
 -	**Windows:** Visual Studio에서 **도구 > NuGet 패키지 관리자 > 패키지 관리자 콘솔**을 클릭합니다. [NuGet 패키지 관리자 콘솔](http://docs.nuget.org/docs/start-here/using-the-package-manager-console)에 다음 명령을 입력하고 **ENTER**를 누릅니다.  
 
-		Install-Package wastorage -Pre  
+		Install-Package wastorage
 
 ## 테이블 저장소에 액세스하도록 응용 프로그램 구성  
 테이블에 액세스하기 위해 Azure 저장소 API를 사용하려는 C++ 파일의 맨 위에 다음 include 문을 추가합니다.
 
-	#include "was/storage_account.h"  
+	#include "was/storage_account.h"
 	#include "was/table.h"
 
 ## Azure 저장소 연결 문자열 설정  
@@ -80,6 +80,7 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 선택�
 	// Create the table client.
 	azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
 
+	// Retrieve a reference to a table.
 	azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
 	// Create the table if it doesn't exist.
@@ -95,19 +96,21 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 선택�
 
 	// Create the table client.
 	azure::storage::cloud_table_client table_client = storage_account.create_cloud_table_client();
+
+	// Retrieve a reference to a table.
 	azure::storage::cloud_table table = table_client.get_table_reference(U("people"));
 
 	// Create the table if it doesn't exist.
 	table.create_if_not_exists();
 
 	// Create a new customer entity.
-	azure::storage::table_entity customer1(utility::string_t(U("Harp")), utility::string_t(U("Walter")));
+	azure::storage::table_entity customer1(U("Harp"), U("Walter"));
 
 	azure::storage::table_entity::properties_type& properties = customer1.properties();
 	properties.reserve(2);
-	properties[U("Email")] = azure::storage::entity_property(utility::string_t(U("Walter@contoso.com")));
+	properties[U("Email")] = azure::storage::entity_property(U("Walter@contoso.com"));
 
-	properties[U("Phone")] = azure::storage::entity_property(utility::string_t(U("425-555-0101")));
+	properties[U("Phone")] = azure::storage::entity_property(U("425-555-0101"));
 
 	// Create the table operation that inserts the customer entity.
 	azure::storage::table_operation insert_operation = azure::storage::table_operation::insert_entity(customer1);
@@ -131,28 +134,28 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 선택�
 	azure::storage::table_batch_operation batch_operation;
 
 	// Create a customer entity and add it to the table.
-	azure::storage::table_entity customer1(utility::string_t(U("Smith")), utility::string_t(U("Jeff")));
+	azure::storage::table_entity customer1(U("Smith"), U("Jeff"));
 
 	azure::storage::table_entity::properties_type& properties1 = customer1.properties();
 	properties1.reserve(2);
-	properties1[U("Email")] = azure::storage::entity_property(utility::string_t(U("Jeff@contoso.com")));
-	properties1[U("Phone")] = azure::storage::entity_property(utility::string_t(U("425-555-0104")));
+	properties1[U("Email")] = azure::storage::entity_property(U("Jeff@contoso.com"));
+	properties1[U("Phone")] = azure::storage::entity_property(U("425-555-0104"));
 
 	// Create another customer entity and add it to the table.
-	azure::storage::table_entity customer2(utility::string_t(U("Smith")), utility::string_t(U("Ben")));
+	azure::storage::table_entity customer2(U("Smith"), U("Ben"));
 
 	azure::storage::table_entity::properties_type& properties2 = customer2.properties();
 	properties2.reserve(2);
-	properties2[U("Email")] = azure::storage::entity_property(utility::string_t(U("Ben@contoso.com")));
-	properties2[U("Phone")] = azure::storage::entity_property(utility::string_t(U("425-555-0102")));
+	properties2[U("Email")] = azure::storage::entity_property(U("Ben@contoso.com"));
+	properties2[U("Phone")] = azure::storage::entity_property(U("425-555-0102"));
 
 	// Create a third customer entity to add to the table.
-	azure::storage::table_entity customer3(utility::string_t(U("Smith")), utility::string_t(U("Denise")));
+	azure::storage::table_entity customer3(U("Smith"), U("Denise"));
 
 	azure::storage::table_entity::properties_type& properties3 = customer3.properties();
 	properties3.reserve(2);
-	properties3[U("Email")] = azure::storage::entity_property(utility::string_t(U("Denise@contoso.com")));
-	properties3[U("Phone")] = azure::storage::entity_property(utility::string_t(U("425-555-0103")));
+	properties3[U("Email")] = azure::storage::entity_property(U("Denise@contoso.com"));
+	properties3[U("Phone")] = azure::storage::entity_property(U("425-555-0103"));
 		
 	// Add customer entities to the batch insert operation.
 	batch_operation.insert_or_replace_entity(customer1);
@@ -186,14 +189,19 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 선택�
 
 	query.set_filter_string(azure::storage::table_query::generate_filter_condition(U("PartitionKey"), azure::storage::query_comparison_operator::equal, U("Smith")));
 
-	std::vector<azure::storage::table_entity> entities = table.execute_query(query);
+	// Execute the query.
+	azure::storage::table_query_iterator it = table.execute_query(query);
 
 	// Print the fields for each customer.
-	for (std::vector<azure::storage::table_entity>::const_iterator it = entities.cbegin(); it != entities.cend(); ++it)
+	azure::storage::table_query_iterator end_of_results;
+	for (; it != end_of_results; ++it)
 	{
-	const azure::storage::table_entity::properties_type& properties = it->properties();
+		const azure::storage::table_entity::properties_type& properties = it->properties();
 
-	std::wcout << U("PartitionKey: ") << it->partition_key() << U(", RowKey: ") << it->row_key() << U(", Property1: ") << utility::string_t(properties.at(U("Email")).string_value()) << U(", Property2: ") << utility::string_t(properties.at(U("Phone")).string_value()) << std::endl; }
+		std::wcout << U("PartitionKey: ") << it->partition_key() << U(", RowKey: ") << it->row_key()		
+			<< U(", Property1: ") << properties.at(U("Email")).string_value()
+			<< U(", Property2: ") << properties.at(U("Phone")).string_value() << std::endl;
+	}  
 
 이 예의 쿼리는 필터 조건과 일치하는 모든 엔터티를 제공합니다. 큰 테이블 및 테이블 엔터티를 자주 다운로드할 필요가 있다면 데이터를 Azure 저장소 Blob에 대신 저장하는 것이 좋습니다.
 
@@ -219,16 +227,17 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 선택�
 		azure::storage::table_query::generate_filter_condition(U("RowKey"), azure::storage::query_comparison_operator::less_than, U("E"))));
 
 	// Execute the query.
-	std::vector<azure::storage::table_entity> entities = table.execute_query(query);
+	azure::storage::table_query_iterator it = table.execute_query(query);
 
 	// Loop through the results, displaying information about the entity.
-	for (std::vector<azure::storage::table_entity>::const_iterator it = entities.cbegin(); it != entities.cend(); ++it)
+	azure::storage::table_query_iterator end_of_results;
+	for (; it != end_of_results; ++it)
 	{
 		const azure::storage::table_entity::properties_type& properties = it->properties();
 
 		std::wcout << U("PartitionKey: ") << it->partition_key() << U(", RowKey: ") << it->row_key()
-		<< U(", Property1: ") << utility::string_t(properties.at(U("Email")).string_value())
-				<< U(", Property2: ") << utility::string_t(properties.at(U("Phone")).string_value()) << std::endl;
+			<< U(", Property1: ") << properties.at(U("Email")).string_value()
+			<< U(", Property2: ") << properties.at(U("Phone")).string_value() << std::endl;
 	}  
 
 ## 방법: 단일 엔터티 검색
@@ -250,8 +259,9 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 선택�
 	azure::storage::table_entity entity = retrieve_result.entity();
 	const azure::storage::table_entity::properties_type& properties = entity.properties();
 
-	std::wcout << U("PartitionKey: ") << entity.partition_key() << U(", RowKey: ") << entity.row_key() << U(", Property1: ") << utility::string_t(properties.at(U("Email")).string_value())
-	<< U(", Property2: ") << utility::string_t(properties.at(U("Phone")).string_value()) << std::endl;  
+	std::wcout << U("PartitionKey: ") << entity.partition_key() << U(", RowKey: ") << entity.row_key()
+		<< U(", Property1: ") << properties.at(U("Email")).string_value()
+		<< U(", Property2: ") << properties.at(U("Phone")).string_value() << std::endl;
 
 ## 방법: 엔티티 바꾸기
 엔터티를 바꾸려면 테이블 서비스에서 검색하고 엔터티 개체를 수정한 다음 변경 내용을 다시 테이블 서비스에 다시 저장합니다. 다음 코드에서는 기존 고객의 전화 번호와 메일 주소를 변경합니다. **table_operation:: insert_entity**를 호출하는 대신, 이 코드에서는 **table_operation:: replace_entity**를 사용합니다. 이렇게 하면 서버의 엔터티가 검색된 후 변경되어 작업이 실패하는 경우를 제외하고 서버에서 엔터티가 완전히 바뀝니다. 이러한 실패는 응용 프로그램이 검색 및 업데이트 사이에 다른 응용 프로그램 구성 요소에 의해 변경된 내용을 실수로 덮어쓰는 것을 방지합니다. 이 실패를 올바르게 처리하려면 엔터티를 다시 검색하고 변경한 다음(유효한 경우) 다른 **table_operation::replace_entity** 작업을 수행합니다. 다음 섹션에서는 이 동작을 재정의하는 방법을 보여 줍니다.
@@ -271,10 +281,10 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 선택�
 	properties_to_replace.reserve(2);
 
 	// Specify a new phone number.
-	properties_to_replace[U("Phone")] = azure::storage::entity_property(utility::string_t(U("425-555-0106")));
+	properties_to_replace[U("Phone")] = azure::storage::entity_property(U("425-555-0106"));
 
 	// Specify a new email address.
-	properties_to_replace[U("Email")] = azure::storage::entity_property(utility::string_t(U("JeffS@contoso.com")));
+	properties_to_replace[U("Email")] = azure::storage::entity_property(U("JeffS@contoso.com"));
 
 	// Create an operation to replace the entity.
 	azure::storage::table_operation replace_operation = azure::storage::table_operation::replace_entity(entity_to_replace);
@@ -301,10 +311,10 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 선택�
 	properties_to_insert_or_replace.reserve(2);
 
 	// Specify a phone number.
-	properties_to_insert_or_replace[U("Phone")] = azure::storage::entity_property(utility::string_t(U("425-555-0107")));
+	properties_to_insert_or_replace[U("Phone")] = azure::storage::entity_property(U("425-555-0107"));
 
 	// Specify an email address.
-	properties_to_insert_or_replace[U("Email")] = azure::storage::entity_property(utility::string_t(U("Jeffsm@contoso.com")));
+	properties_to_insert_or_replace[U("Email")] = azure::storage::entity_property(U("Jeffsm@contoso.com"));
 
 	// Create an operation to insert or replace the entity.
 	azure::storage::table_operation insert_or_replace_operation = azure::storage::table_operation::insert_or_replace_entity(entity_to_insert_or_replace);
@@ -330,15 +340,24 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 선택�
 
 	columns.push_back(U("Email"));
 	query.set_select_columns(columns);
-	std::vector<azure::storage::table_entity> entities = table.execute_query(query);
+
+	// Execute the query.
+	azure::storage::table_query_iterator it = table.execute_query(query);
 
 	// Display the results.
-	for (std::vector<azure::storage::table_entity>::const_iterator it = entities.cbegin(); it != entities.cend(); ++it)
+	azure::storage::table_query_iterator end_of_results;
+	for (; it != end_of_results; ++it)
 	{
-    	const azure::storage::table_entity::properties_type& properties = it->properties();
-    	std::wcout << U("PartitionKey: ") << it->partition_key() << U(", RowKey: ") << it->row_key();
-			
-	for (auto prop_it = properties.begin(); prop_it != properties.end(); ++prop_it) { std::wcout << ", " << prop_it->first << ": " << prop_it->second.str(); } std::wcout << std::endl; }
+		std::wcout << U("PartitionKey: ") << it->partition_key() << U(", RowKey: ") << it->row_key();
+
+		const azure::storage::table_entity::properties_type& properties = it->properties();
+		for (auto prop_it = properties.begin(); prop_it != properties.end(); ++prop_it)
+		{
+			std::wcout << ", " << prop_it->first << ": " << prop_it->second.str();
+		}
+
+		std::wcout << std::endl;
+	}
 
 **참고:** 모든 속성을 검색하는 것보다 엔터티의 몇가지 속성을 쿼리하는 것이 더 효율적인 작업입니다.
 
@@ -394,6 +413,6 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 선택�
 -	[Storage Client Library for C++](https://msdn.microsoft.com/library/azure/gg433040.aspx) 
 -	[Azure 저장소 MSDN 참조](https://msdn.microsoft.com/library/azure/gg433040.aspx)
 -	[Azure 저장소 설명서](http://azure.microsoft.com/documentation/services/storage/)
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

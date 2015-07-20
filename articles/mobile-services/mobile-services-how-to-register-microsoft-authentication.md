@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="06/14/2015" 
 	ms.author="glenga"/>
 
 # 앱을 등록하여 Microsoft 계정을 인증에 사용
 
+[AZURE.INCLUDE [mobile-services-selector-register-identity-provider](../../includes/mobile-services-selector-register-identity-provider.md)]
+
+## 개요 
+
 이 항목에서는 Azure 모바일 서비스와 함께 인증 공급자로 Microsoft 계정을 사용할 수 있도록 모바일 앱을 등록하는 방법을 보여줍니다. 동일한 단계로 Live SDK를 사용하여 서비스 지향 인증 및 클라이언트에서 지시하는 인증에 모두 적용합니다.
 
-## Windows 개발자 센터에서 Windows 스토어 앱 등록
+##Windows 개발자 센터에서 Windows 스토어 앱 등록
 
 먼저 Windows 개발자 센터에 Windows 스토어 앱이 등록되어야 합니다.
 
@@ -30,13 +34,13 @@
 
    	![](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-submit-win8-app.png)
 
-2. **고유 이름을 예약하여 새 앱 만들기**를 선택하고 **계속**을 클릭한 다음 **앱 이름**에서 사용자의 앱 이름을 입력하고 **앱 이름 예약**을 클릭한 다음 **저장**을 클릭합니다.
+2. **고유 이름을 예약하여 새 앱 만들기**를 선택하고 **계속**을 클릭한 다음 **앱 이름**에서 앱 이름을 입력하고 **앱 이름 예약**, **저장**을 차례로 클릭합니다.
 
    	![](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-name.png)
 
    	이렇게 하면 앱을 새로 Windows 스토어에 등록하게 됩니다.
 
-3. Visual Studio 2013에서 [모바일 서비스 시작] 자습서를 완료했을 때 생성된 프로젝트를 엽니다.
+3. Visual Studio 2013에서 [모바일 서비스 시작](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) 자습서를 완료했을 때 생성된 프로젝트를 엽니다.
 
 4. 솔루션 탐색기에서 Windows 스토어 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고 **스토어**를 클릭한 후 **응용 프로그램을 스토어에 연결...**을 클릭합니다.
 
@@ -44,11 +48,11 @@
 
    	**응용 프로그램을 Windows 스토어에 연결** 마법사가 나타납니다.
 
-5. 마법사에서 **로그인**을 클릭한 다음 Microsoft 계정으로 로그인하여 2단계에서 예약한 앱 이름을 선택하고 **다음**을 클릭한 다음 **연결**을 클릭합니다.
+5. 마법사에서 **로그인**을 클릭한 다음 Microsoft 계정으로 로그인하여 2단계에서 예약한 앱 이름을 선택하고 **다음** > **연결**을 클릭합니다.
 
    	이렇게 하면 필요한 Windows 스토어 등록 정보가 응용 프로그램 매니페스트에 추가됩니다.
 
-6. (선택 사항) 4\~5단계를 반복하여 유니버설 Windows 앱의 Windows Phone 스토어 프로젝트도 등록합니다.
+6. (선택 사항) 4~5단계를 반복하여 유니버설 Windows 앱의 Windows Phone 스토어 프로젝트도 등록합니다.
 
 6. 새 앱의 Windows 개발자 센터 페이지로 돌아가서 **Services**를 클릭합니다.
 
@@ -77,10 +81,11 @@
 	**루트 도메인**이 자동으로 채워집니다.
 
 4. **앱 설정**을 클릭하고 **클라이언트 ID**, **클라이언트 암호** 및 **패키지 SID** 값을 기록해 둡니다.
-
+	
    	![Microsoft 계정 앱 설정](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-app-push-auth.png)
-
-    > [AZURE.NOTE]클라이언트 암호는 중요한 보안 자격 증명입니다. 다른 사람과 클라이언트 암호를 공유하거나 앱과 함께 배포하지 마십시오. Windows 스토어 앱 등록에서만 패키지 SID 필드가 보입니다.
+	
+	
+    > [AZURE.NOTE]클라이언트 암호는 중요한 보안 자격 증명입니다. 다른 사람과 클라이언트 암호를 공유하거나 앱과 함께 배포하지 마세요. Windows 스토어 앱 등록에서만 패키지 SID 필드가 보입니다.
 
 4. [Azure 관리 포털]에서 모바일 서비스에 대한 **ID** 탭을 클릭하고 ID 공급자로부터 얻은 클라이언트 ID, 클라이언트 암호 및 패키지 SID를 입력한 다음 **저장**을 클릭합니다.
 
@@ -100,5 +105,6 @@
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 
 [Azure 관리 포털]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

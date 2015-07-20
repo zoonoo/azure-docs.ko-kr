@@ -1,12 +1,11 @@
 <properties
 	pageTitle="Azure에서 Windows를 실행하는 가상 컴퓨터 만들기"
-	description="Azure 클래식 포털에서 Windows VM(가상 컴퓨터)을 만드는 방법에 대해 알아봅니다."
+	description="Azure 관리 포털에서 Windows VM(가상 컴퓨터)을 만드는 방법에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="KBDAzure"
 	manager="timlt"
-	editor="tysonn"
-	tags="azure-classic-portal"/>
+	editor=""/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,29 +13,29 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2015"
+	ms.date="06/05/2015"
 	ms.author="kathydav"/>
 
-
-
-# Windows를 실행하는 가상 컴퓨터 만들기
+# Azure 관리에서 Windows를 실행하는 가상 컴퓨터를 만들기
 
 > [AZURE.SELECTOR]
-- [Azure portal](virtual-machines-windows-tutorial.md)
-- [Azure classic portal](virtual-machines-windows-tutorial-classic-portal.md)
-- [PowerShell](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [Azure Preview Portal](virtual-machines-windows-tutorial.md)
+- [Azure Portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [PowerShell - Resource Management](virtual-machines-deploy-rmtemplates-powershell.md)
+- [PowerShell - Service Management](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-이 자습서에서는 Azure VM(가상 컴퓨터)을 간편하게 만드는 방법을 보여 줍니다. 이 자습서에서는 Windows Server 이미지를 사용하지만 이는 Azure를 통해 사용할 수 있는 여러 이미지 중 하나에 불과합니다. 예를 들어 Windows 운영 체제, Linux-based 운영 체제, 설치된 응용 프로그램이 있는 이미지 등이 여기에 해당합니다. 선택할 수 있는 이미지는 소유한 구독 유형에 따라 다릅니다. 예를 들어 데스크톱 이미지는 MSDN 구독자가 사용할 수 있습니다.
 
-[사용자 고유의 이미지](../virtual-machines-create-upload-vhd-windows-server-classic-portal.md)를 사용하여 Windows VM을 만들 수도 있습니다. Azure VM에 대한 자세한 내용은 [Azure 가상 컴퓨터 개요](http://msdn.microsoft.com/library/azure/jj156143.aspx)를 참조하세요.
+이 자습서에서는 Azure 관리 포털에서 Azure VM(가상 컴퓨터)을 간편하게 만드는 방법을 보여줍니다. 한 예로, Windows Server 이미지를 사용할 것이지만, 해당 아미지는 Azure가 제공하는 여러 이미지 중 하나일 뿐입니다. 참고: 이미지 선택은 구독에 따라 달라집니다. 예를 들어 데스크톱 이미지는 MSDN 구독자가 사용할 수 있습니다.
+
+[사용자 고유의 이미지](virtual-machines-create-upload-vhd-windows-server.md)를 사용하여 VM을 만들 수도 있습니다. 이 방법 및 다른 방법에 대한 자세한 내용은, [Windows 가상 머신을 만드는 다양한 방법](virtual-machines-windows-choices-create-vm.md)을 참조하십시오.
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
 ## <a id="createvirtualmachine"> </a>가상 컴퓨터를 만드는 방법
 
-이 섹션에서는 Azure 클래식 포털의 **갤러리에서** 옵션을 사용하여 가상 컴퓨터를 만드는 방법을 보여 줍니다. 이 옵션은 **빠른 생성** 옵션보다 많은 구성 선택 항목을 제공합니다. 예를 들어 가상 컴퓨터를 가상 네트워크에 가입하려는 경우 **갤러리에서** 옵션을 사용해야 합니다.
+이 섹션에서는 Azure 관리 포털의 **갤러리 에서** 옵션 사용 방법을 사용하여 가상 컴퓨터를 만드는 방법을 보여줍니다. 이 옵션은 **빠른 생성** 옵션보다 많은 구성 선택 항목을 제공합니다. 예를 들어 가상 컴퓨터를 가상 네트워크에 가입하려는 경우 **갤러리에서** 옵션을 사용해야 합니다.
 
-> [AZURE.NOTE]또한 보다 다양하며 사용자 지정 가능한 [Azure 포털](https://portal.azure.com)에서 가상 컴퓨터를 만들고, 다중 VM 응용 프로그램 템플릿의 배포를 자동화하고, 고급 VM 모니터링 및 진단 기능을 사용해 볼 수 있습니다. 두 포털에서 사용 가능한 VM 구성 옵션은 상당히 중복되지만 동일하지는 않습니다.
+> [AZURE.NOTE]또한 보다 다양하며 사용자 지정 가능한 [Azure 미리 보기 포털](https://portal.azure.com)에서 가상 컴퓨터를 만들고, 다중 VM 응용 프로그램 템플릿의 배포를 자동화하고, 고급 VM 모니터링 및 진단 기능을 사용해 볼 수 있습니다. 두 포털에서 사용 가능한 VM 구성 옵션은 상당히 중복되지만 동일하지는 않습니다.
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
 
@@ -49,6 +48,6 @@
 ## 추가 리소스
 
 VM에 대해 구성할 수 있는 항목 및 이를 수행할 수 있는 경우에 대한 자세한 내용은 [Azure VM 구성 설정 정보](http://msdn.microsoft.com/library/azure/dn763935.aspx)를 참조하세요.
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

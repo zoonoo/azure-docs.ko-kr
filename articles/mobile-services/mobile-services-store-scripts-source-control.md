@@ -18,30 +18,23 @@
 
 # 소스 제어에 프로젝트 코드 저장
 
-<div class="dev-center-tutorial-subselector">
-	<a href="/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET 백 엔드">.NET 백 엔드</a> | <a href="/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript 백 엔드" class="current">JavaScript 백 엔드</a>
-</div>
+> [AZURE.SELECTOR-LIST (Platform | Backend)]
+- [(Any | .NET)](mobile-services-dotnet-backend-store-code-source-control.md)
+- [(Any | Javascript)](mobile-services-store-scripts-source-control.md)
 
 이 항목에서는 Azure 모바일 서비스에서 제공하는 소스 제어를 사용하여 서버 스크립트를 저장하는 방법을 보여 줍니다. 스크립트 및 기타 JavaScript 백 엔드 코드 파일을 로컬 Git 리포지토리에서 프로덕션 모바일 서비스로 수준을 올릴 수 있습니다. 또한 여러 스크립트에서 필요할 수 있는 공유 코드를 정의하는 방법 및 package.json 파일을 사용하여 모바일 서비스에 Node.js 모듈을 추가하는 방법도 설명합니다.
 
-이 자습서에서는 다음 단계를 안내합니다.
-
-1. [모바일 서비스에서 원본 제어를 사용하도록 설정]합니다.
-2. [Git을 설치하고 로컬 리포지토리를 만듭니다].
-3. [업데이트된 스크립트 파일을 모바일 서비스에 배포]합니다.
-4. [스크립트에서 공유 코드 및 Node.js 모듈을 활용]합니다.
-
 이 자습서를 완료하려면 기존에 [모바일 서비스 시작] 또는 [기존 앱에 모바일 서비스 추가] 자습서를 완료하여 모바일 서비스를 만들었어야 합니다.
 
-## <a name="enable-source-control"></a>모바일 서비스에서 소스 제어를 사용하도록 설정
+##<a name="enable-source-control"></a>모바일 서비스에서 소스 제어를 사용하도록 설정
 
 [AZURE.INCLUDE [mobile-services-enable-source-control](../../includes/mobile-services-enable-source-control.md)]
 
-## <a name="clone-repo"></a>Git을 설치하고 로컬 리포지토리 만들기
+##<a name="clone-repo"></a>Git을 설치하고 로컬 리포지토리 만들기
 
 1. 로컬 컴퓨터에 Git을 설치합니다. 
 
-	Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. 운영 체제 특정 배포 및 설치 지침은 [Git 설치]를 참조하십시오.
+	Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. 운영 체제 특정 배포 및 설치 지침은 [Git 설치]를 참조하세요.
 
 	> [AZURE.NOTE]일부 운영 체제에서는 Git의 명령줄과 GUI 버전을 둘 다 사용할 수 있습니다. 이 문서에서 제공하는 지침은 명령줄 버전을 사용합니다.
 
@@ -68,11 +61,11 @@
 
 7. .\\service\\table 하위 폴더를 열면 TodoItem 테이블에 대한 작업 권한이 JSON으로 표현된 TodoItem.json 파일이 포함된 것이 확인됩니다.
 
-	이 테이블에 대해 서버 스크립트가 정의되어 있다면 주어진 테이블 작업에 대한 스크립트가 포함된 <code>TodoItem._&lt;operation&gt;_.js</code>라는 파일이 한 개 이상 있습니다. 스케줄러 및 사용자 지정 API 스크립트는 개별 이름을 사용하여 별도의 폴더에 유지됩니다. 자세한 내용은 [원본 제어]를 참조하십시오.
+	이 테이블에 대해 서버 스크립트가 정의되어 있다면 주어진 테이블 작업에 대한 스크립트가 포함된 <code>TodoItem._&lt;operation&gt;_.js</code>라는 파일이 한 개 이상 있습니다. 스케줄러 및 사용자 지정 API 스크립트는 개별 이름을 사용하여 별도의 폴더에 유지됩니다. 자세한 내용은 [원본 제어]를 참조하세요.
 
 지금까지 로컬 리포지토리를 만들었습니다. 이제 서버 스크립트를 변경하고 변경 내용을 다시 모바일 서비스에 밀어 넣을 수 있습니다.
 
-## <a name="deploy-scripts"></a>업데이트된 스크립트 파일을 모바일 서비스에 배포
+##<a name="deploy-scripts"></a>업데이트된 스크립트 파일을 모바일 서비스에 배포
 
 1. .\\service\\table 하위 폴더로 이동하고 todoitem.insert.js 파일이 아직 없는 경우 만듭니다.
 
@@ -100,31 +93,21 @@
 	
 	커밋이 모바일 서비스에 배포됨을 나타내는 일련의 명령이 표시됩니다.
 
-6. 관리 포털로 돌아가서 **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다.
-
-	![][5]
-
-3. **스크립트**를 클릭한 후 **삽입** 작업을 선택합니다.
-
-	![][6]
-
+6. 관리 포털로 돌아가서 **데이터** 탭, **TodoItem** 테이블을 차례로 클릭하고 **스크립트**를 클릭하고 나서 **삽입**을 선택합니다.
+7. 
 	표시되는 삽입 작업 스크립트는 방금 리포지토리에 업로드한 JavaScript 코드와 같습니다.
 
-## <a name="use-npm"></a>서버 스크립트에서 공유 코드 및 Node.js 모듈 활용
+##<a name="use-npm"></a>서버 스크립트에서 공유 코드 및 Node.js 모듈 활용
 
-모바일 서비스에서는 전체 핵심 Node.js 모듈에 액세스할 수 있으며, **require** 함수를 사용하여 코드에서 이 모듈을 사용할 수 있습니다. 모바일 서비스는 핵심 Node.js 패키지에 속하지 않는 Node.js 모듈도 사용할 수 있으며, 고유한 공유 코드를 Node.js 모듈로 정의할 수도 있습니다. 모듈 만들기에 대한 자세한 내용은 Node.js API 참조 설명서의 [모듈][Node.js API Documentation: Modules](영문)을 참조하십시오.
+모바일 서비스에서는 전체 핵심 Node.js 모듈에 액세스할 수 있으며, **require** 함수를 사용하여 코드에서 이 모듈을 사용할 수 있습니다. 모바일 서비스는 핵심 Node.js 패키지에 속하지 않는 Node.js 모듈도 사용할 수 있으며, 고유한 공유 코드를 Node.js 모듈로 정의할 수도 있습니다. 모듈 만들기에 대한 자세한 내용은 Node.js API 참조 설명서의 [모듈](영문)을 참조하세요.
 
 모바일 서비스에 Node.js 모듈을 추가하려면 서비스의 package.json 파일에 대한 참조를 추가하는 것이 좋습니다. 그런 다음 package.json 파일을 업데이트하여 [node-uuid] Node.js 모듈을 모바일 서비스에 추가합니다. 업데이트를 Azure로 푸시하면 모바일 서비스가 다시 시작되고 모듈이 설치됩니다. 그런 다음 이 모듈은 삽입된 항목에 대한 **uuid** 속성의 새 GUID 값을 생성하는 데 사용됩니다.
 
-2. 로컬 Git 리포지토리의 `.\service` 폴더로 이동한 후 텍스트 편집기에서 package.json 파일을 엽니다.
+2. 로컬 Git 리포지토리의 `.\service` 폴더로 이동한 후 텍스트 편집기에서 package.json 파일을 열고 **dependencies** 개체에 다음 필드를 추가합니다.
 
-3. 다음을 찾습니다.
+		"node-uuid": "~1.4.3"
 
-		npm install node-uuid
-
-	NPM은 현재 위치에 `node_modules` 디렉터리를 만들고 `\node-uuid` 하위 디렉터리에 [node-uuid] 모듈을 설치합니다.
-
-	> [AZURE.NOTE]디렉터리 계층 구조에 `node_modules`이(가) 이미 있는 경우 NPM은 리포지토리에 새 `node_modules`을(를) 만드는 대신 `\node-uuid` 하위 디렉터리를 만듭니다. 이 경우 기존 `node_modules` 디렉터리를 삭제합니다.
+	>[AZURE.NOTE]package.json 파일에 이 업데이트를 적용하면 커밋이 푸시된 후 모바일 서비스가 다시 시작됩니다.
 
 4. 이제 .\\service\\table 하위 폴더로 이동하여 todoitem.insert.js 파일을 열고 다음과 같이 수정합니다.
 
@@ -147,19 +130,17 @@
 
 ## <a name="next-steps"> </a>다음 단계
 
-이 자습서를 완료했으므로 이제 원본 제어에 스크립트를 지정하는 방법을 알게 되었습니다. 서버 스크립트 및 사용자 지정 API 작업에 대해 자세히 알아보십시오.
+이 자습서를 완료했으므로 이제 원본 제어에 스크립트를 지정하는 방법을 알게 되었습니다. 서버 스크립트 및 사용자 지정 API 작업에 대해 자세히 알아보세요.
 
-+ [모바일 서비스에서 서버 스크립트 작업] 
-  <br/>서버 스크립트, 작업 스케줄러 및 사용자 지정 API 작업을 수행하는 방법을 보여 줍니다.
++ [모바일 서비스에서 서버 스크립트 작업] <br/>서버 스크립트, 작업 스케줄러 및 사용자 지정 API 작업을 수행하는 방법을 보여 줍니다.
 
-+ [클라이언트에서 사용자 지정 API 호출] 
-  <br/> 클라이언트에서 호출할 수 있는 사용자 지정 API를 만드는 방법을 보여줍니다.
++ [클라이언트에서 사용자 지정 API 호출] <br/> 클라이언트에서 호출할 수 있는 사용자 지정 API를 만드는 방법을 보여줍니다.
 
 <!-- Anchors. -->
-[모바일 서비스에서 원본 제어를 사용하도록 설정]: #enable-source-control
-[Git을 설치하고 로컬 리포지토리를 만듭니다]: #clone-repo
-[업데이트된 스크립트 파일을 모바일 서비스에 배포]: #deploy-scripts
-[스크립트에서 공유 코드 및 Node.js 모듈을 활용]: #use-npm
+[Enable source control in your mobile service]: #enable-source-control
+[Install Git and create the local repository]: #clone-repo
+[Deploy updated script files to your mobile service]: #deploy-scripts
+[Leverage shared code and Node.js modules in your server scripts]: #use-npm
 
 <!-- Images. -->
 [4]: ./media/mobile-services-store-scripts-source-control/mobile-source-local-repo.png
@@ -175,7 +156,8 @@
 [모바일 서비스에서 서버 스크립트 작업]: mobile-services-how-to-use-server-scripts.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [클라이언트에서 사용자 지정 API 호출]: mobile-services-ios-call-custom-api.md
-[Node.js API Documentation: Modules]: http://nodejs.org/api/modules.html
+[모듈]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

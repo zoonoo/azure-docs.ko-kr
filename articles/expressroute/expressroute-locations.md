@@ -5,22 +5,18 @@
    documentationCenter="na"
    authors="cherylmc"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags 
    ms.service="expressroute"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
+   ms.date="07/07/2015"
    ms.author="cherylmc" />
 
 # Express 경로 파트너 및 피어링 위치
-이 테이블에 다음에 대한 자세한 정보를 제공합니다.
-
-1. Express 경로 연결 공급자(EXP 및 NSP)
-2. Express 경로 지역 범위
-3. Express 경로를 통해 지원되는 Microsoft 클라우드 서비스
-4. Express 경로 시스템 통합 업체(SI)
+이 페이지의 표에는 Express 경로 연결 공급자(EXP 및 NSP), Express 경로 지역 범위, Express 경로를 통해 지원되는 Microsoft 클라우드 서비스 및 Express 경로 SI(시스템 통합업체)에 대한 정보가 나와 있습니다.
 
 ## Express 경로 연결 공급자
 Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 아래 맵에 Azure 지역 및 Express 경로 위치 목록을 제공합니다. Express 경로 위치는 Microsoft가 여러 서비스 공급자와 피어링하는 위치를 말합니다.
@@ -36,20 +32,57 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 아래 �
 |**유럽**|북유럽, 서유럽|암스테르담, 런던|
 |**아시아**|동아시아, 동남 아시아|홍콩, 싱가포르|
 |**일본**|일본 서부, 일본 동부|도쿄|
-|**오스트레일리아**|오스트레일리아 남동부, 오스트레일리아 동부|시드니|
+|**오스트레일리아**|오스트레일리아 남동부, 오스트레일리아 동부|멜버른, 시드니|
+|**인도**|인도 서부, 인도 중부, 인도 남부|첸나이, 뭄바이|
 
 지역에 걸친 연결은 지원되지 않습니다. 해당 네트워크를 사용하여 지역에 걸쳐 연결을 확장하여 연결 공급자를 작업할 수 있습니다.
 
 
-### Exchange 공급자(EXP) 위치
-- 지원되는 Exchange 공급자 및 위치 목록은 이 [테이블](https://msdn.microsoft.com/library/azure/4da69a0f-8f52-49ea-a990-dacd4202150a#BKMK_EXP)을 참조하세요.
--  연결을 설정하는 단계는 [EXP 연결 구성](expressroute-configuring-exps.md)을 방문하세요.
+## EXP(Exchange 공급자) 위치
 
-### 네트워크 서비스 공급자(NSP) 위치
-- 지원되는 네트워크 서비스 공급자 및 위치 목록은 이 [테이블](https://msdn.microsoft.com/library/azure/4da69a0f-8f52-49ea-a990-dacd4202150a#BKMK_NSP)을 참조하세요.
-- 연결을 설정하는 단계는 [NSP 연결 구성](expressroute-configuring-nsps.md)을 방문하세요.
+| **서비스 공급자** |**Microsoft Azure** | **Office 365** | **위치** |
+|-----------------------|--------------------|----------------|---------------|
+| **[Aryaka Networks](http://www.aryaka.com/)** | 지원됨 | 지원되지 않음 | 실리콘밸리, 싱가포르, 워싱턴 DC |
+| **[Colt Ethernet](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | 지원됨 | 지원되지 않음 | 암스테르담, 런던 |
+| **Comcast** | 지원됨 | 지원되지 않음 | 실리콘밸리, 워싱턴 DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** | 지원됨 | 서비스 예정 | 암스테르담, 애틀랜타, 시카고, 댈러스, 홍콩, 런던, 로스앤젤레스, 멜버른, 뉴욕, 상 파울로, 시애틀, 실리콘밸리, 싱가포르, 시드니, 도쿄, 워싱턴 DC |
+| **[InterCloud](https://www.intercloud.com/)** | 지원됨 | 지원되지 않음 | 암스테르담, 런던, 싱가포르, 워싱턴 DC |
+| **Internet Solutions - 클라우드 연결** | 지원됨 | 지원되지 않음 | 암스테르담, 런던 |
+| **Interxion** | 지원됨 | 지원되지 않음 | 암스테르담 |
+| **[Level 3 Communications - Exchange](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | 지원됨 | 지원되지 않음 | 시카고, 댈러스, 런던, 시애틀, 실리콘밸리, 워싱턴 DC |
+| **NEXTDC** | 지원됨 | 지원되지 않음 | 멜버른, 시드니+ |
+| **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | 지원됨 | 서비스 예정 | 암스테르담, 런던 |
+| **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | 지원됨 | 지원되지 않음 | 멜버른+, 시드니 |
+| **[Zayo Group](http://www.zayo.com/)** | 지원됨 | 지원되지 않음 | 워싱턴 DC |
 
-### 위에 나열되지 않은 서비스 공급자를 통한 연결
+ **+**는 서비스 예정을 나타냄
+
+연결을 설정하는 단계는 [EXP 연결 구성](expressroute-configuring-exps.md)을 참조하세요.
+
+## NSP(네트워크 서비스 공급자) 위치
+
+
+| **서비스 공급자** |**Microsoft Azure** | **Office 365** | **위치** |
+|-----------------------|--------------------|----------------|---------------|
+| **[AT&T](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | 지원됨 | 서비스 예정 | 암스테르담+, 런던+, 댈러스, 실리콘밸리, 워싱턴 DC |
+| **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | 지원됨 | 서비스 예정 | 암스테르담, 런던, 실리콘밸리+, 워싱턴 DC |
+|**China Telecom Global** | 서비스 예정 | 지원되지 않음 | 홍콩+ |
+| **[Colt IPVPN](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | 지원됨 | 지원되지 않음 | 암스테르담, 런던 |
+| **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2013/pdf/Azure_E.pdf)** | 지원됨 | 지원되지 않음 | 도쿄 |
+| **[Level 3 Communications - IPVPN](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** | 지원됨 | 지원되지 않음 | 시카고, 댈러스, 런던, 시애틀, 실리콘밸리, 워싱턴 DC |
+| **NTT Communications** | 서비스 예정 | 지원되지 않음 | 도쿄+ | 
+| **[Orange](http://www.orange-business.com/)** | 지원됨 | 지원되지 않음 | 암스테르담, 런던, 실리콘밸리, 워싱턴 DC |
+| **PCCW Global Limited** | 지원됨 | 지원되지 않음 | 홍콩 |
+| **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | 지원됨 | 지원되지 않음 | 싱가포르 |
+| **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | 지원됨 | 서비스 예정 | 암스테르담, 첸나이+, 홍콩, 런던, 뭄바이+, 싱가포르 |
+| **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | 지원됨 | 지원되지 않음 | 멜버른+, 시드니 |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | 지원됨 | 지원되지 않음 | 런던, 홍콩, 실리콘밸리, 워싱턴 DC |
+
+ **+**는 서비스 예정을 나타냄
+
+연결을 설정하는 단계는 [NSP 연결 구성](expressroute-configuring-nsps.md)을 참조하세요.
+
+## 나열되지 않은 서비스 공급자를 통한 연결 
 
 연결 공급자가 위 목록에 없는 경우에도 연결을 설정할 수 있습니다.
 
@@ -66,39 +99,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 아래 �
 |---|---|---|
 |**[XO 통신](http://www.xo.com/)**|Equinix|실리콘밸리|
 
-
-## Express 경로 및 Microsoft 클라우드 서비스
-다음 표에서 지원하는 Microsoft 클라우드 서비스의 목록과 연결 공급자에 대한 세부 정보를 제공합니다. 서비스 공급자에게 문의
-
-**Exchange 공급자(EXP)**
-
-|**서비스 공급자**|**Microsoft Azure 서비스**|**Office 365 서비스**|
-|---|---|---|
-|**Aryaka**|지원됨||
-|**Colt 이더넷**|지원됨||
-|**Equinix**|지원됨|서비스 예정|
-|**InterCloud**|지원됨||
-|**Level 3 EVPL 서비스**|지원됨||
-|**TeleCity 그룹**|지원됨||
-|**Zayo 그룹**|지원됨||
-
-**네트워크 서비스 공급자(NSP)**
-
-|**서비스 공급자**|**Microsoft Azure 서비스**|**Office 365 서비스**|
-|---|---|---|
-|**AT&T**|지원됨|서비스 예정|
-|**British Telecom**|지원됨|서비스 예정|
-|**Colt IPVPN**|지원됨||
-|**Internet Initiative Japan Inc. - IIJ**|지원됨||
-|**Level3 IPVPN**|지원됨||
-|**Orange**|지원됨|| 
-|**SingTel**|지원됨||
-|**Tata Communications**|지원됨||
-|**Telstra Corporation**|지원됨||
-|**Verizon**|지원됨|| 
-
-
-## Express 경로 시스템 통합 업체
+## Express 경로 시스템 통합업체
 사용자 요구에 맞도록 개인 연결을 사용하도록 설정하면 네트워크의 크기에 따라 어려울 수 있습니다. 아래 표에 나열된 시스템 통합 업체와 작업하여 Express 경로에 등록합니다.
 
 
@@ -110,7 +111,8 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 아래 �
 ## 다음 단계
 - [Express 경로 필수 구성 요소](expressroute-prerequisites.md)를 충족하는 지 확인합니다.
 - 자세한 내용은 [FAQ](expressroute-faqs.md)를 방문하세요.
-- 공급자를 선택하고 연결을 구성합니다. 구성 정보는 [EXP 연결 구성](expressroute-configuring-exps.md) 또는 [NSP 연결 구성](expressroute-configuring-nsps.md)을 참조하세요.
+- Express 경로 연결을 구성하려면 [EXP 연결 구성](expressroute-configuring-exps.md) 또는 [NSP 연결 구성](expressroute-configuring-nsps.md)을 참조하세요.
+- 동일한 가상 네트워크에 대해 사이트 간 VPN 연결과 Express 경로를 둘 다 구성하려면 [공존하는 Express 경로 및 사이트 간 VPN 구성](expressroute-coexist.md)을 참조하세요.
+ 
 
-
-<!---HONumber=54--> 
+<!---HONumber=July15_HO2-->

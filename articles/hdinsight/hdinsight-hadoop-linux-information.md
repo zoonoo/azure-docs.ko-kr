@@ -152,4 +152,4 @@ HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 �
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

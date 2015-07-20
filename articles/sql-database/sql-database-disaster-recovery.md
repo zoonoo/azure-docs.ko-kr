@@ -41,7 +41,7 @@ Azure SQL 데이터베이스는 몇 가지 중단 복구 기능을 제공합니�
 
 
 ###Azure 포털
-1. [Azure 포털](https://portal.Azure.com) 로그인
+1. [Azure 포털](https://portal.Azure.com)에 로그인합니다.
 2. 화면 왼쪽에서 **찾아보기**를 선택한 다음 **SQL 데이터베이스**를 선택합니다.
 3. 사용자의 데이터베이스로 이동한 후 선택합니다. 
 4. 데이터베이스 블레이드의 맨 아래에서 **지역에서 복제 지도**를 선택합니다.
@@ -99,5 +99,6 @@ Azure SQL 데이터베이스는 몇 가지 중단 복구 기능을 제공합니�
 4.	[데이터베이스 작업 상태](http://msdn.microsoft.com/library/azure/dn720371.aspx) 작업을 통해 복구 상태를 추적합니다.
 
 데이터베이스가 복구된 후 [복구된 데이터베이스 마무리](sql-database-recovered-finalize.md) 가이드에 따라 사용할 방식을 구성할 수 있습니다.
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

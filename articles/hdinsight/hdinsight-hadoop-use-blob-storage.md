@@ -328,4 +328,4 @@ URI 체계는암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SS
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

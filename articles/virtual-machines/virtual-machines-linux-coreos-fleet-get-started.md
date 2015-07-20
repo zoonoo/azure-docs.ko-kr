@@ -1,23 +1,21 @@
-<properties 
-	pageTitle="Azure의 CoreOS에서 fleet 시작" 
-	description="Azure의 CoreOS Linux 가상 컴퓨터에서 Fleet 및 Docker를 사용하는 방법에 대한 기본적인 예제를 제공합니다." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="dlepow" 
+<properties
+	pageTitle="Azure의 CoreOS에서 fleet 시작"
+	description="Azure의 CoreOS Linux 가상 컴퓨터에서 Fleet 및 Docker를 사용하는 방법에 대한 기본적인 예제를 제공합니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
 	manager="timlt"
 	editor="madhana"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.workload="infrastructure-services" 
-	ms.date="03/17/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="03/17/2015"
 	ms.author="danlep"/>
 
-
-<!--The next line, with one pound sign at the beginning, is the page title-->
 # Azure의 CoreOS에서 fleet 시작
 
 이 문서에서는 [CoreOS] 가상 컴퓨터 클러스터에서 [fleet](https://github.com/coreos/fleet) 및 [Docker](https://www.docker.com/)를 사용하여 응용 프로그램을 실행하는 두 가지 간단한 예제를 설명합니다.
@@ -156,7 +154,7 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload apache@{1,2,3}.service
 Azure의 Linux VM에서 공개 소스 환경을 사용하는 방법에 대한 자세한 내용은 [Azure에서 Linux 및 공개 소스 컴퓨팅]을 참조하십시오.
 
 <!--Link references-->
-[Azure Cross-Platform Interface (xplat-cli)]: ../xplat-cli.md
+[Azure Command-Line Interface (Azure)]: ../xplat-cli.md
 [CoreOS]: https://coreos.com/
 [CoreOS 개요]: https://coreos.com/using-coreos/
 [CoreOS with Azure]: https://coreos.com/docs/running-coreos/cloud-providers/azure/
@@ -171,4 +169,6 @@ Azure의 Linux VM에서 공개 소스 환경을 사용하는 방법에 대한 �
 [BusyBox Docker Hub 이미지]: https://registry.hub.docker.com/_/busybox/
 [CoreOS Apache Docker Hub 이미지]: https://registry.hub.docker.com/u/coreos/apache/
 [Azure에서 Linux 및 공개 소스 컴퓨팅]: virtual-machines-linux-opensource.md
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=July15_HO2-->

@@ -148,5 +148,6 @@ UI의 도달률 섹션은 푸시 알림 캠페인과 기능을 작성/편집/활
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

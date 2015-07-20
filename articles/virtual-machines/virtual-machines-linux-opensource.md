@@ -73,7 +73,7 @@ Debian은 Linux 및 오픈 소스 환경에 중요한 배포판으로, dpgk 및 
 CentOS Linux 배포판은 RHEL(Red Hat Enterprise Linux) 원본에서 파생된 안정적이고, 예측 가능하며, 관리가 용이하고, 재현 가능한 플랫폼입니다.
 
 1. [MSOpenTech VM Depot](https://vmdepot.msopentech.com/List/Index?sort=Featured&search=centos)
-2. [이미지 갤러리](http://azure.microsoft.com/ko-kr/marketplace/partners/OpenLogic/)
+2. [이미지 갤러리](http://azure.microsoft.com/en-in/marketplace/partners/OpenLogic/)
 3. [방법: Azure에 대한 사용자 지정 CentOS 기반 VM 준비](virtual-machines-linux-create-upload-vhd-centos.md)
 4. [블로그: OpenLogic에서 CentOS VM 이미지를 배포하는 방법](http://azure.microsoft.com/blog/2013/01/11/deploying-openlogic-centos-images-on-windows-azure-virtual-machines/)
 6. [방법: AMQP 및 서비스 버스용 Apache Qpid Proton-C 설치](http://msdn.microsoft.com/library/azure/dn235560.aspx)
@@ -92,7 +92,7 @@ CentOS Linux 배포판은 RHEL(Red Hat Enterprise Linux) 원본에서 파생된 
 
 CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용으로 최적화된 소규모 Linux 배포판입니다.
 
-10. [이미지 갤러리](http://azure.microsoft.com/ko-kr/marketplace/partners/coreos/)  
+10. [이미지 갤러리](http://azure.microsoft.com/en-in/marketplace/partners/coreos/)  
 11. [방법: Azure에서 CoreOS를 사용하는 방법](virtual-machines-linux-coreos-how-to.md)
 12. [방법: Azure의 CoreOS에서 Fleet 및 Docker 시작](virtual-machines-linux-coreos-fleet-get-started.md)
 13. [블로그: TechEd Europe - Windows Docker 클라이언트 및 Linux 컨테이너](http://azure.microsoft.com/blog/2014/10/28/new-docker-coreos-topics-linux-on-azure/)
@@ -296,4 +296,4 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

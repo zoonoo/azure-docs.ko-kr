@@ -211,4 +211,4 @@ MPIO 설치 지침은 [StorSimple 장치에 대한 MPIO 구성](storsimple-confi
 [StorSimple 관리자 서비스](https://msdn.microsoft.com/library/azure/dn772396.aspx)를 사용하여 StorSimple 장치를 관리할 수 있습니다.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

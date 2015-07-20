@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="CSharp를 사용하여 Azure SQL 데이터베이스에서 어셈블리 만들기"
-	description="긴 16진수 숫자가 포함된 문자열로 DLL 파일을 처음 인코딩한 후 Azure SQL 데이터베이스에 CREATE ASSEMBLY를 실행하는 C# 소스 코드를 제공합니다. "
+	description="긴 16진수 숫자가 포함된 문자열로 DLL 파일을 처음 인코딩한 후 Azure SQL 데이터베이스에 CREATE ASSEMBLY를 실행하는 C# 소스 코드를 제공합니다." 
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="sql-database" 
-	ms.workload="sql-database" 
+	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/25/2015" 
+	ms.date="04/17/2015" 
 	ms.author="genemi"/>
 
 
@@ -35,10 +35,10 @@ Converting plain text "CREATE ASSEMBLY" into a link to the MSDN topic, ms189524.
 이 항목을 이해하려면 다음 사항을 일부 알고 있어야 합니다.
 
 
-- [CLR 테이블 값 함수](http://msdn.microsoft.com/library/ms131103.aspx)<br/>CREATE ASSEMBLY Transact-SQL 문이 온-프레미스 Microsoft SQL Server의 다른 문과 함께 작동하는 방식을 설명합니다.
+- [CLR Table-Valued 함수](http://msdn.microsoft.com/library/ms131103.aspx)는CREATE ASSEMBLY Transact-SQL 문이 온-프레미스 Microsoft SQL Server의 다른 문과 함께 작동하는 방식을 <br/>설명합니다.
 
 
-## A. 전체 기술
+## A. A. 전체 기술
 
 
 1. 이전 실행을 정리해야 하는 경우 DROP FUNCTION 및 DROP ASSEMBLY를 실행합니다.
@@ -50,9 +50,7 @@ Converting plain text "CREATE ASSEMBLY" into a link to the MSDN topic, ms189524.
 5. T-SQL SELECT 문을 실행하여 함수를 호출하고 테스트합니다.
 
 
-이전 목록에는 다음에 대한 언급이 없습니다.<br/>
-**execute sp_configure 'clr enabled', 1;**<br/>
-이는 Microsoft SQL Server에는 필요하지만 Azure SQL 데이터베이스에는 필요하지 않기 때문입니다.
+이전 목록이 <br/>에 대해 언급이 없다면 **sp_configure 'clr enabled', 1; 실행**<br/> ...그 이유는 심지어 Microsoft SQL 서버를 필요로 하더라도 Azure SQL 데이터 베이스가 필요없기 때문입니다.
 
 
 다시 실행하는 데 필요한 경우 함수 및 어셈블리를 삭제하는 T-SQL 코드는 다음과 같습니다.
@@ -62,7 +60,7 @@ Converting plain text "CREATE ASSEMBLY" into a link to the MSDN topic, ms189524.
     DROP ASSEMBLY CreateAssemblyFunctions3;
 
 
-## B. 참조할 T-SQL 함수에 대한 단순 어셈블리 DLL
+## B. B. 참조할 T-SQL 함수에 대한 단순 어셈블리 DLL
 
 
 이 섹션의 간단한 C# 코드 샘플은 어셈블리 DLL 파일로 컴파일할 수 있습니다.
@@ -97,7 +95,7 @@ Converting plain text "CREATE ASSEMBLY" into a link to the MSDN topic, ms189524.
 
 
 1. EXE의 명령줄 실행에서는 **Main** 메서드를 호출합니다.
-2. Main은 **ObtainHexStringOfAssembly** 메서드를 호출합니다.
+2. Main은**ObtainHexStringOfAssembly** 메서드를 호출합니다.
  - 이 메서드는 어셈블리를 16진수로 저장하는 SqlString을 출력합니다.
 3. Main은 **SubmitCreateAssemblyToAzureSqlDb** 메서드를 호출합니다.
  - 기본 입력은 SqlString입니다.
@@ -269,7 +267,7 @@ Visual Studio 프로젝트는 컴파일을 위해 다음 어셈블리를 참조�
 
 
 - Microsoft.CSharp
-- System
+- 시스템
 - System.Core
 - System.Data
 - System.Data.DataSetExtensions
@@ -295,7 +293,7 @@ Visual Studio 프로젝트는 컴파일을 위해 다음 어셈블리를 참조�
 간단히 설명하기 위해 이 예제에서는 암호를 명령줄 매개 변수로 전달합니다. 실제로는 C# 코드가 CONFIG 파일에서 암호를 가져오도록 설계하는 것이 좋습니다.
 
 
-## D. CREATE FUNCTION 문 실행
+## D. D. CREATE FUNCTION 문 실행
 
 
 어셈블리를 Azure SQL 데이터베이스 서버에 저장한 후에는 어셈블리의 메서드를 참조하는 TRANSACT-SQL CREATE FUNCTION 문을 실행해야 합니다.
@@ -330,5 +328,4 @@ Visual Studio 프로젝트는 컴파일을 위해 다음 어셈블리를 참조�
 
 <!-- EndOfFile -->
 
-
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

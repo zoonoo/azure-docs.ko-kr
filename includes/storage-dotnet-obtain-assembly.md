@@ -4,4 +4,4 @@ NuGet를 사용하여 `Microsoft.WindowsAzure.Storage.dll` 어셈블리를 가�
 
 `Microsoft.WindowsAzure.Storage.dll`은(는) <a href="http://azure.microsoft.com/develop/net/#">.NET 개발자 센터</a>에서 다운로드할 수 있는 Azure SDK for .NET에도 포함되어 있습니다. 이 어셈블리는 `%Program Files%\Microsoft SDKs\Azure.NET SDK<sdk-version>\ref` 디렉터리에 설치됩니다.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

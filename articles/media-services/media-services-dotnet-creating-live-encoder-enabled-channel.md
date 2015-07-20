@@ -1,5 +1,5 @@
 <properties 
-	pageTitle=".NET SDK를 사용하여 단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 만들기"
+	pageTitle=".NET SDK를 사용하여 단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 만들기" 
 	description="이 자습서에서는 단일 비트 전송률 라이브 스트림을 받아서 다중 비트 전송률 스트림으로 인코딩하는 채널을 만드는 단계를 안내합니다." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,17 +13,24 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="05/27/2015" 
 	ms.author="juliako"/>
 
 
 #.NET SDK를 사용하여 단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 만들기(미리 보기)
 
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+- [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
+- 
 ##개요
 
 이 자습서에서는 단일 비트 전송률 라이브 스트림을 받아서 다중 비트 전송률 스트림으로 인코딩하는 **채널**을 만드는 단계를 안내합니다.
 
 >[AZURE.NOTE]라이브 인코딩에 사용할 수 있는 채널과 관련된 자세한 개념 정보는 [단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 작업](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
+
+>[AZURE.NOTE]미디어 서비스 .NET SDK 버전 3.2.0.0 이상을 사용해야 합니다.
 
 ##일반적인 라이브 스트리밍 시나리오
 
@@ -491,6 +498,7 @@ app.config 파일에 appSettings 섹션을 추가하고 미디어 서비스 계�
 	
 ##관련된 항목
 
-[단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 작업](media-services-manage-live-encoder-enabled-channels.md) 
-<!--HONumber=52-->
+[단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 작업](media-services-manage-live-encoder-enabled-channels.md)
  
+
+<!---HONumber=July15_HO2-->

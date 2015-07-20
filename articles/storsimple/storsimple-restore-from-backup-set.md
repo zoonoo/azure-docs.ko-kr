@@ -1,17 +1,10 @@
-<properties 
-   pageTitle="백업 세트에서 StorSimple 볼륨 복원"
-   description="백업 카탈로그를 사용하여 백업 세트에서 StorSimple 볼륨을 복원하는 방법을 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" /> <tags 
+<속성 페이지 타이틀=" StorSimple 볼륨을 백업 세트에서 복원" | Microsoft Azure 설명="백업 카탈로그를 사용하여 백업 세트에서 StorSimple 볼륨을 복원하는 방법을 설명합니다." 서비스="storsimple" documentationCenter="NA" 작성자="SharS" 관리자="carolz" 편집자="" /> <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/13/2015"
+   ms.date="06/25/2015"
    ms.author="v-sharos" />
 
 # 백업 세트에서 StorSimple 볼륨 복원
@@ -26,7 +19,7 @@
 
 ## 백업 카탈로그를 사용하는 방법 
 
- **백업 카탈로그** 페이지는 백업 세트 선택 범위를 좁히는 데 도움이 되는 쿼리를 제공합니다. 다음 매개 변수를 기반으로 검색되는 백업 세트를 필터링할 수 있습니다.
+**백업 카탈로그** 페이지는 백업 세트 선택 범위를 좁히는 데 도움이 되는 쿼리를 제공합니다. 다음 매개 변수를 기반으로 검색되는 백업 세트를 필터링할 수 있습니다.
 
 - **장치** – 백업 세트를 만든 장치입니다.
 - **백업 정책** 또는 **볼륨** – 백업 정책 또는 이 백업 세트와 연결된 볼륨입니다.
@@ -79,5 +72,6 @@
 
 ## 다음 단계
 
-[storsimple 볼륨 관리](storsimple-manage-volumes.md) <!--HONumber=52-->방법에 대해 배웁니다.
- 
+[storsimple 볼륨 관리](storsimple-manage-volumes.md) 방법에 대해 배웁니다.
+
+<!---HONumber=July15_HO2-->

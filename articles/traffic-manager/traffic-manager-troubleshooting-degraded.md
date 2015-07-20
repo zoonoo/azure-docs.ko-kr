@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="kwill-MSFT"
    manager="adinah"
-   editor="joaoma"/>
+   editor="joaoma" />
 
 <tags 
    ms.service="traffic-manager"
@@ -14,8 +14,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/02/2015"
-   ms.author="joaoma"/>
-
+   ms.author="joaoma" />
 # Azure 트래픽 관리자의 성능 저하 상태 문제해결
 이 페이지에서는 성능 저하 상태를 보여주는 Azure 트래픽 관리자 프로필의 문제를 해결하는 방법을 설명하고 트래픽 관리자 검색을 이해하는 데 있어 중요한 점을 제공합니다.
 
@@ -80,4 +79,4 @@ wget은 http://watestsdp2008r2.cloudapp.net/Default.aspx(으)로 리디렉션되
 [Azure 트래픽 관리자 cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

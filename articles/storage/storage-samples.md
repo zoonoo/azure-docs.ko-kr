@@ -79,6 +79,6 @@ C++ 샘플을 탐색하려면 [C++ 저장소 클라이언트 라이브러리](ht
 ### C++ 리소스
 
 - [C++ 저장소 클라이언트 라이브러리에 대한 소스 코드](https://github.com/Azure/azure-storage-cpp)
-- [C++ 클라이언트 라이브러리 참조](http://azure.github.io/azure-storage-cpp/)
+- [C++ 클라이언트 라이브러리 참조](http://azure.github.io/azure-storage-cpp/) 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

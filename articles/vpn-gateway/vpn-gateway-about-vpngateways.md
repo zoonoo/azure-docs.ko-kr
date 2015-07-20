@@ -6,7 +6,6 @@
    authors="cherylmc"
    manager="adinah"
    editor="tysonn" />
-
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
@@ -80,4 +79,4 @@ VPN 게이트웨이 유형을 변경하려면 [가상 네트워크 VPN 게이트
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

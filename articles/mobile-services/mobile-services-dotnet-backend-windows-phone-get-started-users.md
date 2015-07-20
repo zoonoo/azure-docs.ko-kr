@@ -30,13 +30,13 @@
 
 ## 인증을 위해 앱 등록 및 모바일 서비스 구성
 
-[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../../includes/mobile-services-register-authentication.md)]
 
-[AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../../includes/mobile-services-dotnet-backend-aad-server-extension.md)] 
+[AZURE.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../../includes/mobile-services-dotnet-backend-aad-server-extension.md)]
 
-## 사용 권한을 인증된 사용자로 제한
+##  사용 권한을 인증된 사용자로 제한
 
-[AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 <ol start="6">
 <li>Visual Studio에서 클라이언트 앱 프로젝트를 열고 App.xaml.cs에서 <strong>MobileServiceClient</strong>의 인스턴스가 모바일 서비스의 클라우드 URL을 사용하도록 구성되어 있는지 확인합니다.</li> 
@@ -53,9 +53,9 @@
 
 ## 클라이언트에 권한 부여 토큰 저장
 
-[AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app-with-token](../../includes/mobile-services-windows-phone-authenticate-app-with-token.md)] 
+[AZURE.INCLUDE [mobile-services-windows-phone-authenticate-app-with-token](../../includes/mobile-services-windows-phone-authenticate-app-with-token.md)]
 
-## 다음 단계
+##  다음 단계
 
 다음 자습서인 [모바일 서비스 사용자의 서비스 쪽 권한 부여][Authorize users with scripts]에서는 인증된 사용자를 기반으로 모바일 서비스에서 제공된 사용자 ID 값을 사용하여 모바일 서비스에서 반환되는 데이터를 필터링합니다. .NET과 함께 모바일 서비스를 사용하는 방법에 대한 자세한 내용은 [모바일 서비스 .NET 방법 개념 참조]를 참조하십시오.
 
@@ -77,5 +77,6 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
 [모바일 서비스 .NET 방법 개념 참조]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -85,4 +85,4 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

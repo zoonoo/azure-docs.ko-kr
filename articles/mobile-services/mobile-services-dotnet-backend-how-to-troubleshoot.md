@@ -153,4 +153,5 @@ SQL 데이터베이스와 함께 모바일 서비스 .NET 백 엔드를 사용�
 [LogsServerExplorer]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/12.png
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

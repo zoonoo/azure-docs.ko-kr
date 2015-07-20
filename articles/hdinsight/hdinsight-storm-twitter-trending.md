@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
-# HDInsight의 Apache Storm을 사용하여 Twitter 추세 항목 확인
+#HDInsight의 Apache Storm을 사용하여 Twitter 추세 항목 확인
 
 Twitter에서 추세 항목(해시 태그)을 결정하는 Storm 토폴로지를 만들기 위해 Trident를 사용 하는 방법에 대해 알아봅니다.
 
@@ -24,7 +24,7 @@ Trident는 조인, 집계, 그룹화, 함수 및 필터와 같은 도구를 제�
 
 > [AZURE.NOTE]이 예제는 주로 Juan Alonso의 [Trident Storm](https://github.com/jalonsoramos/trident-storm) 예제를 기반으로 합니다.
 
-## 요구 사항
+##요구 사항
 
 * <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java 및 JDK 1.7</a>
 
@@ -34,13 +34,13 @@ Trident는 조인, 집계, 그룹화, 함수 및 필터와 같은 도구를 제�
 
 * Twitter 개발자 계정
 
-## 프로젝트를 다운로드합니다.
+##프로젝트를 다운로드합니다.
 
 다음 코드를 사용하여 프로젝트를 로컬로 복제합니다.
 
 	git clone https://github.com/Blackmist/TwitterTrending
 
-## 토폴로지
+##토폴로지
 
 이 예제의 토폴로지는 다음과 같습니다.
 
@@ -78,15 +78,15 @@ Trident는 조인, 집계, 그룹화, 함수 및 필터와 같은 도구를 제�
 >
 > * <a href="https://github.com/kstyrc/trident-redis" target="_blank">trident-redis</a>
 
-### spout
+###spout
 
 **TwitterSpout** Spout는 <a href="http://twitter4j.org/en/" target="_blank">Twitter4j</a>를 사용하여 Twitter에서 트윗을 검색합니다. 필터(이 예제의 경우 love, music 및 coffee)가 만들어지며 해당 필터와 일치하는 들어오는 트윗(상태)이 Linked Blocking Queue에 저장됩니다. 자세한 내용은 <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/LinkedBlockingQueue.html" target="_blank">LinkedBlockingQueue 클래스</a>를 참조하세요. 마지막으로 항목을 큐에서 가져와 토폴로지로 내보냅니다.
 
-### HashtagExtractor
+###HashtagExtractor
 
 해시태그를 추출하기 위해 <a href="http://twitter4j.org/javadoc/twitter4j/EntitySupport.html#getHashtagEntities--" target="_blank">getHashtagEntities</a>를 사용하여 트윗에 포함된 모든 해시 태그를 검색합니다. 그런 다음 스트림으로 보내집니다.
 
-## Twitter 사용
+##Twitter 사용
 
 새 Twitter 응용 프로그램을 등록하고를 Twitter에서 읽는 데 필요한 소비자 및 액세스 토큰 정보를 받으려면 다음 단계를 참조하세요.
 
@@ -100,14 +100,14 @@ Trident는 조인, 집계, 그룹화, 함수 및 필터와 같은 도구를 제�
 
 5. 앞에서 복사한 **TwitterSpoutTopology** 프로젝트에서 **resources/twitter4j.properties** 파일을 열고 이전 단계에서 수집한 정보를 추가한 다음 파일을 저장합니다.
 
-## 토폴로지 작성
+##토폴로지 작성
 
 다음 코드를 사용하여 프로젝트를 빌드합니다.
 
 		cd [directoryname]
 		mvn compile
 
-## 포톨로지 테스트
+##포톨로지 테스트
 
 다음 명령을 사용하여 토폴로지를 로컬로 테스트합니다.
 
@@ -125,7 +125,7 @@ Trident는 조인, 집계, 그룹화, 함수 및 필터와 같은 도구를 제�
 	DEBUG: [punk, 1]
 	DEBUG: [indonesiapunkrock, 1]
 
-## 다음 단계
+##다음 단계
 
 토폴로지를 로컬로 테스트했으므로 이제 [HDInsight의 Apache Strom 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology.md)에서 토폴로지를 배포하는 방법에 대해 알아봅니다.
 
@@ -139,4 +139,4 @@ HDinsight에 대한 추가 Storm 예제:
 
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

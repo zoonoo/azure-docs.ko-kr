@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="alkohli"
    manager="adinah"
-   editor="" /> <tags 
+   editor="" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -165,6 +166,6 @@ MPIO가 Windows Server에 구성된 후 StorSimple 장치에 생성된 볼륨이
 
 12. 세션 내에 표시되는 장치를 보려면 **장치** 탭을 선택합니다. 선택한 장치에 대한 MPIO 정책을 구성하려면 **MPIO**를 클릭합니다. **장치 세부 정보** 대화 상자가 표시됩니다. **MPIO** 탭에서 적절한 **부하 분산 정책** 설정을 선택할 수 있습니다. **활성** 또는 **대기** 경로 유형도 볼 수 있습니다.
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

@@ -12,17 +12,17 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
-	ms.topic="hero-article"
-	ms.date="02/11/2015"
+	ms.topic="article"
+	ms.date="05/13/2015"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>모바일 서비스 시작
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
-이 자습서는 Azure 모바일 서비스를 사용하여 iOS 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 이 자습서에서는 새 모바일 서비스와 새 모바일 서비스에 앱 데이터를 저장하는 간단한 _할 일 모음_ 앱을 둘 다 만듭니다. 모바일 서비스는 서버 쪽 비즈니스 논리에 .NET 및 Visual Studio를 사용합니다. JavaScript에서 서버쪽 비즈니스 논리로 모바일 서비스를 만들려면 이 항목의 [JavaScript 백 엔드 버전]을 참조하세요.
+이 자습서는 Azure 모바일 서비스를 사용하여 iOS 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 이 자습서에서는 새 모바일 서비스와 새 모바일 서비스에 앱 데이터를 저장하는 간단한 _할 일 모음_ 앱을 둘 다 만듭니다. 모바일 서비스는 서버 쪽 비즈니스 논리에 .NET 및 Visual Studio를 사용합니다. JavaScript에서 서버 쪽 비즈니스 논리로 모바일 서비스를 만들려면 이 항목의 [JavaScript 백 엔드 버전]을 참조하세요.
 
-> [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 Azure 평가판을 등록하고 [ 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있는 무료 모바일 서비스](http://azure.microsoft.com/pricing/details/mobile-services/)를 사용할 수 있습니다.  자세한 내용은 [Azure 무료 평가판](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F%20target="_blank")을 참조하세요.
+> [AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 Azure 평가판을 등록하고 [평가판 사용 기간이 끝난 후에도 계속 사용할 수 있는 무료 모바일 서비스](http://azure.microsoft.com/pricing/details/mobile-services/)를 사용할 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-ios-get-started%2F)을 참조하세요.
 
 ## <a name="create-new-service"> </a>새 모바일 서비스 만들기
 
@@ -32,7 +32,7 @@
 
 이제 모바일 서비스를 만들었습니다. 로컬로 실행할 수 있는 프로젝트를 다운로드합니다.
 
-1. 방금 만든 모바일 서비스를 클릭하고 퀵 스타트 탭에서 **플랫폼 선택** 아래의 **iOS**를 클릭하고 **새 iOS 앱 만들기**를 확장합니다.
+1. 방금 만든 모바일 서비스를 클릭하고 빠른 시작 탭에서 **플랫폼 선택** 아래의 **iOS**를 클릭하고 **새 iOS 앱 만들기**를 확장합니다.
 
 2. Windows PC에서 **서비스를 다운로드하고 클라우드에 게시** 아래의 **다운로드**를 클릭합니다. 모바일 서비스를 구현하는 Visual Studio 프로젝트가 다운로드됩니다. 압축된 프로젝트 파일을 로컬 컴퓨터에 저장하고 저장 위치를 기록해 둡니다.
 
@@ -58,26 +58,21 @@ Azure에서 실행 중인 모바일 서비스에 대해 새 클라이언트 앱�
 
 모바일 서비스에서 중요한 추가 작업을 수행하는 방법에 대해 알아봅니다.
 
-* [기존 앱에 모바일 서비스 추가]
-  <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아봅니다.
+* [기존 앱에 모바일 서비스 추가] <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법을 자세히 알아봅니다.
 
-* [오프라인 데이터 동기화 시작]
-  <br/>오프라인 데이터 동기화를 활용하여 앱의 응답성과 견고성을 향상하는 방법을 알아봅니다.
+* [오프라인 데이터 동기화 시작] <br/>오프라인 데이터 동기화를 활용하여 응답성과 견고성이 뛰어난 앱을 제작하는 방법을 알아봅니다.
 
-* [기존 앱에 인증 추가]
-  <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
+* [기존 앱에 인증 추가] <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
-* [기존 앱에 푸시 알림 추가]
-  <br/>앱에 기본적인 푸시 알림을 보내는 방법을 알아봅니다.
+* [기존 앱에 푸시 알림 추가] <br/>기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
-* [모바일 서비스 .NET 백 엔드 문제 해결]
-  <br/> 모바일 서비스 .NET 백 엔드에서 발생할 수 있는 문제를 진단하고 해결하는 방법에 알아봅니다.
+* [모바일 서비스 .NET 백 엔드 문제 해결] <br/> 모바일 서비스 .NET 백 엔드에서 발생할 수 있는 문제를 진단 및 해결하는 방법을 알아봅니다.
 
 <!-- Anchors. -->
-[모바일 서비스 시작]:#getting-started
-[새 모바일 서비스 만들기]:#create-new-service
-[모바일 서비스 인스턴스 정의]:#define-mobile-service-instance
-[다음 단계]:#next-steps
+[Getting started with Mobile Services]: #getting-started
+[Create a new mobile service]: #create-new-service
+[Define the mobile service instance]: #define-mobile-service-instance
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 [0]: ./media/mobile-services-dotnet-backend-ios-get-started/mobile-quickstart-completed-ios.png
@@ -99,11 +94,11 @@ Azure에서 실행 중인 모바일 서비스에 대해 새 클라이언트 앱�
 [기존 앱에 푸시 알림 추가]: mobile-services-dotnet-backend-ios-get-started-push.md
 [모바일 서비스 .NET 백 엔드 문제 해결]: mobile-services-dotnet-backend-how-to-troubleshoot.md
 
-[모바일 서비스 iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+[Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
-[관리 포털]: https://manage.windowsazure.com/
+[Management Portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [JavaScript 백 엔드 버전]: mobile-services-ios-get-started.md
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO2-->

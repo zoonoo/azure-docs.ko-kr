@@ -1,3 +1,4 @@
+
 #사용자 지정 가상 컴퓨터를 만드는 방법
 
 *사용자 지정* 가상 컴퓨터란 **갤러리에서** 방법을 사용하여 만드는 가상 컴퓨터를 말하는데, 이는 **빠른 생성** 방법보다 사용할 수 있는 구성 옵션이 더 많기 때문입니다. 이러한 옵션에는 다음이 포함됩니다.
@@ -59,4 +60,4 @@
 - [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -203,4 +203,4 @@ Blob 저장소의 기존 .vhd 파일에서 데이터 디스크를 연결하려�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

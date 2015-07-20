@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/30/2015"
+	ms.date="07/06/2015"
 	ms.author="larryfr"/>
 
 
-#HDInsight에서 Hive 및 Pig 스트림과 함께 C# UDF(사용자 정의 함수) 사용 
+#HDInsight에서 Hive 및 Pig 스트림과 함께 C# UDF(사용자 정의 함수) 사용
 
 Hive 및 Pig는 Azure HDInsight의 데이터 작업에 적합하지만 보다 일반적인 언어가 필요한 경우도 있습니다. Hive 및 Pig 모두 사용자 정의 함수(UDF) 또는 스트리밍을 통해 외부 코드를 호출할 수 있습니다.
 
@@ -29,15 +29,15 @@ Hive 및 Pig는 Azure HDInsight의 데이터 작업에 적합하지만 보다 �
 
 * 다음 버전의 Visual Studio:
 
-	* Visual Studio 2012 Professional/Premium/Ultimate <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">업데이트 4</a> 포함
+	* Visual Studio 2012 Professional/Premium/Ultimate [업데이트 4](http://www.microsoft.com/download/details.aspx?id=39305)
 
-	* Visual Studio 2013 Community/Professional/Premium/Ultimate <a href="https://www.microsoft.com/download/details.aspx?id=44921" target="_blank">업데이트 4</a> 포함
+	* Visual Studio 2013 Community/Professional/Premium/Ultimate [업데이트 4](https://www.microsoft.com/download/details.aspx?id=44921)
 
 	* Visual Studio 2015 Preview
 
 * HDInsight 클러스터의 Hadoop - 클러스터를 만드는 단계는 [HDInsight 클러스터 프로비전](hdinsight-provision-clusters.md)을 참조하세요.
 
-* Visual Studio용 Hadoop 도구 도구 설치 및 구성에 대한 단계는 <a href="../hdinsight-hadoop-visual-studio-tools-get-started" target="_blank">Visual Studio용 HDInsight Hadoop 도구를 사용하여 시작</a>을 참조하세요.
+* Visual Studio용 Hadoop 도구 도구 설치 및 구성에 대한 단계는 [Visual Studio용 HDInsight Hadoop 도구를 사용하여 시작](hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
 ##HDInsight에서.NET
 
@@ -122,7 +122,7 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
 
 6. 클러스터의 경우 **기본 컨테이너**를 두 번 클릭합니다. 기본 컨테이너의 내용을 표시하는 새 창이 열립니다.
 
-7. 업로드 아이콘을 클릭한 다음**HiveCSharp** 프로젝트에 대한 **bin\debug** 폴더로 이동합니다. 마지막으로 **HiveCSharp.exe** 파일을 선택하고 **확인**을 클릭합니다.
+7. 업로드 아이콘을 클릭한 다음**HiveCSharp** 프로젝트에 대한 **bin\\debug** 폴더로 이동합니다. 마지막으로 **HiveCSharp.exe** 파일을 선택하고 **확인**을 클릭합니다.
 
 	![업로드 아이콘](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
 
@@ -152,7 +152,7 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
 
 6. **새로 고침**을 클릭하여 **작업 상태**가 **Completed**로 변경될 때까지 요약을 새로 고칩니다. 작업 출력을 보려면 **작업 출력**을 클릭합니다.
 
-###Pig 및 C&#35;
+##Pig 및 C&#35;
 
 ###C# 프로젝트 만들기
 
@@ -193,7 +193,7 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
 
 ###응용 프로그램 업로드
 
-1. Pig 스트리밍은 응용 프로그램이 클러스터 파일 시스템에서 로컬일 것이라고 예상합니다. HDInsight 클러스터용 원격 데스크톱을 사용하도록 설정한 다음, RDP</a>를 사용하여 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">HDInsight 클러스터에 연결의 지침에 따라 연결합니다.
+1. Pig 스트리밍은 응용 프로그램이 클러스터 파일 시스템에서 로컬일 것이라고 예상합니다. HDInsight 클러스터용 원격 데스크톱을 사용하도록 설정한 다음, [RDP를 사용하여 HDInsight 클러스터에 연결](hdinsight-administer-use-management-portal.md#rdp)의 지침에 따라 연결합니다.
 
 2. 복사되면, 로컬 컴퓨터에서 PigUDF 프로젝트용 **bin/debug** 디렉터리에서 **PigUDF.exe**를 복사하고 클러스터의 **%PIG_HOME%** 디렉터리에 붙여넣습니다.
 
@@ -239,6 +239,5 @@ Pig 및 Hive를 사용하고 MapReduce 사용에 대해 배우는 다른 방법�
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 
 * [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

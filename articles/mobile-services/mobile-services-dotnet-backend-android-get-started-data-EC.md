@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data-EC.md)]
 
-## 개요
+##개요
 
 이 항목에서는 Android 앱용 백 엔드 데이터 소스로서 Azure 모바일 서비스를 사용하는 방법을 보여 줍니다. 이 자습서에서는 새 모바일 서비스를 만들고, 데이터를 메모리에 저장하는 앱용 Eclipse Android 프로젝트를 다운로드하고, 모바일 서비스를 앱과 통합하고, 앱을 실행할 때 수행된 데이터 변경 내용을 확인합니다.
 
@@ -32,43 +32,43 @@
 
 + Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-android-get-started-data-EC%2F)을 참조하십시오.
 
-## <a name="create-service"></a>새 모바일 서비스 만들기
+##<a name="create-service"></a>새 모바일 서비스 만들기
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 
-## <a name="download-the-service"></a>로컬 컴퓨터에 서비스 다운로드
+##<a name="download-the-service"></a>로컬 컴퓨터에 서비스 다운로드
 
 [AZURE.INCLUDE [mobile-services-download-service-locally](../../includes/mobile-services-download-service-locally.md)]
 
-## <a name="test-the-service"></a>모바일 서비스 테스트
+##<a name="test-the-service"></a>모바일 서비스 테스트
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-test-local-service](../../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
-## <a name="publish-the-service"></a>Azure에 모바일 서비스 게시
+##<a name="publish-the-service"></a>Azure에 모바일 서비스 게시
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../../includes/mobile-services-dotnet-backend-publish-service.md)]
 
-## <a name="download-app"></a>GetStartedWithData 프로젝트 다운로드
+##<a name="download-app"></a>GetStartedWithData 프로젝트 다운로드
 
-### 샘플 코드 가져오기
+###샘플 코드 가져오기
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../../includes/download-android-sample-code-EC.md)]
 
-### Android SDK 버전 확인
+###Android SDK 버전 확인
 
 [AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../../includes/mobile-services-verify-android-sdk-version-EC.md)]
 
 
-### 샘플 코드 검사 및 실행
+###샘플 코드 검사 및 실행
 
 [AZURE.INCLUDE [mobile-services-android-run-sample-code](../../includes/mobile-services-android-run-sample-code-EC.md)]
 
-## <a name="update-app"></a>데이터 액세스에 모바일 서비스를 사용하도록 앱 업데이트
+##<a name="update-app"></a>데이터 액세스에 모바일 서비스를 사용하도록 앱 업데이트
 
 [AZURE.INCLUDE [mobile-services-android-getting-started-with-data](../../includes/mobile-services-android-getting-started-with-data-EC.md)]
 
-## <a name="test-app"></a>게시된 모바일 서비스에 대해 앱 테스트
+##<a name="test-app"></a>게시된 모바일 서비스에 대해 앱 테스트
 
 앱이 백 엔드 저장소용으로 모바일 서비스를 사용하도록 업데이트되었으므로, 이제 Android 에뮬레이터나 Android 휴대폰을 사용하여 모바일 서비스에 대해 앱을 테스트할 수 있습니다.
 
@@ -133,4 +133,5 @@
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

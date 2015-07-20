@@ -95,4 +95,7 @@ Azure PowerShell cmdlet을 사용하여 이 작업을 설정하려면, [PowerShe
 
 [네트워크 보안 그룹 정보](https://msdn.microsoft.com/library/azure/dn848316.aspx)
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO2-->

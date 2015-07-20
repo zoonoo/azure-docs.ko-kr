@@ -25,4 +25,4 @@ Azure SQL DB는 탄력적 데이터베이스 기능은 데이터 계층 개발 �
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/ElasticScaleMapcoded.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -1,24 +1,25 @@
 <properties 
-    pageTitle="StorSimple 릴리스 정보 - 2015년 2월"
+    pageTitle="StorSimple 8000 시리즈 업데이트 0.3 릴리스 정보 - 2015년 2월"
     description="2015년 2월 StorSimple 릴리스에 대한 새로운 기능, 문제 및 해결 방법을 설명합니다."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
     manager="adinah"
-    editor="tysonn" /> <tags 
+    editor="tysonn" />
+ <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="04/13/2015"
+    ms.date="05/27/2015"
     ms.author="v-sharos" />
 
-# StorSimple 릴리스 정보 - 2015년 2월
+# StorSimple 8000 시리즈 업데이트 0.3 릴리스 정보 - 2015년 2월
 
 ## 개요
 
-다음 릴리스 정보는 Microsoft Azure StorSimple의 2015년 2월 릴리스에 대한 중요한 미해결 문제를 식별합니다. 또한 이 릴리스에 포함된 StorSimple 소프트웨어 및 펌웨어 업데이트의 목록을 포함합니다. 이 릴리스는 Microsoft Azure StorSimple의 GA(General Availability) 릴리스 이후 세 번째 릴리스입니다.
+다음 릴리스 정보는 2015년 2월에 출시된 StorSimple 8000 시리즈 업데이트 0.3에 대한 중요한 미해결 문제를 식별합니다. 또한 이 릴리스에 포함된 StorSimple 소프트웨어 및 펌웨어 업데이트의 목록을 포함합니다. 일반적으로 StorSimple 8000 시리즈 릴리스 버전이 2014년 7월에 사용할 수 있게 변경된 후 세 번째 릴리스입니다.
   
 이 업데이트는 1월 업데이트에서 장치 소프트웨어 버전이 변경되지 않습니다. 6.3.9600.17312 버전을 계속 사용합니다. **마지막 업데이트** 날짜를 확인하여 설치된 업데이트를 확인할 수 있습니다. 날짜가 2015/2/10 이후인 경우, 업데이트가 성공적으로 설치된 것입니다.
 
@@ -26,7 +27,7 @@ StorSimple 장치를 설치한 후 즉시 사용 가능한 업데이트를 검�
 
 StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 포함된 정보를 검토하십시오.
 
->[AZURE.IMPORTANT] 
+>[AZURE.IMPORTANT]
 >
 > - 2월 업데이트를 설치하려면 StorSimple용 Windows PowerShell이 아닌 StorSimple 관리자 서비스를 사용합니다.   
 > - 이 업데이트를 설치하는 데에는 1시간 정도 걸립니다. 하지만 누적 업데이트를 설치하는 경우 프로세스를 완료하는 데 3시간 정도 걸릴 수 있습니다.  
@@ -83,6 +84,6 @@ StorSimple 장치를 업데이트하기 전에 다음 필수 조건이 충족되
 ## 2월 릴리스의 가상 장치 업데이트
 
 이 릴리스에는 가상 장치에 대한 업데이트는 포함되지 않습니다. 이 업데이트를 적용해도 가상 장치의 소프트웨어 버전은 변경되지 않습니다.
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

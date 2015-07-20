@@ -4,7 +4,7 @@
 	documentationCenter="xamarin" 
 	authors="mattchenderson" 
 	manager="dwrede" 
-	editor="" 
+	editor="dwrede" 
 	services="mobile-services"/>
 
 <tags 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="06/19/2015" 
 	ms.author="mahender"/>
 
 # Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증
 
 [AZURE.INCLUDE [mobile-services-selector-adal-sso](../../includes/mobile-services-selector-adal-sso.md)]
 
-## 개요
+##개요
 
 이 자습서에서는 Active Directory 인증 라이브러리를 사용하여 빠른 시작 프로젝트에 인증을 추가합니다.
 
@@ -29,7 +29,7 @@
 
 >[AZURE.NOTE]이 자습서는 모바일 서비스를 통해 Xamarin.iOS 앱에 대한 Single Sign-On Azure Active Directory 인증을 수행할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 모바일 서비스를 처음 사용하는 경우 [모바일 서비스 시작] 자습서를 완료하는 것이 좋습니다.
 
-## 필수 조건
+##필수 조건
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
@@ -43,11 +43,11 @@
 
 [AZURE.INCLUDE [mobile-services-dotnet-adal-register-client](../../includes/mobile-services-dotnet-adal-register-client.md)]
 
-## 인증을 요구하도록 모바일 서비스 구성
+##인증을 요구하도록 모바일 서비스 구성
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
-## 클라이언트 앱에 인증 코드 추가
+##클라이언트 앱에 인증 코드 추가
 
 1. Active Directory 인증 라이브러리를 위한 Xamarin 바인딩을 사용자의 Xamarin.iOS 프로젝트에 추가합니다. Visual Studio 2013에서는 **참조**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 선택합니다. 그런 후 바인딩 라이브러리로 이동하고 **추가**를 클릭합니다. 또한 ADAL 소스에서 스토리보드를 추가해야 합니다.
 
@@ -122,7 +122,7 @@
             await QSTodoService.DefaultService.Authenticate();
         }
 
-## 인증을 사용하여 클라이언트 테스트
+##인증을 사용하여 클라이언트 테스트
 
 1. 실행 메뉴에서 실행을 클릭하여 앱을 시작합니다. 
 2. Azure Active Directory에 대한 로그인 메시지가 표시됩니다.  
@@ -140,4 +140,5 @@
 [iOS용 Active Directory 인증 라이브러리를 위한 Xamarin 바인딩]: https://github.com/AzureADSamples/NativeClient-Xamarin-iOS
 [Xamarin 확장]: http://xamarin.com/visual-studio
 [Xamarin Studio]: http://xamarin.com/download
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

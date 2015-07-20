@@ -276,4 +276,4 @@ PowerShell 스크립트에서 이러한 단계는 다음과 같이 구현됩니�
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
 [서비스 버스용 .NET API]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

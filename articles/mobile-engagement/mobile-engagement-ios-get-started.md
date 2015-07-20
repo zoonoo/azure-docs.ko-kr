@@ -1,29 +1,30 @@
-<properties 
-	pageTitle="Objective C에서 iOS용 Azure Mobile Engagement 시작" 
+<properties
+	pageTitle="Objective C에서 iOS용 Azure Mobile Engagement 시작"
 	description="iOS 앱에 대해 분석 및 푸시 알림과 함께 Azure Mobile Engagement를 사용하는 방법을 알아봅니다."
-	services="mobile-engagement" 
-	documentationCenter="Mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="Mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="04/30/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="get-started-article" 
+	ms.date="04/30/2015"
 	ms.author="piyushjo" />
 
 # Objective C에서 iOS 앱용 Azure Mobile Engagement 시작
 
 > [AZURE.SELECTOR]
-- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md) 
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md) 
-- [iOS - Obj C](mobile-engagement-ios-get-started.md) 
+- [Windows Universal](mobile-engagement-windows-store-dotnet-get-started.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-get-started.md)
+- [iOS - Obj C](mobile-engagement-ios-get-started.md)
 - [iOS - Swift](mobile-engagement-ios-swift-get-started.md)
-- [Android](mobile-engagement-android-get-started.md) 
+- [Android](mobile-engagement-android-get-started.md)
+- [Cordova](mobile-engagement-cordova-get-started.md)
 
 이 항목에서는 Azure Mobile Engagement를 사용하여 앱 사용을 이해하고 iOS 응용 프로그램의 분할된 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 기본 데이터를 수집하고 APNS(Apple 푸시 알림 시스템)를 사용하여 푸시 알림을 받는 빈 iOS 앱을 만듭니다. 이 과정을 완료하면 장치 속성에 따라 특정 사용자를 대상으로 지정하거나 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다.
 
@@ -54,11 +55,11 @@
    	![][7]
 
 3. 팝업이 표시되면 다음 정보를 입력합니다.
- 
+
    	![][8]
 
 	- **응용 프로그램 이름**: 응용 프로그램의 이름을 입력합니다. 원하는 모든 문자를 사용할 수 있습니다.
-	- **플랫폼**: 앱의 대상 플랫폼(**iOS**)을 선택합니다. 앱의 대상 플랫폼이 여러 개이면 각 플랫폼에 대해 이 자습서의 작업을 반복합니다. 
+	- **플랫폼**: 앱의 대상 플랫폼(**iOS**)을 선택합니다. 앱의 대상 플랫폼이 여러 개이면 각 플랫폼에 대해 이 자습서의 작업을 반복합니다.
 	- **응용 프로그램 리소스 이름**: API 및 URL을 통해 이 응용 프로그램에 액세스하는 데 사용되는 이름입니다. 기본 URL 문자만 사용해야 합니다. 자동으로 생성되는 이름을 기준으로 사용할 수 있습니다. 또한 이 이름은 고유해야 하므로 이름 충돌을 방지하기 위해 플랫폼 이름을 추가해야 합니다.
 	- **위치**: 이 앱과 해당 컬렉션을 호스트할 데이터 센터를 선택합니다.
 	- **컬렉션**: 응용 프로그램을 이미 만든 경우 이전에 만든 컬렉션을 선택하고 그렇지 않으면 새 컬렉션을 선택합니다.
@@ -67,7 +68,7 @@
 4. **응용 프로그램** 탭에서 방금 만든 앱을 선택합니다.
 
 5. **연결 정보**를 클릭하여 모바일 앱의 SDK 통합에 적용할 연결 설정을 표시합니다.
- 
+
    	![][10]
 
 6. **연결 문자열** 복사 - 응용 프로그램 코드에서 이 앱을 식별하고 Phone 앱에서 Mobile Engagement와 연결하는 데 필요합니다.
@@ -76,7 +77,7 @@
 
 ##<a id="connecting-app"></a>Mobile Engagement 백 엔드에 앱 연결
 
-이 자습서에서는 데이터를 수집하고 푸시 알림을 보내는 데 필요한 최소 집합인 "기본 통합" 방법을 설명합니다. 전체 통합 설명서는 [Mobile Engagement iOS SDK 설명서]에서 확인할 수 있습니다.
+이 자습서에서는 데이터를 수집하고 푸시 알림을 보내는 데 필요한 최소 집합인 "기본 통합" 방법을 설명합니다. 완벽한 통합 설명서는 [Mobile Engagement iOS SDK 설명서]에서 찾아볼 수 있습니다.
 
 여기서는 통합을 시연하기 위해 XCode를 사용하여 기본적인 앱을 만듭니다.
 
@@ -98,7 +99,7 @@
 
 그러면 Xcode가 모바일 고객 관리를 통합할 데모 앱을 만듭니다.
 
-###Mobile Engagement 백 엔드에 앱 연결 
+###Mobile Engagement 백 엔드에 앱 연결
 
 1. [Mobile Engagement iOS SDK]를 다운로드합니다.
 2. .tar.gz 파일을 컴퓨터의 폴더로 추출합니다.
@@ -184,7 +185,7 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 1. 구현 파일의 맨 위에서 참여 도달률 모듈을 가져옵니다.
 
 		#import "AEReachModule.h"
-	
+
 2. 다음과 같이 `application:didFinishLaunchingWithOptions` 내부에서 도달률 모듈을 생성하여 기존 참여 초기화 줄에 전달합니다.
 
 		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -192,7 +193,7 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 			[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}" modules:reach, nil];
 			[...]
 			return YES;
-		}	
+		}
 
 ###앱이 APNS 푸시 알림을 받을 수 있도록 설정
 
@@ -208,7 +209,7 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 		}
 
 2. 다음과 같이 `application:didRegisterForRemoteNotificationsWithDeviceToken` 메서드를 추가합니다.
- 
+
 		(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 		{
  			[[EngagementAgent shared] registerDeviceToken:deviceToken];
@@ -248,7 +249,7 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 1. Mobile Engagement 포털에서 도달률 탭으로 이동합니다.
 
 2. **새 알림**을 클릭하여 푸시 캠페인을 만듭니다.
-	
+
 	![][35]
 
 3. 다음과 같이 캠페인의 첫 번째 필드를 설정합니다.
@@ -298,6 +299,6 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [37]: ./media/mobile-engagement-ios-get-started/campaign-content.png
 [38]: ./media/mobile-engagement-ios-get-started/campaign-create.png
 [39]: ./media/mobile-engagement-ios-get-started/campaign-activate.png
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

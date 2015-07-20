@@ -1,19 +1,19 @@
-<properties 
-	pageTitle=".NET에서 첫 Azure 검색 응용 프로그램 시작 | Microsoft Azure" 
-	description="Azure 검색 .NET SDK의 .NET 클라이언트 라이브러리를 사용하여 Visual Studio 솔루션을 빌드하는 방법을 보여 주는 자습서입니다." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle=".NET에서 첫 Azure 검색 응용 프로그램 시작 | Microsoft Azure"
+	description="Azure 검색 .NET SDK의 .NET 클라이언트 라이브러리를 사용하여 Visual Studio 솔루션을 빌드하는 방법을 보여 주는 자습서입니다."
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="04/09/2015" 
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="hero-article" 
+	ms.tgt_pltfrm="na"
+	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
 #.NET에서 첫 Azure 검색 응용 프로그램 시작#
@@ -37,24 +37,24 @@ Visual Studio 2013 이상에서 검색 환경에 Azure 검색을 사용하는 �
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 2. 표시줄에서 **새로 만들기** | **데이터 + 저장소** | **검색**을 클릭합니다.
- 
+
      ![][1]
 
 3. 서비스 이름, 가격 책정 계층, 리소스 그룹, 구독 및 위치를 구성합니다. 이러한 설정은 필수 사항이며, 서비스가 프로비전된 후에는 변경할 수 없습니다.
 
      ![][2]
 
-	- **서비스 이름**은 고유하고 소문자여야 하며, 공백 없이 15자 미만이어야 합니다. 이 이름은 Azure 검색 서비스 끝점의 일부가 됩니다. 이름 지정 규칙에 대한 자세한 내용은 [이름 지정 규칙](https://msdn.microsoft.com/library/azure/dn857353.aspx)을 참조하세요. 
-	
+	- **서비스 이름**은 고유하고 소문자여야 하며, 공백 없이 15자 미만이어야 합니다. 이 이름은 Azure 검색 서비스 끝점의 일부가 됩니다. 이름 지정 규칙에 대한 자세한 내용은 [이름 지정 규칙](https://msdn.microsoft.com/library/azure/dn857353.aspx)을 참조하세요.
+
 	- **가격 책정 계층**은 용량 및 대금 청구를 결정합니다. 두 계층 모두 동일한 기능을 제공하지만 리소스 수준이 다릅니다.
-	
+
 		- **무료**는 다른 구독자와 공유되는 클러스터에서 실행되며, 자습서를 체험하고 개념 증명 코드를 작성하기에 충분한 용량을 제공하지만 프로덕션 응용 프로그램에 사용할 수 없습니다. 일반적으로 무료 서비스를 배포하는 데 몇 분 정도 걸립니다.
 		- **표준**은 전용 리소스에서 실행되고 확장성이 높습니다. 처음에는 하나의 복제본과 하나의 파티션으로 프로비전되지만 서비스를 만든 후 용량을 조정할 수 있습니다. 표준 서비스를 배포하는 데 더 오래 걸립니다(일반적으로 약 15분).
-	
+
 	- **리소스 그룹**은 일반적인 목적에 사용되는 서비스 및 리소스의 컨테이너입니다. 예를 들어 Azure 검색, Azure 웹 사이트, Azure BLOB 저장소를 기반으로 하여 사용자 지정 검색 응용 프로그램을 작성하는 경우 포털 관리 페이지에서 해당 서비스를 결합하는 리소스 그룹을 만들 수 있습니다.
-	
+
 	- **구독**에서는 둘 이상의 구독이 있는 경우 여러 구독 중에서 선택할 수 있습니다.
-	
+
 	- **위치**는 데이터 센터 지역입니다. 현재 모든 리소스는 동일한 데이터 센터에서 실행되어야 합니다. 여러 데이터 센터에 리소스를 분산하는 것은 지원되지 않습니다.
 
 4. **만들기**를 클릭하여 서비스를 프로비전합니다.
@@ -66,7 +66,7 @@ Visual Studio 2013 이상에서 검색 환경에 Azure 검색을 사용하는 �
 
 서비스를 만든 후 포털로 돌아가 URL 또는 `api-key`를 가져올 수 있습니다. 검색 서비스에 연결하려면 URL과 호출을 인증할 `api-key`가 둘 다 있어야 합니다.
 
-1. 표시줄에서 **홈**을 클릭한 다음 검색 서비스를 클릭하여 서비스 대시보드를 엽니다. 
+1. 표시줄에서 **홈**을 클릭한 다음 검색 서비스를 클릭하여 서비스 대시보드를 엽니다.
 
 2. 서비스 대시보드에 기본 정보에 대한 타일 및 관리 키에 액세스할 수 있는 키 아이콘이 표시됩니다.
 
@@ -79,15 +79,15 @@ Visual Studio 2013 이상에서 검색 환경에 Azure 검색을 사용하는 �
 이 솔루션에는 다음 두 개의 프로젝트가 포함되어 있습니다.
 
 - **DataIndexer** - 데이터를 로드하는 데 사용되는 Visual C# 콘솔 응용 프로그램
-- **SimpleSearchMVCApp** - 쿼리하고 검색 결과를 반환하는 데 사용되는 Visual C# ASP.NET MVC 웹 응용 프로그램 
+- **SimpleSearchMVCApp** - 쿼리하고 검색 결과를 반환하는 데 사용되는 Visual C# ASP.NET MVC 웹 응용 프로그램
 
 이 단계에서는 두 프로젝트를 모두 만듭니다.
 
-1. **Visual Studio** | **새 프로젝트** | **Visual C#** | **콘솔 응용 프로그램**을 시작합니다. 
+1. **Visual Studio** | **새 프로젝트** | **Visual C#** | **콘솔 응용 프로그램**을 시작합니다.
 2. 프로젝트 이름을 **DataIndexer**로 지정하고 솔루션 이름을 **AzureSearchDotNetDemo**로 지정합니다.
-3. 솔루션 탐색기의 솔루션에서 **추가** | **새 프로젝트** | **Visual C#** | **ASP.NET 웹 응용 프로그램**을 마우스 오른쪽 단추로 클릭합니다. 
+3. 솔루션 탐색기의 솔루션에서 **추가** | **새 프로젝트** | **Visual C#** | **ASP.NET 웹 응용 프로그램**을 마우스 오른쪽 단추로 클릭합니다.
 4. 프로젝트 이름을 **SimpleSearchMVCApp**으로 지정합니다.
-5. 새 ASP.NET 프로젝트에서 MVC 템플릿을 선택하고, 이 자습서에서 사용하지 않으려는 프로그램 아티팩트가 만들어 지지 않도록 옵션의 선택을 취소합니다. 
+5. 새 ASP.NET 프로젝트에서 MVC 템플릿을 선택하고, 이 자습서에서 사용하지 않으려는 프로그램 아티팩트가 만들어 지지 않도록 옵션의 선택을 취소합니다.
 
    Azure 호스팅 및 단위 테스트에 대한 확인란의 선택을 취소하고 인증을 없음으로 설정합니다.
 
@@ -99,7 +99,7 @@ Visual Studio 2013 이상에서 검색 환경에 Azure 검색을 사용하는 �
 
 ##.NET 클라이언트 라이브러리 설치 및 다른 패키지 업데이트
 
-1. 솔루션 탐색기의 솔루션에서 **NuGet 패키지 관리**를 마우스 오른쪽 단추로 클릭합니다. 
+1. 솔루션 탐색기의 솔루션에서 **NuGet 패키지 관리**를 마우스 오른쪽 단추로 클릭합니다.
 2. **업데이트** | **안정화 버전** | **모두 업데이트**를 지정합니다.
 
    ![][11]
@@ -120,20 +120,20 @@ Visual Studio 2013 이상에서 검색 환경에 Azure 검색을 사용하는 �
 
 **DataIndexer**에서는 **System.Configuration**을 사용하여 app.config에서 구성 설정을 읽습니다.
 
-1. **DataIndexer** | **추가** | **참조** | **프레임워크** | **System.Configuration**을 마우스 오른쪽 단추로 클릭합니다. 확인란을 선택합니다. 
+1. **DataIndexer** | **추가** | **참조** | **프레임워크** | **System.Configuration**을 마우스 오른쪽 단추로 클릭합니다. 확인란을 선택합니다.
 2. **확인**을 클릭합니다.
 
 ##구성 파일 업데이트
 
 각 프로젝트에는 서비스 이름 및 api-key를 지정하는 구성 파일이 포함되어 있습니다.
 
-1. **DataIndexer**에서 [서비스 이름] 및 [서비스 키]를 서비스에 유효한 값으로 업데이트하여 App.config를 다음 예제로 바꿉니다. 
+1. **DataIndexer**에서 서비스 이름 및 서비스 키를 서비스에 유효한 값으로 업데이트하여 App.config를 다음 예제로 바꿉니다.
 
    서비스 이름은 전체 URL이 아닙니다. 예를 들어 검색 서비스 끝점이 *https://mysearchsrv.search.microsoft.net*인 경우 App.config에 입력할 서비스 이름은 *mysearchsrv*입니다.
 
 	    <?xml version="1.0" encoding="utf-8"?>
 	    <configuration>
-	      <startup> 
+	      <startup>
 	         <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
 	      </startup>
 	      <appSettings>
@@ -143,7 +143,7 @@ Visual Studio 2013 이상에서 검색 환경에 Azure 검색을 사용하는 �
 	    </configuration>
 
 2. **SimpleSearchMVCApp**에서 다시 [서비스 이름] 및 [서비스 키]를 서비스에 유효한 값으로 업데이트하여 Web.config를 다음 예제로 바꿉니다.
-		
+
 		<?xml version="1.0" encoding="utf-8"?>
 		<!--
 		  For more information on how to configure your ASP.NET application, please visit
@@ -160,7 +160,7 @@ Visual Studio 2013 이상에서 검색 환경에 Azure 검색을 사용하는 �
 		  <appSettings>
 		    <add key="SearchServiceName" value="[SEARCH SERVICE NAME]" />
 		    <add key="SearchServiceApiKey" value="[API KEY]" />
-		
+
 		    <add key="webpages:Version" value="2.0.0.0" />
 		    <add key="webpages:Enabled" value="false" />
 		    <add key="PreserveLoginUrl" value="true" />
@@ -287,34 +287,34 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 3. 기본 코드를 다음 코드로 바꿉니다.
 
 		//Copyright 2015 Microsoft
-		
+
 		//Licensed under the Apache License, Version 2.0 (the "License");
 		//you may not use this file except in compliance with the License.
 		//You may obtain a copy of the License at
-		
+
 		//       http://www.apache.org/licenses/LICENSE-2.0
-		
+
 		//Unless required by applicable law or agreed to in writing, software
 		//distributed under the License is distributed on an "AS IS" BASIS,
 		//WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 		//See the License for the specific language governing permissions and
 		//limitations under the License.
-		
+
 		using System;
 		using System.Net.Http;
 		using System.Text;
 		using Newtonsoft.Json;
 		using Newtonsoft.Json.Converters;
 		using Newtonsoft.Json.Serialization;
-		
+
 		namespace DataIndexer
 		{
 		    public class AzureSearchHelper
 		    {
 		        public const string ApiVersionString = "api-version=2015-02-28";
-		
+
 		        private static readonly JsonSerializerSettings _jsonSettings;
-		
+
 		        static AzureSearchHelper()
 		        {
 		            _jsonSettings = new JsonSerializerSettings
@@ -323,36 +323,36 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 		                ContractResolver = new CamelCasePropertyNamesContractResolver(),
 		                DateTimeZoneHandling = DateTimeZoneHandling.Utc
 		            };
-		
+
 		            _jsonSettings.Converters.Add(new StringEnumConverter());
 		        }
-		
+
 		        public static string SerializeJson(object value)
 		        {
 		            return JsonConvert.SerializeObject(value, _jsonSettings);
 		        }
-		
+
 		        public static T DeserializeJson<T>(string json)
 		        {
 		            return JsonConvert.DeserializeObject<T>(json, _jsonSettings);
 		        }
-		
+
 		        public static HttpResponseMessage SendSearchRequest(HttpClient client, HttpMethod method, Uri uri, string json = null)
 		        {
 		            UriBuilder builder = new UriBuilder(uri);
 		            string separator = string.IsNullOrWhiteSpace(builder.Query) ? string.Empty : "&";
 		            builder.Query = builder.Query.TrimStart('?') + separator + ApiVersionString;
-		
+
 		            var request = new HttpRequestMessage(method, builder.Uri);
-		
+
 		            if (json != null)
 		            {
 		                request.Content = new StringContent(json, Encoding.UTF8, "application/json");
 		            }
-		
+
 		            return client.SendAsync(request).Result;
 		        }
-		
+
 		        public static void EnsureSuccessfulSearchResponse(HttpResponseMessage response)
 		        {
 		            if (!response.IsSuccessStatusCode)
@@ -386,24 +386,24 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 		using System.Threading;
 		using System.Threading.Tasks;
 		using System.Timers;
-		
+
 		namespace DataIndexer
 		{
 		    class Program
 		    {
 		        private static SearchServiceClient _searchClient;
 		        private static SearchIndexClient _indexClient;
-		
+
 		        // This Sample shows how to delete, create, upload documents and query an index
 		        static void Main(string[] args)
 		        {
 		            string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
 		            string apiKey = ConfigurationManager.AppSettings["SearchServiceApiKey"];
-		
+
 		            // Create an HTTP reference to the catalog index
 		            _searchClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
 		            _indexClient = _searchClient.Indexes.GetClient("geonames");
-		
+
 		            Console.WriteLine("{0}", "Deleting index...\n");
 		            if (DeleteIndex())
 		            {
@@ -415,7 +415,7 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 		            Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
 		            Console.ReadKey();
 		        }
-		
+
 		        private static bool DeleteIndex()
 		        {
 		            // Delete the index if it exists
@@ -429,10 +429,10 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 		                Console.WriteLine("Did you remember to add your SearchServiceName and SearchServiceApiKey to the app.config?\r\n");
 		                return false;
 		            }
-		
+
 		            return true;
 		        }
-		
+
 		        private static void CreateIndex()
 		        {
 		            // Create the Azure Search index based on the included schema
@@ -441,8 +441,8 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 		                var definition = new Index()
 		                {
 		                    Name = "geonames",
-		                    Fields = new[] 
-		                    { 
+		                    Fields = new[]
+		                    {
 		                        new Field("FEATURE_ID",     DataType.String)         { IsKey = true,  IsSearchable = false, IsFilterable = false, IsSortable = false, IsFacetable = false, IsRetrievable = true},
 		                        new Field("FEATURE_NAME",   DataType.String)         { IsKey = false, IsSearchable = true,  IsFilterable = true,  IsSortable = true,  IsFacetable = false, IsRetrievable = true},
 		                        new Field("FEATURE_CLASS",  DataType.String)         { IsKey = false, IsSearchable = true,  IsFilterable = true,  IsSortable = true,  IsFacetable = false, IsRetrievable = true},
@@ -459,23 +459,23 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 		                        new Field("DATE_EDITED",    DataType.DateTimeOffset) { IsKey = false, IsSearchable = false, IsFilterable = true,  IsSortable = true,  IsFacetable = true,  IsRetrievable = true}
 		                    }
 		                };
-		
+
 		                _searchClient.Indexes.Create(definition);
 		            }
 		            catch (Exception ex)
 		            {
 		                Console.WriteLine("Error creating index: {0}\r\n", ex.Message.ToString());
 		            }
-		
+
 		        }
-		
+
 		        private static void SyncDataFromAzureSQL()
 		        {
 		            // This will use the Azure Search Indexer to synchronize data from Azure SQL to Azure Search
 		            Uri _serviceUri = new Uri("https://" + ConfigurationManager.AppSettings["SearchServiceName"] + ".search.windows.net");
 		            HttpClient _httpClient = new HttpClient();
 		            _httpClient.DefaultRequestHeaders.Add("api-key", ConfigurationManager.AppSettings["SearchServiceApiKey"]);
-		
+
 		            Console.WriteLine("{0}", "Creating Data Source...\n");
 		            Uri uri = new Uri(_serviceUri, "datasources/usgs-datasource");
 		            string json = "{ 'name' : 'usgs-datasource','description' : 'USGS Dataset','type' : 'azuresql','credentials' : { 'connectionString' : 'Server=tcp:azs-playground.database.windows.net,1433;Database=usgs;User ID=reader;Password=EdrERBt3j6mZDP;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;' },'container' : { 'name' : 'GeoNamesRI' }} ";
@@ -485,7 +485,7 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 		                Console.WriteLine("Error creating data source: {0}", response.Content.ReadAsStringAsync().Result);
 		                return;
 		            }
-		
+
 		            Console.WriteLine("{0}", "Creating Indexer...\n");
 		            uri = new Uri(_serviceUri, "indexers/usgs-indexer");
 		            json = "{ 'name' : 'usgs-indexer','description' : 'USGS data indexer','dataSourceName' : 'usgs-datasource','targetIndexName' : 'geonames','parameters' : { 'maxFailedItems' : 10, 'maxFailedItemsPerBatch' : 5, 'base64EncodeKeys': false }}";
@@ -495,7 +495,7 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 		                Console.WriteLine("Error creating indexer: {0}", response.Content.ReadAsStringAsync().Result);
 		                return;
 		            }
-		
+
 		            Console.WriteLine("{0}", "Syncing data...\n");
 		            uri = new Uri(_serviceUri, "indexers/usgs-indexer/run");
 		            response = AzureSearchHelper.SendSearchRequest(_httpClient, HttpMethod.Post, uri);
@@ -504,7 +504,7 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 		                Console.WriteLine("Error running indexer: {0}", response.Content.ReadAsStringAsync().Result);
 		                return;
 		            }
-		
+
 		            bool running = true;
 		            Console.WriteLine("{0}", "Synchronization running...\n");
 		            while (running)
@@ -516,7 +516,7 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 		                    Console.WriteLine("Error polling for indexer status: {0}", response.Content.ReadAsStringAsync().Result);
 		                    return;
 		                }
-		
+
 		                var result = AzureSearchHelper.DeserializeJson<dynamic>(response.Content.ReadAsStringAsync().Result);
 		                if (result.lastResult != null)
 		                {
@@ -526,12 +526,12 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 		                            Console.WriteLine("{0}", "Synchronization running...\n");
 		                            Thread.Sleep(1000);
 		                            break;
-		
+
 		                        case "success":
 		                            running = false;
 		                            Console.WriteLine("Synchronized {0} rows...\n", result.lastResult.itemsProcessed.Value);
 		                            break;
-		
+
 		                        default:
 		                            running = false;
 		                            Console.WriteLine("Synchronization failed: {0}\n", result.lastResult.errorMessage);
@@ -581,7 +581,7 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 	using System.Linq;
 	using System.Web;
 	using System.Web.Mvc;
-	
+
 	namespace SimpleSearchMVCApp.Controllers
 	{
 	    public class HomeController : Controller
@@ -589,26 +589,26 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 	        //
 	        // GET: /Home/
 	        private FeaturesSearch _featuresSearch = new FeaturesSearch();
-	
+
 	        public ActionResult Index()
 	        {
 	            return View();
 	        }
-	
+
 	        public ActionResult Search(string q = "")
 	        {
 	            // If blank search, assume they want to search everything
 	            if (string.IsNullOrWhiteSpace(q))
 	                q = "*";
-	
+
 	            return new JsonResult
 	            {
 	                JsonRequestBehavior = JsonRequestBehavior.AllowGet,
 	                Data = _featuresSearch.Search(q)
 	            };
 	        }
-	
-	
+
+
 	    }
 	}
 
@@ -620,10 +620,10 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 	@{
 	    ViewBag.Title = "Azure Search - Feature Search";
 	}
-	
+
 	<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.2.min.js"></script>
 	<script type="text/javascript">
-	
+
 	    $(function () {
 	        // Execute search if user clicks enter
 	        $("#q").keyup(function (event) {
@@ -632,12 +632,12 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 	            }
 	        });
 	    });
-	
+
 	    function Search() {
 	        // We will post to the MVC controller and parse the full results on the client side
 	        // You may wish to do additional pre-processing on the data before sending it back to the client
 	        var q = $("#q").val();
-	
+
 	        $.post('/home/search',
 	        {
 	            q: q
@@ -661,11 +661,11 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 	                searchResultsHTML += "<td>" + parseJsonDate(data[i].Document.DATE_CREATED) + "</td>";
 	                searchResultsHTML += "<td>" + parseJsonDate(data[i].Document.DATE_EDITED) + "</td></tr>";
 	            }
-	
+
 	            $("#searchResults").html(searchResultsHTML);
-	
+
 	        });
-	
+
 	        function parseJsonDate(jsonDateString) {
 	            if (jsonDateString != null)
 	                return new Date(parseInt(jsonDateString.replace('/Date(', '')));
@@ -673,10 +673,10 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 	                return "";
 	        }
 	    };
-	
+
 	</script>
 	<h2>USGS Search for Rhode Island</h2>
-	
+
 	<div class="container">
 	    <input type="search" name="q" id="q" autocomplete="off" size="100" /> <button onclick="Search();">Search</button>
 	</div>
@@ -703,23 +703,23 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 		using System.Configuration;
 		using System.Linq;
 		using System.Web;
-		
+
 		namespace SimpleSearchMVCApp
 		{
 		    public class FeaturesSearch
 		    {
 		        private static SearchServiceClient _searchClient;
 		        private static SearchIndexClient _indexClient;
-		
+
 		        public static string errorMessage;
-		
+
 		        static FeaturesSearch()
 		        {
 		            try
 		            {
 		                string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
 		                string apiKey = ConfigurationManager.AppSettings["SearchServiceApiKey"];
-		
+
 		                // Create an HTTP reference to the catalog index
 		                _searchClient = new SearchServiceClient(searchServiceName, new SearchCredentials(apiKey));
 		                _indexClient = _searchClient.Indexes.GetClient("geonames");
@@ -729,7 +729,7 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 		                errorMessage = e.Message.ToString();
 		            }
 		        }
-		
+
 		        public DocumentSearchResponse Search(string searchText)
 		        {
 		            // Execute search based on query string
@@ -744,7 +744,7 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 		            }
 		            return null;
 		        }
-		
+
 		    }
 		}
 
@@ -796,5 +796,6 @@ Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 �
 [10]: ./media/search-get-started-dotnet/AzSearch-DotNet-MVCOptions.PNG
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -40,4 +40,7 @@ Azure는 바이러스 백신/맬웨어 방지 솔루션에 대한 몇 가지 옵
 ##추가 리소스
 Microsoft Azure 보안 센터의 [리소스](http://azure.microsoft.com/support/trust-center/resources/)
 
-<!---HONumber=58--> 
+
+ 
+
+<!---HONumber=July15_HO2-->

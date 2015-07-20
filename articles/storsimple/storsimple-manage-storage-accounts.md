@@ -4,14 +4,15 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
-   editor="tysonn" /> <tags 
+   manager="carolz"
+   editor="" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/27/2015"
+   ms.date="06/25/2015"
    ms.author="v-sharos" />
 
 # StorSimple 저장소 계정 관리
@@ -27,6 +28,8 @@
 이 자습서에서는 **구성** 페이지를 사용하여 저장소 계정을 추가, 편집 또는 삭제하거나, 저장소 계정에 대한 보안 키를 회전하는 방법에 대해 설명합니다.
 
  ![구성 페이지](./media/storsimple-manage-storage-accounts/HCS_ConfigureService.png)
+
+**그림 1: StorSimple 관리자 서비스 구성 페이지**
 
 저장소 계정은 클라우드 서비스 공급자와 저장소 계정에 액세스하기 위해 장치가 사용하는 자격 증명을 포함합니다. Microsoft Azure 저장소 계정의 경우 계정 이름 및 기본 액세스 키와 같은 자격 증명이 있습니다.
 
@@ -59,27 +62,17 @@ StorSimple 장치에서 사용할 수 있는 저장소 계정에는 다음과 �
 
 저장소 계정을 저장하는 동안 해당 서비스는 클라우드 서비스 공급자와 통신을 시도합니다. 사용자가 지정한 자격 증명 및 액세스 자료가 이 때 인증됩니다. 인증에 성공하는 경우에만 저장소 계정이 만들어집니다. 인증에 실패하는 경우 그에 따른 오류 메시지가 표시됩니다.
 
-### 저장소 계정을 추가하려면
+> [AZURE.NOTE]저장소 계정을 추가하기 위한 절차는 사용하는 StorSimple 소프트웨어 버전에 따라 다릅니다. StorSimple 버전에 대한 올바른 절차를 수행해야 합니다.
 
-1. 서비스 방문 페이지에서 서비스를 선택하고 두 번 클릭합니다. 이렇게 하면 **퀵 스타트** 페이지로 이동됩니다. 
-2. **구성** 페이지에 액세스합니다.
-3. **저장소 계정 추가/편집**을 클릭합니다.
-4. **저장소 계정 추가/편집** 대화 상자에서 다음을 수행합니다.
-  1. **새로 추가**를 클릭합니다.
-  2. 저장소 계정의 이름을 제공합니다.
-  3. Microsoft Azure 저장소 계정의 기본 **저장소 계정 액세스 키**를 지정합니다.
-  4. **SSL 모드 사용** 확인란을 선택하여 장치와 클라우드 간의 네트워크 통신을 위한 보안 채널을 만듭니다. 사설 클라우드 내에서 작업 중인 경우에만 **SSL 모드 사용** 확인란을 지웁니다.
-  5. 확인 아이콘![확인 아이콘](./media/storsimple-manage-storage-accounts/HCS_CheckIcon.png)을 클릭합니다. 저장소 계정이 성공적으로 만들어진 후 알림이 표시됩니다.
+[AZURE.INCLUDE [저장소 계정 업데이트1 추가](../../includes/storsimple-configure-new-storage-account-u1.md)]
 
-    ![저장소 계정 추가](./media/storsimple-manage-storage-accounts/HCS_AddStorageAccount.png)
-
-5. 새로 만들어진 저장소 계정이 **저장소 계정**의 **구성** 페이지에 표시됩니다. **저장**을 클릭하여 새로 만들어진 저장소 계정을 저장합니다. 확인하라는 메시지가 표시되면 **확인**을 클릭합니다.
+[AZURE.INCLUDE [저장소 계정 추가](../../includes/storsimple-configure-new-storage-account.md)]
 
 ## 저장소 계정 편집
 
 볼륨 컨테이너에서 사용되는 저장소 계정을 편집할 수 있습니다. 현재 사용 중인 저장소 계정을 편집할 경우 수정할 수 있는 유일한 필드는 저장소 계정에 대한 액세스 키입니다. 새 저장소 액세스 키를 제공할 수 있으며 업데이트된 설정을 저장할 수 있습니다.
 
-### 저장소 계정을 편집하려면
+#### 저장소 계정을 편집하려면
 
 1. 서비스 방문 페이지에서 서비스를 선택하고 서비스 이름을 두 번 클릭한 다음 **구성**을 클릭합니다.
 
@@ -92,13 +85,13 @@ StorSimple 장치에서 사용할 수 있는 저장소 계정에는 다음과 �
   3. 저장소 계정 액세스 키를 회전하도록 선택할 수 있습니다. 키 회전을 수행하는 방법에 대한 자세한 내용은 [저장소 계정의 키 회전](#key-rotation-of-storage-accounts)을 참조하세요.
   4. 확인 아이콘![확인 아이콘](./media/storsimple-manage-storage-accounts/HCS_CheckIcon.png)을 클릭하여 설정을 저장합니다. 설정은 **구성** 페이지에서 업데이트됩니다. **저장**을 클릭하여 새로 업데이트된 설정을 저장합니다.
 
-    ![저장소 계정 편집](./media/storsimple-manage-storage-accounts/HCs_AddEditStorageAccount.png)
+     ![저장소 계정 편집](./media/storsimple-manage-storage-accounts/HCs_AddEditStorageAccount.png)
   
 ## 저장소 계정 삭제
 
 > [AZURE.IMPORTANT]볼륨 컨테이너에서 사용하지 않는 경우에만 저장소 계정을 삭제할 수 있습니다. 저장소 계정을 볼륨 컨테이너에서 사용 중인 경우 먼저 볼륨 컨테이너를 삭제하고 연결된 저장소 계정을 삭제합니다.
 
-### 저장소 계정을 삭제하려면
+#### 저장소 계정을 삭제하려면
 
 1. StorSimple 관리자 서비스 방문 페이지에서 서비스를 선택하고 서비스 이름을 두 번 클릭한 다음 **구성**을 클릭합니다.
 
@@ -112,6 +105,8 @@ StorSimple 장치에서 사용할 수 있는 저장소 계정에는 다음과 �
 
 보안상의 이유로 키 회전이 데이터 센터에서 요구되기도 합니다.
 
+> [AZURE.NOTE]다음의 키 회전 정보 및 회전 절차는 Microsoft Azure 저장소 계정에만 적용 됩니다. 다른 클라우드 서비스 공급자를 사용하는 경우에 해당 공급자의 대시보드를 통해 저장소 계정 키를 관리할 수 있습니다.
+ 
 각 Microsoft Azure 구독에 하나 이상의 연결된 저장소 계정을 만들 수 있습니다. 이러한 계정에 대한 액세스는 해당 저장소 계정에 대한 구독 및 액세스 키를 통해 제어됩니다.
 
 저장소 계정을 만들면 Microsoft Azure에서 두 개의 512비트 저장소 액세스 키를 생성합니다. 이 키는 저장소 계정에 액세스하는 경우 인증에 사용됩니다. 두 개의 저장소 액세스 키가 있으면 저장소 서비스나 해당 서비스에 대한 액세스에 중단 없이 키를 다시 생성할 수 있습니다. 현재 사용 중인 키는 *기본* 키이며 백업 키는 *보조* 키라고 합니다. Microsoft Azure StorSimple 장치가 클라우드 저장소 서비스 공급자에 액세스할 때 이러한 두 키 중 하나를 제공해야 합니다.
@@ -128,7 +123,7 @@ Microsoft Azure 관리자가 저장소 계정에 직접 액세스하여(Microsof
 
 StorSimple 관리자 서비스에 변경을 알리려면 StorSimple 관리자 서비스에 액세스하고 저장소 계정에 액세스한 다음 기본 또는 보조 키(변경된 키에 따라 다름)를 동기화해야 합니다. 그러면 서비스는 최신 키를 가져오고 해당 키를 암호화하여 장치에 암호화된 키를 보냅니다.
 
-### 서비스와 동일한 구독에서 저장소 계정에 대한 키를 동기화하려면
+#### 서비스와 동일한 구독에서 저장소 계정에 대한 키를 동기화하려면(Azure에만 해당)
 
 1. **서비스** 페이지에서 **구성** 탭을 클릭합니다.
 
@@ -141,7 +136,7 @@ StorSimple 관리자 서비스에 변경을 알리려면 StorSimple 관리자 �
 
     ![키 동기화](./media/storsimple-manage-storage-accounts/HCS_KeyRotationStorageAccountSameSubscriptionAsService.png)
 
-### 서비스 구독 외의 저장소 계정에 대한 키를 동기화하려면
+#### 서비스 구독 외의 저장소 계정에 대한 키를 동기화하려면
 
 1. **서비스** 페이지에서 **구성** 탭을 클릭합니다.
 
@@ -155,5 +150,6 @@ StorSimple 관리자 서비스에 변경을 알리려면 StorSimple 관리자 �
 
 ## 다음 단계
 
-[StorSimple 보안](storsimple-security.md)에 대한 자세한 내용 <!--HONumber=52-->
- 
+[StorSimple 보안](storsimple-security.md)에 대해 자세히 알아봅니다.
+
+<!---HONumber=July15_HO2-->

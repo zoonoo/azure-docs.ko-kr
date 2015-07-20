@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="프로그래밍 방식으로 HDInsight YARN 응용 프로그램 로그에 액세스 | Microsoft Azure" 
-	description="프로그래밍 방식으로 HDInsight 응용 프로그램 로그에 액세스합니다." 
+	pageTitle="프로그래밍 방식으로 Hadoop YARN 응용 프로그램 로그에 액세스 | Microsoft Azure" 
+	description="HDInsight의 Hadoop 클러스터에서 프로그래밍 방식으로 응용 프로그램 로그에 액세스합니다." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="bradsev" 
@@ -16,7 +16,7 @@
 	ms.date="03/31/2015" 
 	ms.author="bradsev"/>
 
-# 프로그래밍 방식으로 HDInsight의 YARN 응용 프로그램 로그에 액세스
+# 프로그래밍 방식으로 HDInsight의 Hadoop에서 YARN 응용 프로그램 로그에 액세스
 
 이 항목에서는 Azure HDInsight의 Hadoop 클러스터에서 완료된 YARN(Yet Another Resource Negotiator) 응용 프로그램을 프로그래밍 방식으로 열거하는 방식과 원격 데스크톱 프로토콜(RDP)를 사용하여 클러스터에 연결하지 않고 프로그래밍 방식으로 응용 프로그램 로그에 액세스하는 방법에 대해 설명합니다. 특히 다음과 같은 새 구성 요소와 새 API가 추가되었습니다.
 
@@ -171,5 +171,6 @@ YARN은 여러 프로그래밍 모델(예: MapReduce)을 지원하여 리소스 
 [T-file]: https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

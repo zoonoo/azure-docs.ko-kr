@@ -24,4 +24,4 @@
 
 	![알림 센터에서 알림 보기](./media/mobile-services-android-push-notifications-test/notification-area-received.png)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

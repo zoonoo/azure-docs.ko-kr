@@ -73,4 +73,4 @@
 
 3. [2단계: StorSimple용 Windows PowerShell을 사용하여 서비스 데이터 암호화 키 변경 시작](##to-initiate-the-service-data-encryption-key-change)에서 얻은 서비스 데이터 암호화 키를 제공합니다.
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

@@ -142,6 +142,6 @@ UI의 모니터 섹션에서는 실시간 분석 정보를 제공하며, 이전�
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

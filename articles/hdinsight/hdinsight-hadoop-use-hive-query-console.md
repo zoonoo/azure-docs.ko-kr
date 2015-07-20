@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/03/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # 쿼리 콘솔을 사용하여 Hive 쿼리 실행
@@ -24,7 +24,7 @@
 
 > [AZURE.NOTE]쿼리 콘솔은 Windows 기반 HDInsight 클러스터에서만 사용할 수 있습니다.
 
-## <a id="prereq"></a>필수 조건
+##<a id="prereq"></a>필수 조건
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
@@ -32,9 +32,9 @@
 
 * 최신 웹 브라우저
 
-## <a id="run"></a> 쿼리 콘솔을 사용하여 Hive 쿼리 실행
+##<a id="run"></a> 쿼리 콘솔을 사용하여 Hive 쿼리 실행
 
-1. <a href="https://manage.windowsazure.com" target="_blank">Azure 포털</a>을 열고 HDInsight 클러스터를 선택합니다. 페이지 아래쪽에서 **쿼리 콘솔**을 선택합니다. 메시지가 표시되면 클러스터를 만들 때 사용한 사용자 이름과 암호를 입력합니다.
+1. [Azure 포털](https://manage.windowsazure.com)을 열고 HDInsight 클러스터를 선택합니다. 페이지 아래쪽에서 **쿼리 콘솔**을 선택합니다. 메시지가 표시되면 클러스터를 만들 때 사용한 사용자 이름과 암호를 입력합니다.
 
     > [AZURE.NOTE]브라우저에서 **https://CLUSTERNAME.azurehdinsight.net**을 입력하여 쿼리 콘솔로 이동할 수 있습니다.
 
@@ -68,13 +68,13 @@
 3. **상태** 필드가 **완료**로 변경되면 작업에 대한 **세부 정보 보기**를 선택합니다. 세부 정보 페이지의 **작업 출력**에는 `[ERROR]	3`이 포함됩니다. 이 필드 아래의 **다운로드** 단추를 사용하여 작업의 출력을 포함하는 파일을 다운로드할 수 있습니다.
 
 
-## <a id="summary"></a>요약
+##<a id="summary"></a>요약
 
 여기에서 볼 수 있듯이 Query 콘솔은 HDInsight 클러스터에서 Hive 쿼리 실행 작업 상태를 모니터링하고, 출력을 검색하는 쉬운 방법을 제공합니다.
 
 Hive 쿼리 콘솔을 사용하여 Hive 작업을 실행하는 방법에 대한 자세한 내용을 보려면 쿼리 콘솔의 위쪽에서 **시작**을 선택한 다음 제공되는 샘플을 사용합니다. 각 샘플은 샘플에 사용된 HiveQL 문의 설명을 포함하여 Hive를 사용하여 데이터를 분석하는 프로세스를 안내합니다.
 
-## <a id="nextsteps"></a>다음 단계
+##<a id="nextsteps"></a>다음 단계
 
 HDInsight의 Hive에 대한 일반적인 정보:
 
@@ -106,18 +106,18 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+[Powershell-install-configure]: install-configure-powershell.md
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

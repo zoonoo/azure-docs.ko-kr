@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/08/2015"
    ms.author="larryfr"/>
 
 #HDInsight에서 Apache Storm 및 Maven으로 기본 단어 개수 응용 프로그램에 대한 Java 기반 토폴로지를 개발합니다.
@@ -30,7 +30,7 @@ Maven을 사용하여 HDInsight에서 Apache Storm에 대한 Java 기반 토폴�
 
 * 메모장, <a href="http://www.gnu.org/software/emacs/" target="_blank">Emacs<a>, <a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a>, <a href="https://atom.io/" target="_blank">Atom.io</a>, <a href="http://brackets.io/" target="_blank">Brackets.io</a> 등의 텍스트 편집기. 또는 <a href="https://eclipse.org/" target="_blank">Eclipse</a>(Luna 버전 이상)와 같은 IDE(통합 개발 환경)를 사용할 수 있습니다.
 
-	> [AZURE.NOTE]편집기 또는 IDE에 이 문서에서 다루지 않은 Eclipse와 함께 동작하는 특정 기능이 있을 수 있습니다. 편집 환경 기능에 대한 내용은 사용 중인 제품의 설명서를 참조하세요.
+	> [AZURE.NOTE]편집기 또는 IDE에 이 문서에서 다루지 않은 Maven과 함께 동작하는 특정 기능이 있을 수 있습니다. 편집 환경 기능에 대한 내용은 사용 중인 제품의 설명서를 참조하세요.
 
 ##환경 변수 구성
 
@@ -42,7 +42,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 	* **JAVA_HOME** 또는 그와 동등한 경로
 
-	* **JAVA_HOME\bin** 또는 그와 동등한 경로
+	* **JAVA_HOME\\bin** 또는 그와 동등한 경로
 
 	* Maven이 설치된 디렉터리
 
@@ -58,17 +58,17 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 * **pom.xml**: Maven 프로젝트에 대한 설정을 포함합니다.
 
-* **src\main\java\com\microsoft\example**:응용 프로그램 코드를 포함합니다.
+* **src\\main\\java\\com\\microsoft\\example**:응용 프로그램 코드를 포함합니다.
 
-* **src\test\java\com\microsoft\example**:응용 프로그램에 대한 테스트를 포함합니다. 이 예제에서는 테스트를 만들지 않습니다.
+* **src\\test\\java\\com\\microsoft\\example**:응용 프로그램에 대한 테스트를 포함합니다. 이 예제에서는 테스트를 만들지 않습니다.
 
 ###예제 코드를 제거합니다.
 
 처음부터 응용 프로그램을 만들 것이므로 생성된 테스트 및 응용 프로그램 필드를 삭제합니다.
 
-*  **src\test\java\com\microsoft\example\AppTest.java**
+*  **src\\test\\java\\com\\microsoft\\example\\AppTest.java**
 
-*  **src\main\java\com\microsoft\example\App.java**
+*  **src\\main\\java\\com\\microsoft\\example\\App.java**
 
 ##종속성 추가
 
@@ -153,7 +153,7 @@ Java 기반 Storm 토폴로지는 사용자가 작성자이거나 종속성으�
 >
 > * <a href="https://github.com/apache/storm/tree/master/external/storm-kafka" target="_blank">Storm-Kafka</a>: Kafka에서 읽는 Spout
 
-Spout의 경우, **src\main\java\com\microsoft\example** 디렉터리에 **RandomSentenceSpout.java**라는 새 파일을 만들고 다음을 파일 내용으로 사용합니다.
+Spout의 경우, **src\\main\\java\\com\\microsoft\\example** 디렉터리에 **RandomSentenceSpout.java**라는 새 파일을 만들고 다음을 파일 내용으로 사용합니다.
 
     /**
      * Licensed to the Apache Software Foundation (ASF) under one
@@ -251,7 +251,7 @@ Bolt는 데이터 처리를 다룹니다. 이 토폴로지의 경우 다음 두 
 
 > [AZURE.NOTE]Bolt는 계산, 지속성, 외부 구성 요소에 말하기 등 문자 그대로 아무 작업이나 수행할 수 있습니다.
 
-**src\main\java\com\microsoft\example** 디렉터리에 **SplitSentence.java** 및 **WordCount.Java**라는 두 개의 새 파일을 만듭니다. 파일 내용으로 다음을 사용합니다.
+**src\\main\\java\\com\\microsoft\\example** 디렉터리에 **SplitSentence.java** 및 **WordCount.Java**라는 두 개의 새 파일을 만듭니다. 파일 내용으로 다음을 사용합니다.
 
 **SplitSentence**
 
@@ -285,7 +285,7 @@ Bolt는 데이터 처리를 다룹니다. 이 토폴로지의 경우 다음 두 
           //get the word
           String word=sentence.substring(start,end);
           //If a word is whitespace characters, replace it with empty
-          word=word.replaceAll("\s+","");
+          word=word.replaceAll("\\s+","");
           //if it's an actual word, emit it
           if (!word.equals("")) {
             collector.emit(new Values(word));
@@ -352,7 +352,7 @@ Bolt는 데이터 처리를 다룹니다. 이 토폴로지의 경우 다음 두 
 
 ![Spout 및 Bolt 배열을 보여 주는 다이어그램](./media/hdinsight-storm-develop-java-topology/wordcount-topology.png)
 
-토폴로지를 구현하려면 **WordCountTopology.java**라는 새 파일을 **src\main\java\com\microsoft\example** 디렉터리에 만듭니다. 파일 내용으로 다음을 사용합니다.
+토폴로지를 구현하려면 **WordCountTopology.java**라는 새 파일을 **src\\main\\java\\com\\microsoft\\example** 디렉터리에 만듭니다. 파일 내용으로 다음을 사용합니다.
 
 	package com.microsoft.example;
 
@@ -465,6 +465,5 @@ Java를 사용하여 Storm 토폴로지를 만드는 방법을 배웠으므로 �
 * [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 Storm 토폴로지에 대한 추가 예제는 [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)를 참조하세요.
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

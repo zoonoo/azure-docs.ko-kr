@@ -13,34 +13,34 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/06/2015" 
+	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
-# Windows 유니버설 앱 도달률 SDK 통합
+#Windows 유니버설 앱 도달률 SDK 통합
 
 이 가이드의 작업을 수행하기 전에 [Windows 유니버설 Engagement SDK 통합](mobile-engagement-windows-store-integrate-engagement.md)에 설명된 통합 절차를 수행해야 합니다.
 
-## Windows 유니버설 프로젝트에 Engagement 도달률 SDK 포함
+##Windows 유니버설 프로젝트에 Engagement 도달률 SDK 포함
 
 별도로 추가할 항목은 없습니다. `EngagementReach` 참조 및 리소스가 이미 프로젝트에 포함되어 있습니다.
 
 > [AZURE.TIP]프로젝트의 `Resources` 폴더에 있는 이미지, 특히 기본적으로 Engagement 아이콘을 사용하는 브랜드 아이콘을 사용자 지정할 수 있습니다. 유니버설 앱에서 공유 프로젝트의 `Resources` 폴더를 이동하여 앱 사이의 콘텐츠를 공유할 수도 있지만 플랫폼에 종속된 기본 위치에 `Resources\EngagementConfiguration.xml` 파일을 유지해야 합니다.
 
-## Windows 알림 서비스를 사용하도록 설정
+##Windows 알림 서비스를 사용하도록 설정
 
-`Application UI`의 `Package.appxmanifest` 파일에서 **Windows 알림 서비스**(WNS라고 함)를 사용하려면 왼쪽 bot 박스에서 `All Image Assets`을(를) 클릭합니다. `Notifications`의 오른쪽 상자에서 `toast capable`을(를) `(not set)`에서 `Yes`(으)로 변경합니다.
+`Application UI`의 `Package.appxmanifest` 파일에서 **Windows 알림 서비스**(WNS라고 함)를 사용하려면 왼쪽 bot 박스에서 `All Image Assets`을(를) 클릭합니다. `Notifications`의 오른쪽 상자에서 `toast capable`을(를) `(not set)`에서 `(Yes)`(으)로 변경합니다.
 
-또한 Microsoft 계정 및 Engagement 플랫폼에 앱을 동기화해야 합니다. Engagement 프런트 엔드에서 `native push`의 앱 설정으로 이동하여 자격 증명을 붙여넣습니다. 그런 다음 프로젝트를 마우스 오른쪽 단추로 클릭하고 `store` 및 `Associate App with the Store...`을(를) 선택합니다.
+또한 Microsoft 계정 및 Engagement 플랫폼에 앱을 동기화해야 합니다. 이를 위해 계정을 만들거나 [Windows 개발자 센터](https://dev.windows.com)에 로그온해야 합니다. 그다음에 새 응용 프로그램을 만들고 SID 및 암호 키를 찾습니다. Engagement 프런트 엔드에서 `native push`의 앱 설정으로 이동하여 자격 증명을 붙여넣습니다. 그런 다음 프로젝트를 마우스 오른쪽 단추로 클릭하고 `store` 및 `Associate App with the Store...`을(를) 선택합니다. 동기화하기 전에 만든 응용 프로그램을 선택하면 됩니다.
 
-## Engagement 도달률 SDK 초기화
+##Engagement 도달률 SDK 초기화
 
 `App.xaml.cs` 수정:
 
--   `using` 문에 추가:
+-   `using` 구문에 추가:
 
 		using Microsoft.Azure.Engagement;
 
--   `OnLaunched`에서 `EngagementAgent.Instance.Init` 다음에 `EngagementReach.Instance.Init` 삽입:
+-   `OnLaunched`에서 `EngagementAgent.Instance.Init` 바로 다음에 `EngagementReach.Instance.Init` 삽입:
 
 		protected override void OnLaunched(LaunchActivatedEventArgs args)
 		{
@@ -48,7 +48,7 @@
 		  EngagementReach.Instance.Init(args);
 		}
 
--   앱을 활성화할 때 Engagement 도달률을 시작하려면 `OnActivated` 메서드를 재정의합니다.
+-   명령, 또 다른 응용 프로그램 또는 사용자 지정 체계로 앱을 활성화할 때 Engagement 도달률을 사용하도록 설정하려면 `OnActivated` 메서드를 재정의합니다.
 
 		protected override void OnActivated(IActivatedEventArgs args)
 		{
@@ -60,21 +60,21 @@
 
 > [AZURE.TIP]`<channelName></channelName>`에서 프로젝트의 `Resources\EngagementConfiguration.xml` 파일에서 응용 프로그램의 WNS 푸시 채널 이름을 지정할 수 있습니다. 기본적으로는 appId를 기준으로 이름이 생성됩니다. Engagement 외부에서 푸시 채널을 사용하려는 경우를 제외하면 이름을 직접 지정할 필요가 없습니다.
 
-## 통합
+##통합
 
 Engagement는 도달률 알림 및 공지를 구현하는 두 가지 방법(오버레이 및 웹 보기 통합)을 제공합니다.
 
-windows-sdk-engagement-overlay-integration은 응용 프로그램에 작성하는 코드가 많이 필요하지 않습니다. EngagementPageOverlay를 사용하여 페이지, xaml, cs 파일에 태그만 지정하면 됩니다. 또한 Engagement 기본 보기를 사용자 지정하는 경우에는 사용자 지정 내용이 한 번만 정의되어 태그가 지정된 모든 페이지에서 공유됩니다. 그러나 페이지가 EngagementPageOverlay 이외의 다른 개체에서 상속해야 하는 경우에는 웹 보기 통합을 사용하도록 중단 및 강제 적용됩니다.
+오버레이 통합을 위해 응용 프로그램에 많은 코드를 작성할 필요는 없습니다. EngagementPageOverlay를 사용하여 페이지, xaml, cs 파일에 태그만 지정하면 됩니다. 또한 Engagement 기본 보기를 사용자 지정하는 경우에는 사용자 지정 내용이 한 번만 정의되어 태그가 지정된 모든 페이지에서 공유됩니다. 그러나 페이지가 EngagementPageOverlay 이외의 다른 개체에서 상속해야 하는 경우에는 웹 보기 통합을 사용하도록 중단 및 강제 적용됩니다.
 
-windows-sdk-engagement-webview-integration은 구현하기가 훨씬 복잡합니다. 하지만 앱 페이지가 "Page" 이외의 다른 개체에서 상속해야 하는 경우에는 웹 보기와 해당 동작을 통합해야 합니다.
+웹 보기 통합은 구현이 더 복잡합니다. 하지만 앱 페이지가 "Page" 이외의 다른 개체에서 상속해야 하는 경우에는 웹 보기와 해당 동작을 통합해야 합니다.
 
-> [AZURE.TIP]모든 페이지 내용을 포함하려면 첫 번째 수준 `<Grid></Grid>` 요소 추가를 고려해야 합니다. 웹 보기 통합에서는 웹 보기를 이 Grid 요소의 자식으로 추가하기만 하면 됩니다. 다른 위치에 Engagement 구성 요소를 설정해야 하는 경우 표시 크기를 직접 관리해야 합니다.
+> [AZURE.TIP]모든 페이지 내용을 포함하려면 루트 수준 `<Grid></Grid>` 요소 추가를 고려해야 합니다. 웹 보기 통합에서는 웹 보기를 이 Grid 요소의 자식으로 추가하기만 하면 됩니다. 다른 위치에 Engagement 구성 요소를 설정해야 하는 경우 표시 크기를 직접 관리해야 합니다.
 
 ### 오버레이 통합
 
 Engagement에서는 알림(notification 및 announcement) 표시를 위한 오버레이를 제공합니다.
 
-사용하려는 경우에 windows-sdk-engagement-webview-integration을 사용하지 마십시오.
+이를 사용하려면 웹 보기 통합을 사용하지 마세요.
 
 .xaml 파일에서 EngagementPage 참조를 EngagementPageOverlay로 변경합니다.
 
@@ -157,7 +157,7 @@ Engagement 오버레이는 xaml 파일에서 발견되는 첫 번째 "Grid" 요�
 
 ### 웹 보기 통합
 
-사용하려는 경우에 windows-sdk-engagement-overlay-integration을 사용하지 마십시오.
+이를 사용하려면 오버레이 통합을 사용하지 마세요.
 
 Engagement 콘텐츠를 표시하려면 각 페이지에 xaml WebView 2개를 통합하고 공지 및 알림을 표시해야 합니다. 다음 코드를 xaml 파일에 추가합니다.
 
@@ -246,7 +246,7 @@ Engagement 콘텐츠를 표시하려면 각 페이지에 xaml WebView 2개를 �
 
 > 이 경우 장치 화면을 회전하면 포함된 웹 보기 크기 조정이 구현됩니다.
 
-## datapush 처리(선택 사항)
+##datapush 처리(선택 사항)
 
 응용 프로그램이 도달률 데이터 푸시를 수신할 수 있도록 하려면 EngagementReach 클래스의 두 이벤트를 구현해야 합니다.
 
@@ -265,19 +265,19 @@ App.xaml.cs의 "Public App(){}"에 다음 코드를 추가합니다.
 			  return true;
 			};
 
-각 메서드의 콜백에서는 부울이 반환됩니다. Engagement에서는 데이터 푸시를 디스패치한 후 해당 백 엔드로 피드백을 전송합니다. 콜백에서 false를 반환하면 `exit` 피드백이 전송됩니다. 그렇지 않으면 `action`이(가) 반환됩니다. 이벤트에 설정된 콜백이 없는 경우 `drop` 피드백이 Engagement에 반환됩니다.
+각 메서드의 콜백에서는 부울이 반환됩니다. Engagement에서는 데이터 푸시를 디스패치한 후 해당 백 엔드로 피드백을 전송합니다. 콜백에서 false를 반환하면 `exit` 피드백이 전송됩니다. 그렇지 않으면 `action`이(가) 반환됩니다. 이벤트에 대해 콜백이 설정되어 있지 않으면 `drop` 피드백이 Engagement에 반환됩니다.
 
 > [AZURE.WARNING]Engagement는 데이터 푸시에 대해 여러 피드백을 수신할 수 없습니다. 이벤트에 대해 여러 처리기를 설정하려는 경우 피드백은 마지막으로 전송된 항목에 해당합니다. 이 경우에는 프런트 엔드에서 피드백을 혼동하지 않도록 항상 같은 값을 반환하는 것이 좋습니다.
 
-## UI 사용자 지정(선택 사항)
+##UI 사용자 지정(선택 사항)
 
 ### 첫 번째 단계
 
 도달률 UI는 사용자 지정할 수 있습니다.
 
-이렇게 하려면 `EngagementReachHandler` 클래스의 서브클래스를 만들어야 합니다.
+UI를 사용자 지정하려면 `EngagementReachHandler` 클래스의 서브클래스를 만들어야 합니다.
 
-**샘플 코드 :**
+**샘플 코드:**
 
 			using Microsoft.Azure.Engagement;
 			
@@ -291,7 +291,7 @@ App.xaml.cs의 "Public App(){}"에 다음 코드를 추가합니다.
 
 그런 다음 `App()` 메서드 내에서 `App.xaml.cs` 클래스의 사용자 지정 개체를 사용하여 `EngagementReach.Instance.Handler` 필드의 콘텐츠를 설정합니다.
 
-**샘플 코드 :**
+**샘플 코드:**
 
 			protected override void OnLaunched(LaunchActivatedEventArgs args)
 			{
@@ -300,7 +300,7 @@ App.xaml.cs의 "Public App(){}"에 다음 코드를 추가합니다.
 			  // Engagement Agent and Reach initialization
 			}
 
-> [AZURE.NOTE]Engagement는 기본적으로 `EngagementReachHandler`의 자체 구현을 사용합니다. 따라서 구현을 직접 작성할 필요는 없으며 직접 작성하더라도 모든 메서드를 재정의하지는 않아도 됩니다. 기본 동작에서는 Engagement 기준 개체가 선택됩니다.
+> [AZURE.NOTE]Engagement는 기본적으로 자체 `EngagementReachHandler` 구현을 사용합니다. 따라서 구현을 직접 작성할 필요는 없으며 직접 작성하더라도 모든 메서드를 재정의하지는 않아도 됩니다. 기본 동작에서는 Engagement 기준 개체가 선택됩니다.
 
 ### 웹 보기
 
@@ -377,7 +377,7 @@ Engagement 개체를 보존하는 경우 원하는 알림 및 공지 웹 보기�
 
 > [AZURE.TIP]UI 스레드에서 각 처리기를 호출합니다. 따라서 MessageBox 또는 UI 관련 항목을 사용할 때는 별도의 작업을 수행할 필요가 없습니다.
 
-## 사용자 지정 체계 팁
+##사용자 지정 체계 팁
 
 사용자 지정 체계 사용법이 제공됩니다. Engagement 응용 프로그램에서 사용할 여러 URI 유형을 Engagement 프런트 엔드에서 보낼 수 있습니다. `http, ftp, ...`와(과) 같은 기본 체계는 Windows에서 관리되며 장치에 기본 응용 프로그램이 설치되어 있지 않으면 해당 메시지가 포함된 창이 표시됩니다. 응용 프로그램 체계 등의 기타 체계를 사용할 수도 있습니다. 또한 응용 프로그램에 대해 사용자 지정 체계를 사용할 수도 있습니다.
 
@@ -408,5 +408,6 @@ Engagement 개체를 보존하는 경우 원하는 알림 및 공지 웹 보기�
 			    }
 			  }
 			  #endregion
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

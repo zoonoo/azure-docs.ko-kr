@@ -155,7 +155,7 @@ System Center 2012 R2에서 VMM(권장) (클러스터 또는 독립 실행형) |
 - **데이터 디스크 크기**: Azure에 복제하는 경우 최대 1TB의 각 가상 컴퓨터에서 최대 32 개의 데이터 디스크를 사용할 수 있습니다. ~32 TB 가상 컴퓨터를 효과적으로 복제 및 장애 조치할 수 있습니다.
 - **복구 계획 제한**: 사이트 복구는 수천 개의 가상 컴퓨터로 확장할 수 있습니다. 복구 계획은 다 함께 장애 조치되어야 하는 응용프로그램에 대한 모델로 설계되었으므로 복구 계획에서 컴퓨터의 수를 50으로 제한할 수 있습니다.
 - **Azure 서비스 제한**: 모든 Azure 구독은 코어, 클라우드 서비스 등에서 일련의 기본 제한값이 제공됩니다. 구독에서 리소스의 가용성을 확인하기 위해 테스트 장애 조치를 실행하는 것이 좋습니다. Azure 지원을 통해 이러한 제한을 수정할 수 있습니다.
-- **용량 계획**: 지침은 [Hyper-v 복제본을 위한 용량 플래너](http://www.microsoft.com/ko-kr/download/details.aspx?id=39057)를 참조하십시오.
+- **용량 계획**: 지침은 [Hyper-v 복제본을 위한 용량 플래너](http://www.microsoft.com/en-in/download/details.aspx?id=39057)를 참조하십시오.
 - **복제 대역폭**: 복제 대역폭이 부족한 경우 다음에 유의하십시오.
 	- **Express 경로**: 사이트 복구는 Riverbed와 같은 Azure Express 경로 및 WAN 최적화 프로그램과 함께 작동합니다. [여기서](http://blogs.technet.com/b/virtualization/archive/2014/07/20/expressroute-and-azure-site-recovery.aspx) Express 경로에 대해 더 알아볼 수 있습니다.
 	- **복제 트래픽**: 사이트 복구는 전체 VHD가 아닌 데이터 블록만 사용하여 스마트 초기 복제를 수행합니다. 복제가 진행 중일 때는 변경 내용만 복제됩니다.
@@ -189,4 +189,4 @@ System Center 2012 R2에서 VMM(권장) (클러스터 또는 독립 실행형) |
 - [단일 VMM 서버로 보호 설정](site-recovery-single-vmm.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

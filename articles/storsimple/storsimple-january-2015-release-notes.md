@@ -1,31 +1,32 @@
 <properties 
-    pageTitle="StorSimple 릴리스 정보 - 2015년 1월"
+    pageTitle="StorSimple 8000 시리즈 업데이트 0.2 릴리스 정보 - 2015년 2월"
     description="2015년 1월 Microsoft Azure StorSimple 릴리스에 대한 새 기능, 문제 및 해결 방법을 설명합니다."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
     manager="adinah"
-    editor="tysonn" /> <tags 
+    editor="tysonn" />
+ <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="04/13/2015"
+    ms.date="06/02/2015"
     ms.author="v-sharos" />
 
 
-# StorSimple 릴리스 정보 - 2015년 1월
+# StorSimple 8000 시리즈 업데이트 0.2 릴리스 정보 - 2015년 2월
 
 ## 개요
 
-다음 릴리스 정보는 Microsoft Azure StorSimple의 2015년 1월 릴리스에 대한 중요한 미해결 문제를 식별합니다. 또한 이 릴리스에 포함된 StorSimple 소프트웨어 및 펌웨어 업데이트의 목록을 포함합니다. 이 릴리스는 Microsoft Azure StorSimple의 GA(General Availability) 릴리스 이후 두 번째 릴리스입니다.
+다음 릴리스 정보는 Microsoft Azure StorSimple의 2015년 1월 릴리스에 대한 중요한 미해결 문제를 식별합니다. 또한 이 릴리스에 포함된 StorSimple 소프트웨어 및 펌웨어 업데이트의 목록을 포함합니다. 일반적으로 StorSimple 8000 시리즈 릴리스 버전이 2014년 7월에 사용할 수 있게 변경된 후 두 번째 릴리스입니다.
   
 이 업데이트는 10월 업데이트에서 실제 장치 소프트웨어 버전이 변경되지 않습니다. 6.3.9600.17312 버전을 계속 사용합니다. 가상 장치 이미지에서 사용되는 이미지는 이 릴리스에서 변경되었습니다. 따라서 2015/1/20 이후 만들어진 모든 새 가상 장치는 6.3.9600.17361 버전으로 표시됩니다.
 
 2015년 1월 업데이트에 대한 릴리스 정보에 포함된 다음 정보를 검토하세요.
 
-> [AZURE.IMPORTANT] 
+> [AZURE.IMPORTANT]
 
 - 이 업데이트는 Windows Update를 통해 사용할 수 없으며 다른 업데이트와 같이 설치할 수 없습니다. 장치 관리 포털을 사용하여 업데이트를 적용한 경우에도 이 업데이트가 수신되지 않습니다. 이 업데이트는 2015년 1월 20일 이후에 만들어진 가상 장치에만 적용됩니다. 
  
@@ -75,6 +76,6 @@
 
 이 릴리스는 가상 장치에 대해 업데이트된 이미지를 포함합니다. 2015년 1월 20일 이후 만들어진 모든 가상 장치는 6.3.9600.17361 소프트웨어 버전으로 표시됩니다.
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

@@ -1,29 +1,32 @@
-<properties 
-	pageTitle="Hadoop용 Java MapReduce 프로그램 개발 | Microsoft Azure" 
-	description="HDInsight Emulator에서 Java MapReduce 프로그램을 개발하여 HDInsight로 배포하는 방법에 대해 알아봅니다." 
-	services="hdinsight" 
-	editor="cgronlun" 
-	manager="paulettm" 
-	authors="nitinme" 
+<properties
+	pageTitle="Hadoop용 Java MapReduce 프로그램 개발 | Microsoft Azure"
+	description="HDInsight Emulator에서 Java MapReduce 프로그램을 개발하여 HDInsight로 배포하는 방법에 대해 알아봅니다."
+	services="hdinsight"
+	editor="cgronlun"
+	manager="paulettm"
+	authors="nitinme"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="04/01/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="04/01/2015"
 	ms.author="nitinme"/>
 
 # HDInsight의 Hadoop용 Java MapReduce 프로그램 개발
-이 자습서에서는 Apache Maven을 사용하여 Java에서 단어 계산 Hadoop MapReduce 작업을 개발하는 전체 시나리오를 안내합니다. 또한 HDInsight Emulator for Azure에서 응용 프로그램을 테스트한 다음 Azure HDInsight 클러스터에서 배포 및 실행하는 방법도 설명합니다.
+
+[AZURE.INCLUDE [pig-선택기](../../includes/hdinsight-maven-mapreduce-selector.md)]
+
+이 자습서에서는 Apache Maven을 사용하여 Java에서 단어 계산 Hadoop MapReduce 작업을 개발하는 전체 시나리오를 안내합니다. 또한 HDInsight Emulator for Azure에서 응용 프로그램을 테스트한 다음 Windows 기반 HDInsight 클러스터에서 배포 및 실행하는 방법도 설명합니다.
 
 ##<a name="prerequisites"></a>필수 조건
 
 이 자습서를 시작하기 전에 다음 작업을 완료해야 합니다.
 
-- HDInsight Emulator를 설치합니다. 자세한 내용은 [HDInsight Emulator 사용 시작][hdinsight-emulator]을 참조하세요. 필요한 모든 서비스가 실행 중인지 확인합니다. HDInsight Emulator가 설치된 컴퓨터의 바탕 화면 바로 가기에서 Hadoop 명령줄을 실행하고 **C:\\hdp**로 이동하여 **start_local_hdp_services.cmd** 명령을 실행합니다.	
+- HDInsight Emulator를 설치합니다. 자세한 내용은 [HDInsight Emulator 사용 시작][hdinsight-emulator]을 참조하세요. 필요한 모든 서비스가 실행 중인지 확인합니다. HDInsight Emulator가 설치된 컴퓨터의 바탕 화면 바로 가기에서 Hadoop 명령줄을 실행하고 **C:\\hdp**로 이동하여 **start_local_hdp_services.cmd** 명령을 실행합니다.
 - 에뮬레이터 컴퓨터에 Azure PowerShell 설치. 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
 - 에뮬레이터 컴퓨터에 Java 플랫폼 JDK 7 이상 설치. 이 버전은 에뮬레이터 컴퓨터에 이미 제공되어 있습니다.
 - [Apache Maven](http://maven.apache.org/) 설치 및 구성
@@ -41,8 +44,7 @@
 
 **Maven을 사용하여 프로젝트 만들기**
 
-1. **C:\Tutorials\WordCountJava\** 디렉터리를 만듭니다.
-2. 개발 환경의 명령줄에서 방금 만든 위치로 디렉터리를 변경합니다.
+1. **C:\\Tutorials\\WordCountJava** 디렉터리를 만듭니다.2. 개발 환경의 명령줄에서 방금 만든 위치로 디렉터리를 변경합니다.
 3. Maven과 함께 설치되는 __mvn__ 명령을 사용하여 프로젝트용 스캐폴딩을 생성합니다.
 
 		mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -68,10 +70,10 @@
       	  <artifactId>hadoop-mapreduce-client-common</artifactId>
       	  <version>2.5.1</version>
     	</dependency>
-    	<dependency>                                                                                     
-      	  <groupId>org.apache.hadoop</groupId>                                                                                                       
-      	  <artifactId>hadoop-common</artifactId>                                                                                                         
-      	  <version>2.5.1</version>                                                                                            
+    	<dependency>
+      	  <groupId>org.apache.hadoop</groupId>
+      	  <artifactId>hadoop-common</artifactId>
+      	  <version>2.5.1</version>
     	</dependency>
 
 	이 코드를 통해 Maven은 프로젝트에 특정 버전(<version>에 나열됨)의 라이브러리(<artifactId> 내에 나열됨)가 필요하다는 것을 인식합니다. 컴파일 시간에 이 파일이 기본 Maven 리포지토리에서 다운로드됩니다. [Maven 리포지토리 검색](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar)을 사용하여 자세한 정보를 볼 수 있습니다.
@@ -98,7 +100,7 @@
           			</goals>
         	    </execution>
       		  </executions>
-      	    </plugin>       
+      	    </plugin>
   		  </plugins>
 	    </build>
 
@@ -115,7 +117,7 @@
 2. 다음 프로그램을 복사하여 메모장에 붙여넣습니다.
 
 		package org.apache.hadoop.examples;
-		
+
 		import java.io.IOException;
 		import java.util.StringTokenizer;
 		import org.apache.hadoop.conf.Configuration;
@@ -130,13 +132,13 @@
 		import org.apache.hadoop.util.GenericOptionsParser;
 
 		public class WordCount {
-		
-		  public static class TokenizerMapper 
+
+		  public static class TokenizerMapper
 		       extends Mapper<Object, Text, Text, IntWritable>{
-		    
+
 		    private final static IntWritable one = new IntWritable(1);
 		    private Text word = new Text();
-		      
+
 		    public void map(Object key, Text value, Context context
 		                    ) throws IOException, InterruptedException {
 		      StringTokenizer itr = new StringTokenizer(value.toString());
@@ -146,12 +148,12 @@
 		      }
 		    }
 		  }
-		  
-		  public static class IntSumReducer 
+
+		  public static class IntSumReducer
 		       extends Reducer<Text,IntWritable,Text,IntWritable> {
 		    private IntWritable result = new IntWritable();
-		
-		    public void reduce(Text key, Iterable<IntWritable> values, 
+
+		    public void reduce(Text key, Iterable<IntWritable> values,
 		                       Context context
 		                       ) throws IOException, InterruptedException {
 		      int sum = 0;
@@ -162,7 +164,7 @@
 		      context.write(key, result);
 		    }
 		  }
-		
+
 		  public static void main(String[] args) throws Exception {
 		    Configuration conf = new Configuration();
 		    String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
@@ -184,7 +186,7 @@
 		}
 
 	패키지 이름은 **org.apache.hadoop.examples**이며 클래스 이름은 **WordCount**입니다. MapReduce 작업을 제출할 때 이 이름을 사용합니다.
-	
+
 3. 파일을 저장합니다.
 
 **응용 프로그램 빌드 및 패키지**
@@ -256,7 +258,7 @@ HDInsight Emulator에서 MapReduce 작업을 테스트하는 과정에는 다음
 
 클러스터에서 MapReduce 작업을 올바르게 실행하려면 hdfs라는 사용자 그룹을 만들어야 합니다. 또한 에뮬레이터에 로그온하는 데 사용하는 로컬 사용자와 hadoop이라는 사용자를 이 그룹에 추가해야 합니다. 이렇게 하려면 관리자 권한 명령 프롬프트에서 다음 명령을 사용합니다.
 
-		# Add a user group called hdfs		
+		# Add a user group called hdfs
 		net localgroup hdfs /add
 
 		# Adds a user called hadoop to the group
@@ -321,10 +323,10 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
 
 		# Select an Azure subscription
 		Select-AzureSubscription $subscriptionName
-		
+
 		# Create a Storage account
 		New-AzureStorageAccount -StorageAccountName $storageAccountName_Data -location $location
-				
+
 		# Create a Blob storage container
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName_Data | %{ $_.Primary }
 		$destContext = New-AzureStorageContext –StorageAccountName $storageAccountName_Data –StorageAccountKey $storageAccountKey  
@@ -356,7 +358,7 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
 		# Get a list of the .txt files
 		$filesAll = Get-ChildItem $localFolder
 		$filesTxt = $filesAll | where {$_.Extension -eq ".txt"}
-		
+
 4. 다음 명령을 실행하여 저장소 컨텍스트 개체를 만듭니다.
 
 		# Create a storage context object
@@ -366,14 +368,14 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
 
 5. 다음 명령을 실행하여 파일을 복사합니다.
 
-		# Copy the files from the local workstation to the Blob container        
+		# Copy the files from the local workstation to the Blob container
 		foreach ($file in $filesTxt){
-		 
+
 		    $fileName = "$localFolder\$file"
 		    $blobName = "$destFolder/$file"
-		
+
 		    write-host "Copying $fileName to $blobName"
-		
+
 		    Set-AzureStorageBlobContent -File $fileName -Container $containerName_Data -Blob $blobName -Context $destContext
 		}
 
@@ -425,9 +427,9 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
 이 섹션에서는 다음 작업을 수행하는 Azure PowerShell 스크립트를 만듭니다.
 
 1. HDInsight 클러스터 프로비전
-	
+
 	1. 기본 HDInsight 클러스터 파일 시스템으로 사용할 저장소 계정 만들기
-	2. Blob 저장소 컨테이너 만들기 
+	2. Blob 저장소 컨테이너 만들기
 	3. HDInsight 클러스터 만들기
 
 2. MapReduce 작업 제출
@@ -448,7 +450,7 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
 
 1. 메모장을 엽니다.
 2. 다음 코드를 복사하여 붙여넣습니다.
-		
+
 		# The Storage account and the HDInsight cluster variables
 		$subscriptionName = "<AzureSubscriptionName>"
 		$stringPrefix = "<StringForPrefix>"
@@ -457,9 +459,9 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
 
 		$storageAccountName_Data = "<TheDataStorageAccountName>"
 		$containerName_Data = "<TheDataBlobStorageContainerName>"
-		
+
 		$clusterName = $stringPrefix + "hdicluster"
-		
+
 		$storageAccountName_Default = $stringPrefix + "hdistore"
 		$containerName_Default =  $stringPrefix + "hdicluster"
 
@@ -469,62 +471,62 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
 		$mrInput = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/Input/"
 		$mrOutput = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/Output/"
 		$mrStatusOutput = "wasb://$containerName_Data@$storageAccountName_Data.blob.core.windows.net/WordCount/MRStatusOutput/"
-		
+
 		# Create a PSCredential object. The user name and password are hardcoded here. You can change them if you want.
 		$password = ConvertTo-SecureString "Pass@word1" -AsPlainText -Force
-		$creds = New-Object System.Management.Automation.PSCredential ("Admin", $password) 
-		
+		$creds = New-Object System.Management.Automation.PSCredential ("Admin", $password)
+
 		Select-AzureSubscription $subscriptionName
-		
+
 		#=============================
 		# Create a Storage account used as the default file system
 		Write-Host "Create a storage account" -ForegroundColor Green
 		New-AzureStorageAccount -StorageAccountName $storageAccountName_Default -location $location
-		
+
 		#=============================
 		# Create a Blob storage container used as the default file system
 		Write-Host "Create a Blob storage container" -ForegroundColor Green
 		$storageAccountKey_Default = Get-AzureStorageKey $storageAccountName_Default | %{ $_.Primary }
 		$destContext = New-AzureStorageContext –StorageAccountName $storageAccountName_Default –StorageAccountKey $storageAccountKey_Default
-		
+
 		New-AzureStorageContainer -Name $containerName_Default -Context $destContext
-		
+
 		#=============================
 		# Create an HDInsight cluster
 		Write-Host "Create an HDInsight cluster" -ForegroundColor Green
 		$storageAccountKey_Data = Get-AzureStorageKey $storageAccountName_Data | %{ $_.Primary }
-		
+
 		$config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes |
 		    Set-AzureHDInsightDefaultStorage -StorageAccountName "$storageAccountName_Default.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Default -StorageContainerName $containerName_Default |
 		    Add-AzureHDInsightStorage -StorageAccountName "$storageAccountName_Data.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Data
-		
+
 		New-AzureHDInsightCluster -Name $clusterName -Location $location -Credential $creds -Config $config
-		
+
 		#=============================
 		# Create a MapReduce job definition
 		Write-Host "Create a MapReduce job definition" -ForegroundColor Green
 		$mrJobDef = New-AzureHDInsightMapReduceJobDefinition -JobName mrWordCountJob  -JarFile $jarFile -ClassName $className -Arguments $mrInput, $mrOutput -StatusFolder /WordCountStatus
-		
+
 		#=============================
 		# Run the MapReduce job
 		Write-Host "Run the MapReduce job" -ForegroundColor Green
-		$mrJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $mrJobDef 
-		Wait-AzureHDInsightJob -Job $mrJob -WaitTimeoutInSeconds 3600 
-		
-		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $mrJob.JobId -StandardError 
+		$mrJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $mrJobDef
+		Wait-AzureHDInsightJob -Job $mrJob -WaitTimeoutInSeconds 3600
+
+		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $mrJob.JobId -StandardError
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $mrJob.JobId -StandardOutput
-				
+
 		#=============================
 		# Delete the HDInsight cluster
 		Write-Host "Delete the HDInsight cluster" -ForegroundColor Green
 		Remove-AzureHDInsightCluster -Name $clusterName  
-		
+
 		# Delete the default file system Storage account
 		Write-Host "Delete the storage account" -ForegroundColor Green
 		Remove-AzureStorageAccount -StorageAccountName $storageAccountName_Default
 
-3. 스크립트에서 첫 6개의 변수를 설정합니다. **$stringPrefix** 변수는 HDInsight 클러스터 이름, 저장소 계정 이름 및 Blob 저장소 컨테이너 이름에 지정된 문자열을 접두사로 추가하는 데 사용됩니다. 이러한 항목의 이름은 3\~24자여야 하므로 지정하는 문자열과 이 스크립트가 사용하는 이름을 합한 길이가 이름의 문자 제한을 초과하지 않는지 확인해야 합니다. 모두 **$stringPrefix**의 소문자를 사용해야 합니다.
- 
+3. 스크립트에서 첫 6개의 변수를 설정합니다. **$stringPrefix** 변수는 HDInsight 클러스터 이름, 저장소 계정 이름 및 Blob 저장소 컨테이너 이름에 지정된 문자열을 접두사로 추가하는 데 사용됩니다. 이러한 항목의 이름은 3~24자여야 하므로 지정하는 문자열과 이 스크립트가 사용하는 이름을 합한 길이가 이름의 문자 제한을 초과하지 않는지 확인해야 합니다. 모두 **$stringPrefix**의 소문자를 사용해야 합니다.
+
 	**$storageAccountName_Data** and **$containerName_Data** 변수는 데이터 파일 및 응용 프로그램을 저장하는 데 사용되는 저장소 계정 및 컨테이너입니다. **$location** 변수는 데이터 저장소 계정 위치와 일치해야 합니다.
 
 4. 나머지 변수를 검토합니다.
@@ -551,9 +553,9 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
 		$storageAccountName_Data = "<TheDataStorageAccountName>"
 		$containerName_Data = "<TheDataBlobStorageContainerName>"
 		$blobName = "WordCount/Output/part-r-00000"
-	
+
 3. 다음 명령을 실행하여 Azure 저장소 컨텍스트 개체를 만듭니다.
-		
+
 		Select-AzureSubscription $subscriptionName
 		$storageAccountKey = Get-AzureStorageKey $storageAccountName_Data | %{ $_.Primary }
 		$storageContext = New-AzureStorageContext –StorageAccountName $storageAccountName_Data –StorageAccountKey $storageAccountKey  
@@ -607,5 +609,4 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

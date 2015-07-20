@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Azure 기계 학습 웹 서비스에 연결 | Azure" 
+	pageTitle="기계 학습 웹 서비스에 연결 | Microsoft Azure" 
 	description="C# 또는 Python을 사용하는 경우 권한 부여 키를 사용하여 Azure 기계 학습 웹 서비스에 연결합니다." 
 	services="machine-learning" 
 	documentationCenter="" 
-	authors="derrickv" 
+	authors="garyericson" 
 	manager="paulettm" 
 	editor="cgronlun" />
 
@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
+	ms.date="04/07/2015" 
 	ms.author="derrickv" />
 
 
 # Azure 기계 학습 웹 서비스에 연결 
-Azure 기계 학습 개발자 환경은 실시간 또는 일괄 처리 모드로 입력 데이터에서 예측하는 웹 서비스 API입니다. Azure 기계 학습 스튜디오를 사용하여 예측을 만들고 Azure ML 웹 서비스를 게시할 수 있습니다. 
+Azure 기계 학습 개발자 환경은 실시간 또는 일괄 처리 모드로 입력 데이터에서 예측하는 웹 서비스 API입니다. Azure 기계 학습 스튜디오를 사용하여 예측을 만들고 Azure 기계 학습 웹 서비스를 게시할 수 있습니다.
 
-기계 학습 스튜디오를 사용하여 Azure 기계 학습 웹 서비스를 만들고 게시하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-- [Azure 기계 학습 프로세스 개요](../machine-learning-overview-of-azure-ml-process.md)
+스튜디오를 사용하여 Azure 기계 학습 웹 서비스를 만들고 게시하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+
+- [기계 학습 웹 서비스 게시](machine-learning-publish-a-machine-learning-web-service.md)
 - [기계 학습 스튜디오 시작](http://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
 - [Azure 기계 학습 미리 보기](https://studio.azureml.net/)
 - [기계 학습 설명서 센터](http://azure.microsoft.com/documentation/services/machine-learning/)
@@ -34,9 +36,9 @@ Azure 기계 학습 웹 서비스를 통해 외부 응용 프로그램에서 기
 Azure 기계 학습에는 다음 두 가지 유형의 서비스가 있습니다.
 
 - RRS(요청-응답 서비스) - 대기 시간이 짧고, 확장성이 높은 서비스로, 기계 학습 스튜디오에서 생성 및 게시되는 상태 비저장 모델에 대한 인터페이스를 제공합니다.
-- BES(일괄 처리 실행 서비스) - 데이터 레코드의 점수를 일괄적으로 매기는 비동기 서비스입니다.
+- BES(일괄 처리 실행 서비스) – 데이터 레코드의 점수를 일괄적으로 매기는 비동기 서비스입니다.
 
-Azure 기계 학습 웹 서비스에 대한 자세한 내용은 [Azure 기계 학습 프로세스 개요](../machine-learning-overview-of-azure-ml-process.md)를 참조하세요.
+Azure 기계 학습 웹 서비스에 대한 자세한 내용은 [기계 학습 웹 서비스 게시](machine-learning-publish-a-machine-learning-web-service.md)를 참조하세요.
 
 ## Azure 기계 학습 권한 부여 키 가져오기 ##
 기계 학습 웹 서비스에서 웹 서비스 API 키를 가져올 수 있습니다. Microsoft Azure 기계 학습 스튜디오 또는 Azure 관리 포털에서 가져올 수 있습니다.
@@ -60,22 +62,20 @@ HTTP 요청 및 응답을 지원하는 모든 프로그래밍 언어를 사용�
 웹 서비스를 게시하면 Azure 기계 학습 API 도움말 페이지가 생성됩니다. [Azure 기계 학습 연습 - 웹 서비스 게시](machine-learning-walkthrough-5-publish-web-service.md)를 참조하세요.
 
 
-**Azure 기계 학습 API 도움말 페이지를 보려면**
-Microsoft Azure 기계 학습 스튜디오에서 다음을 수행합니다.
+Microsoft Azure 기계 학습 Studio에서 **Azure 기계 학습 API 도움말 페이지를 보려면**
 
 1. **웹 서비스**를 선택합니다.
 2. 웹 서비스를 선택합니다.
 3. **API 도움말 페이지** - **요청/응답** 또는 **일괄 처리 실행**을 선택합니다.
 
 
-**Azure 기계 학습 API 도움말 페이지**
-Azure 기계 학습 API 도움말 페이지에는 다음을 비롯하여 예측 웹 서비스에 대한 자세한 정보가 포함되어 있습니다.
+**Azure 기계 학습 API 도움말 페이지** Azure 기계 학습 API 도움말 페이지에는 다음을 비롯하여 예측 웹 서비스에 대한 자세한 정보가 포함되어 있습니다.
 
 
 <table>
 	<tr>
-		<td>&nbsp;</td>
-		<td>예제 </td>
+		<td>&#160;</td>
+		<td>예 </td>
 	</tr>
 	<tr>
 		<td>요청 POST URI </td>
@@ -86,16 +86,16 @@ Azure 기계 학습 API 도움말 페이지에는 다음을 비롯하여 예측 
 	<tr>
 		<td>샘플 요청 </td>
 		<td>{ <br/> 
-			&nbsp;&nbsp; "Id": "score00001",   <br/>
-			&nbsp;&nbsp; "Instance": <br/>
-			&nbsp;&nbsp;&nbsp;&nbsp; {  <br/>  
- 			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; "FeatureVector": { <br/>
-			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  "Col1": "0", <br/>      
-			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  "Col2": "0", <br/>      
-			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  "Col3": "0", <br/>  
-			&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  ...     },   <br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;   "GlobalParameters": {}   <br/>
-			&nbsp;&nbsp;&nbsp;&nbsp; } <br/>
+			&#160;&#160; "Id": "score00001",   <br/>
+			&#160;&#160; "Instance": <br/>
+			&#160;&#160;&#160;&#160; {  <br/>  
+ 			&#160;&#160;&#160;&#160; &#160;&#160; "FeatureVector": { <br/>
+			&#160;&#160;&#160;&#160; &#160;&#160;  "Col1": "0", <br/>      
+			&#160;&#160;&#160;&#160; &#160;&#160;  "Col2": "0", <br/>      
+			&#160;&#160;&#160;&#160; &#160;&#160;  "Col3": "0", <br/>  
+			&#160;&#160;&#160;&#160; &#160;&#160;  ... },   <br/>
+			&#160;&#160;&#160;&#160;   "GlobalParameters": {}   <br/>
+			&#160;&#160;&#160;&#160; } <br/>
 		}</td>
 	</tr>
 	<tr>
@@ -104,7 +104,7 @@ Azure 기계 학습 API 도움말 페이지에는 다음을 비롯하여 예측 
 		<table style="width: 100%">
 
 			<tr>
-				<td><B>이름</B></td>
+				<td><B>Name</B></td>
 				<td><B>데이터 형식</B></td>
 			</tr>
 	
@@ -129,7 +129,7 @@ Azure 기계 학습 API 도움말 페이지에는 다음을 비롯하여 예측 
 	</tr>
 	<tr>
 		<td>샘플 응답 </td>
-		<td>[&quot;Col1&quot;,&quot;1&quot;,&quot;1&quot;,...] </td>
+		<td>["Col1","1","1",…] </td>
 	</tr>
 	<tr>
 		<td>샘플 코드 </td>
@@ -137,23 +137,23 @@ Azure 기계 학습 API 도움말 페이지에는 다음을 비롯하여 예측 
 	</tr>
 </table>
 
-**참고** 예제는 Azure 기계 학습 샘플 컬렉션의 Sample 1: Download dataset from UCI: Adult 2 class dataset 부분에서 가져온 것입니다.
+**참고** 예제는 Azure 기계 학습 샘플 컬렉션의 샘플 1: UCI: Adult 2 클래스 데이터 집합에서 데이터 집합 다운로드 부분에서 가져온 것입니다.
 
 ### C# 샘플 ###
 
-Azure 기계 학습 웹 서비스에 연결하려면 ScoreData를 전달하는 **HttpClient**를 사용합니다. ScoreData에는 ScoreData를 나타내는 숫자 기능의 n 차원  벡터인 FeatureVector가 포함되어 있습니다. API 키를 사용하여 Azure 기계 학습 서비스에 인증합니다.
+Azure 기계 학습 웹 서비스에 연결하려면 ScoreData를 전달하는 **HttpClient**를 사용합니다. ScoreData는 ScoreData를 나타내는 수치의 n 차원 벡터인 FeatureVector를 포함합니다. API 키를 사용하여 Azure 기계 학습 서비스에 인증합니다.
 
 기계 학습 웹 서비스에 연결하려면 **Microsoft.AspNet.WebApi.Client** Nuget 패키지를 설치해야 합니다.
 
 **Visual Studio에서 Microsoft.AspNet.WebApi.Client Nuget 설치**
 
-1. Download dataset from UCI: Adult 2 class dataset 웹 서비스를 게시합니다.
-2. **도구** > **Nuget 패키지 관리자** > **패키지 관리자 콘솔**을 클릭합니다.
+1. UCI: Adult 2 클래스 데이터 집합에서 데이터 집합 다운로드 웹 서비스를 게시합니다.
+2. **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 클릭합니다.
 2. **Install-Package Microsoft.AspNet.WebApi.Client**를 선택합니다.
 
 **코드 샘플을 실행하려면**
 
-1. Azure 기계 학습 샘플 컬렉션의 일부인 "Sample 1: Download dataset from UCI: Adult 2 class dataset" 실험을 게시합니다.
+1. Azure 기계 학습 샘플 컬렉션의 “샘플 1: UCI: Adult 2 클래스 데이터 집합에서 데이터 집합 다운로드” 실험 부분을 게시합니다.
 2. 웹 서비스에서 가져온 키로 apiKey를 할당합니다. Azure 기계 학습 권한 부여 키를 가져오는 방법을 참조하세요.
 3. 요청 URI로 serviceUri를 할당합니다. 요청 URI를 가져오는 방법을 참조하세요.
 
@@ -256,12 +256,12 @@ Azure 기계 학습 웹 서비스에 연결하려면 ScoreData를 전달하는 *
 
 ### Python 샘플 ###
 
-Azure 기계 학습 웹 서비스에 연결하려면 ScoreData를 전달하는 **urllib2**를 사용합니다. ScoreData에는 ScoreData를 나타내는 숫자 기능의 n 차원  벡터인 FeatureVector가 포함되어 있습니다. API 키를 사용하여 Azure 기계 학습 서비스에 인증합니다.
+Azure 기계 학습 웹 서비스에 연결하려면 ScoreData를 전달하는 **urllib2**를 사용합니다. ScoreData는 ScoreData를 나타내는 수치의 n 차원 벡터인 FeatureVector를 포함합니다. API 키를 사용하여 Azure 기계 학습 서비스에 인증합니다.
 
 
 **코드 샘플을 실행하려면**
 
-1. Azure 기계 학습 샘플 컬렉션의 일부인 "Sample 1: Download dataset from UCI: Adult 2 class dataset" 실험을 게시합니다.
+1. Azure 기계 학습 샘플 컬렉션의 “샘플 1: UCI: Adult 2 클래스 데이터 집합에서 데이터 집합 다운로드” 실험 부분을 게시합니다.
 2. 웹 서비스에서 가져온 키로 apiKey를 할당합니다. Azure 기계 학습 권한 부여 키를 가져오는 방법을 참조하세요.
 3. 요청 URI로 serviceUri를 할당합니다. 요청 URI를 가져오는 방법을 참조하세요.
 
@@ -312,5 +312,6 @@ Azure 기계 학습 웹 서비스에 연결하려면 ScoreData를 전달하는 *
 	
 		result = response.read()
 		print(result) 
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 모바일 Engagement iOS SDK 콘텐츠" 
+	pageTitle="Azure Mobile Engagement iOS SDK 콘텐츠" 
 	description="Azure Mobile Engagement용 iOS SDK의 최신 업데이트 및 절차"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
@@ -29,18 +29,18 @@
 ##Engagement 도달률 SDK
 
 `EngagementReach`
-	
+
 > 헤더, 라이브러리 및 관련 리소스를 포함하는 Engagement 도달률 SDK입니다.
 
 ##추가 파일
 
-`doc/index.html`( `doc` 폴더)
+`doc/index.html`(`doc` 폴더에 있음)
 
 > Engagement SDK 및 도달률 SDK Objective-C 설명서입니다.
 
 `src` 폴더
 
 > Engagement 클래스를 필요에 따라 조정하려는 고급 사용자를 위해 제공되는 Engagement 뷰 컨트롤러 및 도달률 SDK의 소스 코드입니다.
-
-<!--HONumber=47-->
  
+
+<!---HONumber=July15_HO2-->

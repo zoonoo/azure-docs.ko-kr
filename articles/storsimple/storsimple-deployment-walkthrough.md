@@ -1,24 +1,29 @@
-<properties 
+<properties
    pageTitle="온-프레미스 StorSimple 장치 배포"
    description="StorSimple 장치 및 서비스를 배포하기 위한 단계 및 모범 사례입니다."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
-   editor="tysonn" /> <tags 
+   editor="tysonn" />
+<tags
    ms.service="storsimple"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="04/28/2015"
-   ms.author="v-sharos" />
+   ms.date="06/08/2015"
+   ms.author="alkohli" />
 
 # 온-프레미스 StorSimple 장치 배포
+
+[AZURE.INCLUDE [storsimple-version-selector](../../includes/storsimple-version-selector.md)]
 
 ## 개요
 
 Microsoft Azure StorSimple 장치 배포를 시작합니다.
+
+이 배포 자습서는 StorSimple 8000 시리즈 릴리스 버전, StorSimple 8000 시리즈 Update 0.1, StorSimple 8000 시리즈 Update 0.2, StorSimple 8000 시리즈 Update 0.3에 적용됩니다.
 
 이 자습서 시리즈에서는 StorSimple 장치를 구성하는 방법에 대해 설명하며 사전 설치 검사 목록, 구성 필수 목록 및 자세한 구성 단계를 포함합니다.
 
@@ -35,7 +40,7 @@ Microsoft Azure StorSimple 장치 배포를 시작합니다.
 | | 요구 사항 | 세부 정보 | 값 |
 |---| --------------------- | ---------------------- | ------------- |
 | 1 | 장치의 친숙한 이름 | 장치에 대한 설명이 포함된 이름 | |
-| 2 | 네트워크 설정 <ol><li>장치 IP 주소</li><li>네트워크 인터페이스, 1GbE 4개, 10GbE 2개</li><li>고정 컨트롤러 IP</li><li>서브넷 마스크</li><li>게이트웨이</li></ol> | 필요한 IP 총: 8개 <ol><li>장치당 1개</li><li>사용할 수 있는 네트워크 인터페이스당 1개, 총 6개</li><li>컨트롤러당 1개, 총 2개</li><li>각 IP 주소당 1개</li><li>장치당 1개</li></ol> | |
+| 2 | 네트워크 설정 <ol><li>네트워크 인터페이스, 1GbE 4개, 10GbE 2개</li><li>고정 컨트롤러 IP</li><li>서브넷 마스크</li><li>게이트웨이</li></ol> | 필요한 IP는 총 8개로서 <ol><li>장치당 1개</li><li>사용할 수 있는 네트워크 인터페이스당 1개씩이며, </li><li>컨트롤러 당 1개씩 총 6개, </li><li>장치 당 1개의 주소에 대한 각 IP에 각각 1개씩 </li></ol>총 2개입니다. | |
 | 3 | 직렬 액세스 | 초기 장치 구성 | 예/아니요 |
 | 4 | DNS 서버 IP 주소 | Microsoft Azure 연결에 필요한 수: 고가용성을 위해 총 2개 필요 | |
 | 5 | NTP 서버 IP 주소 | Azure와 시간을 동기화 하는 데 필요한 수: 필수 1개, 선택 사항 1개 | |
@@ -74,13 +79,13 @@ Microsoft Azure StorSimple 장치 배포를 시작합니다.
 
 StorSimple 장치를 구성하여 StorSimple 관리자 서비스에 연결하려면 다음과 같은 필수 단계를 수행합니다.
 
-- 1단계: 새 서비스 만들기 
+- 1단계: 새 서비스 만들기
 - 2단계: 서비스 등록 키 받기
-- 3단계: StorSimple용 Windows PowerShell을 통해 장치 구성 및 등록 
+- 3단계: StorSimple용 Windows PowerShell을 통해 장치 구성 및 등록
 - 4단계: 최소 장치 설정 완료
-- 5단계: 볼륨 컨테이너 만들기 
+- 5단계: 볼륨 컨테이너 만들기
 - 6단계: 볼륨 만들기
-- 7단계: 볼륨 탑재, 초기화 및 포맷 
+- 7단계: 볼륨 탑재, 초기화 및 포맷
 - 8단계: 백업 수행
 
 필수 단계 외에도 솔루션 배포에 따라 완료해야 할 수 있는 몇 가지 선택적 단계가 있습니다. 이러한 선택적 단계에서는 다음 사항에 대해 설명합니다.
@@ -101,8 +106,8 @@ StorSimple 관리자 서비스는 여러 StorSimple 장치를 관리할 수 있�
 
 > [AZURE.IMPORTANT]서비스와 함께 저장소 계정을 자동으로 만들도록 설정하지 않은 경우, 서비스를 성공적으로 만든 후 하나 이상의 저장소 계정을 만들어야 합니다. 이 저장소 계정은 볼륨 컨테이너를 만들 때 사용됩니다.
 >
-> * 저장소 계정을 자동으로 만들지 않은 경우 자세한 지침은 [서비스에 대한 새 저장소 계정 구성](#Configure-a-new-storage-account-for-the-service)을 참조하세요. 
-> * 저장소 계정을 자동으로 생성하도록 설정한 경우, 2단계: 서비스 등록 키 받기로 이동합니다.
+> * 저장소 계정을 자동으로 만들지 않은 경우 자세한 지침은 [서비스에 대한 새 저장소 계정 구성](#Configure-a-new-storage-account-for-the-service)을 참조하세요.
+> * 저장소 계정을 자동으로 생성하도록 설정한 경우, [2단계: 서비스 등록 키 받기](#step-2:-get-the-service-registration-key)로 이동합니다.
 
 ## 2단계: 서비스 등록 키 받기
 
@@ -205,6 +210,6 @@ MPIO 설치 지침은 [StorSimple 장치에 대한 MPIO 구성](storsimple-confi
 [가상 장치](storsimple-virtual-device.md)를 구성합니다.
 
 [StorSimple 관리자 서비스](https://msdn.microsoft.com/library/azure/dn772396.aspx)를 사용하여 StorSimple 장치를 관리할 수 있습니다.
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

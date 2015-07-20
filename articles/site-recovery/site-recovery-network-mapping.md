@@ -136,4 +136,4 @@ VMNetwork1-시카고의 네트워크 매핑이 변경됨 | VM-1은 VMNetwork1-�
 배포 준비를 위해 [모범 사례](site-recovery-best-practices.md)를 읽으면 네트워크 매핑 시작에 대해 더 잘 이해하게 됩니다.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

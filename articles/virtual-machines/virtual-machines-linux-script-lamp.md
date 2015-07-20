@@ -57,7 +57,7 @@ Azure에서 Linux VM을 만들 때 도움이 필요하면 [Linux를 실행하는
 
 	# write some PHP
 	echo <center><h1>My Demo App</h1><br/></center> > /var/www/html/phpinfo.php
-	echo <\?php phpinfo()\; \?> > /var/www/html/phpinfo.php
+	echo <\?php phpinfo()\; \?> >> /var/www/html/phpinfo.php
 
 	# restart Apache
 	apachectl restart
@@ -107,4 +107,4 @@ CustomScript 확장 실행이 완료되면 앞에서 만든 PHP 페이지를 찾
 [Azure에서 Linux 및 오픈 소스 컴퓨팅](virtual-machines-linux-opensource.md)
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

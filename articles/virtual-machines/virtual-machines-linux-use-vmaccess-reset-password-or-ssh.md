@@ -263,4 +263,4 @@ VMAccess 확장 상태를 표시하려면, 다음 명령을 실행합니다.
 [RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결]: http://msdn.microsoft.com/library/azure/dn535788.aspx
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

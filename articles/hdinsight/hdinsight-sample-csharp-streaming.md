@@ -204,4 +204,4 @@ wc.cs 파일의 리듀서 코드는 [StreamReader][streamreader] 개체를 사�
 [hdinsight-use-pig]: hdinsight-use-pig.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

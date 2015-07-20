@@ -166,4 +166,7 @@ Azure 가상 네트워크를 만들고 나면 Azure 관리 포털에서 다음 �
 
 [SharePoint 2013용 Microsoft Azure 아키텍처](https://technet.microsoft.com/library/dn635309.aspx)
 
-<!--HONumber=54--> 
+[Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
+ 
+
+<!---HONumber=July15_HO2-->

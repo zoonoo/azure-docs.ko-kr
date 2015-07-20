@@ -18,7 +18,7 @@
 
 
 
-# Azure 자동화를 사용하여 Azure HDInsight 관리
+#Azure 자동화를 사용하여 Azure HDInsight 관리
 이 가이드에서는 Azure 자동화 서비스 및 이 서비스를 사용하여 클러스터 관리를 간소화하고 Azure HDInsight의 일반적인 작업을 자동화하는 방법을 소개합니다.
 
 ## Azure 자동화 정의
@@ -41,6 +41,6 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure HDInsi
 
 * Azure 자동화 [시작 자습서](../automation-create-runbook-from-samples.md)를 참조하세요.
 
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

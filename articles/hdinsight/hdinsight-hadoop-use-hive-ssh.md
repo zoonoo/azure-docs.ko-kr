@@ -13,26 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
-# SSH 사용하는 HDInsight에서 Hadoop과 Hive 사용
+#SSH 사용하는 HDInsight에서 Hadoop과 Hive 사용
 
 [AZURE.INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
 이 문서에서는 SSH(Secure Shell)를 사용하여 Azure HDInsight 클러스터의 Hadoop에 연결한 다음 Hive CLI(명령줄 인터페이스)를 사용하여 Hive 쿼리를 대화형으로 제출하는 방법을 배웁니다.
 
-> [AZURE.NOTE]Linux 기반 Hadoop 서버를 익숙하게 사용하지만 HDInsight는 처음인 경우 <a href="../hdinsight-hadoop-linux-information/" target="_blank">HDInsight의 Linux 기반 Hadoop에 대해 알아야 할 정보</a>를 참조하세요.
+> [AZURE.NOTE]Linux 기반 Hadoop 서버를 익숙하게 사용하지만 HDInsight는 처음인 경우 [HDInsight의 Linux 기반 Hadoop에 대해 알아야 할 정보](hdinsight-hadoop-linux-information.md)를 참조하세요.
 
-## <a id="prereq"></a>필수 조건
+##<a id="prereq"></a>필수 조건
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
 * HDInsight 클러스터의 Linux 기반 Hadoop
 
-* SSH 클라이언트. Linux, Unix 및 Mac OS에는 SSH 클라이언트가 함께 제공됩니다. Windows 사용자는 <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">PuTTY</a>와 같은 클라이언트를 다운로드해야 합니다.
+* SSH 클라이언트. Linux, Unix 및 Mac OS에는 SSH 클라이언트가 함께 제공됩니다. Windows 사용자는 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)와 같은 클라이언트를 다운로드해야 합니다.
 
-## <a id="ssh"></a>SSH를 사용하여 연결
+##<a id="ssh"></a>SSH를 사용하여 연결
 
 SSH 명령을 사용하여 HDInsight 클러스터의 FQDN(정규화된 도메인 이름)에 연결합니다. FQDN은 지정한 클러스터 이름과 그 뒤에 오는 **.azurehdinsight.net**으로 구성됩니다. 예를 들어 다음 명령은 **myhdinsight**라는 클러스터에 연결합니다.
 
@@ -44,15 +44,15 @@ SSH 명령을 사용하여 HDInsight 클러스터의 FQDN(정규화된 도메인
 
 **SSH 인증을 위해 암호를 제공한 경우** HDInsight 클러스터를 만들 때 메시지가 표시되면 암호를 제공해야 합니다.
 
-### PuTTY(Windows 기반 클라이언트)
+HDInsight에서 SSH 사용에 대한 자세한 내용은 [Linux, OS X 및 Unix에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-Windows에는 SSH 클라이언트가 기본 제공되지 않습니다. **PuTTY**를 사용하는 것이 좋습니다(<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html</a>에서 다운로드할 수 있음).
+###PuTTY(Windows 기반 클라이언트)
 
-PuTTY 사용에 대한 자세한 내용은 <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Azure에서 Linux와 함께 SSH를 사용하는 방법</a>의 **Putty를 사용하여 Linux 컴퓨터에 연결** 섹션을 참조하세요.
+Windows에는 SSH 클라이언트가 기본 제공되지 않습니다. **PuTTY**를 사용하는 것이 좋습니다([http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있음).
 
-> [AZURE.NOTE]HDInsight 클러스터에 대한 SSH 인증을 위해 인증서를 사용한 경우 <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Azure에서 Linux와 함께 SSH를 사용하는 방법</a>의 **Putty용 PPK 만들기** 섹션도 참조해야 할 수 있습니다.
+PuTTY 사용에 대한 자세한 내용은 [Windows에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)을 참조하세요.
 
-## <a id="hive"></a>Hive 명령 사용
+##<a id="hive"></a>Hive 명령 사용
 
 2. 연결되면 다음 명령을 사용하여 Hive CLI를 시작합니다.
 
@@ -87,7 +87,7 @@ PuTTY 사용에 대한 자세한 내용은 <a href="http://azure.microsoft.com/d
 
     * **CREATE TABLE IF NOT EXISTS** - 테이블이 아직 없는 경우 테이블을 만듭니다. **EXTERNAL** 키워드가 사용되지 않으면 Hive 데이터 웨어하우스에 저장되고 Hive에서 완전히 관리되는 내부 테이블입니다.
     * **STORED AS ORC** - 데이터를 ORC(Optimized Row Columnar) 형식으로 저장합니다. Hive 데이터를 저장하기 위한 고도로 최적화되고 효율적인 형식입니다.
-    * **INSERT OVERWRITE ... SELECT** - **[ERROR]**가 포함된 **log4jLogs** 테이블에서 행을 선택하고 데이터를 **errorLogs** 테이블에 삽입합니다.
+    * **덮어쓰기 삽입... SELECT** - **[ERROR]**가 포함된 **log4jLogs** 테이블에서 행을 선택하고 데이터를 **errorLogs** 테이블에 삽입합니다.
 
     t4 열에 **[ERROR]**가 포함된 행만 **errorLogs** 테이블에 저장되었는지 확인하려면 다음 문을 사용하여 **errorLogs**의 모든 행을 반환합니다.
 
@@ -97,11 +97,11 @@ PuTTY 사용에 대한 자세한 내용은 <a href="http://azure.microsoft.com/d
 
     > [AZURE.NOTE]외부 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
 
-## <a id="summary"></a>요약
+##<a id="summary"></a>요약
 
 여기에서 볼 수 있듯이 Hive 명령을 사용하면 쉽게 HDInsight 클러스터에서 Hive 쿼리 실행 작업 상태를 모니터링하고 출력을 검색할 수 있습니다.
 
-## <a id="nextsteps"></a>다음 단계
+##<a id="nextsteps"></a>다음 단계
 
 HDInsight의 Hive에 대한 일반적인 정보:
 
@@ -131,18 +131,18 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 [putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 
-[hdinsight-storage]: ../hdinsight-use-blob-storage.md
+[hdinsight-storage]: hdinsight-use-blob-storage.md
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+[hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: ../install-configure-powershell.md
+
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -42,7 +42,7 @@ Azure HDInsight는 언제든 배포할 수 있는 여러 Hadoop 클러스터 버
 
 **현재 구성 요소 버전 정보 가져오기**
 
-HDInsight 클러스터 버전과 연결된 구성 요소 버전은 HDInsight에 대한 향후 업데이트에서 변경될 수 있습니다. 사용 가능한 구성 요소를 알아보고 사용 중인 버전을 확인하는 방법은 클러스터에서 Ambari REST API를 사용하는 것입니다. 또한 **GetComponentInformation** 명령을 사용하여 서비스 구성 요소에 대한 정보를 검색할 수도 있습니다. 자세한 내용은 [Ambari 설명서][ambari-docs](영문)를 참조하세요. 이 정보를 가져오는 다른 방법은 원격 데스크톱을 사용하여 클러스터에 로그인하고 "C:\apps\dist" 디렉터리의 콘텐츠를 직접 검토하는 것입니다.
+HDInsight 클러스터 버전과 연결된 구성 요소 버전은 HDInsight에 대한 향후 업데이트에서 변경될 수 있습니다. 사용 가능한 구성 요소를 알아보고 사용 중인 버전을 확인하는 방법은 클러스터에서 Ambari REST API를 사용하는 것입니다. 또한 **GetComponentInformation** 명령을 사용하여 서비스 구성 요소에 대한 정보를 검색할 수도 있습니다. 자세한 내용은 [Ambari 설명서][ambari-docs](영문)를 참조하세요. 이 정보를 가져오는 다른 방법은 원격 데스크톱을 사용하여 클러스터에 로그인하고 "C:\\apps\\dist" 디렉터리의 콘텐츠를 직접 검토하는 것입니다.
 
 
 **릴리스 정보**
@@ -153,4 +153,4 @@ SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

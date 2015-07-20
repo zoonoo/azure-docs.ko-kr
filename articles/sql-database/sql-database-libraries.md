@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/01/2015"
+	ms.date="06/24/2015"
 	ms.author="pehteh"/>
 
 
@@ -37,14 +37,27 @@
 다음은 Microsoft에서 출시한 라이브러리 표입니다. **라이브러리** 열은 각 라이브러리를 다운로드할 수 있는 링크를 제공합니다. **버전** 열에는 Azure SQL 데이터베이스 및 Microsoft SQL Server와 상호작용하기 위해 권장되는 최소 버전이 나열됩니다.
 
 
-| 플랫폼 | 운영 체제 | 라이브러리 | 버전 | 설명 |
-| :--- | :--- | :--- | :--- | :--- |
-| .NET | 크로스 플랫폼(.NET) | [ADO.NET, System .Data .SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4.5 이상 | .NET Framework에 대한 SQL Server 공급자 |
-| PHP | Windows | [PHP for SQL Server](http://www.microsoft.com/ko-kr/download/details.aspx?id=20098) | 2.0 이상 | SQL Server용 PHP 드라이버 |
-| Java | Windows | [JDBC for SQL Server](https://www.microsoft.com/ko-kr/download/details.aspx?id=11774) | 2.0 이상 | 표준 JDBC API를 통해 데이터베이스를 연결하는 Type 4 JDBC 드라이버 |
-| ODBC | Windows | [ODBC for SQL Server](http://www.microsoft.com/ko-kr/download/details.aspx?id=36434) | 11.0 이상 | SQL Server용 Microsoft ODBC 드라이버 |
-| ODBC | Suse Linux | [ODBC for SQL Server](http://www.microsoft.com/ko-kr/download/details.aspx?id=34687) | 11.0 이상 | SQL Server용 Microsoft ODBC 드라이버 |
-| ODBC | Redhat Linux | [ODBC for SQL Server](http://www.microsoft.com/ko-kr/download/details.aspx?id=34687) | 11.0 이상 | SQL Server용 Microsoft ODBC 드라이버 |
+| 플랫폼 | 운영 체제 | 라이브러리<br/>다운로드 | 드라이버의 버전<br/> | 드라이버의 설명<br/> | 자세한<br/>정보 |
+| :--- | :--- | :--- | :--- | :--- | :-- |
+| .NET | 크로스 플랫폼(.NET) | [ADO.NET, System .Data .SqlClient](http://www.microsoft.com/download/details.aspx?id=30653) | 4.5 이상 | .NET Framework에 대한 SQL Server 공급자 | . |
+| PHP | Windows | [PHP for SQL Server](http://www.microsoft.com/download/details.aspx?id=20098) | 2.0 이상 | SQL Server용 PHP 드라이버 | [링크](http://msdn.microsoft.com/library/dn865013.aspx) |
+| Java | Windows | [JDBC for SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) | 2.0 이상 | 표준 JDBC API를 통해 데이터베이스를 연결하는 Type 4 JDBC 드라이버 | [링크](http://msdn.microsoft.com/library/dn425070.aspx) |
+| ODBC | Windows | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=36434) | 11.0 이상 | SQL Server용 Microsoft ODBC 드라이버 | [링크](http://msdn.microsoft.com/library/jj730308.aspx) |
+| ODBC | Suse Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0 이상 | SQL Server용 Microsoft ODBC 드라이버 | . |
+| ODBC | Redhat Linux | [ODBC for SQL Server](http://www.microsoft.com/download/details.aspx?id=34687) | 11.0 이상 | SQL Server용 Microsoft ODBC 드라이버 | . |
+
+
+### DB2 및 DRDA 디자인에 대한 SQL Server에 대한 OLEDB
+
+
+Microsoft OLE DB Provider for DB2 버전 5.0 (데이터 공급자)를 사용 하면 IBM DB2 데이터베이스를 대상으로 하는 분산된 응용 프로그램을 만들 수 있습니다. 데이터 공급자는 Microsoft SQL Server 데이터 액세스 아키텍처는 관계형 데이터베이스 아키텍처 (Distributed Relational Database Architecture, DRDA) 응용 프로그램 요청자로 기능하는 DB2 용 Microsoft 네트워크 클라이언트와 함께 활용 합니다. 데이터 공급자는 DRDA 프로토콜 코드 포인트와 데이터 형식에 구성 요소 개체 모델 (COM) OLE DB 명령 및 데이터 형식을 변환합니다.
+
+
+자세한 내용은 다음을 참조하세요.
+
+
+- [Microsoft OLE DB Provider for DB2 버전 5.0](http://msdn.microsoft.com/library/dn745875.aspx)
+- [Microsoft OLEDB Provider for DB2 v4.0 for Microsoft SQL Server 2012](http://www.microsoft.com/download/details.aspx?id=29100)
 
 
 ## 타사 라이브러리
@@ -69,4 +82,4 @@
 https://en.wikipedia.org/wiki/Draft:Microsoft_SQL_Server_Libraries/Drivers
 -->
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Ruby에서 큐 저장소를 사용하는 방법 | Microsoft Azure "
+	pageTitle="Ruby에서 큐 저장소를 사용하는 방법 | Microsoft Azure" 
 	description="Azure 큐 서비스를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다. 샘플은 Ruby로 작성되었습니다." 
 	services="storage" 
 	documentationCenter="ruby" 
-	authors="tfitzmac,tamram" 
+	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -23,9 +23,7 @@
 
 ## 개요
 
-이 가이드에서는 Azure 테이블 저장소 서비스를 사용하여
-일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Ruby Azure API를 사용하여 작성되었습니다.
-여기서 다루는 시나리오에는 큐 메시지 **삽입**, **보기**, **가져오기** 및 **삭제**와 **큐 만들기 및 삭제**가 포함됩니다.
+이 가이드에서는 Microsoft Azure 큐 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다. 샘플은 Ruby Azure API를 사용하여 작성되었습니다. 여기서 다루는 시나리오에는 큐 메시지 **삽입**, **보기**, **가져오기** 및 **삭제**와 **큐 만들기 및 삭제**가 포함됩니다.
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -33,7 +31,7 @@
 
 ## Ruby 응용 프로그램 만들기
 
-Ruby 응용 프로그램을 만듭니다. 자세한 내용은 [Azure에서 Ruby 응용 프로그램 만들기](/develop/ruby/tutorials/web-app-with-linux-vm/)를 참조하세요.
+Ruby 응용 프로그램을 만듭니다. 자세한 내용은 [Azure에서 Ruby 응용 프로그램 만들기](/develop/ruby/tutorials/web-app-with-linux-vm/)를 참조하십시오.
 
 ## 저장소에 액세스하도록 응용 프로그램 구성
 
@@ -53,7 +51,7 @@ Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편�
 
 ## Azure 저장소 연결 설정
 
-Azure 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY** 환경 변수를 읽고 Azure 저장소 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되지 않은 경우에는**Azure::QueueService**를 사용하기 전에 다음 코드로 계정 정보를 지정해야 합니다.
+Azure 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY** 환경 변수를 읽고 Azure 저장소 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되지 않으면 **Azure::QueueService**를 사용하기 전에 다음 코드로 계정 정보를 지정해야 합니다.
 
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your Azure storage access key>"
@@ -62,16 +60,16 @@ Azure 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY** 환�
 
 1. [Azure 관리 포털](https://manage.windowsazure.com/)에 로그인합니다.
 2. 사용하려는 저장소 계정으로 이동합니다.
-3. 탐색 창 맨 아래에서 **키 관리**를 클릭합니다.
+3. 탐색 창 아래쪽에서 **키 관리**를 클릭합니다.
 4. 팝업 대화 상자에 저장소 계정 이름, 기본 액세스 키 및 보조 액세스 키가 표시됩니다. 액세스 키의 경우 기본 액세스 키 또는 보조 액세스 키를 선택할 수 있습니다.
 
-## 방법: 큐 만들기
+## 큐를 만드는 방법
 
-다음 코드는 **Azure::QueueService** 개체를 만들어 큐 작업을 수행할 수 있게 해줍니다.
+다음 코드는 **Azure::QueueService** 개체를 만들어 큐 작업을 수행할 수 있게 해 줍니다.
 
 	azure_queue_service = Azure::QueueService.new
 
-**create_queue()** 메서드를 사용하여 지정된 이름으로 큐를 만듭니다.
+**create_queue()** 메서드를 사용하여 지정된 이름이 있는 큐를 만듭니다.
 
 	begin
 	  azure_queue_service.create_queue("test-queue")
@@ -79,20 +77,20 @@ Azure 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY** 환�
 	  puts $!
 	end
 
-## 방법: 큐에 메시지 삽입
+## 큐에 메시지를 삽입하는 방법
 
 큐에 메시지를 삽입하려면 **create_message()** 메서드를 사용하여 새 메시지를 만들고 이 메시지를 큐에 추가합니다.
 
 	azure_queue_service.create_message("test-queue", "test message")
 
-## 방법: 다음 메시지 보기
+## 다음 메시지를 보는 방법
 
-큐에서 메시지를 제거하지 않고도 **peek_messages()** 메서드를 호출하여 큐의 맨 앞에서 원하는 메시지를 볼 수 있습니다. 기본적으로 **peek_messages()**는 단일 메시지를 볼 수 있게 해줍니다. 보려는 메시지의 수를 지정할 수도 있습니다.
+큐에서 메시지를 제거하지 않고도 **peek_messages()** 메서드를 호출하여 큐의 맨 앞에서 원하는 메시지를 볼 수 있습니다. 기본적으로 **peek_messages()**는 단일 메시지를 볼 수 있게 해 줍니다. 보려는 메시지의 수를 지정할 수도 있습니다.
 
 	result = azure_queue_service.peek_messages("test-queue",
 	  {:number_of_messages => 10})
 
-## 방법: 큐에서 다음 메시지 제거
+## 큐에서 다음 메시지를 제거하는 방법
 
 2단계를 거쳐 큐에서 메시지를 제거할 수 있습니다.
 
@@ -106,7 +104,7 @@ Azure 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY** 환�
 	azure_queue_service.delete_message("test-queue", 
 	  messages[0].id, messages[0].pop_receipt)
 
-## 방법: 대기 중인 메시지의 콘텐츠 변경
+## 대기 중인 메시지의 콘텐츠 변경 방법
 
 큐에 있는 메시지의 콘텐츠를 변경할 수 있습니다. 아래 코드는 **update_message()** 메서드를 사용하여 메시지를 업데이트합니다. 이 메서드는 큐 메시지의 pop 확인 및 메시지가 큐에 표시되는 시간을 나타내는 UTC 날짜 시간 값이 포함된 튜플을 반환합니다.
 
@@ -115,7 +113,7 @@ Azure 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY** 환�
 	  "test-queue", message.id, message.pop_receipt, "updated test message", 
 	  30)
 
-## 방법: 큐에서 메시지를 제거하는 추가 옵션
+## dequeuing 메시지의 추가옵션을 설정하는 방법
 
 큐에서 메시지 검색을 사용자 지정할 수 있는 방법으로는 두 가지가 있습니다.
 
@@ -123,7 +121,7 @@ Azure 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY** 환�
 
 2. 표시하지 않는 제한 시간을 더 길거나 더 짧게 설정하여 코드에서 각 메시지를 완전히 처리하는 시간을 늘리거나 줄일 수 있습니다.
 
-다음 코드 예제에서는 **list_messages()** 메서드를 사용하여 한 번 호출에 15개의 메시지를 가져옵니다. 그런 다음 각 메시지를 인쇄하고 삭제합니다. 또한 각 메시지에 대해 표시하지 않는 제한 시간을 5분으로 설정합니다.
+다음 코드 예제는 **list_messages()** 메서드를 사용하여 한 번 호출에 15개의 메시지를 가져옵니다. 그런 다음 각 메시지를 인쇄하고 삭제합니다. 또한 각 메시지에 대해 표시하지 않는 제한 시간을 5분으로 설정합니다.
 
 	azure_queue_service.list_messages("test-queue", 300
 	  {:number_of_messages => 15}).each do |m|
@@ -140,7 +138,7 @@ Azure 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY** 환�
 
 ## 방법: 큐 삭제
 
-큐와 해당 큐에 포함된 모든 메시지를 삭제하려면 큐 개체에서 **delete_queue()** 메서드를 호출합니다.
+큐 및 해당 큐의 모든 메시지를 삭제하려면 큐 개체의 **delete_queue()** 메서드를 호출합니다.
 
 	azure_queue_service.delete_queue("test-queue")
 
@@ -148,10 +146,11 @@ Azure 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY** 환�
 
 이제 큐 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업에 대해 알아보세요.
 
-- MSDN 참조: [Azure 저장소](http://msdn.microsoft.com/library/azure/gg433040.aspx)를 참조하세요.
+- 다음 MSDN 참조를 확인하세요. [Azure 저장소](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문)를 방문하세요.
-- GitHub에서 [Ruby용 Azure SDK](https://github.com/WindowsAzure/azure-sdk-for-ruby) 리포지토리를 방문하세요.
+- GitHub에서 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby)(영문) 리포지토리를 방문하십시오.
 
-이 문서에서 다루는 Azure 큐 서비스와 [서비스 버스 큐를 사용하는 방법](/develop/ruby/how-to-guides/service-bus-queues/) 문서에서 다루는 Azure 서비스 버스 큐 간의 비교는 [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조](http://msdn.microsoft.com/library/azure/hh767287.aspx)를 참조하세요.
+이 항목에서 다룬 Azure 큐 서비스와 [서비스 버스 큐를 사용하는 방법](/develop/ruby/how-to-guides/service-bus-queues/) 항목에서 다루는 Azure 서비스 버스 큐를 비교하려면 [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조](http://msdn.microsoft.com/library/azure/hh767287.aspx)를 참조하십시오.
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

@@ -237,5 +237,6 @@ MySQL에는 이진 패키지, rpm 패키지 및 원본 패키지라는 세 가�
     시스템이 부팅될 때 MySQL을 시작하도록 설정하려면 다음 명령을 실행합니다.
 
            #mysql-test:~ # insserv mysql
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

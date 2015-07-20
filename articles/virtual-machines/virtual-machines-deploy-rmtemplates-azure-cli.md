@@ -1281,7 +1281,9 @@ Azure PowerShell 명령과 Github 템플릿 리포지토리의 리소스 관리�
 
 ## <a id="start-a-virtual-machine"></a>작업: VM 시작
 
-다음 명령을 실행합니다. Azure Resource Manager Overview azure vm start <group name> <virtual machine name>
+다음 명령을 실행합니다.
+
+    azure vm start <group name> <virtual machine name>
 
 ## <a id="attach-a-data-disk"></a>작업: 데이터 디스크 연결
 
@@ -1313,4 +1315,4 @@ Azure PowerShell 명령과 Github 템플릿 리포지토리의 리소스 관리�
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

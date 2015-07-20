@@ -13,32 +13,32 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="02/18/2015"
+   ms.date="07/01/2015"
    ms.author="larryfr"/>
 
-# Ambari를 사용하여 HDInsight 클러스터 관리(미리 보기)
+#Ambari를 사용하여 HDInsight 클러스터 관리(미리 보기)
 
 Ambari를 사용하여 Linux 기반 Azure HDInsight 클러스터를 관리하고 모니터링하는 방법에 대해 알아봅니다.
 
 > [AZURE.NOTE]이 문서에 있는 정보의 대부분은 Linux 기반 HDInsight 클러스터에만 적용됩니다. Windows 기반 HDInsight 클러스터에서는 Ambari REST API를 통한 모니터링만 사용할 수 있습니다. [Ambari API를 사용하여 HDInsight에서 Windows 기반 Hadoop 모니터링](hdinsight-monitor-use-ambari-api.md)를 참조하세요.
 
-## <a id="whatis"></a>Ambari 정의
+##<a id="whatis"></a>Ambari 정의
 
 <a href="http://ambari.apache.org" target="_blank">Apache Ambari</a>에서는 Hadoop 클러스터 프로비전, 관리 및 모니터링에 사용할 수 있는 편리한 웹 UI를 제공하여 쉽게 Hadoop을 관리할 수 있습니다. 개발자는 <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">Ambari REST API</a>를 사용하여 자신의 응용 프로그램에 이러한 기능을 통합할 수 있습니다.
 
 Ambari는 Linux 기반 HDInsight 클러스터를 기본으로 제공합니다. Windows 기반 HDInsight 클러스터는 Ambari REST API를 통해 모니터링 기능을 제공합니다.
 
-## SSH 프록시
+##SSH 프록시
 
-> [AZURE.NOTE]인터넷을 통해 직접 액세스할 수 있는 클러스터의 Ambari의 경우, 일부 기능은 클러스터에서 사용하는 내부 도메인 이름으로 노드 액세스해야 합니다. 공용이 아닌 내부 도메인 이름이어야 하므로 인터넷을 통해 일부 기능에 액세스하면 “서버를 찾을 수 없음" 오류가 발생합니다.
+> [AZURE.NOTE]클러스터의 Ambari는 인터넷을 통해 직접 액세스할 수 있지만 Ambari 웹 UI의 일부 링크(예: JobTracker)는 인터넷에 노출되지 않습니다. 따라서 클러스터 헤드 노드로 웹 트래픽을 프록시하는 데 SSH(보안 셸) 터널을 사용하지 않는 경우, 이러한 기능에 액세스 하려고 하면 "서버를 찾을 수 없음" 오류가 발생합니다.
 
-이 문제를 해결하려면 내부 도메인 이름을 해결할 수 있는 클러스터 헤드 노드에서 SSH(보안 셸) 터널을 프록시 웹 트래픽으로 사용합니다. 다음 문서를 사용하여 로컬 컴퓨터의 포트에서 클러스터로 SSH 터널을 만듭니다.
+다음 문서를 사용하여 로컬 컴퓨터의 포트에서 클러스터로 SSH 터널을 만듭니다.
 
 * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Linux, Unix 또는 OS X에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용</a>: `ssh` 명령을 사용하여 SSH 터널을 만드는 단계
 
 * <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용</a> - PuTTY를 사용하여 SSH 터널을 만드는 단계
 
-## Ambari 웹 UI
+##Ambari 웹 UI
 
 Ambari 웹 UI는 **https://&lt;clustername>.azurehdinsight.net**에서 만든 각 Linux 기반 HDInsight 클러스터에서 사용할 수 있습니다. Azure 포털에서 클러스터 대시보드 맨 아래에 있는 **Ambari 웹** 단추를 사용하여 이 페이지에 접근할 수도 있습니다.
 
@@ -74,9 +74,9 @@ Ambari 웹 UI는 **https://&lt;clustername>.azurehdinsight.net**에서 만든 �
 
 * **Admin 단추** - Ambari 관리, 사용자 설정 및 로그 아웃입니다.
 
-### 모니터링
+##모니터링
 
-#### 경고
+###경고
 
 Ambari는 많은 경고를 보여주며 다음 상태 중 하나입니다.
 
@@ -102,7 +102,7 @@ Ambari는 많은 경고를 보여주며 다음 상태 중 하나입니다.
 
 ![경고 만들기 대화 상자](./media/hdinsight-hadoop-manage-ambari/create-alert-notification.png)
 
-#### 프로비전
+###프로비전
 
 대시보드의 **Metrics** 탭은 클러스터의 상태를 한 눈에 쉽게 모니터할 수 있는 일련의 위젯을 포함합니다. **CPU Usage**와 같은 여러 위젯은 클릭하면 추가 정보를 제공합니다.
 
@@ -116,7 +116,7 @@ Ambari는 많은 경고를 보여주며 다음 상태 중 하나입니다.
 
 ![호스트 세부 정보](./media/hdinsight-hadoop-manage-ambari/host-details.png)
 
-#### 서비스
+###서비스
 
 대시보드의 **Services** 세로 막대는 클러스터에서 실행되는 서비스 상태에 대한 빠른 정보를 제공합니다. 서비스가 재활용되는 경우 노란색 재활용 기호가 표시되는 것과 같이 수행해야 하는 동작 또는 상태가 다양한 아이콘으로 나타납니다.
 
@@ -126,7 +126,7 @@ Ambari는 많은 경고를 보여주며 다음 상태 중 하나입니다.
 
 ![서비스 요약 정보](./media/hdinsight-hadoop-manage-ambari/service-details.png)
 
-##### 빠른 링크
+####빠른 링크
 
 일부 서비스는 페이지의 위쪽에 **Quick Links** 링크를 표시합니다. 이를 사용하여 서비스 관련 웹 UI에 액세스할 수 있습니다.
 
@@ -140,21 +140,21 @@ Ambari는 많은 경고를 보여주며 다음 상태 중 하나입니다.
 
 이러한 링크 중 하나를 선택하면 브라우저에서 선택한 페이지를 표시하는 새 탭이 열립니다.
 
-> [AZURE.NOTE]서비스에 대한 **Quick Links** 링크를 선택한 경우 SSL(Secure Sockets Layer) 터널을 사용하여 클러스터에 대한 웹 트래픽을 프록시하지 않으면 "server not found" 오류가 반환됩니다. Ambari가 이러한 링크에 내부 도메인 이름을 사용하기 때문입니다.
-> 
+> [AZURE.NOTE]서비스에 대한 **Quick Links** 링크를 선택한 경우 SSL(Secure Sockets Layer) 터널을 사용하여 클러스터에 대한 웹 트래픽을 프록시하지 않으면 "server not found" 오류가 반환됩니다. 이 정보를 표시하는 데 사용되는 웹 응용 프로그램이 인터넷에 노출되지 않기 때문입니다.
+>
 > HDInsight와 함께 SSL 터널 사용에 대한 내용은 다음 중 하나를 참조하세요..
-> 
+>
 > * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Linux, Unix 또는 OS X에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용</a> - `ssh` 명령을 사용하여 SSH 터널을 만드는 단계
 >
 >* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용</a> - PuTTY를 사용하여 SSH 터널을 만드는 단계
 
-### 관리
+##관리
 
-#### Ambari 사용자, 그룹 및 사용 권한
+###Ambari 사용자, 그룹 및 사용 권한
 
 Linux 기반 HDInsight 미리 보기 중에는 사용자, 그룹 및 사용 권한 관리를 사용할 수 없습니다.
 
-#### 호스트
+###호스트
 
 **Hosts** 페이지는 클러스터의 모든 호스트를 나열합니다. 호스트를 관리하려면 다음 단계를 따르세요.
 
@@ -190,7 +190,7 @@ Linux 기반 HDInsight 미리 보기 중에는 사용자, 그룹 및 사용 권�
 
 		> [AZURE.NOTE]HDInsight 클러스터에서는 이 작업을 사용하지 마세요.
 
-#### <a id="service"></a>Services
+###<a id="service"></a>Services
 
 **Dashboard** 또는 **Services** 페이지에서 서비스 목록의 아래쪽에 있는 **Actions** 단추를 사용하여 새 서비스를 추가하거나 모든 서비스를 중지 및 시작합니다.
 
@@ -234,11 +234,11 @@ Linux 기반 HDInsight 미리 보기 중에는 사용자, 그룹 및 사용 권�
 
 2. **Configs** 탭을 선택합니다. 현재 구성이 표시됩니다. 이전 구성의 목록도 표시됩니다.
 
-	![configurations](./media/hdinsight-hadoop-manage-ambari/service-configs.png)
+	![구성](./media/hdinsight-hadoop-manage-ambari/service-configs.png)
 
 3. 구성을 수정하려면 표시된 목록을 클릭하고 **Save**를 선택합니다. 또는 이전 구성을 선택한 다음 **Make current**를 선택하여 이전 설정으로 롤백할 수 있습니다.
 
-## REST API
+##REST API
 
 Ambari 웹은 관리 및 모니터링 도구를 만드는데 활용할 수 있는 기본 REST API에 의존 합니다. API는 비교적 간단히 사용할 수 있지만 Azure에서 몇 가지 주의해야 할 사항이 있습니다.
 
@@ -252,5 +252,4 @@ Ambari 웹은 관리 및 모니터링 도구를 만드는데 활용할 수 있�
 
 REST API의 모든 참조 문서를 보려면 [Ambari API 참조 V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)을 참조하세요.
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

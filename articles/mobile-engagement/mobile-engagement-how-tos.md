@@ -3,7 +3,7 @@
    description="Azure Mobile Engagement의 사용자 인터페이스 개요" 
    services="mobile-engagement" 
    documentationCenter="" 
-   authors="v-micada" 
+   authors="piyushjo" 
    manager="dwrede" 
    editor=""/>
 
@@ -13,27 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
-   ms.author="v-micada"/>
-
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../mobile-engagement-user-interface" title="소개">소개</a> 
-<a href="../mobile-engagement-user-interface-navigation" title="탐색">탐색</a> 
-<a href="../mobile-engagement-user-interface-home/" title="홈">홈</a> 
-<a href="../mobile-engagement-user-interface-my-account" title="내 계정">내 계정</a> 
-<a href="../mobile-engagement-user-interface-analytics" title="분석">분석</a> 
-<a href="../mobile-engagement-user-interface-monitor" title="모니터">모니터</a> 
-<a href="../mobile-engagement-user-interface-reach" title="도달">도달</a> 
-<a href="../mobile-engagement-user-interface-reach-campaign" title="도달률 캠페인">도달률 캠페인</a> 
-<a href="../mobile-engagement-user-interface-reach-criterion" title="도달률 기준">도달률 기준</a> 
-<a href="../mobile-engagement-user-interface-reach-content" title="도달률 콘텐츠">도달률 콘텐츠</a> 
-<a href="../mobile-engagement-how-tos" title="도달 방법">도달 방법</a> 
-<a href="../mobile-engagement-user-interface-segments" title="세그먼트">세그먼트</a> 
-<a href="../mobile-engagement-user-interface-dashboard" title="대시보드">대시보드</a> 
-<a href="../mobile-engagement-user-interface-settings" title="설정">설정</a>
-</div>
+   ms.date="05/12/2015"
+   ms.author="piyushjo"/>
 
 # 사용 시작 및 최종 사용자에게 도달하는 푸시 관리 방법
+
 SDK가 응용 프로그램에 완전히 통합되면 UI의 도달률 섹션을 사용하기 시작하여 응용 프로그램의 사용자에게 푸시 알림을 할 수 있습니다.
 
 ## 첫 번째 푸시 알림 캠페인 수행
@@ -307,5 +291,6 @@ SDK가 응용 프로그램에 완전히 통합되면 UI의 도달률 섹션을 �
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

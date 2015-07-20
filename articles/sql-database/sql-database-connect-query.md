@@ -137,4 +137,4 @@
 2. 프로그램에서 콘솔 창에 쿼리 결과를 표시합니다.
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

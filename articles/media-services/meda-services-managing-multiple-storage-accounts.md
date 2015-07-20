@@ -35,7 +35,7 @@ Microsoft Azure 미디어 서비스 2.2부터는 여러 저장소 계정을 단�
 
 기타 고려 사항:
 
-미디어 서비스는 스트리밍 콘텐트에 대해 URL을 작성할 때 **IAssetFile.Name** 속성의 값을 사용합니다(예: http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. Name 속성 값에는 !*'();:@&=+$,/?%#[]"와 같은 [퍼센트 인코딩 예약 문자](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 파일 이름 확장명에는 ‘.’ 하나만 사용할 수 있습니다.
+미디어 서비스는 스트리밍 콘텐트에 대해 URL을 작성할 때 **IAssetFile.Name** 속성의 값을 사용합니다(예: http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. Name 속성 값에는 !*'();:@&=+$,/?%#"과 같은 [퍼센트 인코딩 예약 문자](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 파일 이름 확장명에는 ‘.’ 하나만 사용할 수 있습니다.
 
 ##Azure 서비스 관리 REST API를 사용하여 저장소 계정을 연결하려면
 
@@ -53,7 +53,7 @@ Microsoft Azure 미디어 서비스 2.2부터는 여러 저장소 계정을 단�
 
 	using Microsoft.WindowsAzure.MediaServices.Client; using System; using System.Collections.Generic; using System.Configuration; using System.IO; using System.Linq; using System.Text; using System.Threading; using System.Threading.Tasks;
 	
-	namespace MultipleStorageAccounts { class Program { // Location of the media file that you want to encode. private static readonly string _singleInputFilePath = Path.GetFullPath(@"../..\supportFiles\multifile\interview2.wmv");
+	namespace MultipleStorageAccounts { class Program { // Location of the media file that you want to encode. private static readonly string _singleInputFilePath = Path.GetFullPath(@"../..\\supportFiles\\multifile\\interview2.wmv");
 	
 	        private static readonly string MediaServicesAccountName = 
 	            ConfigurationManager.AppSettings["MediaServicesAccountName"];
@@ -234,5 +234,6 @@ Microsoft Azure 미디어 서비스 2.2부터는 여러 저장소 계정을 단�
 	        }
 	    }
 	}
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

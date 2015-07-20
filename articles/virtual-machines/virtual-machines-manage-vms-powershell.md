@@ -13,56 +13,84 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
-   ms.date="02/20/2015"
+   ms.date="06/24/2015"
    ms.author="kasing"/>
 
 # Azure PowerShell을 사용하여 가상 컴퓨터 관리
 
-여기서 설명하는 작업을 수행하기 전에 Azure PowerShell이 설치되어 있는지 확인해야 합니다. 이렇게 하려면 [Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)을 참조하세요.
+Azure PowerShell cmdlet을 사용하여 매일 VM을 관리하기 위해 수행하는 많은 작업을 자동화할 수 있습니다. 이 문서에서는 더 간단한 작업에 대한 예제 명령과 보다 복잡한 작업에 대한 명령을 보여 주는 문서에 대한 링크를 제공합니다.
 
-## 이미지 가져오기
+>[AZURE.NOTE]아직 Azure PowerShell을 설치하고 구성하지 않은 경우 [여기](../install-configure-powershell.md)에서 지침을 확인할 수 있습니다.
 
-VM을 만들려면 **사용할 이미지**를 결정해야 합니다. 다음 cmdlet을 사용하면 이미지 목록을 표시할 수 있습니다.
-
-      Get-AzureVMImage
-
-이 cmdlet은 Azure에서 사용 가능한 모든 이미지 목록을 반환합니다. 이 목록은 매우 길기 때문에 사용하려는 정확한 이미지를 찾기가 어려울 수 있습니다. 아래 예제에서는 다른 PowerShell cmdlet을 사용하여 **Windows Server 2012 R2 Datacenter**를 기준으로 관련 이미지만 포함하도록 반환되는 이미지 목록을 줄여 보겠습니다. 또한 반환되는 이미지 배열에 대해 [-1]을 지정하여 최신 이미지만 가져오도록 선택합니다.
-
-    $img = (Get-AzureVMImage | Select -Property ImageName, Label | where {$_.Label -like '*Windows Server 2012 R2 Datacenter*'})[-1]
-
-## VM 만들기
-
-VM을 만들 때는 먼저 **New-AzureVMConfig** cmdlet을 실행합니다. 여기서는 VM의 **name**, **size** 및 VM에 사용할 **image**를 지정합니다. 이 cmdlet은 로컬 VM 개체 **$myVM**을 만듭니다. 이 가이드의 뒷부분에서 다른 Azure PowerShell cmdlet을 사용하여 이 개체를 수정할 것입니다.
-
-      $myVM = New-AzureVMConfig -Name "testvm" -InstanceSize "Small" -ImageName $img.ImageName
-
-다음으로는 VM의 **username** 및 **password**를 선택해야 합니다. 이 작업에는 **Add-AzureProvisioningConfig** cmdlet을 사용할 수 있습니다. 이 cmdlet을 통해 VM의 OS를 지정합니다. 이 시점까지는 로컬 **$myVM** 개체를 변경하게 됩니다.
-
-    $user = "azureuser"
-    $pass = "&Azure1^Pass@"
-    $myVM = Add-AzureProvisioningConfig -Windows -AdminUsername $user -Password $pass
-
-마지막으로 Azure에 VM을 업로드합니다. 이렇게 하려면 **New-AzureVM** cmdlet을 사용해야 합니다.
-
-> [AZURE.NOTE] VM을 만들기 전에 클라우드 서비스를 구성해야 합니다. 두 가지 방법으로 이 작업을 수행할 수 있습니다.
-* New-AzureService cmdlet을 사용하여 클라우드 서비스를 만듭니다. 이 방법을 선택하는 경우에는 아래의 New-AzureVM cmdlet에서 지정한 위치가 클라우드 서비스 위치와 일치하는지 확인해야 합니다. 이 두 위치가 일치하지 않으면 New-AzureVM cmdlet 실행이 실패합니다.
-* New-AzureVM cmdlet에서 구성을 자동으로 수행하도록 합니다. 이 경우 서비스 이름이 고유해야 합니다. 그렇지 않으면 New-AzureVM cmdlet 실행이 실패합니다.
-
-    New-AzureVM -ServiceName "mytestserv" -VMs $myVM -Location "West US"
-
-**선택 사항**
-
-**Add-AzureDataDisk**, **Add-AzureEndpoint** 등의 다른 cmdlet을 사용하여 VM의 추가 옵션을 구성할 수 있습니다.
+## 예제 명령을 사용하는 방법
+명령의 일부 텍스트는 환경에 적합한 텍스트로 바꿔야 합니다. < and > 기호는 바꿔야 하는 텍스트를 나타냅니다. 텍스트를 바꾸는 경우 기호는 제거하고 따옴표는 그대로 남겨 두세요.
 
 ## VM 확인
-이제 Azure에서 VM을 만들었으므로 해당 VM이 정상적으로 작동하는지 확인할 수 있습니다. 작동을 확인하려면 아래에 나와 있는 것처럼 **Get-AzureVM** cmdlet을 사용할 수 있습니다.
+자주 사용하게 될 기본 작업입니다. 이 작업을 사용하여 VM에 대한 정보를 가져오거나 VM에서 작업을 수행하거나 변수에 저장할 출력을 가져옵니다.
 
-    Get-AzureVM -ServiceName "mytestserv" -Name "testvm"
+VM에 대한 정보를 가져오려면 이 명령을 실행하고 < and > 문자를 포함하여 따옴표 안의 모든 항목을 바꿉니다.
 
+     Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
-## 다음 단계
-[RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결](https://msdn.microsoft.com/library/azure/dn535788.aspx)<br>
-[Azure 가상 컴퓨터 FAQ](https://msdn.microsoft.com/library/azure/dn683781.aspx)
+출력을 $vm 변수에 저장하려면 다음을 실행합니다.
 
-<!--HONumber=47-->
- 
+    $vm = Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
+
+## Windows 기반 가상 컴퓨터에 로그온
+
+다음 명령을 실행합니다.
+
+>[AZURE.NOTE]**Get-AzureVM** 명령 표시에서 가상 컴퓨터 및 클라우드 서비스 이름을 가져올 수 있습니다.
+>
+	$svcName="<cloud service name>"
+	$vmName="<virtual machine name>"
+	$localPath="<drive and folder location to store the downloaded RDP file, example: c:\temp >"
+	$localFile=$localPath + "" + $vmname + ".rdp"
+	Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
+
+## VM 중지
+
+다음 명령을 실행합니다.
+
+    Stop-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
+
+>[AZURE.IMPORTANT]해당 클라우드 서비스의 마지막 VM인 경우 이 매개 변수를 사용하여 클라우드 서비스의 VIP(가상 IP)를 유지합니다. <br><br> StayProvisioned 매개 변수를 사용하는 경우 VM에 대한 요금이 청구됩니다.
+
+## VM 시작
+
+다음 명령을 실행합니다.
+
+    Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
+
+## 데이터 디스크 연결
+이 작업에는 몇 단계가 필요합니다. 먼저 ****Add-AzureDataDisk**** cmdlet을 사용하여 디스크를 $vm 개체에 추가한 다음 Update-AzureVM cmdlet을 사용하여 VM의 구성을 업데이트합니다.
+
+또한 새 디스크를 연결할지 데이터를 포함하는 디스크를 연결할지를 결정해야 합니다. 새 디스크의 경우 명령에서 .vhd 파일을 만들고 동일한 명령으로 디스크를 연결합니다.
+
+새 디스크를 연결하려면 다음 명령을 실행합니다.
+
+    Add-AzureDataDisk -CreateNew -DiskSizeInGB 128 -DiskLabel "<main>" -LUN <0> -VM <$vm> `
+              | Update-AzureVM
+
+기존 데이터 디스크를 연결하려면 다음 명령을 실행합니다.
+
+    Add-AzureDataDisk -Import -DiskName "<MyExistingDisk>" -LUN <0> `
+              | Update-AzureVM
+
+Blob 저장소의 기존 .vhd 파일에서 데이터 디스크를 연결하려면 다음 명령을 실행합니다.
+
+    Add-AzureDataDisk -ImportFrom -MediaLocation `
+              "<https://mystorage.blob.core.windows.net/mycontainer/MyExistingDisk.vhd>" `
+              -DiskLabel "<main>" -LUN <0> `
+              | Update-AzureVM
+
+## Windows VM 만들기
+
+Azure에서 새 Windows 기반 가상 컴퓨터를 만들려면 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터를 만들고 미리 구성](virtual-machines-ps-create-preconfigure-windows-vms.md)의 지침을 사용하세요. 이 항목에서는 다음으로 미리 구성할 수 있는 Windows 가상 컴퓨터를 만드는 PowerShell 명령 집합 만들기를 단계별로 안내합니다.
+
+- Active Directory 도메인 구성원 자격
+- 추가 디스크
+- 기존 부하 분산 집합의 구성원
+- 고정 IP 주소
+
+<!---HONumber=July15_HO2-->

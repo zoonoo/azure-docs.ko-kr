@@ -1,3 +1,3 @@
 이 데이터베이스는 패턴 인식 문헌에서 찾을 수 있는 가장 잘 알려진 데이터베이스일 것입니다. 데이터 집합은 비교적 작으며, 세 가지 붓꽃 품종의 꽃잎 측정값별로 예제 50개를 포함합니다.<p> </p><b>사용:</b> 측정값에서 붓꽃 종류를 예측합니다. <p> </p><b>관련 조사:</b> Fisher, R.A. (1988). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO2-->

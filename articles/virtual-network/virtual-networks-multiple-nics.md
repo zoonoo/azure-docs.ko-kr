@@ -1,10 +1,10 @@
 <properties 
    pageTitle="여러 NIC를 사용하여 VM 만들기"
-   description="여러 nic가 있는 vm을 만드는 방법"
+   description="여러 NIC가 있는 VM을 만들고 구성하는 방법"
    services="virtual-network, virtual-machines"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/30/2015"
+   ms.date="07/02/2015"
    ms.author="telmos" />
 
 # 여러 NIC를 사용하여 VM 만들기
@@ -43,11 +43,11 @@
 |VM 크기(표준 SKU)|NIC(VM당 허용되는 최대)|
 |---|---|
 |모든 기본 크기|1|
-|A0\ 매우 작음|1|
-|A1\작음|1|
-|A2\중간|1|
-|A3\큼|2|
-|A4\매우 큼|4|
+|A0\\ 매우 작음|1|
+|A1\\작음|1|
+|A2\\중간|1|
+|A3\\큼|2|
+|A4\\매우 큼|4|
 |A5|1|
 |A6|2|
 |A7|4|
@@ -113,15 +113,17 @@ VM에서 모든 NIC는 다중 NIC가 활성화되어 있는 VM의 모든 NIC를 
 	</VirtualNetworkSite>
 
 
-예제에서 PowerShell 명령을 실행하려면 다음 prerequisitesbefore를 시도해야 합니다.
+예제의 PowerShell 명령 실행을 시도하기 전에 다음 필수 조건에 부합해야 합니다.
 
 - Azure 구독.
 - 구성된 가상 네트워크입니다. 자세한 내용은 [가상 네트워크 개요(영문)](https://msdn.microsoft.com/library/azure/jj156007.aspx)를 참조하세요.
 - 최신 버전의 Azure PowerShell이 다운로드되어 설치됩니다. [Azure PowerShell 설치 및 구성 방법](../install-configure-powershell)을 참조하세요.
 
-1. Azure VM 이미지 갤러리에서 VM 이미지를 선택합니다. 이미지를 자주 변경하고 지역에 따라 사용할 수 있습니다. 아래 예제에서 지정된 이미지는 변경되거나 사용자 지역에 없을 수 있으므로, 필요한 이미지를 지정해야 합니다. 
+여러 NIC가 있는 VM을 만들려면 다음 단계를 수행합니다.
 
-	    $image = Get-AzureVMImage `
+1. Azure VM 이미지 갤러리에서 VM 이미지를 선택합니다. 이미지를 자주 변경하고 지역에 따라 사용할 수 있습니다. 아래 예제에서 지정된 이미지는 변경되거나 사용자 지역에 없을 수 있으므로, 필요한 이미지를 지정해야 합니다. 
+	    
+		$image = Get-AzureVMImage `
 	    	-ImageName "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201410.01-en.us-127GB.vhd"
 
 1. VM 구성을 만듭니다.
@@ -143,21 +145,111 @@ VM에서 모든 NIC는 다중 NIC가 활성화되어 있는 VM의 모든 NIC를 
 
 1. 기본 NIC에 대한 서브넷 및 IP 주소를 지정합니다.
 
-		Set-AzureSubnet -SubnetNames "Frontend" -VM $vm Set-AzureStaticVNetIP  `
-			-IPAddress "10.1.0.100" -VM $vm
+		Set-AzureSubnet -SubnetNames "Frontend" -VM $vm 
+		Set-AzureStaticVNetIP -IPAddress "10.1.0.100" -VM $vm
 
 1. 가상 네트워크에 VM 만들기
 
 		New-AzureVM -ServiceName "MultiNIC-CS" –VNetName "MultiNIC-VNet" –VMs $vm
 
->[AZURE.NOTE]여기서 지정하는 VNet(전제 조건에서 설명한 대로)은 이미 존재해야 합니다. 다음 예제에서는 “MultiNIC-VNet”이라는 가상 네트워크를 지정합니다.
+>[AZURE.NOTE]여기서 지정하는 VNet(전제 조건에서 설명한 대로)은 이미 존재해야 합니다. 다음 예제에서는 **MultiNIC VNet**으로 명명된 가상 네트워크를 지정합니다.
 
-## 참고 항목
+## 다른 서브넷에 대한 보조 NIC 액세스
 
-[가상 네트워크 개요](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+Azure의 현재 모델은 가상 컴퓨터에서 모든 NIC가 기본 게이트웨이를 사용하여 설정됩니다. 따라서 NIC가 그 서브넷 외부 IP 주소와 통신할 수 있습니다. Linux와 같은 취약한 호스트 라우팅 모델을 사용하는 운영 체제에서는 송/수신 트래픽이 다른 NIC를 사용하는 경우 인터넷 연결이 중단됩니다.
 
-[가상 네트워크 구성 작업](https://msdn.microsoft.com/library/azure/jj156206.aspx)
+이 문제를 해결하기 위해 Azure는 보조 NIC에서 기본 게이트웨이를 제거하는 플랫폼을 2015년 7월의 첫 주에 업데이트할 예정입니다. 이는 기존 가상 컴퓨터를 다시 부팅하기 전까지는 영향을 미치지 않습니다. 다시 부팅한 후 새 설정이 적용되며, 이때 보조 NIC의 트래픽 흐름이 동일한 서브넷에 있도록 제한됩니다. 보조 NIC가 자체 서브넷 외부와 통신할 수 있도록 설정하려는 경우, 아래 설명된 게이트웨이를 구성하도록 라우팅 테이블에 항목을 추가해야 합니다.
 
-[블로그 게시물 - 여러 VM NIC 및 Azure에서 VNet 어플라이언스](../multiple-vm-nics-and-network-virtual-appliances-in-azure)
+### Windows VM 구성
 
-<!---HONumber=58--> 
+다음과 같은 두 개의 NIC가 있는 Windows VM이 있다고 가정합니다.
+
+- 주 NIC IP 주소: 192.168.1.4
+- 보조 NIC IP 주소: 192.168.2.5
+
+이 VM에 대한 IPv4 경로 테이블은 다음과 같습니다.
+
+	IPv4 Route Table
+	===========================================================================
+	Active Routes:
+	Network Destination        Netmask          Gateway       Interface  Metric
+	          0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4      5
+	        127.0.0.0        255.0.0.0         On-link         127.0.0.1    306
+	        127.0.0.1  255.255.255.255         On-link         127.0.0.1    306
+	  127.255.255.255  255.255.255.255         On-link         127.0.0.1    306
+	    168.63.129.16  255.255.255.255      192.168.1.1      192.168.1.4      6
+	      192.168.1.0    255.255.255.0         On-link       192.168.1.4    261
+	      192.168.1.4  255.255.255.255         On-link       192.168.1.4    261
+	    192.168.1.255  255.255.255.255         On-link       192.168.1.4    261
+	      192.168.2.0    255.255.255.0         On-link       192.168.2.5    261
+	      192.168.2.5  255.255.255.255         On-link       192.168.2.5    261
+	    192.168.2.255  255.255.255.255         On-link       192.168.2.5    261
+	        224.0.0.0        240.0.0.0         On-link         127.0.0.1    306
+	        224.0.0.0        240.0.0.0         On-link       192.168.1.4    261
+	        224.0.0.0        240.0.0.0         On-link       192.168.2.5    261
+	  255.255.255.255  255.255.255.255         On-link         127.0.0.1    306
+	  255.255.255.255  255.255.255.255         On-link       192.168.1.4    261
+	  255.255.255.255  255.255.255.255         On-link       192.168.2.5    261
+	===========================================================================
+
+기본 경로(0.0.0.0)는 주 NIC에서만 사용할 수 있음에 주의합니다. 다음과 같이 보조 NIC의 서브넷 외부 리소스에 액세스할 수 없습니다.
+
+	C:\Users\Administrator>ping 192.168.1.7 -S 192.165.2.5
+	 
+	Pinging 192.168.1.7 from 192.165.2.5 with 32 bytes of data:
+	PING: transmit failed. General failure.
+	PING: transmit failed. General failure.
+	PING: transmit failed. General failure.
+	PING: transmit failed. General failure.
+
+보조 NIC에 기본 경로 추가하려면 다음 단계를 수행합니다.
+
+1. 명령 프롬프트에서 아래 명령을 실행하여 보조 NIC에 대한 인덱스 번호를 식별합니다.
+
+		C:\Users\Administrator>route print
+		===========================================================================
+		Interface List
+		 29...00 15 17 d9 b1 6d ......Microsoft Virtual Machine Bus Network Adapter #16
+		 27...00 15 17 d9 b1 41 ......Microsoft Virtual Machine Bus Network Adapter #14
+		  1...........................Software Loopback Interface 1
+		 14...00 00 00 00 00 00 00 e0 Teredo Tunneling Pseudo-Interface
+		 20...00 00 00 00 00 00 00 e0 Microsoft ISATAP Adapter #2
+		===========================================================================
+
+2. 테이블에서 27 인덱스(이 예에서)가 있는 두 번째 항목에 주의합니다.
+3. 명령 프롬프트에서 다음과 같이 **경로 추가** 명령을 실행합니다. 이 예제에서는 192.168.2.1을 보조 NIC에 대한 기본 게이트웨이로 지정합니다.
+
+		route ADD -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5000 IF 27
+
+4. 연결을 테스트하려면 명령 프롬프트로 돌아가서 다음 예와 같이 보조 NIC에서 다른 서브넷을 ping합니다.
+
+		C:\Users\Administrator>ping 192.168.1.7 -S 192.165.2.5
+		 
+		Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
+		Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
+		Reply from 192.168.1.7: bytes=32 time=2ms TTL=128
+		Reply from 192.168.1.7: bytes=32 time<1ms TTL=128
+
+5. 또한 다음과 같이 경로 테이블을 확인하여 새로 추가된 경로를 확인할 수 있습니다.
+
+		C:\Users\Administrator>route print
+
+		...
+
+		IPv4 Route Table
+		===========================================================================
+		Active Routes:
+		Network Destination        Netmask          Gateway       Interface  Metric
+		          0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4      5
+		          0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.5   5005
+		        127.0.0.0        255.0.0.0         On-link         127.0.0.1    306
+
+### Linux VM 구성
+
+Linux VM의 경우, 기본 동작에서 취약한 호스트 라우팅을 사용하므로 보조 NIC는 동일한 서브넷 내 트래픽 흐름으로만 제한하는 것이 좋습니다. 그러나 특정 시나리오에 서브넷 외부 연결을 요청하는 경우, 사용자는 정책 기반 라우팅을 사용하도록 설정하여 송/수신 트래픽이 동일한 NIC를 사용하게 해야 합니다.
+
+## 다음 단계
+
+- [여러 VM NIC 및 Azure에서 VNet 어플라이언스](../multiple-vm-nics-and-network-virtual-appliances-in-azure) 사용에 대해 알아보기
+
+<!---HONumber=July15_HO2-->

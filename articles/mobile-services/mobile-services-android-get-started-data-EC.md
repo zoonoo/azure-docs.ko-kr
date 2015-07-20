@@ -45,34 +45,34 @@
 
 > [AZURE.NOTE]이 자습서에서는 최신 버전의 모바일 서비스 SDK를 사용합니다. 이전 버전과의 호환성을 위해 <a href="http://go.microsoft.com/fwlink/p/?LinkID=280126">여기</a>에서 이전 버전을 찾을 수 있지만 이러한 자습서에 포함되는 코드는 해당 버전에서 작동하지 않습니다.
 
-## <a name="download-app"></a>GetStartedWithData 프로젝트 다운로드
+##<a name="download-app"></a>GetStartedWithData 프로젝트 다운로드
 
-### 샘플 코드 가져오기
+###샘플 코드 가져오기
 
 [AZURE.INCLUDE [download-android-sample-code](../../includes/download-android-sample-code-EC.md)]
 
-### Android SDK 버전 확인
+###Android SDK 버전 확인
 
 [AZURE.INCLUDE [SDK 확인](../../includes/mobile-services-verify-android-sdk-version-EC.md)]
 
 
-### 샘플 코드 검사 및 실행
+###샘플 코드 검사 및 실행
 
 [AZURE.INCLUDE [mobile-services-android-run-sample-code](../../includes/mobile-services-android-run-sample-code-EC.md)]
 
-## <a name="create-service"></a>관리 포털에서 새 모바일 서비스 만들기
+##<a name="create-service"></a>관리 포털에서 새 모바일 서비스 만들기
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data](../../includes/mobile-services-create-new-service-data.md)]
 
-## <a name="add-table"></a>모바일 서비스에 새 테이블 추가
+##<a name="add-table"></a>모바일 서비스에 새 테이블 추가
 
 [AZURE.INCLUDE [mobile-services-create-new-service-data-2](../../includes/mobile-services-create-new-service-data-2.md)]
 
-## <a name="update-app"></a>데이터 액세스에 모바일 서비스를 사용하도록 앱 업데이트
+##<a name="update-app"></a>데이터 액세스에 모바일 서비스를 사용하도록 앱 업데이트
 
 [AZURE.INCLUDE [mobile-services-android-getting-started-with-data](../../includes/mobile-services-android-getting-started-with-data-EC.md)]
 
-## <a name="test-app"></a>새 모바일 서비스에 대해 앱 테스트
+##<a name="test-app"></a>새 모바일 서비스에 대해 앱 테스트
 
 앱이 백 엔드 저장소용으로 모바일 서비스를 사용하도록 업데이트되었으므로, 이제 Android 에뮬레이터나 Android 휴대폰을 사용하여 모바일 서비스에 대해 앱을 테스트할 수 있습니다.
 
@@ -100,11 +100,9 @@
 
 다음에는 다른 Android 자습서를 시도해보십시오.
 
-* [인증 시작] 
-	<br/>앱 사용자를 인증하는 방법을 알아봅니다.
+* [인증 시작] <br/>앱 사용자를 인증하는 방법을 알아봅니다.
 
-* [푸시 알림 시작]
-  <br/>모바일 서비스를 사용하여 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
+* [푸시 알림 시작] <br/>모바일 서비스를 사용하여 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
 <!-- Anchors. -->
 [Download the Android app project]: #download-app
@@ -132,5 +130,6 @@
 [모바일 서비스 Android SDK]: http://aka.ms/Iajk6q
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

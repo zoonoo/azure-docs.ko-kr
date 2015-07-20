@@ -5,7 +5,7 @@
    documentationCenter=""
    authors="SharS"
    manager="carolz"
-   editor="tysonn"/>
+   editor="tysonn" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="06/12/2015"
-   ms.author="v-sharos"/>
+   ms.author="v-sharos" />
 
 # StorSimple 관리자 서비스 배포
 
@@ -113,4 +113,4 @@ StorSimple 장치를 배포하려는 경우 **빠른 생성** 옵션을 사용�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

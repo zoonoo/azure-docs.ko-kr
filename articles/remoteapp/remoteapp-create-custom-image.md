@@ -1,44 +1,45 @@
-<properties 
-	pageTitle="RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법" 
-	description="RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법에 대해 알아봅니다. 하이브리드 또는 클라우드 배포에서 이 템플릿을 사용할 수 있습니다." 
-	services="remoteapp" 
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" 
+<properties
+	pageTitle="Azure RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법"
+	description="RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법에 대해 알아봅니다. 하이브리드 또는 클라우드 배포에서 이 템플릿을 사용할 수 있습니다."
+	services="remoteapp"
+	documentationCenter=""
+	authors="lizap"
+	manager="mbaldwin"
 	editor=""/>
 
-<tags 
-	ms.service="remoteapp" 
-	ms.workload="compute" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="02/27/2015" 
+<tags
+	ms.service="remoteapp"
+	ms.workload="compute"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/28/2015" 
 	ms.author="elizapo"/>
 
-# RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법
+# Azure RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법
 Azure RemoteApp은 Windows Server 2012 R2 템플릿 이미지를 사용하여 사용자와 공유할 모든 프로그램을 호스트합니다. 사용자 지정 RemoteApp 템플릿 이미지를 만들려면 기존 이미지에서 시작하거나 새 이미지를 만듭니다. Azure RemoteApp과 사용하기 위해 업로드할 수 있는 이미지의 요구 사항은 다음과 같습니다.
 
 
 - 이미지 크기는 MB 단위의 배수여야 합니다. 크기가 정확한 배수가 아닌 이미지는 업로드에 실패합니다.
-- 이미지 크기는 127GB 이하여야 합니다. 
+- 이미지 크기는 127GB 이하여야 합니다.
 - VHD 파일에 있어야 합니다. VHDX 파일은 현재 지원되지 않습니다.
 - VHD는 세대 2 가상 컴퓨터가 아니어야 합니다.
 - VHD는 고정 크기이거나 동적으로 확장될 수 있습니다. 고정 크기의 VHD 파일보다 Azure에 업로드하는 시간이 짧으므로 동적으로 확장되는 VHD가 권장됩니다.
-- 디스크는 MBR(마스터 부트 레코드) 파티션 스타일을 사용하여 초기화해야 합니다. GPT(GUID 파티션 테이블) 파티션 스타일은 지원되지 않습니다. 
-- VHD는 Windows Server 2012 R2의 단일 설치를 포함해야 합니다. 여러 볼륨을 포함할 수 있지만 한 볼륨만 Windows의 설치를 포함합니다. 
+- 디스크는 MBR(마스터 부트 레코드) 파티션 스타일을 사용하여 초기화해야 합니다. GPT(GUID 파티션 테이블) 파티션 스타일은 지원되지 않습니다.
+- VHD는 Windows Server 2012 R2의 단일 설치를 포함해야 합니다. 여러 볼륨을 포함할 수 있지만 한 볼륨만 Windows의 설치를 포함합니다.
 - RDSH(원격 데스크톱 세션 호스트) 역할 및 데스크톱 경험 기능을 설치해야 합니다.
 - 원격 데스크톱 연결 브로커 역할은 설치하면 *안 됩니다*.
 - EFS(파일 시스템 암호화)를 사용하지 않도록 설정해야 합니다.
 - 이미지에 **/oobe /generalize /shutdown** 매개 변수를 사용하여 sysprep을 실행해야 합니다. **/mode:vm** 매개 변수는 사용하지 마세요.
 - 스냅숏 체인으로부터의 VHD 업로드는 지원되지 않습니다.
 
+> [AZURE.TIP]Azure VM에서 이미지를 만들 수 있다는 것을 알고 계십니까? 이 방법을 사용하면 이미지를 가져오는 데 소요되는 시간을 크게 줄일 수 있습니다. [여기](remoteapp-image-on-azurevm.md)에서 단계를 알아보십시오.
 
 **시작하기 전에**
 
 서비스를 만들기 전에 다음을 수행해야 합니다.
 
-- RemoteApp에 [등록](http://azure.microsoft.com/services/remoteapp/)합니다. 
+- RemoteApp에 [등록](http://azure.microsoft.com/services/remoteapp/)합니다.
 - RemoteApp 서비스 계정으로 사용할 Active Directory의 사용자 계정을 만듭니다. 이 계정의 권한은 도메인에 컴퓨터를 가입시킬 수 있는 권한만으로 제한합니다. 자세한 내용은 [RemoteApp에 대해 Azure Active Directory 구성](remoteapp-ad.md)을 참조하세요.
 - 온-프레미스 네트워크에 대한 정보 수집: IP 주소 정보 및 VPN 장치 세부 정보입니다.
 - [Azure PowerShell](../install-configure-powershell.md) 모듈을 설치합니다.
@@ -63,9 +64,9 @@ Azure RemoteApp은 Windows Server 2012 R2 템플릿 이미지를 사용하여 �
 
 새 이미지를 만드는 자세한 단계는 다음과 같습니다.
 
-1.	Windows Server 2012 R2 Update DVD 또는 ISO 이미지를 찾습니다. 
-2.	디스크 관리를 사용하여 VHD 파일을 만듭니다. 
-	1.	디스크 관리(diskmgmt.msc)를 실행합니다. 
+1.	Windows Server 2012 R2 Update DVD 또는 ISO 이미지를 찾습니다.
+2.	디스크 관리를 사용하여 VHD 파일을 만듭니다.
+	1.	디스크 관리(diskmgmt.msc)를 실행합니다.
 	2.	40GB 크기의 동적으로 확장되는 VHD를 만듭니다. Windows, 응용 프로그램 및 사용자 지정에 필요한 공간의 양을 예상합니다. RDSH 역할 및 데스크톱 경험 기능이 설치된 Windows Server를 사용하려면 약 10GB의 공간이 필요합니다.
 		1.	**작업 > VHD 만들기**를 클릭합니다.
 		2.	위치, 크기 및 VHD 형식을 지정합니다. **동적 확장**을 선택한 다음 **확인**을 클릭합니다.
@@ -76,12 +77,12 @@ Azure RemoteApp은 Windows Server 2012 R2 템플릿 이미지를 사용하여 �
 		- 새 볼륨 만들기: 할당되지 않은 공간을 마우스 오른쪽 단추로 클릭한 다음 **새 단순 볼륨**을 클릭합니다. 마법사의 기본값을 그대로 사용하지만 템플릿 이미지를 업로드할 때 잠재적인 문제를 피할 수 있도록 드라이브 문자를 할당해야 합니다.
 		- 디스크를 마우스 오른쪽 단추로 클릭한 다음 **VHD 분리**를 클릭합니다.
 
-			
+
 
 
 
 1. Windows Server 2012 R2 설치:
-	1. 새 가상 컴퓨터를 만듭니다. Hyper-V 관리자 또는 클라이언트 Hyper-V에서 새 가상 컴퓨터 마법사를 사용합니다. 
+	1. 새 가상 컴퓨터를 만듭니다. Hyper-V 관리자 또는 클라이언트 Hyper-V에서 새 가상 컴퓨터 마법사를 사용합니다.
 		1. 세대 지정 페이지에서 **세대 1**을 선택합니다.
 		2. 가상 하드 디스크 연결 페이지에서 **기존 가상 하드 디스크 사용**을 선택하고 이전 단계에서 만든 VHD로 이동합니다.
 		2. 설치 옵션 페이지에서 **부팅 CD/DVD-ROM에서 운영 체제 설치**를 선택한 다음 Windows Server 2012 R2 설치 미디어의 위치를 선택합니다.
@@ -121,10 +122,10 @@ Azure RemoteApp은 Windows Server 2012 R2 템플릿 이미지를 사용하여 �
 		HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisableEncryption = 1
 9.	Azure 가상 컴퓨터 내에 이미지를 빌드하는 경우 **\%windir%\\Panther\\Unattend.xml** 파일의 이름을 바꿉니다. 이름을 그대로 사용하면 나중에 사용하는 업로드 스크립트가 작동하지 않게 됩니다. 배포를 원래대로 되돌려야 하는 경우 파일을 계속 사용할 수 있도록 파일의 이름을 Unattend.old로 변경합니다.
 10.	Windows Update로 이동하여 모든 중요 업데이트를 설치합니다. 모든 업데이트를 가져오려면 여러 번 Windows Update를 실행해야 할 수 있습니다. (경우에 따라 업데이트를 설치하며 자체 해당 업데이트는 업데이트 해야합니다.)
-10.	이미지에 sysprep을 실행합니다. 관리자 권한 명령 프롬프트에서 다음 명령을 실행합니다. 
+10.	이미지에 sysprep을 실행합니다. 관리자 권한 명령 프롬프트에서 다음 명령을 실행합니다.
 
 	**C:\\Windows\\System32\\sysprep\\sysprep.exe /generalize /oobe /shutdown**
-	
+
 	**참고:** 가상 컴퓨터라도 SYSPREP 명령의 **/mode:vm** 스위치는 사용하지 마세요.
 
 
@@ -132,8 +133,8 @@ Azure RemoteApp은 Windows Server 2012 R2 템플릿 이미지를 사용하여 �
 사용자 지정 템플릿 이미지를 만들었으니 이제 RemoteApp 컬렉션에 해당 이미지를 업로드해야 합니다. 다음 문서의 정보를 사용하여 컬렉션을 만듭니다.
 
 
-- [RemoteApp의 하이브리드 컬렉션을 만드는 방법](remoteapp-create-hybrid-deployment.md) 
+- [RemoteApp의 하이브리드 컬렉션을 만드는 방법](remoteapp-create-hybrid-deployment.md)
 - [RemoteApp의 클라우드 컬렉션을 만드는 방법](remoteapp-create-cloud-deployment.md)
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

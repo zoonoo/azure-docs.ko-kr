@@ -3,7 +3,7 @@
 	description="Azure Blob 서비스를 사용하여 Blob 콘텐츠를 업로드, 다운로드, 나열 및 삭제하는 방법을 알아봅니다. 샘플은 Ruby로 작성되었습니다." 
 	services="storage" 
 	documentationCenter="ruby" 
-	authors="tfitzmac,tamram" 
+	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="05/11/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -23,9 +23,7 @@
 
 ## 개요
 
-이 가이드에서는 Azure Blob 서비스를 사용하여
-일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Ruby API를 사용하여 작성되었습니다.
-여기서 다루는 시나리오에는 Blob **업로드, 나열, 다운로드** 및 **삭제**가 포함됩니다.
+이 가이드에서는 Azure Blob 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Ruby API를 사용하여 작성되었습니다. 여기서 다루는 시나리오에는 Blob **업로드, 나열, 다운로드** 및 **삭제**가 포함됩니다.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -33,8 +31,7 @@
 
 ## Ruby 응용 프로그램 만들기
 
-Ruby 응용 프로그램을 만듭니다. 자세한 내용은 다음을 참조하세요. 
-[Azure에서 Ruby 응용 프로그램 만들기](/develop/ruby/tutorials/web-app-with-linux-vm/).
+Ruby 응용 프로그램을 만듭니다. 자세한 내용은 [Azure에서 Ruby 응용 프로그램 만들기](/develop/ruby/tutorials/web-app-with-linux-vm/)를 참조하십시오.
 
 ## 저장소에 액세스하도록 응용 프로그램 구성
 
@@ -54,8 +51,7 @@ Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편�
 
 ## Azure 저장소 연결 설정
 
-Azure 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY** 
-환경 변수를 읽고 Azure 저장소 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되어 있지 않으면 **Azure::BlobService**를 사용하기 전에 다음 코드로 계정 정보를 지정해야 합니다.
+Azure 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY** 환경 변수를 읽고 Azure 저장소 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되지 않으면 **Azure::BlobService**를 사용하기 전에 다음 코드로 계정 정보를 지정해야 합니다.
 
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your azure storage access key>"
@@ -65,10 +61,12 @@ Azure 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY**
 
 1. [Azure 관리 포털](https://manage.windowsazure.com/)에 로그인합니다.
 2. 사용하려는 저장소 계정으로 이동합니다.
-3. 탐색 창 맨 아래에서 **키 관리**를 클릭합니다.
+3. 탐색 창 아래쪽에서 **키 관리**를 클릭합니다.
 4. 팝업 대화 상자에 저장소 계정 이름, 기본 액세스 키 및 보조 액세스 키가 표시됩니다. 액세스 키의 경우 기본 액세스 키 또는 보조 액세스 키를 사용할 수 있습니다.
 
 ## 방법: 컨테이너 만들기
+
+[AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
 **Azure::BlobService** 개체를 통해 컨테이너 및 Blob에 대한 작업을 할 수 있습니다. 컨테이너를 만들려면 **create_container()** 메서드를 사용합니다.
 
@@ -81,19 +79,20 @@ Azure 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY**
 	  puts $!
 	end
 
-컨테이너 파일을 공용으로 지정하려는 경우 컨테이너의 사용 권한을 설정할 수 있습니다. 
+컨테이너 파일을 공용으로 지정하려는 경우 컨테이너의 사용 권한을 설정할 수 있습니다.
 
-<strong>create_container()</strong> 호출을 수정하여 **:public_access_level** 옵션을 전달할 수 있습니다.
+**: public_access_level**옵션 전달하기를 호출하여 <strong>create_container ()</strong>를 수정할 수 있습니다.  
+
 
 	container = azure_blob_service.create_container("test-container", 
 	  :public_access_level => "<public access level>")
 
 
-**:public_access_level** 옵션에 유효한 값은 다음과 같습니다.
+유효한 **:public_access_level** 옵션 값은 다음과 같습니다.
 
-* **blob:** 컨테이너 및 Blob 데이터에 대한 모든 공용 읽기 권한을 지정합니다. 클라이언트는 익명 요청을 통해 컨테이너 내의 Blob을 열거할 수 있지만 저장소 계정 내의 컨테이너는 열거할 수 없습니다.
+* **blob:** 컨테이너 및 blob 데이터에 대한 전체 공용 읽기 액세스 권한을 지정 합니다. 클라이언트는 익명 요청을 통해 컨테이너 내에서 Blob을 열거할 수 있지만 저장소 계정 내에서 컨테이너를 열거할 수는 없습니다.
 
-* **container:** Blob에 대한 공용 읽기 권한을 지정합니다. 이 컨테이너 내의 Blob 데이터는 익명 요청을 통해 읽을 수 있지만 컨테이너 데이터는 사용할 수 없습니다. 클라이언트는 익명 요청을 통해 컨테이너 내의 Blob을 열거할 수 없습니다.
+* **컨테이너:** blob에 대한 공용 읽기 액세스 권한을 지정 합니다. 이 컨테이너 내의 Blob 데이터는 익명 요청을 통해 읽을 수 있으나 컨테이너 데이터는 읽을 수 없습니다. 클라이언트는 익명 요청을 통해 컨테이너 내의 Blob을 열거할 수 없습니다.
 
 또는 **set_container_acl()** 메서드로 공용 액세스 수준을 지정하여 컨테이너의 공용 액세스 수준을 수정할 수 있습니다.
  
@@ -101,21 +100,20 @@ Azure 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY**
 
 	azure_blob_service.set_container_acl('test-container', "container")
 
-## 방법: 컨테이너에 Blob 업로드
+## 컨테이너에 Blob을 업로드하는 방법
 
-Blob에 콘텐츠를 업로드하려면 **create_block_blob()** 메서드를 사용하여 Blob을 만들고 Blob의 콘텐츠로 파일이나 문자열을 사용합니다. 
+Blob에 콘텐츠를 업로드하려면 **create_block_blob()** 메서드를 사용하여 Blob을 만들고 Blob의 콘텐츠로 파일이나 문자열을 사용합니다.
 
-다음 코드는 **test.png** 파일을 "image-blob"이라는 새 Blob으로 컨테이너에 업로드합니다.
+다음 코드는 **test.png** 파일을 "image-blob"이라는 새 Blob로 컨테이너에 업로드합니다.
 
 	content = File.open("test.png", "rb") { |file| file.read }
 	blob = azure_blob_service.create_block_blob(container.name,
 	  "image-blob", content)
 	puts blob.name
 
-## 방법: 컨테이너의 Blob 나열
+## 컨테이너에 Blob 나열하는 방법
 
-컨테이너를 나열하려면 **list_containers()** 메서드를 사용합니다. 
-컨테이너 내 Blob을 나열하려면 **list_blobs()** 메서드를 사용합니다. 
+컨테이너를 나열하려면 **list_containers()** 메서드를 사용합니다. 컨테이너 내에 Blob을 나열하려면 **list_blobs()** 메서드를 사용합니다.
 
 이 메서드는 계정에 대해 모든 컨테이너에 있는 모든 Blob의 URL을 출력합니다.
 
@@ -127,17 +125,17 @@ Blob에 콘텐츠를 업로드하려면 **create_block_blob()** 메서드를 사
 	  end
 	end
 
-## 방법: Blob 다운로드
+## Blob 다운로드하는 방법
 
-Blob을 다운로드하려면 **get_blob()** 메서드를 사용하여 콘텐츠를 검색합니다. 
+Blob을 다운로드하려면 **get_blob()** 메서드를 사용하여 콘텐츠를 가져옵니다.
 
-다음 예제에서는 **get_blob()**을 사용하여 "image-blob"의 콘텐츠를 다운로드하고 해당 콘텐츠를 로컬 파일에 쓰는 방법을 보여 줍니다.
+다음 예제는 **get_blob()**을 사용하여 "image-blob"의 콘텐츠를 다운로드하고 그 콘텐츠를 로컬 파일에 쓰는 방법을 보여 줍니다.
 
 	blob, content = azure_blob_service.get_blob(container.name,"image-blob")
 	File.open("download.png","wb") {|f| f.write(content)}
 
-## 방법: Blob 삭제
-끝으로, Blob을 삭제하려면 **delete_blob()** 메서드를 사용합니다. 다음 예제는 Blob을 삭제하는 방법을 보여 줍니다.
+## Blob을 삭제하는 방법
+마지막으로 Blob을 삭제하려면 **delete_blob()** 메서드를 사용합니다. 다음 예제는 Blob을 삭제하는 방법을 보여 줍니다.
 
 	azure_blob_service.delete_blob(container.name, "image-blob")
 
@@ -145,8 +143,9 @@ Blob을 다운로드하려면 **get_blob()** 메서드를 사용하여 콘텐츠
 
 이제 Blob 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업에 대해 알아보세요.
 
-- MSDN 참조: [Azure 저장소](http://msdn.microsoft.com/library/azure/gg433040.aspx)를 참조하세요.
+- 다음 MSDN 참조를 확인하세요. [Azure 저장소](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문)를 방문하세요.
-- GitHub에서 [Ruby용 Azure SDK](https://github.com/WindowsAzure/azure-sdk-for-ruby) 리포지토리를 방문하세요.
+- GitHub에서 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby)(영문) 리포지토리를 방문하십시오.
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO2-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="기계 학습 웹 서비스 게시 | Azure" 
+	pageTitle="기계 학습 웹 서비스 게시 | Microsoft Azure" 
 	description="학습 실험을 점수 매기기 실험으로 변환하고 게시할 준비를 한 다음 Azure 기계 학습 웹 서비스로 게시하는 방법." 
 	services="machine-learning" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/04/2015" 
+	ms.date="05/27/2015" 
 	ms.author="garye"/>
 
 #Azure 기계 학습 웹 서비스 게시
@@ -93,8 +93,7 @@ Azure 기계 학습을 사용하여 예측 분석 솔루션을 빌드, 테스트
 
 Azure 관리 포털에서 **기계 학습** 서비스를 클릭하고 기계 학습 작업 영역을 연 다음 **웹 서비스** 탭에서 웹 서비스를 열어 웹 서비스를 관리할 수 있습니다. 이 페이지에서 웹 서비스를 모니터링하고 업데이트하며 삭제할 수 있습니다. 게시할 때 생성되는 기본 끝점 외에도 웹 서비스의 두 번째 끝점도 추가할 수 있습니다.
 
-자세한 내용은 [Azure 기계 학습 작업 영역 관리](machine-learning-manage-workspace.md)를 참조하세요.
-<!-- When this article gets published, fix the link and uncomment
+자세한 내용은 [Azure 기계 학습 작업 영역 관리](machine-learning-manage-workspace.md)를 참조하세요. <!-- When this article gets published, fix the link and uncomment
 For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**. 
 -->
 
@@ -105,7 +104,8 @@ For more information on how to manage Azure Machine Learning web service endpoin
 
 웹 서비스를 업데이트하려면 원래 웹 서비스를 게시하는 데 사용한 원래 점수 매기기 실험을 열고 **다른 이름으로 저장**을 클릭하여 편집 가능한 사본을 만듭니다. 변경한 다음 **웹 서비스 게시**를 클릭합니다. 이 실험을 이전에 게시한 적이 있으므로 기계 학습 스튜디오에서는 기존 서비스를 덮어쓰려는지 묻는 메시지를 표시합니다. **예**를 클릭하면 기존 웹 서비스가 중단되고 새 점수 매기기 실험이 대신 게시됩니다.
 
-> [AZURE.NOTE] 예를 들어, 새 표시 이름 또는 설명을 입력하여 원래 웹 서비스의 구성을 변경한 경우 해당 값을 다시 입력해야 합니다.
+> [AZURE.NOTE]예를 들어, 새 표시 이름 또는 설명을 입력하여 원래 웹 서비스의 구성을 변경한 경우 해당 값을 다시 입력해야 합니다.
 
+웹 서비스를 업데이트하기 위한 한 가지 옵션은 프로그래밍 방식으로 모델을 다시 학습하는 것입니다. 자세한 내용은 [프로그래밍 방식으로 기계 학습 모델 다시 학습](machine-learning-retrain-models-programmatically.md)을 참조하세요.
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="HDInsight에서 Hadoop과 MapReduce 사용"
-   description="HDInsight에서 Hadoop과 MapReduce 사용하는 방법에 대해 알아봅니다."
+   pageTitle="HDInsight의 Hadoop 및 MapReduce | Microsoft Azure"
+   description="HDInsight 클러스터의 Hadoop에서 MapReduce 작업을 실행하는 방법을 알아봅니다. Java MapReduce 작업으로 구현된 기본 단어 개수 계산 작업을 실행합니다."
    services="hdinsight"
    documentationCenter=""
    authors="Blackmist"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/23/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 # HDInsight에서 Hadoop과 MapReduce 사용
@@ -49,9 +49,9 @@ Hadoop 스트리밍은 STDIN 및 STDOUT를 통해 매퍼 및 리듀서와 통신
 
     [key]/t[value]
 
-자세한 내용은 [Hadoop 스트리밍](http://hadoop.apache.org/docs/r1.2.1/streaming.html)을 참조하십시오.
+자세한 내용은 [Hadoop 스트리밍](http://hadoop.apache.org/docs/r1.2.1/streaming.html)을 참조하세요.
 
-HDInsight에서 Hadoop 스트리밍을 사용하는 예는 다음을 참조하십시오:
+HDInsight에서 Hadoop 스트리밍을 사용하는 예는 다음을 참조하세요:
 
 * [C# Hadoop 스트리밍 프로그램 개발](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 
@@ -147,11 +147,11 @@ Azure Blob 저장소가 HDInsight의 기본 저장소이므로 **/example/data/g
 	  }
 	}
 
-고유한 MapReduce 작업을 작성하는 방법에 대한 지침은 [HDInsight용 Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce.md)을 참조하십시오.
+고유한 MapReduce 작업을 작성하는 방법에 대한 지침은 [HDInsight용 Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce.md)을 참조하세요.
 
 ##<a id="run"></a>MapReduce 실행
 
-HDInsight는 다양한 메서드를 사용하여 HiveQL 작업을 실행할 수 있습니다. 어떤 메서드가 적합한지 결정하는 다음 테이블을 사용하여 연습할 수 있는 링크를 따르십시오.
+HDInsight는 다양한 메서드를 사용하여 HiveQL 작업을 실행할 수 있습니다. 어떤 메서드가 적합한지 결정하는 다음 테이블을 사용하여 연습할 수 있는 링크를 따르세요.
 
 | **사용 기능**... | **...다음을 수행합니다** | ...**클러스터 운영 체제**로 | ...**클라이언트 운영 체제**에서 |
 |:-------------------------------------------------------------------|:--------------------------------------------------------|:------------------------------------------|:-----------------------------------------|
@@ -162,7 +162,7 @@ HDInsight는 다양한 메서드를 사용하여 HiveQL 작업을 실행할 수 
 
 ##<a id="nextsteps"></a>다음 단계
 
-MapReduce는 강력한 진단 기능을 제공하는 반면 익히기 어려울 수 있습니다. HDInsight에서 데이터로 작업하는 편리한 방법을 제공하는 Pig 및 Hive와 같은 기술 뿐만 아니라 MapReduce 응용 프로그램을 쉽게 정의할 수 있는 Java 기반 프레임 워크도 있습니다. 자세한 내용은 다음 문서를 참조하십시오.
+MapReduce는 강력한 진단 기능을 제공하는 반면 익히기 어려울 수 있습니다. HDInsight에서 데이터로 작업하는 편리한 방법을 제공하는 Pig 및 Hive와 같은 기술 뿐만 아니라 MapReduce 응용 프로그램을 쉽게 정의할 수 있는 Java 기반 프레임 워크도 있습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [HDInsight용 Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce.md)
 
@@ -192,4 +192,4 @@ MapReduce는 강력한 진단 기능을 제공하는 반면 익히기 어려울 
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #HDInsight에서 Apache Storm 토폴로지 배포 및 관리
@@ -177,6 +177,5 @@ Storm 대시보드를 사용하여 토폴로지를 배포 및 모니터링하는
 [hdinsight-dashboard]: ./media/hdinsight-storm-deploy-monitor-topology/dashboard-link.png
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

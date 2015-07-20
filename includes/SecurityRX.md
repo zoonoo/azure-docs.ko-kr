@@ -444,4 +444,4 @@ Azure AD 액세스 제어 배포 시 다음 보안 노브를 고려합니다. �
 [Web SSO Design]: http://technet.microsoft.com/library/dd807033(WS.10).aspx
 [Federated Web SSO Design]: http://technet.microsoft.com/library/dd807050(WS.10).aspx
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -80,7 +80,7 @@
 		    }
 		};
 
-	이 코드는 TodoItem 테이블에서 완료되지 않은 상위 항목 3개를 반환한 후 <strong>wns</strong>.<strong>createTileSquareText01</strong> 함수에 전달되는 JSON 개체에 로드합니다. 이 함수는 다음과 같은 타일 템플릿 XML을 반환합니다.
+	이 코드는 TodoItem 테이블에서 완료되지 않은 상위 항목 3개를 반환한 후 **wns**.**createTileSquareText01** 함수에 전달되는 JSON 개체에 로드합니다. 이 함수는 다음과 같은 타일 템플릿 XML을 반환합니다.
 
 		<tile>
 			<visual>
@@ -99,7 +99,7 @@
 
 다음에는 새 사용자 지정 API를 요청하여 라이브 타일을 업데이트하는 정기 알림을 시작하도록 빠른 시작 앱을 수정합니다.
 
-## <a name="update-app"></a>정기 알림을 켜도록 앱 업데이트
+##<a name="update-app"></a>정기 알림을 켜도록 앱 업데이트
 
 1. Visual Studio에서 F5 키를 눌러 이전 자습서의 빠른 시작 앱을 실행합니다.
 
@@ -157,5 +157,6 @@
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [정기 알림]: http://msdn.microsoft.com/library/windows/apps/jj150587.aspx
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

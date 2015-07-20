@@ -75,10 +75,6 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. **w
 
     예: `azure sql server create admin password "West US"`
 
-    > [AZURE.NOTE]액세스가 없다는 오류가 나타나면 다음 명령을 사용하여 클라이언트 워크스테이션의 IP 주소를 SQL 데이터베이스에 추가해야 할 수도 있습니다.
-    >
-    > `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
-
     명령이 완료되면 다음과 유사한 응답이 표시됩니다.
 
         info:    Executing command sql server create
@@ -94,6 +90,9 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. **w
 
     완료되면 “OK” 메시지가 반환됩니다.
 
+	> [AZURE.NOTE]액세스가 없다는 오류가 나타나면 다음 명령을 사용하여 클라이언트 워크스테이션의 IP 주소를 SQL 데이터베이스에 추가해야 할 수도 있습니다.
+	>
+	> `sql firewallrule create [options] <serverName> <ruleName> <startIPAddress> <endIPAddress>`
 
 ##테이블 만들기
 
@@ -265,6 +264,5 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. **w
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

@@ -93,4 +93,4 @@ SDK와 함께 제공되는 서비스 패브릭 탐색기 도구를 사용하여,
 [4]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "WebPI 링크"
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

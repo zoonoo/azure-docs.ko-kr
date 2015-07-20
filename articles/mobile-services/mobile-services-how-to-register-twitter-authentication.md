@@ -16,7 +16,9 @@
 	ms.date="04/13/2015" 
 	ms.author="glenga"/>
 
-# 모바일 서비스에 Twitter 로그인을 사용하기 위해 앱 등록
+#모바일 서비스에서 Twitter 로그인하기 위해 앱 등록
+
+[AZURE.INCLUDE [mobile-services-selector-register-identity-provider](../../includes/mobile-services-selector-register-identity-provider.md)]
 
 이 항목에서는 Twitter를 사용하여 Azure 모바일 서비스에 인증할 수 있도록 앱을 등록하는 방법을 보여 줍니다.
 
@@ -67,5 +69,6 @@
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 
 [Azure Management Portal]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

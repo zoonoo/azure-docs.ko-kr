@@ -311,4 +311,4 @@ Azure 포털은 사용자 지정 구성 옵션을 사용한 HDInsight 클러스�
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

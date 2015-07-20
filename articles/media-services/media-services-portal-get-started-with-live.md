@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="관리 포털을 사용하여 온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널 만들기" 
-	description="이 자습서에서는 채널이 온-프레미스 라이브 인코더에서 다중 비트 전송률 라이브 스트림을 받는 기본적인 미디어 서비스 라이브 스트리밍 응용 프로그램을 구현하는 단계를 안내합니다." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+<properties
+	pageTitle="관리 포털을 사용하여 온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널 만들기"
+	description="이 자습서에서는 채널이 온-프레미스 라이브 인코더에서 다중 비트 전송률 라이브 스트림을 받는 기본적인 미디어 서비스 라이브 스트리밍 응용 프로그램을 구현하는 단계를 안내합니다."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
-	ms.date="04/16/2015" 
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ne"
+	ms.topic="get-started-article" 
+	ms.date="04/16/2015"
 	ms.author="juliako"/>
 
 
@@ -31,7 +31,7 @@
 1.  라이브 인코더를 구성하고 라이브 스트림을 채널에 수집(이 단계에서는 Wirecast가 사용됨)
 1.  프로그램(및 자산) 만들기
 1.  자산을 게시하고 스트리밍 URL 가져오기  
-1.  콘텐츠 재생 
+1.  콘텐츠 재생
 2.  정리
 
 ##필수 조건
@@ -41,7 +41,7 @@
 - 미디어 서비스 계정. 미디어 서비스 계정을 만들려면 [계정 만들기](media-services-create-account.md)를 참조하세요.
 - 다중 비트 전송률 라이브 스트림을 보낼 수 있는 웹캠 및 인코더.
 
-	 
+
 ##포털을 사용하여 스트리밍 끝점 구성
 
 Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나는 클라이언트에 적응 비트 전송률 스트리밍을 제공하는 것입니다. 적응 비트 전송률 스트리밍을 사용하면 현재 네트워크 대역폭, CPU 사용률 및 기타 요인에 따라 비디오가 표시되므로 클라이언트는 더 높거나 낮은 비트 전송률 스트림으로 전환할 수 있습니다. 미디어 서비스에서 지원하는 적응 비트 전송률 스트리밍 기술은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍, MPEG DASH 및 HDS(Adobe PrimeTime/Access 정식 사용자만 해당)입니다.
@@ -64,7 +64,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 
 	새 단위를 할당하는 작업은 완료하는 데 20분 정도 걸립니다.
 
-	 
+
 	>[AZURE.NOTE]현재, 스트리밍 단위의 양수 값을 0으로 변경하면 최대 1시간 동안 스트리밍을 사용하지 않을 수 있습니다.
 	>
 	> 24시간 동안 가장 많은 단위 수가 비용 계산에 사용됩니다. 가격 정보에 대한 자세한 내용은 [미디어 서비스 가격 정보](http://go.microsoft.com/fwlink/?LinkId=275107)를 참조하세요.
@@ -91,7 +91,7 @@ Azure 관리 포털에서 **채널** 페이지를 선택합니다. 그런 다음
 
 수집 URL에 대한 자세한 내용은 [온-프레미스 인코더를 사용하여 다중 비트 전송률 라이브 스트림을 채널에 보내기](../media-services-channels-overview.md)를 참조하세요.
 
-##라이브 인코더를 구성하고 라이브 스트림 수집 
+##라이브 인코더를 구성하고 라이브 스트림 수집
 
 >[AZURE.NOTE]이 단계를 수행하려면 이전 단계에서 언급된 채널의 수집 URL이 필요합니다.
 
@@ -131,11 +131,11 @@ Wirecast를 구성하고 스트림 수집을 시작하는 방법에 대한 자�
 1. **채널** 페이지에서 **추가**를 눌러 새 프로그램을 추가합니다.
 
 	프로그램 이름, 자산 이름, 보관 창 및 암호화 옵션을 지정합니다.
-	
+
 	![createprogram](./media/media-services-portal-get-started-with-live/media-services-create-program.png)
-	
+
 	**지금 이 프로그램 게시**를 선택한 상태로 두면 프로그램 게시 URL이 만들어집니다.
-	
+
 	프로그램을 스트리밍할 준비가 되면 언제든지 **시작**을 누를 수 있습니다.
 
 	프로그램을 시작한 후 재생을 눌러 콘텐츠 재생을 시작할 수 있습니다.
@@ -210,5 +210,4 @@ MPEG DASH 스트리밍 URL을 작성하려면 URL에 (format=mpd-time-csf)를 �
 
 <!-- Images -->
 
-<!--HONumber=52-->
- 
+<!---HONumber=July15_HO2-->

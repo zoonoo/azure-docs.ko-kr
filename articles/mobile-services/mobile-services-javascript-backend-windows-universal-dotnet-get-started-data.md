@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
-## 개요
+##개요
 
 이 항목은 Azure 모바일 서비스를 사용하여 범용 Windows 앱에서 데이터를 활용하는 방법을 보여 줍니다. 범용 Windows 앱 솔루션에는 Windows 스토어 8.1 및 Windows Phone 스토어 8.1 앱용 프로젝트와 공통 공유 프로젝트가 포함됩니다. 자세한 내용은 [Windows 및 Windows Phone을 대상으로 하는 범용 Windows 앱 작성](http://msdn.microsoft.com/library/windows/apps/xaml/dn609832.aspx)을 참조하세요.
 
@@ -33,12 +33,12 @@
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-universal-dotnet-get-started-data%2F)을 참조하십시오.
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Express 2013 for Windows</a>(Update 2 이상 버전). 
 
-## <a name="download-app"></a>GetStartedWithData 프로젝트 다운로드
+##<a name="download-app"></a>GetStartedWithData 프로젝트 다운로드
 
 [AZURE.INCLUDE [mobile-services-windows-universal-dotnet-download-project](../../includes/mobile-services-windows-universal-dotnet-download-project.md)]
  
 
-## <a name="create-service"></a>Visual Studio에서 새 모바일 서비스 만들기
+##<a name="create-service"></a>Visual Studio에서 새 모바일 서비스 만들기
 
 [AZURE.INCLUDE [mobile-services-create-new-service-vs2013](../../includes/mobile-services-create-new-service-vs2013.md)]
 
@@ -58,15 +58,15 @@
 
 이제 Windows 스토어 및 Windows Phone 스토어 앱이 모두 새 모바일 서비스에 연결되었습니다. 다음 단계에서는 모바일 서비스에서 새 TodoItem 테이블을 만듭니다.
 
-## <a name="add-table"></a>모바일 서비스에 새 테이블 추가
+##<a name="add-table"></a>모바일 서비스에 새 테이블 추가
 
 [AZURE.INCLUDE [mobile-services-create-new-table-vs2013](../../includes/mobile-services-create-new-table-vs2013.md)]
 
-## <a name="update-app"></a>모바일 서비스를 사용하도록 앱 업데이트
+##<a name="update-app"></a>모바일 서비스를 사용하도록 앱 업데이트
 
 [AZURE.INCLUDE [mobile-services-windows-dotnet-update-data-app](../../includes/mobile-services-windows-dotnet-update-data-app.md)]
 
-## <a name="test-azure-hosted"></a>Azure에서 호스트되는 모바일 서비스 테스트
+##<a name="test-azure-hosted"></a>Azure에서 호스트되는 모바일 서비스 테스트
 
 이제 Azure에서 호스트되는 모바일 서비스에 대해 범용 Windows 앱의 두 버전을 모두 테스트할 수 있습니다.
 
@@ -116,5 +116,6 @@
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

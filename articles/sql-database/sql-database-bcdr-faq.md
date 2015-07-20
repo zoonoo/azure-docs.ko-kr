@@ -60,4 +60,9 @@
 
 지역에서 복제는 연속 복사를 사용합니다. 따라서 [sys.dm_continuous_copy_status](https://msdn.microsoft.com/library/azure/dn741329.aspx) 동적 관리 뷰(DMV)를 사용하여 마지막 복제 시간 및 기타 정보를 얻을 수 있습니다.
 
-<!---HONumber=58--> 
+
+
+
+ 
+
+<!---HONumber=July15_HO2-->

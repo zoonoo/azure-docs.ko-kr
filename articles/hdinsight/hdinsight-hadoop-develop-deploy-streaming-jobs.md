@@ -149,8 +149,8 @@ Hadoop은 MapReduce용 스트리밍 API를 제공합니다. 이 API를 사용하
 
 매퍼 및 리듀서 실행 파일의 경로는 다음과 같습니다.
 
-- C:\Tutorials\WordCount\WordCountMapper\bin\Debug\WordCountMapper.exe
-- C:\Tutorials\WordCount\WordCountReducer\bin\Debug\WordCountReducer.exe
+- C:\\Tutorials\\WordCount\\WordCountMapper\\bin\\Debug\\WordCountMapper.exe
+- C:\\Tutorials\\WordCount\\WordCountReducer\\bin\\Debug\\WordCountReducer.exe
 
 
 ##<a name="test"></a>에뮬레이터에서 프로그램 테스트
@@ -167,7 +167,7 @@ HDInsight Emulator에서 다음을 수행하여 프로그램을 테스트합니�
 
 이 자습서에서는 다음 폴더 구조를 사용합니다.
 
-<table border="1"> <tr><td>Folder</td><td>Note</td></tr> <tr><td>\WordCount</td><td>단어 계산 프로젝트의 루트 폴더입니다.</td></tr> <tr><td>\WordCount\Apps</td><td>매퍼와 리듀서 실행 파일의 폴더입니다.</td></tr> <tr><td>\WordCount\Input</td><td>MapReduce 소스 파일 폴더입니다.</td></tr> <tr><td>\WordCount\Output</td><td>MapReduce 출력 파일 폴더입니다.</td></tr> <tr><td>\WordCount\MRStatusOutput</td><td>작업 출력 폴더입니다.</td></tr> </table></br>
+<table border="1"> <tr><td>Folder</td><td>Note</td></tr> <tr><td>\\WordCount</td><td>단어 계산 프로젝트의 루트 폴더입니다.</td></tr> <tr><td>\\WordCount\\Apps</td><td>매퍼와 리듀서 실행 파일의 폴더입니다.</td></tr> <tr><td>\\WordCount\\Input</td><td>MapReduce 소스 파일 폴더입니다.</td></tr> <tr><td>\\WordCount\\Output</td><td>MapReduce 출력 파일 폴더입니다.</td></tr> <tr><td>\\WordCount\\MRStatusOutput</td><td>작업 출력 폴더입니다.</td></tr> </table></br>
 
 이 자습서에서는 %hadoop_home% 디렉터리에 있는 .txt 파일을 사용합니다.
 
@@ -278,7 +278,7 @@ HDInsight Emulator에서 다음을 수행하여 프로그램을 테스트합니�
 	페이지 보기를 가져오기 위해 명령의 끝 부분에 "|more"를 추가할 수 있습니다.
 
 ##<a id="upload"></a>Azure Blob 저장소에 데이터 업로드
-Azure HDInsight는 Azure Blob 저장소를 기본 파일 시스템으로 사용합니다. HDInsight 클러스터를 구성하여 데이터 파일에 추가 Blob 저장소를 사용할 수도 있습니다. 이 섹션에서는 Azure 저장소 계정을 만들어 Blob 저장소에 데이터 파일을 업로드합니다. 데이터 파일은 %hadoop_home%\share\doc\hadoop\common 디렉터리에 있는 .txt 파일입니다.
+Azure HDInsight는 Azure Blob 저장소를 기본 파일 시스템으로 사용합니다. HDInsight 클러스터를 구성하여 데이터 파일에 추가 Blob 저장소를 사용할 수도 있습니다. 이 섹션에서는 Azure 저장소 계정을 만들어 Blob 저장소에 데이터 파일을 업로드합니다. 데이터 파일은 %hadoop_home%\\share\\doc\\hadoop\\common 디렉터리에 있는 .txt 파일입니다.
 
 
 **저장소 계정 및 컨테이너 만들기**
@@ -316,7 +316,7 @@ Azure HDInsight는 Azure Blob 저장소를 기본 파일 시스템으로 사용�
 		$localFolder = "C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common"
 		$destFolder = "WordCount/Input"
 
-	로컬 원본 파일 폴더는 **C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common**이고 대상 폴더는 **WordCount/Input**입니다. 원본 위치는 HDInsight Emulator의 .txt 파일 위치입니다. 대상은 Azure Blob 컨테이너 아래에 반영되는 폴더 구조입니다.
+	로컬 원본 파일 폴더는 **C:\\hdp\\hadoop-2.4.0.2.1.3.0-1981\\share\\doc\\hadoop\\common**이고 대상 폴더는 **WordCount/Input**입니다. 원본 위치는 HDInsight Emulator의 .txt 파일 위치입니다. 대상은 Azure Blob 컨테이너 아래에 반영되는 폴더 구조입니다.
 
 3. 다음 명령을 실행하여 원본 파일 폴더의 .txt 파일 목록을 가져옵니다.
 
@@ -551,4 +551,4 @@ Hadoop 스트리밍 작업 제출에 대한 HDInsight .NET SDK 샘플을 보려�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

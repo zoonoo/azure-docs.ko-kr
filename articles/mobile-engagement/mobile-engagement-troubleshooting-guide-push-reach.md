@@ -13,9 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="06/18/2015"
    ms.author="piyushjo"/>
-
 
 # 푸시 및 도달률 문제에 대한 문제 해결 가이드
 
@@ -31,7 +30,7 @@
 - 앱 내 또는 앱 외부에 문제가 있는지 확인하려면 앱 내 푸시 및 앱 외부 푸시만 각각 별도로 테스트해 봅니다.
 - UI와 API에서 모두 제공되는 추가 오류 정보를 확인하려면 문제 해결 단계로 UI 및 API 둘 다에서 테스트를 수행합니다.
 - Azure Mobile Engagement 및 도달률이 모두 SDK에 통합되어 있어야 앱 외부 푸시가 작동합니다.
-- 인증서가 유효하지 않거나 프로덕션/개발 버전을 올바르게 사용하고 있으면 앱 외부 푸시가 작동하지 않습니다(iOS에만 해당). **참고:** 개발(DEV) 및 프로덕션(PROD) 버전의 응용 프로그램이 모두 동일한 장치에 설치되어 있을 경우 인증서와 연결된 보안 토큰이 Apple에서 무효화될 수 있으므로 "앱 외부" 푸시 알림이 iOS로 전달되지 않을 수 있습니다. 이 문제를 해결하려면 프로덕션/개발 버전의 응용 프로그램을 모두 제거하고 장치에 한 버전만 다시 설치합니다.
+- 인증서가 유효하지 않거나 프로덕션/개발 버전을 올바르게 사용하고 있으면 푸시가 작동하지 않습니다(iOS에만 해당). **참고:** 개발(DEV) 및 프로덕션(PROD) 버전의 응용 프로그램이 모두 동일한 장치에 설치되어 있을 경우 인증서와 연결된 보안 토큰이 Apple에서 무효화될 수 있으므로 "앱 외부" 푸시 알림이 iOS로 전달되지 않을 수 있습니다. 이 문제를 해결하려면 프로덕션/개발 버전의 응용 프로그램을 모두 제거하고 장치에 한 버전만 다시 설치합니다.
 - 앱 외부 푸시 수는 플랫폼별로 다르게 처리됩니다. 장치에서 네이티브 푸시를 사용하지 않도록 설정되어 있으면 iOS에서는 Android에 비해 더 적은 정보가 표시됩니다. API는 푸시 통계에 대해 UI보다 많은 정보를 제공할 수 있습니다.
 - 고객이 OS(iOS 및 Android) 수준에서 앱 외부 푸시를 차단할 수 있습니다.
 - 앱 외부 푸시는 올바르게 통합되어 있지 않으면 Azure Mobile Engagement에서 사용할 수 없는 것으로 표시되지만 API에서는 자동으로 오류가 발생할 수 있습니다.
@@ -45,10 +44,6 @@
 - 푸시 API 관련 문제의 경우에는 도달률 API가 아닌 푸시 API를 사용하려는 것이 맞는지(일반적으로는 도달률 API가 더 많이 사용됨), 그리고 "payload" 매개 변수와 "notifier" 매개 변수를 혼동하고 있지 않은지 확인합니다.
 - Wi-Fi와 3G를 통해 연결되는 장치를 사용하여 푸시 캠페인을 테스트해 가능한 문제 원인에서 네트워크 연결을 제외할 수 있는지 확인합니다.
 
-### 참고 항목
-
-- [문제 해결 가이드 - SDK][Link 25], [문제 해결 가이드 - 푸시][Link 23], [SDK 설명서 - iOS - Apple 푸시 알림을 받도록 응용 프로그램을 준비하는 방법][Link 5]
- 
 ## 푸시 테스트
 
 ### 문제
@@ -59,10 +54,7 @@
 - 테스트 장치는 플랫폼별로 다르게 설정되지만 테스트 장치에서 앱에 이벤트를 발생시킨 다음 포털에서 장치 ID를 찾으면 모든 플랫폼에 대해 장치 ID를 찾을 수 있습니다.
 - 테스트 장치는 IDFA와 IDFV에서 다르게 작동합니다(iOS에만 해당).
 
-### 참고 항목
 
-- [UI 설명서 - 도달률][Link 17]
- 
 ## 푸시 사용자 지정
 
 ### 문제
@@ -85,12 +77,6 @@
 - Android 및 iOS에서 앱 외부 알림을 처리하는 방법의 차이로 인해 응용 프로그램의 Android 및 iOS 버전 간에 푸시 통계를 직접 비교하기는 어렵습니다. Android는 iOS보다 자세한 OS 수준 알림 정보를 제공합니다. Android는 알림 센터에서 기본 알림이 수신, 클릭 또는 삭제될 때 보고하지만 iOS는 알림을 클릭하지 않는 한 이 정보를 보고하지 않습니다. 
 - 도달률 캠페인에서 "푸시" 횟수가 "전달" 횟수와 다른 주요 이유는 "앱 내" 및 "앱 외부" 알림이 다르게 계산되기 때문입니다. "앱 내" 알림은 Mobile Engagement에서 처리되지만 "앱 외부" 알림은 장치 OS에서 알림 센터에 의해 처리됩니다.
 
-### 참고 항목
-
-- [방법 - 첫 번째 푸시][Link 27], [문제 해결 가이드 - 푸시][Link 23], [HTTP 프로토콜 정보](http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html)
-- [Apple 개발자 - "옵트아웃(opt out)” UI 정보](http://support.apple.com/kb/HT3576), [Apple 개발자 - 옵트아웃(opt out) 개발자 정보](https://developer.apple.com/notifications/), [Apple 개발자 - "옵트아웃(opt out)" 문제 해결](https://developer.apple.com/library/ios/technotes/tn2265/), [Apple 개발자 - URL 구성표](https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/Introduction/Introduction.html) 
-- [Android 개발자 - “옵트아웃(opt out)” UI 정보](http://developer.android.com/about/versions/jelly-bean.html), [Android 개발자 - “옵트아웃(opt out)” 패턴](http://developer.android.com/design/patterns/notifications.html), [Android 개발자 - “옵트아웃(opt out)” 알림 프로그램](http://developer.android.com/guide/topics/ui/notifiers/notifications.html), [Android 개발자 - “옵트아웃(opt out)” 미리 보기](https://developer.android.com/preview/notifications.html), [Android 개발자 - “옵트아웃(opt out)” 참조](http://developer.android.com/reference/android/app/Notification.html), [Android 개발자 - 의도 필터 구성표](http://developer.android.com/guide/components/intents-filters.html#DataTest), [Android 개발자 - 의도 필터 참조 가이드](http://developer.android.com/reference/android/content/Intent.html#toUri)
-
 ## 푸시 대상 지정
 
 ### 문제
@@ -106,10 +92,7 @@
 - "언어"를 설정하는 것은 국가나 로캘에 따라 대상을 지정하는 것과는 다르며, 휴대폰 위치나 GPS 위치에 따라 지리적 위치를 기준으로 대상을 지정하는 것과도 다릅니다.
 - 지정한 대체 언어 중 하나로 장치를 설정하지 않은 모든 고객에게는 "기본 언어"로 된 메시지가 전송됩니다.
 
-### 참고 항목
 
-- [UI 설명서 - 도달률][Link 17], [UI 설명서 - 설정][Link 20], [API 설명서 - 도달률][Link 4], [API 설명서 - 푸시][Link 4], [API 설명서 - 장치][Link 4]
- 
 ## 푸시 예약
 
 ### 문제
@@ -125,39 +108,6 @@
 - 도달률 캠페인의 "캠페인" 섹션에서 "대상을 무시하고 API를 통해 사용자에게 푸시 전송" 옵션을 사용하는 경우에는 캠페인이 자동으로 전송되지 않으며 도달률 API를 통해 수동으로 캠페인을 전송해야 합니다.
 - 도달률에서 사용자 지정 범주를 사용하여 앱 내 알림을 표시하는 경우에는 올바른 알림 수명 주기를 따라야 합니다. 그렇지 않으면 사용자가 알림을 해제해도 알림이 지워지지 않을 수 있습니다.
 
-### 참고 항목
-
-- [도달률 방법 - 캠페인 예약][Link 3], [UI 설명서 - 도달률 - 새 푸시 캠페인][Link 27]
  
-<!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
-[Link 2]: mobile-engagement-troubleshooting-guide.md
-[Link 3]: mobile-engagement-how-tos.md
-[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: mobile-engagement-user-interface-home.md
-[Link 14]: mobile-engagement-user-interface-my-account.md
-[Link 15]: mobile-engagement-user-interface-analytics.md
-[Link 16]: mobile-engagement-user-interface-monitor.md
-[Link 17]: mobile-engagement-user-interface-reach.md
-[Link 18]: mobile-engagement-user-interface-segments.md
-[Link 19]: mobile-engagement-user-interface-dashboard.md
-[Link 20]: mobile-engagement-user-interface-settings.md
-[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Link 24]: mobile-engagement-troubleshooting-guide-service.md
-[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Link 27]: mobile-engagement-user-interface-reach-campaign.md
-[Link 28]: mobile-engagement-user-interface-reach-criterion.md
-[Link 29]: mobile-engagement-user-interface-reach-content.md
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

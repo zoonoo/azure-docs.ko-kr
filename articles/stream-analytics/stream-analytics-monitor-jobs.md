@@ -176,5 +176,6 @@
 - [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+ 
 
-<!---HONumber=58--> 
+<!---HONumber=July15_HO2-->

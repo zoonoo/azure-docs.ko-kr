@@ -64,4 +64,4 @@ HDInsight에 대해 알아볼 수 있는 다른 방법은 다음과 같습니다
 [azure.portal]: https://manage.windowsazure.com
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

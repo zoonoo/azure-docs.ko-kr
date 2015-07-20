@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="NA"
 	ms.topic="article"
-	ms.date="05/20/2015"
+	ms.date="07/02/2015"
 	ms.author="alfran"/>
 
 # Operational Insights의 솔루션
@@ -128,6 +128,5 @@ Microsoft Azure Operational Insights의 용량 관리 솔루션을 사용하여 
 - 메서드를 사용하도록 설정하는 자동 업데이트
 - 마지막 업데이트 이후 기간(일)
 - Windows Update 에이전트 버전
- 
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

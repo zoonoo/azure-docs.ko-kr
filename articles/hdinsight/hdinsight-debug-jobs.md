@@ -32,51 +32,7 @@ Azure PowerShell 또는 Azure 포털에서 사용자에게 표시될 수 있는 
 
 ###HDInsight 오류 코드
 
-[AtleastOneSqlMetastoreMustBeProvided](#AtleastOneSqlMetastoreMustBeProvided) 
-[AzureRegionNotSupported](#AzureRegionNotSupported) 
-[ClusterContainerRecordNotFound](#ClusterContainerRecordNotFound) 
-[ClusterDnsNameInvalidReservedWord](#ClusterDnsNameInvalidReservedWord) 
-[ClusterNameUnavailable](#ClusterNameUnavailable) 
-[ClusterUserNameInvalid](#ClusterUserNameInvalid) 
-[ClusterUserNameInvalidReservedWord](#ClusterUserNameInvalidReservedWord) 
-[ContainerNameMisMatchWithDnsName](#ContainerNameMisMatchWithDnsName) 
-[DataNodeDefinitionNotFound](#DataNodeDefinitionNotFound) 
-[DeploymentDeletionFailure](#DeploymentDeletionFailure) 
-[DnsMappingNotFound](#DnsMappingNotFound) 
-[DuplicateClusterContainerRequest](#DuplicateClusterContainerRequest) 
-[DuplicateClusterInHostedService](#DuplicateClusterInHostedService) 
-[FailureToUpdateDeploymentStatus](#FailureToUpdateDeploymentStatus) 
-[HdiRestoreClusterAltered](#HdiRestoreClusterAltered) 
-[HeadNodeConfigNotFound](#HeadNodeConfigNotFound) 
-[HeadNodeConfigNotFound](#HeadNodeConfigNotFound) 
-[HostedServiceCreationFailure](#HostedServiceCreationFailure) 
-[HostedServiceHasProductionDeployment](#HostedServiceHasProductionDeployment) 
-[HostedServiceNotFound](#HostedServiceNotFound) 
-[HostedServiceWithNoDeployment](#HostedServiceWithNoDeployment) 
-[InsufficientResourcesCores](#InsufficientResourcesCores) 
-[InsufficientResourcesHostedServices](#InsufficientResourcesHostedServices) 
-[InternalErrorRetryRequest](#InternalErrorRetryRequest) 
-[InvalidAzureStorageLocation](#InvalidAzureStorageLocation) 
-[InvalidNodeSizeForDataNode](#InvalidNodeSizeForDataNode) 
-[InvalidNodeSizeForHeadNode](#InvalidNodeSizeForHeadNode) 
-[InvalidRightsForDeploymentDeletion](#InvalidRightsForDeploymentDeletion)
-[InvalidStorageAccountBlobContainerName](#InvalidStorageAccountBlobContainerName)
-[InvalidStorageAccountConfigurationSecretKey](#InvalidStorageAccountConfigurationSecretKey)
-[InvalidVersionHeaderFormat](#InvalidVersionHeaderFormat) 
-[MoreThanOneHeadNode](#MoreThanOneHeadNode) 
-[OperationTimedOutRetryRequest](#OperationTimedOutRetryRequest) 
-[ParameterNullOrEmpty](#ParameterNullOrEmpty) 
-[PreClusterCreationValidationFailure](#PreClusterCreationValidationFailure) 
-[RegionCapabilityNotAvailable](#RegionCapabilityNotAvailable) 
-[StorageAccountNotColocated](#StorageAccountNotColocated) 
-[SubscriptionIdNotActive](#SubscriptionIdNotActive) 
-[SubscriptionIdNotFound](#SubscriptionIdNotFound) 
-[UnableToResolveDNS](#UnableToResolveDNS) 
-[UnableToVerifyLocationOfResource](#UnableToVerifyLocationOfResource) 
-[VersionCapabilityNotAvailable](#VersionCapabilityNotAvailable) 
-[VersionNotSupported](#VersionNotSupported) 
-[VersionNotSupportedInRegion](#VersionNotSupportedInRegion) 
-[WasbAccountConfigNotFound](#WasbAccountConfigNotFound)
+[AtleastOneSqlMetastoreMustBeProvided](#AtleastOneSqlMetastoreMustBeProvided) [AzureRegionNotSupported](#AzureRegionNotSupported) [ClusterContainerRecordNotFound](#ClusterContainerRecordNotFound) [ClusterDnsNameInvalidReservedWord](#ClusterDnsNameInvalidReservedWord) [ClusterNameUnavailable](#ClusterNameUnavailable) [ClusterUserNameInvalid](#ClusterUserNameInvalid) [ClusterUserNameInvalidReservedWord](#ClusterUserNameInvalidReservedWord) [ContainerNameMisMatchWithDnsName](#ContainerNameMisMatchWithDnsName) [DataNodeDefinitionNotFound](#DataNodeDefinitionNotFound) [DeploymentDeletionFailure](#DeploymentDeletionFailure) [DnsMappingNotFound](#DnsMappingNotFound) [DuplicateClusterContainerRequest](#DuplicateClusterContainerRequest) [DuplicateClusterInHostedService](#DuplicateClusterInHostedService) [FailureToUpdateDeploymentStatus](#FailureToUpdateDeploymentStatus) [HdiRestoreClusterAltered](#HdiRestoreClusterAltered) [HeadNodeConfigNotFound](#HeadNodeConfigNotFound) [HeadNodeConfigNotFound](#HeadNodeConfigNotFound) [HostedServiceCreationFailure](#HostedServiceCreationFailure) [HostedServiceHasProductionDeployment](#HostedServiceHasProductionDeployment) [HostedServiceNotFound](#HostedServiceNotFound) [HostedServiceWithNoDeployment](#HostedServiceWithNoDeployment) [InsufficientResourcesCores](#InsufficientResourcesCores) [InsufficientResourcesHostedServices](#InsufficientResourcesHostedServices) [InternalErrorRetryRequest](#InternalErrorRetryRequest) [InvalidAzureStorageLocation](#InvalidAzureStorageLocation) [InvalidNodeSizeForDataNode](#InvalidNodeSizeForDataNode) [InvalidNodeSizeForHeadNode](#InvalidNodeSizeForHeadNode) [InvalidRightsForDeploymentDeletion](#InvalidRightsForDeploymentDeletion) [InvalidStorageAccountBlobContainerName](#InvalidStorageAccountBlobContainerName) [InvalidStorageAccountConfigurationSecretKey](#InvalidStorageAccountConfigurationSecretKey) [InvalidVersionHeaderFormat](#InvalidVersionHeaderFormat) [MoreThanOneHeadNode](#MoreThanOneHeadNode) [OperationTimedOutRetryRequest](#OperationTimedOutRetryRequest) [ParameterNullOrEmpty](#ParameterNullOrEmpty) [PreClusterCreationValidationFailure](#PreClusterCreationValidationFailure) [RegionCapabilityNotAvailable](#RegionCapabilityNotAvailable) [StorageAccountNotColocated](#StorageAccountNotColocated) [SubscriptionIdNotActive](#SubscriptionIdNotActive) [SubscriptionIdNotFound](#SubscriptionIdNotFound) [UnableToResolveDNS](#UnableToResolveDNS) [UnableToVerifyLocationOfResource](#UnableToVerifyLocationOfResource) [VersionCapabilityNotAvailable](#VersionCapabilityNotAvailable) [VersionNotSupported](#VersionNotSupported) [VersionNotSupportedInRegion](#VersionNotSupportedInRegion) [WasbAccountConfigNotFound](#WasbAccountConfigNotFound)
 
 
 
@@ -275,5 +231,6 @@ Azure PowerShell 또는 Azure 포털에서 사용자에게 표시될 수 있는 
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

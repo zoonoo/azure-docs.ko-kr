@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="windows" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="06/03/2015" 
 	ms.author="glenga"/>
 
 
@@ -34,13 +34,13 @@
 
 이 자습서는 모바일 서비스 quickstart를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [모바일 서비스 시작하기] 또는 [데이터 시작하기]를 완료하여 프로젝트를 모바일 서비스에 연결해야 합니다. 모바일 서비스가 연결되지 않은 경우 푸시 알림 추가 마법사에서 대신 연결해줍니다.
 
-## <a id="register"></a> WNS로 앱 등록 및 모바일 서비스 구성
+##<a id="register"></a> WNS로 앱 등록 및 모바일 서비스 구성
 
 [AZURE.INCLUDE [mobile-services-notification-hubs-register-windows-store-app](../../includes/mobile-services-notification-hubs-register-windows-store-app.md)]
 
 이제 모바일 서비스와 앱이 둘 다 WNS와 알림 허브를 사용하도록 구성되었습니다. 다음에는 알림 등록을 위해 Windows 스토어 앱을 업데이트합니다.
 
-## <a id="update-app"></a> 알림 등록을 위해 앱 업데이트
+##<a id="update-app"></a> 알림 등록을 위해 앱 업데이트
 
 앱에서 푸시 알림을 받을 수 있으려면 알림 채널을 등록해야 합니다.
 
@@ -65,11 +65,11 @@
 
    	이제 앱에서 알림 메시지를 표시할 수 있습니다.
 
-## <a id="update-scripts"></a> 푸시 알림을 전송하도록 서버 스크립트 업데이트
+##<a id="update-scripts"></a> 푸시 알림을 전송하도록 서버 스크립트 업데이트
 
 [AZURE.INCLUDE [mobile-services-javascript-update-script-notification-hubs](../../includes/mobile-services-javascript-update-script-notification-hubs.md)]
 
-## <a id="test"></a> 앱에서 푸시 알림 테스트
+##<a id="test"></a> 앱에서 푸시 알림 테스트
 
 [AZURE.INCLUDE [mobile-services-windows-store-test-push](../../includes/mobile-services-windows-store-test-push.md)]
 
@@ -127,5 +127,6 @@
 [알림 허브 정의]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-windows-store-javascript-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-windows-store-javascript-send-localized-breaking-news.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

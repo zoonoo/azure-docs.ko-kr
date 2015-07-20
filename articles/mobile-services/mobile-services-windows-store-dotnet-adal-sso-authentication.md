@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-adal-sso](../../includes/mobile-services-selector-adal-sso.md)]
 
-## 개요
+##개요
 
 이 자습서에서는 Azure Active Directory에서 [클라이언트 지향 로그인 작업](http://msdn.microsoft.com/library/azure/jj710106.aspx)을 지원하기 위해 Active Directory 인증 라이브러리를 사용하여 퀵 스타트 프로젝트에 인증을 추가합니다. Azure Active Directory에서 [서비스 지향 로그인 작업](http://msdn.microsoft.com/library/azure/dn283952.aspx)을 지원하려면 [모바일 서비스 앱에 인증 추가](../mobile-services-dotnet-backend-windows-store-dotnet-get-started-users.md) 자습서를 시작하세요.
 
@@ -30,7 +30,7 @@
 >[AZURE.NOTE]이 자습서는 모바일 서비스에서 [클라이언트 지향 로그인 작업](http://msdn.microsoft.com/library/azure/jj710106.aspx)을 사용하여 Windows 스토어 앱에 대해 Single Sign-On Azure Active Directory 인증을 수행할 수 있도록 하는 방법의 이해를 돕기 위한 것입니다. 모바일 서비스를 처음 사용하는 경우 [모바일 서비스 시작] 자습서를 완료하는 것이 좋습니다.
 
 
-## 필수 조건
+##필수 조건
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
@@ -41,12 +41,12 @@
 
 [AZURE.INCLUDE [mobile-services-dotnet-adal-register-service](../../includes/mobile-services-dotnet-adal-register-service.md)]
 
-## Azure Active Directory에 앱 등록
+##Azure Active Directory에 앱 등록
 
 Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연결하고 앱용 패키지 SID(보안 식별자)를 받아야 합니다. 패키지 SID가 Azure Active Directory의 네이티브 클라이언트 설정에 등록됩니다.
 
 
-### 새 스토어 앱 이름과 앱 연결
+###새 스토어 앱 이름과 앱 연결
 
 1. Visual Studio에서 클라이언트 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고 **스토어** 및 **응용 프로그램을 스토어에 연결**을 클릭합니다.
 
@@ -63,7 +63,7 @@ Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연
 5. **연결**을 클릭하여 앱과 스토어 이름을 연결합니다.
 
 
-### 앱용 패키지 SID를 검색합니다.
+###앱용 패키지 SID를 검색합니다.
 
 이제 네이티브 앱 설정으로 구성할 패키지 SID를 검색해야 합니다.
 
@@ -83,7 +83,7 @@ Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연
 
     ![][6]
 
-### 네이티브 앱 등록 만들기
+###네이티브 앱 등록 만들기
 
 1. **관리 포털**에서 [Active Directory]로 이동한 다음 디렉터리를 클릭합니다.
 
@@ -115,11 +115,11 @@ Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연
 
 
 
-## 인증을 요구하도록 모바일 서비스 구성
+##인증을 요구하도록 모바일 서비스 구성
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
-## 클라이언트 앱에 인증 코드 추가
+##클라이언트 앱에 인증 코드 추가
 
 1. Visual Studio에서 Windows 스토어 클라이언트 앱 프로젝트를 엽니다.
 
@@ -164,7 +164,7 @@ Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연
 
 6. 위의 `AuthenticateAsync` 메서드에 대한 코드에서 **INSERT-AUTHORITY-HERE**를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. https://login.windows.net/tenant-name.onmicrosoft.com 형식이어야 합니다. 이 값은 [Azure 관리 포털]에서 Azure Active Directory의 도메인 탭에서 복사할 수 있습니다.
 
-7. 위의 `AuthenticateAsync` 메서드에 대한 코드에서 **INSERT-RESOURCE-URI-HERE**를 모바일 서비스의 **앱 ID URI**로 바꿉니다. [Azure Active Directory에 등록하는 방법] 항목을 따르면 앱 ID URI가 https://todolist.azure-mobile.net/login/aad 와(과) 유사합니다.
+7. 위의 `AuthenticateAsync` 메서드에 대한 코드에서 **INSERT-RESOURCE-URI-HERE**를 모바일 서비스의 **앱 ID URI**로 바꿉니다. [Azure Active Directory에 등록하는 방법] 항목을 따르면 앱 ID URI가 https://todolist.azure-mobile.net/login/aad와(과) 유사합니다.
 
 8. 위의 `AuthenticateAsync` 메서드에 대한 코드에서 **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 응용 프로그램에서 복사한 클라이언트 ID로 바꿉니다.
 
@@ -181,7 +181,7 @@ Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연
         }
 
 
-## 인증을 사용하여 클라이언트 테스트
+##인증을 사용하여 클라이언트 테스트
 
 1. Visual Studio에서 클라이언트 앱을 실행합니다.
 2. Azure Active Directory에 대한 로그인 메시지가 표시됩니다.  
@@ -216,4 +216,5 @@ Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연
 [데이터 시작]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [모바일 서비스 시작]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Windows 개발자 센터 대시보드]: http://go.microsoft.com/fwlink/p/?LinkID=266734
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

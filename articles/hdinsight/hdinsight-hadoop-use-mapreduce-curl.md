@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/03/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
-# Curl을 사용하여 HDInsight에서 Hadoop과 MapReduce 작업 실행
+#Curl을 사용하여 HDInsight에서 Hadoop과 MapReduce 작업 실행
 
 [AZURE.INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
 
@@ -26,23 +26,23 @@ Curl은 MapReduce 작업 실행을 원시 HTTP 요청을 사용하여 HDInsight�
 
 > [AZURE.NOTE]Linux 기반 Hadoop 서버를 익숙하게 사용하지만 HDInsight는 처음인 경우 [HDInsight의 Linux 기반 Hadoop에 대해 알아야 할 정보](hdinsight-hadoop-linux-information.md)를 참조하세요.
 
-## <a id="prereq"></a>필수 조건
+##<a id="prereq"></a>필수 조건
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
 * HDInsight 클러스터에서 Hadoop(Linux 또는 Windows 기반)
 
-* <a href="http://curl.haxx.se/" target="_blank">Curl</a>
+* [Curl](http://curl.haxx.se/)
 
-* <a href="http://stedolan.github.io/jq/" target="_blank">jq</a>
+* [jq](http://stedolan.github.io/jq/)
 
-## <a id="curl"></a>Curl을 사용하여 MapReduce 작업 실행
+##<a id="curl"></a>Curl을 사용하여 MapReduce 작업 실행
 
 > [AZURE.NOTE]Curl 또는 기타 모든 REST 통신을 WebHCat 함께 사용하면 HDInsight 클러스터 관리자의 사용자 이름 및 암호를 제공하여 요청을 인증해야 합니다. 또한 요청을 보낼 서버에 사용되는 URI의 일부로 클러스터 이름을 사용해야 합니다.
 >
 > 이 섹션의 명령에서 **USERNAME**은 클러스터에 대해 인증할 사용자로 바꾸고 **PASSWORD**는 사용자 계정의 암호로 바꿉니다. **CLUSTERNAME**을 클러스터의 이름으로 바꿉니다.
 >
-> REST API는 <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">기본 액세스 인증</a>을 사용하여 보안이 유지됩니다. 자격 증명이 안전하게 서버에 전송되려면 항상 HTTPS를 사용하여 요청을 보냅니다.
+> REST API는 [기본 액세스 인증](http://en.wikipedia.org/wiki/Basic_access_authentication)을 사용하여 보안이 유지됩니다. 자격 증명이 안전하게 서버에 전송되려면 항상 HTTPS를 사용하여 요청을 보냅니다.
 
 1. 명령줄에서 다음 명령을 사용하여 HDInsight 클러스터에 연결할 수 있는지 확인합니다.
 
@@ -96,13 +96,13 @@ Curl은 MapReduce 작업 실행을 원시 HTTP 요청을 사용하여 HDInsight�
 
 > [AZURE.NOTE]`-a` 및 `-k` 매개 변수를 사용하여 Blob을 포함하는 저장소 계정 이름을 지정하거나 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY** 환경 변수를 설정해야 합니다. 자세한 내용은 [HDInsight에 데이터를 업로드하는 방법](hdinsight-upload-data.md)을 참조하세요.
 
-## <a id="summary"></a>요약
+##<a id="summary"></a>요약
 
 이 문서에서 볼 수 있듯이, 실행, 모니터링 및 HDInsight 클러스터의 Hive 작업의 결과 확인하려면 원시 HTTP 요청을 사용할 수 있습니다.
 
 이 문서에 사용된 REST 인터페이스에 대한 자세한 내용은 [WebHCat 참조](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference)를 참조하세요.
 
-## <a id="nextsteps"></a>다음 단계
+##<a id="nextsteps"></a>다음 단계
 
 HDInsight의 MapReduce 작업에 대한 일반적인 정보:
 
@@ -114,4 +114,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 * [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

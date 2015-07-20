@@ -13,30 +13,24 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="05/20/2015" 
 	ms.author="glenga"/>
-
-<div class="dev-center-tutorial-subselector">
-	<a href="/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET 백 엔드" class="current">.NET 백 엔드</a> | <a href="/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript 백 엔드">JavaScript 백 엔드</a>
-</div>
 
 # 소스 제어에 프로젝트 코드 저장
 
+> [AZURE.SELECTOR-LIST (Platform | Backend)]
+- [(Any | .NET)](mobile-services-dotnet-backend-store-code-source-control.md)
+- [(Any | Javascript)](mobile-services-store-scripts-source-control.md)
+
 이 항목에서는 Azure 모바일 서비스에서 제공하는 소스 제어를 사용하여 .NET 백 엔드 서비스 프로젝트를 저장하는 방법을 보여 줍니다. 프로젝트를 게시하려면 로컬 Git 리포지토리에서 프로덕션 모바일 서비스로 업로드하면 됩니다.
-
-이 자습서에서는 다음 단계를 안내합니다.
-
-1. [모바일 서비스에서 원본 제어를 사용하도록 설정]합니다.
-2. [Git을 설치하고 로컬 리포지토리를 만듭니다].
-3. [Git를 사용하여 프로젝트 게시]
 
 이 자습서를 완료하려면 기존에 [모바일 서비스 시작] 또는 [기존 앱에 모바일 서비스 추가] 자습서를 완료하여 모바일 서비스를 만들었어야 합니다.
 
-## <a name="enable-source-control"></a>모바일 서비스에서 소스 제어를 사용하도록 설정
+##<a name="enable-source-control"></a>모바일 서비스에서 소스 제어를 사용하도록 설정
 
 [AZURE.INCLUDE [mobile-services-enable-source-control](../../includes/mobile-services-enable-source-control.md)]
 
-## <a name="clone-repo"></a>Git을 설치하고 로컬 리포지토리 만들기
+##<a name="clone-repo"></a>Git을 설치하고 로컬 리포지토리 만들기
 
 1. 로컬 컴퓨터에 Git을 설치합니다. 
 
@@ -63,7 +57,7 @@
 
 로컬 리포지토리를 만들었으므로 이제 이 리포지토리에서 .NET 백 엔드 서비스 프로젝트를 게시할 수 있습니다.
 
-## <a name="deploy-scripts"></a>Git를 사용하여 프로젝트 게시
+##<a name="deploy-scripts"></a>Git를 사용하여 프로젝트 게시
 
 1. Visual Studio 2013dptj .NET 백 엔드 모바일 서비스 프로젝트를 새로 만들거나 기존 프로젝트를 새 로컬 리포지토리로 이동합니다.  
 
@@ -93,20 +87,7 @@
 
 이제 모바일 서비스 프로젝트가 소스 제어에서 유지 관리되며 로컬 리포지토리에서 업데이트를 푸시하기만 하면 서비스 업데이트를 게시할 수 있습니다. SQL 데이터베이스를 사용하는 .NET 백 엔드 모바일 서비스에서 데이터 모델을 변경하는 방법에 대한 자세한 내용은 [.NET 백 엔드 모바일 서비스에 대한 데이터 모델 변경 방법]을 참조하세요.
 
-## <a name="next-steps"> </a>다음 단계
-
-이 자습서를 완료했으므로 이제 원본 제어에 스크립트를 지정하는 방법을 알게 되었습니다. 이제 모바일 서비스에 대해 자세히 알아보세요.
-
-+ [.NET 백 엔드 모바일 서비스에 대한 데이터 모델 변경 방법] 
-	<br/> Entity Framework Code First 마이그레이션을 사용하여 기존 데이터의 손실 없이 기존 Azure SQL 데이터베이스에 대한 데이터 모델을 변경하는 방법을 보여줍니다. 	
-
-+ [클라이언트에서 사용자 지정 API 호출] 
-	<br/> 클라이언트에서 호출할 수 있는 사용자 지정 API를 만드는 방법을 보여줍니다.
-
 <!-- Anchors. -->
-[모바일 서비스에서 원본 제어를 사용하도록 설정]: #enable-source-control
-[Git을 설치하고 로컬 리포지토리를 만듭니다]: #clone-repo
-[Git를 사용하여 프로젝트 게시]: #deploy-scripts
 
 <!-- Images. -->
 
@@ -117,7 +98,8 @@
 [모바일 서비스 시작]: mobile-services-dotnet-backend-ios-get-started.md
 [기존 앱에 모바일 서비스 추가]: mobile-services-dotnet-backend-ios-get-started-data.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[클라이언트에서 사용자 지정 API 호출]: mobile-services-dotnet-backend-ios-call-custom-api.md
+[Call a custom API from the client]: mobile-services-dotnet-backend-ios-call-custom-api.md
 [.NET 백 엔드 모바일 서비스에 대한 데이터 모델 변경 방법]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

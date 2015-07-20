@@ -255,4 +255,4 @@ Mahout 작업은 작업을 처리하는 동안 생성된 임시 데이터를 제
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

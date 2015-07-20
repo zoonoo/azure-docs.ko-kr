@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="03/20/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 #Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용(미리 보기)
@@ -28,7 +28,7 @@ Linux 기반 Azure HDInsight 클러스터는 암호 또는 SSH 키를 통해 SSH
 
 ##필수 조건
 
-* Windows 기반 클라이언트용 **PuTTY** 및 **PuTTYGen**입니다. 이러한 유틸리티는 <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>에서 다운로드할 수 있습니다.
+* Windows 기반 클라이언트용 **PuTTY** 및 **PuTTYGen**입니다. 이러한 유틸리티는 [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 다운로드할 수 있습니다.
 
 * HTML5를 지원하는 최신 웹 브라우저
 
@@ -78,7 +78,7 @@ Linux 기반 HDInsight 클러스터를 만들 때 이전에 생성한 공개 키
 
 * **Mac, Linux 및 Windows용 Azure CLI** - 명령줄 명령을 사용하여 클러스터를 만듭니다.
 
-이러한 각 메서드에는 공개 키가 필요합니다. Linux 기반 HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 <a href="./hdinsight-hadoop-provision-linux-clusters/" target="_blank">Linux 기반 HDInsight 클러스터 프로비전</a>을 참조하세요.
+이러한 각 메서드에는 공개 키가 필요합니다. Linux 기반 HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [Linux 기반 HDInsight 클러스터 프로비전](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
 
 ###Azure 포털
 
@@ -92,7 +92,7 @@ Linux 기반 HDInsight 클러스터를 만들려면 포털을 사용하는 경�
 
 [Mac, Linux 및 Windows용 Azure CLI](../xplat-cli.md)를 사용하여 `azure hdinsight cluster create` 명령을 통해 새 클러스터를 만들 수 있습니다.
 
-이 명령은 사용에 대한 자세한 내용은 <a href="../hdinsight-hadoop-provision-linux-clusters/" target="_blank">사용자 지정 옵션을 사용하여 HDInsight에서 Hadoop Linux 클러스터 프로비전</a>을 참조하세요.
+이 명령 사용에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight에서 Hadoop Linux 클러스터 프로비전](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
 
 ##Linux 기반 HDInsight 클러스터에 연결
 
@@ -124,7 +124,7 @@ Linux 기반 HDInsight 클러스터를 만들려면 포털을 사용하는 경�
 
 사용자 계정을 만들 때 SSH 키를 제공한 경우 작업자 노드에 연결하려면 다음 단계를 수행하여 클러스터에 인증할 때 개인 키를 사용해야 합니다.
 
-1. <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>에서 Pageant를 설치합니다. 이 유틸리티는 PuTTY의 SSH 키를 캐시하는 데 사용됩니다.
+1. [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)에서 Pageant를 설치합니다. 이 유틸리티는 PuTTY의 SSH 키를 캐시하는 데 사용됩니다.
 
 2. Pageant를 실행합니다. 상태 트레이의 아이콘이 최소화됩니다. 아이콘을 마우스 오른쪽 단추로 클릭하고 **키 추가**를 선택합니다.
 
@@ -224,11 +224,11 @@ SSH 터널을 만들고 브라우저를 구성하여 클러스터에 연결하�
 
 	> [AZURE.NOTE]**Remote DNS**를 선택하면 HDInsight 클러스터를 통해 DNS 요청이 확인됩니다. 선택하지 않은 경우 DNS가 로컬로 확인됩니다.
 
-	Firefox에서 프록시 설정을 사용하거나 사용하지 않도록 설정한 상태에서 <a href="http://www.whatismyip.com/" target="_blank">http://www.whatismyip.com/</a>과 같은 사이트를 방문하여 트래픽이 터널을 통해 라우팅되는지 확인할 수 있습니다. 활성화되어 있는 동안 IP 주소는 Microsoft Azure 데이터 센터에 있는 컴퓨터의 주소입니다.
+	Firefox에서 프록시 설정을 사용하거나 사용하지 않도록 설정한 상태에서 [http://www.whatismyip.com/](http://www.whatismyip.com/)과 같은 사이트를 방문하여 트래픽이 터널을 통해 라우팅되는지 확인할 수 있습니다. 활성화되어 있는 동안 IP 주소는 Microsoft Azure 데이터 센터에 있는 컴퓨터의 주소입니다.
 
 ###브라우저 확장
 
-작동하는 터널을 사용하여 브라우저를 구성하는 동안 보통 터널을 통해 모든 트래픽을 라우팅하지 않으려고 할 수 있습니다. <a href="http://getfoxyproxy.org/" target="_blank">FoxyProxy</a> 같은 브라우저 확장 프로그램이 URL 요청에 대해 일치하는 패턴을 지원하므로(FoxyProxy Standard 또는 Plus만 해당) 특정 URL에 대한 요청만 터널을 통해 전송됩니다.
+작동하는 터널을 사용하여 브라우저를 구성하는 동안 보통 터널을 통해 모든 트래픽을 라우팅하지 않으려고 할 수 있습니다. [FoxyProxy](http://getfoxyproxy.org/) 같은 브라우저 확장 프로그램이 URL 요청에 대해 일치하는 패턴을 지원하므로(FoxyProxy Standard 또는 Plus만 해당) 특정 URL에 대한 요청만 터널을 통해 전송됩니다.
 
 FoxyProxy 표준을 설치한 경우 터널을 통해 HDInsight에 대한 트래픽을 전달만 하도록 구성하려면 다음 단계를 따르세요.
 
@@ -277,6 +277,5 @@ FoxyProxy 표준을 설치한 경우 터널을 통해 HDInsight에 대한 트래
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

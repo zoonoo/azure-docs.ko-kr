@@ -32,7 +32,6 @@ Azure에서 서비스 버스 토픽 및 구독 사용을 시작하려면 먼저 
 
 	![][6]
 
-
 ## 네임스페이스에 대한 기본 관리 자격 증명 얻기
 
 새 네임스페이스에 대해 토픽 또는 구독 만들기 등의 관리 작업을 수행하려면 네임스페이스에 대한 관리 자격 증명을 받아야 합니다. 이 자격 증명은 Azure 관리 포털이나 Visual Studio 서버 탐색기에서 가져올 수 있습니다.
@@ -49,7 +48,7 @@ Azure에서 서비스 버스 토픽 및 구독 사용을 시작하려면 먼저 
 
 ### 서버 탐색기에서 관리 자격 증명을 가져오려면
 
-관리 포털 대신 Visual Studio를 사용하여 연결 정보를 가져오려면 [여기](http://http://msdn.microsoft.com/library/windowsazure/ff687127.aspx) 나오는 **Visual Studio에서 Azure에 연결하려면** 섹션에서 설명하는 절차를 따르세요. Azure에 로그인하면 서버 탐색기에서 **Azure 트리** 아래의 **서비스 버스** 노드에 이미 만들어진 네임스페이스가 자동으로 채워집니다. 네임스페이스를 마우스 오른쪽 단추로 클릭한 후 **속성**을 클릭하여 연결 문자열 및 Visual Studio **속성** 창에 이 네임스페이스와 관련하여 표시되는 다른 메타데이터를 표시합니다.
+관리 포털 대신 Visual Studio를 사용하여 연결 정보를 가져오려면 [여기](http://msdn.microsoft.com/library/azure/ff687127.aspx) 나오는 **Visual Studio에서 Azure에 연결하려면** 섹션에서 설명하는 절차를 따르세요. Azure에 로그인하면 서버 탐색기에서 **Azure 트리** 아래의 **서비스 버스** 노드에 이미 만들어진 네임스페이스가 자동으로 채워집니다. 네임스페이스를 마우스 오른쪽 단추로 클릭한 후 **속성**을 클릭하여 연결 문자열 및 Visual Studio **속성** 창에 이 네임스페이스와 관련하여 표시되는 다른 메타데이터를 표시합니다.
 
 **SharedAccessKey** 값을 적어 두거나 클립보드에 복사해 둡니다.
 
@@ -65,4 +64,4 @@ Azure에서 서비스 버스 토픽 및 구독 사용을 시작하려면 먼저 
   [6]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
   [34]: ./media/howto-service-bus-topics/VSProperties.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

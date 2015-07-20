@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
-# Windows 유니버설에서 Engagement API를 사용하는 방법
+#Windows 유니버설에서 Engagement API를 사용하는 방법
 
 이 문서는 [Windows 유니버설에서 Engagement를 통합하는 방법](../mobile-engagement-windows-store-integrate-engagement/) 문서를 보완하는 추가 문서로, Engagement API를 사용하여 응용 프로그램 통계를 보고하는 방법을 자세히 설명합니다.
 
@@ -28,7 +28,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 해당 
 
 에이전트 모듈이 초기화되지 않은 경우에도 각 API 호출은 연기되며 에이전트를 사용할 수 있게 되면 다시 실행됩니다.
 
-## Engagement 개념
+##Engagement 개념
 
 다음 요소는 Windows 유니버설 플랫폼과 관련된 일반적인 [Mobile Engagement 개념](../mobile-engagement-concepts/)을 구체화합니다.
 
@@ -38,7 +38,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 해당 
 
 하지만 Engagement API를 사용하여 *활동*을 수동으로 제어할 수도 있습니다. 이렇게 하면 지정된 페이지를 여러 하위 부분으로 분할하여 해당 페이지의 사용에 대해 더 많은 세부 정보(예: 이 페이지 내에서 대화 상자를 사용하는 빈도와 기간)를 확인할 수 있습니다.
 
-## 활동 보고
+##활동 보고
 
 ### 사용자가 새 활동을 시작함
 
@@ -66,7 +66,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 해당 
 
 			EngagementAgent.Instance.EndActivity();
 
-## 작업 보고
+##작업 보고
 
 ### 작업 시작
 
@@ -102,7 +102,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 해당 
 			
 			EngagementAgent.Instance.EndJob("uploadData");
 
-## 이벤트 보고
+##이벤트 보고
 
 이벤트에는 다음의 세 가지 유형이 있습니다.
 
@@ -158,7 +158,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 해당 
 
 			EngagementAgent.Instance.SendJobEvent("eventName", "jobName", extras);
 
-## 오류 보고
+##오류 보고
 
 오류에는 다음의 세 가지 유형이 있습니다.
 
@@ -202,7 +202,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 해당 
 
 			EngagementAgent.Instance.SendJobError("errorName", "jobname", extra);
 
-## 작동 중단 보고
+##작동 중단 보고
 
 에이전트는 작동 중단을 처리하는 두 가지 방법을 제공합니다.
 
@@ -250,13 +250,13 @@ App.xaml.cs의 "Public App(){}"에 다음 코드를 추가합니다.
 
 			Application.Current.UnhandledException += Current_UnhandledException;
 
-## 장치 ID
+##장치 ID
 
 			String EngagementAgent.Instance.GetDeviceId()
 
 이 메서드를 호출하여 Engagement 장치 ID를 가져올 수 있습니다.
 
-## extras 매개 변수
+##extras 매개 변수
 
 이벤트, 오류, 활동 또는 작업에 임의 데이터를 연결할 수 있습니다. 사전을 사용하여 이러한 데이터를 구조화할 수 있습니다. 모든 형식의 키와 값을 사용할 수 있습니다.
 
@@ -321,7 +321,7 @@ extras 데이터는 serialize되므로 원하는 형식을 extras에 삽입하�
 
 extras는 호출당 **1024**자로 제한됩니다.
 
-## 응용 프로그램 정보 보고
+##응용 프로그램 정보 보고
 
 ### 참조
 
@@ -358,5 +358,6 @@ SendAppInfo() 함수를 사용하면 추적 정보 또는 기타 응용 프로�
 위의 예제에서 서버로 전송된 JSON의 길이는 44자입니다.
 
 			{"birthdate":"1983-12-07","gender":"female"}
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

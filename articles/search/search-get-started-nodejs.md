@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="NodeJS에서 Azure 검색 시작" 
-	description="NodeJS를 프로그래밍 언어로 사용하여 사용자 지정 Azure 검색 응용 프로그램을 빌드하는 과정을 안내합니다." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle="NodeJS에서 Azure 검색 시작"
+	description="NodeJS를 프로그래밍 언어로 사용하여 사용자 지정 Azure 검색 응용 프로그램을 빌드하는 과정을 안내합니다."
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="na" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="03/25/2015" 
+<tags
+	ms.service="search"
+	ms.devlang="na"
+	ms.workload="search"
+	ms.topic="hero-article" 
+	ms.tgt_pltfrm="na"
+	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
 #NodeJS에서 Azure 검색 시작#
@@ -39,24 +39,24 @@
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 2. 표시줄에서 **새로 만들기** | **데이터 + 저장소** | **검색**을 클릭합니다.
- 
+
      ![][1]
 
 3. 서비스 이름, 가격 책정 계층, 리소스 그룹, 구독 및 위치를 구성합니다. 이러한 설정은 필수 사항이며, 서비스가 프로비전된 후에는 변경할 수 없습니다.
 
      ![][2]
 
-	- **서비스 이름**은 고유하고 소문자여야 하며, 공백 없이 15자 미만이어야 합니다. 이 이름은 Azure 검색 서비스 끝점의 일부가 됩니다. 이름 지정 규칙에 대한 자세한 내용은 [이름 지정 규칙](https://msdn.microsoft.com/library/azure/dn857353.aspx)을 참조하세요. 
-	
+	- **서비스 이름**은 고유하고 소문자여야 하며, 공백 없이 15자 미만이어야 합니다. 이 이름은 Azure 검색 서비스 끝점의 일부가 됩니다. 이름 지정 규칙에 대한 자세한 내용은 [이름 지정 규칙](https://msdn.microsoft.com/library/azure/dn857353.aspx)을 참조하세요.
+
 	- **가격 책정 계층**은 용량 및 대금 청구를 결정합니다. 두 계층 모두 동일한 기능을 제공하지만 리소스 수준이 다릅니다.
-	
+
 		- **무료**는 다른 구독자와 공유되는 클러스터에서 실행되며, 자습서를 체험하고 개념 증명 코드를 작성하기에 충분한 용량을 제공하지만 프로덕션 응용 프로그램에 사용할 수 없습니다. 일반적으로 무료 서비스를 배포하는 데 몇 분 정도 걸립니다.
 		- **표준**은 전용 리소스에서 실행되고 확장성이 높습니다. 처음에는 하나의 복제본과 하나의 파티션으로 프로비전되지만 서비스를 만든 후 용량을 조정할 수 있습니다. 표준 서비스를 배포하는 데 더 오래 걸립니다(일반적으로 약 15분).
-	
+
 	- **리소스 그룹**은 일반적인 목적에 사용되는 서비스 및 리소스의 컨테이너입니다. 예를 들어 Azure 검색, Azure 웹 사이트, Azure BLOB 저장소를 기반으로 하여 사용자 지정 검색 응용 프로그램을 작성하는 경우 포털 관리 페이지에서 해당 서비스를 결합하는 리소스 그룹을 만들 수 있습니다.
-	
+
 	- **구독**에서는 둘 이상의 구독이 있는 경우 여러 구독 중에서 선택할 수 있습니다.
-	
+
 	- **위치**는 데이터 센터 지역입니다. 현재 모든 리소스는 동일한 데이터 센터에서 실행되어야 합니다. 여러 데이터 센터에 리소스를 분산하는 것은 지원되지 않습니다.
 
 4. **만들기**를 클릭하여 서비스를 프로비전합니다.
@@ -68,7 +68,7 @@
 
 서비스를 만든 후 포털로 돌아가 URL 또는 `api-key`를 가져올 수 있습니다. 검색 서비스에 연결하려면 URL과 호출을 인증할 `api-key`가 둘 다 있어야 합니다.
 
-1. 표시줄에서 **홈**을 클릭한 다음 검색 서비스를 클릭하여 서비스 대시보드를 엽니다. 
+1. 표시줄에서 **홈**을 클릭한 다음 검색 서비스를 클릭하여 서비스 대시보드를 엽니다.
 
 2. 서비스 대시보드에 기본 정보에 대한 타일 및 관리 키에 액세스할 수 있는 키 아이콘이 표시됩니다.
 
@@ -112,7 +112,7 @@ PowerShell 창에서 다음 명령을 실행합니다.
 
 ##인덱스 빌드 및 응용 프로그램 실행
 
-1. `npm run indexDocuments`를 입력합니다. 
+1. `npm run indexDocuments`를 입력합니다.
 2. `npm run build`를 입력합니다.
 3. `npm run start_server`를 입력합니다.
 4. 브라우저에서 `http://localhost:8080/index.html`로 이동합니다.
@@ -146,4 +146,6 @@ Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 �
 [3]: ./media/search-get-started-nodejs/create-search-portal-3.PNG
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
-<!--HONumber=54--> 
+ 
+
+<!---HONumber=July15_HO2-->

@@ -14,11 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="05/20/2015" 
+	ms.date="06/25/2015" 
 	ms.author="lbosq"/>
 
 
-# Windows에서 Java JDBC를 사용하여 SQL 데이터베이스에 연결
+# Windows에서 Java JDBC를 사용하여 SQL 데이터베이스에 연결합니다.
+
+
+[AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
 이 항목에서는 Azure SQL 데이터베이스에 연결하는 데 사용할 수 있는 Java 코드 샘플을 제시합니다. Java 샘플을 실행하려면 Java 개발 키트(JDK) 버전 1.8이 필요합니다. 이 샘플에서는 JDBC 드라이버를 사용하여 Azure SQL 데이터베이스에 연결합니다.
@@ -220,4 +223,6 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 			+ resultSet.getString(3));
 	}
 
-<!---HONumber=58--> 
+ 
+
+<!---HONumber=July15_HO2-->

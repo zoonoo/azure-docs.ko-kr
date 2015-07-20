@@ -1,11 +1,11 @@
 <properties 
    pageTitle="NSG(네트워크 보안 그룹)란?"
    description="NSG(네트워크 보안 그룹)에 대해 알아봅니다."
-   services="traffic-manager"
+   services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
    manager="carolz"
-   editor="tysonn"/>
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
    ms.devlang="na"
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="06/08/2015"
-   ms.author="telmos"/>
+   ms.author="telmos" />
 
 # NSG(네트워크 보안 그룹)란?
 
@@ -118,7 +118,7 @@ VM에 NSG 연결 - NSG가 VM에 직접 연결된 경우 NSG의 네트워크 액�
 
 서브넷 및 VM에 NSG 연결 - 하나의 NSG를 VM에 연결하고 다른 NSG를 VM이 있는 서브넷에 연결할 수 있습니다. 이러한 방법을 사용할 수 있으며, 이 경우 VM은 두 계층의 보호를 받을 수 있습니다. 아래 다이어그램에서 나와 있는 대로 인바운드 트래픽의 경우 패킷은 서브넷에서 지정한 액세스 규칙과 VM의 규칙을 차례로 통과하며, 아웃바운드의 경우에는 패킷이 서브넷에서 지정한 규칙을 통과하기 전에 먼저 VM에서 지정한 규칙을 통과합니다.
 
-![NSG ACLs](./media/virtual-networks-nsg/figure1.png)
+![NSG ACL](./media/virtual-networks-nsg/figure1.png)
 
 NSG가 VM 또는 서브넷과 연결된 경우 네트워크 액세스 제어 규칙은 매우 명시적이 됩니다. 플랫폼은 특정 포트에 대한 트래픽을 허용하는 어떠한 암시적 규칙도 삽입하지 않습니다. 이 경우에 VM의 끝점을 만들면 인터넷에서의 트래픽을 허용하는 규칙도 만들어야 합니다. 이렇게 하지 않으면 외부에서 VIP:<Port>에 액세스할 수 없습니다.
 
@@ -127,6 +127,27 @@ NSG가 VM 또는 서브넷과 연결된 경우 네트워크 액세스 제어 규
 | 이름 | 우선 순위 | 원본 IP | 원본 포트 | 대상 IP | 대상 포트 | 프로토콜 | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
 | 웹 | 100 | 인터넷 | * | * | 80 | TCP | 허용 |
+
+## 디자인 고려 사항
+
+NSG를 디자인하려면 VM이 어떻게 인프라 서비스와 통신하는지, Azure에서 호스트하는 PaaS 서비스가 어떻게 호스트되는지 이해해야 합니다. SQL 데이터베이스 및 저장소와 같은 대부분의 Azure PaaS 서비스는 공용 연결 인터넷 주소를 통해서만 액세스할 수 있습니다. 부하 분산 프로브 또한 마찬가지입니다.
+
+Azure의 일반적인 시나리오는 이러한 개체가 인터넷 엑세스에 필요한지 여부에 따라 서브넷에 있는 VM 및 PaaS 역할을 분리하는 것입니다. 이같은 시나리오에서는 SQL 데이터베이스 및 저장소처럼 Azure PaaS 서비스에 엑세스해야 하는 VM 또는 역할 인스턴스와 서브넷이 연결될 수도 있습니다.
+
+이 시나리오에서 다음 NSG 규칙을 가정해 보겠습니다.
+
+| 이름 | 우선 순위 | 원본 IP | 원본 포트 | 대상 IP | 대상 포트 | 프로토콜 | Access |
+|------|----------|-----------|-------------|----------------|------------------|----------|--------|
+|인터넷 허용 안 함|100| VIRTUAL_NETWORK|& \#42;|인터넷|& \#42;|TCP|거부| 
+
+규칙이 가상 네트워크에서의 인터넷 엑세스를 전부 허용하지 않으므로, SQL 데이터베이스처럼 공용 인터넷 끝점이 필요한 Azure PaaS 서비스는 VM이 엑세스할 수 없습니다.
+
+거부 규칙 대신, 아래와 같이 인터넷에서의 가상 네트워크 액세스는 거부하지만 가상 네트워크에서의 인터넷 액세스는 허용하는 규칙을 사용하는 것이 좋습니다.
+
+| 이름 | 우선 순위 | 원본 IP | 원본 포트 | 대상 IP | 대상 포트 | 프로토콜 | Access |
+|------|----------|-----------|-------------|----------------|------------------|----------|--------|
+|인터넷으로의 엑세스|100| VIRTUAL_NETWORK|& \#42;|인터넷|& \#42;|TCP|허용|
+|인터넷에서의 엑세스|110| 인터넷|& \#42;|VIRTUAL_NETWORK|& \#42;|TCP|거부| 
 
 
 ## 계획 - 네트워크 보안 그룹 워크플로
@@ -187,6 +208,11 @@ NSG가 VM 또는 서브넷과 연결된 경우 네트워크 액세스 제어 규
 	| Set-AzureNetworkSecurityGroupConfig -NetworkSecurityGroupName "MyVNetSG" `
 	| Update-AzureVM
 
+**VM에 연결된 NSG 보기**
+
+	Get-AzureVM -ServiceName "MyWebsite" -Name "Instance1" `
+	| Get-AzureNetworkSecurityGroupAssociation
+
 **VM에서 NSG 제거**
 
 	Get-AzureVM -ServiceName "MyWebsite" -Name "Instance1" `
@@ -198,6 +224,11 @@ NSG가 VM 또는 서브넷과 연결된 경우 네트워크 액세스 제어 규
 	Get-AzureNetworkSecurityGroup -Name "MyVNetSG" `
 	| Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName 'VNetUSWest' `
 		-SubnetName 'FrontEndSubnet'
+
+**서브넷에 연결된 NSG 보기**
+
+	Get-AzureNetworkSecurityGroupForSubnet -SubnetName 'FrontEndSubnet' `
+		-VirtualNetworkName 'VNetUSWest' 
 
 **서브넷에서 NSG 제거**
 
@@ -213,5 +244,8 @@ NSG가 VM 또는 서브넷과 연결된 경우 네트워크 액세스 제어 규
 
 	Get-AzureNetworkSecurityGroup -Name "MyVNetSG" -Detailed
  
+**NSG에 관련된 모든 Azure PowerShell cmdlet 보기**
 
-<!---HONumber=62-->
+	Get-Command *azurenetworksecuritygroup*
+
+<!---HONumber=July15_HO2-->

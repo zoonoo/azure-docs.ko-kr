@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-adal-sso](../../includes/mobile-services-selector-adal-sso.md)]
 
-## 개요
+##개요
 
 이 자습서에서는 Active Directory 인증 라이브러리를 사용하여 빠른 시작 프로젝트에 인증을 추가합니다.
 
@@ -30,7 +30,7 @@
 >[AZURE.NOTE]이 자습서는 모바일 서비스를 통해 iOS 앱의 Single Sign-On Azure Active Directory 인증을 수행할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 모바일 서비스를 처음 사용하는 경우 [모바일 서비스 시작] 자습서를 완료하는 것이 좋습니다.
 
 
-## 필수 조건
+##필수 조건
 
 
 이 자습서를 사용하려면 다음이 필요합니다.
@@ -42,11 +42,11 @@
 
 [AZURE.INCLUDE [mobile-services-dotnet-adal-register-client](../../includes/mobile-services-dotnet-adal-register-client.md)]
 
-## 인증을 요구하도록 모바일 서비스 구성
+##인증을 요구하도록 모바일 서비스 구성
 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
-## 클라이언트 앱에 인증 코드 추가
+##클라이언트 앱에 인증 코드 추가
 
 1. [iOS용 Active Directory 인증 라이브러리]를 다운로드하고 이를 프로젝트에 포함합니다. 또한 ADAL 소스에서 스토리보드를 추가해야 합니다.
 
@@ -103,7 +103,7 @@
 
         [self loginAndGetData];
 
-## 인증을 사용하여 클라이언트 테스트
+##인증을 사용하여 클라이언트 테스트
 
 1. 제품 메뉴에서 실행을 클릭하여 앱을 시작합니다.
 2. Azure Active Directory에 대한 로그인 메시지가 표시됩니다.  
@@ -119,5 +119,6 @@
 [Azure Active Directory에 등록하는 방법]: mobile-services-how-to-register-active-directory-authentication.md
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [iOS용 Active Directory 인증 라이브러리]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

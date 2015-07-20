@@ -68,7 +68,7 @@
 
 
 
-## <a id="prerequisites"></a>필수 조건
+##<a id="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
 - **HDInsight의 HBase 클러스터**. 클러스터 프로비전 지침은 [HDInsight에서 Hadoop을 통해 HBase 사용 시작][hbase-get-started]을 참조하세요. 자습서를 완료하려면 다음 데이터가 필요합니다.
@@ -87,7 +87,7 @@
 
 
 
-## <a id="twitter"></a>Twitter 응용 프로그램 ID 및 암호 만들기
+##<a id="twitter"></a>Twitter 응용 프로그램 ID 및 암호 만들기
 
 Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 권한을 부여합니다. OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용 프로그램을 만드는 것입니다.
 
@@ -98,12 +98,11 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 3. **Name**, **Description** 및 **Website**를 입력합니다. 웹 사이트 필드는 실제로 사용되지는 않으므로 유효한 URL을 입력하지 않아도 됩니다. 다음 표는 사용할 샘플 값을 보여 줍니다.
 
 	<table border="1">
-	<tr><th>필드</th><th>값</th></tr>
-	<tr><td>이름</td><td>MyHDInsightHBaseApp</td></tr>
-	<tr><td>설명</td><td>MyHDInsightHBaseApp</td></tr>
-	<tr><td>웹 사이트</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
-	</table>
-> [AZURE.NOTE]Twitter 응용 프로그램 이름은 고유해야 합니다.
+<tr><th>필드</th><th>값</th></tr>
+<tr><td>이름</td><td>MyHDInsightHBaseApp</td></tr>
+<tr><td>설명</td><td>MyHDInsightHBaseApp</td></tr>
+<tr><td>웹 사이트</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
+</table>> [AZURE.NOTE]Twitter 응용 프로그램 이름은 고유해야 합니다.
 
 4. **Yes, I agree**를 선택한 후 **Create your Twitter application**을 클릭합니다.
 5. **Permissions** 탭을 클릭합니다. 기본 권한은 **Read only**입니다. 이 자습서에는 이 권한이면 충분합니다. 
@@ -143,7 +142,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 
 
 
-## <a id="streaming"></a> 간단한 Twitter 스트리밍 서비스 만들기
+##<a id="streaming"></a> 간단한 Twitter 스트리밍 서비스 만들기
 
 트윗을 가져오고 트윗의 데이터 점수를 계산한 다음 처리된 트윗 단어를 HBase로 보내는 콘솔 응용 프로그램을 만들어야 합니다.
 
@@ -221,7 +220,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
         // Sentiment dictionary file and the punctuation characters
         const string DICTIONARYFILENAME = @"....\data\dictionary\dictionary.tsv";
         private static char[] _punctuationChars = new[] { 
-            ' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
+            ' ', '!', '"', '#', '$', '%', '&', ''', '(', ')', '*', '+', ',', '-', '.', '/',   //ascii 23--47
             ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~' };   //ascii 58--64 + misc.
 
         // For writting to HBase
@@ -527,7 +526,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 
 
 
-## <a id="web"></a> Azure 웹 사이트를 사용하여 Twitter 데이터를 시각화하는 사이트 만들기
+##<a id="web"></a> Azure 웹 사이트를 사용하여 Twitter 데이터를 시각화하는 사이트 만들기
 
 이 섹션에서는 HBase에서 실시간 데이터를 읽은 다음 Bing 지도에 플로팅하는 ASP.NET MVC 웹 응용 프로그램을 만듭니다.
 
@@ -1176,8 +1175,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 
 **layout.cshtml을 수정하려면**
 
-1. **솔루션 탐색기**에서 **TweetSentimentWeb**, **뷰**, **공유**를 차례로 확장하고 _**Layout.cshtml** 을 두 번 클릭합니다.
-2. 파일의 내용을 다음으로 바꿉니다.
+1. **솔루션 탐색기**에서 **TweetSentimentWeb**, **뷰**, **공유**를 차례로 확장하고 _**Layout.cshtml** 을 두 번 클릭합니다.2. 파일의 내용을 다음으로 바꿉니다.
 
 		<!DOCTYPE html>
 		<html>
@@ -1302,7 +1300,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
  
 필요한 경우 Azure 웹 사이트에 응용 프로그램을 배포할 수 있습니다. 관련 지침은 [Azure 웹 사이트 및 ASP.NET 시작][website-get-started]을 참조하세요.
  
-## <a id="nextsteps"></a>다음 단계
+##<a id="nextsteps"></a>다음 단계
 
 이 자습서에서는 트윗을 가져와서 트윗 데이터를 분석하고 데이터를 HBase에 저장한 다음 실시간 Twitter 데이터를 Bing 지도에 표시하는 방법을 알아보았습니다. 자세한 내용은 다음을 참조하세요.
 
@@ -1355,5 +1353,6 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="06/18/2015" 
 	ms.author="wesmc"/>
 
 # Azure Active Directory 그래프 정보 액세스
 
 
 [AZURE.INCLUDE [mobile-services-selector-aad-graph](../../includes/mobile-services-selector-aad-graph.md)]
-## 개요
+##개요
 
 모바일 서비스에서 제공되는 다른 ID 공급자와 마찬가지로 AAD(Azure Active Directory) 공급자에서 도 디렉토리에 대한 프로그래밍 방식의 액세스를 위해 사용할 수 있는 리치 그래프 API가 지원됩니다. 이 자습서에서는 [그래프 REST API]를 사용하여 디렉토리에서 검색하는 추가 사용자 정보를 반환하는 인증된 사용자의 앱 환경을 개인 설정하기 위해 ToDoList 앱을 업데이트합니다.
 
@@ -30,7 +30,7 @@ Azure AD Graph API에 대한 자세한 내용은 [Azure Active Directory 그래�
 
 
 
-## 필수 조건 
+##필수 조건 
 
 이 자습서를 시작하려면 먼저 다음 모바일 서비스 자습서를 완료해야 합니다.
 
@@ -40,7 +40,7 @@ Azure AD Graph API에 대한 자세한 내용은 [Azure Active Directory 그래�
 
 
 
-## AAD에서 앱 등록을 위한 액세스 키 생성
+##AAD에서 앱 등록을 위한 액세스 키 생성
 
 
 [앱에 인증 추가] 자습서에서는 [Azure Active Directory 로그인 사용 등록] 단계를 완료할 때 통합 응용 프로그램에 대한 등록을 만들었습니다. 이 섹션에서는 해당 통합 응용 프로그램의 클라이언트 ID로 디렉터리 정보를 읽을 때 사용할 키를 생성합니다.
@@ -49,7 +49,7 @@ Azure AD Graph API에 대한 자세한 내용은 [Azure Active Directory 그래�
 
 
 
-## GetUserInfo 사용자 지정 API 만들기
+##GetUserInfo 사용자 지정 API 만들기
 
 이 섹션에서는 AAD에서 사용자에 대한 추가 정보를 검색하기 위해 [그래프 REST API]를 사용할 GetUserInfo 사용자 지정 API를 만듭니다.
 
@@ -139,7 +139,7 @@ Azure AD Graph API에 대한 자세한 내용은 [Azure Active Directory 그래�
         };
 
 
-## GetUserInfo를 사용하도록 앱 업데이트
+##GetUserInfo를 사용하도록 앱 업데이트
 
 
 이 섹션에서는 [인증 시작] 자습서에서 구현한 `AuthenticateAsync` 메서드를 업데이트하여 사용자 지정 API를 호출하고 AAD에서 사용자에 대한 추가 정보를 반환합니다.
@@ -150,14 +150,14 @@ Azure AD Graph API에 대한 자세한 내용은 [Azure Active Directory 그래�
  
 
 
-## 앱 테스트
+##앱 테스트
 
 [AZURE.INCLUDE [mobile-services-aad-graph-info-test-app](../../includes/mobile-services-aad-graph-info-test-app.md)]
 
 
 
 
-## 다음 단계
+##다음 단계
 
 다음 자습서인 [모바일 서비스의 AAD에서 역할 기반 액세스 제어]에서는 액세스를 허용하기 전에 AAD(Azure Active Directory)에서 역할 기반 액세스 제어를 사용하여 그룹 구성원을 확인합니다.
 
@@ -180,4 +180,5 @@ Azure AD Graph API에 대한 자세한 내용은 [Azure Active Directory 그래�
 [사용자 가져오기]: http://msdn.microsoft.com/library/azure/dn151678.aspx
 [모바일 서비스의 AAD에서 역할 기반 액세스 제어]: mobile-services-javascript-backend-windows-store-dotnet-aad-rbac.md
 [Azure Active Directory 그래프 팀 블로그]: http://go.microsoft.com/fwlink/?LinkId=510536
-<!--HONumber=54--> 
+
+<!---HONumber=July15_HO2-->

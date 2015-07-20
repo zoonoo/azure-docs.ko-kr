@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="Fiddler를 사용하여 Azure 검색 REST API를 평가 및 테스트하는 방법" 
-	description="코드를 작성할 필요가 없는 Fiddler를 사용하여 Azure 검색 가용성을 확인하고 REST API를 사용해 봅니다." 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle="Fiddler를 사용하여 Azure 검색 REST API를 평가 및 테스트하는 방법"
+	description="코드를 작성할 필요가 없는 Fiddler를 사용하여 Azure 검색 가용성을 확인하고 REST API를 사용해 봅니다."
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="03/12/2015" 
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
 # Fiddler를 사용하여 Azure 검색 REST API를 평가 및 테스트하는 방법
 
-이 절차에서는 [Telerik에서 무료로 다운로드](http://www.telerik.com/fiddler)할 수 있는 Fiddler를 사용하여 HTTP 요청을 실행하고 코드를 작성할 필요 없이 Azure 검색 REST API를 사용하여 응답을 확인합니다. Azure 검색 서비스 REST API는 [MSDN](https://msdn.microsoft.com/ko-kr/library/azure/dn798935.aspx)에 설명되어 있습니다.
+이 문서에서는 [Telerik에서 무료로 다운로드](http://www.telerik.com/fiddler)할 수 있는 Fiddler를 사용하여 HTTP 요청을 실행하고 코드를 작성할 필요 없이 Azure 검색 REST API를 사용하여 응답을 확인하는 방법을 설명합니다. Azure 검색 서비스 REST API는 [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)에 설명되어 있습니다.
 
 아래 단계에서는 인덱스를 만들고 문서를 업로드한 다음 인덱스를 쿼리하고 시스템에 서비스 정보를 쿼리합니다.
 
@@ -26,7 +26,7 @@
 
 ## 인덱스 만들기
 
-1. Fiddler를 시작합니다. File 메뉴에서 **Capture Traffic**을 해제하여 현재 작업과 관련 없는 HTTP 활동을 숨깁니다. 
+1. Fiddler를 시작합니다. File 메뉴에서 **Capture Traffic**을 해제하여 현재 작업과 관련 없는 HTTP 활동을 숨깁니다.
 
 3. Composer 탭에서 다음과 같은 요청을 작성합니다.
 
@@ -66,7 +66,7 @@
           {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
           {"name": "rating", "type": "Edm.Int32"},
           {"name": "location", "type": "Edm.GeographyPoint"}
-         ] 
+         ]
         }
 
 6.	**실행**을 클릭합니다.
@@ -183,7 +183,7 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
         api-key: 1111222233334444
 
 응답 코드는 200이고, 다음 그림과 같은 응답 출력이 표시됩니다.
- 
+
    ![][4]
 
 다음 예제 쿼리는 MSDN의 [검색 인덱스 작업(Azure 검색 API)](http://msdn.microsoft.com/library/dn798927.aspx)에서 가져온 것입니다. 이 항목의 많은 예제 쿼리에는 공백이 포함되어 있으며, 공백은 Fiddler에서 허용되지 않습니다. Fiddler에서 쿼리를 시도하기에 앞서, 쿼리 문자열을 붙여 넣기 전에 각 공백을 + 문자로 바꾸세요.
@@ -206,7 +206,7 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
 
 2.	해당 서비스 URL과 그 뒤에 "/indexes/hotels/stats?api-version=2015-02-28"을 포함하는 URL을 입력합니다.
 
-        https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28 
+        https://my-app.search.windows.net/indexes/hotels/stats?api-version=2015-02-28
 
 3.	호스트와 api-key를 해당 서비스에 유효한 값으로 바꾸어 요청 헤더를 지정합니다.
 
@@ -234,6 +234,6 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
 [3]: ./media/search-fiddler/AzureSearch_Fiddler3_Query.png
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
+ 
 
-
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

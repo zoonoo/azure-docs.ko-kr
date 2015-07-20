@@ -138,4 +138,8 @@ UI 프런트 엔드 포털 https://YourApp.portal.mobileengagementwindows.net/�
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
 
-<!--HONumber=54--> 
+
+ 
+ 
+
+<!---HONumber=July15_HO2-->

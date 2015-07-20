@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/02/2015" 
 	ms.author="ricksal"/>
 
 # 모바일 서비스 앱에 푸시 알림 추가
@@ -26,42 +26,42 @@
 
 >[AZURE.NOTE]이 자습서의 Eclipse 버전은 [푸시 알림 시작(Eclipse)]을 참조하세요.
  
-## <a id="register"></a>Google Cloud Messaging 사용
+##<a id="register"></a>Google Cloud Messaging 사용
 
 [AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
-## <a id="configure"></a>푸시 요청을 전송하도록 모바일 서비스 구성
+##<a id="configure"></a>푸시 요청을 전송하도록 모바일 서비스 구성
 
 [AZURE.INCLUDE [mobile-services-android-configure-push](../../includes/mobile-services-android-configure-push.md)]
 
-## <a id="update-server"></a>푸시 알림을 전송하도록 모바일 서비스 업데이트
+##<a id="update-server"></a>푸시 알림을 전송하도록 모바일 서비스 업데이트
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-android-push-update-service](../../includes/mobile-services-dotnet-backend-android-push-update-service.md)]
 
-## <a name="update-app"></a>앱에 푸시 알림 추가
+##<a name="update-app"></a>앱에 푸시 알림 추가
 
-### Android SDK 버전 확인
+###Android SDK 버전 확인
 
 [AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../../includes/mobile-services-verify-android-sdk-version.md)]
 
 
 다음 단계에서는 Google Play Services를 설치합니다. Google Cloud Messaging에는 매니페스트의 **minSdkVersion** 속성이 준수해야 하는 개발 및 테스트에 대한 최소 API 수준 요구 사항이 있습니다.
 
-이전 장치로 테스트할 경우 이 값을 적절하게 설정할 수 있는 최소값을 확인하려면 [Google Play Services SDK 설정](영문)을 참조하십시오.
+이전 장치로 테스트할 경우 이 값을 적절하게 설정할 수 있는 최소값을 확인하려면 [Google Play Services SDK 설정](영문)을 참조하세요.
 
-### 프로젝트에 Google Play Services 추가
+###프로젝트에 Google Play Services 추가
 
 [AZURE.INCLUDE [Play 서비스 추가](../../includes/mobile-services-add-Google-play-services.md)]
 
-### 코드 추가
+###코드 추가
 
 [AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push.md)]
 
-## <a name="test-app"></a>게시된 모바일 서비스에 대해 앱 테스트
+##<a name="test-app"></a>게시된 모바일 서비스에 대해 앱 테스트
 
 USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에서 가상 장치를 사용하여 앱을 테스트할 수 있습니다.
 
-### <a id="local-testing"></a> 로컬 테스트에 푸시 알림 사용
+###<a id="local-testing"></a> 로컬 테스트에 푸시 알림 사용
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
@@ -120,5 +120,6 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [구독자에게 브로드캐스트 알림 보내기]: ../notification-hubs-windows-store-dotnet-send-breaking-news.md
 [사용자에게 플랫폼 간 알림 보내기]: ../notification-hubs-windows-store-dotnet-send-localized-breaking-news.md
 [Azure Management Portal]: https://manage.windowsazure.com/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

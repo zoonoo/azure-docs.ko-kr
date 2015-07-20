@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="04/28/2015"
+   ms.date="07/06/2015"
    ms.author="larryfr"/>
 
 
@@ -44,7 +44,7 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 
 4. 새 저장소 계정의 **상태**가 **온라인**으로 변경될 때까지 기다립니다.
 
-새 저장소 계정 만들기에 대한 자세한 내용은 <a href="../storage-create-storage-account/" target="_blank">저장소 계정을 만드는 방법</a>을 참조하세요.
+새 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만드는 방법](../storage/storage-create-storage-account.md)을 참조하세요.
 
 ##Azure 포털에서 Storm 클러스터 프로비전
 
@@ -92,7 +92,7 @@ Storm 대시보드가 로드되면 **토폴로지 제출** 양식이 표시됩�
 
 ###<a id="run"></a>GitHub의 Storm Starter 프로젝트에서 단어 개수 샘플 실행
 
-클러스터와 함께 제공된 샘플에는 여러 변형의 단어 계산 토폴로지가 포함되어 있습니다. 이러한 샘플에는 문장을 임의로 내보내는 **spout**와 각 문장을 개별 단어로 나눈 다음 각 단어가 발생한 횟수를 계산하는 **bolt**가 있습니다. 이러한 샘플은 Apache Storm의 일부인 <a href="https://github.com/apache/storm/tree/master/examples/storm-starter" target="_blank">Storm Starter 샘플</a>에서 제공됩니다.
+클러스터와 함께 제공된 샘플에는 여러 변형의 단어 계산 토폴로지가 포함되어 있습니다. 이러한 샘플에는 문장을 임의로 내보내는 **spout**와 각 문장을 개별 단어로 나눈 다음 각 단어가 발생한 횟수를 계산하는 **bolt**가 있습니다. 이러한 샘플은 Apache Storm의 일부인 [Storm Starter 샘플](https://github.com/apache/storm/tree/master/examples/storm-starter)에서 제공됩니다.
 
 Storm Starter 샘플을 실행하려면 다음 단계를 수행합니다.
 
@@ -143,7 +143,7 @@ Storm UI를 사용하여 토폴로지를 모니터링할 수 있습니다.
 
 	* **비활성화** - 실행 중인 토폴로지를 일시 중지합니다.
 
-	* **균형 다시 맞추기** - 토폴로지의 병렬 처리를 조정합니다. 클러스터에서 노드 수를 변경한 후 실행 중인 토폴로지의 균형을 다시 맞추어야 합니다. 이렇게 하면 토폴로지가 병렬 처리를 조정하여 클러스터에서 증가/감소한 노드 수를 보충할 수 있습니다. 자세한 내용은 <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Storm 토폴로지의 병렬 처리 이해</a>를 참조하세요.
+	* **균형 다시 맞추기** - 토폴로지의 병렬 처리를 조정합니다. 클러스터에서 노드 수를 변경한 후 실행 중인 토폴로지의 균형을 다시 맞추어야 합니다. 이렇게 하면 토폴로지가 병렬 처리를 조정하여 클러스터에서 증가/감소한 노드 수를 보충할 수 있습니다. 자세한 내용은 [Storm 토폴로지의 병렬 처리 이해](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)를 참조하세요.
 
 	* **중단** - 지정된 시간 제한 후 Storm 토폴로지를 종료합니다.
 
@@ -190,9 +190,9 @@ Storm UI를 사용하여 토폴로지를 모니터링할 수 있습니다.
 
 * **Visual Studio용 HDInsight 도구** - HDInsight 도구를 사용하면 Visual Studio에서 위에 설명된 Storm 대시보드와 유사한 Storm 토폴로지를 제출, 모니터링 및 관리할 수 있습니다. 또한 HDInsight 도구는 C# Storm 토폴로지를 만드는 기능을 제공하며, 클러스터에서 배포 및 실행할 수 있는 샘플 토폴로지를 포함합니다.
 
-	자세한 내용은 <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Visual Studio용 HDInsight 도구 사용 시작</a>을 참조하세요.
+	자세한 내용은 [Visual Studio용 HDInsight 도구 사용 시작](hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
-* **샘플 파일** - HDInsight Storm 클러스터의 **%STORM_HOME%\contrib** 디렉터리에서는 여러 예제가 제공됩니다. 각 예제는 다음 항목을 포함합니다.
+* **샘플 파일** - HDInsight Storm 클러스터의 **%STORM_HOME%\\contrib** 디렉터리에서는 여러 예제가 제공됩니다. 각 예제는 다음 항목을 포함합니다.
 
 	* 소스 코드 - storm-starter-0.9.1.2.1.5.0-2057-sources.jar 등
 
@@ -204,7 +204,7 @@ Storm UI를 사용하여 토폴로지를 모니터링할 수 있습니다.
 
 	> [AZURE.NOTE]Java 문서는 웹 페이지로 구성됩니다. 추출 후에는 브라우저를 사용하여 **index.html** 파일을 확인합니다.
 
-	이러한 샘플에 액세스하려면 HDInsight의 Storm 클러스터에 대한 원격 데스크톱을 사용하도록 설정한 다음 **%STORM_HOME%\contrib**에서 파일을 복사해야 합니다.
+	이러한 샘플에 액세스하려면 HDInsight의 Storm 클러스터에 대한 원격 데스크톱을 사용하도록 설정한 다음 **%STORM_HOME%\\contrib**에서 파일을 복사해야 합니다.
 
 * 다음 문서에는 HDInsight의 Storm에서 사용할 수 있는 다른 예제의 목록이 들어 있습니다.
 
@@ -216,6 +216,5 @@ Storm UI를 사용하여 토폴로지를 모니터링할 수 있습니다.
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [azureportal]: https://manage.windowsazure.com/
 [hdinsight-provision]: hdinsight-provision-clusters.md
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

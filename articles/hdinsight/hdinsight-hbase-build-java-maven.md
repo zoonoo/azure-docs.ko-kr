@@ -13,24 +13,24 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/31/2014"
+	ms.date="07/06/2014"
 	ms.author="larryfr"/>
 
-# Maven을 통해 HDInsight(Hadoop)와 함께 HBase를 사용하는 Java 응용 프로그램 작성
+#Maven을 통해 HDInsight(Hadoop)와 함께 HBase를 사용하는 Java 응용 프로그램 작성
 
 Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) 응용 프로그램을 만들어 빌드하는 방법을 알아봅니다. 그런 다음 Azure HDInsight(Hadoop)에서 응용 프로그램을 사용합니다.
 
 [Maven](http://maven.apache.org/)은 Java 프로젝트용 소프트웨어, 문서화 및 보고를 빌드할 수 있는 소프트웨어 프로젝트 관리 및 종합 도구입니다. 이 문서에서는 Maven을 사용하여 Azure HDInsight 클러스터에서 HBase 테이블을 만들고, 쿼리하고, 삭제하는 기본 Java 응용 프로그램을 만드는 방법을 알아봅니다.
 
-## 요구 사항
+##요구 사항
 
 * [Java 플랫폼 JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 이상
 
 * [Maven](http://maven.apache.org/)
 
-* [Azure HDInsight 클러스터 및 HBase](../hdinsight-hbase-get-started.md#create-hbase-cluster)
+* [Azure HDInsight 클러스터 및 HBase](hdinsight-hbase-get-started.md#create-hbase-cluster)
 
-## 프로젝트 만들기
+##프로젝트 만들기
 
 1. 개발 환경의 명령줄에서 프로젝트를 만들 위치(예: `cd code\hdinsight`)로 디렉터리를 변경합니다.
 
@@ -46,7 +46,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 
 3. __src\\test\\java\\com\\microsoft\\examples\\apptest.java__ 파일은 이 예제에서 사용되지 않으므로 이 파일을 삭제합니다.
 
-## 프로젝트 개체 모델 업데이트
+##프로젝트 개체 모델 업데이트
 
 1. __pom.xml__ 파일을 편집하고 `<dependencies>` 섹션 안에 다음 코드를 추가합니다.
 
@@ -159,7 +159,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 
 3. __hbase-site.xml__ 파일을 저장합니다.
 
-## 응용 프로그램 만들기
+##응용 프로그램 만들기
 
 1. __hbaseapp\\src\\main\\java\\com\\microsoft\\examples__ 디렉터리로 이동하여 app.java 파일 이름을 __CreateTable.java__로 바꿉니다.
 
@@ -334,7 +334,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 
 7. __DeleteTable.java__ 파일을 저장합니다.
 
-## 응용 프로그램 빌드 및 패키지화
+##응용 프로그램 빌드 및 패키지화
 
 1. 명령 프롬프트를 열고 __hbaseapp__ 디렉터리로 이동합니다.
 
@@ -348,7 +348,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 
 	> [AZURE.NOTE]__hbaseapp-1.0-SNAPSHOT.jar__ 파일은 응용 프로그램을 실행하는 데 필요한 모든 종속성을 포함하는 uber jar(fat jar라고도 함)입니다.
 
-## JAR 파일 업로드 및 작업 시작
+##JAR 파일 업로드 및 작업 시작
 
 > [AZURE.NOTE][HDInsight에서 Hadoop 작업용 데이터 업로드](hdinsight-upload-data.md)에서 설명한 대로 HDInsight 클러스터에 파일을 업로드하는 방법은 많습니다. 다음 단계에서는 [Azure PowerShell](../install-configure-powershell.md)을 사용합니다.
 
@@ -577,7 +577,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 
 	`-emailRegex` 값에 __fabrikam.com__을 사용하면 메일 필드에 __fabrikam.com__을 포함하는 사용자가 반환됩니다. 이 검색은 정규식 기반 필터를 사용하여 구현되므로, __^r__과 같은 정규식을 입력할 수 있습니다. 이 정규식은 메일이 'r' 문자로 시작하는 항목을 반환합니다.
 
-## 테이블 삭제
+##테이블 삭제
 
 예제를 완료하면 Azure PowerShell 세션에서 다음 명령을 사용하여 이 예제에 사용된 __people__ 테이블을 삭제합니다.
 
@@ -585,10 +585,10 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 
 __hdinsightclustername__을 HDInsight 클러스터의 이름으로 바꿉니다.
 
-## 문제 해결
+##문제 해결
 
-### Start-HBaseExample을 사용할 경우 결과가 없거나 예기치 않은 결과가 표시됨
+###Start-HBaseExample을 사용할 경우 결과가 없거나 예기치 않은 결과가 표시됨
 
 `-showErr` 매개 변수를 사용하여 작업을 실행하는 동안 생성된 표준 오류(STDERR)을 확인합니다.
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

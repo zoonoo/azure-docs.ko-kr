@@ -1,3 +1,4 @@
+
 #### StorSimple용 Windows PowerShell을 통해 정기적인 핫픽스를 설치하려면
 
 1. 장치 직렬 콘솔에 연결합니다. 자세한 내용은 [직렬 콘솔에 연결](#connect-to-the-serial-console)을 참조하세요.
@@ -14,4 +15,4 @@
 
 5. 확인하라는 메시지가 표시됩니다. **Y**를 입력하여 핫픽스 설치를 진행합니다.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

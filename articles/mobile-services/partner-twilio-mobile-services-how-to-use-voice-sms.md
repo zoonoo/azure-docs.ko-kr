@@ -105,7 +105,7 @@ Twilio는 Node.js 라이브러리를 제공하며, 이 라이브러리는 Twilio
 		  "keywords":[]
 		}
 
-	>[AZURE.NOTE]Twilio에 대한 종속성은 (\~)를 사용하여 `"twilio": "~1.7.0"`(으)로 추가해야 합니다. 캐럿(^)을 사용한 참조는 지원되지 않습니다.
+	>[AZURE.NOTE]Twilio에 대한 종속성은 (~)를 사용하여 `"twilio": "~1.7.0"`(으)로 추가해야 합니다. 캐럿(^)을 사용한 참조는 지원되지 않습니다.
 
 4. 이 파일 업데이트를 커밋하고 모바일 서비스에 다시 업데이트를 푸시하세요.
 
@@ -228,5 +228,6 @@ TwiML 응답을 제공하는 방법을 설정한 후에는 다음 코드 샘플�
 [azure_twilio_howto_ruby]: /develop/ruby/how-to-guides/twilio-voice-and-sms-service/
 [azure_twilio_howto_python]: /develop/python/how-to-guides/twilio-voice-and-sms-service/
 [azure_twilio_howto_php]: /develop/php/how-to-guides/twilio-voice-and-sms-service/
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

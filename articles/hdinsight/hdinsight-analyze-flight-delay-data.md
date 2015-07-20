@@ -104,7 +104,7 @@ Hive 내부 테이블 및 외부 테이블에 대해 알아야 할 사항이 몇
 
 자세한 내용은 [HDInsight: Hive 내부 및 외부 테이블 소개][cindygross-hive-tables]를 참조하세요.
 
-> [AZURE.NOTE]HiveQL 문 중 하나는 Hive 외부 테이블을 만듭니다. Hive 외부 테이블은 데이터 파일을 원래 위치에 유지합니다. Hive 내부 테이블은 데이터 파일을 hive\warehouse로 이동합니다. Hive 내부 테이블에서는 데이터 파일이 기본 컨테이너에 있어야 합니다. 기본 Blob 컨테이너 외부에 저장된 데이터의 경우에는 Hive 외부 테이블을 사용해야 합니다.
+> [AZURE.NOTE]HiveQL 문 중 하나는 Hive 외부 테이블을 만듭니다. Hive 외부 테이블은 데이터 파일을 원래 위치에 유지합니다. Hive 내부 테이블은 데이터 파일을 hive\\warehouse로 이동합니다. Hive 내부 테이블에서는 데이터 파일이 기본 컨테이너에 있어야 합니다. 기본 Blob 컨테이너 외부에 저장된 데이터의 경우에는 Hive 외부 테이블을 사용해야 합니다.
 
 
 
@@ -407,7 +407,7 @@ Hadoop MapReduce에서는 작업을 일괄 처리 방식으로 실행합니다. 
 </table>
 
 3. **다운로드**를 클릭합니다.
-4. 압축 파일을 **C:\Tutorials\FlightDelays\Data** 폴더에 풉니다. 각 파일은 CSV 파일이며 크기가 60GB 정도입니다.
+4. 압축 파일을 **C:\\Tutorials\\FlightDelays\\Data** 폴더에 풉니다. 각 파일은 CSV 파일이며 크기가 60GB 정도입니다.
 5.	파일 이름을 데이터가 포함된 달로 변경합니다. 예를 들어 1월 데이터가 포함된 파일의 이름은 *January.csv*가 됩니다.
 6. 2단계와 5단계를 반복하여 2013년의 12개월에 해당하는 각 파일을 다운로드합니다. 자습서를 실행하려면 파일이 하나 이상 있어야 합니다.  
 
@@ -505,7 +505,7 @@ Azure PowerShell을 사용하여 여러 HiveQL 문을 한 번에 하나씩 실�
 HiveQL 스크립트는 다음을 수행합니다.
 
 1. **delays_raw 테이블을 삭제합니다**. 해당 테이블이 이미 있는 경우에 삭제합니다.
-2. **delays_raw 외부 Hive 테이블을 만듭니다**. 이 테이블은 비행 지연 파일이 있는 Blob 저장소 위치를 가리킵니다. 이 쿼리는 필드는 ","로 구분되고 줄은 "\n"로 끝나도록 지정합니다. Hive가 필드 구분 기호인 쉼표와 필드 값(ORIGIN_CITY_NAME 및 DEST_CITY_NAME에 대한 필드 값의 경우)의 일부인 쉼표를 구분할 수 없기 때문에 필드 값에 쉼표가 포함될 경우 문제가 발생합니다. 이 문제를 해결하기 위해 쿼리는 TEMP 열을 만들어 열에 잘못 분할된 데이터를 저장합니다.  
+2. **delays_raw 외부 Hive 테이블을 만듭니다**. 이 테이블은 비행 지연 파일이 있는 Blob 저장소 위치를 가리킵니다. 이 쿼리는 필드는 ","로 구분되고 줄은 "\\n"로 끝나도록 지정합니다. Hive가 필드 구분 기호인 쉼표와 필드 값(ORIGIN_CITY_NAME 및 DEST_CITY_NAME에 대한 필드 값의 경우)의 일부인 쉼표를 구분할 수 없기 때문에 필드 값에 쉼표가 포함될 경우 문제가 발생합니다. 이 문제를 해결하기 위해 쿼리는 TEMP 열을 만들어 열에 잘못 분할된 데이터를 저장합니다.  
 3. **delays 테이블을 삭제합니다**. 해당 테이블이 이미 있는 경우에 삭제합니다.
 4. **delays 테이블을 만듭니다**. 더 처리하기 전에 데이터를 정리하는 데 도움이 됩니다. 이 쿼리는 delays_raw 테이블에서 새 테이블인 *delays*를 만듭니다. TEMP 열(앞에서 언급함)은 복사되지 않으며, **substring** 함수는 해당 데이터에서 따옴표를 제거하는 데 사용됩니다. 
 5. **평균 날씨 지연을 계산하고 그 결과를 도시 이름별로 그룹화합니다.** 또한 결과를 Blob 저장소에 출력합니다. 쿼리에서 데이터의 아포스트로피가 제거되고 **weather_delay**의 값이 null인 행은 제외됩니다. 이 작업은 이 자습서의 뒷부분에서 사용되는 Sqoop가 기본적으로 이러한 값을 정상적으로 처리하지 않기 때문에 필요합니다.
@@ -673,7 +673,7 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
 
 	스크립트에서 사용되는 변수는 다음과 같습니다.
 
-	- **$hqlLocalFileName** - 스크립트는 HiveQL 스크립트 파일을 Blob 저장소에 업로드하기 전에 로컬에 저장합니다. 이 상수가 해당 파일 이름입니다. 기본값은 <u>C:\tutorials\flightdelays\flightdelays.hql</u>입니다.
+	- **$hqlLocalFileName** - 스크립트는 HiveQL 스크립트 파일을 Blob 저장소에 업로드하기 전에 로컬에 저장합니다. 이 상수가 해당 파일 이름입니다. 기본값은 <u>C:\\tutorials\\flightdelays\\flightdelays.hql</u>입니다.
 	- **$hqlBlobName** - Azure Blob 저장소에서 사용되는 HiveQL 스크립트 파일 Blob 이름입니다. 기본값은 tutorials/flightdelays/flightdelays.hql입니다. 파일은 Azure Blob 저장소에 직접 기록되므로 Blob 이름 앞에는 "/"가 없습니다. Blob 저장소의 파일에 액세스하려면 파일 이름 앞에 "/"를 추가해야 합니다.
 	- **$srcDataFolder** 및 **$dstDataFolder** - = "tutorials/flightdelays/data" = "tutorials/flightdelays/output"
 
@@ -880,4 +880,4 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

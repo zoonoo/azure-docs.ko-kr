@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="multiple" 
+	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
+	ms.date="06/09/2015" 
 	ms.author="wesmc"/>
 
 # Azure Active Directory 그래프 정보 액세스
@@ -22,7 +22,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-aad-graph](../../includes/mobile-services-selector-aad-graph.md)]
 
-## 개요
+##개요
 
 모바일 서비스에서 제공되는 다른 ID 공급자와 마찬가지로 AAD(Azure Active Directory) 공급자에서 도 디렉토리에 대한 프로그래밍 방식의 액세스를 위해 사용할 수 있는 리치 그래프 API가 지원됩니다. 이 자습서에서는 [그래프 REST API]를 사용하여 디렉토리에서 검색하는 추가 사용자 정보를 반환하는 인증된 사용자의 앱 환경을 개인 설정하기 위해 ToDoList 앱을 업데이트합니다.
 
@@ -34,7 +34,7 @@ Azure AD Graph API에 대한 자세한 내용은 [Azure Active Directory 그래�
 
 
 
-## 필수 조건 
+##필수 조건 
 
 이 자습서를 시작하려면 먼저 다음 모바일 서비스 자습서를 완료해야 합니다.
 
@@ -59,7 +59,7 @@ Azure AD Graph API에 대한 자세한 내용은 [Azure Active Directory 그래�
 모바일 서비스에서 사용자 지정 API를 사용해본 경험이 없으면 이 섹션을 완료하기 전에 [사용자 지정 API 자습서]를 참조합니다.
 
 1. Visual Studio에서 모바일 서비스 .NET 백 엔드 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 클릭합니다.
-2. NuGet 패키지 관리자 대화 상자에서 검색 조건에 **ADAL**을 입력하여 모바일 서비스에 대한 **Active Directory 인증 라이브러리**를 찾아서 설치합니다. 이 자습서는 ADAL 패키지의 3.0.110281957-alpha(시험판) 버전으로 가장 최근에 테스트 했습니다.
+2. NuGet 패키지 관리자 대화 상자에서 검색 조건에 **ADAL**을 입력하여 모바일 서비스에 대한 **Active Directory 인증 라이브러리**를 찾아서 설치합니다. 이 자습서는 ADAL 패키지의 3.3.205061641-alpha(시험판) 버전으로 가장 최근에 테스트 했습니다.
 
 
 3. Visual Studio에서 모바일 서비스 프로젝트에 대해 **컨트롤러** 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭하여 `GetUserInfoController`(이)라는 새로운 **Microsoft Azure 모바일 서비스 사용자 지정 컨트롤러**를 추가합니다. 클라이언트는 Active Directory에서 사용자 정보를 가져오기 위해 이 API를 호출합니다.
@@ -225,7 +225,7 @@ Azure AD Graph API에 대한 자세한 내용은 [Azure Active Directory 그래�
 
 
 
-## <a name="next-steps"></a>다음 단계
+##<a name="next-steps"></a>다음 단계
 
 다음 자습서인 [모바일 서비스의 AAD에서 역할 기반 액세스 제어]에서는 액세스를 허용하기 전에 AAD(Azure Active Directory)에서 역할 기반 액세스 제어를 사용하여 그룹 구성원을 확인합니다.
 
@@ -253,5 +253,6 @@ Azure AD Graph API에 대한 자세한 내용은 [Azure Active Directory 그래�
 [Azure Active Directory 그래프 팀 블로그]: http://go.microsoft.com/fwlink/?LinkId=510536
 [Get User]: http://msdn.microsoft.com/library/azure/dn151678.aspx
 [모바일 서비스의 AAD에서 역할 기반 액세스 제어]: mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac.md
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->
