@@ -132,7 +132,40 @@
 
 점수 매기기 프로필의 본문은 가중치가 적용된 필드와 함수에서 생성됩니다.
 
-<font> <table style="font-size:12"> <thead> <tr><td>요소</td><td>설명</td></tr></thead> <tbody <tr> <td><b>가중치</b></td> <td> 필드에 상대적 가중치를 할당하는 이름-값 쌍을 지정합니다. [예제](#bkmk_ex)에서는 albumTitle, genre 및 artistName 필드가 각각 1, 5, null로 상승합니다. genre가 다른 필드보다 훨씬 크게 상승하는 이유는, `musicstoreindex`에서 'genre'의 경우처럼 비교적 비슷한 데이터를 검색하는 경우 상대 가중치의 편차가 더 커야 할 수 있기 때문입니다. 예를 들어 `musicstoreindex`에서 'rock'은 장르로도 표시되고 같은 구를 사용하는 장르 설명에도 표시됩니다. 이 경우 장르 설명보다 장르에 더 높은 가중치를 적용하려면 genre 필드에 훨씬 높은 상대 가중치를 적용해야 합니다. </td> </tr> <tr> <td><b>함수</b></td><td>특정 컨텍스트에 대해 추가 계산을 수행해야 하는 경우 사용합니다. 유효한 값은 `freshness`, `magnitude` 또는 `distance`입니다. 각 함수에는 고유한 매개 변수가 있습니다. <br> - 항목의 최신 또는 오래된 상태를 기준으로 상승시키려면 `freshness`를 사용해야 합니다. 이 함수는 datetime 필드(edm.DataTimeOffset)에만 사용할 수 있습니다. `boostingDuration` 특성은 freshness 함수에서만 사용됩니다. <br> - 숫자 값의 크기를 기준으로 상승시키려면 `magnitude`를 사용해야 합니다. 이 함수를 사용해야 하는 시나리오에는 이익률, 최고 가격, 최저 가격 또는 다운로드 수를 기준으로 상승시키는 경우가 포함됩니다. 이 함수는 double 및 integer 필드에만 사용할 수 있습니다. <br> - 근접도나 지리적 위치를 기준으로 상승시키려면 `distance`를 사용해야 합니다. 이 함수는 `geo.distance` 필드에만 사용할 수 있습니다. <br> <b>함수 사용 규칙</b> <br> 함수 유형(freshness, magnitude, distance)은 소문자여야 합니다. <br> 함수는 null 또는 빈 값을 포함할 수 없습니다. 특히 fieldname를 포함하는 경우에는 값을 설정해야 합니다. <br> 함수는 필터링 가능한 필드에만 적용할 수 있습니다. 필터링 가능한 필드에 대한 자세한 내용은 [인덱스 만들기(Azure 검색 API)]()를 참조하세요. <br> 함수는 인덱스의 필드 컬렉션에 정의된 필드에만 적용할 수 있습니다. <td> </tr> </tbody> </table> </font>
+<font>
+<table style="font-size:12">
+<thead>
+<tr><td>요소</td><td>설명</td></tr></thead>
+<tbody>
+<tr>
+<td><b>가중치</b></td>
+<td>
+필드에 상대적 가중치를 할당하는 이름-값 쌍을 지정합니다. [예제](#bkmk_ex)에서는 albumTitle, genre 및 artistName 필드가 각각 1, 5, null로 상승합니다. genre가 다른 필드보다 훨씬 크게 상승하는 이유는, `musicstoreindex`에서 'genre'의 경우처럼 비교적 비슷한 데이터를 검색하는 경우 상대 가중치의 편차가 더 커야 할 수 있기 때문입니다. 예를 들어 `musicstoreindex`에서 'rock'은 장르로도 표시되고 같은 구를 사용하는 장르 설명에도 표시됩니다. 이 경우 장르 설명보다 장르에 더 높은 가중치를 적용하려면 genre 필드에 훨씬 높은 상대 가중치를 적용해야 합니다.
+</td>
+</tr>
+<tr>
+<td><b>함수</b></td><td>특정 컨텍스트에 대해 추가 계산을 수행해야 하는 경우 사용합니다. 유효한 값은 `freshness`, `magnitude` 또는 `distance`입니다. 각 함수에는 고유한 매개 변수가 있습니다.
+<br>
+- 항목의 최신 또는 오래된 상태를 기준으로 상승시키려면 `freshness`를 사용해야 합니다. 이 함수는 datetime 필드(edm.DataTimeOffset)에만 사용할 수 있습니다. `boostingDuration` 특성은 freshness 함수에서만 사용됩니다.
+<br>
+- 숫자 값의 크기를 기준으로 상승시키려면 `magnitude`를 사용해야 합니다. 이 함수를 사용해야 하는 시나리오에는 이익률, 최고 가격, 최저 가격 또는 다운로드 수를 기준으로 상승시키는 경우가 포함됩니다. 이 함수는 double 및 integer 필드에만 사용할 수 있습니다.
+<br>
+- 근접도나 지리적 위치를 기준으로 상승시키려면 `distance`를 사용해야 합니다. 이 함수는 `geo.distance` 필드에만 사용할 수 있습니다.
+<br>
+<b>함수 사용 규칙</b>
+<br>
+함수 유형(freshness, magnitude, distance)은 소문자여야 합니다.
+<br>
+함수는 null 또는 빈 값을 포함할 수 없습니다. 특히 fieldname를 포함하는 경우에는 값을 설정해야 합니다.
+<br>
+함수는 필터링 가능한 필드에만 적용할 수 있습니다. 필터링 가능한 필드에 대한 자세한 내용은 [인덱스 만들기(Azure 검색 API)]()를 참조하세요.
+<br>
+함수는 인덱스의 필드 컬렉션에 정의된 필드에만 적용할 수 있습니다.
+<td>
+</tr>
+</tbody>
+</table>
+</font>
 
 인덱스를 정의한 후 인덱스 스키마와 문서를 차례로 업로드하여 인덱스를 작성합니다. 이러한 작업에 대한 지침은 [인덱스 만들기(Azure 검색 API)]() 및 [문서 추가, 업데이트 또는 삭제(Azure 검색 API)]()를 참조하세요. 인덱스가 작성되면 검색 데이터에 사용할 수 있는 점수 매기기 프로필을 만들어야 합니다.
 
@@ -289,8 +322,10 @@
 
 **참고 항목**
 
-Azure 검색 서비스 REST API 만들기 인덱스(Azure 검색 API)________________________________________
+Azure 검색 서비스 REST API
+만들기 인덱스(Azure 검색 API)
+________________________________________
 
  
 
-<!---HONumber=July15_HO1-->
+<!------HONumber=July15_HO1-->

@@ -147,12 +147,19 @@ Microsoft Azure 앱 서비스는 이러한 커넥터를 사용할 수 있는 다
 커넥터는 OAuth 또는 사용자 이름 및 암호를 사용합니다.
 
 ## 논리 앱 및 웹앱 알아보기
-[논리 앱 정의](app-service-logic-what-are-logic-apps.md) | [Azure 앱 서비스의 웹 사이트 및 웹앱](../app-service-web/app-service-web-overview.md) |
+[논리 앱 정의](app-service-logic-what-are-logic-apps.md) | 
+[Azure 앱 서비스의 웹 사이트 및 웹앱](../app-service-web/app-service-web-overview.md) |
 
 
 ## 추가 커넥터
 
-[BizTalk 통합 커넥터](app-service-logic-integration-connectors.md) | [엔터프라이즈 커넥터](app-service-logic-enterprise-connectors.md) | [B2B 커넥터](app-service-logic-b2b-connectors.md) | [프로토콜 커넥터](app-service-logic-protocol-connectors.md) | [앱 + 데이터 서비스 커넥터](app-service-logic-data-connectors.md) | [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/><br/> [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
+[BizTalk 통합 커넥터](app-service-logic-integration-connectors.md) | 
+[엔터프라이즈 커넥터](app-service-logic-enterprise-connectors.md) | 
+[B2B 커넥터](app-service-logic-b2b-connectors.md) | 
+[프로토콜 커넥터](app-service-logic-protocol-connectors.md) | 
+[앱 + 데이터 서비스 커넥터](app-service-logic-data-connectors.md) | 
+[커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/><br/> 
+[커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
  
 
 <!---HONumber=62-->

@@ -114,19 +114,23 @@ HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시
 		<td><b>Windows Server 2012 R2 데이터 센터</b>를 선택하여 Windows 클러스터를 프로비전합니다. Linux 클러스터를 프로비전하려면 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-provision-linux-clusters/" target="_blank">HDInsight에서 Hadoop Linux 클러스터 프로비전</a>을 참조하세요.</td></tr>
 	<tr><td>HDInsight 버전</td>
 		<td>버전 선택. Hadoop의 경우 기본값은 Hadoop 2.4를 사용하는 HDInsight 버전 3.1입니다.</td></tr>
-	</table>테이블에 표시되는 대로 값을 입력하거나 선택하고 오른쪽 화살표를 클릭합니다.
+	</table>
+
+	테이블에 표시되는 대로 값을 입력하거나 선택하고 오른쪽 화살표를 클릭합니다.
 
 4. **클러스터 구성** 페이지에서 다음 값을 입력하거나 선택합니다.
 
 	![Hadoop HDInsight 클러스터 세부 정보 제공](./media/hdinsight-provision-clusters/HDI.CustomProvision.Page2.png)
 
 	<table border="1">
-<tr><th>이름</th><th>값</th></tr>
-<tr><td>데이터 노드</td><td>배포하려는 데이터 노드 수입니다. 테스트 목적으로 단일 노드 클러스터를 만듭니다. <br />클러스터 크기 제한은 Azure 구독에 따라 다릅니다. 제한을 늘리려면 Azure 청구 지원 팀에 문의하세요.</td></tr>
-<tr><td>지역/가상 네트워크</td><td><p>마지막 절차에서 만든 저장소 계정과 동일한 지역을 선택합니다. HDInsight를 사용하려면 저장소 계정이 동일한 지역에 있어야 합니다. 구성의 뒷부분에서 여기서 지정한 지역과 동일한 지역에 있는 저장소 계정만 선택할 수 있습니다.</p><p>선택 가능한 지역은 <strong>동아시아</strong>, <strong>동남아시아</strong>, <strong>북유럽</strong>, <strong>서유럽</strong>, <strong>미국 동부</strong>, <strong>미국 서부</strong>, <strong>미국 중북부</strong>, <strong>미국 중남부</strong>입니다.<br/>Azure 가상 네트워크를 만들었으면 HDInsight 클러스터에서 사용하도록 구성할 네트워크를 선택할 수 있습니다.</p><p>Azure 가상 네트워크 만들기에 대한 자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/jj156206.aspx">가상 네트워크 구성 작업</a>을 참조하세요.</p></td></tr>
-<tr><td>헤드 노드 크기</td><td><p>헤드 노드에 대한 VM(가상 컴퓨터) 크기를 선택합니다.</p></td></tr>
-<tr><td>데이터 노드 크기</td><td><p>데이터 노드에 대한 VM 크기를 선택합니다.</p></td></tr>
-</table>>[AZURE.NOTE]선택한 VM에 따라 비용이 달라질 수 있습니다. HDInsight에서는 클러스터 노드에 모든 표준 계층 VM을 사용합니다. VM 크기가 가격에 미치는 영향에 대한 자세한 내용은 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 가격</a>을 참조하세요.
+	<tr><th>이름</th><th>값</th></tr>
+	<tr><td>데이터 노드</td><td>배포하려는 데이터 노드 수입니다. 테스트 목적으로 단일 노드 클러스터를 만듭니다. <br />클러스터 크기 제한은 Azure 구독에 따라 다릅니다. 제한을 늘리려면 Azure 청구 지원 팀에 문의하세요.</td></tr>
+	<tr><td>지역/가상 네트워크</td><td><p>마지막 절차에서 만든 저장소 계정과 동일한 지역을 선택합니다. HDInsight를 사용하려면 저장소 계정이 동일한 지역에 있어야 합니다. 구성의 뒷부분에서 여기서 지정한 지역과 동일한 지역에 있는 저장소 계정만 선택할 수 있습니다.</p><p>선택 가능한 지역은 <strong>동아시아</strong>, <strong>동남아시아</strong>, <strong>북유럽</strong>, <strong>서유럽</strong>, <strong>미국 동부</strong>, <strong>미국 서부</strong>, <strong>미국 중북부</strong>, <strong>미국 중남부</strong>입니다.<br/>Azure 가상 네트워크를 만들었으면 HDInsight 클러스터에서 사용하도록 구성할 네트워크를 선택할 수 있습니다.</p><p>Azure 가상 네트워크 만들기에 대한 자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/jj156206.aspx">가상 네트워크 구성 작업</a>을 참조하세요.</p></td></tr>
+	<tr><td>헤드 노드 크기</td><td><p>헤드 노드에 대한 VM(가상 컴퓨터) 크기를 선택합니다.</p></td></tr>
+	<tr><td>데이터 노드 크기</td><td><p>데이터 노드에 대한 VM 크기를 선택합니다.</p></td></tr>
+	</table>
+
+	>[AZURE.NOTE]선택한 VM에 따라 비용이 달라질 수 있습니다. HDInsight에서는 클러스터 노드에 모든 표준 계층 VM을 사용합니다. VM 크기가 가격에 미치는 영향에 대한 자세한 내용은 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 가격</a>을 참조하세요.
 
 
 5. **클러스터 사용자 구성** 페이지에서 다음 값을 제공합니다.
@@ -144,7 +148,9 @@ HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시
 	<tr><td>Hive/Oozie Metastore 입력</td>
 		<td>클러스터와 동일한 데이터 센터에서 Hive/Oozie Metastore로 사용할 SQL 데이터베이스를 지정하려면 이 확인란을 선택합니다. 이 확인란을 선택한 경우 마법사의 후속 페이지에서 Azure SQL 데이터베이스에 대한 세부 정보를 지정해야 합니다. 이 확인란은 클러스터가 삭제된 후에도 Hive/Oozie 작업에 대한 메타데이터를 유지하려는 경우에 유용합니다.</td></tr>
 	</td></tr>
-</table>오른쪽 화살표를 클릭합니다.
+	</table>
+
+	오른쪽 화살표를 클릭합니다.
 
 6. **Hive/Oozie Metastore 구성** 페이지에서 다음 값을 제공합니다.
 
@@ -184,7 +190,9 @@ HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시
     </td></tr>
 	<tr><td>추가 저장소 계정</td>
 		<td>HDInsight는 여러 저장소 계정을 지원합니다. 클러스터에서 사용할 수 있는 추가 저장소 계정에는 한도가 없습니다. 하지만 Azure 포털을 사용하여 클러스터를 만드는 경우에는 UI 제약으로 인해 7개로 제한됩니다. 지정하는 각 추가 저장소 계정은 마법사에 계정 정보를 지정할 수 있는 **저장소 계정** 페이지를 더합니다. 예를 들어 위의 스크린샷에서는 하나의 추가 저장소 계정이 선택되었으므로 5페이지가 대화 상자에 추가되었습니다.</td></tr>
-</table>오른쪽 화살표를 클릭합니다.
+	</table>
+
+	오른쪽 화살표를 클릭합니다.
 
 7. 클러스터에 대한 추가 저장소를 구성하도록 선택한 경우 **저장소 계정** 페이지에서 추가 저장소 계정에 대한 계정 정보를 입력합니다.
 
@@ -208,7 +216,9 @@ HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시
 		<td>사용자 지정 스크립트가 실행되는 노드를 지정합니다. <b>모든 노드</b>, <b>헤드 노드만</b> 또는 <b>데이터 노드만</b>을 선택할 수 있습니다.
 	<tr><td>매개 변수</td>
 		<td>스크립트에 필요한 경우 매개 변수를 지정합니다.</td></tr>
-</table>두 개 이상의 스크립트 작업을 추가하여 클러스터에 여러 구성 요소를 설치할 수 있습니다. 스크립트를 추가한 후 확인 표시를 클릭하여 클러스터 프로비저닝을 시작합니다.
+	</table>
+
+	두 개 이상의 스크립트 작업을 추가하여 클러스터에 여러 구성 요소를 설치할 수 있습니다. 스크립트를 추가한 후 확인 표시를 클릭하여 클러스터 프로비저닝을 시작합니다.
 
 ##<a id="powershell"></a> Azure PowerShell 사용
 Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있는 강력한 스크립팅 환경입니다. 이 섹션에서는 Azure PowerShell을 사용하여 HDInsight 클러스터를 프로비전하는 방법에 대한 지침을 제공합니다. HDInsight Windows PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](../install-configure-powershell.md)을 참조하세요. HDInsight에서 Azure PowerShell을 사용하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 HDInsight 관리](hdinsight-administer-use-powershell.md)를 참조하세요. HDInsight Windows PowerShell cmdlet의 목록은 [HDInsight cmdlet 참조][hdinsight-powershell-reference]를 참조하세요.
@@ -452,7 +462,8 @@ NPM 또는 Windows Installer를 사용하여 Azure CLI를 설치할 수 있습�
 
 **Windows Installer를 사용하여 Azure CLI를 설치하려면**
 
-1.	**http://azure.microsoft.com/downloads/**로 이동합니다.2.	**명령줄 도구** 섹션으로 스크롤하여 **Azure 명령줄 인터페이스**를 클릭하고 웹 플랫폼 설치 관리자 마법사를 따릅니다.
+1.	**http://azure.microsoft.com/downloads/**로 이동합니다.
+2.	**명령줄 도구** 섹션으로 스크롤하여 **Azure 명령줄 인터페이스**를 클릭하고 웹 플랫폼 설치 관리자 마법사를 따릅니다.
 
 **게시 설정을 다운로드하거나 가져오려면**
 
@@ -603,19 +614,19 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
 3. **새 프로젝트**에서 다음 값을 입력하거나 선택합니다.
 
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-<tr>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">속성</th>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">값</th></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Category</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Templates/Visual C#/Windows</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Template</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Console Application</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Name</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateHDICluster</td></tr>
-</table>
+	<tr>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">속성</th>
+	<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">값</th></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Category</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Templates/Visual C#/Windows</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Template</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Console Application</td></tr>
+	<tr>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Name</td>
+	<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateHDICluster</td></tr>
+	</table>
 
 4. **확인**을 클릭하여 프로젝트를 만듭니다.
 

@@ -260,7 +260,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 앱
 
 1. **실행** 단추를 눌러 프로젝트를 빌드하고 iOS 지원 장치에서 앱을 시작한 다음, **확인**을 클릭하여 푸시 알림을 수락합니다.
 	
-	> [AZURE.NOTE]앱에서 푸시 알림을 명시적으로 수락해야 합니다. This request only occurs the first time that the app runs.
+	> [AZURE.NOTE]앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
 
 2. 앱에서 작업을 입력하고 더하기(**+**) 아이콘을 클릭합니다.
 

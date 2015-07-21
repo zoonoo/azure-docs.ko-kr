@@ -39,7 +39,9 @@ Visual Studio에서 기본 ASP.NET MVC 템플릿을 사용하여 Azure 앱 서�
 -	활성 [Microsoft Azure 계정](http://azure.microsoft.com/account/)
 -	[Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)를 설치한 Visual Studio 2013
 
-> [AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 있어야 합니다. + [Azure 계정을 무료로 개설](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹앱)를 사용할 수 있습니다. + [MSDN 구독자 혜택을 활성화](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
+> [AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 있어야 합니다. 
+> + [Azure 계정을 무료로 개설](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹앱)를 사용할 수 있습니다. 
+> + [MSDN 구독자 혜택을 활성화](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 
 <a name="deploy"></a>
 ## 통합 CDN 끝점으로 Azure 웹앱 배포 ##
@@ -125,7 +127,16 @@ Azure CDN을 통해 전체 Azure 웹앱을 제공하는 것이 일반적으로 �
 <a name="caching"></a>
 ## Azure 웹앱의 정적 파일에 대한 캐싱 옵션 구성 ##
 
-Azure 웹앱에서 Azure CDN 통합을 사용하면 CDN 끝점에서 정적 콘텐츠를 캐시하는 방법을 지정할 수 있습니다. 이렇게 하려면 ASP.NET 프로젝트(예: **cdnwebapp**)에서 *Web.config*를 열고 `<system.webServer>`에 `<staticContent>` 요소를 추가합니다. 아래 XML은 캐시가 3일 이내에 만료되도록 구성합니다. <pre class="prettyprint"> &lt;system.webServer&gt; <mark>&lt;staticContent&gt; &lt;clientCache cacheControlMode=&quot;UseMaxAge&quot; cacheControlMaxAge=&quot;3.00:00:00&quot;/&gt; &lt;/staticContent&gt;</mark> ... &lt;/system.webServer&gt; </pre>
+Azure 웹앱에서 Azure CDN 통합을 사용하면 CDN 끝점에서 정적 콘텐츠를 캐시하는 방법을 지정할 수 있습니다. 이렇게 하려면 ASP.NET 프로젝트(예: **cdnwebapp**)에서 *Web.config*를 열고 `<system.webServer>`에 `<staticContent>` 요소를 추가합니다. 아래 XML은 캐시가 3일 이내에 만료되도록 구성합니다.  
+<pre class="prettyprint">
+&lt;system.webServer&gt;
+  <mark>&lt;staticContent&gt;
+    &lt;clientCache cacheControlMode=&quot;UseMaxAge&quot; cacheControlMaxAge=&quot;3.00:00:00&quot;/&gt;
+  &lt;/staticContent&gt;</mark>
+  ...
+&lt;/system.webServer&gt;
+</pre>
+
 
 이렇게 구성하면 Azure 웹앱의 모든 정적 파일이 CDN 캐시에서 동일한 규칙을 준수합니다. 캐싱 설정을 더 세밀하게 제어하려면 *Web.config* 파일을 폴더에 추가하고 이 파일에 해당 설정을 추가합니다. 예를 들어 *Web.config* 파일을 *\Content* 폴더에 추가하고 다음 XML로 내용을 바꿉니다.
 
@@ -159,17 +170,17 @@ Azure 웹앱을 Azure CDN과 통합하는 경우 Azure CDN을 통해 컨트롤�
 
 1. *\Controllers* 폴더에서 *MemeGeneratorController.cs*라는 새로운 .cs 파일을 만들고 내용을 다음 코드로 바꿉니다. 또한 강조 표시된 부분을 사용 중인 파일 경로 및 CDN 이름으로 바꿉니다.
 	<pre class="prettyprint">
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Net;
-using System.Web.Hosting;
-using System.Web.Mvc;
-using System.Web.UI;
+	using System;
+	using System.Collections.Generic;
+	using System.Diagnostics;
+	using System.Drawing;
+	using System.IO;
+	using System.Net;
+	using System.Web.Hosting;
+	using System.Web.Mvc;
+	using System.Web.UI;
 
-namespace cdnwebapp.Controllers
+	namespace cdnwebapp.Controllers
 {
     public class MemeGeneratorController : Controller
     {
@@ -254,7 +265,7 @@ namespace cdnwebapp.Controllers
         }
     }
 }
-</pre>
+	</pre>
 
 2. 기본 `Index()` 작업을 마우스 오른쪽 단추로 클릭하고 **뷰 추가**를 선택합니다.
 
@@ -278,7 +289,16 @@ namespace cdnwebapp.Controllers
 
 5. Azure 웹앱을 다시 게시하고 브라우저에서 **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index**로 이동합니다.
 
-양식 값을 `/MemeGenerator/Index`로 제출할 경우 `Index_Post` 동작 메서드가 각각의 입력 식별자와 함께 `Show` 동작 메서드에 대한 링크를 반환합니다. 링크를 클릭하면 다음 코드가 표시됩니다. <pre class="prettyprint"> [OutputCache(VaryByParam = &quot;*&quot;, Duration = 1, Location = OutputCacheLocation.Downstream)] public ActionResult Show(string id) { Tuple&lt;string, string&gt; data = null; if (!Memes.TryGetValue(id, out data)) { return new HttpStatusCodeResult(HttpStatusCode.NotFound); }
+양식 값을 `/MemeGenerator/Index`로 제출할 경우 `Index_Post` 동작 메서드가 각각의 입력 식별자와 함께 `Show` 동작 메서드에 대한 링크를 반환합니다. 링크를 클릭하면 다음 코드가 표시됩니다.  
+<pre class="prettyprint">
+[OutputCache(VaryByParam = &quot;*&quot;, Duration = 1, Location = OutputCacheLocation.Downstream)]
+public ActionResult Show(string id)
+{
+    Tuple&lt;string, string&gt; data = null;
+    if (!Memes.TryGetValue(id, out data))
+    {
+        return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+    }
 
     if (Debugger.IsAttached) // Preserve the debug experience
     {
@@ -288,7 +308,8 @@ namespace cdnwebapp.Controllers
     {
         return Redirect(string.Format(&quot;http://<mark>&lt;yourCDNName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}&quot;, data.Item1, data.Item2));
     }
-} </pre>
+}
+</pre>
 
 로컬 디버거가 연결되어 있다면 로컬로 리디렉션되면서 정규 디버그 환경이 구현됩니다. Azure 웹앱에서 실행 중인 경우에는 다음으로 리디렉션됩니다.
 
@@ -362,7 +383,7 @@ public static void RegisterBundles(BundleCollection bundles)
                 "~/Scripts/jquery.validate*"));
 
     // Modernizr의 개발 버전을 사용하여 개발하고 학습합니다. 그런 다음 프로덕션 준비가 되면,
-    // http://modernizr.com에서 빌드 도구를 사용하여 필요한 테스트만 선택합니다.
+    // http://modernizr.com 에서 빌드 도구를 사용하여 필요한 테스트만 선택합니다.
     bundles.Add(new ScriptBundle("~/bundles/modernizr"<mark>, string.Format(cdnUrl, "bundles/modernizer")</mark>).Include(
                 "~/Scripts/modernizr-*"));
 
@@ -373,8 +394,9 @@ public static void RegisterBundles(BundleCollection bundles)
     bundles.Add(new StyleBundle("~/Content/css"<mark>, string.Format(cdnUrl, "Content/css")</mark>).Include(
                 "~/Content/bootstrap.css",
                 "~/Content/site.css"));
-}
-</pre>`<yourCDNName>`을 사용 중인 Azure CDN 이름으로 바꾸세요.
+	}
+	</pre>
+	`<yourCDNName>`을 사용 중인 Azure CDN 이름으로 바꾸세요.
 
 	쉽게 말하면 `bundles.UseCdn = true`를 설정하고 있으며 신중하게 만든 CDN URL을 각 번들에 추가했습니다. 예를 들어 코드의 첫 번째 생성자는 다음과 같습니다.
 
@@ -396,42 +418,43 @@ public static void RegisterBundles(BundleCollection bundles)
 
 3. ASP.NET 응용 프로그램을 다시 게시하고 홈페이지에 액세스합니다.
  
-4. 페이지의 HTML 코드를 확인합니다. 변경 내용을 Azure 웹앱에 다시 게시할 때마다 고유한 버전 문자열과 함께 렌더링된 CDN URL이 표시됩니다. 예:
+4. 페이지의 HTML 코드를 확인합니다. 변경 내용을 Azure 웹앱에 다시 게시할 때마다 고유한 버전 문자열과 함께 렌더링된 CDN URL이 표시됩니다. 예:  
 	<pre class="prettyprint">
-...
+	...
 
-&lt;link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25449" rel="stylesheet"/>
+    &lt;link href=&quot;http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25449&quot; rel=&quot;stylesheet&quot;/&gt;
 
-&lt;script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25449">&lt;/script>
+    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25449&quot;&gt;&lt;/script&gt;
 
-...
+	...
 
-&lt;script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25449">&lt;/script>
+    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25449&quot;&gt;&lt;/script&gt;
 
-&lt;script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25449">&lt;/script>
+    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25449&quot;&gt;&lt;/script&gt;
 
-...</pre>
+	...</pre>
+
 
 5. Visual Studio에서 `F5` 키를 눌러 ASP.NET 응용 프로그램을 디버그합니다.
 
-6. 페이지의 HTML 코드를 확인합니다. 개별적으로 렌더링된 각 스크립트 파일을 살펴볼 수 있으므로 Visual Studio의 일관된 디버그 환경을 구현할 수 있습니다.
+6. 페이지의 HTML 코드를 확인합니다. 개별적으로 렌더링된 각 스크립트 파일을 살펴볼 수 있으므로 Visual Studio의 일관된 디버그 환경을 구현할 수 있습니다.  
 	<pre class="prettyprint">
-...
-
-    &lt;link href="/Content/bootstrap.css" rel="stylesheet"/>
-&lt;link href="/Content/site.css" rel="stylesheet"/>
-
-    &lt;script src="/Scripts/modernizr-2.6.2.js">&lt;/script>
-
-...
-
-    &lt;script src="/Scripts/jquery-1.10.2.js">&lt;/script>
-
-    &lt;script src="/Scripts/bootstrap.js">&lt;/script>
-&lt;script src="/Scripts/respond.js">&lt;/script>
-
-...    
-</pre>
+	...
+	
+	    &lt;link href=&quot;/Content/bootstrap.css&quot; rel=&quot;stylesheet&quot;/&gt;
+	&lt;link href=&quot;/Content/site.css&quot; rel=&quot;stylesheet&quot;/&gt;
+	
+	    &lt;script src=&quot;/Scripts/modernizr-2.6.2.js&quot;&gt;&lt;/script&gt;
+	
+	...
+	
+	    &lt;script src=&quot;/Scripts/jquery-1.10.2.js&quot;&gt;&lt;/script&gt;
+	
+	    &lt;script src=&quot;/Scripts/bootstrap.js&quot;&gt;&lt;/script&gt;
+	&lt;script src=&quot;/Scripts/respond.js&quot;&gt;&lt;/script&gt;
+	
+	...    
+	</pre>
 
 <a name="fallback"></a>
 ## CDN URL의 대체 메커니즘 ##
@@ -442,37 +465,39 @@ public static void RegisterBundles(BundleCollection bundles)
 
 1. ASP.NET 프로젝트에서 각 [Bundle 생성자](http://msdn.microsoft.com/library/jj646464.aspx)의 CDN URL을 추가한 *App_Start\BundleConfig.cs* 파일을 열고 다음과 같이 강조 표시된 내용을 변경하여 기본 번들에 대체 메커니즘을 추가합니다.  
 	<pre class="prettyprint">
-public static void RegisterBundles(BundleCollection bundles)
-{
-    var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig))
-        .GetName().Version.ToString();
-    var cdnUrl = "http://cdnurl.vo.msecnd.net/.../{0}?" + version;
-    bundles.UseCdn = true;
-
-    bundles.Add(new ScriptBundle("~/bundles/jquery", string.Format(cdnUrl, "bundles/jquery")) 
-				<mark>{ CdnFallbackExpression = "window.jquery" }</mark>
-                .Include("~/Scripts/jquery-{version}.js"));
-
-    bundles.Add(new ScriptBundle("~/bundles/jqueryval", string.Format(cdnUrl, "bundles/jqueryval")) 
-				<mark>{ CdnFallbackExpression = "$.validator" }</mark>
-            	.Include("~/Scripts/jquery.validate*"));
-
-    // Modernizr의 개발 버전을 사용하여 개발하고 학습합니다. 그런 다음 프로덕션 준비가 되면,
-    // http://modernizr.com에서 빌드 도구를 사용하여 필요한 테스트만 선택합니다.
-    bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")) 
-				<mark>{ CdnFallbackExpression = "window.Modernizr" }</mark>
-				.Include("~/Scripts/modernizr-*"));
-
-    bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")) 	
-				<mark>{ CdnFallbackExpression = "$.fn.modal" }</mark>
-        		.Include(
+	public static void RegisterBundles(BundleCollection bundles)
+	{
+	    var version = System.Reflection.Assembly.GetAssembly(typeof(BundleConfig))
+	        .GetName().Version.ToString();
+	    var cdnUrl = &quot;http://cdnurl.vo.msecnd.net/.../{0}?&quot; + version;
+	    bundles.UseCdn = true;
+	
+	    bundles.Add(new ScriptBundle(&quot;~/bundles/jquery&quot;, string.Format(cdnUrl, &quot;bundles/jquery&quot;)) 
+					<mark>{ CdnFallbackExpression = &quot;window.jquery&quot; }</mark>
+	                .Include(&quot;~/Scripts/jquery-{version}.js&quot;));
+	
+	    bundles.Add(new ScriptBundle(&quot;~/bundles/jqueryval&quot;, string.Format(cdnUrl, &quot;bundles/jqueryval&quot;)) 
+					<mark>{ CdnFallbackExpression = &quot;$.validator&quot; }</mark>
+	            	.Include(&quot;~/Scripts/jquery.validate*&quot;));
+	
+	    // Modernizr의 개발 버전을 사용하여 개발하고 학습합니다. 그런 다음 프로덕션 준비가 되면,
+	    // http://modernizr.com에서 빌드 도구를 사용하여 필요한 테스트만 선택합니다.
+	    bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")) 
+					<mark>{ CdnFallbackExpression = "window.Modernizr" }</mark>
+					.Include("~/Scripts/modernizr-*"));
+	
+	    bundles.Add(new ScriptBundle("~/bundles/bootstrap", string.Format(cdnUrl, "bundles/bootstrap")) 	
+					<mark>{ CdnFallbackExpression = "$.fn.modal" }</mark>
+	        		.Include(
 	              		"~/Scripts/bootstrap.js",
 	              		"~/Scripts/respond.js"));
 
-    bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
-                "~/Content/bootstrap.css",
-                "~/Content/site.css"));
-}</pre>`CdnFallbackExpression`이 null이 아니면 스크립트가 HTML에 삽입되어 번들이 제대로 로드되는지 테스트하고 제대로 로드되지 않는 경우 원본 웹 서버에서 직접 번들에 액세스합니다. 이 속성은 각각의 CDN 번들이 제대로 로드되는지 테스트하는 JavaScript 식으로 설정되어야 합니다. 각 번들을 테스트하는 데 필요한 식은 콘텐츠에 따라 다릅니다. 위 기본 번들의 경우는 다음과 같습니다.
+	    bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
+	                "~/Content/bootstrap.css",
+	                "~/Content/site.css"));
+	}</pre>
+
+	`CdnFallbackExpression`이 null이 아니면 스크립트가 HTML에 삽입되어 번들이 제대로 로드되는지 테스트하고 제대로 로드되지 않는 경우 원본 웹 서버에서 직접 번들에 액세스합니다. 이 속성은 각각의 CDN 번들이 제대로 로드되는지 테스트하는 JavaScript 식으로 설정되어야 합니다. 각 번들을 테스트하는 데 필요한 식은 콘텐츠에 따라 다릅니다. 위 기본 번들의 경우는 다음과 같습니다.
 	
 	-	`window.jquery`는 jquery-{version}.js에 정의되어 있습니다.
 	-	`$.validator`는 jquery.validate.js에 정의되어 있습니다.
@@ -489,50 +514,53 @@ public static void RegisterBundles(BundleCollection bundles)
 
 3. `App_Start\BundleConfig.cs` 파일로 돌아가 마지막 `bundles.Add` 문을 다음과 같은 강조 표시된 코드로 수정합니다.
 	<pre class="prettyprint">
-bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
-    <mark>.IncludeFallback("~/Content/css", "sr-only", "width", "1px")</mark>
-    .Include(
-          "~/Content/bootstrap.css",
-          "~/Content/site.css"));
-</pre>이 새로운 확장 메서드는 동일한 개념을 사용하여 CSS 번들에 정의된 일치하는 클래스 이름, 규칙 이름 및 규칙 값에 대한 DOM을 확인하고 일치 항목을 찾지 못할 경우 원본 웹 서버로 대체하는 스크립트를 HTML에 삽입합니다.
+	bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
+	    <mark>.IncludeFallback("~/Content/css", "sr-only", "width", "1px")</mark>
+	    .Include(
+	          "~/Content/bootstrap.css",
+	          "~/Content/site.css"));
+	</pre>
+
+	이 새로운 확장 메서드는 동일한 개념을 사용하여 CSS 번들에 정의된 일치하는 클래스 이름, 규칙 이름 및 규칙 값에 대한 DOM을 확인하고 일치 항목을 찾지 못할 경우 원본 웹 서버로 대체하는 스크립트를 HTML에 삽입합니다.
 
 4. Azure 웹앱에 다시 게시하고 홈페이지에 액세스합니다.
 5. 페이지의 HTML 코드를 확인합니다. 다음과 비슷한 삽입 스크립트가 표시됩니다.    
 	<pre class="prettyprint">...
-
-	&lt;link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
-<mark>&lt;script>(function() {
-                var loadFallback,
-                    len = document.styleSheets.length;
-                for (var i = 0; i &lt; len; i++) {
-                    var sheet = document.styleSheets[i];
-                    if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
-                        var meta = document.createElement('meta');
-                        meta.className = 'sr-only';
-                        document.head.appendChild(meta);
-                        var value = window.getComputedStyle(meta).getPropertyValue('width');
-                        document.head.removeChild(meta);
-                        if (value !== '1px') {
-                            document.write('&lt;link href="/Content/css" rel="stylesheet" type="text/css" />');
-                        }
-                    }
-                }
-                return true;
-            }())||document.write('&lt;script src="/Content/css">&lt;/script>');&lt;/script></mark>
-
-    &lt;script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474">&lt;/script>
-<mark>&lt;script>(window.Modernizr)||document.write('&lt;script src="/bundles/modernizr">&lt;/script>');&lt;/script></mark>
-
-...	
-
-    &lt;script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474">&lt;/script>
-<mark>&lt;script>(window.jquery)||document.write('&lt;script src="/bundles/jquery">&lt;/script>');&lt;/script></mark>
-
-    &lt;script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474">&lt;/script>
-<mark>&lt;script>($.fn.modal)||document.write('&lt;script src="/bundles/bootstrap">&lt;/script>');&lt;/script></mark>
-
-...
-</pre>CSS 번들의 삽입 스크립트에서 다음 줄에 여전히 `CdnFallbackExpression` 속성의 나머지 잘못된 부분이 포함되어 있습니다.
+	
+		&lt;link href=&quot;http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474&quot; rel=&quot;stylesheet&quot;/&gt;
+	<mark>&lt;script&gt;(function() {
+	                var loadFallback,
+	                    len = document.styleSheets.length;
+	                for (var i = 0; i &lt; len; i++) {
+	                    var sheet = document.styleSheets[i];
+	                    if (sheet.href.indexOf(&#39;http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474&#39;) !== -1) {
+	                        var meta = document.createElement(&#39;meta&#39;);
+	                        meta.className = &#39;sr-only&#39;;
+	                        document.head.appendChild(meta);
+	                        var value = window.getComputedStyle(meta).getPropertyValue(&#39;width&#39;);
+	                        document.head.removeChild(meta);
+	                        if (value !== &#39;1px&#39;) {
+	                            document.write(&#39;&lt;link href=&quot;/Content/css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;&#39;);
+	                        }
+	                    }
+	                }
+	                return true;
+	            }())||document.write(&#39;&lt;script src=&quot;/Content/css&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	
+	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
+	<mark>&lt;script&gt;(window.Modernizr)||document.write(&#39;&lt;script src=&quot;/bundles/modernizr&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	
+	...	
+	
+	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
+	<mark>&lt;script&gt;(window.jquery)||document.write(&#39;&lt;script src=&quot;/bundles/jquery&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	
+	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
+	<mark>&lt;script&gt;($.fn.modal)||document.write(&#39;&lt;script src=&quot;/bundles/bootstrap&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	
+	...
+	</pre>
+	CSS 번들의 삽입 스크립트에서 다음 줄에 여전히 `CdnFallbackExpression` 속성의 나머지 잘못된 부분이 포함되어 있습니다.
 
         }())||document.write('<script src="/Content/css"></script>');</script>
 
