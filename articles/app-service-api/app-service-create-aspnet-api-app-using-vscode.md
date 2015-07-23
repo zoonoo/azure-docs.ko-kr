@@ -139,35 +139,37 @@ namespace ContactsList.Models
 3. **Controllers** 폴더를 마우스 오른쪽 단추로 클릭하고 *ContactsController.cs* 파일을 추가하여 다음과 같이 표시되도록 합니다.
 
 	<pre class="prettyprint">
-using System.Collections.Generic;
-using Microsoft.AspNet.Mvc;
-using ContactsList.Models;
-
-namespace ContactsList.Controllers
-{
-    [Route("api/[controller]")]
-    public class ContactsController : Controller
-    {
-        // GET: api/Contacts
-        [HttpGet]
-        public IEnumerable&lt;Contact> Get()
-        {
-            return new Contact[]{
-                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
-                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
-                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
-            };
-        }
-    }
-}
-</pre>
+	using System.Collections.Generic;
+	using Microsoft.AspNet.Mvc;
+	using ContactsList.Models;
+	
+	namespace ContactsList.Controllers
+	{
+	    [Route("api/[controller]")]
+	    public class ContactsController : Controller
+	    {
+	        // GET: api/Contacts
+	        [HttpGet]
+	        public IEnumerable&lt;Contact&gt; Get()
+	        {
+	            return new Contact[]{
+	                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
+	                new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
+	                new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
+	            };
+	        }
+	    }
+	}
+	</pre>
 
 4. **파일** > **모두 저장**을 선택하여 모든 파일을 저장합니다.
 5. **명령 팔레트**에서 다음을 입력하여 앱을 로컬로 실행합니다.
 
 	<pre class="prettyprint">
-dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5001
-</pre>명령 창에 *시작됨*이 표시됩니다. 명령 창에 *시작됨*이 표시되지 않는 경우 VSCode의 왼쪽 아래에서 프로젝트에 오류가 있는지 확인합니다.
+	dnx: kestrel - (ContactsList, Microsoft.AspNet.Hosting --server Kestrel --server.urls http://localhost:5001
+	</pre>
+
+	명령 창에 *시작됨*이 표시됩니다. 명령 창에 *시작됨*이 표시되지 않는 경우 VSCode의 왼쪽 아래에서 프로젝트에 오류가 있는지 확인합니다.
 
 5. 브라우저를 열고 다음 URL로 이동합니다.
 
@@ -448,4 +450,4 @@ Azure Preview 포털에서 API 앱에 대한 **API 앱 호스트** 블레이드�
 이 자습서에서는 Visual Studio Code에서 API 앱을 만드는 방법을 알아보았습니다. Visual Studio Code에 대한 자세한 내용은 [Visual Studio Code](https://code.visualstudio.com/Docs/)를 참조하세요. API 앱에 대한 자세한 내용은 [API 앱 정의](app-service-api-apps-why-best-platform.md)를 참조하세요.
  
 
-<!---HONumber=62-->
+<!----HONumber=62-->
