@@ -39,11 +39,11 @@ Azure ML 권장 사항과 사이트를 통합하는 과정은 다음 두 단계�
 
 권장 사항을 페이지에 표시하려는 두 번째 단계에서는 다음 옵션 중 하나를 선택합니다.
 
-1. 서버(페이지 렌더링 단계)가 데이터 마켓을 통해 Azure ML 권장 사항 서버를 호출하여 권장 사항을 가져옵니다. 결과는 항목 ID 목록을 포함합니다. 서버는 항목 메타데이터(예: 이미지, 설명)로 결과를 보완하고 만든 페이지를 브라우저로 전송해야 합니다.
+1.서버(페이지 렌더링 단계)가 데이터 마켓을 통해 Azure ML 권장 사항 서버를 호출하여 권장 사항을 가져옵니다. 결과는 항목 ID 목록을 포함합니다. 서버는 항목 메타데이터(예: 이미지, 설명)로 결과를 보완하고 만든 페이지를 브라우저로 전송해야 합니다.
 
 ![Drawing2][2]
 
-2. 다른 옵션은 1단계의 작은 JavaScript 파일을 사용하여 권장 항목의 단순 목록을 가져오는 것입니다. 여기서 받은 데이터는 첫 번째 옵션에서 받은 데이터보다 간결합니다.
+2.다른 옵션은 1단계의 작은 JavaScript 파일을 사용하여 권장 항목의 단순 목록을 가져오는 것입니다. 여기서 받은 데이터는 첫 번째 옵션에서 받은 데이터보다 간결합니다.
 
 ![Drawing3][3]
 
@@ -87,7 +87,12 @@ Azure ML 권장 사항과 사이트를 통합하는 과정은 다음 두 단계�
 ####3.2.1. Click 이벤트
 이 이벤트는 사용자가 항목을 클릭할 때마다 사용해야 합니다. 일반적으로 사용자가 항목을 클릭하면 항목 세부 정보가 포함된 새 페이지가 열립니다. 이 페이지에서 이 이벤트가 트리거되어야 합니다.
 
-매개 변수: - event(문자열, 필수) - “click” - item(문자열, 필수) - 항목의 고유 식별자 - itemName(문자열, 선택 사항) - 항목의 이름 - itemDescription(문자열, 선택 사항) - 항목에 대한 설명 - itemCategory(문자열, 선택 사항) - 항목의 범주
+매개 변수:
+- event(문자열, 필수) - “click”
+- item(문자열, 필수) - 항목의 고유 식별자
+- itemName(문자열, 선택 사항) - 항목의 이름
+- itemDescription(문자열, 선택 사항) - 항목에 대한 설명
+- itemCategory(문자열, 선택 사항) - 항목의 범주
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent == "undefined") { AzureMLRecommendationsEvent = []; }
@@ -105,7 +110,14 @@ Azure ML 권장 사항과 사이트를 통합하는 과정은 다음 두 단계�
 ####3.2.2. Recommendation Click 이벤트
 이 이벤트는 사용자가 Azure ML 권장 사항에서 권장 항목으로 받은 항목을 클릭할 때마다 사용해야 합니다. 일반적으로 사용자가 항목을 클릭하면 항목 세부 정보가 포함된 새 페이지가 열립니다. 이 페이지에서 이 이벤트가 트리거되어야 합니다.
 
-매개 변수: - event(문자열, 필수) - “recommendationclick” - item(문자열, 필수) - 항목의 고유 식별자 - itemName(문자열, 선택 사항) - 항목의 이름 - itemDescription(문자열, 선택 사항) - 항목에 대한 설명 - itemCategory(문자열, 선택 사항) - 항목의 범주 - seeds(문자열 배열, 선택 사항) - 권장 사항 쿼리를 생성한 초기값 - recoList(문자열 배열, 선택 사항) - 클릭한 항목을 생성한 권장 사항 요청의 결과
+매개 변수:
+- event(문자열, 필수) - “recommendationclick”
+- item(문자열, 필수) - 항목의 고유 식별자
+- itemName(문자열, 선택 사항) - 항목의 이름
+- itemDescription(문자열, 선택 사항) - 항목에 대한 설명
+- itemCategory(문자열, 선택 사항) - 항목의 범주
+- seeds(문자열 배열, 선택 사항) - 권장 사항 쿼리를 생성한 초기값
+- recoList(문자열 배열, 선택 사항) - 클릭한 항목을 생성한 권장 사항 요청의 결과
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
@@ -121,7 +133,13 @@ Azure ML 권장 사항과 사이트를 통합하는 과정은 다음 두 단계�
 
 
 ####3.2.3. Add Shopping Cart 이벤트
-이 이벤트는 사용자가 장바구니에 항목을 추가할 때 사용해야 합니다. 매개 변수: * event(문자열, 필수) - “addshopcart” * item(문자열, 필수) - 항목의 고유 식별자 * itemName(문자열, 선택 사항) - 항목의 이름 * itemDescription(문자열, 선택 사항) - 항목에 대한 설명 * itemCategory(문자열, 선택 사항) - 항목의 범주
+이 이벤트는 사용자가 장바구니에 항목을 추가할 때 사용해야 합니다.
+매개 변수:
+* event(문자열, 필수) - “addshopcart”
+* item(문자열, 필수) - 항목의 고유 식별자
+* itemName(문자열, 선택 사항) - 항목의 이름
+* itemDescription(문자열, 선택 사항) - 항목에 대한 설명
+* itemCategory(문자열, 선택 사항) - 항목의 범주
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent == "undefined") { AzureMLRecommendationsEvent = []; }
@@ -131,7 +149,12 @@ Azure ML 권장 사항과 사이트를 통합하는 과정은 다음 두 단계�
 ####3.2.4. Remove Shopping Cart 이벤트
 이 이벤트는 사용자가 장바구니에서 항목을 제거할 때 사용해야 합니다.
 
-매개 변수: * event(문자열, 필수) - “removeshopcart” * item(문자열, 필수) - 항목의 고유 식별자 * itemName(문자열, 선택 사항) - 항목의 이름 * itemDescription(문자열, 선택 사항) - 항목에 대한 설명 * itemCategory(문자열, 선택 사항) - 항목의 범주
+매개 변수:
+* event(문자열, 필수) - “removeshopcart”
+* item(문자열, 필수) - 항목의 고유 식별자
+* itemName(문자열, 선택 사항) - 항목의 이름
+* itemDescription(문자열, 선택 사항) - 항목에 대한 설명
+* itemCategory(문자열, 선택 사항) - 항목의 범주
 		
 		<script>
 			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = []; }
@@ -141,7 +164,13 @@ Azure ML 권장 사항과 사이트를 통합하는 과정은 다음 두 단계�
 ####3.2.5. Purchase 이벤트
 이 이벤트는 사용자가 장바구니를 구매했을 때 사용해야 합니다.
 
-매개 변수: * event (문자열) – “purchase” * items ( Purchased ) – 구매한 각 항목에 대한 항목을 포함하는 배열<br><br> Purchased 형식: * item(문자열) - 항목의 고유 식별자 * count(int 또는 문자열) - 구매한 항목 수 * price(float 또는 문자열) - 선택 사항 필드 - 항목의 가격
+매개 변수:
+* event (문자열) – “purchase”
+* items ( Purchased ) – 구매한 각 항목에 대한 항목을 포함하는 배열<br><br>
+Purchased 형식:
+	* item(문자열) - 항목의 고유 식별자
+	* count(int 또는 문자열) - 구매한 항목 수
+	* price(float 또는 문자열) - 선택 사항 필드 - 항목의 가격
 
 아래 예제에서는 3개 항목(33, 34, 35)의 구매를 보여 줍니다. 두 항목은 모든 필드가 채워져 있고(항목, 개수, 가격), 한 항목(항목 34)은 가격이 없습니다.
 
@@ -155,7 +184,13 @@ Azure ML 권장 사항 이벤트 라이브러리는 동일한 브라우저에서
 
 이 이벤트는 사용자가 사이트에 로그인한 후에 사용해야 합니다.
 
-매개 변수: * event (문자열) – “userlogin” * user (문자열) – 사용자의 공유 ID <script> if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; } AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” }); </script>
+매개 변수:
+* event (문자열) – “userlogin”
+* user (문자열) – 사용자의 공유 ID
+		<script>
+			if (typeof AzureMLRecommendationsEvent=="undefined") { AzureMLRecommendationsEvent = ; }
+			AzureMLRecommendationsEvent.push({event: "userlogin", user: “ABCD10AA” });
+		</script>
 
 ##4. JavaScript 통해 권장 사항 사용
 권장 사항을 사용하는 코드는 클라이언트 웹 페이지의 일부 JavaScript 이벤트에 의해 트리거됩니다. 권장 사항 응답에는 권장 항목 ID, 이름 및 해당 등급이 포함됩니다. 권장 항목의 목록 표시에만 이 옵션을 사용하는 것이 좋습니다. 더 복잡한 처리(예: 항목의 메타데이터 추가)는 서버 쪽 통합에서 수행해야 합니다.
@@ -165,7 +200,15 @@ Azure ML 권장 사항 이벤트 라이브러리는 동일한 브라우저에서
 
 하나 이상의 항목에 대해 권장 사항을 사용하려면 AzureMLRecommendationsGetI2IRecommendation이라는 메서드를 호출해야 합니다.
 
-매개 변수: * items(문자열 배열) - 권장 사항을 가져올 하나 이상의 항목. Fbt 빌드를 사용하는 경우 여기서 하나의 항목만 설정할 수 있습니다. * numberOfResults(int) - 필요한 결과 수 * includeMetadata(부울, 선택 사항) - 'true'로 설정된 경우 결과에서 메타데이터 필드를 채워야 함을 나타냅니다. * 처리 함수 - 반환된 권장 사항을 처리할 함수. 데이터는 다음 항목의 배열로 반환됩니다. * 항목 - 항목의 고유 ID * 이름 - 항목 이름(카탈로그에 있는 경우) * 등급 - 권장 사항 등급 * 메타데이터 - 항목의 메타데이터를 나타내는 문자열
+매개 변수:
+* items(문자열 배열) - 권장 사항을 가져올 하나 이상의 항목. Fbt 빌드를 사용하는 경우 여기서 하나의 항목만 설정할 수 있습니다.
+* numberOfResults(int) - 필요한 결과 수
+* includeMetadata(부울, 선택 사항) - 'true'로 설정된 경우 결과에서 메타데이터 필드를 채워야 함을 나타냅니다.
+* 처리 함수 - 반환된 권장 사항을 처리할 함수. 데이터는 다음 항목의 배열로 반환됩니다.
+	* 항목 - 항목의 고유 ID
+	* 이름 - 항목 이름(카탈로그에 있는 경우)
+	* 등급 - 권장 사항 등급
+	* 메타데이터 - 항목의 메타데이터를 나타내는 문자열
 
 예제: 다음 코드는 "64f6eb0d-947a-4c18-a16c-888da9e228ba" 항목에 대한 8개 권장 사항을 요청하고(includeMetadata를 지정하지 않아 메타데이터가 필요 없음을 암시적으로 나타냄) 그 결과를 버퍼에 연결합니다.
 
@@ -185,4 +228,4 @@ Azure ML 권장 사항 이벤트 라이브러리는 동일한 브라우저에서
 [3]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing3.png
  
 
-<!---HONumber=July15_HO2-->
+<!-----HONumber=July15_HO2-->
