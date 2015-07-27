@@ -149,4 +149,4 @@ SAML 관련 섹션에서 WS-Federation 메타 데이터 판독기는 **IDPSSODes
 
 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

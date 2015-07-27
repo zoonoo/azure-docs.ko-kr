@@ -4,8 +4,8 @@
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	manager="swadwha" 
+	editor="curtand"/>
 
 <tags 
 	ms.service="multi-factor-authentication" 
@@ -13,11 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="07/02/2015" 
 	ms.author="billmath"/>
 
-# 연결된 적이 있는 세계에 대한 추가 보안
-
+# Azure Multi-Factor Authentication 정의
 Multi-Factor Authentication(MFA)은 두 개 이상의 검증 방법을 사용해야 하며 사용자 로그인 및 트랜잭션에 중요한 제2의 보안 계층을 추가하는 인증 방법입니다. 이러한 인증에서는 다음 중 두 가지 이상의 검증 방법을 요구합니다.
 
 - 사용자가 알고 있는 정보(일반적으로 암호)
@@ -26,7 +25,7 @@ Multi-Factor Authentication(MFA)은 두 개 이상의 검증 방법을 사용해
 
 <center>![Username and Password](./media/multi-factor-authentication/pword.png) &#160;&#160;&#160;&#160;&#160;![Certificates](./media/multi-factor-authentication/phone.png) &#160;&#160;&#160;&#160;&#160;![Smart Phone](./media/multi-factor-authentication/hware.png) &#160;&#160;&#160;&#160;&#160;![Smart Card](./media/multi-factor-authentication/smart.png) &#160;&#160;&#160;&#160;&#160;![Virtual Smart Card](./media/multi-factor-authentication/vsmart.png) &#160;&#160;&#160;&#160;&#160;![Username and Password](./media/multi-factor-authentication/cert.png)</center>
 
-## Azure Multi-Factor Authentication 정의
+
 
 Azure Multi-Factor Authentication은 사용자 이름 및 암호 이외의 다른 내용을 사용해야하는 사람인지를 확인하는 메서드입니다. 사용자 로그인 및 트랜잭션에 대한 보안의 두번째 계층을 제공합니다.
 
@@ -58,7 +57,8 @@ Azure Multi-Factor Authentication을 사용하는 이유에 대한 추가 정보
 
 **추가 리소스**
 
-* [사용자](multi-factor-authentication-end-user.md)
+* [Multi-Factor Authentication이 나에게 어떤 의미가 있습니까?](multi-factor-authentication-end-user.md)
+* [Office365용 Multi-Factor Authentication 설치](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
 * [MSDN에서 Azure Multi-Factor Authentication](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

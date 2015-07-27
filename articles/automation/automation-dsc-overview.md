@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="05/04/2015"
+   ms.date="07/09/2015"
    ms.author="coreyp"/>
 
 # Azure 자동화 DSC 개요 #
 
->[AZURE.IMPORTANT]**Azure 자동화 DSC는 현재 제한된 미리 보기로 제공**되며, 프로덕션 작업에 지원되지 않습니다. 지금은 cmdlet만을 기반으로 하며, 그래픽 사용자 인터페이스가 없습니다. Azure 자동화 DSC의 미리 보기에 등록하면 이 기능은 미리 보기에 있고 서비스 계약에 명시된 대로 축소되거나 달라지는 [서비스 약관](https://go.microsoft.com/fwLink/p/?LinkID=389530&clcid=0x409)에 영향을 받는다는 사실을 이해하며, [미리 보기 추가 특약](https://go.microsoft.com/fwLink/p/?LinkID=247638&clcid=0x409)에 동의하게 됩니다. 지금은 서비스를 무료로 사용할 수 있지만 향후 가격 정책이 도입될 예정입니다.
+>[AZURE.IMPORTANT]**Azure 자동화 DSC는 현재 제한된 미리 보기로 제공**되며, 프로덕션 작업에 지원되지 않습니다. 이것은 주로 cmdlet 기반이며, 최소한의 그래픽 사용자 인터페이스입니다. Azure 자동화 DSC의 미리 보기에 등록하면 이 기능은 미리 보기에 있고 서비스 계약에 명시된 대로 축소되거나 달라지는 [서비스 약관](https://go.microsoft.com/fwLink/p/?LinkID=389530&clcid=0x409)에 영향을 받는다는 사실을 이해하며, [미리 보기 추가 특약](https://go.microsoft.com/fwLink/p/?LinkID=247638&clcid=0x409)에 동의하게 됩니다. 지금은 서비스를 무료로 사용할 수 있지만 향후 가격 정책이 도입될 예정입니다.
 
 ## PowerShell DSC란? ##
 DSC(필요한 상태 구성)는 선언적 PowerShell 구문을 사용하여 실제 호스트 및 가상 컴퓨터에 대한 구성을 관리할 수 있도록 해주는 Windows PowerShell의 새로운 관리 플랫폼입니다.
@@ -49,6 +49,8 @@ Azure 자동화 DSC는 PowerShell DSC에 도입된 기본 사항을 기반으로
 
 Azure 자동화 DSC를 사용하면 클라우드에서 [PowerShell 필요한 상태 구성을 작성 및 관리](https://technet.microsoft.com/library/dn249918.aspx)하고, [DSC 리소스](https://technet.microsoft.com/library/dn282125.aspx)를 가져오고, DSC 노드 구성(MOF 문서)을 생성할 수 있습니다. 이러한 DSC 항목은 클라우드 또는 온-프레미스의 대상 노드(예: 실제 및 가상 컴퓨터)에서 선택하고, 해당 노드에서 지정한 필요한 상태를 자동으로 준수하며, 필요한 상태 준수를 Azure 자동화에 다시 보고할 수 있도록 Azure 자동화 [DSC 끌어오기 서버](https://technet.microsoft.com/library/dn249913.aspx)에 배치됩니다.
 
+> [AZURE.VIDEO microsoft-ignite-2015-heterogeneous-configuration-management-using-microsoft-azure-automation]
+
 ## Azure 자동화 DSC 용어 ##
 ### 구성 ###
 PowerShell DSC에는 구성이라는 새로운 개념이 도입되었습니다. 구성에서는 PowerShell 구문을 통해 사용자 환경의 필요한 상태를 정의할 수 있습니다. DSC를 사용하여 환경을 구성하려면 먼저 구성 키워드를 사용하여 Windows PowerShell 스크립트 블록을 정의한 다음 그 뒤에 식별자와 블록을 구분하는 중괄호({})를 차례로 둡니다.
@@ -69,7 +71,7 @@ DSC 구성을 실행(컴파일)하면 DSC 노드에서 필요한 상태를 준�
 
 Azure 자동화 DSC를 사용하면 Azure 자동화에서 Runbook을 가져오고, 작성하고, 시작하는 것과 유사한 방법으로 DSC 구성을 가져오고, 작성하고, 컴파일할 수 있습니다.
 
-Azure 자동화 DSC는 현재 **Azure 리소스 관리자 PowerShell 모듈**에서 다음과 같은 DSC 구성 관리용 cmdlet을 제공합니다.
+Azure 자동화 DSC는 현재 [Azure 리소스 관리자 PowerShell 모듈](https://msdn.microsoft.com/library/mt244122.aspx)에서 다음과 같은 DSC 구성 관리용 cmdlet을 제공합니다.
 
 - `Get-AzureAutomationDscConfiguration`
 - `Import-AzureAutomationDscConfiguration`
@@ -82,7 +84,7 @@ DSC 구성이 컴파일되면 구성의 노드 블록에 따라 하나 이상의
 
 PS DSC 노드는 DSC 밀어넣기 또는 끌어오기 메서드를 통해 적용해야 하는 노드 구성을 인식하게 됩니다. Azure 자동화 DSC는 노드가 Azure 자동화 DSC 끌어오기 서버에서 적용해야 하는 노드 구성을 요청하는 DSC 끌어오기 메서드를 기반으로 합니다. 노드는 Azure 자동화 DSC에 요청하기 때문에 방화벽 뒤에 있을 수 있으며 모든 인바운드 포트가 닫혀 있을 수 있습니다. 인터넷에 대한 아웃바운드 액세스만 필요합니다.
 
-Azure 자동화 DSC는 현재 **Azure 리소스 관리자 PowerShell 모듈**에서 다음과 같은 DSC 노드 구성 관리용 cmdlet을 제공합니다. `Get-AzureAutomationDscNodeConfiguration`
+Azure 자동화 DSC는 현재 [Azure 리소스 관리자 PowerShell 모듈](https://msdn.microsoft.com/library/mt244122.aspx)에서 다음과 같은 DSC 노드 구성 관리용 cmdlet을 제공합니다. `Get-AzureAutomationDscNodeConfiguration`
 
 
 ###노드###
@@ -91,7 +93,7 @@ DSC 노드는 해당 구성이 DSC에 의해 관리되는 컴퓨터입니다. �
 
 Azure 자동화 DSC는 Azure 자동화 DSC의 관리를 위한 노드 등록을 용이하게 하며, 각 노드의 서버 쪽에 할당된 노드 구성의 변경을 허용합니다. 따라서 다음에 노드가 서버에서 지침을 확인할 때는 다른 역할을 수행하고 일치하도록 구성하는 방법을 변경합니다. 또한 노드는 해당 상태 및 구성 준수를 Azure 자동화 DSC에 보고합니다.
 
-Azure 자동화 DSC는 현재 [Azure 리소스 관리자 PowerShell 모듈](../powershell-azure-resource-manager.md)에서 다음과 같은 DSC 노드 관리용 cmdlet을 제공합니다.
+Azure 자동화 DSC는 현재 [Azure 리소스 관리자 PowerShell 모듈](https://msdn.microsoft.com/library/mt244122.aspx)에서 다음과 같은 DSC 노드 관리용 cmdlet을 제공합니다.
 
 -	`Get-AzureAutomationDscNode`  
 -	`Register-AzureAutomationDscNode`(Azure v2 VM을 노드로 등록하는 데 사용됨)
@@ -137,7 +139,7 @@ PowerShell:
         ConfigurationFunction = "RegistrationMetaConfig.ps1\RegistrationMetaConfig"
 
         # update these DSC agent configurations if these defaults are not what you want. 
-        # See https://technet.microsoft.com/ko-kr/library/dn249922.aspx?f=255&MSPPError=-2147217396 for more details
+        # See https://technet.microsoft.com/library/dn249922.aspx?f=255&MSPPError=-2147217396 for more details
         Properties = @{
             RegistrationKey = $RegistrationInfo.PrimaryKey
             RegistrationUrl = $RegistrationInfo.Endpoint
@@ -168,7 +170,7 @@ DSC 리소스를 PowerShell 모듈의 일부로 가져와 기본 제공 DSC 리�
 
 Azure 자동화 DSC는 PS DSC와 모두 동일한 기본 제공 DSC 리소스와 함께 제공됩니다. 리소스가 포함된 PowerShell 모듈을 Azure 자동화로 가져와 Azure 자동화 DSC에 리소스를 추가할 수 있습니다.
 
-Azure 자동화 DSC는 현재 [Azure 리소스 관리자 PowerShell 모듈](../powershell-azure-resource-manager.md)에서 다음과 같은 DSC 노드 관리용 cmdlet을 제공합니다.
+Azure 자동화 DSC는 현재 [Azure 리소스 관리자 PowerShell 모듈](https://msdn.microsoft.com/library/mt244122.aspx)에서 다음과 같은 DSC 노드 관리용 cmdlet을 제공합니다.
 
 - `New-AzureAutomationModule`
 - `Remove-AzureAutomationModule`
@@ -185,7 +187,7 @@ Azure 자동화 DSC의 컴파일 작업은 하나 이상의 노드 구성을 만
 >[AZURE.NOTE]Runbook과 마찬가지로 구성을 게시할 수 있습니다. 이는 DSC 항목을 Azure 자동화 DSC 끌어오기 서버에 두는 것과 관련이 없습니다. 컴파일 작업을 수행하면 DSC 항목이 Azure 자동화 DSC 끌어오기 서버에 배치됩니다. Azure 자동화의 "게시"에 대한 자세한 내용은 [Runbook 게시](https://msdn.microsoft.com/library/dn903765.aspx)를 참조하세요.
 
 
-Azure 자동화 DSC는 현재 [Azure 리소스 관리자 PowerShell 모듈](../powershell-azure-resource-manager.md)에서 다음과 같은 컴파일 작업 관리용 cmdlet을 제공합니다.
+Azure 자동화 DSC는 현재 [Azure 리소스 관리자 PowerShell 모듈](https://msdn.microsoft.com/library/mt244122.aspx)에서 다음과 같은 컴파일 작업 관리용 cmdlet을 제공합니다.
 
 -	`Get-AzureAutomationDscCompilationJob`
 -	`Get-AzureAutomationDscCompilationJobOutput`
@@ -218,8 +220,10 @@ Azure 자동화 DSC는 현재 [Azure 리소스 관리자 PowerShell 모듈](../p
 
 - Azure 자동화 계정에 노드를 처음 등록하거나 다른 노드 구성 서버 쪽에 매핑되도록 노드를 변경한 경우 노드의 상태가 현재 매핑된 노드 구성을 실제로 준수하지 않는 경우에도 해당 상태가 준수하는 것으로 표시됩니다. 노드에서 등록 후 또는 노드 구성 맵핑 변경 후 첫 번째 보고서를 보내면 노드 상태를 신뢰할 수 있습니다.
 
-- `Register-AzureAutomationDscNode`, `Set-AzureAutomationDscExtension` 또는 Azure Preview 포털의 Azure 자동화 DSC VM 확장을 사용하여 Azure 자동화 DSC로 관리할 Azure VM을 등록할 때 **컴퓨터 이름이 지정되지 않았으며 구성 디렉터리에 구성 파일이 없습니다**라는 등록 실패 메시지가 나타나는 경우 이는 잘못된 알림이며 실제로는 VM 등록에 성공한 것입니다. 성공적인 등록은 `Get-AzureAutomationDscNode` cmdlet을 사용하여 확인할 수 있습니다.
+- `Register-AzureAutomationDscNode`, `Set-AzureVMExtension` 또는 Azure Preview 포털의 Azure 자동화 DSC VM 확장을 사용하여 Azure 자동화 DSC로 관리할 Azure VM을 등록할 때 **컴퓨터 이름이 지정되지 않았으며 구성 디렉터리에 구성 파일이 없습니다**라는 등록 실패 메시지가 나타나는 경우 이는 잘못된 알림이며 실제로는 VM 등록에 성공한 것입니다. 성공적인 등록은 `Get-AzureAutomationDscNode` cmdlet을 사용하여 확인할 수 있습니다.
 
- 
+- `Register-AzureAutomationDscNode`, `Set-AzureVMExtension`를 사용하여 Azure 자동화 dsc를 사용한 관리를 위해 Azure VM을 온보딩하거나, Azure Preview 포털에서 Azure 자동화 DSC VM을 확장할 때, Azure 자동화의 DSC노드에 나타날 때까지 1시간 정도 걸립니다. 이것은 Azure 자동화 DSC의 VM을 온보드하기 위해 필요한 Azure VM DSC 확장에 의한 VM의 Windows 관리 프레임워크 5.0의 설치 때문에 꼭 필요한 일입니다.
 
-<!---HONumber=62-->
+- Azure 자동화 DSC로 온보드 된 DCS 노드는 처음에 ‘호환' 상태로 표시되며, 매핑된 DCS 노드 구성과 실제로 호환이 되지 않을 경우에도 마찬가지로 표시됩니다. 노드가 첫 번째 끌어오기 수행 및 Azure 자동화 DSC에 첫 번째 DSC 보고를 전송한 후, 노드의 상태는 수정 됩니다.
+
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/03/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tdykstra"/>
 
 # Azure WebJobs SDK 정의
@@ -22,7 +22,7 @@
 
 이 문서에서는 WebJobs SDK의 정의에 대해 설명하고 이 SDK가 유용한 몇 가지 일반적인 시나리오를 검토하며 코드에서 SDK를 사용하는 방법을 간략하게 제공합니다.
 
-[WebJobs](web-sites-create-web-jobs.md)는 웹앱과 동일한 컨텍스트에서 프로그램이나 스크립트를 실행할 수 있도록 하는 Azure 앱 서비스의 기능입니다. WebJobs SDK는 WebJob으로 실행되며 Azure 저장소 큐, Blob 및 테이블과 서비스 버스 큐에 사용 가능한 코드를 작성하는 작업을 간소화하기 위한 도구입니다.
+[WebJobs](websites-webjobs-resources.md)는 웹앱과 동일한 컨텍스트에서 프로그램이나 스크립트를 실행할 수 있도록 하는 Azure 앱 서비스의 기능입니다. WebJobs SDK는 WebJob으로 실행되며 Azure 저장소 큐, Blob 및 테이블과 서비스 버스 큐에 사용 가능한 코드를 작성하는 작업을 간소화하기 위한 도구입니다.
 
 WebJob SDK에는 다음 구성 요소가 포함되어 있습니다.
 
@@ -105,4 +105,4 @@ Azure 저장소 큐, 테이블, Blob 또는 서비스 버스 큐를 직접 사�
 WebJobs SDK에 대한 자세한 내용은 [Azure WebJobs 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -13,10 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="07/08/2015" 
 	ms.author="mandia"/>
 
 # Microsoft Azure 앱 서비스의 엔터프라이즈 커넥터
+
+> [AZURE.NOTE]이 항목은 사용 중지됩니다. 모든 사용가능한 기본 제공 커넥터 및 API 앱을 보려면 [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)을 참조하세요.
+
 Microsoft Azure 앱 서비스(또는 줄여서 앱 서비스)에는 SAP 및 Marketo와 같이 엔터프라이즈 시스템에서 사용할 수 있는 여러 커넥터가 포함되어 있습니다. 이러한 커넥터를 사용하면 엔터프라이즈 시스템에 쉽게 연결하고 다양한 작업을 완료할 수 있습니다.
 
 이러한 엔터프라이즈 커넥터는 "트리거" 또는 "동작" 기능을 제공합니다. 트리거는 MongoDb에서의 항목 업데이트와 같이 특정 이벤트를 기반으로 하는 새 인스턴스를 시작합니다. MongoDB에서 항목을 업데이트한 후 MongoDB에서 항목을 가져오는 경우와 같이 작업은 결과입니다.
@@ -113,7 +116,7 @@ Azure 관리 포털에서 엔터프라이즈 API 앱을 엽니다. **작업** �
 
 - 정보 및 오류 이벤트 보기
 - 작업자 프로세스(w3wp)의 메모리 사용 및 스레드 수 보기
-- 응용 프로그램 및 웹 서버 로그 보기\
+- 응용 프로그램 및 웹 서버 로그 보기\\
 
 자세한 내용은 [논리 앱 모니터링](app-service-logic-monitor-your-logic-apps.md)을 참조하세요.
 
@@ -152,6 +155,7 @@ Microsoft Azure 앱 서비스는 이러한 커넥터를 사용할 수 있는 다
 
 
 ## 추가 커넥터
-[BizTalk 통합 커넥터](app-service-logic-integration-connectors.md)<br/> [B2B 커넥터](app-service-logic-b2b-connectors.md)<br/> [소셜 커넥터](app-service-logic-social-connectors.md)<br/> [프로토콜 커넥터](app-service-logic-protocol-connectors.md)<br/> [앱 + 데이터 서비스 커넥터](app-service-logic-data-connectors.md)<br/> [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/><br/> [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=62-->
+[커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/><br/> [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
+
+<!---HONumber=July15_HO3-->

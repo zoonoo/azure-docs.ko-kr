@@ -44,4 +44,4 @@ Azure 자동화에서는 인증서를 내보낼 수 없습니다. Azure 외부�
 - [자동화 자산](https://msdn.microsoft.com/library/dn939988.aspx)
 - [Azure cmdlet](https://msdn.microsoft.com/library/dn690262.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -1,9 +1,8 @@
 <properties 
-	title="How to add a users to an elastic database pool" 
 	pageTitle="탄력적 데이터베이스 풀에 사용자를 추가하는 방법" 
 	description="풀에 있는 각 데이터베이스에 대한 권한을 가진 사용자를 추가해야 합니다." 
-	metaKeywords="azure sql database elastic databases credentials" 
-	services="sql-database" documentationCenter=""  
+	services="sql-database" 
+	documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -18,7 +17,7 @@
 
 # 탄력적 데이터베이스 풀에 사용자를 추가하는 방법
 
-탄력적 데이터베이스 작업의 경우 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)에 속한 모든 데이터베이스에 대해 동일한 스크립트를 실행할 수 있습니다. 스크립트를 실행하려면 풀에 있는 모든 데이터베이스에 적절한 권한을 가진 사용자를 추가해야 합니다. 자세한 내용은 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리](https://msdn.microsoft.com/library/azure/ee336235.aspx?f=255&MSPPError=-2147217396) 또는 [SQL Azure 데이터베이스에 사용자 추가](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)를 참조하세요.
+**탄력적 데이터베이스 작업**의 경우 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)에 속한 모든 데이터베이스에 대해 동일한 스크립트를 실행할 수 있습니다. 스크립트를 실행하려면 풀에 있는 모든 데이터베이스에 적절한 권한을 가진 사용자를 추가해야 합니다. 자세한 내용은 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리](https://msdn.microsoft.com/library/azure/ee336235.aspx?f=255&MSPPError=-2147217396) 또는 [SQL Azure 데이터베이스에 사용자 추가](http://azure.microsoft.com/blog/2010/06/21/adding-users-to-your-sql-azure-database/)를 참조하세요.
 
 ## 필수 조건
 * [탄력적 데이터베이스 풀(Preview) 만들기](sql-database-elastic-pool-portal.md)
@@ -38,7 +37,7 @@
 
 ## 다음 단계
 
-데이터베이스 풀에 대한 작업을 실행합니다. [탄력적 데이터베이스 작업 만들기 및 관리](sql-database-elastic-jobs-create-and-manage.md)를 참조하세요.
+탄력적 데이터베이스 풀에 대한 작업을 실행합니다. [탄력적 데이터베이스 작업 만들기 및 관리](sql-database-elastic-jobs-create-and-manage.md)를 참조하세요.
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -46,4 +45,4 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

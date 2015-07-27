@@ -109,7 +109,7 @@ Azure 모듈은 **AZURE_SERVICEBUS_NAMESPACE** 및 **AZURE_SERVICEBUS_ACCESS_KEY
 
 ## 큐에 메시지를 보내는 방법
 
-서비스 버스 큐에 메시지를 보내기 위해 응용 프로그램은 **Azure::ServiceBusService** 개체에 대해 **send_queue_message()** 메서드를 호출합니다. 서비스 버스 큐로 보내고 받는 메시지는 **Azure::ServiceBus::BrokeredMessage** 개체이며 표준 속성 집합(예: **label** 및 **time_to_live**), 응용 프로그램별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 임의 응용 프로그램 데이터 본문을 포함합니다. 응용 프로그램은 문자열 값을 메시지로 전달하여 메시지의 본문을 설정할 수 있습니다. 그러면 필수 표준 속성이 기본값으로 채워집니다.
+서비스 버스 큐에 메시지를 보내기 위해 응용 프로그램은 **Azure::ServiceBusService** 개체에 대해 **send\\_queue\\_message()** 메서드를 호출합니다. 서비스 버스 큐로 보내고 받는 메시지는 **Azure::ServiceBus::BrokeredMessage** 개체이며 표준 속성 집합(예: **label** 및 **time_to_live**), 응용 프로그램별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 임의 응용 프로그램 데이터 본문을 포함합니다. 응용 프로그램은 문자열 값을 메시지로 전달하여 메시지의 본문을 설정할 수 있습니다. 그러면 필수 표준 속성이 기본값으로 채워집니다.
 
 다음 예제에서는 **send_queue_message()**를 사용하여 "test-queue"라는 큐에 테스트 메시지를 보내는 방법을 보여 줍니다.
 
@@ -152,4 +152,4 @@ Azure 모듈은 **AZURE_SERVICEBUS_NAMESPACE** 및 **AZURE_SERVICEBUS_ACCESS_KEY
 이 문서에서 설명한 Azure 서비스 버스 큐와 [Azure 큐 서비스를 사용하는 방법](/develop/ruby/how-to-guides/queue-service/)(영문) 문서에서 설명한 Azure 큐를 비교하려면 [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조](http://msdn.microsoft.com/library/windowsazure/hh767287.aspx)를 참조하십시오.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

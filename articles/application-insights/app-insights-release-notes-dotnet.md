@@ -32,9 +32,25 @@
 * 이전 복사본과 ApplicationInsights.config를 비교합니다. 대부분의 변경 내용은 일부 모듈을 제거하고 다른 일부를 매개변수화하기 때문입니다. 이전 파일에 대한 모든 사용자 지정을 복구합니다.
 * 솔루션을 다시 빌드합니다.
 
+## 버전 1.1
+
+- 새 원격 분석 유형 `DependencyTelemetry`에 응용 프로그램에의 종속성 호출에 대한 정보를 보내는 데 사용할 수 있는 기능(SQL, HTTP 호출 등)이 추가되었습니다.
+- 새 오버 로드 메서드`TelemetryClient.TrackDependency`에 종속성 호출에 대한정보를 보낼 수 있도록 하는 기능이 추가되었습니다.
+- TelemetryConfiguration.CreateDefault를 사용할 때 고정된 NullReferenceException은 진단 모듈에 의해 throw 됩니다.
+
+## 버전 1.0
+
+- 원격 분석 이니셜라이저 및 원격 분석 모듈을 별도의 하위 네임스페이스에서 루트 `Microsoft.ApplicationInsights.Extensibility.Web`네임스페이스로 이동시킵니다.
+- “Web”접두사는 이미 `Microsoft.ApplicationInsights.Extensibility.Web`네임 스페이스 이름에 포함되었기 때문에 원격 분석 이니셜라이저 및 원격 분석 모듈의 이름에서 “Web” 접두사를 제거합니다.
+- `DeviceContextInitializer`을 `Microsoft.ApplicationInsights`어셈블리에서 `Microsoft.ApplicationInsights.Extensibility.Web`어셈블리로 이동하고 `ITelemetryInitializer`로 변환시킵니다.
+- 네임 스페이스 및 어셈블리 이름을 `Microsoft.ApplicationInsights.Extensibility.RuntimeTelemetry`에서 `Microsoft.ApplicationInsights.Extensibility.DependencyCollector`로 변경하여 NuGet 패키지의 이름에 대한 일관성을 유지시킵니다.
+- `RemoteDependencyModule`에서 `DependencyTrackingTelemetryModule`로 이름을 변경합니다.
+- `CustomPerformanceCounterCollectionRequest`에서 `PerformanceCounterCollectionRequest`로 이름을 변경합니다.
+
 ## 버전 0.17
 - Framework 4.5 응용 프로그램에 대한 EventSource NuGet에 대한 종속성을 제거합니다.
-- 익명 사용자 및 세션 쿠키는 서버쪽에서 생성되지 않습니다. 원격 분석 모듈 ```WebSessionTrackingTelemetryModule``` 및 ```WebUserTrackingTelemetryModule```은 더이상 지원되지 않으며 ApplicationInsights.config 파일에서 제거되었습니다. JavaScript SDK의 쿠키가 적용됩니다.
+- 익명 사용자 및 세션 쿠키는 서버쪽에서 생성되지 않습니다. 웹앱의 사용자 및 세션 추적을 구현하려면, JS SDK를 포함한 계측은 원래 목적을 실현하는 JavaScript SDK의 쿠키가 필요합니다. 원격 분석 모듈 ```WebSessionTrackingTelemetryModule``` 및 ```WebUserTrackingTelemetryModule```은 더이상 지원되지 않으며 ApplicationInsights.config 파일에서 제거되었습니다. 이 변경 사항 은 오직 사용자-시작 세션만 계산되는 것처럼 사용자 및 세션 개수의 중요한 restatement를 발생시킨다는 것을 참고하십시오.
+- OSVersion은 더 이상 기본적으로 SDK로 채워지지 않습니다. 비어 있는 경우, OS 및 OSVersion은 사용자 에이전트에 따라 Application Insights 파이프라인에서 계산됩니다. 
 - 로드가 많은 시나리오에 맞게 최적화된 지속성 채널이 웹 SDK에 사용됩니다. "죽음의 나선" 문제가 수정되었습니다. 끝점에 대한 조정 제한을 훨씬 초과하는 원격 분석 항목의 나선 수가 특정 시간 후 다시 시도되며 다시 시도되는 동안 침체되는 경우 죽음의 나선이 조건입니다.
 - 개발자 모드는 프로덕션에 최적화되어있습니다. 실수로 남아있는 경우, 추가 정보를 출력하기 전에 큰 오버 헤드가 발생하지 않습니다.
 - 응용 프로그램이 디버거 상태이면 기본적으로 개발자 모드만이 활성화됩니다. ```ITelemetryChannel``` 인터페이스의 ```DeveloperMode``` 속성을 사용하여 재정의할 수 있습니다.
@@ -58,4 +74,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -3,8 +3,8 @@
 	description="최신 Android SDK - Android에서 Engagement API를 사용하는 방법"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kapiteir" 
-	manager="dwrede" 
+	authors="kpiteira" 
+	manager="dwrede"
 	editor="" />
 
 <tags 
@@ -18,7 +18,7 @@
 
 #Android에서 Engagement API를 사용하는 방법
 
-이 문서는 [Android에 Engagement를 통합하는 방법](mobile-engagement-android-integrate-engagement.md) 문서를 보완하는 추가 문서로, Engagement API를 사용하여 응용 프로그램 통계를 보고하는 방법을 자세히 설명합니다.
+이 문서는 [Android에서 Engagement API를 사용하는 방법](mobile-engagement-android-integrate-engagement.md) 문서에 대한 추가 내용입니다. Engagement API를 사용하여 응용 프로그램 통계를 보고하는 방법을 자세히 설명합니다.
 
 Engagement에서 응용 프로그램의 세션, 활동, 충돌 및 기술 정보만 보고하길 원하는 경우 가장 간단한 방법은 모든 `Activity` 하위 클래스가 해당 `EngagementActivity` 클래스에서 상속하도록 설정하는 것입니다.
 
@@ -298,4 +298,4 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 			{"expiration":"2016-12-07","status":"premium"}
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

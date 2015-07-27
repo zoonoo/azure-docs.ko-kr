@@ -54,4 +54,4 @@ CDN에 캐시된 콘텐츠에 액세스하려면 포털에 제공된 CDN URL을 
 [Azure CDN(콘텐츠 배달 네트워크) 개요](cdn-overview.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

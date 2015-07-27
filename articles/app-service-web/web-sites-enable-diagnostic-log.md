@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/29/2015"
+	ms.date="07/02/2015"
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스에서 웹 앱에 대한 진단 로깅 설정
 
 ## 개요
 
-Azure는 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에 호스팅된 웹 앱을 디버그하는 데 도움이 되는 기본 제공 진단을 제공합니다. 이 문서에서는 진단 로그를 사용하도록 설정하는 방법, 응용 프로그램에 계측을 추가하는 방법 및 Azure에서 기록된 정보에 액세스하는 방법을 설명합니다.
+Azure는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)을 디버그하는 데 도움이 되는 기본 제공 진단을 제공합니다. 이 문서에서는 진단 로그를 사용하도록 설정하는 방법, 응용 프로그램에 계측을 추가하는 방법 및 Azure에서 기록된 정보에 액세스하는 방법을 설명합니다.
 
-> [AZURE.NOTE]이 문서에서는 [Azure Preview 포털](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell 및 Azure 명령줄 인터페이스를 사용하여 진단 로그로 작업하는 방법을 사용합니다. Visual Studio를 사용하여 진단 로그로 작업하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 문제 해결](../troubleshoot-web-sites-in-visual-studio.md)을 참조하세요.
+> [AZURE.NOTE]이 문서에서는 [Azure Preview 포털](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell 및 Azure 명령줄 인터페이스를 사용하여 진단 로그로 작업하는 방법을 사용합니다. Visual Studio를 사용하여 진단 로그로 작업하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 문제 해결](troubleshoot-web-sites-in-visual-studio.md)을 참조하세요.
 
 ## <a name="whatisdiag"></a>웹 서버 진단 및 응용 프로그램 진단
 
-[앱 서비스 웹 앱](http://go.microsoft.com/fwlink/?LinkId=529714)은 웹 서버와 웹 응용 프로그램 모두의 정보를 로깅할 수 있도록 진단 기능을 제공합니다. 이는 논리적으로 **웹 서버 진단** 및 **응용 프로그램 진단**으로 구분됩니다.
+앱 서비스 웹앱은 웹 서버와 웹 응용 프로그램 모두의 정보를 로깅할 수 있도록 진단 기능을 제공합니다. 이는 논리적으로 **웹 서버 진단** 및 **응용 프로그램 진단**으로 구분됩니다.
 
 ### 웹 서버 진단
 
@@ -38,40 +38,39 @@ Azure는 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에 호�
 
 ### 응용 프로그램 진단
 
-응용 프로그램 진단을 통해 웹 응용 프로그램에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 응용 프로그램은 [System.Diagnostics.Trace](http://msdn.microsoft.com/ko-kr/library/36hhw2t6.aspx) 클래스를 사용하여 응용 프로그램 진단 로그에 정보를 로깅할 수 있습니다. 예를 들면 다음과 같습니다.
+응용 프로그램 진단을 통해 웹 응용 프로그램에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 응용 프로그램은 [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) 클래스를 사용하여 응용 프로그램 진단 로그에 정보를 로깅할 수 있습니다. 예:
 
 	System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
-응용 프로그램 진단을 사용하면 특정 코드 부분이 사용된 경우 정보를 내보내서 실행 중인 응용 프로그램 문제를 해결할 수 있습니다. 이는 특정 경로가 코드에 사용된 이유를 확인하는 경우, 일반적으로 경로가 오류 또는 기타 예기치 않은 동작을 유발한 경우에 가장 유용합니다.
+런타임에 문제 해결을 위해 이러한 로그를 검색할 수 있습니다. 자세한 내용은 [Visual Studio에서 Azure 웹앱 문제 해결](../troubleshoot-web-sites-in-visual-studio.md)을 참조하세요.
 
-Visual Studio를 사용하여 응용 프로그램 진단으로 작업하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 웹 앱 문제 해결](../troubleshoot-web-sites-in-visual-studio.md)을 참조하세요.
-
-> [AZURE.NOTE]web.config 파일을 변경하는 것과 달리, 응용 프로그램 진단을 사용하도록 설정하거나 진단 로그 수준을 변경하면 응용 프로그램이 실행되는 앱 도메인이 재순환되지 않습니다.
-
-웹 앱에 콘텐츠를 게시하는 경우 Azure 웹 앱은 배포 정보도 로깅합니다. 이는 자동으로 수행되며 배포 로깅에 대한 구성 설정은 없습니다. 배포 로깅을 사용하면 배포가 실패한 이유를 확인할 수 있습니다. 예를 들어 사용자 지정 배포 스크립트를 사용하는 경우 스크립트가 실패한 이유를 확인하는 데 배포 로깅을 사용할 수 있습니다.
+웹앱에 콘텐츠를 게시하는 경우 앱 서비스 웹앱은 배포 정보도 로깅합니다. 이는 자동으로 수행되며 배포 로깅에 대한 구성 설정은 없습니다. 배포 로깅을 사용하면 배포가 실패한 이유를 확인할 수 있습니다. 예를 들어 사용자 지정 배포 스크립트를 사용하는 경우 스크립트가 실패한 이유를 확인하는 데 배포 로깅을 사용할 수 있습니다.
 
 ## <a name="enablediag"></a>진단을 사용하도록 설정하는 방법
 
-[Azure 관리 포털](https://portal.azure.com)에서 진단을 사용하도록 설정하려면 웹 앱에 대한 블레이드로 이동하여 **모든 설정 > 진단 로그**를 클릭합니다.
+[Azure Preview 포털](https://portal.azure.com)에서 진단을 사용하도록 설정하려면 웹앱에 대한 블레이드로 이동하여 **설정 > 진단 로그**를 클릭합니다.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![로그 부분](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-**응용 프로그램 로깅**을 사용하도록 설정하는 경우 **로깅 수준**을 선택해야 하고 **파일 시스템**, ** 테이블 저장소** 또는 **Blob 저장소**에 로깅을 사용하도록 설정할지 여부를 선택해야 합니다. 세 저장소 위치 모두는 로깅된 이벤트에 대해 동일한 기본 정보를 제공하는 반면 **테이블 저장소** 및 **Blob 저장소**는 **파일 시스템**에 기록하는 것보다 인스턴스 ID, 스레드 ID 및 좀 더 세부적인 타임스탬프(눈금 형식) 등 추가 정보를 로깅합니다.
+**응용 프로그램 진단**을 활성화하면 **수준**도 선택하십시오. 이 설정을 통해 **정보**, **경고** 또는 **오류** 정보에 캡처된 정보를 필터링할 수 있습니다. 이를 **세부 정보 표시**로 설정하면 응용 프로그램에서 생성된 모든 정보가 로깅됩니다.
 
-**사이트 진단**을 사용하도록 설정하는 경우 **웹 서버 로깅**에 대해 **저장소** 또는 **파일 시스템**을 선택해야 합니다. **저장소**를 선택하면 저장소 계정을 선택하고 로그를 기록할 Blob 컨테이너를 선택할 수 있습니다. **사이트 진단**에 대한 기타 모든 로그는 파일 시스템에만 기록됩니다.
+> [AZURE.NOTE]web.config 파일을 변경하는 것과 달리, 응용 프로그램 진단을 사용하도록 설정하거나 진단 로그 수준을 변경하면 응용 프로그램이 실행되는 앱 도메인이 재순환되지 않습니다.
 
-> [AZURE.NOTE]**테이블 저장소** 또는 **Blob 저장소**에 저장된 정보는 이러한 저장소 시스템에서 바로 작업할 수 있는 저장소 클라이언트 또는 응용 프로그램을 사용해서만 액세스할 수 있습니다. 예를 들어 Visual Studio 2013에는 테이블 또는 Blob 저장소를 탐색하는 데 사용할 수 있는 저장소 탐색기를 포함하고 있으며, HDInsight는 Blob 저장소에 저장된 데이터에 액세스하는 데 사용될 수 있습니다. 또한 [Azure SDK](/downloads/#) 중 하나를 사용하여 Azure 저장소에 액세스하는 응용 프로그램을 작성할 수도 있습니다.
+[Azure 포털](https://manage.windowsazure.com) 웹앱 **구성** 탭에서 **웹 서버 로깅**에 대해 **저장소** 또는 **파일 시스템**을 선택할 수 있습니다. **저장소**를 선택하면 저장소 계정을 선택하고 로그를 기록할 Blob 컨테이너를 선택할 수 있습니다. **사이트 진단**에 대한 기타 모든 로그는 파일 시스템에만 기록됩니다.
 
-다음은 **응용 프로그램 진단**을 사용하도록 설정한 경우에 사용할 수 있는 설정입니다.
+[Azure 포털](https://manage.windowsazure.com) 웹앱 **구성** 탭에는 또한 응용 프로그램 진단을 위한 다음과 같은 추가 설정도 있습니다.
 
-* **로깅 수준** - 이 옵션을 통해 **정보**, **경고** 또는 **오류** 정보에 캡처된 정보를 필터링할 수 있습니다. 이를 **세부 정보 표시**로 설정하면 응용 프로그램에서 생성된 모든 정보가 로깅됩니다. **로깅 수준**은 **파일 시스템**, **테이블 저장소** 및 **Blob 저장소** 로깅별로 다르게 설정할 수 있습니다.
 * **파일 시스템** - 웹 앱 파일 시스템에 응용 프로그램 진단 정보를 저장합니다. 이러한 파일은 FTP로 액세스하거나, Azure PowerShell 또는 Azure 명령줄 인터페이스(Azure CLI)를 사용하여 Zip 보관 파일로 다운로드할 수 있습니다.
 * **테이블 저장소** - 지정된 Azure 저장소 계정 및 테이블 이름에 응용 프로그램 진단 정보를 저장합니다.
 * **Blob 저장소** - 지정된 Azure 저장소 계정 및 Blob 컨테이너에 응용 프로그램 진단 정보를 저장합니다.
 * **보존 기간** - 기본적으로 로그는 **Blob 저장소**에서 자동으로 삭제되지 않습니다. 자동으로 로그를 삭제하려면 **set retention**을 선택하고 로그를 보관할 기간(일)을 입력합니다.
 
-> [AZURE.NOTE]파일 시스템, 테이블 저장소 또는 Blob 저장소를 원하는 방식으로 결합하여 동시에 사용하도록 설정할 수 있으며 로그 수준은 개별적으로 구성할 수 있습니다. 예를 들어 장기적인 로깅 솔루션으로 Blob 저장소에 오류 및 경고를 기록하면서 파일 시스템 로깅은 세부 정보 표시 수준으로 사용할 수 있습니다.
+파일 시스템, 테이블 저장소 또는 Blob 저장소를 원하는 방식으로 결합하여 동시에 사용하도록 설정할 수 있으며 로그 수준은 개별적으로 구성할 수 있습니다. 예를 들어 장기적인 로깅 솔루션으로 Blob 저장소에 오류 및 경고를 기록하면서 파일 시스템 로깅은 세부 정보 표시 수준으로 사용할 수 있습니다.
+
+세 저장소 위치 모두는 로깅된 이벤트에 대해 동일한 기본 정보를 제공하는 반면 **테이블 저장소** 및 **Blob 저장소**는 **파일 시스템**에 기록하는 것보다 인스턴스 ID, 스레드 ID 및 좀 더 세부적인 타임스탬프(눈금 형식) 등 추가 정보를 로깅합니다.
+
+> [AZURE.NOTE]**테이블 저장소** 또는 **Blob 저장소**에 저장된 정보는 이러한 저장소 시스템에서 바로 작업할 수 있는 저장소 클라이언트 또는 응용 프로그램을 사용해서만 액세스할 수 있습니다. 예를 들어 Visual Studio 2013에는 테이블 또는 Blob 저장소를 탐색하는 데 사용할 수 있는 저장소 탐색기를 포함하고 있으며, HDInsight는 Blob 저장소에 저장된 데이터에 액세스하는 데 사용될 수 있습니다. 또한 [Azure SDK](/downloads/#) 중 하나를 사용하여 Azure 저장소에 액세스하는 응용 프로그램을 작성할 수도 있습니다.
 
 > [AZURE.NOTE]Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 사용하도록 설정할 수 있습니다. Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 이를 구성하지 않은 경우 [Azure PowerShell을 사용하는 방법](/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하십시오.
 
@@ -93,7 +92,7 @@ Visual Studio를 사용하여 응용 프로그램 진단으로 작업하는 방�
 
 ### FTP
 
-FTP를 사용하여 진단 정보에 액세스하려면 Azure 관리 포털에서 웹 앱의 **대시보드**를 방문합니다. **간략 상태** 섹션에서 **FTP Diagnostic Logs** 링크를 사용하여 FTP를 통해 로그 파일에 액세스할 수 있습니다. **Deployment/FTP User** 항목은 FTP 사이트에 액세스하는 데 사용해야 하는 사용자 이름을 나열합니다.
+FTP를 사용하여 진단 정보에 액세스하려면 [Azure 포털](https://manage.windowsazure.com)에서 웹앱의 **대시보드**를 방문합니다. **간략 상태** 섹션에서 **FTP Diagnostic Logs** 링크를 사용하여 FTP를 통해 로그 파일에 액세스할 수 있습니다. **Deployment/FTP User** 항목은 FTP 사이트에 액세스하는 데 사용해야 하는 사용자 이름을 나열합니다.
 
 > [AZURE.NOTE]**배포/FTP 사용자** 항목이 설정되지 않은 경우 또는 이 사용자의 암호를 잊은 경우 **대시보드**의 **간략 상태** 섹션에서 **Reset deployment credentials** 링크를 사용하여 새 사용자 및 암호를 만들 수 있습니다.
 
@@ -136,7 +135,7 @@ Visual Studio Application Insights는 로그 필터링과 검색을 위한 도�
 
 > [AZURE.NOTE]일부 유형의 로깅 버퍼는 로그 파일에 기록하고 이로 인해 스크림에서 이벤트가 작동하지 않을 수 있습니다. 예를 들어 사용자가 페이지를 방문할 때 발생한 응용 프로그램 로그 항목이 페이지 요청에 대한 해당 HTTP 로그 항목보다 먼저 스트림에 표시될 수 있습니다.
 
-> [AZURE.NOTE]로그 스트리밍은 **D:\home\LogFiles** 폴더에 저장된 모든 텍스트 파일에 기록된 정보를 스트리밍할 수도 있습니다.
+> [AZURE.NOTE]로그 스트리밍은 **D:\\home\\LogFiles\** 폴더에 저장된 모든 텍스트 파일에 기록된 정보를 스트리밍할 수도 있습니다.
 
 ### Azure PowerShell로 스트리밍
 
@@ -323,18 +322,17 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 
 > [AZURE.NOTE]Azure 웹 앱에서 생성된 로그는 __s-computername__, __s-ip__ 또는 __cs-버전__ 필드를 지원하지 않습니다.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
-
 ##<a name="nextsteps"></a> 다음 단계
 
 - [웹 앱을 모니터링하는 방법](/ko-kr/manage/services/web-sites/how-to-monitor-websites/)
-- [자습서 - 웹 앱 문제 해결](/ko-kr/develop/net/best-practices/troubleshooting-web-sites/)
 - [Visual Studio에서 Azure 웹 앱 문제 해결](/ko-kr/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)
 - [HDInsight에서 웹 앱 로그 분석](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+
+> [AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

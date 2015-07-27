@@ -371,4 +371,4 @@ NuGet 패키지는 필요한 어셈블리 참조를 다운로드 및 추가하�
 
 [Azure 무료 체험]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

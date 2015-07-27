@@ -3,7 +3,7 @@
 	description="Azure에서 MongoLab을 사용하여 MongoDB 데이터베이스를 만드는 방법에 대해 알아봅니다." 
 	documentationCenter="php" 
 	services="" 
-	authors="chrischang12" 
+	authors="chrischang127" 
 	manager="partners@mongolab.com" 
 	editor=""/>
 
@@ -18,4 +18,4 @@
 
 [AZURE.INCLUDE [create-mongolab-mongodb](../includes/create-mongolab-mongodb.md)]
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

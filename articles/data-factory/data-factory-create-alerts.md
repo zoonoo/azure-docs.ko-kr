@@ -172,4 +172,4 @@ StorageAccountName은 배포된 경고 JSON 파일을 저장하기 위한 저장
 	Get-AzureResourceGroupLog –Name $ResourceGroup -All | Where-Object EventSource -eq "Microsoft.DataFactory"
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

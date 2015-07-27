@@ -216,4 +216,4 @@ Azure 알림 허브를 사용하려면 Node.js Azure 패키지를다운로드하
   [Node.js Web Application with Storage]: /develop/nodejs/tutorials/web-site-with-storage/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

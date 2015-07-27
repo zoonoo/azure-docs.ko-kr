@@ -4,7 +4,6 @@
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
-	writer="szark" 
 	manager="timlt" 
 	editor=""/>
 
@@ -179,4 +178,4 @@ RAID 장치를 구성하는 데 일반적으로 두 개 이상의 빈 데이터 
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

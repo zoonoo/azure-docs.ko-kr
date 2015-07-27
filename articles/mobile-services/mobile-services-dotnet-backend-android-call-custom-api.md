@@ -1,5 +1,4 @@
 <properties 
-	writer="ricksal" 
 	pageTitle="Android 클라이언트에서 사용자 지정 API 호출 | 모바일 개발자 센터" 
 	description="사용자 지정 API를 정의한 다음 Microsoft Azure 모바일 서비스를 사용하는 Android 앱에서 이를 호출하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
@@ -64,4 +63,4 @@
 [원본 제어에 서버 스크립트 저장]: mobile-services-store-scripts-source-control.md
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -37,11 +37,11 @@ PolyBase를 사용하여 Azure blob 저장소에 저장된 데이터를 쿼리�
 먼저, PolyBase가 연결하여 Azure blob 저장소에서 데이터를 쿼리하는 데 필요한 개체를 만듭니다.
 
 ## 데이터베이스 마스터 키 만들기
-서버에서 마스터 데이터베이스에 연결하여 데이터베이스 마스터 키를 만듭니다. 이 키는 다음 단계에서 사용자 자격 증명 암호를 암호화하는 데 사용됩니다.
+서버에서 사용자 데이터베이스에 연결하여 데이터베이스 마스터 키를 만듭니다. 이 키는 다음 단계에서 사용자 자격 증명 암호를 암호화하는 데 사용됩니다.
 
 ```
 -- Creating master key
-CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'S0me!nfo';
+CREATE MASTER KEY;
 ```
 
 참조 항목: [CREATE MASTER KEY (TRANSACT-SQL)][].
@@ -49,8 +49,13 @@ CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'S0me!nfo';
 ## 데이터베이스 범위 자격 증명 만들기
 Azure blob 저장소에 액세스하려면 Azure 저장소 계정에 대한 인증 정보를 저장하는 데이터베이스 범위 자격 증명을 만들어야 합니다. 데이터 웨어하우스 데이터베이스에 연결하고 액세스하려는 각 Azure 저장소 계정에 대한 데이터베이스 범위 자격 증명을 만듭니다. ID 이름 및 Azure 저장소 계정 키를 암호로 지정합니다. ID 이름은 Azure 저장소에 대한 인증에 영향을 주지 않습니다.
 
+데이터베이스 범위 자격 증명이 이미 있는지 확인하려면 서버 자격 증명을 보여주는 sys.credentials가 아닌 sys.database_credentials를 사용합니다.
+
 ```
--- Creating credential
+-- Check for existing database-scoped credentials.
+SELECT * FROM sys.database_credentials;
+
+-- Create a database scoped credential
 CREATE DATABASE SCOPED CREDENTIAL ASBSecret WITH IDENTITY = 'joe', 
 	Secret = 'myazurestoragekey==';
 ```
@@ -202,4 +207,4 @@ PolyBase로 로딩하면 UTF-8 인코딩 스타일만 지원합니다. 다른 �
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ko-kr/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ko-kr/library/ms189450.aspx
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

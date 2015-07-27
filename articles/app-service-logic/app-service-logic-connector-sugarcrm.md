@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="SugarCRM 커넥터" 
-   description="SugarCRM 커넥터를 사용하는 방법" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="SugarCRM 커넥터"
+   description="SugarCRM 커넥터를 사용하는 방법"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="04/01/2015"
-   ms.author="vagarw"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 #논리 앱에서 SugarCRM 커넥터 사용#
@@ -32,7 +32,7 @@
 
 ##SugarCRM 커넥터 작업##
 다음은 SugarCRM 커넥터에서 사용할 수 있는 다양한 작업입니다.
- 
+
 - 모듈 만들기- 계정, 잠재 고객, 연락처와 같은 SugarCRM 모듈용 새 레코드를 만들려면 이 작업을 사용합니다.
 
 - 모듈 업데이트 - SugarCRM 모듈용 기존 레코드를 업데이트하려면 이 작업을 사용합니다.
@@ -48,7 +48,7 @@
 - 모듈 중복 검사 - 한 모듈 내에서 중복된 레코드를 검사하려면 이 작업을 사용합니다.
 
 *참조*: 쿼리에서 지원되는 인수에 대한 자세한 내용은 SugarCRM REST API 설명서를 참조하세요.
-   
+
 ##SugarCRM 커넥터 API 앱 만들기##
 1.	Azure 포털의 오른쪽 아래에 있는 + 새로 만들기 옵션을 사용하여 Azure 마켓플레이스를 엽니다.
 2.	"웹 및 모바일 > API 앱"으로 이동하여 "SugarCRM"을 검색합니다.
@@ -154,7 +154,4 @@ SugarCRM에서 계정을 만들고 동일한 계정의 청구 주소 정보를 �
 [8]: ./media/app-service-logic-connector-sugarcrm/8_Update_Account_Address.png
 [9]: ./media/app-service-logic-connector-sugarcrm/9_Create_new_SugarCRM_connector.png
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

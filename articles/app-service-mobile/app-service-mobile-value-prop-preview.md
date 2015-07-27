@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/20/2015"
+	ms.date="06/30/2015"
 	ms.author="kirillg"/>
 
 # <a name="getting-started"> </a>모바일 앱 정의
@@ -56,4 +56,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [JavaScript backend version]: ../mobile-services-ios-get-started.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

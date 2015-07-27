@@ -459,4 +459,4 @@ DocumentDB 사용자는 사용 권한 그룹화를 위한 논리적 네임스페
 [3]: media/documentdb-resources/resources3.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

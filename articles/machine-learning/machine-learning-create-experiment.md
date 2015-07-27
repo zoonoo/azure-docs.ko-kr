@@ -1,7 +1,6 @@
 <properties
 	pageTitle="기계 학습 스튜디오에서 간단한 실험 만들기 | Microsoft Azure"
 	description="Azure 기계 학습 스튜디오에서 선형 회귀 모델을 테스트할 간단한 실험을 만들기 위한 첫번째 기계 학습 자습서입니다."
-	keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="04/21/2015"
+	ms.date="07/09/2015"
 	ms.author="garye"/>
 
 #기계 학습 자습서: Azure 기계 학습 스튜디오에서 첫 번째 실험 만들기
@@ -23,9 +22,9 @@
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-기계 학습 스튜디오 실험은 *모델 만들기*, *모델 학습* 및 *모델 점수 매기기 및 테스트*를 위한 끌어서 놓기 구성 요소로 구성됩니다. 실험은 데이터를 수집하고 모델의 성향을 습득하고 새 데이터에 모델을 적용하는 기계 학습 스튜디오 모듈의 형태로 예측 모델링 기술을 사용합니다. 데이터 전처리 모듈을 추가하고, 기능을 선택하고, 학습 및 테스트 집합으로 데이터를 분리하고, 모델 품질을 평가하거나 교차 검사할 수도 있습니다.
+컴퓨터 학습 Studio 실험은 *모델을 만들고*, *모델을 학습하고*, *모델의 점수를 매기고 테스트하기* 위해 캔버스에 구성 요소 끌어서 놓기 및 연결하기로 구성됩니다.. 실험은 데이터를 수집하고 모델의 성향을 습득하고 새 데이터에 모델을 적용하는 기계 학습 스튜디오 모듈의 형태로 예측 모델링 기술을 사용합니다. 데이터 전처리 모듈을 추가하고, 기능을 선택하고, 학습 및 테스트 집합으로 데이터를 분리하고, 모델 품질을 평가하거나 교차 검사할 수도 있습니다.
 
-기계 학습 스튜디오를 엽니다. [https://studio.azureml.net/Home](https://studio.azureml.net/Home) 기계 학습 스튜디오를 시작하는 방법에 대한 도움말은 [Microsoft Azure 기계 학습 스튜디오 홈](https://studio.azureml.net/)을 참조하세요.
+컴퓨터 학습 Studio: [https://studio.azureml.net](https://studio.azureml.net)으로 들어가서 “시작하기" 단추를 클릭합니다. 게스트 액세스를 선택하거나 Microsoft 계정을 사용하여 로그인할 수 있습니다.
 
 기계 학습 스튜디오에 대한 일반적인 정보는 [기계 학습 스튜디오란 무엇인가요?](machine-learning-what-is-ml-studio.md)를 참조하세요.
 
@@ -233,4 +232,4 @@
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

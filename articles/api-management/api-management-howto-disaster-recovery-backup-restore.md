@@ -189,4 +189,4 @@ API 관리 서비스를 백업하려면 다음 HTTP 요청을 실행합니다.
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

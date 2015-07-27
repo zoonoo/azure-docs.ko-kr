@@ -55,7 +55,7 @@ Time-to-Live, 즉 TTL은 각 레코드가 다시 쿼리되기 전에 클라이�
 
 레코드 집합을 만들고 $rs 변수에 할당합니다.
 
-	PS C:\>$rs = New-AzureDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
+	PS C:>$rs = New-AzureDnsRecordSet -Name "www" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 60
 
 레코드 집합은 DNS 영역 'contoso.com'에서 상대 이름 'www'를 가지므로 레코드의 정규화된 이름은 'www.contoso.com'입니다. 레코드 형식은 'A'이고 TTL은 60초입니다.
 
@@ -67,8 +67,8 @@ Time-to-Live, 즉 TTL은 각 레코드가 다시 쿼리되기 전에 클라이�
 
 1단계에서 레코드 집합을 만들 때 할당된 $rs 변수를 사용하여 "www" 레코드 집합에 IPv4 A 레코드를 추가합니다.
 
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
-	PS C:\> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.185.46
+	PS C:> Add-AzureDnsRecordConfig -RecordSet $rs -Ipv4Address 134.170.188.221
 
 Add-AzureDnsRecordConfig를 사용하여 레코드 집합에 레코드를 추가하는 작업은 오프라인 작업입니다. 지역 변수 $rs만 업데이트됩니다.
 
@@ -81,7 +81,7 @@ Add-AzureDnsRecordConfig를 사용하여 레코드 집합에 레코드를 추가
 변경이 완료되었습니다. Get-AzureDnsRecordSet를 사용하여 Azure DNS에서 레코드 집합을 가져올 수 있습니다.
 
 
-	PS C:\> Get-AzureDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:> Get-AzureDnsRecordSet –Name www –RecordType A -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 
 	Name              : www
@@ -100,7 +100,7 @@ nslookup 또는 다른 DNS 도구를 사용하여 새 레코드 집합을 쿼리
 >[AZURE.NOTE]영역을 만드는 경우와 마찬가지로, Azure DNS 이름 서버에 도메인을 아직 위임하지 않은 경우 영역에 대한 이름 서버 주소를 명시적으로 지정해야 합니다.
 
 
-	C:\> nslookup www.contoso.com ns1-01.azure-dns.com
+	C:> nslookup www.contoso.com ns1-01.azure-dns.com
 
 	Server: ns1-01.azure-dns.com
 	Address:  208.76.47.1
@@ -119,4 +119,4 @@ nslookup 또는 다른 DNS 도구를 사용하여 새 레코드 집합을 쿼리
 [.NET SDK로 Azure 작업 자동화](dns-sdk.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

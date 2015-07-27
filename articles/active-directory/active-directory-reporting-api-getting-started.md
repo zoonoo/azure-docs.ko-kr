@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="05/22/2015"
+   ms.date="07/08/2015"
    ms.author="yossib"/>
 
 
@@ -76,7 +76,7 @@ Reporting API는 [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 디렉터리에서 아래 PowerShell 스크립트가 작동하도록 편집하려면 $ClientID, $ClientSecret, $tenantdomain를 "Azure AD에서 액세스 위임"의 올바른 값으로 바꾸세요.
 
     # This script will require the Web Application and permissions setup in Azure Active Directory
-    $ClientID      = <<YOUR CLIENT ID HERE>>                # Should be a ~35 character string insert your info here
+    $ClientID      = "<<YOUR CLIENT ID HERE>>"                # Should be a ~35 character string insert your info here
     $ClientSecret  = "<<YOUR CLIENT SECRET HERE>>"          # Should be a ~44 character string insert your info here
     $loginURL      = "https://login.windows.net"
     $tenantdomain  = "<<YOUR TENANT NAME HERE>>"            # For example, contoso.onmicrosoft.com
@@ -127,7 +127,7 @@ Reporting API는 [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
 
 ## 스크립트 실행
-스크립트를 편집한 후에는 실행하여 예상한 데이터가 반환되는지 확인하세요.
+스크립트를 편집한 후에는 실행하여 AuditEvents에서 예상한 데이터가 반환되는지 확인합니다.
 
 스크립트는 사용 가능한 모든 보고서 목록을 반환하고 PowerShell 창에 AccountProvisioningEvents 보고서의 출력을 JSON 형식으로 반환합니다. 또한 JSON, 텍스트, XML 형식으로 동일한 출력 내용을 가진 파일도 만듭니다. 다른 보고서의 데이터를 반환하도록 스크립트를 수정하는 시도 및 필요 없는 출력 형식을 주석으로 처리할 수 있습니다.
 
@@ -136,6 +136,5 @@ Reporting API는 [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 - 사용 가능한 보안, 감사 및 작업 보고서는 [Azure AD 보안, 감사 및 작업 보고서](active-directory-view-access-usage-reports.md) 확인
 - 감사 보고서에 대한 자세한 내용은 [Azure AD 감사 보고서 이벤트](active-directory-reporting-audit-events.md) 참조
 - Graph API REST 서비스에 대한 자세한 내용은 [Azure AD 보고서 및 이벤트(미리 보기)](https://msdn.microsoft.com/library/azure/mt126081.aspx) 참조
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

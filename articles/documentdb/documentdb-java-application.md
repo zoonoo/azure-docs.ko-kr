@@ -29,26 +29,26 @@
 
 > [AZURE.TIP]이 자습서에서는 이전에 Java를 사용한 경험이 있다고 가정합니다. Java 또는 [필수 도구](#Prerequisites)를 처음 사용하는 경우 [GitHub](https://github.com/Azure/azure-documentdb-java)에서 전체 [todo](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) 프로젝트를 다운로드하고 [이 문서의 끝에 있는 지침](#GetProject)을 사용하여 이 프로젝트를 빌드하는 것이 좋습니다. 프로젝트를 빌드하고 나면 이 문서를 검토하여 프로젝트의 컨텍스트에서 코드를 이해할 수 있습니다.
 
-## <a id="Prerequisites"></a>필수 조건 ##
+##<a id="Prerequisites"></a>필수 조건 ##
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](../../pricing/free-trial/)을 참조하십시오.
+- 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](../../pricing/free-trial/)을 참조하십시오.
 - [JDK(Java Development Kit) 7 이상](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 - [Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
 - [Java 런타임 환경(예: Tomcat 또는 Jetty)을 사용하는 Azure 웹 사이트](../web-sites-java-get-started.md)
 
 이러한 도구를 처음 설치하는 경우, coreservlets.com에서 제공되는 단계별 설치 지침을 따르세요. 이 지침은 [자습서: TomCat7 설치 및 Eclipse에서 사용](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) 문서의 빠른 시작 섹션에서 확인할 수 있습니다.
 
-## <a id="CreateDB"></a>1단계: DocumentDB 데이터베이스 계정 만들기 ##
+##<a id="CreateDB"></a>1단계: DocumentDB 데이터베이스 계정 만들기 ##
 Azure에서 DocumentDB 데이터베이스 계정을 프로비전하려면 다음을 수행합니다.
 
 1. 데이터베이스 계정이 아직 없으면 [데이터베이스 계정 만들기](documentdb-create-account.md)의 지침에 따라 계정을 만듭니다. 이미 계정이 있으면 2단계를 계속합니다.
 2. 다음 그림에 표시된 **키** 블레이드를 사용해서 끝점 **URI** 및 **PRIMARY KEY**를 클립보드에 복사하고 다음에 만드는 웹 응용 프로그램에서 이러한 값을 사용할 수 있도록 잘 보관합니다.
 
-![활성 허브, DocumentDB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조키 값이 강조 표시된 DocumentDB 계정을 보여 주는 Azure 포털의 스크린샷][1]
+![활성 허브, DocumentDB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조키 값이 강조 표시된 DocumentDB 계정을 보여 주는 Azure Preview 포털의 스크린샷][1]
 
 
-## <a id="CreateJSP"></a>2단계: JSP 응용 프로그램 만들기 ##
+##<a id="CreateJSP"></a>2단계: JSP 응용 프로그램 만들기 ##
 
 JSP 응용 프로그램을 만들려면 다음을 수행합니다.
 
@@ -75,7 +75,7 @@ JSP 응용 프로그램을 만들려면 다음을 수행합니다.
 
 	![](./media/documentdb-java-application/image12.png)
 
-## <a id="InstallSDK"></a>3단계: DocumentDB Java SDK 설치 ##
+##<a id="InstallSDK"></a>3단계: DocumentDB Java SDK 설치 ##
 
 DocumentDB Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은 [Apache Maven](http://maven.apache.org/)을 사용하는 것입니다.
 
@@ -103,7 +103,7 @@ DocumentDB Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은
 5. **확인**을 클릭하면 Maven이 DocumentDB Java SDK를 설치합니다.
 6. pom.xml 파일을 저장합니다.
 
-## <a id="UseService"></a>4단계: Java 응용 프로그램에서 DocumentDB 서비스 사용 ##
+##<a id="UseService"></a>4단계: Java 응용 프로그램에서 DocumentDB 서비스 사용 ##
 
 1. 먼저 TodoIte 개체를 정의하겠습니다.
 
@@ -118,7 +118,7 @@ DocumentDB Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은
 
 	이 프로젝트에서는 [Project Lombok](http://projectlombok.org/)을 사용해서 생성자, getter, setter 및 작성기를 생성합니다. 또는 이 코드를 수동으로 작성하거나 IDE에서 생성하도록 할 수도 있습니다.
 
-2. **DocumentDB** 서비스를 호출하려면 새 DocumentClient를 인스턴스화해야 합니다. 일반적으로 각 후속 요청에 대해 새 클라이언트를 생성하는 것보다는 **DocumentClient**를 다시 사용하는 것이 가장 좋습니다. **DocumentClientFactory**에 클라이언트를 래핑하면 클라이언트를 다시 사용할 수 있습니다. 또한 여기서는 [1단계](#CreateDB)에서 클립보드에 저장한 URI 및 PRIMARY KEY 값을 붙여넣을 수도 있습니다. [YOUR_ENDPOINT_HERE]를 해당 URI로 바꾸고 [YOUR_KEY_HERE]를 해당 PRIMARY KEY로 바꿉니다.
+2. **DocumentDB** 서비스를 호출하려면 새 DocumentClient를 인스턴스화해야 합니다. 일반적으로 각 후속 요청에 대해 새 클라이언트를 생성하는 것보다는 **DocumentClient**를 다시 사용하는 것이 가장 좋습니다. **DocumentClientFactory**에 클라이언트를 래핑하면 클라이언트를 다시 사용할 수 있습니다. 또한 여기서는 [1단계](#CreateDB)에서 클립보드에 저장한 URI 및 PRIMARY KEY 값을 붙여넣을 수도 있습니다. [YOUR\\_ENDPOINT\\_HERE]를 해당 URI로 바꾸고 [YOUR\\_KEY\\_HERE]를 해당 PRIMARY KEY로 바꿉니다.
 
 	    private static final String HOST = "[YOUR_ENDPOINT_HERE]";
 	    private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -357,7 +357,7 @@ DocumentDB Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은
 	    }
 
 
-## <a id="Wire"></a> 5단계: 응용 프로그램의 나머지 부분 연결 ##
+##<a id="Wire"></a> 5단계: 응용 프로그램의 나머지 부분 연결 ##
 
 이제 재미있는 부분을 마쳤으므로 빠른 사용자 인터페이스를 빌드하고 DAO에 연결하기만 하면 됩니다.
 
@@ -734,7 +734,7 @@ DocumentDB Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은
 
 6. 항목이 표시되면 확인란을 설정/해제하고 **작업 업데이트**를 클릭하여 항목의 완료 여부를 업데이트할 수 있습니다.
 
-## <a id="Deploy"></a>6단계: Azure 웹 사이트에 응용 프로그램 배포 ##
+##<a id="Deploy"></a>6단계: Azure 웹 사이트에 응용 프로그램 배포 ##
 
 Azure 웹 사이트에서는 Java 응용 프로그램을 간단히 배포할 수 있습니다. 즉, 응용 프로그램을 WAR 파일로 내보내고 소스 제어(예: GIT) 또는 FTP를 통해 업로드하면 됩니다.
 
@@ -749,7 +749,7 @@ Azure 웹 사이트에서는 Java 응용 프로그램을 간단히 배포할 수
 	WAR 파일이 webapps 디렉터리에 업로드되면 런타임 환경에서 이 파일이 추가되었음을 감지하고 자동으로 로드합니다.
 4. 완료된 제품을 보려면 http://YOUR_SITE_NAME.azurewebsites.net/azure-documentdb-java-sample/로 이동하고 작업 추가를 시작합니다.
 
-## <a id="GetProject"></a>GitHub에서 프로젝트 가져오기##
+##<a id="GetProject"></a>GitHub에서 프로젝트 가져오기##
 
 이 자습서의 모든 샘플은 [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java) 리포지토리에 속해 있는 GitHub의 [todo](https://github.com/Azure/azure-documentdb-java/tree/master/tutorial/todo) 프로젝트에 포함되어 있습니다. Todo 프로젝트를 Eclipse로 가져오려면 [필수 조건](#Prerequisites) 섹션에 나열된 소프트웨어 및 리소스가 있는지 확인한 후 다음을 수행합니다.
 
@@ -777,6 +777,6 @@ Azure 웹 사이트에서는 Java 응용 프로그램을 간단히 배포할 수
 22. 프로젝트를 Azure 웹 사이트에 배포하려면 [6단계. Azure 웹 사이트에 응용 프로그램 배포](#Deploy)를 참조하세요. 
 
 [1]: media/documentdb-java-application/keys.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO3-->

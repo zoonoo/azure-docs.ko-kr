@@ -28,4 +28,4 @@
 
 표현 언어에 대한 자세한 내용은[선언적 프로비저닝 표현식 이해](https://msdn.microsoft.com/library/azure/dn801048.aspx)를 참조하세요.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

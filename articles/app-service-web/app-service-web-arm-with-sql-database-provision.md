@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tomfitz"/>
 
 # SQL 데이터베이스를 사용하는 웹앱을 프로비전
@@ -24,7 +24,7 @@
 
 앱 배포에 대한 자세한 내용은 [Azure에서 예측 가능하도록 복잡한 응용 프로그램을 배포](app-service-deploy-complex-application-predictably.md)를 참조하십시오.
 
-전체 서식 파일을 보려면 [SQL 데이터베이스 템플릿을 사용하는 웹앱](../../templates/app-service-web-arm-with-sql-database-provision/)을 참조하십시오.
+전체 서식 파일을 보려면 [SQL 데이터베이스 템플릿을 사용하는 웹앱](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json)을 참조하십시오.
 
 ## 배포할 내용
 
@@ -36,6 +36,10 @@
 - 자동 크기 조정 설정
 - 경고 규칙
 - App Insights
+
+배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
+
+[![Azure에 배포](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)로 바꿉니다.
 
 ## 지정할 매개변수
 
@@ -101,12 +105,16 @@
 
 ### maxSizeBytes
 
+(바이트)는 데이터베이스의 최대 크기입니다.
+
     "maxSizeBytes": {
       "type": "string",
       "defaultValue": "1073741824"
     }
 
 ### requestedServiceObjectiveId
+
+버전에 대한 성능 수준에 해당하는 GUID입니다. 사용 가능한 값 목록은 [데이터베이스 만들기](https://msdn.microsoft.com/library/azure/dn505701.aspx)를 참조하세요. 기본값은 웹 성능 수준과 일치합니다.
 
     "requestedServiceObjectiveId": {
         "type": "string",
@@ -168,7 +176,7 @@
 ### 웹앱
 
     {
-      "apiVersion": "2014-06-01",
+      "apiVersion": "2015-06-01",
       "name": "[parameters('siteName')]",
       "type": "Microsoft.Web/Sites",
       "location": "[parameters('siteLocation')]",
@@ -426,13 +434,13 @@
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/webandsql.json
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 ### Azure CLI
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/webandsql.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

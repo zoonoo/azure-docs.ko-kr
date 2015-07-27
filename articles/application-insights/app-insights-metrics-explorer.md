@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="07/14/2015" 
 	ms.author="awills"/>
  
 # Application Insights에서 메트릭 탐색
@@ -29,18 +29,7 @@
 
 점선은 1주 전에 메트릭 값을 보여줍니다.
 
-## 지점 값
 
-해당 지점에서 메트릭 값을 표시하려면 차트 위로 마우스를 가져갑니다.
-
-
-![차트 위로 마우스 이동](./media/app-insights-metrics-explorer/02-focus.png)
-
-특정 지점에서 메트릭 값은 이전 샘플링 간격에 걸쳐 집계됩니다. 이는 전체 차트의 시간 범위에 따라 다를 수 있습니다.
-
-샘플링 간격 또는 "단위"는 블레이드 위쪽에 표시됩니다.
-
-![블레이드의 헤더입니다.](./media/app-insights-metrics-explorer/11-grain.png)
 
 ## 시간 범위
 
@@ -56,6 +45,23 @@
 
 ![차트의 일부를 끕니다.](./media/app-insights-metrics-explorer/12-drag.png)
 
+## 그레인 및 지점 값
+
+해당 지점에서 메트릭 값을 표시하려면 차트 위로 마우스를 가져갑니다.
+
+![차트 위로 마우스 이동](./media/app-insights-metrics-explorer/02-focus.png)
+
+특정 지점에서 메트릭 값은 이전 샘플링 간격에 걸쳐 집계됩니다.
+
+샘플링 간격 또는 "단위"는 블레이드 위쪽에 표시됩니다.
+
+![블레이드의 헤더입니다.](./media/app-insights-metrics-explorer/11-grain.png)
+
+시간 범위 블레이드에서 그레인을 조정할 수 있습니다.
+
+![블레이드의 헤더입니다.](./media/app-insights-metrics-explorer/grain.png)
+
+그레인은 선택한 시간 범위에 따라 사용 가능합니다. 명시적 그레인은 시간 범위에 대 한 "자동" 그레인의 대안입니다.
 
 ## 메트릭 탐색기
 
@@ -190,4 +196,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

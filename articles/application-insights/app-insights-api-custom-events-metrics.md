@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="07/11/2015" 
 	ms.author="awills"/>
 
 # 사용자 지정 이벤트 및 메트릭용 Application Insights API 
@@ -35,6 +35,7 @@ API는 사소한 차이를 제외하고 모든 플랫폼에서 동일합니다.
 [`TrackException`](#track-exception)로 바꿉니다.|진단 예외를 기록합니다. 다른 이벤트와 관련하여 발생 위치를 추적하고 스택 추적을 검사합니다.
 [`TrackRequest`](#track-request)로 바꿉니다.| 성능 분석에 대한 서버 요청 빈도 및 기간을 기록합니다.
 [`TrackTrace`](#track-trace)로 바꿉니다.|진단 로그 메시지. 타사 로그도 캡처할 수 있습니다.
+[`TrackDependency`](#track-dependency)로 바꿉니다.|기간 및 빈도 앱이 종속된 외부 구성 요소에 대한 호출을 기록합니다.
 
 이러한 대부분의 원격 분석 호출에 [속성 및 메트릭을 연결](#properties)할 수 있습니다.
 
@@ -231,6 +232,7 @@ TelemetryClient는 스레드로부터 안전합니다.
     telemetry.TrackEvent(event);
 
 
+
 #### <a name="timed"></a> 타이밍 이벤트
 
 어떤 작업을 수행하는 데 걸리는 시간을 차트로 표시하고 싶은 경우가 있습니다. 예를 들어 게임에서 사용자가 옵션을 선택하는 데 걸리는 시간을 알고 싶을 수 있습니다. 다음은 측정 매개 변수 사용 방법을 보여 주는 유용한 예입니다.
@@ -367,7 +369,7 @@ trackPageView 대신 이 메서드 쌍을 호출하여 사용자가 페이지에
 
 ## 예외 추적
 
-Application Insights로 예외를 보낸 후 [집계][metrics]하여 문제 발생 빈도를 확인하거나 [개별 항목을 검사][diagnostic]할 수 있습니다.
+Application Insights로 예외를 보낸 후 [집계][metrics]하여 문제 발생 빈도를 확인하거나 [개별 항목을 검사][diagnostic]할 수 있습니다. 보고서는 스택 추적을 포함합니다.
 
 *C#*
 
@@ -397,6 +399,30 @@ Windows 모바일 앱에서 SDK는 처리되지 않은 예외를 catch합니다.
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
 
 `message`의 크기 제한이 속성의 크기 제한보다 훨씬 높습니다. 메시지 내용을 검색할 수 있지만 속성 값과는 달리 필터링할 수는 없습니다.
+
+## 종속성을 추적합니다.
+
+표준 종속성 추적 모듈은 API를 사용하여 데이터베이스 혹은 REST API 같은 외부 종속성에 대한 호출을 기록합니다. 모듈은 자동으로 일부 외부 종속성을 탐색하지만, 사용자가 일부 추가 구성 요소를 동일한 방식으로 취급하고 싶을지도 모릅니다.
+
+예를 들면, 사용자가 직접 작성하지 않은 어셈블리 코드를 작성하는 경우, 응답 시간 기여도를 알아보기 위해 모든 호출의 시간을 잴 수 있습니다. Application Insights에서 종속성 차트에 표시되는 이 데이터를 가지려면, `TrackDependency`을 사용하여 이것을 보냅니다.
+
+```C#
+
+            var success = false;
+            var startTime = DateTime.UtcNow;
+            var timer = System.Diagnostics.Stopwatch.StartNew();
+            try
+            {
+                success = dependency.Call();
+            }
+            finally
+            {
+                timer.Stop();
+                telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+            }
+```
+
+표준 종속성 추적 모듈을 해제 하려면 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)을 편집하고 참조를 삭제합니다. `DependencyCollector.DependencyTrackingTelemetryModule`
 
 ## <a name="defaults"></a>선택한 사용자 지정 원격 분석에 대한 기본값 설정
 
@@ -432,6 +458,7 @@ Windows 모바일 앱에서 SDK는 처리되지 않은 예외를 catch합니다.
     gameTelemetry.TrackEvent("WinGame");
     
 개별 원격 분석 호출이 자신의 속성 사전에 있는 기본값을 재정의할 수 있습니다.
+
 
 
 
@@ -692,6 +719,9 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 * **Session** 사용자의 세션을 식별합니다. ID는 생성된 값으로 설정되며, 사용자가 잠시 동안 비활성 상태이면 값이 변경됩니다.
 * **User** 사용자 수를 계산할 수 있습니다. 웹 앱의 경우 쿠키가 있으면 해당 쿠키에서 사용자 ID를 가져옵니다. 쿠키가 없으면 새 쿠키가 생성됩니다. 사용자가 앱에 로그인해야 하는 경우 사용자의 인증된 ID로 ID를 설정하면 사용자가 다른 컴퓨터에서 로그인하더라도 사용자 수를 정확하게 계산할 수 있습니다. 
 
+
+
+
 ## 제한
 
 응용프로그램당 허용되는 메트릭 및 이벤트 수가 제한되어 있습니다.
@@ -704,6 +734,7 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 * *Q: 데이터가 얼마 동안 보존되나요?*
 
     [데이터 보존 및 개인 정보][data]를 참조하세요.
+
 
 ## 참조 문서
 
@@ -747,4 +778,4 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

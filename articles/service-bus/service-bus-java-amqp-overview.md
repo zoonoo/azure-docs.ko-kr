@@ -117,4 +117,4 @@ AMQP 1.0은 2008년 이래로 기술 공급업체와 최종 사용자 업체를 
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

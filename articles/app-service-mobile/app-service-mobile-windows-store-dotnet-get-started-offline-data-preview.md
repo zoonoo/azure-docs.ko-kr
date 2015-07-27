@@ -36,9 +36,9 @@
 이 자습서를 사용하려면 다음이 필요합니다.
 
 * Windows 8.1에서 실행 중인 Visual Studio 2013
-* [Windows 앱 만들기] 완료.
-* [Azure 모바일 서비스 SDK 버전 2.0.0 이상][Azure Mobile App SDK Nuget]
-* [Azure 모바일 서비스 SQLite 저장소 버전 1.0.2 이상][SQLite store Nuget]
+* [Windows 앱 만들기][create a windows app] 완료.
+* [Azure 모바일 서비스 SDK 버전 2.0.0 이상][azure mobile app sdk nuget]
+* [Azure 모바일 서비스 SQLite 저장소 버전 1.0.2 이상][sqlite store nuget]
 * [Windows 8.1용 SQLite](www.sqlite.org/downloads)
 
 >[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 무료 평가판</a>을 참조하세요.
@@ -264,13 +264,14 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
 
 
 <!-- URLs. -->
-[TodoList Offline Sample]: http://go.microsoft.com/fwlink/?LinkId=394777
+[todolist offline sample]: http://go.microsoft.com/fwlink/?LinkId=394777
+[create a windows app]: /documentation/articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/
 [Windows 앱 만들기]: /documentation/articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview/
 [Windows 8.1용 SQLite]: http://go.microsoft.com/fwlink/?LinkId=394776
 [Windows Phone 8.1용 SQLite]: http://go.microsoft.com/fwlink/?LinkId=397953
 
-[Azure Mobile App SDK Nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta
-[SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
+[azure mobile app sdk nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices/2.0.0-beta
+[sqlite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

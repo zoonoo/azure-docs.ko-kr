@@ -24,7 +24,7 @@
 
 도메인을 호스트할 새 DNS 영역을 만들려면 New-AzureDnsZone cmdlet을 사용합니다.
 
-		PS C:\> $zone = New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [–Tag $tags] 
+		PS C:> $zone = New-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [–Tag $tags] 
 
 이 작업은 Azure DNS에 새 DNS 영역을 만들고 영역에 해당하는 로컬 개체를 반환합니다. 필요한 경우 Azure 리소스 관리자 태그 배열을 지정할 수도 있습니다. 자세한 내용은 [Etag 및 태그](../dns-getstarted-create-dnszone#Etags-and-tags)를 참조하세요.
 
@@ -36,14 +36,14 @@
 
 DNS 영역을 가져오려면 Get-AzureDnsZone cmdlet을 사용합니다.
 
-		PS C:\> $zone = Get-AzureDnsZone -Name contoso.com –ResourceGroupName MyAzureResourceGroup
+		PS C:> $zone = Get-AzureDnsZone -Name contoso.com –ResourceGroupName MyAzureResourceGroup
 
 이 작업은 Azure DNS의 기존 영역에 해당하는 DNS 영역 개체를 반환합니다. 이 개체는 영역에 대한 데이터(예: 레코드 집합 수)를 포함하지만 레코드 집합 자체는 포함하지 않습니다.
 
 ## DNS 영역 나열
 Get-AzureDnsZone에서 영역 이름을 생략하면 리소스 그룹의 모든 영역을 열거할 수 있습니다.
 
-	PS C:\> $zoneList = Get-AzureDnsZone -ResourceGroupName MyAzureResourceGroup
+	PS C:> $zoneList = Get-AzureDnsZone -ResourceGroupName MyAzureResourceGroup
 이 작업은 영역 개체의 배열을 반환합니다.
 
 ## DNS 영역 업데이트
@@ -55,14 +55,14 @@ Set-AzureDnsZone을 사용하여 DNS 영역 리소스를 변경할 수 있습니
  
 영역 이름 및 리소스 그룹을 사용하여 영역을 지정합니다.
 
-	PS C:\> Set-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Tag $tags]
+	PS C:> Set-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Tag $tags]
 
 ### 옵션 2
 Get-AzureDnsZone에서 $zone 개체를 사용하여 영역을 지정합니다.
 
-	PS C:\> $zone = Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> <..modify $zone.Tags here...>
-	PS C:\> Set-AzureDnsZone -Zone $zone [-Overwrite]
+	PS C:> $zone = Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:> <..modify $zone.Tags here...>
+	PS C:> Set-AzureDnsZone -Zone $zone [-Overwrite]
 
 $zone 개체와 함께 Set-AzureDnsZone을 사용하는 경우 동시 변경 내용을 덮어쓰지 않도록 'Etag' 검사가 사용됩니다. 선택적 '-Overwrite' 스위치를 사용하여 이러한 검사를 무시할 수 있습니다. 자세한 내용은 [Etag 및 태그](../dns-getstarted-create-dnszone#Etags-and-tags)를 참조하세요.
 
@@ -78,15 +78,15 @@ Azure DNS에서 DNS 영역을 삭제하기 전에 영역을 만들 때 자동으
 
 영역 이름 및 리소스 그룹 이름을 사용하여 영역을 지정합니다.
 
-	PS C:\> Remove-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Force] 
+	PS C:> Remove-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Force] 
 
 이 작업에는 DNS 영역을 제거할 것인지 확인하는 메시지를 표시하지 않는 선택적 '-Force' 스위치가 있습니다.
 ### 옵션 2
 
 Get-AzureDnsZone에서 $zone 개체를 사용하여 영역을 지정합니다.
 
-	PS C:\> $zone = Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
-	PS C:\> Remove-AzureDnsZone -Zone $zone [-Force] [-Overwrite]
+	PS C:> $zone = Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
+	PS C:> Remove-AzureDnsZone -Zone $zone [-Force] [-Overwrite]
 
 '-Force' 스위치는 옵션 1과 동일합니다.
 
@@ -94,7 +94,7 @@ Get-AzureDnsZone에서 $zone 개체를 사용하여 영역을 지정합니다.
 
 영역 개체를 매개 변수로 전달하는 대신 파이프할 수도 있습니다.
 
-	PS C:\> Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureDnsZone [-Force] [-Overwrite]
+	PS C:> Get-AzureDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | Remove-AzureDnsZone [-Force] [-Overwrite]
 
 ## 다음 단계
 
@@ -103,4 +103,4 @@ Get-AzureDnsZone에서 $zone 개체를 사용하여 영역을 지정합니다.
 
 [.NET SDK로 작업 자동화](../dns-sdk)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

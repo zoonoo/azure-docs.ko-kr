@@ -3,7 +3,7 @@
     pageTitle="Azure RemoteApp에 대한 사용자 지정 이미지 업로드"
     description="Azure RemoteApp에 대한 사용자 지정 이미지를 업로드하는 방법을 알아봅니다." 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="ericorman" 
     manager="mbaldwin" />
 
@@ -52,4 +52,4 @@
 - 업로드 중 Vhd 파일이 잠기면, 파일을 복사하거나 새 위치로 이동하여 다시 업로드해봅니다. 업로드를 방지하는 일부 Windows 프로세스가 있을 수 있습니다.  
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

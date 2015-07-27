@@ -22,7 +22,8 @@
 
 ## Azure AD Connect 다운로드
 
-Azure AD Connect를 사용하여 시작하려면 다음을 사용하여 최신 버전을 다운로드하면 됩니다. [Azure AD Connect 공개 미리 보기 다운로드](http://connect.microsoft.com/site1164/program8612)
+Azure AD Connect를 사용하여 시작하려면 [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771)를 사용하여 최신 버전을 다운로드하면 됩니다.
+
 
 ## Azure AD Connect를 설치하기 전에
 Azure AD Connect를 설치하고 DirSync에서 업그레이드하기 전에 필요한 사항이 몇 가지 있습니다.
@@ -125,7 +126,7 @@ DirSync에서 사용 중인 기존 SQL Server 데이터베이스 서버와 관�
 1. Azure AD Connect 설치 관리자(MSI)를 실행합니다.
 2. "Azure AD Connect 시작" 화면이 표시됩니다. 창 오른쪽 위에 있는 모서리에서 "X"를 클릭하여 마법사를 종료합니다.
 3. 명령 프롬프트를 엽니다.
-4. Azure AD Connect 위치에서(기본값: C:\Program Files\Microsoft Azure Active Directory Connect) 다음 명령을 실행합니다.
+4. Azure AD Connect 위치에서(기본값: C:\\Program Files\\Microsoft Azure Active Directory Connect) 다음 명령을 실행합니다.
     * AzureADConnect.exe /migrate
 
 Azure AD Connect가 연결되고 다음 UI가 표시됩니다.
@@ -205,4 +206,4 @@ Azure AD Connect가 DirSync로부터 인수할 준비가 되었는지 여부를 
 * [MSDN의 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

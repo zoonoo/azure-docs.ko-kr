@@ -227,4 +227,4 @@ ADAL은 응용 프로그램에 이러한 모든 일반적인 ID 기능을 쉽게
 - [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)의 Azure AD 설명서
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

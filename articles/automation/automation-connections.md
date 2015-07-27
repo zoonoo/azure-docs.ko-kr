@@ -67,7 +67,7 @@
 
 ### Windows PowerShell을 사용하여 새 연결을 만들려면
 
-Windows PowerShell에서 [New-AzureAutomationConnection](http://msdn.microsoft.com/library/dn921825.aspx) cmdlet을 사용하여 새 연결을 만듭니다. 이 cmdlet에는 연결 형식에 정의된 각 특성의 값을 정의하는 [해시 테이블](http://technet.microsoft.com/ko-kr/library/hh847780.aspx)이 필요한 **ConnectionFieldValues**라는 매개 변수가 있습니다.
+Windows PowerShell에서 [New-AzureAutomationConnection](http://msdn.microsoft.com/library/dn921825.aspx) cmdlet을 사용하여 새 연결을 만듭니다. 이 cmdlet에는 연결 형식에 정의된 각 특성의 값을 정의하는 [해시 테이블](http://technet.microsoft.com/library/hh847780.aspx)이 필요한 **ConnectionFieldValues**라는 매개 변수가 있습니다.
 
 
 다음 명령 예제에서는 텍스트 메시지를 주고받을 수 있도록 해주는 전화 통신 서비스인 [Twilio](http://www.twilio.com)에 대한 새 연결을 만듭니다. Twilio 연결 형식이 포함된 샘플 통합 모듈은 [스크립트 센터](http://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8)에서 사용할 수 있습니다. 이 연결 형식은 Twilio에 연결할 때 사용자 계정의 유효성을 검사하는 데 필요한 계정 SID 및 권한 부여 토큰에 대한 속성을 정의합니다. 이 샘플 코드를 사용하려면 [이 모듈을 다운로드](http://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8)하여 자동화 계정에 설치해야 합니다.
@@ -120,4 +120,4 @@ Windows PowerShell에서 [New-AzureAutomationConnection](http://msdn.microsoft.c
 - [그래픽 작성의 링크](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

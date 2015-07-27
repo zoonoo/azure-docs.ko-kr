@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="BizTalk 규칙" 
-   description="이 항목에서는 BizTalk 규칙의 기능을 설명하고 사용 지침을 제공합니다." 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="BizTalk 규칙"
+   description="이 항목에서는 BizTalk 규칙의 기능을 설명하고 사용 지침을 제공합니다."
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,11 +12,11 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="02/27/2015"
+   ms.workload="integration"
+   ms.date="07/02/2015"
    ms.author="andalmia"/>
 
-#BizTalk 규칙 
+#BizTalk 규칙
 
 비즈니스 규칙은 비즈니스 프로세스를 제어하는 정책 및 의사 결정을 캡슐화합니다. 이러한 정책은 절차 설명서, 계약 또는 규약에 공식적으로 정의되거나 직원이 가지고 있는 지식 또는 전문 지식으로 존재할 수 있습니다. 이러한 정책은 동적이며 비즈니스 계획의 변경, 규정 또는 기타 이유로 시간 경과에 따라 변경될 수 있습니다.
 
@@ -30,7 +30,7 @@
 - 비즈니스 분석가가 비즈니스 논리 관리에 대한 제어권을 강화할 수 있음
 + 비즈니스 논리에 대한 변경 내용을 더 빠르게 프로덕션에 적용할 수 있음
 
-#규칙 개념
+##규칙 개념
 
 ##어휘
 
@@ -77,14 +77,14 @@ _IF_ _조건_ _THEN_ _동작_
 단순한 보험금 청구 시나리오에서는 청구인이 웹 사이트, 휴대폰 앱 등과 같은 클라이언트를 통해 보험금 청구를 제출합니다. 이 청구 요청은 해당 비즈니스의 청구 처리 장치로 전송되어 처리 결과에 따라 승인 또는 거부되거나 추가 수동 처리를 위해 전송될 수 있습니다. 이 시나리오에서 청구 처리 장치는 해당 시스템에 대한 비즈니스 논리를 포함하는 것이 됩니다. 이 장치를 자세히 살펴보면 다음을 확인할 수 있습니다.
 
 ![대체 텍스트][2]
- 
+
 이제 비즈니스 규칙을 사용하여 이 비즈니스 논리를 구현하겠습니다.
 
 
 ##규칙 API 앱 만들기
 
 
-1. Azure 포털에 로그인하여 홈페이지로 이동합니다. 
+1. Azure 포털에 로그인하여 홈페이지로 이동합니다.
 1. 새로 만들기->Azure 마켓플레이스->API 앱->BizTalk 규칙->만들기를 클릭합니다. ![대체 텍스트][3]
 1. 열리는 새 블레이드에서 다음 정보를 입력합니다.  
 	1. 이름 – 규칙 API 앱의 이름을 지정합니다.
@@ -99,85 +99,44 @@ BizTalk 규칙 API 앱을 만든 후 다음 단계는 어휘를 만드는 것입
 
 
 1. 찾아보기->API 앱-><Your Rules API App>을 클릭하여 직접 만든 API 앱을 찾습니다. 그러면 아래와 유사한 규칙 API 앱 대시보드로 이동합니다.
- 
+
    ![대체 텍스트][4]
 
-2. 그런 다음 "어휘 정의"를 클릭합니다. 그러면 어휘 작성 화면이 표시됩니다. "추가"를 클릭하여 새 어휘 정의 추가를 시작합니다. 현재 지원되는 두 가지 유형의 어휘 정의는 리터럴과 XML입니다.
+2\. 그런 다음 "어휘 정의"를 클릭합니다. 그러면 어휘 작성 화면이 표시됩니다. "추가"를 클릭하여 새 어휘 정의 추가를 시작합니다. 현재 지원되는 두 가지 유형의 어휘 정의는 리터럴과 XML입니다.
 
 ##리터럴 정의
 1.	"추가"를 클릭하면 새 "정의 추가" 블레이드가 열립니다. 다음 값을 입력합니다.
   1.	이름 – 특수 문자 없이 영숫자 문자만 사용해야 합니다. 또한 기존 어휘 정의 목록에 고유한 이름이어야 합니다.
   2.	설명 – 선택적 필드입니다.
   3.	유형 – 두 가지 유형이 지원됩니다. 이 예제에서는 리터럴을 선택합니다.
-  4.	입력 유형 – 사용자가 정의의 데이터 형식을 선택할 수 있습니다. 현재 다음 네 가지 데이터 형식을 선택할 수 있습니다. 
-    i.	문자열 – 이 값은 큰따옴표 안에 입력해야 합니다("예제 문자열").  
-    ii.	부울 – true 또는 false일 수 있습니다.  
-    iii.	숫자 – 임의의 10진수일 수 있습니다.  
-    iv.	DateTime – 정의가 날짜 데이터 형식임을 의미합니다. mm/dd/yyyy hh:mm:ss AM\PM 형식으로 데이터를 입력해야 합니다.  
-    v.	입력 – 정의 값을 입력합니다. 여기서 입력하는 값은 선택한 데이터 형식을 준수해야 합니다. 단일 값, 쉼표로 구분된 값 집합 또는 to 키워드를 사용한 값 범위를 입력할 수 있습니다. 예를 들어 고유 값 1, 집합 1, 2, 3 또는 1 ~ 5 범위(1 to 5)를 입력할 수 있습니다. 범위는 숫자에만 지원됩니다.
+  4.	입력 유형 – 사용자가 정의의 데이터 형식을 선택할 수 있습니다. 현재 다음 네 가지 데이터 형식을 선택할 수 있습니다. i. 문자열 – 이 값은 큰따옴표 안에 입력해야 합니다("예제 문자열"). ii. 부울 – true 또는 false일 수 있습니다. iii. 숫자 – 임의의 10진수일 수 있습니다. iv. DateTime – 정의가 날짜 데이터 형식임을 의미합니다. mm/dd/yyyy hh:mm:ss AM\\PM 형식으로 데이터를 입력해야 합니다. v. 입력 – 정의 값을 입력합니다. 여기서 입력하는 값은 선택한 데이터 형식을 준수해야 합니다. 단일 값, 쉼표로 구분된 값 집합 또는 to 키워드를 사용한 값 범위를 입력할 수 있습니다. 예를 들어 고유 값 1, 집합 1, 2, 3 또는 1 ~ 5 범위(1 to 5)를 입력할 수 있습니다. 범위는 숫자에만 지원됩니다.
 
 ![대체 텍스트][5]
 ##XML 정의
-어휘 유형을 XML로 선택한 경우 다음과 같은 입력을 지정해야 합니다.  
-  a.	스키마 – 이 입력을 클릭하면 이미 업로드된 스키마 목록에서 선택하거나 새 스키마를 업로드할 수 있는 새 블레이드가 열립니다.   
-  b.	XPATH – 이 입력은 이전 단계에서 스키마를 선택한 후에만 잠금 해제됩니다. 이 입력을 클릭하면 선택된 스키마가 표시되어 어휘 정의를 만들어야 하는 노드를 선택할 수 있습니다.  
-  c.	팩트 – 이 입력은 처리를 위해 규칙 엔진에 공급되는 데이터 개체를 식별합니다. 이 입력은 고급 속성이며 기본적으로 선택한 XPATH의 부모로 설정됩니다. FACT는 체인 및 컬렉션 시나리오에 특히 중요합니다.
+어휘 유형을 XML로 선택한 경우 다음과 같은 입력을 지정해야 합니다. a. 스키마 – 이 입력을 클릭하면 이미 업로드된 스키마 목록에서 선택하거나 새 스키마를 업로드할 수 있는 새 블레이드가 열립니다. b. XPATH – 이 입력은 이전 단계에서 스키마를 선택한 후에만 잠금 해제됩니다. 이 입력을 클릭하면 선택된 스키마가 표시되어 어휘 정의를 만들어야 하는 노드를 선택할 수 있습니다. c. 팩트 – 이 입력은 처리를 위해 규칙 엔진에 공급되는 데이터 개체를 식별합니다. 이 입력은 고급 속성이며 기본적으로 선택한 XPATH의 부모로 설정됩니다. FACT는 체인 및 컬렉션 시나리오에 특히 중요합니다.
 
 ![대체 텍스트][6]
 
 ### 일괄 추가
-위 단계는 어휘 정의를 만드는 환경을 캡처한 것입니다. 만들고 나면 만든 어휘 정의가 목록 형태로 나타납니다. 위 단계를 매번 반복하는 대신 동일한 스키마에서 여러 정의를 생성할 수 있어야 합니다. 이 경우 일괄 추가 기능이 매우 유용합니다. 
-"일괄 추가"를 클릭하면 새 블레이드로 이동합니다. 첫 번째 단계는 여러 정의를 만들 스키마를 선택하는 것입니다. 이 입력을 클릭하면 이미 업로드된 스키마 목록에서 선택하거나 새 스키마를 업로드할 수 있는 새 블레이드가 열립니다. 
-이제 XPATH 속성이 잠금 해제됩니다. 이 입력을 클릭하면 여러 노드를 선택할 수 있는 스키마 뷰어가 열립니다. 
-만든 여러 정의의 이름은 선택한 노드의 이름으로 기본 설정됩니다. 이러한 이름은 만든 후 언제든지 수정할 수 있습니다.
+위 단계는 어휘 정의를 만드는 환경을 캡처한 것입니다. 만들고 나면 만든 어휘 정의가 목록 형태로 나타납니다. 위 단계를 매번 반복하는 대신 동일한 스키마에서 여러 정의를 생성할 수 있어야 합니다. 이 경우 일괄 추가 기능이 매우 유용합니다. "일괄 추가"를 클릭하면 새 블레이드로 이동합니다. 첫 번째 단계는 여러 정의를 만들 스키마를 선택하는 것입니다. 이 입력을 클릭하면 이미 업로드된 스키마 목록에서 선택하거나 새 스키마를 업로드할 수 있는 새 블레이드가 열립니다. 이제 XPATH 속성이 잠금 해제됩니다. 이 입력을 클릭하면 여러 노드를 선택할 수 있는 스키마 뷰어가 열립니다. 만든 여러 정의의 이름은 선택한 노드의 이름으로 기본 설정됩니다. 이러한 이름은 만든 후 언제든지 수정할 수 있습니다.
 
 ![대체 텍스트][7]
 
 ##정책 만들기
-개발자가 필요한 어휘를 만들고 나면 비즈니스 분석가가 Azure 포털을 통해 비즈니스 정책을 만듭니다.  
-	1.	만든 규칙 앱에는 정책 필터가 있으며, 필터를 클릭하면 사용자가 정책 만들기 페이지로 이동됩니다.  
-	2.	이 페이지에는 이 특정 규칙 앱에 있는 정책 목록이 표시됩니다. 정책 이름을 입력하고 탭을 누르기만 하면 새 정책을 추가할 수 있습니다. 여러 정책이 단일 규칙 API 앱에 상주할 수 있습니다.  
-	3.	만든 정책을 클릭하면 정책 정보 페이지로 이동합니다. 여기서 정책에 포함된 규칙을 볼 수 있습니다.  
-	![대체 텍스트][8] 
-	4.	"새로 추가"를 클릭하여 새 규칙을 추가합니다. 그러면 새 블레이드로 이동합니다.
+개발자가 필요한 어휘를 만들고 나면 비즈니스 분석가가 Azure 포털을 통해 비즈니스 정책을 만듭니다. 1. 만든 규칙 앱에는 정책 필터가 있으며, 필터를 클릭하면 사용자가 정책 만들기 페이지로 이동됩니다. 2. 이 페이지에는 이 특정 규칙 앱에 있는 정책 목록이 표시됩니다. 정책 이름을 입력하고 탭을 누르기만 하면 새 정책을 추가할 수 있습니다. 여러 정책이 단일 규칙 API 앱에 상주할 수 있습니다. 3. 만든 정책을 클릭하면 정책 정보 페이지로 이동합니다. 여기서 정책에 포함된 규칙을 볼 수 있습니다. ![대체 텍스트][8] 4. "새로 추가"를 클릭하여 새 규칙을 추가합니다. 그러면 새 블레이드로 이동합니다.
 
 ##규칙 만들기
-규칙은 조건 및 동작문의 컬렉션입니다. 조건이 true로 평가되면 동작이 실행됩니다. 규칙 만들기 블레이드에서 해당 정책에 고유한 규칙 이름 및 설명(선택 사항)을 입력합니다. 조건 상자를 사용하여 복잡한 조건문을 만들 수 있습니다. 지원되는 키워드는 다음과 같습니다.
-1. 	And – 조건부 연산자  
-2. 	Or - 조건부 연산자  
-3. 	does_not_exist  
-4. 	exists  
-5. 	false  
-6. 	is_equal_to  
-7. 	is_greater_than  
-8. 	is_greater_than_equal_to  
-9. 	is_in  
-10. is_less_than  
-11. is_less_than_equal_to  
-12. is_not_in  
-13. is_not_equal_to  
-14. mod  
-15. true 
+규칙은 조건 및 동작문의 컬렉션입니다. 조건이 true로 평가되면 동작이 실행됩니다. 규칙 만들기 블레이드에서 해당 정책에 고유한 규칙 이름 및 설명(선택 사항)을 입력합니다. 조건 상자를 사용하여 복잡한 조건문을 만들 수 있습니다. 지원되는 키워드는 다음과 같습니다. 1. And – 조건부 연산자 2. Or - 조건부 연산자 3. does_not_exist 4. exists 5. false 6. is_equal_to 7. is_greater_than 8. is_greater_than_equal_to 9. is_in 10. is_less_than 11. is_less_than_equal_to 12. is_not_in 13. is_not_equal_to 14. mod 15. true
 
-동작(Then) 상자에 한 줄에 하나씩 여러 문을 입력하여 실행할 동작을 만들 수 있습니다. 지원되는 키워드는 다음과 같습니다.  
-1.	equals  
-2.	false  
-3.	true  
-4.	halt  
-5.	mod  
-6.	null  
-7.	update  
+동작(Then) 상자에 한 줄에 하나씩 여러 문을 입력하여 실행할 동작을 만들 수 있습니다. 지원되는 키워드는 다음과 같습니다. 1. equals 2. false 3. true 4. halt 5. mod 6. null 7. update
 
-조건 및 동작 상자는 규칙을 빠르게 작성하는 데 도움이 되는 Intellisense를 제공합니다. Ctrl+스페이스바를 누르거나 단순히 입력을 시작하면 이 기능을 트리거할 수 있습니다. 입력한 문자와 일치하는 키워드가 자동으로 필터링되어 표시됩니다. Intellisense 창에 모든 키워드 및 어휘 정의가 표시됩니다. 
-![대체 텍스트][9]
+조건 및 동작 상자는 규칙을 빠르게 작성하는 데 도움이 되는 Intellisense를 제공합니다. Ctrl+스페이스바를 누르거나 단순히 입력을 시작하면 이 기능을 트리거할 수 있습니다. 입력한 문자와 일치하는 키워드가 자동으로 필터링되어 표시됩니다. Intellisense 창에 모든 키워드 및 어휘 정의가 표시됩니다. ![대체 텍스트][9]
 
 ##명시적 연결 전달
-BizTalk 규칙은 명시적 연결 전달을 지원합니다. 즉, 사용자가 특정 동작에 대한 응답으로 규칙을 다시 평가하려는 경우 특정 키워드를 사용하여 이를 트리거할 수 있습니다. 지원되는 키워드는 다음과 같습니다. 
-   1.	update <vocabulary definition> - 이 키워드는 지정된 어휘 정의를 조건에 사용하는 모든 규칙을 다시 평가합니다.  
-   2.	Halt – 이 키워드는 모든 규칙 실행을 중지합니다.
+BizTalk 규칙은 명시적 연결 전달을 지원합니다. 즉, 사용자가 특정 동작에 대한 응답으로 규칙을 다시 평가하려는 경우 특정 키워드를 사용하여 이를 트리거할 수 있습니다. 지원되는 키워드는 다음과 같습니다. 1. update <vocabulary definition> - 이 키워드는 지정된 어휘 정의를 조건에 사용하는 모든 규칙을 다시 평가합니다. 2. Halt – 이 키워드는 모든 규칙 실행을 중지합니다.
 
-##규칙 사용\사용 안 함
-정책의 각 규칙을 사용하거나 사용하지 않도록 설정할 수 있습니다. 기본적으로 모든 규칙은 사용하도록 설정됩니다. 사용하지 않도록 설정된 규칙은 정책 실행 중에 실행되지 않습니다. 규칙 사용\사용 안 함은 규칙 블레이드에서 직접 수행하거나(블레이드 맨 위에 있는 명령 모음에서 명령을 사용할 수 있음), 정책의 상황에 맞는 메뉴(규칙을 마우스 오른쪽 단추로 클릭)에 있는 사용\사용 안 함 옵션을 통해 수행할 수 있습니다.
+##규칙 사용\\사용 안 함
+정책의 각 규칙을 사용하거나 사용하지 않도록 설정할 수 있습니다. 기본적으로 모든 규칙은 사용하도록 설정됩니다. 사용하지 않도록 설정된 규칙은 정책 실행 중에 실행되지 않습니다. 규칙 사용\\사용 안 함은 규칙 블레이드에서 직접 수행하거나(블레이드 맨 위에 있는 명령 모음에서 명령을 사용할 수 있음), 정책의 상황에 맞는 메뉴(규칙을 마우스 오른쪽 단추로 클릭)에 있는 사용\\사용 안 함 옵션을 통해 수행할 수 있습니다.
 
 ##규칙 우선 순위
 정책의 모든 규칙은 순서대로 실행됩니다. 실행 우선 순위는 정책에서 발생하는 순서에 따라 결정됩니다. 규칙을 끌어서 놓기만 하면 이 우선 순위를 변경할 수 있습니다.
@@ -202,20 +161,20 @@ BizTalk 규칙은 명시적 연결 전달을 지원합니다. 즉, 사용자가 
 
             JObject input = new JObject();
 
-			// The JSON object is to be of form {"<XMLSchemName>_<RootNodeName>":"<XML Instance String>". 
-			// In the below case, we are using XML Schema - "insruanceclaimsschema" and the root node is "Patient". 
-			// This is CASE SENSITIVE. 
+			// The JSON object is to be of form {"<XMLSchemName>_<RootNodeName>":"<XML Instance String>".
+			// In the below case, we are using XML Schema - "insruanceclaimsschema" and the root node is "Patient".
+			// This is CASE SENSITIVE.
             input.Add("insuranceclaimschema_Patient", xmlInstance);
             string stringContent = JsonConvert.SerializeObject(input);
 
 
             // Making REST call to Rules API App
             HttpClient httpClient = new HttpClient();
-	
+
 			// The url is the Host URL of the Rules API App
-            httpClient.BaseAddress = new Uri("https://rulesservice77492755b7b54c3f9e1df8ba0b065dc6.azurewebsites.net/");            
+            httpClient.BaseAddress = new Uri("https://rulesservice77492755b7b54c3f9e1df8ba0b065dc6.azurewebsites.net/");
             HttpContent httpContent = new StringContent(stringContent);
-            httpContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");            
+            httpContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
 
             // Invoking API "Execute" on policy "InsruranceClaimPolicy" and getting response JSON object. The url can be gotten from the API Definition Lens
             var postReponse = httpClient.PostAsync("api/Policies/InsuranceClaimPolicy?comp=Execute", httpContent).Result;
@@ -240,7 +199,4 @@ BizTalk 규칙은 명시적 연결 전달을 지원합니다. 즉, 사용자가 
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

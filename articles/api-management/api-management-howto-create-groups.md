@@ -106,4 +106,4 @@ API 관리에는 다음과 같은 변경할 수 없는 시스템 그룹이 있�
 [API 관리 서비스 인스턴스 만들기]: api-management-get-started.md
 [Azure API 관리 시작]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="java"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="07/13/2015" 
 	ms.author="awills"/>
  
 # Eclipse에서 Java를 사용하여 Application Insights 시작하기
@@ -100,9 +100,17 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
 ## 클라이언트쪽 원격 분석
 
-개요 블레이드의 퀵 스타트에서 웹 페이지에 추가할 스크립트를 가져올 수 있습니다.
+빠른 시작 블레이드에서 내 웹 페이지를 모니터링하는 코트 가져오기를 클릭합니다.
 
-페이지 보기, 사용자 및 세션 메트릭이 개요 블레이드에 표시됩니다.
+![앱 개요 블레이드에서 빠른 시작, 내 웹 페이지를 모니터링할 코드 가져오기를 선택합니다. 스크립트를 복사합니다.](./media/app-insights-java-eclipse/02-monitor-web-page.png)
+
+HTML 파일의 헤드에 있는 코드 조각을 삽입 합니다.
+
+#### 클라이언트쪽 데이터 보기
+
+업데이트 된 웹 페이지를 열고 사용 합니다. 1~2분 정도 기다린 후, Application Insights로 돌아가 사용량 블레이드를 새로 고침합니다.
+
+페이지 보기, 사용자 및 세션 메트릭이 사용량 블레이드에 표시됩니다.
 
 ![세션, 사용자 및 페이지 보기](./media/app-insights-java-eclipse/appinsights-47usage-2.png)
 
@@ -110,7 +118,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
 ## 가용성 웹 테스트
 
-Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 잘 실행되며 제대로 응답하는지 확인할 수 있습니다. 개요 블레이드에서 빈 웹 테스트 차트를 클릭하고 공용 URL을 제공합니다.
+Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 잘 실행되며 제대로 응답하는지 확인할 수 있습니다. 개요 블레이드에서 빈 웹 테스트 차트를 클릭하여 설치하면 공용 URL을 제공합니다.
 
 사이트가 다운되는 경우 응답 시간 차트는 물론 이메일 알림을 얻게 됩니다.
 
@@ -156,9 +164,9 @@ Java 웹 응용 프로그램에 몇 줄의 코드를 삽입하여 이를 사용�
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 [usage]: app-insights-web-track-usage.md
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

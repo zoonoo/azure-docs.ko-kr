@@ -1,17 +1,10 @@
 <properties 
-	urldisplayname="Service Bus AMQP" 
-	headerexpose="" 
 	pageTitle="Java 서비스 버스 API와 함께 AMQP 1.0을 사용하는 방법 - Azure" 
-	metakeywords="Java Messsage AMQP, Service Bus AMQP, download AMQP JMS library" 
-	footerexpose="" 
 	description="Azure 서비스 버스 및 AMQP(Advanced Message Queuing Protocol) 1.0과 함께 JMS(Java Message Service)를 사용하는 방법에 대해 알아봅니다." 
-	umbraconavihide="0" 
-	disquscomments="1" 
 	authors="sethmanheim" 
 	documentationCenter="java" 
-	writer="sethm" 
 	manager="timlt" 
-	editor="mattshel" 
+	editor="" 
 	services="service-bus"/>
 
 <tags 
@@ -20,13 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="03/26/2015" 
+	ms.date="07/02/2015" 
 	ms.author="sethm"/>
 
 
 # 서비스 버스 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법
-
-## 소개
 
 AMQP(Advanced Message Queuing Protocol) 1.0은 강력한 크로스 플랫폼 메시징 응용 프로그램을 빌드하는 데 사용할 수 있는 효율성과 안정성이 뛰어난 유선 수준 메시징 프로토콜입니다. AMQP 1.0 지원은 2012년 10월에 Azure 서비스 버스에 추가되었으며, 2013년 5월에 GA(General Availability)로 전환되었습니다.
 
@@ -67,7 +58,7 @@ JMS는 JNDI(Java Naming and Directory Interface)를 사용하여 논리적 이�
 	queue.QUEUE = queue1
 
 
-<p><strong>ConnectionFactory 구성</strong></p>
+#### ConnectionFactory 구성
 
 Qpid 속성 파일 JNDI 공급자에서 **ConnectionFactory**를 정의하는 데 사용되는 항목의 형식은 다음과 같습니다.
 
@@ -126,11 +117,11 @@ Qpid 속성 파일 JNDI 공급자에서 **ConnectionFactory**를 정의하는 �
   </tr>
 </table>
 
-이 경우 “SBCF”라는 **ConnectionFactory**를 정의하기 위해 구성 문자열이 다음과 같이 표시됩니다.
+이 경우 "SBCF"라는 **ConnectionFactory**를 정의하기 위해 구성 문자열이 다음과 같이 표시됩니다.
 
 	connectionfactory.SBCF = amqps://owner:j9VYv1q33Ea%2BcbahWsHFYnLkEzrF0yA5SAqcLNvU7KM%3D@foo.servicebus.windows.net
 
-<p><strong>Destinations</strong> 구성</p>
+#### Destinations 구성
 
 Qpid 속성 파일 JNDI 공급자에서 destination을 정의하는 데 사용되는 항목의 형식은 다음과 같습니다.
 
@@ -158,7 +149,7 @@ Qpid 속성 파일 JNDI 공급자에서 destination을 정의하는 데 사용�
 
 서비스 버스와 함께 JMS를 사용할 때 필요한 특별한 API 또는 옵션은 없습니다. 하지만 나중에 다룰 몇 가지 제한은 있습니다. JMS 응용 프로그램과 마찬가지로 **ConnectionFactory** 및 destination을 확인하려면 먼저 JNDI 환경의 구성이 필요합니다.
 
-<p><strong>JNDI InitialContext 구성</strong></p>
+#### JNDI InitialContext 구성
 
 JNDI 환경은 구성 정보 해시 테이블을 javax.naming.InitialContext 클래스의 생성자에 전달하여 구성됩니다. 해시 테이블의 두 가지 필수 요소는 초기 컨텍스트 팩터리의 클래스 이름과 공급자 URL입니다. 다음 코드는 Qpid 속성 파일 기반 JNDI 공급자를 **servicebus.properties**라는 속성 파일과 함께 사용하도록 JNDI 환경을 구성하는 방법을 보여 줍니다.
 
@@ -268,7 +259,7 @@ JNDI 환경은 구성 정보 해시 테이블을 javax.naming.InitialContext 클
 
 ### 응용 프로그램 실행
 
-응용 프로그램을 실행하면 양식의 출력이 생성됩니다.
+응용 프로그램을 실행하면 다음과 같은 출력이 생성됩니다.
 
 	> java SimpleSenderReceiver
 	Press [enter] to send a message. Type 'exit' + [enter] to quit.
@@ -287,7 +278,7 @@ JNDI 환경은 구성 정보 해시 테이블을 javax.naming.InitialContext 클
 
 이 가이드에서는 JMS를 사용하여 서비스 버스로 메시지를 보내고 받는 방법을 보여 줍니다. 그러나 AMQP 1.0의 주요 이점 중 하나는 다른 언어로 작성된 구성 요소로 응용 프로그램을 빌드하여 안정적이며 완전히 신뢰할 수 있는 상태로 메시지를 교환할 수 있다는 것입니다.
 
-위에서 설명한 샘플 JMS 응용 프로그램 및 동반 가이드([.NET 서비스 버스 .NET API와 함께 AMQP 1.0을 사용하는 방법](http://aka.ms/lym3vk))에서 제공하는 유사한 .NET 응용 프로그램을 사용하여 .NET과 Java 간에 메시지를 교환할 수 있습니다.
+위에서 설명한 샘플 JMS 응용 프로그램 및 동반 가이드([.NET 서비스 버스 .NET API와 함께 AMQP 1.0을 사용하는 방법](service-bus-dotnet-advanced-message-queuing.md))에서 제공하는 유사한 .NET 응용 프로그램을 사용하여 .NET과 Java 간에 메시지를 교환할 수 있습니다.
 
 서비스 버스 및 AMQP 1.0을 사용하는 크로스 플랫폼 메시징에 대한 자세한 내용은 [Service Bus AMQP 1.0 개발자 가이드](http://msdn.microsoft.com/library/jj841071.aspx)를 참조하십시오.
 
@@ -300,7 +291,7 @@ JMS에서 .NET으로의 메시징을 시연하려면:
 * Java 응용 프로그램 콘솔에서 **Enter** 키를 몇 번 누릅니다. 그러면 메시지가 전송됩니다.
 * .NET 응용 프로그램에서 이러한 메시지를 수신합니다.
 
-<p><strong>JMS 응용 프로그램의 출력</strong></p>
+#### JMS 응용 프로그램의 출력
 
 	> java SimpleSenderReceiver sendonly
 	Press [enter] to send a message. Type 'exit' + [enter] to quit.
@@ -309,7 +300,7 @@ JMS에서 .NET으로의 메시징을 시연하려면:
 	Sent message with JMSMessageID = ID:1565011046230456854
 	exit
 
-<p><strong>.NET 응용 프로그램의 출력</strong></p>
+#### .NET 응용 프로그램의 출력
 
 	> SimpleSenderReceiver.exe	
 	Press [enter] to send a message. Type 'exit' + [enter] to quit.
@@ -327,7 +318,7 @@ JMS에서 .NET으로의 메시징을 시연하려면:
 * .NET 응용 프로그램 콘솔에서 **Enter** 키를 몇 번 누릅니다. 그러면 메시지가 전송됩니다.
 * Java 응용 프로그램에서 이러한 메시지를 수신합니다.
 
-<p><strong>.NET 응용 프로그램의 출력</strong></p>
+#### .NET 응용 프로그램의 출력
 
 	> SimpleSenderReceiver.exe sendonly
 	Press [enter] to send a message. Type 'exit' + [enter] to quit.
@@ -337,7 +328,7 @@ JMS에서 .NET으로의 메시징을 시연하려면:
 	exit
 
 
-<p><strong>JMS 응용 프로그램의 출력</strong></p>
+#### JMS 응용 프로그램의 출력
 
 	> java SimpleSenderReceiver	
 	Press [enter] to send a message. Type 'exit' + [enter] to quit.
@@ -364,10 +355,10 @@ JMS에서 .NET으로의 메시징을 시연하려면:
 
 ## 다음 단계
 
-* [Azure 서비스 버스의 AMQP 1.0 지원](http://aka.ms/pgr3dp)
-* [서비스 버스 .NET API와 함께 AMQP 1.0을 사용하는 방법](http://aka.ms/lym3vk)
+* [Azure 서비스 버스의 AMQP 1.0 지원](service-bus-amqp-overview.md)
+* [서비스 버스 .NET API와 함께 AMQP 1.0을 사용하는 방법](service-bus-dotnet-advanced-message-queuing.md)
 * [서비스 버스 AMQP 1.0 개발자 가이드](http://msdn.microsoft.com/library/jj841071.aspx)
-* [서비스 버스 큐를 사용하는 방법](http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)
+* [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

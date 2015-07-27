@@ -12,7 +12,7 @@
 	 ms.tgt_pltfrm="na" 
 	 ms.devlang="na" 
 	 ms.topic="article" 
-	 ms.date="03/05/2015" 
+	 ms.date="07/07/2015" 
 	 ms.author="mazha"/>
 
 #사용자 지정 도메인을 CDN(콘텐츠 배달 네트워크) 끝점에 매핑하는 방법
@@ -83,11 +83,11 @@
 
 		http://www.mydomain.com/cdn/mycloudservice
 
-#참고 항목
+##참고 항목
 
 
-[Azure에 대해 CDN(콘텐츠 배달 네트워크)을 사용하도록 설정하는 방법](./cdn-create-new-endpoint.md) **Azure CDN 개요**
+[Azure에 대해 CDN(콘텐츠 배달 네트워크)을 사용하도록 설정하는 방법](./cdn-create-new-endpoint.md)
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

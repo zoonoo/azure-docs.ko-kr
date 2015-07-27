@@ -207,7 +207,7 @@ WorkerRole.cs 내용을 다음 코드로 바꿉니다. [EventSource 클래스][]
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -332,7 +332,7 @@ Visual Studio **서버 탐색기**에서 wadexample 저장소 계정으로 이�
 
 ### 3단계: 응용 프로그램 배포
 1.	**솔루션 탐색기**에서 **WadExampleVM** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **파일 탐색기에서 폴더 열기**를 선택합니다.
-2.	*bin\Debug* 폴더로 이동하고 모든 파일을 복사합니다(WadExampleVM.*).
+2.	*bin\\Debug* 폴더로 이동하고 모든 파일을 복사합니다(WadExampleVM.*).
 3.	**서버 탐색기**에서 가상 컴퓨터를 마우스 오른쪽 단추로 클릭하고 **원격 데스크톱을 사용하여 연결**을 선택합니다.
 4.	VM에 연결되면 WadExampleVM이라는 폴더를 만들고 응용 프로그램 파일을 폴더에 붙여 넣습니다.
 5.	WadExampleVM.exe 응용 프로그램을 실행합니다. 빈 콘솔 창이 표시됩니다.
@@ -351,7 +351,7 @@ Visual Studio **서버 탐색기**에서 wadexample 저장소 계정으로 이�
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -397,7 +397,7 @@ Visual Studio **서버 탐색기**에서 wadexample 저장소 계정으로 이�
 ### Azure 진단이 시작되지 않음
 진단은 게스트 에이전트 플러그 인과 모니터링 에이전트라는 두 개의 구성 요소로 이루어져 있습니다. 게스트 에이전트 플러그 인의 로그 파일은 다음 위치의 파일에 있습니다.
 
-*%SystemDrive%\ WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics<DiagnosticsVersion>*\CommandExecution.log
+*%SystemDrive%\\ WindowsAzure\\Logs\\Plugins\\Microsoft.Azure.Diagnostics.PaaSDiagnostics<DiagnosticsVersion>*\\CommandExecution.log
 
 플러그 인을 통해 반환되는 오류 코드는 다음과 같습니다.
 
@@ -777,4 +777,4 @@ Visual Studio **서버 탐색기**에서 wadexample 저장소 계정으로 이�
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

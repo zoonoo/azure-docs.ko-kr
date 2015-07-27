@@ -4,7 +4,6 @@
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
-	writer="glenga" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -171,4 +170,4 @@ Code First 마이그레이션에서는 스냅숏 방법을 사용하여 데이�
 [DbSet<T>]: https://msdn.microsoft.com/library/azure/gg696460.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

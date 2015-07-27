@@ -39,7 +39,7 @@ Node.js에는 핵심 런타임에 최소한의 기능이 들어 있습니다. �
 
 	[AZURE.INCLUDE [install-dev-tools](../../includes/install-dev-tools.md)]
 
-2. 디렉터리를 **c:\node** 디렉터리로 변경한 후 다음 명령을 입력하여 **expressapp**라는 이름의 새 솔루션과 **WebRole1**이라는 웹 역할을 만듭니다.
+2. 디렉터리를 **c:\\node** 디렉터리로 변경한 후 다음 명령을 입력하여 **expressapp**라는 이름의 새 솔루션과 **WebRole1**이라는 웹 역할을 만듭니다.
 
 		PS C:\node> New-AzureServiceProject expressapp
 		PS C:\Node\expressapp> Add-AzureNodeWebRole
@@ -135,4 +135,4 @@ Azure PowerShell 창에서 **Publish-AzureServiceProject** cmdlet을 사용하�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

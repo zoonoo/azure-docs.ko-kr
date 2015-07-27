@@ -4,7 +4,6 @@
 	services="" 
 	documentationCenter="" 
 	authors="JustinBeckwith" 
-	writer="" 
 	manager="carolz" 
 	editor=""/>
 
@@ -26,11 +25,11 @@ Preview 포털은 최신 PC, Mac 및 태블릿에서 효율적으로 실행됩�
 ### 지원되는 브라우저
 다음과 같은 최신 버전 브라우저가 지원됩니다.
 
-- Internet Explorer(10 이상)
+- Internet Explorer(11 이상)
 - Safari(7 이상)
 - Chrome(최신)
 - Firefox(최신)
 
 *Safari 6 이하는 지원되지 않습니다. OS X을 사용하는 경우 Chrome, Firefox를 사용하거나 OS X Mavericks로 업그레이드하여 Safari 7을 구할 수 있습니다.*
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

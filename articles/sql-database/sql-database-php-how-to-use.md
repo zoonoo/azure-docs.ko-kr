@@ -130,4 +130,4 @@ Azure에서 PHP로 SQL 데이터베이스를 사용하는 방법을 보여 주�
 [quick-create]: ./media/sql-database-php-how-to-use/create-new-sql.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

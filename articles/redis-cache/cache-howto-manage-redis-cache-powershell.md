@@ -4,7 +4,6 @@
  services="redis-cache" 
    documentationCenter="" 
    authors="Rick-Anderson" 
-   writer="Rick-Anderson" 
    manager="wpickett" 
    editor=""/>
 
@@ -87,12 +86,13 @@
 		Remove-AzureRedisCache -Name $movieCache.Name -ResourceGroupName $movieCache.ResourceGroupName  -Force 
 
 ## 다음 단계
-Microsoft Azure PowerShell 사용에 대해 자세히 알아보려면 다음을 참조하세요.
+
+Azure에서 Windows PowerShell 사용에 대한 자세한 내용은 다음 리소스를 참조하십시오.
  
-- [Azure 리소스 관리자 Cmdlet](http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409): AzureResourceManager 모듈에서 cmdlet을 사용하는 방법에 대해 알아봅니다.
-- [리소스 그룹을 사용하여 Azure 리소스 관리](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups): Azure 관리 포털에서 리소스 그룹을 만들고 관리하는 방법에 대해 알아봅니다.
+- [Azure 리소스 관리자 Cmdlet](http://go.microsoft.com/fwlink/?LinkID=394765): AzureResourceManager 모듈에서 cmdlet을 사용하는 방법에 대해 알아봅니다.
+- [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-portal/resource-group-portal): Azure 관리 포털에서 리소스 그룹을 만들고 관리하는 방법에 대해 알아봅니다.
 - [Azure 블로그](http://blogs.msdn.com/windowsazure): Azure의 새로운 기능에 대해 알아봅니다.
 - [Windows PowerShell 블로그](http://blogs.msdn.com/powershell): Windows PowerShell의 새로운 기능에 대해 알아봅니다.
 - ["Hey, Scripting Guy!" 블로그](http://blogs.technet.com/b/heyscriptingguy/): Windows PowerShell 커뮤니티에서 실제 팁과 요령을 확인합니다.
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

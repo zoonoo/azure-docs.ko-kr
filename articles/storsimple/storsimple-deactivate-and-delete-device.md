@@ -1,0 +1,94 @@
+<properties 
+   pageTitle="StorSimple 장치 비활성화 및 삭제 | Microsoft Azure"
+   description="StorSimple 장치를 비활성화한 후 삭제하여 서비스에서 제거하는 방법에 대해 설명합니다."
+   services="storsimple"
+   documentationCenter=""
+   authors="SharS"
+   manager="carolz"
+   editor="" />
+<tags 
+   ms.service="storsimple"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="07/09/2015"
+   ms.author="v-sharos" />
+
+# StorSimple 장치 비활성화 및 삭제
+
+이 자습서에서는 StorSimple 장치를 비활성화한 후 삭제하여 서비스에서 제거하는 방법에 대해 설명합니다.
+
+>[AZURE.NOTE]장치를 삭제하기 전에 비활성화해야 합니다.
+
+## 장치 비활성화
+
+장치를 서비스 중단하고 싶을 수 있습니다. 이 경우 장치를 비활성화해야 합니다. 비활성화하면 장치 및 해당 StorSimple Manager 서비스 간의 연결이 끊깁니다.
+
+>[AZURE.WARNING]비활성화는 영구 작업이며 실행 취소할 수 없습니다. 먼저 팩터리에서 장치를 재설정해야 비활성화된 장치를 StorSimple Manager 서비스에 등록할 수 있습니다.
+
+장치를 비활성화하면 장치에 로컬로 저장된 데이터에 더 이상 액세스할 수 없게 됩니다. 클라우드에 저장된 장치와 연결된 데이터만 복구할 수 있습니다. 장치가 비활성화된 후에 기존 또는 새 서비스로 재사용하기 위해서는 장치를 공장 재설정해야 합니다. 공장 재설정 프로세스는 장치에 로컬로 저장된 모든 데이터를 삭제합니다. 따라서 반드시 장치를 비장치를 비활성화하기 전에 모든 데이터의 클라우드 스냅숏을 만들어야 합니다. 이렇게 하면 이후 단계에서 모든 데이터를 복구할 수 있습니다.
+
+StorSimple 가상 장치의 경우 비활성화하면 해당 가상 컴퓨터와 프로비전 시 만들어진 리소스가 삭제됩니다. 가상 장치가 비활성화된 후 이전 상태로 복원할 수 없습니다. StorSimple 가상 장치를 비활성화하기 전에 가상 장치에 의존하는 클라이언트와 호스트를 중지하거나 삭제했는지 확인합니다.
+
+### 데이터 비활성화 및 삭제
+
+장치를 완전히 삭제하고 장치 데이터를 보존하지 않으려는 경우 다음을 수행합니다.
+
+1. 장치를 비활성화하기 전에 장치와 연결된 모든 볼륨 컨테이너(및 볼륨)를 삭제해야 합니다. 연결된 백업을 삭제한 후에만 볼륨 컨테이너를 삭제할 수 있습니다.
+
+2. 장치를 비활성화합니다. [비활성화 단계](#steps-to-deactivate)로 이동하여 지침을 따르십시오.
+
+3. 비활성화한 후 장치를 완전히 삭제할 수 있습니다. [장치 삭제](#delete-a-device)로 이동하여 지침을 따르십시오.
+
+### 데이터 비활성화 및 보존
+
+장치를 삭제하지만 장치 데이터를 보존하고 싶은 경우 다음을 수행합니다.
+
+1. 장치를 비활성화합니다. 장치의 모든 볼륨 컨테이너 및 스냅숏은 유지됩니다. [비활성화 단계](#steps-to-deactivate)로 이동하여 지침을 따르십시오.
+
+2. 이제 볼륨 컨테이너와 연결된 스냅숏을 장애 조치(Failover)할 수 있습니다. 이에 대한 절차를 보려면 [StorSimple 장치에 대한 장애 조치 및 재해 복구](storsimple-device-failover-disaster-recovery.md)로 이동하십시오.
+
+3. 비활성화 및 장애 조치(Failover) 후 장치를 완전히 삭제할 수 있습니다. [장치 삭제](#delete-a-device)로 이동하여 지침을 따르십시오.
+
+### 비활성화하는 단계
+
+다음 절차에 따라 삭제를 준비하는 과정에서 장치를 비활성화하십시오.
+
+#### 장치를 비활성화하려면
+
+1. StorSimple Manager 서비스 **장치** 페이지에서 비활성화할 장치를 선택하고 페이지 하단에서 **비활성화**를 클릭합니다.
+
+2. 확인 메시지가 표시됩니다. **예**를 클릭하여 계속합니다. 비활성화 프로세스가 시작되고 완료하는 데 몇 분이 소요됩니다.
+
+    StorSimple 가상 장치에서 비활성화하면 다음과 같은 동작이 발생합니다.
+
+      - StorSimple 가상 장치가 제거됩니다.
+
+      - OS 디스크 및 StorSimple 가상 장치에 대해 만든 데이터 디스크가 제거됩니다.
+
+      - 프로비전 중 호스티드 서비스 및 가상 네트워크가 보존됩니다. 이러한 엔터티를 사용하지 않는 경우 수동으로 삭제해야 합니다.
+
+      - StorSimple 가상 장치에서 만든 클라우드 스냅숏은 보존됩니다.
+
+<!--After the device is deactivated, you will need to perform a failover before you can delete it completely. For failover instructions, go to [Failover and disaster recovery for your StorSimple device](storsimple-device-failover-disaster-recovery.md).-->
+## 장치 삭제
+
+비활성화한 장치는 삭제할 수만 있습니다. 장치를 삭제하면 서비스에 연결된 장치 목록에서 제거됩니다. 그러면 서비스에서 삭제된 장치를 더 이상 관리할 수 없습니다.
+
+#### 장치를 삭제하려면
+
+1. StorSimple Manager 서비스 **장치**페이지에서 삭제할 비활성화된 장치를 선택합니다.
+
+2. 페이지 맨 아래에서 **삭제**를 클릭합니다.
+
+3. 확인하라는 메시지가 표시됩니다. **예**를 클릭하여 계속합니다.
+
+장치를 삭제하는 데는 몇 분 정도 걸릴 수 있습니다.
+
+## 다음 단계
+비활성화된 장치를 공장 기본 설정으로 재설정하려면 [장치를 공장 기본 설정으로 재설정](https://msdn.microsoft.com/library/dn772373.aspx)으로 이동합니다.
+
+기술 지원을 받으려면 [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하세요.
+
+<!---HONumber=July15_HO3-->

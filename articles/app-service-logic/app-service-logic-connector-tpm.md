@@ -30,4 +30,4 @@ TPM API 앱은 AS2 커넥터 및 X12 또는 EDIFACT API 앱의 기본 요구 사
 <!--References-->
 [1]: app-service-logic-create-a-trading-partner-agreement.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

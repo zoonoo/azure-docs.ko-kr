@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/03/2015" 
+	ms.date="06/29/2015" 
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스에서 .NET WebJob 만들기
@@ -165,7 +165,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 4. ContosoAdsWebJob 프로젝트에서 *App.config* 파일을 엽니다.
 
-	이 파일에는 응용 프로그램 데이터를 위한 저장소 연결 문자열과 로깅을 위한 저장소 연결 문자열이 있습니다. 이 자습서에서는 두 문자열에 같은 계정을 사용합니다. 연결 문자열에는 저장소 계정 키의 자리 표시자가 있습니다. <pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
+	이 파일에는 응용 프로그램 데이터를 위한 저장소 연결 문자열과 로깅을 위한 저장소 연결 문자열이 있습니다. 이 자습서에서는 두 문자열에 같은 계정을 사용합니다. 연결 문자열에는 저장소 계정 키의 자리 표시자가 있습니다. <pre class="prettyprint">&lt;configuration&gt; &lt;connectionStrings&gt; &lt;add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="AzureWebJobsStorage" connectionString="DefaultEndpointsProtocol=https;AccountName=<mark>[accountname]</mark>;AccountKey=<mark>[accesskey]</mark>"/&gt; &lt;add name="ContosoAdsContext" connectionString="Data Source=(localdb)\\v11.0; Initial Catalog=ContosoAds; Integrated Security=True; MultipleActiveResultSets=True;"/&gt; &lt;/connectionStrings&gt; &lt;startup&gt; &lt;supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" /&gt; &lt;/startup&gt; &lt;/configuration&gt;</pre>
 
 	기본적으로 WebJobs SDK는 AzureWebJobsStorage 및 AzureWebJobsDashboard라는 연결 문자열을 찾습니다. 또는 [원하는 연결 문자열을 저장한 후 `JobHost` 개체에 명시적으로 전달할 수 있습니다.](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#config)
 
@@ -238,6 +238,14 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	완전한 URL은 여기에 입력한 항목과 .azurewebsites.net(**웹 앱 이름** 텍스트 상자 옆에 표시된 대로)으로 구성됩니다. 예를 들어 웹 앱 이름이 ContosoAds이면 URL은 ContosoAds.azurewebsites.net이 됩니다.
 
+9. [앱 서비스 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) 드롭다운 목록에서 **새 앱 서비스 계획 만들기**를 선택합니다.
+
+11. ContosoAdsPlan 등의 앱 서비스 계획에 대한 이름을 입력합니다.
+
+9. [리소스 그룹](../resource-group-overview.md) 드롭다운 목록에서 **새 리소스 그룹 만들기**를 선택합니다.
+
+11. ContosoAdsGroup 등의 리소스 그룹 이름을 입력합니다.
+
 9. **지역** 드롭다운 목록에서 저장소 계정에 대해 선택한 것과 동일한 지역을 선택합니다.
 
 	이 설정은 웹 앱이 실행되는 Azure 데이터 센터를 지정합니다. 동일한 데이터 센터의 웹 앱 및 저장소 계정을 유지하면 대기 시간 및 데이터 송신 요금을 최소화합니다.
@@ -245,6 +253,8 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 9. **데이터베이스 서버** 드롭다운 목록에서 **새 서버 만들기**를 선택합니다.
 
 	또는 이미 구독에 서버가 있는 경우에는 드롭다운 목록에서 해당 서버를 선택할 수 있습니다.
+
+1. ContosoAdsServer 등 데이터베이스 서버 이름을 입력합니다.
 
 1. 관리자 **데이터베이스 사용자 이름** 및 **데이터베이스 암호**를 입력합니다.
 
@@ -280,7 +290,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	데이터베이스가 게시되지 않는다는 내용의 경고는 무시해도 됩니다. Entity Framework Code First에서 게시할 필요가 없는 데이터베이스가 만들어집니다.
 
-	미리 보기 창에는 WebJob 프로젝트의 이진 및 구성 파일이 웹 앱의 *app_data\jobs\continuous* 폴더로 복사되는 모습이 표시됩니다.
+	미리 보기 창에는 WebJob 프로젝트의 이진 및 구성 파일이 웹 앱의 *app_data\\jobs\\continuous* 폴더로 복사되는 모습이 표시됩니다.
 
 	![미리 보기 창의 WebJob 파일](./media/websites-dotnet-webjobs-sdk-get-started/previewwjfiles.png)
 
@@ -308,7 +318,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 	
 9. **Save**를 클릭합니다.
 
-	![관리 포털의 연결 문자열](./media/websites-dotnet-webjobs-sdk-get-started/azconnstr.png)
+	![Azure 포털에서 연결 문자열](./media/websites-dotnet-webjobs-sdk-get-started/azconnstr.png)
 
 10. **서버 탐색기**에서 웹 앱을 마우스 오른쪽 단추로 클릭하고 **웹 앱 중지**를 클릭합니다.
 
@@ -331,7 +341,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 ### WebJob SDK 대시보드 보기
 
-1. Azure 포털에서 웹 앱을 선택 합니다.
+1. [Azure 포털](https://manage.windowsazure.com)에서 해당 웹앱을 선택합니다.
 
 2. **WebJob** 탭을 클릭합니다.
 
@@ -349,7 +359,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	이 페이지의 **Replay Function(함수 재생)** 단추를 클릭하면 WebJob SDK 프레임워크가 해당 함수를 다시 호출하며 처음에 함수에 전달된 데이터를 변경할 기회가 제공됩니다.
 
->[AZURE.NOTE]테스트를 마치면 웹 앱 및 SQL 데이터베이스 인스턴스를 삭제합니다. 이 웹 앱은 무료이지만 SQL 데이터베이스 인스턴스와 저장소 계정은 요금이 부과됩니다(크기가 작으므로 소량 부과됨). 또한 이 앱을 실행 중인 채로 두는 경우에는 누군가가 URL을 발견하면 광고를 만들고 볼 수 있습니다. Azure 관리 포털에서 웹 앱에 대한 **대시보드** 탭으로 이동한 후 페이지 아래에서 **삭제** 단추를 클릭합니다. 그런 후 SQL 데이터베이스 인스턴스를 동시에 삭제하기 위한 확인란을 선택할 수 있습니다. 임시로 다른 사람이 웹 앱에 액세스하지 못하도록 하려면 대신 **중지**를 클릭합니다. 이 경우에는 SQL 데이터베이스 및 저장소 계정에 대해 요금이 계속해서 발생합니다. 더 이상 필요 없는 경우 비슷한 절차에 따라 SQL 데이터베이스 및 저장소 계정을 삭제할 수 있습니다.
+>[AZURE.NOTE]테스트를 마치면 웹 앱 및 SQL 데이터베이스 인스턴스를 삭제합니다. 이 웹 앱은 무료이지만 SQL 데이터베이스 인스턴스와 저장소 계정은 요금이 부과됩니다(크기가 작으므로 소량 부과됨). 또한 이 앱을 실행 중인 채로 두는 경우에는 누군가가 URL을 발견하면 광고를 만들고 볼 수 있습니다. Azure 포털에서 웹앱에 대한 **대시보드** 탭으로 이동한 후 페이지 아래에서 **삭제** 단추를 클릭합니다. 그런 후 SQL 데이터베이스 인스턴스를 동시에 삭제하기 위한 확인란을 선택할 수 있습니다. 임시로 다른 사람이 웹 앱에 액세스하지 못하도록 하려면 대신 **중지**를 클릭합니다. 이 경우에는 SQL 데이터베이스 및 저장소 계정에 대해 요금이 계속해서 발생합니다. 더 이상 필요 없는 경우 비슷한 절차에 따라 SQL 데이터베이스 및 저장소 계정을 삭제할 수 있습니다.
 
 ### 장기 실행 프로세스에 AlwaysOn 사용
 
@@ -469,9 +479,9 @@ WebJob 프로젝트는 이미지를 사용하고 연결 문자열에 액세스�
 	- *Web.config*
 	- *Global.asax.cs*  
 	- *Controllers* 폴더: *AdController.cs* 
-	- *Views\Shared* 폴더: <em>_Layout.cshtml</em> 파일. 
-	- *Views\Home* 폴더: *Index.cshtml*. 
-	- *Views\Ad* 폴더(먼저 폴더 만들기): 5개의 *.cshtml* 파일.<br/><br/>
+	- *Views\\Shared* 폴더: <em>_Layout.cshtml</em> 파일. 
+	- *Views\\Home* 폴더: *Index.cshtml*. 
+	- *Views\\Ad* 폴더(먼저 폴더 만들기): 5개의 *.cshtml* 파일.<br/><br/>
 
 3. ContosoAdsWebJob 프로젝트에서 다운로드한 프로젝트에서 가져온 다음 파일을 추가합니다.
 
@@ -483,7 +493,9 @@ WebJob 프로젝트는 이미지를 사용하고 연결 문자열에 액세스�
 
 ## <a id="code"></a>응용 프로그램 코드 검토
 
-다음 섹션에서는 WebJob SDK 및 Azure 저장소 Blob와 큐 작업과 관련된 코드에 대해 설명합니다. WebJob SDK 관련 코드의 경우는 [Program.cs 섹션](#programcs)을 참조하세요.
+다음 섹션에서는 WebJob SDK 및 Azure 저장소 Blob와 큐 작업과 관련된 코드에 대해 설명합니다.
+
+> **참고:** WebJobs SDK에 고유한 코드에 대해서는 [Program.cs 및 Functions.cs](#programcs)를 참조하세요.
 
 ### ContosoAdsCommon - Ad.cs
 
@@ -604,9 +616,9 @@ ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된�
 
 *_Layout.cshtml* 파일은 머리글과 바닥글에서 앱 이름을 설정하고 "Ads" 메뉴 항목을 만듭니다.
 
-### ContosoAdsWeb - Views\Home\Index.cshtml
+### ContosoAdsWeb - Views\\Home\\Index.cshtml
 
-*Views\Home\Index.cshtml* 파일은 홈페이지에 범주 링크를 표시합니다. 이 링크는 쿼리 문자열 변수의 `Category` 열거형 정수 값을 광고 인덱스 페이지에 전달합니다.
+*Views\\Home\\Index.cshtml* 파일은 홈페이지에 범주 링크를 표시합니다. 이 링크는 쿼리 문자열 변수의 `Category` 열거형 정수 값을 광고 인덱스 페이지에 전달합니다.
 	
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
@@ -695,7 +707,7 @@ HttpPost `Edit` 메서드의 코드도 비슷하지만, 사용자가 새 이미�
 		    await blobToDelete.DeleteAsync();
 		}
  
-### ContosoAdsWeb - Views\Ad\Index.cshtml 및 Details.cshtml
+### ContosoAdsWeb - Views\\Ad\\Index.cshtml 및 Details.cshtml
 
 *Index.cshtml* 파일은 다른 광고 데이터가 포함된 미리 보기를 표시합니다.
 
@@ -705,7 +717,7 @@ HttpPost `Edit` 메서드의 코드도 비슷하지만, 사용자가 새 이미�
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
-### ContosoAdsWeb - Views\Ad\Create.cshtml 및 Edit.cshtml
+### ContosoAdsWeb - Views\\Ad\\Create.cshtml 및 Edit.cshtml
 
 *Create.cshtml* 및 *Edit.cshtml* 파일은 컨트롤러가 `HttpPostedFileBase` 개체를 가져올 수 있게 하는 양식 인코딩을 지정합니다.
 
@@ -785,7 +797,7 @@ WebJobs SDK 특성을 사용하는 함수를 작성하는 방법에 대한 자�
 
 ### WebJobs 외부에서 WebJobs SDK 사용
 
-WebJob SDK를 사용하는 프로그램은 WebJob의 Azure에서 실행될 필요가 없습니다. 로컬에서 실행할 수 있고 클라우드 서비스 작업자 역할 또는 Windows 서비스와 같은 다른 환경에서도 실행할 수 있습니다. 하지만 WebJob SDK 대시보드에는 Azure 웹 앱을 통해서만 액세스할 수 있습니다. 이 대시보드를 사용하려면 관리 포털의 **구성** 탭에서 AzureWebJobsDashboard 연결 문자열을 설정하여 사용 중인 저장소 계정에 웹 앱을 연결해야 합니다. 그런 후 다음 URL을 사용하여 대시보드로 이동할 수 있습니다.
+WebJob SDK를 사용하는 프로그램은 WebJob의 Azure에서 실행될 필요가 없습니다. 로컬에서 실행할 수 있고 클라우드 서비스 작업자 역할 또는 Windows 서비스와 같은 다른 환경에서도 실행할 수 있습니다. 하지만 WebJob SDK 대시보드에는 Azure 웹 앱을 통해서만 액세스할 수 있습니다. 이 대시보드를 사용하려면 Azure 포털의 **구성** 탭에서 AzureWebJobsDashboard 연결 문자열을 설정하여 사용 중인 저장소 계정에 웹앱을 연결해야 합니다. 그런 후 다음 URL을 사용하여 대시보드로 이동할 수 있습니다.
 
 https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
@@ -799,7 +811,6 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-* 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
- 
+* Azure 미리 보기 포털에서 Azure 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

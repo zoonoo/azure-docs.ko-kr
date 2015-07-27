@@ -1,4 +1,3 @@
-
 **중요**: 가상 컴퓨터에서 가상 네트워크를 사용하려는 경우 가상 컴퓨터를 만들 때 가상 네트워크를 지정해야 합니다. 가상 컴퓨터를 만드는 경우에만 가상 네트워크에 가입하도록 가상 컴퓨터를 구성할 수 있습니다. 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 개요](http://go.microsoft.com/fwlink/p/?LinkID=294063)를 참조하세요.
 
 
@@ -29,13 +28,13 @@
 ##가상 컴퓨터에 연결
 컴퓨터에서 실행 중인 운영 체제에 따라 SSH 또는 PuTTY를 사용하여 가상 컴퓨터에 연결합니다.
 
-- VM에 연결하는 데 Linux를 사용하고 있으면 SSH를 사용하세요. 명령 프롬프트에서 다음을 실행합니다. 
+- VM에 연결하는 데 Linux를 사용하고 있으면 SSH를 사용하세요. 명령 프롬프트에서 다음을 실행합니다.
 
 	`$ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180`
-	
+
 	사용자의 암호를 입력합니다.
 
-- VM에 연결하는 데 Windows를 사용하고 있으면 PuTTY를 사용하세요. [PuTTY 다운로드 페이지][PuTTYDownLoad]에서 PuTTY를 다운로드할 수 있습니다.
+- VM에 연결하는 데 Windows를 사용하고 있으면 PuTTY를 사용하세요. [PuTTY 다운로드 페이지][PuTTYDownload]에서 PuTTY를 다운로드할 수 있습니다.
 
 	**putty.exe**를 다운로드하고 컴퓨터의 디렉터리에 저장합니다. 명령 프롬프트에서 해당 폴더로 이동한 다음 **putty.exe**를 실행합니다.
 
@@ -59,4 +58,4 @@
 
 [Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

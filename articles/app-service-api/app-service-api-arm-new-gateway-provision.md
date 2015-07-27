@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/23/2015" 
+	ms.date="07/01/2015" 
 	ms.author="tomfitz"/>
 
 # 새 게이트웨이로 API 앱을 프로비전
@@ -24,7 +24,7 @@
 
 앱 배포에 대한 자세한 내용은 [Azure에서 예측 가능하도록 복잡한 응용 프로그램을 배포](../app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하십시오.
 
-전체 템플릿은 [새 게이트웨이 템플릿과 API 앱](../../templates/app-service-api-arm-new-gateway-provision/)을 참조하십시오.
+전체 템플릿은 [새 게이트웨이 템플릿과 API 앱](https://github.com/Azure/azure-quickstart-templates/blob/master/201-api-app-gateway-new/azuredeploy.json)을 참조하십시오.
 
 ## 배포할 내용
 
@@ -34,9 +34,28 @@
 - 새 게이트웨이
 - 새 앱 서비스 호스팅 계획
 
+배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
+
+[![Azure에 배포](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-app-gateway-new%2Fazuredeploy.json)로 바꿉니다.
+
 ## 매개 변수
 
 [AZURE.INCLUDE [앱-서비스-api-배포-매개 변수](../../includes/app-service-api-deploy-parameters.md)]
+
+### hostingPlanSettings
+
+새 호스팅 계획에 대한 설정입니다.
+
+    "hostingPlanSettings": {
+      "type": "Object",
+      "defaultValue": {
+        "computeMode": "Dedicated",
+        "siteMode": "Limited",
+        "sku": "Standard",
+        "workerSize": "0",
+        "hostingEnvironment": ""
+      }
+    }
     
 ## 변수
 
@@ -72,7 +91,7 @@ API 앱에 대한 서비스 호스팅 계획을 만듭니다.
 
 게이트웨이를 호스팅하는 웹 앱을 만듭니다.
 
-**종류**를 해당 웹 앱이 게이트웨이를 호스팅하는 Azure 포털임을 알리는 **gateway** 로 설정합니다. 포털은 웹 앱 블레이드 찾아보기에서 웹 앱을 숨깁니다. 링크는 호스팅 앱과 게이트웨이 간에 정의됩니다. 앱 설정 섹션에는 API 앱 호스팅에 필요한 값이 포함됩니다.
+**종류**를 해당 웹 앱이 게이트웨이를 호스팅하는 Azure 포털임을 알리는 **gateway** 로 설정합니다. 포털은 웹앱 블레이드 찾아보기에서 웹앱을 숨깁니다. 링크는 호스팅 웹앱과 게이트 간에 정의됩니다. 앱 설정 섹션에는 API 앱 호스팅에 필요한 값이 포함됩니다.
 
 
     {
@@ -107,7 +126,7 @@ API 앱에 대한 서비스 호스팅 계획을 만듭니다.
             },
             {
               "name": "EmaStorage",
-              "value": "D:\home\data\apiapps"
+              "value": "D:\\home\\data\\apiapps"
             },
             {
               "name": "WEBSITE_START_SCM_ON_SITE_CREATION",
@@ -159,7 +178,7 @@ API 앱에 대한 서비스 호스팅 계획을 만듭니다.
 
 API 앱을 호스팅하는 웹 앱을 만듭니다.
 
-**종류**는 해당 웹 앱이 게이트웨이를 호스팅하는 Azure 포털임을 알리는 **apiApp**으로 설정됩니다. 포털은 웹 앱 블레이드 찾아보기에서 웹 앱을 숨깁니다. 앱은 기본 빈 API 앱 패키지를 설치하기 위해 확장을 포함합니다. 링크는 API 앱과 호스팅 웹 앱 간에 정의됩니다. 앱 설정 섹션에는 API 앱 호스팅에 필요한 값이 포함됩니다.
+**종류**는 해당 웹앱이 API 앱을 호스팅하는 Azure 포털임을 알리는 **apiApp**으로 설정됩니다. 포털은 웹앱 블레이드 찾아보기에서 웹앱을 숨깁니다. 앱은 기본 빈 API 앱 패키지를 설치하기 위해 확장을 포함합니다. 링크는 API 앱과 호스팅 웹 앱 간에 정의됩니다. 앱 설정 섹션에는 API 앱 호스팅에 필요한 값이 포함됩니다.
 
     {
       "type": "Microsoft.Web/sites",
@@ -272,13 +291,13 @@ API 앱을 만듭니다.
 
 ### PowerShell
 
-    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/new-gateway-new-plan-new-apiapp.json
+    New-AzureResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-api-app-gateway-new/azuredeploy.json
 
 ### Azure CLI
 
-    azure group deployment create --template-uri https://raw.githubusercontent.com/tfitzmac/AppServiceTemplates/master/new-gateway-new-plan-new-apiapp.json
+    azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-api-app-gateway-new/azuredeploy.json
 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

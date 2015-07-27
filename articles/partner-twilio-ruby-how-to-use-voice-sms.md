@@ -195,4 +195,4 @@ Twilio 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내�
 [sinatra]: http://www.sinatrarb.com/
 [azure_vm_setup]: http://www.windowsazure.com/develop/ruby/tutorials/web-app-with-linux-vm/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

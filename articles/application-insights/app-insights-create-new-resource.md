@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="07/14/2015" 
 	ms.author="awills"/>
 
 # 새 Application Insights 리소스 만들기
@@ -55,20 +55,20 @@ Visual Studio Application Insights는 Microsoft Azure *리소스*에 응용 프�
 다음에 Azure에 로그인할 때 이곳으로 다시 돌아오려면 시작 보드(홈 화면)에서 앱의 빠른 시작 타일을 찾습니다. 또는 찾아보기를 클릭하여 찾습니다.
 
 
-## 계측 키를 복사합니다.
+## 계측 키 복사
 
+계측 키는 사용자가 만든 리소스를 식별합니다. SDK를 제공하기 위해 이것이 필요합니다.
 
-잠시 후 앱의 SDK에서 방금 만든 리소스로 데이터를 전송하려면 이 키가 필요합니다.
+![Essentials과 계측 키를 차례로 클릭하고, CTRL + C 누릅니다.](./media/app-insights-create-new-resource/02-props.png)
 
-![속성 클릭, 키 선택 및 ctrl+C 누르기](./media/app-insights-create-new-resource/02-props.png)
+## 응용 프로그램에 SDK를 설치합니다.
 
-## SDK 구성
+Application Insights SDK를 응용 프로그램에 설치합니다. 이 단계는 응용 프로그램의 형식에 따라 크게 달라 집니다.
 
 계측 키를 사용하여 [응용 프로그램에 설치한 SDK][start]를 구성합니다.
 
-이 단계는 사용 중인 응용 프로그램의 유형에 따라 크게 달라집니다.
+SDK는 표준 모듈을 포함하고 있기 때문에 원격 분석을 전송할 때 코드를 작성할 필요가 없습니다. 사용자 작업을 추적하거나 문제를 보다 세부적으로 진단하려면[API를 사용][api]하여 사용자 고유의 원격 분석을 보내도록 합니다.
 
-경우에 따라 코드를 작성하지 않고도 원격 분석을 보내는 표준 모듈을 설치합니다. 모든 경우에 [API를 사용][api]하여 자체 원격 분석을 보낼 수 있습니다.
 
 ## <a name="monitor"></a>원격 분석 데이터 보기
 
@@ -92,4 +92,4 @@ Visual Studio Application Insights는 Microsoft Azure *리소스*에 응용 프�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

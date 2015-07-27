@@ -265,4 +265,4 @@ Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플�
 
 입력된 비디오에 자막이 없는 경우, 출력 자산은 빈 TTML 파일을 포함합니다.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

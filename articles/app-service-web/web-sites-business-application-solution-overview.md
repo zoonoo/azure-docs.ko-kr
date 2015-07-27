@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="07/06/2015" 
 	ms.author="cephalin"/>
 
 
@@ -124,4 +124,4 @@ Azure 또는 타사 도구를 사용하여 웹 앱의 성능을 최신 상태로
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

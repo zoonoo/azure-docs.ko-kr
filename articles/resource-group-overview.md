@@ -1,19 +1,19 @@
 <properties
    pageTitle="Azure 리소스 관리자 개요"
    description="Azure에서 리소스 배포, 관리 및 액세스 제어용 Azure 리소스 관리자 사용 방법을 설명합니다."
-   services="multiple"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="multiple"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/22/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 개요
@@ -67,6 +67,8 @@ Marketplace에서 솔루션을 만들 때 솔루션에 자동으로 배포 템�
 마지막으로 템플릿은 앱에 대한 소스 코드의 일부가 됩니다. 소스 코드 리포지토리를 확인하고 앱이 발전하면 업데이트할 수 있습니다. Visual Studio를 통해 템플릿을 편집할 수 있습니다.
 
 템플릿을 정의하는 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](./resource-group-authoring-templates.md)를 참조하십시오.
+
+템플릿 스키마에 대해서는 [Azure 리소스 관리자 스키마](https://github.com/Azure/azure-resource-manager-schemas)를 참조하세요.
 
 배포용 템플릿을 사용하는 방법에 대한 정보는 [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](azure-portal/resource-group-template-deploy.md) 및 [Azure에서 예측 가능한 방식으로 복잡한 응용 프로그램 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하십시오.
 
@@ -124,6 +126,7 @@ REST API에 대한 정보는 [Azure 리소스 관리자 REST API 참조](https:/
 - [.NET 라이브러리 및 템플릿을 사용하여 배포](virtual-machines/arm-template-deployment.md)
 - [템플릿 함수](./resource-group-template-functions.md)
 - [고급 템플릿 작업](./resource-group-advanced-template.md)
+- [템플릿 스키마](https://github.com/Azure/azure-resource-manager-schemas)
 
 리소스 구성
 
@@ -136,4 +139,4 @@ REST API에 대한 정보는 [Azure 리소스 관리자 REST API 참조](https:/
 - [서비스 사용자 인증](./resource-group-authenticate-service-principal.md)
 - [Azure 포털을 사용하여 새 서비스 사용자 만들기](./resource-group-create-service-principal-portal.md)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

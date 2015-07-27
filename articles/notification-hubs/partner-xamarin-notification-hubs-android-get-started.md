@@ -498,4 +498,4 @@ Microsoft는.NET 플랫폼에서 알림을 보내기 위한 Azure 서비스 버�
 [Azure 메시징 구성 요소]: http://components.xamarin.com/view/azure-messaging
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

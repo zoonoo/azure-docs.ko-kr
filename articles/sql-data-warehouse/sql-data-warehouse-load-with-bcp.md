@@ -71,7 +71,7 @@ GO
 20150101,1,3
 ```
 
-로컬 임시 디렉터리, C:\Temp\DimDate2.txt로 저장합니다.
+로컬 임시 디렉터리, C:\\Temp\\DimDate2.txt로 저장합니다.
 
 ### 3단계: 데이터 연결 및 가져오기
 bcp를 사용하여, 연결하고 값을 적절하게 대체하는 다음 명령을 사용하여 데이터를 가져올 수 있습니다.
@@ -150,4 +150,4 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 <!--Other Web references-->
 [Microsoft 다운로드 센터]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

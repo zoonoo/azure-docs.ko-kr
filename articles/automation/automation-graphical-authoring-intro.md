@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/04/2015"
+   ms.date="07/10/2015"
    ms.author="bwren" />
 
 # Azure 자동화에서 그래픽 작성
@@ -115,11 +115,11 @@ Azure 자동화의 각 Runbook에는 초안 버전과 게시된 버전이 있습
 |:---|:---|
 |상수 값|매개 변수 값을 입력합니다. 이는 Int32, Int64, String, Boolean, DateTime, Switch 데이터 형식에만 사용할 수 있습니다. |
 |활동 출력|워크플로에서 현재 활동 앞에 오는 활동의 출력입니다. 유효한 모든 활동이 나열됩니다. 매개 변수 값에 해당 출력을 사용할 활동만 선택하세요. 활동에서 여러 속성을 가진 개체를 출력하는 경우에는 활동을 선택한 후 속성 이름을 입력할 수 있습니다.|
-|Runbook 입력 매개 변수<br>*(서비스 예정)*|작업 매개 변수에 대한 입력으로 runbook의 입력 매개 변수를 선택합니다.|  
-|자동화 변수 자산<br>*(서비스 예정)*|입력으로 자동화 변수를 선택합니다.|  
-|자동화 자격 증명 자산<br>*(서비스 예정)*|입력으로 자동화 자격 증명을 선택합니다.|  
-|자동화 인증서 자산<br>*(서비스 예정)*|입력으로 자동화 인증서를 선택합니다.|  
-|자동화 연결 자산<br>*(서비스 예정)*|입력으로 자동화 연결을 선택합니다.| 
+|Runbook 입력 매개 변수|작업 매개 변수에 대한 입력으로 runbook의 입력 매개 변수를 선택합니다.|  
+|자동화 변수 자산|입력으로 자동화 변수를 선택합니다.|  
+|자동화 자격 증명 자산|입력으로 자동화 자격 증명을 선택합니다.|  
+|자동화 인증서 자산|입력으로 자동화 인증서를 선택합니다.|  
+|자동화 연결 자산|입력으로 자동화 연결을 선택합니다.| 
 |PowerShell 식|간단한 PowerShell 식을 지정합니다. 활동 전에 식이 계산되며, 그 결과가 매개 변수 값에 사용됩니다. 변수를 사용하여 활동의 출력 또는 Runbook 입력 매개 변수를 참조할 수 있습니다.|
 |빈 문자열|빈 문자열 값입니다.|
 |Null|Null 값입니다.|
@@ -228,7 +228,7 @@ Azure 자동화의 각 Runbook에는 초안 버전과 게시된 버전이 있습
 
 ### 검사점
 
-Runbook에서 [검사점](automation-runbook-concepts/#checkpoints)을 설정하는 데 적용되는 동일한 지침이 그래픽 Runbook에 적용됩니다. 검사점을 설정해야 하는 Checkpoint-Workflow cmdlet에 대한 활동을 추가할 수 있습니다. 그런 다음 이 검사점에서 다른 작업자에 대해 Runbook이 시작되는 경우 Add-AzureAccount를 사용하여 이 활동을 따릅니다.
+Runbook에서 [검사점](automation-powershell-workflow/#checkpoints)을 설정하는 데 적용되는 동일한 지침이 그래픽 Runbook에 적용됩니다. 검사점을 설정해야 하는 Checkpoint-Workflow cmdlet에 대한 활동을 추가할 수 있습니다. 그런 다음 이 검사점에서 다른 작업자에 대해 Runbook이 시작되는 경우 Add-AzureAccount를 사용하여 이 활동을 따릅니다.
 
 ## Azure 리소스 인증
 
@@ -276,8 +276,8 @@ Runbook 도구 모음에서 **입력 및 출력** 단추를 클릭하여 Runbook
 
 ## 관련된 문서
 
-- [Azure 자동화 Runbook 개념](automation-runbook-concepts.md)
+- [Windows PowerShell 워크플로 학습](automation-powershell-workflow.md)
 - [자동화 자산](http://msdn.microsoft.com/library/azure/dn939988.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

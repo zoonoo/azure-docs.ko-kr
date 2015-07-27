@@ -97,4 +97,4 @@ Web API 프로젝트에서 Windows 인증을 감지하기 위해 마법사는 �
 자세한 내용은 [Azure AD의 인증 시나리오](active-directory-authentication-scenarios.md)를 참조하세요.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

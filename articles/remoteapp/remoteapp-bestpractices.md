@@ -2,7 +2,7 @@
     pageTitle="Azure RemoteApp 모범 사례"
     description="Azure RemoteApp 구성 및 사용 모범 사례"
     services="remoteapp"
-    solutions="" documentationCenter=""
+	documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -44,4 +44,4 @@
 	- 게시된 응용 프로그램에 자동 소프트웨어 업데이트를 사용하지 않도록 설정합니다. 대신, 게시된 응용 프로그램을 템플릿 이미지에 수동으로 적용하고, 템플릿에서 배포하기 전에 테스트합니다.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

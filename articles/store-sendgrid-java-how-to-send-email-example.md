@@ -221,4 +221,4 @@ emailform.jsp는 메일을 보낼 뿐만 아니라 사용자에게 결과를 제
 [emailsent]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailSent.jpg
 [emailresult]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaResult.jpg
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

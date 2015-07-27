@@ -64,10 +64,10 @@ SQL 데이터 웨어하우스는 계산과 저장소를 분리하기 때문에, 
 <!--Image references-->
 
 <!--Article references-->
-[business continuity overview]: sql-database-business-continuity.md
-[Finalize a recovered database]: sql-database-recovered-finalize.md
+[business continuity overview]: ../sql-database/sql-database-business-continuity.md
+[Finalize a recovered database]: ../sql-database/sql-database-recovered-finalize.md
 [Azure 저장소 중복 옵션]: storage-redundancy/#read-access-geo-redundant-storage-ra-grs.md
-[SQL 데이터베이스 비즈니스 연속성 개요]: sql-database-business-continuity.md
+[SQL 데이터베이스 비즈니스 연속성 개요]: ../sql-database/sql-database-business-continuity.md
 [사용자 오류로부터 복구]: sql-data-warehouse-business-continuity-recover-from-user-error.md
 
 <!--MSDN references-->
@@ -78,4 +78,4 @@ SQL 데이터 웨어하우스는 계산과 저장소를 분리하기 때문에, 
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="07/08/2015" 
 	ms.author="tamram"/>
 
 # Azure 저장소 연결 문자열 구성
@@ -41,15 +41,7 @@ Azure [CloudConfigurationManager](https://msdn.microsoft.com/library/microsoft.w
 
 ## 저장소 에뮬레이터에 연결 문자열 만들기
 
-저장소 에뮬레이터 계정은 알려진 이름 및 키를 사용하는 로컬 계정입니다. 바로 가기 문자열 형식 `UseDevelopmentStorage=true`을 사용하여 연결 문자열 내에서 저장소 에뮬레이터를 참조할 수 있습니다. 예를 들어 app.config의 저장소 에뮬레이터에 대한 연결 문자열은 다음과 같습니다.
-
-    <appSettings>
-      <add key="StorageConnectionString" value="UseDevelopmentStorage=true" />
-    </appSettings>
-
-저장소 에뮬레이터에 대해 서비스를 테스트할 때 사용할 HTTP 프록시를 지정할 수도 있습니다. 이렇게 하면 저장소 서비스에 대한 작업을 디버깅하면서 HTTP 요청과 응답을 관찰하는 데 유용할 수 있습니다. 프록시를 지정하려면 `DevelopmentStorageProxyUri` 옵션을 연결 문자열에 추가하고 해당 값을 프록시 URI로 설정합니다. 예를 들어 저장소 에뮬레이터를 가리키고 HTTP 프록시를 구성하는 연결 문자열은 다음과 같습니다.
-
-    UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri
+[AZURE.INCLUDE [저장소-에뮬레이터-연결-문자열-포함](../../includes/storage-emulator-connection-string-include.md)]
 
 저장소 에뮬레이터에 대한 자세한 내용은 [개발 및 테스트를 위한 Azure 저장소 에뮬레이터 사용](storage-use-emulator.md)을 참조하세요.
 
@@ -60,9 +52,10 @@ Azure 저장소 계정에 연결 문자열을 만들려면 아래 연결 문자�
     DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey
 
 예를 들어 연결 문자열은 다음의 샘플 연결 문자열과 같이 표시될 수 있습니다.
-
-```        DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtB7wYQw33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIAy5l/Yhg==
-```
+ 
+	DefaultEndpointsProtocol=https;
+	AccountName=storagesample;
+	AccountKey=<account-key>
 
 > [AZURE.NOTE]Azure 저장소는 연결 문자열에서 HTTP 및 HTTPS를 모두 지원하지만 HTTPS를 사용하는 것이 좋습니다.
     
@@ -75,9 +68,12 @@ Azure 저장소 계정에 연결 문자열을 만들려면 아래 연결 문자�
 
 명시적 Blob 끝점을 지정하는 연결 문자열을 만들려면 다음 형식으로 프로토콜 사양(HTTP 또는 HTTPS)을 포함하는 전체 서비스 끝점을 각 서비스에 대해 지정합니다.
 
-``` 
-BlobEndpoint=myBlobEndpoint;QueueEndpoint=myQueueEndpoint;TableEndpoint=myTableEndpoint;FileEndpoint=myFileEndpoint;[credentials]
-```
+	BlobEndpoint=myBlobEndpoint;
+	QueueEndpoint=myQueueEndpoint;
+	TableEndpoint=myTableEndpoint;
+	FileEndpoint=myFileEndpoint;
+	[credentials]
+
 
 서비스 끝점은 하나 이상 지정해야 하지만 모두 지정할 필요는 없습니다. 예를 들어 사용자 지정 Blob 끝점에 사용할 연결 문자열을 만들 때는 큐 및 테이블 끝점은 필요한 경우에만 지정하면 됩니다. 연결 문자열에서 큐 및 테이블 끝점을 생략하면 해당 연결 문자열을 사용하여 코드에서 큐 및 테이블 서비스에 액세스할 수 없습니다.
 
@@ -92,9 +88,11 @@ Blob 서비스에 사용할 사용자 지정 도메인 이름을 등록한 경�
 
 예를 들어, 사용자 지정 도메인의 Blob 끝점에 대한 연결 문자열은 다음과 유사할 수 있습니다.
 
-```
-DefaultEndpointsProtocol=https;BlobEndpoint=www.mydomain.com;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtB7wYQw33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIAy5l/Yhg== 
-```
+	DefaultEndpointsProtocol=https;
+	BlobEndpoint=www.mydomain.com;
+	AccountName=storagesample;
+	AccountKey=<account-key> 
+
 
 ### 공유 액세스 서명을 사용하여 Blob 끝점 지정 
 
@@ -116,8 +114,12 @@ DefaultEndpointsProtocol=https;BlobEndpoint=www.mydomain.com;AccountName=storage
 
 예를 들어 연결 문자열은 다음의 샘플 연결 문자열과 같이 표시될 수 있습니다.
 
-	DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=KWPLd0rpW2T0U7K2pVpF8rYr1BgYtR7wYQk33AYiXeUoquiaY6o0TWqduxmPHlqeCNZ3LU0DHptbeIHy5l/Yhg==;EndpointSuffix=core.chinacloudapi.cn;
+	DefaultEndpointsProtocol=https;
+	AccountName=storagesample;
+	AccountKey=<account-key>;
+	EndpointSuffix=core.chinacloudapi.cn;
+
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

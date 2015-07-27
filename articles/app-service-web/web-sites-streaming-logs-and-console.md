@@ -92,4 +92,4 @@ Azure Preview 포털에서는 웹앱에 대한 콘솔 액세스를 제공합니�
 [ConsoleScreenshot]: ./media/web-sites-streaming-logs-and-console/console.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

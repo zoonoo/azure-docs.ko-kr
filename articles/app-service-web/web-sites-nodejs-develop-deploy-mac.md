@@ -32,7 +32,7 @@
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
-2. 포털의 왼쪽 아래에서 **+ 새로 만들기** 아이콘을 클릭합니다.
+2. 포털의 왼쪽 위에서 **+ 새로 만들기** 아이콘을 클릭합니다.
 
 3. **웹 + 모바일**, **웹 앱**을 차례로 클릭합니다.
 
@@ -134,7 +134,7 @@
 
 ##응용 프로그램의 변경 내용 게시
 
-1. 텍스트 편집기에서 **server.js** 파일을 열고 'Hello World\n'를 'Hello Azure\n'로 변경합니다. 파일을 저장합니다.
+1. 텍스트 편집기에서 **server.js** 파일을 열고 'Hello World\\n'를 'Hello Azure\\n'로 변경합니다. 파일을 저장합니다.
 2. 명령줄에서 **helloworld** 디렉터리로 이동한 후 다음 명령을 실행합니다.
 
 		git add .
@@ -197,4 +197,4 @@ Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

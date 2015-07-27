@@ -172,4 +172,4 @@ Twitter 커넥터는 이제 워크플로의 일부입니다.
 [논리 앱 기능 사용]: app-service-logic-use-logic-app-features.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

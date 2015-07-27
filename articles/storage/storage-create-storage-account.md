@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/15/2015"
+	ms.date="07/09/2015"
 	ms.author="tamram"/>
 
 
@@ -51,13 +51,17 @@ Azure 저장소 사용 비용은 저장소 계정에 따라 청구됩니다. 저
 
 	![NewStorageAccount](./media/storage-create-storage-account/storage_NewStorageAccount.png)
 
-3. **URL**에 저장소 계정의 이름을 입력합니다. 저장소 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 사용해야 합니다. 이 이름이 Azure 저장소에서 개체를 처리하는 데 사용되는 방법에 대한 자세한 내용은 아래 [저장소 계정 끝점](#storage-account-endpoints)을 참조하세요.
+3. **URL**에 저장소 계정의 이름을 입력합니다.
+	
+	> [AZURE.NOTE]저장소 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다.
+	>  
+	> 저장소 계정 이름은 Azure 내에서 고유해야 합니다. 선택한 저장소 계정 이름이 이미 사용된 경우 포털에 표시됩니다.
+
+	저장소 계정 이름이 Azure 저장소에서 개체를 처리하는 데 사용되는 방법에 대한 자세한 내용은 아래 [저장소 계정 끝점](#storage-account-endpoints)을 참조하세요.
 
 4. **위치/선호도 그룹**에서 사용자 또는 사용자의 고객에게 가까운 저장소 계정의 위치를 선택합니다. Azure 가상 컴퓨터 또는 클라우드 서비스와 같은 다른 Azure 서비스에서 저장소 계정의 데이터에 액세스할 경우 목록에서 선호도 그룹을 선택하여 동일한 데이터 센터의 저장소 계정을 사용 중인 다른 Azure 서비스와 그룹화하면 성능을 향상시키고 비용을 절감할 수 있습니다.
 
-	> [AZURE.NOTE]저장소 계정을 만들 때 선호도 그룹을 선택해야 하므로 기존 계정을 선호도 그룹으로 이동할 수 없습니다.
-
-	선호도 그룹에 대한 자세한 내용은 아래의 [선호도 그룹과 서비스 공동 배치](#service-co-location-with-an-affinity-group)를 참조하세요.
+	저장소 계정을 만들 때 선호도 그룹을 선택해야 하므로 기존 계정을 선호도 그룹으로 이동할 수 없습니다. 선호도 그룹에 대한 자세한 내용은 아래의 [선호도 그룹과 서비스 공동 배치](#service-co-location-with-an-affinity-group)를 참조하세요.
 
 5. Azure 구독이 두 개 이상인 경우 **구독** 필드가 표시됩니다. **구독**에서 저장소 계정을 사용할 Azure 구독을 입력합니다. 하나의 구독에 대해 최대 다섯 개의 저장소 계정을 만들 수 있습니다.
 
@@ -163,4 +167,4 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문)를 방문하세요.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

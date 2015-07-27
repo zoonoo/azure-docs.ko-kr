@@ -88,7 +88,7 @@ Azure AD는 디렉터리 및 ID 관련 기능을 관리하는 다른 관리 역�
 
 ![][3]
 
-이름이 같은 사용자 계정이 있으며, 하나는 Azure AD에 있고 다른 하나는 소비자 Microsoft 계정 시스템에 있습니다. 사용하려는 Azure 구독과 연결된 계정을 선택해야 합니다. 이 사용자에 대한 구독이 없다는 오류가 발생하면 잘못 선택한 것입니다. 로그아웃하고 다시 시도하세요. 로그인을 방해할 수 있는 오류에 대한 자세한 내용은 ["계정과 연결된 구독을 찾지 못했습니다" 오류 문제 해결](https://social.msdn.microsoft.com/Forums/ko-kr/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement)을 참조하세요.
+이름이 같은 사용자 계정이 있으며, 하나는 Azure AD에 있고 다른 하나는 소비자 Microsoft 계정 시스템에 있습니다. 사용하려는 Azure 구독과 연결된 계정을 선택해야 합니다. 이 사용자에 대한 구독이 없다는 오류가 발생하면 잘못 선택한 것입니다. 로그아웃하고 다시 시도하세요. 로그인을 방해할 수 있는 오류에 대한 자세한 내용은 ["계정과 연결된 구독을 찾지 못했습니다" 오류 문제 해결](https://social.msdn.microsoft.com/Forums/en-US/f952f398-f700-41a1-8729-be49599dd7e2/troubleshooting-we-were-unable-to-find-any-subscriptions-associated-with-your-account-errors-in?forum=windowsazuremanagement)을 참조하세요.
 
 ## Azure에서 Office 365 구독의 디렉터리 관리
 
@@ -126,4 +126,4 @@ Azure에 등록하기 전에 Office 365에 등록했다고 가정해 보겠습�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

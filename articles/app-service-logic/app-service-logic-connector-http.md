@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="HTTP Listener 및 Connector" 
-   description="논리 앱에 HTTP Listener 및 HTTP 동작 사용" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="HTTP Listener 및 Connector"
+   description="논리 앱에 HTTP Listener 및 HTTP 동작 사용"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,8 +12,8 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
+   ms.workload="integration"
+   ms.date="07/02/2015"
    ms.author="prkumar"/>
 
 
@@ -88,11 +88,4 @@ HTTP 동작의 출력은 헤더 및 본문이며, 다른 동작 및 커넥터의
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-
-
-
-
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

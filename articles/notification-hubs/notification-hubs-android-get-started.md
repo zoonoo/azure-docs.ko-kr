@@ -66,7 +66,7 @@
 
 ###코드 추가
 
-1. <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">여기</a>에서 알림 허브 Android SDK를 다운로드합니다. .zip 파일의 압축을 풀고 **notificationhubs\notification-hubs-0.4.jar** 및 **notifications\notifications-1.0.1.jar**을 프로젝트의 **app\libs** 디렉터리로 복사합니다. Android Studio의 Project View 창에서 **libs** 폴더로 파일을 직접 끌어올 수 있습니다. libs 폴더를 새로 고칩니다.
+1. <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">여기</a>에서 알림 허브 Android SDK를 다운로드합니다. .zip 파일의 압축을 풀고 **notificationhubs\\notification-hubs-0.4.jar** 및 **notifications\\notifications-1.0.1.jar**을 프로젝트의 **app\\libs** 디렉터리로 복사합니다. Android Studio의 Project View 창에서 **libs** 폴더로 파일을 직접 끌어올 수 있습니다. libs 폴더를 새로 고칩니다.
 
 
 
@@ -511,4 +511,4 @@
 [알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-aspnet-backend-android-breaking-news.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

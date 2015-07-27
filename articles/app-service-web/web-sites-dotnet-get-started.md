@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article" 
-	ms.date="03/24/2015"
+	ms.date="06/26/2015"
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스에서 ASP.NET 웹 응용 프로그램 만들기
@@ -58,7 +58,7 @@
 
 3. **.NET Framework 4.5**가 대상 프레임워크로 선택되었는지 확인합니다.
 
-4. **프로젝트에 Application Insights 추가** 확인란의 선택을 취소합니다.
+4.  [Application Insights](app-insights-overview.md)는 웹앱의 가용성, 성능 및 사용량을 모니터링합니다. 시도하지 않으려면 **프로젝트에 Application Insights 추가** 확인란의 선택을 취소합니다.
 
 4. 응용 프로그램 이름을 **MyExample**로 지정하고 **확인**을 클릭합니다.
 
@@ -316,4 +316,4 @@
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

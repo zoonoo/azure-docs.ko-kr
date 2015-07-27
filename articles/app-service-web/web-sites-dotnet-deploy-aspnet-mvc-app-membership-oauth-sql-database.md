@@ -6,7 +6,7 @@
 	authors="Rick-Anderson" 
 	writer="Rick-Anderson" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/06/2015" 
+	ms.date="06/16/2015" 
 	ms.author="riande"/>
 
 
@@ -78,7 +78,7 @@ ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity 
 ### 페이지 머리글 및 바닥글 설정
 
 
-1. **Solution Explorer**에서 *Views\Shared* 폴더의 *Layout.cshtml* 파일을 엽니다.
+1. **Solution Explorer**에서 *Views\\Shared* 폴더의 *Layout.cshtml* 파일을 엽니다.
 
 	![솔루션 탐색기의 _Layout.cshtml][newapp004]
 
@@ -275,7 +275,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 
 	**add-migration Initial** 명령은 데이터베이스를 만든 *Migrations* 폴더에서 **&lt;date_stamp&gt;Initial** 파일을 생성합니다. 첫 번째 매개 변수(**Initial**)는 임의이며 파일 이름을 만드는 데 사용됩니다. **솔루션 탐색기**에서 새 클래스 파일을 볼 수 있습니다. **Initial** 클래스의 **Up** 메서드는 Contacts 테이블을 만들고 이전 상태로 돌아가려는 경우 사용되는 **Down** 메서드는 테이블을 삭제합니다.
-3. *Migrations\Configuration.cs* 파일을 엽니다. 
+3. *Migrations\\Configuration.cs* 파일을 엽니다. 
 4. 다음 네임스페이스를 추가합니다. 
 
     	 using ContactManager.Models;
@@ -365,7 +365,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 ## 멤버 자격 API 사용
 이 섹션에서는 멤버 자격 데이터베이스에 로컬 사용자와 *canEdit* 역할을 추가합니다. *canEdit* 역할의 사용자만 데이터를 편집할 수 있습니다. 수행할 수 있는 작업으로 역할의 이름을 지정하는 것이 모범 사례이므로 *admin* 역할보다 *canEdit*를 사용하는 것이 좋습니다. 응용 프로그램이 발전함에 따라 설명이 부족한 *superAdmin*보다 *canDeleteMembers* 등의 새 역할을 추가할 수 있습니다.
 
-1. *migrations\configuration.cs* 파일을 열고 다음 `using` 문을 추가합니다.
+1. *migrations\\configuration.cs* 파일을 열고 다음 `using` 문을 추가합니다.
 
         using Microsoft.AspNet.Identity;
         using Microsoft.AspNet.Identity.EntityFramework;
@@ -408,9 +408,9 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
    이 코드는 *canEdit*라는 새 역할을 만들고, 새 로컬 사용자 *user1@contoso.com*을 만든 다음 역할 *canEdit*에 *user1@contoso.com*을 추가합니다. 자세한 내용은 내 [ASP.NET Identity tutorials 자습서](http://www.asp.net/identity/overview/features-api)를 참조하세요.
 
 ## 임시 코드를 사용하여 canEdit 역할에 새 소셜 로그인 사용자 추가  ##
-이 섹션에서는 Account 컨트롤러의 **ExternalLoginConfirmation** 메서드를 임시로 수정하여 OAuth 공급자로 등록하는 새 사용자를 *canEdit* 역할에 추가합니다. **ExternalLoginConfirmation** 메서드를 임시로 수정하여 관리 역할에 새 사용자를 자동으로 추가합니다. 역할을 추가하고 관리할 도구를 제공할 때까지 아래의 임시 자동 등록 코드를 사용하겠습니다. 앞으로 사용자 계정 및 역할을 만들고 편집할 수 있는 [WSAT](http://msdn.microsoft.com/ko-kr/library/ms228053.aspx)와 유사한 도구를 제공하려고 합니다.
+이 섹션에서는 Account 컨트롤러의 **ExternalLoginConfirmation** 메서드를 임시로 수정하여 OAuth 공급자로 등록하는 새 사용자를 *canEdit* 역할에 추가합니다. **ExternalLoginConfirmation** 메서드를 임시로 수정하여 관리 역할에 새 사용자를 자동으로 추가합니다. 역할을 추가하고 관리할 도구를 제공할 때까지 아래의 임시 자동 등록 코드를 사용하겠습니다. 앞으로 사용자 계정 및 역할을 만들고 편집할 수 있는 [WSAT](http://msdn.microsoft.com/library/ms228053.aspx)와 유사한 도구를 제공하려고 합니다.
 
-1. **Controllers\AccountController.cs** 파일을 열고 **ExternalLoginConfirmation** 메서드로 이동합니다.
+1. **Controllers\\AccountController.cs** 파일을 열고 **ExternalLoginConfirmation** 메서드로 이동합니다.
 1. **AddToRoleAsync**에서 **SignInAsync** 호출 바로 앞에 다음 호출을 추가합니다.
 
                 await UserManager.AddToRoleAsync(user.Id, "canEdit");
@@ -429,7 +429,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 이 섹션에서는 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 특성을 적용하여 작업 메서드에 대한 액세스를 제한합니다. 익명 사용자는 home 컨트롤러의 **인덱스** 작업 메서드만 볼 수 있습니다. 등록된 사용자는 연락처 데이터(Cm 컨트롤러의 **인덱스** 및 **세부 정보** 페이지), 정보 및 연락처 페이지를 볼 수 있습니다. *canEdit* 역할의 사용자만 데이터를 변경하는 작업 메서드에 액세스할 수 있습니다.
 
-1. 응용 프로그램에 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 필터와 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 필터를 추가합니다. 또 다른 방법은 각 컨트롤러에 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 특성과 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 특성을 추가하는 것이지만 전체 응용 프로그램에 적용하는 것이 보안상 더 좋은 모범 사례입니다. 전체적으로 추가하면 새로 추가된 모든 컨트롤러와 작업 메서드가 자동으로 보호되므로 따로 적용할 필요가 없습니다. 자세한 내용은 [ASP.NET MVC 앱 및 새 AllowAnonymous 특성 보안 유지](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)(영문)를 참조하십시오. *App_Start\FilterConfig.cs* 파일을 열고 *RegisterGlobalFilters* 메서드를 다음으로 바꿉니다(두 개의 필터를 추가함). <pre> public static void RegisterGlobalFilters(GlobalFilterCollection filters) { filters.Add(new HandleErrorAttribute()); <mark>filters.Add(new System.Web.Mvc.AuthorizeAttribute()); filters.Add(new RequireHttpsAttribute());</mark> } </pre>
+1. 응용 프로그램에 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 필터와 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 필터를 추가합니다. 또 다른 방법은 각 컨트롤러에 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 특성과 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 특성을 추가하는 것이지만 전체 응용 프로그램에 적용하는 것이 보안상 더 좋은 모범 사례입니다. 전체적으로 추가하면 새로 추가된 모든 컨트롤러와 작업 메서드가 자동으로 보호되므로 따로 적용할 필요가 없습니다. 자세한 내용은 [ASP.NET MVC 앱 및 새 AllowAnonymous 특성 보안 유지](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)(영문)를 참조하십시오. *App_Start\\FilterConfig.cs* 파일을 열고 *RegisterGlobalFilters* 메서드를 다음으로 바꿉니다(두 개의 필터를 추가함). <pre> public static void RegisterGlobalFilters(GlobalFilterCollection filters) { filters.Add(new HandleErrorAttribute()); <mark>filters.Add(new System.Web.Mvc.AuthorizeAttribute()); filters.Add(new RequireHttpsAttribute());</mark> } </pre>
 
 
 
@@ -627,4 +627,4 @@ Tom Dykstra의 뛰어난 [EF 및 MVC 시작](http://www.asp.net/mvc/tutorials/ge
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

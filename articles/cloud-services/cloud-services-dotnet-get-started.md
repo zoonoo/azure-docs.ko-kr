@@ -467,10 +467,10 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
 3. ContosoAdsWeb 프로젝트에 다운로드한 프로젝트에서 가져온 다음 파일을 추가합니다.
 	- *Global.asax.cs*  
-	- *Views\Shared* 폴더: <em>_Layout.cshtml</em>
-	- *Views\Home* 폴더: *Index.cshtml*.
+	- *Views\\Shared* 폴더: <em>_Layout.cshtml</em>
+	- *Views\\Home* 폴더: *Index.cshtml*.
 	- *Controllers* 폴더: *AdController.cs*
-	- *Views\Ad* 폴더(먼저 폴더 만들기): 5개의 *.cshtml* 파일.
+	- *Views\\Ad* 폴더(먼저 폴더 만들기): 5개의 *.cshtml* 파일.
 
 3. ContosoAdsWorker 프로젝트에서 다운로드한 프로젝트에서 가져온 *WorkerRole.cs*를 추가합니다.
 
@@ -575,9 +575,9 @@ ContosoAdsContext 클래스는 DbSet 컬렉션에서 Ad 클래스가 사용된�
 
 *_Layout.cshtml* 파일은 머리글과 바닥글에서 앱 이름을 설정하고 "Ads" 메뉴 항목을 만듭니다.
 
-### ContosoAdsWeb - Views\Home\Index.cshtml
+### ContosoAdsWeb - Views\\Home\\Index.cshtml
 
-*Views\Home\Index.cshtml* 파일은 홈페이지에 범주 링크를 표시합니다. 이 링크는 쿼리 문자열 변수의 `Category` 열거형 정수 값을 광고 인덱스 페이지에 전달합니다.
+*Views\\Home\\Index.cshtml* 파일은 홈페이지에 범주 링크를 표시합니다. 이 링크는 쿼리 문자열 변수의 `Category` 열거형 정수 값을 광고 인덱스 페이지에 전달합니다.
 
 		<li>@Html.ActionLink("Cars", "Index", "Ad", new { category = (int)Category.Cars }, null)</li>
 		<li>@Html.ActionLink("Real estate", "Index", "Ad", new { category = (int)Category.RealEstate }, null)</li>
@@ -666,7 +666,7 @@ HttpPost `Edit` 메서드의 코드도 비슷하지만, 사용자가 새 이미�
 		    await blobToDelete.DeleteAsync();
 		}
 
-### ContosoAdsWeb - Views\Ad\Index.cshtml 및 Details.cshtml
+### ContosoAdsWeb - Views\\Ad\\Index.cshtml 및 Details.cshtml
 
 *Index.cshtml* 파일은 다른 광고 데이터가 포함된 미리 보기를 표시합니다.
 
@@ -676,7 +676,7 @@ HttpPost `Edit` 메서드의 코드도 비슷하지만, 사용자가 새 이미�
 
 		<img src="@Html.Raw(Model.ImageURL)" />
 
-### ContosoAdsWeb - Views\Ad\Create.cshtml 및 Edit.cshtml
+### ContosoAdsWeb - Views\\Ad\\Create.cshtml 및 Edit.cshtml
 
 *Create.cshtml* 및 *Edit.cshtml* 파일은 컨트롤러가 `HttpPostedFileBase` 개체를 가져올 수 있게 하는 양식 인코딩을 지정합니다.
 
@@ -812,4 +812,4 @@ Azure 저장소 모범 사례 및 패턴에 대한 비디오 소개는 [Microsof
 * [Azure 저장소](/documentation/services/storage/)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

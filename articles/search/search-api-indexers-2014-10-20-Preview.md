@@ -1,10 +1,23 @@
-<properties title="" pageTitle="인덱서 작업(Azure 검색 서비스 REST API: 2014-10-20-Preview)" description="인덱서 작업(Azure 검색 서비스 REST API: 2014-10-20-Preview)" metaKeywords="" services="search" solutions="" documentationCenter="" authors="HeidiSteen" manager="mblythe" videoId="" scriptId="" />
+<properties 
+	pageTitle="인덱서 작업(Azure 검색 서비스 REST API: 2014-10-20-Preview)" 
+	description="인덱서 작업(Azure 검색 서비스 REST API: 2014-10-20-Preview)" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" />
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="04/20/2015" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article"  
+	ms.tgt_pltfrm="na" 
+	ms.date="07/08/2015" 
+	ms.author="heidist" />
 
 #인덱서 작업(Azure 검색 서비스 REST API: 2014-10-20-Preview)
 
-> [AZURE.NOTE]이 문서에서는 릴리스된 버전의 API에 없는 새 기능의 프로토타입을 설명합니다. 버전 및 지원 가능성에 대한 자세한 내용은 MSDN의 [검색 서비스 버전 관리](http://msdn.microsoft.com/library/azure/dn864560.aspx)에서 확인할 수 있습니다. 이 미리 보기 API의 다른 기능에 대한 자세한 내용은 [Azure 검색 서비스 REST API 버전: 2014-10-20-Preview](../search-api-2014-10-20-preview/)를 참조하세요.
+> [AZURE.NOTE]이 문서에서는 릴리스된 버전의 API에 없는 새 기능의 프로토타입을 설명합니다. 버전 및 지원 가능성에 대한 자세한 내용은 MSDN의 [검색 서비스 버전 관리](http://msdn.microsoft.com/library/azure/dn864560.aspx)에서 확인할 수 있습니다. 이 미리 보기 API의 다른 기능에 대한 자세한 내용은 [Azure 검색 서비스 REST API 버전: 2014-10-20-Preview](search-api-2014-10-20-preview.md)를 참조하세요.
 
 ## 개요
 
@@ -80,7 +93,7 @@ HTTP POST 요청을 사용하여 Azure 검색 서비스 내에 새 데이터 원
 - `Content-Type`: 필수 사항입니다. `application/json`으로 설정합니다.
 - `api-key`: 필수 사항입니다. `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **데이터 원본 만들기** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다. 
  
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [Azure 검색 시작](search-get-started.md)을 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 <a name="CreateDataSourceRequestSyntax"></a> **요청 본문 구문**
 
@@ -135,7 +148,7 @@ DocumentDB 데이터 원본을 사용할 때는 DocumentDB에서 제공되는 `_
 
 ***SQL 통합 변경 검색 정책***
 
-SQL 데이터베이스에서 [SQL 통합 변경 내용 추적](http://technet.microsoft.com/library/cc280462(v=SQL.105).aspx)을(를) 지원하는 경우, SQL 통합 변경 내용 추적 정책을 사용하는 것이 좋습니다. 이 정책을 사용하면 변경 내용을 가장 효율적으로 추적할 수 있으며, 스키마에서 "soft delete" 열을 명시적으로 지정하지 않아도 Azure 검색에서 삭제된 행을 식별할 수 있습니다.
+SQL 데이터베이스에서 [SQL 통합 변경 내용 추적](http://technet.microsoft.com/library/cc280462.aspx)을 지원하는 경우, SQL 통합 변경 내용 추적 정책을 사용하는 것이 좋습니다. 이 정책을 사용하면 변경 내용을 가장 효율적으로 추적할 수 있으며, 스키마에서 "soft delete" 열을 명시적으로 지정하지 않아도 Azure 검색에서 삭제된 행을 식별할 수 있습니다.
 
 SQL 통합 변경 내용 추적 기능은 다음 SQL 데이터베이스 버전부터 지원됩니다. - SQL Server 2008 R2(SQL IaaS VM을 사용하는 경우) - Azure SQL 데이터베이스 V12(Azure SQL을 사용하는 경우)
 
@@ -657,4 +670,4 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 </tr>
 </table>
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="06/29/2015" 
 	ms.author="juliako"/>
 
 #Dolby Digital Plus를 사용하여 미디어 인코딩
@@ -651,4 +651,4 @@ true‐peak 측정 내에서 강조 필터가 사용되는지(true) 사용되지
 **TruePeak** - 이 결과에는 측정이 재설정된 이후 채널에서 가장 큰 절대 true‐peak 값이 포함됩니다. true peak에 대한 설명은 ITU‐R BS.1770‐2를 참조하세요. 값의 범위는 -70에서 12.04dBTP 사이입니다.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

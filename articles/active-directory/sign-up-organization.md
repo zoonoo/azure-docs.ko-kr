@@ -36,4 +36,4 @@
 * [클라우드에서 온-프레미스 ID 인프라 사용](active-directory-aadconnect.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

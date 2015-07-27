@@ -125,4 +125,4 @@ Ubuntu에 LAMP 스택을 설치하는 여러 다른 리소스가 있습니다.
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

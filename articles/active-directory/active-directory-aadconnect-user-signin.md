@@ -64,4 +64,4 @@ Office 365, SaaS 응용 프로그램 및 기타 Azure AD 기반 리소스에 사
 	- 장치 등록, Azure AD 연결 또는 Intune MDM 정책을 사용하여 온-프레미스 및 클라우드 리소스 모두에 대한 조건부 액세스
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

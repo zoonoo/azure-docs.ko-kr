@@ -73,4 +73,4 @@ Azure AD 인증에 대한 시작 논리가 포함된 인증 시작 클래스 **A
 [Azure Active Directory에 대한 자세한 정보](http://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

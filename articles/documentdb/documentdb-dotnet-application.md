@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 작성 | Azure" 
+	pageTitle="DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 빌드 | Azure" 
 	description="DocumentDB와 .NET을 사용하여 할 일 모음 웹 응용 프로그램을 빌드하는 방법을 알아봅니다. Azure 웹 사이트에서 호스트되는 ASP.NET MVC 웹 응용 프로그램의 데이터를 저장하고 액세스합니다." 
 	services="documentdb" 
 	documentationCenter=".net" 
@@ -17,7 +17,7 @@
 	ms.date="04/29/2015" 
 	ms.author="ryancraw"/>
 
-# <a name="_Toc395809351"></a>DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 작성
+#<a name="_Toc395809351"></a>DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 작성
 
 Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼리할 수 있는 방법을 강조하기 위해 이 문서에서는 Azure DocumentDB를 사용하여 todo 모음 웹 응용 프로그램을 빌드하는 방법을 보여 주는 종합적인 연습을 제공합니다. 작업은 Azure DocumentDB에 JSON 문서로 저장됩니다.
 
@@ -56,15 +56,15 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
    	**새 프로젝트** 대화 상자가 나타납니다.
 2. **프로젝트 형식** 창에서 **템플릿**, **Visual C#**, **웹**을 확장한 후 **ASP.NET 웹 응용 프로그램**을 선택합니다.
 
-  ![ASP.NET 웹 응용 프로그램 프로젝트 유형이 강조 표시된 새 프로젝트 대화 상자의 스크린샷](./media/documentdb-dotnet-application/image10.png)
+  	![ASP.NET 웹 응용 프로그램 프로젝트 유형이 강조 표시된 새 프로젝트 대화 상자의 스크린샷](./media/documentdb-dotnet-application/image10.png)
 
-3. **이름** 상자에 프로젝트의 이름을 입력합니다. 이 자습서에서는 "todo"라는 이름을 사용합니다. 다른 이름을 사용하도록 선택한 경우에는 이 자습서에서 todo 네임스페이스를 지칭할 때마다 지정한 응용 프로그램 이름을 사용하도록 제공된 코드 샘플을 조정해야 합니다. 
+3. **이름** 상자에 프로젝트의 이름을 입력합니다. 이 자습서에서는 "todo"라는 이름을 사용합니다. 다른 이름을 사용하도록 선택한 경우에는 이 자습서에서 todo 네임스페이스를 지칭할 때마다 지정한 응용 프로그램 이름을 사용하도록 제공된 코드 샘플을 조정해야 합니다.
 
 4. **찾아보기**를 클릭하여 프로젝트를 만들 폴더로 이동한 후 **확인**을 클릭합니다.
 
-  **새 ASP.NET 프로젝트** 대화 상자가 나타납니다.
+  	**새 ASP.NET 프로젝트** 대화 상자가 나타납니다.
 
-  ![MVC 템플릿이 강조 표시되고 클라우드의 호스트 상자가 선택된 새 ASP.NET 프로젝트 대화 상자의 스크린샷](./media/documentdb-dotnet-application/image11.png)
+  	![MVC 템플릿이 강조 표시되고 클라우드의 호스트 상자가 선택된 새 ASP.NET 프로젝트 대화 상자의 스크린샷](./media/documentdb-dotnet-application/image11.png)
 
 5. 템플릿 창에서 **MVC**를 선택합니다.
 
@@ -74,11 +74,11 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 
 8. 클라우드에 호스트를 선택하면 Azure 계정에 로그인하고 새 웹 사이트에 대한 값을 입력하라는 추가 화면이 하나 이상 표시됩니다. 모든 추가 값을 지정하고 계속합니다.
 
-  여기서 Azure SQL 데이터베이스 서버를 사용하지 않을 것이기 때문에 "데이터베이스 서버"를 선택하지 않았으며, 나중에 Microsoft Azure 포털에서 새 Azure DocumentDB 계정을 만들 것입니다.
+  	여기서 Azure SQL 데이터베이스 서버를 사용하지 않을 것이기 때문에 "데이터베이스 서버"를 선택하지 않았으며, 나중에 Azure Preview 포털에서 새 Azure DocumentDB 계정을 만들 것입니다.
 
-	For more information about choosing an **App Service plan** and **Resource group**, see [Azure App Service plans in-depth overview](azure-web-sites-web-hosting-plans-in-depth-overview.md).
+	**앱 서비스 계획** 및 **리소스 그룹** 선택에 대한 자세한 내용은 [Azure 앱 서비스 계획의 포괄 개요](azure-web-sites-web-hosting-plans-in-depth-overview.md)를 참조하세요.
 
-  ![Microsoft Azure 웹사이트 구성 대화 상자의 스크린샷](./media/documentdb-dotnet-application/image11_1.png)
+  	![Microsoft Azure 웹사이트 구성 대화 상자의 스크린샷](./media/documentdb-dotnet-application/image11_1.png)
 
 9. Visual Studio에서 상용구 MVC 응용 프로그램을 만들면 로컬에서 실행할 수 있는 빈 ASP.NET 응용 프로그램을 갖게 됩니다.
 
@@ -90,26 +90,26 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 
 1. DocumentDB .NET SDK는 패키지되어 NuGet 패키지로 배포되며, Visual Studio에서 NuGet 패키지를 다운로드하려면 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭하여 Visual Studio에서 NuGet 패키지 관리자를 사용합니다.
 
-  ![NuGet 패키지 관리가 강조 표시된 솔루션 탐색기 내 프로젝트에 대한 마우스 오른쪽 클릭 옵션의 스크린샷](./media/documentdb-dotnet-application/image21.png)
+  	![NuGet 패키지 관리가 강조 표시된 솔루션 탐색기 내 프로젝트에 대한 마우스 오른쪽 클릭 옵션의 스크린샷](./media/documentdb-dotnet-application/image21.png)
 
-    **NuGet 패키지 관리 대화 상자가** 나타납니다.
+    **NuGet 패키지 관리** 대화 상자가 나타납니다.
 
-2. **온라인 검색** 상자에 ***Azure DocumentDB***를 입력합니다. 
+2. **온라인 검색** 상자에 ***Azure DocumentDB***를 입력합니다.
     
     결과에서 **Microsoft Azure DocumentDB Client Library** 패키지를 설치합니다. 그러면 DocumentDB 패키지 및 모든 종속성(예: Newtonsoft.Json)이 다운로드되어 설치됩니다.
 
-  ![Microsoft Azure DocumentDB Client Library가 강조 표시된 NuGet 패키지 관리 창의 스크린샷](./media/documentdb-dotnet-application/nuget.png)
+  	![Microsoft Azure DocumentDB Client Library가 강조 표시된 NuGet 패키지 관리 창의 스크린샷](./media/documentdb-dotnet-application/nuget.png)
 
-  또는 패키지 관리자 콘솔을 사용하여 패키지를 설치할 수 있습니다. 이렇게 하려면 **도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다. 프롬프트에 다음을 입력합니다.
+  	또는 패키지 관리자 콘솔을 사용하여 패키지를 설치할 수 있습니다. 이렇게 하려면 **도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다. 프롬프트에 다음을 입력합니다.
 
     	Install-Package Microsoft.Azure.DocumentDB
 
 3. 패키지가 설치되고 나면 Visual Studio 솔루션은 Microsoft.Azure.Documents.Client 및 Newtonsoft.Json이라는 두 개의 새 참조가 추가된 상태로 다음과 유사합니다.
 
-  ![솔루션 탐색기에서 프로젝트에 추가된 두 참조의 스크린샷](./media/documentdb-dotnet-application/image22.png)
+  	![솔루션 탐색기에서 프로젝트에 추가된 두 참조의 스크린샷](./media/documentdb-dotnet-application/image22.png)
 
 
-## <a name="_Toc395637763"></a>4단계: ASP.NET MVC 응용 프로그램 설정
+##<a name="_Toc395637763"></a>4단계: ASP.NET MVC 응용 프로그램 설정
  
 이제 이 MVC 응용 프로그램에 모델, 뷰 및 컨트롤러를 추가합니다.
 
@@ -124,9 +124,9 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 
 1. **솔루션 탐색기**에서 **Models** 폴더를 마우스 오른쪽 단추로 클릭한 후 **추가**, **클래스**를 차례로 클릭합니다.
 
-  **새 항목 추가** 대화 상자가 나타납니다.
+  	**새 항목 추가** 대화 상자가 나타납니다.
 
-2. 새 클래스의 이름을 **Item.cs**로 지정하고 **추가**를 클릭합니다. 
+2. 새 클래스의 이름을 **Item.cs**로 지정하고 **추가**를 클릭합니다.
 
 3. 이 새 **Item.cs** 파일에서 마지막 *using 문* 뒤에 다음을 추가합니다.
 		
@@ -138,7 +138,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 		{
 		}
 
-	with the following code.
+	다음 코드로 바꿉니다.
 		
         public class Item
         {
@@ -272,7 +272,6 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 	다음 코드로 바꿉니다.
 
     	
-    	
 		public static class DocumentDBRepository<T>
     	{
 			//Use the Database if it exists, if not create a new Database
@@ -395,15 +394,15 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 
 3. 구성에서 일부 값을 읽어올 것이므로 응용 프로그램의 **Web.config** 파일을 열고 `<AppSettings>` 섹션 아래에 다음 줄을 추가합니다.
 	
-    	<add key="endpoint" value="enter the URI from the Keys blade of the Azure portal"/>
-    	<add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure portal"/>
+    	<add key="endpoint" value="enter the URI from the Keys blade of the Azure Preview portal"/>
+    	<add key="authKey" value="enter the PRIMARY KEY, or the SECONDARY KEY, from the Keys blade of the Azure  Preview portal"/>
     	<add key="database" value="ToDoList"/>
     	<add key="collection" value="Items"/>
 	
-4. 이제 Azure 포털의 키 블레이드를 사용하여 *endpoint* 및 *authKey* 값을 업데이트합니다. 키 블레이드의 **URI**를 endpoint 설정 값으로 사용하고 키 블레이드의 **기본 키** 또는 **보조 키**를 authKey 설정 값으로 사용합니다.
+4. 이제 Azure Preview 포털의 키 블레이드를 사용하여 *끝점* 및 *authKey* 값을 업데이트합니다. 키 블레이드의 **URI**를 endpoint 설정 값으로 사용하고 키 블레이드의 **기본 키** 또는 **보조 키**를 authKey 설정 값으로 사용합니다.
 
 
-    That takes care of wiring up the DocumentDB repository, now let's add our application logic.
+    DocumentDB 리포지토리의 연결을 완료했으므로 이제 응용 프로그램 논리를 추가해 보겠습니다.
 
 5. todo 모음 응용 프로그램으로 가장 먼저 할 일은 완료되지 않은 항목을 표시하는 것입니다. 다음 코드 조각을 **DocumentDBRepository** 클래스 내의 아무 곳에나 복사하여 붙여 넣습니다.
 
@@ -448,7 +447,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 
 이 구문은 이제 ASP.NET MVC에 라우팅 동작을 제어하기 위한 URL에 값이 지정되지 않은 경우 **Home** 대신 **Item**을 컨트롤러로 사용하고 사용자 **인덱스**를 뷰로 사용하라고 지시합니다.
 
-이제 응용 프로그램을 실행하면 응용 프로그램에서 리포지토리 클래스를 호출하는 **ItemController**를 호출하며 GetItems 메서드를 사용하여 완료되지 않은 모든 항목을 **뷰****항목****인덱스** 뷰로 반환합니다.
+이제 응용 프로그램을 실행하면 응용 프로그램에서 리포지토리 클래스를 호출하는 **ItemController**를 호출하며 GetItems 메서드를 사용하여 완료되지 않은 모든 항목을 **뷰**\\**항목**\\**인덱스** 뷰로 반환합니다.
 
 이 프로젝트를 지금 빌드하여 실행하면 이제 다음과 같이 표시됩니다.
 
@@ -466,14 +465,15 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
    	 	{
    	   		return await Client.CreateDocumentAsync(Collection.SelfLink, item);
    		}
-	이 메서드는 단순히 전달된 개체를 받아서DocumentDB에 저장합니다.
+
+	이 메서드는 단순히 전달된 개체를 받아서 DocumentDB에 저장합니다.
 
 2. ItemController.cs 파일을 열고 클래스 내에 다음 코드 조각을 추가합니다. 이를 통해 ASP.NET MVC에서 **Create** 작업을 위해 수행할 작업을 인식할 수 있습니다. 이 경우 앞에서 만든 관련 Create.cshtml 뷰를 렌더링합니다.
 
     	public ActionResult Create()
     	{ 
 			return View(); 
-   }
+   		}
 
 	이제 **만들기** 뷰의 제출을 수락하는 코드를 이 컨트롤러에 더 추가해야 합니다.
 
@@ -490,11 +490,11 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
 			}   
 			return View(item);   
 		}
-이 코드는 DocumentDBRepository를 호출하며, CreateItemAsync 메서드를 사용하여 새 todo 항목을 데이터베이스에 저장합니다.
+	이 코드는 DocumentDBRepository를 호출하고 CreateItemAsync 메서드를 사용하여 새로운 todo 항목을 데이터베이스에 유지합니다.
  
-	**Security Note**: The **ValidateAntiForgeryToken** attribute is used here to help protect this application against cross-site request forgery attacks. There is more to it than just adding this attribute, your views need to work with this anti-forgery token as well. For more on the subject, and examples of how to implement this correctly, please see [Preventing Cross-Site Request Forgery][]. The source code provided on [GitHub][] has the full implementation in place.
+	**보안 정보**: **ValidateAntiForgeryToken** 특성은 여기서 교차 사이트 요청 위조 공격으로부터 이 응용 프로그램을 보호하는 데 사용됩니다. 이 특성을 추가하는 것 외에 뷰가 이 위조 방지 토큰과 작동하도록 해야 합니다. 이 주제에 대한 자세한 내용과 이를 올바르게 구현하는 방법의 예는 [교차 사이트 요청 위조 방지(영문)][]를 참조하세요. [GitHub][]에서 제공하는 소스 코드에는 완벽하게 구현되어 있습니다.
 
-	**Security Note**: We also use the **Bind** attribute on the method parameter to help protect against over-posting attacks. For more details please see [Basic CRUD Operations in ASP.NET MVC][].
+	**보안 정보**: 또한 메서드 매개 변수에 **Bind** 특성을 사용하여 과도한 게시 공격으로부터 보호할 수 있습니다. 자세한 내용은 [ASP.NET MVC의 기본 CRUD 작업(영문)][]을 참조하세요.
 
 데이터베이스에 새 항목을 추가하는 데 필요한 코드가 완성되었습니다.
 
@@ -564,9 +564,9 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
 		}
 		
 	
-	첫 번째 메서드는 사용자가 **인덱스** 뷰에서 **편집** 링크를 클릭할 때 발생하는 Http Get을 처리합니다. 이 메서드는 [**Document**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) 에서 문서를가져와 **편집** 뷰에 전달합니다.
+	첫 번째 메서드는 사용자가 **인덱스** 뷰에서 **편집** 링크를 클릭할 때 발생하는 Http Get을 처리합니다. 이 메서드는 DocumentDB에서 [**문서(영문)**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx)를 가져와 **편집** 뷰에 전달합니다.
 
-	그런 다음 **편집** 뷰는 **IndexController**에 Http Post를 수행합니다. 
+	그런 다음 **편집** 뷰는 **IndexController**에 Http Post를 수행합니다.
 	
 	추가한 두 번째 메서드는 데이터베이스에 저장되도록 업데이트된 개체를 DocumentDB에 전달하는 작업을 처리합니다.
 
@@ -598,7 +598,7 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
 
 4. 앱을 테스트하고 나면 Ctrl+F5를 눌러 앱 디버깅을 중지합니다. 배포할 준비가 되었습니다!
 
-## <a name="_Toc395637774"></a>7단계: Azure 웹 사이트에 응용 프로그램 배포
+##<a name="_Toc395637774"></a>7단계: Azure 웹 사이트에 응용 프로그램 배포
 
 이제 전체 응용 프로그램이 DocumentDB와 올바르게 작동하므로 Azure 웹 사이트에 이 웹앱을 배포하겠습니다. 빈 ASP.NET MVC 프로젝트를 만들 때 **클라우드의 호스트**를 선택한 경우 Visual Studio에서 대부분의 작업을 수행하므로 쉽게 배포할 수 있습니다.
 
@@ -612,13 +612,13 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
 
 몇 초 후에 Visual Studio에서 웹 응용 프로그램 게시를 완료하고 브라우저를 시작하며, Azure에서 실행되는 작업 내용을 확인할 수 있습니다.
 
-## <a name="_Toc395637775"></a>다음 단계
+##<a name="_Toc395637775"></a>다음 단계
 
 축하합니다. 지금까지 Azure DocumentDB를 사용하여 첫 ASP.NET MVC 응용 프로그램을 빌드하고 Azure 웹 사이트에 게시했습니다. 이 자습서에 포함되지 않은 세부 정보 및 삭제 기능을 비롯한 전체 응용 프로그램 소스 코드는 [GitHub][]에서 다운로드하거나 복제할 수 있습니다. 따라서 이 내용을 앱에 추가하려는 경우 코드를 끌어와서 이 앱에 추가하면 됩니다.
 
 응용 프로그램에 기능을 더 추가하려면 [DocumentDB .NET 라이브러리](http://msdn.microsoft.com/library/azure/dn783362.aspx)에서 사용 가능한 API를 검토하고 [GitHub][]의 DocumentDB .NET 라이브러리에 자유롭게 기여하세요.
 
-## <a id="GetProject"></a>GitHub에서 솔루션 다운로드
+##<a id="GetProject"></a>GitHub에서 솔루션 다운로드
 
 시간을 절약하면서 전체 todo 솔루션을 빌드하고 코드를 스스로 추가하지 않으려는 경우 간단한 방법이 있습니다. GitHub에서 전체 솔루션을 제공하므로 다음 지침에 따라 몇 분 만에 솔루션을 빌드하여 배포할 수 있습니다.
 
@@ -630,17 +630,17 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
 
 3. Visual Studio 2013에서 DocumentDB .NET SDK에 대한 참조를 복원하려면 **솔루션 탐색기**에서 todo 솔루션을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 복원 사용**을 클릭합니다. 그러면 참조가 복원됩니다.
 
-4. [Azure 포털](https://portal.azure.com/)에서 DocumentDB 계정의 **키** 블레이드에서 **URI** 및 **기본**키 또는 **보조 키** 값을 검색합니다.
+4. [Azure Preview 포털](https://portal.azure.com/)에서 DocumentDB 계정의 **키** 블레이드에서 **URI** 및 **기본 키** 또는 **보조 키** 값을 검색합니다.
 
 	
 	계정이 없는 경우 [데이터베이스 계정 만들기](documentdb-create-account.md)를 참조하여 계정을 설정합니다.
 
-	![활성 허브, DocumentDB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조키 값이 강조 표시된 DocumentDB 계정을 보여 주는 Azure 포털의 스크린샷](media/documentdb-dotnet-application/keys.png)
+	![활성 허브, DocumentDB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조키 값이 강조 표시된 DocumentDB 계정을 보여 주는 Azure Preview 포털의 스크린샷](media/documentdb-dotnet-application/keys.png)
 
 5. Web.config 파일에서 **endpoint** 및 **authKey** 키의 기본값을 업데이트합니다.
 
-    	<add key="endpoint" value="~enter URI for your DocumentDB Account, from Azure classic portal~" /> 
-		<add key="authKey" value="~enter either Primary or Secondary key for your DocumentDB Account, from Azure classic portal~" /> 
+    	<add key="endpoint" value="~enter URI for your DocumentDB Account, from Azure Preview portal~" /> 
+		<add key="authKey" value="~enter either Primary or Secondary key for your DocumentDB Account, from Azure Preview portal~" /> 
 
 	- 키 블레이드에서 **URI** 값을 복사하여 **endpoint** 속성 값에 붙여넣습니다. 
 	- **키** 블레이드에서 **기본 키** 또는 **보조 키** 값을 복사하여 **authKey** 속성 값에 붙여넣습니다.
@@ -654,8 +654,8 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft 웹 플랫폼 설치 관리자]: http://www.microsoft.com/web/downloads/platform.aspx
 [GitHub]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
-[Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
-[Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
-
-<!--HONumber=52-->
+[교차 사이트 요청 위조 방지(영문)]: http://go.microsoft.com/fwlink/?LinkID=517254
+[ASP.NET MVC의 기본 CRUD 작업(영문)]: http://go.microsoft.com/fwlink/?LinkId=317598
  
+
+<!---HONumber=July15_HO3-->

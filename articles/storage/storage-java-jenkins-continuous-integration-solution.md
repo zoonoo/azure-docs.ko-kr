@@ -1,18 +1,11 @@
 <properties 
-	urlDisplayName="Jenkins Continuous Integration" 
 	pageTitle="Jenkins 연속 통합 솔루션과 함께 Azure 저장소 사용 | Microsoft Azure" 
-	metaKeywords="" 
 	description="이 자습서에서는 Jenkins 연속 통합 솔루션을 사용하여 만든 아티팩트용 리포지토리로 Azure Blob 서비스를 사용하는 방법을 보여 줍니다." 
-	metaCanonical="" 
 	services="storage" 
 	documentationCenter="java" 
-	title="" 
 	authors="rmcmurray" 
-	solutions="" 
 	manager="wpickett" 
-	editor="jimbe" 
-	scriptId="" 
-	videoId=""/>
+	editor="jimbe" />
 
 <tags 
 	ms.service="storage" 
@@ -109,7 +102,7 @@ Blob 서비스를 Jenkins와 함께 사용하려면 Azure 저장소 플러그인
         cd text
         echo Hello Azure Storage from Jenkins > hello.txt
         date /t > date.txt
-        time /t > date.txt
+        time /t >> date.txt
  
 5. 작업 구성의 **Post-build Actions** 섹션에서 **Add post-build action**을 클릭하고 **Upload artifacts to Azure Blob storage**를 선택합니다.
 6. **Storage account name**에서는 사용할 저장소 계정을 선택합니다.
@@ -172,4 +165,4 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
   [ms-open-tech]: http://msopentech.com
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO3-->

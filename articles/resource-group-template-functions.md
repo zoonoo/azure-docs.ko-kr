@@ -1,19 +1,19 @@
 <properties
    pageTitle="Azure 리소스 관리자 템플릿 함수"
    description="값을 검색하고 문자열을 포맷하며 배포 정보를 검색하는 Azure 리소스 관리자 템플릿에서 사용하는 함수를 설명합니다."
-   services="na"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="na"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/08/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿 함수
@@ -382,4 +382,4 @@
 - [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](azure-portal/resource-group-template-deploy.md)
 - [Azure 리소스 관리자 개요](./resource-group-overview.md)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

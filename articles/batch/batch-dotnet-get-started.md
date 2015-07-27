@@ -602,4 +602,4 @@ RunExternalMergeProcess의 구현은 다음을 제외하고 RunExternalTaskProce
 [3]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-03.jpg
 [4]: ./media/batch-dotnet-get-started/batch-dotnet-get-started-04.jpg
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

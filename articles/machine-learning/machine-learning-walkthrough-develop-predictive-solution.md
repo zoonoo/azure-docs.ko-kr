@@ -1,7 +1,6 @@
 <properties
 	pageTitle="기계 학습을 사용한 신용 위험에 대 한 예측 솔루션 | Microsoft Azure"
 	description="Azure 기계 학습 스튜디오의 신용 위험 평가에 대한 예측 분석 솔루션을 만드는 방법을 보여주는 자세한 연습."
-	keywords="credit risk, predictive analytics solution,risk assessment"	
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="04/22/2015"
+	ms.date="07/10/2015"
 	ms.author="garye"/>
 
 
@@ -42,4 +41,4 @@
 이 연습은 기계 학습 스튜디오에 포함된 [신용 위험 예측 샘플 실험](../machine-learning-sample-credit-risk-prediction.md)의 간소화된 버전을 기반으로 합니다.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

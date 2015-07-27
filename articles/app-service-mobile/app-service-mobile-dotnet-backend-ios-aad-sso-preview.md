@@ -117,4 +117,4 @@ ms.author="mahender" />
  [모바일 앱 시작 자습서]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

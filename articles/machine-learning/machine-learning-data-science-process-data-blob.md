@@ -2,7 +2,6 @@
 	pageTitle="고급 분석을 사용하여 Azure blob 데이터 처리 | Microsoft Azure" 
 	description="Azure Blob 저장소에서 데이터 처리" 
 	services="machine-learning,storage" 
-	solutions="" 
 	documentationCenter="" 
 	authors="msolhab" 
 	manager="paulettm" 
@@ -186,4 +185,4 @@
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

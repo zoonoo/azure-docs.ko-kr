@@ -200,4 +200,4 @@ ADAL은 응용 프로그램에 일반적인 ID 기능을 쉽게 통합할 수 �
 추가 리소스를 보려면 다음을 확인하세요. [GitHub의 AzureADSamples >>](https://github.com/AzureAdSamples)(영문) - [CloudIdentity.com >>](https://cloudidentity.com)(영문) - [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)(영문)의 Azure AD 설명서
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

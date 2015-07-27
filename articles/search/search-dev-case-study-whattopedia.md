@@ -12,7 +12,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="search" 
-	ms.date="04/13/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 # Azure 검색 개발자 사례 연구
@@ -421,4 +421,4 @@ Azure 검색만 놀라움을 선사한 것이 아니었습니다. 우리는 WebJ
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

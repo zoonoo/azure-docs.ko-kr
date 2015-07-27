@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/26/2015" 
+	ms.date="07/11/2015" 
 	ms.author="awills"/>
  
 # Application Insights를 사용하여 ASP.NET 앱의 실패 및 예외 진단  
@@ -31,9 +31,8 @@ ASP.NET 앱을 모니터링하려면 응용 프로그램에 [Application Insight
 
 ![실패한 요청 인스턴트를 선택하고, 예외 세부 정보 아래에서 예외 인스턴스로 이동합니다.](./media/app-insights-asp-net-exceptions/030-req-drill.png)
 
-*예외가 표시되지 않나요? [예외 캡처](#exceptions)를 참조하세요.*
 
-또는 더 아래에 있는 실패 블레이드의 예외 목록에서 시작할 수 있습니다. 개별 예외에 도달할 때까지 계속 클릭합니다.
+**또는** 더 아래에 있는 실패 블레이드의 예외 목록에서 시작할 수 있습니다. 개별 예외에 도달할 때까지 계속 클릭합니다.
 
 
 ![드릴스루](./media/app-insights-asp-net-exceptions/040-exception-drill.png)
@@ -57,7 +56,25 @@ ASP.NET 앱을 모니터링하려면 응용 프로그램에 [Application Insight
 
 *종속성 실패가 없나요? 좋은 현상입니다. 하지만 종속성 데이터가 있는지 확인하기 위해 성능 블레이드를 열고 종속성 기간 차트를 살펴보세요.*
 
-## 요청 POST 및 기타 로그 데이터를 보는 방법
+ 
+
+## 사용자 지정 추적 및 로그 데이터
+
+진단 데이터 특성을 사용자 프로그램으로 불러오려면, 사용자 고유의 원격 분석 전송에 코드를 삽입합니다. 요청, 페이지 보기 및 기타 자동으로 수집 된 데이터와 함께 진단 검색에 표시됩니다.
+
+여러 옵션이 있습니다.
+
+* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event)는 일반적으로 사용 패턴 모니터링을 위해 사용 되지만 진단 검색의 사용자 지정 이벤트에서도 전송하는 데이터를 표시 합니다. 이벤트의 이름을 지정하고, [진단 검색을 필터링][diagnostic]할 수 있는 문자열 속성 및 숫자 메트릭 수를 수행할 수 있습니다.
+* 사용자는 [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace)를 사용하여 POST 정보와 같은 긴 데이터를 보낼 수 있습니다.
+* [TrackException()](#exceptions)스택 추적을 보냅니다. [예외에 대한 자세한](#exceptions).
+* 사용자가 이미 Log4Net 또는 NLog와 같은 로깅 프레임워크를 사용하는 경우, 요청과 예외 데이터와 함께 진단 검색 안에서 [이러한 로그를 캡처][netlogs]하고 볼 수 있습니다.
+
+이러한 이벤트를 보려면, [검색][diagnostic]과 필터를 차례대로 열고 사용자 지정 이벤트, 추적, 또는 예외를 선택 합니다.
+
+
+![드릴스루](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
+
+### 요청 게시 데이터를 참조하는 방법
 
 요청 세부 정보에는 POST 호출에서 앱으로 전송된 데이터가 포함되지 않습니다. 이 데이터에 대한 보고를 받으려면 다음을 수행합니다.
 
@@ -66,10 +83,6 @@ ASP.NET 앱을 모니터링하려면 응용 프로그램에 [Application Insight
 * 실패한 요청을 조사할 때 연결된 추적을 찾습니다.  
 
 ![드릴스루](./media/app-insights-asp-net-exceptions/060-req-related.png)
-
-이미 Log4Net 또는 NLog와 같은 로깅 프레임워크를 사용 중이라면 [이러한 로그를 캡처][netlogs]하여 같은 방법으로 볼 수 있습니다.
-
-[사용자 지정 이벤트][api]는 일반적으로 사용 현황 추적에 사용되지만 "이 요청에 대한 모든 원격 분석" 아래에서도 찾을 수 있습니다.
 
 
 ## <a name="exceptions"></a> 예외 및 관련 진단 데이터 캡처
@@ -428,4 +441,4 @@ WebApiConfig에서 서비스에 추가합니다.
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

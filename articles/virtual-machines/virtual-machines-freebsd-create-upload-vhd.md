@@ -66,12 +66,12 @@ FreeBSD 운영 체제를 설치한 가상 컴퓨터에서 다음 절차를 완�
 
 5. Azure 에이전트에 대한 필수 조건
 
-    5.1 **python 설치**
+    5\.1 **python 설치**
 
 		# pkg install python27 py27-asn1
 		# ln -s /usr/local/bin/python2.7 /usr/bin/python
 
-    5.2 **wget 설치**
+    5\.2 **wget 설치**
 
 		# pkg install wget 
 
@@ -206,4 +206,4 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 	![azure의 freebsd 이미지](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

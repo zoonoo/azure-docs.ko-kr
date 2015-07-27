@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="07/03/2015"
 	ms.author="cephalin"/>
 
 
@@ -52,13 +52,21 @@
 
 Azure 앱 서비스에서 구성 정보를 **앱 설정** 및 **연결 문자열**과 같은 웹앱 런타임 환경의 일부로 저장할 수 있습니다. 값은 대부분의 프로그래밍 언어에서 *환경 변수*를 통해 런타임에 응용 프로그램에 노출됩니다. .NET 응용 프로그램의 경우에는 이러한 값이 런타임에 .NET 구성에 주입됩니다.
 
-**앱 설정** 및 **연결 문자열**은 [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715) 또는 PowerShell이나 Azure CLI와 같은 유틸리티를 사용하여 구성할 수 있습니다.
+**앱 설정** 및 **연결 문자열**은 [Azure Preview 포털](http://portal.azure.com) 또는 PowerShell이나 Azure CLI와 같은 유틸리티를 사용하여 구성할 수 있습니다.
 
 앱 설정 및 연결 문자열에 대한 자세한 내용은 [웹앱 구성](web-sites-configure.md)을 참조하세요.
 
 ### FTPS
 
-Azure는 **FTPS**를 통해 웹 앱용 파일 시스템에 대한 보안 FTP 액세스를 제공합니다. 따라서 진단 로그 뿐만 아니라 웹 앱의 응용 프로그램 코드에도 안전하게 액세스할 수 있습니다. 웹 앱에 대한 FTPS 링크는 [Azure 관리 포털](https://manage.windowsazure.com)의 **대시보드** 페이지에서 찾을 수 있습니다.
+Azure는 **FTPS**를 통해 웹 앱용 파일 시스템에 대한 보안 FTP 액세스를 제공합니다. 따라서 진단 로그 뿐만 아니라 웹 앱의 응용 프로그램 코드에도 안전하게 액세스할 수 있습니다. 다음 단계에서 웹앱에 대한 FTPS 링크를 찾을 수 있습니다.
+
+1. [Azure Preview 포털](http://portal.azure.com)을 엽니다.
+2. **모두 찾아보기**를 선택합니다.
+3. **찾아보기** 블레이드에서 **웹앱**을 선택합니다.
+4. **웹앱** 블레이드에서 원하는 웹앱을 선택합니다.
+5. 웹앱의 블레이드에서 **모든 설정**을 선택합니다.
+6. **설정** 블레이드에서 **속성**을 선택합니다.
+7. FTP 및 FTPS 링크는 **설정** 블레이드에서 제공됩니다. 
 
 FTPS에 대한 자세한 내용은 [File Transfer Protocol](http://en.wikipedia.org/wiki/File_Transfer_Protocol)(영문)을 참조하세요.
 
@@ -78,4 +86,4 @@ Azure 플랫폼 보안에 대한 자세한 내용, **보안 인시던트 또는 
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

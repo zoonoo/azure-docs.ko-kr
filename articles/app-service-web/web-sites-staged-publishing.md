@@ -4,7 +4,6 @@
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
-	writer="cephalin"
 	manager="wpickett"
 	editor="mollybos"/>
 
@@ -260,4 +259,4 @@ Azure CLI는 Azure 작업을 위한 플랫폼 간 명령을 제공하며, 웹앱
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

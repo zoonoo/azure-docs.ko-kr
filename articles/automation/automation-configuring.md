@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/13/2015"
+   ms.date="07/10/2015"
    ms.author="bwren" />
 
 # Azure 자동화 구성
@@ -61,10 +61,10 @@ Azure 계정에 지불 연체와 같은 문제가 있는 경우 자동화 계정
 	Add-AzureAccount –Credential $cred
 	Select-AzureSubscription –SubscriptionName "My Subscription"
 
-Runbook의 모든 [검사점](automation-runbook-execution/#checkpoints) 뒤에 이러한 줄을 반복해야 합니다. Runbook이 일시 중단된 후 다른 작업자에서 다시 시작되는 경우에는 인증을 다시 수행해야 합니다.
+Runbook의 모든 [검사점](automation-runbook-execution#checkpoints) 뒤에 이러한 줄을 반복해야 합니다. Runbook이 일시 중단된 후 다른 작업자에서 다시 시작되는 경우에는 인증을 다시 수행해야 합니다.
 
 ## 관련된 문서
 - [Azure 자동화: Azure Active Directory를 사용하여 Azure에 인증](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

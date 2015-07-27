@@ -79,4 +79,4 @@ Mobile Engagement SDK의 API 또는 Mobile Engagement 플랫폼의 장치 API를
 키/값 쌍의 전체 트리는 JSON 개체로 저장됩니다. 그러나 첫 번째 수준의 키/값은 Segments와 같은 일부 고급 함수에서 직접 액세스할 수 있도록 구성 해제됩니다. 예를 들어 지난 달에 추가 키 "content_type"이 "scifi" 값으로 설정된 "content_viewed"라는 이벤트를 10번 이상 전송한 모든 사용자로 구성된 "SciFi 팬" 세그먼트를 쉽게 정의할 수 있습니다. 따라서 스칼라 값(예: 문자열, 날짜, 정수 또는 부울)을 사용하여 키/값 쌍의 간단한 목록으로 구성된 기타 데이터만 보내는 것이 좋습니다.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

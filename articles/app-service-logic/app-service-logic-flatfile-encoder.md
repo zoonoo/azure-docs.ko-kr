@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/20/2015"
+   ms.date="07/01/2015"
    ms.author="rajram"/>
 
 # BizTalk 플랫 파일 인코더
@@ -100,4 +100,4 @@ BizTalk 플랫 파일 인코더는 스키마를 해당 구성의 일부로 사�
 [6]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.XmlToFlatFile.PNG
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

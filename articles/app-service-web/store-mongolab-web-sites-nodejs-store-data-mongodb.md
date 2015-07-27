@@ -48,18 +48,14 @@
 Azure Store에 어느 정도 익숙한 경우 이 섹션을 사용하여 빠른 시작을 수행합니다. 그렇지 않은 경우 아래의 [데이터베이스 프로비전][provision]을 계속 진행합니다.
 
 1. **새로 만들기** > **Marketplace**를 클릭하여 Azure 마켓플레이스를 엽니다.  
-	<!--- ![Store][button-store] -->
-2. **MongoLab** 추가 기능을 클릭합니다.  
-	![MongoLab][entry-mongolab]
-3. 추가 기능 목록에서 **MongoLab** 추가 기능을 클릭하고 **연결 정보**를 클릭합니다.  
-	![ConnectionInfoButton][button-connectioninfo]  
-4. **MONGOLAB_URI**를 클립보드로 복사합니다.  
-	![ConnectionInfoScreen][screen-connectioninfo]
+<!-- ![Store][button-store] -->
+2. **MongoLab** 추가 기능을 클릭합니다. ![MongoLab][entry-mongolab]
+3. 추가 기능 목록에서 **MongoLab** 추가 기능을 클릭하고 **연결 정보**를 클릭합니다. ![ConnectionInfoButton][button-connectioninfo]  
+4. **MONGOLAB_URI**를 클립보드로 복사합니다. ![ConnectionInfoScreen][screen-connectioninfo]
 
 	>[AZURE.NOTE]이 URI에는 데이터베이스 사용자 이름과 암호가 포함되어 있습니다. 중요한 정보로 처리하고 공유하지 마세요.
 
-5. Azure 웹 응용 프로그램 **구성** 메뉴의 **연결 문자열** 목록에 값을 추가합니다.
-	![WebAppConnectionStrings][focus-website-connectinfo]
+5. Azure 웹 응용 프로그램 **구성** 메뉴의 **연결 문자열** 목록에 값을 추가합니다. ![WebAppConnectionStrings][focus-website-connectinfo]
 6. **이름**에 **MONGOLAB_URI**를 입력합니다.
 7. **Value**에 이전 섹션에서 얻은 연결 문자열을 붙여 넣습니다.
 8. 유형 드롭다운에서 기본값 **SQLAzure** 대신 **사용자 지정**을 선택합니다.
@@ -449,14 +445,13 @@ Azure CLI를 사용하려면 먼저 구독에 대한 정보가 포함된 파일�
 
 Azure 앱 서비스에서 웹 앱을 작성하는 것은 매우 쉽습니다. 첫 번째 Azure 웹 앱인 경우 포털을 사용해야 합니다. 하나 이상의 웹 사이트가 이미 있는 경우 7단계로 건너뜁니다.
 
-1. Azure 포털에서 **새로 만들기**를 클릭합니다.  
-	![새로 만들기][button-new]
-2. **계산 > 웹앱 > 빠른 생성**을 선택합니다.  
-	<!--- ![Create Web App][screen-mongolab-newwebsite] -->
+1. Azure 포털에서 **새로 만들기**를 클릭합니다. ![새로 만들기][button-new]
+2. **계산 > 웹앱 > 빠른 생성**을 선택합니다.
+<!-- ![Create Web App][screen-mongolab-newwebsite] -->
 3. URL 접두사를 입력합니다. 원하는 이름을 선택합니다. 이름은 고유해야 합니다('mymongoapp'은 사용 불가능할 가능성이 높음).
 4. **웹 앱 만들기**를 클릭합니다.
-5. 웹앱 만들기가 완료되면 웹앱 목록에서 웹앱 이름을 클릭합니다. 웹앱 대시보드가 표시됩니다.  
-	<!--- ![Web App Dashboard][screen-mongolab-websitedashboard] -->
+5. 웹앱 만들기가 완료되면 웹앱 목록에서 웹앱 이름을 클릭합니다. 웹앱 대시보드가 표시됩니다.
+<!-- ![Web App Dashboard][screen-mongolab-websitedashboard] -->
 6. **간략 상태**에서 **소스 제어에서 배포 설정**을 클릭하고 GitHub를 선택한 다음 원하는 Git 사용자 이름 및 암호를 입력합니다. 웹 앱으로 푸시할 때(9단계) 이 암호를 사용합니다.  
 7. 위 단계를 사용하여 웹 앱을 만든 경우 다음 명령으로 프로세스가 완료됩니다. 하지만 웹 앱이 이미 두 개 이상 있는 경우 위 단계를 건너뛰고 동일한 명령을 사용하여 새 웹 앱을 만들 수 있습니다. **tasklist** 프로젝트 디렉터리에서:
 
@@ -575,4 +570,4 @@ Azure 앱 서비스에서 웹 앱을 작성하는 것은 매우 쉽습니다. �
 [mongolab-view]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
  
 
-<!----HONumber=62-->
+<!---HONumber=July15_HO3-->

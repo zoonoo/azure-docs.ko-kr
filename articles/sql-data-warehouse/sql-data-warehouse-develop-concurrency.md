@@ -60,21 +60,11 @@ SQL 데이터 웨어하우스는 해당 워크로드 관리 구현의 일부로 
 - largerc
 - xlargerc
 
-다음 쿼리를 사용하여 자신의 역할을 볼 수 있습니다.
-
-```
-SELECT  ro.[name]           AS [db_role_name]
-FROM    sys.database_principals ro
-WHERE   ro.[type_desc]      = 'DATABASE_ROLE'
-AND     ro.[is_fixed_role]  = 0
-;
-```
-
 기본적으로 각 사용자는 작은 리소스 클래스인 smallrc의 멤버입니다. 그러나 어떤 사용자도 더 높은 리소스 클래스 한 개 이상에 추가될 수 있습니다. SQL 데이터 웨어하우스는 쿼리 실행을 위해 가장 높은 역할 멤버 자격을 가져옵니다. 더 높은 리소스 클래스에 사용자를 추가하면 해당 사용자에 대한 리소스가 증가하지만 더 많은 동시성 슬롯을 사용하게 되며 동시성에 제한을 받을 수 있습니다. 왜냐하면 한 쿼리에 더 많은 리소스가 할당되므로 시스템이 다른 사용자가 사용하는 리소스를 제한해야 하기 때문입니다. 세상에 공짜란 없는 법입니다.
 
 더 높은 리소스 클래스가 관리하는 가장 중요한 리소스는 메모리입니다. 의미 있는 크기를 가진 대부분의 데이터 웨어하우스 테이블은 클러스터형 columnstore 인덱스를 사용합니다. 이 인덱스는 일반적으로 데이터 웨어하우스에 최고의 성능을 제공하지만 이를 유지하기 위해 메모리를 많이 사용해야 합니다. 인덱스 다시 빌드 같은 데이터 관리 작업에 더 높은 리소스 클래스를 사용하면 매우 유리한 경우가 많습니다.
 
-메모리를 늘리려면 데이터베이스 사용자를 위에서 설명한 역할 중 하나에 추가하기만 하면 됩니다.
+메모리를 늘리려면 데이터베이스 사용자를 위에서 설명한 역할/리소스 클래스 중 하나에 추가하기만 하면 됩니다.
 
 `sp_addrolemember` 및 `sp_droprolemember` 프로시저를 사용하여 워크로드 관리 데이터베이스 역할에 대해 자기 자신을 추가 및 제거할 수 있습니다. 참고로 이 작업을 수행하려면 `ALTER ROLE` 사용 권한이 필요합니다. ALTER ROLE DDL 구문은 사용할 수 없습니다. 앞에서 언급한 저장 프로시저를 사용해야 합니다.
 
@@ -90,13 +80,22 @@ AND     ro.[is_fixed_role]  = 0
 | largerc (l)                 | High     | 200 MB | 400 MB | 400 MB | 800  MB | 800 MB  | 800 MB  | 1600 MB | 1600 MB | 1600 MB | 3200 MB | 3200 MB | 6400  MB |
 | xlargerc (xl)               | High     | 400 MB | 800 MB | 800 MB | 1600 MB | 1600 MB | 1600 MB | 3200 MB | 3200 MB | 3200 MB | 6400 MB | 6400 MB | 12800 MB |
 -->
-| 사용 가능한 메모리(dist당) | 우선 순위 | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
-| :-------------------------- | :------- | :----  | :----- | :----- | :------ | :------ | :------ | :------ | :------ | :------ | :------ |
-| smallrc(기본값) (s) | 중간 | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB |
-| mediumrc(m) | 중간 | 100 MB | 200 MB | 200 MB | 400 MB | 400 MB | 400 MB | 800 MB | 800 MB | 800 MB | 1600 MB |
-| largerc(l) | 높음 | 200 MB | 400 MB | 400 MB | 800 MB | 800 MB | 800 MB | 1600 MB | 1600 MB | 1600 MB | 3200 MB |
-| xlargerc(xl) | 높음 | 400 MB | 800 MB | 800 MB | 1600 MB | 1600 MB | 1600 MB | 3200 MB | 3200 MB | 3200 MB | 6400 MB |
 
+<!--
+| Memory Available (per dist) | Priority | DW100  | DW200  | DW300  | DW400   | DW500   | DW600   | DW1000  | DW1200  | DW1500  | DW2000  |
+| :-------------------------- | :------- | :----  | :----- | :----- | :------ | :------ | :------ | :------ | :------ | :------ | :------ |
+| smallrc(default) (s)        | Medium   | 100 MB | 100 MB | 100 MB | 100  MB | 100 MB  | 100 MB  | 100 MB  | 100 MB  | 100 MB  | 100 MB  |
+| mediumrc (m)                | Medium   | 100 MB | 200 MB | 200 MB | 400  MB | 400 MB  | 400 MB  | 800 MB  | 800 MB  | 800 MB  | 1600 MB |
+| largerc (l)                 | High     | 200 MB | 400 MB | 400 MB | 800  MB | 800 MB  | 800 MB  | 1600 MB | 1600 MB | 1600 MB | 3200 MB |
+| xlargerc (xl)               | High     | 400 MB | 800 MB | 800 MB | 1600 MB | 1600 MB | 1600 MB | 3200 MB | 3200 MB | 3200 MB | 6400 MB |
+-->
+
+| 사용 가능한 메모리(dist당) | DW100 | DW200 | DW300 | DW400 | DW500 | DW600 | DW1000 | DW1200 | DW1500 | DW2000 |
+| :-------------------------- | :----  | :----- | :----- | :------ | :------ | :------ | :------ | :------ | :------ | :------ |
+| smallrc(기본값) (s) | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB | 100 MB |
+| mediumrc(m) | 100 MB | 200 MB | 200 MB | 400 MB | 400 MB | 400 MB | 800 MB | 800 MB | 800 MB | 1600 MB |
+| largerc(l) | 200 MB | 400 MB | 400 MB | 800 MB | 800 MB | 800 MB | 1600 MB | 1600 MB | 1600 MB | 3200 MB |
+| xlargerc(xl) | 400 MB | 800 MB | 800 MB | 1600 MB | 1600 MB | 1600 MB | 3200 MB | 3200 MB | 3200 MB | 6400 MB |
 
 또한 위에서 설명했듯이 사용자에게 할당된 리소스 클래스가 높을수록 동시 슬롯 사용량이 더 많습니다. 다음 테이블은 지정된 리소스 클래스의 쿼리당 동시성 슬롯 사용량을 설명합니다.
 
@@ -122,6 +121,147 @@ AND     ro.[is_fixed_role]  = 0
 
 활성 쿼리 워크로드가 동시 쿼리 및 동시성 슬롯 임계값에 모두 맞아야 한다는 것을 기억해야 합니다. 하나 이상의 임계값을 초과하면 쿼리가 큐에 저장되기 시작합니다. 큐에 저장된 쿼리는 제출 시간이 지난 후 우선 순위에 따라 해결됩니다.
 
+내부 작동 방식은 약간 더 복잡합니다. 리소스 클래스는 리소스 관리자 내에서 워크로드 관리 그룹의 제네릭 집합에 동적으로 매핑됩니다. 사용되는 그룹은 웨어하우스에 대한 DWU 값에 따라 달라집니다. 그러나 SQL 데이터 웨어하우스에 사용되는 총 8개의 워크로드 그룹이 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
+
+- SloDWGroupC00
+- SloDWGroupC01
+- SloDWGroupC02
+- SloDWGroupC03
+- SloDWGroupC04
+- SloDWGroupC05
+- SloDWGroupC06
+- SloDWGroupC07
+
+이러한 8개 그룹은 동시성 슬롯 사용량에 매핑됩니다.
+
+| 워크로드 그룹 | 동시성 슬롯 매핑 | 우선 순위 매핑 |
+| :------------  | :----------------------- | :--------------- |
+| SloDWGroupC00 | 1 | 중간 |
+| SloDWGroupC01 | 2 | 중간 |
+| SloDWGroupC02 | 4 | 중간 |
+| SloDWGroupC03 | 8 | 중간 |
+| SloDWGroupC04 | 16 | 높음 |
+| SloDWGroupC05 | 32 | 높음 |
+| SloDWGroupC06 | 64 | 높음 |
+| SloDWGroupC07 | 128 | 높음 |
+
+따라서 예를 들어, DW500이 SQL 데이터 웨어하우스에 대한 현재 DWU 설정인 경우 활성 워크로드 그룹이 다음과 같이 리소스 클래스에 매핑됩니다.
+
+| 리소스 클래스 | 워크로드 그룹 | 사용된 동시성 슬롯 수 | Importance |
+| :------------- | :------------- | :---------------------   | :--------- |
+| smallrc | SloDWGroupC00 | 1 | 중간 |
+| mediumrc | SloDWGroupC02 | 4 | 중간 |
+| largerc | SloDWGroupC03 | 8 | 중간 |
+| xlargerc | SloDWGroupC04 | 16 | 높음 |
+
+리소스 관리자의 관점에서 메모리 리소스 할당의 차이점을 자세히 살펴보려면 다음 쿼리를 사용합니다.
+
+```
+WITH rg
+AS
+(   SELECT  pn.name									AS node_name
+	,		pn.[type]								AS node_type
+	,		pn.pdw_node_id							AS node_id
+	,		rp.name									AS pool_name
+    ,       rp.max_memory_kb*1.0/1024				AS pool_max_mem_MB
+    ,       wg.name									AS group_name
+    ,       wg.importance							AS group_importance
+    ,       wg.request_max_memory_grant_percent		AS group_request_max_memory_grant_pcnt
+    ,       wg.max_dop								AS group_max_dop
+    ,       wg.effective_max_dop					AS group_effective_max_dop
+	,		wg.total_request_count					AS group_total_request_count
+	,		wg.total_queued_request_count			AS group_total_queued_request_count
+	,		wg.active_request_count					AS group_active_request_count
+	,		wg.queued_request_count					AS group_queued_request_count
+    FROM    sys.dm_pdw_nodes_resource_governor_workload_groups wg
+    JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools rp    ON  wg.pdw_node_id  = rp.pdw_node_id
+															        AND wg.pool_id      = rp.pool_id
+	JOIN	sys.dm_pdw_nodes pn										ON	wg.pdw_node_id	= pn.pdw_node_id
+	WHERE   wg.name like 'SloDWGroup%'
+	AND     rp.name = 'SloDWPool'
+) 
+SELECT	pool_name
+,		pool_max_mem_MB
+,		group_name
+,		group_importance
+,		(pool_max_mem_MB/100)*group_request_max_memory_grant_pcnt AS max_memory_grant_MB
+,		node_name
+,		node_type
+,       group_total_request_count
+,       group_total_queued_request_count
+,       group_active_request_count
+,       group_queued_request_count
+FROM	rg
+ORDER BY 
+	node_name
+,	group_request_max_memory_grant_pcnt
+,	group_importance
+;
+```
+
+> [AZURE.NOTE]위의 쿼리는 문제 해결 시 워크로드 그룹의 활성 및 사용 기록을 분석하는 데도 사용할 수 있습니다.
+
+## 워크로드 관리 예제
+
+사용자에게 SQL 데이터 웨어하우스에 대한 액세스 권한을 부여하려면 먼저 로그인해야 합니다.
+
+SQL 데이터 웨어하우스의 마스터 데이터베이스에 대한 연결을 열고 다음 명령을 실행합니다.
+
+```
+CREATE LOGIN newperson WITH PASSWORD = 'mypassword'
+
+CREATE USER newperson for LOGIN newperson
+```
+
+[AZURE.NOTE]Azure SQL 데이터베이스 및 SQL 데이터 웨어하우스 모두로 작업할 경우 마스터 데이터베이스에서 로그인을 위한 사용자를 만드는 것도 좋은 방법입니다. 멤버 자격을 부여하기 위해 로그인 시 마스터 수준의 사용자가 필요할 때 사용할 수 있는 두 가지 서버 역할이 있습니다. 역할은 `Loginmanager` 및 `dbmanager`입니다. Azure SQL 데이터베이스 및 SQL 데이터 웨어하우스 모두에서 이러한 역할은 로그인을 관리하고 데이터베이스를 만들 권한을 부여합니다. 이 점이 SQL Server와 다릅니다. 자세한 내용은 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리]를 참조하세요.
+ 
+로그인을 만든 후에는 이제 사용자 계정을 추가해야 합니다.
+
+SQL 데이터 웨어하우스 데이터베이스에 대한 연결을 열고 다음 명령을 실행합니다.
+
+```
+CREATE USER newperson FOR LOGIN newperson
+```
+
+사용자에게 전체 권한을 부여해야 합니다. 아래 예제는 SQL 데이터 웨어하우스 데이터베이스에 대한 `CONTROL`을 부여합니다. 데이터베이스 수준에서 `CONTROL`은 SQL Server에서 db_owner에 해당합니다.
+
+```
+GRANT CONTROL ON DATABASE::MySQLDW to newperson
+```
+
+워크로드 관리 역할을 보려면 다음 쿼리를 사용합니다.
+
+```
+SELECT  ro.[name]           AS [db_role_name]
+FROM    sys.database_principals ro
+WHERE   ro.[type_desc]      = 'DATABASE_ROLE'
+AND     ro.[is_fixed_role]  = 0
+;
+```
+
+증가하는 워크로드 관리 역할에 사용자를 추가하려면 다음 쿼리를 사용합니다.
+
+``` 
+EXEC sp_addrolemember 'largerc', 'newperson' 
+```
+
+워크로드 관리 역할에서 사용자를 제거하려면 다음 쿼리를 사용합니다.
+
+``` 
+EXEC sp_droprolemember 'largerc', 'newperson' 
+```
+> [AZURE.NOTE]smallrc에서 사용자를 제거하는 것은 불가능합니다.
+
+어떤 사용자가 지정된 역할의 멤버인지 보려면 다음 쿼리를 사용합니다.```
+SELECT	r.name AS role_principal_name
+,		m.name AS member_principal_name
+FROM	sys.database_role_members rm
+JOIN	sys.database_principals AS r			ON rm.role_principal_id		= r.principal_id
+JOIN	sys.database_principals AS m			ON rm.member_principal_id	= m.principal_id
+WHERE	r.name IN ('mediumrc','largerc', 'xlargerc')
+;
+```
+
 ## 큐에 저장된 쿼리 검색
 동시성 큐에 저장된 쿼리를 식별하려면 언제나 `sys.dm_pdw_exec_requests` DMV를 참조할 수 있습니다.
 
@@ -131,6 +271,7 @@ SELECT 	 r.[request_id]									AS Request_ID
 		,r.[submit_time]								AS Request_SubmitTime
 		,r.[start_time]									AS Request_StartTime
         ,DATEDIFF(ms,[submit_time],[start_time])		AS Request_InitiateDuration_ms
+        ,r.resource_class                               AS Request_resource_class
 FROM    sys.dm_pdw_exec_requests r
 ;
 ```
@@ -144,7 +285,7 @@ SQL 데이터 웨어하우스에는 동시성을 측정하기 위한 특정 대�
 - DmsConcurrencyResourceType
 - BackupConcurrencyResourceType
 
-LocalQueriesConcurrencyResourceType은 동시성 슬롯 프레임워크 외부에 존재하는 쿼리를 참조합니다. DMV 쿼리 및 SELECT @@VERSION 같은 시스템 함수는 로컬 쿼리의 예입니다.
+LocalQueriesConcurrencyResourceType은 동시성 슬롯 프레임워크 외부에 존재하는 쿼리를 참조합니다. `SELECT @@VERSION`과 같은 DMV 쿼리 및 시스템 함수는 로컬 쿼리의 예입니다.
 
 UserConcurrencyResourceType은 동시성 슬롯 프레임워크 내에 존재하는 쿼리를 참조합니다. 최종 사용자 테이블에 대한 쿼리는 이 리소스 유형을 사용할 수 있는 예를 나타냅니다.
 
@@ -232,8 +373,8 @@ FROM	sys.dm_pdw_wait_stats w
 [개발 개요]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-
+[Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리]: https://msdn.microsoft.com/ko-kr/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

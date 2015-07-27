@@ -13,10 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="03/20/2015"
+   ms.date="07/07/2015"
    ms.author="prkumar"/>
 
 #커넥터#
+
+> [AZURE.NOTE]이 항목은 사용 중지 됩니다. 모든 사용 가능한 기본 제공 커넥터 및 API 앱을 보려면 [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)을 참조하세요.
+
+
 커넥터는 클라우드나 온-프레미스에서 실행 중인 데이터 및 서비스에 연결할 수 있게 해주는 API 앱입니다. 커넥터를 사용하면 논리 앱 등에서 쉽게 액세스할 수 있는 다양한 기본 제공 트리거 및 동작을 통해 데이터에 쉽게 연결할 수 있습니다.
 
 Azure 앱 서비스는 바로 사용할 수 있는 다양한 커넥터를 제공합니다.
@@ -46,14 +50,16 @@ Azure 앱 서비스는 바로 사용할 수 있는 다양한 커넥터를 제공
 * [SugarCRM 커넥터]
 * [Twilio 커넥터]
 * [Twitter 커넥터]
-* Wait 커넥터
+* [Wait 커넥터]
 * [Yammer 커넥터]
+
 
 ##프리미엄 커넥터 및 API 앱##
 * [AS2 커넥터]
 * [BizTalk EDIFACT]
 * [BizTalk 플랫 파일 인코더]
-* BizTalk 변환 서비스
+* BizTalk JSON 인코더
+* [BizTalk 변환 서비스]
 * [BizTalk 규칙]
 * [BizTalk X12]
 * [BizTalk XPath 추출기]
@@ -112,7 +118,10 @@ Azure 앱 서비스는 바로 사용할 수 있는 다양한 커넥터를 제공
 [BizTalk XML 유효성 검사기]: app-service-logic-xml-validator.md
 [BizTalk 규칙]: app-service-logic-use-biztalk-rules.md
 [AS2 커넥터]: app-service-logic-connector-as2.md
-[BizTalk EDIFACT]: app-service-logic-connector-edifact
+[BizTalk EDIFACT]: app-service-logic-connector-edifact.md
 [BizTalk X12]: app-service-logic-connector-x12.md
+[JSON Encoder]: app-service-logic-json-encoder.md
+[BizTalk 변환 서비스]: app-service-logic-transform-xml-documents.md
+[Wait 커넥터]: app-service-logic-wait.md
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

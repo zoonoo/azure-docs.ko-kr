@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter="windows"
 	authors="alancameronwills" 
-	manager="kamrani"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/28/2015" 
+	ms.date="07/01/2015" 
 	ms.author="awills"/>
 
 # Application Insights를 사용하여 Windows 스토어 및 Phone 앱에서 충돌 감지 및 진단
@@ -21,7 +21,7 @@
 
 사용자가 앱에서 충돌을 경험하는 경우, 이에 대해 신속하게 파악하고 세부 정보를 알고 싶습니다. Application Insights를 사용하여 충돌 발생 빈도, 발생 시 경고 얻기 및 개별 인시던트 보고서 조사에 대해 모니터링할 수 있습니다.
 
-"충돌"은 응용 프로그램이 확인할 수 없는 예외 때문에 종료하는 것을 의미합니다. 앱이 예외를 포착하는 경우 TrackException() API로 이를 보고하지만 계속 실행할 수 있습니다. 이 경우에 충돌로 로깅되지 않습니다.
+"충돌"은 응용 프로그램이 확인할 수 없는 예외 때문에 종료하는 것을 의미합니다. 앱이 예외를 catch하는 경우 [TrackException API][apiexceptions]로 해당 예외를 보고하지만 계속 실행할 수 있습니다. 이 경우에 충돌로 로깅되지 않습니다.
 
 
 ## 충돌 빈도 모니터링
@@ -80,6 +80,8 @@
 
 [Application Insights를 사용하여 문제 감지, 심사 및 진단][detect]
 
+[Application Insights API][api]
+
 [진단 로그 캡처][trace]
 
 [문제 해결](app-insights-windows-troubleshoot.md)
@@ -89,12 +91,15 @@
 
 <!--Link references-->
 
+[api]: app-insights-api-custom-events-metrics.md
+[apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
 [detect]: app-insights-detect-triage-diagnose.md
 [diagnostic]: app-insights-diagnostic-search.md
+[platforms]: app-insights-platforms.md
 [portal]: http://portal.azure.com/
 [trace]: app-insights-search-diagnostic-logs.md
 [windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="07/06/2015"
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스 웹 앱 고급 구성 및 확장
@@ -42,7 +42,7 @@
 	</configuration>
 
 
-변환 상태가 포함된 로그 파일 및 자세한 정보는 FTP 루트의 LogFiles\Transform 아래에서 사용할 수 있습니다.
+변환 상태가 포함된 로그 파일 및 자세한 정보는 FTP 루트의 LogFiles\\Transform 아래에서 사용할 수 있습니다.
 
 추가 샘플은 [https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions)(영문)를 참조하십시오.
 
@@ -81,7 +81,7 @@ PHP Manager 확장은 Visual Studio ASP.NET MVC 4 웹 응용 프로그램 템플
 
 ![TransformSiteSolEx][TransformSiteSolEx]
 
-파일 I/O에 필요한 유일한 특수 논리는 웹 앱의 wwwroot 디렉터리가 있는 위치를 나타내는 것입니다. 다음 코드 예제에서 환경 변수 "HOME"은 웹 앱의 루트 경로를 나타내며 wwwroot 경로는 "site\wwwroot"를 추가하여 구성할 수 있음을 알 수 있습니다.
+파일 I/O에 필요한 유일한 특수 논리는 웹 앱의 wwwroot 디렉터리가 있는 위치를 나타내는 것입니다. 다음 코드 예제에서 환경 변수 "HOME"은 웹 앱의 루트 경로를 나타내며 wwwroot 경로는 "site\\wwwroot"를 추가하여 구성할 수 있음을 알 수 있습니다.
 
 	/// <summary>
 	/// Gives the location of the .user.ini file, even if one doesn't exist yet
@@ -93,7 +93,7 @@ PHP Manager 확장은 Visual Studio ASP.NET MVC 4 웹 응용 프로그램 템플
     		{
         		rootPath = System.IO.Path.GetTempPath(); // For testing purposes
     		};
-    		var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot.user.ini");
+    		var userSettingsFile = Path.Combine(rootPath, @"site\wwwroot\.user.ini");
     		return userSettingsFile;
 	}
 
@@ -112,7 +112,7 @@ PHP Manager 확장은 Visual Studio ASP.NET MVC 4 웹 응용 프로그램 템플
 
 ####<a id="XDT"></a> applicationHost.xdt 파일
 
-웹앱 확장용 코드는 %HOME%\SiteExtensions[확장 이름] 아래에 위치합니다. 이를 확장 루트라고 합니다.
+웹앱 확장용 코드는 %HOME%\\SiteExtensions[확장 이름] 아래에 위치합니다. 이를 확장 루트라고 합니다.
 
 applicationHost.config 파일에 웹 앱 확장을 등록하려면 확장 루트에 ApplicationHost.xdt라는 파일을 배치해야 합니다. ApplicationHost.xdt 파일의 내용은 다음과 같습니다.
 
@@ -180,4 +180,4 @@ applicationHost.config 파일에 웹 앱 확장을 등록하려면 확장 루트
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

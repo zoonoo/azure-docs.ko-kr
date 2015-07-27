@@ -214,7 +214,7 @@ IngestManifest의 **IIngestManifest.BlobStorageUriForUpload** 속성이 제공�
 	        CloudBlobClient blobClient = storageaccount.CreateCloudBlobClient();
 	        CloudBlobContainer blobContainer = blobClient.GetContainerReference(destBlobURI);
 	
-	        string[] splitfilename = filename.Split('');
+	        string[] splitfilename = filename.Split('\');
 	        var blob = blobContainer.GetBlockBlobReference(splitfilename[splitfilename.Length - 1]);
 	
 	        using (var stream = System.IO.File.OpenRead(filename))
@@ -306,4 +306,4 @@ IngestManifest의 **IIngestManifest.BlobStorageUriForUpload** 속성이 제공�
 [미디어 프로세서를 가져오는 방법]: media-services-get-media-processor.md
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="06/07/2015" 
 	ms.author="awills"/>
  
 # ASP.NET용 Application Insights 문제 해결 및 질문
@@ -98,7 +98,7 @@ Application Insights를 설치하는 동안 문제가 발생했거나 로깅 어
 
 ####<a name="FailUpdate"></a> NuGet 패키지를 0.17 또는 최신 버전으로 업데이트한 후에 빌드를 시도할 때 "프로젝트가 컴퓨터에서 누락된 NuGet 패키지를 참조합니다"가 표시됩니다.
 
-0.17 또는 최신 NuGet 패키지를 업데이트한 후에 위의 오류가 표시되면 proj 파일을 편집하고 남아있는 BCL 대상을 제거해야 합니다.
+0\.17 또는 최신 NuGet 패키지를 업데이트한 후에 위의 오류가 표시되면 proj 파일을 편집하고 남아있는 BCL 대상을 제거해야 합니다.
 
 다음을 수행합니다.
 
@@ -128,7 +128,7 @@ Application Insights를 설치하는 동안 문제가 발생했거나 로깅 어
 + 개요 페이지에서 진단 검색을 열려면 검색 타일을 클릭합니다. 데이터가 여기에 먼저 나타납니다.
 + 새로고침 단추를 클릭합니다. 현재 버전에서는 블레이드의 콘텐츠에 대한 새로 고침이 자동으로 수행되지 않습니다.
 + Microsoft Azure 시작 보드에서 서비스 상태 맵을 살펴보세요. 어떤 경고 표시가 있는 경우 정상으로 돌아갈 때까지 기다린 후 Application Insights 응용 프로그램 블레이드를 닫고 다시 엽니다.
-+ 또한 [상태 블로그](http://blogs.msdn.com/b/applicationinsights-status/archive/2015/04/14/data-latency-and-data-access-issue-with-data-storage-service-4-14-investigating.aspx)를 확인합니다.
++ 또한 [상태 블로그](http://blogs.msdn.com/b/applicationinsights-status/)를 확인합니다.
 + 방화벽에서 dc.services.visualstudio.com 및 f5.services.visualstudio.com으로 나가는 트래픽에 대해 TCP 포트 80 및 443을 열어야 할 수 있습니다.
 + 회사 네트워크를 벗어나 보내기 위해 프록시를 사용해야 하는 경우, Web.config에서 [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx)를 설정하십시오.
 + Windows Server 2008: 다음 업데이트를 설치했는지 확인하십시오. [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
@@ -232,4 +232,4 @@ Application Insights 리소스를 만드는 [PowerShell script 스크립트를 �
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

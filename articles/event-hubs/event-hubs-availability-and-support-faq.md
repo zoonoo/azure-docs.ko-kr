@@ -111,4 +111,4 @@ SLA에 대한 자세한 내용은 [서비스 수준 계약](http://azure.microso
 [큐 메시징 솔루션]: ../cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

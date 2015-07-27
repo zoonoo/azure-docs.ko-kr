@@ -221,4 +221,4 @@ Frequency(빈도) | 간격 값 범위 | 결과 시간 청크
 [image-data-factory-events]: ./media/data-factory-monitor-manage-using-management-portal/Events.png
 [DataSlicesBySliceTime]: ./media/data-factory-monitor-manage-using-management-portal/DataSlicesBySliceTime.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

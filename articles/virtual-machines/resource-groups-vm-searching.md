@@ -26,7 +26,7 @@
 | PublisherName | 제안 | SKU |
 |:---------------------------------|:-------------------------------------------|:---------------------------------|:--------------------|
 | OpenLogic | CentOS | 7 |
-| OpenLogic | CentOS | 7.1 |
+| OpenLogic | CentOS | 7\.1 |
 | CoreOS | CoreOS | 베타 |
 | CoreOS | CoreOS | Stable |
 | MicrosoftDynamicsNAV | DynamicsNAV | 2015 |
@@ -35,8 +35,8 @@
 | msopentech | Oracle-Database-12c-Weblogic-Server-12c | Enterprise |
 | MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-DW |
 | MicrosoftSQLServer | SQL2014-WS2012R2 | Enterprise-Optimized-for-OLTP |
-| Canonical | UbuntuServer | 12.04.5-LTS |
-| Canonical | UbuntuServer | 14.04.2-LTS |
+| Canonical | UbuntuServer | 12\.04.5-LTS |
+| Canonical | UbuntuServer | 14\.04.2-LTS |
 | MicrosoftWindowsServer | WindowsServer | 2012-Datacenter |
 | MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter |
 | MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 |
@@ -174,8 +174,8 @@ PowerShell에서 이 작업을 수행하려면 먼저 Azure PowerShell의 리소
 
 다음은 예제입니다.
 
-	PS C:\> $locName="West US"
-	PS C:\> Get-AzureVMImagePublisher -Location $locName | Select PublisherName
+	PS C:> $locName="West US"
+	PS C:> Get-AzureVMImagePublisher -Location $locName | Select PublisherName
 	
 	PublisherName
 	-------------
@@ -193,8 +193,8 @@ PowerShell에서 이 작업을 수행하려면 먼저 Azure PowerShell의 리소
 
 게시자가 "MicrosoftWindowsServer"인 경우:
 
-	PS C:\> $pubName="MicrosoftWindowsServer"
-	PS C:\> Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+	PS C:> $pubName="MicrosoftWindowsServer"
+	PS C:> Get-AzureVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 	
 	Offer
 	-----
@@ -202,8 +202,8 @@ PowerShell에서 이 작업을 수행하려면 먼저 Azure PowerShell의 리소
 
 "WindowsServer" 제품인 경우:
 
-	PS C:\> $offerName="WindowsServer"
-	PS C:\> Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+	PS C:> $offerName="WindowsServer"
+	PS C:> Get-AzureVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 	
 	Skus
 	----
@@ -227,4 +227,4 @@ PowerShell에서 이 작업을 수행하려면 먼저 Azure PowerShell의 리소
 [msn]: http://search.msn.com/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

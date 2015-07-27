@@ -1,7 +1,6 @@
 <properties
 	pageTitle="기계 학습 스튜디오로 데이터 가져오기 | Microsoft Azure"
 	description="다양한 데이터 원본에서 Azure 기계 학습 스튜디오로 학습 데이터를 가져오는 방법. 지원되는 데이터 형식에 대해 알아봅니다."
-	keywords="import data,data format,data types,data sources,training data"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -144,4 +143,4 @@ OData URL을 지정하여 데이터 피드 공급자로부터 직접 데이터�
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

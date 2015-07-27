@@ -35,27 +35,9 @@
 
 ## API 앱 프로젝트 만들기
 
-1. Visual Studio 2013을 엽니다.
+프로젝트의 이름을 입력하라는 지침이 있으면 *ContactsList*를 입력합니다.
 
-2. **파일 > 새 프로젝트**를 선택합니다.
-
-3. **ASP.NET 웹 응용 프로그램** 템플릿을 선택합니다.
-
-4. **프로젝트에 Application Insights 추가** 확인란의 선택이 취소되었는지 확인하십시오.
-
-4. 프로젝트의 이름을 *ContactsList*로 지정합니다.
-
-	![](./media/app-service-dotnet-create-api-app/01-filenew-v3.png)
-
-5. **확인**을 클릭합니다.
-
-6. **새 ASP.NET 프로젝트** 대화 상자에서 **Azure API 앱** 프로젝트 템플릿을 선택합니다.
-
-	![](./media/app-service-dotnet-create-api-app/02-api-app-template-v3.png)
-
-7. **확인**을 클릭하여 프로젝트를 생성합니다.
-
-Visual Studio에서 API 앱으로 배포하기 위해 구성된 Web API 프로젝트를 만듭니다.
+[AZURE.INCLUDE [app-service-api-create](../../includes/app-service-api-create.md)]
 
 [AZURE.INCLUDE [app-service-api-review-metadata](../../includes/app-service-api-review-metadata.md)]
 
@@ -68,4 +50,4 @@ Visual Studio에서 API 앱으로 배포하기 위해 구성된 Web API 프로�
 이제 API 앱을 배포할 준비가 되었으며 [API 앱 배포](app-service-dotnet-deploy-api-app.md) 자습서에 따라 API 앱을 배포할 수 있습니다.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

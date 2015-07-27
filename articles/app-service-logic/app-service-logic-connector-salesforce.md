@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Salesforce 커넥터" 
-   description="Salesforce 커넥터를 사용하는 방법" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="sutalasi" 
-   manager="dwrede" 
+<properties
+   pageTitle="Salesforce 커넥터"
+   description="Salesforce 커넥터를 사용하는 방법"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,22 +12,22 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 #논리 앱에서 Saleforce 커넥터 사용#
 
 논리 앱은 다양한 데이터 원본을 기반으로 트리거하고 흐름의 일부로 데이터를 가져오고 처리하기 위한 커넥터를 제공할 수 있습니다. Salesforce 커넥터를 사용하여 다양한 엔터티(예: 계정, 잠재 고객 등)를 만들고 수정할 수 있습니다. 다음은 Salesforce와 관련된 일반적인 통합 시나리오입니다.
 
-- Salesforce와 ERP 시스템(예: SAP, QuickBooks) 간의 계정 동기화	
+- Salesforce와 ERP 시스템(예: SAP, QuickBooks) 간의 계정 동기화
 
 - Salesforce에서 ERP 시스템으로의 주문 결제(Order to Cash) 흐름
 
 
 커넥터 패키지 설정의 일부로, 사용자가 커넥터에서 관리할 수 있는 엔터티를 지정할 수 있으며, 작업, 입력 및 출력 매개 변수가 동적으로 채워집니다. 다음은 Salesforce 커넥터에서 사용할 수 있는 다양한 작업입니다.
- 
+
 - 엔터티 만들기- 계정 또는 사용자 지정 개체와 같은 새 Salesforce 엔터티를 만들려면 이 작업을 사용합니다.
 
 - 엔터티 업데이트 - 기존 Salesforce 엔터티를 업데이트하려면 이 작업을 사용합니다.
@@ -133,7 +133,4 @@ Salesforce에서 계정을 만들고 동일한 계정의 청구 주소 정보를
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

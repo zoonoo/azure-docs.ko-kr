@@ -28,10 +28,7 @@ Azure 관리 포털을 처음 열면 **모든 항목** 탭이 자동으로 표�
 그러면 다음 탭이 포함된 새 창이 열립니다. 이 항목에서는 이러한 탭에 대해 설명합니다.
 
 ## 빠른 시작(![빠른 시작][QuickStart])
-BizTalk 서비스 버전에 따라 나열된 일부 옵션을 사용하지 못할 수도 있습니다.
-<table border="1">
-    <tr>
-        <td><strong>도구 얻기</strong></td>
+BizTalk 서비스 버전에 따라 나열된 일부 옵션을 사용하지 못할 수도 있습니다. <table border="1"> <tr> <td><strong>도구 얻기</strong></td>
 
         <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premises development computer. These templates create the <strong>BizTalk Services</strong> (bridge) and the <strong>BizTalk Service Artifacts</strong> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
         <br/><br/>
@@ -236,20 +233,10 @@ BizTalk 서비스 이름을 선택하면 다음 항목이 표시된 모니터 �
 
 ##### 그래프에서 메트릭을 제거하거나 표시하려면
 1. **모니터** 탭을 선택합니다.
-2. 작업 표시줄에서 **메트릭 추가**를 선택합니다.
-<br/>
-![메트릭 추가 선택][AddMetrics]
+2. 작업 표시줄에서 **메트릭 추가**를 선택합니다. <br/> ![메트릭 추가 선택][AddMetrics]
 3. 표시할 성능 메트릭을 선택합니다.
 4. 확인 표시를 선택하여 **모니터** 탭으로 돌아갑니다.
-5. 메트릭 옆에 있는 원을 선택하여 그래프에 메트릭 값을 표시합니다.
-<br/>
-예를 들어 **CPU 사용량** 메트릭이 회색으로 표시되면 이 메트릭의 출력이 그래프에 표시되지 않습니다.
-<br/>
-![CPU 사용량 메트릭이 회색으로 표시됨][GrayedMetric]
-<br/>
-**CPU 사용량** 메트릭의 출력을 그래프에 표시하려면 회색으로 표시된 원을 선택합니다.
-<br/>
-![CPU 사용량 메트릭 사용][EnabledMetric]
+5. 메트릭 옆에 있는 원을 선택하여 그래프에 메트릭 값을 표시합니다. <br/> 예를 들어 **CPU 사용량** 메트릭이 회색으로 표시되면 이 메트릭의 출력이 그래프에 표시되지 않습니다. <br/> ![CPU 사용량 메트릭이 회색으로 표시됨][GrayedMetric] <br/> **CPU 사용량** 메트릭의 출력을 그래프에 표시하려면 회색으로 표시된 원을 선택합니다. <br/> ![CPU 사용량 메트릭 사용][EnabledMetric]
 
 6. 디스플레이 그래프 및 목록에서 메트릭을 제거하려면 작업 표시줄에서 **메트릭 삭제**를 선택합니다. 목록에 메트릭을 다시 추가하려면 작업 표시줄에서 **메트릭 추가**를 선택하고 메트릭을 선택한 후 확인 표시를 선택하여 **모니터** 탭으로 돌아갑니다. 회색으로 표시된 원을 선택하면 해당 메트릭이 활성화됩니다.
 
@@ -368,4 +355,4 @@ Azure BizTalk 서비스에서 하이브리드 연결을 만들거나 관리하�
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

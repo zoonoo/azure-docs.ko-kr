@@ -386,4 +386,4 @@ HDInsight 프로비저닝 클러스터를 프로비전할 때 기본값을 변�
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

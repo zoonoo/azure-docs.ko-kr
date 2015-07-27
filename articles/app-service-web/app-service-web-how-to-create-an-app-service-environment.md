@@ -26,6 +26,7 @@ ASE 기능은 기본적으로 고객의 VNET에 Azure 앱 서비스를 배포합
 
 - 지역 VNET에 512개(/23) 이상의 주소가 있어야 합니다.
 - 이 VNET의 서브넷에 256개(/24) 이상의 주소가 있어야 합니다.
+- 서브넷은 **다른 어떠한 계산 리소스를 포함해서는 안됩니다**. 하나의 앱 서비스 환경에만 서브넷에 배포할 수 있습니다. 다른 계산 리소스가 서브넷에 이미 있는 경우 만들기 시도가 실패 합니다.
 
 앱 서비스 환경을 호스트하는 데 사용할 VNET이 아직 없는 경우 앱 서비스 환경을 생성하는 동안 만들 수 있습니다.
 
@@ -142,4 +143,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

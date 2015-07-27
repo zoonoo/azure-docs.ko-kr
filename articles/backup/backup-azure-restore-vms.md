@@ -4,7 +4,7 @@
 	description="Azure 가상 컴퓨터 복원 방법 알아보기"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/27/2015"
-	ms.author="aashishr"/>
+	ms.author="trinadhk"/>
 
 # 가상 컴퓨터 복원
 복원 동작을 사용하여 Azure 백업 자격 증명에 저장된 백업을 통해 새 VM에 가상 컴퓨터를 복원할 수 있습니다.
@@ -90,7 +90,7 @@
 
 ![복원 작업 완료](./media/backup-azure-restore-vms/restore-job-complete.png)
 
-가상 컴퓨터를 복원한 후 원래 VM에 있던 확장을 다시 설치하고 Azure 포털에서 가상 컴퓨터에 대한 [끝점을 다시 만들어야](virtual-machines-set-up-endpoints) 할 수도 있습니다.
+가상 컴퓨터를 복원한 후 원래 VM에 있던 확장을 다시 설치하고 Azure 포털에서 가상 컴퓨터에 대한 [끝점을 수정](virtual-machines-set-up-endpoints) 할 수도 있습니다.
 
 ## 문제 해결
 대부분의 오류에 대해 오류 정보에 제시된 권장 조치를 따를 수 있습니다. 문제 해결에 도움이 되는 몇 가지 추가 사항은 다음과 같습니다.
@@ -104,4 +104,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

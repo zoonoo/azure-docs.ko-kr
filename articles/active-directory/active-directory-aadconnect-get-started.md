@@ -25,6 +25,7 @@
 
 다음 설명서는 Azure Active Directory Connect를 시작하는 데 유용합니다. 이 문서에서는 Azure AD 연결을 위해 빠른 설치를 사용하여 처리합니다. 사용자 지정 설치에 대한 내용은 [Azure AD 연결을 위한 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)를 참조하세요. 디렉토리 동기화에서 Azure AD 연결로 업그레이드에 대한 내용은 [디렉토리 동기화를 Azure Active Directory 연결로 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md)를 참조하세요.
 
+
 ## Azure AD Connect 다운로드
 
 
@@ -41,6 +42,21 @@ Azure AD Connect를 사용하여 시작하려면 [Azure AD Connect 다운로드]
 - Windows Server 2008 이상에서 사용되는 AD 도메인 컨트롤러 또는 구성원 서버
 - 로컬 Active Directory에 대한 엔터프라이즈 관리자 계정
 - 선택 사항: 동기화를 확인할 테스트 사용자 계정 
+
+### Azure AD Connect의 하드웨어 요구 사항
+아래 표는 Azure AD Connect 컴퓨터의 최소 요구 사항을 보여 줍니다.
+
+| Active Directory의 개체 수 | CPU | 메모리 | 하드 드라이브 크기 |
+| ------------------------------------- | --- | ------ | --------------- |
+| 10,000개 미만 | 1\.6GHz | 4GB | 70GB |
+| 10,000–50,000개 | 1\.6GHz | 4GB | 70GB |
+| 50,000–100,000개 | 1\.6GHz | 16GB | 100GB |
+| 처음 사용자용 SQL Server가 필요한 100,000개 이상의 개체| | | |
+| 100,000–300,000개 | 1\.6GHz | 32GB | 300GB |
+| 300,000–600,000개 | 1\.6GHz | 32GB | 450GB |
+| 600,000개 초과 | 1\.6GHz | 32GB | 500GB |
+
+
 
 
 여러 포리스트 또는 페더레이션된 로그인과 같은 사용자 지정 옵션은 [여기](active-directory-aadconnect-get-started-custom.md)에서 추가 요구 사항에 관해 알아보세요.
@@ -92,6 +108,10 @@ Azure AD Connect를 성공적으로 설치한 후 Azure 포털에 로그인하�
 ## 다음 작업
 이제 Azure AD Connect가 설치되었으며 [여기](active-directory-aadconnect-whats-next.md) 링크를 사용하여 Azure AD Premium 또는 엔터프라이즈 이동성 라이선스를 할당 또는 추가 옵션 구성과 같은 사후 설치 작업을 진행할 수 있습니다.
 
+**추가 리소스**
+
+[디렉터리 통합 도구 비교](active-directory-aadconnect-get-started-tools-comparison.md)
+
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -1,24 +1,26 @@
 <properties
    pageTitle="Azure 리소스 관리자 템플릿 작성"
    description="응용 프로그램을 Azure에 배포하는 선언적 JSON 구문을 사용하여 Azure 리소스 관리자 템플릿을 만듭니다."
-   services="multiple"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="multiple"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/22/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿 작성
 
 Azure 응용 프로그램은 일반적으로 원하는 목표를 충족시키기 위해 리소스(예: 데이터베이스 서버, 데이터베이스 또는 웹 사이트)의 조합이 필요합니다. 각 리소스를 개별적으로 배포하고 관리하는 대신, 응용 프로그램의 모든 리소스를 하나의 조정된 작업으로 배포하고 프로비전하는 Azure 리소스 관리자 템플릿을 만들 수 있습니다. 템플릿에서 응용 프로그램에 필요한 리소스를 정의하고 다양한 환경에 따라 값을 입력하는 배포 매개 변수를 지정합니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다.
+
+이 항목에서는 템플릿의 섹션에 대해 설명합니다. 실제 스키마에 대해서는 [Azure 리소스 관리자 스키마](https://github.com/Azure/azure-resource-manager-schemas)를 참조하세요.
 
 ## 템플릿 형식
 
@@ -401,5 +403,6 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
 - [고급 템플릿 작업](./resource-group-advanced-template.md)
 - [Azure에서 예측 가능하도록 복잡한 응용 프로그램을 배포](app-service-web/app-service-deploy-complex-application-predictably.md)
 - [Azure 리소스 관리자 개요](./resource-group-overview.md)
+- [Azure 리소스 관리자 스키마](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

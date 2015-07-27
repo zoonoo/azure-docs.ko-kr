@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="06/30/2015" 
 	ms.author="omark"/>
 
 # Azure 앱 서비스 정의
-Azure 앱 서비스는 모든 플랫폼과 장치용 웹앱과 모바일 앱을 빠르고 쉽게 빌드하는 데 필요한 모든 사항을 통합하는 유일한 클라우드 서비스입니다. 개발자용으로 빌드된 앱 서비스는 기본 제공 DevOps, Visual Studio Online 및 GitHub와의 연속 통합, 스테이징 및 프로덕션 지원, 자동 패치 적용과 같은 강력한 기능을 갖춘 완전히 관리된 PaaS(platform as a Service)입니다.
+Azure 앱 서비스는 모든 플랫폼과 장치용 웹앱과 모바일 앱을 빠르고 쉽게 빌드하는 데 필요한 모든 사항을 통합하는 유일한 클라우드 서비스입니다. 개발자용으로 빌드된 앱 서비스는 기본 제공 DevOps, Visual Studio Online 및 GitHub와의 연속 통합, 스테이징 및 프로덕션 지원, 자동 패치 적용과 같은 강력한 기능을 갖춘 완전히 관리된 플랫폼입니다.
 
 Azure 앱 서비스는 새로운 기능을 추가하는 동시에 Azure 웹 사이트, Azure 모바일 서비스 및 Azure Biztalk 서비스의 모든 기존 기능을 포함하는 단일 서비스입니다. 이러한 기존 서비스와 앱 서비스의 관계에 대해 [자세히 알아보세요](http://azure.microsoft.com/documentation/services/app-service/).
 
@@ -59,4 +59,4 @@ Azure 앱 서비스를 사용하면 언어를 선택하는 것만큼 쉽습니�
 지금 무료로 [새로운 웹앱을 만드세요](http://go.microsoft.com/fwlink/?LinkId=523751). 신용 카드는 필요하지 않으며 약정이나 수고도 필요하지 않습니다.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

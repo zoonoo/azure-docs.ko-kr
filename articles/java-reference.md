@@ -20,4 +20,4 @@
 
 Java용 Azure 라이브러리의 Javadoc 콘텐츠는 <http://dl.windowsazure.com/javadoc>에서 볼 수 있습니다.
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

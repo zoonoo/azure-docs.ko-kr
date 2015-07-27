@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="Azure 리소스 관리자로 Azure PowerShell 사용" 
 	description="Azure에 리소스 그룹으로 여러 리소스를 배포하려면 Azure PowerShell을 사용합니다." 
-	services="" 
+	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="multiple" 
+	ms.service="azure-resource-manager" 
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="powershell" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="07/15/2015" 
 	ms.author="tomfitz"/>
 
 # Azure 리소스 관리자로 Azure PowerShell 사용
@@ -47,11 +47,11 @@ Azure PowerShell을 사용할 경우 Azure 모듈의 cmdlet을 기본적으로 �
 
 AzureResoureManager 모듈로 전환하려면 다음을 입력합니다.
 
-    PS C:\> Switch-AzureMode -Name AzureResourceManager
+    PS C:> Switch-AzureMode -Name AzureResourceManager
 
 Azure 모듈로 전환하려면 다음을 입력합니다.
 
-    PS C:\> Switch-AzureMode -Name AzureServiceManagement
+    PS C:> Switch-AzureMode -Name AzureServiceManagement
 
 기본적으로 Switch-AzureMode는 현재 세션에만 영향을 줍니다. 스위치를 모든 PowerShell 세션에서 유효하도록 만들려면 Switch-AzureMode의 **전역** 매개 변수를 사용합니다.
 
@@ -59,7 +59,7 @@ Switch-AzureMode cmdlet에 대한 도움말을 보려면 `Get-Help Switch-AzureM
   
 AzureResourceManager 모듈의 cmdlet 목록을 도움말 개요와 함께 가져오려면 다음을 입력합니다.
 
-    PS C:\> Get-Command -Module AzureResourceManager | Get-Help | Format-Table Name, Synopsis
+    PS C:> Get-Command -Module AzureResourceManager | Get-Help | Format-Table Name, Synopsis
 
 출력은 다음 발췌와 유사합니다.
 
@@ -92,11 +92,11 @@ Azure 리소스 관리자 명령 전체 집합에 대 해서는 [Azure 리소스
 
 2. **Switch-AzureMode** cmdlet을 사용하여 AzureResourceManager 및 AzureProfile 모듈에서 cmdlet을 가져옵니다.
 
-        PS C:\> Switch-AzureMode AzureResourceManager
+        PS C:> Switch-AzureMode AzureResourceManager
 
 3. Windows PowerShell 세션에 Azure 계정을 추가하려면 **Add-AzureAccount** cmdlet을 사용합니다.
 
-        PS C:\> Add-AzureAccount
+        PS C:> Add-AzureAccount
 
 Cmdlet가 Azure 계정에 대한 로그인 자격 증명을 유도합니다. 로그인한 다음 Windows PowerShell에 사용할 수 있도록 계정 설정을 다운로드합니다.
 
@@ -114,13 +114,13 @@ Azure 리소스 그룹 템플릿 갤러리의 모든 템플릿을 보려면 **Ge
 
 Powershell 프롬프트에서 다음을 입력합니다.
     
-    PS C:\> Get-AzureResourceGroupGalleryTemplate -Publisher Microsoft
+    PS C:> Get-AzureResourceGroupGalleryTemplate -Publisher Microsoft
 
 cmdlet은 Microsoft를 게시자로 사용하여 갤러리 템플릿 목록을 반환합니다. **Identity** 속성을 사용하여 명령에서 템플릿을 식별합니다.
 
 Microsoft.WebSiteSQLDatabase.0.2.6-preview 템플릿은 유용합니다. 명령을 실행하려면 새 버전이 릴리스되었기 때문에 템플릿의 버전이 약간 달라질 수 있습니다. 최신 버전의 템플릿을 사용합니다. 갤러리 템플릿에 대한 자세한 내용을 보려면 **Identity** 매개 변수를 사용합니다. Identity 매개 변수 값은 템플릿의 ID입니다.
 
-    PS C:\> Get-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.2.6-preview
+    PS C:> Get-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.2.6-preview
 
 이 cmdlet은 요약 및 설명을 포함하여 템플릿에 대한 자세한 정보와 개체를 반환합니다.
 
@@ -132,7 +132,7 @@ Microsoft.WebSiteSQLDatabase.0.2.6-preview 템플릿은 유용합니다. 명령�
 
 Save-AzureResourceGroupGalleryTemplate은 템플릿을 저장하고 경로를 JSON 템플릿 파일의 파일 이름으로 반환합니다.
 
-	PS C:\> Save-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.2.6-preview -Path C:\Azure\Templates\New_WebSite_And_Database.json
+	PS C:> Save-AzureResourceGroupGalleryTemplate -Identity Microsoft.WebSiteSQLDatabase.0.2.6-preview -Path C:\Azure\Templates\New_WebSite_And_Database.json
 
 	Path
 	----
@@ -234,7 +234,7 @@ Save-AzureResourceGroupGalleryTemplate은 템플릿을 저장하고 경로를 JS
 
 이 명령은 **Name** 매개 변수를 사용하여 리소스 그룹에 대한 이름을 지정하고 **Location** 매개 변수를 사용하여 위치를 지정합니다. **Get-AzureLocation** 출력을 사용하여 리소스 그룹에 대한 위치를 선택합니다. 이 명령은 **GalleryTemplateIdentity** 매개 변수를 사용하여 갤러리 템플릿을 지정합니다.
 
-	PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview
+	PS C:> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview
             ....
 
 템플릿 이름을 입력하면 New-AzureResourceGroup이 템플릿을 가져와서 구문 분석하고, 템플릿 매개 변수를 명령에 동적으로 추가합니다. 따라서 템플릿 매개 변수 값을 매우 쉽게 지정할 수 있습니다. 필수 매개 변수 값을 잊은 경우 Windows PowerShell이 값을 묻는 메시지를 표시합니다.
@@ -243,25 +243,25 @@ Save-AzureResourceGroupGalleryTemplate은 템플릿을 저장하고 경로를 JS
 
 매개 변수를 가져오려면 매개 변수 이름을 나타내는 빼기 기호(-)를 입력한 다음 TAB 키를 누릅니다. 또는 매개 변수 이름의 처음 몇 글자(예: siteName)를 입력한 다음 TAB 키를 누릅니다.
 
-    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -si<TAB>
+    PS C:> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -si<TAB>
 
 PowerShell이 매개 변수 이름을 완성합니다. 매개 변수 이름을 순환하려면 TAB 키를 반복해서 누릅니다.
 
-    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName 
+    PS C:> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName 
 
 웹 사이트에 대한 이름을 입력하고 각 매개 변수에 대해 TAB 프로세스를 반복합니다. 기본값이 있는 매개 변수는 선택 사항입니다. 기본값을 적용하려면 명령에서 매개 변수를 생략합니다.
 
 이 템플릿의 sku 매개 변수처럼 템플릿 매개 변수에 열거된 값이 있는 경우 매개 변수 값을 순환하려면 TAB 키를 누릅니다.
 
-    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -sku <TAB>
+    PS C:> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -sku <TAB>
 
-    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -sku Basic<TAB>
+    PS C:> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -sku Basic<TAB>
 
-    PS C:\> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -sku Free<TAB>
+    PS C:> New-AzureResourceGroup -Name TestRG1 -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -sku Free<TAB>
 
 다음은 필수 템플릿 매개 변수와 **Verbose** 공통 매개 변수만 지정하는 New-AzureResourceGroup 명령의 예입니다. **administratorLoginPassword**는 생략됩니다.
 
-	PS C:\> New-AzureResourceGroup -Name TestRG -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -hostingPlanName TestPlan -siteLocation "East Asia" -serverName testserver -serverLocation "East Asia" -administratorLogin Admin01 -databaseName TestDB -Verbose
+	PS C:> New-AzureResourceGroup -Name TestRG -Location "East Asia" -GalleryTemplateIdentity Microsoft.WebSiteSQLDatabase.0.2.6-preview -siteName TestSite -hostingPlanName TestPlan -siteLocation "East Asia" -serverName testserver -serverLocation "East Asia" -administratorLogin Admin01 -databaseName TestDB -Verbose
 
 명령을 입력하면 누락된 필수 매개 변수 **administratorLoginPassword**를 묻는 메시지가 표시됩니다. 암호를 입력하면 보안 문자열 값이 가려집니다. 이 전략은 암호를 일반 텍스트로 제공할 위험을 제거합니다.
 
@@ -280,7 +280,7 @@ PowerShell이 매개 변수 이름을 완성합니다. 매개 변수 이름을 �
 
 - 구독에서 모든 리소스 그룹을 가져오려면 **Get-AzureResourceGroup cmdlet**을 사용합니다.
 
-		PS C:\>Get-AzureResourceGroup
+		PS C:>Get-AzureResourceGroup
 
 		ResourceGroupName : TestRG
 		Location          : eastasia
@@ -292,7 +292,7 @@ PowerShell이 매개 변수 이름을 완성합니다. 매개 변수 이름을 �
 
 - 리소스 그룹에서 리소스를 가져오려면 **Get-AzureResource** cmdlet과 ResourceGroupName 매개 변수를 사용합니다. 매개 변수를 사용하지 않고 Get-AzureResource를 입력하면 Azure 구독에서 모든 리소스를 가져옵니다.
 
-		PS C:\> Get-AzureResource -ResourceGroupName TestRG
+		PS C:> Get-AzureResource -ResourceGroupName TestRG
 		
 		ResourceGroupName : TestRG
 		Location          : eastasia
@@ -315,11 +315,11 @@ PowerShell이 매개 변수 이름을 완성합니다. 매개 변수 이름을 �
 
 - 리소스 그룹에 리소스를 추가하려면 **New-AzureResource** cmdlet을 사용합니다. 이 명령은 TestRG 리소스 그룹에 새 웹 사이트를 추가합니다. 이 명령은 템플릿을 사용하지 않기 때문에 좀 더 복잡합니다. 
 
-        PS C:\>New-AzureResource -Name TestSite2 -Location "North Europe" -ResourceGroupName TestRG -ResourceType "Microsoft.Web/sites" -ApiVersion 2014-06-01 -PropertyObject @{"name" = "TestSite2"; "siteMode"= "Limited"; "computeMode" = "Shared"}
+        PS C:>New-AzureResource -Name TestSite2 -Location "North Europe" -ResourceGroupName TestRG -ResourceType "Microsoft.Web/sites" -ApiVersion 2014-06-01 -PropertyObject @{"name" = "TestSite2"; "siteMode"= "Limited"; "computeMode" = "Shared"}
 
 - 리소스 그룹에 새 템플릿 기반 배포를 추가하려면 **New-AzureResourceGroupDeployment** 명령을 사용합니다.
 
-		PS C:\>New-AzureResourceGroupDeployment ` 
+		PS C:>New-AzureResourceGroupDeployment ` 
 		-ResourceGroupName TestRG `
 		-GalleryTemplateIdentity Microsoft.WebSite.0.2.6-preview `
 		-siteName TestWeb2 `
@@ -328,9 +328,7 @@ PowerShell이 매개 변수 이름을 완성합니다. 매개 변수 이름을 �
 
 ## 리소스 이동
 
-- 리소스 그룹에 기존 리소스를 이동하려면 **Move-AzureResource** 명령을 사용합니다.
-
-		PS C:\> Move-AzureResource -DestinationResourceGroupName TestRG -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OtherExample/providers/Microsoft.ClassicStorage/storageAccounts/examplestorage
+기존 리소스를 새 리소스 그룹으로 이동할 수 있습니다. 예제를 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](resource-group-move-resources.md)을 참조하세요.
 
 ## 리소스 그룹 삭제
 
@@ -399,4 +397,4 @@ AzureResourceManager 모듈에는 오류를 방지하는 데 유용한 cmdlet이
 - [Azure 리소스 관리자를 사용하여 서비스 사용자 인증](./resource-group-authenticate-service-principal.md)
 - [Azure 클래식 포털을 사용하여 새 Azure 서비스 사용자 만들기](./resource-group-create-service-principal-portal.md)
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

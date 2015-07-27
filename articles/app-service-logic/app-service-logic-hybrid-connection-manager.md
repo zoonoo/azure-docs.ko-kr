@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/14/2015" 
+	ms.date="07/08/2015" 
 	ms.author="mandia"/>
 
 # Azure 앱 서비스에서 하이브리드 연결 관리자 사용
@@ -133,4 +133,4 @@ Azure 앱 서비스 커넥터를 사용할 경우 하이브리드 연결 관리�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

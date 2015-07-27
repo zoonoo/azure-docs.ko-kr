@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search" 
-   ms.date="05/25/2015"
+   ms.date="07/10/2015"
    ms.author="heidist"/>
 
 # Azure 검색 서비스 REST API: 버전 2015-02-28-Preview
@@ -795,7 +795,7 @@ Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는
 	</tr>
   	<tr>
 		<td>한국어</td>
-		<td>ko.microsfot</td>
+		<td>ko.microsoft</td>
 		<td>
 		<ul>
 			<li>축소 형태소 분석기(분류 정리)</li>
@@ -2107,4 +2107,4 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

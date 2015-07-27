@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
 # Application Insights에서 종속성 문제 진단
@@ -31,7 +31,7 @@ Java 웹앱 또는 장치 앱과 같은 다른 유형의 경우 TrackDependency 
 기본적으로 종속성 모니터는 현재 다음 유형의 종속성에 대한 호출을 보고합니다.
 
 * SQL 데이터베이스
-* ASP.NET 웹 및 wcf 서비스
+* ASP.NET 웹 및 HTTP 기반 바인딩을 사용하는 WCF 서비스
 * 로컬 또는 원격 HTTP 호출
 * Azure DocumentDb, 테이블, Blob 저장소 및 큐
 
@@ -96,6 +96,33 @@ Azure VM의 경우 Azure 제어판에서 확장 설치 또는 대부분의 컴�
 ![요청 유형을 클릭하고, 인스턴스를 클릭하여 동일한 인스턴스의 다른 보기로 이동하고, 클릭하여 예외 세부 정보를 표시합니다.](./media/app-insights-dependencies/07-faildetail.png)
 
 
+## 사용자 지정 종속성 추적
+
+표준 종속성 추적 모듈은 데이터베이스 및 REST API와 같은 외부 종속성을 자동으로 검색합니다.  
+하지만 일부 추가 구성 요소를 동일한 방식으로 취급할 수 있습니다.
+
+표준 모듈에 의해 사용되는 동일한[TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency)를 사용하여 종속성 정보를 보내는 코드를 작성할 수 있습니다.
+
+예를 들면, 사용자가 직접 작성하지 않은 어셈블리 코드를 작성하는 경우, 응답 시간 기여도를 알아보기 위해 모든 호출의 시간을 잴 수 있습니다. Application Insights에서 종속성 차트에 표시되는 이 데이터를 가지려면, `TrackDependency`을 사용하여 이것을 보냅니다.
+
+```C#
+
+            var success = false;
+            var startTime = DateTime.UtcNow;
+            var timer = System.Diagnostics.Stopwatch.StartNew();
+            try
+            {
+                success = dependency.Call();
+            }
+            finally
+            {
+                timer.Stop();
+                telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+            }
+```
+
+표준 종속성 추적 모듈을 해제 하려는 경우, [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에서 종속성 트래킹 원격 조정 모듈 참조를 삭제합니다.
+
 <!--Link references-->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

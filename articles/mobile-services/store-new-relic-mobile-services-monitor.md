@@ -3,7 +3,7 @@
 	description="New Relic 추가 기능을 사용하여 모바일 서비스를 모니터링하는 방법에 대해 알아봅니다." 
 	documentationCenter="" 
 	authors="stepsic-microsoft-com" 
-	manager="carolz" 
+	manager="carolz"
 	editor="" 
 	services="mobile-services"/>
 
@@ -154,4 +154,4 @@ New Relic 서비스에 등록한 후에는 모바일 서비스에 New Relic Node
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

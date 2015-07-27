@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure에서 예측 가능하도록 복잡한 응용 프로그램을 배포"
-	description="JSON 리소스 그룹 템플릿 및 PowerShell 스크립트를 사용하여 단일 단위 및 예측 가능한 방식으로 Azure에서 복잡한 응용 프로그램을 배포하는 방법을 알아봅니다."
+	pageTitle="Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포"
+	description="PowerShell 스크립팅과 JSON 리소스 그룹을 사용한 예측 가능한 방법으로 Azure 앱 서비스 내에서 마이크로 서비스로 구성된 응용 프로그램을 배포하는 방법을 배워봅시다."
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
@@ -13,21 +13,21 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
+	ms.date="07/08/2015"
 	ms.author="cephalin"/>
 
 
-# Azure에서 예측 가능하도록 복잡한 응용 프로그램을 배포 #
+# Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포 #
 
-이 자습서에서는 JSON 리소스 그룹 템플릿 및 PowerShell 스크립트를 사용하여 단일 단위 및 예측 가능한 방식으로 Azure에서 복잡한 응용 프로그램을 배포하는 방법을 알아봅니다.
+이 자습서에서는 PowerShell 스크립팅과 JSON 리소스 그룹을 사용한 예측 가능한 방법으로 [Azure 앱 서비스](/services/app-service/) 내에서 [마이크로 서비스](https://en.wikipedia.org/wiki/Microservices)로 구성된 응용 프로그램의 프로비젼 및 배포하는 방법을 보여줍니다.
 
-DevOps에서 반복성 및 예측 가능성은 대규모의 복잡한 응용 프로그램을 성공적으로 배포할 수 있는 열쇠입니다. [Azure 앱 서비스](/services/app-service/)는 웹 앱, 모바일, API 및 논리 앱을 포함하는 복잡한 응용 프로그램을 만들 수 있습니다. [Azure 리소스 관리자](../resource-group-overview.md)는 하나의 단위로써 이러한 응용 프로그램의 모든 구성 요소를 관리할 수 있습니다. 이제 JSON 템플릿과 간단한 PowerShell 스크립팅을 사용하여 이러한 복잡한 응용 프로그램을 배포할 수 있습니다.
+고도로 분리된 마이크로 서비스로 구성된 고확장성 응용 프로그램을 프로비전 및 배포할 때 반복성과 예측 가능성이 관건입니다. [Azure 앱 서비스](/services/app-service/)는 웹앱, 모바일 앱, API 앱 및 논리 앱을 포함한 마이크로 서비스를 생성하게 해줍니다. [Azure 리소스 관리자](../resource-group-overview.md)는 데이터베이스와 소스 제어 설정과 같은 리소스 종속성과 함께 모든 마이크로 서비스를 하나의 유닛으로 관리할 수 있도록 해줍니다. 이제 JSON 템플릿과 간단한 PowerShell 스크립팅을 사용하여 이러한 응용 프로그램을 배포할 수 있습니다.
 
 ## 수행할 사항 ##
 
 자습서에서는 포함된 응용 프로그램을 배포합니다.
 
--	두 웹 앱
+-	두 가지 웹앱(즉, 두 개의 마이크로 서비스)
 -	백 엔드 SQL 데이터베이스
 -	앱 설정, 연결 문자열 및 소스 제어
 -	Application insights, 경고, 자동 크기 조정 설정
@@ -90,7 +90,7 @@ Azure PowerShell 설치는 버전 0.8.0부터 Azure 모듈 외에도 Azure 리�
 
 	![](./media/app-service-deploy-complex-application-predictably/gettemplate-4-portalresourcegroupclicked.png)
  
-Azure 리소스 관리자의 자동화된 오케스트레이션이 설정한 모든 구성 요소, 종속성, 설정, 데이터베이스 및 지속적인 게시와 함께 완벽하게 배포된 복잡한 응용 프로그램에 대해 몇 분 동안 보았습니다. 이 모든 작업은 두 가지로 수행되었습니다.
+Azure 리소스 관리자의 자동화된 오케스트레이션이 설정한 모든 구성 요소, 종속성, 설정, 데이터베이스 및 지속적인 게시와 함께 완벽하게 배포된 두 가지 마이크로 서비스 응용 프로그램에 대해 몇 분 동안 보았습니다. 이 모든 작업은 두 가지로 수행되었습니다.
 
 -	Azure 단추에 배포
 -	리포지토리 루트에 azuredeploy.json
@@ -274,7 +274,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 2.	템플릿 파일에 맞는 매개 변수 파일 생성
 3.	매개 변수 파일로 템플릿 파일 배포
 
-마지막 단계는 PowerShell cmdlet이 쉽게 수행합니다. 응용 프로그램을 배포하는 경우 Visual Studio의 역할을 참고하려면 Scripts\Deploy AzureResourceGroup.ps1를 엽니다. 여기에 코드가 많지만 매개 변수 파일로 템플릿 파일을 배포하기 위해 필요한 모든 관련 코드에 강조를 표시하겠습니다.
+마지막 단계는 PowerShell cmdlet이 쉽게 수행합니다. 응용 프로그램을 배포하는 경우 Visual Studio의 역할을 참고하려면 Scripts\\Deploy AzureResourceGroup.ps1를 엽니다. 여기에 코드가 많지만 매개 변수 파일로 템플릿 파일을 배포하기 위해 필요한 모든 관련 코드에 강조를 표시하겠습니다.
 
 ![](./media/app-service-deploy-complex-application-predictably/deploy-12-powershellsnippet.png)
 
@@ -282,7 +282,11 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 
 ## 요약 ##
 
-DevOps에서 반복성 및 예측 가능성은 대규모의 복잡한 응용 프로그램을 성공적으로 배포할 수 있는 열쇠입니다. 이 자습서에서는 Azure 리소스 관리자 템플릿을 사용하여 Azure에 단일 리소스 그룹으로 응용 프로그램을 배포했습니다. Azure에서 복잡한 응용 프로그램을 템플릿으로 변환하고 예측 가능한 방식으로 배포하기 위해 필요한 정보를 제공했습니다.
+DevOps에서 반복성 및 예측 가능성은 마이크로 서비스로 구성하는 확장성이 뛰어난 응용 프로그램의 모든 성공적인 배포의 열쇠입니다. 이 자습서에서는 Azure 리소스 관리자 템플릿을 사용하여 Azure에 단일 리소스 그룹으로 두 microservies 응용 프로그램을 배포했습니다. 응용 프로그램을 템플릿으로 변환하고 예측 가능한 방식으로 프로비전하고 배포하기 위해 필요한 정보를 제공했습니다.
+
+## 다음 단계 ##
+
+[agile 방법론을 적용하고 지속적으로 간단히 마이크로 서비스 응용 프로그램을 게시](app-service-agile-software-development.md)하는 방법을 알아봅시다.
 
 <a name="resources"></a>
 ## 추가 리소스 ##
@@ -300,4 +304,4 @@ DevOps에서 반복성 및 예측 가능성은 대규모의 복잡한 응용 프
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

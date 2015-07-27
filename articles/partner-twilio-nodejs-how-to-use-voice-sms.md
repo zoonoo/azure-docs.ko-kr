@@ -233,4 +233,4 @@ Azure에서 node.js와 Twilio 해킹을 즐기시기를 바랍니다.
 [pair]: http://www.twilio.com/blog/2013/06/pair-programming-in-the-browser-with-twilio.html
 [azure-admin-console]: ./media/partner-twilio-nodejs-how-to-use-voice-sms/twilio_1.png
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

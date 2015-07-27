@@ -118,7 +118,7 @@ Azure 구독에 연결하려면 다음을 입력합니다.
 
 - 아래 명령을 입력하면 리소스 그룹 수준에서 역할 할당이 생성됩니다.
 
-    `PS C:\> azure role assignment create --upn <user's email> -o Contributor -g group1`
+    `PS C:> azure role assignment create --upn <user's email> -o Contributor -g group1`
 
 - 아래 명령을 입력하면 리소스 수준에서 역할 할당이 생성됩니다.
 
@@ -128,8 +128,8 @@ Azure 구독에 연결하려면 다음을 입력합니다.
 
 계정에 역할이 할당되었음을 확인한 후에는 다음 명령을 실행하여 이러한 역할 할당을 통해 부여되는 권한을 실제로 확인할 수 있습니다.
 
-    PS C:\> azure group list
-    PS C:\> azure resource list
+    PS C:> azure group list
+    PS C:> azure resource list
 
 이 두 cmdlet은 읽기 권한이 있는 리소스 그룹 또는 리소스만 반환하며, 사용자가 소유한 권한도 표시합니다.
 
@@ -141,11 +141,11 @@ Azure CLI를 사용하여 역할 기반 액세스 제어를 관리하는 방법�
 
 - [Azure의 역할 기반 액세스 제어](../role-based-access-control-configure.md)
 - [Azure CLI 설치 및 구성](../xplat-cli.md)
-- [리소스 관리에서 Azure CLI 사용](../xplat-cli-azure-resource-manager.md)
+- [리소스 관리자에서 Azure CLI 사용](../xplat-cli-azure-resource-manager.md)
 - [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-preview-portal-using-resource-groups.md): Azure 관리 포털에서 리소스 그룹을 만들고 관리하는 방법에 대해 알아봅니다.
 - [Azure 블로그](http://blogs.msdn.com/windowsazure): Azure의 새로운 기능에 대해 알아봅니다.
 - [Windows PowerShell을 사용하여 역할 기반 액세스 제어 구성](role-based-access-control-powershell.md)
 - [역할 기반 액세스 제어 문제 해결](role-based-access-control-troubleshooting.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

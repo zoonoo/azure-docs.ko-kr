@@ -1004,4 +1004,4 @@ lesson1을 완성했습니다. 이 단원에서는 MediaElement 컨트롤을 사
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

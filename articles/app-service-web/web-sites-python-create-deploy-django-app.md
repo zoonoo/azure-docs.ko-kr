@@ -423,7 +423,7 @@ Django에는 정적 파일 수집 개념이 있습니다. 이는 모든 정적 �
 
 Django 응용 프로그램에 대한 정적 파일 수집을 건너뛰려는 경우:
 
-    .skipDjango
+    \.skipDjango
 
 그런 다음 로컬 컴퓨터에서 수동으로 수집을 수행해야 합니다.
 
@@ -515,4 +515,4 @@ SQL 데이터베이스 및 MySQL 사용에 대한 자세한 정보:
 [Django 설명서]: https://www.djangoproject.com/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

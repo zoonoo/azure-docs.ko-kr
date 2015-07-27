@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="06/30/2015" 
 	ms.author="stefsh"/>
 
 # 앱 서비스 환경에서 백 엔드 리소스에 안전하게 연결 #
@@ -27,6 +27,12 @@
 
 이 모든 시나리오에 대해 앱 서비스 환경에서 실행되는 앱은 다양한 서버 및 리소스에 안전하게 연결할 수 있습니다. 앱 서비스 환경에서 실행되는 앱에서 동일한 가상 네트워크에 있는(또는 동일한 가상 네트워크에 연결된) 개인 끝점으로의 아웃바운드 트래픽은 가상 네트워크를 통해서만 이동합니다. 개인 끝점으로의 아웃바운드 트래픽은 공용 인터넷을 통해 이동하지 않습니다.
 
+## 아웃 바운드 연결 및 DNS 요구 사항 ##
+앱 서비스 환경이 제대로 작동하려면, 동일한 Azure 지역의 SQL 데이터베이스 같은 Azure 저장소의 아웃바운드 액세스가 필요합니다. 가상 네트워크에서 아웃바운드 인터넷 액세스가 차단 될 경우, 앱 서비스 환경은 이러한 Azure 끝점에 액세스 할 수 없습니다.
+
+고객들은 가상 네트워크에서 사용자 지정 DNS 서버를 구성할 수도 있습니다. 앱 서비스 환경은 Azure 끝점을 *.database.windows.net, *.file.core.windows.net 및 *.blob.core.windows.net에서 해결할 수 있어야 합니다.
+
+가상 네트워크의 모든 사용자 지정 DNS 서버는 앱 서비스 환경 생성보다 미리 설치하는 것을 권장합니다. 앱 서비스 환경이 만들어질 때 가상 네트워크의 DNS 구성이 변경될 경우, 앱 서비스 환경 생성 과정에 장애가 발생합니다.
 
 ## SQL Server 가상 컴퓨터에 연결
 일반적인 SQL Server 구성에는 포트 1433에서 수신 대기하는 끝점이 있습니다.
@@ -104,4 +110,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [NetworkAccessControlListExample]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/NetworkAcl01.png
 [DefaultNetworkSecurityRules]: ./media/app-service-app-service-environment-securely-connecting-to-backend-resources/DefaultNetworkSecurityRules01.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -257,4 +257,4 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
 [시작 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

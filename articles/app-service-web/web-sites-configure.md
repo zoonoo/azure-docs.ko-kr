@@ -36,8 +36,7 @@
 **프레임워크 버전**. 앱에서 다음 프레임워크를 사용하는 경우 이러한 옵션을 설정합니다.
 
 - **.NET Framework**: .NET Framework 버전을 설정합니다. 
-- **PHP**: PHP 버전을 설정하거나 ****PHP를 사용하지 않으려면 OFF를 선택합니다.
-- **Java**: Java 버전을 선택하거나 Java를 사용하지 않도록 **끄기**를 선택합니다. **웹 컨테이너** 옵션을 사용하여 Tomcat 및 Jetty 버전 사이에서 선택합니다.
+- **PHP**: PHP 버전을 설정하거나 ****PHP를 사용하지 않으려면 OFF를 선택합니다.- **Java**: Java 버전을 선택하거나 Java를 사용하지 않도록 **끄기**를 선택합니다. **웹 컨테이너** 옵션을 사용하여 Tomcat 및 Jetty 버전 사이에서 선택합니다.
 - **Python**: Python 버전을 설정하거나, Python을 사용하지 않도록 설정하려면 **끄기**를 선택합니다.
 
 기술적인 이유로, 앱에 Java를 사용하도록 설정하면 .NET, PHP 및 Python 옵션은 사용하지 않도록 설정됩니다.
@@ -129,7 +128,7 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 ![](./media/web-sites-configure/configure03.png)
 
 
-전체 FTP 사용자 이름은 “app\username”이며, 여기서 *app*은 사용자의 웹 앱 이름입니다. 사용자 이름은 **필수 항목** 아래 웹 앱 블레이드에 나열되어 있습니다.
+전체 FTP 사용자 이름은 “app\\username”이며, 여기서 *app*은 사용자의 웹 앱 이름입니다. 사용자 이름은 **필수 항목** 아래 웹 앱 블레이드에 나열되어 있습니다.
 
 ![](./media/web-sites-configure/configure02.png)
 
@@ -175,4 +174,4 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!----HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -42,7 +42,7 @@ Python용 Azure SDK는 REST API인 [Azure 서비스 관리 API][svc-mgmt-rest-ap
 
 	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg981929.aspx)를 참조하세요. OpenSSL 매개 변수에 대한 자세한 설명은 [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html)(영문)의 자료를 참조하세요.
+Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](http://msdn.microsoft.com/library/windowsazure/gg981929.aspx)를 참조하세요. OpenSSL 매개 변수에 대한 자세한 설명은 [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html)(영문)의 자료를 참조하세요.
 
 이러한 파일을 만든 후에는 [관리 포털][management-portal]에서 "설정" 탭의 "업로드" 동작을 통해 `.cer` 파일을 Azure에 업로드해야 하고, `.pem` 파일을 저장한 위치를 적어 두어야 합니다.
 
@@ -64,7 +64,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](htt
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-이 명령은 `.cer` 파일을 만들고 만든 파일을 **개인** 인증서 저장소에 설치합니다. 자세한 내용은 [Azure용 관리 인증서 만들기 및 업로드](http://msdn.microsoft.com/ko-kr/library/windowsazure/gg551722.aspx)를 참조하세요.
+이 명령은 `.cer` 파일을 만들고 만든 파일을 **개인** 인증서 저장소에 설치합니다. 자세한 내용은 [Azure용 관리 인증서 만들기 및 업로드](http://msdn.microsoft.com/library/windowsazure/gg551722.aspx)를 참조하세요.
 
 인증서를 만든 후에는 [관리 포털][management-portal]에서 "설정" 탭의 "업로드" 동작을 통해 `.cer` 파일을 Azure에 업로드해야 합니다.
 
@@ -74,7 +74,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](htt
 	from azure.servicemanagement import *
 
 	subscription_id = '<your_subscription_id>'
-	certificate_path = 'CURRENT_USER\my\AzureCertificate'
+	certificate_path = 'CURRENT_USER\\my\\AzureCertificate'
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
@@ -445,4 +445,4 @@ Windows 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [W
 [Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

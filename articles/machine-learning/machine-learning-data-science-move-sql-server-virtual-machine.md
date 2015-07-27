@@ -2,7 +2,6 @@
 	pageTitle="Azure의 SQL Server로 데이터 이동| Microsoft Azure" 
 	description="Azure의 SQL Server로 데이터 이동" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="msolhab" 
 	manager="paulettm" 
@@ -64,7 +63,7 @@
 이 문서에서는 다음 데이터 원본의 데이터를 이동하는 방법에 대해 설명합니다.
   
 1. [플랫 파일](#filesource_to_sqlonazurevm) 
-2. [온-프레미스 SQL Server](#sqlonprem_to_sqlonazurevm)
+2. [온-프레미스 SQL Server에서](#sqlonprem_to_sqlonazurevm)
 
 
 ### <a name="filesource_to_sqlonazurevm"></a>파일 원본
@@ -78,7 +77,7 @@
 
 ### <a name="insert-tables-bcp"></a>명령줄 BCP(대량 복사 유틸리티)
 
-BCP는 SQL Server와 함께 설치되는 명령줄 유틸리티로, 데이터를 이동하는 가장 빠른 방법 중 하나입니다. 모든 SQL Server 버전(온-프레미스 SQL Server, SQL Azure 및 Azure 기반의 SQL Server VM).
+BCP는 SQL Server와 함께 설치되는 명령줄 유틸리티로, 데이터를 이동하는 가장 빠른 방법 중 하나입니다. 이는 모든 SQL Server 버전(온-프레미스 SQL Server, SQL Azure 및 Azure 기반의 SQL Server VM)에서 작동합니다.
 
 > [AZURE.NOTE]**BCP를 사용하려면 데이터가 어디에 있어야 하나요?** 필수 사항은 아니지만 원본 데이터가 포함된 파일을 대상 SQL 서버와 같은 컴퓨터에 배치하면 전송 속도가 빨라집니다(네트워크 속도와 로컬 디스크 IO 속도 차이). [AZCopy](../storage-use-azcopy.md), [Azure 저장소 탐색기](https://azurestorageexplorer.codeplex.com/), Windows 복사/붙여넣기, RDP(원격 데스크톱 프로토콜) 등 다양한 파일 복사 도구를 사용하여 데이터가 포함된 플랫 파일을 SQL Server가 설치된 컴퓨터로 이동할 수 있습니다.
 
@@ -177,7 +176,7 @@ SSIS(SQL Server Integrations Services)를 사용하여 플랫 파일의 데이�
 - SQL Server 데이터 도구에 대한 자세한 내용은 [Microsoft SQL Server 데이터 도구](https://msdn.microsoft.com/data/tools.aspx) 참조  
 - 가져오기/내보내기 마법사에 대한 자세한 내용은 [SQL Server 가져오기 및 내보내기 마법사](https://msdn.microsoft.com/library/ms141209.aspx) 참조
 
-### <a name="sqlonprem_to_sqlonazurevm"></a>온-프레미스 SQL Server의 데이터 이동
+### <a name="sqlonprem_to_sqlonazurevm"></a>온-프레미스 SQL Server에서 데이터 이동
 
 다음과 같은 방법으로 온-프레미스 SQL Server의 데이터를 이동할 수 있습니다.
 
@@ -233,4 +232,4 @@ SQL Server는 다음을 지원합니다.
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

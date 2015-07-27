@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="tdykstra" 
-	writer="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/26/2015" 
 	ms.author="tdykstra"/>
 
 # WebJob으로 백그라운드 작업 실행
@@ -166,7 +165,7 @@ Azure 관리 포털에서 예약된 웹 작업을 만들 수 없지만 해당 �
 
 ## <a name="WHPNotes"></a>참고 사항
 	
-- 2014년 3월부터 무료 모드의 웹 앱은 SCM(배포) 사이트에 대한 요청이 없는 경우 20분 후 시간 초과되고 웹 앱의 포털이 Azure에서 열리지 않을 수 있습니다. 실제 사이트에 대한 요청이 있어도 이는 다시 설정되지 않습니다.
+- 무료 모드의 웹앱은 SCM(배포) 사이트에 대한 요청이 없는 경우 20분 후 시간 초과되고 웹앱의 포털이 Azure에서 열리지 않을 수 있습니다. 실제 사이트에 대한 요청이 있어도 이는 다시 설정되지 않습니다.
 - 연속 작업을 위한 코드는 무한 반복으로 실행되도록 작성되어야 합니다.
 - 연속 작업은 웹 앱이 실행되고 있는 경우에만 계속 실행됩니다.
 - 기본 및 표준 모드에는 무중단 기능이 제공되며, 이 기능을 사용하도록 설정하면 웹 앱이 유휴 상태로 전환되지 않습니다.
@@ -210,4 +209,4 @@ Azure 관리 포털에서 예약된 웹 작업을 만들 수 없지만 해당 �
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

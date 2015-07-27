@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="03/20/2015"
-   ms.author="vagarw"/>
+   ms.date="07/02/2015"
+   ms.author="andalmia"/>
 
 # 논리 앱에 Box Connector 사용
 
@@ -160,4 +160,4 @@ API 앱을 만들고 나면 이제 Box Connector를 논리 앱의 동작으로 �
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

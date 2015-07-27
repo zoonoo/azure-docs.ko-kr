@@ -77,7 +77,7 @@ Azure의 인증 및 구독 관리에 대한 자세한 내용은 [계정, 구독 
 
 4. Azure가 자격 증명 정보를 인증 및 저장한 후 창을 닫습니다.
 
-5. 0.8.6 부터는 회사나 학교 계정 작업을 사용하여 로그인하는 경우, 팝업 창을 사용하지 않도록 다음 명령을 입력할 수 있습니다. 회사나 학교 계정 사용자 이름 및 암호를 입력하기 위한 표준 Windows PowerShell 자격 증명 창이 팝업 창으로 나타납니다.
+5. 0\.8.6 부터는 회사나 학교 계정 작업을 사용하여 로그인하는 경우, 팝업 창을 사용하지 않도록 다음 명령을 입력할 수 있습니다. 회사나 학교 계정 사용자 이름 및 암호를 입력하기 위한 표준 Windows PowerShell 자격 증명 창이 팝업 창으로 나타납니다.
 
         $cred = Get-Credential
         Add-AzureAccount -Credential $cred
@@ -123,7 +123,7 @@ Azure 모듈에는 인증서를 다운로드하고 가져오는 데 도움이 �
 
 4. 메시지가 표시되면 게시 프로필을 다운로드하여 저장하고 .publishsettings 파일의 경로와 이름을 확인합니다. 이 정보는 **Import-AzurePublishSettingsFile** cmdlet을 실행하여 설정을 가져올 때 필요합니다. 기본 위치 및 파일 이름 형식은 다음과 같습니다.
 
-			C:\Users<UserProfile>\Download[*MySubscription*-...]-*downloadDate*-credentials.publishsettings
+			C:\\Users<UserProfile>\\Download\[*MySubscription*-...]-*downloadDate*-credentials.publishsettings
 
 5. 자리 표시자를 Windows 계정 이름과 경로 및 파일 이름으로 대체하여 다음과 유사한 명령을 입력합니다.
 
@@ -260,4 +260,4 @@ Azure 및 Windows PowerShell을 사용하는 방법을 알아볼 수 있는 몇 
 
   [Microsoft Online Services Customer Portal]: https://mocp.microsoftonline.com/site/default.aspx
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

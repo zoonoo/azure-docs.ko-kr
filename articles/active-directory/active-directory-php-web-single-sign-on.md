@@ -131,7 +131,7 @@
 
 5. **New PHP File** 대화 상자에서 파일의 이름을 **secureResource.php**로 지정한 후 **Finish**를 클릭합니다.
 
-6. 새 **secureResource.php** 파일에 다음 코드를 입력하여 **c:\phpLibraries** 경로를 샘플 코드를 다운로드한 루트 위치로 바꿉니다. 루트 위치에는 **simpleSAML.php** 파일 및 **federation** 폴더가 포함되어야 합니다.
+6. 새 **secureResource.php** 파일에 다음 코드를 입력하여 **c:\\phpLibraries** 경로를 샘플 코드를 다운로드한 루트 위치로 바꿉니다. 루트 위치에는 **simpleSAML.php** 파일 및 **federation** 폴더가 포함되어야 합니다.
 
 		<?php
 		ini_set('include_path', ini_get('include_path').';c:\phpLibraries\;');
@@ -203,4 +203,4 @@ PHP 웹 사이트에 Azure Active Directory 및 Single Sign-On을 사용하는 �
 [Azure Active Directory용 PHP 샘플 코드]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

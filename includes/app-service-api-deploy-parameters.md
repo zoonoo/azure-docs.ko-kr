@@ -4,7 +4,7 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 
 ### gatewayName
 
-만들려는 게이트웨이의 이름입니다. 이 게이트웨이에 API 앱을 등록합니다.
+게이트웨이의 이름입니다. 이 게이트웨이에 API 앱을 등록합니다.
 
     "gatewayName": {
       "type": "string"
@@ -12,7 +12,7 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 
 ### apiAppName
 
-만들 API 앱의 이름입니다.
+만들 API 앱의 이름입니다. 이름은 8~50자를 포함해야 합니다.
     
     "apiAppName": {
       "type": "string"
@@ -34,4 +34,4 @@ API 앱에 대한 암호입니다. 이 값은 base64로 인코딩된 문자열�
       "type": "string"
     }
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

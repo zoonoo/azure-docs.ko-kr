@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="SAP 커넥터" 
-   description="SAPConnector를 사용하는 방법" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="harishkragarwal" 
-   manager="dwrede" 
+<properties
+   pageTitle="SAP 커넥터"
+   description="SAPConnector를 사용하는 방법"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="harishkragarwal"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
-   ms.author="hariag"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 # SAP 커넥터 #
@@ -39,7 +39,9 @@ SAP 커넥터를 사용하려면 먼저 ‘SAP 커넥터’ API 앱의 인스턴
 2. "웹 및 모바일 > API 앱"으로 이동하고 "SAP 커넥터"를 검색합니다.
 3. 다음과 같이 구성합니다.
 	1. 첫 번째 블레이드에서 이름, 앱 서비스 계획 등과 같은 일반 세부 정보를 제공합니다.
-	2. 패키지 설정의 일부로 SAP 자격 증명을 제공합니다. 또한 Azure 서비스 버스 연결 문자열을 제공합니다. 이 문자열은 온-프레미스 SAP에 대한 하이브리드 연결을 설정하는 데 사용됩니다. 
+
+	2. 패키지 설정의 일부로 SAP 자격 증명을 제공합니다. 또한 Azure 서비스 버스 연결 문자열을 제공합니다. 이 문자열은 온-프레미스 SAP에 대한 하이브리드 연결을 설정하는 데 사용됩니다.
+
 	3. 시나리오 요구에 따라 RFC, TRFC, BAPI 및 IDOC를 구성해야 합니다. 여러 값을 제공해야 할 경우 쉼표로 구분할 수 있습니다.
 
 ![][1]
@@ -92,7 +94,4 @@ SAP 커넥터는 논리 앱에서 작업/단계로만 사용할 수 있습니다
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

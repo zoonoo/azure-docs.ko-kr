@@ -340,4 +340,4 @@ Azure CLI는 기본 VM 크기로 가상 컴퓨터를 만듭니다. 또한 저장
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

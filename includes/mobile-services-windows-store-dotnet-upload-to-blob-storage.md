@@ -50,7 +50,7 @@
         [JsonProperty(PropertyName = "imageUri")]
         public string ImageUri { get; set; } 
 
-   	>[AZURE.NOTE]TodoItem 개체에 새 속성을 추가하려면 모바일 서비스에서 동적 스키마를 사용하도록 설정해야 합니다. 동적 스키마를 사용하도록 설정한 경우 새 속성에 매핑된 새 열이 TodoItem 테이블에 자동으로 추가됩니다.
+   	>[AZURE.NOTE]JavaScript 백엔드 모바일 서비스에서 TodoItem 개체에 새 속성을 추가하려면 모바일 서비스에서 동적 스키마를 사용하도록 설정했어야 합니다. 동적 스키마를 사용하도록 설정한 경우 새 속성에 매핑된 새 열이 TodoItem 테이블에 자동으로 추가됩니다. .NET 백엔드 모바일 서비스에 대한 자세한 내용은 [.NET 백엔드 모바일 서비스에 대해 데이터 모델을 변경하는 방법](../articles/mobile-services/mobile-services-dotnet-backend-how-to-use-code-first-migrations.md)을 참조하세요.
 
 5. MainPage 클래스에 다음 코드를 추가합니다.
 
@@ -142,4 +142,4 @@
 
    	>[AZURE.NOTE]이미지는 새 항목의 <code>imageUri</code> 속성이 <strong>이미지</strong> 컨트롤에 연결될 때 Blob 저장소 서비스에서 자동으로 다운로드됩니다.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

@@ -1,3 +1,3 @@
 NOAA에서 제공한 시간별 지상 기상 관측(<a href="http://cdo.ncdc.noaa.gov/qclcd_ascii/, merged data from 201304 to 201310">201304부터 201310까지 병합된 데이터</a>).<p> </p>기상 데이터는 2013년 4월-10월 기간에 공항 기상 관측소에서 수행된 관측을 포함합니다. Azure 기계 학습 스튜디오로 업로드하기 전에 데이터 집합은 다음과 같이 처리되었습니다.<ul><li>기상 관측소 ID가 해당 공항 ID에 매핑되었습니다.</li><li>이용객이 가장 많은 70개 공항과 연결되지 않은 기상 관측소가 필터링되었습니다.</li><li>데이터 열이 별도의 Year, Month 및 Day 열로 분할되었습니다.</li><li>AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter 열이 선택되었습니다.</li></ul>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

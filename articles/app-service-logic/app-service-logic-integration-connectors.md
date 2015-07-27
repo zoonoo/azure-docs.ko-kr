@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="07/08/2015" 
 	ms.author="mandia"/>
 
 
 # Microsoft Azure 앱 서비스의 BizTalk 통합 API 앱
+
+> [AZURE.NOTE]이 항목은 사용 중지됩니다. 모든 사용가능한 기본 제공 커넥터 및 API 앱을 보려면 [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)을 참조하세요.
+
+
 Microsoft Azure 앱 서비스(또는 줄여서 앱 서비스)에는 통합 환경에 중요한 여러 BizTalk API 앱이 포함되어 있습니다. 이러한 API 앱은 BizTalk Server 내에서 사용되는 개념과 도구를 기반으로 하지만 이제 Azure 앱 서비스의 일부로 사용할 수 있습니다.
 
 이러한 API 앱 범주 중 하나가 BizTalk 통합 API 앱입니다. BizTalk API 앱을 사용하면 BizTalk Server로 온-프레미스에서 작업하는 것처럼 쉽게 비즈니스 규칙 추가, XML 메시지 변환 및 유효성 검사, 플랫 파일 및 JSON 데이터 인코딩 등의 작업을 수행할 수 있습니다.
@@ -100,7 +104,7 @@ Azure 관리 포털에서 BizTalk API 앱을 엽니다. **작업** 섹션에서 
 
 - 정보 및 오류 이벤트 보기
 - 작업자 프로세스(w3wp)의 메모리 사용 및 스레드 수 보기
-- 응용 프로그램 및 웹 서버 로그 보기\
+- 응용 프로그램 및 웹 서버 로그 보기\\
 
 자세한 내용은 [논리 앱 모니터링](app-service-logic-monitor-your-logic-apps.md)을 참조하세요.
 
@@ -132,6 +136,7 @@ Microsoft Azure 앱 서비스는 이러한 통합 API 앱을 사용할 수 있�
 
 
 ## 추가 커넥터
-[엔터프라이즈 커넥터](app-service-logic-enterprise-connectors.md)<br/> [B2B 커넥터](app-service-logic-b2b-connectors.md)<br/> [소셜 커넥터](app-service-logic-social-connectors.md)<br/> [프로토콜 커넥터](app-service-logic-protocol-connectors.md)<br/> [앱 + 데이터 서비스 커넥터](app-service-logic-data-connectors.md)<br/> [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/><br/> [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=62-->
+[커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/><br/> [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
+
+<!---HONumber=July15_HO3-->

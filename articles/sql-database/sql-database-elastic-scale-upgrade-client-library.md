@@ -1,8 +1,6 @@
 <properties 
-	title="Upgrade to the latest elastic database client library" 
 	pageTitle="최신 탄력적 데이터베이스 클라이언트 라이브러리로 업그레이드" 
 	description="PowerShell 및 C#을 사용한 업그레이드 지침" 
-	metaKeywords="sharding,elastic scale, Azure SQL DB sharding" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
@@ -50,7 +48,7 @@
 
 4. [스크립트 센터](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-Elastic-6442e6a9)에서 탄력적 데이터베이스 클라이언트 업그레이드 스크립틀릿을 다운로드한 다음 DLL이 포함된 것과 같은 폴더에 저장합니다.
 
-5. 해당 폴더의 명령 프롬프트에서 "PowerShell .\upgrade.ps1"을 실행하고 프롬프트의 지시에 따릅니다.
+5. 해당 폴더의 명령 프롬프트에서 "PowerShell .\\upgrade.ps1"을 실행하고 프롬프트의 지시에 따릅니다.
  
 ***옵션 2: C#을 사용하여 메타데이터 업그레이드***
 
@@ -96,4 +94,4 @@ ShardMapManager를 열고 모든 분할에서 반복 실행한 다음, 다음 �
 [1]: ./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

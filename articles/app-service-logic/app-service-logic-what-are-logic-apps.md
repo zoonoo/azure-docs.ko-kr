@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="논리 앱이란 무엇인가요?" 
 	description="앱 서비스 논리 앱에 대해 자세히 알아봅니다." 
-	authors="joshtwist" 
+	authors="kevinlam1" 
 	manager="dwrede" 
 	editor="" 
 	services="app-service\logic" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/24/2015"
-	ms.author="jtwist"/>
+	ms.date="07/08/2015"
+	ms.author="klam"/>
 
 #논리 앱이란 무엇인가요?
 
@@ -32,13 +32,13 @@ Azure 앱 서비스는 웹앱, 모바일 앱 및 통합 앱을 쉽게 빌드할 
 
 비즈니스 프로세스를 자동화하려는 경우(예: 부정적인 트윗을 찾아 내부 여유 시간 채널에 게시하거나 도착 시 SQL의 새 고객 레코드를 CRM 시스템으로 복제) 논리 앱은 클라우드의 개별 데이터 원본을 온-프레미스로 쉽게 통합할 수 있게 해줍니다. [커넥터][connectors]에서 자세한 내용을 검토하고 지금 [시작][create]하여 어떤 작업을 수행할 수 있는지 확인하세요.
 
-또한 [BizTalk API][biztalk] 앱을 사용하면 [규칙 엔진][rules], [거래 업체 관리][tpm] 등의 기능을 통해 성숙한 통합 시나리오로 확장할 수 있습니다.
+또한 [BizTalk API 앱][biztalk]을 사용하면 [규칙 엔진][rules], [거래 업체 관리][tpm] 등의 기능을 통해 성숙한 통합 시나리오로 확장할 수 있습니다.
 
 - **사용하기 쉬운 디자인 도구** - 브라우저에서 종단 간 논리 앱을 디자인할 수 있습니다. 트리거로 시작 - 단순한 일정부터 회사에 대한 트윗이 나타날 때마다까지 다양합니다. 그런 다음 풍부한 커넥터 갤러리를 사용하여 작업을 개수 제한 없이 오케스트레이션합니다.
 
 - **쉽게 SaaS 작성** - 설명하기 쉬운 컴퍼지션 작업도 코드에서 구현하기는 어렵습니다. 논리 앱을 통해 개별 시스템을 쉽게 연결할 수 있습니다. Facebook 또는 Twitter 계정의 활동을 기반으로 하는 작업을 CRM 소프트웨어에서 만들고 싶으세요? 클라우드 마케팅 솔루션을 온-프레미스 청구 시스템에 연결하고 싶으세요? 논리 앱은 이러한 문제에 대한 솔루션을 제공하는 가장 빠르고 신뢰할 수 있는 방법입니다.
 
-- **템플릿으로 신속하게 시작** - 시작하는 데 도움이 되도록 일반적인 몇 가지 솔루션을 신속하게 만들 수 있는 템플릿 갤러리가 제공됩니다. 고급 BizTalk 솔루션부터 간단한 SaaS 연결 및 일부 ‘오락용' 솔루션에 이르기까지 갤러리는 논리 앱의 기능을 이해하는 가장 빠른 방법입니다.
+- **템플릿으로 신속하게 시작** - 시작하는 데 도움이 되도록 일반적인 몇 가지 솔루션을 신속하게 만들 수 있는 [템플릿 갤러리][templates]가 제공됩니다. 고급 BizTalk 솔루션부터 간단한 SaaS 연결 및 일부 ‘오락용' 솔루션에 이르기까지 갤러리는 논리 앱의 기능을 이해하는 가장 빠른 방법입니다.
 
 - **내재된 확장성** - 필요한 커넥터가 보이지 않나요? 논리 앱은 앱 서비스 제품군의 일부이며 API 앱과 함께 작동하도록 설계되었습니다. 커넥터로 사용할 고유한 API 앱을 쉽게 만들 수 있습니다. 전용 앱을 새로 빌드하거나 마켓플레이스에서 공유하여 수익을 창출합니다.
 
@@ -49,7 +49,7 @@ Azure 앱 서비스는 웹앱, 모바일 앱 및 통합 앱을 쉽게 빌드할 
 논리 앱 환경을 구성하는 몇 가지 주요 부분은 다음과 같습니다.
 
 - **워크플로** - 논리 앱은 비즈니스 프로세스를 일련의 단계나 워크플로로 모델링하는 그래픽 방법을 제공합니다.
-- **[커넥터][connectors]** - 논리 앱은 데이터와 서비스에 액세스해야 합니다. 커넥터는 특수 유형의 API 앱입니다. 데이터에 연결하고 작업할 때 도움이 되도록 특별히 생성됩니다. [커넥터 사용][connectors]에서 현재 사용 가능한 커넥터 목록을 확인하세요.
+- **커넥터** - 논리 앱은 데이터와 서비스에 액세스해야 합니다. 커넥터는 특수 유형의 API 앱입니다. 데이터에 연결하고 작업할 때 도움이 되도록 특별히 생성됩니다. [커넥터 사용][connectors]에서 현재 사용 가능한 커넥터 목록을 확인하세요.
 - **트리거** - 일부 커넥터는 트리거로도 작동할 수 있습니다. 트리거는 메일 도착이나 Azure 저장소 계정 변경과 같은 특정 이벤트에 따라 워크플로의 새 인스턴스를 시작합니다.
 -  **동작** - 워크플로에서 트리거 후의 각 단계를 동작이라고 합니다. 각 동작은 일반적으로 커넥터 또는 사용자 지정 API 앱의 작업에 매핑됩니다.
 - **BizTalk** - 고급 통합 시나리오를 위해 Azure 앱 서비스에는 Biztalk의 기능이 포함됩니다. Biztalk는 Microsoft의 업계 선도적인 통합 플랫폼입니다. BizTalk API 앱을 통해 유효성 검사, 변환, 규칙 등을 논리 앱 워크플로에 쉽게 포함할 수 있습니다. 자세한 내용은 [BizTalk API 앱 정의][biztalk]를 참조하세요.
@@ -63,10 +63,10 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [biztalk]: app-service-logic-what-are-biztalk-api-apps.md
 [appservice]: ../app-service/app-service-value-prop-what-is.md
 [create]: app-service-logic-create-a-logic-app.md
-[connectors]: app-service-logic-use-biztalk-connectors.md
-[tpm]: app-service-logic-create-a-trading-partner-agreement
-[rules]: app-service-logic-use-biztalk-rules
-
+[connectors]: app-service-logic-connectors-list.md
+[tpm]: app-service-logic-create-a-trading-partner-agreement.md
+[rules]: app-service-logic-use-biztalk-rules.md
+[templates]: app-service-logic-use-logic-app-templates.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/16/2015" 
+	ms.date="06/30/2015" 
 	ms.author="tdykstra"/>
 
 # .NET 클라이언트의 Azure 앱 서비스에서 API 앱 사용 
@@ -59,27 +59,9 @@
  
 2. Visual Studio에서 콘솔 응용 프로그램 프로젝트를 만듭니다.
  
-### 앱 서비스 SDK에서 생성된 클라이언트 코드 추가
+### <a id="addclient"></a>앱 서비스 SDK에서 생성된 클라이언트 코드 추가
 
-3. **솔루션 탐색기**에서 프로젝트(솔루션이 아님)를 마우스 오른쪽 단추로 클릭하고 **추가 > Azure API 앱 클라이언트**를 선택합니다. 
-
-	![](./media/app-service-api-dotnet-consume/03-add-azure-api-client-v3.png)
-	
-3. **Azure API 앱 클라이언트 추가** 대화 상자에서 **Azure API 앱에서 다운로드**를 클릭합니다.
-
-5. 드롭다운 목록에서 호출할 API 앱을 선택합니다.
-
-7. **확인**을 클릭합니다.
-
-	![생성 화면](./media/app-service-api-dotnet-consume/04-select-the-api-v3.png)
-
-	마법사가 API 메타데이터 파일을 다운로드하고 API 앱을 호출하기 위한 형식화된 인터페이스를 생성합니다.
-
-	![생성 발생](./media/app-service-api-dotnet-consume/05-metadata-downloading-v3.png)
-
-	코드 생성이 완료되고 나면 **솔루션 탐색기**에 API 앱의 이름으로 만들어진 새 폴더가 표시됩니다. 이 폴더에는 클라이언트 클래스 및 데이터 모델을 구현하는 코드가 들어 있습니다.
-
-	![생성 완료](./media/app-service-api-dotnet-consume/06-code-gen-output-v3.png)
+[AZURE.INCLUDE [app-service-api-dotnet-add-generated-client](../../includes/app-service-api-dotnet-add-generated-client.md)]
 
 ### API 앱을 호출하는 코드 추가
 
@@ -116,9 +98,7 @@ API 앱을 호출하려면 다음 예제와 같이 클라이언트 개체를 만
 
 ## Windows 데스크톱 응용 프로그램에서 인증된 호출
 
-이 섹션에서는 Windows 데스크톱 응용 프로그램 프로젝트를 만들고 이 프로젝트에 인증이 필요한 API 앱을 호출하는 코드를 추가합니다. 이 코드는 Oauth 2 *서버 인증 흐름*을 구현합니다. 즉, 클라이언트 응용 프로그램이 아니라 API 앱 게이트웨이가 인증 공급자로부터 토큰을 받습니다.
-
-Azure API 앱은 클라이언트 인증 흐름도 지원합니다. 클라이언트 흐름 인증 시나리오는 나중에 이 자습서에 추가될 예정입니다.
+이 섹션에서는 Windows 데스크톱 응용 프로그램 프로젝트를 만들고 이 프로젝트에 인증이 필요한 API 앱을 호출하는 코드를 추가합니다.
 
 ### API 앱 설정 및 프로젝트 만들기
 
@@ -198,11 +178,31 @@ Azure API 앱은 클라이언트 인증 흐름도 지원합니다. 클라이언�
 
 	![](./media/app-service-api-dotnet-consume/formaftercall.png)
 
+### <a id="client-flow"></a>서버 흐름과 클라이언트 흐름 비교
+
+샘플 응용 프로그램에서는 게이트웨이가 ID 공급자의 액세스 토큰을 가져오는 [서버 흐름](../app-service/app-service-authentication-overview.md#server-flow)을 보여 줍니다. 클라이언트 응용 프로그램이 ID 공급자에서 직접 액세스 토큰을 가져온 후 게이트웨이로 전송하는 [클라이언트 흐름](../app-service/app-service-authentication-overview.md#client-flow)의 경우에는 `SetCurrentUser` 대신 `LoginAsync`를 호출합니다.
+
+다음 코드 예제에서는 `providerAccessToken`이라는 문자열 변수에 ID 공급자의 액세스 토큰이 있고 `idProvider`이라는 문자열 변수에 ID 공급자 표시기("aad", "microsoftaccount", "google", "twitter" 또는 "facebook")가 있다고 가정합니다.
+
+		var appServiceClient = new AppServiceClient(GATEWAY_URL);
+		var providerAccessTokenJSON = new JObject();
+		providerAccessTokenJSON["access_token"] = providerAccessToken;
+		var appServiceUser = await appServiceClient.LoginAsync(idProvider, providerAccessTokenJSON);
+
+		var contactsListClient = appServiceClient.CreateContactsList();
+		var contacts = contactsListClient.Contacts.Get();
+		foreach (Contact contact in contacts)
+		{
+		    textBox1.Text += contact.Name + " " + contact.EmailAddress + System.Environment.NewLine;
+		}
+
 ## 다음 단계
 
 이 문서에서는 .NET 클라이언트에서 **공용(인증됨)** 및 **공용(익명)** 액세스 수준으로 설정된 API 앱을 사용하는 방법을 보여 주었습니다.
 
 .NET 클라이언트에서 API 앱을 호출하는 코드에 대한 추가 예제를 보려면 [Azure Cards](https://github.com/Azure-Samples/API-Apps-DotNet-AzureCards-Sample) 샘플 응용 프로그램을 다운로드하세요.
+
+API 앱에서 인증을 사용하는 방법에 대한 자세한 내용은 [Azure 앱 서비스에서 API 앱 및 모바일 앱 인증](../app-service/app-service-authentication-overview.md)을 참조하세요.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -1,19 +1,19 @@
 <properties
    pageTitle="리소스에 대한 액세스 관리 및 감사"
    description="역할 기반 액세스 제어(RBAC)를 사용하여 Azure에 배포된 리소스의 사용자 권한을 관리합니다."
-   services="azure-portal"
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
    editor=""/>
 
 <tags
-   ms.service="azure-portal"
+   ms.service="azure-resource-manager"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="AzurePortal"
    ms.workload="na"
-   ms.date="06/18/2015"
+   ms.date="07/15/2015"
    ms.author="tomfitz"/>
 
 # 리소스에 대한 액세스 관리 및 감사
@@ -59,7 +59,7 @@ Azure PowerShell 최신 버전을 아직 설치하지 않은 경우 [Azure Power
 
 1. 자격 증명으로 Azure 계정에 로그인합니다. 이 명령은 사용자 계정에 대한 정보를 반환합니다.
 
-        PS C:\> Add-AzureAccount
+        PS C:> Add-AzureAccount
           
         Id                             Type       ...
         --                             ----    
@@ -67,16 +67,16 @@ Azure PowerShell 최신 버전을 아직 설치하지 않은 경우 [Azure Power
 
 2. 여러 구독이 있는 경우 배포에 사용할 구독 ID를 제공합니다.
 
-        PS C:\> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
+        PS C:> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
 
 3. Azure 리소스 관리자 모듈로 전환합니다.
 
-        PS C:\> Switch-AzureMode AzureResourceManager
+        PS C:> Switch-AzureMode AzureResourceManager
 
 ### 사용 가능한 역할 보기
 구독에 사용 가능한 모든 역할을 보려면 **Get AzureRoleDefinition** 명령을 실행합니다.
 
-    PS C:\> Get-AzureRoleDefinition
+    PS C:> Get-AzureRoleDefinition
 
     Name                          Id                            Actions                  NotActions
     ----                          --                            -------                  ----------
@@ -87,7 +87,7 @@ Azure PowerShell 최신 버전을 아직 설치하지 않은 경우 [Azure Power
 ### 구독에 대해 그룹에 읽기 권한자 권한을 부여합니다.
 1. **Get-AzureRoleDefinition** 명령을 실행할 때 역할 이름을 입력하여 **읽기 권한자** 역할 정의를 검토합니다. 할당하려는 작업이 허용되는 작업인지 확인합니다.
 
-        PS C:\> Get-AzureRoleDefinition Reader
+        PS C:> Get-AzureRoleDefinition Reader
    
         Name            Id                            Actions           NotActions
         ----            --                            -------           ----------
@@ -95,11 +95,11 @@ Azure PowerShell 최신 버전을 아직 설치하지 않은 경우 [Azure Power
 
 2. **Get AzureADGroup** 명령을 실행하여 필요한 보안 그룹을 가져옵니다. 구독에서 그룹의 실제 이름을 제공합니다. ExampleAuditorGroup은 아래와 같습니다.
 
-        PS C:\> $group = Get-AzureAdGroup -SearchString ExampleAuditorGroup
+        PS C:> $group = Get-AzureAdGroup -SearchString ExampleAuditorGroup
 
 3. 감사자 보안 그룹에 대한 역할 할당을 만듭니다. 명령이 완료되면 새 역할 할당이 반환됩니다.
 
-        PS C:\> New-AzureRoleAssignment -ObjectId $group.Id -Scope /subscriptions/{subscriptionId}/ -RoleDefinitionName Reader
+        PS C:> New-AzureRoleAssignment -ObjectId $group.Id -Scope /subscriptions/{subscriptionId}/ -RoleDefinitionName Reader
 
         Mail               :
         RoleAssignmentId   : /subscriptions/####/providers/Microsoft.Authorization/roleAssignments/####
@@ -113,32 +113,32 @@ Azure PowerShell 최신 버전을 아직 설치하지 않은 경우 [Azure Power
 ###리소스 그룹에 대해 응용 프로그램에 참가자 권한을 부여합니다.
 1. **Get-AzureRoleDefinition** 명령을 실행할 때 역할 이름을 입력하여 **참가자** 역할 정의를 검토합니다. 할당하려는 작업이 허용되는 작업인지 확인합니다.
 
-        PS C:\> Get-AzureRoleDefinition Contributor
+        PS C:> Get-AzureRoleDefinition Contributor
 
 2. **Get-AzureADServicePrincipal** 명령을 실행하고 구독에서 응용 프로그램 이름을 제공하여 서비스 주체 개체 ID를 가져옵니다. ExampleApplication은 아래와 같습니다.
 
-        PS C:\> $service = Get-AzureADServicePrincipal -SearchString ExampleApplicationName
+        PS C:> $service = Get-AzureADServicePrincipal -SearchString ExampleApplicationName
 
 3. **New-AzureRoleAssignment** 명령을 실행하여 서비스 주체에 대한 역할 할당을 만듭니다.
 
-        PS C:\> New-AzureRoleAssignment -ObjectId $service.Id -ResourceGroupName ExampleGroupName -RoleDefinitionName Contributor
+        PS C:> New-AzureRoleAssignment -ObjectId $service.Id -ResourceGroupName ExampleGroupName -RoleDefinitionName Contributor
 
 Azure Active Directory 응용 프로그램 및 서비스 주체 설정에 대한 자세한 설명은 [Azure 리소스 관리자를 사용하여 서비스 주체 인증](../resource-group-authenticate-service-principal.md)을 참조하십시오.
 
 ###리소스에 대해 사용자에게 소유자 권한을 부여합니다.
 1. **Get-AzureRoleDefinition** 명령을 실행할 때 역할 이름을 입력하여 **소유자** 역할 정의를 검토합니다. 할당하려는 작업이 허용되는 작업인지 확인합니다.
 
-        PS C:\> Get-AzureRoleDefinition Owner
+        PS C:> Get-AzureRoleDefinition Owner
 
 2. 사용자에 대한 역할 할당을 만듭니다.
 
-        PS C:\> New-AzureRoleAssignment -UserPrincipalName "someone@example.com" -ResourceGroupName {groupName} -ResourceType "Microsoft.Web/sites" -ResourceName "mysite" -RoleDefinitionName Owner
+        PS C:> New-AzureRoleAssignment -UserPrincipalName "someone@example.com" -ResourceGroupName {groupName} -ResourceType "Microsoft.Web/sites" -ResourceName "mysite" -RoleDefinitionName Owner
 
 
 ###리소스 그룹의 감사 로그 목록을 표시합니다.
 리소스 그룹에 대한 감사 로그를 얻으려면 **Get-AzureResourceGroupLog** 명령을 실행합니다.
 
-      PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroupName
+      PS C:> Get-AzureResourceGroupLog -ResourceGroup ExampleGroupName
 
 ## Mac, Linux 및 Windows용 Azure CLI를 사용하는 방법
 
@@ -270,4 +270,4 @@ Azure 리소스 관리자 REST API를 통한 역할 기반 액세스 제어를 �
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -50,10 +50,10 @@ Microsoft Azure StorSimple 솔루션에는 다음 구성 요소가 포함됩니�
 
 ## 다음 단계
 
-[StorSimple 구성 요소](https://technet.microsoft.com/library/cc754482.aspx)에 대해 읽고 [StorSimple 릴리스 정보](https://msdn.microsoft.com/library/azure/dn772367.aspx)를 검토합니다.
+[StorSimple 구성 요소](storsimple-components.md)에 대해 알아봅니다.
 
 
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -1,8 +1,6 @@
 <properties 
-	title="" 
 	pageTitle="기계 학습 알고리즘 선택 방법 | Microsoft Azure" 
 	description="클러스터링, 분류 또는 회귀 실험에서 감독 및 자율 학습에 대한 Azure 기계 학습 알고리즘을 선택하는 방법입니다." 
-	keywords="machine learning algorithms,types of machine learning algorithms,types of machine learning,clustering,clustering algorithm"	
 	services="machine-learning"
 	documentationCenter="" 
 	authors="garyericson" 
@@ -216,15 +214,15 @@ SVM은 최근에 여러 클래스에서 작동하도록 조정되었지만 포�
 
 다음 참조에서 모든 유형의 기계 학습 알고리즘에 대한 자세한 정보를 찾을 수 있습니다. 이 문서를 만드는데 여러 정보가 사용되었습니다.
 
-* [기계 학습 분류자 선택](http://blog.echen.me/2011/04/27/choosing-a-machine-learning-classifier/), Edwin Chen.
+* [Choosing a Machine Learning Classifier](http://blog.echen.me/2011/04/27/choosing-a-machine-learning-classifier/), Edwin Chen.
 
 * [Decision Forests for Classification, Regression, Density Estimation, Manifold Learning and Semi-Supervised Learning](http://research.microsoft.com/pubs/155552/decisionForests_MSR_TR_2011_114.pdf), A. Criminisi1, J. Shotton2 and E. Konukoglu (Microsoft Research, 2011) technical report TR-2011-114.
 
-* [신경망을 사용한 비패라메트릭 회귀를 위한 프레임워크](http://ftp.isds.duke.edu/WorkingPapers/00-32.pdf), Herbert K. H. Lee (ISDS, Duke University).
+* [A Framework for Nonparametric Regression Using Neural Networks](http://ftp.isds.duke.edu/WorkingPapers/00-32.pdf), Herbert K. H. Lee (ISDS, Duke University).
 
 * Handbook of Computational Statistics: Concepts and Methods edited by James E. Gentle, Wolfgang Karl Härdle, Yuichi Mori (Springer-Verlag Berlin Heidelberg New York, 2004).
 
-* [10-12세 어린이 사이의 천식 유병율과 연관된 평가 요소에서 로지스틱 회귀 및 선형 판별식 분석: 두 통계 방식의 확산 및 유사성](http://www.hindawi.com/journals/ijpedi/2009/952042/), George Antonogeorgos, Demosthenes B. Panagiotakos, Kostas N. Priftis, and Anastasia Tzonou (International Journal of Pediatrics, 2009) Article ID 952042.
+* [Logistic Regression and Linear Discriminant Analyses in Evaluating Factors Associated with Asthma Prevalence among 10- to 12-Years-Old Children: Divergence and Similarity of the Two Statistical Methods](http://www.hindawi.com/journals/ijpedi/2009/952042/), George Antonogeorgos, Demosthenes B. Panagiotakos, Kostas N. Priftis, and Anastasia Tzonou (International Journal of Pediatrics, 2009) Article ID 952042.
 
 * [The Optimality of Naive Bayes](http://www.aaai.org/Papers/FLAIRS/2004/Flairs04-097.pdf) (University of New Brunswick 2004) Harry Zhang.
 
@@ -264,4 +262,4 @@ SVM은 최근에 여러 클래스에서 작동하도록 조정되었지만 포�
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO3-->

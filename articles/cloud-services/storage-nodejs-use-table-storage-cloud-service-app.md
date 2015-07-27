@@ -50,7 +50,7 @@ Azure 저장소에 액세스하려면 저장소 자격 증명을 전달해야 �
 
 1.  설정이 열려 있지 않은 경우 **모든 프로그램, Azure**를 확장하고 **Azure PowerShell**을 마우스 오른쪽 단추로 클릭한 다음 **관리자 권한으로 실행**을 선택하여 **시작** 메뉴에서 Azure PowerShell을 시작합니다.
 
-2.  응용 프로그램이 포함된 폴더로 디렉터리를 변경합니다. 예: C:\node\tasklist\WebRole1
+2.  응용 프로그램이 포함된 폴더로 디렉터리를 변경합니다. 예: C:\\node\\tasklist\\WebRole1
 
 3.  Azure Powershell 창에서 다음 cmdlet을 입력하여 저장소 계정 정보를 가져옵니다.
 
@@ -321,7 +321,7 @@ Azure 저장소에 액세스하려면 저장소 자격 증명을 전달해야 �
 
 **views** 디렉터리의 **layout.jade** 파일은 다른 **.jade** 파일에 대한 전역 템플릿으로 사용됩니다. 이 단계에서는 멋진 모습의 웹 사이트를 쉽게 디자인할 수 있게 해주는 도구 키트인 [Twitter Bootstrap](https://github.com/twbs/bootstrap)을 사용하도록 이 파일을 수정합니다.
 
-1. [Twitter Bootstrap](http://getbootstrap.com/)용 파일을 다운로드하여 추출합니다. **bootstrap\dist\css** 폴더의 **bootstrap.min.css** 파일을 tasklist 응용 프로그램의 **public\stylesheets** 디렉터리에 복사합니다.
+1. [Twitter Bootstrap](http://getbootstrap.com/)용 파일을 다운로드하여 추출합니다. **bootstrap\\dist\\css** 폴더의 **bootstrap.min.css** 파일을 tasklist 응용 프로그램의 **public\\stylesheets** 디렉터리에 복사합니다.
 
 2. **views** 폴더에 있는 **layout.jade**를 텍스트 편집기에서 열어 내용을 다음으로 바꿉니다.
 
@@ -408,4 +408,4 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 
  
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

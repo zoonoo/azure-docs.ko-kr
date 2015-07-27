@@ -17,11 +17,15 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 
 1. Azure Preview 포털에 로그인합니다.
 
-2. **마켓플레이스** 아이콘을 클릭하거나 대시보드 왼쪽 아래에 있는 **새로 만들기** 아이콘을 클릭하고 맨 아래에서 **웹 + 모바일**, **Azure 마켓플레이스**를 순서대로 선택하여 Azure 마켓플레이스를 엽니다.
+2. Azure 마켓플레이스를 열려면 **Marketplace** 아이콘을 클릭하거나
+
+    ![Marketplace 아이콘][marketplace]
+
+    대시보드 오른쪽 위의 **새로 만들기**를 클릭하고 목록 아래에 있는 **Marketplace**를 선택합니다.
 	
-	![새로 만들기][5]
+    ![새로 만들기][5]
 	
-3. **웹 앱**을 선택합니다. **WordPress**를 검색한 다음 **WordPress** 아이콘을 클릭합니다.
+3. **웹 + 모바일**을 선택합니다. **WordPress**를 검색한 다음 **WordPress** 아이콘을 클릭합니다.
 
 	![목록에서 WordPress][7]
 	
@@ -29,13 +33,17 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 
 6. **웹 앱**을 클릭하고 웹 앱을 구성하는 데 필요한 값을 입력합니다.
 	
-   ![앱 구성][8]
+    ![앱 구성][8]
 
-7. **데이터베이스**을 클릭하고 MySQL 데이터베이스를 구성하는 데 필요한 값을 입력합니다. 
+7. **데이터베이스**를 클릭하고 MySQL 데이터베이스를 구성하는 데 필요한 값을 입력합니다.
 
-   ![데이터베이스 구성][database]
+    ![데이터베이스 구성][database]
 
-8. 필요한 경우 **구독**을 클릭하고 사용할 구독을 지정합니다. 
+8. 새 리소스 그룹에 대한 이름을 입력합니다.
+
+    ![리소스 그룹 설정][groupname]
+
+8. 필요한 경우 **구독**을 클릭하고 사용할 구독을 지정합니다.
 
 7. 웹 앱 정의를 완료한 후 **만들기**를 클릭하고 새 웹 앱이 작성되는 동안 기다립니다.
 
@@ -47,11 +55,11 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 	
 1. 새 웹 앱을 클릭하여 앱에 대한 세부 정보를 확인합니다.
 
-   ![대시보드 시작][10]
+    ![대시보드 시작][10]
 
 2. **Essentials** 페이지에서 **찾아보기**를 클릭하거나 **Url** 아래 링크를 클릭하여 웹 앱 시작 페이지를 엽니다.
 
-   ![사이트 URL][browse]
+    ![사이트 URL][browse]
 
 3. WordPress를 설치하지 않은 경우 WordPress에서 필요한 적절한 구성 정보를 입력하고 **WordPress 설치**를 클릭하여 구성을 완료하고 웹 앱의 로그인 페이지를 엽니다.
 
@@ -66,16 +74,18 @@ Azure 마켓플레이스에서 Microsoft, 타사 및 오픈 소스 소프트웨�
 
 
 
-[5]: ./media/website-from-gallery/startmarketplace.png
+[5]: ./media/website-from-gallery/start-marketplace.png
 [6]: ./media/website-from-gallery/wordpressgallery-02.png
-[7]: ./media/website-from-gallery/selectwordpress.png
-[8]: ./media/website-from-gallery/configureweb.png
+[7]: ./media/website-from-gallery/search-web-app.png
+[8]: ./media/website-from-gallery/set-web-app.png
 [9]: ./media/website-from-gallery/wordpressgallery-05.png
-[10]: ./media/website-from-gallery/seewebapp.png
+[10]: ./media/website-from-gallery/select-web.png
 [13]: ./media/website-from-gallery/wordpressgallery-09.png
 [webapps]: ./media/website-from-gallery/selectwebapps.png
-[database]: ./media/website-from-gallery/configuredb.png
-[resourcegroup]: ./media/website-from-gallery/showgroup.png
-[browse]: ./media/website-from-gallery/browse.png
+[database]: ./media/website-from-gallery/set-db.png
+[resourcegroup]: ./media/website-from-gallery/show-rg.png
+[browse]: ./media/website-from-gallery/browse-web.png
+[marketplace]: ./media/website-from-gallery/marketplace-icon.png
+[groupname]: ./media/website-from-gallery/set-rg.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

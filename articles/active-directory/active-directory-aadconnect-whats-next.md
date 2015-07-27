@@ -94,4 +94,4 @@ Azure AD Sync용으로 만들어진 설명서 중 일부는 Azure AD Connect에�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -159,10 +159,14 @@ Azure 데이터 팩터리 파이프라인 내에서 게시된 [Azure 기계 학�
 		               "timeout":"02:00:00"
 		            }
 		         }
-		        ]
+		        ],
+
+				"start": "2015-02-13T00:00:00Z",
+        		"end": "2015-02-14T00:00:00Z"
 		    }
 		}
 
+	**시작** 및 **끝** 모두는 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)이어야 합니다. 예: 2014-10-14T16:32:41Z. **끝**시간은 선택 사항입니다. **end** 속성 값을 지정하지 않는 경우 "**start + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **end** 속성 값으로 **9999-09-09**를 지정합니다. JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](https://msdn.microsoft.com/library/dn835050.aspx)를 참조하세요.
 
 ## 웹 서비스 매개 변수
 ADF(Azure 데이터 팩터리) 파이프라인에서 게시된 Azure 기계 학습 웹 서비스에 의해 노출되는 웹 서비스 매개 변수를 사용할 수 있습니다. Azure 기계 학습에서 실험을 만들고 웹 서비스로 게시한 다음 웹 서비스 매개 변수를 통해 다른 입력을 전달하여 여러 ADF 파이프라인 또는 작업에서 해당 웹 서비스를 사용할 수 있습니다.
@@ -182,7 +186,7 @@ ADF(Azure 데이터 팩터리) 파이프라인에서 게시된 Azure 기계 학�
 
 	transformation: {
     	webServiceParameters: {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = '{0:yyyy-MM-dd HH:mm:ss}'', Time.AddHours(SliceStart, 0))"
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \'{0:yyyy-MM-dd HH:mm:ss}\'', Time.AddHours(SliceStart, 0))"
     	}
   	}
  
@@ -298,7 +302,7 @@ Azure SQL 판독기와 마찬가지로, Azure SQL 기록기의 속성도 웹 서
 - 기록기 매개 변수('1' 접미사가 있는 매개 변수)는 데이터 팩터리 서비스에 의해 자동으로 채워지지 않습니다. 따라서 작업 JSON의 **webServiceParameters** 섹션에서 이러한 매개 변수의 값을 지정해야 합니다.  
 - **고객 ID**, **점수가 매겨진 레이블** 및 **점수가 매겨진 확률**은 쉼표로 구분된 열로 저장됩니다. 
 - 이 예제의 **데이터 테이블 이름**은 출력 데이터베이스의 테이블에 해당합니다.
-- **시작** 및 **끝** 모두는 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항이지만 이 자습서에서는 사용합니다. **end** 속성 값을 지정하지 않는 경우 "**start + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **end** 속성 값으로 **9999-09-09**를 지정합니다. JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](https://msdn.microsoft.com/library/dn835050.aspx)를 참조하세요.
+- **시작** 및 **끝** 모두는 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)이어야 합니다. 예: 2014-10-14T16:32:41Z. **끝**시간은 선택 사항입니다. **end** 속성 값을 지정하지 않는 경우 "**start + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **end** 속성 값으로 **9999-09-09**를 지정합니다. JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](https://msdn.microsoft.com/library/dn835050.aspx)를 참조하세요.
 
 
 
@@ -324,4 +328,4 @@ Azure SQL 판독기와 마찬가지로, Azure SQL 기록기의 속성도 웹 서
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

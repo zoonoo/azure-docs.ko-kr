@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/07/2015" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리를 사용하여 데이터 복사(복사 작업)
@@ -40,23 +40,15 @@
 ## 지원되는 원본 및 싱크
 복사 작업은 다음과 같은 데이터 이동 시나리오를 지원합니다.
 
-- Azure Blob에서 Azure Blob, Azure 테이블, Azure SQL 데이터베이스, 온-프레미스 SQL Server 또는 IaaS의 SQL Server로 데이터 복사
-- Azure SQL 데이터베이스에서 Azure Blob, Azure 테이블, Azure SQL 데이터베이스, 온-프레미스 SQL Server 또는 IaaS의 SQL Server로 데이터 복사
-- Azure 테이블에서 Azure Blob, Azure 테이블 또는 Azure SQL 데이터베이스로 데이터 복사
-- 온-프레미스 SQL Server/IaaS의 SQL Server에서 Azure Blob 또는 Azure SQL 데이터베이스로 데이터 복사
-- 온-프레미스 Oracle 데이터베이스에서 Azure Blob으로 데이터 복사
-- 온-프레미스 파일 시스템에서 Azure Blob으로 데이터 복사
- 
-
 <table border="1">	
 	<tr>
 		<th><i>원본/싱크<i></th>
 		<th>Azure Blob</th>
 		<th>Azure 테이블</th>
 		<th>Azure SQL 데이터베이스</th>
-		<th>온-프레미스 SQL Server</th>
-		<th>IaaS의 SQL Server</th>
 		<th>Azure DocumentDB</th>
+		<th>Azure VM에서 SQL Server</th>
+		<th>온-프레미스 SQL Server</th>
 	</tr>	
 
 	<tr>
@@ -74,11 +66,10 @@
 		<td>X</td>
 		<td>X</td>
 		<td>X</td>
-		<td></td>
-		<td></td>
+		<td>X</td>
+		<td>X</td>
 		<td>X</td>
 	</tr>	
-
 	<tr>
 		<td><b>Azure SQL 데이터베이스</b></td>
 		<td>X</td>
@@ -88,108 +79,6 @@
 		<td>X</td>
 		<td>X</td>
 	</tr>
-
-
-	<tr>
-		<td><b>온-프레미스 SQL Server</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>IaaS의 SQL Server</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>온-프레미스 파일 시스템</b></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>온-프레미스 Oracle 데이터베이스</b></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>온-프레미스 파일 시스템</b></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>온-프레미스 MySQL 데이터베이스</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>온-프레미스 DB2 데이터베이스</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>온-프레미스 Teradata 데이터베이스</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>온-프레미스 Sybase 데이터베이스</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>온-프레미스 PostgreSQL 데이터베이스</b></td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
 	<tr>
 		<td><b>Azure DocumentDB</b></td>
 		<td>X</td>
@@ -198,6 +87,106 @@
 		<td></td>
 		<td></td>
 		<td></td>
+	</tr>
+
+	<tr>
+		<td><b>온-프레미스 SQL Server</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>Azure VM에서 SQL Server</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>온-프레미스 파일 시스템</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>온-프레미스 Oracle 데이터베이스</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>온-프레미스 파일 시스템</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>온-프레미스 MySQL 데이터베이스</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>온-프레미스 DB2 데이터베이스</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>온-프레미스 Teradata 데이터베이스</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>온-프레미스 Sybase 데이터베이스</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
+	</tr>
+
+	<tr>
+		<td><b>온-프레미스 PostgreSQL 데이터베이스</b></td>
+		<td>X</td>
+		<td>X</td>
+		<td>X</td>
+		<td></td>
+		<td>X</td>
+		<td>X</td>
 	</tr>
 
 </table>
@@ -443,7 +432,7 @@ HTTPS 연결을 제공하는 데이터 저장소의 경우 복사 작업에 대�
 
 **Azure SQL 데이터베이스**의 경우 “메시지 가로채기" 공격을 방지하려면 암호화된 연결을 명시적으로 요청하고 서버 인증서를 신뢰하지 않아야 합니다. 이렇게 하려면 연결 문자열에서 **Encrypt=True** 및 **TrustServerCertificate=False**를 사용합니다. 자세한 내용은 [Azure SQL 데이터베이스 보안 지침 및 제한 사항](https://msdn.microsoft.com/library/azure/ff394108.aspx)을 참조하세요.
 
-**SQL Server**와 같은 기존 데이터베이스는 특히 인스턴스가 Azure 가상 컴퓨터에 있는 경우 연결 문자열에서 **Encrypt=True** 및 **TrustServerCertificate=False**를 사용해 서명된 인증서를 구성하여 암호화된 연결 옵션을 사용하도록 설정합니다. 자세한 내용은 [데이터베이스 엔진에 암호화된 연결 사용](https://msdn.microsoft.com/library/ms191192(v=sql.110).aspx) 및 [연결 문자열 구문](https://msdn.microsoft.com/library/ms254500.aspx)을 참조하십시오.
+**SQL Server**와 같은 기존 데이터베이스는 특히 인스턴스가 Azure 가상 컴퓨터에 있는 경우 연결 문자열에서 **Encrypt=True** 및 **TrustServerCertificate=False**를 사용해 서명된 인증서를 구성하여 암호화된 연결 옵션을 사용하도록 설정합니다. 자세한 내용은 [데이터베이스 엔진에 암호화된 연결 사용](https://msdn.microsoft.com/library/ms191192(v=sql.110)) 및 [연결 문자열 구문](https://msdn.microsoft.com/library/ms254500.aspx)을 참조하십시오.
 
 ## 고급 시나리오
 - **구조 정의를 사용한 열 필터링**. 테이블 유형에 따라서는 기본 데이터 원본에 있는 열보다 적은 수의 열을 테이블 정의의 **Structure** 정의에 지정하여 원본에 있는 열의 하위 집합을 지정할 수 있습니다.
@@ -486,4 +475,4 @@ HTTPS 연결을 제공하는 데이터 저장소의 경우 복사 작업에 대�
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

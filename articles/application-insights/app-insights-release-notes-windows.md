@@ -32,6 +32,33 @@
 * 이전 및 새 버전의 ApplicationInsights.config를 비교합니다. 이전 파일에 대한 모든 사용자 지정을 복구합니다.
 * 솔루션을 다시 빌드합니다.
 
+## Version 1.0.0
+
+### Windows 앱 SDK
+
+- Windows 앱을 새로 초기화 `InitializeAsync()` 메서드를 사용한 새로운 `WindowsAppInitializer` 클래스는 SDK 컬렉션의 초기화를 부트스트래핑을 허용합니다. 이 변경은 보다 정확한 제어 및 이전 ApplicationInsights.config 기법을 통해 중요한 앱 초기화 성능 향상을 가져옵니다.
+- DeveloperMode 더이상 자동으로 설정되지 않습니다. DeveloperMode 동작을 변경하려면 코드에서 지정 해야 합니다.
+- NuGet 패키지는 더이상 ApplicationInsights.config를 삽입하지 않습니다. NuGet 패키지를 수동으로 추가하는 경우 새 WindowsAppInitializer를 사용하는 것을 권장합니다.
+- ApplicationInsights.config은 `<InstrumentationKey>`에 대해 읽기 전용이며, WindowsAppInitializer 설정에 대한 선호도에서 다른 모든 설정은 무시 됩니다.
+- SDK는 Store Market을 자동 수집합니다.
+- 많은 버그를 수정, 안정성 향상, 성능을 강화 시켰습니다.
+
+### 핵심 SDK
+
+- ApplicationInsights.config 파일은 더이상 필요하지 않습니다. 그리고 NuGet 패키지에 의해 추가되지 않습니다. 코드에서 구성을 전체 지정할 수 있습니다.
+- NuGet 패키지를 더이상 솔루션에 대상 파일을 추가할 수 없습니다. 디버그 빌드 동안 Developer Mode의 자동 설정을 제거합니다. DeveloperMode는 코드에서 수동으로 설정해야 합니다.
+
+## 버전 0.17
+
+### Windows 앱 SDK
+
+- Windows 앱 SDK는 이제 VS 2015 RC와 Windows 10 기술 미리 보기에 대해 만든 범용 Windows 앱을 지원 합니다.
+
+### 핵심 SDK
+
+- Telementry클라이언트는 InMemory Channel의 기본값입니다.
+- 새로운 API를 `TelemetryClient.Flush()`에 추가합니다. 이 Flush 메서드는 해당 클라이언트에 기록하는 모든 원격 분석의 업로드 즉시 차단을 트리거합니다. 프로세스 종료 전에 업로드 수동 트리거를 가능하게 합니다.
+- NuGet 패키지에는.Net 4.5 대상이 추가되었습니다. 이 대상은 (제거 BCL 및 EventSource 종속성) 외부 종속성이 없습니다.
 
 ## 버전 0.16 
 
@@ -50,4 +77,4 @@
 
 이전 버전에 대한 릴리스 정보가 없습니다.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

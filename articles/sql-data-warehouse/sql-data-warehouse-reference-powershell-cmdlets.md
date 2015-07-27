@@ -99,4 +99,4 @@ SQL 데이터 웨어하우스는 Azure PowerShell cmdlet 또는 REST API를 사�
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

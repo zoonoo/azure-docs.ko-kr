@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="04/27/2015" 
+	ms.date="07/08/2015" 
 	ms.author="heidist"/>
 
 # Microsoft Azure에서 검색 서비스 관리
@@ -210,4 +210,4 @@ Azure 검색에서는 역할 기반 액세스 제어에 따라 다음 관리 작
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

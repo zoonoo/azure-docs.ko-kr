@@ -107,4 +107,4 @@
 
 > [AZURE.NOTE]위의 코드에서 발신 창 1을 사용하여 메시지가 최대한 빨리 출력되게 합니다. 일반적 응용 프로그램에서는 메시지를 일괄 처리하여 처리량을 늘려야 합니다. 이 환경과 다른 환경 및 바인딩이 제공되는 플랫폼(현재 Perl, PHP, Python 및 Ruby)에서 Qpid Proton 라이브러리를 사용하는 방법에 대한 자세한 내용은 [Qpid AMQP Messenger 페이지](http://qpid.apache.org/components/messenger/index.html)(영문)를 참조하세요.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

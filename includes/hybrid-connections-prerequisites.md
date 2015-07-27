@@ -10,4 +10,4 @@
 
 	자세한 내용은 [하이브리드 연결 개요](../articles/integration-hybrid-connection-overview.md)를 참조하십시오.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

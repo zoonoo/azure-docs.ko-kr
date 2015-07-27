@@ -91,4 +91,4 @@ API 관리에서 개발자는 API 관리 사용을 공개하는 API의 사용자
 [Azure API 관리 시작]: api-management-get-started.md#create-service-instance
 [메일 템플릿 구성]: api-management-howto-configure-notifications.md#email-templates
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

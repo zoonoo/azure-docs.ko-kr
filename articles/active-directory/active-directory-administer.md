@@ -4,7 +4,6 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="Justinha" 
-	writer="Justinha" 
 	manager="TerryLan" 
 	editor="LisaToft"/>
 
@@ -148,4 +147,4 @@ Azure AD에서 디렉터리를 삭제하려면 특정 조건을 충족해야 합
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

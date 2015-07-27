@@ -2,4 +2,4 @@
 
 사이트의 모드를 변경하는 방법을 포함한 앱 서비스 계획 모드에 대한 자세한 내용은 [웹앱 크기를 조정하는 방법](../article/app-service-web/web-sites-scale.md)(영문)을 참조하세요.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

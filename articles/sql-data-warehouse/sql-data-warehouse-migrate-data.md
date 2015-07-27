@@ -89,7 +89,7 @@ PolyBase를 사용하려면 데이터 파일이 UTF-8로 인코딩되어야 합�
 UTF-16을 사용하여 인코딩된 모든 파일은 데이터 전송 ***이전***에 다시 작성해야 합니다.
 
 ### 데이터 파일의 형식
-PolyBase는 \n 또는 새 줄의 고정된 행 종결자를 규정합니다. 데이터 파일은 이 표준을 준수해야 합니다. 문자열 또는 열 종결자에 제한이 없습니다.
+PolyBase는 \\n 또는 새 줄의 고정된 행 종결자를 규정합니다. 데이터 파일은 이 표준을 준수해야 합니다. 문자열 또는 열 종결자에 제한이 없습니다.
 
 PolyBase에서 외부 테이블의 일부로 파일에서 모든 열을 정의해야 합니다. 내보낸 모든 열이 필요하고 해당 형식은 필요한 표준을 준수해야 합니다.
 
@@ -172,9 +172,9 @@ PolyBase 사용한 데이터 로드에 대해 자세히 알려면 [PolyBase를 �
 <!--Image references-->
 
 <!--Article references-->
-[AZCopy]: storage/storage-use-azcopy.md
-[ADF 복사본]: storage/data-factory-copy-activity.md
-[ADF 복사 예제]: data-factory/data-factory-copy-activity-examples.md
+[AZCopy]: ../storage/storage-use-azcopy.md
+[ADF 복사본]: ../data-factory/data-factory-copy-activity.md
+[ADF 복사 예제]: ../data-factory/data-factory-copy-activity-examples.md
 [개발 개요]: sql-data-warehouse-develop-overview.md
 [SQL 데이터 웨어하우스로 솔루션 마이그레이션]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
@@ -193,4 +193,4 @@ PolyBase 사용한 데이터 로드에 대해 자세히 알려면 [PolyBase를 �
 [미리 보기 버전]: http://aka.ms/downloadazcopypr/
 [SSIS 설명서]: https://msdn.microsoft.com/ko-kr/library/ms141026.aspx
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

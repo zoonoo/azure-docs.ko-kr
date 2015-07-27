@@ -3,7 +3,7 @@
     pageTitle="Azure RemoteApp의 새로운 기능"
     description="Azure RemoteApp에 작성된 변경 및 개선 사항을 알아봅니다." 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -51,4 +51,4 @@ Azure RemoteApp에 대해 더 알아보고 싶으세요? RemoteApp 팀은 몇 �
 
 우리와 함께해 주셔서 감사하며 자세한 업데이트로 다음 달에 돌아오겠습니다.
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

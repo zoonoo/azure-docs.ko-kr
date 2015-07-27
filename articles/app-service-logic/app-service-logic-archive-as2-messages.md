@@ -3,7 +3,7 @@
    description="이 항목에서는 AS2 메시지 보관에 대해 설명합니다." 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="harishkragarwal" 
+   authors="rajram" 
    manager="dwrede" 
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="03/18/2015"
-   ms.author="hariag"/>
+   ms.date="07/01/2015"
+   ms.author="rajram"/>
 
 
 #AS2 메시지 보관
@@ -41,4 +41,4 @@ AS2 커넥터 API 앱 인스턴스를 찾아 ‘추적'을 클릭합니다. 필�
 [1]: ./media/app-service-logic-archive-as2-messages/Tracking.jpg
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

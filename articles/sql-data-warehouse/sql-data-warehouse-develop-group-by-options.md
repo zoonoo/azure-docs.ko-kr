@@ -174,7 +174,7 @@ ORDER BY 1,2,3
 더 많은 개발 팁은 [개발 개요][]를 참조하세요.
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-develop-group-by/sql-data-warehouse-develop-group-by-cube.png
+[1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png
 
 <!--Article references-->
 [개발 개요]: sql-data-warehouse-overview-develop.md
@@ -185,4 +185,4 @@ ORDER BY 1,2,3
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

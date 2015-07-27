@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="07/08/2015" 
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스에서 웹 앱 크기 조정 #
@@ -28,8 +28,7 @@ Azure 웹 앱 크기를 확장하려면 두 가지 관련 작업을 수행해야
 
 > [AZURE.NOTE]웹 앱을 **무료** 모드에서 **기본**, **표준** 또는 **프리미엄** 모드로 전환하기 전에 Azure 앱 서비스 구독에 대한 지출 한도를 제거해야 합니다. Microsoft Azure 앱 서비스 구독 옵션을 보거나 변경하려면 [Microsoft Azure 구독][azuresubscriptions]을 참조하세요.
 
-<a name="scalingsharedorbasic"></a>
-<!-- ===================================== -->
+<a name="scalingsharedorbasic"></a> <!-- ===================================== -->
 ## 공유 또는 기본 모드로 크기 조정
 <!-- ===================================== -->
 
@@ -49,8 +48,7 @@ Azure 웹 앱 크기를 확장하려면 두 가지 관련 작업을 수행해야
 	
 	작업이 완료되면 **알림** 탭에 **성공**이 녹색으로 깜박입니다.
 	
-<a name="scalingstandard"></a>
-<!-- ================================= -->
+<a name="scalingstandard"></a> <!-- ================================= -->
 ## 표준 또는 프리미엄 모드로 크기 조정
 <!-- ================================= -->
 
@@ -199,4 +197,4 @@ Azure 웹 앱 크기를 확장하려면 두 가지 관련 작업을 수행해야
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!-----HONumber=62-->
+<!---HONumber=July15_HO3-->

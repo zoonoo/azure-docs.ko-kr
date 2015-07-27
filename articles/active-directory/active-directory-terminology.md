@@ -4,7 +4,6 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="Justinha" 
-	writer="Justinha" 
 	manager="TerryLan" 
 	editor="LisaToft"/>
 
@@ -47,4 +46,4 @@ Single Sign-On | 회사 네트워크에 로그온한 동안 Microsoft 클라우�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="07/14/2015" 
 	ms.author="mandia"/>
 
 
@@ -99,6 +99,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 	- 온-프레미스 리소스는 기본 온-프레미스 연결 문자열을 사용하도록 자동으로 구성됩니다.
 
 - 하이브리드 연결 관리자는 권한 부여를 위해 유효한 온-프레미스 연결 문자열을 사용해야 합니다. Azure 웹앱 또는 모바일 앱은 권한 부여를 위해 유효한 응용 프로그램 연결 문자열을 사용해야 합니다.
+- 다른 서버에 하이브리드 연결 관리자의 다른 인스턴스를 설치하여 하이브리드 연결을 확장할 수 있습니다. 첫 번째 온-프레미스 수신기와 동일한 주소를 사용하도록 온-프레미스 수신기를 구성합니다. 이 상황에서 트래픽이 활성 온-프레미스 수신기 사이에서 임의로 분산됩니다(라운드 로빈). 
 
 
 ## <a name="ManageHybridConnection"></a>하이브리드 연결 관리
@@ -123,8 +124,8 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 2. 파일의 압축을 풉니다.
 3. 그룹 정책을 수정하는 컴퓨터에서 다음을 수행합니다. 
 
-	- .ADMX 파일을 *%WINROOT%\PolicyDefinitions* 폴더에 복사합니다.
-	- .ADML 파일을 *%WINROOT%\PolicyDefinitions\ko-kr* 폴더에 복사합니다.
+	- .ADMX 파일을 *%WINROOT%\\PolicyDefinitions* 폴더에 복사합니다.
+	- .ADML 파일을 *%WINROOT%\\PolicyDefinitions\\ko-kr* 폴더에 복사합니다.
 
 복사되면 그룹 정책 편집기를 사용하여 정책을 변경할 수 있습니다.
 
@@ -145,4 +146,4 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

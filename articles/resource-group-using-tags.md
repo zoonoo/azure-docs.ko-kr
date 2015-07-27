@@ -1,19 +1,19 @@
 <properties 
 	pageTitle="태그를 사용하여 Azure 리소스 구성" 
-	description="" 
-	services="" 
+	description="태그를 적용하여 대금 청구 및 관리를 위해 리소스를 구성하는 방법을 보여 줍니다." 
+	services="azure-resource-manager" 
 	documentationCenter="" 
 	authors="tfitzmac"
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="multiple" 
+	ms.service="azure-resource-manager" 
 	ms.workload="multiple" 
 	ms.tgt_pltfrm="AzurePortal" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="07/15/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -121,4 +121,4 @@ PowerShell을 사용하여 구독 내의 모든 태그 목록을 가져오려면
 - [Azure 클래식 포털을 사용하여 새 Azure 서비스 사용자 만들기](./resource-group-create-service-principal-portal.md)  
   
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

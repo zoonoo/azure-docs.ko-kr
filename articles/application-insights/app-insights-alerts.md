@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/13/2015" 
 	ms.author="awills"/>
  
 # Application Insights에서 경고 설정
@@ -36,7 +36,7 @@ Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 
 
 ![경고 규칙 블레이드에서 경고 추가를 선택합니다. 측정할 리소스로 앱을 설정하고, 경고의 이름을 입력하고, 메트릭을 선택합니다.](./media/app-insights-alerts/01-set-metric.png)
 
-다른 속성에 앞서 리소스를 설정합니다. 성능 또는 사용 메트릭에 대한 경고를 설정하려면 webtest 리소스를 선택하지 마세요.
+다른 속성에 앞서 리소스를 설정합니다. **"(구성 요소)" 리소스 선택** 성능 또는 사용 메트릭에 대한 경고를 설정하려는 경우.
 
 임계값을 입력하라는 단위에 주의하세요.
 
@@ -80,4 +80,4 @@ Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

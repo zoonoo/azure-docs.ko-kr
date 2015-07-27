@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="07/03/2015" 
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스에서 웹 앱을 백업
@@ -40,7 +40,7 @@ Azure 웹 앱을 백업에서 복원하는 방법에 대한 자세한 내용은 
 
 * 백업 및 복원 기능은 사이트가 표준 모드에 있어야 합니다. 표준 모드를 사용하여 웹 앱을 확장하는 방법에 대한 자세한 내용은 [Azure 앱 서비스에서 웹 앱 확장](web-sites-scale.md)을 참조하세요. 프리미엄 모드에서는 표준 모드를 통해 매일 더 많은 수의 백업을 수행할 수 있습니다.
 
-* 백업 및 복원 기능에는 백업할 웹 앱과 동일한 구독에 속해야 하는 Azure 저장소 계정과 컨테이너가 있어야 합니다. 아직 저장소 계정이 없는 경우, [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)의 **백업** 블레이드에서 **저장소 계정**을 클릭한 다음 **저장소 계정** 및 **컨테이너**를 **대상** 블레이드에서 선택하여 계정을 하나 만들 수 있습니다. Azure 저장소 계정에 대한 자세한 내용은 이 문서의 끝에 있는 [링크](#moreaboutstorage)를 참조하십시오.
+* 백업 및 복원 기능에는 백업할 웹 앱과 동일한 구독에 속해야 하는 Azure 저장소 계정과 컨테이너가 있어야 합니다. 아직 저장소 계정이 없는 경우, [Azure Preview 포털](http://portal.azure.com)의 **백업** 블레이드에서 **저장소 계정**을 클릭한 다음 **저장소 계정** 및 **컨테이너**를 **대상** 블레이드에서 선택하여 계정을 하나 만들 수 있습니다. Azure 저장소 계정에 대한 자세한 내용은 이 문서의 끝에 있는 [링크](#moreaboutstorage)를 참조하십시오.
 
 * 백업 및 복원 기능은 최대 10GB 웹 사이트 및 데이터베이스 콘텐츠를 지원합니다. 페이로드가 이 제한을 초과하기 때문에 백업 기능을 계속할 수 없는 경우, 작업 로그에 오류가 표시됩니다.
 
@@ -107,131 +107,83 @@ Azure 웹 앱을 백업에서 복원하는 방법에 대한 자세한 내용은 
 >[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 <a name="partialbackups"></a>
-## 사이트의 일부만 백업
+## 웹앱의 일부만 백업
 
-사이트를 정기적으로 백업하거나 사이트의 콘텐츠가 한 번에 백업할 수 있는 최대 용량인 10GB를 초과하는 등과 같은 경우에는 사이트의 모든 내용을 백업하지 않을 수 있습니다.
+웹앱의 모든 것을 백업하고 싶지 않을 때도 있습니다. 다음은 몇 가지 예입니다.
 
-예를 들어 로그 파일을 백업하지 않을 수 있습니다. 또는 [매주 백업을 설정](https://azure.microsoft.com/ko-kr/documentation/articles/web-sites-backup/#configure-automated-backups)할 경우 이전 블로그 게시물이나 이미지처럼 변경되지 않는 정적 콘텐츠로 저장소 계정이 채워지는 것을 원치 않을 것입니다.
+-	오래된 블로그 게시물이나 이미지처럼 변하지 않는 정적인 콘텐츠가 포함된 웹앱을 [매주 백업 설정](web-sites-backup.md#configure-automated-backups)합니다.
+-	웹앱에는 10GB 이상의 콘텐츠가 있습니다(한 번에 백업할 수 있는 최대 용량).
+-	로그 파일은 백업하지 않아도 됩니다.
 
 부분 백업을 사용하여 백업할 파일을 정확히 선택할 수 있습니다.
 
-###백업하지 않을 파일 지정
-백업에서 제외할 파일 및 폴더의 목록을 만들 수 있습니다.
+### 백업에서 파일 제외
 
-사이트의 wwwroot 폴더에 _backup.filter라는 텍스트 파일로 목록을 저장합니다. `http://{yoursite}.scm.azurewebsites.net/DebugConsole`에서 [Kudu 콘솔](https://github.com/projectkudu/kudu/wiki/Kudu-console)을 통해 이 파일에 쉽게 액세스할 수 있습니다. 
+백업에서 파일 및 폴더를 제외하려면 웹앱의 wwwroot 폴더에 `_backup.filter` 파일을 만들고 제외하려는 파일 및 폴더 목록을 지정합니다. 이 곳은 [Kudu 콘솔](https://github.com/projectkudu/kudu/wiki/Kudu-console)을 통해 쉽게 액세스할 수 있습니다.
 
-아래의 지침에서는 Kudu 콘솔을 사용하여 _backup.filter 파일을 만들지만, 선호하는 배포 방법을 사용하여 파일을 저장할 수 있습니다.
-
-###수행할 작업
-사이트에 지난 몇 년 동안의 로그 파일과 정적 이미지가 포함되어 있지만 이러한 파일과 이미지는 변경되지 않습니다.
-
-이전 이미지를 포함하는 사이트의 전체 백업이 이미 있습니다. 이제 매일 사이트를 백업하려고 하지만 변경되지 않는 정적 이미지 파일 또는 로그 파일을 저장하는 비용은 지불하고 싶지 않습니다.
+웹앱에 지난 몇 년 동안의 로그 파일과 정적 이미지가 포함되어 있다고 가정해 보겠습니다. 이러한 항목들은 앞으로도 변하지 않습니다. 여러분은 오래된 이미지가 포함된 웹앱을 이미 완벽히 백업해두었습니다. 이제 매일 웹앱을 백업하려고 하지만 변경되지 않는 정적 이미지 파일 또는 로그 파일을 저장하는 비용은 지불하고 싶지 않습니다.
 
 ![Logs 폴더][LogsFolder] ![Images 폴더][ImagesFolder]
 	
-아래 단계에서는 이러한 파일을 백업에서 제외하는 방법을 보여 줍니다.
+다음 단계는 백업에서 이들 파일을 제외하는 방법을 보여줍니다.
 
-####백업하지 않을 파일 및 폴더 식별
-간단한 작업입니다. 로그 파일을 백업하지 않을 것이므로 `D:\home\site\wwwroot\Logs`를 제외합니다.
+1. `http://{yourapp}.scm.azurewebsites.net/DebugConsole`(으)로 이동하여 백업에서 제외하고자 하는 폴더를 찾습니다. 이 예제에서는 해당 UI에 표시된 다음 파일 및 폴더를 제외하고자 합니다.
 
-모든 Azure 웹앱의 `D:\home\LogFiles`에는 다른 로그 파일 폴더가 있습니다. 이 폴더도 제외하겠습니다.
+		D:\home\site\wwwroot\Logs
+		D:\home\LogFiles
+		D:\home\site\wwwroot\Images\2013
+		D:\home\site\wwwroot\Images\2014
+		D:\home\site\wwwroot\Images\brand.png
 
-또한 이전 연도의 이미지를 반복적으로 백업하고 싶지 않습니다. 따라서 `D:\home\site\wwwroot\Images\2013` 및 `D:\home\site\wwwroot\Images\2014`를 목록에 추가하겠습니다.
+	[AZURE.NOTE]마지막 줄은 개별 파일 및 폴더를 제외할 수 있음을 보여줍니다.
 
-마지막으로 이미지 폴더의 brand.png 파일을 백업하지 않고 개별 파일을 블랙리스트에도 올릴 수 있습니다. 이 파일은 `D:\home\site\wwwroot\Images\brand.png`에 있습니다.
+2. `_backup.filter`(이)라고 이름의 파일을 만들어서 이 파일에 앞서 언급한 목록을 넣고 `D:\home`을(를) 제거합니다. 줄당 하나의 디렉터리 또는 파일을 나열하십시오. 파일의 내용은 다음과 같아야 합니다.
 
-이제 다음과 같은 폴더를 백업하지 않습니다.
+    \\site\\wwwroot\\Logs \\LogFiles \\site\\wwwroot\\Images\\2013 \\site\\wwwroot\\Images\\2014 \\site\\wwwroot\\Images\\brand.png
 
-* D:\home\site\wwwroot\Logs
-* D:\home\LogFiles
-* D:\home\site\wwwroot\Images\2013
-* D:\home\site\wwwroot\Images\2014
-* D:\home\site\wwwroot\Images\brand.png
+3. [ftp](web-sites-deploy.md#ftp) 또는 기타 모든 방법을 사용하여 이 파일을 해당 사이트의 `D:\home\site\wwwroot` 디렉터리에 업로드합니다. 원한다면 `http://{yourapp}.scm.azurewebsites.net/DebugConsole`에 파일을 직접 만들어서 여기에 콘텐츠를 삽입할 수도 있습니다.
 
-#### 제외 목록 만들기
-_backup.filter라는 특수 파일에 백업하지 않을 파일 및 폴더의 블랙리스트를 저장합니다. 파일을 만들고 `D:\home\site\wwwroot_backup.filter`에 배치합니다.
+4. 이제 백업을 평소와 같이 [수동](#create-a-manual-backup) 또는 [자동](#configure-automated-backups)으로 실행합니다.
 
-백업하지 않을 모든 파일과 폴더를 _backup.filter 파일에 나열합니다. 백업에서 제외할 폴더 또는 파일의 전체 경로를 D:\home을 기준으로 한 줄에 하나씩 추가합니다.
+이제 `_backup.filter`에 지정된 모든 파일 및 폴더가 백업에서 제외됩니다. 이 예제에서는 로그 파일과 2013 및 2014 이미지 파일은 이제 더 이상 백업되지 않습니다. brand.png로 마찬가지입니다.
 
-따라서 내 사이트의 경우 `D:\home\site\wwwroot\Logs`는 `\site\wwwroot\Logs`가 되고, `D:\home\LogFiles`는 `\LogFiles`가 되는 등과 같은 방식으로 _backup.filter에 대해 다음 콘텐츠가 생성됩니다.
-
-    \site\wwwroot\Logs
-    \LogFiles
-    \site\wwwroot\Images\2013
-    \site\wwwroot\Images\2014
-    \site\wwwroot\Images\brand.png
-
-각 줄의 시작 부분에 있는 시작 ``에 유의하세요. 이는 중요합니다.
-
-###백업 실행
-이제 일반 백업을 수행할 때와 동일한 방식으로 백업을 실행할 수 있습니다. [수동](https://azure.microsoft.com/ko-kr/documentation/articles/web-sites-backup/#create-a-manual-backup), [자동](https://azure.microsoft.com/ko-kr/documentation/articles/web-sites-backup/#configure-automated-backups) 중 어느 방법을 사용해도 됩니다.
-
-_backup.filter에 나열된 필터 아래에 포함되는 모든 파일과 폴더는 백업에서 제외됩니다. 즉, 로그 파일과 2013 및 2014 이미지 파일은 이제 더 이상 백업되지 않습니다.
-
-###백업된 사이트 복원
-[정기 백업을 복원](https://azure.microsoft.com/ko-kr/documentation/articles/web-sites-restore/)할 때와 동일한 방법으로 사이트의 부분 백업을 복원합니다. 그러면 올바르게 백업됩니다.
-
-####기술 세부 정보
-일반적으로 전체 백업(부분 백업 아님)에서는 사이트의 모든 콘텐츠가 백업의 모든 콘텐츠로 대체됩니다. 파일이 사이트에 있지만 백업에 없는 경우 해당 파일은 삭제됩니다.
-
-하지만 블랙 리스트 폴더 중 하나에 있는 콘텐츠를 통해 부분 백업을 복원할 경우(예: 내 사이트의 `D:\home\site\wwwroot\images\2014`)에는 그대로 유지됩니다. 개별 파일이 블랙리스트에 올려져 있는 경우 해당 파일도 복원 중에 그대로 유지됩니다.
+>[AZURE.NOTE][정기 백업을 복원](web-sites-restore.md)할 때와 동일한 방법으로 사이트의 부분 백업을 복원합니다. 복원 프로세스는 올바른 일을 수행합니다.
+>
+>전체 백업이 복원되면 해당 사이트의 모든 콘텐츠가 백업에 있는 항목들로 대체됩니다. 파일이 사이트에 있지만 백업에 없는 경우 해당 파일은 삭제됩니다. 하지만 부분 백업이 복원되면 블랙 리스트 디렉터리에 위치한 모든 콘텐츠 또는 블랙 리스트에 포함된 모든 파일이 그대로 유지됩니다.
 
 <a name="aboutbackups"></a>
+
 ## 백업 저장 방법
 
-하나 이상의 백업을 수행한 후, 백업은 웹 앱뿐만 아니라 **저장소 계정**의 **컨테이너** 블레이드에서 볼 수 있습니다. **저장소 계정**에서, 각 백업은 백업 데이터가 포함된 .zip 파일과 그 .zip 파일 콘텐츠의 매니페스트가 포함된 .xml 파일로 구성되어 있습니다.
+웹앱에 대해 하나 이상의 백업을 수행한 후, 백업은 웹앱뿐만 아니라 저장소 계정의 **컨테이너** 블레이드에서 볼 수 있습니다. 저장소 계정에서, 각 백업은 백업 데이터가 포함된 .zip 파일과 그 .zip 파일 콘텐츠의 매니페스트가 포함된 .xml 파일로 구성되어 있습니다. 실제로 웹앱 복원을 수행하지 않고 백업에 액세스하고자 한다면 이들 파일의 압축을 풀고 찾아볼 수 있습니다.
 
-.zip 및 .xml 백업 파일 이름은 웹 앱 이름 다음에 밑줄과 백업한 타임스탬프로 구성됩니다. 타임스탬프에는 YYYYMMDD 형식(공백 없이 숫자로)의 날짜와 UTC 형식의 24시간제(예: fabrikam_201402152300.zip)가 포함되어 있습니다. 실제로 웹 사이트 복원을 수행하지 않고 백업에 액세스하려는 경우 이러한 파일 콘텐츠의 압축을 풀고 검색할 수 있습니다.
+웹앱에 대한 데이터베이스 백업이 .zip 파일의 루트에 저장됩니다. SQL 데이터베이스의 경우 이 파일은 BACPAC 파일(파일 확장명 없음)이며, 가져올 수 있습니다. BACPAC 내보내기를 기반으로 새 SQL 데이터베이스를 만들려면 [새 사용자 데이터베이스 생성을 위해 BACPAC 파일 가져오기](http://technet.microsoft.com/library/hh710052.aspx)를 참조하세요.
 
-zip 파일로 저장되는 XML 파일은 *backupdescription* > *databases* > *databasebackupdescription* > *filename* 아래의 데이터베이스 파일 이름을 나타냅니다.
-
-데이터베이스 백업 파일 자체는 .zip 파일의 루트에 저장됩니다. SQL 데이터베이스의 경우 이 파일은 BACPAC 파일(파일 확장명 없음)이며, 가져올 수 있습니다. BACPAC 내보내기를 기반으로 새 SQL 데이터베이스를 만들려면 [BACPAC 파일을 가져와 새 사용자 데이터베이스 만들기](http://technet.microsoft.com/library/hh710052.aspx) 문서의 단계를 따르면 됩니다.
-
-Azure 포털을 사용한 웹 앱(데이터베이스 포함) 복원에 대한 자세한 내용은 [Azure 앱 서비스에서 앱 웹 복원](web-sites-restore.md)을 참조하세요.
-
-> [AZURE.NOTE]**websitebackups** 컨테이너에 있는 파일을 변경하면 백업이 잘못되어 복원할 수 없게 됩니다.
+> [AZURE.WARNING]**websitebackups** 컨테이너에 있는 파일을 변경하면 백업이 잘못되어 복원할 수 없게 됩니다.
 
 <a name="bestpractices"></a>
 ##모범 사례
-재해가 발생하여 사이트를 복원할 수 없는 경우 어떻게 하시겠습니까? 미리 준비하고 있어야 합니다.
 
-예, 부분 백업이 존재할 수 있지만, 모든 사이트의 콘텐츠를 백업하도록 먼저 사이트의 전체 백업을 하나 이상 가져옵니다(최악의 시나리오 계획에 해당). 그런 다음 백업을 복원할 때 사이트의 전체 백업을 먼저 복원한 후 그 위에 최신 부분 백업을 복원할 수 있습니다.
+장애나 자연 재해에 대비하려면 기존 백업 및 복원 전략을 세워서 미리 준비하는 것이 좋습니다.
 
-[배포 슬롯](https://azure.microsoft.com/ko-kr/documentation/articles/web-sites-staged-publishing/)을 사용하여 복원된 사이트를 테스트할 수 있기 때문입니다. 프로덕션 사이트에 접속하지 않고도 복원 프로세스를 테스트할 수 있습니다. 복원 프로세스를 테스트하는 것은 [매우 유용한 기능](http://axcient.com/blog/one-thing-can-derail-disaster-recovery-plan/)입니다. 내 블로그를 복원할 때 그랬던 것처럼 일부 미묘한 문제가 발생할 수 있는 상태에서 이를 알지 못하여 콘텐츠의 절반 이상이 손실될 수도 있습니다.
+백업 전략은 다음과 유사해야 합니다.
 
-###공포 스토리
+-	최소 한 번의 웹앱 전체 백업을 수행합니다.
+-	전체 백업 후 웹앱의 부분 백업을 수행합니다.
 
-필자의 블로그는 [고스트](https://ghost.org/) 블로깅 플랫폼에서 제공됩니다. 필자는 담당 개발자처럼 사이트의 백업을 만들었으며 모든 것이 순조로웠습니다. 그런 다음 어느 날 고스트의 새 버전을 사용할 수 있고 내 블로그를 업그레이드할 수 있다는 메시지가 표시되었습니다. 잘하셨습니다.
+복원 전략은 다음과 유사해야 합니다.
+ 
+-	웹앱에 대해 [스테이징 슬롯](web-sites-staged-publishing.md)을 생성합니다.
+-	스테이징 슬롯에서 웹앱의 전체 백업을 복원합니다.
+-	스테이징 슬롯에서도 전체 백업 복원 위에 최신 부분 백업을 복원합니다.
+-	복원을 테스트하여 스테이징 앱이 올바르게 동작하는지 확인하십시오.
+-	스테이징된 웹앱을 프로덕션 슬롯에 [스왑](web-sites-staged-publishing.md#Swap)합니다.
 
-필자는 최신 블로그 게시물을 백업하기 위해 사이트의 백업을 여러 개 만들고 고스트 업그레이드를 진행했습니다.
-
-내 프로덕션 사이트에서
-
-큰 실수를 저질렀습니다.
-
-업그레이드가 잘못되고 홈 화면에 빈 화면만 표시되었습니다. "아무 문제도 없어", "방금 생성한 백업을 복원하면돼"라고 생각했습니다.
-
-업그레이드를 복원하여 블로그 게시물을 제외한 모든 내용이 복구되었습니다.
-
-뭐라고요???
-
-[고스트 업그레이드 참고 사항](http://support.ghost.org/how-to-upgrade/)에 다음과 같은 경고가 표시되었습니다.
-
-![콘텐츠/데이터에서 데이터베이스를 복사할 수 있지만 고스트가 실행 중인 동안에 수행하면 안 됩니다. 먼저 고스트를 중지하세요.][GhostUpgradeWarning]
-
-고스트가 실행 중인 동안 데이터를 백업할 경우 데이터는 실제로 백업되지 않습니다.
-
-완전 실망입니다.
-
-먼저 테스트 슬롯에서 복원할 때 이 문제가 표시되었지만 모든 게시물이 손실되지는 않았습니다.
-
-인생이란 그런 것입니다. [우리 중 누구에게나](http://blog.codinghorror.com/international-backup-awareness-day/) 발생할 수 있습니다.
-
-따라서 백업을 테스트하세요.
+>[AZURE.NOTE]항상 복원 프로세스를 테스트합니다. 자세한 내용은 [매우 유용한 기능](http://axcient.com/blog/one-thing-can-derail-disaster-recovery-plan/)을 참조하세요. 예를 들어, [Ghost](https://ghost.org/)와 같은 특정 블로깅 플랫폼에서는 백업 중에 어떻게 동작하는지에 대해 명시적인 지침을 가지고 있습니다. 복원 프로세스를 테스트함으로써 장애나 재해에 의해 피해를 입기 전에 이러한 지침을 적용할 수 있습니다.
 
 <a name="nextsteps"></a>
 ## 다음 단계
-Azure 웹 앱을 백업에서 복원하는 방법에 대한 자세한 내용은 [Azure 앱 서비스에서 웹 복원](web-sites-restore.md)을 참조하세요.
+웹앱을 백업에서 복원하는 방법에 대한 자세한 내용은 [Azure 앱 서비스에서 웹 복원](web-sites-restore.md)을 참조하세요.
 
 Azure에 등록하려면 [Microsoft Azure 무료 평가판](/pricing/free-trial/)을 참조하세요.
 
@@ -267,4 +219,4 @@ Azure에 등록하려면 [Microsoft Azure 무료 평가판](/pricing/free-trial/
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=".net"
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
 
 
@@ -114,19 +114,54 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 [이 문제 해결 항목](app-insights-troubleshoot-faq.md#NuGetBuild)을 참조하세요.
 
+## 종속성 추적 추가
+
+SDK에는 일부 데이터에 액세스할 경우 다음과 같은 도움이 필요 합니다. 특히 자동으로 데이터베이스, REST Api 및 기타 외부 구성 요소를 앱에서 호출을 측정하기 위해 이 추가 단계가 필요합니다. 종속성 메트릭은 성능 문제 진단을 도와줄 때 매우 유용합니다.
+
+#### 앱이 IIS 서버에서 실행되는 경우
+
+관리자 권한을 사용하여 서버에 로그인 후 [Application Insights 상태 모니터](http://go.microsoft.com/fwlink/?LinkId=506648)를 설치합니다.
+
+(상태 모니터를 [이미 실행 중인 앱을 계측](app-insights-monitor-performance-live-website-now.md)할 경우에도 사용할 수 있으며, SDK로 빌드되지 않은 경우에도 사용할 수 있습니다.)
+
+#### 앱이 Azure 웹앱인 경우
+
+Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
+
+![웹앱에서 설정, 확장, 추가, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
+
+(확장은 SDK로 빌드된 앱만 보조해 줍니다. 상태 모니터와는 달리, 기존 응용 프로그램을 계측할 수 없습니다.)
+
+## 클라이언트쪽 모니터링을 추가 합니다.
+
+응용 프로그램의 서버 끝에서 원격 분석 데이터를 보내는 SDK를 설치 했습니다. 이제 클라이언트쪽 모니터링을 추가할 수 있습니다. 이 사용자, 세션, 페이지 보기 및 모든 예외 또는 클라이언트에서 발생하는 충돌에 데이터를 제공합니다.
+
+사용자는 응용 프로그램과 사용자의 고객이 함께 작동하는지 추적하는 코드를 오른쪽 아래의 클릭과 키 입력 세부 수준에서 작성할 수 있습니다.
+
+#### 클라이언트가 웹 브라우저인 경우
+
+앱을 웹페이지에 표시하는 경우, 모든 페이지에 JavaScript 코드 조각을 추가합니다. Application Insights 리소스에서 코드를 가져옵니다.
+
+![웹앱에서, 빠른 시작을 열고 '내 웹 페이지를 모니터링하는 코드를 얻기'를 클릭 합니다.](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
+
+코드는 응용 프로그램 리소스를 식별하는 계측 키를 포함한다는것을 참고하세요.
+
+[웹 페이지 추적에 대해 더 알아보기](app-insights-web-track-usage.md)
+
+#### 클라이언트가 장치 앱인 경우
+
+응용 프로그램이 휴대폰 또는 기타 장치 등의 클라이언트에 서비스를 제공하는 경우 사용자의 장치 앱에 [적절한 SDK](app-insights-platforms.md)를 추가하세요.
+
+SDK 서버와 동일한 계측 키를 가진 SDK 클라이언트를 구성하는 경우 함께 볼 수 있도록 두 스트림은 통합 됩니다.
+
 
 ## 설치 완료
 
 응용 프로그램의 모든 부분을 완벽하게 살펴보려면 몇 가지 할 일이 더 있습니다.
 
-
-* [JavaScript SDK를 웹 페이지에 추가][client]하여 사용자, 세션 및 페이지 보기 수, 페이지 로드 시간, 스크립트 예외 사항과 같은 브라우저 기반 원격 분석을 가져오고 페이지 스크립트에서 사용자 지정 원격 분석을 작성합니다.
-* 종속성 추적을 추가하여 데이터베이스 또는 앱에서 사용하는 다른 구성 요소로 인한 문제를 진단합니다.
- * [Azure 웹앱 또는 VM에서][azure]
- * [온-프레미스 IIS 서버에서][redfield]
+* [웹 테스트를 설정][availability]하여 응용 프로그램이 라이브 상태로 유지되며 응답하는지 확인할 수 있습니다.
 * 즐겨찾는 로깅 프레임워크에서 [로그 추적 캡처][netlogs]
 * [사용자 지정 이벤트 및 메트릭을 추적][api]하여 클라이언트나 서버 또는 둘 다에서 응용 프로그램이 어떻게 사용되는지 알아볼 수 있습니다.
-* [웹 테스트를 설정][availability]하여 응용 프로그램이 라이브 상태로 유지되며 응답하는지 확인할 수 있습니다.
 
 ## <a name="ide"> </a>자동화된 방법
 
@@ -196,4 +231,4 @@ Visual Studio는 Application Insights에서 리소스를 만들고, SDK를 프�
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

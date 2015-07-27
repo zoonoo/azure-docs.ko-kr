@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="02/23/2015"
+	ms.date="07/01/2015"
 	ms.author="donnam"/>
 
 # iOS 모바일 앱에 대해 오프라인 동기화 사용
@@ -48,7 +48,7 @@
 
     동기화 테이블에 대한 참조를 얻으려면 `syncTableWithName` 메서드를 사용합니다. 오프라인 동기화 기능을 제거하려면 대신 `tableWithName`을 사용합니다.
 
-3. 모든 테이블 작업을 수행하려면 먼저 로컬 저장소를 초기화해야 합니다. 다음은 `QSTodoService.init` 메서드의 관련 코드입니다.
+2. 모든 테이블 작업을 수행하려면 먼저 로컬 저장소를 초기화해야 합니다. 다음은 `QSTodoService.init` 메서드의 관련 코드입니다.
 
         MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
 
@@ -58,9 +58,9 @@
 
     `initWithDelegate`의 첫 번째 매개 변수는 충돌 처리기를 지정하는 데 사용됩니다. 여기서는 `nil`을 전달했으므로 충돌 발생 시 작업을 중단하는 기본 충돌 처리기를 얻게 됩니다.
 
-<!-- For details on how to implement a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services]. -->
+	<!-- For details on how to implement a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services]. -->
 
-4. `pullData` 및 `syncData` 메서드는 실제 동기화 작업을 수행합니다. 즉, `syncData`가 먼저 새 변경 내용을 푸시한 다음 `pullData`를 호출하여 원격 백 엔드에서 데이터를 가져옵니다.
+3. `pullData` 및 `syncData` 메서드는 실제 동기화 작업을 수행합니다. 즉, `syncData`가 먼저 새 변경 내용을 푸시한 다음 `pullData`를 호출하여 원격 백 엔드에서 데이터를 가져옵니다.
 
         -(void)syncData:(QSCompletionBlock)completion
         {
@@ -98,7 +98,7 @@
 
     `pullWithQuery`에 대한 두 번째 매개 변수는 *증분 동기화*에 사용되는 쿼리 ID입니다. 증분 동기화는 레코드의 `UpdatedAt` 타임스탬프(로컬 저장소에서는 `ms_updatedAt`이라고 함)를 사용하여 마지막 동기화 이후에 수정된 레코드만 검색합니다. 쿼리 ID는 앱의 각 논리 쿼리에 고유한 설명 문자열이어야 합니다. 증분 동기화를 옵트아웃하려면 `nil`을 쿼리 ID로 전달합니다. 이 경우 각 끌어오기 작업에서 모든 레코드가 검색되므로 비효율적일 수 있습니다.
 
-<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
+	<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
  -->
 
 5. `QSTodoService` 클래스에서 `syncData` 메서드는 데이터, `addItem` 및 `completeItem`을 수정하는 작업 뒤에 호출됩니다. 사용자가 새로 고침 제스처를 수행할 때마다 최신 데이터를 가져오도록 `QSTodoListViewController.refresh`에서도 호출됩니다. `QSTodoListViewController.init`이(가) `refresh`을(를) 호출하므로 앱이 시작될 때도 동기화를 수행합니다.
@@ -212,13 +212,13 @@
 
 오프라인 동기화 기능을 지원하기 위해 `MSSyncTable` 인터페이스를 사용하고 로컬 저장소를 사용하여 `MSClient.syncContext`를 초기화했습니다. 이 경우 로컬 저장소는 핵심 데이터 기반 데이터베이스였습니다.
 
-핵심 데이터 로컬 저장소를 사용할 경우 [올바른 시스템 속성], [핵심 데이터 모델 검토]를 사용하여 여러 테이블을 정의해야 합니다.
+핵심 데이터 로컬 저장소를 사용할 경우 [올바른 시스템 속성](#review-core-data)을 사용하여 여러 테이블을 정의해야 합니다.
 
 모바일 앱에 대한 일반적인 CRUD 작업은 앱이 계속 연결되어 있는 것처럼 작동하지만 모든 작업은 로컬 저장소에 대해 수행됩니다.
 
 서버와 로컬 저장소를 동기화하려는 경우 `MSSyncTable.pullWithQuery` 및 `MSClient.syncContext.pushWithCompletion` 메서드를 사용했습니다.
 
-*  서버의 변경 내용을 푸시하기 위해 `Review the Core Data model`을(를) 호출했습니다. 이 메서드는 모든 테이블에서 변경 사항을 푸시하므로 동기화 테이블이 아닌 `MSSyncContext`의 멤버입니다.
+*  서버의 변경 내용을 푸시하기 위해 `pushWithCompletion`을(를) 호출했습니다. 이 메서드는 모든 테이블에서 변경 사항을 푸시하므로 동기화 테이블이 아닌 `MSSyncContext`의 멤버입니다.
 
     CUD 작업을 통해 로컬에서 수정된 레코드만 서버에 전송됩니다.
 
@@ -275,7 +275,7 @@
 [Soft Delete]: ../mobile-services-using-soft-delete.md
 
 [클라우드 커버: Azure 모바일 서비스의 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱]: http://azure.microsoft.com/ko-kr/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

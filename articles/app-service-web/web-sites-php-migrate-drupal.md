@@ -101,4 +101,4 @@ Drupal을 웹 앱에 배포한 후에는 Git 또는 FTP를 통해 지속적으�
   [Azure Integration Module]: http://drupal.org/project/azure
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

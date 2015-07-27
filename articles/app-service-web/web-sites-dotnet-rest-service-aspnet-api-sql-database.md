@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
-	writer="Rick-Anderson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/16/2015" 
 	ms.author="riande"/>
 
 # Azure 앱 서비스에서 ASP.NET Web API 및 SQL 데이터베이스를 사용하여 REST 서비스 만들기
@@ -37,7 +36,8 @@ ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity 
 
 ![웹 사이트의 스크린샷][intro001]
 
-<a name="bkmk_setupdevenv"></a> <!-- the next line produces the "Set up the development environment" section as see at http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/ -->[AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
+<!-- the next line produces the "Set up the development environment" section as see at http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/ -->
+[AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ### 프로젝트 만들기
 
@@ -75,10 +75,10 @@ ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity 
 ### 페이지 머리글 및 바닥글 설정
 
 
-1. **솔루션 탐색기**에서 *Views\Shared* 폴더를 확장하고 *_Layout.cshtml* 파일을 엽니다. 
+1. **솔루션 탐색기**에서 *Views\\Shared* 폴더를 확장하고 *_Layout.cshtml* 파일을 엽니다. 
 	![솔루션 탐색기의 _Layout.cshtml][newapp004]
 
-1. *Views\Shared_Layout.cshtml* 파일 내용을 다음 코드로 바꿉니다.
+1. *Views\\Shared_Layout.cshtml* 파일 내용을 다음 코드로 바꿉니다.
 
 
 		<!DOCTYPE html>
@@ -125,7 +125,7 @@ ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity 
 
 Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 하는 작업은 이것뿐입니다. 나중에 데이터베이스 기능을 추가하겠습니다.
 
-<h2><a name="bkmk_deploytowindowsazure1"></a>Azure에 응용 프로그램 배포</h2>
+## Azure에 응용 프로그램 배포
 
 1. Visual Studio의 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 **게시**를 선택합니다.
 
@@ -145,7 +145,7 @@ Visual Studio에서 Azure 서버로 파일을 복사하는 프로세스를 시�
 	
 	![Azure에서 실행하는 할 일 모음 홈 페이지][rxz2]
 
-<h2><a name="bkmk_addadatabase"></a>응용 프로그램에 데이터베이스 추가</h2>
+## 응용 프로그램에 데이터베이스 추가
 
 이제 MVC 응용 프로그램을 업데이트하여 연락처를 표시 및 업데이트하고 데이터베이스에 데이터를 저장하는 기능을 추가하겠습니다. 응용 프로그램은 Entity Framework를 사용하여 데이터베이스를 만들며 데이터베이스에서 데이터를 읽고 업데이트합니다.
 
@@ -191,7 +191,7 @@ Visual Studio에서 Azure 서버로 파일을 복사하는 프로세스를 시�
 
 ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭제) 작업을 수행하는 코드를 자동으로 생성할 수 있습니다.
 
-<h2><a name="bkmk_addcontroller"></a>데이터에 대한 컨트롤러 및 뷰 추가</h2>
+## 데이터에 대한 컨트롤러 및 뷰 추가
 
 1. **솔루션 탐색기**에서 컨트롤러 폴더를 확장합니다.
 
@@ -235,7 +235,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 	**Initial** 클래스의 **Up** 메서드는 Contacts 테이블을 만들고 이전 상태로 돌아가려는 경우 사용되는 **Down** 메서드는 테이블을 삭제합니다.
 
-3. *Migrations\Configuration.cs* 파일을 엽니다.
+3. *Migrations\\Configuration.cs* 파일을 엽니다.
 
 4. 다음 네임스페이스를 추가합니다.
 
@@ -316,9 +316,9 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 ![MVC 데이터 뷰][rxz3]
 
-<h2><a name="bkmk_addview"></a>뷰 편집</h2>
+## 뷰 편집
 
-1. *Views\Home\Index.cshtml* 파일을 엽니다. 다음 단계에서는 생성된 변경 내용을 [jQuery](http://jquery.com/) 및 [Knockout.js](http://knockoutjs.com/)를 사용하는 코드로 바꿀 것입니다. 이 새 코드는 웹 API 및 JSON을 사용하여 연락처 목록을 가져온 후 knockout.js를 사용하여 연락처 데이터를 UI에 바인딩합니다. 자세한 내용은 이 자습서의 후반부에서 [다음 단계](#nextsteps) 섹션을 참조하세요. 
+1. *Views\\Home\\Index.cshtml* 파일을 엽니다. 다음 단계에서는 생성된 변경 내용을 [jQuery](http://jquery.com/) 및 [Knockout.js](http://knockoutjs.com/)를 사용하는 코드로 바꿀 것입니다. 이 새 코드는 웹 API 및 JSON을 사용하여 연락처 목록을 가져온 후 knockout.js를 사용하여 연락처 데이터를 UI에 바인딩합니다. 자세한 내용은 이 자습서의 후반부에서 [다음 단계](#nextsteps) 섹션을 참조하세요. 
 
 
 2. 파일 내용을 다음 코드로 바꿉니다.
@@ -475,7 +475,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 	Contact Manager 앱에 사용되는 레이아웃, 색 및 스타일에 이 스타일시트를 사용하겠습니다.
 
-6. *App_Start\BundleConfig.cs* 파일을 엽니다.
+6. *App_Start\\BundleConfig.cs* 파일을 엽니다.
 
 
 7. 다음 코드를 추가하여 [Knockout](http://knockoutjs.com/index.html "KO") 플러그인을 등록합니다.
@@ -499,10 +499,9 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 1. 패키지 관리자 콘솔에서 다음 명령을 실행하여 Knockout을 설치합니다.
 
 	Install-Package knockoutjs
+## Web API RESTful 인터페이스용 컨트롤러 추가
 
-<h2><a name="bkmk_addwebapi"></a>Web API RESTful 인터페이스용 컨트롤러 추가</h2>
-
-1. **솔루션 탐색기**에서 컨트롤러를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 후 **컨트롤러...**를 클릭합니다. 
+1. **솔루션 탐색기**에서 컨트롤러를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 후 **컨트롤러...**를 클릭합니다.
 
 1. **스캐폴드 추가** 대화 상자에서 **Web API 2 컨트롤러(작업 포함), Entity Framework 사용**을 입력하고 **추가**를 클릭합니다.
 
@@ -541,8 +540,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 	![Web API 저장 대화 상자][addwebapi007]
 
 	**보안 경고**: 이 단계에서 응용 프로그램은 CSRF 공격에 취약하고 보안되지 않는 상태입니다. 이 취약성은 자습서의 뒷부분에서 제거하겠습니다. 자세한 내용은 [CSRF(교차 사이트 요청 위조) 공격 예방][prevent-csrf-attacks](영문)을 참조하십시오.
-
-<h2><a name="xsrf"></a>XSRF 보호 추가</h2>
+## XSRF 보호 추가
 
 XSRF 또는 CSRF라고도 하는 교차 사이트 요청 위조는 웹 호스팅 응용 프로그램을 공격하며, 이 공격을 통해 악성 웹 사이트는 해당 브라우저가 신뢰하는 클라이언트 브라우저와 웹 사이트 간의 상호 작용에 영향을 미칠 수 있습니다. 이러한 공격은 웹 브라우저가 인증 토큰을 각 요청과 함께 웹 사이트에 자동으로 보내기 때문에 가능합니다. 정식 예로는 ASP.NET의 폼 인증 티켓과 같은 인증 쿠키가 있습니다. 하지만 Windows 인증, 기본 인증 등 영구적 인증 메커니즘을 사용하는 웹 사이트가 이러한 공격의 대상이 될 수 있습니다.
 
@@ -630,7 +628,7 @@ XSRF 공격은 피싱 공격과는 구분됩니다. 피싱 공격에는 피해�
 
 	[ValidateHttpAntiForgeryToken] public IHttpActionResult PutContact(int id, Contact contact) {
 
-1. *Views\Home\Index.cshtml* 파일의 *Scripts* 섹션을 업데이트하여 XSRF 토큰을 가져오는 코드를 포함합니다.
+1. *Views\\Home\\Index.cshtml* 파일의 *Scripts* 섹션을 업데이트하여 XSRF 토큰을 가져오는 코드를 포함합니다.
 
          @section Scripts {
             @Scripts.Render("~/bundles/knockout")
@@ -685,7 +683,7 @@ XSRF 공격은 피싱 공격과는 구분됩니다. 피싱 공격에는 피해�
             </script>
 
 
-<h2><a name="bkmk_deploydatabaseupdate"></a>Azure 및 SQL 데이터베이스에 응용 프로그램 업데이트 게시</h2>
+## Azure 및 SQL 데이터베이스에 응용 프로그램 업데이트 게시
 
 응용 프로그램을 게시하려면 이전에 따랐던 절차를 반복합니다.
 
@@ -722,7 +720,7 @@ XSRF 공격은 피싱 공격과는 구분됩니다. 피싱 공격에는 피해�
 
 >[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
-<h2><a name="nextsteps"></a>다음 단계</h2>
+## 다음 단계
 
 실제 응용 프로그램에는 인증 및 권한 부여가 필요할 수 있으므로 멤버 자격 데이터베이스를 사용할 수 있습니다. [OAuth, 멤버 자격 및 SQL 데이터베이스를 사용하여 안전한 ASP.NET MVC 응용 프로그램 배포](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)(영문) 자습서는 현재 자습서를 기반으로 작성되었으며, 멤버 자격 데이터베이스를 사용하여 웹 응용 프로그램을 배포하는 방법을 설명합니다.
 
@@ -811,4 +809,4 @@ Azure 응용 프로그램에 데이터를 저장하는 또 다른 방법은 Azur
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

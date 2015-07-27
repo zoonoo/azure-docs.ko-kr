@@ -333,7 +333,7 @@ VPN 게이트웨이의 키 속성은 다음과 같습니다.
 
 PowerShell, AzureCLI를 사용하거나 GitHub에서 배포를 클릭하여 템플릿에서 Azure에 서비스를 배포할 수 있습니다. GitHub의 템플릿에서 서비스를 배포하려면 다음 단계를 실행합니다.
 
-1. GitHub에서 template3 파일을 엽니다. 예를 들어, [두 서브넷을 사용하는 가상 네트워크](https://github.com/Azure/azure-quickstart-templates/tree/master/101-virtual-network)입니다.
+1. GitHub에서 template3 파일을 엽니다. 예를 들어, [두 서브넷을 사용하는 가상 네트워크](https://github.com/Azure/azure-quickstart-templates/tree/master/101-virtual-network)를 엽니다.
 2. **Azure에 배포**를 클릭한 다음 자격 증명을 사용하여 Azure 포털에 로그인합니다.
 3. 템플릿을 확인한 다음 **저장**을 클릭합니다.
 4. **매개 변수 편집**을 클릭하고 *미국 서부* 등과 같은 vnet 및 서브넷 위치를 선택합니다.
@@ -363,4 +363,4 @@ PowerShell, AzureCLI를 사용하거나 GitHub에서 배포를 클릭하여 템�
 
 [템플릿 배포](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

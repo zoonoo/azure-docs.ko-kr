@@ -152,7 +152,7 @@ CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < 
 
 > [AZURE.NOTE]쿼리 결과에서 행의 수를 예상하는 데 사용되는 히스토그램은 통계 개체 정의에 나열된 첫 번째 열에 사용할 수만 있습니다.
 
-이 예에서 히스토그램은 *product_category*에 있습니다. 열 간 통계는 *product_category* 및 *product_sub_c\ategory*에서 계산됩니다.
+이 예에서 히스토그램은 *product_category*에 있습니다. 열 간 통계는 *product_category* 및 *product_sub_c\\ategory*에서 계산됩니다.
 
 ```
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
@@ -452,4 +452,4 @@ DBCC SHOW_STATISTICS()는 SQL Server와 비교하여 SQL 데이터 웨어하우�
 [sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [통계 업데이트]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

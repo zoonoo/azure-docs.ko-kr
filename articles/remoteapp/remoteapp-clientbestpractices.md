@@ -3,7 +3,7 @@
     pageTitle="Azure RemoteApp 클라이언트 모범 사례"
     description="RemoteApp 클라이언트를 사용하기 위한 모범 사례를 알아봅니다." 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -27,4 +27,4 @@
 - 일정 기간 동안 비활성 상태이면 RemoteApp에서 자동으로 로그오프됩니다. 데이터 손실을 방지하려면 서비스 사용을 마쳤을 때 응용 프로그램을 닫는 것이 좋습니다.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

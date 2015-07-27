@@ -2,7 +2,7 @@
 
 > [AZURE.NOTE]새로운 Azure의 [안내 방식 연습](http://support.microsoft.com/kb/2990804)을 사용하면 작업을 보다 빠르게 수행할 수 있습니다. 사용자 지정 도메인 이름을 연결하고 SSL을 사용하여 Azure 클라우드 서비스나 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)와의 통신을 보호하는 작업을 매우 쉽게 완료할 수 있습니다.
 
-SSL(Secure Socket Layer) 암호화를 사용하는 HTTPS를 통해 웹앱과 브라우저 간의 통신에 대한 보안을 설정할 수 있습니다. 인터넷을 통해 전송되는 데이터의 보안을 설정하는 가장 일반적인 방법으로, 방문자에게 앱과의 트랜잭션이 안전함을 보장합니다. 이 문서에서는 Azure 앱 서비스에서 웹앱에 대한 HTTPS를 구성하는 방법을 설명합니다.
+SSL(Secure Socket Layer) 암호화를 사용하는 HTTPS를 통해 웹앱과 브라우저 간의 통신에 대한 보안을 설정할 수 있습니다. 인터넷을 통해 전송되는 데이터의 보안을 설정하는 가장 일반적인 방법으로, 방문자에게 앱과의 트랜잭션이 안전함을 보장합니다. 이 문서에서는 Azure 앱 서비스에서 웹앱에 대한 HTTPS를 구성하는 방법을 설명합니다. 이 문서는 클라이언트 인증서 인증을 다루지 않습니다. 이에 대한 정보는 [웹 앱용 TLS 상호 인증 구성 방법](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md)을 참조하십시오.
 
 ##<a name="bkmk_azurewebsites"></a>*.azurewebsites.net 도메인에 대한 HTTPS
 
@@ -517,7 +517,7 @@ IIS URL 다시 쓰기 모듈에 대한 자세한 내용은 [URL 다시 쓰기](h
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
-[customdomain]: ../article/app-service-web/web-sites-custom-domain-name.md
+[customdomain]: ../articles/app-service-web/web-sites-custom-domain-name.md
 [iiscsr]: http://technet.microsoft.com/library/cc732906(WS.10).aspx
 [cas]: http://go.microsoft.com/fwlink/?LinkID=269988
 [installcertiis]: http://technet.microsoft.com/library/cc771816(WS.10).aspx
@@ -541,4 +541,4 @@ IIS URL 다시 쓰기 모듈에 대한 자세한 내용은 [URL 다시 쓰기](h
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

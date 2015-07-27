@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="HDInsight 커넥터" 
-   description="HDInsight 커넥터를 사용하는 방법" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="HDInsight 커넥터"
+   description="HDInsight 커넥터를 사용하는 방법"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 # Microsoft HDInsight 커넥터 #
@@ -22,7 +22,7 @@
 커넥터는 논리 앱에 사용하여 흐름의 일부로 데이터 가져오기, 처리 또는 푸시를 수행할 수 있습니다. HDInsight 커넥터를 사용하면 Azure에서 Hadoop 클러스터를 생성하고 Hive, Pig, MapReduce 및 스트리밍 MapReduce 작업과 같은 다양한 Hadoop 작업을 제출할 수 있습니다. Azure HDInsight 서비스는 빅 데이터를 관리, 분석 및 보고하기 위한 소프트웨어 프레임워크를 제공하여 클라우드에서 Apache Hadoop 클러스터를 배포하고 프로비전합니다. Hadoop 코어는 HDFS(Hadoop Distributed File System)을 사용하는 안정적인 데이터 저장소와 이 분산 시스템에 저장된 데이터를 병렬로 처리 및 분석하는 간단한 MapReduce 프로그래밍 모델을 제공합니다. HDInsight 커넥터를 사용하여 클러스터를 만들거나 삭제하고 작업을 제출하고 작업이 완료되기를 기다릴 수 있습니다.
 
 ###기본 동작
-		
+
 - 클러스터 만들기
 - 클러스터 생성 대기
 - Pig 작업 제출
@@ -78,7 +78,7 @@ HDInsight 커넥터는 논리 앱에서 동작으로만 사용할 수 있습니�
 
 
 
-- 이제 논리 앱에서 구성된 대로 동작이 나타납니다. 동작의 출력이 표시되며 후속 동작에서 입력으로 사용될 수 있습니다. 
+- 이제 논리 앱에서 구성된 대로 동작이 나타납니다. 동작의 출력이 표시되며 후속 동작에서 입력으로 사용될 수 있습니다.
 
 ![][7]
 
@@ -121,6 +121,5 @@ HDInsight 커넥터는 논리 앱에서 동작으로만 사용할 수 있습니�
 [9]: ./media/app-service-logic-connector-hdinsight/LogicApp5.jpg
 [10]: ./media/app-service-logic-connector-hdinsight/LogicApp6.jpg
 [11]: ./media/app-service-logic-connector-hdinsight/LogicApp7.jpg
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

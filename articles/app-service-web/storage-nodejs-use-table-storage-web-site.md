@@ -641,4 +641,4 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

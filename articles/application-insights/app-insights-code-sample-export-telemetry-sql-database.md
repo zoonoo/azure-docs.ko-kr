@@ -246,13 +246,15 @@ Visual Studio에서는 저장소 계정 연결 문자열로 작업자 역할 설
               case "PageViewPerformance":
     
               if (dict.ContainsKey("clientPerformance"))
-                {GenerateDictionary(((System.Dynamic.ExpandoObject[])dict["clientPerformance"])[0], dict, "");
+                {
+                  GenerateDictionary(((System.Dynamic.ExpandoObject[])dict["clientPerformance"])[0], dict, "");
     	        }
     
               if (dict.ContainsKey("context_custom_dimensions"))
               {
                 if (dict["context_custom_dimensions"].GetType() == typeof(System.Dynamic.ExpandoObject[]))
-                {GenerateDictionary(((System.Dynamic.ExpandoObject[])dict["context_custom_dimensions"])[0], dict, "");
+                {
+                  GenerateDictionary(((System.Dynamic.ExpandoObject[])dict["context_custom_dimensions"])[0], dict, "");
                 }
               }
     
@@ -356,7 +358,8 @@ Visual Studio에서는 저장소 계정 연결 문자열로 작업자 역할 설
 
     public class PageViewPerformance
     {
-    	public int Id { get; set; }
+    	[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid Id { get; set; }
 
         public string url { get; set; }
 
@@ -527,4 +530,4 @@ PageView에 대해 생성되는 테이블의 스키마입니다.
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

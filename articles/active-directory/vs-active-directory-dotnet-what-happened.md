@@ -135,4 +135,4 @@ Azure Active Directory 앱이 *디렉터리 데이터 읽기* 권한을 포함�
 [Azure Active Directory에 대한 자세한 정보](http://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

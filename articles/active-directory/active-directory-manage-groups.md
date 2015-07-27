@@ -1,45 +1,95 @@
 <properties 
-	pageTitle="Azure AD에서 그룹 관리" 
-	description="Azure AD에서 그룹을 관리하는 방법을 설명하는 항목입니다." 
+	pageTitle="Azure Active Directory 그룹| Microsoft Azure를 사용하여 리소스에 대한 액세스 관리" 
+	description="Azure AD에서 액세스 관리에 그룹을 사용하는 방법을 설명하는 항목입니다." 
 	services="active-directory" 
 	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"
+	authors="femila" 
+	manager="swadhwa" 
+	editor=""
 	tags="azure-classic-portal"/>
 
 <tags 
 	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
+	ms.workload="identity" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="Justinha"/>
+	ms.date="07/13/2015" 
+	ms.author="femila"/>
 
-# Azure AD에서 그룹 관리
 
-그룹은 단일 단위로 관리할 수 있는 사용자 및 그룹의 컬렉션입니다. 특정 그룹에 속해 있는 사용자 및 그룹은 그룹 멤버라고 합니다. 그룹을 사용하면 계정별로 사용 권한을 할당하지 않고 한 번에 많은 계정에 일련의 사용 권한을 할당하여 관리를 간소화할 수 있습니다.
+# Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리
 
-지금 현재 Azure AD에서는 보안 그룹만 만들 수 있습니다.
+Azure Active Directory는 Office 365와 같은 Microsoft 온라인 서비스 및 수많은 비 Microsoft SaaS 응용 프로그램을 포함하여 온-프레미스와 클라우드 응용 프로그램 및 리소스에 대한 액세스를 관리하는 강력한 기능을 제공하는 포괄적인 ID 및 액세스 관리 솔루션입니다.
 
-동일한 응용 프로그램에 많은 사용자를 할당해야 할 때 그룹을 사용하여 편리하게 응용 프로그램에 대한 액세스 권한을 사용자에게 할당할 수 있습니다. 또한 리소스에 대한 액세스를 제어하는 기타 온라인 서비스(예: SharePoint Online)의 액세스 관리를 구성할 때도 그룹을 사용할 수 있습니다.
 
-디렉터리 동기화를 구성한 경우에는 로컬 온-프레미스 Windows Server Active Directory에서 동기화된 그룹이 표시되며 이 그룹의 ‘원본 위치' 속성 값은 ‘로컬 Active Directory'입니다. 이러한 그룹은 로컬 Active Directory에서 계속 관리해야 하며 Azure 관리 포털에서는 관리하거나 삭제할 수 없습니다.
+> [AZURE.NOTE]Azure Active Directory를 사용하려면 Azure 계정이 필요합니다. 계정이 없으면 [무료 Azure 계정을 등록](http://azure.microsoft.com/pricing/free-trial/)할 수 있습니다.
 
-Office 365가 있는 경우에는 Office 365 내의 Exchange 관리 센터에서 만들어져 관리되는 메일 사용이 가능한 보안 그룹 및 메일 그룹이 표시됩니다. 이러한 그룹의 '원본 위치' 속성 값은 'Office 365'이고 Exchange 관리 센터에서 계속 관리되어야 합니다.
 
-액세스 패널을 통해 통합 그룹을 만들 수도 있습니다. 그룹 관리의 구성 탭에서 **사용자가 O365 그룹을 만들 수 있습니다** 위젯을 **예**로 설정하세요. 액세스 패널 또는 Office 365에서 생성된 Office 365 통합 그룹이 있는 경우 이러한 그룹의 '원본 위치' 속성은 'Azure Active Directory'로 설정되며 액세스 패널을 통해 관리할 수 있습니다.
+Azure Active Directory 내에서 주요 기능 중 하나는 리소스에 대한 액세스를 관리하는 기능입니다. 이러한 리소스는 디렉터리에서 역할을 통해 개체를 관리하는 권한이나 SaaS 응용 프로그램, Azure 서비스 및 SharePoint 사이트 또는 온-프레미스 리소스와 같이 디렉터리 외부에 있는 리소스의 경우처럼 디렉터리의 일부일 수 있습니다. 다음 네 가지 방법으로 사용자에게 리소스에 대한 액세스 권한을 할당할 수 있습니다.
 
-사용자에 대해 셀프 서비스 그룹 관리를 설정한 경우(자세한 내용은 Azure AD에서 사용자를 위한 셀프 서비스 그룹 관리 참조) 테넌트 관리자로 Azure 관리 포털을 통해 이러한 그룹을 관리할 수도 있습니다. 그룹 멤버 및 그룹 소유자를 추가 및 제거할 수 있고, 그룹 속성을 편집할 수 있으며, 그룹 내에서 수행된 작업, 작업을 수행한 사람 및 시간을 표시하는 그룹의 기록 작업 보고서를 볼 수 있습니다.
 
-> [AZURE.NOTE]응용 프로그램에 그룹을 할당하려면 Azure AD Premium을 사용해야 합니다. Azure AD Premium이 있는 경우에는 Azure AD와 통합되는 SaaS 응용 프로그램에 대한 액세스 권한을 할당하는 데도 그룹을 사용할 수 있습니다. 자세한 내용은 Azure AD에서 SaaS 응용 프로그램에 대한 액세스 권한을 그룹에 할당하기를 참조하세요.
+1\. 직접 할당
 
-## 다음 단계
+해당 리소스의 소유자가 사용자에게 직접 리소스를 할당할 수 있습니다.
 
-- [Azure AD 관리](active-directory-administer.md)
-- [Azure AD에서 사용자 만들기 또는 편집](active-directory-create-users.md)
-- [Azure AD에서 암호 관리](active-directory-manage-passwords.md)
- 
+2\. 그룹 멤버 자격
 
-<!---HONumber=62-->
+리소스 소유자가 그룹에 리소스를 지정할 수 있고, 이렇게 함으로써 해당 그룹의 멤버에게 리소스에 대한 액세스 권한을 부여할 수 있습니다. 그러면 그룹의 소유자가 그룹의 멤버 자격을 관리할 수 있습니다. 실질적으로 리소스 소유자는 사용자를 해당 리소스에 할당할 권한을 그룹 소유자에게 위임합니다.
+
+3\. 규칙 기반
+
+리소스 소유자는 규칙을 사용하여 어느 사용자에게 리소스에 대한 액세스 권한을 할당해야 하는지를 나타낼 수 있습니다. 규칙 결과는 해당 규칙에 사용된 특성 및 특정 사용자에 대한 값에 따라 다르며, 이렇게 함으로써 리소스 소유자는 자신의 리소스에 대한 액세그 관리 권한을 규칙에 사용된 특성에 대한 권한 있는 원본으로 효과적으로 위임할 수 있습니다. 리소스 소유자는 여전히 규칙 자체를 관리하고 해당 리소스에 대한 액세스를 제공하는 특성 및 값을 결정합니다.
+
+4\. 외부 기관
+
+리소스에 대한 액세스 권한은 외부 소스에서 파생됩니다. 예를 들면 온-프레미스 디렉터리와 같은 권한이 있는 원본이나 작업일와 같은 SaaS 앱에서 동기화되는 그룹이 있습니다. 리소스 소유자는 리소스에 대한 액세스 권한을 제공하는 그룹을 할당하고 외부 소스는 그룹의 구성원을 관리합니다.
+
+  ![](./media/active-directory-access-management-groups/access-management-overview.png)
+
+
+###액세스 관리를 설명하는 비디오 보기
+
+이에 대해 자세히 설명하는 짧은 비디오를 [여기](http://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD--Introduction-to-Dynamic-Memberships-for-Groups)서 볼 수 있습니다.
+
+##Azure Active Directory에서 액세스 관리는 어떻게 작동합니까?
+Azure Active Directory의 액세스 관리 솔루션 센터에 보안 그룹이 있습니다. 리소스에 대한 액세스 관리에 보안 그룹을 사용하는 것은 잘 알려진 전형적인 예로, 이를 통해 의도한 사용자 그룹에 리소스에 대한 액세스 권한을 제공하는 방법을 유연하고 쉽게 이해할 수 있습니다. 리소스 소유자(또는 디렉터리 관리자)는 특정한 액세스 권한을 제공할 그룹을 자신이 소유한 리소스에 할당할 수 있습니다. 그룹 구성원에게 액세스 권한이 제공되며, 리소스 소유자는 부서 관리자 또는 기술 지원팀 관리자와 같은 다른 사람에게 그룹 구성원 목록을 관리할 권한을 위임할 수 있습니다.
+
+![](./media/active-directory-access-management-groups/active-directory-access-management-works.png) 그룹 소유자는 해당 그룹이 셀프 서비스 요청을 이용할 수 있도록 할 수 있습니다. 이 과정에서 최종 사용자가 그룹을 검색하고 찾을 수 있으며, 참여하도록 요청하여 그룹을 통해 관리되는 리소스에 액세스할 수 있는 권한을 효과적으로 검색할 수 있습니다. 그룹의 소유자는 참가 요청을 자동으로 승인하거나 그룹 소유자의 승인을 요구하도록 그룹을 설정할 수 있습니다. 사용자가 그룹 가입을 요청하면 가입 요청이 그룹 소유자에게 전달됩니다. 소유자 중 한 명이 요청을 승인하면 요청한 사용자에게 알리고 사용자가 그룹에 가입됩니다. 소유자 중 한 명이 요청을 거부하면 요청한 사용자에게 알리지만 사용자가 그룹에 가입되지 않습니다.
+
+
+## 액세스 관리 시작
+시작할 준비가 되셨습니까? Azure AD 그룹으로 수행할 수 있는 기본 작업 중 일부를 시도해야 합니다. 이러한 기능을 사용하여 조직의 다른 리소스에 다른 사용자 그룹에 대한 특별한 액세스 권한을 제공합니다. 다음은 기본 첫 단계 목록입니다.
+
+
+* [그룹에 대한 동적 구성원을 구성하는 간단한 규칙 만들기](active-directory-accessmanagement-simplerulegroup.md)
+
+* [SaaS 응용 프로그램에 대한 액세스를 관리할 그룹 사용](active-directory-accessmanagement-group-saasapps.md)
+
+* [최종 사용자 셀프서비스에 사용할 수 있는 그룹 만들기](active-directory-accessmanagement-self-service-group-management.md)
+
+* [Azure AD Connect를 사용하여 Azure에 온-프레미스 그룹 동기화](active-directory-aadconnect.md)
+
+* [그룹에 대한 소유자 관리](active-directory-accessmanagement-managing-group-owners.md)
+
+
+## 액세스 관리의 다음 단계
+액세스 관리의 기본 사항을 이해했으므로, 다음은 Azure Active Directory에서 추가 응용 프로그램 및 리소스에 대한 액세스를 관리하는 데 사용할 수 있는 몇 가지 고급 추가 기능입니다.
+
+* [단순한 규칙을 사용하여 그룹 만들기](active-directory-accessmanagement-simplerulegroup.md) 
+
+* [특성을 사용하여 고급 규칙 만들기](active-directory-accessmanagement-groups-with-advanced-rules.md)
+
+* [Azure Active Directory에서 보안 그룹 관리](active-directory-accessmanagement-manage-groups.md)
+
+* [Azure Active Directory에서 전용 그룹 설정](active-directory-accessmanagement-dedicated-groups.md)
+
+
+## 자세한 정보
+다음은 Azure Active Directory에 대한 추가 정보를 제공하는 몇 가지 항목입니다.
+
+* [Azure Active Directory란?](active-directory-whatis.md)
+
+* [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
+
+<!---HONumber=July15_HO3-->

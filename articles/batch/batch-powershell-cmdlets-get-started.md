@@ -13,25 +13,23 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="05/29/2015"
+   ms.date="07/08/2015"
    ms.author="danlep"/>
 
 # Azure 배치 PowerShell Cmdlet 시작
-이 문서에서는 배치 계정을 관리하고 배치 작업 항목, 작업 및 태스크에 대 한 정보를 얻는 데 사용할 수 있는 Azure PowerShell cmdlet에 대해 간략히 소개합니다.
+이 문서에서는 Batch 계정을 관리하고 배치 작업, 작업 및 기타 세부 정보에 대한 정보를 얻는 데 사용할 수 있는 Azure PowerShell cmdlet에 대해 간략히 소개합니다.
 
-자세한 cmdlet 구문은 `get-help <Cmdlet_name>`을 입력하거나 [Azure 배치 cmdlet 참조](https://msdn.microsoft.com/library/azure/mt125957.aspx)을 참조하세요.
-
+자세한 cmdlet 구문은 `get-help <Cmdlet_name>`을 입력하거나 [Azure 배치 cmdlet 참조](https://msdn.microsoft.com/library/azure/mt125957.aspx)을 참조하세요. a
 
 ## 필수 조건
 
-* **배치 미리 보기** -서비스에서 작업하려면 아직 등록하지 않은 경우 [배치 미리 보기](https://account.windowsazure.com/PreviewFeatures)에 등록합니다.
 * **Azure PowerShell** - 필수 조건과 다운로드 및 설치 지침에 대해서는 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요. 배치 cmdlet은 버전 0.8.10 이후 버전에서 도입되었습니다.
 
 ## 배치 cmdlet 사용
 
 Azure PowerShell을 시작하고 [Azure 구독에 연결](../powershell-install-configure.md#Connect)하려면 표준 절차를 사용합니다. 또한 다음을 수행할 수도 있습니다.
 
-* **Azure 구독 선택** - 훨씬 많은 구독이 있는 경우 배치 미리 보기 기능을 추가했던 구독을 선택합니다.
+* **Azure 구독 선택 **-구독이 두 개 이상인 경우 다음의 구독을 선택 합니다.
 
     ```
     Select-AzureSubscription -SubscriptionName <SubscriptionName>
@@ -90,9 +88,9 @@ Remove-AzureBatchAccount -AccountName <account_name>
 
 메시지가 나타나면 계정을 제거할 것인지 확인합니다. 계정을 제거하는 데는 시간이 걸릴 수 있습니다.
 
-## 작업 항목, 작업 및 태스크에 대한 쿼리
+## 작업, 태스크 및 기타 세부 정보에 대한 쿼리
 
-**Get-AzureBatchWorkItem**, **Get-AzureBatchJob**, **Get-AzureBatchTask**, **Get-AzureBatchPool** 등의 cmdlet을 사용하여 배치 계정 아래에 만든 엔터티를 쿼리합니다.
+**Get-AzureBatchJob**, **Get-AzureBatchTask**, **Get-AzureBatchPool** 등의 cmdlet을 사용하여 Batch 계정 아래에 만든 엔터티를 쿼리합니다.
 
 이러한 cmdlet을 사용하려면 먼저 계정 이름과 키를 저장할 AzureBatchContext 개체를 만들어야 합니다.
 
@@ -102,39 +100,33 @@ $context = Get-AzureBatchAccountKeys "<account_name>"
 
 **BatchContext** 매개 변수를 사용하여 배치 서비스와 상호 작용하는 cmdlet에 이 컨텍스트를 전달합니다.
 
-> [AZURE.NOTE]기본적으로 계정의 기본 키는 인증에 사용되지만 BatchAccountContext 개체의 **KeyInUse** 속성을 변경하면 사용할 키를 명시적으로 선택할 수 있습니다.```$context.KeyInUse = "Secondary"```
+> [AZURE.NOTE]기본적으로 계정의 기본 키는 인증에 사용되지만 BatchAccountContext 개체의 **KeyInUse** 속성을 변경하면 사용할 키를 명시적으로 선택할 수 있습니다.`$context.KeyInUse = "Secondary"`
 
 
 ### 데이터에 대한 쿼리
 
-예제와 같이 **Get-AzureBatchWorkItem**을 사용하여 작업 항목을 찾습니다. 이 작업은 기본적으로 사용자 계정 아래의 모든 작업 항목을 쿼리합니다. 이때 *$context*에는 이미 BatchAccountContext 개체가 저장되어 있다고 가정합니다.
-
-```
-Get-AzureBatchWorkItem -BatchContext $context
-```
-
-다음과 같이, 풀 등의 다른 엔터티에서도 동일한 작업을 수행할 수 있습니다.
+예제와 같이**Get AzureBatchPools**을 사용하여 풀을 찾습니다. 이 작업은 기본적으로 사용자 계정 아래의 모든 풀을 쿼리합니다. 이때 *$context*에는 이미 BatchAccountContext 개체가 저장되어 있다고 가정합니다.
 
 ```
 Get-AzureBatchPool -BatchContext $context
 ```
 ### OData 필터 사용
 
-**Filter** 매개 변수를 사용하여 OData 필터를 제공하면 사용자와 관계가 있는 개체만 찾을 수 있습니다. 예를 들어, "myWork"로 시작하는 이름을 가진 모든 작업 항목을 찾을 수 있습니다.
+**Filter** 매개 변수를 사용하여 OData 필터를 제공하면 사용자와 관계가 있는 개체만 찾을 수 있습니다. 예를 들어, "myPool"로 시작하는 이름을 가진 모든 풀을 찾을 수 있습니다.
 
 ```
-$filter = "startswith(name,'myWork') and state eq 'active'"
-Get-AzureBatchWorkItem -Filter $filter -BatchContext $context
+$filter = "startswith(name,'myPool')"
+Get-AzureBatchPool -Filter $filter -BatchContext $context
 ```
 
 이 방법은 로컬 파이프라인에서 "Where-Object"를 사용하는 것만큼 유연하지는 않습니다. 그러나 쿼리가 배치 서비스에 직접 전송되므로 서버에서 모든 필터링이 수행되어 인터넷 대역폭이 절약됩니다.
 
 ### Name 매개 변수 사용
 
-OData 필터의 대안으로 **Name** 매개 변수를 사용합니다. "myWorkItem"이라는 특정 작업 항목을 쿼리하려면 다음과 같이 수행합니다.
+OData 필터의 대안으로 **Name** 매개 변수를 사용합니다. "MyPool" 이라는 특정 풀에 대해 쿼리하려면
 
 ```
-Get-AzureBatchWorkItem -Name "myWorkItem" -BatchContext $context
+Get-AzureBatchPool -Name "myPool" -BatchContext $context
 
 ```
 **Name** 매개 변수는 전체 이름 검색만 지원하며 와일드 카드 또는 OData 스타일 필터는 지원하지 않습니다.
@@ -144,7 +136,7 @@ Get-AzureBatchWorkItem -Name "myWorkItem" -BatchContext $context
 배치 cmdlet은 PowerShell 파이프라인을 활용하여 cmdlet 간에 데이터를 전송할 수 있습니다. 이 방식은 매개 변수를 지정하는 것과 동일한 효과를 갖지만 보다 쉽게 여러 엔터티를 나열할 수 있습니다. 예를 들어, 다음과 같이 사용자 계정 아래의 모든 작업을 찾을 수 있습니다.
 
 ```
-Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context
+Get-AzureBatchJob -BatchContext $context | Get-AzureBatchTask -BatchContext $context
 ```
 
 ### MaxCount 매개 변수 사용
@@ -152,7 +144,7 @@ Get-AzureBatchWorkItem -BatchContext $context | Get-AzureBatchJob -BatchContext 
 기본적으로 각 cmdlet은 최대 1000개의 개체를 반환합니다. 이 제한에 도달하면 더 적은 수의 개체를 반환하도록 필터를 조정하거나 **MaxCount** 매개 변수를 사용하여 최대값을 명시적으로 설정합니다. 예:
 
 ```
-Get-AzureBatchWorkItem -MaxCount 2500 -BatchContext $context
+Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 
 ```
 
@@ -164,4 +156,4 @@ Get-AzureBatchWorkItem -MaxCount 2500 -BatchContext $context
 * [Azure 배치 cmdlet 참조](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [효율적인 목록 쿼리](batch-efficient-list-queries.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

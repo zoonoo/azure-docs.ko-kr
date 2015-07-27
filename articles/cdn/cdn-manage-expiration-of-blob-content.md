@@ -23,7 +23,7 @@ Azure CDN 캐싱이 가장 도움이 되는 Blob은 TTL(Time-To-Live) 기간 중
 TTL을 제어하는 두 가지 옵션이 있습니다.
 
 1.	캐시 값을 설정하지 않으므로 기본 TTL인 7일을 사용합니다. 
-2.	**Put Blob**, **Put Block List** 또는 **Set Blob Properties** 요청의 *x-ms-blob-cache-control* 속성을 명시적으로 설정하거나 Azure Managed Library를 사용하여 [BlobProperties.CacheControl](http://msdn.microsoft.com/library/microsoft.windowsazure.storageclient.blobproperties.cachecontrol.aspx) 속성을 설정합니다. 이 속성을 설정하면 Blob에 대한 *Cache-Control* 헤더의 값이 설정됩니다. 헤더 또는 속성의 값은 적절한 값(초)을 지정해야 합니다. 예를 들어 최대 캐싱 기간을 1년으로 설정하려면 요청 헤더를 `x-ms-blob-cache-control: public, max-age=31556926`으로 지정할 수 있습니다. 캐싱 헤더 설정에 대한 자세한 내용은 [HTTP/1.1 사양](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html)을 참조하세요.  
+2.	**Put Blob**, **Put Block List** 또는 **Set Blob Properties** 요청의 *x-ms-blob-cache-control* 속성을 명시적으로 설정하거나 Azure Managed Library를 사용하여 [BlobProperties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) 속성을 설정합니다. 이 속성을 설정하면 Blob에 대한 *Cache-Control* 헤더의 값이 설정됩니다. 헤더 또는 속성의 값은 적절한 값(초)을 지정해야 합니다. 예를 들어 최대 캐싱 기간을 1년으로 설정하려면 요청 헤더를 `x-ms-blob-cache-control: public, max-age=31556926`으로 지정할 수 있습니다. 캐싱 헤더 설정에 대한 자세한 내용은 [HTTP/1.1 사양](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html)을 참조하세요.  
 
 CDN을 통해 캐싱하려는 콘텐츠는 Azure 저장소 계정에 공개적으로 액세스할 수 있는 Blob로 저장해야 합니다. Azure Blob 서비스에 대한 자세한 내용은 **Blob 서비스 개념**을 참조하세요.
 
@@ -96,4 +96,4 @@ CDN 특정 URL을 통해 Blob을 사용할 수 있는지 테스트합니다. 위
 
 [Azure CDN(콘텐츠 배달 네트워크)에서 클라우드 서비스 콘텐츠의 만료를 관리하는 방법](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

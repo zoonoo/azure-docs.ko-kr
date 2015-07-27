@@ -847,7 +847,7 @@ var server = restify.createServer({
     formatters: {
         'application/json': function(req, res, body){
             if(req.params.callback){
-                var callbackFunctionName = req.params.callback.replace(/[^A-Za-z0-9_.]/g, '');
+                var callbackFunctionName = req.params.callback.replace(/[^A-Za-z0-9_\.]/g, '');
                 return callbackFunctionName + "(" + JSON.stringify(body) + ");";
             } else {
                 return JSON.stringify(body);
@@ -1029,7 +1029,7 @@ var passport = require('passport')
   , OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 ```
 
-### 2. 인증을 사용하고 있음을 서버에 알리기
+### 2\. 인증을 사용하고 있음을 서버에 알리기
 
 즐겨 사용하는 편집기에서 `server.js` 파일을 열고 경로를 정의한 **server.get()의 아래**, **server.listen()** 메서드의 위에 다음 정보를 추가합니다.
 
@@ -1043,7 +1043,7 @@ Restify에 해당 `authorizationParser()`를 사용할 것을 알리고 권한 �
 ```
 
 
-### 3. 코드에 Passport OAuth2 모듈 추가
+### 3\. 코드에 Passport OAuth2 모듈 추가
 
 여기서는 config.js 파일에 추가한 특정 OAuth2 매개 변수를 사용합니다. `aadutils.js` 파일이 페더레이션 메타데이터 문서 구문 분석 작업을 수행하면 이러한 모든 값은 config.js 파일에는 비어 있더라도 자동으로 채워집니다.
 
@@ -1178,4 +1178,4 @@ ADAL 과정의 다음 단계에 관심이 있는 경우 여기서 권장하는 A
 [.NET용 ADAL](http://msdn.microsoft.com/library/windowsazure/jj573266.aspx)(영문)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

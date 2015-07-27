@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
 # 웹 사이트의 가용성 및 응답성 모니터링
@@ -74,15 +74,17 @@ Application Insights 리소스에서 가용성 타일을 찾습니다. 이것을
 
 ### <a name="monitor"></a>3. 가용성 보고서 보기
 
-1-2분 후에 개요 블레이드에서 새로 고침을 클릭합니다. 이 버전에서는 새로 고침이 자동으로 수행되지 않습니다.
+1-2분 후 가용성/웹 테스트 블레이드에서 새로 고침을 클릭합니다. 이 버전에서는 새로 고침이 자동으로 수행되지 않습니다.
 
 ![홈 블레이드에 대한 요약 결과](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
-가용성 블레이드의 차트는 이 응용 프로그램의 모든 웹 테스트에 결과를 조합해서 표시합니다.
+기간의 보다 자세한 정보를 보려면 위의 요약 차트에서 아무 막대나 클릭합니다.
 
-#### 페이지구성 요소
+이 차트들은 이 응용 프로그램의 웹테스트에 대해나 결과들의 합입니다.
 
-이미지, 스타일 시트와 스크립트 및 기타 정적 구성 요소는 테스트의 일부로 요청됩니다.
+#### 웹 페이지의 구성 요소
+
+사용자가 테스트하는 웹 페이지의 이미지, 스타일 시트, 스크립트 그리고 다른 정적 구성 요소는 테스트의 일부로 요청됩니다.
 
 기록된 응답 시간은 모든 구성 요소가 로딩을 완료할 때 걸린 시간입니다.
 
@@ -90,7 +92,11 @@ Application Insights 리소스에서 가용성 타일을 찾습니다. 이것을
 
 ## <a name="failures"></a>오류가 표시되는 경우...
 
-웹 테스트 블레이드에서 아래로 스크롤하여 오류를 표시하는 테스트를 클릭합니다.
+빨간 점을 클릭합니다.
+
+![빨간 점을 클릭 합니다.](./media/app-insights-monitor-web-app-availability/14-availRedDot.png)
+
+또는, 아래로 스크롤하여 100% 성공보다 작은 테스트를 클릭합니다.
 
 ![특정 웹 테스트 클릭](./media/app-insights-monitor-web-app-availability/15-webTestList.png)
 
@@ -123,7 +129,7 @@ URL 시퀀스를 포함하는 시나리오를 모니터링할 수 있습니다. 
 
 다단계 테스트를 만들려면 Visual Studio를 사용하여 시나리오를 기록한 다음 Application Insights에 기록을 업로드합니다. Application Insights는 지정된 간격에 따라 시나리오를 재생하고 응답을 확인합니다.
 
-#### 1. 시나리오 기록
+#### 1\. 시나리오 기록
 
 Visual Studio Ultimate를 사용하여 웹 세션을 기록합니다.
 
@@ -150,7 +156,7 @@ Visual Studio Ultimate를 사용하여 웹 세션을 기록합니다.
 
 (웹 테스트코드에 루프를 삽입하지 마세요.)
 
-#### 2. Application Insights에 웹 테스트를 업로드
+#### 2\. Application Insights에 웹 테스트를 업로드
 
 1. Application Insights 포털에서 새 웹 테스트를 만듭니다.
 
@@ -223,4 +229,4 @@ Visual Studio Ultimate를 사용하여 웹 세션을 기록합니다.
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -80,7 +80,7 @@ Azure 관리 포털에서 클라우드 서비스의 주요 성능 메트릭을 �
 
 1. [관리 포털](http://manage.windowsazure.com/)에서 클라우드 서비스에 대한 **모니터** 페이지를 엽니다.
 
-	기본적으로 메트릭 테이블에는 사용 가능한 메트릭의 하위 집합이 표시됩니다. 다음 그림에서는 역할 수준에서 집계된 데이터를 사용하여 Memory\Available MBytes 성능 카운터로 제한되는 클라우드 서비스에 대한 기본적인 자세한 메트릭을 보여 줍니다. **메트릭 추가**를 사용하여 관리 포털에서 모니터링할 추가 집계 및 역할 수준 메트릭을 선택합니다.
+	기본적으로 메트릭 테이블에는 사용 가능한 메트릭의 하위 집합이 표시됩니다. 다음 그림에서는 역할 수준에서 집계된 데이터를 사용하여 Memory\\Available MBytes 성능 카운터로 제한되는 클라우드 서비스에 대한 기본적인 자세한 메트릭을 보여 줍니다. **메트릭 추가**를 사용하여 관리 포털에서 모니터링할 추가 집계 및 역할 수준 메트릭을 선택합니다.
 
 	![자세한 표시](./media/cloud-services-how-to-monitor/CloudServices_DefaultVerboseDisplay.png)
  
@@ -124,7 +124,7 @@ Azure 관리 포털에서 클라우드 서비스의 주요 성능 메트릭을 �
 2. 패턴 **DeploymentId/RoleName/RoleInstance**을 사용하여 blob 경로로 이동하여 역할 인스턴스에 대한 구성을 찾습니다. 
 
 	![Visual Studio 저장소 탐색기](./media/cloud-services-how-to-monitor/CloudServices_Monitor_VisualStudioStorage.png)
-3. 역할 인스턴스에 대한 구성 파일을 다운로드 하고 모든 사용자 지정 성능 카운터를 포함하도록 업데이트합니다. 예를 들어 *C 드라이브*에 대한 *디스크 쓰기 바이트/초*를 모니터링하려면 **PerformanceCounters\Subscriptions** 노드 아래에 다음을 추가합니다.
+3. 역할 인스턴스에 대한 구성 파일을 다운로드 하고 모든 사용자 지정 성능 카운터를 포함하도록 업데이트합니다. 예를 들어 *C 드라이브*에 대한 *디스크 쓰기 바이트/초*를 모니터링하려면 **PerformanceCounters\\Subscriptions** 노드 아래에 다음을 추가합니다.
 
 	```xml
 	<PerformanceCounterConfiguration>
@@ -192,4 +192,4 @@ Azure 관리 포털에서 클라우드 서비스의 주요 성능 메트릭을 �
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

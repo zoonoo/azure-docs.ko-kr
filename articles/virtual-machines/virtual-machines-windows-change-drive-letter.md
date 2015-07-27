@@ -67,4 +67,4 @@ D 드라이브에서 기존 데이터 디스크를 사용하려면 VHD를 저장
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

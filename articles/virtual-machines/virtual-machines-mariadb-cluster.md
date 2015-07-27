@@ -370,4 +370,4 @@ Azure CLI를 사용하여 컴퓨터에서 아래 명령을 실행합니다. 명�
 [Linux에서 MySQL을 클러스터링하는 다른 방법]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

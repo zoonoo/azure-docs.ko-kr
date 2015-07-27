@@ -66,7 +66,7 @@
 ### 자습서에서 사용할 Azure Blob 저장소 및 Azure SQL 데이터베이스 준비
 이제 다음 단계를 수행하여 자습서에서 사용할 Azure Blob 저장소 및 Azure SQL 데이터베이스를 준비합니다.
 
-1. 메모장을 시작하고 다음 텍스트를 붙여 넣은 다음 **emp.txt**로 하드 드라이브의 **C:\ADFGetStarted** 폴더에 저장합니다.
+1. 메모장을 시작하고 다음 텍스트를 붙여 넣은 다음 **emp.txt**로 하드 드라이브의 **C:\\ADFGetStarted** 폴더에 저장합니다.
 
         John, Doe
 		Jane, Doe
@@ -218,4 +218,4 @@
 [image-data-factory-name-not-available]: ./media/data-factory-get-started/getstarted-data-factory-not-available.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

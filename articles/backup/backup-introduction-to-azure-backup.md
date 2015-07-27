@@ -66,4 +66,4 @@ SCDPM과 결합할 경우 Azure 백업은 다음을 백업할 수 있습니다.
 + [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하세요.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

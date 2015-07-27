@@ -1,10 +1,10 @@
-<properties 
+<properties
 	pageTitle="Microsoft Azure 앱 서비스에서 온-프레미스 SAP 서버와 통합"
 	description="온-프레미스 SAP 서버와 통합하는 방법을 알아봅니다."
-	authors="rajeshramabathiran" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/22/2015"
-	ms.author="harish"/>
+	ms.date="07/02/2015"
+	ms.author="sameerch"/>
 
 
 # 온-프레미스 SAP 서버와 통합
 SAP 커넥터를 사용하여 Azure 앱 서비스 웹, 모바일 및 논리 앱을 기존 SAP 서버에 연결할 수 있습니다. SAP 서버로 IDOC를 보낼 수 있을 뿐만 아니라 RFC, BAPI, tRFC도 호출할 수 있습니다.
-	
+
 SAP 서버는 방화벽 온-프레미스 뒤에 있을 수도 있습니다. 온-프레미스 서버의 경우 아래 그림과 같이 하이브리드 수신기를 통해 연결이 설정됩니다.
 
 ![하이브리드 연결 흐름][1]
@@ -40,12 +40,12 @@ SAP 서버는 방화벽 온-프레미스 뒤에 있을 수도 있습니다. 온-
 
 
 ## 새 SAP 어댑터 만들기
-1. Microsoft Azure 관리 포털에 로그인합니다. 
+1. Microsoft Azure 관리 포털에 로그인합니다.
 2. **새로 만들기**를 선택합니다.
 3. 만들기 블레이드에서 **계산** > **Azure 마켓플레이스**를 선택합니다.
 4. 마켓플레이스 블레이드에서 **API 앱**을 선택하고 검색 창에서 SAP를 검색합니다.
-	
-	![SAP 커넥터 API 앱][2]	
+
+	![SAP 커넥터 API 앱][2]
 5. Microsoft에서 게시한 **SAP 커넥터**를 선택합니다.
 6. SAP 커넥터 블레이드에서 **만들기**를 선택합니다.
 7. 열리는 새 블레이드에서 다음을 입력합니다.
@@ -125,8 +125,4 @@ SAP 커넥터가 생성되면 논리 앱 워크플로에서 해당 커넥터를 
 [8]: ./media/app-service-logic-integrate-with-an-on-premise-SAP-server/SAPConnector.HybridConnection.Connected.PNG
 [9]: http://download.microsoft.com/download/2/D/7/2D7CE8DF-A6C5-45F0-8319-14C3F1F9A0C7/InstallationGuide.htm
 
-
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -75,4 +75,4 @@ API 관리 서비스에 인스턴스에 대해 Azure 포털의 **크기 조정**
 [단위]: http://azure.microsoft.com/pricing/details/api-management/
 [프리미엄]: http://azure.microsoft.com/pricing/details/api-management/
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

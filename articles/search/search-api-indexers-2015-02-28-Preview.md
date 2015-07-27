@@ -12,12 +12,12 @@ ms.service="search"
 ms.devlang="rest-api" 
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="04/23/2015" 
+ms.date="07/08/2015" 
 ms.author="heidist" />
 
 #인덱서 작업(Azure 검색 서비스 REST API: 2015-02-28-Preview)
 
-> [AZURE.NOTE]이 문서에서는 [2015-02-28-Preview](../search-api-2015-02-28-preview.md)의 인덱서를 설명합니다. [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173)에 설명된 `2015-02-28` 버전과 여기에 설명된 `2015-02-28-Preview` 버전 간의 차이점은 미리 보기에서는 [인덱서 만들기](#CreateIndexer)에 설명된 것처럼 *fieldMappings*를 제공한다는 것뿐입니다.
+> [AZURE.NOTE]이 문서에서는 [2015-02-28-Preview](search-api-2015-02-28-preview.md)의 인덱서를 설명합니다. [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173)에 설명된 `2015-02-28` 버전과 여기에 설명된 `2015-02-28-Preview` 버전 간의 차이점은 미리 보기에서는 [인덱서 만들기](#CreateIndexer)에 설명된 것처럼 *fieldMappings*를 제공한다는 것뿐입니다.
 
 ## 개요
 
@@ -775,4 +775,4 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 </tr>
 </table>
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

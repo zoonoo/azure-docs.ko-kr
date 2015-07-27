@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
+	ms.date="07/08/2015" 
 	ms.author="deonhe"/>
 
 
 # Microsoft Azure 앱 서비스의 데이터 커넥터
+
+> [AZURE.NOTE]이 항목은 사용 중지됩니다. 모든 사용가능한 기본 제공 커넥터 및 API 앱을 보려면 [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)을 참조하세요.
 
 
 ## 앱 + 데이터 서비스 API 앱 커넥터 정의
@@ -47,17 +49,6 @@
 <td>Azure 서비스 버스 커넥터를 사용하면 큐 및 항목과 같은 서비스 버스 엔터티에서 메시지를 보낼 수 있으며 큐 및 구독과 같은 서비스 버스 엔터티에서 메시지를 받을 수 있습니다.
 <td>새 메시지
 <td>메시지 보내기
-</tr>
-<tr>
-<td>Azure 저장소 테이블
-<td>Azure 저장소 테이블 커넥터를 사용하면 Azure 저장소 테이블에 연결하고 엔터티 가져오기, 엔터티 쿼리, 엔터티 삽입, 엔터티 업데이트, 엔터티 삭제와 같은 다양한 작업을 수행하고 데이터를 검색하는 트리거를 시작할 수 있습니다.
-<td>새 엔터티
-<td><li>엔터티 가져오기
-	<li>엔터티 삽입
-	<li>엔터티 삭제
-	<li>엔터티 업데이트
-	<li>쿼리
-
 </tr>
 
 <tr>
@@ -126,17 +117,6 @@
 	<li>테이블에서 선택
 	<li>테이블에서 삭제
 	<li>저장 프로시저 호출
-</tr>
-
-<tr>
-<td>MongoDB
-<td>MongoDB 커넥터를 사용하면 MongoDB 컬렉션에서 문서 생성, 업데이트, 삭제 및 가져오기 작업을 수행할 수 있습니다.
-<td>새 문서
-<td>	<li>문서 추가
-		<li>문서 업데이트
-		<li>문서 가져오기
-		<li>문서 삽입 또는 업데이트
-		<li>문서 삭제
 </tr>
 
 
@@ -261,7 +241,8 @@ Microsoft Azure 앱 서비스는 이러한 커넥터를 사용할 수 있는 다
 
 
 ## 추가 커넥터
-[BizTalk 통합 커넥터](app-service-logic-integration-connectors.md) | [엔터프라이즈 커넥터](app-service-logic-enterprise-connectors.md) | [B2B 커넥터](app-service-logic-b2b-connectors.md) | [소셜 커넥터](app-service-logic-social-connectors.md) | [프로토콜 커넥터](app-service-logic-protocol-connectors.md) | [앱 및 데이터 서비스 커넥터](app-service-logic-data-connectors.md) | [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/><br/> [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
+
+[커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/><br/> [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

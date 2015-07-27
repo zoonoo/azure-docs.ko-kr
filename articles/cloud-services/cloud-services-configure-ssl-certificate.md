@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015"
+	ms.date="06/28/2015"
 	ms.author="adegeo"/>
 
 
@@ -21,13 +21,20 @@
 
 # Azure에서 응용 프로그램에 대한 SSL 구성
 
-[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
+> [AZURE.SELECTOR]
+- [Azure Portal](cloud-services-configure-ssl-certificate.md)
+- [Azure Preview Portal](cloud-services-configure-ssl-certificate-portal.md)
 
 SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터 보호에 가장 일반적으로 사용되는 방법입니다. 이 일반 작업에서는 웹 역할에 대해 HTTPS 끝점을 지정하는 방법 및 응용 프로그램 보안을 위해 SSL 인증서를 업로드하는 방법에 대해 설명합니다.
 
 > [AZURE.NOTE]이 작업의 절차는 Azure 클라우드 서비스에 적용됩니다. 웹 사이트의 경우 [Azure 웹 사이트에 대해 SSL 인증서 구성](../web-sites-configure-ssl-certificate.md)(영문)을 참조하세요.
 
 이 작업에서는 프로덕션 배포를 사용합니다. 스테이징 배포에 대한 자세한 내용은 이 토픽의 끝 부분에서 제공됩니다.
+
+첫 번째 클라우드 서비스를 아직 만들지 않은 경우.읽기[이 문서를](cloud-services-how-to-create-deploy.md) 읽어보세요.
+
+[AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
+
 
 ## 1단계: SSL 인증서 다운로드
 
@@ -105,27 +112,22 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 
 서비스 정의 및 서비스 구성 파일이 업데이트되었으므로 Azure에 업로드할 배포를 패키지합니다. **cspack**를 사용하는 경우 **/generateConfigurationFile** 플래그를 사용하지 않도록 하세요. 이 플래그는 방금 삽입한 인증서 정보를 덮어씁니다.
 
-## 3단계: 배포 패키지 및 인증서 업로드
+## 3단계: 인증서 업로드
 
 배포 패키지가 인증서를 사용하도록 업데이트되었으며 HTTPS 끝점이 추가되었습니다. 이제 관리 포털을 사용하여 패키지 및 인증서를 Azure에 업로드할 수 있습니다.
 
 1. [Azure 관리 포털][]에 로그인합니다. 
-2. **새로 만들기**, **클라우드 서비스** 및 **사용자 지정 만들기**를 차례로 클릭합니다.
-3. **클라우드 서비스 만들기** 대화 상자에서 URL, 지역/선호도 그룹 및 구독에 대한 값을 입력합니다. **클라우드 서비스 패키지를 배포합니다.**가 선택되어 있는지 확인하고 **다음** 단추를 클릭합니다.
-3. **클라우드 서비스 게시** 대화 상자에서 필요한 클라우드 서비스 정보를 입력하고 환경으로 **프로덕션**을 선택한 다음 **지금 인증서 추가**가 선택되어 있는지 확인합니다. 역할에 단일 인스턴스가 포함된 경우 **Deploy even if one or more roles contain a single instance**가 선택되어 있어야 합니다. 
+2. 클릭할 왼쪽 탐색 모음 창의 **클라우드 서비스**를 클릭합니다.
+3. 원하는 클라우드 서비스를 클릭합니다.
+4. **인증서** 탭을 클릭합니다.
 
-    ![클라우드 서비스 게시][0]
+    ![인증서 탭을 클릭합니다.](./media/cloud-services-configure-ssl-certificate/click-cert.png)
 
-4.  **다음** 단추를 클릭합니다.
-5.  **인증서 추가** 대화 상자에서 SSL 인증서 .pfx 파일의 위치, 인증서의 암호를 입력하고 **인증서 연결**을 클릭합니다.  
+5. **업로드** 단추를 클릭합니다.
 
-    ![인증서 추가][1]
-
-6.  인증서가 **연결된 인증서** 섹션에 나열되는지 확인합니다.
-
-    ![연결된 인증서][4]
-
-7.  **완료** 단추를 클릭하여 클라우드 서비스를 만듭니다. 배포가 **준비** 상태에 도달하면 다음 단계로 진행할 수 있습니다.
+    ![업로드](./media/cloud-services-configure-ssl-certificate/upload-button.png)
+    
+6. **파일****암호**를 제공한 후 **확인**을 클릭합니다(확인 표시).
 
 ## 4단계: HTTPS를 사용하여 역할 인스턴스에 연결
 
@@ -160,4 +162,4 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
   [HTTPS 끝점에서 SSL 인증서를 구성하는 방법]: http://msdn.microsoft.com/library/azure/ff795779.aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

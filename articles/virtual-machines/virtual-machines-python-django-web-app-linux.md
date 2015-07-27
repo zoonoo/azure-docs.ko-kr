@@ -129,4 +129,4 @@ Ubuntu Linux VM에는 Python 2.7이 사전 설치되어 있지만, Apache 또는
 [portal-vm]: /manage/linux/tutorials/virtual-machine-from-gallery/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

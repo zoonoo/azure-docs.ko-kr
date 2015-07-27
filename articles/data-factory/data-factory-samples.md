@@ -52,8 +52,8 @@ Azure 포털의 **샘플 파이프라인** 블레이드를 사용하여 Azure �
 게임 고객 프로파일링 | Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다양한 플랫폼용 게임을 만드는 게임 회사입니다. 이러한 각 게임은 많은 로그를 생성합니다. Contoso는 이러한 게임에서 생성되는 로그를 수집 및 분석하여 사용량 정보를 얻고, 업셀 및 교차 판매 기회를 포착하고, 탁월한 새 기능을 개발하는 등을 통해 비즈니스를 개선하고 고객에게 더 나은 환경을 제공하려는 목표가 있습니다. 이 샘플은 샘플 로그를 수집하고, 참조 데이터를 사용하여 이 로그를 처리 및 보강하고, 데이터를 변환하여 Contoso가 최근 시작한 마케팅 캠페인의 효과를 평가합니다.
  
 ## GitHub의 샘플
-[GitHub Azure-DataFactory 리포지토리](https://github.com/azure/azure-datafactory)에는 신속하게 Azure 데이터 팩터리 서비스의 규모를 확장하거나 스크립트를 수정하고 자체 응용 프로그램에서 사용하는 데 도움이 되는 여러 샘플이 포함되어 있습니다. Samples\JSON 폴더에는 일반적인 시나리오에 대한 JSON 조각이 포함되어 있습니다.
+[GitHub Azure-DataFactory 리포지토리](https://github.com/azure/azure-datafactory)에는 신속하게 Azure 데이터 팩터리 서비스의 규모를 확장하거나 스크립트를 수정하고 자체 응용 프로그램에서 사용하는 데 도움이 되는 여러 샘플이 포함되어 있습니다. Samples\\JSON 폴더에는 일반적인 시나리오에 대한 JSON 조각이 포함되어 있습니다.
 
 [data-factory-get-started]: data-factory-get-started.md#CreateDataFactory
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

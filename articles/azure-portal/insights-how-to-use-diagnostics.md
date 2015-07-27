@@ -71,4 +71,4 @@ Azure의 진단, 모니터링 및 메트릭 데이터는 선택한 저장소 계
 * [서비스 상태를 추적](insights-service-health.md)하여 Azure에서 성능 저하 또는 서비스 중단이 발생한 시기를 확인합니다. 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

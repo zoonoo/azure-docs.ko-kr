@@ -3,7 +3,7 @@
    description="이 항목에서는 B2B 처리 추적에 대해 설명합니다." 
    services="app-service\logic" 
    documentationCenter=".net,nodejs,java" 
-   authors="harishkragarwal" 
+   authors="rajram" 
    manager="dwrede" 
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="02/27/2015"
-   ms.author="hariag"/>
+   ms.date="07/01/2015"
+   ms.author="rajram"/>
 
 
 # B2B 메시지 추적
@@ -45,4 +45,4 @@ X12 및 EDIFACT에는 유사한 추적 뷰가 있습니다.
 [1]: ./media/app-service-logic-track-b2b-messages/AS2Tracking.jpg
 [2]: ./media/app-service-logic-track-b2b-messages/EDIFACTTracking.jpg
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

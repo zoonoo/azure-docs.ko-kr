@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="get-started-article"
-    ms.date="06/09/2015"
+    ms.date="07/02/2015"
     ms.author="banders"/>
 
 # 작업 영역 설정 및 설정 관리
@@ -34,7 +34,7 @@ System Center Operations Manager에서 사용하기 위해 새 작업 영역을 
 
 ## Azure 구독에 기존 작업 영역 연결
 
-[opinsights.azure.com](http://opinsights.azure.com)에서 작업 영역을 만들 수 있습니다. 그러나 이러한 작업 영역에는 특정 제한이 있으며, 가장 주목할 만한 제한은 무료 계정을 사용하는 경우 데이터 업로드가 500MB/일로 제한되는 것입니다. 이 작업 영역을 변경하려면 **기존 작업 영역을 Azure 구독에 연결**해야 합니다.
+[microsoft.com/oms](https://microsoft.com/oms)에서 작업 영역을 만들 수 있습니다. 그러나 이러한 작업 영역에는 특정 제한이 있으며, 가장 주목할 만한 제한은 무료 계정을 사용하는 경우 데이터 업로드가 500MB/일로 제한되는 것입니다. 이 작업 영역을 변경하려면 **기존 작업 영역을 Azure 구독에 연결**해야 합니다.
 
 >[AZURE.IMPORTANT]작업 영역을 연결하려면 Azure 계정에 연결하려는 작업 영역에 대한 액세스 권한이 이미 있어야 합니다. 즉, Azure 포털 액세스에 사용하는 계정과 Operational Insights 작업 영역 액세스에 사용하는 계정이 **동일**해야 합니다. 그렇지 않은 경우 [기존 작업 영역에 사용자 추가](#add-an-azure-active-directory-organization-to-an-existing-workspace)를 참조하세요.
 
@@ -179,6 +179,5 @@ Operational Insights 작업 영역을 닫으면 작업 영역을 닫은 날부�
 2. 작업 영역을 닫는 이유 중 하나를 선택하거나 텍스트 상자에 다른 이유를 입력합니다.
 
 3. **작업 영역 닫기**를 클릭합니다.
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -17,9 +17,6 @@
 	ms.author="huvalo"/>
 
 
-
-
-
 # Azure의 IPython Notebook
 
 [IPython 프로젝트](http://ipython.org)(영문)는 강력한 대화형 셸, 고성능의 사용하기 쉬운 병렬 라이브러리 및 웹 기반 환경을 포함하는 과학적 컴퓨팅을 위한 도구 모음인 IPython Notebook을 제공합니다. Notebook은 코드 실행과 라이브 계산 문서를 결합하는 대화형 컴퓨팅 작업 환경을 제공합니다. 이러한 노트북 파일에는 임의 텍스트, 수식, 입력 코드, 결과, 그래픽, 비디오를 비롯하여 최신 웹 브라우저에서 표시할 수 있는 기타 모든 미디어가 포함될 수 있습니다.
@@ -149,7 +146,7 @@ Linux:
 
 Windows:
 
-    cd \users\azureuser.ipython\profile_nbserver
+    cd \users\azureuser\.ipython\profile_nbserver
 
 SSL 인증서를 다음과 같이 만듭니다(Linux 및 Windows).
 
@@ -180,7 +177,7 @@ SSL 인증서를 다음과 같이 만듭니다(Linux 및 Windows).
     c.NotebookApp.certfile = u'/home/azureuser/.ipython/profile_nbserver/mycert.pem'
     
     # And if using a Windows VM:
-    c.NotebookApp.certfile = r'C:\Users\azureuser.ipython\profile_nbserver\mycert.pem'
+    c.NotebookApp.certfile = r'C:\Users\azureuser\.ipython\profile_nbserver\mycert.pem'
     
     # Create your own password as indicated above
     c.NotebookApp.password = u'sha1:b86e933199ad:a02e9592e5 etc... '
@@ -262,18 +259,18 @@ IPython Notebook은 Azure에서 Python 에코시스템의 기능에 대화형으
 
 
 [tornado]: http://www.tornadoweb.org/ "Tornado"
-[PyZMQ]: https://github.com/zeromq/pyzmq "PyZMQ"
-[NumPy]: http://www.numpy.org/ "NumPy"
-[Matplotlib]: http://matplotlib.sourceforge.net/ "Matplotlib"
+[pyzmq]: https://github.com/zeromq/pyzmq "PyZMQ"
+[numpy]: http://www.numpy.org/ "NumPy"
+[matplotlib]: http://matplotlib.sourceforge.net/ "Matplotlib"
 
 [portal-vm-windows]: /manage/windows/tutorials/virtual-machine-from-gallery/
 [portal-vm-linux]: /manage/linux/tutorials/virtual-machine-from-gallery/
 
 [리포지토리]: https://github.com/ipython/ipython
-[Python Tools for Visual Studio]: http://aka.ms/ptvs
+[python Tools for visual studio]: http://aka.ms/ptvs
 
-[Python 2.7]: http://www.python.org/download
-[OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
+[python 2.7]: http://www.python.org/download
+[openssl]: http://slproweb.com/products/Win32OpenSSL.html
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="DocumentDB .NET SDK 시작 | Azure" 
-	description="Azure DocumentDB 계정을 작성 및 구성하고, 데이터베이스와 컬렉션을 만들고, NoSQL 문서 데이터베이스 계정 내에 JSON 문서를 저장하는 방법을 알아봅니다." 
-	services="documentdb" 
-	documentationCenter=".net" 
-	authors="AndrewHoh" 
-	manager="jhubbard" 
+<properties
+	pageTitle="DocumentDB .NET SDK 시작 | Azure"
+	description="Azure DocumentDB 계정을 작성 및 구성하고, 데이터베이스와 컬렉션을 만들고, NoSQL 문서 데이터베이스 계정 내에 JSON 문서를 저장하는 방법을 알아봅니다."
+	services="documentdb"
+	documentationCenter=".net"
+	authors="AndrewHoh"
+	manager="jhubbard"
 	editor="monicar"/>
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="hero-article" 
-	ms.date="04/29/2015" 
+<tags
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article" 
+	ms.date="05/19/2015"
 	ms.author="anhoh"/>
 
-# DocumentDB .NET SDK 시작  
+#DocumentDB .NET SDK 시작  
 
 이 자습서에서는 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) 및 [DocumentDB .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)를 사용하여 시작하는 방법을 보여 줍니다. DocumentDB 리소스를 만들고 쿼리하는 콘솔 응용 프로그램을 빌드한 후 콘솔 창에 출력을 기록합니다.
 
@@ -29,8 +29,8 @@ DocumentDB는 NoSQL 문서 데이터베이스 서비스로서, [사용할 수 �
 - 데이터베이스 만들기
 - 컬렉션 만들기
 - JSON 문서 만들기
-- 리소스 쿼리 
-- 데이터베이스 삭제 
+- 리소스 쿼리
+- 데이터베이스 삭제
 
 자습서를 완료할 시간이 없고 작동하는 솔루션을 가져오고 싶으신가요? 걱정하지 마세요. [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started)에서 전체 솔루션을 사용할 수 있습니다. 빠른 지침은 [전체 솔루션 다운로드](#GetSolution)를 참조하세요.
 
@@ -47,7 +47,7 @@ DocumentDB는 NoSQL 문서 데이터베이스 서비스로서, [사용할 수 �
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-## <a id="SetupVS"></a> 2단계: Visual Studio 솔루션 설치
+##<a id="SetupVS"></a> 2단계: Visual Studio 솔루션 설치
 
 1. 컴퓨터에서 **Visual Studio**를 엽니다.
 2. **파일** 메뉴에서 **새로 만들기**를 선택하고 **프로젝트**를 선택합니다.
@@ -56,11 +56,11 @@ DocumentDB는 NoSQL 문서 데이터베이스 서비스로서, [사용할 수 �
 5. 그런 다음 메뉴를 종료하지 않고 **NuGet 패키지 관리...**를 클릭합니다.
 6. **NuGet 패키지 관리** 창의 맨 왼쪽 패널에서 **온라인**/**nuget.org**를 클릭합니다.
 7. **온라인 검색** 입력 상자에서 **DocumentDB Client Library**를 검색합니다.
-8. 결과 내에서 **Microsoft Azure DocumentDB Client Library**를 찾아 **설치**를 클릭합니다.
+8. 결과 내에서 **Microsoft Azure DocumentDB Client Library**를 찾아 **설치**를 클릭합니다. DocumentDB 클라이언트 라이브러리에 대한 패키지 ID는 [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)입니다.
 
 잘하셨습니다. 이제 DocumentDB 작업을 시작할 준비가 되었습니다.
 
-## <a id="Connect"></a> 3단계: DocumentDB 계정에 연결
+##<a id="Connect"></a>3단계: DocumentDB 계정에 연결
 
 DocumentDB 계정에 대한 연결을 설정하기 위해 먼저 [DocumentClient](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.aspx) 클래스의 새 인스턴스를 만듭니다. C# 응용 프로그램의 시작 부분에 다음 참조가 필요합니다.
 
@@ -68,7 +68,7 @@ DocumentDB 계정에 대한 연결을 설정하기 위해 먼저 [DocumentClient
     using Microsoft.Azure.Documents.Client;
     using Microsoft.Azure.Documents.Linq;
     using Newtonsoft.Json;
- 
+
 다음으로, DocumentDB 계정 끝점 및 계정과 연결된 기본 또는 보조 액세스 키를 사용하여 **DocumentClient**를 인스턴스화할 수 있습니다. 클래스에 다음 속성을 추가합니다.
 
     private static string EndpointUrl = "<your endpoint URI>";
@@ -79,7 +79,7 @@ DocumentDB 계정에 대한 연결을 설정하기 위해 먼저 [DocumentClient
 	private static async Task GetStartedDemo()
     {
 		// Create a new instance of the DocumentClient.
-    	var client = new DocumentClient(new Uri(EndpointUrl), AuthorizationKey); 
+    	var client = new DocumentClient(new Uri(EndpointUrl), AuthorizationKey);
 	}
 
 아래 코드처럼 Main 메서드에서 비동기 작업을 호출합니다.
@@ -101,8 +101,8 @@ DocumentDB 계정에 대한 연결을 설정하기 위해 먼저 [DocumentClient
 
 EndpointUrl 및 AuthorizationKey의 값은 DocumentDB 계정의 URI 및 기본 키로서, DocumentDB 계정의 [키](https://portal.azure.com) 블레이드에서 얻을 수 있습니다.
 
-![활성 허브, DocumentDB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조키 값이 강조 표시된 DocumentDB 계정을 보여 주는 Azure 포털의 스크린샷][keys]
- 
+![활성 허브, DocumentDB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조키 값이 강조 표시된 DocumentDB 계정을 보여 주는 Azure Preview 포털의 스크린샷][keys]
+
 이러한 키는 DocumentDB 계정 및 그 안에 포함된 리소스에 대한 관리 권한을 부여합니다. 또한 DocumentDB는 클라이언트가 계정 키 없이 부여된 사용 권한에 따라 DocumentDB 계정의 리소스를 읽고, 쓰고, 삭제할 수 있는 리소스 키 사용을 지원합니다. 리소스 키에 대한 자세한 내용은 [사용 권한](documentdb-resources.md#permissions) 및 [액세스 키 보기, 복사 및 다시 생성](documentdb-manage-account.md#keys)을 참조하세요.
 
 DocumentDB 계정에 연결하여 **DocumentClient** 클래스의 인스턴스를 만드는 방법을 알게 되었으므로 이제 DocumentDB 리소스에 대한 작업을 살펴보겠습니다.
@@ -117,7 +117,7 @@ DocumentDB 계정에 연결하여 **DocumentClient** 클래스의 인스턴스�
 			    Id = "FamilyRegistry"
 		    });
 
-## <a id="CreateColl"></a>5단계: 컬렉션 만들기  
+##<a id="CreateColl"></a>5단계: 컬렉션 만들기  
 
 > [AZURE.WARNING]**CreateDocumentCollectionAsync**는 가격의 의미가 포함된 새 S1 컬렉션을 만듭니다. 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/documentdb/)를 참조하세요.
 
@@ -129,9 +129,9 @@ DocumentDB 계정에 연결하여 **DocumentClient** 클래스의 인스턴스�
   		    {
   			    Id = "FamilyCollection"
   		    });
-    
-## <a id="CreateDoc"></a>6단계: 문서 만들기
-**DocumentClient** 클래스의 [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) 메서드를 사용하여 [문서](documentdb-resources.md#documents)를 만들 수 있습니다. 문서는 사용자 정의(임의) JSON 콘텐츠입니다. 위의 단계에서 생성된 컬렉션은 몇 가지 속성을 포함하며 그중 한 가지가 [DocumentsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.documentcollection.documentslink.aspx) 속성입니다. 이러한 정보를 사용하여 이제 하나 이상의 문서를 삽입할 수 있습니다.
+
+##<a id="CreateDoc"></a>6단계: 문서 만들기
+**DocumentClient** 클래스의 [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) 메서드를 사용하여 [문서](documentdb-resources.md#documents)를 만들 수 있습니다. 문서는 사용자 정의(임의) JSON 콘텐츠입니다. 위의 단계에서 생성된 컬렉션은 몇 가지 속성을 포함하며 그중 한 가지가 [DocumentsLink](https://msdn.microsoft.com/library/microsoft.azure.documents.documentcollection.documentslink.aspx) 속성입니다. 이러한 정보를 사용하여 이제 하나 이상의 문서를 삽입할 수 있습니다. 데이터베이스에 저장하고자 하는 데이터가 이미 있다면 DocumentDB의 [데이터 마이그레이션 도구](documentdb-import-data.md)를 사용할 수 있습니다.
 
 먼저 **Parent**, **Child**, **Pet**, **Address** 및 **Family** 클래스를 만들어야 합니다. 다음 내부 하위 클래스를 추가하여 이러한 클래스를 만듭니다.
 
@@ -185,21 +185,21 @@ DocumentDB 계정에 연결하여 **DocumentClient** 클래스의 인스턴스�
             new Parent { FirstName = "Mary Kay"}
         },
         Children = new Child[] {
-            new Child { 
-                FirstName = "Henriette Thaulow", 
-                Gender = "female", 
-                Grade = 5, 
+            new Child {
+                FirstName = "Henriette Thaulow",
+                Gender = "female",
+                Grade = 5,
                 Pets = new Pet[] {
-                    new Pet { GivenName = "Fluffy" } 
+                    new Pet { GivenName = "Fluffy" }
                 }
-            } 
+            }
         },
         Address = new Address { State = "WA", County = "King", City = "Seattle" },
         IsRegistered = true
     };
 
     await client.CreateDocumentAsync(documentCollection.DocumentsLink, AndersenFamily);
-    
+
     // Create the WakeField family document.
     Family WakefieldFamily = new Family
     {
@@ -210,9 +210,9 @@ DocumentDB 계정에 연결하여 **DocumentClient** 클래스의 인스턴스�
         },
         Children = new Child[] {
             new Child {
-                FamilyName= "Merriam", 
-                FirstName= "Jesse", 
-                Gender= "female", 
+                FamilyName= "Merriam",
+                FirstName= "Jesse",
+                Gender= "female",
                 Grade= 8,
                 Pets= new Pet[] {
                     new Pet { GivenName= "Goofy" },
@@ -220,9 +220,9 @@ DocumentDB 계정에 연결하여 **DocumentClient** 클래스의 인스턴스�
                 }
             },
             new Child {
-                FamilyName= "Miller", 
-                FirstName= "Lisa", 
-                Gender= "female", 
+                FamilyName= "Miller",
+                FirstName= "Lisa",
+                Gender= "female",
                 Grade= 1
             }
         },
@@ -231,12 +231,12 @@ DocumentDB 계정에 연결하여 **DocumentClient** 클래스의 인스턴스�
     };
 
     await client.CreateDocumentAsync(documentCollection.DocumentsLink, WakefieldFamily);
- 
+
 이제 DocumentDB 계정에서 다음 데이터베이스, 컬렉션 및 문서를 만들었습니다.
 
 ![계정, 데이터베이스, 컬렉션 및 문서 간의 계층 관계를 보여 주는 다이어그램](./media/documentdb-get-started/account-database.png)
 
-## <a id="Query"></a>7단계: DocumentDB 리소스 쿼리
+##<a id="Query"></a>7단계: DocumentDB 리소스 쿼리
 
 DocumentDB는 각 컬렉션에 저장된 JSON 문서에 대해 다양한 [쿼리](documentdb-sql-query.md)를 지원합니다. 다음 샘플 코드는 DocumentDB SQL 구문뿐 아니라 LINQ를 사용하는 다양한 쿼리를 보여 줍니다. 이러한 쿼리는 이전 단계에서 삽입한 문서에 대해 실행할 수 있습니다. 이러한 쿼리를 **GetStartedDemo** 비동기 메서드에 추가합니다.
 
@@ -303,7 +303,7 @@ DocumentDB는 각 컬렉션에 저장된 JSON 문서에 대해 다양한 [쿼리
 
 DocumentDB 쿼리는 이미 단일 컬렉션으로 범위가 지정되었기 때문에 [FROM](documentdb-sql-query.md/#from-clause) 키워드는 쿼리에서 선택 사항입니다. 따라서 "FROM Families f"를 "FROM root r" 또는 선택한 다른 변수 이름으로 교체할 수 있습니다. DocumentDB는 패밀리, 루트 또는 선택한 변수 이름이 기본적으로 현재 컬렉션을 참조하는 것으로 유추합니다.
 
-## <a id="DeleteDatabase"></a>8단계: 데이터베이스 삭제
+##<a id="DeleteDatabase"></a>8단계: 데이터베이스 삭제
 
 만든 데이터베이스를 삭제하면 데이터베이스와 모든 자식 리소스(컬렉션, 문서 등)가 제거됩니다. 다음 코드 조각을 **GetStartedDemo** 비동기 메서드 끝에 추가하여 데이터베이스 및 문서 클라이언트를 삭제할 수 있습니다.
 
@@ -311,7 +311,7 @@ DocumentDB 쿼리는 이미 단일 컬렉션으로 범위가 지정되었기 때
     await client.DeleteDatabaseAsync(database.SelfLink);
 	client.Dispose();
 
-## <a id="Run"></a>9단계: 응용 프로그램 실행
+##<a id="Run"></a>9단계: 응용 프로그램 실행
 
 이제 응용 프로그램을 실행할 준비가 되었습니다. **Main** 메서드 끝에 다음 코드 줄을 추가합니다. 그러면 응용 프로그램 실행이 완료되기 전에 콘솔 출력을 읽을 수 있습니다.
 
@@ -451,13 +451,14 @@ DocumentDB 쿼리는 이미 단일 컬렉션으로 범위가 지정되었기 때
 	{ family = WakefieldFamily, child = Jesse }
 	{ family = WakefieldFamily, child = Lisa }
 
+
 > [AZURE.NOTE]데이터베이스를 제거하지 않고 응용 프로그램을 여러 번 실행하면 이미 사용 중인 ID를 사용하는 새 데이터베이스를 만드는 문제가 발생할 수 있습니다. 이를 방지하기 위해 동일한 ID를 사용하는 데이터베이스, 컬렉션 또는 문서가 있는지 확인할 수 있습니다. 이 작업을 수행하는 방법은 [GitHub 페이지](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started)를 참조하세요.
-	
-## <a id="GetSolution"></a> 전체 솔루션 다운로드
+
+##<a id="GetSolution"></a> 전체 솔루션 다운로드
 이 문서의 모든 샘플을 포함하는 GetStarted 솔루션을 빌드하려면 다음이 필요합니다.
 
 -   [DocumentDB 계정][documentdb-create-account]
--   GitHub에서 제공하는 [GetStarted](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started) 솔루션 
+-   GitHub에서 제공하는 [GetStarted](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started) 솔루션
 
 Visual Studio 2013에서 DocumentDB .NET SDK에 대한 참조를 복원하려면 솔루션 탐색기에서 **GetStarted** 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 복원 사용**을 클릭합니다. 다음으로, App.config 파일에서 EndpointUrl 및 AuthorizationKey 값을 [DocumentDB 계정에 연결](#Connect)에 설명된 대로 업데이트합니다.
 
@@ -472,6 +473,6 @@ Visual Studio 2013에서 DocumentDB .NET SDK에 대한 참조를 복원하려면
 [documentdb-manage]: documentdb-manage.md
 
 [keys]: media/documentdb-get-started/keys.png
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO3-->

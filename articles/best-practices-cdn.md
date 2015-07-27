@@ -176,7 +176,7 @@ CDN 사용은 응용 프로그램에 대한 부하를 최소화하고 가용성�
   <rewrite>
     <rules>
       <rule name="VersionedResource" stopProcessing="false">
-        <match url="(.*)_v(.*).(.*)" ignoreCase="true" />
+        <match url="(.*)_v(.*)\.(.*)" ignoreCase="true" />
         <action type="Rewrite" url="{R:1}.{R:3}" appendQueryString="true" />
       </rule>
       <rule name="CdnImages" stopProcessing="true">
@@ -219,4 +219,4 @@ CDN 사용은 응용 프로그램에 대한 부하를 최소화하고 가용성�
 + [Azure CDN과 클라우드 서비스 통합](cdn-cloud-service-with-cdn.md)
 + [Azure CDN(콘텐츠 배달 네트워크) 모범 사례](http://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

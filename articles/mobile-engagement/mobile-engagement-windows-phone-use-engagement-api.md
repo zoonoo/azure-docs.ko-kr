@@ -4,7 +4,7 @@
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
-	manager="dwrede" 
+	manager="dwrede"
 	editor="" />
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
 #Windows Phone Silverlight에서 Engagement API를 사용하는 방법
@@ -379,4 +379,4 @@ SendAppInfo() 함수를 사용하면 추적 정보 또는 기타 응용 프로�
 			{"subscription":"2013-12-07","premium":"true"}
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

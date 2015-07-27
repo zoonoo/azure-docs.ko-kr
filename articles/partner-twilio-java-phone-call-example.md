@@ -208,4 +208,4 @@ Twilio에 대한 자세한 내용은 [https://www.twilio.com/docs][twilio_docs](
 [twilio_java]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaCallForm.jpg
 [twilio_java_response]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

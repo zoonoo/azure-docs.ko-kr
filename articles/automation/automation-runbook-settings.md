@@ -60,4 +60,4 @@ Azure 관리 포털의 Runbook에 대한 **구성** 페이지에서 해당 Runbo
 - [Runbook 출력 및 메시지](../automation-runbook-output-and-messages) 
 - [Runbook 만들기 또는 가져오기](https://msdn.microsoft.com/library/dn643637.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

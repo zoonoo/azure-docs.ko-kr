@@ -1,6 +1,6 @@
 <properties
-	pageTitle=".NET 백엔드로 모바일 서비스 사용자의 서비스 쪽 권한 부여 | 모바일 개발자 센터"
-	description="Azure 모바일 서비스의.NET 백엔드에서 사용자에게 권한을 부여하는 방법에 대해 알아봅니다."
+	pageTitle=".NET 백엔드 모바일 서비스에서 사용자의 서비스 쪽 권한 부여 | Azure 모바일 서비스"
+	description=".NET 백엔드 모바일 서비스에서 사용자 권한 부여 액세스 권한을 제한하는 방법에 대해 알아보기"
 	services="mobile-services"
 	documentationCenter="windows"
 	authors="krisragh"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="05/10/2015"
+	ms.date="07/02/2015"
 	ms.author="krisragh"/>
 
 # 모바일 서비스에서 사용자의 서비스 쪽 권한 부여
@@ -34,20 +34,28 @@
 
 	>[AZURE.NOTE]이 데이터 모델을 변경하고 데이터베이스에서 기존 데이터를 유지하려면 [Code First 마이그레이션](mobile-services-dotnet-backend-how-to-use-code-first-migrations.md)을 사용해야 합니다.
 
-2. Visual Studio에서 컨트롤러 폴더를 확장하고 **TodoItemController.cs**를 엽니다. **PostTodoItem** 메서드를 찾아 이 메서드의 시작 부분에 다음 코드를 추가합니다. 이 코드는 TodoItem 테이블에 삽입되기 전에 인증된 사용자의 사용자 ID를 항목에 추가합니다.
+2. Visual Studio에서 컨트롤러 폴더를 확장하고, **TodoItemController.cs**를 열고, 아래 문을 사용하여 다음 내용을 추가합니다.
 
-			// Get the logged in user
-			var currentUser = User as ServiceUser;
+		using Microsoft.Azure.Mobile.Server.Security;
 
-			// Set the user ID on the item
-			item.UserId = currentUser.Id;
+3. **PostTodoItem** 메서드를 찾아 이 메서드의 시작 부분에 다음 코드를 추가합니다.
 
-3. **GetAllTodoItems** 메서드를 찾아 기존 **return** 문을 다음 코드 줄로 바꿉니다. 이 쿼리는 반환된 TodoItem 개체를 필터링하여 각 사용자가 자신이 삽입한 항목만 수신하도록 합니다.
+		// Get the logged in user
+		var currentUser = User as ServiceUser;
+	
+		// Set the user ID on the item
+		item.UserId = currentUser.Id;
+	
+	이 코드는 TodoItem 테이블에 삽입되기 전에 인증된 사용자의 사용자 ID를 항목에 추가합니다.
 
-				// Get the logged in user
-				var currentUser = User as ServiceUser;
+3. **GetAllTodoItems** 메서드를 찾아 기존 **return** 문을 다음 코드 줄로 바꿉니다.
 
-				return Query().Where(todo => todo.UserId == currentUser.Id);
+		// Get the logged in user
+		var currentUser = User as ServiceUser;
+
+		return Query().Where(todo => todo.UserId == currentUser.Id);
+		
+	이 쿼리는 반환된 TodoItem 개체를 필터링하여 각 사용자가 자신이 삽입한 항목만 수신하도록 합니다.
 
 4. Azure에 모바일 서비스 프로젝트를 다시 게시합니다.
 
@@ -72,4 +80,4 @@
 [기존 모바일 서비스 앱에 인증 추가]: mobile-services-dotnet-backend-ios-get-started-users.md
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

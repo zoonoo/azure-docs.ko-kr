@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="06/26/2015" 
 	ms.author="tdykstra"/>
 
 # API 앱 보호: Azure Active Directory 또는 소셜 공급자 인증 추가
@@ -30,6 +30,8 @@
 - 구성된 공급자에 로그인
 - API 앱을 다시 호출하여 인증된 액세스가 작동하는지 확인
 - 로그온한 사용자에 대한 클레임을 검색하는 코드를 작성하고 테스트합니다.
+
+Azure 앱 서비스의 인증에 대한 자세한 내용은 [API 앱 및 모바일 앱 인증](../app-service/app-service-authentication-overview.md)을 참조하세요.
 
 ## 필수 조건
 
@@ -85,61 +87,13 @@ Visual Studio에서 리소스 그룹을 만들 때 *게이트웨이*도 만들�
 
 API 앱이 인증된 요청만 수락하도록 구성하기 위해 해당 접근성을 **공용(인증됨)**으로 설정하고 Azure Active Directory, Google 또는 Facebook과 같은 공급자의 인증을 요구하도록 게이트웨이를 구성합니다.
 
-1. 보호하려는 API 앱의 **API 앱** 블레이드로 돌아갑니다.
+[AZURE.INCLUDE [app-service-api-config-auth](../../includes/app-service-api-config-auth.md)]
 
-2. **API 앱** 블레이드에서 **설정**을 클릭한 후 **응용 프로그램 설정**을 클릭합니다.
-
-	![설정 클릭](./media/app-service-api-dotnet-add-authentication/clicksettings.png)
-
-	![응용 프로그램 설정 클릭](./media/app-service-api-dotnet-add-authentication/clickbasicsettings.png)
-
-3. **응용 프로그램 설정** 블레이드에서 **액세스 수준**을 **공용(인증됨)**으로 변경하고 **저장**을 클릭합니다.
-
-	![기본 설정 클릭](./media/app-service-api-dotnet-add-authentication/setpublicauth.png)
-
-	이제 API 앱이 인증되지 않은 액세스로부터 보호됩니다. 그런 다음, 게이트웨이를 구성하여 사용할 인증 공급자를 지정해야 합니다.
+이제 API 앱이 인증되지 않은 액세스로부터 보호됩니다. 그런 다음, 게이트웨이를 구성하여 사용할 인증 공급자를 지정해야 합니다.
 
 ### <a id="gateway"></a>인증 공급자를 사용하도록 게이트웨이 구성
 
-4. 다시 **API 앱** 블레이드가 표시될 때까지 왼쪽으로 스크롤한 후 게이트웨이 링크를 클릭합니다.
-
-	![게이트웨이 클릭](./media/app-service-api-dotnet-add-authentication/gateway.png)
-
-7. **게이트웨이** 블레이드에서 **설정**을 클릭한 후 **ID**를 클릭합니다.
-
-	![설정 클릭](./media/app-service-api-dotnet-add-authentication/clicksettingsingateway.png)
-
-	![ID 클릭](./media/app-service-api-dotnet-add-authentication/clickidentity.png)
-
-	**ID** 블레이드에서 Azure Active Directory 및 기타 여러 공급자를 사용하여 인증을 구성하기 위한 다른 블레이드로 이동할 수 있습니다.
-
-	![ID 블레이드](./media/app-service-api-dotnet-add-authentication/identityblade.png)
-  
-3. 사용할 ID 공급자를 선택하고 해당 문서의 단계에 따라 해당 공급자를 사용하여 API 앱을 구성합니다. 이러한 문서는 모바일 앱용으로 작성되었지만 절차는 API 앱에 대해서도 동일합니다. 일부 절차를 수행하려면 [Azure 포털]을 사용해야 합니다.
-
- - [Microsoft 계정](../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication-preview.md)
- - [Facebook 로그인](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication-preview.md)
- - [Twitter 로그인](../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication-preview.md)
- - [Google 로그인](../app-service-mobile/app-service-mobile-how-to-configure-google-authentication-preview.md)
- - [Azure Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication-preview.md)
-
-예를 들어 다음 스크린샷은 Azure Active Directory 인증을 설정한 후 [Azure 포털] 페이지 및 [Azure Preview 포털] 블레이드에 표시되어야 하는 내용을 보여 줍니다.
-
-Azure Preview 포털에서 **Azure Active Directory** 블레이드에는 Azure 포털의 Azure Active Directory 탭에서 만든 응용 프로그램의 **클라이언트 ID**가 있고, **허용된 테넌트**에는 Azure Active Directory 테넌트(예: "contoso.onmicrosoft.com")가 있습니다.
-
-![Azure Active Directory 블레이드](./media/app-service-api-dotnet-add-authentication/tdinaadblade.png)
-
-Azure 포털에서 **Azure Active Directory** 탭에서 만든 응용 프로그램의 **구성** 탭에는 Azure Preview 포털의 **Azure Active Directory** 블레이드에서 가져온 **로그온 URL**, **앱 ID URI** 및 **회신 URL**이 있습니다.
-
-![](./media/app-service-api-dotnet-add-authentication/oldportal1.png)
-
-![](./media/app-service-api-dotnet-add-authentication/oldportal2.png)
-
-![](./media/app-service-api-dotnet-add-authentication/oldportal3.png)
-
-![](./media/app-service-api-dotnet-add-authentication/oldportal4.png)
-
-이미지의 회신 URL은 동일한 URL을 두 번 보여 주는데 하나는 `http:`를 사용한 것이고 다른 하나는 `https:`를 사용한 것입니다.
+[AZURE.INCLUDE [app-service-api-gateway-config-auth](../../includes/app-service-api-gateway-config-auth.md)]
 
 ## 인증이 작동하는지 확인
 
@@ -188,6 +142,8 @@ Azure 포털에서 **Azure Active Directory** 탭에서 만든 응용 프로그�
 	![로그인 완료](./media/app-service-api-dotnet-add-authentication/logincomplete.png)
 
 	![Chrome Get 응답](./media/app-service-api-dotnet-add-authentication/chromeget.png)
+
+	Swagger UI를 사용하도록 설정한 경우 지금 Swagger UI 페이지로 이동할 수 있습니다. 그러나 페이지 오른쪽 맨 아래에 표시된 빨간색 **오류** 아이콘을 클릭하면 Swagger JSON 파일에 액세스할 수 없다는 메시지가 표시됩니다. Swagger가 Zumo 토큰을 포함하지 않고 AJAX를 호출하여 JSON 파일을 검색하려고 하기 때문입니다. 이 경우에도 Swagger UI 페이지는 잘 작동됩니다.
 
 ## Postman을 사용하여 Post 요청 보내기
 
@@ -307,12 +263,9 @@ Azure 포털에서 **Azure Active Directory** 탭에서 만든 응용 프로그�
 
 ## 다음 단계
 
-Azure Active Directory 또는 소셜 공급자 인증을 요구하여 Azure API 앱을 보호하는 방법을 살펴봤습니다. 자세한 내용은 [API 앱 정의](app-service-api-apps-why-best-platform.md)를 참조하세요.
+Azure Active Directory 또는 소셜 공급자 인증을 요구하여 Azure API 앱을 보호하는 방법을 살펴봤습니다. 자세한 내용은 [API 앱 및 모바일 앱 인증](../app-service/app-service-authentication-overview.md)을 참조하세요.
 
 [Azure 포털]: https://manage.windowsazure.com/
 [Azure Preview 포털]: https://portal.azure.com/
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

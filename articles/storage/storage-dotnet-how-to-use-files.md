@@ -1,6 +1,6 @@
 <properties
 			pageTitle="PowerShell 및 .NET와 함께 Azure 파일 저장소를 사용하는 방법 | Microsoft Azure"
-            description="Azure 파일 저장소를 사용하여 클라우드 파일 공유를 만들고 파일 콘텐츠를 관리하는 방법을 알아봅니다. 파일 저장소를 사용하면 기업이 SMB 파일 공유에 기반한 응용 프로그램을 Azure로 이동할 수 있습니다. 샘플은 PowerShell 및 C#으로 작성되었습니다."
+            description="Azure 파일 저장소를 사용하여 클라우드 파일 공유를 만들고 파일 콘텐츠를 관리하는 방법을 알아봅니다. 파일 저장소를 사용하면 기업이 SMB 파일 공유에 기반한 응용 프로그램을 Azure로 이동할 수 있습니다. 가상 컴퓨터에 대한 저장소 계정 자격 증명을 유지하여 다시 부팅할 때 파일 공유에 다시 연결하도록 합니다."
             services="storage"
             documentationCenter=".net"
             authors="tamram"
@@ -12,14 +12,18 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="06/22/2015"
+      ms.date="07/06/2015"
       ms.author="tamram" />
 
 # PowerShell 및 .NET와 함께 Azure 파일 저장소를 사용하는 방법
 
 ## 개요
 
-이 시작 설명서에서는 Microsoft Azure 파일 저장소 사용의 기본 사항을 설명합니다. 이 자습서에서는 다음 작업을 수행합니다.
+Azure 파일 서비스는 표준 SMB 2.1 프로토콜을 사용하여 파일 공유를 노출합니다. Azure에서 실행되는 응용 프로그램은 이 서비스를 통해 ReadFile 및 WriteFile과 같은 친숙한 표준 파일 시스템을 사용하는 VM 간에 파일을 쉽게 공유할 수 있습니다. 또한 다양한 하이브리드 시나리오를 여는 REST 인터페이스를 통해 파일에 동시에 액세스할 수도 있습니다. 마지막으로, Azure 파일은 Blob, 테이블 및 큐 서비스와 동일한 기술을 토대로 만들어졌으므로 Azure 파일로 기존 가용성, 내구성, 확장성 및 플랫폼에 기본 제공되는 지리적 중복을 활용할 수 있습니다.
+
+## 이 자습서 정보
+
+이 시작 자습서에서는 Microsoft Azure 파일 저장소 사용에 대한 기본 사항을 설명합니다. 이 자습서에서는 다음 작업을 수행합니다.
 
 - PowerShell을 사용하여 새 Azure 파일 공유를 만들고, 디렉터리를 추가하고, 로컬 파일을 공유로 업로드하고, 디렉터리의 파일을 나열하는 방법을 보여 줍니다.
 - SMB 공유와 마찬가지로 Azure 가상 컴퓨터에서 파일 공유를 마운트합니다.
@@ -114,17 +118,17 @@ Azure 파일 공유를 마운트하는 방법을 보여 주기 위해 Windows를
 
 가상 컴퓨터에 원격으로 연결되면 `net use` 명령의 다음 구문을 사용하여 파일 공유를 마운트할 수 있습니다. `<storage-account-name>`를 저장소 계정의 이름으로 바꾸고 `<share-name>`을 파일 저장소 공유의 이름으로 바꿉니다.
 
-    net use <drive-letter>: <storage-account-name>.file.core.windows.net<share-name>
+    net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name>
 
 	example :
-	net use z: \samples.file.core.windows.net\logs
+	net use z: \\samples.file.core.windows.net\logs
 
 > [AZURE.NOTE]이전 단계의 저장소 계정 자격 증명을 저장했으므로 `net use` 명령에 이러한 자격 증명을 제공할 필요가 없습니다. 자격 증명을 저장하지 않은 경우 `net use` 명령에 전달되는 매개 변수로 포함합니다.
 
-    net use <drive-letter>: <storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
+    net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
 
 	example :
-	net use z: \samples.file.core.windows.net\logs /u:samples <storage-account-key>
+	net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
 
 이제 다른 드라이브의 경우처럼 가상 컴퓨터에서 파일 저장소 공유를 사용할 수 있습니다. 명령 프롬프트에서 표준 파일 명령을 실행하거나 파일 탐색기에서 마운트된 공유 및 해당 내용을 확인할 수 있습니다. .NET Framework의 [System.IO 네임스페이스](http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx)에서 제공하는 것과 같은 표준 Windows 파일 I/O API를 사용하여 파일 공유에 액세스하는 가상 컴퓨터 내에서 코드를 실행할 수도 있습니다.
 
@@ -233,4 +237,4 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 - [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/10/2015" 
 	ms.author="spelluru"/>
 
 # 파이프라인에서 온-프레미스 데이터를 사용할 수 있도록 설정
@@ -62,8 +62,8 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 데이터 �
 2.	게이트웨이 컴퓨터에 대한 권장 **구성**은 최소한 2GHz, 4개 코어, 8GB RAM 및 80GB 디스크입니다.
 3.	호스트 컴퓨터가 최대 절전 모드인 경우 게이트웨이가 데이터 요청에 응답할 수 없습니다. 따라서 게이트웨이를 설치하기 전에 컴퓨터에서 **전원 계획**을 적절하게 구성하세요. 컴퓨터가 최대 절전 모드로 구성된 경우 게이트웨이 설치에서 메시지가 표시됩니다.  
 
+데이터 관리 게이트웨이는 호스팅되는 컴퓨터에서 원본 및 싱크 데이터를 직렬화 및 역직렬화합니다. 또한 복사될 때 데이터에 대해 형식 변환을 수행합니다. 복사 작업 동안 게이트웨이는 원본으로부터 메모리 버퍼까지 데이터를 읽으며 동시에 다른 기록기 스레드가 싱크에 버퍼를 씁니다. 최대 사용 시간 중에는 게이트웨어 호스트 컴퓨터에서 여러 복사 활동 작업을 동시에 실행할 수 있으므로 메모리 및 CPU 리소스의 소비가 유휴 시간보다 훨씬 더 많습니다. 따라서 데이터 관리 게이트웨이를 실행 중인 호스트 컴퓨터는 위에서 제안한 최소 컴퓨터 구성에서 요약한 것보다 더 많은 리소스가 또는 유휴 시간에는 더 적은 리소스가 필요할 수도 있습니다.
 
- 
 
 ## 연습
 
@@ -117,7 +117,7 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 데이터 �
 
 	![게이트웨이 - 구성 블레이드][image-data-factory-gateway-configure-blade]
 
-	이는 하나의 단계로 게이트웨이를 다운로드, 설치, 구성 및 등록하는 가장 쉬운 방법(한 번 클릭)입니다. **Microsoft 데이터 관리 게이트웨이 구성 관리자** 응용프로그램이 컴퓨터에 설치된 것을 확인할 수 있습니다. 실행 파일 **ConfigManager.exe**를 **C:\Program Files\Microsoft Data Management Gateway\1.0\Shared** 폴더에서 찾을 수도 있습니다.
+	이는 하나의 단계로 게이트웨이를 다운로드, 설치, 구성 및 등록하는 가장 쉬운 방법(한 번 클릭)입니다. **Microsoft 데이터 관리 게이트웨이 구성 관리자** 응용프로그램이 컴퓨터에 설치된 것을 확인할 수 있습니다. 실행 파일 **ConfigManager.exe**를 **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared** 폴더에서 찾을 수도 있습니다.
 
 	또한 이 블레이드에서 링크를 클릭하여 게이트웨이를 수동으로 다운로드하여 설치하고 **REGISTER WITH KEY(키를 사용하여 등록)** 텍스트 상자에 표시된 키를 사용하여 등록할 수도 있습니다.
 	
@@ -166,7 +166,7 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 데이터 �
 4.	JSON 창에서 다음을 수행합니다.
 	1.	**gatewayName** 속성에 대해 **adftutorialgateway**를 입력하여 큰따옴표 안의 모든 텍스트를 바꿉니다.  
 	2.	**SQL 인증**을 사용하는 경우 
-		1.	**connectionString** 속성에 대해 **<servername>**, **<databasename>**, **<username>** 및 **<password>**를 온-프레미스 SQL Server, 데이터베이스, 사용자 계정의 이름 및 암호로 바꿉니다.	
+		1.	**connectionString** 속성에 대해 **<servername>**, **<databasename>**, **<username>** 및 **<password>**를 온-프레미스 SQL Server, 데이터베이스, 사용자 계정의 이름 및 암호로 바꿉니다. 인스턴스 이름을 지정하려면 이스케이프 문자를 사용합니다. 예: **server\\instancename**. 	
 		2.	마지막 두 속성(**username** 및 **password**)을 JSON 파일에서 제거하고 남은 JSON 스크립트의 마지막 줄 끝에 있는 **쉼표(,)** 문자를 제거합니다.
 		
 				{
@@ -487,7 +487,7 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 데이터 �
 	**예제 명령 및 출력**:
 
 
-		PS C:\> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+		PS C:> New-AzureDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
 
 		Name              : MyGateway
 		Description       : gateway for walkthrough
@@ -509,12 +509,12 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 데이터 �
 	**예제 명령 출력:**
 
 
-		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
+		PS C:> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. Azure PowerShell에서 **C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript** 폴더로 전환하고 다음 명령에 표시된 대로 지역 변수 **$Key**와 연결된 **RegisterGateway.ps1** 스크립트를 실행하여 컴퓨터에 설치된 클라이언트 에이전트를 앞에서 만든 논리 게이트웨이에 등록합니다.
+4. Azure PowerShell에서 **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript** 폴더로 전환하고 다음 명령에 표시된 대로 지역 변수 **$Key**와 연결된 **RegisterGateway.ps1** 스크립트를 실행하여 컴퓨터에 설치된 클라이언트 에이전트를 앞에서 만든 논리 게이트웨이에 등록합니다.
 
-		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
+		PS C:> .\RegisterGateway.ps1 $Key.GatewayKey
 		
 		Agent registration is successful!
 
@@ -627,4 +627,4 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 데이터 �
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

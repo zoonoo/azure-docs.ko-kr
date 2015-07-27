@@ -124,4 +124,4 @@ SUSE Linux Enterprise Server on Azure는 클라우드 컴퓨팅에 대해 우수
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

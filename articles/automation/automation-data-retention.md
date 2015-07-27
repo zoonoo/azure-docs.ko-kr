@@ -36,4 +36,4 @@ Azure 자동화는 90일이 넘은 작업을 자동으로 삭제하고 영구적
 ## 관련된 문서
 - [Azure 자동화 백업](https://msdn.microsoft.com/library/dn643635.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

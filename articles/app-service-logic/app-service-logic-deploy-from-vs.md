@@ -65,4 +65,4 @@ Azure 포털 내에서 이전에 논리 앱을 만들었고 이제 소스 제어
 
 Visual Studio를 사용하지 않고 싶지만 소스 제어에서 논리 앱을 배포하기 위해 여전히 장사를 하고 싶은 경우 [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) 또는 [Powershell](../powershell-azure-resource-manager.md)을 직접 사용하여 배포를 자동화하는 데 사용할 수 있습니다.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

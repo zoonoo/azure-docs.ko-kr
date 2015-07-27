@@ -220,4 +220,4 @@ Azure 웹 사이트 개발 및 게시에 대한 자세한 내용은 [Django를 �
 [큐 저장소]: storage-python-how-to-use-queue-storage.md
 [Blob 저장소]: storage-python-how-to-use-blob-storage.md
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

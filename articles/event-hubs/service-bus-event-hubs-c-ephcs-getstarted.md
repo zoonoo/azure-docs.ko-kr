@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="이벤트 허브 시작" 
-	description="이 자습서에 따라 Azure 이벤트 허브를 사용하여 C로 이벤트를 보내고 EventProcessorHost를 통해 C#으로 이벤트를 받을 수 있습니다." 
-	services="service-bus" 
-	documentationCenter="" 
-	authors="fsautomata" 
-	manager="timlt" 
+<properties
+	pageTitle="이벤트 허브 시작"
+	description="이 자습서에 따라 Azure 이벤트 허브를 사용하여 C로 이벤트를 보내고 EventProcessorHost를 통해 C#으로 이벤트를 받을 수 있습니다."
+	services="event-hubs,service-bus"
+	documentationCenter=""
+	authors="fsautomata"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="service-bus" 
-	ms.workload="core" 
-	ms.tgt_pltfrm="c" 
-	ms.devlang="csharp" 
-	ms.topic="hero-article" 
-	ms.date="02/10/2015" 
+<tags
+	ms.service="event-hubs"
+	ms.workload="core"
+	ms.tgt_pltfrm="c"
+	ms.devlang="csharp"
+	ms.topic="get-started-article"
+	ms.date="06/17/2015"
 	ms.author="sethm"/>
 
 # 이벤트 허브 시작
@@ -38,7 +38,7 @@
 
 ## 이벤트 허브 만들기
 
-1. [Azure 관리 포털]에 로그온하여 화면 아래쪽의 **새로 만들기**를 클릭합니다.
+1. [Azure 관리 포털]에 로그온하고 화면 맨 아래에 있는 **새로 만들기**를 클릭합니다.
 
 2. **앱 서비스**, **서비스 버스**, **이벤트 허브**, **빨리 만들기**를 차례로 클릭합니다.
 
@@ -56,7 +56,7 @@
 
    	![][4]
 
-6. 페이지 위쪽의 **구성** 탭을 클릭하고 *Send* 권한이 있는 **SendRule** 규칙과 *Manage, Send, Listen* 권한이 있는 **ReceiveRule** 규칙을 추가한 후에 **저장**을 클릭합니다.
+6. 페이지 위쪽의 **구성** 탭을 클릭하고 *보내기* 권한이 있는 **SendRule** 규칙과 *관리, 보내기, 수신 대기* 권한이 있는 **ReceiveRule** 규칙을 추가한 후에 **저장**을 클릭합니다.
 
    	![][5]
 
@@ -104,6 +104,6 @@
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [이벤트 프로세서 호스트]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [이벤트 허브 개요]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO3-->

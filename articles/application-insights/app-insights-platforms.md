@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="07/11/2015" 
 	ms.author="awills"/>
  
 # Application Insights: 플랫폼
@@ -40,7 +40,7 @@
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [Azure 웹 앱 및 VM](../insights-perf-analytics.md)
-+ [Azure 클라우드 서비스](app-insights-cloudservices.md)
++ 웹 및 작업자 역할 모두를 포함하는 [Azure 클라우드 서비스](app-insights-cloudservices.md)
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
@@ -58,7 +58,7 @@
 
 +	[Log4Net, NLog 또는 System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 +	[Java, Log4J 또는 Logback](app-insights-java-trace-logs.md)
-
++   [의미 체계 로깅](https://github.com/fidmor89/SLAB_AppInsights) - [의미 체계 로깅 응용프로그램 블록](https://msdn.microsoft.com/library/dn440729.aspx) 통합
 
 ## <a name="projects"></a> 사용자 고유의 SDK를 빌드합니다
 
@@ -73,4 +73,4 @@
 
 <!--Link references-->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

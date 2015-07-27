@@ -191,4 +191,4 @@ Azure 앱 서비스를 사용하여 Windows 범용 앱에 푸시 알림을 전�
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

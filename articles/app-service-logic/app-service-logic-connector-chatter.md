@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="03/31/2015"
-   ms.author="adgoda"/>
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 # 논리 앱에서 Chatter Connector 사용 #
@@ -30,13 +30,7 @@ Chatter Connector를 사용하려면 먼저 Chatter Connector API 앱의 인스�
 2.	"웹 및 모바일 > API 앱"으로 이동하여 "Chatter Connector"를 검색합니다.
 3.	다음과 같이 Chatter Connector를 구성합니다.
 
-	![][1]
-	- **위치** - 커넥터를 배포할 지리적 위치를 선택합니다.
-	- **구독** - 이 커넥터를 만들기 원하는 구독을 선택합니다.
-	- **리소스 그룹** - 커넥터가 상주할 리소스 그룹을 선택하거나 만듭니다.
-	- **웹 호스팅 계획** - 웹 호스팅 계획을 선택하거나 만듭니다.
-	- **가격 책정 계층** - 커넥터에 대한 가격 책정 계층을 선택합니다.
-	- **이름** - Chatter Connector에 이름을 부여합니다.
+	![][1] - **위치** - 커넥터를 배포할 지리적 위치를 선택합니다. - **구독** - 이 커넥터를 만들기 원하는 구독을 선택합니다. - **리소스 그룹** - 커넥터가 상주할 리소스 그룹을 선택하거나 만듭니다. - **웹 호스팅 계획** - 웹 호스팅 계획을 선택하거나 만듭니다. - **가격 책정 계층** - 커넥터에 대한 가격 책정 계층을 선택합니다. - **이름** - Chatter Connector에 이름을 부여합니다.
 
 4.	만들기를 클릭합니다. 새 Chatter Connector가 만들어집니다.
 5.	API 앱 인스턴스가 생성되면 동일한 리소스 그룹에서 논리 앱을 만들어 Chatter Connector를 사용할 수 있습니다.
@@ -54,14 +48,11 @@ API 앱을 만들고 나면 이제 Chatter Connector를 논리 앱에 대한 트
 	![][4]
 4. “Chatter Connector”를 클릭하여 Chatter Connector API 앱을 편집기에 놓을 수 있습니다. 권한 부여 단추를 클릭합니다. 자격 증명을 제공 합니다. “허용”을 클릭합니다.
 
-	![][5]
-	![][6]
-	![][7]
+	![][5] ![][6] ![][7]
 5.	이제 흐름에서 Chatter Connector를 사용할 수 있습니다. 흐름의 다른 동작에서 Chatter Connector("새 메시지")로부터 검색된 새 메시지를 사용할 수 있습니다. 다음과 같이 Chatter 트리거에 대한 입력 속성을 구성합니다.
 	- **그룹 ID** - 새 메시지를 검색할 그룹의 ID를 지정합니다. 그룹 ID를 제공하지 않는 경우 사용자의 피드에서 새 메시지가 검색됩니다.
 
-  ![][8]
-  ![][9]
+  ![][8] ![][9]
 
 6. 유사한 방식으로 흐름에서 "메시지 게시" 동작을 선택하여 메시지를 게시하도록 Chatter 동작을 사용할 수 있습니다. 다음과 같이 "메시지 게시" 동작에 대한 입력 속성을 구성합니다.
 	- **메시지 텍스트** - 게시할 메시지의 텍스트내용입니다.
@@ -73,8 +64,7 @@ API 앱을 만들고 나면 이제 Chatter Connector를 논리 앱에 대한 트
 	- 	**멘션** - 이 메시지에 태그된 다양한 사용자 이름입니다.
 	- 	**해시 태그** - 메시지와 함께 게시될 다양한 해시 태그입니다.
 
-	![][10]
-	![][11]
+	![][10] ![][11]
 
 	<!--Image references-->
 [1]: ./media/app-service-logic-connector-chatter/img1.PNG
@@ -88,6 +78,5 @@ API 앱을 만들고 나면 이제 Chatter Connector를 논리 앱에 대한 트
 [9]: ./media/app-service-logic-connector-chatter/img9.PNG
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
- 
 
-<!----HONumber=62-->
+<!---HONumber=July15_HO3-->

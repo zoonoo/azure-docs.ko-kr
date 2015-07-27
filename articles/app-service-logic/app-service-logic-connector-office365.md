@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Office 365 Connector" 
-   description="Office 365 Connector를 사용하는 방법" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="sutalasi" 
-   manager="dwrede" 
+<properties
+   pageTitle="Office 365 Connector"
+   description="Office 365 Connector를 사용하는 방법"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="03/20/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 #논리 앱에 Office 365 Connector 사용#
@@ -80,7 +80,7 @@ O365 커넥터 API 앱을 만들려면 다음 단계를 수행합니다.
 	![][9]
 
 11. Office 365 'New Email(새 메일)' 트리거가 구성되고 출력 매개 변수도 표시되는 것을 확인할 수 있습니다.
-	
+
 	![][10]
 
 12.	갤러리의 'Recently Used(최근에 사용한 항목)' 섹션에서 'Office 365 Connector'를 선택하면 새 'Office 365' 동작이 추가됩니다.
@@ -157,7 +157,4 @@ O365 커넥터 API 앱을 만들려면 다음 단계를 수행합니다.
 [20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png
 [21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png
 
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

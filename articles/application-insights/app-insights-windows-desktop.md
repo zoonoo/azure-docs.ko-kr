@@ -48,14 +48,9 @@ Application Insights SDK은 Windows 데스크톱 앱 및 서비스에 대한 지
 
     !["Application Insights" 검색](./media/app-insights-windows-desktop/04-core-nuget.png)
 
-3. ApplicationInsights.config(NuGet 설치로 추가됨)를 편집합니다. 닫는 태그 바로 전에 삽입합니다.
+3. `TelemetryConfiguration.Active`개체를 통해 코드 안의 InstrumentationKey를 설정합니다.
 
-    `<InstrumentationKey>*the key you copied*</InstrumentationKey>`
-
-    대신 이 코드와 동일한 효과를 얻을 수 있습니다.
-    
     `TelemetryConfiguration.Active.InstrumentationKey = "your key";`
-
 
 ## <a name="telemetry"></a>원격 분석 호출 삽입
 
@@ -178,4 +173,4 @@ TrackMetric 또는 TrackEvent의 측정 매개 변수를 사용한 경우 [메�
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

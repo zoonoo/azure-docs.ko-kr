@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="03/18/2015" 
+	ms.date="07/02/2015" 
 	ms.author="sethm"/>
 
 # 원격 분석 및 응용 프로그램 이벤트 규모 수집
@@ -22,16 +22,18 @@
 
 
 ## 탐색
-- [이벤트 허브](http://msdn.microsoft.com/library/dn789973.aspx)
+- [이벤트 허브](event-hubs-overview.md)
 - [이벤트 허브 가격 정보](http://azure.microsoft.com/pricing/details/event-hubs/)
+- [이벤트 허브 가용성 및 지원 FAQ](event-hubs-availability-and-support-faq.md)
 - [이벤트 소싱 패턴](http://msdn.microsoft.com/library/dn589792.aspx)
  
 ## 빌드
-- [이벤트 허브 REST API 참조](https://msdn.microsoft.com/library/dn790674.aspx)
+- [이벤트 허브 REST API 참조](https://msdn.microsoft.com/library/azure/dn790674.aspx)
 - [이벤트 허브 코드 샘플](https://code.msdn.microsoft.com/windowsazure/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
  
 ## 관련 서비스
 - [Azure 저장소](http://azure.microsoft.com/documentation/services/storage/)
 - [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/)
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="06/25/2015" 
 	ms.author="sidneyh"/>
 
 # 탄력적 데이터베이스 작업 구성 요소 설치
@@ -24,7 +24,7 @@
 
 ## 필수 조건
 * Azure 구독. 무료 평가판에 대한 내용은 [무료 1개월 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* 탄력적 데이터베이스 풀 [Azure SQL 데이터베이스 탄력적 풀(Preview) 만들기](sql-database-elastic-pool-portal.md)를 참조하세요.
+* 탄력적 데이터베이스 풀 [Azure SQL 데이터베이스 탄력적 데이터베이스 풀(Preview) 만들기](sql-database-elastic-pool-portal.md)를 참조하세요.
 
 ## 서비스 구성 요소 설치
 먼저 [Azure Preview 포털](https://ms.portal.azure.com/#)로 이동합니다.
@@ -63,4 +63,4 @@
 [4]: ./media/sql-database-elastic-jobs-service-installation/incomplete.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

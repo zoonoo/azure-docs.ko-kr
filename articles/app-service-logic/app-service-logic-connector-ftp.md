@@ -1,7 +1,7 @@
 <properties
 	pageTitle="FTP Connector"
 	description="FTP Connector 시작"
-	authors="anuragdalmia"
+	authors="rajram"
 	manager="dwrede"
 	editor=""
 	services="app-service\logic"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/05/2015"
-	ms.author="rajeshramabathiran"/>
+	ms.date="07/01/2015"
+	ms.author="rajram"/>
 
 #FTP Connector
 
@@ -178,4 +178,4 @@ Content를 원하는 값으로 설정할 수 있습니다. 이것은 예로 든 
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

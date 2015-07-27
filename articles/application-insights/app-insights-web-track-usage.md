@@ -21,7 +21,7 @@
 
 Visual Studio Application Insights는 2단계 사용 현황 추적을 제공합니다.
 
-* **사용자 및 세션 데이터** - 기본적으로 제공합니다.  
+* **사용자, 세션 및 페이지 보기 데이터** - 독점적으로 제공합니다.  
 * **사용자 지정 원격 분석** - 앱의 사용자 경험을 통해 사용자를 추적하는 [코드를 작성][api]합니다. 
 
 ## 설치
@@ -33,10 +33,6 @@ Visual Studio Application Insights는 2단계 사용 현황 추적을 제공합�
 Application Insights 리소스는 사용자 앱의 원격 분석 데이터를 분석하고 표시하는 Microsoft Azure 위치입니다. 앱의 서버 쪽에서 나오는 데이터를 표시하기 위해 [ASP.NET][greenbrown] 또는 [J2EE][java]에 이 리소스를 이미 설치했을 수 있습니다. 그렇지 않은 경우 지금 설치하는 것이 좋습니다.
 
 일반적으로 웹 클라이언트에서 나오는 사용량 데이터를 서버에서 나오는 데이터와 동일한 리소스에 표시하는 것이 좋습니다. 이런 방식으로 양쪽에서 진단 및 메트릭을 쉽게 상호 연결할 수 있습니다. 따라서 리소스가 이미 있는 경우 다음 단계를 건너뜁니다.
-
-그러나 사용 현황 데이터에 별도 리소스를 사용하려면 [Azure 포털][portal]에 로그인하여 만듭니다.
-
-![](./media/app-insights-web-track-usage/01-create.png)
 
 #### 웹 페이지에서 코드를 삽입합니다.
 
@@ -57,50 +53,18 @@ Application Insights 리소스는 사용자 앱의 원격 분석 데이터를 �
 
 ![](./media/app-insights-web-track-usage/14-usage.png)
 
-* **사용자:** 차트의 시간 범위에 따른 고유한 사용자 수입니다. 쿠키는 다시 방문하는 사용자를 식별하는 데 사용됩니다.
-* **세션:** 사용자가 30분 동안 아무 요청도 하지 않으면 세션이 계산됩니다.
+* **사용자:** 차트의 시간 범위에 따른 고유한 활성 사용자 수입니다. 
+* **세션:** 활성 세션 수
 * **페이지 보기** trackPageView() 호출 수를 계산합니다. 일반적으로 각 웹 페이지에서 한 번 호출됩니다.
 
 보다 자세한 정보를 확인하려면 차트를 클릭합니다. 차트의 시간 범위를 변경할 수 있습니다.
-
-
-### 가장 많이 읽는 페이지는 무엇인가요?
-
-페이지 보기 차트를 클릭하여 자세한 정보를 확인합니다.
-
-![](./media/app-insights-web-track-usage/appinsights-49usage.png)
-
-
-차트를 클릭하여 표시할 수 있는 다른 메트릭을 확인하거나 새 차트를 추가하고 표시되는 메트릭을 선택합니다.
-
-![](./media/app-insights-web-track-usage/appinsights-63usermetrics.png)
-
-> [AZURE.NOTE]메트릭이 몇 가지 조합으로만 표시될 수 있습니다. 메트릭을 하나 선택하면 호환되지 않는 다른 메트릭을 사용할 수 없게 됩니다.
-
-
 
 ### 내 사용자는 어디에 살고 있나요?
 
 사용 블레이드에서 사용자 차트를 클릭하여 자세한 정보를 확인합니다.
 
-![개요 블레이드에서 세션 차트 클릭](./media/app-insights-web-track-usage/02-sessions.png)
+![사용 현황 블레이드에서 사용자 차트를 클릭 합니다.](./media/app-insights-web-track-usage/02-sessions.png)
  
-(이 예제는 웹 사이트에서 나온 것이지만 차트 모양은 장치에서 실행되는 앱과 유사합니다.)
-
-### 지난주와 동일한가요?
-
-사항이 변경되고 있는지 확인하려면 이전 주와 비교합니다.
-
-![단일 메트릭을 보여주는 차트를 선택하고 이전 주로 전환](./media/app-insights-web-track-usage/021-prior.png)
-
-
-### 내 사용자 중 새 사용자의 비율은 어느 정도인가요?
-
-예를들어 사용자와 새 사용자의 경우 두 메트릭을 비교합니다.
-
-![차트를 선택하고 메트릭을 검색하여 선택 또는 선택 해제합니다.](./media/app-insights-web-track-usage/031-dual.png)
-
-
 ### 어떤 브라우저 또는 운영 체제를 사용하나요?
 
 브라우저, 운영체제 또는 도시와 같은 속성으로 데이터를 그룹화(구분)합니다.
@@ -151,7 +115,7 @@ Application Insights 리소스는 사용자 앱의 원격 분석 데이터를 �
 
 특정 간격의 **사용자 수** 메트릭은 이 간격 중에 기록된 활동이 있는 고유한 사용자 수라고 정의됩니다. 따라서 단위가 한 시간보다 더 짧도록 시간 범위를 설정한 경우, 긴 세션을 가진 사용자는 여러 번 계산됩니다.
 
-**새 사용자**는 이 간격 중에 앱에 대한 첫 번째 세션이 발생한 사용자 수를 계산합니다. 쿠키에 의해 사용자별로 계산하는 기본 방법을 사용하는 경우, 자신의 쿠키를 삭제했거나 새 장치 또는 브라우저를 사용하여 앱에 처음 액세스하는 사용자 수도 이 사용자 수에 포함됩니다.
+**새 사용자**는 이 간격 중에 앱에 대한 첫 번째 세션이 발생한 사용자 수를 계산합니다. 쿠키에 의해 사용자별로 계산하는 기본 방법을 사용하는 경우, 자신의 쿠키를 삭제했거나 새 장치 또는 브라우저를 사용하여 앱에 처음 액세스하는 사용자 수도 이 사용자 수에 포함됩니다.![사용 현황 블레이드에서 사용자 차트를 클릭하여 새 사용자를 검사합니다.](./media/app-insights-web-track-usage/031-dual.png)
 
 ## 종합 트래픽
 
@@ -186,16 +150,16 @@ Application Insights는 종합 트래픽을 자동으로 결정하고 분류한 
 
 사용자 지정 이벤트를 사용하여 다음 작업을 수행합니다. 장치 앱, 웹 페이지 또는 웹 서버에서 이를 전송할 수 있습니다.
 
-(JavaScript)
+*JavaScript*
 
     telemetryClient.trackEvent("GameEnd");
 
-(C#)
+*C#*
 
     var tc = new Microsoft.ApplicationInsights.TelemetryClient(); 
     tc.TrackEvent("GameEnd");
 
-(VB)
+*VB*
 
     Dim tc = New Microsoft.ApplicationInsights.TelemetryClient()
     tc.TrackEvent("GameEnd")
@@ -245,7 +209,9 @@ Application Insights는 종합 트래픽을 자동으로 결정하고 분류한 
 이벤트에 임의의 태그 및 숫자 값을 연결할 수 있습니다.
  
 
-클라이언트의 JavaScript
+*클라이언트의 JavaScript*
+
+```JavaScript
 
     appInsights.trackEvent("WinGame",
         // String properties:
@@ -253,8 +219,11 @@ Application Insights는 종합 트래픽을 자동으로 결정하고 분류한 
         // Numeric measurements:
         {Score: currentGame.score, Opponents: currentGame.opponentCount}
     );
+```
 
-서버의 C#
+*서버의 C#*
+
+```C#
 
     // Set up some properties:
     var properties = new Dictionary <string, string> 
@@ -264,8 +233,11 @@ Application Insights는 종합 트래픽을 자동으로 결정하고 분류한 
 
     // Send the event:
     telemetry.TrackEvent("WinGame", properties, measurements);
+```
 
-서버의 VB
+*서버의 VB*
+
+```VB
 
     ' Set up some properties:
     Dim properties = New Dictionary (Of String, String)
@@ -278,14 +250,19 @@ Application Insights는 종합 트래픽을 자동으로 결정하고 분류한 
 
     ' Send the event:
     telemetry.TrackEvent("WinGame", properties, measurements)
+```
 
 동일한 방식으로 페이지 뷰에 속성을 연결합니다.
 
-클라이언트의 JavaScript
+*클라이언트의 JavaScript*
+
+```JS
 
     appInsights.trackPageView("Win", 
+        url,
         {Game: currentGame.Name}, 
         {Score: currentGame.Score});
+```
 
 진단 검색에서 이벤트의 개별 항목을 클릭하여 속성을 봅니다.
 
@@ -306,7 +283,9 @@ Application Insights는 종합 트래픽을 자동으로 결정하고 분류한 
 
 그런 다음 Application Insights 포털에서 태그로 데이터를 필터링 및 그룹화(구분)할 수 있게 되므로 다른 버전과 비교할 수 있습니다.
 
-서버의 C#
+*서버의 C#*
+
+```C#
 
     using Microsoft.ApplicationInsights.DataContracts;
 
@@ -315,18 +294,24 @@ Application Insights는 종합 트래픽을 자동으로 결정하고 분류한 
     var telemetry = new TelemetryClient(context);
     // Now all telemetry will automatically be sent with the context property:
     telemetry.TrackEvent("WinGame");
+```
 
-서버의 VB
+*서버의 VB*
+
+```VB
 
     Dim context = New TelemetryContext
     context.Properties("Game") = currentGame.Name
     Dim telemetry = New TelemetryClient(context)
     ' Now all telemetry will automatically be sent with the context property:
     telemetry.TrackEvent("WinGame")
+```
 
 개별 원격 분석에서 기본값을 재정의할 수 있습니다.
 
 유니버설 아니셜라이저를 설정하여 새로운 모든 TelemetryClients는 사용자 컨텍스트를 자동으로 사용할 수 있습니다.
+
+```C#
 
     // Telemetry initializer class
     public class MyTelemetryInitializer : IContextInitializer
@@ -336,8 +321,11 @@ Application Insights는 종합 트래픽을 자동으로 결정하고 분류한 
             context.Properties["AppVersion"] = "v2.1";
         }
     }
+```
 
 Global.asax.cs 같은 앱 이니셜라이저에서:
+
+```C#
 
     protected void Application_Start()
     {
@@ -345,6 +333,7 @@ Global.asax.cs 같은 앱 이니셜라이저에서:
         TelemetryConfiguration.Active.ContextInitializers
         .Add(new MyTelemetryInitializer());
     }
+```
 
 
 ## 빌드 - 측정 - 학습
@@ -360,7 +349,7 @@ Global.asax.cs 같은 앱 이니셜라이저에서:
 
 ## 비디오
 
-> [Azure.VIDEO usage-monitoring-application-insights]
+> [AZURE.VIDEO usage-monitoring-application-insights]
 
 
 <!--Link references-->
@@ -377,4 +366,4 @@ Global.asax.cs 같은 앱 이니셜라이저에서:
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

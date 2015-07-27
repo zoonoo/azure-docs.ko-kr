@@ -28,7 +28,7 @@
 2.  Azure SDK가 설치되어 있어야 합니다.
 3.  Java용 Azure 라이브러리를 위한 JAR 및 해당하는 종속성 JAR이 설치되어 있어야 하며 Java 컴파일러가 사용하는 빌드 경로에 있어야 합니다. Java용 Azure 라이브러리 설치에 대한 자세한 내용은 [Java용 Azure SDK 다운로드]를 참조하세요.
 4.  Azure 저장소 계정이 설정되어 있어야 합니다. 아래 코드에서 저장소 계정의 계정 이름 및 계정 키를 사용해야 합니다. 저장소 계정 만들기에 대한 내용은 [저장소 계정을 만드는 방법]을, 계정 키 검색에 대한 내용은 [저장소 계정을 관리하는 방법]을 참조하십시오.
-5.  이름을 지정한 로컬 이미지 파일을 만들어 c:\myimages\image1.jpg 경로에 저장해야 합니다. 또는 예제에서 **FileInputStream** 생성자를 수정하여 다른 이미지 경로 및 파일 이름을 사용합니다.
+5.  이름을 지정한 로컬 이미지 파일을 만들어 c:\\myimages\\image1.jpg 경로에 저장해야 합니다. 또는 예제에서 **FileInputStream** 생성자를 수정하여 다른 이미지 경로 및 파일 이름을 사용합니다.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -106,7 +106,7 @@ Azure 핵심 저장소 클래스, Azure Blob 클라이언트 클래스, Java IO 
 
 **File** 생성자를 사용하여, 로컬로 만들어졌으며 업로드할 파일에 대한 참조를 가져옵니다. 이 파일은 코드를 실행하기 전에 만들어야 합니다.
 
-    File fileReference = new File ("c:\myimages\image1.jpg");
+    File fileReference = new File ("c:\\myimages\\image1.jpg");
 
 **CloudBlockBlob.upload** 메서드에 대한 호출을 통해 로컬 파일을 업로드합니다. **CloudBlockBlob.upload** 메서드의 첫 번째 매개 변수는 Azure 저장소에 업로드할 로컬 파일을 나타내는 **FileInputStream** 개체입니다. 두 번째 매개 변수는 파일의 크기(바이트)입니다.
 
@@ -237,7 +237,7 @@ Azure 핵심 저장소 클래스, Azure Blob 클라이언트 클래스, Java IO 
                 // Upload an image file.
                 blob = container.getBlockBlobReference("image1.jpg");
 
-                File fileReference = new File("c:\myimages\image1.jpg");
+                File fileReference = new File("c:\\myimages\\image1.jpg");
                 blob.upload(new FileInputStream(fileReference), fileReference.length());
 
                 // At this point the image is uploaded.
@@ -368,4 +368,4 @@ Azure 핵심 저장소 클래스, Azure Blob 클라이언트 클래스, Java IO 
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -3,7 +3,7 @@
 	description="최신 iOS SDK - iOS에서 Engagement API를 사용하는 방법"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kapiteir" 
+	authors="kpiteira" 
 	manager="dwrede" 
 	editor="" />
 
@@ -12,7 +12,7 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-ios" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="01/24/2015" 
 	ms.author="kapiteir" />
 
@@ -285,4 +285,4 @@ extras 이벤트와 마찬가지로 `NSDictionary` 클래스도 응용 프로그
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

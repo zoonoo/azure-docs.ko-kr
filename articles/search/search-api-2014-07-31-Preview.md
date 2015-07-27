@@ -1,6 +1,6 @@
 <properties pageTitle="Azure 검색 서비스 REST API 버전 2014-07-31-Preview" description="Azure 검색 서비스 REST API: 버전 2014-07-31-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="05/21/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/08/2015" ms.author="heidist" />
 
 # Azure 검색 서비스 REST API 버전: 2014-07-31-Preview
 
@@ -10,7 +10,7 @@
 
 **2014-07-31-Preview**과 관련된 다른 API 콘텐츠는 다음과 같습니다.
 
-- [점수 매기기 프로필(Azure 검색 서비스 REST API: 2014-07-31-Preview)](../search-api-scoring-profiles-2014-07-31-preview.md)
+- [점수 매기기 프로필(Azure 검색 서비스 REST API: 2014-07-31-Preview)](search-api-scoring-profiles-2014-07-31-preview.md)
 
 
 ##서비스 REST API 정보
@@ -170,7 +170,7 @@ HTTP POST 요청을 사용하여 Azure 검색 서비스 내에서 새 인덱스�
 - `api-key`: 필수 사항입니다. `api-key`는 
 - 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **인덱스 만들기** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다. 
  
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](../search-create-service.portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service.portal.md)를 참조하세요.
 
 <a name="RequestData"></a> **요청 본문 구문**
 
@@ -647,7 +647,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 - `Content-Type`: 필수 사항입니다. `application/json`으로 설정합니다.
 - `api-key`: 필수 사항입니다. `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **인덱스 업데이트** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다.
  
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](../search-create-service.portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service.portal.md)를 참조하세요.
 
 **요청 본문 구문**
 
@@ -739,7 +739,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
  
 - `api-key`: 필수 사항입니다. `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **인덱스 나열** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key`를 포함해야 합니다.
  
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](../search-create-service.portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service.portal.md)를 참조하세요.
 
 **요청 본문**
 
@@ -806,7 +806,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
  
 - `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **인덱스 가져오기** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key`를 포함해야 합니다.
 
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](../search-create-service.portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service.portal.md)를 참조하세요.
 
 **요청 본문**
 
@@ -840,7 +840,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
  
 - `api-key`: 필수 사항입니다. `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **인덱스 삭제** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다.
  
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](../search-create-service.portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service.portal.md)를 참조하세요.
 
 **요청 본문**
 
@@ -872,7 +872,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
  
 - `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **인덱스 통계 가져오기** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key`를 포함해야 합니다.
  
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](../search-create-service.portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service.portal.md)를 참조하세요.
 
 **요청 본문**
 
@@ -931,7 +931,7 @@ HTTP POST를 사용하여 지정한 인덱스에서 문서를 업로드, 병합,
 - `Content-Type`: 필수 사항입니다. `application/json`으로 설정합니다.
 - `api-key`: 필수 사항입니다. `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **문서 추가** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다.
  
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](../search-create-service.portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service.portal.md)를 참조하세요.
 
 **요청 본문**
 
@@ -1104,7 +1104,7 @@ ________________________________________
 
 - `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **검색 ** 요청은 `api-key`에 대해 관리 키 또는 쿼리 키를 지정할 수 있습니다.
  
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](../search-create-service.portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service.portal.md)를 참조하세요.
 
 **요청 본문**
 
@@ -1238,7 +1238,7 @@ ________________________________________
 
 - `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **문서 조회 ** 요청은 `api-key`에 대해 관리 키 또는 쿼리 키를 지정할 수 있습니다.
  
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](../search-create-service.portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service.portal.md)를 참조하세요.
 
 **요청 본문**
 
@@ -1286,7 +1286,7 @@ OData 구문을 사용하여 '3' 키가 있는 문서 조회
 - `Accept`: 이 값은 `text/plain`으로 설정해야 합니다.
 - `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **문서 수 계산 ** 요청은 `api-key`에 대해 관리 키 또는 쿼리 키를 지정할 수 있습니다.
  
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](../search-create-service.portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service.portal.md)를 참조하세요.
 
 **요청 본문**
 
@@ -1340,7 +1340,7 @@ OData 구문을 사용하여 '3' 키가 있는 문서 조회
 
 - `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **제안 ** 요청은 관리 키 또는 쿼리 키를 `api-key`로 지정할 수 있습니다.
 
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](../search-create-service.portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service.portal.md)를 참조하세요.
 
 **요청 본문**
 
@@ -1384,4 +1384,4 @@ OData 구문을 사용하여 '3' 키가 있는 문서 조회
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -39,7 +39,7 @@
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2014-07-31-Preview
 
-이 쿼리는 용어 'inn'을 검색하고 현재 위치를 전달합니다. 이 쿼리에는 `scoringParameter` 등의 다른 매개 변수도 포함되어 있습니다. 쿼리 매개 변수에 대해서는 [문서 검색(Azure 검색 API)]()에서 설명합니다.
+이 쿼리는 용어 'inn'을 검색하고 현재 위치를 전달합니다. 이 쿼리에는 `scoringParameter` 등의 다른 매개 변수도 포함되어 있습니다. 쿼리 매개 변수에 대해서는 [문서 검색(Azure 검색 API)](https://msdn.microsoft.com/library/azure/dn798927.aspx)에서 설명합니다.
 
 점수 매기기 프로필에 대한 자세한 예제를 검토하려면 [예제](#bkmk_ex)를 클릭하세요.
 
@@ -62,8 +62,6 @@
 위에서 설명한 것처럼 인덱스 스키마에 정의된 하나 이상의 점수 매기기 프로필을 통해 사용자 지정된 점수 매기기를 구현합니다.
 
 아래 예제에서는 `boostGenre` 및 `newAndHighlyRated`의 두 점수 매기기 프로필이 포함된 인덱스의 스키마를 보여 줍니다. 쿼리 매개 변수로 두 프로필 중 하나를 포함하는 쿼리를 이 인덱스에 대해 실행하는 경우 해당 프로필을 사용하여 결과 집합의 점수를 계산합니다.
-
-[다음 예제를 실행해 보세요.]()
 
     {
       "name": "musicstoreindex",
@@ -132,42 +130,9 @@
 
 점수 매기기 프로필의 본문은 가중치가 적용된 필드와 함수에서 생성됩니다.
 
-<font>
-<table style="font-size:12">
-<thead>
-<tr><td>요소</td><td>설명</td></tr></thead>
-<tbody>
-<tr>
-<td><b>가중치</b></td>
-<td>
-필드에 상대적 가중치를 할당하는 이름-값 쌍을 지정합니다. [예제](#bkmk_ex)에서는 albumTitle, genre 및 artistName 필드가 각각 1, 5, null로 상승합니다. genre가 다른 필드보다 훨씬 크게 상승하는 이유는, `musicstoreindex`에서 'genre'의 경우처럼 비교적 비슷한 데이터를 검색하는 경우 상대 가중치의 편차가 더 커야 할 수 있기 때문입니다. 예를 들어 `musicstoreindex`에서 'rock'은 장르로도 표시되고 같은 구를 사용하는 장르 설명에도 표시됩니다. 이 경우 장르 설명보다 장르에 더 높은 가중치를 적용하려면 genre 필드에 훨씬 높은 상대 가중치를 적용해야 합니다.
-</td>
-</tr>
-<tr>
-<td><b>함수</b></td><td>특정 컨텍스트에 대해 추가 계산을 수행해야 하는 경우 사용합니다. 유효한 값은 `freshness`, `magnitude` 또는 `distance`입니다. 각 함수에는 고유한 매개 변수가 있습니다.
-<br>
-- 항목의 최신 또는 오래된 상태를 기준으로 상승시키려면 `freshness`를 사용해야 합니다. 이 함수는 datetime 필드(edm.DataTimeOffset)에만 사용할 수 있습니다. `boostingDuration` 특성은 freshness 함수에서만 사용됩니다.
-<br>
-- 숫자 값의 크기를 기준으로 상승시키려면 `magnitude`를 사용해야 합니다. 이 함수를 사용해야 하는 시나리오에는 이익률, 최고 가격, 최저 가격 또는 다운로드 수를 기준으로 상승시키는 경우가 포함됩니다. 이 함수는 double 및 integer 필드에만 사용할 수 있습니다.
-<br>
-- 근접도나 지리적 위치를 기준으로 상승시키려면 `distance`를 사용해야 합니다. 이 함수는 `geo.distance` 필드에만 사용할 수 있습니다.
-<br>
-<b>함수 사용 규칙</b>
-<br>
-함수 유형(freshness, magnitude, distance)은 소문자여야 합니다.
-<br>
-함수는 null 또는 빈 값을 포함할 수 없습니다. 특히 fieldname를 포함하는 경우에는 값을 설정해야 합니다.
-<br>
-함수는 필터링 가능한 필드에만 적용할 수 있습니다. 필터링 가능한 필드에 대한 자세한 내용은 [인덱스 만들기(Azure 검색 API)]()를 참조하세요.
-<br>
-함수는 인덱스의 필드 컬렉션에 정의된 필드에만 적용할 수 있습니다.
-<td>
-</tr>
-</tbody>
-</table>
-</font>
+<font> <table style="font-size:12"> <thead> <tr><td>요소</td><td>설명</td></tr></thead> <tbody <tr> <td><b>가중치</b></td> <td> 필드에 상대적 가중치를 할당하는 이름-값 쌍을 지정합니다. [예제](#bkmk_ex)에서는 albumTitle, genre 및 artistName 필드가 각각 1, 5, null로 상승합니다. genre가 다른 필드보다 훨씬 크게 상승하는 이유는, `musicstoreindex`에서 'genre'의 경우처럼 비교적 비슷한 데이터를 검색하는 경우 상대 가중치의 편차가 더 커야 할 수 있기 때문입니다. 예를 들어 `musicstoreindex`에서 'rock'은 장르로도 표시되고 같은 구를 사용하는 장르 설명에도 표시됩니다. 이 경우 장르 설명보다 장르에 더 높은 가중치를 적용하려면 genre 필드에 훨씬 높은 상대 가중치를 적용해야 합니다. </td> </tr> <tr> <td><b>함수</b></td><td>특정 컨텍스트에 대해 추가 계산을 수행해야 하는 경우 사용합니다. 유효한 값은 `freshness`, `magnitude` 또는 `distance`입니다. 각 함수에는 고유한 매개 변수가 있습니다. <br> - 항목의 최신 또는 오래된 상태를 기준으로 상승시키려면 `freshness`를 사용해야 합니다. 이 함수는 datetime 필드(edm.DataTimeOffset)에만 사용할 수 있습니다. `boostingDuration` 특성은 freshness 함수에서만 사용됩니다. <br> - 숫자 값의 크기를 기준으로 상승시키려면 `magnitude`를 사용해야 합니다. 이 함수를 사용해야 하는 시나리오에는 이익률, 최고 가격, 최저 가격 또는 다운로드 수를 기준으로 상승시키는 경우가 포함됩니다. 이 함수는 double 및 integer 필드에만 사용할 수 있습니다. <br> - 근접도나 지리적 위치를 기준으로 상승시키려면 `distance`를 사용해야 합니다. 이 함수는 `geo.distance` 필드에만 사용할 수 있습니다. <br> <b>함수 사용 규칙</b> <br> 함수 유형(freshness, magnitude, distance)은 소문자여야 합니다. <br> 함수는 null 또는 빈 값을 포함할 수 없습니다. 특히 fieldname를 포함하는 경우에는 값을 설정해야 합니다. <br> 함수는 필터링 가능한 필드에만 적용할 수 있습니다. 필터링 가능한 필드에 대한 자세한 내용은 [인덱스 만들기(Azure 검색 API)]()를 참조하세요. <br> 함수는 인덱스의 필드 컬렉션에 정의된 필드에만 적용할 수 있습니다. <td> </tr> </tbody> </table> </font>
 
-인덱스를 정의한 후 인덱스 스키마와 문서를 차례로 업로드하여 인덱스를 작성합니다. 이러한 작업에 대한 지침은 [인덱스 만들기(Azure 검색 API)]() 및 [문서 추가, 업데이트 또는 삭제(Azure 검색 API)]()를 참조하세요. 인덱스가 작성되면 검색 데이터에 사용할 수 있는 점수 매기기 프로필을 만들어야 합니다.
+인덱스를 정의한 후 인덱스 스키마와 문서를 차례로 업로드하여 인덱스를 작성합니다. 이러한 작업에 대한 지침은 [인덱스 만들기(Azure 검색 API)](https://msdn.microsoft.com/library/azure/dn798941.aspx) 및 [문서 추가, 업데이트 또는 삭제(Azure 검색 API)](https://msdn.microsoft.com/library/azure/dn798930.aspx)를 참조하세요. 인덱스가 작성되면 검색 데이터에 사용할 수 있는 점수 매기기 프로필을 만들어야 합니다.
 
 ##Template
 이 섹션에서는 점수 매기기 프로필의 구문과 템플릿에 대해 설명합니다. 특성 설명은 다음 섹션의 [인덱스 특성 참조](#bkmk_indexref)를 참조하세요.
@@ -265,7 +230,7 @@
 </tr><tr>
 <td>distance</td>	<td>distance 점수 매기기 함수는 참조 지리적 위치와의 거리를 기준으로 문서 점수를 변경하는 데 사용됩니다. 참조 위치는 쿼리의 일부로 ‘scoringParameterquery’ 문자열 옵션을 사용하여 매개 변수에서 lon, lat 인수로 제공됩니다.</td>
 </tr><tr>
-<td>distance | referencePointParameter</td>	<td>참조 위치로 사용하도록 쿼리에 전달할 매개 변수입니다. scoringParameter는 쿼리 매개 변수입니다. 쿼리 매개 변수의 설명은 [문서 검색(Azure 검색 REST API)]을 참조하세요.</td>
+<td>distance | referencePointParameter</td>	<td>참조 위치로 사용하도록 쿼리에 전달할 매개 변수입니다. scoringParameter는 쿼리 매개 변수입니다. 쿼리 매개 변수에 대한 설명은 [문서 검색(Azure 검색 API)] (https://msdn.microsoft.com/library/azure/dn798927.aspx)을 참조하세요.</td>
 </tr><tr>
 <td>distance | boostingDistance</td>	<td>참조 위치로부터 상승 범위가 종료되는 거리(km)를 설정합니다.</td>
 </tr><tr>
@@ -318,14 +283,10 @@
 </tbody>
 </table>
 
-더 많은 예제를 보려면 [XML 스키마: Datatypes(W3.org 웹 사이트)]()를 참조하세요.
-
 **참고 항목**
 
-Azure 검색 서비스 REST API
-만들기 인덱스(Azure 검색 API)
-________________________________________
+Azure 검색 서비스 REST API 만들기 인덱스(Azure 검색 API)________________________________________
 
  
 
-<!------HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

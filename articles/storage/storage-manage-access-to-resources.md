@@ -214,4 +214,4 @@
 - [공유 액세스 서명: SAS 모델 이해하기](storage-dotnet-shared-access-signature-part-1.md)
 - [공유 액세스 서명을 사용하여 액세스 위임](https://msdn.microsoft.com/library/azure/ee395415.aspx) 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

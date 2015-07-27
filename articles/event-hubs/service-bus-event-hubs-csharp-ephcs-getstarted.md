@@ -1,19 +1,19 @@
 <properties
 	pageTitle="이벤트 허브 시작"
 	description="이 자습서에 따라 EventProcessorHost를 통해 C#과 함께 Azure 이벤트 허브를 사용할 수 있습니다."
-	services="service-bus"
+	services="event-hubs,service-bus"
 	documentationCenter=""
 	authors="fsautomata"
 	manager="timlt"
 	editor=""/>
 
 <tags
-	ms.service="service-bus"
+	ms.service="event-hubs"
 	ms.workload="core"
 	ms.tgt_pltfrm="csharp"
 	ms.devlang="csharp"
 	ms.topic="hero-article"
-	ms.date="04/13/2015"
+	ms.date="06/17/2015"
 	ms.author="sethm"/>
 
 # 이벤트 허브 시작
@@ -22,9 +22,9 @@
 
 ## 소개
 
-이벤트 허브는 연결된 장치 및 응용 프로그램에서 많은 양의 이벤트 데이터를 처리하는 데 사용할 수 있는 서비스입니다. 이벤트 허브에 데이터를 수집한 후 저장소 클러스터를 사용하여 데이터를 저장하거나 실시간 분석 공급자를 사용하여 변환할 수 있습니다. 이 대규모 이벤트 수집 및 처리 기능은 사물 인터넷을 포함하여 최신 응용 프로그램 아키텍처의 핵심 구성 요소입니다.
+이벤트 허브는 연결된 장치 및 응용 프로그램에서 많은 양의 이벤트 데이터를 처리하는 데 사용할 수 있는 서비스입니다. 이벤트 허브에 데이터를 수집한 후 저장소 클러스터를 사용하여 데이터를 저장하거나 실시간 분석 공급자를 사용하여 변환할 수 있습니다. 이 대규모 이벤트 수집 및 처리 기능은 IoT(사물 인터넷)를 포함하여 최신 응용 프로그램 아키텍처의 핵심 구성 요소입니다.
 
-이 자습서에서는 Azure 관리 포털을 사용하여 이벤트 허브를 만드는 방법에 대해 보여줍니다. 또한 C#에서 콘솔 응용 프로그램을 사용하여 이벤트 허브에 메시지를 수집하는 방법 및 C# [이벤트 프로세서 호스트] 라이브러리를 사용하여 메시지를 병렬로 검색하는 방법을 알아봅니다.
+이 자습서에서는 Azure 관리 포털을 사용하여 이벤트 허브를 만드는 방법에 대해 보여줍니다. 또한 C#으로 작성한 콘솔 응용 프로그램을 사용하여 이벤트 허브에 메시지를 수집하는 방법 및 C# [이벤트 프로세서 호스트] 라이브러리를 사용하여 메시지를 병렬로 검색하는 방법을 알아봅니다.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -34,7 +34,7 @@
 
 ## 이벤트 허브 만들기
 
-1. [Azure 관리 포털]에 로그온하여 화면 아래쪽의 **새로 만들기**를 클릭합니다.
+1. [Azure 관리 포털]에 로그온하고 화면 맨 아래에 있는 **새로 만들기**를 클릭합니다.
 
 2. **앱 서비스**, **서비스 버스**, **이벤트 허브**, **빨리 만들기**를 차례로 클릭합니다.
 
@@ -83,8 +83,8 @@
 
 이제 이벤트 허브를 만들고 데이터를 보내고 받는 작업 중인 응용 프로그램을 구축했으므로 다음 시나리오로 진행할 수 있습니다.
 
-- 전체 [이벤트 허브를 사용하는 응용 프로그램 샘플].
-- [이벤트 허브를 사용하는 이벤트 처리 확장] 샘플.
+- [이벤트 허브를 사용하는 샘플 응용 프로그램] 전체.
+- [이벤트 허브를 사용하는 이벤트 처리 확장] 샘플
 - 서비스 버스 큐를 사용하는 [큐 메시징 솔루션].
 
 <!-- Images. -->
@@ -101,10 +101,10 @@
 <!-- Links -->
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [이벤트 프로세서 호스트]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[이벤트 허브 개요]: http://msdn.microsoft.com/library/azure/dn836025.aspx
-[이벤트 허브를 사용하는 응용 프로그램 샘플]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
+[Event Hubs Overview]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[이벤트 허브를 사용하는 샘플 응용 프로그램]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 [이벤트 허브를 사용하는 이벤트 처리 확장]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [큐 메시징 솔루션]: ../cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO3-->

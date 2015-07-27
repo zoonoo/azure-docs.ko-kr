@@ -61,4 +61,4 @@
 [원본 제어에 서버 스크립트 저장]: mobile-services-store-scripts-source-control.md
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

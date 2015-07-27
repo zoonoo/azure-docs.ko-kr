@@ -1,9 +1,9 @@
 
 <properties 
-    pageTitle="RemoteApp 이미지 요구 사항"
-    description="RemoteApp과 함께 사용할 이미지를 만들기 위한 요구 사항을 알아봅니다." 
+    pageTitle="Azure RemoteApp 이미지 요구 사항"
+    description="RemoteApp과 함께 사용할 이미지를 만들기 위한 요구 사항 알아보기" 
     services="remoteapp" 
-    solutions="" documentationCenter="" 
+	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -13,15 +13,15 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="07/06/2015" 
     ms.author="elizapo" />
 
 
 
-# RemoteApp 이미지에 대한 요구 사항
-Azure RemoteApp은 Windows Server 2012 R2 이미지를 사용하여 사용자와 공유할 모든 프로그램을 호스트합니다. 사용자 지정 RemoteApp 이미지를 만들려면, 기존 이미지로 시작하거나 [새 이미지를 만듭니다](remoteapp-create-custom-image.md).
+# Azure RemoteApp 이미지에 대한 요구 사항
+Azure RemoteApp은 Windows Server 2012 R2 이미지를 사용하여 사용자와 공유할 모든 프로그램을 호스트합니다. 사용자 지정 이미지를 만들려면, 기존 이미지로 시작하거나 [새 이미지를 만듭니다](remoteapp-create-custom-image.md).
 
-> [AZURE.TIP]Azure RemoteApp 구독에서 사용자가 고유의 템플릿 이미지를 만드는데 사용할 수 있는 Azure VM 갤러리의 빌드 전 Windows Server 2012 R2 이미지에 액세스할 수 있다는 사실을 아십니까? [확인하십시오](remoteapp-image-on-azurevm.md).
+> [AZURE.TIP]Azure RemoteApp 구독에서 사용자가 고유의 템플릿 이미지를 만드는데 사용할 수 있는 Azure VM 갤러리의 Windows Server 2012 R2 이미지에 액세스할 수 있다는 사실을 아십니까? [확인하십시오](remoteapp-image-on-azurevm.md).
 
 
 Azure RemoteApp과 사용하기 위해 업로드할 수 있는 이미지의 요구 사항은 다음과 같습니다.
@@ -43,4 +43,4 @@ Azure RemoteApp과 사용하기 위해 업로드할 수 있는 이미지의 요�
 - 스냅숏 체인으로부터의 VHD 업로드는 지원되지 않습니다.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -466,4 +466,4 @@ AD 인증 라이브러리를 사용하는 경우 아래에서 설명하는 브�
 [Azure AD의 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

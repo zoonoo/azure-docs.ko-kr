@@ -2,7 +2,6 @@
 	pageTitle="SQL Azure에서 데이터 처리 | Microsoft Azure" 
 	description="SQL Azure에서 데이터 처리" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="fashah" 
 	manager="paulettm" 
@@ -157,4 +156,4 @@ Python의 [Pandas 라이브러리](http://pandas.pydata.org/)에서는 Python �
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

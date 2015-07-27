@@ -139,4 +139,4 @@ Docker VM을 만드는 것뿐만 아니라 `azure vm docker create` 명령은 Do
 [Docker 사용자 가이드]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

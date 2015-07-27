@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/16/2015"
+	ms.date="06/30/2015"
 	ms.author="adegeo"/>
 
 
@@ -21,9 +21,13 @@
 
 # 클라우드 서비스를 만들고 배포하는 방법
 
-Azure 관리 포털은 클라우드 서비스를 만들고 배포하는 두 가지 방법으로 **빠른 생성** 및 **사용자 지정 만들기**를 제공합니다.
+> [AZURE.SELECTOR]
+- [Azure Portal](cloud-services-how-to-create-deploy.md)
+- [Azure Preview Portal](cloud-services-how-to-create-deploy-portal.md)
 
-이 토픽에서는 빠른 생성 방법을 사용하여 새 클라우드 서비스를 만든 다음 **업로드**를 사용하여 Azure에서 클라우드 서비스 패키지를 업로드하고 배포하는 방법에 대해 설명합니다. 이 방법을 사용하는 경우 Azure 관리 포털은 진행하면서 모든 요구 사항을 완료하는 데 사용할 수 있는 편리한 링크를 제공합니다. 클라우드 서비스를 만들 때 배포할 준비가 되면 **사용자 지정 만들기**를 사용하여 동시에 둘 다를 수행할 수 있습니다.
+Azure 포털은 클라우드 서비스를 만들고 배포하는 두 가지 방법으로 **빠른 생성** 및 **사용자 지정 만들기**를 제공합니다.
+
+이 토픽에서는 빠른 생성 방법을 사용하여 새 클라우드 서비스를 만든 다음 **업로드**를 사용하여 Azure에서 클라우드 서비스 패키지를 업로드하고 배포하는 방법에 대해 설명합니다. 이 방법을 사용하는 경우 Azure 포털은 진행하면서 모든 요구 사항을 완료하는 데 사용할 수 있는 편리한 링크를 제공합니다. 클라우드 서비스를 만들 때 배포할 준비가 되면 **사용자 지정 만들기**를 사용하여 동시에 둘 다를 수행할 수 있습니다.
 
 > [AZURE.NOTE]VSO(Visual Studio Online )에서 클라우드 서비스를 게시하려는 경우 빠른 생성을 사용한 다음 **빠른 시작** 또는 대시보드에서 VSO 게시를 설정합니다. 자세한 내용은 [Visual Studio Online을 사용하여 Azure에 지속적인 전송][TFSTutorialForCloudService](영문)을 참조하거나 **빠른 시작** 페이지에 대한 도움말을 참조하세요.
 
@@ -117,7 +121,7 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 5. 클라우드 서비스에 인스턴스가 하나만 있는 역할이 포함되어 있으면 **Deploy even if one or more roles contain a single instance** 확인란을 선택하여 배포가 계속 진행되도록 합니다.
 
- Azure는 모든 역할에 둘 이상의 인스턴스가 있는 경우에만 유지 관리 및 서비스 업데이트 중 클라우드 서비스에 대한 99.95%의 액세스를 보장할 수 있습니다. 필요한 경우 클라우드 서비스를 배포한 후 **크기 조정** 페이지에서 추가 역할 인스턴스를 추가할 수 있습니다. 자세한 내용은 [서비스 수준 계약](http://azure.microsoft.com/support/legal/sla/)을 참조하세요.
+    Azure는 모든 역할에 둘 이상의 인스턴스가 있는 경우에만 유지 관리 및 서비스 업데이트 중 클라우드 서비스에 대한 99.95%의 액세스를 보장할 수 있습니다. 필요한 경우 클라우드 서비스를 배포한 후 **크기 조정** 페이지에서 추가 역할 인스턴스를 추가할 수 있습니다. 자세한 내용은 [서비스 수준 계약](http://azure.microsoft.com/support/legal/sla/)을 참조하세요.
 
 6. **확인**(확인 표시)을 클릭하여 클라우드 서비스 배포를 시작합니다.
 
@@ -135,9 +139,10 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 2. **간략 상태**에서 사이트 URL을 클릭하여 웹 브라우저에서 클라우드 서비스를 엽니다.
 
-[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
+    ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
 
-![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy/CloudServices_QuickGlance.png)
+
+[TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

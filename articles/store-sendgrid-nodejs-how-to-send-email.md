@@ -224,4 +224,4 @@ SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으�
   [트랜잭션 전자 메일 배달]: https://sendgrid.com/email-solutions
   [클라우드 기반 전자 메일 서비스]: https://sendgrid.com/transactional-email
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

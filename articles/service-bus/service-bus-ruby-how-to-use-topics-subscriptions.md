@@ -218,4 +218,4 @@ Azure 모듈은 **AZURE_SERVICEBUS_NAMESPACE** 및 **AZURE_SERVICEBUS_ACCESS_KEY
 -	GitHub에서 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby)(영문) 리포지토리를 방문하십시오.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

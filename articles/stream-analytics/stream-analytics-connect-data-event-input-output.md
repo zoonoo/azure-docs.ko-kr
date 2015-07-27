@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="04/24/2015" 
+	ms.date="07/01/2015" 
 	ms.author="jeffstok"/>
 
 #입력 및 출력에 연결
@@ -90,8 +90,7 @@ Azure SQL 데이터베이스 사용을 시작하려면, 사용자 데이터베�
 3. 이벤트 허브 정책 이름: 이벤트 허브에 액세스 하기 위해 공유된 액세스 정책의 이름입니다. 공유 액세스 정책은 구성 탭의 이벤트 허브에 대해 구성될 수 있습니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다.
 4. 이벤트 허브 정책 이름: 이벤트 허브에 액세스하기 위해 공유된 액세스 정책의 기본 또는 보조 키입니다.  
 5. 이벤트 허브 소비자 그룹: 이벤트 허브 입력에 대한 선택적 매개 변수입니다. 이벤트 허브에서 데이터를 수집하는 소비자 그룹입니다. 지정되지 않은 경우, 스트림 분석 작업은 기본 소비자 그룹을 사용하여 이벤트 허브에서 데이터를 수집합니다. 각 스트림 분석 작업에 대한 고유한 소비자 그룹을 사용하는 것이 좋습니다.
-
-파티션 키 열: 이벤트 허브 출력에 대한 선택적 매개 변수입니다. 이벤트 허브 출력에 대한 파티션 키로 사용되는 데이터 특성 열입니다.
+6. 파티션 키 열: 이벤트 허브 출력에 대한 선택적 매개 변수입니다. 이벤트 허브 출력에 대한 파티션 키로 사용되는 데이터 특성 열입니다. 
 
 ##Azure 테이블 출력 사용
 
@@ -126,8 +125,7 @@ Azure 테이블 저장소를 사용하여 시작하려면 테이블에 대한 �
 다음 페이지에서 Azure 테이블 정보를 입력합니다. 출력 별칭은 쿼리 출력을 이 테이블로 지정하기 위해 쿼리에서 사용할 수 있는 이름입니다.
 
 
-![graphic14][graphic14]
-![graphic15][graphic15]
+![graphic14][graphic14] ![graphic15][graphic15]
 
 일괄 처리 크기는 일괄 처리 작업에 대한 레코드의 수로, 익숙하지 않은 경우 기본값으로 그대로 두거나 자세한 내용은 [https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx)를 참조하세요.
 
@@ -151,7 +149,7 @@ Azure 테이블 저장소를 사용하여 시작하려면 테이블에 대한 �
 ![graphic19][graphic19]
 
 ## 도움말 보기
-추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-kr/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## 다음 단계
 
@@ -185,4 +183,4 @@ Azure 테이블 저장소를 사용하여 시작하려면 테이블에 대한 �
 [graphic19]: ./media/stream-analytics-connect-data-event-input-output/19-stream-analytics-connect-data-event-input-output.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

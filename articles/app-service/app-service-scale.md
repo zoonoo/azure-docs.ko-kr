@@ -127,4 +127,4 @@ Microsoft Azure에서 앱의 성능 및 처리량 향상을 위해 [Azure 포털
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

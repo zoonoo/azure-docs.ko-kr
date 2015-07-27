@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
 # Application Insights에서 진단 검색 사용
@@ -81,6 +81,12 @@
 
 또한 이 시간 동안 발생하고 있는 기타 이벤트가 무엇인지도 보려는 경우 **정의되지 않은 속성의 이벤트 포함**을 선택할 수 있습니다.
 
+## 봇 및 웹 테스트 트래픽 제거
+
+**실제 또는 가상 트래픽** 필터를 사용하여 **실제**를 선택합니다.
+
+**가상 트래픽 소스**로 필터링할 수도 있습니다.
+
 ## 개별 항목 검사
 
 해당 요청 이름을 필터 집합에 추가하고 해당 이벤트의 개별 항목을 검사할 수 있습니다.
@@ -89,7 +95,7 @@
 
 요청 이벤트의 경우, 세부 정보는 요청이 처리되는 동안 발생한 에외 사항을 보여줍니다.
 
-세부 정보를 보려면 예외 사항을 클릭합니다.
+예외 사항을 클릭하여 스택 추적을 포함한 세부 정보를 봅니다.
 
 ![예외 사항 클릭](./media/app-insights-diagnostic-search/06-callStack.png)
 
@@ -192,4 +198,4 @@ Application Insights SDK에서 보낸 기본 원격 분석 외에도 다음을 �
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

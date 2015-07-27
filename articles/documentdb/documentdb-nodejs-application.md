@@ -41,7 +41,7 @@
 
 이 문서의 지침을 따르기 전에 다음이 있는지 확인해야 합니다.
 
-- 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](../../pricing/free-trial/)을 참조하십시오.
+- 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](../../pricing/free-trial/)을 참조하십시오.
 - [Node.js][] 버전 v0.10.29 이상
 - [Express 생성기](http://www.expressjs.com/starter/generator.html)(`npm install express-generator -g`를 통해 설치 가능)
 - [Git][]
@@ -93,7 +93,7 @@
 
 	![package.json 탭의 스크린샷](./media/documentdb-nodejs-application/image17.png)
 
-이 파일은 해당 응용 프로그램이 이러한 추가 모듈에 종속된다는 것을 노드(및 나중에 Azure)에 알려줍니다.
+       이 파일은 해당 응용 프로그램이 이러한 추가 모듈에 종속된다는 것을 노드(및 나중에 Azure)에 알려줍니다.
 
 ## <a name="_Toc395783180"></a>4단계: 노드 응용 프로그램에서 DocumentDB 서비스 사용
 
@@ -389,7 +389,7 @@
 		
 		module.exports = config;
 
-3. **config.js** 파일에서 [Microsoft Azure 포털](http://portal.azure.com)의 DocumentDB 계정 키 블레이드에 있는 값을 사용해서 HOST 및 AUTH_KEY 값을 업데이트합니다.
+3. **config.js** 파일에서 [Microsoft Azure Preview 포털](http://portal.azure.com)의 DocumentDB 계정 키 블레이드에 있는 값을 사용해서 HOST 및 AUTH_KEY 값을 업데이트합니다.
 
 4. **config.js** 파일을 저장하고 닫습니다.
  
@@ -423,7 +423,7 @@
 		app.post('/completetask', taskList.completeTask.bind(taskList));
 
 
-6. 이러한 줄은 DocumentDB에 대한 새로운 연결을 사용해서 **TaskDao** 개체의 새 인스턴스를 정의하고(**config.js**에서 읽은 값 사용), 작업 개체를 초기화한 후 폼 작업을 **TaskList** 컨트롤러의 메서드에 바인딩합니다. 
+6. 이러한 줄은 DocumentDB에 대한 새로운 연결을 사용해서 **TaskDao** 개체의 새 인스턴스를 정의하고(**config.js**에서 읽은 값 사용), 작업 개체를 초기화한 후 폼 작업을 **TaskList** 컨트롤러의 메서드에 바인딩합니다.
 
 7. 끝으로, **app.js** 파일을 저장하고 닫으면 작업이 거의 완료됩니다.
  
@@ -450,8 +450,7 @@
 
 
 
-	이렇게 하면 응용 프로그램에 대한 일부 HTML을 렌더링하고 콘텐츠 페이지의 레이아웃을 제공할 수 있는 **content** 라는 **block**을 만들도록 **Jade** 엔진에 알립니다.
- 	이 **layout.jade** 파일을 저장하고 닫습니다.
+	이렇게 하면 응용 프로그램에 대한 일부 HTML을 렌더링하고 콘텐츠 페이지의 레이아웃을 제공할 수 있는 **콘텐츠**라는 **블록**을 만들도록 **Jade** 엔진에 알립니다. 이 **layout.jade** 파일을 저장하고 닫습니다.
 
 4. 이제 응용 프로그램에 사용되는 뷰인 **index.jade** 파일을 열고 파일 내용을 다음으로 바꿉니다.
 
@@ -556,8 +555,8 @@
 
 [여기](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo)서 전체 참조 응용 프로그램의 소스 코드를 다운로드할 수 있습니다.
 
-[Node.js]: http://nodejs.org/
-[Git]: http://git-scm.com/
-
-<!--HONumber=52-->
+  [Node.js]: http://nodejs.org/
+  [Git]: http://git-scm.com/
  
+
+<!---HONumber=July15_HO3-->

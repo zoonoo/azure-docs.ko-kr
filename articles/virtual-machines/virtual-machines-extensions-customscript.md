@@ -80,4 +80,4 @@ Linux용 사용자 지정 스크립트 사용법 및 샘플도 곧 추가될 예
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="06/30/2015" 
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스에서 API 앱 및 모바일 앱 인증
@@ -94,17 +94,17 @@ API 앱 또는 모바일 앱이 들어 있는 Azure 리소스 그룹은 *게이�
 
 로그인한 사용자를 대신하여 SaaS(Software-as-a-Service) 플랫폼에 대한 발신 호출을 하는 코드를 작성하거나 [커넥터 API 앱](../app-service-mobile/app-service-logic-what-are-biztalk-api-apps.md)을 사용할 수 있습니다. 예를 들어 사용자의 Twitter 계정에서 한 트윗을 게시하려면 [Twitter SDK](https://dev.twitter.com/overview/api/twitter-libraries)를 사용하거나 사용자의 Azure 구독에 [Twitter 커넥터](../app-service-mobile/app-service-logic-connector-twitter.md)를 프로비저닝하고 해당 커넥터를 호출할 수 있습니다. 이 섹션에서는 API 앱 또는 모바일 앱에서 실행하는 코드에서 SaaS 플랫폼에 액세스하는 작업에 대해 설명합니다.
 
-### ID 공급자 토큰 사용 
+### <a id="obotoidprovider"></a> ID 공급자 토큰 사용 
 
 게이트웨이는 하나 이상의 ID 공급자 액세스 토큰과 연결하고 토큰을 새로 고치는 *토큰 저장소*를 유지 관리합니다. 유효한 Zumo 토큰을 포함한 HTTP 요청을 받을 때, 게이트웨이는 해당 사용자와 관련된 ID 공급자 토큰을 알고 있습니다.
   
-API 앱 또는 모바일 앱에서 실행 중인 코드가 로그온한 사용자를 대신하여 보호된 리소스를 호출해야 하는 경우, 다음 다이어그램과 같이 게이트웨이의 토큰 저장소에서 ID 공급자의 토큰을 검색하여 사용할 수 있습니다.
+API 앱 또는 모바일 앱에서 실행 중인 코드가 로그온한 사용자를 대신하여 보호된 리소스를 호출해야 하는 경우, 다음 다이어그램과 같이 게이트웨이의 토큰 저장소에서 ID 공급자의 토큰을 검색하여 사용할 수 있습니다. 이 다이어그램에서는 클라이언트가 게이트웨이에서 이미 인증을 받았으며 Zumo 토큰이 있다고 가정합니다.
 
 ![](./media/app-service-authentication-overview/idprovidertoken.png)
 
 예를 들어 ID 공급자가 AAD(Azure Active Directory)이고 사용자의 API 앱에서 AAD 액세스 토큰을 사용하여 AAD 그래프 API를 호출하거나 사용자가 권한을 가지고 있는 SharePoint 사이트에 대한 액세스를 요청하려 한다고 가정합니다. 이 경우 요청을 게이트웨이에 보내서 AAD 토큰을 검색한 다음, AAD 토큰을 사용하여 그래프 API를 호출하거나 SharePoint 사이트에 대 한 액세스 토큰을 가져올 수 있습니다.
 
-### 다른 리소스에 액세스하기 위해 사용자 동의 얻기
+### <a id="obotosaas"></a>다른 리소스에 액세스하기 위해 사용자 동의 얻기
 
 또한 게이트웨이는 원래 ID 공급자가 아닌 공급자가 보호된 리소스에 액세스하려는 경우 사용자의 동의를 얻기 위한 기본 제공 기능을 가지고 있습니다. 예를 들어 Azure Active Directory를 사용하여 로그인하는 사용자의 경우, 해당 사용자의 Dropbox 계정에서 파일에 액세스하는 것이 좋습니다.
 
@@ -121,8 +121,10 @@ API 앱 또는 모바일 앱에서 실행 중인 코드가 로그온한 사용�
 * SharePointOnline
 * Twitter
 * Yammer
+* Azure Active Directory
+* Microsoft 계정
 
-이러한 공급자에 대해, 게이트웨이는 ID 공급자 액세스 토큰의 경우와 마찬가지로 액세스 토큰을 유지 관리하고 이 토큰을 Zumo 토큰과 연결합니다. 사용자 동의를 얻고 SaaS 플랫폼을 호출하는 프로세스는 다음 다이어그램에 나와 있습니다.
+이러한 공급자에 대해, 게이트웨이는 ID 공급자 액세스 토큰의 경우와 마찬가지로 액세스 토큰을 유지 관리하고 이 토큰을 Zumo 토큰과 연결합니다. 사용자 동의를 얻고 SaaS 플랫폼을 호출하는 프로세스는 다음 다이어그램에 나와 있습니다. 이 다이어그램에서는 클라이언트가 게이트웨이에서 이미 인증을 받았으며 Zumo 토큰이 있다고 가정합니다.
 
 ![](./media/app-service-authentication-overview/saastoken.png)
 
@@ -185,16 +187,17 @@ Azure에서 [ASP.NET Identity](http://www.asp.net/identity) 또는 [Thinktecture
 ### <a id="apiaclient"></a>API 앱 클라이언트 흐름
 
 * [API 앱 보호](../app-service-api/app-service-api-dotnet-add-authentication.md) - API 앱 구성 부분은 클라이언트와 서버 흐름에 모두 적용되지만, 브라우저 내 테스트 부분은 서버 흐름만 보여줍니다.
+* [.NET 클라이언트에서 Azure 앱 서비스의 API 앱 사용](../app-service-api/app-service-api-dotnet-consume.md) - 인증된 호출에 대한 샘플 코드가 서버 흐름을 보여 주지만 뒤에는 샘플 코드가 포함된 [클라이언트 흐름](../app-service-api/app-service-api-dotnet-consume.md#client-flow)이 나옵니다.
 
 ### <a id="apiaserver"></a>API 앱 서버 흐름
 
-* [API 앱 보호](../app-service-api/app-service-api-dotnet-add-authentication.md) - API 앱 구성 부분은 클라이언트와 서버 흐름에 모두 적용되지만, 브라우저 내 테스트 부분은 서버 흐름만 보여줍니다.
+* [API 앱 보호](../app-service-api/app-service-api-dotnet-add-authentication.md) - API 앱 구성 부분은 클라이언트와 서버 흐름에 모두 적용되고 브라우저 내 테스트 부분은 서버 흐름만 보여 줍니다.
 * [.NET 클라이언트에서 Azure 앱 서비스의 API 앱 사용](../app-service-api/app-service-api-dotnet-consume.md) - 인증된 호출에 대한 샘플 코드가 서버 흐름을 보여줍니다. 
 
-### <a id="apiaobo"></a>보호된 리소스에 대한 API 앱 대신 호출
+### <a id="apiaobo"></a>API 앱 대신 호출
 
 * [Azure 앱 서비스에서 SaaS 커넥터 API 앱 배포 및 구성](../app-service-api/app-service-api-connnect-your-app-to-saas-connector.md) - 미리 패키지된 커넥터 API 앱을 프로비저닝하고, 해당 앱을 구성하고, 브라우저 도구를 사용하여 호출하는 방법을 보여줍니다.
-* 사용자 고유의 커넥터를 작성하는 방법 -- 즉, 보호된 리소스에 대한 대신 호출을 수행하는 사용자 지정 API 앱을 프로비저닝하고 구성하는 방법--을 보여주는 자습서는 개발 중입니다.
+* [Azure 앱 서비스의 ASP.NET API 앱에서 SaaS 플랫폼에 연결](../app-service-api/app-service-api-dotnet-connect-to-saas.md) - 자체 커넥터를 작성하는 방법, 즉 SaaS 공급자에 대한 대신 호출을 수행하는 사용자 지정 API 앱에 대한 코드를 프로비전, 구성 및 작성하는 방법을 보여 줍니다.
 
 ### <a id="maclient"></a>모바일 앱 클라이언트 흐름
 
@@ -211,4 +214,4 @@ Azure에서 [ASP.NET Identity](http://www.asp.net/identity) 또는 [Thinktecture
 
 * [모바일 앱에서 액세스 토큰 가져오기 및 SharePoint API 호출](../app-service-mobile/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise.md#obtain-token)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

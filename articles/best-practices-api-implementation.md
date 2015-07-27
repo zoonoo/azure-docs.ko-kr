@@ -22,7 +22,7 @@
 ![](media/best-practices-api-implementation/pnp-logo.png)
 
 
-이 지침에 포함된 일부 항목은 논의 중이며 나중에 변경될 수 있습니다. 귀하의 피드백을 환영합니다.
+이 지침에 포함된 일부 항목은 논의 중이며 나중에 변경될 수 있습니다. 귀하의 피드백을 환영합니다!
 
 ## 개요
 신중하게 설계된 RESTful Web API는 클라이언트 응용 프로그램에 액세스할 수 있는 리소스, 관계, 탐색 스키마를 정의합니다. Web API를 구현하고 배포하는 경우 Web API를 호스팅하는 환경의 실제 요구 사항을 고려하고 데이터의 논리 구조보다는 Web API가 생성된 방식을 고려해야 합니다. 이 지침은 Web API를 구현하고 클라이언트 응용 프로그램에서 사용할 수 있도록 게시하는 것에 대한 모범 사례를 집중적으로 살펴봅니다. 보안 문제는 API 보안 지침 문서에 별도로 설명됩니다. Web API 디자인에 대한 자세한 정보는 API 디자인 지침 문서에서 찾을 수 있습니다.
@@ -1151,4 +1151,4 @@ API 관리 서비스를 사용하여 Web API를 게시한 경우 Azure 관리 �
 - Microsoft 웹 사이트의 [단위 테스트를 사용하여 코드 확인](https://msdn.microsoft.com/library/dd264975.aspx) 페이지는 Visual Studio를 사용하여 단위 테스트를 생성하고 관리하는 자세한 정보를 제공합니다.
 - Microsoft 웹 사이트의 [앱에서 성능 테스트 실행](https://msdn.microsoft.com/library/dn250793.aspx) 페이지는 Visual Studio Ultimate을 사용하여 웹 성능 및 부하 테스트 프로젝트를 생성하는 방법을 설명합니다.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

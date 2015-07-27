@@ -53,7 +53,7 @@ Azure에 이미지를 업로드하려면, Sysprep 명령을 사용하여 일반�
 
 1. 운영 체제에 로그인합니다.
 
-2. 관리자로 명령 프롬프트 창을 엽니다. 디렉터리를 **%windir%\system32\sysprep**로 변경한 후 `sysprep.exe`를 실행합니다.
+2. 관리자로 명령 프롬프트 창을 엽니다. 디렉터리를 **%windir%\\system32\\sysprep**로 변경한 후 `sysprep.exe`를 실행합니다.
 
 	![명령 프롬프트 창 열기](./media/virtual-machines-create-upload-vhd-windows-server/sysprep_commandprompt.png)
 
@@ -211,4 +211,4 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 [4단계: .vhd 파일 업로드]: #upload
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

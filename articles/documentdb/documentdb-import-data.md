@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="DocumentDB로 데이터 가져오기 | Azure" 
-	description="오픈 소스 DocumentDB 데이터 마이그레이션 도구를 사용하여 JSON 파일, CSV 파일, SQL, MongoDB, Azure 테이블 저장소 및 DocumentDB 컬렉션을 비롯한 다양한 소스에서 DocumentDB로 데이터를 가져오는 방법을 알아봅니다." 
+	description="오픈 소스 DocumentDB 데이터 마이그레이션 도구를 사용하여 JSON 파일, CSV 파일, SQL, MongoDB, Azure 테이블 저장소, Amazon DynamoDB 및 DocumentDB 컬렉션을 비롯한 다양한 소스에서 DocumentDB로 데이터를 가져오는 방법을 알아봅니다." 
 	services="documentdb" 
 	authors="stephbaron" 
 	manager="johnmac" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.date="07/10/2015" 
 	ms.author="stbaro"/>
 
 # DocumentDB로 데이터 가져오기 #
 
-이 문서는 공개 소스 DocumentDB 데이터 마이그레이션 도구를 사용하여 JSON 파일, CSV 파일, SQL, MongoDB, Azure 테이블 저장소 및 DocumentDB 컬렉션을 포함한 다양한 소스에서 데이터를 [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/)로 가져오는 방법을 보여줍니다.
+이 문서는 공개 소스 DocumentDB 데이터 마이그레이션 도구를 사용하여 JSON 파일, CSV 파일, SQL, MongoDB, Azure 테이블 저장소, Amazon DynamoDB 및 DocumentDB 컬렉션을 포함한 다양한 소스에서 데이터를 [Microsoft Azure DocumentDB](http://azure.microsoft.com/services/documentdb/)로 가져오는 방법을 보여줍니다.
 
 이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.
 
@@ -27,6 +27,8 @@
 -	어떻게 SQL Server 데이터를 DocumentDB로 가져올 수 있나요?
 -	어떻게 MongoDB 데이터를 DocumentDB로 가져올 수 있나요?
 -	어떻게 Azure 테이블 저장소의 데이터를 DocumentDB로 가져올 수 있나요?
+-	어떻게 Amazon DynamoDB의 데이터를 DocumentDB로 가져올 수 있나요?
+-	HBase의 데이터를 DocumentDB로 가져오는 방법
 -	어떻게 DocumentDB 컬렉션 간에 데이터를 마이그레이션할 수 있나요?
 
 ##<a id="Prerequisites"></a>필수 조건 ##
@@ -44,6 +46,8 @@ DocumentDB 데이터 마이그레이션 도구는 다음을 비롯한 다양한 
 - SQL Server
 - CSV 파일
 - Azure 테이블 저장소
+- Amazon DynamoDB
+- HBase
 - DocumentDB 컬렉션
 
 가져오기 도구는 그래픽 사용자 인터페이스(dtui.exe)를 포함하지만 명령줄(dt.exe)에서 구동할 수도 있습니다. 실제로 UI를 통해 가져오기를 설정한 후 관련 명령을 출력하는 옵션이 있습니다. 가져오는 동안 계층 관계(하위 문서)를 만들 수 있도록 테이블 형식 원본 데이터(예: SQL Server 또는 CSV 파일)를 변환할 수 있습니다. 원본 옵션, 각 원본에서 가져오는 샘플 명령줄, 대상 옵션 및 가져오기 결과 보기에 대해 자세히 알아보려면 계속 진행하세요.
@@ -77,7 +81,7 @@ JSON 파일을 가져오는 몇 가지 명령줄 샘플은 다음과 같습니�
 	dt.exe /s:JsonFile /s.Files:C:\Tweets*.*;C:\LargeDocs***.*;C:\TESessions\Session48172.json;C:\TESessions\Session48173.json;C:\TESessions\Session48174.json;C:\TESessions\Session48175.json;C:\TESessions\Session48177.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:subs /t.CollectionTier:S3
 
 	#Import a single JSON file and partition the data across 4 collections
-	dt.exe /s:JsonFile /s.Files:D:\CompanyData\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionTier:S3
+	dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:comp[1-4] /t.PartitionKey:name /t.CollectionTier:S3
 
 ##<a id="MongoDB"></a>MongoDB에서 가져오기 ##
 
@@ -197,6 +201,34 @@ Azure 테이블 저장소에서 가져오는 명령줄 샘플은 다음과 같�
 
 	dt.exe /s:AzureTable /s.ConnectionString:"DefaultEndpointsProtocol=https;AccountName=<Account Name>;AccountKey=<Account Key>" /s.Table:metrics /s.InternalFields:All /s.Filter:"PartitionKey eq 'Partition1' and RowKey gt '00001'" /s.Projection:ObjectCount;ObjectSize  /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:metrics /t.CollectionTier:S3
 
+##<a id="DynamoDBSource"></a>Amazon DynamoDB에서 가져오기 ##
+
+Amazon DynamoDB 원본 가져오기 옵션을 사용하면 개별 Amazon DynamoDB 테이블에서 가져오고 필요에 따라 가져올 엔터티를 필터링할 수 있습니다. 여러 템플릿이 제공되므로 가져오기를 최대한 쉽게 설정할 수 있습니다.
+
+![Amazon DynamoDB 원본 옵션의 스크린샷](./media/documentdb-import-data/dynamodbsource1.png)
+
+![Amazon DynamoDB 원본 옵션의 스크린샷](./media/documentdb-import-data/dynamodbsource2.png)
+
+Amazon DynamoDB 연결 문자열의 형식은 다음과 같습니다.
+
+	ServiceURL=<Service Address>;AccessKey=<Access Key>;SecretKey=<Secret Key>;
+
+> [AZURE.NOTE]Verify 명령을 사용하여 연결 문자열 필드에 지정된 Amazon DynamoDB 인스턴스를 액세스할 수 있는지 확인합니다.
+
+Amazon DynamoDB에서 가져오는 명령줄 샘플은 다음과 같습니다.
+
+	dt.exe /s:DynamoDB /s.ConnectionString:ServiceURL=https://dynamodb.us-east-1.amazonaws.com;AccessKey=<accessKey>;SecretKey=<secretKey> /s.Request:"{   """TableName""": """ProductCatalog""" }" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:catalogCollection /t.CollectionTier:S3
+
+##<a id="BlobImport"></a>Azure Blob 저장소에서 파일 가져오기##
+
+JSON 파일, MongoDB 내보내기 파일 및 CSV 파일 원본 가져오기 옵션을 통해 Azure Blob 저장소에서 하나 이상의 파일을 가져올 수 있습니다. Blob 컨테이너 URL 및 계정 키를 지정한 후에 가져올 파일을 선택하는 정규식을 제공하기만 하면 됩니다.
+
+![Blob 파일 원본 옵션의 스크린샷](./media/documentdb-import-data/blobsource.png)
+
+Azure Blob 저장소에서 JSON 파일을 가져오려면 명령줄 예제는 다음과 같습니다.
+
+	dt.exe /s:JsonFile /s.Files:"blobs://<account key>@account.blob.core.windows.net:443/importcontainer/.*" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:doctest
+
 ##<a id="DocumentDBSource"></a>DocumentDB에서 가져오기 ##
 
 DocumentDB 소스 가져오기 옵션을 사용하면 필요에 따라 쿼리를 사용하 여 문서를 필터링하고 하나 이상의 DocumentDB 컬렉션에서 데이터를 가져올 수 있습니다.
@@ -233,7 +265,25 @@ DocumentDB에서 가져오는 몇 가지 명령줄 샘플은 다음과 같습니
 	dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:comp1|comp2|comp3|comp4 /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:singleCollection /t.CollectionTier:S3
 
 	#Export a DocumentDB collection to a JSON file
-	dt.exe /s:DocumentDB /s.ConnectionString:" AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionTier:S3
+	dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionTier:S3
+
+##<a id="HBaseSource"></a>HBase에서 가져오기 ##
+
+HBase 원본 가져오기 옵션을 사용하면 HBase 테이블에서 데이터를 가져오고 필요에 따라 데이터를 필터링할 수 있습니다. 여러 템플릿이 제공되므로 가져오기를 최대한 쉽게 설정할 수 있습니다.
+
+![HBase 원본 옵션의 스크린샷](./media/documentdb-import-data/hbasesource1.png)
+
+![HBase 원본 옵션의 스크린샷](./media/documentdb-import-data/hbasesource2.png)
+
+HBase Stargate 연결 문자열의 형식은 다음과 같습니다.
+
+	ServiceURL=<server-address>;Username=<username>;Password=<password>
+
+> [AZURE.NOTE]Verify 명령을 사용하여 연결 문자열 필드에 지정된 HBase 인스턴스를 액세스할 수 있는지 확인합니다.
+
+HBase에서 가져오는 명령줄 샘플은 다음과 같습니다.
+
+	dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<username>;Password=<password> /s.Table:Contacts /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<DocumentDB Endpoint>;AccountKey=<DocumentDB Key>;Database=<DocumentDB Database>;" /t.Collection:hbaseimport
 
 ##<a id="DocumentDBBulkTarget"></a>DocumentDB로 가져오기(대량 가져오기) ##
 
@@ -333,11 +383,33 @@ DocumentDB - 순차 레코드 가져오기에는 다음과 같은 추가 고급 
 
 > [AZURE.TIP]가져오기 도구는 기본적으로 DirectTcp 연결 모드로 설정되어 있습니다. 방화벽 문제가 발생하는 경우 포트 443만 요구하는 게이트웨이 연결 모드로 전환합니다.
 
+##<a id="IndexingPolicy"></a>DocumentDB 컬렉션을 만들 때 인덱싱 정책 지정 ##
+
+가져오는 동안 컬렉션을 만들 수 있도록 마이그레이션 도구를 허용하는 경우 컬렉션의 인덱싱 정책을 지정할 수 있습니다. DocumentDB 대량 가져오기의 고급 옵션 섹션 및 DocumentDB 순차 레코드 옵션에서 인덱싱 정책 섹션으로 이동합니다.
+
+![DocumentDB 인덱싱 정책 고급 옵션의 스크린샷](./media/documentdb-import-data/indexingpolicy1.png)
+
+인덱싱 정책 고급 옵션을 사용하여 인덱싱 정책 파일을 선택하고 인덱싱 정책을 수동으로 입력하거나 일련의 기본 템플릿에서 선택할 수 있습니다(인덱싱 정책 텍스트 상자를 마우스 오른쪽 단추로 클릭).
+
+도구가 제공하는 정책 템플릿은 다음과 같습니다.
+
+- 기본값 이 정책은 문자열에 대해 같음 쿼리를 수행하고 숫자에 대해 ORDER BY, 범위 및 같음 쿼리를 사용할 때 가장 좋습니다. 이 정책에는 범위보다 더 낮은 인덱스 저장소 오버헤드가 있습니다.
+- 해시입니다. 이 정책은 숫자 및 문자열 모두에 대해 같음 쿼리를 수행할 때 가장 좋습니다. 이 정책에는 가장 낮은 인덱스 저장소 오버헤드가 있습니다.
+- 범위입니다. 이 정책은 숫자와 문자열 모두에 ORDER BY, 범위 및 같음 쿼리를 사용할 때 가장 좋습니다. 이 정책에는 기본값 또는 해시보다 더 높은 인덱스 저장소 오버헤드가 있습니다.
+
+
+![DocumentDB 인덱싱 정책 고급 옵션의 스크린샷](./media/documentdb-import-data/indexingpolicy2.png)
+
+> [AZURE.NOTE]인덱싱 정책을 지정하지 않으면 기본 정책이 적용됩니다. DocumentDB 인덱싱 정책에 대한 자세한 정보는 [여기서](documentdb-indexing-policies.md) 읽을 수 있습니다.
+
+
 ## JSON 파일로 내보내기
 
-DocumentDB JSON 내보내기를 사용하면 사용 가능한 모든 원본 옵션을 JSON 문서 배열이 포함된 JSON 파일로 내보낼 수 있습니다. 도구에서 자동으로 내보내기를 처리하거나, 결과 마이그레이션 명령을 보고 직접 명령을 실행할 수 있습니다.
+DocumentDB JSON 내보내기를 사용하면 사용 가능한 모든 원본 옵션을 JSON 문서 배열이 포함된 JSON 파일로 내보낼 수 있습니다. 도구에서 자동으로 내보내기를 처리하거나, 결과 마이그레이션 명령을 보고 직접 명령을 실행할 수 있습니다. 결과 JSON 파일은 로컬로 또는 Azure Blob 저장소에 저장될 수도 있습니다.
 
-![DocumentDB JSON 내보내기 옵션의 스크린샷](./media/documentdb-import-data/jsontarget.png)
+![DocumentDB JSON 로컬 파일 내보내기 옵션의 스크린샷](./media/documentdb-import-data/jsontarget.png)
+
+![DocumentDB JSON Azure Blob 저장소 내보내기 옵션의 스크린샷](./media/documentdb-import-data/jsontarget2.png)
 
 필요에 따라 결과 JSON을 꾸밀 수 있으며, 이 경우 콘텐츠의 가독성은 향상되지만 결과 문서의 크기가 증가합니다.
 
@@ -404,4 +476,4 @@ DocumentDB JSON 내보내기를 사용하면 사용 가능한 모든 원본 옵�
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO3-->

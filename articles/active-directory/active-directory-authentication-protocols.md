@@ -56,4 +56,4 @@ Azure AD(Azure Active Directory)는 가장 널리 사용되는 다수의 인증 
 [Active Directory 코드 샘플](active-directory-code-samples.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

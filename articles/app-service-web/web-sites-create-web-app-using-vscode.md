@@ -220,9 +220,13 @@ Git는 Azure 앱 서비스 웹앱을 배포하는 데 사용할 수 있는 분�
 
 		git remote add azure [URL for remote repository]
 
-7. 다음 명령을 입력하여 변경 내용을 Azure에 푸시합니다.
+7. 자격 증명이 로컬로 저장되도록 Git을 구성하여 자격 증명이 VS 코드에서 생성된 푸시 명령에 자동으로 추가될 수 있게 합니다.
 
-		git push azure master
+		git config credential.helper store
+
+8. 다음 명령을 입력하여 변경 내용을 Azure에 푸시합니다. 처음으로 Azure에 푸시한 후에는 VS 코드로부터 모든 푸시 명령을 수행할 수 있게 됩니다.
+
+		git push -u azure master
 
 	이전에 만든 암호를 입력하라는 메시지가 나타납니다. **참고: 암호는 표시되지 않습니다.**
 
@@ -232,7 +236,9 @@ Git는 Azure 앱 서비스 웹앱을 배포하는 데 사용할 수 있는 분�
 		To https://user@testsite.scm.azurewebsites.net/testsite.git
 		[new branch]      master -> master
 
-> [AZURE.NOTE]앱을 변경한 경우 VS Code에서 **모두 커밋**을 선택한 다음 명령 프롬프트에서 **git push azure master** 명령을 입력하여 다시 게시할 수 있습니다.
+> [AZURE.NOTE]앱을 변경하면 **모두 커밋** 옵션을 선택한 다음 **푸시** 옵션을 선택하여 기본 Git 기능을 통해 VS 코드에서 직접 다시 게시할 수 있습니다. **모두 커밋** 및 **새로 고침** 단추 옆에 있는 드롭다운 메뉴에서 **푸시** 옵션을 찾을 수 있습니다.
+
+공동 작업해야 하는 프로젝트의 경우에는 Azure로의 푸시 사이에 GitHub으로의 푸시도 고려해야 합니다.
 
 ## Azure에서 앱 실행
 웹앱을 배포했으므로 이제 Azure에서 호스트된 상태에서 앱을 실행해 보겠습니다.
@@ -250,4 +256,4 @@ Git는 Azure 앱 서비스 웹앱을 배포하는 데 사용할 수 있는 분�
 ## 요약
 이 자습서에서는 VS Code에서 웹앱을 만들고 Azure에 배포하는 방법을 알아보았습니다. VS Code에 대한 자세한 내용은 [Visual Studio Code를 선택해야 하는 이유?](https://code.visualstudio.com/Docs/)를 참조하세요. 앱 서비스 웹앱에 대한 자세한 내용은 [웹앱 개요](app-service-web-overview.md)를 참조하세요.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

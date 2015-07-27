@@ -1,6 +1,6 @@
 <properties pageTitle="Azure 검색 관리 REST API 버전 2014-07-31-미리 보기" description="Azure 검색 관리 REST API: 버전 2014-07-31-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="05/21/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/08/2015" ms.author="heidist" />
 
 # 관리 API: 버전 2014-07-31-Preview
 
@@ -815,4 +815,4 @@ api 키, 특히 관리 키는 중요한 데이터로서 처리해야 합니다. 
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

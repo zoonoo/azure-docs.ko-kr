@@ -58,7 +58,7 @@ Azure AD에 연결 화면에서, 전역 관리자 계정 및 암호를 입력합
 <center>![사용자 로그인](./media/active-directory-aadconnect-get-started-custom/connectaad.png) </center>
 
 ### 디렉터리에 연결
-Active Directory 도메인 서비스에 연결하려면, Azure AD Connect는 충분한 권한이 있는 계정의 자격 증명이 필요합니다. 기본 읽기 권한만 필요하기 때문에 이 계정은 일반 사용자 계정일 수 있습니다. 그러나 시나리오에 따라 추가 권한이 필요할 수 있습니다. 자세한 내용은 [Azure AD Connect 계정 요약](active-directory-addconnect-account-summary)을 참조하세요.
+Active Directory 도메인 서비스에 연결하려면, Azure AD Connect는 충분한 권한이 있는 계정의 자격 증명이 필요합니다. 기본 읽기 권한만 필요하기 때문에 이 계정은 일반 사용자 계정일 수 있습니다. 그러나 시나리오에 따라 추가 권한이 필요할 수 있습니다. 자세한 내용은 [Azure AD Connect 계정 요약](active-directory-aadconnect-account-summary.md)을 참조하세요.
 
 <center>![사용자 로그인](./media/active-directory-aadconnect-get-started-custom/connectdir.png) </center>
 
@@ -125,6 +125,9 @@ Azure AD 앱 및 특성 필터링|Azure AD 앱 및 특성 필터링을 사용하
 <center>![동기화 필터링](./media/active-directory-aadconnect-get-started-custom/extension4.png) </center>
 
 ## 사용자 쓰기 저장(미리 보기)
+
+> [AZURE.WARNING]현재 디렉터리 동기화 또는 Azure AD Sync가 활성화되어 있는 경우 Azure AD Connect에서 쓰기 저장 기능을 활성화하지 마세요.
+
 사용자 쓰기 저장을 사용하면 Azure AD(포털, 그래프, PowerShell 또는 다른 메서드를 통해)에서 만든 사용자를 사용하고 온-프레미스 ADDS에 사용자를 다시 쓸 수 있습니다. 기능을 사용하려면 선택적 기능 페이지에서 "사용자 쓰기 저장"을 선택합니다. 이제 이 사용자를 만들 위치로 표시됩니다. 기본 구성은 AD DS의 한 위치에서 모든 사용자를 만듭니다.
 
 <center>![동기화 필터링](./media/active-directory-aadconnect-get-started-custom/writeback2.png) </center>
@@ -133,6 +136,9 @@ Azure AD 앱 및 특성 필터링|Azure AD 앱 및 특성 필터링을 사용하
 >[AZURE.NOTE]암호 동기화 및 암호 쓰기 저장은 이 미리 보기 기능과 호환되지 않습니다.
 
 ## 그룹 쓰기 저장(미리 보기)
+
+> [AZURE.WARNING]현재 디렉터리 동기화 또는 Azure AD Sync가 활성화되어 있는 경우 Azure AD Connect에서 쓰기 저장 기능을 활성화하지 마세요.
+
 선택적 기능의 그룹 쓰기 저장에 대한 옵션을 사용하면 Exchange가 설치된 포리스트로 "Office 365의 그룹"을 쓰기 저장할 수 있습니다. 항상 클라우드에서 마스터되는 새 그룹 종류입니다. 다음과 같이 outlook.office365.com 또는 myapps.microsoft.com에서 찾을 수 있습니다.
 
 
@@ -152,7 +158,16 @@ Azure AD 앱 및 특성 필터링|Azure AD 앱 및 특성 필터링을 사용하
 자세한 내용은 [여기](http://blogs.office.com/2014/09/25/delivering-first-chapter-groups-office-365/)를 참조하세요.
 
 ## 장치 쓰기 저장(미리 보기)
-장치 쓰기 저장 기능을 사용하면 Intune에서와 같이 클라우드에서 등록된 장치를 사용하여 조건부 액세스를 위해 AD DS에 게 허용할 수 있습니다. 기능을 사용하려면 AD DS가 준비되어야 합니다. AD FS 및 장치 등록 서비스(DRS)를 설치하는 경우, DRS는 PowerShell cmdlet을 제공하여 장치 쓰기 저장을 위한 AD를 준비합니다. DRS를 설치하지 않는 경우 C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncAdPrep.psm1을 엔터프라이즈 관리자로 실행할 수 있습니다.
+
+> [AZURE.WARNING]현재 디렉터리 동기화 또는 Azure AD Sync가 활성화되어 있는 경우 Azure AD Connect에서 쓰기 저장 기능을 활성화하지 마세요.
+
+장치 쓰기 저장 기능을 사용하면 Intune에서와 같이 클라우드에서 등록된 장치를 사용하여 조건부 액세스를 위해 AD DS에 게 허용할 수 있습니다. 기능을 사용하려면 AD DS가 준비되어야 합니다. AD FS 및 장치 등록 서비스(DRS)를 설치하는 경우, DRS는 PowerShell cmdlet을 제공하여 장치 쓰기 저장을 위한 AD를 준비합니다. DRS를 설치하지 않는 경우 C:\\Program Files\\Microsoft Azure Active Directory Connect\\AdPrep\\AdSyncAdPrep.psm1을 엔터프라이즈 관리자로 실행할 수 있습니다.
+
+PowerShell cmdlet을 실행하려면 먼저 가져와야 합니다.
+
+	Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'
+
+이 작업을 수행하려면 Active Directory 및 MSOnline PowerShell이 로컬에 설치되어 있어야 합니다.
 
 
 
@@ -258,4 +273,4 @@ AD FS에 로그인하고 PSH를 사용하여 이렇게 구성하여 AD FS 로그
 * [자세한 정보](active-directory-aadconnect-learn-more.md)
 * [MSDN의 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

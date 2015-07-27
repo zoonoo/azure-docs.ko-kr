@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/08/2015" 
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스에서 SaaS 커넥터 API 앱을 배포 및 구성
 
 ## 개요
 
-이 자습서에서는 [Azure 앱 서비스](/documentation/services/app-service/)에서 [SaaS(Software-as-a-Service) 커넥터](../app-service-logic-what-are-bizTalk-api-apps.md)를 설치 및 구성하고 모바일 앱 등에서의 프로그래밍 방식 호출을 테스트하는 방법을 보여 줍니다. SaaS 커넥터는 Office 365, Salesforce, Facebook 및 Dropbox와 같은 SaaS 플랫폼과의 상호 작용을 단순화하는 [API 앱](app-service-api-apps-why-best-platform.md)입니다.
+이 자습서에서는 [Azure 앱 서비스](/documentation/services/app-service/)에서 [SaaS(Software-as-a-Service) 커넥터](../app-service-logic-what-are-bizTalk-api-apps.md)를 설치 및 구성하고 모바일 앱 등에서의 프로그래밍 방식 호출을 테스트하는 방법을 보여 줍니다. SaaS 커넥터는 Office 365, Salesforce, Facebook 및 Dropbox와 같은 SaaS 플랫폼과의 상호 작용을 단순화하는 [API 앱](app-service-api-apps-why-best-platform.md)입니다. 미리 패키지된 커넥터를 사용하는 대신 사용자 지정 .NET API 앱을 만들려는 경우 [ASP.NET API 앱에서 SaaS 플랫폼에 연결](app-service-api-dotnet-connect-to-saas.md)을 참조하세요.
 
 예를 들어 Dropbox 계정으로 파일을 읽고 쓰기 위해 HTTP 요청을 코딩하려는 경우 Dropbox에서 직접 작업하기 위한 인증 프로세스는 복잡합니다. 비즈니스 관련 코드 작성에 집중할 수 있도록 Dropbox 커넥터가 인증의 복잡성을 처리합니다.
 
@@ -32,6 +32,8 @@
 * Dropbox 서비스에 연결할 수 있도록 Dropbox 커넥터를 구성합니다. 이 단계를 완료하려면 Dropbox 계정이 있어야 합니다.
 * 인증된 사용자만 리소스 그룹에 포함된 API 앱에 액세스할 수 있도록 리소스 그룹을 구성합니다.
 * 테스트를 통해 사용자 인증과 Dropbox 인증이 둘 다 작동하는지 확인합니다.
+
+앱 서비스의 인증에 대한 자세한 내용은 [API 앱 및 모바일 앱 인증](../app-service/app-service-authentication-overview.md)을 참조하세요.
 
 ## Dropbox 커넥터 설치
 
@@ -81,57 +83,11 @@ API가 Dropbox 계정에 액세스할 수 있게 하려면 Dropbox 개발자 사
 
 ### <a id="createdbapp"></a>Dropbox 앱 만들기
 
-다음 단계에서는 Dropbox.com 사이트를 사용하여 Dropbox 앱을 만드는 프로세스를 보여 줍니다. Dropbox.com 사이트는 예고 없이 변경될 수 있으므로 UI가 표시된 것과 다를 수도 있습니다.
-
-1. [Dropbox 개발자 포털](https://www.dropbox.com/developers/apps)로 이동하여 **앱 콘솔**을 클릭한 다음 **앱 만들기**를 클릭합니다.
-
-	![Dropbox 앱 만들기](./media/app-service-api-connnect-your-app-to-saas-connector/dbappcreate.png)
-
-2. **Dropbox API 앱**을 선택하고 기타 설정을 구성합니다.
- 
-	아래 스크린샷에 표시된 파일 액세스 옵션을 사용하면 계정에 파일이 있을 경우 간단한 HTTP Get 요청으로 Dropbox 계정에 대한 액세스를 테스트할 수 있습니다.
-
-	Dropbox 사이트에서 수락하기만 하면 아무 이름이나 Dropbox API 앱의 이름으로 사용할 수 있습니다.
-
-3. **앱 만들기**를 클릭합니다.
-
-	![Dropbox 앱 만들기](./media/app-service-api-connnect-your-app-to-saas-connector/dbapiapp.png)
-
-	다음 페이지에서는 Azure Dropbox 커넥터를 구성하는 데 사용할 앱 키와 앱 암호 설정(Azure에서는 클라이언트 ID 및 클라이언트 암호라고 함)을 보여 줍니다.
-
-	이 페이지에는 리디렉션 URI를 입력할 수 있는 필드도 있습니다. 해당 값은 다음 섹션에서 얻을 수 있습니다.
-
-	![Dropbox 앱 만들기](./media/app-service-api-connnect-your-app-to-saas-connector/dbappsettings.png)
+[AZURE.INCLUDE [app-service-api-create-dropbox-app](../../includes/app-service-api-create-dropbox-app.md)]
 
 ### <a id="copysettings"></a>Dropbox 앱 설정을 Azure Dropbox 커넥터로 복사하고 반대의 경우도 마찬가지입니다. 
 
-4. 다른 브라우저 창이나 탭에서 [Azure Preview 포털]로 이동합니다.
-
-3. Dropbox 커넥터에 대한 **API 앱** 블레이드로 이동합니다. 여전히 **리소스 그룹** 블레이드에 있는 경우 다이어그램에서 Dropbox 커넥터를 클릭하면 됩니다.
-
-4. **설정**을 클릭한 다음 **설정** 블레이드에서 **인증**을 클릭합니다.
-
-	![설정 클릭](./media/app-service-api-connnect-your-app-to-saas-connector/clicksettings.png)
-
-	![인증 클릭](./media/app-service-api-connnect-your-app-to-saas-connector/clickauth.png)
-
-5. 인증 블레이드에서 Dropbox 사이트의 클라이언트 ID 및 클라이언트 암호를 입력하고 **저장**을 클릭합니다.
-
-	![설정을 입력하고 저장 클릭](./media/app-service-api-connnect-your-app-to-saas-connector/authblade.png)
-
-3. **리디렉션 URI**(클라이언트 ID 및 클라이언트 암호 위에 있는 회색 상자)를 복사하여 이전 단계에서 열어 둔 페이지에 값을 추가합니다.
-
-	리디렉션 URI는 다음 패턴을 따릅니다.
-
-		[gatewayurl]/api/consent/redirect/[connectorname]
-
-	예:
-
-		https://dropboxrgaeb4ae60b7.azurewebsites.net/api/consent/redirect/DropboxConnector
-
-	![리디렉션 URI 가져오기](./media/app-service-api-connnect-your-app-to-saas-connector/redirecturi.png)
-
-	![Dropbox 앱 만들기](./media/app-service-api-connnect-your-app-to-saas-connector/dbappsettings2.png)
+[AZURE.INCLUDE [app-service-api-exchange-dropbox-settings](../../includes/app-service-api-exchange-dropbox-settings.md)]
 
 ### 인증된 액세스를 요구하도록 Dropbox 커넥터 설정
 
@@ -157,7 +113,7 @@ API가 Dropbox 계정에 액세스할 수 있게 하려면 Dropbox 개발자 사
 
 대부분의 경우 코드에서 호출하여 커넥터를 사용하며, 방법을 보여 주는 자습서도 작성합니다. 그러나 앱의 다른 부분을 연결하기 전에 커넥터가 작동하는지 확인하려는 경우도 있습니다. 이 자습서에서는 브라우저 및 단순한 REST 클라이언트 도구를 사용하여 방금 설치 및 구성한 Dropbox 커넥터를 통해 Dropbox 서비스를 조작할 수 있는지 확인하는 방법을 보여 줍니다.
 
-다음 지침은 Chrome 브라우저 개발자 도구 및 Postman REST 클라이언트 도구를 사용하여 이러한 단계를 수행하는 방법을 보여 줍니다. 이는 하나의 예일 뿐이며 다른 브라우저 및 도구로 동일한 절차를 수행할 수 있습니다.
+다음 지침은 Chrome 브라우저 개발자 도구 및 Postman REST 클라이언트 도구를 사용하여 이러한 단계를 수행하는 방법을 보여 줍니다. 이는 하나의 예일 뿐이며 다른 브라우저 및 도구로 동일한 절차를 수행할 수 있습니다. "고급 REST 클라이언트"도 사용할 수 있는 다른 Chrome 추가 기능 중 하나입니다.
 
 ### 최종 사용자로 로그인
 
@@ -187,7 +143,7 @@ API가 Dropbox 계정에 액세스할 수 있게 하려면 Dropbox 개발자 사
 
 ### Dropbox에 사용자 ID 제공
 
-Dropbox API를 사용하기 위해 Dropbox 권한 부여를 받으려면 Dropbox에 사용자 자격 증명을 제공해야 합니다. Azure에서 이 작업을 대신 수행하지만, 해당 프로세스를 트리거하려면 브라우저에서 특수 URL로 이동해야 합니다. 해당 URL을 얻으려면 게이트웨이에 대해 HTTP Post 요청을 수행합니다.
+Dropbox API를 사용하기 위해 Dropbox 권한 부여를 받으려면 Dropbox에 사용자 자격 증명을 제공해야 합니다. Azure에서 해당 프로세스를 대신 시작하지만, 해당 프로세스를 트리거하려면 브라우저에서 특수 게이트웨이 URL로 이동해야 합니다. 해당 URL을 얻으려면 게이트웨이에 대해 HTTP Post 요청을 수행합니다.
 
 게이트웨이에 대한 HTTP Post 요청에는 로그인 시 Azure에서 제공한 인증 토큰이 포함되어야 합니다. 브라우저 요청의 경우 토큰이 쿠키에 저장되어 있으므로 토큰이 자동으로 포함되지만, REST 클라이언트 도구를 사용한 HTTP Post 요청의 경우 쿠키에서 토큰을 가져와 HTTP Post 요청의 요청 헤더에 넣어야 합니다.
 
@@ -223,15 +179,15 @@ Dropbox API를 사용하기 위해 Dropbox 권한 부여를 받으려면 Dropbox
 
 	![동의 URL을 위해 보내기](./media/app-service-api-connnect-your-app-to-saas-connector/sendforconsent.png)
 
-	응답에는 Dropbox에 사용자를 인증하기 위해 사용할 URL이 포함됩니다. 메서드 드롭다운이 **Post**로 설정되어 있어도 Get 메서드가 지원되지 않음을 나타내는 오류 응답이 표시되는 경우 다른 REST 클라이언트 도구를 사용해야 할 수도 있습니다. "고급 REST 클라이언트"도 사용할 수 있는 다른 Chrome 추가 기능 중 하나입니다.
+	응답에는 Dropbox에서 사용자의 로그인 프로세스를 시작하기 위해 사용할 URL이 포함됩니다. 메서드 드롭다운이 **Post**로 설정되어 있어도 Get 메서드가 지원되지 않음을 나타내는 오류 응답이 표시되는 경우 게이트웨이 URL이 HTTP가 아닌 HTTPS인지 확인합니다.
 
 	![동의 URL](./media/app-service-api-connnect-your-app-to-saas-connector/getconsenturl.png)
 
 2. HTTP Post 요청에 대한 응답으로 수신된 URL로 이동합니다.
 
-	Dropbox는 사용자 ID를 Dropbox API 앱에 연결한 다음 지정된 리디렉션 URL(예: 예제를 따르고 https://portal.azure.com)을 사용한 경우 Azure Preview 포털)로 브라우저를 리디렉션합니다.
-
-	Dropbox 앱이 개발자 모드에 있으므로 브라우저가 리디렉션 URL로 이동하기 전에 Dropbox에서 로그인 페이지가 표시될 수도 있습니다. Dropbox 자격 증명을 사용하여 로그인하면 게이트웨이에 로그인하는 데 사용한 사용자 ID가 Dropbox 앱에 연결되며, 이후에는 해당 사용자 ID에 이 Dropbox 로그인 단계가 더 이상 필요하지 않습니다.
+	이 URL에 대한 응답은 브라우저를 Dropbox 사이트로 리디렉션합니다. 이 사이트에서 사용자는 로그인을 하고 앱에서 사용자의 계정에 액세스할 수 있도록 동의합니다.
+	
+	로그인 및 동의 프로세스가 완료되면 Dropbox는 사용자가 지정한 리디렉션 URL(예: 예제를 따르고 https://portal.azure.com)을 사용한 경우 Azure Preview 포털)로 브라우저를 리디렉션합니다. 웹앱에서 호출한다면 이 페이지는 웹앱에 표시되는 다음 페이지가 될 것입니다. 로그인 또는 동의 프로세스에서 오류가 발생하는 경우 리디렉션 URL에 `error` querystring 변수가 포함될 수 있으므로 앱은 URL을 확인합니다.
 
 3. 다음 섹션에서 사용할 것이므로 이 브라우저 창을 열어 둡니다.
 
@@ -271,10 +227,13 @@ Dropbox 작업을 위해 HTTP 요청을 수행할 때는 zumo 토큰만 사용�
 
 ## 다음 단계
 
-SaaS 커넥터를 설치, 구성 및 테스트하는 방법을 살펴봤습니다. 자세한 내용은 [커넥터 사용](../app-service-logic/app-service-logic-use-biztalk-connectors.md)을 참조하세요.
+SaaS 커넥터를 설치, 구성 및 테스트하는 방법을 살펴봤습니다. 자세한 내용은 다음 리소스를 참조하세요.
+
+* [커넥터 사용](../app-service-logic/app-service-logic-connectors-list.md)
+* [API 앱 및 모바일 앱 인증](../app-service/app-service-authentication-overview.md)  
 
 [Azure Preview 포털]: https://portal.azure.com/
 [Azure 포털]: https://manage.windowsazure.com/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

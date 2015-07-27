@@ -76,9 +76,9 @@ Azure ACS는 온-프레미스 또는 클라우드에서 실행되는 응용 프�
 - Eclipse IDE for Java EE Developers, Indigo 이상. <http://www.eclipse.org/downloads/>에서 다운로드할 수 있습니다. 
 - Java 기반 웹 서버 또는 응용 프로그램 서버의 배포(예: Apache Tomcat, GlassFish, JBoss Application Server 또는 Jetty)
 - Azure 구독. <http://www.microsoft.com/windowsazure/offers/>에서 구입할 수 있습니다.
-- Eclipse용 Azure 플러그 인(Java 포함)(Microsoft Open Technologies 제공), 2014년 4월 릴리스. 자세한 내용은 [Eclipse용 Azure 플러그 인(Java 포함)(Microsoft Open Technologies 제공) 설치](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh690946.aspx)(영문)를 참조하세요.
+- Eclipse용 Azure 플러그 인(Java 포함)(Microsoft Open Technologies 제공), 2014년 4월 릴리스. 자세한 내용은 [Eclipse용 Azure 플러그 인(Java 포함)(Microsoft Open Technologies 제공) 설치](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx)(영문)를 참조하세요.
 - 응용 프로그램에 사용할 X.509 인증서. 이 인증서는 공용 인증서(.cer)와 개인 정보 교환(.PFX) 형식 둘 다로 필요합니다(이 인증서를 만들기 위한 옵션은 이 자습서의 뒷부분에 설명되어 있음).
-- Azure 계산 에뮬레이터 및 배포 기술의 기본적인 지식은 [Eclipse에서 Azure용 Hello World 응용 프로그램 만들기](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh690944.aspx)(영문)에 설명되어 있습니다.
+- Azure 계산 에뮬레이터 및 배포 기술의 기본적인 지식은 [Eclipse에서 Azure용 Hello World 응용 프로그램 만들기](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)(영문)에 설명되어 있습니다.
 
 ## ACS 네임스페이스 만들기
 
@@ -203,7 +203,7 @@ ACS 관리 포털의 응용 프로그램 통합 페이지에서 ACS를 사용하
 
 1. Eclipse의 Project Explorer에서 **MyACSHelloWorld**를 마우스 오른쪽 단추로 클릭하고 **Azure**를 클릭한 후 **Package for Azure**를 클릭합니다.
 2. **Project name**에 **MyAzureACSProject**를 입력하고 **Next**를 클릭합니다.
-3. JDK 및 응용 프로그램 서버를 선택합니다. (이러한 단계는 [Eclipse에서 Azure용 Hello World 응용 프로그램 만들기](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh690944.aspx)(영문) 자습서에 자세히 설명되어 있습니다.)
+3. JDK 및 응용 프로그램 서버를 선택합니다. (이러한 단계는 [Eclipse에서 Azure용 Hello World 응용 프로그램 만들기](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)(영문) 자습서에 자세히 설명되어 있습니다.)
 4. **Finish**를 클릭합니다.
 5. **Run in Azure Emulator** 단추를 클릭합니다.
 6. Java 웹 응용 프로그램이 계산 에뮬레이터에서 시작되고 나면 현재 브라우저 세션이 ACS 로그인 테스트를 방해하지 않도록 모든 브라우저 인스턴스를 닫습니다.
@@ -237,11 +237,11 @@ Azure에 배포하려면 ACS 네임스페이스의 신뢰 당사자 영역 및 �
 
 13. **Finish**를 클릭하여 **Edit Library** 대화 상자를 닫습니다.
 14. **OK**를 클릭하여 **Properties for MyACSHelloWorld** 대화 상자를 닫습니다.
-15. Eclipse에서 **Publish to Azure Cloud** 단추를 클릭합니다. **Eclipse에서 Azure용 Hello World 응용 프로그램 만들기**(영문) 항목의 [To deploy your application to Azure](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh690944.aspx) 섹션에서 수행한 것과 유사하게 프롬프트에 응답합니다. 
+15. Eclipse에서 **Publish to Azure Cloud** 단추를 클릭합니다. **Eclipse에서 Azure용 Hello World 응용 프로그램 만들기**(영문) 항목의 [To deploy your application to Azure](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx) 섹션에서 수행한 것과 유사하게 프롬프트에 응답합니다. 
 
 웹 응용 프로그램이 배포된 후 열려 있는 모든 브라우저 세션을 닫고 웹 응용 프로그램을 실행하고 나면 Windows Live ID 자격 증명을 사용하여 로그인하라는 메시지가 표시되어야 하며, 그런 다음 신뢰 당사자 응용 프로그램의 반환 URL로 이동되어야 합니다.
 
-ACS Hello World 응용 프로그램 사용을 완료했으면 배포를 삭제해야 합니다([Eclipse에서 Azure용 Hello World 응용 프로그램 만들기](http://msdn.microsoft.com/ko-kr/library/windowsazure/hh690944.aspx)(영문) 항목에서 배포 삭제 방법을 알아볼 수 있음).
+ACS Hello World 응용 프로그램 사용을 완료했으면 배포를 삭제해야 합니다([Eclipse에서 Azure용 Hello World 응용 프로그램 만들기](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)(영문) 항목에서 배포 삭제 방법을 알아볼 수 있음).
 
 
 ## <a name="next_steps"></a>다음 단계
@@ -307,4 +307,4 @@ ACS에 의해 응용 프로그램으로 반환되는 SAML(Security Assertion Mar
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

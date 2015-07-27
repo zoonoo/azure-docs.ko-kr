@@ -2,7 +2,7 @@
 	pageTitle="DocumentDB 및 HDInsight를 사용하여 Hadoop 작업 실행 | Azure" 
 	description="단순 Hive, Pig 및 MapReduce 작업을 DocumentDB 및 Azure HDInsight에서 실행하는 방법을 알아봅니다."
 	services="documentdb" 
-	authors="andrewhoh" 
+	authors="AndrewHoh" 
 	manager="jhubbard" 
 	editor="mimig"
 	documentationCenter=""/>
@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="06/11/2015" 
 	ms.author="anhoh"/>
 
 #<a name="DocumentDB-HDInsight"></a>DocumentDB 및 HDInsight를 사용해서 Hadoop 실행
 
-이 자습서에서는 DocumentDB의 Hadoop 커넥터를 사용해서 Azure HDInsight에서 [Apache Hive][apache-hive], [Apache Pig][apache-pig] 및 [Apache Hadoop][apache-hadoop] MapReduce 작업을 실행하는 방법을 설명합니다. DocumentDB의 Hadoop 커넥터를 사용하면 DocumentDB가 Hive, Pig 및 MapReduce 작업에 대한 소스 및 싱크로 모두 작동할 수 있습니다. 이 자습서에서는 DocumentDB가 Hadoop 작업에 대한 데이터 소스 및 대상으로 모두 사용됩니다. 
+이 자습서에서는 DocumentDB의 Hadoop 커넥터를 사용해서 Azure HDInsight에서 [Apache Hive][apache-hive], [Apache Pig][apache-pig] 및 [Apache Hadoop][apache-hadoop] MapReduce 작업을 실행하는 방법을 설명합니다. DocumentDB의 Hadoop 커넥터를 사용하면 DocumentDB가 Hive, Pig 및 MapReduce 작업에 대한 소스 및 싱크로 모두 작동할 수 있습니다. 이 자습서에서는 DocumentDB가 Hadoop 작업에 대한 데이터 소스 및 대상으로 모두 사용됩니다.
 
 이 자습서를 완료하고 나면 다음을 알게 됩니다.
 
@@ -32,146 +32,153 @@
 
 그런 다음 이 자습서로 돌아와서 DocumentDB 데이터에 대해 분석 작업을 실행하는 방법을 자세히 살펴보세요.
 
-> [AZURE.TIP] 이 자습서에서는 사용자가 이전에 Apache Hadoop, Hive 및/또는 Pig를 사용한 경험이 있다고 가정합니다. Apache Hadoop, Hive 및 Pig를 처음 사용하는 경우 [Apache Hadoop 설명서][apache-hadoop-doc]를 참조하는 것이 좋습니다. 또한 이 자습서에서는 이전에 DocumentDB를 사용해본 경험이 있으며 DocumentDB 계정이 있다고 가정합니다. DocumentDB를 처음 사용하거나 DocumentDB 계정이 없는 경우 [시작하기][getting-started] 페이지를 참조하세요.
+> [AZURE.TIP]이 자습서에서는 사용자가 이전에 Apache Hadoop, Hive 및/또는 Pig를 사용한 경험이 있다고 가정합니다. Apache Hadoop, Hive 및 Pig를 처음 사용하는 경우 [Apache Hadoop 설명서][apache-hadoop-doc]를 참조하는 것이 좋습니다. 또한 이 자습서에서는 이전에 DocumentDB를 사용해본 경험이 있으며 DocumentDB 계정이 있다고 가정합니다. DocumentDB를 처음 사용하거나 DocumentDB 계정이 없는 경우 [시작하기][getting-started] 페이지를 참조하십시오.
 
-자습서를 완료할 시간이 없고 Hive, Pig 및 MapReduce에 대한 전체 샘플 PowerShell 스크립트를 가져오려는 경우 [여기][documentdb-hdinsight-samples]서 가져오세요. 이 다운로드에는 또한 해당 샘플에 대한 hql, pig 및 java 파일이 포함되어 있습니다.
+자습서를 완료할 시간이 없고 Hive, Pig 및 MapReduce에 대한 전체 샘플 PowerShell 스크립트를 가져오려는 경우 문제 없이 [여기서][documentdb-hdinsight-samples] 가져오십시오. 이 다운로드에는 또한 해당 샘플에 대한 hql, pig 및 java 파일이 포함되어 있습니다.
+
+## <a name="NewestVersion"></a>최신 버전
+
+<table border='1'>
+	<tr><th>Hadoop 커넥터 버전</th>
+		<td>1.0.0</td></tr>
+	<tr><th>스크립트 Uri</th>
+		<td>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v03.ps1</td></tr>
+	<tr><th>수정한 날짜</th>
+		<td>2015/06/11</td></tr>
+	<tr><th>지원되는 HDInsight 버전</th>
+		<td>3.1, 3.2</td></tr>
+	<tr><th>변경 로그</th>
+		<td><a href="https://www.microsoft.com/download/details.aspx?id=40886">Microsoft Hive ODBC 드라이버</a>로 고정된 커넥터의 호환성</br>
+			출력 컬렉션 제품 유형을 변경하기 위해 추가된 기능(기본적으로 S3 제공)</br>
+			사소한 버그 수정</br>
+		</td></tr>
+</table>
 
 ## <a name="Prerequisites"></a>필수 조건
 이 자습서의 지침을 따르기 전에 다음이 있는지 확인하세요.
 
-- DocumentDB 계정, 데이터베이스 및 내부 문서가 포함된 컬렉션. 자세한 내용은 [DocumentDB 시작][getting-started]을 참조하세요.
-- 처리량. HDInsight에서의 읽기 및 쓰기는 해당 CU(용량 단위)에 할당된 요청 단위로 계산됩니다. 자세한 내용은 [프로비전된 처리량, 요청 단위 및 데이터베이스 작업][documentdb-manage-throughput]을 참조하세요.
-- 각 출력 컬렉션 내의 추가 저장 프로시저 용량. 저장 프로시저는 결과 문서를 전송하는 데 사용됩니다. 자세한 내용은 [컬렉션 및 프로비전된 처리량][documentdb-manage-document-storage]을 참조하세요.
-- Hive, Pig 또는 MapReduce 작업의 결과 문서 용량. 자세한 내용은 [DocumentDB 용량 및 성능 관리][documentdb-manage-collections]를 참조하세요.
-- [*선택 사항*] 추가 컬렉션의 용량. 자세한 내용은 [프로비전된 문서 저장소 및 인덱스 오버헤드][documentdb-manage-document-storage]를 참조하세요.
+- DocumentDB 계정, 데이터베이스 및 내부 문서가 포함된 컬렉션. 자세한 내용은 [DocumentDB 시작][getting-started]을 참조하십시오. [DocumentDB 가져오기 도구][documentdb-import-data]를 사용하여 DocumentDB 계정으로 샘플 데이터를 가져옵니다.
+- 처리량. HDInsight에서의 읽기 및 쓰기는 해당 콜렉션에 할당된 요청 단위로 계산됩니다. 자세한 내용은 [프로비전된 처리량, 요청 단위 및 데이터베이스 작업][documentdb-manage-throughput]을 참조하십시오.
+- 각 출력 컬렉션 내의 추가 저장 프로시저 용량. 저장 프로시저는 결과 문서를 전송하는 데 사용됩니다. 자세한 내용은 [컬렉션 및 프로비전된 처리량][documentdb-manage-document-storage]을 참조하십시오.
+- Hive, Pig 또는 MapReduce 작업의 결과 문서 용량. 자세한 내용은 [DocumentDB 용량 및 성능 관리][documentdb-manage-collections]를 참조하십시오.
+- [*선택 사항*] 추가 컬렉션의 용량입니다. 자세한 내용은 [프로비전된 문서 저장소 및 인덱스 오버헤드][documentdb-manage-document-storage]를 참조하십시오.
 	
-> [AZURE.WARNING] 작업 중 새 컬렉션이 생성되지 않도록 하려면 결과를 stdout으로 출력하거나, 출력을 WASB 컨테이너로 출력하거나, 기존 컬렉션을 지정할 수 있습니다. 기존 컬렉션을 지정하는 경우에는 새 문서가 컬렉션 내에 생성되고 기존 문서는 *ids* 충돌이 있는 경우에만 영향을 받습니다. **커넥터는 id가 충돌되는 기존 문서를 자동으로 덮어씁니다**. 이 기능은 upsert 옵션을 false로 설정해서 해제할 수 있습니다. upsert가 false이고 충돌이 발생하면 Hadoop 작업이 실패하고 id 충돌 오류가 보고됩니다.
+> [AZURE.WARNING]작업 중 새 컬렉션이 생성되지 않도록 하려면 결과를 stdout으로 출력하거나, 출력을 WASB 컨테이너로 출력하거나, 기존 컬렉션을 지정할 수 있습니다. 기존 컬렉션을 지정하는 경우에는 새 문서가 컬렉션 내에 생성되고 기존 문서는 *id*에 충돌이 있는 경우에만 영향을 받습니다. **커넥터는 id가 충돌하는 기존 문서를 자동으로 덮어씁니다.** 이 기능은 upsert 옵션을 false로 설정해서 해제할 수 있습니다. upsert가 false이고 충돌이 발생하면 Hadoop 작업이 실패하고 id 충돌 오류가 보고됩니다.
 
 ## <a name="CreateStorage"></a>1단계: Azure 저장소 계정 만들기
 
-> [AZURE.IMPORTANT] Azure 저장소 계정이 **이미** 있고, 이 계정 내에서 새로운 Blob 컨테이너를 만들려는 경우에는 [2단계: 사용자 지정된 HDInsight 클러스터 만들기](#ProvisionHDInsight)로 건너뛸 수 있습니다.
+> [AZURE.IMPORTANT]Azure 저장소 계정이 **이미** 있고, 이 계정 내에서 새로운 Blob 컨테이너를 만들려는 경우에는 [2단계: 사용자 지정된 HDInsight 클러스터 만들기](#ProvisionHDInsight)로 건너뛸 수 있습니다
 
-Azure HDInsight에서는 데이터 저장을 위해 Azure Blob 저장소가 사용됩니다. 이름은 *WASB* 또는 *Azure Storage - Blob*입니다. WASB는 Azure Blob 저장소에 구현한 Microsoft의 HDFS입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요.
+Azure HDInsight에서는 데이터 저장을 위해 Azure Blob 저장소가 사용됩니다. 이를 *WASB* 또는 *Azure 저장소 - Blob*이라고 합니다. WASB는 Azure Blob 저장소에 구현한 Microsoft의 HDFS입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요.
 
 HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정합니다. HDFS의 경우처럼 해당 계정의 특정 Blob 저장소 컨테이너는 기본 파일 시스템으로 지정됩니다. HDInsight 클러스터는 기본적으로 사용자가 지정한 저장소 계정과 동일한 데이터 센터에 프로비전됩니다.
 
 **Azure 저장소 계정을 만들려면**
 
-1. [Azure 관리 포털][azure-management-portal]에 로그인합니다.
+1. [Azure 관리 포털][azure-classic-portal]에 로그인합니다.
 	
-	> [AZURE.NOTE] Azure HDInsight는 현재 Azure 관리 포털에서 지원되며, Azure DocumentDB는 Azure Preview 포털에만 존재합니다.
+	> [AZURE.NOTE]Azure HDInsight는 현재 Azure 관리 포털에서 지원되며, Azure DocumentDB는 Microsoft Azure 포털에만 존재합니다.
 
-2. 왼쪽 아래에서 **새로 만들기**를 클릭하고 **데이터 서비스**, **저장소**를 차례로 가리킨 후 **빠른 생성**을 클릭합니다.
-	![Azure portal where you can use Quick Create to set up a new storage account.][image-storageaccount-quickcreate]
+2. 왼쪽 아래에서 **새로 만들기**를 클릭하고 **데이터 서비스**, **저장소**를 차례로 가리킨 후 **빠른 생성**을 클릭합니다.![빠른 생성을 사용하여 새 저장소 계정을 설정할 수 있는 Azure 포털.][image-storageaccount-quickcreate]
 
-3. **URL**을 입력하고, **위치** 및 **복제** 값을 선택한 후 **저장소 계정 만들기**를 클릭합니다. 선호도 그룹은 지원되지 않습니다. 
+3. **URL**을 입력하고, **위치** 및 **복제** 값을 선택한 후 **저장소 계정 만들기**를 클릭합니다. 선호도 그룹은 지원되지 않습니다.
 	
 	저장소 목록에 새 저장소 계정이 표시됩니다.
 
-	> [AZURE.IMPORTANT] 최상의 성능을 위해서는 저장소 계정, HDInsight 클러스터 및 DocumentDB 계정이 동일한 Azure 지역에 있는지 확인합니다. 세 가지 모든 서비스를 지원하는 Azure 지역은 다음과 같습니다.  **동아시아**, **동남아시아**, **북유럽**, **서유럽**, **미국 동부** 및 **미국 서부**.
+	> [AZURE.IMPORTANT]최상의 성능을 위해서는 저장소 계정, HDInsight 클러스터 및 DocumentDB 계정이 동일한 Azure 지역에 있는지 확인합니다. 세 가지 모든 서비스를 지원하는 Azure 영역은 다음과 같습니다. **동아시아**, **동남 아시아**, **북유럽**, **서유럽**, **미국 동부** 및 **미국 서부**.
 
 4. 새 저장소 계정의 **상태**가 **온라인**으로 변경될 때까지 기다립니다.
 
-## <a name="ProvisionHDInsight"></a>2단계: 사용자 지정된 HDInsight 클러스터 만들기
-이 자습서에서는 Azure 관리 포털의 스크립트 작업을 사용해서 HDInsight 클러스터를 사용자 정의합니다. 이 자습서에서는 Azure 관리 포털을 사용해서 사용자 지정된 클러스터를 만듭니다. PowerShell cmdlet 또는 HDInsight .NET SDK 사용에 대한 자세한 내용은 [스크립트 작업을 사용해서 HDInsight 클러스터 사용자 지정][hdinsight-custom-provision] 문서를 참조하세요.
+## <a name="ProvisionHDInsight"></a>2단계: 사용자 지정된 HDInsight 클러스터 만들기로 건너뛸 수 있습니다.
+이 자습서에서는 Azure 관리 포털의 스크립트 작업을 사용해서 HDInsight 클러스터를 사용자 정의합니다. 이 자습서에서는 Azure 관리 포털을 사용해서 사용자 지정된 클러스터를 만듭니다. PowerShell cmdlet 또는 HDInsight .NET SDK 사용에 대한 자세한 내용은 [스크립트 작업을 사용해서 HDInsight 클러스터 사용자 지정][hdinsight-custom-provision] 문서를 참조하십시오.
 
-1. [Azure 관리 포털][azure-management-portal]에 로그인합니다. 이전 단계에서 이미 로그인이 수행되었을 수 있습니다.
+1. [Azure 관리 포털][azure-classic-portal]에 로그인합니다. 이전 단계에서 이미 로그인이 수행되었을 수 있습니다.
 
-2. 페이지 아래에서 **+ 새로 만들기**를 클릭한 후 **데이터 서비스**, **HDINSIGHT**, **사용자 지정 만들기**를 차례로 클릭합니다.
+2. 페이지 아래에서 **+ 새로 만들기**를 클릭한 후 **데이터 서비스**, **HDInsight**, **사용자 지정 만들기**를 차례로 클릭합니다.
 
 3. **클러스터 세부 정보** 페이지에서 다음 값을 입력하거나 선택합니다.
 
-	![Provide Hadoop HDInsight initial cluster details][image-customprovision-page1]
+	![Hadoop HDInsight 초기 클러스터 세부 정보 제공][image-customprovision-page1]
 
 	<table border='1'>
-		<tr><th>속성</th><th>값</th></tr>
-		<tr><td>클러스터 이름</td><td>클러스터의 이름<br/>
-			DNS 이름은 영숫자 문자로 시작 및 끝나야 하고 대시를 포함할 수 있습니다.<br/>
-			이 필드는 3~63자 사이의 문자열이어야 합니다.</td></tr>
-		<tr><td>구독 이름</td>
-			<td>Azure 구독이 두 개 이상이면 <strong>1단계</strong>의 저장소 계정에 해당하는 구독을 선택합니다. </td></tr>
-		<tr><td>클러스터 유형</td>
-			<td>클러스터 유형으로 <strong>Hadoop</strong>을 선택합니다.</td></tr>
-		<tr><td>운영 체제</td>
-			<td>운영 체제는 <strong>Windows Server 2012 R2 Datacenter</strong>를 선택합니다.</td></tr>
-		<tr><td>HDInsight 버전</td>
-			<td>버전 선택. </br><Strong>HDInsight 버전 3.1</strong>을 선택합니다.</td></tr>
-		</table>
-
-	<p>테이블에 표시되는 대로 값을 입력하거나 선택하고 오른쪽 화살표를 클릭합니다.</p>
+	<tr><th>속성</th><th>값</th></tr>
+	<tr><td>클러스터 이름</td><td>클러스터의 이름<br/>
+		DNS 이름은 영숫자 문자로 시작 및 끝나야 하고 대시를 포함할 수 있습니다.<br/>
+		이 필드는 3~63자 사이의 문자열이어야 합니다.</td></tr>
+	<tr><td>구독 이름</td>
+		<td>Azure 구독이 두 개 이상이면 <strong>1단계</strong>의 저장소 계정에 해당하는 구독을 선택합니다. </td></tr>
+	<tr><td>클러스터 유형</td>
+		<td>클러스터 유형으로 <strong>Hadoop</strong>을 선택합니다.</td></tr>
+	<tr><td>운영 체제</td>
+		<td>운영 체제는 <strong>Windows Server 2012 R2 Datacenter</strong>를 선택합니다.</td></tr>
+	<tr><td>HDInsight 버전</td>
+		<td>버전 선택. </br><Strong>HDInsight 버전 3.1</Strong>을 선택합니다.</td></tr>
+	</table><p>테이블에 표시되는 대로 값을 입력하거나 선택하고 오른쪽 화살표를 클릭합니다.</p>
 
 4. **클러스터 구성** 페이지에서 다음 값을 입력하거나 선택합니다.
 
 	<table border="1">
-	<tr><th>이름</th><th>값</th></tr>
-	<tr><td>데이터 노드</td><td>배포하려는 데이터 노드 수입니다. </br>HDInsight의 데이터 노드가 성능 및 가격 책정과 모두 연관되었는지 확인합니다.</td></tr>
-	<tr><td>지역/가상 네트워크</td><td>새로 만든 <strong>저장소 계정</strong> 및 사용자의 <strong>DocumentDB 계정</strong>과 동일한 지역을 선택합니다. </br> HDInsight를 사용하려면 저장소 계정이 동일한 지역에 있어야 합니다. 구성의 뒷부분에서 여기서 지정한 지역과 동일한 지역에 있는 저장소 계정만 선택할 수 있습니다.</td></tr>
-	</table>
-	
-    오른쪽 화살표를 클릭합니다.
+<tr><th>이름</th><th>값</th></tr>
+<tr><td>데이터 노드</td><td>배포하려는 데이터 노드 수입니다. </br>HDInsight의 데이터 노드가 성능 및 가격 책정과 모두 연관되었는지 확인합니다.</td></tr>
+<tr><td>지역/가상 네트워크</td><td>새로 만든 <strong>저장소 계정</strong> 및 사용자의 <strong>DocumentDB 계정</strong>과 동일한 지역을 선택합니다. </br> HDInsight를 사용하려면 저장소 계정이 동일한 지역에 있어야 합니다. 구성의 뒷부분에서 여기서 지정한 지역과 동일한 지역에 있는 저장소 계정만 선택할 수 있습니다.</td></tr>
+</table>오른쪽 화살표를 클릭합니다.
 
 5. **클러스터 사용자 구성** 페이지에서 다음 값을 제공합니다.
 
     <table border='1'>
-		<tr><th>속성</th><th>값</th></tr>
-		<tr><td>사용자 이름</td>
-			<td>HDInsight 클러스터 사용자 이름 지정</td></tr>
-		<tr><td>암호/암호 확인</td>
-			<td>HDInsight 클러스터 사용자 암호 지정</td></tr>
-	</table>
-	
-    오른쪽 화살표를 클릭합니다.
+	<tr><th>속성</th><th>값</th></tr>
+	<tr><td>사용자 이름</td>
+		<td>HDInsight 클러스터 사용자 이름 지정</td></tr>
+	<tr><td>암호/암호 확인</td>
+		<td>HDInsight 클러스터 사용자 암호 지정</td></tr>
+</table>오른쪽 화살표를 클릭합니다.
     
 6. **저장소 계정** 페이지에서 다음 값을 제공합니다.
 
-	![Provide storage account for Hadoop HDInsight cluster][image-customprovision-page4]
+	![Hadoop HDInsight 클러스터에 대한 저장소 계정 제공][image-customprovision-page4]
 
 	<table border='1'>
-		<tr><th>속성</th><th>값</th></tr>
-		<tr><td>저장소 계정</td>
-			<td>HDInsight 클러스터의 기본 파일 시스템으로 사용할 Azure 저장소 계정을 지정합니다. 세 가지 옵션 중 하나를 선택할 수 있습니다. 기존 저장소 사용, 새 저장소 만들기 또는 다른 구독의 저장소 사용</br></br>
-			<strong>기존 저장소 사용</strong>을 선택합니다.
-			</td>
-			</td></tr>
-		<tr><td>계정 이름</td>
-			<td>
-			<strong>계정 이름</strong>에는 <strong>1단계</strong>에서 만든 계정을 선택합니다. 드롭다운에는 클러스터 프로비전을 위해 선택한 동일한 데이터 센터에 있는 동일 Azure 구독의 저장소 계정만 나열됩니다.
-			</td></tr>
-		<tr><td>기본 컨테이너</td>
-			<td>HDInsight 클러스터의 기본 파일 시스템으로 사용할 저장소 계정의 기본 컨테이너를 지정합니다. <strong>저장소 계정</strong> 필드에 대해 <strong>기존 저장소 사용</strong>을 선택한 경우, 해당 계정에 기존 컨테이너가 없으면 기본적으로 클러스터 이름과 동일한 이름으로 컨테이너가 생성됩니다. 클러스터의 이름을 가진 컨테이너가 이미 있는 경우에는 컨테이너 이름에 시퀀스 번호가 추가됩니다.
-        </td></tr>
-		<tr><td>추가 저장소 계정</td>
-			<td>HDInsight는 여러 저장소 계정을 지원합니다. 클러스터에서 사용할 수 있는 추가 저장소 계정에는 한도가 없습니다. 하지만 관리 포털을 사용해서 클러스터를 만들면 UI 제약 조건으로 인해 7개로 제한됩니다. 지정하는 각 추가 저장소 계정은 마법사에 계정 정보를 지정할 수 있는 저장소 계정 페이지를 더합니다.</td></tr>
-	</table>
-
-	오른쪽 화살표를 클릭합니다.
+	<tr><th>속성</th><th>값</th></tr>
+	<tr><td>저장소 계정</td>
+		<td>HDInsight 클러스터의 기본 파일 시스템으로 사용할 Azure 저장소 계정을 지정합니다. 세 옵션 중 하나를 선택할 수 있습니다: 기존 저장소 사용, 새 저장소 만들기 또는 다른 구독의 저장소 사용</br></br>
+		<strong>기존 저장소 사용</strong>을 선택합니다.
+		</td>
+		</td></tr>
+	<tr><td>계정 이름</td>
+		<td>
+		<strong>계정 이름</strong>에는 <strong>1단계</strong>에서 만든 계정을 선택합니다. 드롭다운에는 클러스터 프로비전을 위해 선택한 동일한 데이터 센터에 있는 동일 Azure 구독의 저장소 계정만 나열됩니다.
+		</td></tr>
+	<tr><td>기본 컨테이너</td>
+		<td>HDInsight 클러스터의 기본 파일 시스템으로 사용할 저장소 계정의 기본 컨테이너를 지정합니다. <strong>저장소 계정</strong> 필드에 대해 <strong>기존 저장소 사용</strong>을 선택한 경우, 해당 계정에 기존 컨테이너가 없으면 기본적으로 클러스터 이름과 동일한 이름으로 컨테이너가 생성됩니다. 클러스터의 이름을 가진 컨테이너가 이미 있는 경우에는 컨테이너 이름에 시퀀스 번호가 추가됩니다.
+    </td></tr>
+	<tr><td>추가 저장소 계정</td>
+		<td>HDInsight는 여러 저장소 계정을 지원합니다. 클러스터에서 사용할 수 있는 추가 저장소 계정에는 한도가 없습니다. 하지만 Azure 포털을 사용하여 클러스터를 만드는 경우에는 UI 제약으로 인해 7개로 제한됩니다. 지정하는 각 추가 저장소 계정은 마법사에 계정 정보를 지정할 수 있는 저장소 계정 페이지를 더합니다.</td></tr>
+</table>오른쪽 화살표를 클릭합니다.
 
 7. **스크립트 작업** 페이지에서 **스크립트 작업 추가**를 클릭해서 클러스터를 만들 때 클러스터 사용자 지정을 위해 실행할 PowerShell 스크립트에 대한 세부 정보를 제공합니다. PowerShell 스크립트는 클러스터 생성 중 DocumentDB Hadoop 커넥터를 HDInsight 클러스터에 설치합니다.
 	
-	![Configure Script Action to customize an HDInsight cluster][image-customprovision-page5]
+	![스크립트 작업을 구성하여 HDInsight 클러스터 사용자 지정][image-customprovision-page5]
 
 	<table border='1'>
-		<tr><th>속성</th><th>값</th></tr>
-		<tr><td>이름</td>
-			<td>스크립트 작업의 이름을 지정합니다.</td></tr>
-		<tr><td>스크립트 URI</td>
-			<td>클러스터를 사용자 지정하기 위해 호출되는 스크립트에 URI를 지정합니다.</br></br>
-			다음을 입력합니다. </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v02.ps1</strong>.</td></tr>
-		<tr><td>노드 유형</td>
-			<td>사용자 지정 스크립트가 실행되는 노드를 지정합니다. <b>모든 노드</b>, <b>Head nodes only</b> 또는 <b>Worker nodes only</b>를 선택할 수 있습니다.</br></br>
-			<strong>모든 노드</strong>를 선택합니다.</td></tr>
-		<tr><td>매개 변수</td>
-			<td>스크립트에 필요한 경우 매개 변수를 지정합니다.</br></br>
-			<strong>필요한 매개 변수 없음</strong>.</td></tr>
-	</table>
+	<tr><th>속성</th><th>값</th></tr>
+	<tr><td>이름</td>
+		<td>스크립트 작업의 이름을 지정합니다.</td></tr>
+	<tr><td>스크립트 URI</td>
+		<td>클러스터를 사용자 지정하기 위해 호출되는 스크립트에 URI를 지정합니다.</br></br>
+		다음을 입력합니다. </br> <strong>https://portalcontent.blob.core.windows.net/scriptaction/documentdb-hadoop-installer-v03.ps1</strong>.</td></tr>
+	<tr><td>노드 유형</td>
+		<td>사용자 지정 스크립트가 실행되는 노드를 지정합니다. <b>모든 노드</b>, <b>헤드 노드만</b> 또는 <b>작업자 노드만</b>을 선택할 수 있습니다.</br></br>
+		<strong>모든 노드</strong>를 선택합니다.</td></tr>
+	<tr><td>매개 변수</td>
+		<td>스크립트에 필요한 경우 매개 변수를 지정합니다.</br></br>
+		<strong>필요한 매개 변수가 없습니다.</strong></td></tr>
+</table>클러스터 생성을 완료하려면 선택 표시를 클릭합니다.
 
-	클러스터 생성을 완료하려면 선택 표시를 클릭합니다.
+## <a name="InstallCmdlets"></a>3단계: Azure PowerShell을 설치하고 구성합니다.
 
-## <a name="InstallCmdlets"></a>3단계: Azure PowerShell 설치 및 구성
+1. Azure PowerShell을 설치합니다. 자세한 내용은 [여기서][powershell-install-configure] 확인할 수 있습니다.
 
-1. Azure PowerShell을 설치합니다. 자세한 내용은 [여기][powershell-install-configure]서 확인할 수 있습니다.
-
-	> [AZURE.NOTE] 또는 Hive 쿼리만 해당하는 경우 HDInsight의 온라인 Hive 편집기를 사용할 수 있습니다. 이렇게 하려면 [Azure 관리 포털][azure-management-portal]에 로그인하고 왼쪽 창에서 **HDInsight**를 클릭하여 HDInsight 클러스터 목록을 확인합니다. Hive 쿼리를 실행하려는 클러스터를 클릭한 후 **쿼리 콘솔**을 클릭합니다.
+	> [AZURE.NOTE]또는 Hive 쿼리만 해당하는 경우 HDInsight의 온라인 Hive 편집기를 사용할 수 있습니다. 이렇게 하려면 [Azure 관리 포털][azure-classic-portal]에 로그인하고 왼쪽 창에서 **HDInsight**를 클릭하여 HDInsight 클러스터 목록을 확인합니다. Hive 쿼리를 실행하려는 클러스터를 클릭한 후 **쿼리 콘솔**을 클릭합니다.
 
 2. Azure PowerShell 통합 스크립팅 환경을 엽니다.
 	- Windows 8 또는 Windows Server 2012 이상을 실행하는 컴퓨터에서는 기본 제공되는 검색 기능을 사용할 수 있습니다. 시작 화면에서 **powershell ise**를 입력하고 **입력**을 클릭합니다. 
@@ -183,13 +190,13 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
 	3. Azure 구독의 암호를 입력합니다. 
 	4. **로그인**을 클릭합니다.
 
-4. 다음 다이어그램은 Azure PowerShell 스크립팅 환경에서 중요한 부분을 보여 줍니다. 
+4. 다음 다이어그램은 Azure PowerShell 스크립팅 환경에서 중요한 부분을 보여 줍니다.
 
-	![Diagram for Azure PowerShell][azure-powershell-diagram]
+	![Azure PowerShell에 대한 다이어그램][azure-powershell-diagram]
 
 ## <a name="RunHive"></a>4단계: DocumentDB 및 HDInsight를 사용해서 Hive 작업 실행
 
-> [AZURE.IMPORTANT] < >로 표시된 모든 변수는 구성 설정을 사용해서 입력해야 합니다.
+> [AZURE.IMPORTANT]< >로 표시된 모든 변수는 구성 설정을 사용해서 입력해야 합니다.
 
 1. PowerShell 스크립트 창에서 다음 변수를 설정합니다.
 
@@ -202,16 +209,12 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
 		$clusterName = "<HDInsightClusterName>"
 
 2. 
-	<p>쿼리 문자열 생성부터 시작합니다. 여기에서는 모든 문서 시스템에서 생성된 타임스탬프(_ts) 및 고유 ID(_rid)를 DocumentDB 컬렉션에서 가져오고, 모든 문서에 해당 시간을 기록한 후 결과를 다시 새로운 DocumentDB 컬렉션에 저장하는 Hive 쿼리를 작성합니다. </p>
+	<p>쿼리 문자열 생성부터 시작합니다. 여기에서는 모든 문서 시스템에서 생성된 타임스탬프(_ts) 및 고유 ID(_rid)를 DocumentDB 컬렉션에서 가져오고, 모든 문서에 해당 시간을 기록한 후 결과를 다시 새로운 DocumentDB 컬렉션에 저장하는 Hive 쿼리를 작성합니다. </p><p>먼저 DocumentDB 컬렉션에서 Hive 테이블을 만듭니다. PowerShell 스크립트 창에서 다음 코드 조각을 #1의 코드 조각 <strong>다음에</strong> 추가합니다. 문서를 _ts 및 _rid로만 정리하려면 선택적인 DocumentDB.query 매개 변수를 포함합니다. </p>> [AZURE.NOTE]**DocumentDB.inputCollections 이름 지정은 실수가 아니었습니다.** 입력으로 여러 컬렉션을 추가할 수 있도록 허용합니다. </br> '*DocumentDB.inputCollections*' = '*<DocumentDB Input Collection Name 1>*,*<DocumentDB Input Collection Name 2>*' </br> 컬렉션 이름은 공백 없이 단일 쉼표만 사용해서 구분되었습니다.
 
-    <p>먼저 DocumentDB 컬렉션에서 Hive 테이블을 만듭니다. PowerShell 스크립트 창에서 다음 코드 조각을 #1의 코드 조각 <strong>다음</strong>에 추가합니다. 문서를 _ts 및 _rid로만 정리하려면 선택적인 DocumentDB.query 매개 변수를 포함합니다. </p>
-
-    > [AZURE.NOTE] **이름을 DocumentDB.inputCollections로 지정한 것은 실수가 아닙니다.** 입력으로 여러 컬렉션을 추가할 수 있도록 허용합니다. </br>
-    '*DocumentDB.inputCollections*' = '*<DocumentDB Input Collection Name 1>*,*<DocumentDB Input Collection Name 2>*' </br> 컬렉션 이름은 공백 없이 단일 쉼표만 사용해서 구분되었습니다.
 
 		# Create a Hive table using data from DocumentDB. Pass DocumentDB the query to filter transferred data to _rid and _ts.
 		$queryStringPart1 = "drop table DocumentDB_timestamps; "  + 
-                            "create external table DocumentDB_timestamps(id string, ts INT) "  +
+                            "create external table DocumentDB_timestamps(id string, ts BIGINT) "  +
                             "stored by 'com.microsoft.azure.documentdb.hive.DocumentDBStorageHandler' "  +
                             "tblproperties ( " + 
                                 "'DocumentDB.endpoint' = '<DocumentDB Endpoint>', " +
@@ -222,9 +225,7 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
  
 3.  그런 다음 출력 컬렉션에 대한 HIve 테이블을 만듭니다. 출력 문서 속성은 월, 일, 시간, 분 및 총 발생 횟수가 됩니다.
 
-	> [AZURE.NOTE] **마찬가지로, 이름을 DocumentDB.outputCollections로 지정한 것은 실수가 아닙니다.** 출력으로 여러 컬렉션을 추가할 수 있도록 허용합니다. </br>
-    '*DocumentDB.outputCollections*' = '*<DocumentDB Output Collection Name 1>*,*<DocumentDB Output Collection Name 2>*' </br> 컬렉션 이름은 공백 없이 단일 쉼표만 사용해서 구분되었습니다. </br></br>
-    문서는 여러 컬렉션 간에 라운드 로빈 방식으로 분산됩니다. 문서 일괄 처리는 하나의 컬렉션에 저장되며, 문서의 두 번째 일괄 처리는 그 다음 컬렉션에 저장됩니다.
+	> [AZURE.NOTE]**하지만 다시 DocumentDB.outputCollections 이름 지정은 실수가 아니었습니다.** 입력으로 여러 컬렉션을 추가할 수 있도록 허용합니다. </br> '*DocumentDB.outputCollections*' = '*<DocumentDB Output Collection Name 1>*,*<DocumentDB Output Collection Name 2>*' </br> 컬렉션 이름은 공백 없이 단일 쉼표만 사용해서 구분되었습니다. </br></br>문서는 여러 컬렉션 간에 라운드 로빈 방식으로 분산됩니다. 문서 일괄 처리는 하나의 컬렉션에 저장되며, 문서의 두 번째 일괄 처리는 그 다음 컬렉션에 저장됩니다.
 
 		# Create a Hive table for the output data to DocumentDB.
 	    $queryStringPart2 = "drop table DocumentDB_analytics; " +
@@ -276,20 +277,20 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
 
 9. 새 스크립트를 **실행**합니다. 녹색 실행 단추를 **클릭**합니다.
 
-10. 결과를 확인합니다. [Azure Preview 포털][azure-preview-portal]에 로그인합니다. 
-	1. 왼쪽 패널에서 <strong>찾아보기</strong>를 클릭합니다. </br>
-	2. 찾아보기 패널의 오른쪽 상단에서 <strong>모두</strong>를 클릭합니다. </br>
-	3. <strong>DocumentDB 계정</strong>을 찾아서 클릭합니다. </br>
+10. 결과를 확인합니다. [Azure Preview 포털][azure-portal]에 로그인합니다.
+	1. 왼쪽 패널에서 <strong>찾아보기</strong>를 클릭합니다.</br>
+	2. 찾아보기 패널의 오른쪽 상단에서 <strong>모두</strong>를 클릭합니다.</br>
+	3. <strong>DocumentDB 계정</strong>을 찾아서 클릭합니다.</br>
 	4. 그런 후 <strong>DocumentDB 계정</strong>을 찾고, Hive 쿼리에 지정된 출력 컬렉션과 연관된 <strong>DocumentDB 데이터베이스</strong> 및 <strong>DocumentDB 컬렉션</strong>을 찾습니다.</br>
 	5. 끝으로, <strong>개발자 도구</strong> 아래에서 <strong>문서 탐색기</strong>를 클릭합니다.</br></p>
 
 	Hive 쿼리 결과가 표시됩니다.
 
-	![Hive query results][image-hive-query-results]
+	![Hive 쿼리 결과][image-hive-query-results]
 
 ## <a name="RunPig"></a>5단계: DocumentDB 및 HDInsight를 사용해서 Pig 작업 실행
 
-> [AZURE.IMPORTANT] < >로 표시된 모든 변수는 구성 설정을 사용해서 입력해야 합니다.
+> [AZURE.IMPORTANT]< >로 표시된 모든 변수는 구성 설정을 사용해서 입력해야 합니다.
 
 1. PowerShell 스크립트 창에서 다음 변수를 설정합니다.
 
@@ -300,10 +301,7 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
         $clusterName = "Azure HDInsight Cluster Name"
 
 2. <p>쿼리 문자열 생성부터 시작합니다. 여기에서는 모든 문서 시스템에서 생성된 타임스탬프(_ts) 및 고유 ID(_rid)를 DocumentDB 컬렉션에서 가져오고, 모든 문서에 해당 시간을 기록한 후 결과를 다시 새로운 DocumentDB 컬렉션에 저장하는 Pig 쿼리를 작성합니다.</p>
-    <p>먼저 DocumentDB의 문서를 HDInsight에 로드합니다. PowerShell 스크립트 창에서 다음 코드 조각을 #1의 코드 조각 <strong>다음</strong>에 추가합니다. 문서를 just _ts 및 _rid로만 정리하려면 DocumentDB 쿼리를 선택적인 DocumentDB 쿼리 매개 변수에 추가해야 합니다.</p>
-
-    > [AZURE.NOTE] 입력으로 여러 컬렉션을 추가할 수 있도록 허용합니다. </br>
-    '*<DocumentDB Input Collection Name 1>*,*<DocumentDB Input Collection Name 2>*'</br> 컬렉션 이름은 공백 없이 단일 쉼표만 사용해서 구분되었습니다. </b>
+    <p>먼저 DocumentDB의 문서를 HDInsight에 로드합니다. PowerShell 스크립트 창에서 다음 코드 조각을 #1의 코드 조각 <strong>다음에</strong> 추가합니다. 문서를 just _ts 및 _rid로만 정리하려면 DocumentDB 쿼리를 선택적인 DocumentDB 쿼리 매개 변수에 추가해야 합니다.</p>> [AZURE.NOTE]입력으로 여러 컬렉션을 추가할 수 있도록 허용합니다. </br> '*<DocumentDB Input Collection Name 1>*,*<DocumentDB Input Collection Name 2>*' </br> 컬렉션 이름은 공백 없이 단일 쉼표만 사용해서 구분되었습니다.</b>
 
 	문서는 여러 컬렉션 간에 라운드 로빈 방식으로 분산됩니다. 문서 일괄 처리는 하나의 컬렉션에 저장되며, 문서의 두 번째 일괄 처리는 그 다음 컬렉션에 저장됩니다.
 
@@ -323,9 +321,7 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
 
 4. 끝으로, 결과를 새 출력 컬렉션에 저장합니다.
 
-    > [AZURE.NOTE] 출력으로 여러 컬렉션을 추가할 수 있도록 허용합니다. </br>
-    '<DocumentDB Output Collection Name 1>,<DocumentDB Output Collection Name 2>'</br> 컬렉션 이름은 공백 없이 단일 쉼표만 사용해서 구분되었습니다.</br>
-    문서는 여러 컬렉션 간에 라운드 로빈으로 분산됩니다. 문서 일괄 처리는 하나의 컬렉션에 저장되며, 문서의 두 번째 일괄 처리는 그 다음 컬렉션에 저장됩니다.
+    > [AZURE.NOTE]입력으로 여러 컬렉션을 추가할 수 있도록 허용합니다. </br> '*<DocumentDB Output Collection Name 1>*,*<DocumentDB Output Collection Name 2>*'</br> 컬렉션 이름은 공백 없이 단일 쉼표만 사용해서 구분되었습니다.</br> 문서는 여러 컬렉션 간에 라운드 로빈으로 분산됩니다. 문서 일괄 처리는 하나의 컬렉션에 저장되며, 문서의 두 번째 일괄 처리는 그 다음 컬렉션에 저장됩니다.
 
 		# Store output data to DocumentDB.
         $queryStringPart3 = "STORE by_minute_count INTO '<DocumentDB Endpoint>' " +
@@ -363,16 +359,16 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
 		
 9. 새 스크립트를 **실행**합니다. 녹색 실행 단추를 **클릭**합니다.
 
-10. 결과를 확인합니다. [Azure Preview 포털][azure-preview-portal]에 로그인합니다. 
-	1. 왼쪽 패널에서 <strong>찾아보기</strong>를 클릭합니다. </br>
-	2. 찾아보기 패널의 오른쪽 상단에서 <strong>모두</strong>를 클릭합니다. </br>
-	3. <strong>DocumentDB 계정</strong>을 찾아서 클릭합니다. </br>
+10. 결과를 확인합니다. [Azure Preview 포털][azure-portal]에 로그인합니다.
+	1. 왼쪽 패널에서 <strong>찾아보기</strong>를 클릭합니다.</br>
+	2. 찾아보기 패널의 오른쪽 상단에서 <strong>모두</strong>를 클릭합니다.</br>
+	3. <strong>DocumentDB 계정</strong>을 찾아서 클릭합니다.</br>
 	4. 그런 후 <strong>DocumentDB 계정</strong>을 찾고, Pig 쿼리에 지정된 출력 컬렉션과 연관된 <strong>DocumentDB 데이터베이스</strong> 및 <strong>DocumentDB 컬렉션</strong>을 찾습니다.</br>
 	5. 끝으로, <strong>개발자 도구</strong> 아래에서 <strong>문서 탐색기</strong>를 클릭합니다.</br></p>
 
 	Pig 쿼리 결과가 표시됩니다.
 
-	![Pig query results][image-pig-query-results]
+	![Pig 쿼리 결과][image-pig-query-results]
 
 ## <a name="RunMapReduce"></a>6단계: DocumentDB 및 HDInsight를 사용해서 MapReduce 작업 실행
 
@@ -381,12 +377,12 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
 		$subscriptionName = "<SubscriptionName>"   # Azure subscription name
 		$clusterName = "<ClusterName>"             # HDInsight cluster name
 		
-2. 여기에서는 DocumentDB 컬렉션에서 각 문서 속성의 발생 횟수를 기록하는 MapReduce 작업을 실행합니다. 이 스크립트 코드 조각을 위 코드 조각 **다음**에 추가합니다.
+2. 여기에서는 DocumentDB 컬렉션에서 각 문서 속성의 발생 횟수를 기록하는 MapReduce 작업을 실행합니다. 이 스크립트 코드 조각을 위 코드 조각 **다음에** 추가합니다.
 
 		# Define the MapReduce job.
 		$TallyPropertiesJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/TallyProperties-v01.jar" -ClassName "TallyProperties" -Arguments "<DocumentDB Endpoint>","<DocumentDB Primary Key>", "<DocumentDB Database Name>","<DocumentDB Input Collection Name>","<DocumentDB Output Collection Name>","<[Optional] DocumentDB Query>"
 
-	> [AZURE.NOTE] TallyProperties-v01.jar은 DocumentDB Hadoop 커넥터의 사용자 지정 설치로 제공됩니다.
+	> [AZURE.NOTE]TallyProperties-v01.jar은 DocumentDB Hadoop 커넥터의 사용자 지정 설치로 제공됩니다.
 
 3. 다음 명령을 실행하여 MapReduce 작업을 제출합니다.
 
@@ -397,7 +393,7 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
 
 	MapReduce 작업 정의뿐 아니라 MapReduce 작업을 실행하려는 HDInsight 클러스터 이름 및 자격 증명도 제공합니다. Start-AzureHDInsightJob은 비동기 호출입니다. 작업 완료를 확인하려면 *Wait-AzureHDInsightJob* cmdlet을 사용합니다.
 
-4. 다음 명령을 추가하여 MapReduce 작업 실행과 관련한 오류를 확인합니다.	
+4. 다음 명령을 추가하여 MapReduce 작업 실행과 관련한 오류를 확인합니다.
 	
 		# Get the job output and print the start and end time.
 		$endTime = Get-Date
@@ -406,7 +402,7 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
 
 5. 새 스크립트를 **실행**합니다. 녹색 실행 단추를 **클릭**합니다.
 
-6. 결과를 확인합니다. [Azure Preview 포털][azure-preview-portal]에 로그인합니다. 
+6. 결과를 확인합니다. [Azure Preview 포털][azure-portal]에 로그인합니다.
 	1. 왼쪽 패널에서 <strong>찾아보기</strong>를 클릭합니다.
 	2. 찾아보기 패널의 오른쪽 상단에서 <strong>모두</strong>를 클릭합니다.
 	3. <strong>DocumentDB 계정</strong>을 찾아서 클릭합니다.
@@ -415,11 +411,11 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
 
 	MapReduce 작업 결과가 표시됩니다.
 
-	![MapReduce query results][image-mapreduce-query-results]
+	![MapReduce 쿼리 결과][image-mapreduce-query-results]
 
 ## <a name="NextSteps"></a>다음 단계
 
-축하합니다. 지금까지 Azure DocumentDB 및 HDInsight를 사용해서 처음으로 Hive, Pig 및 MapReduce 작업을 실행했습니다. 
+축하합니다. 지금까지 Azure DocumentDB 및 HDInsight를 사용해서 처음으로 Hive, Pig 및 MapReduce 작업을 실행했습니다.
 
 Hadoop 커넥터는 소스가 공개되어 있습니다. 관심이 있으면 [GitHub][documentdb-github]에서 기여할 수 있습니다.
 
@@ -428,7 +424,7 @@ Hadoop 커넥터는 소스가 공개되어 있습니다. 관심이 있으면 [Gi
 - [Documentdb로 Java 응용 프로그램 개발][documentdb-java-application]
 - [HDInsight의 Hadoop용 Java MapReduce 프로그램 개발][hdinsight-develop-deploy-java-mapreduce]
 - [휴대폰 사용을 분석하기 위해 HDInsight에서 Hive와 함께 Hadoop 사용 시작][hdinsight-get-started]
-- [HDInsight와 MapReduce 사용][hdinsight-use-mapreduce]
+- [HDInsight와 함께 MapReduce 사용][hdinsight-use-mapreduce]
 - [HDInsight에서 Hive 사용][hdinsight-use-hive]
 - [HDInsight에서 Pig 사용][hdinsight-use-pig]
 - [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-hadoop-customize-cluster]
@@ -439,9 +435,9 @@ Hadoop 커넥터는 소스가 공개되어 있습니다. 관심이 있으면 [Gi
 [apache-pig]: http://pig.apache.org/
 [getting-started]: documentdb-get-started.md
 
-[azure-management-portal]: https://manage.windowsazure.com/
+[azure-classic-portal]: https://manage.windowsazure.com/
 [azure-powershell-diagram]: ./media/documentdb-run-hadoop-with-hdinsight/azurepowershell-diagram-med.png
-[azure-preview-portal]: https://portal.azure.com/
+[azure-portal]: https://portal.azure.com/
 
 [documentdb-hdinsight-samples]: http://portalcontent.blob.core.windows.net/samples/documentdb-hdinsight-samples.zip
 [documentdb-github]: https://github.com/Azure/azure-documentdb-hadoop
@@ -449,11 +445,12 @@ Hadoop 커넥터는 소스가 공개되어 있습니다. 관심이 있으면 [Gi
 [documentdb-manage-collections]: documentdb-manage.md#Collections
 [documentdb-manage-document-storage]: documentdb-manage.md#IndexOverhead
 [documentdb-manage-throughput]: documentdb-manage.md#ProvThroughput
+[documentdb-import-data]: documentdb-import-data.md
 
 [hdinsight-custom-provision]: ../hdinsight/hdinsight-provision-clusters.md#powershell
 [hdinsight-develop-deploy-java-mapreduce]: ../hdinsight/hdinsight-develop-deploy-java-mapreduce.md
 [hdinsight-hadoop-customize-cluster]: ../hdinsight/hdinsight-hadoop-customize-cluster.md
-[hdinsight-get-started]: ../hdinsight-get-started.md 
+[hdinsight-get-started]: ../hdinsight-get-started.md
 [hdinsight-storage]: ../hdinsight-use-blob-storage.md
 [hdinsight-use-hive]: ../hdinsight/hdinsight-use-hive.md
 [hdinsight-use-mapreduce]: ../hdinsight/hdinsight-use-mapreduce.md
@@ -468,5 +465,6 @@ Hadoop 커넥터는 소스가 공개되어 있습니다. 관심이 있으면 [Gi
 [image-pig-query-results]: ./media/documentdb-run-hadoop-with-hdinsight/pigqueryresults.PNG
 
 [powershell-install-configure]: ../install-configure-powershell.md
+ 
 
-<!--HONumber=49--> 
+<!---HONumber=July15_HO3-->

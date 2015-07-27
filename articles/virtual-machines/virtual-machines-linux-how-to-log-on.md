@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Azure에서 Linux를 실행하는 가상 컴퓨터에 로그온" 
-	description="SSH(Secure Shell) 클라이언트를 사용하여 Linux를 실행하는 Azure 가상 컴퓨터에 로그온하는 방법에 대해 알아봅니다." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
+<properties
+	pageTitle="Azure에서 Linux를 실행하는 가상 컴퓨터에 로그온"
+	description="SSH(Secure Shell) 클라이언트를 사용하여 Linux를 실행하는 Azure 가상 컴퓨터에 로그온하는 방법에 대해 알아봅니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/16/2015" 
-	ms.author="kathydav"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/16/2015"
+	ms.author="rasquill"/>
 
 
 
@@ -47,11 +47,10 @@ Linux 운영 체제를 실행하는 가상 컴퓨터의 경우 SSH(보안 셸) �
 	![가상 컴퓨터에 로그온](./media/virtual-machines-linux-how-to-log-on/sshlogin.png)
 
 >[AZURE.NOTE]VMAccess 확장은 SSH 키 또는 암호를 잊어버린 경우 이를 재설정하는 데 도움이 될 수 있습니다. 사용자 이름을 잊어버린 경우 이 확장을 사용하여 sudo 인증 기관을 통해 새로 만들 수 있습니다. 지침은 [Linux 가상 컴퓨터에 대한 암호 또는 SSH를 재설정하는 방법]을 참조하세요.
-	
+
 이제 다른 서버처럼 가상 컴퓨터에서 작업할 수 있습니다.
 
 <!-- LINKS -->
 [Linux 가상 컴퓨터에 대한 암호 또는 SSH를 재설정하는 방법]: http://go.microsoft.com/fwlink/p/?LinkId=512138
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

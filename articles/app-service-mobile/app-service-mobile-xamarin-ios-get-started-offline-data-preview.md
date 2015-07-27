@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="xamarin-ios"
     ms.devlang="dotnet"
     ms.topic="article"
-    ms.date="03/26/2015"
+	ms.date="07/01/2015"
     ms.author="donnam"/>
 
 # Xamarin iOS 모바일 앱에 대해 오프라인 동기화 사용
@@ -166,4 +166,4 @@
 [Xamarin 확장]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

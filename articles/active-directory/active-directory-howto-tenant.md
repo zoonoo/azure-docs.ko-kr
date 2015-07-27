@@ -12,8 +12,8 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.topic="hero-article"
+	ms.date="07/02/2015"
 	ms.author="dastrock"/>
 
 # Azure Active Directory 테넌트를 얻는 방법
@@ -64,6 +64,5 @@ Azure AD 사용자가 응용 프로그램에 로그인하도록 허용하려면 
 위의 모든 항목을 이해할 수 없어도 걱정하지 마세요. 새 조직으로 Azure에 등록하려면 [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization)을 방문하기만 하면 됩니다. 프로세스를 완료하면 등록할 때 선택한 도메인 이름을 가진 자신만의 Azure AD 테넌트가 생깁니다. [Azure 관리 포털](https://manage.windowsazure.com)의 왼쪽 탐색 모음에서 "Active Directory"로 이동하여 테넌트를 찾을 수 있습니다.
 
 Azure 등록 과정의 일부로 신용 카드 정보를 제공해야 합니다. 믿고 진행할 수 있습니다. Azure AD에서의 응용 프로그램 게시 및 새 테넌트 만들기에 대한 비용은 청구되지 않습니다.
- 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

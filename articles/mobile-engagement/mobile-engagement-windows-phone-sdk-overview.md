@@ -4,7 +4,7 @@
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
 	authors="piyushjo" 
-	manager="dwrede" 
+	manager="dwrede"
 	editor="" />
 
 <tags 
@@ -32,7 +32,7 @@
 
 ##릴리스 정보
 
-###3.0.0(2015/04/03)
+###3\.0.0(2015/04/03)
 
 -   기본 알림 아이콘이 업데이트되었습니다.
 -   알림을 클릭할 때 백 시스템 알림 작업 피드백을 보냅니다.
@@ -46,7 +46,7 @@
 
 여러 SDK 버전을 건너뛴 경우에는 여러 절차를 수행해야 할 수 있습니다. 전체 [업그레이드 절차](mobile-engagement-windows-phone-upgrade-procedure/)를 참조하세요. 예를 들어 0.10.1에서 0.11.0으로 마이그레이션하는 경우에는 먼저 "0.9.0에서 0.10.1로 마이그레이션" 절차를 수행한 후에 "0.10.1에서 0.11.0으로 마이그레이션" 절차를 수행해야 합니다.
 
-###2.0.0에서 3.0.0으로 마이그레이션
+###2\.0.0에서 3.0.0으로 마이그레이션
 
 없음
 
@@ -55,4 +55,4 @@
 [업그레이드 절차](mobile-engagement-windows-phone-upgrade-procedure/)를 참조하세요.
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

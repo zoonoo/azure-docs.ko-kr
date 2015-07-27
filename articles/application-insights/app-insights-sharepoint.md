@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="07/13/2015" 
 	ms.author="awills"/>
 
 # Application Insights를 사용하여 SharePoint 사이트 모니터링
@@ -41,7 +41,7 @@ Visual Studio Application Insights는 응용 프로그램의 가용성, 성능 �
 
 ![](./media/app-insights-sharepoint/02-monitor-web-page.png)
 
-추적하려는 모든 페이지의 &lt;/head&gt; 태그 바로 앞에 스크립트를 삽입합니다. 웹 사이트에 마스터 페이지가 있는 경우 이 페이지에 스크립트를 넣을 수 있습니다. 예를 들어 ASP.NET MVC 프로젝트에서는 View\Shared_Layout.cshtml에 추가합니다.
+추적하려는 모든 페이지의 &lt;/head&gt; 태그 바로 앞에 스크립트를 삽입합니다. 웹 사이트에 마스터 페이지가 있는 경우 이 페이지에 스크립트를 넣을 수 있습니다. 예를 들어 ASP.NET MVC 프로젝트에서는 View\\Shared_Layout.cshtml에 추가합니다.
 
 스크립트에는 Application Insights 리소스에 원격 분석을 전달하는 계측 키가 포함됩니다.
 
@@ -73,6 +73,8 @@ Visual Studio Application Insights는 응용 프로그램의 가용성, 성능 �
 
 ## 앱에 대한 데이터 보기
 
+응용 프로그램을 다시 배포 합니다.
+
 [Azure 포털](http://portal.azure.com)에서 사용자 응용 프로그램 블레이드로 돌아갑니다.
 
 첫 번째 이벤트가 진단 검색에 표시됩니다.
@@ -81,11 +83,11 @@ Visual Studio Application Insights는 응용 프로그램의 가용성, 성능 �
 
 더 많은 데이터를 기대하는 경우 몇 초 후에 새로고침을 클릭합니다.
 
-**사용 분석**에서는 사용자, 세션 및 페이지 보기에 대한 빠른 스냅숏을 제공합니다.
+**사용 현황 분석**은 사용자, 세션 및 페이지 보기의 차트를 연결합니다.
 
 ![](./media/app-insights-sharepoint/06-usage.png)
 
-페이지 보기를 클릭하면서 자세한 정보를 확인합니다.
+예를 들어, 페이지 보기를 클릭하여 자세한 내용을 봅니다.
 
 ![](./media/app-insights-sharepoint/07-pages.png)
 
@@ -106,4 +108,4 @@ Visual Studio Application Insights는 응용 프로그램의 가용성, 성능 �
 
 <!--Link references-->
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

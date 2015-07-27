@@ -63,4 +63,4 @@ BLOB 서비스는 플랫 저장소 스키마를 기반으로 합니다. 가상 �
 
 [Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

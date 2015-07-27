@@ -4,7 +4,6 @@
 	services="mobile-services, notification-hubs" 
 	documentationCenter="android" 
 	authors="RickSaling" 
-	writer="ricksal" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -213,4 +212,4 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

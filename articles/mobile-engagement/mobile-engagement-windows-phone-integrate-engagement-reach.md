@@ -12,8 +12,8 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.topic="article"
+	ms.date="07/07/2015" 
 	ms.author="piyushjo" />
 
 #Windows Phone 도달률 Engagement SDK 통합
@@ -113,15 +113,15 @@ EngagementReach 개체는 옵트인(opt in) 및 옵트아웃(opt out)을 관리�
 
 또한 Engagement 구성<windows-phone-sdk-reach-configuration>을 통해 MPNS를 비활성화할 수도 있습니다.
 
-> 2.9.1) 응용 프로그램은 먼저 제공할 알림을 설명하고 **사용자의 명시적 권한, 즉 옵트인(opt in)을 받아야 합니다**. 또한 **사용자가 푸시 알림 수신을 옵트아웃(opt out)할 수 있는 메커니즘도 제공해야 합니다**. Microsoft 푸시 알림 서비스를 사용하여 제공하는 모든 알림은 사용자에게 제공되는 설명과 일치해야 하며 해당하는 모든 [응용 프로그램 정책][Content Policies], [특정 응용 프로그램 유형에 대한 추가 요구 사항]을 따라야 합니다.
+> 2\.9.1) 응용 프로그램은 먼저 제공할 알림을 설명하고 **사용자의 명시적 권한, 즉 옵트인(opt in)을 받아야 합니다**. 또한 **사용자가 푸시 알림 수신을 옵트아웃(opt out)할 수 있는 메커니즘도 제공해야 합니다**. Microsoft 푸시 알림 서비스를 사용하여 제공하는 모든 알림은 사용자에게 제공되는 설명과 일치해야 하며 해당하는 모든 [응용 프로그램 정책][Content Policies], [특정 응용 프로그램 유형에 대한 추가 요구 사항]을 따라야 합니다.
 
 2) 푸시 알림을 너무 많이 사용해서는 안 됩니다. Engagement는 사용자에 대한 알림을 처리합니다.
 
-> 2.9.2) 응용 프로그램은, 그리고 해당 응용 프로그램이 Microsoft 푸시 알림 서비스를 사용할 때는 Microsoft 푸시 알림 서비스의 네트워크 용량이나 대역폭을 과도하게 사용해서는 안 되며, Microsoft의 합리적인 결정에 따라 과다한 푸시 알림으로 Windows Phone 또는 기타 Microsoft 장치나 서비스에 지나친 부담을 주어서는 안 됩니다. 또한 Microsoft 네트워크 또는 서버나 Microsoft 푸시 알림 서비스에 연결된 타사 서버 또는 네트워크를 손상시키거나 작동을 방해해서도 안 됩니다.
+> 2\.9.2) 응용 프로그램은, 그리고 해당 응용 프로그램이 Microsoft 푸시 알림 서비스를 사용할 때는 Microsoft 푸시 알림 서비스의 네트워크 용량이나 대역폭을 과도하게 사용해서는 안 되며, Microsoft의 합리적인 결정에 따라 과다한 푸시 알림으로 Windows Phone 또는 기타 Microsoft 장치나 서비스에 지나친 부담을 주어서는 안 됩니다. 또한 Microsoft 네트워크 또는 서버나 Microsoft 푸시 알림 서비스에 연결된 타사 서버 또는 네트워크를 손상시키거나 작동을 방해해서도 안 됩니다.
 
 3) MPNS를 사용하여 중요한 정보를 보내지 마세요. Engagement에서는 MPNS를 사용하므로 이 규칙은 Engagement 프런트 엔드 내에서 만든 캠페인에도 적용됩니다.
 
-> 2.9.3) Microsoft 푸시 알림 서비스를 사용하여 중요 업무용 알림 또는 생사에 영향을 줄 수 있는 알림을 보내서는 안 됩니다. 여기에는 의료 장치나 상태와 관련된 중요 알림을 비롯한 다수의 알림이 포함됩니다. Microsoft는 Microsoft 푸시 알림 서비스 또는 Microsoft 푸시 알림 서비스 알림 배달 기능을 중단/오류 없이 사용할 수 있거나 해당 기능이 실시간으로 제공된다는 어떤 보증도 거부합니다.
+> 2\.9.3) Microsoft 푸시 알림 서비스를 사용하여 중요 업무용 알림 또는 생사에 영향을 줄 수 있는 알림을 보내서는 안 됩니다. 여기에는 의료 장치나 상태와 관련된 중요 알림을 비롯한 다수의 알림이 포함됩니다. Microsoft는 Microsoft 푸시 알림 서비스 또는 Microsoft 푸시 알림 서비스 알림 배달 기능을 중단/오류 없이 사용할 수 있거나 해당 기능이 실시간으로 제공된다는 어떤 보증도 거부합니다.
 
 **이러한 권장 사항을 지키지 않는 경우에는 응용 프로그램이 유효성 검사 프로세스를 통과한다고 보장할 수 없습니다.**
 
@@ -266,4 +266,4 @@ UI를 사용자 지정하려면 `EngagementReachHandler` 클래스의 서브클�
 [특정 응용 프로그램 유형에 대한 추가 요구 사항]: http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

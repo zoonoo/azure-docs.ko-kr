@@ -148,4 +148,4 @@ Edifact 커넥터는 트리거 또는 작업으로 사용할 수 있습니다.
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

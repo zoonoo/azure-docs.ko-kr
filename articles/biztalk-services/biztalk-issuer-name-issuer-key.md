@@ -86,4 +86,4 @@ Visual Studio에서 BizTalk 어댑터 서비스로 LOB 릴레이 만들기 | 서
 - [BizTalk 서비스: 제한](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

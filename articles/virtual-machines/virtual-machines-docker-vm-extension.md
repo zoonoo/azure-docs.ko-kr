@@ -82,4 +82,4 @@ Docker 사용 가능 VM을 즉시 만들려면 다음 항목을 참조하세요.
 [Linux 및 Windows용 가상 컴퓨터 확장]: #Virtual-Machine-Extensions-For-Linux-and-Windows
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

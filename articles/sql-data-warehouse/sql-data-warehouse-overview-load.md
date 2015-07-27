@@ -44,7 +44,7 @@ ADF는 데이터 저장소, 데이터 처리 및 데이터 이동 서비스를 �
 PolyBase는 모두 표준 TRANSACT-SQL을 통해, 그리고 MapReduce를 사용하지 않고 Hadoop 및 Azure 저장소 blob 저장소를 쿼리하는 방법을 제공함으로써 데이터 분석을 간소화하는 Microsoft 기술입니다. PolyBase는 또한 Azure blob 저장소에서 SQL 데이터 웨어하우스로 데이터를 로드할 수도 있습니다. 시작하려면 [PolyBase를 사용하여 로드][] 자습서를 따라하십시오.
 
 ### SQL Server 통합 서비스(SSIS)
-[SSIS][]는 엔터프라이즈 수준의 데이터 통합 및 변환 솔루션을 구축하기 위한 플랫폼입니다. SQL 데이터 웨어하우스에 연결되는 패키지를 작성하려면 표준 [SQL Server 대상 어댑터][]를 사용하십시오.
+[SSIS][]는 엔터프라이즈 수준의 데이터 통합 및 변환 솔루션을 구축하기 위한 플랫폼입니다. SQL 데이터 웨어하우스에 연결되는 패키지를 작성하려면 ADO.Net 연결 관리자를 사용하는 표준 [OLE DB destination adapter][]를 사용합니다.
 
 ### 타사 도구
 SQL 데이터 웨어하우스는 데이터 로드를 위해 선도적인 업계 솔루션을 지원합니다. 자세한 내용은 [솔루션 파트너][] 목록을 참조하세요.
@@ -63,10 +63,10 @@ SQL 데이터 웨어하우스는 데이터 로드를 위해 선도적인 업계 
 <!--MSDN references-->
 [지원되는 원본/싱크]: https://msdn.microsoft.com/library/dn894007.aspx
 [복사 작업]: https://msdn.microsoft.com/library/dn835035.aspx
-[SQL Server 대상 어댑터]: https://msdn.microsoft.com/library/ms141095.aspx
+[SQL Server destination adapter]: https://msdn.microsoft.com/library/ms141237.aspx
 [SSIS]: https://msdn.microsoft.com/library/ms141026.aspx
 
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="07/08/2015" 
 	ms.author="bradyg;tarcher"/>
 
 # Azure 앱 서비스에서 API 앱 디버그
@@ -68,7 +68,7 @@
 
 1. Visual Studio에서 API 앱 프로젝트의 *web.config* 파일을 엽니다. 
  
-2. 브라우저에서 [Azure Preview 포털](http://portal.azure.com)로 이동합니다.
+2. 브라우저에서 [Azure Preview 포털](https://portal.azure.com)로 이동합니다.
 
 3. 사이드바에서 **찾아보기** 단추를 클릭하고 **API 앱**을 선택합니다.
 
@@ -109,11 +109,26 @@
 
 	![중단점 설정](./media/app-service-api-dotnet-debug/ld-breakpoints.png)
 
-11. Visual Studio 디버깅 세션을 시작하려면 &lt;F5>를 클릭하십시오. 브라우저에서 페이지를 로드하는 경우 오류 메시지가 나타나야 합니다. 브라우저의 주소 표시줄에서 URL의 끝에 */swagger*를 추가하고 &lt;Enter>를 누릅니다.
+11. F5 키를 눌러 Visual Studio 디버깅 세션을 시작합니다.
+ 
+13.  API 앱의 액세스 수준이 **공용(익명)**으로 설정된 경우 Swagger UI 페이지를 사용하여 테스트할 수 있습니다.
 
-12. Swagger UI가 로드되면, 브라우저 창에서 연락처 개체에 대한 스키마를 나타내는 **Get** 동사를 클릭한 다음 **사용해보십시오**를 클릭합니다. Visual Studio는 이전에 설정한 중단점에서 프로그램 실행을 중지하고 컨트롤러의 논리를 디버깅할 수 있습니다.
+	* 브라우저에서 페이지를 로드하는 경우 오류 메시지가 나타납니다. 브라우저의 주소 표시줄에서 URL의 끝에 */swagger*를 추가하고 Enter 키를 누릅니다.
 
-	![사용해보기](./media/app-service-api-dotnet-debug/ld-try-it-out.png)
+	* Swagger UI가 로드되면, 브라우저 창에서 연락처 개체에 대한 스키마를 나타내는 **Get** 동사를 클릭한 다음 **사용해보십시오**를 클릭합니다.
+
+		Visual Studio는 이전에 설정한 중단점에서 프로그램 실행을 중지하고 컨트롤러의 논리를 디버깅할 수 있습니다.
+
+		![사용해보기](./media/app-service-api-dotnet-debug/ld-try-it-out.png)
+
+14.	API 앱의 액세스 수준을 **공용(인증)**으로 설정한 경우 다음과 같이 [API 앱 보호](app-service-api-dotnet-add-authentication.md#use-postman-to-send-a-post-request)에 표시된 절차에 따라 인증을 받고 브라우저 도구를 사용해야 합니다.
+
+	* 게이트웨이 로그인 URL로 이동한 다음 자격 증명을 입력하여 로그인합니다.
+	* x-zumo-auth 쿠키에서 Zumo 토큰 값을 가져옵니다.
+	* 사용자의 요청에 x-zumo-auth 헤더를 추가하고 해당 값을 x-zumo-auth 쿠키 값으로 설정합니다.
+	* 요청을 제출합니다.
+
+	**참고:** 로컬로 실행하는 경우 Azure는 인증된 사용자만 해당 메서드를 실행할 수 있도록 API 앱에 대한 액세스를 제어할 수 없습니다. Azure에서 실행될 경우 API 앱에 대한 모든 트래픽이 게이트웨이를 통해 라우팅되고 게이트웨이는 인증되지 않은 요청을 전달하지 않습니다. 로컬로 실행하는 경우에는 리디렉션이 수행되지 않습니다. 즉, 인증되지 않은 요청이 API 앱에 액세스할 수 있습니다. 위에서 설명한 것처럼 인증이 이루어지므로 로그온한 사용자에 대한 정보를 검색하는 코드와 같은 인증 관련 코드를 API 앱에서 성공적으로 실행할 수 있다는 장점이 있습니다. 게이트웨이가 API 앱에서 인증을 사용하는 방법에 대한 자세한 내용은 [API 앱 및 모바일 앱 인증](../app-service/app-service-authentication-overview.md#azure-app-service-gateway)을 참조하세요.
 
 ## 다음 단계
 
@@ -121,7 +136,7 @@ API 앱용 원격 디버깅을 사용하면 Azure 앱 서비스에서 코드가 
 
 앱 서비스 API 앱은 웹 서비스를 호스트하기 위한 추가 기능이 있는 앱 서비스 웹앱이므로 웹앱에 사용하는 것과 동일한 디버깅 및 문제 해결 도구를 API 앱에 사용할 수 있습니다. 자세한 내용은 [Visual Studio를 사용하여 Azure 앱 서비스에서 웹앱 문제 해결](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md)을 참조하세요.
 
-이 시리즈에서 만든 API 앱은 누구든지 공개적으로 호출할 수 있습니다. 인증된 사용자만 호출할 수 있도록 API 앱을 보호하는 방법에 대한 자세한 내용은 [API 앱 보호: Azure Active Directory 또는 소셜 공급자 인증 추가](app-service-api-dotnet-add-authentication.md)를 참조하세요.
+이 시리즈에서 만든 API 앱은 누구든지 공개적으로 호출할 수 있습니다. 인증된 사용자만 호출할 수 있게 API 앱을 보호하는 방법에 대한 자세한 내용은 [Azure 앱 서비스에서 API 앱 및 모바일 앱 인증](../app-service/app-service-authentication-overview.md)을 참조하세요.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -23,7 +23,7 @@ Azure CLI를 사용하면 어떤 플랫폼에서나 Azure 인프라를 효율적
 
 ## Azure CLI 설치
 
-[Azure CLI](../xplat-cli.md#install)를 설치하려면 관련 지침을 따르세요.
+[Azure CLI 설치](../xplat-cli.md#install) 지침을 따르세요.
 
 ## Azure CLI를 사용하여 Azure에 연결
 
@@ -33,7 +33,7 @@ Azure CLI 설치를 개인 Azure 계정이나 회사 또는 학교 Azure 계정�
 
 VM을 만들 때는 먼저 이미지를 선택하거나 업로드하고 `azure vm create` 명령을 실행합니다.
 
-1. 명령줄에서 이미지를 선택하려는 경우 `azure vm image list` 명령을 통해 사용 가능한 VM 이미지를 나열할 수 있습니다. 이미지는 매우 많으므로 `more`를 사용하여 결과 페이지를 이동하거나 `grep`(Linux) 또는 `findstr`(Windows)을 사용하여 결과를 필터링할 수 있습니다. 예를 들어 Linux의 Ubuntu 이미지를 찾는 경우 다음과 같은 명령을 사용합니다.
+1. 명령줄에서 이미지를 선택하려는 경우 `azure vm image list` 명령을 사용하여 사용 가능한 VM 이미지를 나열할 수 있습니다. 이미지가 매우 많으면 `more`를 사용하여 결과 페이지를 이동하거나 `grep`(Linux) 또는 `findstr`(Windows)을 사용하여 결과를 필터링할 수 있습니다. 예를 들어 Linux의 Ubuntu 이미지를 찾는 경우 다음과 같은 명령을 사용합니다.
 
         azure vm image list | grep Ubuntu
 
@@ -45,9 +45,7 @@ VM을 만들 때는 먼저 이미지를 선택하거나 업로드하고 `azure v
 
         azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ko-kr-30GB
 
-2. VM을 만듭니다.
-
-    VM 이미지를 선택한 다음 `vm create` 명령을 사용하여 이미지를 만듭니다. 이 명령에는 많은 옵션이 있으며, help 명령을 사용하면 옵션 목록을 표시할 수 있습니다.
+2. VM 이미지를 선택한 다음 `vm create` 명령을 사용하여 이미지를 만듭니다. 이 명령에는 많은 옵션이 있으며, `help` 명령을 사용하면 목록을 표시할 수 있습니다.
 
         vm create --help
 
@@ -75,6 +73,5 @@ VM에서 작업을 수행해 봅니다.
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

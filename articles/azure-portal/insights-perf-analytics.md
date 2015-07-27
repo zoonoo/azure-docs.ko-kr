@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="응용 프로그램 성능 모니터링" 
+	pageTitle="Azure 웹앱 성능 모니터링" 
 	description="차트 부하 및 응답 시간, 종속성 정보 및 성능에 대한 경고를 설정합니다." 
 	services="azure-portal"
     documentationCenter="na"
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="azure-portal" 
@@ -12,32 +12,32 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.date="07/08/2015" 
 	ms.author="awills"/>
 
-# 응용 프로그램 성능 모니터링
+# Azure 웹앱 성능 모니터링
 
-[Azure 포털](http://portal.azure.com)에서 웹앱 또는 가상 컴퓨터 내 응용 프로그램 종속성에 대한 통계와 세부 정보를 수집하도록 모니터링을 설정할 수 있습니다.
+[Azure 포털](http://portal.azure.com)에서 [Azure 웹앱](../app-service-web/app-service-web-overview.md) 또는 [가상 컴퓨터](../virtual-machines/virtual-machines-about.md) 내 응용 프로그램 종속성에 대한 통계와 세부 정보를 수집하도록 모니터링을 설정할 수 있습니다.
 
 Azure는 *확장*을 활용하여 응용 프로그램 성능 모니터링(또는 *APM*)을 지원합니다. 이 확장은 응용 프로그램에 설치되며 데이터를 수집하고 모니터링 서비스로 다시 보고합니다.
+
+Application Insights 및 New Relic은 사용할 수 있는 두 가지 성능 모니터링 확장 프로그램입니다. New Relic을 사용하려면 런타임에 에이전트를 설치해야 합니다. Application Insights를 사용하려면 SDK로 코드를 다시 빌드해야 합니다. 또한 추가 데이터에 액세스를 제공하는 확장 프로그램을 설치할 수도 있습니다. SDK를 통해 앱의 사용과 성능을 보다 자세하게 모니터링하기 위한 코드를 작성할 수 있습니다.
 
 ## 확장 사용
 
 1. **찾아보기**를 클릭하고 계측할 웹앱이나 가상 컴퓨터를 선택합니다.
 
-2. **모니터링** 아래 **응용 프로그램 모니터링** 타일을 클릭합니다.
+2. Application Insights 또는 New Relic 확장 프로그램을 추가합니다. 웹앱을 계측하는 경우:
 
-3. **Application Insights** 또는 **New Relic**과 같이 사용하고자 하는 확장 공급자를 선택합니다.
-
-![웹앱 APM](./media/insights-perf-analytics/05-extend.png)
+![설정, 확장 프로그램, 추가, Application Insights](./media/insights-perf-analytics/05-extend.png)
 
 또는 가상 컴퓨터를 사용하는 경우:
 
-![가상 컴퓨터](./media/insights-perf-analytics/10-vm1.png)
+![분석 타일을 클릭합니다.](./media/insights-perf-analytics/10-vm1.png)
 
 ### Application Insights의 경우: SDK로 다시 빌드
 
-New Relic은 추가 계측 없이 자동으로 설치할 수 있지만 Application Insights는 한 가지 추가 요구사항이 있습니다.
+Application Insights는 SDK를 앱에 설치하면 작동합니다.
 
 Visual Studio에서 프로젝트에 Application Insights SDK를 추가합니다.
 
@@ -81,4 +81,4 @@ SDK는 API를 제공하므로 [사용자 지정 원격 분석을 작성하여](.
 * 페이지가 다운된 경우 이를 찾을 수 있도록 Application Insights를 사용하여 [웹 페이지의 가용성 및 응답성을 모니터링](../app-insights-monitor-web-app-availability.md)합니다.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

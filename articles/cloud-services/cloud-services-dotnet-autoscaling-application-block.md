@@ -236,7 +236,7 @@ Visual Studio에서 규칙 파일이 출력 폴더에 복사되었는지 확인�
       </reactiveRules>
       <operands>
         <performanceCounter alias="WebRoleA_CPU_Avg_5m"
-          performanceCounterName="\Processor(_Total)\% Processor Time"
+          performanceCounterName="\Processor(_Total)% Processor Time"
           source ="AutoscalingApplicationRole"
           timespan="00:05:00" aggregate="Average"/>
       </operands>
@@ -380,4 +380,4 @@ Visual Studio에서 규칙 파일이 출력 폴더에 복사되었는지 확인�
   [TechNet 및 MSDN 호스팅 비용과 Azure에서 자동 크기 조정으로 인한 환경적 영향 줄이기]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

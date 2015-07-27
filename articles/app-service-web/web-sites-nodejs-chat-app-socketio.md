@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="07/02/2015"
 	ms.author="mwasson"/>
 
 
@@ -33,7 +33,7 @@ Socket.IO는 WebSocket을 사용하여 node.js 서버와 클라이언트 간의 
 1.  Socket.IO 프로젝트의 [ZIP 또는 GZ 보관 릴리스][release]를 다운로드합니다(이 문서에서는 버전 1.3.5 사용).
 
 
-3.  보관 파일을 추출하고 **examples\chat** 디렉터리를 새 위치에 복사합니다. 예를들어, **\node\chat**입니다.
+3.  보관 파일을 추출하고 **examples\\chat** 디렉터리를 새 위치에 복사합니다. 예를들어, **\\node\\chat**입니다.
 
 ## app.js 수정 및 모듈 설치
 
@@ -57,7 +57,7 @@ Socket.IO는 WebSocket을 사용하여 node.js 서버와 클라이언트 간의 
 		  "socket.io": "1.3.5"
 		}
 
-4. 명령줄에서 **\node\chat** 디렉터리로 변경하고 npm을 사용하여 이 응용 프로그램에 필요한 모듈을 설치합니다.
+4. 명령줄에서 **\\node\\chat** 디렉터리로 변경하고 npm을 사용하여 이 응용 프로그램에 필요한 모듈을 설치합니다.
 
         npm install
 
@@ -76,7 +76,7 @@ Socket.IO는 WebSocket을 사용하여 node.js 서버와 클라이언트 간의 
 		azure site deployment user set [username] [password]
 
 
-3. **\node\chat** 디렉터리로 변경하고 다음 명령을 사용하여 새 Azure 웹 앱 및 로컬 Git 리포지토리를 만듭니다. 이 명령은 'azure'라는 Git 원격도 만듭니다.
+3. **\\node\\chat** 디렉터리로 변경하고 다음 명령을 사용하여 새 Azure 웹 앱 및 로컬 Git 리포지토리를 만듭니다. 이 명령은 'azure'라는 Git 원격도 만듭니다.
 
 		azure site create mysitename --git
 
@@ -91,7 +91,7 @@ Socket.IO는 WebSocket을 사용하여 node.js 서버와 클라이언트 간의 
 
 		git push azure master
 
-	서버에서 모듈을 가져올 때 상태 메시지가 표시됩니다. 이 프로세스가 완료되면 응용 프로그램이 Azure 웹 앱에 호스트됩니다.
+	메시지가 표시되면 2단계에서 자격 증명을 입력합니다. 서버에서 모듈을 가져올 때 상태 메시지가 표시됩니다. 이 프로세스가 완료되면 응용 프로그램이 Azure 웹 앱에 호스트됩니다.
 
  	> [AZURE.NOTE]모듈이 설치되는 동안 'The imported project ... was not found' 오류가 발생할 수 있습니다. 이 오류는 무시해도 됩니다.
 
@@ -125,7 +125,7 @@ __어댑터__를 사용하여 여러 응용 프로그램 인스턴스 간에 메
 
 ###Redis 및 socket.io-redis 모듈 추가
 
-1. 명령줄에서 __\node\chat__ 디렉터리로 변경하여 다음 명령을 사용합니다.
+1. 명령줄에서 __\\node\\chat__ 디렉터리로 변경하여 다음 명령을 사용합니다.
 
 		npm install socket.io-redis@0.1.4 redis@0.12.1 --save
 
@@ -151,7 +151,7 @@ __어댑터__를 사용하여 여러 응용 프로그램 인스턴스 간에 메
 
 ###변경 내용 커밋 및 다시 배포
 
-__\node\chat__ 디렉터리의 명령줄에서 다음 명령을 사용하여 변경 내용을 커밋하고 응용 프로그램을 다시 배포합니다.
+__\\node\\chat__ 디렉터리의 명령줄에서 다음 명령을 사용하여 변경 내용을 커밋하고 응용 프로그램을 다시 배포합니다.
 
 	git add .
 	git commit -m "implementing scale out"
@@ -260,7 +260,7 @@ Azure 웹 앱은 여러 SKU에서 사용할 수 있으며, 이러한 SKU에 따�
 		  </system.webServer>
 		</configuration>
 
-	> [AZURE.NOTE]사용자 응용 프로그램에서 **app.js**가 아닌 다른 진입점을 사용하는 경우, 표시되는 **app.js**를 모두 올바른 진입점으로 바꿔야 합니다. 예를 들어 **app.js**를 **server.js**로 바꿉니다.
+	사용자 응용 프로그램에서 **app.js**가 아닌 다른 진입점을 사용하는 경우, 표시되는 **app.js**를 모두 올바른 진입점으로 바꿔야 합니다. 예를 들어 **app.js**를 **server.js**로 바꿉니다.
 
 >[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
@@ -283,4 +283,4 @@ Azure 웹 앱은 여러 SKU에서 사용할 수 있으며, 이러한 SKU에 따�
 [pricing]: /pricing/details/web-sites/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

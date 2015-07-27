@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/16/2015"
+	ms.date="07/09/2015"
 	ms.author="craig.dunn@xamarin.com"/>
 
 # <a name="getting-started"> </a>모바일 서비스 시작
@@ -98,6 +98,8 @@
 ## 다음 단계
 이제 퀵 스타트를 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다.
 
+* [데이터 시작] <br/>모바일 서비스에 새 테이블을 추가한 다음 해당 테이블에 대해 읽고 쓰는 방법을 알아봅니다.
+
 * [오프라인 데이터 동기화 시작] <br/>빠른 시작에서 오프라인 데이터 동기화를 활용하여 응답성과 견고성이 뛰어난 앱을 제작하는 방법을 알아봅니다.
 
 * [인증 시작] <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
@@ -122,15 +124,14 @@
 
 
 <!-- URLs. -->
-[Get started with data]: /develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[오프라인 데이터 동기화 시작]: /develop/mobile/tutorials/mobile-services-xamarin-ios-get-started-offline-data
-[인증 시작]: /develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[푸시 알림 시작]: /develop/mobile/tutorials/get-started-with-push-xamarin-ios
+[데이터 시작]: partner-xamarin-mobile-services-ios-get-started-data.md
+[오프라인 데이터 동기화 시작]: mobile-services-xamarin-ios-get-started-offline-data.md
+[인증 시작]: partner-xamarin-mobile-services-ios-get-started-users.md
+[푸시 알림 시작]: partner-xamarin-mobile-services-ios-get-started-push.md
 
 [Xamarin Studio]: http://xamarin.com/download
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

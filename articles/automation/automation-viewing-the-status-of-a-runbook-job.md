@@ -86,4 +86,4 @@ Runbook 대시보드는 단일 Runbook에 대한 요약을 보여줍니다. 요�
 
 - [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook.md) 
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

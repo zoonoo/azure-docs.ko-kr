@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="07/12/2015" 
 	ms.author="mandia"/>
 
 
@@ -48,12 +48,12 @@ Azure WebJobs | Webjob에 연결합니다.
 [QuickBooks](app-service-logic-connector-quickbooks.md) | 이 커넥터를 사용하여 Intuit QuickBooks에서 고객, 항목, 송장 등과 같은 다양한 엔터티 생성, 업데이트, 읽기, 삭제 및 쿼리 작업을 수행할 수 있습니다.
 [SFTP](app-service-logic-connector-sftp.md)(SSH 파일 전송 프로토콜)| SFTP에 연결하여 파일 업로드, 파일 가져오기, 파일 삭제, 파일 나열 등의 작업을 수행하고 트리거를 사용하여 파일을 검색할 수 있습니다.
 [SMTP](app-service-logic-connector-smtp.md)(단순 메일 전송 프로토콜) | SMTP 서버에 연결하여 첨부 파일과 함께 전자 메일을 보냅니다.
-[Slack](app-service-logic-connector-slack.md) | 
+[Slack](app-service-logic-connector-slack.md) | Slack에 연결하고 Slack 채널에 메시지를 게시합니다.
 [Salesforce](app-service-logic-connector-salesforce.md) | Salesforce 커넥터는 Salesforce 계정에서 계정, 잠재 고객, 기회, 사례 등의 다양한 엔터티를 관리합니다. 또한 다양한 엔터티 생성, 업데이트, 삽입, 쿼리 및 삭제 작업을 수행할 수 있습니다.
 [SugarCRM](app-service-logic-connector-sugarcrm.md) | SugarCRM 온라인에 연결하여 계정, 연락처, 제품 등과 같은 다양한 유형의 모듈 생성, 업데이트, 읽기 및 삭제 작업을 수행할 수 있습니다.
 [Twilio](app-service-logic-connector-twilio.md) | Twilio에 연결하고 메시지 보내기, 메시지 가져오기, 메시지 나열, 사용량 나열, 사용 가능한 무료 전화번호 가져오기, 사용 가능한 모바일 번호 가져오기, 사용 가능한 지역 번호 가져오기, 수신 전화번호 나열, 수신 전화번호 가져오기, 수신 전화번호 추가 등의 작업을 수행할 수 있습니다.
 [Twitter](app-service-logic-connector-twitter.md) | Twitter에 연결하고 사용자 타임라인 가져오기, 트윗 검색, 팔로워 가져오기, 친구 가져오기, 사용자 검색, 홈 타임라인 가져오기, 멘션 타임라인 가져오기, 트윗 게시, 사용자에 트윗 게시, 직접 메시지 보내기 등의 작업을 수행할 수 있습니다. 또한 Twitter 커넥터는 키워드별 트윗 가져오기, 사용자 핸들별 트윗 가져오기 및 해시태그별 트윗 가져오기와 같은 트리거도 사용합니다.
-Wait | 이 커넥터를 사용하여 앱의 실행을 지연할 수 있습니다. 앱을 특정 기간 동안 또는 특정 시간에 발생 될 때까지 연기할 수 있습니다.
+[Wait](app-service-logic-connector-wait.md) | 이 커넥터를 사용하여 앱의 실행을 지연할 수 있습니다. 앱을 특정 기간 동안 또는 특정 시간에 발생 될 때까지 연기할 수 있습니다.
 
 
 ## 프리미엄 커넥터
@@ -61,11 +61,11 @@ Wait | 이 커넥터를 사용하여 앱의 실행을 지연할 수 있습니다
 
 이름 | 설명
 ------------- | -------------
-AS2 커넥터 | AS2 커넥터는 B2B 통신에 AS2 전송 프로토콜을 사용하여 메시지를 주고받을 수 있습니다. 데이터는 디지털 인증서 및 암호화를 사용하여 인터넷을 통해 안전하고 안정적으로 전송됩니다.
-BizTalk EDIFACT | EDIFACT API 앱은 B2B 통신에 EDIFACT 프로토콜을 사용하여 메시지를 받고 보냅니다.
-BizTalk X12 | X12 API 앱은 B2B 통신에 X12 프로토콜을 사용하여 메시지를 받고 보냅니다.
-BizTalk 거래 업체 관리 | 거래 업체 관리 API 앱은 파트너, 규약, 규약에 사용되는 스키마 및 인증서를 사용하여 B2B 관계를 정의 및 유지합니다. 이러한 관계는 AS2, EDIFACT 및 X12 API 앱을 사용하여 적용됩니다.
-BizTalk JSON 인코더 | JSON 및 XML 데이터 간에 사용자 앱을 상호 운용하는 인코더 및 디코더. 이는 지정된 JSON 인스턴스를 XML로 변환하며 그 반대로 변환할 수도 있습니다.
+[AS2 커넥터](app-service-logic-connector-as2.md) | AS2 커넥터는 B2B 통신에 AS2 전송 프로토콜을 사용하여 메시지를 주고받을 수 있습니다. 데이터는 디지털 인증서 및 암호화를 사용하여 인터넷을 통해 안전하고 안정적으로 전송됩니다.
+[BizTalk EDIFACT](app-service-logic-connector-edifact.md) | EDIFACT API 앱은 B2B 통신에 EDIFACT 프로토콜을 사용하여 메시지를 받고 보냅니다.
+[BizTalk X12](app-service-logic-connector-x12.md) | X12 API 앱은 B2B 통신에 X12 프로토콜을 사용하여 메시지를 받고 보냅니다.
+[BizTalk 거래 업체 관리](app-service-logic-connector-tpm.md) | 거래 업체 관리 API 앱은 파트너, 규약, 규약에 사용되는 스키마 및 인증서를 사용하여 B2B 관계를 정의 및 유지합니다. 이러한 관계는 AS2, EDIFACT 및 X12 API 앱을 사용하여 적용됩니다.
+[BizTalk JSON 인코더](app-service-logic-connector-jsonencoder.md) | JSON 및 XML 데이터 간에 사용자 앱을 상호 운용하는 인코더 및 디코더. 이는 지정된 JSON 인스턴스를 XML로 변환하며 그 반대로 변환할 수도 있습니다.
 [BizTalk 규칙](app-service-logic-use-biztalk-rules.md) | BizTalk 규칙은 조직의 구조, 작업 및 전략을 정의하고 제어합니다. 비즈니스 정책은 관련된 응용 프로그램을 다시 컴파일하고 다시 배포하지 않고도 업데이트할 수 있습니다.
 DB2 커넥터 | Windows 운영 체제를 실행하는 IBM DB2 데이터베이스, 온-프레미스 및 Azure 가상 컴퓨터에 연결합니다. Web API 및 OData API 작업을 Informix 구조적 쿼리 언어 명령에 매핑할 수 있습니다. <br/><br/>트리거가 없습니다. 작업은 테이블 선택, 삽입, 업데이트, 삭제 및 사용자 지정 문을 포함합니다<br/><br/> 이 커넥터에는 TCP/IP 네트워크를 통해 Informix 서버에 연결하는 DRDA용 Microsoft 클라이언트도 포함되어 있습니다.
 Informix | Windows 운영 체제를 실행하는 IBM Informix 데이터베이스, 온-프레미스 및 Azure 가상 컴퓨터에 연결합니다. Web API 및 OData API 작업을 Informix 구조적 쿼리 언어 명령에 매핑할 수 있습니다.<br/><br/>트리거가 없습니다. 작업은 테이블 선택, 삽입, 업데이트, 삭제 및 사용자 지정 문을 포함합니다.<br/><br/>온-프레미스를 사용하여 VPN 또는 Azure ExpressRoute를 사용할 수 있습니다. 이 커넥터에는 TCP/IP 네트워크를 통해 Informix 서버에 연결하는 DRDA용 Microsoft 클라이언트도 포함되어 있습니다.
@@ -87,11 +87,11 @@ MQ | Windows 운영 체제를 실행하는 IBM WebSphere MQ Server 버전 8, 온
 커넥터를 논리 앱의 내부에서 작업으로 사용할 수도 있습니다. 작업은 다음 실행에 사용되는 논리 앱 내에서 데이터를 조회하는 데 유용합니다. 예를 들어 주문을 처리할 때 고객에 대한 추가적인 내용은 SQL 데이터베이스에서 데이터를 조회할 필요가 있을 수 있습니다. 또는 대상 위치에서 데이터를 작성, 업데이트 또는 삭제해야 할 수 있습니다. 커넥터가 제공하는 작업을 사용하여 이를 수행할 수 있습니다. 작업은 해당 Swagger 메타데이터에 정의된 대로 API 앱의 작업에 매핑됩니다.
 
 ## 고유한 커넥터 및 API 앱 만들기
-[커넥터 및 API 앱 참조](http://aka.ms/appservicesconnectorreference)<br/> [Azure 앱 서비스 API 앱 트리거](../app-service-api/app-service-api-dotnet-triggers.md)
+[커넥터 및 API 앱 참조](http://aka.ms/appservicesconnectorreference)<br/> [Azure 앱 서비스 API 앱 트리거](../app-service-api/app-service-api-dotnet-triggers.md)<br/> [논리 앱 참조](https://msdn.microsoft.com/library/azure/dn948510.aspx)
 
 
-## 추가 커넥터
+## 커넥터 및 API 앱에 대한 자세한 내용
 
-[커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)<br/> [Azure 앱 서비스에서 하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md)
+[커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)<br/> [Azure 앱 서비스에서 하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md)<br/> [기본 제공 API 앱 및 커넥터 관리 및 모니터링](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

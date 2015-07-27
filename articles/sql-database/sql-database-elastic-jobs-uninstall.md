@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="06/25/2015" 
 	ms.author="sidneyh"/>
 
 # 탄력적 데이터베이스 작업 구성 요소를 제거하는 방법
@@ -52,10 +52,10 @@
 
 탄력적 데이터베이스 작업을 다시 설치하려면 [탄력적 데이터베이스 작업 서비스 설치](sql-database-elastic-jobs-service-installation.md)를 참조하세요.
 
-탄력적 작업 서비스에 대한 개요는 [탄력적 작업 개요](sql-database-elastic-jobs-overview.md)를 참조하세요.
+탄력적 데이터베이스 작업 서비스에 대한 개요는 [탄력적 작업 개요](sql-database-elastic-jobs-overview.md)를 참조하세요.
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-job-uninstall/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -173,4 +173,4 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

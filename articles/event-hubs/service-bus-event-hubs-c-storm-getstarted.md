@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="이벤트 허브 시작" 
-	description="이 자습서에 따라 Azure 이벤트 허브를 사용하여 C로 이벤트를 보내고 Apache Storm 클러스터에서 이벤트를 받을 수 있습니다." 
-	services="service-bus" 
-	documentationCenter="" 
-	authors="fsautomata" 
-	manager="timlt" 
+<properties
+	pageTitle="이벤트 허브 시작"
+	description="이 자습서에 따라 Azure 이벤트 허브를 사용하여 C로 이벤트를 보내고 Apache Storm 클러스터에서 이벤트를 받을 수 있습니다."
+	services="event-hubs,service-bus"
+	documentationCenter=""
+	authors="fsautomata"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="service-bus" 
-	ms.workload="core" 
-	ms.tgt_pltfrm="c" 
-	ms.devlang="java" 
-	ms.topic="hero-article" 
-	ms.date="02/10/2015" 
+<tags
+	ms.service="event-hubs"
+	ms.workload="core"
+	ms.tgt_pltfrm="c"
+	ms.devlang="java"
+	ms.topic="article" 
+	ms.date="07/06/2015"
 	ms.author="sethm"/>
 
 # 이벤트 허브 시작
@@ -30,15 +30,15 @@
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-+ C 개발 환경. 이 자습서에서는 Ubuntu 14.04를 사용하는 [Azure Linux VM](../virtual-machines-linux-tutorial.md)에 gcc 스택이 있다고 가정합니다. 다른 환경에 대한 지침은 외부 링크에서 제공됩니다.
++ C 개발 환경. 이 자습서에서는 Ubuntu 14.04를 사용하는 [Azure Linux VM](../virtual-machines/virtual-machines-linux-tutorial.md)에 gcc 스택이 있다고 가정합니다. 다른 환경에 대한 지침은 외부 링크에서 제공됩니다.
 
 + [Maven](http://maven.apache.org/)을 실행하도록 구성된 Java 개발 환경. 이 자습서에서는 [Eclipse](https://www.eclipse.org/)를 사용한다고 가정합니다.
 
-+ 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요
++ 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 ## 이벤트 허브 만들기
 
-1. [Azure 관리 포털]에 로그온하여 화면 아래쪽의 **새로 만들기**를 클릭합니다.
+1. [Azure 관리 포털]에 로그온하고 화면 맨 아래에 있는 **새로 만들기**를 클릭합니다.
 
 2. **앱 서비스**, **서비스 버스**, **이벤트 허브**, **빨리 만들기**를 차례로 클릭합니다.
 
@@ -56,7 +56,7 @@
 
    	![][4]
 
-6. 페이지 위쪽의 **구성** 탭을 클릭하고 *Send* 권한이 있는 **SendRule** 규칙과 *Listen* 권한이 있는 **ReceiveRule** 규칙을 추가한 후에 **저장**을 클릭합니다.
+6. 페이지 맨 위에서 **구성** 탭을 클릭하고 *보내기* 권한이 있는 **SendRule**이라는 규칙을 추가하고 *수신 대기* 권한이 있는 **ReceiveRule**이라는 다른 규칙을 추가한 다음 **저장**을 클릭합니다.
 
    	![][5]
 
@@ -67,7 +67,6 @@
 이제 이벤트 허브가 만들어졌고 이벤트를 보내고 받기 위한 연결 문자열이 있습니다.
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-send-c](../../includes/service-bus-event-hubs-get-started-send-c.md)]
-
 
 [AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-storm](../../includes/service-bus-event-hubs-get-started-receive-storm.md)]
 
@@ -81,7 +80,7 @@
 
    	![][23]
 
-> [AZURE.NOTE] 이 자습서에 한해 Storm을 로컬 모드에서 개발용으로 사용합니다. Storm 배포 및 패턴에 대한 자세한 내용은 [HDInsight Storm 개요] 및 공식 [Apache Storm] 설명서를 참조하세요.
+> [AZURE.NOTE]이 자습서에 한해 Storm을 로컬 모드에서 개발용으로 사용합니다. Storm 배포 및 패턴에 대한 자세한 내용은 [HDInsight Storm 개요] 및 공식 [Apache Storm] 설명서를 참조하세요.
 
 ## 다음 단계
 
@@ -103,14 +102,13 @@
 
 <!-- Links -->
 [Azure 관리 포털]: https://manage.windowsazure.com/
-[이벤트 프로세서 호스트]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[이벤트 허브 개요]: http://msdn.microsoft.com/library/azure/dn836025.aspx
+[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
+[이벤트 허브 개요]: event-hubs-overview.md
 
 [Apache Storm]: https://storm.incubator.apache.org
-[HDInsight Storm 개요]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
-[Storm 및 HDInsight를 사용하여 센서 데이터 분석]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
-[HDInsight 및 Storm에서 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
-[Storm 및 HDInsight에서 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
+[HDInsight Storm 개요]: ../hdinsight/hdinsight-storm-overview.md/
+[Storm 및 HDInsight를 사용하여 센서 데이터 분석]: ../hdinsight/hdinsight-storm-sensor-data-analysis.md
+[Storm 및 HDInsight에서 SCP.NET 및 C#을 사용하여 스트리밍 데이터 처리 응용 프로그램 개발]: ../hdinsight/hdinsight-storm-develop-csharp-visual-studio-topology.md
+ 
 
-
-<!--HONumber=52--> 
+<!---HONumber=July15_HO3-->

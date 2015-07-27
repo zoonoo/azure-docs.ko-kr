@@ -3,7 +3,6 @@
 	description="모바일 서비스를 사용하여 테이블 저장소에 데이터를 저장하는 방법에 대해 알아봅니다." 
 	documentationCenter="" 
 	authors="ysxu" 
-	writer="yuaxu" 
 	services="mobile-services" 
 	manager="dwrede" 
 	editor=""/>
@@ -24,4 +23,4 @@ Chris Risner의 자습서인 [모바일 서비스와 Microsoft Azure 저장소]�
 [모바일 서비스와 Microsoft Azure 저장소]: http://chrisrisner.com/Mobile-Services-and-Windows-Azure-Storage
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

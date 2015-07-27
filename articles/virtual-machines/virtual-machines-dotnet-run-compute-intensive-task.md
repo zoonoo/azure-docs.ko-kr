@@ -101,11 +101,11 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
 1. 개발 컴퓨터(직접 생성한 가상 컴퓨터일 필요는 없음)에서 [.NET용 Azure SDK](http://azure.microsoft.com/develop/net/)(영문)를 다운로드합니다.
 2. **TSPSolver**라는 프로젝트를 사용하여 .NET 콘솔 응용 프로그램을 만듭니다. 대상 프레임워크가 .**NET Framework 4** 이상(**.NET Framework 4 Client Profile**이 아님)용으로 설정되어 있는지 확인합니다. 다음으로 프로젝트를 만든 후 대상 프레임워크를 설정할 수 있습니다. Visual Studio의 메뉴에서 **프로젝트**를 클릭하고 **속성**을 클릭한 후 **응용 프로그램** 탭을 클릭한 다음 **대상 프레임워크** 값을 설정합니다.
-3. Microsoft ServiceBus 라이브러리에 추가합니다. Visual Studio 솔루션 탐색기에서 **TSPSolver**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**, **찾아보기** 탭을 차례로 클릭한 후 Azure .NET SDK(예를 들어 **C:\Program Files\Microsoft SDKs\Azure.NET SDK\v2.5\ToolsRef** 위치)로 이동하고 참조로 **Microsoft.ServiceBus.dll**을 선택합니다.
+3. Microsoft ServiceBus 라이브러리에 추가합니다. Visual Studio 솔루션 탐색기에서 **TSPSolver**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**, **찾아보기** 탭을 차례로 클릭한 후 Azure .NET SDK(예를 들어 **C:\\Program Files\\Microsoft SDKs\\Azure.NET SDK\\v2.5\\ToolsRef** 위치)로 이동하고 참조로 **Microsoft.ServiceBus.dll**을 선택합니다.
 4. System Runtime Serialization 라이브러리에 추가합니다. Visual Studio 솔루션 탐색기에서 **TSPSolver**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 클릭한 후 **.NET** 탭을 클릭하고 참조로 **System.Runtime.Serialization**을 선택합니다.
 5. **Program.cs**의 콘텐츠로 이 섹션 끝에 있는 예제 코드를 사용합니다.
 6. **your_connection_string** 자리 표시자를 수정하여 서비스 버스 **연결 문자열**을 사용합니다.
-7. 응용 프로그램을 컴파일합니다. 프로젝트의 **bin** 폴더(릴리스를 대상으로 하는지 디버그 빌드를 대상으로 하는지에 따라 **bin\release** 또는 **bin\debug**)에 **TSPSolver.exe**가 만들어집니다. 나중에 이 실행 파일과 Microsoft.ServiceBus.dll을 가상 컴퓨터에 복사합니다.
+7. 응용 프로그램을 컴파일합니다. 프로젝트의 **bin** 폴더(릴리스를 대상으로 하는지 디버그 빌드를 대상으로 하는지에 따라 **bin\\release** 또는 **bin\\debug**)에 **TSPSolver.exe**가 만들어집니다. 나중에 이 실행 파일과 Microsoft.ServiceBus.dll을 가상 컴퓨터에 복사합니다.
 
 <p/>
 
@@ -326,11 +326,11 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 ## 계산 집약적인 작업의 진행 상황을 모니터링하는 .NET 응용 프로그램을 만드는 방법
 
 1. 개발 컴퓨터에서 프로젝트 이름으로 **TSPClient**를 사용하는 .NET 콘솔 응용 프로그램을 만듭니다. 대상 프레임워크가 .**NET Framework 4** 이상(**.NET Framework 4 Client Profile**이 아님)용으로 설정되어 있는지 확인합니다. 다음으로 프로젝트를 만든 후 대상 프레임워크를 설정할 수 있습니다. Visual Studio의 메뉴에서 **프로젝트**를 클릭하고 **속성**을 클릭한 후 **응용 프로그램** 탭을 클릭한 다음 **대상 프레임워크** 값을 설정합니다.
-2. Microsoft ServiceBus 라이브러리에 추가합니다. Visual Studio 솔루션 탐색기에서 **TSPClient**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**, **찾아보기** 탭을 차례로 클릭한 후 Azure .NET SDK(예를 들어 **C:\Program Files\Microsoft SDKs\Azure.NET SDK\v2.5\ToolsRef** 위치)로 이동하고 참조로 **Microsoft.ServiceBus.dll**을 선택합니다.
+2. Microsoft ServiceBus 라이브러리에 추가합니다. Visual Studio 솔루션 탐색기에서 **TSPClient**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**, **찾아보기** 탭을 차례로 클릭한 후 Azure .NET SDK(예를 들어 **C:\\Program Files\\Microsoft SDKs\\Azure.NET SDK\\v2.5\\ToolsRef** 위치)로 이동하고 참조로 **Microsoft.ServiceBus.dll**을 선택합니다.
 3. System Runtime Serialization 라이브러리에 추가합니다. Visual Studio 솔루션 탐색기에서 **TSPClient**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 클릭한 후 **.NET** 탭을 클릭하고 참조로 **System.Runtime.Serialization**을 선택합니다.
 4. **Program.cs**의 콘텐츠로 이 섹션 끝에 있는 예제 코드를 사용합니다.
 5. **your_connection_string** 자리 표시자를 수정하여 서비스 버스 **연결 문자열**을 사용합니다.
-6. 응용 프로그램을 컴파일합니다. 프로젝트의 **bin** 폴더(릴리스를 대상으로 하는지 디버그 빌드를 대상으로 하는지에 따라 **bin\release** 또는 **bin\debug**)에 **TSPClient.exe**가 만들어집니다. 개발 컴퓨터에서 이 코드를 실행하거나 클라이언트 응용 프로그램(반드시 가상 컴퓨터에 있을 필요는 없음)을 실행할 컴퓨터에 이 실행 파일 및 Microsoft.ServiceBus.dll을 복사합니다.
+6. 응용 프로그램을 컴파일합니다. 프로젝트의 **bin** 폴더(릴리스를 대상으로 하는지 디버그 빌드를 대상으로 하는지에 따라 **bin\\release** 또는 **bin\\debug**)에 **TSPClient.exe**가 만들어집니다. 개발 컴퓨터에서 이 코드를 실행하거나 클라이언트 응용 프로그램(반드시 가상 컴퓨터에 있을 필요는 없음)을 실행할 컴퓨터에 이 실행 파일 및 Microsoft.ServiceBus.dll을 복사합니다.
 
 <p/>
 
@@ -443,9 +443,9 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 ### 계산 집약적인 응용 프로그램을 실행하는 방법
 
 1. 가상 컴퓨터에 로그온합니다.
-2. **c:\TSP**라는 폴더를 만듭니다. 응용 프로그램을 실행할 위치입니다.
-3. TSPSolver 프로젝트의 **bin** 폴더에 있는 TSPSolver.exe 및 Microsoft.ServiceBus.dll을 **c:\TSP**에 복사합니다.
-4. 다음과 같은 정보를 포함하는 **c:\TSP\cities.txt**라는 파일을 만듭니다.
+2. **c:\\TSP**라는 폴더를 만듭니다. 응용 프로그램을 실행할 위치입니다.
+3. TSPSolver 프로젝트의 **bin** 폴더에 있는 TSPSolver.exe 및 Microsoft.ServiceBus.dll을 **c:\\TSP**에 복사합니다.
+4. 다음과 같은 정보를 포함하는 **c:\\TSP\\cities.txt**라는 파일을 만듭니다.
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6
@@ -498,7 +498,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 		City_49, -120.3, -463.13
 		City_50, 588.51, 679.33
 
-5. 명령 프롬프트에서 디렉터리를 c:\TSP로 변경합니다.
+5. 명령 프롬프트에서 디렉터리를 c:\\TSP로 변경합니다.
 6. TSP 해 찾기 순열을 실행하기 전에 서비스 버스 큐를 먼저 만들어야 합니다. 다음 명령을 실행하여 서비스 버스 큐를 만듭니다.
 
         TSPSolver createqueue
@@ -515,9 +515,9 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
 ### 모니터링하는 클라이언트 응용 프로그램을 실행하는 방법
 1. 클라이언트 응용 프로그램을 실행할 컴퓨터에 로그온합니다. 이 컴퓨터가 **TSPSolver** 응용 프로그램을 실행하는 컴퓨터와 같을 수도 있지만 반드시 같아야 하는 것은 아닙니다.
-2. 응용 프로그램을 실행할 폴더(예: **c:\TSP**)를 만듭니다.
-3. TSPClient 프로젝트의 **bin** 폴더에 있는 **TSPClient.exe** 및 Microsoft.ServiceBus.dll을 c:\TSP 폴더에 복사합니다.
-4. 명령 프롬프트에서 디렉터리를 c:\TSP로 변경합니다.
+2. 응용 프로그램을 실행할 폴더(예: **c:\\TSP**)를 만듭니다.
+3. TSPClient 프로젝트의 **bin** 폴더에 있는 **TSPClient.exe** 및 Microsoft.ServiceBus.dll을 c:\\TSP 폴더에 복사합니다.
+4. 명령 프롬프트에서 디렉터리를 c:\\TSP로 변경합니다.
 5. 다음 명령을 실행합니다.
 
         TSPClient
@@ -547,4 +547,4 @@ TSPSolver를 사용하여 큐를 만들거나 제거하는 대신 [Azure 관리 
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -1,7 +1,6 @@
 <properties
 	pageTitle="스트림 분석을 사용한 실시간 Twitter 정서 분석 | Microsoft Azure"
 	description="실시간 Twitter 정서 분석에 대한 스트림 분석을 사용하는 방법에 대해 알아봅니다. 이벤트 생성부터 라이브 대시보드의 데이터에 이르는 단계별 지침이 포함되어 있습니다."
-	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="04/28/2015"
+	ms.date="07/01/2015"
 	ms.author="jeffstok"/>
 
 
@@ -30,7 +29,7 @@
 
 ## 필수 조건
 1.	이 자습서에는 Twitter 계정이 필요합니다.  
-2.	이 연습에서 GitHub에 있는 이벤트 생성기를 사용합니다. [여기](https://github.com/streamanalytics/samples/tree/master/TwitterClient)에서 다운로드하여 아래 단계에 따라 솔루션을 설정합니다.
+2.	이 연습은 GitHub에 있는 Twitter 클라이언트 응용 프로그램을 사용합니다. [여기](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClient)에서 다운로드하여 아래 단계에 따라 솔루션을 설정합니다.
 
 ## 이벤트 허브 입력 및 소비자 그룹 만들기
 
@@ -49,9 +48,9 @@
 5.	페이지 아래쪽에서 **저장**을 클릭합니다.
 6.	**대시보드**로 이동하여 페이지 아래쪽에서 **연결 정보**를 클릭하고 연결 정보를 복사 및 저장합니다. 검색 아이콘 아래에 표시된 복사 아이콘을 사용하세요.
 
-## 이벤트 생성기 응용 프로그램 구성 및 시작
+## Twitter 클라이언트 응용 프로그램 구성 및 시작
 
-Microsoft에서는 매개 변수화된 항목 집합에 대한 트윗 이벤트를 수집하기 위해 [Twitter의 REST API](https://dev.twitter.com/rest/public)를 통해 Twitter 데이터를 가져오는 클라이언트 응용 프로그램을 제공합니다. 타사 오픈 소스 도구인 [Sentiment140](http://help.sentiment140.com/)은 데이터 값을 각 트윗에 할당(0: 부정, 2: 중립, 4: 긍정)하는 데 사용되며, 이 값이 할당되면 트윗 이벤트가 이벤트 허브로 푸시됩니다.
+Microsoft에서는 매개 변수화된 항목 집합에 대한 트윗 이벤트를 수집하기 위해 [Twitter의 스트리밍 API](https://dev.twitter.com/streaming/overview)를 통해 Twitter 데이터를 가져오는 클라이언트 응용 프로그램을 제공합니다. 타사 오픈 소스 도구인 [Sentiment140](http://help.sentiment140.com/)은 데이터 값을 각 트윗에 할당(0: 부정, 2: 중립, 4: 긍정)하는 데 사용되며, 이 값이 할당되면 트윗 이벤트가 이벤트 허브로 푸시됩니다.
 
 다음 단계에 따라 응용 프로그램을 설치합니다.
 
@@ -153,7 +152,7 @@ Microsoft에서는 매개 변수화된 항목 집합에 대한 트윗 이벤트�
 
 #### 인기 항목 식별: 슬라이딩 윈도우
 
-인기 항목을 식별하기 위해 지정된 기간 동안 멘션의 임계값을 초과한 항목을 찾아봅니다. 이 자습서에서는 [SlidingWindow](https://msdn.microsoft.com/library/azure/dn835051.aspx)를 사용하여 5초 이내에 20번 넘게 멘션된 항목을 확인합니다.
+인기 항목을 식별하기 위해 지정된 기간 동안 멘션의 임계값을 초과한 항목을 찾아봅니다. 이 자습서에서는 [SlidingWindow](https://msdn.microsoft.com/library/azure/dn835051.aspx)를 사용하여 마지막 5초 이내에 20번 넘게 멘션된 항목을 확인합니다.
 
 1.	코드 편집기에서 쿼리를 다음으로 변경합니다.
 
@@ -183,7 +182,7 @@ Microsoft에서는 매개 변수화된 항목 집합에 대한 트윗 이벤트�
 
 ## 출력 싱크 만들기
 
-이제 이벤트 스트림, 이벤트를 수집할 이벤트 허브 입력 및 스트림 변환을 수행할 쿼리를 정의했으므로 마지막 단계는 작업의 출력 싱크를 정의하는 것입니다. 작업 쿼리에서 집계된 트윗 이벤트를 Azure Blob에 작성합니다. 또한 응용 프로그램 요구 사항에 따라 SQL 데이터베이스, 테이블 저장소 또는 이벤트 허브에 결과를 푸시할 수 있습니다.
+이제 이벤트 스트림, 이벤트를 수집할 이벤트 허브 입력 및 스트림 변환을 수행할 쿼리를 정의했으므로 마지막 단계는 작업의 출력 싱크를 정의하는 것입니다. 작업 쿼리에서 집계된 트윗 이벤트를 Azure Blob에 작성합니다. 또한 특정 응용 프로그램 요구 사항에 따라 SQL 데이터베이스, 테이블 저장소 또는 이벤트 허브에 결과를 푸시할 수 있습니다.
 
 Blob 저장소의 컨테이너가 없는 경우 아래 단계에 따라 만듭니다.
 
@@ -224,7 +223,7 @@ Blob 저장소의 컨테이너가 없는 경우 아래 단계에 따라 만듭�
 ![소셜 미디어 분석: Power BI 대시보드에 정서 분석(의견 마이닝) 출력을 스트림 분석합니다.](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-output-power-bi.png)
 
 ## 지원 받기
-추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-kr/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 
 ## 다음 단계
@@ -236,4 +235,4 @@ Blob 저장소의 컨테이너가 없는 경우 아래 단계에 따라 만듭�
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

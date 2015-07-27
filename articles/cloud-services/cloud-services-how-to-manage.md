@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="클라우드 서비스를 관리하는 방법 - Azure" 
-	description="Azure 관리 포털에서 클라우드 서비스를 관리하는 방법에 대해 알아봅니다." 
+	description="Azure 포털에서 클라우드 서비스를 관리하는 방법에 대해 알아봅니다." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015"
+	ms.date="07/01/2015"
 	ms.author="adegeo"/>
 
 
@@ -22,14 +22,18 @@
 
 # 클라우드 서비스를 관리하는 방법
 
-Azure 관리 포털 **클라우드 서비스** 영역에서 서비스 역할 또는 배포를 업데이트하고, 스테이징된 배포의 수준을 프로덕션으로 올리고, 리소스 종속성을 표시하고 리소스를 확장할 수 있도록 클라우드 서비스에 리소스를 연결하고, 클라우드 서비스 또는 배포를 삭제할 수 있습니다.
+> [AZURE.SELECTOR]
+- [Azure Portal](cloud-services-how-to-manage.md)
+- [Azure Preview Portal](cloud-services-how-to-manage-portal.md)
+
+Azure 포털 **클라우드 서비스** 영역에서 서비스 역할 또는 배포를 업데이트하고, 스테이징된 배포의 수준을 프로덕션으로 올리고, 리소스 종속성을 표시하고 리소스를 확장할 수 있도록 클라우드 서비스에 리소스를 연결하고, 클라우드 서비스 또는 배포를 삭제할 수 있습니다.
 
 
 ## 방법: 클라우드 서비스 역할 또는 배포 업데이트
 
 클라우드 서비스의 응용 프로그램 코드를 업데이트해야 하는 경우 대시보드, **클라우드 서비스** 페이지 또는 **인스턴스** 페이지에서 **업데이트**를 사용합니다. 단일 역할이나 모든 역할을 업데이트할 수 있습니다. 새 서비스 패키지 및 서비스 구성 파일을 업로드해야 합니다.
 
-1. [Azure 관리 포털](https://manage.windowsazure.com/)에서 대시보드, **클라우드 서비스** 페이지 또는 **인스턴스** 페이지에 있는 **업데이트**를 클릭합니다.
+1. [Azure 포털](https://manage.windowsazure.com/)에서 대시보드, **클라우드 서비스** 페이지 또는 **인스턴스** 페이지에 있는 **업데이트**를 클릭합니다.
 
 	![배포 업데이트](./media/cloud-services-how-to-manage/CloudServices_UpdateDeployment.png)
 
@@ -154,4 +158,4 @@ Azure 관리 포털 **클라우드 서비스** 영역에서 서비스 역할 또
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

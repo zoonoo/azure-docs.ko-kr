@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Microsoft Azure 앱 서비스에서 Oracle 커넥터 사용" 
-   description="Oracle 커넥터 사용 방법" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
+<properties
+   pageTitle="Microsoft Azure 앱 서비스에서 Oracle 커넥터 사용"
+   description="Oracle 커넥터 사용 방법"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
    editor=""/>
 
 <tags
@@ -12,9 +12,9 @@
    ms.devlang="multiple"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="06/22/2015"
-   ms.author="sutalasi"/>
+   ms.workload="integration"
+   ms.date="07/02/2015"
+   ms.author="sameerch"/>
 
 
 # Oracle 데이터베이스 커넥터
@@ -23,7 +23,7 @@
 
 - 웹 또는 모바일 응용 프로그램을 통해 Oracle 데이터베이스에 있는 데이터의 섹션을 표시합니다.
 - Oracle 데이터베이스 테이블에 데이터를 삽입하여 저장합니다. 예를 들어 직원 레코드를 입력하고 판매 주문을 업데이트할 수 있습니다.
-- Oracle에서 데이터를 가져와 비즈니스 프로세스에 사용합니다. 예를 들어 고객 레코드를 가져와 SalesForce에 이러한 고객 레코드를 입력할 수 있습니다. 
+- Oracle에서 데이터를 가져와 비즈니스 프로세스에 사용합니다. 예를 들어 고객 레코드를 가져와 SalesForce에 이러한 고객 레코드를 입력할 수 있습니다.
 
 
 ## 트리거 및 작업
@@ -69,9 +69,9 @@ Oracle 데이터베이스 커넥터에서 사용할 수 있는 트리거와 작�
 Oracle 테이블에서 데이터를 폴링하는 간단한 논리 앱을 살펴보고 다른 테이블에 데이터를 추가하고 데이터를 업데이트해 봅니다.
 
 ### 트리거 추가
-1. 논리 앱을 만들거나 편집할 때 트리거로 만든 Oracle 커넥터를 선택합니다. 이렇게 하면 사용 가능한 트리거인 **Poll Data (JSON)** 및 **Poll Data (XML)**가 나열됩니다.<br/> ![][5] 
+1. 논리 앱을 만들거나 편집할 때 트리거로 만든 Oracle 커넥터를 선택합니다. 이렇게 하면 사용 가능한 트리거인 **Poll Data (JSON)** 및 **Poll Data (XML)**가 나열됩니다.<br/> ![][5]
 
-2. **Poll Data (JSON)** 트리거를 선택하고 빈도를 지정한 다음 ✓을 클릭합니다.<br/> ![][6]
+2. **데이터 폴링(JSON)** 트리거를 선택하고 빈도를 지정한 다음 ✓을 클릭합니다.<br/> ![][6]
 
 3. 이제 논리 앱에서 구성된 대로 트리거가 나타납니다. 트리거의 출력이 표시되며 이는 후속 작업의 입력으로 사용될 수 있습니다.<br/> ![][7]
 
@@ -80,7 +80,7 @@ Oracle 테이블에서 데이터를 폴링하는 간단한 논리 앱을 사용�
 
 Oracle 커넥터를 작업으로 사용하려면 Oracle 커넥터를 만들 때 입력한 테이블 및/또는 저장 프로시저의 이름을 입력합니다.
 
-1. 갤러리에서 동일한 Oracle 커넥터를 작업으로 선택합니다. *Insert Into TempEmployeeDetails (JSON)*와 같은 삽입 작업 중 하나를 선택합니다.<br/> ![][8] 
+1. 갤러리에서 동일한 Oracle 커넥터를 작업으로 선택합니다. *Insert Into TempEmployeeDetails (JSON)*와 같은 삽입 작업 중 하나를 선택합니다.<br/> ![][8]
 
 2. 삽입될 레코드의 입력 값을 입력하고 ✓을 클릭합니다.<br/> ![][9]
 
@@ -101,7 +101,7 @@ Oracle 커넥터를 작업으로 사용하려면 Oracle 커넥터를 만들 때 
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
-커넥터의 성능 통계 및 제어 보안도 검토할 수 있습니다. [API 앱 및 커넥터를 관리 및 모니터링](app-service-api-manage-in-portal.md)을 참조하세요.
+커넥터의 성능 통계 및 제어 보안을 검토할 수 있습니다. [API 앱 및 커넥터를 관리 및 모니터링](app-service-api-manage-in-portal.md)을 참조하세요.
 
 
 <!--Image references-->
@@ -115,8 +115,4 @@ Oracle 커넥터를 작업으로 사용하려면 Oracle 커넥터를 만들 때 
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-
-
- 
-
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

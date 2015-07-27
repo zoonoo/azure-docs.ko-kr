@@ -367,4 +367,4 @@ HTTP 기반 웹 서비스를 사용하면 모바일 클라이언트를 포함하
   [저장소]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

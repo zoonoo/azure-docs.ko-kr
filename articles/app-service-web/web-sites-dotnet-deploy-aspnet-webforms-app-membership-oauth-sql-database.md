@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/09/2015" 
+	ms.date="06/30/2015" 
 	ms.author="erikre"/>
 
 
@@ -41,20 +41,18 @@ ASP.NET 4.5 Web Forms에서 빌드되고 데이터베이스 액세스에 Entity 
 
 ![연락처 - 편집 페이지](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms00.png)
 
->[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">MSDN 구독자 혜택을 활성화</a>하거나 <a href="/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">무료 평가판을 등록</a>할 수 있습니다. 계정을 등록하기 전에 Azure를 시작하려면 <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>으로 이동합니다. 이 사이트에서는 무료로 단기 ASP.NET 시작 사이트를 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">MSDN 구독자 혜택을 활성화</a>하거나 <a href="/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">무료 평가판을 등록</a>할 수 있습니다. 계정을 등록하기 전에 Azure를 시작하려면 [앱 서비스 시도](https://tryappservice.azure.com/)로 이동합니다. Azure에서는 무료로 단기 ASP.NET 시작 사이트를 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ##개발 환경 설정 
 시작하려면 Visual Studio 2013 및 Azure SDK for .NET을 설치하여 개발 환경 설정을 설정합니다.
 
 1. [Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkId=306566)를 아직 설치하지 않은 경우 설치합니다.  
-2. [Azure SDK for Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409)을 설치합니다. 이 자습서에서는, Azure SDK for Visual Studio 2013를 설치하려면 먼저 Visual Studio 2013이 설치되어 있어야 합니다.  
-
-	>[AZURE.NOTE]사용자 컴퓨터에 SDK 종속성이 얼마나 있었는지에 따라 SDK를 설치하는 시간이 몇 분에서 30분 또는 그 이상이 될 수 있습니다.
+2. [Azure SDK for Visual Studio 2013](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409)을 설치합니다. 이 자습서에서는, Azure SDK for Visual Studio 2013를 설치하려면 먼저 Visual Studio 2013이 설치되어 있어야 합니다. 사용자 컴퓨터에 SDK 종속성이 얼마나 있었는지에 따라 SDK를 설치하는 시간이 몇 분에서 30분 또는 그 이상이 될 수 있습니다.  
 
 3. 실행 가능한 설치 프로그램을 실행할지 또는 저장할지 묻는 메시지가 표시되면 **실행**을 클릭합니다.
 4. **웹 플랫폼 설치 관리자** 창에서 **설치**를 클릭하여 설치를 계속합니다. ![웹 플랫폼 설치 관리자를 통해 사용 가능)](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/Intro-SecureWebForms-01.png)  
 
-	>[AZURE.NOTE]SDK를 이미 설치한 경우 0개의 항목이 설치됩니다. 설치할 항목의 수는 **웹 플랫폼 설치 관리자** 창의 오른쪽 아래에 표시됩니다.
+      SDK를 이미 설치한 경우 0개의 항목이 설치됩니다. 설치할 항목의 수는 **웹 플랫폼 설치 관리자** 창의 오른쪽 아래에 표시됩니다.
 
 5. **Visual Studio 업데이트 2**를 아직 설치하지 않았다면 **[Visual Studio 2013 업데이트 2](http://www.microsoft.com/download/details.aspx?id=42666)** 이상을 다운로드하여 설치합니다.
 
@@ -93,7 +91,7 @@ Azure SQL 데이터베이스는 SQL Server 기술로 구축된 클라우드 기�
 3. 가운데 열에서 **ASP.NET 웹 응용 프로그램** 템플릿을 선택합니다.
 4. 프로젝트의 이름을 *ContactManager*로 지정하고 **확인**을 클릭합니다. ![새 프로젝트 대화 상자](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms02.png)  
 
-	>[AZURE.NOTE]이 자습서 시리즈의 프로젝트 이름은 **ContactManager**입니다. 자습서 시리즈 전체에 제공된 코드가 예상대로 작동하도록 정확한 프로젝트 이름을 사용하는 것이 좋습니다.
+      이 자습서 시리즈의 프로젝트 이름은 **ContactManager**입니다. 자습서 시리즈 전체에 제공된 코드가 예상대로 작동하도록 정확한 프로젝트 이름을 사용하는 것이 좋습니다.
 
 5. **새 ASP.NET 프로젝트** 대화 상자에서 **Web Forms** 템플릿을 선택합니다. 선택되어 있고 **확인**을 클릭하면 **클라우드에 호스트** 확인란을 선택 취소합니다. ![새 ASP.NET 프로젝트 대화 상자](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms03.png) Web Forms 응용 프로그램이 만들어집니다.
 ###마스터 페이지 업데이트
@@ -203,7 +201,8 @@ Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 �
 
 1. Visual Studio의 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 **게시**를 선택합니다. ![게시 선택](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms05.png) **웹 게시** 대화 상자가 표시됩니다.  
 
-2. **웹 게시** 대화 상자의 **프로필** 탭에서 **Azure 웹 앱**을 클릭합니다. ![웹 게시 대화 상자](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms06.png)
+2. **웹 게시** 대화 상자의 **프로필** 탭에서 **Azure 웹앱**을 클릭합니다.
+	  
 3. 아직 로그인하지 않은 경우 **기존 웹 앱 선택** 대화 상자에서 **로그인** 단추를 클릭합니다. 로그인한 후에는 이 자습서의 첫 번째 부분에서 만든 웹 앱을 선택합니다. **확인**을 클릭하여 계속합니다. ![기존 웹 사이트 선택 대화 상자](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms07.png) Visual Studio는 게시 설정을 다운로드합니다.
 4. **웹 게시** 대화 상자에서 **게시**를 클릭합니다. ![웹 게시 대화 상자](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms08.png) Visual Studio 내의 **Web Publish Activity** 창에 전체 게시 상태가 표시됩니다. ![웹 게시 작업](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms09.png)  
 
@@ -257,7 +256,7 @@ namespace ContactManager.Models
 6. **솔루션 탐색기**에서 *프로젝트*를 마우스 오른쪽 단추로 클릭하고 **추가** -> **새 스캐폴드 항목**을 선택합니다. **스캐폴드 추가** 대화 상자가 표시됩니다.
 7. 왼쪽 창에서 **Web Forms**를 선택하고 가운데 페이지에서 **Web Forms Pages using Entity Framework**를 선택합니다. 그런 다음 **추가**를 클릭합니다. ![스캐폴드 추가 대화 상자](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13a.png) **Web Forms 페이지 추가** 대화 상자가 표시됩니다.  
 
-8. **Web Forms 페이지 추가** 대화 상자에서 **모델 클래스**를 `Contact (ContactManager.Models)`로 설정합니다. **데이터 컨텍스트 클래스**를 `ApplicationDbContext (ContactManager.Models)`로 설정합니다. 그런 다음 **추가**를 클릭합니다. ![Web Forms 페이지 추가 대화 상자](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13b.png)
+8. **Web Forms 페이지 추가** 대화 상자에서 **모델 클래스**를 `Contacts (ContactManager.Models)`로 설정합니다. **데이터 컨텍스트 클래스**를 `ApplicationDbContext (ContactManager.Models)`로 설정합니다. 그런 다음 **추가**를 클릭합니다. ![Web Forms 페이지 추가 대화 상자](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms13b.png)
 
 Web Forms 스캐폴더에서 *Default.aspx*, *Delete.aspx*, *Edit.aspx* 및 *Insert.aspx* 페이지를 포함하는 새 폴더를 추가합니다. 또한 *EntityTemplates* 폴더 및 *FieldTemplates* 폴더를 포함하는 *DynamicData* 폴더도 만듭니다. `ApplicationDbContext`가 멤버 자격 데이터베이스 및 연락처 데이터 모두에 사용됩니다.
 
@@ -273,7 +272,7 @@ enable-migrations
 	<pre class="prettyprint">
 add-migration Initial
 </pre>`add-migration Initial` 명령은 *Migrations* 폴더에 데이터베이스를 만드는 <date_stamp>Initial이라는 파일을 생성합니다. 첫 번째 매개변수(Initial)는 임의이며 파일의 이름을 만드는 데 사용됩니다. **솔루션 탐색기**에서 새 클래스 파일을 볼 수 있습니다. `Initial` 클래스의 `Up` 메서드는 `Contact` 테이블을 만들고 이전 상태로 돌아가려는 경우 사용되는 `Down` 메서드는 테이블을 삭제합니다.  
-4. *Migrations\Configuration.cs* 파일을 엽니다. 
+4. *Migrations\\Configuration.cs* 파일을 엽니다. 
 5. 다음 네임스페이스를 추가합니다.  
 	<pre class="prettyprint">
 using ContactManager.Models;
@@ -376,7 +375,7 @@ ASP.NET Web Forms는 멤버 자격 및 인증을 위해 개선된 옵션을 제�
 
 다음 단계를 통해 Google 인증 공급자를 추가할 수 있습니다.
 
-1. *App_Start\Startup.Auth.cs* 파일을 엽니다. 
+1. *App_Start\\Startup.Auth.cs* 파일을 엽니다. 
 2. 메서드가 다음과 같이 나타나도록 `app.UseGoogleAuthentication()` 메서드에서 주석 문자를 제거합니다.  
 	<pre class="prettyprint">
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
@@ -672,13 +671,10 @@ Update-Database
 ###SQL Azure DB 검사 
 1. Visual Studio에서 **서버 탐색기**를 열고 **ContactDB**로 이동합니다.
 2. **ContactDB**를 마우스 오른쪽 단추로 클릭하고 **SQL Server 객체 탐색기에서 열기**를 선택합니다. ![SQL Server 개체 탐색기 메뉴 항목에서 열기](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms32.png)  
-3. **방화벽 규칙 추가** 대화 상자가 표시되면 **방화벽 규칙 추가**를 선택합니다.  
+3. **방화벽 규칙 추가** 대화 상자가 표시되면 **방화벽 규칙 추가**를 선택합니다. **SQL 데이터베이스**를 확장할 수 없고 Visual Studio에서 **ContactDB**를 볼 수 없는 경우, 지침에 따라 방화벽 포트나 포트 범위를 열 수 있습니다. 그렇게 하려면 **MVC 자습서**(영문) 끝에 있는 [Azure 방화벽 규칙 설정](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)의 지침을 따르세요. 또는 로컬로 응용 프로그램을 빌드 및 실행하고, 이 응용 프로그램에 데이터를 추가하여 로컬 데이터베이스의 데이터를 검토할 수 있습니다(Visual Studio에서 **CTRL+F5**).  
 
-	>[AZURE.NOTE]**SQL 데이터베이스**를 확장할 수 없고 Visual Studio에서 **ContactDB**를 볼 수 없는 경우, 지침에 따라 방화벽 포트나 포트 범위를 열 수 있습니다. 그렇게 하려면 **MVC 자습서**(영문) 끝에 있는 [Azure 방화벽 규칙 설정](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)의 지침을 따르세요. 또는 로컬로 응용 프로그램을 빌드 및 실행하고, 이 응용 프로그램에 데이터를 추가하여 로컬 데이터베이스의 데이터를 검토할 수 있습니다(Visual Studio에서 **CTRL+F5**).
+4. **서버에 연결** 대화 상자가 표시되면 이 자습서의 앞부분에서 만든 **암호**를 입력하고 **연결** 단추를 누릅니다. 암호가 기억나지 않는 경우 로컬 프로젝트 파일에서 찾을 수 있습니다. **솔루션 탐색기**에서 *Properties* 폴더와 *PublishProfiles* 폴더를 차례로 확장합니다. *contactmanager.pubxml* 파일(사용자의 파일 이름은 다를 수 있음)을 엽니다. 파일에서 게시 암호를 검색합니다.
 
-4. **서버에 연결** 대화 상자가 표시되면 이 자습서의 앞부분에서 만든 **암호**를 입력하고 **연결** 단추를 누릅니다.
-
-	>[AZURE.NOTE]**솔루션 탐색기***속성**PublishProfiles**contactmanager.pubxml*
 5. **contactDB** 데이터베이스를 확장한 다음 **Tables**를 확장합니다.
 6. **dbo.AspNetUsers** 테이블을 마우스 오른쪽 단추로 클릭하고 **데이터 보기**를 선택합니다. ![데이터 메뉴 항목 보기](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms34.png) canEditUser@contoso.com 사용자와 연결된 데이터를 볼 수 있습니다. ![ContactManager 창](./media/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/SecureWebForms35.png)  
 
@@ -701,4 +697,4 @@ ASP.NET Web Forms에 대해 자세한 내용은 ASP.NET 웹 앱 및 [Microsoft A
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
+   ms.date="07/06/2015"
    ms.author="telmosampaio"/>
 
 # 가상 네트워크 만들기
@@ -48,15 +48,8 @@
 
 
 ## 다음 단계
--  [가상 네트워크 기술 개요](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
+-  Azure의 [가상 네트워크](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)에 대해 자세히 알아봅니다. 
 
--  [가상 네트워크에 가상 컴퓨터 추가](virtual-machines-create-custom)
+-  가상 네트워크에 [가상 컴퓨터 추가](../virtual-machines/virtual-machines-create-custom.md)
 
--  [가상 네트워크 FAQ](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
-
--  [네트워크 구성 파일을 사용하여 가상 네트워크 구성](virtual-networks-using-network-configuration-file)
-
--  [Azure 이름 확인 개요](http://go.microsoft.com/fwlink/?LinkId=248097)
- 
-
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -420,4 +420,4 @@ SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으�
   [sendgrid-php 라이브러리]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Composer]: https://getcomposer.org/download/
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

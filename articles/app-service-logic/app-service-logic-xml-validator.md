@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="03/20/2015"
+   ms.date="07/01/2015"
    ms.author="rajram"/>
 
 # BizTalk XML 유효성 검사기
@@ -75,4 +75,4 @@ Xml 유효성 검사는 미리 구성된 스키마에 대해 지정된 xml 입�
 [6]: ./media/app-service-logic-xml-validator/img1.PNG
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

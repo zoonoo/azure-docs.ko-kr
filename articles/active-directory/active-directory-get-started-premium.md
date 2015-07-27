@@ -4,7 +4,6 @@
 	services="active-directory" 
 	documentationCenter="" 
 	authors="Justinha" 
-	writer="Justinha" 
 	manager="TerryLan" 
 	editor="LisaToft"/>
 
@@ -125,4 +124,4 @@ Microsoft 클라우드 서비스의 서비스 및 기능에 대한 가용성은 
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

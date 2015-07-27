@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="04/22/2015" 
+	ms.date="07/07/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -177,8 +177,6 @@
 
 3. **Microsoft Azure에서 기존 사이트 선택**을 클릭합니다.
 
-	![](./media/web-sites-php-mysql-use-webmatrix/webmatrix-publish-existing-site.png)
-
 3. 앞에서 만든 앱 서비스 웹앱을 선택합니다.
 
 	![](./media/web-sites-php-mysql-use-webmatrix/webmatrix-publish-existing-site-choose.png)
@@ -263,4 +261,4 @@
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

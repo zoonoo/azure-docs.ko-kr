@@ -66,4 +66,4 @@
 - [Azure 자동화에서 Runbook 예약](automation-scheduling-a-runbook.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -2,7 +2,6 @@
 	pageTitle="Azure 앱 서비스 및 기존 Azure 서비스에 미치는 영향" 
 	description="새로운 Azure 앱 서비스와 해당 기능이 Azure의 기존 서비스에 미치는 영향을 설명합니다." 
 	authors="yochayk" 
-	writer="yochayk" 
 	editor="yochayk" 
 	manager="nirma" 
 	services="app-service\web" 
@@ -91,4 +90,4 @@
 자세한 내용은 [앱 서비스 설명서](http://azure.microsoft.com/documentation/services/app-service/)를 참조하세요.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

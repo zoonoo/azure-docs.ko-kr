@@ -138,4 +138,4 @@ AAD Connect 또는 Windows PowerShell을 통해 설정할 수 있는 속성을 �
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

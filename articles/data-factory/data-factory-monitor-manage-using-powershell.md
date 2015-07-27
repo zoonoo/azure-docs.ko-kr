@@ -68,7 +68,7 @@
 이 단계에서는 2개의 연결된 서비스 **StorageLinkedService** 및 **AzureSqlLinkedService**를 만듭니다. StorageLinkedService 연결된 서비스는 Azure 저장소 계정을 연결하고, AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리 **ADFTutorialDataFactoryPSH**에 연결합니다. 이 자습서 뒷부분에서는 StorageLinkedService의 Blob 컨테이너에서 AzureSqlLinkedService의 SQL 테이블로 데이터를 복사하는 파이프라인을 만듭니다.
 
 ### Azure 저장소 계정에 대한 연결된 서비스 만들기
-1.	**C:\ADFGetStartedPSH**에 다음과 같은 내용으로 **StorageLinkedService.json**이라는 JSON 파일을 만듭니다. 아직 없는 경우 ADFGetStartedPSH 폴더를 만듭니다.
+1.	**C:\\ADFGetStartedPSH**에 다음과 같은 내용으로 **StorageLinkedService.json**이라는 JSON 파일을 만듭니다. 아직 없는 경우 ADFGetStartedPSH 폴더를 만듭니다.
 
 		{
 		    "name": "StorageLinkedService",
@@ -133,7 +133,7 @@
 * **AzureSqlLinkedService**가 가리키는 Azure SQL 데이터베이스에 **emp**라는 테이블을 만듭니다.
 
 
-1. 메모장을 시작하고 다음 텍스트를 붙여넣은 다음 **emp.txt**로 하드 드라이브의 **C:\ADFGetStartedPSH** 폴더에 저장합니다. 
+1. 메모장을 시작하고 다음 텍스트를 붙여넣은 다음 **emp.txt**로 하드 드라이브의 **C:\\ADFGetStartedPSH** 폴더에 저장합니다. 
 
         John, Doe
 		Jane, Doe
@@ -161,7 +161,7 @@
 ### 입력 테이블 만들기 
 테이블은 사각형 데이터 집합이고 스키마가 있습니다. 이 단계에서는 **StorageLinkedService** 연결된 서비스가 나타내는 Azure 저장소의 Blob 컨테이너를 가리키는 **EmpBlobTable**이라는 테이블을 만듭니다. 이 Blob 컨테이너(**adftutorial * *)는 **emp.txt** 파일에 입력 데이터를 포함합니다.
 
-1.	**C:\ADFGetStartedPSH** 폴더에 다음과 같은 내용으로 **EmpBlobTable.json**이라는 JSON 파일을 만듭니다.
+1.	**C:\\ADFGetStartedPSH** 폴더에 다음과 같은 내용으로 **EmpBlobTable.json**이라는 JSON 파일을 만듭니다.
 
 		{
 	    	"name": "EmpTableFromBlob",
@@ -226,7 +226,7 @@
 ### 출력 테이블 만들기
 이 단계에서는 **AzureSqlLinkedService** 연결된 서비스가 나타내는 Azure SQL 데이터베이스의 SQL 테이블(**emp**)을 가리키는 **EmpSQLTable**이라는 출력 테이블을 만듭니다. 파이프라인은 입력 Blob에서 **emp** 테이블로 데이터를 복사합니다.
 
-1.	**C:\ADFGetStartedPSH** 폴더에 다음과 같은 내용으로 **EmpSQLTable.json**이라는 JSON 파일을 만듭니다.
+1.	**C:\\ADFGetStartedPSH** 폴더에 다음과 같은 내용으로 **EmpSQLTable.json**이라는 JSON 파일을 만듭니다.
 		
 		{
 		    "name": "EmpSQLTable",
@@ -267,7 +267,7 @@
 ## <a name="CreateAndRunAPipeline"></a>4단계: 파이프라인 만들기 및 실행
 이 단계에서는 **EmpTableFromBlob**을 입력으로 사용하고 **EmpSQLTable**을 출력으로 사용하는 **복사 작업**을 포함하는 파이프라인을 만듭니다.
 
-1.	**C:\ADFGetStartedPSH** 폴더에 다음과 같은 내용으로 **ADFTutorialPipeline.json**이라는 JSON 파일을 만듭니다. 
+1.	**C:\\ADFGetStartedPSH** 폴더에 다음과 같은 내용으로 **ADFTutorialPipeline.json**이라는 JSON 파일을 만듭니다. 
 
 		{
 		    "name": "ADFTutorialPipeline",
@@ -428,4 +428,4 @@
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

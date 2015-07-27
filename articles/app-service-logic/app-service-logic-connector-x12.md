@@ -72,8 +72,8 @@ X12 커넥터는 트리거 또는 작업으로 사용할 수 있습니다.
 		<th>매개 변수에 대한 설명</th>
 	</tr>
 	<tr>
-		<td>콘텐츠</td>
-		<td>문자열</td>
+		<td>Content</td>
+		<td>string</td>
 		<td>XML 메시지</td>
 	</tr>
 	<tr>
@@ -109,4 +109,4 @@ X12 커넥터는 트리거 또는 작업으로 사용할 수 있습니다.
 [10]: ./media/app-service-logic-connector-x12/EncodeConfigured.PNG
 [11]: ./media/app-service-logic-connector-x12/TriggerSettings.PNG
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

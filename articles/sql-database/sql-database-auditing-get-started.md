@@ -182,4 +182,4 @@ Azure 리소스 관리자 모드에서 `Get-Command *AzureSql*`을 실행하여 
 
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

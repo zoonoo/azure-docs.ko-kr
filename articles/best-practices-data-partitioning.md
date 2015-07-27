@@ -477,4 +477,4 @@ _그림 10. 고객 주문 및 세부 정보를 기록하기 위해 제안된 Red
 - Microsoft 웹 사이트의 [Azure의 CentOS Linux VM에서 Redis 실행](http://blogs.msdn.com/b/tconte/archive/2012/06/08/running-redis-on-a-centos-linux-vm-in-windows-azure.aspx) 페이지에서는 Azure VM으로 실행되는 Redis 노드를 빌드 및 구성하는 방법을 보여주는 예를 사용하여 안내합니다.
 - Redis 웹 사이트의 [데이터 형식](http://redis.io/topics/data-types) 페이지에서는 Redis 및 Azure Redis Cache에 사용할 수 있는 데이터 형식을 설명합니다.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

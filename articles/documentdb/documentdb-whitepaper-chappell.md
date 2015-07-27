@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="David Chappell의 DocumentDB 백서 | Azure" 
+	pageTitle="DocumentDB 소개 - Microsoft Azure용 NoSQL 데이터베이스 | Azure" 
 	description="David Chappell이 Azure에서 관리되는 NoSQL 데이터베이스인 DocumentDB에 대해 설명하는 백서를 다운로드합니다." 
 	services="documentdb" 
 	documentationCenter="" 
-	authors="adlevin" 
+	authors="mimig1" 
 	manager="jhubbard" 
 	editor=""/>
 
@@ -13,27 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/10/2015" 
-	ms.author="adlevin"/>
+	ms.date="05/13/2015" 
+	ms.author="mimig"/>
 
-# David Chappell의 DocumentDB 백서 
+# DocumentDB 소개 - Microsoft Azure용 NoSQL 데이터베이스 
 
-**요약:** Microsoft Azure의 관리되는 NoSQL 데이터베이스인 DocumentDB에 대해 알아봅니다. DocumentDB는 다음과 같은 경우에 적합한 데이터베이스 기술 선택 사항입니다.
+DocumentDB가 응용 프로그램 또는 데이터에 적합한지 잘 모르십니까? JSON 데이터가 DocumentDB에 저장되고 액세스되는 방법에 대해 알아 보시겠습니까? 그렇다면 David chappell이 작성한 이 소개 백서는 시작할 때 참조하기 좋습니다. 데이터 구조의 변경 내용을 손 쉽게 처리할 수 있도록 스키마 무료 JSON 데이터가 제공하는 유연성을 어떻게 활용할 수 있는지 설명합니다.
 
-* 응용 프로그램에서 스키마가 없는 데이터 모델을 사용하는 것이 유리한 경우
-* 많은 저장소와 처리량을 수용할 수 있도록 데이터베이스의 크기를 조정해야 하는 경우
-* 친숙한 쿼리 언어와 개발 플랫폼을 사용하려는 경우
+또한 백서에서 다루는 내용은 다음과 같습니다.
 
-또한 이 백서에서는 다음과 같은 기본 개념에 대해서도 다룹니다.
+ - DocumentDB 데이터 모델을 사용하여 데이터베이스 내의 문서 및 컬렉션에서 JSON 데이터를 저장합니다. 
+ - 클라이언트 라이브러리, RESTful 액세스 방법 또는 DocumentDB SQL을 사용하여 데이터로 작업합니다. 
+ - 저장된 프로시저(sprocs), 트리거 또는 사용자 정의 함수(UDF)를 작성하고 컬렉션에 저장하여 데이터베이스 자체에서 논리를 실행합니다.
+ - 일관성 옵션을 선택하여 응용 프로그램의 안정성과 성능 요구 사항에 맞춥니다.
+ - 처리량 요구 사항에 따라 가격 책정 옵션을 선택합니다.
 
-* DocumentDB 데이터 모델
-* 응용 프로그램에서 데이터를 사용하는 방식
-* 응용 프로그램에서 성능과 일관성 간의 균형을 조정하기 위한 옵션
+**PDF다운로드:** [ DocumentDB 소개 - Microsoft Azure용 NoSQL 데이터베이스](http://go.microsoft.com/fwlink/?LinkId=511318)
+ 
 
-
-**게시 날짜:** 2014년 9월 10일
-
-**다운로드:** [DocumentDB 소개 - Microsoft Azure용 NoSQL 데이터베이스](http://go.microsoft.com/fwlink/?LinkId=511318)(영문)
-
-
-<!--HONumber=49--> 
+<!---HONumber=July15_HO3-->

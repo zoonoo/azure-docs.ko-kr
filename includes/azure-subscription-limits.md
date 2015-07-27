@@ -65,7 +65,7 @@
    <td valign="middle"><p>256</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p>구독당 지역별 <a href="http://azure.microsoft.com/services/batch/">배치 미리 보기</a> 계정</p></td>
+   <td valign="middle"><p>구독당 지역별 <a href="http://azure.microsoft.com/services/batch/">Batch</a> 계정</p></td>
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>50</p></td>
 </tr>
@@ -73,4 +73,4 @@
 
 <sup>1</sup>매우 작은 인스턴스는 부분 코어를 사용하더라도 코어 제한에 대해 하나의 코어로 계산됩니다.
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

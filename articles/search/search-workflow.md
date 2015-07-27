@@ -13,7 +13,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article" 
 	ms.tgt_pltfrm="na"
-	ms.date="04/23/2015"
+	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
 # Azure 검색 개발을 위한 일반적인 워크플로
@@ -22,7 +22,7 @@
 
 다음 섹션에서는 Azure 검색이 응용 프로그램의 검색 요구 사항을 얼마나 잘 충족시키는지 평가하는 데 도움이 되는 초기 프로토타입에 대한 일반적인 워크플로를 자세히 살펴봅니다. 이 문서는 두 부분으로 구성되어 있으며 보다 중대한 응용 프로그램 개발 작업에 영향을 주는 중요한 설계 결정에 대해 다룹니다.
 
-프로토타입 작성을 시작하기 전에 시작 자습서 또는 이 [1시간짜리 심층 분석 프레젠테이션 비디오](http://azure.microsoft.com/documentation/videos/tech-ed-europe-2014-azure-search-deep-dive/) 중 하나를 살펴보는 것이 좋습니다. 시작 자습서는 [.NET](../search-get-started-dotnet/), [Java](../search-get-started-java/), [Node.JS](../search-get-started-nodejs/) 언어로 제공됩니다.
+프로토타입 작성을 시작하기 전에 시작 자습서 또는 이 [1시간짜리 심층 분석 프레젠테이션 비디오](http://azure.microsoft.com/documentation/videos/tech-ed-europe-2014-azure-search-deep-dive/) 중 하나를 살펴보는 것이 좋습니다. 시작 자습서는 [.NET](search-get-started-dotnet.md), [Java](search-get-started-java.md), [Node.JS](search-get-started-nodejs.md) 언어로 제공됩니다.
 
 ##프로토타입 개발
 
@@ -34,7 +34,7 @@
 
 ###1단계: 서비스 프로비전
 
-Azure 검색은 완벽하게 관리되는 온라인 서비스로, Azure 구독을 통해 사용할 수 있습니다. [Azure에 등록한 후](http://azure.microsoft.com/pricing/free-trial/)에는 검색 서비스를 빠르게 추가할 수 있습니다. 검색 서비스를 구독에 추가하는 방법에 대한 지침은 [포털에서 검색 서비스 만들기](../search-create-service-portal/)를 참조하세요.
+Azure 검색은 완벽하게 관리되는 온라인 서비스로, Azure 구독을 통해 사용할 수 있습니다. [Azure에 등록한 후](http://azure.microsoft.com/pricing/free-trial/)에는 검색 서비스를 빠르게 추가할 수 있습니다. 검색 서비스를 구독에 추가하는 방법에 대한 지침은 [포털에서 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 두 가지 가격 책정 계층 중에서 선택할 수 있습니다. 소규모 데이터 하위 집합으로 작업해야 하는 caveat를 사용하여 프로토타입을 작성하려면 공유(무료) 서비스를 사용하는 것이 좋습니다. 공유 서비스는 기존 구독자에게 무료(평가판 또는 정식 멤버 자격을 통해)로 빠르게 설치되지만 사용할 수 있는 인덱스 및 문서 수가 3개의 인덱스, 인덱스당 최대 10,000개의 문서 또는 저장소당 총 50MB 중 먼저 도달하는 것으로 제한됩니다.
 
@@ -42,7 +42,7 @@ Azure 검색은 완벽하게 관리되는 온라인 서비스로, Azure 구독�
 
 서비스를 만든 후에는 스키마 정의부터 시작하여 인덱스를 만들 준비가 된 것입니다.
 
-인덱스를 만드는 가장 쉽고 빠른 방법은 포털을 통해 만드는 것입니다. 최소한 각 문서에는 고유 키 및 검색 가능한 데이터가 포함된 최소 하나 이상의 필드가 있어야 합니다. 시작하려면 [포털에서 인덱스 만들기](../search-create-index-portal/)를 참조하세요.
+인덱스를 만드는 가장 쉽고 빠른 방법은 포털을 통해 만드는 것입니다. 최소한 각 문서에는 고유 키 및 검색 가능한 데이터가 포함된 최소 하나 이상의 필드가 있어야 합니다. 시작하려면 [포털에서 인덱스 만들기](search-create-index-portal.md)를 참조하세요.
 
 > [AZURE.NOTE]**Azure 검색 인덱스 살펴보기**
 >
@@ -66,14 +66,14 @@ Azure 검색에서 인덱스를 저장한 후 다음 단계는 문서로 인덱�
 
 ####인덱스에 데이터를 로드하는 방법
 
-한 가지 방법은 인덱서를 사용하는 것입니다. Azure DocumentDB 또는 Azure의 SQL Server 관계형 데이터 원본(특히, Azure SQL 데이터베이스 또는 Azure VM의 SQL Server)의 경우는 [인덱서](https://msdn.microsoft.com/library/dn946891.aspx)를 사용하여 지원되는 데이터 원본에서 문서를 검색할 수 있습니다. 인덱서를 사용하여 문서를 로드하는 코드 샘플은 [.NET](../search-get-started-dotnet/), [Java](../search-get-started-java/), [Node.JS](../search-get-started-nodejs/)의 시작하기 자습서에서 찾을 수 있습니다.
+한 가지 방법은 인덱서를 사용하는 것입니다. Azure DocumentDB 또는 Azure의 SQL Server 관계형 데이터 원본(특히, Azure SQL 데이터베이스 또는 Azure VM의 SQL Server)의 경우는 [인덱서](https://msdn.microsoft.com/library/dn946891.aspx)를 사용하여 지원되는 데이터 원본에서 문서를 검색할 수 있습니다. 인덱서를 사용하여 문서를 로드하는 코드 샘플은 [.NET](search-get-started-dotnet.md), [Java](search-get-started-java.md), [Node.JS](search-get-started-nodejs.md)의 시작하기 자습서에서 찾을 수 있습니다.
 
 두 번째 옵션은 REST API 또는 .NET 라이브러리 중 하나를 사용하여 문서를 로드하는 간단한 프로그램을 작성하는 것입니다.
 
 - [문서 추가, 업데이트 또는 삭제(REST API)](https://msdn.microsoft.com/library/dn798930.aspx)
 - [DocumentOperationsExtensions 클래스](https://msdn.microsoft.com/library/microsoft.azure.search.documentoperationsextensions.aspx)
 
-매우 작은 데이터 집합에서 작업하기 위한 세 번째 옵션은 [Fiddler](../search-fiddler/) 또는 [Chrome Postman](../search-chrome-postman/)을 사용하여 문서를 업로드하는 것입니다.
+매우 작은 데이터 집합에서 작업하기 위한 세 번째 옵션은 [Fiddler](search-fiddler.md) 또는 [Chrome Postman](search-chrome-postman.md)을 사용하여 문서를 업로드하는 것입니다.
 
 가장 쉬운 네 번째 옵션은 솔루션에 포함된 데이터베이스(.mdf)에서 문서를 로드하는 [Adventure Works C# REST API 예제](https://azuresearchadventureworksdemo.codeplex.com/) 또는 솔루션에 포함된 JSON 데이터 파일에서 데이터를 로드하는 [점수 매기기 프로필 C# REST API 예제](https://azuresearchscoringprofiles.codeplex.com/) 중 하나에서 코드를 가져오는 것입니다.
 
@@ -83,7 +83,7 @@ Azure 검색에서 인덱스를 저장한 후 다음 단계는 문서로 인덱�
 
 문서가 인덱스에 로드되면 첫 번째 쿼리를 작성할 수 있습니다.
 
-검색 서비스에서 초기 검색 결과를 가져오는 가장 빠른 방법은 [Fiddler](../search-fiddler/) 또는 [Chrome Postman](../search-chrome-postman/)을 사용하여 응답을 보는 것입니다. 하지만 현실적으로, 읽을 수 있는 형식으로 결과를 보기 위해 간단한 UI 코드를 작성 하려고 할 수 있습니다.
+검색 서비스에서 초기 검색 결과를 가져오는 가장 빠른 방법은 [Fiddler](search-fiddler.md) 또는 [Chrome Postman](search-chrome-postman.md)을 사용하여 응답을 보는 것입니다. 하지만 현실적으로, 읽을 수 있는 형식으로 결과를 보기 위해 간단한 UI 코드를 작성 하려고 할 수 있습니다.
 
 검색 작업용 API에는 다음이 포함됩니다.
 
@@ -100,19 +100,19 @@ Azure 검색에서 쿼리는 매우 간단할 수 있습니다. URI에 `search=*
 
 이제 서비스와 인덱스가 있으므로 검색 환경을 더욱 개선시킬 수 있는 기능을 시험해볼 수 있습니다. 검토해볼 만한 간단한 기능 목록이 다음에 나와 있습니다.
 
-**검색 페이지**에는 종종 결과 집합의 문서 개수가 포함되며 페이지 매김 기능을 사용하여 보다 관리가 용이한 숫자로 결과를 세분화할 수 있습니다. 자세한 내용은 [페이지 매김](../search-pagination-page-layout/)을 참조하세요.
+**검색 페이지**에는 종종 결과 집합의 문서 개수가 포함되며 페이지 매김 기능을 사용하여 보다 관리가 용이한 숫자로 결과를 세분화할 수 있습니다. 자세한 내용은 [페이지 매김](search-pagination-page-layout.md)을 참조하세요.
 
 **searchMode=all**은 Azure 검색에서 NOT 연산자를 평가하는 방법을 변경하는 쿼리 매개 변수입니다. 기본적으로 NOT(-)이 포함된 쿼리는 결과를 좁히기 보다는 확장합니다. 이 매개 변수를 설정하여 연산자 평가 방법을 변경할 수 있습니다. 이 내용은 [문서 검색](https://msdn.microsoft.com/library/dn798927.aspx) 또는 [SearchMode 열거](https://msdn.microsoft.com/library/microsoft.azure.search.models.searchmode.aspx)에 설명되어 있습니다.
 
-**점수 매기기 프로필**은 미리 정의된 조건을 충족하는 항목이 검색 결과에서 더 높은 수준에 표시되도록 검색 점수를 향상시키는 데 사용됩니다. 이 기능을 단계별로 보려면 [점수 매기기 프로필 시작](../search-get-started-scoring-profiles/)을 참조하세요.
+**점수 매기기 프로필**은 미리 정의된 조건을 충족하는 항목이 검색 결과에서 더 높은 수준에 표시되도록 검색 점수를 향상시키는 데 사용됩니다. 이 기능을 단계별로 보려면 [점수 매기기 프로필 시작](search-get-started-scoring-profiles.md)을 참조하세요.
 
 **필터**는 선택에 대한 추가적인 조건을 제공하여 검색 결과를 좁히는 데 사용됩니다. 필터 식은 쿼리 내에 배치됩니다. 자세한 내용은 [문서 검색](https://msdn.microsoft.com/library/dn798927.aspx)을 참조하세요.
 
-**패싯 탐색**은 자기 주도형 필터링에 사용됩니다. Azure 검색은 구조를 빌드하여 반환하며 검색 결과 페이지에서 패싯 탐색 구조를 렌더링하는 것은 코드입니다. 자세한 내용은 [패싯 탐색](../search-faceted-navigation/)을 참조하세요.
+**패싯 탐색**은 자기 주도형 필터링에 사용됩니다. Azure 검색은 구조를 빌드하여 반환하며 검색 결과 페이지에서 패싯 탐색 구조를 렌더링하는 것은 코드입니다. 자세한 내용은 [패싯 탐색](search-faceted-navigation.md)을 참조하세요.
 
 **확인기**는 제안된 검색어를 검색 구문에서 첫 번째 문자의 사용자 입력으로 반환하는 자동 완성 쿼리 또는 사전 입력 제안을 참조합니다. 자세한 내용은 [제안 작업](https://msdn.microsoft.com/library/dn798936.aspx) 또는 [확인기 클래스](https://msdn.microsoft.com/library/microsoft.azure.search.models.suggester.aspx)를 참조하세요.
 
-**언어 분석기**는 텍스트 분석 중에 사용되는 언어 규칙을 제공합니다. Azure 검색용 기본 언어 분석기는 Lucene 영어이지만 다른 분석기 또는 여러 분석기를 인덱스에 지정하여 사용할 수도 있습니다. Lucene 분석기는 모든 API에서 사용할 수 있습니다. Microsoft 자연어 프로세서는 [2015-02-28-미리 보기 REST API](../search-api-2015-02-28-preview/)에서만 사용할 수 있습니다. 자세한 내용은 [언어 지원](https://msdn.microsoft.com/library/dn879793.aspx)을 참조하세요.
+**언어 분석기**는 텍스트 분석 중에 사용되는 언어 규칙을 제공합니다. Azure 검색용 기본 언어 분석기는 Lucene 영어이지만 다른 분석기 또는 여러 분석기를 인덱스에 지정하여 사용할 수도 있습니다. Lucene 분석기는 모든 API에서 사용할 수 있습니다. Microsoft 자연어 프로세서는 [2015-02-28-미리 보기 REST API](search-api-2015-02-28-preview.md)에서만 사용할 수 있습니다. 자세한 내용은 [언어 지원](https://msdn.microsoft.com/library/dn879793.aspx)을 참조하세요.
 
 ###6단계: 인덱스 및 문서 업데이트
 
@@ -144,7 +144,7 @@ Azure 검색에서는 두 가지 프로그래밍 모델을 제공하는데, 하�
 - [moreLikeThis 기능 - 미리 보기 전용](../search-api-2015-02-28-preview/)
 - [관리 API](https://msdn.microsoft.com/library/dn832684.aspx)
 
-변경된 기능 상태를 모니터링하려면 [새로운 기능](../search-latest-updates/) 문서를 정기적으로 확인합니다.
+변경된 기능 상태를 모니터링하려면 [새로운 기능](search-latest-updates.md) 문서를 정기적으로 확인합니다.
 
 ###데이터 동기화 방법 결정: 푸시 또는 풀(Pull)
 
@@ -191,4 +191,4 @@ Azure 검색에서 주목할 만한 기능 중 하나는 요구에 따라 쉽게
 [1]: ./media/search-workflow/AzSearch-Workflow.png
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

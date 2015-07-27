@@ -35,11 +35,11 @@
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
-## 새 범용 Windows 앱 만들기
+## 새 유니버설 Windows 앱 만들기
 
 모바일 서비스를 만든 후 관리 포털에서 쉬운 빠른 시작을 따라 모바일 서비스에 연결할 새 앱을 만들거나 기존 앱을 수정할 수 있습니다.
 
-이 섹션에서는 모바일 서비스에 연결된 새 범용 Windows 앱을 만듭니다.
+이 섹션에서는 모바일 서비스에 연결된 새 유니버설 Windows 앱을 만듭니다.
 
 1. 관리 포털에서 **모바일 서비스**를 클릭한 후 방금 만든 모바일 서비스를 클릭합니다.
 
@@ -121,4 +121,4 @@
 [Get started with data in Mobile Services using Visual Studio 2012]: ../mobile-services-windows-store-dotnet-get-started-data-vs2012.md
  
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

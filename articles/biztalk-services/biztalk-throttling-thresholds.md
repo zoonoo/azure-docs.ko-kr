@@ -88,4 +88,4 @@ Azure BizTalk 서비스가 제한 상태에 들어가면 다음과 같은 상황
 - [BizTalk 서비스: 발급자 이름 및 발급자 키](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->

@@ -63,4 +63,4 @@ Azure 클라우드 서비스가 아닌 응용프로그램을 작성하는 경우
 
 [Configuring Connection Strings]: http://msdn.microsoft.com/library/azure/ee758697.aspx
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO3-->

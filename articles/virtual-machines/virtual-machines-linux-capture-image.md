@@ -3,7 +3,7 @@
 	description="Linux를 실행하는 Azure VM(가상 컴퓨터)의 이미지를 캡처하는 방법에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="dsk-2015"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/11/2015" 
-	ms.author="kathydav"/>
+	ms.date="06/11/2015"
+	ms.author="dkshir"/>
 
 
 # Linux 가상 컴퓨터를 캡처하여 템플릿으로 사용하는 방법##
@@ -88,6 +88,4 @@ Azure에서는 이 템플릿이 이미지로 취급되고 **내 이미지**에 �
 [사용자 지정 가상 컴퓨터를 만드는 방법]: virtual-machines-create-custom.md
 [가상 컴퓨터에 데이터 디스크를 연결하는 방법]: storage-windows-attach-disk.md
 
- 
-
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

@@ -37,7 +37,7 @@ PHP 웹 또는 작업자 역할을 만드는 첫 번째 단계는 Azure 서비�
 
 새 Azure 서비스 프로젝트를 만들려면 관리자로 Azure PowerShell을 실행하고 다음 명령을 실행합니다.
 
-	PS C:\>New-AzureServiceProject myProject
+	PS C:>New-AzureServiceProject myProject
 
 이 명령은 웹 및 작업자 역할을 추가할 수 있는 새 디렉터리(`myProject`)를 만듭니다.
 
@@ -212,4 +212,4 @@ Azure 계산 및 저장소 에뮬레이터는 클라우드에 배포하기 전�
 [방법: 게시 설정 가져오기]: /develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
 [방법: Azure에 클라우드 서비스 배포]: /develop/php/how-to-guides/powershell-cmdlets/#Deploy
 
-<!---HONumber=July15_HO1-->
+<!---HONumber=July15_HO3-->

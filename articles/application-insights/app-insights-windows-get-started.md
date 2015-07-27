@@ -35,7 +35,7 @@ Visual Studio Application Insights를 사용하면 다음을 위해 게시된 �
 * [Microsoft Azure][azure] 구독.
 * Visual Studio 2013 이상.
 
-## 1. Application Insights 리소스 만들기 
+## 1\. Application Insights 리소스 만들기 
 
 [Azure 포털][portal]에서 새 Application Insights 리소스를 만듭니다.
 
@@ -50,7 +50,7 @@ Azure에서 [리소스][roles]는 서비스의 인스턴스입니다. 이 리소
 ![필수 항목 드롭다운 서랍을 열고 계측 키를 선택합니다.](./media/app-insights-windows-get-started/02-props.png)
 
 
-## 2. 앱에 Application Insights SDK 추가
+## 2\. 앱에 Application Insights SDK 추가
 
 Visual Studio에서 프로젝트에 적합한 SDK를 추가합니다.
 
@@ -64,13 +64,33 @@ Windows 유니버설 앱인 경우 Windows Phone 및 Windows 프로젝트 모두
 
     ![](./media/app-insights-windows-get-started/04-ai-nuget.png)
 
-3. **.NET Windows 응용 프로그램용 Application Insights**를 선택합니다.
+3. **Windows 응용 프로그램용 Application Insights**을 선택합니다.
 
-4. ApplicationInsights.config(NuGet 설치로 추가됨)를 편집합니다. 닫는 태그 바로 전에 삽입합니다.
+4. ApplicationInsights.config 파일을 솔루션의 루트에 추가하고 위에서 복사한 계측 키를 삽입합니다. 이 구성파일에 대한 샘플 xml는 아래와 같습니다. **ApplicationInsights.config 파일 빌드 작업을 “콘텐츠”에 표시 및 출력 디렉터리에 “항상 복사”로 복사해야 하는 것을 확인하세요.**
 
-    `<InstrumentationKey>`*the key you copied*`</InstrumentationKey>`
+	```xml
+		<?xml version="1.0" encoding="utf-8" ?>
+		<ApplicationInsights>
+			<InstrumentationKey>YOUR COPIED KEY FROM ABOVE</InstrumentationKey>
+		</ApplicationInsights>
+	```
+	
+	![](./media/app-insights-windows-get-started/AIConfigFileSettings.png)
 
-**Windows 유니버설 앱**: Phone 및 스토어 프로젝트 모두에 대해 단계를 반복합니다.
+5. 다음 초기화 코드를 추가 합니다. 이 코드를 `App()` 생성자에 추가하는 것을 권장합니다. 앱 생성자에서 이 초기화를 수행 하지 않으면 pageviews의 intiial 자동 컬렉션을 놓칠 수 있습니다.
+
+```C#
+	public App()
+	{
+	   // Add this initilization line. 
+	   WindowsAppInitializer.InitializeAsync();
+	
+	   this.InitializeComponent();
+	   this.Suspending += OnSuspending;
+	}  
+```
+
+**Windows 유니버설 앱**: Phone 및 스토어 프로젝트 모두에 대해 단계를 반복합니다. [Windows 8.1 유니버설 앱의 예](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/Windows%208.1%20Universal).
 
 ## <a name="network"></a>3. 앱에 대한 네트워크 액세스 설정
 
@@ -85,6 +105,7 @@ Visual Studio에 수신된 이벤트의 수가 표시됩니다.
 ![](./media/app-insights-windows-get-started/appinsights-09eventcount.png)
 
 디버그 모드에서 원격 분석은 생성되는 즉시 보내집니다. 릴리스 모드에서 원격 분석은 장치에 저장되며 앱이 다시 시작하는 경우에만 보내집니다.
+
 
 ## <a name="monitor"></a>5. 모니터 데이터 보기
 
@@ -105,6 +126,44 @@ Visual Studio에 수신된 이벤트의 수가 표시됩니다.
 ## <a name="deploy"></a>5. 스토어에 응용 프로그램 게시
 
 [응용 프로그램을 게시](http://dev.windows.com/publish)하고 사용자가 다운로드하고 사용함에 따른 데이터 누적을 관찰합니다.
+
+## 원격 분석을 사용자 지정
+
+#### 수집기를 선택합니다.
+
+Application Insights SDK는 앱의 서로 다른 유형의 데이터를 자동으로 수집하는 여러 수집기를 포함합니다. 기본적으로, 모두 활성화되어있습니다. 하지만 앱 생성자에서 초기화에 사용할 수집기를 선택할 수 있습니다.
+
+    WindowsAppInitializer.InitializeAsync( "00000000-0000-0000-0000-000000000000",
+       WindowsCollectors.Metadata
+       | WindowsCollectors.PageView
+       | WindowsCollectors.Session 
+       | WindowsCollectors.UnhandledException);
+
+#### 사용자 고유의 원격 분석 데이터 전송
+
+[API][api]를 사용하여 Application Insights에 이벤트, 메트릭 및 진단 데이터를 보내도록 합니다. 요약하면 다음과 같습니다:
+
+```C#
+
+ var tc = new TelemetryClient(); // Call once per thread
+
+ // Send a user action or goal:
+ tc.TrackEvent("Win Game");
+
+ // Send a metric:
+ tc.TrackMetric("Queue Length", q.Length);
+
+ // Provide properties by which you can filter events:
+ var properties = new Dictionary{"game", game.Name};
+
+ // Provide metrics associated with an event:
+ var measurements = new Dictionary{"score", game.score};
+
+ tc.TrackEvent("Win Game", properties, measurements);
+
+```
+
+자세한 내용은 [사용자 지정 이벤트 및 메트릭][api]을 참조하세요.
 
 ## 다음 작업
 
@@ -168,4 +227,4 @@ Visual Studio를 사용하여 설치 단계를 수행하려면 Windows Phone, Wi
 
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO3-->
