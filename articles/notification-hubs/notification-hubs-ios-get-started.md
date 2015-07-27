@@ -54,7 +54,7 @@
 
 	내보낸 인증서의 파일 이름과 위치를 적어둡니다.
 
-	>[AZURE.NOTE]이 자습서에서는 QuickStart.p12 파일을 만듭니다. Your file name and location might be different.
+	>[AZURE.NOTE]이 자습서에서는 QuickStart.p12 파일을 만듭니다. 파일 이름과 위치가 다를 수 있습니다.
 
 2. [Azure 관리 포털]에 로그온하고 화면 맨 아래에 있는 **+새로 만들기**를 클릭합니다.
 

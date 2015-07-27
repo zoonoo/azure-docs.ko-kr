@@ -64,7 +64,7 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등�
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-create-cert.png)
 
-   	"Add iOS Certificate" assistant가 표시됩니다.
+   	"OS 인증서 추가" assistant가 표시됩니다.
 
     > [AZURE.NOTE]이 자습서에서는 개발 인증서를 사용합니다. 프로덕션 인증서를 등록할 때에도 동일한 프로세스가 사용됩니다. 알림을 보낼 때 동일한 인증서 유형을 사용하는지만 확인하면 됩니다.
 

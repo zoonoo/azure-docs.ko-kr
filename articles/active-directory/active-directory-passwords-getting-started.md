@@ -194,7 +194,8 @@
 암호 쓰기 저장은 Azure AD Connect 또는 **1.0.0419.0911** 이상의 버전이 있는 Azure AD Sync 도구의 릴리스에서 사용 가능합니다. 자동 계정 잠금 해제가 있는 암호 쓰기 저장은 Azure AD Connect 또는 **1.0.0485.0222** 이상의 버전이 있는 Azure AD Sync 도구의 릴리스에서 사용 가능합니다. 이전 버전을 실행하는 경우 진행하기 전에 적어도 이 버전으로 업그레이드합니다. [여기를 클릭하여 최신 버전의 Azure AD Connect를 다운로드합니다](active-directory-aadconnect.md#download-azure-ad-connect).
 
 #### Azure AD Sync의 버전을 확인하려면
-1.	**%ProgramFiles%\\Azure Active Directory Sync**로 이동합니다.2.	**ConfigWizard.exe** 실행 파일을 찾습니다.
+1.	**%ProgramFiles%\Azure Active Directory Sync\**로 이동합니다.
+2.	**ConfigWizard.exe** 실행 파일을 찾습니다.
 3.	실행 파일을 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 **속성** 옵션을 선택합니다.
 4.	**세부 정보** 탭을 클릭합니다.
 5.	**파일 버전** 필드를 찾습니다.
@@ -269,7 +270,9 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
 8.	위쪽의 드롭다운 목록에서 **하위 사용자 개체**를 선택합니다.
 9.	나타나는 **권한 항목** 대화 상자에서, **암호 재설정**, **암호 변경**, `lockoutTime`에서 **쓰기 권한** 및 `pwdLastSet`에서 **쓰기 권한** 상자를 선택합니다.
 
-    ![][026] ![][027] ![][028]
+    ![][026]
+    ![][027]
+    ![][028]
 
 10.	열린 모든 대화 상자를 통해 **적용/확인**을 클릭합니다.
 
@@ -342,4 +345,4 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
 
  
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->

@@ -70,7 +70,7 @@ function insert(item, user, request) {
 [인증 시작]: mobile-services-ios-get-started-users.md
 [푸시 알림 시작]: mobile-services-javascript-backend-ios-get-started-push.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure 관리 포털]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-ios-how-to-use-client-library.md
 
 <!---HONumber=July15_HO2-->

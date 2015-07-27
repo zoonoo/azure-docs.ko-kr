@@ -22,23 +22,26 @@
 
 이 가이드에서는 Azure 호스티드 응용 프로그램에 세계 최고 수준의 New Relic 성능 모니터링을 추가하는 방법에 대해 설명합니다. 응용 프로그램에 New Relic을 빠르고 간단하게 추가하는 프로세스를 다루며 New Relic의 일부 기능을 소개합니다. New Relic을 사용하는 방법에 대한 자세한 내용은 [New Relic 사용](#using-new-relic)을 참조하십시오.
 
-New Relic 정의 --
+New Relic 정의
+--
 
 New Relic은 개발자에 초점을 맞춘 도구로 프로덕션 응용 프로그램을 모니터링하고 성능 및 안정성에 대한 깊은 통찰력을 제공하는 도구입니다. 성능 문제를 확인하고 진단할 때 시간을 절약할 수 있도록 설계되었으며, 성능 문제를 해결하는 데 필요한 정보를 즉시 제공합니다.
 
 New Relic은 서버 및 사용자 브라우저의 웹 트랜잭션에 대한 부하 시간 및 처리량을 추적합니다. 그리고 데이터베이스 사용 시간을 보여 주고, 느린 쿼리 및 웹 요청을 분석하고, 가동 시간 모니터링 및 경고를 제공하고, 응용 프로그램 예외를 추적하는 등의 다양한 기능을 제공합니다.
 
-Azure 스토어에서 제공하는 New Relic의 특별 가격 --
+Azure 스토어에서 제공하는 New Relic의 특별 가격
+--
 
 New Relic Standard는 Azure 사용자에게 무료이며, New Relic Pro는 Azure 클라우드 서비스의 인스턴스 크기에 따라 제공됩니다.
 
 가격 책정 정보는 [Azure 스토어의 New Relic 페이지](http://azure.microsoft.com/marketplace/partners/newrelic/newrelic)(영문)를 참조하십시오.
 
-> [AZURE.NOTE]최대 10개의 계산 인스턴스에 대해서만 가격이 책정됩니다. 인스턴스가 11개 이상인 경우에는 New Relic(sales@newrelic.com)에 볼륨 가격을 문의하십시오.
+> [AZURE.NOTE] 최대 10개의 계산 인스턴스에 대해서만 가격이 책정됩니다. 인스턴스가 11개 이상인 경우에는 New Relic(sales@newrelic.com)에 볼륨 가격을 문의하십시오.
 
 Azure 고객은 New Relic 에이전트를 배포할 때 New Relic Pro에 대해 2주의 평가판 구독을 받습니다.
 
-Azure 스토어를 사용하여 New Relic에 등록 --
+Azure 스토어를 사용하여 New Relic에 등록
+--
 
 New Relic은 Azure 웹 역할 및 작업자 역할과 원활하게 통합됩니다.
 
@@ -173,4 +176,4 @@ Applications Overview 대시보드에는 <a href="https://newrelic.com/docs/site
  * [실제 사용자 모니터링](https://newrelic.com/docs/features/real-user-monitoring): RUM에서 사용자의 브라우저가 웹 페이지를 로드하는 데 걸리는 시간, 사용자의 위치 및 사용하는 브라우저의 종류를 자세히 표시하는 방법에 대한 개요
  * [도움말 찾기](https://newrelic.com/docs/site/finding-help): New Relic의 온라인 도움말 센터를 통해 사용 가능한 리소스
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->

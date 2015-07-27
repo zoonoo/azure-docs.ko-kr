@@ -36,7 +36,8 @@
 
 	Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. 운영 체제 특정 배포 및 설치 지침은 [Git 설치]를 참조하세요.
 
-	> [AZURE.NOTE]일부 운영 체제에서는 Git의 명령줄과 GUI 버전을 둘 다 사용할 수 있습니다. 이 문서에서 제공하는 지침은 명령줄 버전을 사용합니다.
+	> [AZURE.NOTE]
+	> 일부 운영 체제에서는 Git의 명령줄과 GUI 버전을 둘 다 사용할 수 있습니다. 이 문서에서 제공하는 지침은 명령줄 버전을 사용합니다.
 
 2. **GitBash**(Windows) 또는 **Bash**(Unix Shell)와 같은 명령줄을 엽니다. OS X 시스템에서는 **터미널** 응용 프로그램을 통해 명령줄에 액세스할 수 있습니다.
 
@@ -132,9 +133,11 @@
 
 이 자습서를 완료했으므로 이제 원본 제어에 스크립트를 지정하는 방법을 알게 되었습니다. 서버 스크립트 및 사용자 지정 API 작업에 대해 자세히 알아보세요.
 
-+ [모바일 서비스에서 서버 스크립트 작업] <br/>서버 스크립트, 작업 스케줄러 및 사용자 지정 API 작업을 수행하는 방법을 보여 줍니다.
++ [모바일 서비스에서 서버 스크립트 작업]
+	<br/>서버 스크립트, 작업 스케줄러 및 사용자 지정 API 작업을 수행하는 방법을 보여 줍니다.
 
-+ [클라이언트에서 사용자 지정 API 호출] <br/> 클라이언트에서 호출할 수 있는 사용자 지정 API를 만드는 방법을 보여줍니다.
++ [클라이언트에서 사용자 지정 API 호출] 
+	<br/> 클라이언트에서 호출할 수 있는 사용자 지정 API를 만드는 방법을 보여줍니다.
 
 <!-- Anchors. -->
 [Enable source control in your mobile service]: #enable-source-control
@@ -154,7 +157,7 @@
 [모바일 서비스 시작]: mobile-services-ios-get-started.md
 [기존 앱에 모바일 서비스 추가]: mobile-services-ios-get-started-data.md
 [모바일 서비스에서 서버 스크립트 작업]: mobile-services-how-to-use-server-scripts.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure 관리 포털]: https://manage.windowsazure.com/
 [클라이언트에서 사용자 지정 API 호출]: mobile-services-ios-call-custom-api.md
 [모듈]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid

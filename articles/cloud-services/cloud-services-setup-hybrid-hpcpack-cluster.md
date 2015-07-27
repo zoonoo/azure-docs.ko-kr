@@ -58,21 +58,21 @@
 
 2. HPC 팩 설치 파일에서 Setup.exe를 실행하여 HPC Pack Installation Wizard를 시작합니다.
 
-3. **HPC Pack 2012 R2 Setup** 화면에서 **New installation or add new features to an existing installation**을 클릭합니다.
+3. **HPC Pack 2012 R2 Setup** 화면에서 **새로 설치하거나 기존 설치에 새로운 기능을 추가합니다**을 클릭합니다.
 
 	![HPC Pack 2012 설치][install_hpc1]
 
-4. **Microsoft Software User Agreement page**에서 **Next**를 클릭합니다.
+4. **새로 설치하거나 기존 설치에 새로운 기능을 추가합니다**에서 **다음**를 클릭합니다.
 
-5. **Select Installation Type** 페이지에서 **Create a new HPC cluster by creating a head node**를 클릭한 후 **Next**를 클릭합니다.
+5. **설치 유형 선택** 페이지에서 **헤드 노드를 생성하여 새로운 HPC 클러스터를 생성합니다**를 클릭한 후 **다음**를 클릭합니다.
 
 	![설치 유형 선택][install_hpc2]
 
-6. 마법사에서 여러 개의 사전 설치 테스트를 실행합니다. 테스트를 모두 통과한 경우 **Installation Rules** 페이지에서 **Next**를 클릭합니다. 그렇지 않으면 제공된 정보를 검토하고 필요에 따라 환경을 변경합니다. 다시 테스트를 실행하거나 필요한 경우 Installation Wizard를 다시 시작합니다.
+6. 마법사에서 여러 개의 사전 설치 테스트를 실행합니다. 테스트를 모두 통과한 경우 **설치 유형 선택** 페이지에서 **다음**를 클릭합니다. 그렇지 않으면 제공된 정보를 검토하고 필요에 따라 환경을 변경합니다. 다시 테스트를 실행하거나 필요한 경우 Installation Wizard를 다시 시작합니다.
 
 	![설치 규칙][install_hpc3]
 
-7. **HPC DB Configuration** 페이지에서 모든 HPC 데이터베이스에 대해 **Head Node**가 선택되었는지 확인하고 **Next**를 클릭합니다.
+7. **HPC DB Configuration** 페이지에서 모든 HPC 데이터베이스에 대해 **Head Node**가 선택되었는지 확인하고 **다음**를 클릭합니다.
 
 	![DB 구성][install_hpc4]
 
@@ -80,7 +80,7 @@
 
 	![설치][install_hpc6]
 
-9. 설치가 완료되면 **Start HPC Cluster Manager**를 선택 취소하고 **Finish**를 클릭합니다. 이후 단계에서 HPC Cluster Manager를 시작하여 헤드 노드 구성을 완료할 것입니다.
+9. 설치가 완료되면 **HPC 클러스터 관리자 시작**를 선택 취소하고 **완료**를 클릭합니다. 이후 단계에서 HPC Cluster Manager를 시작하여 헤드 노드 구성을 완료할 것입니다.
 
 	![마침][install_hpc7]
 
@@ -106,7 +106,7 @@ HPC 팩은 Azure 관리 인증서로 업로드할 수 있는 자체 서명된 �
 
 	![인증서 설정][upload_cert1]
 
-4. 헤드 노드에서 C:\\Program Files\\Microsoft HPC Pack 2012\\Bin\\hpccert.cer 파일을 찾은 다음 **선택 단추**를 클릭합니다.
+4. 헤드 노드에서 C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer 파일을 찾은 다음 **선택 단추**를 클릭합니다.
 
 	![인증서 업로드][install_hpc10]
 
@@ -152,7 +152,7 @@ HPC Cluster Manager를 사용하여 Azure 노드를 배포하고 작업을 제�
 
 4. 마법사의 나머지 페이지에서 **Next**를 클릭하여 기본값을 적용합니다. **Review** 탭에서 **Configure**를 클릭하여 네트워크 구성을 완료합니다.
 
-5. **Deployment To-do List**에서 **Provide installation credentials**를 클릭합니다.
+5. **Deployment To-do List**에서 **설치 자격 증명을 제공합니다**를 클릭합니다.
 
 6. **Installation Credentials** 대화 상자에서 HPC 팩을 설치하는 데 사용한 도메인 계정의 자격 증명을 입력합니다. 그런 후 **OK**를 클릭합니다.
 
@@ -168,7 +168,7 @@ HPC Cluster Manager를 사용하여 Azure 노드를 배포하고 작업을 제�
 
 	>[AZURE.NOTE]이 이름 지정 시리즈는 도메인에 가입된 계산 노드의 이름만 생성합니다. Azure 노드의 이름은 자동으로 지정됩니다.
 
-9. **Deployment To-do List**에서 **Create a node template**을 클릭합니다. 노드 템플릿을 사용하여 클러스터에 Azure 노드를 추가합니다.
+9. **Deployment To-do List**에서 **노드 템플릿을 생성합니다**을 클릭합니다. 노드 템플릿을 사용하여 클러스터에 Azure 노드를 추가합니다.
 
 10. Create Node Template Wizard에서 다음을 수행합니다.
 
@@ -210,7 +210,7 @@ HPC Cluster Manager를 사용하여 Azure 노드를 배포하고 작업을 제�
 
 	사용 가능한 가상 컴퓨터 크기에 대한 자세한 내용은 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](https://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하십시오.
 
-4. **Completing the Add Node Wizard** 페이지에서 **Finish**를 클릭합니다.
+4. **Completing the Add Node Wizard** 페이지에서 **완료**를 클릭합니다.
 
 	 이제 **AzureCN-0001** 및 **AzureCN-0002**라는 Azure 노드 2개가 HPC Cluster Manager에 표시됩니다. 둘 다 **Not-Deployed** 상태입니다.
 
@@ -347,4 +347,4 @@ HPC 팩 **clusrun** 명령을 사용하여 하나 이상의 클러스터 노드�
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->

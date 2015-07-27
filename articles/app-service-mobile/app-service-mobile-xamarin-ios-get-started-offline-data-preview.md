@@ -85,9 +85,9 @@
 
     이 예제에서는 원격 `TodoItem` 테이블에 있는 모든 레코드를 검색하지만 쿼리를 전달하여 레코드를 필터링할 수도 있습니다. `PullAsync()`의 첫 번째 매개 변수는 증분 동기화에 사용되는 쿼리 ID이며, `UpdatedAt` 타임스탬프를 사용하여 마지막 동기화 이후에 수정된 레코드만 가져옵니다. 쿼리 ID는 앱의 각 논리 쿼리에 고유한 설명 문자열이어야 합니다. 증분 동기화를 옵트아웃하려면 `null`을(를) 쿼리 ID로 전달합니다. 그러면 각 끌어오기 작업에서 모든 레코드를 검색하므로 비효율적일 수 있습니다.
 
-<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `IMobileServiceSyncTable.PurgeAsync()` to purge the local store.
+<!--     >[AZURE.NOTE] 모바일 서비스 데이터베이스에서 삭제한 레코드를 해당 장치의 로컬 저장소에서 삭제하려면 [소프트 삭제]를 활성화해야 합니다. 그렇지 않은 경우 해당 응용프로그램은 정기적으로 `IMobileServiceSyncTable.PurgeAsync()` 를 호출해야만 해당 로컬 저장소를 삭제할 수 있습니다.
 
-    Note that the `MobileServicePushFailedException` can occur for both a push and a pull operation. The next tutorial, [Handling conflicts with offline support for Mobile Services], shows how to handle these sync related exceptions.
+    푸시와 풀 작업 모두에서 'MobileServicePushFailedException` 이 발생할 수 있습니다. 다음 [모바일 서비스를 위한 오프라인 지원과 관련된 충돌 처리 방법] 자습서에는 예외와 관련된 이러한 동기화를 처리하는 방법이 나와 있습니다.
 -->
 
 5. `QSTodoService` 클래스에서 `SyncAsync()` 메서드는 데이터, `InsertTodoItemAsync()` 및 `CompleteItemAsync`을 수정하는 작업 뒤에 호출됩니다. 사용자가 새로 고침 제스처를 수행할 때마다 최신 데이터를 가져오도록 `RefreshDataAsync()`에서도 호출됩니다. `QSTodoListViewController.ViewDidLoad()`이(가) `RefreshDataAsync()`을(를) 호출하므로 앱이 시작될 때도 동기화를 수행합니다.
@@ -166,4 +166,4 @@
 [Xamarin 확장]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->
