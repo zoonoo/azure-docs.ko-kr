@@ -2,7 +2,6 @@
     pageTitle="VNET RemoteApp에서 Azure VNET으로 마이그레이션하는 방법"
     description="VNET RemoteApp에서 Azure VNET으로 마이그레이션하는 방법을 알아봅니다." 
     services="remoteapp" 
-    solutions="" 
 	documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
@@ -13,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/23/2015" 
+    ms.date="05/28/2015" 
     ms.author="elizapo" />
 
 
@@ -26,8 +25,8 @@
 *OriginalCollection*이라는 하이브리드 RemoteApp 컬렉션과 *RemoteAppVNET*이라는 RemoteApp VNET을 이미 만들었다고 가정합니다. 이 컬렉션을 *AzureVNET*이라는 새 Azure VNET에 마이그레이션하는 단계는 다음과 같습니다.
 
 1.	[관리 포털](http://manage.windowsazure.com/)의 **네트워크** 탭에서, *AzureVNET* 서브넷 중 하나 이상에 대해 *RemoteAppVNET*에 사용한 것과 동일한 위치, DNS 구성 및 주소 공간을 사용하여 *AzureVNET*이라는 VNET을 만듭니다.
-2.	*OriginalCollection*  도메인에 가입된 Active Directory 배포에 대한 네트워크 연결을 설정하거나 호스트하도록 *AzureVNET*을 구성합니다.
-3.	**RemoteApps** 탭에서 *New Collection*이라는 새 RemoteApp 컬렉션을 만듭니다. 이때 **빠른 생성** 대신 **VPN으로 만들기** 옵션을 사용합니다.
+2.	*OriginalCollection* 도메인에 가입된 Active Directory 배포에 대한 네트워크 연결을 설정하거나 호스트하도록 *AzureVNET*을 구성합니다.
+3.	**RemoteApps** 탭에서 *New Collection*이라는 새 RemoteApp 컬렉션을 만듭니다. 이때 **빠른 생성** 대신 **VNET으로 만들기** 옵션을 사용합니다.
 3.	*AzureVNET*의 서브넷에 배포하도록 *NewCollection*을 구성합니다.
 4.	*OriginalCollection*에 사용된 것과 동일한 이미지와 도메인 가입 정보를 사용하도록 *NewCollection*을 구성합니다.
 5.	몇 시간 후 *NewCollection*이 컬렉션 목록에 활성 상태로 표시됩니다.
@@ -49,6 +48,6 @@
 완료되었습니다!
 
 궁금한 사항이 있거나 특별한 지원이 필요한 경우 [remoteappforum@microsoft.com](mailto:remoteappforum@microsoft.com?subject=Azure%20RemoteApp%20VNET%20migration%20help)으로 메일을 보내세요.
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

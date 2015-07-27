@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Hive의 정의 및 HiveQL을 사용하는 방법을 알아봅니다 | Microsoft Azure"
-	description="Apache Hive 정보 및 HDInsight에서 Hadoop와 Apache Hive를 사용하는 방법을 알아봅니다. Apache log4j 샘플 파일을 분석하기 위해 Hive 작업을 어떻게 실행할지 선택하고 HiveQL을 사용합니다." 
-	keywords="hiveql,what is hive"
+	description="Apache Hive 정보 및 HDInsight에서 Hadoop와 Apache Hive를 사용하는 방법을 알아봅니다. Hive 작업을 실행하고 HiveQL을 사용하여 Apache log4j 샘플 파일을 분석하는 방법을 선택합니다."
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="04/23/2015"
+	ms.date="07/06/2015"
 	ms.author="larryfr"/>
 
 # 샘플 Apache log4j 파일 분석을 위해 HDInsight에서 Hadoop와 함께 Hive 및 HiveQL 사용
@@ -24,14 +23,14 @@
 
 이 자습서에서는 HDInsight에서 Hadoop의 Apache Hive를 사용하는 방법을 알아보고 Hive 작업을 실행하는 방법을 선택합니다. 또한 HiveQL 및 샘플 Apache log4j 파일을 분석 하는 방법에 대해 알아봅니다.
 
-##<a id="why"></a>Hive의 정의 및 사용하는 이유 
+##<a id="why"></a>Hive의 정의 및 사용하는 이유
 [Apache Hive](http://hive.apache.org/)는 HiveQL를 사용하여 데이터 요약, 쿼리 및 분석을 수행할 수 있는 Hadoop용 데이터 웨어하우스 시스템입니다.(SQL과 유사한 쿼리 언어) 쌍방향으로 데이터를 검토하거나 다시 사용할 수 있는 일괄 처리 작업을 만드는 데 하이브를 사용할 수 있습니다.
 
 Hive를 사용하면 크게 구조가 없는 데이터에 구조를 투영할 수 있습니다. 구조를 정의한 후에 Java 또는 MapReduce 지식 없이 해당 데이터를 쿼리할 때에 하이브를 사용할 수 있습니다. **HiveQL**(Hive 쿼리 언어)을 사용하여 T-SQL과 같은 문이 포함된 쿼리를 작성할 수 있습니다.
 
-Hive를 사용하면 특정 문자로 구분되는 필드에 위치한 텍스트 파일과 같은 구조화 및 반구조화된 데이터로 작업하는 방법을 이해합니다. 또한 Hive는 복잡하거나 불규칙하게 구조화된 데이터에 대한 사용자 지정을 **serializer/deserializers(SerDe)** 지원합니다. 자세한 내용은 [HDInsight와  JSON SerDe의 사용자 지정 사용 방법](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx)을 참조하십시오.
+Hive를 사용하면 특정 문자로 구분되는 필드에 위치한 텍스트 파일과 같은 구조화 및 반구조화된 데이터로 작업하는 방법을 이해합니다. 또한 Hive는 복잡하거나 불규칙하게 구조화된 데이터에 대한 사용자 지정을 **serializer/deserializers(SerDe)** 지원합니다. 자세한 내용은 [HDInsight와 JSON SerDe의 사용자 지정 사용 방법](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx)을 참조하세요.
 
-Hive는 **사용자 정의 함수(UDF)**를 통해 확장 될 수도 있습니다. UDF를 사용하면 HiveQL에서 쉽게 모델링할 수 있는 기능 또는 논리를 구현할 수 있습니다. Hive와 UDF를 사용하는 예로, 다음을 참조하십시오:
+Hive는 **사용자 정의 함수(UDF)**를 통해 확장 될 수도 있습니다. UDF를 사용하면 HiveQL에서 쉽게 모델링할 수 있는 기능 또는 논리를 구현할 수 있습니다. Hive와 UDF를 사용하는 예로, 다음을 참조하세요:
 
 * [HDInsight에서 Hive 및 Pig와 함께 Python 사용](hdinsight-python.md)
 
@@ -41,7 +40,7 @@ Hive는 **사용자 정의 함수(UDF)**를 통해 확장 될 수도 있습니�
 
 ##<a id="data"></a>Apache log4j 파일인 샘플 데이터 정보
 
-해당 예제는 사용자의 blob 저장 컨테이너의 **/example/data/sample.log**에 저장된 *log4j* 샘플 파일을 사용합니다. 파일 내부의 각 로그는 유형과 심각도를 표시하는 `[LOG LEVEL]`  필드가 포함된 필드의 줄로 구성되어 있습니다. 예를 들어:
+해당 예제는 사용자의 blob 저장 컨테이너의 **/example/data/sample.log**에 저장된 *log4j* 샘플 파일을 사용합니다. 파일 내부의 각 로그는 유형과 심각도를 표시하는 `[LOG LEVEL]` 필드가 포함된 필드의 줄로 구성되어 있습니다. 예를 들어:
 
 	2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
 
@@ -90,7 +89,7 @@ Azure Blob 저장소가 HDInsight의 기본 저장소이므로 HiveQL의 **/exam
 
 * **CREATE TABLE IF NOT EXISTS**: 테이블이 아직 없는 경우 테이블을 만듭니다. **EXTERNAL** 키워드가 사용되지 않으면 Hive 데이터 웨어하우스에 저장되고 Hive에서 완전히 관리되는 내부 테이블입니다.
 * **STORED AS ORC**: 데이터를 ORC(Optimized Row Columnar) 형식으로 저장합니다. Hive 데이터를 저장하기 위한 고도로 최적화되고 효율적인 형식입니다.
-* **덮어쓰기 삽입... SELECT**:  **[ERROR]**가 포함된 **log4jLogs** 테이블에서 행을 선택하고 데이터를  **errorLogs** 테이블에 삽입합니다.
+* **덮어쓰기 삽입... SELECT**: **[ERROR]**가 포함된 **log4jLogs** 테이블에서 행을 선택하고 데이터를 **errorLogs** 테이블에 삽입합니다.
 
 > [AZURE.NOTE]외부 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
 
@@ -107,9 +106,9 @@ Azure Blob 저장소가 HDInsight의 기본 저장소이므로 HiveQL의 **/exam
 
 ##<a id="run"></a>HiveQL 작업 실행 방법 선택
 
-HDInsight는 다양한 메서드를 사용하여 HiveQL 작업을 실행할 수 있습니다. 어떤 메서드가 적합한지 결정하는 다음 테이블을 사용하여 연습할 수 있는 링크를 따르십시오.
+HDInsight는 다양한 메서드를 사용하여 HiveQL 작업을 실행할 수 있습니다. 어떤 메서드가 적합한지 결정하는 다음 테이블을 사용하여 연습할 수 있는 링크를 따르세요.
 
-| 원하는 경우 **이것을 사용**하십시오... | ...**대화형** 셸 | ...**일괄** 처리 | ...**클러스터 운영 체제**로 | ...**클라이언트 운영 체제**에서 |
+| 원하는 경우 **이것을 사용**하세요... | ...**대화형** 셸 | ...**일괄** 처리 | ...**클러스터 운영 체제**로 | ...**클라이언트 운영 체제**에서 |
 |:--------------------------------------------------------------------------------|:---------------------------:|:-----------------------:|:------------------------------------------|:-----------------------------------------|
 | [SSH](hdinsight-hadoop-use-hive-ssh.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X, 또는 Windows |
 | [Curl](hdinsight-hadoop-use-hive-curl.md) | &nbsp; | ✔ | Linux 또는or Windows | Linux, Unix, Mac OS X, 또는 Windows |
@@ -163,4 +162,4 @@ HDInsight는 다양한 메서드를 사용하여 HiveQL 작업을 실행할 수 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

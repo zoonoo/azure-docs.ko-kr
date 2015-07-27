@@ -5,7 +5,8 @@
 	services="virtual-machines" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="06/29/2015" 
 	ms.author="josephd"/>
 
 # Azure 인프라 서비스 구현 지침
@@ -22,7 +23,7 @@ Azure는 개발/테스트 또는 개념 증명 구성을 구현할 수 있는 �
 
 이 지침에서는 Azure에서 IT 작업의 성공에 매우 중요한 계획의 다양한 영역을 살펴봅니다. 또한 필요한 리소스를 생성하는 과정의 순서도 제공합니다. 어느 정도 융통성을 발휘할 수는 있지만 계획 및 의사 결정에 이 순서를 적용하는 것이 좋습니다.
 
-이 문서는 [Azure 구현 지침](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) 블로그 게시물의 내용에서 가져왔습니다. Santiago Cánepa(Microsoft의 응용 프로그램 개발 관리자)와 Hugo Salcedo(Microsoft의 응용 프로그램 개발 관리자), Greg Hinkel(Microsoft의 이전 응용 프로그램 개발 관리자)에게 감사를 전합니다.
+이 문서는 [Azure 구현 지침](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) 블로그 게시물의 내용에서 가져왔습니다. 원본 자료를 제공한 Santiago Cánepa(Microsoft의 응용 프로그램 개발 관리자)와 Hugo Salcedo(Microsoft의 이전 응용 프로그램 개발 관리자에게 감사를 전합니다.
 
 > [AZURE.NOTE]선호도 그룹은 더 이상 사용되지 않으므로, 여기서는 그 사용에 대해 설명하지 않겠습니다. 자세한 내용은 [지역 VNet 및 선호도 그룹 정보](https://msdn.microsoft.com/library/azure/jj156085.aspx)를 참조하세요.
 
@@ -43,9 +44,9 @@ Azure에서 모든 항목을 만들기 전에 좋은 명명 규칙은 제 자리
 - 이름(접두사)의 시작 부분
 - 이름(접미사)의 끝 부분
 
-예를들어 다음은 호스트가 계산 엔진인 클라우드 서비스에 가능한 두 이름입니다.
+다음은 계산 엔진을 호스트하는 리소스 그룹에 대한 가능한 두 이름입니다.
 
-- Svc-CalculationEngine(접두사)
+- Rg-CalculationEngine(접두사)
 - CalculationEngine-Svc(접미사)
 
 접사는 특정 리소스를 설명하는 다양한 측면을 참조할 수 있습니다. 다음 표에서 일반적으로 사용하는 일부 예를 보여줍니다.
@@ -54,7 +55,7 @@ Azure에서 모든 항목을 만들기 전에 좋은 명명 규칙은 제 자리
 --- | --- | ---
 Environment | dev, stg, prod | 각 환경의 목적 및 이름에 따라 다릅니다.
 위치 | usw(West US), use(East US 2) | 데이터 센터의 지역 또는 조직의 지역에 따라 다릅니다.
-Azure 구성 요소, 서비스 또는 제품 | 클라우드 서비스는 Svc, 가상 네트워크는 VNet | 리소스가 지원을 제공하는 제품에 따라 다릅니다.
+Azure 구성 요소, 서비스 또는 제품 | 리소스 그룹은 RG, 클라우드 서비스는 Svc, 가상 네트워크는 VNet | 리소스가 지원을 제공하는 제품에 따라 다릅니다.
 역할 | sql, ora, sp, iis | VM의 역할에 따라 다릅니다.
 인스턴스 | 01, 02, 03 등 | 둘 이상의 인스턴스가 있는 리소스의 경우. 예를들어, 클라우드 서비스의 분산된 웹 서버를 로드합니다.
 		
@@ -73,6 +74,7 @@ Azure 구성 요소, 서비스 또는 제품 | 클라우드 서비스는 Svc, �
 - 가상 네트워크
 - 서브넷
 - 가용성 집합
+- 리소스 그룹
 - 클라우드 서비스
 - 가상 컴퓨터
 - 끝점
@@ -83,7 +85,7 @@ Azure 구성 요소, 서비스 또는 제품 | 클라우드 서비스는 Svc, �
 
 ### 컴퓨터 이름
 
-관리자가 가상 컴퓨터를 만들 때 Microsoft Azure는 가상 컴퓨터 이름을 제공하도록 요청합니다. Microsoft Azure는 Azure 가상 컴퓨터 리소스 이름으로 가상 컴퓨터 이름을 사용합니다. Azure는 가상 컴퓨터에 설치된 운영 체제에 컴퓨터와 동일한 이름을 사용합니다. 하지만 이 이름이 항상 같지는 않을 수 있습니다.
+관리자가 가상 컴퓨터를 만들 때 Microsoft Azure는 가상 컴퓨터 이름을 최대 15자로 제공하도록 요청합니다. Microsoft Azure는 Azure 가상 컴퓨터 리소스 이름으로 가상 컴퓨터 이름을 사용합니다. Azure는 가상 컴퓨터에 설치된 운영 체제에 컴퓨터와 동일한 이름을 사용합니다. 하지만 이 이름이 항상 같지는 않을 수 있습니다.
 
 운영 체제를 이미 포함하는 .VHD 파일에서 가상 컴퓨터를 만드는 경우, Microsoft Azure의 가상 컴퓨터 이름이 가상 컴퓨터의 OS 컴퓨터 이름과 다를 수 있습니다. 이 경우에는 가상 컴퓨터 관리가 더욱 어려워지므로 가상 컴퓨터를 만들지 않는 것이 좋습니다. 항상 Azure 가상 컴퓨터 리소스 이름이 해당 가상 컴퓨터의 운영 체제에 할당된 컴퓨터 이름과 동일한 이름인지 확인해야 합니다.
 
@@ -161,7 +163,7 @@ Azure에서 사용할 수 있는 두 가지 저장소 유형이 있습니다. �
 
 Azure는 운영 체제 디스크, 임시 디스크를 및 0개 이상의 선택적 데이터 디스크로 가상 컴퓨터를 만듭니다. 운영 체제 디스크 및 데이터 디스크는 임시 디스크가 컴퓨터가 거주하는 노드에 저장소 로컬로 지원되는 Azure Blob입니다. 이렇게 하면 컴퓨터가 자동으로 한 노드에서 다른 노드로 마이그레이션될 수 있어 해당 디스크의 데이터가 손실되기 때문에 시스템 재순환 도중 유지해야 하는 데이터에 임시 디스크는 적합하지 않게 됩니다. 임시 드라이브에는 아무 것도 저장하지 마십시오.
 
-Blob의 최대 크기가 1024GB이며 VHD 파일의 메타 데이터(바닥글)를 포함해야 하기 때문에 운영 체제 디스크 및 데이터 디스크의 최대 크기는 1023GB입니다(GB는 10243바이트). Windows에서 디스크 스트라이핑을 구현하여 이 제한을 초과할 수 있습니다.
+Blob의 최대 크기가 1024GB이며 VHD 파일의 메타 데이터(바닥글)를 포함해야 하기 때문에 운영 체제 디스크 및 데이터 디스크의 최대 크기는 1023GB입니다 (GB는1024<sup>3</sup> bytes). Windows에서 디스크 스트라이핑을 구현하여 이 제한을 초과할 수 있습니다.
 
 ### 스트라이프 디스크
 데이터 디스크의 스트라이프는 대부분의 경우에 1023GB 보다 큰 디스크를 만드는 기능을 제공할 뿐 아니라 단일 볼륨에 대한 저장소를 지원하기 위해 여러 Blob을 허용하여 성능을 강화합니다. 이는 단일 디스크에서 데이터를 읽고 쓰기 위해 필요한 I/O를 병렬로 실행합니다.
@@ -204,15 +206,19 @@ Azure 데이터 디스크에 디스크 스트라이프를 사용하고 있는 �
 
 ## 4. 클라우드 서비스
 
-클라우드 서비스는 PaaS 및 IaaS 서비스용으로 모두 Azure의 기본적인 구성 요소입니다. PaaS는 클라우드 서비스는 서로 의사소통할 수 있는 인스턴스 역할의 연결을 나타냅니다. 클라우드 서비스는 VIP(공용 가상 IP) 주소 및 인터넷에서 들어오는 트래픽을 가져오는 부하 분산 장치에 연결되며 해당 트래픽을 수신하도록 구성된 역할에 부하를 분산합니다.
+클라우드 서비스는 PaaS 및 IaaS 서비스용으로 모두 Azure 서비스 관관리의 기본적인 구성 요소입니다. PaaS는 클라우드 서비스는 서로 의사소통할 수 있는 인스턴스 역할의 연결을 나타냅니다. 클라우드 서비스는 VIP(공용 가상 IP) 주소 및 인터넷에서 들어오는 트래픽을 가져오는 부하 분산 장치에 연결되며 해당 트래픽을 수신하도록 구성된 역할에 부하를 분산합니다.
 
 IaaS는 대부분의 경우에서 부하 분산 장치 기능이 인터넷을 통해 해당 클라우드 서비스 내의 여러 가상 컴퓨터에서 특정 TCP 또는 UDP 포트로 트래픽을 전달하는 데 사용되지만 클라우드 서비스가 유사한 기능을 제공합니다.
+
+> [AZURE.NOTE]클라우드 서비스는 Azure 리소스 관리자에 존재하지 않습니다. 리소스 관리자의 장점에 대한 소개 내용은 [Azure 리소스 관리자 아래의 Azure 연산, 네트워크 및 저장소 제공자](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)를 참조하십시오.
 
 Azure가 디스크에 대한 기본 명명 규칙의 일환으로 사용하기 때문에 클라우드 서비스 이름은 IaaS에서 특히 중요합니다. 클라우드 서비스 이름은 문자, 숫자 및 하이픈만 포함할 수 있습니다. 필드의 첫 번째 및 마지막 문자는 문자 또는 숫자여야 합니다.
 
 “cloudapp.net” 도메인에서 VIP로 연결되어 있으므로 Microsoft Azure는 클라우드 서비스 이름을 노출합니다. 더 나은 응용 프로그램의 사용자 환경을 위해 베니티 이름은 정규화된 클라우드 서비스 이름을 바꿀 필요에 따라 구성되어야 합니다. 일반적으로 사용자 리소스의 공용 DNS 이름(예: www.contoso.com)을 리소스를 호스팅하는 클라우드 서비스의 DNS 이름(예: www.contoso.com에 대한 웹 서버를 호스팅하는 클라우드 서비스)으로 매핑하는 공용 DNS의 CNAME 기록으로 수행됩니다.
 
 또한 클라우드 서비스에 사용되는 명명 규칙은 클라우드 서비스 이름이 Microsoft Azure 테넌트와 상관없이 다른 모든 Microsoft Azure 클라우드 서비스 중에서 고유해야 하기 대문에 예외 사항을 용인해야 할 수 있습니다.
+
+고려해야 할 클라우드 서비스의 중요한 한 가지 제한 사항은 클라우드 서비스에 있는 모든 가상 컴퓨터에 대해 한번에 오직 한 개의 가상 컴퓨터 관리 작업을 수행할 수 있다는 것입니다. 클라우드 서비스 내의 하나의 가상 컴퓨터에서 가상 컴퓨터 관리 작업을 수행하면, 다른 가상 컴퓨터에서 새 관리 작업을 수행하기 전에 해당 작업이 완료될 때까지 기다려야 합니다. 따라서, 클라우드 서비스 내의 가상 컴퓨터의 수를 낮게 유지해야 합니다..
 
 Azure 구독에서 최대 200개의 클라우드 서비스를 지원할 수 있습니다.
 
@@ -342,15 +348,14 @@ Contoso Corporation은 향후 시장 거래를 지원하기 위해 첨단 소유
 - Contoso Azure 구독 및 계정
 - 저장소 계정
 - 두 서브넷을 사용하는 가상 네트워크
-- 클라우드 서비스 집합
 - 역할이 비슷한 서버 집합에 대한 가용성 집합
 - 가상 컴퓨터
+- 단일 리소스 그룹
 
 위의 모든 사항은 Contoso 명명 규칙을 따릅니다.
 
 - Contoso는 [IT 작업]-[위치]-[Azure 리소스]를 접두사로 사용합니다. 이 예에서, 대부분의 Contoso 초기 고객은 미국 동부에 있기 때문에 "azfae"(Azure 재무 분석 엔진)는 IT 작업 이름이며 "use"(East US 2)는 위치입니다.
 - 저장소 계정은 contosoazfaeusesa[설명]을 사용합니다. 고유성을 제공하기 위해 contoso가 접두사에 추가되었으며 저장소 계정 이름은 하이픈 사용을 지원하지 않습니다.
-- 클라우드 서비스는 contoso-azfae-use-cs-[설명]을 사용합니다. 고유성을 제공하기 위해 ccontoso가 접두사에 추가되었습니다.
 - 가상 네트워크는 AZFAE-USE-VN[숫자]를 사용합니다.
 - 가용성 집합은 azfae-use-as-[역할]을 사용합니다.
 - 가상 컴퓨터 이름은 azfae-use-vm-[vm 이름]을 사용합니다.
@@ -365,11 +370,6 @@ Contoso는 다음과 같은 두 개의 저장소 계정이 필요하다고 결�
 
 - 웹 서버, 응용 프로그램 서버 및 도메인 컨트롤러와 해당 추가 데이터 디스크의 표준 저장소에 **contosoazfaeusesawebapp**
 - SQL Server 클러스터 서버 및 해당 추가 데이터 디스크의 프리미엄 저장소에 **contosoazfaeusesasqlclust**
-
-Contoso는 다음과 같은 PowerShell 명령을 사용하여 두 저장소 계정을 만들었습니다.
-
-	New-AzureStorageAccount -StorageAccountName "contosoazfaeusesawebapp" -Location "East US 2"
-	New-AzureStorageAccount -StorageAccountName "contosoazfaeusesasqlclust" -Location "East US 2" -Type Premium_LRS
 
 ### 서브넷을 사용하는 가상 네트워크
 
@@ -386,18 +386,6 @@ Azure 미리 보기 포털을 사용하여 다음 설정으로 클라우드 전�
 - 두 번째 서브넷:
 	- 이름: BackEnd
 	- 주소 공간: 10.0.2.0/24
-
-### 클라우드 서비스
-
-Contoso는 다음과 같이 두 클라우드 서비스로 결정했습니다.
-
-- 프런트 엔드 웹 서버에 **contoso-azfae-use-cs-frontend**
-- 백 엔드 응용 프로그램 서버, SQL Server 클러스터 서버 및 도메인 컨트롤러에 **contoso-azfae-use-cs-backend**
-
-Contoso는 다음과 같은 PowerShell 명령을 사용하여 클라우드 서비스를 만들었습니다.
-
-	New-AzureService -Service "contoso-azfae-use-cs-frontend" -Location "East US 2"
-	New-AzureService -Service "contoso-azfae-use-cs-backend" -Location "East US 2"
 
 ### 가용성 집합
 
@@ -431,108 +419,12 @@ Contoso는 Azure 가상 컴퓨터에 대해 다음 이름으로 결정했습니�
 이 구성은 다음을 통합합니다.
 
 - 두 서브넷을 사용하는 클라우드 전용 가상 네트워크(프런트 엔드 및 백 엔드)
-- 두 클라우드 서비스
 - 두 저장소 계정
 - 네 개의 가용성 집합, 재무 분석 엔진의 각 계층마다 한 개
 - 네 계층에 대한 가상 컴퓨터
 - 인터넷에서 웹 서버 간 HTTPS 기반 웹 트래픽에 대한 외부 부하 분산 집합
 - 웹 서버에서 응용 프로그램 서버 간 암호화되지 않은 웹 트래픽에 대한 내부 부하 분산 집합
-
-이러한 Azure PowerShell 명령은 이전에 만든 저장소 계정, 클라우드 서비스 및 가상 네트워크에 대해 이 구성으로 가상 컴퓨터를 만듭니다.
-
-	#Specify the storage account for the web and application servers
-	Set-AzureSubscription –SubscriptionName "Contoso Enterprise Subscription" -CurrentStorageAccountName "contosoazfaeusesawebapp"
-	
-	#Specify the cloud service name for the web servers
-	$ServiceName="contoso-azfae-use-cs-frontend"
-	
-	#Get the image string for the latest version of the Windows Server 2012 R2 Datacenter image in the gallery
-	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	
-	#Create the first web server
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first web server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-web01 -InstanceSize large -ImageName $image -AvailabilitySetName azfae-use-as-web
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Set-AzureSubnet -SubnetNames FrontEnd
-	$vm1 | Add-AzureEndpoint -Name Web1 -Protocol tcp -LocalPort 443 -PublicPort 443 -LBSetName "WebSet" -DefaultProbe
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Create the second web server 
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the second web server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-web02 -InstanceSize Large -ImageName $image -AvailabilitySetName azfae-use-as-web
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Set-AzureSubnet -SubnetNames FrontEnd
-	$vm1 | Add-AzureEndpoint -Name Web2 -Protocol tcp -LocalPort 443 -PublicPort 443 -LBSetName "WebSet" -DefaultProbe
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Specify the cloud service name for the application, SQL server, and authentication tiers
-	$ServiceName="contoso-azfae-use-cs-backend"
-	
-	#Create the first domain controller server
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first domain controller server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-dc01 -InstanceSize Small -ImageName $image -AvailabilitySetName azfae-use-as-dc
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel AppFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Create the second domain controller server
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the second domain controller server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-dc02 -InstanceSize Small -ImageName $image -AvailabilitySetName azfae-use-as-dc
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 100 -DiskLabel AppFiles –LUN 0 -HostCaching None
-	New-	AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Create an internal load balancer instance for the application server tier 
-	Add-AzureInternalLoadBalancer -ServiceName $ServiceName -InternalLoadBalancerName "AppTierILB" –SubnetName BackEnd –StaticVNetIPAddress 10.0.2.100
-	
-	#Create the first application server
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first application server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-app01 -InstanceSize Large -ImageName $image -AvailabilitySetName azfae-use-as-app
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	$vm1 | Add-AzureEndpoint -Name App1 -Protocol tcp -LocalPort 80 -PublicPort 80 -LBSetName "AppSet" -InternalLoadBalancerName "AppTierILB" -DefaultProbe
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 500 -DiskLabel AppFiles –LUN 0 -HostCaching None
-	New-	AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Create the second application server 
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the second application server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-app02 -InstanceSize Large -ImageName $image -AvailabilitySetName azfae-use-as-app
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Add-AzureEndpoint -Name App2 -Protocol tcp -LocalPort 80 -PublicPort 80 -LBSetName "AppSet" -InternalLoadBalancerName "AppTierILB" -DefaultProbe
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 500 -DiskLabel AppFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Specify the premium storage account for the SQL Server cluster
-	Set-AzureSubscription –SubscriptionName "Contoso Enterprise Subscription" -CurrentStorageAccountName "contosoazfaeusesasqlclust"
-	
-	#Create the majority node witness server for the SQL Server cluster
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the majority node witness server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-sqlmn01 -InstanceSize Medium -ImageName $image -AvailabilitySetName azfae-use-as-sql
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password 
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Change the image string for the latest version of the SQL Server 2014 image in the gallery
-	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	
-	#Create the first SQL Server
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first SQL Server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-sql01 -InstanceSize A5 -ImageName $image  -AvailabilitySetName azfae-use-as-sql
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1000 -DiskLabel SQLFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
-	
-	#Create the second SQL Server
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the second SQL Server."
-	$vm1=New-AzureVMConfig -Name azfae-use-vm-sql02 -InstanceSize A5 -ImageName $image  -AvailabilitySetName azfae-use-as-sql
-	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password
-	$vm1 | Set-AzureSubnet -SubnetNames BackEnd
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1000 -DiskLabel SQLFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName AZFAE-USE-VN01
+- 단일 리소스 그룹
 
 ## 추가 리소스
 
@@ -546,6 +438,7 @@ Contoso는 Azure 가상 컴퓨터에 대해 다음 이름으로 결정했습니�
 
 [데이터 센터 확장 참조 아키텍처 다이어그램](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
+[Azure 리소스 관리자에 통합된 Azure 계산, 네트워크 및 저장소 공급자](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

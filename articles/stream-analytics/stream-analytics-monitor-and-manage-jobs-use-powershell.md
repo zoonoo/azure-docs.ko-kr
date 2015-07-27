@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="PowerShell | Azure를 사용하여 스트림 분석 작업 모니터링 및 관리" 
-	description="Azure PowerShell cmdlet을 사용하여 스트림 분석 작업을 모니터링하고 관리하는 방법에 대해 알아보기" 
+	pageTitle="PowerShell을 사용하여 스트림 분석 작업 모니터링 및 관리 | Microsoft Azure" 
+	description="Azure PowerShell 및 cmdlet을 사용하여 스트림 분석 작업을 모니터링하고 관리하는 방법에 대해 알아봅니다." 
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -13,13 +13,14 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="05/07/2015" 
+	ms.date="06/17/2015" 
 	ms.author="jeffstok"/>
 
 
-# Azure PowerShell을 사용하여 스트림 분석 작업 모니터링 및 관리
+# Azure PowerShell cmdlet을 사용하여 스트림 분석 작업 모니터링 및 관리
 
-Azure PowerShell을 사용하여 Azure 스트림 분석 리소스를 관리하는 방법을 알아봅니다.
+기본 스트림 분석 작업을 실행하는 Azure PowerShell cmdlet을 사용하여 스트림 분석 리소스를 모니터링 및 관리하는 방법을 알아봅니다.
+
 
 ## 스트림 분석에 Azure PowerShell cmdlet을 실행하기 위한 필수 조건
 
@@ -31,17 +32,10 @@ Azure PowerShell을 사용하여 Azure 스트림 분석 리소스를 관리하�
 
 		Add-AzureAccount
 
-	사용하도록 설정된 Azure 스트림 분석 서비스로 Azure 구독을 선택하는 방법:
+	해당 방법을 사용하도록 설정된 Azure 스트림 분석 서비스로 Azure 구독을 선택하는 방법:
 
 		Select-AzureSubscription
 
-	>[AZURE.NOTE]다음 오류 메시지는 Azure 스트림 분석을 구독에서 사용하도록 설정하지 않았음을 나타냅니다.
-	>
-		Error Code: InvalidResourceType.  Error Message: The resource type 'streamingjobs' could not be found in the namespace 'Microsoft.StreamAnalytics'.  
-	
-	>이 문제를 해겨라려면 구독에서 스트림 분석 미리 보기를 사용하도록 설정하고 다음 cmdlet을 실행하여 구독을 전환합니다.
-	>
-		Select-AzureSubscription –SubscriptionId xxxxxxxx
 
 2.	Azure 모드를 구성합니다.
 
@@ -49,7 +43,7 @@ Azure PowerShell을 사용하여 Azure 스트림 분석 리소스를 관리하�
 
 		Switch-AzureMode AzureResourceManager
 
->[AZURE.NOTE]Azure PowerShell을 통해 생성된 스트림 분석 작업에 모니터링을 사용할 수 없는 일시적인 제한이 있습니다. 이 문제를 해결하려면 Azure 포털에서 작업의 **모니터** 페이지로 이동한 다음 **사용** 단추를 클릭합니다.
+> [AZURE.NOTE]프로그래밍 방식으로 만든 스트림 분석 작업은 기본적으로 모니터링이 설정되어 있지 않습니다. 작업의 모니터 페이지로 이동하고 사용 버튼을 클릭하여 Azure 포털에서 수동으로 모니터링을 설정하거나 [Azure 스트림 분석 - 프로그래밍 방식으로 스트림 분석 작업 모니터링](stream-analytics-monitor-jobs.md)의 단계를 수행하여 이를 프로그래밍 방식으로 수행할 수 있습니다.
 
 ## 스트림 분석용 Azure PowerShell cmdlet
 다음 Azure PowerShell cmdlet은 Azure 스트림 분석 작업을 모니터링하고 관리하는 데 사용할 수 있습니다.
@@ -61,17 +55,17 @@ Azure 구독 또는 지정한 리소스 그룹에 정의된 모든 스트림 분
 
 	Get-AzureStreamAnalyticsJob
 
-이 명령은 Azure 구독의 모든 스트림 분석 작업에 대한 정보를 반환합니다.
+이 PowerShell 명령은 Azure 구독의 모든 스트림 분석 작업에 대한 정보를 반환합니다.
 
 **예 2**
 
 	Get-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US 
-이 명령은 리소스 그룹 StreamAnalytics-Default-Central-US의 모든 스트림 분석 작업에 대한 정보를 반환합니다.
+이 PowerShell 명령은 리소스 그룹 StreamAnalytics-Default-Central-US의 모든 스트림 분석 작업에 대한 정보를 반환합니다.
 
 **예 3**
 
 	Get-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US -Name StreamingJob
-이 명령은 리소스 그룹 StreamAnalytics-Default-Central-US의 스트림 분석 작업 StreamingJob에 대한 정보를 반환합니다.
+이 PowerShell 명령은 리소스 그룹 StreamAnalytics-Default-Central-US의 스트림 분석 작업 StreamingJob에 대한 정보를 반환합니다.
 
 ### Get-AzureStreamAnalyticsInput
 지정한 스트림 분석 작업에 정의된 모든 입력을 나열하거나 특정 입력에 대한 정보를 가져옵니다.
@@ -80,12 +74,12 @@ Azure 구독 또는 지정한 리소스 그룹에 정의된 모든 스트림 분
 
 	Get-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob
 
-이 명령은 StreamingJob 작업에 정의된 모든 입력에 대한 정보를 반환합니다.
+이 PowerShell 명령은 StreamingJob 작업에 정의된 모든 입력에 대한 정보를 반환합니다.
 
 **예 2**
 
 	Get-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name EntryStream
-이 명령은 StreamingJob 작업에 정의된 EntryStream이라는 입력에 대한 정보를 반환합니다.
+이 PowerShell 명령은 StreamingJob 작업에 정의된 EntryStream이라는 입력에 대한 정보를 반환합니다.
 
 ### Get-AzureStreamAnalyticsOutput
 지정한 스트림 분석 작업에 정의된 모든 출력을 나열하거나 특정 출력에 대한 정보를 가져옵니다.
@@ -93,12 +87,12 @@ Azure 구독 또는 지정한 리소스 그룹에 정의된 모든 스트림 분
 **예 1**
 
 	Get-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob
-이 명령은 StreamingJob 작업에 정의된 출력에 대한 정보를 반환합니다.
+이 PowerShell 명령은 StreamingJob 작업에 정의된 모든 출력에 대한 정보를 반환합니다.
 
 **예 2**
 
 	Get-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name Output
-이 명령은 StreamingJob 작업에 정의된 Output이라는 출력에 대한 정보를 반환합니다.
+이 PowerShell 명령은 StreamingJob 작업에 정의된 Output이라는 출력에 대한 정보를 반환합니다.
 
 ### Get-AzureStreamAnalyticsQuota
 지정한 지역의 스트리밍 단위 할당량에 대한 정보를 가져옵니다.
@@ -106,7 +100,7 @@ Azure 구독 또는 지정한 리소스 그룹에 정의된 모든 스트림 분
 **예 1**
 
 	Get-AzureStreamAnalyticsQuota –Location "Central US" 
-이 명령은 미국 중부 지역의 스트리밍 단위 할당량 및 사용에 대한 정보를 반환합니다.
+이 PowerShell 명령은 미국 중부 지역의 스트리밍 단위 할당량 및 사용에 대한 정보를 반환합니다.
 
 ### Get-AzureStreamAnalyticsTransformation
 스트림 분석 작업에 정의된 특정 변환에 대한 정보를 가져옵니다.
@@ -114,7 +108,7 @@ Azure 구독 또는 지정한 리소스 그룹에 정의된 모든 스트림 분
 **예 1**
 
 	Get-AzureStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name StreamingJob
-이 명령은 StreamingJob 작업에 정의된 StreamingJob이라는 변환에 대한 정보를 반환합니다.
+이 PowerShell 명령은 StreamingJob 작업에 정의된 StreamingJob이라는 변환에 대한 정보를 반환합니다.
 
 ### New-AzureStreamAnalyticsInput
 스트림 분석 작업 내에서 새 입력을 만들거나 지정한 기존 입력을 업데이트합니다.
@@ -130,17 +124,17 @@ JSON 파일 구조 및 내용에 대한 자세한 내용은 [스트림 분석 �
 **예 1**
 
 	New-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" 
-이 명령은 Input.json 파일에 새 입력을 만듭니다. 입력 정의 파일에 지정된 이름의 기존 입력이 이미 정의되어 있으면 cmdlet에서 해당 입력을 바꿀지 여부를 묻습니다.
+이 PowerShell 명령은 Input.json 파일에 새 입력을 만듭니다. 입력 정의 파일에 지정된 이름의 기존 입력이 이미 정의되어 있으면 cmdlet에서 해당 입력을 바꿀지 여부를 묻습니다.
 
 **예 2**
 	
 	New-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" –Name EntryStream
-이 명령은 EntryStream이라는 작업에 새 입력을 만듭니다. 이 이름의 기존 입력이 이미 정의되어 있으면 cmdlet에서 해당 입력을 바꿀지 여부를 묻습니다.
+이 PowerShell 명령은 EntryStream이라는 작업에 새 입력을 만듭니다. 이 이름의 기존 입력이 이미 정의되어 있으면 cmdlet에서 해당 입력을 바꿀지 여부를 묻습니다.
 
 **예 3**
 
 	New-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" –Name EntryStream -Force
-이 명령은 EntryStream이라는 기존 입력 소스의 정의를 파일에 있는 정의로 바꿉니다.
+이 PowerShell 명령은 EntryStream이라는 기존 입력 소스의 정의를 파일에 있는 정의로 바꿉니다.
 
 ### New-AzureStreamAnalyticsJob
 Microsoft Azure에 새 스트림 분석 작업을 만들거나 지정한 기존 작업의 정의를 업데이트합니다.
@@ -156,12 +150,12 @@ JSON 파일 구조 및 내용에 대한 자세한 내용은 [스트림 분석 �
 **예 1**
 
 	New-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\JobDefinition.json" 
-이 명령은 JobDefinition.json의 정의에서 새 작업을 만듭니다. 작업 정의 파일에 지정된 이름의 기존 작업이 이미 정의되어 있으면 cmdlet에서 해당 작업을 바꿀지 여부를 묻습니다.
+이 PowerShell 명령은 JobDefinition.json의 정의에서 새 작업을 만듭니다. 작업 정의 파일에 지정된 이름의 기존 작업이 이미 정의되어 있으면 cmdlet에서 해당 작업을 바꿀지 여부를 묻습니다.
 
 **예 2**
 
 	New-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\JobDefinition.json" –Name StreamingJob -Force
-이 명령은 StreamingJob에 대한 작업 정의를 바꿉니다.
+이 PowerShell 명령은 StreamingJob에 대한 작업 정의를 바꿉니다.
 
 ### New-AzureStreamAnalyticsOutput
 스트림 분석 작업 내에서 새 출력을 만들거나 기존 출력을 업데이트합니다.
@@ -177,12 +171,12 @@ JSON 파일 구조 및 내용에 대한 자세한 내용은 [스트림 분석 �
 **예 1**
 
 	New-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Output.json" –JobName StreamingJob –Name output
-이 명령은 StreamingJob 작업에 "output"이라는 새 출력을 만듭니다. 이 이름의 기존 출력이 이미 정의되어 있으면 cmdlet에서 해당 출력을 바꿀지 여부를 묻습니다.
+이 PowerShell 명령은 StreamingJob 작업에 "output"이라는 새 출력을 만듭니다. 이 이름의 기존 출력이 이미 정의되어 있으면 cmdlet에서 해당 출력을 바꿀지 여부를 묻습니다.
 
 **예 2**
 
 	New-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Output.json" –JobName StreamingJob –Name output -Force
-이 명령은 StreamingJob 작업에서 "output"의 정의를 바꿉니다.
+이 PowerShell 명령은 StreamingJob 작업에서 "output"의 정의를 바꿉니다.
 
 ### New-AzureStreamAnalyticsTransformation
 스트림 분석 작업 내에서 새 변환을 만들거나 기존 변환을 업데이트합니다.
@@ -198,42 +192,36 @@ JSON 파일 구조 및 내용에 대한 자세한 내용은 [스트림 분석 �
 **예 1**
 
 	New-AzureStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Transformation.json" –JobName StreamingJob –Name StreamingJobTransform
-이 명령은 StreamingJob 작업에 StreamingJobTransform이라는 새 변환을 만듭니다. 이 이름의 기존 변환이 이미 정의되어 있으면 cmdlet에서 해당 변환을 바꿀지 여부를 묻습니다.
+이 PowerShell 명령은 StreamingJob 작업에 StreamingJobTransform이라는 새 변환을 만듭니다. 이 이름의 기존 변환이 이미 정의되어 있으면 cmdlet에서 해당 변환을 바꿀지 여부를 묻습니다.
 
 **예 2**
 
 	New-AzureStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Transformation.json" –JobName StreamingJob –Name StreamingJobTransform -Force
- 이 명령은 StreamingJob 작업에서 StreamingJobTransform의 정의를 바꿉니다.
+ 이 PowerShell 명령은 StreamingJob 작업에서 StreamingJobTransform의 정의를 바꿉니다.
 
 ### Remove-AzureStreamAnalyticsInput
-Microsoft Azure의 스트림 분석 작업에서 특정 입력을 비동기적으로 삭제합니다. 
-
-–Force 매개 변수를 지정하면 확인 없이 입력이 삭제됩니다.
+Microsoft Azure의 스트림 분석 작업에서 특정 입력을 비동기적으로 삭제합니다. –Force 매개 변수를 지정하면 확인 없이 입력이 삭제됩니다.
 
 **예 1**
 	
 	Remove-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name EventStream
-이 명령은 StreamingJob 작업에서 EventStream 입력을 제거합니다.
+이 PowerShell 명령은 StreamingJob 작업에서 EventStream 입력을 제거합니다.
 
 ### Remove-AzureStreamAnalyticsJob
-Microsoft Azure에서 특정 스트림 분석 작업을 비동기적으로 삭제합니다. 
-
-–Force 매개 변수를 지정하면 확인 없이 작업이 삭제됩니다.
+Microsoft Azure에서 특정 스트림 분석 작업을 비동기적으로 삭제합니다. –Force 매개 변수를 지정하면 확인 없이 작업이 삭제됩니다.
 
 **예 1**
 
 	Remove-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –Name StreamingJob 
-이 명령은 StreamingJob 작업을 제거합니다.
+이 PowerShell 명령은 StreamingJob 작업을 제거합니다.
 
 ### Remove-AzureStreamAnalyticsOutput
-Microsoft Azure의 스트림 분석 작업에서 특정 출력을 비동기적으로 삭제합니다. 
-
-–Force 매개 변수를 지정하면 확인 없이 출력이 삭제됩니다.
+Microsoft Azure의 스트림 분석 작업에서 특정 출력을 비동기적으로 삭제합니다. –Force 매개 변수를 지정하면 확인 없이 출력이 삭제됩니다.
 
 **예 1**
 
 	Remove-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name Output
-이 명령은 StreamingJob 작업에서 Output 출력을 제거합니다.
+이 PowerShell 명령은 StreamingJob 작업에서 Output 출력을 제거합니다.
 
 ### Start-AzureStreamAnalyticsJob
 Microsoft Azure에 스트림 분석 작업을 비동기적으로 배포하고 시작합니다.
@@ -242,7 +230,7 @@ Microsoft Azure에 스트림 분석 작업을 비동기적으로 배포하고 �
 
 	Start-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US -Name StreamingJob -OutputStartMode CustomTime -OutputStartTime 2012-12-12T12:12:12Z
 
-이 명령은 사용자 지정 출력 시작 시간이 2012년 12월 12일 12:12:12 UTC로 설정되어 StreamingJob 작업을 시작합니다.
+이 PowerShell 명령은 사용자 지정 출력 시작 시간이 2012년 12월 12일 12:12:12 UTC로 설정되어 StreamingJob 작업을 시작합니다.
 
 
 ### Stop-AzureStreamAnalyticsJob
@@ -251,7 +239,7 @@ Microsoft Azure에서 실행 중인 스트림 분석 작업을 비동기적으�
 **예 1**
 
 	Stop-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –Name StreamingJob 
-이 명령은 StreamingJob 작업을 중지합니다.
+이 PowerShell 명령은 StreamingJob 작업을 중단합니다.
 
 ### Test-AzureStreamAnalyticsInput
 스트림 분석이 지정한 입력에 연결할 수 있는지 테스트합니다.
@@ -259,17 +247,15 @@ Microsoft Azure에서 실행 중인 스트림 분석 작업을 비동기적으�
 **예 1**
 
 	Test-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name EntryStream
-StreamingJob에서 EntryStream 입력의 연결 상태를 테스트합니다.
+이 PowerShell 명령은 StreamingJob에서 EntryStream 입력의 연결 상태를 테스트합니다.
 
-### Test-AzureStreamAnalyticsOutput
+###Test-AzureStreamAnalyticsOutput
 스트림 분석이 지정한 출력에 연결할 수 있는지 테스트합니다.
 
 **예 1**
 
 	Test-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name Output
-이 명령은 StreamingJob에서 Output 출력의 연결 상태를 테스트합니다.
-
-> [AZURE.NOTE]프로그래밍 방식으로 만든 스트림 분석 작업은 기본적으로 모니터링이 설정되어 있지 않습니다. 작업의 모니터 페이지로 이동하고 사용 버튼을 클릭하여 Azure 포털에서 수동으로 모니터링을 설정하거나 [Azure 스트림 분석 - 프로그래밍 방식으로 스트림 분석 작업 모니터링](stream-analytics-monitor-jobs.md)의 단계를 수행하여 이를 프로그래밍 방식으로 수행할 수 있습니다.
+이 PowerShell 명령은 StreamingJob에서 Output 출력의 연결 상태를 테스트합니다.
 
 ## 지원 받기
 추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
@@ -297,8 +283,8 @@ StreamingJob에서 EntryStream 입력의 연결 상태를 테스트합니다.
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
-[stream.analytics.limitations]: ../stream-analytics-limitations.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

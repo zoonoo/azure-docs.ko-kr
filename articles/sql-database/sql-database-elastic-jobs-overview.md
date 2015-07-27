@@ -1,9 +1,8 @@
 <properties 
-	title="Elastic database jobs overview" 
 	pageTitle="탄력적 데이터베이스 작업 개요" 
 	description="탄력적 데이터베이스 작업 서비스를 설명합니다." 
-	metaKeywords="azure sql database elastic databases" 
-	services="sql-database" documentationCenter=""  
+	services="sql-database" 
+	documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -13,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="06/25/2015" 
 	ms.author="sidneyh" />
 
 # 탄력적 데이터베이스 작업 개요
@@ -38,13 +37,8 @@
 
 1.	탄력적 데이터베이스 작업에 사용할 서비스를 설치합니다. [탄력적 데이터베이스 작업 설치](sql-database-elastic-jobs-service-installation.md)를 참조하세요. 설치에 실패하는 경우 [제거 방법](sql-database-elastic-jobs-uninstall.md)을 참조하세요.
 2.	[각 데이터베이스에 사용자 추가](sql-database-elastic-jobs-add-logins-to-dbs.md)를 통해 탄력적 데이터베이스를 작업 실행에 적합하도록 구성합니다.
-3.	탄력적 데이터베이스 풀 뷰에서 **작업 만들기**를 클릭합니다.
-4.	작업 제어 데이터베이스(작업에 대한 메타데이터 저장소)에 대한 사용자 이름 및 암호를 입력합니다. (탄력적 데이터베이스 작업을 설치할 때 사용자 이름과 암호를 만듭니다).
-5.	**작업 만들기** 블레이드에서 작업 이름, 사용자 이름 및 암호를 대상 데이터베이스에 입력하고(스크립트 실행이 성공할 수 있는 충분한 권한이 있는), T-SQL 스크립트를 붙여넣거나 입력합니다.
-6.	**실행**을 클릭하면 작업에서 각 데이터베이스에 대해 스크립트를 실행합니다.
-7.	**작업 관리** 뷰에서 실행 중인 또는 실행된 모든 작업과 가장 최근의 실행 상태를 볼 수 있습니다.
-8.	작업을 클릭하면 작업 실행 세부 정보와 각 데이터베이스에 대한 작업 실행 상태를 볼 수 있습니다.
-9.	작업이 실패하는 경우 해당 작업 이름을 클릭하면 오류 로그를 볼 수 있습니다.
+3.	풀 안의 모든 데이터베이스에 대해 실행 할 수 있는 itempotent T-SQL 스크립트를 만듭니다.
+4.	스크립트를 실행 하려면 [탄력적 데이터베이스 작업 만들기 및 관리](sql-database-elastic-jobs-create-and-manage.md) 단계를 수행합니다. 
 
 ## 구성 요소 및 가격 
 
@@ -64,4 +58,4 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

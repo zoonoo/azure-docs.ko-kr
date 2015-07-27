@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -36,7 +37,7 @@
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
-## Azure 리소스 템플릿 및 리소스 그룹 이해
+## Azure 리소스 관리자 템플릿 및 리소스 그룹 이해
 
 Microsoft Azure에서 배포되고 실행되는 대부분의 응용 프로그램은 다양한 클라우드 리소스 유형(예: 하나 이상의 VM 및 저장소 계정, SQL 데이터베이스 또는 가상 네트워크)의 조합으로 구축됩니다. Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 구성 및 배포 매개 변수에 대한 JSON 설명을 사용하여 이러한 다양한 리소스를 함께 배포하고 관리할 수 있습니다.
 
@@ -1126,4 +1127,4 @@ RDP 파일을 열거나 저장하라는 메시지가 나타나면 **열기**를 
 
 [Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

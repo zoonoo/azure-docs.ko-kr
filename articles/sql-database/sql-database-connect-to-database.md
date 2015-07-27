@@ -1,13 +1,11 @@
 <properties
-	urlDisplayName="How to connect to an Azure SQL database using SSMS"
 	pageTitle="SSMS를 사용하여 Azure SQL 데이터베이스에 연결하는 방법" metaKeywords=""
 	description="SSMS를 사용하여 Azure SQL 데이터베이스에 연결하는 방법을 알아봅니다."
-	metaCanonical=""
 	services="sql-database"
 	documentationCenter=""
-	title="How to connect to an Azure SQL database using SSMS"
-	authors="sidneyh" solutions=""
-	manager="jhubbard" editor="" />
+	authors="sidneyh"
+	manager="jhubbard" 
+	editor="" />
 
 <tags
 	ms.service="sql-database"
@@ -15,17 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="04/02/2015"
+	ms.date="06/25/2015"
 	ms.author="sidneyh" />
 
-# SSMS를 사용하여 Azure SQL 데이터베이스에 연결하는 방법
+# SQL Server Management Studio를 사용하여Azure SQL 데이터베이스에 연결하는 방법
 
-다음은 SQL Server Management Studio를 사용하여 Microsoft Azure SQL 데이터베이스에 연결하는 절차입니다.
+다음은 SQL Server Management Studio(SSMS)를 사용하여 Microsoft Azure SQL 데이터베이스에 연결하는 절차입니다.
 
 ## 필수 조건
 * Azure SQL 데이터베이스가 프로비전되고 실행 중이어야 합니다. 새 SQL 데이터베이스를 만들려면 [Microsoft Azure SQL 데이터베이스 시작](sql-database-get-started.md)을 참조하세요.
 * SQL 데이터베이스의 관리자 이름 및 암호.
 * SQL Server Management Studio 2014. 이 도구를 구하는 방법은 [SQL Express 다운로드](http://www.hanselman.com/blog/DownloadSQLServerExpress.aspx)를 참조하세요.
+* 데이터베이스에 대한 방화벽 설정을 구성 합니다. [방법: 방화벽 설정 구성 (Azure SQL 데이터베이스)](sql-database-configure-firewall-settings.md)을 참조하세요.
 
 ## SQL 데이터베이스의 인스턴스에 연결하려면
 1. [Azure 관리 포털](https://portal.azure.com)에 로그인합니다.
@@ -63,4 +62,4 @@ Transact-SQL 문을 사용하여 데이터베이스를 만들거나 관리할 �
 [5]: ./media/sql-database-connect-to-database/ssms-master.png
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

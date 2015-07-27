@@ -1,24 +1,26 @@
 <properties 
 	pageTitle="Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결" 
-	description="프로세스를 단계별로 실행하여 문제의 발생지를 격리하고 Microsoft Azure에서 실행되는 Linux 가상 컴퓨터에 대한 SSH 연결을 만들어 문제를 수정합니다."
+	description="Linux 기반 Azure 가상 컴퓨터에 액세스 할수 없는 경우, 문제의 원인을 분리해 내기 위해 다음 단계를 사용하세요."
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager"/>
+
 
 <tags 
 	ms.service="virtual-machines" 
 	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="07/07/2015" 
 	ms.author="josephd"/>
 
 # Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결
 
-이 문서에서는 Linux 기반 Azure 가상 컴퓨터에 대한 SSH(보안 셸) 연결 문제를 해결하는 체계적인 방법을 설명합니다.
+Linux 기반 Azure 가상 컴퓨터에 액세스 할 수 없는 경우, 이 문서는 문제를 가려내고 수정하기 위한 체계적인 방법을 설명합니다.
 
 ## 1단계: SSH 구성, 키 또는 암호 재설정
 
@@ -47,7 +49,7 @@ Azure 관리 포털에서 다음을 수행합니다.
 
 Azure Preview 포털에서 다음을 수행합니다.
 
-1. **찾아보기** > **가상 컴퓨터** > *VM 이름*을 클릭합니다. 리소스 관리자 기반 가상 컴퓨터의 경우 **찾아보기** > **가상 컴퓨터(v2)** > *VM 이름*을 클릭합니다. 가상 컴퓨터에 대한 상태 창에 **실행 중**이 표시됩니다. 아래로 스크롤하여 계산, 저장소 및 네트워크 리소스에 대한 최근 활동을 표시합니다.
+1. **찾아보기** > **가상 컴퓨터** > *VM 이름*을 클릭합니다. 리소스 관리자에서 만들어진 가상 컴퓨터의 경우, **찾아보기** > **가상 컴퓨터(v2)** > *VM 이름*을 클릭합니다. 가상 컴퓨터에 대한 상태 창에 **실행 중**이 표시됩니다. 아래로 스크롤하여 계산, 저장소 및 네트워크 리소스에 대한 최근 활동을 표시합니다.
 2. **설정**을 클릭하여 끝점, IP 주소 및 기타 설정을 확인합니다.
 
 네트워크 연결을 확인하려면 구성된 끝점을 분석하고 HTTP 또는 알려진 다른 서비스와 같은 다른 프로토콜을 통해 가상 컴퓨터에 연결할 수 있는지 여부를 확인합니다.
@@ -94,7 +96,7 @@ SSH 클라이언트가 Azure 가상 컴퓨터의 SSH 서비스에 연결할 수 
 
 ![](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot3.png)
  
-인터넷에 직접 연결된 컴퓨터가 없는 경우 자체 클라우드 서비스에서 새 Azure 가상 컴퓨터를 손쉽게 만들고 사용할 수 있습니다. 자세한 내용은 [Azure에서 Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-tutorial.md)를 참조하세요. 테스트가 완료되면 가상 컴퓨터 및 클라우드 서비스를 삭제합니다.
+인터넷에 직접 연결된 컴퓨터가 없는 경우 자체 리소스 그룹 또는 클라우드 서비스에서 새 Azure 가상 컴퓨터를 손쉽게 만들고 사용할 수 있습니다. 자세한 내용은 [Azure에서 Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-tutorial.md)를 참조하세요. 테스트가 완료되면 리소스 그룹 또는 가상 컴퓨터 및 클라우드 서비스를 삭제합니다.
 
 인터넷에 직접 연결된 컴퓨터에 대한 SSH 연결을 설정할 수 있는 경우 조직 에지 장치에서 다음을 확인합니다.
 
@@ -106,15 +108,17 @@ SSH 클라이언트가 Azure 가상 컴퓨터의 SSH 서비스에 연결할 수 
 
 ### 발생지 3: 클라우드 서비스 끝점 및 ACL
 
-문제 또는 잘못된 구성의 발생지인 클라우드 서비스 끝점 및 ACL을 제거하려면 동일한 가상 네트워크에 있는 다른 Azure 가상 컴퓨터가 Azure 가상 컴퓨터에 대한 SSH 연결을 설정할 수 있는지 확인합니다.
+서비스 관리자에서 만들어진 가상 컴퓨터에 대한 문제 또는 잘못된 구성의 발생지인 클라우드 서비스 끝점 및 ACL을 제거하려면 동일한 가상 네트워크에 있는 다른 Azure 가상 컴퓨터가 Azure 가상 컴퓨터에 대한 SSH 연결을 설정할 수 있는지 확인합니다.
  
 ![](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot4.png)
+
+> [AZURE.NOTE]리소스 관리자에서 만든 가상 컴퓨터의 경우, [소스 4: 네트워크 보안 그룹](#nsg)으로 건너뜁니다.
 
 동일한 가상 네트워크에 다른 가상 컴퓨터가 없는 경우 새 가상 컴퓨터를 손쉽게 만들 수 있습니다. 자세한 내용은 [Azure에서 Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-tutorial.md)를 참조하세요. 테스트가 완료되면 추가한 가상 컴퓨터를 삭제합니다.
 
 동일한 가상 네트워크의 가상 컴퓨터에 대한 SSH 연결을 만들 수 있는 경우 다음을 확인합니다.
 
-- 대상 가상 컴퓨터의 SSH 트래픽에 대한 끝점 구성. 끝점의 개인 TCP 포트는 가상 컴퓨터에서 SSH 서비스를 수신하는 TCP 포트(기본값 22)와 일치해야 합니다. 템플릿으로 생성된 리소스 관리자 기반 가상 컴퓨터의 경우, Azure Preview 포털에서 **찾아보기** > **가상 컴퓨터(v2)** > *VM 이름* > **설정** > **끝점**을 사용하여 SSH TCP 포트 번호를 확인합니다.
+- 대상 가상 컴퓨터의 SSH 트래픽에 대한 끝점 구성. 끝점의 개인 TCP 포트는 가상 컴퓨터에서 SSH 서비스를 수신하는 TCP 포트(기본값 22)와 일치해야 합니다. 템플릿으로 리소스 관리자 내부에서 만들어진 가상 컴퓨터의 경우, Azure Preview 포털에서 **찾아보기** > **가상 컴퓨터(v2)** > *VM 이름* > **설정** > **끝점**을 사용하여 SSH TCP 포트 번호를 확인합니다.
 - 대상 가상 컴퓨터의 SSH 트래픽 끝점에 대한 ACL. ACL은 인터넷에서 들어오는 트래픽을 원본 IP 주소에 따라 허용 또는 거부하도록 지정하는 데 사용됩니다. ACL이 잘못 구성될 경우 끝점에 SSH 트래픽이 들어오지 못할 수 있습니다. ACL을 살펴보고 프록시 또는 다른 에지 서버의 공용 IP 주소에서 들어오는 트래픽이 허용되어 있는지 확인하세요. 자세한 내용은 [네트워크 ACL(액세스 제어 목록) 정보](https://msdn.microsoft.com/library/azure/dn376541.aspx)를 참조하세요.
 
 문제의 발생지인 끝점을 제거하려면 현재 끝점을 제거하고 **SSH** 이름(공용 및 개인 포트 번호에 TCP 포트 22)을 지정하면서 새 끝점을 만듭니다. 자세한 내용은 [Azure의 가상 컴퓨터에 끝점 설정](virtual-machines-set-up-endpoints.md)을 참조하세요.
@@ -159,7 +163,7 @@ Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azu
 
 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-
+[Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-troubleshoot-access-application.md)
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

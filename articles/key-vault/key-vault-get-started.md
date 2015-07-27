@@ -4,7 +4,8 @@
 	services="key-vault"
 	documentationCenter=""
 	authors="cabailey"
-	manager="mbaldwin"/>
+	manager="mbaldwin"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="key-vault"
@@ -12,19 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="05/04/2015"
+	ms.date="06/25/2015"
 	ms.author="cabailey"/>
 
 # Azure 키 자격 증명 모음 시작 #
+Azure 키 자격 증명 모음은 대부분 지역에서 사용할 수 있습니다. 자세한 내용은 [키 자격 증명 모음 가격 책정 페이지](../../../../pricing/details/key-vault/)를 참조하세요.
 
 ## 소개  
-이 자습서를 사용하면 Azure 키 자격 증명 모음을 시작하는 데 도움이 되며, 현재 확정된 컨테이너(자격 증명)를 Azure에 만들고 Azure에 암호화 키와 비밀을 저장하고 관리합니다. Azure 응용 프로그램과 함께 사용할 수 있는 키 또는 암호를 포함하는 자격 증명 모음을 만드는 Windows PowerShell을 사용하는 과정을 안내합니다. 응용 프로그램이 수 해당 키 또는 암호를 사용할 수 있는 방법을 나타냅니다.
+이 자습서를 사용하면 Azure 키 자격 증명 모음으로 시작하여 확정된 컨테이너(자격 증명 모음)를 Azure에 만들고 Azure에서 암호화 키와 비밀을 저장하고 관리하는 데 도움이 됩니다. Azure 응용 프로그램과 함께 사용할 수 있는 키 또는 암호를 포함하는 자격 증명 모음을 만드는 Windows PowerShell을 사용하는 과정을 안내합니다. 응용 프로그램이 수 해당 키 또는 암호를 사용할 수 있는 방법을 나타냅니다.
 
 **예상 완료 시간:** 20분
 
 >[AZURE.NOTE]이 자습서에는 단계 중 하나에 포함되는 Azure 응용 프로그램을 작성하는 방법에 대한 지침을 포함하지 않으며, 키 자격 증명 모음에서 키나 비밀을 사용하도록 응용 프로그램을 인증하는 방법을 나타냅니다.
 >
->미리 보기 기간 동안 Azure 포털에서 Azure 키 자격 증명 모음을 구성할 수 없습니다. 대신, 이 Azure PowerShell 지침을 사용합니다.
+>현재는 Azure 포털에서 Azure 키 자격 증명 모음을 구성할 수 없습니다. 대신, 이 Azure PowerShell 지침을 사용합니다. 또는 플랫폼 간 명령줄 인터페이스 지침에 대한 참조는[이 해당 자습서](key-vault-manage-with-cli.md)를 참조하십시오.
 
 Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모음이란?](key-vault-whatis.md)을 참조하세요.
 
@@ -32,7 +34,7 @@ Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모�
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-- Microsoft Azure 구독. 아직 구독하지 않은 경우 [무료 평가판](../../../pricing/free-trial)에 등록할 수 있습니다.
+- Microsoft Azure 구독. 아직 구독하지 않은 경우 [무료 평가판](../../../../pricing/free-trial)에 등록할 수 있습니다.
 - Azure PowerShell 버전 0.9.1 이상. 최신 버전을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 - 이 자습서에서 만드는 키 또는 암호를 사용하여 구성되는 응용 프로그램입니다. 샘플 응용 프로그램은 [Microsoft 다운로드 센터](http://www.microsoft.com/ko-kr/download/details.aspx?id=45343)에서 사용할 수 있습니다. 자세한 내용은 해당 추가 정보 파일을 참조하세요.
 
@@ -117,7 +119,7 @@ Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수�
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
 
 
-이제 해당 URI를 사용하여 Azure 키 자격 증명 모음을 만들거나 업로드하는 이 키를 참조할 수 있습니다. 예: **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** 
+이제 해당 URI를 사용하여 Azure 키 자격 증명 모음을 만들거나 업로드하는 이 키를 참조할 수 있습니다. **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**를 사용하면 항상 최신 버전을 가져오고 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**를 사용하면 이 특정 버전을 가져옵니다. 
 
 이 키에 대한 URI를 표시하려면 다음을 입력합니다.
 
@@ -131,7 +133,7 @@ Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수�
 
 	$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 
-이제 해당 URI를 사용하여 Azure 키 자격 증명 모음에 추가한 이 암호를 참조할 수 있습니다. 예: **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**
+이제 해당 URI를 사용하여 Azure 키 자격 증명 모음에 추가한 이 암호를 참조할 수 있습니다. **https://ContosoVault.vault.azure.net/secrets/SQLPassword**를 사용하면 항상 최신 버전을 가져오고 **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**를 사용하면 이 특정 버전을 가져옵니다.
 
 이 비밀에 대한 URI를 표시하려면 다음을 입력합니다.
 
@@ -188,7 +190,7 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
 
 ## <a id="HSM"></a>하드웨어 보안 모듈(HSM)을 사용하려는 경우 ##
 
-추가된 보증을 위해, HSM 경계를 절대로 떠나지 않는 하드웨어 보안 모듈(HSMs)에서 키를 가져오거나 생성할 수 있습니다. HSM은 FIPS 140-2 Level 2로 인증됩니다. 이 요구 사항이 사용자에게 적용되지 않는 경우, 이 섹션을 건너뛰고 [키 자격 증명 모음 및 연결된 키와 암호 삭제](#delete)로 이동합니다.
+추가된 보증을 위해, HSM 경계를 절대로 떠나지 않는 하드웨어 보안 모듈(HSMs)에서 키를 가져오거나 생성할 수 있습니다. HSM은 FIPS 140-2 Level 2 유효성 검사가 적용됩니다. 이 요구 사항이 사용자에게 적용되지 않는 경우, 이 섹션을 건너뛰고 [키 자격 증명 모음 및 연결된 키와 암호 삭제](#delete)로 이동합니다.
 
 이러한 HSM 보호되는 키를 만들려면, [HSM 보호되는 키를 지원하는 자격 증명 모음 구독](../../../pricing/free-trial)이 있어야 합니다.
 
@@ -239,11 +241,11 @@ Azure 키 자격 증명 모음을 관리하기 위해 유용할 수 있는 기�
 
 ## <a id="next"></a>다음 단계 ##
 
-웹 응용 프로그램에서 Azure 주요 자격 증명 모음을 사용하는 것에 대한 자습서는 [웹 응용 프로그램에서 Azure 주요 자격 증명 모음 사용](key-vault-use-from-web-application.md)을 참조하십시오.
+웹 응용 프로그램에서 Azure 키 자격 증명 모음을 사용하는 것에 대한 이후의 자습서는 [웹 응용 프로그램에서 Azure 키 자격 증명 모음 사용](key-vault-use-from-web-application.md)을 참조하세요.
 
 Azure 키 자격 증명 모음에 대한 Windows PowerShell cmdlet의 목록은 [Azure 키 자격 증명 모음 Cmdlet](https://msdn.microsoft.com/library/azure/dn868052.aspx)을 참조하세요.
 
-프로그래밍 참조의 경우, [Azure 키 자격 증명 모음 REST API 참조](https://msdn.microsoft.com/library/azure/dn903609.aspx) 및 [Azure 키 자격 증명 모음 C# 클라이언트 API 참조](https://msdn.microsoft.com/library/azure/dn903628.aspx)를 참조하세요.
+프로그래밍 참조의 경우 MSDN의 Microsoft Azure 문서에서 [키 자격 증명 모음](https://msdn.microsoft.com/library/azure/dn903625.aspx)을 참조하세요.
  
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO2-->

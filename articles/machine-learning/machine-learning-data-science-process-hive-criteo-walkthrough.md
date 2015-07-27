@@ -1,9 +1,7 @@
 <properties 
 	pageTitle="고급 분석 프로세스 및 작업의 기술: 1TB Criteo 데이터 집합에 Hadoop 클러스터 사용 | Microsoft Azure" 
 	description="HDInsight Hadoop 클러스터를 사용하는 종단 간 시나리오에 ADAPT(고급 분석 처리 및 기술)를 사용하여 공개적으로 사용 가능한 1TB 데이터 집합으로 모델을 빌드 및 배포합니다." 
-	metaKeywords="" 
 	services="machine-learning,hdinsight" 
-	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -648,4 +646,4 @@ iPython notebook에서 이 python 코드를 새 셀에 복사하는 것이 편�
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

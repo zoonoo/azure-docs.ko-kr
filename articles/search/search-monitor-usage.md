@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required" 
-   ms.date="04/27/2015"
+   ms.date="07/08/2015"
    ms.author="heidist"/>
 
 # Azure 검색의 사용량 및 통계 모니터링
@@ -23,7 +23,7 @@
 
 [Azure 포털](https://portal.azure.com)에서는 리소스 사용량, 횟수 및 통계의 모니터링을 쉽게 확인할 수 있지만, 사용자 지정 서비스 관리 도구를 빌드하는 경우에는 정보 프로그래밍 방식으로 확인할 수도 있습니다. 이 문서는 두 기술 모두에 대한 단계를 설명합니다.
 
-## 포털의 뷰 횟수 및 메트릭 
+##포털의 뷰 횟수 및 메트릭 
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다. 
 
@@ -35,7 +35,7 @@
 
 공유 서비스는 각각 최대 하나의 복제본과 파티션을 가집니다. 또한 총 10,000개의 문서와 데이터 50MB 중 먼저인 것만 지원합니다.
 
-## REST API를 사용하여 인덱스 통계 가져오기
+##REST API를 사용하여 인덱스 통계 가져오기
 
 Azure 검색 REST API와 .NET SDK는 모두 서비스 메트릭에 대한 프로그래밍 방식 액세스를 제공합니다. [인덱서](https://msdn.microsoft.com/library/azure/dn946891.aspx)를 사용하여 Azure SQL 데이터베이스나 DocumentDB에서 인덱스를 로드하는 경우, 추가 API를 사용하여 필요한 숫자를 얻을 수 있습니다.
 
@@ -55,5 +55,6 @@ Azure 검색 REST API와 .NET SDK는 모두 서비스 메트릭에 대한 프로
 
 
 
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->

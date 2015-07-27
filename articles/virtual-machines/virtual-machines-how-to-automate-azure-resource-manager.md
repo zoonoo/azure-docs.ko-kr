@@ -72,4 +72,4 @@ Azure 리소스 관리자는 Azure 인프라 서비스에서 실행되는 복잡
 
  
 
-<!---HONumber=58_postMigration-->
+<!---HONumber=July15_HO2-->

@@ -5,7 +5,8 @@
    documentationCenter="dev-center-name"
    authors="mahthi"
    manager="coreysa"
-   editor=""/>
+   editor=""
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
@@ -107,6 +108,6 @@ Azure CLI(Azure 명령줄 인터페이스)에는 **AzureServiceManagement** 모�
 **새 Azure 리소스 관리자 API를 사용하여 만든 가상 네트워크를 Express Route 회로에 연결할 수 있나요?**
 
 이 기능은 현재 지원되지 않습니다. 새 Azure 리소스 관리자 API를 사용하여 만든 가상 네트워크는 Express Route 회로에 연결할 수 없습니다. 이 기능은 나중에 지원될 예정입니다.
-
-<!--HONumber=52-->
  
+
+<!---HONumber=July15_HO2-->

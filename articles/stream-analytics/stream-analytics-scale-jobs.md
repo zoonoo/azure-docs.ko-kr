@@ -1,6 +1,6 @@
 <properties
-	pageTitle="스트림 분석 작업 규모 지정 | Azure"
-	description="스트림 분석 작업을 확장하는 방법에 알아봅니다."
+	pageTitle="처리량을 높이기 위한 스트림 분석 작업 규모 지정 | Microsoft Azure"
+	description="입력 파티션을 구성하고, 쿼리 정의를 조정하고, 작업 스트리밍 단위를 설정하여 스트림 분석 작업의 크기를 조정하는 방법을 알아봅니다."
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,29 +13,36 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="04/28/2015"
+	ms.date="07/01/2015"
 	ms.author="jeffstok"/>
 
-# Azure 스트림 분석 작업 규모 지정
+# 처리량을 높이기 위한 Azure 스트림 분석 작업 규모 지정 #
 
-스트림 분석 작업의 *스트리밍 단위* 계산 방법과 입력 파티션을 구성하고, 쿼리 정의를 조정하고, 작업 스트리밍 입력을 설정하여 스트림 분석 작업의 규모를 지정하는 방법을 알아봅니다.
+스트림 분석 작업의 *스트리밍 단위* 계산 방법과 입력 파티션을 구성하고 쿼리 정의를 조정하고 작업 스트리밍 입력을 설정하여 스트림 분석 작업의 크기를 조정하는 방법을 알아봅니다.
 
-Azure 스트림 분석 작업 정의에는 입력, 쿼리 및 출력이 포함됩니다. 입력은 작업이 데이터 스트림을 읽는 위치이고, 쿼리는 입력 스트림을 변환하는 데 사용되며, 출력은 작업이 작업 결과를 전송하는 위치입니다.
+## 스트림 분석 작업은 무엇으로 구성되나요? ##
+Azure 스트림 분석 작업 정의에는 입력, 쿼리 및 출력이 포함됩니다. 입력은 작업이 데이터 스트림을 읽는 위치이고, 쿼리는 데이터 입력 스트림을 변환하는 데 사용되며, 출력은 작업이 작업 결과를 전송하는 위치입니다.
 
-작업에는 하나 이상의 데이터 스트림 입력 소스가 필요합니다. 데이터 스트림 입력 소스는 Azure 서비스 버스 이벤트 허브 또는 Azure Blob 저장소에 저장될 수 있습니다. 자세한 내용은[ Azure 스트림 분석 소개](stream-analytics-introduction.md), [Azure 스트림 분석 사용 시작](stream-analytics-get-started.md) 및 [Azure 스트림 분석 개발자 가이드](../stream-analytics-developer-guide.md)를 참조하세요.
+작업에는 데이터 스트림에 대해 하나 이상의 입력 소스가 필요합니다. 데이터 스트림 입력 소스는 Azure 서비스 버스 이벤트 허브 또는 Azure Blob 저장소에 저장될 수 있습니다. 자세한 내용은[ Azure 스트림 분석 소개](stream-analytics-introduction.md), [Azure 스트림 분석 사용 시작](stream-analytics-get-started.md) 및 [Azure 스트림 분석 개발자 가이드](../stream-analytics-developer-guide.md)를 참조하세요.
 
-스트림 분석 작업 처리에 사용할 수 있는 리소스는 스트리밍 단위로 측정됩니다. 각 스트리밍 단위는 초당 1MB 처리량까지 제공할 수 있습니다. 각 작업에는 모든 작업의 기본값인 하나의 스트리밍 단위가 적어도 필요합니다. Azure 포털을 사용하여 스트림 분석 작업에 대한 최대 50개의 스트리밍 단위를 설정할 수 있습니다. 각 Azure 구독에는 특정 지역의 모든 작업에 대한 최대 50개의 스트리밍 단위가 있을 수 있습니다. 구독의 스트리밍 단위를 늘리려면(100개 단위까지) [Microsoft  지원](http://support.microsoft.com)에 문의하세요.
+## 스트리밍 단위 구성 ##
+SU(스트리밍 단위)는 Azure 스트림 분석 작업을 실행하는 리소스 및 능력을 나타냅니다. SU는 CPU, 메모리의 혼합된 측정치 및 읽기/쓰기 속도를 기반으로 상대적 이벤트 처리 용량을 설명하는 방법을 제공합니다. 각 스트리밍 단위는 대략 1MB/초의 처리량에 해당합니다.
 
-작업이 활용할 수 있는 스트리밍 단위 수는 입력에 대한 파티션 구성과 작업에 대해 정의된 쿼리에 따라 다릅니다. 이 문서에서는 쿼리를 계산하고 조정하여 처리량을 늘리는 방법을 보여 줍니다.
+특정 작업에 필요한 SU 수 선택은 입력에 대한 파티션 구성 및 작업에 정의된 쿼리에 따라 달라집니다. Azure 포털을 사용하여 작업에 대한 스트림 단위에서 최대 할당량을 선택할 수 있습니다. 기본적으로 각 Azure 구독에는 특정 지역의 모든 분석 작업에 대해 최대 50개의 스트리밍 단위 할당량이 있습니다. 구독의 스트리밍 단위를 늘리려면 [Microsoft 지원](http://support.microsoft.com)에 문의하세요.
 
+작업이 활용할 수 있는 스트리밍 단위 수는 입력에 대한 파티션 구성과 작업에 대해 정의된 쿼리에 따라 다릅니다. 또한 스트림 단위에는 유효한 값이 사용되어야 합니다. 유효한 값은 아래와 같이 1, 3, 6 다음으로 6의 증분 이상에서 시작합니다.
 
-## 작업의 최대 스트리밍 단위 계산
+![Azure 스트림 분석 스트림 단위 규모 지정][img.stream.analytics.streaming.units.scale]
+
+이 문서에서는 쿼리를 계산하고 조정하여 분석 작업에 대한 처리량을 늘리는 방법을 보여 줍니다.
+
+## 작업의 최대 스트리밍 단위 계산 ##
 스트림 분석 작업에 사용될 수 있는 스트리밍 단위의 총 수는 작업에 대해 정의된 쿼리의 단계 수와 각 단계에 대한 파티션 수에 따라 결정됩니다.
 
-### 쿼리의 단계
+### 쿼리의 단계 ###
 하나의 쿼리에는 하나 이상의 단계가 있을 수 있습니다. 각 단계는 WITH 키워드를 사용하여 정의하는 하위 쿼리입니다. WITH 키워드 밖에 있는 유일한 쿼리 단계도 한 단계로 계산됩니다. 예를들어, 다음 쿼리에서 SELECT 문입니다.
 
-	WITH Step1 (
+	WITH Step1 AS (
 		SELECT COUNT(*) AS Count, TollBoothId
 		FROM Input1 Partition By PartitionId
 		GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
@@ -43,13 +50,13 @@ Azure 스트림 분석 작업 정의에는 입력, 쿼리 및 출력이 포함�
 
 	SELECT SUM(Count) AS Count, TollBoothId
 	FROM Step1
-	GROUP BY TumblingWindow(minute,3), TollBoothId, PartitionId
+	GROUP BY TumblingWindow(minute,3), TollBoothId
 
 앞의 쿼리에는 2개의 단계가 있습니다.
 
 > [AZURE.NOTE]이 샘플 쿼리는 이 문서 뒷부분에 설명되어 있습니다.
 
-### 단계 분할
+### 단계 분할 ###
 
 단계를 분할하려면 다음 조건이 필요합니다.
 
@@ -59,7 +66,7 @@ Azure 스트림 분석 작업 정의에는 입력, 쿼리 및 출력이 포함�
 
 쿼리를 분할되면 입력 이벤트가 처리되고 별도의 파티션 그룹에 집계되며 각 그룹에 대해 출력 이벤트가 생성됩니다. 결합된 집계가 필요한 경우 집계할 또 다른 분할되지 않은 단계를 만들어야 합니다.
 
-### 작업의 최대 스트리밍 단위 계산
+### 작업의 최대 스트리밍 단위 계산 ###
 
 하나의 스트림 분석 작업에 대해 분할되지 않은 모든 단계를 최대 6개의 스트리밍 단위로 확장할 수 있습니다. 스트리밍 단위를 더 추가하려면 단계를 분할해야 합니다. 각 파티션에는 6개의 스트리밍 단위가 있을 수 있습니다.
 
@@ -103,7 +110,7 @@ Azure 스트림 분석 작업 정의에는 입력, 쿼리 및 출력이 포함�
 <td>24(분할된 단계에 대한 18+분할되지 않은 단계에 대한 6)</td></tr>
 </table>
 
-### 확장의 예
+### 확장의 예 ###
 다음 쿼리는 3분의 기간 내에 세 곳의 요금 징수소가 있는 요금 스테이션을 통과하는 자동차 수를 계산합니다. 이 쿼리는 6개 스트리밍 단위까지 확장될 수 있습니다.
 
 	SELECT COUNT(*) AS Count, TollBoothId
@@ -120,7 +127,7 @@ Azure 스트림 분석 작업 정의에는 입력, 쿼리 및 출력이 포함�
 
 각 Input1 파티션은 스트림 분석 기능에서 개별적으로 처리되며, 동일한 연속 기간 동안 동일한 요금 징수소를 통과하는 자동차 수에 대해 여러 개의 레코드가 생성됩니다. 입력 파티션 키를 변경할 수 없는 경우 비분할 단계를 추가하여 이 문제를 해결할 수 있습니다. 예:
 
-	WITH Step1 (
+	WITH Step1 AS (
 		SELECT COUNT(*) AS Count, TollBoothId
 		FROM Input1 Partition By PartitionId
 		GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
@@ -128,14 +135,14 @@ Azure 스트림 분석 작업 정의에는 입력, 쿼리 및 출력이 포함�
 
 	SELECT SUM(Count) AS Count, TollBoothId
 	FROM Step1
-	GROUP BY TumblingWindow(minute, 3), TollBoothId, ParititonId
+	GROUP BY TumblingWindow(minute, 3), TollBoothId
 
 이 쿼리는 24개 스트리밍 단위까지 확장될 수 있습니다.
 
->[AZURE.NOTE]두 스트림을 조인하는 경우 스트림이 조인을 수행하는 열의 파티션 키별로 분할되고 있으며 두 스트림에 동일한 수의 파티션이 있는지 확인하세요.
+>[AZURE.NOTE]두 스트림을 조인하는 경우 스트림이 조인을 수행하는 열의 파티션 키별로 분할되고 있으며 두 스트림에 동일한 수의 파티션이 있는지 확인해야 합니다.
 
 
-## 스트림 분석 작업 파티션 구성
+## 스트림 분석 작업 파티션 구성 ##
 
 **작업에 대한 스트리밍 단위를 조정하려면**
 
@@ -147,7 +154,7 @@ Azure 스트림 분석 작업 정의에는 입력, 쿼리 및 출력이 포함�
 ![작업 규모 지정을 구성하는 Azure 스트림 분석][img.stream.analytics.configure.scale]
 
 
-## 작업 성능 모니터링
+## 작업 성능 모니터링 ##
 
 관리 포털을 사용하여 작업의 처리량(이벤트 수/초)을 추적할 수 있습니다.
 
@@ -155,7 +162,7 @@ Azure 스트림 분석 작업 정의에는 입력, 쿼리 및 출력이 포함�
 
 작업의 예상 처리량(이벤트 수/초)을 계산합니다. 처리량이 예상보다 더 작은 경우 입력 파티션을 조정하고, 쿼리를 조정하고, 작업에 스트리밍 단위를 더 추가합니다.
 
-## 규모별 ASA 처리량 - Raspberry Pi 시나리오
+## 규모별 ASA 처리량 - Raspberry Pi 시나리오 ##
 
 
 여러 스트리밍 단위에 걸친 처리량 측면에서 일반적인 시나리오로 ASA 규모 지정 방식을 이해하기 위해 다음은 센서 데이터(클라이언트)를 이벤트 허브에 보내는 경험입니다. ASA는 이를 처리하고 경고 또는 통계를 출력으로 다른 이벤트 허브에 보냅니다.
@@ -220,11 +227,11 @@ Azure 스트림 분석 작업 정의에는 입력, 쿼리 및 출력이 포함�
 
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
-## 도움말 보기
+## 도움말 보기 ##
 추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 
-## 다음 단계
+## 다음 단계 ##
 
 - [Azure 스트림 분석 소개](stream-analytics-introduction.md)
 - [Azure 스트림 분석 사용 시작](stream-analytics-get-started.md)
@@ -238,6 +245,7 @@ Azure 스트림 분석 작업 정의에는 입력, 쿼리 및 출력이 포함�
 [img.stream.analytics.monitor.job]: ./media/stream-analytics-scale-jobs/StreamAnalytics.job.monitor.png
 [img.stream.analytics.configure.scale]: ./media/stream-analytics-scale-jobs/StreamAnalytics.configure.scale.png
 [img.stream.analytics.perfgraph]: ./media/stream-analytics-scale-jobs/perf.png
+[img.stream.analytics.streaming.units.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsStreamingUnitsExample.jpg
 
 <!--Link references-->
 
@@ -246,10 +254,10 @@ Azure 스트림 분석 작업 정의에는 입력, 쿼리 및 출력이 포함�
 [azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
 
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
-[stream.analytics.limitations]: ../stream-analytics-limitations.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-get-started.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+ 
 
-<!--HONumber=54--> 
+<!---HONumber=July15_HO2-->
