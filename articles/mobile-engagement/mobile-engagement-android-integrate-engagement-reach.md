@@ -247,7 +247,7 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 
 알림의 범주 처리기를 등록하려면 응용 프로그램이 초기화될 때 호출을 추가해야 합니다.
 
-> [AZURE.IMPORTANT]계속하기 전에 Android에서 Engagement를 통합하는 방법 항목에서 android:process attribute<android-sdk-engagement-process>에 관한 경고를 읽어보세요.
+> [AZURE.IMPORTANT]계속하기 전에 Android에서 Engagement를 통합하는 방법 항목에서 android:process attribute\<android-sdk-engagement-process\>에 관한 경고를 읽어보세요.
 
 다음 예제에서는 이전 경고를 확인하였고 `EngagementApplication`의 하위 클래스를 사용한다고 가정합니다.
 

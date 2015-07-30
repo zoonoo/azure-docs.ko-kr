@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="계산, 네트워크 및 저장소 .NET 라이브러리를 사용하여 Azure 리소스를 배포합니다." 
-	description="계산, 저장소 및 네트워크 .NET 라이브러리에서 사용할 수 있는 클라이언트 중 일부를 사용하여 Microsoft Azure의 리소스를 만들고 삭제하는 방법에 대해 알아봅니다." 
+	description="계산, 저장소 및 네트워크 .NET 라이브러리에서 사용할 수 있는 클라이언트 중 일부를 사용하여 Microsoft Azure의 리소스를 만들고 삭제하는 방법에 대해 알아봅니다" 
 	services="virtual-machines,virtual-network,storage" 
 	documentationCenter="" 
 	authors="davidmu1" 
