@@ -5,13 +5,13 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 푸시 알림
 
 먼저, 서명된 푸시 인증서를 생성하기 위해 Apple에서 사용하는 CSR(인증서 서명 요청) 파일을 생성해야 합니다.
 
-1. **Utilities** 폴더 또는 **Other** 폴더에서 Keychain Access 도구를 실행합니다.
+1. **Utilities** 폴더 또는 **Other** 폴더에서 키체인 접근 도구를 실행합니다.
 
-2. **Keychain Access**를 클릭하고 **Certificate Assistant**를 확장한 다음 **Request a Certificate from a Certificate Authority...**를 클릭합니다.
+2. **키체인 접근**를 클릭하고 **인증서 지원**를 확장한 다음 **인증 기관에서 인증서 요청…**를 클릭합니다.
 
   	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-request-cert-from-ca.png)
 
-3. **User Email Address**와 **Common Name**을 선택하고, **Saved to disk**가 선택되어 있는지 확인한 후 **Continue**를 클릭합니다. **CA Email Address** 필드는 필요하지 않으므로 비워둡니다.
+3. **User Email Address**와 **Common Name**을 선택하고, **디스크에 저장됨**가 선택되어 있는지 확인한 후 **Continue**를 클릭합니다. **CA 이메일 주소** 필드는 필요하지 않으므로 비워둡니다.
 
   	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-csr-info.png)
 
@@ -60,7 +60,7 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등�
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-edit-appid.png)
 
-4. 화면 아래로 스크롤하여 **Development Push SSL Certificate** 섹션에서 **Create Certificate...** 단추를 클릭합니다.
+4. 화면 아래로 스크롤하여 **개발 푸시 SSL 인증서** 섹션에서 **인증서 만들기…** 단추를 클릭합니다.
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-create-cert.png)
 
@@ -98,7 +98,7 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등�
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
 
-2. **Development**에서 프로비저닝 프로필 유형으로 **iOS App Development**를 선택하고 **Continue**를 클릭합니다.
+2. **Development**에서 프로비저닝 프로필 유형으로 **iOS App 개발**를 선택하고 **Continue**를 클릭합니다.
 
 
 3. **App ID** 드롭다운 목록에서 방금 만든 앱 ID를 선택하고 **Continue**를 클릭합니다.
@@ -116,7 +116,7 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등�
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
 
 
-6. 마지막으로, **Profile Name**에서 프로필의 이름을 선택하고 **Generate**와 **Done**을 차례로 클릭합니다.
+6. 마지막으로, **프로파일 이름**에서 프로필의 이름을 선택하고 **Generate**와 **Done**을 차례로 클릭합니다.
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 

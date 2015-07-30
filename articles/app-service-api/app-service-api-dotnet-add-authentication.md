@@ -71,7 +71,8 @@ API 앱에 공개적으로 액세스할 수 있는지를 확인하는 가장 간
 
 ## API 앱 보호
 
-API 앱을 배포할 때 리소스 그룹에 배포했습니다. 동일한 리소스 그룹에 웹앱과 다른 API 앱을 추가할 수 있으며 리소스 그룹 내의 각 API 앱의 접근성 설정은 다음의 세 가지 중 하나일 수 있습니다. <!--todo: diagram showing different accessibility settings-->
+API 앱을 배포할 때 리소스 그룹에 배포했습니다. 동일한 리소스 그룹에 웹앱과 다른 API 앱을 추가할 수 있으며 리소스 그룹 내의 각 API 앱의 접근성 설정은 다음의 세 가지 중 하나일 수 있습니다.
+<!--todo: diagram showing different accessibility settings-->
 
 - **공용(익명)** - 모든 사용자가 로그인하지 않고 리소스 그룹 외부에서 API 앱을 호출할 수 있습니다.
 - **공용(인증됨)** - 인증된 사용자만 리소스 그룹 외부에서 API 앱을 호출할 수 있습니다.
@@ -268,4 +269,4 @@ Azure Active Directory 또는 소셜 공급자 인증을 요구하여 Azure API 
 [Azure 포털]: https://manage.windowsazure.com/
 [Azure Preview 포털]: https://portal.azure.com/
 
-<!---HONumber=July15_HO3-->
+<!----HONumber=July15_HO3-->
