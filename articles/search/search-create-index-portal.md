@@ -100,4 +100,4 @@ Azure 검색에서는 searchable, facetable 및 filterable과 같은 인덱스 �
 [4]: ./media/search-create-index-portal/AzureSearch-PortalIndex-4.PNG
 [5]: ./media/search-create-index-portal/AzureSearch-PortalIndex-5.PNG
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

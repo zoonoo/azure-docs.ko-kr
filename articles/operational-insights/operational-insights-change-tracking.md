@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # 변경 내용 추적으로 차이를 식별합니다.
@@ -51,6 +51,7 @@ Operational Insights의 변경 내용 추적을 사용하려면 솔루션이 설
 
 3. 로그 검색 페이지에서, 시간별 결과, 자세한 결과 및 로그 검색 기록을 볼 수 있습니다. 패싯으로 필터링하여 결과 범위를 좁힐 수 있습니다.
 
-4. 로그 검색 페이지에서 보거나 수정할 수 있는 Excel 또는 다른 응용 프로그램으로 열 수 있는 CSV 파일로 결과 세부 정보를 **내보내기**할 수 있습니다.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

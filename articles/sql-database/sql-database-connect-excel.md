@@ -31,7 +31,7 @@ Excel을 Azure SQL 데이터베이스에 연결하고 데이터베이스의 데�
 3.	**기타 원본**을 클릭하고 **SQL Server**를 클릭합니다. **데이터 연결 마법사**가 열립니다.
 
 	![데이터 연결 마법사][1]
-4.	**서버 이름** 상자에 Azure SQL 데이터베이스 서버 이름을 입력합니다. 예제:
+4.	**서버 이름** 상자에 Azure SQL 데이터베이스 서버 이름을 입력합니다. 예:
 
 	 	adventureserver.database.windows.net
 5.	**로그온 자격 증명** 섹션에서 **다음 사용자 이름과 암호 사용**을 선택한 후 SQL 데이터베이스 서버에 대해 적절한 자격 증명을 입력합니다. 그런 후 **Next**를 클릭합니다.
@@ -63,4 +63,4 @@ SaaS(Software as a Service) 개발자인 경우 [탄력적 데이터베이스 �
 [4]: ./media/sql-database-connect-excel/power-pivot-results.png
 [5]: ./media/sql-database-connect-excel/select-database-and-table.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

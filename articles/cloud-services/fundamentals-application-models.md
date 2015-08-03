@@ -76,4 +76,4 @@ As the figure illustrates, the Cloud Services VMs run in a separate cloud servic
 * [클라우드 서비스](services/cloud-services/)에 대해 자세히 알아보세요.
 * [가상 컴퓨터](https://msdn.microsoft.com/library/azure/jj156143.aspx)에 대해 자세히 알아봅니다. 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

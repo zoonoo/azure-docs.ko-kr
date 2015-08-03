@@ -79,4 +79,4 @@ DocumentDB를 시작하기 위해 [계정](http://azure.microsoft.com/pricing/fr
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). 미래 저장소가 빠른 검색 및 쉬운 데이터 흐름으로 실행됩니다.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

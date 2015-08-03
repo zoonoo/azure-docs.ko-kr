@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/17/2015"
+   ms.date="07/10/2015"
    ms.author="claudioc"/>
 
 # 신뢰할 수 있는 행위자: 표준 HelloWorld 연습 시나리오
@@ -36,14 +36,17 @@
 Visual Studio용 서비스 패브릭 도구를 설치한 후 새 프로젝트 형식을 만들 수 있습니다. 새 프로젝트 형식은 새 프로젝트 대화 상자의 '클라우드' 범주 아래에 표시됩니다.
 
 
-![][1]
+![VS용 서비스 패브릭 도구 - 새 프로젝트][1]
 
+다음 대화 상자에서 만들려는 프로젝트의 형식을 선택할 수 있습니다.
+
+![서비스 패브릭 프로젝트 템플릿][5]
 
 HelloWorld 프로젝트의 경우, 서비스 패브릭 행위자 서비스를 사용하도록 합니다.
 
 솔루션을 만들고 나면 다음과 같은 구조로 표시됩니다.
 
-![][2]
+![서비스 패브릭 프로젝트 구조][2]
 
 ## 신뢰할 수 있는 행위자 기본 구성 요소
 
@@ -136,14 +139,14 @@ fabricRuntime.RegisterActor(typeof(MyNewActor));
 
 ## 디버그
 
-Visual Studio용 서비스 패브릭 도구는 로컬 컴퓨터에서 디버깅을 지원합니다. F5를 누르면 디버깅 세션을 시작할 수 있습니다. Visual Studio는 로컬 서비스 패브릭 클러스터에서 응용 프로그램을 빌드(필요한 경우), 패키지 및 배포하고 디버거를 연결합니다. ASP.NET 응용 프로그램을 디버깅하는 것과 비슷합니다. 배포 프로세스가 진행되는 동안 출력 창에서 진행률을 볼 수 있습니다.
+Visual Studio용 서비스 패브릭 도구는 로컬 컴퓨터에서 디버깅을 지원합니다. F5를 누르면 디버깅 세션을 시작할 수 있습니다. Visual Studio는 패키지를 빌드하고(필요한 경우) 로컬 서비스 패브릭 클러스터에 응용 프로그램을 배포하고 디버거를 연결합니다. ASP.NET 응용 프로그램을 디버깅하는 것과 비슷합니다. 배포 프로세스가 진행되는 동안 출력 창에서 진행률을 볼 수 있습니다.
 
-![][3]
+![서비스 패브릭 디버깅 출력 창][3]
 
 ## 응용 프로그램 배포
 Visual Studio에서 디버거를 시작하지 않고도 서비스 패브릭 응용 프로그램 프로젝트를 선택한 후 마우스 오른쪽 단추로 클릭하여 로컬 클러스터에서 응용 프로그램을 패키지하고 배포할 수 있습니다.
 
-![][4]
+![서비스 패브릭 - 응용 프로그램 배포 및 패키징을 위한 프로젝트 메뉴][4]
 
 * **배포**: 앱을 패키지하고 배포 프로세스를 시작합니다.
 * **배포 제거**: 로컬 클러스터에서 응용 프로그램을 제거하는 데 사용할 수 있습니다.
@@ -151,8 +154,7 @@ Visual Studio에서 디버거를 시작하지 않고도 서비스 패브릭 응�
 
 ## 다음 단계
 
-[서비스 패브릭 행위자 소개](service-fabric-reliable-actors-introduction.md)
-
+[서비스 패브릭 행위자 소개](service-fabric-reliable-actors-introduction.md) [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx) [샘플 코드](https://github.com/Azure/servicefabric-samples)
 
 
 <!--Image references-->
@@ -160,6 +162,7 @@ Visual Studio에서 디버거를 시작하지 않고도 서비스 패브릭 응�
 [2]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-projectstructure.PNG
 [3]: ./media/service-fabric-reliable-actors-get-started/debugging-output.PNG
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
+[5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

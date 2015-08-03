@@ -93,4 +93,4 @@ Azure에서 새 Windows 기반 가상 컴퓨터를 만들려면 [Azure PowerShel
 - 기존 부하 분산 집합의 구성원
 - 고정 IP 주소
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

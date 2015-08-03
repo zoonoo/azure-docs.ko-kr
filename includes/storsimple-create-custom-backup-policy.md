@@ -39,4 +39,4 @@
 
     ![사용자 지정 백업 정책](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

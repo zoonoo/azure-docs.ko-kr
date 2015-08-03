@@ -42,7 +42,7 @@ Github 템플릿 리포지토리의 리소스 관리자 템플릿을 사용하�
 
 ### 1-a단계: PowerShell을 사용하여 템플릿 파일 다운로드
 
-JSON 템플릿과 기타 관련 파일을 저장할 로컬 폴더를 만듭니다(예: C:\\Azure\\Templates\\MongoDB).
+JSON 템플릿과 기타 관련 파일을 저장할 로컬 폴더를 만듭니다(예: C:\Azure\Templates\MongoDB).
 
 로컬 폴더의 폴더 이름을 대신 입력하여 다음 명령을 실행합니다.
 
@@ -103,7 +103,7 @@ JSON 템플릿과 기타 관련 파일을 저장할 로컬 폴더를 만듭니�
 
     git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-복제가 완료되면 C:\\Azure\\Templates 디렉터리에서 **mongodb-high-availability** 폴더를 찾습니다.
+복제가 완료되면 C:\Azure\Templates 디렉터리에서 **mongodb-high-availability** 폴더를 찾습니다.
 
 ### 2단계: (선택 사항) 템플릿 매개 변수 파악
 
@@ -655,7 +655,7 @@ MongoDB 클러스터를 배포하려면 복제 집합을 올바르게 설정하�
 
     bash ./vm-disk-utils-0.1.sh -b $DATA_DISKS -s
 
-**vm-disk-utils-0.1.sh**는 azure-quickstart-tempates github 리포지토리 내 **shared_scripts\\ubuntu** 폴더의 일부이며, 템플릿 만들기의 일부로 유사한 작업을 실행하는 데 필요할 때마다 재사용할 수 있는 디스크 탑재, 포맷 및 스트라이프에 매우 유용한 함수를 포함하고 있습니다.
+**vm-disk-utils-0.1.sh**는 azure-quickstart-tempates github 리포지토리 내 **shared_scripts\ubuntu** 폴더의 일부이며, 템플릿 만들기의 일부로 유사한 작업을 실행하는 데 필요할 때마다 재사용할 수 있는 디스크 탑재, 포맷 및 스트라이프에 매우 유용한 함수를 포함하고 있습니다.
 
 또 다른 흥미로운 조각은 CustomScriptForLinux VM 확장과 관련된 조각입니다. 이는 각 클러스터 노드 배포 템플릿에서 종속성이 있는 별도의 리소스 유형으로 설치됩니다. 각 **member-resources-Dx.json** 파일 마지막에서 이 조각을 참조하세요.
 
@@ -692,4 +692,4 @@ MongoDB 클러스터를 배포하려면 복제 집합을 올바르게 설정하�
 자세한 내용은 [Azure 리소스 관리자 템플릿 언어](https://msdn.microsoft.com/library/azure/dn835138.aspx)를 참조하세요.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

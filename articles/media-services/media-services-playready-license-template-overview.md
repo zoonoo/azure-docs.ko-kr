@@ -301,4 +301,4 @@ Silverlight에서 지원하는 보호 수준의 예는 [출력 보호를 위한 
 	  <xs:element name="ScmsRestriction" nillable="true" type="tns:ScmsRestriction" />
 	</xs:schema>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

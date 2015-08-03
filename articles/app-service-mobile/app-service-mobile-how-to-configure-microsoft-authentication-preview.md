@@ -18,6 +18,8 @@
 
 # Microsoft 계정 로그인을 사용하도록 응용 프로그램을 구성하는 방법
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 이 항목에서는 Microsoft 계정을 인증 공급자로 사용하도록 Azure 앱 서비스를 구성하는 방법을 보여 줍니다.
 
 ## <a name="register"> </a>Microsoft 계정을 사용하여 응용 프로그램 등록
@@ -66,4 +68,4 @@
 [Azure 관리 포털]: https://portal.azure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

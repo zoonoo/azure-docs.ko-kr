@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/14/2015" 
 	ms.author="wesmc"/>
 
 #Azure 알림 허브 - 진단 지침
@@ -239,4 +239,4 @@ Azure 알림 허브를 사용하면 일반 `SendNotification` API(예: .NET SDK�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

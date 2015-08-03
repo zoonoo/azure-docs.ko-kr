@@ -70,7 +70,7 @@
 
 방금 만든 runbook은 아직 초안 모드입니다. 프로덕션 환경에서 실행하기 전에 게시해야 합니다. Runbook을 게시하면 초안 버전으로 기존의 게시된 버전을 덮어씁니다. 사용자의 경우, 방금전에 runbook을 만들었기 때문에 게시 버전이 아직 없습니다.
 
-1. runbook을 게시하기 위해 **게시**를 클릭한 후 메시지가 표시되면 **예**를 누릅니다.<br>![Publish](media/automation-first-runbook-graphical/runbook-edit-toolbar-publish.png)
+1. runbook을 게시하기 위해 **게시**를 클릭한 후 메시지가 표시되면 **예**를 누릅니다.<br>![게시](media/automation-first-runbook-graphical/runbook-edit-toolbar-publish.png)
 2. **Runbook**창의 runbook을 보기 위해 왼쪽으로 스크롤하는 경우, **게시**의 **작성 상태**를 보여줍니다.
 3. **MyFirstRunbook** 창을 보려면 다시 오른쪽으로 스크롤합니다. 위의 옵션은 runbook을 시작하도록 허용하고, 미래의 특정 시간에 시작하도록 예약 혹은 [webhook](automation-webhooks.md)을 생성하여 HTTP 호출을 통해 시작할 수 있도록 합니다. 
 4. 단지 runbook을 시작하고자 하므로 **시작**버튼을 누르고 메시지가 표시되면 **예**를 누릅니다.<br>![Runbook 시작](media/automation-first-runbook-graphical/runbook-toolbar-start.png)
@@ -165,4 +165,4 @@
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

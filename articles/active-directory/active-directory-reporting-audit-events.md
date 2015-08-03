@@ -103,4 +103,4 @@ Promote tenant to partner
 감사 레코드는 많은 규정 준수 규칙의 필수 컨트롤입니다. Azure Active Directory 감사 보고서를 사용하여 규정 준수 규칙을 충족하려는 고객은 보고서 세부 정보를 설명하는 데 도움이 되도록 내보낸 고객 감사 보고서의 복사본과 함께 이 도움말 항목의 복사본을 제출하는 것이 좋습니다. Azure에서 현재 충족하는 규정 준수 규칙을 알려고 하는 감사자는 직접 Microsoft Azure 보안 센터의 [규정 준수 페이지](http://azure.microsoft.com/support/trust-center/compliance/)로 안내하세요.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

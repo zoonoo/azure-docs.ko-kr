@@ -24,4 +24,4 @@
 
 ![감염 가능성이 있는 장치에서의 로그인](./media/active-directory-reporting-sign-ins-from-possibly-infected-devices/signInsFromPossiblyInfectedDevices.PNG)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

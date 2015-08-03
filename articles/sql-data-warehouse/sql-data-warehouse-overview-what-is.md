@@ -63,15 +63,15 @@ SQL 데이터 웨어하우스는 몇 초 만에 쉽게 배포됩니다. 이 서�
 
 
 ## 다음 단계
-[데이터 웨어하우스에 워크로드]에 대해 알아봅니다.
+[데이터 웨어하우스 워크로드]에 대해 알아봅니다.
 
 <!--Image references-->
 
 <!--Article references-->
-[데이터 웨어하우스에 워크로드] sql-데이터-웨어하우스-개요-workload.md
+[데이터 웨어하우스 워크로드]: ./sql-data-warehouse-overview-workload.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

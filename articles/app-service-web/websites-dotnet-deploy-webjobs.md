@@ -200,4 +200,4 @@ WebJob 프로젝트 자체를 배포하려면 **솔루션 탐색기**에서 이 
 * Azure 미리 보기 포털에서 Azure 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

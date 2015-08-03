@@ -308,4 +308,4 @@ Java, C, Python, PHP 등의 다른 언어에서도 서비스 버스 AMQP 1.0을 
 * [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

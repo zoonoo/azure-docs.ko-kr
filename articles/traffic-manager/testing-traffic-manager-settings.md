@@ -57,4 +57,4 @@
 [트래픽 관리자 부하 분산 방법 정보](../about-traffic-manager-balancing-methods.md) [트래픽 관리자 구성 작업](https://msdn.microsoft.com/library/azure/hh744830.aspx) [트래픽 관리자](../traffic-manager.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

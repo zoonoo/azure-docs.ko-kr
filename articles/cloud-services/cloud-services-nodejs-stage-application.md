@@ -90,4 +90,4 @@
   [Azure의 배포 관리 개요]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

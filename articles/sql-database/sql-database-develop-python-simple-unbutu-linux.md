@@ -112,4 +112,4 @@ SQL 데이터베이스에서 [IDENTITY](https://msdn.microsoft.com/library/ms186
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -41,7 +41,7 @@ Microsoft Azure AD Application Proxy를 사용하면 SharePoint 사이트, Outlo
 9090 | 커넥터 등록(커넥터 등록 프로세스에만 필요)을 사용하도록 설정합니다.
 9091 | 커넥터 신뢰 인증서 자동 갱신을 사용하도록 설정합니다.
  
-방화벽이 원래 사용자에 따라 트래픽에 적용되는 경우 네트워크 서비스로 실행되는 Windows 서비스에서 오는 트래픽에 대해 이러한 포트를 엽니다. 또한 NT Authority\\System에 대해 포트 8080을 사용하도록 설정해야 합니다.
+방화벽이 원래 사용자에 따라 트래픽에 적용되는 경우 네트워크 서비스로 실행되는 Windows 서비스에서 오는 트래픽에 대해 이러한 포트를 엽니다. 또한 NT Authority\System에 대해 포트 8080을 사용하도록 설정해야 합니다.
 
 
 ##1단계: Azure AD에서 응용 프로그램 프록시를 사용하도록 설정
@@ -70,4 +70,4 @@ Microsoft Azure AD Application Proxy를 사용하면 SharePoint 사이트, Outlo
 * [조직으로 Azure 등록](..sign-up-organization.md)
 * [Azure ID](..fundamentals-identity.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -58,4 +58,4 @@
 > 응용 프로그램 연결 로고(PNG 파일, 150x122px, 투명 배경색):
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

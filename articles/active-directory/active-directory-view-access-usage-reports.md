@@ -297,9 +297,9 @@ Azure 관리 포털에서 보고서는 다음과 같은 방식으로 분류되�
 
 Azure AD의 보고 알림에 대한 자세한 내용은 [Azure Active Directory 보고 알림](active-directory-reporting-notifications.md)을 확인하세요.
 
-## 다음 작업
+## 다음 단계
 
 - [Azure Active Directory Premium 시작](active-directory-get-started-premium.md)
 - [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가](active-directory-add-company-branding.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

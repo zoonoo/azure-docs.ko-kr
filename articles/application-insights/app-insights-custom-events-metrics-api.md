@@ -630,4 +630,4 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

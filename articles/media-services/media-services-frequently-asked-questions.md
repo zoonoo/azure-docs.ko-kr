@@ -45,4 +45,4 @@ Q: 미디어 서비스 계정 간에 자산을 복사하려면 어떻게 해야 
 
 A: 미디어 서비스 계정 간에 자산을 복사하려면 [Azure 미디어 서비스 .NET SDK 확장](https://github.com/Azure/azure-sdk-for-media-services-extensions/) 리포지토리에서 제공되는 [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) 확장 메서드를 사용합니다. 자세한 내용은 [이](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices) 포럼 스레드를 참조하세요.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -55,7 +55,7 @@ StorSimple 관리자 서비스는 단일 웹 인터페이스에서 StorSimple �
 
 ## 볼륨 추가
 
-StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deployment-walkthrough.md#step-6:-create-a-volume). 볼륨 추가는 과정이 비슷합니다.
+StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deployment-walkthrough.md#to-create-a-volume). 볼륨 추가는 과정이 비슷합니다.
 
 ### 볼륨을 추가하려면
 
@@ -181,4 +181,4 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

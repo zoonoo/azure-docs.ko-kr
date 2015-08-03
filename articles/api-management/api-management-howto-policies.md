@@ -128,4 +128,4 @@ Azure API 관리에서 정책은 게시자가 구성을 통해 API 동작을 변
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -2,6 +2,7 @@
 	pageTitle="고급 분석 프로세스에서 Hive 쿼리를 Hadoop 클러스터에 제출 | Microsoft Azure" 
 	description="Hive 테이블에서 데이터 처리" 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/29/2015" 
+	ms.date="07/17/2015" 
 	ms.author="hangzh;bradsev" />
 
 #<a name="heading"></a> 고급 분석 프로세스에서 Hive 쿼리를 HDInsight Hadoop 클러스터에 제출
@@ -27,40 +28,44 @@
 
 데이터를 탐색할 수 있거나 포함된 Hive UDF(사용자 정의 함수)를 사용하는 기능을 생성할 수 있는 일반 Hive 쿼리가 제공됩니다.
 
-[NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) 시나리오에 대한 쿼리 예제는 [Github 리포지토리](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts)에 제공됩니다. 이러한 쿼리는 이미 데이터 스키마가 지정되어 있으며 바로 제출하여 실행할 수 있습니다.
+[NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) 시나리오에 대한 쿼리 예제는 [Github 리포지토리](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts)에 제공됩니다. 이러한 쿼리는 이미 데이터 스키마가 지정되어 있으며 바로 제출하여 이 시나리오에 대해 실행할 수 있습니다.
 
 마지막 섹션에서는 사용자가 조정하여 Hive 쿼리 성능을 높일 수 있는 매개 변수에 대해 설명합니다.
 
 ## 필수 조건
 이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
  
-* Azure 저장소 계정을 만들었습니다. 지침이 필요한 경우 [Azure 저장소 계정 만들기](../hdinsight-get-started.md#storage)를 참조하세요. 
+* Azure 저장소 계정을 만들었습니다. 이 작업에 대한 지침이 필요한 경우 [Azure 저장소 계정 만들기](../hdinsight-get-started.md#storage)를 참조하세요. 
 * Hadoop 클러스터에 HDInsight 서비스를 프로비전했습니다. 지침이 필요한 경우 [HDInsight 클러스터 프로비전](../hdinsight-get-started.md#provision)을 참조하세요.
-* Azure HDInsight Hadoop 클러스터의 Hive 테이블에 데이터가 업로드되었습니다. 업로드되지 않은 경우 [데이터를 만들어서 Hive 테이블에 로드](machine-learning-data-science-hive-tables.md)의 지침에 따라 먼저 Hive 테이블에 데이터를 업로드하세요.
+* Azure HDInsight Hadoop 클러스터의 Hive 테이블에 데이터가 업로드되었습니다. 업로드되지 않은 경우 [데이터를 만들어서 Hive 테이블에 로드](machine-learning-data-science-hive-tables.md)에서 제공되는 지침에 따라 먼저 Hive 테이블에 데이터를 업로드하세요.
 * 클러스터에 대한 원격 액세스가 설정되었습니다. 지침이 필요한 경우 [Hadoop 클러스터의 헤드 노드에 액세스](machine-learning-data-science-customize-hadoop-cluster.md#remoteaccess)를 참조하세요. 
 
 
-- [Hive 쿼리를 제출하는 방법](#submit)
-- [데이터 탐색 및 기능 엔지니어링](#explore)
-- [고급 항목: Hive 매개 변수를 조정하여 쿼리 속도 개선](#tuning)
-
 ## <a name="submit"></a>Hive 쿼리를 제출하는 방법
 
-###1. Hadoop 클러스터 헤드 노드에서 명령줄을 통해
+1. [Hadoop 클러스터 헤드 노드의 Hadoop 명령줄을 통해 Hive 쿼리 제출](#headnode)
+2. [Hive 편집기를 사용하여 Hive 쿼리 제출](#hive-editor)
+3. [Azure PowerShell 명령을 사용하여 Hive 쿼리 제출](#ps)
+ 
+###<a name="headnode"></a> 1. Hadoop 클러스터 헤드 노드의 Hadoop 명령줄을 통해 Hive 쿼리 제출
 
-쿼리가 복잡한 경우 Hadoop 클러스터의 헤드 노드에서 바로 Hive 쿼리를 제출하면 일반적으로 Hive 편집기 또는 Azure PowerShell 스크립트를 사용하여 제출하는 것보다 반환 시간이 빠릅니다.
+Hive 쿼리가 복잡한 경우 Hadoop 클러스터의 헤드 노드에서 바로 Hive 쿼리를 제출하면 일반적으로 Hive 편집기 또는 Azure PowerShell 스크립트를 사용하여 제출하는 것보다 반환 시간이 빠릅니다.
 
-Hadoop 클러스터의 헤드 노드에 로그인하고, 헤드 노드 바탕 화면에서 Hadoop 명령줄을 열고, `cd %hive_home%\bin` 명령을 입력합니다.
+Hadoop 클러스터의 헤드 노드에 로그인하고, 헤드 노드 바탕 화면에서 Hadoop 명령줄을 열고, 명령을 입력합니다`cd %hive_home%\bin`.
 
 사용자는 세 가지 방법으로 Hadoop 명령줄에서 Hive 쿼리를 제출할 수 있습니다.
 
-####Hadoop 명령줄에서 직접 Hive 쿼리를 제출합니다. 
+* 직접 제출
+* .hql 파일을 사용하여 제출
+* Hive 명령 콘솔을 사용하여 제출
+
+#### Hadoop 명령줄에서 직접 Hive 쿼리를 제출합니다. 
 
 사용자는 `hive -e "<your hive query>;` 같은 명령을 실행하여 Hadoop 명령줄에서 바로 간단한 Hive 쿼리를 제출할 수 있습니다. 다음은 그 예제입니다. 빨간색 상자는 Hive 쿼리를 제출하는 명령을, 녹색 상자는 Hive 쿼리의 출력을 보여 줍니다.
 
 ![작업 영역 만들기][10]
 
-####.hql 파일로 Hive 쿼리 제출
+#### .hql 파일로 Hive 쿼리 제출
 
 Hive 쿼리가 좀 더 복잡하고 줄이 여러 개인 경우 명령줄 또는 Hive 명령 콘솔에서 쿼리를 편집하는 방법은 실용적이지 않습니다. 대신 Hadoop 클러스터의 헤드 노드에서 텍스트 편집기를 사용하여 헤드 노드의 로컬 디렉터리에 있는 .hql 파일에 Hive 쿼리를 저장합니다. 그러면 다음과 같이 `-f` 인수를 사용하여 .hql 파일의 Hive 쿼리를 제출할 수 있습니다.
 	
@@ -69,14 +74,14 @@ Hive 쿼리가 좀 더 복잡하고 줄이 여러 개인 경우 명령줄 또는
 ![작업 영역 만들기][15]
 
 
-####Hive 쿼리의 진행 상태 화면 인쇄 숨기기
+**Hive 쿼리의 진행 상태 화면 인쇄 숨기기**
 
 기본적으로 Hadoop 명령줄에서 Hive 쿼리가 제출되면 맵/감소 작업의 진행 상태가 화면에 인쇄됩니다. 맵/감소 작업의 진행 상태 화면 인쇄를 숨기려면 다음과 같이 명령줄에 `-S` 인수("S"는 대문자)를 사용합니다.
 
 	hive -S -f "<path to the .hql file>"
 	hive -S -e "<Hive queries>"
 
-####Hive 명령 콘솔에서 Hive 쿼리를 제출합니다.
+#### Hive 명령 콘솔에서 Hive 쿼리를 제출합니다.
 
 또한 사용자는 Hadoop 명령줄에서 `hive` 명령을 실행하여 Hive 명령 콘솔을 먼저 입력한 후 Hive 명령 콘솔에서 Hive 쿼리를 제출할 수 있습니다. 다음은 예제입니다. 이 예제에서 두 빨간색 상자는 각각 Hive 명령 콘솔을 입력하는 데 사용된 명령과 Hive 명령 콘솔에서 제출된 Hive 쿼리를 보여 줍니다. 녹색 상자는 Hive 쿼리의 출력을 보여 줍니다.
 
@@ -84,7 +89,7 @@ Hive 쿼리가 좀 더 복잡하고 줄이 여러 개인 경우 명령줄 또는
 
 이전 예제에서는 Hive 쿼리 결과가 화면에 바로 출력됩니다. 또한 사용자는 헤드 로드의 로컬 파일 또는 Azure blob에 출력을 작성할 수 있습니다. 그런 다음 사용자는 다른 도구를 사용하여 Hive 쿼리 출력을 추가로 분석할 수 있습니다.
 
-####Hive 쿼리 결과를 로컬 파일에 출력합니다. 
+**Hive 쿼리 결과를 로컬 파일에 출력합니다.**
 
 Hive 쿼리 결과를 헤드 노드의 로컬 디렉터리에 출력하려면 사용자는 다음과 같이 Hadoop 명령줄에서 Hive 쿼리를 제출해야 합니다.
 
@@ -94,7 +99,7 @@ Hive 쿼리 결과를 헤드 노드의 로컬 디렉터리에 출력하려면 �
 
 ![작업 영역 만들기][12]
 
-####Azure blob에 Hive 쿼리 결과 출력
+**Azure blob에 Hive 쿼리 결과 출력**
 
 사용자는 Hadoop 클러스터의 기본 컨테이너 내에 있는 Azure blob에 Hive 쿼리 결과를 출력할 수도 있습니다. Hive 쿼리는 다음과 같아야 합니다.
 
@@ -108,17 +113,20 @@ Azure 저장소 탐색기 같은 도구를 사용하여 Hadoop 클러스터의 �
 
 ![작업 영역 만들기][14]
 
-###2. Hive 편집기 또는 Azure PowerShell 명령을 통해
+###<a name="hive-editor"></a> 2. Hive 편집기를 사용하여 Hive 쿼리 제출
 
-사용자는 웹 브라우저에 URL `https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor`를 입력하여 쿼리 콘솔(Hive 편집기)을 사용하거나(로그인하려면 Hadoop 클러스터 자격 증명을 입력해야 함) [PowerShell을 사용하여 Hive 작업을 제출](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell)할 수도 있습니다.
+사용자는 웹 브라우저에 URL `https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor`를 입력하여 쿼리 콘솔(Hive 편집기)을 사용합니다(로그인하려면 Hadoop 클러스터 자격 증명을 입력해야 함).
+
+###<a name="ps"></a> 3. Azure PowerShell 명령을 사용하여 Hive 쿼리 제출
+
+사용자는 PowerShell을 사용하여 Hive 쿼리를 제출할 수도 있습니다. 자세한 내용은 [PowerShell을 사용하여 Hive 작업 제출](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell)을 참조하세요.
 
 ## <a name="explore"></a>데이터 탐색, 기능 엔지니어링 및 Hive 매개 변수 조정
 
-이번 섹션에서는 Azure HDInsight Hadoop 클러스터에 Hive를 사용하는 다음과 같은 데이터 랭글링 작업 그리고 일부 Hive 매개 변수를 조정하여 Hive 쿼리 성능을 개선하는 고급 항목에 대해 설명합니다.
+이 섹션에서는 Azure HDInsight Hadoop 클러스터의 Hive를 사용하여 다음과 같은 데이터 랭글링 작업을 수행하는 방법에 대해 설명합니다.
 
 1. [데이터 탐색](#hive-dataexploration)
 2. [기능 생성](#hive-featureengineering)
-3. [고급 항목: Hive 매개 변수를 조정하여 쿼리 속도 개선](#tune-parameters)
 
 > [AZURE.NOTE]샘플 Hive 쿼리에서는 Azure HDInsight Hadoop 클러스터의 Hive 테이블에 데이터가 업로드된 것으로 가정합니다. 업로드되지 않은 경우 [데이터를 만들어서 Hive 테이블에 로드](machine-learning-data-science-hive-tables.md)의 지침에 따라 먼저 Hive 테이블에 데이터를 업로드하세요.
 
@@ -165,16 +173,16 @@ Azure 저장소 탐색기 같은 도구를 사용하여 Hadoop 클러스터의 �
 ###<a name="hive-featureengineering"></a>기능 생성
 
 이 섹션에서는 Hive 쿼리를 사용하여 기능을 생성하는 방법에 대해 설명합니다.
+  
+1. [빈도 기반 기능 생성](#hive-frequencyfeature)
+2. [이진 분류에서 범주 변수의 위험](#hive-riskfeature)
+3. [날짜/시간 필드에서 기능 추출](#hive-datefeature)
+4. [텍스트 필드에서 기능 추출](#hive-textfeature)
+5. [GPS 좌표 사이의 거리 계산](#hive-gpsdistance)
 
 > [AZURE.NOTE]추가 기능을 생성한 후 기존 테이블에 열로 추가하거나 추가 기능 및 기본 키를 사용하여 새 테이블을 만들어서 원래 테이블과 조인할 수 있습니다.
 
-1. [빈도 기반 기능 생성](#hive-frequencyfeature)
-2. [이진 분류에서 범주 변수의 위험](#hive-riskfeature)
-3. [날짜/시간 필드에서 기능 추출](#hive-datefeatures)
-4. [텍스트 필드에서 기능 추출](#hive-textfeatures)
-5. [GPS 좌표 사이의 거리 계산](#hive-gpsdistance)
-
-####<a name="hive-frequencyfeature"></a>빈도 기반 기능 생성
+####<a name="hive-frequencyfeature"></a> 빈도 기반 기능 생성
 
 범주 변수의 빈도 수준 또는 여러 범주 변수 조합의 빈도 수준을 계산하는 것이 매우 유용한 경우가 있습니다. 사용자는 다음 스크립트를 사용하여 빈도를 계산할 수 있습니다.
 
@@ -189,7 +197,7 @@ Azure 저장소 탐색기 같은 도구를 사용하여 Hadoop 클러스터의 �
 		order by frequency desc;
 	
 
-####<a name="hive-riskfeature"></a>이진 분류에서 범주 변수의 위험
+####<a name="hive-riskfeature"></a> 이진 분류에서 범주 변수의 위험
 
 이진 분류에서 숫자가 아닌 수준을 숫자 위험으로 바꿔서 숫자가 아닌 범주 변수를 숫자 기능으로 변환해야 할 때가 종종 있습니다. 일부 모델은 숫자 기능만 사용할 수 있기 때문입니다. 이 섹션에서는 범주 변수의 위험 값(로그 odd)을 계산하는 일반 Hive 쿼리를 보여 줍니다.
 
@@ -216,7 +224,7 @@ Azure 저장소 탐색기 같은 도구를 사용하여 Hadoop 클러스터의 �
 
 위험 테이블이 계산되면 사용자는 위험 값을 위험 테이블에 조인하여 위험 값을 할당할 수 있습니다. Hive 조인 쿼리는 이전 섹션에서 제공되었습니다.
 
-####<a name="hive-datefeature"></a>날짜/시간 필드에서 기능 추출
+####<a name="hive-datefeature"></a> 날짜/시간 필드에서 기능 추출
 
 Hive는 날짜/시간 필드를 처리할 수 있는 UDF가 함께 제공됩니다. Hive의 기본 날짜/시간 형식은 'yyyy-MM-dd 00:00:00'입니다(예: '1970-01-01 12:21:32'). 이 섹션에서는 날짜/시간 필드에서 일 및 월을 추출하는 예제와 기본 형식이 아닌 다른 형식으로 된 날짜/시간 문자열을 기본 형식의 날짜/시간 문자열로 변환하는 예제를 보여 줍니다.
 
@@ -230,7 +238,7 @@ Hive는 날짜/시간 필드를 처리할 수 있는 UDF가 함께 제공됩니�
 		select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
 		from <databasename>.<tablename>;
 
-이 쿼리에서 `<datetime field>`의 패턴이 `03/26/2015 12:04:39`와 같다면 `'<pattern of the datetime field>'`은 `'MM/dd/yyyy HH:mm:ss'`입니다. 이를 테스트하려면 다음 명령을 실행합니다.
+이 쿼리에서 `<datetime field>`의 패턴이 `03/26/2015 12:04:39`와 같다면 `'<pattern of the datetime field>'`는 `'MM/dd/yyyy HH:mm:ss'`입니다. 이를 테스트하려면 다음 명령을 실행합니다.
 
 		select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
 		from hivesampletable limit 1;
@@ -238,14 +246,14 @@ Hive는 날짜/시간 필드를 처리할 수 있는 UDF가 함께 제공됩니�
 이 쿼리에서 `hivesampletable`은 기본적으로 클러스터가 프로비전될 때 모든 Azure HDInsight Hadoop 클러스터가 함께 제공됩니다.
 
 
-####<a name="hive-textfeature"></a>텍스트 필드에서 기능 추출
+####<a name="hive-textfeature"></a> 텍스트 필드에서 기능 추출
 
 Hive 테이블에 텍스트 필드가 있고 이 텍스트 필드에 공백으로 구분된 단어 문자열이 포함되어 있으면 다음 쿼리는 문자열의 길이와 문자열에 포함된 단어 수를 추출합니다.
 
     	select length(<text field>) as str_len, size(split(<text field>,' ')) as word_num 
 		from <databasename>.<tablename>;
 
-####<a name="hive-gpsdistance"></a>GPS 좌표 사이의 거리 계산
+####<a name="hive-gpsdistance"></a> GPS 좌표 사이의 거리 계산
 
 이 섹션에 제공된 쿼리를 뉴욕시 택시 여행 데이터에 바로 적용할 수 있습니다. Hive에 포함된 수학 함수를 적용하여 기능을 생성하는 방법을 보여 주는 것이 이 쿼리의 목적입니다.
 
@@ -318,4 +326,4 @@ Hive 클러스터의 기본 매개 변수 설정이 Hive 쿼리 및 쿼리에서
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

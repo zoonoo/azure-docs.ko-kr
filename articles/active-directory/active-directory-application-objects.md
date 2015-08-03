@@ -89,4 +89,4 @@ Azure 관리 포털에서 앱을 등록할 때 두 개체는 디렉터리 테넌
  
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

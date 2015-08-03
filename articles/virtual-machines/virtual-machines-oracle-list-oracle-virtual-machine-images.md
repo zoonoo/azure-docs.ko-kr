@@ -1,5 +1,19 @@
-<properties title="List of Oracle Virtual Machine Images" pageTitle="Oracle 가상 컴퓨터 이미지 목록" description="Azure 갤러리에서 Oracle 이미지의 목록을 가져오고 해당 이미지 한개를 기반으로 하여 Oracle 가상 머신을 만드는 방법을 알아봅니다." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties 
+	pageTitle="Oracle 가상 컴퓨터 이미지 목록" 
+	description="Azure 갤러리에서 Oracle 이미지의 목록을 가져오고 해당 이미지 한개를 기반으로 하여 Oracle 가상 머신을 만드는 방법을 알아봅니다." 
+	services="virtual-machines" 
+	authors="bbenz" 
+	documentationCenter=""/>
+
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="infrastructure-services" 
+	ms.date="06/22/2015" 
+	ms.author="bbenz" />
+
 #Oracle 가상 컴퓨터 이미지 목록
 Oracle 이미지에 따라 가상 컴퓨터를 만들려면 [Azure 포털](https://ms.portal.azure.com/)에 로그인, **마켓플레이스**, **계산**을 차례대로 클릭한 다음 **Oracle**을 검색 상자에 입력합니다. 이미지를 선택하고 Microsoft Azure에서 이미지를 설정하기 위해 지침을 따릅니다. [Azure 포털](https://ms.portal.azure.com/)의 Microsoft에 의한 Oracle 이미지는 Windows에서 실행하고 Oracle에 의한 Oracle 이미지는 Oracle Linux에서 실행해야 합니다.
 
@@ -50,4 +64,4 @@ Oracle 이미지에 따라 가상 컴퓨터를 만들려면 [Azure 포털](https
 
 [Oracle 가상 컴퓨터 이미지 - 기타 고려 사항](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

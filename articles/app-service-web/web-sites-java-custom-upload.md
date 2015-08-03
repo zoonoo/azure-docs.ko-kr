@@ -30,7 +30,7 @@ Azure에서는 [Azure 앱 서비스에서 Java 웹 앱 만들기](web-sites-java
 - 단일 HTTP 수신기 이외의 모든 수신 포트는 사용하지 않도록 설정해야 합니다. Tomcat에서는 종료, HTTPS 및 AJP 포트가 포함됩니다.
 - 컨테이너는 IPv4 트래픽에 대해서만 구성해야 합니다.
 - 응용 프로그램의 **startup** 명령은 구성에서 설정해야 합니다.
-- 쓰기 권한이 있는 디렉터리가 필요한 응용 프로그램은 Azure 웹 앱의 콘텐츠 디렉터리(**D:\\home**)에 있어야 합니다. 환경 변수 `HOME`은 D:\\home을 참조합니다.  
+- 쓰기 권한이 있는 디렉터리가 필요한 응용 프로그램은 Azure 웹 앱의 콘텐츠 디렉터리(**D:\home**)에 있어야 합니다. 환경 변수 `HOME`은 D:\home을 참조합니다.  
 
 필요에 따라 환경 변수를 web.config 파일에서 설정할 수 있습니다.
 
@@ -71,7 +71,7 @@ Azure에서는 [Azure 앱 서비스에서 Java 웹 앱 만들기](web-sites-java
                                                                                       
 **stdoutLogEnabled**(기본값 = "true"). true인 경우 **processPath** 설정에 지정된 프로세스의 **stdout** 및 **stderr**가 **stdoutLogFile**(**stdoutLogFile** 섹션 참조)에 지정된 파일로 리디렉션됩니다.
                                     
-**stdoutLogFile**(기본값 = "d:\\home\\LogFiles\\httpPlatformStdout.log"). **processPath**에 지정된 프로세스의 **stdout** 및 **stderr**가 로깅될 절대 파일 경로입니다.
+**stdoutLogFile**(기본값 = "d:\home\LogFiles\httpPlatformStdout.log"). **processPath**에 지정된 프로세스의 **stdout** 및 **stderr**가 로깅될 절대 파일 경로입니다.
                                     
 > [AZURE.NOTE]`%HTTP_PLATFORM_PORT%`는 **arguments**의 일부 또는 **httpPlatform** **environmentVariables** 목록의 일부로 지정해야 하는 특수 자리 표시자입니다. 이 자리 표시자는 **HttpPlatformHandler**에서 내부적으로 생성한 포트로 대체되므로 **processPath**에서 지정한 프로세스가 이 포트에서 수신 대기할 수 있습니다.
 
@@ -139,9 +139,9 @@ start.ini에서 `java.net.preferIPv4Stack=true`를 설정하도록 Jetty 구성�
 
 이 테스트에서는 구성을 설정하는 데 Hudson 3.1.2 war 및 기본 Tomcat 7.0.50 인스턴스를 사용하지만 UI는 사용하지 않습니다. Hudson이 소프트웨어 빌드 도구이므로 웹 앱에서 **AlwaysOn** 플래그를 설정할 수 있는 전용 인스턴스에 Hudson을 설치하는 것이 좋습니다.
 
-1. **d:\\home\\site\\wwwroot**와 같이 웹 앱의 루트 디렉토리에서 **webapps** 디렉토리를 만들고(디렉토리가 없는 경우), Hudson.war을 **d:\\home\\site\\wwwroot\\webapps**에 저장합니다.
-2. Apache Maven 3.0.5(Hudson과 호환됨)를 다운로드하여 **d:\\home\\site\\wwwroot**에 저장합니다.
-3. **d:\\home\\site\\wwwroot**에서 web.config를 만들어 다음 내용을 붙여넣습니다.
+1. **d:\home\site\wwwroot**와 같이 웹 앱의 루트 디렉토리에서 **webapps** 디렉토리를 만들고(디렉토리가 없는 경우), Hudson.war을 **d:\home\site\wwwroot\webapps**에 저장합니다.
+2. Apache Maven 3.0.5(Hudson과 호환됨)를 다운로드하여 **d:\home\site\wwwroot**에 저장합니다.
+3. **d:\home\site\wwwroot**에서 web.config를 만들어 다음 내용을 붙여넣습니다.
 	
 		<?xml version="1.0" encoding="UTF-8"?>
 		<configuration>
@@ -194,7 +194,7 @@ Liferay를 다운로드한 후에 Tomcat과 함께 제공되는 Liferay 6.1.2 Co
 - HTTP 커넥터를 `<Connector port="${port.http}" protocol="HTTP/1.1" connectionTimeout="600000" address="127.0.0.1" URIEncoding="UTF-8" />`로 변경합니다.
 - AJP 커넥터를 주석으로 처리합니다.
 
-**liferay\\tomcat-7.0.40\\webapps\\ROOT\\WEB-INF\\classes** 폴더에서 이름이 **portal-ext.properties**인 파일을 만듭니다. 이 파일에 다음과 같은 줄을 포함해야 합니다.
+**liferay\tomcat-7.0.40\webapps\ROOT\WEB-INF\classes** 폴더에서 이름이 **portal-ext.properties**인 파일을 만듭니다. 이 파일에 다음과 같은 줄을 포함해야 합니다.
 
     liferay.home=%HOME%/site/wwwroot/liferay
 
@@ -236,4 +236,4 @@ Liferay에 대한 자세한 내용은 [http://www.liferay.com](http://www.lifera
  
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

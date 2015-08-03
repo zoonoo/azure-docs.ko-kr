@@ -49,4 +49,4 @@ SQL 데이터 웨어하우스에 대한 지원이 포함된 [SQL Server Data Too
 <!--Other web references-->
 [Azure 포털]: http://portal.azure.com/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

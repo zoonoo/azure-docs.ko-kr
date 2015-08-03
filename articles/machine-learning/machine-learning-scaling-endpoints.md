@@ -47,4 +47,4 @@ Azure 기계 학습의 웹 서비스 끝점에는 끝점이 사용되는 속도�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

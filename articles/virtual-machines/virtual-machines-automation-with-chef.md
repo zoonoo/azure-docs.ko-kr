@@ -46,15 +46,15 @@ Chef에는 세 가지 주요 아키텍처 구성 요소가 있습니다. **Chef 
 
 먼저 워크스테이션을 준비하겠습니다. 여기서는 표준 Windows 워크스테이션을 사용합니다. 구성 파일과 cookbook을 저장할 디렉터리를 만들어야 합니다.
 
-먼저 **C:\\chef**라는 디렉터리를 만듭니다.
+먼저 **C:\chef**라는 디렉터리를 만듭니다.
 
-그런 다음 **c:\\chef\\cookbooks**라는 두 번째 디렉터리를 만듭니다.
+그런 다음 **c:\chef\cookbooks**라는 두 번째 디렉터리를 만듭니다.
 
 이제 Chef가 Azure 구독과 통신할 수 있도록 Azure 설정 파일을 다운로드해야 합니다.
 
 다음에서 게시 설정을 다운로드합니다. <a href="https://manage.windowsazure.com/publishsettings/" target="_blank">https://manage.windowsazure.com/publishsettings/</a>
 
-게시 설정 파일을 **C:\\chef**에 저장합니다.
+게시 설정 파일을 **C:\chef**에 저장합니다.
 
 ##관리되는 Chef 계정 만들기
 
@@ -74,15 +74,15 @@ Chef에는 세 가지 주요 아키텍처 구성 요소가 있습니다. **Chef 
 
 ##Chef 워크스테이션 구성
 
-chef-starter.zip 내용을 **C:\\chef**에 추출합니다.
+chef-starter.zip 내용을 **C:\chef**에 추출합니다.
 
-**chef-starter\\chef-repo.chef**의 모든 파일을 **c:\\chef**에 복사합니다.
+**chef-starter\chef-repo.chef**의 모든 파일을 **c:\chef**에 복사합니다.
 
 이제 디렉터리가 다음과 같이 표시됩니다.
 
 ![][5]
 
-이제 c:\\chef 루트에 있는 Azure 게시 파일을 포함하여 4개의 파일이 있습니다.
+이제 c:\chef 루트에 있는 Azure 게시 파일을 포함하여 4개의 파일이 있습니다.
 
 PEM 파일에는 조직 및 관리자의 통신용 개인 키가 들어 있고, **knife.rb** 파일에는 knife 구성이 들어 있습니다. **knife.rb** 파일을 편집해야 합니다.
 
@@ -98,7 +98,7 @@ PEM 파일에는 조직 및 관리자의 통신용 개인 키가 들어 있고, 
 
 ![][6]
 
-이러한 줄은 Knife가 c:\\chef\\cookbooks 아래의 cookbooks 디렉터리에서 참조되고 Azure 작업 중 Azure 게시 설정 파일을 사용하도록 해줍니다.
+이러한 줄은 Knife가 c:\chef\cookbooks 아래의 cookbooks 디렉터리에서 참조되고 Azure 작업 중 Azure 게시 설정 파일을 사용하도록 해줍니다.
 
 ## Chef Development Kit 설치
 
@@ -108,9 +108,9 @@ PEM 파일에는 조직 및 관리자의 통신용 개인 키가 들어 있고, 
 
 ![][7]
 
-간단합니다. 기본 위치인 c:\\opscode에 설치해 보겠습니다. 설치하는 데 10분 정도 걸립니다.
+간단합니다. 기본 위치인 c:\opscode에 설치해 보겠습니다. 설치하는 데 10분 정도 걸립니다.
 
-PATH 변수에 C:\\opscode\\chefdk\\bin;C:\\opscode\\chefdk\\embedded\\bin;c:\\users\\yourusername.chefdk\\gem\\ruby\\2.0.0\\bin에 대한 항목이 포함되어 있어야 합니다.
+PATH 변수에 C:\opscode\chefdk\bin;C:\opscode\chefdk\embedded\bin;c:\users\yourusername.chefdk\gem\ruby\2.0.0\bin에 대한 항목이 포함되어 있어야 합니다.
 
 그렇지 않으면 이러한 경로를 추가해야 합니다.
 
@@ -143,15 +143,15 @@ PATH 변수에 C:\\opscode\\chefdk\\bin;C:\\opscode\\chefdk\\embedded\\bin;c:\\u
 
 Cookbook은 Chef에서 관리되는 클라이언트를 실행할 명령 집합을 정의하는 데 사용됩니다. Cookbook 만들기는 간단하며, chef generate cookbook 명령을 사용하여 Cookbook 템플릿을 생성할 수 있습니다. 저는 IIS를 자동으로 배포하는 정책을 좋아하므로 저의 Cookbook 웹 서버를 호출해 보겠습니다.
 
-C:\\Chef 디렉터리 아래에서 다음 명령을 실행합니다.
+C:\Chef 디렉터리 아래에서 다음 명령을 실행합니다.
 
 	chef generate cookbook webserver
 
-**C:\\Chef\\cookbooks\\webserver.** 디렉터리에 파일 집합이 생성됩니다. 이제 관리되는 VM에서 Chef Client를 실행할 명령 집합을 정의해야 합니다.
+**C:\Chef\cookbooks\webserver.** 디렉터리에 파일 집합이 생성됩니다. 이제 관리되는 VM에서 Chef Client를 실행할 명령 집합을 정의해야 합니다.
 
 명령은 **default.rb.** 파일에 저장됩니다. 이 파일에서 IIS를 설치하고, IIS를 시작하며, 템플릿 파일을 wwwroot 폴더에 복사하는 명령 집합을 정의합니다.
 
-**C:\\chef\\cookbooks\\webserver\\recipes\\default.rb**를 수정하고 다음 줄을 추가합니다.
+**C:\chef\cookbooks\webserver\recipes\default.rb**를 수정하고 다음 줄을 추가합니다.
 
 	powershell_script 'Install IIS' do
  		action :run
@@ -177,7 +177,7 @@ C:\\Chef 디렉터리 아래에서 다음 명령을 실행합니다.
 
 	chef generate template webserver Default.htm
 
-이제 **C:\\chef\\cookbooks\\webserver\\templates\\default\\Default.htm.erb** 파일로 이동하여 파일을 편집합니다.
+이제 **C:\chef\cookbooks\webserver\templates\default\Default.htm.erb** 파일로 이동하여 파일을 편집합니다.
 
 간단한 “Hello World” html 코드를 추가하고 파일을 저장합니다.
 
@@ -238,4 +238,4 @@ C:\\Chef 디렉터리 아래에서 다음 명령을 실행합니다.
 
 <!--Link references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

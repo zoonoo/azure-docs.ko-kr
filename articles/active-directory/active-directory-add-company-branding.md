@@ -187,4 +187,4 @@ Azure AD의 일부 사용자 지정 가능한 요소에는 여러 가지 사용 
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

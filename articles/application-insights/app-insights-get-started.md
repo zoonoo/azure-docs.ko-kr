@@ -73,4 +73,4 @@ Application Insights는 앱에 SDK를 추가하여 작동하며, [Azure 포털](
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

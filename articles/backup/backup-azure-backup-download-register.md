@@ -55,4 +55,4 @@ Azure 백업 자격 증명 모음을 만든 후에는 각 온-프레미스 서�
 ## 다음 단계
 - Azure로 데이터 및 응용 프로그램 백업에 대한 정보는 [백업 예약](backup-azure-backup-and-recover.md)을 참고합니다.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

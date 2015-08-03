@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="adinah"
+   manager="jdial"
    editor="tysonn" />
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/30/2015"
+   ms.date="07/20/2015"
    ms.author="cherylmc"/>
 
 # 공존하는 Express 경로 및 사이트 간 VPN 구성
@@ -45,10 +45,11 @@
 
 ### 참고 사항 및 제한 사항
 
+- 사이트 간 VPN을 통해 연결된 로컬 네트워크와 Express 경로를 통해 연결된 로컬 네트워크 간에는 Azure를 통해 라우팅할 수 없습니다.
+- 지점 및 사이트 간 VPN을 Express 경로에 연결된 동일한 VNet에 연결할 수 없습니다. 동일한 VNet에 대해 지점 및 사이트간 VPN과 Express 경로를 함께 사용할 수 없습니다.
 - Express 경로 게이트웨이와 사이트 간 VPN 게이트웨이 모두 Standard 또는 HighPerformance 게이트웨이 SKU여야 합니다. 게이트웨이 SKU에 대한 자세한 내용은 [게이트웨이 SKU](../vpn-gateway/vpn-gateway-about-vpngateways.md)를 참조하세요.
 - 로컬 네트워크가 Express 경로 및 사이트 간 VPN 둘 다에 연결된 경우(시나리오 1) 로컬 네트워크에서 사이트 간 VPN 연결을 공용 인터넷으로 라우팅하는 정적 경로를 구성해야 합니다. 
 - 사이트 간 VPN 게이트웨이를 추가하기 전에 Express 경로 게이트웨이를 먼저 만들어야 합니다.
-- 사이트 간 VPN을 통해 연결된 로컬 네트워크와 Express 경로를 통해 연결된 로컬 네트워크 간에는 Azure를 통해 라우팅할 수 없습니다.
 - 두 절차 모두 Express 경로 회로를 이미 구성한 것으로 가정합니다. 그렇지 않은 경우 다음 문서를 참조하세요. 
 
 	- [NSP(네트워크 서비스 공급자)를 통해 Express 경로 연결 구성](expressroute-configuring-nsps.md) 
@@ -132,7 +133,7 @@
 
 7. 로컬 사이트 VPN 게이트웨이 엔터티를 만듭니다. 이 명령은 온-프레미스 VPN 게이트웨이를 구성하지 않습니다. 대신, Azure VPN 게이트웨이를 연결할 수 있도록 공용 IP 주소 및 온-프레미스 주소 공간과 같은 로컬 게이트웨이 설정을 제공할 수 있게 해줍니다.
 
-	**중료:** 사이트 간 VPN의 로컬 사이트는 netcfg에 정의되지 않습니다. 대신, 다음 cmdlet을 사용하여 로컬 사이트 매개 변수를 지정해야 합니다. 관리 포털 또는 netcfg 파일을 사용하여 정의할 수 없습니다.
+	**중요:** 사이트 간 VPN의 로컬 사이트는 netcfg에 정의되지 않습니다. 대신, 다음 cmdlet을 사용하여 로컬 사이트 매개 변수를 지정해야 합니다. 관리 포털 또는 netcfg 파일을 사용하여 정의할 수 없습니다.
 
 	다음 샘플(사용자 고유의 값으로 대체)을 사용합니다.
 
@@ -151,7 +152,7 @@
 		OperationStatus      : Succeeded
 
 	
-8. 새 게이트웨이에 연결할 로컬 VPN 장치를 구성합니다. VPN 장치를 구성할 때 6단계에서 검색한 정보를 사용합니다. VPN 장치 구성에 대한 자세한 내용은 [VPN 장치 구성](vpn-gateway-configure-vpn-gateway-mp.md/#gather-information-for-your-vpn-device-configuration)을 참조하세요.
+8. 새 게이트웨이에 연결할 로컬 VPN 장치를 구성합니다. VPN 장치를 구성할 때 6단계에서 검색한 정보를 사용합니다. VPN 장치 구성에 대한 자세한 내용은 [VPN 장치 구성](http://go.microsoft.com/fwlink/p/?linkid=615099)을 참조하세요.
 	
 
 9. Azure의 사이트 간 VPN 게이트웨이를 로컬 게이트웨이에 연결합니다.
@@ -203,4 +204,4 @@ Express 경로에 대해 자세히 알아봅니다. [Express 경로 개요](expr
 
 VPN 게이트웨이에 대해 자세히 알아봅니다. [VPN 게이트웨이 정보](../vpn-gateway/vpn-gateway-about-vpngateways.md)를 참조하세요.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

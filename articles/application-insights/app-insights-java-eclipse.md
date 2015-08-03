@@ -39,7 +39,7 @@ Application Insights SDK가 Java 웹 응용 프로그램에서 원격 분석을 
 
     ![도움말, 새 소프트웨어 설치](./media/app-insights-java-eclipse/0-plugin.png)
 
-2. SDK는 Azure 도구 키트의 http://dl.msopentech.com/eclipse에 있습니다.
+2. SDK는 Azure 도구 키트의 http://dl.windowsazure.com/eclipse에 있습니다.
 3. **모든 업데이트 사이트 문의...**를 선택 취소합니다.
 
     ![Application Insights SDK의 경우 모든 업데이트 사이트 문의 지우기](./media/app-insights-java-eclipse/1-plugin.png)
@@ -169,4 +169,4 @@ Java 웹 응용 프로그램에 몇 줄의 코드를 삽입하여 이를 사용�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="07/19/2015" 
     ms.author="tamram"/>
 
 # C++에서 Blob 저장소를 사용하는 방법  
@@ -165,6 +165,8 @@ Azure Blob 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 대�
 		}
 	}
 
+작업 나열에 대한 자세한 내용은 [C++에서 Azure 저장소 리소스 나열](storage-c-plus-plus-enumeration.md)을 참조하세요.
+
 ## 방법: Blob 다운로드
 Blob을 다운로드하려면 먼저 Blob 참조를 검색한 다음 **download_to_stream** 메서드를 호출합니다. 다음 예제에서는 **download_to_stream** 메서드를 사용하여 Blob 콘텐츠를 스트림 개체로 전송한 다음 이 개체를 로컬 파일에 저장할 수 있습니다.
 
@@ -231,6 +233,7 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **delete_blob** �
 
 -	[C++에서 큐 저장소를 사용하는 방법](storage-c-plus-plus-how-to-use-queues.md)
 -	[C++에서 테이블 저장소를 사용하는 방법](storage-c-plus-plus-how-to-use-tables.md)
+-	[C++에서 Azure 저장소 리소스 나열](storage-c-plus-plus-enumeration.md)
 -	[Storage Client Library for C++](https://msdn.microsoft.com/library/azure/gg433040.aspx) 
 -	[Azure 저장소 MSDN 참조](https://msdn.microsoft.com/library/azure/gg433040.aspx)
 -	[Azure 저장소 설명서](http://azure.microsoft.com/documentation/services/storage/)
@@ -240,4 +243,4 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **delete_blob** �
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

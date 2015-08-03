@@ -1,30 +1,30 @@
-<properties 
-	pageTitle="세 개의 서버 SharePoint 팜 리소스 관리자 템플릿" 
-	description="세 개의 서버 SharePoint 팜용 Azure 리소스 관리자 템플릿 파일의 구조를 단계별로 안내합니다." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="세 개의 서버 SharePoint 팜 리소스 관리자 템플릿"
+	description="세 개의 서버 SharePoint 팜용 Azure 리소스 관리자 템플릿 파일의 구조를 단계별로 안내합니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/29/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/29/2015"
+	ms.author="davidmu"/>
 
 # 세 개의 서버 SharePoint 팜 리소스 관리자 템플릿
 
 이 항목에서는 세 개의 서버 SharePoint 팜용 azuredeploy.json 템플릿 파일의 구조를 단계별로 안내합니다. [여기](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json)에서 브라우저를 통해 이 템플릿의 내용을 확인할 수도 있습니다.
 
-또는, azuredeploy.json 파일의 로컬 복사본을 검사하고 파일 위치로 로컬 폴더를 지정하여 해당 폴더를 만듭니다(예를 들어, C:\\Azure\\Templates\\SharePointFarm). 폴더 이름을 입력하고 Azure PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
+또는, azuredeploy.json 파일의 로컬 복사본을 검사하고 파일 위치로 로컬 폴더를 지정하여 해당 폴더를 만듭니다(예를 들어, C:\Azure\Templates\SharePointFarm). 폴더 이름을 입력하고 Azure PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
 
 	$folderName="<folder name, such as C:\Azure\Templates\SharePointFarm>"
 	$webclient = New-Object System.Net.WebClient
-	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json"	
+	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json"
 	$filePath = $folderName + "\azuredeploy.json"
 	$webclient.DownloadFile($url,$filePath)
 
@@ -370,12 +370,10 @@ Azure에서 다중 계층 인프라를 구축하는 사용자 고유의 JSON 템
 
 [Azure 리소스 관리자의 Azure 계산, 네트워크 및 저장소 공급자](virtual-machines-azurerm-versus-azuresm.md)
 
-[Azure 리소스 관리자 개요](../resource-group-overview.md)
+[Azure 리소스 관리자 개요](resource-group-overview.md)
 
-[Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)
+[Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)
 
 [가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

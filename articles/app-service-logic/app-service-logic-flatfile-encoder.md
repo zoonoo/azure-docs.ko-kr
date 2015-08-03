@@ -100,4 +100,4 @@ BizTalk 플랫 파일 인코더는 스키마를 해당 구성의 일부로 사�
 [6]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.XmlToFlatFile.PNG
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

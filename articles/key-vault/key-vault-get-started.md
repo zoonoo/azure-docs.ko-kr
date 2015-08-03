@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 키 자격 증명 모음 시작 | 개요"
+	pageTitle="Azure 주요 자격 증명 모음 시작 | 개요"
 	description="이 자습서를 사용하면 Azure 키 자격 증명 모음으로 시작하여 확정된 컨테이너를 Azure에 만들고 Azure에서 암호화 키와 비밀을 저장하고 관리하는 데 도움이 됩니다."
 	services="key-vault"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="06/25/2015"
+	ms.date="07/22/2015"
 	ms.author="cabailey"/>
 
-# Azure 키 자격 증명 모음 시작 #
+# Azure 주요 자격 증명 모음 시작 #
 Azure 키 자격 증명 모음은 대부분 지역에서 사용할 수 있습니다. 자세한 내용은 [키 자격 증명 모음 가격 책정 페이지](../../../../pricing/details/key-vault/)를 참조하세요.
 
 ## 소개  
@@ -211,7 +211,7 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -KeyFilePath 'c:\ITByok.byok' -Destination 'HSM'
 
-이 BYOK 패키지를 생성하는 방법에 대한 자세한 내용은 [Azure 키 자격 증명 모음과 HSM-보호된 키를 사용하는 방법](https://msdn.microsoft.com/library/azure/dn903624.aspx)을 참조하세요.
+이 BYOK 패키지를 생성하는 방법에 대한 자세한 내용은 [Azure 주요 자격 증명 모음에 대해 HSM 보호된 키를 생성하고 전송하는 방법](key-vault-hsm-protected-keys.md)을 참조하세요.
 
 ## <a id="delete"></a>키 자격 증명 모음 및 연결된 키와 비밀 삭제 ##
 
@@ -248,4 +248,4 @@ Azure 키 자격 증명 모음에 대한 Windows PowerShell cmdlet의 목록은 
 프로그래밍 참조의 경우 MSDN의 Microsoft Azure 문서에서 [키 자격 증명 모음](https://msdn.microsoft.com/library/azure/dn903625.aspx)을 참조하세요.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

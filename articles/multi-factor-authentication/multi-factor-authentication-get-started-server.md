@@ -122,4 +122,39 @@ IP 서브넷|네트워크 마스크|IP 범위
 
 <center>![Cloud](./media/multi-factor-authentication-get-started-server/import2.png)</center>
 
-<!---HONumber=July15_HO2-->
+## 사용자에게 전자 메일 보내기
+사용자를 Azure Multi-factor Authentication 서버로 가져오므로 사용자에게 multi-factor authentication에 등록되었음을 알리는 전자 메일을 보내는 것이 좋습니다.
+
+Azure Multi-factor Authentication 서버와 함께 다양한 방법으로 다중 요소 인증을 사용하도록 사용자를 구성할 수 있습니다. 예를 들어, 사용자의 전화번호를 알거나 회사 디렉터리에서 Azure Multi-Factor Authentication 서버로 전화번호를 가져올 수 있으면, 전자 메일로 사용자가 Azure Multi-Factor Authentication을 사용하여 구성되었음을 알 수 있으며 Azure Multi-Factor Authentication 사용에 대한 일부 지침을 제공하고 인증을 받는 전화번호의 사용자에게 알립니다.
+
+전자 메일의 내용은 사용자에 대해 설정된 인증 방법(예: 전화 통화, SMS, 모바일 앱)에 따라 달라집니다. 예를 들어 사용자가 인증할 때 PIN을 사용해야하는 경우 전자 메일은 초기 PIN 설정 내용을 알려줍니다. 사용자가 처음 인증할 때 PIN을 변경하려면 일반적으로 필요합니다.
+
+사용자의 전화번호 또는 Azure Multi-Factor Authentication 서버를 구성하거나 서버로 가져오지 않거나, 또는 사용자가 인증에 모바일 앱이 사용되도록 미리 구성된 경우, Azure Multi-Factor Authentication을 사용하도록 구성되었음을 알려주는 전자 메일을 보내고 Azure Multi-Factor Authentication 사용자 포털을 통해 계정 등록을 완료하도록 지시합니다. 사용자가 클릭하여 사용자 포털에 액세스하는 하이퍼링크가 포함됩니다. 사용자가 하이퍼링크를 클릭하면 웹브라우저가 열리고 회사의 Azure Multi-Factor Authentication 사용자 포털로 이동합니다.
+
+
+### 전자 메일 및 전자 메일 템플릿 구성
+
+왼쪽에 있는 전자 메일 아이콘을 클릭하여 이 전자 메일 보내기에 대한 설정을 설정할 수 있습니다. 여기서 메일 서버의 SMTP 정보를 입력할 수 있으며 전자 메일을 사용자에게 보내기 검사 확인란을 추가하여 블랭킷 전체 메일을 보낼 수 있습니다.
+
+![메일 설정](./media/multi-factor-authentication-get-started-server/email1.png)
+
+전자 메일 내용 탭 중에서 선택할 수 있는 다양한 전자 메일 템플릿을 모두 표시합니다. 사용자가 multi-factor authentication을 사용하기 위해 구성한 방법에 따라, 가장 적합한 템플릿을 선택할 수 있습니다.
+
+![메일 템플릿](./media/multi-factor-authentication-get-started-server/email2.png)
+
+## 고급 Azure Multi-Factor Authentication 서버 구성
+고급 설정 및 구성 정보에 대한 추가 정보는 아래 표를 사용합니다.
+
+메서드|설명
+:------------- | :------------- | 
+[사용자 포털](multi-factor-authentication-get-started-portal.md)| 배포 및 사용자 셀프 서비스를 포함한 사용자 포털 설정 및 구성에 대한 정보입니다.
+[Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md)|AD FS를 사용한 Azure Multi-Factor Authentication 설정에 대한 정보입니다.
+[RADIUS 인증](multi-factor-authentication-get-started-server-radius.md)| RADIUS를 사용한 Azure MFA 서버 구성 및 설치에 대한 정보입니다.
+[IIS 인증](multi-factor-authentication-get-started-server-iis.md)|IIS를 사용한 Azure MFA 서버 구성 및 설치에 대한 정보입니다.
+[Windows 인증](multi-factor-authentication-get-started-server-windows.md)| Windows 인증을 사용한 Azure MFA 서버 구성 및 설치에 대한 정보입니다.
+[LDAP 인증](multi-factor-authentication-get-started-server-ldap.md)|LDAP 인증을 사용한 Azure MFA 서버 구성 및 설치에 대한 정보입니다.
+[RADIUS를 사용한 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버](multi-factor-authentication-get-started-server-rdg.md)| RADIUS를 사용한 원격 데스크톱 게이트웨이에서 Azure MFA 서버 구성 및 설치에 대한 정보입니다.
+[Windows Server Active Directory와 동기화](multi-factor-authentication-get-started-server-dirint.md)|Active Directory와 Azure MFA 서버 간의 동기화 설정 및 구성에 대한 정보입니다.
+[Azure Multi-Factor Authentication 서버 모바일 앱 웹 서비스](multi-factor-authentication-get-started-server-webservice.md)|Azure MFA 서버 웹 서비스 구성 및 설치에 대한 정보입니다.
+
+<!---HONumber=July15_HO4-->

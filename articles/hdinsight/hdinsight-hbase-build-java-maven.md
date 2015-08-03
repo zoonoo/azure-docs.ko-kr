@@ -42,9 +42,9 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 
 	* __pom.xml__: [프로젝트 개체 모델(POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)은 프로젝트를 빌드하는 데 사용된 정보 및 구성 세부 정보를 포함합니다.
 
-	* __src__: __main\\java\\com\\microsoft\\examples__ 디렉터리를 포함하는 디렉터리이며 여기서 응용 프로그램을 작성합니다.
+	* __src__: __main\java\com\microsoft\examples__ 디렉터리를 포함하는 디렉터리이며 여기서 응용 프로그램을 작성합니다.
 
-3. __src\\test\\java\\com\\microsoft\\examples\\apptest.java__ 파일은 이 예제에서 사용되지 않으므로 이 파일을 삭제합니다.
+3. __src\test\java\com\microsoft\examples\apptest.java__ 파일은 이 예제에서 사용되지 않으므로 이 파일을 삭제합니다.
 
 ##프로젝트 개체 모델 업데이트
 
@@ -103,7 +103,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 		  </plugins>
 		</build>
 
-	이 코드는 HBase에 대한 구성 정보를 포함하는 리소스(__conf\\hbase-site.xml__)를 구성합니다.
+	이 코드는 HBase에 대한 구성 정보를 포함하는 리소스(__conf\hbase-site.xml__)를 구성합니다.
 
 	> [AZURE.NOTE]또한 코드를 통해 구성 값을 설정할 수도 있습니다. 작업 방법은 뒤에 나오는 __CreateTable__ 예제의 설명을 참조하세요.
 
@@ -155,13 +155,13 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 
 	이 파일은 HDInsight 클러스터용 HBase 구성을 로드하는 데 사용됩니다.
 
-	> [AZURE.NOTE]이 파일은 최소 크기의 hbase-site.xml 파일로, HDInsight 클러스터용 완전한 최소 설정을 포함합니다. HDInsight에서 사용되는 전체 버전의 hbase-site.xml 구성 파일은 [Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리](hdinsight-administer-use-management-portal.md#rdp)를 참조하세요. hbase-site.xml 파일은 C:\\apps\\dist\\hbase-&lt;version number>-hadoop2\\conf 디렉터리에 있습니다. 파일 경로의 버전 번호 부분은 HBase가 클러스터에서 업데이트될 때 변경됩니다.
+	> [AZURE.NOTE]이 파일은 최소 크기의 hbase-site.xml 파일로, HDInsight 클러스터용 완전한 최소 설정을 포함합니다. HDInsight에서 사용되는 전체 버전의 hbase-site.xml 구성 파일은 [Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리](hdinsight-administer-use-management-portal.md#rdp)를 참조하세요. hbase-site.xml 파일은 C:\apps\dist\hbase-&lt;version number>-hadoop2\conf 디렉터리에 있습니다. 파일 경로의 버전 번호 부분은 HBase가 클러스터에서 업데이트될 때 변경됩니다.
 
 3. __hbase-site.xml__ 파일을 저장합니다.
 
 ##응용 프로그램 만들기
 
-1. __hbaseapp\\src\\main\\java\\com\\microsoft\\examples__ 디렉터리로 이동하여 app.java 파일 이름을 __CreateTable.java__로 바꿉니다.
+1. __hbaseapp\src\main\java\com\microsoft\examples__ 디렉터리로 이동하여 app.java 파일 이름을 __CreateTable.java__로 바꿉니다.
 
 2. __CreateTable.java__ 파일을 열고 기존 내용을 다음으로 바꿉니다.
 
@@ -231,7 +231,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 
 3. __CreateTable.java__ 파일을 저장합니다.
 
-4. __hbaseapp\\src\\main\\java\\com\\microsoft\\examples__ 디렉터리에서 __SearchByEmail.java__라는 새 파일을 만듭니다. 이 파일의 내용으로 다음을 사용합니다.
+4. __hbaseapp\src\main\java\com\microsoft\examples__ 디렉터리에서 __SearchByEmail.java__라는 새 파일을 만듭니다. 이 파일의 내용으로 다음을 사용합니다.
 
 		package com.microsoft.examples;
 		import java.io.IOException;
@@ -308,7 +308,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 
 5. __SearchByEmail.java__ 파일을 저장합니다.
 
-6. __hbaseapp\\src\\main\\hava\\com\\microsoft\\examples__ 디렉터리에서 __DeleteTable.java__라는 새 파일을 만듭니다. 이 파일의 내용으로 다음을 사용합니다.
+6. __hbaseapp\src\main\hava\com\microsoft\examples__ 디렉터리에서 __DeleteTable.java__라는 새 파일을 만듭니다. 이 파일의 내용으로 다음을 사용합니다.
 
 		package com.microsoft.examples;
 		import java.io.IOException;
@@ -344,7 +344,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 
 	이 코드는 이전 빌드 아티팩트를 정리하고, 아직 설치되지 않은 모든 종속성을 다운로드한 후 응용 프로그램을 빌드 및 패키지화합니다.
 
-3. 명령이 완료되면 __hbaseapp\\target__ 디렉터리에 __hbaseapp-1.0-SNAPSHOT.jar__이라는 파일이 포함됩니다.
+3. 명령이 완료되면 __hbaseapp\target__ 디렉터리에 __hbaseapp-1.0-SNAPSHOT.jar__이라는 파일이 포함됩니다.
 
 	> [AZURE.NOTE]__hbaseapp-1.0-SNAPSHOT.jar__ 파일은 응용 프로그램을 실행하는 데 필요한 모든 종속성을 포함하는 uber jar(fat jar라고도 함)입니다.
 
@@ -483,7 +483,7 @@ Apache Maven을 사용하여 Java로 [Apache HBase](http://hbase.apache.org/) �
 		    # Is the Azure module installed?
 		    if (-not(Get-Module -ListAvailable Azure))
 		    {
-		        throw "Azure PowerShell not found! For help, see http://www.windowsazure.com/documentation/articles/install-configure-powershell/"
+		        throw "Azure PowerShell not found! For help, see http://azure.microsoft.com/documentation/articles/install-configure-powershell/"
 		    }
 
 		    # Is there an active Azure subscription?
@@ -591,4 +591,4 @@ __hdinsightclustername__을 HDInsight 클러스터의 이름으로 바꿉니다.
 
 `-showErr` 매개 변수를 사용하여 작업을 실행하는 동안 생성된 표준 오류(STDERR)을 확인합니다.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

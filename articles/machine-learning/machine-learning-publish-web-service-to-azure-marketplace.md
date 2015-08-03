@@ -109,4 +109,4 @@ Azure 기계 학습 웹 서비스를 Azure 마켓플레이스에 게시하는 �
 [odata]: ./media/machine-learning-publish-web-service-to-azure-marketplace/odata.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

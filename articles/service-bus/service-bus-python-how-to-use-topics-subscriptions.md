@@ -158,4 +158,4 @@ SAS 키 이름 및 값에 대한 값은 Azure 관리 포털 연결 정보 또는
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

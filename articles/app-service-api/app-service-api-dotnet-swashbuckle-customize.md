@@ -74,7 +74,7 @@ Swashbuckle은 컨트롤러 이름과 메서드 이름을 연결하여 Swagger �
 		    }
 		}
 
-2. *App_Start\\SwaggerConfig.cs* 파일에서 `OperationFilter` 메서드를 호출하여 Swashbuckle에서 새 `IOperationFilter` 구현을 사용하도록 합니다.
+2. *App_Start\SwaggerConfig.cs* 파일에서 `OperationFilter` 메서드를 호출하여 Swashbuckle에서 새 `IOperationFilter` 구현을 사용하도록 합니다.
 
 		c.OperationFilter<MultipleOperationsWithSameVerbFilter>();
 
@@ -250,4 +250,4 @@ Visual Studio를 사용하여 REST API에 대한 클라이언트 코드를 다�
 이 문서에서는 Swashbuckle이 작업 ID 및 유효한 응답 코드를 생성하는 방법을 사용자 지정하는 방법을 설명했습니다. 자세한 내용은 [GitHub의 Swashbuckle](https://github.com/domaindrivendev/Swashbuckle)을 참조하세요.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

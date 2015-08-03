@@ -90,4 +90,4 @@ Azure의 VM에서 IP 전달을 사용하도록 설정하는 방법은 [Azure에�
 - [경로를 만들어](../virtual-networks-udr-how-to#How-to-manage-routes) 서브넷에 연결하는 방법에 대해 알아 보십시오.
 - 가상 어플라이언스를 실행하는 VM에서 [IP 전달을 사용하도록 설정](../virtual-networks-udr-how-to#How-to-Manage-IP-Forwarding)하는 방법에 대해 알아 보십시오. 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

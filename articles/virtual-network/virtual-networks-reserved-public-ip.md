@@ -123,4 +123,4 @@ IP를 예약하면 예약된 IP는 삭제될 때까지 계속 구독에 연결�
 
 [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

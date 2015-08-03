@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Java에서 테이블 저장소를 사용하는 방법 | Microsoft Azure&quot;" 
+	pageTitle="Java에서 테이블 저장소를 사용하는 방법 | Microsoft Azure";" 
 	description="Azure에서 테이블 저장소 서비스를 사용하는 방법을 알아봅니다. 코드 샘플은 Java 코드로 작성되었습니다." 
 	services="storage" 
 	documentationCenter="java" 
@@ -563,4 +563,4 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 [블로그 게시물]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

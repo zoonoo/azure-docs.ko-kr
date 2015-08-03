@@ -270,4 +270,4 @@ API 앱 백 엔드를 사용하는 Java 웹 응용 프로그램을 Azure에 배�
 [api-definition-blade]: ./media/app-service-api-java-api-app/apidefblade.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

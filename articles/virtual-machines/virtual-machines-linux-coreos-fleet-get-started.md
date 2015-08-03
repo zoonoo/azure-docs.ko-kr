@@ -171,4 +171,4 @@ Azure의 Linux VM에서 공개 소스 환경을 사용하는 방법에 대한 �
 [Azure에서 Linux 및 공개 소스 컴퓨팅]: virtual-machines-linux-opensource.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

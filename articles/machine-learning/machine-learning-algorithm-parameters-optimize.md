@@ -3,7 +3,7 @@
 	description="Azure 기계 학습에서 알고리즘에 대한 최적 매개 변수 집합을 선택하는 방법에 대해 설명합니다." 
 	services="machine-learning"
 	documentationCenter="" 
-	authors="garyericson" 
+	authors="bradsev" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
-	ms.author="bradsev;garye" />
+	ms.date="07/14/2015" 
+	ms.author="bradsev" />
 
 
 # Azure 기계 학습에서 알고리즘을 최적화하는 매개 변수를 선택하는 방법
@@ -70,4 +70,4 @@
 [sweep-parameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

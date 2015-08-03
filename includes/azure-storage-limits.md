@@ -77,4 +77,4 @@
 
 <sup>3</sup>LRS가 로컬 중복 저장소를 가리키는 반면 GRS는 지역 중복 저장소를 가리킵니다.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

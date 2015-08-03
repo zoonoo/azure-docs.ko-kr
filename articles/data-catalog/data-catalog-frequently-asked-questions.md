@@ -157,4 +157,4 @@ Azure 데이터 카탈로그에 데이터를 등록하려면 Azure 데이터 카
 
 [Azure 데이터 카탈로그 포럼](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)을 참조하세요. 게시된 질문을 여기에서 찾을 수 있습니다.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

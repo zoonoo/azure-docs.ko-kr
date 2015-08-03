@@ -175,4 +175,4 @@ Azure SDK에 제공되는 Python API를 사용하여 다음을 수행할 수 있
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

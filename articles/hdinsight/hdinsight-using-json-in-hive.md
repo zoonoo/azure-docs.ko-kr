@@ -154,7 +154,7 @@ SerDe는 중첩된 JSON 문서에 가장 적합한 구문 분석으로, JSON 스
 
 	1. Windows 화면에서 **고급 시스템 설정 보기**를 엽니다.
 	2. **환경 변수**를 클릭합니다.  
-	3. 새 **JAVA_HOME** 환경 변수를 추가합니다. 이 변수는 **C:\\Program Files\\Java\\jdk1.7.0_55** 또는 JDK 설치 위치를 가리킵니다.
+	3. 새 **JAVA_HOME** 환경 변수를 추가합니다. 이 변수는 **C:\Program Files\Java\jdk1.7.0_55** 또는 JDK 설치 위치를 가리킵니다.
 
 	![JDK에 대한 올바른 구성 값 설정][image-hdi-hivejson-jdk]
 
@@ -170,9 +170,9 @@ SerDe는 중첩된 JSON 문서에 가장 적합한 구문 분석으로, JSON 스
 
 4: 이 패키지를 다운로드한 폴더로 이동하여 "mvn package"를 입력합니다. 클러스터에 복사할 수 있는 필수 jar 파일이 만들어집니다.
 
-5: 패키지를 다운로드한 루트 폴더 아래의 대상 폴더로 이동합니다. 클러스터의 헤드 노드에 json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar 파일을 업로드합니다. 일반적으로 C:\\apps\\dist\\hive-0.13.0.2.1.11.0-2316\\bin과 유사한 하이브 이진 파일 폴더에 둡니다.
+5: 패키지를 다운로드한 루트 폴더 아래의 대상 폴더로 이동합니다. 클러스터의 헤드 노드에 json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar 파일을 업로드합니다. 일반적으로 C:\apps\dist\hive-0.13.0.2.1.11.0-2316\bin과 유사한 하이브 이진 파일 폴더에 둡니다.
  
-6: Hive 프롬프트에서 “add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar”을 입력합니다. 이 예제에서는 jar이 C:\\apps\\dist\\hive-0.13.x\\bin 폴더에 있으므로 아래 표시된 이름으로 jar을 직접 추가할 수 있습니다.
+6: Hive 프롬프트에서 “add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar”을 입력합니다. 이 예제에서는 jar이 C:\apps\dist\hive-0.13.x\bin 폴더에 있으므로 아래 표시된 이름으로 jar을 직접 추가할 수 있습니다.
 
     add jar json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar;
 
@@ -261,4 +261,4 @@ JSON 문서의 성적 합계를 계산하려면
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

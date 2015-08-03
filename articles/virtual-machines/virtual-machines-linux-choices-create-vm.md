@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Linux 가상 컴퓨터를 만드는 다양한 방법" 
-	description="Linux 가상 컴퓨터를 만드는 다른 방법을 나열하고 지침에 대한 링크를 제공합니다." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
+<properties
+	pageTitle="Linux 가상 컴퓨터를 만드는 다양한 방법"
+	description="Linux 가상 컴퓨터를 만드는 다른 방법을 나열하고 지침에 대한 링크를 제공합니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dsk-2015"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="vm-linux" 
+<tags
+ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="05/14/2015" 
-	ms.author="kathydav"/>
+	ms.date="07/20/2015"
+	ms.author="dkshir"/>
 
 # Linux 가상 컴퓨터를 만드는 다양한 방법
 
@@ -24,15 +24,15 @@ Azure 리소스 관리자 템플릿은 하나의 논리적 배포 단위로 다�
 
 ## 도구 선택
 
-### GUI: Azure 포털 또는 미리 보기 포털 
+### GUI: Azure 포털 또는 미리 보기 포털
 
-Azure 포털의 그래픽 사용자 인터페이스는 특히 Azure로 시작한 경우 쉽게 가상 컴퓨터를 사용해 볼 수 있는 방법입니다. Azure 포털 또는 Azure 미리 보기 포털을 사용하여 VM을 만듭니다. 일반적인 지침은 [Linux를 실행하는 가상 컴퓨터 만들기][]를 참조하세요.
+Azure 포털의 그래픽 사용자 인터페이스는 특히 Azure로 시작한 경우 쉽게 가상 컴퓨터를 사용해 볼 수 있는 방법입니다. Azure 포털 또는 Azure 미리 보기 포털을 사용하여 VM을 만듭니다. 일반적인 지침은 [사용자 지정 가상 컴퓨터 만들기][]를 참조하고 **갤러리**에서 Linux 이미지를 선택합니다.
 
 ### 명령 셸: Azure CLI 또는 Azure PowerShell
 
 명령 셸에서 작업을 원할 경우, Mac 및 Linux 사용자 또는 Azure PowerShell용 Azure 명령행 인터페이스(CLI) 간을 선택하며, Azure용 Windows PowerShell cmdlet 및 사용자 지정 콘솔을 포함합니다.
 
-Azure CLI의 경우, [Mac, Linux 및 Windows용 Azure CLI를 사용한 VM 작업에 해당하는 리소스 관리자 및 서비스 관리 명령][]을 참조하세요. 템플릿을 사용하려면, [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리][]를 참조하세요.
+Azure CLI는 [Linux를 실행하는 가상 컴퓨터 만들기][]를 참조하세요. 템플릿을 사용하려면, [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리][]를 참조하세요.
 
 Azure PowerShell의 경우, [Azure PowerShell을 사용하여 Linux 기반 가상 컴퓨터 만들기 및 미리 구성][]을 참조하세요. 템플릿을 사용하려면, [Azure 리소스 관리자 템플릿 및 PowerShell을 사용하여 가상 컴퓨터 배포 및 관리][]를 참조하세요.
 
@@ -70,11 +70,13 @@ Azure PowerShell의 경우, [Azure PowerShell을 사용하여 Linux 기반 가�
 
 [Azure 하이브리드 클라우드 테스트 환경][]
 
+[Mac, Linux 및 Windows용 Azure CLI를 사용한 VM 작업에 해당하는 리소스 관리자 및 서비스 관리 명령][]
+
 <!-- LINKS -->
 [개요]: ../resource-group-overview.md
 
 [Create a Virtual Machine Running Windows]: virtual-machines-windows-tutorial.md
-[Linux를 실행하는 가상 컴퓨터 만들기]: virtual-machines-linux-tutorial.md
+[Create a Virtual Machine Running Linux]: virtual-machines-linux-tutorial.md
 
 [Mac, Linux 및 Windows용 Azure CLI를 사용한 VM 작업에 해당하는 리소스 관리자 및 서비스 관리 명령]: xplat-cli-azure-manage-vm-asm-arm.md
 [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리]: virtual-machines-deploy-rmtemplates-azure-cli.md
@@ -82,7 +84,7 @@ Azure PowerShell의 경우, [Azure PowerShell을 사용하여 Linux 기반 가�
 [Azure PowerShell을 사용하여 Linux 기반 가상 컴퓨터 만들기 및 미리 구성]: virtual-machines-ps-create-preconfigure-linux-vms.md
 
 [Azure에서 Linux를 실행하는 사용자 지정 가상 컴퓨터를 만드는 방법]: virtual-machines-linux-create-custom.md
-[Linux 가상 컴퓨터를 캡처하여 CLI를 통해 템플릿으로 사용하는 방법]: virtual-machines-vm-capture-image-cli.md
+[Linux 가상 컴퓨터를 캡처하여 CLI를 통해 템플릿으로 사용하는 방법]: virtual-machines-linux-capture-image.md
 
 [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드]: virtual-machines-linux-create-upload-vhd.md
 
@@ -97,4 +99,7 @@ Azure PowerShell의 경우, [Azure PowerShell을 사용하여 Linux 기반 가�
 [기본 구성 테스트 환경]: virtual-machines-base-configuration-test-environment.md
 [Azure 하이브리드 클라우드 테스트 환경]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=July15_HO2-->
+[Linux를 실행하는 가상 컴퓨터 만들기]: virtual-machines-linux-tutorial.md
+[사용자 지정 가상 컴퓨터 만들기]: virtual-machines-create-custom.md
+
+<!---HONumber=July15_HO4-->

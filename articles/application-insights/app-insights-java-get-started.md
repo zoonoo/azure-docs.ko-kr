@@ -21,21 +21,23 @@
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
-Application Insights는 성능 및 라이브 응용 프로그램의 사용을 이해하는 데 도움이 되는 확장 가능한 분석 서비스입니다. Application insights를 사용하여 성능 문제 및 예외를 진단, 검색하고, [코드 작성][api]을 사용해 사용자가 수행할 작업을 추적할 수 있습니다.
+[Application Insights](https://azure.microsoft.com/services/application-insights/)는 라이브 응용 프로그램의 성능 및 사용을 이해하는 데 도움이 되는 확장 가능한 분석 서비스입니다. Application insights를 사용하여 [성능 문제 및 예외를 진단, 검색](app-insights-detect-triage-diagnose.md)하고 사용자가 수행할 작업을 추적하는 [코드를 작성][api]할 수 있습니다.
 
 ![샘플 데이터](./media/app-insights-java-get-started/5-results.png)
 
-[Application Insights 웹 테스트][availability]응용 프로그램의 가용성을 모니터링 합니다.
+[Application Insights 웹 테스트][availability]는 응용 프로그램의 가용성을 모니터링합니다.
 
 필요한 사항:
 
 * Oracle JRE 1.6 이상 또는 Zulu JRE 1.6 이상
 * [Microsoft Azure](http://azure.microsoft.com/) 구독. ([무료 평가판](http://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있음.)
 
+*이미 라이브 상태인 웹앱이 있는 경우 다른 절차에 따라 [웹 서버에서 런타임으로 SDK를 추가](app-insights-java-live.md)할 수 있습니다. 해당 다른 절차는 코드를 다시 작성할 필요가 없지만 사용자 활동을 추적하는 코드를 작성하는 옵션이 없습니다.*
 
-## 1\. Application Insights 계측 키 가져오기
 
-1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인
+## 1. Application Insights 계측 키 가져오기
+
+1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 새 Application Insights 리소스 만들기
 
     ![\+를 클릭하고 Application Insights 선택](./media/app-insights-java-get-started/01-create.png)
@@ -46,7 +48,7 @@ Application Insights는 성능 및 라이브 응용 프로그램의 사용을 �
 
     ![새 리소스 개요에서 속성을 클릭하고 계측 키 복사](./media/app-insights-java-get-started/03-key.png)
 
-## 2\. 프로젝트에 Java용 Aplication Insights SDK 추가
+## 2. 프로젝트에 Java용 Aplication Insights SDK 추가
 
 *프로젝트에 적합한 방법을 선택합니다.*
 
@@ -105,23 +107,23 @@ Application Insights는 성능 및 라이브 응용 프로그램의 사용을 �
 
 수동으로 SDK 추가:
 
-1. [Java용 Application Insights SDK](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html)를 사용합니다.
-2. Zip 파일에서 이진 파일을 추출하고 프로젝트에 추가:
+1. [Java용 Application Insights SDK](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip) 다운로드
+2. zip 파일에서 이진 파일을 추출하고 프로젝트에 추가합니다.
 
-질문...
+### 질문...
 
-* *`-core` 및 `-web` 구성 요소 사이의 관계란 무엇인가요?*
+* *zip에서 `-core` 및 `-web` 구성 요소 간에는 어떤 관계가 있나요?*
 
- * `applicationinsights-core`최소한의 API를 제공합니다. 항상이 이것이 필요합니다.
- * `applicationinsights-web`은 HTTP 요청 수와 응답 시간을 추적하는 메트릭을 제공합니다. 사용자가 원격 분석 자동 수집을 원하지 않는 경우, 생략할 수 있습니다(예: 사용자 고유의 작성하는 경우).
+ * `applicationinsights-core`는 최소한의 API를 제공합니다. 항상 필요합니다.
+ * `applicationinsights-web`은 HTTP 요청 수와 응답 시간을 추적하는 메트릭을 제공합니다. 사용자가 원격 분석 자동 수집을 원하지 않는 경우, 생략할 수 있습니다(예: 사용자 자신의 코드를 작성하려는 경우).
 
-* *SDK를 업데이트하려면*
- * 최신 버전의 [Java용 Application Insights SDK](http://dl.msopentech.com/lib/PackageForWindowsAzureLibrariesForJava.html)를 다운로드하여 이전 버전을 대체합니다.
+* *변경 내용을 게시하는 경우 해당 SDK를 업데이트하려면*
+ * 최신 버전의 [Java용 Application Insights SDK](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip)를 다운로드하여 이전 버전을 대체합니다.
  * 변경 내용은 [SDK 릴리스 정보](app-insights-release-notes-java.md)에 설명되어 있습니다.
 
 
 
-## 3\. Application Insights xml 파일 추가
+## 3. Application Insights xml 파일 추가
 
 ApplicationInsights.xml을 프로젝트의 리소스 폴더에 추가합니다. 그렇지 않으면 ApplicationInsights.xml이 프로젝트의 배포 클래스 경로에 추가되었는지 확인합니다. 다음 XML을 복사합니다.
 
@@ -162,7 +164,7 @@ Azure 포털에서 가져온 계측 키를 대체합니다.
 * HTTP 요청 구성 요소는 선택 사항입니다. 자동으로 포털에 요청 및 응답 시간에 대한 원격 분석을 보냅니다.
 * 이벤트 상관 관계는 HTTP 요청 구성 요소에 추가됩니다. 이는 서버가 수신하는 요청마다 식별자를 할당하며 'Operation.Id' 속성으로 원격 분석의 모든 항목에 이를 속성으로 추가합니다. [진단 검색][diagnostic]에서 필터를 설정하여 각 요청과 연결된 원격 분석의 상관 관계를 지정할 수 있습니다.
 
-## 4\. HTTP 필터 추가
+## 4. HTTP 필터 추가
 
 마지막 구성 단계는 HTTP 요청 구성 요소가 각 웹 요청을 로그하도록 허용합니다. (완전한 API를 원하는 경우에는 요청되지 않습니다.)
 
@@ -205,19 +207,19 @@ Struts 구성 파일에 이 항목 추가(일반적으로 struts.xml 또는 stru
 
 (기본 스택에 정의된 인터셉터가 있는 경우 해당 인터셉터를 스택에 추가하면 됩니다.)
 
-## 5\. 서버에 설치
+## 5. 서버에 설치
 
-Windows 서버에 설치 합니다.
+Windows 서버에 다음을 설치합니다.
 
 * [Microsoft Visual C++ 재배포 가능 패키지](http://www.microsoft.com/download/details.aspx?id=40784)
 
-(이것은 성능 카운터를 사용할 수 있게합니다.)
+(이를 통해 성능 카운터를 사용할 수 있게 됩니다.)
 
-## 6\. 응용 프로그램 실행
+## 6. 응용 프로그램 실행
 
 응용 프로그램을 디버그 모드로 개발 컴퓨터에서 실행하거나 서버에 게시합니다.
 
-## 7\. Application Insights에서 원격 분석 보기
+## 7. Application Insights에서 원격 분석 보기
 
 [Microsoft Azure 포털](https://portal.azure.com)의 Application Insights 리소스로 돌아갑니다.
 
@@ -251,19 +253,19 @@ Application Insights는 MVC 응용 프로그램에 대한 HTTP 요청 형식을 
 
 ## 예외 및 요청 실패
 
-처리 되지 않은 예외 및 수집
+처리되지 않은 예외는 다음과 같이 수집됩니다.
 
 ![](./media/app-insights-java-get-started/21-exceptions.png)
 
-다른 예외에 대한 데이터를 수집 하려면 두 옵션을 사용합니다.
+다른 예외에 대한 데이터를 수집하려면 다음 두 옵션을 사용합니다.
 
-* [사용자 코드의 TrackException에 호출 삽입][apiexceptions].
-* [Java 에이전트를 서버에 설치](app-insights-java-agent.md). 보고 싶은 방법을 지정할 수 있습니다.
+* [사용자 코드에 TrackException에 대한 호출 삽입][apiexceptions].
+* [Java 에이전트를 서버에 설치](app-insights-java-agent.md). 감시 방법을 지정할 수 있습니다.
 
 
-## 메서드 호출 및 외부 종속성을 모니터링 합니다.
+## 메서드 호출 및 외부 종속성 모니터링
 
-[Java 에이전트를 ](app-insights-java-agent.md) 로그 지정된 내부 메서드에 설치하고 타이밍 데이터를 사용해 JDBC를 거쳐 호출합니다.
+[Java 에이전트를 설치](app-insights-java-agent.md)하여 타이밍 데이터를 사용하여 지정된 내부 메서드 및 JDBC를 통해 수행한 호출을 로깅합니다.
 
 
 ## 성능 카운터
@@ -327,7 +329,7 @@ Application Insights는 MVC 응용 프로그램에 대한 HTTP 요청 형식을 
 
 ### Unix 성능 카운터
 
-* [Collectd 응용 프로그램 통찰력 플러그인 설치](app-insights-java-collectd.md)를 설치하여 넓고 다양한 시스템 및 네트워크 데이터를 얻으세요.
+* [Application Insights 플러그인과 함께 Collectd를 설치](app-insights-java-collectd.md)하여 광범위한 시스템 및 네트워크 데이터를 얻습니다.
 
 ## 사용자 및 세션 데이터 가져오기
 
@@ -371,4 +373,4 @@ Application Insights를 사용하여 Log4J, Logback 또는 다른 로깅 프레�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

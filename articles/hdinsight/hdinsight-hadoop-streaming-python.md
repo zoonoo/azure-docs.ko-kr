@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/19/2015"
+   ms.date="07/13/2015"
    ms.author="larryfr"/>
 
 #HDInsight용 Python 스트리밍 프로그램 개발
@@ -97,19 +97,19 @@ mapper 및 reducer는 텍스트 파일이며 이 예제에서는 어떤 것이 �
 **reducer.py**라는 새 파일을 만들고 다음 코드를 그 내용으로 사용합니다.
 
 	#!/usr/bin/env python
-	
+
 	# import modules
 	from itertools import groupby
 	from operator import itemgetter
 	import sys
-	
+
 	# 'file' in this case is STDIN
 	def read_mapper_output(file, separator='\t'):
 		# Go through each line
 	    for line in file:
 			# Strip out the separator character
 	        yield line.rstrip().split(separator, 1)
-	
+
 	def main(separator='\t'):
 	    # Read the data using read_mapper_output
 	    data = read_mapper_output(sys.stdin, separator=separator)
@@ -127,7 +127,7 @@ mapper 및 reducer는 텍스트 파일이며 이 예제에서는 어떤 것이 �
 	        except ValueError:
 	            # Count was not a number, so do nothing
 	            pass
-	
+
 	if __name__ == "__main__":
 	    main()
 
@@ -153,12 +153,12 @@ mapper 및 reducer는 텍스트 파일이며 이 예제에서는 어떤 것이 �
 
 2. 다음 명령을 사용하여 MapReduce 작업을 시작합니다.
 
-		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input wasb:///example/data/davinci.txt -output wasb:///example/wordcountout
+		hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input wasb:///example/data/gutenberg/davinci.txt -output wasb:///example/wordcountout
 
 	다음은 명령어의 일부입니다.
 
 	* **hadoop-streaming.jar**: 스트리밍 MapReduce 작업을 수행할 때 사용합니다. 제공하는 외부 MapReduce 코드로 Hadoop에 접속합니다.
-	
+
 	* **-files**: 이 MapReduce 작업에 필요한 Hadoop 특정 파일을 지정하고 모든 작업자 노드에 복사됩니다.
 
 	* **-mapper**: Hadoop mapper로 사용될 파일을 지정합니다.
@@ -201,6 +201,5 @@ HDInsight에서 스트리밍 MapRedcue 작업을 사용하는 방법을 배웠�
 * [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

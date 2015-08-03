@@ -302,4 +302,4 @@ Azure의 Linux에 대한 자세한 내용은 다음 을 참조하세요.
 - [Azure의 Linux용 Docker 가상 컴퓨터 확장](virtual-machines-docker-vm-extension.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

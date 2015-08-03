@@ -281,4 +281,4 @@ Entity Framework 응용 프로그램은 Azure SQL 데이터베이스의 탄력�
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

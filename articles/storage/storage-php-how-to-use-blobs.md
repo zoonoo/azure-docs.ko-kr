@@ -305,4 +305,4 @@ Blob을 삭제하려면 컨테이너 이름 및 Blob 이름을 **BlobRestProxy->
 [stream-get-contents]: http://www.php.net/stream_get_contents
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

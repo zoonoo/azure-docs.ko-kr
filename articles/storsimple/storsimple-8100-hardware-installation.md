@@ -3,7 +3,7 @@
    description="StorSimple 8100 장치의 개봉, 랙 탑재, 케이블 연결 방법을 설명합니다."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="carolz"
    editor="" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/08/2015"
-   ms.author="v-sharos" />
+   ms.date="07/20/2015"
+   ms.author="alkohli" />
 
 # StorSimple 8100 장치 설치
 
@@ -297,4 +297,4 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 이제 [온-프레미스 StorSimple 장치를 배포 및 구성](storsimple-deployment-walkthrough.md)할 준비가 되었습니다.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

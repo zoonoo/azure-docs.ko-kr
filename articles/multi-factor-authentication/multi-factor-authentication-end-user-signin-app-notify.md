@@ -38,4 +38,4 @@
 
 <li>사용자가 로그인됩니다.</li>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -360,4 +360,4 @@ SendAppInfo() 함수를 사용하면 추적 정보 또는 기타 응용 프로�
 			{"birthdate":"1983-12-07","gender":"female"}
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

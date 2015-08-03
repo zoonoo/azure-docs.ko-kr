@@ -63,7 +63,7 @@ Office 365 FastTrack 평가판을 시작하려면 가상 회사 이름 및 Micro
 
 그런 다음 새 Office 365 FastTrack 평가판에 등록합니다.
 
-1.	CORP\\User1 계정 자격 증명을 사용하여 CLIENT1에 로그온합니다.
+1.	CORP\User1 계정 자격 증명을 사용하여 CLIENT1에 로그온합니다.
 2.	Internet Explorer를 열고 **http://fasttrack.office.com**로 이동합니다.3.	**FastTracK으로 시작**을 클릭합니다.
 4.	FastTrack 시작 페이지에서 **먼저 Office 365 평가판에 등록하고** **기업용은 여기에서 등록**을 클릭합니다.
 5.	1단계 페이지에서 항목들을 채우고 **기업용 전자 메일 주소** 란에 새 Microsoft 계정을 지정한 후 **다음**을 클릭합니다.
@@ -97,7 +97,7 @@ Office 365 FastTrack 평가판을 시작하려면 가상 회사 이름 및 Micro
 3.	DS1.rdp를 열라는 메시지가 나타나면 **열기**를 클릭합니다.
 4.	원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **연결**을 클릭합니다.
 5.	자격 증명을 묻는 메시지가 나타나면 다음을 사용합니다.
-	- 이름: **CORP\\User1**
+	- 이름: **CORP\User1**
 	- 암호: [User1 계정 암호]
 6.	인증서를 참조하는 원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **예**를 클릭합니다.
 
@@ -129,7 +129,7 @@ Windows PowerShell 명령 프롬프트에서 다음 명령을 사용하여 DS1�
 4.	**활성 디렉터리 동기화를 활성화하시겠습니까?**라는 메시지가 나타나면 **활성화**를 클릭합니다. 그러면 **Active Directory 동기화가 활성화되었습니다.**가 3단계에 표시됩니다.
 5.	CLIENT1에서 **Active Directory 동기화 설정 및 관리 페이지**를 열린 상태로 둡니다.
 
-그런 다음 CORP\\User1 계정으로 DC1에 로그온하여 관리자 수준 Windows PowerShell 명령 프롬프트를 엽니다. 다음 명령을 한 번에 하나씩 실행하여 contoso_users라는 새 조직 구성 단위를 만들고 Marci Kaufman 및 Lynda Meyer에 대한 새 사용자 계정 두 개를 추가합니다.
+그런 다음 CORP\User1 계정으로 DC1에 로그온하여 관리자 수준 Windows PowerShell 명령 프롬프트를 엽니다. 다음 명령을 한 번에 하나씩 실행하여 contoso_users라는 새 조직 구성 단위를 만들고 Marci Kaufman 및 Lynda Meyer에 대한 새 사용자 계정 두 개를 추가합니다.
 
 	New-ADOrganizationalUnit -Name contoso_users -Path "DC=corp,DC=contoso,DC=com"
 	New-ADUser -SamAccountName marcik -AccountPassword (Read-Host "Set user password" -AsSecureString) -name "Marci Kaufman" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Path "OU=contoso_users,DC=corp,DC=contoso,DC=com"
@@ -139,12 +139,12 @@ Windows PowerShell 명령 프롬프트에서 다음 명령을 사용하여 DS1�
 
 그런 다음 DS1에서 디렉터리 동기화를 구성합니다.
 
-1.	CORP\\User1 계정으로 DS1에 로그인합니다.
+1.	CORP\User1 계정으로 DS1에 로그인합니다.
 2.	**시작** 화면에서 **디렉터리 동기화**를 입력합니다.
 3.	**디렉터리 동기화 구성**을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 클릭합니다. 그러면 구성 마법사가 시작됩니다.
 4.	Welcome 페이지에서 **다음**을 클릭합니다.
 5.	Microsoft Azure Active Directory 자격 증명 페이지에서 단계 2에서 Office 365 FastTrack 평가판을 설치할 때 만든 초기 계정의 전자 메일 주소 및 암호를 입력합니다. 다음을 클릭합니다. 
-6.	Active Directory 자격 증명 페이지에서 **사용자 이름**에 **CORP\\User1**을 입력하고 **암호**에 User1 계정 암호를 입력합니다. **다음**을 클릭합니다.
+6.	Active Directory 자격 증명 페이지에서 **사용자 이름**에 **CORP\User1**을 입력하고 **암호**에 User1 계정 암호를 입력합니다. **다음**을 클릭합니다.
 7.	하이브리드 배포 페이지에서 **하이브리드 배포 사용**을 선택하고 **다음**을 클릭합니다.
 8.	암호 동기화 페이지에서 **암호 동기화 사용**을 선택하고 **다음**을 클릭합니다.
 9.	구성 페이지가 표시됩니다. 구성이 완료되면 **다음**을 클릭합니다.
@@ -195,4 +195,4 @@ CLIENT1의 **Active Directory 동기화 설정 및 관리 페이지**에서 이 
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

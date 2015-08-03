@@ -43,4 +43,4 @@
 > Engagement 클래스를 필요에 따라 조정하려는 고급 사용자를 위해 제공되는 Engagement 뷰 컨트롤러 및 도달률 SDK의 소스 코드입니다.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

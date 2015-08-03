@@ -337,4 +337,4 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [41]: ./media/mobile-engagement-ios-swift-get-started/AddHeaderFile.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

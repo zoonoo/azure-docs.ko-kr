@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/20/2015" 
+	ms.date="07/10/2015" 
 	ms.author="kathydav"/>
 
 
@@ -22,6 +22,7 @@
 
 [MySQL](http://www.mysql.com)은 인기 있는 오픈 소스 SQL 데이터베이스입니다. [Azure 관리 포털](http://manage.windowsazure.com)을 사용하여 이미지 갤러리에서 Windows Server 2012 R2를 실행하는 가상 컴퓨터를 만들 수 있습니다. 그런 다음 해당 가상 컴퓨터를 설치하고 MySQL Server로 구성할 수 있습니다.
 
+Linux에서 MySQL을 설치하는 방법에 대한 지침은 [Azure에 MySQL을 설치하는 방법](virtual-machines-linux-install-mysql.md)을 참조하세요.
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
@@ -83,7 +84,7 @@
 
 	![](./media/virtual-machines-mysql-windows-server-2008r2/MySQL_CommandPrompt.png)
  
-19.	또한 **C:\\Program Files (x86)\\MySQL\\MySQL Server 5.6\\my-default.ini** 파일의 항목을 사용하여 기본/데이터 디렉터리 및 드라이브와 같은 서버 구성 기본 설정을 구성할 수 있습니다. 자세한 내용은 [5.1.2 서버 구성 기본값](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html)을 참조하세요.
+19.	또한 **C:\Program Files (x86)\MySQL\MySQL Server 5.6\my-default.ini** 파일의 항목을 사용하여 기본/데이터 디렉터리 및 드라이브와 같은 서버 구성 기본 설정을 구성할 수 있습니다. 자세한 내용은 [5.1.2 서버 구성 기본값](http://dev.mysql.com/doc/refman/5.6/en/server-configuration-defaults.html)을 참조하세요.
 
 
 MySQL 클라이언트 컴퓨터에서 인터넷을 통해 MySQL Server 서비스를 사용할 수 있도록 하려면 MySQL Server 서비스가 수신 대기 중인 TCP 포트의 끝점을 구성하고 추가 Windows 방화벽 규칙을 만들어야 합니다. 유형 및 네트워킹 페이지(위 절차의 10단계)에서 다른 포트를 지정하지 않은 경우 이는 TCP 포트 3306입니다.
@@ -127,4 +128,4 @@ MySQL에 대한 자세한 내용은 [MySQL 설명서](http://dev.mysql.com/doc/)
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -133,4 +133,4 @@ Azure 포털에서 클릭 몇 번만하면 고객은 SQL 유사 언어로 스트
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

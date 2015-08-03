@@ -27,7 +27,7 @@
 
 그러나 contoso.com 등의 고유한 도메인 이름에도 응용 프로그램을 표시할 수 있습니다. 이 문서에서는 클라우드 서비스 웹 역할에 대해 사용자 지정 도메인 이름을 예약 또는 구성하는 방법에 대해 설명합니다.
 
-CNAME 및 A 레코드가 무엇인지 이미 이해했습니까?? [설명을 지나서 이동](#add-a-cname-record-for-your-custom-domain).
+CNAME 및 A 레코드가 무엇인지 이미 알고 있나요? [설명을 건너뛰고 이동](#add-a-cname-record-for-your-custom-domain)하세요.
 
 > [AZURE.NOTE]새로운 Azure의 [안내 방식 연습](http://support.microsoft.com/kb/2990804)을 사용하면 작업을 보다 빠르게 수행할 수 있습니다. 이 연습을 통해 사용자 지정 도메인 이름을 연결하고 SSL을 사용하여 Azure 클라우드 서비스 또는 Azure 웹 사이트와의 통신을 보호하는 등의 작업을 매우 쉽게 완료할 수 있습니다.
 
@@ -42,7 +42,7 @@ CNAME(또는 별칭 레코드) 및 A 레코드는 둘 다 도메인 이름을 �
 
 ### CNAME 또는 별칭 레코드
 
-CNAME 레코드는 *contoso.com*, **www.contoso.com** 등의 **특정** 도메인을 정식 도메인 이름에 매핑합니다. 이 경우 Canonical 도메인 이름은 Azure 호스티드 응용 프로그램의**[myapp].cloudapp.net** 도메인 이름입니다. CNAME을 만들면 **[myapp].cloudapp.net**에 대한 별칭이 만들어집니다. CNAME 항목은 **[myapp].cloudapp.net** 서비스의 IP 주소로 자동으로 확인되므로 클라우드 서비스의 IP 주소가 변경될 경우 특별한 조치를 수행할 필요가 없습니다.
+CNAME 레코드는 *contoso.com*, **www.contoso.com** 등의 **특정** 도메인을 정식 도메인 이름에 매핑합니다. 이 경우 정식 도메인 이름은 Azure 호스티드 응용 프로그램의 **[myapp].cloudapp.net** 도메인 이름입니다. CNAME을 만들면 **[myapp].cloudapp.net**에 대한 별칭이 만들어집니다. CNAME 항목은 자동으로 **[myapp].cloudapp.net** 서비스의 IP 주소로 확인되기 때문에 클라우드 서비스의 IP 주소가 변경될 경우 아무 조치도 수행할 필요가 없습니다.
 
 > [AZURE.NOTE]www.contoso.com과 같은 CNAME 레코드를 사용하고 contoso.com과 같은 비루트 이름을 사용하면 일부 도메인 등록 기관에서 하위 도메인만 매핑할 수 있습니다. CNAME 레코드에 대한 자세한 내용은 등록 기관에서 제공하는 설명서인 [CNAME 레코드에 대한 Wikipedia 항목](http://en.wikipedia.org/wiki/CNAME_record)(영문) 또는 [IETF 도메인 이름 - 구현 및 사양](http://tools.ietf.org/html/rfc1035)(영문) 문서를 참조하십시오.
 
@@ -130,12 +130,12 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
 
 | 호스트 이름/하위 도메인 | IP 주소 |
 | ------------------- | -------------- |
-| @ | 137\.135.70.239 |
+| @ | 137.135.70.239 |
 
 
 이 예제에서는 루트 도메인에 대한 A 레코드를 만드는 방법을 보여 줍니다. 모든 하위 도메인을 포함할 와일드카드 항목을 만들려면 '__*__'를 하위 도메인으로 입력합니다.
 
->[AZURE.WARNING]Azure에서 IP 주소는 기본적으로 동적입니다. 사용자의 IP 주소가 변경되지 않도록 [예약된 IP 주소](..\virtual-network\virtual-networks-reserved-public-ip.md)를 사용할 수 있습니다.
+>[AZURE.WARNING]Azure의 IP 주소는 기본적으로 동적입니다. 사용자의 IP 주소가 변경되지 않도록 [예약된 IP 주소](..\virtual-network\virtual-networks-reserved-public-ip.md)를 사용하려고 할 수 있습니다.
 
 ## 다음 단계
 
@@ -153,4 +153,4 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

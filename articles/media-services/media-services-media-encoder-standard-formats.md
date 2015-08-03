@@ -84,4 +84,4 @@
 
 [Azure 미디어 서비스로 주문형 콘텐츠 인코딩](media-services-encode-asset.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

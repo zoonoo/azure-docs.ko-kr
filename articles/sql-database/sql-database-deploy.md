@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="07/17/2015" 
 	ms.author="sidneyh"/>
 
 
@@ -31,7 +31,7 @@
 
 [**SQL Server Management Studio**](https://msdn.microsoft.com/library/mt238290.aspx)를 다운로드합니다. (도구에 대한 자세한 내용은 [2015 년 6 월 릴리스 정보-SQL Server Management Studio](https://msdn.microsoft.com/library/mt238486.aspx)를 참조하세요.)
 
-Azure SQL 데이터베이스의 기존 서버 (새 서버)에서 새 데이터베이스를 만드는 방법은 [첫 번째 Azure SQL 데이터베이스를 만들기](sql-database-get-started.md)를 참조하세요.
+기존 **Azure SQL 데이터베이스 서버**. 서버를 만들려면 하나 이상의 데이터베이스를 먼저 만들어야 합니다. 데이터베이스를 만들 때 새 서버 또는 기존 서버에 만들도록 선택할 수 있습니다. 새 데이터베이스(새 서버의)를 만드는 방법은 [첫 번째 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하세요.
 
 ## 온-프레미스 서버에서 school 데이터베이스 만들기
 
@@ -539,33 +539,33 @@ SQL Server Management Studio에서 이러한 스크립트를 실행하여 school
 	
 ## Azure에 데이터베이스 배포 
 	
-1. 관리자 스튜디오에서, 방금 만든 school 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **작업**을 가리킨 후 **Deploy Database to Microsoft Azure SQL 데이터베이스**를 클릭합니다.
-2. **배포 설정**에서 데이터베이스의 이름을 입력합니다(예: *schoo*).
-5. **연결**을 클릭합니다. 연결 문제를 해결 하려면, [문제 해결사](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1)를 실행하세요.
+1. 관리자 스튜디오에서, 방금 만든 school 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **작업**을 가리킨 후 **데이터베이스를 Microsoft Azure SQL 데이터베이스에 배포**를 클릭합니다.
+2. **배포 설정**에서 데이터베이스의 이름을 입력합니다(예: *school*).
+5. **Connect**를 클릭합니다. 연결 문제를 해결하려면, [문제 해결사](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1)를 실행하세요.
 6. **서버 이름**에 10자로 된 서버 이름을 입력하고 뒤에 **.database.windows.net**을 입력합니다.
 7. **인증**에서 **SQL Server 인증**을 선택합니다.
 8. SQL 데이터베이스 논리 서버를 프로비전할 때 만든 관리자 로그인 이름 및 암호를 입력합니다.
 9. **옵션**을 클릭합니다.
 10. 연결 속성에서 **데이터베이스에 연결**에 **master**를 입력합니다.
 
-	**참고** Azure SQL 데이터베이스 서버에 데이터베이스를 만들려고 할 때마다 **master** 데이터베이스에 꼭 연결해야 합니다. 
-11. **연결**을 클릭합니다. 이 단계는 연결 사양을 끝내며 사용자는 다시 마법사로 돌아갑니다.
+	**참고** Azure SQL 데이터베이스 서버에 데이터베이스를 만들려고 할 때마다 **마스터** 데이터베이스에 연결해야 합니다. 
+11. **Connect**를 클릭합니다. 이 단계는 연결 사양을 끝내며 사용자는 다시 마법사로 돌아갑니다.
 12. **다음**을 클릭하고 **마침**을 클릭하여 마법사를 실행합니다.
 
 	
 ## 데이터베이스 배포 확인하는 방법
 	
 1. Management Studio에서 **개체 탐색기** 아래의 **연결** 아이콘을 클릭합니다.
-2. **서버** 이름 상자 에, 다음 Azure SQL server의 이름을 입력 합니다. **.database.windows.net**
+2. **서버** 이름 상자에 다음 Azure SQL server의 이름, **.database.windows.net**을 차례로 입력합니다.
 3. **인증**에서 **SQL Server 인증**을 선택합니다.
 4. 서버를 프로비전할 때 만든 관리자 로그인 이름 및 암호를 입력합니다. 
-5. **옵션** 버튼을 클릭합니다.
-6. **연결할 데이터베이스** 드롭다운을 클릭하고 **서버 찾아보기**를 클릭합니다. 다음 대화 상자에 **예**를 클릭하여 서버 검색을 허용 하도록 합니다.
-7. 선택하기 위해 **학교** 클릭 한 다음 **확인**을 클릭합니다. 
-8. **Connect**를 클릭합니다. 연결 문제를 해결 하려면, [문제 해결사](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1)를 실행하세요.
+5. **옵션** 단추를 클릭합니다.
+6. **데이터베이스에 연결** 드롭다운을 클릭하고 **서버 찾아보기**를 클릭합니다. 다음 대화 상자에 **예**를 클릭하여 서버 검색을 허용합니다.
+7. **school** 데이터베이스를 클릭하여 선택한 다음 **확인**을 클릭합니다. 
+8. 그런 다음 **연결**을 클릭합니다. 연결 문제를 해결하려면, [문제 해결사](https://support2.microsoft.com/common/survey.aspx?scid=sw;en;3844&showpage=1)를 실행하세요.
 2. **데이터베이스** 폴더를 확장합니다. 목록에 **school** 데이터베이스가 표시되어야 합니다.
 
-	**참고** 쿼리하려는 데이터베이스에 연결 해야 합니다. 
+	**참고** 쿼리하려는 데이터베이스에 연결해야 합니다. 
 3. **school**을 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 클릭합니다.
 4. 다음 쿼리를 실행하여 데이터에 액세스할 수 있는지 확인합니다.
 
@@ -589,8 +589,8 @@ SQL Server Management Studio에서 이러한 스크립트를 실행하여 school
 		
 ## 다음 단계
 
-새 Azure SQL 데이터베이스를 만드는 방법에 대한 자습서는 [SQL 데이터베이스 관리 시작](sql-database-get-started.md)을 참조하십시오. C# 응용 프로그램에서 Azure SQL 데이터베이스에 연결하는 기본 기능은 [C#을 사용한 SQL 데이터베이스에 연결 및 쿼리](sql-database-connect-query.md)를 참조하십시오. 다양 한 플랫폼 (예: PHP)에서의 연결에 대한 더 많은 자습서는 [Azure SQL 데이터베이스 개발: 방법 도움말 항목](https://msdn.microsoft.com/library/azure/ee621787.aspx)을 참조하세요.
+새 Azure SQL 데이터베이스를 만드는 방법에 대한 자습서는 [SQL 데이터베이스 관리 시작](sql-database-get-started.md)을 참조하세요. C# 응용 프로그램에서 Azure SQL 데이터베이스에 연결하는 기본 기능은 [C#을 사용한 SQL 데이터베이스에 연결 및 쿼리](sql-database-connect-query.md)를 참조하세요. 다양한 플랫폼(예: PHP)에서의 연결에 대한 더 많은 자습서는 [Azure SQL 데이터베이스 개발: 방법 도움말 항목](https://msdn.microsoft.com/library/azure/ee621787.aspx)을 참조하세요.
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

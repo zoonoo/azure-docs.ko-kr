@@ -109,4 +109,4 @@ X12 커넥터는 트리거 또는 작업으로 사용할 수 있습니다.
 [10]: ./media/app-service-logic-connector-x12/EncodeConfigured.PNG
 [11]: ./media/app-service-logic-connector-x12/TriggerSettings.PNG
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

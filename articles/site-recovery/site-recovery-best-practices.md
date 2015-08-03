@@ -189,4 +189,4 @@ System Center 2012 R2에서 VMM(권장) (클러스터 또는 독립 실행형) |
 - [단일 VMM 서버로 보호 설정](site-recovery-single-vmm.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

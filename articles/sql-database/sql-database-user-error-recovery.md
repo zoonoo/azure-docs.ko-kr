@@ -109,4 +109,4 @@ Azure SQL 데이터베이스는 항상 새로운 데이터베이스로 복원됩
 복원이 완료된 후 [복구된 데이터베이스 마무리](sql-database-recovered-finalize.md) 가이드에 따라 복구된 데이터베이스를 사용하도록 구성할 수 있습니다.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

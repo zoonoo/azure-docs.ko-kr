@@ -4,7 +4,7 @@
 	services="hdinsight" 
 	editor="cgronlun" 
 	manager="paulettm" 
-	authors="bradsev" 
+	authors="mumian" 
 	documentationCenter=""/>
 
 <tags 
@@ -13,12 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/10/2014" 
-	ms.author="bradsev"/>
+	ms.date="07/08/2015" 
+	ms.author="jgao"/>
 
 # HDInsight에서 Hadoop 디버그: 오류 메시지 해석
 
-## 소개
 이 문서의 항목별 오류 메시지를 통해 Azure HDInsight의 Hadoop 사용자는 Azure PowerShell을 사용하여 서비스를 관리할 때 발생할 수 있는 가능한 오류 상태에 대해 이해할 수 있으며, 오류를 복구하기 위해 수행할 수 있는 단계에 대해 도움을 받을 수 있습니다.
 
 이러한 오류 메시지 중 일부는 Azure 포털에서 HDInsight 클러스터를 관리할 때도 발생할 수 있습니다. 하지만 이때 발생할 수 있는 다른 오류 메시지는 해당 컨텍스트에서 가능한 수정 작업의 제약 조건으로 인해 세분화하기 어렵습니다. 다른 오류 메시지는 뚜렷한 해결 방법이 있는 경우 제공됩니다. 예를 들면 매개 변수의 제약 조건이 위반된 경우 값이 입력된 상자의 오른쪽에 팝업 메시지가 표시됩니다. 여기서는 너무 많은 데이터 노드가 요청된 경우입니다. 이를 해결하는 방법은 22 이하의 허용된 값으로 숫자를 줄이는 것입니다.
@@ -233,4 +232,4 @@ Azure PowerShell 또는 Azure 포털에서 사용자에게 표시될 수 있는 
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

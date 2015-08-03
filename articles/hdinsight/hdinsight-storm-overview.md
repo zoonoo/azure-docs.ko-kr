@@ -77,7 +77,7 @@ Visual Studio용 HDInsight 도구에 대한 자세한 내용은 [Visual Studio�
 
 Storm 대시보드 사용에 대한 자세한 내용은 [HDInsight에서 Apache Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology.md)를 참조하세요.
 
-**이벤트 허브 Spout**를 통해 HDInsight의 Storm을 Azure 이벤트 허브와 쉽게 통합할 수도 있습니다. 각 Storm 클러스터(**%STORM_HOME%\\examples\\eventhubspout\\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**)에서 이 Spout를 사용할 수 있습니다. Storm 토폴로지에서 이 Spout를 사용하는 예제는 [이벤트 허브 시작](service-bus-event-hubs-c-storm-getstarted.MD) 및 [Storm 및 HBase를 사용하여 센서 데이터 분석](hdinsight-storm-sensor-data-analysis.MD)을 참조하세요.
+**이벤트 허브 Spout**를 통해 HDInsight의 Storm을 Azure 이벤트 허브와 쉽게 통합할 수도 있습니다. 각 Storm 클러스터(**%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**)에서 이 Spout를 사용할 수 있습니다. Storm 토폴로지에서 이 Spout를 사용하는 예제는 [이벤트 허브 시작](service-bus-event-hubs-c-storm-getstarted.MD) 및 [Storm 및 HBase를 사용하여 센서 데이터 분석](hdinsight-storm-sensor-data-analysis.MD)을 참조하세요.
 
 ###안정성
 
@@ -156,7 +156,7 @@ Visual Studio용 HDInsight 도구를 통해 .NET 개발자는 C#으로 토폴로
 
 Trident에 대한 자세한 내용은 apache.org에서 [Trident 자습서](https://storm.incubator.apache.org/documentation/Trident-tutorial.html)를 참조하세요.
 
-원시 Java 및 Trident 토폴로지의 예제는 HDInsight Storm 클러스터의 **%storm_home%\\contrib\\storm-starter** 디렉터리를 참조하세요.
+원시 Java 및 Trident 토폴로지의 예제는 HDInsight Storm 클러스터의 **%storm_home%\contrib\storm-starter** 디렉터리를 참조하세요.
 
 ##몇 가지 일반적인 개발 패턴
 
@@ -209,4 +209,4 @@ HDInsight의 Apache Storm을 사용한 실시간 분석 솔루션에 대해 자�
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: ../hdinsight-storm-getting-started.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

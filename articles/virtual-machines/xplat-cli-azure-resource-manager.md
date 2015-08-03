@@ -333,11 +333,11 @@ Azure CLI는 기본 VM 크기로 가상 컴퓨터를 만듭니다. 또한 저장
 * Azure PowerShell을 사용하는 리소스 관리자 작업에 대한 내용은 [Azure 리소스 관리자와 함께 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
 * Azure 포털의 리소스 관리자 작업에 대한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리][psrm]를 참조하세요.
 
-[signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
+[signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [portal]: https://manage.windowsazure.com/
 [clisetup]: ../xplat-cli.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

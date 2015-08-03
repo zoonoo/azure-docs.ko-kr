@@ -20,4 +20,4 @@
 
 <sup>2</sup>입력 끝점을 사용하여 가상 컴퓨터의 클라우드 서비스 외부에서 가상 컴퓨터에 통신할 수 있습니다. 같은 클라우드 서비스나 가상 네트워크에 있는 가상 컴퓨터는 서로 간에 자동으로 통신할 수 있습니다. [가상 컴퓨터에 끝점을 설정하는 방법](../virtual-machines/virtual-machines-set-up-endpoints.md)을 참고하십시오.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

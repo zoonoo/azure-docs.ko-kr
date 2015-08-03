@@ -458,9 +458,9 @@ Azure 미디어 서비스 인코더를 사용하여 이미지(jpg, bmp, gif, tif
 
 1. 수정된 기본 설정 파일을 로컬 하드 드라이브에 저장하고 다음과 같은 코드를 사용하여 사용자 지정 기본 설정으로 인코딩합니다.
 	
-	// Upload file and create asset IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, @"C:\\TEMP\\Original.mp4");
+	// Upload file and create asset IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, @"C:\TEMP\Original.mp4");
 	 
-	string inputPresetFile = @"C:\\TEMP\\H264 Broadband 720p NoAudioNorm.xml"; string presetName = Path.GetFileNameWithoutExtension(inputPresetFile);
+	string inputPresetFile = @"C:\TEMP\H264 Broadband 720p NoAudioNorm.xml"; string presetName = Path.GetFileNameWithoutExtension(inputPresetFile);
 	 
 	IJob job = _context.Jobs.Create("Encode Job for " + asset.Name + ", encoded using " + presetName);
 	
@@ -482,4 +482,4 @@ Azure 미디어 서비스 인코더를 사용하여 이미지(jpg, bmp, gif, tif
 
 [Azure 미디어 인코더 XML 스키마](https://msdn.microsoft.com/library/azure/dn584702.aspx)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

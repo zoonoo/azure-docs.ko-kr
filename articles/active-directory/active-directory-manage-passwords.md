@@ -48,4 +48,4 @@
 - [Azure AD에서 그룹 관리](active-directory-manage-groups.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

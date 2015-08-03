@@ -91,4 +91,4 @@ ASE에서 웹앱을 실행하고 ASP를 관리하기 위해 고려해야 하는 
 [HowtoConfigureASE]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

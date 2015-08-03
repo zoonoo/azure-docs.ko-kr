@@ -115,6 +115,17 @@ Azure SDK for .NET 2.5를 사용하여 클라우드 서비스를 업데이트할
 
 자세한 내용은 [상태 프로브](https://msdn.microsoft.com/library/azure/jj151530.aspx)에 대한 서비스 정의 스키마를 참조하세요.
 
+## PowerShell을 사용하여 부하 분산 장치 설정
+
+가상 컴퓨터를 만든 후 PowerShell cmdlet을 사용하여 동일한 클라우드 서비스 내에서 가상 컴퓨터로 부하 분산 장치를 추가할 수 있습니다.
+
+아래 예제에서는 "webfarm"이라는 부하 분산 장치를 클라우드 서비스 끝점인 “mycloudservice”(또는 mycloudservice.cloudapp.net)와 가상 컴퓨터 이름 myVM에 추가합니다. 부하 분산 장치는 포트 80에서 트래픽을 받게 되고 HTTP를 사용하여 포트 8080에서 가상 컴퓨터 간의 네트워크 트래픽 부하를 분산합니다.
+
+	Get-AzureVM -ServiceName "mycloudservice" -Name "MyVM" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
+
+
+
+
 ## 다음 단계
 
 [내부 부하 분산 장치 구성 시작](load-balancer-internal-getstarted.md)
@@ -124,4 +135,4 @@ Azure SDK for .NET 2.5를 사용하여 클라우드 서비스를 업데이트할
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

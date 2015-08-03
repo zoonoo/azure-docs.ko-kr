@@ -285,4 +285,4 @@ Azure PowerShell을 사용하여 Azure 저장소에 기록된 이벤트를 보�
 
 [프록시 및 방화벽 설정 구성(선택 사항)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

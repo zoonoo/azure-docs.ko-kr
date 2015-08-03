@@ -3,9 +3,10 @@
 	description="Azure PowerShell을 사용하여 Azure에서 Windows 및 리소스 관리자 기반 가상 컴퓨터를 만들고 미리 구성하는 방법에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="KBDAzure"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2015"
-	ms.author="josephd"/>
+	ms.date="07/09/2015"
+	ms.author="kathydav"/>
 
 # 리소스 관리자 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기 및 미리 구성
 
@@ -28,7 +29,7 @@
 
 ## 1단계: Azure PowerShell 설치
 
-또한 Azure PowerShell 버전 0.9.0 이상이 있어야 합니다. Azure PowerShell을 설치 및 구성하지 않은 경우 지침을 보려면 [여기](../powershell-install-configure.md)를 클릭하세요.
+또한 Azure PowerShell 버전 0.9.0 이상이 있어야 합니다. Azure PowerShell을 설치 및 구성하지 않은 경우 지침을 보려면 [여기](powershell-install-configure.md)를 클릭하세요.
 
 Azure PowerShell 프롬프트에서 다음 명령을 사용하여 설치한 Azure PowerShell의 버전을 확인할 수 있습니다.
 
@@ -40,7 +41,7 @@ Azure PowerShell 프롬프트에서 다음 명령을 사용하여 설치한 Azur
 	-------
 	0.9.0
 
-버전 0.9.0 이상이 없는 경우 프로그램 및 기능 제어판을 사용하여 Azure PowerShell을 제거한 다음 최신 버전을 설치해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
+버전 0.9.0 이상이 없는 경우 프로그램 및 기능 제어판을 사용하여 Azure PowerShell을 제거한 다음 최신 버전을 설치해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하세요.
 
 ## 2단계: 구독 설정
 
@@ -57,7 +58,7 @@ Azure PowerShell 프롬프트에서 다음 명령을 사용하여 설치한 Azur
 
 이제, Azure PowerShell을 리소스 관리자 모드로 전환합니다.
 
-	Switch-AzureMode AzureResourceManager 
+	Switch-AzureMode AzureResourceManager
 
 ## 3단계: 필요한 리소스 만들기
 
@@ -95,7 +96,7 @@ Azure PowerShell 프롬프트에서 다음 명령을 사용하여 설치한 Azur
 
 Test-AzureName 명령에서 "False"를 표시하는 경우 제안된 이름이 고유한 것입니다. 고유한 이름을 확인한 경우 다음 명령을 사용하여 Azure PowerShell을 다시 리소스 관리자 모드로 전환합니다.
 
-	Switch-AzureMode AzureResourceManager 
+	Switch-AzureMode AzureResourceManager
 
 리소스 관리자 기반 가상 컴퓨터는 문자, 숫자 및 하이픈만 포함할 수 있는 공용 도메인 이름 레이블을 사용할 수 있습니다. 필드의 첫 번째 및 마지막 문자는 문자 또는 숫자여야 합니다.
 
@@ -103,8 +104,8 @@ Test-AzureName 명령에서 "False"를 표시하는 경우 제안된 이름이 �
 
 	$domName="<domain name label to test>"
 	$loc="<short name of an Azure location, for example, for West US, the short name is westus>"
-	Get-AzureCheckDnsAvailability -DomainQualifiedName $domName -Location $loc 
-	
+	Get-AzureCheckDnsAvailability -DomainQualifiedName $domName -Location $loc
+
 DNSNameAvailability가 "True"인 경우 제안된 이름이 고유한 것입니다.
 
 리소스 관리자 기반 가상 컴퓨터를 리소스 관리자 기반 가용성 집합에 배치할 수 있습니다. 필요한 경우 다음 명령을 사용하여 새 가상 컴퓨터의 새 가용성 집합을 만듭니다.
@@ -144,14 +145,14 @@ DNSNameAvailability가 "True"인 경우 제안된 이름이 고유한 것입니�
 
 	$rgName="<resource group name>"
 	$vnetName="<virtual network name>"
-	Get-AzureVirtualNetwork -Name $vnetName -ResourceGroupName $rgName | Select Subnets 
+	Get-AzureVirtualNetwork -Name $vnetName -ResourceGroupName $rgName | Select Subnets
 
 서브넷 인덱스는 이 명령의 표시에서, 왼쪽에서 오른쪽으로 0부터 시작하여 연속적으로 번호를 매긴 서브넷의 번호입니다.
 
 이 예제의 경우
 
-	PS C:> Get-AzureVirtualNetwork -Name TestNet -ResourceGroupName LOBServers | Select Subnets
-	
+	PS C:\> Get-AzureVirtualNetwork -Name TestNet -ResourceGroupName LOBServers | Select Subnets
+
 	Subnets
 	-------
 	{frontendSubnet, backendSubnet}
@@ -201,7 +202,7 @@ frontendSubnet의 서브넷 인덱스는 0이고 backendSubnet의 서브넷 인�
 	$vmName="<VM name>"
 	$vmSize="<VM size string>"
 	$avName="<availability set name>"
-	$avSet=Get-AzureAvailabilitySet –Name $avName –ResourceGroupName $rgName 
+	$avSet=Get-AzureAvailabilitySet –Name $avName –ResourceGroupName $rgName
 	$vm=New-AzureVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
 
 옵션 2에 대한 VM 크기 문자열의 가능한 값을 확인하려면 다음 명령을 사용합니다.
@@ -242,7 +243,7 @@ VM에 데이터 디스크를 더 추가하려면 다음 줄을 명령 집합으�
 	$pubName="<Image publisher name>"
 	$offerName="<Image offer name>"
 	$skuName="<Image SKU name>"
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account." 
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
 	$vm=Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureVMSourceImage -VM $vm -PublisherName $pubName -Offer $offerName -Skus $skuName -Version "latest"
 	$vm=Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
@@ -271,36 +272,36 @@ VM에 데이터 디스크를 더 추가하려면 다음 줄을 명령 집합으�
 - Windows Server 2012 R2 Datacenter 이미지를 사용함
 - 이름이 LOB07이며, 기존 WEB_AS 가용성 집합에 있음
 - 기존 AZDatacenter 가상 네트워크의 프런트 엔드 서브넷(서브넷 인덱스 0)에 공용 IP 주소가 있는 NIC
-- 200GB의 추가 데이터 디스크가 있음 
+- 200GB의 추가 데이터 디스크가 있음
 
 다음은 4단계에서 설명한 프로세스에 따라, 이 가상 컴퓨터를 만드는 Azure PowerShell 명령입니다.
 
-	# Switch to the Resource Manager mode	
+	# Switch to the Resource Manager mode
 	Switch-AzureMode AzureResourceManager
-	
+
 	# Set values for existing resource group and storage account names
 	$rgName="LOBServers"
 	$locName="West US"
 	$saName="contosoLOBServersSA"
-	
+
 	# Set the existing virtual network and subnet index
 	$vnetName="AZDatacenter"
 	$subnetIndex=0
 	$vnet=Get-AzurevirtualNetwork -Name $vnetName -ResourceGroupName $rgName
-	
+
 	# Create the NIC
 	$nicName="AzureInterface"
 	$domName="contoso-vm-lob07"
 	$pip=New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -DomainNameLabel $domName -Location $locName -AllocationMethod Dynamic
 	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
-	
+
 	# Specify the name, size, and existing availability set
 	$vmName="LOB07"
 	$vmSize="Standard_A3"
 	$avName="WEB_AS"
 	$avSet=Get-AzureAvailabilitySet –Name $avName –ResourceGroupName $rgName
 	$vm=New-AzureVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avset.Id
-	
+
 	# Add a 200 GB additional data disk
 	$diskSize=200
 	$diskLabel="APPStorage"
@@ -308,16 +309,16 @@ VM에 데이터 디스크를 더 추가하려면 다음 줄을 명령 집합으�
 	$storageAcc=Get-AzureStorageAccount -ResourceGroupName $rgName -Name $saName
 	$vhdURI=$storageAcc.PrimaryEndpoints.Blob.ToString() + "vhds/" + $vmName + $diskName  + ".vhd"
 	Add-AzureVMDataDisk -VM $vm -Name $diskLabel -DiskSizeInGB $diskSize -VhdUri $vhdURI -CreateOption empty
-	
+
 	# Specify the image and local administrator account, and then add the NIC
 	$pubName="MicrosoftWindowsServer"
 	$offerName="WindowsServer"
 	$skuName="2012-R2-Datacenter"
-	$cred=Get-Credential -Message "Type the name and password of the local administrator account." 
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
 	$vm=Set-AzureVMOperatingSystem -VM $vm -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
 	$vm=Set-AzureVMSourceImage -VM $vm -PublisherName $pubName -Offer $offerName -Skus $skuName -Version "latest"
 	$vm=Add-AzureVMNetworkInterface -VM $vm -Id $nic.Id
-	
+
 	# Specify the OS disk name and create the VM
 	$diskName="OSDisk"
 	$storageAcc=Get-AzureStorageAccount -ResourceGroupName $rgName -Name $saName
@@ -329,13 +330,12 @@ VM에 데이터 디스크를 더 추가하려면 다음 줄을 명령 집합으�
 
 [Azure 리소스 관리자의 Azure 계산, 네트워크 및 저장소 공급자](virtual-machines-azurerm-versus-azuresm.md)
 
-[Azure 리소스 관리자 개요](../resource-group-overview.md)
+[Azure 리소스 관리자 개요](resource-group-overview.md)
 
 [리소스 관리자 템플릿 및 PowerShell을 사용하여 Azure 가상 컴퓨터 배포 및 관리](virtual-machines-deploy-rmtemplates-powershell.md)
 
 [리소스 관리자 템플릿 및 PowerShell을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-create-windows-powershell-resource-manager-template-simple)
 
-[Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)
- 
+[Azure PowerShell을 설치 및 구성하는 방법](install-configure-powershell.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

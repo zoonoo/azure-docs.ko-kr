@@ -11,7 +11,7 @@
 
 		start HybridConnectionManager.msi
  
-7. 설치 관리자가 실행된 다음 **나중에**를 클릭한 후 %ProgramFiles%\\Microsoft\\HybridConnectionManager 폴더를 탐색하고, HCMConfigWizard.exe를 실행하여 **사용자 계정 컨트롤** 대화 상자에서 **예**를 클릭합니다.
+7. 설치 관리자가 실행된 다음 **나중에**를 클릭한 후 %ProgramFiles%\Microsoft\HybridConnectionManager 폴더를 탐색하고, HCMConfigWizard.exe를 실행하여 **사용자 계정 컨트롤** 대화 상자에서 **예**를 클릭합니다.
 		
 7. 앞서 복사한 하이브리드 연결 문자열을 붙여넣고 **확인**을 클릭합니다.
 	
@@ -25,4 +25,4 @@
 	
 	![연결됨 상태](./media/app-service-hybrid-connections-manager-install/D10HCStatusConnected.png)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

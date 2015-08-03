@@ -42,7 +42,7 @@ Azure에 도메인 컨트롤러를 설치할 때와 온-프레미스에 설치�
 ------------- | -------------  | ------------
 **도메인 컨트롤러의 IP 주소** | 네트워크 어댑터 속성에 고정 IP 주소 할당 | Set-AzureStaticVNetIP cmdlet을 실행하여 고정 IP 주소 할당
 **DNS 클라이언트 확인 프로그램** | 도메인 구성원의 네트워크 어댑터 속성에 기본 및 대체 DNS 서버 주소 설정 | 가상 네트워크 속성에 DNS 서버 주소 설정
-**Active Directory 데이터베이스 저장소** | 선택적으로 기본 저장소 위치를 C:\\에서 변경 | 기본 저장소 위치를 C:\\에서 변경해야 함
+**Active Directory 데이터베이스 저장소** | 선택적으로 기본 저장소 위치를 C:\에서 변경 | 기본 저장소 위치를 C:\에서 변경해야 함
 
 
 
@@ -79,7 +79,7 @@ UI 대신 Windows PowerShell을 사용하여 VM을 만들려면 [Azure PowerShel
 
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
-고정 IP 주소 설정에 대한 자세한 내용은 [VM의 고정 내부 IP 주소 구성](https://msdn.microsoft.com/library/azure/dn630228.aspx)을 참조하세요.
+고정 IP 주소 설정에 대한 자세한 내용은 [VM의 고정 내부 IP 주소 구성](../virtual-network/virtual-networks-reserved-private-ip.md)을 참조하세요.
 
 ## Windows Server Active Directory 설치
 
@@ -139,4 +139,4 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

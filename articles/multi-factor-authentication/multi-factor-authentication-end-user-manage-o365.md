@@ -41,4 +41,4 @@ Office 365와 함께 다단계 인증을 사용하는 경우 Office 365 포털�
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-manage-o365/addsec.png)</center>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

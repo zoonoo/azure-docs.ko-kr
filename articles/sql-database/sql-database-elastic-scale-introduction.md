@@ -96,4 +96,4 @@ Azure SQL 데이터베이스의 탄력적 데이터베이스는 보다 간단하
 [4]: ./media/sql-database-elastic-scale-introduction/h_versus_vert.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

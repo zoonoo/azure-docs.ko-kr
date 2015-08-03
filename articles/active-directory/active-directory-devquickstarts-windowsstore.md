@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="07/17/2015"
 	ms.author="dastrock"/>
 
 
-# Windows Phone 앱에서 Web API 호출
+# Azure AD와 Windows 스토어 앱 통합
+
+[AZURE.INCLUDE [active-directory-devquickstarts-switcher](../../includes/active-directory-devquickstarts-switcher.md)]
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -142,7 +144,7 @@ ADAL은 응용 프로그램에 이러한 모든 일반적인 ID 기능을 쉽게
 
 [Azure AD를 사용하여 .NET Web API 보안 유지 >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-추가 리소스를 보려면 다음을 확인하세요. [GitHub의 AzureADSamples >>](https://github.com/AzureAdSamples)(영문) - [CloudIdentity.com >>](https://cloudidentity.com)(영문) - [Azure.com >>](http://azure.microsoft.com/documentation/services/active-directory/)(영문)의 Azure AD 설명서
+[AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

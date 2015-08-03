@@ -23,20 +23,19 @@
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
 
-Visual Studio Application Insights는 실시간 응용 프로그램을 모니터링하여 [성능 문제 및 예외 사항을 감지 및 진단][detect]하고 [앱이 어떻게 사용되는지 검색][knowUsers]할 수 있도록 돕습니다. 다양한 응용 프로그램 종류에서 사용할 수 있습니다. Azure 웹앱뿐 아니라 온-프레미스 IIS 서버 또는 Azure VM에서 호스트된 앱에서도 작동합니다. [장치 앱 및 Java 서버에 대해서도 다룹니다][start].
+[Visual Studio Application Insights](http://azure.microsoft.com/services/application-insights)는 실시간 응용 프로그램을 모니터링하여 [성능 문제 및 예외 사항을 감지 및 진단][detect]하고 [앱이 어떻게 사용되는지 검색][knowUsers]할 수 있도록 돕습니다. 다양한 응용 프로그램 종류에서 사용할 수 있습니다. Azure 웹앱뿐 아니라 온-프레미스 IIS 서버 또는 Azure VM에서 호스트된 앱에서도 작동합니다. [장치 앱 및 Java 서버에 대해서도 다룹니다][start].
 
 ![예제 성능 모니터링 차트](./media/app-insights-asp-net/10-perf.png)
 
-많은 응용 프로그램의 경우 대부분 공지 없이 [Visual Studio가 앱에 Application Insights를 추가할 수 있습니다](#ide). 하지만 무슨 일인지 더 잘 이해하기 위해 본 문서를 읽어 보면 수동으로 단계가 안내됩니다.
 
 #### 시작하기 전에
 
 다음 작업을 수행해야 합니다.
 
 * [Microsoft Azure](http://azure.com) 구독. 팀 또는 조직에 Azure 구독이 있는 경우 소유자가 [Microsoft 계정](http://live.com)을 사용하여 사용자를 추가할 수 있습니다.
-* Visual Studio 2013 이상.
+* Visual Studio 2013 업데이트 3 이상
 
-## <a name="ide"></a>Visual Studio의 프로젝트에 Application Insights 추가
+## <a name="ide"></a> Visual Studio의 프로젝트에 Application Insights 추가
 
 #### 새 프로젝트의 경우
 
@@ -60,15 +59,16 @@ Visual Studio에서 새 프로젝트를 만들 때 Application Insights를 선�
 
 프로젝트를 처음 만드는 경우 Microsoft Azure 미리 보기에 로그인하거나 등록하라는 메시지가 표시됩니다. 해당 계정은 Visual Studio Online 계정과는 별개입니다.
 
-이 앱이 더 큰 응용 프로그램의 일부인 경우, **구성 설정**을 사용하여 다른 구성 요소와 동일한 리스소 그룹에 넣고자 할 수 있습니다.
+이 앱이 더 큰 응용 프로그램의 일부인 경우, **구성 설정**을 사용하여 다른 구성 요소와 동일한 리소스 그룹에 넣고자 할 수 있습니다.
 
 
-#### ‘Application Insights 추가'의 기능은 무엇입니까?
+####<a name="land"></a> ‘Application Insights 추가'에서 무엇을 했나요?
 
-명령이 (원하면 수동으로 가능한) 두 가지 작업을 합니다.
+명령은 다음 단계를 수행했습니다(원하는 경우 수동으로 수행 가능).
 
-* [Azure 포털][portal]에 Application Insights 리소스를 만듭니다. 이곳에서 사용자의 데이터를 볼 수 있습니다. 식별된 리소스 *계측 키*를 검색합니다.
-* 프로젝트에 Application Insights 웹 SDK NuGet 패키지를 추가하고 `ApplicationInsights.config`에 키를 배치합니다.
+* [Azure 포털][portal]에 Application Insights 리소스를 만듭니다. 이곳에서 사용자의 데이터를 볼 수 있습니다. 리소스를 식별하는 *계측 키*를 검색합니다.
+* 프로젝트에 Application Insights 웹 SDK NuGet 패키지를 추가합니다. Visual Studio에서 보려면 프로젝트를 마우스 오른쪽 단추로 클릭하고 NuGet 패키지 관리를 선택합니다.
+* `ApplicationInsights.config`에 계측 키를 배치합니다.
 
 
 ## <a name="run"></a> 프로젝트 실행
@@ -79,9 +79,9 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 ![](./media/app-insights-asp-net/appinsights-09eventcount.png)
 
-## <a name="monitor"></a> Application Insights
+## <a name="monitor"></a> Application Insights 열기
 
-[Azure 포털][portal]에 Application Insights 리소스를 엽니다.
+[Azure 포털][portal]에서 Application Insights 리소스를 엽니다.
 
 ![프로젝트를 마우스 오른쪽 단추로 클릭하고 Azure 포털을 엽니다.](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
@@ -119,11 +119,11 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 #### 클라이언트가 웹 브라우저인 경우
 
-앱을 웹페이지에 표시하는 경우, 모든 페이지에 JavaScript 코드 조각을 추가합니다. Application Insights 리소스에서 코드를 가져옵니다.
+앱을 웹 페이지에 표시하는 경우, 모든 페이지에 JavaScript 코드 조각을 추가합니다. Application Insights 리소스에서 코드를 가져옵니다.
 
-![웹앱에서, 빠른 시작을 열고 '내 웹 페이지를 모니터링하는 코드를 얻기'를 클릭 합니다.](./media/app-insights-asp-net/02-monitor-web-page.png)
+![웹앱에서, 빠른 시작을 열고 '내 웹 페이지를 모니터링하는 코드를 얻기'를 클릭합니다.](./media/app-insights-asp-net/02-monitor-web-page.png)
 
-코드는 응용 프로그램 리소스를 식별하는 계측 키를 포함한다는것을 참고하세요.
+코드는 응용 프로그램 리소스를 식별하는 계측 키를 포함한다는 것을 참고하세요.
 
 [웹 페이지 추적에 대해 더 알아보기](app-insights-web-track-usage.md)
 
@@ -131,13 +131,13 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 응용 프로그램이 휴대폰 또는 기타 장치 등의 클라이언트에 서비스를 제공하는 경우 사용자의 장치 앱에 [적절한 SDK](app-insights-platforms.md)를 추가하세요.
 
-SDK 서버와 동일한 계측 키를 가진 SDK 클라이언트를 구성하는 경우 함께 볼 수 있도록 두 스트림은 통합 됩니다.
+SDK 서버와 동일한 계측 키를 가진 SDK 클라이언트를 구성하는 경우 함께 볼 수 있도록 두 스트림은 통합됩니다.
 
 ## 사용 추적
 
-새 사용자 스토리를 배달한 경우, 사용자들이 얼마나 이용하고 있는지와 그들이 목표를 달성하거나 목표를 달성했는지 알고자 합니다. 클라이언트와 서버에 있는TrackEvent() 및 코드 안에 다른 호출을 삽입하여 사용자 작업에 대한 그림을 가져옵니다.
+새 사용자 스토리를 배달한 경우, 사용자들이 얼마나 이용하고 있는지와 그들이 목표를 달성하거나 목표를 달성했는지 알고자 합니다. 클라이언트와 서버에 있는 TrackEvent() 및 코드 안에 다른 호출을 삽입하여 사용자 작업에 대한 자세한 그림을 가져옵니다.
 
-[사용량을 추적 API 사용][api]
+[API를 사용하여 사용량 추적 ][api]
 
 
 ## 진단 로그
@@ -146,9 +146,9 @@ SDK 서버와 동일한 계측 키를 가진 SDK 클라이언트를 구성하는
 
 ## 응용 프로그램 게시
 
-앱을 (Application Insight를 추가한 이후로) 게시하지 않은 경우 지금 게시합니다. 차트에서 사용자들의 앱 사용에 따라 증가하는 데이터를 확인하세요.
+앱을 (Application Insights를 추가한 이후로) 게시하지 않은 경우 지금 게시합니다. 차트에서 사용자들의 앱 사용에 따라 증가하는 데이터를 확인하세요.
 
-### 개발, 테스트 및 릴리스를 위한 별도 리소스를 유지 합니다.
+### 개발, 테스트 및 릴리스를 위한 별도 리소스를 유지합니다.
 
 주요 응용 프로그램에서, 원격 분석 데이터를 디버깅, 테스트, 프로덕션에서 [별도 리소스](app-insights-separate-resources.md)로 보내는 것을 권장합니다.
 
@@ -162,7 +162,7 @@ SDK 서버와 동일한 계측 키를 가진 SDK 클라이언트를 구성하는
 
 #### 앱이 IIS 서버에서 실행되는 경우
 
-관리자 권한을 사용하여 서버에 로그인 후 [Application Insights 상태 모니터](http://go.microsoft.com/fwlink/?LinkId=506648)를 설치합니다.
+관리자 권한을 사용하여 서버에 로그인한 후 [Application Insights 상태 모니터](http://go.microsoft.com/fwlink/?LinkId=506648)를 설치합니다.
 
 (상태 모니터를 [이미 실행 중인 앱을 계측](app-insights-monitor-performance-live-website-now.md)할 경우에도 사용할 수 있으며, SDK로 빌드되지 않은 경우에도 사용할 수 있습니다.)
 
@@ -176,7 +176,7 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 ## 가용성 웹 테스트
 
-[웹 테스트 설정][availability] 응용 프로그램의 라이브 및 응답성을 외부에서 테스트 할 수 있습니다.
+[웹 테스트 설정][availability] 응용 프로그램의 라이브 상태 및 응답성을 외부에서 테스트할 수 있습니다.
 
 
 ![](./media/app-insights-asp-net/appinsights-10webtestresult.png)
@@ -220,4 +220,4 @@ ApplicationInsights.config에 대한 사용자 지정을 변경한 경우, 업�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -97,4 +97,4 @@ SaaS 통합에 대한 자세한 내용은 [SaaS 통합][SaaSIntegration]을 참�
 [SharepointDocumentLibrary]: ./media/app-service-enterprise-multichannel-apps/05aSharepointDocumentLibrary.png
 [SalesforceIntegration]: ./media/app-service-enterprise-multichannel-apps/06aSalesforceIntegration.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

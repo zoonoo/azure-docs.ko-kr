@@ -93,13 +93,13 @@ StorSimple 스냅숏 관리자의 새로운 설치를 완료하려면 다음 단
 
 3. **압축(Zip) 폴더 풀기** 창의 **대상을 선택하고 압축 파일을 푸십시오.** 상자에 파일을 추출할 경로를 입력하거나 찾습니다.
 
-    >[AZURE.IMPORTANT]C: 드라이브에 StorSimple 스냅숏 관리자를 설치해야 합니다.
+      >[AZURE.IMPORTANT]C: 드라이브에 StorSimple 스냅숏 관리자를 설치해야 합니다.
  
 4. **완료되면 압축을 푼 파일 표시** 확인란을 선택한 다음 **추출**을 클릭합니다.
 
     ![파일 추출 대화 상자](./media/storsimple-snapshot-manager-deployment/HCS_SSM_extract_files.png)
 
-4. 추출 완료되면 대상 폴더가 열립니다. 대상 폴더에 표시되는 응용 프로그램 설치 아이콘을 두 번 클릭합니다.
+4. 추출이 완료되면 대상 폴더가 열립니다. 대상 폴더에 표시되는 응용 프로그램 설치 아이콘을 두 번 클릭합니다.
 
 5. **설치 완료** 메시지가 나타나면 **닫기**를 클릭합니다. 바탕 화면에 StorSimple 스냅숏 관리자 아이콘이 표시됩니다.
 
@@ -149,7 +149,7 @@ StorSimple 스냅숏 관리자의 새로운 설치를 완료하려면 다음 단
 
    - 장치 아이콘에 녹색 표시기가 나타나고 **상태** 열에 **사용 가능**이 나타나면 해당 장치는 연결되어 있습니다. 
 
-   - 장치 아이콘에 적색 표시기가 나타나고 **상태** 열에 사용할 수 없음이 나타나면 해당 장치는 연결되어 있지 않습니다.
+   - 장치 아이콘에 빨간색 표시기가 나타나고 **상태** 열에 사용할 수 없음이 나타나면 해당 장치는 연결되어 있지 않습니다.
 
    - **상태** 열에 **새로 고치는 중**이 표시되면 StorSimple 스냅숏 관리자가 연결된 장치에 대해 연결된 백업 및 볼륨 그룹을 검색하는 중입니다.
 
@@ -201,7 +201,7 @@ StorSimple 스냅숏 관리자를 업그레이드하거나 다시 설치하는 �
 
         ![Stop the StorSimple Manager service](./media/storsimple-snapshot-manager-deployment/HCS_SSM_stop_service.png)
 
-2. C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog로 이동합니다.
+2. C:\ProgramData\Microsoft\StorSimple\BACatalog로 이동합니다.
 
     >[AZURE.NOTE]ProgramData는 숨겨진 폴더입니다.
 
@@ -233,7 +233,7 @@ StorSimple 스냅숏 관리자를 다시 설치하려면 [새 StorSimple 스냅�
 
     4. 오른쪽 창의 **Microsoft StorSimple 관리 서비스** 아래에서 **서비스 중지**를 클릭합니다.
 
-2. C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog로 이동합니다.
+2. C:\ProgramData\Microsoft\StorSimple\BACatalog로 이동합니다.
 
      >[AZURE.NOTE]ProgramData는 숨겨진 폴더입니다.
 
@@ -253,4 +253,4 @@ StorSimple 스냅숏 관리자에 대해 자세히 알아보려면 [StorSimple �
 
 StorSimple 스냅숏 관리자 사용자 인터페이스에 대해 자세히 알아보려면 [StorSimple 스냅숏 관리자 사용자 인터페이스](storsimple-use-snapshot-manager.md)로 이동하세요.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

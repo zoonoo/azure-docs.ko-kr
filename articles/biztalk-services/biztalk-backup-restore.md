@@ -233,4 +233,4 @@ Azure 관리 포털에서 Azure BizTalk 서비스를 만들려면 [BizTalk 서�
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

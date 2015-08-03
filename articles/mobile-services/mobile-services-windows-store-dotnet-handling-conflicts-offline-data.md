@@ -51,7 +51,7 @@
 
 2. [오프라인 데이터 시작] 자습서에 언급된 대로 Windows 8.1용 SQLite 및 Windows Phone 8.1용 SQLite를 아직 설치하지 않은 경우 두 런타임을 모두 설치합니다.
 
-3. Visual Studio 2013에서 *mobile-services-samples\\TodoOffline\\WindowsUniversal\\TodoOffline-Universal.sln* 솔루션 파일을 엽니다. **F5**를 눌러 프로젝트를 다시 빌드하고 실행합니다. NuGet 패키지가 복원되고 참조가 올바르게 설정되었는지 확인합니다.
+3. Visual Studio 2013에서 *mobile-services-samples\TodoOffline\WindowsUniversal\TodoOffline-Universal.sln* 솔루션 파일을 엽니다. **F5**를 눌러 프로젝트를 다시 빌드하고 실행합니다. NuGet 패키지가 복원되고 참조가 올바르게 설정되었는지 확인합니다.
 
     >[AZURE.NOTE][오프라인 데이터 시작] 자습서에 언급된 대로 SQLite 런타임에 대한 이전 참조를 삭제하고 업데이트된 참조로 바꿔야 할 수 있습니다.
 
@@ -166,4 +166,4 @@
 [Todo 오프라인 모바일 서비스 샘플]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

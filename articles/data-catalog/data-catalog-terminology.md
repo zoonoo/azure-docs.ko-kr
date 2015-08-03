@@ -71,4 +71,4 @@ Azure 데이터 카탈로그에서 모든 사용자가 등록된 데이터 자�
 
 - [Azure 데이터 카탈로그 시작](data-catalog-get-started.md) - 이 문서에서는 데이터 원본 검색에 대한 Azure 데이터 카탈로그를 사용하는 방법을 보여주는 종단간 자습서를 제공합니다.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

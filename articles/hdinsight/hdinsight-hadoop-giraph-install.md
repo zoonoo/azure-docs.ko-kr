@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/03/2015" 
+	ms.date="07/11/2015" 
 	ms.author="nitinme"/>
 
 # HDInsight Hadoop 클러스터에 Giraph를 설치하고 Giraph를 사용하여 대규모 그래프를 처리합니다.
@@ -75,7 +75,7 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
 
 	개체 간 거리로 위의 값(또는 가중치)을 사용하여 그리면 다음과 같을 수 있습니다.
 
-	![원과 거리가 다른 선으로 그린 tiny_graph.txt](.\media\hdinsight-hadoop-giraph-install\giraph-graph.png)
+	![원과 거리가 다른 선으로 그린 tiny_graph.txt](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
 
 	
 
@@ -145,7 +145,7 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
 	
 	이를 시각화하면 ID 1과 다른 모든 개체 간의 가장 짧은 경로를 이동하여 결과를 확인할 수 있습니다. ID 1과 ID 4 간의 가장 짧은 경로는 5입니다. <span style="color:orange">ID 1과 3</span> 사이의 총 거리와 <span style="color:red">ID 3과 4</span> 사이의 총 거리를 더한 값입니다.
 
-	![가장 짧은 경로와 함께 원으로 그린 개체](.\media\hdinsight-hadoop-giraph-install\giraph-graph-out.png)
+	![가장 짧은 경로와 함께 원으로 그린 개체](./media/hdinsight-hadoop-giraph-install/giraph-graph-out.png)
 
 
 ## <a name="usingPS"></a>Azure PowerShell을 사용하여 HDInsight Hadoop 클러스터에 Giraph 설치
@@ -329,7 +329,7 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 
 **응용 프로그램을 실행하려면**
 
-Azure PowerShell 콘솔을 열고 Visual Studio 프로젝트를 저장한 위치로 이동하고 프로젝트 내의 \\bin\\debug 디렉터리로 이동한 후 다음 명령을 실행합니다.
+Azure PowerShell 콘솔을 열고 Visual Studio 프로젝트를 저장한 위치로 이동하고 프로젝트 내의 \bin\debug 디렉터리로 이동한 후 다음 명령을 실행합니다.
 
 	.\CreateGiraphCluster <cluster-name>
 
@@ -353,4 +353,4 @@ Azure PowerShell 콘솔을 열고 Visual Studio 프로젝트를 저장한 위치
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

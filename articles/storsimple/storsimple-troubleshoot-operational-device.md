@@ -48,4 +48,4 @@
 ## 다음 단계
 문제를 해결할 수 없는 경우 [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하세요.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -108,8 +108,8 @@ Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid 
 <!--Image references-->
 
 <!--Article references-->
-[Azure SQL 데이터베이스 비즈니스 연속성 개요]: sql-database/sql-database-business-continuity/,d
-[복구된 데이터베이스 마무리]: sql-database/sql-database-recovered-finalize/
+[Azure SQL 데이터베이스 비즈니스 연속성 개요]: sql-database/sql-database-business-continuity.md
+[복구된 데이터베이스 마무리]: sql-database/sql-database-recovered-finalize.md
 
 <!--MSDN references-->
 [데이터베이스 복원 요청 만들기]: http://msdn.microsoft.com/library/azure/dn509571.aspx
@@ -120,4 +120,4 @@ Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid 
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

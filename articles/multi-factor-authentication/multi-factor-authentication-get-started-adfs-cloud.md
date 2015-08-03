@@ -27,7 +27,7 @@
 1. [다단계 인증 설정](multi-factor-authentication-get-started-cloud/#turn-on-multi-factor-authentication-for-users)에 설명된 단계에 따라 사용자가 계정을 사용하도록 설정합니다.
 2. 다음 절차에 따라 클레임 규칙을 설정합니다.
 
-<center>![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)</center>
+![클라우드](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
 
 - 	AD FS 관리 콘솔을 시작합니다.
 - 	신뢰 당사자 트러스트로 이동한 후 신뢰 당사자 트러스트를 마우스 오른쪽 단추로 클릭합니다. 클레임 규칙 편집...을 선택합니다.
@@ -48,7 +48,62 @@
 
 그러면 사용자는 온-프레미스 방법(예: 스마트 카드)을 사용하여 로그인을 완료할 수 있습니다.
 
+## 페더레이션 사용자를 위한 신뢰할 수 있는 IP
+신뢰할 수 있는 IP를 사용하면 관리자가 특정 IP 주소 또는 자신의 인트라넷 내에서 시작된 요청을 가진 페더레이션 사용자에 대한 다단계 인증을 바이패스할 수 있습니다. 다음 섹션에서는 페더레이션 사용자 인트라넷에서 요청이 시작되는 경우 페더레이션 사용자로 Azure Multi-Factor Authentication 신뢰할 수 있는 IP를 구성하고 다단계 인증을 바이패스하는 방법을 설명합니다. 이 작업은 들어오는 클레임(회사 네트워크 내부 클레임 형식 사용) 통과 또는 필터링 템플릿을 사용하도록 AD FS를 구성하여 수행합니다. 이 예제는 신뢰 당사자 트러스트에 대해 Office 365를 사용합니다.
 
- 
+### AD FS 클레임 규칙 구성
 
-<!---HONumber=July15_HO2-->
+가장 먼저 AD FS 클레임을 구성합니다. 두 클레임 규칙을 만드는데 하나는 회사 네트워크 내부 클레임 형식에 대한 규칙이고 다른 하나는 사용자의 로그인 상태를 유지하기 위한 규칙입니다.<ol>
+
+<li>AD FS 관리를 엽니다.</li>
+<li>왼쪽에서 Relying Party Trusts(신뢰 당사자 트러스트)를 선택합니다.</li>
+<li>중간에서 Microsoft Office 365 ID 플랫폼을 마우스 오른쪽 단추로 클릭하고 **Edit Claim Rules…(클레임 규칙 편집...)**를 선택합니다.</li>
+
+![클라우드](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip1.png)
+
+<li>발급 변환 규칙에서 **규칙 추가**를 클릭합니다.</li>
+
+![클라우드](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip2.png)
+
+<li>변환 클레임 규칙 추가 마법사의 드롭다운 목록에서 Pass Through or Filter an Incoming Claim(들어오는 클레임 통과 또는 필터링)을 선택하고 Next(다음)를 클릭합니다. </li>
+
+![클라우드](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip3.png)
+
+<li>클레임 규칙 이름 옆에 있는 상자에 규칙의 이름을 지정합니다. 예를 들어 InsideCorpNet입니다.</li>
+<li>들어오는 클레임 형식 옆의 드롭다운 목록에서 Inside Corporate Network(회사 네트워크 내부)를 선택합니다. </li>
+
+![클라우드](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip4.png)
+
+<li>Finish를 클릭합니다.</li>
+<li>발급 변환 규칙에서 **규칙 추가**를 클릭합니다.</li>
+<li>Add Transform Claim Rule Wizard(변환 클레임 규칙 추가 마법사)의 드롭다운 목록에서 Custom Rule(사용자 지정 규칙)을 사용하여 Send Claims(클레임 보내기)를 선택하고 Next(다음)를 클릭합니다.</li>
+<li>클레임 규칙 이름 아래에 있는 상자에 로그인한 사용자 유지를 입력합니다.</li>
+<li>사용자 지정 규칙 상자에 c:[Type == "http://schemas.microsoft.com/2014/03/psso"] => issue(claim = c);을 입력합니다.
+</li>
+
+![클라우드](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
+
+<li>**마침**을 클릭합니다.</li>
+<li>**적용**을 클릭합니다.</li>
+<li>**확인**을 클릭합니다.</li>
+
+<li>AD FS 관리를 닫습니다.</li>
+
+### 페더레이션 사용자로 Azure Multi-Factor Authentication 신뢰할 수 있는 IP 구성
+이제 클레임이 적용되었으므로 신뢰할 수 있는 IP를 구성할 수 있습니다. <ol>
+
+<li>Azure 관리 포털에 로그인합니다.</li>
+<li>왼쪽에서 Active Directory를 클릭합니다.</li>
+<li>디렉터리 아래에서 신뢰할 수 있는 IP를 설정할 디렉터리를 클릭합니다.</li>
+<li>선택한 디렉터리에서 구성을 클릭합니다.</li>
+<li>Multi-factor Authentication 섹션에서 서비스 설정 관리를 클릭합니다.</li>
+<li>서비스 설정 페이지의 신뢰할 수 있는 IP 아래에서 **For requests from federated users originating from my intranet(내 인트라넷에서 시작된 페더레이션 사용자의 요청)**을 선택합니다.</li>
+
+![클라우드](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+
+<li>저장을 클릭합니다.</li>
+<li>업데이트를 적용하면 닫기를 클릭합니다.</li>
+
+끝났습니다. 이제 회사 인트라넷 외부에서 클레임이 시작하는 경우 Office 365 페더레이션 사용자만 MFA를 사용해야 합니다.
+
+<!---HONumber=July15_HO4-->

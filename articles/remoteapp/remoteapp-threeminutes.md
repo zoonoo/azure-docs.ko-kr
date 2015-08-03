@@ -1,3 +1,4 @@
+
 <properties 
     pageTitle="3분 내로 장치에서 Azure RemoteApp 사용해 보기"
     description="서비스를 설치하지 않고 Azure RemoteApp 기능을 시험 사용합니다." 
@@ -36,4 +37,4 @@
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

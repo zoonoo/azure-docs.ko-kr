@@ -139,4 +139,4 @@ REST API에 대한 정보는 [Azure 리소스 관리자 REST API 참조](https:/
 - [서비스 사용자 인증](./resource-group-authenticate-service-principal.md)
 - [Azure 포털을 사용하여 새 서비스 사용자 만들기](./resource-group-create-service-principal-portal.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

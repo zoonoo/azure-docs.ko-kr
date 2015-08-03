@@ -95,7 +95,7 @@ Redis 캐시를 사용하여 웹 앱에서 개체를 캐시할 수도 있습니�
 
   *작성자: [Rick Anderson](https://twitter.com/RickAndMSFT)*
   
-  [installed the latest]: http://www.windowsazure.com/downloads/?sdk=net
+  [installed the latest]: http://azure.microsoft.com/downloads/?sdk=net
   [ASP.NET 세션 상태 개요]: http://msdn.microsoft.com/library/ms178581.aspx
 
   [NewIcon]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png
@@ -108,4 +108,4 @@ Redis 캐시를 사용하여 웹 앱에서 개체를 캐시할 수도 있습니�
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

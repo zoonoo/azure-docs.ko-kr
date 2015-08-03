@@ -70,4 +70,4 @@ PowerShell 또는 관리 포털을 사용하여 네트워크 구성 파일에 �
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

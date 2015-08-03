@@ -190,4 +190,4 @@ QueueInfo에는 큐의 속성을 조정하는 데 사용할 수 있는 메서드
   [큐, 토픽 및 구독]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

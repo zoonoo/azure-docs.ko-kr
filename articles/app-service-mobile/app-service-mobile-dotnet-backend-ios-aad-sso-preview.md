@@ -18,6 +18,8 @@ ms.author="mahender" />
 
 [AZURE.INCLUDE [app-service-mobile-selector-aad-sso](../../includes/app-service-mobile-selector-aad-sso.md)]
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 이 자습서에서는 Active Directory 인증 라이브러리를 사용하여 빠른 시작 프로젝트에 인증을 추가합니다.
 
 사용자를 인증하려면 먼저 AAD(Azure Active Directory) 테넌트에 응용 프로그램을 등록해야 합니다. 이 작업은 다음 두 단계로 수행됩니다. 먼저, 앱 서비스를 등록하고 해당 사용 권한을 표시해야 합니다. 두 번째로 iOS 앱을 등록하고 이러한 사용 권한에 대한 액세스 권한을 부여해야 합니다.
@@ -28,6 +30,10 @@ ms.author="mahender" />
 * [모바일 앱 시작 자습서] 완료
 * Microsoft Azure 모바일 서비스 SDK
 * [iOS용 Active Directory 인증 라이브러리]
+
+##<a name="review"></a>서버 프로젝트 구성 검토(옵션)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
 
 ## <a name="register-application"></a>Azure Active Directory에 응용 프로그램 등록
 
@@ -117,4 +123,4 @@ ms.author="mahender" />
  [모바일 앱 시작 자습서]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

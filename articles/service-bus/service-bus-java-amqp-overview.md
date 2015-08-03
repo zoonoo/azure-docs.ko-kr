@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="07/21/2015" 
 	ms.author="sethm"/>
 
 
@@ -70,30 +70,12 @@ AMQP 1.0은 2008년 이래로 기술 공급업체와 최종 사용자 업체를 
 
 현재 서비스 버스에서 사용할 수 있는 클라이언트 라이브러리는 다음과 같습니다.
 
-<table>
-  <tr>
-    <th>언어</th>
-    <th>라이브러리</th>
-  </tr>
-  <tr>
-    <td>Java</td>
-    <td>Apache Qpid JMS(Java Message Service) 클라이언트<br/>
-        IIT Software SwiftMQ Java 클라이언트</td>
-  </tr>
-  <tr>
-    <td>C</td>
-    <td>Apache Qpid Proton-C</td>
-  </tr>
-  <tr>
-    <td>PHP</td>
-    <td>Apache Qpid Proton-PHP</td>
-  </tr>
-  <tr>
-    <td>Python</td>
-    <td>Apache Qpid Proton-Python</td>
-  </tr>
-
-</table>
+| 언어 | 라이브러리 |
+|----------|-------------------------------------------------------------------------------|
+| Java | Apache Qpid JMS(Java Message Service) 클라이언트<br/>IIT Software SwiftMQ Java 클라이언트 |
+| C | Apache Qpid Proton-C |
+| PHP | Apache Qpid Proton-PHP |
+| Python | Apache Qpid Proton-Python |
 
 
 **그림 2: AMQP 1.0 클라이언트 라이브러리 표**
@@ -117,4 +99,4 @@ AMQP 1.0은 2008년 이래로 기술 공급업체와 최종 사용자 업체를 
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

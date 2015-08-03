@@ -76,4 +76,4 @@ $healthServiceSettings.ReloadConfiguration()
 
 - [프록시 및 방화벽 설정 구성(선택 사항)](operational-insights-proxy-firewall.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

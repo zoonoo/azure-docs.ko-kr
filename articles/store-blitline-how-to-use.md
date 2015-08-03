@@ -150,4 +150,4 @@ Blitline의 Azure 저장소 문서의 최신 버전을 [여기](http://www.blitl
   [Blitline 작업을 만드는 방법]: #createjob
   [Azure 저장소에 이미지를 저장하는 방법]: #saveazure
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

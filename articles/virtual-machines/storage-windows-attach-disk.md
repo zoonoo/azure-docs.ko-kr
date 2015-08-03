@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="가상 컴퓨터에 디스크 연결 | Azure" 
-	description="데이터 디스크를 Azure 가상 컴퓨터에 연결하고 사용 가능하도록 초기화하는 방법에 대해 알아봅니다." 
-	services="virtual-machines, storage" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="가상 컴퓨터에 디스크 연결 | Azure"
+	description="데이터 디스크를 Azure 가상 컴퓨터에 연결하고 사용 가능하도록 초기화하는 방법에 대해 알아봅니다."
+	services="virtual-machines, storage"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/16/2015"
 	ms.author="kathydav"/>
 
 # Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법
@@ -42,8 +43,14 @@
 
 	![볼륨 초기화됨](./media/storage-windows-attach-disk/newvolumecreated.png)
 
-> [AZURE.NOTE]가상 컴퓨터의 크기로 연결할 수 있는 디스크 개수가 결정됩니다. 자세한 내용은 [클라우드 서비스 및 가상 컴퓨터 크기](https://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하세요.
+> [AZURE.NOTE]가상 컴퓨터의 크기로 연결할 수 있는 디스크 개수가 결정됩니다. 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-size-specs.md)를 참조하세요.
+
+## 추가 리소스
+
+[Windows 가상 컴퓨터에서 디스크를 분리하는 방법](storage-windows-detach-disk.md)
+
+[가상 컴퓨터용 디스크 및 VHD에 대하여](virtual-machines-disks-vhds.md)
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

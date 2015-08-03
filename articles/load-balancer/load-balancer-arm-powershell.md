@@ -51,14 +51,14 @@ Azure 리소스 관리자의 분산 장치 구성 요소에 대한 자세한 내
 ARM cmdlet을 사용하려면 PowerShell 모드를 전환해야 합니다. 자세한 내용은 [리소스 관리자에서 Windows PowerShell 사용](powershell-azure-resource-manager.md)을 참조하세요.
 
 
-    PS C:> Switch-AzureMode -Name AzureResourceManager
+    PS C:\> Switch-AzureMode -Name AzureResourceManager
 
 ### 2단계
 
 Azure 계정에 로그인
 
 
-    PS C:> Add-AzureAccount
+    PS C:\> Add-AzureAccount
 
 자격 증명을 사용하여 인증하라는 메시지가 표시됩니다.
 
@@ -67,7 +67,7 @@ Azure 계정에 로그인
 
 사용할 Azure 구독을 선택합니다.
 
-    PS C:> Select-AzureSubscription -SubscriptionName "MySubscription"
+    PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
 
 사용 가능한 구독 목록을 보려면 ‘Get-AzureSubscription’ cmdlet을 사용합니다.
 
@@ -76,7 +76,7 @@ Azure 계정에 로그인
 
 새 리소스 그룹을 만듭니다. 기존 리소스 그룹을 사용하는 경우에는 이 단계를 건너뛰세요.
 
-    PS C:> New-AzureResourceGroup -Name NRP-RG -location "West US"
+    PS C:\> New-AzureResourceGroup -Name NRP-RG -location "West US"
 
 Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치를 지정해야 합니다. 이 위치는 해당 리소스 그룹에서 리소스의 기본 위치로 사용됩니다. 부하 분산 장치를 만드는 모든 명령에서 동일한 리소스 그룹을 사용하는지 확인합니다.
 
@@ -184,7 +184,7 @@ LB-Nic2-BE라는 두 번째 네트워크 인터페이스 만들기:
 최종 결과는 다음과 같이 표시됩니다.
 
 
-PS C:> $backendnic1
+PS C:\> $backendnic1
 
 
 	Name                 : lb-nic1-be
@@ -245,4 +245,4 @@ Add-AzureVMNetworkInterface 명령을 사용하여 가상 컴퓨터에 NIC를 �
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

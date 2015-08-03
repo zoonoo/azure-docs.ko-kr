@@ -405,4 +405,4 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
 - [Azure 리소스 관리자 개요](./resource-group-overview.md)
 - [Azure 리소스 관리자 스키마](https://github.com/Azure/azure-resource-manager-schemas)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

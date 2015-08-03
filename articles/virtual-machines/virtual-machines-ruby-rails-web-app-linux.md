@@ -172,4 +172,4 @@ Ruby 응용 프로그램에서 Azure 서비스를 사용하려면 다음을 참�
 [new-endpoint1]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint1.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -95,4 +95,4 @@ Azure에는 응용 프로그램의 새 테넌트를 프로비전하는 방법이
 [Azure에서 다중 테넌트 응용 프로그램 호스트]: http://msdn.microsoft.com/library/hh534480.aspx
 [Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

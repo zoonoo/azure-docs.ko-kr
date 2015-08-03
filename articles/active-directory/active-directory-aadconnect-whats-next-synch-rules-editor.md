@@ -74,4 +74,4 @@ Azure AD Connect에서는 동기화 규칙을 구성하여 Azure AD와 온-프�
 변환 항목이 크면 Azure AD Connect로 가능한 사용자 지정 구성의 많은 부분을 제공합니다. 사용자 지정 구성은 이 개요 문서에서 다루지 않지만 이 문서의 뒷부분에 나오는 일부 추가 특성 흐름을 살펴봅니다.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

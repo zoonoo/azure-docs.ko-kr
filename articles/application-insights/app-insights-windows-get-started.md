@@ -35,7 +35,7 @@ Visual Studio Application Insights를 사용하면 다음을 위해 게시된 �
 * [Microsoft Azure][azure] 구독.
 * Visual Studio 2013 이상.
 
-## 1\. Application Insights 리소스 만들기 
+## 1. Application Insights 리소스 만들기 
 
 [Azure 포털][portal]에서 새 Application Insights 리소스를 만듭니다.
 
@@ -50,7 +50,7 @@ Azure에서 [리소스][roles]는 서비스의 인스턴스입니다. 이 리소
 ![필수 항목 드롭다운 서랍을 열고 계측 키를 선택합니다.](./media/app-insights-windows-get-started/02-props.png)
 
 
-## 2\. 앱에 Application Insights SDK 추가
+## 2. 앱에 Application Insights SDK 추가
 
 Visual Studio에서 프로젝트에 적합한 SDK를 추가합니다.
 
@@ -227,4 +227,4 @@ Visual Studio를 사용하여 설치 단계를 수행하려면 Windows Phone, Wi
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

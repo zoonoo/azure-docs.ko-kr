@@ -153,4 +153,4 @@ Azure CLI가 설치되었으면 명령줄 사용자 인터페이스(Bash, 터미
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

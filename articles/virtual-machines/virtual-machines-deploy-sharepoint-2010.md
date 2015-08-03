@@ -93,7 +93,7 @@ VM에 연결하려면, [Windows Server를 실행하는 가상 컴퓨터에 로�
 다음 옵션 중 하나를 사용하여 SQL Server VM을 빌드합니다.
 
 - 위의 1~7단계에 따라(3단계는 예외) SQL Server 2012 VM을 만들어 Windows Server 2008 R2 SP1 이미지 대신 SQL Server 2012 이미지를 사용합니다. 자세한 내용을 보려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-provision-sql-server.md)으로 이동하십시오.
-	- 이 옵션을 선택한 경우 설치를 사용자 지정할 수 있도록 프로비전 프로세스에서 SQL Server 2012 설치 파일의 복사본을 C:\\SQLServer_11.0_Full 디렉터리 경로에 저장합니다. 예를 들어 SQL Server 2012의 평가판 설치를, 라이선스 키를 사용하여 사용이 허가된 버전으로 변환할 수 있습니다.
+	- 이 옵션을 선택한 경우 설치를 사용자 지정할 수 있도록 프로비전 프로세스에서 SQL Server 2012 설치 파일의 복사본을 C:\SQLServer_11.0_Full 디렉터리 경로에 저장합니다. 예를 들어 SQL Server 2012의 평가판 설치를, 라이선스 키를 사용하여 사용이 허가된 버전으로 변환할 수 있습니다.
 
 - SQL Server 시스템 준비 도구(SysPrep)를 사용하여 기본 운영 체제가 있는 VM(위의 1 - 7단계)에 SQL Server를 설치합니다. 자세한 내용을 보려면 [SysPrep을 사용하여 SQL Server 2012 설치](http://msdn.microsoft.com/library/ee210664.aspx)로 이동하십시오.
 
@@ -285,4 +285,4 @@ Azure 가상 컴퓨터에서 SharePoint Server를 성공적으로 배포하려�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

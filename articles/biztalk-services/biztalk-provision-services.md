@@ -238,4 +238,4 @@ BizTalk 서비스를 만들었으므로 이제 다른 [BizTalk 서비스: 대시
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

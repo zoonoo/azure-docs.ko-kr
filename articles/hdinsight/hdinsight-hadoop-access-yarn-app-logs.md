@@ -3,7 +3,7 @@
 	description="HDInsight의 Hadoop 클러스터에서 프로그래밍 방식으로 응용 프로그램 로그에 액세스합니다." 
 	services="hdinsight" 
 	documentationCenter="" 
-	authors="bradsev" 
+	authors="mumian" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/31/2015" 
-	ms.author="bradsev"/>
+	ms.date="07/09/2015" 
+	ms.author="jgao"/>
 
 # 프로그래밍 방식으로 HDInsight의 Hadoop에서 YARN 응용 프로그램 로그에 액세스
 
@@ -115,7 +115,7 @@ YARN은 여러 프로그래밍 모델(예: MapReduce)을 지원하여 리소스 
 이제 응용 프로그램 기록 클라이언트를 사용하여 완료된 응용 프로그램을 나열하고 기준에 따라 응용 프로그램을 필터링하고 관련 응용 프로그램 로그를 다운로드할 수 있습니다. 다음 코드 조각에서는 이 작업을 프로그래밍 방식으로 수행하는 방법을 보여 줍니다.
 
 	// Local download folder location where the logs will be placed
-	string downloadLocation = "E:\\YarnApplicationLogs";
+	string downloadLocation = "E:\YarnApplicationLogs";
 	
 	// List completed applications on your cluster that were submitted in the last 24 hours but failed
 	// Search for applications based on application name
@@ -173,4 +173,4 @@ YARN은 여러 프로그래밍 모델(예: MapReduce)을 지원하여 리소스 
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

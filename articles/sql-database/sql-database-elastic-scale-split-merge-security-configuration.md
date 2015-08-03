@@ -1,8 +1,7 @@
 <properties 
     pageTitle="탄력적인 확장 보안 구성" 
     description="암호화에 대한 409 인증서를 설정" 
-    services="sql-database" 
-	documentationCenter="" 
+    services="sql-database" documentationCenter="" 
     manager="jhubbard" 
     authors="sidneyh"/>
 
@@ -472,4 +471,4 @@ CA 공개 키가 포함된 기존 또는 생성된 .CER 파일과 함께 인증�
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -1,24 +1,25 @@
-<properties 
-	pageTitle="PowerShell 및 Azure 서비스 관리를 사용하여 Windows 가상 컴퓨터 만들기 및 관리" 
-	description="Azure PowerShell을 사용하여 새 Windows 가상 컴퓨터를 신속하게 만들 수 있습니다." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
-	editor=""/>
+<properties
+	pageTitle="Azure PowerShell을 사용하여 서비스 관리에서 Windows 가상 컴퓨터 만들기 및 관리"
+	description="Azure PowerShell을 사용하여 서비스 관리에서 새 Windows 기반 가상 컴퓨터를 신속하게 만들고 관리 기능을 수행할 수 있습니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/09/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/09/2015"
+	ms.author="kathydav"/>
 
-# PowerShell 및 Azure 서비스 관리를 사용하여 Windows 가상 컴퓨터 만들기 및 관리
+# Azure PowerShell을 사용하여 서비스 관리에서 Windows 기반 가상 컴퓨터 만들기 및 관리
 
-이 항목에서는 Azure 서비스 관리자 및 PowerShell을 사용하여 Windows 기반 Azure 가상 컴퓨터를 빠르게 만들고 관리하는 방법을 설명합니다.
+이 항목에서는 Azure PowerShell을 사용하여 서비스 관리에서 Windows 기반 Azure 가상 컴퓨터를 빠르게 만들고 관리하는 방법을 설명합니다.
 
 [AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
 
@@ -55,7 +56,7 @@ Microsoft Azure 로그인 대화 상자에서 Azure 계정의 전자 메일 주�
 
 저장소 계정이 없으면 새 저장소 계정을 만듭니다. 소문자와 숫자만 포함된 고유한 이름을 선택해야 합니다. 다음 명령을 사용하여 저장소 계정 이름의 고유성을 테스트할 수 있습니다.
 
-	Test-AzureName -Storage <Proposed storage account name>
+	Test-AzureName -Storage <Proposed Storage account name>
 
 이 명령에서 "False"가 반환되면 제안한 이름이 고유한 것입니다.
 
@@ -65,7 +66,7 @@ Microsoft Azure 로그인 대화 상자에서 Azure 계정의 전자 메일 주�
 
 이제 다음 명령을 사용하여 저장소 계정을 만들고 설정합니다. 저장소 계정의 이름을 입력하고, < and > 문자를 포함하여 따옴표 안의 모든 항목을 바꿉니다.
 
-	$stAccount="<chosen storage account name>"
+	$stAccount="<chosen Storage account name>"
 	$locName="<Azure location>"
 	New-AzureStorageAccount -StorageAccountName $stAccount -Location $locName
 	Set-AzureStorageAccount -StorageAccountName $stAccount
@@ -75,7 +76,7 @@ Microsoft Azure 로그인 대화 상자에서 Azure 계정의 전자 메일 주�
 
 예를 들어 이름을 TestCS-*UniqueSequence*로 지정할 수 있습니다(여기서 *UniqueSequence*는 조직의 약어). 예를 들어 조직의 이름이 Tailspin Toys인 경우 클라우드 서비스 이름을 TestCS-Tailspin으로 지정할 수 있습니다.
 
-다음 Azure PowerShell 명령을 사용하여 이름의 고유성을 테스트할 수 있습니다.
+로컬 컴퓨터에서 다음 Azure PowerShell 명령을 사용하여 이름의 고유성을 테스트할 수 있습니다.
 
 	Test-AzureName -Service <Proposed cloud service name>
 
@@ -90,24 +91,30 @@ Microsoft Azure 로그인 대화 상자에서 Azure 계정의 전자 메일 주�
 	$vmName="<machine name>"
 	$csName="<cloud service name>"
 	$locName="<Azure location>"
-	$vm=New-AzureVMConfig -Name $vmName -InstanceSize Medium -ImageName "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201503.01-en.us-127GB.vhd"
+	$image=Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+	$vm=New-AzureVMConfig -Name $vmName -InstanceSize Medium -ImageName $image
 	$cred=Get-Credential -Message "Type the name and password of the local administrator account."
 	$vm | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 	New-AzureVM –ServiceName $csName –Location $locName -VMs $vm
 
 텍스트 편집기에서 가상 컴퓨터 이름, 클라우드 서비스 이름 및 위치를 입력합니다.
 
-마지막으로, 클립보드에 명령 집합을 복사한 다음 열려 있는 Azure PowerShell 명령 프롬프트를 마우스 오른쪽 버튼으로 클릭합니다. 일련의 PowerShell 명령으로 명령 집합이 실행되고, 로컬 관리자 계정의 이름 및 암호를 묻는 메시지가 나타나며, Azure 가상 컴퓨터가 만들어집니다. 명령 집합을 실행하는 예제는 다음과 같습니다.
+마지막으로, 클립보드에 명령 집합을 복사한 다음 열려 있는 Azure PowerShell 명령 프롬프트를 마우스 오른쪽 버튼으로 클릭합니다. 일련의 Azure PowerShell 명령으로 명령 집합이 실행되고, 로컬 관리자 계정의 이름 및 암호를 묻는 메시지가 나타나며, Azure 가상 컴퓨터가 만들어집니다. 명령 집합을 실행하는 예제는 다음과 같습니다.
 
-	PS C:> $vmName="PSTest"
-	PS C:> $csName=" TestCS-Tailspin"
-	PS C:> $locName="West US"
-	PS C:> $vm=New-AzureVMConfig -Name $vmName -InstanceSize Medium -ImageName "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201503.01-en.us-127GB.vhd"
-	PS C:> $cred=Get-Credential -Message "Type the name and password of the local administrator account."
-	PS C:> $vm | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.
+	PS C:\> $vmName="PSTest"
+	PS C:\> $csName=" TestCS-Tailspin"
+	PS C:\> $locName="West US"
+	PS C:\> $image=Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
+	VERBOSE: 3:01:17 PM - Begin Operation: Get-AzureVMImage
+	VERBOSE: 3:01:22 PM - Completed Operation: Get-AzureVMImage
+	VERBOSE: 3:01:22 PM - Begin Operation: Get-AzureVMImage
+	VERBOSE: 3:01:23 PM - Completed Operation: Get-AzureVMImage
+	PS C:\> $vm=New-AzureVMConfig -Name $vmName -InstanceSize Medium -ImageName $image
+	PS C:\> $cred=Get-Credential -Message "Type the name and password of the local administrator account."
+	PS C:\> $vm | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.
 	GetNetworkCredential().Password
 
-	
+
 	AvailabilitySetName               :
 	ConfigurationSets                 : PSTest,Microsoft.WindowsAzure.Commands.ServiceManagement.Model.NetworkConfigurationSet}
 	DataVirtualHardDisks              : {}
@@ -126,15 +133,15 @@ Microsoft Azure 로그인 대화 상자에서 Azure 계정의 전자 메일 주�
 	ResourceExtensionReferences       : {BGInfo}
 	DataVirtualHardDisksToBeDeleted   :
 	VMImageInput                      :
-	
-	PS C:> New-AzureVM -ServiceName $csName -Location $locName -VMs $vm
+
+	PS C:\> New-AzureVM -ServiceName $csName -Location $locName -VMs $vm
 	VERBOSE: 3:01:46 PM - Begin Operation: New-AzureVM - Create Deployment with VM PSTest
 	VERBOSE: 3:02:49 PM - Completed Operation: New-AzureVM - Create Deployment with VM PSTest
-	
+
 	OperationDescription                    OperationId                            OperationStatus
 	--------------------                    -----------                            --------------
 	New-AzureVM                             8072cbd1-4abe-9278-9de2-8826b56e9221   Succeeded
-	
+
 ## 가상 컴퓨터에 대한 정보 표시
 자주 사용하게 될 기본 작업입니다. 이 작업을 사용하여 VM에 대한 정보를 가져오거나 VM에서 작업을 수행하거나 변수에 저장할 출력을 가져옵니다.
 
@@ -173,27 +180,28 @@ VM에 대한 정보를 가져오려면 이 명령을 실행하고 < and > 문자
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 ## 데이터 디스크 연결
-이 작업에는 몇 단계가 필요합니다. 먼저 **Add-AzureDataDisk** cmdlet을 사용하여 디스크를 $vm 개체에 추가한 다음 Update-AzureVM cmdlet을 사용하여 VM의 구성을 업데이트합니다.
+이 작업에는 몇 단계가 필요합니다. 먼저, **Add-AzureDataDisk** cmdlet를 사용하여 $vm 개체에 디스크를 추가합니다. 그런 다음 Update-AzureVM cmdlet를 사용하여 VM의 구성을 업데이트합니다.
 
 또한 새 디스크를 연결할지 데이터를 포함하는 디스크를 연결할지를 결정해야 합니다. 새 디스크의 경우 명령에서 .vhd 파일을 만들고 동일한 명령으로 디스크를 연결합니다.
 
 새 디스크를 연결하려면 다음 명령을 실행합니다.
 
-    Add-AzureDataDisk -CreateNew -DiskSizeInGB 128 -DiskLabel "<main>" -LUN <0> -VM <$vm> | Update-AzureVM
+    Add-AzureDataDisk -CreateNew -DiskSizeInGB <disk size> -DiskLabel "<label name>" -LUN <LUN number> -VM $vm | Update-AzureVM
 
 기존 데이터 디스크를 연결하려면 다음 명령을 실행합니다.
 
-    Add-AzureDataDisk -Import -DiskName "<MyExistingDisk>" -LUN <0> | Update-AzureVM
+    Add-AzureDataDisk -Import -DiskName "<existing disk name>" -LUN <LUN number> | Update-AzureVM
 
 Blob 저장소의 기존 .vhd 파일에서 데이터 디스크를 연결하려면 다음 명령을 실행합니다.
 
-    Add-AzureDataDisk -ImportFrom -MediaLocation  "<https://mystorage.blob.core.windows.net/mycontainer/MyExistingDisk.vhd>" -DiskLabel "<main>" -LUN <0> | Update-AzureVM
+    $diskLoc="https://mystorage.blob.core.windows.net/mycontainer/" + "<existing disk name>" + ".vhd"
+	Add-AzureDataDisk -ImportFrom -MediaLocation  $diskLoc -DiskLabel "<label name>" -LUN <LUN number> | Update-AzureVM
 
 ## 추가 리소스
 
-[Azure 리소스 관리자 및 PowerShell을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-create-windows-powershell-resource-manager.md)
+[리소스 관리자 및 PowerShell을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-create-windows-powershell-resource-manager.md)
 
-[리소스 관리자 템플릿 및 PowerShell을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-create-windows-powershell-resource-manager-template-simple.md)
+[리소스 관리자 템플릿 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-create-windows-powershell-resource-manager-template-simple.md)
 
 [가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
@@ -201,6 +209,4 @@ Blob 저장소의 기존 .vhd 파일에서 데이터 디스크를 연결하려�
 
 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

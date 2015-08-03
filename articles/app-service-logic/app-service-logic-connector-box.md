@@ -160,4 +160,4 @@ API 앱을 만들고 나면 이제 Box Connector를 논리 앱의 동작으로 �
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

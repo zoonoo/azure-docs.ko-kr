@@ -77,9 +77,9 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 
 작업자 역할에 Node.js 응용 프로그램을 배포한 경우 Node.exe에서 서버 인증서와 SSL 연결을 관리합니다. SSL 트래픽을 처리하기 위해 'http' 대신 'https' 모듈을 사용해야 합니다. 다음 단계를 수행하여 프로젝트에 SSL 인증서를 추가한 후 이 인증서를 사용하도록 응용 프로그램을 수정합니다.
 
-1.   응용 프로그램이 포함된 디렉터리에 CA(인증 기관)에서 제공한 **.pfx** 파일을 저장합니다. 예를 들어 이 문서에서 사용하는 응용 프로그램이 포함된 디렉터리는 **c:\\node\\securesite\\workerrole1**입니다.
+1.   응용 프로그램이 포함된 디렉터리에 CA(인증 기관)에서 제공한 **.pfx** 파일을 저장합니다. 예를 들어 이 문서에서 사용하는 응용 프로그램이 포함된 디렉터리는 **c:\node\securesite\workerrole1**입니다.
 
-2.   Notepad.exe를 사용하여 **c:\\node\\securesite\\workerrole1\\server.js** 파일을 열고 파일의 내용을 다음으로 바꿉니다.
+2.   Notepad.exe를 사용하여 **c:\node\securesite\workerrole1\server.js** 파일을 열고 파일의 내용을 다음으로 바꿉니다.
 
 		var https = require('https');
 		var fs = require('fs');
@@ -173,4 +173,4 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
   
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,24 +1,25 @@
-<properties 
-	pageTitle="SharePoint 인트라넷 팜 작업 3단계: SQL Server 인프라 구성" 
-	description="Azure 인프라 서비스의 SQL Server AlwaysOn 가용성 그룹을 사용하여 인트라넷 전용 SharePoint 2013 팜을 배포하는 이 세 번째 단계에서는 SQL Server 클러스터 컴퓨터와 클러스터 자체를 만듭니다." 
+<properties
+	pageTitle="SharePoint 인트라넷 팜 작업 3단계: SQL Server 인프라 구성"
+	description="Azure 인프라 서비스의 SQL Server AlwaysOn 가용성 그룹을 사용하여 인트라넷 전용 SharePoint 2013 팜을 배포하는 이 세 번째 단계에서는 SQL Server 클러스터 컴퓨터와 클러스터 자체를 만듭니다."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
-	editor=""/>
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
 # SharePoint 인트라넷 팜 작업 3단계: SQL Server 인프라 구성
 
-Azure 인프라 서비스에서 SQL Server AlwaysOn 가용성 그룹을 사용하여 인트라넷 전용 SharePoint 2013 팜을 배포하는 이 단계에서는 두 SQL Server 컴퓨터와 클러스터 주 노드 컴퓨터를 구성한 다음 Windows Server 클러스터에 결합합니다.
+Azure 인프라 서비스에서 SQL Server AlwaysOn 가용성 그룹을 사용하여 인트라넷 전용 SharePoint 2013 팜을 배포하는 이 단계에서는 서비스 관리에서 두 SQL Server 컴퓨터와 클러스터 주 노드 컴퓨터를 만들고 구성한 다음 Windows Server 클러스터에 결합합니다.
 
 [4단계](virtual-machines-workload-intranet-sharepoint-phase4.md)로 진행하기 전에 이 단계를 완료해야 합니다. 전체 단계를 보려면 [Azure에서 SQL Server AlwaysOn 가용성 그룹을 사용하여 SharePoint 배포](virtual-machines-workload-intranet-sharepoint-overview.md)를 참조하세요.
 
@@ -42,56 +43,56 @@ PowerShell 명령의 다음 블록을 사용하여 3개 서버용 가상 컴퓨�
 	$vmName="<Table M – Item 3 - Virtual machine name column>"
 	$vmSize="<Table M – Item 3 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
 	$availSet="<Table A – Item 2 – Availability set name column>"
-	
+
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
-	
+
 	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first SQL Server computer."
 	$cred2=Get-Credential –Message "Now type the name and password of an account that has permissions to add this virtual machine to the domain."
 	$ADDomainName="<name of the AD domain that the server is joining (example CORP)>"
 	$domainDNS="<FQDN of the AD domain that the server is joining (example corp.contoso.com)>"
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $ADDomainName -DomainUserName $cred2.GetNetworkCredential().Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domainDNS
-	
+
 	$diskSize=<size of the additional data disk in GB>
 	$diskLabel="<the label on the disk>"
 	$lun=<Logical Unit Number (LUN) of the disk>
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $diskSize -DiskLabel $diskLabel -LUN $lun -HostCaching None
-	
+
 	$subnetName="<Table 6 – Item 1 – Subnet name column>"
 	$vm1 | Set-AzureSubnet -SubnetNames $subnetName
-	
+
 	$serviceName="<Table C – Item 2 – Cloud service name column>"
 	$vnetName="<Table V – Item 1 – Value column>"
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
-	
+
 	# Create the second SQL server
 	$vmName="<Table M – Item 4 - Virtual machine name column>"
 	$vmSize="<Table M – Item 4 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image -AvailabilitySetName $availSet
-	
+
 	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the second SQL Server computer."
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $ADDomainName -DomainUserName $cred2.GetNetworkCredential().Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domainDNS
-	
+
 	$diskSize=<size of the additional data disk in GB>
 	$diskLabel="<the label on the disk>"
 	$lun=<Logical Unit Number (LUN) of the disk>
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB $diskSize -DiskLabel $diskLabel -LUN $lun -HostCaching None
-	
+
 	$vm1 | Set-AzureSubnet -SubnetNames $subnetName
-	
+
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
-	
+
 	# Create the cluster majority node server
 	$vmName="<Table M – Item 5 - Virtual machine name column>"
 	$vmSize="<Table M – Item 5 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
-	
+
 	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the cluster majority node server."
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $ADDomainName -DomainUserName $cred2.GetNetworkCredential().Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domainDNS
-	
+
 	$vm1 | Set-AzureSubnet -SubnetNames $subnetName
-	
+
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
 
 ## SQL Server 컴퓨터 구성
@@ -117,7 +118,7 @@ PowerShell 명령의 다음 블록을 사용하여 3개 서버용 가상 컴퓨�
 2.	**서버에 연결**에서 **연결**을 클릭합니다.
 3.	왼쪽 창에서 최상위 노드(컴퓨터 이름이 지정된 기본 인스턴스)를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 4.	**서버 속성**에서 **데이터베이스 설정**을 클릭합니다.
-5.	**데이터베이스 기본 위치**에서 다음 값을 설정합니다. 
+5.	**데이터베이스 기본 위치**에서 다음 값을 설정합니다.
 - **데이터**의 경우 경로를 **f:\Data**로 설정합니다.
 - **로그**의 경우 경로를 **f:\Log**로 설정합니다.
 - **백업**의 경우 경로를 **f:\Backup**으로 설정합니다.
@@ -125,7 +126,7 @@ PowerShell 명령의 다음 블록을 사용하여 3개 서버용 가상 컴퓨�
 6.	**확인**을 클릭하여 창을 닫습니다.
 7.	왼쪽 창에서 **보안** 폴더를 확장합니다.
 8.	**로그인**을 마우스 오른쪽 단추로 클릭하고 **새 로그인**을 클릭합니다.
-9.	**로그인 이름**에 *도메인*\sp_farm_db를 입력합니다. 여기서 *도메인*은 sp_farm_db 계정을 만든 도메인의 이름입니다. 
+9.	**로그인 이름**에 *도메인*\sp_farm_db를 입력합니다. 여기서 *도메인*은 sp_farm_db 계정을 만든 도메인의 이름입니다.
 10.	**페이지 선택**에서 **서버 역할**, **sysadmin**, **확인**을 차례로 클릭합니다.
 11.	SQL Server 2014 Management Studio를 닫습니다.
 
@@ -171,11 +172,11 @@ SQL Server AlwaysOn 가용성 그룹은 Windows Server의 WSFC(Windows Server �
 3.	왼쪽 창에서 **장애 조치(Failover) 클러스터 관리자**를 마우스 오른쪽 단추로 클릭하고 **클러스터 만들기**를 클릭합니다.
 4.	시작하기 전에 페이지에서 **다음**을 클릭합니다.
 5.	서버 선택 페이지에서 주 SQL Server 컴퓨터의 이름을 입력하고 **추가**, **다음**을 차례로 클릭합니다.
-6.	유효성 검사 경고 페이지에서 **아니요. 이 클러스터에 대한 Microsoft의 지원이 필요 없으므로 유효성 검사 테스트를 실행하지 않습니다. [다음]을 클릭하면 클러스터 만들기를 계속합니다.**를 클릭하고 **다음**을 클릭합니다.
+6.	유효성 검사 경고 페이지에서 **아니요. 이 클러스터에 대한 Microsoft의 지원이 필요 없으므로 유효성 검사 테스트를 실행하지 않습니다. 다음을 클릭한 경우 클러스터 만들기**를 계속한 후 **다음**을 클릭합니다.
 7.	클러스터 관리 액세스 지점 페이지의 **클러스터 이름** 텍스트 상자에 클러스터의 이름을 입력하고 **다음**을 클릭합니다.
-8.	확인 페이지에서 **다음**을 클릭하여 클러스터 만들기를 시작합니다. 
+8.	확인 페이지에서 **다음**을 클릭하여 클러스터 만들기를 시작합니다.
 9.	요약 페이지에서 **마침**을 클릭합니다.
-10.	왼쪽 창에서 새 클러스터를 클릭합니다. 내용 창의 **클러스터 코어 리소스** 섹션에서 서버 클러스터 이름을 엽니다. **IP 주소** 리소스가 **실패** 상태로 표시됩니다. 클러스터에 컴퓨터 자체와 같은 IP 주소가 할당되므로 IP 주소 리소스는 온라인으로 설정할 수 없습니다. 따라서 주소가 중복됩니다. 
+10.	왼쪽 창에서 새 클러스터를 클릭합니다. 내용 창의 **클러스터 코어 리소스** 섹션에서 서버 클러스터 이름을 엽니다. **IP 주소** 리소스가 **실패** 상태로 표시됩니다. 클러스터에 컴퓨터 자체와 같은 IP 주소가 할당되므로 IP 주소 리소스는 온라인으로 설정할 수 없습니다. 따라서 주소가 중복됩니다.
 11.	오류가 발생한 **IP 주소** 리소스를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 12.	**IP 주소 속성** 대화 상자에서 **고정 IP 주소**를 클릭합니다.
 13.	SQL Server가 있는 서브넷에 해당하는 주소 범위에서 사용되지 않은 IP를 입력하고 **확인**을 클릭합니다.
@@ -183,9 +184,9 @@ SQL Server AlwaysOn 가용성 그룹은 Windows Server의 WSFC(Windows Server �
 15.	이제 AD 계정을 만들었으므로 클러스터 이름을 오프라인으로 전환합니다. **클러스터 코어 리소스**에서 클러스터 이름을 마우스 오른쪽 단추로 클릭하고 **오프라인 상태로 만들기**를 클릭합니다.
 16.	클러스터 IP 주소를 제거하려면 **IP 주소**를 마우스 오른쪽 단추로 클릭하고 **제거**를 클릭한 후에 메시지가 표시되면 **예**를 클릭합니다. 클러스터 리소스는 IP 주소 리소스를 사용하므로 더 이상 온라인으로 전환할 수 없습니다. 그러나 가용성 그룹은 정상적으로 작동하기 위해 클러스터 이름 또는 IP 주소를 사용하지 않습니다. 따라서 클러스터 이름은 오프라인 상태로 유지할 수 있습니다.
 17.	나머지 노드를 클러스터에 추가하려면 왼쪽 창에서 클러스터 이름을 마우스 오른쪽 단추로 클릭하고 **노드 추가**를 클릭합니다.
-18.	시작하기 전에 페이지에서 **다음**을 클릭합니다. 
-19.	서버 선택 페이지에서 이름을 입력한 다음 **추가**를 클릭하여 보조 SQL Server와 클러스터 주 노드를 모두 클러스터에 추가합니다. 두 컴퓨터를 추가한 후 **다음**을 클릭합니다. 컴퓨터를 추가할 수 없으며 “원격 레지스트리가 실행 중이 아님" 오류 메시지가 표시되면 다음을 수행합니다. 컴퓨터에 로그온한 다음 서비스 스냅인(services.msc)을 열고 원격 레지스트리를 사용하도록 설정합니다. 자세한 내용은 [원격 레지스트리 서비스에 연결할 수 없음](http://technet.microsoft.com/library/bb266998.aspx)을 참조하세요. 
-20.	유효성 검사 경고 페이지에서 **아니요. 이 클러스터에 대한 Microsoft의 지원이 필요 없으므로 유효성 검사 테스트를 실행하지 않습니다. [다음]을 클릭하면 클러스터 만들기를 계속합니다.**를 클릭하고 **다음**을 클릭합니다. 
+18.	시작하기 전에 페이지에서 **다음**을 클릭합니다.
+19.	서버 선택 페이지에서 이름을 입력한 다음 **추가**를 클릭하여 보조 SQL Server와 클러스터 주 노드를 모두 클러스터에 추가합니다. 두 컴퓨터를 추가한 후 **다음**을 클릭합니다. 컴퓨터를 추가할 수 없으며 “원격 레지스트리가 실행 중이 아님" 오류 메시지가 표시되면 다음을 수행합니다. 컴퓨터에 로그온한 다음 서비스 스냅인(services.msc)을 열고 원격 레지스트리를 사용하도록 설정합니다. 자세한 내용은 [원격 레지스트리 서비스에 연결할 수 없음](http://technet.microsoft.com/library/bb266998.aspx)을 참조하세요.
+20.	유효성 검사 경고 페이지에서 **아니요. 이 클러스터에 대한 Microsoft의 지원이 필요 없으므로 유효성 검사 테스트를 실행하지 않습니다. 다음을 클릭한 경우 클러스터 만들기**를 계속한 후 **다음**을 클릭합니다.
 21.	확인 페이지에서 **다음**을 클릭합니다.
 22.	요약 페이지에서 **마침**을 클릭합니다.
 23.	왼쪽 창에서 **노드**를 클릭합니다. 세 컴퓨터가 모두 표시됩니다.
@@ -200,12 +201,12 @@ SQL Server에서 AlwaysOn 가용성 그룹을 사용하도록 설정하려면 �
 2.	시작 화면에서 **SQL Server 구성**을 입력한 다음 **SQL Server 구성 관리자**를 클릭합니다.
 3.	왼쪽 창에서 **SQL Server 서비스**를 클릭합니다.
 4.	내용 창에서 **SQL Server(MSSQLSERVER)**를 두 번 클릭합니다.
-5.	**SQL Server(MSSQLSERVER) 속성**에서 **AlwaysOn 고가용성** 탭을 클릭하고 **AlwaysOn 가용성 그룹 사용**을 선택한 후에 **적용**을 클릭하고 메시지가 표시되면 **확인**을 클릭합니다. 아직 속성 창을 닫지 마세요. 
+5.	**SQL Server(MSSQLSERVER) 속성**에서 **AlwaysOn 고가용성** 탭을 클릭하고 **AlwaysOn 가용성 그룹 사용**을 선택한 후에 **적용**을 클릭하고 메시지가 표시되면 **확인**을 클릭합니다. 아직 속성 창을 닫지 마세요.
 6.	가상 컴퓨터 관리 가용성 탭을 클릭한 다음 **계정 이름**에 [도메인]**\sqlservice**를 입력합니다. **암호** 및 **암호 확인**에 sqlservice 계정 암호를 입력하고 **확인**을 클릭합니다.
 7.	메시지 창에서 **예**를 클릭하여 SQL Server 서비스를 다시 시작합니다.
-8.	보조 SQL server에 로그온하여 이 프로세스를 반복합니다. 
+8.	보조 SQL server에 로그온하여 이 프로세스를 반복합니다.
 
-이 단계를 올바르게 완료하면 생성된 구성이 표시되며 컴퓨터 이름은 자리 표시자로 표시됩니다.
+다음 다이어그램에서는 이 단계를 올바르게 완료한 경우의 구성을 보여 주며, 컴퓨터 이름은 자리 표시자로 표시되어 있습니다.
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-phase3/workload-spsqlao_03.png)
 
@@ -224,6 +225,5 @@ SQL Server에서 AlwaysOn 가용성 그룹을 사용하도록 설정하려면 �
 [SharePoint 2013용 Microsoft Azure 아키텍처](https://technet.microsoft.com/library/dn635309.aspx)
 
 [Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

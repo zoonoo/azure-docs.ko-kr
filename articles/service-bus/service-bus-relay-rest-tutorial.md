@@ -568,7 +568,7 @@ namespace Microsoft.ServiceBus.Samples
 
 솔루션을 빌드한 후 다음을 수행하여 응용 프로그램을 실행합니다.
 
-1. 명령 프롬프트에서 서비스(ImageListener\\bin\\Debug\\ImageListener.exe)를 실행합니다.
+1. 명령 프롬프트에서 서비스(ImageListener\bin\Debug\ImageListener.exe)를 실행합니다.
 
 2. 이미지를 보려면 명령 프롬프트에서 주소를 복사하여 브라우저로 붙여 넣습니다.
 
@@ -580,4 +580,4 @@ namespace Microsoft.ServiceBus.Samples
 
 - [서비스 버스 릴레이 서비스를 사용하는 방법](service-bus-dotnet-how-to-use-relay.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

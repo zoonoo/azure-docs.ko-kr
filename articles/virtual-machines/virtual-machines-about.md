@@ -6,15 +6,15 @@
 	authors="KBDAzure"
 	manager="timlt"
 	editor="tysonn"
-	tags="azure-resource-manager, azure-service-management"/>
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="06/19/2015"
+	ms.topic="get-started-article"
+	ms.date="07/14/2015"
 	ms.author="kathydav"/>
 
 #Azure 가상 컴퓨터 정보
@@ -26,7 +26,7 @@ Azure 가상 컴퓨터는 Azure에서 제공하는 주문형, 확장 가능한 �
 이 표는 Azure를 통해 제공되는 선택 항목을 비교하는 데 도움이 됩니다.
 
 [AZURE.INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
- 
+
 ## 다음 단계
 
 간단한 가상 컴퓨터를 신속하게 만들어 가상 컴퓨터를 사용해봅니다. 지침을 확인하려면 다음 자습서 중 하나를 참조하세요.
@@ -41,7 +41,7 @@ Azure 가상 컴퓨터는 Azure에서 제공하는 주문형, 확장 가능한 �
 
 [Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-choices-create-vm.md)
 
-Azure 가상 컴퓨터에 대해 알아보기 시작한 경우 질문과 대답도 확인해야 합니다.
+Azure 가상 컴퓨터에 대해 알아보기 시작한 경우 [질문과 대답](virtual-machines-questions.md)도 확인해야 합니다.
 
 
 <!--links-->
@@ -49,4 +49,4 @@ Azure 가상 컴퓨터에 대해 알아보기 시작한 경우 질문과 대답�
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

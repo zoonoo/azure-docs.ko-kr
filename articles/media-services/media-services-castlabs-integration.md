@@ -25,7 +25,7 @@
 
 다음 다이어그램은 고도의 Azure 미디어 서비스 및 castLabs 통합 아키텍처를 보여줍니다.
 
-![크기 조정 페이지](./media/media-services-castlabs-integration/media-services-castlabs-integration.png)
+![통합](./media/media-services-castlabs-integration/media-services-castlabs-integration.png)
 
 ##일반적인 시스템 설정
 
@@ -114,4 +114,4 @@ Chrome에서 castLabs 플레이어를 사용하여 HTML5 형식의 보호된 비
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

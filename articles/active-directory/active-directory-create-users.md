@@ -112,4 +112,4 @@ Azure AD에서 다른 Azure AD 디렉터리의 사용자 또는 Microsoft 계정
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

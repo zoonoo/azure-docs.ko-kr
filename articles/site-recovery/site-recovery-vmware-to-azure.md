@@ -55,7 +55,7 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 **구성 요소** | **배포**웹사이트를 | **세부 정보**
 --- | --- | ---
 **구성 서버** | <p>Azure 표준 A3 가상 컴퓨터를 동일한 구독에서 Site Recovery로 배포합니다.</p> <p>Site Recovery 포털에서 설정</p> | 이 서버는 Azure에서 보호된 컴퓨터, 프로세스 서버 및 마스터 대상 서버 간의 통신을 조정합니다. 복제를 설정하고 장애 조치(Failover) 발생 시 Azure에서 복구를 조정합니다.
-**마스터 대상 서버** | <p>Azure 가상 컴퓨터로 배포 — Windows Server 2012 R2 갤러리 이미지에 따라 Windows 서버로(Windows 컴퓨터 보호) 배포하거나 OpenLogic CentOS 6.6 갤러리 이미지에 따라 Linux 서버로 배포합니다(Linux 컴퓨터 보호).</p> <p>두 가지 크기 조정 옵션, 표준 A3 및 표준 D14를 사용할 수 있습니다.<p><p>이 서버는 구성 서버와 동일한 Azure 네트워크에 연결됩니다.</p><p>Site Recovery 포털에서 설정</p> | <p>Azure 저장소 계정으로 Blob 저장소에 만든 연결된 VHD를 사용하여 보호된 컴퓨터의 복제된 데이터를 수신 및 유지합니다.</p>   
+**마스터 대상 서버** | <p>Azure 가상 컴퓨터로 배포 — Windows Server 2012 R2 갤러리 이미지에 따라 Windows 서버로(Windows 컴퓨터 보호) 배포하거나 OpenLogic CentOS 6.6 갤러리 이미지에 따라 Linux 서버로 배포합니다(Linux 컴퓨터 보호).</p> <p>두 가지 크기 조정 옵션, 표준 A4 및 표준 D14를 사용할 수 있습니다.<p><p>이 서버는 구성 서버와 동일한 Azure 네트워크에 연결됩니다.</p><p>사이트 복구 포털에서 설정</p> | <p>Azure 저장소 계정으로 Blob 저장소에 만든 연결된 VHD를 사용하여 보호된 컴퓨터의 복제된 데이터를 수신 및 유지합니다.</p>   
 **프로세스 서버** | <p>Windows Server 2012 R2를 실행하는 물리적 서버 또는 온-프레미스 가상 서버로 배포</p> <p>보호하려는 컴퓨터와 동일한 네트워크 및 LAN 세그먼트에 배치하는 것이 좋지만, 보호된 컴퓨터에 L3 네트워크 가시성이 있을 경우 다른 네트워크에서 실행할 수 있습니다.<p>Site Recovery 포털에서 설정하고 구성 서버로 등록합니다.</p> | <p>보호된 컴퓨터가 복제 데이터를 온-프레미스 프로세스 서버로 보냅니다. 프로세스 서버에는 수신한 복제 데이터를 캐시할 디스크 기반 캐시가 있습니다. 해당 데이터에 여러 작업을 수행합니다.</p><p>마스터 대상 서버로 데이터를 전송하기 전에 캐싱, 압축, 암호화로 데이터를 최적화합니다.</p><p>모바일 서비스의 푸시 설치를 처리합니다.</p><p>VMware 가상 컴퓨터의 자동 검색을 수행합니다.</p>
 **온-프레미스 컴퓨터** | VMware 하이퍼바이저에서 실행되는 온-프레미스 가상 컴퓨터나 Windows 또는 Linux를 실행하는 물리적 서버입니다. | 가상 컴퓨터와 서버에 적용되는 복제 설정을 지정합니다. 장애 조치(Failover)를 개별 컴퓨터에 대해 실행할 수 있지만, 보통은 함께 장애 조치(Failover)를 실행하는 복수 가상 컴퓨터가 포함된 복구 계획으로 실행합니다.
 **모바일 서비스** | <p>보호하려는 각각의 가상 컴퓨터 또는 물리적 서버에 설치</p><p>수동으로 설치하거나 프로세스 서버로 자동으로 푸시 및 설치할 수 있습니다. | 이 서비스는 보호된 각 컴퓨터에서 데이터의 VSS 스냅숏을 만들어 프로세스 서버로 이동합니다. 그런 다음 마스터 대상 서버로 복제됩니다.
@@ -169,8 +169,8 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 **마스터 대상 서버** | <p>Azure 가상 컴퓨터, 표준 A4 또는 D14.</p><p>설치 경로는 영어 문자로만 입력해야 합니다. 예를 들어 Linux를 실행하는 마스터 대상 서버의 경로는 **/usr/local/ASR**이어야 합니다.</p></p>
 **프로세스 서버** | <p>최신 업데이트를 설치한 Windows Server 2012 R2를 실행하는 물리적 컴퓨터나 가상 컴퓨터에 프로세스 서버를 배포할 수 있습니다. C:/에 설치합니다.</p><p>보호할 컴퓨터와 동일한 네트워크 및 서브넷에 서버를 배치하는 것이 좋습니다.</p><p>프로세스 서버에 VMware vSphere CLI 5.5.0을 설치합니다. ESXi 호스트에서 실행되는 가상 컴퓨터 또는 vCenter 서버로 관리하는 가상 컴퓨터를 검색하려면 프로세스 서버에 VMware vSphere CLI 구성 요소가 필요합니다.</p><p>설치 경로는 영어 문자로만 입력해야 합니다.</p>
 **VMware** | <p>VMware vSphere 하이퍼바이저를 관리하는 VMWare vCenter 서버. 최신 업데이트를 설치한 vCenter 버전 5.1 또는 5.5를 실행해야 합니다.</p><p>보호하려는 VMware 가상 컴퓨터가 포함된 하나 이상의 vSphere 하이퍼바이저. 하이퍼바이저는 최신 업데이트를 설치한 ESX/ESXi 버전 5.1 또는 5.5를 실행해야 합니다.</p><p>VMware 가상 컴퓨터는 VMware 도구를 설치 및 실행해야 합니다.</p>
-**Windows 컴퓨터** | <p>Windows를 실행하는 VMware 가상 컴퓨터 또는 보호된 물리적 서버에는 여러 요구 사항이 있습니다.</p><p>지원되는 64비트 운영 체제:**Windows Server 2012 R2**, **Windows Server 2012** 또는 **Windows Server 2008 R2 SP1 이상**.</p><p>호스트 이름, 마운트 지점, 장치 이름, Windows 시스템 경로(예: C:\\Windows)는 영어로만 입력해야 합니다.</p><p>운영 체제는 C:\\드라이브에 설치해야 합니다.</p><p>기본 디스크만 지원됩니다. 동적 디스크는 지원되지 않습니다.</p><p><Firewall rules on protected machines should allow them to reach the configuration and master target servers in Azure.p><p>Windows 서버에 모바일 서비스를 푸시 방식으로 설치하려면 관리자 계정을 제공해야 합니다(Windows 컴퓨터의 로컬 관리자여야 함). 관리자 계정이 도메인 계정이 아닌 경우 로컬 컴퓨터에서 원격 사용자 계정 제어를 사용하지 않도록 설정해야 합니다. 그러려면 HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System에서 값이 1인 LocalAccountTokenFilterPolicy DWORD 레지스트리 항목을 추가합니다. CLI에서 레지스트리 항목을 추가하려면 cmd 또는 powershell을 열고 **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**을(를) 입력합니다. 액세스 제어에 대해 [자세히 알아보세요](https://msdn.microsoft.com/library/aa826699.aspx).</p><p>장애 조치(Failover) 후에 원격 데스크톱을 사용하여 Azure의 Windows 가상 컴퓨터에 연결하려는 경우 온-프레미스 컴퓨터에 대해 원격 데스크톱이 사용하도록 설정되었는지 확인합니다. VPN을 통해 연결하지 않는 경우 방화벽 규칙에서 인터넷을 통한 원격 데스크톱 연결을 허용해야 합니다.</p>
-**Linux 컴퓨터** | <p> 지원되는 64비트 운영 체제: **Centos 6.4, 6.5, 6.6**, **Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)를 실행하는 Oracle Enterprise Linux 6.4, 6.5**, **SUSE Linux Enterprise Server 11 SP3**.</p><p>보호된 컴퓨터의 방화벽 규칙은 Azure에서 구성 및 마스터 대상 서버에 연결할 수 있도록 허용해야 합니다.</p><p>보호된 컴퓨터의 /etc/hosts 파일은 로컬 호스트 이름을 모든 NIC와 연결된 IP 주소로 매핑하는 항목이 포함되어 있어야 합니다. </p><p>장애 조치(Failover) 후 SSH(Secure Shell) 클라이언트를 사용하여 Linux를 실행하는 Azure 가상 컴퓨터에 연결하려면 보호된 컴퓨터의 Secure Shell 서비스가 시스템 부팅 시 자동으로 시작하도록 설정되어 있고 방화벽 규칙에서 SSH 연결을 허용하지를 확인해야 합니다.</p><p>호스트 이름, 마운트 지점, 장치 이름, Linux 시스템 경로와 파일 이름(eg /etc/; /usr)은 영어로만 입력해야 합니다.</p><p>다음 스토리지를 사용하여 온-프레미스 시스템에 보호를 사용하도록 설정할 수 있습니다. 파일 시스템: EXT3, ETX4, ReiserFS, XFS/다중 경로 소프트웨어-장치 매퍼(다중 경로)/볼륨 관리자: HP CCISS 컨트롤러 저장소를 사용하는 LVM2\\물리적 서버는 지원되지 않습니다.</p>
+**Windows 컴퓨터** | <p>Windows를 실행하는 VMware 가상 컴퓨터 또는 보호된 물리적 서버에는 여러 요구 사항이 있습니다.</p><p>지원되는 64비트 운영 체제:**Windows Server 2012 R2**, **Windows Server 2012** 또는 **Windows Server 2008 R2 SP1 이상**.</p><p>호스트 이름, 마운트 지점, 장치 이름, Windows 시스템 경로(예: C:\Windows)는 영어로만 입력해야 합니다.</p><p>운영 체제는 C:\드라이브에 설치해야 합니다.</p><p>기본 디스크만 지원됩니다. 동적 디스크는 지원되지 않습니다.</p><p><Firewall rules on protected machines should allow them to reach the configuration and master target servers in Azure.p><p>Windows 서버에 모바일 서비스를 푸시 방식으로 설치하려면 관리자 계정을 제공해야 합니다(Windows 컴퓨터의 로컬 관리자여야 함). 관리자 계정이 도메인 계정이 아닌 경우 로컬 컴퓨터에서 원격 사용자 계정 제어를 사용하지 않도록 설정해야 합니다. 그러려면 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System에서 값이 1인 LocalAccountTokenFilterPolicy DWORD 레지스트리 항목을 추가합니다. CLI에서 레지스트리 항목을 추가하려면 cmd 또는 powershell을 열고 **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**을(를) 입력합니다. 액세스 제어에 대해 [자세히 알아보세요](https://msdn.microsoft.com/library/aa826699.aspx).</p><p>장애 조치(Failover) 후에 원격 데스크톱을 사용하여 Azure의 Windows 가상 컴퓨터에 연결하려는 경우 온-프레미스 컴퓨터에 대해 원격 데스크톱이 사용하도록 설정되었는지 확인합니다. VPN을 통해 연결하지 않는 경우 방화벽 규칙에서 인터넷을 통한 원격 데스크톱 연결을 허용해야 합니다.</p>
+**Linux 컴퓨터** | <p> 지원되는 64비트 운영 체제: **Centos 6.4, 6.5, 6.6**, **Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)를 실행하는 Oracle Enterprise Linux 6.4, 6.5**, **SUSE Linux Enterprise Server 11 SP3**.</p><p>보호된 컴퓨터의 방화벽 규칙은 Azure에서 구성 및 마스터 대상 서버에 연결할 수 있도록 허용해야 합니다.</p><p>보호된 컴퓨터의 /etc/hosts 파일은 로컬 호스트 이름을 모든 NIC와 연결된 IP 주소로 매핑하는 항목이 포함되어 있어야 합니다. </p><p>장애 조치(Failover) 후 SSH(Secure Shell) 클라이언트를 사용하여 Linux를 실행하는 Azure 가상 컴퓨터에 연결하려면 보호된 컴퓨터의 Secure Shell 서비스가 시스템 부팅 시 자동으로 시작하도록 설정되어 있고 방화벽 규칙에서 SSH 연결을 허용하지를 확인해야 합니다.</p><p>호스트 이름, 마운트 지점, 장치 이름, Linux 시스템 경로와 파일 이름(eg /etc/; /usr)은 영어로만 입력해야 합니다.</p><p>다음 스토리지를 사용하여 온-프레미스 시스템에 보호를 사용하도록 설정할 수 있습니다. 파일 시스템: EXT3, ETX4, ReiserFS, XFS/다중 경로 소프트웨어-장치 매퍼(다중 경로)/볼륨 관리자: HP CCISS 컨트롤러 저장소를 사용하는 LVM2\물리적 서버는 지원되지 않습니다.</p>
 **타사** | 이 시나리오의 일부 배포 구성 요소는 제대로 작동하기 위해 타사 소프트웨어를 사용합니다. 전체 목록은 [타사 소프트웨어 통지 및 정보](#third-party)를 참조하세요.
 
 ## 배포
@@ -238,7 +238,7 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 
     >[AZURE.WARNING]구성 서버 배포 중 생성된 끝점의 공용 또는 개인 포트 번호를 삭제 또는 변경하지 마세요.
 
-구성 서버가 자동으로 생성된 Azure 클라우드 서비스에 예약된 IP 주소로 배포됩니다. 클라우드 서비스의 가상 컴퓨터(구성 서버 포함)를 재부팅해도 구성 서버 클라우드 서비스 IP 주소가 동일하게 유지되도록 하려면 예약 주소가 필요합니다. 구성 서버를 해제할 경우 예약된 공용 IP 주소를 수동으로 예약 취소해야 합니다. 그렇지 않을 경우 예약된 상태로 유지됩니다. 구독당 예약된 공용 IP 주소 수 제한은 기본적으로 20개입니다. 예약된 IP 주소에 대해 [자세히 알아보세요](https://msdn.microsoft.com/library/azure/dn630228.aspx).
+구성 서버가 자동으로 생성된 Azure 클라우드 서비스에 예약된 IP 주소로 배포됩니다. 클라우드 서비스의 가상 컴퓨터(구성 서버 포함)를 재부팅해도 구성 서버 클라우드 서비스 IP 주소가 동일하게 유지되도록 하려면 예약 주소가 필요합니다. 구성 서버를 해제할 경우 예약된 공용 IP 주소를 수동으로 예약 취소해야 합니다. 그렇지 않을 경우 예약된 상태로 유지됩니다. 구독당 예약된 공용 IP 주소 수 제한은 기본적으로 20개입니다. 예약된 IP 주소에 대해 [자세히 알아보세요](../virtual-network/virtual-networks-reserved-private-ip.md).
 
 ### 자격 증명 모음에 구성 서버 등록
 
@@ -323,19 +323,6 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 - VPN 연결은 끝점 개인 포트와 함께 서버의 내부 IP 주소를 사용합니다.
 - 온-프레미스 서버에서 VPN 연결 또는 인터넷을 통해 Azure를 실행하는 다양한 구성 요소 서버(구성 서버, 마스터 대상 서버)에 연결(데이터 제어 및 복제)할지 여부를 한 번만 결정합니다. 나중에 이 설정을 변경할 수 없습니다. 변경할 경우 시나리오를 다시 배포하고 시스템을 다시 보호해야 합니다.  
 
-#### VPN 연결 구성(선택 사항) 
-
-VPN 또는 Express 경로 연결을 사용하려면 다음을 실행합니다.
-
-1. 현재 설정된 연결이 없는 경우 여기에서 자세히 알아보세요.
-
-	- [Express 경로 또는 VPN - 내게 적합한 연결](http://azure.microsoft.com/blog/2014/06/10/expressroute-or-virtual-network-vpn-whats-right-for-me/)
-	- [Azure 가상 컴퓨터에 대한 사이트 간 연결 구성](../vpn-gateway-site-to-site-create.md)
-	- [Express 경로 구성](../expressroute-configuring-exps.md)
-2. 자격 증명 모음에서 **서버** > **구성 서버** > 구성 서버 > **구성**을 클릭합니다.
-3. **연결 설정**에서 **연결 유형**이 **VPN**으로 설정되어 있는지 확인합니다. VPN이 설정되어 있고 온-프레미스 사이트에서 인터넷에 액세스할 수 없는 경우 VPN 옵션을 선택해야 합니다. 그렇지 않으면 프로세스 서버가 공용 끝점에서 복제 데이터를 마스터 대상 서버로 보낼 수 없습니다.
-
-	![VPN 사용](./media/site-recovery-vmware-to-azure/ASRVMWare_EnableVPN.png)
 
 ## 3단계: 마스터 대상 서버 배포
 
@@ -400,12 +387,12 @@ VPN 또는 Express 경로 연결을 사용하려면 다음을 실행합니다.
 
 2. 프로세스 서버를 설치할 서버에 다운로드한 zip 파일을 복사합니다. zip 파일에는 다음 두 개의 설치 파일이 들어 있습니다.
 
-	- Microsoft-ASR_CX_TP_8.2.0.0_Windows*
-	- Microsoft-ASR_CX_8.2.0.0_Windows*
+	- Microsoft-ASR_CX_TP_8.3.0.0_Windows*
+	- Microsoft-ASR_CX_8.3.0.0_Windows*
 
 3. 보관 파일의 압축을 풀고 설치 파일을 서버의 한 위치에 복사합니다.
-4. **Microsoft-ASR_CX_TP_8.2.0.0_Windows*** 설치 파일을 실행하고 지침을 따릅니다. 이렇게 하면 배포에 필요한 타사 구성 요소가 설치됩니다.
-5. 그런 다음 **Microsoft-ASR_CX_8.2.0.0_Windows***를 실행합니다.
+4. **Microsoft-ASR_CX_TP_8.3.0.0_Windows*** 설치 파일을 실행하고 지침을 따릅니다. 이렇게 하면 배포에 필요한 타사 구성 요소가 설치됩니다.
+5. 그런 다음 **Microsoft-ASR_CX_8.3.0.0_Windows***를 실행합니다.
 6. **서버 모드** 페이지에서 **프로세스 서버**를 선택합니다.
 
 	![서버 선택 모드](./media/site-recovery-vmware-to-azure/ASRVMWare_ProcessServerSelection.png)
@@ -450,7 +437,7 @@ VPN 또는 Express 경로 연결을 사용하려면 다음을 실행합니다.
 
 프로세스 서버를 등록할 때 모바일 서비스에 대해 서명 검증을 사용하지 않도록 설정하지 않은 경우 나중에 다음과 같이 설정할 수 있습니다.
 
-1. 관리자 권한으로 프로세스 서버에 로그온한 다음 편집을 위해 C:\\pushinstallsvc\\pushinstaller.conf 파일을 엽니다. **[PushInstaller.transport]** 섹션에서 **SignatureVerificationChecks=”0”** 줄을 추가합니다. 파일을 저장하고 닫습니다.
+1. 관리자 권한으로 프로세스 서버에 로그온한 다음 편집을 위해 C:\pushinstallsvc\pushinstaller.conf 파일을 엽니다. **[PushInstaller.transport]** 섹션에서 **SignatureVerificationChecks=”0”** 줄을 추가합니다. 파일을 저장하고 닫습니다.
 2. InMage PushInstall 서비스를 다시 시작합니다.
 
 
@@ -462,16 +449,16 @@ VPN 또는 Express 경로 연결을 사용하려면 다음을 실행합니다.
 2. 프로세스 서버
 3. 마스터 대상 서버
 
-Site Recovery **대시보드**에서 업데이트를 다운로드할 수 있습니다. Linux 설치에 대해 Gzip 설치 프로그램에서 파일을 추출한 다음 “sudo ./install” 명령을 실행하여 업데이트를 설치합니다.
+사이트 복구 **대시보드**에서 업데이트를 다운로드할 수 있습니다. Linux 설치에 대해 Gzip 설치 프로그램에서 파일을 추출한 다음 “sudo ./install” 명령을 실행하여 업데이트를 설치합니다.
 
 이미 모바일 서비스가 설치된 가상 컴퓨터 또는 물리적 서버를 실행할 경우 서비스에 대해 다음과 같은 업데이트를 다운로드할 수 있습니다.
 
 - 다음과 같이 서비스의 업데이트를 다운로드합니다.
-	- [Windows](http://download.microsoft.com/download/7/C/7/7C70CA53-2D8E-4FE0-BD85-8F7A7A8FA163/Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe)
-	- [RHELP6-64](http://download.microsoft.com/download/B/4/5/B45D1C8A-C287-4339-B60A-70F2C7EB6CFE/Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_release.tar.gz)
-	- [OL6-64](http://download.microsoft.com/download/9/4/8/948A2D75-FC47-4DED-B2D7-DA4E28B9E339/Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_release.tar.gz)
-	- [SLES11-SP3-64](http://download.microsoft.com/download/6/A/2/6A22BFCD-E978-41C5-957E-DACEBD43B353/Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_release.tar.gz)
-- 또는 프로세스 서버를 업데이트한 다음 프로세스 서버의 C:\\pushinstallsvc\\repository 폴더에서 모바일 서비스의 업데이트된 버전을 다운로드할 수 있습니다.
+	- [Windows Server(64비트만 해당)](http://download.microsoft.com/download/7/C/7/7C70CA53-2D8E-4FE0-BD85-8F7A7A8FA163/Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe)
+	- [CentOS 6.4,6.5,6.6(64비트만 해당)](http://download.microsoft.com/download/B/4/5/B45D1C8A-C287-4339-B60A-70F2C7EB6CFE/Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_release.tar.gz)
+	- [Oracle Enterprise Linux 6.4,6.5(64비트만 해당)](http://download.microsoft.com/download/9/4/8/948A2D75-FC47-4DED-B2D7-DA4E28B9E339/Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_release.tar.gz)
+	- [SUSE Linux Enterprise Server 64 SP3(64비트만 해당)](http://download.microsoft.com/download/6/A/2/6A22BFCD-E978-41C5-957E-DACEBD43B353/Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_release.tar.gz)
+- 또는 프로세스 서버를 업데이트한 다음 프로세스 서버의 C:\pushinstallsvc\repository 폴더에서 모바일 서비스의 업데이트된 버전을 다운로드할 수 있습니다.
 
 
 ## 6단계: vCenter 서버 또는 ESXi 호스트 추가
@@ -534,18 +521,18 @@ Site Recovery **대시보드**에서 업데이트를 다운로드할 수 있습�
 
 **Windows 서버에 모바일 서비스 자동 푸시 설치:**
 
-1. [5단계: 최신 업데이트 설치](\#최신 업데이트)에 설명된 대로 프로세스 서버의 최신 업데이트를 설치하고 프로세스 서버를 사용할 수 있는지 확인합니다. 
+1. [5단계: 최신 업데이트 설치](#최신 업데이트)에 설명된 대로 프로세스 서버의 최신 업데이트를 설치하고 프로세스 서버를 사용할 수 있는지 확인합니다. 
 2. 원본 컴퓨터와 프로세스 서버 간 네트워크가 연결되어 있고 프로세스 서버에서 원본 컴퓨터에 액세스할 수 있는지 확인합니다.  
 3. **파일 및 프린터 공유**와 **Windows Management Instrumentation**을 허용하도록 Windows 방화벽을 구성합니다. Windows 방화벽 설정에서 "방화벽을 통해 앱 또는 기능 허용" 옵션을 선택하고 아래 그림과 같이 애플리케이션을 선택합니다. 도메인에 속하는 컴퓨터의 경우 GPO(그룹 정책 개체)를 사용하여 방화벽 정책을 구성할 수 있습니다.
 
 	![방화벽 설정](./media/site-recovery-vmware-to-azure/ASRVMWare_PushInstallFirewall.png)
 
 4. 푸시 설치에 사용되는 계정은 보호할 컴퓨터의 Administrators 그룹에 속해야 합니다. 이러한 자격 증명은 모바일 서비스 푸시 설치에만 사용되며 보호 그룹에 컴퓨터를 추가할 때 제공해야 합니다.
-5. 제공된 계정이 도메인 계정이 아닌 경우 로컬 컴퓨터에서 원격 사용자 계정 제어를 사용하지 않도록 설정해야 합니다. 그러려면 HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System에서 값이 1인 LocalAccountTokenFilterPolicy DWORD 레지스트리 항목을 추가합니다. CLI에서 레지스트리 항목을 추가하려면 cmd 또는 powershell을 열고 **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**을(를) 입력합니다. 
+5. 제공된 계정이 도메인 계정이 아닌 경우 로컬 컴퓨터에서 원격 사용자 계정 제어를 사용하지 않도록 설정해야 합니다. 그러려면 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System에서 값이 1인 LocalAccountTokenFilterPolicy DWORD 레지스트리 항목을 추가합니다. CLI에서 레지스트리 항목을 추가하려면 cmd 또는 powershell을 열고 **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**을(를) 입력합니다. 
 
 **Linux 서버에 모바일 서비스 자동 푸시 설치:**
 
-1. [5단계: 최신 업데이트 설치](\#최신 업데이트)에 설명된 대로 프로세스 서버의 최신 업데이트를 설치하고 프로세스 서버를 사용할 수 있는지 확인합니다.
+1. [5단계: 최신 업데이트 설치](#최신 업데이트)에 설명된 대로 프로세스 서버의 최신 업데이트를 설치하고 프로세스 서버를 사용할 수 있는지 확인합니다.
 2. 원본 컴퓨터와 프로세스 서버 간 네트워크가 연결되어 있고 프로세스 서버에서 원본 컴퓨터에 액세스할 수 있는지 확인합니다.  
 3. 계정이 원본 Linux 서버의 루트 사용자인지 확인합니다.
 4. 원본 Linux 서버의 /etc/hosts 파일에 로컬 호스트 이름을 모든 NIC와 연결된 IP 주소에 매핑하는 항목이 포함되어 있는지 확인합니다.
@@ -567,7 +554,7 @@ Site Recovery **대시보드**에서 업데이트를 다운로드할 수 있습�
  
 ### 모바일 서비스 수동 설치
 
-모바일 서비스를 설치하는 데 사용한 소프트웨어 패키지는 C:\\pushinstallsvc\\repository의 프로세스 서버에 있습니다. 프로세스 서버에 로그온하고 아래 표를 기준으로 적절한 설치 패키지를 원본 컴퓨터로 복사합니다.
+모바일 서비스를 설치하는 데 사용한 소프트웨어 패키지는 C:\pushinstallsvc\repository의 프로세스 서버에 있습니다. 프로세스 서버에 로그온하고 아래 표를 기준으로 적절한 설치 패키지를 원본 컴퓨터로 복사합니다.
 
 | 원본 운영 체제 | 프로세스 서버의 모바일 서비스 패키지 |
 |---------------------------------------------------	|------------------------------------------------------------------------------------------------------	|
@@ -590,15 +577,15 @@ Site Recovery **대시보드**에서 업데이트를 다운로드할 수 있습�
 6. **호스트 에이전트 구성**에서 구성 서버의 IP 주소와 HTTPS 포트를 지정합니다.
 
 	- 인터넷을 통해 연결하는 경우 공용 가상 IP 주소와 포트(공용 HTTPS 끝점)을 지정합니다.
-	- VPN을 통해 연결하는 경우 내부 IP 주소와 포트 443을 지정합니다. **HTTPS 사용**이 선택된 상태로 둡니다.
+	- VPN을 통해 연결하는 경우 내부 IP 주소와 포트 443을 지정합니다. **HTTPS 사용**을 선택된 상태로 둡니다.
 
 	![모바일 서비스 설치](./media/site-recovery-vmware-to-azure/ASRVMWare_MobilityServiceInstall2.png)
 
 7. 구성 서버 암호를 지정하고 **확인**을 클릭하여 구성 서버에 모바일 서버를 등록합니다.
 
-**명령줄에서 실행하려면**
+**명령줄에서 실행하려면**:
 
-1. CX의 암호를 서버의 "C:\\connection.passphrase" 파일로 복사한 다음 이 명령을 실행합니다. 이 예제에서 CX는 104.40.75.37이며 HTTPS 포트는 62519입니다.
+1. CX의 암호를 서버의 "C:\connection.passphrase" 파일로 복사한 다음 이 명령을 실행합니다. 이 예제에서 CX는 104.40.75.37이며 HTTPS 포트는 62519입니다.
 
     `C:\Microsoft-ASR_UA_8.2.0.0_Windows_PREVIEW_20Mar2015_Release.exe" -ip 104.40.75.37 -port 62519 -mode UA /LOG="C:\stdout.txt" /DIR="C:\Program Files (x86)\Microsoft Azure Site Recovery" /VERYSILENT  /SUPPRESSMSGBOXES /norestart  -usesysvolumes  /CommunicationMode https /PassphrasePath "C:\connection.passphrase"`
 
@@ -636,7 +623,7 @@ Site Recovery **대시보드**에서 업데이트를 다운로드할 수 있습�
 - 가상 컴퓨터는 15분 마다 검색되며 검색 후 Azure Site Recovery에 표시될 때까지 최대 15분이 소요될 수 있습니다.
 - Site Recovery에서 가상 컴퓨터의 환경 변경 사항(예: VMware 도구 설치)이 업데이트되는 데 최대 15분이 소요됩니다.
 - **구성 서버** 페이지에서 vCenter Server/ESXi 호스트에 대한 **마지막 연락** 필드에서 마지막으로 검색된 시간을 확인할 수 있습니다.
-- 이미 보호 그룹이 생성된 다음 vCenter Server 또는 ESXi 호스트를 추가할 경우 Azure Site Recovery 포털이 새로 고쳐지고 가상 시스템이 **보호 그룹에 컴퓨터 추가** 대화 상자에 나열될 때까지 15분이 소요됩니다.
+- 이미 보호 그룹이 생성된 다음 vCenter Server 또는 ESXi 호스트를 추가할 경우 Azure Site Recovery 포털이 새로 고쳐지고 가상 컴퓨터가 **보호 그룹에 컴퓨터 추가** 대화 상자에 나열될 때까지 15분이 소요됩니다.
 - 보호 그룹에 컴퓨터를 추가한 다음 예약된 검색을 기다리지 않고 즉시 계속하려면 구성 서버를 강조 표시하고(클릭하지 마세요) **새로 고침** 단추를 클릭합니다.
 - 보호 그룹에 가상 컴퓨터 또는 물리적 컴퓨터를 추가할 경우 모바일 서비스가 이미 설치되어 있지 않으면 프로세스 서버가 원본 서버에 모바일 서비스를 자동으로 푸시 및 설치합니다.
 - 자동 푸시 메커니즘이 작동하려면 이전 단계에서 설명한 대로 보호된 컴퓨터를 설정했는지 확인합니다.
@@ -671,7 +658,7 @@ Site Recovery **대시보드**에서 업데이트를 다운로드할 수 있습�
 
 ### 보호된 컴퓨터 속성 설정
 
-1. 컴퓨터가 **보호됨** 상태이면 해당 장애 조치(Failover) 속성을 구성할 수 있습니다. 보호 그룹 정보에서 컴퓨터를 선택하고 **구성** 탭을 엽니다.
+1. 컴퓨터가 **보호됨** 상태이면 해당 장애 조치 속성을 구성할 수 있습니다. 보호 그룹 정보에서 컴퓨터를 선택하고 **구성** 탭을 엽니다.
 2. 장애 조치(Failover) 후에 Azure에서 컴퓨터에 지정될 이름과 Azure 가상 컴퓨터 크기를 수정할 수 있습니다. 장애 조치(Failover) 후에 컴퓨터가 연결되는 Azure 네트워크를 선택할 수도 있습니다.
 
 	![가상 컴퓨터 등록 설정](./media/site-recovery-vmware-to-azure/ASRVMWare_VMProperties.png)
@@ -734,7 +721,7 @@ Azure에서 실행 중인 컴퓨터를 장애 조치(Failover)한 다음 온-프
 필요에 따라, 온-프레미스 VMware 가상 컴퓨터 및 물리적 서버 중 일부 또는 전체 복제본을 다른 프로세스 서버로 이동할 수 있습니다. 예:
 
 - **실패** - 프로세스 서버에 장애가 발생하거나 사용할 수 없을 경우 보호된 컴퓨터 복제를 다른 프로세스 서버로 이동할 수 있습니다. 원본 컴퓨터 및 복제 컴퓨터의 메타데이터가 새 프로세스 서버로 이동하고 데이터가 다시 동기화됩니다. 새 프로세스 서버가 vCenter Server에 자동으로 연결되고 자동 검색을 수행합니다. Site Recovery 대시보드에서 프로세스 서버 상태를 모니터링할 수 있습니다.
-- **RPO 조정을 위한 부하 분산** - 부하 분산을 향상하려면 Site Recovery 포털에서 다른 프로세스 서버를 선택하고 하나 이상의 컴퓨터 복제본을 선택한 서버로 이동하여 수동 부하 분산을 수행할 수 있습니다. 이 경우에는 선택한 원본 및 복제 컴퓨터의 메타데이터가 새 프로세스 서보로 이동했습니다. 원본 프로세스 서버는 vCenter Server에 연결된 상태를 유지합니다. 
+- **RPO 조정을 위한 부하 분산** - 부하 분산을 향상하려면 사이트 복구 포털에서 다른 프로세스 서버를 선택하고 하나 이상의 컴퓨터 복제본을 선택한 서버로 이동하여 수동 부하 분산을 수행할 수 있습니다. 이 경우에는 선택한 원본 및 복제 컴퓨터의 메타데이터가 새 프로세스 서보로 이동했습니다. 원본 프로세스 서버는 vCenter Server에 연결된 상태를 유지합니다. 
 
 ### 프로세스 서버 모니터링
 
@@ -744,20 +731,20 @@ Azure에서 실행 중인 컴퓨터를 장애 조치(Failover)한 다음 온-프
 
 1. 또는 Azure 포털에서 **가상 컴퓨터** > *구성 서버* > **서버 세부 정보**를 클릭합니다.
 2. **프로세스 서버** 목록에서 수정하려는 서버 옆에 있는 **프로세스 서버 변경**을 클릭합니다.
-3. **프로세스 서버 변경** 대화 상자의 **대상 프로세스 서버**에서 새 서버를 선택한 다음 ㅐㅅ 서버로 복제할 가상 컴퓨터를 선택합니다. 서버 이름 옆의 정보 아이콘을 클릭하면 사용 가능 공간, 사용된 메모리 등의 정보를 가져올 수 있습니다. 선택된 각 가상 컴퓨터를 새 프로세스 서버로 복제하는 데 필요한 평균 공간이 표시되므로 부하 결정을 할 때 도움이 됩니다.
+3. **프로세스 서버 변경** 대화 상자의 **대상 프로세스 서버**에서 새 서버를 선택한 다음 새 서버로 복제할 가상 컴퓨터를 선택합니다. 서버 이름 옆의 정보 아이콘을 클릭하면 사용 가능 공간, 사용된 메모리 등의 정보를 가져올 수 있습니다. 선택된 각 가상 컴퓨터를 새 프로세스 서버로 복제하는 데 필요한 평균 공간이 표시되므로 부하 결정을 할 때 도움이 됩니다.
 4. 새 프로세스 서버로 복제를 시작하려면 확인 표시를 클릭합니다. 프로세스 서버에서 심각한 상태였던 모든 가상 컴퓨터를 제거할 경우 대시보드에 더 이상 심각한 상태 경고가 표시되지 않습니다.
 
 
 ## 타사 소프트웨어 통지 및 정보
 
-Do Not Translate or Localize
+번역 또는 지역화 금지
 
-The software and firmware running in the Microsoft product or service is based on or incorporates material from the projects listed below (collectively, “Third Party Code”).  Microsoft is the not original author of the Third Party Code.  The original copyright notice and license, under which Microsoft received such Third Party Code, are set forth below.
+Microsoft 제품이나 서비스에서 실행되는 소프트웨어와 펌웨어는 아래 나열된 프로젝트의 자료(총체적으로 "타사 코드")를 기반으로 하거나 통합합니다. Microsoft는 타사 코드의 원래 작성자가 아닙니다. Microsoft가 이러한 타사 코드를 받을 때 적용된 원래 저작권 표시 및 라이선스는 아래에 명시되어 있습니다.
 
-The information in Section A is regarding Third Party Code components from the projects listed below. Such licenses and information are provided for informational purposes only.  This Third Party Code is being relicensed to you by Microsoft under Microsoft's software licensing terms for the Microsoft product or service.  
+섹션 A의 정보는 아래 나열된 프로젝트의 타사 코드 구성 요소와 관련된 것입니다. 해당 라이선스와 정보는 정보 제공 목적으로만 제공됩니다. 이 타사 코드는 Microsoft 제품 또는 서비스에 대한 Microsoft 소프트웨어 사용 조건에 의거하여 Microsoft에 의해 사용이 재허여됩니다.
 
-The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
+섹션 B의 정보는 원래 사용 조건에 의거하여 Microsoft에서 제공하는 타사 구성 요소와 관련된 것입니다.
 
 전체 파일은 [Microsoft 다운로드 센터](http://go.microsoft.com/fwlink/?LinkId=530254)에서 확인할 수 있습니다. Microsoft에서 명시적으로 부여하지 않은 모든 권한은 묵시적, 금반언적 또는 기타 어떠한 방식에 의해서든 Microsoft가 보유합니다.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

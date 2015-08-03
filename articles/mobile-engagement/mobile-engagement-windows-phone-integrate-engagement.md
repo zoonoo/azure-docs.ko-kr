@@ -247,4 +247,4 @@ EngagementConfiguration 개체를 사용하여 작동 중단 보고를 false로 
 > [AZURE.WARNING]1초보다 짧은 기간으로 버스트 임계값을 구성할 수는 없습니다. 버스트 임계값을 1초보다 짧게 구성하면 SDK에는 오류가 포함된 추적이 표시되며, 값은 자동으로 기본값인 0초로 다시 설정됩니다. 그러면 SDK에서 실시간 로그 보고가 트리거됩니다.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

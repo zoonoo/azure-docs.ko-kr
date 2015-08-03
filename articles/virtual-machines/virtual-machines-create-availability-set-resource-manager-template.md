@@ -33,7 +33,7 @@ Azure PowerShell 또는 Azure 명령줄(CLI) 및 리소스 관리자 템플릿�
 
 ### 1단계: JSON 파일 다운로드
 
-로컬 폴더를 JSON 템플릿 파일의 위치로 지정하고 해당 폴더(예: C:\\Azure\\Templates\\availability)를 만듭니다.
+로컬 폴더를 JSON 템플릿 파일의 위치로 지정하고 해당 폴더(예: C:\Azure\Templates\availability)를 만듭니다.
 
 폴더 이름을 바꾸고 다음 명령을 복사한 후 실행합니다.
 
@@ -103,4 +103,4 @@ Azure CLI 명령과 Github 템플릿 리포지토리의 리소스 관리자 템�
 
 	azure group deployment create <my-resource-group> <my-deployment-name> --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-2-FDs-no-resource-loops/azuredeploy.json
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

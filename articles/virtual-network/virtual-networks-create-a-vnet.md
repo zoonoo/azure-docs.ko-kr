@@ -52,4 +52,4 @@
 
 -  가상 네트워크에 [가상 컴퓨터 추가](../virtual-machines/virtual-machines-create-custom.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

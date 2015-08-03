@@ -80,4 +80,4 @@ Azure 가상 컴퓨터를 CoreOS 또는 Ubuntu 이미지에서 온 경우, Custo
 [Azure 명령줄 인터페이스](https://github.com/Azure/azure-sdk-tools-xplat)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

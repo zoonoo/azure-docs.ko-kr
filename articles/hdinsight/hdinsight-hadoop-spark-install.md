@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/17/2015" 
+	ms.date="07/11/2015" 
 	ms.author="nitinme"/>
 
 # HDInsight Hadoop 클러스터에서 Spark 설치 및 사용
@@ -22,10 +22,12 @@
 
 이 항목에서는 스크립트 작업을 사용하여 Spark를 설치하는 방법에 대해 알아봅니다. Spark를 설치한 다음에는 HDInsight 클러스터에서 Spark 쿼리를 실행하는 방법도 알아봅니다.
 
+> [AZURE.NOTE]이제 HDInsight는 최고급 클러스터 유형으로 Spark를 제공하여 Hadoop 클러스터를 수정하지 않고 Spark를 직접 프로비전할 수 있습니다. Spark 클러스터 유형을 사용하여 Spark 버전 1.3.1과 함께 HDInsight 버전 3.2 클러스터를 얻습니다. 자세한 내용은 [HDInsight에서 Apache Spark 시작](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)을 참조하세요.
+
 
 ## <a name="whatis"></a>Spark란?
 
-<a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a>는 메모리 내 처리를 지원하여 빅데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다. Spark는 메모리 내 계산 기능을 지원하여 기계 학습 및 그래프 계산의 반복 알고리즘에 적합합니다.
+<a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a>는 메모리 내 처리를 지원하여 빅 데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다. Spark는 메모리 내 계산 기능을 지원하여 기계 학습 및 그래프 계산의 반복 알고리즘에 적합합니다.
 
 Spark를 사용하여 기존 디스크 기반 데이터 처리를 수행할 수도 있습니다. Spark는 중간 단계에서 디스크에 쓰기를 방지하여 기존 MapReduce 프레임워크를 향상시킵니다. 또한 Spark는 HDFS(Hadoop Distributed File System) 및 Azure Blob 저장소와 호환되므로 Spark를 통해 기존 데이터를 쉽게 처리할 수 있습니다.
 
@@ -83,7 +85,7 @@ Spark는 Scala, Python 및 Java의 API를 제공합니다. 대화형 Spark 셸�
 
 1. Azure 포털에서 Spark를 설치하여 만든 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 클러스터에 원격으로 연결합니다. 지침은 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">RDP를 사용하여 HDInsight 클러스터에 연결</a>을 참조하세요.
 
-2. RDP(원격 데스크톱 프로토콜) 세션의 데스크톱에서 Hadoop 명령줄을 열고(바탕 화면 바로 가기에서) Spark가 설치된 위치(예: C:**C:\\apps\\dist\\spark-1.2.0**)로 이동합니다.
+2. RDP(원격 데스크톱 프로토콜) 세션의 데스크톱에서 Hadoop 명령줄을 열고(바탕 화면 바로 가기에서) Spark가 설치된 위치(예: C:**C:\apps\dist\spark-1.2.0**)로 이동합니다.
 
 
 3. 다음 명령을 실행하여 Spark 셸을 시작합니다.
@@ -117,7 +119,7 @@ Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), Hi
 
 1. Azure 포털에서 Spark를 설치하여 만든 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 클러스터에 원격으로 연결합니다. 지침은 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">RDP를 사용하여 HDInsight 클러스터에 연결</a>을 참조하세요.
 
-2. RDP 세션의 데스크톱에서 Hadoop 명령줄을 열고(바탕 화면 바로 가기에서) Spark가 설치된 위치(예: C:**C:\\apps\\dist\\spark-1.2.0**)로 이동합니다.
+2. RDP 세션의 데스크톱에서 Hadoop 명령줄을 열고(바탕 화면 바로 가기에서) Spark가 설치된 위치(예: C:**C:\apps\dist\spark-1.2.0**)로 이동합니다.
 
 
 3. 다음 명령을 실행하여 Spark 셸을 시작합니다.
@@ -199,20 +201,20 @@ Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), Hi
 	>[AZURE.NOTE]파일의 빈 줄을 그대로 유지해야 합니다.
 
 	
-3. **SimpleScalaApp** 폴더 아래에 디렉터리 구조 **\\src\\main\\scala**를 만들고 앞에서 \\src\\main\\scala 폴더에 만든 Scala 프로그램(**SimpleApp.scala**)을 붙여 넣습니다.
+3. **SimpleScalaApp** 폴더 아래에 디렉터리 구조 **\src\main\scala**를 만들고 앞에서 \src\main\scala 폴더에 만든 Scala 프로그램(**SimpleApp.scala**)을 붙여 넣습니다.
 4. 명령 프롬프트를 열고 SimpleScalaApp 디렉터리로 이동한 후 다음 명령을 입력합니다.
 
 
 		sbt package
 
 
-	응용 프로그램이 컴파일되면 루트 SimpleScalaApp 폴더 내의 **\\target\\scala-2.10** 디렉터리 아래에 **simpleapp_2.10-1.0.jar** 파일이 만들어집니다.
+	응용 프로그램이 컴파일되면 루트 SimpleScalaApp 폴더 내의 **\target\scala-2.10** 디렉터리 아래에 **simpleapp_2.10-1.0.jar** 파일이 만들어집니다.
 
 
 #### 클러스터에서 작업 실행
 이 섹션에서는 Spark가 설치된 클러스터에 원격으로 연결한 다음 SimpleScalaApp 프로젝트의 대상 폴더를 복사합니다. 그런 다음 **spark-submit** 명령을 사용하여 클러스터에서 작업을 제출합니다.
 
-1. Spark가 설치된 클러스터에 원격으로 연결합니다. SimpleApp.scala 프로그램을 작성 및 빌드한 컴퓨터에서 **SimpleScalaApp\\target** 폴더를 복사하여 클러스터의 위치에 붙여 넣습니다.
+1. Spark가 설치된 클러스터에 원격으로 연결합니다. SimpleApp.scala 프로그램을 작성 및 빌드한 컴퓨터에서 **SimpleScalaApp\target** 폴더를 복사하여 클러스터의 위치에 붙여 넣습니다.
 2. RDP 세션의 데스크톱에서 Hadoop 명령줄을 열고 **target** 폴더를 붙여 넣은 위치로 이동합니다.
 3. 다음 명령을 입력하여 SimpleApp.scala 프로그램을 실행합니다.
 
@@ -405,7 +407,7 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 
 **응용 프로그램을 실행하려면**
 
-Azure PowerShell 콘솔을 열고 Visual Studio 프로젝트를 저장한 위치로 이동하고 프로젝트 내의 \\bin\\debug 디렉터리로 이동한 후 다음 명령을 실행합니다.
+Azure PowerShell 콘솔을 열고 Visual Studio 프로젝트를 저장한 위치로 이동하고 프로젝트 내의 \bin\debug 디렉터리로 이동한 후 다음 명령을 실행합니다.
 
 	.\CreateSparkCluster <cluster-name>
 
@@ -427,4 +429,4 @@ Azure PowerShell 콘솔을 열고 Visual Studio 프로젝트를 저장한 위치
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

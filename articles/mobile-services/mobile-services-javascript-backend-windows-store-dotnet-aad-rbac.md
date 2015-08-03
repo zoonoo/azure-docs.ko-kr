@@ -285,4 +285,4 @@ Git를 사용하여 모바일 서비스에 스크립트를 배포하는 데 익�
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [Azure Active Directory 그래프 정보 액세스]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

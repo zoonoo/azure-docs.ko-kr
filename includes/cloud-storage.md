@@ -181,4 +181,4 @@ Microsoft는 Excel용 HiveQL 드라이버도 제공합니다. 비즈니스 분�
 [SQL-tblstor]: ./media/cloud-storage/Data_06_TblStorage.png
 [hadoop]: ./media/cloud-storage/Data_07_Hadoop.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO4-->

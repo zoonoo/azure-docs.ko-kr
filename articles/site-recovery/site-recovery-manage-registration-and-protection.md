@@ -212,4 +212,4 @@ VMware 가상 컴퓨터 또는 물리적 서버의 보호를 중지하려면 보
 	- **보호 사용 안 함**—이 옵션을 사용하도록 설정하고 저장하면 컴퓨터가 더 이상 Site Recovery를 통해 보호되지 않습니다. 컴퓨터의 보호 설정이 자동으로 제거됩니다.
 	- **자격 증명 모음에서 제거**—이 옵션을 선택하면 컴퓨터가 Site Recovery 자격 증명 모음에서만 제거됩니다. 컴퓨터에 대한 온-프레미스 보호 설정은 영향을 받지 않습니다. 컴퓨터의 설정을 제거하고 Azure 구독에서 가상 컴퓨터를 제거하려면 모바일 서비스를 제거하여 설정을 제거해야 합니다.![제거 옵션](./media/site-recovery-manage-registration-and-protection/RegistrationProtection_RemoveVM.png)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

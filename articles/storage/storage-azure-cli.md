@@ -214,4 +214,4 @@ Azure에서 Azure 파일 공유는 SMB 2.1 파일 공유입니다. 모든 디렉
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

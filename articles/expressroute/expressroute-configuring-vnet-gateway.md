@@ -61,7 +61,7 @@
 
 	게이트웨이가 만들어진 Azure 가상 네트워크가 하나 이상 있는지 확인합니다. Express 경로 연결을 사용하려면 게이트웨이 서브넷이 /28 이상이어야 하며 실행 중이어야 합니다.
 
-			PS C:> $Vnet = "MyTestVNet"
+			PS C:\> $Vnet = "MyTestVNet"
 			New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
 			Provisioned
 
@@ -74,4 +74,4 @@ Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](expr
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

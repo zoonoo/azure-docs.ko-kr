@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="07/21/2015"
 	ms.author="evanhi"/>
 
 # Operational Insights 대시보드
@@ -75,4 +75,4 @@
 ## 타일 제거
 타일을 제거하려면 내 대시보드 뷰로 이동한 다음 페이지 맨 아래에 있는 **사용자 지정** 기어를 클릭하여 사용자 지정 모드로 전환합니다. 제거할 타일을 선택한 다음 오른쪽 패널에서 **타일 제거**를 선택합니다. ![타일 제거](./media/operational-insights-use-dashboards/remove-tile.png)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

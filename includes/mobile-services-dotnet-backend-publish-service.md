@@ -3,4 +3,4 @@
 
 2. Azure 자격 증명으로 로그인하여 **기존 모바일 서비스**에서 서비스를 선택합니다. Visual Studio는 Azure에서 직접 게시 설정을 다운로드합니다. 마지막으로 **게시**를 클릭합니다.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

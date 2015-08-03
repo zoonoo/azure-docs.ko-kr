@@ -53,4 +53,4 @@ SQL 데이터 웨어하우스의 뷰는 메타데이터 전용입니다.
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

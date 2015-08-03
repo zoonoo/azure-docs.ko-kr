@@ -293,4 +293,4 @@ API를 추가하고 정책을 구성했으며 이제 개발자가 제품을 사�
 [사용 할당량 설정]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

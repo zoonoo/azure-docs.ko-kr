@@ -332,4 +332,4 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 [require-once]: http://php.net/require_once
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -63,4 +63,4 @@ VM 이미지 표시 | `azure vm image show [options]` | 사용할 수 없음
 * Azure CLI를 사용하여 arm 모드에서 리소스 작업을 수행하는 방법에 대한 자세한 내용은 [리소스 관리자에서 Azure 명령줄 인터페이스 사용](xplat-cli-azure-resource-manager.md) 및 [Azure 명령줄 인터페이스를 사용하여 역할 기반 액세스 제어 관리](../role-based-access-control-xplat-cli.md)를 참조하세요.
 * CLI 명령에 대한 다른 예는 [Azure 명령줄 인터페이스 사용](../virtual-machines-command-line-tools.md) 및 [Azure 리소스 관리자에서 Azure CLI 사용](azure-cli-arm-commands.md)을 참조하세요.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

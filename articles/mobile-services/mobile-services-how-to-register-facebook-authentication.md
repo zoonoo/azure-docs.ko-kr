@@ -73,4 +73,4 @@
 [Azure 모바일 서비스]: http://azure.microsoft.com/services/mobile-services/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

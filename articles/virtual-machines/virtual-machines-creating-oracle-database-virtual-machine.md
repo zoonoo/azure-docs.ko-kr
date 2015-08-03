@@ -1,5 +1,19 @@
-<properties title="Creating an Oracle Database Virtual Machine in Azure" pageTitle="Azure에서 Oracle 데이터베이스 가상 컴퓨터 만들기" description="Microsoft Azure에서 Oracle 가상 컴퓨터를 만들고 Oracle 데이터베이스를 만드는 예를 단계별로 설명합니다." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties
+	pageTitle="Azure에서 Oracle 데이터베이스 가상 컴퓨터 만들기" 
+	description="Microsoft Azure에서 Oracle 가상 컴퓨터를 만들고 Oracle 데이터베이스를 만드는 예를 단계별로 설명합니다." 
+	services="virtual-machines" 
+	authors="bbenz" 
+	documentationCenter=""/>
+
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="infrastructure-services" 
+	ms.date="06/22/2015" 
+	ms.author="bbenz" />
+
 #Azure에서 Oracle 데이터베이스 가상 컴퓨터 만들기
 다음 예제에서는 Azure에서 Windows Server 2012에서 실행되는 Microsoft에서 제공한 Oracle 데이터베이스 이미지에 따라 가상 컴퓨터를 만드는 방법을 보여줍니다. 가상 컴퓨터를 만들고 나서 가상 컴퓨터 내에 Oracle 데이터베이스를 만드는 두 단계가 있습니다. 표시된 예제는 Oracle 데이터베이스 버전 12c지만 해당 단계는 버전 11g와 거의 동일합니다.
 
@@ -179,4 +193,4 @@ Oracle 데이터베이스 엔터프라이즈 관리자에 대한 원격 액세�
 
 -	[Oracle 데이터베이스 2일 DBA 12c 릴리스 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

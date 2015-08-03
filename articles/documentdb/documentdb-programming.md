@@ -235,7 +235,7 @@ DocumentDB에서 JavaScript는 데이터베이스와 동일한 메모리 공간�
 JavaScript 함수는 리소스 사용에 의해서도 제한됩니다. DocumentDB는 프로비전된 데이터베이스 계정 크기에 따라 컬렉션당 처리량을 예약합니다. 처리량은 요청 단위 또는 RU라고 하는 정규화된 CPU, 메모리 및 IO 사용 단위로 표현됩니다. JavaScript 함수는 짧은 시간 내에 다수의 RU를 사용할 수 있으며, 컬렉션 한도에 도달할 경우 비율이 제한될 수 있습니다. 기본 데이터베이스 작업의 가용성을 위해 리소스를 많이 사용하는 저장 프로시저가 보장될 수도 있습니다.
 
 ### 예: 데이터 대량 가져오기
-다음은 문서를 컬렉션으로 대량 가져오기 위해 작성된 저장 프로시저의 예입니다. 저장 프로시저가 createDocument의 부울 반환 값을 검사하여 제한된 실행을 처리한 다음 각 저장 프로시저 호출에 삽입된 문서 수를 사용하여 일괄 처리의 진행률을 추적하고 다시 시작하는 방법을 확인합니다.
+다음은 문서를 컬렉션으로 대량 가져오기 위해 작성된 저장 프로시저의 예입니다. 저장 프로시저가 createDocument의 부울 반환 값을 검사하여 제한된 실행을 처리한 다음 각 저장 프로시저 호출에 삽입된 문서 수를 사용하여 일괄 처리의 진행 상황을 추적하고 다시 시작하는 방법을 확인합니다.
 
 	function bulkImport(docs) {
 	    var collection = getContext().getCollection();
@@ -641,4 +641,4 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 -	[서비스 지향 데이터베이스 아키텍처](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Microsoft SQL server에서 .NET 런타임 호스팅](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

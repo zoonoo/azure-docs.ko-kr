@@ -33,4 +33,4 @@
 
 <li>대체 방법을 선택하고 로그인합니다.</li>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

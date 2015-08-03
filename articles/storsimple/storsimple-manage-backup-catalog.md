@@ -117,4 +117,4 @@
 
 [백업세트에서 장치를 복원하기 위해서](storsimple-restore-from-backup-set.md) 백업 카탈로그를 사용하는 방법에 대해 알아봅니다.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

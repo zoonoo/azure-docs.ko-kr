@@ -74,7 +74,7 @@ Azure 포털에서 논리 앱, 웹앱 또는 모바일 앱을 만들 때 BizTalk
 2. API 앱을 선택합니다. 새 블레이드에서 **만들기**를 선택합니다. 
 3. 다음과 같은 속성을 입력합니다. 
 
-	속성 | 설명
+속성 | 설명
 --- | ---
 이름 | API 앱의 이름을 임의로 입력합니다. 예를 들어 이름을 *RulesDiscountTaxCode* 또는 *APIAppValidateXML*로 지정할 수 있습니다.
 앱 서비스 계획 | 요금제를 나열합니다. 필요한 리소스가 더 많거나 적은 경우 변경할 수 있습니다.
@@ -88,7 +88,7 @@ Azure 포털에서 논리 앱, 웹앱 또는 모바일 앱을 만들 때 BizTalk
 ## BizTalk API 앱 구성
 Azure 관리 포털에서 BizTalk API 앱을 엽니다. **구성 요소** 섹션에서 API 앱을 완성하는 데 필요한 기타 구성 요소를 추가할 수 있습니다.
 
-	API App | Tasks
+API App | Tasks
 --- | ---
 BizTalk 플랫 파일 인코더 | XML로 변환할 플랫 파일(예: Excel 또는 csv 파일)을 입력합니다. 또는 플랫 파일로 변환할 XML 파일을 입력합니다.
 BizTalk JSON 인코더 | XML로 변환할 JSON 파일을 입력합니다. 또는 JSON으로 변환할 XML 파일을 입력합니다. 
@@ -104,7 +104,7 @@ Azure 관리 포털에서 BizTalk API 앱을 엽니다. **작업** 섹션에서 
 
 - 정보 및 오류 이벤트 보기
 - 작업자 프로세스(w3wp)의 메모리 사용 및 스레드 수 보기
-- 응용 프로그램 및 웹 서버 로그 보기\\
+- 응용 프로그램 및 웹 서버 로그 보기\
 
 자세한 내용은 [논리 앱 모니터링](app-service-logic-monitor-your-logic-apps.md)을 참조하세요.
 
@@ -139,4 +139,4 @@ Microsoft Azure 앱 서비스는 이러한 통합 API 앱을 사용할 수 있�
 
 [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/><br/> [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

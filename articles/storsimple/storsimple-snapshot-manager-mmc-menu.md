@@ -109,7 +109,7 @@ StorSimple 스냅숏 관리자에서 모든 작업 메뉴에 나열된 다음과
 
     3. 선택한 항목만 저장하려면 원하는 행들을 선택한 다음 **선택한 행만 저장** 확인란을 클릭합니다. 내보낸 목록을 모두 저장하려면 **선택한 행만 저장** 확인란의 선택을 취소합니다.
 
-    4. **Save**를 클릭합니다.
+    4. **저장**을 클릭합니다.
 
     ![쉼표로 구분된 값 파일로 목록 내보내기](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Export_List.png)
  
@@ -127,4 +127,4 @@ StorSimple 스냅숏 관리자에서 모든 작업 메뉴에 나열된 다음과
 
 [StorSimple 스냅숏 관리자 사용자 인터페이스에 대해 자세히 알아봅니다.](storsimple-use-snapshot-manager.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

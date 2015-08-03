@@ -115,4 +115,4 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 아래 �
 - 동일한 가상 네트워크에 대해 사이트 간 VPN 연결과 Express 경로를 둘 다 구성하려면 [공존하는 Express 경로 및 사이트 간 VPN 구성](expressroute-coexist.md)을 참조하세요.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

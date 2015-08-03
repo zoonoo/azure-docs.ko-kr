@@ -85,8 +85,7 @@ IPython 및 종속성을 설치하려면 Linux VM에 SSH를 설정하고 다음�
 
 ### Windows
 
-Windows VM에 IPython 및 종속성을 설치하려면 원격 데스크톱을 사용하여 VM에 연결합니다.
-그런 다음 Windows PowerShell에서 명령줄 작업을 실행하여 다음 단계를 수행하십시오.
+Windows VM에 IPython 및 종속성을 설치하려면 원격 데스크톱을 사용하여 VM에 연결합니다. 그런 다음 Windows PowerShell에서 명령줄 작업을 실행하여 다음 단계를 수행하십시오.
 
 **참고**: Internet Explorer를 사용하여 다운로드하려면 몇 가지 보안 설정을 변경해야 합니다. **서버 관리자**에서 **로컬 서버**와 **IE 보안 강화 구성**을 차례로 클릭한 후 관리자를 대신하여 해당 설정을 해제합니다. IPython 설치를 완료한 후 다시 사용하도록 설정할 수 있습니다.
 
@@ -274,4 +273,4 @@ IPython Notebook은 Azure에서 Python 에코시스템의 기능에 대화형으
 [openssl]: http://slproweb.com/products/Win32OpenSSL.html
  
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

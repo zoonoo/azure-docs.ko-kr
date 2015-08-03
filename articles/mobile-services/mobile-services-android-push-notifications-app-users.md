@@ -23,4 +23,4 @@
 + [모바일 서비스 앱에 푸시 알림 추가](mobile-services-javascript-backend-android-get-started-push.md)<br/>Azure 알림 허브를 사용하여 TodoList 샘플 앱의 사용자에게 알림을 보내도록 TodoList 모바일 서비스를 업데이트합니다.
 + [인증된 사용자에게 푸시 알림 보내기](mobile-services-javascript-backend-android-push-notifications-app-users.md)<br/>로그인한 사용자만 알림을 등록할 수 있도록 이전 자습서를 확장합니다. 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

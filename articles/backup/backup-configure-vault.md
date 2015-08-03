@@ -99,4 +99,4 @@ Windows Server의 파일과 데이터를 Azure에 백업하려면 데이터를 �
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

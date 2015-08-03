@@ -1,5 +1,19 @@
-<properties title="Configuring Oracle GoldenGate for Azure" pageTitle="Azure에 대한 Oracle GoldenGate 구성" description="고가용성 및 재해복구에 대한 Azure 가상 컴퓨터의 Oracle GoldenGate의 설치 및 실행을 단계별로 설명합니다." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties 
+	pageTitle="Azure에 대한 Oracle GoldenGate 구성" 
+	description="고가용성 및 재해복구에 대한 Azure 가상 컴퓨터의 Oracle GoldenGate의 설치 및 실행을 단계별로 설명합니다." 
+	services="virtual-machines" 
+	authors="bbenz" 
+	documentationCenter=""/>
+
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="infrastructure-services" 
+	ms.date="06/22/2015" 
+	ms.author="bbenz" />
+
 #Azure에 대한 Oracle GoldenGate 구성
 이 자습서에서는 고가용성 및 재해 복구를 위해 Azure 가상 컴퓨터 환경에서 Oracle GoldenGate를 설정 및 구현하는 방법에 대해 설명합니다. 이 자습서는 활성화 되어있는 두개의 사이트가 필요한 비 RAC Oracle 데이터 베이스의[양방향 복제](http://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_about_gg.htm)에 대해 중점을 둡니다.
 
@@ -116,7 +130,7 @@ SQL*Plus 명령창을 **SYSDBA**, 같은 데이터베이스 관리자 권한을 
 	      grant delete any table to ggate;
 	      grant drop any table to ggate;
 
-다음으로 %ORACLE_HOME%\\database 폴더에 있는 INIT<DatabaseSID>.ORA 파일을 찾아서 INITTEST.ora에 다음과 같은 데이터베이스 매개 변수를 추가 합니다.
+다음으로 %ORACLE_HOME%\database 폴더에 있는 INIT<DatabaseSID>.ORA 파일을 찾아서 INITTEST.ora에 다음과 같은 데이터베이스 매개 변수를 추가 합니다.
 
 	UNDO_MANAGEMENT=AUTO
 	UNDO_RETENTION=86400
@@ -189,7 +203,7 @@ Oracle GoldenGate 복제 프로세스를 설명 하기 위해 이 자습서는 �
 ##3. DDL 복제를 지원 하기 위해 필요한 모든 개체를 만듭니다.
 이 섹션에는 DDL복제를 지원하는 모든 필요한 개체를 만들기 위해 필요한 스크립트를 나열 합니다. 사이트 A와 사이트 B 모두에 이 섹션에 지정된 스크립트를 실행 해야 합니다.
 
-Windows 명령 프롬프트를 열고 C:\\OracleGG 같은 Oracle GoldenGate 폴더로 이동 합니다. SQL * Plus 명령 프롬프트를 **SYSDBA**와 같은 데이터 베이스 관리자 권한을 사용하여 사이트 A와 사이트 B에서 실행합니다.
+Windows 명령 프롬프트를 열고 C:\OracleGG 같은 Oracle GoldenGate 폴더로 이동 합니다. SQL * Plus 명령 프롬프트를 **SYSDBA**와 같은 데이터 베이스 관리자 권한을 사용하여 사이트 A와 사이트 B에서 실행합니다.
 
 다음 스크립트를 실행 합니다.
 	
@@ -277,7 +291,7 @@ PARAMS 편집 명령을 사용 하여 매개 변수 파일을 열고 다음 정�
 	GGSCI (MachineGG1) 17> add rmttrail C:\OracleGG\dirdat\ab extract dpump1
 	RMTTRAIL added.
 
-PARAMS 편집 명령을 사용하여 매개 변수 파일을 열고 다음 정보를 추가 하십시오: GGSCI (MachineGG1) 18> edit params ext1 EXTRACT ext1 USERID ggate, PASSWORD ggate EXTTRAIL C:\\OracleGG\\dirdat\\aa TRANLOGOPTIONS EXCLUDEUSER ggate TABLE scott.inventory, GETBEFORECOLS ( ON UPDATE KEYINCLUDING (prod_category,qty_in_stock, last_dml), ON DELETE KEYINCLUDING (prod_category,qty_in_stock, last_dml));
+PARAMS 편집 명령을 사용하여 매개 변수 파일을 열고 다음 정보를 추가 하십시오: GGSCI (MachineGG1) 18> edit params ext1 EXTRACT ext1 USERID ggate, PASSWORD ggate EXTTRAIL C:\OracleGG\dirdat\aa TRANLOGOPTIONS EXCLUDEUSER ggate TABLE scott.inventory, GETBEFORECOLS ( ON UPDATE KEYINCLUDING (prod_category,qty_in_stock, last_dml), ON DELETE KEYINCLUDING (prod_category,qty_in_stock, last_dml));
 
 PARAMS 편집 명령을 사용 하여 매개 변수 파일을 열고 다음 정보를 추가 합니다.
 
@@ -583,4 +597,4 @@ Oracle GoldenGate 구성을 확인 하려면 사이트 A에서 데이터베이�
 ##추가 리소스
 [Azure용 Oracle 가상 컴퓨터 이미지](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

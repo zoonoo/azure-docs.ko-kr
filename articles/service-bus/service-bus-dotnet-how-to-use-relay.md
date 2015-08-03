@@ -268,4 +268,4 @@ App.config 파일을 사용하여 클라이언트를 구성할 수도 있습니�
   [MSDN]: https://msdn.microsoft.com/ko-kr/library/azure/dn194201.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -179,13 +179,13 @@ AzCopy를 사용하여 인터넷을 통해 VHD를 쉽게 업로드할 수 있습
 2. Azure PowerShell을 열고 AzCopy를 설치한 폴더로 이동합니다.  
 3. "원본"에서 "대상"으로 VHD 파일을 복사하려면 다음 명령을 사용합니다. 
 
-		AzCopy /Source: <source> /SourceKey: <source-account-key> /Destination: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>  
+		AzCopy /Source: <source> /SourceKey: <source-account-key> /Dest: <destination> /DestKey: <dest-account-key> /BlobType:page /Pattern: <file-name>  
 
 	AzCopy 명령을 사용 하는 매개 변수에 대한 설명은 다음과 같습니다.
 
  - **/Source: *&lt;source&gt;:*** VHD를 포함하는 폴더 또는 저장소 컨테이너 URL의 위치입니다.    
  - **/SourceKey: *&lt;source-account-key&gt;:*** 원본 저장소 계정의 저장소 계정 키입니다.  
- - **/Destination: *&lt;destination&gt;:*** VHD를 복사할 저장소 컨테이너 URL입니다.
+ - **/Dest: *&lt;destination&gt;:*** VHD를 복사할 저장소 컨테이너 URL입니다.
  - **/DestKey: *&lt;dest-account-key&gt;:*** 대상 저장소 계정의 저장소 계정 키입니다.
  - **/BlobType: page:**는 대상이 페이지 Blob임을 지정합니다.
  - **/Pattern: *&lt;file-name&gt;:***는 복사하기 위해 VHD의 파일 이름을 지정합니다.
@@ -315,4 +315,4 @@ Azure 저장소 및 Azure 가상 컴퓨터에 대한 자세한 내용을 보려�
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

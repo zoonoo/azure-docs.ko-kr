@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/01/2015" 
+	ms.date="07/21/2015" 
 	ms.author="genemi"/>
 
 
@@ -46,21 +46,6 @@
 - [Azure SQL 데이터베이스 방화벽](https://msdn.microsoft.com/library/azure/ee621782.aspx)
 
 
-## 권장 사항: 연결
-
-
-- 클라이언트 연결 논리에서 기본 시간 제한을 30초로 재정의합니다.
- - 기본값 15초는 인터넷에 종속된 연결 시간으로 너무 짧습니다.
-- [연결 풀](http://msdn.microsoft.com/library/8xx3tyca.aspx)을 사용하는 경우 프로그램에서 적극적으로 사용하지 않고 다시 사용할 준비를 하지 않는 경우 연결을 즉시 닫습니다.
- - 프로그램에서 다른 작업을 위해 일시 중지하지 않고 연결을 즉시 다시 용하는 경우를 제외하고는 다음패턴이 권장됩니다: <br/><br/>연결을 엽니다. <br/>연결을 통해 하나의 작업을 수행합니다. <br/>연결을 닫습니다.<br/><br/>
-- 연결 논리와 함께 다시 시도 논리를 사용하되, 일시적인 오류에 대해서만 사용합니다. SQL 데이터베이스를 사용할 때 여러 가지 이유로 인해 연결을 열거나 쿼리를 실행하려는 시도가 실패할 수 있습니다.
- - 한 가지 영구적인 실패 원인으로는 잘못된 형식의 연결 문자열을 들 수 있습니다.
- - 한 가지 일시적인 실패 원인으로는 Azure SQL 데이터베이스 시스템에 전체 부하 균형 조정이 필요한 경우를 들 수 있습니다. 일시적인 원인은 자체적으로 사라집니다. 즉, 프로그램에서 다시 시도해야 합니다.
- - 쿼리를 다시 시도할 때는 먼저 연결을 닫은 후 다른 연결을 엽니다.
-- [Azure SQL 데이터베이스 방화벽](http://msdn.microsoft.com/library/ee621782.aspx) 에서 포트 1433을 통해 나가는 TCP 통신을 허용해야 합니다.
- - SQL 데이터베이스 서버 또는 개별 데이터베이스에 대해 [방화벽](http://msdn.microsoft.com/library/azure/ee621782.aspx) 설정을 구성할 수 있습니다.
-
-
 ## 권장 사항: 인증
 
 
@@ -73,7 +58,25 @@
  - SQL 데이터베이스에서는 Transact-SQL **USE myDatabaseName;** 문장을 사용할 수 없습니다.
 
 
-## 일시적인 오류
+## 권장 사항: 연결
+
+
+- 클라이언트 연결 논리에서 기본 시간 제한을 30초로 재정의합니다.
+ - 기본값 15초는 인터넷에 종속된 연결 시간으로 너무 짧습니다.
+- [Azure SQL 데이터베이스 방화벽](http://msdn.microsoft.com/library/ee621782.aspx) 에서 포트 1433을 통해 나가는 TCP 통신을 허용해야 합니다.
+ - SQL 데이터베이스 서버 또는 개별 데이터베이스에 대해 [방화벽](http://msdn.microsoft.com/library/azure/ee621782.aspx) 설정을 구성할 수 있습니다.
+- [연결 풀](http://msdn.microsoft.com/library/8xx3tyca.aspx)을 사용하는 경우 프로그램에서 적극적으로 사용하지 않고 다시 사용할 준비를 하지 않는 경우 연결을 즉시 닫습니다.
+ - 프로그램에서 다른 작업을 위해 일시 중지하지 않고 연결을 즉시 다시 용하는 경우를 제외하고는 다음패턴이 권장됩니다: <br/><br/>연결을 엽니다. <br/>연결을 통해 하나의 작업을 수행합니다. <br/>연결을 닫습니다.<br/><br/>
+- 연결 논리와 함께 다시 시도 논리를 사용하되, 일시적인 오류에 대해서만 사용합니다. SQL 데이터베이스를 사용할 때 여러 가지 이유로 인해 연결을 열거나 쿼리를 실행하려는 시도가 실패할 수 있습니다.
+ - 한 가지 영구적인 실패 원인으로는 잘못된 형식의 연결 문자열을 들 수 있습니다.
+ - 한 가지 일시적인 실패 원인으로는 Azure SQL 데이터베이스 시스템에 전체 부하 균형 조정이 필요한 경우를 들 수 있습니다. 일시적인 원인은 자체적으로 사라집니다. 즉, 프로그램에서 다시 시도해야 합니다.
+ - 쿼리를 다시 시도할 때는 먼저 연결을 닫은 후 다른 연결을 엽니다.
+
+
+다음 섹션에서는 재시도 논리와 일시적인 오류 처리에 대해 더 설명합니다.
+
+
+## 일시적인 오류 및 재시도 논리
 
 
 Azure 같은 클라우드 서비스와 해당 SQL 데이터베이스 서비스는 작업 로드 균형 조정 및 관리 리소스의 무한 .작업을 해결 합니다. 동일한 컴퓨터에서 제공하는 두 데이터베이스가 동시에 지나치게 많은 처리를 하게 되면 관리 시스템은 한 데이터베이스의 작업 부하를 용량이 여유가 있는 다른 리소스로 이동시켜야 할 필요성을 감지합니다.
@@ -82,11 +85,12 @@ Azure 같은 클라우드 서비스와 해당 SQL 데이터베이스 서비스�
 이동하는 동안 데이터베이스 일시적으로 사용할 수 있습니다. 새 연결을 차단 하거나, 클라이언트의 연결을 끊는 원인을 발생시킵니다. 리소스 시프트는 일시적이지만, 몇 초 또는 몇 분만에 자동으로 해결할 수 있습니다. 이동이 완료된 후, 클라이언트 프로그램의 연결을 다시 설정하고 작업을 계속할 수 있습니다. 처리 과정에서 일시 중지는 클라이언트 프로그램의 피할 수 있는 오류보다 좋습니다.
 
 
-SQL 데이터베이스와 함께 오류가 발생 하면[SqlException](https://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx) 이 throw 됩니다. sqlException은 해당 **Number**속성의 숫자 오류 코드를 포함합니다. 오류 코드가 일시적 오류로 나열된 코드인 경우 프로그램에서 호출을 다시 시도해야 합니다.
+SQL 데이터베이스와 함께 오류가 발생하면[SqlException](https://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx)이 throw됩니다. `SqlException`은 해당 **Number** 속성의 숫자 오류 코드를 포함합니다. 오류 코드가 일시적 오류로 나열된 코드인 경우 프로그램에서 호출을 다시 시도해야 합니다.
 
 
-- [오류 메시지(Azure SQL 데이터베이스)](http://msdn.microsoft.com/library/azure/ff394106.aspx) - **Connection-Loss Errors** 섹션은 자동으로 다시 시도가 보증되는 일시적인 오류 목록입니다.
- - 예를 들어, 다음과 유사한 오류 번호 40613이 발생한 경우 다시 시도합니다. <br/>*Database 'mydatabase' on server 'theserver' is not currently available.*
+- [오류 메시지(Azure SQL 데이터베이스)](http://msdn.microsoft.com/library/azure/ff394106.aspx)
+ - **일시적인 오류, 연결 손실 오류** 섹션은 자동으로 재시도가 보증되는 일시적인 오류 목록입니다.
+ - 예를 들어, <br/>과 유사한 오류 번호 40613이 발생한 경우 *'theserver' 서버의 'mydatabase' 데이터베이스가 현재 사용 불가능합니다.*
 
 
 일시적인 *오류*는 일시적인*장애*라고도 합니다. 이 항목에서는 이 두 용어를 동의어라고 간주합니다.
@@ -98,28 +102,56 @@ SQL 데이터베이스와 함께 오류가 발생 하면[SqlException](https://m
 - [Azure SQL 데이터베이스에 대한 연결 문제 해결](http://support.microsoft.com/kb/2980233/)
 
 
+재시도 논리를 보여주는 코드 샘플 항목에 대한 링크는 다음을 참조하세요.
+
+
+- [SQL 데이터베이스에 대한 클라이언트 빠른 시작 코드 샘플](sql-database-develop-quick-start-client-code-samples.md)
+
+
+<a id="gatewaynoretry" name="gatewaynoretry">&nbsp;</a>
+
+
+## 게이트웨이는 V12에서 재시도 논리를 더 이상 제공하지 않습니다.
+
+
+V12 버전 이전의 Azure SQL 데이터베이스에는 데이터베이스와 사용자의 클라이언트 프로그램 사이의 모든 상호 작용을 버퍼하기 위해 프록시로 동작하는 게이트웨이가 있었습니다. 게이트웨이는 경우에 따라 데이터베이스 액세스의 대기 시간이 증가하는 추가 네트워크 홉입니다.
+
+
+V12에서는 이 게이트웨이를 제거했습니다. 이제:
+
+
+- 클라이언트 프로그램은 데이터베이스와 *직접* 상호작용을 하며, 더 효율적입니다.
+- 오류 메시지 또는 사용자 프로그램과의 다른 통신에 대한 게이트웨이의 경미한 왜곡이 제거됩니다.
+ - SQL 데이터베이스와 SQL Server는 프로그램과 동일하게 보입니다.
+
+
+#### 사라진 재시도 논리
+
+
+게이트웨이에서 재시도 논리는 사용자에 대한 일부 일시적 오류를 처리합니다. 이제 사용자의 프로그램은 일시적인 오류를 더욱 완벽하게 처리해야 합니다. 재시도 논리에 대한 코드 샘플의 경우 다음을 참조하세요.
+
+
+- [클라이언트 개발 및 SQL 데이터베이스에 대한 빠른 시작 코드 샘플](sql-database-develop-quick-start-client-code-samples.md)
+ - 재시도 논리를 포함하는 코드 샘플에 대한 링크가 있으며 연결하여 쿼리하는 샘플과 유사합니다.
+- [Azure SQL 데이터베이스에 안정적으로 연결하는 방법](http://msdn.microsoft.com/library/azure/dn864744.aspx)
+- [엔터프라이즈 라이브러리와 ADO.NET을 사용하여 Azure SQL 데이터베이스에 연결하는 방법](http://msdn.microsoft.com/library/azure/dn961167.aspx)
+- [ADO.NET을 사용하여 SQL 데이터베이스에 연결하는 방법](http://msdn.microsoft.com/library/azure/ee336243.aspx)
+
+
 ## 기술
 
 
 다음 항목에서는 여러 언어 및 클라이언트 프로그램에서 Azure SQL 데이터베이스에 연결할 때 사용할 수 있는 드라이버 기술에 대한 코드 샘플에 대한 링크를 포함 합니다.
 
 
-Windows 및 Linux에서 실행 되는 클라이언트에 대한 다양한 코드 샘플이 제공 됩니다.
+Windows, Linux 및 Mac OS X 모두에서 실행 되는 클라이언트에 대한 다양한 코드 샘플이 제공 됩니다.
 
 
-**일반 샘플:** 프로그래밍 언어, PHP, Python, Node.js 및 c#.NET의 다양한 코드 샘플입니다. 또한, Windows나 LInux에 실행되는 클라이언트에 샘플이 제공됩니다.
+**일반 샘플:** 프로그래밍 언어, PHP, Python, Node.js 및 c#.NET의 다양한 코드 샘플입니다. 또한, Windows, LInux 및 Mac OS X에서 실행되는 클라이언트에 샘플이 제공됩니다.
 
 
 - [클라이언트 개발 및 SQL 데이터베이스에 대한 빠른 시작 코드 샘플](sql-database-develop-quick-start-client-code-samples.md)
 - [Azure SQL 데이터베이스 개발: 방법 도움말 항목](http://msdn.microsoft.com/library/azure/ee621787.aspx)
-
-
-**재시도 논리:** 자동 재시도 논리를 사용한 일시적인 오류를 처리 하는데 필요한 정교한 코드샘플로 설계되었습니다.
-
-
-- [Azure SQL 데이터베이스에 안정적으로 연결하는 방법](http://msdn.microsoft.com/library/azure/dn864744.aspx)
-- [엔터프라이즈 라이브러리와 ADO.NET을 사용하여 Azure SQL 데이터베이스에 연결하는 방법](http://msdn.microsoft.com/library/azure/dn961167.aspx)
-- [ADO.NET을 사용하여 SQL 데이터베이스에 연결하는 방법](http://msdn.microsoft.com/library/azure/ee336243.aspx)
 
 
 **탄력적인 확장:** 탄력적인 확장 데이터베이스의 연결에 대한 정보는 다음을 참조하세요:
@@ -142,4 +174,4 @@ Windows 및 Linux에서 실행 되는 클라이언트에 대한 다양한 코드
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

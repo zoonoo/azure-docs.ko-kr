@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure 데이터 팩터리에서 복사 작업을 사용하는 고급 시나리오" 
-	description="Azure 데이터 팩터리에서 복사 작업을 사용하는 고급 시나리오를 설명합니다." 
+	pageTitle="Azure Data Factory에서 복사 작업을 사용하는 고급 시나리오" 
+	description="Azure Data Factory에서 복사 작업을 사용하는 고급 시나리오를 설명합니다." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,45 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
-# Azure 데이터 팩터리에서 복사 작업을 사용하는 고급 시나리오 
+# Azure Data Factory에서 복사 작업을 사용하는 고급 시나리오 
 ## 개요
-파이프라인에서 **복사 작업**을 사용하여 원본에서 배치의 싱크(대상)로 데이터를 복사할 수 있습니다. 이 항목에서는 복사 작업이 지원하는 고급 시나리오를 설명합니다. 복사 작업 및 이를 지원하는 핵심 시나리오의 자세한 개요는 [Azure 데이터 팩터리를 사용하여 데이터 복사][adf-copyactivity]를 참조하세요.
+파이프라인에서 **복사 작업**을 사용하여 원본에서 배치의 싱크(대상)로 데이터를 복사할 수 있습니다. 이 항목에서는 복사 작업이 지원하는 고급 시나리오를 설명합니다. 복사 작업 및 이를 지원하는 핵심 시나리오의 자세한 개요는 [Azure Data Factory를 사용하여 데이터 복사][adf-copyactivity]를 참조하세요.
 
 
 ## 구조 정의를 사용한 열 필터링
 테이블 유형에 따라서는 기본 데이터 원본에 있는 열보다 적은 수의 열을 테이블 정의의 **Structure** 정의에 지정하여 원본에 있는 열의 하위 집합을 지정할 수 있습니다. 다음 표에서는 다양한 테이블 유형의 열 필터링 논리에 대한 정보를 제공합니다.
 
-<table>
-
-	<tr>
-		<th align="left">테이블 유형</th>
-		<th align="left">열 필터링 논리</th>
-	<tr>
-
-	<tr>
-		<td>AzureBlobLocation</td>
-		<td>JSON 테이블의 <b>Structure</b> 정의는 Blob의 구조와 일치 해야 합니다. 열의 하위 집합을 선택하려면 다음 변환 규칙-열 매핑 섹션에서 설명하는 열 매핑 기능을 사용합니다.</td>
-	<tr>
-
-	<tr>
-		<td>AzureSqlTableLocation 및 OnPremisesSqlServerTableLocation</td>
-		<td align="left">
-			복사 작업 정의의 일부로 <b>SqlReaderQuery</b> 속성을 지정하는 경우, 테이블의 <b>Structure</b> 정의를 쿼리에서 선택한 열에 맞게 조정해야 합니다.<br/><br/>
-			<b>SqlReaderQuery</b> 속성을 지정하지 않는 경우에는 복사 작업에서 테이블 정의의 <b>Structure</b> 정의에 지정된 열을 기준으로 SELECT 쿼리를 자동으로 생성합니다.
-		</td>
-	<tr>
-
-	<tr>
-		<td>AzureTableLocation</td>
-		<td>
-			테이블 정의에서 <b>Structure</b> 섹션에는 기본 Azure 테이블에 있는 전체 집합이나 열의 하위 집합이 포함될 수 있습니다.
-		</td>
-	<tr>
-
-</table>
+| 테이블 유형 | 열 필터링 논리 |
+|-------------------|----------------------- |
+| AzureBlobLocation |JSON 테이블의 Structure 정의는 Blob의 구조와 일치해야 합니다. 열의 하위 집합을 선택하려면 다음 변환 규칙-열 매핑 섹션에서 설명하는 열 매핑 기능을 사용합니다. | 
+| AzureSqlTableLocation 및 OnPremisesSqlServerTableLocation | SqlReaderQuery 속성이 복사 작업 정의의 일부로 지정된 경우 테이블의 Structure 정의는 쿼리의 선택한 열과 정렬되어야 합니다. SqlReaderQuery 속성이 지정되지 않은 경우 복사 작업은 테이블 정의의 Structure 정의에서 지정된 열에 따라 SELECT 쿼리를 자동으로 구성합니다. |
+| AzureTableLocation | 테이블 정의에서 Structure 섹션에는 기본 Azure 테이블에 있는 전체 집합이나 열의 하위 집합이 포함될 수 있습니다.
 
 ## 변환 규칙-열 매핑
 열 매핑을 사용하여 원본 테이블의 열이 싱크 테이블의 열에 매핑되는 방법을 지정할 수 있습니다. 다음과 같은 시나리오가 지원됩니다.
@@ -213,49 +190,14 @@
 
 테이블 정의의 Structure 섹션에 지정된 데이터 형식은 **BlobSource**에 대해서만 적용됩니다. 아래 표에서는 다른 유형의 원본 및 싱크에 대해 데이터 형식이 어떻게 처리되는지 설명합니다.
 
-<table>	
-	<tr>
-		<th align="left">원본/싱크</th>
-		<th align="left">데이터 형식 처리 논리</th>
-	</tr>	
-
-	<tr>
-		<td>SqlSource</td>
-		<td>테이블 정의의 <b>Structure</b> 섹션에서 정의된 데이터 형식이 무시됩니다. 기본 SQL 데이터베이스에 정의된 데이터 형식은 복사 작업 중에 데이터 추출에 사용됩니다.</td>
-	</tr>
-
-	<tr>
-		<td>SqlSink</td>
-		<td>테이블 정의의 <b>Structure</b> 섹션에서 정의된 데이터 형식이 무시됩니다. 기본 원본 및 대상의 데이터 형식이 비교되며, 형식 불일치가 있는 경우 암시적 형식 변환이 수행됩니다.</td>
-	</tr>
-
-	<tr>
-		<td>BlobSource</td>
-		<td><b>BlobSource</b>에서 <b>BlobSink</b>로 전송하는 경우, 형식 변환은 없으며 테이블 정의의 <b>Structure</b> 섹션에서 정의된 데이터 형식은 무시됩니다. <b>BlobSink</b> 이외의 다른 대상의 경우, 테이블 정의의 <b>Structure</b> 섹션에서 정의된 데이터 형식이 적용됩니다.<br/><br/>
-		테이블 정의에 <b>Structure</b>를 지정하지 않는 경우, 형식 처리는 <b>BlobSource</b> 테이블의 <b>format</b> 속성에 따라 달라집니다.
-		<ul>
-			<li> <b>TextFormat:</b> 모든 열 형식이 문자열로 처리되고 모든 열 이름이 "Prop_&lt;0-N>"으로 설정됩니다.</li> 
-			<li><b>AvroFormat:</b> Avro 파일에 기본적으로 제공되는 열 형식 및 이름을 사용합니다.</li> 
-		</ul>
-		</td>
-	</tr>
-
-	<tr>
-		<td>BlobSink</td>
-		<td>테이블 정의의 <b>Structure</b> 섹션에서 정의된 데이터 형식은 무시됩니다. 기본 입력 데이터 저장소에 정의된 데이터 형식이 사용됩니다. Avro 직렬화에 대해서는 열이 Null 허용으로 지정됩니다.</td>
-	</tr>
-
-	<tr>
-		<td>AzureTableSource</td>
-		<td>테이블 정의의 <b>Structure</b> 섹션에서 정의된 데이터 형식은 무시됩니다. 기본 Azure 테이블에 정의된 데이터 형식이 사용됩니다.</td>
-	</tr>
-
-	<tr>
-		<td>AzureTableSink</td>
-		<td>테이블 정의의 <b>Structure</b> 섹션에서 정의된 데이터 형식은 무시됩니다. 기본 입력 데이터 저장소에 정의된 데이터 형식이 사용됩니다.</td>
-	</tr>
-
-</table>
+| 원본/싱크 | 데이터 형식 처리 논리 |
+| ----------- | ------------------------ |
+| SqlSource | 테이블 정의의 Structure 섹션에서 정의된 데이터 형식은 무시됩니다. 기본 SQL 데이터베이스에 정의된 데이터 형식은 복사 작업 중에 데이터 추출에 사용됩니다. |
+| SqlSink | 테이블 정의의 Structure 섹션에서 정의된 데이터 형식은 무시됩니다. 기본 원본 및 대상의 데이터 형식이 비교되며, 형식 불일치가 있는 경우 암시적 형식 변환이 수행됩니다. |
+| BlobSource | BlobSource에서 BlobSink로 전송하는 경우 형식 변환은 없으며 테이블 정의의 Structure 섹션에서 정의된 데이터 형식은 무시됩니다. BlobSink 이외의 다른 대상의 경우 테이블 정의의 Structure 섹션에서 정의된 데이터 형식이 적용됩니다. Structure가 테이블 정의에서 지정되지 않은 경우 BlobSource 테이블의 format 속성에 따라 형식 처리가 달라집니다. TextFormat: 모든 열 형식은 문자열로 처리되고 모든 열 이름은 "Prop_<0-N>"로 설정됩니다. AvroFormat: Avro 파일에 기본적으로 제공되는 열 형식 및 이름을 사용합니다.
+| BlobSink | 테이블 정의의 Structure 섹션에서 정의된 데이터 형식은 무시됩니다. 기본 입력 데이터 저장소에 정의된 데이터 형식이 사용됩니다. Avro 직렬화에 대해서는 열이 Null 허용으로 지정됩니다. |
+| AzureTableSource | 테이블 정의의 Structure 섹션에서 정의된 데이터 형식은 무시됩니다. 기본 Azure 테이블에 정의된 데이터 형식이 사용됩니다. |
+| AzureTableSink | 테이블 정의의 Structure 섹션에서 정의된 데이터 형식은 무시됩니다. 기본 입력 데이터 저장소에 정의된 데이터 형식이 사용됩니다. |
 
 **참고:** Azure 테이블은 데이터 형식의 제한된 집합만 지원합니다. [테이블 서비스 데이터 모델 이해][azure-table-data-type]를 참조하세요.
 
@@ -324,9 +266,9 @@ UTF-8 인코딩을 많이 사용하지만, 기록 이유로 인해 Azure Blob의
 ## 참고 항목
 
 - [복사 작업을 사용하는 예][copy-activity-examples]
-- [Azure 데이터 팩터리를 사용하여 데이터 복사][adf-copyactivity]
+- [Azure Data Factory를 사용하여 데이터 복사][adf-copyactivity]
 - [복사 작업 - JSON 스크립팅 참조](https://msdn.microsoft.com/library/dn835035.aspx)
-- [비디오: Azure 데이터 팩터리 복사 작업 소개][copy-activity-video]
+- [비디오: Azure Data Factory 복사 작업 소개][copy-activity-video]
 
 
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
@@ -347,4 +289,4 @@ UTF-8 인코딩을 많이 사용하지만, 기록 이유로 인해 Azure Blob의
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample2.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

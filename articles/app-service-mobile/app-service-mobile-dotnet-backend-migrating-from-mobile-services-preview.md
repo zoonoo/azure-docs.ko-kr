@@ -115,4 +115,4 @@
 [웹 작업]: ../app-service-web/websites-webjobs-resources.md
 [플랫폼 간 푸시 알림 전송]: app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

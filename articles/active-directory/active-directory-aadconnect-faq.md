@@ -18,7 +18,10 @@
 
 # Azure Active Directory Connect FAQ
 
-## Azure AD Connect에 대한 도움을 받으려면 어떻게 합니까?
+
+## 문제 해결
+
+**Q: Azure AD Connect에 대한 도움을 받으려면 어떻게 합니까?**
 
 [Microsoft KB(기술 자료) 검색](https://www.microsoft.com/ko-kr/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
 
@@ -31,6 +34,10 @@
 
 [Azure AD Connect 고객 지원](https://manage.windowsazure.com/?getsupport=true)
 
-- Azure 포털을 통해 지원을 받으려면 이 링크를 사용 합니다. 
+- Azure 포털을 통해 지원을 받으려면 이 링크를 사용합니다. 
 
-<!---HONumber=July15_HO3-->
+**Q: Office 365 인증서를 갱신하도록 요청하는 전자 메일 받는 경우 어떻게 해야 합니까?**
+
+이 문서의 [여기](active-directory-aadconnect-o365-certs.md)에 나온 지침을 사용하여 인증서를 갱신하세요.
+
+<!---HONumber=July15_HO4-->

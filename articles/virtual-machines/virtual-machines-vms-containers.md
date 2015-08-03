@@ -1,13 +1,10 @@
 <properties 
-	title="Virtual Machines and Containers in Azure" 
 	pageTitle="Azure 가상 컴퓨터 및 컨테이너" 
 	description="가상 컴퓨터, Docker, Linux 컨테이너 및 Azure에서 함께 사용할 때 각각의 활용 방법에 대해 설명합니다. 이 활용 방법에는 각각의 장점과 각 접근 방법을 사용하기에 가장 좋은 시나리오가 포함되어 있습니다." 
 	services="virtual-machines" 
-	solutions="infrastructure" 
 	documentationCenter="virtual-machines" 
 	authors="squillace" 
-	manager="timlt" 
-/>
+	manager="timlt" />
 	
 
 <tags 
@@ -17,8 +14,7 @@
 	ms.tgt_pltfrm="infrastructure" 
 	ms.workload="infrastructure" 
 	ms.date="07/02/2015" 
-	ms.author="rasquill" 
-/>
+	ms.author="rasquill" />
 
 <!--The next line, with one pound sign at the beginning, is the page title-->
 # Azure 가상 컴퓨터 및 컨테이너
@@ -222,7 +218,7 @@ Linux 배포 도구 및 Azure 예시:
 	- [Chef 및 가상 컴퓨터](virtual-machines-windows-install-chef-client.md)
 	- [비디오: Chef의 정의 및 작동 방식](https://msopentech.com/blog/2014/03/31/using-chef-to-manage-azure-resources/)
 
--	[Azure 자동화](http://azure.microsoft.com/services/automation/)
+-	[Azure Automation](http://azure.microsoft.com/services/automation/)
 	- [비디오: Linux VM에서 Azure 자동화를 사용하는 방법](http://channel9.msdn.com/Shows/Azure-Friday/Azure-Automation-104-managing-Linux-and-creating-Modules-with-Joe-Levy)
 	
 -	Linux용 Powershell DSC
@@ -238,4 +234,4 @@ Linux 배포 도구 및 Azure 예시:
 [마이크로 서비스]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -141,4 +141,4 @@ VHD 파일을 업로드할 저장소 계정이 필요합니다. 기존 계정을
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -57,8 +57,8 @@ Azure Multi-Factor Authentication을 사용하는 이유에 대한 추가 정보
 
 **추가 리소스**
 
-* [Multi-Factor Authentication이 나에게 어떤 의미가 있습니까?](multi-factor-authentication-end-user.md)
-* [Office365용 Multi-Factor Authentication 설치](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
+* [Office 365용 Multi-Factor Authentication 설정](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)
+* [Multi-Factor Authentication 의미](multi-factor-authentication-end-user.md)
 * [MSDN에서 Azure Multi-Factor Authentication](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

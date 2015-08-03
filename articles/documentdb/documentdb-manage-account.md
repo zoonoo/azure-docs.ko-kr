@@ -112,4 +112,4 @@ DocumentDB에 대한 자세한 내용은 [azure.com](http://go.microsoft.com/fwl
  
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

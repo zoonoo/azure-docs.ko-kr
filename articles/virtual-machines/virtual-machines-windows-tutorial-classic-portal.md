@@ -50,4 +50,4 @@
 VM에 대해 구성할 수 있는 항목 및 이를 수행할 수 있는 경우에 대한 자세한 내용은 [Azure VM 구성 설정 정보](http://msdn.microsoft.com/library/azure/dn763935.aspx)를 참조하세요.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

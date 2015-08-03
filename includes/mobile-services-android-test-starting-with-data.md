@@ -23,4 +23,4 @@
 
 이제 Android용 **데이터 시작** 자습서를 마쳤습니다.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

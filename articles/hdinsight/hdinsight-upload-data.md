@@ -279,4 +279,4 @@ Azure SDK 설치에 대한 자세한 내용은 [Azure 다운로드](http://azure
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

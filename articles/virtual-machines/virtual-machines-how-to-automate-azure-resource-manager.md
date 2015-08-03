@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Azure 리소스 관리자를 사용하여 자동화하는 방법" 
-	description="Azure 리소스 관리자를 사용하여 가상 컴퓨터를 자동화 하는 방법 항목에 대한 링크를 가져옵니다." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="Azure 리소스 관리자를 사용하여 자동화하는 방법"
+	description="리소스 관리자를 사용하여 Azure 가상 컴퓨터 만들기 및 관리를 자동화하는 방법에 대한 항목의 링크를 가져옵니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/12/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="index-page"
+	ms.date="07/09/2015"
+	ms.author="davidmu"/>
 
 # Azure 리소스 관리자를 사용하여 자동화하는 방법
 
@@ -59,7 +59,7 @@ Azure 리소스 관리자는 Azure 인프라 서비스에서 실행되는 복잡
 ## .NET을 사용한 자동화
 
 [.NET 라이브러리를 사용하여 Azure 리소스 배포](virtual-machines-arm-deployment.md)
-   
+
 ## Azure 자동화를 사용하여 자동화
 
 [Azure 자동화를 사용하여 VM 작업 관리](automation-manage-virtual-machines.md)
@@ -70,6 +70,4 @@ Azure 리소스 관리자는 Azure 인프라 서비스에서 실행되는 복잡
 
 [가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

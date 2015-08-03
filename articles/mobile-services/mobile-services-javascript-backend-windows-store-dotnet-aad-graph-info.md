@@ -181,4 +181,4 @@ Azure AD Graph API에 대한 자세한 내용은 [Azure Active Directory 그래�
 [모바일 서비스의 AAD에서 역할 기반 액세스 제어]: mobile-services-javascript-backend-windows-store-dotnet-aad-rbac.md
 [Azure Active Directory 그래프 팀 블로그]: http://go.microsoft.com/fwlink/?LinkId=510536
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

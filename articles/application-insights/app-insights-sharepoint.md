@@ -41,7 +41,7 @@ Visual Studio Application Insights는 응용 프로그램의 가용성, 성능 �
 
 ![](./media/app-insights-sharepoint/02-monitor-web-page.png)
 
-추적하려는 모든 페이지의 &lt;/head&gt; 태그 바로 앞에 스크립트를 삽입합니다. 웹 사이트에 마스터 페이지가 있는 경우 이 페이지에 스크립트를 넣을 수 있습니다. 예를 들어 ASP.NET MVC 프로젝트에서는 View\\Shared_Layout.cshtml에 추가합니다.
+추적하려는 모든 페이지의 &lt;/head&gt; 태그 바로 앞에 스크립트를 삽입합니다. 웹 사이트에 마스터 페이지가 있는 경우 이 페이지에 스크립트를 넣을 수 있습니다. 예를 들어 ASP.NET MVC 프로젝트에서는 View\Shared_Layout.cshtml에 추가합니다.
 
 스크립트에는 Application Insights 리소스에 원격 분석을 전달하는 계측 키가 포함됩니다.
 
@@ -108,4 +108,4 @@ Visual Studio Application Insights는 응용 프로그램의 가용성, 성능 �
 
 <!--Link references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

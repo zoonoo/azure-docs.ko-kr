@@ -62,4 +62,4 @@ StatefulService 기본 클래스는 대부분의 상태 저장 서비스에 충�
 - [Azure 서비스 패브릭에서 상태 저장 서비스의 복제 트래픽 보호](../service-fabric/service-fabric-replication-security.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

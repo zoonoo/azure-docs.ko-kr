@@ -23,4 +23,4 @@
 
  >[AZURE.NOTE]**구성** 페이지에 액세스하여 언제든지 다른 모든 장치 설정을 수정할 수 있습니다.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

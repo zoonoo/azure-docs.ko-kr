@@ -67,18 +67,18 @@ Azure 다운로드 페이지에서 사용할 수 있는 최신 Azure PowerShell�
 ### 2단계
 ARM cmdlet을 사용하려면 PowerShell 모드를 전환합니다. 자세한 내용은 리소스 관리자에서 Windows PowerShell 사용을 참조하세요.
 
-	PS C:> Switch-AzureMode -Name AzureResourceManager
+	PS C:\> Switch-AzureMode -Name AzureResourceManager
 ### 3단계
 Azure 계정에 로그인
 
-	PS C:> Add-AzureAccount
+	PS C:\> Add-AzureAccount
 
 자격 증명을 사용하여 인증하라는 메시지가 표시됩니다.
 
 ### 4단계
 사용할 Azure 구독을 선택합니다.
 
-	PS C:> Select-AzureSubscription -SubscriptionName "MySubscription"
+	PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
 
 사용 가능한 구독 목록을 보려면 ‘Get-AzureSubscription’ cmdlet을 사용합니다.
 
@@ -86,12 +86,12 @@ Azure 계정에 로그인
 
  트래픽 관리자는 Microsoft.Network 리소스 공급자에 의해 관리됩니다. ARM을 통해 트래픽 관리자를 사용하려면 먼저 이 리소스 공급자를 사용하도록 Azure 구독을 등록해야 합니다. 이 작업은 각 구독에 대해 한 번만 수행하면 됩니다.
 
-	PS C:> Register-AzureProvider –ProviderNamespace Microsoft.Network
+	PS C:\> Register-AzureProvider –ProviderNamespace Microsoft.Network
 
 ### 6단계
 리소스 그룹을 만듭니다. 기존 리소스 그룹을 사용하는 경우에는 이 단계를 건너뛰세요.
 
-	PS C:> New-AzureResourceGroup -Name MyAzureResourceGroup -location "West US"
+	PS C:\> New-AzureResourceGroup -Name MyAzureResourceGroup -location "West US"
 
 Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치를 지정해야 합니다. 이 위치는 해당 리소스 그룹에서 리소스의 기본 위치로 사용됩니다. 하지만 모든 트래픽 관리자 프로필 리소스는 영역별이 아니라 전역이므로 리소스 그룹의 위치 선택이 Azure 트래픽 관리자에 영향을 주지 않습니다.
 
@@ -99,7 +99,7 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 트래픽 관리자 프로필을 만들려면 New-AzureTrafficManagerProfile cmdlet을 사용합니다.
 
-	PS C:> $profile = New-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
+	PS C:\> $profile = New-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup -TrafficRoutingMethod Performance -RelativeDnsName contoso -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
 
 매개 변수는 다음과 같습니다.
 
@@ -125,7 +125,7 @@ cmdlet는 트래픽 관리자 프로필 Azure 트래픽 관리자에서 만들�
 
 기존 트래픽 관리자 프로필 개체를 검색하려면 Get-AzureTrafficManagerProfle cmdlet을 사용합니다.
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
 
 이 cmdlet은 트래픽 관리자 프로필 개체를 반환합니다.
 
@@ -145,9 +145,9 @@ cmdlet는 트래픽 관리자 프로필 Azure 트래픽 관리자에서 만들�
 
 ‘Add-AzureTrafficManagerEndpointConfig’ cmdlet을 사용하여 트래픽 관리자 프로필에 끝점을 추가할 수 있습니다.
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
-	PS C:> Add-AzureTrafficManagerEndpointConfig –EndpointName site1 –TrafficManagerProfile $profile –Type ExternalEndpoints –Target site1.contoso.com –EndpointStatus Enabled –Weight 10 –Priority 1 –EndpointLocation “West US”
-	PS C:> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Add-AzureTrafficManagerEndpointConfig –EndpointName site1 –TrafficManagerProfile $profile –Type ExternalEndpoints –Target site1.contoso.com –EndpointStatus Enabled –Weight 10 –Priority 1 –EndpointLocation “West US”
+	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
 Add-AzureTrafficManagerEndpointConfig에 대한 매개 변수는 다음과 같습니다.
 
@@ -173,36 +173,36 @@ Add-AzureTrafficManagerEndpointConfig에 대한 매개 변수는 다음과 같�
 
 프로필에서 끝점을 제거하려면 제거할 끝점 이름을 지정하는 ‘Remove-AzureTrafficmanagerEndpointConfig’를 사용합니다.
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
-	PS C:> Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 –TrafficManagerProfile $profile
-	PS C:> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 –TrafficManagerProfile $profile
+	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
 끝점을 추가 또는 제거하는 작업 순서는 매개 변수 대신 파이프를 통해 프로필 개체를 전달하여 ‘파이프’될 수도 있습니다. 예:
 
-	PS C:> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 | Set-AzureTrafficManagerProfile
+	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerEndpointConfig –EndpointName site1 | Set-AzureTrafficManagerProfile
 
 ### 프로필 또는 끝점 설정 변경
 
 프로필 및 끝점 매개 변수 모두 오프라인으로 변경할 수 있으며 변경 내용은 Set-AzureTrafficManagerProfile을 사용하여 커밋됩니다. 유일한 예외는 RelativeDnsName 프로필은 프로필을 만든 후에는 변경할 수 없다는 점입니다(이 값을 변경하려면 해당 프로필을 삭제하고 다시 만들어야 함). 예를 들어 프로필 TTL 및 첫 번째 끝점의 상태를 변경하려면:
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
-	PS C:> $profile.Ttl = 300
-	PS C:> $profile.Endpoints[0].EndpointStatus = "Disabled"
-	PS C:> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> $profile.Ttl = 300
+	PS C:\> $profile.Endpoints[0].EndpointStatus = "Disabled"
+	PS C:\> Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
 
 ### 트래픽 관리자 프로필 삭제
 트래픽 관리자 프로필을 삭제하려면 프로필 이름 및 리소스 그룹 이름을 지정하는 Remove-AzureTrafficManagerProfile cmdlet을 사용합니다.
 
-	PS C:> Remove-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup [-Force]
+	PS C:\> Remove-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup [-Force]
 
 이 cmdlet은 확인 메시지를 표시합니다. 옵션 ‘-Force’ 스위치를 사용하여 이 메시지가 표시되지 않도록 할 수 있습니다. 삭제할 프로필은 프로필 개체를 사용하여 지정할 수도 있습니다.
 
-	PS C:> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
-	PS C:> Remove-AzureTrafficManagerProfile –TrafficManagerProfile $profile [-Force]
+	PS C:\> $profile = Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup
+	PS C:\> Remove-AzureTrafficManagerProfile –TrafficManagerProfile $profile [-Force]
 
 이 순서는 파이프될 수도 있습니다.
 
-	PS C:> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerProfile [-Force]
+	PS C:\> Get-AzureTrafficManagerProfile –Name MyProfile -ResourceGroupName MyAzureResourceGroup | Remove-AzureTrafficManagerProfile [-Force]
 
 
 ## 참고 항목
@@ -212,4 +212,4 @@ Add-AzureTrafficManagerEndpointConfig에 대한 매개 변수는 다음과 같�
 [Azure cmdlet 시작](https://msdn.microsoft.com/library/jj554332.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

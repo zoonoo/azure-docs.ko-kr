@@ -1,12 +1,4 @@
-<properties 
-   pageTitle="Restore a StorSimple volume from a backup set" | Microsoft Azure
-   description="Explains how to use the backup catalog to restore a StorSimple volume from a backup set."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
-<tags 
+<속성 페이지 타이틀=" StorSimple 볼륨을 백업 세트에서 복원" | Microsoft Azure 설명="백업 카탈로그를 사용하여 백업 세트에서 StorSimple 볼륨을 복원하는 방법을 설명합니다." 서비스="storsimple" documentationCenter="NA" 작성자="SharS" 관리자="carolz" 편집자="" /> <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -41,9 +33,9 @@
 - **유형** – 백업 세트는 로컬 스냅숏 또는 클라우드 스냅숏일 수입니다. 로컬 스냅숏은 장치에 로컬로 저장된 모든 볼륨 데이터의 백업인 반면 클라우드 스냅숏은 클라우드에 상주하는 볼륨 데이터의 백업을 참조합니다. 로컬 스냅숏은 데이터 복구 기능으로 클라우드 스냅숏을 선택하는 반면 빠른 액세스를 제공합니다.
 - **시작 기준** – 일정에 따라 자동으로 또는 사용자가 수동으로 백업을 시작할 수 있습니다. (백업을 예약하기 위해 백업 정책을 사용할 수 있습니다. 또는, **백업 수행** 옵션을 사용하여 대화형 백업을 수행할 수 있습니다.)
 
-## 백업에서 장치를 복원하는 방법
+## 백업에서 StorSimple 볼륨을 복원하는 방법
 
-**백업 카탈로그** 페이지를 사용하여 특정 백업에서 장치를 복원할 수 있습니다. 그러나 볼륨을 복원하면 백업이 수행된 시점의 상태로 볼륨이 되돌려진다는 점에 유의하세요. 백업 작업 후 추가된 모든 데이터가 손실됩니다.
+**백업 카탈로그** 페이지를 사용하여 특정 백업에서 StorSimple 볼륨을 복원할 수 있습니다. 그러나 볼륨을 복원하면 백업이 수행된 시점의 상태로 볼륨이 되돌려진다는 점에 유의하세요. 백업 작업 후 추가된 모든 데이터가 손실됩니다.
 
 > [AZURE.WARNING]백업에서 복원되면 백업에서 기존 볼륨을 대체합니다. 백업이 수행된 후 작성된 모든 데이터가 손실될 수 있습니다.
 
@@ -64,7 +56,7 @@
 
 3. 백업 세트를 확장하여 연결된 볼륨을 봅니다. 이 볼륨은 복원하려면 호스트와 장치에서 오프라인 상태여야 합니다. **볼륨 컨테이너** 페이지에서 볼륨에 액세스한 다음 [볼륨을 오프라인 상태로 전환](storsimple-manage-volumes.md#take-a-volume-offline)의 단계에 따라 오프라인 상태로 전환합니다.
 
-    >  [AZURE.IMPORTANT]해당 볼륨을 오프 라인으로 전환하기 전에, 먼저 호스트에서 해당 볼륨을 오프라인으로 전환했는지 확인합니다. 호스트에서 볼륨을 오프라인으로 전환하지 않은 경우, StorSimple Manager 서비스는 호스트에서 자동으로 오프라인 상태로 전환됩니다. 이렇게 되면 잠재적으로 데이터가 손상될 수 있습니다.
+    >  [AZURE.IMPORTANT]해당 볼륨을 오프 라인으로 전환하기 전에, 먼저 호스트에서 해당 볼륨을 오프라인으로 전환했는지 확인합니다. 호스트에서 볼륨을 오프라인으로 전환하지 않은 경우 잠재적으로 데이터가 손상될 수입니다.
 
 4. **백업 카탈로그** 탭으로 다시 이동하고 백업 세트를 선택합니다.
 
@@ -82,4 +74,4 @@
 
 [storsimple 볼륨 관리](storsimple-manage-volumes.md) 방법에 대해 배웁니다.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

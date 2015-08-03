@@ -262,4 +262,4 @@ SVM은 최근에 여러 클래스에서 작동하도록 조정되었지만 포�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

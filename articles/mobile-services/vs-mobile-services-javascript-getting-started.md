@@ -84,7 +84,7 @@ where 메서드를 사용하여 쿼리를 수정할 수 있습니다. 다음은 
 
 데이터 테이블의 행을 삭제합니다. 반환된 [Promise]() 개체에 대한 [done]() 메서드를 호출하여 삽입된 개체의 복사본을 가져오고 오류를 처리합니다.
 
-	todoTable.delete(todoItem).done(function (item) {
+	todoTable.del(todoItem).done(function (item) {
 	    todoItems.splice(todoItems.indexOf(item), 1);
     }
 
@@ -92,4 +92,4 @@ where 메서드를 사용하여 쿼리를 수정할 수 있습니다. 다음은 
 
 [모바일 서비스에 대한 자세한 정보](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

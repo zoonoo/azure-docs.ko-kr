@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/27/2015" 
+	ms.date="07/09/2015" 
 	ms.author="jgao"/>
 
 # HDInsight에서 HBase를 사용하여 Twitter 데이터 실시간 분석
@@ -75,11 +75,11 @@
 
 
 	<table border="1">
-	<tr><th>클러스터 속성</th><th>설명</th></tr>
-	<tr><td>HBase 클러스터 이름</td><td>HDInsight HBase 클러스터 이름입니다. 예를 들면 https://myhbase.azurehdinsight.net/과 같습니다.</td></tr>
-	<tr><td>클러스터 사용자 이름</td><td>Hadoop 사용자 계정 이름입니다. 기본 Hadoop 사용자 이름은 <strong>admin</strong>입니다.</td></tr>
-	<tr><td>클러스터 사용자 암호</td><td>Hadoop 클러스터 사용자 암호입니다.</td></tr>
-	</table>
+<tr><th>클러스터 속성</th><th>설명</th></tr>
+<tr><td>HBase 클러스터 이름</td><td>HDInsight HBase 클러스터 이름입니다. 예를 들면 https://myhbase.azurehdinsight.net/과 같습니다.</td></tr>
+<tr><td>클러스터 사용자 이름</td><td>Hadoop 사용자 계정 이름입니다. 기본 Hadoop 사용자 이름은 <strong>admin</strong>입니다.</td></tr>
+<tr><td>클러스터 사용자 암호</td><td>Hadoop 클러스터 사용자 암호입니다.</td></tr>
+</table>
 
 - Visual Studio 2013이 설치된 **워크스테이션**. 관련 지침은 [Visual Studio 설치](http://msdn.microsoft.com/library/e2h7fzkw.aspx)를 참조하세요.
 
@@ -98,13 +98,11 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 3. **Name**, **Description** 및 **Website**를 입력합니다. 웹 사이트 필드는 실제로 사용되지는 않으므로 유효한 URL을 입력하지 않아도 됩니다. 다음 표는 사용할 샘플 값을 보여 줍니다.
 
 	<table border="1">
-	<tr><th>필드</th><th>값</th></tr>
-	<tr><td>이름</td><td>MyHDInsightHBaseApp</td></tr>
-	<tr><td>설명</td><td>MyHDInsightHBaseApp</td></tr>
-	<tr><td>웹 사이트</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
-	</table>
-
-	> [AZURE.NOTE]Twitter 응용 프로그램 이름은 고유해야 합니다.
+<tr><th>필드</th><th>값</th></tr>
+<tr><td>이름</td><td>MyHDInsightHBaseApp</td></tr>
+<tr><td>설명</td><td>MyHDInsightHBaseApp</td></tr>
+<tr><td>웹 사이트</td><td>http://www.myhdinsighthbaseapp.com</td></tr>
+</table>> [AZURE.NOTE]Twitter 응용 프로그램 이름은 고유해야 합니다.
 
 4. **Yes, I agree**를 선택한 후 **Create your Twitter application**을 클릭합니다.
 5. **Permissions** 탭을 클릭합니다. 기본 권한은 **Read only**입니다. 이 자습서에는 이 권한이면 충분합니다. 
@@ -163,7 +161,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 
 	- 템플릿: **Visual C#/Windows 데스크톱/콘솔 응용 프로그램**
 	- 이름: **TweetSentimentStreaming** 
-	- 위치: **C:\\Tutorials**
+	- 위치: **C:\Tutorials**
 	- 솔루션 이름: **TweetSentimentStreaming**
 
 4. **확인**을 클릭하여 계속합니다.
@@ -541,7 +539,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 	- 템플릿 범주: **Visual C#/웹**
 	- 템플릿: **ASP.NET 웹 응용 프로그램**
 	- 이름: **TweetSentimentWeb**
-	- 위치: **C:\\Tutorials** 
+	- 위치: **C:\Tutorials** 
 4. **확인**을 클릭합니다.
 5. **템플릿 선택**에서 **MVC**를 클릭합니다. 
 6. **Microsoft Azure**에서 **구독 관리**를 클릭합니다.
@@ -1354,7 +1352,6 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-ODBC-driver.md
-
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

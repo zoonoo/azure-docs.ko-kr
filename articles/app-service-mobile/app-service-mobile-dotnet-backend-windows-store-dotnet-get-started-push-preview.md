@@ -37,6 +37,10 @@
 * 활성 [Microsoft 스토어 계정](http://go.microsoft.com/fwlink/p/?LinkId=280045)
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Community 2013</a>.
 
+##<a name="review"></a>서버 프로젝트 구성 검토(옵션)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
+
 ##<a id="register"></a>푸시 알림에 대해 앱 등록
 
 Azure 앱 서비스를 사용하여 Windows 범용 앱에 푸시 알림을 전송하려면 앱을 Windows 스토어에 제출해야 합니다. 그런 다음 WNS와 통합되도록 모바일 앱 푸시 알림 서비스 자격 증명을 구성해야 합니다.
@@ -191,4 +195,4 @@ Azure 앱 서비스를 사용하여 Windows 범용 앱에 푸시 알림을 전�
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

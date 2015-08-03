@@ -33,7 +33,7 @@ Azure AD Connect 마법사는 여러가지 고유한 사용 권한 요구 사항
 마법사 페이지 | 수집되는 자격 증명 | 필요한 사용 권한| 용도 
 ------------- | ------------- |------------- |------------- |
 Azure에 연결| Azure AD 디렉터리 자격 증명 | Azure AD에서 글로벌 관리자 역할 | <li>Azure AD 디렉터리에서 동기화를 사용하도록 설정합니다.</li> <li>Azure AD에서 진행 중인 동기화 작업에 사용할 수 있는 Azure AD 계정을 만드는데 사용됩니다.</li>
-AD DS에 연결 | 온-프레미스 Active Directory 자격 증명 | Active Directory의 Enterprise Admins(EA) 그룹의 구성원| <li>진행 중인 동기화 작업에 대한 로컬 AD에서 개체와 특성을 읽는데 사용할 수 있는 로컬 AD 계정을 만드는데 사용됩니다.</li> <li> 위의 계정 및 AD에 올바른 사용 권한 및 동기화와 암호 동기화에 대한 액세스 제어 설정을 할당합니다.</li> 
+AD DS에 연결 | 온-프레미스 Active Directory 자격 증명 | Active Directory의 Enterprise Admins(EA) 그룹의 구성원| 로컬 AD 커넥터 계정으로 사용됩니다. 즉, 동기화에 대한 디렉터리 정보를 읽고 쓰는 계정입니다.
 해당 없음|마법사를 실행하는 사용자의 로그온 자격 증명| 로컬 서버의 관리자|마법사는 로컬 컴퓨터에서 동기화 서비스 로그온 계정으로 사용할 수 있는 AD 계정을 만듭니다.
 
 <br> <br>
@@ -90,4 +90,4 @@ AD FS:GMSA 계정(aadcsvc$)|도메인 사용자|FS 서비스 로그온 계정
 * [MSDN의 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

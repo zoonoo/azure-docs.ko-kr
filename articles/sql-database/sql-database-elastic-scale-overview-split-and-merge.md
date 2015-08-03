@@ -252,4 +252,4 @@ Azure SQL 데이터베이스 계층 간의 최신 선택 항목을 사용하면 
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

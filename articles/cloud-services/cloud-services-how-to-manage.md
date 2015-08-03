@@ -158,4 +158,4 @@ Azure 포털 **클라우드 서비스** 영역에서 서비스 역할 또는 배
 
  
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

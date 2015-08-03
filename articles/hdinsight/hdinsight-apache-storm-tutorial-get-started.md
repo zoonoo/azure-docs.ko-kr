@@ -192,7 +192,7 @@ Storm UI를 사용하여 토폴로지를 모니터링할 수 있습니다.
 
 	자세한 내용은 [Visual Studio용 HDInsight 도구 사용 시작](hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
-* **샘플 파일** - HDInsight Storm 클러스터의 **%STORM_HOME%\\contrib** 디렉터리에서는 여러 예제가 제공됩니다. 각 예제는 다음 항목을 포함합니다.
+* **샘플 파일** - HDInsight Storm 클러스터의 **%STORM_HOME%\contrib** 디렉터리에서는 여러 예제가 제공됩니다. 각 예제는 다음 항목을 포함합니다.
 
 	* 소스 코드 - storm-starter-0.9.1.2.1.5.0-2057-sources.jar 등
 
@@ -204,7 +204,7 @@ Storm UI를 사용하여 토폴로지를 모니터링할 수 있습니다.
 
 	> [AZURE.NOTE]Java 문서는 웹 페이지로 구성됩니다. 추출 후에는 브라우저를 사용하여 **index.html** 파일을 확인합니다.
 
-	이러한 샘플에 액세스하려면 HDInsight의 Storm 클러스터에 대한 원격 데스크톱을 사용하도록 설정한 다음 **%STORM_HOME%\\contrib**에서 파일을 복사해야 합니다.
+	이러한 샘플에 액세스하려면 HDInsight의 Storm 클러스터에 대한 원격 데스크톱을 사용하도록 설정한 다음 **%STORM_HOME%\contrib**에서 파일을 복사해야 합니다.
 
 * 다음 문서에는 HDInsight의 Storm에서 사용할 수 있는 다른 예제의 목록이 들어 있습니다.
 
@@ -217,4 +217,4 @@ Storm UI를 사용하여 토폴로지를 모니터링할 수 있습니다.
 [azureportal]: https://manage.windowsazure.com/
 [hdinsight-provision]: hdinsight-provision-clusters.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

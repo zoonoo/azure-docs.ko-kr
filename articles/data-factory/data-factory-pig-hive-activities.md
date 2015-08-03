@@ -24,7 +24,7 @@ Azure 데이터 팩터리의 파이프라인은 연결된 저장소 서비스의
 
 ### 필수 구성 요소
 1. [Azure 데이터 팩터리 시작][adfgetstarted] 문서의 자습서를 완료합니다.
-2. **C:\\ADFGetStarted** 아래의 **Hive**라는 하위 폴더에 **hivequery.hql** 파일을 다음과 같은 내용으로 만듭니다.
+2. **C:\ADFGetStarted** 아래의 **Hive**라는 하위 폴더에 **hivequery.hql** 파일을 다음과 같은 내용으로 만듭니다.
     		
     	DROP TABLE IF EXISTS adftutorialhivetable; 
 		CREATE EXTERNAL TABLE  adftutorialhivetable
@@ -140,7 +140,7 @@ Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지�
 		                        "Month":"$$Text.Format('{0:%M}',SliceStart)",
 		                        "Day":"$$Text.Format('{0:%d}',SliceStart)"
 		                    },
-		                    "scriptpath": "adftutorial\\hivequery.hql",
+		                    "scriptpath": "adftutorial\hivequery.hql",
 						    "scriptLinkedService": "StorageLinkedService"
 						},
 						"policy":
@@ -258,7 +258,7 @@ HDInsight 클러스터와 연결된 Azure Blob 저장소에 Pig/Hive 스크립�
 					"transformation":
 					{
     					"type": "Hive",
-    					"scriptpath": "adfwalkthrough\\scripts\\transformdata.hql",    		
+    					"scriptpath": "adfwalkthrough\scripts\transformdata.hql",    		
 						"scriptLinkedService": "StorageLinkedService", 
 						"extendedProperties":
 						{
@@ -353,4 +353,4 @@ HDInsight 클러스터와 연결된 Azure Blob 저장소에 Pig/Hive 스크립�
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

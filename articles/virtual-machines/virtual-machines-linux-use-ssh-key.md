@@ -79,7 +79,7 @@ Windows용 `openssl`을 포함하는 다양한 유틸리티가 있습니다. 다
 ### Msysgit 사용 ###
 
 1.	다음 위치에서 msysgit를 다운로드하고 설치합니다. [http://msysgit.github.com/](http://msysgit.github.com/)
-2.	설치된 디렉터리에서 `msys` 실행(예: c:\\msysgit\\msys.exe)
+2.	설치된 디렉터리에서 `msys` 실행(예: c:\msysgit\msys.exe)
 3.	`cd bin`에 입력하여 `bin` 디렉터리로 변경
 
 
@@ -176,4 +176,4 @@ Windows용 `openssl`을 포함하는 다양한 유틸리티가 있습니다. 다
 5.	**열기**를 클릭하여 가상 컴퓨터에 연결합니다.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -31,4 +31,4 @@ Azure와 함께 다단계 인증을 사용하는 경우 Azure 포털을 통해 �
 
 <center>![Setup](./media/multi-factor-authentication-end-user-manage-azure/proofup.png)</center>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

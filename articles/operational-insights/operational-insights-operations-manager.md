@@ -228,4 +228,4 @@ Operations Manager에 Operational Insights를 연결할 때 계정을 설정하�
 
 다양한 지리적 위치에 있는 서버에서 데이터를 분석하려는 경우 위치 당 하나의 관리 그룹이 있는 것이 좋습니다. 에이전트에서 관리 그룹으로 데이터 전송의 성능을 향상시킬 수 있습니다.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

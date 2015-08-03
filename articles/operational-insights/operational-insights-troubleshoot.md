@@ -72,7 +72,7 @@ Get-SCOMManagementPack | where {$_.Name -match 'IntelligencePacks'} | Select Nam
 ### 절차 2: 올바른 솔루션을 직접 에이전트로 다운로드한 경우 유효성 검사
 >[AZURE.NOTE]Operations Manager만 사용하는 경우에 이 절차를 무시할 수 있습니다.
 
-직접 에이전트에서 **C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\Health Service State\\Management Packs**에 캐시되는 솔루션 수집 정책이 표시되어야 합니다.
+직접 에이전트에서 **C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs**에 캐시되는 솔루션 수집 정책이 표시되어야 합니다.
 
 
 ### 절차 3: 데이터가 관리자 서비스에 전송되는 경우 유효성 검사(또는 마지막 시도)
@@ -145,4 +145,4 @@ OpInsights 포털의 개요 페이지에서 확인하여 작은 타일 **서버 
 
 이 페이지에는 솔루션에서 중단된 서비스에 전송된 데이터의 크기에 관한 계량 정보(로그 검색 인덱스를 사용하지 않지만 몇 시간마다 새로 고쳐짐)도 제공합니다.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

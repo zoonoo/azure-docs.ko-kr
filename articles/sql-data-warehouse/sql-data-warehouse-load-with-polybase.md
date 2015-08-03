@@ -207,4 +207,4 @@ PolyBase로 로딩하면 UTF-8 인코딩 스타일만 지원합니다. 다른 �
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ko-kr/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ko-kr/library/ms189450.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

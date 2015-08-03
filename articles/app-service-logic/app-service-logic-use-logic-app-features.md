@@ -133,4 +133,4 @@
 [새 논리 앱 만들기]: app-service-logic-create-a-logic-app.md
 [Azure 포털]: https://portal.azure.com
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -105,4 +105,4 @@ Runbook을 만들 때 두 검사점 간의 모든 활동을 실행할 시간을 
 - [Azure 자동화에서 Runbook 작업의 상태 보기](automation-viewing-the-status-of-a-runbook-job)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

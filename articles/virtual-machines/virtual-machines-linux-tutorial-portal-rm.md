@@ -59,7 +59,7 @@ Preview 포털의 Azure 마켓플레이스로 이동하여 원하는 Windows Ser
 
 2. **크기**를 클릭하고 요구에 적합한 VM 크기를 선택합니다. 각각의 크기는 계산 코어, 메모리 및 기타 기능(예: 프리미엄 저장소에 대한 지원)의 수를 지정하며 가격에 영향을 미칩니다. Azure는 선택하는 이미지에 따라 특정 크기를 자동으로 권장합니다. 완료하면 ![선택 단추](media/virtual-machines-linux-tutorial-portal-rm/selectbutton-size.png) 단추를 클릭합니다.
 
-	>[AZURE.NOTE]프리미엄 저장소는 특정 지역에서 DS 시리즈 가상 컴퓨터에 대해 사용할 수 있습니다. 프리미엄 저장소는 데이터베이스와 같이 데이터 집약적인 작업에 대한 최상의 저장소 옵션입니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](storage-premium-storage-preview-portal.md)를 참조하세요.
+	>[AZURE.NOTE]프리미엄 저장소는 특정 지역에서 DS 시리즈 가상 컴퓨터에 대해 사용할 수 있습니다. 프리미엄 저장소는 데이터베이스와 같은 데이터 집약적인 작업에 대해 최상의 저장소 옵션입니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](storage-premium-storage-preview-portal.md)를 참조하세요.
 
 3. **설정**을 클릭하여 새 VM에 대한 저장소 및 네트워킹 설정을 봅니다. 첫 번째 VM에 대해 일반적으로 기본 설정을 적용할 수 있습니다. 지원하는 VM 크기를 선택한 경우 **디스크 유형** 아래에서 **프리미엄(SSD)**을 선택하여 프리미엄 저장소를 사용해 볼 수 있습니다. 완료하면 ![확인 단추](media/virtual-machines-linux-tutorial-portal-rm/okbutton.png) 단추를 클릭합니다.
 
@@ -126,4 +126,4 @@ Azure의 Linux에 대한 자세한 내용은 다음 을 참조하세요.
 
 - [Azure의 Linux용 Docker 가상 컴퓨터 확장](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -38,10 +38,10 @@ Xamarin용 Azure 저장소 클라이언트 라이브러리와 함께 개발할 �
 
 그 다음 Azure PowerShell을 열고 다음 명령을 실행합니다. `ACCOUNT_NAME` 및 `ACCOUNT_KEY== `을(를) 저장소 계정 자격 증명으로 바꾸는 것을 잊지 마십시오. `CONTAINER_NAME`을(를) 선택한 이름으로 바꿉니다.
 
-    PS C:> $context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
-	PS C:> New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
-	PS C:> $now = Get-Date
-	PS C:> New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
+    PS C:\> $context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
+	PS C:\> New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
+	PS C:\> $now = Get-Date
+	PS C:\> New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
 
 새 컨테이너에 대한 공유 액세스 서명 URI는 다음과 유사해야 합니다.
 
@@ -176,4 +176,4 @@ Xamarin용 Azure 저장소 클라이언트 라이브러리와 함께 개발할 �
 [Microsoft Azure 저장소 소개](storage-introduction.md) [.NET에서 Blob 저장소를 사용하는 방법](storage-dotnet-how-to-use-blobs.md) [.NET에서 테이블 저장소를 사용하는 방법](storage-dotnet-how-to-use-tables.md) [.NET에서 큐 저장소를 사용하는 방법](storage-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

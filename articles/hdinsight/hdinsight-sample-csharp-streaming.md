@@ -5,7 +5,7 @@
 	manager="paulettm"
 	services="hdinsight"
 	documentationCenter=""
-	authors="bradsev"/>
+	authors="mumian"/>
 
 <tags
 	ms.service="hdinsight"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="03/30/2014" 
-	ms.author="bradsev"/>
+	ms.date="07/09/2015" 
+	ms.author="jgao"/>
 
 # HDInsight의 Hadoop에서 C# 스트리밍 단어 수 MapReduce 샘플
 
@@ -204,4 +204,4 @@ wc.cs 파일의 리듀서 코드는 [StreamReader][streamreader] 개체를 사�
 [hdinsight-use-pig]: hdinsight-use-pig.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -729,4 +729,4 @@
 * [자세한 정보](active-directory-passwords-learn-more.md)
 * [MSDN의 암호 관리](https://msdn.microsoft.com/library/azure/dn510386.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

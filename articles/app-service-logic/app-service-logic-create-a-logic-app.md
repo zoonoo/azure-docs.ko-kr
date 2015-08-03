@@ -137,7 +137,7 @@ Twitter 커넥터는 이제 워크플로의 일부입니다.
 
 	텍스트 상자에 `@first(body('twitterconnector')).TweetText` 값이 입력됩니다. 생성된 값에는 다음과 같은 부분이 포함됩니다.
 
-	콘텐츠 부분 | 설명
+콘텐츠 부분 | 설명
 	------------------------------------------ | ------------
 	 `@` | 실제 값 대신 함수를 입력하고 있음을 나타냅니다.
 	`actions('twitterconnector').outputs.body` | Twitter 커넥터 쿼리에 의해 반환된 트윗을 가져옵니다.
@@ -172,4 +172,4 @@ Twitter 커넥터는 이제 워크플로의 일부입니다.
 [논리 앱 기능 사용]: app-service-logic-use-logic-app-features.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -124,7 +124,7 @@ Application Insights 포털에서 표시된 예는 다음과 같습니다.
 
     * \Process(??APP_WIN32_PROC??)% Processor Time
 	* \Memory\Available Bytes
-	* \.NET CLR Exceptions(??APP_CLR_PROC??)# of Exceps Thrown / sec
+	* .NET CLR Exceptions(??APP_CLR_PROC??)# of Exceps Thrown / sec
 	* \Process(??APP_WIN32_PROC??)\Private Bytes
 	* \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
 	* \Processor(_Total)% Processor Time
@@ -196,4 +196,4 @@ Application Insights 포털에서 표시된 예는 다음과 같습니다.
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

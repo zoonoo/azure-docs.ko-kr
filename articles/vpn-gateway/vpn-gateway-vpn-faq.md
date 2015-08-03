@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/15/2015"
+   ms.date="07/16/2015"
    ms.author="cherylmc" />
 
 # VPN 게이트웨이 FAQ
@@ -27,7 +27,7 @@
 예.
 ### 단일 가상 네트워크에서 여러 사이트에 연결할 수 있습니까?
 
-Windows PowerShell 및 Azure REST API를 사용하여 여러 사이트에 연결할 수 있습니다. [다중 사이트 및 VNet 간 연결](#Multi-Site-and-VNet-to-VNet-Connectivity) FAQ 섹션을 참조하세요.
+Windows PowerShell 및 Azure REST API를 사용하여 여러 사이트에 연결할 수 있습니다. [다중 사이트 및 VNet 간 연결](#multi-site-and-vnet-to-vnet-connectivity) FAQ 섹션을 참조하세요.
 ## 내 프레미스 간 연결 옵션은 무엇입니까?
 
 가상 네트워크는 다음 프레미스 간 연결을 지원합니다.
@@ -162,7 +162,7 @@ Azure VPN은 PSK(미리 공유한 키) 인증을 사용합니다. VPN 터널을 
 
 ### 강제 터널링을 구성할 수 있습니까?
 
-예. [강제 터널링 정보](http://go.microsoft.com/fwlink/p/?LinkId=615153)를 참조하세요.
+예. [강제 터널링 정보](vpn-gateway-about-forced-tunneling.md)를 참조하세요.
 
 ### Azure에서 내 VPN 서버를 설정하여 온-프레미스 네트워크에 연결하는 데 사용할 수 있습니까?
 
@@ -170,7 +170,7 @@ Azure VPN은 PSK(미리 공유한 키) 인증을 사용합니다. VPN 터널을 
 
 ### 게이트웨이 유형, 요구 사항 및 처리량에 대한 자세한 내용
 
-자세한 내용은 [게이트웨이](http://go.microsoft.com/fwlink/p/?LinkID=615098)를 참조하세요.
+자세한 내용은 [VPN 게이트웨이 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
 
 ## 다중 사이트 및 VNet 간 연결
 
@@ -244,4 +244,4 @@ Azure VPN 게이트웨이 통해 트래픽을 전송할 수 있지만, NETCFG �
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

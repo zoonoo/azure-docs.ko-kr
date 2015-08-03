@@ -71,4 +71,4 @@ API 앱을 만들고 나면 이제 Dropbox 커넥터를 논리 앱에 대한 동
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

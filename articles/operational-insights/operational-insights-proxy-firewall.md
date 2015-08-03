@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Operational Insights에 대한 프록시 및 방화벽 설정 구성
@@ -79,9 +79,23 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 
 ## Operational Manager를 사용하여 프록시 및 방화벽 설정 구성
 
-Operations Manager 관리 그룹에서 Operational Insights 서비스에 연결하고 등록하려면 도메인 및 URL의 포트 번호에 대한 액세스 권한이 있어야 합니다. Operations Manager 관리 서버와 Operational Insights 서비스 간의 통신에 프록시 서버를 사용하는 경우 적절한 리소스에 액세스할 수 있는지 확인해야 합니다. 방화벽을 사용하여 인터넷에 대한 액세스를 제한하는 경우 Operational Insights에 대한 액세스를 허용하도록 방화벽을 구성해야 합니다. 다음 표에는 이러한 작업과 관련된 포트가 나와 있습니다.
+Operations Manager 관리 그룹에서 Operational Insights 서비스에 연결하고 등록하려면 도메인 및 URL의 포트 번호에 대한 액세스 권한이 있어야 합니다. Operations Manager 관리 서버와 Operational Insights 서비스 간의 통신에 프록시 서버를 사용하는 경우 적절한 리소스에 액세스할 수 있는지 확인해야 합니다. 방화벽을 사용하여 인터넷에 대한 액세스를 제한하는 경우 Operational Insights에 대한 액세스를 허용하도록 방화벽을 구성해야 합니다. Operations Manager 관리 서버가 프록시 서버 뒤에 있지 않더라도 에이전트는 뒤에 있을 수 있습니다. 이 경우, 보안 및 로그 관리 솔루션 데이터가 Operational Insights 웹 서비스로 보내지도록 허용하기 위해 에이전트가 구성된 방식과 동일하게 프록시 서버를 구성해야 합니다.
+
+Operations Manager 에이전트가 Operational Insights 서비스와 통신하려면, Operations Manager 인프라(에이전트 포함)은 올바른 프록시 설정과 버전이 있어야 합니다. Operations Manager 콘솔에서 에이전트에 대한 프록시 설정이 지정됩니다. 버전은 다음 중 하나여야 합니다.
+
+- Operations Manager 2012 SP1 업데이트 롤업 7 이상
+- Operations Manager 2012 R2 업데이트 롤업 3 이상
+
+
+다음 표에는 이러한 작업과 관련된 포트가 나와 있습니다.
 
 >[AZURE.NOTE]다음 리소스 중 일부에는 Advisor가 표시되어 있습니다. 그러나 나열된 리소스는 나중에 변경될 예정입니다.
+
+|**에이전트 리소스**|**포트**|
+|--------------|-----|
+|*.ods.opinsights.azure.com|Port 443| |*.oms.opinsights.azure.com|포트 443|
+|ods.systemcenteradvisor.com|포트 443|
+|*.blob.core.windows.net/*|포트 443|
 
 |**관리 서버 리소스**|**포트**|
 |--------------|-----|
@@ -119,6 +133,7 @@ Operations Manager 관리 그룹을 Operational Insights 서비스에 등록하�
 
 
 ### 프록시 서버에 인증이 필요한 경우 자격 증명을 지정하려면
+ 프록시 서버 자격 증명 및 설정은 Operational Insights에 보고하는 관리 대상 컴퓨터에 전파해야 합니다. 이 서버는 *Microsoft System Center Advisor 모니터링 서버 그룹*에 있어야 합니다. 자격 증명은 그룹에 있는 각 서버의 레지스트리에 암호화됩니다.
 
 1. Operations Manager 콘솔을 열고 **관리** 작업 영역을 선택합니다.
 
@@ -128,28 +143,10 @@ Operations Manager 관리 그룹을 Operational Insights 서비스에 등록하�
 4. 실행 프로필 마법사에서 **추가**를 클릭하여 실행 계정을 사용합니다. 새 실행 계정을 만들거나 기존 계정을 사용할 수 있습니다. 이 계정에는 프록시 서버를 통과할 수 있는 권한이 있어야 합니다. ![프로필로 실행 마법사의 이미지](./media/operational-insights-proxy-firewall/proxyacct2.png)
 
 5. 관리할 계정을 설정하려면, **선택한 클래스, 그룹 또는 개체**를 선택하여 개체 검색 상자를 엽니다. ![프로필로 실행 마법사의 이미지](./media/operational-insights-proxy-firewall/proxyacct2-1.png)
-6. 검색한 다음 **Operations Manager 관리 서버**를 선택합니다. ![개체 검색 boxc의 이미지](./media/operational-insights-proxy-firewall/proxyacct3.png)
+6. **Microsoft System Center Advisor 모니터링 서버 그룹**를 검색한 다음 선택합니다. ![개체 검색 상자의 이미지](./media/operational-insights-proxy-firewall/proxyacct3.png)
 7. **확인**을 클릭하여 계정으로 실행 추가 상자를 닫습니다. ![프로필로 실행 마법사의 이미지](./media/operational-insights-proxy-firewall/proxyacct4.png)
 8. 마법사를 완료하고 변경 내용을 저장합니다. ![프로필로 실행 마법사의 이미지](./media/operational-insights-proxy-firewall/proxyacct5.png)
 
-
-### WinHTTP에 대한 각 관리 서버에서 프록시 서버를 구성하려면
-
-1. Operations Manager 2012 R2 업데이트 롤업 3 또는 Operations Manager 2012 SP1 업데이트 롤업 7 이상으로 Operations Manager를 업데이트하지 않은 경우 Operations Manager 관리 서버에서 관리자 권한으로 명령 프롬프트 창을 엽니다. 업데이트한 경우에는 이 절차를 사용할 필요가 없습니다.
-
-2. **netsh winhttp set proxy myproxy:80**을 입력합니다.
-
-3. 명령 프롬프트 창을 닫고 System Center 관리 서비스(HealthService)를 다시 시작합니다.
-
-4. 관리 그룹의 각 관리 서버에서 2단계를 수행합니다.
-
-### 각 관리 서버에서 프록시 서버를 구성하려면
-
-1. Operations Manager 콘솔을 열고 **관리** 작업 영역을 선택합니다.
-
-2. **장치 관리**를 선택하고 **관리 서버**를 클릭합니다.
-
-3. 각 관리 서버의 이름을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭한 다음 **프록시 설정** 탭에 대한 정보를 설정합니다. ![프록시 설정 탭](./media/operational-insights-proxy-firewall/proxyms.png)
 
 ### Operational Insights 관리 팩이 다운로드되었는지 확인하려면
 
@@ -169,4 +166,4 @@ Operations Manager 관리 그룹을 Operational Insights 서비스에 등록하�
 3. **HTTP**로 시작하는 모든 카운터를 추가합니다. ![카운터 추가](./media/operational-insights-proxy-firewall/sendingdata1.png)
 4. Operations Manager 구성이 적절한 경우 Operational Insights에서 추가한 관리 팩 및 구성한 로그 수집 정책에 따라 이벤트 및 기타 데이터 항목에 대한 상태 서비스 관리 카운터 활동이 표시됩니다. ![성능 모니터 표시 활동](./media/operational-insights-proxy-firewall/sendingdata2.png)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

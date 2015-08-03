@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="데이터 팩터리 - 데이터 팩터리 및 기계 학습을 사용하여 예측 파이프라인 만들기 | Azure" 
-	description="Azure 데이터 팩터리 및 Azure 기계 학습을 사용하여 예측 파이프라인을 만드는 방법을 설명합니다." 
+	description="Azure Data Factory 및 Azure 기계 학습을 사용하여 예측 파이프라인을 만드는 방법을 설명합니다." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
-# Azure 데이터 팩터리 및 Azure 기계 학습을 사용하여 예측 파이프라인 만들기 
+# Azure Data Factory 및 Azure 기계 학습을 사용하여 예측 파이프라인 만들기 
 ## 개요
-Azure 데이터 팩터리 파이프라인 내에서 게시된 [Azure 기계 학습][azure-machine-learning] 모델을 운영할 수 있습니다. 이러한 파이프라인을 예측 파이프라인이라고 합니다. 예측 파이프라인을 만들려면 다음이 필요합니다.
+Azure Data Factory 파이프라인 내에서 게시된 [Azure 기계 학습][azure-machine-learning] 모델을 운영할 수 있습니다. 이러한 파이프라인을 예측 파이프라인이라고 합니다. 예측 파이프라인을 만들려면 다음이 필요합니다.
 
 -	게시된 작업 영역 모델의 API 키 및 배치 평가 URL(아래 이미지 참조)
 -	평가할 입력 데이터를 포함하는 입력 CSV 파일 또는 Azure SQL 데이터베이스를 저장할 Azure Blob 저장소입니다. 
@@ -34,12 +34,12 @@ Azure 데이터 팩터리 파이프라인 내에서 게시된 [Azure 기계 학�
 -	Azure 저장소/Azure SQL 및 Azure ML 연결된 서비스
 -	Azure ML 배치 평가 작업이 포함된 파이프라인
 
-> [AZURE.NOTE]ADF(Azure 데이터 팩터리) 파이프라인에서 게시된 Azure 기계 학습 웹 서비스에 의해 노출되는 웹 서비스 매개 변수를 사용할 수 있습니다. 자세한 내용은 이 문서의 웹 서비스 매개 변수 섹션을 참조하세요.
+> [AZURE.NOTE]ADF(Azure Data Factory) 파이프라인에서 게시된 Azure 기계 학습 웹 서비스에 의해 노출되는 웹 서비스 매개 변수를 사용할 수 있습니다. 자세한 내용은 이 문서의 웹 서비스 매개 변수 섹션을 참조하세요.
 
 ## 예
 이 예제에서는 Azure 저장소를 사용하여 입력 및 출력 데이터를 저장합니다. Azure 저장소를 사용하는 대신 Azure SQL 데이터베이스를 사용할 수도 있습니다.
 
-이 예제를 수행하기 전에 [Azure 데이터 팩터리 시작][adf-getstarted] 자습서를 진행하고, 데이터 팩터리 편집기를 사용하여 이 예제의 데이터 팩터리 아티팩트(연결된 서비스, 테이블, 파이프라인)를 만드는 것이 좋습니다.
+이 예제를 수행하기 전에 [Azure Data Factory 시작][adf-getstarted] 자습서를 진행하고, 데이터 팩터리 편집기를 사용하여 이 예제의 데이터 팩터리 아티팩트(연결된 서비스, 테이블, 파이프라인)를 만드는 것이 좋습니다.
  
 
 1. Azure 저장소에 대한 연결된 서비스를 만듭니다. 평가 입력 및 출력 파일이 서로 다른 저장소 계정에 있는 경우 연결된 서비스가 두 개 필요합니다. 다음은 JSON 예제입니다.
@@ -53,7 +53,7 @@ Azure 데이터 팩터리 파이프라인 내에서 게시된 [Azure 기계 학�
 		    }
 		}
 
-2. 입력 및 출력 Azure 데이터 팩터리 테이블을 만듭니다. 다른 데이터 팩터리 테이블과 달리 이러한 테이블은 **folderPath** 값과 **fileName** 값을 둘 다 포함해야 합니다. 분할을 사용하여 각 배치 실행(각 데이터 조각)이 고유한 입력 및 출력 파일을 처리하거나 생성하도록 할 수 있습니다. 입력을 CSV 파일 형식으로 변환하여 각 조각의 저장소 계정에 배치하는 업스트림 작업을 포함해야 할 것입니다. 이 경우 아래 예제에 표시된 “waitOnExternal” 설정은 포함하지 않으며, ScoringInputBlob은 다른 작업의 출력 테이블이 됩니다.
+2. 입력 및 출력 Azure Data Factory 테이블을 만듭니다. 다른 데이터 팩터리 테이블과 달리 이러한 테이블은 **folderPath** 값과 **fileName** 값을 둘 다 포함해야 합니다. 분할을 사용하여 각 배치 실행(각 데이터 조각)이 고유한 입력 및 출력 파일을 처리하거나 생성하도록 할 수 있습니다. 입력을 CSV 파일 형식으로 변환하여 각 조각의 저장소 계정에 배치하는 업스트림 작업을 포함해야 할 것입니다. 이 경우 아래 예제에 표시된 “waitOnExternal” 설정은 포함하지 않으며, ScoringInputBlob은 다른 작업의 출력 테이블이 됩니다.
 
 		{  
 			"name":"ScoringInputBlob",
@@ -166,10 +166,10 @@ Azure 데이터 팩터리 파이프라인 내에서 게시된 [Azure 기계 학�
 		    }
 		}
 
-	**시작** 및 **끝** 모두는 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)이어야 합니다. 예: 2014-10-14T16:32:41Z. **끝**시간은 선택 사항입니다. **end** 속성 값을 지정하지 않는 경우 "**start + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **end** 속성 값으로 **9999-09-09**를 지정합니다. JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](https://msdn.microsoft.com/library/dn835050.aspx)를 참조하세요.
+	**시작** 및 **끝** 모두는 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항입니다. **end** 속성 값을 지정하지 않는 경우 "**start + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **end** 속성 값으로 **9999-09-09**를 지정합니다. JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](https://msdn.microsoft.com/library/dn835050.aspx)를 참조하세요.
 
 ## 웹 서비스 매개 변수
-ADF(Azure 데이터 팩터리) 파이프라인에서 게시된 Azure 기계 학습 웹 서비스에 의해 노출되는 웹 서비스 매개 변수를 사용할 수 있습니다. Azure 기계 학습에서 실험을 만들고 웹 서비스로 게시한 다음 웹 서비스 매개 변수를 통해 다른 입력을 전달하여 여러 ADF 파이프라인 또는 작업에서 해당 웹 서비스를 사용할 수 있습니다.
+ADF(Azure Data Factory) 파이프라인에서 게시된 Azure 기계 학습 웹 서비스에 의해 노출되는 웹 서비스 매개 변수를 사용할 수 있습니다. Azure 기계 학습에서 실험을 만들고 웹 서비스로 게시한 다음 웹 서비스 매개 변수를 통해 다른 입력을 전달하여 여러 ADF 파이프라인 또는 작업에서 해당 웹 서비스를 사용할 수 있습니다.
 
 ### 웹 서비스 매개 변수 값 전달
 파이프라인 JSON의 **AzureMLBatchScoringActivty** 섹션에 **transformation** 섹션을 추가하여 다음 예제와 같이 해당 섹션의 웹 서비스 매개 변수 값을 지정합니다.
@@ -202,7 +202,7 @@ Azure 기계 학습 스튜디오에서 실험을 빌드하고 Azure SQL 판독�
 
 추가 웹 서비스 매개 변수가 있는 경우 작업 JSON의 **webServiceParameters** 섹션을 사용합니다. 이 섹션에서 Azure SQL 판독기 매개 변수의 값을 지정하는 경우 해당 값이 입력 Azure SQL 연결된 서비스에서 선택된 값을 재정의합니다. WebServiceParameters 섹션에서 직접 Azure SQL 판독기의 값을 지정하지 않는 것이 좋습니다. 이 섹션을 사용하여 추가 매개 변수의 값을 전달합니다.
 
-Azure 데이터 팩터리 파이프라인을 통해 Azure SQL 판독기를 사용하려면 다음을 수행합니다.
+Azure Data Factory 파이프라인을 통해 Azure SQL 판독기를 사용하려면 다음을 수행합니다.
 
 - **Azure SQL 연결된 서비스**를 만듭니다. 
 - **AzureSqlTableLocation**을 사용하는 데이터 팩터리 **테이블**을 만듭니다.
@@ -213,39 +213,11 @@ Azure 데이터 팩터리 파이프라인을 통해 Azure SQL 판독기를 사�
 #### Azure SQL 기록기
 Azure SQL 판독기와 마찬가지로, Azure SQL 기록기의 속성도 웹 서비스 매개 변수로 노출될 수 있습니다. Azure SQL 기록기는 입력 테이블 또는 출력 테이블과 연관된 연결된 서비스의 설정을 사용합니다. 다음 표에서는 출력 연결된 서비스와 비교하여 입력 연결된 서비스가 사용되는 경우를 설명합니다.
 
-<table>
-<tr>
-<td>출력/입력</td>
-<td><b>입력이 Azure SQL임</b></td>
-<td><b>입력이 Azure Blob임</b></td>
-</tr>
-<tr>
-<td><b>출력이 Azure SQL임</b></td>
-<td><p>데이터 팩터리 서비스는 INPUT 연결된 서비스의 연결 문자열 정보를 사용하여 "데이터베이스 서버 이름", "데이터베이스 이름", "서버 사용자 계정 이름", "서버 사용자 계정 암호"라는 이름으로 웹 서비스 매개 변수를 생성합니다. Azure 기계 학습 스튜디오에서는 웹 서비스 매개 변수에 이러한 기본 이름을 사용해야 합니다.</p>
-<p>Azure 기계 학습 모델의 Azure SQL 판독기 및 Azure SQL 기록기가 위에서 언급한 동일한 웹 서비스 매개 변수를 공유하는 경우 아무 문제도 없습니다. 동일한 웹 서비스 매개 변수를 공유하지 않는 경우, 예를 들어 Azure SQL 기록기가 매개 변수 이름으로 데이터베이스 서버 이름1, 데이터베이스 이름1, 서버 사용자 계정 이름1, 서버 사용자 계정 암호1(끝에 '1' 포함)을 사용하는 경우 작업 JSON의 webServiceParameters 섹션에서 이러한 OUTPUT 웹 서비스 매개 변수의 값을 전달해야 합니다.</p>
-<p>
-작업 JSON의 webServiceParameters 섹션을 사용하여 다른 웹 서비스 매개 변수의 값을 전달할 수 있습니다.  
-</p>
-
-</td>
-<td>
-<p>데이터 팩터리 서비스는 OUTPUT 연결된 서비스의 연결 문자열 정보를 사용하여 "데이터베이스 서버 이름", "데이터베이스 이름", "서버 사용자 계정 이름", "서버 사용자 계정 암호"라는 이름으로 웹 서비스 매개 변수를 생성합니다. Azure 기계 학습 스튜디오에서는 웹 서비스 매개 변수에 이러한 기본 이름을 사용해야 합니다.</p>
-<p>작업 JSON의 webServiceParameters 섹션을 사용하여 다른 웹 서비스 매개 변수의 값을 전달할 수 있습니다. <p>입력 Blob이 입력 위치로 사용됩니다.</p>
-</td>
-</tr>
-<tr>
-<td><b>출력이 Azure Blob임</b></td>
-<td>데이터 팩터리 서비스는 INPUT 연결된 서비스의 연결 문자열 정보를 사용하여 "데이터베이스 서버 이름", "데이터베이스 이름", "서버 사용자 계정 이름", "서버 사용자 계정 암호"라는 이름으로 웹 서비스 매개 변수를 생성합니다. Azure 기계 학습 스튜디오에서는 웹 서비스 매개 변수에 이러한 기본 이름을 사용해야 합니다.
-</td>
-<td>
-<p>작업 JSON의 WebServiceParameters 섹션을 사용하여 웹 서비스 매개 변수의 값을 전달해야 합니다.</p> 
-
-<p>Blob이 입력 및 출력 위치로 사용됩니다.</p>
-
-</td>
-<tr>
-
-</table>
+| 출력/입력 | 입력이 Azure SQL임 | 입력이 Azure Blob임 |
+| ------------ | ------------------ | ------------------- |
+| 출력이 Azure SQL임 | <p>데이터 팩터리 서비스는 입력 연결된 서비스의 연결 문자열 정보를 사용하여 "Database server name", "Database name", "Server user account name", "Server user account password"라는 이름으로 웹 서비스 매개 변수를 생성합니다. Azure 기계 학습 스튜디오에서는 웹 서비스 매개 변수에 이러한 기본 이름을 사용해야 합니다.</p><p>Azure 기계 학습 모델의 Azure SQL 판독기 및 Azure SQL 기록기가 위에서 언급한 동일한 웹 서비스 매개 변수를 공유하는 경우 아무 문제도 없습니다. 동일한 웹 서비스 매개 변수를 공유하지 않는 경우, 예를 들어 Azure SQL 기록기가 매개 변수 이름으로 Database server name1, Database name1, Server user account name1, Server user account password1(끝에 '1' 포함)을 사용하는 경우 작업 JSON의 webServiceParameters 섹션에서 이러한 출력 웹 서비스 매개 변수의 값을 전달해야 합니다.</p><p>작업 JSON의 webServiceParameters 섹션을 사용하여 다른 웹 서비스 매개 변수에 대한 값을 전달할 수 있습니다.</p> | <p>데이터 팩터리 서비스는 출력 연결된 서비스의 연결 문자열 정보를 사용하여 "Database server name", "Database name", "Server user account name", "Server user account password"라는 이름으로 웹 서비스 매개 변수를 생성합니다. Azure 기계 학습 스튜디오에서는 웹 서비스 매개 변수에 이러한 기본 이름을 사용해야 합니다.</p><p>작업 JSON의 webServiceParameters 섹션을 사용하여 다른 웹 서비스 매개 변수에 대한 값을 전달할 수 있습니다. <p>입력 Blob이 입력 위치로 사용됩니다.</p> |
+|출력이 Azure Blob임 | 데이터 팩터리 서비스는 INPUT 연결된 서비스의 연결 문자열 정보를 사용하여 "데이터베이스 서버 이름", "데이터베이스 이름", "서버 사용자 계정 이름", "서버 사용자 계정 암호"라는 이름으로 웹 서비스 매개 변수를 생성합니다. Azure 기계 학습 스튜디오에서는 웹 서비스 매개 변수에 이러한 기본 이름을 사용해야 합니다. | <p>작업 JSON의 webServiceParameters 섹션을 사용하여 웹 서비스 매개 변수에 대한 값을 전달해야 합니다.</p><p>Blob이 입력 및 출력 위치로 사용됩니다.</p> |
+    
 
 > [AZURE.NOTE]Azure SQL 기록기가 ID 열을 덮어쓰는 경우 키 위반이 발생할 수 있습니다. 이 상황을 방지하려면 출력 테이블을 구조화해야 합니다.
 > 
@@ -302,7 +274,7 @@ Azure SQL 판독기와 마찬가지로, Azure SQL 기록기의 속성도 웹 서
 - 기록기 매개 변수('1' 접미사가 있는 매개 변수)는 데이터 팩터리 서비스에 의해 자동으로 채워지지 않습니다. 따라서 작업 JSON의 **webServiceParameters** 섹션에서 이러한 매개 변수의 값을 지정해야 합니다.  
 - **고객 ID**, **점수가 매겨진 레이블** 및 **점수가 매겨진 확률**은 쉼표로 구분된 열로 저장됩니다. 
 - 이 예제의 **데이터 테이블 이름**은 출력 데이터베이스의 테이블에 해당합니다.
-- **시작** 및 **끝** 모두는 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)이어야 합니다. 예: 2014-10-14T16:32:41Z. **끝**시간은 선택 사항입니다. **end** 속성 값을 지정하지 않는 경우 "**start + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **end** 속성 값으로 **9999-09-09**를 지정합니다. JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](https://msdn.microsoft.com/library/dn835050.aspx)를 참조하세요.
+- **시작** 및 **끝** 모두는 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항입니다. **end** 속성 값을 지정하지 않는 경우 "**start + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **end** 속성 값으로 **9999-09-09**를 지정합니다. JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](https://msdn.microsoft.com/library/dn835050.aspx)를 참조하세요.
 
 
 
@@ -311,7 +283,7 @@ Azure SQL 판독기와 마찬가지로, Azure SQL 기록기의 속성도 웹 서
 
 문서 | 설명
 ------ | ---------------
-[Azure 데이터 팩터리 개발자 참조][developer-reference] | 개발자 참조에는 cmdlet, JSON 스크립트, .NET 클래스 라이브러리, 함수 등에 대한 포괄적인 참조 콘텐츠가 포함되어 있습니다. 
+[Azure Data Factory 개발자 참조][developer-reference] | 개발자 참조에는 cmdlet, JSON 스크립트, .NET 클래스 라이브러리, 함수 등에 대한 포괄적인 참조 콘텐츠가 포함되어 있습니다. 
 
 [adf-introduction]: data-factory-introduction.md
 [adf-getstarted]: data-factory-get-started.md
@@ -328,4 +300,4 @@ Azure SQL 판독기와 마찬가지로, Azure SQL 기록기의 속성도 웹 서
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/13/2015"
+   ms.date="07/14/2015"
    ms.author="elfish"/>
 
 #비즈니스 연속성을 위한 설계
@@ -99,4 +99,4 @@ Azure 포털을 사용하거나 REST API 또는 PowerShell 명령을 호출하�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

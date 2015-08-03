@@ -149,8 +149,8 @@ VMware 가상 컴퓨터 또는 물리적 서버에 설치합니다. 컴퓨터와
 
 - **Windows 서버**:
 	-  64비트 운영 체제: Windows Server 2012 R2, Windows Server 2012 또는 SP1 이상을 설치한 Windows Server 2008 R2.
-	-  호스트 이름, 마운트 지점, 장치 이름, Windows 시스템 경로(영어만 사용, 예: C:\\Windows)
-	-  C:\\ 드라이브에 운영 체제.
+	-  호스트 이름, 마운트 지점, 장치 이름, Windows 시스템 경로(영어만 사용, 예: C:\Windows)
+	-  C:\ 드라이브에 운영 체제.
 	-  기본 디스크만 지원됩니다. 동적 디스크는 지원되지 않습니다.
 
 - **Linux 서버**:
@@ -169,10 +169,10 @@ VMware 가상 컴퓨터 또는 물리적 서버에 설치합니다. 컴퓨터와
 --- | --- 
 <p>**VMM용 Azure Site Recovery 공급자**</p><p>**Azure 복구 서비스 에이전트**</p> | <p></p>**최초 설치**: 빠른 시작 페이지에서 최신 버전을 다운로드합니다.<p></p>**진행 중**: 사이트 복구 내 대시보드에서 최신(및 이전) 버전을 다운로드할 수 있습니다. 또는 Microsoft 업데이트를 사용하도록 선택하면 공급자 및 에이전트 최신 버전이 서버에 자동으로 설치됩니다.
 <p>**프로세스 서버**</p><p>**구성 서버**</p><p>**마스터 대상 서버**</p> | 사이트 복구 대시보드에서 업데이트를 확인합니다. 
-**모바일 서비스** | <p>보호하려는 각 컴퓨터에 최신 모바일 서비스 업데이트가 설치되도록 합니다:<p><p>최신 업데이트를 다운로드할 수 있습니다:</p><p>[Windows](http://download.microsoft.com/download/7/C/7/7C70CA53-2D8E-4FE0-BD85-8F7A7A8FA163/Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe)</p><p>[RHELP6-64](http://download.microsoft.com/download/B/4/5/B45D1C8A-C287-4339-B60A-70F2C7EB6CFE/Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_release.tar.gz)</p><p>[OL6-64](http://download.microsoft.com/download/9/4/8/948A2D75-FC47-4DED-B2D7-DA4E28B9E339/Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_release.tar.gz)</p><p>[SLES11-SP3-64](http://download.microsoft.com/download/6/A/2/6A22BFCD-E978-41C5-957E-DACEBD43B353/Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_release.tar.gz)</p><p>또는 프로세스 서버가 최신인지 확인한 후 프로세스 서버의 C:\\pushinstallsvc\\repository 폴더에서 최신 버전의 모바일 서비스를 다운로드할 수 있습니다.</p>  
+**모바일 서비스** | <p>보호하려는 각 컴퓨터에 최신 모바일 서비스 업데이트가 설치되도록 합니다:<p><p>최신 업데이트를 다운로드할 수 있습니다:</p><p>[Windows](http://download.microsoft.com/download/7/C/7/7C70CA53-2D8E-4FE0-BD85-8F7A7A8FA163/Microsoft-ASR_UA_8.3.0.0_Windows_GA_03Jul2015_release.exe)</p><p>[RHELP6-64](http://download.microsoft.com/download/B/4/5/B45D1C8A-C287-4339-B60A-70F2C7EB6CFE/Microsoft-ASR_UA_8.3.0.0_RHEL6-64_GA_03Jul2015_release.tar.gz)</p><p>[OL6-64](http://download.microsoft.com/download/9/4/8/948A2D75-FC47-4DED-B2D7-DA4E28B9E339/Microsoft-ASR_UA_8.3.0.0_OL6-64_GA_03Jul2015_release.tar.gz)</p><p>[SLES11-SP3-64](http://download.microsoft.com/download/6/A/2/6A22BFCD-E978-41C5-957E-DACEBD43B353/Microsoft-ASR_UA_8.3.0.0_SLES11-SP3-64_GA_03Jul2015_release.tar.gz)</p><p>또는 프로세스 서버가 최신인지 확인한 후 프로세스 서버의 C:\pushinstallsvc\repository 폴더에서 최신 버전의 모바일 서비스를 다운로드할 수 있습니다.</p>  
 
 ## 다음 단계
 
 배포 시나리오를 위한 구성 요소 구성 시작 [자세히 알아봅니다](site-recovery-overview.md).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

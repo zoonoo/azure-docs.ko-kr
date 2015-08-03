@@ -98,4 +98,4 @@ SAS 키 이름 및 값에 대한 값은 Azure 포털 연결 정보 또는 Visual
 [큐, 항목 및 구독]: http://msdn.microsoft.com/library/azure/hh367516.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

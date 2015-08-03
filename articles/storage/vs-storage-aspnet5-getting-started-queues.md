@@ -105,4 +105,4 @@ ASP.NET 5 프로젝트에서 큐에 프로그래밍 방식으로 액세스하려
 [Azure 저장소에 대한 자세한 정보](http://azure.microsoft.com/documentation/services/storage/) [서버 탐색기에서 저장소 리소스 탐색](http://msdn.microsoft.com/library/azure/ff683677.aspx) 및 [ASP.NET 5](http://www.asp.net/vnext)도 참조하세요.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

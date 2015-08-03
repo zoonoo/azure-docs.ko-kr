@@ -80,7 +80,7 @@ Azure 저장소 에뮬레이터를 시작하려면 시작 단추를 선택하거
 
 저장소 에뮬레이터를 처음 실행하면 로컬 저장소 환경이 자동으로 초기화됩니다. 초기화 프로세스에서는 LocalDB에 데이터베이스가 작성되며 각 로컬 저장소 서비스용으로 HTTP 포트가 예약됩니다.
 
-저장소 에뮬레이터는 기본적으로 C:\\Program Files (x86)\\Microsoft SDKs\\Azure\\Storage Emulator 디렉터리에 설치됩니다.
+저장소 에뮬레이터는 기본적으로 C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator 디렉터리에 설치됩니다.
 
 ### 다른 SQL 데이터베이스를 사용하여 저장소 에뮬레이터를 초기화 합니다.
 
@@ -93,7 +93,7 @@ Azure 저장소 에뮬레이터를 시작하려면 시작 단추를 선택하거
     
 	기본 SQL Server 인스턴스를 사용하도록 에뮬레이터에 지시하는 다음 명령을 사용할 수도 있습니다.
 
-    	AzureStorageEmulator init /server .\\ 
+    	AzureStorageEmulator init /server .\ 
 
 	또는 LocalDB 데이터베이스를 다시 초기화하는 다음 명령을 사용할 수도 있습니다.
 
@@ -127,8 +127,6 @@ Azure 저장소 계정에 리소스 주소를 지정하는 경우 다음의 체�
 	Queue Service: http://127.0.0.1:10001/<account-name>/<resource-path>
 	Table Service: http://127.0.0.1:10002/<account-name>/<resource-path>
 
-> [AZURE.NOTE]HTTPS가 Azure 저장소의 리소스에 액세스 하기 위한 권장 프로토콜이지만 저장소 에뮬레이터와 함께 HTTPS를 사용할 수 없습니다.
- 
 ### RA-GRS를 사용하여 보조 계정 주소 지정
 
 버전 3.1부터는 저장소 에뮬레이터 계정에 대해 RA-GRS(읽기 권한 지역 중복 복제)를 사용할 수 있습니다. 클라우드와 로컬 에뮬레이터의 저장소 리소스에 대해 계정 이름에 -secondary를 추가하면 보조 위치에 액세스할 수 있습니다. 예를 들어 저장소 에뮬레이터에서 읽기 전용 보조 계정을 사용하여 Blob에 액세스하려는 경우 다음 주소를 사용할 수 있습니다.
@@ -149,15 +147,15 @@ Azure 저장소 계정에 리소스 주소를 지정하는 경우 다음의 체�
 
 ### 옵션
 
-옵션 목록을 보려면 명령 프롬프트에 `/help`를 입력합니다.
+옵션 목록을 보려면 명령 프롬프트에 `/help`을(를) 입력합니다.
 
 | 옵션 | 설명 | 명령 | 인수 |
 |--------|----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | **시작** | 저장소 에뮬레이터를 시작합니다. | `AzureStorageEmulator start [-inprocess]` | *-inprocess*: 새 프로세스를 만드는 대신 현재 프로세스에서 에뮬레이터를 시작합니다. |
 | **중지** | 저장소 에뮬레이터를 중지합니다. | `AzureStorageEmulator stop` | |
 | **상태** | 저장소 에뮬레이터의 상태를 인쇄합니다. | `AzureStorageEmulator status` | |
-| **지우기** | 명령줄에 지정된 모든 서비스의 데이터를 지웁니다. | `AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    `| *blob*: blob 데이터를 지웁니다. <br/>* 큐 *: 큐 데이터를 지웁니다. <br/>* 테이블 *: 테이블 데이터를 지웁니다. <br/>* 모든 *: 모든 서비스의 모든 데이터를 지웁니다. |
-| **Init** | 에뮬레이터를 설정하기 위해 하는 일회 초기화를 수행 합니다. | `AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` | *-서버 serverName*: SQL 인스턴스를 호스팅하는 서버를 지정 합니다. <br/>*-sqlinstance instanceName *: 사용할 SQL 인스턴스의 이름을 지정 합니다. <br/>*-forcecreate *: 이미 존재 하는 경우에도 SQL 데이터베이스를 강제로 만듭니다. <br/>*-inprocess *: 새 프로세스를 생성하는 대신 현재 프로세스의 초기화를 수행 합니다. 이렇게 하려면 현재 프로세스를 승격된 권한으로 시작합니다. |
+| **지우기** | 명령줄에 지정된 모든 서비스의 데이터를 지웁니다. | `AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    `| *blob*: blob 데이터를 지웁니다. <br/>*queue*: 큐 데이터를 지웁니다. <br/>*table*: 테이블 데이터를 지웁니다. <br/>*all*: 모든 서비스의 모든 데이터를 지웁니다. |
+| **Init** | 에뮬레이터를 설정하기 위해 하는 일회 초기화를 수행 합니다. | `AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` | *-server serverName*: SQL 인스턴스를 호스팅하는 서버를 지정합니다. <br/>*-sqlinstance instanceName*: 사용할 SQL 인스턴스의 이름을 지정합니다. <br/>*-forcecreate*: 이미 존재하는 경우에도 SQL 데이터베이스를 강제로 만듭니다. <br/>*-inprocess*: 새 프로세스를 생성하는 대신 현재 프로세스의 초기화를 수행합니다. 이렇게 하려면 현재 프로세스를 승격된 권한으로 시작합니다. |
                                                                                                                   
 ## 저장소 에뮬레이터와 Azure 저장소의 차이점
 
@@ -193,7 +191,7 @@ Azure 저장소 계정에 리소스 주소를 지정하는 경우 다음의 체�
 
 - 저장소 에뮬레이터의 테이블에 있는 행의 총 크기는 1MB 미만으로 제한 합니다.
 
-- 저장소 에뮬레이터에서 데이터 속성 `Edm.Guid` 또는 `Edm.Binary` 는 쿼리 필터 문자열의 `Equal (eq)` 및 `NotEqual (ne)` 비교 연산자만 지원합니다.
+- 저장소 에뮬레이터에서 데이터 유형 속성 `Edm.Guid` 또는 `Edm.Binary`은(는) 쿼리 필터 문자열의 `Equal (eq)` 및 `NotEqual (ne)` 비교 연산자만 지원합니다.
 
 ### 큐 저장소의 차이점
 
@@ -206,7 +204,7 @@ Azure 저장소 계정에 리소스 주소를 지정하는 경우 다음의 체�
 저장소 에뮬레이터 실행 파일은 이름이 *AzureStorageEmulator.exe*로 바뀌었습니다.
 
 ### 버전 3.2
-- 저장소 에뮬레이터는 이제 Blob, 큐 및 테이블 서비스 끝점에서 2014-02-14 버전의 저장소 서비스를 지원합니다. 파일 서비스 끝점은 저장소 에뮬레이터에서 현재 지원되지 않습니다. 2014-02-14 버전에 대한 세부 정보는 [Azure 저장소 서비스에 대한 버전 관리](https://msdn.microsoft.com/library/azure/dd894041.aspx) 를 참조하세요.
+- 저장소 에뮬레이터는 이제 Blob, 큐 및 테이블 서비스 끝점에서 2014-02-14 버전의 저장소 서비스를 지원합니다. 파일 서비스 끝점은 저장소 에뮬레이터에서 현재 지원되지 않습니다. 2014-02-14 버전에 대한 자세한 내용은 [Azure 저장소 서비스에 대한 버전 관리](https://msdn.microsoft.com/library/azure/dd894041.aspx)를 참조하세요.
 
 ### 버전 3.1
 - 읽기 액세스 지역 중복 저장소 (RA-GRS)는 이제 저장소 에뮬레이터에서 지원됩니다. Blob 서비스 통계 가져오기, 큐 서비스 통계 가져오기 및 테이블 서비스 통계 가져오기 API는 보조 계정에서 지원되며 기본 SQL 데이터베이스에 따라 현재 시간으로 LastSync 시간 응답 요소의 값을 항상 반환합니다. 저장소 에뮬레이터를 사용하여 프로그래밍 방식으로 보조 계정에 액세스하려는 경우 .NET용 저장소 클라이언트 라이브러리 버전 3.2 이상을 사용합니다. 자세한 내용은 저장소 클라이언트 라이브러리 참조를 참조하세요.
@@ -222,4 +220,4 @@ Azure 저장소 계정에 리소스 주소를 지정하는 경우 다음의 체�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/10/2015"
+   ms.date="07/13/2015"
    ms.author="cherylmc" />
 
 # VPN 게이트웨이 정보
@@ -71,12 +71,12 @@ VPN 게이트웨이 SKU는 기본, 표준, 고성능의 세 가지가 있습니�
 - [Azure 가상 네트워크에 지점 대 사이트 간 VPN 연결 구성](vpn-gateway-point-to-site-create.md)
 - [Windows Server 2012 RRAS(라우팅 및 원격 액세스 서비스)를 사용하여 사이트 간 VPN 구성](https://msdn.microsoft.com/library/dn636917.aspx)
 
-VPN 게이트웨이를 구성하려면 [VPN 게이트웨이 구성](http://go.microsoft.com/fwlink/p/?LinkId=615106)을 참조하세요.
+VPN 게이트웨이를 구성하려면 [VPN 게이트웨이 구성](vpn-gateway-configure-vpn-gateway-mp.md)을 참조하세요.
 
-VPN 게이트웨이 유형을 변경하려면 [가상 네트워크 VPN 게이트웨이 유형 변경](http://go.microsoft.com/fwlink/p/?LinkId=615109)을 참조하세요.
+VPN 게이트웨이 유형을 변경하려면 [가상 네트워크 VPN 게이트웨이 라우팅 유형 변경](vpn-gateway-configure-vpn-gateway-mp.md)을 참조하세요.
 
 가상 네트워크에 여러 사이트를 연결하려면 [가상 네트워크에 여러 온-프레미스 사이트 연결](http://go.microsoft.com/fwlink/p/?LinkID=615106)을 참조하세요.
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

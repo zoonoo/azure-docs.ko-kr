@@ -106,4 +106,4 @@ Azure AD와 SaaS 앱 사이에서 특성이 매핑되는 방법에 대한 자세
 
 추가 응용 프로그램을 위한 프로비저닝 지원을 요청하기 위해 Azure AD 엔지니어링 팀에 문의하려면 [Azure Active Directory 피드백 포럼](http://feedback.azure.com/forums/169401-azure-active-directory)을 통해 메시지를 제출하십시오.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

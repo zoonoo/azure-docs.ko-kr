@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.devlang="na"
    ms.topic="get-started-article" 
-   ms.date="03/31/2015"
+   ms.date="07/09/2015"
    ms.author="jgao"/>
 
 # HDInsight 시작 갤러리를 사용하여 Hadoop에 대해 알아보기
@@ -64,4 +64,4 @@ HDInsight에 대해 알아볼 수 있는 다른 방법은 다음과 같습니다
 [azure.portal]: https://manage.windowsazure.com
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

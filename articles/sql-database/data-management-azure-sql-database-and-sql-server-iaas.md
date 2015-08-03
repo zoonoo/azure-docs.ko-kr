@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/23/2015" 
+	ms.date="07/15/2015" 
 	ms.author="selcint"/>
 
 # Azure SQL 데이터베이스 및 Azure VM의 SQL Server 이해
@@ -186,9 +186,9 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 
 ###<a name="market"></a>출시 시간
 
-**Azure SQL 데이터베이스**는 개발자 생산성과 빠른 출시 시간이 중요한 경우 클라우드용으로 설계된 응용 프로그램에 적합한 솔루션입니다. 프로그래밍 방식 DBA와 비슷한 기능을 사용하여 기본 운영 체제 및 데이터베이스를 관리할 필요성을 낮추므로 클라우드 설계자와 개발자에게 이상적인 솔루션입니다. 개발자가 데이터베이스 관련 작업을 파악하고 구성하는 데 도움을 줍니다. 예를 들어 [REST API](http://msdn.microsoft.com/library/azure/dn505719.aspx) 및 [PowerShell cmdlet](http://msdn.microsoft.com/library/azure/dn546726.aspx)을 사용하여 수천 개 데이터베이스에 대한 관리 작업을 자동화할 수 있습니다. 클라우드의 탄력적인 규모 조정을 통해 응용 프로그램 계층에 집중하기 쉽고 응용 프로그램을 더 빨리 출시할 수 있습니다.
+**Azure SQL 데이터베이스**는 개발자 생산성과 빠른 출시 시간이 중요한 경우 클라우드용으로 설계된 응용 프로그램에 적합한 솔루션입니다. 프로그래밍 방식 DBA와 비슷한 기능을 사용하여 기본 운영 체제 및 데이터베이스를 관리할 필요성을 낮추므로 클라우드 설계자와 개발자에게 이상적인 솔루션입니다. 개발자가 데이터베이스 관련 작업을 파악하고 구성하는 데 도움을 줍니다. 예를 들어 [REST API](http://msdn.microsoft.com/library/azure/dn505719.aspx) 및 [PowerShell cmdlet](http://msdn.microsoft.com/library/azure/dn546726.aspx)을 사용하여 수천 개 데이터베이스에 대한 관리 작업을 자동화할 수 있습니다. 클라우드의 [탄력적인 규모 조정](sql-database-elastic-pool.md)을 통해 응용 프로그램 계층에 집중하기 쉽고 응용 프로그램을 더 빨리 출시할 수 있습니다.
 
-**Azure VM에서 실행되는 SQL Serve**r는 기존 응용 프로그램과 새 응용 프로그램이 SQL Server 인스턴스의 모든 기능을 액세스하고 제어해야 하는 경우와 기존 온-프레미스 응용 프로그램 및 데이터베이스를 클라우드로 그대로 마이그레이션하려는 경우에 이상적입니다. 프레젠테이션, 응용 프로그램 및 데이터 계층을 변경할 필요가 없으므로 기존 솔루션 재설계에 따른 비용과 예산이 절감됩니다. 대신 모든 솔루션 패키지를 VM으로 마이그레이션하고 Azure 플랫폼에 필요한 일부 성능 최적화를 수행하는 데 집중할 수 있습니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](http://msdn.microsoft.com/library/azure/dn133149.aspx)를 참조하세요.
+**Azure VM에서 실행되는 SQL Server**는 기존 응용 프로그램과 새 응용 프로그램이 SQL Server 인스턴스의 모든 기능을 액세스하고 제어해야 하는 경우와 기존 온-프레미스 응용 프로그램 및 데이터베이스를 클라우드로 그대로 마이그레이션하려는 경우에 이상적입니다. 프레젠테이션, 응용 프로그램 및 데이터 계층을 변경할 필요가 없으므로 기존 솔루션 재설계에 따른 비용과 예산이 절감됩니다. 대신 모든 솔루션 패키지를 VM으로 마이그레이션하고 Azure 플랫폼에 필요한 일부 성능 최적화를 수행하는 데 집중할 수 있습니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](http://msdn.microsoft.com/library/azure/dn133149.aspx)를 참조하세요.
 
 ##<a name="summary"></a>요약
 
@@ -202,11 +202,14 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 
 - 데이터베이스의 일반 관리 작업을 Microsoft로 하여금 수행하게 하고 데이터베이스에 대해 높은 가용성 SLA가 필요한 경우. 이 접근 방식은 관리 비용을 최소화하는 동시에 데이터베이스에 대한 가용성을 보장합니다.
 
-**Azure VM의 SQL Serve**r를 선택하는 경우:
+**Azure VM의 SQL Server**를 선택하는 경우:
 
 - 기존 온-프레미스 응용 프로그램이 있는데 자체적인 하드웨어 유지 관리를 중지하고 싶거나 하이브리드 솔루션을 고려하는 경우. 이 접근 방식을 사용하면 고용량 데이터베이스에 빠르게 액세스할 수 있고 온-프레미스 응용 프로그램을 보안 터널을 통해 클라우드에 연결할 수 있습니다.
 
 - 기존 IT 리소스가 있고, SQL Server에 대한 모든 관리 권한이 필요하고, 온-프레미스 SQL Server와의 완벽한 호환성이 필요한 경우(예: 일부 기능이 Azure SQL 데이터베이스에 없는 경우). 이 접근 방식을 사용하면 대부분의 응용 프로그램을 유연하게 실행할 수 있는 기능을 통해 기존 응용 프로그램의 개발 또는 수정 비용을 최소화할 수 있습니다. 또한 VM, 운영 체제 및 데이터베이스 구성을 완벽히 제어할 수 있습니다.
+
+> [AZURE.NOTE]- SQL Server 2016 CTP2를 사용해보시겠습니까? Microsoft Azure에 등록한 다음 [여기](http://aka.ms/sql2016vm "여기")로 이동하여 SQL Server 2016 CTP2가 이미 설치된 가상 컴퓨터를 스핀업합니다.
+
 
 ##<a name="ack"></a>감사의 말
 
@@ -250,4 +253,4 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

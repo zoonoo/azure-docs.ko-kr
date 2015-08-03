@@ -110,4 +110,4 @@ Windows 기반 가상 컴퓨터에서, 방화벽 규칙이 사용자의 응용�
 
 [Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

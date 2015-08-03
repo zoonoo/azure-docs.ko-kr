@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/14/2015" 
 	ms.author="bradsev;garye" />
 
 
@@ -189,4 +189,4 @@ R 제곱이라고도 하는 결정 계수도 모델이 데이터에 적합한 �
 [two-class-logistic-regression]: https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

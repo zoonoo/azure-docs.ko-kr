@@ -3,8 +3,8 @@
    description="솔루션 개발을 위한 Azure SQL 데이터 웨어하우스의 개체 관리를 위한 팁"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="barbkess"
-   manager="jhubbard"
+   authors="jrowlandjones"
+   manager="barbkess"
    editor=""/>
 
 <tags
@@ -152,7 +152,7 @@ CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < 
 
 > [AZURE.NOTE]쿼리 결과에서 행의 수를 예상하는 데 사용되는 히스토그램은 통계 개체 정의에 나열된 첫 번째 열에 사용할 수만 있습니다.
 
-이 예에서 히스토그램은 *product_category*에 있습니다. 열 간 통계는 *product_category* 및 *product_sub_c\\ategory*에서 계산됩니다.
+이 예에서 히스토그램은 *product_category*에 있습니다. 열 간 통계는 *product_category* 및 *product_sub_c\ategory*에서 계산됩니다.
 
 ```
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
@@ -280,13 +280,13 @@ prc_sqldw_create_stats;
 특정 통계 개체를 업데이트하려면 다음 구문을 사용합니다.
 
 ```
-UPDATE STATISTICS ON [schema_name].[table_name]([stat_name]);
+UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
 예:
 
 ```
-UPDATE STATISTICS ON [dbo].[table1] ([stats_col1]);
+UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 ```
 
 특정 통계 개체를 업데이트하여 통계를 관리하는 데 필요한 리소스와 시간을 최소화할 수 있습니다. 그러나 업데이트할 최상의 통계 개체를 선택하려면 필요합니다.
@@ -296,13 +296,13 @@ UPDATE STATISTICS ON [dbo].[table1] ([stats_col1]);
 테이블에 있는 모든 통계 개체를 업데이트하기 위한 간단한 방법을 보여줍니다.
 
 ```
-UPDATE STATISTICS ON [schema_name].[table_name];
+UPDATE STATISTICS [schema_name].[table_name];
 ```
 
 예:
 
 ```
-UPDATE STATISTICS ON dbo.table1;
+UPDATE STATISTICS dbo.table1;
 ```
 
 이 명령문은 사용하기 쉽습니다. 테이블에 대한 모든 통계를 업데이트하므로 필요한 것보다 더 많은 작업을 수행할 수 있습니다 성능이 중요하지 않은 경우, 통계가 최신임을 보증하는 가장 완전하고 쉬운 방법입니다.
@@ -452,4 +452,4 @@ DBCC SHOW_STATISTICS()는 SQL Server와 비교하여 SQL 데이터 웨어하우�
 [sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [통계 업데이트]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

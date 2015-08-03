@@ -50,4 +50,4 @@ Microsoft는 오랫동안 개인 정보 보호를 위해 노력해 왔으며 개
 [시작(개발자)](/documentation/services/mobile-engagement/)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

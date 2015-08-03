@@ -98,4 +98,4 @@ iKey는 [빠른 시작 블레이드에서 가져온 스크립트](app-insights-j
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

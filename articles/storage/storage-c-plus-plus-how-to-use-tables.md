@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/22/2015" 
+	ms.date="07/19/2015" 
     ms.author="tamram"/>
 
 # C++에서 테이블 저장소를 사용하는 방법
@@ -410,9 +410,10 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 선택�
 
 -	[C++에서 Blob 저장소를 사용하는 방법](storage-c-plus-plus-how-to-use-blobs.md)
 -	[C++에서 큐 저장소를 사용하는 방법](storage-c-plus-plus-how-to-use-queues.md)
+-	[C++에서 Azure 저장소 리소스 나열](storage-c-plus-plus-enumeration.md)
 -	[Storage Client Library for C++](https://msdn.microsoft.com/library/azure/gg433040.aspx) 
 -	[Azure 저장소 MSDN 참조](https://msdn.microsoft.com/library/azure/gg433040.aspx)
 -	[Azure 저장소 설명서](http://azure.microsoft.com/documentation/services/storage/)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

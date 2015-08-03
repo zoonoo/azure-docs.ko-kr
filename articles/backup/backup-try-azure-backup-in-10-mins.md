@@ -45,4 +45,4 @@ Azure 백업 설치는 매우 쉬우며, 다음과 같은 방법 동영상도 �
 - Azure 백업에 대한 자세한 내용은 [Azure 백업 개요](backup-introduction-to-azure-backup.md)를 참조하세요.
 - [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하세요.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

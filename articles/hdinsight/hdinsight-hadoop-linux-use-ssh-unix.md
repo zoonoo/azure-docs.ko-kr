@@ -61,7 +61,7 @@ Linux 기반 HDInsight 클러스터를 만드는 경우 SSH 키를 사용할 때
 
 	다음 정보를 묻는 메시지가 나타납니다.
 
-	* 파일 위치 - 위치는 기본적으로 ~/.ssh/id\\_rsa로 설정됩니다.
+	* 파일 위치 - 위치는 기본적으로 ~/.ssh/id\_rsa로 설정됩니다.
 	* 암호 - 이것을 다시 입력하라는 메시지가 표시됩니다.
 
 		> [AZURE.NOTE]키에 대한 보안 암호를 사용하는 것이 좋습니다. 그러나 암호를 잊은 경우 복구할 수 있는 방법이 없습니다.
@@ -295,4 +295,4 @@ FoxyProxy 표준을 설치한 경우 터널을 통해 HDInsight에 대한 트래
 
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -145,4 +145,4 @@ HDInsight SDK를 사용하여 Hadoop 클러스터 크기를 변경하려면 다�
 HDInsight .NET SDK 사용 정보에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight에서 Hadoop 클러스터 프로비전](hdinsight-provision-clusters.md) 주제를 참조하세요.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

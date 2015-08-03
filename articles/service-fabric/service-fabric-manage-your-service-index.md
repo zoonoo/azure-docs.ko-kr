@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/08/2015"
+   ms.date="07/09/2015"
    ms.author="ryanwi"/>
 
 # 서비스 패브릭 서비스 관리
@@ -30,6 +30,7 @@
 - [서비스 매니페스트 리소스](service-fabric-service-manifest-resources.md)
 - [응용 프로그램 패키지 작성](service-fabric-application-model.md)
 - [응용 프로그램 배포 및 제거](service-fabric-deploy-remove-applications.md)
+- [기존 응용 프로그램 배포](service-fabric-deploy-existing-app.md)
 - [Visual Studio에서 서비스 패브릭 응용 프로그램 관리](service-fabric-manage-application-in-visual-studio.md)
 
 ## 응용 프로그램 업그레이드
@@ -49,4 +50,4 @@
 - [서비스 패브릭 응용 프로그램 크기 조정](service-fabric-concepts-scalability.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

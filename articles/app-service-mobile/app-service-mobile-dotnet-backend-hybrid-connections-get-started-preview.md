@@ -168,4 +168,4 @@ Azure에 게시하고 하이브리드 연결을 사용하기 전에 로컬로 �
 [Get started with Mobile Services]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

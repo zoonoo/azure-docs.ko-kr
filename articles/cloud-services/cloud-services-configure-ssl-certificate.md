@@ -31,7 +31,7 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 
 이 작업에서는 프로덕션 배포를 사용합니다. 스테이징 배포에 대한 자세한 내용은 이 토픽의 끝 부분에서 제공됩니다.
 
-첫 번째 클라우드 서비스를 아직 만들지 않은 경우.읽기[이 문서를](cloud-services-how-to-create-deploy.md) 읽어보세요.
+클라우드 서비스를 아직 만들지 않은 경우 먼저 [이 문서를](cloud-services-how-to-create-deploy.md) 읽어보세요.
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
@@ -47,7 +47,7 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 -   인증서의 주체 이름은 클라우드 서비스 액세스에 사용되는 도메인과 일치해야 합니다. cloudapp.net 도메인에 사용되는 SSL 인증서는 CA(인증 기관)에서 얻을 수 없습니다. 서비스에 액세스할 때 사용할 사용자 지정 도메인 이름을 획득해야 합니다. CA에서 인증서를 요청하는 경우 인증서의 주체 이름이 응용 프로그램 액세스에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다. 예를 들어 사용자 지정 도메인 이름이 **contoso.com**인 경우 CA에서 ***.contoso.com** 또는 **www.contoso.com**에 대한 인증서를 요청합니다.
 -   인증서는 최소한 2048비트 암호화를 사용해야 합니다.
 
-테스트 용도로 자체 서명된 인증서를 만들어 사용할 수 있습니다. 자체 서명된 인증서는 CA를 통해 인증되지 않으며 cloudapp.net 도메인을 웹 사이트 URL로 사용할 수 있습니다. 예를 들어 아래 작업에서는 인증서에서 사용되는 CN(일반 이름)이 **sslexample.cloudapp.net**인 자체 서명된 인증서를 사용합니다. IIS 관리자를 사용하여 자체 서명된 인증서를 만드는 방법에 대한 자세한 내용은 [역할에 대한 인증서를 만드는 방법][](영문)을 참조하세요.
+테스트용으로 자체 서명된 인증서를 [만들어](cloud-services-certs-create.md) 사용할 수 있습니다. 자체 서명된 인증서는 CA를 통해 인증되지 않으며 cloudapp.net 도메인을 웹 사이트 URL로 사용할 수 있습니다. 예를 들어 아래 작업에서는 인증서에서 사용되는 CN(일반 이름)이 **sslexample.cloudapp.net**인 자체 서명된 인증서를 사용합니다. IIS 관리자를 사용하여 자체 서명된 인증서를 만드는 방법에 대한 자세한 내용은 [역할에 대해 인증서를 만드는 방법][]을 참조하세요.
 
 다음으로 인증서에 대한 정보를 서비스 정의 및 서비스 구성 파일에 포함해야 합니다.
 
@@ -117,7 +117,7 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 배포 패키지가 인증서를 사용하도록 업데이트되었으며 HTTPS 끝점이 추가되었습니다. 이제 관리 포털을 사용하여 패키지 및 인증서를 Azure에 업로드할 수 있습니다.
 
 1. [Azure 관리 포털][]에 로그인합니다. 
-2. 클릭할 왼쪽 탐색 모음 창의 **클라우드 서비스**를 클릭합니다.
+2. 왼쪽 탐색 창에서 **클라우드 서비스**를 클릭합니다.
 3. 원하는 클라우드 서비스를 클릭합니다.
 4. **인증서** 탭을 클릭합니다.
 
@@ -127,7 +127,7 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 
     ![업로드](./media/cloud-services-configure-ssl-certificate/upload-button.png)
     
-6. **파일****암호**를 제공한 후 **확인**을 클릭합니다(확인 표시).
+6. **파일**, **암호**를 제공한 후 **완료**를 클릭합니다(확인 표시).
 
 ## 4단계: HTTPS를 사용하여 역할 인스턴스에 연결
 
@@ -145,21 +145,11 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 
 프로덕션 배포가 아닌 스테이징 배포에 SSL을 사용하려면 먼저 스테이징 배포에 사용된 URL을 확인해야 합니다. 인증서나 인증서 정보를 포함하지 않고도 스테이징 환경에 클라우드 서비스를 배포할 수 있습니다. 배포된 다음에는 관리 포털의 **사이트 URL** 필드에 나열되는 GUID 기반 URL을 확인할 수 있습니다. GUID 기반 URL(예: **32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**)과 동일한 CN(일반 이름)을 사용하여 인증서를 만들고, 관리 포털을 사용하여 스테이징된 클라우드 서비스에 인증서를 추가하고, 인증서 정보를 CSDEF 및 CSCFG 파일에 추가하고, 응용 프로그램을 다시 패키지하고, 새 패키지 및 CSCFG 파일을 사용하도록 스테이징된 배포를 업데이트합니다.
 
-## 추가 리소스
-
-* [인증서를 서비스와 연결하는 방법][]
-
-* [HTTPS 끝점에서 SSL 인증서를 구성하는 방법][]
-
-  [역할에 대한 인증서를 만드는 방법]: http://msdn.microsoft.com/library/azure/gg432987.aspx
-  [인증서를 서비스와 연결하는 방법]: http://msdn.microsoft.com/library/azure/gg465718.aspx
   [Azure 관리 포털]: http://manage.windowsazure.com
   [0]: ./media/cloud-services-configure-ssl-certificate/CreateCloudService.png
   [1]: ./media/cloud-services-configure-ssl-certificate/AddCertificate.png
   [2]: ./media/cloud-services-configure-ssl-certificate/CopyURL.png
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
-  [HTTPS 끝점에서 SSL 인증서를 구성하는 방법]: http://msdn.microsoft.com/library/azure/ff795779.aspx
- 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

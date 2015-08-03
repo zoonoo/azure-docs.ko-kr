@@ -86,24 +86,24 @@ Azure Site Recovery는 가상 컴퓨터와 물리적 서버의 복제, 장애 �
 
 **위치** | **분류** | **관련 저장소**
 ---|---|---
-뉴욕 | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\FileServer\\SourceShare1</p>
- | SILVER | <p>C:\\ClusterStorage\\SourceVolume2</p><p>\\FileServer\\SourceShare2</p>
-시카코 | GOLD_TARGET | <p>C:\\ClusterStorage\\TargetVolume1</p><p>\\FileServer\\TargetShare1</p>
- | SILVER_TARGET| <p>C:\\ClusterStorage\\TargetVolume2</p><p>\\FileServer\\TargetShare2</p>
+뉴욕 | GOLD | <p>C:\ClusterStorage\SourceVolume1</p><p>\FileServer\SourceShare1</p>
+ | SILVER | <p>C:\ClusterStorage\SourceVolume2</p><p>\FileServer\SourceShare2</p>
+시카코 | GOLD_TARGET | <p>C:\ClusterStorage\TargetVolume1</p><p>\FileServer\TargetShare1</p>
+ | SILVER_TARGET| <p>C:\ClusterStorage\TargetVolume2</p><p>\FileServer\TargetShare2</p>
 
 이 표는 이 예시 환경에서 가상 컴퓨터(VM1 - VM5)에 대한 보호를 사용하도록 설정할 때의 동작을 요약합니다.
 
 **가상 컴퓨터** | **원본 저장소** | **원본 분류** | **매핑되는 대상 저장소**
 ---|---|---|---
-VM1 | C:\\ClusterStorage\\SourceVolume1 | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\\\FileServer\\SourceShare1</p><p>Both GOLD_TARGET</p>
-VM2 | \\FileServer\\SourceShare1 | GOLD | <p>C:\\ClusterStorage\\SourceVolume1</p><p>\\FileServer\\SourceShare1</p> <p>Both GOLD_TARGET</p>
-VM3 | C:\\ClusterStorage\\SourceVolume2 | SILVER | <p>C:\\ClusterStorage\\SourceVolume2</p><p>\\FileServer\\SourceShare2</p>
-VM4 | \\FileServer\\SourceShare2 | SILVER |<p>C:\\ClusterStorage\\SourceVolume2</p><p>\\FileServer\\SourceShare2</p><p>Both SILVER_TARGET</p>
-VM5 | C:\\ClusterStorage\\SourceVolume3 | 해당 없음 | 매핑이 없어 Hyper-V 호스트의 기본 저장소 위치가 사용됨
+VM1 | C:\ClusterStorage\SourceVolume1 | GOLD | <p>C:\ClusterStorage\SourceVolume1</p><p>\\FileServer\SourceShare1</p><p>Both GOLD_TARGET</p>
+VM2 | \FileServer\SourceShare1 | GOLD | <p>C:\ClusterStorage\SourceVolume1</p><p>\FileServer\SourceShare1</p> <p>Both GOLD_TARGET</p>
+VM3 | C:\ClusterStorage\SourceVolume2 | SILVER | <p>C:\ClusterStorage\SourceVolume2</p><p>\FileServer\SourceShare2</p>
+VM4 | \FileServer\SourceShare2 | SILVER |<p>C:\ClusterStorage\SourceVolume2</p><p>\FileServer\SourceShare2</p><p>Both SILVER_TARGET</p>
+VM5 | C:\ClusterStorage\SourceVolume3 | 해당 없음 | 매핑이 없어 Hyper-V 호스트의 기본 저장소 위치가 사용됨
 
 ## 다음 단계
 
 배포 준비를 위해 [모범 사례](site-recovery-best-practices.md)를 읽으면 저장소 매핑 시작에 대해 더 잘 이해하게 됩니다.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

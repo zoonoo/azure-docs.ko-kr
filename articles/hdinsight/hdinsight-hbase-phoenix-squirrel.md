@@ -108,7 +108,7 @@ SQLLine을 시작하려면 다음이 있어야 합니다.
 2. [인증서 만들기](#Create-your-certificates)
 3. [VPN 클라이언트 구성](#Configure-your-VPN-client)
 
-자세한 내용은 [Azure 가상 네트워크에 대한 지점 및 사이트 간 VPN 연결 구성](https://msdn.microsoft.com/library/azure/dn133792.aspx)을 참조하세요.
+자세한 내용은 [Azure 가상 네트워크에 대한 지점 및 사이트 간 VPN 연결 구성](../vpn-gateway/vpn-gateway-point-to-site-create.md)을 참조하세요.
 
 #### 가상 네트워크 및 동적 라우팅 게이트웨이 구성
 
@@ -216,7 +216,7 @@ X.509 인증서를 만드는 한 가지 방법은 [Microsoft Visual Studio Expre
 2. jar 파일을 엽니다/실행합니다. [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html)가 필요합니다.
 3. **다음**를 두 번 클릭합니다.
 4. 쓰기 권한이 있는 경로를 지정하고 **다음**을 클릭합니다.
-	>[AZURE.NOTE]기본 설치 폴더는 C:\\Program Files\\squirrel-sql-3.6 폴더에 있습니다. 이 경로에 쓰려면 설치 관리자에 관리자 권한이 부여되어야 합니다. 관리자 권한으로 명령 프롬프트를 열고 Java의 bin 폴더로 이동한 후 다음을 실행합니다.
+	>[AZURE.NOTE]기본 설치 폴더는 C:\Program Files\squirrel-sql-3.6 폴더에 있습니다. 이 경로에 쓰려면 설치 관리자에 관리자 권한이 부여되어야 합니다. 관리자 권한으로 명령 프롬프트를 열고 Java의 bin 폴더로 이동한 후 다음을 실행합니다.
 	>
 	>     java.exe -jar [the path of the SQuirreL jar file] 
 5. **확인**을 클릭하여 대상 디렉터리 만들기를 확인합니다.
@@ -306,4 +306,4 @@ Phoenix 드라이버 jar 파일은 HBase 클러스터에 있습니다. 경로는
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

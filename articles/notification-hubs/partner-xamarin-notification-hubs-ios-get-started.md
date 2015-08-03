@@ -480,4 +480,4 @@ Apple [Local and Push Notification Programming Guide]에서 가능한 모든 페
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

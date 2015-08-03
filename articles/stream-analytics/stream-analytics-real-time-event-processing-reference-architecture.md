@@ -62,4 +62,4 @@ Microsoft Azure는 여러 솔루션 시나리오 및 요구 사항을 지원할 
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

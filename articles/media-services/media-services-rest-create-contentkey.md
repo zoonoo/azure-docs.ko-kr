@@ -247,4 +247,4 @@ ContentKey를 만든 후 다음 예제와 같이 $links 작업을 사용하여 �
 
 	HTTP/1.1 204 No Content 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

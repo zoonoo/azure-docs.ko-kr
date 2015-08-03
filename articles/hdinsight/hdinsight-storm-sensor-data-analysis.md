@@ -258,7 +258,7 @@ HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 �
 
 2. 웹 사이트가 만들어지면 Azure 포털에서 해당 사이트로 이동하여 **구성** 탭을 선택합니다. **웹 소켓**을 사용하도록 설정하고 페이지 아래쪽에서 **저장**을 클릭합니다.
 
-2. **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts\\DashboardBolt.java**를 열고 다음 줄을 게시된 대시보드의 URL을 가리키도록 변경합니다.
+2. **hdinsight-eventhub-example\TemperatureMonitor\src\main\java\com\microsoft\examples\bolts\DashboardBolt.java**를 열고 다음 줄을 게시된 대시보드의 URL을 가리키도록 변경합니다.
 
 		socket = IO.socket("http://mywebsite.azurewebsites.net");
 
@@ -362,13 +362,13 @@ Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 FQDN(정규화
 
 ### HBase bolt 사용
 
-1. **hdinsight-eventhub-example\\TemperatureMonitor\\conf\\hbase-site.xml**을 열고 다음 줄의 `suffix` 항목을 앞에서 가져온 HBase 클러스터의 DNS 접미사로 바꿉니다. 변경을 완료한 후 파일을 저장합니다.
+1. **hdinsight-eventhub-example\TemperatureMonitor\conf\hbase-site.xml**을 열고 다음 줄의 `suffix` 항목을 앞에서 가져온 HBase 클러스터의 DNS 접미사로 바꿉니다. 변경을 완료한 후 파일을 저장합니다.
 
 		<value>zookeeper0.suffix,zookeeper1.suffix,zookeeper2.suffix</value>
 
 	이는 HBase bolt에서 HBase 클러스터와 통신하는 데 사용됩니다.
 
-1. 텍스트 편집기에서 **hdinsight-eventhub-example\\TemperatureMonitor\\src\\main\\java\\com\\microsoft\\examples\\bolts**를 열고 시작 부분에서 `//`를 제거하여 다음 줄의 주석 처리를 제거합니다. 변경을 완료한 후 파일을 저장합니다.
+1. 텍스트 편집기에서 **hdinsight-eventhub-example\TemperatureMonitor\src\main\java\com\microsoft\examples\bolts**를 열고 시작 부분에서 `//`를 제거하여 다음 줄의 주석 처리를 제거합니다. 변경을 완료한 후 파일을 저장합니다.
 
 		topologyBuilder.setBolt("HBase", new HBaseBolt("SensorData", mapper).withConfigKey("hbase.conf"), spoutConfig.getPartitionCount())
     	  .fieldsGrouping("Parser", "hbasestream", new Fields("deviceid")).setNumTasks(spoutConfig.getPartitionCount());
@@ -385,7 +385,7 @@ Storm 클러스터에서 HBase에 쓰려면 HBase 클러스터의 FQDN(정규화
 
 2. 데스크톱에서 HDInsight 명령줄을 시작하고 다음 명령을 입력합니다.
 
-    cd %HBASE_HOME% bin\\hbase shell
+    cd %HBASE_HOME% bin\hbase shell
 
 3. HBase 셸에서 다음 명령을 입력하여 센서 데이터를 저장할 테이블을 만듭니다.
 
@@ -420,4 +420,4 @@ Storm 클러스터에서 토폴로지를 시작하고 데이터를 처리한 경
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

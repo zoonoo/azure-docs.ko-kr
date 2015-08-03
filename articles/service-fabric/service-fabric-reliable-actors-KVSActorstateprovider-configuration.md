@@ -84,4 +84,4 @@ KVSActorStateProvider의 기본 구성은 해당 지정된 행위자에 대해 V
 BatchAcknowledgementInterval은 복제 대기 시간을 제어합니다. '0' 값은 처리량을 희생하여 가장 낮은 대기 시간을 제공합니다(더 많은 승인 메시지를 보내고 처리해야 하므로 각각에 포함된 승인은 적음). BatchAcknowledgementInterval의 값이 클수록 전체적인 복제 처리량은 높아지고 작업 대기 시간은 더욱 길어집니다. 이 값은 트랜잭션 커밋의 대기 시간으로 직접 변환됩니다.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -152,7 +152,7 @@ StorSimple 스냅숏 관리자의 **범위** 창에서 노드를 사용하여 �
 
 3. **결과** 창에서 장치 이름을 마우스 오른쪽 단추로 클릭하고 **세부 정보**를 클릭합니다.
 
-4\. **장치 세부 정보** 대화 상자가 표시됩니다. 이 상자에는 이름, 모델, 버전, 일련 번호, 상태, 대상 IQN(정규화된 iSCSI 이름), 마지막 동기화 날짜 및 시간이 표시됩니다.
+4. **장치 세부 정보** 대화 상자가 표시됩니다. 이 상자에는 이름, 모델, 버전, 일련 번호, 상태, 대상 IQN(정규화된 iSCSI 이름), 마지막 동기화 날짜 및 시간이 표시됩니다.
 
    - **다시 동기화**를 클릭하여 장치를 동기화합니다.
 
@@ -238,7 +238,7 @@ StorSimple 장치에서 오류가 발생하여 대기(장애 조치(failover)) �
 
 3. 이전 장치 관련 구성 정보를 제거합니다.
 
-    1. 파일 탐색기에서 C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog로 이동합니다. 
+    1. 파일 탐색기에서 C:\ProgramData\Microsoft\StorSimple\BACatalog로 이동합니다. 
 
     2. BACatalog 폴더의 파일을 삭제합니다.
 
@@ -262,4 +262,4 @@ StorSimple 장치에서 오류가 발생하여 대기(장애 조치(failover)) �
 
 [StorSimple 스냅숏 관리자를 사용하여 볼륨을 보고 관리합니다](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

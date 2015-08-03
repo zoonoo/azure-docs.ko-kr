@@ -12,7 +12,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="07/08/2015"
+ ms.date="07/17/2015"
  ms.author="danlep"/>
 
 # A8, A9, A10 및 A11 계산 집약적 인스턴스 정보
@@ -91,7 +91,7 @@ Windows Server에서 HPC 팩을 사용하여 IaaS 및 PaaS 시나리오에서 �
 
 >[AZURE.NOTE]현재 Azure Linux RDMA 드라이버는 드라이버 확장을 통해 설치에 사용할 수 없습니다. Azure Marketplace의 RDMA 지원 SLES 12 이미지를 사용하는 경우에만 사용할 수 있습니다.
 
-계산 노드의 클러스터(laaS)에서 RDMA 네트워크에 액세스하기 위해 Linux MPI 응용 프로그램에 대한 필수 구성 요소는 다음 표를 참조하세요.
+계산 노드의 클러스터(laaS)에서 RDMA 네트워크에 액세스하기 위해 Linux MPI 응용 프로그램에 대한 필수 구성 요소는 다음 표를 참조하세요. 배포 옵션 및 구성 단계는 [MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](virtual-machines-linux-cluster-rdma.md)을 참조하세요.
 
 필수 요소 | 가상 컴퓨터(IaaS)
 ------------ | -------------
@@ -100,7 +100,7 @@ MPI | Intel MPI Library 5.0
 
 ### Windows A8 및 A9 인스턴스에서 액세스
 
-단일 클라우드 서비스 또는 가용성 집합 내에서 Microsoft Network Direct 인터페이스를 사용하여 인스턴스 간에 통신하는 MPI 응용 프로그램을 실행할 때 A8 및 A9 인스턴스는 Azure의 RDMA 네트워크에 액세스할 수 있습니다. 이 때 Network Direct는 Microsoft의 Windows용 MS-MPI를 통해서만 지원됩니다. A10 및 A11 인스턴스는 RDMA 네트워크에 대한 액세스는 포함하지 않습니다.
+단일 클라우드 서비스 또는 가용성 집합 내에서 Microsoft Network Direct 인터페이스를 사용하여 인스턴스 간에 통신하는 MPI 응용 프로그램을 실행할 때 A8 및 A9 인스턴스는 Azure의 RDMA 네트워크에 액세스할 수 있습니다. A10 및 A11 인스턴스는 RDMA 네트워크에 대한 액세스는 포함하지 않습니다.
 
 A8 또는 A9 인스턴스의 가상 컴퓨터(IaaS) 및 클라우드 서비스(PaaS) 배포에서 RDMA 네트워크에 액세스하기 위한 MPI 응용 프로그램의 필수 요소는 다음 표를 참조하세요. 일반적인 배포 시나리오는 [A8 및 A9 계산 집약적 인스턴스: HPC 팩을 사용한 빠른 시작](https://msdn.microsoft.com/library/azure/dn594431.aspx)을 참조하세요.
 
@@ -108,7 +108,7 @@ A8 또는 A9 인스턴스의 가상 컴퓨터(IaaS) 및 클라우드 서비스(P
 필수 요소 | 가상 컴퓨터(IaaS) | 클라우드 서비스(PaaS)
 ---------- | ------------ | -------------
 운영 체제 | Windows Server 2012 R2 또는 Windows Server 2012 VM | Windows Server 2012 R2, Windows Server 2012 또는 Windows Server 2008 R2 게스트 OS 제품군
-MPI | MS-MPI 2012 R2 이상, 독립 실행형 또는 HPC Pack 2012 R2 이상을 통한 설치 | MS-MPI 2012 R2 이상, HPC Pack 2012 R2 이상을 통한 설치
+MPI | MS-MPI 2012 R2 이상, 독립 실행형 또는 HPC Pack 2012 R2 이상을 통한 설치<br/><br/>Intel MPI Library 5.0 | MS-MPI 2012 R2 이상, HPC Pack 2012 R2 이상을 통한 설치<br/><br/>Intel MPI Library 5.0
 
 
 >[AZURE.NOTE]IaaS 시나리오의 경우 RDMA 연결에 필요한 Windows 드라이버를 설치하려면 [HpcVmDrivers 확장](https://msdn.microsoft.com/library/azure/dn690126.aspx)이 VM에 추가되어야 합니다.
@@ -122,10 +122,12 @@ MPI | MS-MPI 2012 R2 이상, 독립 실행형 또는 HPC Pack 2012 R2 이상을 
 
 * A8, A9, A10 및 A11 인스턴스는 현재 기존 선호도 그룹의 일부인 클라우드 서비스를 사용하여 배포할 수 없습니다. 마찬가지로, A8, A9, A10 및 A11 인스턴스를 포함하는 클라우드 서비스가 있는 선호도 그룹은 다른 인스턴스 크기의 배포에 사용할 수 없습니다. 이러한 배포를 시도하는 경우 `Azure deployment failure (Compute.OverconstrainedAllocationRequest): The VM size (or combination of VM sizes) required by this deployment cannot be provisioned due to deployment request constraints.`와(과) 유사한 오류 메시지를 보게 됩니다.
 
+* Azure의 RDMA 네트워크는 주소 공간 172.16.0.0/12를 예약합니다. Azure 가상 네트워크에 배포된 A8 및 A9 인스턴스에서 MPI 응용 프로그램을 실행하려면 가상 네트워크 주소 공간이 RDMA 네트워크와 겹치지 않도록 해야 합니다.
 
 ## 다음 단계
 
 * A8, A9, A10 및 A11 인스턴스의 가용성 및 가격에 대한 세부 정보는 [가상 컴퓨터 가격](http://azure.microsoft.com/pricing/details/virtual-machines/) 및 [클라우드 서비스 가격](http://azure.microsoft.com/pricing/details/cloud-services/)을 참조하세요.
+* A8 및 A9 인스턴스를 사용하여 Azure RDMA 네트워크에 액세스하도록 Linux 클러스터를 배포 및 구성하려면 [MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](virtual-machines-linux-cluster-rdma.md)을 참조하세요.
 * Windows에서 HPC 팩을 사용하여 A8 및 A9 인스턴스 배포 및 사용을 시작하려면 [A8 및 A9 계산 집약적 인스턴스: HPC 팩을 사용한 빠른 시작](https://msdn.microsoft.com/library/azure/dn594431.aspx) 및 [A8 및 A9 인스턴스에서 MPI 응용 프로그램 실행](https://msdn.microsoft.com/library/azure/dn592104.aspx)을 참조하세요.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

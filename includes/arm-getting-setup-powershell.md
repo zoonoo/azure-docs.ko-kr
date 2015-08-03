@@ -35,7 +35,7 @@ Azure PowerShell 명령 프롬프트에서 다음 명령을 사용하여 설치�
 	-------
 	0.9.0
 
-0\.9.0 이상이 없는 경우 프로그램 및 기능 제어판을 사용하여 Azure PowerShell을 제거한 다음 최신 버전을 설치해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하세요.
+0.9.0 이상이 없는 경우 프로그램 및 기능 제어판을 사용하여 Azure PowerShell을 제거한 다음 최신 버전을 설치해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하세요.
 
 ### Azure 계정 및 구독 설정
 
@@ -77,4 +77,4 @@ Azure 리소스 관리자 모듈을 사용하려면 기본 Azure 명령 집합�
 
 > [AZURE.NOTE]**Switch-AzureMode AzureServiceManagement** 명령을 사용하여 기본 명령 집합으로 다시 전환할 수 있습니다.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

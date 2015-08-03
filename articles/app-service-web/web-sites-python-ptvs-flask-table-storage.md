@@ -210,4 +210,4 @@ Python Tools for Visual Studio, Flask 및 Azure 테이블 저장소에 대해 �
 [Python용 Azure SDK]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

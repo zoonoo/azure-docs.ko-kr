@@ -92,4 +92,4 @@ User 23이 로그인할 때 아직 활성화되어 있지 않으면 사용자 �
 [3]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-3.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

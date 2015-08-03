@@ -87,7 +87,7 @@
 
    	![][8]
 
-4. 2\.0 버전의 SDK를 다운로드한 경우 코드를 모바일 서비스의 URL 및 키로 업데이트해야 합니다.
+4. 2.0 버전의 SDK를 다운로드한 경우 코드를 모바일 서비스의 URL 및 키로 업데이트해야 합니다.
 	- 	**TodoActivity.java**에서 **OnCreate** 메서드를 찾아 모바일 서비스 클라이언트를 인스턴스화하는 코드를 찾습니다. 이 코드는 이전 이미지에서 확인할 수 있습니다.
 	- 	"MobileServiceUrl"을 모바일 서비스의 실제 URL로 바꿉니다.
 	- 	"AppKey"를 모바일 서비스의 키로 바꿉니다.
@@ -158,4 +158,4 @@
 [Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

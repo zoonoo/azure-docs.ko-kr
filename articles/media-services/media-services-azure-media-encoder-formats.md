@@ -27,12 +27,12 @@
 이 문서에는 Azure 미디어 인코더에서 사용할 수 있는 가장 일반적인 가져오기 및 내보내기 파일 형식 목록이 포함되어 있습니다.
 
 
-[미디어 인코더 가져오기 형식](#import_formats)
+[Azure 미디어 인코더 가져오기 형식](#import_formats)
 
-[미디어 인코더 내보내기 형식](#export_formats)
+[Azure 미디어 인코더 내보내기 형식](#export_formats)
 
 
-##<a id="import_formats"></a>미디어 인코더 가져오기 형식 
+##<a id="import_formats"></a>Azure 미디어 인코더 가져오기 형식 
 
 다음 섹션에는 가져오기에 지원되는 코덱 및 파일 형식이 나열되어 있습니다.
 
@@ -102,7 +102,7 @@
 </table>
 
 
-##<a id="export_formats"></a>미디어 인코더 내보내기 형식
+##<a id="export_formats"></a>Azure 미디어 인코더 내보내기 형식
 
 다음 표에는 내보내기에 지원되는 코덱 및 파일 형식이 나열되어 있습니다.
 
@@ -137,4 +137,4 @@ Azure 미디어 서비스는 압축되지 않은 비디오 데이터 가져오�
 <tr><td>Indeo 생성 YVU9 형식</td><td>마지막 프레임과의 차이점에 대한 추가 정보가 있는 Indeo 생성 YVU9 형식입니다. 픽셀당 9.5비트이지만 9로 보고됩니다.</td></tr>
 </table>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="07/10/2015"
    ms.author="joaoma" />
 
 
@@ -77,7 +77,11 @@ Azure 부하 분산 장치 구성은 UDP에 대해 완전한 원뿔형 NAT를 �
 
 ![snat](./media/load-balancer-overview/load-balancer-snat.png)
 
-Azure 부하 분산 장치는 VM에서 시작된 새로운 아웃바운드 연결마다 아웃바운드 포트도 할당합니다. 외부 호스트에서는 트래픽이 VIP: 할당된 포트로 들어오는 것으로 표시됩니다. 시나리오에 다수의 아웃바운드 연결이 필요한 경우 SNAT(Source Network Address Translation)에 전용 아웃바운드 IP가 있도록 VM에서 인스턴스 수준 공용 IP를 사용하는 것이 좋습니다. 이렇게 하면 포트 고갈 위험이 줄어듭니다.
+
+>[AZURE.NOTE]Azure 부하 분산 장치는 VM에서 시작된 새로운 아웃바운드 연결마다 아웃바운드 포트도 할당합니다. 외부 호스트에서는 트래픽이 VIP: 할당된 포트로 들어오는 것으로 표시됩니다. 시나리오에 다수의 아웃바운드 연결이 필요한 경우 SNAT(Source Network Address Translation)에 전용 아웃바운드 IP가 있도록 VM에서 인스턴스 수준 공용 IP를 사용하는 것이 좋습니다. 이렇게 하면 포트 고갈 위험이 줄어듭니다.
+>
+>VIP 또는 ILPIP에서 사용할 수 있는 최대 포트 수는 64k입니다. 이는 TCP 표준 제한입니다.
+
 
 **가상 컴퓨터에 대해 여러 개의 부하 분산 IP 지원**
 
@@ -95,4 +99,4 @@ Azure 부하 분산 장치는 VM에서 시작된 새로운 아웃바운드 연�
 [시작 - 인터넷 연결 부하 분산 장치](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

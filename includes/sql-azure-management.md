@@ -166,4 +166,4 @@ SQL 데이터베이스는 개별 데이터베이스를 모니터링할 수 있�
         GROUP BY query_stats.query_hash
         ORDER BY 2 DESC;
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

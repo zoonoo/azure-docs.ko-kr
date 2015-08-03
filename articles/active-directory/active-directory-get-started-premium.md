@@ -124,4 +124,4 @@ Microsoft 클라우드 서비스의 서비스 및 기능에 대한 가용성은 
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

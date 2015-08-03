@@ -1,3 +1,4 @@
+
 <properties 
     pageTitle="RemoteApp의 VNET에 대한 크기 정보"
     description="VNET에서 실행 중인 RemoteApp의 IP 주소 요구 사항에 대해 알아봅니다." 
@@ -24,4 +25,4 @@ VNET(가상 네트워크)에서 RemoteApp을 사용할 경우 RemoteApp에서는
 최대 용량으로 실행하려는 각 RemoteApp 컬렉션에 대해 100개의 IP 주소를 사용할 수 있어야 합니다. 예를 들어 표준 요금제에 RemoteApp 컬렉션이 하나 있고 최대 500명의 사용자를 허용하려면 해당 컬렉션에 대해 100개의 IP 주소가 있어야 합니다. 마찬가지로 800명의 사용자가 있는 기본 요금제의 RemoteApp 컬렉션의 경우에도 100개의 IP 주소가 필요합니다. 최대값보다 적은 수의 사용자를 허용하려는 경우 컬렉션당 필요한 IP 주소 수를 줄일 수 있습니다. 최소 서브넷 크기 요구 사항은 30개 IP 주소입니다(/ 27).
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

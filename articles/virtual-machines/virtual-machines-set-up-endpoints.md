@@ -98,4 +98,4 @@ Azure PowerShell cmdlet을 사용하여 이 작업을 설정하려면, [PowerShe
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

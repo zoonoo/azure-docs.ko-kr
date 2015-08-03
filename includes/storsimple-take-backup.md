@@ -24,4 +24,4 @@
 
 장치 구성을 완료했습니다.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -33,6 +33,10 @@
 
 APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 앱을 인증합니다. 필요한 인증서를 만들어 모바일 앱에 업로드하려면 해당 지침을 따르세요. 공식 APNS 기능 설명서는 [Apple Push Notification Service](영문)를 참조하세요.
 
+##<a name="review"></a>서버 프로젝트 구성 검토(옵션)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
+
 ## <a name="certificates"></a>인증서 서명 요청 파일 생성
 
 먼저, 서명된 인증서를 생성하기 위해 Apple에서 사용하는 CSR(인증서 서명 요청) 파일을 생성해야 합니다.
@@ -260,7 +264,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 앱
 
 1. **실행** 단추를 눌러 프로젝트를 빌드하고 iOS 지원 장치에서 앱을 시작한 다음, **확인**을 클릭하여 푸시 알림을 수락합니다.
 	
-	> [AZURE.NOTE]앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱을 처음 실행할 때만 발생합니다.
+	> [AZURE.NOTE]앱에서 푸시 알림을 명시적으로 수락해야 합니다. This request only occurs the first time that the app runs.
 
 2. 앱에서 작업을 입력하고 더하기(**+**) 아이콘을 클릭합니다.
 
@@ -336,4 +340,4 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 앱
 
  
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

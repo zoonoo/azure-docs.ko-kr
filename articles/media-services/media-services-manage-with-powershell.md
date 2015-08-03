@@ -28,7 +28,7 @@
 
 이 문서에서는 PowerShell cmdlet를 사용하여 Azure 미디어 서비스 계정을 관리하는 방법을 보여줍니다.
 
->[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+>[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
 ##Microsoft Azure PowerShell Cmdlet 설치
 
@@ -40,11 +40,11 @@ PowerShell cmdlet를 설치 및 구성하면 작업하려는 구독에서 지정
 
 사용 가능한 구독 목록을 가져오려면 다음 cmdlet를 실행합니다.
 
-	PS C:> Get-AzureSubscription
+	PS C:\> Get-AzureSubscription
 
 그리고 다음 수행하여 하나를 선택합니다.
 
-	PS C:> Select-AzureSubscription "TestSubscription"
+	PS C:\> Select-AzureSubscription "TestSubscription"
 
  
 ##저장소 계정 이름 가져오기
@@ -77,14 +77,14 @@ Azure 미디어 서비스는 Azure 저장소를 사용하여 미디어 콘텐츠
 새 Azure 미디어 서비스 계정을 만들려면 미디어 서비스 계정 이름을 제공하는 [New-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx) cmdlet, 만들어질 데이터 센터 위치 및 저장소 계정 이름을 사용합니다.
 
 
-	PS C:> New-AzureMediaServicesAccount -Name "amstestaccount001" -StorageAccountName "storagetest001" -Location "East US"
+	PS C:\> New-AzureMediaServicesAccount -Name "amstestaccount001" -StorageAccountName "storagetest001" -Location "East US"
 
 ##미디어 서비스 계정 가져오기
 
 하나 이상의 미디어 서비스 계정을 만들면 [Get-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495286.aspx)를 사용하여 정보를 나열할 수 있습니다.
 
 	
-	PS C:> Get-AzureMediaServicesAccount
+	PS C:\> Get-AzureMediaServicesAccount
 	
 	AccountId		Name				State
 	---------       ----       			 -----
@@ -92,7 +92,7 @@ Azure 미디어 서비스는 Azure 저장소를 사용하여 미디어 콘텐츠
 
 이름 매개 변수를 제공하여 계정 키를 포함하는 보다 자세한 정보를 가져옵니다.
 
-	PS C:> Get-AzureMediaServicesAccount -Name amstestaccount001
+	PS C:\> Get-AzureMediaServicesAccount -Name amstestaccount001
 
 ##미디어 서비스 액세스 키 다시 생성
 
@@ -100,14 +100,14 @@ Azure 미디어 서비스는 Azure 저장소를 사용하여 미디어 콘텐츠
 
 PowerShell이 확인 질문을 하지 않기를 원하는 경우 -Force 스위치를 지정합니다.
 
-	PS C:> New-AzureMediaServicesKey -Name "amstestaccount001" -KeyType "Primary" -Force
+	PS C:\> New-AzureMediaServicesKey -Name "amstestaccount001" -KeyType "Primary" -Force
 
 ##미디어 서비스 계정 제거
 
 Azure 미디어 계정을 삭제할 준비가 되면 [Remove-AzureMediaServicesAccount](https://msdn.microsoft.com/library/azure/dn495220.aspx)를 사용합니다.
 
-	PS C:> Remove-AzureMediaServicesAccount -Name "amstestaccount001" -Force
+	PS C:\> Remove-AzureMediaServicesAccount -Name "amstestaccount001" -Force
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

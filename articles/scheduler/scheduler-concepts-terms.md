@@ -208,4 +208,4 @@ JSON 정의에 지정된 되풀이 개체가 있으면 작업이 반복됩니다
  [스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

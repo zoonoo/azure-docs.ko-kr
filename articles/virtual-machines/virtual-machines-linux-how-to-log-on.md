@@ -53,4 +53,4 @@ Linux 운영 체제를 실행하는 가상 컴퓨터의 경우 SSH(보안 셸) �
 <!-- LINKS -->
 [Linux 가상 컴퓨터에 대한 암호 또는 SSH를 재설정하는 방법]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

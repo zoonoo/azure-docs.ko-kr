@@ -333,4 +333,4 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

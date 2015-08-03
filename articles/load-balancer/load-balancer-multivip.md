@@ -156,4 +156,4 @@ PowerShell을 통해 클라우드 서비스에서 사용하는 VIP를 확인하�
 [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -251,4 +251,4 @@ Postgres 데이터베이스를 만듭니다.
 ##PostgreSQL에 관한 추가 내용
 지금 바로 Microsoft Azure Linux VM에서 PostgreSQL 설치를 완료하고 Microsoft Azure에서 사용해 보세요. PostgreSQL에 관한 추가 내용은 [여기](http://www.postgresql.org/)를 참조하세요.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

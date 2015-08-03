@@ -67,4 +67,4 @@ Runbook의 모든 [검사점](automation-runbook-execution#checkpoints) 뒤에 �
 - [Azure 자동화: Azure Active Directory를 사용하여 Azure에 인증](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

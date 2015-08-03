@@ -267,4 +267,4 @@ BizTalk 서비스를 프로비전하려면 [BizTalk 서비스: Azure 관리 포�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

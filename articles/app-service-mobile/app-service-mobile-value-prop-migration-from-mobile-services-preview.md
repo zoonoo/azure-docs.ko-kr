@@ -67,4 +67,4 @@
 *Azure 앱 서비스 모바일 앱* 기능이 일반 공급되는 시점에는 마이그레이션하도록 선택할 경우 기존 모바일 서비스를 앱 서비스로 매끄럽게 마이그레이션할 수 있는 환경이 제공될 것입니다. 그때까지 이 [자습서](app-service-mobile-dotnet-backend-migrating-from-mobile-services-preview.md)에 따라 *앱 서비스*를 살펴보고 기존 모바일 서비스에 *앱 서비스*를 이용할 수 있습니다.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

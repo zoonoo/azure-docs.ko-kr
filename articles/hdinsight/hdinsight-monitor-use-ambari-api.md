@@ -44,13 +44,11 @@ HDInsight는 현재 Ambari 모니터링 기능만 지원합니다. Ambari API 1.
 - **Azure HDInsight 클러스터**. 클러스터 프로비전에 대한 자세한 내용은 [HDInsight 사용 시작][hdinsight-get-started] 또는 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요. 자습서를 완료하려면 다음 데이터가 필요합니다.
 
 	<table border="1">
-	<tr><th>클러스터 속성</th><th>Azure PowerShell 변수 이름</th><th>값</th><th>설명</th></tr>
-	<tr><td>HDInsight 클러스터 이름</td><td>$clusterName</td><td></td><td>HDInsight 클러스터의 이름입니다.</td></tr>
-	<tr><td>클러스터 사용자 이름</td><td>$clusterUsername</td><td></td><td>프로비전 시 지정된 클러스터 사용자 이름입니다.</td></tr>
-	<tr><td>클러스터 암호</td><td>$clusterPassword</td><td></td><td>클러스터 사용자 암호입니다.</td></tr>
-	</table>
-
-	> [AZURE.NOTE] 테이블의 채우기 값입니다. 이 자습서를 완료하는 데 유용합니다.
+<tr><th>클러스터 속성</th><th>Azure PowerShell 변수 이름</th><th>값</th><th>설명</th></tr>
+<tr><td>HDInsight 클러스터 이름</td><td>$clusterName</td><td></td><td>HDInsight 클러스터의 이름입니다.</td></tr>
+<tr><td>클러스터 사용자 이름</td><td>$clusterUsername</td><td></td><td>프로비전 시 지정된 클러스터 사용자 이름입니다.</td></tr>
+<tr><td>클러스터 암호</td><td>$clusterPassword</td><td></td><td>클러스터 사용자 암호입니다.</td></tr>
+</table>> [AZURE.NOTE]테이블의 채우기 값입니다. 이 자습서를 완료하는 데 유용합니다.
 
 
 
@@ -178,4 +176,4 @@ Ambari 모니터링 API 호출을 사용하는 방법을 알아보았습니다. 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

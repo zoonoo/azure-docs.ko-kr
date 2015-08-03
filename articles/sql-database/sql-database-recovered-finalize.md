@@ -18,14 +18,6 @@
 
 # 복구된 Azure SQL 데이터베이스 마무리
 
-> [AZURE.SELECTOR]
-- [Point in Time Restore - portal](sql-database-point-in-time-restore-tutorial-management-portal.md)
-- [Point in Time Restore - PowerShell](sql-database-point-in-time-restore-tutorial-powershell.md)
-- [Point in Time Restore - REST API](sql-database-point-in-time-restore-tutorial-rest.md)
-- [Geo-Restore - portal](sql-database-geo-restore-tutorial-management-portal.md)
-- [Geo-Restore - PowerShell](sql-database-geo-restore-tutorial-powershell.md)
-- [Geo-Restore - REST API](sql-database-geo-restore-tutorial-rest.md)
-
 ## 개요
 
 이 문서에는 프로덕션 환경에 새로 복구한 Azure SQL 데이터베이스를 다시 설치하기 전에 진행할 필요가 있는 작업의 검사 목록을 제공합니다. 이 검사 목록은 지역에서 복제 장애 조치(failover), 삭제된 데이터베이스 복원, 지정 시간 복원 또는 지역 복원을 통해 복구된 데이터베이스에 적용됩니다.
@@ -64,4 +56,4 @@
 데이터베이스에 액세스하기 위해 감사가 필요한 경우, 데이터베이스 복구 후에 감사 사용을 설정해야 합니다. 감사는 클라이언트 응용 프로그램이 *.database.secure.windows.net 패턴의 보안 연결 문자열을 사용한다는 것을 나타내기 위해 필요한 훌륭한 지표입니다. 자세한 내용은 [SQL 데이터베이스 감사 시작](sql-database-auditing-get-started.md)을 참조하세요. 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

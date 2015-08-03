@@ -274,7 +274,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 2.	템플릿 파일에 맞는 매개 변수 파일 생성
 3.	매개 변수 파일로 템플릿 파일 배포
 
-마지막 단계는 PowerShell cmdlet이 쉽게 수행합니다. 응용 프로그램을 배포하는 경우 Visual Studio의 역할을 참고하려면 Scripts\\Deploy AzureResourceGroup.ps1를 엽니다. 여기에 코드가 많지만 매개 변수 파일로 템플릿 파일을 배포하기 위해 필요한 모든 관련 코드에 강조를 표시하겠습니다.
+마지막 단계는 PowerShell cmdlet이 쉽게 수행합니다. 응용 프로그램을 배포하는 경우 Visual Studio의 역할을 참고하려면 Scripts\Deploy AzureResourceGroup.ps1를 엽니다. 여기에 코드가 많지만 매개 변수 파일로 템플릿 파일을 배포하기 위해 필요한 모든 관련 코드에 강조를 표시하겠습니다.
 
 ![](./media/app-service-deploy-complex-application-predictably/deploy-12-powershellsnippet.png)
 
@@ -304,4 +304,4 @@ DevOps에서 반복성 및 예측 가능성은 마이크로 서비스로 구성�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

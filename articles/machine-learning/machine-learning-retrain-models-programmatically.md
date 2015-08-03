@@ -69,7 +69,7 @@ ML 학습 프로세스의 일부로, 데이터 집합을 사용하여 모델을 
 
 	샘플 코드에는 업데이트가 필요한 코드 부분을 나타내는 주석이 있습니다. 또한 요청 페이로드에 "output1" 위치를 지정할 때 "RelativeLocation"의 파일 확장명을 "Outputs"의 경우처럼 ".ileaner"로 변경해야 합니다. {Global Parameters ... { "output1": { "ConnectionString": "DefaultEndpointsProtocol=https;AccountName=mystorageacct;AccountKey=Dx9WbMIThAvXRQWap/aLnxT9LV5txxw==", "RelativeLocation": "mycontainer/output1results.ilearner"}}.
 
-	1. Azure 저장소 정보 제공 BES 샘플 코드는 로컬 드라이브(예: "C:\\temp\\CensusIpnput.csv")에서 Azure 저장소로 파일을 업로드하고 처리한 다음 결과를 Azure 저장소에 씁니다.  
+	1. Azure 저장소 정보 제공 BES 샘플 코드는 로컬 드라이브(예: "C:\temp\CensusIpnput.csv")에서 Azure 저장소로 파일을 업로드하고 처리한 다음 결과를 Azure 저장소에 씁니다.  
 
 		이렇게 하려면 Azure 관리 포털에서 저장소 계정에 대한 저장소 계정 이름, 키 및 컨테이너 정보를 검색한 다음 여기서 코드를 업데이트해야 합니다. 또한 코드에 지정한 위치에서 입력 파일을 사용할 수 있는지 확인해야 합니다.
 
@@ -107,4 +107,4 @@ ML 학습 프로세스의 일부로, 데이터 집합을 사용하여 모델을 
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

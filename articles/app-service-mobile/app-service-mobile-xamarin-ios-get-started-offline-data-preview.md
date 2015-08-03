@@ -36,6 +36,10 @@
 * Visual Studio 2013
 * Visual Studio [Xamarin 확장] **또는** OS X의 [Xamarin Studio]
 
+##<a name="review"></a>서버 프로젝트 구성 검토(옵션)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
+
 ## 모바일 앱 동기화 코드 검토
 
 모바일 앱 오프라인 동기화를 사용하면 네트워크에 액세스할 수 없는 경우에도 최종 사용자가 로컬 데이터베이스를 조작할 수 있습니다. 앱에서 이러한 기능을 사용하려면 로컬 저장소에서 `MobileServiceClient.SyncContext`를 초기화합니다. 그런 다음 `IMobileServiceSyncTable` 인터페이스를 통해 테이블을 참조합니다. 이 섹션에서는 `QSTodoService.cs`의 오프라인 동기화 관련 코드를 안내합니다.
@@ -166,4 +170,4 @@
 [Xamarin 확장]: http://xamarin.com/visual-studio
  
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

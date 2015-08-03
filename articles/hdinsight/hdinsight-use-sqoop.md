@@ -352,7 +352,7 @@ Azure SQL 데이터베이스 또는 SQL Server에 테이블 두 개를 만듭니
 
 > [AZURE.NOTE]연결 문자열 정보를 제외하면 이 섹션의 단계는 Azure SQL 데이터베이스 또는 SQL Server에 대해 작동합니다. 이러한 단계는 다음 구성을 사용하여 테스트했습니다.
 >
-> * **Azure 가상 네트워크 지점 및 사이트 간 구성**: 개인 데이터 센터에서 HDInsight 클러스터를 SQL Server에 연결하는 가상 네트워크입니다. 자세한 내용은 [관리 포털에서 지점 및 사이트 간 VPN 구성](http://msdn.microsoft.com/library/azure/dn133792.aspx)을 참조하세요.
+> * **Azure 가상 네트워크 지점 및 사이트 간 구성**: 개인 데이터 센터에서 HDInsight 클러스터를 SQL Server에 연결하는 가상 네트워크입니다. 자세한 내용은 [관리 포털에서 지점 및 사이트 간 VPN 구성](../vpn-gateway/vpn-gateway-point-to-site-create.md)을 참조하세요.
 > * **Azure HDInsight 3.1**: 가상 네트워크에서 클러스터를 만드는 방법에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight의 Hadoop 클러스터 프로비전](hdinsight-provision-clusters.md)을 참조하세요.
 > * **SQL Server 2014**: 인증을 허용하고 VPN 클라이언트 구성 패키지를 실행하여 가상 네트워크에 안전하게 연결할 수 있도록 구성됩니다.
 
@@ -405,7 +405,7 @@ Azure SQL 데이터베이스 또는 SQL Server에 테이블 두 개를 만듭니
 		Write-Host "Standard Output" -BackgroundColor Green
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
-	필드 구분 기호는 **\\0x20**이며 공백입니다. 구분 기호는 sample.log 파일 Azure PowerShell 스크립트에 정의되어 있습니다. **-m 1**에 대해 자세히 알아보려면 [Sqoop 사용자 가이드][sqoop-user-guide-1.4.4]를 참조하세요.
+	필드 구분 기호는 **\0x20**이며 공백입니다. 구분 기호는 sample.log 파일 Azure PowerShell 스크립트에 정의되어 있습니다. **-m 1**에 대해 자세히 알아보려면 [Sqoop 사용자 가이드][sqoop-user-guide-1.4.4]를 참조하세요.
 
 5. **스크립트 실행**을 클릭하거나 **F5** 키를 눌러 스크립트를 실행합니다.
 6. [Azure 포털][azure-management-portal]을 사용하여 내보낸 데이터를 검사합니다.
@@ -645,4 +645,4 @@ Azure SQL 데이터베이스 또는 SQL Server에 테이블 두 개를 만듭니
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -90,4 +90,4 @@ Azure는 SQL 데이터베이스의 과거 리소스 사용량을 평가하여 �
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

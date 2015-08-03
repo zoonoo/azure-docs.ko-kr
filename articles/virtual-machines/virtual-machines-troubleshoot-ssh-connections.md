@@ -166,4 +166,4 @@ Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azu
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-troubleshoot-access-application.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

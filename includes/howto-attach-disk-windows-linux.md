@@ -1,5 +1,5 @@
 
-디스크에 대한 자세한 내용은 [Azure의 가상 컴퓨터 디스크 정보](../articles/virtual-machines-disks-vhds.md)를 참조하세요.
+디스크에 대한 자세한 내용은 [가상 컴퓨터용 디스크 및 VHD 정보](../articles/virtual-machines-disks-vhds.md)를 참조하세요.
 
 ##<a id="attachempty"></a>방법: 빈 디스크 연결
 Azure가 .vhd 파일을 자동으로 만들어 저장소 계정에 저장하므로, 빈 디스크를 연결하는 것이 데이터 디스크를 추가하는 더욱 간단한 방법입니다.
@@ -57,4 +57,4 @@ Azure가 .vhd 파일을 자동으로 만들어 저장소 계정에 저장하므�
 
 > [AZURE.NOTE]데이터 디스크를 추가한 후 가상 컴퓨터가 디스크를 저장소에 사용할 수 있도록 가상 컴퓨터에 로그온한 다음 디스크를 초기화해야 합니다.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

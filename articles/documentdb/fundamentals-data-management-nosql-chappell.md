@@ -31,4 +31,4 @@ Azure에서는 다양한 NoSQL 기술을 제공하지만 기술 간의 차이점
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

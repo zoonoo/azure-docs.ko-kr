@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Node.js에서 큐 저장소를 사용하는 방법 | Microsoft Azure&quot;" 
+	pageTitle="Node.js에서 큐 저장소를 사용하는 방법 | Microsoft Azure";" 
 	description="Azure 큐 서비스를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다. 샘플은 Node.js로 작성되었습니다." 
 	services="storage" 
 	documentationCenter="nodejs" 
@@ -332,4 +332,4 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
  [WebMatrix를 사용하는 웹 사이트]: ../web-sites-nodejs-use-webmatrix.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

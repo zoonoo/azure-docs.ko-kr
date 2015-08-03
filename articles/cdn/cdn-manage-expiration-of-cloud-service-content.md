@@ -50,4 +50,4 @@ Azure CDN 캐싱이 가장 도움이 되는 개체는 TTL(Time-To-Live) 기간 �
 
 [Azure CDN(콘텐츠 배달 네트워크)에서 Blob 콘텐츠의 만료를 관리하는 방법](./cdn-manage-expiration-of-blob-content.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

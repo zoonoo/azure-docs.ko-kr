@@ -18,4 +18,4 @@ CNAME 레코드는 *mail.contoso.com* 또는 **www.contoso.com**과 같은 **특
 
 > [AZURE.NOTE]**www.contoso.com**과 같은 CNAME 레코드를 사용하고 **contoso.com**과 같은 비루트 이름을 사용하면 일부 도메인 등록 기관에서 하위 도메인만 매핑할 수 있습니다. CNAME 레코드에 대한 자세한 내용은 등록 기관에서 제공하는 설명서인 <a href="http://en.wikipedia.org/wiki/CNAME_record">CNAME 레코드에 대한 Wikipedia 항목</a> 또는 <a href="http://tools.ietf.org/html/rfc1035">IETF 도메인 이름 - 구현 및 사양</a> 문서를 참조하세요.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

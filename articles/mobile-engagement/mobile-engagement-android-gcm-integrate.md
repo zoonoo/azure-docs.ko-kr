@@ -123,4 +123,4 @@ Engagement 푸시 서비스에 장치의 등록 ID를 전달하고 해당 알림
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

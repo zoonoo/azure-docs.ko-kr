@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # 인프라 용량 관리
@@ -162,4 +162,6 @@ Operational Insights를 사용하여 디스크 공간 사용률에 대한 과거
 
 4. **프로젝션 도구**에서 날짜 슬라이더를 이동하여 선택한 날짜에 사용될 용량의 프로젝션을 표시합니다.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

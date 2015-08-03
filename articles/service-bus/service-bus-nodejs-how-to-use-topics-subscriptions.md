@@ -17,10 +17,6 @@
 	ms.author="mwasson"/>
 
 
-
-
-
-
 # 서비스 버스 토픽 및 구독을 사용하는 방법
 
 이 가이드에서는 Node.js 응용 프로그램에서 서비스 버스 토픽과 구독을 사용하는 방법을 설명합니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기, 구독 필터 만들기, 토픽에 메시지 보내기,** **구독에서 메시지 받기,** **토픽 및 구독 삭제** 등이 포함됩니다. 토픽 및 구독에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하십시오.
@@ -140,7 +136,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 > [AZURE.NOTE]
 
-> 기본 필터는 모든 새로운 구독에 자동으로 적용되므로 먼저 기본 필터를 제거해야 합니다. 그렇지 않으면 <strong>MatchAll</strong>이 사용자가 지정하는 기타 필터를 재정의합니다. <strong>ServiceBusService</strong> 개체의 <strong>deleteRule</strong> 메서드를 사용하여 기본 규칙을 제거할 수 있습니다.
+> 기본 필터는 모든 새로운 구독에 자동으로 적용되므로 먼저 기본 필터를 제거해야 합니다. 그렇지 않으면 **MatchAll**이 사용자가 지정하는 기타 필터를 재정의합니다. **ServiceBusService** 개체의 **deleteRule** 메서드를 사용하여 기본 규칙을 제거할 수 있습니다.
 
 아래 예제에서는 사용자 지정 **messagenumber** 속성이 3보다 큰 메시지만 선택하는 **SqlFilter**를 사용하여 'HighMessages'라는 구독을 만듭니다.
 
@@ -309,4 +305,4 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
   [Node.js 웹 응용 프로그램 및 저장소]: /develop/nodejs/tutorials/web-site-with-storage/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -49,9 +49,9 @@
 
 응용 프로그램 패키지를 만들고 ImageStore에 복사하려면 다음 단계를 따릅니다.
 
-1. C:\\Samples\\Services\\VS2015\\WordCountUpgrade\\WordCount\\pkg\\Debug를 C:\\Temp\\WordCount에 복사합니다. 그러면 WordCount 응용 프로그램이 생성됩니다. 
-2. C:\\Temp\\WordCount를 C:\\Temp\\WordCountUpgrade에 복사합니다. 그러면 WordCountUpgrade 응용 프로그램 패키지가 생성됩니다.
-3. 텍스트 편집기에서 C:\\Temp\\WordCountUpgrade\\ApplicationManifest.xml을 엽니다.
+1. C:\Samples\Services\VS2015\WordCountUpgrade\WordCount\pkg\Debug를 C:\Temp\WordCount에 복사합니다. 그러면 WordCount 응용 프로그램이 생성됩니다. 
+2. C:\Temp\WordCount를 C:\Temp\WordCountUpgrade에 복사합니다. 그러면 WordCountUpgrade 응용 프로그램 패키지가 생성됩니다.
+3. 텍스트 편집기에서 C:\Temp\WordCountUpgrade\ApplicationManifest.xml을 엽니다.
 4. ApplicationManifest 요소에서 ApplicationTypeVersion 특성을 "1.1.0.0"으로 변경합니다. 그러면 응용 프로그램의 버전 번호가 업데이트됩니다.
 5. 변경된 ApplicationManifest.xml 파일을 저장합니다.
 6. 다음 PowerShell 스크립트를 관리자로 실행하여 응용 프로그램을 ImageStore에 복사합니다.
@@ -712,4 +712,4 @@ namespace ServiceFabricRestCaller
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

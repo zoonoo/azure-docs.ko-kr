@@ -161,4 +161,4 @@ Blob 또는 컨테이너 리소스에 하나 이상의 이름-값 쌍으로 메�
 - [.NET용 Blob 저장소 시작](storage-dotnet-how-to-use-blobs.md)  
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

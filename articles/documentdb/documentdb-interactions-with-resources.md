@@ -252,7 +252,7 @@ REST API를 사용하여 리소스 작업을 수행하는 방법에 대한 자�
 - [DocumentDB 쿼리](../documentdb-sql-query/)
 - [DocumentDB SQL 참조(영문)](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 - [DocumentDB 프로그래밍: 저장된 프로시저, 트리거 및 UDF](../documentdb-programming/)
-- [DocumentDB 참조 설명서(영문)](https://msdn.microsoft.com/library/azure/dn781482.aspx)
+- [DocumentDB 참조 설명서](https://msdn.microsoft.com/library/azure/dn781482.aspx)
 - REST [http://en.wikipedia.org/wiki/Representational_state_transfer](http://en.wikipedia.org/wiki/Representational_state_transfer)
 - JSON 사양 [http://www.ietf.org/rfc/rfc4627.txt](http://www.ietf.org/rfc/rfc4627.txt)
 - HTTP 사양 [http://www.w3.org/Protocols/rfc2616/rfc2616.html](http://www.w3.org/Protocols/rfc2616/rfc2616.html)
@@ -262,4 +262,4 @@ REST API를 사용하여 리소스 작업을 수행하는 방법에 대한 자�
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

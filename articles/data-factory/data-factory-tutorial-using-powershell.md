@@ -30,7 +30,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 3.	컴퓨터에 [Azure PowerShell][download-azure-powershell]을 다운로드하고 설치해야 합니다. 
 2.	**(권장)** [Azure 데이터 팩터리 시작][adfgetstarted] 문서의 간단한 자습서를 검토하고 연습하여 포털 및 cmdlet을 익힙니다.
 3.	**(권장)** [Azure 데이터 팩터리에서 Pig 및 Hive 사용][usepigandhive] 문서의 연습을 검토하고 실습하여 온-프레미스에서 Azure Blob 저장소로 데이터를 복사하는 파이프라인을 만들어 봅니다.
-4.	[ADFWalkthrough][adfwalkthrough-download] 파일을 **C:\\ADFWalkthrough** 폴더로 다운로드합니다. 이때 다음과 같이 **폴더 구조를 유지**합니다.
+4.	[ADFWalkthrough][adfwalkthrough-download] 파일을 **C:\ADFWalkthrough** 폴더로 다운로드합니다. 이때 다음과 같이 **폴더 구조를 유지**합니다.
 	- **Pipelines:** 파이프라인 정의가 포함된 JSON 파일을 포함합니다.
 	- **Tables:** 테이블 정의가 포함된 JSON 파일을 포함합니다.
 	- **LinkedServices:** 저장소 및 계산(HDInsight) 클러스터에 대한 정의가 포함된 JSON 파일을 포함합니다. 
@@ -104,7 +104,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 
 테이블, 사용자 정의 형식 및 저장 프로시저는 Azure Blob 저장소에서 Azure SQL 데이터베이스로 마케팅 캠페인 효과 결과를 이동할 때 사용됩니다.
 
-1. 즐겨 사용하는 편집기에서 **uploadSampleDataAndScripts.ps1** 파일을 **C:\\ADFWalkthrough** 폴더(또는 압축을 푼 파일이 포함된 폴더)에서 열고 강조 표시된 내용을 클러스터 정보로 바꾼 다음 파일을 저장합니다.
+1. 즐겨 사용하는 편집기에서 **uploadSampleDataAndScripts.ps1** 파일을 **C:\ADFWalkthrough** 폴더(또는 압축을 푼 파일이 포함된 폴더)에서 열고 강조 표시된 내용을 클러스터 정보로 바꾼 다음 파일을 저장합니다.
 
 
 		$storageAccount = <storage account name>
@@ -116,10 +116,10 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
  
 	이 스크립트를 사용하려면 컴퓨터에 sqlcmd 유틸리티가 설치되어 있어야 합니다. SQL Server를 설치한 경우에는 이 유틸리티가 이미 설치되어 있습니다. 그렇지 않은 경우 유틸리티를 [다운로드][sqlcmd-install]하고 설치합니다.
 	
-	또는 C:\\ADFWalkthrough\\Scripts 폴더의 파일을 사용하여 pig/hive 스크립트 및 샘플 파일을 blob 저장소의 adfwalkthrough 컨테이너로 업로드하고 MarketingCamapaigns Azure SQL 데이터베이스에 MarketingCampaignEffectiveness 테이블을 만들 수 있습니다.
+	또는 C:\ADFWalkthrough\Scripts 폴더의 파일을 사용하여 pig/hive 스크립트 및 샘플 파일을 blob 저장소의 adfwalkthrough 컨테이너로 업로드하고 MarketingCamapaigns Azure SQL 데이터베이스에 MarketingCampaignEffectiveness 테이블을 만들 수 있습니다.
    
 2. 로컬 컴퓨터가 Azure SQL 데이터베이스에 액세스할 수 있는지 확인합니다. 액세스할 수 있게 하려면 **Azure 관리 포털**이나 master 데이터베이스의 **sp_set_firewall_rule**을 사용하여 컴퓨터의 IP 주소에 대한 방화벽 규칙을 만듭니다. 이 변경 내용이 적용되려면 최대 5분까지 걸릴 수 있습니다. [Azure SQL에 대한 방화벽 규칙 설정][azure-sql-firewall]을 참조하세요.
-4. Azure PowerShell에서 샘플의 압축을 푼 위치(**C:\\ADFWalkthrough**)로 이동합니다.
+4. Azure PowerShell에서 샘플의 압축을 푼 위치(**C:\ADFWalkthrough**)로 이동합니다.
 5. **uploadSampleDataAndScripts.ps1** 실행 
 6. 스크립트가 성공적으로 실행되면 다음이 표시됩니다.
 
@@ -246,7 +246,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 
 		Switch-AzureMode AzureResourceManager
 
-16. **C:\\ADFWalkthrough** 또는 파일의 압축을 푼 폴더의 **LinkedServices** 하위 폴더로 이동합니다.
+16. **C:\ADFWalkthrough** 또는 파일의 압축을 푼 폴더의 **LinkedServices** 하위 폴더로 이동합니다.
 17. 유형이 **HDInsightOnDemandLinkedService**로 설정된 좋아하는 편집기 및 알림에서 **HDInsightLinkedService.json**을 엽니다.
 
 
@@ -296,7 +296,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 
 ### 테이블을 만들려면
 
-1.	Azure PowerShell에서 샘플의 압축을 푼 위치의 **Tables** 폴더(**C:\\ADFWalkthrough\\Tables**)로 이동합니다. 
+1.	Azure PowerShell에서 샘플의 압축을 푼 위치의 **Tables** 폴더(**C:\ADFWalkthrough\Tables**)로 이동합니다. 
 2.	다음과 같이 **New-AzureDataFactoryTable** cmdlet을 사용하여 **RawGameEventsTable**.json에 대한 테이블을 만듭니다.	
 
 
@@ -334,7 +334,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 ## <a name="MainStep5"></a> 5단계: 파이프라인 만들기 및 예약
 이 단계에서는 PartitionGameLogsPipeline, EnrichGameLogsPipeline 및 AnalyzeMarketingCampaignPipeline 파이프라인을 만듭니다.
 
-1. **Windows 탐색기**에서 **C:\\ADFWalkthrough** 폴더(또는 샘플의 압축을 푼 위치)의 **Pipelines** 하위 폴더로 이동합니다.
+1. **Windows 탐색기**에서 **C:\ADFWalkthrough** 폴더(또는 샘플의 압축을 푼 위치)의 **Pipelines** 하위 폴더로 이동합니다.
 2.	즐겨 사용하는 편집기에서 **PartitionGameLogsPipeline.json**을 열고 강조 표시된 내용을 데이터 저장소 계정 정보로 바꾼 다음 파일을 저장합니다.
 			
 		"RAWINPUT": "wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/logs/rawgameevents/",
@@ -346,7 +346,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 
 	**중요:** <storageaccountname>을 모두 저장소 계정 이름으로 바꾸어야 합니다.
  
-4.  **Azure PowerShell**에서 **C:\\ADFWalkthrough** 폴더(또는 샘플의 압축을 푼 위치)의 **Pipelines** 하위 폴더로 이동합니다.
+4.  **Azure PowerShell**에서 **C:\ADFWalkthrough** 폴더(또는 샘플의 압축을 푼 위치)의 **Pipelines** 하위 폴더로 이동합니다.
 5.  다음과 같이 **New-AzureDataFactoryPipeline** cmdlet을 사용하여 **PartitionGameLogspeline**.json에 대한 파이프라인을 만듭니다.	 
 			
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName $df –File .\PartitionGameLogsPipeline.json
@@ -559,4 +559,4 @@ Azure Blob에서 온-프레미스 SQL Server로 마케팅 캠페인 효과 데�
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial-using-powershell/DataFactoryCreateButton.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -135,7 +135,7 @@ Visual Studio Application Insights는 로그 필터링과 검색을 위한 도�
 
 > [AZURE.NOTE]일부 유형의 로깅 버퍼는 로그 파일에 기록하고 이로 인해 스크림에서 이벤트가 작동하지 않을 수 있습니다. 예를 들어 사용자가 페이지를 방문할 때 발생한 응용 프로그램 로그 항목이 페이지 요청에 대한 해당 HTTP 로그 항목보다 먼저 스트림에 표시될 수 있습니다.
 
-> [AZURE.NOTE]로그 스트리밍은 **D:\\home\\LogFiles\** 폴더에 저장된 모든 텍스트 파일에 기록된 정보를 스트리밍할 수도 있습니다.
+> [AZURE.NOTE]로그 스트리밍은 **D:\home\LogFiles\** 폴더에 저장된 모든 텍스트 파일에 기록된 정보를 스트리밍할 수도 있습니다.
 
 ### Azure PowerShell로 스트리밍
 
@@ -335,4 +335,4 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

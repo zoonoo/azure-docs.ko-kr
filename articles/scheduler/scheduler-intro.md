@@ -51,4 +51,4 @@ Azure 스케줄러를 사용하는 여러 가지 시나리오가 있습니다. �
  [스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -293,4 +293,4 @@ SDK가 응용 프로그램에 완전히 통합되면 UI의 도달률 섹션을 �
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

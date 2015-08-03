@@ -4,7 +4,7 @@
 	services="hdinsight"
 	editor="cgronlun"
 	manager="paulettm"
-	authors="bradsev"
+	authors="mumian"
 	documentationCenter=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/18/2015"
-	ms.author="bradsev"/>
+	ms.date="07/09/2015"
+	ms.author="jgao"/>
 
 
 #HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능
@@ -37,12 +37,13 @@ Azure HDInsight는 언제든 배포할 수 있는 여러 Hadoop 클러스터 버
 <tr><td>Storm</td><td>0.9.3</td><td>0.9.1</td><td></td><td></td></tr>
 <tr><td>Mahout</td><td>0.9.0</td><td>0.9.0</td><td></td><td></td></tr>
 <tr><td>Phoenix</td><td>4.2.0</td><td>4.0.0.2.1.7.0-2162</td><td></td><td></td></tr>
+<tr><td>Spark)</td><td>1.3.1</td><td></td><td></td><td></td></tr>
 </table>
 
 
 **현재 구성 요소 버전 정보 가져오기**
 
-HDInsight 클러스터 버전과 연결된 구성 요소 버전은 HDInsight에 대한 향후 업데이트에서 변경될 수 있습니다. 사용 가능한 구성 요소를 알아보고 사용 중인 버전을 확인하는 방법은 클러스터에서 Ambari REST API를 사용하는 것입니다. 또한 **GetComponentInformation** 명령을 사용하여 서비스 구성 요소에 대한 정보를 검색할 수도 있습니다. 자세한 내용은 [Ambari 설명서][ambari-docs](영문)를 참조하세요. 이 정보를 가져오는 다른 방법은 원격 데스크톱을 사용하여 클러스터에 로그인하고 "C:\\apps\\dist" 디렉터리의 콘텐츠를 직접 검토하는 것입니다.
+HDInsight 클러스터 버전과 연결된 구성 요소 버전은 HDInsight에 대한 향후 업데이트에서 변경될 수 있습니다. 사용 가능한 구성 요소를 알아보고 사용 중인 버전을 확인하는 방법은 클러스터에서 Ambari REST API를 사용하는 것입니다. 또한 **GetComponentInformation** 명령을 사용하여 서비스 구성 요소에 대한 정보를 검색할 수도 있습니다. 자세한 내용은 [Ambari 설명서][ambari-docs](영문)를 참조하세요. 이 정보를 가져오는 다른 방법은 원격 데스크톱을 사용하여 클러스터에 로그인하고 "C:\apps\dist" 디렉터리의 콘텐츠를 직접 검토하는 것입니다.
 
 
 **릴리스 정보**
@@ -58,6 +59,13 @@ HDInsight Windows PowerShell cmdlets 또는 HDInsight .NET SDK를 통해 클러�
 ##주요 기능
 HDInsight 플랫폼의 몇 가지 두드러진 기능은 다음과 같습니다.
 
+- **Spark**는 메모리 내 처리를 지원하여 빅 데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다. Spark는 메모리 내 계산 기능을 지원하여 기계 학습 및 그래프 계산의 반복 알고리즘에 적합합니다.
+
+	Spark를 사용하여 기존 디스크 기반 데이터 처리를 수행할 수도 있습니다. Spark는 중간 단계에서 디스크에 쓰기를 방지하여 기존 MapReduce 프레임워크를 향상시킵니다. 또한 Spark는 HDFS(Hadoop Distributed File System) 및 Azure Blob 저장소와 호환되므로 Spark를 통해 기존 데이터를 쉽게 처리할 수 있습니다.
+
+	Spark는 스크립트 작업을 사용하여 추가할 수 있습니다. 스크립트 작업은 Spark 1.2.0을 HDInsight 3.2 클러스터에 추가하거나 Spark 1.0.2를 HDInsight 3.1 클러스터에 추가합니다. 자세한 내용은 [HDInsight Hadoop 클러스터에서 Spark 설치 및 사용](hdinsight-hadoop-spark-install.md)을 참조하세요.
+
+ 
 - **Storm** - 이제 Azure HDInsight용 Storm은 일반적으로 사용 가능하며, 몇 분 안에 몇 번의 클릭만으로 빠르고 쉽게 실시간 분석을 배포할 수 있습니다. Azure HDInsight용 Apache Storm은 수백만 개의 이벤트를 안정적으로 처리할 수 있는 분석 플랫폼에 액세스할 수 있게 하는 Apache Hadoop 에코 시스템의 오픈 소스 프로젝트입니다. 이제 Hadoop 사용자는 과거 이벤트에 대한 통찰력과 함께 이벤트 발생에 따른 통찰력을 얻을 수 있습니다. Microsoft는 기본적으로 Visual Studio와 통합되어 있으므로, 개발자가 Storm을 쉽게 조작할 수 있습니다. 이제 Visual Studio에서 Storm 토폴로지를 개발, 배포 및 디버깅할 수 있습니다.
 
 - **Linux용 HDInsight(미리 보기)** - Azure HDInsight에서는 Linux(Ubuntu) 가상 컴퓨터(VM)에서 실행되는 Hadoop 클러스터를 프로비저닝하는 옵션을 제공합니다. Linux 또는 Unix에 익숙하거나, 기존 Linux 기반 Hadoop 솔루션에서 마이그레이션하거나, Linux 기반으로 작성된 Hadoop 에코 시스템 구성 요소와 쉽게 통합하려는 경우에 이 옵션을 사용할 수 있습니다. Azure 포털, Azure CLI 또는 HDInsight .NET SDK(Windows만 해당)를 사용하여 Windows 또는 Linux가 실행 중인 클라이언트 컴퓨터에서 Linux용 HDInsight 클러스터를 프로비전할 수 있습니다.
@@ -68,7 +76,7 @@ HDInsight 플랫폼의 몇 가지 두드러진 기능은 다음과 같습니다.
 
 - **스크립트 작업** - 이 클러스터 사용자 지정 기능을 사용하면 사용자 지정 스크립트를 사용하여 임의의 방식으로 Hadoop 클러스터를 수정할 수 있습니다. 이 새로운 기능을 통해 사용자는 Apache Hadoop 에코시스템에서 사용할 수 있는 프로젝트를 실험하고 Azure HDInsight 클러스터에 배포할 수 있습니다. 이 사용자 지정 기능은 Hadoop, HBase, Storm을 비롯한 모든 HDInsight 유형에서 사용할 수 있습니다.
 
-- **HBase** - HBase는 빅데이터를 온라인으로 트랜잭션 처리할 수 있게 하는 짧은 대기 시간의 NoSQL 데이터베이스입니다. HBase는 Azure 환경에 통합된 관리 클러스터로 제공합니다. 이 클러스터는 Azure Blob 저장소에 직접 데이터를 저장하도록 구성되며, 그러면 대기 시간이 짧고 성능/비용 선택 시 탄력성이 높습니다. 따라서 고객은 대규모 데이터 집합으로 작업하는 대화형 웹 사이트를 구축하고, 수백만 개의 끝점에서 발생하는 센서 및 원격 분석 데이터를 저장하는 서비스를 구축하고, Hadoop 작업을 사용해 이 데이터를 분석할 수 있습니다.
+- **HBase** - HBase는 빅 데이터를 온라인으로 트랜잭션 처리할 수 있게 하는 짧은 대기 시간의 NoSQL 데이터베이스입니다. HBase는 Azure 환경에 통합된 관리 클러스터로 제공합니다. 이 클러스터는 Azure Blob 저장소에 직접 데이터를 저장하도록 구성되며, 그러면 대기 시간이 짧고 성능/비용 선택 시 탄력성이 높습니다. 따라서 고객은 대규모 데이터 집합으로 작업하는 대화형 웹 사이트를 구축하고, 수백만 개의 끝점에서 발생하는 센서 및 원격 분석 데이터를 저장하는 서비스를 구축하고, Hadoop 작업을 사용해 이 데이터를 분석할 수 있습니다.
 
 - **Apache Phoenix** - Apache Phoenix는 HBase를 기반으로 둔 SQL(Structured Query Language) 쿼리 계층입니다. 보조 인덱스 지원을 포함하여 SQL 쿼리 언어 사양의 제한된 하위 집합을 지원합니다. HBase 데이터에 대해 대기 시간이 짧은 쿼리를 목표로 하는 클라이언트에 JDBC(Java Database Connectivity) 드라이버로 제공됩니다. Apache Phoenix는 SQL 쿼리를 수신하고, 일련의 HBase 스캔 및 보조 프로세서 호출로 컴파일하고, 일반 JDBC 결과 집합을 생성합니다. Apache Phoenix는 HBase를 기반으로 둔 관계형 데이터베이스 계층입니다. HBase 데이터에 대해 대기 시간이 짧은 쿼리를 목표로 하는 클라이언트에 JDBC 드라이버로 제공됩니다. Apache Phoenix는 SQL 쿼리를 수신하고, 일련의 HBase 스캔으로 컴파일하고, 해당 스캔 실행을 오케스트레이션하여 일반 JDBC 결과 집합을 생성합니다.
 
@@ -153,4 +161,4 @@ SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

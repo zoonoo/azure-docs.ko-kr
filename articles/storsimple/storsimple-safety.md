@@ -179,4 +179,4 @@
 
 - 8600 장치의 경우 [8600 장치 개봉, 랙 및 케이블 연결](storsimple-8600-hardware-installation)로 이동합니다.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

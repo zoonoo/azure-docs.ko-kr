@@ -180,4 +180,4 @@ Operational Insights 작업 영역을 닫으면 작업 영역을 닫은 날부�
 
 3. **작업 영역 닫기**를 클릭합니다.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

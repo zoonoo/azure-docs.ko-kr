@@ -38,4 +38,4 @@ Azure 포털에서 **Azure Active Directory** 탭에서 만든 응용 프로그�
 
 이미지의 회신 URL은 동일한 URL을 두 번 보여 주는데 하나는 `http:`를 사용한 것이고 다른 하나는 `https:`를 사용한 것입니다.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

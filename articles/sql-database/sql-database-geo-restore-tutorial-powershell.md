@@ -39,13 +39,13 @@
 1. [Get-AzureSqlRecoverableDatabase](http://msdn.microsoft.com/library/azure/dn720219.aspx) cmdlet을 사용하여 복구 가능한 데이터베이스 목록을 표시합니다. 이때 다음 매개 변수를 지정합니다.
 	* **ServerName** - 데이터베이스의 위치입니다.	
 
-	`PS C:>Get-AzureSqlRecoverableDatabase -ServerName "myserver"`
+	`PS C:\>Get-AzureSqlRecoverableDatabase -ServerName "myserver"`
 
 2. [Get-AzureSqlRecoverableDatabase](http://msdn.microsoft.com/library/azure/dn720219.aspx) cmdlet을 사용하여 복구할 원본 데이터베이스를 선택합니다. 이때 다음 매개 변수를 지정합니다.
 	* **ServerName** - 데이터베이스의 위치입니다.
 	* **DatabaseName** - 복원하고 있는 데이터베이스의 이름입니다.
 
-	`PS C:>$Database = Get-AzureSqlRecoverableDatabase -ServerName "myserver" –DatabaseName “mydb”`
+	`PS C:\>$Database = Get-AzureSqlRecoverableDatabase -ServerName "myserver" –DatabaseName “mydb”`
 	 
 3. [Start-AzureSqlDatabaseRecovery](http://msdn.microsoft.com/library/dn720224.aspx) cmdlet을 사용하여 복구를 시작합니다. 이때 다음 매개 변수를 지정합니다.
 	* **SourceDatabase** - 복구하려는 데이터베이스입니다.
@@ -54,14 +54,14 @@
 
 	**$RestoreRequest**라는 변수로 반환되는 결과를 저장합니다. 이 변수는 복원 상태를 모니터링하는 데 사용되는 복원 요청 ID를 포함합니다.
 
-	`PS C:>$RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database –TargetDatabaseName “myrecoveredDB” –TargetServerName “mytargetserver”`
+	`PS C:\>$RecoveryRequest = Start-AzureSqlDatabaseRecovery -SourceDatabase $Database –TargetDatabaseName “myrecoveredDB” –TargetServerName “mytargetserver”`
 	
 데이터베이스 복구를 완료하려면 다소 시간이 걸릴 수 있습니다. 복원 상태를 모니터링하려면 [Get-AzureSqlDatabaseOperation](http://msdn.microsoft.com/library/azure/dn546738.aspx) cmdlet을 사용하고 다음 매개 변수를 지정합니다.
 
 * **ServerName** - 복원 대상 데이터베이스의 서버 이름입니다.
 * **OperationGuid** - 3단계의 **$RecoveryRequest** 변수에 저장된 복원 요청 ID입니다.
 
-	`PS C:>Get-AzureSqlDatabaseOperation –ServerName “mytargetserver” –OperationGuid $RecoveryRequest.ID`
+	`PS C:\>Get-AzureSqlDatabaseOperation –ServerName “mytargetserver” –OperationGuid $RecoveryRequest.ID`
 
 **State** 및 **PercentComplete** 필드에 복원 상태가 표시됩니다.
 
@@ -82,4 +82,4 @@
 [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -77,4 +77,4 @@ Azure 웹 사이트는 웹 사이트 모드에 관계없이 데이터 센터 내
 [웹사이트](http://go.microsoft.com/fwlink/p/?LinkId=393327)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

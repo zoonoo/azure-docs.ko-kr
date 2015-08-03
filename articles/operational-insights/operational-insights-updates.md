@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # 시스템 업데이트로 서버 업데이트
@@ -34,4 +34,6 @@ Microsoft Azure Operational Insights에서 시스템 업데이트를 사용하�
 5. 웹 브라우저는 업데이트를 설명하는 기술 자료 문서를 엽니다.![업데이트 페이지 이미지](./media/operational-insights-updates/updates05.png)
 6. 발견한 정보를 사용하여 누락된 업데이트를 적용하는 계획을 만들 수 있습니다.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

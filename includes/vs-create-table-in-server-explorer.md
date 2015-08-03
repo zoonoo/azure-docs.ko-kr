@@ -1,13 +1,15 @@
-You can create Azure storage table by using Visual Studio **Server Explorer**.
+Visual Studio **서버 탐색기**를 사용하여 Azure 저장소 테이블을 만들 수 있습니다.
 
-![Server Explorer Tables][Image1]
+![서버 탐색기 테이블][Image1]
 
-1. On the **View** menu, choose **Server Explorer**.
-2. In Server Explorer, expand the **Azure** node for your subscription, expand the **Storage** node and the node for the storage account you specified in the Azure Storage connected service.
-3. Select the **Tables** node and choose **Create Table** from the context menu.
-4. Enter a name for the table and choose **OK**.   
+1. **보기** 메뉴에서 **서버 탐색기**를 선택합니다.
+2. 서버 탐색기에서 구독의 **Azure** 노드를 확장한 다음 **저장소** 노드 및 Azure 저장소 연결 서비스에 지정된 저장소 계정의 노드를 확장합니다.
+3. **테이블** 노드를 선택하고 상황에 맞는 메뉴에서 **테이블 만들기**를 선택합니다.
+4. 테이블 이름을 입력하고 **확인**을 선택합니다.   
 
 
 
 
 [Image1]: ./media/vs-storage-getting-started-tables-include/vs-storage-create-tables-in-Server-Explorer.png
+
+<!---HONumber=July15_HO4-->

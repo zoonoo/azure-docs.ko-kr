@@ -39,9 +39,9 @@ Azure 가상 컴퓨터 및 클라우드 서비스는 Azure에서 제공하는 �
 
 다음 고려 사항이 크기를 결정하는 데 도움이 될 수 있습니다.
 
-*   A0\\Basic_A0 크기는 Azure SDK 버전 1.3 이상을 사용하여만 사용할 수 있습니다.  
+*   A0\Basic_A0 크기는 Azure SDK 버전 1.3 이상을 사용하여만 사용할 수 있습니다.  
 
-*   A1\\Basic_A1는 프로덕션 작업용으로 권장되는 최소 크기입니다.
+*   A1\Basic_A1는 프로덕션 작업용으로 권장되는 최소 크기입니다.
 
 *   SQL Server Enterprise Edition을 사용하는 경우 4 또는 8 CPU 코어가 있는 가상 컴퓨터를 선택합니다.
 
@@ -68,24 +68,24 @@ Azure 가상 컴퓨터 및 클라우드 서비스는 Azure에서 제공하는 �
 
 ## 기본 계층
 
-|크기 – Management Portal\\cmdlets & API|CPU 코어|메모리|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크는 가 1023GB임)|최대 IOPS(디스크당 300)|
+|크기 – Management Portal\cmdlets & API|CPU 코어|메모리|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크는 가 1023GB임)|최대 IOPS(디스크당 300)|
 |---|---|---|---|---|---|
-|A0\\Basic_A0|1|768 MB|<p>OS = 1023GB</p><p>임시 = 20GB</p>|1|1x300|
-|A1\\Basic_A1|1|1.75 GB|<p>OS = 1023GB</p><p>임시 = 40GB</p>|2|2x300|
-|A2\\Basic_A2|2|3.5 GB|<p>OS = 1023GB</p><p>임시 = 60GB</p>|4|4x300|
-|A3\\Basic_A3|4|7 GB|<p>OS = 1023GB</p><p>임시 = 120GB</p>|8|8x300|
-|A4\\Basic_A4|8|14 GB|<p>OS = 1023GB</p><p>임시 = 240GB</p>|16|16x300|
+|A0\Basic_A0|1|768 MB|<p>OS = 1023GB</p><p>임시 = 20GB</p>|1|1x300|
+|A1\Basic_A1|1|1.75 GB|<p>OS = 1023GB</p><p>임시 = 40GB</p>|2|2x300|
+|A2\Basic_A2|2|3.5 GB|<p>OS = 1023GB</p><p>임시 = 60GB</p>|4|4x300|
+|A3\Basic_A3|4|7 GB|<p>OS = 1023GB</p><p>임시 = 120GB</p>|8|8x300|
+|A4\Basic_A4|8|14 GB|<p>OS = 1023GB</p><p>임시 = 240GB</p>|16|16x300|
 
 ## 표준 계층
 ### 계열 및 D 시리즈
 
-|크기 – Management Portal\\cmdlets & API|CPU 코어|메모리|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크(각 1023GB)|최대 IOPS(디스크당 500)|
+|크기 – Management Portal\cmdlets & API|CPU 코어|메모리|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크(각 1023GB)|최대 IOPS(디스크당 500)|
 |---|---|---|---|---|---|
-|A0\\ 매우 작음|1|768 MB|<p>OS = 1023GB</p><p>임시 = 20GB</p>|1|1x500|
-|A1\\작음|1|1.75 GB|<p>OS = 1023GB</p><p>임시 = 70GB</p>|2|2x500|
-|A2\\중간|2|3.5 GB|<p>OS = 1023GB</p><p>임시 = 135GB</p>|4|4x500|
-|A3\\큼|4|7 GB|<p>OS = 1023GB</p><p>임시 = 285GB</p>|8|8x500|
-|A4\\매우 큼|8|14 GB|<p>OS = 1023GB</p><p>임시 = 605GB</p>|16|16x500|
+|A0\ 매우 작음|1|768 MB|<p>OS = 1023GB</p><p>임시 = 20GB</p>|1|1x500|
+|A1\작음|1|1.75 GB|<p>OS = 1023GB</p><p>임시 = 70GB</p>|2|2x500|
+|A2\중간|2|3.5 GB|<p>OS = 1023GB</p><p>임시 = 135GB</p>|4|4x500|
+|A3\큼|4|7 GB|<p>OS = 1023GB</p><p>임시 = 285GB</p>|8|8x500|
+|A4\매우 큼|8|14 GB|<p>OS = 1023GB</p><p>임시 = 605GB</p>|16|16x500|
 |A5(동일)|2|14 GB|<p>OS = 1023GB</p><p>임시 = 135GB</p>|4|4X500|
 |A6(동일)|4|28GB|<p>OS = 1023GB</p><p>임시 = 285GB</p>|8|8x500|
 |A7(동일)|8|56GB|<p>OS = 1023GB</p><p>임시 = 605GB</p>|16|16x500|
@@ -105,7 +105,7 @@ Azure 가상 컴퓨터 및 클라우드 서비스는 Azure에서 제공하는 �
 
 ### 표준 계층 – DS 시리즈*
 
-|크기 – Management Portal\\cmdlets & API|CPU 코어|메모리|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크(각 1023GB)|캐시 크기(GB)|최대 디스크 IOPS & amp; 대역폭|
+|크기 – Management Portal\cmdlets & API|CPU 코어|메모리|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크(각 1023GB)|캐시 크기(GB)|최대 디스크 IOPS & amp; 대역폭|
 |---|---|---|---|---|---|---|
 |Standard_DS1(동일)|1|3.5|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 7GB</p>|2|43|<p>3,200</p><p>초당 32MB</p>|
 |Standard_DS2(동일)|2|7|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 14GB</p>|4|86|<p>6,400</p><p>초당 64MB</p>|
@@ -120,7 +120,7 @@ Azure 가상 컴퓨터 및 클라우드 서비스는 Azure에서 제공하는 �
 
 ### 표준 계층 – G 시리즈
 
-|크기 – Management Portal\\cmdlets &amp; API|CPU 코어|메모리|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크(각 1023GB)|최대 IOPS(디스크당 500)|
+|크기 – Management Portal\cmdlets &amp; API|CPU 코어|메모리|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크(각 1023GB)|최대 IOPS(디스크당 500)|
 |---|---|---|---|---|---|
 |Standard_G1(동일)|2|28GB|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 384GB</p>|4|4 x 500|
 |Standard_G2(동일)|4|56GB|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 768GB</p>|8|8 x 500|
@@ -134,4 +134,4 @@ Azure 가상 컴퓨터 및 클라우드 서비스는 Azure에서 제공하는 �
 
 [A8, A9, A10 및 A11 계산 집약적인 인스턴스 정보](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

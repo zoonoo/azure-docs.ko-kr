@@ -133,4 +133,4 @@ Azure Mobile Engagement [SDK][Link 5]를 응용 프로그램에 통합하고 기
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

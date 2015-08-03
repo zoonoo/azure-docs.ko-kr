@@ -136,7 +136,7 @@ Azure는 저장소 계정을 운영 체제(OS) 및 데이터 디스크의 컨테
 
 - 동일한 DS 시리즈 VM에 프리미엄 및 표준 저장소 디스크를 모두 사용할 수 있습니다.
 - 프리미엄 저장소를 사용하여 DS 시리즈 VM을 프로비전할 수 있으며 여러 영구 데이터 디스크를 VM에 연결할 수 있습니다. 필요한 경우, 볼륨의 성능과 용량을 늘리도록 디스크에 걸쳐 스트라이핑 할 수 있습니다. [저장소 공간](http://technet.microsoft.com/library/hh831739.aspx)을 사용하여 프리미엄 저장소 데이터 디스크를 스트라이프하는 경우, 사용되는 각 디스크에 대해 하나의 열로 구성해야 합니다. 그렇지 않은 경우, 디스크에서의 고르지 못한 트래픽 분배로 스트라이프 볼륨의 전반적인 성능이 예상보다 저하될 수 있습니다. 기본적으로 서버 관리자 사용자 인터페이스(UI)를 사용하면 최대 8개의 디스크를 열로 설정할 수 있습니다. 하지만 디스크가 8개 이상인 경우, 볼륨을 만들고 열 수를 수동으로 지정하려면 PowerShell을 사용해야 합니다. 그렇지 않은 경우 서버 관리자 UI는 더 많은 디스크가 있더라도 8개의 열을 사용하여 계속합니다. 예를 들어 단일 스트라이프 세트에 32개의 디스크가 있다면 32개의 열을 지정해야 합니다. [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) PowerShell cmdlet의 *NumberOfColumns* 매개 변수를 사용하여 가상 디스크에서 사용되는 열 수를 지정할 수 있습니다. 자세한 내용은 [저장소 공간 개요](http://technet.microsoft.com/library/jj822938.aspx) 및 [저장소 공간 질문과 대답](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx)을 참조하세요.
-- DS 시리즈 VM을 비 DS 시리즈 VM을 포함하는 기존 클라우드 서비스에 추가하지 마십시오. 가능한 해결 방법은 DS 시리즈 VM만 실행 중인 새 클라우드 서비스로 기존 VHD를 마이그레이션하는 것입니다. DS 시리즈 VM을 호스트하는 새 클라우드 서비스에 동일한 VIP(가상 IP 주소)를 유지하려는 경우, [예약된 IP 주소](https://msdn.microsoft.com/library/azure/dn690120.aspx) 기능을 사용합니다.
+- DS 시리즈 VM을 비 DS 시리즈 VM을 포함하는 기존 클라우드 서비스에 추가하지 마십시오. 가능한 해결 방법은 DS 시리즈 VM만 실행 중인 새 클라우드 서비스로 기존 VHD를 마이그레이션하는 것입니다. DS 시리즈 VM을 호스트하는 새 클라우드 서비스에 동일한 VIP(가상 IP 주소)를 유지하려는 경우, [예약된 IP 주소](virtual-networks-configure-vnet-to-vnet-connection.md) 기능을 사용합니다.
 - 표준 저장소 계정 또는 프리미엄 저장소 계정에서 호스팅된 운영 체제(OS) 디스크를 사용하도록 Azure 가상 컴퓨터의 DS 시리즈를 구성할 수 있습니다. 부팅에 대해서만 OS 디스크를 사용하는 경우에 OS 디스크 기반 표준 저장소 사용을 고려할 수 있습니다. 이렇게 하면 부팅 후 프리미엄 저장소와 유사한 비용 혜택 및 유사한 성능 결과가 제공됩니다. 부팅이 아닌 OS 디스크에서 추가 작업을 수행하는 경우 더 나은 성능 결과를 제공하므로 프리미엄 저장소를 사용합니다. 예를 들어 응용프로그램이 OS 디스크를 읽고/쓰는 경우 OS 디스크 기반 프리미엄 저장소를 사용하면 VM에 더 나은 성능을 제공합니다.
 - 프리미엄 저장소와 함께 [Azure CLI(Azure 명령줄 인터페이스)](../xplat-cli.md)를 사용할 수 있습니다. Azure CLI를 사용하여 디스크 중 하나에서 캐시 정책을 변경하려면 다음 명령을 실행합니다.
 
@@ -391,4 +391,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

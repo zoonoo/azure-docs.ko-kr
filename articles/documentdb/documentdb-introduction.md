@@ -72,7 +72,7 @@ DocumentDB 내의 모든 리소스는 JSON 문서로 모델링되고 저장됩�
 Azure DocumentDB는 HTTP/HTTPS 요청을 수행할 수 있는 임의의 언어로 호출할 수 있는 REST API를 통해 리소스를 노출합니다. 또한 DocumentDB는 많이 사용되는 몇 개의 언어를 위한 프로그래밍 라이브러리를 제공합니다. 이 라이브러리는 주소 캐싱, 예외 관리, 자동 재시도 등과 같은 세부 정보를 처리하여 Azure DocumentDB 작업의 많은 측면을 간소화합니다. 현재 라이브러리는 다음 언어 및 플랫폼에 사용할 수 있습니다.
 
 - [.NET](http://go.microsoft.com/fwlink/?LinkID=402989)  
-- [Node.js](http://go.microsoft.com/fwlink/?LinkID=402990)
+- [Node.JS](http://go.microsoft.com/fwlink/?LinkID=402990)
 - [Java](http://go.microsoft.com/fwlink/?LinkID=402380)
 - [JavaScript](http://go.microsoft.com/fwlink/?LinkID=402991)
 - [Python](http://go.microsoft.com/fwlink/?LinkID=402992)
@@ -94,7 +94,7 @@ DocumentDB 내의 JavaScript 실행은 JavaScript를 T-SQL의 최신 대체로 �
 ##<a name="next-steps"></a>다음 단계
 Azure DocumentDB를 시작하려면 다음 리소스를 탐색하세요.
 
--   [지금 DocumentDB 사용해 보기](https://portal.azure.com/#gallery/Microsoft.DocumentDB)
+-   [DocumentDB 사용해 보기](https://portal.azure.com/#gallery/Microsoft.DocumentDB)
 -   [쿼리 실습](http://www.documentdb.com/sql/demo)
 -	[DocumentDB 리소스 모델 및 개념](documentdb-resources.md)
 -	[DocumentDB 리소스 조작](documentdb-interactions-with-resources.md)
@@ -104,4 +104,4 @@ Azure DocumentDB를 시작하려면 다음 리소스를 탐색하세요.
 [1]: ./media/documentdb-introduction/intro.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

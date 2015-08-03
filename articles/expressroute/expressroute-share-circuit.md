@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/25/2015"
+   ms.date="07/20/2015"
    ms.author="cherylmc" />
 
 # 여러 구독에서 Express 경로 회로 공유
@@ -33,9 +33,9 @@
 
 ## 워크플로
 
-1. 회로 소유자는 다른 구독 관리자에게 지정한 회로를 사용할 수 있는 권한을 부여합니다. 아래 예제에서 회로(Contoso IT) 관리자는 다른 구독(Contoso Sales) 관리자가 Microsoft(Live) ID를 지정하여 회로에 대해 최대 2개의 VNET 연결을 설정할 수 있도록 합니다. 다음 cmdlet은 지정된 Microsoft ID로 전자 메일을 보내지 않습니다. 회로 소유자는 권한 부여가 완료된 사실을 다른 구독 소유자에게 명시적으로 알려야 합니다.
+1. 회로 소유자는 다른 구독 관리자에게 지정한 회로를 사용할 수 있는 권한을 부여합니다. 아래 예제에서 회로(Contoso IT) 관리자는 다른 구독(Contoso Sales) 관리자가 Microsoft ID를 지정하여 회로에 대해 최대 2개의 VNET 연결을 설정할 수 있도록 합니다. 다음 cmdlet은 지정된 Microsoft ID로 전자 메일을 보내지 않습니다. 회로 소유자는 권한 부여가 완료된 사실을 다른 구독 소유자에게 명시적으로 알려야 합니다.
 
-		PS C:> New-AzureDedicatedCircuitLinkAuthorization -ServiceKey '6ed7e310-1a02-4261-915f-6ccfedc416f1' -Description 'SalesTeam' -Limit 2 -MicrosoftIds 'salesadmin@contoso.com'
+		PS C:\> New-AzureDedicatedCircuitLinkAuthorization -ServiceKey '6ed7e310-1a02-4261-915f-6ccfedc416f1' -Description 'SalesTeam' -Limit 2 -MicrosoftIds 'salesadmin@contoso.com'
 		
 		Description         : SalesTeam 
 		Limit               : 2 
@@ -45,7 +45,7 @@
 
 1. 회로 소유자가 알림을 받으면, 허가된 구독의 관리자는 다음 cmdlet을 실행하여 회로의 서비스 키를 검색할 수 있습니다. 이 예에서 Contoso Sales의 관리자는 지정된 Microsoft ID(salesadmin@contoso.com)를 사용하여 먼저 로그인해야 합니다.
 
-		PS C:> Get-AzureAuthorizedDedicatedCircuit
+		PS C:\> Get-AzureAuthorizedDedicatedCircuit
 		
 		Bandwidth                        : 100
 		CircuitName                      : ContosoIT
@@ -59,7 +59,7 @@
 
 1. 허가된 구독의 관리자는 다음 cmdlet을 실행하여 링크 작업을 완료합니다.
 
-		PS C:> New-AzureDedicatedCircuitLink –servicekey 6ed7e310-1a02-4261-915f-6ccfedc416f1 –VnetName 'SalesVNET1' 
+		PS C:\> New-AzureDedicatedCircuitLink –servicekey 6ed7e310-1a02-4261-915f-6ccfedc416f1 –VnetName 'SalesVNET1' 
 		
 			State VnetName 
 			----- -------- 
@@ -71,7 +71,7 @@
 
 회로 소유자는 Azure 구독과 회로를 최대 10개까지 공유할 수 있습니다. 회로 소유자는 회로 사용이 허가된 사용자를 확인할 수 있습니다. 소유자는 언제든지 권한 부여를 취소할 수 있습니다. 회로 소유자가 LinkAuthorizationId로 식별되는 권한 부여를 해지하면 해당 권한 부여로 허가된 모든 링크가 즉시 삭제됩니다. 연결된 VNET은 Express 경로 회로를 통해 연결된 온-프레미스 네트워크에서 연결이 끊어집니다.
 
-	PS C:> Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: 6ed7e310-1a02-4261-915f-6ccfedc416f1 
+	PS C:\> Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: 6ed7e310-1a02-4261-915f-6ccfedc416f1 
 	
 	Description         : EngineeringTeam 
 	Limit               : 3 
@@ -91,7 +91,7 @@
 	MicrosoftIds        : salesadmin@contoso.com 
 	Used                : 2 
 	
-	PS C:> Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey '6ed7e310-1a02-4261-915f-6ccfedc416f1' -AuthorizationId 'e2bc2645-6fd4-44a4-94f5-f2e43e6953ed'
+	PS C:\> Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey '6ed7e310-1a02-4261-915f-6ccfedc416f1' -AuthorizationId 'e2bc2645-6fd4-44a4-94f5-f2e43e6953ed'
 
 
 아래 다이어그램에서는 권한 부여 워크플로 보여 줍니다.
@@ -102,4 +102,4 @@
 
 Express 경로에 대한 자세한 내용은 [Express 경로 개요](expressroute-introduction.md)를 참조하세요.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

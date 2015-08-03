@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
-	writer="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -62,7 +61,7 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
 
 	![](./media/web-sites-migration-from-iis-server/install-page.png)
 
-	>[AZURE.NOTE]**오프 라인 설치에 대 한 다운로드 합니다**을 클릭하여 인터넷에 연결되지 않은 서버에 설치하기 위한 ZIP 파일을 다운로드할 수도 있습니다. 또는 **기존 마이그레이션 준비 상태 보고서를 업로드 합니다**를 클릭할 수 있으며, 이 고급 옵션을 선택하면 이전에 생성한 기존 마이그레이션 준비 보고서로 작업할 수 있습니다(나중에 설명).
+	>[AZURE.NOTE]**Download for offline install**을 클릭하여 인터넷에 연결되지 않은 서버에 설치하기 위한 ZIP 파일을 다운로드할 수도 있습니다. 또는 **Upload an existing migration readiness report**를 클릭할 수 있으며, 이 고급 옵션을 선택하면 이전에 생성한 기존 마이그레이션 준비 보고서로 작업할 수 있습니다(나중에 설명).
 
 5.	**응용 프로그램 설치** 화면에서 **설치**를 클릭하여 컴퓨터에 설치합니다. 필요한 경우 웹 배포, DacFX, IIS와 같은 해당하는 종속성도 설치됩니다.
 
@@ -70,7 +69,7 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
 
 	설치가 끝나면 Web App Migration Assistant가 자동으로 시작합니다.
   
-6.	**Azure에 원격 서버에서 사이트 및 데이터베이스를 마이그레이션하십시오**를 선택합니다. 원격 서버의 관리자 자격 증명을 입력하고 **Continue**를 클릭합니다.
+6.	**Migrate sites and databases from a remote server to Azure**를 선택합니다. 원격 서버의 관리자 자격 증명을 입력하고 **Continue**를 클릭합니다.
 
 	![](./media/web-sites-migration-from-iis-server/migrate-from-remote.png)
 
@@ -132,4 +131,4 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

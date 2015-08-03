@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Operational Insights의 데이터 검색
@@ -50,9 +50,9 @@ Operational Insights에서 로그 검색을 수행할 때 다음과 같은 기�
 
 ### 단순 검색을 수행하려면
 1. Operational Insights 포털에서 **데이터 탐색기 검색**을 클릭합니다.![검색 타일](./media/operational-insights-search/overview-search.png)
-2. 쿼리 필드에서 `error`을 입력하고 **검색**을 클릭합니다. ![검색 오류](./media/operational-insights-search/search-error.png)예를 들어 다음 이미지에서 `error`에 대한 쿼리는 100,000건의 **이벤트** 레코드(로그 관리에서 수집), 18건의 **경고** 레코드(구성 평가에서 생성) 및 12건의 **ConfigurationChange** 레코드(변경 내용 추적에서 캡처)를 반환합니다.![검색 결과](./media/operational-insights-search/results01.png)
+2. 쿼리 필드에서 `error`을 입력하고 **검색**을 클릭합니다. ![검색 오류](./media/operational-insights-search/search-error.png)예를 들어, 다음 이미지에서 `error`에 대한 쿼리는 100,000건의 **이벤트** 레코드(로그 관리에서 수집), 18건의 **ConfigurationAlert** 레코드(구성 평가에서 생성) 및 12건의 **ConfigurationChange** 레코드(변경 내용 추적에서 캡처)를 반환합니다.![검색 결과](./media/operational-insights-search/results01.png)
 
-이러한 필터는 실제로 개체 유형/클래스가 아닙니다. *유형*은 한 개의 태그, 속성 또는 문자열/이름/범주이며 하나의 데이터에 첨부됩니다. 시스템에서 일부 문서도 **유형: 경고**로 태그가 지정되고 일부는 **유형: PerfHourly** 또는 **유형: 이벤트** 등으로 태그가 지정됩니다. 각 검색 결과, 문서, 레코드 또는 항목은 각 데이터에 대한 원시 속성 및 값을 표시하고 필드에 지정된 값이 있는 레코드만 검색하려는 경우 필드 이름을 사용하여 필터에 지정할 수 있습니다.
+이러한 필터는 실제로 개체 유형/클래스가 아닙니다. *유형*은 한 개의 태그, 속성 또는 문자열/이름/범주이며 하나의 데이터에 첨부됩니다. 시스템에서 일부 문서도 **유형: ConfigurationAlert**로 태그가 지정되고 일부는 **유형: PerfHourly** 또는 **유형: 이벤트** 등으로 태그가 지정됩니다. 각 검색 결과, 문서, 레코드 또는 항목은 각 데이터에 대한 원시 속성 및 값을 표시하고 필드에 지정된 값이 있는 레코드만 검색하려는 경우 필드 이름을 사용하여 필터에 지정할 수 있습니다.
 
 *유형*은 실제로 모든 레코드가 있는 필드이며 다른 필드와 다르지 않습니다. 형식 필드의 값을 기반으로 설정되었습니다. 해당 레코드를 다른 형태 또는 모습을 갖습니다. 우연히 **Type=PerfHourly** 또는 **Type=Event**는 매시간 성능 데이터 집계 또는 이벤트를 쿼리하는 방법을 알아보아야 하는 구문입니다.
 
@@ -251,13 +251,15 @@ SELECT 명령은 PowerShell에서 Select-Object 처럼 동작합니다. 자신�
 
 검색 출력을 제어하고 탐색을 위한 중요 데이터의 일부만 선택하려는 경우 특히 유용한 명령으로 종종 전체 레코드는 아닙니다. 또한 다양한 종류의 레코드에 *일부* 공용 속성이 있지만 *모든* 속성의 공통되는 경우 유용합니다. CSV 파일로 내보낸 다음 Excel에서 massaged되는 경우 테이블처럼 더 자연스럽게 보이거나 잘 작동하는 출력을 생성할 수 있습니다.
 
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
 ## 측정값 명령 사용
 
 측정값은 Operational Insights 검색에서 가장 다양한 기능을 갖춘 명령 중 하나입니다. 데이터에 통계 *함수*를 적용하고 지정된 필드가 그룹화된 결과를 집계할 수 있습니다. 측정값이 지원하는 여러 통계 함수가 있습니다.
 
 ### 개수() 측정
 
-작업할 첫번째 통계 함수에서 이해하기 가장 간단한 것은 *개수()* 함수입니다.
+작업할 첫번째 통계 함수에서 이해하기 가장 간단한 것은 *count()* 함수입니다.
 
 `Type=Event`과 같은 모든 검색 쿼리에서 나온 결과는 검색 결과의 왼쪽에 패싯이라고 하는 필터를 표시합니다. 필터는 실행된 검색에서 결과에 지정된 필드에 의해 값의 분포를 표시합니다.
 
@@ -295,7 +297,7 @@ Type=Event | Measure count() by EventID | Select EventID | Sort EventID asc
 #### 측정값 개수를 사용하여 검색
 
 - 검색 쿼리 필드에 `Type=Event | Measure count() by EventID`를 입력합니다.
-- 쿼리의 끝에 `| Select EventID` 추가합니다.
+- 쿼리의 끝에 `| Select EventID`를 추가합니다.
 - 마지막으로 쿼리의 끝에 `| Sort EventID asc`을 추가합니다.
 
 
@@ -312,7 +314,7 @@ Type=Event | Measure count() by EventID | Select EventID | Sort EventID asc
 구성 평가 경고를 쿼리하는 경우 정보, 경고 및 중요를 나타내는 0, 1 또는 2인 **심각도** 속성이 있습니다. 예:
 
 ```
-Type=Alert
+Type=ConfigurationAlert
 ```
 
 ![측정값 개수 시작 검색](./media/operational-insights-search/search-measure-max01.png)
@@ -320,7 +322,7 @@ Type=Alert
 필드에 의한 그룹, 공용 컴퓨터를 지정한 경고에 대한 가장 높은 값을 확인하려는 경우 다음을 사용할 수 있습니다.
 
 ```
-Type=Alert | Measure Max(Severity) by Computer
+Type=ConfigurationAlert | Measure Max(Severity) by Computer
 ```
 
 ![측정값 최대 컴퓨터 검색](./media/operational-insights-search/search-measure-max02.png)
@@ -328,7 +330,7 @@ Type=Alert | Measure Max(Severity) by Computer
 **경고** 레코드가 있는 컴퓨터에서 이를 보여줍니다. 대부분은 중요한 경고가 하나 이상 있고 Bacc 컴퓨터에 최악의 심각도인 경고가 있습니다.
 
 ```
-Type=Alert | Measure Max(Severity) by Computer
+Type=ConfigurationAlert | Measure Max(Severity) by Computer
 ```
 
 ![최대 시간이 생성된 컴퓨터 검색](./media/operational-insights-search/search-measure-max03.png)
@@ -362,10 +364,10 @@ Type=PerfHourly
 - 첫번째 집합은 쿼리 필터에서 Windows 성능 카운터 이름, 개체 이름 및 인스턴스 이름을 식별합니다. 가장 일반적으로 사용할 패싯/필터 필드입니다.
 - **SampleValue**는 카운터의 실제 값입니다.
 - 쿼리에서 **Type=PerfHourly**는 매시간 집계됩니다.
-- **TimeGenerated** 은 24시간 형식에서 21:00시입니다. 20:00시에서 21:00시까지 시간에 대한 집계입니다.
-- **SampleCount** 12개의 샘플을 사용하여 계산된 집계입니다.(5분 당 한 번)
+- **TimeGenerated**는 24시간 형식에서 21:00시입니다. 20:00시에서 21:00시까지 시간에 대한 집계입니다.
+- **SampleCount**는 12개의 샘플을 사용하여 계산된 집계입니다(5분 당 한 번).
 - 시간당 **최소**, **최대**, 및 **Percentile95**가 가상 컴퓨터의 메모리에 대한 이 예제에서 6144(메가바이트)였습니다.
-- **SampleValue**은 매시간 집계하고 시간에 대한 *평균*으로 채워지며 성능 차트를 그리는 데 사용됩니다.
+- **SampleValue**는 매시간 집계하고 시간에 대한 *평균*으로 채워지며 성능 차트를 그리는 데 사용됩니다.
 
 PerfHourly 레코드 모양을 읽고 다른 검색 방법에 대해 읽은 후 이러한 종류의 숫자 데이터를 집계하려면 측정값 평균()을 사용할 수 있습니다.
 
@@ -377,7 +379,7 @@ Type=PerfHourly  ObjectName:Processor  InstanceName:_Total  CounterName:"% Proce
 
 ![avg samplevalue 검색](./media/operational-insights-search/search-avg03.png)
 
-이 예제에서 CPU 총 시간 성능 카운터를 선택하고 컴퓨터에 의해 평균을 냅니다. **SampleValue** 은 이미 평균이기 때문에 실제로 평균의 평균을 쿼리합니다. 이 시점에서 Type=PerfHourly로 올바릅니다. 항상 TimeGenerated에 필터를 사용하여 7일이 아닌 마지막 4시간과 소규모 또는 최근 데이터 집합에 작업을 제한해야 합니다.
+이 예제에서 CPU 총 시간 성능 카운터를 선택하고 컴퓨터에 의해 평균을 냅니다. **SampleValue**는 이미 평균이기 때문에 실제로 평균의 평균을 쿼리합니다. 이 시점에서 Type=PerfHourly로 올바릅니다. 항상 TimeGenerated에 필터를 사용하여 7일이 아닌 마지막 4시간과 소규모 또는 최근 데이터 집합에 작업을 제한해야 합니다.
 
 따라서 위의 쿼리는 다음과 같게 됩니다.
 
@@ -419,7 +421,7 @@ Type=PerfHourly  InstanceName:_Total  ((ObjectName:Processor AND CounterName:"% 
 ![avg 그룹화 검색](./media/operational-insights-search/search-avg04.png)
 
 
-대시보드에서 쉽게 사용할 수 있습니다. 대시보드를 사용하는 방법에 대해 자세히 알려면 [Operational Insights 대시보드](operational-insights-use-dashboards)를 참조하십시오.
+대시보드에서 쉽게 사용할 수 있습니다. 대시보드를 사용하는 방법에 대해 자세히 알려면 [Operational Insights 대시보드](operational-insights-use-dashboards)를 참조하세요.
 
 ![avg 대시보드 검색](./media/operational-insights-search/search-avg05.png)
 
@@ -449,7 +451,7 @@ Type=PerfHourly  CounterName="% Processor Time"  InstanceName="_Total" | Measure
 
 Microsoft System Center Operations Manager에 익숙하다면 where 명령을 관리 팩 측면에서 생각할 수 있습니다. 예제가 규칙인 경우 쿼리의 첫번째 부분이 데이터 원본이고 where 명령은 조건 검색입니다.
 
-**내 대시보드**에서 컴퓨터 CPU가 과도하게 사용되는 경우 참조하는 모니터로서 쿼리를 타일로 사용할 수 있습니다. 대시보드에 대해 자세히 알려면 [Operational Insights 대시보드](operational-insights-use-dashboards)를 참조하십시오. 또한 모바일 앱을 사용하여 대시보드를 만들고 사용할 수 있습니다. 자세한 내용은 [Azure Operational Insights 모바일 앱](http://www.windowsphone.com/ko-kr/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)을 참조하십시오. 다음 이미지의 아래쪽 두 타일에서 목록을 표시한 모니터를 숫자로 볼 수 있습니다 . 기본적으로 항상 수는 0으로, 목록은 비어 있어야 합니다. 그렇지 않은 경우 경고 조건을 나타냅니다. 필요한 경우 이것을 사용하여 압력을 받는 컴퓨터를 볼 수 있습니다.
+**내 대시보드**에서 컴퓨터 CPU가 과도하게 사용되는 경우 참조하는 모니터로서 쿼리를 타일로 사용할 수 있습니다. 대시보드에 대해 자세히 알려면 [Operational Insights 대시보드](operational-insights-use-dashboards)를 참조하세요. 또한 모바일 앱을 사용하여 대시보드를 만들고 사용할 수 있습니다. 자세한 내용은 [Azure Operational Insights 모바일 앱](http://www.windowsphone.com/ko-kr/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)을 참조하세요. 다음 이미지의 아래쪽 두 타일에서 목록을 표시한 모니터를 숫자로 볼 수 있습니다 . 기본적으로 항상 수는 0으로, 목록은 비어 있어야 합니다. 그렇지 않은 경우 경고 조건을 나타냅니다. 필요한 경우 이것을 사용하여 압력을 받는 컴퓨터를 볼 수 있습니다.
 
 ![모바일 대시보드](./media/operational-insights-search/search-mobile.png)
 
@@ -688,7 +690,7 @@ Operational Insights에서 타임라인 차트/시간 선택기는 **TimeGenerat
 최상위 필터 인수에서 논리 연산자를 생략할 수 있습니다. 이 경우 AND 연산자를 가정합니다.
 
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>필터 식</th> <th>동일한</th> </tr> <tr> <td> <p>시스템 오류</p> </td> <td> <p>시스템 AND 오류</p> </td> </tr> <tr> <td> <p>ystem &quot; Windows Server&quot; OR Severity:1</p> </td> <td> <p>system AND (&quot;Windows Server&quot; OR Severity:1)</p> </td> </tr> </table>
+<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>필터 식</th> <th>동일한</th> </tr> <tr> <td> <p>시스템 오류</p> </td> <td> <p>시스템 AND 오류</p> </td> </tr> <tr> <td> <p>ystem "; Windows Server"; OR Severity:1</p> </td> <td> <p>system AND (";Windows Server"; OR Severity:1)</p> </td> </tr> </table>
 
 
 
@@ -2034,6 +2036,6 @@ ObjectId로 PerfHourly를 그룹화하고 평균(평균)을 계산합니다.
 - [유용한 Operational Insights 검색 쿼리 컬렉션](http://blogs.msdn.com/b/dmuscett/archive/2014/10/19/advisor-searches-collection.aspx)
 
 ## 기타 리소스
-Stefan Roth가 편리한 검색 치트 시트를 만들었습니다. 자세한 내용을 알고 그의 치트 시트를 다운로드하려면 그의 [블로그](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/)를 확인하십시오.
+Stefan Roth가 편리한 검색 치트 시트를 만들었습니다. 자세한 내용을 확인하고 치트 시트를 다운로드하려면 [블로그](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/)를 확인하세요.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

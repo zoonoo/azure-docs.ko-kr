@@ -42,15 +42,15 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자�
 	다음 PowerShell Commandlet을 사용하여 Express 경로 회로에 대한 세부 정보를 얻을 수 있습니다.
 		
 
-    	PS C:> Get-AzureDedicatedCircuit
+    	PS C:\> Get-AzureDedicatedCircuit
 	
 	이 명령은 구독에서 만든 모든 회로 목록을 반환합니다. 서비스 키가 있는 경우, 특정 Express 경로 회로에 대한 세부 정보를 얻으려면 다음 명령을 사용할 수 있습니다.
 
-		 PS C:> Get-AzureDedicatedCircuit -ServiceKey <skey>
+		 PS C:\> Get-AzureDedicatedCircuit -ServiceKey <skey>
 
 	<skey>를 실제 서비스 키로 대체합니다.
 	
-		PS C:> Get-AzureDedicatedCircuit -ServiceKey *********************************
+		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
 
 		Bandwidth                        : 200
 		CircuitName                      : TestCircuit
@@ -66,7 +66,7 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자�
 	
 	공급자에 대해 지원되는 대역폭 옵션은 [Express 경로 FAQ](expressroute-faqs.md) 페이지를 확인하세요. 기존 회로의 크기보다 큰 모든 크기를 선택할 수 있습니다. 필요한 크기를 선택하면, 다음 명령을 사용하여 회로 크기를 조정할 수 있습니다.
 
-		PS C:> Set-AzureDedicatedCircuitProperties -ServiceKey ********************************* -Bandwidth 1000
+		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey ********************************* -Bandwidth 1000
 		
 		Bandwidth                        : 1000
 		CircuitName                      : TestCircuit
@@ -85,4 +85,4 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

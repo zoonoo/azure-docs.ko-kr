@@ -107,4 +107,4 @@
 [Azure 관리 포털]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

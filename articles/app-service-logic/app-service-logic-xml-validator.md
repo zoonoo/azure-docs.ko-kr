@@ -75,4 +75,4 @@ Xml 유효성 검사는 미리 구성된 스키마에 대해 지정된 xml 입�
 [6]: ./media/app-service-logic-xml-validator/img1.PNG
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

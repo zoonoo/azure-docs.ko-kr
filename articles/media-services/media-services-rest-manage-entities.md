@@ -144,4 +144,4 @@ DELETE HTTP 요청을 사용하여 미디어 서비스에서 엔터티를 삭제
 	Host: media.windows.net
 	Content-Length: 0
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

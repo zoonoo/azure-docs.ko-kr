@@ -148,4 +148,4 @@ API 관리에서 제품은 **개방형** 또는 **보호된** 제품일 수 있�
 [Azure API 관리에서 개발자 계정을 관리하는 그룹을 만들고 사용하는 방법]: api-management-howto-create-groups.md
 [Azure API 관리에서 고급 제품 설정을 만들고 구성하는 방법]: api-management-howto-product-with-rules.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

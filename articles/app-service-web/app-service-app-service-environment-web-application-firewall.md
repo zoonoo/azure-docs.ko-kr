@@ -97,4 +97,4 @@ Barracuda 는 Azure의 가상 컴퓨터의 WAF 배포본에 있는 [자세한 �
 [ConfigureTrafficManager]: ./media/app-service-app-service-environment-web-application-firewall/ConfigureTrafficManager.png
 [WebsiteTranslations]: ./media/app-service-app-service-environment-web-application-firewall/WebsiteTranslations.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

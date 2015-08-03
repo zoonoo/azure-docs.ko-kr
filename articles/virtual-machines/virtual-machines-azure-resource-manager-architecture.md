@@ -3,19 +3,19 @@
    description="리소스 관리자의 아키텍처 및 계산, 네트워크 및 저장소 리소스 공급자 간의 관계에 대해 알아봅니다."
    services="virtual-machines"
    documentationCenter=""
-   authors="JoeDavies-MSFT"
+   authors="davidmu1"
    manager="timlt"
    editor=""
    tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/07/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/07/2015"
+	ms.author="davidmu"/>
 
 # Azure 리소스 관리자 아키텍처
 
@@ -32,8 +32,8 @@ Azure 리소스 관리자 및 다양한 리소스 공급자의 아키텍처를 �
 Azure 서비스 관리를 위한 구성 요소 및 해당 관계는 다음과 같습니다.
 
 ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch1.png)
- 
-## 리소스 관리자를 위한 아키텍처 
+
+## 리소스 관리자를 위한 아키텍처
 
 Azure 리소스 관리자의 경우, 리소스 공급자는 사용자가 필요한 구성에서 작동하는 가상 컴퓨터를 만들기 위한 개별 리소스를 지원합니다. 가상 컴퓨터의 경우, 다음과 같은 세 가지 주요 리소스 공급자가 있습니다.
 
@@ -50,13 +50,13 @@ Azure 리소스 관리자의 경우, 리소스 공급자는 사용자가 필요�
 - 부하 분산 장치 인스턴스는 가상 컴퓨터의 NIC(옵션)를 포함하는 IP 주소의 백 엔드 풀을 참조하며 로드 분산 장치 공용 또는 개인 IP 주소(옵션)를 참조합니다.
 
 ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch2.png)
- 
+
 리소스의 구성 요소화는 Azure에 호스팅된 IT 워크로드에 대한 인프라를 구성할 때 더 많은 유용성을 허용합니다. Azure 리소스 관리자 템플릿을 사용하면 특정 구성에 필요한 종속 리소스 집합을 만드는 데 이러한 유연성을 활용할 수 있습니다. 템플릿을 실행할 때 리소스 관리자는 리소스가 종속성 및 참조를 유지하기 위해 올바른 순서로 구성되도록 합니다. 예를 들어, 리소스 관리자는 서브넷 및 IP 주소(네트워크 보안 그룹은 옵션임)와 함께 가상 네트워크를 만들 때까지 가상 컴퓨터에 대한 NIC를 만들지 않습니다.
 
 리소스 그룹은 여러 가상 컴퓨터, NIC, IP 주소, 부하 분산 장치, 서브넷 및 네트워크 보안 그룹으로 구성될 수 있는 응용 프로그램에 대해 관련 리소스를 유지하는 논리적 컨테이너입니다. 예를 들어, 단일 관리 단위로 응용 프로그램의 모든 리소스를 관리할 수 있습니다. 이들 모두를 함께 만들고, 업데이트하고, 삭제할 수 있습니다. 다음은 단일 리소스 그룹으로 배포된 예제 응용 프로그램입니다.
 
 ![](./media/virtual-machines-azure-resource-manager-architecture/arm_arch3.png)
- 
+
 응용 프로그램은 다음과 같이 구성되어 있습니다.
 
 - 동일한 저장소 계정을 사용하는 두 개의 가상 컴퓨터는 동일한 가용성 집합에 있으며 가상 네트워크의 동일한 서브넷에 있습니다.
@@ -79,4 +79,4 @@ Azure 리소스 관리자의 경우, 리소스 공급자는 사용자가 필요�
 
 [Azure 리소스 관리자 개요](resource-group-overview.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

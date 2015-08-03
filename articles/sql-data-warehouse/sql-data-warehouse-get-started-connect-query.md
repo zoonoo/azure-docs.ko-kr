@@ -21,6 +21,8 @@
 
 **Visual Studio** - Visual Studio의 통합된 코드 편집기와 디버거인 SQL Server 데이터 도구(SSDT)는 SQL DW과 완벽하게 호환되어 SQL 데이터 웨어하우스에 쉽게 연결하고, 쿼리하고, 관리할 수 있습니다.
 
+> [AZURE.NOTE]SQL 데이터 웨어하우스에는 SSDT Preview 버전 12.0.50623 이상이 필요합니다.
+
 **sqlcmd** - sqlcmd는 간단한 연결 및 쿼리 기능을 제공하는 명령줄 도구입니다.
 
 이 문서를 완료하면 다음이 수행되어 있습니다.
@@ -62,7 +64,9 @@ Visual Studio 2013 웹 사이트로 이동하여 Visual Studio의 복사본을 �
 Visual Studio 2013의 업데이트가 완료됩니다.
 
 ### SSDT 업데이트 
-또한 SSDT를 업데이트해야 할 수 있습니다. 이는 상당히 정상적인 것입니다. SSDT 엔지니어는 새로운 기능으로 매우 자주 플러그인을 업데이트하므로 가끔 업데이트해야 합니다. 이 또한 매우 간단한 프로세스입니다. SSDT를 업데이트해야 하는 지 확인하려면 다음 단계를 수행합니다.
+> [AZURE.IMPORTANT]SQL 데이터 웨어하우스에는 SSDT Preview 버전 12.0.50623 이상이 필요합니다.
+
+SSDT 엔지니어는 새로운 기능으로 매우 자주 플러그인을 업데이트하므로 가끔 업데이트해야 합니다. 이 또한 매우 간단한 프로세스입니다. SSDT를 업데이트해야 하는 지 확인하려면 다음 단계를 수행합니다.
 
 1. Visual Studio 2013을 엽니다.  
 2. "도구" 메뉴를 선택하고 "확장 및 업데이트..."를 선택합니다.
@@ -83,7 +87,7 @@ Visual Studio 2013의 업데이트가 완료됩니다.
 
 이제 바탕 화면에는 최신 SSDT 확장명이 있는 최신 버전의 Visual Studio 2013이 있습니다.
 
-> [AZURE.NOTE]현재 [Visual Studio 2013용 SSDT 미리 보기](http://go.microsoft.com/fwlink/?LinkID=616714&clcid=0x409) 사용을 권장합니다.
+> [AZURE.NOTE]현재 [Visual Studio 2013용 SSDT 미리 보기 버전 12.0.50623 이상](http://go.microsoft.com/fwlink/?LinkID=616714&clcid=0x409)을 사용하는 것이 좋습니다.
 
 ## Visual Studio 2013을 사용하여 연결
 원하는 버전의 Visual Studio를 실행하는 경우 두 가지 방법으로 SQL 데이터 웨어하우스 인스턴스에 연결할 수 있습니다.
@@ -141,13 +145,13 @@ sqlcmd를 사용하는 경우 SQL DW의 특정 인스턴스에 연결하려면 �
 따라서 SQL DW 인스턴스에 연결하려면 다음을 입력합니다.
 
 ```
-C:>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
+C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
 ```
 
 연결 후, 인스턴스에 대해 지원되는 모든 TRANSACT-SQL 문을 실행할 수 있습니다. 예를 들어, 아래 문은 [CREATE TABLE](https://msdn.microsoft.com/library/azure/dn268335.aspx) 문을 활용하여 새 테이블을 만듭니다.
 
 ```
-C:>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
+C:\>sqlcmd -U <User>@<Server Name>.database.windows.net -P <Password> -S <Server Name>.database.windows.net -d <Database> -I
 1> CREATE TABLE table1 (Col1 int, Col2 varchar(20));
 2> GO
 3> QUIT
@@ -183,4 +187,4 @@ Sqlcmd 대한 추가 정보는 [sqlcmd 설명서](https://msdn.microsoft.com/lib
 ## 다음 단계 ##
 [Start developing code]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

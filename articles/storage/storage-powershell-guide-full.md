@@ -122,9 +122,9 @@ Azure 구독에 대한 자세한 내용은 [계정, 구독 및 관리 역할 관
 
 	- **$ContainerName:**: 스크립트에 지정된 이름을 사용하거나 사용자 컨테이너에 대한 새 이름을 입력합니다.
 
-	- **$ImageToUpload:** 로컬 컴퓨터의 그림 경로(예: "C:\\Images\\HelloWorld.png")를 입력합니다.
+	- **$ImageToUpload:** 로컬 컴퓨터의 그림 경로(예: "C:\Images\HelloWorld.png")를 입력합니다.
 
-	- **$DestinationFolder:**: Azure 저장소에서 다운로드한 파일을 보관할 로컬 디렉터리의 경로(예: "C:\\DownloadImages")를 입력합니다.
+	- **$DestinationFolder:**: Azure 저장소에서 다운로드한 파일을 보관할 로컬 디렉터리의 경로(예: "C:\DownloadImages")를 입력합니다.
 
 7.	"mystoragescript.ps1" 파일의 스크립트 변수를 업데이트한 후 **파일** > **저장**을 클릭합니다. 그런 다음 **디버그** > **실행**을 클릭하거나 **F5** 키를 눌러 스크립트를 실행합니다.
 
@@ -421,17 +421,17 @@ Azure 테이블 저장소 서비스는 구조화된 비관계형 데이터의 �
 다음 예제에서는 테이블에 엔터티를 추가하는 방법을 보여 줍니다. 이 예제에는 직원 테이블을 검색하고 여기에 여러 엔터티를 추가하는 방법을 보여 줍니다. 먼저, 저장소 계정 이름 및 해당 액세스 키를 포함하는 저장소 계정 컨텍스트를 사용하여 Azure 저장소에 대한 연결을 설정합니다. 그런 다음 [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx) cmdlet을 사용하여 지정된 테이블을 검색합니다. 테이블이 없는 경우 [New-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806417.aspx) cmdlet이 Azure 저장소에 테이블을 만드는 데 사용됩니다. 각 엔터티의 파티션 및 행 키를 지정하여 테이블에 엔터티를 추가하는 사용자 지정 Add-Entity를 정의합니다. Add-Entity 함수는 [Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.dynamictableentity.aspx) 클래스에 대한 [New-Object](http://technet.microsoft.com/library/hh849885.aspx) cmdlet을 호출하여 엔터티 개체를 만듭니다. 나중에, 이 예제는 이 엔터티 개체에 대한 [Microsoft.WindowsAzure.Storage.Table.TableOperation.Insert](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tableoperation.insert.aspx)메서드를 호출하여 테이블에 추가합니다.
 
     #Function Add-Entity: Adds an employee entity to a table.
-    function Add-Entity()
-    {
-    param(
-       $table,
-       [String]$partitionKey,
-       [String]$rowKey,
-       [String]$name,
-       [Int]$id
-    )
+    function Add-Entity() {
+        [CmdletBinding()]
+        param(
+           $table,
+           [String]$partitionKey,
+           [String]$rowKey,
+           [String]$name,
+           [Int]$id
+        )
 
-      $entity = New-Object Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity $partitionKey, $rowKey
+      $entity = New-Object -TypeName Microsoft.WindowsAzure.Storage.Table.DynamicTableEntity -ArgumentList $partitionKey, $rowKey
       $entity.Properties.Add("Name", $name)
       $entity.Properties.Add("ID", $id)
 
@@ -440,8 +440,8 @@ Azure 테이블 저장소 서비스는 구조화된 비관계형 데이터의 �
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
     $TableName = "Employees"
 
     #Retrieve the table if it already exists.
@@ -454,19 +454,18 @@ Azure 테이블 저장소 서비스는 구조화된 비관계형 데이터의 �
     }
 
     #Add multiple entities to a table.
-    Add-Entity $table "Partition1" "Row1" "Chris" 1
-    Add-Entity $table "Partition1" "Row2" "Jessie" 2
-    Add-Entity $table "Partition2" "Row1" "Christine" 3
-    Add-Entity $table "Partition2" "Row2" "Steven" 4
-
+    Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row1 -Name Chris -Id 1
+    Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row2 -Name Jessie -Id 2
+    Add-Entity -Table $table -PartitionKey Partition2 -RowKey Row1 -Name Christine -Id 3
+    Add-Entity -Table $table -PartitionKey Partition1 -RowKey Row2 -Name Steven -Id 4
 
 #### 테이블 엔터티를 쿼리하는 방법
 테이블을 쿼리하기 위해 [Microsoft.WindowsAzure.Storage.Table.TableQuery](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.table.tablequery.aspx) 클래스를 사용합니다. 다음 예제에서는 가이드의 엔터티를 추가하는 방법 섹션에 지정된 스크립트 이미 실행한 것으로 가정합니다. 이 예제는 먼저 저장소 계정 이름 및 해당 액세스 키를 포함하는 저장소 컨텍스트를 사용하여 Azure 저장소에 대한 연결을 설정합니다. 그런 다음 [Get-AzureStorageTable](http://msdn.microsoft.com/library/azure/dn806411.aspx) cmdlet을 사용하여 앞서 만든 "Employees" 테이블을 검색합니다. Microsoft.WindowsAzure.Storage.Table.TableQuery 클래스에 대해 [New-Object](http://technet.microsoft.com/library/hh849885.aspx) cmdlet을 호출하면 새 쿼리 개체가 생성됩니다. 이 예제에서는 값이 문자열 필터에 지정된 대로 1 인 'ID' 열을 포함하는 엔터티를 찾습니다. 자세한 내용은 [테이블 및 엔터티 쿼리](http://msdn.microsoft.com/library/azure/dd894031.aspx)를 참조하세요. 이 쿼리를 실행하면 필터 조건과 일치하는 모든 엔터티가 반환됩니다.
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary;
     $TableName = "Employees"
 
     #Get a reference to a table.
@@ -497,16 +496,15 @@ Azure 테이블 저장소 서비스는 구조화된 비관계형 데이터의 �
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
 
     #Retrieve the table.
     $TableName = "Employees"
     $table = Get-AzureStorageTable -Name $TableName -Context $Ctx -ErrorAction Ignore
 
     #If the table exists, start deleting its entities.
-    if ($table -ne $null)
-    {
+    if ($table -ne $null) {
        #Together the PartitionKey and RowKey uniquely identify every  
        #entity within a table.
        $tableResult = $table.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Retrieve(“Partition2”, "Row1"))
@@ -527,8 +525,8 @@ Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
     $QueueName = "queuename"
     $Queue = New-AzureStorageQueue –Name $QueueName -Context $Ctx
 
@@ -560,18 +558,17 @@ Azure 큐 서비스에 대한 명명 규칙에 대해서는 [큐 및 메타데�
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
 
     #Retrieve the queue.
     $QueueName = "queuename"
     $Queue = Get-AzureStorageQueue -Name $QueueName -Context $ctx
 
     #If the queue exists, add a new message.
-    if ($Queue -ne $null)
-    {
+    if ($Queue -ne $null) {
        # Create a new message using a constructor of the CloudQueueMessage class.
-       $QueueMessage = New-Object "Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage" "MessageInfo"
+       $QueueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage -ArgumentList MessageInfo
 
        #Add a new message to the queue.
        $Queue.CloudQueue.AddMessage($QueueMessage)
@@ -583,8 +580,8 @@ Azure 큐 서비스에 대한 명명 규칙에 대해서는 [큐 및 메타데�
 
     #Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
-    $StorageAccountKey = "Storage key for yourstorageaccount ends with =="
-    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+    $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
 
     #Retrieve the queue.
     $QueueName = "queuename"
@@ -739,4 +736,4 @@ AzureChinaCloud와 함께 Azure 저장소를 사용하려면 AzureChinaCloud와 
 [Next Steps]: #next
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

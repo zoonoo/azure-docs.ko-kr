@@ -116,7 +116,7 @@ Azure에서 네임스페이스를 만들고 활성화합니다.
 
 1. **이름**에 **MvcACS**를 입력하고 **확인**을 클릭합니다.
 1. 다음 대화 상자에서 **인터넷 응용 프로그램**을 선택하고 **확인**을 클릭합니다.
-1. *Views\\Shared_LoginPartial.cshtml* 파일을 편집하고 파일 내용을 다음 코드로 바꿉니다.
+1. *Views\Shared_LoginPartial.cshtml* 파일을 편집하고 파일 내용을 다음 코드로 바꿉니다.
 
         @if (Request.IsAuthenticated)
         {
@@ -206,7 +206,7 @@ Azure에서 네임스페이스를 만들고 활성화합니다.
 
 이 섹션에서는 ACS에서 전송된 클레임을 보기 위해 응용 프로그램을 수정합니다. ID 및 액세스 도구는 IP의 모든 클레임을 해당 응용 프로그램으로 전달하는 규칙 그룹을 만들었습니다. ID 공급자는 각기 다른 클레임을 보냅니다.
 
-1. *Controllers\\HomeController.cs* 파일을 엽니다. **System.Threading**에 대한 **using** 문을 추가합니다.
+1. *Controllers\HomeController.cs* 파일을 엽니다. **System.Threading**에 대한 **using** 문을 추가합니다.
 
  	using System.Threading;
 
@@ -225,7 +225,7 @@ Azure에서 네임스페이스를 만들고 활성화합니다.
 
 1. **추가**를 클릭합니다.
 
-1. *Views\\Home\\Claims.cshtml* 파일 내용을 다음 코드로 바꿉니다.
+1. *Views\Home\Claims.cshtml* 파일 내용을 다음 코드로 바꿉니다.
 
         @{
             ViewBag.Title = "Claims";
@@ -402,4 +402,4 @@ ACS 기능을 자세히 살펴보고 추가 시나리오를 실험하려면 [액
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

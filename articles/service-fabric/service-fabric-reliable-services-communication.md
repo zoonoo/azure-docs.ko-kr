@@ -230,4 +230,4 @@ var myServicePartitionClient = new ServicePartitionClient<MyCommunicationClient>
 * [WebAPI 통신 스택을 사용하는 신뢰할 수 있는 서비스 API를 사용하여 서비스 작성](service-fabric-reliable-services-communication-webapi.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

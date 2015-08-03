@@ -36,7 +36,7 @@ Microsoft Azure 미디어 서비스에서 **스트리밍 끝점**은 추가 배�
 
 .NET SDK, REST API 또는 Azure 관리 포털을 사용하여 스트리밍 끝점을 추가 또는 제거할 수 있습니다.
 
-포털을 사용하여 스트리밍 끝점을 추가\\삭제하려면 다음을 수행합니다.
+포털을 사용하여 스트리밍 끝점을 추가\삭제하려면 다음을 수행합니다.
 
 1. [관리 포털](https://manage.windowsazure.com/)에서 **미디어 서비스**를 클릭합니다. 그런 다음 미디어 서비스의 이름을 클릭합니다.
 2. **스트리밍 끝점** 페이지를 선택합니다. 
@@ -140,4 +140,4 @@ CDN 통합은 모든 Azure 데이터 센터, 미국 서부, 미국 동부, 북�
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

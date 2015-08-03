@@ -51,4 +51,4 @@ Azure 웹 사이트는 웹 사이트 모드에 관계없이 데이터 센터(지
 [Azure 트래픽 관리자 cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

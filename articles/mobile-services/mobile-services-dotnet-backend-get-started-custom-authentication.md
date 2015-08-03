@@ -164,7 +164,7 @@
 
 ## LoginProvider 만들기
 
-모바일 서비스 인증 파이프라인에 있는 기본 생성 항목 중 하나는 **LoginProvider**입니다. 이 섹션에서는 사용자 고유의 `CustomLoginProvider`을(를) 만듭니다. 이 항목은 기본 제공되는 공급자와 같이 파이프라인에 연결되지 않지만 몇 가지 편리한 기능을 제공합니다.
+모바일 서비스 인증 파이프라인에 있는 기본 생성 항목 중 하나는 **LoginProvider**입니다. 이 섹션에서는 사용자 고유의 `CustomLoginProvider`을(를) 만듭니다. 이 항목은 기본 제공되는 공급자와 같이 파이프라인에 연결되지 않지만 몇 가지 편리한 기능을 제공합니다. Visual Studio 2013을 사용하는 경우 `LoginProvider` 클래스에 참조를 추가하는 `WindowsAzure.MobileServices.Backend.Security` nuget 패키지를 설치해야 할 수 있습니다.
 
 1. **LoginProvider**에서 파생된 새 클래스 `CustomLoginProvider`을(를) 만들고 다음 `using` 문을 추가합니다.
 
@@ -420,4 +420,4 @@
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

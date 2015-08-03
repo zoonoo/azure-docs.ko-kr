@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Python에서 Blob 저장소를 사용하는 방법 | Microsoft Azure" 
-	description="Azure Blob 서비스를 사용하여 Python에서 Blob을 업로드, 나열, 다운로드 및 삭제하는 방법을 알아봅니다.&quot;" 
+	description="Azure Blob 서비스를 사용하여 Python에서 Blob을 업로드, 나열, 다운로드 및 삭제하는 방법을 알아봅니다.";" 
 	services="storage" 
 	documentationCenter="python" 
 	authors="huguesv" 
@@ -106,4 +106,4 @@ Blob에서 데이터를 다운로드하려면 **get_blob_to_path**, **get_blob_t
 [Python Azure 패키지]: https://pypi.python.org/pypi/azure
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -113,4 +113,4 @@ DocumentDB에서는 언제라도 컬렉션을 추가 및 제거하고, 이를 �
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -147,4 +147,4 @@ Azure AD에서 디렉터리를 삭제하려면 특정 조건을 충족해야 합
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

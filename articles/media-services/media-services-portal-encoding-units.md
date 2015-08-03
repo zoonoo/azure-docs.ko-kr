@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="07/16/2015" 
 	ms.author="juliako"/>
 
 
@@ -41,13 +41,13 @@
 	![프로세서 페이지](./media/media-services-portal-encoding-units/media-services-encoding-scale.png)
 
 	  
-	>[Azure.Note]싱가포르, 홍콩, 오사카, 베이징, 상하이 데이터 센터에서는 프리미엄 예약 단위 유형을 제공 하지 않습니다.
+	>[AZURE.NOTE]싱가포르, 홍콩, 오사카, 베이징, 상하이 데이터 센터에서는 프리미엄 예약 단위 유형을 제공 하지 않습니다.
 
 3. 저장 단추를 눌러 변경 내용을 저장합니다.
 
 	저장을 누르는 즉시 새 인코딩 예약 단위가 할당됩니다.
 
-	>[Azure.Note]24시간 동안 가장 많은 단위 수가 비용 계산에 사용됩니다.
+	>[AZURE.NOTE]24시간 동안 가장 많은 단위 수가 비용 계산에 사용됩니다.
 
 ##할당량 및 제한 사항
 
@@ -58,4 +58,4 @@
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

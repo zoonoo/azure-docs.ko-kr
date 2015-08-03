@@ -122,4 +122,4 @@ Azure AD Connect에 대한 자세한 내용은 [시작: Azure AD Connect](active
 [007]: ./media/active-directory-passwords-how-it-works/007.jpg "Image_007.jpg"
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

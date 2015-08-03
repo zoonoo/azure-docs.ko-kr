@@ -113,4 +113,4 @@ Microsoft **데이터 관리 게이트웨이**는 온-프레미스 데이터 원
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

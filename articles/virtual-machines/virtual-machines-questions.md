@@ -6,7 +6,7 @@
 	authors="KBDAzure"
 	manager="timlt"
 	editor=""
-	tags="azure-resource-manager, azure-service-management"/>
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/19/2015"
+	ms.date="07/17/2015"
 	ms.author="kathydav"/>
 
 # Azure 가상 컴퓨터 FAQ
@@ -37,7 +37,7 @@ Windows 클라이언트 이미지를 사용할 수 있는, Windows 7 및 Windows
 
 각 데이터 디스크의 최대 용량은 1 TB 입니다. 사용할 수 있는 데이터 디스크의 수는 가상 컴퓨터의 크기에 따라 달라집니다. 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-size-specs.md)를 참조하세요.
 
-Azure 저장소 계정은 운영 체제 디스크 및 모든 데이터 디스크에 대한 저장소를 제공합니다. 각 디스크는 페이지 blob으로 저장된 .vhd 파일입니다. 디스크에 사용할 수 있는 공간이 아니라 저장소 계정에 사용되는 저장소에 대해 요금이 부과됩니다. 가격 책정에 대한 자세한 내용은 [저장소 가격 책정 정보](http://go.microsoft.com/fwlink/p/?LinkId=396819)를 참조하세요.
+Azure 저장소 계정은 운영 체제 디스크 및 모든 데이터 디스크에 대한 저장소를 제공합니다. 각 디스크는 페이지 blob으로 저장된 .vhd 파일입니다. 가격 책정에 대한 자세한 내용은 [저장소 가격 책정 정보](http://go.microsoft.com/fwlink/p/?LinkId=396819)를 참조하세요.
 
 ## 어떤 가상 하드 디스크 유형을 사용할 수 있습니까?
 
@@ -51,17 +51,17 @@ Azure는 고정된 VHD-포맷 가상 하드 디스크를 지원합니다. Azure�
 
 ## 이 가상 컴퓨터들은 HYPER-V 가상 컴퓨터들과 동일합니까?
 
-많은 측면에서, “1 세대” Hyper-V VM과 유사하지만, 정확히 동일하지는 않습니다. 두 형식 모두 가상화된 하드웨어를 제공하지만, VHD-형식 가상 하드 디스크는 호환이 가능합니다. 이 의미는 사용자가 Hyper-V 및 Azure 사이를 이동할 수 있다는 것입니다. 때때로 Hyper-V 사용자를 놀라게 하는 두 가지 중요한 차이점은 다음과 같습니다:<!-- In previous para, last sentence, s/b "Three key differences" correct? Also, since the colon provide adequate context for user, you might omit "are".  --> Azure는 가상 컴퓨터에 대한 콘솔 엑세스를 제공하지 않습니다.-Azure VM의 가장 [크기](virtual-machines-size-specs.md)는 오직 1개의 가상 네트워크 어댑터를 갖으며, 이는 오직 1개의 외부 IP 주소를 갖을 수 있다는 의미입니다. (A8 및 A9 크기는 제한된 시나리오에서 인스턴스 간의 응용 프로그램 커뮤니케이션을 위해 두 번째 네트워크 어댑터를 사용합니다)-Azure VM은 2 세대 Hyper-V VM 기능을 지원하지 않습니다. 이러한 기능에 대한 자세한 내용은 [Hyper-V에 대한 가상 컴퓨터 사양](http://technet.microsoft.com/library/dn592184.aspx)을 참조하세요.
+많은 측면에서, “1 세대” Hyper-V VM과 유사하지만, 정확히 동일하지는 않습니다. 두 형식 모두 가상화된 하드웨어를 제공하지만, VHD-형식 가상 하드 디스크는 호환이 가능합니다. 이 의미는 사용자가 Hyper-V 및 Azure 사이를 이동할 수 있다는 것입니다. Hyper-V 사용자에게 중요한 세 가지 차이점이 있습니다.
+
+- Azure에서는 가상 컴퓨터에 대한 콘솔 액세스를 제공하지 않습니다.
+- 대부분의 [크기](virtual-machines-size-specs.md)를 가진 Azure VM에는 가상 네트워크 어댑터가 하나만 있습니다. 따라서 외부 IP 주소가 하나만 지정될 수 있습니다. A8 및 A9 크기는 제한된 시나리오에서 인스턴스 간의 응용 프로그램 커뮤니케이션을 위해 두 번째 네트워크 어댑터를 사용합니다.
+- Azure VM은 2세대 Hyper-V VM 기능을 지원하지 않습니다. 이러한 기능에 대한 자세한 내용은 [Hyper-V에 대한 가상 컴퓨터 사양](http://technet.microsoft.com/library/dn592184.aspx)을 참조하세요.
 
 ## 이러한 가상 컴퓨터는 현존하는 온-프레미스 네트워킹 인프라를 사용할 수 있습니까?
 
-해당 답변은 서비스 관리 기반 VM 및 리소스 관리 기반 VM에 따라 달라집니다.
-
-서비스 관리 기반 VM의 경우, 현존하는 인프라를 확장하기 위해 Azure 가상 네트워크를 사용할 수 있습니다. 접근법은 지점 사무실을 설치와 유사합니다. 사용자는 Azure에서 VPN(가상 사설망)을 프로비전하고 관리하며 온-프레미스 IT 인프라에 안전하게 연결할 수 있습니다. 자세한 내용은 [가상 네트워크 개요](https://msdn.microsoft.com/library/jj156007.aspx)를 참조하세요.
+서비스 관리에서 만든 VM의 경우, 현존하는 인프라를 확장하기 위해 Azure 가상 네트워크를 사용할 수 있습니다. 접근법은 지점 사무실을 설치와 유사합니다. 사용자는 Azure에서 VPN(가상 사설망)을 프로비전하고 관리하며 온-프레미스 IT 인프라에 안전하게 연결할 수 있습니다. 자세한 내용은 [가상 네트워크 개요](https://msdn.microsoft.com/library/jj156007.aspx)를 참조하세요.
 
 가상 컴퓨터를 만들 때, 사용자가 원하는 가상 컴퓨터가 소속될 네트워크를 지정해야 합니다. 이 의미는, 예를 들어, 가상 네트워크에 현존하는 가상 컴퓨터를 추가할 수 없다는 것입니다. 그러나 기본 가상 컴퓨터에서 가상 하드 디스크(VHD)를 분리한 후, 사용자가 원하는 네트워킹 구성으로 새로운 가상 컴퓨터를 만들어서 이 문제를 해결할 수 있습니다.
-
-리소스 관리 기반 VM의 경우, 사용자의 현존하는 온-프레미스 인프라에 이번 시간에 가상 컴퓨터를 포함할 수 없습니다.
 
 ## 나의 가상 컴퓨터에 액세스 하려면 어떻게 해야 합니까?
 
@@ -70,7 +70,13 @@ Linux VM에 대한 SSH(보안셸) 또는 Windows VM에 대한 원격 데스크�
 - [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-log-on-windows-server.md) 서버가 원격 데스크톱 서비스 세션 호스트로 구성되지 않으면 최대 2개의 동시 연결이 지원됩니다.  
 - [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-linux-how-to-log-on.md) 기본적으로, SSH는 최대 10개의 동시 연결을 허용합니다. 구성 파일을 편집하여 이 수를 늘릴 수 있습니다.
 
-원격 데스크 톱 또는 SSH 문제가 있는 경우, 문제를 해결하는데 도움이 되는 [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) 익스텐션을 사용하세요. Windows VM의 경우, 추가 옵션은 다음을 포함합니다:<!--  In next paragraph, omit "the" or add a modifier, for example, "click the X button". To enhance instructional design, you might use: "...the VM, and then on the X bar, click X"-->-Azure 미리보기 포탈에서, VM을 찾은 다음 명령 모음에서 **연격 액세스 다시 설정**을 클릭합니다.-[Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-troubleshoot-remote-desktop-connections.md)을 검토합니다. -VM에 연결하려면 Windows PowerShell 원격을 사용하거나, 다른 리소스에 대한 추가 끝점을 만듭니다. 자세한 내용은 [가상 컴퓨터에 끝점을 설정하는 방법](virtual-machines-set-up-endpoints.md)을 참조하세요. <!-- Previous para, added END punctuation --> Hyper-V에 친숙한 경우, 가상 컴퓨터 연결과 유사한 도구를 찾을 수 있습니다. 가상 컴퓨터에 대한 콘솔 액세스가 지원되지 않으므로 Azure는 유사한 도구를 제공하지 않습니다.
+원격 데스크 톱 또는 SSH 문제가 있는 경우, 문제를 해결하는데 도움이 되는 [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) 확장을 사용하세요. Windows VM에 대한 추가 옵션은 다음과 같습니다.
+
+- Azure Preview 포털에서 VM을 찾은 다음 명령 모음에서 **원격 액세스 다시 설정**을 클릭합니다.
+- [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-troubleshoot-remote-desktop-connections.md)을 검토합니다.
+- Windows PowerShell 원격을 사용하여 VM에 연결하거나 VM에 연결할 다른 리소스에 대한 추가 끝점을 만듭니다. 자세한 내용은 [가상 컴퓨터에 끝점을 설정하는 방법](virtual-machines-set-up-endpoints.md)을 참조하세요.
+
+Hyper-V에 친숙한 경우, 가상 컴퓨터 연결과 유사한 도구를 찾을 수 있습니다. 가상 컴퓨터에 대한 콘솔 액세스가 지원되지 않으므로 Azure는 유사한 도구를 제공하지 않습니다.
 
 ## D: 드라이브 (Windows) or /dev/sdb1 (Linux)를 사용할 수 있습니까?
 
@@ -86,8 +92,8 @@ Windows 가상 컴퓨터에서, 페이지 파일을 이동하고 드라이브 �
 용어 업그레이드가 일반적으로 의미하는 것은 동일한 하드웨어를 그대로 사용하면서 사용중인 운영 체제의 최신 릴리스로 이동하는 것을 의미합니다. Azure VM의 경우, 보다 최신 릴리스로의 이동은 Linux 및 Windows에 따라 달라집니다.
 
 - Linux에 대해 배포시 패키지 관리 도구 및 적절한 도구를 사용하세요.
-- Windows 가상 컴퓨터의 경우, Windows server 마이그레이션 도구를 사용합니다. Azure에 상주하는 동안, 게스트 OS를 업그레이드 하려고 시도하지 마십시오. 가상 컴퓨터에 대한 액세스를 손실할 수 있는 위험 때문에 해당 업그레이드는 지원되지 않습니다. 업그레이드를 하는 동안 문제가 발생하는 경우, 원격 데스크톱 세션을 시작할 수 있는 기능이 손실되며, 문제를 해결할 수 없습니다. 도구 및 프로세스에 대한 자세한 일반 정보는, [Windows Server에 역할 및 기능 마이그레이션 수행하기](http://go.microsoft.com/fwlink/p/?LinkId=396940)를 참조하세요. Windows Server 2012 R2로 업그레이드에 대한 자세한 내용은 [Windows Server 2012에 대한 업그레이드 옵션](https://technet.microsoft.com/library/dn303416.aspx)을 참조하세요.
-<!--In previous para, last two sentences. Omit "general" since it adds questionable value for customer? -->
+- Windows 가상 컴퓨터의 경우, Windows server 마이그레이션 도구를 사용합니다. Azure에 상주하는 동안, 게스트 OS를 업그레이드 하려고 시도하지 마십시오. 가상 컴퓨터에 대한 액세스를 손실할 수 있는 위험 때문에 해당 업그레이드는 지원되지 않습니다. 업그레이드를 하는 동안 문제가 발생하는 경우, 원격 데스크톱 세션을 시작할 수 있는 기능이 손실되며, 문제를 해결할 수 없습니다. 도구 및 프로세스에 대한 자세한 일반 정보는, [Windows Server에 역할 및 기능 마이그레이션 수행하기](http://go.microsoft.com/fwlink/p/?LinkId=396940)를 참조하세요. Windows Server 2012 R2로 업그레이드에 대한 자세한 내용은 [Windows Server 2012 R2에 대한 업그레이드 옵션](https://technet.microsoft.com/library/dn303416.aspx)을 참조하세요.
+
 ## 가상 컴퓨터에 대한 기본 사용자 이름 및 암호는 무엇입니까?
 
 Azure에 의해 제공되는 이미지는 미리 구성된 이름 및 암호가 필요없습니다. 이러한 이미지 중 하나를 사용하여 가상 컴퓨터를 만들 때, 가상 컴퓨터에 로그온 하는데 사용할 사용자 이름 및 암호를 제공해야 합니다.
@@ -127,12 +133,20 @@ VM 상태가 실행 중이거나 정지되면 요금이 부과되지만, VM 상�
 
 ## Azure는 유지관리를 위해 내 VM을 다시 부팅합니까?
 
-일반적으로, 사용자가 필요할 때마다 자신의 VM을 시작하고 정지하고 다시 시작할 수 있습니다. (자세한 내용은, [Azure VM](https://msdn.microsoft.com/library/azure/dn763934.aspx)을 시작, 중지 및 다시 시작하는 방법에 대하여)를 참조하세요. Azure는 때때로 Azure 데이터 센터에서 일반, 계획된 유지 관리 업데이트의 일부로서 사용자의 VM을 다시 시작합니다. Azure가 사용자의 VM에 영향을 주는 심각한 하드웨어 문제를 감지할 때 계획되지 않은 유지 관리 이벤트가 발생할 수 있습니다. 계획되지 않은 이벤트에 대해, Azure는 VM을 정상 호스트에 마이그레이션 하고 해당 VM을 다시 시작합니다.
+일반적으로, 사용자가 필요할 때마다 자신의 VM을 시작하고 정지하고 다시 시작할 수 있습니다. 자세한 내용은 [Azure VM 시작, 중지 및 다시 시작 정보](https://msdn.microsoft.com/library/azure/dn763934.aspx)를 참조하세요. Azure는 때때로 Azure 데이터 센터에서 일반, 계획된 유지 관리 업데이트의 일부로서 사용자의 VM을 다시 시작합니다. Azure가 사용자의 VM에 영향을 주는 심각한 하드웨어 문제를 감지할 때 계획되지 않은 유지 관리 이벤트가 발생할 수 있습니다. 계획되지 않은 이벤트에 대해, Azure는 VM을 정상 호스트에 마이그레이션 하고 해당 VM을 다시 시작합니다.
 
 모든 독립 실행형 VM(VM은 가용성 집합의 일부가 아니라는 의미)에 대해, 업데이트를 하는 동안 VM이 다시 시작될 수 있기 때문에, Azure는 계획된 유지 관리 시행 시기 기준 적어도 한 주 전에 구독의 서비스 관리자에게 e-mail로 알립니다. VM에서 실행 중인 응용 프로그램에서 가동 중지 시간이 발생할 수 있습니다.
 
-또한 사용자는 계획된 유지 관리로 인해 다시 부팅을 할 때, Azure 포털 또는 Azure PowerShell을 사용하여 다시 부팅 로그를 볼 수 있습니다. 자세한 내용은, [VM 다시 부팅 로그 보기](http://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/)를 참조하세요.
+또한 사용자는 계획된 유지 관리로 인해 다시 부팅을 할 때, Azure 포털 또는 Azure PowerShell을 사용하여 다시 부팅 로그를 볼 수 있습니다. 자세한 내용은 [VM 다시 부팅 로그 보기](http://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/)를 참조하세요.
 
-중복성을 제공하려면 동일한 가용성 집합에 둘 이상의 비슷하게 구성된 VM을 넣습니다. 이렇게 하면 계획된 또는 계획되지 않은 유지 관리를 하는 동안 적어도 하나 이상의 VM을 사용할 수 있습니다. Azure는 이 구성에 대해 특정한 수준의 VM 가용성을 보장합니다. 자세한 내용은 [가상 컴퓨터의 가용성 관리를 참조하세요](virtual-machines-manage-availability.md). <!-- Promotion, referrals, customer empathy (this tactic likely requires signoff from individual that manages "look and feel" of these assets): Consider a new section like "Need more help" and within new section include link to Developer Portal, or perhaps new product features, troubleshooting, or maintenance?-->
+중복성을 제공하려면 동일한 가용성 집합에 둘 이상의 비슷하게 구성된 VM을 넣습니다. 이렇게 하면 계획된 또는 계획되지 않은 유지 관리를 하는 동안 적어도 하나 이상의 VM을 사용할 수 있습니다. Azure는 이 구성에 대해 특정한 수준의 VM 가용성을 보장합니다. 자세한 내용은 [가상 컴퓨터의 가용성 관리](virtual-machines-manage-availability.md)를 참조하세요.
 
-<!---HONumber=July15_HO2-->
+## 추가 리소스
+
+[Azure 가상 컴퓨터 정보](virtual-machines-about.md)
+
+[Linux 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-linux-choices-create-vm.md)
+
+[Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-choices-create-vm.md)
+
+<!---HONumber=July15_HO4-->

@@ -121,4 +121,4 @@ PowerShell을 사용하여 구독 내의 모든 태그 목록을 가져오려면
 - [Azure 클래식 포털을 사용하여 새 Azure 서비스 사용자 만들기](./resource-group-create-service-principal-portal.md)  
   
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

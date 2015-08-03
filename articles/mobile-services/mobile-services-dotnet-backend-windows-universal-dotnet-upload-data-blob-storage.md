@@ -47,7 +47,7 @@
 
 + [모바일 서비스에서 백 엔드 작업 예약](../mobile-services-dotnet-backend-schedule-recurring-tasks.md)
 
-     모바일 서비스 작업 스케줄러 기능을 사용하여, 예약된 시간에 실행되는 서버 스크립트 코드를 정의하는 방법에 대해 알아봅니다.
+     모바일 서비스 작업 스케줄러 기능을 사용하여, 예약된 시간에 실행되는 서버 스크립트 코드를 정의하는 방법에 대해 알아보십시오.
 
 + [모바일 서비스 .NET 방법 개념 참조](../mobile-services-windows-dotnet-how-to-use-client-library.md)
 
@@ -71,4 +71,4 @@
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

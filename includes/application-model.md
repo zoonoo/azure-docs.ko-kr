@@ -120,7 +120,7 @@ Azure에 호스티드 서비스를 배포하려면 서비스 정의 파일과 �
 
 ## <a id="def"> </a>서비스 정의 파일
 
-앞에서 언급했듯이, 서비스 정의(CSDEF) 파일은 전체 응용 프로그램을 구성하는 다양한 역할을 설명하는 XML 파일입니다. XML 파일의 전체 스키마는 [http://msdn.microsoft.com/library/windowsazure/ee758711.aspx][] 에서 확인할 수 있습니다. CSDEF 파일에는 응용 프로그램에서 사용하려는 각 역할에 대한 WebRole 또는 WorkerRole 요소가 포함되어 있습니다. WebRole 요소를 사용하여 역할을 웹 역할로 배포하면 Windows Server 2008 및 IIS(Internet Information Server)가 포함된 역할 인스턴스에서 코드가 실행됩니다. WorkerRole 요소를 사용하여 역할을 작업자 역할로 배포하면 역할 인스턴스에 Windows Server 2008이 포함됩니다(IIS는 설치되지 않음).
+앞에서 언급했듯이, 서비스 정의(CSDEF) 파일은 전체 응용 프로그램을 구성하는 다양한 역할을 설명하는 XML 파일입니다. XML 파일의 전체 스키마는 [http://msdn.microsoft.com/library/windowsazure/ee758711.aspx][]에서 확인할 수 있습니다. CSDEF 파일에는 응용 프로그램에서 사용하려는 각 역할에 대한 WebRole 또는 WorkerRole 요소가 포함되어 있습니다. WebRole 요소를 사용하여 역할을 웹 역할로 배포하면 Windows Server 2008 및 IIS(Internet Information Server)가 포함된 역할 인스턴스에서 코드가 실행됩니다. WorkerRole 요소를 사용하여 역할을 작업자 역할로 배포하면 역할 인스턴스에 Windows Server 2008이 포함됩니다(IIS는 설치되지 않음).
 
 다른 일부 메커니즘을 사용하여 들어오는 웹 요청을 수신 대기하는 작업자 역할을 만들고 배포할 수 있습니다. 예를 들어 코드에서 .NET HttpListener를 만들고 사용할 수 있습니다. 역할 인스턴스는 모두 Windows Server 2008을 실행하고 있으므로 Windows Server 2008에서 실행 중인 응용 프로그램이 정상적으로 사용할 수 있는 모든 작업을 코드에서 수행할 수 있습니다.
 
@@ -266,7 +266,7 @@ Azure에 호스티드 서비스를 배포하려면 서비스 정의 파일과 �
 
 서비스 정의(CSDEF) 파일에서 응용 프로그램의 각 역할에 대한 많은 특성을 지정하기도 합니다. 다음은 사용 가능한 유용한 항목 중 일부입니다.
 
--   **인증서**. 데이터를 암호화하려는 경우 또는 웹 서비스에서 SSL을 지원하는 경우 인증서를 사용합니다. Azure에 인증서를 업로드해야 합니다. 자세한 내용은 [Azure에서 인증서 관리][]를 참조하십시오. 이 XML 설정은 응용 프로그램 코드에서 사용할 수 있도록 이전에 업로드한 인증서를 역할 인스턴스의 인증서 저장소에 설치합니다.
+-   **인증서**. 데이터를 암호화하려는 경우 또는 웹 서비스에서 SSL을 지원하는 경우 인증서를 사용합니다. Azure에 인증서를 업로드해야 합니다. 자세한 내용은 [Azure에서 인증서 관리][]를 참조하세요. 이 XML 설정은 응용 프로그램 코드에서 사용할 수 있도록 이전에 업로드한 인증서를 역할 인스턴스의 인증서 저장소에 설치합니다.
 
 -   **구성 설정 이름**. 응용 프로그램이 역할 인스턴스에서 실행되는 동안 읽으려는 값에 사용합니다. 구성 설정의 실제 값은 코드를 다시 배포하지 않고도 언제든지 업데이트할 수 있는 서비스 구성(CSCFG) 파일에서 설정됩니다. 사실상, 가동 중지 시간을 발생시키지 않고 변경된 구성 값을 감지하도록 응용 프로그램을 코딩할 수 있습니다.
 
@@ -284,7 +284,7 @@ Azure에 호스티드 서비스를 배포하려면 서비스 정의 파일과 �
 
 서비스 구성(CSCFG) 파일은 응용 프로그램을 다시 배포하지 않고도 변경할 수 있는 설정을 설명하는 XML 파일입니다. XML 파일의 전체 스키마는 [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx][]에서 확인할 수 있습니다. CSCFG 파일에는 응용 프로그램의 각 역할에 대한 Role 요소가 포함되어 있습니다. 다음은 CSCFG 파일에 지정할 수 있는 항목 중 일부입니다.
 
--   **OS 버전**. 이 특성을 사용하면 응용 프로그램 코드를 실행 중인 모든 역할 인스턴스에 사용하려는 OS(운영 체제) 버전을 선택할 수 있습니다. 이 OS를 *게스트 OS*라고 하며, 각각의 새로운 버전에 게스트 OS가 릴리스될 당시 사용 가능한 최신 보안 패치와 업데이트가 포함되어 있습니다. osVersion 특성 값을 "*"로 설정하면 새 게스트 OS 버전이 사용 가능할 때 Azure에서 각 역할 인스턴스의 게스트 OS를 자동으로 업데이트합니다. 그러나 특정 게스트 OS 버전을 선택하여 자동 업데이트를 옵트아웃(opt out)할 수 있습니다. 예를 들어 osVersion 특성을 "WA-GUEST-OS-2.8_201109-01" 값으로 설정하면 모든 역할 인스턴스가 [http://msdn.microsoft.com/library/hh560567.aspx][] 웹 페이지에 설명된 항목을 얻게 됩니다. 게스트 OS 버전에 대한 자세한 내용은 [Azure 게스트 OS에 대한 업그레이드 관리]를 참조하십시오.
+-   **OS 버전**. 이 특성을 사용하면 응용 프로그램 코드를 실행 중인 모든 역할 인스턴스에 사용하려는 OS(운영 체제) 버전을 선택할 수 있습니다. 이 OS를 *게스트 OS*라고 하며, 각각의 새로운 버전에 게스트 OS가 릴리스될 당시 사용 가능한 최신 보안 패치와 업데이트가 포함되어 있습니다. osVersion 특성 값을 "*"로 설정하면 새 게스트 OS 버전이 사용 가능할 때 Azure에서 각 역할 인스턴스의 게스트 OS를 자동으로 업데이트합니다. 그러나 특정 게스트 OS 버전을 선택하여 자동 업데이트를 옵트아웃(opt out)할 수 있습니다. 예를 들어 osVersion 특성을 "WA-GUEST-OS-2.8_201109-01" 값으로 설정하면 모든 역할 인스턴스가 [http://msdn.microsoft.com/library/hh560567.aspx][] 웹 페이지에 설명된 항목을 얻게 됩니다. 게스트 OS 버전에 대한 자세한 내용은 [Azure 게스트 OS에 대한 업그레이드 관리]를 참조하세요.
 
 -   **인스턴스**. 이 요소의 값은 특정 역할에 대한 코드를 실행하여 프로비전하려는 역할 인스턴스 수를 나타냅니다. 응용 프로그램을 다시 배포하지 않고도 새 CSCFG 파일을 Azure에 업로드할 수 있으므로 간단하게 이 요소의 값을 변경하고 새 CSCFG 파일을 업로드하여 응용 프로그램 코드를 실행하는 역할 인스턴스 수를 동적으로 늘리거나 줄일 수 있습니다. 이렇게 하면 역할 인스턴스 실행에 대해 부과되는 요금을 제어하는 동시에 실제 작업 요구에 맞게 응용 프로그램을 쉽게 확장하거나 축소할 수 있습니다.
 
@@ -316,33 +316,34 @@ Azure에 호스티드 서비스를 배포하려면 서비스 정의 파일과 �
 
 </div>
 
-[Azure 응용 프로그램 모델 혜택]: #benefits
-[호스팅 서비스 핵심 개념]: #concepts
-[호스팅 서비스 디자인 고려 사항]: #considerations
-[규모를 고려하여 응용 프로그램 디자인]: #scale
-[호스팅 서비스 정의 및 구성]: #defandcfg
-[서비스 정의 파일]: #def
-[서비스 구성 파일]: #cfg
-[호스팅 서비스 만들기 및 배포]: #hostedservices
-[참조]: #references
-[0]: ./media/application-model/application-model-3.jpg
-[1]: ./media/application-model/application-model-4.jpg
-[2]: ./media/application-model/application-model-5.jpg
-[Azure에서 사용자 지정 도메인 이름 구성]: http://www.windowsazure.com/develop/net/common-tasks/custom-dns/
-[Azure의 데이터 저장소 제공]: http://www.windowsazure.com/develop/net/fundamentals/cloud-storage/
-[3]: ./media/application-model/application-model-6.jpg
-[4]: ./media/application-model/application-model-7.jpg
-[Azure 가격 책정]: http://www.windowsazure.com/pricing/calculator/
-[Azure에서 인증서 관리]: http://msdn.microsoft.com/library/windowsazure/gg981929.aspx
-[http://msdn.microsoft.com/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
-[http://msdn.microsoft.com/library/hh560567.aspx]: http://msdn.microsoft.com/library/hh560567.aspx
-[Azure 게스트 OS에 대한 업그레이드 관리]: http://msdn.microsoft.com/library/ee924680.aspx
-[Azure 관리 포털]: http://manage.windowsazure.com/
-[5]: ./media/application-model/application-model-8.jpg
-[Azure 응용 프로그램 배포 및 업데이트]: http://www.windowsazure.com/develop/net/fundamentals/deploying-applications/
-[Azure에 대한 호스팅 서비스 만들기]: http://msdn.microsoft.com/library/gg432967.aspx
-[Azure에서 호스팅 서비스 관리]: http://msdn.microsoft.com/library/gg433038.aspx
-[응용 프로그램을 Azure로 마이그레이션]: http://msdn.microsoft.com/library/gg186051.aspx
-[Azure 응용 프로그램 구성]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx
+  [Azure 응용 프로그램 모델 혜택]: #benefits
+  [호스팅 서비스 핵심 개념]: #concepts
+  [호스팅 서비스 디자인 고려 사항]: #considerations
+  [규모를 고려하여 응용 프로그램 디자인]: #scale
+  [호스팅 서비스 정의 및 구성]: #defandcfg
+  [서비스 정의 파일]: #def
+  [서비스 구성 파일]: #cfg
+  [호스팅 서비스 만들기 및 배포]: #hostedservices
+  [참조]: #references
+  [0]: ./media/application-model/application-model-3.jpg
+  [1]: ./media/application-model/application-model-4.jpg
+  [2]: ./media/application-model/application-model-5.jpg
+  [Azure에서 사용자 지정 도메인 이름 구성]: http://azure.microsoft.com/develop/net/common-tasks/custom-dns/
+  [Azure의 데이터 저장소 제공]: http://azure.microsoft.com/develop/net/fundamentals/cloud-storage/
+  [3]: ./media/application-model/application-model-6.jpg
+  [4]: ./media/application-model/application-model-7.jpg
+  
+  [Azure 가격 책정]: http://azure.microsoft.com/pricing/calculator/
+  [Managing Certificates in Azure]: http://msdn.microsoft.com/library/windowsazure/gg981929.aspx
+  [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+  [http://msdn.microsoft.com/library/hh560567.aspx]: http://msdn.microsoft.com/library/hh560567.aspx
+  [Managing Upgrades to the Azure Guests OS]: http://msdn.microsoft.com/library/ee924680.aspx
+  [Azure 관리 포털]: http://manage.windowsazure.com/
+  [5]: ./media/application-model/application-model-8.jpg
+  [Azure 응용 프로그램 배포 및 업데이트]: http://azure.microsoft.com/develop/net/fundamentals/deploying-applications/
+  [Azure에 대한 호스팅 서비스 만들기]: http://msdn.microsoft.com/library/gg432967.aspx
+  [Azure에서 호스팅 서비스 관리]: http://msdn.microsoft.com/library/gg433038.aspx
+  [응용 프로그램을 Azure로 마이그레이션]: http://msdn.microsoft.com/library/gg186051.aspx
+  [Azure 응용 프로그램 구성]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx
 
-<!--HONumber=52-->
+<!---HONumber=July15_HO4-->

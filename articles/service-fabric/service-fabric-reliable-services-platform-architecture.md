@@ -92,4 +92,4 @@ StatelessService 및 StatelessServiceBase 클래스를 사용하여 서비스를
 [신뢰할 수 있는 서비스 구성](../Service-Fabric/service-fabric-reliable-services-configuration.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

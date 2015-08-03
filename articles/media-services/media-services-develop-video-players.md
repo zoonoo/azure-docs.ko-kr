@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="07/20/2015" 
 	ms.author="juliako"/>
 
 
@@ -51,9 +51,8 @@ Microsoft Azure 미디어 서비스에서 컨텐츠를 DASH, 부드러운 스트
 - [Microsoft Media Platform: 플레이어 프레임워크](http://playerframework.codeplex.com/) 
 - [HTML5 플레이어 프레임워크 설명서](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 - [OSMF용 Microsoft 부드러운 스트리밍 플러그인](https://www.microsoft.com/download/details.aspx?id=36057) 
-- [iOS용 미디어 플레이어 프레임워크](https://github.com/Azure/azure-media-player-framework) 
 - [Microsoft® 부드러운 스트리밍 클라이언트 이식 키트 라이선스](https://www.microsoft.com/mediaplatform/sspk.aspx) 
-- [XBOX 동영상 응용 프로그램 개발](http://xbox.create.msdn.com/) 
+- [XBOX 비디오 응용 프로그램 개발](http://xbox.create.msdn.com/) 
  
 
 ##광고
@@ -68,7 +67,7 @@ Azure 미디어 서비스는 Windows 미디어 플랫폼: 플레이어 프레임
 
 광고는 기본 비디오 타임 라인에 언제든지 배치할 수 있습니다. 플레이어에 광고를 재생하는 시기 및 재생하는 광고를 알려야 합니다. 이 작업은 표준 XML 기반 파일 집합을 사용하여 수행됩니다. VAST(Video Ad Service Template), VMAP(Digital Video Multiple Ad Playlist), MAST(Media Abstract Sequencing Template) 및 VPAID(Digital Video Player Ad Interface Definition). VAST 파일은 표시할 광고를 지정합니다. VMAP 파일은 다양한 광고를 재생하고 VAST XML을 포함하는 시기를 지정합니다. 또한 MAST 파일은 VAST XML도 포함할 수 있는 광고를 시퀀스하는 다른 방법입니다. VPAID 파일은 비디오 플레이어와 광고 또는 광고 서버 간의 인터페이스를 정의합니다. 자세한 내용은 [광고 삽입](https://msdn.microsoft.com/library/dn387398.aspx)을 참조하세요.
 
-라이브 스트리밍 비디오에서 캡션 및 광고 지원에 대한 정보는 [지원되는 캡션 및 Ad 삽입 표준](https://msdn.microsoft.com/library/c49e0b4d-357e-4cca-95e5-2288924d1ff3#caption_ad)을 참조하세요.
+라이브 스트리밍 비디오의 자막 및 광고 지원에 대한 정보는 [지원되는 자막 및 광고 삽입 표준](https://msdn.microsoft.com/library/c49e0b4d-357e-4cca-95e5-2288924d1ff3#caption_ad)을 참조하세요.
 
 ##참고 항목
 
@@ -77,4 +76,4 @@ Azure 미디어 서비스는 Windows 미디어 플랫폼: 플레이어 프레임
 [GitHub dash.js 리포지토리](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

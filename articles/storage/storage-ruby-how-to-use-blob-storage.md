@@ -148,4 +148,4 @@ Blob을 다운로드하려면 **get_blob()** 메서드를 사용하여 콘텐츠
 - GitHub에서 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby)(영문) 리포지토리를 방문하십시오.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

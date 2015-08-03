@@ -100,4 +100,4 @@ SQL Server의 경우 분석에 대해 다음과 같은 32비트 및 64비트 버
 
 또한 WOW64 구현에서 실행하는 경우 SQL Server 32비트 버전이 지원됩니다.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

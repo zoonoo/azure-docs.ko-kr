@@ -139,4 +139,4 @@ Azure 저장소 또는 서비스 버스를 사용하는 등 웹 및 작업자 �
 [Python 2.7 32비트]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 32비트]: http://go.microsoft.com/fwlink/?LinkId=517191
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

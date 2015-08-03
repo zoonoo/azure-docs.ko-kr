@@ -129,4 +129,4 @@
 [관리 포털]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

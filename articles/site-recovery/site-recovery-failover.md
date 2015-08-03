@@ -279,4 +279,4 @@ Active Directory 복사본 생성 및 테스트 환경에 테스트 DHCP 및 DNS
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

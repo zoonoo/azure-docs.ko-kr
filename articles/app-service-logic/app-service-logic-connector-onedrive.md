@@ -20,7 +20,7 @@
 
 논리 앱은 다양한 데이터 원본을 기반으로 트리거하고 흐름의 일부로 데이터를 가져오고 처리하기 위한 커넥터를 제공할 수 있습니다.
 
-OneDrive 커넥터를 사용하면 OneDrive 계정에서 파일을 업로드\\다운로드\\삭제할 수 있습니다.
+OneDrive 커넥터를 사용하면 OneDrive 계정에서 파일을 업로드\다운로드\삭제할 수 있습니다.
 
 ## 논리 앱용 OneDrive 커넥터 만들기 ##
 OneDrive 커넥터를 사용하려면 먼저 OneDrive 커넥터 API 앱의 인스턴스를 만들어야 합니다. 이는 논리 앱 디자이너에서 직접 수행하거나 외부에서 수행할 수 있습니다. 디자이너 외부에서는 다음과 같은 방법으로 인스턴스를 만들 수 있습니다.
@@ -84,4 +84,4 @@ API 앱을 만들고 나면 이제 OneDrive 커넥터를 논리 앱에 대한 �
 [새 논리 앱을 만듭니다]: app-service-logic-create-a-logic-app.md
 [OneDrive API 정의]: https://msdn.microsoft.com/ko-kr/library/dn974227.aspx
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

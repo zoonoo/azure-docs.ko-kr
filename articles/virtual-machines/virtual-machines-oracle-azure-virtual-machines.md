@@ -5,7 +5,8 @@
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2015"
+	ms.date="07/09/2015"
 	ms.author="josephd"/>
 
 # Azure 가상 컴퓨터에 호스트된 Oracle 소프트웨어
@@ -60,4 +61,4 @@ Windows 서버 기반 Azure 가상 컴퓨터의 Oracle 소프트웨어에 대한
 
 [Azure에 대한 Oracle Goldengate 구성](virtual-machines-configuring-oracle-goldengate.md)은 데이터 베이스 및 복제 설치를 가능하게 합니다.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -61,4 +61,4 @@ Azure 부하 분산과 마찬가지로 내부 부하 분산 집합을 구성함�
 
 <!-- LINKS -->
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

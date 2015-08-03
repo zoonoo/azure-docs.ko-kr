@@ -52,4 +52,4 @@ Azure 데이터 팩터리는 온-프레미스 원본 및 다른 Azure 서비스 
 <!--Other Web references-->
 [Azure 데이터 팩터리 설명서]: https://azure.microsoft.com/documentation/services/data-factory/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

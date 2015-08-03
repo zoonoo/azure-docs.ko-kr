@@ -96,4 +96,4 @@ Microsoft 로고와 앱이 지원하는 다른 ID 공급자 중에서 Azure AD�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -145,4 +145,4 @@ UI의 내 계정 섹션에서는 프로필 설정, 테스트 장치 ID 등 계�
  
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

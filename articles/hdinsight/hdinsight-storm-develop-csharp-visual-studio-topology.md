@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/21/2015"
    ms.author="larryfr"/>
 
 # Visual Studio용 Hadoop 도구를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발
@@ -30,15 +30,38 @@ Visual Studio에 HDInsight 도구를 사용하여 C# Storm 토폴로지를 만�
 
 	-	Visual Studio 2013 [업데이트 4](http://www.microsoft.com/download/details.aspx?id=44921) 또는 [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
 
-	-	[Visual Studio 2015 CTP6](http://visualstudio.com/downloads/visual-studio-2015-ctp-vs)
+	-	Visual Studio 2015 또는 [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
 
 -	Azure SDK 2.5.1 이상
 
 -	Visual Studio용 HDInsight 도구: Visual Studio용 HDInsight 도구를 설치하고 구성하려면 [Visual Studio용 HDInsight 도구 사용 시작](hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
--	HDInsight의 Apache Storm 클러스터: 클러스터를 만드는 단계는 [HDInsight에서 Apache Storm 시작](hdinsight-storm-getting-started.md)을 참조하세요.
+    > [AZURE.NOTE]Visual Studio용 HDInsight 도구는 Visual Studio Express에서 지원되지 않습니다.
+
+-	HDInsight 클러스터의 Apache Storm: [HDInsight에서 Apache Storm 시작](hdinsight-storm-getting-started.md)을 참조하세요.
 
 	> [AZURE.NOTE]현재 Visual Studio용 HDInsight 도구는 HDInsight 버전 3.2 클러스터의 Storm만 지원합니다.
+
+##템플릿
+
+Visual Studio용 HDInsight 도구는 다음 템플릿을 제공합니다.
+
+| 프로젝트 형식 | 데모 |
+| ------------ | ------------- |
+| Storm 응용 프로그램 | 빈 Storm 토폴로지 프로젝트 |
+| Storm Azure SQL 기록기 샘플 | Azure SQL 데이터베이스에 쓰는 방법 |
+| Storm DocumentDB 판독기 샘플 | Azure DocumentDB에서 읽는 방법 |
+| Storm DocumentDB 기록기 샘플 | Azure DocumentDB에 쓰는 방법 |
+| Storm 이벤트 허브 판독기 샘플 | Azure 이벤트 허브에서 읽는 방법 |
+| Storm 이벤트 허브 기록기 샘플 | Azure 이벤트 허브에 쓰는 방법 |
+| Storm HBase 판독기 샘플 | HDInsight 클러스터의 HBase에서 읽는 방법 |
+| Storm HBase 기록기 샘플 | HDInsight 클러스터의 HBase에 쓰는 방법 |
+| Storm 하이브리드 샘플 | Java 구성 요소를 사용하는 방법 |
+| Storm 샘플 | 기본 단어 개수 토폴로지 |
+
+> [AZURE.NOTE]HBase 판독기 및 기록기 샘플은 HBase REST API(HBase Java API 아님)를 사용하여 HDInsight 클러스터의 HBase와 통신할 수 있습니다.
+
+이 문서의 단계에서는 기본 Storm 응용 프로그램 프로젝트 형식을 사용하여 새 토폴로지를 만들 수 있습니다.
 
 ##C# 토폴로지 만들기
 
@@ -58,7 +81,7 @@ Visual Studio에 HDInsight 도구를 사용하여 C# Storm 토폴로지를 만�
 
 	-	**Bolt.cs**: Spout에서 내보낸 숫자의 개수를 유지하는 예제 Bolt입니다.
 
-	프로젝트 만들기의 일부로 최신 [SCP.NET 패키지](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/)가 NuGet에서 다운로드됩니다.
+	프로젝트 만들기의 일환으로 최신 [SCP.NET 패키지](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/)가 NuGet에서 다운로드됩니다.
 
 다음 섹션에서 이 프로젝트를 기본 WordCount 응용 프로그램으로 수정합니다.
 
@@ -412,7 +435,7 @@ Visual Studio용 HDInsight 도구를 사용하여 일부 구성 요소는 C#이�
 
 -	Spout 또는 Bolt에 대한 Java 클래스의 새 인스턴스를 만들려면 **JavaComponentConstructor**를 사용해야 합니다.
 
--	Java 개체에서 JSON으로 Java 구성 요소의 데이터 입/출력을 직렬화하려면 **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer**를 사용해야 합니다.
+-	Java 개체에서 JSON으로 Java 구성 요소의 데이터 입출력을 직렬화하려면 **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer**를 사용해야 합니다.
 
 -	서버에 토폴로지를 제출할 때 **Java 파일 경로**를 지정하려면 **추가 구성** 옵션을 사용해야 합니다. 지정된 경로는 Java 클래스를 포함하는 JAR 파일이 들어 있는 디렉터리여야 합니다.
 
@@ -426,27 +449,20 @@ SCP.Net 버전 0.9.4.203은 이벤트 허브 spout(이벤트 허브로부터 읽
 
 > [AZURE.NOTE]이들이 다른 Java 구성 요소보다 이벤트 허브 spout으로 쉽게 작업할 수 있게 해주지만 여전히 CustomizedInteropJSONSerializer를 사용하여 spout에 의해 생성된 데이터를 직렬화해야 합니다.
 
+##SCP.NET 업데이트 방법
+
+SCP.NET의 최신 릴리스는 NuGet을 통해 패키지 업그레이드를 지원합니다. 새 업데이트를 사용할 수 있을 때 업그레이드 알림을 받게 됩니다. 업그레이드를 수동으로 확인하려면 다음 단계를 수행합니다.
+
+1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 선택합니다.
+
+2. 패키지 관리자에서 **업데이트**를 선택합니다. 사용할 수 있는 업데이트가 나열됩니다. 패키지에 대한 **업데이트** 단추를 클릭하여 설치합니다.
+
+> [AZURE.IMPORTANT]패키지 업데이트에 대해 NuGet을 사용하지 않은 SCP.NET의 이전 버전으로 프로젝트를 만든 경우 다음 단계를 수행하여 새 버전으로 업데이트해야 합니다.
+>
+> 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 선택합니다.
+> 2. **검색** 필드를 사용하여 검색한 다음 **Microsoft.SCP.Net.SDK**를 프로젝트에 추가합니다.
+
 ##문제 해결
-
-###SCP.Net 구성 요소 업데이트
-
-처음으로 C# Storm 토폴로지를 만들면 최신 버전의 SCP.Net이 설치됩니다. 그러나 수동 단계를 수행하여 최신 버전으로 기존 프로젝트를 업데이트해야 합니다.
-
-1.	**솔루션 탐색기**에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 선택합니다.
-
-2.	패키지 관리자가 나타나면 검색 필드를 사용하여 최신 버전의 SCP.Net을 찾아 설치합니다.
-
-	> [AZURE.IMPORTANT]설치가 완료되면 토폴로지에서 업데이트된 버전의 SCP.Net을 사용할 수 있게 되지만 HDInsight 클러스터에 이 토폴로지를 배포할 때는 오류가 발생할 수도 있습니다. 즉, 배포하는 동안 사용되는 버전도 업데이트해야 합니다.
-
-3.	설치가 끝나면 솔루션이 들어 있는 디렉터리로 이동하고 **packages** 디렉터리를 엽니다. **Microsoft.SCP.Net.SDK.#.#.#.###**라는 이름의 하위 디렉터리가 있어야 하며 여기서 '#'은 버전 번호를 나타냅니다.
-
-4.	**Microsoft.SCP.Net.SDK.#.#.#.###** 디렉터리를 열고 내용을 복사합니다.
-
-5.	자신의 솔루션이 들어 있는 디렉터리에서 자신의 C# Storm 토폴로지 프로젝트가 들어 있는 디렉터리를 열고 **Microsoft.SCP.Net.SDK** 폴더를 찾습니다. 여기에는 응용 프로그램을 HDInsight 클러스터에 패키지 작성 및 배포하는 데 사용되는 SCP.Net 구성 요소가 포함됩니다.
-
-6.	**Microsoft.SCP.Net.SDK** 디렉터리의 기존 내용을 삭제하고 **packages/Microsoft.SCP.Net.SDK.#.#.#.###**로부터 복사한 버전으로 바꿉니다.
-
-이 시점에서는 프로젝트가 HDInsight 클러스터에 대한 로컬 개발 및 배포 모두를 위해 NuGet으로부터 설치된 버전을 사용하도록 업데이트됩니다.
 
 ###로컬로 토폴로지 테스트
 
@@ -579,11 +595,11 @@ SCP.Net 버전 0.9.4.203은 이벤트 허브 spout(이벤트 허브로부터 읽
 
 6.	변경 내용을 저장한 다음 **F5** 또는 **디버그** > **디버깅 시작**을 선택하여 프로젝트를 시작합니다. 콘솔 창이 나타나며 로그 상태가 테스트로 진행됩니다. **테스트 완료**가 나타나면 아무 키나 눌러 창을 닫습니다.
 
-7.	**Windows 탐색기**를 사용하여 프로젝트가 들어 있는 디렉터리(예: **C:\\Users<your_user_name>\\Documents\\Visual Studio 2013\\Projects\\WordCount\\WordCount**)를 찾습니다. 이 디렉터리에서 **Bin**을 열고 **디버그**를 클릭합니다. 테스트가 실행될 때 생성된 텍스트 파일(sentences.txt, counter.txt 및 splitter.txt)이 표시됩니다. 각각의 텍스트 파일을 열고 데이터를 검사합니다.
+7.	**Windows 탐색기**를 사용하여 프로젝트가 들어 있는 디렉터리(예: **C:\Users<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**)를 찾습니다. 이 디렉터리에서 **Bin**을 열고 **디버그**를 클릭합니다. 테스트가 실행될 때 생성된 텍스트 파일(sentences.txt, counter.txt 및 splitter.txt)이 표시됩니다. 각각의 텍스트 파일을 열고 데이터를 검사합니다.
 
 	> [AZURE.NOTE]문자열 데이터는 이러한 파일에서 10진수 값의 배열로 유지됩니다. 예를 들어, **splitter.txt** 파일에서 [[97,103,111]]은 'and'라는 단어입니다.
 
-기본 단어 개수 응용 프로그램 로컬 테스트는 상당히 간단하지만, 실제 값은 데이터 소스와 연결되는 복잡한 토폴로지가 있거나 복잡한 데이터 분석을 수행할 때 들어옵니다. 이러한 프로젝트를 작업할 때 문제를 격리하기 위해 구성 요소의 코드에 중단점 및 단계를 설정해야 할 수 있습니다.
+기본 단어 개수 응용 프로그램 로컬 테스트는 상당히 간단하지만, 실제 값은 데이터 원본과 연결되는 복잡한 토폴로지가 있거나 복잡한 데이터 분석을 수행할 때 들어옵니다. 이러한 프로젝트를 작업할 때 문제를 격리하기 위해 구성 요소의 코드에 중단점 및 단계를 설정해야 할 수 있습니다.
 
 > [AZURE.NOTE]HDInsight의 Storm으로 배포하기 전에 **프로젝트 유형**을 **클래스 라이브러리**로 다시 설정해야 합니다.
 
@@ -639,4 +655,4 @@ HDInsight 사용 방법 및 HDInsight의 Storm에 대한 추가 샘플은 다음
 
 -	[HDInsight에서 HBase 시작](../hdinsight-hbase-get-started.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

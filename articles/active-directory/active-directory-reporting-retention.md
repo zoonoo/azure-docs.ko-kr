@@ -44,4 +44,4 @@ Azure AD의 보고서는 특정 일수 동안 여기에 지정된 데이터를 �
 |	RMS 사용 응용 프로그램 사용 현황 |	30일 |
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -80,7 +80,7 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 
 2. 솔루션 파일로 이동하여 해당 파일을 엽니다.<br/> ![][16]
 
-3. 솔루션 탐색기에서 파일을 열어 변경합니다. 예를 들어 _MVC 웹 역할의 Views\\Shared 폴더에서 Layout.cshtml 파일을 변경합니다.<br/> ![][17] 
+3. 솔루션 탐색기에서 파일을 열어 변경합니다. 예를 들어 _MVC 웹 역할의 Views\Shared 폴더에서 Layout.cshtml 파일을 변경합니다.<br/> ![][17] 
 
 4. 사이트 로고를 편집하고 Ctrl+S를 눌러 파일을 저장합니다.<br/> ![][18]
 
@@ -239,4 +239,4 @@ Visual Studio Online의 단위 테스트에 대한 자세한 내용은 [빌드�
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

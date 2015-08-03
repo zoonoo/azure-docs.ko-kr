@@ -22,8 +22,8 @@
 
 **webapps** 폴더의 탐색 경로는 웹 앱 인스턴스 설정 방법에 따라 다릅니다.
 
-- Azure 마켓플레이스를 사용하여 웹 앱을 설정한 경우 **webapps** 폴더의 경로는 **d:\\home\\site\\wwwroot\\bin\\application_server\\webapps**의 형식이며, 여기서 **application_server**는 웹 앱 인스턴스에 적용되는 응용 프로그램 서버의 이름입니다. 
-- Azure 구성 UI를 사용하여 웹 앱을 설정한 경우 **webapps** 폴더의 경로는 **d:\\home\\site\\wwwroot\\webapps**의 형식입니다. 
+- Azure 마켓플레이스를 사용하여 웹 앱을 설정한 경우 **webapps** 폴더의 경로는 **d:\home\site\wwwroot\bin\application_server\webapps**의 형식이며, 여기서 **application_server**는 웹 앱 인스턴스에 적용되는 응용 프로그램 서버의 이름입니다. 
+- Azure 구성 UI를 사용하여 웹 앱을 설정한 경우 **webapps** 폴더의 경로는 **d:\home\site\wwwroot\webapps**의 형식입니다. 
 
 소스 제어를 사용하여 연속 통합 시나리오에 포함된 응용 프로그램 또는 웹 페이지를 업로드할 수 있습니다. 웹 앱에서 소스 제어 사용에 관한 지침은 [Azure 앱 서비스에서 GIT를 사용하는 지속적인 배포](web-sites-publish-source-control.md)에 있습니다. FTP를 사용하여 응용 프로그램 또는 웹 페이지를 업로드할 수도 있습니다.
 
@@ -35,4 +35,4 @@ Tomcat 웹 앱에 대한 참고 사항: **webapps** 폴더에 WAR 파일을 업�
  
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

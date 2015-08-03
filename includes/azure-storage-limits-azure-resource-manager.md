@@ -15,4 +15,4 @@ Azure 리소스 관리자 및 Azure 리소스 그룹만을 사용하는 경우 �
 </tr>
 </table>
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

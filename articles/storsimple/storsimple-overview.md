@@ -56,4 +56,4 @@ Microsoft Azure StorSimple 솔루션에는 다음 구성 요소가 포함됩니�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -25,30 +25,35 @@
 기본적으로 종속성 모니터링은 현재 다음에서 사용할 수 있습니다.
 
 * IIS 서버 또는 Azure에서 실행 중인 ASP.NET 웹앱 및 서비스
+* [Java 웹앱](app-insights-java-agent.md)
 
-Java 웹앱 또는 장치 앱과 같은 다른 유형의 경우 TrackDependency API를 사용하여 고유한 모니터를 작성할 수 있습니다.
+장치 앱과 같은 다른 유형의 경우 TrackDependency API를 사용하여 고유한 모니터를 작성할 수 있습니다.
 
 기본적으로 종속성 모니터는 현재 다음 유형의 종속성에 대한 호출을 보고합니다.
 
-* SQL 데이터베이스
-* ASP.NET 웹 및 HTTP 기반 바인딩을 사용하는 WCF 서비스
-* 로컬 또는 원격 HTTP 호출
-* Azure DocumentDb, 테이블, Blob 저장소 및 큐
+* ASP.NET
+ * SQL 데이터베이스
+ * ASP.NET 웹 및 HTTP 기반 바인딩을 사용하는 WCF 서비스
+ * 로컬 또는 원격 HTTP 호출
+ * Azure DocumentDb, 테이블, Blob 저장소 및 큐
+* Java
+ * MySQL, SQL Server, PostgreSQL 또는 SQLite 등의 [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/) 드라이버를 통해 데이터베이스를 호출합니다.
 
 다시 말하지만, 자체 SDK 호출을 작성하여 다른 종속성을 모니터링할 수 있습니다.
 
-## 종속성 모니터링 설정
+## 종속성 모니터링을 설정하려면
 
-종속성 모니터링을 가져오려면 다음을 수행해야 합니다.
+호스트 서버에 대한 적절한 에이전트를 설치합니다.
 
-* IIS 서버에서 [상태 모니터](app-insights-monitor-performance-live-website-now.md)를 사용하여 모니터링 활성화
-* Azure 웹앱 또는 VM에 [Application Insights 확장](../insights-perf-analytics.md) 추가
+플랫폼 | 설치
+---|---
+IIS 서버 | [상태 모니터](app-insights-monitor-performance-live-website-now.md)
+Azure 웹앱 | [Application Insights 확장](../insights-perf-analytics.md)
+Java 웹 서버 | [Java 웹앱](app-insights-java-agent.md)
 
-Azure VM의 경우 Azure 제어판에서 확장 설치 또는 대부분의 컴퓨터에서 하듯이 상태 모니터 설치를 사용할 수 있습니다.
+IIS 서버용 상태 모니터는 Application Insights SDK를 사용하여 소스 프로젝트를 다시 빌드할 필요가 없습니다.
 
-이미 배포된 웹앱에 위의 단계를 수행할 수 있습니다. 표준 종속성 모니터링을 가져오기 위해 소스 프로젝트에 Application Insights를 추가하지 않아도 됩니다.
-
-## 종속성 성능 문제 진단
+## <a name="diagnosis"></a> 종속성 성능 문제 진단
 
 서버에서 요청 성능을 평가하려면:
 
@@ -98,12 +103,11 @@ Azure VM의 경우 Azure 제어판에서 확장 설치 또는 대부분의 컴�
 
 ## 사용자 지정 종속성 추적
 
-표준 종속성 추적 모듈은 데이터베이스 및 REST API와 같은 외부 종속성을 자동으로 검색합니다.  
-하지만 일부 추가 구성 요소를 동일한 방식으로 취급할 수 있습니다.
+표준 종속성 추적 모듈은 데이터베이스 및 REST API와 같은 외부 종속성을 자동으로 검색합니다. 하지만 일부 추가 구성 요소를 동일한 방식으로 취급할 수도 있습니다.
 
 표준 모듈에 의해 사용되는 동일한[TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency)를 사용하여 종속성 정보를 보내는 코드를 작성할 수 있습니다.
 
-예를 들면, 사용자가 직접 작성하지 않은 어셈블리 코드를 작성하는 경우, 응답 시간 기여도를 알아보기 위해 모든 호출의 시간을 잴 수 있습니다. Application Insights에서 종속성 차트에 표시되는 이 데이터를 가지려면, `TrackDependency`을 사용하여 이것을 보냅니다.
+예를 들면, 사용자가 직접 작성하지 않은 어셈블리 코드를 작성하는 경우, 응답 시간 기여도를 알아보기 위해 모든 호출의 시간을 잴 수 있습니다. Application Insights에서 종속성 차트에 이 데이터를 표시하려면 `TrackDependency`을 사용하여 보냅니다.
 
 ```C#
 
@@ -121,8 +125,8 @@ Azure VM의 경우 Azure 제어판에서 확장 설치 또는 대부분의 컴�
             }
 ```
 
-표준 종속성 추적 모듈을 해제 하려는 경우, [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에서 종속성 트래킹 원격 조정 모듈 참조를 삭제합니다.
+표준 종속성 추적 모듈을 해제하려는 경우, [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)에서 DependencyTrackingTelemetryModule에 대한 참조를 삭제합니다.
 
 <!--Link references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

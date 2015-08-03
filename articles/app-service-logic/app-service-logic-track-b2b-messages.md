@@ -45,4 +45,4 @@ X12 및 EDIFACT에는 유사한 추적 뷰가 있습니다.
 [1]: ./media/app-service-logic-track-b2b-messages/AS2Tracking.jpg
 [2]: ./media/app-service-logic-track-b2b-messages/EDIFACTTracking.jpg
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

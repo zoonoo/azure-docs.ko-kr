@@ -117,4 +117,4 @@ Microsoft**Azure 데이터 카탈로그**는 등록 시스템과 엔터프라이
  
 > [AZURE.NOTE]Azure 데이터 카탈로그의 비공개 미리 보기의 경우 Microsoft Excel만 **Connect(연결)** 메뉴에서 직접 지원되고 사용 가능합니다.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

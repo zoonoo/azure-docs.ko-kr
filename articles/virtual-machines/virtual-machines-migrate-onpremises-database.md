@@ -161,4 +161,4 @@ SQL Server 2016에서 SQL Server 2016으로 마이그레이션하면서 백업 �
 
 네트워크를 통한 업로드가 엄청나게 많은 비용이 들거나 적합하지 않은 경우 [Windows 가져오기/내보내기 서비스 메서드](../storage-import-export-service/)를 사용하여 대량의 파일 데이터를 Azure Blob 저장소로 전송합니다. 이 서비스를 사용하여 해당 데이터가 포함된 하나 이상의 하드 드라이브를 Azure 데이터 센터로 보내서 데이터를 저장소 계정으로 업로드할 수 있습니다.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

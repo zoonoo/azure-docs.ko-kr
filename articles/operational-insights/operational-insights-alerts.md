@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 
@@ -56,4 +56,6 @@ Microsoft Azure Operational Insights에서 경고 관리를 사용하려면 먼�
 3. 타일 또는 모든 항목에 대한 자세한 정보를 보려면 해당 항목을 **검색** 페이지에서 클릭합니다.
 4. 발견한 정보를 사용하여 경고를 조사할 수 있으며 문제를 해결하기 위해 수행해야 할 추가 동작을 결정할 수 있습니다.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

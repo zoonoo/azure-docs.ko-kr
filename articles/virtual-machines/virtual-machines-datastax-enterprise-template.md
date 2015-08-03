@@ -5,9 +5,7 @@
 	documentationCenter=""
 	authors="karthmut"
 	manager="timlt"
-	editor="tysonn"/>
-
-<tags
+	editor="tysonn"/> <!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" --> <tags
 	ms.service="virtual-machines"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-windows"
@@ -46,9 +44,9 @@ Azure 리소스 관리자 및 이 배포에 사용할 템플릿과 관련된 자
 
 ### 1-a단계: PowerShell을 사용하여 템플릿 파일 다운로드
 
-JSON 템플릿과 기타 관련 파일을 저장할 로컬 폴더를 만듭니다(예: C:\\Azure\\Templates\\DataStax).
+JSON 템플릿과 기타 관련 파일을 저장할 로컬 폴더를 만듭니다(예: C:\Azure\Templates\DataStax).
 
-로컬 폴더의 폴더 이름을 대신 입력하여 다음 명령을 실행합니다.
+로컬 폴더의 폴더 이름을 대신 입력하여 다음 명령 집합을 실행합니다.
 
 	$folderName="C:\Azure\Templates\DataStax"
 	$webclient = New-Object System.Net.WebClient
@@ -82,17 +80,16 @@ JSON 템플릿과 기타 관련 파일을 저장할 로컬 폴더를 만듭니�
 
 ### 1-b단계: Azure CLI를 사용하여 템플릿 파일 다운로드
 
-다음과 같이 원하는 git 클라이언트를 사용하여 전체 템플릿 리포지토리를 복제합니다.
+다음 예제에 표시된 대로 원하는 git 클라이언트를 사용하여 전체 템플릿 리포지토리를 복제합니다.
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-복제가 완료되면 C:\\Azure\\Templates 디렉터리에서 **datastax-enterprise** 폴더를 찾습니다.
-
+복제가 완료되면 C:\Azure\Templates 디렉터리에서 datastax-enterprise 폴더를 찾습니다. <!--Wrapping name of folder in bold typeface is not corp style  -->
 ### 2단계: (선택 사항) 템플릿 매개 변수 파악
 
-DataStax를 기반으로 Apache Cassandra 클러스터와 같은 중요한 솔루션을 배포하는 경우 필요한 여러 설정을 처리할 구성 매개 변수 집합을 지정해야 합니다. 템플릿 정의에서 이러한 매개 변수를 선언하면 외부 파일을 통해 또는 명령줄에서 배포하는 동안 값을 지정할 수 있습니다.
+DataStax를 기반으로 Apache Cassandra 클러스터와 같은 중요한 솔루션을 배포하는 경우 여러 필수 설정을 처리할 구성 매개 변수 집합을 지정해야 합니다. 템플릿 정의에서 이러한 매개 변수를 선언하면 외부 파일을 통해 또는 명령줄에서 배포하는 동안 값을 지정할 수 있습니다.
 
-**azuredeploy.json** 파일 위쪽의 "parameters" 섹션에서 DataStax Enterprise 클러스터를 구성하기 위해 템플릿에 필요한 매개 변수 집합을 찾을 수 있습니다. 이 템플릿의 azuredeploy.json 파일에서 매개 변수 섹션의 예는 다음과 같습니다.
+azuredeploy.json 파일 위쪽의 "parameters" 섹션에서 DataStax Enterprise 클러스터를 구성하기 위해 템플릿에 필요한 매개 변수 집합을 찾을 수 있습니다. 이 템플릿의 azuredeploy.json 파일에서 매개 변수 섹션의 예는 다음과 같습니다.
 
 	"parameters": {
 		"region": {
@@ -188,7 +185,7 @@ DataStax를 기반으로 Apache Cassandra 클러스터와 같은 중요한 솔�
 
 모든 매개 변수에 대한 런타임 값이 포함된 JSON 파일을 만들어 배포용 매개 변수 파일을 준비합니다. 이 파일이 배포 명령에 단일 엔터티로 전달됩니다. 매개 변수 파일을 포함하지 않으면 PowerShell는 템플릿에 지정된 기본값을 사용하며 나머지 값을 입력하라는 메시지를 표시합니다.
 
-다음은 **azuredeploy-parameters.json** 파일에서 볼 수 있는 매개 변수 집합의 예입니다.
+다음은 azuredeploy-parameters.json 파일에서 볼 수 있는 매개 변수 집합의 예제입니다.
 
 	{
 		"storageAccountPrefix": {
@@ -229,7 +226,7 @@ DataStax를 기반으로 Apache Cassandra 클러스터와 같은 중요한 솔�
 		}
 	}
 
-Azure 배포 이름, 리소스 그룹 이름, Azure 위치 및 저장된 JSON 배포 파일의 폴더를 입력합니다. 그리고 다음 명령을 실행합니다.
+Azure 배포 이름, 리소스 그룹 이름, Azure 위치 및 저장된 JSON 배포 파일의 폴더를 입력합니다. 그런 후 다음 명령 집합을 실행합니다.
 
 	$deployName="<deployment name>"
 	$RGName="<resource group name>"
@@ -242,7 +239,7 @@ Azure 배포 이름, 리소스 그룹 이름, Azure 위치 및 저장된 JSON �
 
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateParameterFile $templateParameterFile -TemplateFile $templateFile
 
-**New-AzureResourceGroupDeployment** 명령을 실행하면 JSON 매개 변수 파일에서 매개 변수 값이 추출되고 그에 따라 템플릿 실행이 시작됩니다. 여러 매개 변수 파일을 정의하여 다양한 환경(예: 테스트, 프로덕션 등)에서 사용하면 템플릿 재사용이 향상되고 복잡한 다중 환경 솔루션이 간소화됩니다.
+**New-AzureResourceGroupDeployment** 명령을 실행하면 JSON 매개 변수 파일에서 매개 변수 값이 추출되고 그에 따라 템플릿 실행이 시작됩니다. 여러 매개 변수 파일을 정의하여 다양한 환경(예: 테스트 또는 프로덕션)에서 사용하면 템플릿 재사용이 향상되고 복잡한 다중 환경 솔루션이 간소화됩니다.
 
 저장소 계정 매개 변수로 제공하는 이름은 고유해야 하며 Azure 저장소 계정의 모든 요구 사항(소문자와 숫자만 사용 가능함)을 충족해야 하므로 배포할 때 새 Azure 저장소 계정을 만들어야 합니다.
 
@@ -255,13 +252,13 @@ Azure 배포 이름, 리소스 그룹 이름, Azure 위치 및 저장된 JSON �
 - "리소스 그룹” 블레이드의 "모니터링” 파트에서 "이벤트” 막대 그래프를 클릭하면 배포에 대한 이벤트를 확인할 수 있습니다.
 - 개별 이벤트를 클릭하면 템플릿을 대신해 수행된 각 개별 작업에 대한 세부 정보를 볼 수 있습니다.
 
-테스트 후 이 리소스 그룹과 모든 해당 리소스(저장소 계정, 가상 컴퓨터 및 가상 네트워크)를 제거해야 하는 경우 다음 단일 명령을 사용합니다.
+테스트 후 이 리소스 그룹과 모든 해당 리소스(저장소 계정, 가상 컴퓨터 및 가상 네트워크)를 제거해야 하는 경우 다음 명령을 사용합니다.
 
 	Remove-AzureResourceGroup –Name "<resource group name>" -Force
 
 ### 3-b단계: Azure CLI를 사용하여 템플릿이 있는 DataStax Enterprise 클러스터 배포
 
-Azure CLI를 통해 DataStax Enterprise 클러스터를 배포하려면 먼저 이름과 위치를 지정하여 리소스 그룹을 만듭니다.
+Azure CLI를 통해 DataStax Enterprise 클러스터를 배포하려면 먼저 다음 명령을 사용하여 이름과 위치를 지정해 리소스 그룹을 만듭니다.
 
 	azure group create dsc "West US"
 
@@ -275,21 +272,19 @@ Azure CLI를 통해 DataStax Enterprise 클러스터를 배포하려면 먼저 �
 
 ## DataStax Enterprise 클러스터 템플릿 구조 및 파일 구성 살펴보기
 
-강력하고 재사용 가능한 리소스 관리자 템플릿을 디자인하려면 DataStax Enterprise와 같은 복잡한 솔루션을 배포하는 동안 필요한 상호 관련된 일련의 복잡한 작업을 구성해야 합니다. 관련된 확장을 통해 스크립트를 실행하는 것 외에 ARM **템플릿 연결** 및 **리소스 루핑**을 활용하면 거의 모든 복잡한 템플릿 기반 배포에서 재사용할 수 있는 모듈식 방법을 구현할 수 있습니다.
-
-다음 다이어그램에서는 이 배포를 위해 GitHub에서 다운로드한 모든 파일 간의 관계를 설명합니다.
+강력하고 재사용 가능한 리소스 관리자 템플릿을 디자인하려면 DataStax Enterprise와 같은 복잡한 솔루션을 배포하는 동안 필요한 상호 관련된 일련의 복잡한 작업을 구성해야 합니다. 관련된 확장을 통해 스크립트를 실행하는 것 외에 ARM **템플릿 연결** 및 **리소스 루핑**을 활용하면 거의 모든 복잡한 템플릿 기반 배포에서 재사용할 수 있는 모듈식 방법을 구현할 수 있습니다. <!-- In previous paragraph, we can't use bold typeface to show emphasis. You can use italic to denote emphasis. --> 다음 다이어그램에서는 이 배포를 위해 GitHub에서 다운로드한 모든 파일 간의 관계를 설명합니다.
 
 ![datastax-enterprise-files](media/virtual-machines-datastax-enterprise-template/datastax-enterprise-files.png)
 
-이 섹션에서는 Datastax Enterprise 클러스터용 **azuredeploy.json** 파일의 구조를 단계별로 설명합니다.
+이 섹션에서는 Datastax Enterprise 클러스터용 azuredeploy.json 파일의 구조를 단계별로 설명합니다.
 
 ### "parameters" 섹션
 
-**azuredeploy.json**의 "parameters" 섹션은 이 템플릿에 데이터를 입력하는 데 사용되는 매개 변수를 지정합니다. 앞서 언급한 **azuredeploy-parameters.json** 파일은 템플릿을 실행하는 동안 azuredeploy.json의 "parameters" 섹션으로 값을 전달하는 데 사용됩니다.
+azuredeploy.json의 "parameters" 섹션은 이 템플릿에 데이터를 입력하는 데 사용되는 매개 변수를 지정합니다. 앞서 언급한 azuredeploy-parameters.json 파일은 템플릿을 실행하는 동안 azuredeploy.json의 "parameters" 섹션으로 값을 전달하는 데 사용됩니다.
 
 ### "variables" 섹션
 
-"variables" 섹션은 이 템플릿 전체에서 사용할 수 있는 변수를 지정합니다. 이 섹션에는 실행 시 상수 또는 계산된 값으로 설정되는 여러 필드(JSON 데이터 형식 또는 조각)가 포함됩니다. 다음은 이 Datastax 템플릿의 "variables" 섹션입니다.
+"variables" 섹션은 이 템플릿 전체에서 사용할 수 있는 변수를 지정합니다. 이 섹션에는 실행 시 상수 또는 계산된 값으로 설정되는 여러 필드(JSON 데이터 형식 또는 조각)가 포함됩니다. 다음 예제에서는 이 Datastax 템플릿의 "variables" 섹션을 보여 줍니다.
 
 	"variables": {
 	"templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/datastax-enterprise/",
@@ -333,7 +328,7 @@ Azure CLI를 통해 DataStax Enterprise 클러스터를 배포하려면 먼저 �
 	"nodeList": "[concat(variables('networkSettings').statics.clusterRange.base, variables('networkSettings').statics.clusterRange.start, '-', parameters('clusterNodeCount'))]"
 	},
 
-이 예제를 자세히 살펴보면 두 가지 방법을 볼 수 있습니다. 이 첫 번째 조각에서 "osSettings” 변수는 4개의 키 값 쌍이 있는 중첩된 JSON 요소로 설정됩니다.
+위 예제에서 두 가지 방법을 볼 수 있습니다. 첫 번째 조각에서 "osSettings” 변수는 4개의 키 값 쌍이 있는 중첩된 JSON 요소로 설정됩니다.
 
 	"osSettings": {
 	      "imageReference": {
@@ -344,7 +339,7 @@ Azure CLI를 통해 DataStax Enterprise 클러스터를 배포하려면 먼저 �
 	      },
 
 	 
-이 두 번째 코드 조각에서 "scripts" 변수는 템플릿 언어 함수(concat) 및 다른 변수 값과 문자열 상수를 사용하여 런타임에서 각각의 요소가 계산되는 JSON 배열입니다.
+두 번째 코드 조각에서 "scripts" 변수는 템플릿 언어 함수(concat) 및 다른 변수 값과 문자열 상수를 사용하여 런타임에서 각각의 요소가 계산되는 JSON 배열입니다.
 
 	      "scripts": [
 	        "[concat(variables('templateBaseUrl'), 'dsenode.sh')]",
@@ -354,7 +349,7 @@ Azure CLI를 통해 DataStax Enterprise 클러스터를 배포하려면 먼저 �
 
 ### "resources" 섹션
 
-**"resources"** 섹션은 대부분의 작업이 발생하는 곳입니다. 이 섹션을 자세히 살펴보면 두 가지 경우를 즉시 확인할 수 있습니다. 첫 번째는 기본적으로 기본 배포 내 중첩된 배포 호출을 의미하는 `Microsoft.Resources/deployments` 형식으로 정의된 요소입니다. 아래 조각에서 볼 수 있듯이, "templateLink" 요소(및 관련 버전 속성)를 통해서는 호출할 연결된 템플릿 파일을 지정할 수 있습니다. 이 파일은 매개 변수 집합을 입력으로 전달합니다.
+"resources" 섹션은 대부분의 작업이 발생하는 곳입니다. 이 섹션을 자세히 살펴보면 두 가지 경우를 즉시 확인할 수 있습니다. 첫 번째는 기본적으로 기본 배포 내 중첩된 배포 호출을 의미하는 `Microsoft.Resources/deployments` 형식으로 정의된 요소입니다. 다음 예제에서 볼 수 있듯이, "templateLink" 요소(및 관련 버전 속성)를 통해서는 호출할 연결된 템플릿 파일을 지정할 수 있습니다. 이 파일은 매개 변수 집합을 입력으로 전달합니다.
 
 	{
 	      "name": "shared",
@@ -380,18 +375,13 @@ Azure CLI를 통해 DataStax Enterprise 클러스터를 배포하려면 먼저 �
 	      }
 	    },
 
-이 첫 번째 예제에서는 이 시나리오의 **azuredeploy.json**이 일종의 오케스트레이션 메커니즘으로 구성되어 각각 필요한 배포 활동의 일부를 담당하는 여러 템플릿 파일을 호출합니다.
+이 첫 번째 예제에서는 이 시나리오의 azuredeploy.json이 일종의 오케스트레이션 메커니즘으로 구성되어 각각 필요한 배포 활동의 일부를 담당하는 여러 템플릿 파일을 호출합니다.
 
-특히 다음과 같은 연결된 템플릿이 이 배포에 사용됩니다.
+특히 다음과 같은 연결된 템플릿이 이 배포에 사용됩니다. <!-- In list format, using bold typeface in the following manner is ok --> - **shared-resource.json**: 배포 간에 공유할 모든 리소스의 정의를 포함합니다. 예제는 VM의 OS 디스크 및 가상 네트워크를 저장하는 데 사용되는 저장소 계정입니다. - **opscenter-resources.json**: OpsCenter VM 및 모든 관련 리소스(네트워크 인터페이스 및 공용 IP 주소 포함)를 배포합니다. - **opscenter-install-resources.json**: 해당 VM 내에 OpsCenter 서비스를 설치하는 데 필요한 특정 bash 스크립트 파일(opscenter.sh)을 호출하는 OpsCenter VM 확장(Linux용 사용자 지정 스크립트)을 배포합니다. - **ephemeral-nodes-resources.json**: 모든 클러스터 노드 VM 및 연결된 리소스(예: 네트워크 카드 및 개인 IP)를 배포합니다. 또한 이 템플릿은 각 노드에 Apache Cassandra 비트를 물리적으로 설치하기 위해 VM 확장(Linux용 사용자 지정 스크립트)을 배포하고 bash 스크립트(dsenode.sh)를 호출합니다.
 
--	**shared-resource.json**: 배포에서 공유할 모든 리소스의 정의를 포함합니다. 예제는 VM의 OS 디스크 및 가상 네트워크를 저장하는 데 사용되는 저장소 계정입니다.
--	**opscenter-resources.json**: OpsCenter VM 및 네트워크 인터페이스, 공용 IP 주소를 비롯한 모든 관련 리소스를 배포합니다.
--	**opscenter-install-resources.json**: 해당 VM 내에 OpsCenter 서비스를 설치하는 데 필요한 특정 bash 스크립트 파일(**opscenter.sh**)을 호출할 OpsCenter VM 확장(Linux용 사용자 지정 스크립트)을 배포합니다.
--	**ephemeral-nodes-resources.json**: 모든 클러스터 노드 VM 및 연결된 리소스(네트워크 카드, 개인 IP 등)를 배포합니다. 또한 이 템플릿은 각 노드에 Apache Cassandra 비트를 물리적으로 설치하기 위해 VM 확장(Linux용 사용자 지정 스크립트)을 배포하고 bash 스크립트(**dsenode.sh**)를 호출합니다.
+이 마지막 템플릿은 템플릿 사용 방법은 템플릿 개발 관점에서 가장 흥미로운 것 중 하나이므로 좀 더 자세히 살펴보겠습니다. 한 가지 중요한 개념은 단일 템플릿 파일에서 단일 리소스 유형의 여러 복사본을 배포하고 각 인스턴스에 대해 필요한 설정의 고유 값을 설정하는 방법입니다. 이 개념을 리소스 루핑이라고 합니다.
 
-이 마지막 템플릿은 템플릿 사용 방법은 템플릿 개발 관점에서 가장 흥미로운 것 중 하나이므로 좀 더 자세히 살펴보겠습니다. 한 가지 중요한 개념은 단일 템플릿 파일에서 단일 리소스 유형의 여러 복사본을 배포하고 각 인스턴스에 대해 필요한 설정의 고유 값을 설정하는 방법입니다. 이 개념은 **리소스 루핑**이라고 합니다.
-
-기본 **azuredeploy.json** 파일 내에서 **ephemeral-nodes-resources.json**을 호출하면 **nodeCount**라는 매개 변수가 매개 변수 목록의 일부로 제공됩니다. 자식 템플릿 내에서 nodeCount(클러스터에 배포할 노드 수)는 아래 조각에 강조 표시된 것처럼 여러 복사본으로 배포해야 하는 각 리소스의 **“copy”** 요소 내에 사용됩니다. 배포된 리소스의 여러 인스턴스 간에 고유한 값을 지정하는 데 필요한 모든 설정의 경우 **copyindex()** 함수를 사용하여 해당 특정 리소스 루프 만들기에서 현재 인덱스를 나타내는 숫자 값을 가져올 수 있습니다. 다음 조각에서는 Datastax Enterprise 클러스터 노드에 대해 작성되는 여러 VM에 이 개념이 적용됨을 확인할 수 있습니다.
+기본 azuredeploy.json 파일 내에서 ephemeral-nodes-resources.json을 호출하면 nodeCount라는 매개 변수가 매개 변수 목록의 일부로 제공됩니다. 자식 템플릿 내에서 nodeCount(클러스터에 배포할 노드 수)는 다음 예제에 강조 표시된 것처럼 여러 복사본으로 배포해야 하는 각 리소스의 **“copy”** 요소 내에 사용됩니다. 배포된 리소스의 여러 인스턴스 간에 고유한 값을 지정하는 데 필요한 모든 설정의 경우 **copyindex()** 함수를 사용하여 해당 특정 리소스 루프 만들기에서 현재 인덱스를 나타내는 숫자 값을 가져올 수 있습니다. 다음 예제에서는 Datastax Enterprise 클러스터 노드에 대해 작성되는 여러 VM에 이 개념이 적용됨을 확인할 수 있습니다.
 
 			   {
 			      "apiVersion": "2015-05-01-preview",
@@ -454,11 +444,11 @@ Azure CLI를 통해 DataStax Enterprise 클러스터를 배포하려면 먼저 �
 
 리소스 만들기의 또 다른 중요한 개념은 **dependsOn** JSON 배열에서 볼 수 있는 것처럼 리소스 간의 종속성 및 우선 순위를 지정하는 기능입니다. 이 특정 템플릿의 각 노드에는 Apache Cassandra 인스턴스의 백업 및 스냅숏을 호스트하는 데 사용될 수 있는 연결된 1TB 디스크("dataDisks" 참조)가 있습니다.
 
-연결된 디스크는 **dsenode.sh** 스크립트 파일의 실행을 통해 트리거되는 노드 준비 작업의 일부로 포맷됩니다. 해당 스크립트의 첫째 행은 다른 스크립트를 호출합니다.
+연결된 디스크는 dsenode.sh 스크립트 파일의 실행을 통해 트리거되는 노드 준비 작업의 일부로 포맷됩니다. 다음 예제에서 해당 스크립트의 첫째 행은 다른 스크립트를 호출합니다.
 
 	bash vm-disk-utils-0.1.sh
 
-vm-disk-utils-0.1.sh는 azure-quickstart-tempates github 리포지토리 내 **shared_scripts\\ubuntu** 폴더의 일부이며, 디스크 탑재, 포맷 및 스트라이프에 매우 유용한 함수를 포함하고 있습니다. 이러한 함수는 리포지토리의 모든 템플릿에서 사용할 수 있습니다.
+vm-disk-utils-0.1.sh는 azure-quickstart-tempates github 리포지토리 내 shared_scripts\ubuntu 폴더의 일부이며, 디스크 탑재, 포맷 및 스트라이프에 매우 유용한 함수를 포함하고 있습니다. 이러한 함수는 리포지토리의 모든 템플릿에서 사용할 수 있습니다.
 
 또 다른 흥미로운 조각은 CustomScriptForLinux VM 확장과 관련된 조각입니다. 이러한 확장은 별도의 리소스 유형으로 설치되며 각 클러스터 노드(및 OpsCenter 인스턴스)에 대한 종속성이 적용됩니다. 가상 컴퓨터에 대해 설명하는 동일한 리소스 루핑 메커니즘을 활용합니다.
 
@@ -486,19 +476,18 @@ vm-disk-utils-0.1.sh는 azure-quickstart-tempates github 리포지토리 내 **s
 	}
 	}
 
-이 배포에 포함된 다른 파일을 알면 Azure 리소스 관리자 템플릿을 활용하여 모든 기술을 기반으로 하는 다중 노드 솔루션에 대한 복잡한 배포 전략을 구성 및 오케스트레이션하는 데 필요한 모든 세부 정보 및 모범 사례를 이해할 수 있습니다. 필수 사항은 아니지만 다음 다이어그램에 강조 표시된 대로 템플릿 파일을 구성하는 것이 좋습니다.
+이 배포에 포함된 다른 파일을 알면 Azure 리소스 관리자 템플릿을 활용하여 모든 기술을 기반으로 하는 다중 노드 솔루션에 대한 복잡한 배포 전략을 구성 및 오케스트레이션하는 데 필요한 모든 세부 정보 및 모범 사례를 이해할 수 있습니다. 필수 사항은 아니지만 다음 다이어그램에 표시된 대로 템플릿 파일을 구성하는 것이 좋습니다.
 
 ![datastax-enterprise-template-structure](media/virtual-machines-datastax-enterprise-template/datastax-enterprise-template-structure.png)
 
-기본적으로 이 방법은 다음 사항을 제안합니다.
+이 방법은 다음 사항을 제안합니다.
 
 -	템플릿 연결을 활용하여 하위 템플릿 실행을 호출하는 모든 특정 배포 작업을 위해 핵심 템플릿 파일을 중앙 오케스트레이션 지점으로 정의합니다.
--	다른 모든 특정 배포 작업(예: 저장소 계정, vnet 구성 등)에서 공유되는 모든 리소스를 배포할 특정 템플릿 파일을 만듭니다. 이는 주로 공용 인프라 면에서 요구 사항이 유사한 배포 간에 재사용될 수 있습니다.
+-	다른 모든 특정 배포 작업(예: 저장소 계정 및 vnet 구성)에서 공유되는 모든 리소스를 배포할 특정 템플릿 파일을 만듭니다. 이는 주로 공용 인프라 면에서 요구 사항이 유사한 배포 간에 재사용될 수 있습니다.
 -	지정된 리소스에 특정한 요구 사항을 충족하는 선택적 리소스 템플릿을 포함합니다.
--	리소스 그룹의 동일한 구성원(클러스터의 노드 등)에 대해 고유한 속성의 여러 인스턴스를 배포하기 위해 리소스 루핑을 활용하는 특정 템플릿을 만듭니다.
--	모든 배포 후 작업(예: 제품 설치, 구성 등)의 경우 스크립트 배포 확장을 활용하고 각 기술에 특정한 스크립트를 만듭니다.
+-	리소스 그룹의 동일한 구성원(예: 클러스터의 노드)에 대해 고유한 속성의 여러 인스턴스를 배포하기 위해 리소스 루핑을 활용하는 특정 템플릿을 만듭니다.
+-	모든 배포 후 작업(예: 제품 설치 및 구성)의 경우 스크립트 배포 확장을 활용하고 각 기술에 특정한 스크립트를 만듭니다.
 
 자세한 내용은 [Azure 리소스 관리자 템플릿 언어](https://msdn.microsoft.com/library/azure/dn835138.aspx)를 참조하세요.
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -28,14 +28,14 @@ Python 3.4의 경우 [Microsoft Visual C++ 2010 Express][]를 설치하면 됩�
 
     env\scripts\pip wheel azure==0.8.4
 
-이렇게 하면 \\wheelhouse 폴더에 .whl 파일이 만들어집니다. \\wheelhouse 폴더 및 휠 파일을 리포지토리에 추가합니다.
+이렇게 하면 \wheelhouse 폴더에 .whl 파일이 만들어집니다. \wheelhouse 폴더 및 휠 파일을 리포지토리에 추가합니다.
 
 requirements.txt를 편집하여 맨 위에 `--find-links` 옵션을 추가합니다. 이렇게 하면 Python Package Index로 이동하기 전에 로컬 폴더에 정확한 일치 항목이 있는지 찾아 보도록 pip에게 지시합니다.
 
     --find-links wheelhouse
     azure==0.8.4
 
-모든 종속성을 \\wheelhouse 폴더에 포함하고 Python Package Index는 전혀 사용하지 않으려는 경우 requirements.txt 맨 위에 `--no-index`를 추가하여 pip가 패키지 인덱스를 무시하도록 만들면 됩니다.
+모든 종속성을 \wheelhouse 폴더에 포함하고 Python Package Index는 전혀 사용하지 않으려는 경우 requirements.txt 맨 위에 `--no-index`를 추가하여 pip가 패키지 인덱스를 무시하도록 만들면 됩니다.
 
     --no-index
 
@@ -68,4 +68,4 @@ easy_install를 사용하여 exe 설치 파일에서 설치할 수도 있습니�
 [Microsoft Visual C++ Compiler for Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

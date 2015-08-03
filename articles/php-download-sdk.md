@@ -136,4 +136,4 @@ Azure CLI을 사용하는 방법에 대한 정보는 [Mac, Linux 및 Windows용 
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

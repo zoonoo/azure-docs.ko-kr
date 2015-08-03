@@ -334,7 +334,7 @@ public class OwinCommunicationListener : ICommunicationListener
 
 웹 서버에 대한 포트를 잡기 전에 서비스 패브릭에서 응용 프로그램과 응용 프로그램이 실행되는 기본 운영 체제 사이에서 버퍼 역할을 하는 응용 프로그램 계층을 제공한다는 사실을 이해하는 것이 중요합니다. 이와 같이 서비스 패브릭은 서비스의 *끝점*을 구성하는 방법을 제공합니다. 서비스가 끝점을 사용할 수 있도록 서비스 패브릭이 관리하므로 사용자가 기본 OS 환경에 직접 구성할 필요가 없습니다. 따라서 응용 프로그램을 변경하지 않고도 다양한 환경에서 손쉽게 서비스 패브릭을 호스팅할 수 있습니다(예를 들어 Azure 또는 자체 데이터 센터에서 동일한 응용 프로그램을 호스팅할 수 있음).
 
-PackageRoot\\ServiceManifest.xml에 HTTP 끝점을 구성합니다.
+PackageRoot\ServiceManifest.xml에 HTTP 끝점을 구성합니다.
 
 ```xml
 
@@ -613,4 +613,4 @@ ASP.NET 5에서 웹 응용 프로그램의 *호스트*와 *응용 프로그램*�
 [Visual Studio에서 서비스 패브릭 응용 프로그램 디버깅](service-fabric-debugging-your-application.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -194,13 +194,13 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 
 |메트릭|카운터|
 |---|---|
-|CPU|\\Processor(_Total)\% 프로세서 시간|
-|사용 가능한 메모리|\\Memory\\사용 가능한 MB|
-|IOPS|\\PhysicalDisk(_Total)\\디스크 전송/초|
-|VM 읽기(IOPS) 작업/초|\\Hyper-V 가상 저장소 장치(<VHD>)\\읽기 작업/초|
-|VM 쓰기(IOPS) 작업/초|\\Hyper-V 가상 저장소 장치(<VHD>)\\쓰기 작업/초|
-|VM 읽기 처리량|\\Hyper-V 가상 저장소 장치(<VHD>)\\읽기 바이트/초|
-|VM 쓰기 처리량|\\Hyper-V 가상 저장소 장치(<VHD>)\\쓰기 바이트/초|
+|CPU|\Processor(_Total)\% 프로세서 시간|
+|사용 가능한 메모리|\Memory\사용 가능한 MB|
+|IOPS|\PhysicalDisk(_Total)\디스크 전송/초|
+|VM 읽기(IOPS) 작업/초|\Hyper-V 가상 저장소 장치(<VHD>)\읽기 작업/초|
+|VM 쓰기(IOPS) 작업/초|\Hyper-V 가상 저장소 장치(<VHD>)\쓰기 작업/초|
+|VM 읽기 처리량|\Hyper-V 가상 저장소 장치(<VHD>)\읽기 바이트/초|
+|VM 쓰기 처리량|\Hyper-V 가상 저장소 장치(<VHD>)\쓰기 바이트/초|
 
 
 ## 다음 단계
@@ -214,4 +214,4 @@ ASR의 배포를 시작하려면:
 - [단일 VMM 서버로 보호 설정](site-recovery-single-vmm.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

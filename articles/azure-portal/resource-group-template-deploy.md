@@ -58,7 +58,7 @@ Azure 리소스 관리자 서식 파일을 사용 하 쉽고 빠르게 선언적
 
 1. Azure 계정에 로그인합니다. 자격 증명을 제공하면 사용자 계정에 대한 정보가 반환됩니다.
 
-        PS C:> Add-AzureAccount
+        PS C:\> Add-AzureAccount
 
         Id                             Type       ...
         --                             ----    
@@ -66,15 +66,15 @@ Azure 리소스 관리자 서식 파일을 사용 하 쉽고 빠르게 선언적
 
 2. 여러 구독이 있는 경우 배포에 사용할 구독 ID를 제공합니다.
 
-        PS C:> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
+        PS C:\> Select-AzureSubscription -SubscriptionID <YourSubscriptionId>
 
 3. Azure 리소스 관리자 모듈로 전환합니다.
 
-        PS C:> Switch-AzureMode AzureResourceManager
+        PS C:\> Switch-AzureMode AzureResourceManager
 
 4. 기본 리소스 그룹이 없는 경우 새 리소스 그룹을 만듭니다. 솔루션에 필요한 위치 및 리소스 그룹의 이름을 제공합니다. 새 리소스 그룹에 대한 요약이 반환됩니다.
 
-        PS C:> New-AzureResourceGroup -Name ExampleResourceGroup -Location "West US"
+        PS C:\> New-AzureResourceGroup -Name ExampleResourceGroup -Location "West US"
    
         ResourceGroupName : ExampleResourceGroup
         Location          : westus
@@ -92,16 +92,16 @@ Azure 리소스 관리자 서식 파일을 사용 하 쉽고 빠르게 선언적
    
      - 인라인 매개 변수를 사용합니다.
 
-            PS C:> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
+            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -myParameterName "parameterValue"
 
      - 매개 변수 개체를 사용합니다.
 
-            PS C:> $parameters = @{"<ParameterName>"="<Parameter Value>"}
-            PS C:> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
+            PS C:\> $parameters = @{"<ParameterName>"="<Parameter Value>"}
+            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterObject $parameters
 
      - 매개 변수 파일을 사용합니다. 템플릿 파일에 대한 정보는 [매개 변수 파일](./#parameter-file)을 참조하세요.
 
-            PS C:> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
+            PS C:\> New-AzureResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate> -TemplateParameterFile <PathOrLinkToParameterFile>
 
      리소스 그룹을 배포한 경우 배포에 대한 요약이 표시됩니다.
 
@@ -114,11 +114,11 @@ Azure 리소스 관리자 서식 파일을 사용 하 쉽고 빠르게 선언적
 
 6. 배포 오류에 대한 정보를 가져오려면 다음을 실행합니다.
 
-        PS C:> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed
+        PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed
 
 7. 배포 오류에 대한 자세한 정보를 가져오려면 다음을 실행합니다.
 
-        PS C:> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
+        PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
 
 ## Mac, Linux 및 Windows용 Azure CLI로 배포
 
@@ -256,4 +256,4 @@ Azure 리소스 관리자 서식 파일을 사용 하 쉽고 빠르게 선언적
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

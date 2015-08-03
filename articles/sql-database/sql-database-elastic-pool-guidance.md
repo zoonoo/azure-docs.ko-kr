@@ -402,4 +402,4 @@ SQL 데이터베이스 서버에서 사용자 데이터베이스에 대한 집�
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -50,4 +50,4 @@
 Azure 리소스 관리에 대한 자세한 내용은 [여기](../resource-group-template-deploy.md)를 참조하세요.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

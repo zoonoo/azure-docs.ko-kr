@@ -132,4 +132,4 @@ Azure Active Directory를 사용한 앱 개발에 관한 이 개요 프레젠테
 
 - **[Twitter의 Azure AD](https://twitter.com/azuread)**(영문): 140자 이하의 Azure AD 알림입니다.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

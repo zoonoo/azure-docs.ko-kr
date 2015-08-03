@@ -22,7 +22,7 @@
 
 Azure 리소스 관리자는 리소스 관리 잠금을 통해 리소스에 대한 작업을 제한하는 기능을 제공합니다. 리소스 잠금은 특정 범위에서 잠금 수준을 적용하는 정책입니다. 잠금 수준은 정책에 대한 적용 유형을 나타내며, 현재 **CanNotDelete** 및 **ReadOnly**의 두 값을 갖습니다. 범위는 URI로 표현되며 리소스 또는 리소스 그룹일 수 있습니다.
 
-잠금은 특정 동작을 수행할 수 있는 사용자 권한을 할당하는 것과는 다릅니다. 사용자 및 역할에 대한 권한을 설정하는 방법에 대한 자세한 내용은 [미리 보기 포털에서 역할 기반 액세스 제어](role-based-access-control-configure.md) 및 [리소스에 대한 액세스관리 및 감사](resource-group-rbac.md)를 참조하세요.
+잠금은 특정 동작을 수행할 수 있는 사용자 권한을 할당하는 것과는 다릅니다. 사용자 및 역할에 대한 권한을 설정하는 방법에 대한 자세한 내용은 [미리 보기 포털에서 역할 기반 액세스 제어](role-based-access-control-configure.md) 및 [리소스에 대한 액세스 관리 및 감사](resource-group-rbac.md)를 참조하세요.
 
 ## 일반적인 시나리오
 
@@ -85,7 +85,7 @@ lock-level로 **CanNotDelete** 또는 **ReadOnly**를 지정합니다.
 
 아래와 같이 **New-AzureResourceLock**을 사용하여 Azure PowerShell을 통해 배포된 리소스를 잠글 수 있습니다.
 
-    PS C:> New-AzureResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName ExampleGroup
+    PS C:\> New-AzureResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName ExampleGroup
 
 PowerShell은 잠금을 업데이트하기 위한 **Set-AzureResourceLock**, 잠금을 삭제하기 위한 **Remove-AzureResourceLock**와 같은 잠금 사용을 위한 다른 명령도 제공합니다.
 
@@ -94,4 +94,4 @@ PowerShell은 잠금을 업데이트하기 위한 **Set-AzureResourceLock**, 잠
 - [태그를 사용하여 리소스 구성](resource-group-using-tags.md)
 - [새 리소스 그룹으로 리소스 이동](resource-group-move-resources.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

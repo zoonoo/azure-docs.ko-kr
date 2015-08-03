@@ -32,4 +32,4 @@ Azure AD Application Proxy는 Premium 또는 Basic 버전의 Azure Active Direct
 [Microsoft Azure 블로그](http://azure.microsoft.com/blog/) [응용 프로그램 프록시 서비스 사용](https://msdn.microsoft.com/library/azure/dn768214.aspx) [응용 프로그램 프록시를 사용하여 응용 프로그램 게시](https://msdn.microsoft.com/library/azure/dn768220.aspx) [응용 프로그램 프록시 문제 해결](https://msdn.microsoft.com/library/azure/dn768218.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

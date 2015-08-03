@@ -69,4 +69,4 @@ SQL 데이터 웨어하우스는 데이터 로드를 위해 선도적인 업계 
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

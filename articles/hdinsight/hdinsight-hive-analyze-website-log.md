@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/06/2015" 
+	ms.date="07/11/2015" 
 	ms.author="nitinme"/>
 
 # HDInsight와 함께 Hive를 사용하여 웹 사이트의 로그 분석
@@ -31,7 +31,7 @@ HDInsight와 함께 HiveQL을 사용하여 웹 사이트의 로그를 분석하�
 
 ##필수 조건
 
-- **HDInsight 클러스터**를 미리 프로비전해두어야 합니다. 관련 지침은 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요. 
+- Azure HDInsight에서 Hadoop 클러스터를 프로비전해야 합니다. 관련 지침은 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요. 
 - Microsoft Excel 2013 또는 Excel 2010을 설치해야 합니다.
 - Hive에서 Excel로 데이터를 가져오려면 [Microsoft Hive ODBC 드라이버](http://www.microsoft.com/download/details.aspx?id=40886)가 필요합니다.
 
@@ -58,4 +58,4 @@ HDInsight와 함께 HiveQL을 사용하여 웹 사이트의 로그를 분석하�
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

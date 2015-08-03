@@ -238,7 +238,7 @@ Azure웹 사이트나 가상 컴퓨터를 사용하는 경우 .NET 구성 시스
     options.AutoComplete = false;
     options.AutoRenewTimeout = TimeSpan.FromMinutes(1);
 
-    subscriptionClientHigh.OnMessage((message) =>
+    Client.OnMessage((message) =>
     {
         try
         {
@@ -301,4 +301,4 @@ Azure웹 사이트나 가상 컴퓨터를 사용하는 경우 .NET 구성 시스
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

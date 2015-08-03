@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.date="07/20/2015" 
 	ms.author="mebha"/>
 
 
@@ -112,4 +112,4 @@ SQL 데이터베이스에서 [IDENTITY](https://msdn.microsoft.com/library/ms186
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -121,4 +121,4 @@ Microsoft Azure StorSimple에 대한 업데이트와 달리 핫픽스는 공유 
 [StorSimple용 Windows PowerShell](https://msdn.microsoft.com/library/azure/dn772425.aspx)에 대해 배웁니다.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

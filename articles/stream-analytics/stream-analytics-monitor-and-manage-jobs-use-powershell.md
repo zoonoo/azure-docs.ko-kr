@@ -287,4 +287,4 @@ Microsoft Azure에서 실행 중인 스트림 분석 작업을 비동기적으�
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

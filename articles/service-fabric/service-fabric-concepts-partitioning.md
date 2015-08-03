@@ -54,4 +54,4 @@
 - [서비스 패브릭 서비스의 확장성](service-fabric-concepts-scalability.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

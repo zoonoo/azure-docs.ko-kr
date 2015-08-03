@@ -144,7 +144,7 @@ Azure Blob을 참조하는 데이터 팩터리 테이블을 정의하는 JSON �
 - **type** 속성을 **CopyActivity**로 설정합니다.
 - **MyOnPremTable**을 입력으로 지정합니다(**inputs** 태그).
 - **MyAzureBlob**을 출력으로 지정합니다(**outputs** 태그).
-- **Transformation** 섹션에는 **source** 및 **sink**라는 두 개의 하위 섹션이 있습니다. 원본의 유형을 **SqlSource**로 설정하고 싱크의 유형을 **BlobSink**로 설정합니다. **sqlReaderQuery**는 원본에 대해 수행할 변환(프로젝션)을 정의합니다. 모든 속성에 대한 자세한 내용은 [JSON 스크립트 참조][json-script-reference]\(영문)를 참조하세요.
+- **Transformation** 섹션에는 **source** 및 **sink**라는 두 개의 하위 섹션이 있습니다. 원본의 유형을 **SqlSource**로 설정하고 싱크의 유형을 **BlobSink**로 설정합니다. **sqlReaderQuery**는 원본에 대해 수행할 변환(프로젝션)을 정의합니다. 모든 속성에 대한 자세한 내용은[ JSON 스크립트 참조](https://msdn.microsoft.com/library/dn835050.aspx)를 참조하세요.
 
          
 		{
@@ -188,7 +188,6 @@ Azure Blob을 참조하는 데이터 팩터리 테이블을 정의하는 JSON �
 
 - **Host** - 파일 시스템을 호스트하는 서버의 이름(**\contoso**)입니다.
 - **Folder** - 입력 파일이 들어 있는 폴더의 이름(**marketingcampaign\regionaldata\{slice})입니다. 여기서 파일은 2014121112(2014년, 12월, 11일, 12시)와 같이 {slice}라는 폴더에 분할됩니다. 
-
 ### 온-프레미스 파일 시스템 연결된 서비스 만들기
 다음 샘플 JSON을 사용하여 **FolderDataStore**라는 **OnPremisesFileSystemLinkedService** 형식의 연결된 서비스를 만들 수 있습니다.
 
@@ -462,7 +461,7 @@ Azure Blob을 참조하는 데이터 팩터리 테이블을 정의하는 JSON �
 	                "transformation": {
 	                    "source": {
 	                        "type": "OracleSource",
-	                        "oracleReaderQuery": "$$Text.Format('select * from LOG where "Timestamp" >= to_date('{0:yyyy-MM-dd}', 'YYYY-MM-DD') AND "Timestamp" < to_date('{1:yyyy-MM-dd}', 'YYYY-MM-DD')', SliceStart, SliceEnd)"
+	                        "oracleReaderQuery": "$$Text.Format('select * from LOG where "Timestamp" >= to_date(\'{0:yyyy-MM-dd}\', \'YYYY-MM-DD\') AND "Timestamp" < to_date(\'{1:yyyy-MM-dd}\', \'YYYY-MM-DD\')', SliceStart, SliceEnd)"
 	                    },
 	                    "sink": {
 	                        "type": "BlobSink"
@@ -492,4 +491,4 @@ Azure Blob을 참조하는 데이터 팩터리 테이블을 정의하는 JSON �
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

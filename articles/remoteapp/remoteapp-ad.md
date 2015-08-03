@@ -108,4 +108,4 @@ RemoteApp을 사용하려면 온-프레미스 Active Directory에 다음 두 개
 이제 Azure Directory 동기화 도구를 시작하고 첫 번째 프로프트에 **myAzureSyncUser@mydomain.com** 자격 증명(Microsoft Azure Active Directory 관리자 자격 증명)을 사용하고 두 번째 프롬프트에 **myDomainSyncUser@mydomain.com**을(를) 사용합니다.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

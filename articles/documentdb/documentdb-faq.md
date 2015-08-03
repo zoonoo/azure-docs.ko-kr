@@ -98,4 +98,4 @@ DocumentDB는 효율적으로 일괄 삽입할 수 있는 저장 프로시저를
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

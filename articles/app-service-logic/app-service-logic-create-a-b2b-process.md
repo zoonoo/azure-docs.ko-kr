@@ -73,4 +73,4 @@ Contoso와 Northwind는 두 비즈니스 파트너입니다. Contoso(소매점)�
 [2]: ./media/app-service-logic-create-a-b2b-process/Tracking.jpg
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

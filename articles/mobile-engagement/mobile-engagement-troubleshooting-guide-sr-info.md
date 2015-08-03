@@ -40,4 +40,4 @@ Mobile Engagement 서비스에 대한 서비스 요청을 개설할 때는 다�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -95,4 +95,4 @@ Azure 미리보기 포털의 SharePoint 서버 팜 기능은 서비스 관리에
 
 [Azure 인프라 서비스에서 호스트되는 SharePoint 팜](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

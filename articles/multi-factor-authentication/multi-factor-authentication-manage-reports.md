@@ -50,4 +50,4 @@ Queued|처리 및 해당 상태에 대해 대기 중인 보고서가 나열되�
 * [MSDN에서 Azure Multi-Factor Authentication](https://msdn.microsoft.com/library/azure/dn249471.aspx)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

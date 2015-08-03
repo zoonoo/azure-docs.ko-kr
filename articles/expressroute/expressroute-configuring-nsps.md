@@ -58,11 +58,11 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자�
 
 	회로를 만들기 전에 각 위치에 대한 서비스 공급자, 지원되는 위치 및 대역폭 옵션 목록이 필요합니다. 다음 PowerShell cmdlet는 이후 단계에서 사용할 이 정보를 반환합니다.
 
-		PS C:> Get-AzureDedicatedCircuitServiceProvider
+		PS C:\> Get-AzureDedicatedCircuitServiceProvider
 
 	반환되는 정보는 아래 예와 유사합니다.
 
-		PS C:> Get-AzureDedicatedCircuitServiceProvider
+		PS C:\> Get-AzureDedicatedCircuitServiceProvider
 	
 		Name                 DedicatedCircuitLocations      DedicatedCircuitBandwidths                                                                                                                                                                                   
 		----                 -------------------------      --------------------------                                                                                                                                                                                   
@@ -118,7 +118,7 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자�
 
 	언제든지 Get-AzureCircuit cmdlet을 사용 하여 이 정보를 검색할 수 있습니다. 매개 변수 없이 호출을 수행하면 모든 회로가 표시됩니다. 서비스 키는 ServiceKey 필드에 표시됩니다.
 
-		PS C:> Get-AzureDedicatedCircuit
+		PS C:\> Get-AzureDedicatedCircuit
 		
 		Bandwidth                        : 500
 		CircuitName                      : NetBondSVTest
@@ -145,9 +145,9 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자�
 
 	게이트웨이가 만들어진 Azure 가상 네트워크가 하나 이상 있는지 확인합니다. 게이트웨이가 실행되어야 합니다.
 
-		PS C:> $Vnet = "MyTestVNet"
+		PS C:\> $Vnet = "MyTestVNet"
 		New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
 		
 		Provisioned 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

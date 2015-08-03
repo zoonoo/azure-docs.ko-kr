@@ -139,7 +139,7 @@ Azure 웹 앱을 백업에서 복원하는 방법에 대한 자세한 내용은 
 
 2. `_backup.filter`(이)라고 이름의 파일을 만들어서 이 파일에 앞서 언급한 목록을 넣고 `D:\home`을(를) 제거합니다. 줄당 하나의 디렉터리 또는 파일을 나열하십시오. 파일의 내용은 다음과 같아야 합니다.
 
-    \\site\\wwwroot\\Logs \\LogFiles \\site\\wwwroot\\Images\\2013 \\site\\wwwroot\\Images\\2014 \\site\\wwwroot\\Images\\brand.png
+    \site\wwwroot\Logs \LogFiles \site\wwwroot\Images\2013 \site\wwwroot\Images\2014 \site\wwwroot\Images\brand.png
 
 3. [ftp](web-sites-deploy.md#ftp) 또는 기타 모든 방법을 사용하여 이 파일을 해당 사이트의 `D:\home\site\wwwroot` 디렉터리에 업로드합니다. 원한다면 `http://{yourapp}.scm.azurewebsites.net/DebugConsole`에 파일을 직접 만들어서 여기에 콘텐츠를 삽입할 수도 있습니다.
 
@@ -219,4 +219,4 @@ Azure에 등록하려면 [Microsoft Azure 무료 평가판](/pricing/free-trial/
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

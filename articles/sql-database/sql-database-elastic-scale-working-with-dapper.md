@@ -174,4 +174,4 @@ Dapper 및 DapperExtensions를 사용하는 응용 프로그램에서는 Azure S
 [1]: ./media/sql-database-elastic-scale-working-with-dapper/dapperimage1.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

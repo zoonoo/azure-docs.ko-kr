@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
+   ms.date="07/10/2015"
    ms.author="joaoma" />
 
-# 트래픽 관리자 개요
+# 트래픽 관리자란?
 
 Microsoft Azure 트래픽 관리자를 사용하면 Azure 클라우드 서비스, 웹 사이트 및 다른 끝점을 포함할 수 있는 사용자 지정된 끝점에 대한 사용자 트래픽의 배포를 제어할 수 있습니다. 트래픽 관리자는 인터넷 리소스의 도메인 이름에 대한 DNS(Domain Name System) 쿼리에 지능형 정책 엔진을 적용하여 작동합니다. Azure 클라우드 서비스 또는 웹 사이트는 전 세계의 여러 데이터 센터에서 실행될 수 있습니다.
 
@@ -160,7 +160,7 @@ Windows PowerShell을 사용하여 트래픽 관리자 프로필을 만들고 �
 
 트래픽 관리자에서 이 주제의 그림을 사용자 자신의 프레젠테이션의 PowerPoint 슬라이드로 만들려는 경우 [MSDN 설명서에서 트래픽 관리자 그림](http://gallery.technet.microsoft.com/Traffic-Manager-figures-in-887e7c99)을 참조하세요.
 
-## 참고 항목
+## 다음 단계
 
 [클라우드 서비스](http://go.microsoft.com/fwlink/p/?LinkId=314074)
 
@@ -170,4 +170,4 @@ Windows PowerShell을 사용하여 트래픽 관리자 프로필을 만들고 �
 
 [Azure 트래픽 관리자 cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

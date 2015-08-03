@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # 서버 및 사용 현황 데이터 관리
@@ -57,4 +57,6 @@ Operations Manager 관리 그룹에서 Operational Insights 서비스에 데이�
 
 3. 데이터를 전송하지 않는 관리 그룹이 있는 경우, **문제 해결**을 클릭하면 자세한 문제 해결 정보를 얻을 수 있습니다. 문제를 보고하는 관리 그룹 및 모든 에이전트를 더 이상 유지하지 않으려면 **제거**를 클릭합니다.
 
-<!---HONumber=July15_HO2-->
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
+
+<!---HONumber=July15_HO4-->

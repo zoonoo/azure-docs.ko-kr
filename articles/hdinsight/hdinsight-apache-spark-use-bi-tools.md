@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="HDInsight에서 Apache Spark에 BI 도구 사용 | Azure" 
+	pageTitle="HDInsight에서 Apache Spark와 함께 BI 도구 사용 | Azure" 
 	description="Apache Spark에서 노트북을 사용하여 원시 데이터에 대한 스키마를 만들어 하이브 테이블로 저장한 후 하이브 테이블에서 데이터 분석을 위해 BI 도구를 사용하는 방법에 대한 단계별 지침입니다." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="07/19/2015" 
 	ms.author="nitinme"/>
 
 
-# Azure HDInsight에서 Apache Spark에 BI 도구 사용
+# Azure HDInsight에서 Apache Spark와 함께 BI 도구 사용
 
-Azure HDInsight에 Apache Spark를 사용하여 다음을 수행하는 방법에 대해 알아봅니다.
+Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법에 대해 알아봅니다.
 
 * 원시 샘플 데이터를 가져와서 하이브 테이블로 저장
 * Power BI 및 Tableau와 같은 BI 도구를 사용하여 데이터를 분석하고 시각화합니다.
@@ -35,7 +35,7 @@ Azure HDInsight에 Apache Spark를 사용하여 다음을 수행하는 방법에
 
 ##<a name="hivetable"></a>하이브 테이블로 원시 데이터 저장
 
-이 섹션에서는 HDInsight에서 Apache Spark와 연결된 [Jupyter](https://jupyter.org) 노트북을 사용하여 원시 샘플 데이터를 처리하고 하이브 테이블로 저장하는 작업을 실행합니다. 샘플 데이터는 기본적으로 모든 클러스터에서 사용 가능한 .csv 파일(hvac.csv)입니다.
+이 섹션에서는 HDInsight에서 Apache Spark 클러스터와 연결된 [Jupyter](https://jupyter.org) 노트북을 사용하여 원시 샘플 데이터를 처리하고 하이브 테이블로 저장하는 작업을 실행합니다. 샘플 데이터는 기본적으로 모든 클러스터에서 사용 가능한 .csv 파일(hvac.csv)입니다.
 
 데이터를 하이브 테이블로 저장한 후에는 다음 섹션에서 Power BI 및 Tableau와 같은 BI 도구를 사용하여 하이브 테이블에 연결합니다.
 
@@ -45,11 +45,11 @@ Azure HDInsight에 Apache Spark를 사용하여 다음을 수행하는 방법에
 
 	![새 Jupyter 노트북 만들기](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Note.Jupyter.CreateNotebook.png "새 Jupyter 노트북 만들기")
 
-3. 새 노트북이 만들어지고 Untitled.pynb 이름으로 열립니다. 맨 위에서 노트북 이름을 클릭하고 친숙한 이름을 입력합니다.
+3. 새 노트북이 만들어지고 Untitled.pynb 이름으로 열립니다. 맨 위에서 노트북 이름을 클릭하고 식별하기 쉬운 이름을 입력합니다.
 
 	![노트북에 대한 이름 제공](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Note.Jupyter.Notebook.Name.png "노트북에 대한 이름 제공")
 
-4. 필요한 모듈을 가져오고 Spark 및 하이브 컨텍스트를 만듭니다. 빈 셀에 다음 코드 조각을 붙여넣은 다음 **SHIFT + ENTER**를 누릅니다.
+4. 필요한 모듈을 가져오고 Spark 및 Hive 컨텍스트를 만듭니다. 빈 셀에 다음 코드 조각을 붙여넣은 다음 **SHIFT + ENTER**를 누릅니다.
 
 		from pyspark import SparkContext
 		from pyspark.sql import *
@@ -59,11 +59,11 @@ Azure HDInsight에 Apache Spark를 사용하여 다음을 수행하는 방법에
 		sc = SparkContext('spark://headnodehost:7077', 'pyspark')
 		hiveCtx = HiveContext(sc)
 
-	Jupyter에서 작업을 실행할 때마다, 웹 브라우저 창 제목에 노트북 제목과 함께 **(사용 중)** 상태가 표시됩니다. 또한 오른쪽 위 모서리에 있는 **Python 2** 텍스트 옆에 단색 원도 표시됩니다. 작업이 완료되면 이 원이 속이 빈 원으로 변경됩니다.
+	Jupyter에서 작업을 실행할 때마다, 웹 브라우저 창 제목에 노트북 제목과 함께 **(사용 중)** 상태가 표시됩니다. 또한 오른쪽 위 모서리에 있는 **Python 2** 텍스트 옆에 단색 원도 표시됩니다. 작업이 완료되면 속이 빈 원으로 변경됩니다.
 
 	 ![Jupyter 노트북 작업의 상태](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Jupyter.Job.Status.png "Jupyter 노트북 작업의 상태")
 
-4. 샘플 데이터를 임시 테이블에 로드합니다. HDInsight에서 Spark 클러스터를 프로비전하면 샘플 데이터 파일인 **hvac.csv**가 **\\HdiSamples\\SensorSampleData\\hvac** 아래 연결된 저장소 계정에 복사됩니다.
+4. 샘플 데이터를 임시 테이블에 로드합니다. HDInsight에서 Spark 클러스터를 프로비전하면 샘플 데이터 파일인 **hvac.csv**가 **\HdiSamples\SensorSampleData\hvac** 아래 연결된 저장소 계정에 복사됩니다.
 
 	빈 셀에서 다음 코드 조각을 붙여넣고 **SHIFT + ENTER**를 누릅니다. 이 코드 조각은 **hvac**라는 하이브 테이블에 데이터로 등록됩니다.
 
@@ -84,7 +84,7 @@ Azure HDInsight에 Apache Spark를 사용하여 다음을 수행하는 방법에
 
 		hiveCtx.sql("SHOW TABLES").show()
 
-	다음과 유사한 출력이 표시됩니다.
+	다음과 유사한 결과가 표시됩니다.
 
 		tableName       isTemporary
 		hvactemptable   true       
@@ -111,7 +111,7 @@ Azure HDInsight에 Apache Spark를 사용하여 다음을 수행하는 방법에
 
 	![Power BI로 데이터 가져오기](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Get.Data.png "Power BI로 데이터 가져오기")
 
-3. 다음 화면에서 **Spark**클릭한 후 **연결**을 클릭합니다.
+3. 다음 화면에서 **Spark**를 클릭한 후 **연결**을 클릭합니다.
 
 4. Azure HDInsight 페이지의 Spark에서 Spark 클러스터에 연결할 값을 제공하고 **연결**을 클릭합니다.
 
@@ -127,23 +127,23 @@ Azure HDInsight에 Apache Spark를 사용하여 다음을 수행하는 방법에
 
 	  ![하이브 테이블 나열](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Display.Tables.png "하이브 테이블 나열")
 
-7. 각 건물에 대한 대상 온도와 실제 온도 간의 차이를 보여주는 시각화를 작성합니다. 이렇게 하려면 **BuildingID** 필드를 **축** 아래에, **ActualTemp**/**TargetTemp** 필드를 **값** 아래에 끌어서 놓습니다.
+7. 각 건물에 대한 대상 온도와 실제 온도 간의 차이를 보여주는 시각화를 빌드합니다. 이렇게 하려면 **BuildingID** 필드를 **축** 아래에, **ActualTemp**/**TargetTemp** 필드를 **값** 아래에 끌어서 놓습니다.
 
 	![시각화 만들기](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Visual.1.png "시각화 만들기")
 
-	또한 선택**영역 맵**(빨간색 표시)을 선택하여 데이터를 시각화합니다.
+	또한 **영역 맵**(빨간색 표시)을 선택하여 데이터를 시각화합니다.
 
 8. 기본적으로 시각화에서는 **ActualTemp**및**TargetTemp**에 대한 합계를 보여 줍니다. 두 필드 모두에 대해 드롭다운 메뉴에서 **평균**을 선택하여 두 건물에 대한 실제 및 대상 온도의 평균을 얻습니다.
 
 	![시각화 만들기](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Visual.2.png "시각화 만들기")
 
-9. 사용자 데이터 시각화 다음과 유사합니다. 커서를 시각화 위로 이동하면 관련 데이터와 함께 도구 설명이 나타납니다.
+9. 사용자 데이터 시각화는 다음과 유사해야 합니다. 커서를 시각화 위로 이동하면 관련 데이터와 함께 도구 설명이 나타납니다.
 
 	![시각화 만들기](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.PowerBI.Visual.3.png "시각화 만들기")
 
 10. 최상위 메뉴에서 **저장**을 클릭하고 보고서 이름을 제공합니다. 시각화를 고정할 수도 있습니다. 시각화를 고정하면 시각화가 대시보드에 저장되어 최신 값을 한 눈에 추적할 수 있습니다.
 
-	동일한 데이터 집합에 대해 시각화를 원하는 만큼 추가하고 대시보드에 고정하여 데이터에 대한 스냅샷을 얻을 수 있습니다. 또한 직접 연결을 통해 HDInsight의 Spark 클러스터는 Power BI에 연결됩니다. 따라서 Power BI는 클러스터로부터 항상 최신 상태를 유지하므로 데이터 집합에 대한 새로 고침을 예약하지 않아도 됩니다.
+	동일한 데이터 집합에 대해 시각화를 원하는 만큼 추가하고 대시보드에 고정하여 데이터에 대한 스냅숏을 얻을 수 있습니다. 또한 직접 연결을 통해 HDInsight의 Spark 클러스터는 Power BI에 연결됩니다. 따라서 Power BI는 클러스터로부터 항상 최신 상태를 유지하므로 데이터 집합에 대한 새로 고침을 예약하지 않아도 됩니다.
 
 ##<a name="tableau"></a>Tableau Desktop을 사용하여 하이브 테이블에서 데이터 분석
 	
@@ -155,7 +155,7 @@ Azure HDInsight에 Apache Spark를 사용하여 다음을 수행하는 방법에
 
 	컴퓨터에 [Microsoft Spark ODBC 드라이버](http://go.microsoft.com/fwlink/?LinkId=616229)를 설치한 경우에만 인증 드롭다운 목록에 **Windows** **Azure HDInsight Service**가 옵션으로 표시됩니다.
 
-3. 다음 화면의 **스키마**드롭다운에서 **찾기** 아이콘을 클릭하고 **기본값**을 클릭합니다.
+3. 다음 화면의 **스키마** 드롭다운에서 **찾기** 아이콘을 클릭하고 **기본값**을 클릭합니다.
 
 	![스키마 찾기](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Find.Schema.png "스키마 찾기")
 
@@ -189,8 +189,8 @@ Azure HDInsight에 Apache Spark를 사용하여 다음을 수행하는 방법에
 
 * [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)
 * [빠른 시작: HDInsight에서 Apache Spark 프로비전 및 Spark SQL을 사용하여 대화형 쿼리 실행](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)
-* [HDInsight에서 Spark를 사용하여 기계 학습 응용 프로그램 구축](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 구축](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
+* [HDInsight에서 Spark를 사용하여 기계 학습 응용 프로그램 빌드](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 
 
@@ -205,4 +205,4 @@ Azure HDInsight에 Apache Spark를 사용하여 다음을 수행하는 방법에
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

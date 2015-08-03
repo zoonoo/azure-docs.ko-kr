@@ -63,7 +63,7 @@ IdleTimeoutInMinutes는 선택 사항이며 설정하지 않으면 기본 시간
  
 유휴 시간 제한 구성 검색
 
-	PS C:> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
+	PS C:\> Get-AzureVM –ServiceName “MyService” –Name “MyVM” | Get-AzureEndpoint
 	VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
 	LBSetName : MyLoadBalancedSet
 	LocalPort : 80
@@ -166,4 +166,4 @@ Azure SDK for .NET 2.4를 사용하여 클라우드 서비스를 업데이트할
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

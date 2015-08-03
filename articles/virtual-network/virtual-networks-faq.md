@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/08/2015"
+   ms.date="07/20/2015"
    ms.author="telmos" />
 
 # 가상 네트워크 FAQ
@@ -23,4 +23,4 @@
 
 가상 네트워크 VPN에 대한 최신 FAQ는 [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md)를 참조하세요.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

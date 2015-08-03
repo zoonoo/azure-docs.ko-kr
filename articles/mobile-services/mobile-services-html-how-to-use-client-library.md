@@ -608,4 +608,4 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 [클라이언트에서 사용자 지정 API 호출]: mobile-services-html-call-custom-api.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

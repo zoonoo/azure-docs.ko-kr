@@ -41,4 +41,4 @@ Azure 관리 포털의 구성 탭에서 위임된 그룹 관리 스위치를 사
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

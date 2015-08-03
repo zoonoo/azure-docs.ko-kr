@@ -107,4 +107,4 @@ SDK의 설치 및 사용에 대한 안내를 원하시면 [.NET에서 Azure 검�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

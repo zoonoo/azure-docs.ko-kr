@@ -1,27 +1,27 @@
-<properties 
-	pageTitle="Azure에서 Linux를 실행하는 사용자 지정 가상 컴퓨터 만들기" 
-	description="Azure에서 Linux를 실행하는 사용자 지정 가상 컴퓨터를 만드는 방법을 알아봅니다." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
+<properties
+	pageTitle="Azure에서 Linux를 실행하는 사용자 지정 가상 컴퓨터 만들기"
+	description="Azure에서 Linux를 실행하는 사용자 지정 가상 컴퓨터를 만드는 방법을 알아봅니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dsk-2015"
+	manager="timlt"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/23/2015" 
-	ms.author="kathydav"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/23/2015"
+	ms.author="dkshir"/>
 
 #Azure에서 Linux를 실행하는 사용자 지정 가상 컴퓨터를 만드는 방법
 
 *사용자 지정* 가상 컴퓨터란 **갤러리에서** 옵션을 사용하여 만드는 가상 컴퓨터를 말하는데, 이는 **빠른 생성** 옵션보다 사용할 수 있는 구성 옵션이 더 많기 때문입니다. 이러한 옵션에는 다음이 포함됩니다.
 
 - 가상 네트워크에 VM 연결
-- VM 에이전트 및 확장 설치(예: 맬웨어 방지용) 
+- VM 에이전트 및 확장 설치(예: 맬웨어 방지용)
 - 기존 클라우드 서비스에 VM 추가
 - 기존 저장소 계정에 VM 추가
 - 가용성 집합에 VM 추가
@@ -30,7 +30,4 @@
 
 [AZURE.INCLUDE [virtual-machines-create-LinuxVM](../../includes/virtual-machines-create-LinuxVM.md)]
 
-
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

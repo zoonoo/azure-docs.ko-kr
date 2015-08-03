@@ -3,7 +3,7 @@
 	description="Azure HDInsight에서 Avro를 사용하여 빅 데이터를 직렬화하는 방법에 대해 알아봅니다." 
 	services="hdinsight" 
 	documentationCenter="" 
-	authors="bradsev" 
+	authors="mumian" 
 	manager="paulettm" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
-	ms.author="bradsev"/>
+	ms.date="07/09/2015" 
+	ms.author="jgao"/>
 
 
 # Microsoft Avro 라이브러리로 Hadoop의 데이터 직렬화
@@ -67,11 +67,11 @@ Microsoft Avro 라이브러리에는 이전에 정의된 JSON 스키마에 따�
 
 1. <a href="http://hadoopsdk.codeplex.com/SourceControl/latest" target="_blank">Microsoft .NET SDK For Hadoop</a>에서 HDInsight SDK 소스 코드의 최신 버전이 포함된 .zip 파일을 다운로드합니다. (**다운로드** 아이콘을 클릭하세요.)
 
-2. 필요한 종속성 NuGet 패키지를 다운로드하기 위해 .NET Framework 4가 설치되고 인터넷에 연결된 컴퓨터에 있는 디렉터리에 HDInsight SDK의 압축을 풉니다. 여기서는 소스 코드가 C:\\SDK에 추출된다고 간주합니다.
+2. 필요한 종속성 NuGet 패키지를 다운로드하기 위해 .NET Framework 4가 설치되고 인터넷에 연결된 컴퓨터에 있는 디렉터리에 HDInsight SDK의 압축을 풉니다. 여기서는 소스 코드가 C:\SDK에 추출된다고 간주합니다.
 
-3. C:\\SDK\\src\\Microsoft.Hadoop.Avro.Tools 폴더로 이동하고 build.bat를 실행합니다. (이 파일은 .NET Framework 32비트 배포에서 MSBuild를 호출합니다. 64비트 버전을 사용하려는 경우 파일 내부의 주석에 따라 build.bat를 편집합니다.) 성공적으로 빌드되었는지 확인합니다. (일부 시스템에서는 MSBuild로 인해 경고가 발생할 수 있습니다. 빌드 오류가 없으면 이러한 경고가 유틸리티에 영향을 미치지 않습니다.)
+3. C:\SDK\src\Microsoft.Hadoop.Avro.Tools 폴더로 이동하고 build.bat를 실행합니다. (이 파일은 .NET Framework 32비트 배포에서 MSBuild를 호출합니다. 64비트 버전을 사용하려는 경우 파일 내부의 주석에 따라 build.bat를 편집합니다.) 성공적으로 빌드되었는지 확인합니다. (일부 시스템에서는 MSBuild로 인해 경고가 발생할 수 있습니다. 빌드 오류가 없으면 이러한 경고가 유틸리티에 영향을 미치지 않습니다.)
 
-4. 컴파일된 유틸리티는 C:\\SDK\\Bin\\Unsigned\\Release\\Microsoft.Hadoop.Avro.Tools에 있습니다.
+4. 컴파일된 유틸리티는 C:\SDK\Bin\Unsigned\Release\Microsoft.Hadoop.Avro.Tools에 있습니다.
 
 
 명령줄 구문에 익숙해지려면 코드 생성 유틸리티가 있는 폴더에서 다음 명령을 실행합니다. `Microsoft.Hadoop.Avro.Tools help /c:codegen`
@@ -82,7 +82,7 @@ Microsoft Avro 라이브러리에는 이전에 정의된 JSON 스키마에 따�
 
 그러면 현재 디렉터리에 두 개의 C# 파일, 즉 SensorData.cs와 Location.cs가 생성됩니다.
 
-JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티에서 사용되는 논리를 이해하려면 C:\\SDK\\src\\Microsoft.Hadoop.Avro.Tools\\Doc에 있는 GenerationVerification.feature를 참조하세요.
+JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티에서 사용되는 논리를 이해하려면 C:\SDK\src\Microsoft.Hadoop.Avro.Tools\Doc에 있는 GenerationVerification.feature를 참조하세요.
 
 네임스페이스는 이전 단락에서 언급한 파일에 설명된 논리를 사용하여 JSON 스키마에서 추출됩니다. 스키마에서 추출된 네임스페이스는 유틸리티 명령줄에서 /n 매개 변수로 제공되는 항목보다 우선 적용됩니다. 스키마 내에 포함된 네임스페이스를 재정의하려면 /nf 매개 변수를 사용합니다. 예를 들어 SampleJSONSchema.avsc에서 모든 네임스페이스를 my.own.nspace로 변경하려면 다음 명령을 실행합니다.
 
@@ -1389,7 +1389,7 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
 * 샘플 루트 디렉터리에서 app.config 파일을 편집하고 샘플 빌드 
 * 먼저 샘플을 빌드하고 빌드 디렉터리에서 AvroHDISample.exe.config 편집 
 
-두 경우 모두, 모든 편집을 **<appSettings>** 설정 섹션에서 수행해야 합니다. 파일의 주석을 따르세요. 샘플을 실행하려면 명령줄에서 다음 명령을 실행합니다. 여기서는 샘플이 포함된 ZIP 파일은 C:\\AvroHDISample로 추출된다고 간주했고, 이외의 경우에는 상대 파일 경로를 사용합니다.
+두 경우 모두, 모든 편집을 **<appSettings>** 설정 섹션에서 수행해야 합니다. 파일의 주석을 따르세요. 샘플을 실행하려면 명령줄에서 다음 명령을 실행합니다. 여기서는 샘플이 포함된 ZIP 파일은 C:\AvroHDISample로 추출된다고 간주했고, 이외의 경우에는 상대 파일 경로를 사용합니다.
 
     AvroHDISample run C:\AvroHDISample\Data
 
@@ -1406,4 +1406,4 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

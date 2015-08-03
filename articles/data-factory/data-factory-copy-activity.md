@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure 데이터 팩터리를 사용하여 데이터 복사" 
-	description="Azure 데이터 팩터리에서 작업 복사를 사용하여 데이터 원본 간에 데이터를 복사하는 방법에 대해 알아봅니다." 
+	pageTitle="Azure Data Factory를 사용하여 데이터 복사" 
+	description="Azure Data Factory에서 작업 복사를 사용하여 데이터 원본 간에 데이터를 복사하는 방법에 대해 알아봅니다." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
-# Azure 데이터 팩터리를 사용하여 데이터 복사(복사 작업)
+# Azure Data Factory를 사용하여 데이터 복사(복사 작업)
 ## 개요
 파이프라인에서 **복사 작업**을 사용하여 원본에서 배치의 싱크(대상)로 데이터를 복사할 수 있습니다. 복사 작업은 다음과 같은 시나리오에서 사용할 수 있습니다.
 
@@ -32,164 +32,30 @@
 
 자세한 내용은 다음을 참조하세요.
 
-- [Azure 데이터 팩터리 복사 작업 소개][copy-activity-video] 비디오를 참조하세요.
-- 복사 작업을 사용하여 Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터를 복사하는 방법을 보여 주는 자습서는 [Azure 데이터 팩터리 시작][adfgetstarted]을 참조하세요. 
+- [Azure Data Factory 복사 작업 소개][copy-activity-video] 비디오를 참조하세요.
+- 복사 작업을 사용하여 Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터를 복사하는 방법을 보여 주는 자습서는 [Azure Data Factory 시작][adfgetstarted]을 참조하세요. 
 - 복사 작업을 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 주는 연습은 [파이프라인에서 온-프레미스 데이터를 사용할 수 있도록 설정][use-onpremises-datasources]을 참조하세요.
 
 
 ## 지원되는 원본 및 싱크
 복사 작업은 다음과 같은 데이터 이동 시나리오를 지원합니다.
 
-<table border="1">	
-	<tr>
-		<th><i>원본/싱크<i></th>
-		<th>Azure Blob</th>
-		<th>Azure 테이블</th>
-		<th>Azure SQL 데이터베이스</th>
-		<th>Azure DocumentDB</th>
-		<th>Azure VM에서 SQL Server</th>
-		<th>온-프레미스 SQL Server</th>
-	</tr>	
+| *원본/싱크* | Azure Blob | Azure 테이블 | Azure SQL 데이터베이스 | Azure DocumentDB | Azure VM에서 SQL Server | 온-프레미스 SQL Server |
+| ------------- | ---------- | ----------- | ------------------ | ---------------- | ------------------ | ------------------- |
+| Azure Blob | X | X | X | X | X | X |
+| Azure 테이블 | X | X | X | X | X | X |
+| Azure SQL 데이터베이스 | X | X | X | X | X | X |
+| Azure DocumentDB | X | X | X | | | |  
+| 온-프레미스 SQL Server | X | X | X | | X | X |
+| Azure VM에서 SQL Server | X | X | X | | X | X |
+| 온-프레미스 파일 시스템 | X | X | X | | X | X |
+| 온-프레미스 Oracle 데이터베이스 | X | X | X | | X | X |
+| 온-프레미스 MySQL 데이터베이스| X | X | X | | X | X |
+| 온-프레미스 DB2 데이터베이스 | X | X | X | | X | X |
+| 온-프레미스 Teradata 데이터베이스 | X | X | X | | X | X |
+| 온-프레미스 Sybase 데이터베이스 | X | X | X | | X | X |
+| 온-프레미스 PostgreSQL 데이터베이스 | X | X | X | | X | X |
 
-	<tr>
-		<td><b>Azure Blob</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Azure 테이블</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-	</tr>	
-	<tr>
-		<td><b>Azure SQL 데이터베이스</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-	<tr>
-		<td><b>Azure DocumentDB</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td></td>
-		<td></td>
-	</tr>
-
-	<tr>
-		<td><b>온-프레미스 SQL Server</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>Azure VM에서 SQL Server</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>온-프레미스 파일 시스템</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>온-프레미스 Oracle 데이터베이스</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>온-프레미스 파일 시스템</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>온-프레미스 MySQL 데이터베이스</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>온-프레미스 DB2 데이터베이스</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>온-프레미스 Teradata 데이터베이스</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>온-프레미스 Sybase 데이터베이스</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-	<tr>
-		<td><b>온-프레미스 PostgreSQL 데이터베이스</b></td>
-		<td>X</td>
-		<td>X</td>
-		<td>X</td>
-		<td></td>
-		<td>X</td>
-		<td>X</td>
-	</tr>
-
-</table>
 
 자세한 내용은 MSDN 라이브러리에서 [지원되는 원본 및 싱크](https://msdn.microsoft.com/library/dn894007.aspx) 항목을 참조하십시오.
 
@@ -249,57 +115,15 @@ IaaS의 SQL Server도 원본 및 싱크로 지원됩니다. IaaS의 SQL Server�
 
 다음 표에서는 작업 섹션에서 사용되는 태그에 대해 설명합니다.
 
-<table border="1">	
-	<tr>
-		<th align="left">태그</th>
-		<th align="left">설명</th>
-		<th align="left">필수</th>
-	</tr>	
-
-	<tr>
-		<td>name</td>
-		<td>작업의 이름입니다.</td>
-		<td>Y</td>
-	</tr>	
-
-	<tr>
-		<td>description</td>
-		<td>작업이 무엇에 사용되는지 설명하는 텍스트입니다.</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>type</td>
-		<td>작업의 유형을 지정합니다. <br/><br/><b>type</b>은 <b>CopyActivity</b>로 설정해야 합니다.</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>inputs</td>
-		<td>작업에 사용되는 입력 테이블입니다. 복사 작업의 입력 테이블은 하나만 지정합니다.</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>outputs</td>
-		<td>작업에 사용되는 출력 테이블입니다. 복사 작업의 출력 테이블은 하나만 지정합니다.</td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>transformation</td>
-		<td>변환의 속성은 유형에 따라 다릅니다. <b>복사 작업</b>에서는 <b>transformation</b> 섹션 내에 <b>source</b> 및 <b>sink</b> 섹션을 지정해야 합니다. 자세한 내용은 이 문서의 뒷부분에 나와 있습니다. </td>
-		<td>Y</td>
-	</tr>
-
-	<tr>
-		<td>policy</td>
-		<td>작업의 런타임 동작에 영향을 주는 정책입니다. 지정하지 않으면 기본값이 사용됩니다.</td>
-		<td>N</td>
-	</tr>
-
-
-</table>
+| 태그 | 설명 | 필수 |
+|-----|-------------|----------|
+|name|작업의 이름입니다.|Y|
+|description|작업이 무엇에 사용되는지 설명하는 텍스트입니다.|Y|
+|type|작업의 유형을 지정합니다. type은 **Copy**로 설정해야 합니다. |Y|
+|inputs|작업에 사용되는 입력 테이블입니다. 복사 작업의 입력 테이블은 하나만 지정합니다. | Y
+|outputs|작업에 사용되는 출력 테이블입니다. 복사 작업의 출력 테이블은 하나만 지정합니다. | Y
+|transformation|변환의 속성은 유형에 따라 다릅니다. 복사 작업에서는 transformation 섹션 내에 source 및 sink 섹션을 지정해야 합니다. 자세한 내용은 이 문서의 뒷부분에 나와 있습니다.|Y
+|policy| 작업의 런타임 동작에 영향을 주는 정책입니다. 지정하지 않으면 기본값이 사용됩니다. | N
 
 JSON 속성/태그에 대한 자세한 내용은 [JSON 스크립트 참조][json-script-reference]를 참조하세요.
 
@@ -309,15 +133,15 @@ JSON 속성/태그에 대한 자세한 내용은 [JSON 스크립트 참조][json
 ## 복사 작업 - 예제
 이 예제에서는 입력 테이블과 출력 테이블을 정의하고 온-프레미스 SQL Server 데이터베이스에서 Azure Blob으로 데이터를 복사하는 파이프라인 내의 복사 작업에서 이 테이블을 사용합니다.
 
-**가정** 다음에 나오는 샘플 JSON 스크립트에서는 다음과 같은 Azure 데이터 팩터리 아티팩트가 참조됩니다.
+**가정** 다음에 나오는 샘플 JSON 스크립트에서는 다음과 같은 Azure Data Factory 아티팩트가 참조됩니다.
 
 * **ADF**라는 리소스 그룹
-* **CopyFactory**라는 Azure 데이터 팩터리
+* **CopyFactory**라는 Azure Data Factory
 * 온-프레미스 SQL Server 데이터베이스를 가리키는 **MyOnPremisesSQLDB**라는 연결된 서비스
 * Azure Blob 저장소를 가리키는 **MyAzureStorage**라는 연결된 서비스
 
 ### 입력 테이블 JSON
-다음 JSON 스크립트는 **MyOnPremisesSQLDB** 연결 서비스에 정의된 온-프레미스 SQL Server 데이터베이스에서 **MyTable** SQL 테이블을 참조하는 입력 테이블을 정의합니다. **name**은 Azure 데이터 팩터리 테이블의 이름이고 **tableName**은 SQL Server 데이터베이스에 있는 SQL 테이블의 이름입니다.
+다음 JSON 스크립트는 **MyOnPremisesSQLDB** 연결 서비스에 정의된 온-프레미스 SQL Server 데이터베이스에서 **MyTable** SQL 테이블을 참조하는 입력 테이블을 정의합니다. **name**은 Azure Data Factory 테이블의 이름이고 **tableName**은 SQL Server 데이터베이스에 있는 SQL 테이블의 이름입니다.
 
          
 	{
@@ -338,7 +162,7 @@ JSON 속성/태그에 대한 자세한 내용은 [JSON 스크립트 참조][json
  		}
 	}
 
-다음 샘플 Azure PowerShell 명령은 위의 스크립트가 포함된 JSON 파일을 사용하는 **New-AzureDataFactoryTable**을 사용하여 Azure 데이터 팩터리 **CopyFactory**에 테이블(**MyOnPremTable**)을 만듭니다.
+다음 샘플 Azure PowerShell 명령은 위의 스크립트가 포함된 JSON 파일을 사용하는 **New-AzureDataFactoryTable**을 사용하여 Azure Data Factory **CopyFactory**에 테이블(**MyOnPremTable**)을 만듭니다.
          
 	New-AzureDataFactoryTable -ResourceGroupName ADF –Name MyOnPremTable –DataFactoryName CopyFactory –File <Filepath>\MyOnPremTable.json.
 
@@ -374,7 +198,7 @@ JSON 속성/태그에 대한 자세한 내용은 [JSON 스크립트 참조][json
    		}
 	}
 
-다음 샘플 Azure PowerShell 명령은 위의 스크립트가 포함된 JSON 파일을 사용하는 **New-AzureDataFactoryTable**을 사용하여 Azure 데이터 팩터리 **CopyFactory**에 테이블(**MyDemoBlob**)을 만듭니다.
+다음 샘플 Azure PowerShell 명령은 위의 스크립트가 포함된 JSON 파일을 사용하는 **New-AzureDataFactoryTable**을 사용하여 Azure Data Factory **CopyFactory**에 테이블(**MyDemoBlob**)을 만듭니다.
          
 	New-AzureDataFactoryTable -ResourceGroupName ADF -DataFactoryName CopyFactory –File <Filepath>
 
@@ -419,11 +243,11 @@ JSON 속성/태그에 대한 자세한 내용은 [JSON 스크립트 참조][json
 		}
 
 
- 다음 샘플 Azure PowerShell 명령은 위의 스크립트가 포함된 JSON 파일을 사용하는 **New-AzureDataFactoryPipeline**을 사용하여 Azure 데이터 팩터리 **CopyFactory**에 파이프라인(**CopyActivityPipeline**)을 만듭니다.
+ 다음 샘플 Azure PowerShell 명령은 위의 스크립트가 포함된 JSON 파일을 사용하는 **New-AzureDataFactoryPipeline**을 사용하여 Azure Data Factory **CopyFactory**에 파이프라인(**CopyActivityPipeline**)을 만듭니다.
          
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF –DataFactoryName CopyFactory –File <Filepath>
 
-> [AZURE.NOTE]복사 활동을 사용하는 추가 예제는 [Azure 데이터 팩터리에서 복사 활동 사용 예][copy-activity-examples]를 참조하세요.
+> [AZURE.NOTE]복사 활동을 사용하는 추가 예제는 [Azure Data Factory에서 복사 활동 사용 예][copy-activity-examples]를 참조하세요.
 
 ## 보안
 이 섹션에서는 복사 작업을 위해 데이터 저장소에 대한 보안 액세스를 설정하는 데 도움이 되는 전반적인 보안 지침 및 모범 사례를 제공합니다.
@@ -440,18 +264,18 @@ HTTPS 연결을 제공하는 데이터 저장소의 경우 복사 작업에 대�
 - **복사 작업에서 데이터 형식 처리**. 테이블 정의의 Structure 섹션에 지정된 데이터 형식이 적용/무시되는 경우를 설명합니다.
 - **SQL 싱크에 대한 저장 프로시저 호출**. SQL Server 또는 Azure SQL 데이터베이스로 데이터를 복사할 때 사용자 지정 저장 프로시저를 구성하고 호출할 수 있습니다.
 
-이러한 시나리오에 대한 자세한 내용은 [Azure 데이터 팩터리에서 복사 작업을 사용하는 고급 시나리오][copy-activity-advanced] 문서를 참조하세요.
+이러한 시나리오에 대한 자세한 내용은 [Azure Data Factory에서 복사 작업을 사용하는 고급 시나리오][copy-activity-advanced] 문서를 참조하세요.
 
 ## 연습
-복사 작업을 사용하여 Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터를 복사하는 방법을 보여 주는 자습서는 [Azure 데이터 팩터리 시작][adfgetstarted]을 참조하세요.
+복사 작업을 사용하여 Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터를 복사하는 방법을 보여 주는 자습서는 [Azure Data Factory 시작][adfgetstarted]을 참조하세요.
  
 복사 작업을 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 주는 연습은 [파이프라인에서 온-프레미스 데이터를 사용할 수 있도록 설정][use-onpremises-datasources]을 참조하세요.
 
 ## 참고 항목
 - [복사 작업 - 예제][copy-activity-examples]
-- [비디오: Azure 데이터 팩터리 복사 작업 소개][copy-activity-video]
+- [비디오: Azure Data Factory 복사 작업 소개][copy-activity-video]
 - [MSDN 라이브러리의 복사 작업 항목][msdn-copy-activity]
-- [Azure 데이터 팩터리에서 복사 작업을 사용하는 고급 시나리오][copy-activity-advanced]
+- [Azure Data Factory에서 복사 작업을 사용하는 고급 시나리오][copy-activity-advanced]
 
 [msdn-copy-activity]: https://msdn.microsoft.com/library/dn835035.aspx
 [msdn-linkedservices]: https://msdn.microsoft.com/library/dn834986.aspx
@@ -475,4 +299,4 @@ HTTPS 연결을 제공하는 데이터 저장소의 경우 복사 작업에 대�
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

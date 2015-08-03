@@ -62,9 +62,9 @@ Active Directory Premium 라이선스가 할당된 모든 전역 관리자에게
 
 예, Azure 관리 포털 내에서 비정상적인 로그인과 관련된 알림을 끄려면 **구성**을 클릭한 다음 **알림** 아래에서 **사용 안 함**을 선택합니다.
 
-## 다음 작업
+## 다음 단계
 - 사용 가능한 보안, 감사 및 작업 보고서는 [Azure AD 보안, 감사 및 작업 보고서](active-directory-view-access-usage-reports.md) 확인
 - [Azure Active Directory Premium 시작](active-directory-get-started-premium.md)
 - [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가](active-directory-add-company-branding.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

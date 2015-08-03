@@ -295,4 +295,4 @@ Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -95,7 +95,7 @@ API 앱 역할 기반 보안을 사용합니다. 이러한 역할은 API 앱과 
 --- | ---
 소유자 | 관리환경에 대해 전체적으로 액세스 되고 다른 사용자나 그룹에 접속 권한을 줄 수 있습니다.
 참여자 | 관리 환경에 대한 모든 권한을 가집니다. 다른 사용자 또는 그룹에게 접속 권한을 줄 수 없습니다.
-읽기 권한자 | 암호를 제외한 모든 리소스를 볼 수 있습니다.
+판독기 | 암호를 제외한 모든 리소스를 볼 수 있습니다.
 사용자 액세스 관리자 | 모든 리소스를 볼 수 있고, 역할 및 지원 티켓을 생성 및 관리할수 있습니다.
 
 [Microsoft Azure 포털에서의 역할 기반 액세스 제어](role-based-access-control-configure.md)를 참조하세요.
@@ -133,4 +133,4 @@ API 앱 역할 기반 보안을 사용합니다. 이러한 역할은 API 앱과 
 [hostsettings]: ./media/app-service-logic-monitor-your-connectors/hostsettings.png
 [apiapphost]: ./media/app-service-logic-monitor-your-connectors/apiapphost.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

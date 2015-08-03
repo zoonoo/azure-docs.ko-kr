@@ -128,7 +128,7 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 ![](./media/web-sites-configure/configure03.png)
 
 
-전체 FTP 사용자 이름은 “app\\username”이며, 여기서 *app*은 사용자의 웹 앱 이름입니다. 사용자 이름은 **필수 항목** 아래 웹 앱 블레이드에 나열되어 있습니다.
+전체 FTP 사용자 이름은 “app\username”이며, 여기서 *app*은 사용자의 웹 앱 이름입니다. 사용자 이름은 **필수 항목** 아래 웹 앱 블레이드에 나열되어 있습니다.
 
 ![](./media/web-sites-configure/configure02.png)
 
@@ -174,4 +174,4 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

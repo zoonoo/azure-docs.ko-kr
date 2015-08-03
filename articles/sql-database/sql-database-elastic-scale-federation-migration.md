@@ -143,4 +143,4 @@ Azure SQL 데이터베이스 페더레이션 기능은 2015년 9월부터 Web/Bu
 [3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

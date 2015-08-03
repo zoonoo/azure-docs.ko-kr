@@ -90,4 +90,4 @@
 [Live Connect를 사용한 Windows Phone 앱의 Single Sign-On]: mobile-services-windows-phone-single-sign-on.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

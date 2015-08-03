@@ -77,4 +77,4 @@ Azure 기계 학습 웹 서비스에 직접 연결하는 경우와 마켓플레�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

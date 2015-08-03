@@ -49,14 +49,14 @@
 	npm install -g node-gyp
 
 
-Node-gyp를 설치한 경우 *YourProjectDirectory* 디렉터리로 이동한 다음, **node_modules\\msnodesql** 디렉터리로 이동합니다. 그 다음 **cmd.exe** 창에 다음 명령을 입력합니다.
+Node-gyp를 설치한 경우 *YourProjectDirectory* 디렉터리로 이동한 다음, **node_modules\msnodesql** 디렉터리로 이동합니다. 그 다음 **cmd.exe** 창에 다음 명령을 입력합니다.
 
 
 	node-gyp configure 
 	node-gyp build
 
 
-다음 **build\\release** 디렉터리로 이동합니다. **Sqlserver.node** 파일을 복사하고 **msnodesql\\lib** 디렉터리에 붙여넣습니다. 필요할 경우 이전 파일을 대체합니다.
+다음 **build\release** 디렉터리로 이동합니다. **Sqlserver.node** 파일을 복사하고 **msnodesql\lib** 디렉터리에 붙여넣습니다. 필요할 경우 이전 파일을 대체합니다.
 
 [팀 블로그](http://blogs.msdn.com/b/sqlphp/archive/2015/05/12/getting-started-with-node-js-and-microsoft-sql-server-and-azure-sql-database.aspx) 및 [비디오](https://www.youtube.com/watch?v=kQo_L-D_zk8)를 선택하여 앞에서 언급한 요구 사항을 설치하고 설정하는 방법을 배울 수 있습니다.
 
@@ -234,4 +234,4 @@ Azure SQL 데이터베이스에서는 **conn.beginTransactions** 메소드가 �
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

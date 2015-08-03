@@ -2,6 +2,7 @@
 	pageTitle="데이터를 만들어서 Blob 저장소의 Hive 테이블에 로드 | Microsoft Azure" 
 	description="Hive 테이블을 만들어서 blob의 데이터를 Hive 테이블에 로드" 
 	services="machine-learning,storage" 
+	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="jacob.spoelstra" 
@@ -153,4 +154,4 @@ Hive 테이블 분할 외에도 Hive 데이터를 ORC(Optimized Row Columnar) �
 
 이 절차를 모두 수행했다면 이제 ORC 형식의 데이터를 사용할 수 있는 테이블이 준비되었을 것입니다.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

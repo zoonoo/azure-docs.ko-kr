@@ -281,4 +281,4 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

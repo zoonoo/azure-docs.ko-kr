@@ -250,7 +250,7 @@ VM에 로그인한 다음 아래 bash 스크립트를 사용하여 슈퍼 사용
 	echo "installation is complete"
 
 
-이 스크립트를 vim 창에 붙여 넣는 경우 다음 명령을 사용하여 캐리지 리턴('\\r')을 제거해야 합니다.
+이 스크립트를 vim 창에 붙여 넣는 경우 다음 명령을 사용하여 캐리지 리턴('\r')을 제거해야 합니다.
 
 	tr -d '\r' <infile.sh >outfile.sh
 
@@ -700,4 +700,4 @@ Microsoft Azure는 이 연습에서 알 수 있듯이 Microsoft 및 오픈 소�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

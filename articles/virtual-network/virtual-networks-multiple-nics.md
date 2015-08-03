@@ -43,11 +43,11 @@
 |VM 크기(표준 SKU)|NIC(VM당 허용되는 최대)|
 |---|---|
 |모든 기본 크기|1|
-|A0\\ 매우 작음|1|
-|A1\\작음|1|
-|A2\\중간|1|
-|A3\\큼|2|
-|A4\\매우 큼|4|
+|A0\ 매우 작음|1|
+|A1\작음|1|
+|A2\중간|1|
+|A3\큼|2|
+|A4\매우 큼|4|
 |A5|1|
 |A6|2|
 |A7|4|
@@ -252,4 +252,4 @@ Linux VM의 경우, 기본 동작에서 취약한 호스트 라우팅을 사용�
 
 - [여러 VM NIC 및 Azure에서 VNet 어플라이언스](../multiple-vm-nics-and-network-virtual-appliances-in-azure) 사용에 대해 알아보기
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

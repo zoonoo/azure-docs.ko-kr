@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-management" 
-   ms.date="04/13/2015"
+   ms.date="07/15/2015"
    ms.author="mihaelab"/>
 
 #재해 복구 훈련 수행
@@ -81,6 +81,4 @@
 
 - 복구 후 응용 프로그램 무결성 검사(예: 연결 문자열, 로그인, 기본 기능 테스트 또는 기타 표준 응용 프로그램 로그아웃 절차의 유효성 검사 부분)로 훈련을 완료합니다.
 
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/17/2015" 
 	ms.author="derrickv" />
 
 
@@ -69,75 +69,9 @@ Microsoft Azure 기계 학습 Studio에서 **Azure 기계 학습 API 도움말 �
 3. **API 도움말 페이지** - **요청/응답** 또는 **일괄 처리 실행**을 선택합니다.
 
 
-**Azure 기계 학습 API 도움말 페이지** Azure 기계 학습 API 도움말 페이지에는 다음을 비롯하여 예측 웹 서비스에 대한 자세한 정보가 포함되어 있습니다.
+**Azure 기계 학습 API 도움말 페이지** Azure 기계 학습 API 도움말 페이지에는 예측 웹 서비스에 대한 자세한 정보가 포함되어 있습니다.
 
 
-<table>
-	<tr>
-		<td>&#160;</td>
-		<td>예 </td>
-	</tr>
-	<tr>
-		<td>요청 POST URI </td>
-
-		<td>https://ussouthcentral.services.azureml.net/workspaces/{WorkspaceId}/services/{ServiceId}/score
-		</td>
-	</tr>
-	<tr>
-		<td>샘플 요청 </td>
-		<td>{ <br/> 
-			&#160;&#160; "Id": "score00001",   <br/>
-			&#160;&#160; "Instance": <br/>
-			&#160;&#160;&#160;&#160; {  <br/>  
- 			&#160;&#160;&#160;&#160; &#160;&#160; "FeatureVector": { <br/>
-			&#160;&#160;&#160;&#160; &#160;&#160;  "Col1": "0", <br/>      
-			&#160;&#160;&#160;&#160; &#160;&#160;  "Col2": "0", <br/>      
-			&#160;&#160;&#160;&#160; &#160;&#160;  "Col3": "0", <br/>  
-			&#160;&#160;&#160;&#160; &#160;&#160;  ... },   <br/>
-			&#160;&#160;&#160;&#160;   "GlobalParameters": {}   <br/>
-			&#160;&#160;&#160;&#160; } <br/>
-		}</td>
-	</tr>
-	<tr>
-		<td>응답 본문 </td>
-		<td>
-		<table style="width: 100%">
-
-			<tr>
-				<td><B>Name</B></td>
-				<td><B>데이터 형식</B></td>
-			</tr>
-	
-			<tr>
-				<td>기능</td>
-				<td>문자열</td>
-			</tr>
-			<tr>
-				<td>개수</td>
-				<td>숫자</td>
-			</tr>
-			<tr>
-				<td>고유 값 개수 </td>
-				<td>숫자 </td>
-			</tr>
-			<tr>
-				<td>... </td>
-				<td>... </td>
-			</tr>
-		</table>
-		</td>
-	</tr>
-	<tr>
-		<td>샘플 응답 </td>
-		<td>["Col1","1","1",…] </td>
-	</tr>
-	<tr>
-		<td>샘플 코드 </td>
-		<td>(Sample code in C#, Python, and R) </td>
-	</tr>
-</table>
-
-**참고** 예제는 Azure 기계 학습 샘플 컬렉션의 샘플 1: UCI: Adult 2 클래스 데이터 집합에서 데이터 집합 다운로드 부분에서 가져온 것입니다.
 
 ### C# 샘플 ###
 
@@ -155,108 +89,12 @@ Azure 기계 학습 웹 서비스에 연결하려면 ScoreData를 전달하는 *
 
 1. Azure 기계 학습 샘플 컬렉션의 “샘플 1: UCI: Adult 2 클래스 데이터 집합에서 데이터 집합 다운로드” 실험 부분을 게시합니다.
 2. 웹 서비스에서 가져온 키로 apiKey를 할당합니다. Azure 기계 학습 권한 부여 키를 가져오는 방법을 참조하세요.
-3. 요청 URI로 serviceUri를 할당합니다. 요청 URI를 가져오는 방법을 참조하세요.
-
-		using System;
-		using System.Collections.Generic;
-		using System.IO;
-		using System.Net.Http;
-		using System.Net.Http.Formatting;
-		using System.Net.Http.Headers;
-		using System.Text;
-		using System.Threading.Tasks;
-
-		namespace CallRequestResponseService
-		{
-	    public class ScoreData
-	    {
-	        public Dictionary<string, string> FeatureVector { get; set; }
-	        public Dictionary<string, string> GlobalParameters { get; set; }
-	    }
-	
-	    public class ScoreRequest
-	    {
-	        public string Id { get; set; }
-	        public ScoreData Instance { get; set; }
-	    }
-	
-	    class Program
-	    {
-	        static void Main(string[] args)
-	        {
-	            InvokeRequestResponseService().Wait();
-	
-	            Console.ReadLine();
-	        }
-	
-	        static async Task InvokeRequestResponseService()
-	        {
-	            //Assign apiKey with the key from a web service.
-	            const string apiKey = "{ApiKey}";
-	
-	            //Assign serviceUri with the Request URI. See How to get a Request URI.
-	            const string serviceUri = "{ServiceUri}";
-	            
-	            using (var client = new HttpClient())
-	            {
-	                ScoreData scoreData = new ScoreData()
-	                {
-	                    //Input data
-	                    FeatureVector = new Dictionary<string, string>() 
-	                    {
-	                        { "Col1", "0" },
-	                        { "Col2", "0" },
-	                        { "Col3", "0" },
-	                        { "Col4", "0" },
-	                        { "Col5", "0" },
-	                        { "Col6", "0" },
-	                        { "Col7", "0" },
-	                        { "Col8", "0" },
-	                        { "Col9", "0" },
-	                        { "Col10", "0" },
-	                        { "Col11", "0" },
-	                        { "Col12", "0" },
-	                        { "Col13", "0" },
-	                        { "Col14", "0" },
-	                        { "Col15", "0" },
-	                    },
-	                    GlobalParameters = 
-	                        new Dictionary<string, string>() {}
-	                };
-	
-	                ScoreRequest scoreRequest = new ScoreRequest()
-	                {
-	                    Id = "score00001",
-	                    Instance = scoreData
-	                };
-	
-	                //Set authorization header
-	                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", apiKey);
-	             
-	                client.BaseAddress = new Uri(serviceUrl);
-	
-	                //Post HTTP response message
-	                HttpResponseMessage response = await client.PostAsJsonAsync("", scoreRequest);
-	
-	                if (response.IsSuccessStatusCode)
-	                {
-	                    //Read result string
-	                    string result = await response.Content.ReadAsStringAsync();
-	                    Console.WriteLine("Result: {0}", result);
-	                }
-	                else
-	                {
-	                    Console.WriteLine("Failed with status code: {0}", response.StatusCode);
-	                }
-	            }
-	        }
-	    }
-		}
+3. 요청 URI로 serviceUri를 할당합니다. 
 
 
 ### Python 샘플 ###
 
-Azure 기계 학습 웹 서비스에 연결하려면 ScoreData를 전달하는 **urllib2**를 사용합니다. ScoreData는 ScoreData를 나타내는 수치의 n 차원 벡터인 FeatureVector를 포함합니다. API 키를 사용하여 Azure 기계 학습 서비스에 인증합니다.
+Azure 기계 학습 웹 서비스에 연결하려면 ScoreData를 전달하는 **urllib2** 라이브러리를 사용합니다. ScoreData는 ScoreData를 나타내는 수치의 n 차원 벡터인 FeatureVector를 포함합니다. API 키를 사용하여 Azure 기계 학습 서비스에 인증합니다.
 
 
 **코드 샘플을 실행하려면**
@@ -265,53 +103,7 @@ Azure 기계 학습 웹 서비스에 연결하려면 ScoreData를 전달하는 *
 2. 웹 서비스에서 가져온 키로 apiKey를 할당합니다. Azure 기계 학습 권한 부여 키를 가져오는 방법을 참조하세요.
 3. 요청 URI로 serviceUri를 할당합니다. 요청 URI를 가져오는 방법을 참조하세요.
 
-		import urllib2
-		# If you are using Python 3+, import urllib instead of urllib2
 	
-		import json 
-	
-		data =  {
-	            "Id": "score00001",
-	            "Instance": {
-	                "FeatureVector": {
-	                    "Col1": "0",
-	                    "Col2": "0",
-	                    "Col3": "0",
-	                    "Col4": "0",
-	                    "Col5": "0",
-	                    "Col6": "0",
-	                    "Col7": "0",
-	                    "Col8": "0",
-	                    "Col9": "0",
-	                    "Col10": "0",
-	                    "Col11": "0",
-	                    "Col12": "0",
-	                    "Col13": "0",
-	                    "Col14": "0",
-	                    "Col15": "0",
-	                },
-	                "GlobalParameters": { }
-	            }
-	        }
-	
-		body = str.encode(json.dumps(data))
-	
-		#Assign serviceUrl with the Request URI. See How to get a Request URI.
-		uri = '{ServiceUri}'
-	
-		#Assign apiKey with the key from a web service.
-		api_key = '{ApiKey}'
-		headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
-	
-		req = urllib2.Request(uri, body, headers) 
-		response = urllib2.urlopen(req)
-	
-		#If you are using Python 3+, replace urllib2 with urllib.request in the above code:
-		#req = urllib.request.Request(uri, body, headers) 
-		#response = urllib.request.urlopen(req)
-	
-		result = response.read()
-		print(result) 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

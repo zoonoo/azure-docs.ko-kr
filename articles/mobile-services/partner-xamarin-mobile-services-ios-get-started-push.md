@@ -399,4 +399,4 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
 [Xamarin.iOS]: http://xamarin.com/download
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

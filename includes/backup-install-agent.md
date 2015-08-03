@@ -48,4 +48,4 @@ Azure 백업 자격 증명 모음을 만든 후에는 각 온-프레미스 서�
 
     ![Azure 백업 구성](./media/backup-install-agent/configure.png)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

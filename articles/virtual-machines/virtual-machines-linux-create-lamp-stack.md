@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="02/10/2015"
+	ms.date="07/10/2015"
 	ms.author="ningk"/>
 
 #Microsoft Azure를 사용하여 LAMP 스택을 만드는 방법
@@ -32,9 +32,7 @@
 
 가상 컴퓨터가 이미 있는 경우 다른 Linux 배포에 LAMP 스택을 설치하는 방법에 대한 기본 사항을 확인하려면 이 항목 외에 [Azure에서 Linux 가상 컴퓨터에 LAMP 스택 설치를 참조하세요.](virtual-machines-linux-install-lamp-stack.md).
 
-Azure 마켓플레이스에서 미리 구성된 LAMP 이미지를 배포할 수도 있습니다. 다음 10분 비디오에서는 Azure 마켓플레이스에서 미리 빌드된 LAMP 이미지를 배포하는 방법을 소개합니다.
-
-> [AZURE.VIDEO lamp-stack-on-azure-vms-with-guy-bowerman]
+Azure 마켓플레이스에서 미리 구성된 LAMP 이미지를 배포할 수도 있습니다. 다음 10분 비디오에서는 Azure 마켓플레이스에서 미리 빌드된 LAMP 이미지를 배포하는 방법을 소개합니다(Azure VM의 LAMP 스택](https://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman))).
 
 ##1단계: 이미지 만들기
 이 단계에서는 Linux 이미지를 사용하여 Azure에 가상 컴퓨터를 만듭니다.
@@ -44,15 +42,15 @@ SSH는 시스템 관리자에게 중요한 도구입니다. 그러나 사용자�
 
 SSH 인증 키를 생성하려면 다음 단계를 수행합니다.
 
--	다음 위치에서 Puttygen 다운로드 및 설치: [http://www.chiark.greenend.org.uk/~sgtatham/](http://www.chiark.greenend.org.uk/~sgtatham/)putty/download.html
+-	다음 위치에서 puttygen을 다운로드하여 설치합니다. [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/)
 -	puttygen.exe를 실행합니다.
 -	**생성**을 클릭하여 키를 생성합니다. 프로세스에서 마우스를 창의 빈 영역 위로 이동하여 임의성을 늘릴 수 있습니다. ![][1]
 -	생성 프로세스 후 Puttygen.exe에서 생성된 키를 표시합니다. 예: ![][2]
 -	**키**에서 공개 키를 선택하여 복사하고 **publicKey.pem** 파일에 저장합니다. 저장된 공개 키의 파일 형식은 원하는 공개 키와 다르므로 **공개 키 저장**을 클릭하지 마세요.
 -	**개인 키 저장**을 클릭하고 **privateKey.ppk** 파일에 저장합니다.
 
-###2단계: Azure 미리 보기 포털에서 이미지 만들기
-[Azure 미리 보기 포털](https://portal.azure.com/)의 작업 표시줄에서 **새로 만들기**를 클릭한 후 다음 지침을 수행하고 요구에 따라 Linux 이미지를 선택하여 이미지를 만듭니다. 이 예제에서는 Ubuntu 14.04 이미지를 사용합니다.
+###2단계: Azure 포털에서 이미지 만들기
+[Azure 포털](https://portal.azure.com/)의 작업 표시줄에서 **새로 만들기**를 클릭한 후 다음 지침을 수행하고 요구에 따라 Linux 이미지를 선택하여 이미지를 만듭니다. 이 예제에서는 Ubuntu 14.04 이미지를 사용합니다.
 
 ![][3]
 
@@ -74,7 +72,7 @@ Azure의 끝점은 프로토콜(TCP 또는 UDP)과 공용 및 개인 포트로 �
 
 Apache가 수신 대기하는 기본 포트 번호는 TCP 포트 80입니다. Azure 끝점에서 이 포트를 열면 사용자 및 다른 인터넷 클라이언트가 Apache 웹 서버에 액세스할 수 있습니다.
 
-Azure 미리 보기 포털에서 **찾아보기 -> 가상 컴퓨터**를 클릭한 다음 직접 만든 가상 컴퓨터를 클릭합니다.
+Azure 포털에서 **찾아보기 -> 가상 컴퓨터**를 클릭한 다음 직접 만든 가상 컴퓨터를 클릭합니다.
 
 ![][5]
 
@@ -100,7 +98,7 @@ Azure 미리 보기 포털에서 **찾아보기 -> 가상 컴퓨터**를 클릭�
 ###2단계: 만든 이미지에 연결
 새 가상 컴퓨터에 연결하기 위한 SSH 도구를 선택할 수 있습니다. 이 예제에서는 Putty를 사용합니다.
 
-먼저 Azure 미리 보기 포털에서 가상 컴퓨터의 DNS 이름을 가져옵니다. **찾아보기 -> 가상 컴퓨터** -> 가상 컴퓨터의 이름 -> **속성**을 클릭한 다음 **속성** 타일의 **도메인 이름** 필드를 확인합니다.
+먼저 Azure 포털에서 가상 컴퓨터의 DNS 이름을 가져옵니다. **찾아보기 -> 가상 컴퓨터 ->** 가상 컴퓨터의 이름 **-> 속성**을 클릭한 다음 **속성** 타일의 **도메인 이름** 필드를 확인합니다.
 
 **SSH** 필드에서 SSH 연결의 포트 번호를 가져옵니다. 다음은 예제입니다.
 
@@ -112,7 +110,7 @@ Azure 미리 보기 포털에서 **찾아보기 -> 가상 컴퓨터**를 클릭�
 
 ![][9]
 
-왼쪽 창에서 **연결 -> SSH -> 인증**을 클릭한 다음 **찾아보기**를 클릭하여 단계 1에서 puttygen에 의해 생성된 개인 키가 포함된 **privateKey.ppk** 파일의 위치를 지정합니다. 다음은 예제입니다.
+왼쪽 창에서 **연결 -> SSH -> 인증**을 클릭한 다음 **찾아보기**를 클릭하여 1단계에서 puttygen에 의해 생성된 개인 키가 포함된 **privateKey.ppk** 파일의 위치를 지정합니다. 다음은 예제입니다.
 
 ![][10]
 
@@ -144,7 +142,7 @@ Apache를 설치하려면 터미널을 열고 다음 명령을 실행합니다.
 
 	sudo service httpd start
 ####Apache 테스트
-Apache가 성공적으로 설치되었는지 확인하려면 Apache 서버의 DNS 이름을 찾습니다(이 문서의 예제 URL에서는, http://lampdemo.cloudapp.net/). 페이지에 "It works!"라는 단어가 표시되어야 합니다. ![][14]
+Apache가 성공적으로 설치되었는지 확인하려면 Apache 서버의 DNS 이름을 찾습니다(이 문서의 예제 URL에서는, http://lampdemo.cloudapp.net/)). 페이지에 "It works!"라는 단어가 표시되어야 합니다. ![][14]
 
 ####문제 해결
 Apache가 실행되고 있지만 위의 Apache 기본 페이지가 표시되지 않는 경우 다음을 확인해야 합니다.
@@ -305,7 +303,7 @@ Apache를 다시 시작하여 변경 내용을 컴퓨터에 모두 적용합니�
 
 	sudo service apache2 restart  
 
-마지막으로 PHP 정보 페이지로 이동합니다(이 항목의 예제 웹 서버에서 URL은 임 http://lampdemo.cloudapp.net/info.php).
+마지막으로 PHP 정보 페이지로 이동합니다(이 항목의 예제 웹 서버에서 URL은 http://lampdemo.cloudapp.net/info.php)).
 
 브라우저가 다음과 유사하게 표시되어야 합니다.
 
@@ -340,7 +338,7 @@ MySQL과 함께 설치된 VM이 두 개 이상 있고 데이터를 교환해야 
 ###Apache 서버에 웹 응용 프로그램 배포
 LAMP 스택이 성공적으로 설정되면 Apache 웹 서버(가상 컴퓨터)에 기존 웹 응용 프로그램을 배포할 수 있습니다. 실제 웹 서버에 기존 웹 응용 프로그램을 배포하는 것과 동일한 단계입니다.
 
--	웹 서버의 루트는**/var/www/html**에 있습니다. 이 폴더에 파일을 업로드해야 하는 사용자에게 권한을 부여해야 합니다. 다음 예제에서는 lampappgroup이라는 그룹에 쓰기 권한을 추가하는 방법을 보여 주며 azureuser 사용자 이름을 이 그룹에 넣습니다.  
+-	웹 서버의 루트는 **/var/www/html**에 있습니다. 이 폴더에 파일을 업로드해야 하는 사용자에게 권한을 부여해야 합니다. 다음 예제에서는 lampappgroup이라는 그룹에 쓰기 권한을 추가하는 방법을 보여 주며 azureuser 사용자 이름을 이 그룹에 넣습니다.  
 
 		sudo groupadd lampappgroup                      # Create a group
 		sudo gpasswd -a azureuser lampappgroup    # Add azureuser to lampappgroup
@@ -413,7 +411,7 @@ LAMP 스택이 성공적으로 설정되면 Apache 웹 서버(가상 컴퓨터)�
 
 ###서버의 정규화된 도메인 이름을 확인할 수 없음
 
--	**증상**다음 명령 중 하나를 사용하여 Apache 서버를 다시 시작하는 경우  
+-	**증상** 다음 명령 중 하나를 사용하여 Apache 서버를 다시 시작하는 경우  
 
 		sudo /etc/init.d/apache2 restart  # Debian release  
 
@@ -428,9 +426,9 @@ LAMP 스택이 성공적으로 설정되면 Apache 웹 서버(가상 컴퓨터)�
 		... waiting apache2:
 		Could not reliably determine the server's fully qualified domain name, using 127.0.1.1 for ServerName  
 
--	**가능한 근본 원인**Apache의 서버 이름을 설정하지 않았습니다.
+-	**가능한 근본 원인** Apache의 서버 이름을 설정하지 않았습니다.
 
--	**솔루션** /etc/apache2의 httpd.conf(Red Hat 릴리스) 또는 apache2.conf(Debian 릴리스)에 "ServerName localhost" 줄을 삽입하고 Apache를 다시 시작합니다. 알림이 사라집니다.
+-	**해결 방법** /etc/apache2의 httpd.conf(Red Hat 릴리스) 또는 apache2.conf(Debian 릴리스)에 "ServerName localhost" 줄을 삽입하고 Apache를 다시 시작합니다. 알림이 사라집니다.
 
 
 
@@ -454,4 +452,4 @@ LAMP 스택이 성공적으로 설정되면 Apache 웹 서버(가상 컴퓨터)�
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

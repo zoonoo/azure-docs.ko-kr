@@ -236,4 +236,4 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

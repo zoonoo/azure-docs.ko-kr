@@ -159,4 +159,4 @@ Java 응용 프로그램에 포함시킬만한 다른 서비스(예: Azure 저�
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="SharePoint 인트라넷 팜 작업 4단계: SharePoint 서버 구성" 
-	description="Azure 인프라 서비스의 SQL Server AlwaysOn 가용성 그룹을 사용하여 인트라넷 전용 SharePoint 2013 팜을 배포하는 이 네 번째 단계에서는 SharePoint 서버 가상 컴퓨터와 새 SharePoint 팜을 만듭니다." 
+<properties
+	pageTitle="SharePoint 인트라넷 팜 작업 4단계: SharePoint 서버 구성"
+	description="인트라넷 전용 SharePoint 2013 팜을 배포하는 이 네 번째 단계에서는 SharePoint 서버 가상 컴퓨터와 새 SharePoint 팜을 만듭니다."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/05/2015"
 	ms.author="josephd"/>
 
 # SharePoint 인트라넷 팜 작업 4단계: SharePoint 서버 구성
@@ -26,7 +26,7 @@ Azure 인프라 서비스에서 SQL Server AlwaysOn 가용성 그룹을 사용�
 
 SharePoint 서버 가상 컴퓨터는 네 개입니다. 두 SharePoint 서버 가상 컴퓨터는 프런트 엔드 웹 서버용이고 다른 두 컴퓨터는 SharePoint 응용 프로그램 관리 및 호스팅용입니다. 각 계층에 SharePoint 서버가 두 개씩이므로 고가용성이 제공됩니다.
 
-PowerShell 명령의 다음 블록을 사용하여 4개 SharePoint 서버용 가상 컴퓨터를 만듭니다. < and > 문자를 제거하고 변수의 값을 지정합니다. 이 PowerShell 명령 집합은 다음 표의 값을 사용합니다.
+Azure PowerShell 명령의 다음 블록을 사용하여 4개 SharePoint 서버용 가상 컴퓨터를 만듭니다. < and > 문자를 제거하고 변수의 값을 지정합니다. 이 PowerShell 명령 집합은 다음 표의 값을 사용합니다.
 
 - 가상 컴퓨터의 경우 표 M
 - 가상 네트워크 설정의 경우 표 V
@@ -44,58 +44,58 @@ PowerShell 명령의 다음 블록을 사용하여 4개 SharePoint 서버용 가
 	$availSet="<Table A – Item 3 – Availability set name column>"
 	$image= Get-AzureVMImage | where { $_.Label -eq "SharePoint Server 2013 Trial" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
-	
+
 	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first SharePoint application server."
 	$cred2=Get-Credential –Message "Now type the name and password of an account that has permissions to add this virtual machine to the domain."
 	$ADDomainName="<name of the AD domain that the server is joining (example CORP)>"
 	$domainDNS="<FQDN of the AD domain that the server is joining (example corp.contoso.com)>"
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $ADDomainName -DomainUserName $cred2.GetNetworkCredential().Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domainDNS
-	
+
 	$subnetName="<Table 6 – Item 1 – Subnet name column>"
 	$vm1 | Set-AzureSubnet -SubnetNames $subnetName
-	
+
 	$serviceName="<Table C – Item 3 – Cloud service name column>"
 	$vnetName="<Table V – Item 1 – Value column>"
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
-	
+
 	# Create the second SharePoint application server
 	$vmName="<Table M – Item 7 - Virtual machine name column>"
 	$vmSize="<Table M – Item 7 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
 	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
-	
+
 	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the second SharePoint application server."
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $ADDomainName -DomainUserName $cred2.GetNetworkCredential().Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domainDNS
-	
+
 	$vm1 | Set-AzureSubnet -SubnetNames $subnetName
-	
+
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
-	
+
 	# Create the first SharePoint web server
 	$vmName="<Table M – Item 8 - Virtual machine name column>"
 	$vmSize="<Table M – Item 8 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
 	$availSet="<Table A – Item 4 – Availability set name column>"
 	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
-	
+
 	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the first SharePoint web server."
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $ADDomainName -DomainUserName $cred2.GetNetworkCredential().Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domainDNS
-	
+
 	$vm1 | Set-AzureSubnet -SubnetNames $subnetName
-	
+
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
-	
+
 	# Create the second SharePoint web server
 	$vmName="<Table M – Item 9 - Virtual machine name column>"
 	$vmSize="<Table M – Item 9 - Minimum size column, specify one: Small, Medium, Large, ExtraLarge, A5, A6, A7, A8, A9>"
 	$vm1=New-AzureVMConfig -Name $vmName -InstanceSize $vmSize -ImageName $image -AvailabilitySetName $availSet
-	
+
 	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for the second SharePoint web server."
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain $ADDomainName -DomainUserName $cred2.GetNetworkCredential().Username -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain $domainDNS
-	
+
 	$vm1 | Set-AzureSubnet -SubnetNames $subnetName
-	
+
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
 
-[원격 데스크톱 연결을 사용하여 가상 컴퓨터에 로그온](virtual-machines-workload-intranet-sharepoint-phase2.md#logon) 절차를 네 번(각 SharePoint 서버에 대해 한 번씩) 수행하여 [2단계: 도메인 컨트롤러 구성](virtual-machines-workload-intranet-sharepoint-phase2.md)에서 만든 [도메인]\sp_farm_db 계정 자격 증명을 사용해 로그온합니다.
+[원격 데스크톱 연결을 사용하여 가상 컴퓨터에 로그온](virtual-machines-workload-intranet-sharepoint-phase2.md#logon) 절차를 네 번(각 SharePoint 서버에 대해 한 번씩) 수행하여 [도메인]\sp_farm_db 계정 자격 증명을 사용해 로그온합니다. [2단계: 도메인 컨트롤러 구성](virtual-machines-workload-intranet-sharepoint-phase2.md)에서 다음 자격 증명을 만들었습니다.
 
 [연결을 테스트하려면](virtual-machines-workload-intranet-sharepoint-phase2.md#testconn) 절차를 네 번(각 SharePoint 서버에 대해 한 번씩) 수행하여 조직 네트워크의 위치에 대한 연결을 테스트합니다.
 
@@ -104,36 +104,36 @@ PowerShell 명령의 다음 블록을 사용하여 4개 SharePoint 서버용 가
 다음 단계를 수행하여 팜의 첫 번째 SharePoint 서버를 구성합니다.
 
 1.	첫 번째 SharePoint 응용 프로그램 서버의 바탕 화면에서 **SharePoint 2013 제품 구성 마법사**를 두 번 클릭합니다. 프로그램이 컴퓨터를 변경하도록 허용할지 묻는 메시지가 나타나면 **예**를 클릭합니다.
-2.	SharePoint 제품 페이지에서 **다음**을 클릭합니다.
+2.	**SharePoint 제품** 페이지에서 **다음**을 클릭합니다.
 3.	**SharePoint 제품 구성 마법사** 대화 상자가 나타나고 IIS 등의 서비스가 다시 시작되거나 다시 설정된다는 경고가 표시됩니다. **예**를 클릭합니다.
-4.	서버 팜에 연결 페이지에서 **새 서버 팜 만들기**를 클릭한 후 **다음**을 클릭합니다.
-5.	구성 데이터베이스 설정 지정 페이지에서 다음을 수행합니다.
-- **데이터베이스 서버**에 주 SQL Server의 이름을 입력합니다. 
-- **사용자 이름**에 [2단계: 도메인 컨트롤러 구성](virtual-machines-workload-intranet-sharepoint-phase2.md)에서 만든 [도메인]**\sp_farm_db**를 입력합니다. sp_farm_db 계정에는 SQL Server에 대한 sysadmin 권한이 있습니다. 
-- **암호**에 sp_farm_db 계정의 암호를 입력합니다.
+4.	**서버 팜에 연결** 페이지에서 **새 서버 팜 만들기**를 클릭한 후 **다음**을 클릭합니다.
+5.	**구성 데이터베이스 설정 지정** 페이지에서 다음을 수행합니다.
+ - **데이터베이스 서버**에 주 데이터베이스 서버의 이름을 입력합니다.
+ - **사용자 이름**에 [2단계: 도메인 컨트롤러 구성](virtual-machines-workload-intranet-sharepoint-phase2.md)에서 만든 [도메인]**\sp_farm_db**를 입력합니다. sp_farm_db 계정에는 데이터베이스 서버에 대한 sysadmin 권한이 있습니다.
+ - **암호**에 sp_farm_db 계정의 암호를 입력합니다.
 6.	**다음**을 클릭합니다.
-7.	팜 보안 설정 지정 페이지에서 암호를 두 번 입력합니다. 암호를 기록하여 나중에 참조할 수 있도록 안전한 위치에 저장합니다. **다음**을 클릭합니다.
-8.	SharePoint 중앙 관리 웹 응용 프로그램 구성 페이지에서 **다음**을 클릭합니다.
-9.	SharePoint 제품 구성 마법사 완료 페이지가 표시됩니다. **다음**을 클릭합니다.
-10.	SharePoint 제품 구성 페이지가 나타납니다. 구성 프로세스가 완료될 때까지 약 8분 정도 기다립니다.
+7.	**팜 보안 설정 지정** 페이지에서 암호를 두 번 입력합니다. 암호를 기록하여 나중에 참조할 수 있도록 안전한 위치에 저장합니다. **다음**을 클릭합니다.
+8.	**SharePoint 중앙 관리 웹 응용 프로그램 구성** 페이지에서 **다음**을 클릭합니다.
+9.	**SharePoint 제품 구성 마법사 완료** 페이지가 표시됩니다. **다음**을 클릭합니다.
+10.	**SharePoint 제품 구성** 페이지가 나타납니다. 구성 프로세스가 완료될 때까지 약 8분 정도 기다립니다.
 11.	팜이 정상적으로 구성되면 **마침**을 클릭합니다. 새 관리 웹 사이트가 시작됩니다.
 12.	SharePoint 팜 구성을 시작하려면 **마법사 시작**을 클릭합니다.
 
 두 번째 SharePoint 응용 프로그램 서버와 두 프런트 엔드 웹 서버에서 다음 절차를 수행합니다.
 
 1.	바탕 화면에서 **SharePoint 2013 제품 구성 마법사**를 두 번 클릭합니다. 프로그램이 컴퓨터를 변경하도록 허용할지 묻는 메시지가 나타나면 **예**를 클릭합니다.
-2.	SharePoint 제품 페이지에서 **다음**을 클릭합니다.
-3.	SharePoint 제품 구성 마법사 대화 상자가 나타나고 IIS 등의 서비스가 다시 시작되거나 다시 설정된다는 경고가 표시됩니다. **예**를 클릭합니다.
-4.	서버 팜에 연결 페이지에서 **기존 서버 팜에 연결**을 클릭한 후 **다음**을 클릭합니다.
-5.	구성 데이터베이스 설정 지정 페이지에서 **데이터베이스 서버**에 주 SQL Server의 이름을 입력하고 **데이터베이스 이름 검색**을 클릭합니다. 
-6.	데이터베이스 이름 목록에서 **SharePoint_Config**를 클릭하고 **다음**을 클릭합니다. 
-7.	팜 보안 설정 지정 페이지에서 이전 절차에서 입력했던 암호를 입력합니다. **다음**을 클릭합니다.
-8.	SharePoint 제품 구성 마법사 완료 페이지가 표시됩니다. **다음**을 클릭합니다.
-9.	구성 완료 페이지에서 **마침**을 클릭합니다. 
+2.	**SharePoint 제품** 페이지에서 **다음**을 클릭합니다.
+3.	**SharePoint 제품 구성 마법사** 대화 상자가 나타나고 IIS 등의 서비스가 다시 시작되거나 다시 설정된다는 경고가 표시됩니다. **예**를 클릭합니다.
+4.	**서버 팜에 연결** 페이지에서 **기존 서버 팜에 연결**을 클릭한 후 **다음**을 클릭합니다.
+5.	**구성 데이터베이스 설정 지정** 페이지에서 **데이터베이스 서버**에 주 데이터베이스 서버의 이름을 입력하고 **데이터베이스 이름 검색**을 클릭합니다.
+6.	데이터베이스 이름 목록에서 **SharePoint_Config**를 클릭하고 **다음**을 클릭합니다.
+7.	**팜 보안 설정 지정** 페이지에서 이전 절차에서 입력했던 암호를 입력합니다. **다음**을 클릭합니다.
+8.	**SharePoint 제품 구성 마법사 완료** 페이지가 표시됩니다. **다음**을 클릭합니다.
+9.	**구성 완료** 페이지에서 **마침**을 클릭합니다.
 
 SharePoint에서는 팜을 만들 때 주 SQL Server 가상 컴퓨터에 서버 로그인 집합을 구성합니다. SQL Server 2012에서는 포함된 데이터베이스에 대해 암호를 사용하는 사용자 개념이 도입되었습니다. 데이터베이스 자체에 모든 데이터베이스 메타데이터 및 사용자 정보가 저장되므로 이 데이터베이스에 정의된 사용자에게는 해당 로그인 정보가 없어도 됩니다. 이 데이터베이스의 정보는 가용성 그룹에 의해 복제되며 장애 조치(failover) 이후 제공됩니다. 자세한 내용은 [포함된 데이터베이스](http://go.microsoft.com/fwlink/p/?LinkId=262794)를 참조하세요.
 
-그러나 기본적으로 SharePoint 데이터베이스는 포함된 데이터베이스가 아닙니다. 따라서 주 SQL Server와 같은 SharePoint 팜 계정용 로그인 집합을 포함하도록 보조 SQL Server를 수동으로 구성해야 합니다. SQL Server Management Studio에서 두 서버에 동시에 연결하여 이 동기화를 수행할 수 있습니다.
+그러나 기본적으로 SharePoint 데이터베이스는 포함된 데이터베이스가 아닙니다. 따라서 주 데이터베이스 서버와 같은 SharePoint 팜 계정용 로그인 집합을 포함하도록 보조 데이터베이스 서버를 수동으로 구성해야 합니다. SQL Server Management Studio에서 두 서버에 동시에 연결하여 이 동기화를 수행할 수 있습니다.
 
 이 초기 설정을 완료하고 나면 SharePoint 팜 기능에 대해 구성 옵션이 추가로 제공합니다. 자세한 내용은 [Azure 인프라 서비스에서 SharePoint 2013 계획](http://msdn.microsoft.com/library/dn275958.aspx)을 참조하세요.
 
@@ -154,16 +154,16 @@ SharePoint 팜으로의 클라이언트 트래픽이 두 프런트 엔드 웹 �
 	$subnet="<Table S – Item 1 – Subnet name column>"
 	$IP="<an available IP address for your ILB instance>"
 	Add-AzureInternalLoadBalancer –ServiceName $serviceName -InternalLoadBalancerName $ilb –SubnetName $subnet –StaticVNetIPAddress $IP
-	
+
 	$prot="tcp"
 	$locport=80
 	$pubport=80
 	# This example assumes unsecured HTTP traffic to the SharePoint farm.
-	
+
 	$epname="SPWeb1"
 	$vmname="<Table M – Item 8 – Virtual machine name column>"
 	Get-AzureVM –ServiceName $serviceName –Name $vmname | Add-AzureEndpoint -Name $epname -LBSetName $ilb -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
-	
+
 	$epname="SPWeb2"
 	$vmname="<Table M – Item 9 – Virtual machine name column>"
 	Get-AzureVM –ServiceName $serviceName –Name $vmname | Add-AzureEndpoint -Name $epname -LBSetName $ilb -Protocol $prot -LocalPort $locport -PublicPort $pubport –DefaultProbe -InternalLoadBalancerName $ilb | Update-AzureVM
@@ -189,6 +189,5 @@ SharePoint 팜으로의 클라이언트 트래픽이 두 프런트 엔드 웹 �
 [SharePoint 2013용 Microsoft Azure 아키텍처](https://technet.microsoft.com/library/dn635309.aspx)
 
 [Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

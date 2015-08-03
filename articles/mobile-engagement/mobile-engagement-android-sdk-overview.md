@@ -118,4 +118,4 @@ Android 앱에서 Azure Mobile Engagement를 통합하는 방법에 대한 모�
 
 새 `res/layout/engagement_loading.xml` 파일을 프로젝트에 포함합니다.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

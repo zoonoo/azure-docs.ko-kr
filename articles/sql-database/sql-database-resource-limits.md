@@ -152,4 +152,4 @@ Azure SQL 데이터베이스는 트랜잭션 로그, I/O 및 다양한 기타 �
 
 [요청 거부 또는 연결 종료를 방지하기 위한 Azure SQL 데이터베이스 모범 사례](https://msdn.microsoft.com/library/azure/dn338082.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/01/2015"
+	ms.date="07/13/2015"
 	ms.author="jeffstok"/>
 
 # 처리량을 높이기 위한 Azure 스트림 분석 작업 규모 지정 #
@@ -151,7 +151,7 @@ SU(스트리밍 단위)는 Azure 스트림 분석 작업을 실행하는 리소�
 3. 크기를 조정할 스트림 분석 작업을 클릭합니다.
 4. 페이지 위쪽에서 **규모 지정**을 클릭합니다.
 
-![작업 규모 지정을 구성하는 Azure 스트림 분석][img.stream.analytics.configure.scale]
+![Azure 스트림 분석 스트림 단위 규모 지정][img.stream.analytics.streaming.units.scale]
 
 
 ## 작업 성능 모니터링 ##
@@ -260,4 +260,4 @@ SU(스트리밍 단위)는 Azure 스트림 분석 작업을 실행하는 리소�
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

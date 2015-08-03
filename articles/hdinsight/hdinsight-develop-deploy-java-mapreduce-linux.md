@@ -44,7 +44,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 	* **JAVA_HOME** 또는 그와 동등한 경로
 
-	* **JAVA_HOME\\bin** 또는 그와 동등한 경로
+	* **JAVA_HOME\bin** 또는 그와 동등한 경로
 
 	* Maven이 설치된 디렉터리
 
@@ -220,7 +220,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 	이 코드는 이전 빌드 아티팩트를 정리하고, 아직 설치되지 않은 모든 종속성을 다운로드한 후 응용 프로그램을 빌드 및 패키지화합니다.
 
-3. 명령이 완료되면 __wordcountjava\\target__ 디렉터리에 __wordcountjava-1.0-SNAPSHOT.jar__라는 파일이 포함됩니다.
+3. 명령이 완료되면 __wordcountjava\target__ 디렉터리에 __wordcountjava-1.0-SNAPSHOT.jar__라는 파일이 포함됩니다.
 
 	> [AZURE.NOTE]__wordcountjava-1.0-SNAPSHOT.jar__ 파일은 는 WordCount 작업뿐만 아니라 런타임에 작업에서 필요로 하는 종속성을 포함하는 uberjar입니다.
 
@@ -297,4 +297,4 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

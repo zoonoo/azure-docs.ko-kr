@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article" 
-	ms.date="04/14/2015"
+	ms.date="07/17/2015"
 	ms.author="cakarst"/>
 
 
@@ -137,4 +137,4 @@
 2. 프로그램에서 콘솔 창에 쿼리 결과를 표시합니다.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

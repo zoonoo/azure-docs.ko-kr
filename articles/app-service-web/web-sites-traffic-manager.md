@@ -64,4 +64,4 @@ Azure 트래픽 관리자의 부하 분산에 대한 자세한 내용은 [트래
 웹앱에서 트래픽 관리자를 사용하는 방법에 대한 자세한 내용은 블로그 게시물 [Azure 웹 사이트에서 Azure 트래픽 관리자 사용](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) 및 [이제 Azure 트래픽 관리자를 Azure 웹 사이트와 통합할 수 있음](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/)을 참조하세요.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

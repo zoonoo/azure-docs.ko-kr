@@ -307,7 +307,7 @@ Azure 포털에서 보호할 VMM 클라우드에 있는 각 Hyper-V 호스트 �
 
 ```
 
-PS C:> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureSubscriptionId $Subscriptions[0].SubscriptionId -AzureVMNetworkId $AzureVmNetworks[0].Id
+PS C:\> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureSubscriptionId $Subscriptions[0].SubscriptionId -AzureVMNetworkId $AzureVmNetworks[0].Id
 
 ```
 
@@ -354,7 +354,7 @@ PS C:> New-AzureSiteRecoveryNetworkMapping -PrimaryNetwork $Networks[0] -AzureSu
 
 ### 복구 계획 만들기
 
-1. 아래 데이터를 사용하여 복구 계획의 템플릿으로 .xml 파일을 만든 다음 "C:\\RPTemplatePath.xml"로 저장합니다.
+1. 아래 데이터를 사용하여 복구 계획의 템플릿으로 .xml 파일을 만든 다음 "C:\RPTemplatePath.xml"로 저장합니다.
 2. RecoveryPlan node Id, Name, PrimaryServerId, SecondaryServerId를 변경합니다.
 3. ProtectionEntity 노드 PrimaryProtectionEntityId(VMM의 vmid)를 변경합니다.
 4. ProtectionEntity 노드를 추가하여 VM을 추가할 수 있습니다.
@@ -461,4 +461,4 @@ if($isJobLeftForProcessing)
 
 <LI>궁금한 사항은 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 복구 서비스 포럼</a>을 참조하세요.</LI> </UL>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

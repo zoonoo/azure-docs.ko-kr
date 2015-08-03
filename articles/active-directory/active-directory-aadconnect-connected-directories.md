@@ -46,4 +46,4 @@ SSO(Single Sign-on) 및 AD FS| 페더레이션된 서버에 있는 도메인에 
 * [MSDN의 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

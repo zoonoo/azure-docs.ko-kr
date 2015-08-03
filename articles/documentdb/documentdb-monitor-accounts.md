@@ -99,4 +99,4 @@ DocumentDB에 대한 자세한 내용은 [DocumentDB 용량 관리](documentdb-m
 [Next steps]: #Next-steps
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -350,7 +350,7 @@ NuGet 패키지는 필요한 어셈블리 참조를 다운로드 및 추가하�
 
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
-[캐시 가격 정보]: http://www.windowsazure.com/pricing/details/cache/
+[캐시 가격 정보]: http://azure.microsoft.com/pricing/details/cache/
 [Microsoft Azure Preview 포털]: https://portal.azure.com/
 
 [Azure Redis 캐시 개요]: http://go.microsoft.com/fwlink/?LinkId=320830
@@ -371,4 +371,4 @@ NuGet 패키지는 필요한 어셈블리 참조를 다운로드 및 추가하�
 
 [Azure 무료 체험]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

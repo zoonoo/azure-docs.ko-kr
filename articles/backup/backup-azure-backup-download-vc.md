@@ -41,4 +41,4 @@
 ## 다음 단계
 [Azure 백업 에이전트 다운로드, 등록 및 설치](backup-azure-backup-download-register)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

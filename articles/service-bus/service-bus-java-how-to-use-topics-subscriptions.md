@@ -248,4 +248,4 @@ Java용 Azure 라이브러리를 빌드 경로에 추가하고 프로젝트 배�
   [서비스 버스 큐, 토픽 및 구독]: http://msdn.microsoft.com/library/hh367516.aspx
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

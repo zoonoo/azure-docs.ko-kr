@@ -8,4 +8,4 @@ Visual Studio를 설치하지 않은 경우 Visual Studio Express for Web이 SDK
 
 [Azure SDK for Visual Studio 2013]: http://go.microsoft.com/fwlink/?LinkID=324322
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -68,7 +68,7 @@ Register-AdHealthAgent를 실행하기 전 언제든지 수행하세요(설치 �
 - 1단계 - machine.config 파일에 항목 추가
 
 
-machine.config 파일을 찾습니다. 파일은 %windir%\\Microsoft.NET\\Framework64[version]\\config\\machine.config</li>에 있습니다.
+machine.config 파일을 찾습니다. 파일은 %windir%\Microsoft.NET\Framework64[version]\config\machine.config</li>에 있습니다.
 
 machine.config 파일의 <configuration></configuration> 요소 아래에 다음 항목을 추가합니다.
  
@@ -125,4 +125,4 @@ Azure AD Connect Health 경고는 성공 조건에서 해결됩니다. Azure AD 
 
 Azure AD Connect Health Agent가 Azure AD Health 서비스 끝점과 통신할 수 있도록 하려면 TCP/UDP 포트 80 및 443을 열어야 합니다.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

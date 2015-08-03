@@ -1,5 +1,7 @@
-## Additional Resources
+## 추가 리소스
 
-- [The Azure AD Developer's Guide](active-directory-developers-guide.md)
-- [AzureADSamples on GitHub](https://github.com/AzureAdSamples)
+- [Azure AD 개발자 가이드](active-directory-developers-guide.md)
+- [GitHub의 AzureADSamples](https://github.com/AzureAdSamples)
 - [CloudIdentity.com](https://cloudidentity.com)
+
+<!---HONumber=July15_HO4-->

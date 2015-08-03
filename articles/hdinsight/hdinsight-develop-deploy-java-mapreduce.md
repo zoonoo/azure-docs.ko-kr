@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="04/01/2015"
+	ms.date="07/11/2015"
 	ms.author="nitinme"/>
 
 # HDInsight의 Hadoop용 Java MapReduce 프로그램 개발
@@ -26,7 +26,7 @@
 
 이 자습서를 시작하기 전에 다음 작업을 완료해야 합니다.
 
-- HDInsight Emulator를 설치합니다. 자세한 내용은 [HDInsight Emulator 사용 시작][hdinsight-emulator]을 참조하세요. 필요한 모든 서비스가 실행 중인지 확인합니다. HDInsight Emulator가 설치된 컴퓨터의 바탕 화면 바로 가기에서 Hadoop 명령줄을 실행하고 **C:\\hdp**로 이동하여 **start_local_hdp_services.cmd** 명령을 실행합니다.
+- HDInsight Emulator를 설치합니다. 자세한 내용은 [HDInsight Emulator 사용 시작][hdinsight-emulator]을 참조하세요. 필요한 모든 서비스가 실행 중인지 확인합니다. HDInsight Emulator가 설치된 컴퓨터의 바탕 화면 바로 가기에서 Hadoop 명령줄을 실행하고 **C:\hdp**로 이동하여 **start_local_hdp_services.cmd** 명령을 실행합니다.
 - 에뮬레이터 컴퓨터에 Azure PowerShell 설치. 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
 - 에뮬레이터 컴퓨터에 Java 플랫폼 JDK 7 이상 설치. 이 버전은 에뮬레이터 컴퓨터에 이미 제공되어 있습니다.
 - [Apache Maven](http://maven.apache.org/) 설치 및 구성
@@ -44,7 +44,7 @@
 
 **Maven을 사용하여 프로젝트 만들기**
 
-1. **C:\\Tutorials\\WordCountJava** 디렉터리를 만듭니다.2. 개발 환경의 명령줄에서 방금 만든 위치로 디렉터리를 변경합니다.
+1. **C:\Tutorials\WordCountJava** 디렉터리를 만듭니다.2. 개발 환경의 명령줄에서 방금 만든 위치로 디렉터리를 변경합니다.
 3. Maven과 함께 설치되는 __mvn__ 명령을 사용하여 프로젝트용 스캐폴딩을 생성합니다.
 
 		mvn archetype:generate -DgroupId=org.apache.hadoop.examples -DartifactId=wordcountjava -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -53,8 +53,8 @@
 
 	* __pom.xml__ - [프로젝트 개체 모델(POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)은 프로젝트를 빌드하는 데 사용된 정보 및 구성 세부 정보를 포함합니다.
 
-	* __src__ - __main\\java\\org\\apache\\hadoop\\examples__ 디렉터리를 포함하는 디렉터리이며, 여기서 응용 프로그램을 작성합니다.
-3. __src\\test\\java\\org\\apache\\hadoop\\examples\\apptest.java__ 파일은 이 예제에서 사용되지 않으므로 삭제합니다.
+	* __src__ - __main\java\org\apache\hadoop\examples__ 디렉터리를 포함하는 디렉터리이며, 여기서 응용 프로그램을 작성합니다.
+3. __src\test\java\org\apache\hadoop\examples\apptest.java__ 파일은 이 예제에서 사용되지 않으므로 삭제합니다.
 
 **POM 업데이트**
 
@@ -112,7 +112,7 @@
 
 **단어 계산 응용 프로그램 만들기**
 
-1. __wordcountjava\\src\\main\\java\\org\\apache\\hadoop\\examples__ 디렉터리로 이동하여 __app.java__ 파일의 이름을 __WordCount.java__로 바꿉니다.
+1. __wordcountjava\src\main\java\org\apache\hadoop\examples__ 디렉터리로 이동하여 __app.java__ 파일의 이름을 __WordCount.java__로 바꿉니다.
 2. 메모장을 엽니다.
 2. 다음 프로그램을 복사하여 메모장에 붙여넣습니다.
 
@@ -199,7 +199,7 @@
 
 	이 코드는 이전 빌드 아티팩트를 정리하고, 아직 설치되지 않은 모든 종속성을 다운로드한 후 응용 프로그램을 빌드 및 패키지화합니다.
 
-3. 명령이 완료되면 __wordcountjava\\target__ 디렉터리에 __wordcountjava-1.0-SNAPSHOT.jar__라는 파일이 포함됩니다.
+3. 명령이 완료되면 __wordcountjava\target__ 디렉터리에 __wordcountjava-1.0-SNAPSHOT.jar__라는 파일이 포함됩니다.
 
 	> [AZURE.NOTE]__wordcountjava-1.0-SNAPSHOT.jar__ 파일이 uberjar입니다.
 
@@ -305,7 +305,7 @@ MapReduce 작업을 실행하는 다른 옵션은 Azure PowerShell을 사용하�
 ##<a id="upload"></a>Azure Blob 저장소에 데이터 및 응용 프로그램 업로드
 Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니다. HDInsight 클러스터를 프로비전할 때 시스템 파일을 저장하는 데 Azure Blob 저장소 컨테이너를 사용합니다. 데이터 파일을 저장하는 데 이러한 기본 컨테이너를 사용하거나 다른 컨테이너(동일한 Azure 저장소 계정 또는 클러스터와 동일한 데이터 센터에 있는 다른 저장소 계정의 컨테이너)를 사용할 수 있습니다.
 
-이 자습서에서는 별도의 저장소 계정에 데이터 파일 및 MapReduce 응용 프로그램용 컨테이너를 만듭니다. 데이터 파일은 에뮬레이터 워크스테이션의 **C:\\hdp\\hadoop-2.4.0.2.1.3.0-1981\\share\\doc\\hadoop\\common** 디렉터리에 있는 텍스트 파일입니다.
+이 자습서에서는 별도의 저장소 계정에 데이터 파일 및 MapReduce 응용 프로그램용 컨테이너를 만듭니다. 데이터 파일은 에뮬레이터 워크스테이션의 **C:\hdp\hadoop-2.4.0.2.1.3.0-1981\share\doc\hadoop\common** 디렉터리에 있는 텍스트 파일입니다.
 
 **Blob 저장소 계정 컨테이너 만들기**
 
@@ -351,7 +351,7 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
 
 	**$storageAccountName_Data** 및 **$containerName_Data** 변수는 마지막 절차에서 정의한 것과 동일합니다.
 
-	원본 파일 폴더는 **c:\\Hadoop\\hadoop-1.1.0-SNAPSHOT**이며, 대상 폴더는 **WordCount/Input**입니다.
+	원본 파일 폴더는 **c:\Hadoop\hadoop-1.1.0-SNAPSHOT**이며, 대상 폴더는 **WordCount/Input**입니다.
 
 3. 다음 명령을 실행하여 원본 파일 폴더의 .txt 파일 목록을 가져옵니다.
 
@@ -546,7 +546,7 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
 **출력 검색**
 
 1. Azure PowerShell 창을 엽니다.
-2. 디렉터리를 **C:\\Tutorials\\WordCountJava**로 변경합니다. 기본 Azure PowerShell 폴더는 **C:\\Windows\\System32\\WindowsPowerShell\\v1.0**입니다. 실행할 cmdlet은 출력 파일을 현재 폴더에 다운로드합니다. 파일을 시스템 폴더에 다운로드할 권한은 없습니다.
+2. 디렉터리를 **C:\Tutorials\WordCountJava**로 변경합니다. 기본 Azure PowerShell 폴더는 **C:\Windows\System32\WindowsPowerShell\v1.0**입니다. 실행할 cmdlet은 출력 파일을 현재 폴더에 다운로드합니다. 파일을 시스템 폴더에 다운로드할 권한은 없습니다.
 2. 다음 명령을 실행하여 값을 설정합니다.
 
 		$subscriptionName = "<AzureSubscriptionName>"
@@ -609,4 +609,4 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -122,7 +122,7 @@ Hive 및 Pig가 런타임에 응용 프로그램을 호출해야 하므로 **콘
 
 6. 클러스터의 경우 **기본 컨테이너**를 두 번 클릭합니다. 기본 컨테이너의 내용을 표시하는 새 창이 열립니다.
 
-7. 업로드 아이콘을 클릭한 다음**HiveCSharp** 프로젝트에 대한 **bin\\debug** 폴더로 이동합니다. 마지막으로 **HiveCSharp.exe** 파일을 선택하고 **확인**을 클릭합니다.
+7. 업로드 아이콘을 클릭한 다음**HiveCSharp** 프로젝트에 대한 **bin\debug** 폴더로 이동합니다. 마지막으로 **HiveCSharp.exe** 파일을 선택하고 **확인**을 클릭합니다.
 
 	![업로드 아이콘](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/upload.png)
 
@@ -240,4 +240,4 @@ Pig 및 Hive를 사용하고 MapReduce 사용에 대해 배우는 다른 방법�
 
 * [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

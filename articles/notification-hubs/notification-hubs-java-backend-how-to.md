@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="java" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="07/17/2015" 
 	ms.author="yuaxu"/>
 
 # Java에서 알림 허브를 사용하는 방법
@@ -297,12 +297,12 @@ CreateOrUpdate, Patch 및 Delete의 최종 결과는 Get과 동일합니다. 요
 
 [Java SDK]: https://github.com/Azure/azure-notificationhubs-java-backend
 [Get started tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[알림 허브 시작]: http://www.windowsazure.com/manage/services/notification-hubs/getting-started-windows-dotnet/
-[속보 보내기]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-dotnet/
-[지역화된 속보 보내기]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
-[인증된 사용자에게 알림 보내기]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users/
-[인증된 사용자에게 플랫폼 간 알림 보내기]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[알림 허브 시작]: http://azure.microsoft.com/manage/services/notification-hubs/getting-started-windows-dotnet/
+[속보 보내기]: http://azure.microsoft.com/manage/services/notification-hubs/breaking-news-dotnet/
+[지역화된 속보 보내기]: http://azure.microsoft.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
+[인증된 사용자에게 알림 보내기]: http://azure.microsoft.com/manage/services/notification-hubs/notify-users/
+[인증된 사용자에게 플랫폼 간 알림 보내기]: http://azure.microsoft.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 [Maven]: http://maven.apache.org/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -220,4 +220,4 @@ Azure 가상 컴퓨터는 사용자가 제공하거나 이미지 갤러리에서
 [reference-docs]: http://go.microsoft.com/fwlink/?LinkId=252246
 [windowsazuredotcom]: http://www.windowsazure.com
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO4-->

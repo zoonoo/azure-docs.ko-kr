@@ -72,14 +72,14 @@
 
 먼저 SQL Server 데이터베이스, 테이블, 사용자 정의 형식 및 저장 프로시저를 만들어야 합니다. **MarketingCampaignEffectiveness** 결과를 Azure Blob에서 SQL Server 데이터베이스로 이동하는 데 사용됩니다.
 
-1.	**Windows 탐색기**에서 **C:\\ADFWalkthrough**(또는 샘플의 압축을 푼 위치)의 **OnPremises** 하위 폴더로 이동합니다.
+1.	**Windows 탐색기**에서 **C:\ADFWalkthrough**(또는 샘플의 압축을 푼 위치)의 **OnPremises** 하위 폴더로 이동합니다.
 2.	즐겨 사용하는 편집기에서 **prepareOnPremDatabase&Table.ps1**을 열고, 강조 표시된 내용을 SQL Server 정보로 바꾼 다음 파일을 저장합니다. **SQL 인증** 세부 정보를 제공하세요. 이 자습서에서는 데이터베이스에 SQL 인증을 사용하도록 설정합니다. 
 			
 		$dbServerName = "<servername>"
 		$dbUserName = "<username>"
 		$dbPassword = "<password>"
 
-3. **Azure PowerShell**에서 **C:\\ADFWalkthrough\\OnPremises** 폴더로 이동합니다.
+3. **Azure PowerShell**에서 **C:\ADFWalkthrough\OnPremises** 폴더로 이동합니다.
 4.	**prepareOnPremDatabase&Table.ps1**을 실행합니다.**(큰따옴표의 & 또는 아래와 같이).**
 			
 		& '.\prepareOnPremDatabase&Table.ps1'
@@ -114,7 +114,7 @@
 
 ### 온-프레미스 논리 테이블 만들기
 
-1.	**Azure PowerShell**에서 **C:\\ADFWalkthrough\\OnPremises** 폴더로 전환합니다. 
+1.	**Azure PowerShell**에서 **C:\ADFWalkthrough\OnPremises** 폴더로 전환합니다. 
 2.	다음과 같이 **New-AzureDataFactoryTable** cmdlet을 사용하여 **MarketingCampaignEffectivenessOnPremSQLTable.json**에 대한 테이블을 만듭니다.
 
 			
@@ -170,4 +170,4 @@
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

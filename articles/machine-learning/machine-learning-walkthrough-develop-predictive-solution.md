@@ -41,4 +41,4 @@
 이 연습은 기계 학습 스튜디오에 포함된 [신용 위험 예측 샘플 실험](../machine-learning-sample-credit-risk-prediction.md)의 간소화된 버전을 기반으로 합니다.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

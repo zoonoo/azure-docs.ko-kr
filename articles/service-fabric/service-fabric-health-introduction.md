@@ -255,9 +255,9 @@ SourceId, 엔터티 식별자, 속성 및 HealthState는 모든 상태 보고서
 다음 예에서는 소스 MyWatchdog의 fabric:/WordCount 응용 프로그램에서 Powershell을 통해 상태 보고서를 보냅니다. 상태 보고서에는 무한 TTL과 함께 오류 성능 상태에서 상태 속성 Availability에 대한 정보가 포함됩니다. 그런 다음, 집계된 성능 상태 오류 및 보고된 상태 이벤트를 상태 이벤트 목록의 일부로 반환되는 응용 프로그램 상태를 쿼리합니다.
 
 ```powershell
-PS C:> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
+PS C:\> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
 
-PS C:> Get-ServiceFabricApplicationHealth fabric:/WordCount
+PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount
 
 ApplicationName                 : fabric:/WordCount
 AggregatedHealthState           : Error
@@ -336,4 +336,4 @@ HealthEvents                    :
 [서비스 패브릭 응용 프로그램 업그레이드](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

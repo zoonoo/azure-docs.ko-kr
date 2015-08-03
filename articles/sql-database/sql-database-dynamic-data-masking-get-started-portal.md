@@ -116,4 +116,4 @@ Azure 데이터베이스 관리자, 서버 관리자 또는 보안 관리자 역
 [Image5]: ./media/sql-database-dynamic-data-masking-get-started-portal/5_DDM_Add_Masking_Rule_Classic_Portal.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

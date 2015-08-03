@@ -33,7 +33,7 @@ Visual Studio는 빌드 서버에 설치할 필요가 없습니다. Team Foundat
 1.  빌드 서버에 MSBuild가 포함된 [.NET Framework 4][], [.NET Framework 4.5][] 또는 [.NET Framework 4.5.2][]를 설치합니다.
 2.  [Azure 작성 도구][](영문)(빌드 서버의 프로세서에 따라 MicrosoftAzureAuthoringTools-x86.msi 또는 MicrosoftAzureAuthoringTools-x64.msi 검색)를 설치합니다. 이전 파일 버전에서는 파일 이름이 WindowsAzure일 수 있습니다.
 3. [Azure 라이브러리][](MicrosoftAzureLibsForNet-x86.msi 또는 MicrosoftAzureLibsForNet-x64.msi 검색)를 설치합니다.
-4.  Visual Studio 설치에서 Microsoft.WebApplication.targets 파일을 빌드 서버에 복사합니다. Visual Studio가 설치된 컴퓨터에서 이 파일은 C:\\Program Files (x86)\\MSBuild\\Microsoft\\VisualStudio\\v11.0\\WebApplications(Visual Studio 2013의 경우 v12.0) 디렉터리에 있습니다. 빌드 서버의 동일한 디렉터리에 해당 파일을 복사해야 합니다.
+4.  Visual Studio 설치에서 Microsoft.WebApplication.targets 파일을 빌드 서버에 복사합니다. Visual Studio가 설치된 컴퓨터에서 이 파일은 C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v11.0\WebApplications(Visual Studio 2013의 경우 v12.0) 디렉터리에 있습니다. 빌드 서버의 동일한 디렉터리에 해당 파일을 복사해야 합니다.
 5.  [Azure Tools for Visual Studio][]를 설치합니다. Visual Studio 2012 프로젝트를 빌드하려면 MicrosoftAzureTools.VS110.exe를 검색하고, Visual Studio 2013 프로젝트를 빌드하려면 MicrosoftAzureTools.VS120.exe를 검색하고, Visual Studio 2015 Preview 프로젝트를 빌드하려면 MicrosoftAzureTools.VS140.exe를 검색합니다.
 
 ## 2단계: MSBuild 명령을 사용하여 패키지 빌드
@@ -42,7 +42,7 @@ Visual Studio는 빌드 서버에 설치할 필요가 없습니다. Team Foundat
 
 1.  Visual Studio가 빌드 서버에 설치되어 있는 경우 **시작**, **모든 프로그램**을 차례로 클릭하고 **Visual Studio 도구** 폴더에서 **Visual Studio 명령 프롬프트**를 찾아 클릭합니다.
 
-    Visual Studio가 빌드 서버에 설치되어 있지 않으면 명령 프롬프트를 열고 해당 경로에서 MSBuild.exe에 액세스할 수 있는지 확인합니다. MSBuild는 .NET Framework와 함께 %WINDIR%\\Microsoft.NET\\Framework\\*Version* 경로에 설치됩니다. 예를 들어 .NET Framework 4를 설치한 경우 PATH 환경 변수에 MSBuild.exe를 추가하려면 명령 프롬프트에서 다음 명령을 입력하세요.
+    Visual Studio가 빌드 서버에 설치되어 있지 않으면 명령 프롬프트를 열고 해당 경로에서 MSBuild.exe에 액세스할 수 있는지 확인합니다. MSBuild는 .NET Framework와 함께 %WINDIR%\Microsoft.NET\Framework\*Version* 경로에 설치됩니다. 예를 들어 .NET Framework 4를 설치한 경우 PATH 환경 변수에 MSBuild.exe를 추가하려면 명령 프롬프트에서 다음 명령을 입력하세요.
 
         set PATH=%PATH%;"C:\Windows\Microsoft.NET\Framework\v4.0.30319"
 
@@ -56,7 +56,7 @@ Visual Studio는 빌드 서버에 설치할 필요가 없습니다. Team Foundat
 
     선택적으로 프로젝트 이름을 MSBuild 매개 변수로 지정할 수 있습니다. 지정하지 않으면 현재 디렉터리가 사용됩니다. MSBuild 명령줄 옵션에 대한 자세한 내용은 [MSBuild 명령줄 참조][1]를 참조하세요.
 
-4.  출력을 찾습니다. 기본적으로 이 명령은 프로젝트의 루트 폴더를 기준으로 디렉터리를 만듭니다(예: *ProjectDir*\\bin\\*Configuration*\\app.publish\\). Azure 프로젝트를 빌드하면 패키지 파일 자체와 함께 제공되는 구성 파일의 두 파일이 생성됩니다.
+4.  출력을 찾습니다. 기본적으로 이 명령은 프로젝트의 루트 폴더를 기준으로 디렉터리를 만듭니다(예: *ProjectDir*\bin\*Configuration*\app.publish\). Azure 프로젝트를 빌드하면 패키지 파일 자체와 함께 제공되는 구성 파일의 두 파일이 생성됩니다.
 
     -   Project.cspkg
     -   ServiceConfiguration.*TargetProfile*.cscfg
@@ -67,9 +67,9 @@ Visual Studio는 빌드 서버에 설치할 필요가 없습니다. Team Foundat
 
         MSBuild /t:Publish /p:TargetProfile=Cloud
 
-6.  출력의 위치를 지정합니다. 다음 예제와 같이 뒤에 오는 백슬래시 구분 기호를 포함하여 /p:PublishDir=*Directory*\\ 옵션으로 경로를 설정합니다.
+6.  출력의 위치를 지정합니다. 다음 예제와 같이 뒤에 오는 백슬래시 구분 기호를 포함하여 /p:PublishDir=*Directory*\ 옵션으로 경로를 설정합니다.
 
-        MSBuild /target:Publish /p:PublishDir=\\myserver\drops\
+        MSBuild /target:Publish /p:PublishDir=\myserver\drops\
 
     적절한 MSBuild 명령줄을 구성하고 테스트하여 프로젝트를 빌드하고 Azure 패키지로 결합했으면 이 명령줄을 빌드 스크립트에 추가할 수 있습니다. 빌드 서버에서 사용자 지정 스크립트를 사용하는 경우 이 프로세스는 사용자 지정 빌드 프로세스의 세부 사항에 따라 달라집니다. TFS를 빌드 환경으로 사용하는 경우 다음 단계의 지침에 따라 Azure 패키지 빌드를 빌드 프로세스에 추가할 수 있습니다.
 
@@ -79,7 +79,7 @@ TFS(Team Foundation Server)를 빌드 컨트롤러로 설정하고 빌드 서버
 
 Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수행하세요.
 
-1.  개발 컴퓨터의 Visual Studio 보기 메뉴에서 **팀 탐색기**를 선택하거나 Ctrl+\\, Ctrl+M을 선택합니다. 팀 탐색기 창에서 **빌드** 노드를 확장하거나 **빌드** 페이지를 선택하고 **새 빌드 정의**를 선택합니다.
+1.  개발 컴퓨터의 Visual Studio 보기 메뉴에서 **팀 탐색기**를 선택하거나 Ctrl+\, Ctrl+M을 선택합니다. 팀 탐색기 창에서 **빌드** 노드를 확장하거나 **빌드** 페이지를 선택하고 **새 빌드 정의**를 선택합니다.
 
     ![][0]
 
@@ -91,7 +91,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
 5.  **프로세스** 탭을 클릭합니다. 프로세스 탭에서 기본 템플릿을 선택하고 **빌드**에서 프로젝트를 선택한 다음(선택되지 않은 경우) 표의 **빌드** 섹션에서 **고급** 섹션을 확장합니다.
 
-6.  **MSBuild Arguments**를 선택하고 위의 2단계에서 설명한 대로 적절한 MSBuild 명령줄 인수를 설정합니다. 예를 들어 패키지를 빌드하고 패키지 파일을 \\\\myserver\\drops\\ 위치에 복사하려면 **/t:Publish /p:PublishDir=\\\\myserver\\drops\**를 입력합니다.
+6.  **MSBuild Arguments**를 선택하고 위의 2단계에서 설명한 대로 적절한 MSBuild 명령줄 인수를 설정합니다. 예를 들어 패키지를 빌드하고 패키지 파일을 \\myserver\drops\ 위치에 복사하려면 **/t:Publish /p:PublishDir=\\myserver\drops\**를 입력합니다.
 
     ![][2]
 
@@ -113,7 +113,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
 4.  .publishsettings 파일에서 구독 정보를 가져와 Azure 구독에 연결할 수 있는지 확인합니다.
 
-    Import-AzurePublishSettingsFile c:\\scripts\\WindowsAzure\\default.publishsettings
+    Import-AzurePublishSettingsFile c:\scripts\WindowsAzure\default.publishsettings
 
     그런 다음 명령을 제공합니다.
 
@@ -121,7 +121,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
     그러면 구독에 대한 정보가 표시됩니다. 모든 정보가 올바른지 확인합니다.
 
-4.  [이 문서의 끝][]에 제공된 스크립트 템플릿을 c:\\scripts\\WindowsAzure\\**PublishCloudService.ps1**로 스크립트 폴더에 저장합니다.
+4.  [이 문서의 끝][]에 제공된 스크립트 템플릿을 c:\scripts\WindowsAzure\**PublishCloudService.ps1**로 스크립트 폴더에 저장합니다.
 
 5.  스크립트의 매개 변수 섹션을 검토합니다. 기본값을 추가하거나 수정합니다. 이러한 값은 명시적 매개 변수를 전달하여 언제든지 재정의할 수 있습니다.
 
@@ -325,11 +325,11 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
 9.  기타 섹션에서 매개 변수 속성 값을 다음과 같이 설정합니다.
 
-    1.  CloudConfigLocation ='c:\\drops\\app.publish\\ServiceConfiguration.Cloud.cscfg' *이 값의 파생 위치: ($PublishDir)ServiceConfiguration.Cloud.cscfg*
+    1.  CloudConfigLocation ='c:\drops\app.publish\ServiceConfiguration.Cloud.cscfg' *이 값의 파생 위치: ($PublishDir)ServiceConfiguration.Cloud.cscfg*
 
-    2.  PackageLocation = 'c:\\drops\\app.publish\\ContactManager.Azure.cspkg' *이 값의 파생 위치: ($PublishDir)($ProjectName).cspkg*
+    2.  PackageLocation = 'c:\drops\app.publish\ContactManager.Azure.cspkg' *이 값의 파생 위치: ($PublishDir)($ProjectName).cspkg*
 
-    3.  PublishScriptLocation = 'c:\\scripts\\WindowsAzure\\PublishCloudService.ps1'
+    3.  PublishScriptLocation = 'c:\scripts\WindowsAzure\PublishCloudService.ps1'
 
     4.  ServiceName = 'mycloudservicename' *여기에 적절한 클라우드 서비스 이름 사용*
 
@@ -337,7 +337,7 @@ Azure 패키지를 빌드하도록 TFS를 구성하려면 다음 단계를 수�
 
     6.  StorageAccountName = 'mystorageaccountname' *여기에 적절한 저장소 계정 이름 사용*
 
-    7.  SubscriptionDataFileLocation = 'c:\\scripts\\WindowsAzure\\Subscription.xml'
+    7.  SubscriptionDataFileLocation = 'c:\scripts\WindowsAzure\Subscription.xml'
 
     8.  SubscriptionName = 'default'
 
@@ -578,4 +578,4 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

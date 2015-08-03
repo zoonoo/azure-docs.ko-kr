@@ -292,4 +292,4 @@ Azure 웹 앱 및 SQL 데이터베이스를 만들려면 다음 단계를 따르
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

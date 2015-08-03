@@ -63,7 +63,7 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자�
 ### 3. Express 경로 프리미엄 추가 기능이 사용되는지 확인합니다.
 Express 경로 프리미엄 추가 기능을 회로에 사용할 수 있는지 확인할 수 있습니다. 아래 예제에서는 Express 경로 회로는 Express 경로 프리미엄 추가 기능을 사용 하지 않습니다. 추가 기능이 사용되는 경우 SKU는 ***프리미엄***으로 표시됩니다.
 
-		PS C:> Get-AzureDedicatedCircuit -ServiceKey *********************************
+		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
 
 		Bandwidth                        : 200
 		CircuitName                      : TestCircuit
@@ -86,15 +86,15 @@ Express 경로 프리미엄 추가 기능을 회로에 사용할 수 있는지 �
 	다음 PowerShell cmdlet을 사용하여 Express 경로 회로에 대한 세부 정보를 얻을 수 있습니다.
 		
 
-    	PS C:> Get-AzureDedicatedCircuit
+    	PS C:\> Get-AzureDedicatedCircuit
 	
 	이 명령은 구독에서 만든 모든 회로 목록을 반환합니다. 서비스 키가 있는 경우, 특정 Express 경로 회로에 대한 세부 정보를 얻으려면 다음 명령을 사용할 수 있습니다.
 
-		 PS C:> Get-AzureDedicatedCircuit -ServiceKey <skey>
+		 PS C:\> Get-AzureDedicatedCircuit -ServiceKey <skey>
 
 	<skey>를 실제 서비스 키로 대체합니다.
 	
-		PS C:> Get-AzureDedicatedCircuit -ServiceKey *********************************
+		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
 
 		Bandwidth                        : 200
 		CircuitName                      : TestCircuit
@@ -111,7 +111,7 @@ Express 경로 프리미엄 추가 기능을 회로에 사용할 수 있는지 �
 
 	다음 PowerShell cmdlet을 사용하여 기존 회로에 대해 Express 경로 프리미엄 추가 기능을 활성화할 수 있습니다.
 	
-		PS C:> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Premium
+		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Premium
 		
 		Bandwidth                        : 1000
 		CircuitName                      : TestCircuit
@@ -136,15 +136,15 @@ Express 경로 프리미엄 추가 기능을 회로에 사용할 수 있는지 �
 	다음 PowerShell cmdlet을 사용하여 Express 경로 회로에 대한 세부 정보를 얻을 수 있습니다.
 		
 
-    	PS C:> Get-AzureDedicatedCircuit
+    	PS C:\> Get-AzureDedicatedCircuit
 	
 	이 명령은 구독에서 만든 모든 회로 목록을 반환합니다. 서비스 키가 있는 경우, 특정 Express 경로 회로에 대한 세부 정보를 얻으려면 다음 명령을 사용할 수 있습니다.
 
-		 PS C:> Get-AzureDedicatedCircuit -ServiceKey <skey>
+		 PS C:\> Get-AzureDedicatedCircuit -ServiceKey <skey>
 
 	<skey>를 실제 서비스 키로 대체합니다.
 	
-		PS C:> Get-AzureDedicatedCircuit -ServiceKey *********************************
+		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
 
 		Bandwidth                        : 200
 		CircuitName                      : TestCircuit
@@ -161,7 +161,7 @@ Express 경로 프리미엄 추가 기능을 회로에 사용할 수 있는지 �
 
 	다음 PowerShell cmdlet을 사용하여 기존 회로에 대해 Express 경로 프리미엄 추가 기능을 사용하지 않도록 설정할 수 있습니다.
 	
-		PS C:> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
+		PS C:\> Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Standard
 		
 		Bandwidth                        : 1000
 		CircuitName                      : TestCircuit
@@ -177,4 +177,4 @@ Express 경로 프리미엄 추가 기능을 회로에 사용할 수 있는지 �
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -82,4 +82,4 @@ SQL 데이터베이스를 선택하고 다음을 클릭합니다. ![][Add Output
 <!--Other Web references-->
 [Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

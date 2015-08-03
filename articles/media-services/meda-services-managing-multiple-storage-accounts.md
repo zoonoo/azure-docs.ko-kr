@@ -53,7 +53,7 @@ Microsoft Azure 미디어 서비스 2.2부터는 여러 저장소 계정을 단�
 
 	using Microsoft.WindowsAzure.MediaServices.Client; using System; using System.Collections.Generic; using System.Configuration; using System.IO; using System.Linq; using System.Text; using System.Threading; using System.Threading.Tasks;
 	
-	namespace MultipleStorageAccounts { class Program { // Location of the media file that you want to encode. private static readonly string _singleInputFilePath = Path.GetFullPath(@"../..\\supportFiles\\multifile\\interview2.wmv");
+	namespace MultipleStorageAccounts { class Program { // Location of the media file that you want to encode. private static readonly string _singleInputFilePath = Path.GetFullPath(@"../..\supportFiles\multifile\interview2.wmv");
 	
 	        private static readonly string MediaServicesAccountName = 
 	            ConfigurationManager.AppSettings["MediaServicesAccountName"];
@@ -236,4 +236,4 @@ Microsoft Azure 미디어 서비스 2.2부터는 여러 저장소 계정을 단�
 	}
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

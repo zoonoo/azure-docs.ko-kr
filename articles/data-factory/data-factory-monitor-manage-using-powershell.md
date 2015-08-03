@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="자습서: Azure PowerShell을 사용하여 Azure 데이터 팩터리 만들기 및 모니터링" 
-	description="Azure PowerShell을 사용하여 Azure 데이터 팩터리를 만들고 모니터링하는 방법을 알아봅니다." 
+	pageTitle="자습서: Azure PowerShell을 사용하여 Azure Data Factory 만들기 및 모니터링" 
+	description="Azure PowerShell을 사용하여 Azure Data Factory를 만들고 모니터링하는 방법을 알아봅니다." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/17/2015" 
 	ms.author="spelluru"/>
 
 # 자습서: Azure PowerShell을 사용하여 데이터 팩터리 만들기 및 모니터링
@@ -21,8 +21,10 @@
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
 - [Using PowerShell](data-factory-monitor-manage-using-powershell.md)
+- [Using Visual Studio](data-factory-get-started-using-vs.md)
 
-[Azure 데이터 팩터리 시작][adf-get-started] 자습서에서는 [Azure Preview 포털][azure-preview-portal]을 사용하여 Azure 데이터 팩터리를 만들고 모니터링하는 방법을 보여 줍니다. 이 자습서에서는 Azure PowerShell cmdlet을 사용하여 Azure 데이터 팩터리를 만들고 모니터링합니다. 이 자습서에서 만드는 데이터 팩터리의 파이프라인은 Azure Blob에서 Azure SQL 데이터베이스로 데이터를 복사합니다.
+
+[Azure Data Factory 시작][adf-get-started] 자습서에서는 [Azure Preview 포털][azure-preview-portal]을 사용하여 Azure Data Factory를 만들고 모니터링하는 방법을 보여 줍니다. 이 자습서에서는 Azure PowerShell cmdlet을 사용하여 Azure Data Factory를 만들고 모니터링합니다. 이 자습서에서 만드는 데이터 팩터리의 파이프라인은 Azure Blob에서 Azure SQL 데이터베이스로 데이터를 복사합니다.
 
 > [AZURE.NOTE]이 문서는 모든 데이터 팩터리 cmdlet을 다루지 않습니다. 데이터 팩터리 cmdlet에 대한 포괄적인 설명서는 [데이터 팩터리 Cmdlet 참조][cmdlet-reference](영문)를 참조하세요.
 
@@ -34,20 +36,20 @@
 
 단계 | 설명
 -----| -----------
-[1단계: Azure 데이터 팩터리 만들기](#CreateDataFactory) | 이 단계에서는 **ADFTutorialDataFactoryPSH**라는 Azure 데이터 팩터리를 만듭니다. 
+[1단계: Azure Data Factory 만들기](#CreateDataFactory) | 이 단계에서는 **ADFTutorialDataFactoryPSH**라는 Azure Data Factory를 만듭니다. 
 [2단계: 연결된 서비스 만들기](#CreateLinkedServices) | 이 단계에서는 2개의 연결된 서비스 **StorageLinkedService** 및 **AzureSqlLinkedService**를 만듭니다. StorageLinkedService는 Azure 저장소를 연결하고, AzureSqlLinkedService는 Azure SQL 데이터베이스를 ADFTutorialDataFactoryPSH에 연결합니다.
 [3단계: 입력 및 출력 데이터 집합 만들기](#CreateInputAndOutputDataSets) | 이 단계에서는 다음 단계에서 만들 ADFTutorialPipeline의 **복사 작업**에 대한 입력 및 출력 테이블로 사용되는 2개의 데이터 집합(**EmpTableFromBlob** 및 **EmpSQLTable**)을 만듭니다.
 [4단계: 파이프라인 만들기 및 실행](#CreateAndRunAPipeline) | 이 단계에서는 데이터 팩터리 **ADFTutorialDataFactoryPSH**에 **ADFTutorialPipeline**이라는 파이프라인을 만듭니다. 이 파이프라인에는 Azure Blob에서 출력 Azure 데이터베이스 테이블로 데이터를 복사하는 **복사 작업**이 있습니다.
 [5단계: 데이터 집합 및 파이프라인 모니터링](#MonitorDataSetsAndPipeline) | 이 단계에서는 Azure PowerShell을 사용하여 데이터 집합 및 파이프라인을 모니터링합니다.
 
-## <a name="CreateDataFactory"></a>1 단계: 프로그램 Azure 데이터 팩터리 만들기
-이 단계에서는 명명 된는 Azure 데이터 팩터리를 만들려면 Azure PowerShell을 사용 **ADFTutorialDataFactoryPSH**.
+## <a name="CreateDataFactory"></a>1 단계: 프로그램 Azure Data Factory 만들기
+이 단계에서는 명명 된는 Azure Data Factory를 만들려면 Azure PowerShell을 사용 **ADFTutorialDataFactoryPSH**.
 
 1. **Azure PowerShell**을 시작하고 다음 명령을 실행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 이러한 명령을 다시 실행해야 합니다.
 	- **Add-AzureAccount**를 실행하고 Azure Preview 포털에 로그인하는 데 사용하는 사용자 이름 및 암호를 입력합니다.  
 	- **Get-AzureSubscription**을 실행하여 이 계정의 모든 구독을 확인합니다.
 	- **Select-AzureSubscription**을 실행하여 사용하려는 구독을 선택합니다. 이 구독은 Azure 미리 보기 포털에서 사용한 것과 같아야 합니다. 
-2. **AzureResourceManager** 모드로 전환합니다. Azure 데이터 팩터리 cmdlet은 이 모드에서 사용할 수 있습니다.
+2. **AzureResourceManager** 모드로 전환합니다. Azure Data Factory cmdlet은 이 모드에서 사용할 수 있습니다.
 
 		Switch-AzureMode AzureResourceManager 
 3. 다음 명령을 실행하여 **ADFTutorialResourceGroup**이라는 Azure 리소스 그룹을 만듭니다.
@@ -60,15 +62,15 @@
 		New-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
 
 
-	Azure 데이터 팩터리 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 “ADFTutorialDataFactoryPSH”를 사용할 수 없습니다.** 오류가 표시되는 경우 이름을 변경합니다(예: yournameADFTutorialDataFactoryPSH). 이 자습서의 단계를 수행하는 동안 ADFTutorialFactoryPSH 대신 이 이름을 사용합니다.
+	Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 “ADFTutorialDataFactoryPSH”를 사용할 수 없습니다.** 오류가 표시되는 경우 이름을 변경합니다(예: yournameADFTutorialDataFactoryPSH). 이 자습서의 단계를 수행하는 동안 ADFTutorialFactoryPSH 대신 이 이름을 사용합니다.
 
 ## <a name="CreateLinkedServices"></a>2단계: 연결된 서비스 만들기
-연결된 서비스는 데이터 저장소 또는 계산 서비스를 Azure 데이터 팩터리에 연결합니다. 데이터 저장소는 데이터 팩터리 파이프라인에 대한 입력 데이터를 포함하거나 출력 데이터를 저장하는 Azure 저장소, Azure SQL 데이터베이스 또는 온-프레미스 SQL Server 데이터베이스일 수 있습니다. 계산 서비스는 입력 데이터를 처리하고 출력 데이터를 생성하는 서비스입니다.
+연결된 서비스는 데이터 저장소 또는 계산 서비스를 Azure Data Factory에 연결합니다. 데이터 저장소는 데이터 팩터리 파이프라인에 대한 입력 데이터를 포함하거나 출력 데이터를 저장하는 Azure 저장소, Azure SQL 데이터베이스 또는 온-프레미스 SQL Server 데이터베이스일 수 있습니다. 계산 서비스는 입력 데이터를 처리하고 출력 데이터를 생성하는 서비스입니다.
 
 이 단계에서는 2개의 연결된 서비스 **StorageLinkedService** 및 **AzureSqlLinkedService**를 만듭니다. StorageLinkedService 연결된 서비스는 Azure 저장소 계정을 연결하고, AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리 **ADFTutorialDataFactoryPSH**에 연결합니다. 이 자습서 뒷부분에서는 StorageLinkedService의 Blob 컨테이너에서 AzureSqlLinkedService의 SQL 테이블로 데이터를 복사하는 파이프라인을 만듭니다.
 
 ### Azure 저장소 계정에 대한 연결된 서비스 만들기
-1.	**C:\\ADFGetStartedPSH**에 다음과 같은 내용으로 **StorageLinkedService.json**이라는 JSON 파일을 만듭니다. 아직 없는 경우 ADFGetStartedPSH 폴더를 만듭니다.
+1.	**C:\ADFGetStartedPSH**에 다음과 같은 내용으로 **StorageLinkedService.json**이라는 JSON 파일을 만듭니다. 아직 없는 경우 ADFGetStartedPSH 폴더를 만듭니다.
 
 		{
 		    "name": "StorageLinkedService",
@@ -124,7 +126,7 @@
 테이블은 사각형 데이터 집합이며 현재 지원되는 유일한 데이터 집합 유형입니다. 이 자습서의 입력 테이블은 StorageLinkedService가 가리키는 Azure 저장소의 Blob 컨테이너를 참조하고 출력 테이블은 AzureSqlLinkedService가 가리키는 Azure SQL 데이터베이스의 SQL 테이블을 참조합니다.
 
 ### 자습서에서 사용할 Azure Blob 저장소 및 Azure SQL 데이터베이스 준비
-[Azure 데이터 팩터리 시작][adf-get-started] 문서의 자습서를 완료한 경우 이 단계를 건너뜁니다.
+[Azure Data Factory 시작][adf-get-started] 문서의 자습서를 완료한 경우 이 단계를 건너뜁니다.
 
 다음 단계를 수행하여 이 자습서에서 사용할 Azure Blob 저장소 및 Azure SQL 데이터베이스를 준비해야 합니다.
  
@@ -133,7 +135,7 @@
 * **AzureSqlLinkedService**가 가리키는 Azure SQL 데이터베이스에 **emp**라는 테이블을 만듭니다.
 
 
-1. 메모장을 시작하고 다음 텍스트를 붙여넣은 다음 **emp.txt**로 하드 드라이브의 **C:\\ADFGetStartedPSH** 폴더에 저장합니다. 
+1. 메모장을 시작하고 다음 텍스트를 붙여넣은 다음 **emp.txt**로 하드 드라이브의 **C:\ADFGetStartedPSH** 폴더에 저장합니다. 
 
         John, Doe
 		Jane, Doe
@@ -161,7 +163,7 @@
 ### 입력 테이블 만들기 
 테이블은 사각형 데이터 집합이고 스키마가 있습니다. 이 단계에서는 **StorageLinkedService** 연결된 서비스가 나타내는 Azure 저장소의 Blob 컨테이너를 가리키는 **EmpBlobTable**이라는 테이블을 만듭니다. 이 Blob 컨테이너(**adftutorial * *)는 **emp.txt** 파일에 입력 데이터를 포함합니다.
 
-1.	**C:\\ADFGetStartedPSH** 폴더에 다음과 같은 내용으로 **EmpBlobTable.json**이라는 JSON 파일을 만듭니다.
+1.	**C:\ADFGetStartedPSH** 폴더에 다음과 같은 내용으로 **EmpBlobTable.json**이라는 JSON 파일을 만듭니다.
 
 		{
 	    	"name": "EmpTableFromBlob",
@@ -226,7 +228,7 @@
 ### 출력 테이블 만들기
 이 단계에서는 **AzureSqlLinkedService** 연결된 서비스가 나타내는 Azure SQL 데이터베이스의 SQL 테이블(**emp**)을 가리키는 **EmpSQLTable**이라는 출력 테이블을 만듭니다. 파이프라인은 입력 Blob에서 **emp** 테이블로 데이터를 복사합니다.
 
-1.	**C:\\ADFGetStartedPSH** 폴더에 다음과 같은 내용으로 **EmpSQLTable.json**이라는 JSON 파일을 만듭니다.
+1.	**C:\ADFGetStartedPSH** 폴더에 다음과 같은 내용으로 **EmpSQLTable.json**이라는 JSON 파일을 만듭니다.
 		
 		{
 		    "name": "EmpSQLTable",
@@ -239,7 +241,7 @@
 		        ],
 		        "location":
 		        {
-		            "type": "AzureSQLTableLocation",
+		            "type": "AzureSqlTableLocation",
 		            "tableName": "emp",
 		            "linkedServiceName": "AzureSqlLinkedService"
 		        },
@@ -253,7 +255,7 @@
 
      다음 사항에 유의하세요.
 	
-	* location **type**을 **AzureSQLTableLocation**으로 설정합니다.
+	* location **type**을 **AzureSqlTableLocation**으로 설정합니다.
 	* **linkedServiceName**을 **AzureSqlLinkedService**로 설정합니다.
 	* **tablename**을 **emp**로 설정합니다.
 	* 데이터베이스의 emp 테이블에는 세 개의 열 **ID**, **FirstName** 및 **LastName**이 있지만 ID는 ID 열이므로 여기서는 **FirstName**과 **LastName**만 지정하면 됩니다.
@@ -267,7 +269,7 @@
 ## <a name="CreateAndRunAPipeline"></a>4단계: 파이프라인 만들기 및 실행
 이 단계에서는 **EmpTableFromBlob**을 입력으로 사용하고 **EmpSQLTable**을 출력으로 사용하는 **복사 작업**을 포함하는 파이프라인을 만듭니다.
 
-1.	**C:\\ADFGetStartedPSH** 폴더에 다음과 같은 내용으로 **ADFTutorialPipeline.json**이라는 JSON 파일을 만듭니다. 
+1.	**C:\ADFGetStartedPSH** 폴더에 다음과 같은 내용으로 **ADFTutorialPipeline.json**이라는 JSON 파일을 만듭니다. 
 
 		{
 		    "name": "ADFTutorialPipeline",
@@ -325,10 +327,10 @@
 		
 		New-AzureDataFactoryPipeline $df -File .\ADFTutorialPipeline.json
 
-**축하합니다.** Azure 데이터 팩터리, 연결된 서비스, 테이블 및 파이프라인을 성공적으로 만들고 파이프라인을 예약했습니다.
+**축하합니다.** Azure Data Factory, 연결된 서비스, 테이블 및 파이프라인을 성공적으로 만들고 파이프라인을 예약했습니다.
 
 ## <a name="MonitorDataSetsAndPipeline"></a>5단계: 데이터 집합 및 파이프라인 모니터링
-이 단계에서는 Azure PowerShell을 사용하여 Azure 데이터 팩터리에서 어떤 일이 일어나는지 모니터링합니다.
+이 단계에서는 Azure PowerShell을 사용하여 Azure Data Factory에서 어떤 일이 일어나는지 모니터링합니다.
 
 1.	**Get-AzureDataFactory**를 실행하고 출력을 $df 변수에 할당합니다.
 
@@ -396,14 +398,14 @@
 
 문서 | 설명
 ------ | ---------------
-[Azure 데이터 팩터리를 사용하여 데이터 복사 - 복사 작업][copy-activity] | 이 문서에서는 이 자습서에서 사용한 **복사 작업**에 대해 자세히 설명합니다. 
+[Azure Data Factory를 사용하여 데이터 복사 - 복사 작업][copy-activity] | 이 문서에서는 이 자습서에서 사용한 **복사 작업**에 대해 자세히 설명합니다. 
 [파이프라인에서 온-프레미스 데이터를 사용할 수 있도록 설정][use-onpremises-datasources] | 이 문서의 연습에서는 **온-프레미스 SQL Server 데이터베이스**에서 Azure Blob으로 데이터를 복사하는 방법을 보여 줍니다. 
 [데이터 팩터리에서 Pig 및 Hive 사용][use-pig-and-hive-with-data-factory] | 이 문서의 연습에서는 **HDInsight 작업**을 사용하여 **hive/pig** 스크립트로 입력 데이터를 처리하고 출력 데이터를 생성하는 방법을 보여 줍니다.
-[자습서: 데이터 팩터리를 사용하여 로그 파일 이동 및 처리][adf-tutorial] | 이 문서에서는 Azure 데이터 팩터리를 사용하는 **실제 시나리오**를 구현하여 로그 파일의 데이터에서 통찰력을 얻는 방법을 보여 주는 **완전한 연습**을 제공합니다.
+[자습서: 데이터 팩터리를 사용하여 로그 파일 이동 및 처리][adf-tutorial] | 이 문서에서는 Azure Data Factory를 사용하는 **실제 시나리오**를 구현하여 로그 파일의 데이터에서 통찰력을 얻는 방법을 보여 주는 **완전한 연습**을 제공합니다.
 [데이터 팩터리에서 사용자 지정 작업 사용][use-custom-activities] | 이 문서에서는 **사용자 지정 작업**을 만들어 파이프라인에서 사용하는 방법에 대한 단계별 지침이 포함된 연습을 제공합니다. 
-[데이터 팩터리 문제 해결][troubleshoot] | 이 문서에서는 Azure 데이터 팩터리 **문제를 해결**하는 방법을 설명합니다. Azure SQL 데이터베이스의 테이블을 삭제하는 등 오류를 유발하여 이 문서의 연습을 ADFTutorialDataFactory에 대해 사용해 볼 수 있습니다. 
-[Azure 데이터 팩터리 Cmdlet 참조][cmdlet-reference] | 이 참조 콘텐츠에는 모든 **데이터 팩터리 cmdlet**에 대한 내용이 자세히 나와 있습니다.
-[Azure 데이터 팩터리 개발자 참조][developer-reference] | 개발자 참조에는 cmdlet, JSON 스크립트, 함수 등에 대한 포괄적인 참조 콘텐츠가 포함되어 있습니다. 
+[데이터 팩터리 문제 해결][troubleshoot] | 이 문서에서는 Azure Data Factory **문제를 해결**하는 방법을 설명합니다. Azure SQL 데이터베이스의 테이블을 삭제하는 등 오류를 유발하여 이 문서의 연습을 ADFTutorialDataFactory에 대해 사용해 볼 수 있습니다. 
+[Azure Data Factory Cmdlet 참조][cmdlet-reference] | 이 참조 콘텐츠에는 모든 **데이터 팩터리 cmdlet**에 대한 내용이 자세히 나와 있습니다.
+[Azure Data Factory 개발자 참조][developer-reference] | 개발자 참조에는 cmdlet, JSON 스크립트, 함수 등에 대한 포괄적인 참조 콘텐츠가 포함되어 있습니다. 
 
 [copy-activity]: data-factory-copy-activity.md
 [use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
@@ -428,4 +430,4 @@
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,7 +1,7 @@
 <properties
    pageTitle="리소스의 여러 인스턴스 만들기"
-   description="리소스를 배포할 때 Azure 리소스 관리자 템플릿에서 copy 작업을 사용하여 여러 번 반복하는 방법을 설명합니다."
-   services="na"
+   description="리소스를 배포할 때 Azure 리소스 관리자 템플릿에서 복사 작업을 사용하여 여러 번 반복하는 방법을 설명합니다."
+   services="azure-resource-manager"
    documentationCenter="na"
    authors="tfitzmac"
    manager="wpickett"
@@ -33,9 +33,9 @@
 
     [concat('examplecopy-', copyIndex())]
 
-## 이름에 인덱스 값을 사용
+## 이름에 인덱스 값 사용
 
-copy 반복을 사용하여 증분 인덱스를 기준으로 고유하게 명명되는 리소스의 여러 인스턴스를 만들 수 있습니다. 예를 들어 배포되는 각 리소스 이름의 끝에 고유 번호를 추가할 수 있습니다. 다음 이름의 웹 사이트 3개를 배포하려면
+복사 작업을 사용하여 증분 인덱스를 기준으로 고유하게 명명되는 리소스의 여러 인스턴스를 만들 수 있습니다. 예를 들어 배포되는 각 리소스 이름의 끝에 고유 번호를 추가할 수 있습니다. 다음 이름의 웹 사이트 3개를 배포하려면
 
 - examplecopy-0
 - examplecopy-1
@@ -114,4 +114,4 @@ copy 반복을 사용하여 증분 인덱스를 기준으로 고유하게 명명
 - [Azure 리소스 관리자 템플릿 함수](./resource-group-template-functions.md)
 - [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

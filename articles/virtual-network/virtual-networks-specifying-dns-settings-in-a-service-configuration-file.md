@@ -41,4 +41,4 @@
 
 [관리 포털의 가상 네트워크 설정 정보](http://go.microsoft.com/fwlink/?LinkId=248092)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

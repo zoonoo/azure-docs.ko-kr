@@ -196,4 +196,4 @@ SQL 데이터베이스 제한에 대한 자세한 내용은 다음 항목을 참
 
 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

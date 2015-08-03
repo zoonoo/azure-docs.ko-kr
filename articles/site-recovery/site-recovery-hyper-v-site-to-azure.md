@@ -157,7 +157,7 @@ Azure Site Recovery 배포의 일환으로 보호하려는 가상 컴퓨터를 �
 
 Windows Server 2012 R2용 Server Core 또는 독립 실행형 Hyper-V Server 2012 R2에 공급자를 설치하려는 경우 다음을 수행해야 합니다.
 
-1. 공급자 설치 파일 및 등록 키를 폴더(예: C:\\ASR)로 다운로드합니다.
+1. 공급자 설치 파일 및 등록 키를 폴더(예: C:\ASR)로 다운로드합니다.
 2. 다음을 입력하여 공급자 설치 관리자를 추출합니다.
 
 	    C:\Windows\System32> CD C:\ASR
@@ -296,4 +296,4 @@ Azure 대상 네트워크를 지정하지 않고 Azure로 보호되도록 설정
 
 배포가 설정되고 실행된 후 장애 조치에 대해 [알아봅니다](site-recovery-failover.md).
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

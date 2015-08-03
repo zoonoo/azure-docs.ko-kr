@@ -63,4 +63,4 @@ Microsoft Azure 포털 또는 PowerShell을 사용하여 몇 분 안에 탄력�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

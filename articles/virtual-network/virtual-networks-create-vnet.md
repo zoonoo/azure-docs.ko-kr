@@ -66,4 +66,4 @@ VNet을 만든 후 새 VM을 해당 VNet에 추가할 수 있습니다. 먼저 V
 [VNet(가상 네트워크)을 삭제하는 방법](../virtual-networks-delete-vnet)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

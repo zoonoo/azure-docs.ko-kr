@@ -44,7 +44,7 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 
 추적하려는 모든 페이지의 &lt;/head&gt; 태그 바로 앞에 스크립트를 삽입합니다. 웹 사이트에 마스터 페이지가 있는 경우 이 페이지에 스크립트를 넣을 수 있습니다. 예:
 
-* ASP.NET MVC 프로젝트에서는 View\\Shared\\_Layout.cshtml에 추가합니다.
+* ASP.NET MVC 프로젝트에서는 View\Shared\_Layout.cshtml에 추가합니다.
 * SharePoint 사이트의 경우 제어판에서 [사이트 설정/마스터 페이지](app-insights-sharepoint.md)를 엽니다.
 
 스크립트에는 Application Insights 리소스에 데이터를 전달하는 계측 키가 포함됩니다.
@@ -181,4 +181,4 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

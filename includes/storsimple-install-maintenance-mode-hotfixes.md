@@ -17,4 +17,4 @@
 
 6. 핫픽스를 적용한 후 유지 관리 모드를 종료합니다. 지침은 [유지 관리 모드 종료](#exit-maintenance-mode)를 참조하세요.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

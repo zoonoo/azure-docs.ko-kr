@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Java 서비스 버스 API와 함께 AMQP 1.0을 사용하는 방법 - Azure" 
+	pageTitle="Java 서비스 버스 API와 함께 AMQP 1.0을 사용하는 방법 - Azure"  
 	description="Azure 서비스 버스 및 AMQP(Advanced Message Queuing Protocol) 1.0과 함께 JMS(Java Message Service)를 사용하는 방법에 대해 알아봅니다." 
 	authors="sethmanheim" 
 	documentationCenter="java" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="07/21/2015" 
 	ms.author="sethm"/>
 
 
@@ -46,104 +46,65 @@ AMQP 1.0이 추가됨으로써 효율적인 이진 프로토콜을 사용하여 
 
 JMS는 JNDI(Java Naming and Directory Interface)를 사용하여 논리적 이름과 물리적 이름 간에 구분을 만듭니다. JNDI를 사용하여 두 유형의 JMS 개체인 ConnectionFactory와 Destination을 확인합니다. JNDI는 다양한 디렉터리 서비스를 연결할 수 있는 공급자 모델을 사용하여 이름 확인 책임을 처리합니다. Apache Qpid JMS AMQP 1.0 라이브러리에는 다음 형식의 속성 파일을 사용하여 구성된 간단한 속성 파일 기반 JNDI 공급자가 포함되어 있습니다.
 
-	# servicebus.properties – sample JNDI configuration
+```
+# servicebus.properties – sample JNDI configuration
 	
-	# Register a ConnectionFactory in JNDI using the form:
-	# connectionfactory.[jndi_name] = [ConnectionURL]
-	connectionfactory.SBCF = amqps://[username]:[password]@[namespace].servicebus.windows.net
+# Register a ConnectionFactory in JNDI using the form:
+# connectionfactory.[jndi_name] = [ConnectionURL]
+connectionfactory.SBCF = amqps://[username]:[password]@[namespace].servicebus.windows.net
 	
-	# Register some queues in JNDI using the form
-	# queue.[jndi_name] = [physical_name]
-	# topic.[jndi_name] = [physical_name]
-	queue.QUEUE = queue1
-
+# Register some queues in JNDI using the form
+# queue.[jndi_name] = [physical_name]
+# topic.[jndi_name] = [physical_name]
+queue.QUEUE = queue1
+```
 
 #### ConnectionFactory 구성
 
 Qpid 속성 파일 JNDI 공급자에서 **ConnectionFactory**를 정의하는 데 사용되는 항목의 형식은 다음과 같습니다.
 
-	connectionfactory.[jndi_name] = [ConnectionURL]
+```
+connectionfactory.[jndi_name] = [ConnectionURL]
+```
 
-여기서 [jndi_name]과 [ConnectionURL]의 의미는 다음과 같습니다.
+여기서 **[jndi_name]** 및 **[ConnectionURL]**의 의미는 다음과 같습니다.
 
-<table>
-  <tr>
-    <td>[jndi_name]</td>
-    <td>ConnectionFactory의 논리적 이름입니다. JNDI IntialContext.lookup() 메서드를 사용하여 Java 응용 프로그램에서 확인되는 이름입니다.</td>
-  </tr>
-  <tr>
-    <td>[ConnectionURL]</td>
-    <td>AMQP 브로커에 필요한 정보를 JMS 라이브러리에 제공하는 URL입니다.</td>
-  </tr>
-</table>
+- **[jndi_name]**: ConnectionFactory의 논리적 이름입니다. JNDI IntialContext.lookup() 메서드를 사용하여 Java 응용 프로그램에서 확인되는 이름입니다.
+- **[ConnectionURL]**: AMQP 브로커에 필요한 정보를 JMS 라이브러리에 제공하는 URL입니다.
 
 **ConnectionURL**의 형식은 다음과 같습니다.
 
-	amqps://[username]:[password]@[namespace].servicebus.windows.net
+```
+amqps://[username]:[password]@[namespace].servicebus.windows.net
+```
 
-여기서 [namespace], [username] 및 [password]의 의미는 다음과 같습니다.
+여기서 **[namespace]**, **[username]** 및 **[password]**의 의미는 다음과 같습니다.
 
-<table>
-  <tr>
-    <td>[namespace]</td>
-    <td>Azure 관리 포털에서 얻은 서비스 버스 네임스페이스입니다.</td>
-  </tr>
-  <tr>
-    <td>[username]</td>
-    <td>Azure 관리 포털에서 얻은 서비스 버스 발급자 이름입니다.</td>
-  </tr>
-  <tr>
-    <td>[password]</td>
-    <td>Azure 관리 포털에서 얻은 URL 인코딩된 형식의 서비스 버스 발급자 키입니다.</td>
-  </tr>
-</table>
+- **[namespace]**: 서비스 버스 네임스페이스입니다.
+- **[username]**: 서비스 버스 발급자 이름입니다.
+- **[password]**: URL 인코딩된 형식의 서비스 버스 발급자 키입니다.
 
-**참고**: 수동으로 암호를 URL 인코딩해야 합니다. 유용한 URL 인코딩 유틸리티는 [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp)에서 사용할 수 있습니다.
-
-예를 들어 Azure 관리 포털에서 얻은 정보가 다음과 같다고 가정합니다.
-
-<table>
-  <tr>
-    <td>네임스페이스:</td>
-    <td>foo.servicebus.windows.net</td>
-  </tr>
-  <tr>
-    <td>발급자 이름:</td>
-    <td>owner</td>
-  </tr>
-  <tr>
-    <td>발급자 키:</td>
-    <td>j9VYv1q33Ea+cbahWsHFYnLkEzrF0yA5SAqcLNvU7KM=</td>
-  </tr>
-</table>
-
-이 경우 "SBCF"라는 **ConnectionFactory**를 정의하기 위해 구성 문자열이 다음과 같이 표시됩니다.
-
-	connectionfactory.SBCF = amqps://owner:j9VYv1q33Ea%2BcbahWsHFYnLkEzrF0yA5SAqcLNvU7KM%3D@foo.servicebus.windows.net
+> [AZURE.NOTE]수동으로 암호를 URL 인코딩해야 합니다. 유용한 URL 인코딩 유틸리티는 [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp)에서 사용할 수 있습니다.
 
 #### Destinations 구성
 
 Qpid 속성 파일 JNDI 공급자에서 destination을 정의하는 데 사용되는 항목의 형식은 다음과 같습니다.
 
-	queue.[jndi_name] = [physical_name]
+```
+queue.[jndi_name] = [physical_name]
+```
 또는
 
-	topic.[jndi_name] = [physical_name]
+```
+topic.[jndi_name] = [physical_name]
+```
 
-여기서 [jndi_name]과 [physical_name]의 의미는 다음과 같습니다.
+여기서 **[jndi_name]** 및 **[physical_name]**의 의미는 다음과 같습니다.
 
-<table>
-  <tr>
-    <td>[jndi_name]</td>
-    <td>destination의 논리적 이름입니다. JNDI IntialContext.lookup() 메서드를 사용하여 Java 응용 프로그램에서 확인되는 이름입니다.</td>
-  </tr>
-  <tr>
-    <td>[physical_name]</td>
-    <td>응용 프로그램이 메시지를 보내거나 받는 서비스 버스 엔터티의 이름입니다.</td>
-  </tr>
-</table>
+- **[jndi_name]**: destination의 논리적 이름입니다. JNDI IntialContext.lookup() 메서드를 사용하여 Java 응용 프로그램에서 확인되는 이름입니다.
+- **[physical_name]**: 응용 프로그램이 메시지를 보내거나 받는 서비스 버스 엔터티의 이름입니다.
 
-**참고**: 서비스 버스 토픽 구독에서 받는 경우 JNDI에 지정된 물리적 이름은 토픽 이름이어야 합니다. 구독 이름은 JMS 응용 프로그램 코드에서 지속형 구독을 만들 때 제공됩니다. [Service Bus AMQP 1.0 개발자 가이드](http://msdn.microsoft.com/library/jj841071.aspx)에서는 JMS의 서비스 버스 토픽 구독 작업에 대한 세부 정보를 제공합니다.
+> [AZURE.NOTE]서비스 버스 토픽 구독에서 받는 경우 JNDI에 지정된 물리적 이름은 토픽 이름이어야 합니다. 구독 이름은 JMS 응용 프로그램 코드에서 지속형 구독을 만들 때 제공됩니다. [Service Bus AMQP 1.0 개발자 가이드](http://msdn.microsoft.com/library/jj841071.aspx)에서는 JMS의 서비스 버스 토픽 구독 작업에 대한 세부 정보를 제공합니다.
 
 ### JMS 응용 프로그램 작성
 
@@ -153,10 +114,12 @@ Qpid 속성 파일 JNDI 공급자에서 destination을 정의하는 데 사용�
 
 JNDI 환경은 구성 정보 해시 테이블을 javax.naming.InitialContext 클래스의 생성자에 전달하여 구성됩니다. 해시 테이블의 두 가지 필수 요소는 초기 컨텍스트 팩터리의 클래스 이름과 공급자 URL입니다. 다음 코드는 Qpid 속성 파일 기반 JNDI 공급자를 **servicebus.properties**라는 속성 파일과 함께 사용하도록 JNDI 환경을 구성하는 방법을 보여 줍니다.
 
-	Hashtable<String, String> env = new Hashtable<String, String>(); 
-	env.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory"); 
-	env.put(Context.PROVIDER_URL, "servicebus.properties"); 
-	InitialContext context = new InitialContext(env); 
+```
+Hashtable<String, String> env = new Hashtable<String, String>(); 
+env.put(Context.INITIAL_CONTEXT_FACTORY, "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory"); 
+env.put(Context.PROVIDER_URL, "servicebus.properties"); 
+InitialContext context = new InitialContext(env);
+``` 
 
 ### 서비스 버스 큐를 사용하는 간단한 JMS 응용 프로그램
 
@@ -259,20 +222,22 @@ JNDI 환경은 구성 정보 해시 테이블을 javax.naming.InitialContext 클
 
 ### 응용 프로그램 실행
 
-응용 프로그램을 실행하면 다음과 같은 출력이 생성됩니다.
+응용 프로그램 실행 결과는 다음과 같습니다.
 
-	> java SimpleSenderReceiver
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
+```
+> java SimpleSenderReceiver
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
 	
-	Sent message with JMSMessageID = ID:2867600614942270318
-	Received message with JMSMessageID = ID:2867600614942270318
+Sent message with JMSMessageID = ID:2867600614942270318
+Received message with JMSMessageID = ID:2867600614942270318
 	
-	Sent message with JMSMessageID = ID:7578408152750301483
-	Received message with JMSMessageID = ID:7578408152750301483
+Sent message with JMSMessageID = ID:7578408152750301483
+Received message with JMSMessageID = ID:7578408152750301483
 	
-	Sent message with JMSMessageID = ID:956102171969368961
-	Received message with JMSMessageID = ID:956102171969368961
-	exit
+Sent message with JMSMessageID = ID:956102171969368961
+Received message with JMSMessageID = ID:956102171969368961
+exit
+```
 
 ## JMS와 .NET 간의 크로스 플랫폼 메시징
 
@@ -293,21 +258,25 @@ JMS에서 .NET으로의 메시징을 시연하려면:
 
 #### JMS 응용 프로그램의 출력
 
-	> java SimpleSenderReceiver sendonly
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	Sent message with JMSMessageID = ID:4364096528752411591
-	Sent message with JMSMessageID = ID:459252991689389983
-	Sent message with JMSMessageID = ID:1565011046230456854
-	exit
+```
+> java SimpleSenderReceiver sendonly
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
+Sent message with JMSMessageID = ID:4364096528752411591
+Sent message with JMSMessageID = ID:459252991689389983
+Sent message with JMSMessageID = ID:1565011046230456854
+exit
+```
 
 #### .NET 응용 프로그램의 출력
 
-	> SimpleSenderReceiver.exe	
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	Received message with MessageID = 4364096528752411591
-	Received message with MessageID = 459252991689389983
-	Received message with MessageID = 1565011046230456854
-	exit
+```
+> SimpleSenderReceiver.exe	
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
+Received message with MessageID = 4364096528752411591
+Received message with MessageID = 459252991689389983
+Received message with MessageID = 1565011046230456854
+exit
+```
 
 ### .NET에서 JMS로
 
@@ -320,22 +289,25 @@ JMS에서 .NET으로의 메시징을 시연하려면:
 
 #### .NET 응용 프로그램의 출력
 
-	> SimpleSenderReceiver.exe sendonly
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3	
-	Sent message with MessageID = 98a39664995b4f74b32e2a0ecccc46bb
-	Sent message with MessageID = acbca67f03c346de9b7893026f97ddeb
-	exit
-
+```
+> SimpleSenderReceiver.exe sendonly
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
+Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3	
+Sent message with MessageID = 98a39664995b4f74b32e2a0ecccc46bb
+Sent message with MessageID = acbca67f03c346de9b7893026f97ddeb
+exit
+```
 
 #### JMS 응용 프로그램의 출력
 
-	> java SimpleSenderReceiver	
-	Press [enter] to send a message. Type 'exit' + [enter] to quit.
-	Received message with JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
-	Received message with JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
-	Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
-	exit
+```
+> java SimpleSenderReceiver	
+Press [enter] to send a message. Type 'exit' + [enter] to quit.
+Received message with JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
+Received message with JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
+Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
+exit
+```
 
 ## 지원되지 않는 기능 및 제한
 
@@ -361,4 +333,4 @@ JMS에서 .NET으로의 메시징을 시연하려면:
 * [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

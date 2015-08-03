@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="HDInsight에서 Spark 클러스터 프로비전 및 Zeppelin과 Jupyter에서 Spark SQL을 사용하여 대화형 분석 | Azure" 
-	description="HDInsight에서 Apache Spark를 신속하게 프로비전한 후 Zeppelin 및 Jupyterr 노트북에서 Spark SQL을 사용하여 대화형 쿼리를 실행하는 방법에 대한 단계별 지침입니다." 
+	description="HDInsight에서 Apache Spark 클러스터를 신속하게 프로비전한 후 Zeppelin 및 Jupyter 노트북에서 Spark SQL을 사용하여 대화형 쿼리를 실행하는 방법에 대한 단계별 지침입니다." 
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="nitinme" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="07/19/2015" 
 	ms.author="nitinme"/>
 
 
@@ -22,7 +22,7 @@
 빠른 생성 옵션을 사용하여 HDInsight에서 Apache Spark 클러스터를 프로비전한 후 웹 기반 [Zeppelin](https://zeppelin.incubator.apache.org) 및 [Jupyter](https://jupyter.org) 노트북을 사용하여 Spark 클러스터에서 Spark SQL 대화형 쿼리를 실행하는 방법에 대해 알아봅니다.
 
 
-   ![HDInsight에서 Apache Spark 사용 시작](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.GetStartedFlow.Spark.png "HDInsight에서 Apache Spark 사용 시작 자습서입니다. 설명된 단계: 저장소 계정 만들기; 클러스터 프로비전; Spark SQL 문 실행")
+   ![HDInsight에서 Apache Spark 사용 시작](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.GetStartedFlow.Spark.png "HDInsight에서 Apache Spark 사용 시작 자습서입니다. 설명된 단계: 저장소 계정 만들기, 클러스터 프로비전, Spark SQL 문 실행")
 
 **필수 조건:**
 
@@ -74,11 +74,11 @@ HDInsight에서 HDInsight 클러스터를 프로비전할 때 Azure 저장소 �
 
 	같은 페이지의 **노트북** 제목 아래에 **Note XXXXXXXXX**로 시작하는 이름의 새 노트북이 표시됩니다. 새 노트북을 클릭합니다.
 
-3. 새 노트북에 대한 웹 페이지에서 제목을 클릭하고 원하는 경우 노트북의 이름을 변경합니다. Enter 키를 눌러 변경된 이름을 저장합니다. 또한 노트북 제목의 오른쪽 위 모서리에 **연결됨** 상태가 표시되는지 확인합니다.
+3. 새 노트북에 대한 웹 페이지에서 제목을 클릭하고 원하는 경우 노트북의 이름을 변경합니다. Enter 키를 눌러 변경된 이름을 저장합니다. 또한 노트북 헤더의 오른쪽 위 모서리에 **연결됨** 상태가 표시되는지 확인합니다.
 
 	![Zeppelin 노트북 상태](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.NewNote.Connected.png "Zeppelin 노트북 상태")
 
-4. 샘플 데이터를 임시 테이블에 로드합니다. HDInsight에서 Spark 클러스터를 프로비전하면 샘플 데이터 파일인 **hvac.csv**가 **\\HdiSamples\\SensorSampleData\\hvac** 아래 연결된 저장소 계정에 복사됩니다.
+4. 샘플 데이터를 임시 테이블에 로드합니다. HDInsight에서 Spark 클러스터를 프로비전하면 샘플 데이터 파일인 **hvac.csv**가 **\HdiSamples\SensorSampleData\hvac** 아래 연결된 저장소 계정에 복사됩니다.
 
 	새 노트북에 기본적으로 만들어지는 빈 단락에 다음 코드 조각을 붙여넣습니다.
 
@@ -142,7 +142,7 @@ HDInsight에서 HDInsight 클러스터를 프로비전할 때 Azure 저장소 �
 
 ##<a name="jupyter"></a>Python 기반 Jupyter 노트북을 사용하여 Spark SQL 쿼리 실행
 
-Python을 사용하여 Spark SQL 쿼리를 실행할 수도 있습니다. 이 섹션에서는 Jupyter 노트북을 사용하여 Spark 클러스터에 대해 Spark SQL 쿼리를 실행합니다.
+이 섹션에서는 Jupyter 노트북을 사용하여 Spark 클러스터에 대해 Spark SQL 쿼리를 실행합니다.
 
 >[AZURE.NOTE]아래 지침에 따라 만드는 노트북은 클러스터에서 기본적으로 사용 가능합니다. Jupyter를 시작한 후 **HVACTutorial.ipynb** 이름으로 이 노트북을 찾습니다.
 
@@ -151,7 +151,7 @@ Python을 사용하여 Spark SQL 쿼리를 실행할 수도 있습니다. 이 �
 
 	![새 Jupyter 노트북 만들기](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.Jupyter.CreateNotebook.png "새 Jupyter 노트북 만들기")
 
-3. 새 노트북이 만들어지고 Untitled.pynb 이름으로 열립니다. 맨 위에서 노트북 이름을 클릭하고 친숙한 이름을 입력합니다.
+3. 새 노트북이 만들어지고 Untitled.pynb 이름으로 열립니다. 맨 위에서 노트북 이름을 클릭하고 식별하기 쉬운 이름을 입력합니다.
 
 	![노트북에 대한 이름 제공](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Note.Jupyter.Notebook.Name.png "노트북에 대한 이름 제공")
 
@@ -165,11 +165,11 @@ Python을 사용하여 Spark SQL 쿼리를 실행할 수도 있습니다. 이 �
 		sc = SparkContext('spark://headnodehost:7077', 'pyspark')
 		sqlContext = SQLContext(sc)
 
-	Jupyter에서 작업을 실행할 때마다, 웹 브라우저 창 제목에 노트북 제목과 함께 **(사용 중)** 상태가 표시됩니다. 또한 오른쪽 위 모서리에 있는 **Python 2** 텍스트 옆에 단색 원도 표시됩니다. 작업이 완료되면 이 원이 속이 빈 원으로 변경됩니다.
+	Jupyter에서 작업을 실행할 때마다, 웹 브라우저 창 제목에 노트북 제목과 함께 **(사용 중)** 상태가 표시됩니다. 또한 오른쪽 위 모서리에 있는 **Python 2** 텍스트 옆에 단색 원도 표시됩니다. 작업이 완료되면 속이 빈 원으로 변경됩니다.
 
 	 ![Jupyter 노트북 작업의 상태](./media/hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql/HDI.Spark.Jupyter.Job.Status.png "Jupyter 노트북 작업의 상태")
 
-4. 샘플 데이터를 임시 테이블에 로드합니다. HDInsight에서 Spark 클러스터를 프로비전하면 샘플 데이터 파일인 **hvac.csv**가 **\\HdiSamples\\SensorSampleData\\hvac** 아래 연결된 저장소 계정에 복사됩니다.
+4. 샘플 데이터를 임시 테이블에 로드합니다. HDInsight에서 Spark 클러스터를 프로비전하면 샘플 데이터 파일인 **hvac.csv**가 **\HdiSamples\SensorSampleData\hvac** 아래 연결된 저장소 계정에 복사됩니다.
 
 	빈 셀에서 다음 코드 조각을 붙여넣고 **SHIFT + ENTER**를 누릅니다. 이 코드 조각은 **hvac**라는 임시 테이블에 데이터로 등록됩니다.
 
@@ -227,9 +227,9 @@ Python을 사용하여 Spark SQL 쿼리를 실행할 수도 있습니다. 이 �
 
 * [개요: Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)
 * [HDInsight 클러스터에서 Spark 프로비전](hdinsight-apache-spark-provision-clusters.md)
-* [HDInsight에서 BI 도구로 Spark를 사용하여 대화형 데이터 분석 수행](hdinsight-apache-spark-use-bi-tools.md)
-* [HDInsight에서 Spark를 사용하여 기계 학습 응용 프로그램 구축](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 구축](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
+* [BI 도구와 함께 HDInsight에서 Spark를 사용하여 대화형 데이터 분석 수행](hdinsight-apache-spark-use-bi-tools.md)
+* [HDInsight에서 Spark를 사용하여 기계 학습 응용 프로그램 빌드](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [HDInsight에서 Spark를 사용하여 실시간 스트리밍 응용 프로그램 빌드](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)
 
 
@@ -243,4 +243,4 @@ Python을 사용하여 Spark SQL 쿼리를 실행할 수도 있습니다. 이 �
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

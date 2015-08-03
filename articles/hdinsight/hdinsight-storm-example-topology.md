@@ -13,15 +13,16 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="06/05/2015"
+ ms.date="07/21/2015"
  ms.author="larryfr"/>
 
-# HDInsight의 Apache Storm에 대한 예제 Storm 토폴로지
+# HDInsight의 Apache Storm에 대한 Storm 토폴로지 및 구성 요소 예제
 
 다음은 HDInsight에서 Apache Storm과 함께 사용하기 위해 Microsoft에서 만들고 유지 관리하는 예제 목록입니다. 이러한 예제에서는 기본 C# 및 Java 토폴로지 만들기부터 이벤트 허브, DocumentDB, Power BI, SQL 데이터베이스, HDInsight의 HBase, Azure 저장소 등의 Azure 서비스 작업에 이르는 다양한 항목을 다룹니다. 또한 일부 예제에서는 SignalR 및 Socket.IO와 같은 Azure가 아니거나 Microsoft가 아닌 기술로 작업하는 방법을 보여 줍니다.
 
 | 설명 | 데모 | 언어/프레임워크 |
 |:--------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:---------------------------|
+| [이벤트 허브 Spout 및 Bolt](https://github.com/apache/storm/tree/master/external/storm-eventhubs) | 이벤트 허브 Spout 및 Bolt에 대한 소스 | Java |
 | [HDInsight에서 Apache Storm에 대한 Java 기반 토폴로지 개발][5797064f] | Maven | Java |
 | [Visual Studio를 사용하여 HDInsight에서 Apache Storm에 대한 C# 토폴로지 개발][16fce2d1] | Visual Studio용 HDInsight 도구 | C#, Java |
 | [C# Storm 토폴로지에서 여러 데이터 스트림 만들기][ec5a4064] | 여러 스트림 | C# |
@@ -56,4 +57,4 @@
   [ce0c02a2]: https://github.com/hdinsight/hdinsight-storm-examples/tree/master/templates/HDInsightStormExamples "이 프로젝트에는 이벤트 허브, DocumentDB 및 SQL 데이터베이스와 같은 다양한 Azure 서비스와 상호 작용하는 토폴로지에 대한 Spout, Bolt 및 템플릿이 포함되어 있습니다."
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

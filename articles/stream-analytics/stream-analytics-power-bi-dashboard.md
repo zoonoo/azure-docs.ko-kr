@@ -208,4 +208,4 @@ Power BI는 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.co
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

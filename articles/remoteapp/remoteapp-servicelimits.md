@@ -22,4 +22,4 @@ Azure RemoteApp 서비스 제한 사항 및 기본값에 대한 정보가 [Azure
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

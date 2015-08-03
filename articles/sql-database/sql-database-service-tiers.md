@@ -89,4 +89,4 @@
 SQL 데이터베이스 계층에 대해 알아 보았으면 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 사용해보고 [첫 번째 SQL 데이터베이스를 만드는 방법](sql-database-get-started.md)에 대해 알아보세요!
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

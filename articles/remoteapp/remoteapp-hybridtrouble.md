@@ -3,7 +3,7 @@
     pageTitle="RemoteApp 하이브리드 컬렉션 만들기 문제 해결"
     description="RemoteApp 하이브리드 컬렉션 만들기 오류 문제를 해결하는 방법을 알아봅니다." 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="vkbucha" 
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/30/2015" 
+    ms.date="07/16/2015" 
     ms.author="elizapo" />
 
 
@@ -27,7 +27,7 @@
 컬렉션을 만드는 데 문제가 있거나 컬렉션이 생각대로 작동하지 않으면 다음 정보를 확인하세요.
 
 ## VNET이 강제 터널링을 사용하나요? ##
-RemoteApp은 현재 강제 터널링을 사용하는 VNET의 사용을 지원하지 않습니다. 이 함수가 필요한 경우 RemoteApp 팀에 지원을 요청합니다.
+RemoteApp은 현재 강제 터널링을 사용하는 VNET의 사용을 지원하지 않습니다. 이 함수가 필요한 경우 [RemoteApp 팀](mailto:remoteappforum@microsoft.com)에 지원을 요청합니다.
 
 요청이 승인되면 Azure RemoteApp에 대해 선택한 서브넷의 다음 포트와 서브넷의 VM이 열려 있는지 확인합니다. 또한 서브넷의 VM이 네트워크 보안 그룹 섹션에 언급된 URL에 액세스할 수 있어야 합니다.
 
@@ -70,8 +70,6 @@ RemoteApp은 현재 강제 터널링을 사용하는 VNET의 사용을 지원하
 
 ![DNS 정의](./media/remoteapp-hybridtrouble/dnsvpn.png)
 
-자세한 내용은 [자체 DNS 서버를 사용한 이름 확인](https://msdn.microsoft.com/library/azure/jj156088.aspx#bkmk_BYODNS)을 참조하세요.
-
 ## 컬렉션에서 Active Directory 도메인 컨트롤러를 사용하고 있나요? ##
 현재는 하나의 Active Directory 도메인만 Azure RemoteApp과 연결될 수 있습니다. 하이브리드 컬렉션은 Windows Server Active Directory 배포에서 DirSync 도구를 사용하여 동기화된, 특히 암호 동기화 옵션을 사용하여 동기화되거나 AD FS(Active Directory Federation Services) 페더레이션을 구성하여 동기화된 Azure Active Directory 계정만 지원합니다. 온-프레미스 도메인의 UPN 도메인 접미사와 일치하는 사용자 지정 도메인을 만들고 디렉터리 통합을 설정해야 합니다.
 
@@ -83,4 +81,4 @@ RemoteApp은 현재 강제 터널링을 사용하는 VNET의 사용을 지원하
 
 만들거나 추가한 도메인 이름은 내부 도메인 이름(Azure AD 도메인 이름이 아님)이어야 하며 확인할 수 있는 DNS 형식(contoso.local)이어야 합니다. 예를 들어 Active Directory 내부 이름(contoso.local) 및 Active Directory UPN(contoso.com)이 있는 경우 컬렉션을 만들 때 내부 이름을 사용해야 합니다.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

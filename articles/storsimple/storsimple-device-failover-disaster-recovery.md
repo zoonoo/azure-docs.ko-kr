@@ -140,4 +140,4 @@ StorSimple 관리자 서비스를 사용하여 장치를 관리하는 방법에 
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

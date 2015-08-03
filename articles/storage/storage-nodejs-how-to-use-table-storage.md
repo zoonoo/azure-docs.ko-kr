@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Node.js에서 테이블 저장소를 사용하는 방법 | Microsoft Azure&quot;" 
+	pageTitle="Node.js에서 테이블 저장소를 사용하는 방법 | Microsoft Azure";" 
 	description="Azure에서 테이블 저장소 서비스를 사용하는 방법을 알아봅니다. 코드 샘플은 Node.js API를 사용하여 작성되었습니다." 
 	services="storage" 
 	documentationCenter="nodejs" 
@@ -449,4 +449,4 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   [Create and deploy a Node.js application to an Azure Web Site]: ../web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

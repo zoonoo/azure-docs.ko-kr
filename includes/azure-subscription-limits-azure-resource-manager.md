@@ -21,8 +21,8 @@
 </tr>
 <tr>
    <td valign="middle"><p>구독당 <a href="http://azure.microsoft.com/documentation/articles/resource-group-overview/">리소스 그룹</a></p></td>
-   <td valign="middle"><p>500</p></td>
-   <td valign="middle"><p>500</p></td>
+   <td valign="middle"><p>800</p></td>
+   <td valign="middle"><p>800</p></td>
 </tr>
 <tr>
    <td valign="middle"><p>리소스 관리자 API 읽기</p></td>
@@ -52,4 +52,4 @@
 
 <sup>3</sup>Azure 리소스 그룹 및 Azure 리소스 관리자를 사용하면 이러한 기능이 더 이상 필요하지 않습니다.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

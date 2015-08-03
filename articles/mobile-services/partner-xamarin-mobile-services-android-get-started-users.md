@@ -138,4 +138,4 @@
 [완성된 예제 프로젝트]: http://go.microsoft.com/fwlink/p/?LinkId=331328
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

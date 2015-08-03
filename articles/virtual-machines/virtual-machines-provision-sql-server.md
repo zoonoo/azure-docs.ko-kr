@@ -200,7 +200,7 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 
 	처음으로 Management Studio를 열 때 사용자 Management Studio 환경이 만들어져야 합니다. 어느 정도 시간이 걸릴 수 있습니다.
 
-2. Management Studio에서 **서버에 연결** 대화 상자가 표시됩니다. **서버 이름** 상자에, 개체 탐색기를 사용하여 데이터베이스 엔진에 연결할 가상 컴퓨터의 이름을 입력합니다. 가상 컴퓨터 이름 대신 **(로컬)** 또는 단일 기간을 **서버 이름**으로 사용할 수도 있습니다. **Windows 인증**을 선택하고, **사용자 이름** 상자의 _**VM_이름**\\로컬_관리자_를 그대로 둡니다. **Connect**를 클릭합니다.
+2. Management Studio에서 **서버에 연결** 대화 상자가 표시됩니다. **서버 이름** 상자에, 개체 탐색기를 사용하여 데이터베이스 엔진에 연결할 가상 컴퓨터의 이름을 입력합니다. 가상 컴퓨터 이름 대신 **(로컬)** 또는 단일 기간을 **서버 이름**으로 사용할 수도 있습니다. **Windows 인증**을 선택하고, **사용자 이름** 상자의 _**VM_이름**\로컬_관리자_를 그대로 둡니다. **Connect**를 클릭합니다.
 
 	![서버에 연결][Image19]
 
@@ -299,17 +299,6 @@ Management Studio를 사용하여 Azure 가상 컴퓨터에서 실행 중인 SQL
 
 [Azure 가상 컴퓨터의 SQL Server로 마이그레이션할 준비하기](http://go.microsoft.com/fwlink/p/?LinkId=294721)
 
-- 데이터 디스크를 사용하여 Azure에서 가상 컴퓨터 간에 SQL Server 데이터베이스 파일 및 스키마를 마이그레이션하는 방법
-
-[Azure 가상 컴퓨터의 SQL Server 배포](http://go.microsoft.com/fwlink/p/?LinkId=294722)
-
-- CSUpload를 사용하여 데이터 디스크의 SQL Server 데이터 및 설치 파일을 온-프레미스에서 Azure로 복사하는 방법
-- Hyper-V를 사용하여 온-프레미스에서 기본 가상 컴퓨터를 만드는 방법
-- 기존 온-프레미스 SQL Server 디스크를 사용하여 Azure에서 SQL Server 가상 컴퓨터를 만드는 방법
-- 기존 온-프레미스 SQL Server 가상 컴퓨터를 사용하여 Azure에서 SQL Server 가상 컴퓨터를 만드는 방법 
-- PowerShell을 사용하여 Azure에서 SQL Server 가상 컴퓨터를 설정하는 방법 
-- 연결된 데이터 디스크를 사용하여 데이터베이스 파일을 저장하는 방법
-
 [Azure 가상 컴퓨터의 SQL Server에 대한 연결 고려 사항](http://go.microsoft.com/fwlink/p/?LinkId=294723)
 
 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 고려 사항](http://go.microsoft.com/fwlink/?LinkId=294724)
@@ -330,21 +319,13 @@ Management Studio를 사용하여 Azure 가상 컴퓨터에서 실행 중인 SQL
 
 [Azure 가상 컴퓨터의 SQL Server Business Intelligence](http://go.microsoft.com/fwlink/p/?LinkId=294729)
 
-- PowerShell을 사용하여 SQL Server BI 및 SharePoint 2010을 사용하는 Azure VM 만들기
-- PowerShell을 사용하여 SQL Server BI 및 SharePoint 2013을 사용하는 Azure VM 만들기
-- PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기
-
-[Azure 가상 컴퓨터의 SQL Server 데이터 웨어하우징](http://msdn.microsoft.com/library/windowsazure/dn387396.aspx)
+[Azure 가상 컴퓨터의 SQL Server 데이터 웨어하우징 및 트랜잭션 작업](http://msdn.microsoft.com/library/windowsazure/dn387396.aspx)
 
 [Azure 가상 컴퓨터의 SQL Server 관련 기술 문서](http://msdn.microsoft.com/library/azure/dn248435.aspx)
 
 - [백서: Azure 가상 컴퓨터의 Azure SQL 데이터베이스 및 SQL Server 이해](sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
 
 - [백서: Azure 가상 컴퓨터의 SQL Server를 위한 응용 프로그램 패턴 및 개발 전략](http://msdn.microsoft.com/library/azure/dn574746.aspx)
-
-- [백서: Azure 가상 컴퓨터에 SQL Server Business Intelligence 배포](http://msdn.microsoft.com/library/windowsazure/dn321998.aspx)
-
-- [백서: Reporting Services 보고서 뷰어 컨트롤 및 Microsoft Azure 가상 컴퓨터 기반 보고서 서버](http://msdn.microsoft.com/library/azure/dn753698.aspx)
 
 [Image4]: ./media/virtual-machines-provision-sql-server/4VM-Config.png
 [Image5]: ./media/virtual-machines-provision-sql-server/5VM-Mode.png
@@ -381,4 +362,4 @@ Management Studio를 사용하여 Azure 가상 컴퓨터에서 실행 중인 SQL
 [Image38]: ./media/virtual-machines-provision-sql-server/credentials.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

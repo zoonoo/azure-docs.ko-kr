@@ -38,8 +38,7 @@ New Relic Standard는 Azure 사용자에게 무료입니다. New Relic Pro는 �
 
 Azure 고객은 New Relic 에이전트를 배포할 때 New Relic Pro에 대해 2주의 평가판 구독을 받습니다.
 
-Azure 마켓플레이스를 사용하여 New Relic에 등록
---
+Azure 마켓플레이스를 사용하여 New Relic에 등록 --
 
 New Relic은 Azure 웹 역할, 작업자 역할 및 Azure 앱 서비스와 원활하게 통합됩니다.
 
@@ -176,4 +175,4 @@ Applications Overview 대시보드에는 <a href="https://newrelic.com/docs/site
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

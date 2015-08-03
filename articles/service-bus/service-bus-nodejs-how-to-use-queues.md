@@ -32,7 +32,7 @@ Azure 서비스 버스를 사용하려면 Node.js Azure 패키지를 다운로�
 
 ### NPM(Node Package Manager)을 사용하여 패키지 가져오기
 
-1.  **Windows PowerShell for Node.js** 명령 창을 사용하여 샘플 응용 프로그램을 만든 **c:\\node\\sbqueues\\WebRole1** 폴더로 이동합니다.
+1.  **Windows PowerShell for Node.js** 명령 창을 사용하여 샘플 응용 프로그램을 만든 **c:\node\sbqueues\WebRole1** 폴더로 이동합니다.
 
 2.  명령 창에 **npm install azure**를 입력합니다. 그러면 다음과 같이 출력됩니다.
 
@@ -190,4 +190,4 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
   [Node.js 웹 응용 프로그램 및 저장소]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

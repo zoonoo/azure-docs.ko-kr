@@ -77,7 +77,7 @@ vContinuum 설정은 [다운로드 위치](http://go.microsoft.com/fwlink/?linki
 
 ![](./media/site-recovery-failback-azure-to-vmware/image5.png)
 
-3.  CS 암호를 지정합니다. CS 등록 중에 암호를 기록해두어야 합니다. MT 및 PS 배포 중에도 암호를 사용했을 것입니다. 암호를 기억하지 못하는 경우 Azure에서 CS 서버로 이동하여 C:\\Program Files (x86) \\InMage Systems\\private\\connection.passphrase 아래에 저장된 암호를 찾을 수 있습니다.
+3.  CS 암호를 지정합니다. CS 등록 중에 암호를 기록해두어야 합니다. MT 및 PS 배포 중에도 암호를 사용했을 것입니다. 암호를 기억하지 못하는 경우 Azure에서 CS 서버로 이동하여 C:\Program Files (x86) \InMage Systems\private\connection.passphrase 아래에 저장된 암호를 찾을 수 있습니다.
 
     ![](./media/site-recovery-failback-azure-to-vmware/image6.png)
 
@@ -365,7 +365,7 @@ Azure 포털에서 가상 컴퓨터의 상태를 확인하 고 장애 조치되�
 
     e. 보호하려는 VM을 식별하면 하나씩 선택합니다.
 
-4.  가상 컴퓨터를 선택하여 보호하면(이미 Azure에 장애 조치된 경우) 가상 컴퓨터에 대한 두 가지 항목을 제공하는 팝업 창이 나타납니다. 이것은 CS가 등록된 가상 컴퓨터의 인스턴스 2개를 발견했기 때문입니다. 올바른 VM을 보호할 수 있도록 온-프레미스 VM에 대한 항목을 제거해야 합니다. 해당 컴퓨터의 호스트 이름에 의한 항목들이 표시됨을 유의하십시오. 여기에서 올바른 Azure VM 항목을 식별하려면 Azure VM에 로그인하여 C:\\Program Files (x86)\\Microsoft Azure Site Recovery\\Application Data\\etc로 이동합니다. 파일 drscout.conf에서 호스트 ID를 식별합니다. VContinuum 대화 상자에서 VM에서 hostID가 발견된 항목을 유지합니다. 다른 모든 항목을 삭제합니다.
+4.  가상 컴퓨터를 선택하여 보호하면(이미 Azure에 장애 조치된 경우) 가상 컴퓨터에 대한 두 가지 항목을 제공하는 팝업 창이 나타납니다. 이것은 CS가 등록된 가상 컴퓨터의 인스턴스 2개를 발견했기 때문입니다. 올바른 VM을 보호할 수 있도록 온-프레미스 VM에 대한 항목을 제거해야 합니다. 해당 컴퓨터의 호스트 이름에 의한 항목들이 표시됨을 유의하십시오. 여기에서 올바른 Azure VM 항목을 식별하려면 Azure VM에 로그인하여 C:\Program Files (x86)\Microsoft Azure Site Recovery\Application Data\etc로 이동합니다. 파일 drscout.conf에서 호스트 ID를 식별합니다. VContinuum 대화 상자에서 VM에서 hostID가 발견된 항목을 유지합니다. 다른 모든 항목을 삭제합니다.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image22.png)
 
@@ -604,4 +604,4 @@ VM별로 제공해야 하는 다양한 옵션은 다음과 같습니다.
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

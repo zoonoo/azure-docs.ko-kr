@@ -75,4 +75,4 @@ Visual Studio에서는 **솔루션 탐색기**에서 서비스 패브릭 응용 
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

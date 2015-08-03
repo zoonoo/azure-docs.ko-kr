@@ -129,7 +129,7 @@ URL 시퀀스를 포함하는 시나리오를 모니터링할 수 있습니다. 
 
 다단계 테스트를 만들려면 Visual Studio를 사용하여 시나리오를 기록한 다음 Application Insights에 기록을 업로드합니다. Application Insights는 지정된 간격에 따라 시나리오를 재생하고 응답을 확인합니다.
 
-#### 1\. 시나리오 기록
+#### 1. 시나리오 기록
 
 Visual Studio Ultimate를 사용하여 웹 세션을 기록합니다.
 
@@ -156,7 +156,7 @@ Visual Studio Ultimate를 사용하여 웹 세션을 기록합니다.
 
 (웹 테스트코드에 루프를 삽입하지 마세요.)
 
-#### 2\. Application Insights에 웹 테스트를 업로드
+#### 2. Application Insights에 웹 테스트를 업로드
 
 1. Application Insights 포털에서 새 웹 테스트를 만듭니다.
 
@@ -229,4 +229,4 @@ Visual Studio Ultimate를 사용하여 웹 세션을 기록합니다.
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

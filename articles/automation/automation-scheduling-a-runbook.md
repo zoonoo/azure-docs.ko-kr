@@ -96,4 +96,4 @@ Azure 관리 포털의 일정에 대한 일정 세부 정보 페이지에서 일
 - [Azure 자동화의 일정 자산](http://msdn.microsoft.com/library/azure/dn940016.aspx)
 - [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook.md) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

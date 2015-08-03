@@ -65,4 +65,4 @@
 
 [VNet(가상 네트워크)을 삭제하는 방법](../virtual-networks-delete-vnet)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -77,4 +77,4 @@
 
 <sup>4</sup> 로케이터는 사용자별 액세스 제어를 관리하도록 설계되지 않았습니다. 개별 사용자에게 서로 다른 액세스 권한을 부여하려면 DRM(Digital Rights Management)솔루션을 사용 합니다.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -131,4 +131,4 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 4. Android 앱 UI에서 **로그인**을 클릭합니다. 그리고 나서 **푸시 보내기**를 클릭합니다.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

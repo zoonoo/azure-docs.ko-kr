@@ -2,6 +2,7 @@
 	pageTitle="고급 분석 프로세스 및 기술을 위한 Hadoop 클러스터 사용자 지정 | Microsoft Azure" 
 	description="일반적인 Python 모듈을 사용자 지정 Azure HDInsight Hadoop 클러스터에서 사용할 수 있습니다."
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -97,4 +98,4 @@ RDP를 통해 Hadoop 클러스터의 헤드 노드에 액세스하려면 먼저 
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

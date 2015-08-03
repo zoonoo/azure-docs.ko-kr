@@ -79,4 +79,4 @@ SQL 데이터 웨어하우스에 대한 개발 원칙, 모범 사례 및 코딩 
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

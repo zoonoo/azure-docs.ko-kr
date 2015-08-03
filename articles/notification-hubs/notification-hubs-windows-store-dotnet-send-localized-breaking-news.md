@@ -231,4 +231,4 @@ Windows 스토어 앱에서
 [Windows 스토어용 알림 허브 방법]: http://msdn.microsoft.com/library/jj927172.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

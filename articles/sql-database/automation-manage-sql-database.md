@@ -53,4 +53,4 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 SQL 데이�
  * [Azure 자동화: 클라우드안의 SQL 에이전트](http://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/) 블로그 게시물을 읽으세요.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -178,4 +178,4 @@ Content를 원하는 값으로 설정할 수 있습니다. 이것은 예로 든 
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

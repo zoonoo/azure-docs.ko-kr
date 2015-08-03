@@ -232,7 +232,8 @@ Azure 관리 포털, [PowerShell](https://msdn.microsoft.com/library/azure/dn546
 		$serverContext = New-AzureSqlDatabaseServerContext -ServerName "myserver" -UseSubscription
 
 
-**Azure PowerShell 참조** 이 항목에서 사용되는 Azure PowerShell cmdlet에 대한 자세한 정보를 보려면 [Azure SQL 데이터베이스 Cmdlet](https://msdn.microsoft.com/library/dn546726.aspx)을 참조하세요.
+**Azure PowerShell 참조**
+이 항목에서 사용되는 Azure PowerShell cmdlet에 대한 자세한 정보를 보려면 [Azure SQL 데이터베이스 Cmdlet](https://msdn.microsoft.com/library/dn546726.aspx)을 참조하세요.
 
 [New-AzureSqlDatabaseServerContext](http://go.microsoft.com/fwlink/?LinkId=391026)
 
@@ -241,4 +242,4 @@ Azure 관리 포털, [PowerShell](https://msdn.microsoft.com/library/azure/dn546
 [Set-AzureSqlDatabase](http://go.microsoft.com/fwlink/?LinkId=391412)
  
 
-<!----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

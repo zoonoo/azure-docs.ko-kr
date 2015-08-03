@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="07/17/2015" 
 	ms.author="awills"/>
 
 # Azure 웹앱 성능 모니터링
@@ -27,7 +27,9 @@ Application Insights 및 New Relic은 사용할 수 있는 두 가지 성능 모
 
 1. **찾아보기**를 클릭하고 계측할 웹앱이나 가상 컴퓨터를 선택합니다.
 
-2. Application Insights 또는 New Relic 확장 프로그램을 추가합니다. 웹앱을 계측하는 경우:
+2. Application Insights 또는 New Relic 확장 프로그램을 추가합니다.
+
+    웹앱을 계측하는 경우:
 
 ![설정, 확장 프로그램, 추가, Application Insights](./media/insights-perf-analytics/05-extend.png)
 
@@ -81,4 +83,4 @@ SDK는 API를 제공하므로 [사용자 지정 원격 분석을 작성하여](.
 * 페이지가 다운된 경우 이를 찾을 수 있도록 Application Insights를 사용하여 [웹 페이지의 가용성 및 응답성을 모니터링](../app-insights-monitor-web-app-availability.md)합니다.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

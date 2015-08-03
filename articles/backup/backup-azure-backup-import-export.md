@@ -63,7 +63,7 @@ Azure 백업 및 Azure 가져오기/내보내기를 사용하면 디스크를 �
 
 2. *WAImportExport.zip* 파일의 압축을 풉니다. SATA 드라이브를 포맷하는 *WAImportExport* 도구를 실행하고, SATA 드라이브에 백업 데이터를 기록하고 암호화합니다. 컴퓨터에 BitLocker가 활성화되었는지 확인한 후 다음 명령을 실행합니다. <br/>
 
-    *.\\WAImportExport.exe PrepImport /j:<*JournalFile*>.jrn /id: <*SessionId*> /sk:<*StorageAccountKey*> /BlobType:**PageBlob** /t:<*TargetDriveLetter*> /format /encrypt /srcdir:<*staging location*> /dstdir: <*DestinationBlobVirtualDirectory*>/*
+    *.\WAImportExport.exe PrepImport /j:<*JournalFile*>.jrn /id: <*SessionId*> /sk:<*StorageAccountKey*> /BlobType:**PageBlob** /t:<*TargetDriveLetter*> /format /encrypt /srcdir:<*staging location*> /dstdir: <*DestinationBlobVirtualDirectory*>/*
 
 
 | 매개 변수 | 설명
@@ -107,4 +107,4 @@ Azure 백업 및 Azure 가져오기/내보내기를 사용하면 디스크를 �
 - Azure 가져오기/내보내기 워크플로에 대한 질문이 있으면 이 [문서](../storage-import-export-service.md)를 참조하세요.
 - 워크플로에 대한 질문이 있으면 Azure 백업 [FAQ](backup-azure-backup-faq.md)의 오프라인 백업 섹션을 참조하세요.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2015" 
+	ms.date="07/21/2015" 
 	ms.author="stepsic"/>
 
 # Azure 앱 서비스에서 가격 책정 계층 크기 조정
@@ -25,6 +25,8 @@ Microsoft Azure에서 앱의 성능 및 처리량 향상을 위해 [Azure 포털
 가격 책정 계층을 강화하는 것 외에도 서비스의 인스턴스 수를 늘릴 수 있습니다. 이를 *규모 확장* 또는 *규모 감축*이라고 합니다. *규모 확장* 및 *규모 감축*에 대한 자세한 내용은 [수동 또는 자동으로 인스턴스 개수 크기 조정](../insights-how-to-scale.md) 문서를 참조하세요.
 
 앱 서비스 계획에 대한 자세한 내용은 [앱 서비스 계획 정의](../web-sites-web-hosting-plan-overview.md) 및 [Azure 앱 서비스 호스팅 계획의 포괄 개요](azure-web-sites-web-hosting-plans-in-depth-overview.md)를 참조하세요. 개별 앱 서비스 계획의 가격 및 기능에 대한 자세한 내용은 [앱 서비스 가격 정보](/pricing/details/app-service/)를 참조하세요.
+
+마지막으로, 전용 [앱 서비스 환경](app-service-app-service-environment-intro.md)에서 사용하려는 경우는 크기 조정 작업이 다르게 작동합니다. 자세한 내용은 [앱 서비스 환경에서 웹앱 확장](app-service-web-scale-a-web-app-in-an-app-service-environment.md)을 참조하세요.
 
 > [AZURE.NOTE]**무료** 모드에서 **기본**, **표준** 또는 **프리미엄** 모드로 전환하기 전에 Azure 앱 서비스 구독에 대한 지출 한도를 먼저 제거해야 합니다. Microsoft Azure 앱 서비스 구독 옵션을 보거나 변경하려면 [Microsoft Azure 구독][azuresubscriptions]을 참조하세요.
 
@@ -43,7 +45,9 @@ Microsoft Azure에서 앱의 성능 및 처리량 향상을 위해 [Azure 포털
 4. 계층을 선택했으면 **선택**을 클릭합니다.
 	
 	작업이 완료되면 **알림** 탭에 **성공**이 녹색으로 깜박입니다.
-		
+ 
+또한 [여기서](http://go.microsoft.com/fwlink/?LinkId=309169) Azure의 다양한 계산 계층에 대해 알아볼 수 있습니다.
+	
 <a name="ScalingSQLServer"></a>
 ##관련 리소스 크기 조정
 앱이 SQL 또는 저장소와 같은 다른 서비스에 종속된 경우 요구에 따라 이러한 서비스의 크기를 조정할 수도 있습니다.
@@ -127,4 +131,4 @@ Microsoft Azure에서 앱의 성능 및 처리량 향상을 위해 [Azure 포털
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

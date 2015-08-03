@@ -165,7 +165,7 @@ ASP.NET 웹 응용 프로그램의 모든 정적 콘텐츠를 CDN 끝점으로 �
 		cd <ProjectFolder>
 		.\UploadContentToAzureBlobs.ps1 -StorageAccount "<yourStorageAccountName>" -StorageContainer "<yourContainerName>"
 
-이 스크립트는 *\\Content* 및 *\\Scripts* 폴더의 모든 파일을 지정한 저장소 계정 및 컨테이너로 업로드합니다. 그 장점은 다음과 같습니다.
+이 스크립트는 *\Content* 및 *\Scripts* 폴더의 모든 파일을 지정한 저장소 계정 및 컨테이너로 업로드합니다. 그 장점은 다음과 같습니다.
 
 -	Visual Studio 프로젝트의 파일 구조를 자동으로 복제합니다.
 -	필요한 경우 Blob 컨테이너를 자동으로 만듭니다.
@@ -174,7 +174,7 @@ ASP.NET 웹 응용 프로그램의 모든 정적 콘텐츠를 CDN 끝점으로 �
 
 `-StorageContainer` 매개 변수의 경우 웹 응용 프로그램 이름 또는 Visual Studio 프로젝트 이름을 사용하는 것이 좋습니다. 앞에서는 컨테이너 이름으로 일반 "cdn"을 사용했지만, 웹 응용 프로그램 이름을 사용하면 쉽게 식별할 수 있는 동일한 컨테이너로 관련 콘텐츠를 구성할 수 있습니다.
 
-콘텐츠 업로드가 완료되면 `http://<yourCDNName>.vo.msecnd.net/<containerName>`을(를) 사용하여 .cshtml 파일과 같이 HTML 코드의 *\\Content* 및 *\\Scripts* 폴더에 있는 모든 항목과 연결할 수 있습니다. 다음은 Razor 뷰에서 사용할 수 있는 예제 중 하나입니다.
+콘텐츠 업로드가 완료되면 `http://<yourCDNName>.vo.msecnd.net/<containerName>`을(를) 사용하여 .cshtml 파일과 같이 HTML 코드의 *\Content* 및 *\Scripts* 폴더에 있는 모든 항목과 연결할 수 있습니다. 다음은 Razor 뷰에서 사용할 수 있는 예제 중 하나입니다.
 
 	<img alt="Mugshot" src="http://az623979.vo.msecnd.net/MyMvcApp/Content/cephas_lin.png" />
 
@@ -230,7 +230,7 @@ CSS 업데이트를 게시할 경우 다음과 같이 CSS URL에 다른 버전 �
 
 &lt;link href=";http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=@cdnVersion</mark>"; rel=";stylesheet";/&gt; </pre>
 
-모든 게시 주기의 일부로 어셈블리 번호를 변경하면 마찬가지로 웹앱을 게시할 때마다 고유한 버전 번호를 가져올 수 있으며 다음 게시 주기 때까지 동일한 번호가 유지됩니다. 또는 Visual Studio 프로젝트의 * Properties\\AssemblyInfo.cs*를 열고 `AssemblyVersion`에 `*`을(를) 사용하여 웹앱을 빌드할 때마다 Visual Studio가 어셈블리 버전 번호를 자동으로 증분하도록 설정할 수 있습니다. 예:
+모든 게시 주기의 일부로 어셈블리 번호를 변경하면 마찬가지로 웹앱을 게시할 때마다 고유한 버전 번호를 가져올 수 있으며 다음 게시 주기 때까지 동일한 번호가 유지됩니다. 또는 Visual Studio 프로젝트의 * Properties\AssemblyInfo.cs*를 열고 `AssemblyVersion`에 `*`을(를) 사용하여 웹앱을 빌드할 때마다 Visual Studio가 어셈블리 버전 번호를 자동으로 증분하도록 설정할 수 있습니다. 예:
 
 	[assembly: AssemblyVersion("1.0.0.*")]
 
@@ -261,4 +261,4 @@ Azure 앱 서비스 웹앱 또는 Azure 클라우드 서비스와 통합하지 �
 - [Azure에 CDN 사용](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

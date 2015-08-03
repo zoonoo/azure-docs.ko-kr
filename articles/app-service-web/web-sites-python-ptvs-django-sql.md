@@ -221,4 +221,4 @@ Python Tools for Visual Studio, Django and SQL 및 SQL 데이터베이스에 대
 [SQL 데이터베이스]: /documentation/services/sql-database/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

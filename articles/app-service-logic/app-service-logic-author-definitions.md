@@ -688,4 +688,4 @@ Content-type: application/json
 
 그러면 각 환경에서 `connection` 매개 변수에 대해 다른 값을 제공할 수 있습니다. 논리 앱 만들기 및 관리에 대한 가능한 모든 옵션은 [REST API 설명서](https://msdn.microsoft.com/library/azure/dn948513.aspx)를 참조하십시오.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

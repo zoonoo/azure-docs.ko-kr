@@ -40,4 +40,4 @@ Azure DNS의 DNS 도메인은 DNS 이름 서버의 Azure 글로벌 네트워크�
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Azure PowerShell을 사용하여 Linux 기반 가상 컴퓨터 만들기 및 미리 구성" 
-	description="Azure PowerShell을 사용하여 Azure에서 Linux 기반 가상 컴퓨터를 만들고 미리 구성하는 방법에 대해 알아봅니다." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="Azure PowerShell을 사용하여 Linux 기반 가상 컴퓨터 만들기 및 미리 구성"
+	description="Azure PowerShell을 사용하여 Azure에서 Linux 기반 가상 컴퓨터를 만들고 미리 구성하는 방법에 대해 알아봅니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/09/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/09/2015"
+	ms.author="kathydav"/>
 
 # Azure PowerShell을 사용하여 Linux 기반 가상 컴퓨터 만들기 및 미리 구성
 
@@ -57,7 +57,7 @@ Azure PowerShell 명령 프롬프트에서 다음 명령을 실행하여 Azure �
 - SUSE Linux Enterprise Server 12
 
 선택한 텍스트 편집기 또는 PowerShell ISE(통합 스크립팅 환경)의 새 인스턴스를 엽니다. 새 텍스트 파일 또는 ImageFamily 값을 대체하는 PowerShell ISE에 다음을 복사합니다.
- 
+
 	$family="<ImageFamily value>"
 	$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 
@@ -84,7 +84,7 @@ D-, DS- 또는 G-시리즈 가상 컴퓨터에 대한 InstanceSize 값은 [Azure
 
 초기 Linux 사용자 이름 및 암호를 지정합니다(필수). 강력한 암호를 선택합니다. 암호 강도를 확인하려면 [암호 검사기: 강력한 암호 사용](https://www.microsoft.com/security/pc-security/password-checker.aspx)을 참조하세요.
 
-	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."	
+	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 
 선택적으로 구독에 이미 배포된 SSH 키 쌍 집합을 지정합니다.
@@ -158,7 +158,7 @@ Linux 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-Azur
 이 가상 컴퓨터 또는 이와 유사한 가상 컴퓨터를 다시 만들려는 경우 다음과 같이 할 수 있습니다.
 
 - 이 명령 집합을 PowerShell 스크립트 파일(*.ps1)로 저장
-- Azure 관리 포털의 **자동화** 섹션에서 이 명령을 Azure 자동화 Runbook으로 저장 
+- Azure 관리 포털의 **자동화** 섹션에서 이 명령을 Azure 자동화 Runbook으로 저장
 
 ## <a id="examples"></a>예제
 
@@ -169,7 +169,7 @@ Linux 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-Azur
 다음과 같은 MySQL Server용 Linux 가상 컴퓨터를 처음 만드는 데 사용할 수 있는 PowerShell 명령 집합이 필요합니다.
 
 - Ubuntu Server 12.10 이미지를 사용함
-- 이름이 AZMYSQL1임 
+- 이름이 AZMYSQL1임
 - 500GB의 추가 데이터 디스크가 있음
 - 고정 IP 주소가 192.168.244.4임
 - AZDatacenter 가상 네트워크의 BackEnd 서브넷에 있음
@@ -184,7 +184,7 @@ Linux 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-Azur
 	$vmsize="Large"
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."	
+	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 
 	$vm1 | Set-AzureSubnet -SubnetNames "BackEnd"
@@ -207,7 +207,7 @@ Linux 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-Azur
 
 - SUSE Linux Enterprise Server 12 이미지를 사용함
 - 이름이 LOB1임
-- 50GB의 추가 데이터 디스크가 있음 
+- 50GB의 추가 데이터 디스크가 있음
 - 표준 웹 트래픽에 대한 LOBServers 부하 분산 장치 집합의 멤버임
 - AZDatacenter 가상 네트워크의 FrontEnd 서브넷에 있음
 - Azure-TailspinToys 클라우드 서비스에 있음
@@ -221,7 +221,7 @@ Linux 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-Azur
 	$vmsize="Medium"
 	$vm1=New-AzureVMConfig -Name $vmname -InstanceSize $vmsize -ImageName $image
 
-	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."	
+	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 
 	$vm1 | Set-AzureSubnet -SubnetNames "FrontEnd"
@@ -260,6 +260,4 @@ Linux 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-Azur
 
 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
- 
-
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

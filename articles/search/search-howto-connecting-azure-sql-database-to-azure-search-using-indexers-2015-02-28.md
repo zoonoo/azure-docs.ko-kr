@@ -68,7 +68,21 @@ Azure SQL 인덱서를 설정 및 구성하기 위해 [Azure 검색 REST API](ht
 
 그런 다음 대상 Azure 검색 인덱스가 없는 경우 새로 만듭니다. 이 작업은 [포털 UI](https://portal.azure.com) 또는 [인덱스 만들기 API](https://msdn.microsoft.com/library/azure/dn798941.aspx)를 사용하여 수행할 수 있습니다. 대상 인덱스의 스키마가 원본 테이블의 스키마와 호환되는지 확인합니다. SQL 및 Azure 검색 데이터 형식 간의 매핑은 다음 표를 참조하세요.
 
-**SQL 데이터 형식과 Azure 검색 데이터 형식 간의 매핑** <table style="font-size:12"> <tr> <td>SQL 데이터 형식</td> <td>허용되는 대상 인덱스 필드 형식</td> <td>참고</td> </tr> <tr> <td>bit</td> <td>Edm.Boolean, Edm.String</td> <td></td> </tr> <tr> <td>int, smallint, tinyint</td> <td>Edm.Int32, Edm.Int64, Edm.String</td> <td></td> </tr> <tr> <td>bigint</td> <td>Edm.Int64, Edm.String</td> <td></td> </tr> <tr> <td>real, float</td> <td>Edm.Double, Edm.String</td> <td></td> </tr> <tr> <td>smallmoney, money<br/>decimal<br/>numeric </td> <td>Edm.String</td> <td>Azure 검색에서는 decimal 형식을 Edm.Double로 변환하면 정밀도가 떨어지기 때문에 이를 지원하지 않습니다. </td> </tr> <tr> <td>char, nchar, varchar, nvarchar</td> <td>Edm.String<br/>Collection(Edm.String)</td> <td>문자열 열을 Collection(Edm.String)으로 변환하려면 미리 보기 API 버전 2015-02-28-Preview를 사용해야 합니다. 자세한 내용은 [이 문서](search-api-indexers-2015-02-28-Preview.md#create-indexer)를 참조하세요.</td> </tr> <tr> <td>smalldatetime, datetime, datetime2, date, datetimeoffset</td> <td>Edm.DateTimeOffset, Edm.String</td> <td></td> </tr> <tr> <td>uniqueidentifer</td> <td>Edm.String</td> <td></td> </tr> <tr> <td>geography</td> <td>Edm.GeographyPoint</td> <td>SRID가 4326(기본값)인 POINT 형식의 지리 인스턴스만 지원됩니다.</td> </tr> <tr> <td>rowversion</td> <td>N/A</td> <td>행 버전 열은 변경 내용 추적에 사용할 수 있지만 검색 인덱스에 저장할 수는 없습니다.</td> </tr> <tr> <td>time, timespan<br>binary, varbinary, image,<br>xml, geometry, CLR 형식</td> <td>해당 없음</td> <td>지원되지 않음</td> </tr> </table>
+**SQL 데이터 형식과 Azure 검색 데이터 형식 사이의 매핑**
+
+|SQL 데이터 형식 | 허용되는 대상 인덱스 필드 유형 |참고 사항 
+|------|-----|----|
+|bit|Edm.Boolean, Edm.String| |
+|int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String| |
+| bigint | Edm.Int64, Edm.Int64, Edm.String | |
+| real, float |Edm.Double, Edm.String | |
+| smallmoney, money decimal numeric | Edm.String| Azure 검색에서는 decimal 형식을 Edm.Double로 변환하면 정밀도가 떨어지기 때문에 이를 지원하지 않습니다. |
+| char, nchar, varchar, nvarchar | Edm.String<br/>Collection(Edm.String)|문자열 열을 Collection(Edm.String) 변환하려면 API 버전 2015-02-28-Preview 미리 보기를 사용해야 합니다. 자세한 내용은 [이 문서](search-api-indexers-2015-02-28-Preview.md#create-indexer)를 참조하세요.| 
+|smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String| |
+|uniqueidentifer | Edm.String | |
+|geography | Edm.GeographyPoint | SRID가 4326(기본값)인 POINT 형식의 지리 인스턴스만 지원됩니다. | | 
+|rowversion| 해당 없음 |행 버전 열은 변경 내용 추적에 사용할 수 있지만 검색 인덱스에 저장할 수는 없습니다. | |
+| time, timespan, binary, varbinary, image, xml, geometry, CLR types | 해당 없음 |지원되지 않음 |
 
 마지막으로, 이름을 지정하고 데이터 원본 및 대상 인덱스를 참조하여 인덱서는 만듭니다.
 
@@ -263,4 +277,4 @@ A: 예. 인덱서는 검색 서비스의 노드 중 하나에서 실행되므로
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

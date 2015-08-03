@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="07/20/2015" 
 	ms.author="mebha"/>
 
 
@@ -41,7 +41,7 @@
 
 
 	sudo npm init
-	sudp npm install tedious
+	sudo npm install tedious
 
 
 **npm init** 명령으로 노드 프로젝트를 만듭니다. 프로젝트를 만들 때 기본값을 유지하려면 프로젝트 생성이 완료될 때까지 Enter 키를 누릅니다. 이제 프로젝트 디렉터리에서 **package.json** 파일을 볼 수 있습니다.
@@ -171,4 +171,4 @@ SQL 데이터베이스에서 [IDENTITY](https://msdn.microsoft.com/library/ms186
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -87,4 +87,4 @@ Standard 작업 컬렉션 수가 1~10,000인 경우 1개의 Premium 청구 단�
  [스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
   
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

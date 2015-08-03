@@ -158,4 +158,4 @@ Azure 관리 포털을 사용하면 그룹의 동적 멤버 자격을 사용하�
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

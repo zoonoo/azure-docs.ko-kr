@@ -153,4 +153,4 @@ Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌습니다. 아
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -220,4 +220,4 @@ MainStoryboard_iPhone.storyboard에서 지원되는 3가지 언어 즉 영어, �
 [iOS용 알림 허브 방법]: http://msdn.microsoft.com/library/jj927168.aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

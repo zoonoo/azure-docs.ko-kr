@@ -264,4 +264,4 @@ Azure 스케줄러는 여러 조건에 따라 할당량을 구현 합니다. 이
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

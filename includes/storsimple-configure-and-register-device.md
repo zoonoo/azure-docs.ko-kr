@@ -62,4 +62,4 @@
   
       >[AZURE.NOTE]장치 상태가 **오프라인**이면 장치가 온라인 상태가 될 때까지 몇 분 정도 기다립니다.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -152,4 +152,4 @@ StorSimple 관리자 서비스에 변경을 알리려면 StorSimple 관리자 �
 
 [StorSimple 보안](storsimple-security.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

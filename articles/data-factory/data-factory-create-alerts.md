@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 데이터 팩터리 이벤트에 대한 경고를 생성합니다." 
+	pageTitle="Azure Data Factory 이벤트에 대한 경고를 생성합니다." 
 	description="데이터 팩터리 작업에 대해 Azure에서 발생한 이벤트에 대한 경고를 만들 수 있는 방법에 대해 알아봅니다." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/15/2015" 
+	ms.date="07/21/2015" 
 	ms.author="spelluru"/>
 
 # Azure 이벤트 경고 만들기
-Azure 이벤트는 Azure 리소스에서 일어나는 일에 대한 유용한 통찰력을 제공합니다. Azure는 Azure 리소스(예: 데이터 팩터리)가 생성, 업데이트 또는 삭제될 때 사용자 이벤트를 기록합니다. Azure 데이터 팩터리를 사용하면 다음의 경우에 이벤트가 생성됩니다.
+Azure 이벤트는 Azure 리소스에서 일어나는 일에 대한 유용한 통찰력을 제공합니다. Azure는 Azure 리소스(예: 데이터 팩터리)가 생성, 업데이트 또는 삭제될 때 사용자 이벤트를 기록합니다. Azure Data Factory를 사용하면 다음의 경우에 이벤트가 생성됩니다.
  
-1.	Azure 데이터 팩터리가 생성/업데이트/삭제됩니다.
+1.	Azure Data Factory가 생성/업데이트/삭제됩니다.
 2.	데이터 처리(실행이라고 하는)가 시작/완료되었습니다.
 3.	주문형 HDInsight 클러스터가 생성되고 제거되는 경우.
 
@@ -109,62 +109,16 @@ StorageAccountName은 배포된 경고 JSON 파일을 저장하기 위한 저장
 
 ## <a name="AvailableOperationsStatuses"></a>사용 가능한 작업 이름 및 상태 값
 
-<table>
-<th align="left">작업 이름</th>
-<th align="left">상태</th>
-<th align="left">Sub Status</th>
+| 작업 이름 | 상태 | Sub Status |
+| -------------- | ------ | ---------- |
+| RunStarted | 시작 | Starting |
+| RunFinished | 실패/성공 |	<p>FailedResourceAllocation </p><p>Succeeded</p><p>FailedExecution</p><p>TimedOut</p><p>Canceled</p><p>FailedValidation</p><p>Abandoned</p> | 
+| SliceOnTime | In Progress | Ontime |
+| SliceDelayed | In Progress | Late |
+| OnDemandClusterCreateStarted | 시작 | |
+| OnDemandClusterCreateSuccessful | Succeeded | | 
+| OnDemandClusterDeleted | Succeeded | |
 
-<tr>
-<td>RunStarted</td>
-<td>시작</td>
-<td>Starting</td>
-</tr>
-
-<tr>
-<td>RunFinished</td>
-<td>Failed / Succeeded</td>
-<td>
-	<p>FailedResourceAllocation </p>
-	<p>Succeeded</p>
-	<p>FailedExecution</p>
-	<p>TimedOut</p>
-	<p>Canceled</p>
-	<p>FailedValidation</p>
-	<p>Abandoned</p>
-</td>
-</tr>
-
-<tr>
-<td>SliceOnTime</td>
-<td>In Progress</td>
-<td>Ontime</td>
-</tr>
-
-<tr>
-<td>SliceDelayed</td>
-<td>In Progress</td>
-<td>Late</td>
-</tr>
-
-<tr>
-<td>OnDemandClusterCreateStarted</td>
-<td>시작</td>
-<td></td>
-</tr>
-
-<tr>
-<td>OnDemandClusterCreateSuccessful</td>
-<td>Succeeded</td>
-<td></td>
-</tr>
-
-<tr>
-<td>OnDemandClusterDeleted</td>
-<td>Succeeded</td>
-<td></td>
-</tr>
-
-</table>
 
 ## 사용자 이벤트 문제 해결
 다음 명령을 실행하여 생성된 이벤트를 봅니다.
@@ -172,4 +126,4 @@ StorageAccountName은 배포된 경고 JSON 파일을 저장하기 위한 저장
 	Get-AzureResourceGroupLog –Name $ResourceGroup -All | Where-Object EventSource -eq "Microsoft.DataFactory"
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

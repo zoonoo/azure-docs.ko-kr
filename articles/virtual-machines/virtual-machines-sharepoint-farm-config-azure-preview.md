@@ -140,4 +140,4 @@ Azure 미리보기 포털의 SharePoint 서버 팜 기능은 서비스 관리에
 [테스트용 하이브리드 클라우드에 SharePoint 인트라넷 팜 설치](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

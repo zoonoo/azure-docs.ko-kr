@@ -13,4 +13,4 @@
 
 이 플러그 인은 최신 버전의 Azure SDK를 사용합니다. 이 SDK는 <http://go.microsoft.com/fwlink/?LinkID=252838>에서 WebPI(웹 플랫폼 설치 관리자)를 사용하여 다운로드할 수 있습니다. 그러나 설치되어 있지 않은 경우 첫 번째 Azure 배포 프로젝트를 만들 때 Eclipse용 Azure 플러그 인(Java 포함)(Microsoft Open Technologies 제공)에서 해당 버전의 Azure SDK를 자동으로 설치합니다.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

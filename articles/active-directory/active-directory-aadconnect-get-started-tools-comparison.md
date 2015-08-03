@@ -88,4 +88,4 @@
 AD에서 Azure AD로의 흐름에서 특성 제거 허용 | ● | ● | |  
 특성 흐름에 대한 고급 사용자 지정 허용 | ● | ● | | ●  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,21 +1,20 @@
-<properties 
-	pageTitle="리소스 관리자 템플릿 및 PowerShell을 사용하여 Azure 가상 컴퓨터 배포 및 관리" 
-	description="Azure 가상 컴퓨터에 대한 가장 일반적인 구성 집합을 간단하게 배포하고 리소스 관리자 템플릿 및 PowerShell을 사용하여 관리합니다." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
-	editor=""
-	tags="azure-resource-manager"/>
+<properties
+	pageTitle="리소스 관리자 템플릿 및 PowerShell을 사용하여 Azure 가상 컴퓨터 배포 및 관리"
+	description="Azure 가상 컴퓨터에 대한 가장 일반적인 구성 집합을 간단하게 배포하고 리소스 관리자 템플릿 및 PowerShell을 사용하여 관리합니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/19/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/02/2015"
+	ms.author="davidmu"/>
 
 # Azure 리소스 관리자 템플릿 및 PowerShell을 사용하여 가상 컴퓨터 배포 및 관리
 
@@ -24,7 +23,6 @@
 - [Windows VM 배포](#windowsvm)
 - [사용자 지정 VM 이미지 만들기](#customvm)
 - [가상 네트워크 및 외부 부하 분산 장치를 사용하는 여러 VM 응용 프로그램 배포](#multivm)
-- [리소스 관리자 템플릿을 사용하여 배포된 가상 컴퓨터 업데이트](#updatevm)
 - [리소스 그룹 제거](#removerg)
 - [가상 컴퓨터에 로그온](#logon)
 - [가상 컴퓨터에 대한 정보 표시](#displayvm)
@@ -37,7 +35,7 @@
 
 [AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
-## Azure 리소스 관리자 템플릿 및 리소스 그룹 이해
+## Azure 리소스 템플릿 및 리소스 그룹 이해
 
 Microsoft Azure에서 배포되고 실행되는 대부분의 응용 프로그램은 다양한 클라우드 리소스 유형(예: 하나 이상의 VM 및 저장소 계정, SQL 데이터베이스 또는 가상 네트워크)의 조합으로 구축됩니다. Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 구성 및 배포 매개 변수에 대한 JSON 설명을 사용하여 이러한 다양한 리소스를 함께 배포하고 관리할 수 있습니다.
 
@@ -45,19 +43,19 @@ JSON 기반 리소스 템플릿을 정의한 경우 이 템플릿을 실행하�
 
 Azure 리소스 관리자 템플릿을 사용하여 만드는 리소스는 새 Azure 리소스 그룹이나 기존 Azure 리소스 그룹에 배포됩니다. *Azure 리소스 그룹*에서는 배포된 여러 리소스를 논리 그룹으로 함께 관리할 수 있습니다. 따라서 그룹/응용 프로그램의 전체 수명 주기를 관리하고 다음을 수행할 수 있는 관리 API를 제공할 수 있습니다.
 
-- 그룹 내의 모든 리소스를 한 번에 중지, 시작 또는 삭제합니다. 
-- RBAC(역할 기반 액세스 제어) 규칙을 적용하여 리소스에 대한 보안 권한을 잠급니다. 
-- 작업을 감사합니다. 
-- 더 잘 추적할 수 있도록 추가 메타데이터를 사용하여 리소스에 태그를 지정합니다. 
+- 그룹 내의 모든 리소스를 한 번에 중지, 시작 또는 삭제합니다.
+- RBAC(역할 기반 액세스 제어) 규칙을 적용하여 리소스에 대한 보안 권한을 잠급니다.
+- 작업을 감사합니다.
+- 더 잘 추적할 수 있도록 추가 메타데이터를 사용하여 리소스에 태그를 지정합니다.
 
-Azure 리소스 관리자에 대한 자세한 내용은 [여기](virtual-machines-azurerm-versus-azuresm.md)를 참조하세요. 템플릿 작성에 관심이 있다면 [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
+Azure 리소스 관리자에 대한 자세한 내용은 [여기](virtual-machines-azurerm-versus-azuresm.md)를 참조하세요. 템플릿 작성에 관심이 있다면 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 
 ## <a id="windowsvm"></a>작업: Windows VM 배포
 
 리소스 관리자 템플릿 및 Azure PowerShell을 사용하여 새 Azure VM을 배포하려면 이 섹션의 지침을 사용하세요. 이 템플릿에서는 단일 서브넷을 사용하는 새 가상 네트워크에 단일 가상 컴퓨터를 만듭니다.
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/windowsvm.png)
- 
+
 Azure PowerShell과 Github 템플릿 리포지토리의 리소스 관리자 템플릿을 사용하여 Windows VM을 만들려면 다음 단계를 수행하세요.
 
 ### 1단계: JSON 파일에서 템플릿 검사
@@ -96,9 +94,9 @@ Azure PowerShell과 Github 템플릿 리포지토리의 리소스 관리자 템�
             "type": "string",
             "defaultValue": "2012-R2-Datacenter",
             "allowedValues": [
-                "2008-R2-SP1", 
-                "2012-Datacenter", 
-                "2012-R2-Datacenter", 
+                "2008-R2-SP1",
+                "2012-Datacenter",
+                "2012-R2-Datacenter",
                 "Windows-Server-Technical-Preview"
             ],
             "metadata": {
@@ -108,11 +106,11 @@ Azure PowerShell과 Github 템플릿 리포지토리의 리소스 관리자 템�
     },
     "variables": {
         "location": "West US",
-        "imagePublisher": "MicrosoftWindowsServer", 
-        "imageOffer": "WindowsServer", 
+        "imagePublisher": "MicrosoftWindowsServer",
+        "imageOffer": "WindowsServer",
         "OSDiskName": "osdiskforwindowssimple",
         "nicName": "myVMNic",
-        "addressPrefix": "10.0.0.0/16", 
+        "addressPrefix": "10.0.0.0/16",
         "subnetName": "Subnet",
         "subnetPrefix": "10.0.0.0/24",
         "storageAccountType": "Standard_LRS",
@@ -121,10 +119,10 @@ Azure PowerShell과 Github 템플릿 리포지토리의 리소스 관리자 템�
         "vmStorageAccountContainerName": "vhds",
         "vmName": "MyWindowsVM",
         "vmSize": "Standard_D1",
-        "virtualNetworkName": "MyVNET",        
+        "virtualNetworkName": "MyVNET",
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
         "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]"
-    },    
+    },
     "resources": [
         {
             "type": "Microsoft.Storage/storageAccounts",
@@ -238,7 +236,7 @@ Azure PowerShell과 Github 템플릿 리포지토리의 리소스 관리자 템�
             }
         }
     ]
-	} 
+	}
 
 
 ### 2단계: 템플릿을 사용하여 가상 컴퓨터 만들기
@@ -282,8 +280,8 @@ Azure 배포 이름, 리소스 그룹 이름 및 Azure 데이터 센터 위치�
 	VERBOSE: 10:57:45 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
 	VERBOSE: 10:57:45 AM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
 	VERBOSE: 11:01:59 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
-	
-	
+
+
 	DeploymentName    : TestDeployment
 	ResourceGroupName : TestRG
 	ProvisioningState : Succeeded
@@ -298,7 +296,7 @@ Azure 배포 이름, 리소스 그룹 이름 및 Azure 데이터 센터 위치�
 	                    adminPassword    SecureString
 	                    dnsNameForPublicIP  String                     contoso9875
 	                    windowsOSVersion  String                     2012-R2-Datacenter
-	
+
 	Outputs           :
 
 이제 새 리소스 그룹에 MyWindowsVM이라는 새 Windows 가상 컴퓨터가 생성되었습니다.
@@ -784,171 +782,6 @@ New-AzureResourceGroupDeployment 명령을 실행하면 JSON 파일의 매개 �
 	vmNamePrefix: WEBFARM
 	...
 
-## <a id="updatevm"></a>작업: 리소스 관리자 템플릿을 사용하여 배포된 가상 컴퓨터 업데이트
-
-리소스 관리자 템플릿을 사용하여 배포된 가상 컴퓨터의 구성을 업데이트하도록 JSON 템플릿 파일을 수정하는 예는 다음과 같습니다. 이 예에서는 Windows 가상 컴퓨터를 만들고 Symantec Endpoint Protection 확장을 설치하도록 업데이트합니다.
-
-### 1단계: 템플릿을 사용하여 가상 컴퓨터 만들기
-
-필요한 경우 템플릿 파일을 저장하기 위해 컴퓨터에 폴더를 만듭니다. 폴더 이름을 입력하고 Azure PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
-
-	$myFolder="<your folder path, such as C:\azure\templates\CreateVM>"
-	$webClient=New-Object System.Net.WebClient
-	$url="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.json"
-	$filePath=$myFolder + "\azuredeploy.json"
-	$webclient.DownloadFile($url,$filePath)
-	$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-windows-vm/azuredeploy.parameters.json"
-	$filePath = $myFolder + "\azuredeploy.parameters.json"
-	$webclient.DownloadFile($url,$filePath)
-
-폴더에서 azuredeploy.parameters.json 파일을 텍스트 편집기에서 열고 4개의 매개 변수 값을 지정하고 파일을 저장합니다.
-
-새 배포 이름, 새 리소스 그룹 이름 및 Azure 위치를 입력하고 다음 명령을 실행합니다.
-
-	$deployName="<name for the new deployment>"
-	$RGName="<name for the new Resource Group>"
-	$locName="<an Azure location, such as West US>"
-	cd $myFolder
-	Switch-AzureMode AzureResourceManager
-	New-AzureResourceGroup –Name $RGName –Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
-
-다음과 유사한 결과가 표시됩니다.
-
-	PS C:\azure\templates\windowsvm> $deployName="winvmexttest"
-	PS C:\azure\templates\windowsvm> $RGName="winvmexttest"
-	PS C:\azure\templates\windowsvm> $locname="West US"
-	PS C:\azure\templates\windowsvm> New-AzureResourceGroup -Name $RGName -Location $locName
-	VERBOSE: 11:22:02 AM - Created resource group 'winvmexttest' in location 'westus'
-	
-	
-	ResourceGroupName : winvmexttest
-	Location          : westus
-	ProvisioningState : Succeeded
-	Tags              :
-	Permissions       :
-	                    Actions  NotActions
-	                    =======  ==========
-	                    *
-	
-	ResourceId        : /subscriptions/a58ce54a-c262-460f-b8ef-fe36e6d5f5ec/resourceGroups/winvmexttest
-
-	PS C:\azure\templates\windowsvm> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -Template
-	File azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
-	VERBOSE: 11:22:05 AM - Template is valid.
-	VERBOSE: 11:22:05 AM - Create template deployment 'winvmexttest'.
-	VERBOSE: 11:22:14 AM - Resource Microsoft.Storage/storageAccounts 'contososa' provisioning status is running
-	VERBOSE: 11:22:21 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is running
-	VERBOSE: 11:22:21 AM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is running
-	VERBOSE: 11:22:37 AM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is succeeded
-	VERBOSE: 11:22:39 AM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is succeeded
-	VERBOSE: 11:22:41 AM - Resource Microsoft.Storage/storageAccounts 'contososa' provisioning status is succeeded
-	VERBOSE: 11:22:43 AM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
-	VERBOSE: 11:22:52 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
-	VERBOSE: 11:26:36 AM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
-	
-	DeploymentName    : winvmexttest
-	ResourceGroupName : winvmexttest
-	ProvisioningState : Succeeded
-	Timestamp         : 6/3/2015 6:26:38 PM
-	Mode              : Incremental
-	TemplateLink      :
-	Parameters        :
-	                    Name             Type                       Value
-	                    ===============  =========================  ==========
-	                    newStorageAccountName  String                     contososa
-	                    adminUsername    String                     admin0987
-	                    adminPassword    SecureString
-	                    dnsNameForPublicIP  String                     contosovm
-	                    windowsOSVersion  String                     2012-R2-Datacenter
-	
-	Outputs           :
-
-다음으로, Azure Preview 포털에서 가상 컴퓨터에 연결합니다(**찾아보기 > 가상 컴퓨터 (v2) > ***VM 이름* **> 연결**).
-
-시작 화면에서 **Symantec**을 입력합니다. Symantec Endpoint Protection 구성 요소가 설치되지 않았는지 확인합니다(제목에 "Symantec"이라는 검색 결과가 없음).
-
-원격 데스크탑 연결을 닫습니다.
-
-### 2단계: Symantec Endpoint Protection 확장을 추가하도록 azuredeploy.json 파일을 수정합니다.
-
-폴더에서 원하는 텍스트 편집기로 azuredeploy.json 파일을 엽니다. **변수** 섹션에서 publicIPAddressType 변수를 정의하는 줄 바로 뒤에 다음 줄을 추가합니다.
-
-	"vmExtensionName" : "SymantecExtension",
-
-**리소스** 섹션에서 마지막 왼쪽 대괄호 "]"가 있는 줄 바로 앞에 다음 새 섹션을 추가합니다.
-
-	       {
-	         "type": "Microsoft.Compute/virtualMachines/extensions",
-	        "name": "[concat(variables('vmName'),'/', variables('vmExtensionName'))]",
-	        "apiVersion": "2014-12-01-preview",
-	        "location": "[variables('location')]",
-	        "dependsOn": [
-	            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-	        ],
-	        "properties": {
-	            "publisher": "Symantec",
-	            "type": "SymantecEndpointProtection",
-	            "typeHandlerVersion": "12.1",
-	            "settings": null,
-	            "protectedSettings": null
-	        }
-	    }
-
-이 새 변경 내용이 있는 azuredeploy.json 파일을 저장합니다. 변경 내용을 제대로 수행했는지 확인하고 이 명령을 사용합니다.
-
-	Test-AzureResourceGroupTemplate -ResourceGroupName $RGName -TemplateFile azuredeploy.json
-
-변경 내용이 올바른 경우 다음이 표시되어야 합니다.
-
-	Template is valid.
-
-이 메시지가 표시되지 않으면 오류 메시지를 분석하여 오류의 원인을 찾습니다.
-
-### 3단계: Symantec Endpoint Protection 확장을 추가하도록 수정된 서식 파일을 실행합니다.
-
-Azure PowerShell 프롬프트에서 이 명령을 실행합니다.
-
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
-
-다음과 유사한 결과가 표시됩니다.
-
-	PS C:\azure\templates\winvmext> New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateF	ile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
-	VERBOSE: 12:49:42 PM - Template is valid.
-	VERBOSE: 12:49:42 PM - Create template deployment 'winvmexttest'.
-	VERBOSE: 12:49:45 PM - Resource Microsoft.Network/publicIPAddresses 'myPublicIP' provisioning status is succeeded
-	VERBOSE: 12:49:45 PM - Resource Microsoft.Network/virtualNetworks 'MyVNET' provisioning status is succeeded
-	VERBOSE: 12:49:47 PM - Resource Microsoft.Storage/storageAccounts 'contososa' provisioning status is succeeded
-	VERBOSE: 12:49:49 PM - Resource Microsoft.Network/networkInterfaces 'myVMNic' provisioning status is succeeded
-	VERBOSE: 12:49:51 PM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is running
-	VERBOSE: 12:50:08 PM - Resource Microsoft.Compute/virtualMachines 'MyWindowsVM' provisioning status is succeeded
-	VERBOSE: 12:50:15 PM - Resource Microsoft.Compute/virtualMachines/extensions 'MyWindowsVM/SymantecExtension'	provisioning status is running
-	VERBOSE: 12:53:07 PM - Resource Microsoft.Compute/virtualMachines/extensions 'MyWindowsVM/SymantecExtension' provisioning status is succeeded
-	
-	
-	DeploymentName    : winvmexttest
-	ResourceGroupName : winvmexttest
-	ProvisioningState : Succeeded
-	Timestamp         : 6/3/2015 7:53:07 PM
-	Mode              : Incremental
-	TemplateLink      :
-	Parameters        :
-	                    Name             Type                       Value
-	                    ===============  =========================  ==========
-	                    newStorageAccountName  String                     contososa
-	                    adminUsername    String                     admin0987
-	                    adminPassword    SecureString
-	                    dnsNameForPublicIP  String                     contosovm
-	                    windowsOSVersion  String                     2012-R2-Datacenter
-	
-	Outputs           :
-
-Azure Preview 포털에서 가상 컴퓨터에 연결합니다(**찾아보기 > 가상 컴퓨터 (v2) > ***VM 이름* **> 연결**).
-
-시작 화면에서 **Symantec**을 입력합니다. Symantec Endpoint Protection 확장이 이제 설치되었음을 표시하는 다음과 같은 메시지가 나타나야 합니다.
-
-![](./media/virtual-machines-deploy-rmtemplates-powershell/SymantecExt.png)
-
 ## <a id="removerg"></a>작업: 리소스 그룹 제거
 
 **Remove-AzureResourceGroup** 명령으로 만든 모든 리소스 그룹을 제거할 수 있습니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
@@ -963,11 +796,7 @@ Azure Preview 포털에서 가상 컴퓨터에 연결합니다(**찾아보기 > 
 
 ## <a id="logon"></a>작업: Windows 가상 컴퓨터에 로그온
 
-[Azure Preview 포털](https://portal.azure.com/)에서 **모두 찾아보기 > 가상 컴퓨터(v2) >** *VM 이름* **> 연결**을 클릭합니다.
-
-RDP 파일을 열거나 저장하라는 메시지가 나타나면 **열기**를 클릭하고 **연결**을 클릭합니다. 유효한 사용자 계정의 자격 증명을 입력한 다음 **확인**을 클릭합니다.
-
-인증서 오류와 관계 없이 연결하라는 메시지가 표시되면 **예**를 클릭합니다 .
+자세한 단계는 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-log-on-windows-server.md)을 참조하세요.
 
 ## <a id="displayvm"></a>작업: 가상 컴퓨터에 대한 정보 표시
 
@@ -1065,8 +894,8 @@ RDP 파일을 열거나 저장하라는 메시지가 나타나면 **열기**를 
 	Virtual machine stopping operation
 	This cmdlet will stop the specified virtual machine. Do you want to continue?
 	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
-	
-	
+
+
 	EndTime             : 4/28/2015 11:09:08 AM -07:00
 	Error               :
 	Output              :
@@ -1104,8 +933,8 @@ RDP 파일을 열거나 저장하라는 메시지가 나타나면 **열기**를 
 	Virtual machine removal operation
 	This cmdlet will remove the specified virtual machine. Do you want to continue?
 	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
-	
-	
+
+
 	EndTime             : 4/28/2015 11:21:55 AM -07:00
 	Error               :
 	Output              :
@@ -1119,12 +948,12 @@ RDP 파일을 열거나 저장하라는 메시지가 나타나면 **열기**를 
 
 [Azure 리소스 관리자의 Azure 계산, 네트워크 및 저장소 공급자](virtual-machines-azurerm-versus-azuresm.md)
 
-[Azure 리소스 관리자 개요](../resource-group-overview.md)
+[Azure 리소스 관리자 개요](resource-group-overview.md)
 
 [Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines-deploy-rmtemplates-azure-cli.md)
 
 [가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)
+[Azure PowerShell을 설치 및 구성하는 방법](install-configure-powershell.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

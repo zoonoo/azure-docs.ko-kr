@@ -29,4 +29,4 @@ Azure는 응용 프로그램을 실행하기 위한 여러 호스팅 모델을 �
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

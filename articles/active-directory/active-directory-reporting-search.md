@@ -55,4 +55,4 @@ Azure Active Directory는 디렉터리 관리자에게 여러 보고서에서 �
  - [Azure Active Directory 보고서](active-directory-view-access-usage-reports.md)
  - [Azure Active Directory Reporting 감사 이벤트](active-directory-reporting-audit-events.md)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

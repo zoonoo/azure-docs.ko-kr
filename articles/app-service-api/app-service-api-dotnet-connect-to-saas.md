@@ -121,7 +121,7 @@ API 앱이 SaaS 플랫폼으로 보내는 호출을 수행하려면 *apiapp.json
 	 
 			install-package DropboxRestAPI  
 
-1. *Controllers\\ValuesController.cs*를 열고 파일의 모든 코드를 다음 코드로 바꿉니다.
+1. *Controllers\ValuesController.cs*를 열고 파일의 모든 코드를 다음 코드로 바꿉니다.
 
 		using DropboxRestAPI;
 		using Microsoft.Azure.AppService.ApiApps.Service;
@@ -447,4 +447,4 @@ SaaS 플랫폼에 연결되는 API 앱을 코딩 및 구성하는 방법을 살�
 [Azure preview portal]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

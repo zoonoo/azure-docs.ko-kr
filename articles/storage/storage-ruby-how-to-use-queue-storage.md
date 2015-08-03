@@ -153,4 +153,4 @@ Azure 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY** 환�
 이 항목에서 다룬 Azure 큐 서비스와 [서비스 버스 큐를 사용하는 방법](/develop/ruby/how-to-guides/service-bus-queues/) 항목에서 다루는 Azure 서비스 버스 큐를 비교하려면 [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조](http://msdn.microsoft.com/library/azure/hh767287.aspx)를 참조하십시오.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

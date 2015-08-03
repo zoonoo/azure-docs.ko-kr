@@ -192,4 +192,4 @@ StorSimple 솔루션의 최적의 성능을 위해 위의 네트워킹 요구 �
 - [StorSimple 솔루션 배포](storsimple-deployment-walkthrough.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

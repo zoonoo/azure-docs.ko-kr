@@ -24,4 +24,4 @@
  
 4. 프로젝트를 다시 게시합니다.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

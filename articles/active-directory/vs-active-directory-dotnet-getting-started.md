@@ -77,4 +77,4 @@
 
 [Azure Active Directory에 대한 자세한 정보](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

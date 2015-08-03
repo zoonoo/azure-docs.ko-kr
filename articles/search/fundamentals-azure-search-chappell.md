@@ -42,4 +42,4 @@
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">"Azure 검색 소개"(PDF)</a>
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">"Azure 검색 소개"(Microsoft Word)</a> 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

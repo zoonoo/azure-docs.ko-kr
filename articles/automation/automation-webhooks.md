@@ -174,4 +174,4 @@ Runbook에는 요청 본문에 JSON으로 서식이 지정된 가상 컴퓨터�
 - [Runbook 시작](automation-starting-a-runbook.md)
 - [Runbook 작업의 상태 보기](automation-viewing-the-status-of-a-runbook-job.md) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

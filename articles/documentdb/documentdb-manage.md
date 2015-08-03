@@ -79,4 +79,4 @@ Azure Preview 포털에서 성능 모니터링에 대한 자세한 내용은 [Do
 컬렉션에 대한 성능 수준을 선택하는 자세한 내용은 [DocumentDB의 성능 수준](documentdb-performance-levels)을 참조하십시오.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

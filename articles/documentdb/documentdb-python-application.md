@@ -1,5 +1,5 @@
 <properties
-    pageTitle="DocumentDB를 사용하여 Python 및 Flask로 웹앱 작성 | Azure"
+    pageTitle="DocumentDB를 사용하여 Python 및 Flask로 웹 앱 작성 | Azure"
     description="DocumentDB를 사용하여 Azure에 호스팅되는 Python 및 Flask(MVC) 웹 응용 프로그램의 데이터를 저장하고 액세스하는 방법을 알아봅니다."
     services="documentdb"
     documentationCenter="python"
@@ -16,7 +16,7 @@
     ms.date="07/07/2015"
     ms.author="ryancraw"/>
 
-# DocumentDB를 사용하여 Python 및 Flask(MVC)로 웹 응용 프로그램 빌드
+# DocumentDB를 사용하여 Python 및 Flask(MVC)로 웹 응용 프로그램 작성
 
 고객이 Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼리할 수 있는 방법을 강조하기 위해 이 문서에서는 Azure DocumentDB를 사용하여 투표 웹 응용 프로그램을 빌드하는 방법을 보여 주는 종합적인 자습서를 제공합니다.
 
@@ -91,7 +91,7 @@
 
 	![목록에서 강조 표시된 requirements.txt에서 설치를 사용하여 선택한 env(Python 2.7)를 보여주는 스크린샷](./media/documentdb-python-application/image11.png)
 
-> [AZURE.NOTE]출력 창에 실패가 표시되는 경우가 드물게 발생합니다. 이 경우 오류가 정리와 관련이 있는지 확인하세요. 정리에 실패하지만 설치는 성공하는 경우가 있습니다(이를 확인하려면 출력 창에서 위로 스크롤). <a name="verify-the-virtual-environment"></a>이 경우에는 계속해도 됩니다.
+> [AZURE.NOTE]출력 창에 실패가 표시되는 경우가 드물게 발생합니다. 그런 경우 오류가 정리와 관련이 있는지 확인하십시오. 때때로 정리는 실패하지만 설치는 성공하는 경우가 있습니다(이를 확인하려면 출력 창에서 위로 스크롤). <a name="verify-the-virtual-environment"></a>이 경우에는 계속해도 됩니다.
 
 
 ### 가상 환경 확인
@@ -350,4 +350,4 @@ templates 폴더 아래에 다음 html 파일을 추가합니다. create.html, r
   [Azure Management Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

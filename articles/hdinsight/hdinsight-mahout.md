@@ -78,7 +78,7 @@ Mahout에서 제공하는 기능 중 하나가 추천 엔진입니다. 이 엔�
 
 3. HDInsight 클러스터에서 __u.data__ file to __example/data/u.data__ 파일을 업로드합니다. [Azure PowerShell][aps]이 있는 경우 [HDInsight-Tools][tools] 모듈을 사용하여 파일을 업로드할 수 있습니다. 파일을 업로드하는 다른 방법에 대해서는 [HDInsight에 Hadoop 작업용 데이터 업로드][upload]를 참조하세요. 다음 명령에서는 `Add-HDInsightFile`을 사용하여 파일을 업로드 합니다.
 
-    	PS C:> Add-HDInsightFile -LocalPath "path\to\u.data" -DestinationPath "example/data/u.data" -ClusterName "your cluster name"
+    	PS C:\> Add-HDInsightFile -LocalPath "path\to\u.data" -DestinationPath "example/data/u.data" -ClusterName "your cluster name"
 
     이 명령은 클러스터용 기본 저장소의 __example/data/u.data__에 __u.data__ 파일을 업로드합니다. 그런 다음 HDInsight 작업에서 __wasb:///example/data/u.data__ URI를 사용하여 이 데이터에 액세스할 수 있습니다.
 
@@ -234,7 +234,7 @@ Mahout 작업은 STDOUT로 출력을 반환하지 않습니다. 대신 지정된
 
 이 스크립트를 사용하려면 앞서 압축을 푼 __ml-100k__ 폴더뿐 아니라 Mahout 작업에서 생성된 __part-r-00000__ 출력 파일의 로컬 사본도 있어야 합니다. 다음은 스크립트를 실행하는 예제입니다.
 
-	PS C:> show-recommendation.ps1 -userId 4 -userDataFile .\ml-100k\u.data -movieFile .\ml-100k\u.item -recommendationFile .\output.txt
+	PS C:\> show-recommendation.ps1 -userId 4 -userDataFile .\ml-100k\u.data -movieFile .\ml-100k\u.item -recommendationFile .\output.txt
 
 출력은 다음과 유사합니다.
 
@@ -353,7 +353,7 @@ Mahout은 HDInsight 3.1 클러스터에 설치되며, 다음 단계를 사용하
 
 1. 사용할 Mahout 버전은 사용 중인 클러스터의 HDInsight 버전에 따라 다릅니다. 다음 [Azure PowerShell][aps] 명령을 사용하여 클러스터 버전을 찾을 수 있습니다.
 
-    	PS C:> Get-AzureHDInsightCluster -Name YourClusterName | Select version
+    	PS C:\> Get-AzureHDInsightCluster -Name YourClusterName | Select version
 
 
   * __HDInsight 2.1__의 경우 [Mahout 0.9](http://repo2.maven.org/maven2/org/apache/mahout/mahout-core/0.9/mahout-core-0.9-job.jar)가 포함된 JAR(Java Archive) 파일을 다운로드할 수 있습니다.
@@ -368,7 +368,7 @@ Mahout은 HDInsight 3.1 클러스터에 설치되며, 다음 단계를 사용하
 
 2. 클러스터용 기본 저장소의 __example/jars__에 jar 파일을 업로드합니다. 다음 예제에서는 [HDInsight-Tools][tools]의 add-hdinsightfile을 사용하여 파일을 업로드합니다.
 
-    	PS C:> .\Add-HDInsightFile -LocalPath "path\to\mahout-core-0.9-job.jar" -DestinationPath "example/jars/mahout-core-0.9-job.jar" -ClusterName "your cluster name"
+    	PS C:\> .\Add-HDInsightFile -LocalPath "path\to\mahout-core-0.9-job.jar" -DestinationPath "example/jars/mahout-core-0.9-job.jar" -ClusterName "your cluster name"
 
 ###파일을 덮어쓸 수 없음
 
@@ -429,4 +429,4 @@ Windows PowerShell에서 사용하는 경우 다음 클래스를 사용하는 Ma
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

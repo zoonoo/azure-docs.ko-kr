@@ -121,7 +121,7 @@ SQL 데이터 웨어하우스는 해당 워크로드 관리 구현의 일부로 
 
 활성 쿼리 워크로드가 동시 쿼리 및 동시성 슬롯 임계값에 모두 맞아야 한다는 것을 기억해야 합니다. 하나 이상의 임계값을 초과하면 쿼리가 큐에 저장되기 시작합니다. 큐에 저장된 쿼리는 제출 시간이 지난 후 우선 순위에 따라 해결됩니다.
 
-내부 작동 방식은 약간 더 복잡합니다. 리소스 클래스는 리소스 관리자 내에서 워크로드 관리 그룹의 제네릭 집합에 동적으로 매핑됩니다. 사용되는 그룹은 웨어하우스에 대한 DWU 값에 따라 달라집니다. 그러나 SQL 데이터 웨어하우스에 사용되는 총 8개의 워크로드 그룹이 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
+내부 작동 방식은 약간 더 복잡합니다. 리소스 클래스는 리소스 관리자 내에서 워크로드 관리 그룹의 일반 집합에 동적으로 매핑됩니다. 사용되는 그룹은 웨어하우스에 대한 DWU 값에 따라 달라집니다. 하지만 SQL 데이터 웨어하우스에 사용되는 총 8개의 워크로드 그룹이 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
 - SloDWGroupC00
 - SloDWGroupC01
@@ -223,7 +223,7 @@ SQL 데이터 웨어하우스 데이터베이스에 대한 연결을 열고 다�
 CREATE USER newperson FOR LOGIN newperson
 ```
 
-사용자에게 전체 권한을 부여해야 합니다. 아래 예제는 SQL 데이터 웨어하우스 데이터베이스에 대한 `CONTROL`을 부여합니다. 데이터베이스 수준에서 `CONTROL`은 SQL Server에서 db_owner에 해당합니다.
+사용자에게 전체 권한을 부여해야 합니다. 아래 예제는 SQL 데이터 웨어하우스 데이터베이스에 대한 `CONTROL`을(를) 부여합니다. 데이터베이스 수준에서 `CONTROL`은(는) SQL Server에서 db_owner에 해당합니다.
 
 ```
 GRANT CONTROL ON DATABASE::MySQLDW to newperson
@@ -252,7 +252,7 @@ EXEC sp_droprolemember 'largerc', 'newperson'
 ```
 > [AZURE.NOTE]smallrc에서 사용자를 제거하는 것은 불가능합니다.
 
-어떤 사용자가 지정된 역할의 멤버인지 보려면 다음 쿼리를 사용합니다.```
+어떤 사용자가 지정된 역할의 멤버인지 보려면 다음 쿼리를 사용합니다. ```
 SELECT	r.name AS role_principal_name
 ,		m.name AS member_principal_name
 FROM	sys.database_role_members rm
@@ -285,7 +285,7 @@ SQL 데이터 웨어하우스에는 동시성을 측정하기 위한 특정 대�
 - DmsConcurrencyResourceType
 - BackupConcurrencyResourceType
 
-LocalQueriesConcurrencyResourceType은 동시성 슬롯 프레임워크 외부에 존재하는 쿼리를 참조합니다. `SELECT @@VERSION`과 같은 DMV 쿼리 및 시스템 함수는 로컬 쿼리의 예입니다.
+LocalQueriesConcurrencyResourceType은 동시성 슬롯 프레임워크 외부에 존재하는 쿼리를 참조합니다. `SELECT @@VERSION`와(과) 같은 DMV 쿼리 및 시스템 함수는 로컬 쿼리의 예입니다.
 
 UserConcurrencyResourceType은 동시성 슬롯 프레임워크 내에 존재하는 쿼리를 참조합니다. 최종 사용자 테이블에 대한 쿼리는 이 리소스 유형을 사용할 수 있는 예를 나타냅니다.
 
@@ -377,4 +377,4 @@ FROM	sys.dm_pdw_wait_stats w
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

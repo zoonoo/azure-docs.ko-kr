@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="SQL Server 백업 및 복원에 Azure 저장소를 사용하는 방법 | Azure" 
-	description="SQL Server 및 SQL 데이터베이스를 Azure 저장소에 백업합니다. SQL 데이터베이스를 Azure 저장소에 백업할 경우의 이점과 필요한 SQL Server 및 Azure 저장소 구성 요소를 설명합니다." 
-	services="sql-database, virtual-machines" 
-	documentationCenter="" 
-	authors="jeffgoll" 
-	manager="jeffreyg" 
+<properties
+	pageTitle="SQL Server 백업 및 복원에 Azure 저장소를 사용하는 방법 | Azure"
+	description="SQL Server 및 SQL 데이터베이스를 Azure 저장소에 백업합니다. SQL 데이터베이스를 Azure 저장소에 백업할 경우의 이점과 필요한 SQL Server 및 Azure 저장소 구성 요소를 설명합니다."
+	services="sql-database, virtual-machines"
+	documentationCenter=""
+	authors="carlrabeler"
+	manager="jeffreyg"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/06/2015" 
-	ms.author="jeffreyg"/>
+<tags
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="vm-windows-sql-server"
+	ms.topic="article"
+	ms.date="07/16/2015"
+	ms.author="carlrab"/>
 
 
 
@@ -43,7 +43,7 @@ SQL Server 백업을 Azure Blob 저장소 서비스에 쓸 수 있는 기능은 
 
 저장소 계정을 만들고 간단한 복원을 수행하는 완벽한 연습에 대해서는 [Azure 저장소 서비스로 SQL Server 백업 및 복원 시작](http://go.microsoft.com/fwlink/?LinkId=271615)을 참조하세요.
 
-## Azure Blob 저장소 서비스 구성 요소 
+## Azure Blob 저장소 서비스 구성 요소
 
 * 저장소 계정: 저장소 계정은 모든 저장소 서비스를 사용하기 위한 출발점입니다. Azure Blob 저장소 서비스에 액세스하려면 먼저 Azure 저장소 계정을 만드세요. 저장소 계정 이름 및 해당 액세스 키 속성은 Azure Blob 저장소 서비스 및 해당 구성 요소에 인증하는 데 필요합니다. Azure Blob 저장소 서비스에 대한 자세한 내용은 [Azure Blob 저장소 서비스를 사용하는 방법](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/)(영문)을 참조하십시오.
 
@@ -69,17 +69,7 @@ SQL Server 백업을 Azure Blob 저장소 서비스에 쓸 수 있는 기능은 
 [Azure Blob 저장소 서비스에 SQL Server 백업 및 복원 시작](http://go.microsoft.com/fwlink/?LinkID=271615 "자습서")
 
 **모범 사례, 문제 해결:**
-	
+
 [백업 및 복원 모범 사례(Azure Blob 저장소 서비스)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-
-
-
-	
-
-
-
-
- 
-
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

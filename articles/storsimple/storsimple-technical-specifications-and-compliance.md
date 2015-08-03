@@ -172,4 +172,4 @@ Microsoft Azure StorSimple 장치는 다음 EMC 등급을 만족합니다.
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

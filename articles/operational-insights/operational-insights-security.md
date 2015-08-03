@@ -49,7 +49,7 @@ Operational Insights 서비스는 다음 방법을 사용하여 데이터를 안
 
 ![Operational Insights 데이터 수집 및 보안 이미지](./media/operational-insights-security/security.png)
 
-### 1\. Operational Insights 등록 및 데이터 수집
+### 1. Operational Insights 등록 및 데이터 수집
 
 조직에서 Operational Insights 서비스로 데이터를 보내려면 웹 서비스에 직접 연결할 때 Microsoft Monitoring Agent를 구성하거나, Operations Manager의 운영 콘솔에서 구성 마법사를 사용합니다. 사용자(이 문서의 독자, 다른 개별 사용자 또는 사용자 그룹)는 하나 이상의 Operational Insights 계정을 만들고 다음 계정을 사용하여 직접 연결되는 각 에이전트 또는 해당 Operations Manager 환경을 등록해야 합니다.
 
@@ -140,20 +140,20 @@ Operational Insights 계정은 데이터를 수집, 집계, 분석 및 제공하
     </table>
 
 
-### 2\. 에이전트에서 데이터 보내기
+### 2. 에이전트에서 데이터 보내기
 
 웹 서비스에 직접 연결되는 에이전트를 사용하는 경우 키에 등록하면 포트 443을 통해 에이전트와 Operational Insights 서비스 간의 보안 연결이 설정됩니다.
 
 Operations Manager를 사용하는 경우 Operational Insights 서비스에 계정을 등록하면 포트 443을 통해 Operations Manager 관리 서버와 Operational Insights 서비스 간의 보안 HTTPS 연결이 설정됩니다. Operations Manager에서 서비스와 통신할 수 없는 경우 수집된 데이터가 임시 캐시에 저장되고 관리 서버에서 2시간 동안 8분 간격으로 데이터를 다시 보냅니다. 수집된 데이터는 압축되어 온-프레미스 데이터베이스를 무시하고 Operational Insights 서비스로 전송되므로 로드가 추가되지 않습니다. 수집된 데이터는 전송된 후 캐시에서 제거됩니다.
 
-### 3\. Operational Insights 서비스에서 데이터를 받아서 처리
+### 3. Operational Insights 서비스에서 데이터를 받아서 처리
 
 Operational Insights 서비스는 인증서 및 데이터 무결성의 유효성을 검사하여 들어오는 데이터가 신뢰할 수 있는 출처에서 온 것임을 보장합니다. 처리되지 않은 원시 데이터는 [Microsoft Azure 저장소](http://azure.microsoft.com/documentation/services/storage/)에 Blob으로 저장됩니다. 각 Operational Insights 사용자에게는 해당 사용자만 액세스할 수 있는 전용 Azure Blob이 있습니다. 저장되는 데이터 형식은 데이터를 수집하기 위해 가져와 사용하는 솔루션 유형에 따라 다릅니다.
 
 Operational Insights 서비스에서 원시 데이터를 처리하면 처리된 집계 데이터가 SQL 데이터베이스에 저장됩니다. Operational Insights 서비스와 SQL 데이터베이스 간의 통신은 SQL 데이터베이스 인증을 기반으로 합니다.
 
-### 4\. Operational Insights를 사용하여 데이터 액세스
+### 4. Operational Insights를 사용하여 데이터 액세스
 
 이전에 설정한 계정을 사용하여 Operational Insights에 로그인할 수 있습니다. Operational Insights와 Operational Insights 서비스 간의 모든 트래픽은 보안 HTTPS 채널을 통해 전송됩니다.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

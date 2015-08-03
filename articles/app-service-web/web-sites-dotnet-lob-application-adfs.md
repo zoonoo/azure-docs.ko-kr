@@ -81,32 +81,30 @@ Azure 앱 서비스 웹 앱에서 다음 기능이 있는 기본 ASP.NET 응용 
 
 5.	App_Start\Startup.Auth.cs에서 아래에 강조 표시된 대로 정적 문자열 정의를 변경합니다.
 	<pre class="prettyprint">
-	private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
-    <mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
-    <mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
-    <mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
-    <mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
+private static string realm = ConfigurationManager.AppSettings["ida:<mark>RPIdentifier</mark>"];
+<mark><del>private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];</del></mark>
+<mark><del>private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];</del></mark>
+<mark><del>private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);</del></mark>
+<mark>private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);</mark>
 
-    <mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
-    </pre>
+<mark><del>string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);</del></mark>
+</pre>
 
 6.	이제 Web.config를 적절히 변경합니다. Web.config를 열고 아래에 강조 표시된 대로 응용 프로그램 설정을 수정합니다.
 	<pre class="prettyprint">
-	&lt;appSettings&gt;
-	  &lt;add key="webpages:Version" value="3.0.0.0" /&gt;
-	  &lt;add key="webpages:Enabled" value="false" /&gt;
-	  &lt;add key="ClientValidationEnabled" value="true" /&gt;
-	  &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" /&gt;
-	  <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /&gt;</del></mark>
-	  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /&gt;</del></mark>
-	  <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /&gt;</del></mark>
-	  <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /&gt;</mark>
-	  <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /&gt;</mark>
+&lt;appSettings>
+  &lt;add key="webpages:Version" value="3.0.0.0" />
+  &lt;add key="webpages:Enabled" value="false" />
+  &lt;add key="ClientValidationEnabled" value="true" />
+  &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" />
+  <mark><del>&lt;add key="ida:Wtrealm" value="[Enter the App ID URI of WebApp-WSFederation-DotNet https://contoso.onmicrosoft.com/WebApp-WSFederation-DotNet]" /></del></mark>
+  <mark><del>&lt;add key="ida:AADInstance" value="https://login.windows.net" /></del></mark>
+  <mark><del>&lt;add key="ida:Tenant" value="[Enter tenant name, e.g. contoso.onmicrosoft.com]" /></del></mark>
+  <mark>&lt;add key="ida:RPIdentifier" value="[Enter the relying party identifier as configured in AD FS, e.g. https://localhost:44320/]" /></mark>
+  <mark>&lt;add key="ida:ADFS" value="[Enter the FQDN of AD FS service, e.g. adfs.contoso.com]" /></mark>
 
-	&lt;/appSettings&gt;
-	</pre>
-
-	각 환경을 기반으로 키 값을 입력합니다.
+&lt;/appSettings>
+</pre>각 환경을 기반으로 키 값을 입력합니다.
 
 7.	응용 프로그램을 빌드하여 오류가 없는지 확인합니다.
 
@@ -199,21 +197,18 @@ Azure에서 게시된 웹 앱을 디버거에 연결하려는 경우(즉, 게시
 10.	**사용자 지정 규칙을 사용하여 클레임 보내기**를 선택하고 **다음**을 클릭합니다.
 11.	다음 규칙 언어를 **사용자 지정 규칙** 상자에 붙여 넣고 규칙 이름을 **세션별 식별자**로 지정한 후 **마침**을 클릭합니다.  
 	<pre class="prettyprint">
-	c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
-	c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
-		=> add(
-			store = "_OpaqueIdStore",
-			types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
-			query = "{0};{1};{2};{3};{4}",
-			param = "useEntropy",
-			param = c1.Value,
-			param = c1.OriginalIssuer,
-			param = "",
-			param = c2.Value);
-	</pre>
-
-
-	사용자 지정 규칙은 다음과 같습니다.
+c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"] &amp;&amp;
+c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant"]
+	=> add(
+		store = "_OpaqueIdStore",
+		types = ("<mark>http://contoso.com/internal/sessionid</mark>"),
+		query = "{0};{1};{2};{3};{4}",
+		param = "useEntropy",
+		param = c1.Value,
+		param = c1.OriginalIssuer,
+		param = "",
+		param = c2.Value);
+</pre>사용자 지정 규칙은 다음과 같습니다.
 
 	![](./media/web-sites-dotnet-lob-application-adfs/6-per-session-identifier.png)
 
@@ -254,7 +249,7 @@ AD FS 배포의 AD 도메인에 속한 사용자로 로그인하면 가장자리
 - AD FS가 AD 사용자를 성공적으로 인증하고 응용 프로그램의 홈 페이지로 돌아갑니다.
 - 가장자리에 사용자 이름이 표시되어 있다는 사실로 알 수 있듯이, AD FS에서 이름 클레임(http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name)을 응용 프로그램으로 성공적으로 전송했습니다. 
 
-이름 클레임이 누락된 경우 **안녕하세요, 님!**이 표시됩니다. Views\Shared_LoginPartial.cshtml을 보면 `User.Identity.Name`을 사용하여 사용자 이름을 표시한다는 것을 알 수 있습니다. 앞서 설명한 바와 같이, ASP.NET은 인증된 사용자의 이름 클레임(SAML 토큰에서 사용할 수 있는 경우)으로 이 속성을 하이드레이션합니다. AD FS에서 전송된 모든 클레임을 보려면 Controllers\HomeController.cs의 Index 작업 메서드에 중단점을 둡니다. 사용자가 인증되고 나면 `System.Security.Claims.Current.Claims` 컬렉션을 조사합니다.
+이름 클레임이 누락된 경우 **안녕하세요, 님!**이 표시됩니다. Views\Shared\_LoginPartial.cshtml을 보면 `User.Identity.Name`을 사용하여 사용자 이름을 표시한다는 것을 알 수 있습니다. 앞서 설명한 바와 같이, ASP.NET은 인증된 사용자의 이름 클레임(SAML 토큰에서 사용할 수 있는 경우)으로 이 속성을 하이드레이션합니다. AD FS에서 전송된 모든 클레임을 보려면 Controllers\HomeController.cs의 Index 작업 메서드에 중단점을 둡니다. 사용자가 인증되고 나면 `System.Security.Claims.Current.Claims` 컬렉션을 조사합니다.
 
 ![](./media/web-sites-dotnet-lob-application-adfs/12-test-debugging-all-claims.png)
 
@@ -266,38 +261,29 @@ RP 트러스트 구성에서 그룹 멤버 자격을 역할 클레임으로 포�
 1. Controllers\HomeController.cs를 엽니다.
 2. 인증된 사용자의 보안 그룹 멤버 자격을 사용하여 아래와 유사하게 `About` 및 `Contact` 작업 메서드를 장식합니다.  
 	<pre class="prettyprint">
-    <mark>[Authorize(Roles="Test Group")]</mark>
-    public ActionResult About()
-    {
-        ViewBag.Message = "Your application description page.";
+<mark>[Authorize(Roles="Test Group")]</mark>
+public ActionResult About()
+{
+    ViewBag.Message = "Your application description page.";
 
-        return View();
-    }
+    return View();
+}
 
-    <mark>[Authorize(Roles="Domain Admins")]</mark>
-    public ActionResult Contact()
-    {
-        ViewBag.Message = "Your contact page.";
+<mark>[Authorize(Roles="Domain Admins")]</mark>
+public ActionResult Contact()
+{
+    ViewBag.Message = "Your contact page.";
 
-        return View();
-    }
-	</pre>
-
-	이 자습서의 AD FS 실습 환경에서는 **테스트 사용자**를 **테스트 그룹**에 추가했기 때문에 테스트 그룹을 사용하여 `About`에 대한 권한 부여를 테스트합니다. `Contact`의 경우 **테스트 사용자**가 속해 있지 않은 **Domain Admins**의 부정적인 사례를 테스트합니다.
+    return View();
+}
+</pre>이 자습서의 AD FS 실습 환경에서는 **테스트 사용자**를 **테스트 그룹**에 추가했기 때문에 테스트 그룹을 사용하여 `About`에 대한 권한 부여를 테스트합니다. `Contact`의 경우 **테스트 사용자**가 속해 있지 않은 **Domain Admins**의 부정적인 사례를 테스트합니다.
 
 3. `F5` 키를 눌러 디버거를 시작하고 로그인한 후 **About**을 클릭합니다. 이제 인증된 사용자에게 해당 작업에 대한 권한이 부여된 경우 `~/About/Index` 페이지가 성공적으로 표시되어야 합니다.
 4. **Contact**를 클릭합니다(이 자습서에서는 **테스트 사용자**에게 작업에 대한 권한이 부여되지 않음). 그러나 브라우저가 AD FS로 리디렉션되므로 다음 메시지가 표시됩니다.
 
 	![](./media/web-sites-dotnet-lob-application-adfs/13-authorize-adfs-error.png)
 
-	AD FS 서버의 이벤트 뷰어에서 이 오류를 조사하면 다음 예외 메시지를 확인할 수 있습니다. 
-	<pre class="prettyprint">
-	Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>동일한 클라이언트 브라우저 세션에서 마지막 ‘11’초 동안 '6'번 요청했습니다.</mark> 자세한 내용은 관리자에게 문의하세요.
-	   at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context)
-	   at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response)
-	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler)
-	   at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context)
-	</pre>
+	AD FS 서버의 이벤트 뷰어에서 이 오류를 조사하면 다음 예외 메시지를 확인할 수 있습니다. <pre class="prettyprint"> Microsoft.IdentityServer.Web.InvalidRequestException: MSIS7042: <mark>동일한 클라이언트 브라우저 세션에서 마지막 ‘11’초 동안 '6'번 요청했습니다.</mark> 자세한 내용은 관리자에게 문의하세요. at Microsoft.IdentityServer.Web.Protocols.PassiveProtocolHandler.UpdateLoopDetectionCookie(WrappedHttpListenerContext context) at Microsoft.IdentityServer.Web.Protocols.WSFederation.WSFederationProtocolHandler.SendSignInResponse(WSFederationContext context, MSISSignInResponse response) at Microsoft.IdentityServer.Web.PassiveProtocolListener.ProcessProtocolRequest(ProtocolContext protocolContext, PassiveProtocolHandler protocolHandler) at Microsoft.IdentityServer.Web.PassiveProtocolListener.OnGetContext(WrappedHttpListenerContext context) </pre>
 
 	이 오류가 발생한 이유는 사용자의 역할에 권한이 부여되지 않은 경우 기본적으로 MVC에서 401 권한 없음을 반환하기 때문입니다. 이 경우 ID 공급자(AD FS)에 대한 재인증 요청이 트리거됩니다. 사용자가 이미 인증되었으므로 AD FS가 동일한 페이지로 돌아가고 또 다른 401이 발생하여 리디렉션 루프가 생성됩니다. 단순한 논리로 AuthorizeAttribute의 `HandleUnauthorizedRequest` 메서드를 재정의하여 리디렉션 루프를 계속하는 대신 의미 있는 내용을 표시할 수 있습니다.
 
@@ -357,4 +343,4 @@ Azure 앱 서비스 웹앱은 다음의 두 가지 방법으로 온-프레미스
  
  
 
-<!-----HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,7 +1,6 @@
 <properties
 	pageTitle="HDInsight의 Hadoop이란: 클라우드 빅 데이터 분석 | Microsoft Azure"
 	description="HDInsight의 클라우드에 있는 Hadoop 구성 요소를 소개합니다. HDInsight에서 Hadoop 클러스터를 사용하여 빅 데이터를 관리, 분석 및 보고하는 방법을 알아봅니다."
-	keywords="big data,big data analysis,hadoop,introduction to hadoop,what is hadoop"
 	services="hdinsight"
 	documentationCenter=""
 	authors="cjgronlund"
@@ -247,4 +246,4 @@ HDInsight의 Hadoop이 제공하는 이점에 대한 자세한 내용은 [HDInsi
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -43,4 +43,4 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure HDInsi
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

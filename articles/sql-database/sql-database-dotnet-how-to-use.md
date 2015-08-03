@@ -211,4 +211,4 @@ Entity Framework를 통해 개발자는 관계형 저장소 스키마에 대해 
 이제 SQL 데이터베이스 연결의 기본 사항을 배웠으므로 [개발: 방법 항목(SQL 데이터베이스)](http://msdn.microsoft.com/library/windowsazure/ee621787.aspx)을 참조하세요.
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

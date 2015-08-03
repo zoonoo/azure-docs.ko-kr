@@ -45,4 +45,4 @@ App.xaml.cs 파일에 선택한 모바일 서비스의 응용 프로그램 URL �
 
 [모바일 서비스에 대한 자세한 정보](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

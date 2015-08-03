@@ -98,7 +98,7 @@ Brock을 Prod 리소스 그룹의 참여자 역할에 추가하려면 리소스 
 
 Windows PowerShell용 Microsoft Azure 모듈을 사용하여 역할 할당을 관리할 수도 있습니다. 아래에는 포털이 아닌 New-AzureRoleAssignment cmdlet을 사용하여 Brock의 계정을 추가하는 예제가 나와 있습니다.
 
-	PS C:> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
+	PS C:\> New-AzureRoleAssignment -Mail brockh@contoso.com -RoleDefinitionName Contributor -ResourceGroupName ProdDB
 
 Windows PowerShell을 사용하여 액세스 권한을 추가 및 제거하는 방법에 대한 자세한 내용은 [Windows PowerShell을 사용하여 역할 기반 액세스 제어 관리](role-based-access-control-powershell.md)를 참조하세요.
 
@@ -110,7 +110,7 @@ Windows PowerShell을 사용하여 액세스 권한을 추가 및 제거하는 �
 
 아래에는 Remove-AzureRoleAssignment cmdlet을 사용하여 Brad Adams를 제거하는 방법의 예가 나와 있습니다.
 
-	PS C:> Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDB
+	PS C:\> Remove-AzureRoleAssignment -Mail badams@contoso.com -RoleDefinitionName Reader -ResourceGroupName TestDB
 
 ### 외부 사용자에 대한 액세스 권한 추가 또는 제거
 
@@ -148,7 +148,7 @@ Windows PowerShell을 사용하여 액세스 권한을 추가 및 제거하는 �
 
 `Get-AzureSubscriptionIdLog –DetailedOutput -StartTime '06-15-15' -EndTime '06-29-15'`
 
-역할 할당 변경 내용은 ResourceProviderName이 `Microsoft.Authorization`인 이벤트에 캡처됩니다. 할당된 보안 주체, 할당 역할, 범위 등을 비롯한 보할당의 실제 세부 정보가 이벤트 세부 정보에 캡처됩니다. 역할 할당 변경 내용은 포털에서 감사 로그를 찾아볼 때 표시되지만 포털에 이벤트 세부 정보가 표시되지는 않습니다. 이벤트 세부 정보를 보려면 Azure PowerShell을 사용해야 합니다.
+역할 할당 변경 내용은 ResourceProviderName이 `Microsoft.Authorization`인 이벤트에 캡처됩니다. 할당된 주체, 할당 역할, 범위 등을 비롯한 보할당의 실제 세부 정보가 이벤트 세부 정보에 캡처됩니다. 역할 할당 변경 내용은 포털에서 감사 로그를 찾아볼 때 표시되지만 포털에 이벤트 세부 정보가 표시되지는 않습니다. 이벤트 세부 정보를 보려면 Azure PowerShell을 사용해야 합니다.
 
 ###이벤트 세부 정보
 
@@ -230,9 +230,9 @@ SubStatus            :`
 
 | 필드 | 값 | 세부 정보 |
 | --- | --- | --- |
-| Caller |	`William.Hennum@contoso.com` | 역할 할당을 수행한 보안 주체입니다. 보안 주체는 사용자, 그룹 또는 서비스 주체일 수 있습니다.
+| Caller |	`William.Hennum@contoso.com` | 역할 할당을 수행한 주체입니다. 주체는 사용자, 그룹 또는 서비스 주체일 수 있습니다.
 | HttpRequest: 메서드 | `PUT` | 수행되는 동작입니다. PUT은 할당을 허가하고 DELETE는 할당을 제거합니다. |
-| 속성: PrincipalId | `dda50086-5e3d-4a4b-b8bc-f54771104d89` | 	역할에 할당된 보안 주체의 개체 ID입니다. 보안 주체는 사용자, 그룹 또는 서비스 주체일 수 있습니다. Azure PowerShell을 통해 Azure Active Directory에서 보안 주체를 조회하여 보안 주체의 이름 및 유형을 확인할 수 있습니다. |
+| 속성: PrincipalId | `dda50086-5e3d-4a4b-b8bc-f54771104d89` | 	역할에 할당된 주체의 개체 ID입니다. 주체는 사용자, 그룹 또는 서비스 주체일 수 있습니다. Azure PowerShell을 통해 Azure Active Directory에서 주체를 조회하여 주체의 이름 및 유형을 확인할 수 있습니다. |
 | 속성: RoleDefinitionId |	`/subscriptions/ff945b8d-441a-41ef-a9db-7bd5fcc99978/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7	` | 할당된 역할입니다. Azure PowerShell을 사용하여 역할의 표시 이름을 확인할 수 있습니다. |
 | 속성: Scope | `/subscriptions/ff945b8d-441a-41ef-a9db-7bd5fcc99978/resourceGroups/Default-Storage-WestUS/providers/Microsoft.ClassicStorage/storageAccounts/authzwaes` |	역할 할당이 생성된 리소스입니다. 리소스, 리소스 그룹 또는 구독일 수 있습니다. |
 
@@ -313,7 +313,7 @@ function Get-AzureRoleDefinitionName($roleDefinitionId)
 
 ###샘플 Azure PowerShell 스크립트
 
-다음은 지정한 날짜 범위에 대한 역할 할당 이벤트를 검색한 후 테이블로 출력하는 샘플 스크립트로, 위에 나온 과정을 통합해서 보여 줍니다.
+다음은 지정한 날짜 범위에 대한 역할 할당 이벤트를 검색한 후 테이블로 출력하는 샘플 스크립트로, 위에 나온 과정을 통합해서 보여줍니다.
 
 ```
 # Sample - how to resolve a principal
@@ -1293,4 +1293,4 @@ Azure RBAC를 사용해 보고 [의견](http://aka.ms/azurerbacfeedback)을 보�
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

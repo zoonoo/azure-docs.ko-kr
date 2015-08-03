@@ -356,4 +356,4 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 	
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

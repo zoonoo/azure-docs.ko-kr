@@ -233,7 +233,7 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
 **[iOS]**
 
-1. iOS에서는 실제 장치에 대한 푸시 알림만 허용하므로 XCode를 사용하여 푸시 알림을 테스트할 장치에서 앱을 빌드하고 배포합니다. Cordova 프로젝트가 생성된 위치로 이동하고 **...\\platforms\\ios** 위치로 이동합니다. XCode에서 네이티브 .xcodeproj 파일을 엽니다. 
+1. iOS에서는 실제 장치에 대한 푸시 알림만 허용하므로 XCode를 사용하여 푸시 알림을 테스트할 장치에서 앱을 빌드하고 배포합니다. Cordova 프로젝트가 생성된 위치로 이동하고 **...\platforms\ios** 위치로 이동합니다. XCode에서 네이티브 .xcodeproj 파일을 엽니다. 
 	
 2. 방금 Mobile Engagement 포털에 업로드한 인증서가 포함된 프로비저닝 프로필이 있는 계정과 Cordova 앱을 만들 때 제공한 것과 일치하는 앱 ID를 사용하여 Cordova 앱을 빌드하고 iOS 장치에 배포합니다. XCode의 **Resources*-info.plist** 파일에서 *번들 식별자*가 일치하는지 확인할 수 있습니다.
 
@@ -312,4 +312,4 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
 [20]: ./media/mobile-engagement-cordova-get-started/native-push-settings.png
 [21]: ./media/mobile-engagement-cordova-get-started/api-key.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

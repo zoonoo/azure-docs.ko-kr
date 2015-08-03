@@ -181,4 +181,4 @@ Oracle | 서비스 예정 | 서비스 예정 | 예(Microsoft에서 테스트) | 
 이 개요를 마친 후 [모범 사례를 읽어보고](site-recovery-best-practices.md) 배포 계획을 시작합니다.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -73,7 +73,7 @@
 1. 여기로 로그온합니다. [http://azure.microsoft.com](http://azure.microsoft.com)
 2. 왼쪽에서 Active Directory를 선택합니다.
 3. 위쪽에서 Multi-Factor Auth 공급자를 선택합니다. 그러면 Multi-Factor Auth 공급자의 목록이 표시됩니다.
-4. 둘 이상의 Multi-Factor Auth 공급자를 사용하도록 설정한 경우 사기 행위 경고 보고를 보려는 하나를 선택하고 페이지의 아래에서 관리를 클릭합니다. 하나만 있는 경우 관리를 클릭합니다. 그러면 Multi-Factor Authentication 관리 포털이 열립니다.
+4. 둘 이상의 Multi-Factor Auth 공급자를 사용하도록 설정한 경우 사기 행위 경고 보고서를 보려는 하나를 선택하고 페이지의 아래에서 관리를 클릭합니다. 하나만 있는 경우 관리를 클릭합니다. 그러면 Multi-Factor Authentication 관리 포털이 열립니다.
 5. Azure Multi-factor Authentication 관리 포털의 왼쪽, 보고서 보기 아래에서 사기 행위 경고를 클릭합니다.
 6. 보고서에서 보려는 날짜 범위를 지정합니다. 또한 특정 사용자 이름, 전화번호 및 사용자 상태를 지정할 수 있습니다.
 7. 실행을 클릭합니다. 그러면 아래와 비슷한 보고서를 표시합니다. 또한 보고서를 내보내려는 경우 CSV로 내보내기를 클릭할 수 있습니다.
@@ -105,7 +105,7 @@
 1. 여기로 로그온합니다. [http://azure.microsoft.com](http://azure.microsoft.com)
 2. 왼쪽에서 Active Directory를 선택합니다.
 3. 위쪽에서 Multi-Factor Auth 공급자를 선택합니다. 그러면 Multi-Factor Auth 공급자의 목록이 표시됩니다.
-4. 둘 이상의 Multi-Factor Auth 공급자를 사용하도록 설정한 경우 사기 행위 경고 보고를 보려는 하나를 선택하고 페이지의 아래에서 관리를 클릭합니다. 하나만 있는 경우 관리를 클릭합니다. 그러면 Multi-Factor Authentication 관리 포털이 열립니다.
+4. 둘 이상의 Multi-Factor Auth 공급자를 사용하도록 설정한 경우 사기 행위 경고 보고서를 보려는 하나를 선택하고 페이지의 아래에서 관리를 클릭합니다. 하나만 있는 경우 관리를 클릭합니다. 그러면 Multi-Factor Authentication 관리 포털이 열립니다.
 5. Azure Multi-factor Authentication 관리 포털의 왼쪽, 보고서 보기 아래에서 일회성 바이패스를 클릭합니다.
 6. 보고서에서 보려는 날짜 범위를 지정합니다. 또한 특정 사용자 이름, 전화번호 및 사용자 상태를 지정할 수 있습니다.
 7. 실행을 클릭합니다. 그러면 아래와 비슷한 보고서를 표시합니다. 또한 보고서를 내보내려는 경우 CSV로 내보내기를 클릭할 수 있습니다.
@@ -358,4 +358,4 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 <li>서비스 설정 페이지의 사용자 장치 설정 관리 아래에서 **사용자가 장치를 기억하도록 하여 Multi-Factor Authentication을 일시 중단할 수 있습니다**를 선택/선택 취소합니다.</li>
 ![장치 일시 중단](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>일시 중단을 허용하려는 일수를 설정합니다. 기본값은 14일입니다.</li> <li>저장을 클릭합니다.</li> <li>닫기를 클릭합니다.</li>
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

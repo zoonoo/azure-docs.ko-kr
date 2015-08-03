@@ -285,7 +285,7 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
 ###앱이 GCM 푸시 알림을 받을 수 있도록 설정
 
-1. 다음을 복사하여 Manifest.xml 파일의 `<application>` 태그와 `</application>` 태그 사이에 붙여넣어 gcm:sender 메타데이터를 입력합니다. 아래에서 별표로 숨겨진 값은 Google Play 콘솔에서 가져온 `project number`입니다. \\n은 의도적으로 프로젝트 번호를 종료하도록 합니다.
+1. 다음을 복사하여 Manifest.xml 파일의 `<application>` 태그와 `</application>` 태그 사이에 붙여넣어 gcm:sender 메타데이터를 입력합니다. 아래에서 별표로 숨겨진 값은 Google Play 콘솔에서 가져온 `project number`입니다. \n은 의도적으로 프로젝트 번호를 종료하도록 합니다.
 
 		<meta-data android:name="engagement:gcm:sender" android:value="************\n" />
 
@@ -394,4 +394,4 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [38]: ./media/mobile-engagement-android-get-started/campaign-create.png
 [39]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -19,7 +19,7 @@
 
 네트워크 ACL(액세스 제어 목록)은 Azure 배포에 사용할 수 있는 보안 향상 기능입니다. ACL은 가상 컴퓨터 끝점의 트래픽을 선택적으로 허용하거나 거부하는 기능을 제공합니다. 이 패킷 필터링 기능을 통해 보안을 강화할 수 있습니다. 끝점에 대해서만 네트워크 ACL을 지정할 수 있습니다. 가상 네트워크 또는 가상 네트워크에 포함된 특정 서브넷에 대해서는 ACL을 지정할 수 없습니다.
 
-> [AZURE.IMPORTANT]가능하면 ACL 대신 NSG(네트워크 보안 그룹)를 사용하는 것이 좋습니다. NSG에 대해 자세히 알아보려면 [네트워크 보안 그룹이란?](../virtual-network-nsg)을 참조하세요.
+> [AZURE.IMPORTANT]가능하면 ACL 대신 NSG(네트워크 보안 그룹)를 사용하는 것이 좋습니다. NSG에 대해 자세히 알아보려면 [네트워크 보안 그룹이란?](../virtual-networks-nsg)을 참조하세요.
 
 ACL은 PowerShell 또는 관리 포털을 사용하여 구성할 수 있습니다. PowerShell을 사용하여 네트워크 ACL을 구성하려면 [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록) 관리](https://msdn.microsoft.com/library/azure/dn376543.aspx)를 참조하세요. 관리 포털을 사용하여 네트워크 ACL을 구성하려면 [가상 컴퓨터에 끝점을 설정하는 방법](../virtual-machines-set-up-endpoints/)을 참조하세요.
 
@@ -99,4 +99,4 @@ LB 집합(부하 분산된 집합) 끝점에서 네트워크 ACL을 지정할 �
 
 [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록)을 관리하는 방법](../virtual-networks-acl-powershell)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

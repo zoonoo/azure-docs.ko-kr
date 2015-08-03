@@ -2,6 +2,7 @@
 	pageTitle="기계 학습 고급 분석 환경 계획 | Microsoft Azure" 
 	description="주요 질문을 고려하여 고급 분석 환경을 계획합니다." 
 	services="machine-learning" 
+	solutions="" 
 	documentationCenter="" 
 	authors="msolhab"
 	manager="paulettm" 
@@ -78,4 +79,4 @@ Azure에서 원본 데이터 크기, 데이터 원본 위치 및 대상 리포�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

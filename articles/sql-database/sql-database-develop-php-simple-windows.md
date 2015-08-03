@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="php"
 	ms.topic="article"
-	ms.date="06/10/2015"
+	ms.date="07/20/2015"
 	ms.author="mebha"/>
 
 
@@ -27,19 +27,7 @@
 이 항목에서는 Windows에서 실행되는 PHP로 작성된 클라이언트 응용 프로그램으로 Azure SQL 데이터베이스에 연결하는 방법을 보여줍니다.
 
 
-## 필수 조건
-
-
-이 항목에 있는 PHP 코드 샘플을 실행하려면 클라이언트 컴퓨터에 다음과 같은 소프트웨어가 설치되어 있어야 합니다.
-
-
-- [Microsoft SQL Server용 Microsoft PHP 드라이버](http://www.microsoft.com/download/details.aspx?id=20098)(SQLSRV32.EXE에 최신 자료 포함)
-- [Microsoft SQL Server Native Client 11.0](http://www.microsoft.com/download/details.aspx?id=36434)
-- [Microsoft ODBC Driver](https://www.microsoft.com/ko-kr/download/details.aspx?id=36434)
-- IIS Express
-- [PHP 5.6 for IIS Express](http://www.microsoft.com/web/downloads/platform.aspx) : 플랫폼 설치 관리자를 사용하여 다운로드합니다. Internet Explorer를 사용하여 플랫폼 설치 관리자를 다운로드하고 있는지 확인
-
-[팀 블로그](http://blogs.msdn.com/b/sqlphp/archive/2015/05/11/getting-started-with-php-and-microsoft-sql-server.aspx) 및 [비디오](https://www.youtube.com/watch?v=0oCjiRK_tUk)를 선택하여 앞에서 언급한 요구 사항을 설치하고 설정하는 방법을 배울 수 있습니다.
+[AZURE.INCLUDE [sql-database-develop-includes-prerequisites-php-windows](../../includes/sql-database-develop-includes-prerequisites-php-windows.md)]
 
 
 ## 데이터베이스를 만들고 연결 문자열 검색
@@ -192,4 +180,4 @@ PHP 설치 및 사용에 대한 자세한 내용은[PHP로 SQL Server 데이터�
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -161,7 +161,7 @@ Azure AD 앱 및 특성 필터링|Azure AD 앱 및 특성 필터링을 사용하
 
 > [AZURE.WARNING]현재 디렉터리 동기화 또는 Azure AD Sync가 활성화되어 있는 경우 Azure AD Connect에서 쓰기 저장 기능을 활성화하지 마세요.
 
-장치 쓰기 저장 기능을 사용하면 Intune에서와 같이 클라우드에서 등록된 장치를 사용하여 조건부 액세스를 위해 AD DS에 게 허용할 수 있습니다. 기능을 사용하려면 AD DS가 준비되어야 합니다. AD FS 및 장치 등록 서비스(DRS)를 설치하는 경우, DRS는 PowerShell cmdlet을 제공하여 장치 쓰기 저장을 위한 AD를 준비합니다. DRS를 설치하지 않는 경우 C:\\Program Files\\Microsoft Azure Active Directory Connect\\AdPrep\\AdSyncAdPrep.psm1을 엔터프라이즈 관리자로 실행할 수 있습니다.
+장치 쓰기 저장 기능을 사용하면 Intune에서와 같이 클라우드에서 등록된 장치를 사용하여 조건부 액세스를 위해 AD DS에 게 허용할 수 있습니다. 기능을 사용하려면 AD DS가 준비되어야 합니다. AD FS 및 장치 등록 서비스(DRS)를 설치하는 경우, DRS는 PowerShell cmdlet을 제공하여 장치 쓰기 저장을 위한 AD를 준비합니다. DRS를 설치하지 않는 경우 C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncAdPrep.psm1을 엔터프라이즈 관리자로 실행할 수 있습니다.
 
 PowerShell cmdlet을 실행하려면 먼저 가져와야 합니다.
 
@@ -273,4 +273,4 @@ AD FS에 로그인하고 PSH를 사용하여 이렇게 구성하여 AD FS 로그
 * [자세한 정보](active-directory-aadconnect-learn-more.md)
 * [MSDN의 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

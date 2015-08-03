@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="04/28/2015"
+ ms.date="07/17/2015"
  ms.author="larryfr"/>
 
 # Power BI(미리 보기)를 사용하여 Apache Storm 토폴로지에서 데이터 시각화
@@ -137,6 +137,5 @@ Power BI 미리 보기를 사용하여 데이터를 보고서 또는 대시보�
 이 문서에서는 REST를 사용하여 Storm 토폴로지에서 Power BI로 데이터를 보내는 방법을 알아보았습니다. 다른 Azure 기술을 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

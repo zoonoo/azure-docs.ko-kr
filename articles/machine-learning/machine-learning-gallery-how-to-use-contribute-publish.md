@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="07/15/2015" 
 	ms.author="chhavib;cgronlun;garye"/>
 
 
@@ -58,7 +58,9 @@ Azure 기계 학습 갤러리에서 한 번의 클릭으로 실험을 작업 영
 
 - Microsoft 계정을 사용하여 스튜디오에 로그인합니다(Microsoft 계정 프로필 설정에 있는 프로필 그림과 이름이 원하는 대로 표시되는지 확인).
 - 실험을 만들고 실행
-- 갤러리에 실험을 게시할 준비가 되면 스튜디오 하단에 있는 검정색 바에서 ‘갤러리에 게시'를 클릭합니다. ![Publish](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png) 마음껏 즐기세요!
+- 갤러리에 실험을 게시할 준비가 되면 스튜디오 하단의 검은색 막대에서 ‘Publish to Gallery'(갤러리에 게시)를 클릭합니다. ![Publish](./media/machine-learning-gallery-how-to-use-contribute-publish/publish.png)
+
+마음껏 즐기세요!
 
 ## 사용자의 의견을 듣고 싶습니다! 
 사용자가 주도하는 사용자를 위한 갤러리를 원합니다. 오른쪽에 있는 웃는 얼굴을 사용하여 갤러리가 마음에 드는지 아니면 싫어하는지 알려주세요.
@@ -111,4 +113,4 @@ Azure 기계 학습 갤러리에서 한 번의 클릭으로 실험을 작업 영
 **[갤러리로 이동 >>](http://gallery.azureml.net)**
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -34,7 +34,7 @@ Azure PowerShell을 설치하지 않은 경우 [Azure PowerShell 설치 및 구�
 
 1. **New-AzureADApplication** 명령을 실행하여 새 AAD 응용 프로그램을 만듭니다. 응용 프로그램의 표시 이름, 응용 프로그램을 설명하는 페이지에 대한 링크(이 링크는 확인되지 않음), 응용 프로그램을 식별하는 URI, 응용 프로그램 ID에 대한 암호를 제공합니다.
 
-        PS C:> $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password "<Your_Password>"
+        PS C:\> $azureAdApplication = New-AzureADApplication -DisplayName "<Your Application Display Name>" -HomePage "<https://YourApplicationHomePage>" -IdentifierUris "<https://YouApplicationUri>" -Password "<Your_Password>"
 
      Azure AD 응용 프로그램이 반환됩니다. 서비스 사용자 만들기, 역할 할당 및 JWT 토큰 획득을 위해서는 **ApplicationId** 속성이 필요합니다. 출력을 저장하거나 출력을 변수로 캡처합니다.
 
@@ -68,23 +68,23 @@ Azure PowerShell을 설치하지 않은 경우 [Azure PowerShell 설치 및 구�
 
 2. 응용 프로그램에 대한 서비스 사용자를 만듭니다.
 
-        PS C:> New-AzureADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+        PS C:\> New-AzureADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 
      이제 디렉터리에서 서비스 사용자를 만들었지만, 아직은 서비스에 할당된 권한 또는 범위가 없습니다. 서비스 사용자에게 일부 범위에서 작업을 수행할 수 있는 권한을 명시적으로 부여해야 합니다.
 
 3. 서비스 사용자에게 구독에 대한 권한을 부여합니다. 이 샘플에서는 서비스 사용자에게 구독에서 모든 리소스를 읽을 수 있는 권한을 부여합니다. **ServicePrincipalName** 매개 변수의 경우 응용 프로그램을 만들 때 사용한 **ApplicationId** 또는 **IdentifierUris**를 제공합니다. 역할 기반 액세스 제어에 대한 자세한 내용은 [리소스에 대한 액세스 관리 및 감사](azure-portal/resource-group-rbac.md)를 참조하세요.
 
-        PS C:> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
+        PS C:\> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
 
 4. 역할 할당을 만든 구독을 검색합니다. 이 구독은 나중에 서비스 사용자의 역할이 있는 테넌트의 **TenantId**를 가져오는 데 사용됩니다.
 
-        PS C:> $subscription = Get-AzureSubscription | where { $_.IsCurrent }
+        PS C:\> $subscription = Get-AzureSubscription | where { $_.IsCurrent }
 
      현재 선택된 구독이 아닌 다른 구독에서 역할 할당을 만든 경우 **SubscriptoinId** 또는 **SubscriptionName** 매개 변수를 지정하여 다른 구독을 검색할 수 있습니다.
 
 5. **Get-Credential** 명령을 실행하여 자격 증명을 포함하는 새 **PSCredential** 개체를 만듭니다.
 
-        PS C:> $creds = Get-Credential
+        PS C:\> $creds = Get-Credential
 
      자격 증명을 입력하라는 메시지가 표시됩니다.
 
@@ -94,7 +94,7 @@ Azure PowerShell을 설치하지 않은 경우 [Azure PowerShell 설치 및 구�
 
 6. **Add-AzureAccount** cmdlet에 입력한 자격 증명을 사용하여 서비스 사용자를 로그인합니다.
 
-        PS C:> Add-AzureAccount -Credential $creds -ServicePrincipal -Tenant $subscription.TenantId
+        PS C:\> Add-AzureAccount -Credential $creds -ServicePrincipal -Tenant $subscription.TenantId
 
      이제 사용자는 작성한 AAD 응용 프로그램에 대한 서비스 사용자로 인증됩니다.
 
@@ -180,4 +180,4 @@ Mac, Linux 및 Windows용 Azure CLI를 설치하지 않은 경우 [Azure CLI 설
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

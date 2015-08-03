@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="JoeDavies-MSFT" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,23 +14,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/25/2015" 
+	ms.date="07/09/2015" 
 	ms.author="josephd"/>
 
 # Windows 가상 컴퓨터에 대한 원격 데스크톱 서비스 또는 암호를 다시 설정하는 방법
 
 암호를 잊었거나 원격 데스크톱 서비스 구성의 문제로 Windows 가상 컴퓨터에 연결할 수 없는 경우, Azure 미리 보기 포털이나 VMAccess 확장을 사용하여 로컬 관리자 암호를 재설정하거나 원격 데스크톱 서비스 구성을 다시 설정합니다.
 
-> [AZURE.NOTE]이 문서는 Azure 리소스 관리자 기반 가상 컴퓨터에 적용되지 않습니다.
+> [AZURE.NOTE]이 문서는 리소스 관리자에서 만든 가상 컴퓨터에 적용되지 않습니다.
 
 ## Azure Preview 포털
 
-[Azure 미리 보기 포털](https://portal.azure.com)에서 원격 데스크톱 서비스를 재설정하려면, **찾아보기** > **가상 컴퓨터** > *Windows 가상 컴퓨터* > **원격 액세스 재설정**을 클릭합니다. 다음은 예제입니다.
+[Azure 미리 보기 포털](https://portal.azure.com)에서 원격 데스크톱 서비스를 재설정하려면, **모두 찾아보기** > **가상 컴퓨터(클래식)** > *Windows 가상 컴퓨터* > **원격 액세스 재설정**을 클릭합니다. 다음은 예제입니다.
 
 
 ![](./media/virtual-machines-windows-reset-password/Portal-RDP-Reset-Windows.png)
 
-[Azure 미리 보기 포털](https://portal.azure.com)에서 로컬 관리자 계정의 이름과 암호를 재설정하려면, **찾아보기** > **가상 컴퓨터** > *Windows 가상 컴퓨터* > **모든 설정** > **암호 재설정**을 클릭합니다. 다음은 예제입니다.
+[Azure 미리 보기 포털](https://portal.azure.com)에서 로컬 관리자 계정의 이름과 암호를 재설정하려면, **모두 찾아보기** > **가상 컴퓨터(클래식)** > *Windows 가상 컴퓨터* > **모든 설정** > **암호 재설정**을 클릭합니다. 다음은 예제입니다.
 
 ![](./media/virtual-machines-windows-reset-password/Portal-PW-Reset-Windows.png)
 
@@ -46,9 +47,9 @@ VMAccess 확장은 설치하지 않아도 사용할 수 있습니다. VM 에이�
  
 먼저 VM 에이전트가 이미 설치되어 있는지 확인합니다. 클라우드 서비스 이름과 가상 컴퓨터 이름을 입력하고 관리자 수준의 Azure PowerShell 명령 프롬프트에서 다음 명령을 실행합니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 바꿉니다.
 
-	$CSName = "<cloud service name>"
-	$VMName = "<virtual machine name>"
-	$vm = Get-AzureVM -ServiceName $CSName -Name $VMName 
+	$csName = "<cloud service name>"
+	$vmName = "<virtual machine name>"
+	$vm = Get-AzureVM -ServiceName $csName -Name $vmName 
 	write-host $vm.VM.ProvisionGuestAgent
 
 클라우드 서비스 및 가상 컴퓨터 이름을 모르는 경우 **Get-AzureVM**을 실행하여 현재 구독의 모든 가상 컴퓨터에 대한 해당 정보를 표시합니다.
@@ -110,6 +111,7 @@ Azure IaaS(Windows) 진단 패키지를 실행할 수 없거나 실행해도 문
 
 [RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
+[Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-troubleshoot-remote-desktop-connections.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure 데이터 팩터리 파이프라인에서 사용자 지정 작업 사용" 
-	description="사용자 지정 작업을 만들고 Azure 데이터 팩터리 파이프라인에서 사용하는 방법에 대해 알아봅니다." 
+	pageTitle="Azure Data Factory 파이프라인에서 사용자 지정 작업 사용" 
+	description="사용자 지정 작업을 만들고 Azure Data Factory 파이프라인에서 사용하는 방법에 대해 알아봅니다." 
 	services="data-factory" 
 	documentationCenter="" 
 	authors="spelluru" 
@@ -13,84 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/16/2015" 
 	ms.author="spelluru"/>
 
-# Azure 데이터 팩터리 파이프라인에서 사용자 지정 작업 사용
-Azure 데이터 팩터리는 파이프라인에서 데이터를 이동 및 처리하는 데 사용되는 **복사 작업** 및 **HDInsight 작업**과 같은 기본 제공 작업을 지원합니다. 고유한 변환/처리 논리를 포함하는 사용자 지정 .NET 작업을 만들어 파이프라인에서 사용할 수도 있습니다. **Azure HDInsight** 클러스터 또는 **Azure 배치** 서비스를 사용하여 실행되도록 작업을 구성할 수 있습니다.
+# Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
+Azure Data Factory는 파이프라인에서 데이터를 이동 및 처리하는 데 사용되는 **복사 작업** 및 **HDInsight 작업**과 같은 기본 제공 작업을 지원합니다. 고유한 변환/처리 논리를 포함하는 사용자 지정 .NET 작업을 만들어 파이프라인에서 사용할 수도 있습니다. **Azure HDInsight** 클러스터 또는 **Azure 배치** 서비스를 사용하여 실행되도록 작업을 구성할 수 있습니다.
 
-이 문서에서는 사용자 지정 작업을 만들고 Azure 데이터 팩터리 파이프라인에서 사용하는 방법을 설명합니다. 사용자 지정 작업을 만들고 사용하기 위한 단계별 지침이 포함된 자세한 연습도 제공합니다. 이 연습에서는 HDInsight 연결된 서비스를 사용합니다. Azure 배치 연결된 서비스를 대신 사용하려면 **AzureBatchLinkedService** 형식의 연결된 서비스를 만들고 파이프라인 JSON(**linkedServiceName**)의 작업 섹션에서 사용합니다. 사용자 지정 작업과 함께 Azure 배치를 사용하는 방법에 대한 자세한 내용은 [Azure 배치 연결된 서비스](#AzureBatch) 섹션을 참조하세요.
+이 문서에서는 사용자 지정 작업을 만들고 Azure Data Factory 파이프라인에서 사용하는 방법을 설명합니다. 사용자 지정 작업을 만들고 사용하기 위한 단계별 지침이 포함된 자세한 연습도 제공합니다. 이 연습에서는 HDInsight 연결된 서비스를 사용합니다. Azure 배치 연결된 서비스를 대신 사용하려면 **AzureBatchLinkedService** 형식의 연결된 서비스를 만들고 파이프라인 JSON(**linkedServiceName**)의 작업 섹션에서 사용합니다. 사용자 지정 작업과 함께 Azure 배치를 사용하는 방법에 대한 자세한 내용은 [Azure 배치 연결된 서비스](#AzureBatch) 섹션을 참조하세요.
 
-## 필수 조건
-최신 [Azure 데이터 팩터리용 NuGet 패키지][nuget-package](영문)를 다운로드하여 설치합니다. 지침은 이 문서의 [연습](#SupportedSourcesAndSinks)에 있습니다.
-
-## 사용자 지정 작업 만들기
-
-사용자 지정 작업을 만들려면 다음을 수행합니다.
- 
-1.	Visual Studio 2013에서 **클래스 라이브러리** 프로젝트를 만듭니다.
-3. 클래스 라이브러리의 원본 파일 맨 위에 다음 using 문을 추가합니다.
-	
-		using Microsoft.Azure.Management.DataFactories.Models;
-		using Microsoft.DataFactories.Runtime; 
-
-4. 클래스를 업데이트하여 **IDotNetActivity** 인터페이스를 구현합니다.
-	<ol type='a'>
-	<li>
-		<b>IDotNetActivity</b>에서 클래스를 파생합니다.
-		<br/>
-		예: <br/>
-		공용 클래스 <b>MyDotNetActivity : IDotNetActivity</b>
-	</li>
-
-	<li>
-		<b>IDotNetActivity</b> 인터페이스의 <b>Execute</b> 메서드를 구현합니다.
-	</li>
-
-</ol>
-5. 프로젝트를 컴파일합니다.
-
-
-## 파이프라인에서 사용자 지정 작업 사용
-파이프라인에서 사용자 지정 작업을 사용하려면 다음을 수행합니다.
-
-1.	프로젝트의 **bin\\debug** 또는 **bin\\release** 출력 폴더에서 이진 파일을 모두 **압축**합니다. 
-2.	**Azure Blob 저장소**에 Blob으로 **zip 파일을 업로드**합니다. 
-3.	**파이프라인 JSON** 파일을 업데이트하여 파이프라인 JSON에서 zip 파일, 사용자 지정 작업 DLL, 작업 클래스 및 zip 파일이 포함된 Blob을 참조하게 합니다. JSON 파일에서 다음을 확인합니다.
-	<ol type ="a">
-	<li><b>작업 유형</b>을 <b>DotNetActivity</b>로 설정해야 합니다.</li>
-	<li><b>AssemblyName</b>은 Visual Studio 프로젝트의 출력 DLL 이름입니다.</li>
-	<li><b>EntryPoint</b>는 <b>IDotNetActivity</b> 인터페이스를 구현하는 <b>클래스</b>의 <b>네임스페이스</b> 및 <b>이름</b>을 지정합니다.</li>
-	<li><b>PackageLinkedService</b>는 zip 파일이 포함된 Blob을 참조하는 연결된 서비스입니다. </li>
-	<li><b>PackageFile</b>은 Azure Blob 저장소에 업로드된 zip 파일의 위치와 이름을 지정합니다.</li>
-	<li><b>LinkedServiceName</b>은 HDInsight 클러스터(주문형 또는 사용자 고유)를 데이터 팩터리에 연결하는 연결된 서비스의 이름입니다. 사용자 지정 작업은 지정된 HDInsight 클러스터에서 맵 전용 작업으로 실행됩니다.</li>
-</ol>**부분 JSON 예제**
-
-		"Name": "MyDotNetActivity",
-    	"Type": "DotNetActivity",
-    	"Inputs": [{"Name": "EmpTableFromBlob"}],
-    	"Outputs": [{"Name": "OutputTableForCustom"}],
-		"LinkedServiceName": "myhdinsightcluster",
-    	"Transformation":
-    	{
-	    	"AssemblyName": "MyDotNetActivity.dll",
-    	    "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-    	    "PackageLinkedService": "MyBlobStore",
-    	    "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
-
-## 사용자 지정 작업 업데이트
-사용자 지정 작업의 코드를 업데이트하는 경우 코드를 작성하고 새 이진이 포함된 zip 파일을 Blob 저장소로 업로드합니다.
 
 ## <a name="walkthrough" /> 연습
-이 연습에서는 사용자 지정 작업을 만들고 Azure 데이터 팩터리 파이프라인에서 작업을 사용하는 단계별 지침을 제공합니다. 이 연습은 [Azure 데이터 팩터리 시작][adfgetstarted] 자습서에서 이어지는 내용입니다. 사용자 지정 작업의 작동을 확인하려면 먼저 시작 자습서를 살펴본 다음 이 연습을 수행해야 합니다.
+이 연습에서는 사용자 지정 작업을 만들고 Azure Data Factory 파이프라인에서 작업을 사용하는 단계별 지침을 제공합니다. 이 연습은 [Azure Data Factory 시작][adfgetstarted] 자습서에서 이어지는 내용입니다. 사용자 지정 작업의 작동을 확인하려면 먼저 시작 자습서를 살펴본 다음 이 연습을 수행해야 합니다.
 
 **필수 조건:**
 
 
-- [Azure 데이터 팩터리 시작][adfgetstarted] 자습서. 이 연습을 수행하기 전에 이 문서에 나온 자습서를 완료해야 합니다.
+- [Azure Data Factory 시작][adfgetstarted] 자습서. 이 연습을 수행하기 전에 이 문서에 나온 자습서를 완료해야 합니다.
 - Visual Studio 2012 또는 2013
 - [Azure .NET SDK][azure-developer-center] 다운로드 및 설치
-- 최신 [Azure 데이터 팩터리용 NuGet 패키지][nuget-package](영문)를 다운로드하여 설치합니다. 지침은 연습에 있습니다.
+- 최신 [Azure Data Factory용 NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories/)(영문)를 다운로드하여 설치합니다. 지침은 연습에 있습니다.
 - Azure 저장소용 NuGet 패키지 다운로드 및 설치. 지침이 이 연습에 나오므로 이 단계는 건너뛰어도 됩니다.
 
 ## 1단계: 사용자 지정 작업 만들기
@@ -110,10 +51,6 @@ Azure 데이터 팩터리는 파이프라인에서 데이터를 이동 및 처�
 
 		Install-Package Microsoft.Azure.Management.DataFactories –Pre
 
-3.	<b>패키지 관리자 콘솔</b>에서 다음 명령을 실행하여 <b>Microsoft.DataFactories.Runtime</b>을 가져옵니다. 폴더는 다운로드한 데이터 팩터리 NuGet 패키지가 포함된 위치로 바꿉니다.
-
-		Install-Package Microsoft.DataFactories.Runtime –Pre
-
 4. Azure 저장소 NuGet 패키지를 프로젝트로 가져옵니다.
 
 		Install-Package Azure.Storage
@@ -125,8 +62,8 @@ Azure 데이터 팩터리는 파이프라인에서 데이터를 이동 및 처�
 		using System.Diagnostics;
 	
 		using Microsoft.Azure.Management.DataFactories.Models;
-		using Microsoft.DataFactories.Runtime; 
-	
+		using Microsoft.Azure.Management.DataFactories.Runtime;
+
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
   
@@ -145,22 +82,22 @@ Azure 데이터 팩터리는 파이프라인에서 데이터를 이동 및 처�
 	다음 샘플 코드에서는 입력 Blob의 줄 수를 계산하고 출력 Blob에 Blob 경로, Blob의 줄 수, 작업이 실행된 컴퓨터, 현재 날짜-시간 등과 같은 내용을 생성합니다.
 
         public IDictionary<string, string> Execute(
-                    IEnumerable<ResolvedTable> inputTables, 
-                    IEnumerable<ResolvedTable> outputTables, 
-                    IDictionary<string, string> extendedProperties, 
-                    IActivityLogger logger)
+          IEnumerable<DataSet> inputTables,
+          IEnumerable<DataSet> outputTables,
+          IDictionary<string, string> extendedProperties,
+          IActivityLogger logger)
         {
             string output = string.Empty;
 
-            logger.Write(TraceEventType.Information, "Before anything...");
+            logger.Write("Before anything...");
 
-            logger.Write(TraceEventType.Information, "Printing dictionary entities if any...");
+            logger.Write("Printing dictionary entities if any...");
             foreach (KeyValuePair<string, string> entry in extendedProperties)
             {
-                logger.Write(TraceEventType.Information, "<key:{0}> <value:{1}>", entry.Key, entry.Value);
+                logger.Write("<key:{0}> <value:{1}>", entry.Key, entry.Value);
             }
 
-            foreach (ResolvedTable inputTable in inputTables)
+            foreach (DataSet inputTable in inputTables)
             {
                 string connectionString = GetConnectionString(inputTable.LinkedService);
                 string folderPath = GetFolderPath(inputTable.Table);
@@ -171,7 +108,7 @@ Azure 데이터 팩터리는 파이프라인에서 데이터를 이동 및 처�
                     continue;
                 }
 
-                logger.Write(TraceEventType.Information, "Reading blob from: {0}", folderPath);
+                logger.Write("Reading blob from: {0}", folderPath);
 
                 CloudStorageAccount inputStorageAccount = CloudStorageAccount.Parse(connectionString);
                 CloudBlobClient inputClient = inputStorageAccount.CreateCloudBlobClient();
@@ -180,13 +117,13 @@ Azure 데이터 팩터리는 파이프라인에서 데이터를 이동 및 처�
 
                 do
                 {
-                    BlobResultSegment result = inputClient.ListBlobsSegmented(folderPath, 
-												true, 
-												BlobListingDetails.Metadata, 
-												null, 
-												continuationToken, 
-												null, 
-												null);
+                    BlobResultSegment result = inputClient.ListBlobsSegmented(folderPath,
+                                                true,
+                                                BlobListingDetails.Metadata,
+                                                null,
+                                                continuationToken,
+                                                null,
+                                                null);
                     foreach (IListBlobItem listBlobItem in result.Results)
                     {
                         CloudBlockBlob inputBlob = listBlobItem as CloudBlockBlob;
@@ -200,7 +137,7 @@ Azure 데이터 팩터리는 파이프라인에서 데이터를 이동 및 처�
                                     string line = sr.ReadLine();
                                     if (count == 0)
                                     {
-                                        logger.Write(TraceEventType.Information, "First line: [{0}]", line);
+                                        logger.Write("First line: [{0}]", line);
                                     }
                                     count++;
                                 }
@@ -222,7 +159,7 @@ Azure 데이터 팩터리는 파이프라인에서 데이터를 이동 및 처�
                 } while (continuationToken != null);
             }
 
-            foreach (ResolvedTable outputTable in outputTables)
+            foreach (DataSet outputTable in outputTables)
             {
                 string connectionString = GetConnectionString(outputTable.LinkedService);
                 string folderPath = GetFolderPath(outputTable.Table);
@@ -233,7 +170,7 @@ Azure 데이터 팩터리는 파이프라인에서 데이터를 이동 및 처�
                     continue;
                 }
 
-                logger.Write(TraceEventType.Information, "Writing blob to: {0}", folderPath);
+                logger.Write("Writing blob to: {0}", folderPath);
 
                 CloudStorageAccount outputStorageAccount = CloudStorageAccount.Parse(connectionString);
                 Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + Guid.NewGuid() + ".csv");
@@ -245,19 +182,21 @@ Azure 데이터 팩터리는 파이프라인에서 데이터를 이동 및 처�
             return new Dictionary<string, string>();
 
         }
+    } }
 
 9. 다음과 같은 도우미 메서드를 추가합니다. **Execute** 메서드는 이러한 도우미 메서드를 호출합니다. **GetConnectionString** 메서드는 Azure 저장소 연결 문자열을 검색하고 **GetFolderPath** 메서드는 Blob 위치를 검색합니다.
 
 
         private static string GetConnectionString(LinkedService asset)
         {
-            AzureStorageLinkedService storageAsset;
+
             if (asset == null)
             {
                 return null;
             }
 
-            storageAsset = asset.Properties as AzureStorageLinkedService;
+            AzureStorageLinkedService storageAsset = asset.Properties.TypeProperties as AzureStorageLinkedService;
+          
             if (storageAsset == null)
             {
                 return null;
@@ -268,26 +207,25 @@ Azure 데이터 팩터리는 파이프라인에서 데이터를 이동 및 처�
 
         private static string GetFolderPath(Table dataArtifact)
         {
-            AzureBlobLocation blobLocation;
             if (dataArtifact == null || dataArtifact.Properties == null)
             {
                 return null;
             }
 
-            blobLocation = dataArtifact.Properties.Location as AzureBlobLocation;
-            if (blobLocation == null)
+            AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
+            if (blobDataset == null)
             {
                 return null;
             }
 
-            return blobLocation.FolderPath;
+            return blobDataset.FolderPath;
         }
    
 
 
 10. 프로젝트를 컴파일합니다. 메뉴에서 **빌드**를 클릭하고 **솔루션 빌드**를 클릭합니다.
-11. **Windows 탐색기**를 시작하고 빌드 유형에 따라 **bin\\debug** 또는 **bin\\release** 폴더로 이동합니다.
-12. <project folder>\\bin\\Debug 폴더의 이진을 모두 포함하는 zip 파일 **MyDotNetActivity.zip**을 만듭니다.
+11. **Windows 탐색기**를 시작하고 빌드 유형에 따라 **bin\debug** 또는 **bin\release** 폴더로 이동합니다.
+12. <project folder>\bin\Debug 폴더의 이진을 모두 포함하는 zip 파일 **MyDotNetActivity.zip**을 만듭니다.
 13. **ADFTutorialDataFactory**의 **MyBlobStore** 연결된 서비스가 사용하는 Azure Blob 저장소의 Blob 컨테이너 **customactvitycontainer**에 Blob으로 **MyDotNetActivity.zip**을 업로드합니다. Blob 컨테이너 **blobcustomactivitycontainer**가 아직 없는 경우 새로 만듭니다. 
 
 
@@ -299,11 +237,11 @@ Azure 데이터 팩터리는 파이프라인에서 데이터를 이동 및 처�
 3. 1단계에서 만든 사용자 지정 작업을 사용하는 파이프라인을 만들고 실행합니다. 
  
 ### 사용자 지정 활동을 실행하는데 사용할 수 있는 HDInsight 클러스터에 대한 연결된 서비스 만들기
-Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지원하며 이 클러스터를 사용하여 입력을 처리하고 출력 데이터를 생성합니다. 또한 고유한 클러스터를 사용하여 같은 작업을 할 수도 있습니다. 주문형 HDInsight 클러스터를 사용하면 각 조각에 대해 클러스터가 생성됩니다. 반면 고유한 HDInsight 클러스터를 사용하는 경우에는 클러스터에서 조각을 즉시 처리할 수 있습니다. 따라서 주문형 클러스터를 사용하는 경우 출력 데이터가 고유한 클러스터를 사용할 때처럼 빠르게 표시되지 않을 수 있습니다.
+Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며 이 클러스터를 사용하여 입력을 처리하고 출력 데이터를 생성합니다. 또한 고유한 클러스터를 사용하여 같은 작업을 할 수도 있습니다. 주문형 HDInsight 클러스터를 사용하면 각 조각에 대해 클러스터가 생성됩니다. 반면 고유한 HDInsight 클러스터를 사용하는 경우에는 클러스터에서 조각을 즉시 처리할 수 있습니다. 따라서 주문형 클러스터를 사용하는 경우 출력 데이터가 고유한 클러스터를 사용할 때처럼 빠르게 표시되지 않을 수 있습니다.
 
 > [AZURE.NOTE]런타임에 .NET 작업의 한 인스턴스는 HDInsight 클러스터의 작업자 노드 하나에서만 실행됩니다. 여러 노드에서 실행되도록 확장할 수 없습니다. .NET 작업의 여러 인스턴스는 HDInsight 클러스터의 서로 다른 노드에서 병렬로 실행될 수 있습니다.
 
-[Azure 데이터 팩터리에서 Pig 및 Hive 사용][hivewalkthrough]의 연습와 함께 [Azure 데이터 팩터리 시작][adfgetstarted] 자습서를 확장하는 경우, 이 연결된 서비스 만들기를 건너뛰고 ADFTutorialDataFactory에 이미 있는 연결된 서비스를 사용할 수 있습니다.
+[Azure Data Factory에서 Pig 및 Hive 사용][hivewalkthrough]의 연습와 함께 [Azure Data Factory 시작][adfgetstarted] 자습서를 확장하는 경우, 이 연결된 서비스 만들기를 건너뛰고 ADFTutorialDataFactory에 이미 있는 연결된 서비스를 사용할 수 있습니다.
 
 
 #### 주문형 HDInsight 클러스터를 사용하려면
@@ -358,11 +296,11 @@ Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지�
 					"folderPath": "adftutorial/customactivityoutput/{Slice}",
 					"partitionedBy": [ { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } }],
 
-					"linkedServiceName": "MyBlobStore"
+					"linkedServiceName": "StorageLinkedService"
         		},
         		"availability": 
         		{
-            		"frequency": "hour",
+            		"frequency": "Hour",
             		"interval": 1
         		}   
     		}
@@ -396,7 +334,7 @@ Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지�
                      	{
                         	"AssemblyName": "MyDotNetActivity.dll",
                             "EntryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-                            "PackageLinkedService": "MyBlobStore",
+                            "PackageLinkedService": "StorageLinkedService",
                             "PackageFile": "customactivitycontainer/MyDotNetActivity.zip",
                             "ExtendedProperties":
 							{
@@ -428,7 +366,7 @@ Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지�
 	- 다음 단계에서 만들 새 출력 테이블 **OutputTableForCustom**을 사용합니다.
 	- **AssemblyName**을 DLL의 이름 **MyActivities.dll**로 설정합니다.
 	- **EntryPoint**를 **MyDotNetActivityNS.MyDotNetActivity**로 설정합니다.
-	- **PackageLinkedService**를 **MyBlobStore**로 설정합니다. 이 Blob 저장소는 [Azure 데이터 팩터리 시작][adfgetstarted] 자습서에서 만들었고, 사용자 지정 작업 Zip 파일을 포함합니다.
+	- **PackageLinkedService**를 **MyBlobStore**로 설정합니다. 이 Blob 저장소는 [Azure Data Factory 시작][adfgetstarted] 자습서에서 만들었고, 사용자 지정 작업 Zip 파일을 포함합니다.
 	- **PackageFile**을 **customactivitycontainer/MyDotNetActivity.zip**으로 설정합니다.
      
 4. 명령 모음에서 **배포**를 클릭하여 파이프라인을 배포합니다.
@@ -446,7 +384,10 @@ Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지�
 
 	![사용자 지정 작업의 로그 다운로드][image-data-factory-download-logs-from-custom-activity]
    
-데이터 집합 및 파이프라인을 모니터링하는 자세한 단계는 [Azure 데이터 팩터리 시작][adfgetstarted]을 참조하세요.
+데이터 집합 및 파이프라인을 모니터링하는 자세한 단계는 [Azure Data Factory 시작][adfgetstarted]을 참조하세요.
+
+## 사용자 지정 작업 업데이트
+사용자 지정 작업의 코드를 업데이트하는 경우 코드를 작성하고 새 이진이 포함된 zip 파일을 Blob 저장소로 업로드합니다.
     
 ## <a name="AzureBatch"></a> Azure 배치 연결된 서비스 사용 
 > [AZURE.NOTE]Azure 배치 서비스에 대한 개요는 [Azure Batch Technical Overview][batch-technical-overview]를 참조하고, Azure 배치 서비스를 빨리 시작하려면 [.NET용 Azure 배치 라이브러리 시작][batch-get-started]을 참조하세요.
@@ -483,7 +424,7 @@ Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지�
 
 ## 참고 항목
 
-[Azure 데이터 팩터리 업데이트: Azure 배치를 사용하여 ADF 사용자 지정 .NET 작업 실행](http://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/)
+[Azure Data Factory 업데이트: Azure 배치를 사용하여 ADF 사용자 지정 .NET 작업 실행](http://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/)
 
 [batch-net-library]: ../batch/batch-dotnet-get-started.md
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
@@ -523,4 +464,4 @@ Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지�
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -78,4 +78,4 @@ SQL 데이터 웨어하우스는 계산과 저장소를 분리하기 때문에, 
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

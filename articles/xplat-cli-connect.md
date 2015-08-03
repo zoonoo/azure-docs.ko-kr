@@ -145,4 +145,4 @@ Azure 구독에 연결하게 되면 Azure CLI 명령을 사용하여 시작할 �
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

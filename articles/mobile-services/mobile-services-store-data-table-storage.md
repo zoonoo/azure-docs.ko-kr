@@ -23,4 +23,4 @@ Chris Risner의 자습서인 [모바일 서비스와 Microsoft Azure 저장소]�
 [모바일 서비스와 Microsoft Azure 저장소]: http://chrisrisner.com/Mobile-Services-and-Windows-Azure-Storage
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

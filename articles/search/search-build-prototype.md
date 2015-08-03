@@ -133,4 +133,4 @@ JSON 파일에 데이터를 가져올 수 있는 경우, 해당 데이터로 기
 [1]: ./media/search-build-prototype/azsearch-datafiles.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -107,4 +107,4 @@ CustomScript 확장 실행이 완료되면 앞에서 만든 PHP 페이지를 찾
 [Azure에서 Linux 및 오픈 소스 컴퓨팅](virtual-machines-linux-opensource.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

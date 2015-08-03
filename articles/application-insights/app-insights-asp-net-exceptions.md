@@ -60,16 +60,16 @@ ASP.NET 앱을 모니터링하려면 응용 프로그램에 [Application Insight
 
 ## 사용자 지정 추적 및 로그 데이터
 
-진단 데이터 특성을 사용자 프로그램으로 불러오려면, 사용자 고유의 원격 분석 전송에 코드를 삽입합니다. 요청, 페이지 보기 및 기타 자동으로 수집 된 데이터와 함께 진단 검색에 표시됩니다.
+진단 데이터 특성을 사용자 프로그램으로 불러오려면, 사용자 고유의 원격 분석 전송에 코드를 삽입합니다. 요청, 페이지 보기 및 기타 자동으로 수집된 데이터와 함께 진단 검색에 표시됩니다.
 
 여러 옵션이 있습니다.
 
-* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event)는 일반적으로 사용 패턴 모니터링을 위해 사용 되지만 진단 검색의 사용자 지정 이벤트에서도 전송하는 데이터를 표시 합니다. 이벤트의 이름을 지정하고, [진단 검색을 필터링][diagnostic]할 수 있는 문자열 속성 및 숫자 메트릭 수를 수행할 수 있습니다.
-* 사용자는 [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace)를 사용하여 POST 정보와 같은 긴 데이터를 보낼 수 있습니다.
-* [TrackException()](#exceptions)스택 추적을 보냅니다. [예외에 대한 자세한](#exceptions).
+* [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event)는 일반적으로 사용 패턴 모니터링을 위해 사용되지만 진단 검색의 사용자 지정 이벤트에서도 전송하는 데이터를 표시합니다. 이벤트의 이름을 지정하고, [진단 검색을 필터링][diagnostic]할 수 있는 문자열 속성 및 숫자 메트릭 수를 수행할 수있습니다.
+* 사용자는 [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace)를 사용하여 POST 정보와 같은 긴데이터를 보낼 수있습니다.
+* [TrackException()](#exceptions)은 스택 추적을 보냅니다. [예외에 대해 자세히 알아보십시오](#exceptions).
 * 사용자가 이미 Log4Net 또는 NLog와 같은 로깅 프레임워크를 사용하는 경우, 요청과 예외 데이터와 함께 진단 검색 안에서 [이러한 로그를 캡처][netlogs]하고 볼 수 있습니다.
 
-이러한 이벤트를 보려면, [검색][diagnostic]과 필터를 차례대로 열고 사용자 지정 이벤트, 추적, 또는 예외를 선택 합니다.
+이러한 이벤트를 보려면, [검색][diagnostic]과 필터를 차례대로 열고 사용자 지정 이벤트, 추적 또는 예외를 선택 합니다.
 
 
 ![드릴스루](./media/app-insights-asp-net-exceptions/viewCustomEvents.png)
@@ -441,4 +441,4 @@ WebApiConfig에서 서비스에 추가합니다.
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

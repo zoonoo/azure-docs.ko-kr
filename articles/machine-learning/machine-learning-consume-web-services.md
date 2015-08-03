@@ -2,6 +2,7 @@
 	pageTitle="기계 학습 웹 서비스 사용 | Microsoft Azure" 
 	description="기계 학습 서비스가 게시된 후에는 요청-응답 서비스 또는 일괄 처리 실행 서비스로 RESTFul 웹 서비스를 사용할 수 있습니다." 
 	services="machine-learning" 
+	solutions="big-data" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -433,4 +434,4 @@ Azure 기계 학습 서비스 끝점에 대한 일괄 처리 작업을 만들 �
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

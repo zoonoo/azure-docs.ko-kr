@@ -168,4 +168,4 @@ MPIO가 Windows Server에 구성된 후 StorSimple 장치에 생성된 볼륨이
 
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

@@ -46,11 +46,11 @@ Visual Studio Application Insights를 사용하여 모바일 응용 프로그램
     ![**시험판 포함**을 선택하고 "Application Insights"를 검색합니다.](./media/app-insights-windows-cpp/04-nuget.png)
 
 3. 릴리스 및 디버그용 프로젝트 설정에:
-  - 프로젝트 속성에 $(SolutionDir)packages\\ApplicationInsights-CPP.1.0.0-Beta\\src\\inc 추가 -> VC++ 디렉터리 -> 디렉터리 포함
-  - 프로젝트 속성에 $(SolutionDir)packages\\ApplicationInsights.1.0.0-Beta\\lib\\native<PLATFORM TYPE>\\release\\AppInsights_Win10-UAP 추가 -> VC++ 디렉터리 -> 라이브러리 디렉터리
+  - 프로젝트 속성에 $(SolutionDir)packages\ApplicationInsights-CPP.1.0.0-Beta\src\inc 추가 -> VC++ 디렉터리 -> 디렉터리 포함
+  - 프로젝트 속성에 $(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native<PLATFORM TYPE>\release\AppInsights_Win10-UAP 추가 -> VC++ 디렉터리 -> 라이브러리 디렉터리
 
-4. $(SolutionDir)packages\\ApplicationInsights.1.0.0-Beta\\lib\\native<PLATFORM TYPE>\\release\\ApplicationInsights에서 프로젝트에 ApplicationInsights.winmd를 참조로 추가
-5. AppInsights_Win10-UAP.dll from $(SolutionDir)packages\\ApplicationInsights.1.0.0-Beta\\lib\\native<PLATFORM TYPE>\\release\\AppInsights_Win10-UAP을 추가합니다. 속성으로 이동하여 콘텐츠를 '예'로 설정합니다. 이렇게 dll을 빌드 디렉터리에 복사합니다.
+4. $(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native<PLATFORM TYPE>\release\ApplicationInsights에서 프로젝트에 ApplicationInsights.winmd를 참조로 추가
+5. AppInsights_Win10-UAP.dll from $(SolutionDir)packages\ApplicationInsights.1.0.0-Beta\lib\native<PLATFORM TYPE>\release\AppInsights_Win10-UAP을 추가합니다. 속성으로 이동하여 콘텐츠를 '예'로 설정합니다. 이렇게 dll을 빌드 디렉터리에 복사합니다.
 
 
 #### SDK를 이후 버전으로 업데이트하려면
@@ -139,4 +139,4 @@ http://portal.azure.com으로 돌아가서 Application Insights 리소스를 찾
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -18,6 +18,8 @@
 
 # Azure Active Directory 로그인을 사용하도록 응용 프로그램을 구성하는 방법
 
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+
 이 항목에서는 Azure Active Directory를 인증 공급자로 사용하도록 Azure 앱 서비스를 구성하는 방법을 보여 줍니다.
 
 ## <a name="register"></a>Azure Active Directory에 응용 프로그램 등록
@@ -73,4 +75,4 @@ Azure Active Directory Single Sign-On으로 모바일 앱의 사용자 인증: [
 [ios-adal]: ../app-service-mobile-dotnet-backend-xamarin-ios-aad-sso-preview.md
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

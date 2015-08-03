@@ -3,7 +3,7 @@
 	description="Azure 인프라 서비스에서 IT 작업을 배포하기 위한 핵심 디자인 및 구현 지침에 대해 알아봅니다." 
 	documentationCenter=""
 	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
+	authors="squillace" 
 	manager="timlt" 
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
-	ms.author="josephd"/>
+	ms.date="07/09/2015" 
+	ms.author="rasquill"/>
 
 # Azure 인프라 서비스 구현 지침
  
@@ -168,7 +168,7 @@ Blob의 최대 크기가 1024GB이며 VHD 파일의 메타 데이터(바닥글)�
 ### 스트라이프 디스크
 데이터 디스크의 스트라이프는 대부분의 경우에 1023GB 보다 큰 디스크를 만드는 기능을 제공할 뿐 아니라 단일 볼륨에 대한 저장소를 지원하기 위해 여러 Blob을 허용하여 성능을 강화합니다. 이는 단일 디스크에서 데이터를 읽고 쓰기 위해 필요한 I/O를 병렬로 실행합니다.
 
-Azure는 가상 컴퓨터 크기에 따라 사용 가능한 데이터 디스크 및 대역폭의 양에 제한을 둡니다. 자세한 내용은 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](https://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하세요.
+Azure는 가상 컴퓨터 크기에 따라 사용 가능한 데이터 디스크 및 대역폭의 양에 제한을 둡니다. 자세한 내용은 [가상 컴퓨터의 크기](virtual-machines-size-specs.md)를 참조하세요.
 
 Azure 데이터 디스크에 디스크 스트라이프를 사용하고 있는 경우 다음 지침을 고려합니다.
 
@@ -288,7 +288,7 @@ Azure 구독에서 최대 200개의 클라우드 서비스를 지원할 수 있�
 - 가상 네트워크에 대한 주소 공간을 정의합니다.
 - 각각에 대한 주소 공간 및 서브넷 집합을 정의합니다.
 - 크로스-프레미스 가상 네트워크의 경우, 가상 네트워크의 가상 시스템이 도달에 필요한 온-프레미스 위치의 로컬 네트워크 주소 공간 집합을 정의합니다.
-- 명명 규칙을 사용하여 가상 네트워크를 만듭니다. Azure 미리 보기 포털 또는 Azure 관리 포털을 사용할 수 있습니다.
+- 명명 규칙을 사용하여 가상 네트워크를 만듭니다. Azure Preview 포털 또는 Azure 포털을 사용할 수 있습니다.
 
 ## 6. 가용성 집합
 
@@ -312,7 +312,7 @@ Azure IaaS에서 각각의 IaaS 가상 컴퓨터가 단일 인스턴스로 역�
 
 Azure PaaS에서 Azure는 가상 컴퓨터 및 관련된 디스크를 관리합니다. 클라우드 서비스 및 역할을 만들고 명명해야 합니다. 그러면 Azure가 해당 역할과 관련된 인스턴스를 만듭니다. Azure IaaS의 경우, 클라우드 서비스, 가상 컴퓨터 및 관련된 디스크에 대한 이름 지정은 사용자에게 달려 있습니다.
 
-관리 부담을 줄이기 위해 Azure 관리 포털은 컴퓨터 이름을 관련된 클라우드 서비스의 기본 이름에 대한 제안으로 사용합니다(이 경우 고객이 가상 컴퓨터 만들기 마법사의 일부로 새 클라우드 서비스를 만들도록 선택함).
+관리 부담을 줄이기 위해 Azure 포털은 컴퓨터 이름을 관련된 클라우드 서비스의 기본 이름에 대한 제안으로 사용합니다(이 경우 고객이 가상 컴퓨터 만들기 마법사의 일부로 새 클라우드 서비스를 만들도록 선택함).
 
 또한 Azure는 클라우드 서비스 이름, 컴퓨터 이름 및 만든 날짜의 조합을 사용하여 디스크 및 지원 VHD Blob의 이름을 지정합니다.
 
@@ -430,7 +430,7 @@ Contoso는 Azure 가상 컴퓨터에 대해 다음 이름으로 결정했습니�
 
 [Microsoft Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md#storage-limits)
 
-[Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](https://msdn.microsoft.com/library/azure/dn197896.aspx)
+[가상 컴퓨터에 적합한 크기](virtual-machines-size-specs.md)
 
 [Azure 저장소 확장성 및 성능 목표](../storage-scalability-targets.md)
 
@@ -438,7 +438,7 @@ Contoso는 Azure 가상 컴퓨터에 대해 다음 이름으로 결정했습니�
 
 [데이터 센터 확장 참조 아키텍처 다이어그램](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 
-[Azure 리소스 관리자에 통합된 Azure 계산, 네트워크 및 저장소 공급자](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
+[Azure 리소스 관리자의 Azure 계산, 네트워크 및 저장소 공급자](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

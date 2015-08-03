@@ -532,7 +532,7 @@ EventHubSpout는 해당 상태의 검사점을 큐에서 읽은 메시지의 현
 
 * 토폴로지자 종료되고 **동일한 이름**으로 다시 시작된 경우
 
-영구 검사점을 WASB(HDInsight 클러스터에서 사용하는 Azure 저장소)로 내보내고 가져올 수도 있습니다. 이 작업을 수행하는 스크립트는 HDInsight의 Storm 클러스터(**c:\\apps\\dist\\storm-0.9.3.2.2.1.0-2340\\zkdatatool-1.0\\bin**)에 있습니다.
+영구 검사점을 WASB(HDInsight 클러스터에서 사용하는 Azure 저장소)로 내보내고 가져올 수도 있습니다. 이 작업을 수행하는 스크립트는 HDInsight의 Storm 클러스터(**c:\apps\dist\storm-0.9.3.2.2.1.0-2340\zkdatatool-1.0\bin**)에 있습니다.
 
 >[AZURE.NOTE]클러스터에 설치된 Storm 버전이 나중에 변경될 수 있으므로 경로의 버전 번호는 다를 수 있습니다.
 
@@ -557,4 +557,4 @@ EventHubSpout는 해당 상태의 검사점을 큐에서 읽은 메시지의 현
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

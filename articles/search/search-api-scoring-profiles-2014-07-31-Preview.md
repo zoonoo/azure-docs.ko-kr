@@ -289,4 +289,4 @@ Azure 검색 서비스 REST API 만들기 인덱스(Azure 검색 API)___________
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,3 +1,4 @@
+
 Operational Insights 구독에는 다음과 같은 제한이 적용됩니다.
 
 
@@ -10,4 +11,4 @@ Operational Insights 구독에는 다음과 같은 제한이 적용됩니다.
 
 <sup>1</sup>고객이 500MB 일별 데이터 전송 제한에 도달한 경우 데이터 분석이 중지되고 다음날 다시 시작됩니다. 1일은 UTC를 기준으로 합니다.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

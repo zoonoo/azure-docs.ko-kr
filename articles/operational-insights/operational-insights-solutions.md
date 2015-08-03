@@ -129,4 +129,4 @@ Microsoft Azure Operational Insights의 용량 관리 솔루션을 사용하여 
 - 마지막 업데이트 이후 기간(일)
 - Windows Update 에이전트 버전
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

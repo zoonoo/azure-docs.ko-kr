@@ -81,4 +81,4 @@ Microsoft에서는 System Center 구성 요소 및 기타 제품을 자동화하
 - [Orchestrator Standard Activities](http://technet.microsoft.com/library/hh403832.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

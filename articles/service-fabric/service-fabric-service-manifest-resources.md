@@ -69,4 +69,4 @@ HTTP 끝점은 서비스 패브릭에 의해 자동으로 ACL 처리됩니다.
 ```
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

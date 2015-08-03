@@ -20,4 +20,4 @@ MongoLab URI를 코드에 붙여 넣을 수 있지만 관리하기 쉽도록 환
 [focus-mongolab-websiteconnectionstring]: ./media/howto-save-connectioninfo-mongolab/focus-mongolab-websiteconnectionstring.png
 [button-website-save]: ./media/howto-save-connectioninfo-mongolab/button-website-save.png
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

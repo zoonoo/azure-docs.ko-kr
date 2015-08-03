@@ -25,4 +25,4 @@
 
 8. 두 컨트롤러를 모두 업데이트한 후 유지 관리 모드를 종료합니다. 지침은 [유지 관리 모드 종료](#exit-maintenance-mode)를 참조하세요.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

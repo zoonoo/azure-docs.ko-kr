@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/17/2015" 
 	ms.author="patshea123"/>
 
-# Azure 저장소 시작(ASP.NET vNext 프로젝트)
+# Azure 저장소 시작(ASP.NET 5 프로젝트)
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-storage-aspnet5-getting-started-tables.md)
@@ -27,45 +27,65 @@
 > - [Queues](vs-storage-aspnet5-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
-Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 데이터를 저장할 수 있습니다. 이 서비스는 Azure 클라우드 내부 및 외부에서 인증된 호출을 수락하는 NoSQL 데이터 저장소입니다. Azure 테이블은 구조화된 비관계형 데이터를 저장하는 데 적합합니다. 자세한 내용은 [.NET에서 테이블 저장소를 사용하는 방법(영문)](storage-dotnet-how-to-use-tables.md/#create-table ".NET에서 테이블 저장소를 사용하는 방법(영문)")을 참조하세요.
+##개요
 
-ASP.NET 5 프로젝트에서 테이블에 프로그래밍 방식으로 액세스하려면 다음 항목(아직 없는 경우)을 추가해야 합니다.
+Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 데이터를 저장할 수 있습니다. 이 서비스는 Azure 클라우드 내부 및 외부에서 인증된 호출을 수락하는 NoSQL 데이터 저장소입니다. Azure 테이블은 구조화된 비관계형 데이터를 저장하는 데 적합합니다.
 
-1. 프로그래밍 방식으로 Azure 저장소에 액세스하려는 C# 파일의 맨 위에 다음과 같은 코드 네임스페이스 선언을 추가합니다.
+이 문서에서는 Visual Studio의 **연결된 서비스 추가** 대화 상자를 사용하여 Azure 저장소 계정을 ASP.NET 5 프로젝트에서 생성하거나 참조한 후 Azure 테이블 저장소를 Visual Studio에서 사용하는 방법을 설명합니다.
 
+**연결된 서비스 추가** 작업은 프로젝트의 Azure 저장소에 접근하기 위해 적합한 NuGet 패키지를 설치하고 프로젝트 구성 파일에 저장소 계정에 대한 연결 문자열을 추가합니다.
+
+Azure 테이블 저장소를 사용하는 방법에 대한 일반적인 정보는 [.NET에서 테이블 저장소를 사용하는 방법](storage-dotnet-how-to-use-tables.md)을 참조하세요.
+
+시작하려면 먼저 저장소 계정에서 테이블을 만들어야 합니다. Visual Studio **서버 탐색기**에서 Azure 테이블을 만드는 방법을 알려드리겠습니다. 코드에서 테이블 만드는 방법도 알려드리겠습니다.
+
+또한 기본 테이블 및 테이블 엔터티 추가, 수정, 읽기와 같은 엔터티 작업을 수행하는 방법도 알려드립니다. 샘플은 C# 코드로 작성되었으며 Azure Storage Client Library for .NET을 사용합니다.
+
+**참고:** ASP.NET 5에서 Azure 저장소에 대한 호출을 수행하는 일부 API는 비동기적입니다. 자세한 내용은 [Async 및 Await를 사용한 비동기 프로그래밍](http://msdn.microsoft.com/library/hh191443.aspx)을 참조하세요. 아래 코드에서는 비동기 프로그래밍 메서드를 사용한다고 가정합니다.
+
+##Visual Studio 서버 탐색기에서 Azure 저장소 테이블 만들기
+
+[AZURE.INCLUDE [vs-create-table-in-server-explorer](../../includes/vs-create-table-in-server-explorer.md)]
+
+##**코드에서 테이블 액세스하기** 
+
+ASP.NET 5 프로젝트의 테이블에 액세스하려면 Azure 테이블 저장소에 액세스하는 C# 소스 파일에 다음 항목을 포함해야 합니다.
+
+1. C# 파일 맨 위의 네임스페이스 선언에 이 `using` 문도 포함되어있는지 확인합니다.
+
+		using Microsoft.Framework.Configuration;
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Table;
-		using Microsoft.Framework.Configuration;
 		using System.Threading.Tasks;
 		using LogLevel = Microsoft.Framework.Logging.LogLevel;
 
-2. 다음 코드를 사용하여 구성 설정을 가져옵니다.
+2. 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다.
 
-		IConfigurationSourceRoot config = new Configuration()
-                .AddJsonFile("config.json")
-                .AddEnvironmentVariables();
+		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+		   CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
 
-#####저장소 연결 문자열 가져오기
-테이블을 가지고 작업을 수행하려면, 테이블이 저장될 저장소 계정에 대한 연결 문자열을 가져와야 합니다. **CloudStorageAccount** 유형을 사용하여 저장소 계정 정보를 나타낼 수 있습니다. ASP.NET vNext 프로젝트를 사용하는 경우 다음 코드에 나온 대로 구성 개체의 get 메서드를 호출하여 Azure 서비스 구성에서 저장소 연결 문자열과 저장소 계정 정보를 가져올 수 있습니다.
+    **참고:** 다음 샘플의 코드 앞에서 위의 코드를 모두 사용합니다.
 
-**참고:** ASP.NET 5에서 Azure 저장소에 대한 호출을 수행하는 API는 비동기적입니다. 자세한 내용은 [Async 및 Await를 사용한 비동기 프로그래밍](http://msdn.microsoft.com/library/hh191443.aspx)을 참조하세요. 아래 코드에서는 비동기 프로그래밍 메서드를 사용한다고 가정합니다.
 
-	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-      config.Get("MicrosoftAzureStorage:<storageAccountName>_AzureStorageConnectionString"));
+3. 저장소 계정의 테이블 개체를 참조하려면 **CloudTableClient** 개체를 가져옵니다.
 
-#####테이블 만들기
-**CloudTableClient** 개체를 사용하면 테이블 및 엔터티에 대한 참조 개체를 가져올 수 있습니다. 다음 코드는 **CloudTableClient** 개체를 만든 다음 이 개체를 사용하여 새 테이블을 만듭니다. 코드가 “people”이라는 이름의 테이블을 참조하려고 합니다. 이 이름의 테이블을 찾을 수 없으면 새로 만듭니다.
+	    // Create the table client.
+    	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-**참고:** 이 가이드의 모든 코드에서는 빌드되는 응용프로그램이 Azure 클라우드 서비스 프로젝트이며 Azure 응용프로그램의 서비스 구성에 저장된 저장소 연결 문자열을 사용한다고 가정합니다. 또한 다음 섹션의 코드 앞에서 이 코드를 모두 사용합니다.
-
-	// Create the table client.
-	CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+4. 특정 테이블과 엔터티를 참조하려면 **CloudTable** 참조 개체를 가져옵니다.
 	
-	// Create the table if it doesn't exist.
-	CloudTable table = tableClient.GetTableReference("people");
+    	// Get a reference to a table named "peopleTable"
+	    CloudTable table = tableClient.GetTableReference("peopleTable");
+
+###코드에서 테이블 만들기
+
+코드에서 Azure 테이블을 만들려면 Visual Studio **서버 탐색기**를 사용하는 대신 `CreateIfNotExistsAsync()`에 호출을 추가하면 됩니다.
+
+	// Create the CloudTable if it does not exist
 	await table.CreateIfNotExistsAsync();
 
-#####테이블에 엔터티 추가
+##테이블에 엔터티 추가
+
 테이블에 엔터티를 추가하려면 엔터티의 속성을 정의하는 클래스를 만듭니다. 다음 코드에서는 고객의 이름을 행 키로 사용하고 성을 파티션 키로 사용하는 **CustomerEntity**라는 엔터티 클래스를 정의합니다.
 
 	public class CustomerEntity : TableEntity
@@ -83,7 +103,9 @@ ASP.NET 5 프로젝트에서 테이블에 프로그래밍 방식으로 액세스
 	    public string PhoneNumber { get; set; }
 	}
 
-엔터티와 관련된 테이블 작업은 이전에 "테이블 만들기"에서 만든 **CloudTable** 개체를 사용하여 수행합니다. **TableOperation** 개체를 수행할 작업을 나타냅니다. 다음 코드 예제에서는 **CloudTable** 개체와 **CustomerEntity** 개체를 만드는 방법을 보여 줍니다. 작업을 준비하기 위해 고객 엔터티를 테이블에 삽입하는 **TableOperation**이 만들어집니다. 마지막으로 CloudTable.ExecuteAsync를 호출하여 작업이 실행됩니다.
+엔터티와 관련된 테이블 작업은 이전에 "코드에서 테이블 액세스하기"에서 만든 **CloudTable** 개체를 사용하여 수행합니다. **TableOperation** 개체를 수행할 작업을 나타냅니다. 다음 코드 예제에서는 **CloudTable** 개체와 **CustomerEntity** 개체를 만드는 방법을 보여 줍니다. 작업을 준비하기 위해 고객 엔터티를 테이블에 삽입하는 **TableOperation**이 만들어집니다. 마지막으로 CloudTable.ExecuteAsync를 호출하여 작업이 실행됩니다.
+
+	// Get a reference to the **CloudTable** object named 'peopleTable' as described in "Access a table in code"
 
 	// Create a new customer entity.
 	CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
@@ -94,13 +116,13 @@ ASP.NET 5 프로젝트에서 테이블에 프로그래밍 방식으로 액세스
 	TableOperation insertOperation = TableOperation.Insert(customer1);
 	
 	// Execute the insert operation.
-	await table.ExecuteAsync(insertOperation);
+	await peopleTable.ExecuteAsync(insertOperation);
 
-#####엔터티 일괄 삽입
+##엔터티 일괄 삽입
+
 하나의 쓰기 작업으로 테이블에 여러 엔터티를 삽입할 수 있습니다. 다음 코드 예제에서는 두 개의 엔터티 개체("Jeff Smith" 및 "Ben Smith")를 만들고 Insert 메서드를 사용하여 **TableBatchOperation** 개체에 이 두 개체를 추가한 다음 CloudTable.ExecuteBatchAsync를 호출하여 작업을 시작합니다.
 
-	// Create the CloudTable object that represents the "people" table.
-	CloudTable table = tableClient.GetTableReference("people");
+	// Get a reference to a **CloudTable** object named 'peopleTable' as described in "Access a table in code"
 	
 	// Create the batch operation.
 	TableBatchOperation batchOperation = new TableBatchOperation();
@@ -120,10 +142,12 @@ ASP.NET 5 프로젝트에서 테이블에 프로그래밍 방식으로 액세스
 	batchOperation.Insert(customer2);
 	
 	// Execute the batch operation.
-	await table.ExecuteBatchAsync(batchOperation);
+	await peopleTable.ExecuteBatchAsync(batchOperation);
 
-#####파티션의 모든 엔터티 가져오기
+##파티션의 모든 엔터티 가져오기
 테이블에서 파티션의 모든 엔터티를 쿼리하려면 **TableQuery** 개체를 사용합니다. 다음 코드 예제에서는 'Smith'가 파티션 키인 엔터티에 대한 필터를 지정합니다. 이 예제에서는 쿼리 결과에 있는 각 엔터티의 필드를 콘솔에 출력합니다.
+
+	// Get a reference to a **CloudTable** object named 'peopleTable' as described in "Access a table in code"
 
 	// Construct the query operation for all customer entities where PartitionKey="Smith".
     TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"));
@@ -132,7 +156,7 @@ ASP.NET 5 프로젝트에서 테이블에 프로그래밍 방식으로 액세스
     TableContinuationToken token = null;
     do
     {
-    	TableQuerySegment<CustomerEntity> resultSegment = await table.ExecuteQuerySegmentedAsync(query, token);
+    	TableQuerySegment<CustomerEntity> resultSegment = await peopleTable.ExecuteQuerySegmentedAsync(query, token);
 		token = resultSegment.ContinuationToken;
 
 		foreach (CustomerEntity entity in resultSegment.Results)
@@ -145,17 +169,16 @@ ASP.NET 5 프로젝트에서 테이블에 프로그래밍 방식으로 액세스
     return View();
 
 
-#####단일 엔터티 가져오기
+##단일 엔터티 가져오기
 단일 특정 엔터티를 가져오는 쿼리를 작성할 수 있습니다. 다음 코드에서는 **TableOperation** 개체를 사용하여 'Ben Smith'라는 고객을 지정합니다. 이 메서드는 컬렉션 대신 하나의 엔터티만 반환하며, TableResult.Result에서 반환된 값은 **CustomerEntity** 개체입니다. 쿼리에 파티션과 행 키를 모두 지정하는 것이 **테이블** 서비스에서 단일 엔터티를 검색하는 가장 빠른 방법입니다.
 
-	// Create the CloudTable object that represents the "people" table.
-	CloudTable table = tableClient.GetTableReference("people");
+	// Get a reference to a **CloudTable** object named 'peopleTable' as described in "Access a table in code"
 	
 	// Create a retrieve operation that takes a customer entity.
 	TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
 	
 	// Execute the retrieve operation.
-	TableResult retrievedResult = await table.ExecuteAsync(retrieveOperation);
+	TableResult retrievedResult = await peopleTable.ExecuteAsync(retrieveOperation);
 	
 	// Print the phone number of the result.
 	if (retrievedResult.Result != null)
@@ -163,17 +186,16 @@ ASP.NET 5 프로젝트에서 테이블에 프로그래밍 방식으로 액세스
 	else
 	   Console.WriteLine("The phone number could not be retrieved.");
 
-#####엔터티 삭제
+##엔터티 삭제
 엔터티를 찾은 후 삭제할 수 있습니다. 다음 코드에서는 "Ben Smith"라는 고객 엔터티를 찾아 보고 찾으면 삭제합니다.
 
-	// Create the CloudTable that represents the "people" table.
-	CloudTable table = tableClient.GetTableReference("people");
+	// Get a reference to a **CloudTable** object named 'peopleTable' as described in "Access a table in code"
 	
 	// Create a retrieve operation that expects a customer entity.
 	TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
 	
 	// Execute the operation.
-	TableResult retrievedResult = table.Execute(retrieveOperation);
+	TableResult retrievedResult = peopleTable.Execute(retrieveOperation);
 	
 	// Assign the result to a CustomerEntity object.
 	CustomerEntity deleteEntity = (CustomerEntity)retrievedResult.Result;
@@ -184,7 +206,7 @@ ASP.NET 5 프로젝트에서 테이블에 프로그래밍 방식으로 액세스
 	   TableOperation deleteOperation = TableOperation.Delete(deleteEntity);
 	
 	   // Execute the operation.
-	   await table.ExecuteAsync(deleteOperation);
+	   await peopleTable.ExecuteAsync(deleteOperation);
 	
 	   Console.WriteLine("Entity deleted.");
 	}
@@ -192,7 +214,13 @@ ASP.NET 5 프로젝트에서 테이블에 프로그래밍 방식으로 액세스
 	else
 	   Console.WriteLine("Couldn't delete the entity.");
 
+##다음 단계
+
+[AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
+
+
+
 [Azure 저장소에 대한 자세한 정보](http://azure.microsoft.com/documentation/services/storage/) [서버 탐색기에서 저장소 리소스 탐색](http://msdn.microsoft.com/library/azure/ff683677.aspx) 및 [ASP.NET 5](http://www.asp.net/vnext)도 참조하세요.
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

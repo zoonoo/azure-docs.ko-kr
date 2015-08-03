@@ -1,8 +1,7 @@
 <properties
 	pageTitle="탄력적 데이터베이스 분할/병합 도구 자습서 | Microsoft Azure"
 	description="탄력적 데이터베이스 도구를 사용하는 분할 및 병합"
-	services="sql-database" 
-	documentationCenter=""  
+	services="sql-database" documentationCenter=""  
 	manager="jeffreyg"
 	authors="sidneyh"/>
 
@@ -22,7 +21,7 @@
 2. 명령 프롬프트를 열고 nuget.exe를 다운로드한 디렉터리로 이동합니다.
 3. 아래 명령을 사용하여 최신 분할/병합 패키지를 현재 디렉터리에 다운로드합니다. `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge`  
 
-위의 단계에서는 현재 디렉터리에 분할/병합 파일을 다운로드합니다. 파일은 **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x**라는 디렉터리에 저장됩니다. 여기서 *x.x.xxx.x*는 버전 번호를 나타냅니다. **content\\splitmerge\\service** 하위 디렉터리에서 분할/병합 서비스 파일을 찾고 **content\\splitmerge\\powershell** 하위 디렉터리에서 분할/병합 PowerShell 스크립트 및 필요한 클라이언트 .dll을 찾습니다.
+위의 단계에서는 현재 디렉터리에 분할/병합 파일을 다운로드합니다. 파일은 **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x**라는 디렉터리에 저장됩니다. 여기서 *x.x.xxx.x*는 버전 번호를 나타냅니다. **content\splitmerge\service** 하위 디렉터리에서 분할/병합 서비스 파일을 찾고 **content\splitmerge\powershell** 하위 디렉터리에서 분할/병합 PowerShell 스크립트 및 필요한 클라이언트 .dll을 찾습니다.
 
 ## 필수 조건
 
@@ -329,4 +328,4 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

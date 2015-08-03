@@ -363,7 +363,7 @@ Visual Studio에서 규칙 파일이 출력 폴더에 복사되었는지 확인�
   [방법: 서비스 모델 정의]: #DefineServiceModel
   [방법: 자동 크기 조정 규칙 정의]: #DefineAutoscalingRules
   [방법: 자동 크기 조정 응용 프로그램 블록 구성]: #Configure
-  [Azure에서 성능 카운터 사용]: http://www.windowsazure.com/develop/net/common-tasks/performance-profiling/
+  [Azure에서 성능 카운터 사용]: http://azure.microsoft.com/develop/net/common-tasks/performance-profiling/
   [NuGet]: http://nuget.org/
   [Azure 관리 포털]: http://manage.windowsazure.com
   [서비스 정보 데이터 저장]: http://msdn.microsoft.com/library/hh680878(PandP.50).aspx
@@ -380,4 +380,4 @@ Visual Studio에서 규칙 파일이 출력 폴더에 복사되었는지 확인�
   [TechNet 및 MSDN 호스팅 비용과 Azure에서 자동 크기 조정으로 인한 환경적 영향 줄이기]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

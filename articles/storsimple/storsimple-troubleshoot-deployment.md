@@ -3,7 +3,7 @@
    description="StorSimple을 처음 배포할 때 발생하는 오류를 진단하고 해결하는 방법을 설명합니다."
    services="storsimple"
    documentationCenter="NA"
-   authors="SharS"
+   authors="alkohli"
    manager="adinah"
    editor="tysonn" />
 <tags 
@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
-   ms.author="v-sharos" />
+   ms.date="07/17/2015"
+   ms.author="alkohli" />
 
 # StorSimple 장치 배포 문제 해결
 
@@ -64,7 +64,7 @@
 - 장치 관리자 및 StorSimple 스냅숏 관리자 암호를 설정합니다. 
 - 장치를 등록합니다. 
 
-### 필요한 네트워크 설정을 구성할 때 발생 하는 오류
+## 필요한 네트워크 설정 중 오류
 
 | 번호| 오류 메시지 | 가능한 원인 | 권장 작업 |
 | ---| ------------- | --------------- | ------------------ |
@@ -76,7 +76,7 @@
 | 6 | Invoke-HcsSetupWizard: 잘못된 IPv6 주소입니다. | IP 주소는 잘못된 형식으로 제공됩니다.| 형식을 확인하고 다시 사용자의 IP 주소를 제공합니다. 자세한 내용은 [Ipv6 주소 지정][2]을 참조하세요.|
 | 7 | Invoke-HcsSetupWizard: 종단점 맵 편집기에서 사용 가능한 종단점이 더 이상 없습니다(HRESULT: 0x800706D9에서 예외 발생) | 클러스터 기능이 작동하지 않습니다. | 다음 단계는 [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하세요.
 
-### 선택적 웹 프록시 설정을 구성할 때 발생하는 오류
+## 선택적 웹 프록시 설정 중 오류
 
 | 번호| 오류 메시지 | 가능한 원인 | 권장 작업 |
 | ---| ------------- | --------------- | ------------------ |
@@ -86,7 +86,7 @@
 | 4 | Invoke-HcsSetupWizard: 클러스터 리소스를 찾을 수 없음(HRESULT: 0x8007138f에서 예외 발생) | 클러스터 리소스를 찾을 수 없습니다. 설치가 올바르지 않은 경우 발생할 수 있습니다. | 장치를 공장 기본 설정으로 다시 설정해야 합니다. [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하여 클러스터 리소스를 만듭니다.|
 | 5 | Invoke-HcsSetupWizard: 클러스터 리소스가 온라인 상태가 아님(HRESULT: 0x8007138c에서 예외 발생)| 클러스터 리소스가 온라인 상태가 아닙니다. | 다음 단계는 [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하세요.|
 
-### 장치 관리자 및 StorSimple 스냅숏 관리자 암호를 설정할 때 발생하는 오류
+## 장치 관리자 및 StorSimple 스냅숏 관리자 암호 관련 오류
 
 기본 장치 관리자 암호는 **Password1**입니다. 처음 로그온한 후 이 암호가 만료되므로 변경하려면 설치 마법사를 사용해야 합니다. 처음으로 장치를 등록하는 경우 새 장치 관리자 암호를 입력해야 합니다.
 
@@ -124,7 +124,7 @@ StorSimple Manager 서비스의 관리 포털에서 암호를 재설정할 수 �
 - [장치 관리자 암호 구성](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec09)
 - [StorSimple 스냅숏 관리자 암호 구성](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec08)
 
-### 장치를 등록할 때 발생하는 오류
+## 장치 등록 중 오류
 
 Microsoft Azure에서 실행되는 StorSimple 관리자 서비스를 사용하여 장치를 등록합니다. 장치를 등록하는 동안 다음 문제 중 하나 이상이 발생할 수 있습니다.
 
@@ -575,4 +575,4 @@ StorSimple 장치에 업데이트 1을 실행하는 경우 데이터 0 네트워
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

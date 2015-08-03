@@ -68,4 +68,4 @@ Microsoft에서는 포스터/Infographics 관련 아키텍처를 여러 개 게�
 
 ![Azure 아키텍처 인포그래픽](./media/architecture-overview/AzureArchInfographicThumb.jpg)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

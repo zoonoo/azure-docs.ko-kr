@@ -49,4 +49,4 @@ CPIF는 조직, 고객 및 파트너가 Azure, System Center 및 Windows Server�
 
 [일괄 처리 계층](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-0bc3f8b1)
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

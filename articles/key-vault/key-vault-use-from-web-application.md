@@ -1,10 +1,4 @@
-<properties 
-	pageTitle="웹 응용 프로그램에서 Azure 키 자격 증명 모음 사용 | 개요" 
-	description="이 자습서를 사용하여 웹 응용 프로그램에서 Azure 키 자격 증명 모음을 사용하는 방법에 대해 배웁니다." services="key-vault" 
-	documentationCenter="" 
-	authors="adamhurwitz" 
-	manager=""
-	tags="azure-resource-manager"//>
+<properties pageTitle="웹 응용 프로그램에서 Azure 키 자격 증명 모음 사용 | 개요" description="이 자습서를 사용하여 웹 응용 프로그램에서 Azure 키 자격 증명 모음을 사용하는 방법에 대해 배웁니다." services="key-vault" documentationCenter="" authors="adamhurwitz" manager="" tags="azure-resource-manager"//>
 
 <tags 
 	ms.service="key-vault" 
@@ -131,4 +125,4 @@ Azure 웹앱이 있는 경우 이제 Azure 포털에서 AppSettings의 실제 �
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

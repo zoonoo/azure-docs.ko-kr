@@ -195,4 +195,4 @@ ACS 기능을 자세히 살펴보고 보다 정교한 시나리오를 실험하�
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

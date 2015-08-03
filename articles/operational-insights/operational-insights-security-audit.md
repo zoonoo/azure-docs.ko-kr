@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="07/21/2015"
    ms.author="banders" />
 
 # Operational Insights 보안 및 감사 데이터 탐색
@@ -39,6 +39,8 @@ Operational Insights 보안 및 감사 솔루션은 주의가 필요한 주요 �
 7. 검색 쿼리 상자에서 프로세스 이름과 따옴표를 제외한 모든 내용을 제거하고 검색 아이콘을 클릭합니다. ![자세한 검색 정보 이미지](./media/operational-insights-security-audit/sec-audit-search04.png)
 8. 검색하면 프로세스가 실행된 컴퓨터, 프로세스를 실행한 사용자 계정, 프로세스에 대해 이벤트가 생성된 날짜 및 시간을 포함하여 프로세스에 대한 자세한 정보가 표시됩니다.
 9. 찾은 정보를 사용하여 필요에 따라 수정 작업을 수행할 수 있습니다. 예를 들어 실행 파일이 맬웨어로 확인되면 영향을 주는 모든 컴퓨터 시스템에서 제거하는 작업을 수행하는 것이 좋습니다. 실행 파일이 제거되고 Operational Insights가 컴퓨터 시스템에 대한 업데이트된 로그 및 감사 이벤트를 받은 후 그 다음날에 주목할 만한 문제 블레이드의 값이 변경됩니다.
+
+[AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
 ## 법정 분석에 대한 모범 사례
 
@@ -98,4 +100,4 @@ Windows 컴퓨팅 환경은 보안 관련 레코드의 캡처 수준을 구성�
 
 로컬 정책 설정 외에도, AppLocker를 사용하여 감사 데이터를 수집하는 경우 Operational Insights에 의해 데이터가 수집되며 볼 수 있습니다.
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

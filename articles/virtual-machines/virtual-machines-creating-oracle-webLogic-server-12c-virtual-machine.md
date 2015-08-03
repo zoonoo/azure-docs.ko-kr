@@ -1,4 +1,4 @@
-<properties title="Creating an Oracle WebLogic Server 12c Virtual Machine in Azure" pageTitle="Azure에서 Oracle WebLogic Server 12c 가상 컴퓨터 만들기" description="Microsoft Azure에서 Windows Server 2012에서 실행 중인 Oracle WebLogic Server 12c 가상 컴퓨터를 만드는 예제를 단계별로 설명합니다." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<properties pageTitle="Azure에서 Oracle WebLogic Server 12c 가상 컴퓨터 만들기" description="Microsoft Azure에서 Windows Server 2012에서 실행 중인 Oracle WebLogic Server 12c 가상 컴퓨터를 만드는 예제를 단계별로 설명합니다." services="virtual-machines" authors="bbenz" documentationCenter=""/>
 <tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Azure에서 Oracle WebLogic Server 12c 가상 컴퓨터 만들기
 다음 예제에서는 Azure에서 Windows Server 2012에서 실행되는 Microsoft에서 제공한 Oracle WebLogic Server 12c 이미지에 따라 가상 컴퓨터를 만드는 방법을 보여줍니다.
@@ -21,8 +21,8 @@
 
 8.	필요한 경우 다음의 고려 사항으로 [선택적 구성](https://msdn.microsoft.com/library/azure/dn763935.aspx)을 설정합니다.
 	1. VM 이름으로 새 저장소 계정을 만들려면 **저장소 계정**을 그대로 둡니다.
-	2. **가용성 집합**을 "구성 되지 않음"으로 둡니다.
-	3. 이때 모든 **끝점**을 추가하지 마십시오.
+	2. **가용성 집합**을 "구성되지 않음"으로 둡니다.
+	3. 이때 **끝점**을 추가하지 마세요.
 
 9.	[리소스 그룹](resource-group-portal.md)을 선택하거나 만듭니다.
 
@@ -31,7 +31,7 @@
 11. **위치**를 선택합니다.
 
 
-##Azure에서 Oracle WebLogic Server 12c 가상 컴퓨터 구성하기
+##Azure에서 Oracle WebLogic Server 12c 가상 컴퓨터를 구성하려면
 
 1. [Azure 포털](https://ms.portal.azure.com/)에 로그인합니다.
 
@@ -41,9 +41,9 @@
 
 4.	**연결**을 클릭합니다.
 
-5.	가상 컴퓨터에 연결하려면 필요에 따라 메시지에 응답합니다. 관리자 이름 및 암호를 묻는 메시지가 표시되면 가상 컴퓨터를 만들 때 제공한 값을 사용하십시오.
+5.	가상 컴퓨터에 연결하려면 필요에 따라 메시지에 응답합니다. 관리자 이름 및 암호를 묻는 메시지가 표시되면 가상 컴퓨터를 만들 때 제공한 값을 사용하세요.
 
-6.	**WebLogic 플랫폼 빠른 시작** 대화 상자에서 **WebLogic Server 시작**을 클릭합니다. (**WebLogic 플랫폼 빠른 시작** 대화 상자가 아직 열려있지 않은 경우, **Windows 시작**을 클릭하여 **WebLogic 서버 도메인용 관리 서버 시작**을 입력한 다음 **WebLogic 서버 도메인용 관리 서버 시작** 아이콘을 클릭하여 엽니다.)
+6.	**WebLogic 플랫폼 빠른 시작** 대화 상자에서 **WebLogic Server 시작**을 클릭합니다. **WebLogic 플랫폼 빠른 시작** 대화 상자가 아직 열려있지 않은 경우, **Windows 시작**을 클릭하여 **WebLogic 서버 도메인용 관리 서버 시작**을 입력한 다음 **WebLogic 서버 도메인용 관리 서버 시작** 아이콘을 클릭하여 엽니다.
 
 7.	**시작** 대화 상자에서 **새 WebLogic 도메인 만들기**를 선택한 후 **다음**을 클릭합니다.
 
@@ -57,9 +57,9 @@
 
 	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image12.png)
 
-10.	**관리자의 사용자 이름 및 암호 구성** 대화 상자에서
+10.	**관리자의 사용자 이름 및 암호 구성** 대화 상자에서 다음을 수행합니다.
 
-	1.	[옵션] **weblogic**에서 선택한 값으로 사용자 이름을 변경합니다.
+	1.	[선택 사항] **weblogic**에서 선택한 값으로 사용자 이름을 변경합니다.
 
 	2.	WebLogic 서버 관리자의 암호를 지정하고 확인합니다.
 
@@ -85,14 +85,14 @@
 
 15.	**startWebLogic.cmd**의 명령 프롬프트가 시작됩니다. 메시지가 표시되면 WebLogic 사용자 이름과 암호를 제공합니다.
 
-##Azure에서 Oracle WebLogic Server 12c 가상 컴퓨터에 응용 프로그램 설치하기
-1.	관리 가상 컴퓨터에 로그인된 상태에서 http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war에서 로컬로 사용할 수 있는 shoppingcart.war 예시를 복사합니다. 예를 들어 **c:\\mywar**라는 폴더를 만들고 http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war에서 WAR를 **c:\\mywar**로 저장합니다.
+##Azure에서 Oracle WebLogic Server 12c 가상 컴퓨터에 응용 프로그램 설치하려면
+1.	관리 가상 컴퓨터에 로그인된 상태에서 http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war에서 로컬로 사용할 수 있는 shoppingcart.war 예시를 복사합니다. 예를 들어 **c:\mywar**라는 폴더를 만들고 http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war에서 WAR를 **c:\mywar**로 저장합니다.
 
 2.	**WebLogic Server 관리 콘솔**을 열고 http://localhost:7001/console합니다. 메시지가 표시되면 WebLogic 사용자 이름과 암호를 제공합니다.
 
 3.	**WebLogic Server 관리 콘솔**에서 **잠금 및 편집**을 클릭하고 **배포**를 클릭한 다음 **설치**를 클릭합니다.
 
-4.	**경로**에 **c:\\myway\\shoppingcart.war**를 입력합니다.
+4.	**경로**에 **c:\myway\shoppingcart.war**를 입력합니다.
 
 	![](media/virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine/image18.png)
 
@@ -120,7 +120,7 @@
 
 	5.	**설정**을 클릭합니다.
 
-	6.	**Endpoints**를 클릭합니다.
+	6.	**끝점**을 클릭합니다.
 
 	7.	**추가**를 클릭합니다.
 
@@ -152,9 +152,9 @@
 
 	7.	규칙이 적용되는 프로필에 대해 기본값을 적용하고 **다음**을 클릭합니다.
 
-	8.	규칙 이름 및 설명(선택 항목)을 지정한 다음 **마침**을 클릭합니다.
+	8.	규칙 이름 및 설명(선택 사항)을 지정한 다음 **마침**을 클릭합니다.
 
-12.	인터넷에서 실행 중인 쇼핑 카트 응용 프로그램을 보려면 `http://<<unique_domain_name>>/shoppingcart`의 형태로 URL에 대해 브라우저를 엽니다. (**가상 컴퓨터**를 클릭한 다음 Oracle WebLogic Server를 실행하기 위해 사용 중인 가상 컴퓨터를 선택하여 [Azure 포털](https://ms.portal.azure.com/) 내에서 <<*unique_domain_name*>>에 대한 값을 확인할 수 있습니다.)
+12.	인터넷에서 실행 중인 쇼핑 카트 응용 프로그램을 보려면 `http://<<unique_domain_name>>/shoppingcart`의 형태로 URL에 대해 브라우저를 엽니다. **가상 컴퓨터**를 클릭한 다음 Oracle WebLogic Server를 실행하기 위해 사용 중인 가상 컴퓨터를 선택하여 [Azure 포털](https://ms.portal.azure.com/) 내에서 <<*unique_domain_name*>>에 대한 값을 확인할 수 있습니다.
 
 
 ##추가 리소스
@@ -168,4 +168,4 @@
 
 -	[Azure용 Oracle 가상 컴퓨터 이미지](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

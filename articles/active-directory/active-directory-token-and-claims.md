@@ -413,4 +413,4 @@ JWT 토큰에서 사용자 계정 이름은 upn 클레임에 표시됩니다.
 [Azure Active Directory 인증 프로토콜](https://msdn.microsoft.com/library/azure/dn151124.aspx)
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

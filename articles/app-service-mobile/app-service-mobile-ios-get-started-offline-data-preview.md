@@ -31,6 +31,10 @@
 
 모바일 앱을 처음 사용하는 경우 먼저 [iOS 앱 만들기] 자습서를 완료합니다.
 
+##<a name="review"></a>서버 프로젝트 구성 검토(옵션)
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
+
 ## <a name="get-app"></a>오프라인 ToDo 샘플 앱 가져오기
 
 [GitHub의 모바일 앱 샘플 리포지토리]에서 리포지토리를 복제하고 Xcode에서 [오프라인 iOS 샘플] 프로젝트를 엽니다.
@@ -278,4 +282,4 @@
 [Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

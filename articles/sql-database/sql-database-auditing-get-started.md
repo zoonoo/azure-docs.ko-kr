@@ -138,7 +138,7 @@ SQL 데이터베이스 감사를 사용하여 다음을 수행할 수 있습니�
 
 4. 저장소 UI로 돌아와서 *보조 액세스 키*를 **다시 생성**합니다(다음 키 새로 고침 주기를 위한 준비).
   
-##<a id="subheading-4"></a>자동화
+##<a id="subheading-4"></a>Automation
 Azure SQL 데이터베이스에서 감사를 구성하는 데 사용할 수 있는 여러 가지 PowerShell cmdlet이 있습니다. 감사 cmdlet에 액세스하려면 Azure 리소스 관리자 모드에서 PowerShell을 실행해야 합니다.
 
 > [AZURE.NOTE][Azure 리소스 관리자](https://msdn.microsoft.com/library/dn654592.aspx) 모듈은 현재 사전 검토 단계에 있습니다. 이 모듈은 Azure 모듈과 동일한 관리 기능을 제공하지 않을 수도 있습니다.
@@ -182,4 +182,4 @@ Azure 리소스 관리자 모드에서 `Get-Command *AzureSql*`을 실행하여 
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

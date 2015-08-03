@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2015"
+   ms.date="07/21/2015"
    ms.author="abhisram"/>
 
 # 패브릭 행위자 진단 및 성능 모니터링
@@ -154,6 +154,5 @@ Windows 운영 체제에서 기본적으로 사용할 수 있는 [Windows 성능
 |---|---|---|---|---|
 |ActorActivated|5|정보 제공|0x1|행위자가 활성화되었습니다.|
 |ActorDeactivated|6|정보 제공|0x1|행위자가 비활성화되었습니다.|
- 
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

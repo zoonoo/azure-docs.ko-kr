@@ -74,7 +74,7 @@ Application Insights 포털의 응용 프로그램 개요 블레이드에서 연
 
 ## <a name="format"></a> 데이터 형식
 
-* 각 blob은 다중 '\\n'-separated 행을 포함하는 텍스트 파일입니다.
+* 각 blob은 다중 '\n'-separated 행을 포함하는 텍스트 파일입니다.
 * 각 행은 서식이 지정되지 않은 JSON 파일입니다. 가만히 앉아서 지켜보려는 경우 JSON 플러그인을 사용하여 메모장++과 같은 뷰어로 시도해 봅니다.
 
 ![적합한 도구를 사용하여 원격 분석 보기](./media/app-insights-export-telemetry/06-json.png)
@@ -183,4 +183,4 @@ Application Insights 포털의 응용 프로그램 개요 블레이드에서 연
 
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

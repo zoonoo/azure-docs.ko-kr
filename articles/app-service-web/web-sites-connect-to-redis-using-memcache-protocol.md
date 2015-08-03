@@ -83,7 +83,7 @@ Memcache 프로토콜을 읽어주는 응용 프로그램을 위해 Memcache 확
 
 ### php_memcache 확장 사용
 
-파일을 다운로드한 후 압축을 풀어 **php_memcache.dll**을 **d:\\home\\site\\wwwroot\\bin\\ext\** 디렉터리로 업로드합니다. php_memcache.dll이 웹 앱에 업로드된 후 확장을 PHP 런타임에 사용하도록 설정해야 합니다. Azure 포털에서 Memcache 확장을 사용하려면 웹앱에 대한 **응용 프로그램 설정** 블레이드를 열고 **PHP_EXTENSIONS** 키 및 **bin\\ext\\php_memcache.dll** 값으로 새 앱 설정을 추가합니다.
+파일을 다운로드한 후 압축을 풀어 **php_memcache.dll**을 **d:\home\site\wwwroot\bin\ext\** 디렉터리로 업로드합니다. php_memcache.dll이 웹 앱에 업로드된 후 확장을 PHP 런타임에 사용하도록 설정해야 합니다. Azure 포털에서 Memcache 확장을 사용하려면 웹앱에 대한 **응용 프로그램 설정** 블레이드를 열고 **PHP_EXTENSIONS** 키 및 **bin\ext\php_memcache.dll** 값으로 새 앱 설정을 추가합니다.
 
 
 > 웹 앱에 여러 PHP 확장을 로드해야 하는 경우, PHP_EXTENSIONS 값은 DLL 파일에 대한 관련 경로 목록을 쉼표로 구분해야 합니다.
@@ -197,4 +197,4 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 [13]: http://memcached.org
  
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

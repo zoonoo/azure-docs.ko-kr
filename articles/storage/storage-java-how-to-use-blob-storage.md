@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Java에서 Blob 저장소를 사용하는 방법 | Microsoft Azure&quot;" 
+	pageTitle="Java에서 Blob 저장소를 사용하는 방법 | Microsoft Azure";" 
 	description="Azure Blob 서비스를 사용하여 Blob 콘텐츠를 업로드, 다운로드, 나열 및 삭제하는 방법을 알아봅니다. 샘플은 Java로 작성되었습니다." 
 	services="storage" 
 	documentationCenter="java" 
@@ -120,7 +120,7 @@ Blob에 파일을 업로드하려면 컨테이너 참조를 가져온 후 이 �
     	CloudBlobContainer container = blobClient.getContainerReference("mycontainer");
 			
         // Define the path to a local file.
-        final String filePath = "C:\\myimages\\myimage.jpg";
+        final String filePath = "C:\myimages\myimage.jpg";
 
     	// Create or overwrite the "myimage.jpg" blob with contents from a local file.
     	CloudBlockBlob blob = container.getBlockBlobReference("myimage.jpg");
@@ -186,7 +186,7 @@ Blob을 다운로드하려면 Blob 참조를 가져오기 위해 Blob을 업로�
 	       if (blobItem instanceof CloudBlob) {
 	           // Download the item and save it to a file with the same name.
     	        CloudBlob blob = (CloudBlob) blobItem;
-    	        blob.download(new FileOutputStream("C:\\mydownloads\" + blob.getName()));
+    	        blob.download(new FileOutputStream("C:\mydownloads\" + blob.getName()));
     	    }
     	}
     }
@@ -266,4 +266,4 @@ Blob을 삭제하려면 Blob 참조를 가져온 후 **deleteIfExists**를 호�
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

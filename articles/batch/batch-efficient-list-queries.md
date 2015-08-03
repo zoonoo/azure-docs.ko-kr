@@ -80,4 +80,4 @@ Select 문자열을 사용하여 각 항목에 대해 반환되는 속성 값을
 
 > [AZURE.NOTE]최대의 효율성과 응용 프로그램의 최고 성능을 위해 목록 API 호출에 위해 항상 필터와 Select 절을 사용하는 것이 좋습니다.
 
-<!---HONumber=July15_HO3-->
+<!---HONumber=July15_HO4-->

@@ -1,3 +1,4 @@
+
 **참고**: 이 문서에서는 가상 네트워크에 연결되지 않은 가상 컴퓨터를 만듭니다. 가상 컴퓨터에서 가상 네트워크를 사용하여 호스트 이름으로 가상 컴퓨터에 직접 연결하거나 프레미스 간 연결을 설정할 수 있게 하려는 경우 **From Gallery** 방법을 대신 사용하고, 가상 컴퓨터를 만들 때 가상 네트워크를 지정합니다. 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 개요](http://go.microsoft.com/fwlink/p/?LinkID=294063)를 참조하세요.
 
 1. Azure 계정을 사용하여 Azure 관리 포털에 로그인합니다.
@@ -68,4 +69,4 @@ Windows 컴퓨터를 사용하는 경우 PuTTY를 사용하여 VM에 연결합�
 
 [Image6]: ./media/create-and-configure-centos-vm-in-portal/putty.png
 
-<!---HONumber=62-->
+<!---HONumber=July15_HO4-->

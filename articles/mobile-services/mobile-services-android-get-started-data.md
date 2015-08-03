@@ -156,4 +156,4 @@ Azure 모바일 서비스 Android SDK의 이전 버전에서 사용되는 샘플
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->

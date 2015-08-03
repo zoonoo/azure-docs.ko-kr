@@ -279,22 +279,29 @@ WIF의 확장 포인트로 ClaimsAuthorizationManager를 사용합니다. Claims
 -   [오늘날 공유 액세스 서명이 간단함](http://blog.smarx.com/posts/shared-access-signatures-are-easy-these-days)
 
 
-##Azure SQL 데이터베이스 ID 및 액세스 시나리오
+## Azure SQL 데이터베이스 ID 및 액세스 시나리오
+
 
 SQL 데이터베이스는 SQL Server 인증만 지원하며 Windows 인증(통합 보안)은 지원하지 않습니다. 사용자는 SQL 데이터베이스에 연결할 때마다 자격 증명(로그인 및 암호)을 제공해야 합니다. 정보가 공개되지 않도록 사용자 이름 및 암호를 관리할 때 각별히 주의해야 합니다.
 
+
 ![][15]
 
-이 시나리오를 구현하려면 다음 리소스를 참조하세요.
 
--   [보안 지침 및 제한 사항(SQL 데이터베이스)](http://msdn.microsoft.com/library/windowsazure/ff394108.aspx#authentication)
--   [방법: sqlcmd를 사용하여 SQL 데이터베이스에 연결](http://msdn.microsoft.com/library/windowsazure/ee336280.aspx)
--   [방법: ADO.NET을 사용하여 SQL 데이터베이스에 연결](http://msdn.microsoft.com/library/windowsazure/ee336243.aspx)
--   [방법: ASP.NET를 통해 SQL 데이터베이스에 연결](http://msdn.microsoft.com/library/windowsazure/ee621781.aspx)
--   [방법: WCF Data Services를 통해 SQL 데이터베이스에 연결](http://msdn.microsoft.com/library/windowsazure/ee621789.aspx)
--  [방법: PHP를 사용하여 SQL 데이터베이스에 연결](http://msdn.microsoft.com/library/windowsazure/ff394110.aspx)
--   [방법: JDBC를 사용하여 SQL 데이터베이스에 연결](http://msdn.microsoft.com/library/windowsazure/gg715284.aspx)
--   [방법: ADO.NET Entity Framework를 사용하여 SQL 데이터베이스에 연결](http://msdn.microsoft.com/library/windowsazure/ff951633.aspx)
+이 시나리오를 해결하려면 다음 도움말 항목을 참조하세요.<br/> [Azure SQL 데이터베이스 개발: 방법 도움말 항목](http://msdn.microsoft.com/library/azure/ee621787.aspx)
+
+
+또는 다음과 같은 많은 하위 항목 중 하나를 참조하세요.
+
+
+- [방법: sqlcmd를 사용하여 SQL 데이터베이스에 연결](http://msdn.microsoft.com/library/azure/ee336280.aspx)
+- [코드 샘플: ADO.NET을 사용하여 Azure SQL 데이터베이스에 연결하는 논리 다시 시도](http://msdn.microsoft.com/library/azure/ee336243.aspx)
+- [방법: PHP를 사용하여 SQL 데이터베이스에 연결](http://msdn.microsoft.com/library/azure/ff394110.aspx)
+- [방법: JDBC를 사용하여 SQL 데이터베이스에 연결](http://msdn.microsoft.com/library/azure/gg715284.aspx)
+
+
+또는 <br/> [Azure SQL 데이터베이스 보안 지침 및 제한 사항](http://msdn.microsoft.com/library/azure/ff394108.aspx#authentication) 참조
+
 
 ##Azure 서비스 버스 ID 및 액세스 시나리오
 
@@ -444,4 +451,4 @@ Azure AD 액세스 제어 배포 시 다음 보안 노브를 고려합니다. �
 [Web SSO Design]: http://technet.microsoft.com/library/dd807033(WS.10).aspx
 [Federated Web SSO Design]: http://technet.microsoft.com/library/dd807050(WS.10).aspx
 
-<!---HONumber=July15_HO2-->
+<!---HONumber=July15_HO4-->
