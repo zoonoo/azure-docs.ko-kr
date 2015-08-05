@@ -129,7 +129,15 @@ Azure CDN을 통해 전체 Azure 웹앱을 제공하는 것이 일반적으로 �
 <a name="caching"></a>
 ## Azure 웹앱의 정적 파일에 대한 캐싱 옵션 구성 ##
 
-Azure 웹앱에서 Azure CDN 통합을 사용하면 CDN 끝점에서 정적 콘텐츠를 캐시하는 방법을 지정할 수 있습니다. 이렇게 하려면 ASP.NET 프로젝트(예: **cdnwebapp**)에서 *Web.config*를 열고 `<system.webServer>`에 `<staticContent>` 요소를 추가합니다. 아래 XML은 캐시가 3일 이내에 만료되도록 구성합니다. <pre class="prettyprint"> &lt;system.webServer&gt; <mark>&lt;staticContent&gt; &lt;clientCache cacheControlMode=&quot;UseMaxAge&quot; cacheControlMaxAge=&quot;3.00:00:00&quot;/&gt; &lt;/staticContent&gt;</mark> ... &lt;/system.webServer&gt; </pre>
+Azure 웹앱에서 Azure CDN 통합을 사용하면 CDN 끝점에서 정적 콘텐츠를 캐시하는 방법을 지정할 수 있습니다. 이렇게 하려면 ASP.NET 프로젝트(예: **cdnwebapp**)에서 *Web.config*를 열고 `<system.webServer>`에 `<staticContent>` 요소를 추가합니다. 아래 XML은 캐시가 3일 이내에 만료되도록 구성합니다.
+<pre class="prettyprint">
+&lt;system.webServer&gt;
+  <mark>&lt;staticContent&gt;
+    &lt;clientCache cacheControlMode=&quot;UseMaxAge&quot; cacheControlMaxAge=&quot;3.00:00:00&quot;/&gt;
+  &lt;/staticContent&gt;</mark>
+  ...
+&lt;/system.webServer&gt;
+</pre>
 
 이렇게 구성하면 Azure 웹앱의 모든 정적 파일이 CDN 캐시에서 동일한 규칙을 준수합니다. 캐싱 설정을 더 세밀하게 제어하려면 *Web.config* 파일을 폴더에 추가하고 이 파일에 해당 설정을 추가합니다. 예를 들어 *Web.config* 파일을 *\Content* 폴더에 추가하고 다음 XML로 내용을 바꿉니다.
 
@@ -177,48 +185,49 @@ Azure 웹앱을 Azure CDN과 통합하는 경우 Azure CDN을 통해 컨트롤�
 	{
 	    public class MemeGeneratorController : Controller
 	    {
-	        static readonly Dictionary&lt;string, Tuple&lt;string ,string>> Memes = new Dictionary&lt;string, Tuple&lt;string, string>>();
-	
+	        static readonly Dictionary&lt;string, Tuple&lt;string ,string&gt;&gt; Memes = new Dictionary&lt;string, Tuple&lt;string, string&gt;&gt;();
+
 	        public ActionResult Index()
 	        {
 	            return View();
 	        }
 	
-	        [HttpPost, ActionName("Index")]
-	    	public ActionResult Index_Post(string top, string bottom)
+	        [HttpPost, ActionName(&quot;Index&quot;)]
+        	public ActionResult Index_Post(string top, string bottom)
 	        {
 	            var identifier = Guid.NewGuid().ToString();
 	            if (!Memes.ContainsKey(identifier))
 	            {
-	                Memes.Add(identifier, new Tuple&lt;string, string>(top, bottom));
+	                Memes.Add(identifier, new Tuple&lt;string, string&gt;(top, bottom));
 	            }
 	
-	            return Content("&lt;a href="" + Url.Action("Show", new {id = identifier}) + "">here's your meme&lt;/a>");
+	            return Content(&quot;&lt;a href=\&quot;&quot; + Url.Action(&quot;Show&quot;, new {id = identifier}) + &quot;\&quot;&gt;here&#39;s your meme&lt;/a&gt;&quot;);
 	        }
-	
-	        [OutputCache(VaryByParam = "*", Duration = 1, Location = OutputCacheLocation.Downstream)]
+
+
+	        [OutputCache(VaryByParam = &quot;*&quot;, Duration = 1, Location = OutputCacheLocation.Downstream)]
 	        public ActionResult Show(string id)
 	        {
-	            Tuple&lt;string, string> data = null;
+	            Tuple&lt;string, string&gt; data = null;
 	            if (!Memes.TryGetValue(id, out data))
 	            {
 	                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
 	            }
 	
-	            if (Debugger.IsAttached) // Preserve the debug experience
+	            if (Debugger.IsAttached) // 디버그 환경 유지
 	            {
-	                return Redirect(string.Format("/MemeGenerator/Generate?top={0}&amp;bottom={1}", data.Item1, data.Item2));
+	                return Redirect(string.Format(&quot;/MemeGenerator/Generate?top={0}&bottom={1}&quot;, data.Item1, data.Item2));
 	            }
 	            else // Azure CDN에서 콘텐츠 가져오기
 	            {
-	                return Redirect(string.Format("http://<mark>&lt;yourCDNName></mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}", data.Item1, data.Item2));
+	                return Redirect(string.Format(&quot;http://<mark>&lt;yourCDNName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}&quot;, data.Item1, data.Item2));
 	            }
 	        }
-	
+
 	        [OutputCache(VaryByParam = "*", Duration = 3600, Location = OutputCacheLocation.Downstream)]
 	        public ActionResult Generate(string top, string bottom)
 	        {
-	            string imageFilePath = HostingEnvironment.MapPath("<mark>~/Content/chuck.bmp</mark>");
+	            string imageFilePath = HostingEnvironment.MapPath(&quot;<mark>~/Content/chuck.bmp</mark>&quot;);
 	            Bitmap bitmap = (Bitmap)Image.FromFile(imageFilePath);
 	
 	            using (Graphics graphics = Graphics.FromImage(bitmap))
@@ -236,7 +245,7 @@ Azure 웹앱을 Azure CDN과 통합하는 경우 Azure CDN을 통해 컨트롤�
 	
 	            MemoryStream ms = new MemoryStream();
 	            bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-	            return File(ms.ToArray(), "image/png");
+	            return File(ms.ToArray(), &quot;image/png&quot;);
 	        }
 	
 	        private Font FindBestFitFont(Image i, Graphics g, String text, Font font, out SizeF size)
@@ -282,17 +291,27 @@ Azure 웹앱을 Azure CDN과 통합하는 경우 Azure CDN을 통해 컨트롤�
 
 5. Azure 웹앱을 다시 게시하고 브라우저에서 **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index**로 이동합니다.
 
-양식 값을 `/MemeGenerator/Index`로 제출할 경우 `Index_Post` 동작 메서드가 각각의 입력 식별자와 함께 `Show` 동작 메서드에 대한 링크를 반환합니다. 링크를 클릭하면 다음 코드가 표시됩니다. <pre class="prettyprint"> [OutputCache(VaryByParam = ";*";, Duration = 1, Location = OutputCacheLocation.Downstream)] public ActionResult Show(string id) { Tuple&lt;string, string&gt; data = null; if (!Memes.TryGetValue(id, out data)) { return new HttpStatusCodeResult(HttpStatusCode.NotFound); }
+양식 값을 `/MemeGenerator/Index`로 제출할 경우 `Index_Post` 동작 메서드가 각각의 입력 식별자와 함께 `Show` 동작 메서드에 대한 링크를 반환합니다. 링크를 클릭하면 다음 코드에 도달합니다.
+<pre class="prettyprint">
+[OutputCache(VaryByParam = &quot;*&quot;, Duration = 1, Location = OutputCacheLocation.Downstream)]
+public ActionResult Show(string id)
+{
+    Tuple&lt;string, string&gt; data = null;
+    if (!Memes.TryGetValue(id, out data))
+    {
+        return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+    }
 
     if (Debugger.IsAttached) // Preserve the debug experience
     {
-        return Redirect(string.Format(";/MemeGenerator/Generate?top={0}&bottom={1}";, data.Item1, data.Item2));
+        return Redirect(string.Format(&quot;/MemeGenerator/Generate?top={0}&bottom={1}&quot;, data.Item1, data.Item2));
     }
     else // Get content from Azure CDN
     {
-        return Redirect(string.Format(";http://<mark>&lt;yourCDNName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}";, data.Item1, data.Item2));
+        return Redirect(string.Format(&quot;http://<mark>&lt;yourCDNName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}&quot;, data.Item1, data.Item2));
     }
-} </pre>
+}
+</pre>
 
 로컬 디버거가 연결되어 있다면 로컬로 리디렉션되면서 정규 디버그 환경이 구현됩니다. Azure 웹앱에서 실행 중인 경우에는 다음으로 리디렉션됩니다.
 
@@ -352,33 +371,35 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 
 1. *App_Start\BundleConfig.cs* 파일로 돌아가서 CDN 주소를 지정한 다른 [Bundle 생성자](http://msdn.microsoft.com/library/jj646464.aspx)를 사용하도록 `bundles.Add()` 메서드를 수정합니다. 이를 수행하려면 `RegisterBundles` 메서드 정의를 다음 코드로 바꿉니다.  
 	<pre class="prettyprint">
-public static void RegisterBundles(BundleCollection bundles)
-{
-    <mark>bundles.UseCdn = true;
-    var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
-        .GetName().Version.ToString();
-    var cdnUrl = "http://&lt;yourCDNName>.vo.msecnd.net/{0}?v=" + version;</mark>
-
-    bundles.Add(new ScriptBundle("~/bundles/jquery"<mark>, string.Format(cdnUrl, "bundles/jquery")</mark>).Include(
-                "~/Scripts/jquery-{version}.js"));
-
-    bundles.Add(new ScriptBundle("~/bundles/jqueryval"<mark>, string.Format(cdnUrl, "bundles/jqueryval")</mark>).Include(
-                "~/Scripts/jquery.validate*"));
-
+	public static void RegisterBundles(BundleCollection bundles)
+	{
+	    <mark>bundles.UseCdn = true;
+	    var version = System.Reflection.Assembly.GetAssembly(typeof(Controllers.HomeController))
+	        .GetName().Version.ToString();
+	    var cdnUrl = &quot;http://&lt;yourCDNName&gt;.vo.msecnd.net/{0}?v=&quot; + version;</mark>
+	
+	    bundles.Add(new ScriptBundle(&quot;~/bundles/jquery&quot;<mark>, string.Format(cdnUrl, &quot;bundles/jquery&quot;)</mark>).Include(
+	                &quot;~/Scripts/jquery-{version}.js&quot;));
+	
+	    bundles.Add(new ScriptBundle(&quot;~/bundles/jqueryval&quot;<mark>, string.Format(cdnUrl, &quot;bundles/jqueryval&quot;)</mark>).Include(
+	                &quot;~/Scripts/jquery.validate*&quot;));
+	
     // Modernizr의 개발 버전을 사용하여 개발하고 학습합니다. 그런 다음 프로덕션 준비가 되면,
     // http://modernizr.com에서 빌드 도구를 사용하여 필요한 테스트만 선택합니다.
-    bundles.Add(new ScriptBundle("~/bundles/modernizr"<mark>, string.Format(cdnUrl, "bundles/modernizer")</mark>).Include(
-                "~/Scripts/modernizr-*"));
+	    bundles.Add(new ScriptBundle(&quot;~/bundles/modernizr&quot;<mark>, string.Format(cdnUrl, &quot;bundles/modernizer&quot;)</mark>).Include(
+	                &quot;~/Scripts/modernizr-*&quot;));
+	
+	    bundles.Add(new ScriptBundle(&quot;~/bundles/bootstrap&quot;<mark>, string.Format(cdnUrl, &quot;bundles/bootstrap&quot;)</mark>).Include(
+	                &quot;~/Scripts/bootstrap.js&quot;,
+	                &quot;~/Scripts/respond.js&quot;));
+	
+	    bundles.Add(new StyleBundle(&quot;~/Content/css&quot;<mark>, string.Format(cdnUrl, &quot;Content/css&quot;)</mark>).Include(
+	                &quot;~/Content/bootstrap.css&quot;,
+	                &quot;~/Content/site.css&quot;));
+	}
+	</pre>
 
-    bundles.Add(new ScriptBundle("~/bundles/bootstrap"<mark>, string.Format(cdnUrl, "bundles/bootstrap")</mark>).Include(
-                "~/Scripts/bootstrap.js",
-                "~/Scripts/respond.js"));
-
-    bundles.Add(new StyleBundle("~/Content/css"<mark>, string.Format(cdnUrl, "Content/css")</mark>).Include(
-                "~/Content/bootstrap.css",
-                "~/Content/site.css"));
-}
-</pre>`<yourCDNName>`을 사용 중인 Azure CDN 이름으로 바꾸세요.
+	`<yourCDNName>`을 사용 중인 Azure CDN 이름으로 바꾸세요.
 
 	쉽게 말하면 `bundles.UseCdn = true`를 설정하고 있으며 신중하게 만든 CDN URL을 각 번들에 추가했습니다. 예를 들어 코드의 첫 번째 생성자는 다음과 같습니다.
 
@@ -463,7 +484,7 @@ public static void RegisterBundles(BundleCollection bundles)
 	
 	    // Modernizr의 개발 버전을 사용하여 개발하고 학습합니다. 그런 다음 프로덕션 준비가 되면,
 	    // http://modernizr.com에서 빌드 도구를 사용하여 필요한 테스트만 선택합니다.
-	    bundles.Add(new ScriptBundle("~/bundles/modernizr", string.Format(cdnUrl, "bundles/modernizer")) 
+	    bundles.Add(new ScriptBundle(&quot;~/bundles/modernizr&quot;, string.Format(cdnUrl, &quot;bundles/modernizer&quot;)) 
 					<mark>{ CdnFallbackExpression = &quot;window.Modernizr&quot; }</mark>
 					.Include(&quot;~/Scripts/modernizr-*&quot;));
 	
@@ -478,7 +499,7 @@ public static void RegisterBundles(BundleCollection bundles)
 	                &quot;~/Content/site.css&quot;));
 	}</pre>
 
-`CdnFallbackExpression`이 null이 아니면 스크립트가 HTML에 삽입되어 번들이 제대로 로드되는지 테스트하고 제대로 로드되지 않는 경우 원본 웹 서버에서 직접 번들에 액세스합니다. 이 속성은 각각의 CDN 번들이 제대로 로드되는지 테스트하는 JavaScript 식으로 설정되어야 합니다. 각 번들을 테스트하는 데 필요한 식은 콘텐츠에 따라 다릅니다. 위 기본 번들의 경우는 다음과 같습니다.
+	`CdnFallbackExpression`이 null이 아니면 스크립트가 HTML에 삽입되어 번들이 제대로 로드되는지 테스트하고 제대로 로드되지 않는 경우 원본 웹 서버에서 직접 번들에 액세스합니다. 이 속성은 각각의 CDN 번들이 제대로 로드되는지 테스트하는 JavaScript 식으로 설정되어야 합니다. 각 번들을 테스트하는 데 필요한 식은 콘텐츠에 따라 다릅니다. 위 기본 번들의 경우는 다음과 같습니다.
 	
 	-	`window.jquery`는 jquery-{version}.js에 정의되어 있습니다.
 	-	`$.validator`는 jquery.validate.js에 정의되어 있습니다.
@@ -507,39 +528,40 @@ public static void RegisterBundles(BundleCollection bundles)
 
 4. Azure 웹앱에 다시 게시하고 홈페이지에 액세스합니다.
 5. 페이지의 HTML 코드를 확인합니다. 다음과 비슷한 삽입 스크립트가 표시됩니다.    
+	
 	<pre class="prettyprint">...
-
-		&lt;link href="http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474" rel="stylesheet"/>
-	<mark>&lt;script>(function() {
+	
+		&lt;link href=&quot;http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474&quot; rel=&quot;stylesheet&quot;/&gt;
+	<mark>&lt;script&gt;(function() {
 	                var loadFallback,
 	                    len = document.styleSheets.length;
 	                for (var i = 0; i &lt; len; i++) {
 	                    var sheet = document.styleSheets[i];
-	                    if (sheet.href.indexOf('http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474') !== -1) {
-	                        var meta = document.createElement('meta');
-	                        meta.className = 'sr-only';
+	                    if (sheet.href.indexOf(&#39;http://az673227.vo.msecnd.net/Content/css?v=1.0.0.25474&#39;) !== -1) {
+	                        var meta = document.createElement(&#39;meta&#39;);
+	                        meta.className = &#39;sr-only&#39;;
 	                        document.head.appendChild(meta);
-	                        var value = window.getComputedStyle(meta).getPropertyValue('width');
+	                        var value = window.getComputedStyle(meta).getPropertyValue(&#39;width&#39;);
 	                        document.head.removeChild(meta);
-	                        if (value !== '1px') {
-	                            document.write('&lt;link href="/Content/css" rel="stylesheet" type="text/css" />');
+	                        if (value !== &#39;1px&#39;) {
+	                            document.write(&#39;&lt;link href=&quot;/Content/css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;&#39;);
 	                        }
 	                    }
 	                }
 	                return true;
-	            }())||document.write('&lt;script src="/Content/css">&lt;/script>');&lt;/script></mark>
-
-	    &lt;script src="http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474">&lt;/script>
-	<mark>&lt;script>(window.Modernizr)||document.write('&lt;script src="/bundles/modernizr">&lt;/script>');&lt;/script></mark>
-
+	            }())||document.write(&#39;&lt;script src=&quot;/Content/css&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	
+	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/modernizer?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
+	<mark>&lt;script&gt;(window.Modernizr)||document.write(&#39;&lt;script src=&quot;/bundles/modernizr&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	
 	...	
-
-	    &lt;script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474">&lt;/script>
-	<mark>&lt;script>(window.jquery)||document.write('&lt;script src="/bundles/jquery">&lt;/script>');&lt;/script></mark>
-
-	    &lt;script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474">&lt;/script>
-	<mark>&lt;script>($.fn.modal)||document.write('&lt;script src="/bundles/bootstrap">&lt;/script>');&lt;/script></mark>
-
+	
+	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
+	<mark>&lt;script&gt;(window.jquery)||document.write(&#39;&lt;script src=&quot;/bundles/jquery&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	
+	    &lt;script src=&quot;http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474&quot;&gt;&lt;/script&gt;
+	<mark>&lt;script&gt;($.fn.modal)||document.write(&#39;&lt;script src=&quot;/bundles/bootstrap&quot;&gt;&lt;\/script&gt;&#39;);&lt;/script&gt;</mark>
+	
 	...
 	</pre>
 
@@ -567,4 +589,4 @@ public static void RegisterBundles(BundleCollection bundles)
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

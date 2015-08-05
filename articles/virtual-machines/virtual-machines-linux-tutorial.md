@@ -35,7 +35,7 @@ Linux를 실행하는 Azure 가상 컴퓨터(VM) 만들기는 명령줄 또는 �
 
 훨씬 낫습니다. 이제 `azure login`를 입력하고 나타나는 메시지에 따라 회사 또는 학교 ID로 로그인합니다.
 
-> [AZURE.NOTE]로그인 오류가 나타나면, [개인 Microsoft 계정에서 회사 또는 학교 ID를 만들어야](resource-group-create-work-id-from-personal.md) 할 수 있습니다.
+> [AZURE.NOTE] 로그인 오류가 나타나면, [개인 Microsoft 계정에서 회사 또는 학교 ID를 만들어야](resource-group-create-work-id-from-personal.md) 할 수 있습니다.
 
 ## Azure VM 만들기
 
@@ -283,7 +283,7 @@ VM에 연결했으므로 디스크를 연결할 준비가 되었습니다.
 	bin   datadrive  etc   initrd.img  lib64       media  opt   root  sbin  sys  usr  vmlinuz
 	boot  dev        home  lib         lost+found  mnt    proc  run   srv   tmp  var
 
-> [AZURE.NOTE]SSH 키를 식별에 사용하여 Linux 가상 컴퓨터에 연결할 수도 있습니다. 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](virtual-machines-linux-use-ssh-key.md)을 참조하세요.
+> [AZURE.NOTE] SSH 키를 식별에 사용하여 Linux 가상 컴퓨터에 연결할 수도 있습니다. 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](virtual-machines-linux-use-ssh-key.md)을 참조하세요.
 
 ## 다음 단계
 
@@ -302,4 +302,4 @@ Azure의 Linux에 대한 자세한 내용은 다음 을 참조하세요.
 - [Azure의 Linux용 Docker 가상 컴퓨터 확장](virtual-machines-docker-vm-extension.md)
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

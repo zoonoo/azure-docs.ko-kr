@@ -188,6 +188,7 @@ Azure Blob을 참조하는 데이터 팩터리 테이블을 정의하는 JSON �
 
 - **Host** - 파일 시스템을 호스트하는 서버의 이름(**\contoso**)입니다.
 - **Folder** - 입력 파일이 들어 있는 폴더의 이름(**marketingcampaign\regionaldata\{slice})입니다. 여기서 파일은 2014121112(2014년, 12월, 11일, 12시)와 같이 {slice}라는 폴더에 분할됩니다. 
+
 ### 온-프레미스 파일 시스템 연결된 서비스 만들기
 다음 샘플 JSON을 사용하여 **FolderDataStore**라는 **OnPremisesFileSystemLinkedService** 형식의 연결된 서비스를 만들 수 있습니다.
 
@@ -491,4 +492,4 @@ Azure Blob을 참조하는 데이터 팩터리 테이블을 정의하는 JSON �
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

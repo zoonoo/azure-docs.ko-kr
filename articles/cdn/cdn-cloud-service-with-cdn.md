@@ -49,7 +49,9 @@
 -	활성 [Microsoft Azure 계정](/account/)
 -	[Azure SDK](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)를 설치한 Visual Studio 2013
 
-> [AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 있어야 합니다. + [Azure 계정을 무료로 개설](/pricing/free-trial/)할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714) 웹앱)를 사용할 수 있습니다. + [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/)할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
+> [AZURE.NOTE] 이 자습서를 완료하려면 Azure 계정이 있어야 합니다.
+> + [Azure 계정을 무료로 개설](/pricing/free-trial/)할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714) 웹앱)를 사용할 수 있습니다.
+> + [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/)할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 
 <a name="deploy"></a>
 ## 통합 CDN 끝점으로 클라우드 서비스 배포 ##
@@ -170,12 +172,26 @@
 
 대안은 클라우드 서비스의 사례별로 Azure CDN에서 제공할 콘텐츠를 판단하는 것입니다. 이를 위해 CDN 끝점에서 개별 콘텐츠 파일에 액세스하는 방법을 이미 알아보았습니다. [Azure CDN을 통해 컨트롤러 작업의 콘텐츠 제공](#controller)에서는 CDN 끝점을 통해 특정 컨트롤러 작업을 제공하는 방법을 설명하겠습니다.
 
-더욱 제한적인 URL 다시 쓰기 규칙을 지정하면 CDN 끝점을 통해 액세스 가능한 콘텐츠를 제한할 수 있습니다. 예를 들어 URL 다시 쓰기를 *\Scripts* 폴더로 제한하려면 위의 다시 쓰기 규칙을 다음과 같이 변경하세요. <pre class="prettyprint"> &lt;rule name=";RewriteIncomingCdnRequest"; stopProcessing=";true";&gt; &lt;match url=";^cdn/<mark>Scripts/</mark>(.*)$";/&gt; &lt;action type=";Rewrite"; url=";<mark>Scripts/</mark>{R:1}";/&gt; &lt;/rule&gt; </pre>
+더욱 제한적인 URL 다시 쓰기 규칙을 지정하면 CDN 끝점을 통해 액세스 가능한 콘텐츠를 제한할 수 있습니다. 예를 들어 URL 다시 쓰기를 *\Scripts* 폴더로 제한하려면 위의 다시 쓰기 규칙을 다음과 같이 변경하세요.  
+<pre class="prettyprint">
+&lt;rule name=&quot;RewriteIncomingCdnRequest&quot; stopProcessing=&quot;true&quot;&gt;
+  &lt;match url=&quot;^cdn/<mark>Scripts/</mark>(.*)$&quot;/&gt;
+  &lt;action type=&quot;Rewrite&quot; url=&quot;<mark>Scripts/</mark>{R:1}&quot;/&gt;
+&lt;/rule&gt;
+</pre>
 
 <a name="caching"></a>
 ## 클라우드 서비스의 정적 파일에 대한 캐싱 옵션 구성 ##
 
-클라우드 서비스의 Azure CDN 통합으로 정적 콘텐츠를 CDN 끝점에서 캐시하는 방법을 지정할 수 있습니다. 이를 수행하려면 웹 역할 프로젝트(예: WebRole1)에서 *Web.config*를 열고 `<staticContent>` 요소를 `<system.webServer>`에 추가합니다. 아래 XML은 캐시가 3일 이내에 만료되도록 구성합니다. <pre class="prettyprint"> &lt;system.webServer&gt; <mark>&lt;staticContent&gt; &lt;clientCache cacheControlMode=";UseMaxAge"; cacheControlMaxAge=";3.00:00:00";/&gt; &lt;/staticContent&gt;</mark> ... &lt;/system.webServer&gt; </pre>
+클라우드 서비스의 Azure CDN 통합으로 정적 콘텐츠를 CDN 끝점에서 캐시하는 방법을 지정할 수 있습니다. 이를 수행하려면 웹 역할 프로젝트(예: WebRole1)에서 *Web.config*를 열고 `<staticContent>` 요소를 `<system.webServer>`에 추가합니다. 아래 XML은 캐시가 3일 이내에 만료되도록 구성합니다.  
+<pre class="prettyprint">
+&lt;system.webServer&gt;
+  <mark>&lt;staticContent&gt;
+    &lt;clientCache cacheControlMode=&quot;UseMaxAge&quot; cacheControlMaxAge=&quot;3.00:00:00&quot;/&gt;
+  &lt;/staticContent&gt;</mark>
+  ...
+&lt;/system.webServer&gt;
+</pre>
 
 이렇게 구성하면 클라우드 서비스의 모든 정적 파일이 CDN 캐시에서 동일한 규칙을 준수합니다. 캐싱 설정을 더 세밀하게 제어하려면 *Web.config* 파일을 폴더에 추가하고 이 파일에 해당 설정을 추가합니다. 예를 들어 *Web.config* 파일을 *\Content* 폴더에 추가하고 다음 XML로 내용을 바꿉니다.
 
@@ -328,7 +344,16 @@ namespace WebRole1.Controllers
 
 5. 클라우드 서비스를 다시 게시하고 브라우저에서 **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index**로 이동합니다.
 
-양식 값을 `/MemeGenerator/Index`로 제출할 경우 `Index_Post` 동작 메서드가 각각의 입력 식별자와 함께 `Show` 동작 메서드에 대한 링크를 반환합니다. 링크를 클릭하면 다음 코드가 표시됩니다. <pre class="prettyprint"> [OutputCache(VaryByParam = ";*";, Duration = 1, Location = OutputCacheLocation.Downstream)] public ActionResult Show(string id) { Tuple&lt;string, string&gt; data = null; if (!Memes.TryGetValue(id, out data)) { return new HttpStatusCodeResult(HttpStatusCode.NotFound); }
+양식 값을 `/MemeGenerator/Index`로 제출할 경우 `Index_Post` 동작 메서드가 각각의 입력 식별자와 함께 `Show` 동작 메서드에 대한 링크를 반환합니다. 링크를 클릭하면 다음 코드가 표시됩니다.  
+<pre class="prettyprint">
+[OutputCache(VaryByParam = &quot;*&quot;, Duration = 1, Location = OutputCacheLocation.Downstream)]
+public ActionResult Show(string id)
+{
+    Tuple&lt;string, string&gt; data = null;
+    if (!Memes.TryGetValue(id, out data))
+    {
+        return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+    }
 
     if (Debugger.IsAttached) // Preserve the debug experience
     {
@@ -338,7 +363,8 @@ namespace WebRole1.Controllers
     {
         return Redirect(string.Format(";http://<mark>&lt;cdnName&gt;</mark>.vo.msecnd.net/MemeGenerator/Generate?top={0}&amp;bottom={1}";, data.Item1, data.Item2));
     }
-} </pre>
+}
+</pre>
 
 로컬 디버거가 연결되어 있다면 로컬로 리디렉션되면서 정규 디버그 환경이 구현됩니다. 클라우드 서비스에서 실행 중인 경우에는 다음으로 리디렉션됩니다.
 
@@ -423,8 +449,9 @@ public static void RegisterBundles(BundleCollection bundles)
     bundles.Add(new StyleBundle("~/Content/css"<mark>, string.Format(cdnUrl, "Content/css")</mark>).Include(
                 "~/Content/bootstrap.css",
                 "~/Content/site.css"));
-}
-</pre>`<yourCDNName>`을 사용 중인 Azure CDN 이름으로 바꾸세요.
+	}
+	</pre>
+	`<yourCDNName>`을 사용 중인 Azure CDN 이름으로 바꾸세요.
 
 	쉽게 말하면 `bundles.UseCdn = true`를 설정하고 있으며 신중하게 만든 CDN URL을 각 번들에 추가했습니다. 예를 들어 코드의 첫 번째 생성자는 다음과 같습니다.
 
@@ -522,7 +549,8 @@ public static void RegisterBundles(BundleCollection bundles)
     bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css")).Include(
                 "~/Content/bootstrap.css",
                 "~/Content/site.css"));
-}</pre>`CdnFallbackExpression`이 null이 아니면 스크립트가 HTML에 삽입되어 번들이 제대로 로드되는지 테스트하고 제대로 로드되지 않는 경우 원본 웹 서버에서 직접 번들에 액세스합니다. 이 속성은 각각의 CDN 번들이 제대로 로드되는지 테스트하는 JavaScript 식으로 설정되어야 합니다. 각 번들을 테스트하는 데 필요한 식은 콘텐츠에 따라 다릅니다. 위 기본 번들의 경우는 다음과 같습니다.
+	}</pre>
+	`CdnFallbackExpression`이 null이 아니면 스크립트가 HTML에 삽입되어 번들이 제대로 로드되는지 테스트하고 제대로 로드되지 않는 경우 원본 웹 서버에서 직접 번들에 액세스합니다. 이 속성은 각각의 CDN 번들이 제대로 로드되는지 테스트하는 JavaScript 식으로 설정되어야 합니다. 각 번들을 테스트하는 데 필요한 식은 콘텐츠에 따라 다릅니다. 위 기본 번들의 경우는 다음과 같습니다.
 	
 	-	`window.jquery`는 jquery-{version}.js에 정의되어 있습니다.
 	-	`$.validator`는 jquery.validate.js에 정의되어 있습니다.
@@ -544,7 +572,8 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
     .Include(
           "~/Content/bootstrap.css",
           "~/Content/site.css"));
-</pre>이 새로운 확장 메서드는 동일한 개념을 사용하여 CSS 번들에 정의된 일치하는 클래스 이름, 규칙 이름 및 규칙 값에 대한 DOM을 확인하고 일치 항목을 찾지 못할 경우 원본 웹 서버로 대체하는 스크립트를 HTML에 삽입합니다.
+	</pre>
+	이 새로운 확장 메서드는 동일한 개념을 사용하여 CSS 번들에 정의된 일치하는 클래스 이름, 규칙 이름 및 규칙 값에 대한 DOM을 확인하고 일치 항목을 찾지 못할 경우 원본 웹 서버로 대체하는 스크립트를 HTML에 삽입합니다.
 
 4. 클라우드 서비스를 다시 게시하고 홈페이지에 액세스합니다.
 5. 페이지의 HTML 코드를 확인합니다. 다음과 비슷한 삽입 스크립트가 표시됩니다.    
@@ -582,7 +611,8 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 <mark>&lt;script>($.fn.modal)||document.write('&lt;script src="/bundles/bootstrap">&lt;/script>');&lt;/script></mark>
 
 ...
-</pre>CSS 번들의 삽입 스크립트에서 다음 줄에 여전히 `CdnFallbackExpression` 속성의 나머지 잘못된 부분이 포함되어 있습니다.
+	</pre>
+	CSS 번들의 삽입 스크립트에서 다음 줄에 여전히 `CdnFallbackExpression` 속성의 나머지 잘못된 부분이 포함되어 있습니다.
 
         }())||document.write('<script src="/Content/css"></script>');</script>
 
@@ -596,4 +626,4 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 - [Azure에 CDN 사용](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

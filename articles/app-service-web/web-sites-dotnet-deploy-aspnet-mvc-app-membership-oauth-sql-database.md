@@ -261,7 +261,8 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 다음 작업은 만든 데이터 모델에 따라 데이터베이스를 만들기 위해 [Code First 마이그레이션](http://msdn.microsoft.com/library/hh770484.aspx)(영문) 기능을 사용하도록 설정하는 것입니다.
 
-1. **도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 선택합니다. ![도구 메뉴의 패키지 관리자 콘솔](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/SS6.png)
+1. **도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 선택합니다. 
+	![도구 메뉴의 패키지 관리자 콘솔](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/SS6.png)
 
 2. **패키지 관리자 콘솔** 창에서 다음 명령을 입력합니다.
 
@@ -273,7 +274,8 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 		add-migration Initial
 
 
-	**add-migration Initial** 명령은 데이터베이스를 만든 *Migrations* 폴더에서 **&lt;date_stamp&gt;Initial** 파일을 생성합니다. 첫 번째 매개 변수(**Initial**)는 임의이며 파일 이름을 만드는 데 사용됩니다. **솔루션 탐색기**에서 새 클래스 파일을 볼 수 있습니다. **Initial** 클래스의 **Up** 메서드는 Contacts 테이블을 만들고 이전 상태로 돌아가려는 경우 사용되는 **Down** 메서드는 테이블을 삭제합니다.
+	**add-migration Initial** 명령은 데이터베이스를 만든 *Migrations* 폴더에서 **&lt;date_stamp&gt;Initial** 파일을 생성합니다. 첫 번째 매개 변수(**Initial**)는 임의이며 파일 이름을 만드는 데 사용됩니다. **솔루션 탐색기**에서 새 클래스 파일을 볼 수 있습니다.
+	**Initial** 클래스의 **Up** 메서드는 Contacts 테이블을 만들고 이전 상태로 돌아가려는 경우 사용되는 **Down** 메서드는 테이블을 삭제합니다.
 3. *Migrations\Configuration.cs* 파일을 엽니다. 
 4. 다음 네임스페이스를 추가합니다. 
 
@@ -414,7 +416,44 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
                 await UserManager.AddToRoleAsync(user.Id, "canEdit");
 
-   위의 코드는 새로 등록된 사용자를 "canEdit" 역할에 추가하며, 데이터를 변경(편집)하는 작업 메서드에 액세스할 수 있도록 합니다. <pre> // POST: /Account/ExternalLoginConfirmation [HttpPost] [AllowAnonymous] [ValidateAntiForgeryToken] public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl) { if (User.Identity.IsAuthenticated) { return RedirectToAction("Index", "Manage"); } if (ModelState.IsValid) { // Get the information about the user from the external login provider var info = await AuthenticationManager.GetExternalLoginInfoAsync(); if (info == null) { return View("ExternalLoginFailure"); } var user = new ApplicationUser { UserName = model.Email, Email = model.Email }; var result = await UserManager.CreateAsync(user); if (result.Succeeded) { result = await UserManager.AddLoginAsync(user.Id, info.Login); if (result.Succeeded) { <mark>await UserManager.AddToRoleAsync(user.Id, "canEdit");</mark> await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false); return RedirectToLocal(returnUrl); } } AddErrors(result); } ViewBag.ReturnUrl = returnUrl; return View(model); } </pre>
+   위의 코드는 새로 등록된 사용자를 "canEdit" 역할에 추가하며, 데이터를 변경(편집)하는 작업 메서드에 액세스할 수 있도록 합니다.
+	<pre>
+	      // POST: /Account/ExternalLoginConfirmation
+	      [HttpPost]
+	      [AllowAnonymous]
+	      [ValidateAntiForgeryToken]
+	      public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
+	      {
+	         if (User.Identity.IsAuthenticated)
+	         {
+	            return RedirectToAction("Index", "Manage");
+	         }
+	         if (ModelState.IsValid)
+	         {
+	            // Get the information about the user from the external login provider
+	            var info = await AuthenticationManager.GetExternalLoginInfoAsync();
+	            if (info == null)
+	            {
+	               return View("ExternalLoginFailure");
+	            }
+	            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+	            var result = await UserManager.CreateAsync(user);
+	            if (result.Succeeded)
+	            {
+	               result = await UserManager.AddLoginAsync(user.Id, info.Login);
+	               if (result.Succeeded)
+	               {
+	                  <mark>await UserManager.AddToRoleAsync(user.Id, "canEdit");</mark>
+	                  await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+	                  return RedirectToLocal(returnUrl);
+	               }
+	            }
+	            AddErrors(result);
+	         }
+	         ViewBag.ReturnUrl = returnUrl;
+	         return View(model);
+	      }
+	</pre>
 
 자습서의 뒷부분에서 응용 프로그램을 Azure에 배포합니다. 여기서 Google 또는 다른 타사 인증 공급자를 사용하여 로그온합니다. 이렇게 하면 새로 등록된 계정이 *canEdit* 역할에 추가됩니다. Google ID가 있고 이 앱의 URL을 찾은 모든 사용자는 데이터베이스를 등록하고 업데이트할 수 있습니다. 다른 사용자가 등록 및 업데이트할 수 없게 하려면 사이트를 중지합니다. 데이터베이스를 검사하여 *canEdit* 역할에 있는 사용자를 확인할 수 있습니다.
 
@@ -428,17 +467,76 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 이 섹션에서는 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 특성을 적용하여 작업 메서드에 대한 액세스를 제한합니다. 익명 사용자는 home 컨트롤러의 **인덱스** 작업 메서드만 볼 수 있습니다. 등록된 사용자는 연락처 데이터(Cm 컨트롤러의 **인덱스** 및 **세부 정보** 페이지), 정보 및 연락처 페이지를 볼 수 있습니다. *canEdit* 역할의 사용자만 데이터를 변경하는 작업 메서드에 액세스할 수 있습니다.
 
-1. 응용 프로그램에 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 필터와 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 필터를 추가합니다. 또 다른 방법은 각 컨트롤러에 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 특성과 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 특성을 추가하는 것이지만 전체 응용 프로그램에 적용하는 것이 보안상 더 좋은 모범 사례입니다. 전체적으로 추가하면 새로 추가된 모든 컨트롤러와 작업 메서드가 자동으로 보호되므로 따로 적용할 필요가 없습니다. 자세한 내용은 [ASP.NET MVC 앱 및 새 AllowAnonymous 특성 보안 유지](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)(영문)를 참조하십시오. *App_Start\FilterConfig.cs* 파일을 열고 *RegisterGlobalFilters* 메서드를 다음으로 바꿉니다(두 개의 필터를 추가함). <pre> public static void RegisterGlobalFilters(GlobalFilterCollection filters) { filters.Add(new HandleErrorAttribute()); <mark>filters.Add(new System.Web.Mvc.AuthorizeAttribute()); filters.Add(new RequireHttpsAttribute());</mark> } </pre>
+1. 응용 프로그램에 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 필터와 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 필터를 추가합니다. 또 다른 방법은 각 컨트롤러에 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 특성과 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 특성을 추가하는 것이지만 전체 응용 프로그램에 적용하는 것이 보안상 더 좋은 모범 사례입니다. 전체적으로 추가하면 새로 추가된 모든 컨트롤러와 작업 메서드가 자동으로 보호되므로 따로 적용할 필요가 없습니다. 자세한 내용은 [ASP.NET MVC 앱 및 새 AllowAnonymous 특성 보안 유지](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)(영문)를 참조하십시오. *App_Start\FilterConfig.cs* 파일을 열고 *RegisterGlobalFilters* 메서드를 다음으로 바꿉니다(두 개의 필터를 추가함). 
+		<pre> 
+        public static void
+        RegisterGlobalFilters(GlobalFilterCollection filters)
+        {
+            filters.Add(new HandleErrorAttribute());
+            <mark>filters.Add(new System.Web.Mvc.AuthorizeAttribute());
+            filters.Add(new RequireHttpsAttribute());</mark> 
+        }
+		</pre>
 
 
 
 
 	위의 코드에 적용된 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 필터는 익명 사용자가 응용 프로그램의 메서드에 액세스할 수 없도록 합니다. [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 특성을 사용하여 몇 개 메서드의 권한 부여 요구 사항을 옵트아웃(opt out)하므로 익명 사용자가 로그인하고 홈 페이지를 볼 수 있습니다. [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx)는 웹앱에 대한 모든 액세스가 HTTPS를 통해 이루어져야 합니다.
 
-1. Home 컨트롤러의 [Index](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 메서드에 **AllowAnonymous** 특성을 추가합니다. [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 속성을 사용하면 인증에서 옵트아웃할 메서드의 허용 목록을 작성할 수 있습니다. <pre> public class HomeController : Controller { <mark>[AllowAnonymous]</mark> public ActionResult Index() { return View(); } </pre>
+1. Home 컨트롤러의 [Index](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 메서드에 **AllowAnonymous** 특성을 추가합니다. [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 속성을 사용하면 인증에서 옵트아웃할 메서드의 허용 목록을 작성할 수 있습니다. 
+		<pre> 
+	public class HomeController : Controller
+   {
+      <mark>[AllowAnonymous]</mark>
+      public ActionResult Index()
+      {
+         return View();
+      }
+	</pre>
 
 2. *AllowAnonymous*에 대한 전체 검색을 수행합니다. Account 컨트롤러의 로그인 및 등록 메서드에서 사용되는 것을 확인할 수 있습니다.
-1. *CmController.cs*에서 *Cm* 컨트롤러의 데이터를 변경하는 HttpGet 및 HttpPost 메서드(만들기, 편집, 삭제 그리고 인덱스 및 세부 사항을 제외한 모든 작업 메서드)에 `[Authorize(Roles = "canEdit")]`를 추가합니다. 완성된 코드의 일부는 다음과 같습니다. <pre> // GET: Cm/Create <mark>[Authorize(Roles = "canEdit")]</mark> public ActionResult Create() { return View(new Contact { Address = "123 N 456 W", City="Great Falls", Email = "ab@cd.com", Name="Joe Smith", State="MT", Zip = "59405"}); } // POST: Cm/Create // To protect from overposting attacks, please enable the specific properties you want to bind to, for // more details see http://go.microsoft.com/fwlink/?LinkId=317598. [HttpPost] [ValidateAntiForgeryToken] <mark>[Authorize(Roles = "canEdit")]</mark> public ActionResult Create([Bind(Include = "ContactId,Name,Address,City,State,Zip,Email")] Contact contact) { if (ModelState.IsValid) { db.Contacts.Add(contact); db.SaveChanges(); return RedirectToAction("Index"); } return View(contact); } // GET: Cm/Edit/5 <mark>[Authorize(Roles = "canEdit")]</mark> public ActionResult Edit(int? id) { if (id == null) { return new HttpStatusCodeResult(HttpStatusCode.BadRequest); } Contact contact = db.Contacts.Find(id); if (contact == null) { return HttpNotFound(); } return View(contact); } </pre>
+1. *CmController.cs*에서 *Cm* 컨트롤러의 데이터를 변경하는 HttpGet 및 HttpPost 메서드(만들기, 편집, 삭제 그리고 인덱스 및 세부 사항을 제외한 모든 작업 메서드)에 `[Authorize(Roles = "canEdit")]`를 추가합니다. 완성된 코드의 일부는 다음과 같습니다.
+		<pre>
+	// GET: Cm/Create
+       <mark>[Authorize(Roles = "canEdit")]</mark>
+        public ActionResult Create()
+        {
+           return View(new Contact { Address = "123 N 456 W",
+            City="Great Falls", Email = "ab@cd.com", Name="Joe Smith", State="MT",
+           Zip = "59405"});
+        }
+        // POST: Cm/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+         <mark>[Authorize(Roles = "canEdit")]</mark>
+        public ActionResult Create([Bind(Include = "ContactId,Name,Address,City,State,Zip,Email")] Contact contact)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Contacts.Add(contact);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(contact);
+        }
+        // GET: Cm/Edit/5
+       <mark>[Authorize(Roles = "canEdit")]</mark>
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Contact contact = db.Contacts.Find(id);
+            if (contact == null)
+            {
+                return HttpNotFound();
+            }
+            return View(contact);
+        }
+		</pre>
 
 1. 이전 세션에서 로그인되어 있는 경우 **로그아웃** 링크를 누릅니다.
 1. **정보** 또는 **연락처** 링크를 클릭합니다. 익명 사용자는 해당 페이지를 볼 수 없으므로 로그인 페이지로 리디렉션됩니다. 
@@ -447,7 +545,9 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 1. *CM Demo* 링크를 클릭하고 데이터가 표시되는지 확인합니다.
 1. 페이지의 편집 링크를 클릭하면 새 로컬 사용자가 *canEdit* 역할에 추가되지 않았으므로 로그인 페이지로 리디렉션됩니다.
-1. 암호가 "P_assw0rd1"("word"에서 "0"은 숫자 0임)인 *user1@contoso.com*로 로그인합니다. 이전에 선택한 편집 페이지로 리디렉션됩니다. <br/> 해당 계정과 암호를 사용하여 로그인할 수 없는 경우 소스 코드에서 암호를 복사하여 붙여 넣습니다. 그래도 로그인할 수 없으면 **AspNetUsers** 테이블의 **UserName** 열을 검사하여 *user1@contoso.com*이 추가되었는지 확인합니다. 
+1. 암호가 "P_assw0rd1"("word"에서 "0"은 숫자 0임)인 *user1@contoso.com*로 로그인합니다. 이전에 선택한 편집 페이지로 리디렉션됩니다. <br/>
+   해당 계정과 암호를 사용하여 로그인할 수 없는 경우 소스 코드에서 암호를 복사하여 붙여 넣습니다. 그래도 로그인할 수 없으면 **AspNetUsers** 테이블의 **UserName** 열을 검사하여 *user1@contoso.com*이 추가되었는지 확인합니다. 
+
 1. 데이터를 변경할 수 있는지 확인합니다.
 
 ## Azure에 앱 배포
@@ -468,7 +568,8 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 	![설정](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc3.png)
 
 1. **게시**를 클릭합니다.
-1. *user1@contoso.com*으로 로그인하고(암호가 "P_assw0rd1") 데이터를 편집할 수 있는지 확인합니다. 1. 로그아웃합니다.
+1. *user1@contoso.com*으로 로그인하고(암호가 "P_assw0rd1") 데이터를 편집할 수 있는지 확인합니다. 
+1. 로그아웃합니다.
 1. [Google Developers Console](https://console.developers.google.com/)로 이동하고 **자격 증명** 탭에서 Azure URL을 사용하도록 리디렉션 URIS 및 JavaScript Orgins를 업데이트합니다.
 1. Google 또는 Facebook을 사용하여 로그인합니다. 이렇게 하면 Google 또는 Facebook 계정이 **canEdit** 역할에 추가됩니다. *요청에서 리디렉션 URI:https://contactmanager{my version}.azurewebsites.net/signin-google은 등록된 리디렉션 URI와 일치하지 않습니다.*라는 메시지와 함께 HTTP 400 오류가 발생한 경우, 변경 내용을 전파할 때까지 대기해야 합니다. 몇 분 후에 이 오류가 발생하면 URI가 올바른지 확인하세요.
 
@@ -485,7 +586,8 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 ### AddToRoleAsync 제거, 게시 및 테스트
 
-1. Account 컨트롤러의 **ExternalLoginConfirmation** 메서드에서 다음 코드를 주석으로 처리하거나 제거합니다. `await UserManager.AddToRoleAsync(user.Id, "canEdit");`
+1. Account 컨트롤러의 **ExternalLoginConfirmation** 메서드에서 다음 코드를 주석으로 처리하거나 제거합니다. 
+                `await UserManager.AddToRoleAsync(user.Id, "canEdit");`
 1. 프로젝트를 빌드하여 파일 변경 내용을 저장하고 컴파일 오류가 없는지 확인합니다.
 5. **Solution Explorer**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Publish**를 선택합니다.
 
@@ -512,7 +614,8 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 	![CM 페이지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr4.png)
  
 1. 편집 링크를 클릭합니다. 로그인 페이지로 리디렉션됩니다. **다른 서비스를 사용하여 로그인**에서 Google 또는 Facebook을 클릭하고 이전에 등록한 계정으로 로그인합니다. 신속하게 작업하는 동안 세션 쿠키가 시간 초과되지 않으면 이전에 사용한 Google 또는 Facebook 계정을 사용하여 자동으로 로그인됩니다.
-2. 해당 계정에 로그인되어 있는 동안 데이터를 편집할 수 있는지 확인합니다. **참고:** 이 앱을 통해 Google에서 로그아웃한 다음 동일한 브라우저에서 다른 Google 계정으로 로그인할 수 없습니다. 브라우저 한 개를 사용하는 경우 Google로 이동해서 로그아웃해야 합니다. 다른 브라우저에서는 Google과 같은 동일한 타사 인증자의 다른 계정으로 로그온할 수 있습니다.
+2. 해당 계정에 로그인되어 있는 동안 데이터를 편집할 수 있는지 확인합니다.
+ 	**참고:** 이 앱을 통해 Google에서 로그아웃한 다음 동일한 브라우저에서 다른 Google 계정으로 로그인할 수 없습니다. 브라우저 한 개를 사용하는 경우 Google로 이동해서 로그아웃해야 합니다. 다른 브라우저에서는 Google과 같은 동일한 타사 인증자의 다른 계정으로 로그온할 수 있습니다.
 
 Google 계정 정보의 이름과 성을 채우지 않은 경우 NullReferenceException이 발생합니다.
 
@@ -626,4 +729,4 @@ Tom Dykstra의 뛰어난 [EF 및 MVC 시작](http://www.asp.net/mvc/tutorials/ge
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

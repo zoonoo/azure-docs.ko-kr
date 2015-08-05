@@ -190,7 +190,7 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: mobile-services-android-get-started.md
+[모바일 서비스 시작]: mobile-services-android-get-started.md
 [데이터 시작]: mobile-services-android-get-started-data.md
 [Get started with authentication]: mobile-services-android-get-started-users.md
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-js
@@ -212,4 +212,4 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

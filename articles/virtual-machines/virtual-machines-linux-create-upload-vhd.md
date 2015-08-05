@@ -132,7 +132,7 @@ VHD 파일을 업로드할 저장소 계정이 필요합니다. 기존 계정을
 
 		Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>
 
-자세한 내용은 [Add-AzureVhd]((https://msdn.microsoft.com/library/azure/dn495173.aspx)를 참조하세요.
+자세한 내용은 [Add-AzureVhd]((https://msdn.microsoft.com/library/azure/dn495173.aspx) 를 참조하세요.
 
 
 
@@ -141,4 +141,4 @@ VHD 파일을 업로드할 저장소 계정이 필요합니다. 기존 계정을
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

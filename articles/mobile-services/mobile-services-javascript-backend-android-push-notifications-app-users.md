@@ -94,8 +94,8 @@ In the next tutorial, [Service-side authorization of Mobile Services users](mobi
 [Get started with push notifications]: mobile-services-javascript-backend-android-get-started-push.md
 [푸시 알림 시작]: mobile-services-javascript-backend-android-get-started-push.md
 
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure 관리 포털]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

@@ -46,11 +46,14 @@ API 앱을 만들고 나면 이제 Dropbox 커넥터를 논리 앱에 대한 동
 
 	![][4]
 4.	“Dropbox 커넥터”를 클릭하여 Dropbox 커넥터 API 앱을 편집기에 놓을 수 있습니다. 권한 부여 단추를 클릭합니다. Dropbox 자격 증명을 제공합니다. “허용”을 클릭합니다.
-
-	![][5] ![][6] ![][7]
+ 
+	![][5]
+	![][6]
+	![][7]
 6.	이제 흐름에서 Dropbox 커넥터를 사용할 수 있습니다. "파일 업로드" Dropbox 동작을 사용하여 Dropbox 계정으로 파일을 업로드할 수 있습니다.
-
-	![][8] ![][9]
+ 
+	![][8]
+	![][9]
 
 다음과 같이 "파일 업로드" 동작에 대한 입력 속성을 구성합니다.
 
@@ -71,4 +74,4 @@ API 앱을 만들고 나면 이제 Dropbox 커넥터를 논리 앱에 대한 동
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

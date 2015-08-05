@@ -123,7 +123,8 @@ Azure 웹 앱을 백업에서 복원하는 방법에 대한 자세한 내용은 
 
 웹앱에 지난 몇 년 동안의 로그 파일과 정적 이미지가 포함되어 있다고 가정해 보겠습니다. 이러한 항목들은 앞으로도 변하지 않습니다. 여러분은 오래된 이미지가 포함된 웹앱을 이미 완벽히 백업해두었습니다. 이제 매일 웹앱을 백업하려고 하지만 변경되지 않는 정적 이미지 파일 또는 로그 파일을 저장하는 비용은 지불하고 싶지 않습니다.
 
-![Logs 폴더][LogsFolder] ![Images 폴더][ImagesFolder]
+![Logs 폴더][LogsFolder]	
+![Images 폴더][ImagesFolder]
 	
 다음 단계는 백업에서 이들 파일을 제외하는 방법을 보여줍니다.
 
@@ -219,4 +220,4 @@ Azure에 등록하려면 [Microsoft Azure 무료 평가판](/pricing/free-trial/
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

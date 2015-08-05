@@ -165,7 +165,8 @@ Power BI는 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.co
 
 때문에 Power BI는 Azure 스트림 분석으로 상당한 데이터 부하 감소가 이루어 지는 경우에 가장 적합합니다. TumblingWindow 또는 HoppingWindow를 사용하여 데이터 푸시가 최대 1초마다 푸시가 되도록 하고 쿼리가 처리량 요구 사항 이내에 들도록 하는 것이 좋습니다. 다음 수식을 사용하여 수 초 내에 창에 공급할 값을 계산할 수 있습니다. ![수식 1](./media/stream-analytics-power-bi-dashboard/equation1.png)
 
-예를 들어 매초마다 데이터를 보내는 1,000개의 장치가 있다면 시간당 1,000,000행을 지원하는 Power BI Pro SKU를 사용하면서 Power BI에서 장치별 평균 데이터를 확인하고 아래 표시된 것과 같이 장치별로 최대 4초마다 푸시를 할 수 있습니다. ![수식 2](./media/stream-analytics-power-bi-dashboard/equation2.png)
+예를 들어 매초마다 데이터를 보내는 1,000개의 장치가 있다면 시간당 1,000,000행을 지원하는 Power BI Pro SKU를 사용하면서 Power BI에서 장치별 평균 데이터를 확인하고 아래 표시된 것과 같이 장치별로 최대 4초마다 푸시를 할 수 있습니다.
+![수식 2](./media/stream-analytics-power-bi-dashboard/equation2.png)
 
 이를 위해 원래 쿼리가 아래와 같이 변경됩니다.
 
@@ -208,4 +209,4 @@ Power BI는 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.co
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

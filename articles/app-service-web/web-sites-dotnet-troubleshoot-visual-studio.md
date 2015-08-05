@@ -565,7 +565,8 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 1. Visual Studio **Azure 웹 앱** 창에서 **로그** 탭을 클릭한 다음 **관리 포털에서 로깅 구성**을 클릭합니다.
 
-    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->![로깅 구성](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
+    <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
+	![로깅 구성](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
 	웹 앱에 대한 관리 포털에서 **구성** 탭이 열립니다. 여기로 이동하는 또 다른 방법은 **웹 앱** 탭을 클릭하고 사용자의 웹 앱을 클릭한 후 **구성** 탭을 클릭하는 것입니다.
 
@@ -763,4 +764,4 @@ Microsoft TechNet 웹 사이트에 포함된 [실패한 요청 추적 사용](ht
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

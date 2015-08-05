@@ -20,7 +20,7 @@
 
 ## 개요 ##
 
-앱 서비스 환경은 미리 보기에서 제공되는 새로운 프리미엄 계층 기능입니다. 새 크기 조정 및 네트워크 액세스 기능을 제공합니다. 이 새 크기 조정 기능을 통해 Azure 앱 서비스의 인스턴스를 VNET에 배치할 수 있습니다. ASE(앱 서비스 환경) 기능을 잘 모르는 경우 [앱 서비스 환경 정의] 문서(/app-service-app-service-environment-intro.md)를 참조하세요. ASE를 만드는 방법에 대한 자세한 내용은 [앱 서비스 환경을 만드는 방법](app-service-web-how-to-create-an-app-service-environment.md) 문서를 참조하세요.
+앱 서비스 환경은 미리 보기에서 제공되는 새로운 프리미엄 계층 기능입니다. 새 크기 조정 및 네트워크 액세스 기능을 제공합니다. 이 새 크기 조정 기능을 통해 Azure 앱 서비스의 인스턴스를 VNET에 배치할 수 있습니다. ASE(앱 서비스 환경) 기능을 잘 모르는 경우 [앱 서비스 환경 정의](app-service-app-service-environment-intro.md)문서 를 참조하세요. ASE를 만드는 방법에 대한 자세한 내용은 [앱 서비스 환경을 만드는 방법](app-service-web-how-to-create-an-app-service-environment.md) 문서를 참조하세요.
 
 앱 서비스 환경은 크게 몇 가지 주요 구성 요소로 이루어져 있습니다.
 
@@ -131,4 +131,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->
