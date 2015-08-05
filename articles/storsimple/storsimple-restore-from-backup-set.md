@@ -1,4 +1,11 @@
-<속성 페이지 타이틀=" StorSimple 볼륨을 백업 세트에서 복원" | Microsoft Azure 설명="백업 카탈로그를 사용하여 백업 세트에서 StorSimple 볼륨을 복원하는 방법을 설명합니다." 서비스="storsimple" documentationCenter="NA" 작성자="SharS" 관리자="carolz" 편집자="" /> <tags 
+<properties 
+   pageTitle="StorSimple 볼륨을 백업 세트에서 복원" | Microsoft Azure 설명="백업 카탈로그를 사용하여 백업 세트에서 StorSimple 볼륨을 복원하는 방법을 설명합니다."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -50,7 +57,11 @@
   1. 해당 장치를 선택합니다.
   2. 드롭다운 목록에서 선택하려는 백업에 대 한 볼륨 또는 백업 정책을 선택합니다.
   3. 시간 범위를 지정합니다.
-  4. 확인 아이콘![확인 아이콘](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png)을 클릭하여 이 쿼리를 실행 합니다.
+  4. 확인 아이콘
+
+    ![확인 아이콘](./media/storsimple-restore-from-backup-set/HCS_CheckIcon.png)
+
+    을 클릭하여 이 쿼리를 실행 합니다.
  
     선택한 볼륨와 연결된 백업을 또는 백업 정책이 백업 세트의 목록에 나타나야 합니다.
 
@@ -74,4 +85,4 @@
 
 [storsimple 볼륨 관리](storsimple-manage-volumes.md) 방법에 대해 배웁니다.
 
-<!---HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

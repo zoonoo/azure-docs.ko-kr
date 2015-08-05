@@ -10,6 +10,6 @@ Visual Studio **서버 탐색기**를 사용하여 blob 컨테이너를 만들 �
 기본적으로 새 컨테이너는 전용이며, 이 컨테이너에서 Blob을 다운로드하려면 저장소 액세스 키를 지정해야 합니다. 컨테이너의 파일을 공용으로 만들려면 **서버 탐색기**에서 컨테이너를 선택하고 `F4`을 눌러 **속성** 창을 표시합니다. **공용 읽기 액세스**를 **Blob**으로 설정합니다. 인터넷상의 누구든지 공용 컨테이너의 Blob을 볼 수 있지만 해당 액세스 키가 있는 경우에만 수정하거나 삭제할 수 있습니다.
 
 
-[Image1]: ./media/vs-storage-getting-started-blobs-include/vs-storage-create-blob-containers-in-Server-Explorer.png
+[Image1]: ./media/vs-create-blob-container-in-server-explorer/vs-storage-create-blob-containers-in-Server-Explorer.png
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

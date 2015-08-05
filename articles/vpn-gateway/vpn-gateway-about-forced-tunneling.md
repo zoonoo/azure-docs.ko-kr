@@ -1,4 +1,12 @@
-<properties pageTitle "Microsoft Azure VPN 게이트웨이에 대한 강제 터널링 구성" description="크로스-프레미스 VPN 게이트웨이를 사용한 가상 네트워크가 있는 경우 모든 인터넷 바인딩된 트래픽을 온-프레미스 위치에 다시 리디렉션하거나 "force"할 수 있습니다. "services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="jdial" editor="tysonn" /><tags 
+<properties 
+   pageTitle="Microsoft Azure VPN 게이트웨이에 대한 강제 터널링 구성"
+   description="크로스-프레미스 VPN 게이트웨이를 사용한 가상 네트워크가 있는 경우 모든 인터넷 바인딩된 트래픽을 온-프레미스 위치에 다시 리디렉션하거나 "force"할 수 있습니다. "
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="jdial"
+   editor="tysonn" />
+<tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
    ms.topic="article"
@@ -144,4 +152,4 @@ Azure에서 강제 터널링은 가상 네트워크 사용자 정의 경로를 �
 
 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. [사용자 지정 가상 컴퓨터를 만드는 방법](../virtual-machines/virtual-machines-create-custom.md)을 참조하세요.
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->
