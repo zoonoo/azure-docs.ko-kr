@@ -163,7 +163,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 
 	- 템플릿: **Visual C#/Windows 데스크톱/콘솔 응용 프로그램**
 	- 이름: **TweetSentimentStreaming** 
-	- 위치: **C:\Tutorials**
+	- 위치: **C:\\Tutorials**
 	- 솔루션 이름: **TweetSentimentStreaming**
 
 4. **확인**을 클릭하여 계속합니다.
@@ -541,7 +541,7 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 	- 템플릿 범주: **Visual C#/웹**
 	- 템플릿: **ASP.NET 웹 응용 프로그램**
 	- 이름: **TweetSentimentWeb**
-	- 위치: **C:\Tutorials** 
+	- 위치: **C:\\Tutorials** 
 4. **확인**을 클릭합니다.
 5. **템플릿 선택**에서 **MVC**를 클릭합니다. 
 6. **Microsoft Azure**에서 **구독 관리**를 클릭합니다.
@@ -1358,4 +1358,4 @@ Twitter 스트리밍 API는 [OAuth](http://oauth.net/)를 사용하여 요청 �
 
  
 
-<!----HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

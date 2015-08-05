@@ -8,7 +8,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/17/2015" ms.author="trinadhk"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/27/2015"
+	ms.author="trinadhk"/>
 
 # 가상 컴퓨터 복원
 복원 동작을 사용하여 Azure 백업 자격 증명에 저장된 백업을 통해 새 VM에 가상 컴퓨터를 복원할 수 있습니다.
@@ -95,4 +102,4 @@
 ## 다음 단계
 - [가상 컴퓨터 관리](backup-azure-manage-vms)
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

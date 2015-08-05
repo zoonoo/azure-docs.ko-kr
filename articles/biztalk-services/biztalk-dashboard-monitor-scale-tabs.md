@@ -28,7 +28,10 @@ Azure 관리 포털을 처음 열면 **모든 항목** 탭이 자동으로 표�
 그러면 다음 탭이 포함된 새 창이 열립니다. 이 항목에서는 이러한 탭에 대해 설명합니다.
 
 ## 빠른 시작(![빠른 시작][QuickStart])
-BizTalk 서비스 버전에 따라 나열된 일부 옵션을 사용하지 못할 수도 있습니다. <table border="1"> <tr> <td><strong>도구 얻기</strong></td>
+BizTalk 서비스 버전에 따라 나열된 일부 옵션을 사용하지 못할 수도 있습니다.
+<table border="1">
+    <tr>
+        <td><strong>도구 얻기</strong></td>
 
         <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premises development computer. These templates create the <strong>BizTalk Services</strong> (bridge) and the <strong>BizTalk Service Artifacts</strong> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
         <br/><br/>
@@ -365,4 +368,4 @@ Azure BizTalk 서비스에서 하이브리드 연결을 만들거나 관리하�
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!----HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->
