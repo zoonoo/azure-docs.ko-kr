@@ -263,7 +263,51 @@ Azure에서 디스크를 생성하는 경우 용량, 성능, 확장성 및 최�
 - “ReadWrite”으로 캐시가 설정된 프리미엄 저장소 디스크의 경우 쓰기 내구성을 위해 장벽이 설정되어야 합니다.
 
 다음은 프리미엄 저장소로 유효성을 검사한 Linux 배포판입니다. 프리미엄 저장소 사용 시 더 나은 성능 및 확장성을 위해 이러한 버전 이상으로 VM을 업그레이드하는 것이 좋습니다. 또한 버전 중 일부는 최신 LIS(Microsoft Azure 용 Linux Integration Services v4.0)가 필요합니다. 다운로드 및 설치를 위해 아래 제공된 링크를 따르십시오. 추가 유효성 검사가 완료되면 목록에 대한 자세한 이미지 추가가 계속됩니다. 유효성 검사는 이러한 이미지에 따라 다른 성능을 보여주었으며 해당 이미지의 워크로드 특성 및 설정에 따라서도 달라집니다. 다른 종류의 워크로드에 대해 서로 다른 이미지가 조정됩니다. 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;"> <tbody> <tr> <td><strong>배포</strong></td> <td><strong>버전</strong></td> <td><strong>지원 커널</strong></td> <td><strong>지원 이미지</strong></td> </tr> <tr> <td rowspan="4"><strong>Ubuntu</strong></td> <td>12.04</td> <td>3.2.0-75.110</td> <td>Ubuntu-12_04_5-LTS-amd64-server-20150119-ko-kr-30GB</td> </tr> <tr> <td>14.04</td> <td>3.13.0-44.73</td> <td>Ubuntu-14_04_1-LTS-amd64-server-20150123-ko-kr-30GB</td> </tr> <tr> <td>14.10</td> <td>3.16.0-29.39</td> <td>Ubuntu-14_10-amd64-server-20150202-ko-kr-30GB</td> </tr> <tr> <td>15.04</td> <td>3.19.0-15</td> <td>Ubuntu-15_04-amd64-server-20150422-ko-kr-30GB</td> </tr> <tr> <td><strong>SUSE</strong></td> <td>SLES 12</td> <td>3.12.36-38.1</td> <td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td> </tr> <tr> <td><strong>CoreOS</strong></td> <td>584.0.0</td> <td>3.18.4</td> <td>CoreOS 584.0.0</td> </tr> <tr> <td rowspan="2"><strong>CentOS</strong></td> <td>6.5, 6.6, 7.0</td> <td></td> <td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 필수 </a></td> </tr> <tr> <td>7.1</td> <td>3.10.0-229.1.2.el7</td> <td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 권장 </a></td> </tr>
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tbody>
+<tr>
+	<td><strong>배포</strong></td>
+	<td><strong>버전</strong></td>
+	<td><strong>지원 커널</strong></td>
+	<td><strong>지원 이미지</strong></td>
+</tr>
+<tr>
+	<td rowspan="4"><strong>Ubuntu</strong></td>
+	<td>12.04</td>
+	<td>3.2.0-75.110</td>
+	<td>Ubuntu-12_04_5-LTS-amd64-server-20150119-ko-kr-30GB</td>
+</tr>
+<tr>
+	<td>14.04</td>
+	<td>3.13.0-44.73</td>
+	<td>Ubuntu-14_04_1-LTS-amd64-server-20150123-ko-kr-30GB</td>
+</tr>
+<tr>
+	<td>14.10</td>
+	<td>3.16.0-29.39</td>
+	<td>Ubuntu-14_10-amd64-server-20150202-ko-kr-30GB</td>
+</tr>
+<tr>
+	<td>15.04</td>
+	<td>3.19.0-15</td>
+	<td>Ubuntu-15_04-amd64-server-20150422-ko-kr-30GB</td>
+</tr>
+<tr>
+	<td><strong>SUSE</strong></td>
+	<td>SLES 12</td>
+	<td>3.12.36-38.1</td>
+	<td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td>
+</tr>
+<tr>
+	<td><strong>CoreOS</strong></td>
+	<td>584.0.0</td>
+	<td>3.18.4</td>
+	<td>CoreOS 584.0.0</td>
+</tr>
+<tr>
+	<td rowspan="2"><strong>CentOS</strong></td>
+	<td>6.5, 6.6, 7.0</td>
+	<td></td> <td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 필수 </a></td> </tr> <tr> <td>7.1</td> <td>3.10.0-229.1.2.el7</td> <td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 권장 </a></td> </tr>
 
 <tr>
 	<td rowspan="2"><strong>Oracle</strong></td>
@@ -392,4 +436,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->
