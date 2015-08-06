@@ -23,13 +23,13 @@
 
 [새 .NET Azure 저장소 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage/4.4.1-preview) 시작 이 미리 보기 라이브러리는 다운로드 중에 데이터를 암호화하고 Azure 저장소에 업로드하기 전에 클라이언트 응용 프로그램 내부에서 데이터를 암호화하는 데 도움을 주는 새로운 기능이 들어 있습니다. 미리 보기 라이브러리도 또한 저장소 계정 키 관리를 위해 Azure [키 자격 증명 모음](http://azure.microsoft.com/services/key-vault/)과의 통합을 지원합니다.
 
-## 봉투 (envelope) 기술을 통해 암호화 및 암호해독
+## 봉투(Envelope) 기술을 통해 암호화 및 암호해독
 
-암호화 및 암호 해독 프로세스는 봉투 (envelope) 기법을 따릅니다.
+암호화 및 암호 해독 프로세스는 봉투(Envelope) 기법을 따릅니다.
 
-### 봉투 (envelope) 기술을 통해 암호화
+### 봉투(Envelope) 기술을 통해 암호화
 
-암호화는 봉투 (envelope) 기술을 통해 다음과 같은 방식으로 작동합니다.
+암호화는 봉투(Envelope) 기술을 통해 다음과 같은 방식으로 작동합니다.
 
 1. Azure 저장소 클라이언트 라이브러리는 1회용 대칭 키인 콘텐츠 암호화 키(CEK)를 생성합니다.
 2. 사용자 데이터는 이 CEK를 사용하여 암호화됩니다.
@@ -39,9 +39,9 @@
 
 4. 그런 다음 암호화된 데이터를 Azure 저장소 서비스에 업로드합니다. 일부 추가 암호화 메타데이터와 함께 래핑된 키에 메타 데이터로(Blob) 저장 되거나 암호화 된 데이터 (메시지 큐 및 테이블 엔터티)와 보관 합니다.
 
-### 봉투 (envelope) 기술을 통해 암호해독
+### 봉투(Envelope) 기술을 통해 암호해독
 
-암호해독은 봉투 (envelope) 기술을 통해 다음과 같은 방식으로 작동합니다.
+암호해독은 봉투(Envelope) 기술을 통해 다음과 같은 방식으로 작동합니다.
 
 1. 클라이언트 라이브러리는 사용자가 키 암호화 키를 로컬로 또는 Azure 키 자격증명모음으로 관리한다고 가정합니다. 사용자는 암호화에 사용된 특정 키를 알 필요가 없습니다. 대신 키를 서로 다른 키 식별자를 확인 하는 키 확인자 수를 설정하고 사용 합니다.
 2. 클라이언트 라이브러리는 서비스에 저장된 모든 암호화 자료와 함께 암호화된 데이터를 다운로드 합니다.
@@ -56,7 +56,7 @@
 
 미리 보기 버전에서 클라이언트 라이브러리는 전체 blob 암호화를 지원합니다. 특히 사용자가 **UploadFrom**메서드 또는 **BlobWriteStream**를 사용할 때 암호화가 지원됩니다. 다운로드는 전체와 범위 다운로드 모두 지원 됩니다.
 
-암호화 하는 동안 클라이언트 라이브러리는 임의 IV (Initialization Vector) 32 바이트의 임의의 콘텐츠 암호화 키 (CEK)와 함께 16 바이트를 생성 하고 이 정보를 사용 여 blob 데이터의 봉투 (envelope) 암호화를 수행 합니다. 래핑된 CEK 및 일부 추가 암호화 메타 데이터 서비스에서 암호화 된 blob과 함께 메타 데이터를 blob으로 저장합니다.
+암호화 하는 동안 클라이언트 라이브러리는 임의 IV (Initialization Vector) 32 바이트의 임의의 콘텐츠 암호화 키 (CEK)와 함께 16 바이트를 생성 하고 이 정보를 사용 여 blob 데이터의 봉투(Envelope) 암호화를 수행 합니다. 래핑된 CEK 및 일부 추가 암호화 메타 데이터 서비스에서 암호화 된 blob과 함께 메타 데이터를 blob으로 저장합니다.
 
 > [AZURE.WARNING]blob에 대해 고유 메타데이터를 편집하거나 업로드 할 경우, 메타데이타가 유지되는지 확인하세요. 이 메타 데이터 없이 새 메타 데이터를 업로드 하는 경우에는 래핑된 CEK, IV 및 기타 메타 데이터가 손실 되고 blob 콘텐츠를 절대로 다시 검색할 수 없습니다.
 
@@ -70,7 +70,7 @@
 
 큐 메시지의 모든 형식이 될 수, 있으므로 클라이언트 라이브러리는 IV (Initialization Vector) 및 암호화 된 콘텐츠 암호화 키 (CEK) 메시지 텍스트에 포함 된 사용자 지정 형식을 정의 합니다.
 
-암호화 하는 동안 클라이언트 라이브러리는 32 바이트의 임의 CEK 함께 16 바이트의 임의 IV를 생성하고 이 정보를 사용하여 큐 메시지 텍스트의 봉투 (envelope) 암호화를 수행 합니다. 래핑된 CEK 및 일부 추가 암호화 메타 데이터를 암호화 된 큐 메시지에 추가합니다. (아래 참조)이 수정 된 메시지는 서비스에 저장 됩니다.
+암호화 하는 동안 클라이언트 라이브러리는 32 바이트의 임의 CEK 함께 16 바이트의 임의 IV를 생성하고 이 정보를 사용하여 큐 메시지 텍스트의 봉투(Envelope) 암호화를 수행 합니다. 래핑된 CEK 및 일부 추가 암호화 메타 데이터를 암호화 된 큐 메시지에 추가합니다. (아래 참조)이 수정 된 메시지는 서비스에 저장 됩니다.
 
 	<MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
 
@@ -234,4 +234,4 @@ EncryptionPolicy 개체를 만드는 동안 사용자만 키를 공급 (IKey 구
 
 [미리 보기 – Microsoft Azure 저장소에 대한 클라이언트쪽 암호화](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview.aspx) 다운로드 [.NET NuGet 패키지에 대한 Azure 저장소 클라이언트 라이브러리](http://www.nuget.org/packages/WindowsAzure.Storage/4.4.0-preview) 다운로드 GitHub에서[.NET 소스 코드에 대한 Azure 저장소 클라이언트 라이브러리](https://github.com/Azure/azure-storage-net/tree/preview)다운로드 Azure 키 자격 증명 모음 NuGet [코어](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [클라이언트](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), 및 [확장](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 패키지는 [Azure 키 자격 증명 모음 설명서](../articles/key-vault-whatis.md)을 방문하여 다운로드
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

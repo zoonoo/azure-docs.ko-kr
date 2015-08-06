@@ -35,7 +35,9 @@ Microsoft Management Console(MMC)용 StorSimple 스냅숏 관리자 스냅인을
 
 다음 단계에서는 StorSimple 스냅숏 관리자를 설치하기 전에 완료해야 하는 구성 작업의 대략적인 개요를 제공합니다. 시스템 요구 사항 및 단계별 지침을 포함한 전체 Microsoft Azure StorSimple 구성 및 설치 정보는 [온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough.md)를 참조하세요.
 
->[AZURE.IMPORTANT]시작하기 전에 [온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough.md)에서 [사전 설치 검사 목록](storsimple-deployment-walkthrough.md#pre-installation-checklist) 및 [배포 필수 조건](storsimple-deployment-walkthrough.md#deployment-prerequisites)을 검토하세요.<br>
+>[AZURE.IMPORTANT]시작하기 전에 [온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough.md)에서
+> [사전 설치 검사 목록](storsimple-deployment-walkthrough.md#pre-installation-checklist) 및 [배포 필수 조건](storsimple-deployment-walkthrough.md#deployment-prerequisites)을 검토하세요.
+<br>
  
 ### StorSimple 스냅숏 관리자를 설치하기 전에
 
@@ -253,4 +255,4 @@ StorSimple 스냅숏 관리자에 대해 자세히 알아보려면 [StorSimple �
 
 StorSimple 스냅숏 관리자 사용자 인터페이스에 대해 자세히 알아보려면 [StorSimple 스냅숏 관리자 사용자 인터페이스](storsimple-use-snapshot-manager.md)로 이동하세요.
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

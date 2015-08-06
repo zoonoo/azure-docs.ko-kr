@@ -64,7 +64,8 @@
 
 12. 페이지 맨 아래에 있는 **추가**를 클릭합니다.![Endpoints][Image8]
 
-13. 프로토콜이 **TCP**이고 **공용** 및 **개인** 포트가 "3306"으로 설정된 "MySQL"이라는 끝점을 추가합니다. 그러면 MySQL에 원격으로 액세스할 수 있습니다. ![끝점][Image9]
+13. 프로토콜이 **TCP**이고 **공용** 및 **개인** 포트가 "3306"으로 설정된 "MySQL"이라는 끝점을 추가합니다. 그러면 MySQL에 원격으로 액세스할 수 있습니다. 
+	![끝점][Image9]
 
 14. Azure 내의 OpenSUSE 가상 컴퓨터에서 실행되는 MySQL에 원격으로 연결하려면 로컬 컴퓨터에서 다음 명령을 실행합니다.
 
@@ -81,4 +82,4 @@
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

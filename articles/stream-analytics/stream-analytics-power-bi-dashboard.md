@@ -96,11 +96,11 @@ Azure 스트림 분석을 사용하면 최고의 비즈니스 인텔리전스 �
 * **데이터 집합 이름** - Power BI 출력에 포함할 데이터 집합 이름을 입력합니다. 예를 들어, “pbidemo”를 사용합니다.
 *	**테이블 이름** -Power BI 출력의 데이터 집합 아래 테이블 이름을 입력합니다. "Pbidemo"라고 입력합니다. 현재, 스트림 분석 작업의 Power BI 출력에는 하나의 데이터 집합에 하나의 테이블만 있을 수 있습니다.
 
->	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
+>	[AZURE.NOTE] Power BI 계정에서 이 데이터 집합과 테이블을 명시적으로 만들면 안 됩니다. 스트림 분석 작업을 시작하면 자동으로 만들어지며 이 작업에서 출력을 Power BI로 펌프하기 시작합니다. 작업 쿼리에서 아무 결과도 반환하지 않는 경우에는 데이터 집합과 테이블이 만들어지지 않습니다.
 
 *	**확인**, **연결 테스트**를 클릭하면 이제 출력 구성이 완료됩니다.
 
->	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
+>	[AZURE.WARNING] 또한 이 스트림 분석 작업에서 제공한 이름과 동일한 이름의 데이터 집합과 테이블이 Power BI에 이미 있는 경우에는 기존 데이터를 덮어씁니다.
 
 
 ## 쿼리 작성 ##
@@ -209,4 +209,4 @@ Power BI는 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.co
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
  
 
-<!----HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->
