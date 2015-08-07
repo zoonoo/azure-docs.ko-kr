@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Microsoft Azure 리소스 소비에 대한 통찰력 얻기"
    description="Azure 청구 사용량 및 RateCard API에 대한 개념 정보를 제공하며 이는 Azure 리소스 소비 및 추세에 대한 통찰력을 제공하는데 사용합니다."
    services="billing"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="billing"
-   ms.date="07/7/2015"
+   ms.date="07/07/2015"
    ms.author="mobandyo;bryanla"/>
 
 # Microsoft Azure 리소스 소비에 대한 통찰력 얻기 
