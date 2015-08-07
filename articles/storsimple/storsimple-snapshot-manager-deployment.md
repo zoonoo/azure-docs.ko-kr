@@ -255,4 +255,4 @@ StorSimple 스냅숏 관리자에 대해 자세히 알아보려면 [StorSimple �
 
 StorSimple 스냅숏 관리자 사용자 인터페이스에 대해 자세히 알아보려면 [StorSimple 스냅숏 관리자 사용자 인터페이스](storsimple-use-snapshot-manager.md)로 이동하세요.
 
-<!----HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

@@ -234,4 +234,4 @@ EncryptionPolicy 개체를 만드는 동안 사용자만 키를 공급 (IKey 구
 
 [미리 보기 – Microsoft Azure 저장소에 대한 클라이언트쪽 암호화](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview.aspx) 다운로드 [.NET NuGet 패키지에 대한 Azure 저장소 클라이언트 라이브러리](http://www.nuget.org/packages/WindowsAzure.Storage/4.4.0-preview) 다운로드 GitHub에서[.NET 소스 코드에 대한 Azure 저장소 클라이언트 라이브러리](https://github.com/Azure/azure-storage-net/tree/preview)다운로드 Azure 키 자격 증명 모음 NuGet [코어](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [클라이언트](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/), 및 [확장](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 패키지는 [Azure 키 자격 증명 모음 설명서](../articles/key-vault-whatis.md)을 방문하여 다운로드
 
-<!----HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->
