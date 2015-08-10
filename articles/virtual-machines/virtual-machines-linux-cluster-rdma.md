@@ -137,7 +137,7 @@ $ ssh-keygen
 $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ```
 
-/.ssh 디렉터리에서 ssh_config 파일을 편집하거나 만듭니다. Azure에서 사용할 개인 네트워크의 IP 주소 범위를 제공합니다.
+\~/.ssh 디렉터리에서 ssh\_config 파일을 편집하거나 만듭니다. Azure에서 사용할 개인 네트워크의 IP 주소 범위를 제공합니다.
 
 ```
 host 10.32.0.*
@@ -256,9 +256,7 @@ private ip address2:16
 다음 Intel MPI 명령을 실행하여 pingpong 벤치마크를 통해 클러스터 구성을 확인할 수 있습니다.
 
 ```
-/opt/intel/impi_latest/bin64/mpirun -hosts <host1>, <host2> -ppn 1 -n 2 -env I_MPI_FABRICS dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0
-
-/opt/intel/impi_latest/bin64/IMB-MPI1 pingpong
+/opt/intel/impi_latest/bin64/mpirun -hosts <host1>, <host2> -ppn 1 -n 2 -env I_MPI_FABRICS dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 /opt/intel/impi_latest/bin64/IMB-MPI1 pingpong
 ```
 
 두 개의 노드가 있는 작동하는 클러스터에 다음과 유사한 출력이 표시되어야 합니다.
@@ -341,4 +339,4 @@ private ip address2:16
 
 * Intel MPI에 대한 지침은 [Intel MPI Library 설명서](https://software.intel.com/ko-kr/articles/intel-mpi-library-documentation/)를 참조하세요.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

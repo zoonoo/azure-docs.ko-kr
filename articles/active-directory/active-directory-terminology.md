@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Azure AD 용어" 
-	description="Azure AD와 관련된 용어 및 정의입니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+	pageTitle="Azure AD 용어 | Microsoft Azure"
+	description="Azure Active Directory와 관련된 용어 및 정의입니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="TerryLan"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
+	ms.author="curtand"/>
 
 # Azure AD 용어
 
@@ -36,14 +36,11 @@ Microsoft Online Services 로그인 도우미 | 로그인 도우미는 클라이
 다단계 인증(2단계 인증 또는 2FA라고도 함) | 다단계 인증은 사용자 로그인 및 트랜잭션에 중요한 제2의 보안 계층을 추가합니다. Azure AD의 사용자 계정에 다단계 인증을 사용하도록 설정하면 해당 사용자는 조직에서 구독하는 Microsoft 클라우드 서비스에 로그인하고 사용할 때마다 추가 보안 확인 방법으로서 표준 암호 자격 증명 외에 휴대폰도 사용해야 합니다.
 Single Sign-On | 회사 네트워크에 로그온한 동안 Microsoft 클라우드 서비스에 액세스할 때 사용자에게 보다 원활한 인증 환경을 제공하기 위해 사용됩니다. Single Sign-On을 설정하려는 조직은 온-프레미스에서 보안 토큰 서비스를 배포해야 합니다. Single Sign-On이 설정되고 나면 사용자는 Active Directory 회사 자격 증명(사용자 이름 및 암호)을 사용하여 클라우드의 서비스 및 기존 온-프레미스 리소스에 액세스할 수 있습니다.
 사용자 ID | 사용자 ID는 사용자가 조직에서 구독하는 Microsoft 클라우드 서비스에 액세스하기 위해 로그인 페이지에 제공하는 고유 식별자입니다.
-회사 또는 학교 계정 | 조직(회사, 학교, 비영리 단체)이 자신의 구성 요소(직원, 학생, 고객) 중 하나에 할당하는 사용자 계정으로서, 조직의 하나 이상의 Microsoft 클라우드 서비스(Office 365 또는 Azure 등) 구독에 로그인 액세스를 제공합니다. 이러한 계정은 조직의 Azure AD 디렉터리에 저장되며, 사용자가 조직을 떠날 때 일반적으로 삭제됩니다. 회사 또는 학교 계정은 사용자가 아닌 회사의 관리자가 만들고 관리하는 Microsoft 계정과는 다릅니다. 
+회사 또는 학교 계정 | 조직(회사, 학교, 비영리 단체)이 자신의 구성 요소(직원, 학생, 고객) 중 하나에 할당하는 사용자 계정으로서, 조직의 하나 이상의 Microsoft 클라우드 서비스(Office 365 또는 Azure 등) 구독에 로그인 액세스를 제공합니다. 이러한 계정은 조직의 Azure AD 디렉터리에 저장되며, 사용자가 조직을 떠날 때 일반적으로 삭제됩니다. 회사 또는 학교 계정은 사용자가 아닌 회사의 관리자가 만들고 관리하는 Microsoft 계정과는 다릅니다.
 
 ## 다음 단계
 - [조직으로 Azure에 등록](sign-up-organization.md)
 - [Azure 구독과 Azure AD의 연관 관계](active-directory-how-subscriptions-associated-directory.md)
 - [Azure AD 서비스 제한 및 제한 사항](active-directory-service-limits-restrictions.md)
 
-
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

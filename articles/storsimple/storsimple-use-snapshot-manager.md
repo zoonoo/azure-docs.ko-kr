@@ -540,4 +540,4 @@ StorSimple 스냅숏 관리자는 MMC(Microsoft Management Console) 및 Windows 
 
 [StorSimple 스냅숏 관리자를 사용 하여 장치를 연결 및 관리하는 방법을](storsimple-snapshot-manager-manage-devices.md) 학습합니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

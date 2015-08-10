@@ -228,7 +228,7 @@ Save-AzureResourceGroupGalleryTemplate은 템플릿을 저장하고 경로를 JS
 
 ### 5단계: 리소스 그룹 만들기
  
-이 단계에서는 리소스 그룹 템플릿을 사용하여 리소스 그룹을 만듭니다. 예를 들어 디스크에서 New_WebSite_And_Database.json 파일을 열고 안내를 따릅니다. 템플릿 파일은 리소스에 대한 올바른 ApiVersion과 같이 전달할 매개 변수 값을 결정하는 데 매우 유용할 수 있습니다.
+이 단계에서는 리소스 그룹 템플릿을 사용하여 리소스 그룹을 만듭니다. 예를 들어 디스크에서 New\_WebSite\_And\_Database.json 파일을 열고 안내를 따릅니다. 템플릿 파일은 리소스에 대한 올바른 ApiVersion과 같이 전달할 매개 변수 값을 결정하는 데 매우 유용할 수 있습니다.
 
 리소스 그룹을 만들려면 **New-AzureResourceGroup** cmdlet을 사용합니다.
 
@@ -397,4 +397,4 @@ AzureResourceManager 모듈에는 오류를 방지하는 데 유용한 cmdlet이
 - [Azure 리소스 관리자를 사용하여 서비스 사용자 인증](./resource-group-authenticate-service-principal.md)
 - [Azure 클래식 포털을 사용하여 새 Azure 서비스 사용자 만들기](./resource-group-create-service-principal-portal.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

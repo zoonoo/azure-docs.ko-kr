@@ -153,4 +153,4 @@ Azure Preview 포털에서 또는 [배치 PowerShell cmdlet](batch-powershell-cm
 [work_item_workflow]: ./media/batch-technical-overview/work_item_workflow.png
 [app_pub_workflow]: ./media/batch-technical-overview/app_pub_workflow.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

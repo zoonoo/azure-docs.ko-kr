@@ -4,13 +4,8 @@
 - Azure 저장소를 사용하여 수행할 수 있는 고급 작업에 대한 자세한 내용은 [Azure에 데이터 저장 및 액세스](https://msdn.microsoft.com/library/azure/gg433040.aspx)를 참조하세요.    
 - [Azure WebJobs SDK](../app-service/websites-dotnet-webjobs-sdk.md)를 사용하여 Azure 저장소 작업을 위해 작성하는 코드를 간소화하는 방법을 알아봅니다.
 - Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하세요.
-<ul> 
- <ul>
-    <li><a href="https://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-blobs/">Blob 저장소</a>를 사용하여 구조화되지 않은 데이터를 저장합니다.</li>
-    <li><a href="https://azure.microsoft.com/ko-kr/documentation/articles/storage-dotnet-how-to-use-blobs/">테이블 저장소</a>를 사용하여 구조화된 데이터를 저장합니다.</li>
-    <li><a href="https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/">큐 저장소</a>를 사용하여 구조화된 데이터를 저장합니다.</li>
-    <li><a href="https://azure.microsoft.com/documentation/articles/sql-database-dotnet-how-to-use/">SQL 데이터베이스</a>를 사용하여 관계형 데이터를 저장합니다.</li>
-  </ul>
-</ul>
+  - [Blob 저장소](./storage-dotnet-how-to-use-blobs.md)를 사용하여 구조화된 데이터를 저장합니다.
+  - [테이블 저장소](./storage-dotnet-how-to-use-tables.md)를 사용하여 구조화된 데이터를 저장합니다.
+  - [SQL 데이터베이스](../sql-database/sql-database-dotnet-how-to-use.md)를 사용하여 관계형 데이터를 저장합니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

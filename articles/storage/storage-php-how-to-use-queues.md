@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="PHP에서 큐 저장소를 사용하는 방법 | Microsoft Azure";" 
+	pageTitle="PHP에서 큐 저장소를 사용하는 방법 | Microsoft Azure&quot;" 
 	description="Azure 큐 서비스를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다. 샘플은 PHP로 작성되었습니다." 
 	documentationCenter="php" 
 	services="storage" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="07/29/2015" 
 	ms.author="tomfitz"/>
 
 # PHP에서 큐 저장소를 사용하는 방법
@@ -42,7 +42,7 @@ Azure 큐 서비스에 액세스하는 PHP 응용 프로그램을 만들 때 충
 
 Azure 큐 서비스 API를 사용하려면 다음을 수행해야 합니다.
 
-1. [require_once][require_once] 문을 사용하여 자동 로더 파일 참조
+1. [require\_once][require_once] 문을 사용하여 자동 로더 파일 참조
 2. 사용할 수 있는 모든 클래스 참조
 
 다음 예제에서는 자동 로더 파일을 포함하고 **ServicesBuilder** 클래스를 참조하는 방법을 보여 줍니다.
@@ -384,4 +384,4 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

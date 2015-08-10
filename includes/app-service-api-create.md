@@ -20,4 +20,4 @@
 
 Visual Studio에서 API 앱으로 배포하기 위해 구성된 Web API 프로젝트를 만듭니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="07/24/2015" 
 	ms.author="genemi"/>
 
 
@@ -25,7 +25,7 @@
 
 
 - 짧은 샘플 연결 및 쿼리입니다.
-- 재시도 샘플 연결 및 쿼리지만, 발생한 오류가 [*일시적인 오류*](http://msdn.microsoft.com/library/azure/ff394106.aspx#bkmk_connection_errors)(예: 연결 시간 제한)로 분류되는 경우 자동으로 재시도합니다.
+- 재시도 샘플 연결 및 쿼리지만 발생한 오류가 [*일시적인 오류*](sql-database-develop-error-messages.md#bkmk_connection_errors)(예: 연결 시간 제한)로 분류되는 경우 자동으로 재시도합니다.
 
 
 샘플에서 다루는 내용은 다음과 같습니다.
@@ -75,11 +75,11 @@
 
 | 언어 | 간단한 샘플 | 재시도 샘플 | 관계형에서 개체로 |
 | :-- | :-- | :-- | :-- |
-| C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [ADO.NET](http://msdn.microsoft.com/library/azure/ee336243.aspx)<br/><br/>[ADO.NET 및 Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx) | [ADO.NET Entity Framework](http://msdn.microsoft.com/library/azure/ff951633.aspx) |
+| C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [ADO.NET 사용자 지정](sql-database-develop-csharp-retry-windows.md)<br/><br/>[ADO.NET 및 Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx) | [ADO.NET Entity Framework](http://msdn.microsoft.com/library/azure/ff951633.aspx) |
 | C++ | [ODBC 드라이버](http://msdn.microsoft.com/library/azure/hh974312.aspx) | . | . |
 | Java | [Java. JDBC, JDK. 삽입, 트랜잭션, 선택.](sql-database-develop-java-simple-windows.md)<br/><br/>[Java. Eclipse](sql-data-java-how-to-use-sql-database.md)<br/><br/>[Java. JDBC](http://msdn.microsoft.com/library/azure/gg715284.aspx) | . | . |
 | Node.js | [msnodesql](sql-database-develop-nodejs-simple-windows.md) | . | . |
-| PHP | [ODBC](sql-database-develop-php-simple-windows.md) | [ODBC](sql-database-develop-php-retry-windows.md) | . |
+| PHP | [ODBC](sql-database-develop-php-simple-windows.md) | [ODBC 사용자 지정](sql-database-develop-php-retry-windows.md) | . |
 | Python | [pymssql](sql-database-develop-python-simple-windows.md) | . | . |
 
 
@@ -88,9 +88,9 @@
 
 - [다양한 언어 및 플랫폼에 대한 도구 및 SDK 다운로드](http://azure.microsoft.com/downloads/#cmd-line-tools)
 - [SQL 데이터베이스 및 SQL Server에 대한 연결 라이브러리](sql-database-libraries.md)
-- [일시적인 오류에 대한 숫자 코드 목록](http://msdn.microsoft.com/library/azure/ff394106.aspx#bkmk_connection_errors)<br/>&nbsp;
+- [일시적인 오류에 대한 숫자 코드 목록](sql-database-develop-error-messages.md#bkmk_connection_errors)<br/>&nbsp;
 - [Azure SQL 데이터베이스 개발: 방법 도움말 항목](http://msdn.microsoft.com/library/azure/ee621787.aspx)
 - [SQL 데이터베이스 연결: 링크, 모범 사례, 설계 지침](sql-database-connect-central-recommendations.md)
 - [첫 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

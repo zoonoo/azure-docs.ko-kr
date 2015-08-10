@@ -13,32 +13,31 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="article" 
-	ms.date="04/24/2015"
-	ms.author="ggailey777"/>
+	ms.date="07/25/2015"
+	ms.author="glenga"/>
 
 
 # <a name="getting-started"> </a>모바일 서비스 시작
 
 [AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-<p>이 자습서에서는 Azure 모바일 서비스를 사용하는 HTML 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법에 대해 설명합니다. 이 자습서에서는 새로운 모바일 서비스 및 이 서비스에 앱 데이터를 저장하는 간단한 <em>To do list</em> 앱을 만들게 됩니다. 오른쪽에 있는 클립을 클릭하여 이 자습서의 동영상 버전을 볼 수 있습니다.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="label">자습서 보기</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-html-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="dev-onpage-video"><span class="icon">동영상 재생</span></a> <span class="time">3:51</span></div>
-</div>
+##개요 
 
+이 자습서에서는 Azure 모바일 서비스를 사용하는 HTML 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법에 대해 설명합니다. 이 자습서에서는 새 모바일 서비스와 새 모바일 서비스에 앱 데이터를 저장하는 간단한 *할 일 모음* 앱을 둘 다 만듭니다. 이 자습서의 다음 비디오 버전을 볼 수 있습니다.
+
+> [AZURE.VIDEO mobile-get-started-html]
+ 
 완성된 앱의 스크린샷은 다음과 같습니다.
 
 ![][0]
 
-먼저 이 자습서를 완료해야만 HTML 앱에 대한 다른 모든 모바일 서비스 자습서를 학습할 수 있습니다.
+먼저 이 자습서를 완료해야만 HTML 앱에 대한 다른 모든 모바일 서비스 자습서를 학습할 수 있습니다. PhoneGap/Cordova 앱에 대해서는 이 자습서의 [PhoneGap/Cordova 버전](mobile-services-javascript-backend-phonegap-get-started.md)을 참조하세요.
 
-> [AZURE.IMPORTANT]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank)을 참조하십시오.
+##필수 조건
 
-###추가 요구 사항
+이 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
-+ 이 자습서를 학습하려면 로컬 컴퓨터에 다음 웹 서버 중 하나가 실행되고 있어야 합니다.
++ 로컬 컴퓨터에 다음 웹 서버 중 하나가 실행되고 있어야 합니다.
 
 	+  **Windows**: IIS Express IIS Express는 [Microsoft 웹 플랫폼 설치 관리자]를 통해 설치됩니다.
 	+  **MacOS X**: Python(미리 설치되어 있어야 함)
@@ -47,6 +46,7 @@
 	앱을 호스트하기 위한 웹 서버로 어떤 것이든 사용할 수 있지만, 다운로드한 스크립트는 위의 웹 서버에서만 지원됩니다.
 
 + HTML5를 지원하는 웹 브라우저.
++ Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank)을 참조하세요. 
 
 
 ## <a name="create-new-service"> </a>새 모바일 서비스 만들기
@@ -134,10 +134,6 @@
 <!-- Images. -->
 [0]: ./media/mobile-services-html-get-started/mobile-quickstart-completed-html.png
 
-
-
-
-
 [6]: ./media/mobile-services-html-get-started/mobile-portal-quickstart-html.png
 [7]: ./media/mobile-services-html-get-started/mobile-quickstart-steps-html.png
 
@@ -148,15 +144,15 @@
 
 
 <!-- URLs. -->
-[데이터 시작하기]: /develop/mobile/tutorials/get-started-with-data-html
-[인증 시작하기]: /develop/mobile/tutorials/get-started-with-users-html
+[데이터 시작하기]: mobile-services-html-get-started-data.md
+[인증 시작하기]: mobile-services-html-get-started-users.md
 [HTML 응용 프로그램에서 사용자 지정 API 호출]: mobile-services-html-call-custom-api.md
 
 [Management Portal]: https://manage.windowsazure.com/
 [Microsoft 웹 플랫폼 설치 관리자]: http://go.microsoft.com/fwlink/p/?LinkId=286333
 [Python의 최신 버전]: http://go.microsoft.com/fwlink/p/?LinkId=286342
-[모바일 서비스 HTML/JavaScript 방법 개념 참조]: /develop/mobile/how-to-guides/work-with-html-js-client
-[Cross-origin resource sharing]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
+[모바일 서비스 HTML/JavaScript 방법 개념 참조]: mobile-services-html-how-to-use-client-library.md
+[Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="04/15/2015"
+   ms.date="07/24/2015"
    ms.author="shkurhek"/>
 
 # 서비스 계층
@@ -68,7 +68,7 @@
 **성능 및 크기**
 
 
-| 서비스 계층 | 프리미엄 P1 | 프리미엄 P2 | 프리미엄 P3 |
+| 서비스 계층 | 프리미엄 P1 | 프리미엄 P2 | 프리미엄 P6(이전의 P3) |
 | :-- | :-- | :-- | :-- |
 | DTU(데이터베이스 처리량 단위) | 125 | 250 | 1000 |
 | 최대 데이터베이스 크기 | 500GB | 500GB | 500GB |
@@ -77,7 +77,7 @@
 **기능**
 
 
-| 서비스 계층 | 프리미엄(P1, P2, P3) |
+| 서비스 계층 | 프리미엄(P1, P2, P6) |
 | :-- | :-- |
 | PITR(지정 시간 복원) | 지난 35일 이내의 최대 밀리초 |
 | 재해 복구 | 활성 지역 복제, 최대 4개의 온라인 읽기 가능 보조 복제본 |
@@ -89,4 +89,4 @@
 SQL 데이터베이스 계층에 대해 알아 보았으면 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 사용해보고 [첫 번째 SQL 데이터베이스를 만드는 방법](sql-database-get-started.md)에 대해 알아보세요!
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

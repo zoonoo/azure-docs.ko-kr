@@ -2,7 +2,6 @@
 	pageTitle="고급 분석 프로세스 및 기술에서 Hive 쿼리를 Hadoop 클러스터에 제출 | Microsoft Azure"
 	description="Hive 쿼리를 사용하여 Hive 테이블의 데이터 처리"
 	services="machine-learning"
-	solutions=""
 	documentationCenter=""
 	authors="hangzh-msft"
 	manager="paulettm" 
@@ -21,7 +20,7 @@
 
 이 문서에서는 Azure의 HDInsight 서비스에서 관리하는 Hadoop 클러스터에 Hive 쿼리를 제출하는 다양한 방법에 대해 설명합니다. 이 작업은 Azure 기계 학습에서 제공하는 ADAPT(고급 분석 프로세스 및 기술)의 일부입니다. 여러 데이터 랭글링 작업(데이터 탐색 및 기능 생성)에 대해 설명합니다. 데이터를 탐색하거나 기능을 생성하는 방법을 보여 주는 일반 Hive 쿼리를 살펴볼 것입니다. 이러한 Hive 쿼리는 제공되는 포함된 Hive UDF(사용자 정의 함수)를 사용합니다.
 
-또한 [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) 시나리오에 대한 쿼리 예제가 [Github 리포지토리](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts)에 제공됩니다. 이러한 쿼리는 이미 데이터 스키마가 지정되어 있으며 바로 제출하여 실행할 수 있습니다.
+또한 <a href="http://chriswhong.com/open-data/foil_nyc_taxi/" target="_blank">NYC Taxi Trip Data</a> 시나리오에 대한 쿼리 예제가 <a href="https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts" target="_blank">Github 리포지토리</a>에 제공됩니다. 이러한 쿼리는 이미 데이터 스키마가 지정되어 있으며 바로 제출하여 실행할 수 있습니다.
 
 마지막 섹션에서는 사용자가 조정하여 Hive 쿼리 성능을 높일 수 있는 매개 변수에 대해 설명합니다.
 
@@ -41,6 +40,8 @@
 * IPython Notebook
 * Hive 편집기
 * Azure PowerShell 스크립트
+
+Hive 쿼리는 SQL과 유사하므로, SQL에 익숙한 사용자에게는 <a href="http://hortonworks.com/wp-content/uploads/downloads/2013/08/Hortonworks.CheatSheet.SQLtoHive.pdf" target="_blank">SQL-Hive 치트 시트</a>가 유용할 수 있습니다.
 
 또한 Hive 쿼리를 제출할 때 Hive 쿼리에서 화면, 헤드 노드의 로컬 파일, Azure blob 등의 출력 대상을 제어할 수 있습니다.
 
@@ -74,19 +75,17 @@ Hive 쿼리가 좀 더 복잡하고 줄이 여러 개인 경우 Hadoop 명령줄
 
 	`hive -f "<path to the .hql file>"`
 
-![작업 영역 만들기][15]
-
 
 #### Hive 쿼리의 진행 상태 화면 인쇄 숨기기
 
-기본적으로 Hadoop 명령줄 콘솔에서 Hive 쿼리가 제출되면 맵/감소 작업의 진행 상태가 화면에 인쇄됩니다. 맵/감소 작업의 진행 상태 화면 인쇄를 숨기려면 다음과 같이 명령줄에 `-S` 인수("S"는 대문자)를 사용합니다.
+기본적으로 Hadoop 명령줄 콘솔에서 Hive 쿼리가 제출되면 맵/감소 작업의 진행 상태가 화면에 인쇄됩니다. 맵/감소 작업의 진행 상태 화면 인쇄를 숨기려면 다음과 같이 명령줄에 `-S` 인수(대문자 구분)를 사용할 수 있습니다.
 
 	hive -S -f "<path to the .hql file>"
 	hive -S -e "<Hive queries>"
 
 #### Hive 명령 콘솔에서 Hive 쿼리를 제출합니다.
 
-Hadoop 명령줄에서 `hive` 명령을 실행하여 Hive 명령 콘솔로 전환한 후 Hive 명령 콘솔에서 Hive 쿼리를 제출하는 방법도 있습니다. 다음은 예제입니다.
+Hadoop 명령줄에서 `hive` 명령을 실행하여 Hive 명령 콘솔로 전환한 후 Hive 명령 콘솔의 **hive>** 프롬프트에서 Hive 쿼리를 제출하는 방법도 있습니다. 다음은 예제입니다.
 
 ![작업 영역 만들기][11]
 
@@ -100,9 +99,6 @@ Hive 쿼리 결과를 헤드 노드의 로컬 디렉터리에 출력하려면 �
 
 	`hive -e "<hive query>" > <local path in the head node>`
 
-다음 예제에서 Hive 쿼리의 출력은 *C:\apps\temp* 디렉터리의 *hivequeryoutput.txt* 파일에 작성됩니다.
-
-![작업 영역 만들기][12]
 
 #### Azure blob에 Hive 쿼리 결과 출력
 
@@ -110,7 +106,7 @@ Hive 쿼리 결과를 헤드 노드의 로컬 디렉터리에 출력하려면 �
 
 	insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
 
-다음 예제에서 Hive 쿼리는 Hadoop 클러스터의 기본 컨테이너 내에 있는 blob 디렉터리 `queryoutputdir`에 작성됩니다. 이때 사용자는 blob 이름 없이 디렉터리 이름만 입력하면 됩니다. *wasb:///queryoutputdir/queryoutput.txt*처럼 디렉터리 이름과 blob 이름을 모두 입력하면 오류가 발생합니다.
+다음 예제에서 Hive 쿼리의 출력은 Hadoop 클러스터의 기본 컨테이너 내에 있는 Blob 디렉터리 `queryoutputdir`에 작성됩니다. 이때 사용자는 blob 이름 없이 디렉터리 이름만 입력하면 됩니다. *wasb:///queryoutputdir/queryoutput.txt*처럼 디렉터리 이름과 Blob 이름을 모두 입력하면 오류가 발생합니다.
 
 ![작업 영역 만들기][13]
 
@@ -219,7 +215,7 @@ Azure 저장소 탐색기 또는 그에 상응하는 도구를 사용하여 Hado
 	    	group by <column_name1>, <column_name2>
 	    	)b
 
-이 예제에서 변수 `smooth_param1` 및 `smooth_param2`는 데이터에서 계산된 위험 값을 부드럽게 만들도록 설정되었습니다. 위험 범위는 -Inf~Inf입니다. 위험>0은 대상이 1일 확률이 0.5보다 크다는 뜻입니다.
+이 예제에서 변수 `smooth_param1` 및 `smooth_param2`는 데이터에서 계산된 위험 값을 부드럽게 만들도록 설정되었습니다. 위험 범위는 -Inf\~Inf입니다. 위험>0은 대상이 1일 확률이 0.5보다 크다는 뜻입니다.
 
 위험 테이블이 계산되면 사용자는 위험 값을 위험 테이블에 조인하여 위험 값을 할당할 수 있습니다. Hive 조인 쿼리는 이전 섹션에서 제공되었습니다.
 
@@ -256,7 +252,7 @@ Hive 테이블에 텍스트 필드가 있고 이 텍스트 필드에 공백으�
 
 이 섹션에 제공된 쿼리를 뉴욕시 택시 여행 데이터에 바로 적용할 수 있습니다. Hive에 포함된 수학 함수를 적용하여 기능을 생성하는 방법을 보여 주는 것이 이 쿼리의 목적입니다.
 
-이 쿼리에 사용된 필드는 태우는 위치와 내리는 위치의 GPS 좌표이며 이름은 *pickup_longitude*, *pickup_latitude*, *dropoff_longitude* 및 *dropoff_latitude*입니다. 태우는 좌표와 내리는 좌표 사이의 직접 거리를 계산하는 쿼리는 다음과 같습니다.
+이 쿼리에 사용된 필드는 태우는 위치와 내리는 위치의 GPS 좌표이며 이름은 *pickup\_longitude*, *pickup\_latitude*, *dropoff\_longitude* 및 *dropoff\_latitude*입니다. 태우는 좌표와 내리는 좌표 사이의 직접 거리를 계산하는 쿼리는 다음과 같습니다.
 
 		set R=3959;
 		set pi=radians(180);
@@ -274,17 +270,17 @@ Hive 테이블에 텍스트 필드가 있고 이 텍스트 필드에 공백으�
 		and dropoff_latitude between 30 and 90
 		limit 10;
 
-두 GPS 좌표 사이의 거리를 계산하는 수학 방정식은 [Movable Type Scripts](http://www.movable-type.co.uk/scripts/latlong.html) 사이트에서 찾을 수 있으며, 작성자는 Peter Lapisu입니다. 그의 Javascript에서 `toRad()` 함수는 단지 도에서 라디안으로 변환하는 *lat_or_lon*pi/180*일 뿐입니다. 여기서 *lat_or_lon*은 위도 또는 경도입니다. Hive에서 `atan2` 함수를 제공하지 않고 `atan` 함수를 제공하므로 위의 Hive 쿼리에서는 [Wikipedia](http://en.wikipedia.org/wiki/Atan2)에서 제공하는 정의를 사용하여 `atan` 함수가 `atan2` 함수를 구현합니다.
+두 GPS 좌표 사이의 거리를 계산하는 수학 방정식은 <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> 사이트에서 찾을 수 있으며, 작성자는 Peter Lapisu입니다. 그의 Javascript에서 `toRad()` 함수는 단지 도에서 라디안으로 변환하는 *lat\_or\_lon\*pi/180*일 뿐입니다. 여기서 *lat\_or\_lon*은 위도 또는 경도입니다. Hive에서 `atan2` 함수를 제공하지 않고 `atan` 함수를 제공하므로 위의 Hive 쿼리에서는 <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>에서 제공하는 정의를 사용하여 `atan` 함수가 `atan2` 함수를 구현합니다.
 
 ![작업 영역 만들기][1]
 
-Hive에 포함된 UDF 전체 목록은 [Apache Hive wiki](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions)의 **기본 제공 함수**에서 확인할 수 있습니다.
+Hive에 포함된 UDF 전체 목록은 <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>의 **기본 제공 함수** 섹션에서 확인할 수 있습니다.
 
 ## <a name="tuning"></a> 고급 항목: Hive 매개 변수를 조정하여 쿼리 속도 개선
 
 Hive 클러스터의 기본 매개 변수 설정이 Hive 쿼리 및 쿼리에서 처리하는 데이터에 적합하지 않을 수 있습니다. 이 섹션에서는 사용자가 조정하여 Hive 쿼리 성능을 개선할 수 있는 일부 매개 변수에 대해 설명합니다. 사용자는 매개 변수 조정 쿼리를 먼저 추가한 후 데이터 처리 쿼리를 추가해야 합니다.
 
-1. **Java 힙 공간**: 대용량 데이터 집합 조인 또는 킨 레코드 처리와 관련된 쿼리에서 가장 흔히 발생하는 오류는 **힙 공간 부족**입니다. *mapreduce.map.java.opts* 및 *mapreduce.task.io.sort.mb* 매개 변수를 원하는 값으로 설정하여 이를 조정할 수 있습니다. 다음은 예제입니다.
+1. **Java 힙 공간**: 대용량 데이터 집합 조인 또는 긴 레코드 처리와 관련된 쿼리에서 가장 흔히 발생하는 오류는 **힙 공간 부족**입니다. *mapreduce.map.java.opts* 및 *mapreduce.task.io.sort.mb* 매개 변수를 원하는 값으로 설정하여 이를 조정할 수 있습니다. 다음은 예제입니다.
 
 		set mapreduce.map.java.opts=-Xmx4096m;
 		set mapreduce.task.io.sort.mb=-Xmx1024m;
@@ -323,4 +319,4 @@ Hive 클러스터의 기본 매개 변수 설정이 Hive 쿼리 및 쿼리에서
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

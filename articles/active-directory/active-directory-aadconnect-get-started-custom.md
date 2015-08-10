@@ -21,7 +21,7 @@
 
 다음 설명서는 Azure AD Connect에 대한 사용자 지정 설치 옵션을 사용하여 정보를 제공합니다. 추가 구성 옵션이 있거나 빠른 설치에서 해결되지 않은 선택적 기능이 필요한 경우 이 옵션을 사용할 수 있습니다.
 
-빠른 설치에 대한 자세한 내용은 [빠른 설치](active-directory-aadconnect-get-started/#express-installation-of-azure-ad-connect)를 참조하세요. 디렉터리 동기화에서 Azure AD Connect로 업그레이드에 대한 내용은 [디렉터리 동기화를 Azure Active Directory 연결로 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md)를 참조하세요.
+빠른 설치에 대한 자세한 내용은 [빠른 설치](active-directory-aadconnect/#getting-started-with-azure-ad-connect)를 참조하세요. 디렉터리 동기화에서 Azure AD Connect로 업그레이드에 대한 내용은 [디렉터리 동기화를 Azure Active Directory 연결로 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md)를 참조하세요.
 
 
 
@@ -29,7 +29,8 @@
 
 동기화 서비스를 설치할 때는 선택적 구성 섹션을 선택 취소된 채로 두면 됩니다. 그러면 Azure AD Connect에서 모든 사항이 자동 설정됩니다. SQL Server 2012 Express 설정, 적절한 그룹 만들기, 그룹에 권한 할당 등이 자동으로 설정됩니다. 기본값을 변경하려는 경우 다음 테이블을 참조하여 사용할 수 있는 선택적 구성 옵션을 이해할 수 있습니다.
 
-<center>![필수 구성 요소](./media/active-directory-aadconnect-get-started-custom/requiredcomponents.png) </center>
+![필수 구성 요소](./media/active-directory-aadconnect-get-started-custom/requiredcomponents.png)
+
 
 선택적 구성 | 설명 
 ------------- | ------------- |
@@ -41,7 +42,8 @@ SQL Server 이름 |SQL Server 이름 및 인스턴스 이름을 지정할 수 �
 ## 사용자 로그인
 필수 구성 요소를 설치한 후 사용자가 SSO 메서드를 사용하는 방법을 지정해야 합니다. 다음 테이블에서 사용 가능한 옵션에 대한 간략한 설명을 제공합니다.
 
-<center>![사용자 로그인](./media/active-directory-aadconnect-get-started-custom/usersignin.png) </center>
+![사용자 로그인](./media/active-directory-aadconnect-get-started-custom/usersignin.png)
+
 
 
 SSO(Single Sign-On) 옵션 | 설명 
@@ -55,18 +57,21 @@ AD FS로 페더레이션|사용자는 온-프레미스 네트워크에 로그인
 ## Azure에 연결
 Azure AD에 연결 화면에서, 전역 관리자 계정 및 암호를 입력합니다. 이 계정으로 다단계 인증을 사용할 수 없는지 확인합니다. 이렇게 하면 인증에 실패할 수 있습니다. 이 계정은 Azure AD에서 서비스 계정을 만드는 데에만 사용되며 마법사를 완료 한 후 사용되지 않습니다.
 
-<center>![사용자 로그인](./media/active-directory-aadconnect-get-started-custom/connectaad.png) </center>
+![사용자 로그인](./media/active-directory-aadconnect-get-started-custom/connectaad.png)
+
 
 ### 디렉터리에 연결
 Active Directory 도메인 서비스에 연결하려면, Azure AD Connect는 충분한 권한이 있는 계정의 자격 증명이 필요합니다. 기본 읽기 권한만 필요하기 때문에 이 계정은 일반 사용자 계정일 수 있습니다. 그러나 시나리오에 따라 추가 권한이 필요할 수 있습니다. 자세한 내용은 [Azure AD Connect 계정 요약](active-directory-aadconnect-account-summary.md)을 참조하세요.
 
-<center>![사용자 로그인](./media/active-directory-aadconnect-get-started-custom/connectdir.png) </center>
+![사용자 로그인](./media/active-directory-aadconnect-get-started-custom/connectdir.png)
+
 
 ### 사용자를 고유하게 식별
 
 포리스트 기능 간에 일치를 사용하여 AD DS 포리스트의 사용자가 Azure AD에서 표현되는 방법을 정의할 수 있습니다. 사용자는 포리스트 전반에 걸쳐 한번만 표시할 수 있거나 활성화된 계정과 비활성화된 계정의 조합으로 이루어집니다.
 
-<center>![사용자 로그인](./media/active-directory-aadconnect-get-started-custom/unique.png) </center>
+![사용자 로그인](./media/active-directory-aadconnect-get-started-custom/unique.png)
+
 
 설정 | 설명 
 ------------- | ------------- |
@@ -87,7 +92,8 @@ sAMAccountName 및 MailNickName|이 옵션은 사용자에 대한 로그인 ID�
 ### 그룹에 따라 동기화 필터링
 그룹 기능에 대한 필터링을 사용하면 Azure AD 및 Office 365에 개체의 작은 하위 집합만 만들어야 하는 작은 파일럿을 실행할 수 있습니다. 이 기능을 사용하려면, Active Directory에서 그룹을 만들고 직접 구성원으로 Azure AD와 동기화되어야 하는 사용자와 그룹을 추가합니다. 나중에 사용자를 이 그룹에 추가하고 제거하여 Azure AD에 있어야 하는 개체의 목록을 유지할 수 있습니다. 이 기능을 사용하려면 사용자 지정된 경로에 페이지가 표시됩니다.
 
-<center>![동기화 필터링](./media/active-directory-aadconnect-get-started-custom/filter2.png) </center>
+![동기화 필터링](./media/active-directory-aadconnect-get-started-custom/filter2.png)
+
 
 ### 선택적 기능
 
@@ -114,15 +120,18 @@ Azure AD 앱 및 특성 필터링|Azure AD 앱 및 특성 필터링을 사용하
 ## 디렉터리 확장 특성 동기화
 디렉터리 확장을 사용하여, Active Directory의 다른 특성 또는 조직에서 추가하는 사용자 지정 특성으로 Azure AD에서 스키마를 확장할 수 있습니다. 이 기능을 사용하려면, "선택적 기능" 페이지에서 "디렉터리 확장 특성 동기화"를 선택합니다. 이렇게 하면 이 페이지에서 추가 특성을 선택할 수 있습니다.
 
-<center>![동기화 필터링](./media/active-directory-aadconnect-get-started-custom/extension2.png) </center>
+![동기화 필터링](./media/active-directory-aadconnect-get-started-custom/extension2.png)
+
 
 단일 값 특성만이 지원되고 값이 250자를 초과할 수 없습니다. 메타 버스 및 Azure AD 스키마는 선택된 특성으로 확장됩니다. Azure AD에서 새 응용 프로그램은 특성으로 추가됩니다.
 
-<center>![동기화 필터링](./media/active-directory-aadconnect-get-started-custom/extension3.png) </center>
+![동기화 필터링](./media/active-directory-aadconnect-get-started-custom/extension3.png)
+
 
 이제 이 특성은 그래프를 통해 사용할 수 있습니다.
 
-<center>![동기화 필터링](./media/active-directory-aadconnect-get-started-custom/extension4.png) </center>
+![동기화 필터링](./media/active-directory-aadconnect-get-started-custom/extension4.png)
+
 
 ## 사용자 쓰기 저장(미리 보기)
 
@@ -130,7 +139,8 @@ Azure AD 앱 및 특성 필터링|Azure AD 앱 및 특성 필터링을 사용하
 
 사용자 쓰기 저장을 사용하면 Azure AD(포털, 그래프, PowerShell 또는 다른 메서드를 통해)에서 만든 사용자를 사용하고 온-프레미스 ADDS에 사용자를 다시 쓸 수 있습니다. 기능을 사용하려면 선택적 기능 페이지에서 "사용자 쓰기 저장"을 선택합니다. 이제 이 사용자를 만들 위치로 표시됩니다. 기본 구성은 AD DS의 한 위치에서 모든 사용자를 만듭니다.
 
-<center>![동기화 필터링](./media/active-directory-aadconnect-get-started-custom/writeback2.png) </center>
+![동기화 필터링](./media/active-directory-aadconnect-get-started-custom/writeback2.png)
+
 사용자는 임의 암호로 만들어지므로 사용자가 실제로 로그인할 수 있으려면 AD DS에서 암호를 다시 설정해야 합니다.
 
 >[AZURE.NOTE]암호 동기화 및 암호 쓰기 저장은 이 미리 보기 기능과 호환되지 않습니다.
@@ -142,10 +152,12 @@ Azure AD 앱 및 특성 필터링|Azure AD 앱 및 특성 필터링을 사용하
 선택적 기능의 그룹 쓰기 저장에 대한 옵션을 사용하면 Exchange가 설치된 포리스트로 "Office 365의 그룹"을 쓰기 저장할 수 있습니다. 항상 클라우드에서 마스터되는 새 그룹 종류입니다. 다음과 같이 outlook.office365.com 또는 myapps.microsoft.com에서 찾을 수 있습니다.
 
 
-<center>![동기화 필터링](./media/active-directory-aadconnect-get-started-custom/office365.png) </center>
+![동기화 필터링](./media/active-directory-aadconnect-get-started-custom/office365.png)
 
 
-<center>![동기화 필터링](./media/active-directory-aadconnect-get-started-custom/myapps.png) </center>
+
+![동기화 필터링](./media/active-directory-aadconnect-get-started-custom/myapps.png)
+
 
 이 그룹은 온-프레미스 AD DS에서 배포 그룹으로 표현됩니다. 이 새 그룹 종류를 인식하려면 온-프레미스 Exchange는 Exchange 2013 누적 업데이트 8(2015년 3월에 릴리스됨)이어야 합니다.
 
@@ -161,7 +173,7 @@ Azure AD 앱 및 특성 필터링|Azure AD 앱 및 특성 필터링을 사용하
 
 > [AZURE.WARNING]현재 디렉터리 동기화 또는 Azure AD Sync가 활성화되어 있는 경우 Azure AD Connect에서 쓰기 저장 기능을 활성화하지 마세요.
 
-장치 쓰기 저장 기능을 사용하면 Intune에서와 같이 클라우드에서 등록된 장치를 사용하여 조건부 액세스를 위해 AD DS에 게 허용할 수 있습니다. 기능을 사용하려면 AD DS가 준비되어야 합니다. AD FS 및 장치 등록 서비스(DRS)를 설치하는 경우, DRS는 PowerShell cmdlet을 제공하여 장치 쓰기 저장을 위한 AD를 준비합니다. DRS를 설치하지 않는 경우 C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncAdPrep.psm1을 엔터프라이즈 관리자로 실행할 수 있습니다.
+장치 쓰기 저장 기능을 사용하면 Intune에서와 같이 클라우드에서 등록된 장치를 사용하여 조건부 액세스를 위해 AD DS에 게 허용할 수 있습니다. 기능을 사용하려면 AD DS가 준비되어야 합니다. AD FS 및 장치 등록 서비스(DRS)를 설치하는 경우, DRS는 PowerShell cmdlet을 제공하여 장치 쓰기 저장을 위한 AD를 준비합니다. DRS를 설치하지 않는 경우 C:\\Program Files\\Microsoft Azure Active Directory Connect\\AdPrep\\AdSyncAdPrep.psm1을 엔터프라이즈 관리자로 실행할 수 있습니다.
 
 PowerShell cmdlet을 실행하려면 먼저 가져와야 합니다.
 
@@ -174,14 +186,16 @@ PowerShell cmdlet을 실행하려면 먼저 가져와야 합니다.
 ## 스테이징 모드
 스테이징 모드를 사용하여 기존 서버와 함께 병렬로 새 동기화 서버를 설정하는 프로세스가 가능합니다. 클라우드에서 한 디렉터리에 연결하는 한 동기화 서버에서만 지원됩니다. 하지만 DirSync를 실행하는 서버와 같은 다른 서버에서 이동하려는 경우, 스테이징 모드에서 Azure AD Connect를 사용할 수 있습니다. 활성화된 동기화 엔진이 데이터를 정상적으로 가져오고 동기화하지만, Azure AD로 아무것도 내보내지 않고 암호 동기화 및 암호 쓰기 저장을 해제합니다.
 
-<center>![동기화 필터링](./media/active-directory-aadconnect-get-started-custom/stagingmode.png) </center>
+![동기화 필터링](./media/active-directory-aadconnect-get-started-custom/stagingmode.png)
+
 
 스테이징 모드에 있는 동안, 동기화 엔진에 필요한 변경 내용을 작성하고 내보낼 내용을 검토합니다. 구성마음에 드는 경우, 설치 마법사를 다시 실행하고 스테이징 모드를 사용하지 않도록 설정합니다. 이렇게 하면 데이터를 Azure AD로 내보낼 수 있습니다. 한 서버만이 내보낼 수 있으므로 동시에 다른 서버를 사용하지 않도록 설정했는지 확인합니다.
 
 ### 실수로 인한 삭제 방지
 Azure AD Connect를 설치하는 경우 실수로 인한 삭제를 방지하는 기능을 기본적으로 사용하고 500개가 넘는 삭제된 내보내기를 허용하지 않도록 구성합니다. 500개가 기본 값이며 변경할 수 있습니다. 이 기능을 사용하면 너무 많이 삭제한 경우 내보내기가 계속되지 않으며 다음과 같이 전자 메일을 받게 됩니다.
 
-<center>![동기화 필터링](./media/active-directory-aadconnect-get-started-custom/email.png) </center>
+![동기화 필터링](./media/active-directory-aadconnect-get-started-custom/email.png)
+
 
 예상된 경우가 아니라면 조사하여 수정 작업을 수행합니다.
 
@@ -200,7 +214,8 @@ Azure AD Connect를 사용하여 AD FS를 구성하는 것은 단 몇 번의 클
 ### 새 AD FS 팜을 만들거나 기존 AD FS 팜 사용
 기존 AD FS 팜을 사용하거나 새 AD FS 팜을 만들도록 선택할 수 있습니다. 새로 만들기를 선택하면 SSL 인증서를 제공해야 합니다. SSL 인증서가 암호로 보호되는 경우, 암호를 제공하라는 메시지가 표시됩니다.
 
-<center>![AD FS 팜](./media/active-directory-aadconnect-get-started-custom/adfs1.png) </center>
+![AD FS 팜](./media/active-directory-aadconnect-get-started-custom/adfs1.png)
+
 **참고:** 기존 AD FS 팜에 사용하려는 경우, 몇 페이지를 건너뛰고 직접 AD FS와 Azure AD 간의 트러스트 관계 구성으로 이동합니다.
 
 ### AD FS 서버 지정
@@ -210,18 +225,24 @@ Azure AD Connect를 사용하여 AD FS를 구성하는 것은 단 몇 번의 클
 
 > [AZURE.NOTE]이 구성 작업을 수행하기 전에 모든 서버가 AD 도메인에 가입되었는지 확인합니다.
 
-<center>![AD FS 서버](./media/active-directory-aadconnect-get-started-custom/adfs2.png) </center>
+![AD FS 서버](./media/active-directory-aadconnect-get-started-custom/adfs2.png)
+
+
+ 
 ### 웹 응용 프로그램 프록시 서버 지정
 여기에서 웹 응용 프로그램 프록시 서버로 원하는 특정 서버를 입력합니다. 웹 응용 프로그램 프록시 서버는 DMZ(엑스트라넷 연결)에 배포되며 엑스트라넷에서 인증 요청을 지원합니다. 용량 계획 요구 사항에 따라 하나 이상의 서버를 추가할 수 있습니다. 테스트 및 파일럿 배포를 위한 단일 AD FS 서버를 설치하고 Azure AD Connect를 열어 추가 서버를 배포하고 웹 응용 프로그램 프록시를 추가 서버에 배포하는 것이 좋습니다. 일반적으로 인트라넷에서 인증을 충족하기 위해 동일한 수의 프록시 서버가 있는 것이 좋습니다.
 
 > [AZURE.NOTE]<li>Azure AD Connect를 설치하는 데 사용 하는 계정이 AD FS 서버에서 로컬 관리자가 아닌 경우, 충분한 권한이 있는 계정의 자격 증명에 대한 메시지가 표시됩니다.</li><li>이 단계를 구성하기 전에 Azure AD Connect 서버와 웹 응용 프로그램 프록시 서버 간의 HTTP/HTTPS 연결이 있는지 확인합니다.</li><li> 또한 웹 응용 프로그램 서버와 AD FS 서버 간의 HTTP/HTTPS 연결을 통해 인증 요청이 허용되는지 확인합니다.</li>
 
 
-<center>![웹앱](./media/active-directory-aadconnect-get-started-custom/adfs3.png) </center>
+![웹 앱](./media/active-directory-aadconnect-get-started-custom/adfs3.png)
+
 
 웹 응용 프로그램 서버가 AD FS 서버에 보안 연결을 설정할 수 있도록 자격 증명을 입력하라는 메시지가 표시됩니다. 이러한 자격 증명에서 로컬 관리자는 AD FS 서버에 있어야 합니다.
 
-<center>![프록시](./media/active-directory-aadconnect-get-started-custom/adfs4.png) </center>
+![Proxy](./media/active-directory-aadconnect-get-started-custom/adfs4.png)
+
+ 
 ### AD FS 서비스에 대한 서비스 계정 지정
 AD FS 서비스가 Active Directory에서 사용자를 인증하고 사용자 정보를 검색하는데 도메인 서비스 계정이 필요합니다. 두 종류의 서비스 계정을 지원할 수 있습니다.
 
@@ -230,13 +251,16 @@ AD FS 서비스가 Active Directory에서 사용자를 인증하고 사용자 �
 
 도메인 관리자로 로그인한 경우 Azure AD Connect는 그룹 관리 서비스 계정을 자동으로 만듭니다.
  
-<center>![AD FS 서비스 계정](./media/active-directory-aadconnect-get-started-custom/adfs5.png) </center>
+![AD FS 서비스 계정](./media/active-directory-aadconnect-get-started-custom/adfs5.png)
+
 
 ### 페더레이션하려는 Azure AD 도메인을 선택합니다.
 이 구성은 AD FS와 Azure AD 간의 페더레이션 관계를 설정하는데 사용됩니다. Azure AD에 보안 토큰을 발급하도록 AD FS를 구성하고 이 특정 AD FS 인스턴스에서 토큰을 신뢰하도록 Azure AD를 구성합니다. 이 페이지만을 사용하여 첫 시간 환경에 단일 도메인을 구성할 수 있습니다. Azure AD Connect를 다시 열고 이 작업을 수행하여 언제든지 추가 도메인을 구성할 수 있습니다.
 
  
-<center>![Azure AD 도메인](./media/active-directory-aadconnect-get-started-custom/adfs6.png) </center>
+![Azure AD 도메인](./media/active-directory-aadconnect-get-started-custom/adfs6.png)
+
+ 
 ### 추가 작업을 수행하여 페더레이션 구성을 완료합니다.
 다음 추가 작업은 페더레이션 구성을 끝내기 위해 완료해야 합니다.
 
@@ -248,7 +272,9 @@ AD FS 서비스가 Active Directory에서 사용자를 인증하고 사용자 �
 
 확인 단추를 클릭할 때 Azure AD Connect에서 DNS 설정을 확인합니다.
 
-<center>![완료](./media/active-directory-aadconnect-get-started-custom/adfs7.png) </center>
+![완료](./media/active-directory-aadconnect-get-started-custom/adfs7.png)
+ 
+ 
 또한 다음 확인 단계를 수행합니다.
 
 - 인트라넷에서 Internet Explorer에서 도메인 가입된 컴퓨터에서 브라우저 로그인의 유효성을 검사합니다. https://myapps.microsoft.com에 연결하고 로그인한 계정으로 로그인을 확인합니다.
@@ -260,17 +286,4 @@ AD FS에 로그인하고 PSH를 사용하여 이렇게 구성하여 AD FS 로그
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-
-
-
-
-
-**추가 리소스**
-
-* [클라우드에서 온-프레미스 ID 인프라 사용](active-directory-aadconnect.md)
-* [Azure AD Connect 작동 방법](active-directory-aadconnect-how-it-works.md)
-* [Azure AD Connect의 다음 단계](active-directory-aadconnect-whats-next.md)
-* [자세한 정보](active-directory-aadconnect-learn-more.md)
-* [MSDN의 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

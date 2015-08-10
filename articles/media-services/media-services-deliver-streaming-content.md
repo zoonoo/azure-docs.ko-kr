@@ -13,18 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 #방법: 스트리밍 콘텐츠 제공
-
-
-이 문서는 [미디어 서비스 주문형 비디오 워크플로](media-services-video-on-demand-workflow.md) 및 [미디어 서비스 라이브 스트리밍 워크플로](media-services-live-streaming-workflow.md) 시리즈의 일부입니다.
+ 
+> [AZURE.SELECTOR]
+- [REST](media-services-rest-deliver-streaming-content.md)
+- [.NET](media-services-deliver-streaming-content.md)
+- [Portal](media-services-manage-content.md#publish)
 
 ##개요
 
-적응 비트 전송률 MP4 집합은 주문형 스트리밍 로케이터를 만들고 스트리밍 URL을 작성하여 스트리밍할 수 있습니다. [자산 인코딩](media-services-encode-asset.md) 항목에서는 적응 비트 전송률 MP4 집합으로 인코딩하는 방법을 보여줍니다. 로케이터를 만들기 전에 [이](media-services-dotnet-configure-asset-delivery-policy.md) 항목에서 설명한 대로 자산 배달 정책을 구성해야 합니다.
+적응 비트 전송률 MP4 집합은 주문형 스트리밍 로케이터를 만들고 스트리밍 URL을 작성하여 스트리밍할 수 있습니다. [자산 인코딩](media-services-encode-asset.md) 항목에서는 적응 비트 전송률 MP4 집합으로 인코딩하는 방법을 보여줍니다. 콘텐츠가 암호화되어 있는 경우는 자산 배달 정책을 구성([이 항목](media-services-dotnet-configure-asset-delivery-policy.md)에서 설명)한 후 로케이터를 만듭니다.
 
 주문형 스트리밍 로케이터는 점진적으로 다운로드할 수 있는 MP4 파일을 가리키는 URL을 작성하는 데 사용할 수도 있습니다.
 
@@ -34,7 +36,7 @@
 
 주문형 스트리밍 로케이터를 만들고 URL을 가져오려면 다음을 수행해야 합니다.
 
-   1. 액세스 정책을 정의합니다.
+   1. 콘텐츠가 암호화되어 있는 경우 액세스 정책을 정의합니다.
    2. 주문형 스트리밍 로케이터를 만듭니다.
    3. 스트리밍하려는 경우 자산의 스트리밍 매니페스트 파일(.ism)을 가져옵니다. 
    		
@@ -151,5 +153,8 @@
 	Console.WriteLine(hlsUri);
 	Console.WriteLine(mpegDashUri);
  
+##참고 항목
 
-<!---HONumber=July15_HO4-->
+[자산 다운로드](media-services-deliver-asset-download.md)
+
+<!---HONumber=July15_HO5-->

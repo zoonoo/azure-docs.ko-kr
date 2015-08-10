@@ -119,4 +119,4 @@ REST API에 대한 설명서는 [MSDN](https://msdn.microsoft.com/library/azure/
 [6]: ./media/search-chrome-postman/query.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

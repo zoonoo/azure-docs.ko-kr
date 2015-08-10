@@ -69,7 +69,7 @@ Adventure Works OLTP 데이터베이스는 제조, 판매 및 구매를 비롯�
 
     ![register4][4]
 
-    c. 이동 선택 화살표(**>**)를 클릭합니다. 모든 Product 개체를 **등록할** 목록으로 이동됩니다.
+    c. 이동 선택 화살표(\*\*>\*\*)를 클릭합니다. 모든 Product 개체를 **등록할** 목록으로 이동됩니다.
 
     ![register5][5]
 
@@ -222,4 +222,4 @@ Adventure Works OLTP 데이터베이스는 제조, 판매 및 구매를 비롯�
 [11]: ./media/data-catalog-get-started/connect2.png
 [12]: ./media/data-catalog-get-started/ownership.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

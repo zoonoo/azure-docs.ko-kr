@@ -224,4 +224,4 @@ Azure 저장소를 시작하려면 다음 리소스를 탐색하세요.
 - [Python에서 큐 저장소를 사용하는 방법](storage-python-how-to-use-queue-storage.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

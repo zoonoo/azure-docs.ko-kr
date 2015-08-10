@@ -19,7 +19,7 @@
 
 #Windows Server를 실행하는 가상 컴퓨터에 MongoDB 설치
 
-[MongoDB][MongoDB]는 대중적인 오픈 소스의 고성능 NoSQL 데이터베이스입니다. [Azure 관리 포털][AzureManagementPortal]을 사용하면 Windows Server를 실행하는 가상 컴퓨터를 이미지 갤러리에서 만들 수 있습니다. 그런 다음, MongoDB 데이터베이스를 가상 컴퓨터에 설치하고 구성할 수 있습니다.
+[MongoDB][MongoDB]는 대중적인 오픈 소스의 고성능 NoSQL 데이터베이스입니다. [Azure 포털][AzureManagementPortal]을 사용하면 이미지 갤러리에서 Windows Server를 실행하는 가상 컴퓨터를 만들 수 있습니다. 그런 다음, MongoDB 데이터베이스를 가상 컴퓨터에 설치하고 구성할 수 있습니다.
 
 
 ## Windows Server를 실행하는 가상 컴퓨터 만들기
@@ -31,21 +31,21 @@
 > [AZURE.NOTE]가상 컴퓨터를 만드는 동안 MongoDB에 대한 끝점을 추가하고 다음과 같이 구성할 수 있습니다. **Mongo**로 이름을 지정하고 **TCP**를 프로토콜로 사용하고 공용 및 개인 포트를 모두 **27017**로 설정합니다.
 
 ## 데이터 디스크 연결
-가상 컴퓨터에 대한 저장소를 제공하려면 데이터 디스크를 연결한 다음 Windows에서 사용할 수 있게 초기화합니다. 기존 디스크에 사용할 데이터가 아직 들어 있으면 기존 디스크를 사용할 수도 있고 빈 디스크를 연결할 수도 있습니다.
+가상 컴퓨터에 대한 저장소를 제공하려면 데이터 디스크를 연결한 다음 Windows에서 사용할 수 있도록 초기화합니다. 기존 디스크에 사용할 데이터가 이미 들어 있으면 기존 디스크를 연결할 수도 있고 빈 디스크를 연결할 수도 있습니다.
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
-디스크 초기화에 관한 지침은 [데이터 디스크를 Windows 가상 컴퓨터에 연결하는 방법](storage-windows-attach-disk.md)에서 "방법: Windows Server에서 새 데이터 디스크 초기화"를 참조하세요.
+디스크 초기화에 관한 지침은 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](storage-windows-attach-disk.md)의 "방법: Windows Server에서 새 데이터 디스크 초기화"를 참조하세요.
 
 ## 가상 컴퓨터에서 MongoDB 설치 및 실행
 
 [AZURE.INCLUDE [install-and-run-mongo-on-win2k8-vm](../../includes/install-and-run-mongo-on-win2k8-vm.md)]
 
 ##요약
-이 자습서에서는 Windows Server 가상 컴퓨터를 만들고 가상 컴퓨터에 원격으로 연결하고 데이터 디스크를 연결하는 방법을 배웠습니다. 또한 MongoDB를 Windows 가상 컴퓨터에 설치하고 구성하는 방법도 배웠습니다. 이제 [MongoDB 설명서][MongoDocs](영문)의 고급 항목에 따라 Windows 가상 컴퓨터의 MongoDB에 액세스할 수 있습니다.
+이 자습서에서는 Windows Server를 실행하는 가상 컴퓨터를 만들고 가상 컴퓨터에 원격으로 연결한 다음 데이터 디스크를 연결하는 방법을 배웠습니다. 또한 Windows 기반 가상 컴퓨터에 MongoDB를 설치 및 구성하는 방법을 배웠습니다. 이제 [MongoDB 설명서][MongoDocs](영문)의 고급 항목에 따라 Windows 기반 가상 컴퓨터의 MongoDB에 액세스할 수 있습니다.
 
 [MongoDocs]: http://docs.mongodb.org/manual/
 [MongoDB]: http://www.mongodb.org/
 [AzureManagementPortal]: http://manage.windowsazure.com
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

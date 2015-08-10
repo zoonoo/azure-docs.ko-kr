@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 미리 보기 포털에서 Windows를 실행하는 가상 컴퓨터 만들기 | Microsoft Azure"
-	description="Azure 미리 보기 포털의 Azure Marketplace를 사용하여 Windows를 실행하는 Azure VM(가상 컴퓨터) 리소스를 만드는 방법에 대해 알아봅니다."
+	pageTitle="Azure Preview 포털에서 Windows를 실행하는 가상 컴퓨터 만들기 | Microsoft Azure"
+	description="Azure Preview 포털의 Azure 마켓플레이스를 사용하여 Windows를 실행하는 Azure VM(가상 컴퓨터) 리소스를 만드는 방법을 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="KBDAzure"
@@ -16,15 +16,15 @@
 	ms.date="07/13/2015"
 	ms.author="kathydav"/>
 
-# Azure 미리 보기 포털에서 Windows를 실행하는 가상 컴퓨터 만들기#
+# Azure Preview 포털에서 Windows를 실행하는 가상 컴퓨터 만들기#
 
 > [AZURE.SELECTOR]
-- [Azure Preview Portal](virtual-machines-windows-tutorial.md)
-- [Azure Portal](virtual-machines-windows-tutorial-classic-portal.md)
-- [PowerShell - Resource Manager](virtual-machines-deploy-rmtemplates-powershell.md)
-- [PowerShell - Service Management](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [Azure preview portal](virtual-machines-windows-tutorial.md)
+- [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [PowerShell - Resource manager](virtual-machines-deploy-rmtemplates-powershell.md)
+- [PowerShell - Service management](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-이 자습서에서는 Azure Preview 포털에서 Azure VM(가상 컴퓨터)을 몇 분 이내에 간편하게 만드는 방법을 보여줍니다. 여기에서는 Windows Server 2012 R2 Datacenter 이미지를 예로 들어 Azure 리소스 관리자에서 VM을 만들지만 이는 Azure에서 제공하는 여러 이미지 중 하나일 뿐입니다. 참고: 이미지 선택은 구독에 따라 달라집니다. 예를 들어 데스크톱 이미지는 MSDN 구독자가 사용할 수 있습니다.
+이 자습서에서는 Preview 포털에서 Azure VM(가상 컴퓨터)을 몇 분 내에 간편하게 만드는 방법을 보여 줍니다. 여기에서는 Windows Server 2012 R2 Datacenter 이미지를 예로 들어 Azure 리소스 관리자에서 VM을 만들지만 이는 Azure에서 제공하는 여러 이미지 중 하나일 뿐입니다. 참고: 이미지 선택은 구독에 따라 달라집니다. 예를 들어 데스크톱 이미지는 MSDN 구독자가 사용할 수 있습니다.
 
 사용자 고유의 이미지, 리소스 관리자 템플릿 또는 자동화 도구를 사용하여 VM을 만들 수도 있습니다. 여러 방법에 대한 자세한 내용은 [Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-choices-create-vm.md)을 참조하세요.
 
@@ -55,7 +55,7 @@ Preview 포털의 Azure 마켓플레이스로 이동하여 원하는 Windows Ser
 
 	![VM 기본 사항 구성](./media/virtual-machines-windows-tutorial/create_vm_basics.PNG)
 
-	>[AZURE.NOTE]**사용자 이름**은 서버를 관리하는 데 사용할 관리 계정을 나타냅니다. 자신이 기억할 수 있지만 다른 사람이 추측하기 어려운 암호를 만듭니다. **가상 컴퓨터에 로그온하는 데 이 사용자 이름과 암호가 필요합니다**.
+	>[AZURE.NOTE]\*\*사용자 이름\*\*은 서버를 관리하는 데 사용할 관리 계정을 나타냅니다. 자신이 기억할 수 있지만 다른 사람이 추측하기 어려운 암호를 만듭니다. **가상 컴퓨터에 로그온하는 데 이 사용자 이름과 암호가 필요합니다**.
 
 2. **크기**를 클릭하고 요구에 적합한 VM 크기를 선택합니다. 각각의 크기는 계산 코어, 메모리 및 기타 기능(예: 프리미엄 저장소에 대한 지원)의 수를 지정하며 가격에 영향을 미칩니다. Azure는 선택하는 이미지에 따라 특정 크기를 자동으로 권장합니다.
 
@@ -79,7 +79,7 @@ VM을 만든 후에, 해당 VM에 로그인을 하여, 자체 설정 및 실행�
 
 >[AZURE.NOTE]자세한 요구 사항 및 문제 해결 팁은 [RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결](https://msdn.microsoft.com/library/azure/dn535788.aspx)을 참조하십시오.
 
-1. 아직 로그인을 하지 않은 경우 [Preview 포털](https://portal.azure.com)에 로그인합니다.
+1. 아직 로그인하지 않은 경우 [Preview 포털](https://portal.azure.com)에 로그인합니다.
 
 2. 시작 보드에서 VM을 클릭합니다. 해당 VM을 찾아야 하는 경우 **모두 찾아보기** > **최근** 또는 **모두 찾아보기** > **가상 컴퓨터**를 클릭합니다. 그런 다음 목록에서 VM을 선택합니다.
 
@@ -102,4 +102,4 @@ VM을 만든 후에, 해당 VM에 로그인을 하여, 자체 설정 및 실행�
 * Azure PowerShell 및 Azure CLI를 사용하여 [VM 이미지를 찾아서 선택](resource-groups-vm-searching.md)합니다.
 * [Azure 리소스 관리자](virtual-machines-how-to-automate-azure-resource-manager.md) 및 [Azure 리소스 관리자 템플릿](http://azure.microsoft.com/documentation/templates/)을 사용하여 VM 및 작업 배포 및 관리를 자동화합니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

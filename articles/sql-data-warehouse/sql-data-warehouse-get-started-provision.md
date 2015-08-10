@@ -142,7 +142,7 @@ Azure 포털의 아래 왼쪽 모서리는 새로 만들기 단추입니다. 새
 
     여기서 수행할 몇 가지 작업이 있습니다. 방화벽 규칙 이름 지정으로 고정 IP 주소가 없는 경우 IP 범위를 제공합니다.
 
-    > [AZURE.NOTE]포함해야 하는 클라이언트 IP 주소 범위는 외부 또는 공용 IP 주소입니다. 사용자의 외부 IP 주소를 찾으려면 <a href="http://www.whatismyip.com" target="_blank">www.whatismyip.com</a>과 같은 여러 웹 사이트를 사용할 수 있습니다.
+    > [AZURE.NOTE]포함해야 하는 클라이언트 IP 주소 범위는 외부 또는 공용 IP 주소입니다. 사용자의 외부 IP 주소를 찾으려면 <a href="http://www.whatismyip.com" target="\_blank">www.whatismyip.com</a>과 같은 여러 웹 사이트를 사용할 수 있습니다.
 
 7. 방화벽 규칙 저장
 
@@ -166,4 +166,4 @@ Azure 포털의 아래 왼쪽 모서리는 새로 만들기 단추입니다. 새
 [무료 평가판]: https://azure.microsoft.com/ko-kr/pricing/free-trial/
 [Azure 포털]: https://portal.azure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

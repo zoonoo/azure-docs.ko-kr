@@ -144,4 +144,4 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 			
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

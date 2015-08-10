@@ -46,9 +46,9 @@ Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나�
 -	스테이징과 프로덕션은 같은 앱 서비스 앱의 두 슬롯으로 구현됩니다. 마스터 분기점은 스테이징 슬롯의 연속 통합을 위한 장치 조정입니다.
 -	마스터 분기점으로의 커밋이 (프로덕션 데이터를 사용하여) 스테이징 슬롯에서 확인될 때 확인된 스테이징 앱은 [가동 중지 시간 없이](web-sites-staged-publishing.md) 프로덕션 슬롯으로 교체됩니다.
 
-프로덕션 및 스테이징 환경은 [*& l t; repository_root >*/ARMTemplates/ProdandStage.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/ProdAndStage.json)의 템플릿으로 정의됩니다.
+프로덕션 및 스테이징 환경은 [*& l t; repository\_root >*/ARMTemplates/ProdandStage.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/ProdAndStage.json)의 템플릿으로 정의됩니다.
 
-개발 및 테스트 환경은 [*&lt;repository_root>*/ARMTemplates/Dev.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/Dev.json)의 템플릿으로 정의됩니다.
+개발 및 테스트 환경은 [*&lt;repository\_root>*/ARMTemplates/Dev.json](https://github.com/azure-appservice-samples/ToDoApp/blob/master/ARMTemplates/Dev.json)의 템플릿으로 정의됩니다.
 
 또한 사용자는 개발 분기점에서 테스트 분기점까지, 그리고 마스터 분기점까지 코드 이동하는 일반적인 분기 전략을 사용합니다(예: 질의 향상).
 
@@ -87,7 +87,7 @@ Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나�
 
 		git clone https://github.com/<your_fork>/ToDoApp.git 
 
-4.	로컬 복제본을 만들면, 경로를*& lt; repository_root >*\ARMTemplates로 지정하고, 다음과 같이 deploy.ps1 스크립트를 실행하세요:
+4.	로컬 복제본을 만들면, 경로를*& lt; repository\_root >*\\ARMTemplates로 지정하고, 다음과 같이 deploy.ps1 스크립트를 실행하세요:
 
 		.\deploy.ps1 –RepoUrl https://github.com/<your_fork>/todoapp.git
 
@@ -97,7 +97,7 @@ Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나�
 
 	![](./media/app-service-agile-software-development/production-2-app-in-browser.png)
  
-	>[AZURE.TIP]고유 ID를 사용한 리소스 제공 방법을 알아보려면 *&lt;repository_root>*\ARMTemplates\Deploy.ps1을 살펴보세요. 충돌하는 리소스 이름에 대해 걱정하지 않고 동일한 배포의 복제본을 만들려면 동일한 방식을 사용할 수 있습니다.
+	>[AZURE.TIP]고유 ID를 사용한 리소스 제공 방법을 알아보려면 *&lt;repository\_root>*\\ARMTemplates\\Deploy.ps1을 살펴보세요. 충돌하는 리소스 이름에 대해 걱정하지 않고 동일한 배포의 복제본을 만들려면 동일한 방식을 사용할 수 있습니다.
  
 6.	Git 셸 세션으로 돌아가서 다음을 실행합니다.
 
@@ -105,11 +105,11 @@ Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나�
 
 	![](./media/app-service-agile-software-development/production-4-swap.png)
 
-7.	스크립트가 완료되면 Frontend의 주소(http://ToDoApp*&lt;unique_string> * master.azurewebsites.net/)로 돌아가서 프로덕션 내의 응용 프로그램 실행을 봅니다.
+7.	스크립트가 완료되면 Frontend의 주소(http://ToDoApp*&lt;unique_string> \* master.azurewebsites.net/)로 돌아가서 프로덕션 내의 응용 프로그램 실행을 봅니다.
  
 5.	[Azure Preview 포털](https://portal.azure.com)에 로그인하고 생성된 것을 살펴보세요.
 
-	같은 리소스 그룹에서 두 개의 웹앱이 나타나야 하며, 하나는 이름에 `Api`접미사가 있습니다. 리소스 그룹 보기를 보면 SQL 데이터베이스 및 서버, 앱 서비스 계획 및 웹앱에 대한 스테이징 슬롯도 표시 됩니다. *&lt;repository_root>*\ARMTemplates\ProdAndStage.json을 사용하여 다른 리소스를 통해 검색 및 비교하여 템플릿에서 어떻게 구성되는지 볼 수 있습니다.
+	같은 리소스 그룹에서 두 개의 웹앱이 나타나야 하며, 하나는 이름에 `Api`접미사가 있습니다. 리소스 그룹 보기를 보면 SQL 데이터베이스 및 서버, 앱 서비스 계획 및 웹앱에 대한 스테이징 슬롯도 표시 됩니다. *&lt;repository\_root>*\\ARMTemplates\\ProdAndStage.json을 사용하여 다른 리소스를 통해 검색 및 비교하여 템플릿에서 어떻게 구성되는지 볼 수 있습니다.
 
 	![](./media/app-service-agile-software-development/production-3-resource-group-view.png)
 
@@ -174,7 +174,7 @@ ProdAndStage.json 및 Dev.json 템플릿 파일은 웹앱에 대한 연속 게�
 
 		git checkout Dev
 
-2.	[부트스트랩](http://getbootstrap.com/components/)목록을 사용해서 코드를 변경함으로써 응용 프로그램의 UI 계층을 간단히 변경합니다. *& l t; repository_root >*\src\MultiChannelToDo.Web\app\index.cshtml을 열고 아래의 내용을 하이라이트 합니다.
+2.	[부트스트랩](http://getbootstrap.com/components/)목록을 사용해서 코드를 변경함으로써 응용 프로그램의 UI 계층을 간단히 변경합니다. *& l t; repository\_root >*\\src\\MultiChannelToDo.Web\\app\\index.cshtml을 열고 아래의 내용을 하이라이트 합니다.
 
 	![](./media/app-service-agile-software-development/commit-1-changes.png)
 
@@ -279,4 +279,4 @@ Agile 소프트웨어 개발은 Azure를 응용 프로그램 플랫폼으로 채
 -	[Azure AD에서 사용자 만들기 또는 편집](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[프로젝트 Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

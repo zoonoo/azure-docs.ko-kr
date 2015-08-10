@@ -1,6 +1,6 @@
 <properties 
    pageTitle="부하 분산 장치 배포 모드 구성 | Microsoft Azure"
-   description="원본 IP 선호도(연결 유지 세션이라고도 함)를 지원하도록 Azure 부하 분산 장치 배포 모드를 구성하는 방법"
+   description="원본 IP 선호도를 지원하도록 Azure 부하 분산 장치 배포 모드를 구성하는 방법입니다."
    services="load-balancer"
    documentationCenter="na"
    authors="joaoma"
@@ -149,4 +149,4 @@ LoadBalancerDistribution의 값은 2개 튜플 선호도의 경우 sourceIP로, 
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

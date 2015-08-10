@@ -48,7 +48,7 @@ _그림 1: 응용 프로그램의 서로 다른 인스턴스에서 메모리 내
 
 공유 캐시를 사용하여 각 캐시에서 데이터가 달라지는 문제를 완화할 수 있습니다. 이는 메모리 내 캐싱으로 발생할 수 있습니다. 공유 캐싱은 캐시를 별도 위치에 두어 다른 응용 프로그램 인스턴스가 캐시된 데이터와 동일한 보기를 볼 수 있습니다. 이는 그림 2와 같이 일반적으로 별도 서비스의 일부로 호스팅됩니다.
 
-![공유 캐시 사용_](media/best-practices-caching/Figure2.png)
+![공유 캐시 사용\_](media/best-practices-caching/Figure2.png)
 
 _그림 2: 공유 캐시 사용_
 
@@ -630,7 +630,7 @@ foreach (var value in await cache.SetMembersAsync("tag:iot:blog:posts"))
 
 ### 최근에 액세스된 항목 찾기
 
-많은 응용 프로그램의 일반적인 문제는 가장 최근에 액세스한 항목을 찾는 것입니다. 예를 들어 사이트를 블로깅하면서 가장 최근에 읽은 블로그 게시물에 대한 정보를 표시하려 할 수 있습니다. Redis 목록을 사용하여 이 기능을 구현할 수 있습니다. Redis 목록은 동일한 키를 공유하는 여러 항목을 포함하지만 목록은 양쪽이 큐의 역할을 합니다. LPUSH(왼쪽 밀어넣기) 및 RPUSH(오른쪽 밀어넣기) 명령을 사용하여 항목을 목록의 한쪽 끝에 푸시할 수 있습니다. LPOP 및 RPOP 명령을 사용하여 목록의 한쪽 끝에서 항목을 검색할 수 있습니다. 또한 LRANGE 및 RRANGE 명령을 사용하여 요소 집합을 반환할 수 있습니다. 아래 코드 조각은 StackExchange 라이브러리를 사용하여 이러한 작업을 수행하는 방법을 보여줍니다. 이 코드는 이전 예제에서 BlogPost 형식을 사용합니다. 블로그 게시물을 사용자가 읽으면 IDatabase.ListLeftPushAsync 메서드를 사용하여 블로그 게시물의 제목을 Redis 캐시의 "blog:recent_posts" 키와 연관된 목록에 푸시합니다.
+많은 응용 프로그램의 일반적인 문제는 가장 최근에 액세스한 항목을 찾는 것입니다. 예를 들어 사이트를 블로깅하면서 가장 최근에 읽은 블로그 게시물에 대한 정보를 표시하려 할 수 있습니다. Redis 목록을 사용하여 이 기능을 구현할 수 있습니다. Redis 목록은 동일한 키를 공유하는 여러 항목을 포함하지만 목록은 양쪽이 큐의 역할을 합니다. LPUSH(왼쪽 밀어넣기) 및 RPUSH(오른쪽 밀어넣기) 명령을 사용하여 항목을 목록의 한쪽 끝에 푸시할 수 있습니다. LPOP 및 RPOP 명령을 사용하여 목록의 한쪽 끝에서 항목을 검색할 수 있습니다. 또한 LRANGE 및 RRANGE 명령을 사용하여 요소 집합을 반환할 수 있습니다. 아래 코드 조각은 StackExchange 라이브러리를 사용하여 이러한 작업을 수행하는 방법을 보여줍니다. 이 코드는 이전 예제에서 BlogPost 형식을 사용합니다. 블로그 게시물을 사용자가 읽으면 IDatabase.ListLeftPushAsync 메서드를 사용하여 블로그 게시물의 제목을 Redis 캐시의 "blog:recent\_posts" 키와 연관된 목록에 푸시합니다.
 
 ```csharp
 ConnectionMultiplexer redisHostConnection = ...;
@@ -777,4 +777,4 @@ subscriber.PublishAsync("messages:blogPosts", blogPost.Title);
 - StackExchange.Redis repo에서 [Redis에서 트랜잭션](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Transactions.md) 페이지입니다.
 - Microsoft 웹 사이트의 [데이터 분할 가이드](http://msdn.microsoft.com/library/dn589795.aspx)입니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

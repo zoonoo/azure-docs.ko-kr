@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/13/2015"
+	ms.date="07/23/2015"
 	ms.author="kenazk"/>
 
 #가상 컴퓨터의 가용성 관리
@@ -69,4 +69,4 @@ Azure 부하 분산 장치를 가용성 집합과 결합하여 응용 프로그�
 [가용성 집합에서 단일 인스턴스 가상 컴퓨터 방지]: #avoid-single-instance-virtual-machines-in-availability-sets
 [가상 컴퓨터의 가용성 집합을 구성하는 방법]: virtual-machines-how-to-configure-availability.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

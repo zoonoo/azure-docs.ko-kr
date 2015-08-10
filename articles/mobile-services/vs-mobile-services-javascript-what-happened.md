@@ -22,7 +22,7 @@
 > - [Getting Started](vs-mobile-services-javascript-getting-started.md)
 > - [What Happened](vs-mobile-services-javascript-what-happened.md)
 
-###<span id="whathappened">내 프로젝트에서 무엇이 변경되었습니까?</id>
+###내 프로젝트에서 무엇이 변경되었나요?</id>
 
 #####NuGet 패키지가 추가됨
 
@@ -46,4 +46,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="효율적인 목록 쿼리" 
-	description="반환되는 항목의 수를 줄일 뿐 아니라 각 항목에 대해 반환되는 정보의 양을 줄이는 방법에 대해 알아보십시오." 
-	services="batch" 
-	documentationCenter="" 
-	authors="davidmu1" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="효율적인 목록 쿼리"
+	description="반환되는 항목의 수를 줄일 뿐 아니라 각 항목에 대해 반환되는 정보의 양을 줄이는 방법에 대해 알아보십시오."
+	services="batch"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
-<tags 
-	ms.service="multiple" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="vm-windows" 
+<tags
+	ms.service="multiple"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="05/09/2015" 
+	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # 효율적인 목록 쿼리
@@ -80,4 +81,4 @@ Select 문자열을 사용하여 각 항목에 대해 반환되는 속성 값을
 
 > [AZURE.NOTE]최대의 효율성과 응용 프로그램의 최고 성능을 위해 목록 API 호출에 위해 항상 필터와 Select 절을 사용하는 것이 좋습니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

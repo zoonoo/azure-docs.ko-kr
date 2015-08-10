@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.date="07/28/2015" 
 	ms.author="jroth"/>
 
 # Azure에서 SQL Server 가상 컴퓨터 프로비전 #
@@ -180,7 +180,7 @@ Windows 원격 데스크톱을 사용하여 가상 컴퓨터에 연결된 후 �
 
 	![TCP 사용][Image10]
 
-5. 콘솔 창에서 **SQL Server 서비스**를 클릭합니다. 세부 정보 창에서 **SQL Server (_instance name_)**(기본 인스턴스는 **SQL Server (MSSQLSERVER)**)를 마우스 오른쪽 단추로 클릭한 후 **다시 시작**을 클릭하여 SQL Server의 인스턴스를 중지했다가 다시 시작합니다.
+5. 콘솔 창에서 **SQL Server 서비스**를 클릭합니다. 세부 정보 창에서 **SQL Server (\_instance name\_)**(기본 인스턴스는 **SQL Server (MSSQLSERVER)**)를 마우스 오른쪽 단추로 클릭한 후 **다시 시작**을 클릭하여 SQL Server의 인스턴스를 중지했다가 다시 시작합니다.
 
 	![데이터베이스 엔진 다시 시작][Image11]
 
@@ -200,7 +200,7 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 
 	처음으로 Management Studio를 열 때 사용자 Management Studio 환경이 만들어져야 합니다. 어느 정도 시간이 걸릴 수 있습니다.
 
-2. Management Studio에서 **서버에 연결** 대화 상자가 표시됩니다. **서버 이름** 상자에, 개체 탐색기를 사용하여 데이터베이스 엔진에 연결할 가상 컴퓨터의 이름을 입력합니다. 가상 컴퓨터 이름 대신 **(로컬)** 또는 단일 기간을 **서버 이름**으로 사용할 수도 있습니다. **Windows 인증**을 선택하고, **사용자 이름** 상자의 _**VM_이름**\로컬_관리자_를 그대로 둡니다. **Connect**를 클릭합니다.
+2. Management Studio에서 **서버에 연결** 대화 상자가 표시됩니다. **서버 이름** 상자에, 개체 탐색기를 사용하여 데이터베이스 엔진에 연결할 가상 컴퓨터의 이름을 입력합니다. 가상 컴퓨터 이름 대신 **(로컬)** 또는 단일 기간을 **서버 이름**으로 사용할 수도 있습니다. **Windows 인증**을 선택하고, **사용자 이름** 상자의 _**VM\_이름**\\로컬\_관리자_를 그대로 둡니다. **Connect**를 클릭합니다.
 
 	![서버에 연결][Image19]
 
@@ -274,7 +274,7 @@ SQL Server 로그인에 대한 자세한 내용은 [로그인 만들기](http://
 ### <a id="cde">다른 컴퓨터에서 데이터베이스 엔진에 연결</a>
  
 1. 인터넷에 연결된 컴퓨터에서 SQL Server Management Studio를 엽니다.
-2. **서버에 연결** 또는 **데이터베이스 엔진에 연결** 대화 상자의 **서버 이름** 상자에 가상 컴퓨터의 DNS 이름(이전 작업에서 확인된 이름) 및 공개 끝점 포트 번호를 *DNS이름,포트 번호* 형식(예: **tutorialtestVM.cloudapp.net,57500**)으로 입력합니다. 포트 번호를 가져오려면 Azure 관리 포털에 로그인하여 가상 컴퓨터를 찾습니다. 대시보드에서 **끝점**을 클릭하고 **MSSQL**에 할당된 **공용 포트**를 사용합니다. ![공용 포트][Image36]
+2. **서버에 연결** 또는 **데이터베이스 엔진에 연결** 대화 상자의 \*\*서버 이름\*\* 상자에 가상 컴퓨터의 DNS 이름(이전 작업에서 확인된 이름) 및 공개 끝점 포트 번호를 *DNS이름,포트 번호* 형식(예: **tutorialtestVM.cloudapp.net,57500**)으로 입력합니다. 포트 번호를 가져오려면 Azure 관리 포털에 로그인하여 가상 컴퓨터를 찾습니다. 대시보드에서 **끝점**을 클릭하고 **MSSQL**에 할당된 **공용 포트**를 사용합니다. ![공용 포트][Image36]
 3. **인증** 상자에 **SQL Server 인증**을 선택합니다.
 5. **로그인** 상자에, 이전 작업에서 만든 로그인 이름을 입력합니다.
 6. **암호** 상자에, 이전 작업에서 만든 로그인의 암호를 입력합니다.
@@ -291,7 +291,9 @@ Management Studio를 사용하여 Azure 가상 컴퓨터에서 실행 중인 SQL
 자세한 내용은 [SQL Server 데이터베이스 엔진에 연결하는 문제를 해결하는 방법](http://social.technet.microsoft.com/wiki/contents/articles/how-to-troubleshoot-connecting-to-the-sql-server-database-engine.aspx)(영문)을 참조하십시오.
 
 ##<a id="Optional">다음 단계</a>
-플랫폼 이미지를 사용하여 Azure 가상 컴퓨터에서 SQL Server를 만들고 구성하는 방법을 살펴봤습니다. Azure 가상 컴퓨터에서 SQL Server를 사용할 경우 라이브러리의 [Azure 가상 컴퓨터의 SQL Server](http://go.microsoft.com/fwlink/p/?LinkId=294719) 문서에 나와 있는 자세한 지침을 따르는 것이 좋습니다. 이 문서 집합에는 자세한 지침을 제공하는 일련의 문서 및 자습서가 포함되어 있습니다. 다음 섹션이 이 시리즈에 포함되어 있습니다.
+플랫폼 이미지를 사용하여 Azure 가상 컴퓨터에서 SQL Server를 만들고 구성하는 방법을 살펴봤습니다. 대부분의 경우 다음 단계는 이 새로운 SQL Server VM에 데이터베이스를 마이그레이션하는 것입니다. 데이터베이스 마이그레이션 지침은 [Azure VM에서 SQL Server로 데이터베이스 마이그레이션](virtual-machines-migrate-onpremises-database.md)을 참조하세요.
+
+이러한 지침 외에도 라이브러리의 [Azure 가상 컴퓨터의 SQL Server](http://go.microsoft.com/fwlink/p/?LinkId=294719) 문서에 나와 있는 자세한 지침을 따르는 것이 좋습니다. 이 문서 집합에는 자세한 지침을 제공하는 일련의 문서 및 자습서가 포함되어 있습니다. 다음 섹션이 이 시리즈에 포함되어 있습니다.
 
 [Azure 가상 컴퓨터의 SQL Server](http://go.microsoft.com/fwlink/p/?LinkId=294719)
 
@@ -362,4 +364,4 @@ Management Studio를 사용하여 Azure 가상 컴퓨터에서 실행 중인 SQL
 [Image38]: ./media/virtual-machines-provision-sql-server/credentials.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -48,7 +48,7 @@ Azure WebJobs SDK는 많은 웹 작업 프로그래밍 작업을 간소화합니
 	
 	![WebJob 블레이드 추가](./media/web-sites-create-web-jobs/addwjblade.png)
 	
-2. **이름**에 웹 작업의 이름을 입력합니다. 이름은 문자 또는 숫자로 시작해야 하며 "-" 및 "_"을 제외한 다른 특수 문자를 포함할 수 없습니다.
+2. **이름**에 웹 작업의 이름을 입력합니다. 이름은 문자 또는 숫자로 시작해야 하며 "-" 및 "\_"을 제외한 다른 특수 문자를 포함할 수 없습니다.
 	
 4. **How to Run** 상자에서 **Run on Demand**를 선택합니다.
 	
@@ -70,7 +70,7 @@ Azure WebJobs SDK는 많은 웹 작업 프로그래밍 작업을 간소화합니
 	
 > [AZURE.NOTE]웹 앱이 둘 이상의 인스턴스에서 실행되는 경우 계속 실행되는 웹 작업은 모든 인스턴스에서 실행됩니다. 주문형 작업 및 예약형 작업은 Microsoft Azure의 부하 분산에 따라 선택된 단일 인스턴스에서 실행됩니다.
 	
-> 연속하는 WebJob을 모든 인스턴스에서 안정적으로 실행하려면 웹앱에 대한 항상 위* 구성 설정을 사용하도록 설정합니다. 그렇지 않으면 SCM 호스트 사이트를 오래 동안 사용하지 않을 경우 실행이 중지될 수 있습니다.
+> 연속하는 WebJob을 모든 인스턴스에서 안정적으로 실행하려면 웹앱에 대한 항상 위\* 구성 설정을 사용하도록 설정합니다. 그렇지 않으면 SCM 호스트 사이트를 오래 동안 사용하지 않을 경우 실행이 중지될 수 있습니다.
 
 ## <a name="CreateScheduled"></a>예약된 웹 작업 만들기
 
@@ -209,4 +209,4 @@ Azure 관리 포털에서 예약된 웹 작업을 만들 수 없지만 해당 �
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

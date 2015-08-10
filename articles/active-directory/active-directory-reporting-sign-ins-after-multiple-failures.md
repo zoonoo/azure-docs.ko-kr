@@ -24,4 +24,4 @@
 
 ![여러 번의 실패 후 로그인](./media/active-directory-reporting-sign-ins-after-multiple-failures/signInsAfterMultipleFailures.PNG)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

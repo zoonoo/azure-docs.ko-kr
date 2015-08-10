@@ -1,33 +1,33 @@
-<properties 
-	pageTitle="기본 구성 테스트 환경" 
-	description="Microsoft Azure에서 간소화된 인트라넷을 시뮬레이션하는 간단한 개발/테스트 환경을 만드는 방법에 대해 알아봅니다." 
+<properties
+	pageTitle="기본 구성 테스트 환경"
+	description="Microsoft Azure에서 간소화된 인트라넷을 시뮬레이션하는 간단한 개발/테스트 환경을 만드는 방법에 대해 알아봅니다."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/07/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/07/2015"
 	ms.author="josephd"/>
 
 # 기본 구성 테스트 환경
 
-이 문서에서는 서비스 관리에서 만든 가상 컴퓨터를 사용하여 Microsoft Azure 가상 네트워크에서 기본 구성 테스트 환경을 만들기 위한 단계별 지침을 제공합니다.
+이 문서는 서비스 관리에서 만든 가상 컴퓨터를 사용하여 Azure 가상 네트워크의 기본 구성 테스트 환경을 만드는 방법에 대한 단계별 지침을 제공합니다.
 
 결과 테스트 환경을 다음에 사용할 수 있습니다.
 
 - 응용 프로그램 개발 및 테스트
-- [시뮬레이션된 하이브리드 클라우드 환경](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
-- 사용자가 디자인한 테스트 환경을 위해 추가 가상 컴퓨터 및 Azure 서비스로 확장
- 
-기본 구성 테스트 환경은 인터넷에 연결된 간소화된 개인 인트라넷을 시뮬레이션하는 TestLab이라는 클라우드 전용 Azure 가상 네트워크의 Corpnet 서브넷으로 구성됩니다.
+- [시뮬레이션된 하이브리드 클라우드 환경](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
+- 추가 가상 컴퓨터 및 사용자 고유 디자인의 테스트 환경에 대한 Azure 서비스를 사용해 확장.
+
+기본 구성 테스트 환경은 시뮬레이션을 간소화시키는 TestLab이라고 하는 클라우드 전용 가상 네트워크의 Corpnet 서브넷과 인터넷에 연결된 개인 인트라넷으로 구성됩니다.
 
 ![](./media/virtual-machines-base-configuration-test-environment/BC_TLG04.png)
 
@@ -39,30 +39,35 @@
 
 이 구성을 통해 DC1, APP1, CLIENT1 및 추가 Corpnet 서브넷 컴퓨터에서 다음을 수행할 수 있습니다.
 
-- 인터넷에 연결하여 업데이트를 설치하고, 인터넷 리소스에 실시간으로 액세스하고, Microsoft Office 365 및 기타 Azure 서비스와 같은 공용 클라우드 기술에 참여 
-- 인터넷 또는 조직 네트워크에 연결된 사용자 컴퓨터에서 원격 데스크톱 연결을 사용하여 원격으로 관리 
+- 인터넷에 연결하여 업데이트를 설치하고, 인터넷 리소스에 실시간으로 액세스하고, Microsoft Office 365 및 기타 Azure 서비스와 같은 공용 클라우드 기술에 참여
+- 인터넷 또는 조직 네트워크에 연결된 사용자 컴퓨터에서 원격 데스크톱 연결을 사용하여 원격으로 관리
 
 Azure에서 Windows Server 2012 R2 기본 구성 테스트 환경의 Corpnet 서브넷을 설정하는 단계는 다음 4단계로 구성됩니다.
 
-1.	Azure 가상 네트워크 만들기
-2.	DC1 구성 
-3.	APP1 구성 
+1.	가상 네트워크 만들기
+2.	DC1 구성
+3.	APP1 구성
 4.	CLIENT1 구성
 
 아직 Azure 계정이 없는 경우에는 [Azure 평가판 사용](http://azure.microsoft.com/pricing/free-trial/)에서 무료로 가입할 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
 
 > [AZURE.NOTE]Azure의 가상 컴퓨터는 실행 중인 동안 지속적인 비용이 부과됩니다. 이 비용은 무료 평가판, MSDN 구독 또는 유료 구독에 대해 청구됩니다. 실행 중인 Azure 가상 컴퓨터의 비용에 대한 자세한 내용은 [가상 컴퓨터 가격 정보](http://azure.microsoft.com/pricing/details/virtual-machines/) 및 [Azure 가격 계산기](http://azure.microsoft.com/pricing/calculator/)를 참조하세요. 비용을 절감하려면 [Azure에서 테스트 환경 가상 컴퓨터의 비용 최소화](#costs)를 참조하세요.
 
-## 1단계: Azure 가상 네트워크 만들기
+[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
 
-먼저 기본 구성의 Corpnet 서브넷을 호스트할 TestLab Azure 가상 네트워크를 만듭니다.
+- [Azure 리소스 관리자를 사용하는 기본 구성 테스트 환경](virtual-machines-base-configuration-test-environment-resource-manager.md)
+
+
+## 1단계: 가상 네트워크 만들기
+
+먼저, 기본 구성의 Corpnet 서브넷을 호스팅하는 TestLab 가상 네트워크를 만듭니다.
 
 1.	Azure 관리 포털의 작업 표시줄에서 **새로 만들기 > 네트워크 서비스 > 가상 네트워크 > 사용자 지정 만들기**를 클릭합니다.
 2.	가상 네트워크 세부 정보 페이지에서 **이름**에 **TestLab**을 입력합니다.
 3.	**위치**에서 적절한 지역을 선택합니다.
 4.	다음 화살표를 클릭합니다.
 5.	DNS 서버 및 VPN 연결 페이지의 **DNS 서버**에서 **이름 선택 또는 입력**에 **DC1**을 입력하고 **IP 주소**에 **10.0.0.4**를 입력한 후 다음 화살표를 클릭합니다.
-6.	가상 네트워크 주소 공간 페이지의 **서브넷**에서 **서브넷-1**을 클릭하고 이름을 **Corpnet**으로 바꿉니다. 
+6.	가상 네트워크 주소 공간 페이지의 **서브넷**에서 **서브넷-1**을 클릭하고 이름을 **Corpnet**으로 바꿉니다.
 7.	Corpnet 서브넷에 대한 **CIDR(주소 수)** 열에서 **/24(256)**를 클릭합니다.
 8.	완료 아이콘을 클릭합니다. 가상 네트워크가 만들어질 때까지 기다렸다가 계속 진행합니다.
 
@@ -79,7 +84,7 @@ Azure에서 Windows Server 2012 R2 기본 구성 테스트 환경의 Corpnet 서
 
 클라우드 서비스의 고유한 이름을 선택해야 합니다. *클라우드 서비스 이름은 문자, 숫자 및 하이픈만 포함할 수 있습니다. 필드의 첫 번째 및 마지막 문자는 문자 또는 숫자여야 합니다.*
 
-예를 들어 클라우드 서비스 이름을 TestLab-*UniqueSequence**로 지정할 수 있습니다(여기서 *UniqueSequence*는 조직의 약어). 예를 들어 조직의 이름이 Tailspin Toys인 경우 클라우드 서비스 이름을 TestLab-Tailspin으로 지정할 수 있습니다.
+예를 들어 클라우드 서비스 이름을 TestLab-\*UniqueSequence\*\*로 지정할 수 있습니다(여기서 *UniqueSequence*는 조직의 약어). 예를 들어 조직의 이름이 Tailspin Toys인 경우 클라우드 서비스 이름을 TestLab-Tailspin으로 지정할 수 있습니다.
 
 로컬 컴퓨터에서 다음 Azure PowerShell 명령을 사용하여 이름의 고유성을 테스트할 수 있습니다.
 
@@ -115,8 +120,8 @@ DC1은 corp.contoso.com AD DS(Active Directory 도메인 서비스) 도메인의
 	$serviceName="<your cloud service name>"
 	$cred=Get-Credential –Message "Type the name and password of the local administrator account for DC1."
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	$vm1=New-AzureVMConfig -Name DC1 -InstanceSize Small -ImageName $image 
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password 
+	$vm1=New-AzureVMConfig -Name DC1 -InstanceSize Small -ImageName $image
+	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel "AD" -LUN 0 -HostCaching None
 	$vm1 | Set-AzureSubnet -SubnetNames Corpnet
 	$vm1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4
@@ -125,11 +130,11 @@ DC1은 corp.contoso.com AD DS(Active Directory 도메인 서비스) 도메인의
 그런 다음 DC1 가상 컴퓨터에 연결합니다.
 
 1.	Azure 관리 포털의 왼쪽 창에서 **가상 컴퓨터**를 클릭한 다음 DC1 가상 컴퓨터에 대한 **상태** 열에서 **시작됨**을 클릭합니다.  
-2.	작업 표시줄에서 **연결**을 클릭합니다. 
+2.	작업 표시줄에서 **연결**을 클릭합니다.
 3.	DC1.rdp를 열라는 메시지가 나타나면 **열기**를 클릭합니다.
 4.	원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **연결**을 클릭합니다.
 5.	자격 증명을 묻는 메시지가 나타나면 다음을 사용합니다.
-- 이름: **DC1\**[로컬 관리자 계정 이름]
+- 이름: **DC1\\**[로컬 관리자 계정 이름]
 - 암호: [로컬 관리자 계정 암호]
 6.	인증서를 참조하는 원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **예**를 클릭합니다.
 
@@ -154,22 +159,22 @@ DC1은 corp.contoso.com AD DS(Active Directory 도메인 서비스) 도메인의
 DC1이 다시 시작된 후 DC1 가상 컴퓨터에 다시 연결합니다.
 
 1.	Azure 관리 포털의 가상 컴퓨터 페이지에서 DC1 가상 컴퓨터에 대한 **상태** 열에 표시된 **실행 중**을 클릭합니다.
-2.	작업 표시줄에서 **연결**을 클릭합니다. 
+2.	작업 표시줄에서 **연결**을 클릭합니다.
 3.	DC1.rdp를 열라는 메시지가 나타나면 **열기**를 클릭합니다.
 4.	원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **연결**을 클릭합니다.
 5.	자격 증명을 묻는 메시지가 나타나면 다음을 사용합니다.
-- 이름: **CORP\**[로컬 관리자 계정 이름]
+- 이름: **CORP\\**[로컬 관리자 계정 이름]
 - 암호: [로컬 관리자 계정 암호]
 6.	인증서를 참조하는 원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **예**를 클릭합니다.
 
 다음으로, Active Directory에서 CORP 도메인 구성원 컴퓨터에 로그인할 때 사용할 사용자 계정을 만듭니다. 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 명령을 한 번에 하나씩 실행합니다.
- 
-	New-ADUser -SamAccountName User1 -AccountPassword (read-host "Set user password" -assecurestring) -name "User1" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false 
+
+	New-ADUser -SamAccountName User1 -AccountPassword (read-host "Set user password" -assecurestring) -name "User1" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false
 	Add-ADPrincipalGroupMembership -Identity "CN=User1,CN=Users,DC=corp,DC=contoso,DC=com" -MemberOf "CN=Enterprise Admins,CN=Users,DC=corp,DC=contoso,DC=com","CN=Domain Admins,CN=Users,DC=corp,DC=contoso,DC=com"
 
 첫 번째 명령을 실행하면 User1 계정 암호를 입력하라는 메시지가 나타납니다. 이 계정은 모든 CORP 도메인 구성원 컴퓨터에 대한 원격 데스크톱 연결에 사용되므로 강력한 암호를 선택해야 합니다. 암호 강도를 확인하려면 [암호 검사기: 강력한 암호 사용](https://www.microsoft.com/security/pc-security/password-checker.aspx)을 참조하세요. User1 계정 암호를 기록하고 안전한 위치에 저장합니다.
 
-CORP\User1 계정을 사용하여 DC1 가상 컴퓨터에 다시 연결합니다.
+CORP\\User1 계정을 사용하여 DC1 가상 컴퓨터에 다시 연결합니다.
 
 다음으로, Ping 도구에 대한 트래픽을 허용하려면 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
 
@@ -189,12 +194,12 @@ APP1에서는 웹 및 파일 공유 서비스를 제공합니다.
 	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for APP1."
 	$cred2=Get-Credential –UserName "CORP\User1" –Message "Now type the password for the CORP\User1 account."
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	$vm1=New-AzureVMConfig -Name APP1 -InstanceSize Small -ImageName $image 
+	$vm1=New-AzureVMConfig -Name APP1 -InstanceSize Small -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames Corpnet
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName TestLab
 
-다음으로, CORP\User1 자격 증명을 사용하여 APP1 가상 컴퓨터에 연결하고 관리자 수준 Windows PowerShell 명령 프롬프트를 엽니다.
+다음으로, CORP\\User1 자격 증명을 사용하여 APP1 가상 컴퓨터에 연결하고 관리자 수준 Windows PowerShell 명령 프롬프트를 엽니다.
 
 APP1과 DC1 간의 이름 확인 및 네트워크 통신을 확인하려면 **ping dc1.corp.contoso.com** 명령을 실행하고 4개의 응답을 확인합니다.
 
@@ -222,23 +227,23 @@ CLIENT1은 Contoso 인트라넷에서 일반적인 랩톱, 태블릿 또는 데�
 	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for CLIENT1."
 	$cred2=Get-Credential –UserName "CORP\User1" –Message "Now type the password for the CORP\User1 account."
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
-	$vm1=New-AzureVMConfig -Name CLIENT1 -InstanceSize Small -ImageName $image 
+	$vm1=New-AzureVMConfig -Name CLIENT1 -InstanceSize Small -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames Corpnet
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName TestLab
 
-그런 다음 CORP\User1 자격 증명을 사용하여 CLIENT1 가상 컴퓨터에 연결합니다.
+그런 다음 CORP\\User1 자격 증명을 사용하여 CLIENT1 가상 컴퓨터에 연결합니다.
 
 CLIENT1과 DC1 간의 이름 확인 및 네트워크 통신을 확인하려면 Windows PowerShell 명령 프롬프트에서 **ping dc1.corp.contoso.com** 명령을 실행하고 4개의 응답을 확인합니다.
 
 다음으로, CLIENT1에서 APP1의 웹 및 파일 공유 리소스에 액세스할 수 있는지 확인합니다.
 
-1.	서버 관리자의 트리 창에서 **로컬 서버**를 클릭합니다. 
+1.	서버 관리자의 트리 창에서 **로컬 서버**를 클릭합니다.
 2.	**CLIENT1에 대한 속성**에서 **IE 보안 강화 구성** 옆의 **설정**을 클릭합니다.
 3.	**Internet Explorer 보안 강화 구성**에서 **관리자** 및 **사용자**에 대해 **해제**를 클릭한 후 **확인**을 클릭합니다.
 4.	시작 화면에서 **Internet Explorer**를 클릭한 후 **확인**을 클릭합니다.
 5.	주소 표시줄에 **http://app1.corp.contoso.com/**을 입력하고 Enter 키를 누릅니다. APP1에 대한 기본 IIS(인터넷 정보 서비스) 웹 페이지가 표시됩니다. 6.	바탕 화면 작업 표시줄에서 파일 탐색기 아이콘을 클릭합니다.
-7.	주소 표시줄에 **\\app1\Files**를 입력하고 Enter 키를 누릅니다.
+7.	주소 표시줄에 **\\\\app1\\Files**를 입력하고 Enter 키를 누릅니다.
 8.	Files 공유 폴더의 내용이 포함된 폴더 창이 표시됩니다.
 9.	**Files** 공유 폴더 창에서 **Example.txt** 파일을 두 번 클릭합니다. Example.txt 파일의 내용이 표시됩니다.
 10.	**example.txt - 메모장** 및 **Files** 공유 폴더 창을 닫습니다.
@@ -253,13 +258,14 @@ CLIENT1과 DC1 간의 이름 확인 및 네트워크 통신을 확인하려면 W
 
 [하이브리드 클라우드 테스트 환경](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
- 
+[Azure 리소스 관리자를 사용하는 기본 구성 테스트 환경](virtual-machines-base-configuration-test-environment-resource-manager.md)
+
 ## <a id="costs"></a>Azure에서 테스트 환경 가상 컴퓨터의 비용 최소화
 
 실행 중인 테스트 환경 가상 컴퓨터의 비용을 최소화하려면 다음 중 하나를 수행합니다.
 
 - 테스트 환경을 만들고 가능한 한 신속하게 필요한 테스트 및 데모를 수행합니다. 완료되면 테스트 환경 가상 컴퓨터를 삭제합니다.
-- 테스트 환경 가상 컴퓨터를 할당 취소된 상태로 종료합니다. 
+- 테스트 환경 가상 컴퓨터를 할당 취소된 상태로 종료합니다.
 
 Azure PowerShell을 사용하여 가상 컴퓨터를 종료하려면 클라우드 서비스 이름을 입력하고 다음 명령을 실행합니다.
 
@@ -273,7 +279,7 @@ Azure PowerShell을 사용하여 가상 컴퓨터를 종료하려면 클라우�
 
 1.	DC1
 2.	APP1
-3.	CLIENT1 
+3.	CLIENT1
 
 Azure PowerShell을 사용하여 가상 컴퓨터를 순서대로 시작하려면 클라우드 서비스 이름을 입력하고 다음 명령을 실행합니다.
 
@@ -281,6 +287,5 @@ Azure PowerShell을 사용하여 가상 컴퓨터를 순서대로 시작하려�
 	Start-AzureVM -ServiceName $serviceName -Name "DC1"
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

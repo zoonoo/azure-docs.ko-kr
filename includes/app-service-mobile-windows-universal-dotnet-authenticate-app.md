@@ -57,13 +57,13 @@
 		
 5. Windows 스토어 앱 프로젝트에서 MainPage.xaml 프로젝트 파일을 열고 **저장** 단추를 정의하는 요소 바로 앞에 다음 **Button** 요소를 추가합니다.
 
-	<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
-                Visibility="Visible">로그인</Button>
+		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
+                        Visibility="Visible">Sign in</Button>
 
 6. Windows Phone 스토어 앱 프로젝트에서 **TextBlock** 요소 이후 **ContentPanel**에 다음의 **단추** 요소를 추가합니다.
 
         <Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
-        Margin="10, 0, 0, 0" Visibility="Visible">Sign in</Button>
+        	Margin="10, 0, 0, 0" Visibility="Visible">Sign in</Button>
 
 7. 공유 App.xaml.cs 프로젝트 파일을 열고 다음 using 문이 없으면 추가합니다.
 
@@ -94,4 +94,4 @@
 
 10. Windows Phone 스토어 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 클릭한 다음 위의 단계를 반복하여 Windows Phone 스토어 앱도 올바르게 실행되는지 확인합니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

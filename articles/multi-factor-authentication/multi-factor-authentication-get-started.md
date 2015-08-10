@@ -33,11 +33,11 @@ Azure Multi-Factor Authentication에는 여러 가지 버전이 있기 때문에
 
 보안을 유지하려는 대상은 무엇입니까| 클라우드에서 Multi-Factor Authentication|Multi-Factor Authentication 서버 
 ------------- | :-------------: | :-------------: |
-자사 Microsoft 앱|* |* |
-앱 갤러리의 Saas 앱|* |* |
-Azure AD 응용프로그램 프록시를 통해 IIS 응용프로그램 게시됨|* |* |
-Azure AD 응용프로그램 프록시를 통해 IIS 응용프로그램 게시되지 않음 | |* |
-VPN, RDG와 같은 원격 액세스| |* |
+자사 Microsoft 앱|\* |\* |
+앱 갤러리의 Saas 앱|\* |\* |
+Azure AD 응용프로그램 프록시를 통해 IIS 응용프로그램 게시됨|\* |\* |
+Azure AD 응용프로그램 프록시를 통해 IIS 응용프로그램 게시되지 않음 | |\* |
+VPN, RDG와 같은 원격 액세스| |\* |
 
 
 
@@ -87,4 +87,4 @@ MFA 보고서 | ● | ●
 * [사용자](multi-factor-authentication-end-user.md)
 * [MSDN에서 Azure Multi-Factor Authentication](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

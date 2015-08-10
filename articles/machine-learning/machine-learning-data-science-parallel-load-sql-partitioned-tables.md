@@ -58,7 +58,7 @@ SQL 데이터베이스로 빅 데이터를 로드/전송할 때 _분할된 테�
 
 **파티션 테이블을 만들려면 다음을 수행해야 합니다.**
 
-- 각 파티션 테이블에 포함될 값/경계 범위를 정의하는 [파티션 함수를 만듭니다](https://msdn.microsoft.com/library/ms187802.aspx). 예를 들어 아래는 2013년 월별로(some_datetime_field) 파티션을 제한합니다.
+- 각 파티션 테이블에 포함될 값/경계 범위를 정의하는 [파티션 함수를 만듭니다](https://msdn.microsoft.com/library/ms187802.aspx). 예를 들어 아래는 2013년 월별로(some\_datetime\_field) 파티션을 제한합니다.
 
 	    CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
 	    AS RANGE RIGHT FOR VALUES (
@@ -95,7 +95,7 @@ SQL 데이터베이스로 빅 데이터를 로드/전송할 때 _분할된 테�
 
 - BCP, BULK INSERT 또는 [SQL Server 마이그레이션 마법사](http://sqlazuremw.codeplex.com/) 같은 기타 방법을 사용할 수 있습니다. 제공된 예에서는 BCP를 사용합니다.
 
-- 로깅 오버헤드를 최소화하기 위해 [데이터베이스를 변경](https://msdn.microsoft.com/library/bb522682.aspx)하여 트랜잭션 로깅 스키마를 BULK_LOGGED로 변경합니다. 아래는 그 예입니다.
+- 로깅 오버헤드를 최소화하기 위해 [데이터베이스를 변경](https://msdn.microsoft.com/library/bb522682.aspx)하여 트랜잭션 로깅 스키마를 BULK\_LOGGED로 변경합니다. 아래는 그 예입니다.
 
 	    ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
 
@@ -184,4 +184,4 @@ SQL 데이터베이스로 빅 데이터를 로드/전송할 때 _분할된 테�
 공용 데이터 집합에서 ADAPT(고급 분석 프로세스 및 기술)를 사용하는 종단 간 연습 예제는 [고급 분석 프로세스 및 기술 작동: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)을 참조하세요.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

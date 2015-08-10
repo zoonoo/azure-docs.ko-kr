@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/26/2015"
+   ms.date="07/28/2015"
    ms.author="cherylmc"/>
 
 # Express 경로 FAQ
@@ -124,7 +124,7 @@ NSP를 통해 연결하는 경우, NSP는 사용자를 대신해 중복 링크 �
 ### 가상 네트워크를 포함하는 여러 Azure 구독을 가지고 있습니다. 개별 구독에 속한 가상 네트워크를 단일 Express 경로 회로에 연결할 수 있나요?
 예. 단일 Express 경로 회로를 사용하여 다른 Azure 구독을 최대 10개까지 권한을 부여할 수 있습니다. Express 경로 프리미엄 기능을 사용하여이 한도를 늘릴 수 있습니다.
 
-자세한 내용은 [여러 구독에서 Express 경로 회로 공유](https://msdn.microsoft.com/library/azure/dn835110.aspx)를 참조하세요.
+자세한 내용은 [여러 구독에서 Express 경로 회로 공유](expressroute-share-circuit.md)를 참조하세요.
 
 ### 가상 네트워크가 서로 격리된 동일한 회로에 연결되어 있나요?
 아니요. 동일한 Express 경로 회로에 연결된 모든 가상 네트워크는 동일한 라우팅 도메인의 일부이며 라우팅 관점에서 서로 분리되지 않습니다. 경로 격리가 필요한 경우, 별도 Express 경로 회로를 만들어야 합니다.
@@ -154,7 +154,7 @@ Express 경로 회로를 설정하고 공용 피어링에 대한 경로를 구�
 예. 개인 피어링 및 공용 피어링에 대한 최대 4000개의 경로 접두사를 허용합니다. 프리미엄이 제공하는 Express 경로를 사용하는 경우, 10, 000개의 경로까지 늘릴 수 있습니다.
 
 ### BGP 세션을 통해 보급할 수 있는 IP 범위에 제한 사항이 있나요?
-BGP를 통해 보급되는 접두사는 /29 이상(/28 ~ /8)이어야 합니다.
+BGP를 통해 보급되는 접두사는 /29 이상(/28 \~ /8)이어야 합니다.
 
 공용 피어링 BGP 세션에서 개인 접두사(RFC1918)를 필터링합니다.
 
@@ -286,4 +286,4 @@ NSP 및 EXP 모두를 통해 Office 365 서비스에 대한 연결을 지원합�
 예. Express 경로가 네트워크에 대해 구성된 경우라도 인터넷을 통해 Office 365 서비스 끝점에 연결할 수 있습니다. Express 경로를 통해 Office 365 서비스에 연결하도록 구성된 위치에 있는 경우 Express 경로를 통해 연결됩니다.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

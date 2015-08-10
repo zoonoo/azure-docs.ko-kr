@@ -25,7 +25,7 @@
 1. [Azure Preview 포털](https://ms.portal.azure.com/)을 엽니다.
 2. 탄력적 작업이 포함된 구독으로 이동합니다.
 3. **찾아보기**를 클릭하고 **리소스 그룹**을 클릭합니다.
-4. "__ElasticDatabaseJob"이라는 이름의 리소스 그룹을 선택합니다.
+4. "\_\_ElasticDatabaseJob"이라는 이름의 리소스 그룹을 선택합니다.
 5. 해당 리소스 그룹을 삭제합니다.
 
 또는 다음 PowerShell 스크립트를 사용합니다.
@@ -58,4 +58,4 @@
 [1]: ./media/sql-database-elastic-job-uninstall/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

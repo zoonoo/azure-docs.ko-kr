@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/15/2015"
+   ms.date="07/28/2015"
    ms.author="v-sharos" />
 
 # StorSimple 장치 업데이트
@@ -52,7 +52,6 @@ StorSimple 업데이트 기능을 사용하면 쉽게 StorSimple 장치를 최�
 
 관리 포털을 사용하여 StorSimple 장치에 업데이트를 적용할 수 있습니다.
 
-
 [AZURE.INCLUDE [storsimple-install-updates-manually](../../includes/storsimple-install-updates-manually.md)]
 
 ## StorSimple용 Windows PowerShell을 통해 일반 업데이트 설치
@@ -91,8 +90,7 @@ StorSimple용 Windows PowerShell을 사용하여 유지 관리 모드 업데이�
 다음으로 업데이트를 설치합니다.
 
 [AZURE.INCLUDE [storsimple-install-maintenance-mode-updates](../../includes/storsimple-install-maintenance-mode-updates.md)]
-
-    
+ 
 ### 4 단계: 유지 관리 모드 종료
 
 마지막으로, 유지 관리 모드를 종료합니다.
@@ -121,4 +119,4 @@ Microsoft Azure StorSimple에 대한 업데이트와 달리 핫픽스는 공유 
 [StorSimple용 Windows PowerShell](https://msdn.microsoft.com/library/azure/dn772425.aspx)에 대해 배웁니다.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

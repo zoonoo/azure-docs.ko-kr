@@ -72,4 +72,4 @@ Azure 스트림 분석은 Azure 이벤트 허브에서 생성된 이벤트 데�
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

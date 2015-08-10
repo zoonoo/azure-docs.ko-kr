@@ -92,7 +92,7 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 [Azure 포털][portal]로 돌아가 Application Insights 리소스를 찾습니다.
 
 
-개요 차트에서 데이터를 찾습니다. 처음에는 요소가 1~2개만 표시됩니다. 예:
+개요 차트에서 데이터를 찾습니다. 처음에는 요소가 1\~2개만 표시됩니다. 예:
 
 ![클릭하여 추가 데이터 확인](./media/app-insights-start-monitoring-app-health-usage/12-first-perf.png)
 
@@ -128,7 +128,7 @@ SDK에는 일부 데이터에 액세스할 경우 다음과 같은 도움이 필
 
 Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
-![웹앱에서 설정, 확장, 추가, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
+![웹앱, 도구, 성능 모니터링에서 Application Insights를 추가합니다.](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
 
 (확장은 SDK로 빌드된 앱만 보조해 줍니다. 상태 모니터와는 달리, 기존 응용 프로그램을 계측할 수 없습니다.)
 
@@ -140,11 +140,11 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 #### 클라이언트가 웹 브라우저인 경우
 
-앱을 웹페이지에 표시하는 경우, 모든 페이지에 JavaScript 코드 조각을 추가합니다. Application Insights 리소스에서 코드를 가져옵니다.
+앱을 웹 페이지에 표시하는 경우, 모든 페이지에 JavaScript 코드 조각을 추가합니다. Application Insights 리소스에서 코드를 가져옵니다.
 
-![웹앱에서, 빠른 시작을 열고 '내 웹 페이지를 모니터링하는 코드를 얻기'를 클릭 합니다.](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
+![웹앱에서, 빠른 시작을 열고 '내 웹 페이지를 모니터링하는 코드를 얻기'를 클릭합니다.](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
 
-코드는 응용 프로그램 리소스를 식별하는 계측 키를 포함한다는것을 참고하세요.
+코드는 응용 프로그램 리소스를 식별하는 계측 키를 포함한다는 것을 참고하세요.
 
 [웹 페이지 추적에 대해 더 알아보기](app-insights-web-track-usage.md)
 
@@ -231,4 +231,4 @@ Visual Studio는 Application Insights에서 리소스를 만들고, SDK를 프�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

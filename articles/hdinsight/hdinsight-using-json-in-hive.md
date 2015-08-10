@@ -97,13 +97,13 @@ SELECT 문의 출력은 다음과 같습니다.
 
 하이브는 JSON 문서에서 쿼리를 실행할 수 있는 다음 세 가지 메커니즘을 제공합니다.
 
-- GET_JSON_OBJECT UDF(사용자 정의 함수) 사용
-- JSON_TUPLE UDF 사용
+- GET\_JSON\_OBJECT UDF(사용자 정의 함수) 사용
+- JSON\_TUPLE UDF 사용
 - 사용자 지정 SerDe 사용
 - Python 또는 기타 언어를 사용하여 자체 UDF를 작성합니다. Hive에서의 Python 실행은 [이 문서][hdinsight-python]를 참조하세요. 
 
-### GET_JSON_OBJECT UDF 사용
-Hive는 런타임에 JSON 쿼리를 수행할 수 있는 [get_json_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object)라는 기본 제공 UDF를 제공합니다. 이 메서드에는 두 개의 인수, 즉 평면화된 JSON 문서와 구문 분석해야 하는 JSON 필드가 있는 테이블 이름 및 메서드 이름이 사용됩니다. 이 UDF의 작동 방식에 대한 예를 살펴보겠습니다.
+### GET\_JSON\_OBJECT UDF 사용
+Hive는 런타임에 JSON 쿼리를 수행할 수 있는 [get\_json\_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object)라는 기본 제공 UDF를 제공합니다. 이 메서드에는 두 개의 인수, 즉 평면화된 JSON 문서와 구문 분석해야 하는 JSON 필드가 있는 테이블 이름 및 메서드 이름이 사용됩니다. 이 UDF의 작동 방식에 대한 예를 살펴보겠습니다.
 
 학생의 이름 및 성 가져오기
 
@@ -114,19 +114,19 @@ Hive는 런타임에 JSON 쿼리를 수행할 수 있는 [get_json_object](https
 
 이 쿼리를 콘솔 창에서 실행할 경우의 출력은 다음과 같습니다.
 
-![get_json_object UDF][image-hdi-hivejson-getjsonobject]
+![get\_json\_object UDF][image-hdi-hivejson-getjsonobject]
 
-get-json_object UDF에는 몇 가지 제한 사항이 있습니다.
+get-json\_object UDF에는 몇 가지 제한 사항이 있습니다.
 
 - 쿼리의 각 필드에서는 쿼리를 다시 구문 분석해야 하므로 성능에 영향을 미칩니다.
-- GET_JSON_OBJECT()는 배열의 문자열 표현을 반환합니다. 이를 Hive 배열로 변환하려면 정규식을 사용하여 대괄호 ‘[‘ 및 ‘]’을 바꾼 다음 분할 호출하여 배열을 가져와야 합니다.
+- GET\_JSON\_OBJECT()는 배열의 문자열 표현을 반환합니다. 이를 Hive 배열로 변환하려면 정규식을 사용하여 대괄호 ‘[‘ 및 ‘]’을 바꾼 다음 분할 호출하여 배열을 가져와야 합니다.
 
 
-그렇기 때문에 Hive Wiki에서는 json_tuple을 사용하는 것을 권장합니다.
+그렇기 때문에 Hive Wiki에서는 json\_tuple을 사용하는 것을 권장합니다.
 
-### JSON_TUPLE UDF 사용
+### JSON\_TUPLE UDF 사용
 
-Hive에서 제공하는 다른 UDF는 [get_ json _개체](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object)보다 성능이 뛰어난 [json_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple)입니다. 이 메서드는 키 집합 및 JSON 문자열을 사용하며, 하나의 함수를 통해 값의 튜플을 반환합니다. 다음 쿼리는 JSON 문서에서 학생 ID와 등급을 반환합니다.
+Hive에서 제공하는 다른 UDF는 [get\_ json _개체](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object)보다 성능이 뛰어난 [json\_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple)입니다. 이 메서드는 키 집합 및 JSON 문자열을 사용하며, 하나의 함수를 통해 값의 튜플을 반환합니다. 다음 쿼리는 JSON 문서에서 학생 ID와 등급을 반환합니다.
 
     SELECT q1.StudentId, q1.Grade 
       FROM StudentsOneLine jt
@@ -135,9 +135,9 @@ Hive에서 제공하는 다른 UDF는 [get_ json _개체](https://cwiki.apache.o
 
 Hive 콘솔에 표시되는 이 스크립트의 출력은 다음과 같습니다.
 
-![json_tuple UDF][image-hdi-hivejson-jsontuple]
+![json\_tuple UDF][image-hdi-hivejson-jsontuple]
 
-Hive에서 [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) 구문을 사용합니다. 이 구문을 사용하면 json_tuple이 원래 테이블의 각 행에 UDT 함수를 적용하여 가상 테이블을 만들 수 있습니다. LATERAL VIEW를 반복 사용하면 복잡한 JSON이 다루기 어렵게 됩니다. 또한 JSON_TUPLE은 중첩된 JSON을 처리할 수 없습니다.
+Hive에서 [lateral view](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView) 구문을 사용합니다. 이 구문을 사용하면 json\_tuple이 원래 테이블의 각 행에 UDT 함수를 적용하여 가상 테이블을 만들 수 있습니다. LATERAL VIEW를 반복 사용하면 복잡한 JSON이 다루기 어렵게 됩니다. 또한 JSON\_TUPLE은 중첩된 JSON을 처리할 수 없습니다.
 
 
 ###사용자 지정 SerDe 사용
@@ -146,7 +146,7 @@ SerDe는 중첩된 JSON 문서에 가장 적합한 구문 분석으로, JSON 스
 
 **사용자 지정 SerDe를 사용하려면**
 
-1. [Java SE Development Kit 7u55 JDK 1.7.0_55](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u55-oth-JPR)를 설치합니다. HDInsight의 Windows 배포를 사용하려면 Windows X64 버전 JDK를 선택합니다.
+1. [Java SE Development Kit 7u55 JDK 1.7.0\_55](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase7-521261.html#jdk-7u55-oth-JPR)를 설치합니다. HDInsight의 Windows 배포를 사용하려면 Windows X64 버전 JDK를 선택합니다.
 
 	>[AZURE.WARNING]JDK 1.8은 이 SerDe에서 작동하지 않습니다.
 
@@ -154,7 +154,7 @@ SerDe는 중첩된 JSON 문서에 가장 적합한 구문 분석으로, JSON 스
 
 	1. Windows 화면에서 **고급 시스템 설정 보기**를 엽니다.
 	2. **환경 변수**를 클릭합니다.  
-	3. 새 **JAVA_HOME** 환경 변수를 추가합니다. 이 변수는 **C:\Program Files\Java\jdk1.7.0_55** 또는 JDK 설치 위치를 가리킵니다.
+	3. 새 **JAVA\_HOME** 환경 변수를 추가합니다. 이 변수는 **C:\\Program Files\\Java\\jdk1.7.0\_55** 또는 JDK 설치 위치를 가리킵니다.
 
 	![JDK에 대한 올바른 구성 값 설정][image-hdi-hivejson-jdk]
 
@@ -170,9 +170,9 @@ SerDe는 중첩된 JSON 문서에 가장 적합한 구문 분석으로, JSON 스
 
 4: 이 패키지를 다운로드한 폴더로 이동하여 "mvn package"를 입력합니다. 클러스터에 복사할 수 있는 필수 jar 파일이 만들어집니다.
 
-5: 패키지를 다운로드한 루트 폴더 아래의 대상 폴더로 이동합니다. 클러스터의 헤드 노드에 json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar 파일을 업로드합니다. 일반적으로 C:\apps\dist\hive-0.13.0.2.1.11.0-2316\bin과 유사한 하이브 이진 파일 폴더에 둡니다.
+5: 패키지를 다운로드한 루트 폴더 아래의 대상 폴더로 이동합니다. 클러스터의 헤드 노드에 json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar 파일을 업로드합니다. 일반적으로 C:\\apps\\dist\\hive-0.13.0.2.1.11.0-2316\\bin과 유사한 하이브 이진 파일 폴더에 둡니다.
  
-6: Hive 프롬프트에서 “add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar”을 입력합니다. 이 예제에서는 jar이 C:\apps\dist\hive-0.13.x\bin 폴더에 있으므로 아래 표시된 이름으로 jar을 직접 추가할 수 있습니다.
+6: Hive 프롬프트에서 “add jar /path/to/json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar”을 입력합니다. 이 예제에서는 jar이 C:\\apps\\dist\\hive-0.13.x\\bin 폴더에 있으므로 아래 표시된 이름으로 jar을 직접 추가할 수 있습니다.
 
     add jar json-serde-1.1.9.9-Hive13-jar-with-dependencies.jar;
 
@@ -223,9 +223,9 @@ JSON 문서의 성적 합계를 계산하려면
 
 ![SerDe 쿼리 2][image-hdi-hivejson-serde_query2]
 
-지정된 학생의 성적이 80점을 넘는 과목을 찾으려면 SELECT jt.StudentClassCollection.ClassId FROM json_table jt lateral view explode(jt.StudentClassCollection.Score) collection as score where score > 80;
+지정된 학생의 성적이 80점을 넘는 과목을 찾으려면 SELECT jt.StudentClassCollection.ClassId FROM json\_table jt lateral view explode(jt.StudentClassCollection.Score) collection as score where score > 80;
       
-위 쿼리는 문자열을 반환하는 get_json_object와 달리 하이브 배열을 반환합니다.
+위 쿼리는 문자열을 반환하는 get\_json\_object와 달리 하이브 배열을 반환합니다.
 
 ![SerDe 쿼리 3][image-hdi-hivejson-serde_query3]
 
@@ -237,7 +237,7 @@ JSON 문서의 성적 합계를 계산하려면
 
 
 ##요약
-결론적으로 선택하는 하이브의 JSON 연산자 유형은 시나리오에 따라 달라집니다. JSON 문서가 간단하고 조회할 필드가 하나뿐인 경우에는 하이브 UDF get_json_object를 사용할 수 있습니다. 조회가 키가 두 개 이상인 경우에는 json_tuple을 사용할 수 있습니다. 중첩된 문서가 있는 경우에는 JSON SerDe를 사용해야 합니다.
+결론적으로 선택하는 하이브의 JSON 연산자 유형은 시나리오에 따라 달라집니다. JSON 문서가 간단하고 조회할 필드가 하나뿐인 경우에는 하이브 UDF get\_json\_object를 사용할 수 있습니다. 조회가 키가 두 개 이상인 경우에는 json\_tuple을 사용할 수 있습니다. 중첩된 문서가 있는 경우에는 JSON SerDe를 사용해야 합니다.
 
 다른 관련된 문서는 다음을 참조하세요.
 
@@ -261,4 +261,4 @@ JSON 문서의 성적 합계를 계산하려면
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

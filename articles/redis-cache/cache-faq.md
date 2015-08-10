@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/09/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -95,6 +95,11 @@ Azure Redis Cache에 대한 일반적인 질문과 대답, 패턴 및 모범 사
 ## 어떤 영역에 내 캐시를 배치해야 하나요?
 
 성능을 최적화하고 대기 시간을 최소화하려면 캐시 클라이언트 응용 프로그램과 동일한 영역에 Azure Redis Cache를 배치합니다.
+
+<a name="cache-billing"></a>
+## Azure Redis Cache에 대한 요금은 어떻게 청구되나요?
+
+Azure Redis Cache 가격에 대해서는 [여기](http://azure.microsoft.com/pricing/details/cache/)를 참조하세요. 가격 책정 페이지에는 시간 단위로 가격이 나와 있습니다. 캐시는 캐시가 만들어지는 시간부터 삭제되는 시간까지 분 단위로 요금이 청구됩니다. 캐시 요금 청구를 중지 또는 일시 중지하는 옵션은 없습니다.
 
 <a name="cache-timeouts"></a>
 ## 왜 시간 초과가 표시되나요?
@@ -204,12 +209,14 @@ Redis 도구 다운로드에 대한 지침은 [어떻게 Redis 명령을 실행�
 <a name="cache-commands"></a>
 ## 어떻게 Redis 명령을 실행할 수 있나요?
 
-[Redis 명령](http://redis.io/commands#)에 나열된 명령 중 하나를 사용할 수 있습니다. 이러한 명령을 실행하려면 다음 도구를 사용합니다.
+[Azure Redis Cache에서 지원되지 않는 Redis 명령](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache)에 나열된 명령을 제외하고, [Redis 명령](http://redis.io/commands#)에 나열된 모든 명령을 사용할 수 있습니다. Redis 명령을 실행하는 옵션은 여러 가지가 있습니다.
 
--	[Redis 명령줄 도구](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip)를 다운로드합니다.
--	`redis-cli.exe`를 사용하여 캐시에 연결합니다. 다음 예제와 같이 -h 스위치를 사용하여 캐시 끝점을 전달하고 -a를 사용하여 키를 전달합니다.
-	-	`redis-cli -h <your cache name>.redis.cache.windows.net -a <key>`
--	Redis 명령줄 도구는 SSL 포트에서 작동하지 않지만, [Redis용 ASP.NET 세션 상태 공급자 미리 보기 릴리스 발표](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) 블로그 게시물의 지침에 따라 `stunnel`과 같은 유틸리티를 사용하여 도구를 SSL 포트에 안전하게 연결할 수 있습니다.
+-	표준 캐시를 사용하는 경우는 [Redis 콘솔](cache-configure.md#redis-console)을 사용하여 Redis 명령을 실행할 수 있습니다. 이 방법은 Azure 포털에서 Redis 명령을 안전하게 실행하는 방법입니다.
+-	Redis 명령줄 도구를 사용할 수도 있습니다. 이 도구를 사용하려면 다음 단계를 수행합니다.
+	-	[Redis 명령줄 도구](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip)를 다운로드합니다.
+	-	`redis-cli.exe`를 사용하여 캐시에 연결합니다. 다음 예제와 같이 -h 스위치를 사용하여 캐시 끝점을 전달하고 -a를 사용하여 키를 전달합니다.
+		-	`redis-cli -h <your cache name>.redis.cache.windows.net -a <key>`
+	-	Redis 명령줄 도구는 SSL 포트에서 작동하지 않지만, [Redis용 ASP.NET 세션 상태 공급자 미리 보기 릴리스 발표](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) 블로그 게시물의 지침에 따라 `stunnel`과 같은 유틸리티를 사용하여 도구를 SSL 포트에 안전하게 연결할 수 있습니다.
 
 <a name="cache-common-patterns"></a>
 ## 몇 가지 일반적인 캐시 패턴 및 고려 사항은 무엇인가요?
@@ -226,4 +233,4 @@ Microsoft Azure Redis Cache는 많이 사용되는 오픈 소스 Redis Cache를 
 
 클라이언트마다 다르기 때문에 MSDN에 하나의 중앙 집중식 클래스 참조는 없습니다. 대신, 각 클라이언트가 자체 참조 설명서를 유지 관리합니다. 참조 설명서 외에도 Azure.com의 [Redis Cache 설명서](http://azure.microsoft.com/documentatgion/services/redis-cache/) 페이지에는 다양한 언어 및 캐시 클라이언트를 사용하여 Azure Redis Cache를 시작하는 방법을 보여 주는 여러 자습서가 있습니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

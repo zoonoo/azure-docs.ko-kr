@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh@microsoft.com"/>
 
 #탄력적 데이터베이스 도구 시작하기
@@ -26,19 +26,19 @@
 
 탄력적 데이터베이스 도구 작업에 대한 자세한 내용은 [탄력적 데이터베이스 도구 개요](sql-database-elastic-scale-introduction.md)를 참조하세요.
 
-탄력적 데이터베이스 도구와 관련된 모든 항목의 목록은 [설명서 맵](sql-database-elastic-scale-documentation-map.md)을 참조하세요.
+탄력적 데이터베이스 도구와 관련된 모든 항목의 목록은 [학습 맵](sql-database-elastic-scale-documentation-map.md)을 참조하세요.
 
 ## 탄력적 데이터베이스 샘플 응용 프로그램
 
-이 문서의 샘플에서는 간단한 분할 응용 프로그램을 만들고 탄력적 데이터베이스 도구의 주요 기능을 살펴봅니다. 응용 프로그램을 다운로드하여 실행하려면 아래의 단계를 수행하거나 [탄력적인 확장 - 시작](http://channel9.msdn.com/Blogs/Windows-Azure/Elastic-Scale-with-Azure-SQL-Database-Getting-Started) 비디오를 시청하세요.
+이 문서의 샘플에서는 간단한 분할 응용 프로그램을 만들고 탄력적 데이터베이스 도구의 주요 기능을 살펴봅니다. 응용 프로그램을 다운로드하여 실행하려면 아래의 단계를 수행하거나 [탄력적인 확장 - 비디오 시작](http://channel9.msdn.com/Blogs/Windows-Azure/Elastic-Scale-with-Azure-SQL-Database-Getting-Started) 비디오를 시청하세요.
 
-### 필수 조건
+## 필수 조건
 샘플 앱을 실행하려면 Visual Studio를 사용해야 하며 Azure에서 실행 중인 Azure SQL 데이터베이스 액세스 권한이 있어야 합니다. Azure 구독이 아직 없으면 [평가판 구독](http://azure.microsoft.com/pricing/free-trial/)을 신청하세요.
-#### Visual Studio 및 Nuget
+### Visual Studio 및 Nuget
 
 1. C#가 포함된 Visual Studio 2012 이상이 필요합니다. [Visual Studio 다운로드](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)에서 무료 버전을 다운로드하세요.
 2. Nuget 2.7 이상. 최신 버전을 설치하려면 [NuGet 설치](http://docs.nuget.org/docs/start-here/installing-nuget)를 참조하세요.
-#### Azure SQL 데이터베이스 만들기
+### Azure SQL 데이터베이스 만들기
 
 * [Microsoft Azure SQL 데이터베이스 시작](sql-database-get-started.md)을 참조하세요.
 
@@ -115,4 +115,4 @@
 [4]: ./media/sql-database-elastic-scale-get-started/output2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -81,23 +81,10 @@ Operational Insights 배포를 계획할 때(특히 단일 관리 그룹을 통�
 
 한 예로, 에이전트 및 기본 보관 기간 당 100 KB의 일일 업로드 크기를 가정하는 경우 관리 그룹에 대해 다음 저장소가 필요합니다.
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td><b>에이전트의 개수</b></td>
-		<td><b>관리 그룹에 필요한 예상 공간</b></td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>5</td>
-		<td>~2.5&#160;MB(5개의 에이전트 x 100&#160;KB 데이터/일 x 5일 =&#160;2,500&#160;KB)</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>50</td>
-		<td>~25&#160;MB (50개의 에이전트 x 100&#160;KB 데이터/일 x 5일 =&#160;25,000&#160;KB)</td>
-    </tr>
-
-    </tbody>
-    </table>
+에이전트의 개수|관리 그룹에 필요한 예상 공간
+---|---
+5|\~2.5 MB(5개의 에이전트 x 100 KB 데이터/일 x 5일 = 2,500 KB)
+50|\~25 MB (50개의 에이전트 x 100 KB 데이터/일 x 5일 = 25,000 KB)
 
 ## Operational Insights에 대한 Operations Manager 실행 계정
 
@@ -122,10 +109,10 @@ Operational Insights는 Operations Manager 에이전트와 관리 그룹을 사�
 
 3. **실행 계정** 페이지에서 **추가**를 클릭합니다.
 
-4. SQL Server에 필요한 자격 증명을 포함하는 Windows 실행 계정을 선택하거나 **새로 만들기**를 클릭하여 계정을 하나를 만듭니다.
+4. SQL Server에 필요한 자격 증명을 포함하는 Windows 실행 계정을 선택하거나 **새로 만들기**를 클릭하여 계정을 하나 만듭니다.
 	>[AZURE.NOTE]실행 계정 유형은 Windows이어야 합니다. 실행 계정은 SQL Server 인스턴스를 호스팅하는 모든 Windows 서버에서 로컬 관리자 그룹의 일부이어야 합니다.
 
-5. **저장**을 클릭합니다.
+5. **Save**를 클릭합니다.
 
 6. SQL 평가에 실행 계정으로 필요한 최소 사용 권한을 부여하도록 각 SQL Server 인스턴스에서 다음 T-SQL 샘플을 수정한 다음 실행합니다. 그러나 실행 계정이 SQL Server 인스턴스에서 이미 sysadmin 서버 역할의 일부인 경우, 이 작업을 수행할 필요가 없습니다.
 
@@ -185,7 +172,7 @@ Operations Manager에 Operational Insights를 연결할 때 계정을 설정하�
 4. VMM에 필요한 자격 증명을 포함하는 Windows 실행 계정을 선택하거나 **새로 만들기**를 클릭하여 계정을 하나 만듭니다.
 	>[AZURE.NOTE]실행 계정 유형은 Windows이어야 합니다.
 
-5. **저장**을 클릭합니다.
+5. **Save**를 클릭합니다.
 
 
 ### Lync Server에 대한 실행 계정 설정
@@ -200,10 +187,10 @@ Operations Manager에 Operational Insights를 연결할 때 계정을 설정하�
 
 3. **실행 계정** 페이지에서 **추가**를 클릭합니다.
 
-4. 로컬 관리자 및 Lync RTCUniversalUserAdmins 보안 그룹의 구성원 인 Windows 실행 계정을 선택합니다.
+4. 로컬 관리자 및 Lync RTCUniversalUserAdmins 보안 그룹의 구성원인 Windows 실행 계정을 선택합니다.
 	>[AZURE.NOTE]실행 계정 유형은 Windows이어야 합니다.
 
-5. **저장**을 클릭합니다.
+5. **Save**를 클릭합니다.
 
 
 ### SharePoint에 대한 실행 계정 설정
@@ -220,7 +207,7 @@ Operations Manager에 Operational Insights를 연결할 때 계정을 설정하�
 4. SharePoint에 필요한 자격 증명을 포함하는 Windows 실행 계정을 선택하거나 **새로 만들기**를 클릭하여 계정을 하나 만듭니다.
 	>[AZURE.NOTE]실행 계정 유형은 Windows이어야 합니다.
 
-5. **저장**을 클릭합니다.
+5. **Save**를 클릭합니다.
 
 
 
@@ -228,4 +215,4 @@ Operations Manager에 Operational Insights를 연결할 때 계정을 설정하�
 
 다양한 지리적 위치에 있는 서버에서 데이터를 분석하려는 경우 위치 당 하나의 관리 그룹이 있는 것이 좋습니다. 에이전트에서 관리 그룹으로 데이터 전송의 성능을 향상시킬 수 있습니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

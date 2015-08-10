@@ -49,7 +49,7 @@ CREATE MASTER KEY;
 ## 데이터베이스 범위 자격 증명 만들기
 Azure blob 저장소에 액세스하려면 Azure 저장소 계정에 대한 인증 정보를 저장하는 데이터베이스 범위 자격 증명을 만들어야 합니다. 데이터 웨어하우스 데이터베이스에 연결하고 액세스하려는 각 Azure 저장소 계정에 대한 데이터베이스 범위 자격 증명을 만듭니다. ID 이름 및 Azure 저장소 계정 키를 암호로 지정합니다. ID 이름은 Azure 저장소에 대한 인증에 영향을 주지 않습니다.
 
-데이터베이스 범위 자격 증명이 이미 있는지 확인하려면 서버 자격 증명을 보여주는 sys.credentials가 아닌 sys.database_credentials를 사용합니다.
+데이터베이스 범위 자격 증명이 이미 있는지 확인하려면 서버 자격 증명을 보여주는 sys.credentials가 아닌 sys.database\_credentials를 사용합니다.
 
 ```
 -- Check for existing database-scoped credentials.
@@ -207,4 +207,4 @@ PolyBase로 로딩하면 UTF-8 인코딩 스타일만 지원합니다. 다른 �
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ko-kr/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ko-kr/library/ms189450.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

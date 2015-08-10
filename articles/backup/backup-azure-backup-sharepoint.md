@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/14/2015" ms.author="sammehta"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt\_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/14/2015" ms.author="sammehta"; "jimpark"/>
 
 
 # Azure에 SharePoint 팜 백업하기
@@ -33,7 +33,7 @@ DPM 에이전트를 Sharepoint 서버, SQL 서버, Share point farm을 구성하
 Farm의 모든 수많은 항목때문에, DPM 폴더의 위치는 최소 2GB의 공간이 필요합니다. 이 공간은 카탈로그를 생성하는 데 필요 합니다. DPM이 특정 항목(사이트 모음, 사이트, 목록, 문서 라이브러리, 폴더, 개별 문서 및 아이템 항목)을 복구할 때 카탈로그 생성이 각 콘텐츠 데이터베이스를 포함한 URL의 목록을 만듭니다. DPM 관리자 콘솔 안의 복구 작업 영역에서 복구 가능한 항목 창에서 Url 목록을 볼 수 있습니다.
 
 ### SQL Server
-DPM을 로컬 시스템으로 실행한 다음 SQL Server 데이터베이스를 백업 하려면 SQL server 해당 계정에 대한 sysadmin 권한이 필요 합니다. 백업하고 싶은 SQL 서버의*sysadmin*에 NT AUTHORITY\SYSTEM를 설치합니다.
+DPM을 로컬 시스템으로 실행한 다음 SQL Server 데이터베이스를 백업 하려면 SQL server 해당 계정에 대한 sysadmin 권한이 필요 합니다. 백업하고 싶은 SQL 서버의*sysadmin*에 NT AUTHORITY\\SYSTEM를 설치합니다.
 
 SharePoint 팜에서, SQL Server 별칭으로 구성 된 SQL Server 데이터베이스가 있는 경우, DPM이 보호할 프런트엔드 웹 서버의 SQL Server 클라이언트 구성 요소 설치 합니다.
 
@@ -50,14 +50,14 @@ Azure에서 SharePoint 팜 보호를 시작하기 전에, DPM 업데이트 롤�
 ## SharePoint 보호 구성
 DPM을 사용하여 SharePoint를 보호하기 전에 **ConfigureSharePoint.exe**를 사용하여 SharePoint VSS 기록기 서비스 (WSS 기록기 서비스)를 구성해야 합니다.
 
-**ConfigureSharePoint.exe**를 프런트엔드 웹 서버의 [DPM 설치 경로] \bin 폴더에서 찾을 수 있습니다. 이 도구는 SharePoint 팜의 자격 증명을 사용하여 보호 에이전트를 제공합니다. 단일 WFE 서버에서 실행합니다. 여러 WFE 서버만 있는 경우, 보호 그룹을 구성할 때 하나만 선택해야 합니다.
+**ConfigureSharePoint.exe**를 프런트엔드 웹 서버의 [DPM 설치 경로] \\bin 폴더에서 찾을 수 있습니다. 이 도구는 SharePoint 팜의 자격 증명을 사용하여 보호 에이전트를 제공합니다. 단일 WFE 서버에서 실행합니다. 여러 WFE 서버만 있는 경우, 보호 그룹을 구성할 때 하나만 선택해야 합니다.
 
 ### SharePoint VSS 기록기 서비스를 구성하려면
-1. WFE 서버의 명령 프롬프트에서 [DPM 설치 위치] \bin\로 이동
+1. WFE 서버의 명령 프롬프트에서 [DPM 설치 위치] \\bin\\로 이동
 2. ConfigureSharePoint-EnableSharePointProtection를 실행 합니다.
 3. 팜 관리자 자격 증명을 입력 합니다. 이 계정은 WFE 서버에서 로컬 관리자 그룹의 구성원 이어야 합니다. 팜 관리자가 로컬 관리자가 아닌 경우, WFE 서버에 다음 권한을 부여 합니다.
-  - DPM 폴더 (% Program Files%\Microsoft Data Protection Manager\DPM)에 WSS_Admin_WPG 그룹 전체 제어 권한을 부여 합니다.
-  - DPM 레지스트리 키 (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager)에 WSS_Admin_WPG 그룹 읽기 액세스 권한을 부여 합니다.
+  - DPM 폴더 (% Program Files%\\Microsoft Data Protection Manager\\DPM)에 WSS\_Admin\_WPG 그룹 전체 제어 권한을 부여 합니다.
+  - DPM 레지스트리 키 (HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Microsoft Data Protection Manager)에 WSS\_Admin\_WPG 그룹 읽기 액세스 권한을 부여 합니다.
 
 >[AZURE.NOTE]SharePoint 팜 관리자 자격 증명의 변경이 있을 때마다 ConfigureSharePoint.exe를 다시 실행 해야 합니다.
 
@@ -107,19 +107,19 @@ DPM을 사용하여 SharePoint를 보호하기 전에 **ConfigureSharePoint.exe*
 
 10. **온라인 백업 일정 지정**화면에서, 선호하는 일정을 선택하고 **다음**을 클릭합니다.
 
-    ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
+    ![Online\_backup\_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
 
     >[AZURE.NOTE]DPM에는 하루에 두번씩 다른시간에 Azure로 백업할 수 있습니다.
 
 11. 선택한 백업 일정에 따라 **온라인 보존 정책을 지정**화면에서 일별, 주별, 월별 및 연도별 백업 지점에 대 한 보존 정책을 선택 합니다.
 
-    ![Online_retention_policy](./media/backup-azure-backup-sharepoint/specify-online-retention.png)
+    ![Online\_retention\_policy](./media/backup-azure-backup-sharepoint/specify-online-retention.png)
 
     >[AZURE.NOTE]DPM은 다른 백업 지점에 대해 다른 보전 정책을 사용하는 조부-아버지-아들 보존 체계를 사용합니다.
 
 12. 디스크와 마찬가지로, Azure에서 초기 참조 지점을 만들어야 합니다. Azure로 복사할 초기 백업을 생성에 대해 원하는 옵션을 선택한 다음 **다음**을 클릭하세요.
 
-    ![Online_replica](./media/backup-azure-backup-sharepoint/online-replication.png)
+    ![Online\_replica](./media/backup-azure-backup-sharepoint/online-replication.png)
 
 13. **요약**페이지에서 선택한 설정을 검토하고 **그룹 만들기**를 클릭합니다. 보호 그룹이 생성되면 성공 메시지가 나타납니다.
 
@@ -226,4 +226,4 @@ Q: SharePoint가 SQL AlwaysOn을 사용하여 구성된 경우 SharePoint 데이
 - [System Center 2012-Data Protection Manager의 릴리스](https://technet.microsoft.com/library/jj860415.aspx)를 검토하세요
 - [System Center 2012 s p 1의 Data Protection Manager에 대한 릴리스 정보](https://technet.microsoft.com/library/jj860394.aspx)를 검토하세요.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

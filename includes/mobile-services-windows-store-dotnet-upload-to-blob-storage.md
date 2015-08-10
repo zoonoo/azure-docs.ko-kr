@@ -142,4 +142,4 @@
 
    	>[AZURE.NOTE]이미지는 새 항목의 <code>imageUri</code> 속성이 <strong>이미지</strong> 컨트롤에 연결될 때 Blob 저장소 서비스에서 자동으로 다운로드됩니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 개요
@@ -38,13 +38,15 @@ Azure 리소스 관리자는 관리 플랫폼으로 액세스 제어를 고유�
 
 Azure Preview 포털에서 모든 새 리소스는 리소스 그룹에 만들어집니다. 방금 웹 사이트와 같은 단일 리소스를 만드는 경우라도 기존 그룹에 해당 리소스를 추가하거나 해당 리소스에 대한 새 그룹을 만들 것인지 결정해야 합니다.
 
-다음 이미지는 웹 사이트, 데이터베이스 및 Application Insights과 함께 리소스 그룹을 보여줍니다.
+다음 이미지는 Application Insights와 리소스 그룹, 데이터베이스 서버, 데이터베이스, 앱 서비스 계획 및 웹 사이트를 보여줍니다.
 
-![리소스 그룹 요약](./media/resource-group-overview/resourcegroupsummary.png)
+![리소스 그룹 요약](./media/resource-group-overview/resourcegroupsummary2.png)
 
-리소스 그룹은 다른 리소스 그룹의 리소스에도 연결될 수 있습니다. 리소스는 다른 리소스 그룹의 리소스 간에 배포 종속성이 존재할 때 연결된 것으로 간주됩니다. 예를 들어 한 리소스 그룹의 웹 앱이 다른 리소스 그룹의 데이터베이스와 연결하는 경우 해당 리소스 연결된 것입니다.
+리소스 그룹은 다른 리소스 그룹의 리소스에도 연결될 수 있습니다. 리소스는 다른 리소스 그룹의 리소스 간에 배포 종속성이 존재할 때 연결된 것으로 간주됩니다. 예를 들어 한 리소스 그룹의 웹 앱이 다른 리소스 그룹의 데이터베이스와 연결하는 경우 해당 리소스 연결된 것입니다. 다른 리소스 그룹에 있는 리소스 간의 링크를 명시적으로 정의할 수도 있습니다.
 
-![링크된 리소스](./media/resource-group-overview/linkedresource.png)
+리소스 연결에 대한 자세한 내용은 [Azure 리소스 관리자에서 리소스 연결](resource-group-link-resources.md)을 참조하세요.
+
+새 리소스 그룹으로 리소스를 이동해야 하는 경우에는 [새 리소스 그룹 또는 구독으로 리소스 이동](resource-group-move-resources.md)을 참조하세요.
 
 미리 보기 포털에서 비용을 쉽게 보고 이벤트를 모니터링하며 경고를 관리합니다. 다음 이미지는 그룹에 대한 통합된 청구를 보여줍니다.
 
@@ -72,6 +74,8 @@ Marketplace에서 솔루션을 만들 때 솔루션에 자동으로 배포 템�
 
 배포용 템플릿을 사용하는 방법에 대한 정보는 [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](azure-portal/resource-group-template-deploy.md) 및 [Azure에서 예측 가능한 방식으로 복잡한 응용 프로그램 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하십시오.
 
+템플릿을 구성하는 방법에 대한 지침은 [Azure 리소스 관리자 템플릿 설계의 모범 사례](best-practices-resource-manager-design-templates.md)를 참조하세요.
+
 ## 태그
 
 Azure 리소스 관리자는 관리 또는 청구에 대한 요구 사항에 따라 리소스를 분류할 수 있는 태그 지정 기능을 제공합니다. 리소스 그룹 및 리소스의 복잡한 컬렉션이 있고 이러한 자산에 가장 적합한 방식으로 시각화할 필요가 있을 때 태그를 사용할 수 있습니다. 예를 들어 조직에서 비슷한 역할을 제공하거나 동일한 부서에 속한 리소스를 태그로 지정할 수 있습니다.
@@ -94,11 +98,13 @@ Azure 리소스 관리자를 사용하면 조직에 대한 특정 작업에 액�
 
 Azure 리소스 관리자는 자동으로 감사에 대한 사용자 작업을 기록합니다.
 
-또한 사용자가 삭제 및 수정하는 것을 방지하기 위해 명시적으로 중요한 리소스를 잠글 수 있습니다.
+또한 사용자가 삭제 및 수정하는 것을 방지하기 위해 명시적으로 중요한 리소스를 잠글 수 있습니다. 자세한 내용은 [Azure 리소스 관리자를 사용하여 리소스 잠그기](resource-group-lock-resources.md)를 참조하세요.
 
 역할 기반 액세스 제어에 대한 자세한 내용은 [Microsoft Azure Preview 포털에서 역할 기반 액세스 제어](./role-based-access-control-configure.md)를 참조하십시오.
 
 액세스 정책을 설정하는 예제를 보려면 [리소스에 대한 관리 및 감사 액세스](azure-portal/resource-group-rbac.md)를 참조하십시오.
+
+모범 사례는 [Azure 리소스 관리자에 대한 보안 고려 사항](best-practices-resource-manager-security.md)을 참조하세요.
 
 ## 일관적인 관리 계층
 
@@ -110,33 +116,13 @@ Azure CLI에 대한 정보는 [Azure 리소스 관리에서 Mac, Linux 및 Windo
 
 REST API에 대한 정보는 [Azure 리소스 관리자 REST API 참조](https://msdn.microsoft.com/library/azure/dn790568.aspx)를 참조하십시오..
 
+Preview 포털 사용에 대한 내용은 [Azure Preview 포털을 사용하여 Azure 리소스 관리](azure-portal/resource-group-portal.md)를 참조하세요.
+
 ## 다음 단계
-시작
 
-- [리소스 관리자로 Azure PowerShell 사용](./powershell-azure-resource-manager.md)
-- [리소스 관리에서 Azure CLI 사용](./virtual-machines/xplat-cli-azure-resource-manager.md)
-- [Azure 포털을 사용하여 리소스 관리](azure-portal/resource-group-portal.md)
+- 템플릿 작성에 대해 자세히 알아보려면 [템플릿 작성](./resource-group-authoring-templates.md)을 참조하세요.
+- 작성한 템플릿을 배포하려면 [템플릿 배포](azure-portal/resource-group-template-deploy.md)를 참조하세요.
+- 템플릿에서 사용할 수 있는 함수를 이해하려면 [템플릿 함수](./resource-group-template-functions.md)를 참조하세요.
+- 템플릿 설계에 대한 지침은 [Azure 리소스 관리자 템플릿 설계의 모범 사례](best-practices-resource-manager-design-templates.md)를 참조하세요.
 
-응용 프로그램 만들기 및 배포
-
-- [템플릿 작성](./resource-group-authoring-templates.md)
-- [템플릿 배포](azure-portal/resource-group-template-deploy.md)
-- [배포 문제해결](virtual-machines/resource-group-deploy-debug.md)
-- [Azure에서 예측 가능하도록 복잡한 응용 프로그램을 배포](app-service-web/app-service-deploy-complex-application-predictably.md)
-- [.NET 라이브러리 및 템플릿을 사용하여 배포](virtual-machines/arm-template-deployment.md)
-- [템플릿 함수](./resource-group-template-functions.md)
-- [고급 템플릿 작업](./resource-group-advanced-template.md)
-- [템플릿 스키마](https://github.com/Azure/azure-resource-manager-schemas)
-
-리소스 구성
-
-- [태그를 사용하여 리소스 구성](./resource-group-using-tags.md)
-
-액세스 관리 및 감사
-
-- [리소스에 대한 액세스 관리 및 감사](azure-portal/resource-group-rbac.md)
-- [미리 보기 포털의 역할 기반 액세스 제어](./role-based-access-control-configure.md)
-- [서비스 사용자 인증](./resource-group-authenticate-service-principal.md)
-- [Azure 포털을 사용하여 새 서비스 사용자 만들기](./resource-group-create-service-principal-portal.md)
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="인증 시작(HTML 5) | 모바일 개발자 센터" 
-	description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 HTML 앱 사용자를 인증하는 방법을 알아봅니다." 
+	pageTitle="HTML/JavaScript 앱에 인증 추가 | Azure 모바일 서비스" 
+	description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 계정 등의 다양한 ID 공급자를 통해 HTML 앱 사용자를 인증하는 방법을 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # 모바일 서비스 앱에 인증 추가 
@@ -53,7 +53,7 @@
 
 ##<a name="add-authentication"></a>앱에 인증 추가
 
->[AZURE.NOTE]팝업에서 로그인이 이루어지기 때문에 단추 클릭 이벤트에서 <strong>login</strong> 메서드를 호출해야 합니다. 그렇지 않으면 많은 브라우저에서 로그인 창이 표시되지 않습니다.
+>[AZURE.NOTE]팝업에서 로그인이 이루어지기 때문에 단추 클릭 이벤트에서 **login** 메서드를 호출해야 합니다. 그렇지 않으면 많은 브라우저에서 로그인 창이 표시되지 않습니다.
 
 1. 프로젝트 파일 index.html을 열고 H1 요소를 찾은 후 그 아래에 다음 코드 조각을 추가합니다.
 
@@ -109,7 +109,7 @@
 
 	   로그인하고 나면 앱이 오류 없이 실행되며 모바일 서비스를 쿼리하고 데이터를 업데이트할 수 있게 됩니다.
 
-	>[AZURE.NOTE]Internet Explorer를 사용할 때 로그인한 후에 오류가 발생할 수 있습니다. <code>Cannot reach window opener. It may be on a different Internet Explorer zone</code>. 이는 팝업이 localhost(인트라넷)와 다른 보안 영역(인터넷)에서 실행되기 때문에 발생합니다. localhost를 사용하여 개발하는 동안에만 앱에 영향을 미칩니다. 해결하려면 <strong>인터넷 옵션</strong>의 <strong>보안</strong> 탭을 열고 <strong>로컬 인트라넷</strong>을 클릭한 후 <strong>사이트</strong>를 클릭한 다음 <strong>인트라넷 네트워크를 자동으로 검색</strong>을 사용하지 않도록 설정합니다. 테스트를 완료하면 이 설정을 다시 변경해야 합니다.
+	>[AZURE.NOTE]Internet Explorer를 사용할 때 로그인한 후에 오류가 발생할 수 있습니다. <code>Cannot reach window opener. It may be on a different Internet Explorer zone</code>. 이는 팝업이 localhost(인트라넷)와 다른 보안 영역(인터넷)에서 실행되기 때문에 발생합니다. localhost를 사용하여 개발하는 동안에만 앱에 영향을 미칩니다. 해결하려면 **인터넷 옵션**의 **보안** 탭을 열고 **로컬 인트라넷**을 클릭한 후 **사이트**를 클릭한 다음 **인트라넷 네트워크를 자동으로 검색**을 사용하지 않도록 설정합니다. 테스트를 완료하면 이 설정을 다시 변경해야 합니다.
 
 ## <a name="next-steps"> </a>다음 단계
 
@@ -138,4 +138,4 @@
 [모바일 서비스 HTML/JavaScript 방법 개념 참조]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -40,13 +40,12 @@ ADFS 서버에 Microsoft Identity Health Agent를 설치해도 CPU, 메모리 �
 
 아래 숫자는 근사치입니다.
 
-- CPU 사용: ~1% 증가
+- CPU 사용: \~1% 증가
 - 메모리 소비: 전체 시스템 메모리의 최대 10%
-- 네트워크 대역폭 사용: ~1MB/ADFS 요청 1000개
->[AZURE.NOTE]에이전트가 Azure와 통신할 수 없는 경우 에이전트는 데이터를 전체 시스템 메모리의 최대 10%까지 로컬로 저장합니다. 에이전트가 전체 실제 메모리의 10%에 도달한 후, 에이전트가 데이터를 서비스로 업로드하지 못했다면, 서비스한지 가장 오래된 "캐싱된" 트랜잭션부터 새로운 ADFS 트랜잭션으로 대체됩니다.
+- 네트워크 대역폭 사용: \~1MB/ADFS 요청 1000개
+>[AZURE.NOTE]
 
-
-- AD Health Agent의 로컬 버퍼 저장소: ~20MB
+- AD Health Agent의 로컬 버퍼 저장소: \~20MB
 - 감사 채널에 필요한 데이터 저장소
 
 
@@ -69,7 +68,7 @@ Register-AdHealthAgent를 실행하기 전 언제든지 수행하세요(설치 �
 - 1단계 - machine.config 파일에 항목 추가
 
 
-machine.config 파일을 찾습니다. 파일은 %windir%\Microsoft.NET\Framework64[version]\config\machine.config</li>에 있습니다.
+machine.config 파일을 찾습니다. 파일은 %windir%\\Microsoft.NET\\Framework64[version]\\config\\machine.config</li>에 있습니다.
 
 machine.config 파일의 <configuration></configuration> 요소 아래에 다음 항목을 추가합니다.
  
@@ -85,7 +84,7 @@ machine.config 파일의 <configuration></configuration> 요소 아래에 다음
 
  
 
-추가 <defaultProxy> 정보는 [여기](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110).aspx)에서 확인할 수 있습니다.
+추가 <defaultProxy> 정보는 [여기](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110).aspx))에서 확인할 수 있습니다.
 
 이 설정은 http .NET 요청을 수행할 때 명시적으로 정의된 프록시를 사용하도록 시스템 전체의 .NET 응용 프로그램을 구성합니다. 자동 업데이트 중에 실행이 취소되므로 개별 app.config는 수정하지 않는 것이 좋습니다. 파일 한 개만 변경해야 하며 machine.config만 수정하는 경우 업데이트 시에도 유지됩니다.
 
@@ -103,6 +102,9 @@ HTTP 및 HTTPS/보안의 프록시 포트가 다른 경우 고급을 선택합�
 **Q: Azure AD Connect Health Services는 Http 프록시에 연결할 때 기본 인증을 지원하나요?**
 
 아니요. 기본 인증에 필요한 임의 사용자 이름/암호 지정 메커니즘은 현재 지원되지 않습니다.
+
+
+
 
 
 ## 작업 관련 질문
@@ -126,4 +128,4 @@ Azure AD Connect Health 경고는 성공 조건에서 해결됩니다. Azure AD 
 
 Azure AD Connect Health Agent가 Azure AD Health 서비스 끝점과 통신할 수 있도록 하려면 TCP/UDP 포트 80 및 443을 열어야 합니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -149,16 +149,16 @@ Azure Batch 풀에서 자동으로 계산 노드 크기를 조정하는 것은 �
 - string
 - timestamp
 - timeinterval
-	- TimeInterval_Zero
-	- TimeInterval_100ns
-	- TimeInterval_Microsecond
-	- TimeInterval_Millisecond
-	- TimeInterval_Second
-	- TimeInterval_Minute
-	- TimeInterval_Hour
-	- TimeInterval_Day
-	- TimeInterval_Week
-	- TimeInterval_Year
+	- TimeInterval\_Zero
+	- TimeInterval\_100ns
+	- TimeInterval\_Microsecond
+	- TimeInterval\_Millisecond
+	- TimeInterval\_Second
+	- TimeInterval\_Minute
+	- TimeInterval\_Hour
+	- TimeInterval\_Day
+	- TimeInterval\_Week
+	- TimeInterval\_Year
 
 ### 작업
 
@@ -359,8 +359,8 @@ doubleVecList 값은 평가 전 단일 doubleVec로 변환됩니다. 예를 들�
           <li><p><b>doubleVec GetSample(double count)</b> - 가장 최근 샘플에서 필요한 샘플 수를 지정합니다.</p>
 				  <p>하나의 샘플은 5초 동안의 메트릭 데이터입니다. GetSample(1)은 사용 가능한 마지막 샘플을 반환하지만 $CPUPercent 같은 메트릭의 경우 샘플 수집 시기를 알 수 없으므로 이 메서드를 사용하지 않아야 합니다. 최근 샘플일 수도 있지만 시스템 문제로 인해 훨씬 오래된 샘플일 수도 있습니다. 아래 표시된 것처럼 시간 간격을 사용하는 것이 좋습니다.</p></li>
           <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime [, double samplePercent])</b> – 샘플 데이터를 수집할 시간 프레임을 지정하고 선택적으로 요청 범위에 있어야 하는 샘플의 백분율을 지정합니다.</p>
-          <p>마지막 10분 동안의 모든 샘플이 CPUPercent 기록에 있는 경우 $CPUPercent.GetSample(TimeInterval_Minute*10)은 200개의 샘플을 반환해야 합니다. 마지막 1분의 기록이 아직 없는 경우 180개의 샘플만 반환됩니다.</p>
-					<p>$CPUPercent.GetSample(TimeInterval_Minute*10, 80)이 성공하면 $CPUPercent.GetSample(TimeInterval_Minute*10,95)이 실패합니다.</p></li>
+          <p>마지막 10분 동안의 모든 샘플이 CPUPercent 기록에 있는 경우 $CPUPercent.GetSample(TimeInterval\_Minute\*10)은 200개의 샘플을 반환해야 합니다. 마지막 1분의 기록이 아직 없는 경우 180개의 샘플만 반환됩니다.</p>
+					<p>$CPUPercent.GetSample(TimeInterval\_Minute\*10, 80)이 성공하면 $CPUPercent.GetSample(TimeInterval_Minute\*10,95)이 실패합니다.</p></li>
           <li><p><b>doubleVec GetSample((timestamp | timeinterval) startTime, (timestamp | timeinterval) endTime [, double samplePercent])</b> – 시작 시간과 종료 시간이 모두 포함된 데이터 수집 시간 프레임을 지정합니다.</p></li></ul></td>
   </tr>
   <tr>
@@ -407,9 +407,9 @@ doubleVecList 값은 평가 전 단일 doubleVec로 변환됩니다. 예를 들�
       <li>$NetworkInBytes</li>
       <li>$NetworkOutBytes</li></ul></p>
     <p>이 예에서는 지난 10분 동안의 최소 평균 CPU 사용량이 70%를 초과하는 경우 풀의 계산 노드 수를 현재 대상 노드 수의 110%로 설정하는 데 사용되는 수식을 보여줍니다.</p>
-    <p><b>totalTVMs = (min($CPUPercent.GetSample(TimeInterval_Minute*10)) > 0.7) ? ($CurrentDedicated * 1.1) : $CurrentDedicated;</b></p>
+    <p><b>totalTVMs = (min($CPUPercent.GetSample(TimeInterval\_Minute\*10)) > 0.7) ? ($CurrentDedicated \* 1.1) : $CurrentDedicated;</b></p>
     <p>이 예에서는 지난 60분 동안의 평균 CPU 사용량이 20% 미만인 경우 풀의 계산 노드 수를 현재 대상 노드 수의 90%로 설정하는 데 사용되는 수식을 보여줍니다.</p>
-    <p><b>totalTVMs = (avg($CPUPercent.GetSample(TimeInterval_Minute*60)) &lt; 0.2) ? ($CurrentDedicated * 0.9) : totalTVMs;</b></p>
+    <p><b>totalTVMs = (avg($CPUPercent.GetSample(TimeInterval\_Minute\*60)) &lt; 0.2) ? ($CurrentDedicated \* 0.9) : totalTVMs;</b></p>
     <p>이 예에서는 대상 전용 계산 노드 수를 최대 400으로 설정합니다.</p>
     <p><b>$TargetDedicated = min(400, totalTVMs);</b></p></td>
   </tr>
@@ -424,7 +424,7 @@ doubleVecList 값은 평가 전 단일 doubleVec로 변환됩니다. 예를 들�
       <li>$FailedTasks</li>
       <li>$CurrentDedicated</li></ul></p>
     <p>이 예에서는 샘플의 70%가 지난 15분 동안 기록되었는지 여부를 검색하는 수식을 보여줍니다. 지난 15분 동안 기록된 것이 아닌 경우 마지막 샘플을 사용합니다. 활성 태스크 수와 일치하도록 계산 노드 수를 증가시키려고 하며 최대값은 3입니다. 풀의 MaxTasksPerVM 속성이 4로 설정되어 있기 때문에 활성 태스크 수의 1/4로 노드 수를 설정합니다. 또한 Deallocation 옵션을 "taskcompletion"으로 설정하여 작업이 완료될 때까지 컴퓨터를 유지합니다.</p>
-    <p><b>$Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15); $Tasks = $Samples &lt; 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval_Minute * 15))); $Cores = $TargetDedicated * 4; $ExtraVMs = ($Tasks - $Cores) / 4; $TargetVMs = ($TargetDedicated+$ExtraVMs);$TargetDedicated = max(0,min($TargetVMs,3)); $TVMDeallocationOption = taskcompletion;</b></p></td>
+    <p><b>$Samples = $ActiveTasks.GetSamplePercent(TimeInterval\_Minute \* 15); $Tasks = $Samples &lt; 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval\_Minute \* 15))); $Cores = $TargetDedicated \* 4; $ExtraVMs = ($Tasks - $Cores) / 4; $TargetVMs = ($TargetDedicated+$ExtraVMs);$TargetDedicated = max(0,min($TargetVMs,3)); $TVMDeallocationOption = taskcompletion;</b></p></td>
   </tr>
 </table>
 
@@ -476,4 +476,4 @@ doubleVecList 값은 평가 전 단일 doubleVec로 변환됩니다. 예를 들�
 	- [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx) – 이 cmdlet은 지정된 계산 노드에서 RDP 파일을 가져와 지정된 파일 위치 또는 스트림에 저장합니다.
 2.	일부 응용 프로그램은 많은 양의 데이터를 생성하여 처리하기가 어려울 수 있습니다. 이 문제를 해결하는 한 가지 방법은 [효율적인 목록 쿼리](batch-efficient-list-queries.md)를 사용하는 것입니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

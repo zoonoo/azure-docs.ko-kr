@@ -28,7 +28,7 @@ Spark 스트리밍는 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
 다음이 있어야 합니다.
 
 - Azure 구독. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-- Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 프로비전](hdinsight-apache-spark-provision-clusters.md)을 참조하십시오.
+- Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 프로비전](hdinsight-apache-spark-provision-clusters.md)을 참조하십시오.
 - [Azure 이벤트 허브](service-bus-event-hubs-csharp-ephcs-getstarted.md)입니다.
 - Microsoft Visual Studio 2013이 설치된 워크스테이션입니다. 관련 지침은 [Visual Studio 설치](https://msdn.microsoft.com/library/e2h7fzkw.aspx)를 참조하십시오.
 
@@ -52,7 +52,7 @@ Spark 스트리밍는 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
 <tr><th>이름</th><th>권한</th></tr>
 <tr><td>mysendpolicy</td><td>보내기</td></tr>
 <tr><td>myreceivepolicy</td><td>수신 대기</td></tr>
-</table>권한을 만든 후 페이지 아래쪽의 **저장** 아이콘을 선택합니다. 그러면 이 이벤트 허브로 보내고 (**mysendpolicy**) 수신하는(**myreceivepolicy**) 데 사용되는 공유 액세스 정책이 만들어집니다.
+</table>권한을 만든 후 페이지 아래쪽의 **저장** 아이콘을 선택합니다. 그러면 이 이벤트 허브로 보내고 (\*\*mysendpolicy\*\*) 수신하는(\*\*myreceivepolicy\*\*) 데 사용되는 공유 액세스 정책이 만들어집니다.
 
 	![정책](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Policies.png "이벤트 허브 정책 만들기")
 
@@ -75,13 +75,13 @@ Spark 스트리밍는 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
 
 2. 새 Notebook을 만듭니다. 헤더 창에서 **Notebook**을 클릭하고 드롭다운에서 **새 메모 만들기**를 클릭합니다.
 
-	![새 Zeppelin Notebook 만들기](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.CreateNewNote.png "새 Zeppelin Notebook 만들기")
+	![새 Zeppelin Notebook 만들기](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.CreateNewNote.png "새 Zeppelin 노트북 만들기")
 
-	같은 페이지의 **Notebook** 제목 아래에 **Note XXXXXXXXX**로 시작하는 이름의 새 Notebook이 표시됩니다. 새 Notebook을 클릭합니다.
+	같은 페이지의 **Notebook** 제목 아래에 **Note XXXXXXXXX**로 시작하는 이름의 새 Notebook이 표시됩니다. 새 노트북을 클릭합니다.
 
-3. 새 Notebook에 대한 웹 페이지에서 제목을 클릭하고 원하는 경우 Notebook의 이름을 변경합니다. Enter 키를 눌러 변경된 이름을 저장합니다. 또한 Notebook 제목의 오른쪽 위 모서리에 **연결됨** 상태가 표시되는지 확인합니다.
+3. 새 노트북에 대한 웹 페이지에서 제목을 클릭하고 원하는 경우 노트북의 이름을 변경합니다. Enter 키를 눌러 변경된 이름을 저장합니다. 또한 Notebook 제목의 오른쪽 위 모서리에 **연결됨** 상태가 표시되는지 확인합니다.
 
-	![Zeppelin Notebook 상태](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.NewNote.Connected.png "Zeppelin Notebook 상태")
+	![Zeppelin 노트북 상태](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.NewNote.Connected.png "Zeppelin Notebook 상태")
 
 4. 새 Notebook에서 기본적으로 만들어지는 빈 단락에 다음 코드 조각을 붙여넣고 이벤트 허브 구성을 사용하여 자리 표시자를 바꿉니다. 이 조각에서는 이벤트 허브에서 스트림을 제공하고 이 스트림을 **mytemptable**라는 임시 테이블로 등록합니다. 다음 섹션에서 발신자 응용 프로그램을 시작하겠습니다. 그런 다음 테이블에서 직접 데이터를 읽을 수 있습니다.
 
@@ -164,4 +164,4 @@ HDInsight에서 Spark 클러스터로 스트리밍 데이터를 받으려면 Zep
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

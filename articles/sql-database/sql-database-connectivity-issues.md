@@ -13,7 +13,7 @@
 	ms.workload="data-management" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="NA" 
-	ms.date="07/17/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sstein"/>
 
 
@@ -64,12 +64,12 @@ SQL Server Management Studio 또는 SQLCMD.EXE를 사용하여 데이터베이�
 
 - SQL 데이터베이스 연결에 대한 자세한 내용은[프로그래밍 방식으로 Azure SQL 데이터베이스에 연결하기 위한 지침](https://msdn.microsoft.com/library/azure/ee336282.aspx)을 참조하십시오.   
 
-- 특정 연결 오류에 대한 자세한 내용은 [오류 메시지(Azure SQL 데이터베이스)](https://msdn.microsoft.com/library/azure/ff394106.aspx#bkmk_connection_errors)의 **연결 끊김 오류** 섹션에서 찾을 수 있습니다.
+- 특정 연결 오류에 대한 자세한 내용은 [SQL 데이터베이스 클라이언트 프로그램에 대한 오류 메시지](sql-database-develop-error-messages.md#bkmk_connection_errors)의 **일시적인 오류, 연결 끊김 오류** 섹션에서 찾을 수 있습니다.
 
-- 연결 이벤트 데이터는 [**sys.event_log(Azure SQL 데이터베이스)**](https://msdn.microsoft.com/library/dn270018.aspx) 뷰를 사용하여 연결 이벤트를 쿼리하여 액세스할 수 있습니다.
+- 연결 이벤트 데이터는 [**sys.event\_log(Azure SQL 데이터베이스)**](https://msdn.microsoft.com/library/dn270018.aspx) 뷰를 사용하여 연결 이벤트를 쿼리하여 액세스할 수 있습니다.
 
-- 데이터베이스 연결 이벤트의 메트릭은 [**sys.database_connection_stats (Azure SQL Database)**](https://msdn.microsoft.com/library/dn269986.aspx) 뷰를 쿼리하여 액세스할 수 있습니다.
+- 데이터베이스 연결 이벤트의 메트릭은 [**sys.database\_connection\_stats (Azure SQL Database)**](https://msdn.microsoft.com/library/dn269986.aspx) 뷰를 쿼리하여 액세스할 수 있습니다.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

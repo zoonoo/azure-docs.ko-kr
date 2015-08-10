@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/07/2015" 
+	ms.date="07/22/2015" 
 	ms.author="awills"/>
  
 # ASP.NET용 Application Insights 문제 해결 및 질문
@@ -46,11 +46,18 @@
 
 #### <a name="q02"></a>새 웹 프로젝트는 만들었는데 Application Insights를 추가하지 못했습니다.
 
-이런 상황은 Application Insights 포털과의 통신에 실패한 경우 또는 계정에 어떤 문제가 있는 경우에 발생할 수 있습니다.
+이 경우에 발생할 수 있습니다.
 
-+ 올바른 Azure 계정의 로그인 자격 증명을 제공했는지 확인하세요. 새 프로젝트 대화 상자에 표시되는 Microsoft Azure 자격 증명은 Visual Studio의 오른쪽 위에 표시되는 Visual Studio Online 자격 증명과 다를 수 있습니다.
-+ 잠시 기다린 후 [기존 프로젝트에 Application Insights를 추가][start]합니다.
-+ Microsoft Azure 계정 설정으로 이동하여 제한을 확인합니다. Application Insights 응용 프로그램을 수동으로 추가할 수 있는지 확인합니다.
+* Application Insights 포털과의 통신이 실패했거나 또는
+* 계정에 일부 문제가 있습니다.
+* [새 리소스를 만들려고 하던 구독 또는 그룹에 대한 읽기 액세스](app-insights-resources-roles-access-control.md) 권한만이 있습니다.
+
+해결책:
+
++ 올바른 Azure 계정의 로그인 자격 증명을 제공했는지 확인하세요. 이전 버전의 도구에서, 새 프로젝트 대화 상자에 표시되는 Microsoft Azure 자격 증명은 Visual Studio의 오른쪽 위에 표시되는 Visual Studio Online 자격 증명과 다를 수 있습니다.
++ 브라우저에서 [Azure 포털](https://portal.azure.com)에 대한 액세스 권한이 있는지 확인합니다. 설정을 열고 제한이 있는지 확인합니다.
++ [Application Insights를 기존 프로젝트에 추가][start]\: 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 "Application Insights 추가"를 선택합니다.
++ 여전히 작동하지 않는 경우 [수동 절차](app-insights-start-monitoring-app-health-usage.md)에 따라 포털에서 리소스에 추가한 다음 SDK를 프로젝트에 추가합니다. 
 
 #### <a name="emptykey"></a>"계측 키는 비워 둘 수 없습니다." 오류가 발생합니다.
 
@@ -90,7 +97,7 @@ Application Insights를 설치하는 동안 문제가 발생했거나 로깅 어
 
  - packages.config
 
-+ (새 프로젝트에만 해당 - [기존 프로젝트에 Application Insights를 추가][start]한 경우 이를 수동으로 수행해야 합니다.) 클라이언트 및 서버 코드에 코드 조각을 삽입하여 Application Insights 리소스 ID로 해당 코드를 초기화합니다. 예를 들어 MVC 앱에서 코드를 마스터 페이지 Views/Shared/_Layout.cshtml에 삽입합니다.
++ (새 프로젝트에만 해당 - [기존 프로젝트에 Application Insights를 추가][start]한 경우 이를 수동으로 수행해야 합니다.) 클라이언트 및 서버 코드에 코드 조각을 삽입하여 Application Insights 리소스 ID로 해당 코드를 초기화합니다. 예를 들어 MVC 앱에서 코드를 마스터 페이지 Views/Shared/\_Layout.cshtml에 삽입합니다.
 
 ####<a name="NuGetBuild"></a> 개발 컴퓨터에 모든 것이 잘 빌드되었지만 빌드 서버에 "NuGet 패키지가 누락됩니다"가 표시됩니다.
 
@@ -98,7 +105,7 @@ Application Insights를 설치하는 동안 문제가 발생했거나 로깅 어
 
 ####<a name="FailUpdate"></a> NuGet 패키지를 0.17 또는 최신 버전으로 업데이트한 후에 빌드를 시도할 때 "프로젝트가 컴퓨터에서 누락된 NuGet 패키지를 참조합니다"가 표시됩니다.
 
-0.17 또는 최신 NuGet 패키지를 업데이트한 후에 위의 오류가 표시되면 proj 파일을 편집하고 남아있는 BCL 대상을 제거해야 합니다.
+0\.17 또는 최신 NuGet 패키지를 업데이트한 후에 위의 오류가 표시되면 proj 파일을 편집하고 남아있는 BCL 대상을 제거해야 합니다.
 
 다음을 수행합니다.
 
@@ -232,4 +239,4 @@ Application Insights 리소스를 만드는 [PowerShell script 스크립트를 �
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

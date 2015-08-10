@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="07/24/2015" 
 	ms.author="genemi"/>
 
 
@@ -88,9 +88,9 @@ Azure 같은 클라우드 서비스와 해당 SQL 데이터베이스 서비스�
 SQL 데이터베이스와 함께 오류가 발생하면[SqlException](https://msdn.microsoft.com/library/system.data.sqlclient.sqlexception.aspx)이 throw됩니다. `SqlException`은 해당 **Number** 속성의 숫자 오류 코드를 포함합니다. 오류 코드가 일시적 오류로 나열된 코드인 경우 프로그램에서 호출을 다시 시도해야 합니다.
 
 
-- [오류 메시지(Azure SQL 데이터베이스)](http://msdn.microsoft.com/library/azure/ff394106.aspx)
+- [SQL 데이터베이스 클라이언트 프로그램에 대한 오류 메시지](sql-database-develop-error-messages.md)
  - **일시적인 오류, 연결 손실 오류** 섹션은 자동으로 재시도가 보증되는 일시적인 오류 목록입니다.
- - 예를 들어, <br/>과 유사한 오류 번호 40613이 발생한 경우 *'theserver' 서버의 'mydatabase' 데이터베이스가 현재 사용 불가능합니다.*
+ - 예를 들어, <br/>과 유사한 오류 번호 40613이 발생한 경우 \*'theserver' 서버의 'mydatabase' 데이터베이스가 현재 사용 불가능합니다.\*
 
 
 일시적인 *오류*는 일시적인*장애*라고도 합니다. 이 항목에서는 이 두 용어를 동의어라고 간주합니다.
@@ -135,7 +135,7 @@ V12에서는 이 게이트웨이를 제거했습니다. 이제:
  - 재시도 논리를 포함하는 코드 샘플에 대한 링크가 있으며 연결하여 쿼리하는 샘플과 유사합니다.
 - [Azure SQL 데이터베이스에 안정적으로 연결하는 방법](http://msdn.microsoft.com/library/azure/dn864744.aspx)
 - [엔터프라이즈 라이브러리와 ADO.NET을 사용하여 Azure SQL 데이터베이스에 연결하는 방법](http://msdn.microsoft.com/library/azure/dn961167.aspx)
-- [ADO.NET을 사용하여 SQL 데이터베이스에 연결하는 방법](http://msdn.microsoft.com/library/azure/ee336243.aspx)
+- [코드 샘플: SQL 데이터베이스에 연결에 대한 C#에서 논리 다시 시도](sql-database-develop-csharp-retry-windows.md)
 
 
 ## 기술
@@ -174,4 +174,4 @@ Windows, Linux 및 Mac OS X 모두에서 실행 되는 클라이언트에 대한
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

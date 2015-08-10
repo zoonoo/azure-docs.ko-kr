@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DocumentDB 계정 모니터링 | Azure" 
+	pageTitle="Azure Preview 포털을 사용하여 DocumentDB 계정 모니터링 | Microsoft Azure" 
 	description="성능 메트릭(예: 요청 및 서버 오류) 및 사용 현황 메트릭(예: 저장소 사용량)에 대해 DocumentDB 계정을 모니터링하는 방법을 알아봅니다." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="07/29/2015" 
 	ms.author="mimig"/>
 
-#DocumentDB 계정 모니터링  
+# Azure Preview 포털을 사용하여 DocumentDB 계정 모니터링 
 
 [Microsoft Azure Preview 포털](https://portal.azure.com/)에서 DocumentDB 계정을 모니터링할 수 있습니다. 각 DocumentDB 계정에 대해 성능 메트릭(예: 요청 및 서버 오류)과 사용량 메트릭(예: 저장소 사용)을 사용할 수 있습니다.
 
-## <a id="metrics"></a> 방법: DocumentDB 계정의 성능 메트릭 보기
-1.	[Azure Preview 포털](https://portal.azure.com/)에서 **찾아보기**, **DocumentDB 계정**을 클릭하고 성능 메트릭을 보려는 DocumentDB 계정의 이름을 클릭합니다.
+## 방법: DocumentDB 계정의 성능 메트릭 보기
+1.	[Azure Preview 포털](https://portal.azure.com/)에서 **모두 찾아보기**, **DocumentDB 계정**을 클릭하고 성능 메트릭을 보려는 DocumentDB 계정의 이름을 클릭합니다.
 2.	**모니터링** 렌즈에서 기본적으로 다음을 확인할 수 있습니다.
 	*	오늘의 총 요청 수
 	*	오늘의 초당 평균 요청 수 
@@ -35,19 +35,19 @@
 	![메트릭 블레이드의 스크린샷](./media/documentdb-monitor-accounts/madocdb2.png)
 
 
-## <a id="custom"></a>DocumentDB 계정의 성능 메트릭 뷰 사용자 지정
+## DocumentDB 계정의 성능 메트릭 뷰 사용자 지정
 
 1.	특정 파트에 표시되는 메트릭을 사용자 지정하려면 메트릭 차트를 마우스 오른쪽 단추로 클릭한 다음 **차트 편집**을 선택합니다. ![차트 편집 단추가 강조 표시된 총 요청 차트의 스크린샷](./media/documentdb-monitor-accounts/madocdb3.png)
 
 2.	**차트 편집** 블레이드에서 파트뿐 아니라 시간 간격에 표시되는 메트릭을 수정하는 옵션도 있습니다. ![차트 편집 블레이드의 스크린샷](./media/documentdb-monitor-accounts/madocdb4.png)
 
 3.	파트에 표시되는 메트릭을 변경하려면 사용 가능한 성능 메트릭을 선택/선택 취소한 다음 블레이드의 아래쪽에 있는 **저장**을 클릭합니다.
-4.	시간 범위를 변경하려면 다른 범위(예: **지난 시간**)를 선택한 다음 블레이드의 아래쪽에 있는 **저장**을 클릭합니다.  
+4.	시간 범위를 변경하려면 다른 범위(예: **사용자 지정**)를 선택한 다음 블레이드의 아래쪽에 있는 **저장**을 클릭합니다.  
 
 	![사용자 지정 시간 범위를 입력하는 방법을 보여 주는 차트 편집 블레이드 시간 범위 파트의 스크린샷](./media/documentdb-monitor-accounts/madocdb5.png)
 
 
-## <a id="create"></a>병렬 성능 메트릭 차트 만들기
+## 병렬 성능 메트릭 차트 만들기
 Azure Preview 포털에서 병렬 메트릭 차트를 만들 수 있습니다.
 
 1.	먼저, 복제 및 수정할 차트를 마우스 오른쪽 단추로 클릭하고 **사용자 지정**을 선택합니다. 
@@ -61,19 +61,19 @@ Azure Preview 포털에서 병렬 메트릭 차트를 만들 수 있습니다.
 
 이제 파트에 표시되는 메트릭 및 시간 범위를 사용자 지정하면서 이 파트를 다른 메트릭 파트로 처리할 수 있습니다. 이렇게 하면 두 가지 다른 메트릭 차트를 동시에 병렬로 볼 수 있습니다. ![총 요청 차트 및 지난 1시간의 새로운 총 요청 차트의 스크린샷](./media/documentdb-monitor-accounts/madocdb8.png)
 
-## <a id="view"></a>DocumentDB 계정의 사용량 메트릭 보기
+## DocumentDB 계정의 사용량 메트릭 보기
 1.	[Azure Preview 포털](https://portal.azure.com/)에서 **찾아보기**, **DocumentDB 계정**을 클릭하고 사용량 메트릭을 보려는 DocumentDB 계정의 이름을 클릭합니다.
 2.	**사용량** 렌즈 내에서 기본적으로 다음을 확인할 수 있습니다.
-	*	예상 비용.
+	*	현재 청구 기간에 대한 DocumentDB 계정의 지금까지의 예상 비용.
 	*	계정 내에서 소비되는 저장소.
-	*	계정의 최대 사용 가능한 저장소.
+	*	계정의 최대 사용 가능한 저장소(임계값).
 	*	사용자 및 권한 사용량.
 	*	첨부 파일 사용량.
 
 	![사용량 렌즈의 스크린샷](./media/documentdb-monitor-accounts/madocdb9.png)
  
-## <a id="setup"></a>DocumentDB 계정의 성능 메트릭 경고 설정
-1.	[Azure Preview 포털](https://portal.azure.com/)에서 **찾아보기**, **DocumentDB 계정**을 클릭하고 성능 메트릭 경고를 설정할 DocumentDB 계정의 이름을 클릭합니다.
+## DocumentDB 계정의 성능 메트릭 경고 설정
+1.	[Azure Preview 포털](https://portal.azure.com/)에서 **모두 찾아보기**, **DocumentDB 계정**을 클릭하고 성능 메트릭 경고를 설정할 DocumentDB 계정의 이름을 클릭합니다.
 2.	**작업** 렌즈에서 **경고 규칙** 파트를 클릭합니다. ![경고 규칙 파트가 선택된 작업 렌즈의 스크린샷](./media/documentdb-monitor-accounts/madocdb10.png)
 
 3.	경고 규칙 블레이드에서 **경고 추가**를 클릭합니다. ![경고 추가 단추가 강조 표시된 경고 규칙 블레이드의 스크린샷](./media/documentdb-monitor-accounts/madocdb11.png)
@@ -86,17 +86,8 @@ Azure Preview 포털에서 병렬 메트릭 차트를 만들 수 있습니다.
 	*	경고가 발생할 때 서비스 관리자 및 공동 관리자에게 메일을 보낼지 여부
 	*	경고 알림에 대한 추가 메일 주소 ![경고 규칙 추가 블레이드의 스크린샷](./media/documentdb-monitor-accounts/madocdb12.png)
 
- 
-## <a id="next"></a>다음 단계
+## 다음 단계
 DocumentDB에 대한 자세한 내용은 [DocumentDB 용량 관리](documentdb-manage.md)를 참조하세요.
-
-<!--Anchors-->
-[How to view performance metrics for a DocumentDB account]: #How-to-view-performance-metrics-for-a-DocumentDB-account
-[Customize performance metric views for a DocumentDB account]: #Customize-performance-metric-views-for-a-DocumentDB-account
-[How to create side-by-side performance metric charts]: #How-to-create-side-by-side-performance-metric-charts
-[How to view usage metrics for a DocumentDB account]: #How-to-view-usage-metrics-for-a-DocumentDB-account
-[How to setup performance metric alerts for a DocumentDB account]: #How-to-setup-performance-metric-alerts-for-a-DocumentDB-account
-[Next steps]: #Next-steps
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

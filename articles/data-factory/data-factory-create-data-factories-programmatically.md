@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="07/22/2015" 
 	ms.author="spelluru"/>
 
 # 데이터 팩터리 .NET SDK를 사용하여 Azure Data Factory 만들기, 모니터링 및 관리
@@ -74,7 +74,7 @@
 6. **DataPipelineManagementClient** 클래스의 인스턴스를 만드는 다음 코드를 **Main** 메서드에 추가합니다. 이 개체를 사용하여 데이터 팩터리, 연결된 서비스, 입력 및 출력 테이블과 파이프라인을 만듭니다. 또한 이 개체를 사용하여 런타임에 테이블의 조각을 모니터링합니다.    
 
         // create data factory management client
-        string resourceGroupName = "ADF";
+        string resourceGroupName = "resourcegroupname";
         string dataFactoryName = "APITutorialFactorySP";
 
         TokenCloudCredentials aadTokenCredentials =
@@ -85,6 +85,8 @@
         Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
 
         DataFactoryManagementClient client = new DataFactoryManagementClient(aadTokenCredentials, resourceManagerUri);
+
+	> [AZURE.NOTE]**resourcegroupname**을 Azure 리소스 그룹의 이름으로 바꿉니다. [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx) cmdlet을 사용하여 리소스 그룹을 만들 수 있습니다.
 
 7. **데이터 팩터리**를 만드는 다음 코드를 **Main** 메서드에 추가합니다.
 
@@ -368,7 +370,7 @@
 	 
 17. 메뉴에서 **디버그** -> **디버깅 시작**을 클릭하여 샘플을 실행합니다. **데이터 조각의 실행 정보 가져오기**가 표시되면 몇 분 동안 기다린 다음 **ENTER** 키를 누릅니다.
 18. Azure Preview 포털을 사용하여 데이터 팩터리 **APITutorialFactory**가 다음 아티팩트로 생성되었는지 확인합니다. 
-	- 연결된 서비스: **LinkedService_AzureStorage** 
+	- 연결된 서비스: **LinkedService\_AzureStorage** 
 	- 테이블: **TableBlobSource** 및 **TableBlobDestination**
 	- 파이프라인: **PipelineBlobSample** 
 18. 출력 파일이 **adftutorial** 컨테이너의 **apifactoryoutput** 폴더에 만들어졌는지 확인합니다.
@@ -378,7 +380,7 @@
 
 문서 | 설명
 ------ | ---------------
-[Azure Data Factory 개발자 참조][developer-reference] | 개발자 참조에는 .NET 클래스 라이브러리, cmdlet, JSON 스크립트, 함수 등에 대한 포괄적인 참조 콘텐츠가 포함되어 있습니다. 
+[Azure 데이터 팩터리 개발자 참조][developer-reference] | 개발자 참조에는 .NET 클래스 라이브러리, cmdlet, JSON 스크립트, 함수 등에 대한 포괄적인 참조 콘텐츠가 포함되어 있습니다. 
 
 
 [data-factory-introduction]: data-factory-introduction.md
@@ -392,4 +394,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

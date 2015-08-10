@@ -142,4 +142,4 @@
 
 [StorSimple 스냅숏 관리자를 사용하여 백업 정책 만들고 관리합니다](storsimple-snapshot-manager-manage-backup-policies.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

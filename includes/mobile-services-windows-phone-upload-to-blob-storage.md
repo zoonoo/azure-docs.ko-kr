@@ -3,7 +3,7 @@
 
 이 섹션에서는 [모바일 서비스 시작] 자습서의 프로젝트를 업데이트하여 사진을 찍고 해당 사진을 Azure Blob 저장소에 업로드합니다. 이 자습서에서는 `Microsoft.Phone.Tasks` 네임스페이스의 [CameraCaptureTask]를 사용하여 이미지를 캡처합니다. 이 클래스는 Windows Phone 장치에서 카메라 UI를 시작하여 사진을 캡처하고 이미지를 Windows Phone 장치의 카메라 앨범에 자동으로 저장합니다. 이미지를 카메라 앨범에 저장하지 않으려는 경우 `Microsoft.Devices` 네임스페이스의 [PhotoCamera] 클래스를 사용하십시오.
 
-1. Visual Studio의 솔루션 탐색기에서 프로젝트의 **속성**을 확장합니다. WMAppManifest.xml 파일이 열리면 **기능** 탭에서 **ID_CAP_ISV_CAMERA**를 클릭하여 카메라를 사용하도록 설정합니다. 파일을 닫아 변경 내용을 저장합니다.
+1. Visual Studio의 솔루션 탐색기에서 프로젝트의 **속성**을 확장합니다. WMAppManifest.xml 파일이 열리면 **기능** 탭에서 **ID\_CAP\_ISV\_CAMERA**를 클릭하여 카메라를 사용하도록 설정합니다. 파일을 닫아 변경 내용을 저장합니다.
 
    	![](./media/mobile-services-windows-phone-upload-to-blob-storage/mobile-upload-blob-app-WMAppmanifest-wp8.png)
 
@@ -183,4 +183,4 @@
 [CameraCaptureTask]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
 [PhotoCamera]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="07/25/2015" 
 	ms.author="glenga"/>
 
 
@@ -21,13 +21,12 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../../includes/mobile-services-selector-get-started-data-legacy.md)]
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
+##개요
 
-<p>이 항목에서는 Azure 모바일 서비스를 사용하여 Windows Phone 8 앱에서 데이터를 활용하는 방법을 보여 줍니다. 이 자습서에서는 데이터를 메모리에 저장하는 앱을 다운로드하여 새 모바일 서비스를 만들고 모바일 서비스를 앱과 통합한 후 Azure 관리 포털에 로그인하여 앱을 실행할 때 수행된 데이터 변경 내용을 확인합니다.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkID=298628" target="_blank" class="label">자습서 보기</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-get-started-data-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkID=298628" target="_blank" class="dev-onpage-video"><span class="icon">동영상 재생</span></a> <span class="time">오후 12:54:00</span></div>
-</div>
+이 항목에서는 Azure 모바일 서비스를 사용하여 Windows Phone 8 앱에서 데이터를 활용하는 방법을 보여 줍니다. 이 자습서에서는 데이터를 메모리에 저장하는 앱을 다운로드하여 새 모바일 서비스를 만들고 모바일 서비스를 앱과 통합한 후 Azure 관리 포털에 로그인하여 앱을 실행할 때 수행된 데이터 변경 내용을 확인합니다.
+
+또한 다음 비디오에서 Nick Harris가 이를 데모하는 것을 볼 수도 있습니다.
+>[AZURE.VIDEO mobile-get-started-with-data-windows-phone]
 
 ##필수 조건 
 
@@ -120,9 +119,9 @@
         private IMobileServiceTable<TodoItem> todoTable = 
 			App.MobileService.GetTable<TodoItem>();
 
-   	이 코드를 사용하면 모바일 서비스 인식 바인딩 컬렉션(**items**) 및 SQL Database 테이블 **TodoItem**(**todoTable**)에 대한 프록시 클래스가 만들어집니다.
+   	이 코드를 사용하면 모바일 서비스 인식 바인딩 컬렉션(\*\*items\*\*) 및 SQL Database 테이블 **TodoItem**(\*\*todoTable\*\*)에 대한 프록시 클래스가 만들어집니다.
 
-7. **InsertTodoItem** 메서드에서 **TodoItem**.**Id** 속성을 설정하는 코드 줄을 제거하고 **async** 한정자를 메서드에 추가한 후 다음 코드 줄의 주석 처리를 제거합니다.
+7. **InsertTodoItem** 메서드에서 **TodoItem**.\*\*Id\*\* 속성을 설정하는 코드 줄을 제거하고 **async** 한정자를 메서드에 추가한 후 다음 코드 줄의 주석 처리를 제거합니다.
 
         await todoTable.InsertAsync(todoItem);
 
@@ -194,4 +193,4 @@
 [개발자 코드 샘플 사이트]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

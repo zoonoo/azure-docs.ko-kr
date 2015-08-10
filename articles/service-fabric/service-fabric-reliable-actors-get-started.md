@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/10/2015"
+   ms.date="07/23/2015"
    ms.author="claudioc"/>
 
 # 신뢰할 수 있는 행위자: 표준 HelloWorld 연습 시나리오
@@ -143,14 +143,6 @@ Visual Studio용 서비스 패브릭 도구는 로컬 컴퓨터에서 디버깅�
 
 ![서비스 패브릭 디버깅 출력 창][3]
 
-## 응용 프로그램 배포
-Visual Studio에서 디버거를 시작하지 않고도 서비스 패브릭 응용 프로그램 프로젝트를 선택한 후 마우스 오른쪽 단추로 클릭하여 로컬 클러스터에서 응용 프로그램을 패키지하고 배포할 수 있습니다.
-
-![서비스 패브릭 - 응용 프로그램 배포 및 패키징을 위한 프로젝트 메뉴][4]
-
-* **배포**: 앱을 패키지하고 배포 프로세스를 시작합니다.
-* **배포 제거**: 로컬 클러스터에서 응용 프로그램을 제거하는 데 사용할 수 있습니다.
-* **패키지**: 응용 프로그램을 패키지합니다. 이 작업은 Azure 등에서 다른 클러스터에 배포할 응용 프로그램을 준비하는 데 유용할 수 있습니다.
 
 ## 다음 단계
 
@@ -163,6 +155,5 @@ Visual Studio에서 디버거를 시작하지 않고도 서비스 패브릭 응�
 [3]: ./media/service-fabric-reliable-actors-get-started/debugging-output.PNG
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -22,7 +22,7 @@
 > - [Getting Started](vs-mobile-services-cordova-getting-started.md)
 > - [What Happened](vs-mobile-services-cordova-what-happened.md)
 
-###<span id="whathappened">내 프로젝트에서 무엇이 변경되었습니까?</span>
+###내 프로젝트에서 무엇이 변경되었나요?</span>
 
 #####참조 추가됨
 
@@ -41,4 +41,4 @@
 
 [모바일 서비스에 대한 자세한 정보](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -12,10 +12,14 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="07/22/2015"
    ms.author="joaoma" />
 
 # 내부 부하 분산 장치 구성 시작
+
+> [AZURE.SELECTOR]
+- [Azure Classic steps](load-balancer-internal-getstarted.md)
+- [Resource Manager Powershell steps](load-balancer-internal-arm-powershell.md)
 
 Azure ILB(내부 부하 분산)는 클라우드 서비스 또는 지역 범위의 가상 네트워크 내부에 있는 가상 컴퓨터 간의 부하 분산을 제공합니다. 지역 범위의 가상 네트워크 사용 및 구성에 대한 자세한 내용은 Azure 블로그의 [지역 가상 네트워크](../regional-virtual-networks.md)를 참조하세요. 선호도 그룹에 대해 구성된 기존 가상 네트워크는 ILB를 사용할 수 없습니다.
 
@@ -222,7 +226,7 @@ Contoso Corporation은 Azure의 웹 서버 집합에서 LOB(기간 업무) 응�
 ## 클라우드 서비스에 대해 ILB 구성
 
 
-ILB는가상 컴퓨터와 클라우드 서비스 둘 다에 대해 지원됩니다. 지역 가상 네트워크 외부에 있는 클라우드 서비스에 생성된 ILB 끝점은 해당 클라우드 서비스 내에서만 액세스할 수 있습니다.
+ILB는 가상 컴퓨터와 클라우드 서비스 둘 다에 대해 지원됩니다. 지역 가상 네트워크 외부에 있는 클라우드 서비스에 생성된 ILB 끝점은 해당 클라우드 서비스 내에서만 액세스할 수 있습니다.
 
 아래 샘플에 나와 있는 것처럼 클라우드 서비스에서 첫 번째 배포를 만드는 동안 ILB 구성을 설정해야 합니다.
 
@@ -230,7 +234,7 @@ ILB는가상 컴퓨터와 클라우드 서비스 둘 다에 대해 지원됩니�
 
 ### 1단계
 
-Visual Studio에서 클라우드 배포용 서비스 구성 파일(.cscfg)을 열고 다음 섹션을 추가하여 네트워크 구성을 위해 마지막 "</Role>" 항목 아래에 ILB를 만듭니다.
+Visual Studio에서 클라우드 배포용 서비스 구성 파일(.cscfg)을 열고 다음 섹션을 추가하여 네트워크 구성을 위해 마지막 "`</Role>`" 항목 아래에 ILB를 만듭니다.
 
 
 
@@ -244,7 +248,7 @@ Visual Studio에서 클라우드 배포용 서비스 구성 파일(.cscfg)을 �
 	</NetworkConfiguration>
  
 
-어떻게 표시되는지 나타내기 위해 네트워크 구성 파일에 대한 값을 추가하겠습니다. 예제에서는 test_subnet이라는 서브넷 10.0.0.0/24와 고정 IP 10.0.0.4를 사용하는 "test_vnet"이라는 서브넷을 만들었다고 가정합니다. 부하 분산 장치의 이름은 testLB입니다.
+어떻게 표시되는지 나타내기 위해 네트워크 구성 파일에 대한 값을 추가하겠습니다. 예제에서는 test\_subnet이라는 서브넷 10.0.0.0/24와 고정 IP 10.0.0.4를 사용하는 "test\_vnet"이라는 서브넷을 만들었다고 가정합니다. 부하 분산 장치의 이름은 testLB입니다.
 
 	<NetworkConfiguration>
 	  <LoadBalancers>
@@ -331,4 +335,4 @@ ILB cmdlet에 대한 추가 정보를 얻으려면 Azure Windows PowerShell 프�
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

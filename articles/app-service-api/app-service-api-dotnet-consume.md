@@ -132,7 +132,7 @@ API 앱을 호출하려면 다음 예제와 같이 클라이언트 개체를 만
 
 	![](./media/app-service-api-dotnet-consume/gatewayurl.png)
 
-4. *Form1.cs* 소스 코드에서 GATEWAY_URL 값을 이전 단계에서 복사한 값으로 바꿔 `Form1()` 생성자 앞에 다음 코드를 추가합니다. 후행 슬래시(/)를 포함해야 합니다.
+4. *Form1.cs* 소스 코드에서 GATEWAY\_URL 값을 이전 단계에서 복사한 값으로 바꿔 `Form1()` 생성자 앞에 다음 코드를 추가합니다. 후행 슬래시(/)를 포함해야 합니다.
 
 		private const string GATEWAY_URL = "https://resourcegroupnameb4f3d966dfa43b6607f30.azurewebsites.net/";
 		private const string URL_TOKEN = "#token=";
@@ -205,4 +205,4 @@ API 앱을 호출하려면 다음 예제와 같이 클라이언트 개체를 만
 API 앱에서 인증을 사용하는 방법에 대한 자세한 내용은 [Azure 앱 서비스에서 API 앱 및 모바일 앱 인증](../app-service/app-service-authentication-overview.md)을 참조하세요.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -80,4 +80,4 @@
 [기존 모바일 서비스 앱에 인증 추가]: mobile-services-dotnet-backend-ios-get-started-users.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required"
-   ms.date="05/18/2015"
+   ms.date="07/23/2015"
    ms.author="vturecek"/>
 
 # OWIN 자체 호스팅을 사용하여 Microsoft Azure 서비스 패브릭 웹 API 서비스 시작
@@ -35,9 +35,11 @@ ASP.NET Web API는 .NET Framework 위에 HTTP API를 구축할 때 널리 사용
 
 ## Web API 응용 프로그램 설정
 
-Visual Studio 2015에서 새 상태 비저장 서비스를 만들어 시작합니다.
+Visual Studio 2015에서 단일 상태 비저장 서비스를 사용해서 새 응용 프로그램을 만들어 시작합니다.
 
-![](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
+![새 서비스 패브릭 응용 프로그램 만들기](media/service-fabric-reliable-services-communication-webapi/webapi-newproject.png)
+
+![단일 상태 비저장 서비스 만들기](media/service-fabric-reliable-services-communication-webapi/webapi-newproject2.png)
 
 이는 Web API 응용 프로그램을 호스팅하게 될 빈 상태 비저장 서비스를 제공합니다. 전체적으로 어떻게 만들어지는지 알아보기 위해 응용 프로그램을 처음부터 설정하겠습니다.
 
@@ -47,11 +49,11 @@ Visual Studio 2015에서 새 상태 비저장 서비스를 만들어 시작합�
 
 패키지가 설치되면 기본 Web API 프로젝트 구조 구축을 시작할 수 있습니다. Web API를 사용한 적이 있다면 프로젝트 구조가 매우 익숙할 것입니다. 기본 Web API 디렉터리를 만들어 시작합니다.
 
- + App_Start
+ + App\_Start
  + Controllers
  + Models
 
-App_Start 디렉터리에 기본 웹 API 구성 클래스를 추가합니다.
+App\_Start 디렉터리에 기본 웹 API 구성 클래스를 추가합니다.
 
  + FormatterConfig.cs
 
@@ -334,7 +336,7 @@ public class OwinCommunicationListener : ICommunicationListener
 
 웹 서버에 대한 포트를 잡기 전에 서비스 패브릭에서 응용 프로그램과 응용 프로그램이 실행되는 기본 운영 체제 사이에서 버퍼 역할을 하는 응용 프로그램 계층을 제공한다는 사실을 이해하는 것이 중요합니다. 이와 같이 서비스 패브릭은 서비스의 *끝점*을 구성하는 방법을 제공합니다. 서비스가 끝점을 사용할 수 있도록 서비스 패브릭이 관리하므로 사용자가 기본 OS 환경에 직접 구성할 필요가 없습니다. 따라서 응용 프로그램을 변경하지 않고도 다양한 환경에서 손쉽게 서비스 패브릭을 호스팅할 수 있습니다(예를 들어 Azure 또는 자체 데이터 센터에서 동일한 응용 프로그램을 호스팅할 수 있음).
 
-PackageRoot\ServiceManifest.xml에 HTTP 끝점을 구성합니다.
+PackageRoot\\ServiceManifest.xml에 HTTP 끝점을 구성합니다.
 
 ```xml
 
@@ -399,7 +401,7 @@ public Task<string> OpenAsync(CancellationToken cancellationToken)
 
 ### CloseAsync 및 Abort
 
-마지막으로, 웹 서버를 중지하는 CloseAsync 및 Abort를 구현합니다. OpenAsync 중에 만들어진 서버 핸들을 삭제하 여 웹 서버를 중지할 수 있습니다.
+마지막으로, 웹 서버를 중지하는 CloseAsync 및 Abort를 구현합니다. OpenAsync 중에 만들어진 서버 핸들을 삭제하여 웹 서버를 중지할 수 있습니다.
 
 ```csharp
 
@@ -447,7 +449,7 @@ protected override ICommunicationListener CreateCommunicationListener()
 
 ```
 
-이는 Web API *응용 프로그램* 및 OWIN *호스트*가 마침내 만나는 곳입니다. *호스트*(**OwinCommunicationListener**)에는 (**Startup**을 통해 Web API) *응용 프로그램* 인스턴스가 지정되고, 서비스 패브릭이 수명 주기를 관리합니다. 일반적으로 모든 통신 스택 뒤에 이와 동일한 패턴이 올 수 있습니다.
+이는 Web API *응용 프로그램* 및 OWIN *호스트*가 마침내 만나는 곳입니다. *호스트*(\*\*OwinCommunicationListener\*\*)에는 (**Startup**을 통해 Web API) *응용 프로그램* 인스턴스가 지정되고, 서비스 패브릭이 수명 주기를 관리합니다. 일반적으로 모든 통신 스택 뒤에 이와 동일한 패턴이 올 수 있습니다.
 
 ## 모든 항목 요약
 
@@ -611,6 +613,5 @@ ASP.NET 5에서 웹 응용 프로그램의 *호스트*와 *응용 프로그램*�
 ## 다음 단계
 
 [Visual Studio에서 서비스 패브릭 응용 프로그램 디버깅](service-fabric-debugging-your-application.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
+	ms.date="07/22/2015"
 	ms.author="msolhab;bradsev" />
 
 
-# Azure 기계 학습의 고급 분석 프로세스 및 기술 시나리오
+# Azure 기계 학습의 고급 분석 시나리오
 
 이 문서에서는 Azure 기계 학습의 ADAPT(고급 분석 프로세스 및 기술)로 처리할 수 있는 다양한 샘플 데이터 원본 및 대상 시나리오를 안내합니다. Azure에서 데이터 특성, 원본 위치 및 대상 저장소를 기반으로 하는 처리 시퀀스에서 사용 가능한 옵션을 보여 줍니다.
 
@@ -316,4 +316,4 @@ SQL Server VM에서 전체 SQL Server 데이터베이스를 복제하려면, 한
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

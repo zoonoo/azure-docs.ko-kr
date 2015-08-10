@@ -105,4 +105,4 @@ Azure 저장소 큐, 테이블, Blob 또는 서비스 버스 큐를 직접 사�
 WebJobs SDK에 대한 자세한 내용은 [Azure WebJobs 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

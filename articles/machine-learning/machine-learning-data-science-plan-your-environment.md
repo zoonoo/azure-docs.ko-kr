@@ -2,7 +2,6 @@
 	pageTitle="기계 학습 고급 분석 환경 계획 | Microsoft Azure" 
 	description="주요 질문을 고려하여 고급 분석 환경을 계획합니다." 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="msolhab"
 	manager="paulettm" 
@@ -14,23 +13,22 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.date="07/22/2015" 
 	ms.author="mohabib;bradsev" />
 
 
 # Azure 기계 학습 고급 분석 환경 계획
 
-Azure 기계 학습 고급 분석 환경을 설정할 때 몇 가지 사항을 결정해야 합니다. 데이터의 유형, 크기 및 원본 위치와 클라우드에서 이 데이터의 대상 위치에 따라 결정하면 됩니다. 고급 분석 프로세스는 일부 소스의 원본 데이터를 가져와서 응용 프로그램에서 사용 가능한 Azure 웹 서비스로써 모델을 만들어서 게시하는 일련의 작업입니다.
+Azure 기계 학습을 통해 고급 분석을 수행하는 환경을 설정할 준비가 되었다면 사용자의 분석 문제와 어떤 시나리오가 일치할까요? 필요한 리소스는 데이터의 유형, 크기 및 원본 위치와 이 데이터의 대상 위치에 따라 결정하면 됩니다. 이 문서에서는 시나리오를 식별하는 데 도움이 될 이러한 질문에 대해 설명합니다.
 
-고급 분석 프로세스 및 기술 워크플로는 [Azure에서 고급 분석 솔루션 빌드](machine-learning-data-science-how-to-create-machine-learning-service.md)에 나와 있습니다. ADAPT(고급 분석 프로세스 및 기술)의 개별 단계에 대해 자세히 알아보려면 가이드에서 관련 항목을 클릭하세요.
+관련 시나리오를 확인했으면 [학습 경로: Azure에서 고급 분석 솔루션 구축](machine-learning-data-science-how-to-create-machine-learning-service.md)에 나온 고급 분석 프로세스 및 기술(ADAPT) 워크플로를 사용하여 데이터 집합을 가져오고 모델을 생성하여 응용 프로그램에서 사용할 수 있는 Azure 웹 서비스로 게시하는 과정까지 일련의 작업을 단계별로 수행할 수 있습니다.
 
-이 문서에서는 고급 분석 환경을 설정할 때 고려할 질문을 알아보고, 이 프로세스에 유용한 리소스 및 도구를 살펴보고, 고급 분석 프로세스 및 기술 가이드를 사용하는 방법에 대한 지침을 제공합니다.
+또한 이 항목에는 이 고급 분석 프로세스에서 사용되는 리소스 및 도구 중 일부가 열거되어 있습니다.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## 고려할 질문
-
-고급 분석 환경을 만들기 전에 다음 질문을 고려해야 합니다.
+## 질문에 대답
+질문에 대답하여 고급 분석 환경을 만들기 전에 어떤 시나리오에서 작업 중인지 파악할 수 있습니다.
 
 1. **데이터가 어디에 있습니까?** 이 위치를 ***데이터 소스***라고 합니다. 예:
 	- 데이터가 HTTP 주소에 공개적으로 제공됩니다.
@@ -50,7 +48,7 @@ Azure 기계 학습 고급 분석 환경을 설정할 때 몇 가지 사항을 �
 4. **데이터에 얼마나 익숙합니까?**
     - 데이터 스키마, 변수 분포, 누락된 값 등을 찾으려면 데이터를 검색해야 합니까? 
 	- 데이터를 테이블 형식 표현으로 변환하려면 사전 처리 또는 정리 작업이 필요합니까? 
-5. **모든 데이터를 Azure로 이동할 계획입니까 또는 이동할 수 있습니까?**
+5. **모든 데이터를 Azure 저장소로 이동할 계획입니까 또는 이동할 수 있습니까?**
     - 예, 전체 데이터 집합을 클라우드에 복사하여 처리할 계획입니다.
 	- 아니요, 데이터의 하위 집합만 Azure에 복사할 것입니다.
 6. **선호하는 Azure 클라우드 대상이 무엇입니까?** 예:
@@ -59,24 +57,26 @@ Azure 기계 학습 고급 분석 환경을 설정할 때 몇 가지 사항을 �
 	- Azure 가상 컴퓨터의 SQL Server 데이터베이스에 데이터를 로드합니다.
 	- 데이터를 Azure HDInsight Hive 테이블에 매핑합니다.
 
+## 적합한 시나리오
+이전 섹션의 질문에 대답하고 나면 어떤 시나리오가 가장 적합한지 결정할 수 있습니다. 샘플 시나리오는 [Azure 기계 학습의 고급 분석 시나리오](../machine-learning-data-science-plan-sample-scenarios.md)에 나와 있습니다.
+
 ## Azure의 고급 분석 리소스
+시나리오에 따라 다음 도구와 리소스 중 일부가 필요할 수 있습니다.
 
-시나리오에 따라 다음이 필요할 수 있습니다.
-
-1.  Azure 도구: [Azure PowerShell SDK](../install-configure-powershell.md), [Azure 저장소 탐색기](http://azurestorageexplorer.codeplex.com/), [AzCopy](../storage-use-azcopy.md) 등
+1.  Azure 도구: 
+	* 	[Azure PowerShell SDK](../install-configure-powershell.md), 
+	* 	[Azure 저장소 탐색기](http://azurestorageexplorer.codeplex.com/)
+	* 	[AzCopy](../storage-use-azcopy.md)
 2.  SQL Server를 실행하는 Azure 가상 컴퓨터
 3.  Azure HDInsight(Hadoop)
 4.  Azure 파일 공유를 위한 온-프레미스 Azure 가상 네트워크
 5.  예약된 데이터 이동을 위한 Azure 데이터 팩터리
 
 
-## ADAPT(고급 분석 프로세스 및 기술) 가이드를 사용하는 방법
 
-[Azure에서 고급 분석 솔루션 빌드](machine-learning-data-science-how-to-create-machine-learning-service.md)에 제공된 가이드에서는 다양한 데이터 과학 연습을 제공합니다. 맵은 일반 고급 분석 워크플로와 관련된 핵심 단계를 보여 줍니다. 데이터 과학 연습의 모든 단계가 반드시 필요한 것은 아닙니다. 또한 프로세스가 반복적이며, 연습에 따라 단계의 순서가 달라질 수 있습니다. 위의 질문에 대한 답을 고민해 보면 사례와 관련된 단계를 결정할 때 도움이 됩니다. 프로세스에서 해당 단계가 필요한 시기와 단계 반복이 필요한 상황을 파악하는 데 도움이 될 것입니다.
 
-Azure에서 원본 데이터 크기, 데이터 원본 위치 및 대상 리포지토리에 따른 샘플 시나리오는 [Azure 기계 학습의 고급 분석 프로세스 및 기술 시나리오](../machine-learning-data-science-plan-sample-scenarios.md)를 참조하세요.
 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

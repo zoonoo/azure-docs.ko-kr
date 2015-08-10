@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Azure AD에서 암호 관리하기" 
-	description="Azure AD에서 암호를 관리하는 방법을 설명하는 항목입니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"
+<properties
+	pageTitle="Azure AD | Microsoft Azure에서 암호 관리"
+	description="Azure AD에서 암호를 관리하는 방법을 설명하는 항목입니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="swadwha"
+	editor=""
 	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
+	ms.author="curtand"/>
 
 # Azure AD에서 암호 관리하기
 
@@ -26,7 +26,7 @@
 - **셀프 서비스 암호 변경** 기능을 사용하여 최종 사용자나 관리자는 다른 관리자에게 전화를 하거나 지원 센터에 문의하지 않고도 만료되거나 만료되지 않은 암호를 변경할 수 있습니다.
 - **셀프 서비스 암호 재설정** 기능을 사용하여 최종 사용자나 관리자는 다른 관리자에게 전화를 하거나 지원 센터에 문의하지 않고도 자동으로 암호를 재설정할 수 있습니다. 셀프 서비스 암호 재설정 기능을 사용하려면 Azure AD Premium 또는 Basic이 필요합니다. 자세한 내용은 [Azure Active Directory Edition](active-directory-editions.md)을 참조하세요.
 - **관리자가 시작한 암호 재설정** 기능을 사용하여 관리자는 Azure 관리 포털 내에서 최종 사용자 또는 다른 관리자의 암호를 재설정할 수 있습니다.
-- **암호 관리 작업 보고서**는 조직에서 발생하는 암호 재설정 및 등록 작업에서의 관리자 이해도를 높여줍니다. 
+- **암호 관리 작업 보고서**는 조직에서 발생하는 암호 재설정 및 등록 작업에서의 관리자 이해도를 높여줍니다.
 - **암호 쓰기 저장** 기능을 사용하여 클라우드에서 온-프레미스 암호를 관리할 수 있으므로 위의 모든 시나리오에서 수행되거나 페더레이션 및 암호가 동기화된 사용자가 대신 수행할 수 있습니다. 암호 쓰기 저장 기능을 사용하려면 Azure AD Premium이 필요합니다. 자세한 내용은 [Azure Active Directory Premium 시작하기](active-directory-get-started-premium.md)를 참조하세요.
 
 > [AZURE.NOTE]중국 고객의 경우 전 세계의 Azure AD 인스턴스를 사용하여 Azure AD Premium을 사용할 수 있습니다. 중국의 21Vianet에서 운영하는 Microsoft Azure 서비스는 현재 Azure AD Premium을 지원하지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](http://feedback.azure.com/forums/169401-azure-active-directory)을 통해 문의하세요.
@@ -46,6 +46,5 @@
 - [Azure AD 관리](active-directory-administer.md)
 - [Azure AD에서 사용자 만들기 또는 편집](active-directory-create-users.md)
 - [Azure AD에서 그룹 관리](active-directory-manage-groups.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

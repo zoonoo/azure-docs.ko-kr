@@ -268,4 +268,4 @@ Azure Active Directory 또는 소셜 공급자 인증을 요구하여 Azure API 
 [Azure 포털]: https://manage.windowsazure.com/
 [Azure Preview 포털]: https://portal.azure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -20,7 +20,7 @@
 
 ## 개요
 
-이 가이드에서는 Azure Blob를 만들거나 업데이트할 때 프로세스를 트리거하는 방법을 보여 주는 Azure Blob C# 코드 샘플을 제공합니다. 코드 샘플에서는 [WebJobs SDK](websites-dotnet-webjobs-sdk.md) 버전 1.x를 사용합니다.
+이 가이드에서는 Azure Blob을 만들거나 업데이트할 때 프로세스를 트리거하는 방법을 보여 주는 Azure Blob C# 코드 샘플을 제공합니다. 코드 샘플에서는 [WebJobs SDK](websites-dotnet-webjobs-sdk.md) 버전 1.x를 사용합니다.
 
 이 가이드에서는 [저장소 계정을 가리키는 연결 문자열을 사용하여 Visual Studio에서 WebJob 프로젝트를 만드는 방법](websites-dotnet-webjobs-sdk-get-started.md)을 알고 있는 것으로 가정합니다.
 
@@ -36,7 +36,7 @@
 
 서비스 버스로 작업하려면 다른 WebJobs SDK 패키지와 함께 [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/) NuGet 패키지를 설치해야 합니다.
 
-또한 저장소 연결 문자열과 함께 AzureWebJobsServiceBus 연결 문자열을 설정해야 합니다. 다음 예시에 표시된 대로 Web.config 파일의 `connectionStrings` 섹션에서 이를 수행할 수 있습니다.
+또한 저장소 연결 문자열과 함께 AzureWebJobsServiceBus 연결 문자열을 설정해야 합니다. 다음 예제와 같이 App.config 파일의 `connectionStrings` 섹션에서 이 작업을 수행할 수 있습니다.
 
 		<connectionStrings>
 		    <add name="AzureWebJobsDashboard" connectionString="DefaultEndpointsProtocol=https;AccountName=[accountname];AccountKey=[accesskey]"/>
@@ -44,7 +44,9 @@
 		    <add name="AzureWebJobsServiceBus" connectionString="Endpoint=sb://[yourServiceNamespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[yourKey]"/>
 		</connectionStrings>
 
-샘플 프로젝트의 경우 [서비스 버스 예제](https://github.com/Azure/azure-webjobs-sdk-samples/tree/master/BasicSamples/ServiceBus)를 참조하세요. 자세한 내용은 [WebJobs SDK 시작](websites-dotnet-webjobs-sdk-get-started.md)을 참조하세요
+App.config 파일에 서비스 버스 연결 문자열 설정을 포함하는 샘플 프로젝트의 경우 [서비스 버스 예제](https://github.com/Azure/azure-webjobs-sdk-samples/tree/master/BasicSamples/ServiceBus)를 참조하세요.
+
+Azure 런타임 환경에서 연결 문자열을 설정할 수도 있으며, 이 문자열은 Azure에서 WebJob이 실행될 때 App.config 설정을 재정의합니다. 자세한 내용은 [WebJobs SDK 시작](websites-dotnet-webjobs-sdk-get-started.md#configure-the-web-app-to-use-your-azure-sql-database-and-storage-account)을 참조하세요.
 
 ## <a id="trigger"></a> 서비스 버스 큐 메시지가 수신될 때 함수를 트리거하는 방법
 
@@ -157,4 +159,4 @@ POCO 유형 매개 변수의 경우 함수가 종료되면 큐 메시지가 항�
 이 가이드에서는 Azure 서비스 버스 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure WebJob 및 WebJob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

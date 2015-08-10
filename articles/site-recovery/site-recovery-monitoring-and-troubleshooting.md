@@ -103,7 +103,7 @@ ASR는 보호되는 각 엔터티에 대한 Azure 포털을 통해 중앙 및 �
 
 ### Hyper-V 복제 로깅 옵션
 
-Hyper-V 복제본에 관련된 모든 이벤트는 **응용 프로그램 및 서비스 로그\Microsoft\Windows** 아래에 있는 Hyper-V-VMMS\Admin에 기록됩니다. 또한, Hyper-V-VMMS에 대해 분석 로그를 사용할 수 있습니다. 이 로그를 사용하려면 먼저 이벤트 뷰어에서 분석 및 디버그 로그를 볼 수 있게 만드십시오. 이벤트 뷰어를 연 다음 **보기 메뉴**에서 **분석 및 디버그 로그 표시**를 클릭합니다.
+Hyper-V 복제본에 관련된 모든 이벤트는 **응용 프로그램 및 서비스 로그\\Microsoft\\Windows** 아래에 있는 Hyper-V-VMMS\\Admin에 기록됩니다. 또한, Hyper-V-VMMS에 대해 분석 로그를 사용할 수 있습니다. 이 로그를 사용하려면 먼저 이벤트 뷰어에서 분석 및 디버그 로그를 볼 수 있게 만드십시오. 이벤트 뷰어를 연 다음 **보기 메뉴**에서 **분석 및 디버그 로그 표시**를 클릭합니다.
 
 ![온-프레미스 Hyper-V 문제 해결](media/site-recovery-monitoring-and-troubleshooting/image14.png)
 
@@ -133,7 +133,7 @@ Hyper-V 지사와 SMB 사이트 보호의 경우에는 [도구](https://dcupload
 
 VMware/실제 시나리오의 경우에는 [VMware 및 실제 사이트 보호를 위한 Azure 사이트 복구 로그 수집](http://social.technet.microsoft.com/wiki/contents/articles/30677.azure-site-recovery-log-collection-for-vmware-and-physical-site-protection.aspx)을 참조하여 필요한 로그를 수집합니다.
 
-SDP 도구는 **%LocalAppData%\ElevatedDiagnostics** 아래에서 임의로 이름이 지정된 하위 폴더 아래에서 찾을 수 있는 로그 파일을 로컬로 수집합니다.
+SDP 도구는 **%LocalAppData%\\ElevatedDiagnostics** 아래에서 임의로 이름이 지정된 하위 폴더 아래에서 찾을 수 있는 로그 파일을 로컬로 수집합니다.
 
 ### 지원 티켓 열기
 
@@ -164,8 +164,6 @@ ASR에 대한 지원 티켓을 모으려면 <http://aka.ms/getazuresupport> URL�
 
 ### 설정
 
--   [선택된 인증서의 유효성을 검사할 수 없습니다. 다른 인증서를 선택하십시오.](http://social.technet.microsoft.com/wiki/contents/articles/25569.the-selected-certificate-cannot-be-validated-please-select-a-different-certificate.aspx)
-
 -   [내부 오류로 인해 VMM 서버를 등록할 수 없습니다. 오류에 대한 자세한 내용은 Site Recovery 포털에서 작업 보기를 참조하세요. 다시 설정을 실행하여 서버를 등록합니다.](http://social.technet.microsoft.com/wiki/contents/articles/25570.the-vmm-server-cannot-be-registered-due-to-an-internal-error-please-refer-to-the-jobs-view-in-the-site-recovery-portal-for-more-details-on-the-error-run-setup-again-to-register-the-server.aspx)
 
 -   [Hyper-V 복구 관리자 자격 증명 모음에 연결할 수 없습니다. 프록시 설정을 확인하거나 나중에 다시 시도하십시오.](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
@@ -174,15 +172,9 @@ ASR에 대한 지원 티켓을 모으려면 <http://aka.ms/getazuresupport> URL�
 
 -   [Hyper-V 호스트 클러스터에는 하나 이상의 정적 네트워크 어댑터가 있습니다. 그렇지 않을 경우 연결된 어댑터 중 DHCP를 사용하도록 구성된 어댑터가 없는 것입니다.](http://social.technet.microsoft.com/wiki/contents/articles/25498.hyper-v-host-cluster-contains-at-least-one-static-network-adapter-or-no-connected-adapters-are-configured-to-use-dhcp.aspx)
 
--   [클라우드의 용량 프로필에 Hyper-V 프로필을 사용하도록 설정되어 있지 않습니다.](http://social.technet.microsoft.com/wiki/contents/articles/25499.the-hyper-v-profile-isn-t-enabled-in-the-capability-profiles-for-cloud.aspx)
-
--   ['%CloudName;'에 대한 보호 구성을 적용할 수 없습니다. 클라우드 보호가 구성되어 있지 않으므로 새로 추가된 Hyper-V 호스트 또는 클러스터를 구성할 수 없습니다.](http://social.technet.microsoft.com/wiki/contents/articles/25500.protection-configuration-for-cloudname-couldn-t-be-applied-a-newly-added-hyper-v-host-or-cluster-couldn-t-be-configured-because-cloud-protection-isn-t-configured.aspx)
-
 -   [VMM에는 작업을 완료할 수 있는 권한이 없습니다.](http://social.technet.microsoft.com/wiki/contents/articles/31110.vmm-does-not-have-permissions-to-complete-an-action.aspx)
 
 ### 보호
-
--   [운영 체제가 지원되지 않습니다.](http://social.technet.microsoft.com/wiki/contents/articles/31103.the-operating-system-is-not-supported.aspx)
 
 -   [호스트 컴퓨터에 에이전트가 설치되어 있지 않아 보호를 사용하도록 설정하지 못했습니다.](http://social.technet.microsoft.com/wiki/contents/articles/31105.enable-protection-failed-since-agent-not-installed-on-host-machine.aspx)
 
@@ -198,7 +190,7 @@ ASR에 대한 지원 티켓을 모으려면 <http://aka.ms/getazuresupport> URL�
 
     -   [가상 컴퓨터에 대해 선택된 복제 지점으로 장애 조치(Failover): 일반 액세스 거부 오류.](http://social.technet.microsoft.com/wiki/contents/articles/25504.fail-over-to-the-selected-recovery-point-for-virtual-machine-general-access-denied-error.aspx)
 
-    -   [Hyper-V가 가상 컴퓨터에 대해 선택된 복제 지점으로 장애 조치(Failover)가 실패했습니다. 작업이 중단되었습니다. 더 최근인 복제 지점을 시도해 보십시오. (0x80004004)](http://social.technet.microsoft.com/wiki/contents/articles/25503.hyper-v-failed-to-fail-over-to-the-selected-recovery-point-for-virtual-machine-operation-aborted-try-a-more-recent-recovery-point-0x80004004.aspx)
+    -   [Hyper-V가 가상 컴퓨터에 대해 선택된 복제 지점으로 장애 조치(Failover)에 실패했습니다. 작업이 중단되었습니다. 더 최근인 복제 지점을 시도해 보십시오. (0x80004004)](http://social.technet.microsoft.com/wiki/contents/articles/25503.hyper-v-failed-to-fail-over-to-the-selected-recovery-point-for-virtual-machine-operation-aborted-try-a-more-recent-recovery-point-0x80004004.aspx)
 
     -   서버와 연결할 수 없습니다.(0x00002EFD)
 
@@ -220,9 +212,6 @@ ASR에 대한 지원 티켓을 모으려면 <http://aka.ms/getazuresupport> URL�
 
     -   [테스트 장애 조치(Failover)가 진행 중이므로 장애 조치(Failover)를 시작할 수 없습니다.](http://social.technet.microsoft.com/wiki/contents/articles/31111.failover-could-not-be-initiated-since-test-failover-is-in-progress.aspx)
 
--   Azure로 복구만 해당
-
-    -   [VM 이름에 지원되지 않는 문자가 있어 장애 조치를 시작할 수 없습니다.](http://social.technet.microsoft.com/wiki/contents/articles/31107.failover-could-not-be-started-due-to-unsupported-characters-in-the-vm-name.aspx)
 
 ### 구성 서버, 프로세스 서버, 마스터 대상
 
@@ -230,4 +219,7 @@ CS(구성 서버), PS(프로세스 서버), MT(마스터 대상)
 
 -   [PS/CS가 VM으로 호스팅된 ESXi 호스트가 실패하고 퍼플 스크린이 표시되었습니다.](http://social.technet.microsoft.com/wiki/contents/articles/31107.vmware-esxi-host-experiences-a-purple-screen-of-death.aspx)
 
-<!---HONumber=July15_HO4-->
+### 장애 조치(Failover) 후 원격 데스크톱 문제 해결
+많은 고객이 Azure에서 장애 조치(Failover)된 VM에 연결하는 데 문제에 직면합니다. 문제 해결 문서를 사용하여 VM에 RDP를 연결합니다. [문서 링크](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
+
+<!---HONumber=July15_HO5-->

@@ -6,7 +6,8 @@
    authors="dvana"
    manager="mblythe"
    editor=""
-   tags=""/> <tags
+   tags=""/>
+ <tags
    ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
@@ -94,11 +95,11 @@ Azure 데이터 카탈로그에 데이터를 등록하려면 Azure 데이터 카
 
 <br/>
 
-> [AZURE.NOTE]최우선 **Description** 속성이 있는 SQL Server Analysis Services와 같은 데이터 원본의 경우, **Azure 데이터 카탈로그** 게시 응용 프로그램이 해당 속성 값을 추출합니다. 최우선 **Description** 속성이 없는 SQL Server 관계형 데이터베이스의 경우, **Azure 데이터 카탈로그** 게시 응용 프로그램이 개체 및 열에 대해 ms_description extended 속성에서 해당 값을 추출합니다. 자세한 내용은 TechNet [데이터베이스 개체에서 Extended 속성 사용](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx)을 참조하세요.
+> [AZURE.NOTE]최우선 **Description** 속성이 있는 SQL Server Analysis Services와 같은 데이터 원본의 경우, **Azure 데이터 카탈로그** 게시 응용 프로그램이 해당 속성 값을 추출합니다. 최우선 **Description** 속성이 없는 SQL Server 관계형 데이터베이스의 경우, **Azure 데이터 카탈로그** 게시 응용 프로그램이 개체 및 열에 대해 ms\_description extended 속성에서 해당 값을 추출합니다. 자세한 내용은 TechNet [데이터베이스 개체에서 Extended 속성 사용](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx)을 참조하세요.
 
 ## 질문: 새로 등록된 자산이 Azure 데이터 카탈로그에 나타나려면 얼마나 걸리나요?
 
-**Azure 데이터 카탈로그**를 사용하여 자산을 등록하면 **Azure 데이터 카탈로그** 포털에 나타나기까지 5~10초 정도 걸릴 수 있습니다.
+**Azure 데이터 카탈로그**를 사용하여 자산을 등록하면 **Azure 데이터 카탈로그** 포털에 나타나기까지 5\~10초 정도 걸릴 수 있습니다.
 
 ## 질문: 등록된 데이터 자산에 대한 메타데이터에 주석을 추가하고 보강하려면 어떻게 하나요?
 
@@ -157,4 +158,4 @@ Azure 데이터 카탈로그에 데이터를 등록하려면 Azure 데이터 카
 
 [Azure 데이터 카탈로그 포럼](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)을 참조하세요. 게시된 질문을 여기에서 찾을 수 있습니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

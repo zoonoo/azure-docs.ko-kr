@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2015"
+	ms.date="07/24/2015"
 	ms.author="larryfr"/>
 
 
@@ -47,9 +47,9 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로/코디네이션 시�
 
 1. Hive 동작은 HiveQL을 실행하여 HDInsight에 포함된 **hivesampletable**에서 레코드를 추출합니다. 데이터의 각 행은 특정 모바일 장치에서의 방문을 설명합니다. 레코드 형식은 다음과 유사하게 표시됩니다.
 
-		8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-		23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-		23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+		8       18:54:20        ko-kr   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+		23      19:19:44        ko-kr   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+		23      19:19:46        ko-kr   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
 
 	이 문서에서 사용된 Hive 스크립트는 각 플랫폼(예: Android 또는 iPhone)에 대한 총 방문 횟수를 계산하여 새 Hive 테이블에 저장합니다.
 
@@ -215,7 +215,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
         data:    Server Name i1qwc540ts
         info:    sql server create command OK
 
-    > [AZURE.IMPORTANT]이 명령에서 반환되는 서버 이름(위 예제의 경우 **i1qwc540ts**)을 기록해 둡니다. 이것은 생성된 SQL 데이터베이스 서버의 짧은 이름입니다. 완전히 정규화된 도메인 이름(FQDN)은 **&lt;shortname&gt;.database.windows.net**입니다. 위 예제의 경우 FQDN은 **i1qwc540ts.database.windows.net**입니다.
+    > [AZURE.IMPORTANT]이 명령에서 반환되는 서버 이름(위 예제의 경우 \*\*i1qwc540ts\*\*)을 기록해 둡니다. 이것은 생성된 SQL 데이터베이스 서버의 짧은 이름입니다. 완전히 정규화된 도메인 이름(FQDN)은 **&lt;shortname&gt;.database.windows.net**입니다. 위 예제의 경우 FQDN은 **i1qwc540ts.database.windows.net**입니다.
 
 2. 다음 명령을 사용하여 SQL 데이터베이스 서버에서 **oozietest**라는 이름의 데이터베이스를 생성합니다.
 
@@ -276,7 +276,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 
 1. 다음 명령을 사용하여 전체 WASB 주소를 기본 저장소로 가져옵니다. 이 주소는 잠시 후 구성 파일에서 사용됩니다.
 
-		sed -n '/<name>fs.default/,/</value>/p' /etc/hadoop/conf/core-site.xml
+		sed -n '/<name>fs.default/,/<\/value>/p' /etc/hadoop/conf/core-site.xml
 
 	다음과 유사한 정보가 반환됩니다.
 
@@ -383,7 +383,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 
 1. 다음을 사용하여 Oozie 서비스의 URL을 가져옵니다.
 
-		sed -n '/<name>oozie.base.url/,/</value>/p' /etc/oozie/conf/oozie-site.xml
+		sed -n '/<name>oozie.base.url/,/<\/value>/p' /etc/oozie/conf/oozie-site.xml
 
 	이 명령은 다음과 유사한 값을 반환합니다.
 
@@ -622,7 +622,7 @@ Oozie UI를 사용하면 Oozie 로그뿐 아니라 Hive 쿼리와 같은 MapRedu
 
 ###JA009: 클러스터를 초기화할 수 없음
 
-**증상**: 작업 상태가 **SUSPENDED**로 변경됩니다. 작업에 대한 세부 정보에 RunHiveScript 상태가 **START_MANUAL**로 표시됩니다. 동작을 선택하면 다음과 같은 오류 메시지가 표시됩니다.
+**증상**: 작업 상태가 **SUSPENDED**로 변경됩니다. 작업에 대한 세부 정보에 RunHiveScript 상태가 **START\_MANUAL**로 표시됩니다. 동작을 선택하면 다음과 같은 오류 메시지가 표시됩니다.
 
 	JA009: Cannot initialize Cluster. Please check your configuration for map
 
@@ -632,7 +632,7 @@ Oozie UI를 사용하면 Oozie 로그뿐 아니라 Hive 쿼리와 같은 MapRedu
 
 ###JA002: Oozie에서 &lt;사용자>를 가장할 수 없음
 
-**증상**: 작업 상태가 **SUSPENDED**로 변경됩니다. 작업에 대한 세부 정보에 RunHiveScript 상태가 **START_MANUAL**로 표시됩니다. 동작을 선택하면 다음과 같은 오류 메시지가 표시됩니다.
+**증상**: 작업 상태가 **SUSPENDED**로 변경됩니다. 작업에 대한 세부 정보에 RunHiveScript 상태가 **START\_MANUAL**로 표시됩니다. 동작을 선택하면 다음과 같은 오류 메시지가 표시됩니다.
 
 	JA002: User: oozie is not allowed to impersonate <USER>
 
@@ -686,7 +686,6 @@ Oozie UI를 사용하면 Oozie 로그뿐 아니라 Hive 쿼리와 같은 MapRedu
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-use-blob-storage.md
 [hdinsight-get-started]: hdinsight-get-started.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop-mac-linux.md
@@ -704,7 +703,6 @@ Oozie UI를 사용하면 Oozie 로그뿐 아니라 Hive 쿼리와 같은 MapRedu
 [sqldatabase-create-configue]: sql-database-create-configure.md
 [sqldatabase-get-started]: sql-database-get-started.md
 
-[azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
@@ -725,4 +723,4 @@ Oozie UI를 사용하면 Oozie 로그뿐 아니라 Hive 쿼리와 같은 MapRedu
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

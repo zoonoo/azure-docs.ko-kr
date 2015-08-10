@@ -50,7 +50,7 @@
 
 - **Android + iOS 작업**
     - 웹 페이지 열기
-    - http://[web-site-domain\] 
+    - http://[web-site-domain] 
     - 예:http://www.azure.com
     - 메일 보내기
     - mailto:[메일 수신자]?subject=[제목]&body=[메시지] 
@@ -74,7 +74,7 @@
     - 예:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
     - Windows 작업
     - 웹 페이지 열기
-    - http://[web-site-domain\] 
+    - http://[web-site-domain] 
     - 예:http://www.azure.com
     - 메일 보내기
     - mailto:[메일 수신자]?subject=[제목]&body=[메시지] 
@@ -230,4 +230,4 @@
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

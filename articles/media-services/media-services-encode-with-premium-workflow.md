@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
-#미디어 인코더 Premium 워크플로를 사용한 고급 인코딩(공개 미리 보기)
+#미디어 인코더 Premium 워크플로를 사용한 고급 인코딩
 
 **참고** 중국에서는 이 항목에서 설명하는 미디어 인코더 Premium 워크플로 미디어 프로세서를 사용할 수 없습니다.
 
 ##개요
 
-Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플로** 미디어 프로세서를 소개합니다. 이 프로세서는 프리미엄 주문형 워크플로에 고급 인코딩 기능을 제공합니다.
+Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플로** 미디어 프로세서를 도입 중입니다. 이 프로세서는 프리미엄 주문형 워크플로에 고급 인코딩 기능을 제공합니다.
 
 다음 항목에서는 **미디어 인코더 Premium 워크플로**와 관련된 세부 정보를 간력하게 설명합니다.
 
@@ -265,4 +265,4 @@ Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플�
 
 입력된 비디오에 자막이 없는 경우, 출력 자산은 빈 TTML 파일을 포함합니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

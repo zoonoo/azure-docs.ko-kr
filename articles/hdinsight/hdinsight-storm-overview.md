@@ -1,7 +1,6 @@
 <properties
 	pageTitle="HDInsight의 Apache Storm 소개 | Microsoft Azure"
 	description="Apache Storm을 소개하고, HDInsight의 Storm을 사용하여 클라우드에서 실시간 데이터 분석 솔루션을 빌드하는 방법을 알아봅니다."
-	keywords="apache storm,real time analytics"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 #HDInsight의 Apache Storm 소개: Hadoop에 대한 실시간 분석
@@ -51,9 +50,7 @@ Storm 사용을 시작하려면 [HDInsight에서 Storm 시작][gettingstarted]�
 
 새 HDInsight Storm 클러스터를 몇 분 내에 프로비전할 수 있습니다. 클러스터 이름, 크기, 관리자 계정 및 저장소 계정을 지정합니다. Azure에서 샘플 토폴로지 및 웹 관리 대시보드가 포함된 클러스터를 만듭니다.
 
-다음은 Azure 포털을 사용하여 HDInsight의 Storm 클러스터를 프로비전하는 예제입니다. [Azure PowerShell](../install-configure-powershell.md)을 사용하여 Storm 클러스터를 프로비전할 수도 있습니다.
-
-![포털의 빠른 생성 클러스터 양식 예제](./media/hdinsight-storm-overview/quick-create.png)
+> [AZURE.NOTE] [Azure CLI](../xplat-cli.md) 또는 [Azure PowerShell](../powershell-install-configure.md)을 사용하여 Storm 클러스터를 프로비전할 수도 있습니다.
 
 요청을 제출한 후 15분 이내에 새 Storm 클러스터가 실행되고 첫 번째 실시간 분석 파이프라인에 사용할 수 있는 준비가 완료됩니다.
 
@@ -77,7 +74,7 @@ Visual Studio용 HDInsight 도구에 대한 자세한 내용은 [Visual Studio�
 
 Storm 대시보드 사용에 대한 자세한 내용은 [HDInsight에서 Apache Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology.md)를 참조하세요.
 
-**이벤트 허브 Spout**를 통해 HDInsight의 Storm을 Azure 이벤트 허브와 쉽게 통합할 수도 있습니다. 각 Storm 클러스터(**%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**)에서 이 Spout를 사용할 수 있습니다. Storm 토폴로지에서 이 Spout를 사용하는 예제는 [이벤트 허브 시작](service-bus-event-hubs-c-storm-getstarted.MD) 및 [Storm 및 HBase를 사용하여 센서 데이터 분석](hdinsight-storm-sensor-data-analysis.MD)을 참조하세요.
+**이벤트 허브 Spout**를 통해 HDInsight의 Storm을 Azure 이벤트 허브와 쉽게 통합할 수도 있습니다. 각 Storm 클러스터(**%STORM\_HOME%\\examples\\eventhubspout\\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**)에서 이 Spout를 사용할 수 있습니다. Storm 토폴로지에서 이 Spout를 사용하는 예제는 [이벤트 허브 시작](service-bus-event-hubs-c-storm-getstarted.MD) 및 [Storm 및 HBase를 사용하여 센서 데이터 분석](hdinsight-storm-sensor-data-analysis.MD)을 참조하세요.
 
 ###안정성
 
@@ -93,7 +90,7 @@ Apache Storm의 기본 구성에는 하나의 Nimbus 노드만 있습니다. HDI
 
 만드는 동안 클러스터의 노드 수를 지정할 수 있지만 작업과 일치하도록 클러스터를 확장하거나 축소할 수도 있습니다. 모든 HDInsight 클러스터에서는 데이터를 처리하는 동안 클러스터의 노드 수를 변경할 수 있습니다.
 
-![포털의 데이터 노드 인스턴스 수](./media/hdinsight-storm-overview/scale.png)
+> [AZURE.NOTE]확장을 통해 추가된 새 노드를 이용하려면 클러스터 크기를 증가시키기 전에 시작된 토폴로지의 균형을 다시 조정해야 합니다.
 
 ###지원
 
@@ -156,7 +153,7 @@ Visual Studio용 HDInsight 도구를 통해 .NET 개발자는 C#으로 토폴로
 
 Trident에 대한 자세한 내용은 apache.org에서 [Trident 자습서](https://storm.incubator.apache.org/documentation/Trident-tutorial.html)를 참조하세요.
 
-원시 Java 및 Trident 토폴로지의 예제는 HDInsight Storm 클러스터의 **%storm_home%\contrib\storm-starter** 디렉터리를 참조하세요.
+원시 Java 및 Trident 토폴로지의 예제는 HDInsight Storm 클러스터의 **%storm\_home%\\contrib\\storm-starter** 디렉터리를 참조하세요.
 
 ##몇 가지 일반적인 개발 패턴
 
@@ -209,4 +206,4 @@ HDInsight의 Apache Storm을 사용한 실시간 분석 솔루션에 대해 자�
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
 [gettingstarted]: ../hdinsight-storm-getting-started.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

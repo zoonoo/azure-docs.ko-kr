@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
-# 엔터티 프레임 작업과 함께 탄력적 데이터베이스 클라이언트 라이브러리 사용 
+# 엔터티 프레임 작업과 함께 탄력적 데이터베이스 클라이언트 라이브러리 
  
 Microsoft의 엔터티 프레임 워크와 함께 탄력적 데이터베이스 클라이언트를 사용하면 응용 프로그램을 만드는데 데이터 베이스 분할 및 응용 프로그램 데이터 계층 관리규모 확장이라는 장점이 있습니다. 이 문서에서는 탄력적 데이터베이스 도구의 기능을 통합하는 데 필요한 Entity Framework 응용 프로그램의 변경 내용을 보여 줍니다. 여기서는 [분할된 데이터베이스 맵 관리](sql-database-elastic-scale-shard-map-management.md) 및 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)Entity Framework **Code First** 접근 방식 사용을 중점적으로 다룹니다. 이 문서 전체에서는 EF용 [Code First – New Database](http://msdn.microsoft.com/data/jj193542.aspx) 자습서를 실행 예제로 사용합니다. 이 문서와 함께 제공되는 샘플 코드는 Visual Studio 코드 샘플에 포함된 탄력적 데이터베이스 도구의 샘플 세트 일부입니다.
   
@@ -53,7 +53,7 @@ Entity Framework 개발자는 다음 4개의 워크플로 중 하나를 사용�
 
 ## 탄력적 데이터베이스 도구 가정 
 
-용어 정의는 [탄력적인 확장 용어집](sql-database-elastic-scale-glossary.md)을 확인하세요.
+용어 정의는 [탄력적 데이터베이스 도구 용어집](sql-database-elastic-scale-glossary.md)을 참조하세요.
 
 탄력적 데이터베이스 클라이언트 라이브러리를 사용하여 shardlet이라고 하는 응용 프로그램 데이터의 파티션을 정의합니다. Shardlet은 분할 키로 식별되며 특정 데이터베이스에 매핑됩니다. 응용 프로그램은 필요한 만큼 많은 데이터베이스를 포함하고 shardlet을 배포하여 현재 비즈니스 요구 사항에 따른 용량이나 성능을 충분히 제공할 수 있습니다. 탄력적 데이터베이스 클라이언트 API에서 제공하는 분할된 데이터베이스 맵을 통해 데이터베이스에 대한 분할 키 값의 매핑이 저장됩니다. 이 기능을 **분할된 데이터베이스 맵 관리** 또는 줄여서 SMM이라고 합니다. 분할된 데이터베이스 맵은 분할 키를 전송하는 요청에 대한 데이터베이스 연결의 브로커 역할도 합니다. 이 기능을 **데이터 종속 라우팅**이라고 합니다.
  
@@ -62,7 +62,7 @@ Entity Framework 개발자는 다음 4개의 워크플로 중 하나를 사용�
 
 ## 요구 사항 
 
-탄력적 데이터베이스 클라이언트 라이브러리오 엔터티 프레임 워크 API를 모두 사용할 때는 다음 속성을 유지해야 합니다.
+탄력적 데이터베이스 클라이언트 라이브러리와 엔터티 프레임 워크 API를 모두 사용할 때는 다음 속성을 유지해야 합니다.
 
 * **Scale-out**:응용 프로그램의 용량 요구 사항에 따라 분할된 응용 프로그램의 데이터 계층에서 데이터베이스를 필요한 만큼 추가하거나 제거합니다. 즉, 데이터베이스 작성 및 삭제를 제어하는 동시에 탄력적 데이터베이스가 분할된 데이터베이스 맵 관리자 API를 사용하여 데이터베이스와 shardlet 매핑을 관리합니다. 
 
@@ -281,4 +281,4 @@ Entity Framework 응용 프로그램은 Azure SQL 데이터베이스의 탄력�
 [1]: ./media/sql-database-elastic-scale-use-entity-framework-applications-visual-studio/sample.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

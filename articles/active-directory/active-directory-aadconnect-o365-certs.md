@@ -39,9 +39,12 @@ AD FS 2.0 이상을 사용하는 경우는 인증서가 만료되기 전에 Offi
 
 공용 인터넷(회사 네트워크 외부)에 있는 컴퓨터에서 다음 URL로 이동하여 공개적으로 페더레이션 메타 데이터에 액세스할 수 있는지 확인합니다.
 
-https://<your_FS_name>/federationmetadata/2007-06/federationmetadata.xml
 
-여기서 `<your_FS_name> `은 fs.contoso.com과 같이 조직에서 사용하는 페더레이션 서비스 호스트 이름으로 대체됩니다. 두 설정을 모두 확인할 수 있는 경우 그 밖에 다른 작업을 수행할 필요는 없습니다.
+https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
+
+여기서 `(your_FS_name) `은 fs.contoso.com과 같이 조직에서 사용하는 페더레이션 서비스 호스트 이름으로 대체됩니다. 두 설정을 모두 확인할 수 있는 경우 그 밖에 다른 작업을 수행할 필요는 없습니다.
+
+예:https://fs.contos.com/federationmetadata/2007-06/federationmetadata.xml
 
 ## AutoCertificateRollover 속성이 False로 설정된 경우
 
@@ -64,7 +67,7 @@ AutocertificateRollover 설정이 True이지만 페더레이션 메타 데이터
 	
 - 인증서가 하나만 표시되는 경우 NotAfter 날짜가 5일 이내이면 다음 단계를 실행하여 새 인증서를 생성해야 합니다.
 
-- 새 인증서를 생성하려면 PowerShell 명령 프롬프트에서 `PS C:\>Update-ADFSCertificate –CertificateType token-signing` 명령을 실행합니다.
+- 새 인증서를 생성하려면 PowerShell 명령 프롬프트에서 다음 명령을 실행합니다:`PS C:\>Update-ADFSCertificate –CertificateType token-signing`.
 
 - PS C:\>Get-ADFSCertificate –CertificateType token-signing 명령을 다시실행하여 업데이트를 확인합니다.
 - 다음으로, Office 365 페더레이션 트러스트 속성을 수동으로 업데이트하려면 다음 단계를 수행합니다.
@@ -77,9 +80,9 @@ AutocertificateRollover 설정이 True이지만 페더레이션 메타 데이터
 1.	Windows PowerShell용 Microsoft Azure Active Directory 모듈을 엽니다.
 2.	$cred=Get-Credential을 실행합니다. 이 cmdlet에서 자격 증명을 물어보면 클라우드 서비스 관리자 계정 자격 증명을 입력합니다.
 3.	Connect-MsolService –Credential $cred를 실행합니다. 이 cmdlet을 실행하면 클라우드 서비스에 연결됩니다. 도구를 통해 설치되는 추가 cmdlet을 실행하려면 먼저 클라우드 서비스에 연결되는 컨텍스트를 만들어야 합니다.
-4.	AD FS 기본 페더레이션 서버가 아닌 컴퓨터에서 이러한 명령을 실행하는 경우 Set-MSOLAdfscontext -Computer <AD FS primary server>를 실행합니다. 여기서 <AD FS primary server>는 기본 AD FS 서버의 내부 FQDN 이름입니다. 이 cmdlet은 AD FS에 연결되는 컨텍스트를 만듭니다. 
+4.	AD FS 기본 페더레이션 서버가 아닌 컴퓨터에서 이러한 명령을 실행하는 경우 Set-MSOLAdfscontext -Computer <AD FS primary server>을 실행합니다. 여기서 <AD FS primary server>는 기본 AD FS 서버의 내부 FQDN 이름입니다. 이 cmdlet은 AD FS에 연결되는 컨텍스트를 만듭니다. 
 5.	Update-MSOLFederatedDomain –DomainName <domain>을 실행합니다. 이 cmdlet은 AD FS에서 클라우드 서비스로 설정을 업데이트하고 둘 사이의 트러스트 관계를 구성합니다.
 
->[AZURE.NOTE]contoso.com과 fabrikam.com 등의 여러 최상위 도메인을 지원해야 하는 경우에는 cmdlet과 함께 SupportMultipleDomain 스위치를 사용해야 합니다. 자세한 내용은 여러 최상위 도메인에 대한 지원을 참조하세요. 마지막으로, 모든 웹 응용 프로그램 프록시 서버가 [Windows Server May 2014](http://support.microsoft.com/kb/2955164) 롤업으로 업데이트되었는지 확인합니다. 업데이트되지 않은 경우 프록시에서 새 인증서로 업데이트하지 못하여 중단이 발생할 수 있습니다.
+>[AZURE.NOTE]contoso.com과 fabrikam.com 등의 여러 최상위 도메인을 지원해야 하는 경우에는 cmdlet과 함께 SupportMultipleDomain 스위치를 사용해야 합니다. 자세한 내용은 여러 최상위 도메인에 대한 지원을 참조하세요. 마지막으로, 모든 웹 응용 프로그램 프록시 서버가 [Windows Server May 2014](http://support.microsoft.com/kb/2955164) 롤업으로 업데이트되었는지 확인합니다. 그렇지 않으면 프록시가 새 인증서로 업데이트되지 못하여 중단될 수 있습니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

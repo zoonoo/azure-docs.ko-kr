@@ -155,4 +155,4 @@ Azure AD에 미리 통합된 포괄적인 SaaS Apps 목록에 대해서는 [Acti
 
 - [응용 프로그램 액세스](https://msdn.microsoft.com/library/azure/dn308590.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

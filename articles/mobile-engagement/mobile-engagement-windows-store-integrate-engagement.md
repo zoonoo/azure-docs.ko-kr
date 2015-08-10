@@ -19,7 +19,7 @@
 #Windows 유니버설 앱 Engagement SDK 통합
 
 > [AZURE.SELECTOR] 
-- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
+- [Universal Windows](mobile-engagement-windows-store-integrate-engagement.md) 
 - [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
 - [iOS](mobile-engagement-ios-integrate-engagement.md) 
 - [Android](mobile-engagement-android-integrate-engagement.md) 
@@ -271,4 +271,4 @@ EngagementConfiguration 개체를 사용하여 작동 중단 보고를 false로 
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

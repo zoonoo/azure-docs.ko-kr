@@ -94,4 +94,4 @@ SAP 커넥터는 논리 앱에서 작업/단계로만 사용할 수 있습니다
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

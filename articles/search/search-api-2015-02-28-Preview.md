@@ -1,10 +1,10 @@
-<properties 
+<properties
    pageTitle="Azure 검색 서비스 REST API 버전 2015-02-28-Preview | Microsoft Azure"
-   description="Azure 검색 서비스 REST API 버전 2015-02-28-Preview에는 자연어 분석기 및 moreLikeThis 검색과 같은 실험적 기능이 포함되어 있습니다." 
-   services="search" 
-   documentationCenter="na" 
-   authors="HeidiSteen" 
-   manager="mblythe" 
+   description="Azure 검색 서비스 REST API 버전 2015-02-28-Preview에는 자연어 분석기 및 moreLikeThis 검색과 같은 실험적 기능이 포함되어 있습니다."
+   services="search"
+   documentationCenter="na"
+   authors="HeidiSteen"
+   manager="mblythe"
    editor=""/>
 
 <tags
@@ -12,27 +12,28 @@
    ms.devlang="rest-api"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="search" 
-   ms.date="07/10/2015"
+   ms.workload="search"
+   ms.date="07/22/2015"
    ms.author="heidist"/>
 
 # Azure 검색 서비스 REST API: 버전 2015-02-28-Preview
 
-이 문서는 `api-version=2015-02-28-Preview`에 대한 참조 설명서입니다. 이 미리 보기는 다음과 같은 실험적 기능을 제공하여 현재 잠긴 버전인 [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx)을 확장합니다.
+이 문서는 `api-version=2015-02-28-Preview`에 대한 참조 설명서입니다. 이 미리 보기는 다음과 같은 실험적 기능을 제공하여 현재 일반적으로 사용할 수 있는 버전인 [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx)을 확장합니다.
 
 - Microsoft의 [자연어 처리기](#LanguageSupport)(Office 및 Bing에서 사용하는 것과 같음)는 쿼리 결과에 대한 정확도를 높이고 더 많은 언어를 제공합니다.
 - `moreLikeThis`는 [검색 작업](#SearchDocs)에서 다른 특정 문서와 관련된 다른 문서를 찾는 데 사용되는 쿼리 매개 변수입니다.
+- GET 구문에 대한 POST 대안은 [검색](#SearchDocs) 및 [제안](#Suggestions) API에서 모두 사용되며, 전체 URL 길이가 8KB를 초과할 때 유용합니다.
 
 `2015-02-28-Preview`의 몇 가지 추가 기능에 대해서는 별도로 설명합니다. 내용은 다음과 같습니다.
 
-- [점수 매기기 프로필](../search-api-scoring-profiles-2015-02-28-preview.md)
-- [인덱서](../search-api-indexers-2015-02-28-preview.md)
+- [점수 매기기 프로필](search-api-scoring-profiles-2015-02-28-preview.md)
+- [인덱서](search-api-indexers-2015-02-28-preview.md)
 
 Azure 검색 서비스는 여러 버전으로 제공됩니다. 자세한 내용은 [검색 서비스 버전 관리](http://msdn.microsoft.com/library/azure/dn864560.aspx)를 참조하세요.
 
 ##이 문서의 API
 
-Azure 검색 서비스 API는 엔터티 조회에 대한 두 가지 구문, 즉 간단한 OData 구문과 대체 OData 구문을 지원합니다(자세한 내용은 [OData 지원(Azure 검색 API)](http://msdn.microsoft.com/library/azure/dn798932.aspx)을 참조하세요. 다음 목록에서는 간단한 구문을 보여 줍니다.
+Azure 검색 서비스 API는 엔터티 조회에 대한 두 가지 구문, 즉 [간단한](https://msdn.microsoft.com/library/dn798920.aspx) OData 구문과 대체 OData 구문을 지원합니다(자세한 내용은 [OData 지원(Azure 검색 API)](http://msdn.microsoft.com/library/azure/dn798932.aspx)을 참조하세요). 다음 목록에서는 간단한 구문을 보여 줍니다.
 
 [인덱스 만들기](#CreateIndex)
 
@@ -65,6 +66,7 @@ Azure 검색 서비스 API는 엔터티 조회에 대한 두 가지 구문, 즉 
 [문서 검색](#SearchDocs)
 
     GET /indexes/[index name]/docs?[query parameters]
+    POST /indexes/[index name]/docs/search?api-version=2015-02-28-Preview
 
 [문서 조회](#LookupAPI)
 
@@ -77,6 +79,7 @@ Azure 검색 서비스 API는 엔터티 조회에 대한 두 가지 구문, 즉 
 [제안](#Suggestions)
 
     GET /indexes/[index name]/docs/suggest?[query parameters]
+    POST /indexes/[index name]/docs/suggest?api-version=2015-02-28-Preview
 
 ________________________________________
 <a name="IndexOps"></a>
@@ -108,9 +111,9 @@ Azure 검색 서비스에서 간단한 HTTP 요청(POST, GET, PUT, DELETE)을 �
        "searchMode": "analyzingInfixMatching",
        "sourceFields": ["hotelName"]
       }
-     ] 
+     ]
     }
- 
+
 인덱스를 만든 후에는 인덱스를 채울 문서를 업로드합니다. 이 작업을 수행하는 다음 단계는 [문서 추가 또는 업데이트](#AddOrUpdateDocuments)를 참조하세요.
 
 Azure 검색의 인덱싱을 소개하는 비디오는 [Azure 검색에 대한 Channel 9의 Cloud Cover 에피소드](http://go.microsoft.com/fwlink/p/?LinkId=511509)를 참조하세요.
@@ -141,16 +144,16 @@ HTTP POST 또는 PUT 요청을 사용하여 Azure 검색 서비스 내에서 새
 
 인덱스 이름은 소문자여야 하고 문자나 숫자로 시작되어야 합니다. 또한 슬래시나 마침표를 포함할 수 없으며 128자 미만이어야 합니다. 문자나 숫자로 시작하는 인덱스 이름의 뒤에는 원하는 모든 문자, 숫자, 대시(여러 대시를 연속적으로 포함할 수는 없음)를 사용할 수 있습니다.
 
-`api-version`은 필수 사항입니다. 현재 버전은 `api-version=2015-02-28`입니다. 자세한 내용 및 대체 버전은 [검색 서비스 버전 관리](http://msdn.microsoft.com/library/azure/dn864560.aspx)를 참조하세요.
+`api-version`은 필수 사항입니다. 사용 가능한 버전 목록은 [검색 서비스 버전 관리](http://msdn.microsoft.com/library/azure/dn864560.aspx)를 참조하세요.
 
 **요청 헤더**
 
 다음 목록에서는 필수 요청 헤더와 선택적 요청 헤더에 대해 설명합니다.
 
 - `Content-Type`: 필수 사항입니다. `application/json`으로 설정합니다.
-- `api-key`: 필수 사항입니다. `api-key`는 
-- 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **인덱스 만들기** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다. 
- 
+- `api-key`: 필수 사항입니다. `api-key`는
+- 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **인덱스 만들기** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다.
+
 요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 <a name="RequestData"></a> **요청 본문 구문**
@@ -199,7 +202,7 @@ POST 요청의 경우에는 요청 본문에 인덱스 이름을 지정해야 �
           "name": "name of scoring profile",
           "text": (optional, only applies to searchable fields) {
             "weights": {
-              "searchable_field_name": relative_weight_value (positive #'s),
+              "searchable_field_name": relative_weight_value (positive numbers),
               ...
             }
           },
@@ -226,7 +229,7 @@ POST 요청의 경우에는 요청 본문에 인덱스 이름을 지정해야 �
               }
             }
           ],
-          "functionAggregation": (optional, applies only when functions are specified) 
+          "functionAggregation": (optional, applies only when functions are specified)
             "sum (default) | average | minimum | maximum | firstMatching"
         }
       ],
@@ -235,8 +238,8 @@ POST 요청의 경우에는 요청 본문에 인덱스 이름을 지정해야 �
         "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
         "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)
       }
-    }    
-    
+    }
+
 **인덱스 특성**
 
 인덱스를 만들 때 설정할 수 있는 특성은 다음과 같습니다. 점수 매기기 및 점수 매기기 프로필에 대한 자세한 내용은 [점수 매기기 프로필 추가](https://msdn.microsoft.com/library/azure/dn798928.aspx)를 참조하세요.
@@ -279,7 +282,7 @@ POST 요청의 경우에는 요청 본문에 인덱스 이름을 지정해야 �
 Azure 검색에서는 다양한 언어로 필드를 인덱싱할 수 있습니다. 각 언어를 사용하려면 지정된 언어의 특성을 고려할 수 있는 비표준 텍스트 분석기가 필요합니다. Azure 검색에서는 다음 두 가지 유형의 분석기를 제공합니다.
 
 - Lucene에서 지원하는 28개의 분석기
-- Office 및 Bing에서 사용되는 Microsoft 소유 자연어 처리 기술로 지원되는 50개의 분석기 
+- Office 및 Bing에서 사용되는 Microsoft 소유 자연어 처리 기술로 지원되는 50개의 분석기
 
 일부 개발자는 보다 친숙하고 간단한 Lucene의 오픈 소스 솔루션을 선호할 수 있습니다. Lucene이 더 빠르지만 Microsoft 분석기에는 분류 정리와 같은 고급 기능이 있습니다. 가능한 경우 Microsoft 분석기와 Lucene 분석기를 비교하여 어떤 것이 더 적합한지 결정해야 합니다.
 
@@ -318,15 +321,15 @@ Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는
 		<td>아랍어</td>
 		<td>ar.microsoft</td>
 		<td>
-		<ul>		
+		<ul>
 			<li>축소된 형태소 분석기</li>
 			<li>아랍어 중지 단어를 필터링합니다.</li>
 		</ul>
 		</td>
-	</tr>   
+	</tr>
     <tr>
     	<td>아르메니아어</td>
-    	<td>hy.lucene</td>	
+    	<td>hy.lucene</td>
     	<td>
     	<ul>
       		<li>간단한 알고리즘 방식 형태소 분석을 적용합니다.</li>
@@ -339,7 +342,7 @@ Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는
 		<td>bg.microsoft</td>
 		<td>
 		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>			
+			<li>확장 형태소 분석기(분류 정리)</li>
 		</ul>
 		</td>
 	</tr>
@@ -368,7 +371,7 @@ Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는
 		<td>bn.microsoft</td>
 		<td>
 		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>			
+			<li>확장 형태소 분석기(분류 정리)</li>
 		</ul>
 		</td>
 	</tr>
@@ -378,7 +381,7 @@ Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는
     	<td>
     	<ul>
       		<li>간단한 알고리즘 방식 형태소 분석을 적용합니다.</li>
-      		<li>카탈로니아어 중지 단어를 필터링합니다.</li>      
+      		<li>카탈로니아어 중지 단어를 필터링합니다.</li>
       		<li>발음 생략을 제거합니다.</li>
    		</ul>
     	</td>
@@ -388,8 +391,8 @@ Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는
 		<td>ca.microsoft</td>
 		<td>
 		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>		
-			<li>분음 부호를 제거합니다.</li>	
+			<li>확장 형태소 분석기(분류 정리)</li>
+			<li>분음 부호를 제거합니다.</li>
 		</ul>
 		</td>
 	</tr>
@@ -555,7 +558,7 @@ Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는
 			<li>분해</li>
 		</ul>
 		</td>
-	</tr>	
+	</tr>
     <tr>
 		<td>프랑스어</td>
 		<td>fr.lucene</td>
@@ -584,7 +587,7 @@ Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는
     	<td>
     	<ul>
     		<li>간단한 형태소 분석을 적용합니다.</li>
-      		<li>갈리시아어 중지 단어를 필터링합니다.</li>      
+      		<li>갈리시아어 중지 단어를 필터링합니다.</li>
     	</ul>
     	</td>
   	</tr>
@@ -666,7 +669,7 @@ Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는
 		<td>
 		<ul>
 			<li>확장 형태소 분석기(분류 정리)</li>
-			<li>힌디어 중지 단어를 필터링합니다.</li>			
+			<li>힌디어 중지 단어를 필터링합니다.</li>
 		</ul>
 		</td>
 	</tr>
@@ -696,7 +699,7 @@ Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는
 		<td>is.microsoft</td>
 		<td>
 		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>			
+			<li>확장 형태소 분석기(분류 정리)</li>
 		</ul>
 		</td>
 	</tr>
@@ -715,7 +718,7 @@ Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는
 		<td>id.microsoft</td>
 		<td>
 		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>		
+			<li>확장 형태소 분석기(분류 정리)</li>
 			<li>인도네시아어 중지 단어를 필터링합니다.</li>
 		</ul>
 		</td>
@@ -925,7 +928,7 @@ Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는
 		<td>pt-Br.microsoft</td>
 		<td>
 		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>			
+			<li>확장 형태소 분석기(분류 정리)</li>
 			<li>브라질어 중지 단어를 필터링합니다.</li>
 		</ul>
 		</td>
@@ -1015,7 +1018,7 @@ Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는
 		<td>sr-latin.microsoft</td>
 		<td>
 		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>	
+			<li>확장 형태소 분석기(분류 정리)</li>
 		</ul>
 		</td>
 	</tr>
@@ -1024,8 +1027,8 @@ Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는
 		<td>sk.microsoft</td>
 		<td>
 		<ul>
-			<li>축소된 형태소 분석기</li>	
-			<li>분해</li>		
+			<li>축소된 형태소 분석기</li>
+			<li>분해</li>
 		</ul>
 		</td>
 	</tr>
@@ -1112,7 +1115,7 @@ Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는
 		<td>태국어</td>
 		<td>th.microsoft</td>
 		<td>
-		<ul>			
+		<ul>
 			<li>태국어 중지 단어를 필터링합니다.</li>
 		</ul>
 		</td>
@@ -1161,11 +1164,11 @@ Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는
 		<td>vi.microsoft</td>
 		<td>
 		<ul>
-			
+
 		</ul>
 		</td>
 	</tr>
-	<td colspan="3">Azure 검색에서는 추가적으로 언어에 관계없는 분석기 구성을 제공합니다.</td> 
+	<td colspan="3">Azure 검색에서는 추가적으로 언어에 관계없는 분석기 구성을 제공합니다.</td>
     <tr>
 		<td>표준 ASCII 접기</td>
 		<td>standardasciifolding.lucene</td>
@@ -1190,7 +1193,7 @@ Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는
 
 기본 점수 매기기 프로필은 결과 집합에 있는 모든 항목에 대한 검색 점수를 계산하기 위해 백그라운드에서 작동합니다. 이름이 지정되지 않은 내부 점수 매기기 프로필을 사용할 수 있습니다. 또는 사용자 지정 프로필이 쿼리 문자열에서 지정되지 않을 때마다 호출되는 기본으로 사용자 지정 프로필을 사용하도록 `defaultScoringProfile`을(를) 설정합니다.
 
-세부 정보는 [검색 인덱스(Azure 검색 서비스 REST API)에 점수 매기기 프로필 추가](../search-api-scoring-profiles-2015-02-28.md)를 참조하세요.
+세부 정보는 [검색 인덱스(Azure 검색 서비스 REST API)에 점수 매기기 프로필 추가](search-api-scoring-profiles-2015-02-28.md)를 참조하세요.
 
 **CORS 옵션**
 
@@ -1201,7 +1204,7 @@ Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는
 - `maxAgeInSeconds`(선택): 브라우저는 이 값을 사용하여 CORS 실행 전 응답을 캐시할 기간(초)을 결정합니다. 이 값은 음수가 아닌 정수여야 합니다. 이 값이 클수록 성능은 개선되지만 CORS 정책 변경 내용이 적용되는 시간은 더 오래 걸립니다. 이 값을 설정하지 않으면 기본 기간인 5분이 사용됩니다.
 
 <a name="CreateUpdateIndexExample"></a> **요청 본문 예제**
- 
+
     {
       "name": "hotels",  
       "fields": [
@@ -1224,7 +1227,7 @@ Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는
           "searchMode": "analyzingInfixMatching",
           "sourceFields": ["hotelName"]
         }
-      ] 
+      ]
     }
 
 **응답**
@@ -1265,7 +1268,7 @@ Azure 검색에서 제안 기능은 검색 상자에 입력한 부분 문자열 
 		{
 		  "name": "hotels",
 		  "fields": [
-		     . . . 
+		     . . .
 		   ],
 		  "suggesters": [
 		    {
@@ -1275,12 +1278,11 @@ Azure 검색에서 제안 기능은 검색 상자에 입력한 부분 문자열 
 		    }
 		  ],
 		  "scoringProfiles": [
-		     . . . 
+		     . . .
 		  ]
 		}
 
-> [AZURE.NOTE]Azure 검색의 공개 미리 보기 버전을 사용하는 경우에는 3~25자 사이의 짧은 문자열에 대해서만 접두사 제안을 지원했던 이전 부울 속성 `"suggestions": false` 대신 `suggesters`가 사용됩니다. 이 속성 대신 제공되는 `suggesters`는 필드 내용 시작 부분이나 중간에서 일치하는 용어를 찾는 중위 일치 기능을 지원하므로 검색 문자열을 잘못 입력해도 올바른 결과가 반환될 확률이 높아집니다. 현재 제안 API는 이 방식으로만 구현됩니다. `api-version=2014-07-31-Preview`에 도입되었던 `suggestions` 속성도 해당 버전에서는 계속 작동하지만 Azure 검색의 `2015-02-28` 버전에서는 작동하지 않습니다.
-
+> [AZURE.NOTE]Azure 검색의 공개 미리 보기 버전을 사용하는 경우에는 3\~25자 사이의 짧은 문자열에 대해서만 접두사 제안을 지원했던 이전 부울 속성 `"suggestions": false` 대신 `suggesters`가 사용됩니다. 이 속성 대신 제공되는 `suggesters`는 필드 내용 시작 부분이나 중간에서 일치하는 용어를 찾는 중위 일치 기능을 지원하므로 검색 문자열을 잘못 입력해도 올바른 결과가 반환될 확률이 높아집니다. 일반적으로 사용 가능한 릴리스를 포함하여 이것이 현재 제안 API의 유일한 구현입니다. `api-version=2014-07-31-Preview`에 도입되었던 이전 `suggestions` 속성도 해당 버전에서는 계속 작동하지만 Azure 검색의 `2015-02-28` 이상 버전에서는 작동하지 않습니다.
 
 <a name="UpdateIndex"></a>
 ## 인덱스 업데이트
@@ -1309,7 +1311,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 
 - `Content-Type`: 필수 사항입니다. `application/json`으로 설정합니다.
 - `api-key`: 필수 사항입니다. `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **인덱스 업데이트** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다.
- 
+
 요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 **요청 본문 구문**
@@ -1345,7 +1347,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
           "name": "name of scoring profile",
           "text": (optional, only applies to searchable fields) {
             "weights": {
-              "searchable_field_name": relative_weight_value (positive #'s),
+              "searchable_field_name": relative_weight_value (positive numbers),
               ...
             }
           },
@@ -1372,7 +1374,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
               }
             }
           ],
-          "functionAggregation": (optional, applies only when functions are specified) 
+          "functionAggregation": (optional, applies only when functions are specified)
             "sum (default) | average | minimum | maximum | firstMatching"
         }
       ],
@@ -1381,7 +1383,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
         "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
         "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)
       }
-    }    
+    }
 
 
 **응답**
@@ -1407,9 +1409,9 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 **요청 헤더**
 
 다음 목록에서는 필수 요청 헤더와 선택적 요청 헤더에 대해 설명합니다.
- 
+
 - `api-key`: 필수 사항입니다. `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **인덱스 나열** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key`를 포함해야 합니다.
- 
+
 요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 **요청 본문**
@@ -1466,7 +1468,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 **요청**
 
 서비스 요청에는 HTTPS를 사용해야 합니다. **인덱스 가져오기** 요청은 GET 메서드를 사용하여 생성할 수 있습니다.
- 
+
 요청 URI의 [index name]은 인덱스 컬렉션에서 반환할 인덱스를 지정합니다.
 
 `api-version=[string]`(필수). 미리 보기 버전은 `api-version=2015-02-28-Preview`입니다. 자세한 내용 및 대체 버전은 [검색 서비스 버전 관리](http://msdn.microsoft.com/library/azure/dn864560.aspx)를 참조하세요.
@@ -1474,7 +1476,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 **요청 헤더**
 
 다음 목록에서는 필수 요청 헤더와 선택적 요청 헤더에 대해 설명합니다.
- 
+
 - `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **인덱스 가져오기** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key`를 포함해야 합니다.
 
 요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
@@ -1496,11 +1498,11 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 
     DELETE https://[service name].search.windows.net/indexes/[index name]?api-version=[api-version]
     api-key: [admin key]
-    
+
 **요청**
 
 서비스 요청에는 HTTPS를 사용해야 합니다. **인덱스 삭제** 요청은 DELETE 메서드를 사용하여 생성할 수 있습니다.
- 
+
 요청 URI의 [index name]은 인덱스 컬렉션에서 삭제할 인덱스를 지정합니다.
 
 `api-version=[string]`(필수). 미리 보기 버전은 `api-version=2015-02-28-Preview`입니다. 자세한 내용 및 대체 버전은 [검색 서비스 버전 관리](http://msdn.microsoft.com/library/azure/dn864560.aspx)를 참조하세요.
@@ -1508,9 +1510,9 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 **요청 헤더**
 
 다음 목록에서는 필수 요청 헤더와 선택적 요청 헤더에 대해 설명합니다.
- 
+
 - `api-key`: 필수 사항입니다. `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **인덱스 삭제** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다.
- 
+
 요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 **요청 본문**
@@ -1541,9 +1543,9 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 **요청 헤더**
 
 다음 목록에서는 필수 요청 헤더와 선택적 요청 헤더에 대해 설명합니다.
- 
+
 - `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **인덱스 통계 가져오기** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key`를 포함해야 합니다.
- 
+
 요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 **요청 본문**
@@ -1565,18 +1567,15 @@ ________________________________________
 <a name="DocOps"></a>
 ## 문서 작업 #
 
-Azure 검색에서는 서비스에 업로드하는 JSON 문서를 사용하여 인덱스를 채웁니다. 업로드하는 모든 문서는 검색 데이터 모음으로 구성됩니다. 문서에는 필드가 포함되며, 이러한 필드 중 일부는 문서 업로드 시 검색 용어로 토큰화됩니다. Azure 검색 API의 `/docs` URL 세그먼트는 인덱스의 문서 컬렉션을 나타냅니다. 문서 업로드/병합/삭제/쿼리 등 컬렉션에 대해 수행하는 모든 작업은 단일 인덱스의 컨텍스트에서 수행되므로 이러한 작업의 URL은 항상 지정된 인덱스 이름에 대해 `/indexes/[index name]/docs`로 시작됩니다.
+Azure 검색에서는 인덱스가 클라우드에 저장되며 서비스에 업로드하는 JSON 문서를 사용하여 인덱스를 채웁니다. 업로드하는 모든 문서는 검색 데이터 모음으로 구성됩니다. 문서에는 필드가 포함되며, 이러한 필드 중 일부는 문서 업로드 시 검색 용어로 토큰화됩니다. Azure 검색 API의 `/docs` URL 세그먼트는 인덱스의 문서 컬렉션을 나타냅니다. 문서 업로드/병합/삭제/쿼리 등 컬렉션에 대해 수행하는 모든 작업은 단일 인덱스의 컨텍스트에서 수행되므로 이러한 작업의 URL은 항상 지정된 인덱스 이름에 대해 `/indexes/[index name]/docs`로 시작됩니다.
 
-응용 프로그램 코드는 관계형 데이터베이스 또는 기타 구조화된 데이터 원본의 결과 집합을 사용하여 Azure 검색에 업로드할 JSON 문서를 생성할 수 있습니다.
-
-대부분의 응용 프로그램 개발 시나리오에서 검색 데이터는 응용 프로그램 데이터 계층과 별도이며 해당 계층 외부에 있습니다. 예를 들어 응용 프로그램에서 온-프레미스 데이터베이스를 사용하여 재고 상태를 추적하는 경우 Azure 검색에 보관된 문서는 제품 이름, 가격, 사용 가능 여부 측면에서 비슷하거나 같은 데이터 값을 포함하지만 검색을 최적화하기 위해 역방향 인덱스에 저장됩니다.
+응용 프로그램 코드는 Azure 검색에 업로드할 수 있는 JSON 문서를 생성해야 합니다. 또는 데이터 원본이 Azure SQL 데이터베이스 또는 DocumentDB인 경우 [인덱서](https://msdn.microsoft.com/library/dn946891.aspx)를 사용하여 문서를 로드할 수도 있습니다. 일반적으로 인덱스는 사용자가 제공하는 단일 데이터 집합에서 채워집니다.
 
 검색하려는 항목당 문서 하나를 포함하도록 계획해야 합니다. 예를 들어 영화 대여 응용 프로그램은 영화당 문서 하나를, 상점 응용 프로그램은 SKU당 문서 하나를, 온라인 교육 과정 응용 프로그램은 과정당 문서 하나를, 리서치 업체는 리포지토리의 학술 문서당 문서 하나를 포함할 수 있습니다.
 
-문서는 하나 이상의 필드로 구성됩니다. 필드는 Azure 검색에서 검색 용어로 토큰화되는 텍스트를 포함할 수 있으며 필터 또는 점수 매기기 프로필에서 사용할 수 있는 토큰화되지 않는 값 또는 텍스트가 아닌 값도 포함할 수 있습니다. 각 필드에 대해 지원되는 이름, 데이터 형식, 검색 기능은 인덱스 스키마에 의해 결정됩니다. 각 인덱스 스키마의 필드 중 하나는 ID로 지정해야 하며 각 문서는 인덱스에서 해당 문서를 고유하게 식별하는 ID 필드 값을 포함해야 합니다. 다른 모든 문서 필드는 선택 사항이며 지정하지 않으면 null 값으로 기본 설정됩니다. null 값은 역방향 인덱스에서 공간을 차지하지 않습니다.
+문서는 하나 이상의 필드로 구성됩니다. 필드는 Azure 검색에서 검색 용어로 토큰화되는 텍스트를 포함할 수 있으며 필터 또는 점수 매기기 프로필에서 사용할 수 있는 토큰화되지 않는 값 또는 텍스트가 아닌 값도 포함할 수 있습니다. 각 필드에 대해 지원되는 이름, 데이터 형식, 검색 기능은 인덱스 스키마에 의해 결정됩니다. 각 인덱스 스키마의 필드 중 하나는 ID로 지정해야 하며 각 문서는 인덱스에서 해당 문서를 고유하게 식별하는 ID 필드 값을 포함해야 합니다. 다른 모든 문서 필드는 선택 사항이며 지정하지 않으면 null 값으로 기본 설정됩니다. null 값은 검색 인덱스에서 공간을 차지하지 않습니다.
 
 문서를 업로드하려면 먼저 서비스에 인덱스를 만들어야 합니다. 이 첫 단계에 대한 자세한 내용은 [인덱스 만들기](#CreateIndex)를 참조하세요.
-
 
 <a name="AddOrUpdateDocuments"></a>
 ## 문서 추가, 업데이트 또는 삭제
@@ -1586,7 +1585,7 @@ HTTP POST를 사용하여 지정한 인덱스에서 문서를 업로드, 병합,
     POST https://[service name].search.windows.net/indexes/[index name]/docs/index?api-version=[api-version]
     Content-Type: application/json
     api-key: [admin key]
-    
+
 **요청**
 
 모든 서비스 요청에는 HTTPS를 사용해야 합니다. HTTP POST를 사용하여 지정한 인덱스에서 문서를 업로드, 병합, 병합하거나 업로드 또는 삭제할 수 있습니다.
@@ -1601,8 +1600,8 @@ HTTP POST를 사용하여 지정한 인덱스에서 문서를 업로드, 병합,
 
 - `Content-Type`: 필수 사항입니다. `application/json`으로 설정합니다.
 - `api-key`: 필수 사항입니다. `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **문서 추가** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다.
- 
-요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
+
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](.search-create-service-portal.md)를 참조하세요.
 
 **요청 본문**
 
@@ -1619,13 +1618,13 @@ HTTP POST를 사용하여 지정한 인덱스에서 문서를 업로드, 병합,
         ...
       ]
     }
-    
+
 **문서 작업**
 
 - `upload`: 업로드 작업은 새 문서는 삽입하고 기존 문서는 업데이트/교체하는 "upsert"와 비슷합니다. 업데이트 시에는 모든 필드가 바뀝니다.
 - `merge`: 병합에서는 기존 문서를 지정한 필드로 업데이트합니다. 문서가 없으면 병합하지 못합니다. 문서의 기존 필드는 병합에서 지정하는 필드로 바뀝니다. 여기에는 `Collection(Edm.String)` 형식 필드가 포함됩니다. 예를 들어 값이 `["budget"]`인 "tags" 필드가 포함되어 있는 문서에서 "tags"에 대해 `["economy", "pool"]` 값과의 병합을 실행하면 "tags" 필드의 최종 값은 `["economy", "pool"]`이 됩니다. `["budget", "economy", "pool"]`이 **아닙니다**.
 - `mergeOrUpload`: 이 작업은 지정된 키를 포함하는 문서가 인덱스에 이미 있는 경우 `merge`와 동일하게 동작합니다. 문서가 없는 경우에는 새 문서에 대해 `upload`와 같이 동작합니다.
-- `delete`: 삭제 시에는 지정된 문서를 인덱스에서 제거합니다. `delete` 작업에서는 key 필드 값만 지정합니다. name 필드 등의 다른 필드를 지정하려고 하면 HTTP 400 오류가 발생합니다. 개별 필드를 문서에서 제거하려는 경우에는 대신 `merge`를 사용하고 필드를 명시적으로 `null`로 설정합니다. 
+- `delete`: 삭제 시에는 지정된 문서를 인덱스에서 제거합니다. `delete` 작업에서는 key 필드 값만 지정합니다. name 필드 등의 다른 필드를 지정하려고 하면 HTTP 400 오류가 발생합니다. 개별 필드를 문서에서 제거하려는 경우에는 대신 `merge`를 사용하고 필드를 명시적으로 `null`로 설정합니다.
 
 **응답**
 
@@ -1642,7 +1641,7 @@ HTTP POST를 사용하여 지정한 인덱스에서 문서를 업로드, 병합,
     }  
 
 상태 코드: 하나 이상의 항목이 올바르게 인덱싱되지 않은 경우에는 207이 반환됩니다(인덱싱되지 않은 항목의 'status' 필드가 false로 설정됨).
- 
+
     {
       "value": [
         {
@@ -1668,7 +1667,7 @@ HTTP POST를 사용하여 지정한 인덱스에서 문서를 업로드, 병합,
           "hotelId": "1",
           "baseRate": 199.0,
           "description": "Best hotel in town",
-		  "description_fr": "Meilleur hôtel en ville", 
+		  "description_fr": "Meilleur hôtel en ville",
           "hotelName": "Fancy Stay",
 		  "category": "Luxury",
           "tags": ["pool", "view", "wifi", "concierge"],
@@ -1710,18 +1709,26 @@ ________________________________________
 <a name="SearchDocs"></a>
 ## 문서 검색
 
-**검색** 작업은 GET 요청으로 실행되며, 일치하는 문서의 선택 조건을 제공하는 쿼리 매개 변수를 지정합니다.
+**검색** 작업은 GET 또는 POST 요청으로 실행되며, 일치하는 문서의 선택 조건을 제공하는 매개 변수를 지정합니다.
 
     GET https://[service name].search.windows.net/indexes/[index name]/docs?[query parameters]
-    api-key: [admin key]
+    api-key: [admin or query key]
+
+    POST https://[service name].search.windows.net/indexes/[index name]/docs/search?api-version=[api-version]
+    Content-Type: application/json
+    api-key: [admin or query key]
+
+**GET 대신 POST를 사용하는 경우**
+
+HTTP GET을 사용하여 **검색** API를 호출하는 경우 요청 URL의 길이는 8KB를 초과할 수 없습니다. 이 크기는 일반적으로 대부분의 응용 프로그램에서 충분합니다. 그러나 일부 응용 프로그램은 매우 큰 쿼리, 특히 OData 필터 식을 생성합니다. 이러한 응용 프로그램에서는 HTTP POST를 사용하는 것이 더 좋습니다. POST에 대한 요청 크기 제한은 17MB 가까이 되는데, 이 크기는 가장 복잡한 쿼리에서도 충분한 공간을 제공합니다.
 
 **요청**
 
-서비스 요청에는 HTTPS를 사용해야 합니다. **검색** 요청은 GET 메서드를 사용하여 생성할 수 있습니다.
+서비스 요청에는 HTTPS를 사용해야 합니다. **검색** 요청은 GET 또는 POST 메서드를 사용하여 생성할 수 있습니다.
 
-요청 URI는 쿼리 매개 변수와 일치하는 모든 문서에 대해 쿼리할 인덱스를 지정합니다.
+요청 URI는 매개 변수와 일치하는 모든 문서에 대해 쿼리할 인덱스를 지정합니다. GET 요청은 쿼리 문자열에 매개 변수를 지정하고 POST 요청은 요청 본문에 지정합니다.
 
-REST API를 직접 호출할 때는 특정 쿼리 매개 변수를 [URL로 인코딩](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx)하는 것이 좋습니다. 문서 검색 작업에는 다음이 포함됩니다.
+GET 요청을 만드는 경우, REST API를 직접 호출할 때는 특정 쿼리 매개 변수를 [URL로 인코딩](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx)하는 것이 좋습니다. **검색** 작업의 경우 다음이 포함됩니다.
 
 - `$filter`
 - `facet`
@@ -1732,11 +1739,13 @@ REST API를 직접 호출할 때는 특정 쿼리 매개 변수를 [URL로 인�
 
 URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전체 쿼리 문자열을 URL로 인코딩한 경우(모든 항목을 ? 뒤에 입력)에는 요청이 중단됩니다.
 
-또한 URL 인코딩은 REST API를 직접 호출할 때만 필요합니다. [.NET 클라이언트 라이브러리](https://msdn.microsoft.com/library/dn951165.aspx)를 사용하면 URL 인코딩이 자동으로 처리됩니다.
+또한 URL 인코딩은 GET을 사용하여 REST API를 직접 호출할 때만 필요합니다. POST를 사용하여 **검색**을 호출할 때 또는 URL 인코딩을 자동으로 처리하는 [.NET 클라이언트 라이브러리](https://msdn.microsoft.com/library/dn951165.aspx)를 사용할 때는 URL 인코딩이 필요하지 않습니다.
 
 **쿼리 매개 변수**
 
-`search=[string]`(선택) - 검색할 텍스트입니다. `searchFields`를 지정하지 않으면 기본적으로 모든 `searchable` 필드가 검색됩니다. `searchable` 필드를 검색할 때는 검색 텍스트 자체가 토큰화되므로 여러 용어를 공백으로 구분할 수 있습니다(예: `search=hello world`). 모든 용어를 일치시키려면 `*`를 사용합니다(부울 필터 쿼리에 유용할 수 있음). 이 매개 변수를 생략하는 것은 `*`로 설정하는 것과 같습니다. 검색 구문에 대한 세부 사항은 아래의 "단순 쿼리 구문"을 참조하세요.
+**검색**은 쿼리 조건을 제공하고 검색 동작을 지정하는 여러 매개 변수를 허용합니다. GET을 통해 **검색**을 호출할 때 URL 쿼리 문자열로, 그리고 POST를 통해 **검색**을 호출할 때 요청 본문에 JSON 속성으로 이러한 매개 변수를 제공합니다. 일부 매개 변수에 대한 구문은 GET 및 POST 간에 약간 다릅니다. 이러한 차이가 아래에 나와 있습니다.
+
+`search=[string]`(선택) - 검색할 텍스트입니다. `searchFields`를 지정하지 않으면 기본적으로 모든 `searchable` 필드가 검색됩니다. `searchable` 필드를 검색할 때는 검색 텍스트 자체가 토큰화되므로 여러 용어를 공백으로 구분할 수 있습니다(예: `search=hello world`). 모든 용어를 일치시키려면 `*`를 사용합니다(부울 필터 쿼리에 유용할 수 있음). 이 매개 변수를 생략하는 것은 `*`로 설정하는 것과 같습니다. 검색 구문에 대한 세부 사항은 [단순 쿼리 구문](https://msdn.microsoft.com/library/dn798920.aspx)을 참조하세요.
 
   - **참고**: `searchable` 필드를 쿼리할 때 놀라운 결과가 나타나는 경우가 있습니다. 토크나이저에는 아포스트로피, 숫자 안의 쉼표 등과 같은 영어 텍스트에 일반적인 사례를 처리하는 논리가 포함되어 있습니다. 예를 들어 `search=123,456`은 개별 용어인 123과 456이 아니라 단일 용어인 123,456과 일치합니다. 여기서 쉼표는 영어에서 큰 숫자에 사용되는 1000 단위 구분 기호이기 때문입니다. 따라서 `search` 매개 변수에서 용어를 구분할 때는 마침표 대신 공백을 사용하는 것이 좋습니다.
 
@@ -1748,41 +1757,63 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
 
 `$skip=#`(선택) - 건너뛸 검색 결과 수입니다. 100,000보다 클 수 없습니다. 문서를 순차적으로 검색하려는 경우 이 제한으로 인해 `$skip`을 사용할 수 없다면 대신 전체 정렬된 키에서 `$orderby`를 사용하고 범위 쿼리에 `$filter`를 사용하는 것이 좋습니다.
 
-`$top=#`(선택) - 검색할 검색 결과 수입니다. 기본값은 50입니다. 1000보다 큰 값을 지정한 경우 1000개가 넘는 결과가 있으면 결과의 다음 페이지에 대한 링크와 함께 처음 1000개의 결과만 반환됩니다([아래 예제](#SearchResponse)의 `@odata.nextLink` 참조).
+> [AZURE.NOTE]POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `$skip` 대신 `skip`입니다.
+
+`$top=#`(선택) - 검색할 검색 결과 수입니다. 검색 결과의 클라이언트쪽 페이징을 구현하기 위해 `$skip`과 함께 사용할 수 있습니다.
+
+> [AZURE.NOTE]Azure 검색은 ***서버쪽 페이징***을 사용하여 쿼리가 한 번에 너무 많은 문서를 검색하지 못하도록 합니다. 기본 페이지 크기는 50이고 최대 페이지 크기는 1000입니다. 따라서 `$top`을 지정하지 않으면 기본적으로 **검색**에서 최대 50개를 반환합니다. 결과가 50개를 초과하면 응답에는 최대 50개의 결과가 표시된 다음 페이지를 가져올 수 있는 정보가 포함됩니다([아래 예제](#SearchResponse)의 `@odata.nextLink` 및 `@search.nextPageParameters` 참조). 비슷하게 `$top`에 1000보다 큰 값을 지정한 경우 1000개가 넘는 결과가 있으면 최대 1000개의 결과가 표시된 다음 페이지를 가져올 수 있는 정보와 함께 처음 1000개의 결과만 반환됩니다.
+
+> [AZURE.NOTE]POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `$top` 대신 `top`입니다.
 
 `$count=true|false`(선택, 기본적으로 `false`) - 총 결과 수를 가져올지 여부를 지정합니다. 이 값을 `true`로 설정하면 성능이 저하될 수 있습니다. 반환되는 개수는 근사값입니다.
 
+> [AZURE.NOTE]POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `$count` 대신 `count`입니다.
+
 `$orderby=[string]`(선택) - 결과 정렬 기준으로 사용할 쉼표로 구분된 식 목록입니다. 각 식은 필드 이름이거나 `geo.distance()` 함수 호출일 수 있습니다. 각 식 뒤에는 오름차순을 나타내는 `asc` 또는 내림차순을 나타내는 `desc`가 올 수 있습니다. 기본값은 오름차순입니다. 동률은 문서의 일치 점수로 구분됩니다. `$orderby`를 지정하지 않은 경우 기본 정렬 순서는 문서 일치 점수별 내림차순입니다. `$orderby` 절은 32개로 제한됩니다.
 
+> [AZURE.NOTE]POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `$orderby` 대신 `orderby`입니다.
+
 `$select=[string]`(선택) - 검색할 쉼표로 구분된 필드 목록입니다. 지정하지 않으면 스키마에서 검색 가능으로 표시된 모든 필드가 포함됩니다. 이 매개 변수를 `*`로 설정하여 모든 필드를 명시적으로 요청할 수도 있습니다.
+
+> [AZURE.NOTE]POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `$select` 대신 `select`입니다.
 
 `facet=[string]`(0 이상) - 패싯할 필드입니다. 필요에 따라 문자열은 쉼표로 구분된 `name:value` 쌍으로 표현된 패싯을 사용자 지정하는 매개 변수를 포함할 수 있습니다. 유효한 매개 변수는 다음과 같습니다.
 
 - `count`(패싯 용어의 최대 개수, 기본값은 10). 최대값은 없지만 값이 크면 성능이 저하되며, 특히 패싯 필드에 포함된 고유한 항목 수가 많을수록 더욱 그렇습니다.
   - 예: `facet=category,count:5`는 패싯 결과에서 상위 5개의 범주를 가져옵니다.  
-  - **참고**: `count` 매개 변수가 고유한 항목 수보다 작으면 결과가 정확하지 않을 수 있습니다. 이는 패싯 쿼리가 분할된 데이터베이스에서 분산된 방식 때문입니다. `count`를 늘리면 일반적으로 용어 수의 정확도가 높아지지만 성능이 저하됩니다. 
+  - **참고**: `count` 매개 변수가 고유한 항목 수보다 작으면 결과가 정확하지 않을 수 있습니다. 이는 패싯 쿼리가 분할된 데이터베이스에서 분산된 방식 때문입니다. `count`를 늘리면 일반적으로 용어 수의 정확도가 높아지지만 성능이 저하됩니다.
 - `sort`(개수별로 *내림차순* 정렬하는 `count`, 개수별로 *오름차순* 정렬하는 `-count`, 값별로 *오름차순* 정렬하는 `value`, 값별로 *내림차순* 정렬하는 `-value` 중 하나)
   - 예: `facet=category,count:3,sort:count`는 각 도시 이름이 있는 문서 수를 기준으로 내림차순으로 정렬된 패싯 결과에서 상위 3개의 범주를 가져옵니다. 예를 들어 상위 3개의 범주가 Budget, Motel, Luxury인 경우 적중 항목 수가 Budget은 5개, Motel은 6개, Luxury는 4개이면 버킷이 Motel, Budget, Luxury 순으로 정렬됩니다.
-  - 예: `facet=rating,sort:-value`는 값을 기준으로 내림차순으로 정렬된 가능한 모든 등급의 버킷을 생성합니다. 예를 들어 등급이 1~5인 경우 각 등급과 일치하는 문서 수에 상관없이 버킷이 5, 4, 3, 2, 1 순으로 정렬됩니다.
+  - 예: `facet=rating,sort:-value`는 값을 기준으로 내림차순으로 정렬된 가능한 모든 등급의 버킷을 생성합니다. 예를 들어 등급이 1\~5인 경우 각 등급과 일치하는 문서 수에 상관없이 버킷이 5, 4, 3, 2, 1 순으로 정렬됩니다.
 - `values`(파이프로 구분된 숫자 또는 패싯 항목 값의 동적 집합을 지정하는 `Edm.DateTimeOffset` 값)
-  - 예: `facet=baseRate,values:10|20`은 각각 기본 요금이 1~9, 10~19 및 20 이상인 버킷 3개를 생성합니다.
+  - 예: `facet=baseRate,values:10|20`은 각각 기본 요금이 1\~9, 10\~19 및 20 이상인 버킷 3개를 생성합니다.
   - 예: `facet=lastRenovationDate,values:2010-02-01T00:00:00Z`는 각각 2010년 2월 이전에 리노베이션된 호텔과 2010년 2월 1일 이후에 리노베이션된 호텔에 대한 버킷 2개를 생성합니다.
 - `interval`(숫자의 경우 0보다 큰 정수 간격 또는 날짜/시간 값의 경우 `minute`, `hour`, `day`, `week`, `month`, `quarter`, `year`)
   - 예: `facet=baseRate,interval:100`은 기본 요금 범위 100을 기준으로 버킷을 생성합니다. 예를 들어 기본 요금이 모두 $60에서 $600 사이에 속한 경우 0-100, 100-200, 200-300, 300-400, 400-500 및 500-600에 대한 버킷이 생성됩니다.
   - 예: `facet=lastRenovationDate,interval:year`는 호텔이 리노베이션된 각 연도에 대해 하나의 버킷을 생성합니다.
 - **참고**: `count`와 `sort`는 동일한 패싯 사양에서 함께 사용할 수 있지만 `interval` 또는 `values` 및 `interval`과 `values`는 함께 사용할 수 없습니다.
 
+> [AZURE.NOTE]POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `facet` 대신 `facets`입니다. 또한 문자열의 JSON 배열로 지정할 수도 있습니다. 여기서 각 문자열은 별도의 패싯 식입니다.
+
 `$filter=[string]`(선택) - 표준 OData 구문의 구조화된 검색 식입니다. Azure 검색에서 지원하는 OData 식 문법의 하위 집합에 대한 자세한 내용은 [OData 식 구문](#ODataExpressionSyntax)을 참조하세요.
+
+> [AZURE.NOTE]POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `$filter` 대신 `filter`입니다.
 
 `highlight=[string]`(선택) - 적중 항목을 강조 표시하는 데 사용되는 쉼표로 구분된 필드 이름 집합입니다. `searchable` 필드만 적중 항목 강조 표시에 사용할 수 있습니다.
 
-  `highlightPreTag=[string]`(선택, 기본적으로 `<em>`) - 적중 항목 강조 표시 앞에 추가되는 문자열 태그입니다. `highlightPostTag`로 설정해야 합니다. URL의 예약 문자는 %로 인코딩해야 합니다. 예를 들어 # 대신 %23을 사용해야 합니다.
+`highlightPreTag=[string]`(선택, 기본적으로 `<em>`) - 적중 항목 강조 표시 앞에 추가되는 문자열 태그입니다. `highlightPostTag`로 설정해야 합니다.
 
-  `highlightPostTag=[string]`(선택, 기본적으로 `</em>`) - 적중 항목 강조 표시에 추가되는 문자열 태그입니다. `highlightPreTag`로 설정해야 합니다. URL의 예약 문자는 %로 인코딩해야 합니다. 예를 들어 # 대신 %23을 사용해야 합니다.
+> [AZURE.NOTE]GET을 사용하여 **검색**을 호출하는 경우 URL의 예약 문자는 %로 인코딩해야 합니다. 예를 들어 # 대신 %23을 사용해야 합니다.
+
+`highlightPostTag=[string]`(선택, 기본적으로 `</em>`) - 적중 항목 강조 표시에 추가되는 문자열 태그입니다. `highlightPreTag`로 설정해야 합니다.
+
+> [AZURE.NOTE]GET을 사용하여 **검색**을 호출하는 경우 URL의 예약 문자는 %로 인코딩해야 합니다. 예를 들어 # 대신 %23을 사용해야 합니다.
 
 `scoringProfile=[string]`(선택) - 결과를 정렬하기 위해 일치하는 문서의 일치 점수를 평가할 점수 매기기 프로필의 이름입니다.
 
 `scoringParameter=[string]`(0 이상) - 이름: 값 형식을 사용하여 점수 매기기 함수에 정의된 각 매개 변수(예: `referencePointParameter`)의 값을 나타냅니다. 예를 들어 점수 매기기 프로필이 "mylocation"라는 매개 변수를 사용하여 함수를 정의하는 경우 쿼리 문자열 옵션은 &scoringParameter=mylocation:-122.2,44.8입니다.
+
+> [AZURE.NOTE]POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `scoringParameter` 대신 `scoringParameters`입니다. 또한 문자열의 JSON 배열로 지정할 수도 있습니다. 여기서 각 문자열은 별도의 이름:값 쌍입니다.
 
 `minimumCoverage`(선택 사항, 기본값 100까지) - 성공으로 보고할 쿼리를 위해 검색 쿼리를 통해 처리해야 하는 인덱스의 백분율을 나타내는 0과 100 사이의 숫자입니다. 기본적으로 전체 인덱스를 사용할 수 있습니다. 또는 `Search`이(가) HTTP 상태 코드 503을 반환합니다. `minimumCoverage` 및 `Search` 성공을 설정하는 경우 HTTP 200을 반환하며 쿼리에 포함되었던 인덱스의 백분율을 나타내는 응답에 `@search.coverage` 값을 포함합니다.
 
@@ -1790,19 +1821,41 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
 
 `api-version=[string]`(필수). 미리 보기 버전은 `api-version=2015-02-28-Preview`입니다. 자세한 내용 및 대체 버전은 [검색 서비스 버전 관리](http://msdn.microsoft.com/library/azure/dn864560.aspx)를 참조하세요.
 
-참고: 이 작업에는 `api-version`은 쿼리 매개 변수로 지정됩니다.
+참고: 이 작업의 경우 `api-version`은 **검색** 호출 시 GET을 사용하든 또는 POST를 사용하든 관계 없이 URL에 쿼리 매개 변수로 지정됩니다.
 
 **요청 헤더**
 
 다음 목록에서는 필수 요청 헤더와 선택적 요청 헤더에 대해 설명합니다.
 
 - `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **검색 ** 요청은 `api-key`에 대해 관리 키 또는 쿼리 키를 지정할 수 있습니다.
- 
+
 요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 **요청 본문**
 
-없음
+GET의 경우: 없음.
+
+POST의 경우:
+
+    {
+      "count": true | false (default),
+      "facets": [ "facet_expression_1", "facet_expression_2", ... ],
+      "filter": "odata_filter_expression",
+      "highlight": "highlight_field_1, highlight_field_2, ...",
+      "highlightPreTag": "pre_tag",
+      "highlightPostTag": "post_tag",
+      "minimumCoverage": # (% of index that must be covered to declare query successful; default 100),
+      "moreLikeThis": "document_key" (mutually exclusive with "search" parameter),
+      "orderby": "orderby_expression",
+      "scoringParameters": [ "scoring_parameter_1", "scoring_parameter_2", ... ],
+      "scoringProfile": "scoring_profile_name",
+      "search": "simple_query_expression",
+      "searchFields": "field_name_1, field_name_2, ...",
+      "searchMode": "any" (default) | "all",
+      "select": "field_name_1, field_name_2, ...",
+      "skip": # (default 0),
+      "top": #
+    }
 
 <a name="SearchResponse"></a> **응답**
 
@@ -1822,6 +1875,25 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
         ],
         ...
       },
+      "@search.nextPageParameters": { (request body to fetch the next page of results if result count exceeds page size and Search was called with POST)
+        "count": ... (value from request body if present),
+        "facets": ... (value from request body if present),
+        "filter": ... (value from request body if present),
+        "highlight": ... (value from request body if present),
+        "highlightPreTag": ... (value from request body if present),
+        "highlightPostTag": ... (value from request body if present),
+        "minimumCoverage": ... (value from request body if present),
+        "moreLikeThis": ... (value from request body if present),
+        "orderby": ... (value from request body if present),
+        "scoringParameters": ... (value from request body if present),
+        "scoringProfile": ... (value from request body if present),
+        "search": ... (value from request body if present),
+        "searchFields": ... (value from request body if present),
+        "searchMode": ... (value from request body if present),
+        "select": ... (value from request body if present),
+        "skip": ... (page size plus value from request body if present),
+        "top": ... (value from request body if present minus page size),
+      },
       "value": [
         {
           "@search.score": document_score (if a text query was provided),
@@ -1835,9 +1907,9 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
         },
         ...
       ],
-      "@odata.nextLink": (URL to fetch the next page of results if $top is greater than 1000)
+      "@odata.nextLink": (URL to fetch the next page of results if result count exceeds page size; Applies to both GET and POST)
     }
-    
+
 **예제:**
 
 추가 예제는 [Azure 검색에 대한 OData 식 구문](https://msdn.microsoft.com/library/azure/dn798921.aspx) 페이지에서 확인할 수 있습니다.
@@ -1846,59 +1918,146 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
 
     GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2015-02-28-Preview
 
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "*",
+      "orderby": [ "lastRenovationDate desc" ]
+    }
+
 2) 패싯 검색에서 인덱스를 검색하고 범주, 등급, 태그 및 특정 범위의 baseRate이 있는 항목에 대한 패싯을 검색합니다.
 
     GET /indexes/hotels/docs?search=test&facet=category&facet=rating&facet=tags&facet=baseRate,values:80|150|220&api-version=2015-02-28-Preview
+
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "test",
+      "facets": [ "category", "rating", "tags", "baseRate,values:80|150|220" ]
+    }
 
 3) 필터를 사용하여 사용자가 등급 3 및 범주 "Motel"을 클릭한 후 이전 패싯 쿼리 결과의 범위를 좁힙니다.
 
     GET /indexes/hotels/docs?search=test&facet=tags&facet=baseRate,values:80|150|220&$filter=rating eq 3 and category eq 'Motel'&api-version=2015-02-28-Preview
 
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "test",
+      "facets": [ "tags", "baseRate,values:80|150|220" ],
+      "filter": "rating eq 3 and category eq 'Motel'"
+    }
+
 4) 패싯 검색에서 쿼리에 반환되는 고유 항목의 상한을 설정합니다. 기본값은 10이지만 `facet` 특성의 `count` 매개 변수를 사용하여 이 값을 늘리거나 줄일 수 있습니다.
 
     GET /indexes/hotels/docs?search=test&facet=city,count:5&api-version=2015-02-28-Preview
+
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "test",
+      "facets": [ "city,count:5" ]
+    }
 
 5) 특정 필드(예: 언어 관련 필드) 내에서 인덱스를 검색합니다.
 
     GET /indexes/hotels/docs?search=hôtel&searchFields=description_fr&api-version=2015-02-28-Preview
 
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "hôtel",
+      "searchFields": [ "description_fr" ]
+    }
+
 6) 여러 필드에서 인덱스를 검색합니다. 예를 들어 모두 동일한 인덱스 내에서 여러 언어로 된 검색 가능 필드를 저장하고 쿼리할 수 있습니다. 같은 문서에 영어 설명과 프랑스어 설명이 둘 다 있는 경우 쿼리 결과에서 둘 중 하나 또는 둘 다를 반환할 수 있습니다.
 
 	GET /indexes/hotels/docs?search=hotel&searchFields=description,description_fr&api-version=2015-02-28-Preview
-	
+
+	POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "hotel",
+      "searchFields": [ "description", "description_fr" ]
+    }
+
 한 번에 하나의 인덱스만 쿼리할 수 있습니다. 한번에 하나씩 쿼리하려는 경우가 아니면 각 언어에 대한 여러 인덱스를 만들지 마세요.
 
 7) 페이징 - 항목의 첫 번째 페이지(페이지 크기는 10)를 가져옵니다.
 
     GET /indexes/hotels/docs?search=*&$skip=0&$top=10&api-version=2015-02-28-Preview
 
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "*",
+      "skip": 0,
+      "top": 10
+    }
+
 8) 페이징 - 항목의 두 번째 페이지(페이지 크기는 10)를 가져옵니다.
 
     GET /indexes/hotels/docs?search=*&$skip=10&$top=10&api-version=2015-02-28-Preview
+
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "*",
+      "skip": 10,
+      "top": 10
+    }
 
 9) 특정 필드 집합을 검색합니다.
 
     GET /indexes/hotels/docs?search=*&$select=hotelName,description&api-version=2015-02-28-Preview
 
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "*",
+      "select": [ "hotelName", "description" ]
+    }
+
 10) 특정 필터 식과 일치하는 문서를 검색합니다.
 
     GET /indexes/hotels/docs?$filter=(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'&api-version=2015-02-28-Preview
 
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "filter": "(baseRate ge 60 and baseRate lt 300) or hotelName eq 'Fancy Stay'"
+    }
+
 11) 인덱스를 검색하여 적중 항목이 강조 표시된 조각을 반환합니다.
 
     GET /indexes/hotels/docs?search=something&highlight=description&api-version=2015-02-28-Preview
-    
+
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "something",
+      "highlight": "description"
+    }
+
 12) 인덱스를 검색하여 참조 위치에서 가까이 있는 순으로 정렬된 문서를 반환합니다.
 
     GET /indexes/hotels/docs?search=something&$orderby=geo.distance(location, geography'POINT(-122.12315 47.88121)')&api-version=2015-02-28-Preview
+
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "something",
+      "orderby": [ "geo.distance(location, geography'POINT(-122.12315 47.88121)')" ]
+    }
 
 13) 두 개의 거리 점수 매기기 함수를 사용하는 "geo"라는 점수 매기기 프로필이 있는 것으로 가정하여 인덱스를 검색합니다. 두 함수는 각각 "currentLocation"이라는 매개 변수와 "lastLocation"이라는 매개 변수를 정의합니다.
 
     GET /indexes/hotels/docs?search=something&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&scoringParameter=lastLocation:-121.499,44.2113&api-version=2015-02-28-Preview
 
-14) 단순 쿼리 구문을 사용하여 인덱스에서 문서를 찾습니다. 이 쿼리는 검색 가능한 필드에 "comfort" 및 "location"이라는 용어가 있지만 "motel"이라는 용어가 없는 호텔을 반환합니다.
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "something",
+      "scoringProfile": "geo",
+      "scoringParameters": [ "currentLocation:-122.123,44.77233", "lastLocation:-121.499,44.2113" ]
+    }
+
+14) [단순 쿼리 구문](https://msdn.microsoft.com/library/dn798920.aspx)을 사용하여 인덱스에서 문서를 찾습니다. 이 쿼리는 검색 가능한 필드에 "comfort" 및 "location"이라는 용어가 있지만 "motel"이라는 용어가 없는 호텔을 반환합니다.
 
     GET /indexes/hotels/docs?search=comfort +location -motel&searchMode=all&api-version=2015-02-28-Preview
+
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "comfort +location -motel",
+      "searchMode": "all"
+    }
 
 위에서 `searchMode=all`의 사용에 주의하세요. 이 매개 변수를 포함하면 기본값 `searchMode=any`가 재정의되어 `-motel`이 "OR NOT" 대신 "AND NOT"을 의미하게 됩니다. `searchMode=all`을 사용하지 않으면 검색 결과를 제한하는 것이 아니라 확장하는 "OR NOT"을 가져오므로 일부 사용자에게 직관적으로 보이지 않을 수 있습니다.
 
@@ -1908,14 +2067,14 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
 
 **문서 조회** 작업은 Azure 검색에서 문서를 검색합니다. 사용자가 특정 검색 결과를 클릭할 때 해당 문서에 대한 특정 세부 정보를 조회하려는 경우 이 작업을 사용하면 유용합니다.
 
-    GET https://[service name].search.windows.net/indexes/[index name]/docs/[key]?[query parameters] 
-    api-key: [admin key]
-    
+    GET https://[service name].search.windows.net/indexes/[index name]/docs/[key]?[query parameters]
+    api-key: [admin or query key]
+
 **요청**
 
 서비스 요청에는 HTTPS를 사용해야 합니다. 다음과 같이 **문서 조회** 요청을 생성할 수 있습니다.
 
-    GET /indexes/[index name]/docs/key?[query parameters] 
+    GET /indexes/[index name]/docs/key?[query parameters]
 
 기존 OData 구문을 키 조회에 사용할 수도 있습니다.
 
@@ -1936,7 +2095,7 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
 다음 목록에서는 필수 요청 헤더와 선택적 요청 헤더에 대해 설명합니다.
 
 - `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **문서 조회 ** 요청은 `api-key`에 대해 관리 키 또는 쿼리 키를 지정할 수 있습니다.
- 
+
 요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 **요청 본문**
@@ -1950,7 +2109,7 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
     {
       field_name: field_value (fields matching the default or specified projection)
     }
-    
+
 **예제**
 
 '2' 키가 있는 문서 조회
@@ -1968,8 +2127,8 @@ OData 구문을 사용하여 '3' 키가 있는 문서 조회
 
     GET https://[service name].search.windows.net/indexes/[index name]/docs/$count?api-version=[api-version]
     Accept: text/plain
-    api-key: [admin key]
-    
+    api-key: [admin or query key]
+
 **요청**
 
 서비스 요청에는 HTTPS를 사용해야 합니다. **문서 수 계산** 요청은 GET 메서드를 사용하여 생성할 수 있습니다.
@@ -1984,7 +2143,7 @@ OData 구문을 사용하여 '3' 키가 있는 문서 조회
 
 - `Accept`: 이 값은 `text/plain`으로 설정해야 합니다.
 - `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **문서 수 계산 ** 요청은 `api-key`에 대해 관리 키 또는 쿼리 키를 지정할 수 있습니다.
- 
+
 요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 **요청 본문**
@@ -2004,17 +2163,26 @@ OData 구문을 사용하여 '3' 키가 있는 문서 조회
 
 제안 요청은 대상 문서를 제공하기 위한 것이므로 같은 검색 입력과 일치하는 후보 문서가 여러 개이면 제안되는 텍스트가 반복될 수 있습니다. `$select`를 사용하면 각 제안의 원본인 문서를 확인할 수 있도록 문서 키를 비롯한 다른 문서 필드를 검색할 수 있습니다.
 
-    GET https://[service name].search.windows.net/indexes/[index name]/docs/suggest?[query parameters]
-    api-key: [admin key]
+**제안** 작업이 GET 또는 POST 요청으로 발생합니다.
 
+    GET https://[service name].search.windows.net/indexes/[index name]/docs/suggest?[query parameters]
+    api-key: [admin or query key]
+
+    POST https://[service name].search.windows.net/indexes/[index name]/docs/suggest?api-version=[api-version]
+    Content-Type: application/json
+    api-key: [admin or query key]
+
+**GET 대신 POST를 사용하는 경우**
+
+HTTP GET을 사용하여 **제안** API를 호출하는 경우 요청 URL의 길이는 8KB를 초과할 수 없습니다. 이 크기는 일반적으로 대부분의 응용 프로그램에서 충분합니다. 그러나 일부 응용 프로그램은 매우 큰 쿼리, 특히 OData 필터 식을 생성합니다. 이러한 응용 프로그램에서는 HTTP POST를 사용하는 것이 더 좋습니다. POST에 대한 요청 크기 제한은 17MB 가까이 되는데, 이 크기는 가장 복잡한 쿼리에서도 충분한 공간을 제공합니다.
 
 **요청**
 
-서비스 요청에는 HTTPS를 사용해야 합니다. **제안** 요청은 GET 메서드를 사용하여 생성할 수 있습니다.
+서비스 요청에는 HTTPS를 사용해야 합니다. **제안** 요청은 GET 또는 POST 메서드를 사용하여 생성할 수 있습니다.
 
-요청 URI는 쿼리할 인덱스의 이름을 지정합니다. 또한 쿼리 문자열에 부분적으로 입력된 검색 용어도 포함합니다.
+요청 URI는 쿼리할 인덱스의 이름을 지정합니다. GET 요청은 쿼리 문자열에 부분적 입력 검색 용어 등의 매개 변수를 지정하고 POST 요청은 요청 본문에 지정합니다.
 
-REST API를 직접 호출할 때는 특정 쿼리 매개 변수를 [URL로 인코딩](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx)하는 것이 좋습니다. 제안 작업의 경우 다음이 포함됩니다.
+GET 요청을 만드는 경우, REST API를 직접 호출할 때는 특정 쿼리 매개 변수를 [URL로 인코딩](https://msdn.microsoft.com/library/system.uri.escapedatastring.aspx)하는 것이 좋습니다. **제안** 작업의 경우 다음이 포함됩니다.
 
 - `$filter`
 - `highlightPreTag`
@@ -2023,15 +2191,21 @@ REST API를 직접 호출할 때는 특정 쿼리 매개 변수를 [URL로 인�
 
 URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전체 쿼리 문자열을 URL로 인코딩한 경우(모든 항목을 ? 뒤에 입력)에는 요청이 중단됩니다.
 
-또한 URL 인코딩은 REST API를 직접 호출할 때만 필요합니다. [.NET 클라이언트 라이브러리](https://msdn.microsoft.com/library/dn951165.aspx)를 사용하면 URL 인코딩이 자동으로 처리됩니다.
+또한 URL 인코딩은 GET을 사용하여 REST API를 직접 호출할 때만 필요합니다. POST를 사용하여 **제안**을 호출할 때 또는 URL 인코딩을 자동으로 처리하는 [.NET 클라이언트 라이브러리](https://msdn.microsoft.com/library/dn951165.aspx)를 사용할 때는 URL 인코딩이 필요하지 않습니다.
 
 **쿼리 매개 변수**
 
-`search=[string]` - 쿼리를 제안하는 데 사용할 검색 텍스트입니다. 설명은 3~25자여야 합니다.
+**제안**은 쿼리 조건을 제공하고 검색 동작을 지정하는 여러 매개 변수를 허용합니다. GET을 통해 **제안**을 호출할 때 URL 쿼리 문자열로, 그리고 POST를 통해 **제안**을 호출할 때 요청 본문에 JSON 속성으로 이러한 매개 변수를 제공합니다. 일부 매개 변수에 대한 구문은 GET 및 POST 간에 약간 다릅니다. 이러한 차이가 아래에 나와 있습니다.
 
-`highlightPreTag=[string]`(선택) - 검색의 적중 항목 앞에 추가할 문자열 태그입니다. `highlightPostTag`로 설정해야 합니다. URL의 예약 문자는 %로 인코딩해야 합니다. 예를 들어 # 대신 %23을 사용해야 합니다.
+`search=[string]` - 쿼리를 제안하는 데 사용할 검색 텍스트입니다. 최소 1자가 되어야 하며 100자를 넘지 않아야 합니다.
 
-`highlightPostTag=[string]`(선택) - 검색의 적중 항목에 추가할 문자열 태그입니다. `highlightPreTag`로 설정해야 합니다. URL의 예약 문자는 %로 인코딩해야 합니다. 예를 들어 # 대신 %23을 사용해야 합니다.
+`highlightPreTag=[string]`(선택) - 검색의 적중 항목 앞에 추가할 문자열 태그입니다. `highlightPostTag`로 설정해야 합니다.
+
+> [AZURE.NOTE]GET을 사용하여 **제안**을 호출하는 경우 URL의 예약 문자는 %로 인코딩해야 합니다. 예를 들어 # 대신 %23을 사용해야 합니다.
+
+`highlightPostTag=[string]`(선택) - 검색의 적중 항목에 추가할 문자열 태그입니다. `highlightPreTag`로 설정해야 합니다.
+
+> [AZURE.NOTE]GET을 사용하여 **제안**을 호출하는 경우 URL의 예약 문자는 %로 인코딩해야 합니다. 예를 들어 # 대신 %23을 사용해야 합니다.
 
 `suggesterName=[string]` - 인덱스 정의의 일부인 `suggesters` 컬렉션에 지정된 확인기의 이름입니다. 이 `suggester`에 따라 제안된 쿼리 용어를 검색할 필드가 결정됩니다. 자세한 내용은 [확인기](#Suggesters)를 참조하세요.
 
@@ -2039,13 +2213,21 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
 
 `searchFields=[string]`(선택) - 지정된 검색 텍스트를 검색하기 위한 쉼표로 구분된 필드 이름 목록입니다. 대상 필드가 제안을 사용하도록 설정되어 있어야 합니다.
 
-`$top=#`(선택, 기본값=5) - 검색할 제안의 수입니다. 값은 1~100 사이의 숫자여야 합니다.
+`$top=#`(선택, 기본값=5) - 검색할 제안의 수입니다. 값은 1\~100 사이의 숫자여야 합니다.
+
+> [AZURE.NOTE]POST를 사용하여 **제안**을 호출하는 경우 이 매개 변수의 이름은 `$top` 대신 `top`입니다.
 
 `$filter=[string]`(선택) - 제안을 검색할 때 고려할 문자를 필터링하는 식입니다.
 
+> [AZURE.NOTE]POST를 사용하여 **제안**을 호출하는 경우 이 매개 변수의 이름은 `$filter` 대신 `filter`입니다.
+
 `$orderby=[string]`(선택) - 결과 정렬 기준으로 사용할 쉼표로 구분된 식 목록입니다. 각 식은 필드 이름이거나 `geo.distance()` 함수 호출일 수 있습니다. 각 식 뒤에는 오름차순을 나타내는 `asc` 또는 내림차순을 나타내는 `desc`가 올 수 있습니다. 기본값은 오름차순입니다. `$orderby` 절은 32개로 제한됩니다.
 
+> [AZURE.NOTE]POST를 사용하여 **제안**을 호출하는 경우 이 매개 변수의 이름은 `$orderby` 대신 `orderby`입니다.
+
 `$select=[string]`(선택) - 검색할 쉼표로 구분된 필드 목록입니다. 지정하지 않으면 문서 키와 제안 텍스트만 반환됩니다.
+
+> [AZURE.NOTE]POST를 사용하여 **제안**을 호출하는 경우 이 매개 변수의 이름은 `$select` 대신 `select`입니다.
 
 `minimumCoverage`(선택 사항, 기본값 80까지) - 성공으로 보고할 쿼리를 위해 제안 사항 쿼리를 통해 처리해야 하는 인덱스의 백분율을 나타내는 0과 100 사이의 숫자입니다. 기본적으로 인덱스의 80% 이상을 사용할 수 있습니다. 또는 `Suggest`이(가) HTTP 상태 코드 503을 반환합니다. `minimumCoverage` 및 `Suggest` 성공을 설정하는 경우 HTTP 200을 반환하며 쿼리에 포함되었던 인덱스의 백분율을 나타내는 응답에 `@search.coverage` 값을 포함합니다.
 
@@ -2053,7 +2235,7 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
 
 `api-version=[string]`(필수). 미리 보기 버전은 `api-version=2015-02-28-Preview`입니다. 자세한 내용 및 대체 버전은 [검색 서비스 버전 관리](http://msdn.microsoft.com/library/azure/dn864560.aspx)를 참조하세요.
 
-참고: 이 작업에는 `api-version`은 쿼리 매개 변수로 지정됩니다.
+참고: 이 작업의 경우 `api-version`은 **제안** 호출 시 GET을 사용하든 또는 POST를 사용하든 관계 없이 URL에 쿼리 매개 변수로 지정됩니다.
 
 **요청 헤더**
 
@@ -2061,11 +2243,27 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
 
 - `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **제안 ** 요청은 관리 키 또는 쿼리 키를 `api-key`로 지정할 수 있습니다.
 
-  요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
+요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 **요청 본문**
 
-없음
+GET의 경우: 없음.
+
+POST의 경우:
+
+    {
+      "filter": "odata_filter_expression",
+	  "fuzzy": true | false (default),
+      "highlightPreTag": "pre_tag",
+      "highlightPostTag": "post_tag",
+      "minimumCoverage": # (% of index that must be covered to declare query successful; default 80),
+      "orderby": "orderby_expression",
+      "search": "partial_search_input",
+      "searchFields": "field_name_1, field_name_2, ...",
+      "select": "field_name_1, field_name_2, ...",
+	  "suggesterName": "suggester_name",
+      "top": # (default 5)
+    }
 
 **응답**
 
@@ -2096,15 +2294,17 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
       ]
     }
 
- **예제**
+**예제**
 
 부분 검색 입력이 'lux'인 제안 5개 검색
 
     GET /indexes/hotels/docs/suggest?search=lux&$top=5&suggesterName=sg&api-version=2015-02-28-Preview
 
+    POST /indexes/hotels/docs/suggest?api-version=2015-02-28-Preview
+    {
+      "search": "lux",
+      "top": 5,
+      "suggesterName": "sg"
+    }
 
-
-
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
+	ms.date="07/28/2015" 
 	ms.author="piyushjo" />
 
 #Azure Mobile Engagement용 iOS SDK
@@ -32,7 +32,7 @@
 
 ##릴리스 정보
 
-###2.2.0(05/21/2015)
+###2\.2.0(05/21/2015)
 
 -   iOS 6 이전 장치에 대한 Mobile Engagement 장치 ID는 설치 시 생성된 GUID를 따릅니다.
 
@@ -46,8 +46,8 @@
 
 SDK의 각 새 버전에 대해 먼저 EngagementSDK 및 EngagementReach 폴더를 대체해야 합니다. 즉, xcode에서 이 폴더를 제거한 후에 다시 가져와야 합니다.
 
-###2.0.0에서 2.1.0으로 마이그레이션
+###2\.0.0에서 2.1.0으로 마이그레이션
 없음
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

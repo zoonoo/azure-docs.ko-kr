@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="04/14/2015"
+	ms.date="07/28/2015"
 	ms.author="yuaxu"/>
 
 # 알림 허브 시작
@@ -128,9 +128,9 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
   	![][9]
 
-    > [AZURE.NOTE]기본적으로 다운로드된 개발 증명서 파일은 이름이 **aps_development.cer**로 지정됩니다.
+    > [AZURE.NOTE]기본적으로 다운로드된 개발 증명서 파일은 이름이 **aps\_development.cer**로 지정됩니다.
 
-7. 다운로드한 푸시 인증서 **aps_development.cer**을 두 번 클릭합니다.
+7. 다운로드한 푸시 인증서 **aps\_development.cer**을 두 번 클릭합니다.
 
 	아래와 같이 새 인증서가 Keychain에 설치됩니다.
 
@@ -480,4 +480,4 @@ Apple [Local and Push Notification Programming Guide]에서 가능한 모든 페
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

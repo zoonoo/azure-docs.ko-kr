@@ -185,7 +185,7 @@ TelemetryClient는 스레드로부터 안전합니다.
     metrics.put("Score", currentGame.getScore());
     metrics.put("Opponents", currentGame.getOpponentCount());
     
-    telemetry.trackEvent("WinGame", properties, metrics2/7/2015 12:05:25 AM );
+    telemetry.trackEvent("WinGame", properties, metrics);
 
 
 > [AZURE.NOTE]속성에 개인 식별이 가능한 정보를 기록하지 않도록 주의해야 합니다.
@@ -561,7 +561,7 @@ JavaScript 웹 클라이언트에서 현재 기본 속성을 설정하는 방법
 
 예를 들어, 웹 패키지에 대한 Application Insights는 HTTP 요청에 대한 원격 분석을 수집합니다. 기본적으로, 모든 요청을 응답 코드 > = 400으로 실패한 것으로 플래그합니다. 하지만 400를 성공으로 처리하려는 경우 성공 속성을 설정하는 원격 분석 이니셜라이저를 제공할 수 있습니다.
 
-원격 분석 이니셜라이저를 제공하는 경우 Track*() 메소드가 호출될 때마다 호출됩니다. 표준 원격 분석 모듈에 의해 호출되는 메서드가 포함됩니다. 규칙에 따라 이러한 모듈은 이니셜라이저에서 이미 설정된 모든 속성을 설정하지 않습니다.
+원격 분석 이니셜라이저를 제공하는 경우 Track\*() 메소드가 호출될 때마다 호출됩니다. 표준 원격 분석 모듈에 의해 호출되는 메서드가 포함됩니다. 규칙에 따라 이러한 모듈은 이니셜라이저에서 이미 설정된 모든 속성을 설정하지 않습니다.
 
 **이니셜라이저 정의**
 
@@ -715,7 +715,7 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
  * **Id**: 진단 검색의 이벤트를 검사할 때 "항목 관련"을 찾을 수 있도록 여러 이벤트를 상호 연결하는 생성된 값입니다.
  * **Name**: HTTP 요청의 URL입니다.
  * **SyntheticSource**: null이거나 비어 있지 않다면 이 문자열은 요청의 원본이 로봇 또는 웹 테스트로 확인되었음을 나타냅니다. 기본적으로 메트릭 탐색기의 계산에서 제외됩니다.
-* **Properties** 모든 원격 분석 데이터와 함께 전송되는 속성입니다. 개별 Track* 호출에서 재정의할 수 있습니다.
+* **Properties** 모든 원격 분석 데이터와 함께 전송되는 속성입니다. 개별 Track\* 호출에서 재정의할 수 있습니다.
 * **Session** 사용자의 세션을 식별합니다. ID는 생성된 값으로 설정되며, 사용자가 잠시 동안 비활성 상태이면 값이 변경됩니다.
 * **User** 사용자 수를 계산할 수 있습니다. 웹 앱의 경우 쿠키가 있으면 해당 쿠키에서 사용자 ID를 가져옵니다. 쿠키가 없으면 새 쿠키가 생성됩니다. 사용자가 앱에 로그인해야 하는 경우 사용자의 인증된 ID로 ID를 설정하면 사용자가 다른 컴퓨터에서 로그인하더라도 사용자 수를 정확하게 계산할 수 있습니다. 
 
@@ -740,10 +740,11 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
 * [ASP.NET 참조](https://msdn.microsoft.com/library/dn817570.aspx)
 * [Java 참조](http://dl.windowsazure.com/applicationinsights/javadoc/)
+* [JavaScript 참조](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## 질문
 
-* *Track * 호출에서 throw할 수 있는 예외는 무엇인가요?*
+* *Track \* 호출에서 throw할 수 있는 예외는 무엇인가요?*
     
     없음 catch 절에 래핑할 필요가 없습니다.
 
@@ -778,4 +779,4 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

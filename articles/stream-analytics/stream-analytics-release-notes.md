@@ -13,10 +13,41 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/09/2015" 
+	ms.date="07/30/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft 스트림 분석 릴리스 정보
+
+## 스트림 분석의 2015/07/30 릴리스에 대한 정보 ##
+
+이 릴리스에는 다음 업데이트가 포함되어 있습니다.
+
+<table border="1">
+<tr>
+<th>제목</th>
+<th>설명</th>
+</tr>
+<tr>
+<td>Azure ID에서 분리된 Power BI 조직 ID</td>
+<td>이 기능을 통해 모든 Azure 계정 유형의 ASA 작업에 대한 Power BI 출력을 사용합니다(Live ID 또는 조직 ID). 또한 Azure 계정에 대한 하나의 조직 ID를 포함하고 Power BI 출력 권한 부여를 위한 다른 하나를 사용할 수 있습니다.</td>
+</tr>
+<tr>
+<td>서비스 버스 큐 출력에 대한 지원</td>
+<td>서비스 버스 큐 출력은 지금 스트림 분석 작업에서 사용할 수 있습니다.</td>
+</tr>
+<tr>
+<td>서비스 버스 토픽 출력에 대한 지원</td>
+<td>서비스 버스 토픽 출력은 지금 스트림 분석 작업에서 사용할 수 있습니다.</td>
+</tr>
+<tr>
+<td>새 배열 함수</td>
+<td>배열 함수 GetArrayElement, GetArrayElements, GetArrayLength 추가됨</td>
+</tr>
+<tr>
+<td>새 레코드 함수</td>
+<td>레코드 함수 GetRecordProperties 및 GetRecordPropertyValue 추가됨</td>
+</tr>
+</table>
 
 ## 스트림 분석의 2015/07/09 릴리스에 대한 정보 ##
 
@@ -110,7 +141,7 @@
 </table>
 
 ## 도움말 보기
-추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-kr/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## 다음 단계
 
@@ -121,4 +152,4 @@
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="StorSimple 장치의 장애를 조치하는 방법"
-   description="자체적으로, 다른 실제 장치로 또는 가상 장치로 StorSimple 장치의 장애를 조치하는 방법"
+   pageTitle="StorSimple 장치에 대한 장애 조치 및 재해 복구 | Microsoft Azure"
+   description="자체적으로, 다른 실제 장치 또는 가상 장치로 StorSimple 장치의 장애를 조치하는 방법을 알아봅니다."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="adinah"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/29/2015"
+   ms.date="07/23/2015"
    ms.author="alkohli" />
 
 # StorSimple 장치에 대한 장애 조치 및 재해 복구
@@ -24,9 +24,11 @@
 ![장치 페이지](./media/storsimple-device-failover-disaster-recovery/IC740972.png)
 
 ## DR(재해 복구) 및 장치 장애 조치
+
 DR(재해 복구) 시나리오에서 기본 장치가 작동을 중지합니다. 이 상황에서 기본 장치를 *원본*으로 사용하고 다른 장치를 *대상*으로 지정하여장애 장치와 연결된 클라우드 데이터를 다른 장치로 옮길 수 있습니다. 대상 장치로 마이그레이션할 볼륨 컨테이너를 하나 이상 선택할 수 있습니다. 이 프로세스는 *장애 조치*라고 합니다. 장애 조치 중 원본 장치의 볼륨 컨테이너는 소유권을 변경하고 대상 장치로 전송됩니다.
 
 ## 장치 장애 조치에 대한 고려 사항
+
 재해가 발생할 경우 다음과 같이 StorSimple 장치에 장애 조치를 선택할 수 있습니다.
 
 - 실제 장치로 
@@ -51,7 +53,7 @@ DR(재해 복구) 시나리오에서 기본 장치가 작동을 중지합니다.
 
 1. 다른 장치에 장애 조치하려는 모든 볼륨 컨테이너에 이전 단계를 반복합니다.
 
-1. 장치 페이지에서 **장애 조치**를 클릭합니다.
+1. **장치** 페이지에서 **장애 조치**를 클릭합니다.
 
 1. 열리는 마법사의 **장애 조치할 볼륨 컨테이너 선택**에서:
 
@@ -79,13 +81,13 @@ DR(재해 복구) 시나리오에서 기본 장치가 작동을 중지합니다.
 
 1. 장치를 구성하고 StorSimple 관리자 서비스로 다시 등록 합니다.
 
-1. **장치** 페이지에서 이전 장치는 **오프 라인**로 표시되어야 합니다. 새로 등록된 장치는 **온라인**으로 표시되어야 합니다.
+1. **장치** 페이지에서 이전 장치는 **오프라인**로 표시되어야 합니다. 새로 등록된 장치는 **온라인**으로 표시되어야 합니다.
 
 1. 새 장치의 경우 먼저 최소 장치 구성을 완료합니다.
 												
 	>[AZURE.IMPORTANT]**최소 구성을 먼저 완료하지 않으면 현재 구현에서 버그의 결과로 DR이 실패합니다. 이 동작은 이후 릴리스에서 수정될 예정입니다.**
 
-1. 이전 장치(오프 라인 상태)를 선택하고 **장애 조치**를 클릭합니다. 표시되는 마법사에서 이 장치를 장애 조치하고 대상 장치를 새로 등록된 장치로 지정합니다. 자세한 지침은 [다른 실제 장치에 장애 조치](#fail-over-to-another-physical-device)를 참조하세요.
+1. 이전 장치(오프라인 상태)를 선택하고 **장애 조치**를 클릭합니다. 표시되는 마법사에서 이 장치를 장애 조치하고 대상 장치를 새로 등록된 장치로 지정합니다. 자세한 지침은 [다른 실제 장치에 장애 조치](#fail-over-to-another-physical-device)를 참조하세요.
 
 1. **작업** 페이지에서 모니터링할 수 있는 장치 복원 작업이 만들어집니다.
 
@@ -119,20 +121,26 @@ DR(재해 복구) 시나리오에서 기본 장치가 작동을 중지합니다.
 	
 	>[AZURE.NOTE]**물리적 장치에서 업데이트 1을 실행하는 경우, 업데이트 1만 실행하는 가상 장치에 장애 조치를 할 수 있습니다. 대상 가상 장치에 더 낮은 소프트웨어 버전이 실행되는 경우 대상 장치 소프트웨어를 업데이트해야 한다는 오류가 표시됩니다.**
 
-1. 마지막으로 장애 조치 확인에서 모든 장애 조치 설정을 검토합니다. 확인 아이콘![확인 아이콘](./media/storsimple-device-failover-disaster-recovery/IC740895.png)을 클릭합니다.
+1. 마지막으로 **장애 조치 확인**에서 모든 장애 조치 설정을 검토합니다. 확인 아이콘![확인 아이콘](./media/storsimple-device-failover-disaster-recovery/IC740895.png)을 클릭합니다.
 
 1. 장애 조치를 완료한 후 **장치** 페이지로 이동합니다.
 													
 	a. 장애 조치 프로세스에 대한 대상 장치로 사용된 StorSimple 가상 장치를 선택합니다.
 	
-	b. **볼륨 컨테이너** 페이지로 이동합니다. 이제 여기에 이전 장치의 볼륨과 함께 모든 볼륨 컨테이너가 나열됩니다.
+	b. **볼륨 컨테이너** 페이지로 이동합니다. 이제 이전 장치의 볼륨과 함께 모든 볼륨 컨테이너가 나열됩니다.
 
+## 비즈니스 연속성 재해 복구(BCDR)
 
-## 참고 항목
+비즈니스 연속성 재해 복구(BCDR) 시나리오는 전체 Azure 데이터 센터의 작동이 중지되는 경우 발생합니다. StorSimple 관리자 서비스 및 연결된 StorSimple 장치에 영향을 줄 수 있습니다.
+
+재해가 발생하기 직전에 등록된 StorSimple 장치가 있으면 이러한 StorSimple 장치는 공장 재설정을 거쳐야 할 수도 있습니다. 재해가 발생한 후 StorSimple 장치가 오프라인으로 나타납니다. 포털에서 StorSimple 장치를 삭제하고 공장 재설정한 뒤에 새로 등록해야 합니다.
+
+## 다음 단계
+
 장애 조치를 수행한 후 다음을 수행해야 할 수 있습니다.
 
-- [StorSimple 장치 비활성화](https://msdn.microsoft.com/library/azure/dn772379.aspx#deactivate)
-- [StorSimple 장치 삭제](https://msdn.microsoft.com/library/azure/dn772379.aspx#delete)
+- [StorSimple 장치 비활성화](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
+- [StorSimple 장치 삭제](storsimple-deactivate-and-delete-device.md#delete-a-device)
 
 StorSimple 관리자 서비스를 사용하여 장치를 관리하는 방법에 대한 내용은 다음을 참조하세요.
 
@@ -140,4 +148,4 @@ StorSimple 관리자 서비스를 사용하여 장치를 관리하는 방법에 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

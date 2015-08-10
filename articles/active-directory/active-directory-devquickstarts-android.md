@@ -100,7 +100,7 @@ Maven으로 빌드하려면 최상위 수준에서 pom.xml을 사용할 수 있�
   * SDK 19를 사용하여 에뮬레이터를 설치합니다.
   * 리포지토리를 복제한 루트 폴더로 이동합니다.
   * mvn clean install 명령을 실행합니다.
-  * cd samples\hello를 실행하여 빠른 시작 샘플로 디렉터리를 변경합니다.
+  * cd samples\\hello를 실행하여 빠른 시작 샘플로 디렉터리를 변경합니다.
   * mvn android:deploy android:run 명령을 실행합니다.
   * 앱이 시작되는 것을 볼 수 있습니다.
   * 테스트 사용자 자격 증명을 입력하여 사용해 보세요.
@@ -136,7 +136,7 @@ repositories {
         dirs 'libs'
     }
     maven {
-        url "YourLocalMavenRepoPath\.m2\repository"
+        url "YourLocalMavenRepoPath\\.m2\\repository"
     }
 }
 dependencies {
@@ -286,9 +286,9 @@ maven에서 리포지토리로 jar 파일을 가져와 프로젝트의 *libs* �
 
  앱 매니페스트에는 AccountManager 계정을 사용할 수 있는 권한이 있어야 합니다. http://developer.android.com/reference/android/accounts/AccountManager.html
 
- * GET_ACCOUNTS
- * USE_CREDENTIALS
- * MANAGE_ACCOUNTS
+ * GET\_ACCOUNTS
+ * USE\_CREDENTIALS
+ * MANAGE\_ACCOUNTS
 
 
 이 연습 과정을 수행하여 Azure Active Directory에 성공적으로 통합하는 데 필요한 기술과 지식을 얻을 수 있습니다. 이 작업의 추가 예제를 보려면 GitHub의 AzureADSamples/ 리포지토리를 방문하세요.
@@ -409,7 +409,7 @@ ADAL은 기본적으로 토큰을 암호화한 후 SharedPreferences에 저장�
 
 ### Oauth2 전달자 과제
 
-AuthenticationParameters 클래스는 authorization_uri Oauth2 전달자 인증을 가져오기 위한 기능을 제공합니다.
+AuthenticationParameters 클래스는 authorization\_uri Oauth2 전달자 인증을 가져오기 위한 기능을 제공합니다.
 
 ### Webview의 세션 쿠키
 
@@ -444,4 +444,4 @@ Adal 버전 1.1.0은 WebViewClient의 onReceivedHttpAuthRequest 이벤트를 통
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

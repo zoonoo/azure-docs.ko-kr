@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="탄력적 데이터베이스 풀에 사용자를 추가하는 방법" 
-	description="풀에 있는 각 데이터베이스에 대한 권한을 가진 사용자를 추가해야 합니다." 
-	services="sql-database" documentationCenter=""  
+	description="풀에 있는 각 데이터베이스에 대한 권한을 가진 사용자를 추가해야 합니다."  
+	services="sql-database" 
+	documentationCenter="" 
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -11,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh" />
 
 # 탄력적 데이터베이스 풀에 사용자를 추가하는 방법
@@ -32,7 +33,7 @@
 
 		CREATE USER admin1 FROM LOGIN login1;
 		
-3. 또한 사용자에게 작업에 대해 지정된 스크립트를 실행하기에 충분한 권한이 있어야 합니다. **sp_addrolemember** 프로시저를 사용하여 사용자에게 스크립트를 성공적으로 실행하는 데 필요한 최소한의 권한을 제공합니다.
+3. 또한 사용자에게 작업에 대해 지정된 스크립트를 실행하기에 충분한 권한이 있어야 합니다. **sp\_addrolemember** 프로시저를 사용하여 사용자에게 스크립트를 성공적으로 실행하는 데 필요한 최소한의 권한을 제공합니다.
 
 ## 다음 단계
 
@@ -44,4 +45,4 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

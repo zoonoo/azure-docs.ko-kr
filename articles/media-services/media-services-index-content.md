@@ -13,13 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 # Azure 미디어 인덱서를 사용하여 미디어 파일 인덱싱
 
-이 문서는 [미디어 서비스 주문형 비디오 워크플로](media-services-video-on-demand-workflow.md) 시리즈의 일부입니다.
+> [AZURE.SELECTOR]
+- [Portal](media-services-manage-content.md#index)
+- [.NET](media-services-index-content.md)
+
 
 Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 캡션 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 하나의 미디어 파일 또는 일괄 처리에서 여러 미디어 파일을 처리할 수 있습니다.
 
@@ -38,7 +41,7 @@ Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 �
 	자세한 내용은 [Azure 미디어 인덱서 및 SQL Server에서 AIB 파일 사용](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)(영문)을 참조하세요.
 
 
-이 항목에서는 **자산을 인덱싱**하고 **여러 파일 색인을 인덱싱**하는 인덱싱 작업을 만드는 방법을 보여 줍니다.
+이 항목에서는 **자산을 인덱싱**하고 **여러 파일을 인덱싱**하는 인덱싱 작업을 만드는 방법을 보여 줍니다.
 
 최신 Azure 미디어 인덱서 업데이트는 [미디어 서비스 블로그](http://azure.microsoft.com/blog/topics/media-services/)(영문)를 참조하세요.
 
@@ -343,4 +346,4 @@ Error: 이 미디어 파일이 성공적으로 인덱스되었음을 나타냅�
 
 <!-- URLs. -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

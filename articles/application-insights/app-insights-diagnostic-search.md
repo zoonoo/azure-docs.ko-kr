@@ -121,13 +121,13 @@
 
 ![진단 검색 열기](./media/app-insights-diagnostic-search/appinsights-311search.png)
 
-문자열의 일부가 아닌 용어를 검색합니다. 용어는 '.' 및 '_'과 같은 문장 부호를 포함하는 영숫자 문자열입니다. 예를 들면 다음과 같습니다.
+문자열의 일부가 아닌 용어를 검색합니다. 용어는 '.' 및 '\_'과 같은 문장 부호를 포함하는 영숫자 문자열입니다. 예를 들면 다음과 같습니다.
 
 용어|해당 용어가 검색되지 *않는* 문자열|해당 용어가 검색되는 문자열
 ---|---|---
-HomeController.About|about<br/>home|h*about<br/>home*
-IsLocal|local<br/>is<br/>*local|isl*<br/>islocal<br/>i*l*
-New Delay|w d|new<br/>delay<br/>n* AND d*
+HomeController.About|about<br/>home|h\*about<br/>home\*
+IsLocal|local<br/>is<br/>\*local|isl\*<br/>islocal<br/>i\*l\*
+New Delay|w d|new<br/>delay<br/>n\* AND d\*
 
 
 다음은 사용할 수 있는 검색 식입니다.
@@ -136,12 +136,12 @@ New Delay|w d|new<br/>delay<br/>n* AND d*
 ---|---
 slow|지정된 날짜 범위의 필드에 "slow" 용어가 포함된 모든 이벤트를 찾습니다.
 database??|Matches database01, databaseAB, ...<br/>?와 같이 검색 용어를 시작할 수 없습니다.
-database*|Matches database, database01, databaseNNNN<br/>*과 같이 검색 용어를 시작할 수 없음
+database\*|Matches database, database01, databaseNNNN<br/>\*과 같이 검색 용어를 시작할 수 없음
 apple AND banana|두 용어를 모두 포함하는 이벤트를 찾습니다. "and"가 아닌 대문자 "AND"를 사용하세요.
 apple OR banana<br/>apple banana|둘 중 한 용어를 포함하는 이벤트를 찾습니다. "or"가 아닌 "OR"를 사용하세요.</br/>약식입니다.
 apple NOT banana<br/>apple -banana|한 용어를 포함하지만 다른 용어는 포함하지 않는 이벤트를 찾습니다.<br/>약식입니다.
-app* AND banana -(grape pear)|논리적 연산자 및 괄호 사용
-"Metric": 0 TO 500<br/>"Metric" : 500 TO * | 값의 범위 내에서 명명된 측정을 포함하는 이벤트를 찾습니다.
+app\* AND banana -(grape pear)|논리적 연산자 및 괄호 사용
+"Metric": 0 TO 500<br/>"Metric" : 500 TO \* | 값의 범위 내에서 명명된 측정을 포함하는 이벤트를 찾습니다.
 
 
 ## 검색 저장
@@ -198,4 +198,4 @@ Application Insights SDK에서 보낸 기본 원격 분석 외에도 다음을 �
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

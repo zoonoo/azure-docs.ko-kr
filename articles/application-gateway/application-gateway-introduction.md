@@ -18,7 +18,7 @@
 # 응용 프로그램 게이트웨이 기술 개요 
 
 
-Microsoft Azure 응용 프로그램 게이트웨이는 Azure VPN 게이트웨이 서비스와 비슷한 관리 서비스입니다. 응용 프로그램 게이트웨이는 IIS 응용 프로그램 요청 라우팅(ARR)에 기반을 둔 Azure-관리 HTTP 부하 분산 솔루션을 제공합니다. 응용 프로그램 게이트웨이 서비스는 항상 사용 가능하고 요금제입니다. SLA 및 가격은 [SLA](http://azure.microsoft.com/support/legal/sla/) 및 [가격 책정](https://azure.microsoft.com/pricing/details/application-gateway/)페이지를 참고하세요.
+Microsoft Azure 응용 프로그램 게이트웨이는 레이어 7 부하 분산에 기반을 둔 Azure-관리 HTTP 부하 분산 솔루션을 제공합니다. 응용 프로그램 부하 분산을 통해 IT 관리자 및 개발자가 HTTP 기반 네트워크 트래픽에 대한 라우팅 규칙을 만들 수 있습니다. 응용 프로그램 게이트웨이 서비스는 항상 사용 가능하고 요금제입니다. SLA 및 가격은 [SLA](http://azure.microsoft.com/support/legal/sla/) 및 [가격 책정](https://azure.microsoft.com/pricing/details/application-gateway/)페이지를 참고하세요.
 
 현재 응용 프로그램 게이트웨이는 다음과 같은 layer7 응용 프로그램을 지원합니다.
 
@@ -29,8 +29,12 @@ Microsoft Azure 응용 프로그램 게이트웨이는 Azure VPN 게이트웨이
 ![응용 프로그램 게이트웨이](./media/application-gateway-introduction/appgateway1.png)
 
 ## HTTP 계층 7 부하 분산
-Azure는 소프트웨어 부하 분산 장치를 통해 분산 계층 4 부하를 제공합니다. 이것은 암시적으로 모든 클라우드 서비스하는 부하 분산된 VIP(공용 또는 내부)입니다. 그러나 많은 응용 프로그램이 계층 (HTTP) 7 기반 부하 분산을 사용할 수 있습니다.
 
+Azure는 전송 수준(TCP/UDP)에서 작동하며 앱 게이트웨이 서비스로 모든 수신 네트워크 트래픽이 부하 분산되는 Azure 부하 분산 장치를 통해 계층 4 부하 분산을 제공합니다. 응용 프로그램 게이트웨이는 라우팅 규칙을 HTTP 트래픽에 적용하며 수준 7(HTTP) 부하 분산을 제공합니다. 응용 프로그램 게이트웨이를 만들 때 끝점(VIP)를 연결하고 수신 네트워크 트래픽에 대한 공용 IP로 사용됩니다.
+
+응용 프로그램 게이트웨이는 가상 컴퓨터, 클라우드 서비스, 웹앱 또는 외부 IP 주소인 해당 구성에 따라 HTTP 트래픽을 라우팅합니다.
+
+아래 다이어그램에서는 응용 프로그램 게이트웨이에 대한 트래픽 흐름 방식을 설명합니다. ![응용 프로그램 게이트웨이2](./media/application-gateway-introduction/appgateway2.png)
 
 HTTP 계층 7 부하 분산은 다음에 유용합니다.
 
@@ -53,6 +57,6 @@ HTTP 계층 7 부하 분산은 다음에 유용합니다.
 
 응용 프로그램 게이트웨이를 만듭니다. [응용 프로그램 게이트웨이 만들기](application-gateway-create-gateway.md)를 참조하세요.
 
-SSL 오프로드를 구성 합니다. [응용 프로그램 게이트웨이를 사용하여 SSL 오프로드 구성](application-gateway-ssl.md)을 참조합니다.
+SSL 오프로드를 구성 합니다. [응용 프로그램 게이트웨이를 사용하여 SSL 오프로드 구성](application-gateway-ssl.md)을 참조하세요.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

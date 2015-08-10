@@ -71,4 +71,4 @@ REST 클라이언트에서 다음 지침을 따릅니다.
 
 [네트워크 구성 파일을 사용하여 가상 네트워크 구성](http://go.microsoft.com/fwlink/?LinkId=248094)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

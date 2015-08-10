@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="커넥터 및 API 앱의 목록 | Azure" 
-	description="Azure 앱 서비스의 커넥터 및 API 앱 알아보기, 마이크로 서비스 아키텍처" 
-	services="app-service\logic" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+<properties
+	pageTitle="커넥터 및 API 앱의 목록 | Azure"
+	description="Azure 앱 서비스의 커넥터 및 API 앱 알아보기, 마이크로 서비스 아키텍처"
+	services="app-service\logic"
+	documentationCenter=""
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="app-service-logic" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/12/2015" 
+<tags
+	ms.service="app-service-logic"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/12/2015"
 	ms.author="mandia"/>
 
 
@@ -31,7 +31,6 @@
 [Azure HDInsight](app-service-logic-connector-hdinsight.md) | 이 커넥터를 사용하여 Azure에서 Hadoop 클러스터를 생성하고 Hive, Pig, MapReduce, Streaming MapReduce와 같은 다양한 Hadoop 작업을 제출할 수 있습니다. 이 커넥터를 사용하여 클러스터를 스핀하고 작업을 제출하고 작업이 완료되기를 기다릴 수 있습니다.
 [Azure 서비스 버스](app-service-logic-connector-azureservicebus.md) | 이 커넥터를 사용하여 큐 및 항목과 같은 서비스 버스 엔터티에서 메시지를 보내고, 큐 및 구독과 같은 서비스 버스 엔터티에서 메시지를 받을 수 있습니다.
 [Azure 저장소 Blob](app-service-logic-connector-azurestorageblob.md) | Blob 저장소에 연결하고 Blob 업로드, Blob 가져오기, Blob 삭제, 컨테이너의 Blob 나열, Blob 스냅숏, Blob 복사 등의 작업을 수행하고 트리거를 사용하여 Blob을 검색할 수 있습니다.
-Azure WebJobs | Webjob에 연결합니다.
 [Box](app-service-logic-connector-box.md) | Box에 연결하고 파일 업로드, 파일 가져오기, 파일 삭제, 파일 나열 등의 작업을 수행하고 트리거를 사용하여 파일을 검색할 수 있습니다.
 [Chatter](app-service-logic-connector-chatter.md) | Chatter에 연결하고 메시지를 게시 및 검색하며 트리거를 사용하여 새 메시지를 검색할 수 있습니다.
 [Dropbox](app-service-logic-connector-dropbox.md) | 파일 업로드, 파일 가져오기, 파일 삭제, 파일 나열 등의 작업을 수행하고 트리거를 사용하여 파일을 검색할 수 있습니다.
@@ -94,4 +93,4 @@ MQ | Windows 운영 체제를 실행하는 IBM WebSphere MQ Server 버전 8, 온
 
 [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)<br/> [Azure 앱 서비스에서 하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md)<br/> [기본 제공 API 앱 및 커넥터 관리 및 모니터링](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

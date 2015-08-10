@@ -39,20 +39,23 @@ Application Insights는 성능 및 라이브 응용 프로그램의 사용을 �
 
 ![사용자 활동 통계, 차트 또는 특정 이벤트를 드릴합니다.](./media/app-insights-overview/00-sample.png)
 
+훨씬 긴밀한 수준의 분석이 필요합니까? 데이터를 [SQL](app-insights-code-sample-export-telemetry-sql-database.md), [Power BI](app-insights-export-power-bi.md) 또는 자체 도구로 [내보내기](app-insights-export-telemetry.md)합니다.
+
+![Power BI에서 데이터 보기](./media/app-insights-overview/210.png)
 
 ## 플랫폼 및 언어
 
 플랫폼의 증가하는 범위에 대한 SDKrk 있습니다. 현재 목록에 포함 됩니다.
 
- * [ASP.NET 서버][greenbrown]Azure 또는 IIS 서버에서
+ * Azure 또는 IIS 서버의 [ASP.NET 서버][greenbrown]
  * [Azure 클라우드 서비스](app-insights-cloudservices.md)
  * [J2EE 서버][java]
- * [웹 페이지][client]: HTML + JavaScript
- * [Windows Phone, Windows 스토어, Windows 10 유니버설 앱 및 Windows 10 개발자 포털과 직접 통합][windows]
+ * [웹 페이지][client]\: HTML + JavaScript
+ * [Windows Phone, Windows Store, Windows 10 유니버설 앱 및 Windows 10 개발자 포털과 직접 통합][windows]
  * [Windows 데스크톱][desktop]
  * [iOS][ios]
  * [Android][android]
- * [다른 플랫폼][platforms]-Node.js, PHP, Python, Ruby, Joomla, SharePoint, WordPress
+ * [다른 플랫폼][platforms] - Node.js, PHP, Python, Ruby, Joomla, SharePoint, WordPress
 
 Application Insights 다시 작성하지 않는 IIS상의 기존 ASP.NET 웹앱으로부터 원격 분석을 가져올 수 있습니다.
 
@@ -72,14 +75,17 @@ ASP.NET 서버 및 Azure 웹 앱의 경우 두 가지 용도로 사용되는 [�
 * 웹 앱을 다시 작성하거나 다시 설치하지 않고 모니터링합니다.
 * 종속 모듈에 대한 호출을 추적합니다.
 
+
+
 ### 오버헤드는 무엇입니까?
 
 성능에 미치는 영향을 매우 작습니다. 추적은 비 중단을 호출하고 별도의 스레드로 일괄 처리 및 전송합니다.
 
 
+
 ## 시작하기:
 
-1. [Microsoft Azure](http://azure.com)를 구독해야 합니다. Application Insights 무료 [가격 책정 계층](https://azure.microsoft.com/pricing/details/application-insights/)을 선택하여 무료로 등록할 수 있습니다.
+1. [Microsoft Azure](http://azure.com)를 구독해야 합니다. Application Insights의 무료 [가격 책정 계층](https://azure.microsoft.com/pricing/details/application-insights/)을 선택하여 무료로 등록할 수 있습니다.
 
 2. [Azure Preview 포털](http://portal.azure.com)에 로그인합니다.
 3. Application Insights 리소스 만들기 이곳에서 응용 프로그램의 데이터를 볼 수 있습니다.
@@ -102,7 +108,7 @@ ASP.NET 서버 및 Azure 웹 앱의 경우 두 가지 용도로 사용되는 [�
 
 * 질문 및 문제:
  * [문제 해결][qna]
- * [MSDN 포럼](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+ * [MSDN 포럼](https://social.msdn.microsoft.com/Forums/vstudio/ko-kr/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * 버그:
  * [연결](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -139,4 +145,4 @@ ASP.NET 서버 및 Azure 웹 앱의 경우 두 가지 용도로 사용되는 [�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

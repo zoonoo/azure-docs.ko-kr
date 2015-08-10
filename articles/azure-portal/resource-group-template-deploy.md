@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포
@@ -48,9 +48,12 @@ Azure 리소스 관리자 서식 파일을 사용 하 쉽고 빠르게 선언적
 
 ## 미리 보기 포털로 배포
 
-어떤 혜택이 있을까요? Azure 리소스 관리자 템플릿은 갤러리의 모든 응용 프로그램을 지원합니다. 포털을 통해 가상 컴퓨터, 가상 네트워크, 저장소 계정, 앱 서비스 또는 데이터베이스를 만들기만 하면 추가적인 작업 없이도 Azure 리소스 관리자의 혜택을 만끽할 수 있습니다.
+어떤 혜택이 있을까요? Azure 리소스 관리자 템플릿은 [Preview 포털](https://portal.azure.com/)을 통해 만든 모든 응용 프로그램을 지원합니다. 포털을 통해 가상 컴퓨터, 가상 네트워크, 저장소 계정, 앱 서비스 또는 데이터베이스를 만들기만 하면 추가적인 작업 없이도 Azure 리소스 관리자의 혜택을 만끽할 수 있습니다. **새로 만들기** 아이콘을 선택하기만 하면 Azure 리소스 관리자를 통해 응용 프로그램을 배포하는 과정이 진행됩니다.
 
-미리 보기 포털을 통해 배포 문제를 해결하려면 **찾아보기** -> **리소스 그룹** -> *YourResourceGroupName*을 클릭합니다. 여기에서 **모니터링** 렌즈 아래의 **이벤트** 아래의 타일을 클릭합니다. 마지막으로, 세부 사항을 확인할 개별 **작업** 및 **이벤트**를 선택할 수 있습니다.
+![새로 만들기](./media/resource-group-template-deploy/new.png)
+
+Azure 리소스 관리자와 포털 사용에 대한 자세한 내용은 [Azure Preview 포털을 사용하여 Azure 리소스 관리](resource-group-portal.md)를 참조하세요.
+
 
 ## PowerShell을 사용하여 배포
 
@@ -247,13 +250,11 @@ Azure 리소스 관리자 서식 파일을 사용 하 쉽고 빠르게 선언적
     }
 
 ## 다음 단계
-- [Azure 리소스 관리자 개요](../resource-group-overview.md)
-- [.NET 라이브러리 및 템플릿을 사용하여 리소스 배포](../arm-template-deployment.md)
-- [Azure에서 예측 가능하도록 복잡한 응용 프로그램을 배포](../app-service-web/app-service-deploy-complex-application-predictably.md)
-- [템플릿 작성](../resource-group-authoring-templates.md)
-- [템플릿 함수](../resource-group-template-functions.md)
-- [고급 템플릿 작업](../resource-group-advanced-template.md)  
+- .NET 클라이언트 라이브러리를 통한 리소스 배포의 예를 보려면 [.NET 라이브러리 및 템플릿을 사용하여 리소스 배포](../arm-template-deployment.md)를 참조하세요.
+- 응용 프로그램 배포에 대한 자세한 예제는 [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](../app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
+- Azure 리소스 관리자 템플릿 섹션에 대한 자세한 내용은 [템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
+- Azure 리소스 관리자 템플릿에서 사용할 수 있는 함수 목록은 [템플릿 함수](../resource-group-template-functions.md)를 참조하세요.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

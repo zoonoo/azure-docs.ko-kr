@@ -30,7 +30,7 @@ Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개
 
 ##<a name="Provision"></a>Azure 관리 포털에 연결 및 SQL Server 가상 컴퓨터 프로비전
 
-1.  사용자 계정을 사용하여 [Azure 관리 포털](http://manage.windowsazure.com/)에 로그인합니다. Azure 계정이 없는 경우 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 방문하십시오.
+1.  사용자 계정을 사용하여 [Azure 관리 포털](http://manage.windowsazure.com/)에 로그인합니다. Azure 계정이 없는 경우 [Azure 무료 평가판](http://www.windowsazure.com/pricing/free-trial/)을 방문하십시오.
 
 2.  Azure 관리 포털 웹 페이지의 왼쪽 아래에서 **+새로 만들기**, **계산**, **가상 컴퓨터**, **갤러리에서**를 차례로 클릭합니다.
 
@@ -61,7 +61,7 @@ Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개
     -   **가용성 집합** 상자에서 **(없음)**을 선택합니다.
     -   가격 정보를 읽고 동의합니다.
 
-6.	**끝점** 섹션에서 **이름** 아래에 있는 빈 드롭다운을 클릭하고 **MSSQL**을 선택한 다음 데이터베이스 엔진 인스턴스의 포트 번호(기본 인스턴스의 경우 **1433**)를 입력합니다.
+6.	**끝점** 섹션에서 **이름** 아래에 있는 빈 드롭다운을 클릭하고 **MSSQL**을 선택한 다음 데이터베이스 엔진 인스턴스의 포트 번호(기본 인스턴스의 경우 \*\*1433\*\*)를 입력합니다.
 
 7.  SQL Server VM을 IPython Notebook 서버로 사용할 수도 있습니다. 이는 이후 단계에서 구성합니다. 새 끝점을 추가하여 IPython Notebook 서버에 사용할 포트를 지정합니다. **이름** 열에 이름을 입력하고 공용 포트에 대해 원하는 포트 번호를 선택하고 개인 포트에 대해 9999를 선택합니다.
 
@@ -137,7 +137,7 @@ SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증
 
     처음으로 Management Studio를 열 때 사용자 Management Studio 환경이 만들어져야 합니다. 어느 정도 시간이 걸릴 수 있습니다.
 
-2.  Management Studio를 열면 **서버에 연결** 대화 상자가 표시됩니다. **서버 이름** 상자에, 개체 탐색기를 사용하여 데이터베이스 엔진에 연결할 가상 컴퓨터의 이름을 입력합니다. 가상 컴퓨터 이름 대신 **(로컬)** 또는 단일 기간을 **서버 이름**으로 사용할 수도 있습니다. **Windows 인증**을 선택하고, **사용자 이름** 상자의 ***VM_이름**\로컬_관리자*를 그대로 둡니다. **Connect**를 클릭합니다.
+2.  Management Studio를 열면 **서버에 연결** 대화 상자가 표시됩니다. **서버 이름** 상자에, 개체 탐색기를 사용하여 데이터베이스 엔진에 연결할 가상 컴퓨터의 이름을 입력합니다. 가상 컴퓨터 이름 대신 **(로컬)** 또는 단일 기간을 **서버 이름**으로 사용할 수도 있습니다. **Windows 인증**을 선택하고, **사용자 이름** 상자의 ***VM\_이름**\\로컬\_관리자*를 그대로 둡니다. **Connect**를 클릭합니다.
 
     ![서버에 연결][6]
 
@@ -298,4 +298,4 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 [15]: ./media/machine-learning-data-science-setup-sql-server-virtual-machine/vmshutdown.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

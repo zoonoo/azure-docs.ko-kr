@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="미디어 자산을 제공하는 방법" 
-	description="Azure에서 미디어 서비스에 업로드된 미디어 자산을 제공하는 옵션에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." 
+	pageTitle="미디어 자산 다운로드" 
+	description="컴퓨터로 자산을 다운로드하는 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 Media Services SDK for .NET을 사용합니다." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="juliako" 
@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="05/23/2015" 
 	ms.author="juliako"/>
 
 #방법: 다운로드를 통해 자산 제공
-
-이 문서는 [미디어 서비스 주문형 비디오 워크플로](media-services-video-on-demand-workflow.md) 시리즈의 일부입니다.
 
 이 항목에서는 미디어 서비스에 업로드된 미디어 자산을 제공하는 옵션에 대해 논의합니다. 다양한 응용 프로그램 시나리오에서 미디어 서비스 콘텐츠를 제공할 수 있습니다. 로케이터를 사용하여 미디어 자산을 다운로드하거나 미디어 자산에 액세스할 수 있습니다. 미디어 콘텐츠를 다른 응용 프로그램 또는 다른 콘텐츠 공급자에게 보낼 수 있습니다. 향상된 성능과 확장성을 위해 콘텐츠 배달 네트워크(CDN)를 사용하여 콘텐츠를 배달할 수도 있습니다.
 
@@ -74,5 +72,8 @@
 	    Console.WriteLine(string.Format("{0} % download progress. ", e.Progress));
 	}
    
+##참고 항목 
 
-<!---HONumber=July15_HO4-->
+[스트리밍 콘텐츠 제공](media-services-deliver-streaming-content.md)
+
+<!---HONumber=July15_HO5-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="큰 계산: Batch 및 HPC(고성능 컴퓨팅)에 대한 기술 리소스 | Microsoft Azure"
+   pageTitle="큰 계산: 배치 및 HPC(고성능 컴퓨팅)에 대한 기술 리소스 | Microsoft Azure"
    description="Azure에서 대규모 병렬, 배치 및 HPC 워크로드를 실행하는 데 도움을 주는 기술 리소스를 나열합니다."
    services="batch, cloud-services, virtual-machines"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="07/14/2015"
+   ms.date="07/28/2015"
    ms.author="danlep"/>
 
 # Azure에서의 큰 계산: 배치 및 HPC(고성능 컴퓨팅)에 대한 기술 리소스
@@ -23,9 +23,9 @@ Azure에서 대규모 병렬, 배치 및 HPC 작업을 실행할 수 있도록 �
 
 Azure의 큰 계산 옵션에 대해 알아보고 사용자의 작업 및 비즈니스 요구에 가장 적합한 방식을 선택합니다.
 
-* [Batch 및 HPC 솔루션](batch-hpc-solutions.md)
+* [배치 및 HPC 솔루션](batch-hpc-solutions.md)
 
-* [비디오: 클라우드에서 Azure 및 HPC를 사용한 큰 계산](http://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)
+* [비디오: 클라우드에서 Azure 및 HPC를 사용한 큰 계산](http://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)(영문)
 
 
 ## Azure 배치
@@ -36,9 +36,9 @@ Azure의 큰 계산 옵션에 대해 알아보고 사용자의 작업 및 비즈
 
 * [API 참조](https://msdn.microsoft.com/library/azure/dn820177.aspx)
 
-* [배치 포럼](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
-
 * [자습서: .NET용 Azure 배치 라이브러리 시작](batch-dotnet-get-started.md)
+
+* [배치 포럼](https://social.msdn.microsoft.com/Forums/home?forum=azurebatch)
 
 * [배치 비디오](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 
@@ -48,18 +48,46 @@ Azure의 큰 계산 옵션에 대해 알아보고 사용자의 작업 및 비즈
 
 ### Microsoft HPC 팩
 
-[HPC 팩](https://technet.microsoft.com/library/jj899572.aspx)은 온-프레미스, 하이브리드 및 클라우드 기반 HPC를 위한 Microsoft의 무료 클러스터 관리자 및 작업 일정 예약 솔루션입니다.
+HPC 팩은 Microsoft Azure 및 Windows Server 기술을 기반으로 하는 Microsoft의 무료 HPC 솔루션입니다.
 
-* [HPC 팩을 사용하여 Azure로 버스트](https://technet.microsoft.com/library/gg481749.aspx)
+* [HPC Pack 2012 R2 업데이트 2 다운로드](https://www.microsoft.com/ko-kr/download/details.aspx?id=47755)(영문)
 
-* [Azure VM의 HPC 팩](https://msdn.microsoft.com/library/azure/dn518135.aspx)
+* [설명서](https://technet.microsoft.com/library/jj899572.aspx)
 
-* [자습서: Azure에서 HPC 팩을 사용하여 하이브리드 클러스터 설정](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
+* **Azure VM 이미지**
+
+    * [HPC Pack on Windows Server 2012 R2](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)(영문)
+
+    * [HPC Pack compute node on Windows Server 2012 R2](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodeonwindowsserver2012r2/)(영문)
+
+    * [HPC Pack compute node with Excel on Windows Server 2012 R2](http://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2computenodewithexcelonwindowsserver2012r2/)(영문)
+
+* **Azure 빠른 시작 템플릿 및 스크립트**
+
+    * [HPC 클러스터 만들기](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)(영문)
+
+    * [사용자 지정 계산 노드 이미지로 HPC 클러스터 만들기](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)(영문)
+
+    * [HPC Pack IaaS 배포 PowerShell 스크립트](https://www.microsoft.com/download/details.aspx?id=44949)(영문)
+
+* **Azure 자습서**
+
+    * [자습서: Azure에서 HPC Pack 클러스터의 Linux 컴퓨터 노드 시작](../virtual-machines/virtual-machines-linux-cluster-hpcpack.md)
+
+    * [자습서: Azure에서 Excel 및 SOA 작업을 실행할 HPC Pack 클러스터 시작](../virtual-machines/virtual-machines-excel-cluster-hpcpack.md)
+
+    * [자습서: Azure에서 HPC 팩을 사용하여 하이브리드 클러스터 설정](../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md)
+
+    * [Azure VM의 HPC 팩](https://msdn.microsoft.com/library/azure/dn518135.aspx)
+
+    * [HPC 팩을 사용하여 Azure로 버스트](https://technet.microsoft.com/library/gg481749.aspx)
+
 
 * [Windows HPC 포럼](https://social.microsoft.com/Forums/home?category=windowshpc)
 
-### Linux 클러스터 솔루션
-Linux HPC 클러스터를 배포하려면 Azure 리소스 관리자 템플릿을 사용합니다.
+### Linux 및 OSS 클러스터 솔루션
+
+Azure 빠른 시작 템플릿을 사용하여 Linux HPC 클러스터와 오픈 소스 도구를 배포합니다.
 
 * [SLURM 클러스터 스핀업](http://azure.microsoft.com/documentation/templates/slurm/) 및 [블로그 게시물](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx)
 
@@ -72,7 +100,7 @@ Linux HPC 클러스터를 배포하려면 Azure 리소스 관리자 템플릿을
 
 * [MS-MPI 다운로드](http://go.microsoft.com/FWLink/p/?LinkID=389556)
 
-* [MS-MPI 참조](https://msdn.microsoft.com/library/dn473458.aspx)
+* [MS-MPI 참조](https://msdn.microsoft.com/library/dn473458.aspx)(영문)
 
 * [MPI 포럼](https://social.microsoft.com/Forums/home?forum=windowshpcmpi)
 
@@ -89,7 +117,7 @@ Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 계산 집약적 
 
 ## 아키텍처 청사진
 
-* [대규모 컴퓨팅 - 재정 서비스](http://go.microsoft.com/fwlink/?LinkId=536378)(PDF)에서는 위험 관리, 보고, 시뮬레이션을 위해 클라우드에서 대규모 계산 및 데이터 분석을 운영 및 오케스트레이션하는 방법을 보여줍니다.
+* [대규모 컴퓨팅 - 금융 서비스](http://go.microsoft.com/fwlink/?LinkId=536378)(PDF)에서는 위험 관리, 보고, 시뮬레이션을 위해 클라우드에서 대규모 계산 및 데이터 분석을 운영할 수 있도록 하고 오케스트레이션하는 방법을 보여줍니다.
 
 ## 샘플 및 데모
 
@@ -118,4 +146,4 @@ Azure는 Linux 및 Windows HPC 워크로드를 실행하도록 계산 집약적 
 * 최신 공지 사항은 [Microsoft HPC 및 배치 팀 블로그](http://blogs.technet.com/b/windowshpc/) 및 [Azure 블로그](http://azure.microsoft.com/blog/tag/hpc/)를 참조하세요.
 * 또한 [배치의 새로운 기능](http://azure.microsoft.com/updates/?service=batch)을 참조하거나 [RSS 피드](http://azure.microsoft.com/updates/feed/?service=batch)를 구독하세요.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

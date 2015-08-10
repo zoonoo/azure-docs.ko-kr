@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn"/>
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/06/2015"
+   ms.date="07/28/2015"
    ms.author="cherylmc"/>
 
 
@@ -45,4 +45,4 @@ Express 경로를 사용하여 Microsoft 클라우드 서비스에 연결하려�
 	- [Exchange 공급자를 통해 Express 경로 연결 구성](expressroute-configuring-exps.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

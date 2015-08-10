@@ -1,17 +1,16 @@
 <properties pageTitle="Azure 검색 서비스 REST API 버전 2014-07-31-Preview" description="Azure 검색 서비스 REST API: 버전 2014-07-31-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/08/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/22/2015" ms.author="heidist" />
 
 # Azure 검색 서비스 REST API 버전: 2014-07-31-Preview
 
-이 문서에서는 2014년 8월에 Azure 검색 공용 미리 보기용으로 릴리스된 Azure 검색 서비스 REST API의 이전 **2014-07-31-Preview** 버전을 설명합니다. Azure 검색 REST API의 현재 일반적으로 사용 가능한 버전에 대한 설명서는 MSDN에서 확인할 수 있습니다. 자세한 내용은 [Azure 검색 서비스 REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx)를 참조하세요.
-
-응용 프로그램 코드에서 API의 미리 보기 버전을 사용하는 경우 일반적으로 사용 가능한 릴리스를 마이그레이션할 것을 적극적으로 권장합니다. 지침으로 [미리 보기에서 일반적으로 사용할 수 있는 API 버전으로 전환](search-transition-from-preview.md)을 참조하십시오.
+이 문서에서는 2014년 8월에 Azure 검색 공용 미리 보기용으로 릴리스된 Azure 검색 서비스 REST API의 이전 **2014-07-31-Preview** 버전을 설명합니다. 이 버전은 곧 단계적으로 중단될 예정이므로 일반적으로 사용 가능한 릴리스와 연결된 버전을 대신 사용하는 것이 좋습니다. 코드 마이그레이션에 대한 지침은 [미리 보기에서 일반적으로 사용할 수 있는 API 버전으로 전환](search-transition-from-preview.md)을 참조하세요.
 
 **2014-07-31-Preview**과 관련된 다른 API 콘텐츠는 다음과 같습니다.
 
 - [점수 매기기 프로필(Azure 검색 서비스 REST API: 2014-07-31-Preview)](search-api-scoring-profiles-2014-07-31-preview.md)
 
+Azure 검색 REST API의 현재 일반적으로 사용 가능한 버전에 대한 설명서는 MSDN에서 확인할 수 있습니다. 자세한 내용은 [Azure 검색 서비스 REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx)를 참조하세요.
 
 ##서비스 REST API 정보
 
@@ -46,13 +45,18 @@ GET /indexes?api-version=2014-07-31-Preview
 
 ### 버전
 
-Azure 검색 API에는 여러 버전이 있습니다. 프로덕션 응용 프로그램에서 사용할 Azure 검색을 평가하는 경우 각 API 집합에 대해 게시된 버전 정보를 검토하는 것이 좋습니다. 특정 버전을 선택하는 방법에 대한 지침은 [검색 서비스 버전 관리](http://msdn.microsoft.com/library/azure/dn864560.aspx)를 참조하세요.
+Azure 검색 API에는 여러 버전이 있습니다. 사용 가능한 버전 목록은 [검색 서비스 버전 관리](http://msdn.microsoft.com/library/azure/dn864560.aspx)를 참조하세요.
 
 
 <a name="Authentication"></a>
 ### 인증 및 액세스 제어
 
-Azure 검색 서비스에 대한 인증은 검색 서비스 URL와 `api-key`의 두 가지 정보가 필요합니다. `api-keys`는 서비스가 만들어질 때 생성되며, 서비스가 프로비전된 후 요청 시 다시 생성할 수 있습니다. `api-key`는 모든 작업에 대한 액세스 권한을 부여하는 관리 키 또는 쿼리 요청만 인증하는 쿼리 키입니다. 서비스당 최대 2개의 관리 키와 50개의 쿼리 키를 사용할 수 있습니다.
+Azure 검색 서비스에 대한 인증은 검색 서비스 URL와 `api-key`의 두 가지 정보가 필요합니다. `api-keys`는 서비스가 만들어질 때 생성되며, 서비스가 프로비전된 후 요청 시 다시 생성할 수 있습니다. `api-key`는 항상 다음 중 하나입니다.
+
+- 인덱스 만들기 및 삭제와 같은 쓰기 작업을 비롯한 모든 작업에 대해 액세스 권한을 부여하는 관리 키.
+- 읽기 전용 요청을 인증하는 쿼리 키.
+
+서비스당 2개의 관리 키와 최대 50개의 쿼리 키를 사용할 수 있습니다. 관리 키가 2개이므로 키 중 하나를 롤오버해야 할 때 유용합니다.
 
 액세스 제어는 Azure Preview 포털에서 제공되는 RBAC(역할 기반 액세스 제어)를 통한 서비스 관리로 제한됩니다. 역할을 사용하여 서비스 관리를 위한 액세스 수준을 설정합니다. 예를 들어 관리 키는 소유자 및 참가자 역할만 볼 수 있는 반면 서비스 상태는 역할에 관계없이 모든 구성원이 볼 수 있습니다.
 
@@ -62,7 +66,7 @@ Azure 검색 서비스에 대한 인증은 검색 서비스 URL와 `api-key`의 
 
 ###API 요약
 
-Azure 검색 서비스 API는 엔터티 조회를 위한 두 가지 구문을 지원합니다. 다음 목록에는 단순 구문과 대체 OData 구문이 모두 나와 있습니다.
+Azure 검색 서비스 API는 엔터티 조회에 대한 두 가지 구문, 즉 [간단한](https://msdn.microsoft.com/library/dn798920.aspx) OData 구문과 대체 OData 구문을 지원합니다(자세한 내용은 [OData 지원(Azure 검색 API)](http://msdn.microsoft.com/library/azure/dn798932.aspx)을 참조하세요). 다음 목록에서는 간단한 구문을 보여 줍니다.
 
 [인덱스 만들기](#CreateIndex)
 
@@ -90,7 +94,7 @@ Azure 검색 서비스 API는 엔터티 조회를 위한 두 가지 구문을 �
 
 [인덱스 내에서 데이터 추가, 삭제 및 업데이트](#AddOrUpdateDocuments)
 
-    POST /indexes/[index name]/docs/index?api-version=2014-07-31-Preview 
+    POST /indexes/[index name]/docs/index?api-version=2014-07-31-Preview
 
 [문서 검색](#SearchDocs)
 
@@ -131,9 +135,9 @@ Azure 검색 서비스에서 간단한 HTTP 요청(POST, GET, PUT, DELETE)을 �
       {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
       {"name": "rating", "type": "Edm.Int32"},
       {"name": "location", "type": "Edm.GeographyPoint"}
-     ] 
+     ]
     }
- 
+
 인덱스를 만든 후에는 인덱스를 채울 문서를 업로드합니다. 이 작업을 수행하는 다음 단계는 [문서 추가 또는 업데이트](#AddOrUpdateDocuments)를 참조하세요.
 
 Azure 검색의 인덱싱을 소개하는 비디오는 [Azure 검색에 대한 Channel 9의 Cloud Cover 에피소드](http://go.microsoft.com/fwlink/p/?LinkId=511509)를 참조하세요.
@@ -167,9 +171,9 @@ HTTP POST 요청을 사용하여 Azure 검색 서비스 내에서 새 인덱스�
 다음 목록에서는 필수 요청 헤더와 선택적 요청 헤더에 대해 설명합니다.
 
 - `Content-Type`: 필수 사항입니다. `application/json`으로 설정합니다.
-- `api-key`: 필수 사항입니다. `api-key`는 
-- 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **인덱스 만들기** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다. 
- 
+- `api-key`: 필수 사항입니다. `api-key`는
+- 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **인덱스 만들기** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다.
+
 요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service.portal.md)를 참조하세요.
 
 <a name="RequestData"></a> **요청 본문 구문**
@@ -227,7 +231,7 @@ POST 요청의 경우에는 요청 본문에 인덱스 이름을 지정해야 �
               }
             }
           ],
-          "functionAggregation": (optional, applies only when functions are specified) 
+          "functionAggregation": (optional, applies only when functions are specified)
             "sum (default) | average | minimum | maximum | firstMatching"
         }
       ],
@@ -236,10 +240,10 @@ POST 요청의 경우에는 요청 본문에 인덱스 이름을 지정해야 �
         "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
         "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)
       }
-    }    
+    }
 
 참고: `Edm.Int64` 데이터 형식은 API 버전 2014-10-20-Preview부터 지원됩니다.
-    
+
 **인덱스 특성**
 
 인덱스를 만들 때 설정할 수 있는 특성은 다음과 같습니다. 점수 매기기 및 점수 매기기 프로필에 대한 자세한 내용은 [검색 인덱스에 점수 매기기 프로필 추가](http://msdn.microsoft.com/library/azure/dn798928.aspx)를 참조하세요.
@@ -278,7 +282,7 @@ POST 요청의 경우에는 요청 본문에 인덱스 이름을 지정해야 �
 검색 가능 필드에서는 대개 단어 분리, 텍스트 정규화, 용어 필터링 등을 포함하는 분석이 수행됩니다. 기본적으로 Azure 검색에서는 [Apache Lucene 표준 분석기](http://lucene.apache.org/core/4_9_0/analyzers-common/index.html)를 사용하여 검색 가능 필드를 분석합니다. 이 분석기는 ["유니코드 텍스트 구분"](http://unicode.org/reports/tr29/) 규칙에 따라 텍스트를 요소로 분리합니다. 또한 표준 분석기에서는 모든 문자를 소문자 형식으로 변환합니다. 인덱싱 및 쿼리 처리 중에는 인덱싱된 문서와 검색 용어 둘 다에 대해 분석을 수행합니다.
 
 Azure 검색에서는 다양한 언어로 필드를 인덱싱할 수 있습니다. 이러한 각 언어를 사용하려면 지정된 언어의 특성을 고려할 수 있는 비표준 텍스트 분석기가 필요합니다. 예를 들어 프랑스어 분석기에서는 [Light French Stemmer](http://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/fr/FrenchLightStemmer.html)를 적용하여 단어를 [단어 형태소](http://en.wikipedia.org/wiki/Stemming)로 줄입니다. 또한 분석된 텍스트에 [발음 생략](http://en.wikipedia.org/wiki/Elision) 및 프랑스어 중지 단어를 제거합니다. 영어 분석기를 사용하면 표준 분석기의 기능을 확장할 수 있습니다. 이 분석기는 단어에서 소유격(후행 's)을 제거하고, [Porter 형태소 분석 알고리즘](http://tartarus.org/~martin/PorterStemmer/)에 따라 형태소 분석을 적용하며, 영어의 [중지 단어](http://en.wikipedia.org/wiki/Stop_words)를 제거합니다.
- 
+
 `analyzer` 속성을 설정하면 인덱스 정의에서 각 필드에 대해 독립적으로 분석기를 구성할 수 있습니다. 예를 들어 영어, 프랑스어, 스페인어 호텔 설명을 표시하는 개별 필드를 같은 인덱스에서 나란히 표시할 수 있습니다. 쿼리가 검색 쿼리에서 반환할 언어별 필드를 지정합니다.
 
 아래 목록에는 지원되는 분석기와 해당 기능에 대한 간단한 설명이 나와 있습니다.
@@ -594,7 +598,7 @@ Azure 검색에서는 다양한 언어로 필드를 인덱싱할 수 있습니�
 - `maxAgeInSeconds`(선택): 브라우저는 이 값을 사용하여 CORS 실행 전 응답을 캐시할 기간(초)을 결정합니다. 이 값은 음수가 아닌 정수여야 합니다. 이 값이 클수록 성능은 개선되지만 CORS 정책 변경 내용이 적용되는 시간은 더 오래 걸립니다. 이 값을 설정하지 않으면 기본 기간인 5분이 사용됩니다.
 
 <a name="CreateUpdateIndexExample"></a> **요청 본문 예제**
- 
+
     {
       "name": "hotels",  
       "fields": [
@@ -610,7 +614,7 @@ Azure 검색에서는 다양한 언어로 필드를 인덱싱할 수 있습니�
         {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
         {"name": "rating", "type": "Edm.Int32"},
         {"name": "location", "type": "Edm.GeographyPoint"}
-      ] 
+      ]
     }
 
 **응답**
@@ -646,7 +650,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 
 - `Content-Type`: 필수 사항입니다. `application/json`으로 설정합니다.
 - `api-key`: 필수 사항입니다. `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **인덱스 업데이트** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다.
- 
+
 요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service.portal.md)를 참조하세요.
 
 **요청 본문 구문**
@@ -700,7 +704,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
               }
             }
           ],
-          "functionAggregation": (optional, applies only when functions are specified) 
+          "functionAggregation": (optional, applies only when functions are specified)
             "sum (default) | average | minimum | maximum | firstMatching"
         }
       ],
@@ -709,7 +713,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
         "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
         "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)
       }
-    }    
+    }
 
 참고: `Edm.Int64` 데이터 형식은 API 버전 2014-10-20-Preview부터 지원됩니다.
 
@@ -736,9 +740,9 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 **요청 헤더**
 
 다음 목록에서는 필수 요청 헤더와 선택적 요청 헤더에 대해 설명합니다.
- 
+
 - `api-key`: 필수 사항입니다. `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **인덱스 나열** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key`를 포함해야 합니다.
- 
+
 요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service.portal.md)를 참조하세요.
 
 **요청 본문**
@@ -795,7 +799,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 **요청**
 
 서비스 요청에는 HTTPS를 사용해야 합니다. **인덱스 가져오기** 요청은 GET 메서드를 사용하여 생성할 수 있습니다.
- 
+
 요청 URI의 [index name]은 인덱스 컬렉션에서 반환할 인덱스를 지정합니다.
 
 `api-version` 매개 변수는 필수 사항입니다. 유효한 값은 `2014-07-31-Preview` 또는 `2014-10-20-Preview`입니다. 각 요청에서 버전 관련 동작을 가져오는 데 사용할 값을 지정할 수 있지만 코드 전체에서 동일한 버전을 사용하는 것이 가장 좋습니다. 권장되는 버전은 일반적으로 `2014-07-31-Preview`입니다. 또는 `2014-10-20-Preview`를 사용하여 실험적 기능을 평가할 수 있습니다. 자세한 내용은 [검색 서비스 버전 관리](http://msdn.microsoft.com/library/azure/dn864560.aspx)를 참조하세요.
@@ -803,7 +807,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 **요청 헤더**
 
 다음 목록에서는 필수 요청 헤더와 선택적 요청 헤더에 대해 설명합니다.
- 
+
 - `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **인덱스 가져오기** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key`를 포함해야 합니다.
 
 요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service.portal.md)를 참조하세요.
@@ -825,11 +829,11 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 
     DELETE https://[service name].search.windows.net/indexes/[index name]?api-version=[api-version]
     api-key: [admin key]
-    
+
 **요청**
 
 서비스 요청에는 HTTPS를 사용해야 합니다. **인덱스 삭제** 요청은 DELETE 메서드를 사용하여 생성할 수 있습니다.
- 
+
 요청 URI의 [index name]은 인덱스 컬렉션에서 삭제할 인덱스를 지정합니다.
 
 `api-version` 매개 변수는 필수 사항입니다. 유효한 값은 `2014-07-31-Preview` 또는 `2014-10-20-Preview`입니다. 각 요청에서 버전 관련 동작을 가져오는 데 사용할 값을 지정할 수 있지만 코드 전체에서 동일한 버전을 사용하는 것이 가장 좋습니다. 권장되는 버전은 일반적으로 `2014-07-31-Preview`입니다. 또는 `2014-10-20-Preview`를 사용하여 실험적 기능을 평가할 수 있습니다. 자세한 내용은 [검색 서비스 버전 관리](http://msdn.microsoft.com/library/azure/dn864560.aspx)를 참조하세요.
@@ -837,9 +841,9 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 **요청 헤더**
 
 다음 목록에서는 필수 요청 헤더와 선택적 요청 헤더에 대해 설명합니다.
- 
+
 - `api-key`: 필수 사항입니다. `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **인덱스 삭제** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다.
- 
+
 요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service.portal.md)를 참조하세요.
 
 **요청 본문**
@@ -869,9 +873,9 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 **요청 헤더**
 
 다음 목록에서는 필수 요청 헤더와 선택적 요청 헤더에 대해 설명합니다.
- 
+
 - `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **인덱스 통계 가져오기** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key`를 포함해야 합니다.
- 
+
 요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service.portal.md)를 참조하세요.
 
 **요청 본문**
@@ -893,19 +897,17 @@ ________________________________________
 <a name="DocOps"></a>
 ## 문서 작업
 
-Azure 검색에서는 서비스에 업로드하는 JSON 문서를 사용하여 인덱스를 채웁니다. 업로드하는 모든 문서는 검색 데이터 모음으로 구성됩니다. 문서에는 필드가 포함되며, 이러한 필드 중 일부는 문서 업로드 시 검색 용어로 토큰화됩니다. Azure 검색 API의 `/docs` URL 세그먼트는 인덱스의 문서 컬렉션을 나타냅니다. 문서 업로드/병합/삭제/쿼리 등 컬렉션에 대해 수행하는 모든 작업은 단일 인덱스의 컨텍스트에서 수행되므로 이러한 작업의 URL은 항상 지정된 인덱스 이름에 대해 `/indexes/[index name]/docs`로 시작됩니다.
+Azure 검색에서는 인덱스가 클라우드에 저장되며 서비스에 업로드하는 JSON 문서를 사용하여 인덱스를 채웁니다. 업로드하는 모든 문서는 검색 데이터 모음으로 구성됩니다. 문서에는 필드가 포함되며, 이러한 필드 중 일부는 문서 업로드 시 검색 용어로 토큰화됩니다. Azure 검색 API의 `/docs` URL 세그먼트는 인덱스의 문서 컬렉션을 나타냅니다. 문서 업로드/병합/삭제/쿼리 등 컬렉션에 대해 수행하는 모든 작업은 단일 인덱스의 컨텍스트에서 수행되므로 이러한 작업의 URL은 항상 지정된 인덱스 이름에 대해 `/indexes/[index name]/docs`로 시작됩니다.
 
-응용 프로그램 코드는 관계형 데이터베이스 또는 기타 구조화된 데이터 원본의 결과 집합을 사용하여 Azure 검색에 업로드할 JSON 문서를 생성할 수 있습니다. CodePlex의 Azure 검색 Adventure Works 데모 샘플 응용 프로그램에는 Adventure Works 샘플 데이터베이스의 결과 집합을 사용하여 JSON 문서를 작성하는 코드가 포함되어있습니다. 샘플 응용 프로그램에 대한 자세한 내용은 [여기](search-create-first-solution.md)를 참조하세요.
-
-대부분의 응용 프로그램 개발 시나리오에서 검색 데이터는 응용 프로그램 데이터 계층과 별도이며 해당 계층 외부에 있습니다. 예를 들어 응용 프로그램에서 온-프레미스 데이터베이스를 사용하여 재고 상태를 추적하는 경우 Azure 검색에 보관된 문서는 제품 이름, 가격, 사용 가능 여부 측면에서 비슷하거나 같은 데이터 값을 포함하지만 검색을 최적화하기 위해 역방향 인덱스에 저장됩니다.
+응용 프로그램 코드는 Azure 검색에 업로드하려면 JSON 문서를 생성해야 합니다. 일반적으로 인덱스는 사용자가 제공하는 단일 데이터 집합에서 채워집니다.
 
 검색하려는 항목당 문서 하나를 포함하도록 계획해야 합니다. 예를 들어 영화 대여 응용 프로그램은 영화당 문서 하나를, 상점 응용 프로그램은 SKU당 문서 하나를, 온라인 교육 과정 응용 프로그램은 과정당 문서 하나를, 리서치 업체는 리포지토리의 학술 문서당 문서 하나를 포함할 수 있습니다.
 
-문서는 하나 이상의 필드로 구성됩니다. 필드는 검색 용어로 토큰화되는 텍스트를 포함할 수 있으며 필터 또는 점수 매기기 프로필에서 사용할 수 있는 토큰화되지 않는 값 또는 텍스트가 아닌 값도 포함할 수 있습니다. 각 필드에 대해 지원되는 이름, 데이터 형식, 검색 기능은 인덱스 스키마에 의해 결정됩니다. 각 인덱스 스키마의 필드 중 하나는 ID로 지정해야 하며 각 문서는 인덱스에서 해당 문서를 고유하게 식별하는 ID 필드 값을 포함해야 합니다. 다른 모든 문서 필드는 선택 사항이며 지정하지 않으면 null 값으로 기본 설정됩니다. null 값은 역방향 인덱스에서 공간을 차지하지 않습니다.
+문서는 하나 이상의 필드로 구성됩니다. 필드는 Azure 검색에서 검색 용어로 토큰화되는 텍스트를 포함할 수 있으며 필터 또는 점수 매기기 프로필에서 사용할 수 있는 토큰화되지 않는 값 또는 텍스트가 아닌 값도 포함할 수 있습니다. 각 필드에 대해 지원되는 이름, 데이터 형식, 검색 기능은 인덱스 스키마에 의해 결정됩니다. 각 인덱스 스키마의 필드 중 하나는 ID로 지정해야 하며 각 문서는 인덱스에서 해당 문서를 고유하게 식별하는 ID 필드 값을 포함해야 합니다. 다른 모든 문서 필드는 선택 사항이며 지정하지 않으면 null 값으로 기본 설정됩니다. null 값은 검색 인덱스에서 공간을 차지하지 않습니다.
 
 문서를 업로드하려면 먼저 서비스에 인덱스를 만들어야 합니다. 이 첫 단계에 대한 자세한 내용은 [인덱스 만들기](#CreateIndex)를 참조하세요.
 
-**참고**: Azure 검색 공개 미리 보기에서는 전체 테스트 검색에서 영어만 지원됩니다.
+**참고**: 이 버전의 API는 영어로 전체 텍스트 검색을 제공합니다.
 
 <a name="AddOrUpdateDocuments"></a>
 ## 문서 추가, 업데이트 또는 삭제
@@ -915,7 +917,7 @@ HTTP POST를 사용하여 지정한 인덱스에서 문서를 업로드, 병합,
     POST https://[service name].search.windows.net/indexes/[index name]/docs/index?api-version=[api-version]
     Content-Type: application/json
     api-key: [admin key]
-    
+
 **요청**
 
 모든 서비스 요청에는 HTTPS를 사용해야 합니다. HTTP POST를 사용하여 지정한 인덱스에서 문서를 업로드, 병합, 병합하거나 업로드 또는 삭제할 수 있습니다.
@@ -930,7 +932,7 @@ HTTP POST를 사용하여 지정한 인덱스에서 문서를 업로드, 병합,
 
 - `Content-Type`: 필수 사항입니다. `application/json`으로 설정합니다.
 - `api-key`: 필수 사항입니다. `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스에 고유한 문자열 값입니다. **문서 추가** 요청은 쿼리 키가 아니라 관리 키로 설정된 `api-key` 헤더를 포함해야 합니다.
- 
+
 요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service.portal.md)를 참조하세요.
 
 **요청 본문**
@@ -948,13 +950,13 @@ HTTP POST를 사용하여 지정한 인덱스에서 문서를 업로드, 병합,
         ...
       ]
     }
-    
+
 **문서 작업**
 
 - `upload`: 업로드 작업은 새 문서는 삽입하고 기존 문서는 업데이트/교체하는 "upsert"와 비슷합니다. 업데이트 시에는 모든 필드가 바뀝니다.
 - `merge`: 병합에서는 기존 문서를 지정한 필드로 업데이트합니다. 문서가 없으면 병합하지 못합니다. 문서의 기존 필드는 병합에서 지정하는 필드로 바뀝니다. 여기에는 `Collection(Edm.String)` 형식 필드가 포함됩니다. 예를 들어 값이 `["budget"]`인 "tags" 필드가 포함되어 있는 문서에서 "tags"에 대해 `["economy", "pool"]` 값과의 병합을 실행하면 "tags" 필드의 최종 값은 `["economy", "pool"]`이 됩니다. `["budget", "economy", "pool"]`이 **아닙니다**.
 - `mergeOrUpload`: 이 작업은 지정된 키를 포함하는 문서가 인덱스에 이미 있는 경우 `merge`와 동일하게 동작합니다. 문서가 없는 경우에는 새 문서에 대해 `upload`와 같이 동작합니다.
-- `delete`: 삭제 시에는 지정된 문서를 인덱스에서 제거합니다. `delete` 작업에서는 key 필드 값만 지정합니다. name 필드 등의 다른 필드를 지정하려고 하면 HTTP 400 오류가 발생합니다. 개별 필드를 문서에서 제거하려는 경우에는 대신 `merge`를 사용하고 필드를 명시적으로 `null`로 설정합니다. 
+- `delete`: 삭제 시에는 지정된 문서를 인덱스에서 제거합니다. `delete` 작업에서는 key 필드 값만 지정합니다. name 필드 등의 다른 필드를 지정하려고 하면 HTTP 400 오류가 발생합니다. 개별 필드를 문서에서 제거하려는 경우에는 대신 `merge`를 사용하고 필드를 명시적으로 `null`로 설정합니다.
 
 **응답**
 
@@ -971,7 +973,7 @@ HTTP POST를 사용하여 지정한 인덱스에서 문서를 업로드, 병합,
     }  
 
 상태 코드: 하나 이상의 항목이 올바르게 인덱싱되지 않은 경우에는 207이 반환됩니다(인덱싱되지 않은 항목의 'status' 필드가 false로 설정됨).
- 
+
     {
       "value": [
         {
@@ -997,7 +999,7 @@ HTTP POST를 사용하여 지정한 인덱스에서 문서를 업로드, 병합,
           "hotelId": "1",
           "baseRate": 199.0,
           "description": "Best hotel in town",
-		  "description_fr": "Meilleur hôtel en ville", 
+		  "description_fr": "Meilleur hôtel en ville",
           "hotelName": "Fancy Stay",
 		  "category": "Luxury",
           "tags": ["pool", "view", "wifi", "concierge"],
@@ -1052,7 +1054,7 @@ ________________________________________
 
 **쿼리 매개 변수**
 
-`search=[string]`(선택) - 검색할 텍스트입니다. `searchFields`를 지정하지 않으면 기본적으로 모든 `searchable` 필드가 검색됩니다. `searchable` 필드를 검색할 때는 검색 텍스트 자체가 토큰화되므로 여러 용어를 공백으로 구분할 수 있습니다(예: `search=hello world`). 모든 용어를 일치시키려면 `*`를 사용합니다(부울 필터 쿼리에 유용할 수 있음). 이 매개 변수를 생략하는 것은 `*`로 설정하는 것과 같습니다. 검색 구문에 대한 세부 사항은 아래의 "단순 쿼리 구문"을 참조하세요.
+`search=[string]`(선택) - 검색할 텍스트입니다. `searchFields`를 지정하지 않으면 기본적으로 모든 `searchable` 필드가 검색됩니다. `searchable` 필드를 검색할 때는 검색 텍스트 자체가 토큰화되므로 여러 용어를 공백으로 구분할 수 있습니다(예: `search=hello world`). 모든 용어를 일치시키려면 `*`를 사용합니다(부울 필터 쿼리에 유용할 수 있음). 이 매개 변수를 생략하는 것은 `*`로 설정하는 것과 같습니다. 검색 구문에 대한 세부 사항은 [단순 쿼리 구문](https://msdn.microsoft.com/library/dn798920.aspx)을 참조하세요.
 
   - **참고**: `searchable` 필드를 쿼리할 때 놀라운 결과가 나타나는 경우가 있습니다. 토크나이저에는 아포스트로피, 숫자 안의 쉼표 등과 같은 영어 텍스트에 일반적인 사례를 처리하는 논리가 포함되어 있습니다. 예를 들어 `search=123,456`은 개별 용어인 123과 456이 아니라 단일 용어인 123,456과 일치합니다. 여기서 쉼표는 영어에서 큰 숫자에 사용되는 1000 단위 구분 기호이기 때문입니다. 따라서 `search` 매개 변수에서 용어를 구분할 때는 마침표 대신 공백을 사용하는 것이 좋습니다.
 
@@ -1074,12 +1076,12 @@ ________________________________________
 
 - `count`(패싯 용어의 최대 개수, 기본값은 10). 최대값은 없지만 값이 크면 성능이 저하되며, 특히 패싯 필드에 포함된 고유한 항목 수가 많을수록 더욱 그렇습니다.
   - 예: `facet=category,count:5`는 패싯 결과에서 상위 5개의 범주를 가져옵니다.  
-  - **참고**: `count` 매개 변수가 고유한 항목 수보다 작으면 결과가 정확하지 않을 수 있습니다. 이는 패싯 쿼리가 분할된 데이터베이스에서 분산된 방식 때문입니다. `count`를 늘리면 일반적으로 용어 수의 정확도가 높아지지만 성능이 저하됩니다. 
+  - **참고**: `count` 매개 변수가 고유한 항목 수보다 작으면 결과가 정확하지 않을 수 있습니다. 이는 패싯 쿼리가 분할된 데이터베이스에서 분산된 방식 때문입니다. `count`를 늘리면 일반적으로 용어 수의 정확도가 높아지지만 성능이 저하됩니다.
 - `sort`(개수별로 *내림차순* 정렬하는 `count`, 개수별로 *오름차순* 정렬하는 `-count`, 값별로 *오름차순* 정렬하는 `value`, 값별로 *내림차순* 정렬하는 `-value` 중 하나)
   - 예: `facet=category,count:3,sort:count`는 각 도시 이름이 있는 문서 수를 기준으로 내림차순으로 정렬된 패싯 결과에서 상위 3개의 범주를 가져옵니다. 예를 들어 상위 3개의 범주가 Budget, Motel, Luxury인 경우 적중 항목 수가 Budget은 5개, Motel은 6개, Luxury는 4개이면 버킷이 Motel, Budget, Luxury 순으로 정렬됩니다.
-  - 예: `facet=rating,sort:-value`는 값을 기준으로 내림차순으로 정렬된 가능한 모든 등급의 버킷을 생성합니다. 예를 들어 등급이 1~5인 경우 각 등급과 일치하는 문서 수에 상관없이 버킷이 5, 4, 3, 2, 1 순으로 정렬됩니다.
+  - 예: `facet=rating,sort:-value`는 값을 기준으로 내림차순으로 정렬된 가능한 모든 등급의 버킷을 생성합니다. 예를 들어 등급이 1\~5인 경우 각 등급과 일치하는 문서 수에 상관없이 버킷이 5, 4, 3, 2, 1 순으로 정렬됩니다.
 - `values`(파이프로 구분된 숫자 또는 패싯 항목 값의 동적 집합을 지정하는 `Edm.DateTimeOffset` 값)
-  - 예: `facet=baseRate,values:10|20`은 각각 기본 요금이 1~9, 10~19 및 20 이상인 버킷 3개를 생성합니다.
+  - 예: `facet=baseRate,values:10|20`은 각각 기본 요금이 1\~9, 10\~19 및 20 이상인 버킷 3개를 생성합니다.
   - 예: `facet=lastRenovationDate,values:2010-02-01T00:00:00Z`는 각각 2010년 2월 이전에 리노베이션된 호텔과 2010년 2월 1일 이후에 리노베이션된 호텔에 대한 버킷 2개를 생성합니다.
 - `interval`(숫자의 경우 0보다 큰 정수 간격 또는 날짜/시간 값의 경우 `minute`, `hour`, `day`, `week`, `month`, `quarter`, `year`)
   - 예: `facet=baseRate,interval:100`은 기본 요금 범위 100을 기준으로 버킷을 생성합니다. 예를 들어 기본 요금이 모두 $60에서 $600 사이에 속한 경우 0-100, 100-200, 200-300, 300-400, 400-500 및 500-600에 대한 버킷이 생성됩니다.
@@ -1103,7 +1105,7 @@ ________________________________________
 다음 목록에서는 필수 요청 헤더와 선택적 요청 헤더에 대해 설명합니다.
 
 - `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **검색 ** 요청은 `api-key`에 대해 관리 키 또는 쿼리 키를 지정할 수 있습니다.
- 
+
 요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service.portal.md)를 참조하세요.
 
 **요청 본문**
@@ -1142,7 +1144,7 @@ ________________________________________
       ],
       "@odata.nextLink": (URL to fetch the next page of results if $top is greater than 1000)
     }
-    
+
 **예제:**
 
 추가 예제는 [Azure 검색에 대한 OData 식 구문](https://msdn.microsoft.com/library/azure/dn798921.aspx) 페이지에서 확인할 수 있습니다.
@@ -1172,7 +1174,7 @@ ________________________________________
 6) 여러 필드에서 인덱스를 검색합니다. 예를 들어 모두 동일한 인덱스 내에서 여러 언어로 된 검색 가능 필드를 저장하고 쿼리할 수 있습니다. 같은 문서에 영어 설명과 프랑스어 설명이 둘 다 있는 경우 쿼리 결과에서 둘 중 하나 또는 둘 다를 반환할 수 있습니다.
 
 	GET /indexes/hotels/docs?search=hotel&searchFields=description,description_fr&api-version=2014-07-31-Preview
-	
+
 한 번에 하나의 인덱스만 쿼리할 수 있습니다. 한번에 하나씩 쿼리하려는 경우가 아니면 각 언어에 대한 여러 인덱스를 만들지 마세요.
 
 7) 페이징 - 항목의 첫 번째 페이지(페이지 크기는 10)를 가져옵니다.
@@ -1194,7 +1196,7 @@ ________________________________________
 11) 인덱스를 검색하여 적중 항목이 강조 표시된 조각을 반환합니다.
 
     GET /indexes/hotels/docs?search=something&highlight=description&api-version=2014-07-31-Preview
-    
+
 12) 인덱스를 검색하여 참조 위치에서 가까이 있는 순으로 정렬된 문서를 반환합니다.
 
     GET /indexes/hotels/docs?search=something&$orderby=geo.distance(location, geography'POINT(-122.12315 47.88121)')&api-version=2014-07-31-Preview
@@ -1209,14 +1211,14 @@ ________________________________________
 
 **문서 조회** 작업은 Azure 검색에서 문서를 검색합니다. 사용자가 특정 검색 결과를 클릭할 때 해당 문서에 대한 특정 세부 정보를 조회하려는 경우 이 작업을 사용하면 유용합니다.
 
-    GET https://[service name].search.windows.net/indexes/[index name]/docs/[key]?[query parameters] 
+    GET https://[service name].search.windows.net/indexes/[index name]/docs/[key]?[query parameters]
     api-key: [admin key]
-    
+
 **요청**
 
 서비스 요청에는 HTTPS를 사용해야 합니다. 다음과 같이 **문서 조회** 요청을 생성할 수 있습니다.
 
-    GET /indexes/[index name]/docs/key?[query parameters] 
+    GET /indexes/[index name]/docs/key?[query parameters]
 
 기존 OData 구문을 키 조회에 사용할 수도 있습니다.
 
@@ -1237,7 +1239,7 @@ ________________________________________
 다음 목록에서는 필수 요청 헤더와 선택적 요청 헤더에 대해 설명합니다.
 
 - `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **문서 조회 ** 요청은 `api-key`에 대해 관리 키 또는 쿼리 키를 지정할 수 있습니다.
- 
+
 요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service.portal.md)를 참조하세요.
 
 **요청 본문**
@@ -1251,7 +1253,7 @@ ________________________________________
     {
       field_name: field_value (fields matching the default or specified projection)
     }
-    
+
 **예제**
 
 '2' 키가 있는 문서 조회
@@ -1270,7 +1272,7 @@ OData 구문을 사용하여 '3' 키가 있는 문서 조회
     GET https://[service name].search.windows.net/indexes/[index name]/docs/$count?api-version=[api-version]
     Accept: text/plain
     api-key: [admin key]
-    
+
 **요청**
 
 서비스 요청에는 HTTPS를 사용해야 합니다. **문서 수 계산** 요청은 GET 메서드를 사용하여 생성할 수 있습니다.
@@ -1285,7 +1287,7 @@ OData 구문을 사용하여 '3' 키가 있는 문서 조회
 
 - `Accept`: 이 값은 `text/plain`으로 설정해야 합니다.
 - `api-key`: `api-key`는 검색 서비스에 대한 요청을 인증하는 데 사용되며, 서비스 URL에 고유한 문자열 값입니다. **문서 수 계산 ** 요청은 `api-key`에 대해 관리 키 또는 쿼리 키를 지정할 수 있습니다.
- 
+
 요청 URL을 생성하려면 서비스 이름도 필요합니다. 서비스 이름과 `api-key`는 Azure Preview 포털의 서비스 대시보드에서 가져올 수 있습니다. 페이지 탐색 도움말은 [포털에서 Azure 검색 서비스 만들기](search-create-service.portal.md)를 참조하세요.
 
 **요청 본문**
@@ -1316,13 +1318,13 @@ OData 구문을 사용하여 '3' 키가 있는 문서 조회
 
 **쿼리 매개 변수**
 
-`search=[string]` - 쿼리를 제안하는 데 사용할 검색 텍스트입니다. 설명은 3~25자여야 합니다.
+`search=[string]` - 쿼리를 제안하는 데 사용할 검색 텍스트입니다. 설명은 3\~25자여야 합니다.
 
 `fuzzy=[boolean]`(선택, 기본값=false) - true로 설정하면 검색 텍스트에 대체되었거나 누락된 문자가 있더라도 이 API는 제안을 찾습니다. 이 경우 일부 시나리오에서는 검색 환경이 개선되지만, 유사 제안 검색 속도가 느려지며 리소스가 더 많이 사용되므로 성능은 저하됩니다.
 
 `searchFields=[string]`(선택) - 지정된 검색 텍스트를 검색하기 위한 쉼표로 구분된 필드 이름 목록입니다. 대상 필드가 제안을 사용하도록 설정되어 있어야 합니다.
 
-`$top=#`(선택, 기본값=5) - 검색할 제안의 수입니다. 값은 1~10 사이의 숫자여야 합니다.
+`$top=#`(선택, 기본값=5) - 검색할 제안의 수입니다. 값은 1\~10 사이의 숫자여야 합니다.
 
 `$filter=[string]`(선택) - 제안을 검색할 때 고려할 문자를 필터링하는 식입니다.
 
@@ -1379,9 +1381,4 @@ OData 구문을 사용하여 '3' 키가 있는 문서 조회
 
     GET /indexes/hotels/docs/suggest?search=lux&$top=5&api-version=2014-07-31-Preview
 
-
-
-
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

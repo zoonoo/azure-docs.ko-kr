@@ -50,4 +50,4 @@
 이제 API 앱을 배포할 준비가 되었으며 [API 앱 배포](app-service-dotnet-deploy-api-app.md) 자습서에 따라 API 앱을 배포할 수 있습니다.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

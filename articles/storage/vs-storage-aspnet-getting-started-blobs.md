@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Azure 저장소 시작(ASP.NET 프로젝트)
@@ -27,7 +27,7 @@
 > - [Queues](vs-storage-aspnet-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet-getting-started-tables.md)
 
->[AZURE.NOTE]이 문서에서는 Visual Studio의 **연결된 서비스 추가** 대화 상자를 사용하여 ASP.NET 프로젝트에서 Azure 저장소 계정을 생성하거나 참조한 후 Azure Blob 저장소를 사용하는 방법을 설명합니다. Azure Blob 저장소를 사용하는 방법에 대한 일반적인 정보는 [.NET에서 Blob 저장소를 사용하는 방법](storage-dotnet-how-to-use-blobs.md)을 참조하세요.
+이 문서에서는 Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 ASP.NET 앱에서 Azure 저장소 계정을 만들거나 참조한 후 Azure Blob 저장소를 사용하는 방법을 설명합니다. Azure Blob 저장소를 사용하는 방법에 대한 일반적인 정보는 [.NET에서 Blob 저장소를 사용하는 방법](storage-dotnet-how-to-use-blobs.md)을 참조하세요.
 
 Azure Blob 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 액세스할 수 있는 다량의 구조화되지 않은 데이터를 저장하기 위한 서비스입니다. 단일 Blob은 임의의 크기일 수 있습니다. Blob은 이미지, 오디오 및 비디오 파일, 원시 데이터, 문서 파일 등일 수 있습니다.
 
@@ -59,7 +59,7 @@ ASP.NET 프로젝트에서 Blob에 프로그래밍 방식으로 액세스하려�
 		CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
 
-    **참고:** 다음 섹션의 코드 앞에서 위의 코드를 모두 사용합니다.
+    **참고:** 다음 섹션의 코드 앞에 위의 코드를 모두 사용합니다.
 
 
 3. 저장소 계정의 기존 컨테이너를 참조할 **CloudBlobClient** 개체를 가져옵니다.
@@ -75,7 +75,7 @@ ASP.NET 프로젝트에서 Blob에 프로그래밍 방식으로 액세스하려�
 
 ## 코드에서 Blob 컨테이너 만들기
 
-**CloudBlobClient**를 사용하여 저장소 계정에 컨테이너를 만들 수도 있습니다. 다음 코드와 같이 `CreateIfNotExistsAsync()`에 호출을 추가하기만 하면 됩니다.
+**CloudBlobClient**를 사용하여 저장소 계정에 컨테이너를 만들 수도 있습니다. 다음 코드와 같이 `CreateIfNotExistsAsync()` 호출을 추가하기만 하면 됩니다.
 
 	// Create a blob client.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -318,4 +318,4 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

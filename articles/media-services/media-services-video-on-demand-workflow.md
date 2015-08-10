@@ -118,7 +118,7 @@ Azure 미디어 서비스에 프로그래밍 방식으로 연결할 **.NET** 또
 
 [AZURE.INCLUDE [media-services-selector-upload-files](../../includes/media-services-selector-upload-files.md)]
 
-###작업 \ 태스크 만들기
+###작업 \\ 태스크 만들기
 
 작업은 태스크 집합(예: 인코딩 또는 인덱싱)에 대한 메타데이터를 포함하는 엔터티입니다. 각 태스크는 입력 자산에 대한 원자성 작업을 수행합니다. 인코딩 작업을 만드는 방법에 대한 예제는 다음을 참조하세요.
 
@@ -220,4 +220,4 @@ Azure 미디어 서비스에 프로그래밍 방식으로 연결할 **.NET** 또
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

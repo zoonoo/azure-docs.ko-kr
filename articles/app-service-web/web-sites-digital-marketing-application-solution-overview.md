@@ -141,4 +141,4 @@ Azure 또는 타사 도구를 사용하여 웹 앱의 성능을 최신 상태로
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

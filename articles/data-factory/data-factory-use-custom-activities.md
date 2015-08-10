@@ -19,7 +19,7 @@
 # Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 Azure Data Factory는 파이프라인에서 데이터를 이동 및 처리하는 데 사용되는 **복사 작업** 및 **HDInsight 작업**과 같은 기본 제공 작업을 지원합니다. 고유한 변환/처리 논리를 포함하는 사용자 지정 .NET 작업을 만들어 파이프라인에서 사용할 수도 있습니다. **Azure HDInsight** 클러스터 또는 **Azure 배치** 서비스를 사용하여 실행되도록 작업을 구성할 수 있습니다.
 
-이 문서에서는 사용자 지정 작업을 만들고 Azure Data Factory 파이프라인에서 사용하는 방법을 설명합니다. 사용자 지정 작업을 만들고 사용하기 위한 단계별 지침이 포함된 자세한 연습도 제공합니다. 이 연습에서는 HDInsight 연결된 서비스를 사용합니다. Azure 배치 연결된 서비스를 대신 사용하려면 **AzureBatchLinkedService** 형식의 연결된 서비스를 만들고 파이프라인 JSON(**linkedServiceName**)의 작업 섹션에서 사용합니다. 사용자 지정 작업과 함께 Azure 배치를 사용하는 방법에 대한 자세한 내용은 [Azure 배치 연결된 서비스](#AzureBatch) 섹션을 참조하세요.
+이 문서에서는 사용자 지정 작업을 만들고 Azure Data Factory 파이프라인에서 사용하는 방법을 설명합니다. 사용자 지정 작업을 만들고 사용하기 위한 단계별 지침이 포함된 자세한 연습도 제공합니다. 이 연습에서는 HDInsight 연결된 서비스를 사용합니다. Azure 배치 연결된 서비스를 대신 사용하려면 **AzureBatchLinkedService** 형식의 연결된 서비스를 만들고 파이프라인 JSON(\*\*linkedServiceName\*\*)의 작업 섹션에서 사용합니다. 사용자 지정 작업과 함께 Azure 배치를 사용하는 방법에 대한 자세한 내용은 [Azure 배치 연결된 서비스](#AzureBatch) 섹션을 참조하세요.
 
 
 ## <a name="walkthrough" /> 연습
@@ -224,8 +224,8 @@ Azure Data Factory는 파이프라인에서 데이터를 이동 및 처리하는
 
 
 10. 프로젝트를 컴파일합니다. 메뉴에서 **빌드**를 클릭하고 **솔루션 빌드**를 클릭합니다.
-11. **Windows 탐색기**를 시작하고 빌드 유형에 따라 **bin\debug** 또는 **bin\release** 폴더로 이동합니다.
-12. <project folder>\bin\Debug 폴더의 이진을 모두 포함하는 zip 파일 **MyDotNetActivity.zip**을 만듭니다.
+11. **Windows 탐색기**를 시작하고 빌드 유형에 따라 **bin\\debug** 또는 **bin\\release** 폴더로 이동합니다.
+12. <project folder>\\bin\\Debug 폴더의 이진을 모두 포함하는 zip 파일 **MyDotNetActivity.zip**을 만듭니다.
 13. **ADFTutorialDataFactory**의 **MyBlobStore** 연결된 서비스가 사용하는 Azure Blob 저장소의 Blob 컨테이너 **customactvitycontainer**에 Blob으로 **MyDotNetActivity.zip**을 업로드합니다. Blob 컨테이너 **blobcustomactivitycontainer**가 아직 없는 경우 새로 만듭니다. 
 
 
@@ -464,4 +464,4 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

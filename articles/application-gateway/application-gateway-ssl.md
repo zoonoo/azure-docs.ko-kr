@@ -229,4 +229,4 @@ SSL 인증서 구성에서 **HttpListener**의 프로토콜은 *Https*로(대/�
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

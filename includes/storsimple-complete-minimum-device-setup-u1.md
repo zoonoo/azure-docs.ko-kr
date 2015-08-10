@@ -1,4 +1,3 @@
-
 #### 최소 StorSimple 장치 설치를 완료하려면
 
 1. 장치를 선택하고 **퀵 스타트**를 클릭합니다. **장치 설치 완료**를 클릭하여 장치 구성 마법사를 시작합니다.
@@ -29,4 +28,4 @@
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -29,7 +29,7 @@ Azure 가상 네트워크 사이트 간 연결에서는 VPN 게이트웨이를 �
 - 분리 경계가 뚜렷한 지역별 다중 계층 응용 프로그램 
 - Azure의 구독 간/조직 간 통신
 
-자세한 내용은 [VNet 간 연결 구성](https://msdn.microsoft.com/library/azure/dn690122.aspx)을 참조하세요.
+자세한 내용은 [VNet 간 연결 구성](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)을 참조하세요.
 
 비디오를 보려면
 
@@ -271,4 +271,4 @@ VNet에 VM을 배포하지 않은 경우 가상 네트워크의 시각적 다이
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

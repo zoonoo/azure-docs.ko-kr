@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="07/22/2015"
 	ms.author="kathydav"/>
 
 # 리소스 관리자 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기 및 미리 구성
@@ -29,7 +29,7 @@
 
 ## 1단계: Azure PowerShell 설치
 
-또한 Azure PowerShell 버전 0.9.0 이상이 있어야 합니다. Azure PowerShell을 설치 및 구성하지 않은 경우 지침을 보려면 [여기](powershell-install-configure.md)를 클릭하세요.
+또한 Azure PowerShell 버전 0.9.0 이상이 있어야 합니다. Azure PowerShell을 설치 및 구성하지 않은 경우 지침을 보려면 [여기](../powershell-install-configure.md)를 클릭하세요.
 
 Azure PowerShell 프롬프트에서 다음 명령을 사용하여 설치한 Azure PowerShell의 버전을 확인할 수 있습니다.
 
@@ -41,7 +41,7 @@ Azure PowerShell 프롬프트에서 다음 명령을 사용하여 설치한 Azur
 	-------
 	0.9.0
 
-버전 0.9.0 이상이 없는 경우 프로그램 및 기능 제어판을 사용하여 Azure PowerShell을 제거한 다음 최신 버전을 설치해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하세요.
+버전 0.9.0 이상이 없는 경우 프로그램 및 기능 제어판을 사용하여 Azure PowerShell을 제거한 다음 최신 버전을 설치해야 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 
 ## 2단계: 구독 설정
 
@@ -119,6 +119,8 @@ DNSNameAvailability가 "True"인 경우 제안된 이름이 고유한 것입니�
 
 	Get-AzureAvailabilitySet –ResourceGroupName $rgName | Sort Name | Select Name
 
+인터넷에서 들어오는 트래픽을 허용하고 부하 분산된 집합에 배치할 수 있도록 인바운드 NAT 규칙을 사용하여 리소스 관리자 기반 가상 컴퓨터를 구성할 수 있습니다. 두 경우 모두 부하 분산 장치 인스턴스 및 기타 설정을 지정해야 합니다. 자세한 내용은 [Azure 리소스 관리자를 사용하여 부하 분산 장치를 만드는 방법](../load-balancer/load-balancer-arm-powershell.md)을 참조하세요.
+
 리소스 관리자 기반 가상 컴퓨터를 사용하려면 리소스 관리자 기반 가상 네트워크가 필요합니다. 필요한 경우 새 가상 컴퓨터에 대한 하나 이상의 서브넷이 있는 새 리소스 관리자 기반 가상 네트워크를 만듭니다. 다음은 frontendSubnet 및 backendSubnet이라는 두 서브넷을 사용하는 새 가상 네트워크에 대한 예입니다.
 
 	$rgName="LOBServers"
@@ -165,9 +167,9 @@ frontendSubnet의 서브넷 인덱스는 0이고 backendSubnet의 서브넷 인�
 	$subnetIndex=<index of the subnet on which to create the NIC for the virtual machine>
 	$vnet=Get-AzurevirtualNetwork -Name $vnetName -ResourceGroupName $rgName
 
-이제, NIC(네트워크 인터페이스 카드)를 만들고, 공용 IP 주소를 요청하고, 필요에 따라 DNS 도메인 이름 레이블을 할당합니다. 다음 두 옵션 중 하나를 명령 집합으로 복사하고 NIC 이름 및 DNS 도메인 이름 레이블을 입력합니다.
+NIC(네트워크 인터페이스 카드)를 만듭니다. 명령 집합에 다음 옵션 중 하나를 복사하고 필요한 정보를 입력합니다.
 
-옵션 1: NIC 이름을 지정합니다.
+### 옵션 1: NIC 이름을 지정하고 공용 IP 주소 할당
 
 다음 줄을 명령 집합으로 복사하고 NIC의 이름을 지정합니다.
 
@@ -175,7 +177,7 @@ frontendSubnet의 서브넷 인덱스는 0이고 backendSubnet의 서브넷 인�
 	$pip = New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
 	$nic = New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
 
-옵션 2: NIC 이름 및 DNS 도메인 이름 레이블을 지정합니다.
+### 옵션 2: NIC 이름 및 DNS 도메인 이름 레이블 지정
 
 다음 줄을 명령 집합으로 복사하고 NIC의 이름 및 전역적으로 고유한 도메인 이름 레이블을 지정합니다. Azure PowerShell의 서비스 관리 모드에서 가상 컴퓨터를 만들면 Azure에서 자동으로 다음 단계를 완료합니다.
 
@@ -183,6 +185,53 @@ frontendSubnet의 서브넷 인덱스는 0이고 backendSubnet의 서브넷 인�
 	$domName="<domain name label>"
 	$pip = New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -DomainNameLabel $domName -Location $locName -AllocationMethod Dynamic
 	$nic = New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
+
+### 옵션 3: NIC 이름을 지정하고 고정 개인 IP 주소 할당
+
+다음 줄을 명령 집합으로 복사하고 NIC의 이름을 지정합니다.
+
+	$nicName="<name of the NIC of the VM>"
+	$staticIP="<available static IP address on the subnet>"
+	$pip = New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+	$nic = New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id -PrivateIpAddress $staticIP
+
+### 옵션 4: 인바운드 NAT 규칙에 대한 NIC 이름 및 부하 분산 장치 인스턴스 지정
+
+NIC를 만들고 인바운드 NAT 규칙에 대한 부하 분산 장치 인스턴스에 추가하려면 다음이 필요합니다.
+
+- 가상 컴퓨터에 전달되는 트래픽에 대한 인바운드 NAT 규칙이 있는 이전에 만든 부하 분산 장치 인스턴스의 이름
+- Nic에 할당할 부하 분산 장치 인스턴스의 백 엔드 주소 풀 인덱스 번호
+- Nic에 할당할 인바운드 NAT 규칙의 인덱스 번호
+
+인바운드 NAT 규칙을 사용하여 부하 분산 장치 인스턴스를 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자를 사용하여 부하 분산 장치 만들기](../load-balancer/load-balancer-arm-powershell.md)를 참조하세요.
+
+다음 줄을 명령 집합으로 복사하고 필요한 이름과 인덱스 번호를 지정합니다.
+
+	$nicName="<name of the NIC of the VM>"
+	$lbName="<name of the load balancer instance>"
+	$bePoolIndex=<index of the back end pool, starting at 0>
+	$natRuleIndex=<index of the inbound NAT rule, starting at 0>
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex] -LoadBalancerInboundNatRule $lb.InboundNatRules[$natRuleIndex]
+
+$nicName 문자열은 리소스 그룹에 대해 고유해야 합니다. "LOB07 NIC"와 같은 가상 컴퓨터 이름을 문자열에 통합하는 것이 좋습니다.
+
+### 옵션 5: 부하 분산된 집합에 대한 부하 분산 장치 인스턴스 및 NIC 이름 지정
+
+NIC를 만들고 부하 분산된 집합에 대한 부하 분산 장치 인스턴스에 추가하려면 다음이 필요합니다.
+
+- 부하 분산된 트래픽에 대한 규칙이 있는 이전에 만든 부하 분산 장치 인스턴스의 이름
+- Nic에 할당할 부하 분산 장치 인스턴스의 백 엔드 주소 풀 인덱스 번호
+
+부하 분산된 트래픽에 대한 규칙을 사용하여 부하 분산 장치 인스턴스를 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자를 사용하여 부하 분산 장치 만들기](../load-balancer/load-balancer-arm-powershell.md)를 참조하세요.
+
+다음 줄을 명령 집합으로 복사하고 필요한 이름과 인덱스 번호를 지정합니다.
+
+	$nicName="<name of the NIC of the VM>"
+	$lbName="<name of the load balancer instance>"
+	$bePoolIndex=<index of the back end pool, starting at 0>
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex]
 
 이제, 로컬 VM 개체를 만들고 필요에 따라 가용성 집합에 추가합니다. 다음 두 옵션 중 하나를 명령 집합으로 복사하고 이름, 크기 및 가용성 집합 이름을 입력합니다.
 
@@ -262,15 +311,15 @@ VM에 데이터 디스크를 더 추가하려면 다음 줄을 명령 집합으�
 
 텍스트 편집기에서 명령을 작성한 경우 명령 집합을 클립보드로 복사한 다음, 열려 있는 Azure PowerShell 프롬프트를 마우스 오른쪽 단추로 클릭합니다. 그러면 명령 집합이 일련의 PowerShell 명령으로 실행되고 Azure 가상 컴퓨터가 만들어집니다. 또는 Azure PowerShell ISE에서 명령 집합을 실행합니다.
 
-이 가상 컴퓨터를 다시 만들거나 유사한 가상 컴퓨터를 생성하는 경우 이 명령 집합을 PowerShell 스크립트 파일(*.ps1)로 저장합니다.
+이 가상 컴퓨터를 다시 만들거나 유사한 가상 컴퓨터를 생성하는 경우 이 명령 집합을 PowerShell 스크립트 파일(\*.ps1)로 저장합니다.
 
 ## 예
 
 다음과 같은 웹 기반 LOB(기간 업무) 작업을 위해 추가 가상 컴퓨터를 만들려면 PowerShell 명령 집합이 필요합니다.
 
-- 기존 LOBServers 리소스 그룹에 있음
+- 기존 LOBServers 리소스 그룹에 배치됨
 - Windows Server 2012 R2 Datacenter 이미지를 사용함
-- 이름이 LOB07이며, 기존 WEB_AS 가용성 집합에 있음
+- 이름이 LOB07이며, 기존 WEB\_AS 가용성 집합에 있음
 - 기존 AZDatacenter 가상 네트워크의 프런트 엔드 서브넷(서브넷 인덱스 0)에 공용 IP 주소가 있는 NIC
 - 200GB의 추가 데이터 디스크가 있음
 
@@ -282,7 +331,7 @@ VM에 데이터 디스크를 더 추가하려면 다음 줄을 명령 집합으�
 	# Set values for existing resource group and storage account names
 	$rgName="LOBServers"
 	$locName="West US"
-	$saName="contosoLOBServersSA"
+	$saName="contosolobserverssa"
 
 	# Set the existing virtual network and subnet index
 	$vnetName="AZDatacenter"
@@ -290,7 +339,7 @@ VM에 데이터 디스크를 더 추가하려면 다음 줄을 명령 집합으�
 	$vnet=Get-AzurevirtualNetwork -Name $vnetName -ResourceGroupName $rgName
 
 	# Create the NIC
-	$nicName="AzureInterface"
+	$nicName="LOB07-NIC"
 	$domName="contoso-vm-lob07"
 	$pip=New-AzurePublicIpAddress -Name $nicName -ResourceGroupName $rgName -DomainNameLabel $domName -Location $locName -AllocationMethod Dynamic
 	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[$subnetIndex].Id -PublicIpAddressId $pip.Id
@@ -330,12 +379,12 @@ VM에 데이터 디스크를 더 추가하려면 다음 줄을 명령 집합으�
 
 [Azure 리소스 관리자의 Azure 계산, 네트워크 및 저장소 공급자](virtual-machines-azurerm-versus-azuresm.md)
 
-[Azure 리소스 관리자 개요](resource-group-overview.md)
+[Azure 리소스 관리자 개요](../resource-group-overview.md)
 
 [리소스 관리자 템플릿 및 PowerShell을 사용하여 Azure 가상 컴퓨터 배포 및 관리](virtual-machines-deploy-rmtemplates-powershell.md)
 
 [리소스 관리자 템플릿 및 PowerShell을 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-create-windows-powershell-resource-manager-template-simple)
 
-[Azure PowerShell을 설치 및 구성하는 방법](install-configure-powershell.md)
+[Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

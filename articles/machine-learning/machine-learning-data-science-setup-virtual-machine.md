@@ -1,9 +1,7 @@
 <properties
 	pageTitle="가상 컴퓨터를 IPython Notebook 서버로 설정 | Microsoft Azure"
 	description="고급 분석용 IPython 서버와 함께 데이터 과학 환경에서 사용할 Azure 가상 컴퓨터를 설정합니다."
-	metaKeywords=""
 	services="machine-learning"
-	solutions="" 
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm"
@@ -26,9 +24,9 @@
 
 Azure 가상 컴퓨터가 이미 있는 경우 여기에서 IPython Notebook 서버를 설정하려면 이 단계를 건너뛰고 [2단계: 기존 가상 컴퓨터에 IPython Notebook에 대한 끝점 추가](#add-endpoint)로 이동할 수 있습니다.
 
-Azure에서 가상 컴퓨터를 만드는 프로세스를 시작하기 전에 해당 프로젝트에 대한 데이터를 처리하는 데 필요한 컴퓨터의 크기를 결정해야 합니다. 컴퓨터가 작을수록 메모리가 작고 CPU 코어 수가 적지만 비용도 적게 듭니다. 컴퓨터 유형 및 가격 목록은 [가상 컴퓨터 가격](http://azure.microsoft.com/pricing/details/virtual-machines/) 페이지를 참조하세요.
+Azure에서 가상 컴퓨터를 만드는 프로세스를 시작하기 전에 해당 프로젝트에 대한 데이터를 처리하는 데 필요한 컴퓨터의 크기를 결정해야 합니다. 컴퓨터가 작을수록 메모리가 작고 CPU 코어 수가 적지만 비용도 적게 듭니다. 컴퓨터 유형 및 가격 목록은 <a href="http://azure.microsoft.com/pricing/details/virtual-machines/" target="_blank">가상 컴퓨터 가격</a> 페이지를 참조하세요.
 
-1. https://manage.windowsazure.com에 로그인하여 왼쪽 아래에서 **새로 만들기**를 클릭합니다. 팝업 창이 나타납니다. **계산** -> **가상 컴퓨터** -> **갤러리에서**를 선택합니다.
+1. <a href="https://manage.windowsazure.com" target="_blank">Azure 포털</a>에 로그인하여 왼쪽 아래에서 **새로 만들기**를 클릭합니다. 팝업 창이 나타납니다. **계산** -> **가상 컴퓨터** -> **갤러리에서**를 선택합니다.
 
 	![작업 영역 만들기][24]
 
@@ -41,22 +39,20 @@ Azure에서 가상 컴퓨터를 만드는 프로세스를 시작하기 전에 �
 
 	![작업 영역 만들기][25]
 
-3. 만들려는 가상 컴퓨터의 이름을 입력하고, 컴퓨터에서 처리할 데이터의 크기 및 컴퓨터의 성능(메모리 크기 및 계산 코어 수)에 따라 컴퓨터의 크기를 선택한 후 컴퓨터의 사용자 이름 및 암호를 입력합니다. 그런 다음 오른쪽 화살표를 클릭하여 다음 구성 페이지로 이동합니다.
+3. 만들려는 가상 컴퓨터의 이름을 입력하고, 컴퓨터에서 처리할 데이터의 크기 및 컴퓨터의 성능(메모리 크기 및 계산 코어 수)에 따라 컴퓨터의 크기(기본값: A3)를 선택한 후 컴퓨터의 사용자 이름 및 암호를 입력합니다. 그런 다음 오른쪽 화살표를 클릭하여 다음 구성 페이지로 이동합니다.
 
 	![작업 영역 만들기][26]
 
-4. 이 가상 컴퓨터에 사용할 **저장소 계정**이 포함된 **지역/선호도 그룹/가상 네트워크**를 선택한 후 해당 저장소 계정을 선택합니다. 끝점의 이름(여기에서는 "IPython")을 입력하여 **끝점** 필드의 맨 아래에 끝점을 추가합니다. 모든 문자열을 끝점의 **이름**으로 선택하고 **사용 가능한** 0에서 65536 사이의 모든 정수를 **공용 포트**로 선택할 수 있습니다. **개인 포트**는 **9999**여야 합니다. 사용자는 인터넷 서비스에 이미 할당된 공용 포트를 사용해서는 **안 됩니다**. [인터넷 서비스용 포트](http://www.chebucto.ns.ca/~rakerman/port-table.html)에서는 이미 할당되어 사용해서는 안 되는 포트 목록을 제공합니다.
+4. 이 가상 컴퓨터에 사용할 **저장소 계정**이 포함된 **지역/선호도 그룹/가상 네트워크**를 선택한 후 해당 저장소 계정을 선택합니다. 끝점의 이름(여기에서는 "IPython")을 입력하여 **끝점** 필드의 맨 아래에 끝점을 추가합니다. 원하는 문자열을 끝점의 **이름**으로 선택할 수 있으며 **사용 가능한** 0에서 65536 사이의 모든 정수를 **공용 포트**로 선택할 수 있습니다. **개인 포트**는 **9999**여야 합니다. 사용자는 인터넷 서비스에 이미 할당된 공용 포트를 사용해서는 **안 됩니다**. <a href="http://www.chebucto.ns.ca/~rakerman/port-table.html" target="_blank">인터넷 서비스용 포트</a>에서는 이미 할당되어 사용해서는 안 되는 포트 목록을 제공합니다.
 
 	![작업 영역 만들기][27]
-
-	>[AZURE.NOTE]이 단계에서 끝점이 추가된 경우 [2단계: 기존 가상 컴퓨터에 IPython Notebook에 대한 끝점 추가](#add-endpoint)를 건너뛸 수 있습니다.
 
 5. 확인 표시를 클릭하여 가상 컴퓨터 프로비저닝 프로세스를 시작합니다.
 
 	![작업 영역 만들기][28]
 
 
-가상 컴퓨터 프로비저닝 프로세스를 완료하는 데 15~25분이 걸릴 수 있습니다. 가상 컴퓨터를 만든 후에는 이 컴퓨터의 상태가 **실행 중**으로 표시됩니다.
+가상 컴퓨터 프로비저닝 프로세스를 완료하는 데 15\~25분이 걸릴 수 있습니다. 가상 컴퓨터를 만든 후에는 이 컴퓨터의 상태가 **실행 중**으로 표시됩니다.
 
 ![작업 영역 만들기][29]
 
@@ -70,24 +66,24 @@ Azure에서 가상 컴퓨터를 만드는 프로세스를 시작하기 전에 �
 
 ## <a name="run-commands"></a>3단계: IPython Notebook 및 기타 지원 도구 설치
 
-가상 컴퓨터를 만들 후 RDP(원격 데스크톱 프로토콜)를 사용하여 Windows 가상 컴퓨터에 로그온합니다. 지침은 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines-log-on-windows-server.md)을 참조하세요. 관리자 권한으로 **명령 프롬프트**(**Powershell 명령 창이 아님**)를 열고 다음 명령을 실행합니다.
+가상 컴퓨터를 만들 후 RDP(원격 데스크톱 프로토콜)를 사용하여 Windows 가상 컴퓨터에 로그온합니다. 지침은 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines-log-on-windows-server.md)을 참조하세요. **관리자** 권한으로 **명령 프롬프트**(\*\*Powershell 명령 창이 아님\*\*)를 열고 다음 명령을 실행합니다.
 
     set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
 
 	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-설치가 완료되면 *C:\Users&#60;user name>\Documents\IPython Notebooks* 디렉터리에서 IPython Notebook 서버가 자동으로 시작됩니다.
+설치가 완료되면 *C:\\Users\\<user name>\\Documents\\IPython Notebooks* 디렉터리에서 IPython Notebook 서버가 자동으로 시작됩니다.
 
 메시지가 표시되면 IPython Notebook의 암호화 컴퓨터 관리자의 암호를 입력합니다. 그러면 IPython Notebook을 컴퓨터에서 서비스로 실행할 수 있습니다.
 
 ## <a name="access"></a>4단계: 웹 브라우저에서 IPython Notebook 액세스
-IPython Notebook 서버에 액세스하려면 웹 브라우저를 열고 URL 텍스트 상자에 *https://&#60;virtual machine DNS name>:&#60;public port number>*를 입력합니다. 여기서 *&#60;public port number>*는 IPython Notebook 끝점을 추가할 때 지정한 포트 번호여야 합니다. *443*을 공용 포트 번호로 선택한 경우에는 URL 텍스트 상자에서 포트 번호를 명시적으로 지정하지 않고도 IPython Notebook에 액세스할 수 있습니다. 그렇지 않으면 **&#60;public port number>*가 필요합니다.
+IPython Notebook 서버에 액세스하려면 웹 브라우저를 열고 URL 텍스트 상자에 *https://&#60;virtual machine DNS name>:&#60;public port number>*를 입력합니다. 여기서 *&#60;public port number>*는 IPython Notebook 끝점을 추가할 때 지정한 포트 번호여야 합니다.
 
-*&#60;virtual machine DNS name>*은 Azure 관리 포털에서 확인할 수 있습니다. 관리 포털에 로그인한 후 **가상 컴퓨터**를 클릭하고 만든 컴퓨터를 선택한 후 **대시보드**를 선택합니다. 그러면 DNS 이름이 다음과 같이 표시됩니다.
+*&#60;virtual machine DNS name>*은 Azure 관리 포털에서 확인할 수 있습니다. 관리 포털에 로그인한 후 **가상 컴퓨터**를 클릭하고, 사용자가 만든 컴퓨터를 선택한 후 **대시보드**를 선택합니다. 그러면 DNS 이름이 다음과 같이 표시됩니다.
 
 ![작업 영역 만들기][19]
 
-다음 그림과 같이 _이 웹 사이트의 보안 인증서에 문제가 있습니다_(Internet Explorer) 또는 _Your connection is not private_(Chrome)이라는 경고가 나타납니다. **이 웹 사이트를 계속 탐색합니다(권장하지 않음)**(Internet Explorer)를 클릭하거나 **Advanced**, **Proceed to &#60;*DNS Name*> (unsafe)**(Chrome)를 차례로 클릭하여 계속합니다. 그런 다음 이전에 지정한 암호를 입력하여 IPython Notebook에 액세스합니다.
+다음 그림과 같이 _이 웹 사이트의 보안 인증서에 문제가 있습니다_(Internet Explorer) 또는 _Your connection is not private_(Chrome)이라는 경고가 나타납니다. **이 웹 사이트를 계속 탐색합니다(권장하지 않음)**(Internet Explorer)를 클릭하거나 **Advanced**, **Proceed to &#60;\*DNS Name\*> (unsafe)**(Chrome)를 차례로 클릭하여 계속합니다. 그런 다음 이전에 지정한 암호를 입력하여 IPython Notebook에 액세스합니다.
 
 Internet Explorer: ![작업 영역 만들기][20]
 
@@ -147,4 +143,4 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -272,7 +272,7 @@
 | lmPerm | 선형 모델의 순열 검정 |
 | lmtest | 선형 회귀 모델 검정 |
 | locfit | 로컬 회귀, 유사도 및 밀도 추정 |
-| lpSolve | Lp_solve v에 대한 인터페이스. 선형/정수 프로그램을 해결하기 위한 5.5 |
+| lpSolve | Lp\_solve v에 대한 인터페이스. 선형/정수 프로그램을 해결하기 위한 5.5 |
 
 
 ###M-R로 시작하는 R 모듈
@@ -503,4 +503,4 @@
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

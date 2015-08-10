@@ -28,8 +28,7 @@
 
 웹 앱 및 Git 게시를 설정하려면 다음 단계를 따르세요.
 
-> [AZURE.NOTE]
-> 이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](/ko-kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](/ko-kr/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
+> [AZURE.NOTE]이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](/ko-kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](/ko-kr/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
@@ -98,8 +97,7 @@
 
 		git init
 
-	> [AZURE.NOTE]**Git 명령을 사용할 수 없는 경우**
-	[Git](http://git-scm.com/%20target="_blank)는 Azure 웹 사이트를 배포하는 데 사용할 수 있는 분산된 버전 제어 시스템입니다. 플랫폼별 설치 지침은 [Git 다운로드 페이지](http://git-scm.com/download%20target="_blank")(영문)를 참조하십시오.
+	> [AZURE.NOTE]**Git 명령을 사용할 수 없는 경우** [Git](http://git-scm.com/%20target="_blank)는 Azure 웹 사이트를 배포하는 데 사용할 수 있는 분산된 버전 제어 시스템입니다. 플랫폼별 설치 지침은 [Git 다운로드 페이지](http://git-scm.com/download%20target="_blank")(영문)를 참조하십시오.
 
 2. 다음 명령을 사용하여 리포지토리에 파일을 추가합니다.
 
@@ -136,7 +134,7 @@
 
 ##응용 프로그램의 변경 내용 게시
 
-1. 텍스트 편집기에서 **server.js** 파일을 열고 'Hello World\n'를 'Hello Azure\n'로 변경합니다. 파일을 저장합니다.
+1. 텍스트 편집기에서 **server.js** 파일을 열고 'Hello World\\n'를 'Hello Azure\\n'로 변경합니다. 파일을 저장합니다.
 2. 명령줄에서 **helloworld** 디렉터리로 이동한 후 다음 명령을 실행합니다.
 
 		git add .
@@ -199,4 +197,4 @@ Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

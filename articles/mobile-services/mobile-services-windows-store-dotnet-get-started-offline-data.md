@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="모바일 서비스에서 오프라인 데이터 사용(Windows 스토어) | 모바일 개발자 센터" 
-	description="Azure 모바일 서비스를 사용하여 Windows 스토어 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법에 대해 알아봅니다." 
+	pageTitle="범용 Windows 앱에서 오프라인 데이터 사용 | Azure 모바일 서비스" 
+	description="Azure 모바일 서비스를 사용하여 범용 Windows 앱에서 오프라인 데이터를 캐시 및 동기화하는 방법에 대해 알아봅니다." 
 	documentationCenter="mobile-services" 
 	authors="lindydonna" 
 	manager="dwrede" 
@@ -13,39 +13,26 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="07/23/2015" 
 	ms.author="donnam"/>
 
 # 모바일 서비스에서 오프라인 데이터 사용
 
 [AZURE.INCLUDE [mobile-services-selector-offline](../../includes/mobile-services-selector-offline.md)]
 
+이 자습서에서는 Azure 모바일 서비스를 사용하여 범용 Windows 스토어 앱에 오프라인 지원을 추가하는 방법을 보여 줍니다. 오프라인 지원을 사용하면 앱이 오프라인 시나리오에 있는 경우 로컬 데이터베이스를 조작할 수 있습니다. 앱이 백 엔드 데이터베이스에서 온라인 상태가 되면 오프라인 기능을 사용하여 로컬 변경 내용을 동기화합니다.
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-<p>이 자습서에서는 Azure 모바일 서비스를 사용하여 범용 Windows 스토어 앱에 오프라인 지원을 추가하는 방법을 보여 줍니다. 오프라인 지원을 사용하면 앱이 오프라인 시나리오에 있는 경우 로컬 데이터베이스를 조작할 수 있습니다. 앱이 백 엔드 데이터베이스에서 온라인 상태가 되면 오프라인 기능을 사용하여 로컬 변경 내용을 동기화합니다. 
-</p>
-<p>동영상을 시청하려는 경우 오른쪽에 있는 클립은 이 자습서와 동일한 단계를 따릅니다.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="label">자습서 보기</a> <a style="background-image: url('http://video.ch9.ms/ch9/ea1c/ffed2371-4db1-4a8e-8869-80013859ea1c/BuildOfflineAppsAzureMobileServices_220.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">동영상 재생</span></a> <span class="time">오후 2:36:00</span></div>
-</div>
+동영상을 시청하려는 경우 오른쪽에 있는 클립은 이 자습서와 동일한 단계를 따릅니다.
 
+> [AZURE.VIDEO build-offline-apps-azure-mobile-services]
 
-이 자습서에서는 Azure 모바일 서비스의 오프라인 기능을 지원하도록 [모바일 서비스 시작]의 유니버설 앱 프로젝트를 업데이트합니다. 그다음 연결이 끊긴 오프라인 시나리오에서 데이터를 추가하고, 해당 항목을 온라인 데이터베이스와 동기화한 후 Azure 관리 포털에 로그인하여 앱을 실행할 때 수행된 데이터 변경 사항을 확인합니다.
-
+이 자습서에서는 Azure 모바일 서비스의 오프라인 기능을 지원하도록 [모바일 서비스 시작] 자습서의 범용 앱 프로젝트를 업데이트합니다. 그런 다음 연결이 끊긴 오프라인 시나리오에서 데이터를 추가하고, 해당 항목을 온라인 데이터베이스와 동기화한 후 Azure 관리 포털에 로그인하여 앱을 실행할 때 수행된 데이터 변경 사항을 확인합니다.
 
 >[AZURE.NOTE]이 자습서는 Windows 스토어 앱에서 모바일 서비스를 통해 Azure를 사용하여 데이터를 저장하고 검색할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 모바일 서비스를 처음 사용하는 경우 먼저 [모바일 서비스 시작] 자습서를 완료하는 것이 좋습니다.
 >
->이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 서비스를 사용할 수 있습니다. 이러한 서비스는 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 무료 평가판</a>을 참조하세요.
->
 >Visual Studio 2012용 이전 Windows Phone 8 자습서도 [Visual Studio 2012용 Windows Phone 8 자습서]에서 계속 사용할 수 있습니다.
 
-
-이 자습서에서는 다음 기본 단계를 단계별로 안내합니다.
-
-1. [오프라인 기능을 지원하도록 앱 업데이트]
-2. [앱의 동기화 동작 업데이트] 
-3. [모바일 서비스를 다시 연결하도록 앱 업데이트]
+##필수 조건 
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
@@ -54,8 +41,7 @@
 * [Azure 모바일 서비스 SDK 버전 1.3.0 이상][Mobile Services SDK Nuget]
 * [Azure 모바일 서비스 SQLite 스토어 버전 1.0.0 이상][SQLite store nuget]
 * [Windows 8.1용 SQLite](www.sqlite.org/downloads)
-
->[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+* Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 서비스를 사용할 수 있습니다. 이러한 서비스는 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28)을 참조하세요. 
 
 ## <a name="enable-offline-app"></a>오프라인 기능을 지원하도록 앱 업데이트
 
@@ -194,7 +180,7 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 
     이 예에서는 원격 `todoTable`에 있는 모든 레코드를 검색하지만 쿼리를 전달하여 레코드를 필터링할 수도 있습니다. `PullAsync`에 대한 첫 번째 매개 변수는 증분 동기화에 사용되는 쿼리 ID이며, `UpdatedAt` 타임스탬프를 사용하여 마지막 동기화 이후에 수정된 레코드만 가져옵니다. 쿼리 ID는 앱의 각 논리 쿼리에 고유한 설명 문자열이어야 합니다. 증분 동기화를 옵트아웃하려면 `null`을(를) 쿼리 ID로 전달합니다. 그러면 각 끌어오기 작업에서 모든 레코드를 검색하므로 비효율적일 수 있습니다.
 
-    >[AZURE.NOTE]* 모바일 서비스 데이터베이스에서 삭제된 레코드를 장치 로컬 저장소에서 제거하려면 [일시 삭제]를 사용해야 합니다. 그렇지 않으면 앱이 주기적으로 `IMobileServiceSyncTable.PurgeAsync()`에 대해 호출하여 로컬 저장소를 제거합니다.
+    >[AZURE.NOTE]\* 모바일 서비스 데이터베이스에서 삭제된 레코드를 장치 로컬 저장소에서 제거하려면 [일시 삭제]를 사용해야 합니다. 그렇지 않으면 앱이 주기적으로 `IMobileServiceSyncTable.PurgeAsync()`에 대해 호출하여 로컬 저장소를 제거합니다.
 
     `MobileServicePushFailedException`이(가) 푸시 및 끌어오기 작업 둘 다에 대해 발생할 수 있습니다. 끌어오기의 경우 끌어오기 작업에서 내부적으로 푸시를 수행하여 모든 테이블 및 관계가 동기화된 상태인지 확인하기 때문에 이 예외가 발생할 수 있습니다. 다음 자습서인 [모바일 서비스에서 오프라인 데이터 동기화를 사용하여 충돌 처리]에서 이러한 동기화 관련 예외를 처리하는 방법을 보여줍니다.
 
@@ -261,9 +247,9 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 * [모바일 서비스에서 일시 삭제 사용][Soft Delete]
 
 <!-- Anchors. -->
-[오프라인 기능을 지원하도록 앱 업데이트]: #enable-offline-app
-[앱의 동기화 동작 업데이트]: #update-sync
-[모바일 서비스를 다시 연결하도록 앱 업데이트]: #update-online-app
+[Update the app to support offline features]: #enable-offline-app
+[Update the sync behavior of the app]: #update-sync
+[Update the app to reconnect your mobile service]: #update-online-app
 [Next Steps]: #next-steps
 
 <!-- Images -->
@@ -298,4 +284,4 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

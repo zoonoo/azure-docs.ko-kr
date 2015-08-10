@@ -28,7 +28,7 @@ ASP.NET 웹 앱에서 세션 상태를 사용하는 경우 외부 세션 상태 
 캐시를 만들려면 [다음 지침](../cache-dotnet-how-to-use-azure-redis-cache.md#create-cache)을 따르세요.
 
 ##<a id="configureproject"></a>웹앱에 RedisSessionStateProvider NuGet 패키지 추가
-NuGet `RedisSessionStateProvider` 패키지를 설치합니다. 다음 명령을 사용하여 패키지 관리자 콘솔에서 설치합니다(**도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**).
+NuGet `RedisSessionStateProvider` 패키지를 설치합니다. 다음 명령을 사용하여 패키지 관리자 콘솔에서 설치합니다(\*\*도구\*\* > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**).
 
   `PM> Install-Package Microsoft.Web.RedisSessionStateProvider`
   
@@ -95,7 +95,7 @@ Redis 캐시를 사용하여 웹 앱에서 개체를 캐시할 수도 있습니�
 
   *작성자: [Rick Anderson](https://twitter.com/RickAndMSFT)*
   
-  [installed the latest]: http://azure.microsoft.com/downloads/?sdk=net
+  [installed the latest]: http://www.windowsazure.com/downloads/?sdk=net
   [ASP.NET 세션 상태 개요]: http://msdn.microsoft.com/library/ms178581.aspx
 
   [NewIcon]: ./media/web-sites-dotnet-session-state-caching/CacheScreenshot_NewButton.png
@@ -108,4 +108,4 @@ Redis 캐시를 사용하여 웹 앱에서 개체를 캐시할 수도 있습니�
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

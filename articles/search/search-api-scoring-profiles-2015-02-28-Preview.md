@@ -1,24 +1,24 @@
-<properties 
-	pageTitle="점수 매기기 프로필(Azure 검색 REST API 버전 2015-02-28-Preview)" 
-	description="점수 매기기 프로필(Azure 검색 REST API 버전 2015-02-28-Preview)" 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" 
+<properties
+	pageTitle="점수 매기기 프로필(Azure 검색 REST API 버전 2015-02-28-Preview) | Microsoft Azure"
+	description="점수 매기기 프로필(Azure 검색 REST API 버전 2015-02-28-Preview)"
+	services="search"
+	documentationCenter=""
+	authors="HeidiSteen"
+	manager="mblythe"
 	editor=""/>
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.date="04/24/2015" 
-	ms.author="heidist"/>
-      
-#점수 매기기 프로필(Azure 검색 REST API 버전 2015-02-28-Preview)
+<tags
+	ms.service="search"
+	ms.devlang="rest-api"
+	ms.workload="search"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.author="heidist"
+	ms.date="07/24/2015" />
 
-> [AZURE.NOTE]이 문서에서는 [2015-02-28-Preview](search-api-2015-02-28-preview.md)에서 제공되는 점수 매기기 프로필을 설명합니다. 현재 [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx)에 설명된 `2015-02-28` 버전과 여기에 설명된 `2015-02-28-Preview` 버전 간의 차이는 없습니다. 이 API가 변경되지 않은 경우에도 이 문서를 제공하는 이유는 `2015-02-28-Preview`에 대한 전체 설명서 집합을 제공하기 위한 것입니다.
+# 점수 매기기 프로필(Azure 검색 REST API 버전 2015-02-28-Preview)
+
+> [AZURE.NOTE]이 문서에서는 [2015-02-28-Preview](search-api-2015-02-28-preview.md)에서 제공되는 점수 매기기 프로필을 설명합니다. 현재 [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx)에 설명된 `2015-02-28` 버전과 여기에 설명된 `2015-02-28-Preview` 버전 간의 차이는 없습니다.
 
 ## 개요
 
@@ -36,7 +36,7 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
         "text": {
           "weights": { "hotelName": 5 }
         },
-        "functions": [ 
+        "functions": [
           {
             "type": "distance",
             "boost": 5,
@@ -55,7 +55,7 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 
     GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation:-122.123,44.77233&api-version=2015-02-28-Preview
 
-이 쿼리는 용어 'inn'을 검색하고 현재 위치를 전달합니다. 이 쿼리에는 `scoringParameter` 등의 다른 매개 변수도 포함되어 있습니다. 쿼리 매개 변수에 대해서는 [문서 검색(Azure 검색 API)](search-api-2015-02-28-preview.md#SearchDocs)에서 설명합니다.
+이 쿼리는 용어 'inn'을 검색하고 현재 위치를 전달합니다. 이 쿼리에는 `scoringParameter` 등의 다른 매개 변수도 포함되어 있습니다. 쿼리 매개 변수에 대해서는 [문서 검색(Azure 검색 API)](search-api-2015-02-28-preview/#SearchDocs.md)에서 설명합니다.
 
 점수 매기기 프로필에 대한 자세한 예제를 검토하려면 [예제](#example)를 클릭하세요.
 
@@ -108,7 +108,7 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
             "weights": {
               "albumTitle": 1,
               "genre": 5 ,
-              "artistName": 2 
+              "artistName": 2
             }
           }
 	    },
@@ -144,7 +144,7 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
           "searchMode": "analyzingInfixMatching",
           "sourceFields": ["albumTitle", "artistName"]
         }
-      ] 
+      ]
     }
 
 
@@ -158,9 +158,50 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 
 점수 매기기 프로필의 본문은 가중치가 적용된 필드와 함수에서 생성됩니다.
 
-<font> <table> <thead> <tr><td><b>요소</b></td><td><b>설명</b></td></tr></thead> <tbody> <tr> <td><b>가중치</b></td> <td> 필드에 상대적 가중치를 할당하는 이름-값 쌍을 지정합니다. [예제](#example)에서는 albumTitle, genre 및 artistName 필드가 각각 1, 5, null로 상승합니다. genre가 다른 필드보다 훨씬 크게 상승하는 이유는, `musicstoreindex`에서 'genre'의 경우처럼 비교적 비슷한 데이터를 검색하는 경우 상대 가중치의 편차가 더 커야 할 수 있기 때문입니다. 예를 들어 `musicstoreindex`에서 'rock'은 장르로도 표시되고 같은 구를 사용하는 장르 설명에도 표시됩니다. 이 경우 장르 설명보다 장르에 더 높은 가중치를 적용하려면 genre 필드에 훨씬 높은 상대 가중치를 적용해야 합니다. </td> </tr> <tr> <td><b>함수</b></td><td>특정 컨텍스트에 대해 추가 계산을 수행해야 하는 경우 사용합니다. 유효한 값은 `freshness`, `magnitude`, `distance` 및 `tag`입니다. 각 함수에는 고유한 매개 변수가 있습니다. <p> - 항목의 최신 또는 오래된 상태를 기준으로 상승시키려면 `freshness`를 사용해야 합니다. 이 함수는 datetime 필드(edm.DataTimeOffset)에만 사용할 수 있습니다. `boostingDuration` 특성은 freshness 함수에서만 사용됩니다. </p><p> - 숫자 값의 크기를 기준으로 상승시키려면 `magnitude`를 사용해야 합니다. 이 함수를 사용해야 하는 시나리오에는 이익률, 최고 가격, 최저 가격 또는 다운로드 수를 기준으로 상승시키는 경우가 포함됩니다. 이 함수는 double 및 integer 필드에서만 사용할 수 있습니다. </p><p> `magnitude` 함수의 경우 반전 패턴을 사용하려면(예: 높은 가격의 항목보다 낮은 가격의 항목을 상승시키는 경우) 범위를 상위에서 하위로 반전시킬 수 있습니다. 가격 범위가 $100에서 $1 사이인 경우 100에서 `boostingRangeStart`를 설정하고 1에서 `boostingRangeEnd`를 설정하여 낮은 가격의 항목을 상승시킬 수 있습니다. </p><p> - 근접도나 지리적 위치를 기준으로 상승시키려면 `distance`를 사용해야 합니다. 이 함수는 `Edm.GeographyPoint` 필드에만 사용할 수 있습니다. </p><p> - 문서와 검색 쿼리 간에 공통적인 태그를 기준으로 상승시키려면 `tag`를 사용해야 합니다. 이 함수는 `Edm.String` 및 `(Collection(Edm.String) 필드에만 사용할 수 있습니다. </p> <p><b>함수 사용 규칙</b></p> 함수 유형(freshness, magnitude, distance, tag)은 소문자여야 합니다. <br/> 함수는 null 또는 빈 값을 포함할 수 없습니다. 특히 fieldname를 포함하는 경우에는 값을 설정해야 합니다. <br/> 함수는 필터링 가능한 필드에만 적용할 수 있습니다. 필터링 가능한 필드에 대한 자세한 내용은 [인덱스 만들기](search-api-2015-02-28-preview.md#createindex)를 참조하세요. <br/> 함수는 인덱스의 필드 컬렉션에 정의된 필드에만 적용할 수 있습니다. </td> </tr> </tbody> </table> </font>
+<table>
+<thead>
+<tr><td><b>요소</b></td><td><b>설명</b></td></tr></thead>
+  <tbody>
+    <tr>
+      <td>
+        <b>Weights</b>
+      </td>
+      <td>
+        필드에 상대적 가중치를 할당하는 이름-값 쌍을 지정합니다. [예제](#example)에서는 albumTitle, genre 및 artistName 필드가 각각 1, 5, null로 상승합니다. genre가 다른 필드보다 훨씬 크게 상승하는 이유는, 'musicstoreindex'에서 'genre'의 경우처럼 비교적 비슷한 데이터를 검색하는 경우 상대적 가중치의 편차가 더 커야 할 수 있기 때문입니다. 예를 들어 'musicstoreindex'에서 'rock'은 장르로도 표시되고 같은 구를 사용하는 장르 설명에도 표시됩니다. 이 경우 장르 설명보다 장르에 더 높은 가중치를 적용하려면 genre 필드에 훨씬 높은 상대 가중치를 적용해야 합니다.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b>함수</b>
+      </td>
+      <td>
+        특정 컨텍스트에 대해 추가 계산을 수행해야 하는 경우 사용합니다. 유효한 값은 'freshness', 'magnitude', 'distance' 및 'tag'입니다. 각 함수에는 고유한 매개 변수가 있습니다.
+        <p>
+          - 항목의 최신 또는 오래된 상태를 기준으로 상승시키려면 'freshness'를 사용해야 합니다. 이 함수는 datetime 필드(edm.DataTimeOffset)에만 사용할 수 있습니다. 'boostingDuration' 특성은 freshness 함수에서만 사용됩니다.
+          </p><p>
+            - 숫자 값의 크기를 기준으로 상승시키려면 'magnitude'를 사용해야 합니다 이 함수를 사용해야 하는 시나리오에는 이익률, 최고 가격, 최저 가격 또는 다운로드 수를 기준으로 상승시키는 경우가 포함됩니다. 이 함수는 double 및 integer 필드에서만 사용할 수 있습니다.
+          </p><p>
+            'magnitude' 함수의 경우 반전 패턴을 사용하려면(예: 높은 가격의 항목보다 낮은 가격의 항목을 상승시키는 경우) 범위를 상위에서 하위로 반전시킬 수 있습니다. 가격 범위가 $100에서 $1 사이인 경우 100에서 'boostingRangeStart'를 설정하고 1에서 'boostingRangeEnd'를 설정하여 낮은 가격의 항목을 상승시킬 수 있습니다.
+          </p><p>
+            - 근접도나 지리적 위치를 기준으로 상승시키려면 'distance'를 사용해야 합니다 이 함수는 'Edm.GeographyPoint' 필드에서만 사용할 수 있습니다.
+          </p><p>
+            - 문서와 검색 쿼리 간에 공통적인 태그를 기준으로 상승시키려면 'tag'를 사용해야 합니다. 이 함수는 'Edm.String' 및 '(Collection(Edm.String) 필드에만 사용할 수 있습니다.
+          </p>
+             <p><b>함수 사용 규칙</b>
+			</p>
+            함수 유형(freshness, magnitude, distance, tag)은 소문자여야 합니다.
+            <br/>
+            함수는 null 또는 빈 값을 포함할 수 없습니다. 특히 fieldname를 포함하는 경우에는 값을 설정해야 합니다.
+            <br/>
+             함수는 필터링 가능한 필드에만 적용할 수 있습니다. 필터링 가능한 필드에 대한 자세한 내용은 [인덱스 만들기](search-api-2015-02-28/#createindex)를 참조하세요.
+             <br/>
+             함수는 인덱스의 필드 컬렉션에 정의된 필드에만 적용할 수 있습니다.
+         </td>
+</tr>
+  </tbody>
+</table>
 
-인덱스를 정의한 후 인덱스 스키마와 문서를 차례로 업로드하여 인덱스를 작성합니다. 이러한 작업에 대한 지침은 [인덱스 만들기](search-api-2015-02-28-preview.md#createindex) 및 [문서 추가, 업데이트 또는 삭제](search-api-2015-02-28-preview.md#AddOrUpdateDocuments)를 참조하세요. 인덱스가 작성되면 검색 데이터에 사용할 수 있는 점수 매기기 프로필을 만들어야 합니다.
+인덱스를 정의한 후 인덱스 스키마와 문서를 차례로 업로드하여 인덱스를 작성합니다. 이러한 작업에 대한 지침은 [인덱스 만들기](search-api-2015-02-28-preview/#createindex) 및 [문서 추가, 업데이트 또는 삭제](search-api-2015-02-28-preview/#AddOrUpdateDocuments)를 참조하세요. 인덱스가 작성되면 검색 데이터에 사용할 수 있는 점수 매기기 프로필을 만들어야 합니다.
 
 <a name="bkmk_template"></a>
 ##템플릿
@@ -168,51 +209,51 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 
     ...
     "scoringProfiles": [
-      { 
-        "name": "name of scoring profile", 
-        "text": (optional, only applies to searchable fields) { 
-          "weights": { 
-            "searchable_field_name": relative_weight_value (positive #'s), 
-            ... 
-          } 
-        }, 
+      {
+        "name": "name of scoring profile",
+        "text": (optional, only applies to searchable fields) {
+          "weights": {
+            "searchable_field_name": relative_weight_value (positive #'s),
+            ...
+          }
+        },
         "functions": (optional) [
-          { 
-            "type": "magnitude | freshness | distance | tag", 
-            "boost": # (positive number used as multiplier for raw score != 1), 
-            "fieldName": "...", 
-            "interpolation": "constant | linear (default) | quadratic | logarithmic", 
-            
-            "magnitude": { 
-              "boostingRangeStart": #, 
-              "boostingRangeEnd": #, 
-              "constantBoostBeyondRange": true | false (default) 
+          {
+            "type": "magnitude | freshness | distance | tag",
+            "boost": # (positive number used as multiplier for raw score != 1),
+            "fieldName": "...",
+            "interpolation": "constant | linear (default) | quadratic | logarithmic",
+
+            "magnitude": {
+              "boostingRangeStart": #,
+              "boostingRangeEnd": #,
+              "constantBoostBeyondRange": true | false (default)
             }
 
-            // (- or -) 
-    
-            "freshness": { 
-              "boostingDuration": "..." (value representing timespan over which boosting occurs) 
-            } 
+            // (- or -)
 
-            // (- or -) 
+            "freshness": {
+              "boostingDuration": "..." (value representing timespan over which boosting occurs)
+            }
 
-            "distance": { 
-              "referencePointParameter": "...", (parameter to be passed in queries to use as reference location) 
-              "boostingDistance": # (the distance in kilometers from the reference location where the boosting range ends) 
-            } 
+            // (- or -)
 
-            // (- or -) 
+            "distance": {
+              "referencePointParameter": "...", (parameter to be passed in queries to use as reference location)
+              "boostingDistance": # (the distance in kilometers from the reference location where the boosting range ends)
+            }
+
+            // (- or -)
 
             "tag": {
               "tagsParameter": "..." (parameter to be passed in queries to specify list of tags to compare against target field)
             }
-          } 
-        ], 
-        "functionAggregation": (optional, applies only when functions are specified) 
-            "sum (default) | average | minimum | maximum | firstMatching" 
-      } 
-    ], 
+          }
+        ],
+        "functionAggregation": (optional, applies only when functions are specified)
+            "sum (default) | average | minimum | maximum | firstMatching"
+      }
+    ],
     "defaultScoringProfile": (optional) "...",
     ...
 
@@ -221,11 +262,10 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 
 **참고** 점수 매기기 함수는 필터링 가능한 필드에만 적용할 수 있습니다.
 
-<table>
-<thead>
+<table border="1">
 <tr>
-<td>특성</td>
-<td>설명</td>
+<th>특성</th>
+<th>설명</th>
 </tr>
 <tr>
 <td>이름</td>	<td>필수입니다. 점수 매기기 프로필의 이름입니다. 필드와 동일한 이름 지정 규칙을 따릅니다. 즉, 이름은 문자로 시작해야 하고 마침표, 콜론 또는 @ 기호를 포함할 수 없으며 'azureSearch' 구(대/소문자 구분)로 시작할 수 없습니다. </td>
@@ -244,7 +284,7 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 </tr><tr>
 <td>Interpolation</td>	<td>점수 매기기 함수의 필수 항목으로, 범위 시작부터 범위 끝까지 점수 상승이 증가하는 기울기를 정의합니다. 유효한 값은 Linear(기본값), Constant, Quadratic, Logarithmic입니다. 자세한 내용은 [보간 설정](#bkmk_interpolation)을 참조하세요.</td>
 </tr><tr>
-<td>magnitude</td>	<td>magnitude 점수 매기기 함수는 숫자 필드의 값 범위를 기준으로 순위를 변경하는 데 사용됩니다. 이 함수를 사용하는 가장 일반적인 몇 가지 예는 다음과 같습니다. 
+<td>magnitude</td>	<td>magnitude 점수 매기기 함수는 숫자 필드의 값 범위를 기준으로 순위를 변경하는 데 사용됩니다. 이 함수를 사용하는 가장 일반적인 몇 가지 예는 다음과 같습니다.
 <br>
 - 별 등급: "별 등급" 필드 내의 값을 기준으로 점수 매기기를 변경합니다. 관련 항목이 두 개이면 등급이 높은 항목이 먼저 표시됩니다.
 <br>
@@ -257,28 +297,27 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 <td>magnitude | boostingRangeStart</td>	<td>magnitude의 점수를 매길 범위의 시작 값을 설정합니다. 이 값은 정수이거나 double이어야 합니다. 별 등급 1~4에서 시작 값은 1이고 50%를 초과하는 이익의 경우에는 시작 값이 50입니다.</td>
 </tr><tr>
 <td>magnitude | boostingRangeEnd</td>	<td>magnitude의 점수를 매길 범위의 끝 값을 설정합니다. 이 값은 정수이거나 double이어야 합니다. 별 등급 1~4에서 끝 값은 4가 됩니다.</td>
-</tr><tr> 
+</tr><tr>
 <td>magnitude | constantBoostBeyondRange</td>	<td>유효한 값은 true 또는 false(기본값)입니다. 값을 true로 설정하면 대상 필드의 값이 범위 상한보다 큰 문서에 완전 상승이 계속해서 적용됩니다. 값을 false로 설정하는 경우에는 대상 필드의 값이 범위를 벗어나는 문서에 이 함수의 상승이 적용되지 않습니다.</td>
 </tr><tr>
 <td>freshness</td>	<td>freshness 점수 매기기 함수는 DateTimeOffset 필드의 값을 기준으로 항목의 순위 점수를 변경하는 데 사용됩니다. 예를 들어 보다 최근 날짜의 항목에 오래된 날짜의 항목보다 더 높은 순위를 지정할 수 있습니다. 현재 서비스 릴리스에서는 범위의 한쪽 끝이 현재 시간으로 고정됩니다. 상승 기준이 최대 범위에서 최소 범위로 변경되는 비율은 점수 매기기 프로필에 적용되는 보간을 통해 결정됩니다(아래 그림 참조). 적용된 상승 계수의 방향을 바꾸려면 1보다 작은 상승 계수를 선택합니다.</td>
 </tr><tr>
-<td>freshness | boostingDuration</td>	<td>특정 문서에 대해 상승을 중지할 만료 기간을 설정합니다. 구문 및 예제는 다음 섹션의 [boostingDuration 설정](#bkmk_boostdur)을 참조하세요.</td>
+<td>freshness | boostingDuration</td>	<td>특정 문서에 대해 상승을 중지할 만료 기간을 설정합니다. 구문 및 예제는 다음 섹션의 [boostingDuration 설정][#bkmk_boostdur]을 참조하세요.</td>
 </tr><tr>
 <td>distance</td>	<td>distance 점수 매기기 함수는 참조 지리적 위치와의 거리를 기준으로 문서 점수를 변경하는 데 사용됩니다. 참조 위치는 쿼리의 일부로 ‘scoringParameterquery’ 문자열 옵션을 사용하여 매개 변수에서 lon, lat 인수로 제공됩니다.</td>
 </tr><tr>
-<td>distance | referencePointParameter</td>	<td>참조 위치로 사용하도록 쿼리에 전달할 매개 변수입니다. scoringParameter는 쿼리 매개 변수입니다. 쿼리 매개 변수의 설명은 [문서 검색](search-api-2015-02-28-preview.md#SearchDocs)을 참조하세요.</td>
+<td>distance | referencePointParameter</td>	<td>참조 위치로 사용하도록 쿼리에 전달할 매개 변수입니다. scoringParameter는 쿼리 매개 변수입니다. 쿼리 매개 변수의 설명은 [문서 검색](search-api-2015-02-28-preview/#SearchDocs)을 참조하세요.</td>
 </tr><tr>
 <td>distance | boostingDistance</td>	<td>참조 위치로부터 상승 범위가 종료되는 거리(km)를 설정합니다.</td>
 </tr><tr>
 <td>tag</td>	<td>tag 점수 매기기 함수는 문서 및 검색 쿼리의 태그를 기반으로 문서 점수에 영향을 주는 데 사용됩니다. 검색 쿼리와 공통적인 태그가 있는 문서가 상승됩니다. 검색 쿼리에 대한 태그는 각 검색 요청에서 점수 매기기 매개 변수로 제공됩니다(`scoringParameterquery` 문자열 옵션 사용).</td>
 </tr><tr>
-<td>tag | tagsParameter</td>	<td>특정 요청에 대한 태그를 지정하도록 쿼리에 전달할 매개 변수입니다. scoringParameter는 쿼리 매개 변수입니다. 쿼리 매개 변수의 설명은 [문서 검색](search-api-2015-02-28-preview.md#SearchDocs)을 참조하세요.</td>
+<td>tag | tagsParameter</td>	<td>특정 요청에 대한 태그를 지정하도록 쿼리에 전달할 매개 변수입니다. scoringParameter는 쿼리 매개 변수입니다. 쿼리 매개 변수의 설명은 [문서 검색](search-api-2015-02-28-preview/#SearchDocs)을 참조하세요.</td>
 </tr><tr>
 <td>functionAggregation</td>	<td>선택 사항입니다. 함수를 지정할 때만 적용됩니다. 유효한 값은 sum(기본값), average, minimum, maximum, firstMatching입니다. 검색 점수는 여러 함수를 비롯한 여러 변수에서 계산되는 단일 값입니다. 이 특성은 모든 함수의 상승이 단일 집계 상승으로 결합된 다음 기본 문서 점수에 적용되는 방식을 나타냅니다. 기본 점수는 문서 및 검색 쿼리에서 계산되는 tf-idf 값을 기준으로 합니다.</td>
 </tr><tr>
 <td>defaultScoringProfile</td>	<td>검색 요청을 실행할 때 점수 매기기 프로필이 지정되어 있지 않으면 기본 점수 매기기(tf-idf만)가 사용됩니다. 여기서 기본 점수 매기기 프로필 이름을 설정할 수 있으며 그러는 경우 Azure 검색은 검색 요청에 특정 프로필이 지정되어 있지 않으면 해당 프로필을 사용합니다. </td>
 </tr>
-</tbody>
 </table>
 
 <a name="bkmk_interpolation"></a>
@@ -293,7 +332,7 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 - `Quadratic` 상승 값이 일정하게 감소하는 Linear 보간과는 달리 Quadratic 보간에서는 처음에 값이 조금씩 감소했다가 끝 범위가 가까워지면 값이 훨씬 큰 간격으로 감소합니다. 이 보간 옵션은 tag 점수 매기기 함수에서 허용되지 않습니다.
 
 - `Logarithmic` 상승 값이 일정하게 감소하는 Linear 보간과는 달리 Logarithmic 보간에서는 처음에 값이 크게 감소했다가 끝 범위가 가까워질수록 값이 훨씬 작은 간격으로 감소합니다. 이 보간 옵션은 tag 점수 매기기 함수에서 허용되지 않습니다.
- 
+
 <a name="Figure1"></a> ![][1]
 
 <a name="bkmk_boostdur"></a>
@@ -301,7 +340,7 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 
 `boostingDuration`은 freshness 함수의 특성입니다. 이 특성을 사용하여 특정 문서에 대해 상승이 중지되는 만료 기간을 설정합니다. 예를 들어 프로모션 기간 10일 동안 특정 제품 라인이나 브랜드를 상승시키려는 경우 해당 문서에 대해 10일의 기간을 "P10D"로 지정합니다.
 
-`boostingDuration`의 형식은 XSD "dayTimeDuration" 값(ISO 8601 기간 값의 제한된 하위 집합)으로 지정해야 합니다. 이 형식의 패턴은 "P(nD)(T(nH)(nM)(nS))"입니다.
+`boostingDuration`의 형식은 XSD "dayTimeDuration" 값(ISO 8601 기간 값의 제한된 하위 집합)으로 지정해야 합니다. 이 형식의 패턴은 "P[nD][T[nH][nM][nS]]"입니다.
 
 다음 표에 여러 예제가 나와 있습니다.
 
@@ -331,6 +370,4 @@ Azure 검색에서는 점수를 계산할 때 기본 점수 매기기 기능을 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
 
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

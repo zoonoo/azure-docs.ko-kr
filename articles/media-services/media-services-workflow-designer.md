@@ -33,8 +33,40 @@
 
 디자이너 도구를 사용하여 기본 워크플로 파일을 수정할 수 있습니다. [여기](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)에서 기본 워크플로 파일을 가져올 수 있습니다. 폴더에는 이러한 파일에 대한 설명도 포함되어 있습니다.
 
-다음 블로그에서는 디자이너 사용법에 대한 교육 비디오를 제공합니다.
+다음 비디오에서는 디자이너를 사용하는 방법을 보여줍니다.
+
+###1일차 – 시작하기
+
+1일차 비디오에서 다루는 내용은 다음과 같습니다.
+
+- 디자이너 개요
+- 기본 워크플로 – "Hello World"
+- Azure 미디어 서비스 스트리밍에서 사용할 여러 출력 MP4 파일 만들기
+
+> [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-1]
+
+###2일차
+
+2일차 비디오에서 다루는 내용은 다음과 같습니다.
+
+- 다양한 소스 파일 시나리오 – 오디오 처리
+- 고급 논리를 사용한 워크플로
+- 그래프 단계
+
+> [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-2]
+
+###3일차
+
+3일차 비디오에서 다루는 내용은 다음과 같습니다.
+
+- 워크플로/청사진 내부 스크립팅
+- 현재 인코더에 대한 제한 사항
+- Q&A
+ 
+> [AZURE.VIDEO azure-premium-encoder-workflow-designer-training-videos-day-3]
+
+##참고 항목
 
 [Azure Premium 인코더 워크플로 디자이너 교육 비디오](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

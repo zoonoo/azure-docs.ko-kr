@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure Data Factory 시작"
+	pageTitle="자습서: Azure Blob에서 Azure SQL로 데이터 복사"
 	description="이 자습서에서는 Blob에서 Azure SQL 데이터베이스 인스턴스로 데이터를 복사하는 샘플 데이터 파이프라인을 만드는 방법을 보여 줍니다."
 	services="data-factory"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article" 
-	ms.date="07/17/2015"
+	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
-# Azure Data Factory 시작
+# 자습서: Azure Blob에서 Azure SQL로 데이터 복사
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-get-started.md)
 - [Using Data Factory Editor](data-factory-get-started-using-editor.md)
@@ -67,7 +67,7 @@
 ### 자습서에서 사용할 Azure Blob 저장소 및 Azure SQL 데이터베이스 준비
 이제 다음 단계를 수행하여 자습서에서 사용할 Azure Blob 저장소 및 Azure SQL 데이터베이스를 준비합니다.
 
-1. 메모장을 시작하고 다음 텍스트를 붙여 넣은 다음 **emp.txt**로 하드 드라이브의 **C:\ADFGetStarted** 폴더에 저장합니다.
+1. 메모장을 시작하고 다음 텍스트를 붙여 넣은 다음 **emp.txt**로 하드 드라이브의 **C:\\ADFGetStarted** 폴더에 저장합니다.
 
         John, Doe
 		Jane, Doe
@@ -110,4 +110,4 @@
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database-create-configure.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -84,7 +84,7 @@ Azure에 배포된 시스템에 고가용성(예: 8.76시간/년과 동등한 �
 
 **근접 기반 배포:** 테넌트 사용자를 명확하게 지역으로 매핑한 다중 테넌트 응용 프로그램은 다중 지역 클러스터의 낮은 대기 시간의 이점이 있을 수 있습니다. 예를 들어, 교육 기관에 대한 학습 관리 시스템은 미국 동부 및 미국 서부 지역에 분산된 클러스터를 배포하여 트랜잭션 및 분석을 위해 각 캠퍼스를 제공합니다. 데이터는 시간 읽기 및 쓰기에 로컬로 일관되어 두 영역에서 일관성이 있을 수 있습니다. 미디어 배포, 전자 상거래와 같은 다른 예제는 없으며, 지역 관련 사용자 기반을 제공하는 모든 것이 이 배포 모델에 대한 좋은 사용 사례입니다.
 
-**고가용성:** 중복성은 소프트웨어 및 하드웨어의 높은 가용성을 계산하는 핵심 요소이며 자세한 내용은 Microsoft Azure에서 신뢰할 수 있는 클라우드 시스템 구축을 참조하세요. Microsoft Azure에서 진정한 중복성을 달성하는 신뢰할 수 있는 유일한 방법은 다중 지역 클러스터를 배포하는 것입니다. 액티브-패시브 또는 액티브-액티브 모드로 응용 프로그램을 배포할 수 있으며, 지역 중 하나가 다운되는 경우 Azure 트래픽 관리자는 활성 영역에 트래픽을 리디렉션할 수 있습니다. 단일 지역 배포로 가용성이 99.9인 경우, 두 지역 배포는 공식 (1-(1-0.999) * (1-0.999)) * 100)으로 계산된 99.9999의 가용성을 를 얻을 수 있습니다. 자세한 내용은 위의 문서를 참조하세요.
+**고가용성:** 중복성은 소프트웨어 및 하드웨어의 높은 가용성을 계산하는 핵심 요소이며 자세한 내용은 Microsoft Azure에서 신뢰할 수 있는 클라우드 시스템 구축을 참조하세요. Microsoft Azure에서 진정한 중복성을 달성하는 신뢰할 수 있는 유일한 방법은 다중 지역 클러스터를 배포하는 것입니다. 액티브-패시브 또는 액티브-액티브 모드로 응용 프로그램을 배포할 수 있으며, 지역 중 하나가 다운되는 경우 Azure 트래픽 관리자는 활성 영역에 트래픽을 리디렉션할 수 있습니다. 단일 지역 배포로 가용성이 99.9인 경우, 두 지역 배포는 공식 (1-(1-0.999) \* (1-0.999)) \* 100)으로 계산된 99.9999의 가용성을 를 얻을 수 있습니다. 자세한 내용은 위의 문서를 참조하세요.
 
 **재해 복구:** 제대로 설계된 경우 다중 지역 Cassandra 클러스터는 치명적인 데이터 센터 중단을 견딜 수 있습니다. 한 지역이 다운된 경우, 다른 지역에 배포된 응용 프로그램이 최종 사용자를 제공하기 시작할 수 있습니다. 다른 모든 비즈니스 연속성 구현과 마찬가지로, 응용 프로그램은 비동기 파이프라인의 데이터에서 일부 데이터 손실을 허용해야 합니다. 그러나 Cassandra는 기존의 데이터베이스 복구 프로세스에서 소요된 시간 보다 훨씬 빠르게 복구를 작성합니다. 그림 2는 각 지역에 8개의 노드가 있는 일반적인 다중 지역 배포 모델을 보여줍니다. 두 지역은 같은 대칭에 대한 서로 다른 미러 이미지입니다. 실제는 작업 유형(예: 트랜잭션 또는 분석), RPO, RTO, 데이터 일관성 및 가용성 요구 사항에 따라 디자인됩니다.
 
@@ -96,7 +96,7 @@ Azure에 배포된 시스템에 고가용성(예: 8.76시간/년과 동등한 �
 두 지역에 있는 개인 네트워크에 배포된 가상 컴퓨터 집합은 VPN 터널을 사용하여 서로 통신합니다. VPN 터널은 네트워크 배포 프로세스 중 프로비전된 두 개의 소프트웨어 게이트웨이를 연결합니다. 두 지역은 "web" 및 "data" 서브넷 측면에서 네트워크 아키텍처가 유사합니다. Azure 네트워킹을 사용하면 필요한 개수만큼 서브넷을 만들고 네트워크 보안에 필요한 경우 ACL을 적용할 수 있습니다. 디자인하는 동안 클러스터 토폴로지 데이터 센터 간 통신 대기 시간과 네트워크 트래픽의 경제적 영향을 고려해야 합니다.
 
 ### 다중 데이터 센터 배포에 대한 데이터 일관성
-분산 배포에서는 클러스터 토폴로지가 처리량 및 고가용성에 미치는 영향에 주의해야 합니다. 할당량이 모든 데이터 센터의 가용성에 의존하지 않도록 RF 및 일관성 수준을 선택해야 합니다. 높은 일관성이 필요한 시스템의 경우 일관성 수준(읽기 및 쓰기)을 LOCAL_QUORUM으로 설정하면 데이터가 원격 데이터 센터에 비동기적으로 복제되는 동안 로컬 읽기 및 쓰기가 로컬 노드에서 충족됩니다. 표 2에는 문서의 뒷부분에서 설명하는 다중 지역 클러스터의 구성 세부 정보가 요약되어 있습니다.
+분산 배포에서는 클러스터 토폴로지가 처리량 및 고가용성에 미치는 영향에 주의해야 합니다. 할당량이 모든 데이터 센터의 가용성에 의존하지 않도록 RF 및 일관성 수준을 선택해야 합니다. 높은 일관성이 필요한 시스템의 경우 일관성 수준(읽기 및 쓰기)을 LOCAL\_QUORUM으로 설정하면 데이터가 원격 데이터 센터에 비동기적으로 복제되는 동안 로컬 읽기 및 쓰기가 로컬 노드에서 충족됩니다. 표 2에는 문서의 뒷부분에서 설명하는 다중 지역 클러스터의 구성 세부 정보가 요약되어 있습니다.
 
 **두 지역 Cassandra 클러스터 구성**
 
@@ -105,8 +105,8 @@ Azure에 배포된 시스템에 고가용성(예: 8.76시간/년과 동등한 �
 | ----------------- | ----- | ------- |
 | 노드 수(N) | 8 + 8 | 클러스터의 총 노드 수 |
 | 복제 계수(RF) | 3 | 지정된 행의 복제본 수 |
-| 일관성 수준(쓰기) | LOCAL_QUORUM [(sum(RF)/2) +1) = 4] 수식의 결과는 버림됨 | 2개 노드는 첫 번째 데이터 센터에 동기적으로 기록됩니다. 할당량에 필요한 추가 2개 노드는 두 번째 데이터 센터에 비동기적으로 기록됩니다. |
-| 일관성 수준(읽기) | LOCAL_QUORUM ((RF/2) +1) = 2 공식 결과는 버림됨 | 읽기 요청은 한 지역에서만 충족됩니다. 응답이 클라이언트로 다시 전송되기 전에 2개 노드를 읽습니다. |
+| 일관성 수준(쓰기) | LOCAL\_QUORUM [(sum(RF)/2) +1) = 4] 수식의 결과는 버림됨 | 2개 노드는 첫 번째 데이터 센터에 동기적으로 기록됩니다. 할당량에 필요한 추가 2개 노드는 두 번째 데이터 센터에 비동기적으로 기록됩니다. |
+| 일관성 수준(읽기) | LOCAL\_QUORUM ((RF/2) +1) = 2 공식 결과는 버림됨 | 읽기 요청은 한 지역에서만 충족됩니다. 응답이 클라이언트로 다시 전송되기 전에 2개 노드를 읽습니다. |
 | 복제 전략 | NetworkTopologyStrategy 자세한 내용은 Cassandra 설명서의 [데이터 복제](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html)를 참조 | 배포 토폴로지를 이해하고 모든 복제본이 동일한 랙에 배포되지 않도록 노드에 복제본을 배치합니다. |
 | Snitch | GossipingPropertyFileSnitch 자세한 내용은 Cassandra 설명서의 [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html)를 참조 | NetworkTopologyStrategy는 snitch 개념을 사용하여 토폴로지를 파악합니다. GossipingPropertyFileSnitch를 사용하면 데이터 센터 및 랙에 대한 각 노드의 매핑을 보다 잘 제어할 수 있습니다. 클러스터는 가십을 사용하여 이 정보를 전파합니다. PropertyFileSnitch에 비해 동적 IP 설정이 훨씬 간단합니다. | 
  
@@ -124,7 +124,7 @@ Azure에 배포된 시스템에 고가용성(예: 8.76시간/년과 동등한 �
 
 JRE를 다운로드하려면 Oracle 라이선스를 수동으로 승인해야 하므로 배포를 간소화하려면 클러스터 배포 전에 만들려는 Ubuntu 템플릿 이미지에 나중에 업로드할 필수 소프트웨어를 데스크톱에 모두 다운로드합니다.
 
-로컬 데스크톱의 잘 알려진 downloads 디렉터리(예: Windows의 %TEMP%/downloads 또는 Linux/Mac의 ~/downloads)에 위 소프트웨어를 다운로드합니다.
+로컬 데스크톱의 잘 알려진 downloads 디렉터리(예: Windows의 %TEMP%/downloads 또는 Linux/Mac의 \~/downloads)에 위 소프트웨어를 다운로드합니다.
 
 ### UBUNTU VM 만들기
 이 프로세스 단계에서는 여러 개의 Cassandra 노드를 프로비전하는 데 이미지를 다시 사용할 수 있도록 필수 조건 소프트웨어로 Ubuntu 이미지를 만듭니다.
@@ -165,7 +165,7 @@ Azure는 프로비전 시간에 PEM 또는 DER 인코딩된 X509 공개 키를 �
 
 ###필수 소프트웨어 설치
 ####1단계: tarball 업로드 
-scp 또는 pscp를 사용하여 다음 명령 형식으로 이전에 다운로드한 소프트웨어를 ~/downloads 디렉터리로 복사합니다.
+scp 또는 pscp를 사용하여 다음 명령 형식으로 이전에 다운로드한 소프트웨어를 \~/downloads 디렉터리로 복사합니다.
 
 #####pscp server-jre-8u5-linux-x64.tar.gz localadmin@hk-cas-template.cloudapp.net:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
 
@@ -250,7 +250,7 @@ VM에 로그인한 다음 아래 bash 스크립트를 사용하여 슈퍼 사용
 	echo "installation is complete"
 
 
-이 스크립트를 vim 창에 붙여 넣는 경우 다음 명령을 사용하여 캐리지 리턴('\r')을 제거해야 합니다.
+이 스크립트를 vim 창에 붙여 넣는 경우 다음 명령을 사용하여 캐리지 리턴('\\r')을 제거해야 합니다.
 
 	tr -d '\r' <infile.sh >outfile.sh
 
@@ -267,7 +267,7 @@ VM에 로그인한 다음 아래 bash 스크립트를 사용하여 슈퍼 사용
 ####4단계: 프로덕션 시스템용 JNA 설치
 다음 명령 시퀀스를 사용하여 jna-3.2.7.jar 및 jna-platform-3.2.7.jar을 /usr/share.java directory sudo apt-get install libjna-java에 설치합니다.
 
-Cassandra 시작 스크립트에서 이러한 jar을 찾을 수 있도록 $CASS_HOME/lib 디렉터리에 바로 가기 링크를 만듭니다.
+Cassandra 시작 스크립트에서 이러한 jar을 찾을 수 있도록 $CASS\_HOME/lib 디렉터리에 바로 가기 링크를 만듭니다.
 
 	ln -s /usr/share/java/jna-3.2.7.jar $CASS_HOME/lib/jna.jar
 
@@ -289,7 +289,7 @@ Cassandra 시작 스크립트에서 이러한 jar을 찾을 수 있도록 $CASS_
 이전에 만든 호스트 이름(hk-cas-template.cloudapp.net) 및 SSH 개인 키를 사용하여 가상 컴퓨터에 로그인합니다. 명령 ssh 또는 putty.exe를 사용하여 로그인하는 방법에 대한 자세한 내용은 Azure에서 Linux와 함께 SSH를 사용하는 방법을 참조하세요.
 
 다음 작업 시퀀스를 실행하여 이미지를 캡처합니다.
-#####1. 프로비전 해제
+#####1\. 프로비전 해제
 "sudo waagent –deprovision+user" 명령을 사용하여 가상 컴퓨터 인스턴스 특정 정보를 제거합니다. 이미지 캡처 프로세스에 대한 자세한 내용은 템플릿으로 사용할 [Linux 가상 컴퓨터를 캡처하는 방법](virtual-machines-linux-capture-image.md)을 참조하세요.
 
 #####2: VM 종료
@@ -409,7 +409,7 @@ Data 및 Web 서브넷은 이 문서를 범위를 벗어난 네트워크 보안 
 
 VM에 로그인하고 다음을 수행합니다.
 
-* $CASS_HOME/conf/cassandra-rackdc.properties를 편집하여 데이터 센터 및 랙 속성을 지정합니다.
+* $CASS\_HOME/conf/cassandra-rackdc.properties를 편집하여 데이터 센터 및 랙 속성을 지정합니다.
       
        dc =EASTUS, rack =rack1
 
@@ -442,7 +442,7 @@ VM에 로그인하고 다음을 수행합니다.
 
 1.    Powershell 명령 Get-AzureInternalLoadbalancer commandlet을 사용하여 내부 부하 분산 장치의 IP 주소를 가져옵니다(예: 10.1.2.101). 명령 구문은 다음과 같습니다. Get-AzureLoadbalancer –ServiceName "hk-c-svc-west-us”[주소와 함께 내부 부하 분산 장치의 세부 정보 표시]
 2.	Putty 또는 ssh를 사용하여 웹 팜 VM(예: hk-w1-west-us)에 로그인합니다.
-3.	$CASS_HOME/bin/cqlsh 10.1.2.101 9160을 실행합니다. 
+3.	$CASS\_HOME/bin/cqlsh 10.1.2.101 9160을 실행합니다. 
 4.	다음 CQL 명령을 사용하여 클러스터가 작동하는지 확인합니다.
 
 		CREATE KEYSPACE customers_ks WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };	
@@ -461,7 +461,7 @@ VM에 로그인하고 다음을 수행합니다.
   <tr><td> 2 </td><td> Jane </td><td> Doe </td></tr>
 </table>
 
-4단계에서 만든 keyspace는 replication_factor 3으로 SimpleStrategy를 사용합니다. SimpleStrategy는 단일 데이터 세터 배포에 권장되고 NetworkTopologyStrategy는 다중 데이터 세터 배포에 권장됩니다. replication_factor가 3이면 노드 오류에 대한 내결함성이 제공됩니다.
+4단계에서 만든 keyspace는 replication\_factor 3으로 SimpleStrategy를 사용합니다. SimpleStrategy는 단일 데이터 세터 배포에 권장되고 NetworkTopologyStrategy는 다중 데이터 세터 배포에 권장됩니다. replication\_factor가 3이면 노드 오류에 대한 내결함성이 제공됩니다.
 
 ##<a id="tworegion"> </a>다중 지역 배포 프로세스
 완료된 단일 지역 배포를 활용하며 두 번째 지역 설치를 위해 동일한 프로세스를 반복합니다. 단일 지역 배포와 다중 지역 배포 간의 주요 차이점은 지역 간 통신을 위한 VPN 터널 설정입니다. 네트워크 설치에서 시작하여 VM을 프로비전하고 Cassandra를 구성하겠습니다.
@@ -485,14 +485,14 @@ VM에 로그인하고 다음을 수행합니다.
 
 
 ###2단계: 로컬 네트워크 만들기
-Azure 가상 네트워킹의 로컬 네트워크는 개인 클라우드 또는 다른 Azure 지역을 비롯한 원격 사이트에 매핑되는 프록시 주소 공간입니다. 이 프록시 주소 공간은 네트워크를 올바른 네트워킹 대상에 라우팅하기 위해 원격 게이트웨이에 바인딩됩니다. VNET 간 연결 설정에 대한 자세한 내용은 [VNet 간 연결 구성](http://msdn.microsoft.com/library/azure/dn690122.aspx)을 참조하세요.
+Azure 가상 네트워킹의 로컬 네트워크는 개인 클라우드 또는 다른 Azure 지역을 비롯한 원격 사이트에 매핑되는 프록시 주소 공간입니다. 이 프록시 주소 공간은 네트워크를 올바른 네트워킹 대상에 라우팅하기 위해 원격 게이트웨이에 바인딩됩니다. VNET 간 연결 설정에 대한 자세한 내용은 [VNet 간 연결 구성](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)을 참조하세요.
 
 다음 세부 정보당 두 개의 로컬 네트워크를 만듭니다.
 
 | 네트워크 이름 | VPN 게이트웨이 주소 | 주소 공간 | 설명 |
 | ------------ | ------------------- | ------------- | ------- |
-| hk-lnet-map-to-east-us | 23.1.1.1 | 10.2.0.0/16 | 로컬 네트워크를 만드는 동안 자리 표시자 게이트웨이 주소를 제공합니다. 게이트웨이를 만들고 나면 실제 게이트웨이 주소가 채워집니다. 주소 공간이 해당 원격 VNET과 정확히 일치하는지 확인합니다. 여기서는 미국 동부 지역에 생성된 VNET입니다. |
-| hk-lnet-map-to-west-us | 23.2.2.2 | 10.1.0.0/16 | 로컬 네트워크를 만드는 동안 자리 표시자 게이트웨이 주소를 제공합니다. 게이트웨이를 만들고 나면 실제 게이트웨이 주소가 채워집니다. 주소 공간이 해당 원격 VNET과 정확히 일치하는지 확인합니다. 여기서는 미국 서부 지역에 생성된 VNET입니다. |
+| hk-lnet-map-to-east-us | 23\.1.1.1 | 10\.2.0.0/16 | 로컬 네트워크를 만드는 동안 자리 표시자 게이트웨이 주소를 제공합니다. 게이트웨이를 만들고 나면 실제 게이트웨이 주소가 채워집니다. 주소 공간이 해당 원격 VNET과 정확히 일치하는지 확인합니다. 여기서는 미국 동부 지역에 생성된 VNET입니다. |
+| hk-lnet-map-to-west-us | 23\.2.2.2 | 10\.1.0.0/16 | 로컬 네트워크를 만드는 동안 자리 표시자 게이트웨이 주소를 제공합니다. 게이트웨이를 만들고 나면 실제 게이트웨이 주소가 채워집니다. 주소 공간이 해당 원격 VNET과 정확히 일치하는지 확인합니다. 여기서는 미국 서부 지역에 생성된 VNET입니다. |
 
 
 ###3단계: "로컬" 네트워크를 해당 VNET에 매핑
@@ -528,25 +528,25 @@ Azure 서비스 관리 포털에서 두 가상 네트워크의 "대시보드" �
 
 | 컴퓨터 이름 | 서브넷 | IP 주소 | 가용성 집합 | DC/랙 | 시드 여부 |
 | ------------ | ------ | ---------- | ---------------- | ------- | ----- |
-| hk-c1-east-us | 데이터 | 10.2.2.4 | hk-c-aset-1 | dc =EASTUS rack =rack1 | 예 |
-| hk-c2-east-us | 데이터 | 10.2.2.5 | hk-c-aset-1 | dc =EASTUS rack =rack1 | 아니요 |
-| hk-c3-east-us | 데이터 | 10.2.2.6 | hk-c-aset-1 | dc =EASTUS rack =rack2 | 예 |
-| hk-c5-east-us | 데이터 | 10.2.2.8 | hk-c-aset-2 | dc =EASTUS rack =rack3 | 예 |
-| hk-c6-east-us | 데이터 | 10.2.2.9 | hk-c-aset-2 | dc =EASTUS rack =rack3 | 아니요 |
-| hk-c7-east-us | 데이터 | 10.2.2.10 | hk-c-aset-2 | dc =EASTUS rack =rack4 | 예 |
-| hk-c8-east-us | 데이터 | 10.2.2.11 | hk-c-aset-2 | dc =EASTUS rack =rack4 | 아니요 |
-| hk-w1-east-us | web | 10.2.1.4 | hk-w-aset-1 | 해당 없음 | 해당 없음 |
-| hk-w2-east-us | web | 10.2.1.5 | hk-w-aset-1 | 해당 없음 | 해당 없음 |
+| hk-c1-east-us | 데이터 | 10\.2.2.4 | hk-c-aset-1 | dc =EASTUS rack =rack1 | 예 |
+| hk-c2-east-us | 데이터 | 10\.2.2.5 | hk-c-aset-1 | dc =EASTUS rack =rack1 | 아니요 |
+| hk-c3-east-us | 데이터 | 10\.2.2.6 | hk-c-aset-1 | dc =EASTUS rack =rack2 | 예 |
+| hk-c5-east-us | 데이터 | 10\.2.2.8 | hk-c-aset-2 | dc =EASTUS rack =rack3 | 예 |
+| hk-c6-east-us | 데이터 | 10\.2.2.9 | hk-c-aset-2 | dc =EASTUS rack =rack3 | 아니요 |
+| hk-c7-east-us | 데이터 | 10\.2.2.10 | hk-c-aset-2 | dc =EASTUS rack =rack4 | 예 |
+| hk-c8-east-us | 데이터 | 10\.2.2.11 | hk-c-aset-2 | dc =EASTUS rack =rack4 | 아니요 |
+| hk-w1-east-us | web | 10\.2.1.4 | hk-w-aset-1 | 해당 없음 | 해당 없음 |
+| hk-w2-east-us | web | 10\.2.1.5 | hk-w-aset-1 | 해당 없음 | 해당 없음 |
 
 
 지역 #1과 동일한 지침을 따르되 10.2.xxx.xxx 주소 공간을 사용합니다.
 ###8단계: 각 VM에서 Cassandra 구성
 VM에 로그인하고 다음을 수행합니다.
 
-1. $CASS_HOME/conf/cassandra-rackdc.properties를 편집하여 데이터 센터 및 랙 속성을 dc =EASTUS rack =rack1 형식으로 지정합니다.
+1. $CASS\_HOME/conf/cassandra-rackdc.properties를 편집하여 데이터 센터 및 랙 속성을 dc =EASTUS rack =rack1 형식으로 지정합니다.
 2. cassandra.yaml을 편집하여 시드 노드를 구성합니다. "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
 ###9단계: Cassandra 시작
-각 VM에 로그인하고 다음 명령을 실행하여 Cassandra를 백그라운드에서 시작합니다. $CASS_HOME/bin/cassandra
+각 VM에 로그인하고 다음 명령을 실행하여 Cassandra를 백그라운드에서 시작합니다. $CASS\_HOME/bin/cassandra
 
 ## 다중 지역 클러스터 테스트
 지금까지 각 Azure 지역에 8개 노드씩, 16개 노드에 Cassandra가 배포되었습니다. 이러한 노드는 공통 클러스터 이름 및 시드 노드 구성으로 인해 동일한 클러스터에 있습니다. 클러스터를 테스트하려면 다음 프로세스를 사용합니다.
@@ -557,7 +557,7 @@ VM에 로그인하고 다음을 수행합니다.
     표시되는 IP 주소를 확인합니다(예: 서부 - 10.1.2.101, 동부 - 10.2.2.101).
 
 ###2단계: hk-w1-west-us에 로그인한 후 서부 지역에서 다음 실행
-1.    $CASS_HOME/bin/cqlsh 10.1.2.101 9160을 실행합니다. 
+1.    $CASS\_HOME/bin/cqlsh 10.1.2.101 9160을 실행합니다. 
 2.	다음 CQL 명령을 실행합니다.
 
 		CREATE KEYSPACE customers_ks
@@ -570,14 +570,14 @@ VM에 로그인하고 다음을 수행합니다.
 
 아래와 같은 표시가 나타나야 합니다.
 
-| customer_id | firstname | Lastname |
+| customer\_id | firstname | Lastname |
 | ----------- | --------- | -------- |
 | 1 | John | Doe |
 | 2 | Jane | Doe |
 
 
 ###3단계: hk-w1-east-us에 로그인한 후 동부 지역에서 다음 실행
-1.    $CASS_HOME/bin/cqlsh 10.2.2.101 9160 실행 
+1.    $CASS\_HOME/bin/cqlsh 10.2.2.101 9160 실행 
 2.	다음 CQL 명령을 실행합니다.
 
 		USE customers_ks;
@@ -589,7 +589,7 @@ VM에 로그인하고 다음을 수행합니다.
 서부 지역과 동일한 표시가 나타나야 합니다.
 
 
-| customer_id | firstname | Lastname |
+| customer\_id | firstname | Lastname |
 |------------ | --------- | ---------- |
 | 1 | John | Doe |
 | 2 | Jane | Doe |
@@ -700,4 +700,4 @@ Microsoft Azure는 이 연습에서 알 수 있듯이 Microsoft 및 오픈 소�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -83,4 +83,4 @@ SDK는 API를 제공하므로 [사용자 지정 원격 분석을 작성하여](.
 * 페이지가 다운된 경우 이를 찾을 수 있도록 Application Insights를 사용하여 [웹 페이지의 가용성 및 응답성을 모니터링](../app-insights-monitor-web-app-availability.md)합니다.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="07/26/2015" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리에서 Pig 및 Hive 사용
@@ -24,7 +24,7 @@ Azure 데이터 팩터리의 파이프라인은 연결된 저장소 서비스의
 
 ### 필수 구성 요소
 1. [Azure 데이터 팩터리 시작][adfgetstarted] 문서의 자습서를 완료합니다.
-2. **C:\ADFGetStarted** 아래의 **Hive**라는 하위 폴더에 **hivequery.hql** 파일을 다음과 같은 내용으로 만듭니다.
+2. **C:\\ADFGetStarted** 아래의 **Hive**라는 하위 폴더에 **hivequery.hql** 파일을 다음과 같은 내용으로 만듭니다.
     		
     	DROP TABLE IF EXISTS adftutorialhivetable; 
 		CREATE EXTERNAL TABLE  adftutorialhivetable
@@ -39,7 +39,7 @@ Azure 데이터 팩터리의 파이프라인은 연결된 저장소 서비스의
 		FROM hivesampletable 
 		group by country, state;
 
-	> [AZURE.NOTE]**Tez** 엔진을 사용하여 HQL 파일의 Hive 쿼리를 실행하려면 파일의 맨 위에 "**set hive.execution.engine=tez**;"를 추가합니다.
+	> [AZURE.NOTE]**Tez** 엔진을 사용하여 HQL 파일의 Hive 쿼리를 실행하려면 파일의 맨 위에 "\*\*set hive.execution.engine=tez\*\*;"를 추가합니다.
 		
 3.  **hivequery.hql**을 Blob 저장소의 **adftutorial** 컨테이너에 업로드합니다.
 
@@ -133,14 +133,14 @@ Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지�
 						"transformation":
 						{
                     		"type": "Hive",
-                    		"extendedProperties":
+                    		"defines":
                     		{
                         		"RESULTOUTPUT": "wasb://adftutorial@<your storage account>.blob.core.windows.net/hiveoutput/",
 		                        "Year":"$$Text.Format('{0:yyyy}',SliceStart)",
 		                        "Month":"$$Text.Format('{0:%M}',SliceStart)",
 		                        "Day":"$$Text.Format('{0:%d}',SliceStart)"
 		                    },
-		                    "scriptpath": "adftutorial\hivequery.hql",
+		                    "scriptpath": "adftutorial\\hivequery.hql",
 						    "scriptLinkedService": "StorageLinkedService"
 						},
 						"policy":
@@ -184,7 +184,7 @@ Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지�
 		{
 			"type": "Pig",
 			"script": "pig script",
-			"extendedProperties":
+			"defines":
 			{	
 				"param1": "param1Value"
  			}
@@ -197,7 +197,7 @@ Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지�
 - **linkedServiceName**을 **MyHDInsightLinkedService**로 설정합니다. HDInsight 연결된 서비스를 만드는 방법에 대한 자세한 내용은 아래의 HDInsight 연결된 서비스 섹션을 참조하십시오.
 - **transformation**의 **type**을 **Pig**로 설정합니다.
 - Pig 스크립트를 **script** 속성에 인라인으로 지정할 수도 있고 스크립트 파일을 Azure Blob 저장소에 저장하고 이 문서 뒷부분에서 설명하는 **scriptPath** 속성을 사용하여 파일을 참조할 수도 있습니다. 
-- Pig 스크립트에 대한 매개 변수는 **extendedProperties**를 사용하여 지정합니다. 자세한 내용은 이 문서의 뒷부분에 나와 있습니다. 
+- Pig 스크립트에 대한 매개 변수는 **defines**를 사용하여 지정합니다. 자세한 내용은 이 문서의 뒷부분에 나와 있습니다. 
 
 
 ## Hive JSON 예제
@@ -214,7 +214,7 @@ Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지�
 		{
 			"type": "Hive",
 			"script": "Hive script",
-			"extendedProperties":
+			"defines":
 			{	
 				"param1": "param1Value"
             }
@@ -227,7 +227,7 @@ Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지�
 - **linkedServiceName**을 **MyHDInsightLinkedService**로 설정합니다. 
 - **transformation**의 **type**을 **Hive**로 설정합니다.
 - Hive 스크립트를 **script** 속성에 인라인으로 지정할 수도 있고 스크립트 파일을 Azure Blob 저장소에 저장하고 이 문서 뒷부분에서 설명하는 **scriptPath** 속성을 사용하여 파일을 참조할 수도 있습니다. 
-- Hive 스크립트에 대한 매개 변수는 **extendedProperties**를 사용하여 지정합니다. 자세한 내용은 이 문서의 뒷부분에 나와 있습니다. 
+- Hive 스크립트에 대한 매개 변수는 **defines**를 사용하여 지정합니다. 자세한 내용은 이 문서의 뒷부분에 나와 있습니다. 
 
 > [AZURE.NOTE]cmdlet, JSON 스키마 및 스키마의 속성에 대한 자세한 내용은 [개발자 참조](http://go.microsoft.com/fwlink/?LinkId=516908)(영문)를 참조하세요.
 
@@ -258,9 +258,9 @@ HDInsight 클러스터와 연결된 Azure Blob 저장소에 Pig/Hive 스크립�
 					"transformation":
 					{
     					"type": "Hive",
-    					"scriptpath": "adfwalkthrough\scripts\transformdata.hql",    		
+    					"scriptpath": "adfwalkthrough\\scripts\\transformdata.hql",    		
 						"scriptLinkedService": "StorageLinkedService", 
-						"extendedProperties":
+						"defines":
 						{
 						}		
 					},
@@ -277,16 +277,16 @@ HDInsight 클러스터와 연결된 Azure Blob 저장소에 Pig/Hive 스크립�
 	}
 
 
-> [AZURE.NOTE]**Tez** 엔진을 사용하여 Hive 쿼리를 실행하려면 Hive 쿼리를 실행하기 전에 "**set hive.execution.engine=tez**;"를 실행합니다.
+> [AZURE.NOTE]**Tez** 엔진을 사용하여 Hive 쿼리를 실행하려면 Hive 쿼리를 실행하기 전에 "\*\*set hive.execution.engine=tez\*\*;"를 실행합니다.
 > 
 > cmdlet, JSON 스키마 및 스키마의 속성에 대한 자세한 내용은 [개발자 참조](http://go.microsoft.com/fwlink/?LinkId=516908)(영문)를 참조하세요.
 
 ## 매개 변수가 지정된 Pig 및 Hive 쿼리
-데이터 팩터리 Pig 및 Hive 작업에서는 **extendedProperties**를 사용하여 Pig 및 Hive 스크립트에 사용되는 매개 변수의 값을 지정할 수 있습니다. extendedProperties 섹션은 매개 변수 이름과 매개 변수 값으로 구성됩니다.
+데이터 팩터리 Pig 및 Hive 작업에서는 **defines**를 사용하여 Pig 및 Hive 스크립트에 사용되는 매개 변수의 값을 지정할 수 있습니다. defines 섹션은 매개 변수 이름과 매개 변수 값으로 구성됩니다.
 
-**extendedProperties**를 사용하여 Hive 스크립트의 매개 변수를 지정하는 방법은 다음 예제를 참조하세요. 매개 변수가 있는 Hive 스크립트를 사용하려면 다음을 수행합니다.
+**defines**를 사용하여 Hive 스크립트의 매개 변수를 지정하는 방법은 다음 예제를 참조하세요. 매개 변수가 있는 Hive 스크립트를 사용하려면 다음을 수행합니다.
 
-1.	**extendedProperties**에서 매개 변수를 정의합니다.
+1.	**defines**에서 매개 변수를 정의합니다.
 2.	인라인 Hive 스크립트 또는 Blob 저장소에 저장된 Hive 스크립트 파일에서 **${hiveconf:parameterName}**을 사용하여 매개 변수를 참조합니다.
 
    
@@ -307,7 +307,7 @@ HDInsight 클러스터와 연결된 Azure Blob 저장소에 Pig/Hive 스크립�
 				  		"transformation":
 				  		{
 							"type": "Hive", 
-							"extendedProperties":
+							"defines":
 							{
 								"Param1": "$$Text.Format('{0:yyyy-MM-dd}', SliceStart)",
 								"Param2": "value"
@@ -353,4 +353,4 @@ HDInsight 클러스터와 연결된 Azure Blob 저장소에 Pig/Hive 스크립�
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

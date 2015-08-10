@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/20/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache 사용 방법
@@ -55,7 +55,7 @@ Azure Redis 캐시를 시작하기는 쉽습니다. 먼저 캐시를 프로비�
 
 ![캐시 만들기][CacheCreate]
 
-**DNS 이름** - 캐시 끝점에 사용할 하위 도메인 이름을 입력합니다. 끝점은 6~20자 사이의 문자열이어야 하며, 소문자와 숫자만 포함할 수 있고, 문자로 시작해야 합니다.
+**DNS 이름** - 캐시 끝점에 사용할 하위 도메인 이름을 입력합니다. 끝점은 6\~20자 사이의 문자열이어야 하며, 소문자와 숫자만 포함할 수 있고, 문자로 시작해야 합니다.
 
 **가격 계층**을 사용하여 원하는 캐시 크기 및 기능을 선택합니다. **기본** 캐시에는 최대 53GB까지 여러 크기를 가진 단일 노드가 있습니다. **표준** 캐시에는 SLA가 99.9%이며 최대 53GB까지 여러 크기를 가진 2노드 주/복제본 구성이 있습니다.
 
@@ -122,15 +122,13 @@ Azure Redis Cache 연결은 `ConnectionMultiplexer` 클래스로 관리됩니다
 
 Azure Redis Cache에 연결하고 연결된 `ConnectionMultiplexer` 인스턴스를 반환하려면 다음 예제와 같이 정적 `Connect` 메서드를 호출하여 캐시 끝점 및 키에 전달합니다. 포털에서 생성된 Azure 키를 암호 매개 변수로 사용합니다.
 
-	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,ssl=true,password=...");
+	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
 
 >[AZURE.IMPORTANT]경고: 소스 코드에 자격 증명을 저장해서는 안 됩니다. 이 샘플을 단순하게 유지하기 위해 소스 코드로 표시합니다. [응용 프로그램 설정 및 연결 문자열 작동 방식][](영문)에서 자격 증명 저장 방법에 대해 자세히 알아보세요.
 
-SSL을 사용하지 않으려는 경우 `ssl=false`를 설정하거나 끝점 및 키를 전달합니다.
+SSL을 사용하지 않으려면 `ssl=false`를 설정하거나 `ssl` 매개 변수를 생략합니다.
 
 >[AZURE.NOTE]비 SSL 포트는 기본적으로 새 캐시에 대해 사용하지 않도록 설정됩니다. 비 SSL 포트를 사용하도록 설정하는 방법에 대한 자세한 내용은 [Azure Redis Cache에서 캐시 구성][] 항목의 액세스 포트 섹션을 참조하세요.
-
-	connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,password=...");
 
 고급 연결 구성 옵션에 대한 자세한 내용은 [StackExchange.Redis 구성 모델][](영문)을 참조하세요.
 
@@ -142,12 +140,12 @@ SSL을 사용하지 않으려는 경우 `ssl=false`를 설정하거나 끝점 �
 
 연결이 설정되고 나면 `ConnectionMultiplexer.GetDatabase` 메서드를 호출하여 Redis Cache 데이터베이스에 대한 참조를 반환합니다.
 
-	// connection referes to a previously configured ConnectionMultiplexer
+	// connection refers to a previously configured ConnectionMultiplexer
 	IDatabase cache = connection.GetDatabase();
 
 >[AZURE.NOTE]`GetDatabase` 메서드에서 반환된 개체는 경량의 통과 개체이며 저장할 필요가 없습니다.
 
-	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,ssl=true,password=...");
+	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
 
 	IDatabase cache = connection.GetDatabase();
 
@@ -161,8 +159,6 @@ SSL을 사용하지 않으려는 경우 `ssl=false`를 설정하거나 끝점 �
 	int key2 = (int)cache.StringGet("key2");
 
 Azure Redis Cache 인스턴스에 연결하고 캐시 데이터베이스에 대한 참조를 반환하는 방법을 알아보았으며, 이제 캐시 작업에 대해 살펴보겠습니다.
-
-
 
 <a name="add-object"></a>
 ## 캐시에서 개체 추가 및 검색
@@ -273,7 +269,7 @@ NuGet 패키지는 필요한 어셈블리 참조를 다운로드 및 추가하�
 
 이제 Azure Redis Cache의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 캐싱 작업을 수행하는 방법을 알아보세요.
 
--	캐시의 상태를 [모니터링](https://msdn.microsoft.com/library/azure/dn763945.aspx)할 수 있도록 [캐시 진단을 사용하도록 설정](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics)합니다. 포털에서 메트릭을 볼 수 있으며 선택한 도구를 사용하여 메트릭을 [다운로드 및 검토](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring)할 수도 있습니다.
+-	캐시의 상태를 [cache-how-to-monitor.md)할 수 있도록 [캐시 진단을 사용하도록 설정](cache-how-to-monitor.md#enable-cache-diagnostics)합니다. 포털에서 메트릭을 볼 수 있으며 선택한 도구를 사용하여 메트릭을 [다운로드 및 검토](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring)할 수도 있습니다.
 -	[StackExchange.Redis 캐시 클라이언트 설명서][](영문)를 확인하세요.
 	-	Azure Redis Cache는 다양한 Redis 클라이언트와 개발 언어에서 액세스할 수 있습니다. 자세한 내용은 [http://redis.io/clients][](영문) 및 [Azure Redis Cache용으로 다른 언어에서 개발][]을 참조하세요.
 	-	Redsmin과 같은 서비스와 함께 Azure Redis Cache를 사용할 수도 있습니다. 자세한 내용은 [Azure Redis 연결 문자열을 검색하고 Redsmin과 함께 사용하는 방법][](영문)을 참조하세요.
@@ -350,7 +346,7 @@ NuGet 패키지는 필요한 어셈블리 참조를 다운로드 및 추가하�
 
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
-[캐시 가격 정보]: http://azure.microsoft.com/pricing/details/cache/
+[캐시 가격 정보]: http://www.windowsazure.com/pricing/details/cache/
 [Microsoft Azure Preview 포털]: https://portal.azure.com/
 
 [Azure Redis 캐시 개요]: http://go.microsoft.com/fwlink/?LinkId=320830
@@ -371,4 +367,4 @@ NuGet 패키지는 필요한 어셈블리 참조를 다운로드 및 추가하�
 
 [Azure 무료 체험]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

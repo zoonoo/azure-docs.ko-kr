@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/01/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 #Ambari를 사용하여 HDInsight 클러스터 관리(미리 보기)
@@ -40,9 +40,7 @@ Ambari는 Linux 기반 HDInsight 클러스터를 기본으로 제공합니다. W
 
 ##Ambari 웹 UI
 
-Ambari 웹 UI는 **https://&lt;clustername>.azurehdinsight.net**에서 만든 각 Linux 기반 HDInsight 클러스터에서 사용할 수 있습니다. Azure 포털에서 클러스터 대시보드 맨 아래에 있는 **Ambari 웹** 단추를 사용하여 이 페이지에 접근할 수도 있습니다.
-
-![ambari 웹 아이콘](./media/hdinsight-hadoop-manage-ambari/ambari-web.png)
+Ambari 웹 UI는 **https://&lt;clustername>.azurehdinsight.net**에서 만든 각 Linux 기반 HDInsight 클러스터에서 사용할 수 있습니다.
 
 페이지에 인증하라는 메시지가 두 번 표시됩니다. 첫 번째는 HDInsight 클러스터에 인증하라는 메시지이고 두 번째는 Ambari에 인증하라는 메시지입니다.
 
@@ -252,4 +250,4 @@ Ambari 웹은 관리 및 모니터링 도구를 만드는데 활용할 수 있�
 
 REST API의 모든 참조 문서를 보려면 [Ambari API 참조 V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)을 참조하세요.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

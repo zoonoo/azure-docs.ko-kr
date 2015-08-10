@@ -74,7 +74,7 @@ Application Insights 포털의 응용 프로그램 개요 블레이드에서 연
 
 ## <a name="format"></a> 데이터 형식
 
-* 각 blob은 다중 '\n'-separated 행을 포함하는 텍스트 파일입니다.
+* 각 blob은 다중 '\\n'-separated 행을 포함하는 텍스트 파일입니다.
 * 각 행은 서식이 지정되지 않은 JSON 파일입니다. 가만히 앉아서 지켜보려는 경우 JSON 플러그인을 사용하여 메모장++과 같은 뷰어로 시도해 봅니다.
 
 ![적합한 도구를 사용하여 원격 분석 보기](./media/app-insights-export-telemetry/06-json.png)
@@ -110,17 +110,7 @@ Application Insights 포털의 응용 프로그램 개요 블레이드에서 연
 
 더 큰 코드 샘플에 대해서는 [작업자 역할 사용][exportasa]을 참조하세요.
 
-#### SQL로 내보내기
 
-다른 옵션은 더 강력한 분석을 수행할 수 있는 SQL 데이터베이스로 데이터를 이동하는 것입니다.
-
-데이터를 Blob 저장소에서 데이터베이스로 이동하는 두 가지 방법을 보여주는 샘플이 있습니다.
-
-* [작업자 역할을 사용하여 SQL로 내보내기][exportcode]
-* [스트림 분석을 사용하여 SQL로 내보내기][exportasa]
-
-
-더 큰 규모에서는 [HDInsight](http://azure.microsoft.com/services/hdinsight/)(클라우드의 Hadoop 클러스터)를 고려합니다. HDInsight는 빅 데이터를 관리 및 분석하는 다양한 기술을 제공합니다.
 
 ## <a name="delete"></a>이전 데이터 삭제
 필요한 경우 스토리지 용량을 관리하고 오래된 데이터를 삭제해야 합니다.
@@ -134,6 +124,27 @@ Application Insights 포털의 응용 프로그램 개요 블레이드에서 연
 ![연속 내보내기를 편집하고 내보내기 대상을 열고 닫기](./media/app-insights-export-telemetry/07-resetstore.png)
 
 연속 내보내기가 다시 시작됩니다.
+
+## Power BI에 내보내기
+
+[Microsoft Power BI](https://powerbi.microsoft.com/)는 여러 소스의 정보를 같이 가져올 수 있는 기능과 함께 풍부하고 다양한 시각적 개체로 데이터를 표시합니다. Application Insights에서 Power BI까지 앱의 성능 및 사용에 대한 원격 분석 데이터를 스트리밍할 수 있습니다.
+
+[Power BI에 Application Insights를 스트림](app-insights-export-power-bi.md)
+
+![Application Insights 사용 데이터의 Power BI 보기의 샘플](./media/app-insights-export-telemetry/210.png)
+
+## SQL로 내보내기
+
+다른 옵션은 더 강력한 분석을 수행할 수 있는 SQL 데이터베이스로 데이터를 이동하는 것입니다.
+
+데이터를 Blob 저장소에서 데이터베이스로 이동하는 두 가지 방법을 보여주는 샘플이 있습니다.
+
+* [작업자 역할을 사용하여 SQL로 내보내기][exportcode]
+* [스트림 분석을 사용하여 SQL로 내보내기][exportasa]
+
+
+더 큰 규모에서는 [HDInsight](http://azure.microsoft.com/services/hdinsight/)(클라우드의 Hadoop 클러스터)를 고려합니다. HDInsight는 빅 데이터를 관리 및 분석하는 다양한 기술을 제공합니다.
+
 
 
 ## 질문과 대답
@@ -160,7 +171,7 @@ Application Insights 포털의 응용 프로그램 개요 블레이드에서 연
 
     아니요. 내보내기를 삭제할 때까지 푸싱한 데이터를 유지합니다. blob 저장소에 대한 외부 제한에 도달하는 경우 중지하지만 제한은 상당히 큽니다. 사용자가 이용하는 저장소 크기는 사용자가 제어하기 나름입니다.
 
-* *저장소에서 몇 개의 blob을 볼 수 있나요?*
+* *저장소에서 몇 개의 BLOB를 볼 수 있나요?*
 
  * 내보내려고 선택한 모든 데이터 형식에 대해 새 blob(데이터 파일이 사용 가능한 경우)이 매 분마다 만들어 집니다.
  * 또한, 트래픽이 많은 응용 프로그램은 추가 파티션이 할당됩니다. 이 경우 모든 각 유닛이 매 분마다 blob을 생성합니다.
@@ -183,4 +194,4 @@ Application Insights 포털의 응용 프로그램 개요 블레이드에서 연
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

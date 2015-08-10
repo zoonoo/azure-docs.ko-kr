@@ -47,7 +47,7 @@ New-AzureDnsRecordSet는 Azure DNS에 생성된 레코드 집합을 나타내는
 ### 와일드 카드 레코드
 Azure DNS는 [와일드 카드 레코드](https://en.wikipedia.org/wiki/Wildcard_DNS_record)를 지원합니다. 이러한 레코드는 일치하는 이름이 있는 모든 쿼리에 대해 반환됩니다(비 와일드 카드 레코드 집합에 더 일치하는 항목이 없는 한).
 
->[AZURE.NOTE]와일드 카드 레코드 집합을 만들려면 "*"라는 레코드 집합 이름을 사용하거나 첫 번째 레이블의 이름이 "*", 예: "*.foo"인 이름을 사용합니다.
+>[AZURE.NOTE]와일드 카드 레코드 집합을 만들려면 "\*"라는 레코드 집합 이름을 사용하거나 첫 번째 레이블의 이름이 "\*", 예: "\*.foo"인 이름을 사용합니다.
 
 >와일드 카드 레코드 집합은 NS 및 SOA를 제외한 모든 레코드 유형에 대해 지원됩니다.
 
@@ -63,7 +63,7 @@ New-AzureDnsRecordSet와 마찬가지로, 레코드 이름은 영역 이름을 �
 Get-AzureDnsRecordSet는 Azure DNS에 생성된 레코드 집합을 나타내는 로컬 개체를 반환합니다.
 
 ## 레코드 집합 나열
--Name 및/또는 -RecordType 매개 변수를 생략하면 Get-AzureDnsRecordSet를 사용하여 레코드 집합을 나열할 수도 있습니다.
+\-Name 및/또는 -RecordType 매개 변수를 생략하면 Get-AzureDnsRecordSet를 사용하여 레코드 집합을 나열할 수도 있습니다.
 
 ### 옵션 1 
 모든 레코드 집합을 나열합니다. 이름 또는 레코드 형식에 관계없이 모든 레코드 집합을 반환합니다.
@@ -265,4 +265,4 @@ Remove-AzureDnsRecordSet cmdlet을 사용하여 레코드 집합을 삭제할 �
 [레코드 집합 및 레코드 만들기 시작](../dns-getstarted-create-recordset)<BR> [DNS 영역에 대한 작업 수행](../dns-operations-dnszones)<BR> [.NET SDK로 작업 자동화](../dns-sdk)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

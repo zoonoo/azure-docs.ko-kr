@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="04/14/2015"
+   ms.date="07/22/2015"
    ms.author="jesseb"/>
 
 # Visual Studio에서 서비스 패브릭 응용 프로그램 관리
@@ -34,13 +34,8 @@ Visual Studio를 통해 Microsoft Azure 서비스 패브릭 응용 프로그램 
 4. 실행 중인 모든 응용 프로그램 인스턴스 제거
 5. 새 응용 프로그램 인스턴스 만들기
 
-Visual Studio에서는 **솔루션 탐색기**에서 서비스 패브릭 응용 프로그램을 마우스 오른쪽 단추로 클릭하고 **배포**를 클릭하여 배포가 수행됩니다. 또한 **F5**를 누르면 응용 프로그램이 배포되고 모든 응용 프로그램 인스턴스에 디버거가 연결됩니다.
+Visual Studio의 빌드 메뉴에서 솔루션 배포를 선택하여 응용 프로그램을 배포할 수 있습니다. 또한 **F5**를 누르면 응용 프로그램이 배포되고 모든 응용 프로그램 인스턴스에 디버거가 연결됩니다.
 
-**배포 제거**를 사용하면 배포를 제거할 수 있습니다. 이렇게 하면 위의 배포 단계를 되돌릴 수 있습니다.
-
-1. 실행 중인 모든 응용 프로그램 인스턴스 제거
-2. 응용 프로그램 유형 등록 해제
-3. 이미지 저장소에서 응용 프로그램 패키지 제거
 
 ## 서비스 패브릭 응용 프로그램에 서비스 추가
 
@@ -60,6 +55,16 @@ Visual Studio에서는 **솔루션 탐색기**에서 서비스 패브릭 응용 
 
 응용 프로그램 및 해당 서비스를 클러스터에 배포하기 위해서는 응용 프로그램 패키지를 만들어야 합니다. 패키지는 응용 프로그램 매니페스트, 서비스 매니페스트 및 특정 레이아웃에서 필요한 기타 파일로 구성됩니다. Visual Studio는 응용 프로그램 프로젝트의 폴더인 'pkg' 디렉터리에서 패키지를 관리합니다. **패키지**를 클릭하면 응용 프로그램 패키지를 만들거나 업데이트할 수 있습니다. 사용자 지정 Powershell 스크립트를 사용하여 응용 프로그램을 배포하는 경우 이 작업을 수행할 수 있습니다.
 
+## 응용 프로그램 제거
+
+서버 탐색기를 사용하여 로컬 클러스터에서 응용 프로그램을 제거할 수 있습니다. 이렇게 하면 위에서 설명한 배포 단계를 되돌릴 수 있습니다.
+
+1. 실행 중인 모든 응용 프로그램 인스턴스 제거
+2. 응용 프로그램 유형 등록 해제
+3. 이미지 저장소에서 응용 프로그램 패키지 제거
+
+![응용 프로그램 제거](./media/service-fabric-manage-application-in-visual-studio/removeapplication.png)
+
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 다음 단계
 
@@ -73,6 +78,5 @@ Visual Studio에서는 **솔루션 탐색기**에서 서비스 패브릭 응용 
 [manageservicefabric]: ./media/service-fabric-manage-application-in-visual-studio/manageservicefabric.png
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

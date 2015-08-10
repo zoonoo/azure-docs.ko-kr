@@ -4,7 +4,7 @@
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags
    ms.service="expressroute"
@@ -12,7 +12,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
+   ms.date="07/28/2015"
    ms.author="cherylmc"/>
 
 #  Exchange 공급자를 통해 Express 경로 연결 구성
@@ -218,7 +218,7 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자�
 
 8. **가상 네트워크와 게이트웨이를 구성합니다.**
 
-	[ExpressRoute에 대한 가상 네트워크 및 게이트웨이 구성](https://msdn.microsoft.com/library/azure/dn643737.aspx)을.참조하세요. 게이트웨이 서브넷이 ExpressRoute 연결을 사용하려면 /28이어야 합니다.
+	[ExpressRoute에 대한 가상 네트워크 및 게이트웨이 구성](expressroute-configuring-vnet-gateway.md)을.참조하세요. 게이트웨이 서브넷이 ExpressRoute 연결을 사용하려면 /28이어야 합니다.
 
 9. **네트워크를 회로에 연결합니다.** 다음과 같은 상황 및 상태로 회로가 이동하는 지 확인한 후에만 다음 지침을 계속 수행합니다.
 	- ServiceProviderProvisioningState: Provisioned
@@ -227,5 +227,8 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자�
 			PS C:\> $Vnet = "MyTestVNet"
 			New-AzureDedicatedCircuitLink -ServiceKey $ServiceKey -VNetName $Vnet
  
+## 다음 단계
 
-<!---HONumber=July15_HO4-->
+- Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
+
+<!---HONumber=July15_HO5-->

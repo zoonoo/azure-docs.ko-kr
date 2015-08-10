@@ -347,6 +347,11 @@ Global.asax.cs 같은 앱 이니셜라이저에서:
 * 사용자에게 이야기하세요! 분석은 자체적으로 충분하지 않지만 좋은 고객 관계 유지를 보완합니다.
 
 
+## 참조
+
+* [API 사용 - 개요][api]
+* [JavaScript API 참조](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
+
 ## 비디오
 
 > [AZURE.VIDEO usage-monitoring-application-insights]
@@ -366,4 +371,4 @@ Global.asax.cs 같은 앱 이니셜라이저에서:
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

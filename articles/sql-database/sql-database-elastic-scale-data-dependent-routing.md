@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
 #데이터 종속 라우팅
 
 **ShardMapManager** 클래스는 분할된 환경의 적합한 실제 데이터베이스에 데이터베이스 쿼리 및 명령을 쉽게 보내는 기능을 ADO.NET 응용 프로그램에 제공합니다. 이러한 방식, 즉 **데이터 종속 라우팅**은 분할된 데이터베이스에서 작업할 때의 기본 패턴입니다. 데이터 종속 라우팅을 사용하는 응용 프로그램의 구체적인 각 쿼리 또는 트랜잭션은 요청당 단일 데이터베이스에 대한 액세스로 제한됩니다.
 
-데이터 종속 라우팅을 사용하면 응용 프로그램에서 다양 한 연결 문자열 또는 분할된 환경의 여러 데이터 조각과 연결된 DB 위치를 추적하지 않아도 됩니다. 대신, [분할된 데이터베이스 맵 관리자](sql-database-elastic-scale-shard-map-management.md)가 필요한 경우 분할된 데이터베이스 맵의 데이터 및 응용 프로그램의 요청 대상인 분할 키의 값에 따라 올바른 데이터베이스에 대한 열린 연결을 유지해야 합니다. 이 키는 일반적으로 *customer_id* *tenant_id* *date_key* 또는 데이터베이스 요청의 기본 매개 변수인 다른 특정 식별자입니다.
+데이터 종속 라우팅을 사용하면 응용 프로그램에서 다양 한 연결 문자열 또는 분할된 환경의 여러 데이터 조각과 연결된 DB 위치를 추적하지 않아도 됩니다. 대신, [분할된 데이터베이스 맵 관리자](sql-database-elastic-scale-shard-map-management.md)가 필요한 경우 분할된 데이터베이스 맵의 데이터 및 응용 프로그램의 요청 대상인 분할 키의 값에 따라 올바른 데이터베이스에 대한 열린 연결을 유지해야 합니다. 이 키는 일반적으로 *customer\_id* *tenant\_id* *date\_key* 또는 데이터베이스 요청의 기본 매개 변수인 다른 특정 식별자입니다.
 
 ## 데이터 종속 라우팅 응용 프로그램에서 ShardMapManager 사용 
 
@@ -117,4 +117,4 @@ int newPersonId = 4321;
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # Azure 저장소 시작(ASP.NET 프로젝트)
@@ -42,14 +42,9 @@ Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 �
 
 ##코드에서 테이블 액세스하기 
 
-## 프로그래밍 방식으로 테이블 저장소 액세스
 
-[AZURE.INCLUDE [저장소-dotnet-얻기-어셈블리](../../includes/storage-dotnet-obtain-assembly.md)]
 
-### 네임스페이스 선언
-프로그래밍 방식으로 Azure 저장소에 액세스하려는 C# 파일의 맨 위에 다음과 같은 코드 네임스페이스 선언을 추가합니다.
-
-1. C# 파일 맨 위의 네임스페이스 선언에 이 `using` 문도 포함되어있는지 확인합니다.
+1. C# 파일 맨 위의 네임스페이스 선언에 이러한 `using` 문이 포함되어 있는지 확인합니다.
 
 	using Microsoft.Azure; using Microsoft.WindowsAzure.Storage; using Microsoft.WindowsAzure.Storage.Auth; using Microsoft.WindowsAzure.Storage.Table;
 
@@ -58,7 +53,7 @@ Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 �
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
 
-    **참고:** 다음 샘플의 코드 앞에서 위의 코드를 모두 사용합니다.
+    **참고:** 다음 샘플의 코드 앞에 위의 코드를 모두 사용합니다.
 
 3. 저장소 계정의 테이블 개체를 참조하려면 **CloudTableClient** 개체를 가져옵니다.
 
@@ -72,7 +67,7 @@ Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 �
 
 ###코드에서 테이블 만들기
 
-코드에서 Azure 테이블을 만들려면 Visual Studio **서버 탐색기**를 사용하는 대신 `CreateIfNotExistsAsync()`에 호출을 추가하면 됩니다.
+Visual Studio **서버 탐색기**를 사용하는 대신 코드에서 Azure 테이블을 만들려면 `CreateIfNotExistsAsync()` 호출을 추가하면 됩니다.
 
 	// Create the CloudTable if it does not exist
 	await table.CreateIfNotExistsAsync();
@@ -188,7 +183,7 @@ Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 �
 
 ## 다음 단계
 
-[AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
+[AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
 
 
@@ -215,4 +210,4 @@ Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 �
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

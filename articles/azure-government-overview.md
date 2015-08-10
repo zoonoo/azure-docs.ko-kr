@@ -13,12 +13,12 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="azure-government" 
-   ms.date="03/13/2015"
+   ms.date="07/22/2015"
    ms.author="john.harvey@microsoft.com"/>
 
 #  Microsoft Azure Government 개요 
 
-<p> Microsoft Azure Government는 Microsoft Azure의 물리적으로 격리되고 네트워크에서 격리된 인스턴스입니다. 이 개발자 가이드는 응용 프로그램 개발자와 관리자가 이러한 Azure의 별도 지역에 대한 작업을 수행하고 조작해야 하는 차이점에 대한 세부 정보를 제공합니다.
+<p> Microsoft Azure Government는 Microsoft Azure의 물리적으로 격리되고 네트워크에서 격리된 인스턴스입니다. 이 개요는 환경 및 서비스에 대한 소개는 물론 추가 정보의 링크를 제공합니다.
 
 
 ## <a name="Overview"></a>개요
@@ -31,7 +31,7 @@ Azure Government는 속도, 규모, 보안, 규정 준수 및 경제성이 필�
 
 ![][2]
 
-Azure Government에는 IaaS(Infrastructure-as-a-Service) 및 PaaS(Platform-as-a-Service)의 핵심 구성 요소가 포함되어 있습니다. 여기에는 인프라, 네트워크, 저장소, 데이터 관리, ID 관리 및 기타 많은 서비스가 포함됩니다. Azure Government는 지리 동기 데이터 복제, 자동 크기 조정 등 공용 Azure 고객이 활용한 것과 동일한 뛰어난 기능을 지원합니다. Microsoft는 선도적인 산업 분석 기관의 평가에 따라 <a href="https://www.gartner.com/doc/2575715/magic-quadrant-cloud-infrastructure-service" target="_new">IaaS</a> 및 <a href="https://www.gartner.com/doc/2645317/magic-quadrant-enterprise-application-platform" target="_new">PaaS</a> 두 부문 모두에서 선두 기업으로 선정되었습니다.
+Azure Government에는 IaaS(Infrastructure-as-a-Service) 및 PaaS(Platform-as-a-Service)의 핵심 구성 요소가 포함되어 있습니다. 여기에는 인프라, 네트워크, 저장소, 데이터 관리, ID 관리 및 기타 많은 서비스가 포함됩니다. Azure Government는 지리 동기 데이터 복제, 자동 크기 조정 등 공용 Azure 고객이 활용한 것과 동일한 뛰어난 기능을 지원합니다. Microsoft는 선도적인 산업 분석 기관의 평가에 따라 <a href="https://www.gartner.com/doc/2575715/magic-quadrant-cloud-infrastructure-service" target="_new">IaaS</a> 및 <a href="https://www.gartner.com/doc/2645317/magic-quadrant-enterprise-application-platform" target="_new">PaaS<a/> 두 부문 모두에서 선두 기업으로 선정되었습니다.
 
 Azure Government는 Azure의 강력한 서비스 및 기능 외에도 다음을 통해 미국 정부 기관의 데이터 보안을 유지하는 여러 기능을 제공합니다.
 
@@ -73,6 +73,7 @@ Azure Government는 Azure의 강력한 서비스 및 기능 외에도 다음을 
 - 미디어 서비스
 - 트래픽 관리자
 - 서비스 버스
+- StorSimple
 
 기타 서비스도 사용할 수 있으며, 계속해서 서비스가 더 추가될 예정입니다. 서비스의 최신 목록은 사용 가능한 각 지역과 해당 서비스가 강조 표시되어 있는 [지역 페이지](http://azure.microsoft.com/regions/#services)를 참조하세요.
 
@@ -103,4 +104,4 @@ Azure Government에 대한 보다 자세한 내용은 아래 링크를 통해 �
 [Link 2 to another azure.microsoft.com documentation topic]: app-service-web/web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

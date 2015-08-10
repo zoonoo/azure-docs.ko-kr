@@ -99,7 +99,7 @@ Azure에서 사용할 수 있는 Oracle WebLogic Server 12c 이미지를 사용�
 
 	2. **새 서버 만들기** 대화 상자에서 다음을 수행합니다.
 
-		1. **서버 이름**에 첫 번째 관리되는 서버의 이름을 입력합니다. 예를 들면 **MYVM2-MANAGED**입니다.
+		1. **서버 이름**에 첫 번째 관리되는 서버의 이름을 입력합니다. 예를 들면 \*\*MYVM2-MANAGED\*\*입니다.
 
 		2. **서버 수신 대기 주소**에 이름을 다시 입력합니다.
 
@@ -119,7 +119,7 @@ Azure에서 사용할 수 있는 Oracle WebLogic Server 12c 이미지를 사용�
 
 9. WebLogic Server 관리 콘솔에서 **변경 내용 활성화**를 클릭합니다.
 
-10. 관리 가상 컴퓨터에서 **C:\Oracle\Middleware\Oracle_Home\wlserver**에서 설정된 해당 값으로 **SERVER_HOME**이라는 환경 변수를 만듭니다. 다음 단계를 이용하여 환경 변수를 만들 수 있습니다.
+10. 관리 가상 컴퓨터에서 **C:\\Oracle\\Middleware\\Oracle\_Home\\wlserver**에서 설정된 해당 값으로 **SERVER\_HOME**이라는 환경 변수를 만듭니다. 다음 단계를 이용하여 환경 변수를 만들 수 있습니다.
 
 	1. **Windows 시작**을 클릭하고 **제어판**을 입력하여 **제어판** 아이콘, **시스템 및 보안**, **시스템**, **고급 시스템 설정**을 차례로 클릭합니다.
 
@@ -127,13 +127,13 @@ Azure에서 사용할 수 있는 Oracle WebLogic Server 12c 이미지를 사용�
 
 	3. **시스템 변수** 섹션에서 **새로 만들기**를 클릭하여 변수를 만듭니다.
 
-	4. **새 시스템 변수** 대화 상자에서 변수 이름에 **SERVER_HOME**을 입력하고 해당 값에 **C:\Oracle\Middleware\Oracle_Home\wlserver**를 입력합니다.
+	4. **새 시스템 변수** 대화 상자에서 변수 이름에 **SERVER\_HOME**을 입력하고 해당 값에 **C:\\Oracle\\Middleware\\Oracle\_Home\\wlserver**를 입력합니다.
 
 	5. **확인**을 클릭하여 새 환경 변수를 저장하고 **새 시스템 변수** 대화 상자를 닫습니다.
 
 	6. 제어판에서 열려 있던 다른 대화 상자를 닫습니다.
 
-11. 새 명령 프롬프트를 엽니다(**SERVER_HOME** 환경 변수가 적용되도록).
+11. 새 명령 프롬프트를 엽니다(**SERVER\_HOME** 환경 변수가 적용되도록).
 
 	>[AZURE.NOTE]나머지 단계 중 일부는 가상 컴퓨터에 로그온 한 후 명령 프롬프트를 사용해야 합니다. 명령 프롬프트를 연 후에 로그인된 컴퓨터를 쉽게 이해할 수 있도록 하려면 **title % COMPUTERNAME %**을 실행하세요.
 	>
@@ -141,9 +141,9 @@ Azure에서 사용할 수 있는 Oracle WebLogic Server 12c 이미지를 사용�
 
 12. 다음 명령을 실행합니다.
 
-		%SERVER_HOME%\common\bin\pack.cmd -managed=true -domain=C:\Oracle\Middleware\Oracle_Home\user_projects\domains\base_domain -template=c:\mytestdomain.jar -template_name="mytestdomain" 
+		%SERVER\_HOME%\\common\\bin\\pack.cmd -managed=true -domain=C:\\Oracle\\Middleware\\Oracle\_Home\\user\_projects\\domains\\base\_domain -template=c:\\mytestdomain.jar -template\_name="mytestdomain" 
 
-	이 명령은 **c:\mytestdomain.jar**라는 jar를 만듭니다. 나중에 클러스터의 관리되는 가상 컴퓨터에 이 jar를 복사합니다.
+	이 명령은 **c:\\mytestdomain.jar**라는 jar를 만듭니다. 나중에 클러스터의 관리되는 가상 컴퓨터에 이 jar를 복사합니다.
 
 13. 7001 포트에 대한 방화벽을 통해 인바운드 연결을 허용합니다.
 
@@ -165,19 +165,19 @@ Azure에서 사용할 수 있는 Oracle WebLogic Server 12c 이미지를 사용�
 
 	1. 가상 컴퓨터에 로그인합니다.
 
-	2. **C:\Oracle\Middleware\Oracle_Home\wlserver**에서 설정된 해당 값으로 **SERVER_HOME**이라는 환경 변수를 만듭니다.
+	2. **C:\\Oracle\\Middleware\\Oracle\_Home\\wlserver**에서 설정된 해당 값으로 **SERVER\_HOME**이라는 환경 변수를 만듭니다.
 
-	3. 관리 가상 컴퓨터에서 c:\mytestdomain.jar을 관리되는 가상 컴퓨터의 c:\mytestdomain.jar로 복사합니다.
+	3. 관리 가상 컴퓨터에서 c:\\mytestdomain.jar을 관리되는 가상 컴퓨터의 c:\\mytestdomain.jar로 복사합니다.
 
 	4. 명령 프롬프트를 엽니다(그리고 어떤 컴퓨터가 액세스되고 있는지 명확하게 하기 위해 명령 프롬프트에서 **title % COMPUTERNAME %**을 실행해야 합니다).
 
 	5. 다음 명령을 실행합니다.
 
-			%SERVER_HOME%\common\bin\unpack.cmd -domain=C:\Oracle\Middleware\Oracle_Home\user_projects\domains\base_domain -template=c:\mytestdomain.jar
+			%SERVER\_HOME%\\common\\bin\\unpack.cmd -domain=C:\\Oracle\\Middleware\\Oracle\_Home\\user\_projects\\domains\\base\_domain -template=c:\\mytestdomain.jar
 
-	6. 명령 프롬프트 현재 디렉터리를 **C:\Oracle\Middleware\Oracle_Home\user_projects\domains\base_domain\bin**으로 변경합니다.
+	6. 명령 프롬프트 현재 디렉터리를 **C:\\Oracle\\Middleware\\Oracle\_Home\\user\_projects\\domains\\base\_domain\\bin**으로 변경합니다.
 
-	7. start<< * MACHINENAME * >>.cmd를 실행합니다. 여기서 << * MACHINENAME * >> 관리되는 컴퓨터의 이름입니다. 예를 들어 **startMYVM2-MANAGED**입니다.
+	7. start<< \* MACHINENAME \* >>.cmd를 실행합니다. 여기서 << \* MACHINENAME \* >> 관리되는 컴퓨터의 이름입니다. 예를 들어 **startMYVM2-MANAGED**입니다.
 
 	8. 메시지가 표시되면 WebLogic Server 사용자 이름과 암호를 제공합니다.
 
@@ -196,7 +196,7 @@ Azure에서 사용할 수 있는 Oracle WebLogic Server 12c 이미지를 사용�
 
 	4. **create a load-balanced set**를 선택한 후 **완료**를 클릭합니다.
 
-	5. 부하 분산된 집합의 이름을 지정하고 다른 매개 변수의 기본값을 적용한 다음 **완료를 클릭합니다.**
+	5. 부하 분산된 집합의 이름을 지정하고 다른 매개 변수의 기본값을 적용한 다음 **완료를 클릭합니다.\*\*
 
 17. 가상 컴퓨터의 끝점 만들기:
 
@@ -238,13 +238,13 @@ Azure에서 사용할 수 있는 Oracle WebLogic Server 12c 이미지를 사용�
 
 1. WebLogic Server 클러스터에 대한 관리자로 제공 중인 가상 컴퓨터에 로그인합니다(예: **MYVM1-ADMIN**). 
 
-2. Shoppingcart.war를 로컬로 복사합니다. 예를 들어 **c:\mywar**라는 폴더를 만들고 <http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war>에서 WAR를 **c:\mywar**로 저장합니다.
+2. Shoppingcart.war를 로컬로 복사합니다. 예를 들어 **c:\\mywar**라는 폴더를 만들고 <http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war>에서 WAR를 **c:\\mywar**로 저장합니다.
 
 3. **WebLogic Server 관리 콘솔**을 열고 <http://localhost:7001/console>합니다. 메시지가 표시되면 WebLogic 사용자 이름과 암호를 제공합니다.
 
 4. **WebLogic Server 관리 콘솔**에서 **잠금 및 편집**을 클릭하고 **배포**를 클릭한 다음 **설치**를 클릭합니다.
 
-5. **경로**에 **c:\myway\shoppingcart.war**를 입력합니다.
+5. **경로**에 **c:\\myway\\shoppingcart.war**를 입력합니다.
 
 	![](media/virtual-machines-creating-oracle-webLogic-server-12c-cluster/image004.png)
 
@@ -305,4 +305,4 @@ Azure에서 사용할 수 있는 Oracle WebLogic Server 12c 이미지를 사용�
 
 - [Microsoft Azure에서 Linux를 사용하는 Oracle WebLogic Server 12c](http://www.oracle.com/technetwork/middleware/weblogic/learnmore/oracle-weblogic-on-azure-wp-2020930.pdf)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

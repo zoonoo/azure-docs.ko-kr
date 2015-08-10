@@ -20,7 +20,9 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
-이 자습서에서는 지원되는 ID 공급자를 사용하여 [모바일 서비스 빠른 시작 자습서]에 인증을 추가합니다. 먼저 [모바일 서비스 빠른 시작 자습서]를 완료해야 합니다.
+이 자습서에서는 지원되는 ID 공급자를 사용하여 [모바일 서비스 빠른 시작 자습서]에 인증을 추가합니다.
+
+먼저 [모바일 서비스 빠른 시작 자습서]를 완료하는 것이 좋습니다. 또는 iOS 빠른 시작 프로젝트를 방금 다운로드하면 됩니다. Azure 포털 > **모바일 서비스** > 사용자의 모바일 서비스 > 왼쪽 위의 클라우드 기호 > **iOS** > **새 iOS 앱 만들기** > **앱 다운로드 및 실행** > **Objective-C** > **다운로드**를 클릭하세요. 테이블을 아직 만들지 않은 경우는 **다운로드**를 클릭하기 전에 **TodoItem 테이블 만들기**를 클릭합니다.
 
 ##<a name="register"></a>인증을 위한 앱 등록
 
@@ -82,4 +84,4 @@
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

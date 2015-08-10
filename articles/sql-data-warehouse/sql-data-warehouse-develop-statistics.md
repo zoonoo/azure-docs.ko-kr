@@ -31,7 +31,7 @@ SQL 데이터 웨어하우스가 개선시켜야 하는 쿼리 성능을 달성�
 
 여러 열 통계는 열 목록에 대해 만든 통계입니다. 목록에서 첫 번째 열에 대한 단일 열 통계를 포함하며 또한 밀도라는 일부 열 간 상관 관계 정보를 포함합니다. 여러 열 통계는 복합 조인 및 그룹 기준과 같은 일부 작업에 대한 쿼리 성능을 향상시킬 수 있습니다.
 
-자세한 내용은 MSDN에서 [DBCC SHOW_STATISTICS][]를 참조하세요.
+자세한 내용은 MSDN에서 [DBCC SHOW\_STATISTICS][]를 참조하세요.
 
 ## 통계가 필요한 이유는 무엇입니까?
 적절한 통계 없이, SQL 데이터 웨어하우스가 제공하도록 설계된 성능을 얻을 수 없습니다. 테이블 및 열에는 SQL 데이터 웨어하우스에서 자동으로 생성된 통계가 없으므로 사용자가 직접 만들어야 합니다. 이러한 정보가 입력되면 테이블을 만든 다음 업데이트할 때 만드는 것이 좋습니다.
@@ -152,13 +152,13 @@ CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < 
 
 > [AZURE.NOTE]쿼리 결과에서 행의 수를 예상하는 데 사용되는 히스토그램은 통계 개체 정의에 나열된 첫 번째 열에 사용할 수만 있습니다.
 
-이 예에서 히스토그램은 *product_category*에 있습니다. 열 간 통계는 *product_category* 및 *product_sub_c\ategory*에서 계산됩니다.
+이 예에서 히스토그램은 *product\_category*에 있습니다. 열 간 통계는 *product\_category* 및 *product\_sub\_c\\ategory*에서 계산됩니다.
 
 ```
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
 ```
 
-*product_category* 및 *product_sub_category* 사이에 상관 관계가 있으므로, 이 열을 동시에 액세스하는 경우 다중 열 통계가 유용할 수 있습니다.
+*product\_category* 및 *product\_sub\_category* 사이에 상관 관계가 있으므로, 이 열을 동시에 액세스하는 경우 다중 열 통계가 유용할 수 있습니다.
 
 ### G. 테이블의 모든 열에 대한 통계 만들기
 
@@ -177,14 +177,14 @@ WITH
   )
 ;
 
-CREATE STATISTICS stats_col1 on dbo.table1;
-CREATE STATISTICS stats_col2 on dbo.table2;
-CREATE STATISTICS stats_col3 on dbo.table3;
+CREATE STATISTICS stats_col1 on dbo.table1 (col1);
+CREATE STATISTICS stats_col2 on dbo.table2 (col2);
+CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
 ### H 저장된 프로시저를 사용하여 데이터베이스의 모든 열에서 통계를 만듭니다.
 
-SQL 데이터 웨어하우스는 SQL Server에서 [sp_create_stats][]에 해당하는 시스템 저장 프로시저가 없습니다. 이 저장된 프로시저는 아직 통계가 없는 데이터베이스의 모든 열에 단일 열 통계 개체를 만듭니다.
+SQL 데이터 웨어하우스는 SQL Server에서 [sp\_create\_stats][]에 해당하는 시스템 저장 프로시저가 없습니다. 이 저장된 프로시저는 아직 통계가 없는 데이터베이스의 모든 열에 단일 열 통계 개체를 만듭니다.
 
 데이터베이스 디자인으로 시작하는 데 도움이 됩니다. 사용자의 요구에 맞게 자유롭게 적용합니다.
 
@@ -325,9 +325,9 @@ UPDATE STATISTICS dbo.table1;
 | [sys.objects][] | 데이터베이스의 각 개체에 대해 한 행입니다. | |
 | [sys.schemas][] | 데이터베이스의 각 스키마에 대해 한 행입니다. | |
 | [sys.stats][] | 각 통계 개체에 대해 한 행입니다. |
-| [sys.stats_columns][] | 통계 개체의 각 열에 대해 한 행입니다. sys.columns에 다시 연결합니다. |
+| [sys.stats\_columns][] | 통계 개체의 각 열에 대해 한 행입니다. sys.columns에 다시 연결합니다. |
 | [sys.tables][] | 각 테이블에 대해 한 행입니다(외부 테이블 포함). |
-| [sys.table_types][] | 각 데이터 유형에 대해 한 행입니다. |
+| [sys.table\_types][] | 각 데이터 유형에 대해 한 행입니다. |
 
 
 ### 통계에 대한 시스템 함수
@@ -335,12 +335,12 @@ UPDATE STATISTICS dbo.table1;
 
 | 시스템 함수 | 설명 |
 | :-------------- | :---------- |
-| [STATS_DATE][] | 통계 개체가 마지막으로 업데이트된 날짜입니다. |
-| [DBCC SHOW_STATISTICS][] | 통계 개체로 인식되는 값의 분포에 대한 요약 수준 및 세부 정보를 제공합니다. |
+| [STATS\_DATE][] | 통계 개체가 마지막으로 업데이트된 날짜입니다. |
+| [DBCC SHOW\_STATISTICS][] | 통계 개체로 인식되는 값의 분포에 대한 요약 수준 및 세부 정보를 제공합니다. |
 
 ### 통계 열 및 함수를 하나의 보기로 결합
 
-이 뷰는 통계와 관련된 열을 가져오며 [STATS_DATE()][] 함수의 결과입니다.
+이 뷰는 통계와 관련된 열을 가져오며 [STATS\_DATE()][] 함수의 결과입니다.
 
 ```
 CREATE VIEW dbo.vstats_columns
@@ -378,9 +378,9 @@ AND     sts.[user_created] = 1
 ;
 ```
 
-## DBCC SHOW_STATISTICS() 예
+## DBCC SHOW\_STATISTICS() 예
 
-DBCC SHOW_STATISTICS()는 통계 개체 내에 있는 데이터를 보여줍니다. 이 데이터는 세 부분으로 제공합니다.
+DBCC SHOW\_STATISTICS()는 통계 개체 내에 있는 데이터를 보여줍니다. 이 데이터는 세 부분으로 제공합니다.
 
 1. 헤더
 2. 밀도 벡터
@@ -402,7 +402,7 @@ DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
-### DBCC SHOW_STATISTICS();의 하나 이상의 파트를 표시합니다.
+### DBCC SHOW\_STATISTICS();의 하나 이상의 파트를 표시합니다.
 
 특정 부분 보기에만 관심이 있는 경우, `WITH` 절을 사용하고 보려는 부분을 지정합니다.
 
@@ -416,13 +416,13 @@ DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
-## DBCC SHOW_STATISTICS() 차이점
-DBCC SHOW_STATISTICS()는 SQL Server와 비교하여 SQL 데이터 웨어하우스에서 보다 엄격하게 구현됩니다.
+## DBCC SHOW\_STATISTICS() 차이점
+DBCC SHOW\_STATISTICS()는 SQL Server와 비교하여 SQL 데이터 웨어하우스에서 보다 엄격하게 구현됩니다.
 
 1. 문서화되지 않은 기능은 지원되지 않습니다.
-- Stats_stream를 사용할 수 없습니다.
-- 통계 데이터의 특정 하위 집합에 대한 결과를 조인할 수는 없습니다(STAT_HEADER 조인 DENSITY_VECTOR).
-2. NO_INFOMSGS는 메시지 제거에 대해 설정할 수 없습니다.
+- Stats\_stream를 사용할 수 없습니다.
+- 통계 데이터의 특정 하위 집합에 대한 결과를 조인할 수는 없습니다(STAT\_HEADER 조인 DENSITY\_VECTOR).
+2. NO\_INFOMSGS는 메시지 제거에 대해 설정할 수 없습니다.
 3. 통계 이름에 대괄호를 사용할 수 없습니다.
 4. 통계 개체를 식별할 열 이름을 사용할 수 없습니다.
 5. 사용자 지정 오류 2767이 지원되지 않습니다.
@@ -440,16 +440,16 @@ DBCC SHOW_STATISTICS()는 SQL Server와 비교하여 SQL 데이터 웨어하우�
 <!-- External Links -->
 [카디널리티 예측]: https://msdn.microsoft.com/library/dn600374.aspx
 [CREATE STATISTICS]: https://msdn.microsoft.com/library/ms188038.aspx
-[DBCC SHOW_STATISTICS]: https://msdn.microsoft.com/library/ms174384.aspx
+[DBCC SHOW\_STATISTICS]: https://msdn.microsoft.com/library/ms174384.aspx
 [통계]: https://msdn.microsoft.com/library/ms190397.aspx
-[STATS_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
+[STATS\_DATE]: https://msdn.microsoft.com/library/ms190330.aspx
 [sys.columns]: https://msdn.microsoft.com/library/ms176106.aspx
 [sys.objects]: https://msdn.microsoft.com/library/ms190324.aspx
 [sys.schemas]: https://msdn.microsoft.com/library/ms190324.aspx
 [sys.stats]: https://msdn.microsoft.com/library/ms177623.aspx
-[sys.stats_columns]: https://msdn.microsoft.com/library/ms187340.aspx
+[sys.stats\_columns]: https://msdn.microsoft.com/library/ms187340.aspx
 [sys.tables]: https://msdn.microsoft.com/library/ms187406.aspx
-[sys.table_types]: https://msdn.microsoft.com/library/bb510623.aspx
+[sys.table\_types]: https://msdn.microsoft.com/library/bb510623.aspx
 [통계 업데이트]: https://msdn.microsoft.com/library/ms187348.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="hero-article" 
-	ms.date="04/29/2015" 
+	ms.date="07/24/2015" 
 	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175"></a>DocumentDB를 사용하여 Node.js 응용 프로그램 빌드
@@ -389,7 +389,7 @@
 		
 		module.exports = config;
 
-3. **config.js** 파일에서 [Microsoft Azure Preview 포털](http://portal.azure.com)의 DocumentDB 계정 키 블레이드에 있는 값을 사용해서 HOST 및 AUTH_KEY 값을 업데이트합니다.
+3. **config.js** 파일에서 [Microsoft Azure Preview 포털](http://portal.azure.com)의 DocumentDB 계정 키 블레이드에 있는 값을 사용해서 HOST 및 AUTH\_KEY 값을 업데이트합니다.
 
 4. **config.js** 파일을 저장하고 닫습니다.
  
@@ -498,7 +498,7 @@
 	
 	응용 프로그램이 작동하는 데 필요한 모든 작업이 완료되었습니다.
 
-5. **public\stylesheets** 디렉터리에서 **style.css** 파일을 열고 코드를 다음으로 바꿉니다.
+5. **public\\stylesheets** 디렉터리에서 **style.css** 파일을 열고 코드를 다음으로 바꿉니다.
 
 		body {
 		  padding: 50px;
@@ -559,4 +559,4 @@
   [Git]: http://git-scm.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

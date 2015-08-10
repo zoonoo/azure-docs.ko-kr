@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/22/2015"
+   ms.date="07/22/2015"
    ms.author="kunalds"/>
 
 
@@ -36,14 +36,22 @@
 1. 다음 사전 필요 조건이 설치되어 있어야 합니다.
    * Visual Studio 2015
    * 서비스 패브릭 SDK
-2. 관리자 권한으로 Visual Studio를 시작합니다.
-3. 상태 저장 또는 상태 비저장 행위자나 서비스용 프로젝트를 만듭니다(또는 기존 프로젝트를 엽니다). ![서비스 패브릭 프로젝트 만들기](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/CreateServiceFabricProject.png)
 
-4. F5 키를 눌러 응용 프로그램을 디버깅합니다. 서비스 패브릭 이벤트가 진단 이벤트 창에 표시되어야 합니다. 각 이벤트는 이벤트가 기인하는 노드, 응용 프로그램 및 서비스를 알려 주는 표준 메타 데이터 정보를 가지고 있습니다. 창 위쪽의 “이벤트 필터링” 상자를 사용해서 이벤트 목록을 필터링할 수도 있습니다. 예를 들어 노드 이름이나 서비스 이름으로 필터링할 수 있습니다. ![Visual Studio 진단 이벤트 뷰어](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
+2. 관리자 권한으로 Visual Studio를 시작합니다.
+
+3. 상태 저장 또는 상태 비저장 행위자나 서비스용 프로젝트를 만듭니다(또는 기존 프로젝트를 엽니다).
+
+  ![서비스 패브릭 응용 프로그램 만들기](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/CreateServiceFabricProject.png)
+
+  ![서비스 패브릭 서비스 만들기](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/CreateServiceFabricProject-2.png)
+
+4. F5 키를 눌러 응용 프로그램을 디버깅합니다. 서비스 패브릭 이벤트가 진단 이벤트 창에 표시되어야 합니다. 각 이벤트는 이벤트가 기인하는 노드, 응용 프로그램 및 서비스를 알려 주는 표준 메타 데이터 정보를 가지고 있습니다. 창 위쪽의 “이벤트 필터링” 상자를 사용해서 이벤트 목록을 필터링할 수도 있습니다. 예를 들어 노드 이름이나 서비스 이름으로 필터링할 수 있습니다.
+
+  ![Visual Studio 진단 이벤트 뷰어](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
 
 5. 진단 이벤트 창이 자동으로 표시되지 않으면 Visual Studio의 서버 탐색기 탭으로 가서 서비스 패브릭 클러스터를 마우스 오른쪽 단추로 클릭하고 상황에 맞는 메뉴에서 “진단 이벤트 보기”를 선택하십시오.
 
-![Visual Studio 진단 이벤트 뷰어 열기](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/ServerExViewDiagEvents.png)
+  ![Visual Studio 진단 이벤트 뷰어 열기](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/ServerExViewDiagEvents.png)
 
 ## 응용 프로그램 코드에 독자적인 사용자 지정 추적 추가
 서버 패브릭 Visual Studio 프로젝트 템플릿에는 샘플 코드가 포함됩니다. 이 코드는 서비스 패브릭에서 시스템 추적과 함께 Visual Studio ETW 뷰어에 표시되는 사용자 지정 응용 프로그램 코드 ETW 추적을 추가하는 방법을 보여 줍니다. 이 방법의 장점은 메타 데이터가 추적에 자동으로 추가되고 Visual Studio 진단 뷰어가 이를 표시하도록 이미 구성되어 있다는 점입니다.
@@ -70,6 +78,5 @@
 * [Application Insights 설정](service-fabric-diagnostics-application-insights-setup.md)
 * [Azure 서비스 패브릭 활동자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
 * [상태 저장 신뢰할 수 있는 서비스 진단](service-fabric-reliable-services-diagnostics.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

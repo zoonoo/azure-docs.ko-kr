@@ -462,7 +462,7 @@ AzCopy를 사용하여 Blob 또는 파일을 복사할 때는 복사하는 동�
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer/vd /DestKey:key /Pattern:abc.txt
 
-지정한 가상 디렉터리가 없으면 AzCopy는 해당 이름에 가상 디렉터리를 포함하여 파일을 업로드합니다(*예:* 위 예의 `vd/abc.txt`).
+지정한 가상 디렉터리가 없으면 AzCopy는 해당 이름에 가상 디렉터리를 포함하여 파일을 업로드합니다(\*예:\* 위 예의 `vd/abc.txt`).
 
 ### 새 폴더에 Blob 다운로드
 
@@ -682,7 +682,7 @@ AzCopy로 명령을 실행할 때마다 AzCopy는 기본 폴더에 저널 파일
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /Z
 
-`/Z` 옵션을 생략하거나 위에 표시된 것처럼 폴더 경로 없이 `/Z`를 지정하면 AzCopy는 기본 위치인 `%SystemDrive%\Users%username%\AppData\Local\Microsoft\Azure\AzCopy`에 저널 파일을 만듭니다. 저널 파일이 이미 있으면 AzCopy는 저널 파일을 기반으로 작업을 다시 시작합니다.
+`/Z` 옵션을 생략하거나 위에 표시된 것처럼 폴더 경로 없이 `/Z`를 지정하면 AzCopy는 기본 위치인 `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`에 저널 파일을 만듭니다. 저널 파일이 이미 있으면 AzCopy는 저널 파일을 기반으로 작업을 다시 시작합니다.
 
 **저널 파일의 사용자 지정 위치 지정**
 
@@ -703,7 +703,7 @@ AzCopy로 명령을 실행할 때마다 AzCopy는 기본 폴더에 저널 파일
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:key /V
 
-세부 정보 표시 로그에 대한 파일 경로를 제공하지 않고 `/V` 옵션을 지정하면 AzCopy는 기본 위치인 `%SystemDrive%\Users%username%\AppData\Local\Microsoft\Azure\AzCopy`에 로그 파일을 만듭니다.
+세부 정보 표시 로그에 대한 파일 경로를 제공하지 않고 `/V` 옵션을 지정하면 AzCopy는 기본 위치인 `%SystemDrive%\Users\%username%\AppData\Local\Microsoft\Azure\AzCopy`에 로그 파일을 만듭니다.
 
 **사용자 지정 위치에 세부 정보 표시 로그 파일 쓰기**
 
@@ -741,7 +741,7 @@ AzCopy로 명령을 실행할 때마다 AzCopy는 기본 폴더에 저널 파일
 
 기본적으로 AzCopy는 두 저장소 끝점 간에 데이터를 비동기적으로 복사합니다. 따라서 복사 작업은 Blob이 복사되는 속도와 관련하여 SLA가 없는 여분의 대역폭 용량을 사용하여 백그라운드로 실행되며, AzCopy는 복사가 완료되거나 실패할 때까지 복사 상태를 정기적으로 확인합니다.
 
-3.1.0 릴리스에서 제공되는 새로운 `/SyncCopy` 옵션을 사용하면 복사 작업이 일관된 속도를 유지할 수 있습니다. AzCopy는 지정된 소스에서 로컬 메모리로 복사할 Blob을 다운로드한 후 대상 Blob 저장소에 업로드하여 동기 복사를 수행합니다.
+3\.1.0 릴리스에서 제공되는 새로운 `/SyncCopy` 옵션을 사용하면 복사 작업이 일관된 속도를 유지할 수 있습니다. AzCopy는 지정된 소스에서 로컬 메모리로 복사할 Blob을 다운로드한 후 대상 Blob 저장소에 업로드하여 동기 복사를 수행합니다.
 
 	AzCopy /Source:https://myaccount1.blob.core.windows.net/myContainer/ /Dest:https://myaccount2.blob.core.windows.net/myContainer/ /SourceKey:key1 /DestKey:key2 /Pattern:ab /SyncCopy
 
@@ -765,7 +765,7 @@ AzCopy로 명령을 실행할 때마다 AzCopy는 기본 폴더에 저널 파일
 
 	AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/myfolder1/ /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
-지정된 소스가 Azure 파일 공유이면 단일 파일을 복사할 정확한 파일 이름(*예:* `abc.txt`)을 지정하거나 `/S` 옵션을 지정하여 공유의 모든 파일을 재귀 방식으로 복사해야 합니다. 파일 패턴과 `/S` 옵션을 함께 지정하려고 하면 오류가 발생합니다.
+지정된 소스가 Azure 파일 공유이면 단일 파일을 복사할 정확한 파일 이름(\*예:\* `abc.txt`)을 지정하거나 `/S` 옵션을 지정하여 공유의 모든 파일을 재귀 방식으로 복사해야 합니다. 파일 패턴과 `/S` 옵션을 함께 지정하려고 하면 오류가 발생합니다.
 
 ### Azure 파일 공유의 파일 및 폴더를 파일 시스템으로 재귀적으로 다운로드
 
@@ -788,7 +788,7 @@ AzCopy로 명령을 실행할 때마다 AzCopy는 기본 폴더에 저널 파일
 
 ### Azure 파일 저장소에 동기적으로 파일 복사
 
-4.1.0-미리 보기 버전에서 제공되는 새로운 /SyncCopy 옵션을 사용하면 파일 저장소에서 파일 저장소로, 파일 저장소에서 Blob 저장소로, Blob 저장소에서 파일 저장소로 파일을 복사할 수 있습니다.
+4\.1.0-미리 보기 버전에서 제공되는 새로운 /SyncCopy 옵션을 사용하면 파일 저장소에서 파일 저장소로, 파일 저장소에서 Blob 저장소로, Blob 저장소에서 파일 저장소로 파일을 복사할 수 있습니다.
 
 	AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
 
@@ -819,7 +819,7 @@ AzCopy는 다음 명명 규칙을 사용하여 로컬 폴더 또는 Blob 컨테�
 
 생성된 JSON 데이터 파일은 최소 메타데이터의 페이로드 형식을 따릅니다. 이 페이로드 형식에 대한 자세한 내용은 [테이블 서비스 작업을 위한 페이로드 형식](http://msdn.microsoft.com/library/azure/dn535600.aspx)을 참조하세요.
 
-저장소 테이블 엔터티를 저장소 Blob로 내보낼 때 AzCopy는 테이블 엔터티를 로컬 임시 데이터 파일로 먼저 내보낸 다음 Blob에 업로드합니다. 이러한 임시 데이터 파일은 기본 경로인 “<code>%LocalAppData%\Microsoft\Azure\AzCopy</code>”로 저널 파일 폴더에 저장됩니다. 또한 /Z:[journal-file-folder] 옵션을 지정하여 저널 파일 폴더 위치와 임시 데이터 파일 위치를 변경할 수 있습니다. 임시 데이터 파일의 크기는 테이블 엔터티의 크기와 /SplitSize 옵션으로 지정한 크기에 의해 결정되며, 로컬 디스크의 임시 데이터 파일은 Blob에 업로드된 후 즉시 삭제됩니다. 임시 데이터 파일이 삭제되기 전에 저장하려면 로컬 디스크 공간이 충분한지 확인하세요.
+저장소 테이블 엔터티를 저장소 Blob로 내보낼 때 AzCopy는 테이블 엔터티를 로컬 임시 데이터 파일로 먼저 내보낸 다음 Blob에 업로드합니다. 이러한 임시 데이터 파일은 기본 경로인 “<code>%LocalAppData%\\Microsoft\\Azure\\AzCopy</code>”로 저널 파일 폴더에 저장됩니다. 또한 /Z:[journal-file-folder] 옵션을 지정하여 저널 파일 폴더 위치와 임시 데이터 파일 위치를 변경할 수 있습니다. 임시 데이터 파일의 크기는 테이블 엔터티의 크기와 /SplitSize 옵션으로 지정한 크기에 의해 결정되며, 로컬 디스크의 임시 데이터 파일은 Blob에 업로드된 후 즉시 삭제됩니다. 임시 데이터 파일이 삭제되기 전에 저장하려면 로컬 디스크 공간이 충분한지 확인하세요.
 
 ### 내보내기 파일 분할
 
@@ -911,4 +911,4 @@ Azure 저장소 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

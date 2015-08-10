@@ -1,11 +1,12 @@
 <properties
-   pageTitle="사이트 간 가상 네트워크 연결 구성 | Microsoft Azure"
+   pageTitle="관리 포털을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기 | Microsoft Azure"
    description="프레미스 간 구성과 하이브리드 구성에 대해 사이트 간 VPN 연결을 통해 가상 네트워크를 만듭니다."
    services="vpn-gateway"
    documentationCenter=""
    authors="cherylmc"
-   manager="adinah"
-   editor=""/>
+   manager="carolz"
+   editor=""
+   tags="azure-service-management"/>
 
 <tags
    ms.service="vpn-gateway"
@@ -13,12 +14,18 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/30/2015"
+   ms.date="07/23/2015"
    ms.author="cherylmc"/>
 
-# 사이트 간 VPN 연결을 사용하여 가상 네트워크 구성
+# 관리 포털을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기
+
+> [AZURE.SELECTOR]
+- [Azure Portal](vpn-gateway-site-to-site-create.md)
+- [PowerShell - Resource Manager](vpn-gateway-create-site-to-site-rm-powershell.md)
 
 사이트 간 VPN 연결을 만들어 온-프레미스 위치를 가상 네트워크와 연결할 수 있습니다. 이 절차에서는 가상 네트워크를 만들고 새로 만든 VNet 및 온-프레미스 위치 간에 사이트 간 VPN 연결을 만드는 방법을 안내합니다.
+
+Azure에는 현재 Azure 서비스 관리와 ARM(Azure 리소스 관리자)이라는 두 가지 관리 모드가 있습니다. 사이트 간 설정은 가상 네트워크를 만든 모드에 따라 달라집니다. 이러한 지침은 Azure 서비스 관리에 적용됩니다. 대신 Azure 리소스 관리자 사이트 간 VPN 연결을 만들려는 경우 [Azure 리소스 관리자 및 PowerShell을 사용하여 사이트 간 VPN 연결 만들기](vpn-gateway-create-site-to-site-rm-powershell.md)를 참조하세요.
 
 
 ## 시작하기 전에
@@ -86,7 +93,7 @@
 
 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. [사용자 지정 가상 컴퓨터를 만드는 방법](../virtual-machines/virtual-machines-create-custom.md)을 참조하세요.
 
-RRAS를 사용하여 VNet 연결을 구성하려는 경우 [Windows Server 2012 RRAS(라우팅 및 원격 액세스 서비스)를 사용하여 사이트 간 VPN 구성](https://msdn.microsoft.com/library/dn636917.aspx)을 참조하십시오.
+RRAS를 사용하여 VNet 연결을 구성하려는 경우 [Windows Server 2012 RRAS(라우팅 및 원격 액세스 서비스)를 사용하여 사이트 간 VPN 구성](https://msdn.microsoft.com/library/dn636917.aspx)을 참조하세요.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

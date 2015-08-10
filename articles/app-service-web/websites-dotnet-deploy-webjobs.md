@@ -24,7 +24,7 @@
 
 Visual Studio는 WebJob 지원 콘솔 응용 프로그램 프로젝트를 배포할 때 다음 두 가지 작업을 수행합니다.
 
-* 웹 앱의 해당 폴더에 런타임 파일을 복사합니다(연속 WebJob의 경우 *App_Data/jobs/continuous*, 예약된 주문형 WebJob의 경우 *App_Data/jobs/triggered*).
+* 웹 앱의 해당 폴더에 런타임 파일을 복사합니다(연속 WebJob의 경우 \*App\_Data/jobs/continuous\*, 예약된 주문형 WebJob의 경우 *App\_Data/jobs/triggered*).
 * 특정 시간에 실행되도록 예약된 WebJob에 대해 [Azure 스케줄러 작업](#scheduler)을 설정합니다. (연속 WebJob에는 필요하지 않습니다.)
 
 WebJob 지원 프로젝트에는 다음 항목이 추가됩니다.
@@ -200,4 +200,4 @@ WebJob 프로젝트 자체를 배포하려면 **솔루션 탐색기**에서 이 
 * Azure 미리 보기 포털에서 Azure 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

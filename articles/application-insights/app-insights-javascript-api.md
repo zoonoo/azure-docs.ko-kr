@@ -218,4 +218,4 @@ SDK가 장치, 위치 및 사용자에 대해 환경에서 추출하려고 하�
 
 [SDK용 코드](https://github.com/Microsoft/ApplicationInsights-js)를 읽거나 참여합니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

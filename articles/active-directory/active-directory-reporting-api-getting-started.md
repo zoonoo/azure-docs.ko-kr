@@ -137,4 +137,4 @@ Reporting API는 [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 - 감사 보고서에 대한 자세한 내용은 [Azure AD 감사 보고서 이벤트](active-directory-reporting-audit-events.md) 참조
 - Graph API REST 서비스에 대한 자세한 내용은 [Azure AD 보고서 및 이벤트(미리 보기)](https://msdn.microsoft.com/library/azure/mt126081.aspx) 참조
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

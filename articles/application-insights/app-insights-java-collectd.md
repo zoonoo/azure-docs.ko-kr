@@ -143,4 +143,4 @@ Application Insights 리소스에서[메트릭 탐색기 및 차트 추가하기
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

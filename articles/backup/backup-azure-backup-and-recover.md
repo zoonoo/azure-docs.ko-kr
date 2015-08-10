@@ -1,6 +1,6 @@
 <properties pageTitle="Azure Backup - backup and restore from a Windows Server or Windows Client" | Microsoft Azure description="백업 및 Windows Server 또는 Windows 클라이언트에서 복원하는 방법을 알아봅니다.” The article also covers alternate server recovery" services="backup" documentationCenter="" authors="Jim-Parker" manager="jwhit" editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt\_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
 
 # Windows 서버 또는 Windows 클라이언트 컴퓨터에서 백업 및 복원
 이 문서는 Windows 서버 또는 Windows 클라이언트 컴퓨터에서 백업하는 데 필요한 단계를 설명합니다. 또한 동일한 컴퓨터에 백업된 파일을 복원하는 데 필요한 단계와 다른 컴퓨터에 백업된 파일을 복원하는 데 필요한 단계를 다룹니다.
@@ -42,7 +42,7 @@
 
     ![데이터 복구](./media/backup-azure-backup-and-recover/recover.png)
 
-3. 동일한 컴퓨터에 백업된 파일을 복원하려면 **이 서버(*yourmachinename*)** 옵션을 선택합니다.
+3. 동일한 컴퓨터에 백업된 파일을 복원하려면 **이 서버(\*yourmachinename\*)** 옵션을 선택합니다.
 
     ![동일한 컴퓨터](./media/backup-azure-backup-and-recover/samemachine.png)
 
@@ -114,4 +114,4 @@
 ## 다음 단계
 - [Azure 백업 - FAQ](backup-azure-backup-faq.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

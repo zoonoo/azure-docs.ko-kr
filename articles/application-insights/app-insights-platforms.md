@@ -12,14 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/11/2015" 
+	ms.date="07/22/2015" 
 	ms.author="awills"/>
  
 # Application Insights: 플랫폼
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
-
-#### Application Insights와 같이 사용할 수 있나요...?
 
 
 ## 언어
@@ -27,7 +25,7 @@
 + [C#|VB (.NET)](app-insights-start-monitoring-app-health-usage.md)
 + [C#|VB (Windows 스토어)](app-insights-windows-get-started.md)
 + [C++ (Windows 스토어)](app-insights-windows-cpp.md)
-+ [Java](../app-insights-java.md)
++ [Java](../app-insights-java-get-started.md)
 + [JavaScript 웹 페이지](app-insights-web-track-usage.md)
 + [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 + [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
@@ -44,6 +42,7 @@
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [Angular](https://www.npmjs.com/package/angular-applicationinsights)
++ [Microsoft CRM](app-insights-sample-mscrm.md)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
 + [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
 + [SharePoint](app-insights-sharepoint.md)
@@ -58,7 +57,7 @@
 
 +	[Log4Net, NLog 또는 System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 +	[Java, Log4J 또는 Logback](app-insights-java-trace-logs.md)
-+   [의미 체계 로깅](https://github.com/fidmor89/SLAB_AppInsights) - [의미 체계 로깅 응용프로그램 블록](https://msdn.microsoft.com/library/dn440729.aspx) 통합
++   [의미 체계 로깅](https://github.com/fidmor89/SLAB_AppInsights) - [의미 체계 로깅 응용 프로그램 블록](https://msdn.microsoft.com/library/dn440729.aspx)과 통합
 
 ## <a name="projects"></a> 사용자 고유의 SDK를 빌드합니다
 
@@ -73,4 +72,4 @@
 
 <!--Link references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

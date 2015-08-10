@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="PHP에서 테이블 저장소를 사용하는 방법 | Microsoft Azure";" 
+	pageTitle="PHP에서 테이블 저장소를 사용하는 방법 | Microsoft Azure&quot;" 
 	description="PHP의 테이블 서비스를 사용하여 테이블을 작성 및 삭제하고 테이블을 삽입하고 삭제하고 쿼리하는 방법에 대해 알아봅니다." 
 	services="storage" 
 	documentationCenter="php" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="07/29/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -43,7 +43,7 @@ Azure 테이블 서비스에 액세스하는 PHP 응용 프로그램을 만들�
 
 Azure 테이블 서비스 API를 사용하려면 다음을 수행해야 합니다.
 
-1. [require_once][require_once] 문을 사용하여 자동 로더 파일 참조
+1. [require\_once][require_once] 문을 사용하여 자동 로더 파일 참조
 2. 사용할 수 있는 모든 클래스 참조
 
 다음 예제에서는 자동 로더 파일을 포함하고 **ServicesBuilder** 클래스를 참조하는 방법을 보여 줍니다.
@@ -218,7 +218,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 
 ## 방법: 파티션의 모든 엔터티 검색
 
-엔터티 쿼리는 필터를 사용하여 구성됩니다(자세한 내용은 [테이블 및 엔터티 쿼리][filters] 참조). 파티션의 모든 엔터티를 검색하려면 "PartitionKey eq *partition_name*" 필터를 사용합니다. 다음 예제에서는 필터를 **queryEntities** 메서드에 전달하여 `tasksSeattle`파티션의 모든 엔터티를 검색하는 방법을 보여 줍니다.
+엔터티 쿼리는 필터를 사용하여 구성됩니다(자세한 내용은 [테이블 및 엔터티 쿼리][filters] 참조). 파티션의 모든 엔터티를 검색하려면 "PartitionKey eq *partition\_name*" 필터를 사용합니다. 다음 예제에서는 필터를 **queryEntities** 메서드에 전달하여 `tasksSeattle`파티션의 모든 엔터티를 검색하는 방법을 보여 줍니다.
 
 	require_once 'vendor\autoload.php';
 
@@ -479,4 +479,4 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

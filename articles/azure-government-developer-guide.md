@@ -75,31 +75,18 @@ Microsoft는 클라우드 응용 프로그램을 만들고 배포할 수 있는 
 
 공용 Microsoft Azure 및 SQL 데이터베이스 끝점을 Azure Government 특정 끝점에 매핑할 경우 다음 표를 참조하세요.
 
-<table>
-<tr style='font-weight:bold'><td>
-서비스 유형</td><td>	Azure 공용</td><td>	Azure Government
-</td></tr><tr><td>
-Azure Government 홈</td><td>	windowsazure.com	</td><td>microsoftazure.us
-</td></tr><tr><td>
-관리 포털</td><td>	manage.windowsazure.com</td><td>	manage.windowsazure.us
-</td></tr><tr><td>
-일반</td><td>	*.windows.net	</td><td>*.usgovcloudapi.net
-</td></tr><tr><td>
-코어	</td><td>*.core.windows.net	</td><td>*.core.usgovcloudapi.net
-</td></tr><tr><td>
-계산	</td><td>*.cloudapp.net	</td><td>*.usgovcloudapp.net
-</td></tr><tr><td>
-Blob 저장소</td><td>	*.blob.core.windows.net</td><td>	*.blob.core.usgovcloudapi.net
-</td></tr><tr><td>
-큐 저장소	</td><td>*.queue.core.windows.net</td><td>	*.queue.core.usgovcloudapi.net
-</td></tr><tr><td>
-테이블 저장소</td><td>	*.table.core.windows.net	</td><td>*.table.core.usgovcloudapi.net
-</td></tr><tr><td>
-서비스 관리</td><td>	management.core.windows.net</td><td>	management.core.usgovcloudapi.net
 
-</td></tr>
-<tr><td>SQL 데이터베이스</td><td>	*.database.windows.net	</td><td>*.database.usgovcloudapi.net</td></tr>
-</table>
+서비스 유형|Azure 공용|Azure Government
+---|---|---
+Azure Government 홈|windowsazure.com|microsoftazure.us
+관리 포털|manage.windowsazure.com|manage.windowsazure.us
+일반|*.windows.net|*.usgovcloudapi.net
+코어|*.core.windows.net|*.core.usgovcloudapi.net
+계산|*.cloudapp.net|*.usgovcloudapp.net
+Blob 저장소|*.blob.core.windows.net| *.blob.core.usgovcloudapi.net Queue Storage|*.queue.core.windows.net|*.queue.core.usgovcloudapi.net
+테이블 저장소|*.table.core.windows.net|*.table.core.usgovcloudapi.net
+서비스 관리|management.core.windows.net|management.core.usgovcloudapi.net
+SQL 데이터베이스|*.database.windows.net|*.database.usgovcloudapi.net
 
 ## <a name="next"></a>다음 단계
 Azure Government에 대한 자세한 내용과 조직이 액세스하기 위한 자격을 갖추는 방법은 <A href="http://azure.com/gov">http://www.azure.com/gov</a>를 참조하십시오.
@@ -118,4 +105,4 @@ Azure Government에 대한 자세한 내용과 조직이 액세스하기 위한 
 [Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

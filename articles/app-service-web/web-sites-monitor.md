@@ -122,25 +122,25 @@ Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 
 
 웹 앱에 대한 진단을 사용하도록 설정한 후 **구성** 관리 페이지의 맨 아래 있는 **저장** 아이콘을 클릭하여 설정된 옵션을 적용합니다.
 
-> [AZURE.IMPORTANT]로깅 및 추적은 웹 앱을 상당히 요구합니다. 해결 중인 문제를 재현한 후에는 로깅 및 추적을 해제하는 것이 좋습니다.
+> [AZURE.IMPORTANT]자세한 오류 메시지 및 실패한 요청 추적은 웹앱에 상당한 부담을 줍니다. 해결 중인 문제를 재현한 후에는 이러한 기능을 해제하는 것이 좋습니다.
 
 ### 고급 구성 ###
 
 진단은 **구성** 관리 페이지의 **앱 설정** 섹션에 키/값 쌍을 추가하여 더 수정할 수 있습니다. 다음 설정은 **앱 설정**에서 구성할 수 있습니다.
 
-**DIAGNOSTICS_TEXTTRACELOGDIRECTORY**
+**DIAGNOSTICS\_TEXTTRACELOGDIRECTORY**
 
 - 웹 루트를 기준으로 하여 응용 프로그램 로그가 저장되는 위치입니다.
 
-- 기본값: ..\..\LogFiles\Application
+- 기본값: ..\\..\\LogFiles\\Application
 
-**DIAGNOSTICS_TEXTTRACEMAXBUFFERSIZEBYTES**
+**DIAGNOSTICS\_TEXTTRACEMAXBUFFERSIZEBYTES**
 
 - 응용 프로그램 로그를 캡처할 때 사용하는 최대 버퍼 크기입니다. 처음에 정보는 버퍼에 기록된 후 파일 또는 저장소에 플러시됩니다. 이전 정보를 플러시할 수 있는 상태가 되기 전에 새 정보가 버퍼에 기록되는 경우 이전에 로깅된 정보를 손실할 수 있습니다. 응용 프로그램에서 대량의 로그 정보를 생성하는 경우 버퍼 크기를 늘리는 것이 좋습니다.
 
 - 기본값: 10MB
 
-**DIAGNOSTICS_TEXTTRACEMAXLOGFOLDERSIZEBYTES**
+**DIAGNOSTICS\_TEXTTRACEMAXLOGFOLDERSIZEBYTES**
 
 - 파일에 기록된 응용 프로그램 진단이 저장되는 **Application** 폴더의 최대 크기입니다.
 
@@ -277,4 +277,4 @@ Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
 # 다중 분할된 데이터베이스 쿼리
 
 ## 개요
 
-**다중 분할된 데이터베이스 쿼리**는 여러 분할된 데이터베이스 간에 걸친 쿼리를 실행해야 하는 데이터 컬렉션/보고와 같은 작업에 사용됩니다. (이 쿼리는 단일 분할된 데이터베이스에서 모든 작업을 수행하는 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)과 대조됩니다.)
+**다중 분할된 데이터베이스 쿼리**는 여러 분할된 데이터베이스 간에 걸친 쿼리를 실행해야 하는 데이터 컬렉션/보고와 같은 작업에 사용됩니다. (이 쿼리는 단일 분할된 데이터베이스에서 모든 작업을 수행하는 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)과 대조됩니다.) SQL Server Management Studio를 사용하려면 [탄력적 데이터베이스 쿼리 시작](sql-database-elastic-query-getting-started.md)을 참조하십시오.
 
 탄력적 데이터베이스 클라이언트 라이브러리에서는 **Microsoft.Azure.SqlDatabase.ElasticScale.Query**라는 새 네임스페이스를 도입하며, 이 네임스페이스는 단일 쿼리 및 결과를 사용하여 여러 분할된 데이터베이스를 쿼리하는 기능을 제공합니다. 분할된 데이터베이스의 컬렉션에 대해 쿼리 추상화를 제공합니다. 또한 대체 실행 정책, 특히 부분 결과를 제공하여 많은 분할된 데이터베이스를 쿼리할 때 오류를 처리합니다.
 
-다중 분할된 데이터베이스 쿼리의 주 진입점은 **MultiShardConnection** 클래스입니다. 데이터 종속 라우팅의 경우와 마찬가지로 API는 **[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient(v=vs.110).aspx)** 클래스 및 메서드의 친숙한 환경을 따릅니다. **SqlClient** 라이브러리를 사용할 경우 첫 번째 단계에서는 **SqlConnection**을 만든 다음 연결용 **SqlCommand**를 만들고 **Execute**메서드 중 하나를 통해 명령을 실행합니다. 그리고 마지막으로 **SqlDataReader**는 명령 실행에서 반환된 결과 집합을 반복합니다. 다중 분할된 데이터베이스 쿼리 API 경험은 다음 단계를 따릅니다.
+다중 분할된 데이터베이스 쿼리의 주 진입점은 **MultiShardConnection** 클래스입니다. 데이터 종속 라우팅의 경우와 마찬가지로 API는 **[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient(v=vs.110).aspx)** 클래스 및 메서드의 친숙한 환경을 따릅니다. **SqlClient** 라이브러리를 사용할 경우 첫 번째 단계에서는 **SqlConnection**을 만든 다음 연결용 **SqlCommand**를 만들고 **Execute** 메서드 중 하나를 통해 명령을 실행합니다. 그리고 마지막으로 **SqlDataReader**는 명령 실행에서 반환된 결과 집합을 반복합니다. 다중 분할된 데이터베이스 쿼리 API 경험은 다음 단계를 따릅니다.
 
 1. **MultiShardConnection**을 만듭니다.
 2. **MultiShardConnection**용 **MultiShardCommand**를 만듭니다.
@@ -67,4 +67,4 @@
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

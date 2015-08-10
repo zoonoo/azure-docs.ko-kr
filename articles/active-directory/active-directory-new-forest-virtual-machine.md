@@ -3,7 +3,7 @@
 	description="Azure 가상 네트워크의 VM(가상 컴퓨터)에서 새 Active Directory 포리스트를 만드는 방법에 대해 설명하는 자습서입니다." 
 	services="active-directory, virtual-network" 
 	documentationCenter="" 
-	authors="Justinha" 
+	authors="markusvi" 
 	manager="TerryLan" 
 	editor="LisaToft"
 	tags="azure-classic-portal"/>
@@ -14,8 +14,8 @@
 	ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="identity" 
-	ms.date="04/27/2015" 
-	ms.author="Justinha"/>
+	ms.date="07/23/2015" 
+	ms.author="markusvi"/>
 
 
 # Azure 가상 네트워크에 새 Active Directory 포리스트 설치
@@ -25,7 +25,7 @@
 다음 관련 토픽을 참조할 수도 있습니다.
 
 - 이러한 단계를 보여 주는 동영상을 보려면 [Azure 가상 네트워크에 새 Active Directory 포리스트를 설치하는 방법](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)을 참조하세요.
-- 필요한 경우 [사이트 간 VPN을 구성](https://msdn.microsoft.com/library/azure/dn133795.aspx)한 다음 새 포리스트를 설치하거나 온-프레미스 포리스트를 Azure 가상 네트워크로 확장할 수 있습니다. 이러한 단계는 [Azure 가상 네트워크에 복제 Active Directory 도메인 컨트롤러 설치](../virtual-networks-install-replica-active-directory-domain-controller.md)를 참조하세요.
+- 필요한 경우 [사이트 간 VPN을 구성](../vpn-gateway/vpn-gateway-site-to-site-create.md)한 다음 새 포리스트를 설치하거나 온-프레미스 포리스트를 Azure 가상 네트워크로 확장할 수 있습니다. 이러한 단계는 [Azure 가상 네트워크에 복제 Active Directory 도메인 컨트롤러 설치](../virtual-networks-install-replica-active-directory-domain-controller.md)를 참조하세요.
 -  Azure 가상 네트워크에 AD DS(Active Directory 도메인 서비스)를 설치하는 방법에 대한 개념 지침은 [Azure 가상 컴퓨터에 Windows Server Active Directory 배포에 대한 지침](https://msdn.microsoft.com/library/azure/jj156090.aspx)을 참조하세요.
 
 ## 시나리오 다이어그램
@@ -42,7 +42,7 @@ Azure에 도메인 컨트롤러를 설치할 때와 온-프레미스에 설치�
 ------------- | -------------  | ------------
 **도메인 컨트롤러의 IP 주소** | 네트워크 어댑터 속성에 고정 IP 주소 할당 | Set-AzureStaticVNetIP cmdlet을 실행하여 고정 IP 주소 할당
 **DNS 클라이언트 확인 프로그램** | 도메인 구성원의 네트워크 어댑터 속성에 기본 및 대체 DNS 서버 주소 설정 | 가상 네트워크 속성에 DNS 서버 주소 설정
-**Active Directory 데이터베이스 저장소** | 선택적으로 기본 저장소 위치를 C:\에서 변경 | 기본 저장소 위치를 C:\에서 변경해야 함
+**Active Directory 데이터베이스 저장소** | 선택적으로 기본 저장소 위치를 C:\\에서 변경 | 기본 저장소 위치를 C:\\에서 변경해야 함
 
 
 
@@ -121,7 +121,7 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하
 -  [Azure 가상 네트워크에 새 Active Directory 포리스트를 설치하는 방법](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 -  [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 -  [클라우드 전용 가상 네트워크 구성](https://msdn.microsoft.com/library/dn631643.aspx)
--  [사이트 간 VPN 구성](https://msdn.microsoft.com/library/dn133795.aspx)
+-  [사이트 간 VPN 구성](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 -  [Azure 가상 네트워크에 복제 Active Directory 도메인 컨트롤러 설치](../virtual-networks-install-replica-active-directory-domain-controller.md)
 -  [Microsoft Azure IT Pro IaaS: (01) 가상 컴퓨터 기본 사항(영문)](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Microsoft Azure IT Pro IaaS: (05) 가상 네트워크 및 프레미스 간 연결 만들기(영문)](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
@@ -139,4 +139,4 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

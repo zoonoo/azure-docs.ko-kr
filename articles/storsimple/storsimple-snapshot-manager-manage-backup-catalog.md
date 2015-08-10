@@ -181,7 +181,7 @@ StorSimple 스냅숏 관리자는 예비 백업이 생성되는 동안 다음 �
 
     4. 오른쪽 창의 **Microsoft StorSimple 관리 서비스** 아래에서 **서비스 중지**를 클릭합니다.
 
-2. 호스트 컴퓨터에서 C:\ProgramData\Microsoft\StorSimple\BACatalog로 이동합니다.
+2. 호스트 컴퓨터에서 C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog로 이동합니다.
 
     >[AZURE.NOTE]ProgramData는 숨겨진 폴더입니다.
  
@@ -197,7 +197,7 @@ StorSimple 스냅숏 관리자는 예비 백업이 생성되는 동안 다음 �
 
     3. 오른쪽 창의 **Microsoft StorSimple 관리 서비스** 아래에서 **서비스 다시 시작**을 클릭합니다.
 
-5. 호스트 컴퓨터에서 C:\ProgramData\Microsoft\StorSimple\BACatalog로 이동합니다.
+5. 호스트 컴퓨터에서 C:\\ProgramData\\Microsoft\\StorSimple\\BACatalog로 이동합니다.
 
 6. 카탈로그 XML 파일을 삭제하고 사용자가 만든 백업 버전으로 바꿉니다.
 
@@ -207,4 +207,4 @@ StorSimple 스냅숏 관리자는 예비 백업이 생성되는 동안 다음 �
 
 사용 가능한 [StorSimple 스냅숏 관리자 작업 및 워크플로](storsimple-what-is-snapshot-manager.md#storsimple-snapshot-manager-tasks-and-workflows)를 참조하세요.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

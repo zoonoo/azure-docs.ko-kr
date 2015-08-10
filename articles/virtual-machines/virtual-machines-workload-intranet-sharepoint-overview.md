@@ -5,20 +5,21 @@
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2015"
+	ms.date="07/22/2015"
 	ms.author="josephd"/>
 
 # Azure에서 SQL Server AlwaysOn 가용성 그룹을 사용하여 SharePoint 배포
 
-이 항목에는 Azure 인프라 서비스에서 SQL Server AlwaysOn 가용성 그룹을 사용하여 인트라넷 전용 SharePoint 2013 팜을 배포하는 단계별 지침에 대한 링크가 포함되어 있습니다. 팜은 다음 컴퓨터로 구성됩니다.
+이 항목에는 Azure 서비스 관리에서 SQL Server AlwaysOn 가용성 그룹을 사용하여 인트라넷 전용 SharePoint 2013 팜을 배포하는 단계별 지침에 대한 링크가 포함되어 있습니다. 팜은 다음 컴퓨터로 구성됩니다.
 
 - SharePoint 웹 서버 두 대
 - SharePoint 응용 프로그램 서버 두 대
@@ -46,8 +47,8 @@ SQL Server AlwaysOn을 사용하는 이 SharePoint 배포에서는 [SQL Server A
 
 다음 사항을 고려하세요.
 
-- SharePoint 구현 작업에 익숙한 경우 3~5단계의 지침을 조정하여 요구 사항에 가장 적합한 팜을 구축할 수 있습니다.
-- 기존 Azure 하이브리드 클라우드 구현이 이미 있는 경우 1~2단계의 지침을 조정하거나 건너뛰어 적절한 서브넷에서 새 SharePoint 팜을 호스팅할 수 있습니다.
+- SharePoint 구현 작업에 익숙한 경우 3\~5단계의 지침을 조정하여 요구 사항에 가장 적합한 팜을 구축할 수 있습니다.
+- 기존 Azure 하이브리드 클라우드 구현이 이미 있는 경우 1\~2단계의 지침을 조정하거나 건너뛰어 적절한 서브넷에서 새 SharePoint 팜을 호스팅할 수 있습니다.
 - 모든 서버는 Azure 가상 네트워크에서 단일 서브넷에 있습니다. 서브넷 격리에 해당하는 추가 보안을 제공하려는 경우 [네트워크 보안 그룹](https://msdn.microsoft.com/library/azure/dn848316.aspx)을 사용할 수 있습니다.
 
 이 구성의 개념 증명 또는 개발/테스트 환경을 빌드하려면 [테스트용 하이브리드 클라우드에 SharePoint 인트라넷 팜 설치](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)를 참조하세요.
@@ -69,4 +70,4 @@ SQL Server AlwaysOn 가용성 그룹을 사용하는 SharePoint에 대한 자세
 
 [Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

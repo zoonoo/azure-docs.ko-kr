@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="Jim-Parker"
    manager="jwhit"
-   editor=""/> <tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>  
+   editor=""/>
+ <tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt\_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>  
 
 
 # Azure 백업을 사용하여 테이프 인프라 대체
@@ -58,4 +59,4 @@ Azure 백업에 대한 자세한 내용은 참조
 - [Azure 백업 소개](backup-introduction-to-azure-backup.md)
 - [Azure 백업 시도](backup-try-azure-backup-in-10-mins)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

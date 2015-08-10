@@ -41,20 +41,20 @@ Hybrid Runbook Worker에서 Runbook을 시작할 경우 이를 실행할 그룹�
 
 Hybrid Runbook Worker를 위한 Azure 자동화 환경을 준비하려면 다음 단계를 완료합니다.
 
-#### 1. Azure Operational Insights 작업 영역 만들기
+#### 1\. Azure Operational Insights 작업 영역 만들기
 Azure 계정에 Operational Insights 작업 영역이 아직 없는 경우 [Operational Insights 작업 영역 설정](../operational-insights-setup-workspace)의 지침에 따라 작업 영역을 만듭니다. 이미 있는 경우에는 기존 작업 영역을 사용할 수 있습니다.
 
-#### 2. 자동화 솔루션 배포
+#### 2\. 자동화 솔루션 배포
 Operational Insights의 자동화 솔루션은 Runbook 환경을 구성하고 지원하는 데 필요한 구성 요소를 밀어넣습니다. [Operational Insights 솔루션](../operational-insights-add-solution)의 지침에 따라 **Azure 자동화** 팩을 설치합니다.
 
 ### 온-프레미스 컴퓨터 구성
 Hybrid Runbook Worker 역할을 할 각 온-프레미스 컴퓨터에 대해 다음 단계를 완료합니다.
 
 
-#### 1. Microsoft 관리 에이전트 설치
+#### 1\. Microsoft 관리 에이전트 설치
 Microsoft 관리 에이전트는 컴퓨터를 Operational Insights에 연결하고 컴퓨터에서 솔루션의 논리를 실행할 수 있도록 해줍니다. [Operational Insights에 직접 컴퓨터 연결](../operational-insights-direct-agent)의 지침에 따라 온-프레미스 컴퓨터에 에이전트를 설치하고 Operational Insights에 연결합니다.
 
-#### 2. Runbook 환경을 설치하고 Azure 자동화에 연결
+#### 2\. Runbook 환경을 설치하고 Azure 자동화에 연결
 컴퓨터를 Operational Insights에 추가하면 자동화 솔루션이 **Add-HybridRunbookWorker** cmdlet을 포함하는 **HybridRegistration** PowerShell 모듈을 밀어넣습니다. 이 cmdlet을 사용하여 컴퓨터에 Runbook 환경을 설치하고 Azure 자동화에 등록합니다.
 
 관리자 모드에서 PowerShell 세션을 열고 다음 명령을 실행하여 모듈을 가져옵니다.
@@ -75,7 +75,7 @@ Microsoft 관리 에이전트는 컴퓨터를 Operational Insights에 연결하�
 - **Token**은 **키 관리** 블레이드의 **기본 액세스 키**입니다. 자동화 계정의 요소 패널에서 키 아이콘을 클릭하여 키 관리 블레이드를 열 수 있습니다.<br><br>![Hybrid Runbook Worker 개요](media/automation-hybrid-runbook-worker/elements-panel-keys.png)
 
 
-#### 3. PowerShell 모듈 설치
+#### 3\. PowerShell 모듈 설치
 Runbook은 Azure 자동화 환경에 설치된 모듈에 정의된 활동 및 cmdlet을 사용할 수 있습니다. 이러한 모듈은 온-프레미스 컴퓨터에 자동으로 배포되지 않으므로 수동으로 설치해야 합니다. 단, 기본적으로 설치되어 Azure 자동화의 모든 Azure 서비스 및 활동에 사용되는 cmdlet에 대한 액세스를 제공하는 Azure 모듈은 예외입니다.
 
 Hybrid Runbook Worker 기능의 주 목적은 로컬 리소스를 관리하는 것이므로 이러한 리소스를 지원하는 모듈을 설치해야 할 수 있습니다. Windows PowerShell 모듈 설치에 대한 자세한 내용은 [모듈 설치](http://msdn.microsoft.com/library/dd878350.aspx)를 참조하세요.
@@ -136,4 +136,4 @@ Azure 자동화에서 Hybrid Runbook Worker용 Runbook을 편집할 수 있지�
 - [Azure 자동화에서 Runbook 편집](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

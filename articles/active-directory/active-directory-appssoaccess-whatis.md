@@ -78,7 +78,7 @@ Azure AD는 HTML 기반 로그인 페이지가 있는 모든 클라우드 기반
 
 암호 기반 SSO는 브라우저 확장에 의존하여 Azure AD에서 응용 프로그램 및 사용자 관련 정보를 안전하게 검색하고 서비스에 적용합니다. Azure AD에서 지원하는 대부분의 타사 SaaS 응용 프로그램은 이 기능을 지원합니다.
 
-암호 기반 SSO의 경우 최종 사용자의 브라우저는 Windows 7 이상에서 * IE 8, IE9 및 IE10이거나, Windows 7 이상 또는 MacOS X 이상에서 * Chrome일 수 있습니다.
+암호 기반 SSO의 경우 최종 사용자의 브라우저는 Windows 7 이상에서 \* IE 8, IE9 및 IE10이거나, Windows 7 이상 또는 MacOS X 이상에서 \* Chrome일 수 있습니다.
 
 ###기존 Single Sign-On
 
@@ -212,4 +212,4 @@ https://myapps.microsoft.com/contosobuild.com/signin/Twitter/230848d52c8745d4b05
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

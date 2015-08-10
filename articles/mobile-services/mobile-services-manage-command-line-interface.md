@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="명령줄에서 모바일 서비스 관리 - Azure 자습서" 
+	pageTitle="명령줄에서 모바일 서비스 관리 | Azure 모바일 서비스" 
 	description="명령줄 도구를 사용하여 Azure 모바일 서비스를 만들고, 배포하고, 관리하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="Mobile" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="07/22/2015" 
 	ms.author="glenga"/>
 
 # 명령줄 도구를 사용하여 모바일 서비스 자동화 
@@ -25,10 +25,6 @@
 단일 스크립트 또는 배치 파일에 결합될 경우 이러한 개별 명령은 모바일 서비스의 생성, 검증 및 삭제 프로세스를 자동화합니다.
 
 이 항목에서는 Azure 명령줄 도구가 지원하는 몇 개의 일반적인 관리 작업에 대해 다룹니다. 자세한 내용은 [Azure 명령줄 도구 설명서][reference-docs]를 참조하십시오.
-
-<!--+  You must download and install the Azure command-line tools to your local machine. To do this, follow the instructions in the first section of this topic. 
-
-+ (Optional) To be able to execute HTTP requests directly from the command-line, you must use cURL or an equivalent tool. cURL runs on a variety of platforms. Locate and install cURL for your specific platform from the <a href=http://go.microsoft.com/fwlink/p/?LinkId=275676 target="_blank">cURL download  page</a>.-->
 
 ##Azure 명령줄 도구 설치
 
@@ -110,11 +106,7 @@
 
 다음 표는 스크립트 사용 권한 값과 [Azure 관리 포털]의 사용 권한 값을 비교해서 보여 줍니다.
 
-<table border="1" width="100%"><tr><th>스크립트 값</th><th>관리 포털 값</th></tr>
-<tr><td><code>public</code></td><td>모든 사람</td></tr>
-<tr><td><code>application</code>(기본값)</td><td>응용 프로그램 키가 있는 모든 사용자</td></tr>
-<tr><td><code>user</code></td><td>인증된 사용자만</td></tr>
-<tr><td><code>admin </code></td><td>스크립트 및 관리자만</td></tr></table>
+|스크립트 값|관리 포털 값| |========|========| |`public`|모든 사람| |`application`(기본값)|응용 프로그램 키가 있는 모든 사용자| |`user`|인증된 사용자만| |`admin`|스크립트 및 관리자만|
 
 지정한 테이블이 이미 있을 경우 `mobile table create` 명령이 실패합니다. 자동화 스크립트에서 테이블을 삭제한 후 다시 만들어야 합니다.
 
@@ -140,7 +132,7 @@
 
 	azure mobile script upload <service-name> table/<table-name>.<operation>.js
 
-이 작업은 로컬 컴퓨터에서 JavaScript(.js) 파일을 업로드합니다. 파일의 이름은 테이블 및 작업 이름으로부터 구성해야 하고, 명령이 실행되는 위치를 기준으로 `table` 하위 폴더에 위치해야 합니다. 예를들어 다음 작업은 `TodoItems` 테이블에 속하는 새 `insert` 스크립트를 업로드하고 등록합니다.
+이 작업은 로컬 컴퓨터에서 JavaScript(.js) 파일을 업로드합니다. 파일의 이름은 테이블 및 작업 이름으로부터 구성해야 하고, 명령이 실행되는 위치를 기준으로 `table` 하위 폴더에 위치해야 합니다. 예를 들어 다음 작업은 `TodoItems` 테이블에 속하는 새 `insert` 스크립트를 업로드하고 등록합니다.
 
 	azure mobile script upload todolist table/todoitems.insert.js
 
@@ -192,4 +184,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

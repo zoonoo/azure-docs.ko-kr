@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.date="07/29/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -51,7 +51,7 @@ Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편�
 
 ## Azure 저장소 연결 설정
 
-Azure 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY** 환경 변수를 읽고 Azure 저장소 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되지 않으면 **Azure::QueueService**를 사용하기 전에 다음 코드로 계정 정보를 지정해야 합니다.
+Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS\_KEY** 환경 변수를 읽고 Azure 저장소 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되지 않으면 **Azure::QueueService**를 사용하기 전에 다음 코드로 계정 정보를 지정해야 합니다.
 
 	Azure.config.storage_account_name = "<your azure storage account>"
 	Azure.config.storage_access_key = "<your Azure storage access key>"
@@ -69,7 +69,7 @@ Azure 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY** 환�
 
 	azure_queue_service = Azure::QueueService.new
 
-**create_queue()** 메서드를 사용하여 지정된 이름이 있는 큐를 만듭니다.
+**create\_queue()** 메서드를 사용하여 지정된 이름이 있는 큐를 만듭니다.
 
 	begin
 	  azure_queue_service.create_queue("test-queue")
@@ -79,13 +79,13 @@ Azure 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY** 환�
 
 ## 큐에 메시지를 삽입하는 방법
 
-큐에 메시지를 삽입하려면 **create_message()** 메서드를 사용하여 새 메시지를 만들고 이 메시지를 큐에 추가합니다.
+큐에 메시지를 삽입하려면 **create\_message()** 메서드를 사용하여 새 메시지를 만들고 이 메시지를 큐에 추가합니다.
 
 	azure_queue_service.create_message("test-queue", "test message")
 
 ## 다음 메시지를 보는 방법
 
-큐에서 메시지를 제거하지 않고도 **peek_messages()** 메서드를 호출하여 큐의 맨 앞에서 원하는 메시지를 볼 수 있습니다. 기본적으로 **peek_messages()**는 단일 메시지를 볼 수 있게 해 줍니다. 보려는 메시지의 수를 지정할 수도 있습니다.
+큐에서 메시지를 제거하지 않고도 **peek\_messages()** 메서드를 호출하여 큐의 맨 앞에서 원하는 메시지를 볼 수 있습니다. 기본적으로 **peek\_messages()**는 단일 메시지를 볼 수 있게 해 줍니다. 보려는 메시지의 수를 지정할 수도 있습니다.
 
 	result = azure_queue_service.peek_messages("test-queue",
 	  {:number_of_messages => 10})
@@ -94,11 +94,11 @@ Azure 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY** 환�
 
 2단계를 거쳐 큐에서 메시지를 제거할 수 있습니다.
 
-1. **list_messages()**를 호출하면 기본적으로 큐에서 다음 메시지를 가져옵니다. 가져오려는 메시지의 수를 지정할 수도 있습니다. **list_messages()**에서 반환된 메시지는 이 큐의 메시지를 읽는 다른 코드에는 표시되지 않습니다. 표시 제한 시간(초 단위)을 매개 변수로 전달합니다.
+1. **list\_messages()**를 호출하면 기본적으로 큐에서 다음 메시지를 가져옵니다. 가져오려는 메시지의 수를 지정할 수도 있습니다. **list\_messages()**에서 반환된 메시지는 이 큐의 메시지를 읽는 다른 코드에는 표시되지 않습니다. 표시 제한 시간(초 단위)을 매개 변수로 전달합니다.
 
-2. 큐에서 메시지 제거를 완료하려면 **delete_message()**도 호출해야 합니다.
+2. 큐에서 메시지 제거를 완료하려면 **delete\_message()**도 호출해야 합니다.
 
-메시지를 제거하는 이 2단계 프로세스는 코드가 하드웨어 또는 소프트웨어 오류로 인해 메시지를 처리하지 못하는 경우 코드의 다른 인스턴스가 동일한 메시지를 가져와서 다시 시도할 수 있도록 보장합니다. 코드는 메시지가 처리된 직후에 **delete_message()**를 호출합니다.
+메시지를 제거하는 이 2단계 프로세스는 코드가 하드웨어 또는 소프트웨어 오류로 인해 메시지를 처리하지 못하는 경우 코드의 다른 인스턴스가 동일한 메시지를 가져와서 다시 시도할 수 있도록 보장합니다. 코드는 메시지가 처리된 직후에 **delete\_message()**를 호출합니다.
 
 	messages = azure_queue_service.list_messages("test-queue", 30)
 	azure_queue_service.delete_message("test-queue", 
@@ -106,7 +106,7 @@ Azure 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY** 환�
 
 ## 대기 중인 메시지의 콘텐츠 변경 방법
 
-큐에 있는 메시지의 콘텐츠를 변경할 수 있습니다. 아래 코드는 **update_message()** 메서드를 사용하여 메시지를 업데이트합니다. 이 메서드는 큐 메시지의 pop 확인 및 메시지가 큐에 표시되는 시간을 나타내는 UTC 날짜 시간 값이 포함된 튜플을 반환합니다.
+큐에 있는 메시지의 콘텐츠를 변경할 수 있습니다. 아래 코드는 **update\_message()** 메서드를 사용하여 메시지를 업데이트합니다. 이 메서드는 큐 메시지의 pop 확인 및 메시지가 큐에 표시되는 시간을 나타내는 UTC 날짜 시간 값이 포함된 튜플을 반환합니다.
 
 	message = azure_queue_service.list_messages("test-queue", 30)
 	pop_receipt, time_next_visible = azure_queue_service.update_message(
@@ -121,7 +121,7 @@ Azure 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY** 환�
 
 2. 표시하지 않는 제한 시간을 더 길거나 더 짧게 설정하여 코드에서 각 메시지를 완전히 처리하는 시간을 늘리거나 줄일 수 있습니다.
 
-다음 코드 예제는 **list_messages()** 메서드를 사용하여 한 번 호출에 15개의 메시지를 가져옵니다. 그런 다음 각 메시지를 인쇄하고 삭제합니다. 또한 각 메시지에 대해 표시하지 않는 제한 시간을 5분으로 설정합니다.
+다음 코드 예제는 **list\_messages()** 메서드를 사용하여 한 번 호출에 15개의 메시지를 가져옵니다. 그런 다음 각 메시지를 인쇄하고 삭제합니다. 또한 각 메시지에 대해 표시하지 않는 제한 시간을 5분으로 설정합니다.
 
 	azure_queue_service.list_messages("test-queue", 300
 	  {:number_of_messages => 15}).each do |m|
@@ -131,14 +131,14 @@ Azure 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY** 환�
 
 ## 방법: 큐 길이 가져오기
 
-큐에 있는 메시지의 추정된 개수를 가져올 수 있습니다. **get_queue_metadata()** 메서드는 큐 서비스에 대략적인 메시지 개수 및 큐에 대한 메타데이터를 반환하도록 요청합니다.
+큐에 있는 메시지의 추정된 개수를 가져올 수 있습니다. **get\_queue\_metadata()** 메서드는 큐 서비스에 대략적인 메시지 개수 및 큐에 대한 메타데이터를 반환하도록 요청합니다.
 
 	message_count, metadata = azure_queue_service.get_queue_metadata(
 	  "test-queue")
 
 ## 방법: 큐 삭제
 
-큐 및 해당 큐의 모든 메시지를 삭제하려면 큐 개체의 **delete_queue()** 메서드를 호출합니다.
+큐 및 해당 큐의 모든 메시지를 삭제하려면 큐 개체의 **delete\_queue()** 메서드를 호출합니다.
 
 	azure_queue_service.delete_queue("test-queue")
 
@@ -153,4 +153,4 @@ Azure 모듈은 **AZURE_STORAGE_ACCOUNT** 및 **AZURE_STORAGE_ACCESS_KEY** 환�
 이 항목에서 다룬 Azure 큐 서비스와 [서비스 버스 큐를 사용하는 방법](/develop/ruby/how-to-guides/service-bus-queues/) 항목에서 다루는 Azure 서비스 버스 큐를 비교하려면 [Azure 큐 및 Azure 서비스 버스 큐 - 비교 및 대조](http://msdn.microsoft.com/library/azure/hh767287.aspx)를 참조하십시오.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

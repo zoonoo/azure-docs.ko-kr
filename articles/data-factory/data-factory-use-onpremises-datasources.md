@@ -117,7 +117,7 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 데이터 �
 
 	![게이트웨이 - 구성 블레이드][image-data-factory-gateway-configure-blade]
 
-	이는 하나의 단계로 게이트웨이를 다운로드, 설치, 구성 및 등록하는 가장 쉬운 방법(한 번 클릭)입니다. **Microsoft 데이터 관리 게이트웨이 구성 관리자** 응용프로그램이 컴퓨터에 설치된 것을 확인할 수 있습니다. 실행 파일 **ConfigManager.exe**를 **C:\Program Files\Microsoft Data Management Gateway\1.0\Shared** 폴더에서 찾을 수도 있습니다.
+	이는 하나의 단계로 게이트웨이를 다운로드, 설치, 구성 및 등록하는 가장 쉬운 방법(한 번 클릭)입니다. **Microsoft 데이터 관리 게이트웨이 구성 관리자** 응용프로그램이 컴퓨터에 설치된 것을 확인할 수 있습니다. 실행 파일 **ConfigManager.exe**를 **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared** 폴더에서 찾을 수도 있습니다.
 
 	또한 이 블레이드에서 링크를 클릭하여 게이트웨이를 수동으로 다운로드하여 설치하고 **REGISTER WITH KEY(키를 사용하여 등록)** 텍스트 상자에 표시된 키를 사용하여 등록할 수도 있습니다.
 	
@@ -166,29 +166,33 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 데이터 �
 4.	JSON 창에서 다음을 수행합니다.
 	1.	**gatewayName** 속성에 대해 **adftutorialgateway**를 입력하여 큰따옴표 안의 모든 텍스트를 바꿉니다.  
 	2.	**SQL 인증**을 사용하는 경우 
-		1.	**connectionString** 속성에 대해 **<servername>**, **<databasename>**, **<username>** 및 **<password>**를 온-프레미스 SQL Server, 데이터베이스, 사용자 계정의 이름 및 암호로 바꿉니다. 인스턴스 이름을 지정하려면 이스케이프 문자를 사용합니다. 예: **server\instancename**. 	
-		2.	마지막 두 속성(**username** 및 **password**)을 JSON 파일에서 제거하고 남은 JSON 스크립트의 마지막 줄 끝에 있는 **쉼표(,)** 문자를 제거합니다.
+		1.	**connectionString** 속성에 대해 **<servername>**, **<databasename>**, **<username>** 및 **<password>**를 온-프레미스 SQL Server, 데이터베이스, 사용자 계정의 이름 및 암호로 바꿉니다. 인스턴스 이름을 지정하려면 이스케이프 문자를 사용합니다. 예: **server\\instancename**. 	
+		2.	마지막 두 속성(\*\*username\*\* 및 **password**)을 JSON 파일에서 제거하고 남은 JSON 스크립트의 마지막 줄 끝에 있는 **쉼표(,)** 문자를 제거합니다.
 		
 				{
-	    			"name": "SqlServerLinkedService",
-	    			"properties": {
-		        		"type": "OnPremisesSqlLinkedService",
-		        		"ConnectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
-		        		"gatewayName": "adftutorialgateway"
-	    			}
+				  "name": "SqlServerLinkedService",
+				  "properties": {
+				    "type": "OnPremisesSqlServer",
+				    "typeProperties": {
+				      "ConnectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
+				      "gatewayName": "adftutorialgateway"
+				    }
+				  }
 				}
 	3.	**Windows 인증**을 사용하는 경우
 		1. **connectionString** 속성에 대해 **<servername>** 및 **<databasename>**을 온-프레미스 SQL Server 및 데이터베이스의 이름으로 바꿉니다. **통합 보안**을 **True**로 설정합니다. 연결 문자열에서 **ID** 및 **암호**를 제거합니다.
 			
 				{
-    				"name": "SqlServerLinkedService",
-    				"properties": {
-        				"type": "OnPremisesSqlLinkedService",
-        				"ConnectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
-		   				"gatewayName": "adftutorialgateway",
-				        "username": "<Specify user name if you are using Windows Authentication>",
-				        "password": "<Specify password for the user account>"
-    				}
+				  "name": "SqlServerLinkedService",
+				  "properties": {
+				    "type": "OnPremisesSqlServer",
+				    "typeProperties": {
+				      "ConnectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
+				      "gatewayName": "adftutorialgateway",
+				      "username": "<Specify user name if you are using Windows Authentication>",
+				      "password": "<Specify password for the user account>"
+				    }
+				  }
 				}		
 		
 6. 도구 모음에서 **배포**를 클릭하여 SqlServerLinkedService를 배포합니다. 제목 표시줄에 **연결된 서비스가 성공적으로 생성됨** 메시지가 표시되는지 확인합니다. 또한 왼쪽의 트리 뷰에 **SqlServerLinkedService**가 표시됩니다.
@@ -223,7 +227,7 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 데이터 �
 
 ### 자습서에 필요한 온-프레미스 SQL Server 준비
 
-1. 온-프레미스 SQL Server 연결된 서비스(**SqlServerLinkedService**)에 대해 지정된 데이터베이스에서, 다음 SQL 스크립트를 사용하여 데이터베이스에 **emp** 테이블을 만듭니다.
+1. 온-프레미스 SQL Server 연결된 서비스(\*\*SqlServerLinkedService\*\*)에 대해 지정된 데이터베이스에서, 다음 SQL 스크립트를 사용하여 데이터베이스에 **emp** 테이블을 만듭니다.
 
 
         CREATE TABLE dbo.emp
@@ -249,37 +253,35 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 데이터 �
 1.	**데이터 팩터리 편집기**의 명령 모음에서 **새 데이터 집합**을 클릭하고 **온-프레미스 SQL**을 클릭합니다. 
 2.	오른쪽 창의 JSON을 다음 텍스트로 바꿉니다.    
 
-        {
-    		"name": "EmpOnPremSQLTable",
-    		"properties":
-    		{
-        		"location":
-        		{
-            		"type": "OnPremisesSqlServerTableLocation",
-            		"tableName": "emp",
-            		"linkedServiceName": "SqlServerLinkedService"
-        		},
-        		"availability": 
-        		{
-            		"frequency": "Hour",
-            		"interval": 1,       
-	    			"waitOnExternal":
-	    			{
-        				"retryInterval": "00:01:00",
-	        			"retryTimeout": "00:10:00",
-	        			"maximumRetry": 3
-	    			}
-		  
-        		}
-    		}
+		{
+		  "name": "EmpOnPremSQLTable",
+		  "properties": {
+		    "type": "SqlServerTable",
+		    "linkedServiceName": "SqlServerLinkedService",
+		    "typeProperties": {
+		      "tableName": "emp"
+		    },
+		    "external": true,
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
+		    },
+		    "policy": {
+		      "externalData": {
+		        "retryInterval": "00:01:00",
+		        "retryTimeout": "00:10:00",
+		        "maximumRetry": 3
+		      }
+		    }
+		  }
 		}
 
 	다음 사항에 유의하세요.
 	
-	- location **type**을 **OnPremisesSqlServerTableLocation**으로 설정합니다.
+	- **type**을 **SqlServerTable**로 설정합니다.
 	- **tablename**을 **emp**로 설정합니다.
 	- **linkedServiceName**을 **SqlServerLinkedService**(2단계에서 만든 연결된 서비스)로 설정합니다.
-	- Azure 데이터 팩터리의 다른 파이프라인에서 생성되지 않는 입력 테이블의 경우 JSON에서 **waitOnExternal** 섹션을 지정해야 합니다. 이 섹션은 입력 데이터가 Azure 데이터 팩터리 서비스 외부에서 생성되었음을 나타냅니다.   
+	- Azure 데이터 팩터리의 다른 파이프라인에서 생성되지 않는 입력 테이블의 경우 **external** 속성을 **true**로 설정해야 합니다. 필요한 경우 **externalData** 섹션에서 정책을 지정할 수 있습니다.   
 
 	JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조][json-script-reference]를 참조하세요.
 
@@ -292,36 +294,32 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 데이터 �
 2.	오른쪽 창의 JSON을 다음 텍스트로 바꿉니다. 
 
 		{
-    		"name": "OutputBlobTable",
-    		"properties":
-    		{
-        		"location": 
-        		{
-            		"type": "AzureBlobLocation",
-            		"folderPath": "adftutorial/outfromonpremdf",
-            		"format":
-            		{
-                		"type": "TextFormat",
-                		"columnDelimiter": ","
-            		},
-            		"linkedServiceName": "StorageLinkedService"
-        		},
-        		"availability": 
-        		{
-            		"frequency": "Hour",
-            		"interval": 1
-        		}
-    		}
+		  "name": "OutputBlobTable",
+		  "properties": {
+		    "type": "AzureBlob",
+		    "linkedServiceName": "StorageLinkedService",
+		    "typeProperties": {
+		      "folderPath": "adftutorial/outfromonpremdf",
+		      "format": {
+		        "type": "TextFormat",
+		        "columnDelimiter": ","
+		      }
+		    },
+		    "availability": {
+		      "frequency": "Hour",
+		      "interval": 1
+		    }
+		  }
 		}
   
 	다음 사항에 유의하세요.
 	
-	- location **type**을 **AzureBlobLocation**으로 설정합니다.
+	- **type**을 **AzureBlob**으로 설정합니다.
 	- **linkedServiceName**을 **StorageLinkedService**(2단계에서 만든 연결된 서비스)로 설정합니다.
 	- **folderPath**를 **adftutorial/outfromonpremdf**로 설정합니다. 여기서 outfromonpremdf는 adftutorial 컨테이너의 폴더입니다. **adftutorial** 컨테이너만 만들면 됩니다.
-	- **가용성**은 **매시간** (**빈도**는 **시간**으로, **간격**은 **1**로 설정)로 설정됩니다. 데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다. 
+	- **가용성**은 **매시간** (\*\*빈도\*\*는 **시간**으로, **간격**은 **1**로 설정)로 설정됩니다. 데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다. 
 
-	**입력 테이블**의 **fileName**을 지정하지 않는 경우 입력 폴더(**folderPath**)의 모든 파일/Blob이 입력으로 간주됩니다. JSON에서 fileName을 지정하는 경우에는 지정한 파일/Blob만 입력으로 간주됩니다. 예제는 [자습서][adf-tutorial]의 샘플 파일을 참조하세요.
+	**입력 테이블**의 **fileName**을 지정하지 않는 경우 입력 폴더(\*\*folderPath\*\*)의 모든 파일/Blob이 입력으로 간주됩니다. JSON에서 fileName을 지정하는 경우에는 지정한 파일/Blob만 입력으로 간주됩니다. 예제는 [자습서][adf-tutorial]의 샘플 파일을 참조하세요.
  
 	**출력 테이블**의 **fileName**을 지정하지 않는 경우, **folderPath**에 생성되는 파일의 이름은 다음과 같은 형식으로 지정됩니다. Data.<Guid>.txt (예: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
@@ -351,57 +349,57 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 데이터 �
 2.	오른쪽 창의 JSON을 다음 텍스트로 바꿉니다.   
 
 
-        {
-			"name": "ADFTutorialPipelineOnPrem",
-    		"properties":
-    		{
-        		"description" : "This pipeline has one Copy activity that copies data from an on-prem SQL to Azure blob",
-	       		 "activities":
-	        	[
-			    	{
-						"name": "CopyFromSQLtoBlob",
-						"description": "Copy data from on-prem SQL server to blob",		
-						"type": "CopyActivity",
-						"inputs": [ {"name": "EmpOnPremSQLTable"} ],
-						"outputs": [ {"name": "OutputBlobTable"} ],
-						"transformation":
-						{
-							"source":
-							{                               
-								"type": "SqlSource",
-								"sqlReaderQuery": "select * from emp"
-							},
-							"sink":
-							{
-								"type": "BlobSink"
-							}	
-						},
-						"Policy":
-						{
-							"concurrency": 1,
-							"executionPriorityOrder": "NewestFirst",
-							"style": "StartOfInterval",
-							"retry": 0,
-							"timeout": "01:00:00"
-						}		
-
-				     }
-	        	],
-				"start": "2015-02-13T00:00:00Z",
-        		"end": "2015-02-14T00:00:00Z",
-        		"isPaused": false
-			}
+		{
+		  "name": "ADFTutorialPipelineOnPrem",
+		  "properties": {
+		    "description": "This pipeline has one Copy activity that copies data from an on-prem SQL to Azure blob",
+		    "activities": [
+		      {
+		        "name": "CopyFromSQLtoBlob",
+		        "description": "Copy data from on-prem SQL server to blob",
+		        "type": "Copy",
+		        "inputs": [
+		          {
+		            "name": "EmpOnPremSQLTable"
+		          }
+		        ],
+		        "outputs": [
+		          {
+		            "name": "OutputBlobTable"
+		          }
+		        ],
+		        "typeProperties": {
+		          "source": {
+		            "type": "SqlSource",
+		            "sqlReaderQuery": "select * from emp"
+		          },
+		          "sink": {
+		            "type": "BlobSink"
+		          }
+		        },
+		        "Policy": {
+		          "concurrency": 1,
+		          "executionPriorityOrder": "NewestFirst",
+		          "style": "StartOfInterval",
+		          "retry": 0,
+		          "timeout": "01:00:00"
+		        }
+		      }
+		    ],
+		    "start": "2015-02-13T00:00:00Z",
+		    "end": "2015-02-14T00:00:00Z",
+		    "isPaused": false
+		  }
 		}
-
 	다음 사항에 유의하세요.
  
-	- activities 섹션에는 **type**이 **CopyActivity**로 설정된 작업 하나밖에 없습니다.
+	- activities 섹션에는 **type**이 **Copy**로 설정된 작업 하나밖에 없습니다.
 	- 작업에 대한 **입력**을 **EmpOnPremSQLTable**로 설정하고 작업에 대한 **출력**을 **OutputBlobTable**로 설정합니다.
-	- **transformation** 섹션에서 **SqlSource**를 **source type**으로 지정하고 **BlobSink를** **sink type**으로 지정합니다. - **SqlSource**의 **sqlReaderQuery** 속성에 대해 SQL 쿼리 **select * from emp**를 지정합니다.
+	- **transformation** 섹션에서 **SqlSource**를 **source type**으로 지정하고 **BlobSink를** **sink type**으로 지정합니다. - **SqlSource**의 **sqlReaderQuery** 속성에 대해 SQL 쿼리 **select \* from emp**를 지정합니다.
 
 	**start** 속성 값을 현재 날짜로 바꾸고 **end** 값을 다음 날짜로 바꿉니다. start 및 end 날짜/시간은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항이지만 이 자습서에서는 사용합니다.
 	
-	**end** 속성 값을 지정하지 않는 경우 "**start + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **end** 속성 값으로 **9/9/9999**를 지정합니다.
+	**end** 속성 값을 지정하지 않는 경우 "\*\*start + 48시간\*\*"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **end** 속성 값으로 **9/9/9999**를 지정합니다.
 	
 	각 Azure 데이터 팩터리 테이블에 대해 정의된 **가용성** 속성을 기준으로 데이터 조각이 처리되는 기간이 정의됩니다.
 	
@@ -465,7 +463,7 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 데이터 �
 	![작업 실행 세부 정보 블레이드][image-data-factory-activity-run-details]
 
 11. **X**를 클릭하여 모든 블레이드를 닫아 **ADFTutorialOnPremDF**의 홈 블레이드로 돌아옵니다.
-14. (선택 사항) **파이프라인**을 클릭하고 **ADFTutorialOnPremDF**를 클릭한 다음 입력 테이블(**Consumed**) 또는 출력 테이블(**Produced**)을 드릴스루합니다.
+14. (선택 사항) **파이프라인**을 클릭하고 **ADFTutorialOnPremDF**를 클릭한 다음 입력 테이블(\*\*Consumed\*\*) 또는 출력 테이블(\*\*Produced\*\*)을 드릴스루합니다.
 15. **Azure 저장소 탐색기**와 같은 도구를 사용하여 출력을 확인합니다.
 
 	![Azure 저장소 탐색기][image-data-factory-stroage-explorer]
@@ -512,7 +510,7 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 데이터 �
 		PS C:\> $Key = New-AzureDataFactoryGatewayKey -GatewayName MyGateway -ResourceGroupName ADF -DataFactoryName $df 
 
 	
-4. Azure PowerShell에서 **C:\Program Files\Microsoft Data Management Gateway\1.0\PowerShellScript** 폴더로 전환하고 다음 명령에 표시된 대로 지역 변수 **$Key**와 연결된 **RegisterGateway.ps1** 스크립트를 실행하여 컴퓨터에 설치된 클라이언트 에이전트를 앞에서 만든 논리 게이트웨이에 등록합니다.
+4. Azure PowerShell에서 **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\PowerShellScript\*\* 폴더로 전환하고 다음 명령에 표시된 대로 지역 변수 **$Key**와 연결된 **RegisterGateway.ps1** 스크립트를 실행하여 컴퓨터에 설치된 클라이언트 에이전트를 앞에서 만든 논리 게이트웨이에 등록합니다.
 
 		PS C:\> .\RegisterGateway.ps1 $Key.GatewayKey
 		
@@ -627,4 +625,4 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 데이터 �
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

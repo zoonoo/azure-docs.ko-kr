@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿 작성
@@ -218,7 +218,7 @@ resources 섹션에서 배포 또는 업데이트되는 리소스를 정의합�
 
 | 요소 이름 | 필수 | 설명
 | :----------------------: | :------: | :----------
-| apiVersion | 예 | 리소스를 지원하는 API의 버전입니다.
+| apiVersion | 예 | 리소스를 지원하는 API의 버전입니다. 리소스에 사용할 수 있는 버전 및 스키마는 [Azure 리소스 관리자 스키마](https://github.com/Azure/azure-resource-manager-schemas)를 참조하세요.
 | type | 예 | 리소스 유형입니다. 이 값은 리소스 공급자의 네임스페이스와 리소스 공급자가 지원하는 리소스 유형을 조합한 값입니다.
 | name | 예 | 리소스의 이름입니다. 이 이름은 RFC3986에 정의된 URI 구성 요소 제한을 따라야 합니다.
 | location | 아니요 | 제공된 리소스의 지역적 위치를 지원합니다.
@@ -311,7 +311,9 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
 ## 고급 시나리오
 이 항목에서는 템플릿에 대한 기본 지식을 제공합니다. 하지만 시나리오에 따라서는 고급 작업이 필요할 수 있습니다.
 
-두 템플릿을 병합하거나 부모 템플릿 내에서 자식 템플릿을 사용해야 할 수 있습니다. 자세한 내용은 [중첩된 템플릿](../resource-group-advanced-template#nested-template)을 참조하세요
+두 템플릿을 병합하거나 부모 템플릿 내에서 자식 템플릿을 사용해야 할 수 있습니다. 자세한 내용은 [Azure 리소스 관리자에서 연결된 템플릿 사용](resource-group-linked-templates.md)을 참조하세요.
+
+리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 
 다른 리소스 그룹 내에 있는 리소스를 사용해야 할 수도 있습니다. 여러 리소스 그룹에서 공유하는 저장소 계정 또는 가상 네트워크에서 작업하는 경우 흔한 일입니다. 자세한 내용은 참조는 [resourceId 함수](../resource-group-template-functions#resourceid)를 참조하세요.
 
@@ -319,7 +321,7 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
 다음 템플릿은 웹 앱을 배포하고 .zip 파일에서 코드를 사용하여 프로비전합니다.
 
     {
-       "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
        "contentVersion": "1.0.0.0",
        "parameters": {
          "siteName": {
@@ -398,11 +400,9 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
     }
 
 ## 다음 단계
-- [Azure 리소스 관리자 템플릿 함수](./resource-group-template-functions.md)
-- [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](azure-portal/resource-group-template-deploy.md)
-- [고급 템플릿 작업](./resource-group-advanced-template.md)
-- [Azure에서 예측 가능하도록 복잡한 응용 프로그램을 배포](app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Azure 리소스 관리자 개요](./resource-group-overview.md)
-- [Azure 리소스 관리자 스키마](https://github.com/Azure/azure-resource-manager-schemas)
+- 템플릿 내에서 사용할 수 있는 함수에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 함수](resource-group-template-functions.md)를 참조하세요.
+- 만든 템플릿을 배포하는 방법을 보려면 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](azure-portal/resource-group-template-deploy.md)를 참조하세요.
+- 응용 프로그램 배포에 대한 자세한 예제는 [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
+- 사용할 수 있는 스키마는 [Azure 리소스 관리자 스키마](https://github.com/Azure/azure-resource-manager-schemas)를 참조하세요.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

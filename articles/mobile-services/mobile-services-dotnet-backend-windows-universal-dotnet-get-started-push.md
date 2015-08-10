@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # 모바일 서비스 앱에 푸시 알림 추가
@@ -34,14 +34,13 @@
 
 [AZURE.INCLUDE [mobile-services-create-new-push-vs2013](../../includes/mobile-services-create-new-push-vs2013.md)]
 
-<ol start="6">
-<li><p><code>\Services\MobileServices\your_service_name</code> 프로젝트 폴더로 이동하여 생성된 push.register.cs 코드 파일을 열고 장치의 채널 URL을 알림 허브에 등록하는 <strong>UploadChannel</strong> 메서드를 검사합니다.</p></li> 
-<li><p>공유되는 App.xaml.cs 코드 파일을 열고 새 <strong>UploadChannel</strong> 메서드 호출이 <strong>OnLaunched</strong> 이벤트 처리기에 추가되었음을 확인합니다.</p> <p>따라서 앱을 시작할 때마다 장치 등록을 시도합니다.</p></li>
-<li><p>이전 단계를 반복하여 Windows Phone 스토어 앱 프로젝트에 푸시 알림을 추가한 다음 공유되는 App.xaml.cs 파일에서 추가 <strong>UploadChannel</strong> 호출과 나머지 <code>#if...#endif</code> 조건부 래퍼를 제거합니다.</p> <p>이제 두 프로젝트가 모두 단일 <strong>UploadChannel</strong> 호출을 공유할 수 있습니다.</p>
-</li>
-</ol>
+&nbsp;&nbsp;6. `\Services\MobileServices\your_service_name` 프로젝트 폴더로 이동하여 생성된 push.register.cs 코드 파일을 열고 장치의 채널 URL을 알림 허브에 등록하는 **UploadChannel** 메서드를 검사합니다.
+ 
+&nbsp;&nbsp;7. 공유되는 App.xaml.cs 코드 파일을 열고 새 **UploadChannel** 메서드 호출이 **OnLaunched** 이벤트 처리기에 추가되었음을 확인합니다. 따라서 앱을 시작할 때마다 장치 등록을 시도합니다.
 
-> [AZURE.NOTE]<code>#if...#endif</code> 래핑 [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) 정의를 앱의 두 버전에서 모두 사용되는 래핑 해제된 단일 정의로 통합하여 생성되는 코드를 간소화할 수도 있습니다.
+&nbsp;&nbsp;8. 이전 단계를 반복하여 Windows Phone 스토어 앱 프로젝트에 푸시 알림을 추가한 다음 공유되는 App.xaml.cs 파일에서 추가 **UploadChannel** 호출과 나머지 `#if...#endif` 조건부 래퍼를 제거합니다. 이제 두 프로젝트가 모두 단일 **UploadChannel** 호출을 공유할 수 있습니다.
+
+> [AZURE.NOTE]`#if...#endif` 래핑 [MobileServiceClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx) 정의를 앱의 두 버전에서 모두 사용되는 래핑 해제된 단일 정의로 통합하여 생성되는 코드를 간소화할 수도 있습니다.
 
 이제 앱에서 푸시 알림을 사용하도록 설정했으므로 모바일 서비스가 푸시 알림을 보내도록 업데이트해야 합니다.
 
@@ -59,16 +58,17 @@
 
 >[AZURE.NOTE]테스트 및 개발 작업에는 프로덕션 모바일 서비스를 사용하지 말고, 항상 별도의 테스트용 스테이징 서비스에 모바일 서비스 프로젝트를 게시하세요.
 
-<ol start="5">
-<li><p>공유되는 App.xaml.cs 프로젝트 파일을 열고 <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> 클래스의 새 인스턴스를 만드는 코드 줄을 찾아 Azure에서 실행되는 모바일 서비스에 액세스합니다.</p></li>
-<li><p>이 코드를 주석 처리하고 같은 이름의 새 <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a>를 만들되 다음과 같이 생성자에서 로컬 호스트의 URL을 사용하는 코드를 추가합니다.</p>
-<pre><code>// This MobileServiceClient has been configured to communicate with your local
-// test project for debugging purposes.
-public static MobileServiceClient todolistClient = new MobileServiceClient(
-	"http://localhost:4584"
-);
-</code></pre><p>이 <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a>를 사용하는 경우 앱은 Azure에서 호스트되는 버전이 아닌 로컬 서비스에 연결합니다. 다시 이전과 같이 Azure에서 호스트되는 모바일 서비스에 대해 앱을 실행하려면 원래 <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> 정의로 다시 변경하면 됩니다.</p></li>
-</ol>
+&nbsp;&nbsp;5. 공유되는 App.xaml.cs 프로젝트 파일을 열고 [MobileServiceClient] 클래스의 새 인스턴스를 만드는 코드 줄을 찾아 Azure에서 실행되는 모바일 서비스에 액세스합니다.
+
+&nbsp;&nbsp;6. 이 코드를 주석 처리하고 같은 이름의 새 [MobileServiceClient]를 만들되 다음과 같이 생성자에서 로컬 호스트의 URL을 사용하는 코드를 추가합니다.
+
+	// This MobileServiceClient has been configured to communicate with your local
+	// test project for debugging purposes.
+	public static MobileServiceClient todolistClient = new MobileServiceClient(
+		"http://localhost:4584"
+	);
+
+&nbsp;&nbsp;이 [MobileServiceClient]를 사용하는 경우 앱은 Azure에서 호스트되는 버전이 아닌 로컬 서비스에 연결합니다. 다시 이전과 같이 Azure에서 호스트되는 모바일 서비스에 대해 앱을 실행하려면 원래 [MobileServiceClient] 정의로 다시 변경하면 됩니다.
 
 ##<a id="test"></a> 앱에서 푸시 알림 테스트
 
@@ -107,6 +107,6 @@ public static MobileServiceClient todolistClient = new MobileServiceClient(
 [알림 허브 정의]: ../notification-hubs-overview.md
 
 [Azure 모바일 서비스용 .NET 클라이언트를 사용하는 방법]: mobile-services-windows-dotnet-how-to-use-client-library.md
- 
+[MobileServiceClient]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

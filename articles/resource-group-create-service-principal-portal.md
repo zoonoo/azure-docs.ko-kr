@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="tomfitz"/>
 
 # Azure 포털을 사용하여 새 Azure 서비스 사용자 만들기
@@ -94,30 +94,12 @@
 * **키** - 암호로 사용합니다.
 
 ## 다음 단계
-시작하기
 
-- [Azure 리소스 관리자 개요](./resource-group-overview.md)  
-- [Azure 리소스 관리자로 Azure PowerShell 사용](./powershell-azure-resource-manager.md)
-- [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](virtual-machines/xplat-cli-azure-resource-manager.md)  
-- [Azure 포털을 사용하여 Azure 리소스 관리](azure-portal/resource-group-portal.md)  
-  
-응용 프로그램 만들기 및 배포
-  
-- [Azure 리소스 관리자 템플릿 작성](./resource-group-authoring-templates.md)  
-- [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](azure-portal/resource-group-template-deploy.md)  
-- [Azure에서 리소스 그룹 배포 문제 해결](virtual-machines/resource-group-deploy-debug.md)  
-- [Azure 리소스 관리자 템플릿 함수](./resource-group-template-functions.md)  
-- [고급 템플릿 작업](./resource-group-advanced-template.md)  
-- [.NET 라이브러리 및 템플릿을 사용하여 Azure 리소스 배포](virtual-machines/arm-template-deployment.md)
-  
-리소스 구성
-  
-- [태그를 사용하여 Azure 리소스 구성](./resource-group-using-tags.md)  
-  
-액세스 관리 및 감사
-  
-- [리소스에 대한 액세스 관리 및 감사](azure-portal/resource-group-rbac.md)  
-- [Azure 리소스 관리자를 사용하여 서비스 사용자 인증](./resource-group-authenticate-service-principal.md)  
+- 보안 정책 지정에 대해 자세히 알아보려면 [리소스에 대한 액세스 관리 및 감사](azure-portal/resource-group-rbac.md)를 참조하세요.  
+- 서비스 주체에게 리소스 액세스를 허용하는 과정은 [Azure 리소스 관리자를 사용하여 서비스 사용자 인증](./resource-group-authenticate-service-principal.md)을 참조하세요.  
+- 역할 기반 액세스에 대한 개요는 [Microsoft Azure 포털에서의 역할 기반 액세스 제어](role-based-access-control-configure.md)를 참조하세요.
+- Azure 리소스 관리자에서 보안 구현에 대한 지침은 [Azure 리소스 관리자에 대한 보안 고려 사항](best-practices-resource-manager-security.md)을 참조하세요.
+
 
 <!-- Images. -->
 [1]: ./media/resource-group-create-service-principal-portal/active-directory.png
@@ -134,4 +116,4 @@
 [12]: ./media/resource-group-create-service-principal-portal/add-icon.png
 [13]: ./media/resource-group-create-service-principal-portal/save-icon.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

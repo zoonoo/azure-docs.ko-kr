@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="모바일 서비스를 사용하여 Blob 저장소에 이미지 업로드(Windows Phone) | 모바일 서비스" 
-	description="모바일 서비스를 사용하여 Azure Blob 저장소에 이미지를 업로드하는 방법에 대해 알아봅니다." 
+	pageTitle="Windows Phone Silverlight 앱에서 Azure 저장소에 이미지 업로드 | Azure 모바일 서비스" 
+	description="모바일 서비스를 사용하여 Windows Phone Silverlight 앱에서 Azure Blob 저장소로 이미지를 업로드하는 방법에 대해 알아봅니다." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
 	services="mobile-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # 모바일 서비스를 사용하여 Azure 저장소에 이미지 업로드
@@ -103,4 +103,4 @@ SAS를 사용하여 Blob 저장소에 이미지를 업로드하려면 먼저 Win
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

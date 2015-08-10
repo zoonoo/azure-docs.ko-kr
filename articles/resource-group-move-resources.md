@@ -44,6 +44,7 @@
 - 모바일 고객 관리
 - Operational Insights
 - Redis 캐시
+- Azure 웹앱(일부 [제한 사항](app-service-web/app-service-move-resources.md) 적용)
 
 새 리소스 그룹으로의 이동은 지원하지만 새 구독으로의 이동은 지원하지 않는 서비스는 다음과 같습니다.
 
@@ -95,4 +96,4 @@
 - [Azure 포털을 사용하여 리소스 관리](azure-portal/resource-group-portal.md)
 - [태그를 사용하여 리소스 구성](./resource-group-using-tags.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

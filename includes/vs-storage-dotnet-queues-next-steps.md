@@ -1,12 +1,13 @@
 
-Now that you've learned the basics of Azure queue storage, follow these links to learn about more complex storage tasks.
+이제 Azure 큐 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀더 복잡한 저장소 작업에 대해 알아보세요.
 
-- View the Queue service reference documentation in the [Storage Client Library for .NET](http://go.microsoft.com/fwlink/?LinkID=390731) reference for complete details about available APIs.
-- Learn more about using Queue storage at [How to use Queue storage from .NET](storage-dotnet-how-to-use-queues.md)
-- Learn about more advanced tasks you can perform with Azure Storage at [Storing and Accessing Data in Azure](https://msdn.microsoft.com/library/azure/gg433040.aspx).    
-- Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](../app-service/websites-dotnet-webjobs-sdk.md)
-- View more feature guides to learn about additional options for storing data in Azure.
-  - Use [Blob Storage](./storage-dotnet-how-to-use-blobs.md) to store structured data.
-  - Use [Table Storage](./storage-dotnet-how-to-use-tables.md) to store structured data.
-  - Use [SQL Database](../sql-database/sql-database-dotnet-how-to-use.md) to store relational data.
+- 사용 가능한 API에 대한 자세한 내용은 [.NET용 저장소 클라이언트 라이브러리](http://go.microsoft.com/fwlink/?LinkID=390731)의 큐 서비스 참조 설명서를 참조하세요.
+- 큐 저장소를 사용하는 방법에 대한 자세한 내용은 [.NET에서 큐 저장소를 사용하는 방법](storage-dotnet-how-to-use-queues.md)을 참조하세요.
+- Azure 저장소를 사용하여 수행할 수 있는 고급 작업에 대한 자세한 내용은 [Azure에 데이터 저장 및 액세스](https://msdn.microsoft.com/library/azure/gg433040.aspx)를 참조하세요.    
+- [Azure WebJobs SDK](../app-service/websites-dotnet-webjobs-sdk.md)를 사용하여 Azure 저장소 작업을 위해 작성하는 코드를 간소화하는 방법을 알아봅니다.
+- Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하세요.
+  - [Blob 저장소](./storage-dotnet-how-to-use-blobs.md)를 사용하여 구조화된 데이터를 저장합니다.
+  - [테이블 저장소](./storage-dotnet-how-to-use-tables.md)를 사용하여 구조화된 데이터를 저장합니다.
+  - [SQL 데이터베이스](../sql-database/sql-database-dotnet-how-to-use.md)를 사용하여 관계형 데이터를 저장합니다.
 
+<!---HONumber=July15_HO5-->

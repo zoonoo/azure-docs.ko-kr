@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="aashishr"
    manager="shreeshd"
-   editor=""/> <tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/14/2015" ms.author="aashishr"; "jimpark"/>
+   editor=""/>
+ <tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt\_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/14/2015" ms.author="aashishr"; "jimpark"/>
 
 # Azure 백업의 오프라인 백업 워크플로
 
@@ -63,20 +64,20 @@ Azure 백업 및 Azure 가져오기/내보내기를 사용하면 디스크를 �
 
 2. *WAImportExport.zip* 파일의 압축을 풉니다. SATA 드라이브를 포맷하는 *WAImportExport* 도구를 실행하고, SATA 드라이브에 백업 데이터를 기록하고 암호화합니다. 컴퓨터에 BitLocker가 활성화되었는지 확인한 후 다음 명령을 실행합니다. <br/>
 
-    *.\WAImportExport.exe PrepImport /j:<*JournalFile*>.jrn /id: <*SessionId*> /sk:<*StorageAccountKey*> /BlobType:**PageBlob** /t:<*TargetDriveLetter*> /format /encrypt /srcdir:<*staging location*> /dstdir: <*DestinationBlobVirtualDirectory*>/*
+    *.\\WAImportExport.exe PrepImport /j:<\*JournalFile*>.jrn /id: <\*SessionId\*> /sk:<\*StorageAccountKey\*> /BlobType:\*\*PageBlob\*\* /t:<\*TargetDriveLetter\*> /format /encrypt /srcdir:<\*staging location\*> /dstdir: <\*DestinationBlobVirtualDirectory\*>/\*
 
 
 | 매개 변수 | 설명
 |-------------|-------------|
-| /j:<*JournalFile*>| 저널 파일에 대한 경로입니다. 각 드라이브에는 정확히 하나의 저널 파일이 있어야 합니다. 저널 파일은 대상 드라이브에 있지 않아야 합니다. 저널 파일 확장명은 .jrn이고 이 명령 실행의 일부로 만들어집니다.|
-|/id:<*SessionId*> | 세션 ID는 *복사 세션*을 식별합니다. 중단된 복사 세션의 정확한 복구를 위해 사용됩니다. 복사 세션에서 복사된 파일은 대상 드라이브의 세션 ID의 이름을 딴 디렉터리에 저장됩니다.|
-| /sk:<*StorageAccountKey*> | 데이터를 가져올 저장소 계정의 계정 키입니다. |
+| /j:<\*JournalFile\*>| 저널 파일에 대한 경로입니다. 각 드라이브에는 정확히 하나의 저널 파일이 있어야 합니다. 저널 파일은 대상 드라이브에 있지 않아야 합니다. 저널 파일 확장명은 .jrn이고 이 명령 실행의 일부로 만들어집니다.|
+|/id:<\*SessionId\*> | 세션 ID는 *복사 세션*을 식별합니다. 중단된 복사 세션의 정확한 복구를 위해 사용됩니다. 복사 세션에서 복사된 파일은 대상 드라이브의 세션 ID의 이름을 딴 디렉터리에 저장됩니다.|
+| /sk:<\*StorageAccountKey\*> | 데이터를 가져올 저장소 계정의 계정 키입니다. |
 | /BlobType | **PageBlob**를 지정합니다. 이 워크플로는 PageBlob 옵션을 지정하는 경우에만 성공합니다. 이는 기본 옵션이 아니며 이 명령에서 언급해야 합니다. |
-|/t:<*TargetDriveLetter*> | 현재 복사 세션에 대한 대상 하드 드라이브의 드라이브 문자입니다(후행 콜론 없음).|
+|/t:<\*TargetDriveLetter\*> | 현재 복사 세션에 대한 대상 하드 드라이브의 드라이브 문자입니다(후행 콜론 없음).|
 |/format | 이 매개 변수는 드라이브를 포맷해야 할 때 지정합니다. 그렇지 않은 경우 생략합니다. 이 도구는 드라이브를 포맷하기 전에 콘솔에서 확인 메시지를 표시합니다. 확인을 하지 않으려면 /silentmode 매개 변수를 지정합니다.|
 |/encrypt | 드라이브가 아직 BitLocker로 암호화되지 않았고 이 도구를 통해 암호화해야 하는 경우 이 매개 변수를 지정합니다. BitLocker로 드라이브를 이미 암호화한 경우 이 매개 변수를 생략하고/bk 매개 변수를 지정하여 기존 BitLocker 키를 제공합니다. /format 매개 변수를 지정하는 경우 /encrypt 매개 변수도 지정 해야 합니다. |
-|/srcdir:<*SourceDirectory*> | 대상 드라이브에 복사할 파일이 들어 있는 원본 디렉터리입니다. 디렉터리 경로는 절대 경로(상대 경로 아님)이어야 합니다.|
-|/dstdir:<*DestinationBlobVirtualDirectory*> | Microsoft Azure 저장소 계정의 대상 가상 디렉터리에 대한 경로입니다. 대상 가상 디렉터리 또는 BLOB를 지정할 때는 유효한 컨테이너 이름을 사용해야 합니다. 컨테이너 이름은 소문자여야 합니다.|
+|/srcdir:<\*SourceDirectory\*> | 대상 드라이브에 복사할 파일이 들어 있는 원본 디렉터리입니다. 디렉터리 경로는 절대 경로(상대 경로 아님)이어야 합니다.|
+|/dstdir:<\*DestinationBlobVirtualDirectory\*> | Microsoft Azure 저장소 계정의 대상 가상 디렉터리에 대한 경로입니다. 대상 가상 디렉터리 또는 BLOB를 지정할 때는 유효한 컨테이너 이름을 사용해야 합니다. 컨테이너 이름은 소문자여야 합니다.|
 
   >[AZURE.NOTE]저널 파일은 워크플로의 전체 정보를 캡처하는 WAImportExport 폴더에 생성됩니다. Azure 포털에서 가져오기 작업을 만들 때 이 파일이 필요합니다.
 
@@ -107,4 +108,4 @@ Azure 백업 및 Azure 가져오기/내보내기를 사용하면 디스크를 �
 - Azure 가져오기/내보내기 워크플로에 대한 질문이 있으면 이 [문서](../storage-import-export-service.md)를 참조하세요.
 - 워크플로에 대한 질문이 있으면 Azure 백업 [FAQ](backup-azure-backup-faq.md)의 오프라인 백업 섹션을 참조하세요.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

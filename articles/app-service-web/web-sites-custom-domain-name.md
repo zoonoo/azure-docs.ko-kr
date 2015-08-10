@@ -44,7 +44,7 @@
 
 - 루트 도메인을 매핑합니다. 루트 도메인은 도메인 등록 기관을 통해 예약한 도메인입니다. 예를 들어 **contoso.com**입니다.
 - 하위 도메인을 매핑합니다. 예를 들어 **blogs.contoso.com**입니다. 다른 웹 앱에 여러 하위 도메인을 매핑할 수 있습니다.
-- 와일드카드를 매핑합니다. 예를 들어, ***.contoso.com**입니다. 와일드카드 항목은 도메인의 모든 하위 도메인에 적용됩니다.
+- 와일드카드를 매핑합니다. 예를 들어, **\*.contoso.com**입니다. 와일드카드 항목은 도메인의 모든 하위 도메인에 적용됩니다.
 
 [AZURE.INCLUDE [modes](../../includes/custom-dns-web-site-modes.md)]
 
@@ -106,7 +106,7 @@ CNAME 레코드를 만들 경우에는 이 단계를 건너뛰십시오. A 레�
 
 사용자 지정 도메인 이름이 ‘contoso.com’이라고 가정하면 다음과 같은 레코드가 만들어집니다.
 
-- 127.0.0.1에 매핑된 **contoso.com**
+- 127\.0.0.1에 매핑된 **contoso.com**
 - **contoso.azurewebsites.net**에 매핑된 **www.contoso.com**
 
 >[AZURE.NOTE]Azure DNS를 사용하여 웹앱에 필요한 도메인 레코드를 호스트할 수 있습니다. 사용자 지정 도메인을 구성하고 사용자 레코드를 만들려면 Azure DNS에서 [웹앱에 대한 사용자 지정 DNS 레코드 만들기](../dns-web-sites-custom-domain)를 참조하세요.
@@ -147,4 +147,4 @@ A 레코드를 만들면 웹 앱에서 특수 CNAME 레코드도 필요하며, �
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

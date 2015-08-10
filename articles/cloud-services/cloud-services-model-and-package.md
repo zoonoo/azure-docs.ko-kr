@@ -206,8 +206,8 @@ Azure는 웹 역할에 하나의 진입점만 허용합니다. 즉, 하나의 IP
 ###### CSPack 도구 위치(Windows)
 | SDK 버전 | Path |
 | ----------- | ---- |
-| 1.7+ | C:\Program Files\Microsoft SDKs\Azure\.NET SDK\[sdk-version]\bin\ |
-| &lt;1.6 | C:\Program Files\Azure SDK\[sdk-version]\bin\ |
+| 1\.7+ | C:\\Program Files\\Microsoft SDKs\\Azure\\.NET SDK\\[sdk-version]\\bin\\ |
+| &lt;1.6 | C:\\Program Files\\Azure SDK\\[sdk-version]\\bin\\ |
 
 >[AZURE.NOTE]CSPack.exe(Windows)는 SDK로 설치되는 **Microsoft Azure 명령 프롬프트** 바로 가기를 실행하여 사용할 수 있습니다.
 >  
@@ -274,4 +274,4 @@ Visual Studio를 사용하여 다음 작업을 수행하려고 합니다.
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
 [vs_create]: https://msdn.microsoft.com/ko-kr/library/ee405487.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

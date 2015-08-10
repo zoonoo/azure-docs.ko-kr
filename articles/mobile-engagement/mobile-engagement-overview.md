@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
+	ms.date="07/28/2015" 
 	ms.author="piyushjo" />
 
 #Azure Mobile Engagement 개요
@@ -50,4 +50,4 @@ Microsoft는 오랫동안 개인 정보 보호를 위해 노력해 왔으며 개
 [시작(개발자)](/documentation/services/mobile-engagement/)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

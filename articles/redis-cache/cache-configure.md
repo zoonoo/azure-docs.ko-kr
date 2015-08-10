@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="06/29/2015"
+   ms.date="07/24/2015"
    ms.author="sdanie" />
 
 # Azure Redis 캐시 구성 방법
@@ -122,6 +122,8 @@ Maxmemory 정책에 대한 자세한 내용은 [제거 정책](http://redis.io/t
 |lua-event-limit|500|스크립트 이벤트 큐의 최대 크기입니다.|
 |client-output-buffer-limit normalclient-output-buffer-limit pubsub|0 0 032mb 8mb 60|클라이언트 출력 버퍼 제한은 어떤 이유로 서버에서 데이터를 읽는 속도가 충분히 빠르지 않은 클라이언트의 연결을 강제로 끊는 데 사용할 수 있습니다. 속도가 느린 일반적인 이유는 게시/구독 클라이언트가 게시자의 생성 속도만큼 빠르게 메시지를 소화하지 못하기 때문입니다. 자세한 내용은 [http://redis.io/topics/clients](http://redis.io/topics/clients)를 참조하세요.|
 
+## Azure Redis Cache에서 지원되지 않는 Redis 명령
+
 >[AZURE.IMPORTANT]Azure Redis 캐시 인스턴스의 구성과 관리는 Azure 포털을 사용하여 수행되므로 다음 명령이 비활성화됩니다. 이러한 명령을 호출하려 시도하면 `"(error) ERR unknown command"`와 유사한 오류 메시지가 표시됩니다.
 >
 >-	BGREWRITEAOF
@@ -135,7 +137,21 @@ Maxmemory 정책에 대한 자세한 내용은 [제거 정책](http://redis.io/t
 
 Redis 명령에 대한 자세한 내용은 [http://redis.io/commands](http://redis.io/commands)를 참조하세요.
 
-## 다음 단계
--	Redis 명령을 사용하는 방법은 [Redis 명령 실행 방법](cache-faq.md#how-can-i-run-redis-commands)을 참조하세요.
+## Redis 콘솔
 
-<!---HONumber=July15_HO4-->
+표준 캐시에서 사용할 수 있는 **Redis 콘솔**을 사용하면 Azure Redis Cache 인스턴스에 대해 안전하게 명령을 실행할 수 있습니다. Redis 콘솔에 액세스하려면 **Redis 캐시** 블레이드에서 **콘솔**을 클릭합니다.
+
+![Redis 콘솔](./media/cache-configure/redis-console-menu.png)
+
+>[AZURE.IMPORTANT]Redis 콘솔은 표준 캐시에서만 사용할 수 있습니다.
+
+캐시 인스턴스에 대해 명령을 실행하려면 원하는 명령을 콘솔에 입력하면 됩니다.
+
+![Redis 콘솔](./media/cache-configure/redis-console.png)
+
+Azure Redis Cache에 대해 사용할 수 없도록 설정된 Redis 명령 목록은 이전 [Azure Redis Cache에서 지원되지 않는 Redis 명령](#redis-commands-not-supported-in-azure-redis-cache) 섹션을 참조하세요. Redis 명령에 대한 자세한 내용은 [http://redis.io/commands](http://redis.io/commands)를 참조하세요.
+
+## 다음 단계
+-	Redis 명령을 사용하는 방법은 [어떻게 Redis 명령을 실행할 수 있나요?](cache-faq.md#how-can-i-run-redis-commands)를 참조하세요.
+
+<!---HONumber=July15_HO5-->

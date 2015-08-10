@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 #HDInsight에서 Apache Storm 토폴로지 배포 및 관리
@@ -42,9 +42,7 @@ Storm 대시보드와 HDInsight 도구의 Storm 기능은 사용자 고유의 �
 
 ##Storm 대시보드
 
-Storm 대시보드는 Storm 클러스터에서 사용할 수 있습니다. URL은 **https://&lt;clustername>.azurehdinsight.net/**(여기서 **clustername**은 HDInsight의 Storm 클러스터 이름)입니다. Azure 포털의 클러스터 대시보드에서 **Storm 대시보드** 링크를 사용하여 대시보드에 액세스할 수도 있습니다.
-
-![Storm 대시보드가 강조 표시된 Azure 포털][hdinsight-dashboard]
+Storm 대시보드는 Storm 클러스터에서 사용할 수 있는 웹 페이지입니다. URL은 **https://&lt;clustername>.azurehdinsight.net/**(여기서 **clustername**은 HDInsight의 Storm 클러스터 이름)입니다.
 
 Storm 대시보드의 위쪽에서 **토폴로지 제출**을 선택합니다. 샘플 토폴로지를 실행하거나 사용자가 만든 토폴로지를 업로드 및 실행하려면 페이지의 지침을 따릅니다.
 
@@ -178,4 +176,4 @@ Storm 대시보드를 사용하여 토폴로지를 배포 및 모니터링하는
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

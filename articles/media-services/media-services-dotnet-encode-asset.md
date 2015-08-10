@@ -13,13 +13,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 
 #Azure 미디어 인코더를 사용하여 자산을 인코딩하는 방법
 
-이 문서는 [미디어 서비스 주문형 비디오 워크플로](media-services-video-on-demand-workflow.md) 시리즈의 일부입니다.
+
+> [AZURE.SELECTOR]
+- [REST](media-services-rest-encode-asset.md)
+- [.NET](media-services-dotnet-encode-asset.md)
+- [Portal](media-services-manage-content.md#encode)
 
 ##개요
 
@@ -218,4 +222,4 @@ Azure 미디어 인코더로 인코딩할 때 [여기](https://msdn.microsoft.co
 [Task Preset for Azure Media Packager]: http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

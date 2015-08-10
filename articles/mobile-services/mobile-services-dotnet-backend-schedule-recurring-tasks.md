@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="스케줄러를 사용하여 백 엔드 작업 예약 - 모바일 서비스" 
+	pageTitle="Azure 모바일 서비스에서 되풀이 작업 예약" 
 	description="Azure 모바일 서비스 스케줄러를 사용하여 모바일 앱에 대한 작업을 예약합니다." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/20/2015" 
+	ms.date="07/21/2015" 
 	ms.author="glenga"/>
 
 # 모바일 서비스에서 되풀이 작업 예약 
@@ -36,16 +36,14 @@
 
 [AZURE.INCLUDE [mobile-services-register-twitter-access](../../includes/mobile-services-register-twitter-access.md)]
 
-<ol start="7">
-<li><p>Visual Studio의 솔루션 탐색기에서 모바일 서비스 프로젝트에 대한 web.config 파일을 열고, <strong>MS_TwitterConsumerKey</strong> 및 <strong>MS_TwitterConsumerSecret</strong> 앱 설정을 찾은 다음 이 키 값을 포털에서 설정한 Twitter consumer key 및 consumer secret 값으로 바꿉니다.</p></li>
+&nbsp;&nbsp;7. Visual Studio의 솔루션 탐색기에서 모바일 서비스 프로젝트에 대한 web.config 파일을 열고, `MS_TwitterConsumerKey` 및 `MS_TwitterConsumerSecret` 앱 설정을 찾은 다음 이 키 값을 포털에서 설정한 Twitter consumer key 및 consumer secret 값으로 바꿉니다.
 
-<li><p>동일한 섹션에서 다음과 같은 새 앱 설정을 추가하고 자리 표시자를 포털에서 앱 설정으로 지정한 Twitter 액세스 토큰 및 액세스 토큰 암호 값으로 바꿉니다.</p>
+&nbsp;&nbsp;8. 동일한 섹션에서 다음과 같은 새 앱 설정을 추가하고 자리 표시자를 포털에서 앱 설정으로 지정한 Twitter 액세스 토큰 및 액세스 토큰 암호 값으로 바꿉니다.
 
-<pre><code>&lt;add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" />
-&lt;add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" /></code></pre>
+	<add key="TWITTER_ACCESS_TOKEN" value="**your_access_token**" />
+	<add key="TWITTER_ACCESS_TOKEN_SECRET" value="**your_access_token_secret**" />
 
-<p>모바일 서비스를 로컬 컴퓨터에서 실행하면 이러한 저장된 설정을 사용하여 예약된 작업을 게시하기 전에 테스트할 수 있습니다. Azure에서 실행 중인 경우 모바일 서비스에서는 포털에 설정된 값을 대신 사용하고 이 프로젝트 설정은 무시합니다.  </p></li>
-</ol>
+모바일 서비스를 로컬 컴퓨터에서 실행하면 이러한 저장된 설정을 사용하여 예약된 작업을 게시하기 전에 테스트할 수 있습니다. Azure에서 실행 중인 경우 모바일 서비스에서는 포털에 설정된 값을 대신 사용하고 이 프로젝트 설정은 무시합니다.
 
 ##<a name="install-linq2twitter"></a>LINQ to Twitter 라이브러리 다운로드 및 설치
 
@@ -65,7 +63,7 @@
 
 	Updates 클래스에 대한 새 프로젝트 파일이 만들어집니다.
 
-2. **참조**를 마우스 오른쪽 단추로 클릭하고 **참조 추가...**를 클릭하고 **어셈블리**에서 **프레임워크**를 선택하고 **System.ComponentModel.DataAnnotations**를 선택한 후 **확인**을 클릭합니다.
+2. **참조** > **참조 추가...** > **어셈블리** 아래의 **프레임워크**를 마우스 오른쪽 단추로 클릭하고 **System.ComponentModel.DataAnnotations**를 선택한 후 **확인**을 클릭합니다.
 
 	![][7]
 
@@ -88,7 +86,7 @@
 	        public DateTime Date { get; set; }
     	}
 
-4. Models 폴더를 확장하고 <em>service_name</em>Context.cs라는 데이터 모델 컨텍스트 파일을 열여 입력한 **DbSet**를 반환하는 다음 속성을 추가합니다.
+4. Models 폴더를 확장하고 *service\_name\*Context.cs라는 데이터 모델 컨텍스트 파일을 열어 입력한 **DbSet**를 반환하는 다음 속성을 추가합니다.
 
 		public DbSet<Updates> Updates { get; set; }
 
@@ -127,7 +125,8 @@
 		        private string accessToken;
 		        private string accessTokenSecret;
 		
-		        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, CancellationToken cancellationToken)
+		        protected override void Initialize(ScheduledJobDescriptor scheduledJobDescriptor, 
+					CancellationToken cancellationToken)
 		        {
 		            base.Initialize(scheduledJobDescriptor, cancellationToken);
 		
@@ -214,7 +213,7 @@
 		    }
 		}
 
-	위의 코드에서 _todolistService_ 및 _todolistContext_ 문자열을각각 <em>mobile&#95;service&#95;name</em>Service 및 <em>mobile&#95;service&#95;name</em>Context에 해당하는 다운로드한 프로젝트의 네임스페이스 및 DbContext로 바꾸어야 합니다.
+	위의 코드에서 _todolistService_ 및 _todolistContext_ 문자열을 각각 *mobile&#95;service&#95;name\*Service 및 *mobile&#95;service&#95;name\*Context에 해당하는 다운로드한 프로젝트의 네임스페이스 및 DbContext로 바꾸어야 합니다.
    	
 	위의 코드에서 **ExecuteAsync** 재정의 메서드는 `#mobileservices` 해시태그를 포함한 최근 트윗을 요청하기 위해 저장된 자격 증명을 사용하여 Twitter 쿼리 API를 호출합니다. 중복 트윗 및 회신은 테이블에 저장되기 전에 결과에서 제거됩니다.
 
@@ -301,4 +300,4 @@ Azure에 게시하고 포털에 등록하기 전에 로컬에서 작업 예약�
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [LINQ to Twitter CodePlex 프로젝트]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

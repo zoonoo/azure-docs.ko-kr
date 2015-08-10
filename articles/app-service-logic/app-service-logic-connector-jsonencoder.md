@@ -76,4 +76,4 @@ BizTalk JSON 인코더를 사용하려면 먼저 BizTalk JSON 인코더 API 앱�
 <!--Links -->
 [논리 앱 만들기]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

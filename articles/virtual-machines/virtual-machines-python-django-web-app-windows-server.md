@@ -76,7 +76,7 @@
 
 1. FastCGI 지원을 포함하여 IIS를 설치합니다. 이 설치를 실행하려면 몇 분 정도 걸릴 수 있습니다.
 
-		start /wait %windir%\System32\PkgMgr.exe /iu:IIS-WebServerRole;IIS-WebServer;IIS-CommonHttpFeatures;IIS-StaticContent;IIS-DefaultDocument;IIS-DirectoryBrowsing;IIS-HttpErrors;IIS-HealthAndDiagnostics;IIS-HttpLogging;IIS-LoggingLibraries;IIS-RequestMonitor;IIS-Security;IIS-RequestFiltering;IIS-HttpCompressionStatic;IIS-WebServerManagementTools;IIS-ManagementConsole;WAS-WindowsActivationService;WAS-ProcessModel;WAS-NetFxEnvironment;WAS-ConfigurationAPI;IIS-CGI
+		start /wait %windir%\System32\\PkgMgr.exe /iu:IIS-WebServerRole;IIS-WebServer;IIS-CommonHttpFeatures;IIS-StaticContent;IIS-DefaultDocument;IIS-DirectoryBrowsing;IIS-HttpErrors;IIS-HealthAndDiagnostics;IIS-HttpLogging;IIS-LoggingLibraries;IIS-RequestMonitor;IIS-Security;IIS-RequestFiltering;IIS-HttpCompressionStatic;IIS-WebServerManagementTools;IIS-ManagementConsole;WAS-WindowsActivationService;WAS-ProcessModel;WAS-NetFxEnvironment;WAS-ConfigurationAPI;IIS-CGI
 
 
 ### Python 2.7
@@ -148,7 +148,7 @@
 ## 새 Django 응용 프로그램 만들기
 
 
-1.  *C:\inetpub\wwwroot*에서 다음 명령을 입력하여 새 Django 프로젝트를 만듭니다.
+1.  *C:\\inetpub\\wwwroot*에서 다음 명령을 입력하여 새 Django 프로젝트를 만듭니다.
 
     Python 2.7의 경우 다음 명령을 사용합니다.
 
@@ -162,13 +162,13 @@
 
 1.  **django-admin** 명령은 Django 기반 웹 사이트의 기본 구조를 생성합니다.
 
-  -   **helloworld\manage.py**는 Django 기반 웹 사이트의 호스팅을 시작 및 중지하는 데 도움이 됩니다.
-  -   **helloworld\helloworld\settings.py**에는 응용 프로그램에 대한 Django 설정이 포함되어 있습니다.
-  -   **helloworld\helloworld\urls.py**에는 각 url과 뷰 사이의 매핑 코드가 들어 있습니다.
+  -   **helloworld\\manage.py**는 Django 기반 웹 사이트의 호스팅을 시작 및 중지하는 데 도움이 됩니다.
+  -   **helloworld\\helloworld\\settings.py**에는 응용 프로그램에 대한 Django 설정이 포함되어 있습니다.
+  -   **helloworld\\helloworld\\urls.py**에는 각 url과 뷰 사이의 매핑 코드가 들어 있습니다.
 
 
 
-1.  **views.py**라는 새 파일을 *C:\inetpub\wwwroot\helloworld\helloworld* 디렉터리에 만듭니다. 이 파일에는 "hello world" 페이지를 렌더링하는 뷰가 포함되어 있습니다. 편집기를 시작하고 다음을 입력합니다.
+1.  **views.py**라는 새 파일을 *C:\\inetpub\\wwwroot\\helloworld\\helloworld* 디렉터리에 만듭니다. 이 파일에는 "hello world" 페이지를 렌더링하는 뷰가 포함되어 있습니다. 편집기를 시작하고 다음을 입력합니다.
 
 		from django.http import HttpResponse
 		def home(request):
@@ -198,4 +198,4 @@
 
 [웹 플랫폼 설치 관리자]: http://www.microsoft.com/web/downloads/platform.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

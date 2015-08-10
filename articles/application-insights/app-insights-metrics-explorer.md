@@ -179,8 +179,13 @@
 
 *내보내기는 현재 Internet Explorer 및 Chrome에 대해서만 작동합니다. 우리는 다른 브라우저에 대한 지원 추가에 관하여 연구 중입니다.*
 
+### 연속 내보내기
+
 데이터를 외부에서 처리할 수 있도록 지속적으로 내보내려면 [연속 내보내기](app-insights-export-telemetry.md)를 사용하는 것이 좋습니다.
 
+### Power BI
+
+보다 풍부한 데이터 보기를 사용하려는 경우 [Power BI를 내보낼](app-insights-export-power-bi.md) 수 있습니다.
 
 ## 다음 단계
 
@@ -196,4 +201,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

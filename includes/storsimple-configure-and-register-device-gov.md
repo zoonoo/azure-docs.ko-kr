@@ -1,5 +1,3 @@
-
-
 ### 장치를 구성 및 등록하려면
 
 1. StorSimple 장치 직렬 콘솔에서 Windows PowerShell 인터페이스에 액세스합니다. 지침은 [장치 직렬 콘솔 연결에 PuTTY 사용](#use-putty-to-connect-to-the-device-serial-console)을 참조하세요. **과정을 정확하게 따르지 않으면 콘솔에 액세스할 수 없습니다.**
@@ -91,7 +89,7 @@
 
      `Set-CloudPlatform -AzureGovt_US`
 
-    확인 메시지가 표시됩니다. 기본값을 적용합니다(**Y**).
+    확인 메시지가 표시됩니다. 기본값을 적용합니다(\*\*Y\*\*).
 
 11. 설치를 다시 시작하려면 다음 cmdlet을 실행합니다.
 
@@ -107,7 +105,7 @@
 
 	<br/>![StorSimple 등록 장치 5](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice5_gov-include.png)
 
-14. 설치 마법사의 마지막 단계에서는 StorSimple 관리자 서비스에 장치를 등록합니다. 이 경우 [2단계: 서비스 등록 키 가져오기](storsimple-get-service-registration-key-gov.md)에서 얻은 서비스 등록 키가 필요합니다. 등록 키를 입력한 후 장치가 등록되려면 2~3분 정도 기다려야 할 수 있습니다.
+14. 설치 마법사의 마지막 단계에서는 StorSimple 관리자 서비스에 장치를 등록합니다. 이 경우 [2단계: 서비스 등록 키 가져오기](storsimple-get-service-registration-key-gov.md)에서 얻은 서비스 등록 키가 필요합니다. 등록 키를 입력한 후 장치가 등록되려면 2\~3분 정도 기다려야 할 수 있습니다.
 
       >[AZURE.NOTE]Ctrl + C를 눌러 언제든지 설치 마법사를 종료할 수 있습니다. 모든 네트워크 설정(Data 0, 서브넷 마스크 및 게이트웨이 IP 주소)를 입력한 경우, 항목이 유지됩니다.
 
@@ -134,4 +132,4 @@
      
         
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

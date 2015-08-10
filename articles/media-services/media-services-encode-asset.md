@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="07/23/2015" 
 	ms.author="juliako"/>
 
 #Azure 미디어 서비스로 주문형 콘텐츠 인코딩
@@ -26,7 +26,7 @@
 
 - [미디어 인코더 표준](#media_encoder_standard)
 - [Azure 미디어 인코더](#azure_media_encoder)
-- [미디어 인코더 Premium 워크플로](#media_encoder_premium_workflow)(공개 미리 보기)
+- [미디어 인코더 Premium 워크플로](#media_encoder_premium_workflow)
 
 [다음 섹션](#compare_encoders)에서는 지원되는 인코더의 인코딩 기능을 비교합니다.
 
@@ -61,7 +61,7 @@
 [Dolby Digital Plus로 미디어 인코딩](media-services-encode-with-dolby-digital-plus.md) – Dolby Digital Plus 인코딩을 사용하여 오디오 트랙을 인코딩하는 방법을 설명합니다.
 
 
-##<a id="media_encoder_premium_wokrflow"></a>미디어 인코더 Premium 워크플로(미리 보기)
+##<a id="media_encoder_premium_wokrflow"></a>미디어 인코더 Premium 워크플로 
 
 **참고** 중국에서는 이 항목에서 설명하는 미디어 인코더 Premium 워크플로 미디어 프로세서를 사용할 수 없습니다.
 
@@ -195,4 +195,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

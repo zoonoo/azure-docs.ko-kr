@@ -1,5 +1,5 @@
 <properties
-	pageTitle="PhoneGap에서 모바일 서비스 시작 | 모바일 개발자 센터"
+	pageTitle="PhoneGap/cordova 앱에 대해 Azure 모바일 서비스 시작"
 	description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 iOS, Android 및 Windows Phone용 PhoneGap 개발을 시작할 수 있습니다."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="04/24/2015"
+	ms.date="07/21/2015"
 	ms.author="ggailey777"/>
 
 # 모바일 서비스 시작
@@ -76,7 +76,7 @@
 
 	+ **Windows Phone 8**
 
-		1. Windows Phone 8: Visual Studio 2012 Express for Windows Phone의 **platforms\wp8** 폴더에서 .sln 파일을 엽니다.
+		1. Windows Phone 8: Visual Studio 2012 Express for Windows Phone의 **platforms\\wp8** 폴더에서 .sln 파일을 엽니다.
 
 		2. **F5** 키를 눌러 프로젝트를 다시 빌드하고 앱을 시작합니다.
 
@@ -171,4 +171,4 @@
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

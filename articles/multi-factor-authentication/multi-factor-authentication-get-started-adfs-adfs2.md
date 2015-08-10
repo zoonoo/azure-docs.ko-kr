@@ -56,8 +56,8 @@
 23. LDAP 연결 테스트가 성공한 경우 확인 단추를 클릭합니다.
 24. 다음으로 회사 설정 아이콘을 클릭하고 사용자 이름 확인 탭을 선택합니다.
 25. 사용자 이름 일치에 LDAP 고유 식별자 특성 사용 라디오 단추를 선택합니다.
-26. 사용자가 ADFS 프록시 로그인 양식에 "domain\username" 형식으로 사용자 이름을 입력하는 경우 서버는 LDAP 쿼리를 만들 때 사용자 이름에서 도메인을 제거할 수 있어야 합니다. 이 작업은 레지스트리 설정을 통해 수행할 수 있습니다.
-27. 64비트 서버에서 레지스트리 편집기를 열고 HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor로 이동합니다. 32비트 서버에서는 경로에 "Wow6432Node"를 지정합니다. "Usernamecxz_stripprefixdomain"이라는 새 DWORD 레지스트리 키를 만들고 값을 1로 설정합니다. 이제 Azure Multi-Factor Authentication을 통해 ADFS 프록시 보안이 유지됩니다. Active Directory에서 서버로 사용자를 가져왔는지 확인합니다. 해당 위치에서 웹 사이트에 로그인할 때 2단계 인증이 필요하지 않도록 내부 IP 주소를 허용 목록에 추가하려면 아래의 신뢰할 수 있는 IP 섹션을 참조하세요.
+26. 사용자가 ADFS 프록시 로그인 양식에 "domain\\username" 형식으로 사용자 이름을 입력하는 경우 서버는 LDAP 쿼리를 만들 때 사용자 이름에서 도메인을 제거할 수 있어야 합니다. 이 작업은 레지스트리 설정을 통해 수행할 수 있습니다.
+27. 64비트 서버에서 레지스트리 편집기를 열고 HKEY\_LOCAL\_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor로 이동합니다. 32비트 서버에서는 경로에 "Wow6432Node"를 지정합니다. "Usernamecxz\_stripprefixdomain"이라는 새 DWORD 레지스트리 키를 만들고 값을 1로 설정합니다. 이제 Azure Multi-Factor Authentication을 통해 ADFS 프록시 보안이 유지됩니다. Active Directory에서 서버로 사용자를 가져왔는지 확인합니다. 해당 위치에서 웹 사이트에 로그인할 때 2단계 인증이 필요하지 않도록 내부 IP 주소를 허용 목록에 추가하려면 아래의 신뢰할 수 있는 IP 섹션을 참조하세요.
 
 <center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/reg.png)</center>
 
@@ -93,4 +93,4 @@ AD FS 프록시가 사용되지 않을 때 AD FS 보안을 유지하려면 AD FS
 
 <center>![Setup](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

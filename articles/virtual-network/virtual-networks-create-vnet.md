@@ -19,7 +19,7 @@
 
 VNet을 만들 경우 Vnet 내의 VM과 서비스는 인터넷을 거치지 않고도 서로 안전하게 통신할 수 있습니다. VNet을 다른 VNet 또는 온-프레미스 네트워크에 연결할 의도가 없는 경우 VPN 장치를 가져와 구성하거나, 다른 VNet 또는 로컬 네트워크에서 선택한 IP 주소를 조정하지 않아도 되므로 Azure VNet을 비교적 쉽고 빠르게 만들 수 있습니다.
 
->[AZURE.WARNING]나중에 다른 VNet 또는 온-프레미스 네트워크에 연결할 VNet을 만드는 데 이 절차를 사용하지 마세요. 보안 프레미스 간 연결 또는 하이브리드 연결을 만들려는 경우 [가상 네트워크 보안 프레미스 간 연결 정보](https://msdn.microsoft.com/library/azure/dn133798.aspx)를 참조하세요. 다른 VNet에 연결된 VNet을 만들려는 경우 [VNet 간 연결 구성](https://msdn.microsoft.com/library/azure/dn690122.aspx)을 참조하세요.
+>[AZURE.WARNING]나중에 다른 VNet 또는 온-프레미스 네트워크에 연결할 VNet을 만드는 데 이 절차를 사용하지 마세요. 보안 프레미스 간 연결 또는 하이브리드 연결을 만들려는 경우 [가상 네트워크 보안 프레미스 간 연결 정보](https://msdn.microsoft.com/library/azure/dn133798.aspx)를 참조하세요. 다른 VNet에 연결된 VNet을 만들려는 경우 [VNet 간 연결 구성](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)을 참조하세요.
 
 ## VNet 구성
 
@@ -66,4 +66,4 @@ VNet을 만든 후 새 VM을 해당 VNet에 추가할 수 있습니다. 먼저 V
 [VNet(가상 네트워크)을 삭제하는 방법](../virtual-networks-delete-vnet)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

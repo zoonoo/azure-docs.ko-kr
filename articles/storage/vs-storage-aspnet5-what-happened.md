@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-what-happened" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="07/22/2015" 
 	ms.author="patshea123"/>
 
 # 내 프로젝트에서 무엇이 변경되었습니까?
@@ -27,7 +27,7 @@
 > - [Queues](vs-storage-aspnet5-getting-started-queues.md)
 > - [Tables](vs-storage-aspnet5-getting-started-tables.md)
 
-###<span id="whathappened">내 프로젝트에서 무엇이 변경되었습니까?</span>
+###내 프로젝트에서 무엇이 변경되었나요?</span>
 
 ##### 참조 추가됨
 
@@ -50,4 +50,4 @@ Azure Storage NuGet 패키지가 Visual Studio 프로젝트에 추가되었습�
 자세한 내용은 [ASP.NET 5](http://www.asp.net/vnext)를 참조하세요.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

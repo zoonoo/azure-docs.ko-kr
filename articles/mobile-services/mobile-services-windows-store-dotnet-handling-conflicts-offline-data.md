@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="모바일 서비스에서 오프라인 데이터를 사용하여 충돌 처리(Windows 스토어) | 모바일 개발자 센터" 
-	description="Windows 스토어 응용 프로그램에서 오프라인 데이터를 동기화할 때 Azure 모바일 서비스를 사용하여 충돌을 처리하는 방법에 대해 알아봅니다." 
+	pageTitle="범용 Windows 앱에서 오프라인 데이터를 사용하여 충돌 처리 | Azure 모바일 서비스" 
+	description="범용 Windows 응용 프로그램에서 오프라인 데이터를 동기화할 때 Azure 모바일 서비스를 사용하여 충돌을 처리하는 방법에 대해 알아봅니다." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
 	manager="dwrede" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
-	ms.author="wesmc"/>
+	ms.date="07/23/2015" 
+	ms.author="glenga"/>
 
 
 # 모바일 서비스에서 오프라인 데이터 동기화를 사용하여 충돌 처리
@@ -23,15 +23,13 @@
 
 ##개요
 
-<div class="dev-onpage-video-clear clearfix">
-<div class="dev-onpage-left-content">
-<p>이 항목에서는 Azure 모바일 서비스의 오프라인 기능을 사용할 때 데이터를 동기화하고 충돌을 처리하는 방법을 보여 줍니다.</p>
-<p>동영상을 시청하려는 경우 오른쪽에 있는 클립은 이 자습서와 동일한 단계를 따릅니다.</p>
-</div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="label">자습서 보기</a> <a style="background-image: url('http://video.ch9.ms/ch9/ea1c/ffed2371-4db1-4a8e-8869-80013859ea1c/BuildOfflineAppsAzureMobileServices_220.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Build-offline-apps-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">동영상 재생</span></a> <span class="time">오후 2:36:00</span></div>
-</div>
+이 항목에서는 Azure 모바일 서비스의 오프라인 기능을 사용할 때 데이터를 동기화하고 충돌을 처리하는 방법을 보여 줍니다.
 
-이 자습서에서는 오프라인 동기화 충돌 처리를 지원하는 앱의 Windows 범용 C# 솔루션을 다운로드합니다. 모바일 서비스를 앱과 통합한 후 Windows 스토어 8.1 및 Windows Phone 8.1 클라이언트를 실행하여 동기화 충돌을 생성하고 해결합니다.
+동영상을 시청하려는 경우 아래쪽의 클립은 이 자습서와 동일한 단계를 따릅니다.
+
+> [AZURE.VIDEO build-offline-apps-azure-mobile-services]
+
+이 자습서에서는 오프라인 동기화 충돌 처리를 지원하는 앱의 범용 Windows C# 솔루션을 다운로드합니다. 모바일 서비스를 앱과 통합한 후 Windows 스토어 8.1 및 Windows Phone 8.1 클라이언트를 실행하여 동기화 충돌을 생성하고 해결합니다.
 
 이 자습서는 이전 자습서인 [오프라인 데이터 시작]의 단계 및 샘플 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [오프라인 데이터 시작]을 완료해야 합니다.
 
@@ -51,7 +49,7 @@
 
 2. [오프라인 데이터 시작] 자습서에 언급된 대로 Windows 8.1용 SQLite 및 Windows Phone 8.1용 SQLite를 아직 설치하지 않은 경우 두 런타임을 모두 설치합니다.
 
-3. Visual Studio 2013에서 *mobile-services-samples\TodoOffline\WindowsUniversal\TodoOffline-Universal.sln* 솔루션 파일을 엽니다. **F5**를 눌러 프로젝트를 다시 빌드하고 실행합니다. NuGet 패키지가 복원되고 참조가 올바르게 설정되었는지 확인합니다.
+3. Visual Studio 2013에서 *mobile-services-samples\\TodoOffline\\WindowsUniversal\\TodoOffline-Universal.sln* 솔루션 파일을 엽니다. **F5**를 눌러 프로젝트를 다시 빌드하고 실행합니다. NuGet 패키지가 복원되고 참조가 올바르게 설정되었는지 확인합니다.
 
     >[AZURE.NOTE][오프라인 데이터 시작] 자습서에 언급된 대로 SQLite 런타임에 대한 이전 참조를 삭제하고 업데이트된 참조로 바꿔야 할 수 있습니다.
 
@@ -84,7 +82,7 @@
 
 실제로 한 앱에서 업데이트를 데이터베이스의 레코드에 푸시한 후 다른 앱에서 해당 레코드의 이전 버전 필드를 사용하는 동일한 레코드에 업데이트를 푸시하려고 하면 동기화 충돌이 발생합니다. [오프라인 데이터 시작]의 내용을 상기한다면 버전 시스템 속성이 오프라인 동기화 기능을 지원해야 합니다. 이 버전 정보는 각 데이터베이스 업데이트를 통해 검사합니다. 앱의 인스턴스에서 이전 버전을 사용하여 레코드를 업데이트하려고 하면 충돌이 발생하고 앱에서 `MobileServicePreconditionFailedException`(으)로 catch됩니다. 앱에서 `MobileServicePreconditionFailedException`을(를) catch하지 않으면 결국 발생한 동기화 오류 수를 설명하는 `MobileServicePushFailedException`이(가) 발생합니다.
 
->[AZURE.NOTE]오프라인 데이터 동기화를 사용하여 삭제된 레코드의 동기화를 지원하려면 [일시 삭제](mobile-services-using-soft-delete.md)를 사용하도록 설정해야 합니다. 그렇지 않으면 로컬 저장소에서 레코드를 수동으로 제거하거나를 `IMobileServiceSyncTable::PurgeAsync()` 호출하여 로컬 저장소를 삭제해야 합니다.
+>[AZURE.NOTE]오프라인 데이터 동기화를 사용하여 삭제된 레코드의 동기화를 지원하려면 [일시 삭제](mobile-services-using-soft-delete.md)를 사용하도록 설정해야 합니다. 그렇지 않으면 로컬 저장소에서 레코드를 수동으로 제거하거나 `IMobileServiceSyncTable::PurgeAsync()`를 호출하여 로컬 저장소를 삭제해야 합니다.
 
 
 다음 단계에서는 샘플을 사용하여 동시에 실행되는 Windows Phone 8.1 및 Windows 스토어 8.1 클라이언트로 인해 충돌이 발생하고 이러한 충돌을 해결하는 방법을 보여 줍니다.
@@ -166,4 +164,4 @@
 [Todo 오프라인 모바일 서비스 샘플]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

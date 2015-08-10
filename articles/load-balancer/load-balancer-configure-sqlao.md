@@ -15,7 +15,7 @@
    ms.date="05/01/2015"
    ms.author="joaoma" />
 
-# SQL Always on
+# SQL Always On에 대해 부하 분산 장치 구성
 
 이제 ILB에서 SQL Server AlwaysOn 가용성 그룹을 실행할 수 있습니다. 가용성 그룹은 고가용성 및 재해 복구를 위한 SQL Server의 주력 솔루션입니다. 가용성 그룹 수신기를 통해 클라이언트 응용 프로그램은 구성의 복제본 수에 관계없이 주 복제본에 매끄럽게 연결할 수 있습니다.
 
@@ -28,7 +28,7 @@ SQL Server AlwaysOn(수신기) 끝점에 대해 ILB 지원을 사용할 수 있�
 
 동일한 가상 네트워크 서비스에 있는 서비스 및 VM, 연결된 온-프레미스 네트워크 서비스의 VM, 상호 연결된 VNet의 VM
 
-![ILB_SQLAO_NewPic](./media/load-balancer-configure-sqlao/sqlao1.jpg)
+![ILB\_SQLAO\_NewPic](./media/load-balancer-configure-sqlao/sqlao1.jpg)
 
 
 내부 부하 분산 장치는 PowerShell을 통해서만 구성할 수 있습니다.
@@ -47,8 +47,9 @@ SQL Server AlwaysOn(수신기) 끝점에 대해 ILB 지원을 사용할 수 있�
 ## 각 VM에서 ILB에 대한 부하 분산 끝점 추가
 
 	Get-AzureVM -ServiceName SqlSvc -Name sqlsvc1 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –
-	DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM 
-	Get-AzureVM -ServiceName SqlSvc -Name sqlsvc2 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
+	DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
+
+ 	Get-AzureVM -ServiceName SqlSvc -Name sqlsvc2 | Add-AzureEndpoint -Name "LisEUep" -LBSetName "ILBSet1" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 –DirectServerReturn $true -InternalLoadBalancerName ILB_SQL_AO | Update-AzureVM
 
 
 ## 참고 항목
@@ -62,4 +63,4 @@ SQL Server AlwaysOn(수신기) 끝점에 대해 ILB 지원을 사용할 수 있�
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

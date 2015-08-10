@@ -52,7 +52,7 @@ PowerShell 워크플로 코드는 몇가지 중요한 변경 내용을 제외하
 
 활동은 워크플로의 특정 작업입니다. 하나 이상의 명령으로 구성된 스크립트와 마찬가지로 워크플로는 시퀀스로 수행되는 하나 이상의 활동으로 구성됩니다. Windows PowerShell 워크플로는 워크플로를 실행할 때 많은 Windows PowerShell cmdlet을 활동으로 자동으로 변환합니다. Runbook에서 이러한 cmdlet 중 하나를 지정한 경우 해당 활동은 실제로 Windows Workflow Foundation에 의해 실행됩니다. 해당 활동이 없는 cmdlet의 경우 Windows PowerShell 워크플로는 [InlineScript](#inlinescript) 활동 내에서 cmdlet을 자동으로 실행합니다. InlineScript 블록에 명시적으로 포함하지 않으면 워크플로에서 제외되고 사용할 수 없는 cmdlet 집합이 있습니다. 이러한 개념에 자세한 내용은 [스크립트 워크플로에서 활동 사용](http://technet.microsoft.com/library/jj574194.aspx)을 참조하세요.
 
-워크플로 활동은 해당 작업을 구성하기 위해 일반 매개 변수 집합을 공유합니다. 워크플로 일반 매개 변수에 대한 자세한 내용은 [about_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx)를 참조하세요.
+워크플로 활동은 해당 작업을 구성하기 위해 일반 매개 변수 집합을 공유합니다. 워크플로 일반 매개 변수에 대한 자세한 내용은 [about\_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx)를 참조하세요.
 
 ### 위치 매개 변수
 
@@ -144,7 +144,7 @@ InlineScript 활동은 특정 워크플로에서 중요할 수 있지만 워크�
 - [병렬 실행](#parallel-execution)을 InlineScriptBlock 내부에서 사용할 수 없습니다.
 - InlineScript는 InlineScript 블록의 전체 길이 동안 Windows PowerShell 세션을 유지하므로 워크플로의 확장성에 영향을 줍니다.
 
-InlineScript 사용에 대한 자세한 내용은 [워크플로에서 Windows PowerShell 명령 실행](http://technet.microsoft.com/library/jj574197.aspx) 및 [about_InlineScript](http://technet.microsoft.com/library/jj649082.aspx)를 참조하세요.
+InlineScript 사용에 대한 자세한 내용은 [워크플로에서 Windows PowerShell 명령 실행](http://technet.microsoft.com/library/jj574197.aspx) 및 [about\_InlineScript](http://technet.microsoft.com/library/jj649082.aspx)를 참조하세요.
 
 
 ## 병렬 처리
@@ -163,9 +163,9 @@ Windows PowerShell 워크플로의 한 가지 장점은 일반적인 스크립�
 
 네트워크 대상에 여러 파일을 복사하는 다음 PowerShell 명령을 예로 들 수 있습니다. 하나의 파일이 복사가 완전히 끝나야만 다음 복사가 시작되므로 이 명령은 순차적으로 실행됩니다.
 
-	$Copy-Item -Path C:\LocalPath\File1.txt -Destination \NetworkPath\File1.txt
-	$Copy-Item -Path C:\LocalPath\File2.txt -Destination \NetworkPath\File2.txt
-	$Copy-Item -Path C:\LocalPath\File3.txt -Destination \NetworkPath\File3.txt
+	$Copy-Item -Path C:\LocalPath\File1.txt -Destination \\NetworkPath\File1.txt
+	$Copy-Item -Path C:\LocalPath\File2.txt -Destination \\NetworkPath\File2.txt
+	$Copy-Item -Path C:\LocalPath\File3.txt -Destination \\NetworkPath\File3.txt
 
 다음 워크플로는 복사를 동시에 시작하기 때문에 동일한 명령을 병렬로 실행합니다. 복사가 완전히 끝난 후 완료 메시지가 표시됩니다.
 
@@ -173,9 +173,9 @@ Windows PowerShell 워크플로의 한 가지 장점은 일반적인 스크립�
 	{
 		Parallel 
 		{
-			$Copy-Item -Path "C:\LocalPath\File1.txt" -Destination "\NetworkPath"
-			$Copy-Item -Path "C:\LocalPath\File2.txt" -Destination "\NetworkPath"
-			$Copy-Item -Path "C:\LocalPath\File3.txt" -Destination "\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File1.txt" -Destination "\\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File2.txt" -Destination "\\NetworkPath"
+			$Copy-Item -Path "C:\LocalPath\File3.txt" -Destination "\\NetworkPath"
 		}
 
 		Write-Output "Files copied."
@@ -199,7 +199,7 @@ Windows PowerShell 워크플로의 한 가지 장점은 일반적인 스크립�
 
 		ForEach -Parallel ($File in $Files) 
 		{
-			$Copy-Item -Path $File -Destination \NetworkPath
+			$Copy-Item -Path $File -Destination \\NetworkPath
 			Write-Output "$File copied."
 		}
 		
@@ -231,7 +231,7 @@ Windows PowerShell 워크플로의 한 가지 장점은 일반적인 스크립�
 
 		ForEach ($File in $Files) 
 		{
-			$Copy-Item -Path $File -Destination \NetworkPath
+			$Copy-Item -Path $File -Destination \\NetworkPath
 			Write-Output "$File copied."
 			Checkpoint-Workflow
 		}
@@ -249,4 +249,4 @@ Windows PowerShell 워크플로의 한 가지 장점은 일반적인 스크립�
 
 - [Windows PowerShell 워크플로 시작](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

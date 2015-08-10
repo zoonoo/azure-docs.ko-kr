@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 가상 컴퓨터의 SQL Server" 
+	pageTitle="SQL Server IaaS 에이전트 확장" 
 	description="SQL Server 에이전트 확장 및 아직 자동으로 설치되지 않은 에이전트를 설치하는 방법을 설명합니다. 에이전트 확장을 통해 Azure의 클라우드에서 SQL Server를 실행하는 가상 컴퓨터에서 자동화 기능을 사용할 수 있습니다." 
 	services="virtual-machines" 
 	documentationCenter="" 
@@ -74,4 +74,4 @@ VM에서 이 확장을 제거하려는 경우 다음 Azure Powershell cmdlet을 
 ### 구문
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

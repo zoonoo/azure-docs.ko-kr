@@ -173,4 +173,4 @@ TrackMetric 또는 TrackEvent의 측정 매개 변수를 사용한 경우 [메�
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

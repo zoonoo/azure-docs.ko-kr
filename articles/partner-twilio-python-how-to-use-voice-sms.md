@@ -91,14 +91,14 @@ Twilio/PHP 응용 프로그램을 빌드하여 Azure에 배포하는 방법에 �
 		$ pear channel-discover twilio.github.com/pear
 		$ pear install twilio/Services_Twilio
 
-PHP용 Twilio 라이브러리를 설치하고 나면 PHP 파일의 맨 위에 **require_once** 문을 추가하여 라이브러리를 참조하도록 할 수 있습니다.
+PHP용 Twilio 라이브러리를 설치하고 나면 PHP 파일의 맨 위에 **require\_once** 문을 추가하여 라이브러리를 참조하도록 할 수 있습니다.
 
     	require_once 'Services/Twilio.php';
 
 자세한 내용은 [https://github.com/twilio/twilio-php/blob/master/README.md][twilio_github_readme](영문)를 참조하십시오.
 
 ## <a id="howto_make_call"></a>방법: 발신 전화 걸기
-다음은 **Services_Twilio** 클래스를 사용하여 발신 전화를 거는 방법을 보여 줍니다. 또한 이 코드는 Twilio 제공 사이트를 사용하여 TwiML(Twilio Markup Language) 응답을 반환합니다. **From** 및 **To** 전화 번호의 값을 바꾸고, 코드를 실행하기 전에 Twilio 계정의 **From** 번호를 확인하십시오.
+다음은 **Services\_Twilio** 클래스를 사용하여 발신 전화를 거는 방법을 보여 줍니다. 또한 이 코드는 Twilio 제공 사이트를 사용하여 TwiML(Twilio Markup Language) 응답을 반환합니다. **From** 및 **To** 전화 번호의 값을 바꾸고, 코드를 실행하기 전에 Twilio 계정의 **From** 번호를 확인하십시오.
 
 	// Include the Twilio PHP library.
 	require_once 'Services/Twilio.php';
@@ -147,7 +147,7 @@ PHP용 Twilio 라이브러리를 설치하고 나면 PHP 파일의 맨 위에 **
 
 
 ## <a id="howto_send_sms"></a>방법: SMS 메시지 보내기
-다음은 **Services_Twilio** 클래스를 사용하여 SMS 메시지를 보내는 방법을 보여 줍니다. 평가판 계정이 SMS 메시지를 보낼 **From** 번호는 자동으로 입력됩니다. 코드를 실행하기 전에 Twilio 계정에 대한 **To** 번호를 확인해야 합니다.
+다음은 **Services\_Twilio** 클래스를 사용하여 SMS 메시지를 보내는 방법을 보여 줍니다. 평가판 계정이 SMS 메시지를 보낼 **From** 번호는 자동으로 입력됩니다. 코드를 실행하기 전에 Twilio 계정에 대한 **To** 번호를 확인해야 합니다.
 
 	// Include the Twilio PHP library.
 	require_once 'Services/Twilio.php';
@@ -192,7 +192,7 @@ Twilio 제공 URL을 사용하지 않고 HTTP 응답을 반환하는 고유한 �
 		<Say>Hello world.</Say>
 	</Response>
 
-위의 예제와 같이 TwiML 응답은 단지 XML 문서입니다. PHP용 Twilio 라이브러리에는 TwiML을 자동으로 생성하는 클래스가 포함되어 있습니다. 아래의 예제에서는 위에 표시된 것과 동일한 응답을 생성하지만 PHP용 Twilio 라이브러리의 **Services_Twilio_Twiml** 클래스를 사용합니다.
+위의 예제와 같이 TwiML 응답은 단지 XML 문서입니다. PHP용 Twilio 라이브러리에는 TwiML을 자동으로 생성하는 클래스가 포함되어 있습니다. 아래의 예제에서는 위에 표시된 것과 동일한 응답을 생성하지만 PHP용 Twilio 라이브러리의 **Services\_Twilio\_Twiml** 클래스를 사용합니다.
 
 	require_once('Services/Twilio.php');
 
@@ -202,7 +202,7 @@ Twilio 제공 URL을 사용하지 않고 HTTP 응답을 반환하는 고유한 �
 
 TwiML에 대한 자세한 내용은 [https://www.twilio.com/docs/api/twiml][twiml_reference](영문)을 참조하십시오.
 
-PHP 페이지가 TwiML 응답을 제공하도록 설정된 경우 `Services_Twilio->account->calls->create` 메서드에 전달되는 URL로 PHP 페이지의 URL을 사용합니다. 예를 들어 **MyTwiML**이라는 웹 응용 프로그램이 Azure 호스팅 서비스에 배포되어 있고 PHP 페이지의 이름이 **mytwiml.php**인 경우 다음 예와 같이 URL을 **Services_Twilio->account->calls->create**에 전달할 수 있습니다.
+PHP 페이지가 TwiML 응답을 제공하도록 설정된 경우 `Services_Twilio->account->calls->create` 메서드에 전달되는 URL로 PHP 페이지의 URL을 사용합니다. 예를 들어 **MyTwiML**이라는 웹 응용 프로그램이 Azure 호스팅 서비스에 배포되어 있고 PHP 페이지의 이름이 **mytwiml.php**인 경우 다음 예와 같이 URL을 **Services\_Twilio->account->calls->create**에 전달할 수 있습니다.
 
 	require_once 'Services/Twilio.php';
 
@@ -268,4 +268,4 @@ Twilio 서비스의 기본 사항을 배웠으며 자세한 내용을 보려면 
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -187,8 +187,8 @@ Git는 Azure 앱 서비스 웹앱을 배포하는 데 사용할 수 있는 분�
 
 	![Azure 배포 자격 증명](./media/web-sites-create-web-app-using-vscode/16-azure-credentials.png)
 
-9. 웹앱의 블레이드에서 **설정 > 속성**을 클릭합니다. 배포할 원격 Git 리포지토리의 URL이 **
-10.  URL** 아래에 표시됩니다.
+9. 웹앱의 블레이드에서 **설정 > 속성**을 클릭합니다. 배포할 원격 Git 리포지토리의 URL이 \*\*
+10.  URL\*\* 아래에 표시됩니다.
 
 10. 이 자습서에서 나중에 사용할 **GIT URL** 값을 복사합니다.
 
@@ -256,4 +256,4 @@ Git는 Azure 앱 서비스 웹앱을 배포하는 데 사용할 수 있는 분�
 ## 요약
 이 자습서에서는 VS Code에서 웹앱을 만들고 Azure에 배포하는 방법을 알아보았습니다. VS Code에 대한 자세한 내용은 [Visual Studio Code를 선택해야 하는 이유?](https://code.visualstudio.com/Docs/)를 참조하세요. 앱 서비스 웹앱에 대한 자세한 내용은 [웹앱 개요](app-service-web-overview.md)를 참조하세요.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

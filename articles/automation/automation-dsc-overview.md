@@ -208,7 +208,7 @@ Azure 자동화 DSC는 현재 [Azure 리소스 관리자 PowerShell 모듈](http
 
 - Azure 자동화는 PowerShell 모듈과 함께 사용할 수 없습니다. 따라서 자동화 계정 내의 모든 구성은 해당 자동화 계정으로 가져온 최신 버전의 PowerShell 모듈 및 구성에서 사용하는 모듈이 포함된 PowerShell DSC 리소스를 사용해야 합니다.
 
-- 기존 PowerShell DSC 끌어오기 서버의 경우 **ModuleName_Version.zip”** 형식의 모듈 압축 파일이 있어야 합니다. Azure 자동화에서 **ModuleName.zip** 형식의 이름으로 PowerShell 모듈을 가져와야 합니다. Azure 자동화로 모듈을 가져오는 데 필요한 통합 모듈 형식에 대한 자세한 내용은 [이 블로그 게시물](http://azure.microsoft.com/blog/2014/12/15/authoring-integration-modules-for-azure-automation/)을 참조하세요.
+- 기존 PowerShell DSC 끌어오기 서버의 경우 **ModuleName\_Version.zip”** 형식의 모듈 압축 파일이 있어야 합니다. Azure 자동화에서 **ModuleName.zip** 형식의 이름으로 PowerShell 모듈을 가져와야 합니다. Azure 자동화로 모듈을 가져오는 데 필요한 통합 모듈 형식에 대한 자세한 내용은 [이 블로그 게시물](http://azure.microsoft.com/blog/2014/12/15/authoring-integration-modules-for-azure-automation/)을 참조하세요.
 
 - “폴더별 버전” 형식을 사용하여 모듈 내에서 DSC 리소스를 함께 사용하도록 지정하는 PowerShell 모듈은 현재 Azure 자동화에서 작동하지 않습니다.
 
@@ -226,4 +226,4 @@ Azure 자동화 DSC는 현재 [Azure 리소스 관리자 PowerShell 모듈](http
 
 - Azure 자동화 DSC로 온보드 된 DCS 노드는 처음에 ‘호환' 상태로 표시되며, 매핑된 DCS 노드 구성과 실제로 호환이 되지 않을 경우에도 마찬가지로 표시됩니다. 노드가 첫 번째 끌어오기 수행 및 Azure 자동화 DSC에 첫 번째 DSC 보고를 전송한 후, 노드의 상태는 수정 됩니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

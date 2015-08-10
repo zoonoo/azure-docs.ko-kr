@@ -95,15 +95,15 @@
 	![로컬 디버깅용 API 앱 호스트 응용 프로그램 설정](./media/app-service-api-dotnet-debug/ld-app-settings-for-local-debugging.png)
 
 9. **앱 설정**에서 다음 값을 각각 찾고 그것을 *web.config* 파일의 **appSettings** 섹션에 추가합니다.
-	- **EMA_MicroserviceId**
-	- **EMA_Secret**
-	- **EMA_RuntimeUrl**
+	- **EMA\_MicroserviceId**
+	- **EMA\_Secret**
+	- **EMA\_RuntimeUrl**
 
 	작업을 마친 경우 *web.config*의 **appSettings** 섹션은 다음 스크린샷과 유사해야 합니다.
 
 	![로컬 디버깅용 API 앱 호스트 응용 프로그램 설정](./media/app-service-api-dotnet-debug/ld-debug-settings.png)
 
-	**참고:** 이 섹션에서 *web.config* 파일에 추가한 *EMA_* 값은 중요한 인증 정보를 포함합니다. 따라서 이러한 비밀이 다른 사람에게 보여지기 때문에 (*github*와 같은) 공개 소스 제어 매체에 이 파일을 커밋할 때 주의하는 것이 좋습니다 자세한 내용은 [ASP.NET 및 Azure 앱 서비스에 암호 및 기타 중요한 데이터 배포를 위한 모범 사례](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure) 기사를 참조하세요.
+	**참고:** 이 섹션에서 *web.config* 파일에 추가한 *EMA\_* 값은 중요한 인증 정보를 포함합니다. 따라서 이러한 비밀이 다른 사람에게 보여지기 때문에 (*github*와 같은) 공개 소스 제어 매체에 이 파일을 커밋할 때 주의하는 것이 좋습니다 자세한 내용은 [ASP.NET 및 Azure 앱 서비스에 암호 및 기타 중요한 데이터 배포를 위한 모범 사례](http://www.asp.net/identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure) 기사를 참조하세요.
 
 10. (`Get`과 `Post` 메서드에서) API 앱의 컨트롤러 코드에 하나 이상의 중단점을 배치합니다.
 
@@ -139,4 +139,4 @@ API 앱용 원격 디버깅을 사용하면 Azure 앱 서비스에서 코드가 
 이 시리즈에서 만든 API 앱은 누구든지 공개적으로 호출할 수 있습니다. 인증된 사용자만 호출할 수 있게 API 앱을 보호하는 방법에 대한 자세한 내용은 [Azure 앱 서비스에서 API 앱 및 모바일 앱 인증](../app-service/app-service-authentication-overview.md)을 참조하세요.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

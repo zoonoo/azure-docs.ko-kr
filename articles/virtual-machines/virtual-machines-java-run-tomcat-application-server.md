@@ -127,7 +127,7 @@ Tomcat이 외부 컴퓨터에서 실행되는 것을 보려면 끝점을 만들�
 
  ![새 인바운드 규칙 이름][NewRuleName]
 
-이제 외부 브라우저에서 **http://*your_DNS_name*.cloudapp.net** 형식의 URL을 사용하면 Tomcat 웹 사이트가 표시됩니다. 여기서 ***your_DNS_name***은 가상 컴퓨터를 만들 때 지정한 DNS 이름입니다.
+이제 외부 브라우저에서 **http://*your\_DNS\_name*.cloudapp.net** 형식의 URL을 사용하면 Tomcat 웹 사이트가 표시됩니다. 여기서 ***your\_DNS\_name***은 가상 컴퓨터를 만들 때 지정한 DNS 이름입니다.
 
 ## 응용 프로그램 수명 주기 고려 사항
 * 고유한 WAR(웹 응용 프로그램 보관 파일)을 만들어 **webapps** 폴더에 추가할 수 있습니다. 예를 들어, 기본 JSP(Java 서비스 페이지) 동적 웹 프로젝트를 만들어 WAR 파일로 내보내고, 가상 컴퓨터의 Apache Tomcat **webapps** 폴더로 WAR 파일을 복사한 후 브라우저에서 실행합니다.
@@ -159,4 +159,4 @@ Java 응용 프로그램에 포함시킬만한 다른 서비스(예: Azure 저�
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

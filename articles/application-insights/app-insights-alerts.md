@@ -80,4 +80,4 @@ Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

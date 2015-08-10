@@ -51,9 +51,9 @@ Azure AD(Azure Active Directory)는 가장 널리 사용되는 다수의 인증 
 
 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)
 
-[인증에 Azure AD 사용](https://msdn.microsoft.com/library/azure/dn385718.aspx)
+[인증에 Azure AD 사용](../app-service-web/web-sites-authentication-authorization.md)
 
 [Active Directory 코드 샘플](active-directory-code-samples.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="07/24/2015"
 	ms.author="larryfr"/>
 
 #HDInsight의 Hadoop과 함께 Apache Mahout을 사용하여 영화 추천 생성
@@ -92,7 +92,7 @@ Mahout에서 제공하는 기능 중 하나가 추천 엔진입니다. 이 엔�
 	# NOTE: The version number portion of the file path
 	# may change in future versions of HDInsight.
 	# So dynamically grab it using Hive.
-	$mahoutPath = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar' | where {$_.startswith("C:\apps\dist")}
+	$mahoutPath = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar' | where {$_.startswith("C:\apps\dist")}
 	$noCRLF = $mahoutPath -replace "`r`n", ""
 	$cleanedPath = $noCRLF -replace "\", "/"
 	$jarFile = "file:///$cleanedPath"
@@ -285,21 +285,13 @@ Mahout에서 사용 가능한 분류 방법 중 하나는 [랜덤 포리스트][
 
 ###작업 실행
 
-1. 이 작업에는 Hadoop 명령줄이 필요하므로 먼저 [Azure 포털][management]을 통해 원격 데스크톱을 사용하도록 설정해야 합니다. 포털에서 HDInsight 클러스터를 선택한 다음 __구성__ 페이지의 하단에서 __원격 사용__을 선택합니다.
-
-    ![원격 사용][enableremote]
-
-    메시지가 표시되면 원격 세션에 사용할 사용자 이름 및 암호를 입력합니다.
-
-2. 원격 액세스가 설정되면 __연결__을 선택하여 연결을 시작합니다. 그러면 원격 데스크톱 세션을 시작하는 데 사용할 수 있는 __.rdp__ 파일이 다운로드됩니다.
-
-    ![연결][connect]
+1. 이 작업에는 Hadoop 명령줄이 필요합니다. HDInsight 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 [RDP를 사용하여 HDInsight 클러스터에 연결](hdinsight-administer-use-management-portal.md#rdp)의 지침에 따라 연결합니다.
 
 3. 연결한 후 __Hadoop 명령줄__ 아이콘을 사용하여 Hadoop 명령줄을 엽니다.
 
 	![hadoop cli][hadoopcli]
 
-3. 다음 명령으로 Mahout을 사용하는 파일 설명자(__KDDTrain+.info__)를 생성합니다.
+3. 다음 명령으로 Mahout을 사용하는 파일 설명자(\_\_KDDTrain+.info\_\_)를 생성합니다.
 
 		hadoop jar "c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar" org.apache.mahout.classifier.df.tools.Describe -p "wasb:///example/data/KDDTrain+.arff" -f "wasb:///example/data/KDDTrain+.info" -d N 3 C 2 N C 4 N C 8 N 2 C 19 N L
 
@@ -381,7 +373,7 @@ Mahout 작업을 실행할 때 오류를 방지하려면 실행 사이에 임시
 HDInsight 3.1 클러스터에는 Mahout이 포함되어 있습니다. 경로 및 파일 이름에는 클러스터에 설치된 Mahout의 버전 번호가 포함됩니다. 이 자습서의 Windows PowerShell 예제 스크립트는 2014년 7월을 기준으로 유효한 경로를 사용하지만 향후 HDInsight 업데이트에서 버전 번호가 변경될 예정입니다. 사용 중인 클러스터용 Mahout JAR 파일의 현재 경로를 확인하려면 다음 Windows PowerShell 명령을 사용한 후 반환된 파일 경로를 참조하도록 스크립트를 수정하세요.
 
 	Use-AzureHDInsightCluster -Name $clusterName
-	$jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar'
+	$jarFile = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar'
 
 ###<a name="nopowershell"></a>Windows PowerShell에서 작동하지 않는 클래스
 
@@ -429,4 +421,4 @@ Windows PowerShell에서 사용하는 경우 다음 클래스를 사용하는 Ma
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

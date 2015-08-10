@@ -71,7 +71,7 @@ ContactNames Web API를 빌드합니다. Web API의 Get 메서드는 ContactsLis
 
 기본적으로 API 앱 프로젝트는 자동 [Swagger](http://swagger.io/ "공식 Swagger 정보") 메타데이터 생성을 통해 사용하도록 설정되지만 Azure API 앱 new-project 템플릿에서 API 테스트 페이지를 사용하지 않도록 설정합니다. 이 섹션에서는 테스트 페이지를 사용하도록 설정합니다.
 
-1. *App_Start/SwaggerConfig.cs* 파일을 열고 **EnableSwaggerUI**를 검색합니다.
+1. *App\_Start/SwaggerConfig.cs* 파일을 열고 **EnableSwaggerUI**를 검색합니다.
 
 2. 다음 코드 줄의 주석 처리를 제거합니다.
 
@@ -265,4 +265,4 @@ ContactNames Web API를 빌드합니다. Web API의 Get 메서드는 ContactsLis
 앱 서비스의 인증에 대한 자세한 내용은 [API 앱 및 모바일 앱 인증](../app-service/app-service-authentication-overview.md)을 참조하세요.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

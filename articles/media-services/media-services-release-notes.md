@@ -68,7 +68,7 @@
 
 미디어 인코더 표준의 일반 공급 발표 자세한 내용은 [이 블로그](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)를 참조하세요.
 
-미디어 인코더 표준은 [이](http://go.microsoft.com/fwlink/?LinkId=618336) 섹션에 설명된 기본 설정을 사용합니다. 4k 인코드에 대한 기본 설정을 사용하는 경우 **프리미엄 * * 예약 단위 형식을 가져와야 합니다. 자세한 내용은 [인코딩 크기를 조정하는 방법](media-services-portal-encoding-units)을 참조하세요.
+미디어 인코더 표준은 [이](http://go.microsoft.com/fwlink/?LinkId=618336) 섹션에 설명된 기본 설정을 사용합니다. 4k 인코드에 대한 기본 설정을 사용하는 경우 **프리미엄 \* \* 예약 단위 형식을 가져와야 합니다. 자세한 내용은 [인코딩 크기를 조정하는 방법](media-services-portal-encoding-units)을 참조하세요.
 
 
 ###미디어 서비스 .NET SDK 업데이트
@@ -319,7 +319,7 @@ Azure 미디어 서비스 패키지 작성 도구 및 암호기에 대한 다음
 
 ### <a name="jan_fab_14_donnet_changes"></a>Azure 미디어 서비스 .NET SDK 3.0.0.1, 3.0.0.2 및 3.0.0.3
 
-3.0.0.1 및 3.0.0.2의 변경 내용은 다음과 같습니다.
+3\.0.0.1 및 3.0.0.2의 변경 내용은 다음과 같습니다.
 
 * OrderBy 문을 통한 LINQ 쿼리 사용에 관련된 문제가 해결되었습니다.
 
@@ -327,11 +327,11 @@ Azure 미디어 서비스 패키지 작성 도구 및 암호기에 대한 다음
 
 변경 내용에 대한 자세한 내용은 [Azure 미디어 서비스 .NET SDK 3.0.0.1 및 3.0.0.2 릴리스]를 참조하세요.
 
-3.0.0.3에서 변경된 사항은 다음과 같습니다.
+3\.0.0.3에서 변경된 사항은 다음과 같습니다.
 
 * 버전 3.0.3.0을 사용하도록 Azure 저장소 종속성이 업그레이드되었습니다. 
 
-* 3.0.*.* 릴리스에 대한 이전 버전과의 호환성 문제가 해결되었습니다.
+* 3\.0.\*.\* 릴리스에 대한 이전 버전과의 호환성 문제가 해결되었습니다.
 
 
 ##<a id="december_changes_13"></a>2013년 12월 릴리스
@@ -555,4 +555,4 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 [미디어 서비스 작업 알림 처리]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

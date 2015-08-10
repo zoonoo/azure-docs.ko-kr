@@ -85,8 +85,8 @@
 -	Doug Terry. 야구를 통해 복제된 데이터 일관성을 설명합니다. [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 -	Doug Terry. 약하게 일관된 복제 데이터에 대한 세션 보장입니다. [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
 -	Daniel Abadi. 최신 분산 데이터베이스 시스템 디자인에서 일관성 균형: CAP는 스토리의 일부일 뿐입니다”. [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html) 
--	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. 실용적인 부분 쿼럼에 대한 PBS(확률적 제한된 부실)입니다. [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
--	Werner Vogels. 최종 일관성 - 재고되었습니다. [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+-	Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. 실용적인 부분 쿼럼에 대한 PBS(확률적 제한된 부실)입니다. [http://vldb.org/pvldb/vol5/p776\_peterbailis\_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
+-	Werner Vogels. 최종 일관성 - 재고되었습니다. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

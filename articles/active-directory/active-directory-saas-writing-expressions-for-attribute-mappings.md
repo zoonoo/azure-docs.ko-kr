@@ -1,0 +1,390 @@
+<properties
+	pageTitle="Azure Active Directory의 특성 매핑에 대한 식 작성"
+	description="Azure Active Directory에서 SaaS 앱 개체의 자동화된 프로비전 중 허용되는 형식으로 특성 값을 변환하기 위해 식 매핑을 사용하는 방법에 대해 알아봅니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="markusvi"
+	manager="swadhwa"
+	editor=""/>
+
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/27/2015"
+	ms.author="markusvi"/>
+
+
+# Azure Active Directory의 특성 매핑에 대한 식 작성
+
+SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할 수 있는 특성 매핑의 유형 중 하나입니다. 이러한 경우, 사용자의 데이터를 SaaS 응용 프로그램에 대해 사용하는 형식으로 변환할 수 있는 스크립트 방식의 식을 작성해야 합니다.
+
+
+
+
+
+## 구문 개요
+
+특성 매핑을 위한 식의 구문은 VBA(Visual Basic Applications) 함수를 연상시킵니다.
+
+- 전체 식은 <br>*FunctionName(<<argument 1>>,<<argument N>>)*과 같이 함수 조건으로 정의되며, 괄호 안에 인수 이름으로 구성됩니다.
+
+
+- 서로 함수를 중첩할 수 있습니다. 예: <br>*FunctionOne(FunctionTwo(<<argument1>>))*
+
+
+- 함수에 3가지 다른 유형의 인수를 전달할 수 있습니다.
+
+   1. 특성은 대괄호로 묶어야 합니다. 예: [attributeName]
+
+   2. 문자열 상수는 큰따옴표로 묶어야 합니다. 예: "미국"
+
+   3. 기타 함수 예: FunctionOne(<<argument1>>, FunctionTwo(<<argument2>>))
+
+
+- 문자열 상수의 경우, 백슬래시 (\\) 또는 따옴표(")가 문자열에 필요한 경우 백슬래시(\\) 기호로 이스케이프되어야 합니다. 예: "회사 이름:"Contoso""
+
+
+
+## 함수 목록
+
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [MatchRegex](#matchregex) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [ObsoleteReplace](#obsoletereplace) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [ReplaceRegex](#replaceregex) &nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+
+
+
+
+
+----------
+### 추가
+
+**함수:**<br> Append(source, suffix)
+
+**설명:**<br> 소스 문자열 값을 문자열의 끝에 접미사로 추가합니다.
+ 
+**매개 변수:**<br>
+
+|이름| 필수/ 반복 | 형식 | 참고 사항 |
+|--- | ---                 | ---  | ---   |
+| **원본** | 필수 | String | 대개는 원본 개체의 특성 이름 |
+| **접미사** | 필수 | 문자열 | 원본 값의 끝에 추가하려는 문자열입니다. |
+
+
+----------
+### Coalesce
+
+**함수:**<br> Coalesce(source1, source2, …)
+
+**설명:**<br> 원본 매개 변수 목록에서 첫번째 비어 있지 않은 값을 반환합니다.
+ 
+**매개 변수:**<br>
+
+|이름| 필수/ 반복 | 형식 | 참고 사항 |
+|--- | ---                 | ---  | ---   |
+| **source1 .. sourceN \*\* | 필수, 시간 변수 | 문자열 | **원본** 선택할 값 |
+
+
+
+----------
+### FormatDateTime
+
+**함수:**<br> FormatDateTime(source, inputFormat, outputFormat)
+
+**설명:**<br> 한 형식의 날짜 문자열을 사용하여 다른 형식으로 변환합니다.
+ 
+**매개 변수:**<br>
+
+|이름| 필수/ 반복 | 형식 | 참고 사항 |
+|--- | ---                 | ---  | ---   |
+| **원본** | 필수 | String | 대개는 원본 개체의 특성 이름입니다. |
+| **inputFormat** | 필수 | String | 원본 값의 예상된 형식입니다. 지원되는 형식은[http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)를 참조하세요. |
+| **outputFormat** | 필수 | String | 출력 날짜의 형식입니다. |
+
+
+
+----------
+### Join
+
+**함수:**<br> Join(separator, source1, source2, …)
+
+**설명:**<br> 다중 **source** 문자열 값을 단일 문자열로 결합할 수 있다는 점을 제외하고 Join()은 Append()와 유사하며, 값 은 **separator** 문자열로 구분됩니다.
+
+원본 값 중 하나가 다중 값 특성인 경우, 해당 특성의 모든 값은 함께 조인되며 구분 기호 값을 구분합니다.
+
+ 
+**매개 변수:**<br>
+
+|이름| 필수/ 반복 | 형식 | 참고 사항 |
+|--- | ---                 | ---  | ---   |
+| **구분 기호** | 필수 | 문자열 | 문자열이 하나의 문자열로 연결되면 원본 값을 구분하는데 문자열을 사용합니다. 구분 기호가 필요하지 않은 경우 ""일 수 있습니다. |
+| **source1 … sourceN \*\* | 필수, 시간 변수 | 문자열 | 함께 조인될 문자열 값. |
+
+
+
+
+
+----------
+### MatchRegex
+
+**함수:**<br> MatchRegex(source, find, group)
+
+**설명:**<br> find 매개 변수에 지정된 정규식 패턴과 일치하는 부분 문자열 내부 원본 값을 반환합니다. 그룹이 지정된 경우 해당 RegEx 그룹의 값만 반환합니다.
+
+
+**매개 변수:**<br>
+
+|이름| 필수/ 반복 | 형식 | 참고 사항 |
+|--- | ---                 | ---  | ---   |
+| **원본** | 필수 | 문자열 | 검색할 **원본** 값입니다. |
+| **find** | 필수 | 문자열 | 내부 **원본** 값과 일치하는 정규식입니다. |
+| **group** | 옵션 | String | 사용하려는 값과 일치하는 그룹 내 정규식의 이름입니다. |
+
+
+
+----------
+### Mid
+
+**함수:**<br> Mid(source, start, length)
+
+**설명:**<br>원본 값의 부분 문자열을 반환합니다. 부분 문자열은 원본 문자열에서 문자 중 일부만 포함하는 문자열입니다.
+
+
+**매개 변수:**<br>
+
+|이름| 필수/ 반복 | 형식 | 참고 사항 |
+|--- | ---                 | ---  | ---   |
+| **원본** | 필수 | String | 일반적으로 특성 이름입니다. |
+| **시작** | 필수 | 정수 | **원본** 문자열의 인덱스는 부분 문자열이 시작되는 곳입니다. 문자열의 첫번째 문자에는 인덱스 1이 있고, 두번째 문자에는 인덱스 2가 있습니다. |
+| **length** | 필수 | 정수 | 부분 문자열의 길이입니다. 길이가 **원본** 문자열 외부에서 종료되면 함수는 **시작** 인덱스에서 **원본** 문자열의 끝까지 부분 문자열을 반환합니다. |
+
+
+
+
+----------
+### Not
+
+**함수:**<br> Not(source)
+
+**설명:**<br> **원본**의 부울 값을 대칭 이동합니다. **원본** 값이 "\*True\*"인 경우 "\*False\*"를 반환합니다. 그렇지 않은 경우 "\*True\*"를 반환합니다.
+
+
+**매개 변수:**<br>
+
+|이름| 필수/ 반복 | 형식 | 참고 사항 |
+|--- | ---                 | ---  | ---   |
+| **원본** | 필수 | 부울 문자열 | 예상 **원본** 값은 "True" 또는 "False"입니다. |
+
+
+
+----------
+### ObsoleteReplace
+
+**함수:**<br> ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
+
+**설명:**<br>
+> [AZURE.NOTE]이 함수는 가까운 미래에 사용되어 간단 버전으로 교체됩니다.
+
+문자열 내 값을 대체합니다. 제공된 매개 변수에 따라 다르게 작동합니다.
+
+- **oldValue** 및 **replacementValue**가 제공되는 경우:
+
+   - 소스에서 oldValue의 모든 항목을 replacementValue로 대체합니다.
+
+- **oldValue** 및 **template**이 제공되는 경우:
+
+   - **template**에서 **oldValue**의 모든 항목을 **원본** 값으로 대체합니다.
+
+- **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementValue**가 제공되는 경우:
+
+   - 원본 문자열에서 OldValueRegexPattern과 일치하는 모든 값을 replacementValue로 대체합니다.
+
+- **oldValueRegexPattern**, **oldValueRegexGroupName**, **replacementPropertyName**이 제공되는 경우:
+
+   - **원본**에 값이 있는 경우 **원본**이 반환됩니다.
+
+- **원본**에 값이 없는 경우 **oldValueRegexPattern** 및 **oldValueRegexGroupName**을 사용하여 **replacementPropertyName**으로 속성에서 대체 값을 추출합니다. 대체 값이 결과로 반환됩니다.
+
+
+**매개 변수:**<br>
+
+|이름| 필수/ 반복 | 형식 | 참고 사항 |
+|--- | ---                 | ---  | ---   |
+| **원본** | 필수 | 문자열 | 대개는 원본 개체의 특성 이름입니다. |
+| **oldValue** | 옵션 | String | **원본** 또는 **템플릿**에서 대체될 값입니다. |
+| **regexPattern** | 옵션 | String | **원본**에서 대체될 값에 대한 Regex 패턴입니다. 또는 replacementPropertyName를 사용하면 대체 속성에서 값을 추출하는 패턴입니다. |
+| **regexGroupName** | 옵션 | 문자열 | **regexPattern** 내 그룹의 이름입니다. ReplacementPropertyName를 사용하는 경우에만 replacement 속성에서 replacementValue로 이 그룹의 값을 추출합니다. |
+| **replacementValue** | 옵션 | String | 이전 값과 대체할 새로운 값입니다. |
+| **replacementAttributeName** | 옵션 | 문자열 | 원본에 값이 없는 경우 대체 값에 사용할 특성의 이름입니다. |
+| **template** | 옵션 | String | **template** 값이 제공되면, 템플릿 내에서 **oldValue**를 찾아 원본 값으로 바꿉니다. |
+
+
+
+----------
+### Replace
+
+**함수:**<br> Replace(source, find, replace)
+
+**설명:**<br> **원본** 문자열의 **find** 값의 모든 항목을 **replace** 매개 변수의 값으로 대체합니다.
+
+**매개 변수:**<br>
+
+|이름| 필수/ 반복 | 형식 | 참고 사항 |
+|--- | ---                 | ---  | ---   |
+| **원본** | 필수 | 문자열 | 검색할 **원본** 값입니다. |
+| **find** | 필수 | 문자열 | 검색할 값입니다. |
+| **replace** | 필수 | 문자열 | 대체할 값입니다. |
+
+
+
+----------
+### ReplaceRegex
+
+**함수:**<br> ReplaceRegex(source, find, replace, group)
+
+**설명:**<br> **원본** 문자열 내에서 **find** 정규식과 일치하는 모든 부분 문자열을 **replace** 값으로 대체합니다. **group**이 지정되면 해당 RegEx 그룹의 값만을 대체합니다.
+
+**매개 변수:**<br>
+
+|이름| 필수/ 반복 | 형식 | 참고 사항 |
+|--- | ---                 | ---  | ---   |
+| **원본** | 필수 | 문자열 | 검색할 **원본** 값입니다. |
+| **find** | 필수 | String | 내부 **원본** 값과 일치하는 정규식입니다. |
+| **replace** | 필수 | 문자열 | 대체할 값입니다. |
+| **group** | 옵션 | 문자열 | 사용하려는 값과 일치하는 그룹 내 정규식의 이름입니다. |
+
+
+
+
+----------
+### StripSpaces
+
+**함수:**<br> StripSpaces(source)
+
+**설명:**<br> 원본 문자열에서 모든 공백("")을 제거합니다.
+
+**매개 변수:**<br>
+
+|이름| 필수/ 반복 | 형식 | 참고 사항 |
+|--- | ---                 | ---  | ---   |
+| **원본** | 필수 | 문자열 | 업데이트할 **원본** 값입니다. |
+
+
+
+----------
+### Switch
+
+**함수:**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
+
+**설명:**<br> **원본** 값이 **key**와 일치하면, 해당 **key**의 **value**를 반환합니다. **원본** 값이 모든 키와 일치하지 않는 경우, **defaultValue**를 반환합니다. **Key** 및 **value** 매개변수는 항상 쌍으로 제공되어야 합니다. 함수는 항상 짝수 개수의 매개 변수를 예상합니다.
+
+**매개 변수:**<br>
+
+|이름| 필수/ 반복 | 형식 | 참고 사항 |
+|--- | ---                 | ---  | ---   |
+| **원본** | 필수 | String | 업데이트할 **원본** 값입니다. |
+| **defaultValue** | 옵션 | String | 원본이 모든 키와 일치하지 않는 경우 사용할 기본값입니다. 빈 문자열("")일 수 있습니다. |
+| **key** | 필수 | 문자열 | **원본** 값과 비교할 **Key**입니다. |
+| **값** | 필수 | 문자열 | 키와 일치하는 **원본**의 대체 값입니다. |
+
+
+
+## 예
+
+### 알려진 도메인 이름 제거
+
+사용자 이름을 가져오려면 사용자의 전자 메일에서 알려진 도메인 이름을 제거해야 합니다. <br> 예를 들어, 도메인이 "contoso.com"인 경우 다음 식을 사용할 수 있습니다.
+
+
+**식:** <br> `Replace([mail], "@contoso.com", "")`
+
+**샘플 입력 / 출력:** <br>
+
+- **입력** (메일): "john.doe@contoso.com"
+
+- **출력**: "john.doe"
+
+
+
+### 사용자 이름에 상수 접미사 추가
+
+Salesforce 샌드박스를 사용하는 경우 동기화하기 전에 모든 사용자 이름에 추가 접미사를 추가해야할 수 있습니다.
+
+
+
+
+**식:** <br> `Append([userPrincipalName], ".test"))`
+
+**샘플 입/출력:** <br>
+
+- **입력**: (userPrincipalName): "John.Doe@contoso.com"
+
+
+- **출력**: "John.Doe@contoso.com.test"
+
+
+
+
+
+### 이름과 성의 부분을 연결하여 사용자 별칭을 생성합니다.
+
+사용자의 이름 중 처음 3개 문자 및 사용자 성의 처음 5개 문자를 사용하여 사용자 별칭을 생성해야 합니다.
+
+
+**식:** <br> `Append(Mid([givenName], 1, 3), Mid([surname], 1, 5))`
+
+**샘플 입/출력:** <br>
+
+- **입력** (givenName): "John"
+
+- **입력** (성): "Doe"
+
+- **출력**: "JohDoe"
+
+
+
+
+### 특정 형식에서 문자열로 출력 날짜
+
+SaaS 응용 프로그램에 특정 형식의 날짜를 전송하려고 합니다. <br> ServiceNow에 대한 날짜 형식을 지정하려는 예입니다.
+
+
+
+**식:** <br>
+
+`FormatDateTime([extensionAttribute1], "yyyyMMddHHmmss.fZ", "yyyy-MM-dd")`
+
+**샘플 입/출력:**
+
+- **입력** (extensionAttribute1): "20150123105347.1Z"
+
+- **출력**: "2015-01-23"
+
+
+
+
+
+### 미리 정의된 옵션 집합을 기반으로 값 바꾸기
+
+Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 정의해야 합니다. <br> 상태 코드가 미리 정의된 옵션 중 하나와 일치하지 않으면, "오스트레일리아/시드니"의 기본값을 사용합니다.
+
+
+**식:** <br>
+
+`Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
+
+**샘플 입/출력:**
+
+- **입력** (상태): "QLD"
+
+- **출력**: "오스트레일리아/브리즈번"
+
+
+
+## 추가 리소스
+
+* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+
+<!---HONumber=July15_HO5-->

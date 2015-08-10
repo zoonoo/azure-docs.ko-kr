@@ -48,7 +48,7 @@ DocumentDB 리소스는 다음 HTTP 동사 및 해당 표준 해석을 지원합
 ## POST를 사용하여 새 리소스 만들기 
 조작 모델의 이해를 돕기 위해 새 리소스를 만드는 경우(INSERT라고도 함)를 고려해 보겠습니다. 새 리소스를 만들려면 리소스가 속하는 컨테이너 피드의 URI에 대해 리소스 표현을 요청 본문에 포함하여 HTTP POST 요청을 실행해야 합니다. 요청의 필수 속성은 리소스 id뿐입니다.
 
-예를 들어 새 데이터베이스를 만들려면 /dbs에 대해 (ID 속성을 고유한 이름으로 설정하여) 데이터베이스 리소스를 게시합니다. 마찬가지로 새 컬렉션을 만들려면 /dbs/_rid/colls/ 등에 대해 컬렉션 리소스를 게시할 수 있습니다. 응답에는 다른 리소스로 이동하는 데 사용할 수 있는 리소스의 _self 링크를 비롯한 시스템 생성 속성이 있는 완전히 커밋된 리소스가 포함됩니다. 단순한 HTTP 기반 조작 모델의 예로, 클라이언트가 HTTP 요청을 실행하여 계정 내에 새 데이터베이스를 만들 수 있습니다.
+예를 들어 새 데이터베이스를 만들려면 /dbs에 대해 (ID 속성을 고유한 이름으로 설정하여) 데이터베이스 리소스를 게시합니다. 마찬가지로 새 컬렉션을 만들려면 /dbs/\_rid/colls/ 등에 대해 컬렉션 리소스를 게시할 수 있습니다. 응답에는 다른 리소스로 이동하는 데 사용할 수 있는 리소스의 _self 링크를 비롯한 시스템 생성 속성이 있는 완전히 커밋된 리소스가 포함됩니다. 단순한 HTTP 기반 조작 모델의 예로, 클라이언트가 HTTP 요청을 실행하여 계정 내에 새 데이터베이스를 만들 수 있습니다.
 
 	POST https://fabrikam.documents.azure.com/dbs
 	{
@@ -82,7 +82,7 @@ DocumentDB 서비스가 성공 응답 및 데이터베이스가 성공적으로 
         response.setBody("Hello, World");
      }
 
-/dbs/_rid-db/colls/_rid-coll/sprocs에 대해 POST를 실행하여 MyDb 아래의 컬렉션에 저장 프로시저를 등록할 수 있습니다.
+/dbs/\_rid-db/colls/\_rid-coll/sprocs에 대해 POST를 실행하여 MyDb 아래의 컬렉션에 저장 프로시저를 등록할 수 있습니다.
 
 	POST https://fabrikam.documents.azure.com/dbs/UoEi5w==/colls/UoEi5w+upwA=/sprocs HTTP/1.1
 	
@@ -253,13 +253,13 @@ REST API를 사용하여 리소스 작업을 수행하는 방법에 대한 자�
 - [DocumentDB SQL 참조(영문)](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 - [DocumentDB 프로그래밍: 저장된 프로시저, 트리거 및 UDF](../documentdb-programming/)
 - [DocumentDB 참조 설명서](https://msdn.microsoft.com/library/azure/dn781482.aspx)
-- REST [http://en.wikipedia.org/wiki/Representational_state_transfer](http://en.wikipedia.org/wiki/Representational_state_transfer)
+- REST [http://en.wikipedia.org/wiki/Representational\_state\_transfer](http://en.wikipedia.org/wiki/Representational_state_transfer)
 - JSON 사양 [http://www.ietf.org/rfc/rfc4627.txt](http://www.ietf.org/rfc/rfc4627.txt)
 - HTTP 사양 [http://www.w3.org/Protocols/rfc2616/rfc2616.html](http://www.w3.org/Protocols/rfc2616/rfc2616.html)
-- 엔터티 태그 [http://en.wikipedia.org/wiki/HTTP_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
+- 엔터티 태그 [http://en.wikipedia.org/wiki/HTTP\_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
 
 
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -64,4 +64,4 @@ Wait 커넥터는 동작으로 사용할 수 있습니다. 트리거가 필요�
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

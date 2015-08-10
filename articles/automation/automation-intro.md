@@ -65,4 +65,4 @@ Azure 자동화의 runbook은 Powershell 워크플로 기반이기 때문에 Pow
 
 **사용자 의견을 보내 주십시오!** Azure 자동화 Runbook 솔루션 또는 통합 모듈을 찾고 있는 경우 스크립트 센터에 스크립트 요청을 게시하세요. Azure 자동화에 대한 의견이나 기능 요청이 있는 경우 [사용자 음성](http://feedback.windowsazure.com/forums/34192--general-feedback)에 게시하세요. 감사합니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

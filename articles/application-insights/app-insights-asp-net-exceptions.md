@@ -160,7 +160,7 @@ VB
 
 웹 양식의 경우 CustomErrors를 사용하여 구성된 리디렉션이 없으면 HTTP 모듈에서 예외를 수집할 수 있습니다.
 
-하지만 활성 리디렉션이 있다면 Global.asax.cs의 Application_Error 함수에 다음 줄을 추가합니다 (아직 없는 경우 Global.asax 파일 추가).
+하지만 활성 리디렉션이 있다면 Global.asax.cs의 Application\_Error 함수에 다음 줄을 추가합니다 (아직 없는 경우 Global.asax 파일 추가).
 
 *C#*
 
@@ -441,4 +441,4 @@ WebApiConfig에서 서비스에 추가합니다.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -162,9 +162,9 @@ APNS는 인증서를 사용하여 모바일 서비스를 인증합니다. 필요
 
     ![][9]
 
-    참고: 기본적으로 다운로드된 개발 증명서 파일은 이름이 <strong>aps_development.cer</strong>로 지정됩니다.
+    참고: 기본적으로 다운로드된 개발 증명서 파일은 이름이 <strong>aps\_development.cer</strong>로 지정됩니다.
 
-7. 다운로드한 푸시 인증서 **aps_development.cer**을 두 번 클릭합니다.
+7. 다운로드한 푸시 인증서 **aps\_development.cer**을 두 번 클릭합니다.
 
     아래와 같이 새 인증서가 Keychain에 설치됩니다.
 
@@ -293,7 +293,7 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
             const string template = "{"aps":{"alert":"$(message)"}}";
 
             var expiryDate = DateTime.Now.AddDays(90).ToString
-                (System.Globalization.CultureInfo.CreateSpecificCulture("en-US"));
+                (System.Globalization.CultureInfo.CreateSpecificCulture("ko-kr"));
 
             var push = client.GetPush();
 
@@ -689,7 +689,7 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 
 	>[AZURE.NOTE]이 자습서에서 모바일 서비스는 알림 메시지를 장치에 보냅니다. 타일 알림을 보내는 경우 채널에서 **BindToShellTile** 메서드를 대신 호출해야 합니다.
 
-4. App.xaml.cs에서 **Application_Launching** 이벤트 처리기의 맨 위에 다음과 같은 새 **AcquirePushChannel** 메서드 호출을 추가합니다.
+4. App.xaml.cs에서 **Application\_Launching** 이벤트 처리기의 맨 위에 다음과 같은 새 **AcquirePushChannel** 메서드 호출을 추가합니다.
 
         AcquirePushChannel();
 
@@ -697,7 +697,7 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 
 5. **F5** 키를 눌러 앱을 실행합니다. 등록 키가 포함된 팝업 대화 상자가 표시됩니다.
   
-6.	솔루션 탐색기에서 **속성**을 확장하고 WMAppManifest.xml 파일을 연 후 **기능** 탭을 클릭하고 **ID___CAP___PUSH_NOTIFICATION** 기능이 선택되었는지 확인합니다.
+6.	솔루션 탐색기에서 **속성**을 확장하고 WMAppManifest.xml 파일을 연 후 **기능** 탭을 클릭하고 **ID\_\_\_CAP\_\_\_PUSH\_NOTIFICATION** 기능이 선택되었는지 확인합니다.
 
    	![VS에서 알림 사용](./media/partner-xamarin-mobile-services-xamarin-forms-get-started-push/mobile-app-enable-push-wp8.png)
 
@@ -846,4 +846,4 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [전체 Xamarin.Forms Azure 푸시 알림 샘플]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

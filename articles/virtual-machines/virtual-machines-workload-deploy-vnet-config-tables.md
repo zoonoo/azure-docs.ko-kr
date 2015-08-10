@@ -28,7 +28,7 @@
 
 일반적으로 Azure의 IT 작업 구성에 대해 설명하며 크로스-프레미스 가상 네트워크를 포함하는 항목에서 이러한 표에 정보를 입력합니다. 예제는 [1단계: Azure 구성](virtual-machines-workload-intranet-sharepoint-phase1.md)을 참조하세요.
 
-다음 절차에서는 이러한 표의 정보를 참조하여 서비스 관리에서 가상 네트워크를 구성하는 프로세스를 안내합니다. 다른 항목에서 이러한 표의 설정을 아직 지정하지 않은 상태로 크로스-프레미스 가상 네트워크를 구성하려는 경우 [Azure 가상 네트워크에 대한 프레미스 사이 사이트 간 연결 구성](https://msdn.microsoft.com/library/dn133795.aspx)을 참조하세요.
+다음 절차에서는 이러한 표의 정보를 참조하여 가상 네트워크 구성 프로세스를 안내합니다. 다른 항목에서 이러한 표의 설정을 아직 지정하지 않은 상태로 프레미스 간 가상 네트워크를 구성하려는 경우 [Azure 가상 네트워크에 대한 프레미스 사이 사이트 간 연결 구성](../vpn-gateway/vpn-gateway-site-to-site-create.md)을 참조하세요.
 
 > [AZURE.NOTE]이 절차에서는 사이트 간 VPN 연결을 사용하는 가상 네트워크를 만드는 과정을 안내합니다. 사이트 간 연결에 대해 Azure Express 경로를 사용하는 방법에 대한 자세한 내용은 [Express 경로 기술 개요](https://msdn.microsoft.com/library/dn606309.aspx)를 참조하세요.
 
@@ -65,6 +65,6 @@
 
 [가상 네트워크 구성 작업](https://msdn.microsoft.com/library/jj156206.aspx)
 
-[Azure 가상 네트워크에 대한 프레미스 사이 사이트 간 연결 구성](https://msdn.microsoft.com/library/dn133795.aspx)
+[Azure 가상 네트워크에 대한 프레미스 사이 사이트 간 연결 구성](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

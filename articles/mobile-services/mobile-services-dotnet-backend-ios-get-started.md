@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="05/13/2015"
+	ms.date="07/28/2015"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>모바일 서비스 시작
@@ -99,6 +99,5 @@ Azure에서 실행 중인 모바일 서비스에 대해 새 클라이언트 앱�
 [Management Portal]: https://manage.windowsazure.com/
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [JavaScript 백 엔드 버전]: mobile-services-ios-get-started.md
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

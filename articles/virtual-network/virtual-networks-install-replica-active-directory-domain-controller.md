@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Azure에 복제본 도메인 컨트롤러 설치" 
-	description="온-프레미스 Active Directory 포리스트에서 Azure 가상 컴퓨터에 도메인 컨트롤러를 설치하는 방법을 설명하는 자습서입니다." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"
+<properties
+	pageTitle="Azure에 복제본 도메인 컨트롤러 설치 | Microsoft Azure"
+	description="온-프레미스 Active Directory 포리스트에서 Azure 가상 컴퓨터에 도메인 컨트롤러를 설치하는 방법을 설명하는 자습서입니다."
+	services="virtual-network"
+	documentationCenter=""
+	authors="curtand"
+	manager="swadwha"
+	editor=""
 	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
+	ms.author="curtand"/>
 
 
 # Azure 가상 네트워크에 복제 Active Directory 도메인 컨트롤러 설치
@@ -30,7 +30,7 @@
 
 ## 시나리오 다이어그램
 
-이 시나리오에서는 외부 사용자가 도메인에 가입된 서버에서 실행되는 응용 프로그램에 액세스해야 합니다. 응용 프로그램 서버 및 복제본 DC를 실행하는 VM은 Azure 가상 네트워크에 설치됩니다. 다음 다이어그램과 같이 [사이트 간](https://msdn.microsoft.com/library/azure/dn133795.aspx) VPN 연결을 통해 가상 네트워크를 온-프레미스 네트워크에 연결할 수 있거나 더 빠른 연결을 위해 [Express 경로](../../services/expressroute/)를 사용할 수 있습니다.
+이 시나리오에서는 외부 사용자가 도메인에 가입된 서버에서 실행되는 응용 프로그램에 액세스해야 합니다. 응용 프로그램 서버 및 복제본 DC를 실행하는 VM은 Azure 가상 네트워크에 설치됩니다. 다음 다이어그램과 같이 [사이트 간 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md) 연결을 통해 가상 네트워크를 온-프레미스 네트워크에 연결할 수 있으며, 더 빠른 연결을 위해 [Express 경로](../../services/expressroute/)를 사용할 수 있습니다.
 
 응용 프로그램 서버 및 DC는 계산 처리 분산을 위해 별개의 [클라우드 서비스](../cloud-services-what-is.md)에 배포되고 내결함성 향상을 위해 [가용성 집합](../virtual-machines/virtual-machines-manage-availability.md) 내에 배포됩니다. DC는 Active Directory 복제를 사용하여 온-프레미스 DC 및 서로 간에 복제됩니다. 동기화 도구가 필요하지 않습니다.
 
@@ -87,7 +87,7 @@ VM에 로그인한 다음 사이트 간 VPN 또는 Express 경로 연결을 통�
 ## Azure 가상 네트워크에 대한 DNS 서버 다시 구성
 
 1. Azure 클래식 포털에서 가상 네트워크의 이름을 클릭한 다음 **구성** 탭을 클릭하여 [가상 네트워크에 대한 DNS 서버 IP 주소를 다시 구성](https://msdn.microsoft.com/library/azure/dn275925.aspx)하고 온-프레미스 DNS 서버의 IP 주소가 아닌 복제본 DC에 할당된 정적 IP 주소를 사용합니다.
- 
+
 2. 가상 네트워크의 모든 복제 DC VM이 가상 네트워크의 DNS 서버를 사용하도록 구성되었는지 확인하려면 **가상 컴퓨터**를 클릭하고 각 VM의 상태 열을 클릭한 후 **다시 시작**을 클릭합니다. VM에 **실행 중** 상태가 표시될 때까지 기다렸다가 로그인을 시도합니다.
 
 ## 응용 프로그램 서버에 대한 VM 만들기
@@ -121,6 +121,5 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하
 
 <!--Image references-->
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

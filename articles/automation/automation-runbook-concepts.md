@@ -19,4 +19,4 @@
 
 이 문서의 내용은 [PowerShell 워크플로 학습](automation-powershell-workflow.md)으로 이동되었습니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

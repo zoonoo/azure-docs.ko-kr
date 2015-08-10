@@ -37,7 +37,7 @@
 - 80: 앱 서비스 환경의 앱 서비스 계획에서 실행되는 앱에 대한 인바운드 HTTP 트래픽의 기본 포트입니다.
 - 443: 앱 서비스 환경의 앱 서비스 계획에서 실행되는 앱에 대한 인바운드 SSL 트래픽의 기본 포트입니다.
 - 21: FTP에 대한 컨트롤 채널입니다. FTP를 사용하지 않는 경우 이 포트를 안전하게 차단할 수 있습니다.
-- 10001~10020: FTP에 대한 데이터 채널입니다. 컨트롤 채널과 마찬가지로 FTP를 사용하지 않는 경우 이러한 포트를 안전하게 차단할 수 있습니다(**참고:** FTP 데이터 채널은 미리 보기 중 변경될 수 있음).
+- 10001\~10020: FTP에 대한 데이터 채널입니다. 컨트롤 채널과 마찬가지로 FTP를 사용하지 않는 경우 이러한 포트를 안전하게 차단할 수 있습니다(\*\*참고:\*\* FTP 데이터 채널은 미리 보기 중 변경될 수 있음).
 - 4016: Visual Studio 2012를 통한 원격 디버깅에 사용됩니다. 이 기능을 사용하지 않는 경우 이 포트를 안전하게 차단할 수 있습니다.
 - 4018: Visual Studio 2013을 통한 원격 디버깅에 사용됩니다. 이 기능을 사용하지 않는 경우 이 포트를 안전하게 차단할 수 있습니다.
 - 4020: Visual Studio 2015를 통한 원격 디버깅에 사용됩니다. 이 기능을 사용하지 않는 경우 이 포트를 안전하게 차단할 수 있습니다.
@@ -79,7 +79,7 @@ FTP 지원이 필요한 경우 다음 규칙을 템플릿으로 사용하여 FTP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPCtrl" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '21' -Protocol TCP
     Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPDataRange" -Type Inbound -Priority 500 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '10001-10020' -Protocol TCP
 
-**참고:** 데이터 채널 포트 범위는 미리 보기 기간 동안 변경될 수 있습니다.
+\*\*참고:\*\* 데이터 채널 포트 범위는 미리 보기 기간 동안 변경될 수 있습니다.
 
 Visual Studio를 통한 원격 디버깅을 사용하는 경우 다음과 같은 규칙에 따라 액세스 권한을 부여할 수 있습니다. 버전마다 다른 포트를 원격 디버깅에 사용하기 때문에 지원되는 각 버전의 Visual Studio에 대한 별도의 규칙이 있습니다. FTP 액세스와 마찬가지로 원격 디버깅 트래픽은 기존 WAF 또는 프록시 장치를 통해 제대로 흐르지 않을 수 있습니다. 대신 *SourceAddressPrefix*를 Visual Studio를 실행하는 개발자 컴퓨터의 IP 주소 범위로 설정할 수 있습니다.
 
@@ -131,4 +131,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 
 <!-- IMAGES -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

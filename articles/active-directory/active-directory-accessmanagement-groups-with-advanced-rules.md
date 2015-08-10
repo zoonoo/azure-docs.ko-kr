@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2015" 
+	ms.date="07/29/2015" 
 	ms.author="femila"/>
 
 
@@ -59,7 +59,7 @@ Azure 관리 포털을 사용하면 그룹의 동적 멤버 자격을 사용하�
 |----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 오류: 특성이 지원되지 않습니다. | (user.invalidProperty -eq "Value") | (user.department -eq "value")속성은 위의 지원되는 속성 목록 중 하나의 항목과 일치해야 합니다. |
 | 오류: 특성에서는 연산자가 지원되지 않습니다. | (user.accountEnabled -contains true) | (user.accountEnabled -eq true)속성은 부울 형식입니다. 위의 목록에서 부울 형식에 지원되는 연산자(-eq 또는 -ne)를 사용합니다. |
-| 오류: 쿼리 컴파일 오류입니다. | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing")논리 연산자는 위의 지원되는 특성 목록 중 하나의 항목과 일치해야 합니다.(user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")정규식 오류입니다. |
+| 오류: 쿼리 컴파일 오류입니다. | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "\*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing")논리 연산자는 위의 지원되는 특성 목록 중 하나의 항목과 일치해야 합니다.(user.userPrincipalName -match ".\*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")정규식 오류입니다. |
 | 오류: 이진 식 형식이 올바르지 않습니다. | (user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")쿼리에 오류가 여러 개 있습니다. 괄호 위치가 적절하지 않습니다. |
 | 오류: 동적 멤버 자격을 설정하는 동안 알 수 없는 오류가 발생했습니다. | (user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")쿼리에 오류가 여러 개 있습니다. 괄호 위치가 적절하지 않습니다. |
 
@@ -124,7 +124,7 @@ Azure 관리 포털을 사용하면 그룹의 동적 멤버 자격을 사용하�
 | passwordPolicies | None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword | (user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName | 임의의 문자열 값 또는 $null입니다. | (user.physicalDeliveryOfficeName -eq "value") |
 | postalCode | 임의의 문자열 값 또는 $null입니다. | (user.postalCode -eq "value") |
-| preferredLanguage | ISO 639-1 코드 | (user.preferredLanguage -eq "en-US") |
+| preferredLanguage | ISO 639-1 코드 | (user.preferredLanguage -eq "ko-kr") |
 | sipProxyAddress | 임의의 문자열 값 또는 $null입니다. | (user.sipProxyAddress -eq "value") |
 | state | 임의의 문자열 값 또는 $null입니다. | (user.state -eq "value") |
 | streetAddress | 임의의 문자열 값 또는 $null입니다. | (user.streetAddress -eq "value") |
@@ -148,6 +148,16 @@ Azure 관리 포털을 사용하면 그룹의 동적 멤버 자격을 사용하�
 | otherMails | 임의의 문자열 값입니다. | (user.otherMails -contains "alias@domain") |
 | proxyAddresses | SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -contains "SMTP: alias@domain") |
 
+## 직접 보고 규칙
+이제 사용자의 관리자 특성에 따라 그룹의 멤버를 채울 수 있습니다.
+"관리자" 그룹으로 그룹을 구성하려면
+--------------------------------------------------------------------------------
+1. 관리자 포털에서 **구성**탭을 클릭하고 **고급 규칙**을 선택합니다. 
+2. 다음 구문 사용하여 규칙을 입력합니다.*{UserID\_of\_manager}에 대한 직접 보고*를 위한 직접 보고
+3. 이 규칙을 저장하면 규칙을 만족하는 모든 사용자가 그룹의 구성원으로 가입됩니다. 그룹을 처음 채울 때는 몇 분 정도 걸릴 수 있습니다. 
+
+
+## 추가 정보
 다음은 Azure Active Directory에 대한 추가 정보를 제공하는 몇 가지 항목입니다.
 
 * [그룹의 동적 멤버 자격 문제 해결](active-directory-accessmanagement-troubleshooting.md)
@@ -158,4 +168,4 @@ Azure 관리 포털을 사용하면 그룹의 동적 멤버 자격을 사용하�
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

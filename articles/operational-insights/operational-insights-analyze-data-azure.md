@@ -87,54 +87,18 @@ Azure 진단은 Azure에서 실행 중인 작업자 역할, 웹 역할 또는 �
 
 Azure 진단에서는 다음과 같은 유형의 원격 분석 데이터를 수집할 수 있습니다.
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td><b>데이터 원본</b></td>
-		<td><b> 설명 </b></td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>IIS 로그</td>
-		<td>IIS 웹 사이트에 대한 정보입니다.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>Azure 진단 인프라 로그</td>
-		<td>진단 프로그램 자체에 대한 정보입니다.</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>IIS 실패한 요청 로그 </td>
-		<td>IIS 사이트 또는 응용 프로그램에 대한 실패한 요청과 관련된 정보입니다.</td>
-    </tr>
-	    <tr align="left" valign="top">
-		<td>Windows 이벤트 로그</td>
-		<td>Windows 이벤트 로깅 시스템으로 전송되는 정보입니다.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>성능 카운터</td>
-		<td>운영 체제 및 사용자 지정 성능 카운터입니다.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>크래시 덤프</td>
-		<td>응용 프로그램 크래시가 발생할 경우의 프로세스 상태에 대한 정보입니다.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>사용자 지정 오류 로그</td>
-		<td>응용 프로그램 또는 서비스에서 생성하는 로그입니다.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>NET EventSource</td>
-		<td>.NET <a href="https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx">EventSource 클래스를 사용하여 코드에서 생성하는 이벤트입니다.</td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>매니페스트 기반 ETW</td>
-		<td>프로세스에서 생성하는 ETW 이벤트입니다.</td>
-    &lt;/tr
-    <tr align="left" valign="top">
-		<td>Syslog</td>
-		<td>Syslog 또는 Rsyslog daemon으로 전송된 이벤트</td>
-    </tr>
-    </tbody>
-    </table>
+데이터 원본|설명
+ ---|--- 
+IIS 로그|IIS 웹 사이트에 대한 정보입니다.
+Azure 진단 인프라 로그|진단 프로그램 자체에 대한 정보입니다.
+IIS 실패한 요청 로그 |IIS 사이트 또는 응용 프로그램에 대한 실패한 요청과 관련된 정보입니다.
+Windows 이벤트 로그|Windows 이벤트 로깅 시스템으로 전송되는 정보입니다.
+성능 카운터|운영 체제 및 사용자 지정 성능 카운터입니다.
+크래시 덤프|응용 프로그램 크래시가 발생할 경우의 프로세스 상태에 대한 정보입니다.
+사용자 지정 오류 로그|응용 프로그램 또는 서비스에서 생성하는 로그입니다.
+NET EventSource|.NET [EventSource 클래스](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx)를 사용하여 코드에서 생성하는 이벤트입니다.
+매니페스트 기반 ETW|프로세스에서 생성하는 ETW 이벤트입니다.
+Syslog|Syslog 또는 Rsyslog daemon으로 전송된 이벤트
 
 
 현재 Operational Insights은 분석할 수 있습니다.
@@ -151,13 +115,13 @@ Azure 진단에서는 다음과 같은 유형의 원격 분석 데이터를 수�
 
  >[AZURE.NOTE]Azure 웹사이트에서 IIS 로그는 현재 지원되지 않습니다.
 
-가상 컴퓨터의 경우, 가상 컴퓨터로의 [Microsoft 모니터링 에이전트](http://go.microsoft.com/fwlink/?LinkId=517269) 설치 옵션도 있어 추가로 insights를 사용합니다. IIS 로그 및 이벤트 로그 분석 외에도 구성 변경 내용 추적, SQL 평가를 포함한 추가 분석을 수행하고 평가를 업데이트할 수도 있습니다.
+가상 컴퓨터의 경우, 가상 컴퓨터로의 [Microsoft 모니터링 에이전트](http://go.microsoft.com/fwlink/?LinkId=517269) 설치 옵션도 있어 추가로 insights를 사용할 수 있습니다. IIS 로그 및 이벤트 로그 분석 외에도 구성 변경 내용 추적, SQL 평가를 포함한 추가 분석을 수행하고 평가를 업데이트할 수도 있습니다.
 
-[피드백 페이지](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy)에서 투표에 참여하여 분석할 Operational Insights에 대한 추가 로그의 우선순위를 지정하는 데 도움이 될 수 있습니다.
+[피드백 페이지](http://feedback.azure.com/forums/267889-azure-operational-insights/category/88086-log-management-and-log-collection-policy)에서 투표에 참여하면 분석할 Operational Insights에 대한 추가 로그의 우선순위를 지정하는 데 도움이 될 수 있습니다.
 
 ## IIS 로그 및 이벤트 컬렉션에 대한 웹 역할에서 Azure 진단 사용
 
-[클라우드 서비스의 진단 기능을 사용하는 방법](https://msdn.microsoft.com/library/azure/dn482131.aspx)을 참조하십시오. 여기에서 기본 정보를 사용하고 Microsoft Azure Operational Insights와 사용하기 위해 여기에 나오는 단계를 사용자 지정합니다.
+[클라우드 서비스에서 진단 기능을 사용하는 방법](https://msdn.microsoft.com/library/azure/dn482131.aspx)을 참조하세요. 여기에서 기본 정보를 사용하고 Microsoft Azure Operational Insights와 사용하기 위해 여기에 나오는 단계를 사용자 지정합니다.
 
 Azure 진단을 사용하는 경우:
 
@@ -167,7 +131,7 @@ Azure 진단을 사용하는 경우:
 
 ### 진단을 사용하도록 설정하려면
 
-Windows 이벤트 로그를 사용하도록 설정하거나 scheduledTransferPeriod를 변경하려면 클라우드 서비스에서 진단을 사용하도록 설정하는 방법 항목에서 [2단계: Visual Studio 솔루션에 diagnostics.wadcfg 파일 추가](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step2) 및 [3단계: 응용 프로그램에 대한 진단 구성](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step3)에서 보이는 것처럼 XML 구성 파일(diagnostics.wadcfg)를 사용하여 Azure 진단을 구성하십시오. 다음 예제 구성 파일은 IIS 로그 및 모든 이벤트를 응용 프로그램 및 시스템 로그에서 수집합니다.
+Windows 이벤트 로그를 사용하도록 설정하거나 scheduledTransferPeriod를 변경하려면 클라우드 서비스에서 진단을 사용하도록 설정하는 방법 항목의 [2단계: Visual Studio 솔루션에 diagnostics.wadcfg 파일 추가](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step2) 및 [3단계: 응용 프로그램에 대한 진단 구성](https://msdn.microsoft.com/library/azure/dn482131.aspx#BKMK_step3)에 나온 것처럼 XML 구성 파일(diagnostics.wadcfg)을 사용하여 Azure 진단을 구성하세요. 다음 예제 구성 파일은 IIS 로그 및 모든 이벤트를 응용 프로그램 및 시스템 로그에서 수집합니다.
 
     <?xml version="1.0" encoding="utf-8" ?>
     <DiagnosticMonitorConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"
@@ -198,7 +162,7 @@ Windows 이벤트 로그를 사용하도록 설정하거나 scheduledTransferPer
     </ConfigurationSettings>
 
 
-**AccountName** 및 **AccountKey** 값은 Microsoft Azure 관리 포털 아래 저장소 계정 대시보드의 Microsoft Azure 관리 포털에 있습니다. 연결 문자열에 대한 프로토콜은 **https**이어야 합니다.
+**AccountName** 및 **AccountKey** 값은 Microsoft Azure 관리 포털에서 저장소 계정 대시보드의 액세스 키 관리 아래에 있습니다. 연결 문자열에 대한 프로토콜은 **https**이어야 합니다.
 
 업데이트된 진단 구성이 클라우드 서비스에 적용되고 Azure 저장소에 진단을 작성하면, Operational Insights를 구성할 준비가 됩니다.
 
@@ -209,8 +173,8 @@ Windows 이벤트 로그를 사용하도록 설정하거나 scheduledTransferPer
 ### Azure 관리 포털을 사용하여 가상 컴퓨터에서 Azure 진단을 사용하도록 설정하려면
 
 1. 가상 컴퓨터를 만들 때 VM 에이전트를 설치합니다. 가상 컴퓨터가 이미 있는 경우 VM 에이전트가 이미 설치되어 있는지 확인합니다.
-	- 기본 Azure 관리 포털을 사용하여 가상 컴퓨터를 만든 경우, **사용자 지정 만들기**를 수행하고 **VM 에이전트 설치**를 선택합니다.
-	- 새 Azure 관리 포털을 사용하여 가상 컴퓨터를 만든 경우, **선택적 구성**을 선택한 다음, **진단**을 선택하고 **상태**를 **켬**으로 설정합니다.
+	- 기본 Azure 관리 포털을 사용하여 가상 컴퓨터를 만드는 경우, **사용자 지정 만들기**를 수행하고 **VM 에이전트 설치**를 선택합니다.
+	- 새 Azure 관리 포털을 사용하여 가상 컴퓨터를 만드는 경우, **선택적 구성**을 선택한 다음, **진단**을 선택하고 **상태**를 **켬**으로 설정합니다.
 
 	완료되면 VM은 자동으로 Azure 진단 확장을 설치하고 진단 데이터 수집을 담당하는 확장 기능을 실행합니다.
 
@@ -222,7 +186,7 @@ Windows 이벤트 로그를 사용하도록 설정하거나 scheduledTransferPer
 	5. 사용하려는 각 진단 메트릭을 선택합니다. Operational Insights는 Windows 이벤트 시스템 로그, Windows 이벤트 응용 프로그램 로그와 IIS 로그를 분석할 수 있습니다.
 	7. **확인**을 클릭합니다.
 
-Azure PowerShell을 사용하여 Azure 저장소에 기록된 이벤트를 보다 정확하게 지정할 수 있습니다. 샘플 구성 파일 및 해당 스키마에 대한 자세한 설명서에 대한 Azure 진단 1.2 구성 스키마를 참조하십시오. [Azure PowerShell 설치 및 구성하는 방법](powershell-install-configure)으로 Azure PowerShell 버전 0.8.7 이상을 설치하고 구성해야 합니다. 설치된 Microsoft Azure 진단의 버전이 버전 1.2 보다 이전 버전인 경우, 새 포털을 사용하여 진단을 사용하거나 구성할 수 없습니다.
+Azure PowerShell을 사용하여 Azure 저장소에 기록된 이벤트를 보다 정확하게 지정할 수 있습니다. 샘플 구성 파일 및 해당 스키마에 대한 자세한 설명서에 대한 Azure 진단 1.2 구성 스키마를 참조하십시오. [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure)으로 Azure PowerShell 버전 0.8.7 이상을 설치하고 구성해야 합니다. 설치된 Microsoft Azure 진단의 버전이 버전 1.2 보다 이전 버전인 경우, 새 포털을 사용하여 진단을 사용하거나 구성할 수 없습니다.
 
 다음 PowerShell 스크립트를 사용하여 에이전트를 사용하고 업데이트할 수 있습니다. 또한 사용자 지정 로깅 구성을 사용하여 이 스크립트를 사용할 수 있습니다. 저장소 계정, 서비스 이름 및 가상 컴퓨터 이름을 설정하도록 스크립트를 수정해야 합니다.
 
@@ -268,10 +232,10 @@ Azure PowerShell을 사용하여 Azure 저장소에 기록된 이벤트를 보�
 ### Operational Insights에서 분석을 사용하려면
 
 1. 기본 Azure 포털에서 Operational Insights 작업 영역으로 이동하고 **저장소** 탭을 선택합니다. ![작업 영역 저장소 탭](./media/operational-insights-analyze-data-azure/workspace-storage-tab.png)
-2. **저장소 계정 추가**를 클릭하고 **저장소 계정 추가** 상자를 엽니다.
+2. **저장소 계정 추가**를 클릭하여 **저장소 계정 추가** 상자를 엽니다.
 3. 사용하려는 저장소 계정을 선택합니다.
 4. **데이터 형식** 목록에서 **이벤트**, **IIS 로그** 또는 **Syslog(Linux)** 중에 데이터 형식을 선택합니다.
-5. **확인** 이미지를 클릭합니다. ![저장소 계정 상자](./media/operational-insights-analyze-data-azure/storage-account.png)
+5. **확인** 이미지를 클릭합니다.<br> ![저장소 계정 상자](./media/operational-insights-analyze-data-azure/storage-account.png)
 6. 수집하려는 데이터 형식 및 저장소 계정 조합에 대해 위의 단계를 반복 합니다.
 
 약 1 시간 동안에서 Operational Insights 내에서 분석에 사용할 수 있는 저장소 계정에서 데이터를 보기 시작합니다.
@@ -285,4 +249,4 @@ Azure PowerShell을 사용하여 Azure 저장소에 기록된 이벤트를 보�
 
 [프록시 및 방화벽 설정 구성(선택 사항)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -273,11 +273,11 @@ templates 폴더 아래에 다음 html 파일을 추가합니다. create.html, r
     	{% endblock %}
 
 
-### 구성 파일 추가 및 __init__.py 변경
+### 구성 파일 추가 및 \_\_init\_\_.py 변경
 
 1. 프로젝트 이름 tutorial을 마우스 오른쪽 단추로 클릭하고 **config.py** 파일을 추가합니다. 이 구성은 Flask의 폼에 필요합니다. 이 파일을 사용하여 비밀 키를 제공할 수도 있습니다. 하지만 이 자습서에서는 이 키가 필요하지 않습니다.
 
-2. config.py에 다음 코드를 추가합니다. **DOCUMENTDB_HOST** 및 **DOCUMENTDB_KEY** 값을 수정합니다.
+2. config.py에 다음 코드를 추가합니다. **DOCUMENTDB\_HOST** 및 **DOCUMENTDB\_KEY** 값을 수정합니다.
 
     	CSRF_ENABLED = True
     	SECRET_KEY = 'you-will-never-guess'
@@ -289,7 +289,7 @@ templates 폴더 아래에 다음 html 파일을 추가합니다. create.html, r
     	DOCUMENTDB_COLLECTION = 'voting collection'
     	DOCUMENTDB_DOCUMENT = 'voting document'
 
-3. 마찬가지로 **__init__.py**의 내용을 다음과 같이 바꿉니다.
+3. 마찬가지로 **\_\_init\_\_.py**의 내용을 다음과 같이 바꿉니다.
 
     	from flask import Flask
     	app = Flask(__name__)
@@ -350,4 +350,4 @@ templates 폴더 아래에 다음 html 파일을 추가합니다. create.html, r
   [Azure Management Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

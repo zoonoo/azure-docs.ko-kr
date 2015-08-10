@@ -4,13 +4,13 @@
 
 1. 원격 데스크톱을 사용하여 가상 컴퓨터에 연결한 후 가상 컴퓨터의 **시작** 메뉴에서 Internet Explorer를 엽니다.
 
-2. 오른쪽 위에 있는 **도구** 버튼을 선택합니다. **인터넷 옵션**에서 **보안** 탭을 선택한 후 **신뢰할 수 있는 사이트** 아이콘을 선택하고 마지막으로 **사이트** 버튼을 클릭합니다. 신뢰할 수 있는 사이트 목록에 _http://*.mongodb.org_를 추가합니다. 
+2. 오른쪽 위에 있는 **도구** 버튼을 선택합니다. **인터넷 옵션**에서 **보안** 탭을 선택한 후 **신뢰할 수 있는 사이트** 아이콘을 선택하고 마지막으로 **사이트** 버튼을 클릭합니다. 신뢰할 수 있는 사이트 목록에 _http://\*.mongodb.org_를 추가합니다. 
 
 3. [Downloads- MongoDB][MongoDownloads](영문)로 이동합니다.
 
 4. **현재 안정적인 릴리스**를 찾은 다음 Windows 열에서 **64 비트**를 선택하고 MSI 설치 관리자를 다운로드하여 실행합니다.
 
-5. 일반적으로 MongoDB는 C:\Program Files\MongoDB에 설치됩니다. 바탕 화면에서 환경 변수를 검색하고는 PATH 변수에 MongoDB 이진 파일 경로를 추가합니다. 예를 들어 컴퓨터의 C:\Program Files\MongoDB\Server\3.0\bin에서 이진 파일을 찾을 수 있습니다.
+5. 일반적으로 MongoDB는 C:\\Program Files\\MongoDB에 설치됩니다. 바탕 화면에서 환경 변수를 검색하고는 PATH 변수에 MongoDB 이진 파일 경로를 추가합니다. 예를 들어 컴퓨터의 C:\\Program Files\\MongoDB\\Server\\3.0\\bin에서 이진 파일을 찾을 수 있습니다.
 
 6. 위 단계에서 만든 데이터 디스크(예: **F:** 드라이브)에 MongoDB 데이터 및 로그 디렉터리를 만듭니다. **시작** 메뉴에서 **명령 프롬프트** 메뉴를 선택하여 명령 프롬프트 창을 엽니다. 다음을 입력합니다.
 
@@ -23,7 +23,7 @@
 		F:> C:
 		C:\> mongod --dbpath F:\MongoData\ --logpath F:\MongoLogs\mongolog.log
 
-	mongod.exe 서버가 시작되고 저널 파일을 사전 할당되면 모든 로그 메시지가 *F:\MongoLogs\mongolog.log* 파일로 보내집니다. MongoDB가 저널 파일을 사전 할당하고 연결이 수신될 때까지 몇 분이 걸릴 수 있습니다.
+	mongod.exe 서버가 시작되고 저널 파일을 사전 할당되면 모든 로그 메시지가 *F:\\MongoLogs\\mongolog.log* 파일로 보내집니다. MongoDB가 저널 파일을 사전 할당하고 연결이 수신될 때까지 몇 분이 걸릴 수 있습니다.
 
 8. MongoDB 관리 셸을 시작하려면 **시작** 메뉴에서 명령 창을 하나 더 열어 다음을 입력합니다.
 
@@ -108,4 +108,4 @@
 [Image8]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint2.png
 [Image9]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint3.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

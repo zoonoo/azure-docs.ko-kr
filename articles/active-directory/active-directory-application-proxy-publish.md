@@ -79,4 +79,4 @@ Azure Active Directory 응용 프로그램 프록시를 사용하여 응용 프�
 
 * [Kerberos 제한 위임 정보](http://technet.microsoft.com/library/cc995228.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

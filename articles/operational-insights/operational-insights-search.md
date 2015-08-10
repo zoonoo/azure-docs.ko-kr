@@ -65,7 +65,7 @@ Operational Insights에서 로그 검색을 수행할 때 다음과 같은 기�
 ### 프로세서 시간 성능 데이터를 검색 하려면
 - 검색 쿼리 필드에 `Type=PerfHourly CounterName="% Processor Time"`를 입력합니다.
 
-또한 쿼리에서 **InstanceName=_'Total'**를 더 정확히 지정하고 사용할 수 있으며 이는 Windows 성능 카운터입니다. 또한 패싯 및 다른 **field:value**을 선택할 수 있습니다. 필터는 쿼리 표시줄의 필터에 자동으로 추가됩니다. 다음 그림에서 볼 수 있습니다. 아무것도 입력하지 않고 쿼리에 **InstanceName:’_Total’**을 추가하려면 클릭할 위치를 보여줍니다.
+또한 쿼리에서 **InstanceName=\_'Total'**를 더 정확히 지정하고 사용할 수 있으며 이는 Windows 성능 카운터입니다. 또한 패싯 및 다른 **field:value**을 선택할 수 있습니다. 필터는 쿼리 표시줄의 필터에 자동으로 추가됩니다. 다음 그림에서 볼 수 있습니다. 아무것도 입력하지 않고 쿼리에 **InstanceName:’\_Total’**을 추가하려면 클릭할 위치를 보여줍니다.
 
 ![검색 패싯](./media/operational-insights-search/search-facet.png)
 
@@ -159,7 +159,7 @@ EventLog=System TimeGenerated>NOW-24HOURS
 
 ![교집합](./media/operational-insights-search/intersection.png)
 
-즉, 기간이 교차하지 않으면, 예를 들어 **이번주**를 선택할 수 있는 Operational Insights 포털 및 **지난주**를 정의할 수 있는 쿼리에서, 교차가 없으면 어떤 결과도 받을 수 없습니다.
+즉, 기간이 교차하지 않으면, 예를 들어 **이번 주**를 선택할 수 있는 Operational Insights 포털 및 **지난주**를 정의할 수 있는 쿼리에서, 교차가 없으면 어떤 결과도 받을 수 없습니다.
 
 TimeGenerated 필드에 사용되는 비교 연산자가 다른 경우에도 유용합니다. 예를 들어 숫자 필드를 사용하는 경우입니다.
 
@@ -467,7 +467,7 @@ Microsoft System Center Operations Manager에 익숙하다면 where 명령을 �
 
 filterExpression | command1 | command2 …
 
-필터 식(**filterExpression**)은 쿼리에 "where" 조건을 정의합니다. 명령은 쿼리에 의해 반환된 결과에 적용됩니다. 여러 명령은 세로줄 문자(|)로 구분해야 합니다.
+필터 식(\*\*filterExpression\*\*)은 쿼리에 "where" 조건을 정의합니다. 명령은 쿼리에 의해 반환된 결과에 적용됩니다. 여러 명령은 세로줄 문자(|)로 구분해야 합니다.
 
 #### 일반 구문 예제
 
@@ -614,7 +614,15 @@ Operational Insights에서 타임라인 차트/시간 선택기는 **TimeGenerat
 
 다음 테이블에서 지원되는 날짜/시간 단위를 나열합니다.
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>날짜/시간 단위 </th> <th>설명 </th> </tr> <tr> <td> <p>YEAR, YEARS</p> </td> <td> <p>현재 연도를 반올림하거나 지정된 년 수 만큼 오프셋합니다.</p> </td> </tr> <tr> <td> <p>MONTH, MONTHS</p> </td> <td> <p>현재 월을 반올림하거나 지정된 개월 수 만큼 오프셋합니다.</p> </td> </tr> <tr> <td> <p>DAY, DAYS, DATE</p> </td> <td> <p> 현재 날을 반올림하거나 지정된 일 수 만큼 오프셋합니다.</p> </td> </tr> <tr> <td> <p>HOUR, HOURS</p> </td> <td> <p>현재 시간을 반올림하거나 지정된 시간 수 만큼 오프셋합니다.</p> </td> </tr> <tr> <td> <p>MINUTE, MINUTES</p> </td> <td> <p>현재 분을 반올림하거나 지정된 분 수 만큼 오프셋합니다.</p> </td> </tr> <tr> <td> <p>SECOND, SECONDS</p> </td> <td> <p>현재 초를 반올림하거나 지정된 초 수 만큼 오프셋합니다.</p> </td> </tr> <tr> <td> <p>MILLISECOND, MILLISECONDS, MILLI, MILLIS</p> </td> <td> <p>현재 밀리초를 반올림하거나 지정된 밀리초 수 만큼 오프셋합니다.</p> </td> </tr> </table>
+날짜/시간 단위|설명
+---|--- 
+YEAR, YEARS|현재 연도를 반올림하거나 지정된 년 수 만큼 오프셋합니다.
+MONTH, MONTHS|현재 월을 반올림하거나 지정된 개월 수 만큼 오프셋합니다.
+DAY, DAYS, DATE|현재 날을 반올림하거나 지정된 일 수 만큼 오프셋합니다.
+HOUR, HOURS|현재 시간을 반올림하거나 지정된 시간 수 만큼 오프셋합니다.
+MINUTE, MINUTES|현재 분을 반올림하거나 지정된 분 수 만큼 오프셋합니다.
+SECOND, SECONDS|현재 초를 반올림하거나 지정된 초 수 만큼 오프셋합니다.
+MILLISECOND, MILLISECONDS, MILLI, MILLIS|현재 밀리초를 반올림하거나 지정된 밀리초 수 만큼 오프셋합니다.
 
 
 #### 필드 패싯
@@ -690,7 +698,10 @@ Operational Insights에서 타임라인 차트/시간 선택기는 **TimeGenerat
 최상위 필터 인수에서 논리 연산자를 생략할 수 있습니다. 이 경우 AND 연산자를 가정합니다.
 
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>필터 식</th> <th>동일한</th> </tr> <tr> <td> <p>시스템 오류</p> </td> <td> <p>시스템 AND 오류</p> </td> </tr> <tr> <td> <p>ystem "; Windows Server"; OR Severity:1</p> </td> <td> <p>system AND (";Windows Server"; OR Severity:1)</p> </td> </tr> </table>
+필터 식|Equivalent to
+---|---
+시스템 오류|시스템 AND 오류
+시스템 "Windows Server" OR 심각도:1|시스템 AND ("Windows Server" OR 심각도:1)
 
 
 
@@ -750,11 +761,11 @@ Operational Insights에서 타임라인 차트/시간 선택기는 **TimeGenerat
 
 	Type:Alert errors detected | select Name, Severity
 
-**이름** 및 **심각도**도 반환된 결과 필드를 제한합니다.
+**이름** 및 **심각도**로 반환된 결과 필드를 제한합니다.
 
 #### 측정값
 
-**측정값** 명령은 통계 함수를 원시 검색 결과에 적용하는 데 사용됩니다. 데이터에서 *group by* 보기는 매우 유용합니다. **측정값** 명령을 사용하는 경우 Operational Insights은 집계된 결과가 포함된 테이블을 표시합니다.
+**측정값** 명령은 통계 함수를 원시 검색 결과에 적용하는 데 사용됩니다. 이 명령은 데이터에서 *group-by* 보기를 가져오는 데 매우 유용합니다. **측정값** 명령을 사용하는 경우 Operational Insights는 집계된 결과가 포함된 테이블을 표시합니다.
 
 구문
 
@@ -766,13 +777,13 @@ Operational Insights에서 타임라인 차트/시간 선택기는 **TimeGenerat
 **groupField**로 결과를 집계하고 **aggregatedField**를 사용하여 집계된 측정값을 계산합니다.
 
 
-<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>통계 함수 측정 </th> <th>설명 </th> </tr> <tr> <td> <p><em>aggregateFunction</em> </p> <p></p> </td> <td> <p>집계 함수의 이름입니다.(소문자) 다음 집계 함수가 지원됩니다.</p> <ul> <li class="unordered">COUNT<br><br></li> <li class="unordered">MAX<br><br></li> <li class="unordered">MIN<br><br></li> <li class="unordered">SUM<br><br></li> <li class="unordered">AVG<br><br></li> <li class="unordered">STDDEV<br><br></li> </ul> </td> </tr> <tr> <td> <p><em>aggregatedField</em> </p> </td> <td> <p>집계된 필드입니다. 이 필드는 COUNT 집계 함수에 대해 선택적이지만 SUM, MAX, MIN, AVG 또는 STDDEV에 대한 기존 숫자 필드여야 합니다.</p> </td> </tr> <tr> <td> <p><em>fieldAlias</em> </p> </td> <td> <p>(선택 사항)계산되고 집계된 값에 대한 별칭입니다. 지정하지 않으면 필드 이름은 <em>AggregatedValue입니다.</em></p> </td> </tr> <tr> <td> <p><em>groupField</em> </p> </td> <td> <p>결과 집합이 그룹화된 필드의 이름입니다. </p> </td> </tr> <tr> <td> <p><em>간격</em> </p> </td> <td> <p>다음 형식인 시간 간격입니다. </p> <p><em>nnnNAME</em> </p> <p></p> <p>다음에서 </p> <p>nnn은 양의 정수입니다</p> <p><em>NAME</em> 은 간격 이름입니다</p> <p>지원되는 간격 이름은 다음을 포함합니다.(대/소문자 구분)</p> <ul><li class="unordered">MILLISECOND[S]<br><br></li> <li class="unordered">SECOND[S]<br><br></li> <li class="unordered">MINUTE[S]<br><br></li> <li class="unordered">HOUR[S]<br><br></li> <li class="unordered">DAY[S]<br><br></li> <li class="unordered">MONTH[S]<br><br></li> <li class="unordered">YEAR[S]<br></li> </ul> </td> </tr> </table>
+<table border="1" cellspacing="4" cellpadding="4"><table> <tr> <th>통계 함수 측정 </th> <th>설명 </th> </tr> <tr> <td> <p><em>aggregateFunction</em> </p> <p></p> </td> <td> <p>집계 함수의 이름입니다(대소문자 구분 안 함). 다음 집계 함수가 지원됩니다.</p> <ul> <li class="unordered">COUNT<br><br></li> <li class="unordered">MAX<br><br></li> <li class="unordered">MIN<br><br></li> <li class="unordered">SUM<br><br></li> <li class="unordered">AVG<br><br></li> <li class="unordered">STDDEV<br><br></li> </ul> </td> </tr> <tr> <td> <p><em>aggregatedField</em> </p> </td> <td> <p>집계된 필드입니다. 이 필드는 COUNT 집계 함수에 대해 선택적이지만 SUM, MAX, MIN, AVG 또는 STDDEV에 대한 기존 숫자 필드여야 합니다.</p> </td> </tr> <tr> <td> <p><em>fieldAlias</em> </p> </td> <td> <p>계산되고 집계된 값에 대한 별칭(선택 사항)입니다. 지정하지 않으면 필드 이름은 <em>AggregatedValue</em>입니다.</p> </td> </tr> <tr> <td> <p><em>groupField</em> </p> </td> <td> <p>결과 집합이 그룹화된 필드의 이름입니다. </p> </td> </tr> <tr> <td> <p><em>Interval</em> </p> </td> <td> <p>다음 형식의 시간 간격입니다. </p> <p><em>nnnNAME</em> </p> <p></p> <p>여기서, </p> <p>nnn은 양의 정수입니다.</p> <p><em>NAME</em> 은 간격 이름입니다.</p> <p>지원되는 간격 이름은 다음을 포함합니다.(대/소문자 구분)</p> <ul> <li class="unordered">MILLISECOND[S]<br><br></li> <li class="unordered">SECOND[S]<br><br></li> <li class="unordered">MINUTE[S]<br><br></li> <li class="unordered">HOUR[S]<br><br></li> <li class="unordered">DAY[S]<br><br></li> <li class="unordered">MONTH[S]<br><br></li> <li class="unordered">YEAR[S]<br></li> </ul> </td> </tr> </table>
 
 
 
-날짜/시간 그룹 필드에서 간격 옵션을 사용할 수 있습니다(예: **TimeGenerated** 및 **TimeCreated**). 현재 서비스에 의해 적용되지 않지만 백 엔드로 전달되는 날짜/시간 없는 필드에 런타임 오류가 발생합니다. 스키마 유효성 검사를 구현하는 경우 서비스 API는 집계 간격에 대해 날짜/시간 없이 필드를 사용하는 쿼리를 거부합니다. 현재 **측정값** 구현은 **Count** 집계 함수를 그룹화하는 간격만 지원합니다.
+날짜/시간 그룹 필드에서만 간격 옵션을 사용할 수 있습니다(예: **TimeGenerated** 및 **TimeCreated**). 현재 서비스에 의해 적용되지 않지만 백 엔드로 전달되는 날짜/시간 없는 필드에 런타임 오류가 발생합니다. 스키마 유효성 검사를 구현하는 경우 서비스 API는 집계 간격에 대해 날짜/시간 없이 필드를 사용하는 쿼리를 거부합니다. 현재 **측정값** 구현은 **Count** 집계 함수를 그룹화하는 간격만 지원합니다.
 
-BY 절을 생략하지만 간격을 지정하는 경우(두번째 구문처럼) 기본적으로 **TimeGenerated** 필드를 가정합니다.
+BY 절을 생략하지만 간격을 지정하는 경우(두 번째 구문처럼) 기본적으로 **TimeGenerated** 필드를 가정합니다.
 
 예제:
 
@@ -782,7 +793,7 @@ BY 절을 생략하지만 간격을 지정하는 경우(두번째 구문처럼) 
 
 *설명*
 
-**ObjectID**에서 경고를 그룹화하고 각 그룹에 대한 경고의 수를 계산합니다. 집계된 값을 **Count** 필드로 반환합니다.(별칭)
+**ObjectID**에서 경고를 그룹화하고 각 그룹에 대한 경고의 수를 계산합니다. 집계된 값을 **Count** 필드(별칭)로 반환합니다.
 
 **예 2**
 
@@ -798,9 +809,9 @@ BY 절을 생략하지만 간격을 지정하는 경우(두번째 구문처럼) 
 
 *설명*
 
-이전 예제와 동일하지만 집계된 필드 별칭을 사용합니다.(**AlertsPerHour**)
+이전 예제와 동일하지만 집계된 필드 별칭을 사용합니다.(\*\*AlertsPerHour\*\*)
 
-**예제4**
+**예제 4**
 
 	* | measure count() by TimeCreated interval 5DAYS
 
@@ -808,7 +819,7 @@ BY 절을 생략하지만 간격을 지정하는 경우(두번째 구문처럼) 
 
 **TimeCreated** 필드를 사용하여 5일 간격으로 결과를 그룹화하고 각 간격의 결과 수를 반환합니다.
 
-**예제5**
+**예제 5**
 
 	Type:Alert | measure max(Severity) by WorkflowName
 
@@ -816,15 +827,15 @@ BY 절을 생략하지만 간격을 지정하는 경우(두번째 구문처럼) 
 
 워크로드 이름 별로 경고를 그룹화하고 각 워크플로에 대한 최대 경고 심각도 값을 반환합니다.
 
-**예제6**
+**예제 6**
 
 	Type:Alert | measure min(Severity) by WorkflowName
 
 *설명*
 
-이전 예제와 동일하지만 집계된 **Min** 함수를 사용합니다.
+이전 예제와 동일하지만 **Min** 집계 함수를 사용합니다.
 
-**예제7**
+**예제 7**
 
 	Type:PerfHourly | measure avg(SampleValue) by ObjectId
 
@@ -832,7 +843,7 @@ BY 절을 생략하지만 간격을 지정하는 경우(두번째 구문처럼) 
 
 ObjectId로 PerfHourly를 그룹화하고 평균(평균)을 계산합니다.
 
-**예제8**
+**예제 8**
 
 	Type:PerfHourly | measure sum(SampleValue) by ObjectId
 
@@ -840,7 +851,7 @@ ObjectId로 PerfHourly를 그룹화하고 평균(평균)을 계산합니다.
 
 이전 예제와 동일하지만 **합계**를 사용합니다.
 
-**예제9**
+**예제 9**
 
 	Type:PerfHourly | measure stddev(SampleValue) by ObjectId
 
@@ -848,7 +859,7 @@ ObjectId로 PerfHourly를 그룹화하고 평균(평균)을 계산합니다.
 
 이전 예제와 동일하지만 **STDDEV**를 사용합니다.
 
-**예제10**
+**예제 10**
 
 	Type:Alert | measure count() as Count by WorkflowName | sort Count desc | top 5
 
@@ -1650,7 +1661,7 @@ ObjectId로 PerfHourly를 그룹화하고 평균(평균)을 계산합니다.
 		<p>W3CIISLog</p>
 		</td>
 		<td>
-		<p>HTTP 요청에서이 발생한 클라이언트 IP 주소 원래 로그에서 c-ip 필드</p>
+		<p>HTTP 요청이 발생한 클라이언트 IP 주소 원래 로그에서 c-ip 필드</p>
 		</td>
 	</tr>
 	<tr>
@@ -2038,4 +2049,4 @@ ObjectId로 PerfHourly를 그룹화하고 평균(평균)을 계산합니다.
 ## 기타 리소스
 Stefan Roth가 편리한 검색 치트 시트를 만들었습니다. 자세한 내용을 확인하고 치트 시트를 다운로드하려면 [블로그](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/)를 확인하세요.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

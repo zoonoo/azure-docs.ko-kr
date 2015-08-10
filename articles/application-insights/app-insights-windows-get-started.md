@@ -35,7 +35,7 @@ Visual Studio Application Insights를 사용하면 다음을 위해 게시된 �
 * [Microsoft Azure][azure] 구독.
 * Visual Studio 2013 이상.
 
-## 1. Application Insights 리소스 만들기 
+## 1\. Application Insights 리소스 만들기 
 
 [Azure 포털][portal]에서 새 Application Insights 리소스를 만듭니다.
 
@@ -50,7 +50,7 @@ Azure에서 [리소스][roles]는 서비스의 인스턴스입니다. 이 리소
 ![필수 항목 드롭다운 서랍을 열고 계측 키를 선택합니다.](./media/app-insights-windows-get-started/02-props.png)
 
 
-## 2. 앱에 Application Insights SDK 추가
+## 2\. 앱에 Application Insights SDK 추가
 
 Visual Studio에서 프로젝트에 적합한 SDK를 추가합니다.
 
@@ -66,18 +66,20 @@ Windows 유니버설 앱인 경우 Windows Phone 및 Windows 프로젝트 모두
 
 3. **Windows 응용 프로그램용 Application Insights**을 선택합니다.
 
-4. ApplicationInsights.config 파일을 솔루션의 루트에 추가하고 위에서 복사한 계측 키를 삽입합니다. 이 구성파일에 대한 샘플 xml는 아래와 같습니다. **ApplicationInsights.config 파일 빌드 작업을 “콘텐츠”에 표시 및 출력 디렉터리에 “항상 복사”로 복사해야 하는 것을 확인하세요.**
+4. ApplicationInsights.config 파일을 프로젝트의 루트에 추가하고 포털에서 복사한 계측 키를 삽입합니다. 이 구성파일에 대한 샘플 xml는 아래와 같습니다.
 
 	```xml
 		<?xml version="1.0" encoding="utf-8" ?>
 		<ApplicationInsights>
-			<InstrumentationKey>YOUR COPIED KEY FROM ABOVE</InstrumentationKey>
+			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
 		</ApplicationInsights>
 	```
+
+    ApplicationInsights.config 파일의 속성 설정: **빌드 작업** == **콘텐츠** 및 **출력 디렉터리로 복사** == **항상 복사**
 	
 	![](./media/app-insights-windows-get-started/AIConfigFileSettings.png)
 
-5. 다음 초기화 코드를 추가 합니다. 이 코드를 `App()` 생성자에 추가하는 것을 권장합니다. 앱 생성자에서 이 초기화를 수행 하지 않으면 pageviews의 intiial 자동 컬렉션을 놓칠 수 있습니다.
+5. 다음 초기화 코드를 추가합니다. 이 코드를 `App()` 생성자에 추가하는 것이 좋습니다. 다른 곳에서 추가하면 첫번째 pageviews의 자동 컬렉션을 누락할 수 있습니다.
 
 ```C#
 	public App()
@@ -114,7 +116,7 @@ Visual Studio에 수신된 이벤트의 수가 표시됩니다.
 ![프로젝트를 마우스 오른쪽 단추로 클릭하고 Azure 포털을 엽니다.](./media/app-insights-windows-get-started/appinsights-04-openPortal.png)
 
 
-처음에는 요소가 1~2개만 표시됩니다. 예:
+처음에는 요소가 1\~2개만 표시됩니다. 예:
 
 ![클릭하여 추가 데이터 확인](./media/app-insights-windows-get-started/appinsights-26-devices-01.png)
 
@@ -141,7 +143,7 @@ Application Insights SDK는 앱의 서로 다른 유형의 데이터를 자동�
 
 #### 사용자 고유의 원격 분석 데이터 전송
 
-[API][api]를 사용하여 Application Insights에 이벤트, 메트릭 및 진단 데이터를 보내도록 합니다. 요약하면 다음과 같습니다:
+[API][api]를 사용하여 Application Insights에 이벤트, 메트릭 및 진단 데이터를 보냅니다. 요약하면 다음과 같습니다:
 
 ```C#
 
@@ -194,7 +196,7 @@ Visual Studio를 사용하여 설치 단계를 수행하려면 Windows Phone, Wi
 
 ## SDK의 새 릴리스로 업그레이드하려면
 
-[새 SDK 버전이 출시된 경우](app-insights-release-notes-windows.md): * 프로젝트를 마우스 오른쪽 단추로 클릭하고 NuGet 패키지 관리를 선택합니다. * 설치된 Application Insights 패키지를 선택하고 작업: 업그레이드를 선택합니다.
+[새 SDK 버전이 출시된 경우](app-insights-release-notes-windows.md): \* 프로젝트를 마우스 오른쪽 단추로 클릭하고 NuGet 패키지 관리를 선택합니다. \* 설치된 Application Insights 패키지를 선택하고 작업: 업그레이드를 선택합니다.
 
 
 ## <a name="usage"></a>다음 단계
@@ -227,4 +229,4 @@ Visual Studio를 사용하여 설치 단계를 수행하려면 Windows Phone, Wi
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

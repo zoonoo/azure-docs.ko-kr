@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="Azure 하이브리드 클라우드 테스트 환경" 
-	description="Azure 하이브리드 클라우드의 개발/테스트 또는 개념 증명에 사용할 수 있는 테스트 환경 구축 방법을 설명하는 주요 항목으로 이동합니다." 
-	documentationCenter="" 
+<properties
+	pageTitle="Azure 하이브리드 클라우드 테스트 환경"
+	description="Azure 하이브리드 클라우드의 개발/테스트 또는 개념 증명에 사용할 수 있는 테스트 환경 구축 방법을 설명하는 주요 항목으로 이동합니다."
+	documentationCenter=""
 	services="virtual-machines"
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/09/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/09/2015"
 	ms.author="josephd"/>
 
 # Azure 하이브리드 클라우드 테스트 환경
 
-개발/테스트 또는 개념 증명을 위해 하이브리드 클라우드 테스트 환경에서는 로컬 인터넷 연결 및 공용 IP 주소 중 하나를 사용하고 작동하는 프레미스 간 Azure VNet(가상 네트워크) 설정을 단계별로 안내합니다. 완료되면 응용 프로그램 개발 및 테스트를 수행하고 간단한 IT 작업을 실험하며 인터넷에서의 현재 위치를 기준으로 사이트 간 VPN(가상 사설망) 연결 성능을 측정할 수 있습니다.
+개발/테스트 또는 개념 증명을 위해 하이브리드 클라우드 테스트 환경에서는 로컬 인터넷 연결 및 공용 IP 주소 중 하나를 사용하고 작동하는 프레미스 간 Azure VNet(가상 네트워크) 설정을 단계별로 안내합니다. 가져오기가 완료되면 응용 프로그램을 개발 및 테스트하고, 간단한 IT 작업을 실험하고, 현재 인터넷 위치를 기준으로 사이트 간 VPN(가상 사설망) 연결 성능을 측정할 수 있습니다.
 
 > [AZURE.NOTE]이러한 문서는 현재 서비스 관리에서 가상 컴퓨터, 가상 네트워크 및 기타 리소스를 만듭니다.
 
@@ -52,13 +52,10 @@
 
 [Azure 인프라 서비스에서 호스트되는 SharePoint 팜](virtual-machines-sharepoint-infrastructure-services.md)
 
-[3D LOB(기간 업무) 응용 프로그램 아키텍처 청사진의 PDF](http://download.microsoft.com/download/2/C/8/2C8EB75F-AC45-4A79-8A63-C1800C098792/MS_Arch_LOB_App_3D_pdf.pdf)(영문)
+[3D LOB(기간 업무) 응용 프로그램 아키텍처 청사진의 PDF](http://download.microsoft.com/download/2/C/8/2C8EB75F-AC45-4A79-8A63-C1800C098792/MS_Arch_LOB_App_3D_pdf.pdf)
 
 [Microsoft Azure에서 Office 365 디렉터리 동기화(DirSync) 배포](https://technet.microsoft.com/library/dn635310.aspx)
 
 [Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

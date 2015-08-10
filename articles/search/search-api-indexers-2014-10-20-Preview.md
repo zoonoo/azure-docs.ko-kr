@@ -1,19 +1,6 @@
-<properties 
-	pageTitle="인덱서 작업(Azure 검색 서비스 REST API: 2014-10-20-Preview)" 
-	description="인덱서 작업(Azure 검색 서비스 REST API: 2014-10-20-Preview)" 
-	services="search" 
-	documentationCenter="" 
-	authors="HeidiSteen" 
-	manager="mblythe" />
+<properties pageTitle="인덱서 작업(Azure 검색 서비스 REST API: 2014-10-20-Preview)" description="인덱서 작업(Azure 검색 서비스 REST API: 2014-10-20-Preview)" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" />
 
-<tags 
-	ms.service="search" 
-	ms.devlang="rest-api" 
-	ms.workload="search" 
-	ms.topic="article"  
-	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
-	ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/08/2015" ms.author="heidist" />
 
 #인덱서 작업(Azure 검색 서비스 REST API: 2014-10-20-Preview)
 
@@ -670,4 +657,4 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 </tr>
 </table>
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

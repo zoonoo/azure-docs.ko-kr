@@ -252,7 +252,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-즉, 키는 하나 이상의 문자로 시작해야 하며 그 뒤에 문자, 숫자 또는 밑줄(_)이 붙어야 합니다.
+즉, 키는 하나 이상의 문자로 시작해야 하며 그 뒤에 문자, 숫자 또는 밑줄(\_)이 붙어야 합니다.
 
 #### 크기
 
@@ -260,7 +260,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 
 위의 예제에서 서버로 전송된 JSON의 길이는 58자입니다.
 
-			{"ref_click":"http://foobar.com/blog","video_id":"123"}
+			{"ref_click":"http:\/\/foobar.com\/blog","video_id":"123"}
 
 ##응용 프로그램 정보 보고
 
@@ -287,7 +287,7 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-즉, 키는 하나 이상의 문자로 시작해야 하며 그 뒤에 문자, 숫자 또는 밑줄(_)이 붙어야 합니다.
+즉, 키는 하나 이상의 문자로 시작해야 하며 그 뒤에 문자, 숫자 또는 밑줄(\_)이 붙어야 합니다.
 
 #### 크기
 
@@ -298,4 +298,4 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 			{"expiration":"2016-12-07","status":"premium"}
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

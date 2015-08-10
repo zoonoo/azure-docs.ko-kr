@@ -100,7 +100,9 @@ Azure Active Directory Connect는 기본 세 부분으로 구성됩니다. 이�
  
 - Azure 구독 또는 [Azure 평가판 구독](http://azure.microsoft.com/pricing/free-trial/) -Azure AD Connect를 사용하지 않고 Azure 포털에 액세스하기 위해서만 필요합니다. PowerShell 또는 Office 365를 사용하는 경우, Azure AD Connect를 사용하여 Azure 구독을 설치할 필요가 없습니다.
 - 통합하려는 Azure AD 테넌트에 대한 Azure AD 전역 관리자 계정
-- Windows Server 2008 이상에서 사용되는 AD 도메인 컨트롤러 또는 구성원 서버
+- Azure AD Connect는 반드시 Windows Server 2008 이상의 버전에 설치되어야 합니다. 이 서버는 도메인 컨트롤러 또는 멤버 서버일 수 있습니다.
+- AD 스키마의 버전 및 포리스트 수준은 Windows Server 2003 이상이어야 합니다. 도메인 컨트롤러는 스키마와 포레스트의 수준 요구 사항이 맞으면 어떤 버전도 실행할 수 있습니다.
+- Active Directory Federation Services를 배포하는 경우 AD FS가 설치될 서버는 Windows Server 2012 이상이어야 합니다.
 - 로컬 Active Directory에 대한 엔터프라이즈 관리자 계정
 - 선택 사항: 동기화를 확인할 테스트 사용자 계정 
 
@@ -109,13 +111,13 @@ Azure Active Directory Connect는 기본 세 부분으로 구성됩니다. 이�
 
 | Active Directory의 개체 수 | CPU | 메모리 | 하드 드라이브 크기 |
 | ------------------------------------- | --- | ------ | --------------- |
-| 10,000개 미만 | 1.6GHz | 4GB | 70GB |
-| 10,000–50,000개 | 1.6GHz | 4GB | 70GB |
-| 50,000–100,000개 | 1.6GHz | 16GB | 100GB |
+| 10,000개 미만 | 1\.6GHz | 4GB | 70GB |
+| 10,000–50,000개 | 1\.6GHz | 4GB | 70GB |
+| 50,000–100,000개 | 1\.6GHz | 16GB | 100GB |
 | 처음 사용자용 SQL Server가 필요한 100,000개 이상의 개체| | | |
-| 100,000–300,000개 | 1.6GHz | 32GB | 300GB |
-| 300,000–600,000개 | 1.6GHz | 32GB | 450GB |
-| 600,000개 초과 | 1.6GHz | 32GB | 500GB |
+| 100,000–300,000개 | 1\.6GHz | 32GB | 300GB |
+| 300,000–600,000개 | 1\.6GHz | 32GB | 450GB |
+| 600,000개 초과 | 1\.6GHz | 32GB | 500GB |
 
 
 
@@ -140,7 +142,7 @@ Azure Active Directory Connect는 기본 세 부분으로 구성됩니다. 이�
 8. AD DS 화면에 연결에서 엔터프라이즈 관리자 계정에 대한 사용자 이름 및 암호를 입력합니다. **다음**을 클릭합니다.
 <center>![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started/install4.png)</center>
 9. 구성 준비 화면에서 **설치**를 클릭합니다.
-	- 선택적으로 구성 준비 페이지에서 "**구성이 완료되자마자 동기화 프로세스를 시작합니다.**"의 선택을 취소할 수 있습니다. 이 작업을 수행하는 경우 마법사는 동기화를 구성하지만 작업을 비활성화 상태로 두어 작업 스케줄러에서 수동으로 사용할 때까지 실행되지 않습니다. 작업을 사용하도록 설정하면 3시간마다 동기화가 실행됩니다.
+	- 선택적으로 구성 준비 페이지에서 "\*\*구성이 완료되자마자 동기화 프로세스를 시작합니다.\*\*"의 선택을 취소할 수 있습니다. 이 작업을 수행하는 경우 마법사는 동기화를 구성하지만 작업을 비활성화 상태로 두어 작업 스케줄러에서 수동으로 사용할 때까지 실행되지 않습니다. 작업을 사용하도록 설정하면 3시간마다 동기화가 실행됩니다.
 	- 또한 필요에 따라 해당 확인란을 선택하여 **Exchange 하이브리드 배포**에 대한 동기화 서비스를 구성하도록 선택할 수 있습니다. 클라우드 및 온-프레미스 모두에 Exchange 사서함이 없게 하려는 경우, 필요하지 않습니다.
 
 <center>![Welcome to Azure AD Connect](./media/active-directory-aadconnect-get-started/readyinstall.png)</center>
@@ -182,7 +184,7 @@ Azure AD Connect를 성공적으로 설치한 후 Azure 포털에 로그인하�
 2. 왼쪽 창에서 **Active Directory**를 선택합니다.
 3. Active Directory 페이지에서 사용하도록 설정하려는 사용자가 있는 디렉토리를 두 번 클릭합니다.
 4. 디렉터리 페이지의 맨 위에서 **라이선스**를 선택합니다.
-5. 라이선스 페이지에서 Active Directory Premium 또는 Enterprise Mobility Suite를 선택한 후 **할당**을 클릭합니다.
+5. 라이선스 페이지에서 Active Directory Premium 또는 엔터프라이즈 이동성 제품군을 선택한 후 **할당**을 클릭합니다.
 6. 대화 상자에서 라이선스를 할당하려는 사용자를 선택 하고 확인 표시 아이콘을 클릭하여 변경 내용을 저장합니다.
 
 
@@ -245,6 +247,8 @@ Azure AD Sync용으로 만들어진 설명서 중 일부는 Azure AD Connect에�
 
 [Azure AD Connect Health](active-directory-aadconnect-health.md) - 온-프레미스 AD FS 인프라의 상태를 모니터링합니다.
 
+[Azure D Connect FAQ](active-directory-aadconnect-faq.md)- Azure AD Connect와 관련된 질문과 대답입니다.
+
 
 
 
@@ -252,4 +256,4 @@ Azure AD Sync용으로 만들어진 설명서 중 일부는 Azure AD Connect에�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

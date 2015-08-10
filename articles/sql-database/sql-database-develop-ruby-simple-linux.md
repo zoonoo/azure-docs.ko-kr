@@ -55,9 +55,9 @@
 
 ## 데이터베이스 만들기, 연결 문자열 검색
 
-Ruby 샘플은 AdventureWorks 샘플 데이터베이스에 의존합니다. AdventureWorks가 아직 없는 경우 [첫 번째 Azure SQL 데이터베이스 만들기](sql-database-get-started.md) 항목에서 만드는 방법을 확인할 수 있습니다.
+Ruby 샘플은 AdventureWorks 샘플 데이터베이스를 사용합니다. AdventureWorks가 아직 없는 경우 [첫 번째 Azure SQL 데이터베이스 만들기](sql-database-get-started.md) 항목에서 만드는 방법을 확인할 수 있습니다.
 
-이 항목에서는 데이터베이스 연결 문자열을 검색하는 방법도 설명합니다.
+또한 해당 토픽에서 데이터베이스 연결 문자열을 검색하는 방법을 설명합니다.
 
 ## SQL 데이터베이스 연결
 
@@ -68,7 +68,7 @@ Ruby 샘플은 AdventureWorks 샘플 데이터베이스에 의존합니다. Adve
     host: 'yourserver.database.windows.net', port: 1433, 
     database: 'AdventureWorks', azure:true 
 
-## SELECT 문 실행 및 결과 집합 검색
+## SELECT 문을 실행하고 결과 집합 검색
 
 [TinyTds::Result](https://github.com/rails-sqlserver/tiny_tds) 함수는 SQL 데이터베이스에 대한 쿼리에서 결과 집합을 검색하는 데 사용됩니다. 이 함수는 쿼리를 허용하고 결과 집합을 반환합니다. 이 결과 집합은 [result.each do |row|](https://github.com/rails-sqlserver/tiny_tds)를 사용하여 반복됩니다.
 
@@ -117,4 +117,4 @@ Microsoft SQL Server [datetime](http://msdn.microsoft.com/library/ms187819.aspx)
     puts row
     end 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

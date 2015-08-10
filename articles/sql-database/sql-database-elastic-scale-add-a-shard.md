@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="탄력적 데이터베이스를 사용하여 분할 된 데이터베이스 추가하기" 
+	pageTitle="탄력적 데이터베이스 도구를 사용하여 분할된 데이터베이스 추가하기" 
 	description="이 문서에서는 탄력적인 확장 API를 사용하여 새 분할된 데이터베이스를 분할된 데이터베이스 집합에 추가하는 방법을 설명합니다." 
 	services="sql-database" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="07/24/2015" 
 	ms.author="sidneyh"/>
 
-# 탄력적 데이터베이스를 사용하여 분할 된 데이터베이스 추가하기
+# 탄력적 데이터베이스 도구를 사용하여 분할된 데이터베이스 추가하기
 
 ## 새 범위 또는 키에 대해 분할된 데이터베이스를 추가하기  
 
@@ -25,7 +25,7 @@
 키 값의 새로운 범위가 기존 매핑에 속하지 않는 경우에는 매우 간편하게 새 분할된 데이터베이스를 추가하고 새 키 또는 범위를 해당 분할된 데이터베이스에 연결할 수 있습니다.
 
 ### 예 : 기존 분할된 데이터베이스 맵에 분할된 데이터베이스 및 해당 범위 추가
-아래 샘플에서는 [300, 400) 범위를 포함하도록 **sample_shard_2** 데이터베이스와 이 데이터베이스 내의 필요한 모든 스키마 개체를 만듭니다.
+아래 샘플에서는 [300, 400) 범위를 포함하도록 **sample\_shard\_2** 데이터베이스와 이 데이터베이스 내의 필요한 모든 스키마 개체를 만듭니다.
 
     // sm is a RangeShardMap object.
     // Add a new shard to hold the range being added. 
@@ -47,7 +47,7 @@
 
 ### 예: 범위를 분할하고 새로 추가한 분할된 데이터베이스에 빈 부분 할당
 
-이 예제에서는 "sample_shard_2" 데이터베이스와 해당 데이터베이스 내의 필요한 모든 스키마 개체를 만듭니다.
+이 예제에서는 "sample\_shard\_2" 데이터베이스와 해당 데이터베이스 내의 필요한 모든 스키마 개체를 만듭니다.
 
  
     // sm is a RangeShardMap object.
@@ -78,4 +78,4 @@
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -1,12 +1,20 @@
-<properties pageTitle="계산, 네트워크 및 저장소 .NET 라이브러리를 사용하여 Azure 리소스 배포" description="계산, 네트워크 및 저장소 .NET 라이브러리에서 사용 가능한 일부 클라이언트를 사용하여 Microsoft Azure에서 리소스를 만들고 삭제하는 방법을 알아봅니다." services="virtual-machines,virtual-network,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager/>
+<properties
+	pageTitle="계산, 네트워크 및 저장소 .NET 라이브러리를 사용하여 Azure 리소스를 배포합니다."
+	description="계산, 저장소 및 네트워크 .NET 라이브러리에서 사용할 수 있는 클라이언트 중 일부를 사용하여 Microsoft Azure의 리소스를 만들고 삭제하는 방법에 대해 알아봅니다."
+	services="virtual-machines,virtual-network,storage"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines" 
+	ms.service="virtual-machines"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/27/2015"
+	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # 계산, 네트워크 및 저장소 .NET 라이브러리를 사용하여 Azure 리소스를 배포합니다.
@@ -338,7 +346,7 @@ Azure Active Directory 응용 프로그램이 생성되고 인증 라이브러�
           }
         }
 
-	>[AZURE.NOTE]이미지 vhd 이름은 이미지 갤러리에서 정기적으로 변경되므로, 가상 컴퓨터를 배포하는 데 현재 이미지 이름을 가져와야 합니다. 이렇게 하려면 [Windows PowerShell을 사용하여 이미지 Windows 관리](https://msdn.microsoft.com/library/azure/dn790330.aspx)를 참조한 다음 , {source-image-name}을 사용 하려는 vhd 파일의 이름으로 바꿉니다. 예를 들면, "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201411.01-en.us-127GB.vhd"입니다.
+	>[AZURE.NOTE]이미지 vhd 이름은 이미지 갤러리에서 정기적으로 변경되므로, 가상 컴퓨터를 배포하는 데 현재 이미지 이름을 가져와야 합니다. 이렇게 하려면 [Windows PowerShell을 사용하여 이미지 Windows 관리](https://msdn.microsoft.com/library/azure/dn790330.aspx)를 참조한 다음 , {source-image-name}을 사용 하려는 vhd 파일의 이름으로 바꿉니다. 예를 들면, "a699494373c04fc0bc8f2bb1389d6106\_\_Windows-Server-2012-R2-201411.01-en.us-127GB.vhd"입니다.
 
 	{subscription-id}를 사용자의 구독 ID로 바꿉니다.
 
@@ -380,4 +388,4 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 
 	![AD 응용 프로그램 만들기](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

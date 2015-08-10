@@ -86,7 +86,7 @@ DocumentDB는 두 종류의 인덱스(해시 및 범위)를 지원하며 이는 
 자세한 내용은 [DocumentDB 색인 정책](documentdb-indexing-policies.md)을 참조하세요.
 
 ### 모든 속성에 대한 Order By의 인덱싱
-다음은 JSON 문서 내에서 표시되는 임의/모든 숫자 또는 문자열 속성에 대해 Order By로 인덱싱된 "모든 범위"를 가지고 컬렉션을 만들 수 있는 방법입니다. 여기에서 "/*"는 컬렉션 내의 모든 JSON 속성/경로를 나타내고 -1은 최대 전체 자릿수를 나타냅니다.
+다음은 JSON 문서 내에서 표시되는 임의/모든 숫자 또는 문자열 속성에 대해 Order By로 인덱싱된 "모든 범위"를 가지고 컬렉션을 만들 수 있는 방법입니다. 여기에서 "/\*"는 컬렉션 내의 모든 JSON 속성/경로를 나타내고 -1은 최대 전체 자릿수를 나타냅니다.
                    
     booksCollection.IndexingPolicy.IncludedPaths.Add(
         new IncludedPath { 
@@ -176,4 +176,4 @@ Order By는 속성, 숫자 또는 문자열에 대해 최대 자릿수(-1)로 �
 * [DocumentDB Order By 샘플](https://github.com/Azure/azure-documentdb-net/tree/master/samples/orderby)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->

@@ -99,4 +99,4 @@ RemoteApp 템플릿 이미지 cmdlet:
 - Get-AzureRemoteAppOperationResult
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=July15_HO5-->
