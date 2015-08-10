@@ -1,12 +1,19 @@
 <properties
-   pageTitle="Azure 백업 에이전트 다운로드, 설치 및 등록 l Microsft Azure"
-   description="Azure 백업 에이전트 다운로드 방법 및 위치, 설치 단계, 자격 증명 모음 자격 증명을 사용하여 Azure 백업 에이전트를 등록하는 방법을 알아봅니다."
+   pageTitle="Azure 백업 에이전트 다운로드, 설치 및 등록 | Microsoft Azure"
+   description="Azure 백업 에이전트 다운로드 방법 및 위치, 설치 단계, 자격 증명 모음 자격 증명을 사용하여 Azure 백업 에이전트를 등록하는 방법을 알아봅니다"
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
    manager="jwhit"
    editor=""/>
- <tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt\_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
+<tags
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="07/01/2015"
+   ms.author="jimpark"; "aashishr"/>
 
 # Azure 백업 에이전트 다운로드, 설치 및 등록
 Azure 백업 자격 증명 모음을 만든 후에는 각 온-프레미스 서버(Windows Server, Windows 클라이언트 또는 System Center Data Protection Manager 서버)에 데이터 및 응용 프로그램을 Azure에 백업할 수 있게 해주는 에이전트가 설치되어야 합니다. 이 문서는 Windows Server 또는 Windows 클라이언트 컴퓨터에서 Azure 백업 에이전트를 설치하는 데 필요한 단계를 설명합니다.
@@ -56,4 +63,4 @@ Azure 백업 자격 증명 모음을 만든 후에는 각 온-프레미스 서�
 ## 다음 단계
 - Azure로 데이터 및 응용 프로그램 백업에 대한 정보는 [백업 예약](backup-azure-backup-and-recover.md)을 참고합니다.
 
-<!---HONumber=July15_HO5-->
+<!------HONumber=July15_HO5-->

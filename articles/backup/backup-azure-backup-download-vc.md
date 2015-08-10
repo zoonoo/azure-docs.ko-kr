@@ -1,13 +1,19 @@
 <properties
    pageTitle="Azure 백업에 대 한 보관 자격 증명 다운로드 | Microsoft Azure"
-   description="자격 증명 모음 자격 증명을 사용하여 백업 자격 증명 모음 및 Azure Backup 서비스에 컴퓨터를 인증하는 방법을 알아봅니다."
+   description="자격 증명 모음 자격 증명을 사용하여 백업 자격 증명 모음 및 Azure Backup 서비스에 컴퓨터를 인증하는 방법을 알아봅니다"
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
    manager="shreeshd"
    editor=""/>
-
-<tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt\_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>  
+<tags
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="07/01/2015"
+   ms.author="jimpark"; "aashishr"/>
 
 
 # 자격 증명 모음 자격 증명을 사용하여 Azure 백업 서비스 인증
@@ -43,4 +49,4 @@
 ## 다음 단계
 [Azure 백업 에이전트 다운로드, 등록 및 설치](backup-azure-backup-download-register)
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->

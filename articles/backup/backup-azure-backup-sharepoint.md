@@ -1,13 +1,20 @@
 <properties
 	pageTitle="Azure의 SharePoint 팜에 대한 DPM 보호 | Microsoft Azure"
-	description="이 문서에서는 Azure의 SharePoint 팜에 대한 DPM 보호에 관한 개요를 제공합니다."
+	description="이 문서에서는 Azure의 SharePoint 팜에 대한 DPM 보호에 관한 개요를 제공합니다"
 	services="backup"
 	documentationCenter=""
 	authors="SamirMehta"
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt\_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/14/2015" ms.author="sammehta"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/14/2015"
+	ms.author="sammehta"; "jimpark"/>
 
 
 # Azure에 SharePoint 팜 백업하기
@@ -226,4 +233,4 @@ Q: SharePoint가 SQL AlwaysOn을 사용하여 구성된 경우 SharePoint 데이
 - [System Center 2012-Data Protection Manager의 릴리스](https://technet.microsoft.com/library/jj860415.aspx)를 검토하세요
 - [System Center 2012 s p 1의 Data Protection Manager에 대한 릴리스 정보](https://technet.microsoft.com/library/jj860394.aspx)를 검토하세요.
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->
