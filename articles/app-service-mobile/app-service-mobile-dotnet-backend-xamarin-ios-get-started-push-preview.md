@@ -107,9 +107,9 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 앱
 
     ![][9]
 
-    참고: 기본적으로 다운로드된 개발 증명서 파일은 이름이 <strong>aps\_development.cer</strong>로 지정됩니다.
+    참고: 기본적으로 다운로드된 개발 증명서 파일은 이름이 <strong>aps_development.cer</strong>로 지정됩니다.
 
-7. 다운로드한 푸시 인증서 **aps\_development.cer**을 두 번 클릭합니다.
+7. 다운로드한 푸시 인증서 **aps_development.cer**을 두 번 클릭합니다.
 
     아래와 같이 새 인증서가 Keychain에 설치됩니다.
 
@@ -264,9 +264,9 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 앱
 
 1. **실행** 단추를 눌러 프로젝트를 빌드하고 iOS 지원 장치에서 앱을 시작한 다음, **확인**을 클릭하여 푸시 알림을 수락합니다.
 	
-	> [AZURE.NOTE]앱에서 푸시 알림을 명시적으로 수락해야 합니다. This request only occurs the first time that the app runs.
+	> [AZURE.NOTE]앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
 
-2. 앱에서 작업을 입력하고 더하기(\*\*+\*\*) 아이콘을 클릭합니다.
+2. 앱에서 작업을 입력하고 더하기(**+**) 아이콘을 클릭합니다.
 
 3. 알림이 수신되는지 확인하고, **확인**을 클릭하여 알림을 해제합니다.
 
@@ -340,4 +340,4 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 앱
 
  
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->

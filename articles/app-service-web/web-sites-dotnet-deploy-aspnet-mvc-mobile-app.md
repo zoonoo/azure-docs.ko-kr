@@ -144,7 +144,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 이 섹션에서는 모바일 전용 레이아웃 파일을 만듭니다.
 
-시작하려면 *Views\Shared\_Layout.cshtml*을 *Views\Shared\_Layout.Mobile.cshtml*로 복사합니다. *_Layout.Mobile.cshtml*을 열고 제목을 **MVC5 Application**에서 **MVC5 Application (Mobile)**로 변경합니다.
+시작하려면 *Views\Shared_Layout.cshtml*을 *Views\Shared_Layout.Mobile.cshtml*로 복사합니다. *_Layout.Mobile.cshtml*을 열고 제목을 **MVC5 Application**에서 **MVC5 Application (Mobile)**로 변경합니다.
 
 탐색 모음에 대한 각 `Html.ActionLink` 호출에서 각 링크 *ActionLink*에서 "Browse by"를 제거합니다. 다음 코드는 모바일 레이아웃 파일의 완성된 `<ul class="nav navbar-nav">` 태그를 보여 줍니다.
 
@@ -191,7 +191,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
     using System.Web.WebPages;
 
-변경 내용을 저장합니다. *Views\Shared\_Layout.Mobile.cshtml* 파일을 *Views\Shared\_Layout.iPhone.cshtml*에 복사합니다. 새 파일을 연 후에 제목을 `MVC5 Application (Mobile)`에서 `MVC5 Application (iPhone)`으로 변경합니다.
+변경 내용을 저장합니다. *Views\Shared_Layout.Mobile.cshtml* 파일을 *Views\Shared_Layout.iPhone.cshtml*에 복사합니다. 새 파일을 연 후에 제목을 `MVC5 Application (Mobile)`에서 `MVC5 Application (iPhone)`으로 변경합니다.
 
 *Views\Home\AllTags.Mobile.cshtml* 파일을 *Views\Home\AllTags.iPhone.cshtml*에 복사합니다. 새 파일에서 `<h2>` 요소를 "Tags (M)"에서 "Tags (iPhone)"로 변경합니다.
 
@@ -209,7 +209,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 ![][AllSpeakers_LayoutMobile]
 
-다음과 같이 *Views\_ViewStart.cshtml* 파일에서 `RequireConsistentDisplayMode`를 `true`로 설정하여 모바일 레이아웃 내에서 기본(모바일 아님) 뷰가 렌더링되지 않도록 전체적으로 비활성화할 수 있습니다.
+다음과 같이 *Views_ViewStart.cshtml* 파일에서 `RequireConsistentDisplayMode`를 `true`로 설정하여 모바일 레이아웃 내에서 기본(모바일 아님) 뷰가 렌더링되지 않도록 전체적으로 비활성화할 수 있습니다.
 
     @{
         Layout = "~/Views/Shared/_Layout.cshtml";
@@ -262,7 +262,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 ![][AllSpeakersFixedDesktop]
 
-모바일 브라우저 뷰가 개선되기는 했지만 긴 발표자 목록을 탐색하기가 힘듭니다. 부트스트랩은 바로 사용 가능한 검색 필터 기능을 제공하지 않지만, 코드 몇 줄을 사용하여 추가할 수 있습니다. 먼저 검색 상자를 뷰에 추가한 후에 JavaScript 코드를 연결하여 필터 기능을 만듭니다. *Views\Home\AllSpeakers.cshtml*에서 다음과 같이 <form> 태그를 <h2> 태그 바로 뒤에 추가합니다.
+모바일 브라우저 뷰가 개선되기는 했지만 긴 발표자 목록을 탐색하기가 힘듭니다. 부트스트랩은 바로 사용 가능한 검색 필터 기능을 제공하지 않지만, 코드 몇 줄을 사용하여 추가할 수 있습니다. 먼저 검색 상자를 뷰에 추가한 후에 JavaScript 코드를 연결하여 필터 기능을 만듭니다. *Views\Home\AllSpeakers.cshtml*에서 다음과 같이 \<form\> 태그를 \<h2\> 태그 바로 뒤에 추가합니다.
 
     @model IEnumerable<string>
 
@@ -616,4 +616,4 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!---HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

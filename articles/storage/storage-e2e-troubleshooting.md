@@ -334,7 +334,7 @@ Azure 저장소 색 규칙을 사용할 뿐만 아니라 고유의 색 규칙을
 
 Message Analyzer에서 검색 조건이 클라이언트 요청 ID와 일치하는 첫 번째 로그 항목을 찾아 선택합니다. 클라이언트 로그에 각 클라이언트 요청 ID에 대한 여러 항목이 있으므로 모두 함께 쉽게 볼 수 있도록 **ClientRequestId** 필드에서 그룹화하려 할 수 있습니다. 아래 그림은 지정된 클라이언트 요청 ID에 대한 클라이언트 로그의 모든 메시지를 보여 줍니다.
 
-![404 오류를 표시하는 클라이언트 로그](./media/storage-e2e-troubleshooting/client-log-analysis-grid1.png)
+![404 오류를 표시하는 클라이언트 로그 ](./media/storage-e2e-troubleshooting/client-log-analysis-grid1.png)
 
 이러한 두 탭에서 보기 레이아웃에 표시된 데이터를 사용하여 요청 데이터를 분석해 오류를 일으킨 원인을 확인할 수 있습니다. 또한, 이보다 앞선 요청을 살펴보고 이전 이벤트가 404 오류를 발생시킬 수 있었는지 확인할 수도 있습니다. 예를 들어 이 클라이언트 요청 ID에 앞선 클라이언트 로그 항목을 검토하여 Blob이 삭제될 수 있었는지 여부 또는 오류가 컨테이너 또는 Blob에서 CreateIfNotExists API를 호출하는 클라이언트 응용 프로그램 때문인지를 확인할 수 있습니다. 클라이언트 로그의 **Description(설명)** 필드에서 Blob의 주소를 찾을 수 있습니다. 서버 및 네트워크 추적 로그에서 이 정보는 **Summary(요약)** 필드에 표시됩니다.
 
@@ -349,7 +349,18 @@ Message Analyzer를 사용하여 로그 데이터를 분석하는 데 익숙해�
 | 큐에서 메시지 배달의 예기치 않은 지연 | AzureStorageClientDotNetV4.Description은 "다시 시도 중 작업이 실패 했습니다."를 포함 | 클라이언트 |
 | PercentThrottlingError에서 HTTP 증가 | HTTP.Response.StatusCode == 500 || HTTP.Response.StatusCode == 503 | 네트워크 |
 | PercentTimeoutError의 증가 | HTTP.Response.StatusCode == 500 | 네트워크 |
-| PercentTimeoutError의 증가(모두) | *StatusCode == 500 | All | | Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client | | HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network | | HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network | | 404 (all) | *StatusCode == 404 | All | | Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network | | HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network | | 409 (all) | *StatusCode == 409 | All | | Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server | | Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server | | Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network | | Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
+| PercentTimeoutError의 증가(모두) | *StatusCode == 500 | All |
+| Increase in PercentNetworkError | AzureStorageClientDotNetV4.EventLogEntry.Level < 2 | Client |
+| HTTP 403 (Forbidden) messages | HTTP.Response.StatusCode == 403 | Network |
+| HTTP 404 (Not found) messages | HTTP.Response.StatusCode == 404 | Network |
+| 404 (all) | *StatusCode == 404 | All |
+| Shared Access Signature (SAS) authorization issue | AzureStorageLog.RequestStatus == "SASAuthorizationError" | Network |
+| HTTP 409 (Conflict) messages | HTTP.Response.StatusCode == 409 | Network |
+| 409 (all) | *StatusCode == 409 | All |
+| Low PercentSuccess or analytics log entries have operations with transaction status of ClientOtherErrors | AzureStorageLog.RequestStatus == "ClientOtherError" | Server |
+| Nagle Warning | ((AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) and (AzureStorageLog.RequestPacketSize <1460) and (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS >= 200) | Server |
+| Range of time in Server and Network logs | #Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39 | Server, Network |
+| Range of time in Server logs | AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 and AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 | Server |
 
 
 ## 다음 단계
@@ -364,4 +375,4 @@ Azure 저장소의 종단 간 시나리오 문제 해결에 대한 자세한 내
  
  
 
-<!---HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

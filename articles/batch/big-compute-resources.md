@@ -25,7 +25,7 @@ Azure의 큰 계산 옵션에 대해 알아보고 사용자의 작업 및 비즈
 
 * [배치 및 HPC 솔루션](batch-hpc-solutions.md)
 
-* [비디오: 클라우드에서 Azure 및 HPC를 사용한 큰 계산](http://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/)(영문)
+* [비디오: 클라우드에서 Azure 및 HPC를 사용한 큰 계산](http://azure.microsoft.com/documentation/videos/teched-europe-2014-big-compute-in-the-cloud-with-high-performance-computing-on-azure/) \(영문)
 
 
 ## Azure 배치

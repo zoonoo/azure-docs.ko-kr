@@ -90,8 +90,8 @@
 <!-- URLs. -->
 [앱에 인증 추가]: mobile-services-windows-phone-get-started-users.md
 [앱에 푸시 알림 추가]: mobile-services-javascript-backend-windows-phone-get-started-push.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure 관리 포털]: https://manage.windowsazure.com/
 
  
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->

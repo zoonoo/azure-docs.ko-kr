@@ -98,11 +98,11 @@ Azure 스트림 분석을 사용하면 최고의 비즈니스 인텔리전스 �
 * **데이터 집합 이름** - Power BI 출력에 포함할 데이터 집합 이름을 입력합니다. 예를 들어, “pbidemo”를 사용합니다.
 *	**테이블 이름** -Power BI 출력의 데이터 집합 아래 테이블 이름을 입력합니다. "Pbidemo"라고 입력합니다. 현재, 스트림 분석 작업의 Power BI 출력에는 하나의 데이터 집합에 하나의 테이블만 있을 수 있습니다.
 
->	[AZURE.NOTE] You should not explicitly create this dataset and table in your Power BI account. They will be automatically created when you start your Stream Analytics job and the job starts pumping output into Power BI. If your job query doesn’t return any results, the dataset and table will not be created.
+>	[AZURE.NOTE] Power BI 계정에서 이 데이터 집합과 테이블을 명시적으로 만들면 안 됩니다. 스트림 분석 작업을 시작하면 자동으로 만들어지며 이 작업에서 출력을 Power BI로 펌프하기 시작합니다. 작업 쿼리에서 아무 결과도 반환하지 않는 경우에는 데이터 집합과 테이블이 만들어지지 않습니다.
 
 *	**확인**, **연결 테스트**를 클릭하면 이제 출력 구성이 완료됩니다.
 
->	[AZURE.WARNING] Also be aware that if Power BI already had a dataset and table with the same name as the one you provided in this Stream Analytics job, the existing data will be overwritten.
+>	[AZURE.WARNING] 또한 이 스트림 분석 작업에서 제공한 이름과 동일한 이름의 데이터 집합과 테이블이 Power BI에 이미 있는 경우에는 기존 데이터를 덮어씁니다.
 
 
 ## 쿼리 작성 ##
@@ -167,7 +167,8 @@ Power BI는 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.co
 
 때문에 Power BI는 Azure 스트림 분석으로 상당한 데이터 부하 감소가 이루어 지는 경우에 가장 적합합니다. TumblingWindow 또는 HoppingWindow를 사용하여 데이터 푸시가 최대 1초마다 푸시가 되도록 하고 쿼리가 처리량 요구 사항 이내에 들도록 하는 것이 좋습니다. 다음 수식을 사용하여 수 초 내에 창에 공급할 값을 계산할 수 있습니다. ![수식 1](./media/stream-analytics-power-bi-dashboard/equation1.png)
 
-예를 들어 매초마다 데이터를 보내는 1,000개의 장치가 있다면 시간당 1,000,000행을 지원하는 Power BI Pro SKU를 사용하면서 Power BI에서 장치별 평균 데이터를 확인하고 아래 표시된 것과 같이 장치별로 최대 4초마다 푸시를 할 수 있습니다. ![수식 2](./media/stream-analytics-power-bi-dashboard/equation2.png)
+예를 들어 매초마다 데이터를 보내는 1,000개의 장치가 있다면 시간당 1,000,000행을 지원하는 Power BI Pro SKU를 사용하면서 Power BI에서 장치별 평균 데이터를 확인하고 아래 표시된 것과 같이 장치별로 최대 4초마다 푸시를 할 수 있습니다.
+![수식 2](./media/stream-analytics-power-bi-dashboard/equation2.png)
 
 이를 위해 원래 쿼리가 아래와 같이 변경됩니다.
 

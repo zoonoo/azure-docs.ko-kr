@@ -45,8 +45,8 @@ Azure 가상 컴퓨터에 대해 처음 알아보기 시작한 경우 [질문과
 
 
 <!--links-->
-[App Service]: app-service-choose-me.md
-[Virtual Machines]: #tellmevm
-[Cloud Services]: cloud-services-choose-me.md
+[앱 서비스]: app-service-choose-me.md
+[가상 컴퓨터]: #tellmevm
+[클라우드 서비스]: cloud-services-choose-me.md
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->

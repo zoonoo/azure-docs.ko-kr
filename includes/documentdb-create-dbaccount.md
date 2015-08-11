@@ -1,9 +1,11 @@
 1.	온라인 [Microsoft Azure Preview 포털](https://portal.azure.com/)에 로그인합니다.
 2.	점프 모음에서 **새로 만들기**를 클릭하고 **데이터+저장소**를 클릭한 다음 **Azure DocumentDB**를 클릭합니다. 
 
-	![새로 만들기 단추, 만들기 블레이드의 데이터+저장소, 데이터+저장소 블레이드의 Azure DocumentDB가 강조 표시된 Azure Preview 포털의 스크린샷][1]
+	![새로 만들기 단추, 만들기 블레이드의 데이터+저장소, 데이터+저장소 블레이드의 Azure DocumentDB가 강조 표시된 Azure Preview 포털의 스크린샷][1]   
 
-	<!-- Alternatively, from the Startboard, you can browse the Azure Marketplace, select **Data + storage**, choose **DocumentDB**, and then click **Create**.  --><!-- ![Screen shot of the Azure preview portal, showing the Marketplace blade with the DocumentDB tile highlighted, and the DocumentDB blade with the Create database button highlighted][2]    -->
+	<!-- Alternatively, from the Startboard, you can browse the Azure Marketplace, select **Data + storage**, choose **DocumentDB**, and then click **Create**.  -->
+	
+	<!-- ![Screen shot of the Azure preview portal, showing the Marketplace blade with the DocumentDB tile highlighted, and the DocumentDB blade with the Create database button highlighted][2]    -->
    
 
 3. **새 DocumentDB 계정** 블레이드에서 DocumentDB 계정에 대한 구성을 원하는 대로 지정합니다.
@@ -21,17 +23,18 @@
  
 	- **위치**를 사용하여 DocumentDB 계정을 호스트하는 지리적 위치를 지정합니다.
 
-4.	새 DocumentDB 계정 옵션을 구성했으면 **만들기**를 클릭합니다. DocumentDB 계정을 만드는 데 몇 분 정도 걸릴 수 있습니다. 상태를 확인하려면 시작 보드에서 진행률을 모니터링하면 됩니다. ![시작 보드 만들기 타일 - 온라인 데이터베이스 작성자의 스크린샷][4]
+4.	새 DocumentDB 계정 옵션을 구성했으면 **만들기**를 클릭합니다. DocumentDB 계정을 만드는 데 몇 분 정도 걸릴 수 있습니다. 상태를 확인하려면 시작 보드에서 진행률을 모니터링하면 됩니다.  
+	![시작 보드 만들기 타일 - 온라인 데이터베이스 작성자의 스크린샷][4]  
   
-	그렇지 않은 경우 알림 허브에서 진행률을 모니터링할 수 있습니다.
+	그렇지 않은 경우 알림 허브에서 진행률을 모니터링할 수 있습니다.  
 
-	![DocumentDB 계정이 만들어지고 있음을 보여주는 데이터베이스 신속하게 만들기 - 온라인 데이터베이스 작성자 알림][5]
+	![DocumentDB 계정이 만들어지고 있음을 보여주는 데이터베이스 신속하게 만들기 - 온라인 데이터베이스 작성자 알림][5]  
 
 	![DocumentDB 계정을 만들어 리소스 그룹에 배포했음을 보여주는 알림 허브의 스크린샷][6]
 
 5.	DocumentDB 계정이 생성되면 온라인 포털에서 기본 설정으로 사용할 수 있습니다. DocumentDB 계정의 기본 일관성은 **세션**으로 설정됩니다. **DocumentDB 계정**블레이드에서 **기본 일관성** 타일을 클릭하여 기본 일관성 설정을 조정할 수 있습니다.
 
-    ![리소스 그룹 블레이드의 스크린샷][7]
+    ![리소스 그룹 블레이드의 스크린샷][7]  
 
 <!--Image references-->
 [1]: media/documentdb-create-dbaccount/ca1.png
@@ -46,4 +49,4 @@
 [Next steps]: #NextSteps
 [documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->

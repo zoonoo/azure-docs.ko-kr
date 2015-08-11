@@ -41,9 +41,9 @@
 	
 	네트워크 구성 파일에서 값을 고유한 값으로 바꿔 다음 줄을 편집합니다.
 
-	**이전 값:** <VirtualNetworkSitename "VNetUSWest" AffinityGroup = "VNetDemoAG">
+	**이전 값:** \<VirtualNetworkSitename "VNetUSWest" AffinityGroup = "VNetDemoAG">
 
-	**새 값:** <VirtualNetworkSitename "VNetUSWest" 위치 = "미국 서부">
+	**새 값:** \<VirtualNetworkSitename "VNetUSWest" 위치 = "미국 서부">
 
 1. 변경 내용을 저장하고 Azure에 네트워크 구성을 [가져옵니다](../virtual-networks-using-network-configuration-file/).
 

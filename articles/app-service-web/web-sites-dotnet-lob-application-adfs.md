@@ -254,7 +254,7 @@ AD FS 배포의 AD 도메인에 속한 사용자로 로그인하면 가장자리
 - AD FS가 AD 사용자를 성공적으로 인증하고 응용 프로그램의 홈 페이지로 돌아갑니다.
 - 가장자리에 사용자 이름이 표시되어 있다는 사실로 알 수 있듯이, AD FS에서 이름 클레임(http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name)을 응용 프로그램으로 성공적으로 전송했습니다. 
 
-이름 클레임이 누락된 경우 **안녕하세요, 님!**이 표시됩니다. Views\Shared_LoginPartial.cshtml을 보면 `User.Identity.Name`을 사용하여 사용자 이름을 표시한다는 것을 알 수 있습니다. 앞서 설명한 바와 같이, ASP.NET은 인증된 사용자의 이름 클레임(SAML 토큰에서 사용할 수 있는 경우)으로 이 속성을 하이드레이션합니다. AD FS에서 전송된 모든 클레임을 보려면 Controllers\HomeController.cs의 Index 작업 메서드에 중단점을 둡니다. 사용자가 인증되고 나면 `System.Security.Claims.Current.Claims` 컬렉션을 조사합니다.
+이름 클레임이 누락된 경우 **안녕하세요, 님!**이 표시됩니다. Views\Shared\_LoginPartial.cshtml을 보면 `User.Identity.Name`을 사용하여 사용자 이름을 표시한다는 것을 알 수 있습니다. 앞서 설명한 바와 같이, ASP.NET은 인증된 사용자의 이름 클레임(SAML 토큰에서 사용할 수 있는 경우)으로 이 속성을 하이드레이션합니다. AD FS에서 전송된 모든 클레임을 보려면 Controllers\HomeController.cs의 Index 작업 메서드에 중단점을 둡니다. 사용자가 인증되고 나면 `System.Security.Claims.Current.Claims` 컬렉션을 조사합니다.
 
 ![](./media/web-sites-dotnet-lob-application-adfs/12-test-debugging-all-claims.png)
 
@@ -357,4 +357,4 @@ Azure 앱 서비스 웹앱은 다음의 두 가지 방법으로 온-프레미스
  
  
 
-<!-----HONumber=July15_HO4-->
+<!------HONumber=July15_HO4-->

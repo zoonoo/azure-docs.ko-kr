@@ -4,7 +4,7 @@
 
 1. 원격 데스크톱을 사용하여 가상 컴퓨터에 연결한 후 가상 컴퓨터의 **시작** 메뉴에서 Internet Explorer를 엽니다.
 
-2. 오른쪽 위에 있는 **도구** 버튼을 선택합니다. **인터넷 옵션**에서 **보안** 탭을 선택한 후 **신뢰할 수 있는 사이트** 아이콘을 선택하고 마지막으로 **사이트** 버튼을 클릭합니다. 신뢰할 수 있는 사이트 목록에 _http://\*.mongodb.org_를 추가합니다. 
+2. 오른쪽 위에 있는 **도구** 버튼을 선택합니다. **인터넷 옵션**에서 **보안** 탭을 선택한 후 **신뢰할 수 있는 사이트** 아이콘을 선택하고 마지막으로 **사이트** 버튼을 클릭합니다. 신뢰할 수 있는 사이트 목록에 *http://*.mongodb.org*를 추가합니다.
 
 3. [Downloads- MongoDB][MongoDownloads](영문)로 이동합니다.
 
@@ -108,4 +108,4 @@
 [Image8]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint2.png
 [Image9]: ./media/install-and-run-mongo-on-win2k8-vm/WinVmAddEndpoint3.png
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->

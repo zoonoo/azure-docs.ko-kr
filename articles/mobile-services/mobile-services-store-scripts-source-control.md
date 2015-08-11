@@ -36,7 +36,8 @@
 
 	Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. 운영 체제 특정 배포 및 설치 지침은 [Git 설치]를 참조하세요.
 
-	> [AZURE.NOTE]일부 운영 체제에서는 Git의 명령줄과 GUI 버전을 둘 다 사용할 수 있습니다. 이 문서에서 제공하는 지침은 명령줄 버전을 사용합니다.
+	> [AZURE.NOTE]
+	> 일부 운영 체제에서는 Git의 명령줄과 GUI 버전을 둘 다 사용할 수 있습니다. 이 문서에서 제공하는 지침은 명령줄 버전을 사용합니다.
 
 2. **GitBash**(Windows) 또는 **Bash**(Unix Shell)와 같은 명령줄을 엽니다. OS X 시스템에서는 **터미널** 응용 프로그램을 통해 명령줄에 액세스할 수 있습니다.
 
@@ -59,7 +60,7 @@
 
 	이 경우에는 데이터 서비스의 로컬 리포지토리인 모바일 서비스의 이름을 사용하여 새 디렉터리가 만들어졌습니다.
 
-7. .\service\table 하위 폴더를 열면 TodoItem 테이블에 대한 작업 권한이 JSON으로 표현된 TodoItem.json 파일이 포함된 것이 확인됩니다.
+7. .\\service\\table 하위 폴더를 열면 TodoItem 테이블에 대한 작업 권한이 JSON으로 표현된 TodoItem.json 파일이 포함된 것이 확인됩니다.
 
 	이 테이블에 대해 서버 스크립트가 정의되어 있다면 주어진 테이블 작업에 대한 스크립트가 포함된 <code>TodoItem._&lt;operation&gt;_.js</code>라는 파일이 한 개 이상 있습니다. 스케줄러 및 사용자 지정 API 스크립트는 개별 이름을 사용하여 별도의 폴더에 유지됩니다. 자세한 내용은 [원본 제어]를 참조하세요.
 
@@ -67,7 +68,7 @@
 
 ##<a name="deploy-scripts"></a>업데이트된 스크립트 파일을 모바일 서비스에 배포
 
-1. .\service\table 하위 폴더로 이동하고 todoitem.insert.js 파일이 아직 없는 경우 만듭니다.
+1. .\\service\\table 하위 폴더로 이동하고 todoitem.insert.js 파일이 아직 없는 경우 만듭니다.
 
 2. 텍스트 편집기에서 새 todoitem.insert.js 파일을 열고 다음 코드를 붙여넣은 후 변경 내용을 저장합니다.
 
@@ -109,7 +110,7 @@
 
 	>[AZURE.NOTE]package.json 파일에 이 업데이트를 적용하면 커밋이 푸시된 후 모바일 서비스가 다시 시작됩니다.
 
-4. 이제 .\service\table 하위 폴더로 이동하여 todoitem.insert.js 파일을 열고 다음과 같이 수정합니다.
+4. 이제 .\\service\\table 하위 폴더로 이동하여 todoitem.insert.js 파일을 열고 다음과 같이 수정합니다.
 
 		function insert(item, user, request) {
 		    var uuid = require('node-uuid');
@@ -132,9 +133,11 @@
 
 이 자습서를 완료했으므로 이제 원본 제어에 스크립트를 지정하는 방법을 알게 되었습니다. 서버 스크립트 및 사용자 지정 API 작업에 대해 자세히 알아보세요.
 
-+ [모바일 서비스에서 서버 스크립트 작업] <br/>서버 스크립트, 작업 스케줄러 및 사용자 지정 API 작업을 수행하는 방법을 보여 줍니다.
++ [모바일 서비스에서 서버 스크립트 작업]
+	<br/>서버 스크립트, 작업 스케줄러 및 사용자 지정 API 작업을 수행하는 방법을 보여 줍니다.
 
-+ [클라이언트에서 사용자 지정 API 호출] <br/> 클라이언트에서 호출할 수 있는 사용자 지정 API를 만드는 방법을 보여줍니다.
++ [클라이언트에서 사용자 지정 API 호출] 
+	<br/> 클라이언트에서 호출할 수 있는 사용자 지정 API를 만드는 방법을 보여줍니다.
 
 <!-- Anchors. -->
 [Enable source control in your mobile service]: #enable-source-control
@@ -154,10 +157,10 @@
 [모바일 서비스 시작]: mobile-services-ios-get-started.md
 [기존 앱에 모바일 서비스 추가]: mobile-services-ios-get-started-data.md
 [모바일 서비스에서 서버 스크립트 작업]: mobile-services-how-to-use-server-scripts.md
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Azure 관리 포털]: https://manage.windowsazure.com/
 [클라이언트에서 사용자 지정 API 호출]: mobile-services-ios-call-custom-api.md
 [모듈]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
  
 
-<!---HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->

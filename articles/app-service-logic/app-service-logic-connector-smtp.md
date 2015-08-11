@@ -70,16 +70,16 @@ SMTP 커넥터에서 사용할 수 있는 트리거와 동작은 다음과 같�
 
 이제 워크플로에서 사용되도록 SMTP 커넥터를 구성할 수 있습니다. **전자 메일 보내기** 동작을 선택하고 입력 속성을 구성합니다.
 
-	Property | Description
+	속성 | 설명
 	--- | ---
-	To | Enter the email address of recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
-	Cc | Enter the email address of the carbon copy recipient(s). Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
-	Subject | Enter the subject of the email.
-	Body | Enter body of the email.
-	Is HTML | When this property is set to true, the contents of the body are sent as HTML.
-	Bcc | Enter the email address of recipient(s) for blind carbon copy. Separate multiple email addresses using a semicolon (;). For example, enter: *recipient1@domain.com;recipient2@domain.com*.
-	Importance | Enter the Importance of the email. The options are Normal, Low, and High.
-	Attachments | Attachments to be sent along with the email. It contains the following fields: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
+	To | 받는 사람의 메일 주소를 입력합니다. 여러 개의 메일 주소는 세미콜론(;)으로 구분하면 됩니다. 예를 들어, recipient1@domain.com;recipient2@domain.com과 같이 입력할 수 있습니다.
+	Cc | 참조에 포함할 사람의 메일 주소를 입력합니다. 여러 개의 메일 주소는 세미콜론(;)으로 구분하면 됩니다. 예를 들어, recipient1@domain.com;recipient2@domain.com과 같이 입력할 수 있습니다.
+	Subject | 메일의 제목을 입력합니다.
+	Body | 메일의 본문을 입력합니다.
+	Is HTML | 이 속성을 true로 설정하면 본문의 내용이 HTML로 전송됩니다.
+	Bcc | 숨은 참조에 포함할 사람의 메일 주소를 입력합니다. 여러 개의 메일 주소는 세미콜론(;)으로 구분하면 됩니다. 예를 들어, recipient1@domain.com;recipient2@domain.com과 같이 입력할 수 있습니다.
+	Importance | 메일의 중요도를 입력합니다. 보통, 낮음, 높음 중에서 선택할 수 있습니다.
+	Attachments | 첨부 파일이 메일과 함께 전송되며, 다음과 같은 필드가 포함되어 있습니다: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
 
 	![][5]
 	![][6]
@@ -99,4 +99,4 @@ REST API를 사용하여 API 앱을 만듭니다. [커넥터 및 API 앱 참조]
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->

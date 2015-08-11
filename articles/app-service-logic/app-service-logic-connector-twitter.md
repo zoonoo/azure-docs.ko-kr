@@ -73,8 +73,8 @@ API 앱이 생성되면 이제 논리 앱에 대한 트리거 또는 동작으�
 
 유사한 방식으로 워크플로에서 Twitter 동작을 사용할 수 있습니다. Twitter 동작을 선택하고 해당 동작에 대한 입력을 구성합니다.
 
-![][7] ![][8]
-
+	![][7]
+	![][8]
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
@@ -92,4 +92,4 @@ REST API를 사용하여 API 앱을 만듭니다. [커넥터 및 API 앱 참조]
 [7]: ./media/app-service-logic-connector-twitter/img7.png
 [8]: ./media/app-service-logic-connector-twitter/actions.png
 
-<!---HONumber=July15_HO5-->
+<!------HONumber=July15_HO5-->

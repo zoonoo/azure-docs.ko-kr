@@ -106,12 +106,12 @@
 [푸시 알림 시작]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
-[Azure 관리 포털]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkID=510826
+[개발자 코드 샘플 사이트]: http://go.microsoft.com/fwlink/p/?LinkID=510826
 
-[MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
+[MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=July15_HO5-->
+<!-----HONumber=July15_HO5-->

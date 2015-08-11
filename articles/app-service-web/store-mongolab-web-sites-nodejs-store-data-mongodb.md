@@ -49,16 +49,16 @@ Azure Store에 어느 정도 익숙한 경우 이 섹션을 사용하여 빠른 
 
 1. **새로 만들기** > **Marketplace**를 클릭하여 Azure 마켓플레이스를 엽니다.  
 <!-- ![Store][button-store] -->
-2. **MongoLab** 추가 기능을 클릭합니다.
+2. **MongoLab** 추가 기능을 클릭합니다.  
 ![MongoLab][entry-mongolab]
-3. 추가 기능 목록에서 **MongoLab** 추가 기능을 클릭하고 **연결 정보**를 클릭합니다.
+3. 추가 기능 목록에서 **MongoLab** 추가 기능을 클릭하고 **연결 정보**를 클릭합니다.  
 ![ConnectionInfoButton][button-connectioninfo]  
-4. **MONGOLAB_URI**를 클립보드로 복사합니다.
+4. **MONGOLAB_URI**를 클립보드로 복사합니다.  
 ![ConnectionInfoScreen][screen-connectioninfo]
 
 	>[AZURE.NOTE]이 URI에는 데이터베이스 사용자 이름과 암호가 포함되어 있습니다. 중요한 정보로 처리하고 공유하지 마세요.
 
-5. Azure 웹 응용 프로그램 **구성** 메뉴의 **연결 문자열** 목록에 값을 추가합니다.
+5. Azure 웹 응용 프로그램 **구성** 메뉴의 **연결 문자열** 목록에 값을 추가합니다.  
 ![WebAppConnectionStrings][focus-website-connectinfo]
 6. **이름**에 **MONGOLAB_URI**를 입력합니다.
 7. **Value**에 이전 섹션에서 얻은 연결 문자열을 붙여 넣습니다.
@@ -449,7 +449,7 @@ Azure CLI를 사용하려면 먼저 구독에 대한 정보가 포함된 파일�
 
 Azure 앱 서비스에서 웹 앱을 작성하는 것은 매우 쉽습니다. 첫 번째 Azure 웹 앱인 경우 포털을 사용해야 합니다. 하나 이상의 웹 사이트가 이미 있는 경우 7단계로 건너뜁니다.
 
-1. Azure 포털에서 **새로 만들기**를 클릭합니다.
+1. Azure 포털에서 **새로 만들기**를 클릭합니다.  
 ![새로 만들기][button-new]
 2. **계산 > 웹앱 > 빠른 생성**을 선택합니다.
 <!-- ![Create Web App][screen-mongolab-newwebsite] -->
