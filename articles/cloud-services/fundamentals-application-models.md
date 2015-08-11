@@ -1,6 +1,8 @@
 <properties 
 	pageTitle="Azure에서 제공하는 계산 호스팅 옵션" 
 	description="Azure 계산 호스팅 옵션 및 작동 방식에 대해 알아보세요. 가상 컴퓨터, 웹 사이트, 클라우드 서비스 등" 
+	headerExpose="" 
+	footerExpose="" 
 	services="cloud-services,virtual-machines"
 	authors="Thraka" 
 	documentationCenter=""
@@ -76,4 +78,4 @@ As the figure illustrates, the Cloud Services VMs run in a separate cloud servic
 * [클라우드 서비스](services/cloud-services/)에 대해 자세히 알아보세요.
 * [가상 컴퓨터](https://msdn.microsoft.com/library/azure/jj156143.aspx)에 대해 자세히 알아봅니다. 
 
-<!---HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->
