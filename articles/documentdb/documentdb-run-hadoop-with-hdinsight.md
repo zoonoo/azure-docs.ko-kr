@@ -344,7 +344,9 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
 
 4. 끝으로, 결과를 새 출력 컬렉션에 저장합니다.
 
-    > [AZURE.NOTE] 입력으로 여러 컬렉션을 추가할 수 있도록 허용합니다. </br> '<DocumentDB Output Collection Name 1>,<DocumentDB Output Collection Name 2>'</br> 컬렉션 이름은 공백 없이 단일 쉼표만 사용해서 구분되었습니다.</br> 문서는 여러 컬렉션 간에 라운드 로빈으로 분산됩니다. 문서 일괄 처리는 하나의 컬렉션에 저장되며, 문서의 두 번째 일괄 처리는 그 다음 컬렉션에 저장됩니다.
+    > [AZURE.NOTE] 입력으로 여러 컬렉션을 추가할 수 있도록 허용합니다. </br>
+    '\<DocumentDB Output Collection Name 1>,\<DocumentDB Output Collection Name 2>'</br> 컬렉션 이름은 공백 없이 단일 쉼표만 사용해서 구분되었습니다.</br>
+    문서는 여러 컬렉션 간에 라운드 로빈으로 분산됩니다. 문서 일괄 처리는 하나의 컬렉션에 저장되며, 문서의 두 번째 일괄 처리는 그 다음 컬렉션에 저장됩니다.
 
 		# Store output data to DocumentDB.
         $queryStringPart3 = "STORE by_minute_count INTO '<DocumentDB Endpoint>' " +
@@ -490,4 +492,4 @@ Hadoop 커넥터는 소스가 공개되어 있습니다. 관심이 있으면 [Gi
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!------HONumber=July15_HO4-->
+<!--------HONumber=July15_HO4-->

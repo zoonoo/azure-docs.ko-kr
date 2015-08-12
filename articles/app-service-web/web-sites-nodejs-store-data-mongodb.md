@@ -113,13 +113,13 @@ After you have created the virtual machine in Azure and installed MongoDB, be su
 
 1. 명령줄에서 **tasklist** 디렉터리로 변경합니다. **tasklist** 디렉터리가 없으면 디렉터리를 만듭니다.
 
-	> [AZURE.NOTE]이 자습서에서는 **tasklist** 폴더에 대한 참조를 만듭니다. 경로 의미 체계가 운영 체제마다 다르므로, 폴더의 전체 경로는 생략되었습니다. 로컬 파일 시스템에 쉽게 액세스할 수 있는 위치에 이 폴더를 만들어야 합니다(예: **~/node/tasklist** 또는 **c:\node\tasklist**).
+> [AZURE.NOTE]이 자습서에서는 **tasklist** 폴더에 대한 참조를 만듭니다. 경로 의미 체계가 운영 체제마다 다르므로, 폴더의 전체 경로는 생략되었습니다. 로컬 파일 시스템에 쉽게 액세스할 수 있는 위치에 이 폴더를 만들어야 합니다(예: **~/node/tasklist** 또는 **c:\node\tasklist**).
 
 2. 다음 명령을 입력하여 express 명령을 설치합니다.
 
 	npm install express-generator -g
 
-	> [AZURE.NOTE]일부 운영 체제에서 '-g' 매개 변수를 사용할 때 ___Error: EPERM, chmod '/usr/local/bin/express'___ 오류 메시지와 관리자 계정으로 실행하라는 요청이 표시될 수 있습니다. 이 경우 `sudo` 명령을 사용하여 더 높은 권한 수준으로 npm을 실행하세요.
+> [AZURE.NOTE]일부 운영 체제에서 '-g' 매개 변수를 사용할 때 ___Error: EPERM, chmod '/usr/local/bin/express'___ 오류 메시지와 관리자 계정으로 실행하라는 요청이 표시될 수 있습니다. 이 경우 `sudo` 명령을 사용하여 더 높은 권한 수준으로 npm을 실행하세요.
 
     이 명령의 출력은 다음과 유사합니다.
 
@@ -572,4 +572,4 @@ MongoDB를 보호하는 방법을 알아보려면 [MongoDB 보안][mongosecurity
 [mongodbonazure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

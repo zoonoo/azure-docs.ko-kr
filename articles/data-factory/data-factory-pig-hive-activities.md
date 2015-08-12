@@ -159,7 +159,7 @@ Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지�
       		}
 		}
 
-	> [AZURE.NOTE]**StartDateTime** 값을 현재 날짜 3일 전 날짜로, **EndDateTime** 값을 현재 날짜로 바꿉니다. StartDateTime 및 EndDateTime은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예: 2014-10-14T16:32:41Z. 출력 테이블이 매일 생성되도록 예약되었으므로 3개의 조각이 생성됩니다.
+	> [AZURE.NOTE]**StartDateTime** 값을 현재 날짜 3일 전 날짜로, **EndDateTime** 값을 현재 날짜로 바꿉니다. StartDateTime 및 EndDateTime은 둘 다 [ISO 형식](http://ko.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예: 2014-10-14T16:32:41Z. 출력 테이블이 매일 생성되도록 예약되었으므로 3개의 조각이 생성됩니다.
 	> 
 	> JSON의 **your storage account**를 저장소 계정의 이름으로 바꿉니다.
 	

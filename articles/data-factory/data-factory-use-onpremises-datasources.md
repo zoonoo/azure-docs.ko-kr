@@ -397,7 +397,7 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 데이터 �
 	- 작업에 대한 **입력**을 **EmpOnPremSQLTable**로 설정하고 작업에 대한 **출력**을 **OutputBlobTable**로 설정합니다.
 	- **transformation** 섹션에서 **SqlSource**를 **source type**으로 지정하고 **BlobSink를** **sink type**으로 지정합니다. - **SqlSource**의 **sqlReaderQuery** 속성에 대해 SQL 쿼리 **select \* from emp**를 지정합니다.
 
-	**start** 속성 값을 현재 날짜로 바꾸고 **end** 값을 다음 날짜로 바꿉니다. start 및 end 날짜/시간은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항이지만 이 자습서에서는 사용합니다.
+	**start** 속성 값을 현재 날짜로 바꾸고 **end** 값을 다음 날짜로 바꿉니다. start 및 end 날짜/시간은 둘 다 [ISO 형식](http://ko.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항이지만 이 자습서에서는 사용합니다.
 	
 	**end** 속성 값을 지정하지 않는 경우 "\*\*start + 48시간\*\*"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **end** 속성 값으로 **9/9/9999**를 지정합니다.
 	
