@@ -360,7 +360,8 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
 		  </property>
 		</configuration>
 
-	* **wasb://mycontainer@mystorageaccount.blob.core.windows.net**의 모든 인스턴스를 이전에 받은 값으로 바꿉니다. 
+	* **wasb://mycontainer@mystorageaccount.blob.core.windows.net**의 모든 인스턴스를 이전에 받은 값으로 바꿉니다.
+
 	> [AZURE.WARNING]컨테이너 및 저장소 계정이 경로의 일부로 포함된 전체 WASB 경로를 사용해야 합니다. 약식 표현(wasb:///)을 사용하면 작업이 시작될 때 RunHiveScript 동작이 실패합니다.
 
 	* **JOBTRACKERADDRESS**를 이전에 받은 JobTracker/ResourceManager 주소로 바꿉니다.
@@ -723,4 +724,4 @@ Oozie UI를 사용하면 Oozie 로그뿐 아니라 Hive 쿼리와 같은 MapRedu
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=July15_HO5-->
+<!-------HONumber=July15_HO5-->

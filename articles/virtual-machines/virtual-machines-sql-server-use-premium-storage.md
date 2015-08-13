@@ -396,7 +396,7 @@ IO 처리량을 높이기 위해 VM 내에서 Windows 저장소 풀을 사용하
 1. **NORECOVERY**를 사용하여 전체 백업 및 복원을 복사합니다.
 1. 로그인 등의 사용자 DB 외부에 있는 종속 개체를 복사합니다.
 1. 새 ILB(내부 부하 분산 장치) 또는 ELB(외부 부하 분산 장치)를 만든 다음 두 새 노드에 모두 부하 분산된 끝점을 설정합니다.
-> [AZURE.NOTE]
+> [AZURE.NOTE] 계속하기 전에 모든 노드의 끝점 구성이 올바른지 확인합니다.
 
 1. 저장소 풀을 사용 중인 경우 SQL Server에 대한 사용자/응용 프로그램 액세스를 중지합니다.
 1. 저장소 풀을 사용 중인 경우 모든 노드에서 SQL Server Engine Services를 중지합니다.
@@ -1143,4 +1143,4 @@ IP 주소를 추가하려면 [부록](#appendix-migrating-a-multisite-alwayson-c
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->

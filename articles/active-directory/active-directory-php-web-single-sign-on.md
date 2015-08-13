@@ -125,7 +125,7 @@
 		federation.reply=https://localhost/phpSample/index.php 
 
 
-	> [AZURE.NOTE]**audienceuris** 및 **realm** 값은 "spn:"으로 시작되어야 합니다.
+> [AZURE.NOTE]**audienceuris** 및 **realm** 값은 "spn:"으로 시작되어야 합니다.
 
 4. Eclipse에서 **phpSample** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **New**를 클릭한 후 **PHP File**을 클릭합니다.
 
@@ -203,4 +203,4 @@ PHP 웹 사이트에 Azure Active Directory 및 Single Sign-On을 사용하는 �
 [Azure Active Directory용 PHP 샘플 코드]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
  
 
-<!---HONumber=July15_HO4-->
+<!----HONumber=July15_HO4-->
