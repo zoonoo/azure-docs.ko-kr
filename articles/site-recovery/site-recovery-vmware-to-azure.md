@@ -273,7 +273,12 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 	- **다음**을 클릭하면 프록시 연결을 확인하는 테스트가 실행됩니다.
 	- 사용자 지정 프록시를 사용하거나 기본 프록시에 인증이 필요한 경우 주소, 포트, 자격 증명을 포함한 프록시 정보를 입력해야 합니다.
 	- 다음 URL은 프록시를 통해 액세스할 수 있습니다.
-		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net - IP 주소 기반 방화벽 규칙이 구성 서버에서 [Azure 데이터 센터 IP 주소](https://msdn.microsoft.com/ko-kr/library/azure/dn175718.aspx)에 설명된 IP 주소 및 HTTPS(443) 프로토콜로 연결하는 통신을 허용하는지 확인하세요. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
+		- *.hypervrecoverymanager.windowsazure.com 
+		- *.accesscontrol.windows.net 
+		- *.backup.windowsazure.com 
+		- *.blob.core.windows.net 
+		- *.store.core.windows.net 
+	- IP 주소 기반 방화벽 규칙이 구성 서버에서 [Azure 데이터 센터 IP 주소](https://msdn.microsoft.com/ko-kr/library/azure/dn175718.aspx)에 설명된 IP 주소 및 확인하세요. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
 
 	![프록시 등록](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationProxy.png)
 
@@ -762,4 +767,4 @@ Microsoft 제품이나 서비스에서 실행되는 소프트웨어와 펌웨어
 
 전체 파일은 [Microsoft 다운로드 센터](http://go.microsoft.com/fwlink/?LinkId=529428)에서 확인할 수 있습니다. Microsoft에서 명시적으로 부여하지 않은 모든 권한은 묵시적, 금반언적 또는 기타 어떠한 방식에 의해서든 Microsoft가 보유합니다.
 
-<!-----HONumber=July15_HO5-->
+<!--------HONumber=July15_HO5-->
