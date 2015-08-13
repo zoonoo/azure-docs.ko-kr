@@ -26,7 +26,7 @@
 
 완성된 앱의 스크린샷은 다음과 같습니다.
 
-![][0]
+![][88]
 
 이 자습서를 완료하려면 Android Studio 통합 개발 환경이 포함된 [Android 개발자 도구][Android Studio] 및 최신 Android 플랫폼이 필요합니다. Android 4.2 이상 버전이 필요합니다.
 
@@ -100,7 +100,7 @@
 [Next Steps]: #next-steps
 
 <!-- Images. -->
-[0]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png
+[88]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-completed-android.png
 [1]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-steps-vs-AS.png
 [2]: ./media/mobile-services-dotnet-backend-android-get-started/mobile-quickstart-steps-android-AS.png
 
@@ -129,4 +129,4 @@
 [관리 포털]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO4-->
+<!-----HONumber=July15_HO4-->
