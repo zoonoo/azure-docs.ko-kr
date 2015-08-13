@@ -112,7 +112,7 @@ Windows VM에 IPython 및 종속성을 설치하려면 원격 데스크톱을 �
 
 	* `C:\OpenSSL-Win32\bin`을 `PATH` 환경 변수에 추가해야 합니다.
 
-	> [AZURE.NOTE]OpenSSL을 설치하는 경우 1.0.1g 이상 버전을 사용하세요. 해당 버전에는 하트블리드(Heartbleed) 보안 취약성에 대한 수정 사항이 포함되어 있습니다.
+> [AZURE.NOTE]OpenSSL을 설치하는 경우 1.0.1g 이상 버전을 사용하세요. 해당 버전에는 하트블리드(Heartbleed) 보안 취약성에 대한 수정 사항이 포함되어 있습니다.
 
 1.  다음 명령을 사용하여 IPython을 설치합니다.
 
@@ -270,4 +270,4 @@ IPython Notebook은 Azure에서 Python 에코시스템의 기능에 대화형으
 [Python 2.7]: http://www.python.org/download
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
 
-<!-----HONumber=July15_HO5-->
+<!--------HONumber=July15_HO5-->
