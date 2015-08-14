@@ -1,4 +1,4 @@
-<properties
+﻿<properties
 	pageTitle="Azure 리소스 관리에서 Mac, Linux 및 Windows용 Microsoft Azure CLI 사용 | Microsoft Azure"
 	description="Azure 리소스 관리자에서 Mac, Linux 및 Windows용 Microsoft Azure CLI 사용"
 	editor="tysonn"
@@ -7,7 +7,14 @@
 	authors="dlepow"
 	services="virtual-machines"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services"" ms.tgt\_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="06/09/2015" ms.author="danlep"/>
+<tags 
+ms.service="virtual-machines" 
+ms.workload="infrastructure-services" 
+ms.tgt_pltfrm="command-line-interface"
+ms.devlang="na" 
+ms.topic="article" 
+ms.date="06/09/2015" 
+ms.author="danlep"/>
 
 # Azure 리소스 관리자에서 Mac, Linux 및 Windows용 Azure CLI 사용
 
