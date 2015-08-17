@@ -1,4 +1,12 @@
-<properties pageTitle "Microsoft Azure VPN 게이트웨이에 대한 강제 터널링 구성" description="크로스-프레미스 VPN 게이트웨이를 사용한 가상 네트워크가 있는 경우 모든 인터넷 바인딩된 트래픽을 온-프레미스 위치에 다시 리디렉션하거나 "force"할 수 있습니다. "services="vpn-gateway" documentationCenter="na" authors="cherylmc" manager="jdial" editor="tysonn" />
+<properties 
+   pageTitle="Microsoft Azure VPN 게이트웨이에 대한 강제 터널링 구성"
+   description="크로스-프레미스 VPN 게이트웨이를 사용한 가상 네트워크가 있는 경우 모든 인터넷 바인딩된 트래픽을 온-프레미스 위치에 다시 리디렉션하거나."
+   services="vpn-gateway"
+   documentationCenter="na"
+   authors="cherylmc"
+   manager="jdial"
+   editor="tysonn" />
+
 <tags 
    ms.service="vpn-gateway"
    ms.devlang="na"
