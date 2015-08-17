@@ -1,6 +1,6 @@
 <properties
-   pageTitle="행위자 형식 Serialization에 대한 Azure 서비스 패브릭 행위자 참고 사항"
-   description="Azure 패브릭의 신뢰할 수 있는 행위자 상태 및 인터페이스를 정의하는 데 사용할 수 있는 직렬화 가능 클래스를 정의하기 위한 기본 요구 사항"
+   pageTitle="행위자 형식 Serialization에 대한 신뢰할 수 있는 행위자 참고 사항"
+   description="서비스 패브릭의 신뢰할 수 있는 행위자 상태 및 인터페이스를 정의하는 데 사용할 수 있는 직렬화 가능 클래스를 정의하기 위한 기본 요구 사항 설명"
    services="service-fabric"
    documentationCenter=".net"
    authors="clca"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/02/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
 
-# Azure 서비스 패브릭 행위자 형식 Serialization에 대한 참고 사항
+# 서비스 패브릭 신뢰할 수 있는 행위자 형식 직렬화에 대한 참고 사항
 
 행위자의 인터페이스 및 상태를 정의하는 동안 형식이 데이터 계약 직렬화 가능해야 하는 등, 염두에 두어야 하는 몇 가지 중요한 사항이 있습니다. 데이터 계약에 대한 자세한 내용은 [MSDN](https://msdn.microsoft.com/library/ms731923.aspx)을 참조하세요.
 
@@ -82,6 +82,5 @@ public class VoicemailBox
 }
 
 ```
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DocumentDB SQL을 사용한 쿼리 | Azure" 
+	pageTitle="DocumentDB SQL을 사용한 쿼리 | Microsoft Azure" 
 	description="NoSQL 문서 데이터베이스 서비스인 DocumentDB는 명시적 스키마를 사용하거나 보조 인덱스를 만들지 않고도 계층 JSON 문서에 대해 SQL 스타일 문법을 사용하여 쿼리를 지원합니다." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -279,7 +279,7 @@ WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에�
 
 앞의 예제는 단순한 같음 쿼리를 보여 주었습니다. DocumentDB SQL은 다양한 스칼라 식도 지원합니다. 가장 일반적으로 사용되는 식은 이항 및 단항 식입니다. 소스 JSON 개체의 속성 참조도 유효한 식입니다.
 
-현재 지원되며 다음 예제와 같이 쿼리에 사용할 수 있는 이항 연산자는 다음과 같습니다. <table> <tr> <td>산술</td> <td>+,-,*,/,%</td> </tr> <tr> <td>비트</td> <td>|, &, ^, <<, >>, >>>(0 채우기 오른쪽 시프트) </td> </tr> <tr> <td>논리</td> <td>AND, OR</td> </tr> <tr> <td>비교</td> <td>=, !=, >, >=, <, <=, <></td> </tr> <tr> <td>문자열</td> <td>||(연결)</td> </tr> </table>
+현재 지원되며 다음 예제와 같이 쿼리에 사용할 수 있는 이항 연산자는 다음과 같습니다. <table> <tr> <td>산술</td> <td>+,-,*,/,%</td> </tr> <tr> <td>비트</td> <td>|, &, ^, <<, >>, >>>(0-채우기 오른쪽 시프트) </td> </tr> <tr> <td>논리</td> <td>AND, OR</td> </tr> <tr> <td>비교</td> <td>=, !=, >, >=, <, <=, <></td> </tr> <tr> <td>문자열</td> <td>||(연결)</td> </tr> </table>
 
 이항 연산자를 사용한 몇 가지 쿼리를 살펴보겠습니다.
 
@@ -296,7 +296,7 @@ WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에�
 	WHERE c.grade >= 5     -- matching grades == 5
 
 
-단항 연산자 +,-, ~ 및 NOT도 지원되며 다음 예제에 표시된 대로 쿼리 내부에 사용할 수 있습니다.
+단항 연산자 +,-, \~ 및 NOT도 지원되며 다음 예제에 표시된 대로 쿼리 내부에 사용할 수 있습니다.
 
 	SELECT *
 	FROM Families.children[0] c
@@ -616,7 +616,7 @@ IN은 여러 개의 OR 절을 연결한 것과 동일하지만 단일 인덱스�
     FROM Families f
 
 ###따옴표 붙은 속성 접근자
-따옴표 붙은 속성 연산자 `[]`를 사용하여 속성에 액세스할 수도 있습니다. 예를 들어 `SELECT c.grade` 및 `SELECT c["grade"]`는 동일합니다. 이 구문은 공백, 특수 문자가 포함되어 있거나 SQL 키워드 또는 예약어와 동일한 이름을 공유하는 속성을 이스케이프해야 할 때 유용합니다.
+따옴표 붙은 속성 연산자 `[]`를 사용하여 속성에 액세스할 수도 있습니다. 예를 들어 `SELECT c.grade`는 `SELECT c["grade"]`와 동일합니다. 이 구문은 공백, 특수 문자가 포함되어 있거나 SQL 키워드 또는 예약어와 동일한 이름을 공유하는 속성을 이스케이프해야 할 때 유용합니다.
 
     SELECT f["lastName"]
     FROM Families f
@@ -646,7 +646,7 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
 
 
 ###중첩 속성
-다음 예제에서는 두 개의 중첩된 속성 `f.address.state` 및 `f.address.city`를 프로젝션합니다.
+다음 예에서는 두 개의 중첩된 속성 `f.address.state`와 `f.address.city`를 프로젝션합니다.
 
 **쿼리**
 
@@ -961,7 +961,7 @@ JSON 배열 반복을 지원하기 위해 DocumentDB SQL의 **IN** 키워드를 
 	  ]
 	]
 
-이제 컬렉션의 자식을 반복하는 다른 쿼리를 살펴보겠습니다. 출력 배열의 차이점을 확인합니다. 이 예제에서는 `children`을 분할하고 결과를 단일 배열로 평면화합니다.
+이제 컬렉션의 자식을 반복하는 다른 쿼리를 살펴보겠습니다. 출력 배열의 차이점을 확인합니다. 이 예에서는 `children`을 분할하고 결과를 단일 배열로 평면화합니다.
 
 **쿼리**
 
@@ -1024,7 +1024,7 @@ JSON 배열 반복을 지원하기 위해 DocumentDB SQL의 **IN** 키워드를 
 	}]
 
 
-다음 예제에서는 문서 루트와 `children` 하위 루트 간의 조인이 수행됩니다. 두 JSON 개체 간의 교차곱입니다. 자식 배열인 단일 루트를 다루기 때문에 자식이 배열이라는 사실은 JOIN에 적용되지 않습니다. 따라서 각 문서와 배열의 교차곱에서 정확히 한 개의 문서만 생성하므로 결과에 두 개의 결과만 포함됩니다.
+다음 예에서는 문서 루트와 `children` 하위 루트 간의 조인이 수행됩니다. 두 JSON 개체 간의 교차곱입니다. 자식 배열인 단일 루트를 다루기 때문에 자식이 배열이라는 사실은 JOIN에 적용되지 않습니다. 따라서 각 문서와 배열의 교차곱에서 정확히 한 개의 문서만 생성하므로 결과에 두 개의 결과만 포함됩니다.
 
 **쿼리**
 
@@ -1129,7 +1129,7 @@ JOIN의 진정한 유용성은 다른 방식으로 프로젝션하기 어려운 
 
 `AndersenFamily`에는 애완 동물 한 마리를 키우는 자식 한 명이 있습니다. 따라서 이 가족의 교차곱은 하나의 행(1*1*1)을 생성합니다. 그러나 WakefieldFamily에는 자녀 두 명이 있지만 그중에 "Jesse"만 애완 동물을 두 마리 키우고 있습니다. 따라서 이 가족의 교차곱은 1*1*2 = 2개의 행을 생성합니다.
 
-다음 예제에서는 `pet`에 대한 추가 필터가 있습니다. 이 필터는 애완 동물 이름이 "Shadow"가 아닌 튜플을 모두 제외합니다. 배열에서 튜플을 작성하고, 튜플 요소를 필터링한 다음 요소 조합을 프로젝션할 수 있습니다.
+다음 예에서는 `pet`에 대한 추가 필터가 있습니다. 이 필터는 애완 동물 이름이 "Shadow"가 아닌 튜플을 모두 제외합니다. 배열에서 튜플을 작성하고, 튜플 요소를 필터링한 다음 요소 조합을 프로젝션할 수 있습니다.
 
 **쿼리**
 
@@ -1180,12 +1180,12 @@ DocumentDB는 저장 프로시저 및 트리거 측면에서 컬렉션에 대해
 	       collectionSelfLink/* link of the parent collection*/, 
 	       regexMatchUdf).Result;  
                                                                              
-위 예제에서는 이름이 `REGEX_MATCH`인 UDF를 만듭니다. 두 JSON 문자열 값 `input` 및 `pattern`을 받아들이고 JavaScript의 string.match() 함수를 사용하여 첫 번째 값이 두 번째 값에 지정된 패턴과 일치하는지를 확인합니다.
+위 예에서는 이름이 `REGEX_MATCH`인 UDF를 만듭니다. 두 JSON 문자열 값 `input` 및 `pattern`을 받아들이고 JavaScript의 string.match() 함수를 사용하여 첫 번째 값이 두 번째 값에 지정된 패턴과 일치하는지를 확인합니다.
 
 
 이제 이 UDF를 프로젝트의 쿼리에 사용할 수 있습니다. 쿼리 내에서 호출하는 경우 대/소문자를 구분하는 접두사 "udf."를 사용하여 UDF를 한정해야 합니다.
 
->[AZURE.NOTE]2015년 3월 17일 이전에는 DocumentDB가 SELECT REGEX_MATCH()와 같이 "udf." 접두사가 없는 UDF 호출을 지원했습니다. 이 호출 패턴은 더 이상 사용되지 않습니다.
+>[AZURE.NOTE]2015년 3월 17일 이전에는 DocumentDB가 SELECT REGEX\_MATCH()와 같이 "udf." 접두사가 없는 UDF 호출을 지원했습니다. 이 호출 패턴은 더 이상 사용되지 않습니다.
 
 **쿼리**
 
@@ -1274,7 +1274,7 @@ DocumentDB는 JSON 데이터베이스이므로 JavaScript 연산자 및 평가 �
 
 DocumentDB SQL에서는 기존 SQL과 달리 실제로 데이터베이스에서 값이 검색될 때까지 값의 형식을 알 수 없는 경우가 많습니다. 쿼리를 효율적으로 실행하기 위해 대부분의 연산자에 강력한 형식 요구 사항이 있습니다.
 
-DocumentDB SQL은 JavaScript와 달리 암시적 변환을 수행하지 않습니다. 예를 들어 `SELECT * FROM Person p WHERE p.Age = 21`과 같은 쿼리는 Age 속성을 포함하고 값이 21인 문서를 일치시킵니다. Age 속성이 문자열 "21" 또는 "021", "21.0", "0021", "00021" 등의 다른 무한 변형과 일치하는 다른 문서는 일치되지 않습니다. 이는 문자열 값이 암시적으로 숫자로 캐스팅되는 JavaScript와 대조됩니다(연산자 기준, 예: ==) 이 선택 항목은 DocumentDB SQL의 효율적인 인덱스 매핑에 중요합니다.
+DocumentDB SQL은 JavaScript와 달리 암시적 변환을 수행하지 않습니다. 예를 들어 `SELECT * FROM Person p WHERE p.Age = 21`과 같은 쿼리는 Age 속성을 포함하고 값이 21인 문서에 일치됩니다. Age 속성이 문자열 "21" 또는 "021", "21.0", "0021", "00021" 등의 다른 무한 변형과 일치하는 다른 문서는 일치되지 않습니다. 이는 문자열 값이 암시적으로 숫자로 캐스팅되는 JavaScript와 대조됩니다(연산자 기준, 예: ==) 이 선택 항목은 DocumentDB SQL의 효율적인 인덱스 매핑에 중요합니다.
 
 ##매개 변수가 있는 SQL
 DocumentDB는 익숙한 @ 표기법으로 표현된 매개 변수가 있는 쿼리를 지원합니다. 매개 변수가 있는 SQL은 사용자 입력의 강력한 처리 및 이스케이프를 제공하여 SQL 주입을 통해 데이터가 실수로 노출되는 것을 방지합니다.
@@ -1651,7 +1651,7 @@ DocumentDB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데
       "id": "WakefieldFamily"
     }]
 
-제품군 당 자녀 수를 가져오는 ARRAY_LENGTH를 사용하는 다른 예는 다음과 같습니다.
+제품군 당 자녀 수를 가져오는 ARRAY\_LENGTH를 사용하는 다른 예는 다음과 같습니다.
 
 **쿼리**
 
@@ -2056,9 +2056,9 @@ DocumentDB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
 	         },
 	         "_rid":"u1NXANcKogEcAAAAAAAAAA==",
 	         "_ts":1407691744,
-	         "_self":"dbs/u1NXAA==/colls/u1NXANcKogE=/docs/u1NXANcKogEcAAAAAAAAAA==/",
+	         "_self":"dbs\/u1NXAA==\/colls\/u1NXANcKogE=\/docs\/u1NXANcKogEcAAAAAAAAAA==\/",
 	         "_etag":"00002b00-0000-0000-0000-53e7abe00000",
-	         "_attachments":"_attachments/"
+	         "_attachments":"_attachments\/"
 	      }
 	   ],
 	   "count":1
@@ -2261,7 +2261,7 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
 2.	[DocumentDB SQL 사양](http://go.microsoft.com/fwlink/p/?LinkID=510612)
 3.	[DocumentDB .NET 샘플](https://github.com/Azure/azure-documentdb-net)(영문)
 4.	[DocumentDB 일관성 수준][consistency-levels]
-5.	ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+5.	ANSI SQL 2011 [http://www.iso.org/iso/iso\_catalogue/catalogue\_tc/catalogue\_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6.	JSON [http://json.org/](http://json.org/)
 7.	Javascript 사양 [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
@@ -2277,4 +2277,4 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

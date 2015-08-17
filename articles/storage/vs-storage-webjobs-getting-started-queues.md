@@ -532,7 +532,7 @@ WebJobs SDK 대시보드에서 콘솔 출력의 최근 100줄은 함수 호출�
  
 ![출력 설정/해제 클릭](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-연속 WebJob에서는 응용 프로그램 로그가 웹앱 파일 시스템의 /data/jobs/continuous/\*{webjobname}\*/job\_log.txt에 표시됩니다.
+연속 WebJob에서는 응용 프로그램 로그가 웹앱 파일 시스템의 /data/jobs/continuous/*{webjobname}*/job\_log.txt에 표시됩니다.
 
 		[09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
 		[09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
@@ -551,4 +551,4 @@ Azure Blob에서 응용 프로그램 로그는 다음과 같습니다. 2014-09-2
 이 문서에서는 Azure 큐 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure WebJob 및 WebJob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

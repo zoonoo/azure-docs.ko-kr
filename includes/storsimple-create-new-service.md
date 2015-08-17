@@ -1,4 +1,5 @@
 
+
 #### 새 서비스를 만들려면
 
 1. Microsoft 계정 자격 증명을 사용하여 다음 URL로 관리 포털에 로그인합니다. [http://azure.microsoft.com/](http://azure.microsoft.com/)
@@ -18,4 +19,4 @@
  
        ![서비스 만들기](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

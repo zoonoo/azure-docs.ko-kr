@@ -9,4 +9,4 @@
 
 3. 이 문자열을 저장합니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

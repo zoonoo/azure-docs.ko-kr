@@ -41,4 +41,4 @@ Get-help New-AzureService
     - 클라우드 서비스 프로젝트를 Azure에 게시하려면, **PublishCloudService.ps1** 코드 예제를 [Azure에서 클라우드 서비스에 대한 지속적인 전송](cloud-services-dotnet-continuous-delivery.md)에서 참조하세요.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

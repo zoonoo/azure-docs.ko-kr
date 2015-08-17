@@ -340,4 +340,4 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 앱
 
  
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

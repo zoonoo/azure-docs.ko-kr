@@ -186,4 +186,4 @@ Microsoft Azure 미디어 서비스는 작업(예: 채널 만들기, 시작, 중
 	Console.WriteLine(channelId);
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

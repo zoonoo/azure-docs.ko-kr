@@ -49,7 +49,7 @@ Xamarin 라이브러리와 같은 일부 Azure 저장소 클라이언트 라이�
 
 1. 아직 없는 경우 Azure PowerShell을 설치합니다. Azure PowerShell cmdlet의 최신 버전을 사용하는 것이 좋습니다. 설치 지침에 대해서는 [Azure PowerShell 설치 및 구성 방법](../articles/powershell-install-configure.md#Install)을 참조하세요.
 
-2. Azure PowerShell을 열고 다음 명령을 실행합니다. 사용자 고유 자격 증명을 사용하여 *ACCOUNT_NAME* 및 *ACCOUNT_KEY = =*을 바꿔야 합니다. Replace *CONTAINER_NAME* 을 선택한 이름으로 바꿉니다.
+2. Azure PowerShell을 열고 다음 명령을 실행합니다. 사용자 고유 자격 증명을 사용하여 *ACCOUNT\_NAME* 및 *ACCOUNT\_KEY = =*을 바꿔야 합니다. Replace *CONTAINER\_NAME* 을 선택한 이름으로 바꿉니다.
 
 		$context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
 		
@@ -80,7 +80,7 @@ Azure 저장소 에뮬레이터를 시작하려면 시작 단추를 선택하거
 
 저장소 에뮬레이터를 처음 실행하면 로컬 저장소 환경이 자동으로 초기화됩니다. 초기화 프로세스에서는 LocalDB에 데이터베이스가 작성되며 각 로컬 저장소 서비스용으로 HTTP 포트가 예약됩니다.
 
-저장소 에뮬레이터는 기본적으로 C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator 디렉터리에 설치됩니다.
+저장소 에뮬레이터는 기본적으로 C:\\Program Files (x86)\\Microsoft SDKs\\Azure\\Storage Emulator 디렉터리에 설치됩니다.
 
 ### 다른 SQL 데이터베이스를 사용하여 저장소 에뮬레이터를 초기화 합니다.
 
@@ -89,11 +89,11 @@ Azure 저장소 에뮬레이터를 시작하려면 시작 단추를 선택하거
 1. **시작** 단추를 클릭하거나 **Windows** 키를 누릅니다. `Azure Storage Emulator`을 입력하기 시작하고 저장소 에뮬레이터 명령줄 도구를 불러올 때 표시되면 선택합니다.
 2. 명령 프롬프트 창에 다음 명령을 입력합니다. 여기서 `<SQLServerInstance>`은 SQL Server 인스턴스의 이름입니다. LocalDb를 사용하려면 SQL Server 인스턴스로 `(localdb)\v11.0`을 지정합니다.
 
-		AzureStorageEmulator init /sqlInstance <SQLServerInstance> 
+		AzureStorageEmulator init /server <SQLServerInstance> 
     
 	기본 SQL Server 인스턴스를 사용하도록 에뮬레이터에 지시하는 다음 명령을 사용할 수도 있습니다.
 
-    	AzureStorageEmulator init /server .\ 
+    	AzureStorageEmulator init /server .\\ 
 
 	또는 LocalDB 데이터베이스를 다시 초기화하는 다음 명령을 사용할 수도 있습니다.
 
@@ -143,7 +143,7 @@ Azure 저장소 계정에 리소스 주소를 지정하는 경우 다음의 체�
 
 ### 명령줄 구문
 
-	AzureStorageEmulator [/start] [/stop] [/status] [/clear] [/init] [/help]
+	AzureStorageEmulator [start] [stop] [status] [clear] [init] [help]
 
 ### 옵션
 
@@ -155,7 +155,7 @@ Azure 저장소 계정에 리소스 주소를 지정하는 경우 다음의 체�
 | **중지** | 저장소 에뮬레이터를 중지합니다. | `AzureStorageEmulator stop` | |
 | **상태** | 저장소 에뮬레이터의 상태를 인쇄합니다. | `AzureStorageEmulator status` | |
 | **지우기** | 명령줄에 지정된 모든 서비스의 데이터를 지웁니다. | `AzureStorageEmulator clear [blob] [table] [queue] [all]                                                    `| *blob*: blob 데이터를 지웁니다. <br/>*queue*: 큐 데이터를 지웁니다. <br/>*table*: 테이블 데이터를 지웁니다. <br/>*all*: 모든 서비스의 모든 데이터를 지웁니다. |
-| **Init** | 에뮬레이터를 설정하기 위해 하는 일회 초기화를 수행 합니다. | `AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` | *-server serverName*: SQL 인스턴스를 호스팅하는 서버를 지정합니다. <br/>*-sqlinstance instanceName*: 사용할 SQL 인스턴스의 이름을 지정합니다. <br/>*-forcecreate*: 이미 존재하는 경우에도 SQL 데이터베이스를 강제로 만듭니다. <br/>*-inprocess*: 새 프로세스를 생성하는 대신 현재 프로세스의 초기화를 수행합니다. 이렇게 하려면 현재 프로세스를 승격된 권한으로 시작합니다. |
+| **Init** | 에뮬레이터를 설정하기 위해 하는 일회 초기화를 수행 합니다. | `AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` | *-server serverName\\instanceName*: SQL 인스턴스를 호스팅하는 서버를 지정합니다. <br/>*-sqlinstance instanceName*: 기본 서버 인스턴스에서 사용할 SQL 인스턴스의 이름을 지정합니다. <br/>*-forcecreate*: 이미 존재하는 경우에도 SQL 데이터베이스를 강제로 만듭니다. <br/>*-inprocess*: 새 프로세스를 생성하는 대신 현재 프로세스의 초기화를 수행합니다. 초기화를 수행하려면 관리자 권한으로 현재 프로세스를 시작해야 합니다. |
                                                                                                                   
 ## 저장소 에뮬레이터와 Azure 저장소의 차이점
 
@@ -173,6 +173,8 @@ Azure 저장소 계정에 리소스 주소를 지정하는 경우 다음의 체�
 
 - 파일 서비스 및 SMB 프로토콜 서비스 끝점은 저장소 에뮬레이터에서 현재 지원되지 않습니다.
 
+- 사용 중인 에뮬레이터 버전에서 지원되지 않는 저장소 서비스 버전을 사용하는 경우 저장소 에뮬레이트에서 VersionNotSupportedByEmulator 오류(HTTP 상태 코드 400 - 잘못된 요청)가 반환됩니다.
+
 ### Blob 저장소의 차이점 
 
 다음과 같은 차이점이 에뮬레이터의 Blob 저장소에 적용됩니다.
@@ -181,17 +183,19 @@ Azure 저장소 계정에 리소스 주소를 지정하는 경우 다음의 체�
 
 - 임대 ID가 요청의 일부로 지정되어 있지 않은 경우에도 Put Blob 작업은 저장소 에뮬레이터에 있으며 활성 임대가 있는 blob에 대해 성공할 수 있습니다.
 
+- 추가 Blob 작업은 에뮬레이터에서 지원되지 않습니다. 추가 Blob에 대한 작업을 시도하면 FeatureNotSupportedByEmulator 오류(HTTP 상태 코드 400 - 잘못된 요청)가 반환됩니다.
+
 ### 테이블 저장소의 차이점 
 
 다음과 같은 차이점이 에뮬레이터의 테이블 저장소에 적용됩니다.
 
-- 저장소 에뮬레이터에 있는 테이블 서비스의 날짜 속성은SQL Server 2005에서 지원하는 범위만 지원합니다. (즉, 날짜 속성은 1753년 1월 1일 이후이어야 함) 1753년 1월 1일 이전의 모든 날짜는 이 값으로 변경됩니다. 날짜의 정밀도는 SQL Server 2005의 정밀도로 제한되며, 즉 날짜의 정밀도는 1/300 초입니다.
+- 저장소 에뮬레이터에서 테이블 서비스의 날짜 속성은 SQL Server 2005에서 지원되는 범위만 지원합니다. *즉*, 날짜 속성은 1753년 1월 1일 이후여야 합니다. 1753년 1월 1일 이전의 모든 날짜는 이 값으로 변경됩니다. 날짜의 정밀도는 SQL Server 2005의 정밀도로 제한되며, 즉 날짜의 정밀도는 1/300 초입니다.
 
 - 저장소 에뮬레이터는 각각 512 바이트 미만의 파티션 키 및 행 키 속성 값을 지원합니다. 또한 계정 이름, 테이블 이름 및 키 속성 이름의 총 크기는 900 바이트를 초과할 수 없습니다.
 
 - 저장소 에뮬레이터의 테이블에 있는 행의 총 크기는 1MB 미만으로 제한 합니다.
 
-- 저장소 에뮬레이터에서 데이터 유형 속성 `Edm.Guid` 또는 `Edm.Binary`은(는) 쿼리 필터 문자열의 `Equal (eq)` 및 `NotEqual (ne)` 비교 연산자만 지원합니다.
+- 저장소 에뮬레이터에서 데이터 형식 `Edm.Guid` 또는 `Edm.Binary`의 속성은 쿼리 필터 문자열의 `Equal (eq)` 및 `NotEqual (ne)` 비교 연산자만 지원합니다.
 
 ### 큐 저장소의 차이점
 
@@ -199,9 +203,17 @@ Azure 저장소 계정에 리소스 주소를 지정하는 경우 다음의 체�
 
 ## 저장소 에뮬레이터 릴리스 정보
 
+### 버전 4.1
+
+- 저장소 에뮬레이터는 이제 새로운 추가 Blob 기능을 제외하고 Blob, 큐 및 테이블 서비스 끝점에서 2015-02-21 버전의 저장소 서비스를 지원합니다. 
+
+- 에뮬레이터 버전에서 지원되지 않는 저장소 서비스 버전을 사용하는 경우 이제 저장소 에뮬레이트에서 의미 있는 오류 메시지가 반환됩니다. 최신 버전의 에뮬레이터를 사용하는 것이 좋습니다. VersionNotSupportedByEmulator 오류(HTTP 상태 코드 400 - 잘못된 요청)가 발생하는 경우 최신 버전의 저장소 에뮬레이터를 다운로드하세요.
+
+- 경합 조건으로 인해 동시 병합 작업 중 잘못된 테이블 엔터티 데이터가 발생하는 버그가 수정되었습니다.
+
 ### 버전 4.0
 
-저장소 에뮬레이터 실행 파일은 이름이 *AzureStorageEmulator.exe*로 바뀌었습니다.
+- 저장소 에뮬레이터 실행 파일의 이름이 *AzureStorageEmulator.exe*로 바뀌었습니다.
 
 ### 버전 3.2
 - 저장소 에뮬레이터는 이제 Blob, 큐 및 테이블 서비스 끝점에서 2014-02-14 버전의 저장소 서비스를 지원합니다. 파일 서비스 끝점은 저장소 에뮬레이터에서 현재 지원되지 않습니다. 2014-02-14 버전에 대한 자세한 내용은 [Azure 저장소 서비스에 대한 버전 관리](https://msdn.microsoft.com/library/azure/dd894041.aspx)를 참조하세요.
@@ -216,8 +228,4 @@ Azure 저장소 계정에 리소스 주소를 지정하는 경우 다음의 체�
 
 - 이제 Azure 저장소 서비스의 2013-08-15 버전이 완벽 하게 지원됩니다. (이전에 이 버전은 저장소 에뮬레이터 버전 2.2.1 미리 보기에서만 지원되었습니다.)
 
-
-
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

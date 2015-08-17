@@ -114,10 +114,10 @@
 핵심 데이터 오프라인 저장소를 사용하는 경우 데이터 모델에서 특정 테이블 및 필드를 정의해야 합니다. 샘플 앱에는 이미 올바른 형식의 데이터 모델이 포함되어 있습니다. 이 섹션에서는 이러한 테이블 및 사용 방법을 알아봅니다.
 
 - **QSDataModel.xcdatamodeld**를 엽니다. SDK에서 사용되는 3개의 테이블과 이 할 일 항목 자체에 사용되는 1개의 테이블 등 모두 4개의 테이블이 정의되어 있습니다.
-      * MS_TableOperations: 서버와 동기화해야 하는 항목 추적
-      * MS_TableOperationErrors: 오프라인 동기화 중에 발생하는 모든 오류를 추적
-      * MS_TableConfig: 모든 끌어오기 작업에 대한 마지막 동기화 작업의 마지막 업데이트 시간 추적
-      * TodoItem: 할 일 항목 저장 시스템 열 **ms_createdAt**, **ms_updatedAt** 및 **ms_version**은 선택적 시스템 속성입니다.
+      * MS\_TableOperations: 서버와 동기화해야 하는 항목 추적
+      * MS\_TableOperationErrors: 오프라인 동기화 중에 발생하는 모든 오류를 추적
+      * MS\_TableConfig: 모든 끌어오기 작업에 대한 마지막 동기화 작업의 마지막 업데이트 시간 추적
+      * TodoItem: 할 일 항목 저장 시스템 열 **ms\_createdAt**, **ms\_updatedAt** 및 **ms\_version**은 선택적 시스템 속성입니다.
 
 >[AZURE.NOTE]모바일 앱 SDK는 "**`ms_`**"로 시작하는 열 이름을 예약합니다. 시스템 열 이외의 항목에는 이 접두사를 사용하지 않아야 합니다. 그렇지 않으면 원격 백 엔드를 사용할 때 열 이름이 수정됩니다.
 
@@ -125,7 +125,7 @@
 
     ### 시스템 테이블
 
-    **MS_TableOperations**
+    **MS\_TableOperations**
 
     ![][defining-core-data-tableoperations-entity]
 
@@ -137,7 +137,7 @@
     | 테이블 | String |
     | tableKind | 정수 16 |
 
-    <br>**MS_TableOperationErrors**
+    <br>**MS\_TableOperationErrors**
 
     ![][defining-core-data-tableoperationerrors-entity]
 
@@ -148,7 +148,7 @@
     | properties | 이진 데이터 |
     | tableKind | 정수 16 |
 
-    <br>**MS_TableConfig**
+    <br>**MS\_TableConfig**
 
     ![][defining-core-data-tableconfig-entity]
 
@@ -172,7 +172,7 @@
     | id | String | 원격 저장소의 기본 키 |
     | complete | Boolean | todo 항목 필드 |
     | 텍스트 | String | todo 항목 필드 |
-    | ms_createdAt | Date | (선택 사항) __createdAt 시스템 속성에 매핑됩니다. | | ms_updatedAt | Date | (선택 사항) __updatedAt 시스템 속성에 매핑됩니다. | | ms_version | String | (선택 사항) 충돌을 감지하는 데 사용되며 __version에 매핑됩니다. |
+    | ms\_createdAt | Date | (선택 사항) \_\_createdAt 시스템 속성에 매핑됩니다. | | ms\_updatedAt | Date | (선택 사항) \_\_updatedAt 시스템 속성에 매핑됩니다. | | ms\_version | String | (선택 사항) 충돌을 감지하는 데 사용되며 \_\_version에 매핑됩니다. |
 
 
 ## <a name="setup-sync"></a>앱의 동기화 동작 변경
@@ -282,4 +282,4 @@
 [Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

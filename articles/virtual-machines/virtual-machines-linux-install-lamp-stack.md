@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/08/2015"
+	ms.date="07/29/2015"
 	ms.author="szark"/>
 
 
@@ -76,7 +76,7 @@ LAMP 스택은 다음과 같은 여러 요소로 구성됩니다.
 
 - apache2
 - mysql
-- apache2-mod_php53
+- apache2-mod\_php53
 - php53-mysql
 
 이러한 패키지는 단일 `zypper install` 명령을 사용하여 설치할 수 있습니다.
@@ -125,4 +125,4 @@ Ubuntu에 LAMP 스택을 설치하는 여러 다른 리소스가 있습니다.
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

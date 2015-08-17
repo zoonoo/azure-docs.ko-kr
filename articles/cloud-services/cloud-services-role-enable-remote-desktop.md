@@ -102,7 +102,7 @@ ms.author="adegeo"/>
 ### Visual Studio를 사용하여 RDP 파일 다운로드
 Visual Studio에서 서버 탐색기를 사용하면 원격 데스크톱 연결을 만들 수 있습니다.
 
-1.  서버 탐색기에서 **Azure\Cloud Services\[클라우드 서비스 이름]** 노드를 확장합니다.
+1.  서버 탐색기에서 **Azure\\Cloud Services\\[클라우드 서비스 이름]** 노드를 확장합니다.
 2.  **Staging**(스테이징) 또는 **Production**(프로덕션)을 확장합니다.
 3.  개별 역할을 확장합니다.
 4.  역할 인스턴스 중 하나를 마우스 오른쪽 단추로 클릭하고 **Connect using Remote Desktop...**(원격 데스크톱을 사용하여 연결...)을 클릭한 다음 사용자 이름 및 암호를 입력합니다.
@@ -113,4 +113,4 @@ Visual Studio에서 서버 탐색기를 사용하면 원격 데스크톱 연결�
 ## 다음 단계
 응용 프로그램을 [패키지](cloud-services-model-and-package.md) 또는 [업로드(배포)](cloud-services-how-to-create-deploy-portal.md)해야 할 수 있습니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -27,7 +27,7 @@
 * IIS 서버 또는 Azure에서 실행 중인 ASP.NET 웹앱 및 서비스
 * [Java 웹앱](app-insights-java-agent.md)
 
-장치 앱과 같은 다른 유형의 경우 TrackDependency API를 사용하여 고유한 모니터를 작성할 수 있습니다.
+장치 앱과 같은 다른 유형의 경우 [TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency)를 사용하여 고유한 모니터를 작성할 수 있습니다.
 
 기본적으로 종속성 모니터는 현재 다음 유형의 종속성에 대한 호출을 보고합니다.
 
@@ -107,7 +107,7 @@ IIS 서버용 상태 모니터는 Application Insights SDK를 사용하여 소�
 
 표준 모듈에 의해 사용되는 동일한[TrackDependency API](app-insights-api-custom-events-metrics.md#track-dependency)를 사용하여 종속성 정보를 보내는 코드를 작성할 수 있습니다.
 
-예를 들면, 사용자가 직접 작성하지 않은 어셈블리 코드를 작성하는 경우, 응답 시간 기여도를 알아보기 위해 모든 호출의 시간을 잴 수 있습니다. Application Insights에서 종속성 차트에 이 데이터를 표시하려면 `TrackDependency`을 사용하여 보냅니다.
+예를 들면, 사용자가 직접 작성하지 않은 어셈블리 코드를 작성하는 경우, 응답 시간 기여도를 알아보기 위해 모든 호출의 시간을 잴 수 있습니다. Application Insights에서 종속성 차트에 표시되는 이 데이터를 가지려면, `TrackDependency`을 사용하여 이것을 보냅니다.
 
 ```C#
 
@@ -129,4 +129,4 @@ IIS 서버용 상태 모니터는 Application Insights SDK를 사용하여 소�
 
 <!--Link references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

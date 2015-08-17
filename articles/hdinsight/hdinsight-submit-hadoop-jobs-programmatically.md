@@ -38,7 +38,7 @@ Azure PowerShell을 사용하여 MapReduce, Hive 작업을 제출하는 방법�
 ##Azure PowerShell을 사용하여 MapReduce 작업 제출
 Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있는 강력한 스크립팅 환경입니다. HDInsight와 함께 Azure PowerShell을 사용하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 HDInsight 관리][hdinsight-admin-powershell]를 참조하세요.
 
-Hadoop MapReduce는 방대한 양의 데이터를 처리하는 응용 프로그램을 작성하기 위한 소프트웨어 프레임워크입니다. HDInsight 클러스터는 여러 MapReduce 예제가 포함된 JAR 파일(*\example\jars\hadoop-mapreduce-examples.jar*에 위치함)과 함께 제공됩니다.
+Hadoop MapReduce는 방대한 양의 데이터를 처리하는 응용 프로그램을 작성하기 위한 소프트웨어 프레임워크입니다. HDInsight 클러스터는 여러 MapReduce 예제가 포함된 JAR 파일(*\\example\\jars\\hadoop-mapreduce-examples.jar*에 위치함)과 함께 제공됩니다.
 
 예제 중 하나는 소스 파일에서 단어의 빈도수를 계산하는 것입니다. 이 세션에서는 단어 개수 샘플을 실행하기 위해 워크스테이션에서 Azure PowerShell을 사용하는 방법에 대해 알아봅니다. MapReduce 작업의 개발 및 실행에 대한 자세한 내용은 [HDInsight와 함께 MapReduce 사용][hdinsight-use-mapreduce]을 참조하세요.
 
@@ -111,7 +111,7 @@ Hadoop MapReduce는 방대한 양의 데이터를 처리하는 응용 프로그�
 
 	*example/data/WordCountOutput* 폴더는 MapReduce 작업을 실행할 때 지정된 출력 폴더입니다. *part-r-00000*은 MapReduce 작업 출력의 기본 파일 이름입니다. 로컬 폴더의 동일한 폴더 구조에 파일이 다운로드됩니다. 예를 들어 다음 스크린샷에서 현재 폴더는 C: 루트 폴더입니다. 파일은 다음에 다운로드됩니다:
 
-*C:\example\data\WordCountOutput* 
+**C:\\example\\data\\WordCountOutput*
 
 5. 다음 명령을 실행하여 MapReduce 작업 출력 파일을 인쇄합니다.
 
@@ -300,7 +300,7 @@ Hive에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용][hdinsight-u
 [HDInsight와 함께 Sqoop 사용][hdinsight-use-sqoop]을 참조하세요.
 
 ##HDInsight .NET SDK를 사용하여 MapReduce 작업 제출
-HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다. HDInsight 클러스터는 여러 MapReduce 예제가 포함된 JAR 파일(*\example\jars\hadoop-mapreduce-examples.jar*에 위치함)과 함께 제공됩니다. 예제 중 하나는 소스 파일에서 단어의 빈도수를 계산하는 것입니다. 이 세션에서는 단어 개수 샘플을 실행하는 .NET 응용 프로그램을 만드는 방법에 대해 알아봅니다. MapReduce 작업의 개발 및 실행에 대한 자세한 내용은 [HDInsight와 함께 MapReduce 사용][hdinsight-use-mapreduce]을 참조하세요.
+HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다. HDInsight 클러스터는 여러 MapReduce 예제가 포함된 JAR 파일(*\\example\\jars\\hadoop-mapreduce-examples.jar*에 위치함)과 함께 제공됩니다. 예제 중 하나는 소스 파일에서 단어의 빈도수를 계산하는 것입니다. 이 세션에서는 단어 개수 샘플을 실행하는 .NET 응용 프로그램을 만드는 방법에 대해 알아봅니다. MapReduce 작업의 개발 및 실행에 대한 자세한 내용은 [HDInsight와 함께 MapReduce 사용][hdinsight-use-mapreduce]을 참조하세요.
 
 
 SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절차가 필요합니다:
@@ -729,4 +729,4 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5**를 눌러 응�
 [apache-hive]: http://hive.apache.org/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

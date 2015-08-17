@@ -119,9 +119,9 @@
         private IMobileServiceTable<TodoItem> todoTable = 
 			App.MobileService.GetTable<TodoItem>();
 
-   	이 코드를 사용하면 모바일 서비스 인식 바인딩 컬렉션(\*\*items\*\*) 및 SQL Database 테이블 **TodoItem**(\*\*todoTable\*\*)에 대한 프록시 클래스가 만들어집니다.
+   	이 코드를 사용하면 모바일 서비스 인식 바인딩 컬렉션(**items**) 및 SQL Database 테이블 **TodoItem**(**todoTable**)에 대한 프록시 클래스가 만들어집니다.
 
-7. **InsertTodoItem** 메서드에서 **TodoItem**.\*\*Id\*\* 속성을 설정하는 코드 줄을 제거하고 **async** 한정자를 메서드에 추가한 후 다음 코드 줄의 주석 처리를 제거합니다.
+7. **InsertTodoItem** 메서드에서 **TodoItem**.**Id** 속성을 설정하는 코드 줄을 제거하고 **async** 한정자를 메서드에 추가한 후 다음 코드 줄의 주석 처리를 제거합니다.
 
         await todoTable.InsertAsync(todoItem);
 
@@ -193,4 +193,4 @@
 [개발자 코드 샘플 사이트]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

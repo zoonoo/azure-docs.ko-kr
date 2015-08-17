@@ -86,7 +86,7 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 ![프로젝트를 마우스 오른쪽 단추로 클릭하고 Azure 포털을 엽니다.](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
 
-개요 차트에서 데이터를 찾습니다. 처음에는 요소가 1~2개만 표시됩니다. 예:
+개요 차트에서 데이터를 찾습니다. 처음에는 요소가 1\~2개만 표시됩니다. 예:
 
 ![클릭하여 추가 데이터 확인](./media/app-insights-asp-net/12-first-perf.png)
 
@@ -220,4 +220,4 @@ ApplicationInsights.config에 대한 사용자 지정을 변경한 경우, 업�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

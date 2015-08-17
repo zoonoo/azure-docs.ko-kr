@@ -83,12 +83,12 @@ SQL 데이터 웨어하우스는 연결 및 개체 생성 중에 몇 가지 설�
 
 | 데이터베이스 설정 | 값 |
 | :----------------- | :--------------------------- |
-| ANSI_NULLS | 켜기 |
-| QUOTED_IDENTIFIERS | 켜기 |
-| NO_COUNT | 끄기 |
+| ANSI\_NULLS | 켜기 |
+| QUOTED\_IDENTIFIERS | 켜기 |
+| NO\_COUNT | 끄기 |
 | DATEFORMAT | mdy |
 | DATEFIRST | 7 |
-| 데이터베이스 데이터 정렬 | SQL_Latin1_General_CP1_CI_AS |
+| 데이터베이스 데이터 정렬 | SQL\_Latin1\_General\_CP1\_CI\_AS |
 
 ## 세션 및 요청
 연결이 설정되고 세션이 설정되면 SQL 데이터 웨어하우스에 대한 쿼리를 작성하고 제출할 준비가 완료된 것입니다.
@@ -158,4 +158,4 @@ WHERE   s.[session_id] <> SESSION_ID()
 
 <!--Other references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

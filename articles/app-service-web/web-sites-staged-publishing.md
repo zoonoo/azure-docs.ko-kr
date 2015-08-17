@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="08/03/2015"
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스에서 웹 앱에 대한 스테이징 환경 설정
@@ -59,7 +59,7 @@
 
 	![구성 원본][MultipleConfigurationSources]
 
-5. **배포 슬롯** 블레이드에서 배포 슬롯을 클릭하여 다른 모든 웹앱과 마찬가지로 구성 및 메트릭 집합이 있는 슬롯의 블레이드를 엽니다. 배포 슬롯을 보고 있음을 나타내는 <strong><i>your-web-app-name</i>-<i>deployment-slot-name</i></strong>이 블레이드의 위쪽에 표시됩니다.
+5. **배포 슬롯** 블레이드에서 배포 슬롯을 클릭하여 다른 모든 웹앱과 마찬가지로 구성 및 메트릭 집합이 있는 슬롯의 블레이드를 엽니다. 배포 슬롯을 보고 있음을 나타내는 **your-web-app-name-deployment-slot-name**이 블레이드의 위쪽에 표시됩니다.
 
 	![배포 슬롯 제목][StagingTitle]
 
@@ -259,4 +259,4 @@ Azure CLI는 Azure 작업을 위한 플랫폼 간 명령을 제공하며, 웹앱
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

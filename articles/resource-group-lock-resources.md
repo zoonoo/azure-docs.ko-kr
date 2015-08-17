@@ -94,4 +94,4 @@ PowerShell은 잠금을 업데이트하기 위한 **Set-AzureResourceLock**, 잠
 - [태그를 사용하여 리소스 구성](resource-group-using-tags.md)
 - [새 리소스 그룹으로 리소스 이동](resource-group-move-resources.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -12,27 +12,31 @@
       ms.tgt_pltfrm="na"
       ms.devlang="dotnet"
       ms.topic="hero-article"
-      ms.date="07/06/2015"
+      ms.date="08/04/2015"
       ms.author="tamram" />
 
 # PowerShell 및 .NET와 함께 Azure 파일 저장소를 사용하는 방법
 
 ## 개요
 
-Azure 파일 서비스는 표준 SMB 2.1 프로토콜을 사용하여 파일 공유를 노출합니다. Azure에서 실행되는 응용 프로그램은 이 서비스를 통해 ReadFile 및 WriteFile과 같은 친숙한 표준 파일 시스템을 사용하는 VM 간에 파일을 쉽게 공유할 수 있습니다. 또한 다양한 하이브리드 시나리오를 여는 REST 인터페이스를 통해 파일에 동시에 액세스할 수도 있습니다. 마지막으로, Azure 파일은 Blob, 테이블 및 큐 서비스와 동일한 기술을 토대로 만들어졌으므로 Azure 파일로 기존 가용성, 내구성, 확장성 및 플랫폼에 기본 제공되는 지리적 중복을 활용할 수 있습니다.
+Azure 파일 서비스는 표준 SMB 2.1 프로토콜을 사용하여 파일 공유를 노출합니다. Azure에서 실행되는 응용 프로그램은 이 서비스를 통해 ReadFile 및 WriteFile과 같은 친숙한 표준 파일 시스템을 사용하는 VM 간에 파일을 쉽게 공유할 수 있습니다. 또한 다양한 하이브리드 시나리오를 여는 REST 인터페이스를 통해 파일에 동시에 액세스할 수도 있습니다. 마지막으로 Azure 파일은 Blob, 테이블 및 큐 서비스와 동일한 기술을 토대로 만들어졌으므로 Azure 파일로 Azure 저장소 플랫폼에 기본 제공되는 기존 가용성, 내구성, 확장성 및 지리적 중복을 활용할 수 있습니다.
 
 ## 이 자습서 정보
 
 이 시작 자습서에서는 Microsoft Azure 파일 저장소 사용에 대한 기본 사항을 설명합니다. 이 자습서에서는 다음 작업을 수행합니다.
 
-- PowerShell을 사용하여 새 Azure 파일 공유를 만들고, 디렉터리를 추가하고, 로컬 파일을 공유로 업로드하고, 디렉터리의 파일을 나열하는 방법을 보여 줍니다.
+- Azure PowerShell을 사용하여 새 Azure 파일 공유를 만들고, 디렉터리를 추가하고, 로컬 파일을 공유로 업로드하고, 디렉터리의 파일을 나열하는 방법을 보여 줍니다.
 - SMB 공유와 마찬가지로 Azure 가상 컴퓨터에서 파일 공유를 마운트합니다.
+- .NET용 Azure 저장소 클라이언트 라이브러리를 사용하여 온-프레미스 응용 프로그램에서 파일 공유에 액세스할 수 있습니다. 콘솔 응용 프로그램을 만들고 파일 공유를 사용하여 다음과 같은 작업을 수행합니다.
+	- 콘솔 창에 공유의 파일 내용 쓰기
+	- 파일 공유에 대한 할당량(최대 크기) 설정
+	- 공유에 정의된 공유 액세스 정책을 사용하는 파일에 대해 공유 액세스 서명 만들기
+	- 동일한 저장소 계정의 다른 파일로 파일 복사
+	- 동일한 저장소 계정의 blob으로 파일 복사
 
-Azure 가상 컴퓨터나 클라우드 서비스뿐만 아니라 온-프레미스 응용 프로그램에서 공유의 파일에 액세스하려는 사용자를 위해 Azure .NET Storage Client Library를 사용하여 데스크톱 응용 프로그램에서 파일 공유로 작업하는 방법을 설명합니다.
+[AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
-> [AZURE.NOTE]이 가이드의 .NET 코드 예제를 실행하려면 Azure .NET Storage Client Library 4.x 이상이 필요합니다. 저장소 클라이언트 라이브러리는 [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/)을 통해 사용할 수 있습니다.
-
-[AZURE.INCLUDE [storage-file-concepts-include](../../includes/storage-file-concepts-include.md)]
+[AZURE.INCLUDE [저장소-파일-개념-포함](../../includes/storage-file-concepts-include.md)]
 
 
 ## Azure 저장소 계정 만들기
@@ -123,14 +127,14 @@ Azure 파일 공유를 마운트하는 방법을 보여 주기 위해 Windows를
 	example :
 	net use z: \\samples.file.core.windows.net\logs
 
-> [AZURE.NOTE]이전 단계의 저장소 계정 자격 증명을 저장했으므로 `net use` 명령에 이러한 자격 증명을 제공할 필요가 없습니다. 자격 증명을 저장하지 않은 경우 `net use` 명령에 전달되는 매개 변수로 포함합니다.
+이전 단계의 저장소 계정 자격 증명을 저장했으므로 `net use` 명령에 이러한 자격 증명을 제공할 필요가 없습니다. 자격 증명을 저장하지 않은 경우 다음 예제와 같이 `net use` 명령에 전달되는 매개 변수로 포함합니다.
 
     net use <drive-letter>: \<storage-account-name>.file.core.windows.net<share-name> /u:<storage-account-name> <storage-account-key>
 
 	example :
 	net use z: \\samples.file.core.windows.net\logs /u:samples <storage-account-key>
 
-이제 다른 드라이브의 경우처럼 가상 컴퓨터에서 파일 저장소 공유를 사용할 수 있습니다. 명령 프롬프트에서 표준 파일 명령을 실행하거나 파일 탐색기에서 마운트된 공유 및 해당 내용을 확인할 수 있습니다. .NET Framework의 [System.IO 네임스페이스](http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx)에서 제공하는 것과 같은 표준 Windows 파일 I/O API를 사용하여 파일 공유에 액세스하는 가상 컴퓨터 내에서 코드를 실행할 수도 있습니다.
+이제 다른 드라이브의 경우처럼 가상 컴퓨터에서 파일 저장소 공유를 사용할 수 있습니다. 명령 프롬프트에서 표준 파일 명령을 실행하거나 파일 탐색기에서 마운트된 공유 및 해당 내용을 확인할 수 있습니다. .NET Framework의 [System.IO 네임스페이스](http://msdn.microsoft.com/library/gg145019.aspx)에서 제공하는 것과 같은 표준 Windows 파일 I/O API를 사용하여 파일 공유에 액세스하는 가상 컴퓨터 내에서 코드를 실행할 수도 있습니다.
 
 역할에 원격으로 연결하여 Azure 클라우드 서비스에서 실행되는 역할에서 파일 공유를 마운트할 수도 있습니다.
 
@@ -171,16 +175,19 @@ Visual Studio에서 새 콘솔 응용 프로그램을 만들고 Azure 저장소 
 
 	using Microsoft.WindowsAzure;
 	using Microsoft.WindowsAzure.Storage;
+	using Microsoft.WindowsAzure.Storage.Blob;
 	using Microsoft.WindowsAzure.Storage.File;
 
 ### 프로그래밍 방식으로 연결 문자열 검색
 
-`Microsoft.WindowsAzure.CloudConfigurationManager` 클래스 또는 `System.Configuration.ConfigurationManager ` 클래스를 사용하여 app.config 파일에서 저장된 자격 증명을 검색할 수 있습니다. 이 예제에서는 `CloudConfigurationManager` 클래스를 사용하여 자격 증명을 검색한 다음 `CloudStorageAccount` 클래스를 사용하여 캡슐화하는 방법을 보여 줍니다. program.cs의 `Main()` 메서드에 다음 코드를 추가합니다.
+`Microsoft.WindowsAzure.CloudConfigurationManager` 클래스 또는 `System.Configuration.ConfigurationManager ` 클래스를 사용하여 app.config 파일에서 저장된 자격 증명을 검색할 수 있습니다. `Microsoft.WindowsAzure.CloudConfigurationManager` 클래스를 포함하는 Microsoft Azure 구성 관리자 패키지는 [Nuget](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)에서 사용할 수 있습니다.
+
+이 예제에서는 `CloudConfigurationManager` 클래스를 사용하여 자격 증명을 검색한 다음 `CloudStorageAccount` 클래스를 사용하여 캡슐화하는 방법을 보여 줍니다. program.cs의 `Main()` 메서드에 다음 코드를 추가합니다.
 
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-    	CloudConfigurationManager.GetSetting("StorageConnectionString"));
+    	CloudConfigurationManager.GetSetting("StorageConnectionString")); 
 
-### 프로그래밍 방식으로 파일 저장소 공유 액세스
+### 프로그래밍 방식으로 파일 공유 액세스
 
 다음에는 위에 표시된 코드 뒤에 나오는 `Main()` 메서드에 다음 코드를 추가하여 연결 문자열을 검색합니다. 이 코드는 이전에 만든 파일에 대한 참조를 가져오고 해당 내용을 콘솔 창에 출력합니다.
 
@@ -216,20 +223,204 @@ Visual Studio에서 새 콘솔 응용 프로그램을 만들고 Azure 저장소 
 
 콘솔 응용 프로그램을 실행하여 출력을 확인합니다.
 
-## Linux를 실행하는 Azure 가상 컴퓨터에서 공유 마운트
+## 파일 공유에 대한 최대 크기 설정
 
-Azure 가상 컴퓨터를 만들 때 디스크 이미지 갤러리에서 Ubuntu 이미지를 지정하여 SMB 2.1을 지원하도록 할 수 있습니다. 그러나 SMB 2.1을 지원하는 Linux 배포는 모두 Azure 파일 공유를 마운트할 수 있습니다.
+Azure 저장소 클라이언트 라이브러리 버전 5.x부터 공유에 대한 할당량(또는 최대 크기)을 기가바이트 단위로 설정할 수 있습니다. 공유에 대한 할당량을 설정하여 공유에 저장되는 파일의 전체 크기를 제한할 수 있습니다.
 
-Linux에 Azure 파일 공유를 마운트하는 방법은 Channel 9에서 [Azure 파일 미리 보기를 통한 Linux의 공유 저장소 - 1부](http://channel9.msdn.com/Blogs/Open/Shared-storage-on-Linux-via-Azure-Files-Preview-Part-1)를 참조하세요.
+공유에 있는 파일의 총 크기가 공유에 대해 설정된 할당량을 초과하면 클라이언트는 파일이 비어 있지 않는 한, 기존 파일의 크기를 늘리거나 새 파일을 만들 수 없습니다.
+
+아래 예제에서는 기존 파일 공유에 대해 할당량을 설정하는 방법을 보여 줍니다.
+
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    //Create a CloudFileClient object for credentialed access to File storage.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    //Get a reference to the file share we created previously.
+    CloudFileShare share = fileClient.GetShareReference("logs");
+
+    //Ensure that the share exists.
+    if (share.Exists())
+    {
+		//Specify the maximum size of the share, in GB.
+	    share.Properties.Quota = 100;
+	    share.SetProperties();
+	}
+
+공유에 대한 모든 기존 할당량 값을 가져오려면 **FetchAttributes()** 메서드를 호출하여 공유의 속성을 검색합니다.
+
+## 파일 또는 파일 공유에 대한 공유 액세스 서명 생성
+
+Azure 저장소 클라이언트 라이브러리 버전 5.x부터 파일 공유 또는 개별 파일에 대해 SAS(공유 액세스 서명)를 생성할 수 있습니다. 또한 파일 공유에 대해 공유 액세스 정책을 만들어 공유 액세스 서명을 관리할 수도 있습니다. 공유 액세스 정책을 만들면 노출된 SAS를 해지할 수 있으므로 권장됩니다.
+
+아래 예제에서는 공유에 대해 공유 액세스 정책을 만들고 해당 정책을 사용하여 공유의 파일에 대해 SAS에 대한 제약 조건을 제공합니다.
+
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    //Create a CloudFileClient object for credentialed access to File storage.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    //Get a reference to the file share we created previously.
+    CloudFileShare share = fileClient.GetShareReference("logs");
+
+    //Ensure that the share exists.
+    if (share.Exists())
+    {
+        string policyName = "sampleSharePolicy" + DateTime.UtcNow.Ticks;
+
+        //Create a new shared access policy and define its constraints.
+        SharedAccessFilePolicy sharedPolicy = new SharedAccessFilePolicy()
+            {
+                SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
+                Permissions = SharedAccessFilePermissions.Read | SharedAccessFilePermissions.Write
+            };
+
+        //Get existing permissions for the share.
+        FileSharePermissions permissions = share.GetPermissions();
+
+        //Add the shared access policy to the share's policies. Note that each policy must have a unique name.
+        permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
+        share.SetPermissions(permissions);
+
+        //Generate a SAS for a file in the share and associate this access policy with it.
+        CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+        CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
+        CloudFile file = sampleDir.GetFileReference("Log1.txt");
+        string sasToken = file.GetSharedAccessSignature(null, policyName);
+        Uri fileSasUri = new Uri(file.StorageUri.PrimaryUri.ToString() + sasToken);
+
+        //Create a new CloudFile object from the SAS, and write some text to the file. 
+        CloudFile fileSas = new CloudFile(fileSasUri);
+        fileSas.UploadText("This write operation is authenticated via SAS.");
+        Console.WriteLine(fileSas.DownloadText());
+    }
+
+공유 액세스 서명 생성 및 사용에 대한 자세한 내용은 [공유 액세스 서명: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md) 및 [Blob 서비스를 통해 SAS 생성 및 사용](storage-dotnet-shared-access-signature-part-2.md)을 참조하세요.
+
+## 파일 복사
+
+Azure 저장소 클라이언트 라이브러리 버전 5.x부터 파일을 다른 파일로, 파일을 blob으로 또는 blob을 파일로 복사할 수 있습니다. 아래에는 이러한 복사 작업을 프로그래밍 방식으로 수행하는 방법이 나와 있습니다.
+
+AzCopy를 사용하여 파일을 다른 파일로 복사하거나 blob을 파일로 복사할 수도 있고 그 반대로 복사할 수도 있습니다. AzCopy를 사용하여 파일을 복사하는 방법에 대한 자세한 내용은 [Microsoft Azure 저장소와 함께 AzCopy를 사용하는 방법](storage-use-azcopy.md#copy-files-in-azure-file-storage-with-azcopy-preview-version-only)을 참조하세요.
+
+> [AZURE.NOTE]blob을 파일에 복사하거나 파일을 blob에 복사하는 경우 두 항목이 동일한 저장소 계정 내에 있더라도 SAS(공유 액세스 서명)를 사용하여 원본 개체를 인증해야 합니다.
+
+### 파일을 다른 파일에 복사
+
+아래 예제에서는 파일을 동일한 공유의 다른 파일에 복사합니다. 이 복사 작업은 동일한 저장소 계정의 파일 간에 복사를 수행하므로 공유 키 인증을 사용하여 복사를 수행할 수 있습니다.
+
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    //Create a CloudFileClient object for credentialed access to File storage.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    //Get a reference to the file share we created previously.
+    CloudFileShare share = fileClient.GetShareReference("logs");
+
+    //Ensure that the share exists.
+    if (share.Exists())
+    {
+        //Get a reference to the root directory for the share.
+        CloudFileDirectory rootDir = share.GetRootDirectoryReference();
+
+        //Get a reference to the directory we created previously.
+        CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
+
+        //Ensure that the directory exists.
+        if (sampleDir.Exists())
+        {
+            //Get a reference to the file we created previously.
+            CloudFile sourceFile = sampleDir.GetFileReference("Log1.txt");
+
+            //Ensure that the source file exists.
+            if (sourceFile.Exists())
+            {
+                //Get a reference to the destination file.
+                CloudFile destFile = sampleDir.GetFileReference("Log1Copy.txt");
+
+                //Start the copy operation.
+                destFile.StartCopy(sourceFile);
+
+                //Write the contents of the destination file to the console window.
+                Console.WriteLine(destFile.DownloadText());
+            }
+        }
+    }
+
+
+### 파일을 Blob에 복사
+
+다음 예제에서는 파일을 만들고 동일한 저장소 계정 내의 blob에 복사합니다. 이 예제에서 서비스는 복사 작업 동안 원본 파일에 대한 액세스를 인증하는 데 사용하는 소스 파일용 SAS를 만듭니다.
+
+    //Parse the connection string for the storage account.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+        Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    //Create a CloudFileClient object for credentialed access to File storage.
+    CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
+
+    //Create a new file share, if it does not already exist.
+    CloudFileShare share = fileClient.GetShareReference("sample-share");
+    share.CreateIfNotExists();
+
+    //Create a new file in the root directory.
+    CloudFile sourceFile = share.GetRootDirectoryReference().GetFileReference("sample-file.txt");
+    sourceFile.UploadText("A sample file in the root directory.");
+
+    //Get a reference to the blob to which the file will be copied.
+    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+    CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
+    container.CreateIfNotExists();
+    CloudBlockBlob destBlob = container.GetBlockBlobReference("sample-blob.txt");
+
+    //Create a SAS for the file that's valid for 24 hours.
+    //Note that when you are copying a file to a blob, or a blob to a file, you must use a SAS
+    //to authenticate access to the source object, even if you are copying within the same 
+    //storage account.
+    string fileSas = sourceFile.GetSharedAccessSignature(new SharedAccessFilePolicy()
+    {
+        //Only read permissions are required for the source file.
+        Permissions = SharedAccessFilePermissions.Read,
+        SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24)
+    });
+
+    //Construct the URI to the source file, including the SAS token. 
+    Uri fileSasUri = new Uri(sourceFile.StorageUri.PrimaryUri.ToString() + fileSas);
+
+    //Copy the file to the blob.
+    destBlob.StartCopy(fileSasUri);
+
+    //Write the contents of the file to the console window.
+    Console.WriteLine("Source file contents: {0}", sourceFile.DownloadText());
+    Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
+
+동일한 방식으로 blob을 파일에 복사할 수 있습니다. 원본 개체가 blob인 경우 복사 작업 동안 해당 blob에 대한 액세스를 인증하는 SAS를 만듭니다.
+
+## Linux에서 파일 저장소 사용
+
+Linux에서 파일 공유를 파일을 만들고 관리하려면 Azure CLI를 사용합니다. 파일 저장소에서 Azure CLI를 사용하는 방법에 대한 자세한 내용은 [Azure 저장소에서 Azure CLI 사용](storage-azure-cli.md#create-and-manage-file-shares)을 참조하세요.
+
+Linux를 실행하는 Azure 가상 컴퓨터에서 Azure 파일 공유를 마운트할 수 있습니다. Azure 가상 컴퓨터를 만들 때 Azure 이미지 갤러리에서 최신 버전의 Ubuntu와 같은 SMB 2.1을 지원하는 Linux 이미지를 지정할 수 있습니다. 그러나 SMB 2.1을 지원하는 Linux 배포는 Azure 파일 공유를 마운트할 수 있습니다.
+
+Linux에 Azure 파일 공유를 마운트하는 방법에 대한 자세한 내용은 Channel 9에서 [Azure 파일 미리 보기를 통한 Linux의 공유 저장소 - 1부](http://channel9.msdn.com/Blogs/Open/Shared-storage-on-Linux-via-Azure-Files-Preview-Part-1)를 참조하세요.
 
 ## 다음 단계
 
 Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합니다.
 
-### 참조
+### 자습서 및 참조
 
 - [Storage Client Library for .NET 참조](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 - [파일 서비스 REST API 참조](http://msdn.microsoft.com/library/azure/dn167006.aspx)
+- [Microsoft Azure 저장소와 함께 AzCopy 사용](storage-use-azcopy.md)
+- [Azure 저장소와 함께 Azure PowerShell 사용](storage-powershell-guide-full.md)
+- [Azure 저장소에서 Azure CLI 사용](storage-azure-cli.md)
 
 ### 블로그 게시물
 
@@ -237,4 +428,4 @@ Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합�
 - [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

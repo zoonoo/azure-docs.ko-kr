@@ -41,7 +41,7 @@ SAS 키 이름 및 값에 대한 값은 Azure 관리 포털 연결 정보 또는
 
 	bus_service.create_topic('mytopic')
 
-**create_topic**은 추가 옵션도 지원합니다. 이러한 옵션을 통해 메시지 TTL(Time to Live)이나 최대 토픽 크기 등 기본 토픽 설정을 재정의할 수 있습니다. 다음은 최대 토픽 크기를 5GB,TTL(Time to Live)을 1분으로 설정하는 예제입니다.
+**create\_topic**은 추가 옵션도 지원합니다. 이러한 옵션을 통해 메시지 TTL(Time to Live)이나 최대 토픽 크기 등 기본 토픽 설정을 재정의할 수 있습니다. 다음은 최대 토픽 크기를 5GB,TTL(Time to Live)을 1분으로 설정하는 예제입니다.
 
 	topic_options = Topic()
 	topic_options.max_size_in_megabytes = '5120'
@@ -67,9 +67,9 @@ SAS 키 이름 및 값에 대한 값은 Azure 관리 포털 연결 정보 또는
 
 구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 **SqlFilter**입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SQL 필터와 함께 사용할 수 있는 식에 대한 자세한 내용은 [SqlFilter.SqlExpression][] 구문을 참조하십시오.
 
-**ServiceBusService** 개체의 **create_rule** 메서드를 사용하여 구독에 필터를 추가할 수 있습니다. 이 메서드를 사용하면 기존 구독에 새 필터를 추가할 수 있습니다.
+**ServiceBusService** 개체의 **create\_rule** 메서드를 사용하여 구독에 필터를 추가할 수 있습니다. 이 메서드를 사용하면 기존 구독에 새 필터를 추가할 수 있습니다.
 
-**참고** 기본 필터는 모든 새 구독에 자동으로 적용되므로 먼저 기본 필터를 제거해야 합니다. 그렇지 않으면 **MatchAll**이 사용자가 지정하는 기타 필터를 재정의합니다. **ServiceBusService** 개체의 **delete_rule** 메서드를 사용하여 기본 규칙을 제거할 수 있습니다.
+**참고** 기본 필터는 모든 새 구독에 자동으로 적용되므로 먼저 기본 필터를 제거해야 합니다. 그렇지 않으면 **MatchAll**이 사용자가 지정하는 기타 필터를 재정의합니다. **ServiceBusService** 개체의 **delete\_rule** 메서드를 사용하여 기본 규칙을 제거할 수 있습니다.
 
 아래 예제에서는 사용자 지정 **messagenumber** 속성이 3보다 큰 메시지만 선택하는 **SqlFilter**를 사용하여 `HighMessages`라는 구독을 만듭니다.
 
@@ -97,7 +97,7 @@ SAS 키 이름 및 값에 대한 값은 Azure 관리 포털 연결 정보 또는
 
 ## 토픽에 메시지를 보내는 방법
 
-서비스 버스 토픽에 메시지를 보내려면 응용 프로그램에서 **ServiceBusService** 개체의 **send_topic_message** 메서드를 사용해야 합니다.
+서비스 버스 토픽에 메시지를 보내려면 응용 프로그램에서 **ServiceBusService** 개체의 **send\_topic\_message** 메서드를 사용해야 합니다.
 
 아래 예제에서는 5개의 테스트 메시지를 `mytopic`에 보내는 방법을 보여 줍니다. 루프가 반복될 때마다 각 메시지의 **messagenumber** 속성 값이 변경되며 이 값에 따라 해당 메시지를 받는 구독이 결정됩니다.
 
@@ -109,17 +109,17 @@ SAS 키 이름 및 값에 대한 값은 Azure 관리 포털 연결 정보 또는
 
 ## 구독에서 메시지를 받는 방법
 
-**ServiceBusService** 개체의 **receive_subscription_message** 메서드를 사용하여 구독에서 메시지를 받습니다.
+**ServiceBusService** 개체의 **receive\_subscription\_message** 메서드를 사용하여 구독에서 메시지를 받습니다.
 
 	msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
 	print(msg.body)
 
-**peek_lock** 매개 변수가 **False**로 설정된 경우 메시지를 읽으면 구독에서 해당 메시지가 삭제됩니다. **peek_lock** 매개 변수를 **True**로 설정하여 큐에서 삭제되지 않도록 메시지를 읽은(peek) 후 잠글 수 있습니다.
+**peek\_lock** 매개 변수가 **False**로 설정된 경우 메시지를 읽으면 구독에서 해당 메시지가 삭제됩니다. **peek\_lock** 매개 변수를 **True**로 설정하여 큐에서 삭제되지 않도록 메시지를 읽은(peek) 후 잠글 수 있습니다.
 
 받기 작업의 일부로 메시지를 읽고 삭제하는 동작은 가장 단순한 모델이며, 실패할 경우 응용 프로그램이 메시지를 처리하지 않아도 되는 시나리오에서 가장 효과적입니다. 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보십시오. 서비스 버스는 메시지를 이용되는 것으로 표시하기 때문에 응용 프로그램이 다시 시작되고 메시지 소비를 다시 시작할 경우 크래시 전에 소비된 메시지가 누락됩니다.
 
 
-**peek_lock** 매개 변수를 **True**로 설정하면 수신은 2단계 작업이 되므로, 메시지 누락을 허용하지 않는 응용 프로그램을 지원할 수 있습니다. 서비스 버스는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 응용 프로그램에 반환합니다. 응용 프로그램은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후 **Message** 개체에 대해 **delete** 메서드를 호출하여 수신 프로세스의 두 번째 단계를 완료합니다. **delete** 메서드는 메시지를 사용 중인 것으로 표시하고 구독에서 제거합니다.
+**peek\_lock** 매개 변수를 **True**로 설정하면 수신은 2단계 작업이 되므로, 메시지 누락을 허용하지 않는 응용 프로그램을 지원할 수 있습니다. 서비스 버스는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 응용 프로그램에 반환합니다. 응용 프로그램은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후 **Message** 개체에 대해 **delete** 메서드를 호출하여 수신 프로세스의 두 번째 단계를 완료합니다. **delete** 메서드는 메시지를 사용 중인 것으로 표시하고 구독에서 제거합니다.
 
 	msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)
 	print(msg.body)
@@ -158,4 +158,4 @@ SAS 키 이름 및 값에 대한 값은 Azure 관리 포털 연결 정보 또는
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -140,4 +140,4 @@ ACS는 서비스 ID, 신뢰 당사자 및 규칙을 만드는 여러 방법을 �
 [큐 메시징 솔루션]: ../cloud-services-dotnet-multi-tier-app-using-service-bus-queues.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

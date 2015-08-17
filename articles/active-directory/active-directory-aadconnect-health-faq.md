@@ -128,4 +128,4 @@ Azure AD Connect Health 경고는 성공 조건에서 해결됩니다. Azure AD 
 
 Azure AD Connect Health Agent가 Azure AD Health 서비스 끝점과 통신할 수 있도록 하려면 TCP/UDP 포트 80 및 443을 열어야 합니다.
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -129,7 +129,7 @@ Visual Studio 2013 이상에서 검색 환경에 Azure 검색을 사용하는 �
 
 1. **DataIndexer**에서 서비스 이름 및 서비스 키를 서비스에 유효한 값으로 업데이트하여 App.config를 다음 예제로 바꿉니다.
 
-   서비스 이름은 전체 URL이 아닙니다. 예를 들어 검색 서비스 끝점이 *https://mysearchsrv.search.microsoft.net*인 경우 App.config에 입력할 서비스 이름은 *mysearchsrv*입니다.
+   서비스 이름은 전체 URL이 아닙니다. 예를 들어 검색 서비스 끝점이 **https://mysearchsrv.search.microsoft.net*인 경우 App.config에 입력할 서비스 이름은 *mysearchsrv*입니다.
 
 	    <?xml version="1.0" encoding="utf-8"?>
 	    <configuration>
@@ -798,4 +798,4 @@ Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 �
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

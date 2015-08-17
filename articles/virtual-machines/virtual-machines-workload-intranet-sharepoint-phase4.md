@@ -5,15 +5,16 @@
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/05/2015"
+	ms.date="07/22/2015"
 	ms.author="josephd"/>
 
 # SharePoint 인트라넷 팜 작업 4단계: SharePoint 서버 구성
@@ -95,7 +96,7 @@ Azure PowerShell 명령의 다음 블록을 사용하여 4개 SharePoint 서버�
 
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
 
-[원격 데스크톱 연결을 사용하여 가상 컴퓨터에 로그온](virtual-machines-workload-intranet-sharepoint-phase2.md#logon) 절차를 네 번(각 SharePoint 서버에 대해 한 번씩) 수행하여 [도메인]\sp_farm_db 계정 자격 증명을 사용해 로그온합니다. [2단계: 도메인 컨트롤러 구성](virtual-machines-workload-intranet-sharepoint-phase2.md)에서 다음 자격 증명을 만들었습니다.
+[원격 데스크톱 연결을 사용하여 가상 컴퓨터에 로그온](virtual-machines-workload-intranet-sharepoint-phase2.md#logon) 절차를 네 번(각 SharePoint 서버에 대해 한 번씩) 수행하여 [도메인]\\sp\_farm\_db 계정 자격 증명을 사용해 로그온합니다. [2단계: 도메인 컨트롤러 구성](virtual-machines-workload-intranet-sharepoint-phase2.md)에서 다음 자격 증명을 만들었습니다.
 
 [연결을 테스트하려면](virtual-machines-workload-intranet-sharepoint-phase2.md#testconn) 절차를 네 번(각 SharePoint 서버에 대해 한 번씩) 수행하여 조직 네트워크의 위치에 대한 연결을 테스트합니다.
 
@@ -109,8 +110,8 @@ Azure PowerShell 명령의 다음 블록을 사용하여 4개 SharePoint 서버�
 4.	**서버 팜에 연결** 페이지에서 **새 서버 팜 만들기**를 클릭한 후 **다음**을 클릭합니다.
 5.	**구성 데이터베이스 설정 지정** 페이지에서 다음을 수행합니다.
  - **데이터베이스 서버**에 주 데이터베이스 서버의 이름을 입력합니다.
- - **사용자 이름**에 [2단계: 도메인 컨트롤러 구성](virtual-machines-workload-intranet-sharepoint-phase2.md)에서 만든 [도메인]**\sp_farm_db**를 입력합니다. sp_farm_db 계정에는 데이터베이스 서버에 대한 sysadmin 권한이 있습니다.
- - **암호**에 sp_farm_db 계정의 암호를 입력합니다.
+ - **사용자 이름**에 [2단계: 도메인 컨트롤러 구성](virtual-machines-workload-intranet-sharepoint-phase2.md)에서 만든 [도메인]**\\sp\_farm\_db**를 입력합니다. sp\_farm\_db 계정에는 데이터베이스 서버에 대한 sysadmin 권한이 있습니다.
+ - **암호**에 sp\_farm\_db 계정의 암호를 입력합니다.
 6.	**다음**을 클릭합니다.
 7.	**팜 보안 설정 지정** 페이지에서 암호를 두 번 입력합니다. 암호를 기록하여 나중에 참조할 수 있도록 안전한 위치에 저장합니다. **다음**을 클릭합니다.
 8.	**SharePoint 중앙 관리 웹 응용 프로그램 구성** 페이지에서 **다음**을 클릭합니다.
@@ -126,7 +127,7 @@ Azure PowerShell 명령의 다음 블록을 사용하여 4개 SharePoint 서버�
 3.	**SharePoint 제품 구성 마법사** 대화 상자가 나타나고 IIS 등의 서비스가 다시 시작되거나 다시 설정된다는 경고가 표시됩니다. **예**를 클릭합니다.
 4.	**서버 팜에 연결** 페이지에서 **기존 서버 팜에 연결**을 클릭한 후 **다음**을 클릭합니다.
 5.	**구성 데이터베이스 설정 지정** 페이지에서 **데이터베이스 서버**에 주 데이터베이스 서버의 이름을 입력하고 **데이터베이스 이름 검색**을 클릭합니다.
-6.	데이터베이스 이름 목록에서 **SharePoint_Config**를 클릭하고 **다음**을 클릭합니다.
+6.	데이터베이스 이름 목록에서 **SharePoint\_Config**를 클릭하고 **다음**을 클릭합니다.
 7.	**팜 보안 설정 지정** 페이지에서 이전 절차에서 입력했던 암호를 입력합니다. **다음**을 클릭합니다.
 8.	**SharePoint 제품 구성 마법사 완료** 페이지가 표시됩니다. **다음**을 클릭합니다.
 9.	**구성 완료** 페이지에서 **마침**을 클릭합니다.
@@ -190,4 +191,4 @@ SharePoint 팜으로의 클라이언트 트래픽이 두 프런트 엔드 웹 �
 
 [Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

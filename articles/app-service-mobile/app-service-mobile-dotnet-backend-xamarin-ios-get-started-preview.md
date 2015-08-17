@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="02/24/2015"
 	ms.author="chrande"/>
 
@@ -78,7 +78,7 @@
 
 2. **실행** 단추를 눌러 클라이언트 프로젝트를 빌드하고 iPhone 에뮬레이터에서 앱을 시작합니다.
 
-3. 앱에서 _자습서 완료_ 등의 의미 있는 텍스트를 입력한 후 더하기(**+**) 아이콘을 클릭합니다.
+3. 앱에서 _Complete the tutorial_ 등의 의미 있는 텍스트를 입력한 후 더하기(**+**) 아이콘을 클릭합니다.
 
 	![][10]
 
@@ -117,4 +117,4 @@
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

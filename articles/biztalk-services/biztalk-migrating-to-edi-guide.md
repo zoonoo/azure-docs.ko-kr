@@ -142,4 +142,4 @@ Microsoft Azure BizTalk 서비스는 많은 기능을 추가하기 위해 중요
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

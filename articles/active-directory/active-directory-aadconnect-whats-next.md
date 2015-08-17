@@ -18,9 +18,12 @@
 
 # Azure AD Connect 관리 
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../active-directory-aadconnect/" title="정의">정의</a> <a href="../active-directory-aadconnect-how-it-works/" title="작동 방식">작동 방식</a> <a href="../active-directory-aadconnect-get-started/" title="시작">시작</a> <a href="../active-directory-aadconnect-whats-next/" title="다음 단계" class="current">다음 단계</a> <a href="../active-directory-aadconnect-learn-more/" title="자세한 정보">자세한 정보</a>
-</div>
+> [AZURE.SELECTOR]
+- [What is It](../active-directory-aadconnect/)
+- [How it Works](../active-directory-aadconnect-how-it-works/)
+- [Getting Started](../active-directory-aadconnect-get-started/)
+- [What's Next](../active-directory-aadconnect-whats-next/) 
+- [Learn More](../active-directory-aadconnect-learn-more/)
 
 다음은 조직 요구 사항 및 요건에 부합하도록 Azure Active Directory Connect를 사용자 지정할 수 있는 고급 운영에 대해 설명합니다.
 
@@ -30,13 +33,12 @@
 
 ### Azure AD Premium 또는 엔터프라이즈 이동성 제품군 라이선스를 할당하려면
 --------------------------------------------------------------------------------
-<ol>
-<li>관리자 권한으로 Azure 포털에 로그인합니다.</li>
-<li>왼쪽 창에서 **Active Directory**를 선택합니다.</li>
-<li>Active Directory 페이지에서 사용하도록 설정하려는 사용자가 있는 디렉토리를 두 번 클릭합니다.</li>
-<li>디렉토리 페이지의 맨 위에서 **라이센스**를 선택합니다.</li>
-<li>라이선스 페이지에서 Active Directory Premium 또는 엔터프라이즈 이동성 제품군을 선택한 후 **할당**을 클릭합니다.</li>
-<li>대화 상자에서 라이선스를 할당하려는 사용자를 선택 하고 확인 표시 아이콘을 클릭하여 변경 내용을 저장합니다.</li>
+1. 관리자 권한으로 Azure 포털에 로그인합니다.
+2. 왼쪽 창에서 **Active Directory**를 선택합니다.
+3. Active Directory 페이지에서 사용하도록 설정하려는 사용자가 있는 디렉토리를 두 번 클릭합니다.
+4. 디렉터리 페이지의 맨 위에서 **라이선스**를 선택합니다.
+5. 라이선스 페이지에서 Active Directory Premium 또는 Enterprise Mobility Suite를 선택한 후 **할당**을 클릭합니다.
+6. 대화 상자에서 라이선스를 할당하려는 사용자를 선택 하고 확인 표시 아이콘을 클릭하여 변경 내용을 저장합니다.
 
 
 ## 예약된 동기화 작업 확인
@@ -66,7 +68,8 @@ Azure AD Connect의 초기 설치 후, Azure AD Connect 시작 페이지 또는 
 
 다음 테이블에서는 각각에 대해 간략한 설명과 이 작업에 대한 요약을 제공합니다.
 
-<center>![Join Rule](./media/active-directory-aadconnect-whats-next/addtasks.png) </center>
+![규칙 조인](./media/active-directory-aadconnect-whats-next/addtasks.png)
+
 
 추가 작업 | 설명 
 ------------- | ------------- |
@@ -85,6 +88,7 @@ Azure AD Connect의 초기 설치 후, Azure AD Connect 시작 페이지 또는 
 ## 추가 설명서
 Azure AD Connect 작업에 대한 추가 설명서는 다음을 참조하세요.
 
+- [Azure AD Connect Sync: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md)
 - [Azure AD Connect 기본 구성 변경](active-directory-aadconnect-whats-next-change-default-config.md)
 - [Azure AD Connect 동기화 규칙 편집기 사용](active-directory-aadconnect-whats-next-synch-rules-editor.md)
 - [선언적 프로비저닝 사용](active-directory-aadconnect-whats-next-declarative-prov.md)
@@ -94,4 +98,4 @@ Azure AD Sync용으로 만들어진 설명서 중 일부는 Azure AD Connect에�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

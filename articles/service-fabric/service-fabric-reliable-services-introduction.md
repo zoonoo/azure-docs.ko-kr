@@ -130,4 +130,4 @@
 + [신뢰할 수 있는 행위자 프로그래밍 모델 읽기](../service-fabric/service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

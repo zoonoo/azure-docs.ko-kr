@@ -50,4 +50,4 @@ CNAME 레코드는 *mail.contoso.com* 또는 **www.contoso.com**과 같은 **특
 
 	![](./media/custom-dns-web-site/managecustomdomains.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

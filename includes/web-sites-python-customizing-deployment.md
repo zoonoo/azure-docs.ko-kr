@@ -14,15 +14,15 @@ Azure는 **다음 조건 모두가 참일 경우** 응용 프로그램에서 Pyt
 
 모든 Python 특정 배포 단계를 건너뛰려는 경우, 다음과 같은 빈 파일을 만들면 됩니다.
 
-    .skipPythonDeployment
+    \.skipPythonDeployment
 
 Django 응용 프로그램에 대한 정적 파일 수집을 건너뛰려는 경우:
 
-    .skipDjango 
+    \.skipDjango 
 
 배포를 더 효율적으로 제어하려면 다음 파일을 만들어 기본 배포 스크립트를 재정하면 됩니다.
 
-    .deployment
+    \.deployment
     \deploy.cmd
 
 [Azure 명령줄 인터페이스][]를 사용하여 파일을 만들 수 있습니다. 프로젝트 폴더에서 다음 명령을 사용합니다.
@@ -33,4 +33,4 @@ Django 응용 프로그램에 대한 정적 파일 수집을 건너뛰려는 경
 
 [Azure 명령줄 인터페이스]: http://azure.microsoft.com/downloads/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

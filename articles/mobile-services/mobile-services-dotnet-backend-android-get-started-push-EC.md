@@ -237,4 +237,4 @@ Google API를 지원하는 AVD(Android Virtual Device)를 사용해야 합니다
 [Azure 관리 포털]: https://manage.windowsazure.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

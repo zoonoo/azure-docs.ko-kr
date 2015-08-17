@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
+	ms.date="07/29/2015"
 	ms.author="dkshir"/>
 
 # Linux 운영 체제가 포함된 가상 하드 디스크 만들기 및 업로드
@@ -66,6 +66,8 @@ Azure에서는 다양한 Linux 배포를 지원합니다([보증 배포판](../l
 
 ### Azure CLI를 사용하는 경우
 
+Azure AD 메서드를 사용한 로그인:
+
 1. Azure CLI 창 열기
 
 2. 형식:
@@ -92,8 +94,22 @@ Azure에서는 다양한 Linux 배포를 지원합니다([보증 배포판](../l
 
 	여기서 `<PathToFile>`은 .publishsettings 파일의 전체 경로입니다.
 
+	자세한 내용은 [Azure CLI에서 Azure에 연결](../xplat-cli-connect.md)을 참조하세요.
+
 
 ### Azure PowerShell을 사용하는 경우
+
+Azure AD 메서드를 사용한 로그인:
+
+1. Azure PowerShell 창을 엽니다.
+
+2. 형식:
+
+	`Add-AzureAccount`
+
+	메시지가 표시되면 조직 사용자 ID와 암호를 입력합니다.
+
+**또는 ** PublishSettings 파일을 대신 사용합니다.
 
 1. Azure PowerShell 창을 엽니다.
 
@@ -113,6 +129,7 @@ Azure에서는 다양한 Linux 배포를 지원합니다([보증 배포판](../l
 
 	자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하세요.
 
+> [AZURE.NOTE]Azure CLI 또는 Azure PowerShell에서 최신 Azure Active Directory 메서드를 사용하여 Azure 구독에 로그인하는 것이 좋습니다.
 
 ## <a id="upload"> </a>3단계: Azure에 이미지 업로드 ##
 
@@ -132,7 +149,7 @@ VHD 파일을 업로드할 저장소 계정이 필요합니다. 기존 계정을
 
 		Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>
 
-자세한 내용은 [Add-AzureVhd]((https://msdn.microsoft.com/library/azure/dn495173.aspx) 를 참조하세요.
+자세한 내용은 [Add-AzureVhd](https://msdn.microsoft.com/library/azure/dn495173.aspx) 를 참조하세요.
 
 
 
@@ -141,4 +158,4 @@ VHD 파일을 업로드할 저장소 계정이 필요합니다. 기존 계정을
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

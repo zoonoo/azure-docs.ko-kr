@@ -173,4 +173,4 @@ HDInsight에서 서비스에 액세스하는 문제가 발생하는 경우 네�
 
 Azure 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 개요](http://msdn.microsoft.com/library/azure/jj156007.aspx)(영문)를 참조하세요.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -127,4 +127,4 @@ DNS 설정을 지정하려면 두 개의 구성 파일을 사용합니다. *네�
 
 [Azure 서비스 구성 스키마](https://msdn.microsoft.com/library/azure/ee758710) [가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100) [관리 포털에서 가상 네트워크 설정을 구성하는 방법에 대해](https://msdn.microsoft.com/library/azure/jj156074.aspx) [네트워크 구성 파일을 이용한 가상 네트워크 구성](https://msdn.microsoft.com/library/azure/jj156097.aspx) [Azure 가상 네트워크 구성 작업](https://msdn.microsoft.com/library/azure/jj156206.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

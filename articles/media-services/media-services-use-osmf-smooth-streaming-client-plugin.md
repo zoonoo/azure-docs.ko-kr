@@ -63,9 +63,9 @@ OSMF 플러그 인은 정적으로(컴파일 시간에) 또는 동적으로(런�
 정적 및 동적 로드에 대한 자세한 내용은 공식 [OSMF 플러그 인 페이지](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf)(영문)를 참조하십시오.
 
 ###SS for OSMF 정적 로드
-아래 코드 조각은 OSMF용 SS 플러그 인을 정적으로 로드하고 OSMF MediaFactory 클래스를 사용하여 기본 비디오를 재생하는 방법을 보여 줍니다. SS for OSMF 코드를 포함하기 전에 먼저 프로젝트 참조에 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" 정적 플러그 인이 있는지 확인하십시오.
+아래 코드 조각은 OSMF용 SS 플러그 인을 정적으로 로드하고 OSMF MediaFactory 클래스를 사용하여 기본 비디오를 재생하는 방법을 보여 줍니다. SS for OSMF 코드를 포함하기 전에 먼저 프로젝트 참조에 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" 정적 플러그 인이 있는지 확인하세요.
 
-<pre><code>
+```
 package 
 {
 	
@@ -148,7 +148,7 @@ package
 		{
 			var state:String;
 			
-			state = event.state;
+			state =  event.state;
 			
 			switch (state)
 			{
@@ -158,7 +158,7 @@ package
 					
 					break;
 				
-				case MediaPlayerState.READY :   
+				case  MediaPlayerState.READY :   
 					// Add code to deal with Player Ready when it is hit the first load after a source is loaded. 
 					
 					break;
@@ -167,7 +167,7 @@ package
 					
 					break;
 				
-				case MediaPlayerState.PAUSED :
+				case  MediaPlayerState.PAUSED :
 					break;      
 				// other states ...          
 			}
@@ -195,14 +195,14 @@ package
 		
 	}
 }
-</code></pre>
+```
 
 
 ###SS for OSMF 동적 로드
 
 아래 코드 조각은 OSMF용 SS 플러그 인을 동적으로 로드하고 OSMF MediaFactory 클래스를 사용하여 기본 비디오를 재생하는 방법을 보여 줍니다. SS for OSMF 코드를 포함하기 전에 먼저 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" 동적 플러그 인을 프로젝트 폴더에 복사(FILE 프로토콜을 사용하여 로드하려는 경우)하거나 HTTP 로드용 웹 서버 아래에 복사합니다. 프로젝트 참조에 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc"를 포함할 필요는 없습니다.
 
-<pre><code>
+```
 package 
 {
 	
@@ -288,7 +288,7 @@ package
 		{
 			var state:String;
 			
-			state = event.state;
+			state =  event.state;
 			
 			switch (state)
 			{
@@ -298,7 +298,7 @@ package
 					
 					break;
 				
-				case MediaPlayerState.READY :   
+				case  MediaPlayerState.READY :   
 					// Add code to deal with Player Ready when it is hit the first load after a source is loaded. 
 					
 					break;
@@ -307,7 +307,7 @@ package
 					
 					break;
 				
-				case MediaPlayerState.PAUSED :
+				case  MediaPlayerState.PAUSED :
 					break;      
 				// other states ...          
 			}
@@ -334,7 +334,7 @@ package
 		
 	}
 }
-</code></pre>
+```
 
 ##Strobe Media Playback 및 SS ODMF 동적 플러그 인
 OSMF용 부드러운 스트리밍 동적 플러그 인은 [SMP(Strobe Media Playback)](http://osmf.org/strobe_mediaplayback.html)(영문)와 호환됩니다. SS for OSMF 플러그 인을 사용하여 SMP에 부드러운 스트리밍 콘텐츠 재생을 추가할 수 있습니다. 이렇게 하려면 다음 단계에 따라 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf"를 HTTP 로드용 웹 서버 아래에 복사합니다.
@@ -403,4 +403,4 @@ OSMF용 부드러운 스트리밍 동적 플러그 인은 [SMP(Strobe Media Play
 
 [OSMF용 Microsoft 적응 스트리밍 플러그 인 업데이트](http://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

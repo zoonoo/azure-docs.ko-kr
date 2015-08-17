@@ -245,7 +245,7 @@ MongoDB C# 드라이버를 설치하려면
 	}
 
 ## 컨트롤러 추가 ##
-*솔루션 탐색기*에서 **Controllers\HomeController.cs** 파일을 열고 기존 코드를 다음으로 바꿉니다.
+*솔루션 탐색기*에서 **Controllers\\HomeController.cs** 파일을 열고 기존 코드를 다음으로 바꿉니다.
 
 	using System;
 	using System.Collections.Generic;
@@ -326,11 +326,11 @@ MongoDB C# 드라이버를 설치하려면
 	}
 
 ## 스타일 설정 ##
-페이지 위쪽에 있는 제목을 변경하려면 *솔루션 탐색기*에서 **Views\Shared\_Layout.cshtml** 파일을 열고 탐색 모음 헤더에 있는 "Application name"을 "My Task List Application"으로 바꿉니다. 다음과 같습니다.
+페이지 위쪽에 있는 제목을 변경하려면 **솔루션 탐색기**에서 *Views\\Shared\\\_Layout.cshtml* 파일을 열고 탐색 모음 헤더에 있는 "Application name"을 "My Task List Application"으로 바꿉니다. 다음과 같습니다.
 
  	@Html.ActionLink("My Task List Application", "Index", "Home", null, new { @class = "navbar-brand" })
 
-작업 목록 메뉴를 설정하려면 *\Views\Home\Index.cshtml* 파일을 열고 기존 코드를 다음 코드로 바꿉니다.
+작업 목록 메뉴를 설정하려면 *\\Views\\Home\\Index.cshtml* 파일을 열고 기존 코드를 다음 코드로 바꿉니다.
 	
 	@model IEnumerable<MyTaskListApp.Models.MyTask>
 	
@@ -367,7 +367,7 @@ MongoDB C# 드라이버를 설치하려면
 	<div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
 
 
-새 작업을 만드는 기능을 추가하려면 *Views\Home\* 폴더를 마우스 오른쪽 단추로 클릭하고 **보기**를 **추가**합니다. 보기 이름을 *Create*로 지정합니다. 코드를 다음으로 바꿉니다.
+새 작업을 만드는 기능을 추가하려면 *Views\\Home\* 폴더를 마우스 오른쪽 단추로 클릭하고 **보기**를 **추가**합니다. 보기 이름을 *Create*로 지정합니다. 코드를 다음으로 바꿉니다.
 
 	@model MyTaskListApp.Models.MyTask
 	
@@ -499,4 +499,4 @@ MongoDB에 대한 C# 응용 프로그램 개발에 대한 자세한 내용은 [C
 [Deploy the ASP.NET application to the web site using Git]: #deployapp
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

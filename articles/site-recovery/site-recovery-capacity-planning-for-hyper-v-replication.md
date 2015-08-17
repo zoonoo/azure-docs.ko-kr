@@ -9,7 +9,7 @@
 <tags
 	ms.service="site-recovery"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
 	ms.date="06/01/2015"
@@ -120,11 +120,11 @@ Azure를 복구 사이트로 사용하고 있거나 온-프레미스 복구 사�
 
 	g. **인증 및 저장소** 섹션에서 인증된 **모든** (기본) 서버가 복제 데이터를 이 복제본 서버로 보내거나 고유한 기본 서버로부터 데이터에 대한 승인을 제한합니다. 각각을 개별적으로 지정하지 않고 특정 도메인으로부터 서버에 대한 승인을 제한하도록 와일드카드 문자를 사용할 수 있습니다(예:*.contoso.com).
 
-	h. 모든 복구 Hyper-V 호스트에서 방화벽 포트 열기: 포트 443(인증서 인증): Get-ClusterNode | ForEach-Object {Invoke-command -computername \$_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"}}
+	h. 모든 복구 Hyper-V 호스트에서 방화벽 포트 열기: 포트 443(인증서 인증): Get-ClusterNode | ForEach-Object {Invoke-command -computername \\$\_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"}}
 
 
           Port 80 (Kerberos auth):
-              Get-ClusterNode | ForEach-Object {Invoke-command -computername \$_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTP Listener (TCP-In)"}}
+              Get-ClusterNode | ForEach-Object {Invoke-command -computername \$\_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTP Listener (TCP-In)"}}
 
 
 ## 3단계: 용량 플래너 도구 실행
@@ -193,11 +193,11 @@ c. 클러스터의 모든 노드
 
     기본 보고서 위치:
 
-    %systemdrive%\Users\Public\Documents\Capacity Planner
+    %systemdrive%\\Users\\Public\\Documents\\Capacity Planner
 
     로그 위치:
 
-    %systemdrive%\Users\Public\Documents\CapacityPlanner
+    %systemdrive%\\Users\\Public\\Documents\\CapacityPlanner
 
 ## 4단계: 결과 해석
 다음 두 시나리오 중 하나 아래에 나열되지 않은 메트릭은 무시해도 됩니다. 이 시나리오와 관련이 없기 때문입니다.
@@ -239,4 +239,4 @@ ASR의 배포를 시작하려면:
 - [단일 VMM 서버로 보호 설정](site-recovery-single-vmm)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

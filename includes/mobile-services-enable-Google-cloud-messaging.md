@@ -11,7 +11,7 @@
 
 3. **Projects** 섹션에 있는 프로젝트 번호를 기록해 둡니다.
 
-	이 자습서 뒷부분에서 이 값을 클라이언트의 PROJECT_ID 변수로 설정합니다.
+	이 자습서 뒷부분에서 이 값을 클라이언트의 PROJECT\_ID 변수로 설정합니다.
 
 4. 왼쪽 열에서 **APIs & auth**를 확장하고 **APIs**를 클릭한 다음 아래로 스크롤하여 **Cloud Messaging for Android**를 클릭합니다. 다음 페이지에서 **Enable API**를 클릭하고 서비스의 조건에 동의합니다.
 
@@ -31,4 +31,4 @@
 
 	이 API 키를 사용하여 Azure 에서 GCM에 인증하고 앱 대신 푸시 알림을 보낼 수 있게 합니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

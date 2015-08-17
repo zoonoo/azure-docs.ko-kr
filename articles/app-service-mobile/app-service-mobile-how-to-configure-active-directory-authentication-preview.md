@@ -75,4 +75,4 @@ Azure Active Directory Single Sign-On으로 모바일 앱의 사용자 인증: [
 [ios-adal]: ../app-service-mobile-dotnet-backend-xamarin-ios-aad-sso-preview.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

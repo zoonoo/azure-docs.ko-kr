@@ -54,4 +54,4 @@
 - [응용 프로그램 시나리오](service-fabric-application-scenarios.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

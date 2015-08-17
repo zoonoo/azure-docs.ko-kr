@@ -12,4 +12,4 @@ Visual Studio **서버 탐색기**를 사용하여 Azure 저장소 테이블을 
 
 [Image1]: ./media/vs-storage-getting-started-tables-include/vs-storage-create-tables-in-Server-Explorer.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

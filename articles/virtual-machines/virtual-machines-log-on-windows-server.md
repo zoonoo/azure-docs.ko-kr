@@ -36,4 +36,4 @@ Azure 포털의 **연결** 단추를 사용하여 원격 데스크톱 세션을 
 
 작동하지 않으면 더 광범위 한 문제 해결을 수행해야 합니다. 지침은 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-troubleshoot-remote-desktop-connections.md)을 참조하세요.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

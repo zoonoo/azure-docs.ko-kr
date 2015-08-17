@@ -68,4 +68,4 @@ Azure 키 자격 증명 모음을 포함한 키 및 비밀을 사용하는 방�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -17,7 +17,7 @@
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # SQL 데이터 웨어하우스의 이름 바꾸기
-SQL Server는 각각 sp_renamedb 및 sp_rename 저장된 프로시저를 통해 개체 및 데이터베이스 이름 바꾸기를 지원합니다.
+SQL Server는 각각 sp\_renamedb 및 sp\_rename 저장된 프로시저를 통해 개체 및 데이터베이스 이름 바꾸기를 지원합니다.
 
 SQL 데이터 웨어하우스는 DDL 구문을 사용하여 같은 목표를 달성합니다. DDL 명령은 RENAME OBJECT 및 RENAME DATABASE입니다.
 
@@ -80,4 +80,4 @@ ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
 <!--Other Web references-->
 [Azure management portal]: http://portal.azure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,33 +1,33 @@
-<properties 
-	pageTitle="Azure에서 가상 컴퓨터에 끝점 설정" 
-	description="Azure에서 가상 컴퓨터와 통신을 허용하도록 클래식 포털에서 끝점을 설정하는 방법에 대해 알아봅니다." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="KBDAzure" 
-	manager="timlt" 
+<properties
+	pageTitle="Azure에서 가상 컴퓨터에 끝점 설정"
+	description="Azure에서 가상 컴퓨터와 통신을 허용하도록 포털에서 끝점을 설정하는 방법에 대해 알아봅니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="KBDAzure"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/29/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/29/2015"
 	ms.author="kathydav"/>
 
 #가상 컴퓨터에 끝점을 설정하는 방법
 
 Azure에서 만든 모든 가상 컴퓨터는 개인 네트워크 채널을 사용하여 동일한 클라우드 서비스 또는 가상 네트워크에 있는 다른 가상 컴퓨터와 자동으로 통신할 수 있습니다. 그러나 인터넷이나 다른 가상 네트워크의 컴퓨터가 가상 컴퓨터로 인바운드 네트워크 트래픽을 전달하려면 끝점이 필요합니다.
 
-Azure 관리 포털에서 가상 컴퓨터를 만드는 경우 원격 데스크톱, Windows PowerShell 원격 및 SSH(Secure Shell)에 대한 끝점이 자동으로 만들어집니다. 가상 컴퓨터를 만드는 동안 또는 가상 컴퓨터를 만든 후 필요에 따라 추가 끝점을 만들 수 있습니다.
+Azure 포털에서 가상 컴퓨터를 만드는 경우 원격 데스크톱, Windows PowerShell 원격 및 SSH(Secure Shell)에 대한 끝점이 자동으로 만들어집니다. 가상 컴퓨터를 만드는 동안 또는 가상 컴퓨터를 만든 후 필요에 따라 추가 끝점을 만들 수 있습니다.
 
 각 끝점에는 공용 포트와 개인 포트가 있습니다.
 
-- 공용 포트는 Azure 부하 분산 장치가 인터넷에서 가상 컴퓨터로 들어오는 트래픽을 수신 대기하는 데 사용됩니다. 
+- 공용 포트는 Azure 부하 분산 장치가 인터넷에서 가상 컴퓨터로 들어오는 트래픽을 수신 대기하는 데 사용됩니다.
 - 개인 포트는 가상 컴퓨터가 일반적으로 해당 가상 컴퓨터에서 실행되는 응용 프로그램 또는 서비스를 대상으로 하는 들어오는 트래픽을 수신 대기하는 데 사용됩니다.
 
-관리 포털을 사용하여 끝점을 만드는 경우 잘 알려진 네트워크 프로토콜의 TCP 또는 UDP 포트 및 IP 프로토콜 기본값이 제공됩니다. 사용자 지정 끝점의 경우 올바른 IP 프로토콜(TCP 또는 UDP)과 공용 및 개인 포트를 직접 지정해야 합니다. 들어오는 트래픽을 여러 가상 컴퓨터에 임의로 배포하려면 여러 끝점으로 구성된 부하 분산된 집합을 만들어야 합니다.
+포털을 사용하여 끝점을 만드는 경우 잘 알려진 네트워크 프로토콜의 TCP 또는 UDP 포트 및 IP 프로토콜 기본값이 제공됩니다. 사용자 지정 끝점의 경우 올바른 IP 프로토콜(TCP 또는 UDP)과 공용 및 개인 포트를 직접 지정해야 합니다. 들어오는 트래픽을 여러 가상 컴퓨터에 임의로 배포하려면 여러 끝점으로 구성된 부하 분산된 집합을 만들어야 합니다.
 
 끝점을 만든 후 ACL(액세스 제어 목록)을 사용하여 해당 원본 IP 주소에 따라 끝점의 공용 포트로 들어오는 트래픽을 허용하거나 거부하는 규칙을 정의할 수 있습니다. 그러나 가상 컴퓨터가 Azure 가상 네트워크에 있는 경우에는 대신 네트워크 보안 그룹을 사용해야 합니다. 자세한 내용은 [네트워크 보안 그룹 정보](https://msdn.microsoft.com/library/azure/dn848316.aspx)를 참조하세요.
 
@@ -35,14 +35,14 @@ Azure 관리 포털에서 가상 컴퓨터를 만드는 경우 원격 데스크�
 
 ##끝점 만들기
 
-1.	아직 로그인하지 않은 경우 [Azure 관리 포털](http://manage.windowsazure.com/)에 로그인합니다.
+1.	아직 로그인하지 않은 경우 [포털](http://manage.windowsazure.com/)에 로그인합니다.
 2.	**가상 컴퓨터**를 클릭하고 구성하려는 가상 컴퓨터의 이름을 클릭합니다.
-3.	**Endpoints**를 클릭합니다. 끝점 페이지에는 가상 컴퓨터에 대한 모든 현재 끝점이 나열됩니다.
+3.	**Endpoints**를 클릭합니다. **끝점** 페이지에는 가상 컴퓨터에 대한 모든 현재 끝점이 나열됩니다.
 
 	![끝점](./media/virtual-machines-set-up-endpoints/endpointswindows.png)
- 
+
 4.	작업 표시줄에서 **추가**를 클릭합니다.
-5.	**가상 컴퓨터에 끝점 추가** 페이지에서 끝점 유형을 선택합니다. 
+5.	**가상 컴퓨터에 끝점 추가** 페이지에서 끝점 유형을 선택합니다.
 
 	- 부하 분산된 집합의 일부가 아니거나 새 부하 분산 집합의 첫 번째 멤버가 아닌 새 끝점을 만드는 경우 **독립 실행형 끝점 추가**를 선택하고 왼쪽 화살표를 클릭합니다.
 	- 그렇지 않으면 **기존 부하 분산된 집합에 끝점 추가**를 선택하고 부하 분산된 집합의 이름을 선택한 후 왼쪽 화살표를 클릭합니다. **끝점의 세부 정보를 지정하십시오.** 페이지에서 **이름**에 끝점의 이름을 입력하고 확인 표시를 클릭하여 끝점을 만듭니다.
@@ -53,10 +53,10 @@ Azure 관리 포털에서 가상 컴퓨터를 만드는 경우 원격 데스크�
 9.	이 끝점이 부하 분산된 집합의 첫 번째 끝점인 경우 **부하 분산된 집합 만들기**를 클릭한 후 오른쪽 화살표를 클릭합니다. **부하 분산된 집합 구성** 페이지에서 부하 분산된 집합 이름, 프로브 프로토콜 및 포트, 프로브 간격 및 전송되는 프로브 수를 지정합니다. Azure 부하 분산 장치는 부하 분산된 집합의 가상 컴퓨터로 프로브를 보내 해당 가용성을 모니터링합니다. 프로브에 응답하지 않는 가상 컴퓨터로는 트래픽을 전달하지 않습니다. 오른쪽 화살표를 클릭합니다.
 10.	확인 표시를 클릭하여 끝점을 만듭니다.
 
-이제 끝점 페이지에 끝점이 표시됩니다.
+이제 **Endpoints** 페이지에 끝점이 표시됩니다.
 
 ![끝점 만들기 성공](./media/virtual-machines-set-up-endpoints/endpointwindowsnew.png)
- 
+
 Azure PowerShell cmdlet을 사용하여 이 작업을 설정하려면 [Add-AzureEndpoint](https://msdn.microsoft.com/library/azure/dn495300.aspx)를 참조하세요.
 
 ##끝점에 대한 ACL 관리
@@ -68,17 +68,17 @@ Azure PowerShell cmdlet을 사용하여 이 작업을 설정하려면 [Add-Azure
 가상 컴퓨터가 Azure 가상 네트워크에 있는 경우에는 대신 네트워크 보안 그룹을 사용해야 합니다. 자세한 내용은 [네트워크 보안 그룹 정보](https://msdn.microsoft.com/library/azure/dn848316.aspx)를 참조하세요.
 
 
-1.	아직 로그인하지 않은 경우 Azure 관리 포털에 로그인합니다.
+1.	아직 로그인하지 않은 경우 포털에 로그인합니다.
 2.	**가상 컴퓨터**를 클릭하고 구성하려는 가상 컴퓨터의 이름을 클릭합니다.
-3.	**Endpoints**를 클릭합니다. 끝점 페이지에는 가상 컴퓨터에 대한 모든 끝점이 나열됩니다.
+3.	**Endpoints**를 클릭합니다. **끝점** 페이지에는 가상 컴퓨터에 대한 모든 끝점이 나열됩니다.
 
     ![ACL 목록](./media/virtual-machines-set-up-endpoints/EndpointsShowsDefaultEndpointsForVM.png)
- 
+
 4.	목록에서 해당 끝점을 선택합니다.
 5.	작업 표시줄에서 **ACL 관리**를 클릭합니다. **Specify ACL details** 대화 상자가 나타납니다.
 
     ![ACL 세부 정보 지정](./media/virtual-machines-set-up-endpoints/EndpointACLdetails.png)
- 
+
 6.	목록의 행을 사용하여 ACL에 대한 규칙을 추가, 삭제 또는 편집하고 해당 순서를 변경합니다. **원격 서브넷** 값은 인터넷에서 들어오는 트래픽에 대한 IP 주소 범위로서, Azure 부하 분산 장치는 해당 트래픽의 원본 IP 주소에 따라 이를 허용하거나 거부합니다. 주소 접두사 형식이라고도 하는 CIDR 형식으로 IP 주소 범위를 지정해야 합니다. 예를 들면 131.107.0.0/16과 같습니다.
 
 규칙을 사용하여 인터넷의 컴퓨터에 해당하는 특정 컴퓨터에서 들어오는 트래픽만 허용하고 알려진 특정 주소 범위에서 들어오는 트래픽을 거부할 수 있습니다.
@@ -95,7 +95,4 @@ Azure PowerShell cmdlet을 사용하여 이 작업을 설정하려면, [PowerShe
 
 [네트워크 보안 그룹 정보](https://msdn.microsoft.com/library/azure/dn848316.aspx)
 
-
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

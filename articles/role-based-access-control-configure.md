@@ -84,7 +84,7 @@ Brock | Prod 리소스 그룹의 모든 리소스 만들기 및 관리 | Brock�
 
 ![][3]
 
-*구독 이름* \*\* > 읽기 권한자 > 추가\*\*를 클릭하고 사용자 및 그룹 목록에서 Active Directory 그룹의 이름을 선택하거나 입력합니다.
+*구독 이름* ** > 읽기 권한자 > 추가**를 클릭하고 사용자 및 그룹 목록에서 Active Directory 그룹의 이름을 선택하거나 입력합니다.
 
 ![][4]
 
@@ -1293,4 +1293,4 @@ Azure RBAC를 사용해 보고 [의견](http://aka.ms/azurerbacfeedback)을 보�
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

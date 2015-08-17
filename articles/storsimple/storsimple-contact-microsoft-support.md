@@ -72,4 +72,4 @@ StorSimple 장치에서 발생할 수 있는 문제를 해결하려면 Microsoft
 
 > [AZURE.IMPORTANT]`Disable-HcsSupportAccess`을 실행하여 지원 액세스를 비활성화할 수 있습니다. StorSimple 장치는 세션이 시작된 8시간 후에 지원 액세스를 비활성화하려고 합니다. 지원 세션을 시작한 후에 StorSimple 장치 자격 증명을 변경하는 것이 좋습니다.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

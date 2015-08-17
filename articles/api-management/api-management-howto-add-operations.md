@@ -164,4 +164,4 @@ API 관리 포털에서 원하는 API를 선택한 다음 **작업** 탭을 선�
 [제품을 만들고 게시하는 방법]: api-management-howto-add-products.md
 [Azure API 관리에서 작업 결과를 캐시하는 방법]: api-management-howto-cache.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

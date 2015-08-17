@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="07/21/2015" 
+	ms.date="08/05/2015" 
 	ms.author="genemi"/>
 
 
@@ -150,17 +150,14 @@ V12 논리 서버에만 V12 데이터베이스를 호스팅할 수 있습니다.
 ## <a name="V12AzureSqlDbPreviewGaTable"></a>미리 보기 영역
 
 
-V12는 2014년 12월에 릴리스되지만 [미리 보기](http://azure.microsoft.com/support/legal/preview-supplemental-terms/) 상태에서만 릴리스됩니다. 2015년 4월까지 V12는 거의 모든 지역에서 GA(General Availability)로 승격되었습니다.
+V12는 2014년 12월에 릴리스되지만 미리 보기 상태에서만 릴리스됩니다.
 
 
-V12는 다음 지역에서 미리 보기로 제공됩니다.
+- [Microsoft Azure 미리 보기에 대한 보충 사용 약관](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-| Azure 지역 | V12의 현재 <br/>릴리스 상태 | GA 프로모션 날짜,<br/> 예정 |
-| :--- | :--- | :--- |
-| 오스트레일리아 동부 | **미리 보기** | 2015년 3분기, 예정 |
-| 오스트레일리아 남동부 | **미리 보기** | 2015년 3분기, 예정 |
+2015년 7월 31일까지 모든 지역이 GA(일반 공급)로 승격되었습니다.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

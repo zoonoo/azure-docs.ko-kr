@@ -33,4 +33,4 @@ Visual Studio에서 **서버 탐색기**를 보려면, 메뉴 모음에서 **보
 이제 클라우드 서비스 컨테이너가 있으므로 클라우드 서비스를 [만들기 및 배포](cloud-services-how-to-create-deploy.md)할 수 있습니다.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

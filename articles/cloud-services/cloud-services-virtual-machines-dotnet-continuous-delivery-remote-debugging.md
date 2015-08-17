@@ -95,4 +95,4 @@
 6. Visual Studio 및 Azure SDK for .NET 2.4가 설치된 컴퓨터로 인증서(.pfx)를 가져옵니다.
  
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

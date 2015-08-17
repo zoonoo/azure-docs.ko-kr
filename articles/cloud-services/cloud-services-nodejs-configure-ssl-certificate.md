@@ -192,4 +192,4 @@ SSL 인증서를 가져오려면 다음 단계를 따르세요.
   [Azure 작업자 역할에서 Node.js 응용 프로그램에 대한 SSL 구성]: /develop/nodejs/common-tasks/enable-ssl-worker-role/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

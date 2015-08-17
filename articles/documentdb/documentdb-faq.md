@@ -80,7 +80,7 @@ Microsoft Azure DocumentDB는 [Azure Preview 포털][azure-portal]에 있습니�
 ### DocumentDB에 대해 어떻게 개발을 시작하나요?
 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)는 .NET, Python, Node.js, JavaScript 및 Java용으로 제공됩니다. 또한 개발자는 [RESTful HTTP API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 사용하여 다양한 플랫폼 및 언어의 DocumentDB 리소스를 조작할 수 있습니다.
 
-GitHub에서 샘플 DocumentDB [.NET](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](https://github.com/Azure/azure-documentdb-node/tree/master/samples), 및 [Python](https://github.com/Azure/azure-documentdb-python) SDK를 사용할 수 있습니다.
+GitHub에서 샘플 DocumentDB [.NET](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](https://github.com/Azure/azure-documentdb-node/tree/master/samples), 및 [Python](https://github.com/Azure/azure-documentdb-python) SDK를 받을 수 있습니다.
 
 ### DocumentDB에서 SQL을 지원하나요?
 DocumentDB SQL 쿼리 언어는 JavaScript 기반 UDF(사용자 정의 함수)를 통해 다양한 계층 구조 및 관계형 연산자를 제공합니다. JSON 문법은 트리 노드로 레이블이 지정된 트리로 JSON 문서 모델링을 허용합니다. 이 내용은 DocumentDB 자동 인덱싱 기술 및 DocumentDB의 SQL 쿼리 언어 모두에 사용됩니다. SQL 문법을 사용하는 방법에 대한 자세한 내용은 [DocumentDB 쿼리][query] 문서를 참조하세요.
@@ -92,7 +92,7 @@ DocumentDB에서 지원되는 기본 데이터 형식은 JSON과 동일합니다
 DocumentDB는 HTTP 개체 태그 또는 ETags를 통해 OCC(낙관적 동시성 제어)를 지원합니다. 모든 DocumentDB 리소스는 ETag를 포함하며, DocumentDB 클라이언트는 쓰기 요청에 최근에 읽은 버전을 포함합니다. ETag가 최신이면 변경이 커밋됩니다. 값이 외부에서 변경된 경우 서버는 "HTTP 412 사전 조건 실패" 응답 코드와 함께 쓰기를 거부합니다. 클라이언트는 리소스의 최신 버전을 읽고 요청을 다시 시도해야 합니다.
 
 ### DocumentDB는 어떻게 트랜잭션을 수행하나요?
-DocumentDB는 JavaScript 저장 프로시저 및 트리거를 통해 언어 통합 트랜잭션을 지원합니다. 스크립트 내 모든 데이터베이스 작업은 컬렉션으로 범위 지정된 스냅숏 분리에서 실행됩니다. 문서 버전의 스냅숏(ETags)은 트랜잭션의 시작 부분에서 찍고 스크립트가 성공한 경우에만 커밋됩니다. JavaScript에서 오류가 발생한 경우 트랜잭션이 롤백됩니다. 자세한 내용은 [DocumentDB 서버쪽 프로그래밍](documentdb-programming.md)을 참조하세요.
+DocumentDB는 JavaScript 저장 프로시저 및 트리거를 통해 언어 통합 트랜잭션을 지원합니다. 스크립트 내 모든 데이터베이스 작업은 컬렉션으로 범위 지정된 스냅숏 분리에서 실행됩니다. 문서 버전의 스냅숏(ETags)은 트랜잭션의 시작 부분에서 찍고 스크립트가 성공한 경우에만 커밋됩니다. JavaScript에서 오류가 발생한 경우 트랜잭션이 롤백됩니다. 자세한 내용은 [DocumentDB 서버 쪽 프로그래밍](documentdb-programming.md)을 참조하세요.
 
 ### DocumentDB에 문서를 어떻게 일괄 삽입할 수 있나요? 
 DocumentDB에 문서를 일괄 삽입하는 세 가지 방법이 있습니다.
@@ -111,4 +111,4 @@ DocumentDB에 문서를 일괄 삽입하는 세 가지 방법이 있습니다.
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

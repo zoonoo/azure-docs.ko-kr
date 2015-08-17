@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/02/2015"
 	ms.author="sethm"/>
 
@@ -150,7 +150,7 @@ Azure에서 서비스 버스 기능 사용을 시작하려면 먼저 서비스 �
 
 8.  NuGet 대화 상자의 왼쪽 행에서 **온라인**을 클릭합니다.
 
-9. 	오른쪽 열에서 **검색** 상자를 클릭하고 "**서비스 버스**"를 입력한 후 **MicrosoftAzure 서비스 버스** 항목을 선택합니다. **설치**를 클릭하여 설치를 완료한 후 이 대화 상자를 닫습니다.
+9. 	오른쪽 열에서 **검색** 상자를 클릭하고 "**서비스 버스**"를 입력한 후 **Microsoft Azure 서비스 버스** 항목을 선택합니다. **설치**를 클릭하여 설치를 완료한 후 이 대화 상자를 닫습니다.
 
     ![][13]
 
@@ -340,11 +340,11 @@ Azure에서 서비스 버스 기능 사용을 시작하려면 먼저 서비스 �
             }
         }
 
-3.  **솔루션 탐색기**에서 Views\Shared를 확장합니다.
+3.  **솔루션 탐색기**에서 Views\\Shared를 확장합니다.
 
     ![][18]
 
-4.  그런 다음 _Layout.cshtml을 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
+4.  그런 다음, \_Layout.cshtml을 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
 
 5.  **내 ASP.NET 응용 프로그램**의 모든 항목을 **LITWARE 제품**으로 변경합니다.
 
@@ -352,7 +352,7 @@ Azure에서 서비스 버스 기능 사용을 시작하려면 먼저 서비스 �
 
 	![][41]
 
-7.  **솔루션 탐색기**에서 Views\Home을 확장합니다.
+7.  **솔루션 탐색기**에서 Views\\Home을 확장합니다.
 
     ![][20]
 
@@ -406,7 +406,7 @@ Azure에서 서비스 버스 기능 사용을 시작하려면 먼저 서비스 �
 
 ## 응용 프로그램의 Azure에 배포 준비 완료
 
-Azure 클라우드 서비스 또는 Azure 웹 사이트에 응용 프로그램을 배포할 수 있습니다. 웹 사이트와 클라우드 서비스의 차이점에 대한 자세한 내용은 [Azure 실행 모델][executionmodels]을 참조하세요. Azure 웹 사이트에 응용 프로그램을 배포하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포](http://azure.microsoft.com/develop/net/tutorials/get-started/)(영문)를 참조하세요. 이 섹션에서는 Azure 클라우드 서비스에 응용 프로그램을 배포하는 자세한 단계를 설명합니다.
+Azure 클라우드 서비스 또는 Azure 웹 사이트에 응용 프로그램을 배포할 수 있습니다. 웹 사이트와 클라우드 서비스의 차이점에 대한 자세한 내용은 [Azure 실행 모델][executionmodels](영문)을 참조하세요. Azure 웹 사이트에 응용 프로그램을 배포하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포](http://azure.microsoft.com/develop/net/tutorials/get-started/)(영문)를 참조하세요. 이 섹션에서는 Azure 클라우드 서비스에 응용 프로그램을 배포하는 자세한 단계를 설명합니다.
 
 클라우드 서비스에 응용 프로그램을 배포하기 위해 클라우드 서비스 프로젝트 배포 프로젝트를 솔루션에 추가합니다. 배포 프로젝트에는 클라우드에서 응용 프로그램을 올바르게 실행하는 데 필요한 구성 정보가 포함됩니다.
 
@@ -620,4 +620,4 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

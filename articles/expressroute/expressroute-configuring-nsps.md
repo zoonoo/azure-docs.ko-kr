@@ -150,4 +150,4 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자�
 		
 		Provisioned 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

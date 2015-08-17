@@ -387,4 +387,4 @@ Azure CLI를 사용하여 공급자가 사용하도록 등록되어 있는지 �
 [msn]: http://search.msn.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

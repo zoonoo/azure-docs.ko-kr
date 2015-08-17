@@ -57,7 +57,7 @@ Azure 리소스 관리자 및 이 배포에 사용할 템플릿과 관련된 자
 
 ### 1-a단계: Azure PowerShell을 사용하여 템플릿 파일 다운로드
 
-JSON 템플릿과 기타 연결된 파일을 저장할 로컬 폴더(예: C:\Azure\Templates\Spark)를 만듭니다.
+JSON 템플릿과 기타 연결된 파일을 저장할 로컬 폴더(예: C:\\Azure\\Templates\\Spark)를 만듭니다.
 
 로컬 폴더의 폴더 이름을 대신 입력하여 다음 명령을 실행합니다.
 
@@ -91,7 +91,7 @@ foreach ($file in $files)
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-복제가 완료되면 C:\Azure\Templates 디렉터리에서 **spark-on-ubuntu** 폴더를 찾습니다.
+복제가 완료되면 C:\\Azure\\Templates 디렉터리에서 **spark-on-ubuntu** 폴더를 찾습니다.
 
 ### 2단계: (선택 사항) 템플릿 매개 변수 파악
 
@@ -416,7 +416,7 @@ Azure CLI를 통해 Spark 클러스터를 배포하려면 먼저 이름과 위�
 
 이 섹션에서는 Spark 클러스터용 azuredeploy.json 파일의 구조를 단계별로 설명합니다.
 
-템플릿 파일의 복사본을 아직 다운로드하지 않은 경우 파일 위치로 로컬 폴더(예: C:\Azure\Templates\Spark)를 지정하여 해당 폴더를 만듭니다. 폴더 이름을 입력하고 다음 명령을 실행합니다.
+템플릿 파일의 복사본을 아직 다운로드하지 않은 경우 파일 위치로 로컬 폴더(예: C:\\Azure\\Templates\\Spark)를 지정하여 해당 폴더를 만듭니다. 폴더 이름을 입력하고 다음 명령을 실행합니다.
 
 ```powershell
 $folderName="<folder name, such as C:\Azure\Templates\Spark>"
@@ -843,4 +843,4 @@ Spark 클러스터 배포의 크기를 사용자 지정하려는 경우 azuredep
 
 [템플릿 배포 문제를 해결](resource-group-deploy-debug.md)합니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

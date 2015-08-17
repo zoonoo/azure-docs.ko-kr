@@ -51,7 +51,7 @@
 - [\+ (문자열 연결)](https://msdn.microsoft.com/library/ms177561.aspx)
 - [\- (음수)](https://msdn.microsoft.com/library/ms189480.aspx)
 - [\- (빼기)](https://msdn.microsoft.com/library/ms189518.aspx)
-- [\* (곱하기)](https://msdn.microsoft.com/library/ms176019.aspx)
+- [* (곱하기)](https://msdn.microsoft.com/library/ms176019.aspx)
 - [/ (나누기)](https://msdn.microsoft.com/library/ms175009.aspx)
 - [모듈로](https://msdn.microsoft.com/library/ms190279.aspx)
 
@@ -290,4 +290,4 @@
 
 <!--MSDN references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

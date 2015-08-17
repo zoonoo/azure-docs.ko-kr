@@ -1,4 +1,4 @@
-<properties pageTitle="Azure에서 Oracle WebLogic Server 12c 가상 컴퓨터 만들기" description="Microsoft Azure에서 Windows Server 2012에서 실행 중인 Oracle WebLogic Server 12c 가상 컴퓨터를 만드는 예제를 단계별로 설명합니다." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<properties title="Creating an Oracle WebLogic Server 12c Virtual Machine in Azure" pageTitle="Azure에서 Oracle WebLogic Server 12c 가상 컴퓨터 만들기" description="Microsoft Azure에서 Windows Server 2012에서 실행 중인 Oracle WebLogic Server 12c 가상 컴퓨터를 만드는 예제를 단계별로 설명합니다." services="virtual-machines" authors="bbenz" documentationCenter=""/>
 <tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Azure에서 Oracle WebLogic Server 12c 가상 컴퓨터 만들기
 다음 예제에서는 Azure에서 Windows Server 2012에서 실행되는 Microsoft에서 제공한 Oracle WebLogic Server 12c 이미지에 따라 가상 컴퓨터를 만드는 방법을 보여줍니다.
@@ -98,7 +98,7 @@
 
 	**다음**을 클릭합니다.
 
-5.	\*\*이 배포를 응용 프로그램으로 설치\*\*를 선택한 후 **다음**을 클릭합니다.
+5.	**이 배포를 응용 프로그램으로 설치**를 선택한 후 **다음**을 클릭합니다.
 
 6.	**마침**을 클릭합니다.
 
@@ -154,7 +154,7 @@
 
 	8.	규칙 이름 및 설명(선택 사항)을 지정한 다음 **마침**을 클릭합니다.
 
-12.	인터넷에서 실행 중인 쇼핑 카트 응용 프로그램을 보려면 `http://<<unique_domain_name>>/shoppingcart`의 형태로 URL에 대해 브라우저를 엽니다. **가상 컴퓨터**를 클릭한 다음 Oracle WebLogic Server를 실행하기 위해 사용 중인 가상 컴퓨터를 선택하여 [Azure 포털](https://ms.portal.azure.com/) 내에서 <<\*unique\_domain\_name\*>>에 대한 값을 확인할 수 있습니다.
+12.	인터넷에서 실행 중인 쇼핑 카트 응용 프로그램을 보려면 `http://<<unique_domain_name>>/shoppingcart`의 형태로 URL에 대해 브라우저를 엽니다. **가상 컴퓨터**를 클릭한 다음 Oracle WebLogic Server를 실행하기 위해 사용 중인 가상 컴퓨터를 선택하여 [Azure 포털](https://ms.portal.azure.com/) 내에서 <<*unique\_domain\_name*>>에 대한 값을 확인할 수 있습니다.
 
 
 ##추가 리소스
@@ -168,4 +168,4 @@
 
 -	[Azure용 Oracle 가상 컴퓨터 이미지](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

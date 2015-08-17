@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="dotnet" 
  ms.topic="article" 
- ms.date="05/15/2015" 
+ ms.date="08/04/2015" 
  ms.author="krisragh"/>
 
 # Azure 스케줄러를 사용하여 복잡한 일정 및 고급 되풀이를 만드는 방법  
@@ -81,7 +81,7 @@ Azure 스케줄러 작업의 날짜-시간 참조는 [ISO-8601 사양](http://en
 |**_startTime_**|_startTime_은 날짜-시간입니다. 간단한 일정의 경우 _startTime_은 처음 실행되는 시간이며 복잡한 일정의 경우 작업은 _startTime_보다 일찍 시작되지 않습니다.|
 |**_recurrence_**|_recurrence_ 개체는 작업에 대한 되풀이 규칙과 작업이 어떤 되풀이 조건으로 실행될지 지정합니다. 되풀이 개체가 지원하는 요소는 _frequency, interval, endTime, count_ 및 _schedule_입니다. _recurrence_가 정의된 경우 _frequency_가 필수 요소이며 _recurrence_의 다른 요소는 선택 사항입니다.|
 |**_frequency_**|_frequency_ 문자열은 작업이 되풀이되는 빈도 단위를 나타냅니다. 지원되는 값은 _"minute", "hour", "day", "week"_ 또는 _"month"_입니다.|
-|**_interval_**|_interval_은 양의 정수이며 작업이 얼마나 자주 실행될지 결정하는 _frequency_의 간격을 나타냅니다. 예를 들어 _interval_이 3이고 _frequency_가 "week"인 경우 작업은 3주마다 되풀이됩니다. Azure 스케줄러가 지원하는 최대 _interval_은 월 빈도로 18개월, 주 빈도로 78주, 일 빈도로 548일입니다. 시간과 분 빈도의 경우 지원되는 _interval_ 범위는 1 ~ 1000입니다.|
+|**_interval_**|_interval_은 양의 정수이며 작업이 얼마나 자주 실행될지 결정하는 _frequency_의 간격을 나타냅니다. 예를 들어 _interval_이 3이고 _frequency_가 "week"인 경우 작업은 3주마다 되풀이됩니다. Azure 스케줄러가 지원하는 최대 _interval_은 월 빈도로 18개월, 주 빈도로 78주, 일 빈도로 548일입니다. 시간과 분 빈도의 경우 지원되는 _interval_ 범위는 1 \~ 1000입니다.|
 |**_endTime_**|_endTime_ 문자열은 이 날짜-시간 이후에는 작업이 실행되지 않도록 지정합니다. _endTime_은 과거의 시간일 수 없습니다. _endTime_ 또는 count가 지정되지 않으면 작업은 무한으로 실행됩니다. 같은 작업에 _endTime_과 _count_를 모두 포함해서는 안 됩니다.|
 |**_count_**|<p>_count_는 0보다 큰 양의 정수로 작업이 완료되기 전에 몇 번 실행될지 지정합니다.</p><p>_count_는 작업이 완료된 것으로 결정되기 전에 실행되는 횟수를 나타냅니다. 예를 들어 _count_가 5로 지정되고 매일 실행되는 작업의 시작 날짜가 월요일인 경우, 이 작업은 금요일에 실행된 후 완료됩니다. 시작 날짜가 과거인 경우, 첫 실행 시간은 생성 시간에서 계산됩니다.</p><p>_endTime_ 또는 _count_가 지정되지 않으면 작업은 무한으로 실행됩니다. 같은 작업에 _endTime_과 _count_를 모두 포함해서는 안 됩니다.</p>|
 |**_schedule_**|작업에 빈도가 지정되면 되풀이 일정을 기반으로 되풀이가 변경됩니다. _schedule_에는 분, 시간, 요일, 날짜, 주차를 기반으로 하는 조건이 포함됩니다.|
@@ -95,7 +95,7 @@ Azure 스케줄러 작업의 날짜-시간 참조는 [ISO-8601 사양](http://en
 |**_startTime_**|문자열|아니요|없음|ISO-8601 날짜-시간|<code>"startTime" : "2013-01-09T09:30:00-08:00"</code>|
 |**_recurrence_**|Object|아니요|없음|되풀이 개체|<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code>|
 |**_frequency_**|문자열|예|없음|"minute", "hour", "day", "week", "month"|<code>"frequency" : "hour"</code> |
-|**_interval_**|Number|아니요|1|1 ~ 1000입니다.|<code>"interval":10</code>|
+|**_interval_**|Number|아니요|1|1 \~ 1000입니다.|<code>"interval":10</code>|
 |**_endTime_**|문자열|아니요|없음|현재 이후의 시간을 나타내는 날짜-시간입니다.|<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
 |**_count_**|Number|아니요|없음|1 이상|<code>"count": 5</code>|
 |**_schedule_**|Object|아니요|없음|일정 개체|<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code>|
@@ -134,7 +134,7 @@ _schedule_은 작업 실행의 횟수를 _제한_할 수 있는 방법이기도 
 |**hours**|작업이 실행될 시간(시간)|<ul><li>정수 또는</li><li>정수 배열</li></ul>|
 |**weekDays**|작업이 실행될 요일입니다. 빈도가 주인 경우에만 지정할 수 있습니다.|<ul><li>"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" 또는 "Sunday"</li><li>위 값의 배열(최대 배열 크기는 7)</li></ul>대/소문자 구분 안 함|
 |**monthlyOccurrences**|며칠에 작업을 실행할지 결정합니다. 빈도가 월인 경우에만 지정할 수 있습니다.|<ul><li>monthlyOccurence 개체의 배열:</li></ul> <pre>{ "day": _일_,<br /> "occurrence": _되풀이_<br />}</pre><p> _일_은 작업이 실행될 요일입니다. 예를 들어 {Sunday}는 매주 일요일입니다. 필수.</p><p>occurrence는 월 중에 _되풀이_되는 날입니다. 예를 들어 {Sunday, -1}은 월의 마지막 일요일입니다. 선택 사항입니다.</p>|
-|**monthDays**|작업이 실행될 월의 일입니다. 빈도가 월인 경우에만 지정할 수 있습니다.|<ul><li>-31 ~ -1 사이의 값.</li><li>1 ~ 31 사이의 값.</li><li>위 값의 배열</li></ul>|
+|**monthDays**|작업이 실행될 월의 일입니다. 빈도가 월인 경우에만 지정할 수 있습니다.|<ul><li>-31 \~ -1 사이의 값.</li><li>1 \~ 31 사이의 값.</li><li>위 값의 배열</li></ul>|
 
 ## 예: 되풀이 일정
 
@@ -198,4 +198,4 @@ _schedule_은 작업 실행의 횟수를 _제한_할 수 있는 방법이기도 
  
   
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="07/24/2015"
+   ms.date="07/30/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # StorSimple 관리자 서비스를 사용하여 StorSimple 장치 구성 수정
@@ -131,4 +131,4 @@ StorSimple 8000 시리즈 업데이트 1에서 DATA 0의 라우팅 메트릭은 
  
      
 
-<!----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

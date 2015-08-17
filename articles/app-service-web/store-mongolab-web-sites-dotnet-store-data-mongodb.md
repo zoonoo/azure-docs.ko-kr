@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="08/03/2015" 
 	ms.author="chris@mongolab.com"/>
 
 
@@ -499,4 +499,4 @@ Azure 앱 서비스에서 웹 앱을 만드는 것은 매우 쉽습니다. 특�
 
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

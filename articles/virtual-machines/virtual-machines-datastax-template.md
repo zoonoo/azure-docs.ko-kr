@@ -44,7 +44,7 @@ Azure 리소스 관리자 및 이 배포에 사용할 템플릿과 관련된 자
 
 ### 1-a단계: PowerShell을 사용하여 템플릿 파일 다운로드
 
-JSON 템플릿과 기타 관련 파일을 저장할 로컬 폴더를 만듭니다(예: C:\Azure\Templates\DataStax).
+JSON 템플릿과 기타 관련 파일을 저장할 로컬 폴더를 만듭니다(예: C:\\Azure\\Templates\\DataStax).
 
 로컬 폴더의 폴더 이름을 대신 입력하여 다음 명령을 실행합니다.
 
@@ -84,7 +84,7 @@ JSON 템플릿과 기타 관련 파일을 저장할 로컬 폴더를 만듭니�
 
 	git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-완료되면 C:\Azure\Templates 디렉터리에서 **datastax-on-ubuntu** 폴더를 찾습니다.
+완료되면 C:\\Azure\\Templates 디렉터리에서 **datastax-on-ubuntu** 폴더를 찾습니다.
 
 ### 2단계: (선택 사항) 템플릿 매개 변수 파악
 
@@ -439,7 +439,7 @@ Azure CLI를 통해 Datastax 클러스터를 배포하려면 먼저 이름과 �
 
 	bash vm-disk-utils-0.1.sh
 
-vm-disk-utils-0.1.sh는 azure-quickstart-tempates github 리포지토리 내 **shared_scripts\ubuntu** 폴더의 일부이며, 디스크 탑재, 포맷 및 스트라이프에 매우 유용한 함수를 포함하고 있습니다. 이러한 함수는 리포지토리의 모든 템플릿에서 사용할 수 있습니다.
+vm-disk-utils-0.1.sh는 azure-quickstart-tempates github 리포지토리 내 **shared\_scripts\\ubuntu** 폴더의 일부이며, 디스크 탑재, 포맷 및 스트라이프에 매우 유용한 함수를 포함하고 있습니다. 이러한 함수는 리포지토리의 모든 템플릿에서 사용할 수 있습니다.
 
 또 다른 흥미로운 조각은 CustomScriptForLinux VM 확장과 관련된 조각입니다. 이러한 확장은 별도의 리소스 유형으로 설치되며 각 클러스터 노드(및 OpsCenter 인스턴스)에 대한 종속성이 적용됩니다. 가상 컴퓨터에 대해 설명하는 동일한 리소스 루핑 메커니즘을 활용합니다.
 
@@ -482,4 +482,4 @@ vm-disk-utils-0.1.sh는 azure-quickstart-tempates github 리포지토리 내 **s
 자세한 내용은 [Azure 리소스 관리자 템플릿 언어](https://msdn.microsoft.com/library/azure/dn835138.aspx)를 참조하세요.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

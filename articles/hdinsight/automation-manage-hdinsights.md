@@ -40,7 +40,8 @@ Azure HDInsight cmdlet을 사용하면 Linux 또는 Windows에서 HDInsight 클�
 Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure HDInsight를 관리하는 방법을 알아보았으므로 이제 다음 링크에 따라 Azure 자동화에 대해 자세히 알아보세요.
 
 * Azure 자동화 [시작 자습서](../automation-create-runbook-from-samples.md)를 참조하세요.
+* [스크립트 센터](http://aka.ms/scriptcentergallery)에서 예를 볼 수 있습니다.  
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

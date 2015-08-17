@@ -53,4 +53,4 @@ Azure는 서비스 중단 또는 성능 저하가 있을 때마다 이 사실을
 * 페이지가 다운된 경우 이를 찾을 수 있도록 Application Insights를 사용하여 [웹 페이지의 가용성 및 응답성을 모니터링](../app-insights-monitor-web-app-availability.md)합니다.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

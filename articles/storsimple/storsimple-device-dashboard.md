@@ -96,4 +96,4 @@ StorSimple 장치에는 CHAP(Challenge Handshake 인증 프로토콜)를 구성�
 
 [StorSimple 관리자 서비스 대시보드에 대해 자세히 알아봅니다](storsimple-service-dashboard.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

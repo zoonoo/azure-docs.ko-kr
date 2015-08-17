@@ -1,6 +1,6 @@
 <properties
-   pageTitle="manage-vms-azure-powershell"
-   description="Azure PowerShell을 사용하여 VM 관리"
+   pageTitle="Azure PowerShell | Microsoft Azure를사용하여 가상 컴퓨터 관리"
+   description="가상 컴퓨터 관리에서의 작업 자동화에 사용할 수 있는 명령에 대해 알아봅니다."
    services="virtual-machines"
    documentationCenter="windows"
    authors="singhkay"
@@ -20,7 +20,7 @@
 
 Azure PowerShell cmdlet을 사용하여 매일 VM을 관리하기 위해 수행하는 많은 작업을 자동화할 수 있습니다. 이 문서에서는 더 간단한 작업에 대한 예제 명령과 보다 복잡한 작업에 대한 명령을 보여 주는 문서에 대한 링크를 제공합니다.
 
->[AZURE.NOTE]아직 Azure PowerShell을 설치하고 구성하지 않은 경우 [여기](../install-configure-powershell.md)에서 지침을 확인할 수 있습니다.
+>[AZURE.NOTE]Azure PowerShell을 아직 설치 및 구성하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](../install-configure-powershell.md) 글에서 지침을 확인할 수 있습니다.
 
 ## 예제 명령을 사용하는 방법
 명령의 일부 텍스트는 환경에 적합한 텍스트로 바꿔야 합니다. < and > 기호는 바꿔야 하는 텍스트를 나타냅니다. 텍스트를 바꾸는 경우 기호는 제거하고 따옴표는 그대로 남겨 두세요.
@@ -36,7 +36,7 @@ VM에 대한 정보를 가져오려면 이 명령을 실행하고 < and > 문자
 
     $vm = Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
-## Windows 기반 가상 컴퓨터에 로그온
+## Windows 기반 VM에 로그온
 
 다음 명령을 실행합니다.
 
@@ -63,9 +63,9 @@ VM에 대한 정보를 가져오려면 이 명령을 실행하고 < and > 문자
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 ## 데이터 디스크 연결
-이 작업에는 몇 단계가 필요합니다. 먼저 ****Add-AzureDataDisk**** cmdlet을 사용하여 디스크를 $vm 개체에 추가한 다음 Update-AzureVM cmdlet을 사용하여 VM의 구성을 업데이트합니다.
+이 작업에는 몇 단계가 필요합니다. 먼저, ****Add-AzureDataDisk**** cmdlet를 사용하여 $vm 개체에 디스크를 추가합니다. 그런 다음 **Update-AzureVM** cmdlet를 사용하여 VM의 구성을 업데이트합니다.
 
-또한 새 디스크를 연결할지 데이터를 포함하는 디스크를 연결할지를 결정해야 합니다. 새 디스크의 경우 명령에서 .vhd 파일을 만들고 동일한 명령으로 디스크를 연결합니다.
+또한 새 디스크를 연결할지 데이터를 포함하는 디스크를 연결할지를 결정해야 합니다. 새 디스크의 경우 이 명령은 .vhd 파일을 만들고 디스크를 연결합니다.
 
 새 디스크를 연결하려면 다음 명령을 실행합니다.
 
@@ -84,13 +84,13 @@ Blob 저장소의 기존 .vhd 파일에서 데이터 디스크를 연결하려�
               -DiskLabel "<main>" -LUN <0> `
               | Update-AzureVM
 
-## Windows VM 만들기
+## Windows 기반 VM 만들기
 
-Azure에서 새 Windows 기반 가상 컴퓨터를 만들려면 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터를 만들고 미리 구성](virtual-machines-ps-create-preconfigure-windows-vms.md)의 지침을 사용하세요. 이 항목에서는 다음으로 미리 구성할 수 있는 Windows 가상 컴퓨터를 만드는 PowerShell 명령 집합 만들기를 단계별로 안내합니다.
+Azure에서 새 Windows 기반 가상 컴퓨터를 만들려면 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터를 만들고 미리 구성](virtual-machines-ps-create-preconfigure-windows-vms.md)의 지침을 사용하세요. 이 항목에서는 미리 구성할 수 있는 Windows VM을 만드는 Azure PowerShell 명령 집합 만들기를 단계별로 안내합니다.
 
-- Active Directory 도메인 구성원 자격
-- 추가 디스크
-- 기존 부하 분산 집합의 구성원
-- 고정 IP 주소
+- Active Directory 도메인 구성원 자격을 통해 만들기
+- 추가 디스크를 통해 만들기
+- 기존 부하 분산 집합의 구성원으로 만들기
+- 고정 IP 주소로 만들기
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

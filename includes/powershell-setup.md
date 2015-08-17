@@ -68,4 +68,4 @@ Azure PowerShell 명령 프롬프트에서 다음 명령을 실행하여 현재 
 
 Azure 구독 및 계정에 대한 자세한 내용은 [방법: 구독에 연결](powershell-install-configure.md#Connect)을 참조하세요.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

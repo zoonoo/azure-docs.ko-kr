@@ -264,7 +264,7 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 				public static String NotificationHubConnectionString = "...";
 			}
 
-	*API_KEY* 값을 앞에서 Baidu 클라우드 프로젝트에서 검색한 값으로 설정하고, *NotificationHubName*을 Azure 포털의 알림 허브 이름으로 설정하고, *NotificationHubConnectionString*을 Azure 포털의 DefaultListenSharedAccessSignature로 설정합니다.
+	*API\_KEY* 값을 앞에서 Baidu 클라우드 프로젝트에서 검색한 값으로 설정하고, *NotificationHubName*을 Azure 포털의 알림 허브 이름으로 설정하고, *NotificationHubConnectionString*을 Azure 포털의 DefaultListenSharedAccessSignature로 설정합니다.
 
 11. **DemoApplication.java**라는 새 클래스를 추가하고 여기에 다음 코드를 추가합니다.
 
@@ -480,4 +480,4 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 [Baidu 포털]: http://www.baidu.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

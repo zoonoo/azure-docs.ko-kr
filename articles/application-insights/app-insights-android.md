@@ -11,7 +11,7 @@
     ms.workload="mobile" 
     ms.tgt_pltfrm="mobile-android" 
     ms.devlang="na" 
-    ms.topic="article" 
+    ms.topic="get-started-article" 
 	ms.date="04/28/2015" 
     ms.author="awills"/>
 
@@ -199,4 +199,4 @@ http://portal.azure.com으로 돌아가서 Application Insights 리소스를 찾
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

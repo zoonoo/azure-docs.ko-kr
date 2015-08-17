@@ -78,7 +78,7 @@ Task t = fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 - 상태 비저장 및 상태 저장 서비스에 함께 사용될 수 없습니다.
 - 인스턴스 개수가 다른 상태 비저장 서비스에 사용될 수 없습니다. 예를 들어 두 개의 상태 비저장 서비스가 각각 생성될 때 동일한 InstanceCount 속성을 가져야 합니다.
 - 복제본 개수가 다른 상태 저장 일시 서비스 또는 지속 서비스에 함께 사용될 수 없습니다. 예를 들어, 두 가지 서비스 모두에 동일한 Target 및 Min ReplicaSetSizes 값이 지정되어 있어야 합니다.
-- 분할된 서비스에 사용될 수 없습니다. 각 서비스에는 FABRIC_PARTITION_SCHEME_SINGLETON 파티션 체계가 있어야 합니다.
+- 분할된 서비스에 사용될 수 없습니다. 각 서비스에는 FABRIC\_PARTITION\_SCHEME\_SINGLETON 파티션 체계가 있어야 합니다.
 - 서비스 설명의 다른 속성과 같이, 선호도 관계는 서비스가 생성되면 설정되고, 수정될 수 없습니다.
 - 연속적인 서비스는 허용되지 않습니다. 다수의 서비스를 선호도 관계로 가져와야 하는 경우, “스타" 모델을 사용해야 합니다.
 
@@ -229,4 +229,4 @@ Task t = fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 [Image3]: media/service-fabric-resource-balancer-service-description/MW.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

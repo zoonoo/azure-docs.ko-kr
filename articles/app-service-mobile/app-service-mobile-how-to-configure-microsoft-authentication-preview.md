@@ -68,4 +68,4 @@
 [Azure 관리 포털]: https://portal.azure.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

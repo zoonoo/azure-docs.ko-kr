@@ -69,7 +69,7 @@ SaaS 응용 프로그램에서 올바르게 작동하기 위해 요구되는 특
 - **상수** – 대상 특성이 지정된 특정 문자열로 채워집니다.
 
 
-- **식** - 대상 특성이 스크립트 방식의 식의 결과에 따라 채워집니다. 자세한 내용은 Azure Active Directory의 특성 매핑에 대한 식 작성을 참조하세요.
+- **식** - 대상 특성이 스크립트 방식의 식의 결과에 따라 채워집니다. 자세한 내용은 [Azure Active Directory의 특성 매핑에 대한 식 작성](active-directory-saas-writing-expressions-for-attribute-mappings.md)을 참조하세요.
 
 
 - **None** - 대상 특성이 수정되지 않고 남아있습니다. 그러나 대상 특성이 비어 있으면 지정된 기본 값으로 채워집니다.
@@ -82,16 +82,12 @@ Microsoft Azure AD는 동기화 프로세스의 매우 효과적인 구현을 �
 
 
 
-
-## 추가 리소스
-
-* [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-customizing-attribute-mappings/ic765497.png
 [2]: ./media/active-directory-saas-customizing-attribute-mappings/ic775419.png
 [3]: ./media/active-directory-saas-customizing-attribute-mappings/ic775420.png
 [4]: ./media/active-directory-saas-customizing-attribute-mappings/ic775421.png
- 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

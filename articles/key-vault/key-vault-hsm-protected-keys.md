@@ -77,13 +77,13 @@ Azure 주요 자격 증명 모음에 대해 BYOK(Bring Your Own Key)를 위한 �
 이 첫 번째 단계는 인터넷에 연결된 워크스테이션에서 다음 절차를 수행합니다.
 
 
-###1.1단계: Azure PowerShell 설치
+###1\.1단계: Azure PowerShell 설치
 
 인터넷에 연결된 워크스테이션에서 Azure 주요 자격 증명 모음을 관리하기 위해 cmdlet이 포함된 Azure PowerShell 모듈을 다운로드하고 설치합니다. 이를 위해 0.8.13 이상 버전이 필요합니다.
 
 설치 지침은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요.
 
-###1.2단계: Azure 구독 ID 얻기
+###1\.2단계: Azure 구독 ID 얻기
 
 Azure PowerShell 세션을 시작하고 다음 명령을 사용하여 Azure 계정에 로그인합니다.
 
@@ -95,7 +95,7 @@ Azure PowerShell 세션을 시작하고 다음 명령을 사용하여 Azure 계�
 
 Azure PowerShell 창을 닫지 마세요.
 
-###1.3단계: Azure 주요 자격 증명 모음에 대한 BYOK 도구 집합 다운로드
+###1\.3단계: Azure 주요 자격 증명 모음에 대한 BYOK 도구 집합 다운로드
 
 Microsoft 다운로드 센터로 이동하여 해당 지역에 대한 [Azure 주요 자격 증명 모음 BYOK 도구 집합을 다운로드](http://www.microsoft.com/download/details.aspx?id=45345)합니다.
 
@@ -116,7 +116,7 @@ Microsoft 다운로드 센터로 이동하여 해당 지역에 대한 [Azure 주
 - 이름이 **BYOK-SecurityWorld-pkg-**로 시작하는 Security World 패키지
 - 이름이 v**erifykeypackage.py**인 python 스크립트
 - 이름이 **KeyTransferRemote.exe**인 명령줄 실행 파일 및 관련 DLL
-- 이름이 **vcredist_x64.exe**인 Visual C++ 재배포 가능 패키지
+- 이름이 **vcredist\_x64.exe**인 Visual C++ 재배포 가능 패키지
 
 USB 드라이브 또는 기타 휴대용 저장소에 패키지를 복사합니다.
 
@@ -125,41 +125,41 @@ USB 드라이브 또는 기타 휴대용 저장소에 패키지를 복사합니�
 이 두 번째 단계에서는 네트워크(인터넷 또는 내부 네트워크)에 연결되지 않은 워크스테이션에서 다음 절차를 수행합니다.
 
 
-###2.1단계: Thales HSM이 있는 연결이 끊어진 워크스테이션 준비
+###2\.1단계: Thales HSM이 있는 연결이 끊어진 워크스테이션 준비
 
 Windows 컴퓨터에 nCipher(Thales) 지원 소프트웨어를 설치한 다음 Thales HSM을 해당 컴퓨터에 연결합니다.
 
-Thales 도구가 해당 경로(**%nfast_home%\bin** 및**%nfast_home%\python\bin**)에 있는지 확인합니다. 예를 들어 다음을 입력합니다.
+Thales 도구가 해당 경로(**%nfast\_home%\\bin** 및**%nfast\_home%\\python\\bin**)에 있는지 확인합니다. 예를 들어 다음을 입력합니다.
 
 		set PATH=%PATH%;”%nfast_home%\bin”;”%nfast_home%\python\bin”
 
 자세한 내용은 Thales HSM에 포함된 사용자 가이드를 참조하세요.
 
-###2.2단계: 연결이 끊어진 워크스테이션에 BYOK 도구 집합 설치
+###2\.2단계: 연결이 끊어진 워크스테이션에 BYOK 도구 집합 설치
 
 USB 드라이브 또는 기타 휴대용 저장소에서 BYOK 도구 집합 패키지를 복사한 후 다음을 수행합니다.
 
 1. 다운로드한 패키지에서 임의 폴더로 파일을 추출합니다.
-2. 해당 폴더에서 vcredist_x64.exe를 실행합니다.
+2. 해당 폴더에서 vcredist\_x64.exe를 실행합니다.
 3. 지침에 따라 Visual Studio 2012용 Visual C++ 런타임 구성 요소를 설치합니다.
 
 ##3단계: 키 생성
 
 이 3단계에서는 연결이 끊어진 워크스테이션에서 다음 절차를 수행합니다.
 
-###3.1단계: 보안 영역 만들기
+###3\.1단계: 보안 영역 만들기
 
 명령 프롬프트를 시작하고 Thales의 새 영역 프로그램을 실행합니다.
 
 	new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
 
-이 프로그램은 C:\ProgramData\nCipher\Key Management Data\local 폴더에 해당하는 %NFAST_KMDATA%\local\world에 **Security World** 파일을 만듭니다. 쿼럼에 다른 값을 사용할 수 있지만, 이 예에서는 각각에 대해 3개의 빈 카드와 핀을 입력하라는 메시지가 표시됩니다. 그러면 임의의 두 카드에서 보안 영역에 대한 모든 권한을 제공합니다. 이러한 카드가 새 보안 영역에 대한 **관리자 카드 집합**이 됩니다.
+이 프로그램은 C:\\ProgramData\\nCipher\\Key Management Data\\local 폴더에 해당하는 %NFAST\_KMDATA%\\local\\world에 **Security World** 파일을 만듭니다. 쿼럼에 다른 값을 사용할 수 있지만, 이 예에서는 각각에 대해 3개의 빈 카드와 핀을 입력하라는 메시지가 표시됩니다. 그러면 임의의 두 카드에서 보안 영역에 대한 모든 권한을 제공합니다. 이러한 카드가 새 보안 영역에 대한 **관리자 카드 집합**이 됩니다.
 
 그런 다음 아래 작업을 수행합니다.
 
 - 영역 파일을 백업합니다. 영역 파일, 관리자 카드, 해당 핀을 보호하고 한 사람이 둘 이상의 카드에 액세스 권한을 가지지 않도록 합니다.
 
-###3.2단계: 다운로드한 패키지의 유효성 검사
+###3\.2단계: 다운로드한 패키지의 유효성 검사
 
 이 단계는 선택 사항이지만 다음 사항을 확인할 수 있으므로 권장됩니다.
 
@@ -188,7 +188,7 @@ USB 드라이브 또는 기타 휴대용 저장소에서 BYOK 도구 집합 패�
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-JPN-1 -w BYOK-SecurityWorld-pkg-JPN-1
 
-	>[AZURE.TIP]Thales 소프트웨어에는 %NFAST_HOME%\python\bin에 python이 포함되어 있습니다.
+	>[AZURE.TIP]Thales 소프트웨어에는 %NFAST\_HOME%\\python\\bin에 python이 포함되어 있습니다.
 	
 2.	다음 내용이 표시되는지 확인합니다. 이는 유효성 검사가 성공했다는 것입니다. **Result: SUCCESS**
 
@@ -196,9 +196,9 @@ USB 드라이브 또는 기타 휴대용 저장소에서 BYOK 도구 집합 패�
 
 이제 새 키를 만들 준비가 되었습니다.
 
-###3.3단계: 새 키 만들기
+###3\.3단계: 새 키 만들기
 
-Thales를 **generatekey** 프로그램을 사용하여 키를 생성합니다.
+Thales **generatekey** 프로그램을 사용하여 키를 생성합니다.
 
 다음 명령을 실행하여 키를 생성합니다.
 
@@ -210,7 +210,7 @@ Thales를 **generatekey** 프로그램을 사용하여 키를 생성합니다.
 
 - pubexp는 이 예에서 비어 있지만(기본값) 특정 값을 지정할 수 있습니다. 자세한 내용은 Thales 설명서를 참조하세요.
 
-이 명령은 %NFAST_KMDATA%\local 폴더에 토큰화된 키 파일을 만듭니다. 이 파일은 이름이 **key_simple_**로 시작하며 명령에서 지정한 ident가 뒤에 붙습니다. 예들 들어 **key_simple_contosokey**입니다. 이 파일은 암호화된 키를 포함합니다.
+이 명령은 %NFAST\_KMDATA%\\local 폴더에 토큰화된 키 파일을 만듭니다. 이 파일은 이름이 **key\_simple\_**로 시작하며 명령에서 지정한 ident가 뒤에 붙습니다. 예들 들어 **key\_simple\_contosokey**입니다. 이 파일은 암호화된 키를 포함합니다.
 
 안전한 위치에 이 토큰화된 키 파일을 백업합니다.
 
@@ -222,7 +222,7 @@ Thales를 **generatekey** 프로그램을 사용하여 키를 생성합니다.
 
 이 4단계에서는 연결이 끊어진 워크스테이션에서 다음 절차를 수행합니다.
 
-###4.1단계: 축소된 권한을 가진 키의 복사본을 만듭니다.
+###4\.1단계: 축소된 권한을 가진 키의 복사본을 만듭니다.
 
 키에 대한 권한을 축소하려면 명령 프롬프트에서 해당 지역에 따라 다음 중 하나를 실행합니다.
 
@@ -246,9 +246,9 @@ Thales를 **generatekey** 프로그램을 사용하여 키를 생성합니다.
 
 보안 영역 관리자 카드를 플러그인하라는 메시지가 표시됩니다.
 
-명령이 완료되면 **Result: SUCCESS**가 표시되고 축소된 권한을 가진 키 복사본이 key_xferacId_<contosokey>라는 파일에 저장됩니다.
+명령이 완료되면 **Result: SUCCESS**가 표시되고 축소된 권한을 가진 키 복사본이 key\_xferacId\_<contosokey>라는 파일에 저장됩니다.
 
-###4.2단계: 키의 새 복사본 검사
+###4\.2단계: 키의 새 복사본 검사
 
 필요에 따라 Thales 유틸리티를 실행하여 새 키에 최소한의 권한이 있는지 확인합니다.
 
@@ -260,7 +260,7 @@ Thales를 **generatekey** 프로그램을 사용하여 키를 생성합니다.
 		"%nfast_home%\bin\kmfile-dump.exe" "%NFAST_KMDATA%\local\key_xferacld_contosokey"
 이러한 명령을 실행할 때 contosokey를 [키 생성](#step-3-generate-your-key) 단계의 **3.3단계: 새 키 만들기**에서 지정한 값과 동일한 값으로 바꿉니다.
 
-###4.3단계: Microsoft의 키 교환 키를 사용하여 키 암호화
+###4\.3단계: Microsoft의 키 교환 키를 사용하여 키 암호화
 
 해당 지역에 따라 다음 명령 중 하나를 실행합니다.
 
@@ -290,7 +290,7 @@ Thales를 **generatekey** 프로그램을 사용하여 키를 생성합니다.
 
 이 작업이 성공적으로 완료되면 **Result: SUCCESS**가 표시되고 현재 폴더에 TransferPackage-*ContosoFirstHSMkey*.byok라는 이름의 새 파일이 생성됩니다.
 
-###4.4단계: 인터넷에 연결된 워크스테이션에 키 전송 패키지 복사 
+###4\.4단계: 인터넷에 연결된 워크스테이션에 키 전송 패키지 복사 
 
 USB 드라이브 또는 기타 휴대용 저장소를 사용하여 인터넷에 연결된 워크스테이션에 이전 단계의 출력 파일(KeyTransferPackage-ContosoFirstHSMkey.byok)을 복사합니다.
 
@@ -306,4 +306,4 @@ USB 드라이브 또는 기타 휴대용 저장소를 사용하여 인터넷에 
 
 이제 주요 자격 증명 모음에서 이 HSM 보호된 키를 사용할 수 있습니다. 자세한 내용은 [Azure 주요 자격 증명 모음 시작](key-vault-get-started.md) 자습서에서 **HSM(하드웨어 보안 모듈)을 사용하려는 경우**를 참조하세요.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

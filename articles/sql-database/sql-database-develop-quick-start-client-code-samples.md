@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="SQL 데이터베이스에 대한 클라이언트 빠른 시작 코드 샘플 | Microsoft Azure" 
-	description="Linux에서 Node.js, Mac OS에서 Python, Java 및 Windows 및 Azure SQL 데이터베이스 클라이언트에 대 한 코드 샘플 및 드라이버를 제공합니다."
+	description="Linux의 Node.js, Mac OS의 Python, Java 및 Windows, Enterprise Library에 대한 코드 샘플 및 드라이버와 Azure SQL 데이터베이스 클라이언트에 대한 추가 항목을 제공합니다."
 	services="sql-database" 
 	documentationCenter="" 
 	authors="MightyPen" 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
+	ms.date="08/04/2015" 
 	ms.author="genemi"/>
 
 
@@ -75,7 +75,7 @@
 
 | 언어 | 간단한 샘플 | 재시도 샘플 | 관계형에서 개체로 |
 | :-- | :-- | :-- | :-- |
-| C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [ADO.NET 사용자 지정](sql-database-develop-csharp-retry-windows.md)<br/><br/>[ADO.NET 및 Enterprise Library](http://msdn.microsoft.com/library/azure/dn961167.aspx) | [ADO.NET Entity Framework](http://msdn.microsoft.com/library/azure/ff951633.aspx) |
+| C# | [ADO.NET](sql-database-develop-dotnet-simple.md) | [ADO.NET 사용자 지정](sql-database-develop-csharp-retry-windows.md)<br/><br/>[Enterprise Library](sql-database-develop-entlib-csharp-retry-windows.md) | (Entity Framework) |
 | C++ | [ODBC 드라이버](http://msdn.microsoft.com/library/azure/hh974312.aspx) | . | . |
 | Java | [Java. JDBC, JDK. 삽입, 트랜잭션, 선택.](sql-database-develop-java-simple-windows.md)<br/><br/>[Java. Eclipse](sql-data-java-how-to-use-sql-database.md)<br/><br/>[Java. JDBC](http://msdn.microsoft.com/library/azure/gg715284.aspx) | . | . |
 | Node.js | [msnodesql](sql-database-develop-nodejs-simple-windows.md) | . | . |
@@ -92,5 +92,6 @@
 - [Azure SQL 데이터베이스 개발: 방법 도움말 항목](http://msdn.microsoft.com/library/azure/ee621787.aspx)
 - [SQL 데이터베이스 연결: 링크, 모범 사례, 설계 지침](sql-database-connect-central-recommendations.md)
 - [첫 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)
+- [GitHub의 EF 7, Entity Framework 6](http://entityframework.codeplex.com/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

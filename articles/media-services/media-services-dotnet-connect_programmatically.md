@@ -171,14 +171,14 @@ Media Services SDK 버전 3.0.0.0부터 ACS 토큰을 다시 사용할 수 있�
 다음 App.config 파일에는 필수 연결 값이 포함됩니다. <appSettings> 요소의 값은 Media Services 게정 설정 과정에서 가져온 필수 값입니다.
 
 
-<pre><code>
-&lt;configuration>
-    &lt;appSettings>
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-    &lt;/appSettings>
-&lt;/configuration>
-</code></pre>
+```
+&lt;configuration&gt;
+    &lt;appSettings&gt;
+	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&gt;
+    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&gt;
+    &lt;/appSettings&gt;
+&lt;/configuration&gt;
+```
 
 구성에서 연결 값을 검색하려면 **ConfigurationManager** 클래스를 사용한 다음 코드에서 필드에 값을 할당합니다.
 	
@@ -191,4 +191,4 @@ Media Services SDK 버전 3.0.0.0부터 ACS 토큰을 다시 사용할 수 있�
 
 <!-- URLs. -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

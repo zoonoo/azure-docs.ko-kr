@@ -78,4 +78,4 @@ SQL Server 가상 컴퓨터를 준비하고 실행한 후 기존 데이터베이
   [sqlsecurity]: https://msdn.microsoft.com/library/azure/dn133147.aspx
   [technicalarticles]: https://msdn.microsoft.com/library/azure/dn248435.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

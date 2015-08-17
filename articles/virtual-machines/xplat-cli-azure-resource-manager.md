@@ -1,4 +1,4 @@
-﻿<properties
+<properties
 	pageTitle="Azure 리소스 관리에서 Mac, Linux 및 Windows용 Microsoft Azure CLI 사용 | Microsoft Azure"
 	description="Azure 리소스 관리자에서 Mac, Linux 및 Windows용 Microsoft Azure CLI 사용"
 	editor="tysonn"
@@ -7,14 +7,7 @@
 	authors="dlepow"
 	services="virtual-machines"/>
 
-<tags 
-ms.service="virtual-machines" 
-ms.workload="infrastructure-services" 
-ms.tgt_pltfrm="command-line-interface"
-ms.devlang="na" 
-ms.topic="article" 
-ms.date="06/09/2015" 
-ms.author="danlep"/>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services"" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="06/09/2015" ms.author="danlep"/>
 
 # Azure 리소스 관리자에서 Mac, Linux 및 Windows용 Azure CLI 사용
 
@@ -184,7 +177,7 @@ Azure CLI는 기본 VM 크기로 가상 컴퓨터를 만듭니다. 또한 저장
 
 #### 리소스 그룹 템플릿 찾기 및 구성
 
-1. 템플릿 작업을 할 경우 고유한 템플릿을 만들거나 템플릿 갤러리의 템플릿을 사용하거나 [GitHub](https://github.com/azurermtemplates/azurermtemplates)에 제공된 템플릿을 사용할 수 있습니다. 먼저 템플릿 갤러리의 CoreOS.CoreOSStable.0.2.40-preview 템플릿을 사용해 보겠습니다. 갤러리의 사용 가능한 템플릿을 나열하려면 다음 명령을 사용합니다. 수천 개의 템플릿을 사용할 수 있으므로 결과에 페이지를 매기거나, Windows에서 **grep** 또는 **findstr**을 사용하거나 즐겨찾기 문자열 검색 명령을 사용하여 흥미로운 템플릿을 찾을 수 있습니다. 또는 쉽게 검색할 수 있도록 **--json** 옵션을 사용하고 전체 목록을 JSON 형식으로 다운로드할 수 있습니다.
+1. 템플릿으로 작업할 경우 고유한 템플릿을 만들거나 템플릿 갤러리의 템플릿을 사용하거나 [GitHub](https://github.com/azurermtemplates/azurermtemplates)에 제공된 템플릿을 사용할 수 있습니다. 먼저 템플릿 갤러리의 CoreOS.CoreOSStable.0.2.40-preview 템플릿을 사용해 보겠습니다. 갤러리의 사용 가능한 템플릿을 나열하려면 다음 명령을 사용합니다. 수천 개의 템플릿을 사용할 수 있으므로 결과에 페이지를 매기거나, Windows에서 **grep** 또는 **findstr**을 사용하거나 즐겨 사용하는 문자열 검색 명령을 사용하여 흥미로운 템플릿을 찾을 수 있습니다. 또는 쉽게 검색할 수 있도록 **--json** 옵션을 사용하고 전체 목록을 JSON 형식으로 다운로드할 수 있습니다.
 
 		azure group template list
 
@@ -346,4 +339,4 @@ Azure CLI는 기본 VM 크기로 가상 컴퓨터를 만듭니다. 또한 저장
 [clisetup]: ../xplat-cli.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

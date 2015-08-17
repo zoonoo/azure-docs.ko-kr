@@ -97,8 +97,8 @@ Azure WebJob을 사용하여 Azure 웹 사이트에서 호스트되는 응용 �
 
 WebJob을 구성하는 경우:
 
-- 작업이 이벤트 기반 트리거에 응답하게 하려면 해당 작업을 **계속 실행**으로 구성해야 합니다. 스크립트 또는 프로그램은 site/wwwroot/app_data/jobs/continuous라는 폴더에 저장됩니다.
-- 작업이 일정 기반 트리거에 응답하게 하려면 해당 작업을 **일정에 따라 실행**으로 구성해야 합니다. 스크립트 또는 프로그램은 site/wwwroot/app_data/jobs/triggered라는 폴더에 저장됩니다.
+- 작업이 이벤트 기반 트리거에 응답하게 하려면 해당 작업을 **계속 실행**으로 구성해야 합니다. 스크립트 또는 프로그램은 site/wwwroot/app\_data/jobs/continuous라는 폴더에 저장됩니다.
+- 작업이 일정 기반 트리거에 응답하게 하려면 해당 작업을 **일정에 따라 실행**으로 구성해야 합니다. 스크립트 또는 프로그램은 site/wwwroot/app\_data/jobs/triggered라는 폴더에 저장됩니다.
 - 작업을 구성할 때 **요청 시 실행** 옵션을 선택하면 작업을 시작할 때 **일정에 따라 실행** 옵션과 같은 코드를 실행합니다.
 
 Azure WebJob은 웹 사이트의 샌드박스 내에서 실행하며, 이는 환경 변수를 액세스하고 연결 문자열 같은 정보를 웹 사이트와 공유할 수 있음을 의미합니다. 작업은 작업을 실행하는 컴퓨터의 고유 식별자에 액세스할 수 있습니다. **AzureJobsStorage**라는 연결 문자열은 Azure 저장소 큐, Blob 및 응용 프로그램 데이터에 대한 테이블, 그리고 메시징 및 통신을 위한 서비스 버스를 제공합니다. **AzureJobsDashboard**라는 연결 문자열은 작업 동작 로그 파일에 대한 액세스를 제공합니다.
@@ -108,18 +108,18 @@ Azure WebJob은 다음과 같은 특성을 가지고 있습니다.
 - **보안**: WebJob은 웹사이트의 배포 자격 증명에 의해 보호됩니다.
 - **지원되는 파일 형식**: WebJob은 명령 스크립트(.cmd), 배치 파일(.bat), PowerShell 스크립트(.ps1), Bash 셸 스크립트(.sh), PHP 스크립트(.php), Python 스크립트(.py), JavaScript 코드(.js) 및 실행 프로그램(.exe,.jar 등)을 사용하여 정의할 수 있습니다.
 - **배포**: 스크립트 및 실행 파일은 Azure 포털을 사용하여 배포할 수 있으며, Visual Studio용 [WebJobsVs](https://visualstudiogallery.msdn.microsoft.com/f4824551-2660-4afa-aba1-1fcc1673c3d0) 추가 기능 또는 [Visual Studio 2013 업데이트 4](http://www.visualstudio.com/news/vs2013-update4-rc-vs)를 사용하거나 [Azure WebJobs SDK](websites-dotnet-webjobs-sdk-get-started.md)를 사용하거나 이들을 다음 위치에 직접 복사하여 만들고 배포할 수 있습니다.
-  - 트리거된 실행의 경우: site/wwwroot/app_data/jobs/triggered/{job name}
-  - 연속 실행의 경우: site/wwwroot/app_data/jobs/continuous/{job name}
+  - 트리거된 실행의 경우: site/wwwroot/app\_data/jobs/triggered/{job name}
+  - 연속 실행의 경우: site/wwwroot/app\_data/jobs/continuous/{job name}
 - **로깅**: Console.Out은 INFO로 처리(표시)되며 Console.Error는 ERROR로 처리됩니다. 모니터링 및 진단 정보는 Azure 포털을 사용하여 액세스할 수 있으며 로그 파일은 사이트에서 직접 다운로드할 수 있습니다. 이들은 다음 위치에 저장됩니다.
   - 트리거된 실행의 경우: Vfs/data/jobs/continuous/jobName
   - 연속 실행의 경우: Vfs/data/jobs/triggered/jobName
 - **구성**: WebJobs 포털, REST API 및 PowerShell을 사용 하 여 구성할 수 있습니다. 작업 스크립트와 같은 루트 디렉터리의 settings.job이라는 구성 파일을 사용하여 작업에 대한 구성 정보를 제공할 수 있습니다. 예:
-  - { "stopping_wait_time": 60 }
-  - { "is_singleton": true }
+  - { "stopping\_wait\_time": 60 }
+  - { "is\_singleton": true }
 
 ### 고려 사항
 
-- 기본적으로 WebJob 웹사이트와 함께 확장됩니다. 그러나 **is_singleton** 구성 속성을 true로 설정하여 작업을 단일 인스턴스에서 실행하도록 구성할 수 있습니다. 단일 인스턴스 WebJob은 확장을 원하지 않거나 인덱싱 다시 수행, 데이터 분석 및 유사한 작업 등 동시에 복수 인스턴스의 실행을 원하지 않는 작업에 유용합니다.
+- 기본적으로 WebJob 웹사이트와 함께 확장됩니다. 그러나 **is\_singleton** 구성 속성을 true로 설정하여 작업을 단일 인스턴스에서 실행하도록 구성할 수 있습니다. 단일 인스턴스 WebJob은 확장을 원하지 않거나 인덱싱 다시 수행, 데이터 분석 및 유사한 작업 등 동시에 복수 인스턴스의 실행을 원하지 않는 작업에 유용합니다.
 - 작업이 웹 사이트의 성능에 미치는 영향을 최소화하려면 장기 실행 또는 리소스를 많이 사용할 수 있는 WebJob을 호스트하기 위해 새 앱 서비스 계획에 빈 Azure 웹 사이트 인스턴스를 만드는 것이 좋습니다.
 
 ### 자세한 정보
@@ -236,9 +236,9 @@ Azure 가상 컴퓨터에서 백그라운드 작업을 배포할지 여부를 �
 
 - Azure는 역할 어셈블리를 로드하고 **RoleEntryPoint**에서 파생된 클래스를 검색합니다.
 - 이 클래스를 발견하면 **RoleEntryPoint.OnStart()**를 호출합니다. 사용자의 백그라운드 작업을 초기화하려면 이 메서드를 재정의합니다.
-- **OnStart** 메서드가 완료된 후 Azure는 응용 프로그램의 전역 파일(있는 경우, 예: ASP.NET을 실행하는 웹 역할의 Global.asax)에서 **Application_start ()**를 호출합니다.
+- **OnStart** 메서드가 완료된 후 Azure는 응용 프로그램의 전역 파일(있는 경우, 예: ASP.NET을 실행하는 웹 역할의 Global.asax)에서 **Application\_start ()**를 호출합니다.
 - Azure는 **OnStart()**와 병렬로 실행하는 새 포그라운드에 대해 **RoleEntryPoint.Run()**을 호출합니다. 사용자의 백그라운드 작업을 시작하려면 이 메서드를 재정의합니다.
-- Run 메서드가 종료되면 Azure는 먼저 응용 프로그램의 전역 파일(있는 경우)에서 **Application_End()**를 호출한 다음 **RoleEntryPoint.OnStop()**을 호출합니다. 사용자의 백그라운드 작업 중지, 리소스 정리, 개체 삭제 및 작업이 사용했을 수 있는 연결 닫기를 수행하려면 **OnStop**을 재정의합니다.
+- Run 메서드가 종료되면 Azure는 먼저 응용 프로그램의 전역 파일(있는 경우)에서 **Application\_End()**를 호출한 다음 **RoleEntryPoint.OnStop()**을 호출합니다. 사용자의 백그라운드 작업 중지, 리소스 정리, 개체 삭제 및 작업이 사용했을 수 있는 연결 닫기를 수행하려면 **OnStop**을 재정의합니다.
 - Azure 작업자 역할 호스트 프로세스는 중지됩니다. 이 시점에 역할이 재활용되고 다시 시작됩니다.
 
 **RoleEntryPoint** 클래스의 메서드 사용에 대한 더 자세한 내용 및 예제는 [계산 리소스 통합 패턴](http://msdn.microsoft.com/library/dn589778.aspx)을 참조하세요.
@@ -290,7 +290,7 @@ Azure 가상 컴퓨터에서 백그라운드 작업을 배포할지 여부를 �
 - 백그라운드 작업이 클라우드 서비스 응용 프로그램(예: UI 또는 데이터 액세스 계층 같은 구성 요소)의 다른 부분에서 다른 성능 용량을 가지는 경우, 백그라운드 작업을 별도 작업자 역할에서 함께 호스트하면 UI 및 백그라운드 작업이 부하를 독립적으로 관리하도록 크기 조정할 수 있습니다. 여러 백그라운드 작업이 서로 크게 다른 성능 기능을 가지는 경우, 작업을 별도 작업자 역할로 분할하고 각 역할 유형을 독립적으로 크기 조정하는 것을 고려하십시오. 단, 참고로 이렇게 하면 모든 작업을 더 적은 수의 역할로 결합하는 방법에 비해 런타임 비용이 증가할 수 있습니다.
 - 단순히 역할의 크기만 조정하면 부하를 받을 때 성능 손실을 방지하기에 부족할 수 있습니다. 또한 전체 처리 체인의 단일 지점이 병목 상태가 되는 것을 방지하기 위해 저장소 큐 및 다른 리소스를 크기 조정해야 할 수 있습니다. 또한 저장소의 최대 처리량 및 응용 프로그램과 백그라운드 작업이 의존하는 다른 서비스 등 다른 제한도 고려해야 합니다.
 - 백그라운드 작업은 크기 조정을 고려하여 디자인해야 합니다. 예를 들어 이러한 작업은 저장소 큐에서 수신 대기하거나 메시지를 해당 큐에 보내기 위해 사용 중인 저장소 큐 수를 동적으로 감지할 수 있어야 합니다.
-- 기본적으로 WebJob은 자체의 연결된 Azure 웹 사이트 인스턴스에 따라 크기 조정합니다. 그러나 WebJob을 단일 인스턴스로 실행하려면 JSON 데이터 **{"is_singleton": true}**가 포함된 Settings.job 파일을 만들 수 있습니다. 이렇게 하면 연결된 웹 사이트의 여러 인스턴스가 있더라도 Azure가 WebJob의 인스턴스를 한 개만 실행하게 되며, 이는 단일 인스턴스로만 실행해야 하는 예약된 작업에 유용한 방법입니다.
+- 기본적으로 WebJob은 자체의 연결된 Azure 웹 사이트 인스턴스에 따라 크기 조정합니다. 그러나 WebJob을 단일 인스턴스로 실행하려면 JSON 데이터 **{"is\_singleton": true}**가 포함된 Settings.job 파일을 만들 수 있습니다. 이렇게 하면 연결된 웹 사이트의 여러 인스턴스가 있더라도 Azure가 WebJob의 인스턴스를 한 개만 실행하게 되며, 이는 단일 인스턴스로만 실행해야 하는 예약된 작업에 유용한 방법입니다.
 
 ## 관련된 패턴
 
@@ -317,4 +317,4 @@ Azure 가상 컴퓨터에서 백그라운드 작업을 배포할지 여부를 �
 - [Azure 큐 및 서비스 버스 큐 - 비교 및 대조](http://msdn.microsoft.com/library/hh767287.aspx)
 - [클라우드 서비스에서 진단 기능을 사용하는 방법](http://msdn.microsoft.com/library/dn482131.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

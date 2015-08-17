@@ -158,4 +158,4 @@ Mac, Linux 및 Windows용 Azure CLI를 설치하지 않은 경우 [Azure CLI 설
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

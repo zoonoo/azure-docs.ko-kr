@@ -48,19 +48,9 @@ Xml 유효성 검사는 미리 구성된 스키마에 대해 지정된 xml 입�
 
 ![BizTalk XML 유효성 검사기 Xml 유효성 검사][5]
 
-<table>
-	<tr>
-		<th>매개 변수</th>
-		<th>형식</th>
-		<th>매개 변수에 대한 설명</th>
-	</tr>
-	<tr>
-		<td>Input Xml</td>
-		<td>string</td>
-		<td>유효성을 검사할 입력 Xml</td>
-	</tr>
-</table>
-
+매개 변수|형식|매개 변수에 대한 설명
+---|---|---
+Input Xml|string|유효성을 검사할 입력 Xml
 
 작업에서 출력을 개체로 반환합니다. 출력은 Xml 유효성 검사기의 응답을 나타내는 모델을 포함합니다. 이것은 결과, 스키마 이름, 루트 노드 및 오류 설명으로 이루어져 있습니다.
 
@@ -75,4 +65,4 @@ Xml 유효성 검사는 미리 구성된 스키마에 대해 지정된 xml 입�
 [6]: ./media/app-service-logic-xml-validator/img1.PNG
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -60,4 +60,4 @@ StorSimple 스냅숏 관리자를 사용하여 현재 백업 작업, 예약된 �
 
 [StorSimple 스냅숏 관리자 다운로드](https://www.microsoft.com/download/details.aspx?id=44220)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

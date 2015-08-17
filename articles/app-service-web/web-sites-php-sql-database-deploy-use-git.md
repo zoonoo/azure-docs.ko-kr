@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="08/03/2015" 
 	ms.author="tomfitz"/>
 
 # PHP-SQL 웹 앱 만들기 및 Git를 사용하여 Azure 앱 서비스에 배포하기
@@ -132,7 +132,7 @@ Azure 웹 앱 및 SQL 데이터베이스를 만들려면 다음 단계를 따르
 
 	<code>$user</code> 및 <code>$pwd</code>의 값을 로컬 SQL Server 사용자 이름 및 암호로 업데이트해야 합니다.
 
-4. 웹 브라우저를 열고 **http://localhost/registration/createtable.php**으로 이동합니다. 그러면 데이터베이스에 `registration_tbl` 테이블이 만들어집니다.
+4. 웹 브라우저를 열고 ****http://localhost/registration/createtable.php**(으)로 이동합니다. 그러면 데이터베이스에 `registration_tbl` 테이블이 만들어집니다.
 
 5. 텍스트 편집기 또는 IDE에서 **index.php** 파일을 열고 페이지의 기본 HTML 및 CSS 코드를 추가합니다(PHP 코드는 이후 단계에서 추가 예정).
 
@@ -228,7 +228,7 @@ Azure 웹 앱 및 SQL 데이터베이스를 만들려면 다음 단계를 따르
 			echo "<h3>No one is currently registered.</h3>";
 		}
 
-이제 **http://localhost/registration/index.php**로 이동하여 응용 프로그램을 테스트할 수 있습니다.
+이제 ****http://localhost/registration/index.php**(으)로 이동하여 응용 프로그램을 테스트할 수 있습니다.
 
 ##응용 프로그램 게시
 
@@ -292,4 +292,4 @@ Azure 웹 앱 및 SQL 데이터베이스를 만들려면 다음 단계를 따르
 [pdo-sqlsrv]: http://php.net/pdo_sqlsrv
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

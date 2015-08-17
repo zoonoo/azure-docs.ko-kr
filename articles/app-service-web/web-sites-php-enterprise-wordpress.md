@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="web"
-	ms.date="04/29/2015"
+	ms.date="08/03/2015"
 	ms.author="tomfitz"/>
 
 #Azure 앱 서비스의 엔터프라이즈급 WordPress
@@ -165,17 +165,17 @@ Blob 저장소는 기본적으로 여러 지역에 지리적으로 분산되어 
 
 	2. WordPress 백업에서 **wp-config.php** 파일을 찾아 편집기에서 엽니다. 다음 항목을 새 MySQL 데이터베이스에 대한 정보로 바꿉니다.
 
-		* **DB_NAME** - 데이터베이스의 사용자 이름
+		* **DB\_NAME** - 데이터베이스의 사용자 이름
 
-		* **DB_USER** - 데이터베이스에 액세스하는 데 사용되는 사용자 이름
+		* **DB\_USER** - 데이터베이스에 액세스하는 데 사용되는 사용자 이름
 
-		* **DB_PASSWORD** - 사용자 암호
+		* **DB\_PASSWORD** - 사용자 암호
 
 		이러한 항목을 변경한 후에는 **wp-config.php** 파일을 저장한 후 닫습니다.
 
 	3. [Azure 앱 서비스에서 웹앱 배포][deploy] 정보를 사용하여 사용할 배포 방식을 설정한 다음 Azure 앱 서비스에서 웹앱으로 WordPress 백업을 배포합니다.
 
-5. WordPress 사이트가 배포되면 *사이트에 대한 .azurewebsite.net URL을 사용하여 새 사이트(앱 서비스 웹앱)에 액세스할 수 있어야 합니다.
+5. WordPress 사이트가 배포되면 사이트에 대한 *.azurewebsite.net URL을 사용하여 새 사이트(앱 서비스 웹 앱)에 액세스할 수 있어야 합니다.
 
 ###사이트 구성
 
@@ -184,7 +184,7 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
 원하는 작업.. | 사용 기능...
 ------------- | -----------
 **앱 서비스 계획 모드, 크기 및 사용 크기 조정 설정** | [Azure 앱 서비스에서 웹 앱 크기 조정][websitescale]
-**영구 데이터베이스 연결 사용** <p>기본적으로 WordPress는 영구 데이터베이스 연결을 사용하지 않으므로 여러 번 연결된 후에 데이터베이스에 대한 연결이 조절될 수 있습니다.</p> | <ol><li><p><strong>wp-includes/wp-db.php</strong> 파일을 편집합니다.</p></li><li><p>다음 줄을 찾습니다.</p><code>$this->dbh = mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags );</code></li><li><p>이전 줄을 다음으로 바꿉니다.</p><code>$this->dbh = mysql_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword, $client_flags ); <br/>if ( false !== $error_reporting ) { /br/>&nbsp;&nbsp;error_reporting( $error_reporting ); <br/>} </code></li><li><p>다음 줄을 찾습니다.</p><code>$this->dbh = @mysql_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new_link, $client_flags ); </code></li><li><p>위 줄을 다음으로 바꿉니다.</p><code>$this->dbh = @mysql_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword, $client_flags ); </code></li><li><p><strong>wp-includes/wp-db.php</strong> 파일을 저장하고 사이트를 다시 배포합니다.</p></li></ol><div class="wa-note"><span class="wa-icon-bulb"></span><p>WordPress를 업데이트하면 변경 내용을 덮어쓸 수 있습니다.</p><p>WordPress는 기본적으로 자동으로 업데이트됩니다. <strong>wp-config.php</strong> 파일을 편집하고 <code>정의를 추가하여 이 기능을 해제할 수 있습니다.( 'WP_AUTO_UPDATE_CORE', false );</code></p><p>업데이트를 해결하는 다른 방법으로 WebJob을 사용하여 <strong>wp-db.php</strong> 파일을 모니터링하고 파일이 업데이트될 때마다 위 수정을 수행할 수 있습니다. 자세한 내용은 <a href="http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx">WebJobs 소개</a>를 참조하세요.</p></div>
+**영구 데이터베이스 연결 사용** <p>기본적으로 WordPress는 영구 데이터베이스 연결을 사용하지 않으므로 여러 번 연결된 후에 데이터베이스에 대한 연결이 조절될 수 있습니다.</p> | <ol><li><p><strong>wp-includes/wp-db.php</strong> 파일을 편집합니다.</p></li><li><p>다음 줄을 찾습니다.</p><code>$this->dbh = mysql\_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new\_link, $client\_flags );</code></li><li><p>이전 줄을 다음으로 바꿉니다.</p><code>$this->dbh = mysql\_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword, $client\_flags ); <br/>if ( false !== $error\_reporting ) { /br/>&nbsp;&nbsp;error\_reporting( $error\_reporting ); <br/>} </code></li><li><p>다음 줄을 찾습니다.</p><code>$this->dbh = @mysql\_connect( $this->dbhost, $this->dbuser, $this->dbpassword, $new\_link, $client\_flags ); </code></li><li><p>위 줄을 다음으로 바꿉니다.</p><code>$this->dbh = @mysql\_pconnect( $this->dbhost, $this->dbuser, $this->dbpassword, $client\_flags ); </code></li><li><p><strong>wp-includes/wp-db.php</strong> 파일을 저장하고 사이트를 다시 배포합니다.</p></li></ol><div class="wa-note"><span class="wa-icon-bulb"></span><p>WordPress를 업데이트하면 변경 내용을 덮어쓸 수 있습니다.</p><p>WordPress는 기본적으로 자동으로 업데이트됩니다. <strong>wp-config.php</strong> 파일을 편집하고 <code>정의를 추가하여 이 기능을 해제할 수 있습니다.( 'WP\_AUTO\_UPDATE\_CORE', false );</code></p><p>업데이트를 해결하는 다른 방법으로 WebJob을 사용하여 <strong>wp-db.php</strong> 파일을 모니터링하고 파일이 업데이트될 때마다 위 수정을 수행할 수 있습니다. 자세한 내용은 <a href="http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx">WebJobs 소개</a>를 참조하세요.</p></div>
 **성능 향상** | <ul><li><p><a href="http://ppe.blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx">ARR 쿠키 사용 안 함</a> - 여러 웹앱 인스턴스에서 WordPress를 실행할 때 성능을 향상시킬 수 있습니다.</p></li><li><p>캐싱을 사용하도록 설정합니다. <a href="http://msdn.microsoft.com/library/azure/dn690470.aspx">Redis 캐시</a>(미리 보기)를 <a href="https://wordpress.org/plugins/redis-object-cache/">Redis 개체 캐시 WordPress 플러그 인과 함께 사용하거나</a> <a href="/gallery/store/">Azure Store</a>의 기타 캐싱 서비스 중 하나를 사용합니다.</p></li><li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">Wincache로 WordPress를 더 빠르게 만드는 방법</a> - Wincache는 웹앱에 대해 기본적으로 사용되도록 설정되어 있습니다.</p></li><li><p><a href="../web-sites-scale/">Azure 앱 서비스에서 웹앱을 확장하고</a> <a href="http://www.cleardb.com/developers/cdbr/introduction">ClearDB 고가용성 라우팅</a> 또는 <a href="http://www.mysql.com/products/cluster/">MySQL Cluster CGE</a>를 사용합니다.</p></li></ul>
 **저장소에 Blob 사용** | <ol><li><p><a href="../storage-create-storage-account/">Azure 저장소 계정 만들기</a></p></li><li><p><a href="../cdn-how-to-use/">CDN(콘텐츠 배포 네트워크)을 사용하여</a> blob에 저장된 데이터를 지리적으로 분산하는 방법을 알아봅니다.</p></li><li><p><a href="https://wordpress.org/plugins/windows-azure-storage/">WordPress용 Azure 저장소 플러그 인</a>을 설치하고 구성합니다.</p><p>이 플러그 인의 자세한 설정 및 구성 정보에 대해서는 <a href="http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx">사용자 가이드</a>를 참조하세요.</p> </li></ol>
 **전자 메일 사용** | <ol><li><p><a href="/gallery/store/sendgrid/sendgrid-azure/">Azure Store를 사용하여 SendGrid 사용</a></p></li><li><p><a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified/">WordPress용 SendGrid 플러그 인 설치</a></p></li></ol>
@@ -283,4 +283,4 @@ WordPress 사이트가 만들어지거나 마이그레이션되면 다음 정보
 [cdn]: ../cdn-how-to-use.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

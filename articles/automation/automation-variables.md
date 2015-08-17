@@ -188,4 +188,4 @@ Azure 포털에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 - [그래픽 작성의 링크](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

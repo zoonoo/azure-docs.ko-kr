@@ -141,4 +141,4 @@ Microsoft Azure 미디어 서비스를 사용하면 128비트 암호화 키를 �
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

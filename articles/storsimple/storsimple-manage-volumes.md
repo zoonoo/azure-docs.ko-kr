@@ -181,4 +181,4 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

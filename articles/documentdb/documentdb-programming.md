@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DocumentDB 프로그래밍: 저장된 프로시저, 트리거 및 UDF | Azure" 
+	pageTitle="DocumentDB 프로그래밍: 저장된 프로시저, 트리거 및 UDF | Microsoft Azure" 
 	description="Microsoft Azure DocumentDB를 사용하여 JavaScript에서 기본적으로 저장 프로시저, 트리거 및 UDF(사용자 정의 함수)를 작성하는 방법을 알아봅니다." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -641,4 +641,4 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 -	[서비스 지향 데이터베이스 아키텍처](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Microsoft SQL server에서 .NET 런타임 호스팅](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

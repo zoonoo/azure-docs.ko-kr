@@ -1,3 +1,3 @@
 이 데이터 집합은 Carnegie Mellon University의 StatLib 도서관에서 제공한 데이터 집합의 약간 수정된 버전입니다. 이 데이터 집합은 1983 American Statistical Association Exposition에서 사용되었습니다.<p> </p>데이터에는 다양한 자동차에 대한 연료 소비량(m.p.g), 실린더 수, 엔진 배기량, 마력, 총 중량, 가속도가 함께 나열됩니다.<p> </p><b>사용:</b> 다중 값 개별 특성 3개 및 연속 특성 5개를 기반으로 연비를 예측합니다. <p> </p><b>관련 조사:</b> StatLib, Carnegie Mellon University, (1993). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

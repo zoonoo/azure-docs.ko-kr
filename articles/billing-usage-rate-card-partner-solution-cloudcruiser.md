@@ -133,4 +133,4 @@ Cloud Cruiser에서 서비스를 정의하는 여러 가지 방법이 있습니�
 [8]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workbook-Scheduling.png "그림 8- 워크북 예약"
 [9]: ./media/billing-usage-rate-card-partner-solution-cloudcruiser/Workload-Cost-Simulation-Report.png "그림 9- 워크로드 비용 비교 시나리오에 대한 예제 보고서"
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

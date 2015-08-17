@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure 스트림 분석 쿼리 패턴 | Microsoft Azure"
-	description="Azure 스트림 분석 샘플 쿼리 언어 가이드"
+	description="일반적인 Azure 스트림 분석 쿼리 패턴"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,11 +13,11 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/30/2015"
+	ms.date="08/03/2015"
 	ms.author="jeffstok"/>
 
 
-# Azure 스트림 분석 샘플 쿼리 언어 가이드 #
+# 일반적인 Azure 스트림 분석 쿼리 패턴  #
 
 ## 소개 ##
 Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azure/dn834998.aspx)에 문서화된 SQL과 유사한 언어로 표현됩니다. 이 문서에서는 실제 시나리오에 따른 몇가지 일반적인 쿼리 패턴에 대한 솔루션을 간략적으로 설명합니다. 이 작업은 진행중이며 새 패턴이 지속적으로 업데이트됩니다.
@@ -454,4 +454,4 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -84,7 +84,7 @@ Azure AD는 각 응용 프로그램 공급 업체에서 제공하는 프로비�
  - 사용자가 최근에 응용 프로그램에 할당되었고 SaaS 앱에 이미 계정이 있는 경우, 이 계정은 사용할 수 있는 것으로 표시되며, 사용자 속성이 디렉터리와 비교하여 오래된 정보일 경우 업데이트됩니다.
  - 디렉터리에서 사용자의 정보(예: 전화 번호, 사무실 위치 등)가 변경된 경우, 이러한 정보 역시 SaaS 응용 프로그램에 업데이트됩니다.
 
-Azure AD와 SaaS 앱 사이에서 특성이 매핑되는 방법에 대한 자세한 내용은 [특성 매핑 사용자 지정](https://msdn.microsoft.com/library/azure/dn872469.aspx)의 문서를 참조하십시오.
+Azure AD와 SaaS 앱 사이에서 특성이 매핑되는 방법에 대한 자세한 내용은 [특성 매핑 사용자 지정](active-directory-saas-customizing-attribute-mappings.md)의 문서를 참조하십시오.
 
 ##자동 사용자 프로비저닝을 지원하는 앱 목록
 
@@ -106,4 +106,6 @@ Azure AD와 SaaS 앱 사이에서 특성이 매핑되는 방법에 대한 자세
 
 추가 응용 프로그램을 위한 프로비저닝 지원을 요청하기 위해 Azure AD 엔지니어링 팀에 문의하려면 [Azure Active Directory 피드백 포럼](http://feedback.azure.com/forums/169401-azure-active-directory)을 통해 메시지를 제출하십시오.
 
-<!---HONumber=July15_HO5-->
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
+
+<!---HONumber=August15_HO6-->

@@ -81,4 +81,4 @@ DPM 데이터를 백업하기 위해 다음과 같이 Azure 백업을 준비합�
 
 >[AZURE.NOTE]System Center 2012 DPM SP1부터는 DPM으로 보호되는 워크로드를 Microsoft Azure 백업을 사용하여 Azure에 백업할 수 있습니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

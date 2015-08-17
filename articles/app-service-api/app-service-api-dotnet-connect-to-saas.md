@@ -450,8 +450,6 @@ Dropbox 로그인 이후에 나타나는 리디렉션 URL은 다음과 같을 �
 SaaS 플랫폼에 연결되는 API 앱을 코딩 및 구성하는 방법을 살펴보았습니다. API 앱에서 인증을 처리하는 방법에 대한 다른 자습서로 연결되는 링크를 보려면 [API 앱 및 모바일 앱에 대한 인증 - 다음 단계](../app-service/app-service-authentication-overview.md#next-steps)를 참조하세요.
 
 [Azure preview portal]: https://portal.azure.com/
-[Azure Preview 포털]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
-[Azure 포털]: https://manage.windowsazure.com/
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

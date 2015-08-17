@@ -200,7 +200,7 @@ SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으�
 -   SendGrid API 설명서: <https://sendgrid.com/docs>
 -   Azure 고객을 위한 SendGrid 특가 제공: [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
 
-  [다음 단계]: http://azure.microsoft.com/develop/nodejs/how-to-guides/blob-storage/#next-steps
+  [다음 단계]: http://www.windowsazure.com/develop/nodejs/how-to-guides/blob-storage/#next-steps
   [SendGrid 메일 서비스 정의]: #whatis
   [SendGrid 계정 만들기]: #createaccount
   [SendGrid Node.js 모듈 참조]: #reference
@@ -224,4 +224,4 @@ SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으�
   [트랜잭션 전자 메일 배달]: https://sendgrid.com/email-solutions
   [클라우드 기반 전자 메일 서비스]: https://sendgrid.com/transactional-email
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,49 +1,57 @@
 <properties
-   pageTitle="공존하도록 Express 경로 및 사이트 간 VPN 구성"
-   description="이 자습서에서는 Express 경로와 사이트 간 VPN 연결을 공존하도록 구성하는 과정을 안내합니다."
+   pageTitle="공존할 수 있는 Express 경로 및 사이트 간 VPN 구성"
+   description="이 자습서에서는 Express 경로와 사이트 간 VPN 연결을 공존할 수 있도록 구성하는 과정을 안내합니다."
    documentationCenter="na"
    services="expressroute"
    authors="cherylmc"
-   manager="jdial"
+   manager="carolz"
    editor="tysonn" />
 <tags
    ms.service="expressroute"
    ms.devlang="na"
-   ms.topic="article" 
+   ms.topic="get-started-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/20/2015"
+   ms.date="08/05/2015"
    ms.author="cherylmc"/>
 
 # 공존하는 Express 경로 및 사이트 간 VPN 구성
 
 이제 Express 경로와 사이트 간 VPN을 동일한 가상 네트워크에 연결할 수 있습니다. 두 가지 시나리오와 두 가지 구성 절차 중에서 선택할 수 있습니다.
 
-### 시나리오
+## 시나리오
 
-두 가지 시나리오가 있으며, 아래 그림에 두 시나리오가 나와 있습니다.
+### 시나리오 1
 
-- **시나리오 1** - 하나의 로컬 네트워크가 있는 경우 Express 경로는 활성 링크이고 사이트 간 VPN은 백업으로 사용됩니다. Express 경로 연결에 실패한 경우 사이트 간 VPN 연결이 활성화됩니다. 이 시나리오는 고가용성에 가장 적합합니다.
+이 시나리오에서는 하나의 로컬 네트워크가 있습니다. Express 경로는 활성 링크이며 사이트간 VPN은 백업입니다. Express 경로가 연결에 실패한 경우 사이트 간 VPN 연결이 활성화됩니다. 이 시나리오는 고가용성에 가장 적합합니다.
 
-- **시나리오 2** - 두 개의 로컬 네트워크가 있는 경우 각각 Express 경로와 사이트 간 VPN을 통해 Azure에 연결할 수 있습니다. 이 경우 두 연결 모두 동시에 활성화됩니다.
-
-
-![공존](media/expressroute-coexist/coexist1.jpg)
+![공존](media/expressroute-coexist/scenario1.jpg)
 
 
-### 구성 절차
 
-두 가지 구성 절차 중에서 선택할 수 있습니다. 연결할 기존 가상 네트워크가 있는지, 아니면 새 가상 네트워크를 만들 것인지에 따라 구성 절차를 선택합니다.
+### 시나리오 2
+
+이 시나리오에서는 두 개의 로컬 네트워크가 있습니다. 각각 Express 경로와 사이트 간 VPN을 통해 Azure에 연결할 수 있습니다. 이 경우 두 연결 모두 동시에 활성화됩니다.
+
+![공존](media/expressroute-coexist/scenario2.jpg)
 
 
-- [공존하는 연결을 사용하여 새 VNet 만들기](#create-a-new-vnet-with-coexisting-connections): 가상 네트워크가 아직 없는 경우 이 절차에서는 새 가상 네트워크를 만들고 새 Express 경로 및 사이트 간 VPN 연결을 만드는 과정을 안내합니다.  
+## 만들기 및 구성
+
+연결이 공존하도록 구성하기 위해 선택하는 서로 다른 두 절차가 있습니다. 연결할 기존 가상 네트워크가 있는지, 아니면 새 가상 네트워크를 만들 것인지에 따라 구성 절차를 선택합니다.
+
+- **새 가상 네트워크와 함께 사용하는 연결을 만듭니다.** 
+	
+	가상 네트워크가 아직 없는 경우 이 절차에서는 새 가상 네트워크를 만들고 새 Express 경로 및 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 구성 하려면 다음 단계에 따라 [새 가상 네트워크 및 연결을 만듭니다](#create-a-new-virtual-network-and-connections-that-coexist).
+
+- **공존하는 연결에 맞게 기존 가상 네트워크 구성:**
+	
+	기존 사이트 간 VPN 또는 Express 경로에 연결된 가상 네트워크가 이미 있을 수 있습니다. [기존 가상 네트워크에 대해 함께 사용하는 연결 구성](#configure-connections-that-coexist-for-your-existing-virtual-network) 절차에서는 게이트웨이를 삭제한 다음 새 Express 경로 및 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 새 연결을 만들 때 지정된 순서대로 단계를 완료해야 합니다. 게이트웨이 및 연결을 만들 때 다른 문서의 지침을 사용하지 마세요.
+
+	이 절차에서 함께 사용할 수 있는 연결을 만들려면 게이트웨이를 삭제한 다음 공존할 수 있는 새 게이트웨이를 구성해야 합니다. 이 경우 게이트웨이 및 연결을 삭제하고 다시 만드는 동안 크로스-프레미스 연결을 위한 가동 중지 시간이 발생하지만 VM 또는 서비스를 새 가상 네트워크로 마이그레이션할 필요는 없습니다. VM 및 서비스는 게이트웨이를 구성하는 동안 부하 분산 장치를 통해 계속 통신할 수 있습니다(이렇게 구성된 경우).
 
 
-- [공존하는 연결에 맞게 기존 VNet 구성](#configure-your-existing-vnet-for-coexisting-connections): 기존 사이트 간 VPN 또는 Express 경로에 연결된 가상 네트워크가 이미 있을 수 있습니다. 공존하는 연결을 만들려면 게이트웨이를 삭제한 다음 공존할 수 있는 새 게이트웨이를 구성해야 합니다. 이 경우 게이트웨이 및 연결을 삭제하고 다시 만드는 동안 크로스-프레미스 연결을 위한 가동 중지 시간이 발생하지만 VM 또는 서비스를 새 가상 네트워크로 마이그레이션할 필요는 없습니다. VM 및 서비스는 게이트웨이를 구성하는 동안 부하 분산 장치를 통해 계속 통신할 수 있습니다(이렇게 구성된 경우).
-
-	이 절차에서는 게이트웨이를 삭제한 다음 새 Express 경로 및 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 새 연결을 만들 때 지정된 순서대로 단계를 완료해야 합니다. 게이트웨이 및 연결을 만들 때 다른 문서의 지침을 사용하지 마세요.
-
-### 참고 사항 및 제한 사항
+## 참고 사항 및 제한 사항
 
 - 사이트 간 VPN을 통해 연결된 로컬 네트워크와 Express 경로를 통해 연결된 로컬 네트워크 간에는 Azure를 통해 라우팅할 수 없습니다.
 - 지점 및 사이트 간 VPN을 Express 경로에 연결된 동일한 VNet에 연결할 수 없습니다. 동일한 VNet에 대해 지점 및 사이트간 VPN과 Express 경로를 함께 사용할 수 없습니다.
@@ -56,7 +64,9 @@
 	- [EXP(Exchange 공급자)를 통해 Express 경로 연결 구성](expressroute-configuring-exps.md)
 
 
-## 공존하는 연결을 사용하여 새 VNet 만들기
+## 새 가상 네트워크와 함께 사용하는 연결을 만듭니다.
+
+이 절차는 가상 네트워크 만들기 및 함께 사용하는 사이트 간 및 Express 경로 연결을 만드는 방법을 안내합니다.
 
 1. PowerShell cmdlet의 최신 버전이 있는지 확인합니다. [다운로드 페이지](http://azure.microsoft.com/downloads/)의 PowerShell 섹션에서 최신 PowerShell cmdlet을 다운로드하여 설치할 수 있습니다.
 2. 가상 네트워크의 스키마를 만듭니다. 네트워크 구성 파일 작업에 대한 자세한 내용은 [네트워크 구성 파일을 사용하여 가상 네트워크 구성](../virtual-network/virtual-networks-using-network-configuration-file.md)을 참조하세요. 구성 스키마에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 참조하세요.
@@ -163,14 +173,14 @@
 	`New-AzureVirtualNetworkGatewayConnection -connectedEntityId <local-network-gateway-id> -gatewayConnectionName Azure2Local -gatewayConnectionType IPsec -sharedKey abc123 -virtualNetworkGatewayId <azure-s2s-vpn-gateway-id>`
 
 
-## 공존하는 연결에 맞게 기존 VNet 구성
+## 기존 가상 네트워크에 대해 함께 사용하는 연결 구성
 
 Express 경로 또는 사이트 간 VPN 연결을 통해 연결된 기존 가상 네트워크가 있는 경우 두 연결 모두를 기존 게이트웨이에 연결하려면 먼저 기존 게이트웨이를 삭제해야 합니다. 이 구성에서 작업하는 동안에는 로컬 프레미스에서 게이트웨이를 통한 가상 네트워크 연결이 손실됩니다.
 
 **구성을 시작하기 전에:** 게이트웨이 서브넷 크기를 늘릴 수 있도록 가상 네트워크에 충분한 IP 주소가 남아 있는지 확인합니다.
 
 
-1. PowerShell cmdlet의 최신 버전이 있는지 확인합니다. [다운로드 페이지](http://azure.microsoft.com/downloads/)의 PowerShell 섹션에서 최신 PowerShell cmdlet을 다운로드하여 설치할 수 있습니다.
+1. 최신 버전의 PowerShell cmdlet를 다운로드합니다. [다운로드 페이지](http://azure.microsoft.com/downloads/)의 PowerShell 섹션에서 최신 PowerShell cmdlet을 다운로드하여 설치할 수 있습니다.
  
 2. 기존 사이트 간 VPN 게이트웨이를 삭제합니다. 다음 cmdlet(사용자 고유의 값으로 대체)을 사용합니다.
 
@@ -194,7 +204,7 @@ Express 경로 또는 사이트 간 VPN 연결을 통해 연결된 기존 가상
 		            </LocalNetworkSiteRef>
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
-5. 이제 게이트웨이가 없는 VNet이 설정됩니다. 이 문서의 **3단계**, [공존하는 연결을 사용하여 새 VNet 만들기](#create-a-new-vnet-with-coexisting-connections)를 계속 진행하여 새 게이트웨이를 만들고 연결을 완료할 수 있습니다.
+5. 이제 게이트웨이가 없는 VNet이 설정됩니다. 이 문서의 **3단계**, [새 가상 네트워크 및 연결 만들기](#create-a-new-virtual-network-and-connections-that-coexist)를 계속 진행하여 새 게이트웨이를 만들고 연결을 완료할 수 있습니다.
 
 
 
@@ -204,4 +214,4 @@ Express 경로에 대해 자세히 알아봅니다. [Express 경로 개요](expr
 
 VPN 게이트웨이에 대해 자세히 알아봅니다. [VPN 게이트웨이 정보](../vpn-gateway/vpn-gateway-about-vpngateways.md)를 참조하세요.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

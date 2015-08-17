@@ -46,28 +46,11 @@ BizTalk 플랫 파일 인코더는 스키마를 해당 구성의 일부로 사�
 
 ![BizTalk 플랫 파일 인코더 작업 목록][5]
 
-<table>
-	<tr>
-		<th>매개 변수</th>
-		<th>형식</th>
-		<th>매개 변수에 대한 설명</th>
-	</tr>
-	<tr>
-		<td>플랫 파일</td>
-		<td>string</td>
-		<td>입력 플랫 파일의 내용</td>
-	</tr>
-	<tr>
-		<td>Schema Name</td>
-		<td>string</td>
-		<td>입력 플랫 파일을 나타내는 스키마의 이름</td>
-	</tr>
-	<tr>
-		<td>Root Name</td>
-		<td>string</td>
-		<td>플랫 파일 스키마의 루트 노드 이름</td>
-	</tr>
-</table>
+매개 변수|형식|매개 변수에 대한 설명
+---|---|---
+플랫 파일|string|입력 플랫 파일의 내용
+Schema Name|string|입력 플랫 파일을 나타내는 스키마의 이름
+Root Name|string|플랫 파일 스키마의 루트 노드 이름
 
 
 작업에서 출력을 문자열(Output Xml)로 반환합니다. Output Xml에는 입력 플랫 파일 내용의 xml 표현이 들어 있습니다.
@@ -76,18 +59,9 @@ BizTalk 플랫 파일 인코더는 스키마를 해당 구성의 일부로 사�
 
 ![BizTalk 플랫 파일 인코더 작업 목록][6]
 
-<table>
-	<tr>
-		<th>매개 변수</th>
-		<th>형식</th>
-		<th>매개 변수에 대한 설명</th>
-	</tr>
-	<tr>
-		<td>Input Xml</td>
-		<td>string</td>
-		<td>입력 Xml 내용</td>
-	</tr>
-</table>
+매개 변수|형식|매개 변수에 대한 설명
+---|---|---
+Input Xml|string|입력 Xml 내용
 
 작업에서 출력을 문자열(Flat File)로 반환합니다. 출력에는 입력 xml 내용의 플랫 파일 표현이 들어 있습니다.
 
@@ -100,4 +74,4 @@ BizTalk 플랫 파일 인코더는 스키마를 해당 구성의 일부로 사�
 [6]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.XmlToFlatFile.PNG
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

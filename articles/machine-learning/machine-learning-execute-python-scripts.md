@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="Python 기계 학습 스크립트 실행 | Microsoft Azure" 
 	description="Azure 기계 학습에서 Python 스크립트를 지원하는 데 기본이 되는 디자인 원칙 및 기본 사용 시나리오, 기능 및 제한 사항을 간략히 설명합니다." 
-	keywords="python machine learning,pandas,python pandas,python scripts, execute python scripts"
 	services="machine-learning"
 	documentationCenter="" 
 	authors="bradsev" 
@@ -119,7 +118,7 @@ MatplotLib에서 이미지를 생성하려면 다음 절차를 완료해야 합�
 * 축을 가져오고 축에 모든 그림을 생성 
 * PNG 파일에 그림 저장 
 
-Pandas에서 scatter_matrix 함수를 사용하여 산점도 행렬을 생성하는 이 프로세스는 다음 그림 8에 설명되어 있습니다.
+Pandas에서 scatter\_matrix 함수를 사용하여 산점도 행렬을 생성하는 이 프로세스는 다음 그림 8에 설명되어 있습니다.
  
 ![image1v](./media/machine-learning-execute-python-scripts/figure-v1-8.png)
 
@@ -171,4 +170,4 @@ Azure 기계 학습에 설치된 Anaconda 환경에는 NumPy, SciPy 및 Scikits-
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

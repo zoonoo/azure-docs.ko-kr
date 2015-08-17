@@ -40,4 +40,4 @@
 - [사용자 지정 서비스 패브릭 상태 보고서 추가](service-fabric-report-health.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

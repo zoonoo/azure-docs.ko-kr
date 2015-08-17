@@ -69,11 +69,11 @@ SharePoint를 호출하려면 모바일 서비스가 연결할 끝점을 지정�
 
     ![][3]
 
-4. SP_Authority를 AAD 테넌트에 대한 기관 끝점으로 설정합니다. 이 항목은 클라이언트 앱에 사용되는 기관 값과 동일해야 합니다. https://login.windows.net/contoso.onmicrosoft.com 형식이 됩니다.
+4. SP\_Authority를 AAD 테넌트에 대한 기관 끝점으로 설정합니다. 이 항목은 클라이언트 앱에 사용되는 기관 값과 동일해야 합니다. https://login.windows.net/contoso.onmicrosoft.com 형식이 됩니다.
 
-5. SP_ClientSecret를 이전에 얻은 클라이언트 암호 값으로 설정합니다.
+5. SP\_ClientSecret를 이전에 얻은 클라이언트 암호 값으로 설정합니다.
 
-6. SP_SharePointURL을 SharePoint 사이트에 대한 URL로 설정합니다. https://contoso-my.sharepoint.com 형식이어야 합니다.
+6. SP\_SharePointURL을 SharePoint 사이트에 대한 URL로 설정합니다. https://contoso-my.sharepoint.com 형식이어야 합니다.
 
 이러한 값은 ApiServices.Settings를 사용하여 코드에서 다시 가져올 수 있습니다.
 
@@ -219,4 +219,4 @@ Word 문서를 만들려면 OpenXML NuGet 패키지를 사용합니다. NuGet �
 [Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

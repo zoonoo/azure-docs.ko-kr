@@ -61,4 +61,4 @@
 - [상태 정의 및 관리](service-fabric-concepts-state.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

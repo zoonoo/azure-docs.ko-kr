@@ -106,7 +106,7 @@ Hive 쿼리 결과를 헤드 노드의 로컬 디렉터리에 출력하려면 �
 
 	insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
 
-다음 예제에서 Hive 쿼리의 출력은 Hadoop 클러스터의 기본 컨테이너 내에 있는 Blob 디렉터리 `queryoutputdir`에 작성됩니다. 이때 사용자는 blob 이름 없이 디렉터리 이름만 입력하면 됩니다. *wasb:///queryoutputdir/queryoutput.txt*처럼 디렉터리 이름과 Blob 이름을 모두 입력하면 오류가 발생합니다.
+다음 예제에서 Hive 쿼리의 출력은 Hadoop 클러스터의 기본 컨테이너 내에 있는 Blob 디렉터리 `queryoutputdir`에 작성됩니다. 이때 사용자는 blob 이름 없이 디렉터리 이름만 입력하면 됩니다. **wasb:///queryoutputdir/queryoutput.txt*처럼 디렉터리 이름과 Blob 이름을 모두 입력하면 오류가 발생합니다.
 
 ![작업 영역 만들기][13]
 
@@ -174,7 +174,7 @@ Azure 저장소 탐색기 또는 그에 상응하는 도구를 사용하여 Hado
 1. [빈도 기반 기능 생성](#hive-frequencyfeature)
 2. [이진 분류에서 범주 변수의 위험](#hive-riskfeature)
 3. [날짜/시간 필드에서 기능 추출](#hive-datefeatures)
-4. [텍스트 필드에서 기능 추출](#hive-textfeatures)
+4. [L텍스트 필드에서 기능 추출](#hive-textfeatures)
 5. [GPS 좌표 사이의 거리 계산](#hive-gpsdistance)
 
 ###<a name="hive-frequencyfeature"></a>빈도 기반 기능 생성
@@ -215,7 +215,7 @@ Azure 저장소 탐색기 또는 그에 상응하는 도구를 사용하여 Hado
 	    	group by <column_name1>, <column_name2>
 	    	)b
 
-이 예제에서 변수 `smooth_param1` 및 `smooth_param2`는 데이터에서 계산된 위험 값을 부드럽게 만들도록 설정되었습니다. 위험 범위는 -Inf\~Inf입니다. 위험>0은 대상이 1일 확률이 0.5보다 크다는 뜻입니다.
+이 예에서 변수 `smooth_param1` 및 `smooth_param2`는 데이터에서 계산된 위험 값을 완화하도록 설정되었습니다. 위험 범위는 -Inf\~Inf입니다. 위험>0은 대상이 1일 확률이 0.5보다 크다는 뜻입니다.
 
 위험 테이블이 계산되면 사용자는 위험 값을 위험 테이블에 조인하여 위험 값을 할당할 수 있습니다. Hive 조인 쿼리는 이전 섹션에서 제공되었습니다.
 
@@ -270,7 +270,7 @@ Hive 테이블에 텍스트 필드가 있고 이 텍스트 필드에 공백으�
 		and dropoff_latitude between 30 and 90
 		limit 10;
 
-두 GPS 좌표 사이의 거리를 계산하는 수학 방정식은 <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> 사이트에서 찾을 수 있으며, 작성자는 Peter Lapisu입니다. 그의 Javascript에서 `toRad()` 함수는 단지 도에서 라디안으로 변환하는 *lat\_or\_lon\*pi/180*일 뿐입니다. 여기서 *lat\_or\_lon*은 위도 또는 경도입니다. Hive에서 `atan2` 함수를 제공하지 않고 `atan` 함수를 제공하므로 위의 Hive 쿼리에서는 <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>에서 제공하는 정의를 사용하여 `atan` 함수가 `atan2` 함수를 구현합니다.
+두 GPS 좌표 사이의 거리를 계산하는 수학 방정식은 <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> 사이트에서 찾을 수 있으며, 작성자는 Peter Lapisu입니다. 그의 Javascript에서 `toRad()` 함수는 단지 도에서 라디안으로 변환하는 *lat\_or\_lon*pi/180*일 뿐입니다. 여기서 *lat\_or\_lon*은 위도 또는 경도입니다. Hive에서 `atan2` 함수를 제공하지 않고 `atan` 함수를 제공하므로 위의 Hive 쿼리에서는 <a href="http://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>에서 제공하는 정의를 사용하여 `atan` 함수가 `atan2` 함수를 구현합니다.
 
 ![작업 영역 만들기][1]
 
@@ -319,4 +319,4 @@ Hive 클러스터의 기본 매개 변수 설정이 Hive 쿼리 및 쿼리에서
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

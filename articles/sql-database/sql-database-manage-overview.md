@@ -44,4 +44,4 @@ PowerShell 같은 명령줄 도구를 사용하여 Azure SQL 데이터베이스�
 명령줄 도구를 사용하여 Azure SQL 데이터베이스를 관리하는 방법에 대한 자세한 내용은 [여기를 클릭](sql-database-command-line-tools.md)하세요.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

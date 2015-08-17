@@ -220,4 +220,4 @@ Azure에 등록하려면 [Microsoft Azure 무료 평가판](/pricing/free-trial/
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

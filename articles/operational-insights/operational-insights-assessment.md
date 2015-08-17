@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # 평가 솔루션으로 환경 최적화
@@ -105,7 +105,7 @@
 
 ## 평가 주요 영역 권장 사항 사용
 
-Microsoft Azure Operational Insights에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 있어야 합니다. 솔루션 설치에 대해 더 알려면 [솔루션 갤러리를 사용하여 솔루션 추가 및 제거](operational-insights-add-solution.md)를 참조하십시오. 설치 후 Operational Insights의 개요 페이지에서 평가 타일을 사용하여 권장 사항의 요약을 볼 수 있습니다.
+Microsoft Azure Operational Insights에서 평가 솔루션을 사용하려면 먼저 솔루션이 설치되어 있어야 합니다. 솔루션 설치에 대해 더 알려면 [솔루션 갤러리를 사용하여 솔루션 추가 및 제거](operational-insights-setup-workspace.md)를 참조하세요. 설치 후 Operational Insights의 개요 페이지에서 평가 타일을 사용하여 권장 사항의 요약을 볼 수 있습니다.
 
 인프라에 대한 규정준수 평가를 요약한 다음 권장 사항에 주입할 수 있습니다.
 
@@ -125,4 +125,4 @@ Microsoft Azure Operational Insights에서 평가 솔루션을 사용하려면 �
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -12,7 +12,7 @@
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/29/2015" 
 	ms.author="tdykstra"/>
 
@@ -802,9 +802,12 @@ WebJobs SDK 특성을 사용하는 함수를 작성하는 방법에 대한 자�
 * [WebJob SDK를 사용하여 Azure 서비스 버스로 작업하는 방법](websites-dotnet-webjobs-sdk-service-bus.md)
 
 >[AZURE.NOTE]
->* 웹 앱이 여러 VM에서 실행되는 경우 이 프로그램은 각 컴퓨터에서 실행되고, 각 컴퓨터는 트리거를 기다렸다가 함수 실행을 시도합니다. 일부 시나리오에서는 이로 인해 일부 함수가 동일한 데이터를 두 번 처리하게 될 수 있으므로 함수는 idempotent여야 합니다(같은 입력 데이터로 반복 호출해도 중복된 결과가 나오지 않도록 작성됨).
->* 정상 종료를 구현하는 방법에 대한 자세한 내용은 [정상 종료](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful)을 참조하세요.
->*`ConvertImageToThumbnailJPG` 메서드(표시되지 않음)의 코드는 편의상 `System.Drawing` 네임스페이스에서 클래스를 사용합니다. 하지만 이 네임스페이스의 클래스는 Windows Forms에서 사용하도록 설계되었습니다. Windows 또는 ASP.NET 서비스에서 사용할 수 있도록 지원되지 않습니다. 이미지 처리 옵션에 대한 자세한 내용은 [동적 이미지 생성](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) 및 [이미지 크기 조정 세부 정보](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na)를 참조하세요.
+>
+> * 웹앱이 여러 VM에서 실행되는 경우 여러 WebJob이 동시에 실행되며, 일부 시나리오에서 이렇게 하면 동일한 데이터를 여러 번 처리할 수 있습니다. 기본 제공 큐, blob 및 서비스 버스 트리거를 사용하는 경우 이는 문제가 되지 않습니다. SDK는 각 메시지 또는 blob에 대해 함수를 한 번만 처리하도록 합니다.
+>
+> * 정상 종료를 구현하는 방법에 대한 자세한 내용은 [정상 종료](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#graceful)를 참조하세요.
+>
+> * `ConvertImageToThumbnailJPG` 메서드의 코드(표시되지 않음)는 간소화를 위해 `System.Drawing` 네임스페이스의 클래스를 사용합니다. 하지만 이 네임스페이스의 클래스는 Windows Forms에서 사용하도록 설계되었습니다. Windows 또는 ASP.NET 서비스에서 사용할 수 있도록 지원되지 않습니다. 이미지 처리 옵션에 대한 자세한 내용은 [동적 이미지 생성](http://www.hanselman.com/blog/BackToBasicsDynamicImageGenerationASPNETControllersRoutingIHttpHandlersAndRunAllManagedModulesForAllRequests.aspx) 및 [이미지 크기 조정 세부 정보](http://www.hanselminutes.com/313/deep-inside-image-resizing-and-scaling-with-aspnet-and-iis-with-imageresizingnet-author-na)를 참조하세요.
 
 ### WebJob SDK 및 WebJob SDK가 없는 클라우드 서비스 작업자 역할
 
@@ -830,4 +833,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 * Azure 미리 보기 포털에서 Azure 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

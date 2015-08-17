@@ -13,7 +13,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="article"
 	ms.date="07/14/2015"
 	ms.author="kathydav"/>
 
@@ -49,4 +49,4 @@ Azure 가상 컴퓨터에 대해 처음 알아보기 시작한 경우 [질문과
 [가상 컴퓨터]: #tellmevm
 [클라우드 서비스]: cloud-services-choose-me.md
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

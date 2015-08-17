@@ -271,4 +271,4 @@ EngagementConfiguration 개체를 사용하여 작동 중단 보고를 false로 
 [NuGet website]: http://docs.nuget.org/docs/start-here/overview
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

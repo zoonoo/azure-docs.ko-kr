@@ -73,4 +73,4 @@
 >[AZURE.NOTE]"작업 계정 추가"가 표시되는 경우 작업 공간 연결을 위한 것으로, Multi-Factor Authentication을 위한 것이 아닙니다. 무시해도 됩니다.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

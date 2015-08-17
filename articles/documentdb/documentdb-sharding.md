@@ -1,5 +1,5 @@
 <properties 
-	pageTitle=".NET SDK를 사용하여 DocumentDB의 데이터를 분할하는 방법" 
+	pageTitle=".NET SDK를 사용하여 DocumentDB의 데이터를 분할하는 방법 | Microsoft Azure" 
 	description="Azure DocumentDB .NET SDK를 사용하여 데이터를 분할하고 여러 컬렉션 간에 요청을 라우팅하는 방법을 알아봅니다." 
 	services="documentdb" 
 	authors="arramac" 
@@ -167,4 +167,4 @@ DocumentDB는 다음 몇 가지 이유로 클라이언트 쪽 분할을 지원�
 * [성능 팁에 대한 DocumentDB 블로그](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

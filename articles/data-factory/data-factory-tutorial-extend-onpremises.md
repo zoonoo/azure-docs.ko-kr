@@ -72,14 +72,14 @@
 
 먼저 SQL Server 데이터베이스, 테이블, 사용자 정의 형식 및 저장 프로시저를 만들어야 합니다. **MarketingCampaignEffectiveness** 결과를 Azure Blob에서 SQL Server 데이터베이스로 이동하는 데 사용됩니다.
 
-1.	**Windows 탐색기**에서 **C:\ADFWalkthrough**(또는 샘플의 압축을 푼 위치)의 **OnPremises** 하위 폴더로 이동합니다.
+1.	**Windows 탐색기**에서 **C:\\ADFWalkthrough**(또는 샘플의 압축을 푼 위치)의 **OnPremises** 하위 폴더로 이동합니다.
 2.	즐겨 사용하는 편집기에서 **prepareOnPremDatabase&Table.ps1**을 열고, 강조 표시된 내용을 SQL Server 정보로 바꾼 다음 파일을 저장합니다. **SQL 인증** 세부 정보를 제공하세요. 이 자습서에서는 데이터베이스에 SQL 인증을 사용하도록 설정합니다. 
 			
 		$dbServerName = "<servername>"
 		$dbUserName = "<username>"
 		$dbPassword = "<password>"
 
-3. **Azure PowerShell**에서 **C:\ADFWalkthrough\OnPremises** 폴더로 이동합니다.
+3. **Azure PowerShell**에서 **C:\\ADFWalkthrough\\OnPremises** 폴더로 이동합니다.
 4.	**prepareOnPremDatabase&Table.ps1**을 실행합니다.**(큰따옴표의 & 또는 아래와 같이).**
 			
 		& '.\prepareOnPremDatabase&Table.ps1'
@@ -104,8 +104,9 @@
 	2.	**<databasename>**를 **MarketingCampaigns**로 대체합니다.
 	3.	**SQL 인증**을 사용 중인 경우
 		1.	**connectionString**에 **<username>** 및 **<password>**를 지정합니다.
-		2.	마지막 두 행을 제거합니다(Windows 인증을 사용하는 경우에 **username** 및 **password** JSON 속성이 필요함). 
-		3.	**gatewayName** 행의 끝에서 **,(쉼표)**를 제거합니다. 
+		2.	마지막 두 행을 제거합니다(Windows 인증을 사용하는 경우에 **username** 및 **password** JSON 속성만 필요). 
+		3.	**gatewayName** 행의 끝에서 **, (쉼표) **를 제거합니다.
+
 		**Windows 인증을 사용하는 경우:** 1입니다. **통합 보안**의 값을 **connectionString**에서 **True**로 설정합니다. connectionString에서 "**User ID=<username>;Password=<password>;**"를 제거합니다. 2. **username** 속성에 대한 데이터베이스에 액세스할 수 있는 사용자의 이름을 지정합니다. 3. 사용자 계정으로 **password**를 지정합니다.   
 	4. gatewayName 속성으로 게이트웨이의 이름(**MyGateway**)을 지정합니다. 		  	 
 3.	도구 모음에서 **배포**를 클릭하여 연결된 서비스를 배포합니다. 
@@ -115,14 +116,14 @@
 ### 온-프레미스 논리 테이블 만들기
 
 1.	**데이터 팩터리 편집기**의 도구 모음에서 **새로운 데이터 저장소**를 클릭하고 **온-프레미스 SQL**을 선택합니다. 
-2. **C:\ADFWalkthrough\OnPremises** 폴더의 **MarketingCampaignEffectivenessOnPremSQLTable.json** 파일에서 오른쪽 창의 JSON을 JSON 스크립트로 대체합니다.
-3. 연결 서비스의 이름(**linkedServiceName** property)을 **OnPremSqlServerLinkedService**에서 **SqlServerLinkedService**로 변경합니다.
+2. **C:\\ADFWalkthrough\\OnPremises** 폴더의 **MarketingCampaignEffectivenessOnPremSQLTable.json** 파일에서 오른쪽 창의 JSON을 JSON 스크립트로 대체합니다.
+3. 연결 서비스의 이름(**linkedServiceName** 속성)을 **OnPremSqlServerLinkedService**에서 **SqlServerLinkedService**로 변경합니다.
 4. 도구 모음에서 **배포**를 클릭하여 테이블을 배포합니다. 
 	 
 #### Azure Blob에서 SQL Server로 데이터를 복사하는 파이프라인 만들기
 
 1.	1. **데이터 팩터리 편집기**의 도구 모음에서 **새 파이프라인** 단추를 클릭합니다. 단추가 표시되지 않는 경우 도구 모음에서 **... (줄임표)**을 클릭합니다. 또는 트리 뷰에서 **파이프라인**을 마우스 오른쪽 단추로 클릭하고 **새 파이프라인**을 클릭할 수 있습니다.
-2. **C:\ADFWalkthrough\OnPremises** 폴더의 **EgressDataToOnPremPipeline.json** 파일에서 오른쪽 창의 JSON을 JSON 스크립트로 대체합니다.
+2. **C:\\ADFWalkthrough\\OnPremises** 폴더의 **EgressDataToOnPremPipeline.json** 파일에서 오른쪽 창의 JSON을 JSON 스크립트로 대체합니다.
 3. JSON의 **닫는 대괄호 (']')** 끝에 **쉼표 (',')**를 추가한 다음 닫는 대괄호 후 다음 세 줄을 추가합니다. 
 
         "start": "2014-05-01T00:00:00Z",
@@ -169,4 +170,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

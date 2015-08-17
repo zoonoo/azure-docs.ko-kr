@@ -149,4 +149,4 @@ VPN 게이트웨이 라우팅 유형을 변경해야 하는 경우 기존 게이
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

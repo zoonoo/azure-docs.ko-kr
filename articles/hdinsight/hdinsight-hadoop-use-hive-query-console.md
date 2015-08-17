@@ -35,7 +35,8 @@
 
 ##<a id="run"></a> 쿼리 콘솔을 사용하여 Hive 쿼리 실행
 
-1. 웹 브라우저를 열고 __https://CLUSTERNAME.azurehdinsight.net__으로 이동합니다. 여기서 __CLUSTERNAME__은 HDInsight 클러스터의 이름입니다. 메시지가 표시되면 클러스터를 만들 때 사용한 사용자 이름과 암호를 입력합니다. 
+1. 웹 브라우저를 열고 \_\___https://CLUSTERNAME.azurehdinsight.net__으로 이동합니다. 여기서 __CLUSTERNAME__은 HDInsight 클러스터의 이름입니다. 메시지가 표시되면 클러스터를 만들 때 사용한 사용자 이름과 암호를 입력합니다.
+
 
 2. 페이지 위쪽에 있는 링크 중 **Hive 편집기**를 선택합니다. HDInsight 클러스터에서 실행하려는 HiveQL 문을 입력하는 데 사용할 수 있는 양식이 표시됩니다.
 
@@ -119,4 +120,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

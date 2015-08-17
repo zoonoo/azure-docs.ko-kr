@@ -50,4 +50,4 @@
 - [서비스 패브릭 응용 프로그램 크기 조정](service-fabric-concepts-scalability.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -57,7 +57,7 @@ Visual Studio를 사용하여 개발하기 위해 일반적으로 [XML 설명](h
 
 	![XML 문서 속성 설정](./media/app-service-api-optimize-for-logic-apps/xml-documentation-file-property.png)
 
-4. *SwaggerConfig.cs* 파일을 엽니다.(프로젝트의 **App_Start** 폴더에 위치)
+4. *SwaggerConfig.cs* 파일을 엽니다.(프로젝트의 **App\_Start** 폴더에 위치)
 
 5. **System** 및 **System.Globalization** 네임스페이스용 *SwaggerConfig.cs*파일의 위쪽에 **using** 지시문을 추가합니다.
 
@@ -235,4 +235,4 @@ Visual Studio를 사용하여 개발하기 위해 일반적으로 [XML 설명](h
 이 문서에서는 논리 앱 디자이너에서 사용되는 경우 API 앱의 사용자 환경을 개선하는 방법을 살펴보았습니다. 모범 사례로, 모든 작업(동작 및 트리거) 매개 변수 및 속성에 대한 적절하고 친숙한 이름을 제공하는 것이 좋습니다. 또한 5개 이하의 기본 작업을 제공하는 것이 좋습니다. 입력된 매개 변수에 대해 기본 속성 개수를 4개 이하로 제한하도록 권장하고 속성에 대해서는 5개 이하로 권장합니다. 사용자의 작업 및 속성의 나머지 부분은 고급으로 표시해야 합니다.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

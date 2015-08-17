@@ -26,4 +26,4 @@
 
 이때 브라우저에서 트래픽 관리자 도메인 이름(contoso.trafficmanager.net)을 입력해야 웹앱으로 이동하는지 확인할 수 있습니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

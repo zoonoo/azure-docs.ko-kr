@@ -64,7 +64,7 @@ Hyper-V 복제본은 디스크 성능을 최적화하기 위해 기본 서버의
 
 ![기본 결과](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744914.png)
 
-Hyper-V 복제본에는 최소 CPU 오버헤드가 있습니다. Graph에서 볼 수 있듯이 복제 오버헤드는 2~3% 범위 이내입니다.
+Hyper-V 복제본에는 최소 CPU 오버헤드가 있습니다. Graph에서 볼 수 있듯이 복제 오버헤드는 2\~3% 범위 이내입니다.
 
 ![기본 결과](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744915.png)
 
@@ -173,7 +173,7 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 |파일 서버|50|1|2|552|22|
 |VDI|149|.5|1|80|6|
 |웹 서버|149|.5|1|80|6|
-|전체|470|||96.83TB|4108|
+|전체|470|||96\.83TB|4108|
 
 ### Azure Site Recovery 설정
 
@@ -194,13 +194,7 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 
 |메트릭|카운터|
 |---|---|
-|CPU|\Processor(_Total)\% 프로세서 시간|
-|사용 가능한 메모리|\Memory\사용 가능한 MB|
-|IOPS|\PhysicalDisk(_Total)\디스크 전송/초|
-|VM 읽기(IOPS) 작업/초|\Hyper-V 가상 저장소 장치(<VHD>)\읽기 작업/초|
-|VM 쓰기(IOPS) 작업/초|\Hyper-V 가상 저장소 장치(<VHD>)\쓰기 작업/초|
-|VM 읽기 처리량|\Hyper-V 가상 저장소 장치(<VHD>)\읽기 바이트/초|
-|VM 쓰기 처리량|\Hyper-V 가상 저장소 장치(<VHD>)\쓰기 바이트/초|
+|CPU|\\Processor(\_Total)\\% 프로세서 시간| |사용 가능한 메모리|\\메모리\\사용 가능한 MB| |IOPS|\\PhysicalDisk(\_Total)\\디스크 전송/초| |VM 읽기(IOPS) 작업/초|\\Hyper-V 가상 저장소 장치(<VHD>)\\읽기 작업/초| |VM 쓰기(IOPS) 작업/초|\\Hyper-V 가상 저장소 장치(<VHD>)\\읽기 작업/초| |VM 읽기 처리량|\\Hyper-V 가상 저장소 장치(<VHD>)\\읽기 바이트/초| |VM 쓰기 처리량|\\Hyper-V 가상 저장소 장치(<VHD>)\\쓰기 바이트/초|
 
 
 ## 다음 단계
@@ -214,4 +208,4 @@ ASR의 배포를 시작하려면:
 - [단일 VMM 서버로 보호 설정](site-recovery-single-vmm.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

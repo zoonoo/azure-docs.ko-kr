@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결" 
+<properties
+	pageTitle="Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결"
 	description="Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 액세스 할수 없는 경우, 문제의 원인을 분리해 내기 위해 다음 단계를 사용하세요."
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dsk-2015"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/01/2015" 
-	ms.author="josephd"/>
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/01/2015"
+	ms.author="dkshir"/>
 
 # Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결
 
@@ -26,7 +26,7 @@ Azure 가상 컴퓨터에서 실행중인 응용 프로그램에 액세스 할 �
 Azure 가상 컴퓨터에서 실행되는 응용 프로그램의 액세스 문제 해결에 대한 4 개의 주요 영역이 있습니다.
 
 ![](./media/virtual-machines-troubleshoot-access-application/tshoot_app_access1.png)
- 
+
 1.	Azure 가상 컴퓨터에서 실행되는 응용 프로그램
 2.	Azure 가상 컴퓨터.
 3.	가상 컴퓨터(서비스 관리에서 만든 가상 컴퓨터에 대한), 인바운드(리소스 관리자에서 만든 가상 컴퓨터에 대한) 및 네트워크 보안 그룹을 포함하는 클라우드 서비스에 대한 Azure 끝점
@@ -37,7 +37,7 @@ Azure 가상 컴퓨터에서 실행되는 응용 프로그램의 액세스 문�
 ## 1 단계: 목표 가상 컴퓨터에서 해당 응용 프로그램에 액세스 할 수 있습니까?
 
 응용 프로그램이 실행 중인 가상 컴퓨터에서 적합한 클라이언트 프로그램으로 응용 프로그램에 액세스를 시도하려면, 로컬 호스트 이름, 로컬 IP 주소 또는 루프백 주소 (127.0.0.1)를 사용합니다.
- 
+
 ![](./media/virtual-machines-troubleshoot-access-application/tshoot_app_access2.png)
 
 예를 들면, 응용 프로그램이 웹 서버인 경우, 가상 컴퓨터에서 브라우저를 실행하고 해당 가상 컴퓨터에서 호스팅되는 웹 페이지에 액세스를 시도합니다.
@@ -54,7 +54,7 @@ Windows 및 Linux 기반 가상 컴퓨터 모두에서, 활성 수신 포트를 
 ## <a id="step2"></a>2 단계: 동일한 가상 네트워크상의 다른 가상 컴퓨터에서 응용 프로그램에 액세스할 수 있습니까?
 
 가상 컴퓨터의 호스트 이름 또는 해당 Azure-할당 공용, 개인 또는 공급자 IP 주소를 사용하여 응용 프로그램을 실행 중인 가상 컴퓨터와 동일한 가상 네트워크에 있는 또 다른 가상 컴퓨터에서 응용 프로그램에 대한 액세스를 시도하세요. 서비스 관리에서 만든 가상 컴퓨터에 대해, 클라우드 서비스의 공용 IP 주소를 사용하지 않습니다.
- 
+
 ![](./media/virtual-machines-troubleshoot-access-application/tshoot_app_access3.png)
 
 예를 들면, 응용 프로그램이 웹 서버인 경우, 동일한 가상 네트워크에 있는 다른 가상 컴퓨터의 브라우져에서 웹 페이지 액세스를 시도하세요.
@@ -75,7 +75,7 @@ Windows 기반 가상 컴퓨터에서, 방화벽 규칙이 사용자의 응용�
 가상 컴퓨터에서 응용 프로그램이 실행되고 있지만, 사용자의 원래 클라이언트 컴퓨터와 동일한 네트워크 상에 있지 않은 경우, 가상 네트워크 외부의 컴퓨터에서 응용 프로그램에 대한 액세스를 시도하세요.
 
 ![](./media/virtual-machines-troubleshoot-access-application/tshoot_app_access4.png)
- 
+
 예를 들면, 응용 프로그램이 웹 서버인 경우, 가상 네트워크에 있지 않은 컴퓨터에서 실행 중인 브라우져에서 웹페이지 액세스를 시도합니다.
 
 응용 프로그램에 액세스할 수 없는 경우, 다음 사항을 확인하세요.
@@ -110,4 +110,4 @@ Windows 기반 가상 컴퓨터에서, 방화벽 규칙이 사용자의 응용�
 
 [Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

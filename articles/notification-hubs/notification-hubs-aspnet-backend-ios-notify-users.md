@@ -69,7 +69,7 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 
 		- (IBAction)LogInAction:(id)sender;		
 
-4. ViewController.h에서 다음 `#define`를 import 문을 바로 아래 추가합니다. *<Enter Your Backend Endpoint>* 자리 표시자를 이전 섹션에서 앱 백 엔드를 배포하는 데 사용한 대상 URL로 대체합니다. *http://you_backend.azurewebsites.net*).
+4. ViewController.h에서 다음 `#define`를 import 문을 바로 아래 추가합니다. *<Enter Your Backend Endpoint>* 자리 표시자를 이전 섹션에서 앱 백 엔드를 배포하는 데 사용한 대상 URL로 대체합니다. 예:**http://you_backend.azurewebsites.net*
 
 		#define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
 
@@ -466,4 +466,4 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

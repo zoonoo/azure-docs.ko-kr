@@ -2,7 +2,7 @@
 <properties 
    pageTitle="Azure SDK for .NET 2.7 릴리스 정보" 
    description="Azure SDK for .NET 2.7 릴리스 정보" 
-   services="app-service/web" 
+   services="app-service\web" 
    documentationCenter=".net" 
    authors="Juliako" 
    manager="dwrede" 
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="07/20/2015"
+   ms.date="08/04/2015"
    ms.author="juliako"/>
 
 
@@ -112,4 +112,4 @@ Visual Studio용 **Azure Data Factory 도구**를 소개합니다. 사용할 수
 
 [Azure SDK 2.7 발표 게시물](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

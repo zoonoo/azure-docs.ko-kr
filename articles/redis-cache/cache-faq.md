@@ -38,56 +38,15 @@ Azure Redis Cache에 대한 일반적인 질문과 대답, 패턴 및 모범 사
 
 다음 표에서는 Azure Redis Cache 끝점에 대해 Iaas VM에서 `redis-benchmark.exe`를 사용하여 다양한 크기의 Azure Redis Cache를 테스트하는 동안 관찰되는 최대 대역폭 크기를 보여 줍니다. 이러한 값은 보장되지 않으며 해당 수치에 대한 SLA는 없지만 일반적인 수치입니다. 응용 프로그램에 적합한 캐시 크기를 확인하려면 사용자 고유의 응용 프로그램을 부하 테스트해야 합니다.
 
-<table>
-  <tr>
-    <th>캐시 이름</th>
-    <th>캐시 크기</th>
-    <th>Get/초(1KB 값의 단순 GET 호출)</th>
-    <th>대역폭(MBit/초)</th>
-  </tr>
-  <tr>
-    <td>C0</td>
-    <td>250MB</td>
-    <td>610</td>
-    <td>5</td>
-  </tr>
-  <tr>
-    <td>C1</td>
-    <td>1 GB</td>
-    <td>12,200</td>
-    <td>100</td>
-  </tr>
-  <tr>
-    <td>C2</td>
-    <td>2.5GB</td>
-    <td>24,300</td>
-    <td>200</td>
-  </tr>
-  <tr>
-    <td>C3</td>
-    <td>6GB</td>
-    <td>48,875</td>
-    <td>400</td>
-  </tr>
-  <tr>
-    <td>C4</td>
-    <td>13GB</td>
-    <td>61,350</td>
-    <td>500</td>
-  </tr>
-  <tr>
-    <td>C5</td>
-    <td>26GB</td>
-    <td>112,275</td>
-    <td>1000</td>
-  </tr>
-  <tr>
-    <td>C6</td>
-    <td>53GB</td>
-    <td>153,219</td>
-    <td>1000+</td>
-  </tr>
-</table>
+캐시 이름|캐시 크기|Get/초(1KB 값의 단순 GET 호출)|대역폭(MBit/초)
+---|---|---|---
+C0|250MB|610|5
+C1|1 GB|12,200|100
+C2|2\.5GB|24,300|200
+C3|6GB|48,875|400
+C4|13GB|61,350|500
+C5|26GB|112,275|1000
+C6|53GB|153,219|1000+
 
 `redis-benchmark.exe`와 같은 Redis 도구 다운로드에 대한 지침은 [어떻게 Redis 명령을 실행할 수 있나요?](#cache-commands) 섹션을 참조하세요.
 
@@ -134,28 +93,11 @@ Azure Redis Cache 가격에 대해서는 [여기](http://azure.microsoft.com/pri
 
 StackExchange.Redis에는 많은 옵션이 있습니다. 이 섹션에서는 몇 가지 일반적인 설정에 대해 설명합니다. StackExchange.Redis 옵션에 대한 자세한 내용은 [StackExchange.Redis 구성](https://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md)을 참조하세요.
 
-<table>
-  <tr>
-    <th>ConfigurationOptions</th>
-    <th>설명</th>
-    <th>권장 사항</th>
-  </tr>
-  <tr>
-    <td>AbortOnConnectFail</td>
-    <td>true로 설정하면 네트워크 오류가 발생한 후 연결이 다시 연결되지 않습니다.</td>
-    <td>false로 설정하여 StackExchange.Redis가 자동으로 다시 연결하도록 합니다.</td>
-  </tr>
-  <tr>
-    <td>ConnectRetry</td>
-    <td>초기 연결 중에 연결 시도를 반복할 횟수입니다.</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>ConnectTimeout</td>
-    <td>연결 작업의 시간 제한(ms)입니다.</td>
-    <td></td>
-  </tr>
-</table>
+ConfigurationOptions|설명|권장 사항
+---|---|---
+AbortOnConnectFail|true로 설정하면 네트워크 오류가 발생한 후 연결이 다시 연결되지 않습니다.|false로 설정하여 StackExchange.Redis가 자동으로 다시 연결하도록 합니다.
+ConnectRetry|초기 연결 중에 연결 시도를 반복할 횟수입니다.||
+ConnectTimeout|연결 작업의 시간 제한(ms)입니다.|
 
 대부분의 경우 클라이언트의 기본값으로 충분합니다. 작업에 따라 옵션을 미세 조정할 수 있습니다.
 
@@ -233,4 +175,4 @@ Microsoft Azure Redis Cache는 많이 사용되는 오픈 소스 Redis Cache를 
 
 클라이언트마다 다르기 때문에 MSDN에 하나의 중앙 집중식 클래스 참조는 없습니다. 대신, 각 클라이언트가 자체 참조 설명서를 유지 관리합니다. 참조 설명서 외에도 Azure.com의 [Redis Cache 설명서](http://azure.microsoft.com/documentatgion/services/redis-cache/) 페이지에는 다양한 언어 및 캐시 클라이언트를 사용하여 Azure Redis Cache를 시작하는 방법을 보여 주는 여러 자습서가 있습니다.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

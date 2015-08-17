@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="DocumentDB로 데이터 가져오기 | Azure" 
+	pageTitle="DocumentDB로 데이터 가져오기 | Microsoft Azure" 
 	description="오픈 소스 DocumentDB 데이터 마이그레이션 도구를 사용하여 JSON 파일, CSV 파일, SQL, MongoDB, Azure 테이블 저장소, Amazon DynamoDB 및 DocumentDB 컬렉션을 비롯한 다양한 소스에서 DocumentDB로 데이터를 가져오는 방법을 알아봅니다." 
 	services="documentdb" 
 	authors="stephbaron" 
-	manager="johnmac" 
+	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
 
@@ -425,7 +425,7 @@ DocumentDB - 순차 레코드 가져오기에는 다음과 같은 추가 고급 
 
 ![DocumentDB 인덱싱 정책 고급 옵션의 스크린샷](./media/documentdb-import-data/indexingpolicy2.png)
 
-> [AZURE.NOTE] 인덱싱 정책을 지정하지 않으면 기본 정책이 적용됩니다. DocumentDB 인덱싱 정책에 대한 자세한 정보는 [여기서](documentdb-indexing-policies.md) 읽을 수 있습니다.
+> [AZURE.NOTE]인덱싱 정책을 지정하지 않으면 기본 정책이 적용됩니다. DocumentDB 인덱싱 정책에 대한 자세한 정보는 [여기](documentdb-indexing-policies.md)에서 읽을 수 있습니다.
 
 
 ## JSON 파일로 내보내기
@@ -501,4 +501,4 @@ DocumentDB JSON 내보내기를 사용하면 사용 가능한 모든 원본 옵�
 
  
 
-<!------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

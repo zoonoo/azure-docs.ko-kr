@@ -9,7 +9,7 @@
 <tags
    ms.service="operational-insights"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
    ms.date="07/21/2015"
@@ -102,13 +102,13 @@ Operations Manager 에이전트가 Operational Insights 서비스와 통신하�
 |*.ods.opinsights.azure.com|Port 443| |service.systemcenteradvisor.com|Port 443| |scadvisor.accesscontrol.windows.net|Port 443| |scadvisorservice.accesscontrol.windows.net|Port 443| |*.blob.core.windows.net/*|포트 443|
 |data.systemcenteradvisor.com|포트 443|
 |ods.systemcenteradvisor.com|포트 443|
-|*.systemcenteradvisor.com|Port 443|
+|**.systemcenteradvisor.com|Port 443|
 
 
 |**Operational Insights 및 Operations Manager 콘솔 리소스**|**포트**|
 |---|---|
 |*.systemcenteradvisor.com|Port 80 and 443| |*.live.com|포트 80 및 443|
-|*.microsoftonline.com|Port 80 and 443| |login.windows.net|Port 80 and 443|
+|**.microsoftonline.com|Port 80 and 443| |login.windows.net|Port 80 and 443|
 
 
 Operations Manager 관리 그룹을 Operational Insights 서비스에 등록하려면 다음 절차를 사용하세요. 관리 그룹과 Operational Insights 서비스 간에 통신 문제가 발생한 경우 유효성 검사 절차를 사용하여 Operational Insights 서비스로의 데이터 통신 문제를 해결할 수 있습니다.
@@ -129,7 +129,7 @@ Operations Manager 관리 그룹을 Operational Insights 서비스에 등록하�
 
 3. Operational Insights 연결 보기에서 **프록시 서버 구성**을 클릭합니다. ![Operations Manager Operational Insights 연결 구성 프록시 서버](./media/operational-insights-proxy-firewall/proxy-om02.png)
 
-4. Operational Insights 설정 마법사: 프록시 서버에서 **프록시 서버를 사용하여 Operational Insights 웹 서비스에 액세스**를 선택하고 포트 번호와 함께 URL을 입력합니다(예: **http://myproxy:80**. ![Operations Manager Operational Insights 프록시 주소](./media/operational-insights-proxy-firewall/proxy-om03.png)).
+4. Operational Insights 설정 마법사: 프록시 서버에서 **프록시 서버를 사용하여 Operational Insights 웹 서비스에 액세스**를 선택하고 포트 번호와 함께 URL을 입력합니다(예: ****http://myproxy:80**).![Operations Manager Operational Insights 프록시 주소](./media/operational-insights-proxy-firewall/proxy-om03.png)
 
 
 ### 프록시 서버에 인증이 필요한 경우 자격 증명을 지정하려면
@@ -143,7 +143,7 @@ Operations Manager 관리 그룹을 Operational Insights 서비스에 등록하�
 4. 실행 프로필 마법사에서 **추가**를 클릭하여 실행 계정을 사용합니다. 새 실행 계정을 만들거나 기존 계정을 사용할 수 있습니다. 이 계정에는 프록시 서버를 통과할 수 있는 권한이 있어야 합니다. ![프로필로 실행 마법사의 이미지](./media/operational-insights-proxy-firewall/proxyacct2.png)
 
 5. 관리할 계정을 설정하려면, **선택한 클래스, 그룹 또는 개체**를 선택하여 개체 검색 상자를 엽니다. ![프로필로 실행 마법사의 이미지](./media/operational-insights-proxy-firewall/proxyacct2-1.png)
-6. **Microsoft System Center Advisor 모니터링 서버 그룹**를 검색한 다음 선택합니다. ![개체 검색 상자의 이미지](./media/operational-insights-proxy-firewall/proxyacct3.png)
+6. **Microsoft System Center Advisor 모니터링 서버 그룹**을 검색한 다음 선택합니다. ![개체 검색 상자의 이미지](./media/operational-insights-proxy-firewall/proxyacct3.png)
 7. **확인**을 클릭하여 계정으로 실행 추가 상자를 닫습니다. ![프로필로 실행 마법사의 이미지](./media/operational-insights-proxy-firewall/proxyacct4.png)
 8. 마법사를 완료하고 변경 내용을 저장합니다. ![프로필로 실행 마법사의 이미지](./media/operational-insights-proxy-firewall/proxyacct5.png)
 
@@ -166,4 +166,4 @@ Operations Manager 관리 그룹을 Operational Insights 서비스에 등록하�
 3. **HTTP**로 시작하는 모든 카운터를 추가합니다. ![카운터 추가](./media/operational-insights-proxy-firewall/sendingdata1.png)
 4. Operations Manager 구성이 적절한 경우 Operational Insights에서 추가한 관리 팩 및 구성한 로그 수집 정책에 따라 이벤트 및 기타 데이터 항목에 대한 상태 서비스 관리 카운터 활동이 표시됩니다. ![성능 모니터 표시 활동](./media/operational-insights-proxy-firewall/sendingdata2.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

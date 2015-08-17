@@ -24,7 +24,7 @@ Blob을 사용하려면 먼저 Azure *저장소 계정*을 만듭니다. 이 작
 
 http://&lt;*StorageAccount*&gt;.blob.core.windows.net/&lt;*Container*&gt;/&lt;*BlobName*&gt;
 
-&lt;\*StorageAccount\*&gt;는 새 저장소 계정을 만들 때 할당된 고유 식별자이고, &lt;\*Container\*&gt; 및 &lt;\*BlobName\*&gt;은 특정 컨테이너의 이름 및 해당 컨테이너 내의 Blob입니다.
+&lt;*StorageAccount*&gt;는 새 저장소 계정을 만들 때 할당된 고유 식별자이고, &lt;*Container*&gt; 및 &lt;*BlobName*&gt;은 특정 컨테이너의 이름 및 해당 컨테이너 내의 Blob입니다.
 
 Azure에서는 두 가지 Blob을 제공합니다. 선택 항목은 다음과 같습니다.
 
@@ -181,4 +181,4 @@ Microsoft는 Excel용 HiveQL 드라이버도 제공합니다. 비즈니스 분�
 [SQL-tblstor]: ./media/cloud-storage/Data_06_TblStorage.png
 [hadoop]: ./media/cloud-storage/Data_07_Hadoop.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

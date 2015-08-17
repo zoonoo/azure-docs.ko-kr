@@ -11,8 +11,8 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.topic="get-started-article" 
+	ms.date="08/05/2015" 
 	ms.author="awills"/>
 
 
@@ -23,13 +23,21 @@
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
 
-Visual Studio Application Insights는 실시간 응용 프로그램을 모니터링하여 [성능 문제 및 예외 사항을 감지 및 진단][detect]하고 [앱이 어떻게 사용되는지 검색][knowUsers]할 수 있도록 돕습니다. 다양한 응용 프로그램 종류에서 사용할 수 있습니다. Azure 웹앱뿐 아니라 온-프레미스 IIS 서버 또는 Azure VM에서 호스트된 앱에서도 작동합니다. [장치 앱 및 Java 서버에 대해서도 다룹니다][start].
+Visual Studio Application Insights는 실시간 응용 프로그램을 모니터링하여 [성능 문제 및 예외 사항을 감지 및 진단][detect]하고 [앱이 어떻게 사용되는지 검색][knowUsers]할 수 있도록 돕습니다. 다양한 응용 프로그램 종류에서 사용할 수 있습니다. Azure 웹앱뿐 아니라 온-프레미스 IIS 서버 또는 Azure VM에서 호스트된 앱에서도 작동합니다.
+
+
 
 ![예제 성능 모니터링 차트](./media/app-insights-start-monitoring-app-health-usage/10-perf.png)
 
-많은 응용 프로그램의 경우 대부분 공지 없이 [Visual Studio가 앱에 Application Insights를 추가할 수 있습니다](#ide). 하지만 무슨 일인지 더 잘 이해하기 위해 본 문서를 읽어 보면 수동으로 단계가 안내됩니다.
+*참고 항목:*
+
+* [ASP.NET 5](app-insights-asp-net-five.md)
+* [장치 앱 및 Java 서버][platforms]
 
 #### 시작하기 전에
+
+많은 응용 프로그램의 경우 대부분 공지 없이 [Visual Studio가 앱에 Application Insights를 추가할 수 있습니다](#ide). 하지만 무슨 일인지 더 잘 이해하기 위해 본 문서를 읽어 보면 수동으로 단계가 안내됩니다.
+
 
 다음 작업을 수행해야 합니다.
 
@@ -52,10 +60,11 @@ Azure에서 [리소스][roles]는 서비스의 인스턴스입니다. 이 리소
 
 ![속성 클릭, 키 선택 및 ctrl+C 누르기](./media/app-insights-start-monitoring-app-health-usage/02-props-asp.png)
 
-
+새 리소스르 만들기 위해 방금 수행한 단계는 모든 응용 프로그램을 모니터링하는 좋은 방법입니다. 이제 데이터를 보낼 수 있습니다.
 
 ## <a name="sdk"></a> 2. 응용 프로그램에 SDK 설치
 
+Application Insights SDK의 설치 및 구성은 작업하는 플랫폼에 따라 달라 집니다. ASP.NET 앱의 경우, 쉽습니다.
 
 1. Visual Studio에서 데스크톱 앱 프로젝트의 NuGet 패키지를 편집합니다.
 
@@ -73,6 +82,8 @@ Azure에서 [리소스][roles]는 서비스의 인스턴스입니다. 이 리소
     또는 앱에서 [일부 코드를 작성하여 키를 설정][apikey]할 수 있습니다.
 
 #### SDK의 나중 버전으로 업그레이드하려면
+
+종종 새 버전의 SDK가 릴리스됩니다.
 
 [SDK의 새 릴리스](app-insights-release-notes-dotnet.md)로 업그레이드하려면, NuGet 패키지 관리자를 다시 열고 설치된 패키지를 필터링합니다. Microsoft.ApplicationInsights.Web을 선택하고 업그레이드를 선택합니다.
 
@@ -120,7 +131,7 @@ SDK에는 일부 데이터에 액세스할 경우 다음과 같은 도움이 필
 
 #### 앱이 IIS 서버에서 실행되는 경우
 
-관리자 권한을 사용하여 서버에 로그인 후 [Application Insights 상태 모니터](http://go.microsoft.com/fwlink/?LinkId=506648)를 설치합니다.
+관리자 권한으로 서버에 로그인하고 [Application Insights 상태 모니터](http://go.microsoft.com/fwlink/?LinkId=506648)를 설치합니다.
 
 (상태 모니터를 [이미 실행 중인 앱을 계측](app-insights-monitor-performance-live-website-now.md)할 경우에도 사용할 수 있으며, SDK로 빌드되지 않은 경우에도 사용할 수 있습니다.)
 
@@ -134,7 +145,7 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 ## 클라이언트쪽 모니터링을 추가 합니다.
 
-응용 프로그램의 서버 끝에서 원격 분석 데이터를 보내는 SDK를 설치 했습니다. 이제 클라이언트쪽 모니터링을 추가할 수 있습니다. 이 사용자, 세션, 페이지 보기 및 모든 예외 또는 클라이언트에서 발생하는 충돌에 데이터를 제공합니다.
+응용 프로그램의 서버(백엔드)에서 원격 분석 데이터를 보내는 SDK를 설치 했습니다. 이제 클라이언트쪽 모니터링을 추가할 수 있습니다. 이 사용자, 세션, 페이지 보기 및 모든 예외 또는 클라이언트에서 발생하는 충돌에 데이터를 제공합니다.
 
 사용자는 응용 프로그램과 사용자의 고객이 함께 작동하는지 추적하는 코드를 오른쪽 아래의 클릭과 키 입력 세부 수준에서 작성할 수 있습니다.
 
@@ -165,9 +176,9 @@ SDK 서버와 동일한 계측 키를 가진 SDK 클라이언트를 구성하는
 
 ## <a name="ide"> </a>자동화된 방법
 
-Visual Studio를 사용하여 설정 작업을 하려는 경우 작업이 매우 간단합니다.
+수동으로 Application Insights 리소스를 생성한 다음 SDK를 설치하는 방법을 보여줄 것임을 이 문서 초반에 언급했습니다. 해당 절차의 두 부분을 이해하는 것이 좋습니다. 하지만 ASP.NET 앱(및 기타 다른 앱)의 경우 훨씬 더 빠른 자동화된 방법이 있습니다.
 
-[Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) 이상 및 [Microsoft Azure](http://azure.com) 계정이 필요합니다.
+[Visual Studio](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409)(2013 Update 3 이상) 및 [Microsoft Azure](http://azure.com) 계정이 필요합니다.
 
 #### 새 프로젝트의 경우
 
@@ -196,7 +207,7 @@ Visual Studio는 Application Insights에서 리소스를 만들고, SDK를 프�
 
 이 앱이 더 큰 응용 프로그램의 일부인 경우, **구성 설정**을 사용하여 다른 구성 요소와 동일한 리스소 그룹에 넣고자 할 수 있습니다.
 
-*Application Insights 옵션이 표시되지 않는 경우 Visual Studio 2013 업데이트 3 이상을 사용 중이고, 확장 및 업데이트에서 Application Insights Tools를 사용하도록 설정되어 있으며, 웹 프로젝트를 만들고 있는지 확인합니다.*
+*Application Insights 옵션이 표시되지 않는 경우 Visual Studio 2013 업데이트 3 이상을 사용 중이고, 확장 및 업데이트에서 Application Insights Tools를 사용하도록 설정되어 있는지 확인합니다.*
 
 #### 프로젝트에서 Application Insights를 엽니다.
 
@@ -223,6 +234,7 @@ Visual Studio는 Application Insights에서 리소스를 만들고, SDK를 프�
 [metrics]: app-insights-metrics-explorer.md
 [netlogs]: app-insights-asp-net-trace-logs.md
 [perf]: app-insights-web-monitor-performance.md
+[platforms]: app-insights-platforms.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
@@ -231,4 +243,4 @@ Visual Studio는 Application Insights에서 리소스를 만들고, SDK를 프�
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

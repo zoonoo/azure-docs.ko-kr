@@ -1,9 +1,7 @@
 <properties 
 	pageTitle="기계 학습에서 선형 회귀 사용 | Microsoft Azure" 
 	description="Excel과 Azure 기계 학습 스튜디오의 선형 회귀 모델 비교" 
-	metaKeywords="" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="garyericson" 
 	manager="paulettm" 
@@ -158,4 +156,4 @@ Azure 기계 학습에서 Excel로 예측 분석을 체계적으로 전송하는
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

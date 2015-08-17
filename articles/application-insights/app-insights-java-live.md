@@ -25,7 +25,7 @@ J2EE 서버에서 이미 실행 중인 웹 응용 프로그램이 있는 경우 
 
 > [AZURE.NOTE]이 페이지의 절차는 런타임에서 웹앱에 SDK를 추가합니다. 소스 코드를 업데이트하거나 다시 작성하지 않을 경우에 유용한 방식입니다. 하지만 가능하면 [소스 코드에 SDK를 추가](app-insights-java-get-started.md)할 것을 권장합니다. 그러면 사용자 활동을 추적하는 코드를 작성하는 등 추가 옵션이 제공됩니다.
 
-## 1. Application Insights 계측 키 가져오기
+## 1\. Application Insights 계측 키 가져오기
 
 1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인
 2. 새 Application Insights 리소스 만들기
@@ -38,13 +38,13 @@ J2EE 서버에서 이미 실행 중인 웹 응용 프로그램이 있는 경우 
 
     ![새 리소스 개요에서 속성을 클릭하고 계측 키 복사](./media/app-insights-java-get-started/03-key.png)
 
-## 2. SDK 다운로드
+## 2\. SDK 다운로드
 
 1. [Java용 Application Insights SDK](http://dl.windowsazure.com/applicationinsights/javabin/sdk.zip)를 다운로드합니다. 
 2. 서버에서 프로젝트 이진 파일이 로드된 원본 디렉터리로 SDK 콘텐츠를 추출합니다. Tomcat을 사용하는 경우 이 디렉터리는 일반적으로 `webapps<your_app_name>\WEB-INF\lib` 아래가 됩니다.
 
 
-## 3. Application Insights xml 파일 추가
+## 3\. Application Insights xml 파일 추가
 
 SDK를 추가한 폴더에 ApplicationInsights.xml을 만듭니다. 다음 XML을 삽입합니다.
 
@@ -86,7 +86,7 @@ Azure 포털에서 가져온 계측 키를 대체합니다.
 * 이벤트 상관 관계는 HTTP 요청 구성 요소에 추가됩니다. 이는 서버가 수신하는 요청마다 식별자를 할당하며 'Operation.Id' 속성으로 원격 분석의 모든 항목에 이를 속성으로 추가합니다. [진단 검색](app-insights-diagnostic-search.md)에서 필터를 설정하여 각 요청과 연결된 원격 분석의 상관 관계를 지정할 수 있습니다.
 
 
-## 4. HTTP 필터 추가
+## 4\. HTTP 필터 추가
 
 프로젝트에서 web.xml 파일을 찾아 열고, 응용 프로그램 필터가 구성된 웹 앱 노드 아래 다음 코드 조각을 병합합니다.
 
@@ -103,9 +103,9 @@ Azure 포털에서 가져온 계측 키를 대체합니다.
        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-## 5. 웹앱을 다시 시작합니다.
+## 5\. 웹앱을 다시 시작합니다.
 
-## 6. Application Insights에서 원격 분석 보기
+## 6\. Application Insights에서 원격 분석 보기
 
 [Microsoft Azure 포털](https://portal.azure.com)의 Application Insights 리소스로 돌아갑니다.
 
@@ -139,4 +139,4 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

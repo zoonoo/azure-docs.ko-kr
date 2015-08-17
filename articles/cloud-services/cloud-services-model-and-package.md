@@ -274,4 +274,4 @@ Visual Studio를 사용하여 다음 작업을 수행하려고 합니다.
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
 [vs_create]: https://msdn.microsoft.com/ko-kr/library/ee405487.aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

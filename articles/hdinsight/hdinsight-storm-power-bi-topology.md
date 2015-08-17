@@ -138,4 +138,4 @@ Power BI 미리 보기를 사용하여 데이터를 보고서 또는 대시보�
 
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

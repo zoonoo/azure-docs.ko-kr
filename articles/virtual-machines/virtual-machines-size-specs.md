@@ -39,9 +39,9 @@ Azure 가상 컴퓨터 및 클라우드 서비스는 Azure에서 제공하는 �
 
 다음 고려 사항이 크기를 결정하는 데 도움이 될 수 있습니다.
 
-*   A0\Basic_A0 크기는 Azure SDK 버전 1.3 이상을 사용하여만 사용할 수 있습니다.  
+*   A0\\Basic\_A0 크기는 Azure SDK 버전 1.3 이상을 사용하여만 사용할 수 있습니다.  
 
-*   A1\Basic_A1는 프로덕션 작업용으로 권장되는 최소 크기입니다.
+*   A1\\Basic\_A1는 프로덕션 작업용으로 권장되는 최소 크기입니다.
 
 *   SQL Server Enterprise Edition을 사용하는 경우 4 또는 8 CPU 코어가 있는 가상 컴퓨터를 선택합니다.
 
@@ -68,24 +68,24 @@ Azure 가상 컴퓨터 및 클라우드 서비스는 Azure에서 제공하는 �
 
 ## 기본 계층
 
-|크기 – Management Portal\cmdlets & API|CPU 코어|메모리|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크는 가 1023GB임)|최대 IOPS(디스크당 300)|
+|크기 – Management Portal\\cmdlets & API|CPU 코어|메모리|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크는 가 1023GB임)|최대 IOPS(디스크당 300)|
 |---|---|---|---|---|---|
-|A0\Basic_A0|1|768 MB|<p>OS = 1023GB</p><p>임시 = 20GB</p>|1|1x300|
-|A1\Basic_A1|1|1.75 GB|<p>OS = 1023GB</p><p>임시 = 40GB</p>|2|2x300|
-|A2\Basic_A2|2|3.5 GB|<p>OS = 1023GB</p><p>임시 = 60GB</p>|4|4x300|
-|A3\Basic_A3|4|7 GB|<p>OS = 1023GB</p><p>임시 = 120GB</p>|8|8x300|
-|A4\Basic_A4|8|14 GB|<p>OS = 1023GB</p><p>임시 = 240GB</p>|16|16x300|
+|A0\\Basic\_A0|1|768 MB|<p>OS = 1023GB</p><p>임시 = 20GB</p>|1|1x300|
+|A1\\Basic\_A1|1|1\.75 GB|<p>OS = 1023GB</p><p>임시 = 40GB</p>|2|2x300|
+|A2\\Basic\_A2|2|3\.5 GB|<p>OS = 1023GB</p><p>임시 = 60GB</p>|4|4x300|
+|A3\\Basic\_A3|4|7 GB|<p>OS = 1023GB</p><p>임시 = 120GB</p>|8|8x300|
+|A4\\Basic\_A4|8|14 GB|<p>OS = 1023GB</p><p>임시 = 240GB</p>|16|16x300|
 
 ## 표준 계층
 ### 계열 및 D 시리즈
 
-|크기 – Management Portal\cmdlets & API|CPU 코어|메모리|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크(각 1023GB)|최대 IOPS(디스크당 500)|
+|크기 – Management Portal\\cmdlets & API|CPU 코어|메모리|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크(각 1023GB)|최대 IOPS(디스크당 500)|
 |---|---|---|---|---|---|
-|A0\ 매우 작음|1|768 MB|<p>OS = 1023GB</p><p>임시 = 20GB</p>|1|1x500|
-|A1\작음|1|1.75 GB|<p>OS = 1023GB</p><p>임시 = 70GB</p>|2|2x500|
-|A2\중간|2|3.5 GB|<p>OS = 1023GB</p><p>임시 = 135GB</p>|4|4x500|
-|A3\큼|4|7 GB|<p>OS = 1023GB</p><p>임시 = 285GB</p>|8|8x500|
-|A4\매우 큼|8|14 GB|<p>OS = 1023GB</p><p>임시 = 605GB</p>|16|16x500|
+|A0\\ 매우 작음|1|768 MB|<p>OS = 1023GB</p><p>임시 = 20GB</p>|1|1x500|
+|A1\\작음|1|1\.75 GB|<p>OS = 1023GB</p><p>임시 = 70GB</p>|2|2x500|
+|A2\\중간|2|3\.5 GB|<p>OS = 1023GB</p><p>임시 = 135GB</p>|4|4x500|
+|A3\\큼|4|7 GB|<p>OS = 1023GB</p><p>임시 = 285GB</p>|8|8x500|
+|A4\\매우 큼|8|14 GB|<p>OS = 1023GB</p><p>임시 = 605GB</p>|16|16x500|
 |A5(동일)|2|14 GB|<p>OS = 1023GB</p><p>임시 = 135GB</p>|4|4X500|
 |A6(동일)|4|28GB|<p>OS = 1023GB</p><p>임시 = 285GB</p>|8|8x500|
 |A7(동일)|8|56GB|<p>OS = 1023GB</p><p>임시 = 605GB</p>|16|16x500|
@@ -93,40 +93,40 @@ Azure 가상 컴퓨터 및 클라우드 서비스는 Azure에서 제공하는 �
 |A9(동일)|16|112GB|<p><p>OS = 1023GB</p><p>Temporary = 382GB</p><blockquote><p>참고: 이 크기의 사용과 관련된 자세한 내용 및 고려 사항에 대해서는 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적 인스턴스 정보</a>를 참조하세요.</p></blockquote>|16|16x500|
 |A10(동일)|8|56GB|<p><p>OS = 1023GB</p><p>Temporary = 382GB</p><blockquote><p>참고: 이 크기의 사용과 관련된 자세한 내용 및 고려 사항에 대해서는 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적 인스턴스 정보</a>를 참조하세요.</p></blockquote>|16|16x500|
 |A11(동일)|16|112GB|<p><p>OS = 1023GB</p><p>Temporary = 382GB</p><blockquote><p>참고: 이 크기의 사용과 관련된 자세한 내용 및 고려 사항에 대해서는 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적 인스턴스 정보</a>를 참조하세요.</p></blockquote>|16|16x500|
-|Standard_D1(동일)|1|3.5 GB|<p>OS = 1023GB</p><p>임시 (SSD) =50GB</p>|2|2x500|
-|Standard_D2(동일)|2|7 GB|<p>OS = 1023GB</p><p>임시 (SSD) = 100GB</p>|4|4x500|
-|Standard_D3(동일)|4|14 GB|<p>OS = 1023GB</p><p>임시 (SSD) = 200GB</p>|8|8x500|
-|Standard_D4(동일)|8|28GB|<p>OS = 1023GB</p><p>임시 (SSD) = 400GB</p>|16|16x500|
-|Standard_D11(동일)|2|14 GB|<p>OS = 1023GB</p><p>임시 (SSD) = 100GB</p>|4|4x500|
-|Standard_D12(동일)|4|28GB|<p>OS = 1023GB</p><p>임시 (SSD) = 200GB</p>|8|8x500|
-|Standard_D13(동일)|8|56GB|<p>OS = 1023GB</p><p>임시 (SSD) = 400GB</p>|16|16x500|
-|Standard_D14(동일)|16|112GB|<p>OS = 1023GB</p><p>임시 (SSD) =800GB</p>|32|32x500|
+|Standard\_D1(동일)|1|3\.5 GB|<p>OS = 1023GB</p><p>임시 (SSD) =50GB</p>|2|2x500|
+|Standard\_D2(동일)|2|7 GB|<p>OS = 1023GB</p><p>임시 (SSD) = 100GB</p>|4|4x500|
+|Standard\_D3(동일)|4|14 GB|<p>OS = 1023GB</p><p>임시 (SSD) = 200GB</p>|8|8x500|
+|Standard\_D4(동일)|8|28GB|<p>OS = 1023GB</p><p>임시 (SSD) = 400GB</p>|16|16x500|
+|Standard\_D11(동일)|2|14 GB|<p>OS = 1023GB</p><p>임시 (SSD) = 100GB</p>|4|4x500|
+|Standard\_D12(동일)|4|28GB|<p>OS = 1023GB</p><p>임시 (SSD) = 200GB</p>|8|8x500|
+|Standard\_D13(동일)|8|56GB|<p>OS = 1023GB</p><p>임시 (SSD) = 400GB</p>|16|16x500|
+|Standard\_D14(동일)|16|112GB|<p>OS = 1023GB</p><p>임시 (SSD) =800GB</p>|32|32x500|
 
 
 ### 표준 계층 – DS 시리즈*
 
-|크기 – Management Portal\cmdlets & API|CPU 코어|메모리|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크(각 1023GB)|캐시 크기(GB)|최대 디스크 IOPS & amp; 대역폭|
+|크기 – Management Portal\\cmdlets & API|CPU 코어|메모리|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크(각 1023GB)|캐시 크기(GB)|최대 디스크 IOPS & amp; 대역폭|
 |---|---|---|---|---|---|---|
-|Standard_DS1(동일)|1|3.5|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 7GB</p>|2|43|<p>3,200</p><p>초당 32MB</p>|
-|Standard_DS2(동일)|2|7|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 14GB</p>|4|86|<p>6,400</p><p>초당 64MB</p>|
-|Standard_DS3(동일)|4|14|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 28GB</p>|8|172|<p>12,800</p><p>초당 128MB</p>|
-|Standard_DS4(동일)|8|28|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 56GB</p>|16|344|<p>25,600</p><p>초당 256MB</p>|
-|Standard_DS11(동일)|2|14|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 28GB</p>|4|72|<p>6,400</p><p>초당 64MB</p>|
-|Standard_DS12(동일)|4|28|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 56GB</p>|8|144|<p>12,800</p><p>초당 128MB</p>|
-|Standard_DS13(동일)|8|56|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 112GB</p>|16|288|<p>25,600</p><p>초당 256MB</p>|
-|Standard_DS14(동일)|16|112|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 224GB</p>|32|576|<p>50,000</p><p>초당 512MB</p>|
+|Standard\_DS1(동일)|1|3\.5|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 7GB</p>|2|43|<p>3,200</p><p>초당 32MB</p>|
+|Standard\_DS2(동일)|2|7|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 14GB</p>|4|86|<p>6,400</p><p>초당 64MB</p>|
+|Standard\_DS3(동일)|4|14|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 28GB</p>|8|172|<p>12,800</p><p>초당 128MB</p>|
+|Standard\_DS4(동일)|8|28|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 56GB</p>|16|344|<p>25,600</p><p>초당 256MB</p>|
+|Standard\_DS11(동일)|2|14|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 28GB</p>|4|72|<p>6,400</p><p>초당 64MB</p>|
+|Standard\_DS12(동일)|4|28|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 56GB</p>|8|144|<p>12,800</p><p>초당 128MB</p>|
+|Standard\_DS13(동일)|8|56|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 112GB</p>|16|288|<p>25,600</p><p>초당 256MB</p>|
+|Standard\_DS14(동일)|16|112|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 224GB</p>|32|576|<p>50,000</p><p>초당 512MB</p>|
 
-*DS 시리즈 VM에서 가능한 최당 최대 입/출력 작업(IOPS) 및 처리량(대역폭) VM은 디스크의 크기에 영향을 받습니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../storage-premium-storage-preview-portal.md)를 참조하세요.
+**DS 시리즈 VM에서 가능한 최당 최대 입/출력 작업(IOPS) 및 처리량(대역폭) VM은 디스크의 크기에 영향을 받습니다. 자세한 내용은 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](../storage-premium-storage-preview-portal.md)를 참조하세요.
 
 ### 표준 계층 – G 시리즈
 
-|크기 – Management Portal\cmdlets &amp; API|CPU 코어|메모리|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크(각 1023GB)|최대 IOPS(디스크당 500)|
+|크기 – Management Portal\\cmdlets &amp; API|CPU 코어|메모리|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크(각 1023GB)|최대 IOPS(디스크당 500)|
 |---|---|---|---|---|---|
-|Standard_G1(동일)|2|28GB|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 384GB</p>|4|4 x 500|
-|Standard_G2(동일)|4|56GB|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 768GB</p>|8|8 x 500|
-|Standard_G3(동일)|8|112GB|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 1,536GB</p>|16|16 x 500|
-|Standard_G4(동일)|16|224GB|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 3,072GB</p>|32|32 x 500|
-|Standard_G5(동일)|32|448GB|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 6,144GB</p>|64|<p>64 x 500</p>|
+|Standard\_G1(동일)|2|28GB|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 384GB</p>|4|4 x 500|
+|Standard\_G2(동일)|4|56GB|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 768GB</p>|8|8 x 500|
+|Standard\_G3(동일)|8|112GB|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 1,536GB</p>|16|16 x 500|
+|Standard\_G4(동일)|16|224GB|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 3,072GB</p>|32|32 x 500|
+|Standard\_G5(동일)|32|448GB|<p>OS = 1023GB</p><p>로컬 SSD 디스크 = 6,144GB</p>|64|<p>64 x 500</p>|
 
 ### 참고 항목
 
@@ -134,4 +134,4 @@ Azure 가상 컴퓨터 및 클라우드 서비스는 Azure에서 제공하는 �
 
 [A8, A9, A10 및 A11 계산 집약적인 인스턴스 정보](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

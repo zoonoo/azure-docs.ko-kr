@@ -66,32 +66,13 @@
 ## 다음 단계
 시작하기
 
-- [Azure 리소스 관리자 개요](../resource-group-overview.md)  
-- [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)
-- [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](../xplat-cli-azure-resource-manager.md)  
-  
-응용 프로그램 만들기 및 배포
-  
-- [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)  
-- [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)
-- [Azure에서 예측 가능하도록 복잡한 응용 프로그램을 배포](../app-service-web/app-service-deploy-complex-application-predictably.md)
-- [Azure에서 리소스 그룹 배포 문제 해결](../resource-group-deploy-debug.md)  
-- [Azure 리소스 관리자 템플릿 함수](../resource-group-template-functions.md)  
-- [고급 템플릿 작업](../resource-group-advanced-template.md)  
-- [.NET 라이브러리 및 템플릿을 사용하여 Azure 리소스 배포](../arm-template-deployment.md)
-  
-리소스 구성
-  
-- [태그를 사용하여 Azure 리소스 구성](../resource-group-using-tags.md)  
-  
-액세스 관리 및 감사
-  
-- [리소스에 대한 액세스 관리 및 감사](resource-group-rbac.md)  
-- [Azure 리소스 관리자를 사용하여 서비스 사용자 인증](../resource-group-authenticate-service-principal.md)  
-- [Azure 클래식 포털을 사용하여 새 Azure 서비스 사용자 만들기](../resource-group-create-service-principal-portal.md)  
+- 리소스 관리자의 개념에 대한 소개는 [Azure 리소스 관리자 개요](../resource-group-overview.md)를 참조하세요.  
+- 리소스 배포 시 Azure PowerShell 사용에 대한 소개는 [Azure 리소스 관리자와 함께 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
+- 리소스 배포 시 Azure CLI 사용에 대한 소개는 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](../xplat-cli-azure-resource-manager.md)을 참조하세요. 
+- 리소스를 논리적으로 구성하는 방법에 대한 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../resource-group-using-tags.md)을 참조하세요.
   
 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

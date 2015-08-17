@@ -106,4 +106,4 @@ Azure 기계 학습 웹 서비스에 연결하려면 ScoreData를 전달하는 *
 	
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -161,9 +161,9 @@
 
 	이렇게 하면 클래스에 정의된 범주가 반환됩니다.
 
-1. App.xaml.cs 파일을 열고 **async** 한정자를 **Application_Launching** 메서드에 추가합니다.
+1. App.xaml.cs 파일을 열고 **async** 한정자를 **Application\_Launching** 메서드에 추가합니다.
 
-2. **Application_Launching** 메서드에서 [알림 허브 시작]에서 추가한 알림 허브 등록 코드를 찾아 다음 코드 줄로 바꿉니다.
+2. **Application\_Launching** 메서드에서 [알림 허브 시작]에서 추가한 알림 허브 등록 코드를 찾아 다음 코드 줄로 바꿉니다.
 
 		await notifications.SubscribeToCategories(notifications.RetrieveCategories());
 
@@ -259,4 +259,4 @@ In this tutorial we learned how to broadcast breaking news by category. Consider
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

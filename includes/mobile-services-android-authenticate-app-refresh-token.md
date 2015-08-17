@@ -204,7 +204,55 @@
 
     이 서비스 필터는 각 응답에서 HTTP 상태 코드 401 "인증되지 않음"을 확인합니다. 401이 발견되면 새 토큰을 가져오기 위한 새 로그인 요청이 UI 스레드에 설정됩니다. 로그인이 완료될 때까지 또는 시도가 다섯 번 실패할 때까지 다른 호출은 차단됩니다. 새 토큰을 가져오면 401을 트리거한 요청이 새 토큰으로 다시 시도되며 차단된 모든 호출이 새 토큰으로 다시 시도됩니다.
 
-7. ToDoActivity.java 파일에서 `onCreate` 메서드를 다음과 같이 업데이트합니다.
+7. ToDoActivity.java 파일에서 ToDoActivity 클래스 내의 새 `ProgressFilter` 클래스에 이 코드를 추가합니다.
+		
+		/**
+		* The ProgressFilter class renders a progress bar on the screen during the time the App is waiting for the response of a previous request.
+		* the filter shows the progress bar on the beginning of the request, and hides it when the response arrived.
+		*/
+		private class ProgressFilter implements ServiceFilter {
+			@Override
+			public ListenableFuture<ServiceFilterResponse> handleRequest(ServiceFilterRequest request, NextServiceFilterCallback nextServiceFilterCallback) {
+
+				final SettableFuture<ServiceFilterResponse> resultFuture = SettableFuture.create();
+
+				runOnUiThread(new Runnable() {
+
+					@Override
+					public void run() {
+						if (mProgressBar != null) mProgressBar.setVisibility(ProgressBar.VISIBLE);
+					}
+				});
+
+				ListenableFuture<ServiceFilterResponse> future = nextServiceFilterCallback.onNext(request);
+
+				Futures.addCallback(future, new FutureCallback<ServiceFilterResponse>() {
+					@Override
+					public void onFailure(Throwable e) {
+						resultFuture.setException(e);
+					}
+
+					@Override
+					public void onSuccess(ServiceFilterResponse response) {
+						runOnUiThread(new Runnable() {
+
+							@Override
+							public void run() {
+								if (mProgressBar != null) mProgressBar.setVisibility(ProgressBar.GONE);
+							}
+						});
+
+						resultFuture.set(response);
+					}
+				});
+
+				return resultFuture;
+			}
+		}
+		
+	이 필터는 요청 시작 시 진행률 표시줄을 나타내며 응답이 도착하면 표시줄을 숨깁니다.
+
+8. ToDoActivity.java 파일에서 `onCreate` 메서드를 다음과 같이 업데이트합니다.
 
 		@Override
 	    public void onCreate(Bundle savedInstanceState) {
@@ -237,4 +285,4 @@
 
        이 코드에서는 `ProgressFilter` 외에도 `RefreshTokenCacheFilter`이(가) 사용됩니다. 또한 `onCreate` 중 토큰 캐시를 로드하려고 합니다. 따라서 `false`이(가) `authenticate` 메서드에 전달됩니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

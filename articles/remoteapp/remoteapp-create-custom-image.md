@@ -120,11 +120,11 @@ Azure RemoteApp은 Windows Server 2012 R2 템플릿 이미지를 사용하여 �
 	또는 레지스트리에서 다음 DWORD 값을 설정하거나 추가할 수 있습니다.
 
 		HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisableEncryption = 1
-9.	Azure 가상 컴퓨터 내에 이미지를 빌드하는 경우 **\%windir%\Panther\Unattend.xml** 파일의 이름을 바꿉니다. 이름을 그대로 사용하면 나중에 사용하는 업로드 스크립트가 작동하지 않게 됩니다. 배포를 원래대로 되돌려야 하는 경우 파일을 계속 사용할 수 있도록 파일의 이름을 Unattend.old로 변경합니다.
+9.	Azure 가상 컴퓨터 내에 이미지를 빌드하는 경우 **\\%windir%\\Panther\\Unattend.xml** 파일의 이름을 바꿉니다. 이름을 그대로 사용하면 나중에 사용하는 업로드 스크립트가 작동하지 않게 됩니다. 배포를 원래대로 되돌려야 하는 경우 파일을 계속 사용할 수 있도록 파일의 이름을 Unattend.old로 변경합니다.
 10.	Windows Update로 이동하여 모든 중요 업데이트를 설치합니다. 모든 업데이트를 가져오려면 여러 번 Windows Update를 실행해야 할 수 있습니다. (경우에 따라 업데이트를 설치하며 자체 해당 업데이트는 업데이트 해야합니다.)
 10.	이미지에 sysprep을 실행합니다. 관리자 권한 명령 프롬프트에서 다음 명령을 실행합니다.
 
-	**C:\Windows\System32\sysprep\sysprep.exe /generalize /oobe /shutdown**
+	**C:\\Windows\\System32\\sysprep\\sysprep.exe /generalize /oobe /shutdown**
 
 	**참고:** 가상 컴퓨터라도 SYSPREP 명령의 **/mode:vm** 스위치는 사용하지 마세요.
 
@@ -137,4 +137,4 @@ Azure RemoteApp은 Windows Server 2012 R2 템플릿 이미지를 사용하여 �
 - [RemoteApp의 클라우드 컬렉션을 만드는 방법](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

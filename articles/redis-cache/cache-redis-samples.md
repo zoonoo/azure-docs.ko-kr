@@ -38,7 +38,7 @@
 
 자세한 내용은 github의 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 설명서를 참조하세요. 추가 사용 시나리오는 [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/StackExchange.Redis.Tests) 단위 테스트를 참조하세요.
 
-[Azure Redis Cache를 Node.js와 함께 사용하는 방법](cache-nodejs-get-started.md)에서는 Node.js와 [node_redis](https://github.com/mranney/node_redis) 클라이언트를 사용하여 Azure Redis Cache를 시작하는 방법을 보여 줍니다.
+[Azure Redis Cache를 Node.js와 함께 사용하는 방법](cache-nodejs-get-started.md)에서는 Node.js와 [node\_redis](https://github.com/mranney/node_redis) 클라이언트를 사용하여 Azure Redis Cache를 시작하는 방법을 보여 줍니다.
 
 [Azure Redis Cache를 Java와 함께 사용하는 방법](cache-java-get-started.md)에서는 Java와 [Jedis](https://github.com/xetorthio/jedis) 클라이언트를 사용하여 Azure Redis Cache를 시작하는 방법을 보여 줍니다.
 
@@ -79,4 +79,4 @@
 
 [대역폭 모니터](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) 샘플을 사용하면 클라이언트에서 사용 되는 대역폭을 모니터링할 수 있습니다. 대역폭을 측정하려면 캐시 클라이언트 컴퓨터에서 샘플을 실행하고, 캐시를 호출하고, 대역폭 모니터 샘플에서 보고하는 대역폭을 관찰합니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

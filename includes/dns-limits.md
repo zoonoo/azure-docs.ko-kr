@@ -1,7 +1,9 @@
 
-| Resource	| Default limit 
+| 리소스 | 기본 제한 
 --- | ---
-| Zones per subscription | 50
-| Record sets per zone| 1000
-| Records per record set| 20
+| 구독당 영역 | 50
+| 영역당 레코드 집합| 1000
+| 레코드 집합당 레코드| 20
  
+
+<!---HONumber=August15_HO6-->

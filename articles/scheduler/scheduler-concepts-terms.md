@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article" 
- ms.date="05/12/2015"
+ ms.date="08/04/2015"
  ms.author="krisragh"/>
 
 # 스케줄러 개념, 용어 및 엔터티 계층 구조
@@ -208,4 +208,4 @@ JSON 정의에 지정된 되풀이 개체가 있으면 작업이 반복됩니다
  [스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

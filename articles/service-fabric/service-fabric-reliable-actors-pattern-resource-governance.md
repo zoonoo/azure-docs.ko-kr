@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 서비스 패브릭 행위자 리소스 관리 디자인 패턴"
-   description="서비스 패브릭 행위자를 사용하여 규모를 확장해야 하지만 제한된 리소스를 사용해야 하는 응용 프로그램을 모델링할 수 있는 방법에 대한 패턴 디자인"
+   pageTitle="신뢰할 수 있는 행위자 리소스 관리 디자인 패턴"
+   description="신뢰할 수 있는 행위자를 사용하여 규모를 확장해야 하지만 제한된 리소스를 사용해야 하는 응용 프로그램을 모델링할 수 있는 방법에 대한 패턴 디자인"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Azure 서비스 패브릭 행위자 디자인 패턴: 리소스 관리
+# 신뢰할 수 있는 행위자 디자인 패턴: 리소스 관리
 이 패턴 및 관련 시나리오에서는 즉시 크기 조정할 수 없거나 대규모 응용 프로그램 및 데이터를 클라우드로 전송하려는 경우, 리소스를 온-프레미스 또는 클라우드에서 제한한 개발자(엔터프라이즈 등)가 쉽게 알 수 있습니다.
 
 엔터프라이즈 환경에서는 데이터베이스 등과 같이 제한된 리소스가 확장된 하드웨어에서 실행됩니다. 엔터프라이즈 환경에서 오래 작업한 사람은 이것이 온-프레미스 환경에서 일반적인 상황이라는 것을 압니다. 클라우드 규모에서도 클라우드 서비스가 주소/포트 튜플 간 연결에 대한 64K TCP 제한을 초과하려고 하거나 동시 연결 수를 제한하는 클라우드 기반 데이터베이스에 연결하려고 할 때 이런 상황이 발생합니다.
@@ -48,7 +48,7 @@ private static string ResolveConnectionString(long userId, int region)
 }
 ```
 
-간단하지만 굉장히 유연하지는 않습니다. 이제 좀더 유용한 고급 접근 방식을 살펴보겠습니다. 우선, 실제 리소스와 행위자 사이의 선호도를 모델링합니다. 이 작업은 사용자, 논리 파티션 및 실제 리소스 간의 매핑을 파악하고 있는 확인자라는 행위자를 통해 수행됩니다. 확인자는 지속형 저장소에 데이터를 유지 관리하지만 간편한 조회를 위해 캐시됩니다. 이전 스마트 캐시 패턴의 환율 샘플에서 보았듯이 확인자는 타이머를 사용하여 최신 정보를 사전에 인출할 수 있습니다. 사용자 행위자가 사용해야 하는 리소스를 확인하면 해당 리소스를 _resolution이라는 로컬 변수에 캐시하고 수명 동안 사용합니다. 규모 확장/축소 또는 한 리소스에서 다른 리소스로 사용자 이동 등과 같은 작업에서 제공하는 유연성 때문에 단순 해시에 대해 조회 기반 처리(아래 그림)를 선택할 수 있습니다.
+간단하지만 굉장히 유연하지는 않습니다. 이제 좀더 유용한 고급 접근 방식을 살펴보겠습니다. 우선, 실제 리소스와 행위자 사이의 선호도를 모델링합니다. 이 작업은 사용자, 논리 파티션 및 실제 리소스 간의 매핑을 파악하고 있는 확인자라는 행위자를 통해 수행됩니다. 확인자는 지속형 저장소에 데이터를 유지 관리하지만 간편한 조회를 위해 캐시됩니다. 이전 스마트 캐시 패턴의 환율 샘플에서 보았듯이 확인자는 타이머를 사용하여 최신 정보를 사전에 인출할 수 있습니다. 사용자 행위자가 사용해야 하는 리소스를 확인하면 해당 리소스를 \_resolution이라는 로컬 변수에 캐시하고 수명 동안 사용합니다. 규모 확장/축소 또는 한 리소스에서 다른 리소스로 사용자 이동 등과 같은 작업에서 제공하는 유연성 때문에 단순 해시에 대해 조회 기반 처리(아래 그림)를 선택할 수 있습니다.
 
 ![][2]
 
@@ -416,6 +416,5 @@ public class EventWriter : Actor<EventWriterState>, IEventWriter
 [1]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

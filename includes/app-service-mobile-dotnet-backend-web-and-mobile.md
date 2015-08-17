@@ -32,7 +32,7 @@
 
     - 열리는 블레이드에서 **모든 설정**을 선택한 다음 **응용 프로그램 설정**을 선택합니다.
 
-    - **연결 문자열**에서 **연결 문자열 표시**를 클릭합니다. 설정 **MS_TableConnectionString**에 대한 값을 복사합니다. SQL 데이터베이스에 연결하기 위해 모바일 앱에서 사용되는 연결 문자열입니다.
+    - **연결 문자열**에서 **연결 문자열 표시**를 클릭합니다. 설정 **MS\_TableConnectionString**에 대한 값을 복사합니다. SQL 데이터베이스에 연결하기 위해 모바일 앱에서 사용되는 연결 문자열입니다.
 
 5. Visual Studio에서 웹 API 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. **Azure 웹앱**을 게시 대상으로 선택하고 위에서 만든 웹앱을 선택합니다. 게시 웹 마법사의 **설정**으로 이동할 때까지 **다음**을 클릭합니다.
 
@@ -78,4 +78,4 @@
 [모바일 앱 만들기]: ../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 [모바일 앱을 만들기]: ../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

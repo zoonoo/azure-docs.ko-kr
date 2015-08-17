@@ -62,17 +62,17 @@ Azure Site Recovery의 InMage Scout는 온-프레미스 VMWare 사이트 간의 
 
 1. [업데이트] 다운로드(http://download.microsoft.com/download/9/F/D/9FDC6001-1DD0-4C10-BDDD-8A9EBFC57FDF/ASRScout 8.0.1 Update1.zip) zip 파일입니다. 이 zip 파일에는 다음 파일이 포함됩니다.
 
-	-  RX_8.0.1.0_GA_Update_1_3279231_23Jun15.tar.gz
-	-  CX_Windows_8.0.1.0_GA_Update_1_3259146_23Jun15.exe
-	-  UA_Windows_8.0.1.0_GA_Update_1_3259401_23Jun15.exe
-	-  UA_RHEL6-64_8.0.1.0_GA_Update_1_3259401_23Jun15.tar.gz
-	-  vCon_Windows_8.0.1.0_GA_Update_1_3259523_23Jun15.exe
+	-  RX\_8.0.1.0\_GA\_Update\_1\_3279231\_23Jun15.tar.gz
+	-  CX\_Windows\_8.0.1.0\_GA\_Update\_1\_3259146\_23Jun15.exe
+	-  UA\_Windows\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.exe
+	-  UA\_RHEL6-64\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.tar.gz
+	-  vCon\_Windows\_8.0.1.0\_GA\_Update\_1\_3259523\_23Jun15.exe
 2. zip 파일의 압축을 풉니다.
-2. **RX 서버**: **RX_8.0.1.0_GA_Update_1_3279231_23Jun15.tar.gz**를 RX 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
-2. **구성 서버/프로세스 서버**: **CX_Windows_8.0.1.0_GA_Update_1_3259146_23Jun15.exe**를 구성 서버 및 프로세스 서버에 복사합니다. 실행하려면 두 번 클릭합니다.
-3. **Windows 마스터 대상 서버**: 통합된 에이전트를 업데이트하려면**UA_Windows_8.0.1.0_GA_Update_1_3259401_23Jun15.exe**를 마스터 대상 서버에 복사합니다. 실행하려면 두 번 클릭합니다. Windows용으로 통합된 에이전트는 원본 서버에 적용할 수 없습니다. Windows 마스터 대상 서버에만 설치해야 합니다.
-4. **Linux 마스터 대상 서버**: 통합된 에이전트를 업데이트하려면**UA_RHEL6 64_8.0.1.0_GA_Update_1_3259401_23Jun15.tar.gz**를 마스터 대상 서버로 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
-5. **vContinuum 서버**: **vCon_Windows_8.0.1.0_GA_Update_1_3259523_23Jun15.exe**를 vContinuum 서버에 복사합니다. VContinuum 마법사를 닫았는지 확인합니다. 실행하려면 파일을 두 번 클릭합니다.
+2. **RX 서버**: **RX\_8.0.1.0\_GA\_Update\_1\_3279231\_23Jun15.tar.gz**를 RX 서버에 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
+2. **구성 서버/프로세스 서버**: **CX\_Windows\_8.0.1.0\_GA\_Update\_1\_3259146\_23Jun15.exe**를 구성 서버 및 프로세스 서버에 복사합니다. 실행하려면 두 번 클릭합니다.
+3. **Windows 마스터 대상 서버**: 통합된 에이전트를 업데이트하려면**UA\_Windows\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.exe**를 마스터 대상 서버에 복사합니다. 실행하려면 두 번 클릭합니다. Windows용으로 통합된 에이전트는 원본 서버에 적용할 수 없습니다. Windows 마스터 대상 서버에만 설치해야 합니다.
+4. **Linux 마스터 대상 서버**: 통합된 에이전트를 업데이트하려면**UA\_RHEL6 64\_8.0.1.0\_GA\_Update\_1\_3259401\_23Jun15.tar.gz**를 마스터 대상 서버로 복사하고 압축을 풉니다. 압축을 푼 폴더에서 **/Install**을 실행합니다.
+5. **vContinuum 서버**: **vCon\_Windows\_8.0.1.0\_GA\_Update\_1\_3259523\_23Jun15.exe**를 vContinuum 서버에 복사합니다. VContinuum 마법사를 닫았는지 확인합니다. 실행하려면 파일을 두 번 클릭합니다.
 
 ## 4단계: 복제 설정
 5. 원본과 대상 VMware 사이트 간 복제를 설정합니다.
@@ -117,4 +117,4 @@ Azure Site Recovery의 InMage Scout는 온-프레미스 VMWare 사이트 간의 
 
 문의 사항은 [Azure 복구 서비스 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 게시하세요.<
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -63,4 +63,4 @@ Azure의 SharePoint에 대한 추가 정보 및 구성은 다음 리소스를 �
 
 - [Microsoft Azure에서 Office 365 디렉터리 동기화(DirSync) 배포](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

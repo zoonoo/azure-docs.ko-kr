@@ -263,4 +263,4 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. **w
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!-------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -49,7 +49,7 @@ ZK([ZooKeeper](http://zookeeper.apache.org/)) 노드가 추가되었으며 헤�
 
 
 ## 활성 헤드 노드의 서비스 상태 확인
-활성 상태인 헤드 노드를 확인하고 해당 헤드 노드에서 실행되는 서비스의 상태를 확인하기 위해서는 RDP(원격 데스크톱 프로토콜)를 사용하여 Hadoop 클러스터에 연결해야 합니다. RDP 지침의 경우 [Azure 포털을 사용하여 HDInsight에서 Hadoop 클러스터 관리](hdinsight-administer-use-management-portal.md/#connect-to-hdinsight-clusters-by-using-rdp)를 참조하세요. 클러스터에 원격으로 연결한 경우 바탕 화면에 있는 **Hadoop 서비스 사용 가능 **아이콘을 두 번 클릭하여 Namenode, Jobtracker, Templeton, Oozieservice, Metastore 및 Hiveserver2 서비스가 실행 중인 헤드 노드에 대한 상태를 표시하고, HDI 3.0의 경우에는 Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore 및 Hiveserver2 서비스가 실행 중인 헤드 노드에 대한 상태를 표시합니다.
+활성 상태인 헤드 노드를 확인하고 해당 헤드 노드에서 실행되는 서비스의 상태를 확인하기 위해서는 RDP(원격 데스크톱 프로토콜)를 사용하여 Hadoop 클러스터에 연결해야 합니다. RDP 지침의 경우 [Azure 포털을 사용하여 HDInsight에서 Hadoop 클러스터 관리](hdinsight-administer-use-management-portal.md/#connect-to-hdinsight-clusters-by-using-rdp)를 참조하세요. 클러스터에 원격으로 연결한 경우 바탕 화면에 있는 **Hadoop 서비스 사용 가능** 아이콘을 두 번 클릭하여 Namenode, Jobtracker, Templeton, Oozieservice, Metastore 및 Hiveserver2 서비스가 실행 중인 헤드 노드에 대한 상태를 표시하고, HDI 3.0의 경우에는 Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore 및 Hiveserver2 서비스가 실행 중인 헤드 노드에 대한 상태를 표시합니다.
 
 ![](./media/hdinsight-high-availability/Hadoop.Service.Availability.Status.png)
 
@@ -105,4 +105,4 @@ SDK의 경우에도 상황은 비슷합니다. SDK를 사용하는 클러스터�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

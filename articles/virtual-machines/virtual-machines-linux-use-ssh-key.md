@@ -55,7 +55,7 @@
 ## 기존 OpenSSH 호환 키에서 키 생성
 이전 예제에서는 Azure와 함께 사용할 새 키를 만드는 방법을 설명합니다. 사용자에게 기존의 OpenSSH 호환 공용 키 및 개인 키 쌍이 이미 있고 동일한 키를 Azure에 사용하려는 경우도 있을 수 있습니다.
 
-OpenSSH 개인 키는 `openssl` 유틸리티를 통해 직접 읽을 수 있습니다. 다음 명령은 기존 SSH 개인 키(아래 예제에서는 id_rsa)를 사용하고 Azure에 필요한 `.pem` 공개 키를 만듭니다.
+OpenSSH 개인 키는 `openssl` 유틸리티를 통해 직접 읽을 수 있습니다. 다음 명령은 기존 SSH 개인 키(아래 예제에서는 id\_rsa)를 사용하고 Azure에 필요한 `.pem` 공개 키를 만듭니다.
 
 	# openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out myCert.pem
 
@@ -79,7 +79,7 @@ Windows용 `openssl`을 포함하는 다양한 유틸리티가 있습니다. 다
 ### Msysgit 사용 ###
 
 1.	다음 위치에서 msysgit를 다운로드하고 설치합니다. [http://msysgit.github.com/](http://msysgit.github.com/)
-2.	설치된 디렉터리에서 `msys` 실행(예: c:\msysgit\msys.exe)
+2.	설치된 디렉터리에서 `msys` 실행(예: c:\\msysgit\\msys.exe)
 3.	`cd bin`에 입력하여 `bin` 디렉터리로 변경
 
 
@@ -133,14 +133,14 @@ Windows용 `openssl`을 포함하는 다양한 유틸리티가 있습니다. 다
 
 ## Putty용 PPK 만들기 ##
 
-1. 다음 위치에서 Puttygen 다운로드 및 설치: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1. 다음 위치에서 Puttygen 다운로드 및 설치: [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
 2. Puttygen은 앞에서 만든 개인 키(`myPrivateKey.key`)를 읽지 못할 수도 있습니다. 이 경우 다음 명령을 실행하여 해당 키를 Puttygen이 이해할 수 있는 RSA 개인 키로 변환합니다.
 
 		# openssl rsa -in ./myPrivateKey.key -out myPrivateKey_rsa
 		# chmod 600 ./myPrivateKey_rsa
 
-	위의 명령을 실행하면 새 개인 키 myPrivateKey_rsa가 생성됩니다.
+	위의 명령을 실행하면 새 개인 키 myPrivateKey\_rsa가 생성됩니다.
 
 3. `puttygen.exe` 실행
 
@@ -163,7 +163,7 @@ Windows용 `openssl`을 포함하는 다양한 유틸리티가 있습니다. 다
 
 ## Putty를 사용하여 Linux 컴퓨터에 연결 ##
 
-1.	다음 위치에서 putty 다운로드 및 설치: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1.	다음 위치에서 putty 다운로드 및 설치: [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 2.	putty.exe를 실행합니다.
 3.	관리 포털의 IP를 사용하여 호스트 이름을 입력합니다.
 
@@ -176,4 +176,4 @@ Windows용 `openssl`을 포함하는 다양한 유틸리티가 있습니다. 다
 5.	**열기**를 클릭하여 가상 컴퓨터에 연결합니다.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

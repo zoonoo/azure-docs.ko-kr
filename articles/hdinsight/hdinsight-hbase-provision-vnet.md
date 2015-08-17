@@ -437,4 +437,4 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "스크립트 작업을 사용하여 HBase 클러스터 사용자 지정"
  
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

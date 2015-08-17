@@ -262,4 +262,4 @@ StorSimple 장치에서 오류가 발생하여 대기(장애 조치(failover)) �
 
 [StorSimple 스냅숏 관리자를 사용하여 볼륨을 보고 관리합니다](storsimple-snapshot-manager-manage-volumes.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

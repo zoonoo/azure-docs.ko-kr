@@ -53,7 +53,8 @@ SQL Server 백업을 Azure Blob 저장소 서비스에 쓸 수 있는 기능은 
 
 ## SQL Server 구성 요소
 
-* URL: URL은 고유한 백업 파일에 대한 URI(Uniform Resource Identifier)를 지정합니다. URL은 SQL Server 백업 파일의 위치 및 이름을 지정하는 데 사용합니다. 이 구현에서는 Azure 저장소 계정의 페이지 Blob을 가리키는 URL만 유효한 URL입니다. URL은 컨테이너가 아닌 실제 Blob을 가리켜야 합니다. Blob이 없는 경우 새로 만듭니다. 기존 Blob이 지정된 경우 > WITH FORMAT 옵션을 지정하지 않으면 BACKUP이 실패합니다. 다음은 BACKUP 명령에서 지정할 수 있는 URL의 예입니다.**`http[s]://ACCOUNTNAME.Blob.core.windows.net/<CONTAINER>/<FILENAME.bak>`
+* URL: URL은 고유한 백업 파일에 대한 URI(Uniform Resource Identifier)를 지정합니다. URL은 SQL Server 백업 파일의 위치 및 이름을 지정하는 데 사용합니다. 이 구현에서는 Azure 저장소 계정의 페이지 Blob을 가리키는 URL만 유효한 URL입니다. URL은 컨테이너가 아닌 실제 Blob을 가리켜야 합니다. Blob이 없는 경우 새로 만듭니다. 기존 Blob이 지정된 경우 > WITH FORMAT 옵션을 지정하지 않으면 BACKUP이 실패합니다. 다음은 BACKUP 명령에 지정할 수 있는 URL의 예입니다. ****`http[s]://ACCOUNTNAME.Blob.core.windows.net/<CONTAINER>/<FILENAME.bak>`
+
 <b>참고:</b> HTTPS는 필수가 아니지만 사용하는 것이 좋습니다. <b>중요</b> Azure Blob 저장소 서비스로 백업 파일을 복사하고 업로드하도록 선택한 경우 이 파일을 복원 작업에 사용하려면 저장소 옵션으로 페이지 Blob 유형을 사용해야 합니다. 블록 Blob 유형에서 RESTORE를 사용하면 오류를 일으키며 실패합니다.
 
 * 자격 증명: Azure Blob 저장소 서비스에 연결하고 인증하는 데 필요한 정보는 자격 증명으로 저장됩니다. SQL Server가 백업을 Azure Blob에 쓰거나 Azure Blob에서 복원하려면 SQL Server 자격 증명을 만들어야 합니다. 자격 증명은 저장소 계정의 이름 및 저장소 계정 액세스 키를 저장합니다. 자격 증명을 만든 후에는 BACKUP/RESTORE 문을 사용할 때 WITH CREDENTIAL 옵션에서 해당 자격 증명을 지정해야 합니다. SQL Server 자격 증명을 만드는 방법에 대한 단계별 지침은 [Azure 저장소 서비스로 SQL Server 백업 및 복원 시작](http://go.microsoft.com/fwlink/?LinkId=271615)을 참조하십시오.
@@ -72,4 +73,4 @@ SQL Server 백업을 Azure Blob 저장소 서비스에 쓸 수 있는 기능은 
 
 [백업 및 복원 모범 사례(Azure Blob 저장소 서비스)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

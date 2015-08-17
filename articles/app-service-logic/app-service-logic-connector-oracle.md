@@ -57,10 +57,10 @@ Oracle 데이터베이스 커넥터에서 사용할 수 있는 트리거와 작�
 저장 프로시저 | 아니요 | 커넥터를 통해 호출할 수 있는 데이터베이스의 저장 프로시저를 입력합니다. 예를 들어 *IsEmployeeEligible, CalculateOrderDiscount*를 입력합니다.
 함수 | 아니요 | 커넥터를 통해 호출할 수 있는 데이터베이스의 함수를 입력합니다. 예를 들어 *IsEmployeeEligible, CalculateOrderDiscount*를 입력합니다.
 패키지 엔터티 | 아니요 | 커넥터를 통해 호출할 수 있는 데이터베이스의 패키지를 입력합니다. 예를 들어 *PackageOrderProcessing.CompleteOrder, PackageOrderProcessing.GenerateBill*을 입력합니다.
-사용 가능한 데이터 문 | 아니요 | 폴링에 사용할 수 있는 데이터를 결정할 문을 입력합니다. 예를 들어 *SELECT * from table_name*을 입력합니다.
+사용 가능한 데이터 문 | 아니요 | 폴링에 사용할 수 있는 데이터를 결정할 문을 입력합니다. 예를 들어 *SELECT * from table\_name*을 입력합니다.
 폴링 유형 | 아니요 | 폴링 유형을 입력합니다. 허용되는 값은 "Select", "Procedure", "Function" 및 "Package"입니다.
-폴링 문 | 아니요 | Oracle 서버 데이터베이스를 폴링할 문을 입력합니다. 예를 들어 *SELECT * from table_name*을 입력합니다.
-폴링 후 문 | 아니요 | 폴링 후 실행할 문을 입력합니다. 예를 들어 *DELETE * from table_name*을 입력합니다.
+폴링 문 | 아니요 | Oracle 서버 데이터베이스를 폴링할 문을 입력합니다. 예를 들어 *SELECT * from table\_name*을 입력합니다.
+폴링 후 문 | 아니요 | 폴링 후 실행할 문을 입력합니다. 예를 들어 *DELETE * from table\_name*을 입력합니다.
 
 5. 완료되면 패키지 설정은 다음과 유사하게 됩니다. <br/> ![][1]
 
@@ -115,4 +115,4 @@ Oracle 커넥터를 작업으로 사용하려면 Oracle 커넥터를 만들 때 
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

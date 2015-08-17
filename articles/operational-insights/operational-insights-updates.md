@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # 시스템 업데이트로 서버 업데이트
@@ -23,7 +23,7 @@
 
 ## 시스템 업데이트를 사용하여 서버를 업데이트합니다.
 
-Microsoft Azure Operational Insights에서 시스템 업데이트를 사용하려면 솔루션이 설치되어 있어야 합니다. 솔루션 설치에 대한 더 알려면 [솔루션 갤러리를 사용하여 솔루션 추가 및 제거](operational-insights-add-solution.md)를 참조하십시오. Operational Insights의 **개요** 페이지의 **시스템 업데이트 평가** 타일을 사용하여 모니터링된 서버에서 누락된 업데이트를 보고 설치할 수 있습니다.
+Microsoft Azure Operational Insights에서 시스템 업데이트를 사용하려면 솔루션이 설치되어 있어야 합니다. 솔루션 설치에 대해 더 알려면 [솔루션 갤러리를 사용하여 솔루션 추가 및 제거](operational-insights-setup-workspace.md)를 참조하세요. Operational Insights의 **개요** 페이지의 **시스템 업데이트 평가** 타일을 사용하여 모니터링된 서버에서 누락된 업데이트를 보고 설치할 수 있습니다.
 
 ### 업데이트를 작성하려면
 
@@ -36,4 +36,4 @@ Microsoft Azure Operational Insights에서 시스템 업데이트를 사용하�
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

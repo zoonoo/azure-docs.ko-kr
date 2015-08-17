@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Azure AD에서 사용자 만들기 또는 편집" 
-	description="Azure AD에서 사용자 계정을 만들거나 편집하는 방법에 설명하는 항목입니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+	pageTitle="Azure AD에서 사용자 만들기 또는 편집"
+	description="Azure AD에서 사용자 계정을 만들거나 편집하는 방법에 설명하는 항목입니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="stevepo"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
+	ms.author="curtand"/>
 
 # Azure AD에서 사용자 만들기 또는 편집
 
@@ -24,10 +24,10 @@ Microsoft 클라우드 서비스에 액세스하는 모든 사용자에 대한 �
 
 1. **Active Directory**를 클릭한 다음 조직의 디렉터리 이름을 클릭합니다.
 2. **사용자** 페이지에서 **사용자 추가**를 클릭합니다.
-3. **이 사용자에 대해 알리기** 페이지에 대한 **사용자 형식**으로 다음 중 하나를 선택합니다. 
+3. **이 사용자에 대해 알리기** 페이지에 대한 **사용자 형식**으로 다음 중 하나를 선택합니다.
 	1. **조직 내 새 사용자** – 디렉터리 내에서 새 사용자 계정을 만들고 관리할 것임을 나타냅니다.
-	2. **기존 Microsoft 계정 사용자** – Microsoft 계정으로 Azure에 액세스하는 공동 관리자와 함께 Azure 리소스 작업을 수행하기 위해 기존 Microsoft 계정을 디렉터리에 추가할 것임을 나타냅니다.	
-	3. **다른 Azure AD 디렉터리의 사용자** – 다른 Azure AD 디렉터리가 원본인 사용자 계정을 사용자 디렉터리에 추가할 것임을 나타냅니다. 다른 디렉터리에서 사용자를 선택하려면 해당 디렉터리의 구성원이어야 합니다. 
+	2. **기존 Microsoft 계정 사용자** – Microsoft 계정으로 Azure에 액세스하는 공동 관리자와 함께 Azure 리소스 작업을 수행하기 위해 기존 Microsoft 계정을 디렉터리에 추가할 것임을 나타냅니다.
+	3. **다른 Azure AD 디렉터리의 사용자** – 다른 Azure AD 디렉터리가 원본인 사용자 계정을 사용자 디렉터리에 추가할 것임을 나타냅니다. 다른 디렉터리에서 사용자를 선택하려면 해당 디렉터리의 구성원이어야 합니다.
 4. 선택한 옵션에 따라 사용자 이름 또는 이 사용자가 로그인하는 데 사용하는 Microsoft 계정 이름을 입력합니다.
 5. 사용자 **프로필** 페이지에 사용자의 이름과 성, 별명 및 역할 드롭다운 메뉴의 사용자 역할을 입력합니다. 사용자 및 관리자 역할에 대한 자세한 내용은 [Azure AD에서 관리자 역할 할당](active-directory-assign-admin-roles.md)을 참조하세요. **다단계 인증 사용** 여부를 지정합니다.
 6. **임시 암호 가져오기** 페이지에서 **만들기**를 클릭합니다.
@@ -40,7 +40,7 @@ Microsoft 클라우드 서비스에 액세스하는 모든 사용자에 대한 �
 ## 사용자 편집
 
 편집하려는 사용자가 온-프레미스 Active Directory 서비스와 동기화된 경우 오류 메시지가 나타나며, 이 절차를 사용하여 사용자를 편집할 수 없게 됩니다. 사용자를 편집하려면 로컬 Active Directory 관리 도구를 사용합니다.
- 
+
 Azure 관리 포털에서 사용자를 편집하려면
 
 1. **Active Directory**를 클릭한 다음 조직의 디렉터리 이름을 클릭합니다.
@@ -110,6 +110,5 @@ Azure AD에서 다른 Azure AD 디렉터리의 사용자 또는 Microsoft 계정
 <!--Image references-->
 [1]: ./media/active-directory-create-users/RBACDirConfigTab.png
 [2]: ./media/active-directory-create-users/RBACGuestAccessControls.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

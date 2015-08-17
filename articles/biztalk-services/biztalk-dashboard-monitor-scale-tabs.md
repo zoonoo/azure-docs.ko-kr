@@ -368,4 +368,4 @@ Azure BizTalk 서비스에서 하이브리드 연결을 만들거나 관리하�
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

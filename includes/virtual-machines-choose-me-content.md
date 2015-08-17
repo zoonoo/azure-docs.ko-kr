@@ -24,7 +24,7 @@ Azure 가상 컴퓨터를 사용하여 클라우드에서 가상 컴퓨터를 �
 
 가상 컴퓨터는 VHD(가상 하드 디스크)를 사용하여 해당 OS(운영 체제) 및 데이터를 저장합니다. VHD는 OS를 설치하도록 선택할 수 있는 이미지에도 사용됩니다. 다음 그림은 이뿐 아니라 VM 만들기 및 관리를 위한 두 가지 도구도 보여 줍니다.
 
-<a name="fig_createvms"></a> ![vm_diagram](./media/virtual-machines-choose-me-content/diagram.png)
+<a name="fig_createvms"></a> ![vm\_diagram](./media/virtual-machines-choose-me-content/diagram.png)
 
 **그림: Azure 가상 컴퓨터는 IaaS(Infrastructure as a Service)를 제공합니다.**
 
@@ -42,4 +42,4 @@ VM에 대해 고려할 기타 혜택은 다음과 같습니다.
 
 **복원력** -- Azure는 실행 중인 각 VM을 호스팅하는 실제 하드웨어를 모니터링 합니다. VM을 실행하는 실제 서버에 오류가 생기는 경우, Azure가 이를 공지하며 VM을 새 하드웨어로 옮기고 VM을 다시 시작합니다. 이 프로세스는 서비스 복구라고도 합니다. 또한 Azure는 Blob 저장소에 VHD의 중복 복사본을 유지하여 가상 컴퓨터의 데이터를 보호합니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

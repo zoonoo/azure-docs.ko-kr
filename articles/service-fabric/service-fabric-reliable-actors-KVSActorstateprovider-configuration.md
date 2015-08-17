@@ -38,7 +38,7 @@ KVSActorStateProvider의 기본 구성은 해당 지정된 행위자에 대해 V
 
 |이름|단위|기본값|설명|
 |----|----|-------------|-------|
-|BatchAcknowledgementInterval|초|0.05|작업을 수신한 후 주 복제본에 대한 승인을 다시 보내기 전에 보조 복제본의 복제자가 대기하는 시간. 이 간격 내에서 처리하는 작업에 대해 보낼 나머지 승인은 모두 하나의 응답으로 전송됩니다.|
+|BatchAcknowledgementInterval|초|0\.05|작업을 수신한 후 주 복제본에 대한 승인을 다시 보내기 전에 보조 복제본의 복제자가 대기하는 시간. 이 간격 내에서 처리하는 작업에 대해 보낼 나머지 승인은 모두 하나의 응답으로 전송됩니다.|
 |ReplicatorEndpoint|해당 없음|N/A - RequiredParameter|주/보조 복제자가 복제본 세트의 다른 복제자와 통신하는 데 사용할 IP 주소 및 포트. 서비스 매니페스트의 TCP 리소스 끝점을 참조해야 합니다. 서비스 매니페스트에서 끝점 리소스를 정의하는 방법에 대한 자세한 내용은 [서비스 매니페스트 리소스](service-fabric-service-manifest-resources.md)를 참조하세요. |
 |RetryInterval|초|5|작업에 대한 승인을 받지 못한 경우 복제자가 메시지를 다시 전송한 후의 시간 간격.|
 |MaxReplicationMessageSize|바이트|50MB|단일 메시지에서 전송할 수 있는 복제 데이터의 최대 크기.|
@@ -84,4 +84,4 @@ KVSActorStateProvider의 기본 구성은 해당 지정된 행위자에 대해 V
 BatchAcknowledgementInterval은 복제 대기 시간을 제어합니다. '0' 값은 처리량을 희생하여 가장 낮은 대기 시간을 제공합니다(더 많은 승인 메시지를 보내고 처리해야 하므로 각각에 포함된 승인은 적음). BatchAcknowledgementInterval의 값이 클수록 전체적인 복제 처리량은 높아지고 작업 대기 시간은 더욱 길어집니다. 이 값은 트랜잭션 커밋의 대기 시간으로 직접 변환됩니다.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

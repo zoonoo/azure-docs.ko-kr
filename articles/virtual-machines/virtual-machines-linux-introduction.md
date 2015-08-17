@@ -110,4 +110,4 @@ Linux에서 데이터 디스크 이름은 커널에서 `/dev/sdc`로 지정될 �
  - **참고 항목**: [Linux에서 소프트웨어 RAID 구성](virtual-machines-linux-configure-raid.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

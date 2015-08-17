@@ -31,61 +31,14 @@ Hyper-V 및 Azure용 LIS(Linux 통합 서비스) 드라이버는 Microsoft가 �
 
 Azure Linux 에이전트는 Azure 갤러리 이미지에 사전에 이미 설치되며 분포의 패키지 저장소에서 일반적으로 사용할 수 있습니다. 소스 코드는 [GitHub](https://github.com/azure/walinuxagent)에서 찾을 수 있습니다.
 
-<table border="1" width="600">
-  <tr bgcolor="#E9E7E7">
-		<th>배포</th>		
-	    <th>버전</th>
-	    <th>드라이버</th>
-		<th>에이전트</th>
-			</tr>
-	<tr>
-		<th>  Canonical Ubuntu </th>
-		<td> Ubuntu 12.04, 14.04, 14.10 and 15.04 </td>
-		<td>커널에 있음</td>
-		<td>패키지: "walinuxagent"의 리포지토리에 있음 <br />
-			원본: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-			</tr>
-	<tr>
-		<th> OpenLogic의 CentOS </th>
-		<td> CentOS 6.3 이상, 7.0 이상</td>
-	    <td> CentOS 6.3: <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">LIS 다운로드</a><br/>
-	        CentOS 6.4 이상: 커널에 있음</td>
-		<td>패키지: "WALinuxAgent"의 <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic 리포지토리</a>에 있음<br />
-			원본: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
- 		
-	</tr>
-	<tr>
-		<th> <a href="https://coreos.com/docs/running-coreos/cloud-providers/azure/">CoreOS</a> </th>
-		<td> 494.4.0 이상 </td>
-        <td> 커널에 있음 </td>
-		<td> 원본: <a href="https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent">GitHub</a></td>
-		
-	</tr>
-	<tr>
-		<th> Oracle Linux </th>
-		<td> 6.4 이상, 7.0 이상 </td>
-        <td>커널에 있음</td>
-		<td>패키지: "WALinuxAgent"의 리포지토리에 있음<br />
-			원본: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-		
-	</tr>
-	<tr>
-		<th> SUSE Linux Enterprise </th>
-		<td> SLES 11 SP3 이상, SLES 12 이상 및 <br /> SAP용 SLES 11.3 이상 </td>
-        <td>커널에 있음</td>
-		<td>패키지: "WALinuxAgent"의 <a href="https://build.opensuse.org/project/show/Cloud:Tools">Cloud:Tools</a> 리포지토리에 있음<br />
-			원본: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-		
-	</tr>
-	<tr>
-		<th> openSUSE </th>
-		<td> OpenSUSE 13.1 이상</td>
-		<td>커널에 있음</td>
-		<td>패키지: "WALinuxAgent"의 <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a> 리포지토리에 있음<br />
-			소스 코드: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
-		
-	</tr>
-</table>
+배포|버전|드라이버|에이전트
+---|---|---|---
+Canonical Ubuntu|Ubuntu 12.04, 14.04, 14.10 and 15.04|커널에 있음|패키지: "WALinuxAgent"의 리포지토리에 있음<p><p>원본: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+OpenLogic의 CentOS |CentOS 6.3 이상, 7.0 이상| CentOS 6.3:[LIS 다운로드](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409)<p>CentOS 6.4 +: 커널에 있음|패키지: "WALinuxAgent"의 <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">OpenLogic 리포지토리에 있음<p><p>원본: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+[CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/)|494\.4.0 이상 |커널에 있음|원본: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent)
+Oracle Linux| 6\.4 이상, 7.0 이상|커널에 있음|패키지: "WALinuxAgent"의 리포지토리에 있음<p><p>원본: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+SUSE Linux Enterprise |SLES 11 SP3+, SLES 12+ 및 SAP 11.3+용 <p><p> SLES |커널에 있음|패키지: "WALinuxAgent"의 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 리포지토리에 있음<p><p>원본: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
+openSUSE |OpenSUSE 13.1 이상|커널에 있음|패키지: "WALinuxAgent"의 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 리포지토리에 있음<p><p>원본 코드: [GitHub](http://go.microsoft.com/fwlink/p/?LinkID=250998)
 
 ## 파트너
 
@@ -124,4 +77,4 @@ SUSE Linux Enterprise Server on Azure는 클라우드 컴퓨팅에 대해 우수
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

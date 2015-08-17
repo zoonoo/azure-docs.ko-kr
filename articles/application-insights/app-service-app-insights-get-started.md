@@ -1,128 +1,77 @@
 <properties 
-	pageTitle="Application Insights로 앱 상태 및 사용량 모니터링" 
+	pageTitle="Application Insights를 시작합니다." 
 	description="Application Insights를 사용하여 온-프레미스 또는 Microsoft Azure 웹 응용 프로그램의 사용량, 가용성 및 성능을 분석합니다." 
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/26/2015" 
+	ms.topic="hero-article" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
 
-# Application Insights로 앱 상태 및 사용량 모니터링
+# Visual Studio Application Insights 시작하기
 
 *Application Insights는 미리 보기 상태입니다.*
 
+문제를 감지하고, 문제를 해결하고, 지속적으로 응용 프로그램을 개선합니다. 라이브 응용 프로그램의 모든 문제를 신속하게 진단합니다. 사용자가 어떤 작업을 하는지 확인합니다.
 
-Visual Studio Application Insights는 실시간 응용 프로그램을 모니터링하여 [성능 문제 및 예외 사항을 감지 및 진단][detect]하고 [앱이 어떻게 사용되는지 검색][knowUsers]할 수 있도록 돕습니다. ASP.NET 및 Java 웹 앱, iOS, Android, Windows 및 기타 장치 앱, HTML+JavaScript 앱과 같이 다양한 종류의 응용 프로그램을 사용할 수 있습니다.
+구성은 매우 간단하며 결과는 몇 분 내에 확인할 수 있습니다.
 
-이 기사에서는 Visual Studio에서 개발된 앱의 종류에 대해 초점을 맞추겠습니다. 기타 IDE에 대해서는 Application Insights 확장 프로그램도 있습니다.
+현재는 iOS, Android, Windows 앱과 J2EE 및 ASP.NET 웹 응용 프로그램, WCF 서비스를 지원합니다. 웹앱은 Azure 또는 고유한 온-프레미스 서버에서 실행될 수 있습니다. JavaScript SDK는 모든 웹 페이지에서 실행됩니다.
 
-[Visual Studio 2013 Update 3](http://go.microsoft.com/fwlink/?linkid=397827&clcid=0x409) 이상 및 [Microsoft Azure](http://azure.com) 계정이 필요합니다.
+## 시작
 
-## <a name="ide"></a> 프로젝트에 Application Insights 추가
+이 맵 왼쪽에서 순서에 상관없이 어떤 조합의 진입점으로든 시작할 수 있습니다. 사용자에게 적합한 경로를 따릅니다.
 
-#### 새 프로젝트의 경우
+Application Insights는 앱에 SDK를 추가하여 작동하며, [Azure 포털](http://portal.azure.com)에 원격 분석을 보냅니다. 지원되는 플랫폼, 언어, IDE의 다양한 조합에 대한 여러 SDK가 있습니다.
 
-Visual Studio에서 새 프로젝트를 만들 때 Application Insights를 선택해야 합니다.
+[Microsoft Azure](http://azure.com)의 계정이 필요합니다. 조직을 통해 이미 그룹 계정에 대한 액세스 권한이 있을 수 있습니다. 또는 종량제 계정을 만들 수 있습니다. Application Insights에는 무료 계층이 있으므로 앱이 많이 사용하게 될 때까지 지불할 필요가 없습니다. [가격 책정 페이지](https://azure.microsoft.com/pricing/details/application-insights/)를 검토합니다.
 
+원하는 작업 | 수행할 작업 | 결과
+---|---|---
+ <a href="app-insights-start-monitoring-app-health-usage.md">![ASP.NET](./media/app-insights-get-started/appinsights-gs-i-01-perf.png)</a> | <a href="app-insights-start-monitoring-app-health-usage.md">웹 프로젝트에 Application Insights SDK 추가</a> <br/> ![가져오기](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-start-monitoring-app-health-usage.md">![성능 및 사용량 모니터링](./media/app-insights-get-started/appinsights-gs-r-01-perf.png)</a>
+<a href="app-insights-monitor-performance-live-website-now.md">![이미 라이브 상태인 ASP.NET 사이트](./media/app-insights-get-started/appinsights-gs-i-04-red2.png)</a><br/><a href="app-insights-monitor-performance-live-website-now.md">![종속성 및 성능 모니터링](./media/app-insights-get-started/appinsights-gs-i-03-red.png)</a>|<a href="app-insights-monitor-performance-live-website-now.md">IIS 서버에 상태 모니터 설치</a> <br/> ![가져오기](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-monitor-performance-live-website-now.md">![ASP.NET 종속성 모니터링](./media/app-insights-get-started/appinsights-gs-r-03-red.png)</a>
+<a href="insights-perf-analytics.md">![Azure 웹앱 또는 VM](./media/app-insights-get-started/appinsights-gs-i-10-azure.png)</a>|<a href="insights-perf-analytics.md">Azure 웹앱 또는 VM에서 Insights 사용</a> <br/> ![가져오기](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="insights-perf-analytics.md">![종속성 및 성능 모니터링](./media/app-insights-get-started/appinsights-gs-r-03-red.png)</a>
+<a href="app-insights-java-get-started.md">![Java](./media/app-insights-get-started/appinsights-gs-i-11-java.png)</a>|<a href="app-insights-java-get-started.md">Java 프로젝트에 SDK 추가</a><br/>![가져오기](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-java-get-started.md">![성능 및 사용량 모니터링](./media/app-insights-get-started/appinsights-gs-r-10-java.png)</a>
+<a href="app-insights-web-track-usage.md">![JavaScript](./media/app-insights-get-started/appinsights-gs-i-02-usage.png)</a>|<a href="app-insights-web-track-usage.md">웹 페이지에 Application Insights 스크립트 삽입</a><br/>![가져오기](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-web-track-usage.md">![페이지 보기 및 브라우저 성능](./media/app-insights-get-started/appinsights-gs-r-02-usage.png)</a>
+<a href="app-insights-monitor-web-app-availability.md">![Availability](./media/app-insights-get-started/appinsights-gs-i-05-avail.png)</a>|<a href="app-insights-monitor-web-app-availability.md">웹 테스트 만들기</a><br/>![가져오기](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-monitor-web-app-availability.md">![Availability](./media/app-insights-get-started/appinsights-gs-r-05-avail.png)</a>
+<a href="app-insights-windows-get-started.md">![Windows 및 Windows Phone](./media/app-insights-get-started/appinsights-gs-i-06-device.png)</a>|<a href="app-insights-windows-get-started.md">Windows 앱 프로젝트에 Application Insights 추가</a><br/>![가져오기](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-windows-get-started.md">![충돌 및 사용 현황 데이터](./media/app-insights-get-started/appinsights-gs-r-06-device.png)</a>
+<a href="app-insights-platforms.md">![iOS, Android 등](./media/app-insights-get-started/appinsights-gs-i-07-device.png)</a>|<a href="app-insights-platforms.md">iOS 또는 Android 앱 프로젝트에 Application Insights 추가</a><br/>![가져오기](./media/app-insights-get-started/appinsights-00arrow.png) | <a href="app-insights-platforms.md">![충돌 및 사용 현황 데이터](./media/app-insights-get-started/appinsights-gs-r-06-device.png)</a>
 
-![ASP.NET 프로젝트 만들기](./media/app-service-app-insights-get-started/appinsights-01-vsnewp1.png)
+## 지원 및 피드백
 
-Visual Studio는 Application Insights에서 리소스를 만들고, SDK를 프로젝트에 추가하고, `.config` 파일에 키를 배치합니다.
-
-프로젝트에 웹 페이지가 있는 경우에도 [JavaScript SDK][client]를 마스터 웹 페이지에 추가합니다.
-
-#### ...기존 프로젝트의 경우
-
-솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 Application Insights 추가를 선택합니다.
-
-![Application Insights 추가 선택](./media/app-service-app-insights-get-started/appinsights-03-addExisting.png)
-
-Visual Studio는 Application Insights에서 리소스를 만들고, SDK를 프로젝트에 추가하고, `.config` 파일에 키를 배치합니다.
-
-이 경우에 [JavaScript SDK][client]는 웹 페이지에 추가하지 않습니다. 이는 다음 단계에서 수행하는 것이 좋습니다.
-
-#### 설치 옵션
-
-프로젝트를 처음 만드는 경우 Microsoft Azure 미리 보기에 로그인하거나 등록하라는 메시지가 표시됩니다. 해당 계정은 Visual Studio Online 계정과는 별개입니다.
-
-이 앱이 더 큰 응용 프로그램의 일부인 경우, **구성 설정**을 사용하여 다른 구성 요소와 동일한 리스소 그룹에 넣고자 할 수 있습니다.
-
-*Application Insights 옵션이 표시되지 않는 경우 일부 유형의 프로젝트의 경우 [SDK를 수동으로 추가][windows]하여 Application Insights를 사용할 수 있습니다.*
-
-#### 프로젝트에서 Application Insights를 엽니다.
-
-![프로젝트를 마우스 오른쪽 단추로 클릭하고 Azure 포털을 엽니다.](./media/app-service-app-insights-get-started/appinsights-04-openPortal.png)
+* 질문 및 문제:
+ * [문제 해결][qna]
+ * [MSDN 포럼](https://social.msdn.microsoft.com/Forums/vstudio/ko-kr/home?forum=ApplicationInsights)
+ * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* 버그:
+ * [연결](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
+* 제안:
+ * [사용자 음성](http://visualstudio.uservoice.com/forums/121579-visual-studio/category/77108-application-insights)
 
 
-## <a name="run"></a> 3. 프로젝트 실행
 
-F5 키를 사용하여 응용 프로그램을 실행하고 여러 페이지를 열어 원격 분석을 생성해 봅니다.
-
-Visual Studio에 전송한 이벤트 수가 표시됩니다.
-
-![](./media/app-service-app-insights-get-started/appinsights-09eventcount.png)
-
-## <a name="monitor"></a> 4. 원격 분석 보기
-
-[Azure 포털][portal]로 돌아가 Application Insights 리소스를 찾습니다.
-
-개요 차트에서 데이터를 찾습니다. 처음에는 요소가 1~2개만 표시됩니다. 예:
-
-![클릭하여 추가 데이터 확인](./media/app-service-app-insights-get-started/12-first-perf.png)
-
-차트를 클릭하면 더 자세한 메트릭을 볼 수 있습니다. [메트릭에 대해 자세히 알아봅니다.][perf]
-
-이제 응용 프로그램을 배포하고 누적되는 데이터를 관찰합니다.
+## <a name="video"></a>동영상
 
 
-디버그 모드에서 실행할 때는 파이프라인을 통해 원격 분석이 신속하게 수행되므로 데이터가 몇 초 내에 표시됩니다. 앱을 배포할 때는 데이터가 더 천천히 누적됩니다.
+> [AZURE.VIDEO 218]
 
+> [AZURE.VIDEO usage-monitoring-application-insights]
 
-#### 데이터가 없나요?
+> [AZURE.VIDEO performance-monitoring-application-insights]
 
-* [진단 검색][diagnostic] 타일을 열고 개별 이벤트를 봅니다.
-* 응용 프로그램을 사용하여 여러 페이지를 열어 원격 분석을 생성해 봅니다.
-* 몇 초 정도 기다렸다가 새로고침을 클릭합니다.
-* [문제 해결][qna]을 참조하세요.
-
-
-## 다음 단계
-
-이제 앱의 서버측에서 데이터를 보냈으며 다음은 360도로 볼 수 있는 일부 단계입니다.
-
-* [웹 테스트를 설정][availability]하여 응용 프로그램이 라이브 상태로 유지되며 응답하는지 확인할 수 있습니다.
-* [JavaScript SDK를 웹 페이지에 추가][client]하여 페이지 보기 수, 페이지 로드 시간, 스크립트 예외 사항과 같은 브라우저 기반 원격 분석을 가져오고 페이지 스크립트에서 사용자 지정 원격 분석을 작성합니다.
-* 데이터베이스 또는 앱에서 사용 하는 다른 구성 요소에 따른 문제를 진단하는 종속성 추적 추가 
- * [IIS 서버에서 종속성 추적 추가][redfield]
- * [Azure 웹 앱에서 종속성 추적 추가][azure]
-* 즐겨찾는 로깅 프레임워크에서 [로그 추적 캡처][netlogs]
-* [사용자 지정 이벤트 및 메트릭을 추적][api]하여 클라이언트나 서버 또는 둘 다에서 응용 프로그램이 어떻게 사용되는지 알아볼 수 있습니다.
 
 
 <!--Link references-->
 
-[api]: app-insights-api-custom-events-metrics.md
-[availability]: app-insights-monitor-web-app-availability.md
-[azure]: ../insights-perf-analytics.md
-[client]: app-insights-javascript.md
-[detect]: app-insights-detect-triage-diagnose.md
-[diagnostic]: app-insights-diagnostic-search.md
-[knowUsers]: app-insights-overview-usage.md
-[netlogs]: app-insights-asp-net-trace-logs.md
-[perf]: app-insights-web-monitor-performance.md
-[portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[redfield]: app-insights-monitor-performance-live-website-now.md
-[windows]: app-insights-windows-get-started.md
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

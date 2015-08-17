@@ -72,4 +72,4 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
   [34]: ./media/howto-service-bus-queues/VSProperties.png
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

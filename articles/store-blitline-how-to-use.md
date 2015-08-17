@@ -47,7 +47,7 @@ Blitline은 직접 빌드하는 비용보다 훨씬 저렴한 가격으로 엔�
 
 - Blitline은 이미지 업로드를 허용하지 않아 이미지를 Blitline에 직접 푸시할 수 없습니다. 이미지를 Azure 저장소에 푸시하거나 Blitline이 지원하는 다른 위치에 푸시한 다음 Blitline에 그 위치를 알려주어 가져올 수 있게 해야 합니다.
 
-- Blitline은 대량 병렬식이어서 동기식 처리를 하지 않습니다. 즉, postback_url을 보내주어야 처리가 완료되는 시점을 알려줄 수 있습니다.
+- Blitline은 대량 병렬식이어서 동기식 처리를 하지 않습니다. 즉, postback\_url을 보내주어야 처리가 완료되는 시점을 알려줄 수 있습니다.
 
 ## <a id="createaccount"></a>Blitline 계정 만들기
 
@@ -95,11 +95,11 @@ JSON이 있으면 `http://api.blitline.com/jobs`에 **게시**하기만 하면 �
     }
 
 
-이는 Blitline에서 요청을 받았음을 나타내고 그 요청을 처리 큐에 넣은 후 완료되면 다음에서 이미지를 사용할 수 있습니다.**https://s3.amazonaws.com/dev.blitline/2011110722/YOUR_APP_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
+이는 Blitline에서 요청을 받았음을 나타내고 그 요청을 처리 큐에 넣은 후 완료되면 다음에서 이미지를 사용할 수 있습니다.****https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
 
 ## <a id="saveazure"></a>Azure 저장소 계정에 이미지를 저장하는 방법
 
-Azure 저장소 계정이 있으면 Blitline이 처리된 이미지를 쉽게 Azure 컨테이너에 푸시하도록 할 수 있습니다. "azure_destination"을 추가하여 푸시할 Blitline의 위치와 권한을 정의합니다.
+Azure 저장소 계정이 있으면 Blitline이 처리된 이미지를 쉽게 Azure 컨테이너에 푸시하도록 할 수 있습니다. "azure\_destination"을 추가하여 푸시할 Blitline의 위치와 권한을 정의합니다.
 
 다음은 예제입니다.
 
@@ -150,4 +150,4 @@ Blitline의 Azure 저장소 문서의 최신 버전을 [여기](http://www.blitl
   [Blitline 작업을 만드는 방법]: #createjob
   [Azure 저장소에 이미지를 저장하는 방법]: #saveazure
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

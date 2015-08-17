@@ -73,7 +73,10 @@ Blob은 미디어 서비스 계정에 연결된 저장소 계정 또는 미디�
 아래 코드 예제에서는 다음 작업을 수행합니다.
 
 1. CloudMediaContext 인스턴스를 만듭니다. 
-1. CloudStorageAccount 인스턴스인 _sourceStorageAccount 및 _destinationStorageAccount를 만듭니다.1. 로컬 디렉터리에서 _sourceStorageAccount에 있는 Blob 컨테이너로 부드러운 스트리밍 파일을 업로드합니다.1. 새 자산을 만듭니다. 이 자산용으로 만든 Blob 컨테이너는 _destinationStorageAccount에 위치합니다.1. Azure 저장소 SDK를 사용하여 자산과 연결된 컨테이너에 지정된 Blob을 복사합니다.
+1. CloudStorageAccount 인스턴스인 \_sourceStorageAccount 및 \_destinationStorageAccount를 만듭니다.
+1. 로컬 디렉터리에서 \_sourceStorageAccount에 있는 Blob 컨테이너로 부드러운 스트리밍 파일을 업로드합니다.
+1. 새 자산을 만듭니다. 이 자산용으로 만든 Blob 컨테이너는 \_destinationStorageAccount에 위치합니다.
+1. Azure 저장소 SDK를 사용하여 자산과 연결된 컨테이너에 지정된 Blob을 복사합니다.
 
 >[AZURE.NOTE]로케이터가 만료된 경우 복사 작업에서 예외가 발생하지 않습니다.
 
@@ -283,4 +286,4 @@ Blob은 미디어 서비스 계정에 연결된 저장소 계정 또는 미디�
 		}
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

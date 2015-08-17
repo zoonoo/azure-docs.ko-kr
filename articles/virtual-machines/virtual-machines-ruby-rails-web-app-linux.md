@@ -68,7 +68,7 @@ VM이 프로비전된 후, 다음 명령을 실행하여 SSH 끝점을 가져올
 
 		sudo gem install rails --no-rdoc --no-ri
 
-	--no-rdoc 및 --no-ri 플래그를 사용하여 설명서 설치를 건너뜁니다. 이 방법이 더 빠릅니다.
+	\--no-rdoc 및 --no-ri 플래그를 사용하여 설명서 설치를 건너뜁니다. 이 방법이 더 빠릅니다.
 
 ## 앱 만들기 및 실행
 
@@ -172,4 +172,4 @@ Ruby 응용 프로그램에서 Azure 서비스를 사용하려면 다음을 참�
 [new-endpoint1]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint1.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

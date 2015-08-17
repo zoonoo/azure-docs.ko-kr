@@ -1,4 +1,4 @@
-﻿<properties
+<properties
    pageTitle="10분 내 Azure 백업 | Microsoft Azure"
    description="10분 내 Azure 백업 시작"
    services="backup"
@@ -7,14 +7,7 @@
    manager="shreeshd"
    editor=""/>
 
-<tags 
-ms.service="backup" 
-ms.workload="storage-backup-recovery" 
-ms.tgt_pltfrm="na" 
-ms.devlang="na" 
-ms.topic="get-started-article" 
-ms.date="07/06/2015" 
-ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="07/06/2015" ms.author="aashishr"; "jimpark"/>
 
 # 10분 내 Azure 백업 시도
 Azure 백업 설치는 매우 쉬우며, 다음과 같은 방법 동영상도 시작하는 데 도움이 됩니다.
@@ -52,4 +45,4 @@ Azure 백업 설치는 매우 쉬우며, 다음과 같은 방법 동영상도 �
 - Azure 백업에 대한 자세한 내용은 [Azure 백업 개요](backup-introduction-to-azure-backup.md)를 참조하세요.
 - [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하세요.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

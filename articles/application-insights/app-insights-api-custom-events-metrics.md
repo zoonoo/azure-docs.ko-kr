@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/11/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
 
 # 사용자 지정 이벤트 및 메트릭용 Application Insights API 
@@ -112,7 +112,7 @@ TelemetryClient는 스레드로부터 안전합니다.
 
 클릭하여 개요 차트와 전체 목록을 살펴봅니다.
 
-차트를 선택하고 이벤트 이름별로 분할하여 가장 중요한 이벤트의 상대적인 기여도를 살펴봅니다.
+차트와 그룹을 선택하고 이벤트 이름별로 분할하여 가장 중요한 이벤트의 상대적인 기여도를 살펴봅니다.
 
 ![차트를 선택하고 그룹화를 선택합니다.](./media/app-insights-api-custom-events-metrics/02-segment.png)
 
@@ -402,9 +402,7 @@ Windows 모바일 앱에서 SDK는 처리되지 않은 예외를 catch합니다.
 
 ## 종속성을 추적합니다.
 
-표준 종속성 추적 모듈은 API를 사용하여 데이터베이스 혹은 REST API 같은 외부 종속성에 대한 호출을 기록합니다. 모듈은 자동으로 일부 외부 종속성을 탐색하지만, 사용자가 일부 추가 구성 요소를 동일한 방식으로 취급하고 싶을지도 모릅니다.
-
-예를 들면, 사용자가 직접 작성하지 않은 어셈블리 코드를 작성하는 경우, 응답 시간 기여도를 알아보기 위해 모든 호출의 시간을 잴 수 있습니다. Application Insights에서 종속성 차트에 표시되는 이 데이터를 가지려면, `TrackDependency`을 사용하여 이것을 보냅니다.
+이 호출을 사용하여 응답 시간과 외부 코드 부분에 대한 호출의 성공률을 추적합니다. 포털에서 종속성 차트에 결과가 나타납니다.
 
 ```C#
 
@@ -422,7 +420,9 @@ Windows 모바일 앱에서 SDK는 처리되지 않은 예외를 catch합니다.
             }
 ```
 
-표준 종속성 추적 모듈을 해제 하려면 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)을 편집하고 참조를 삭제합니다. `DependencyCollector.DependencyTrackingTelemetryModule`
+서버 SDK는 특정 종속성 호출(데이터베이스 및 REST API 등)을 검색하고 자동으로 추적하는 [종속성 모듈](app-insights-dependencies.md)을 포함합니다. 모듈 작업을 만들기 위해 서버에 에이전트를 설치해야 합니다. 자동화된 추적에서 포착되지 않는 호출을 추적하려는 경우 또는 에이전트를 설치하지 않으려는 경우, 이 호출을 사용합니다.
+
+표준 종속성 추적 모듈을 해제하려면 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)을 편집하고 `DependencyCollector.DependencyTrackingTelemetryModule`에 대한 참조를 삭제합니다.
 
 ## <a name="defaults"></a>선택한 사용자 지정 원격 분석에 대한 기본값 설정
 
@@ -561,7 +561,7 @@ JavaScript 웹 클라이언트에서 현재 기본 속성을 설정하는 방법
 
 예를 들어, 웹 패키지에 대한 Application Insights는 HTTP 요청에 대한 원격 분석을 수집합니다. 기본적으로, 모든 요청을 응답 코드 > = 400으로 실패한 것으로 플래그합니다. 하지만 400를 성공으로 처리하려는 경우 성공 속성을 설정하는 원격 분석 이니셜라이저를 제공할 수 있습니다.
 
-원격 분석 이니셜라이저를 제공하는 경우 Track\*() 메소드가 호출될 때마다 호출됩니다. 표준 원격 분석 모듈에 의해 호출되는 메서드가 포함됩니다. 규칙에 따라 이러한 모듈은 이니셜라이저에서 이미 설정된 모든 속성을 설정하지 않습니다.
+원격 분석 이니셜라이저를 제공하는 경우 Track*() 메소드가 호출될 때마다 호출됩니다. 표준 원격 분석 모듈에 의해 호출되는 메서드가 포함됩니다. 규칙에 따라 이러한 모듈은 이니셜라이저에서 이미 설정된 모든 속성을 설정하지 않습니다.
 
 **이니셜라이저 정의**
 
@@ -715,7 +715,7 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
  * **Id**: 진단 검색의 이벤트를 검사할 때 "항목 관련"을 찾을 수 있도록 여러 이벤트를 상호 연결하는 생성된 값입니다.
  * **Name**: HTTP 요청의 URL입니다.
  * **SyntheticSource**: null이거나 비어 있지 않다면 이 문자열은 요청의 원본이 로봇 또는 웹 테스트로 확인되었음을 나타냅니다. 기본적으로 메트릭 탐색기의 계산에서 제외됩니다.
-* **Properties** 모든 원격 분석 데이터와 함께 전송되는 속성입니다. 개별 Track\* 호출에서 재정의할 수 있습니다.
+* **Properties** 모든 원격 분석 데이터와 함께 전송되는 속성입니다. 개별 Track* 호출에서 재정의할 수 있습니다.
 * **Session** 사용자의 세션을 식별합니다. ID는 생성된 값으로 설정되며, 사용자가 잠시 동안 비활성 상태이면 값이 변경됩니다.
 * **User** 사용자 수를 계산할 수 있습니다. 웹 앱의 경우 쿠키가 있으면 해당 쿠키에서 사용자 ID를 가져옵니다. 쿠키가 없으면 새 쿠키가 생성됩니다. 사용자가 앱에 로그인해야 하는 경우 사용자의 인증된 ID로 ID를 설정하면 사용자가 다른 컴퓨터에서 로그인하더라도 사용자 수를 정확하게 계산할 수 있습니다. 
 
@@ -744,7 +744,7 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
 ## 질문
 
-* *Track \* 호출에서 throw할 수 있는 예외는 무엇인가요?*
+* *Track * 호출에서 throw할 수 있는 예외는 무엇인가요?*
     
     없음 catch 절에 래핑할 필요가 없습니다.
 
@@ -758,6 +758,8 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
 
 [검색 이벤트 및 로그][diagnostic]
+
+[샘플 및 연습](app-insights-code-samples.md)
 
 [문제 해결][qna]
 
@@ -779,4 +781,4 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

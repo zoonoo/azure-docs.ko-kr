@@ -42,8 +42,8 @@ Azure 가상 컴퓨터 및 클라우드 서비스는 Azure에서 제공하는 �
 |크기|CPU<br>코어 수|메모리|디스크 크기|
 |---|---|---|---|
 |매우 작음|1|768 MB|OS = 게스트 OS 크기<br/>로컬 리소스 = 19GB<br/>앱 = 약 1.5GB|
-|작음|1|1.75 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 224GB<br/>앱 = 약 1.5GB|
-|중간|2|3.5 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 489GB<br/>앱 = 약 1.5GB|
+|작음|1|1\.75 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 224GB<br/>앱 = 약 1.5GB|
+|중간|2|3\.5 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 489GB<br/>앱 = 약 1.5GB|
 |큼|4|7 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 999GB<br/>앱 = 약 1.5GB|
 |매우 큼|8|14 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 2,039GB<br/>앱 = 약 1.5GB|
 |A5|2|14 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 489GB<br/>앱 = 약 1.5GB|
@@ -53,17 +53,27 @@ Azure 가상 컴퓨터 및 클라우드 서비스는 Azure에서 제공하는 �
 |A9|16|112GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 1.77TB<br/>앱 = 약 1.5GB<blockquote> 참고: 이 크기 사용에 대한 정보 및 고려 사항은 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적인 인스턴스</a>를 참조하세요.</blockquote>|
 |A10|8|56GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 1.77TB<br/>앱 = 약 1.5GB<blockquote> 참고: 이 크기 사용에 대한 정보 및 고려 사항은 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적인 인스턴스</a>를 참조하세요.</blockquote>|
 |A11|16|112GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 1.77TB<br/>앱 = 약 1.5GB<blockquote> 참고: 이 크기 사용에 대한 정보 및 고려 사항은 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적인 인스턴스</a>를 참조하세요.</blockquote>|
-|Standard_D1|1|3.5 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 50GB<br/>앱 = 약 1.5GB|
-|Standard_D2|2|7 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 100GB<br/>앱 = 약 1.5GB|
-|Standard_D3|4|14 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 200GB<br/>앱 = 약 1.5GB|
-|Standard_D4|8|28GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 400GB<br/>앱 = 약 1.5GB|
-|Standard_D11|2|14 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 100GB<br/>앱 = 약 1.5GB|
-|Standard_D12|4|28GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 200GB<br/>앱 = 약 1.5GB|
-|Standard_D13|8|56GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 400GB<br/>앱 = 약 1.5GB|
-|Standard_D14|16|112GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 800GB<br/>앱 = 약 1.5GB|
+|Standard\_D1|1|3\.5 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 50GB<br/>앱 = 약 1.5GB|
+|Standard\_D2|2|7 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 100GB<br/>앱 = 약 1.5GB|
+|Standard\_D3|4|14 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 200GB<br/>앱 = 약 1.5GB|
+|Standard\_D4|8|28GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 400GB<br/>앱 = 약 1.5GB|
+|Standard\_D11|2|14 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 100GB<br/>앱 = 약 1.5GB|
+|Standard\_D12|4|28GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 200GB<br/>앱 = 약 1.5GB|
+|Standard\_D13|8|56GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 400GB<br/>앱 = 약 1.5GB|
+|Standard\_D14|16|112GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 800GB<br/>앱 = 약 1.5GB|
 
+## 클라우드 서비스에 적합한 크기 구성
+
+서비스 정의 파일에서 설명된 서비스 모델의 일부로서 역할 인스턴스의 가상 컴퓨터 크기를 지정할 수 있습니다. 역할의 크기에 따라 실행 인스턴스에 할당되는 CPU 코어 수, 메모리 용량 및 로컬 파일 시스템 크기가 결정됩니다. 응용 프로그램의 리소스 요구 사항에 따라 역할 크기를 선택합니다.
+
+웹 역할 인스턴스에 역할 크기를 적게 설정하는 예는 다음과 같습니다.
+
+
+    <WebRole name="WebRole1" vmsize="Small">
+    …
+    </WebRole>
 ## 다음 단계
 
-[Azure 용 클라우드 서비스 설정](https://msdn.microsoft.com/library/hh124108) [클라우드 서비스에 대한 크기 구성](https://msdn.microsoft.com/library/ee814754)
+[Azure용 클라우드 서비스 설정](https://msdn.microsoft.com/library/hh124108)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

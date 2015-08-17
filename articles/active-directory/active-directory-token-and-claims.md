@@ -97,7 +97,7 @@ SAML 토큰에서 이름(또는 "지정 된 이름")은 givenname SAML Attribute
     <Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname”>
     <AttributeValue>Frank<AttributeValue>
 
-JWT 토큰에서 이름은 given_name 클레임에 표시됩니다.
+JWT 토큰에서 이름은 given\_name 클레임에 표시됩니다.
 
     "given_name": "Frank"
 
@@ -156,7 +156,7 @@ JWT 토큰에서 발급자는 iss 클레임에 표시됩니다.
     <Attribute Name=” http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname”>
     <AttributeValue>Miller<AttributeValue>
 
-JWT 토큰에서 성은 family_name 클레임에 표시됩니다.
+JWT 토큰에서 성은 family\_name 클레임에 표시됩니다.
 
     "family_name": "Miller"
 
@@ -167,7 +167,7 @@ JWT 토큰에서 성은 family_name 클레임에 표시됩니다.
     <Attribute Name=”http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name”>
     <AttributeValue>frankm@contoso.com<AttributeValue>
 
-JWT 클레임에서 이름은 unique_name 클레임에 표시됩니다.
+JWT 클레임에서 이름은 unique\_name 클레임에 표시됩니다.
 
     "unique_name": "frankm@contoso.com"
 
@@ -195,7 +195,7 @@ JWT 토큰에서 역할 클레임은 roles 클레임에 표시됩니다.
 
 ### 범위
 
-토큰의 범위는 클라이언트 응용 프로그램에 부여된 가장 권한을 나타냅니다. 기본 권한은 user_impersonation입니다. 보안 리소스의 소유자는 Azure AD에서 추가 값을 등록할 수 있습니다.
+토큰의 범위는 클라이언트 응용 프로그램에 부여된 가장 권한을 나타냅니다. 기본 권한은 user\_impersonation입니다. 보안 리소스의 소유자는 Azure AD에서 추가 값을 등록할 수 있습니다.
 
 JWT 토큰에서 토큰의 범위는 scp 클레임에 지정됩니다.
 
@@ -413,4 +413,4 @@ JWT 토큰에서 사용자 계정 이름은 upn 클레임에 표시됩니다.
 [Azure Active Directory 인증 프로토콜](https://msdn.microsoft.com/library/azure/dn151124.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

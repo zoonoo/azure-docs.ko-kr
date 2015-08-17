@@ -78,7 +78,9 @@ Azure AD는 HTML 기반 로그인 페이지가 있는 모든 클라우드 기반
 
 암호 기반 SSO는 브라우저 확장에 의존하여 Azure AD에서 응용 프로그램 및 사용자 관련 정보를 안전하게 검색하고 서비스에 적용합니다. Azure AD에서 지원하는 대부분의 타사 SaaS 응용 프로그램은 이 기능을 지원합니다.
 
-암호 기반 SSO의 경우 최종 사용자의 브라우저는 Windows 7 이상에서 \* IE 8, IE9 및 IE10이거나, Windows 7 이상 또는 MacOS X 이상에서 \* Chrome일 수 있습니다.
+암호 기반 SSO의 경우 최종 사용자의 브라우저는 Windows 7 이상에서 IE 8, IE9 및 IE10이거나, Windows 7 이상 또는 MacOS X 이상에서 Chrome일 수 있습니다.
+
+**참고:** 브라우저 확장이 Edge을 지원하는 경우 Windows 10의 Edge에 암호 기반 SSO 확장을 사용할 수 있습니다.
 
 ###기존 Single Sign-On
 
@@ -100,13 +102,13 @@ Azure AD에서 사용자가 삭제되거나 사용자 정보가 변경되면 이
 
 ###Azure AD 응용 프로그램 갤러리 사용
 
-[Azure Active Directory 응용 프로그램 갤러리](http://azure.microsoft.com/marketplace/active-directory/all/)는Single Sign-On 형식을 지원하는 것으로 알려진 응용 프로그램 목록에 Azure Active Directory를 제공합니다.
+[Azure Active Directory 응용 프로그램 갤러리](http://azure.microsoft.com/marketplace/active-directory/all/)는 Single Sign-On 형식을 지원하는 것으로 알려진 응용 프로그램 목록에 Azure Active Directory를 제공합니다.
 
 ![][1]
 
 다음은 이들이 지원하는 기능별 앱 찾기에 대한 몇 가지 팁입니다.
 
-*	Azure AD는 [Azure Active Directory 응용 프로그램 갤러리](http://azure.microsoft.com/marketplace/active-directory/all/)에서 모든 “기능을 갖춘" 앱에 대한 자동 프로비저닝 및 프로비저닝 해제를 지원합니다.
+*	Azure AD는 [Azure Active Directory 응용 프로그램 갤러리](http://azure.microsoft.com/marketplace/active-directory/all/)에서 모든 “기능을 갖춘” 앱에 대한 자동 프로비저닝 및 프로비저닝 해제를 지원합니다.
 
 *	SAML, WS-Federation 또는 OpenID Connect와 같은 프로토콜을 사용하여 페더레이션된 Single Sign-On을 지원하는 페더레이션된 응용 프로그램 목록은 [여기](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx)서 찾을 수 있습니다.
 
@@ -120,10 +122,10 @@ Azure AD에서 사용자가 삭제되거나 사용자 정보가 변경되면 이
 
 
 *	**개발 중인 고유한 앱 추가** - 사용자가 직접 응용 프로그램을 개발한 경우 Azure AD 개발자 설명서의 지침을 따라 Azure AD Graph API를 사용하여 페더레이션된 Single Sign-On 또는 프로비저닝을 구현합니다. 자세한 내용은 다음 리소스를 참조하세요.
-  * https://msdn.microsoft.com/library/azure/dn499820.aspx
-  * https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet
-  * https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet
-  * https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore
+  * [Azure AD의 인증 시나리오](active-directory-authentication-scenarios.md)
+  * [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
+  * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
+  * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
 
 *	**앱 통합 요청** - [Azure AD 피드백 포럼](http://feedback.azure.com/forums/169401-azure-active-directory)을 사용하여 필요한 응용 프로그램에 대한 지원을 요청합니다.
 
@@ -162,13 +164,13 @@ Azure AD는 조직의 최종 사용자에게 응용 프로그램을 배포하는
 
 ###Azure AD 액세스 패널
 
-https://myapps.microsoft.com의 액세스 패널은 최종 사용자가 Azure Active Directory에서 회사 계정을 사용하여 Azure AD 관리자가 액세스 권한을 부여한 클라우드 기반 응용 프로그램을 보고 시작할 수 있도록 하는 웹 기반 포털입니다. [Azure Active Directory Premium](https://msdn.microsoft.com/library/azure/dn532272.aspx)을 사용하는 최종 사용자인 경우 액세스 패널을 통해 셀프 비스 그룹 관리 기능을 활용할 수도 있습니다.
+https://myapps.microsoft.com의 액세스 패널은 최종 사용자가 Azure Active Directory에서 회사 계정을 사용하여 Azure AD 관리자가 액세스 권한을 부여한 클라우드 기반 응용 프로그램을 보고 시작할 수 있도록 하는 웹 기반 포털입니다. [Azure Active Directory Premium](http://azure.microsoft.com/pricing/details/active-directory/)을 사용하는 최종 사용자인 경우 액세스 패널을 통해 셀프 비스 그룹 관리 기능을 활용할 수도 있습니다.
 
 ![][3]
 
 액세스 패널은 Azure 관리 포털과 별개이며, 사용자가 Azure 구독이나 Office 365 구독을 하지 않아도 됩니다.
 
-Azure AD 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/azure/dn308586.aspx)를 참조하세요.
+Azure AD 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ###Office 365 응용 프로그램 실행 프로그램
 
@@ -194,15 +196,17 @@ Azure AD는 또한 암호 기반 Single Sign-On, 기존 Single Sign-On 및 페�
 
 이러한 링크는 복사하여 선택한 응용 프로그램에 대한 로그인 링크를 제공할 위치에 붙여 넣을 수 있습니다. 이 링크는 전자 메일 또는 사용자 응용 프로그램 액세스에 대해 설정한 사용자 지정 웹 기반 포털에 있을 수 있습니다. 다음은 Twitter에 대한 Azure AD Single Sign-On URL의 예제입니다.
 
-https://myapps.microsoft.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced
+`https://myapps.microsoft.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced`
 
 액세스 패널에 대한 조직과 관련된 URL과 마찬가지로 추가로 myapps.microsoft.com 뒤에 디렉터리에 대한 활성 또는 확인된 도메인 중 하나를 추가하여 이 URL을 사용자 지정할 수 있습니다. 이렇게 하면 사용자가 자신의 ID를 먼저 입력하지 않아도 조직 브랜딩이 로그인 페이지에 즉시 로드됩니다.
 
-https://myapps.microsoft.com/contosobuild.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced
+`https://myapps.microsoft.com/contosobuild.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced`
 
 권한이 있는 사용자가 이러한 응용 프로그램 관련 링크 중 하나를 클릭하면 조직의 로그인 페이지가 먼저 표시되며(아직 로그인하지 않았다고 가정) 로그인이 액세스 패널에서 먼저 중지하지 않고 해당 앱으로 리디렉션됩니다. 사용자에게 암호 기반 Single Sign-On 브라우저 확장과 같은 응용 프로그램에 액세스하기 위한 필수 구성 요소가 없는 경우 누락된 확장을 설치할 것인지 묻는 링크가 표시됩니다. 응용 프로그램에 대한 Single Sign-On 구성이 변경되는 경우에도 링크 URL은 그대로 유지됩니다.
 
 이러한 링크는 액세스 패널 및 Office 365와 동일한 액세스 제어 메커니즘을 사용하며, Azure 관리 포털에서 응용 프로그램에 할당된 해당 사용자나 그룹만 성공적으로 인증할 수 있습니다. 그러나 권한이 없는 사용자에게는 액세스 권한이 부여되지 않았음을 설명하는 메시지가 표시되고, 액세스할 수 있는 사용 가능한 응용 프로그램을 볼 수 있는 액세스 패널 로드에 대한 링크가 제공됩니다.
+
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 <!--Image references-->
 [1]: ./media/active-directory-appssoaccess-whatis/onlineappgallery.png
@@ -212,4 +216,4 @@ https://myapps.microsoft.com/contosobuild.com/signin/Twitter/230848d52c8745d4b05
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

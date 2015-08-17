@@ -51,7 +51,7 @@
 
 	![JobStatus][status]
 
-업로드가 완료되면 콘텐츠 목록에 새 자산이 나열됩니다. 편의상 이름의 끝에 "\*\*-Source\*\*"가 추가되어 새 콘텐츠를 인코딩 작업의 원본 콘텐츠로 추적할 수 있게 합니다.
+업로드가 완료되면 콘텐츠 목록에 새 자산이 나열됩니다. 편의상 이름의 끝에 "**-Source**"가 추가되어 새 콘텐츠를 인코딩 작업의 원본 콘텐츠로 추적할 수 있게 합니다.
 
 ![ContentPage][contentpage]
 
@@ -99,7 +99,8 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 이 섹션에서는 관리 포털을 사용하여 Azure 미디어 인코더로 콘텐츠를 인코딩할 수 있는 단계를 설명합니다.
 
 1.  인코딩하려는 파일을 선택합니다. 이 파일 형식에 대해 이 지원되는 경우에는 콘텐츠 페이지 아래쪽에서 프로세스 단추를 사용할 수 있습니다.
-4. **프로세스** 대화 상자에서 \*\*Azure 미디어 인코더 **프로세서를 선택합니다.5. **인코딩 구성** 중에서 하나를 선택합니다.
+4. **프로세스** 대화 상자에서 **Azure 미디어 인코더 **프로세서를 선택합니다.
+5. **인코딩 구성** 중에서 하나를 선택합니다.
 
 	![Process2][process2]
 
@@ -214,4 +215,4 @@ MPEG DASH 스트리밍 URL을 작성하려면 URL에 (format=mpd-time-csf)를 �
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

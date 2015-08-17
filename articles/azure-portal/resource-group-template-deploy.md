@@ -257,4 +257,4 @@ Azure 리소스 관리자와 포털 사용에 대한 자세한 내용은 [Azure 
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

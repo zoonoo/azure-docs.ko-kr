@@ -84,12 +84,12 @@ Azure Multi-Factor Authentication 웹 서비스 SDK가 Azure Multi-Factor Authen
 
 #### 사용자 포털을 설치하려면
 
-1. Azure Multi-Factor Authentication 서버에서 Windows 탐색기를 열고 Azure Multi-Factor Authentication 서버가 설치된 폴더로 이동합니다(예: C:\Program Files\Multi-Factor Authentication Server). 사용자 포털이 설치될 서버에 적절하게 32비트 또는 64비트 버전의 MultiFactorAuthenticationUserPortalSetup 설치 파일을 선택합니다. 인터넷 연결 서버에 설치 파일을 복사합니다.
+1. Azure Multi-Factor Authentication 서버에서 Windows 탐색기를 열고 Azure Multi-Factor Authentication 서버가 설치된 폴더로 이동합니다(예: C:\\Program Files\\Multi-Factor Authentication Server). 사용자 포털이 설치될 서버에 적절하게 32비트 또는 64비트 버전의 MultiFactorAuthenticationUserPortalSetup 설치 파일을 선택합니다. 인터넷 연결 서버에 설치 파일을 복사합니다.
 2. 인터넷 연결 웹 서버에서 관리자 권한으로 설치 파일을 실행해야 합니다. 이 작업을 수행하는 가장 쉬운 방법은 관리자 권한으로 명령 프롬프트를 열고 설치 파일이 복사된 위치로 이동하는 것입니다.
 3. MultiFactorAuthenticationUserPortalSetup64 설치 파일을 실행하고 필요한 경우 사이트 및 가상 디렉터리 이름을 변경합니다.
-4. 사용자 포털의 설치가 끝나면 C:\inetpub\wwwroot\MultiFactorAuth(또는 가상 디렉터리 이름에 따른 적절한 디렉터리)로 이동한 후 web.config 파일을 편집합니다.
-5. USE_WEB_SERVICE_SDK 키를 찾아 값을 false에서 true로 변경합니다. WEB_SERVICE_SDK_AUTHENTICATION_USERNAME 및 WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD 키를 찾아 해당 값을 PhoneFactor Admins 보안 그룹의 구성원인 서비스 계정의 사용자 이름 및 암호로 설정합니다(위의 요구 사항 섹션 참조). 줄 끝에 인용 부호를 제외한 사용자 이름 및 암호를 입력합니다(value=””/>). 정규화된 사용자 이름(예: 도메인\사용자 이름 또는 컴퓨터\사용자 이름)을 사용하는 것이 좋습니다.
-6. pfup_pfwssdk_PfWsSdk 설정을 찾아 해당 값을 "http://localhost:4898/PfWsSdk.asmx"에서 Azure Multi-Factor Authentication 서버에서 실행되는 웹 서비스 SDK의 URL(예:https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx))로 변경합니다. 이 연결에 SSL이 사용되고 서버 이름에 대해 SSL 인증서가 발급되며 사용되는 URL은 인증서의 이름과 일치해야 하므로 IP 주소가 아니라 서버 이름으로 웹 서비스 SDK를 참조해야 합니다. 서버 이름이 인터넷 연결 서버의 IP 주소로 확인되지 않으면 Azure Multi-Factor Authentication 서버의 이름을 해당 IP 주소로 매핑하기 위해 해당 서버의 hosts 파일에 항목을 추가합니다. 변경된 web.config 파일을 저장합니다.
+4. 사용자 포털의 설치가 끝나면 C:\\inetpub\\wwwroot\\MultiFactorAuth(또는 가상 디렉터리 이름에 따른 적절한 디렉터리)로 이동한 후 web.config 파일을 편집합니다.
+5. USE\_WEB\_SERVICE\_SDK 키를 찾아 값을 false에서 true로 변경합니다. WEB\_SERVICE\_SDK\_AUTHENTICATION\_USERNAME 및 WEB\_SERVICE\_SDK\_AUTHENTICATION\_PASSWORD 키를 찾아 해당 값을 PhoneFactor Admins 보안 그룹의 구성원인 서비스 계정의 사용자 이름 및 암호로 설정합니다(위의 요구 사항 섹션 참조). 줄 끝에 인용 부호를 제외한 사용자 이름 및 암호를 입력합니다(value=””/>). 정규화된 사용자 이름(예: 도메인\\사용자 이름 또는 컴퓨터\\사용자 이름)을 사용하는 것이 좋습니다.
+6. pfup\_pfwssdk\_PfWsSdk 설정을 찾아 해당 값을 "http://localhost:4898/PfWsSdk.asmx"에서 Azure Multi-Factor Authentication 서버에서 실행되는 웹 서비스 SDK의 URL(예:https://computer1.domain.local/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx))로 변경합니다. 이 연결에 SSL이 사용되고 서버 이름에 대해 SSL 인증서가 발급되며 사용되는 URL은 인증서의 이름과 일치해야 하므로 IP 주소가 아니라 서버 이름으로 웹 서비스 SDK를 참조해야 합니다. 서버 이름이 인터넷 연결 서버의 IP 주소로 확인되지 않으면 Azure Multi-Factor Authentication 서버의 이름을 해당 IP 주소로 매핑하기 위해 해당 서버의 hosts 파일에 항목을 추가합니다. 변경된 web.config 파일을 저장합니다.
 7. 사용자 포털이 설치된 웹 사이트(예: 기본 웹 사이트)가 공개적으로 서명된 인증서에 아직 바인딩되지 않았으면 서버에 인증서를 설치하고(아직 설치되지 않은 경우) IIS 관리자를 연 다음 웹 사이트에 인증서를 바인딩합니다.
 8. 아무 컴퓨터에서나 웹 브라우저를 열고 사용자 포털이 설치된 URL(예: https://www.publicwebsite.com/MultiFactorAuth)로 이동합니다. 인증서 경고 또는 오류가 표시되지 않는지 확인합니다.
 
@@ -113,7 +113,7 @@ Allow users to activate mobile app(모바일 앱 활성화 허용)| 서버에서
 Use security questions for fallback(대체 방법으로 보안 질문 사용)|다단계 인증에 실패하는 경우 보안 질문을 사용할 수 있습니다. 답변이 맞아야 하는 보안 질문의 수를 지정할 수 있습니다.
 Allow users to associate third-party OATH token(타사 OATH 토큰 연결 허용)| 타사 OATH 토큰을 지정할 수 있습니다.
 Use OATH token for fallback(대체 방법으로 OATH 토큰 사용)|다단계 인증에 실패하는 경우 OATH 토큰을 사용할 수 있습니다. 세션 제한 시간(분)을 지정할 수도 있습니다.
-로깅 사용|사용자 포털에서 로깅을 사용합니다. 로그 파일은 C:\Program Files\Multi-Factor Authentication Server\Logs에 있습니다.
+로깅 사용|사용자 포털에서 로깅을 사용합니다. 로그 파일은 C:\\Program Files\\Multi-Factor Authentication Server\\Logs에 있습니다.
 
 이 설정의 대부분은 사용하도록 설정되고 사용자가 사용자 포털에 로그인하면 표시됩니다.
 
@@ -189,4 +189,4 @@ SAML을 사용하는 ID 공급자의 클레임을 받을 수 있는 사용자 �
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

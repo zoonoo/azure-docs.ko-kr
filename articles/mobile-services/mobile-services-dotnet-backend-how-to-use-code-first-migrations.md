@@ -20,7 +20,7 @@
 
 이 항목에서는 Entity Framework Code First 마이그레이션을 사용하여 기존 데이터의 손실 없이 기존 Azure SQL 데이터베이스에 대한 데이터 모델을 변경하는 방법을 보여 줍니다. 이 절차에서는 Azure에 모바일 서비스 프로젝트를 이미 게시했고, 데이터베이스에 기존 데이터가 있고, 원격 데이터 모델과 로컬 데이터 모델이 동기화되어 있다고 가정합니다. 또한 이 항목에서는 개발 중에 사용되며 Azure 모바일 서비스를 통해 구현되는 기본 Code First 이니셜라이저에 대해 설명합니다. 이러한 이니셜라이저를 사용하면 기존 데이터를 유지할 필요가 없을 때 Code First 마이그레이션을 사용하지 않고 스키마를 손쉽게 변경할 수 있습니다.
 
->[AZURE.NOTE]SQL 데이터베이스에 있는 테이블을 접두사 지정하는 데 사용되는 스키마 이름은 web.config 파일에서 MS_MobileServiceName 앱 설정을 통해 정의됩니다. 포털에서 시작 프로젝트를 다운로드 하면 이 값이 이미 모바일 서비스 이름으로 설정되어 있습니다. 스키마 이름이 모바일 서비스와 일치하면 여러 모바일 서비스에서 동일한 데이터베이스 인스턴스를 안전하게 공유할 수 있습니다.
+>[AZURE.NOTE]SQL 데이터베이스에 있는 테이블을 접두사 지정하는 데 사용되는 스키마 이름은 web.config 파일에서 MS\_MobileServiceName 앱 설정을 통해 정의됩니다. 포털에서 시작 프로젝트를 다운로드 하면 이 값이 이미 모바일 서비스 이름으로 설정되어 있습니다. 스키마 이름이 모바일 서비스와 일치하면 여러 모바일 서비스에서 동일한 데이터베이스 인스턴스를 안전하게 공유할 수 있습니다.
 
 ## 데이터 모델 업데이트
 
@@ -74,7 +74,7 @@ Code First 마이그레이션에서는 스냅숏 방법을 사용하여 데이�
 
 	이 명령은 *Initial*이라는 새 마이그레이션을 만듭니다. 마이그레이션 코드는 마이그레이션 프로젝트 폴더에 저장됩니다.
 
-5. App_Start 폴더를 확장하고, WebApiConfig.cs 프로젝트 파일을 열고, 다음 **using** 문을 추가합니다.
+5. App\_Start 폴더를 확장하고, WebApiConfig.cs 프로젝트 파일을 열고, 다음 **using** 문을 추가합니다.
 
 		using System.Data.Entity.Migrations;
 		using todolistService.Migrations;
@@ -170,4 +170,4 @@ Code First 마이그레이션에서는 스냅숏 방법을 사용하여 데이�
 [DbSet<T>]: https://msdn.microsoft.com/library/azure/gg696460.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

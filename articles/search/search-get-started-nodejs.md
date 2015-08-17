@@ -148,4 +148,4 @@ Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 �
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

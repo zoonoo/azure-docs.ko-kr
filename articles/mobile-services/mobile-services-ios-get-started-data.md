@@ -80,4 +80,4 @@
 [퀵 스타트]: ../mobile-services-javascript-backend-ios-get-started.md
 [GetStartedWithData iOS 앱]: http://go.microsoft.com/fwlink/p/?LinkId=268622
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

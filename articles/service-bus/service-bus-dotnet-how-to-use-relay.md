@@ -12,7 +12,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/02/2015" 
 	ms.author="sethm"/>
 
@@ -41,7 +41,7 @@ Azure에서 서비스 버스 릴레이 사용을 시작하려면 먼저 서비�
 
 1.  [Azure 관리 포털][]에 로그온합니다.
 
-2.  관리 포털의 왼쪽 탐색 창에서 **Service Bus**를 클릭합니다.
+2.  관리 포털의 왼쪽 탐색 창에서 **서비스 버스**를 클릭합니다.
 
 3.  관리 포털의 아래쪽 창에서 **Create**를 클릭합니다.
 
@@ -268,4 +268,4 @@ App.config 파일을 사용하여 클라이언트를 구성할 수도 있습니�
   [MSDN]: https://msdn.microsoft.com/ko-kr/library/azure/dn194201.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

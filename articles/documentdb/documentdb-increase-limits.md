@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="DocumentDB 계정 제한 증가 요청 | Azure" 
+	pageTitle="DocumentDB 계정 제한 증가 요청 | Microsoft Azure" 
 	description="허용되는 컬렉션, 저장 프로시저 및 쿼리 절 수와 같은 DocumentDB 제한의 조정을 요청하는 방법을 알아봅니다." 
 	services="documentdb" 
 	authors="stephbaron" 
-	manager="johnmac" 
+	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/04/2015" 
+	ms.date="07/28/2015" 
 	ms.author="stbaro"/>
 
 # DocumentDB 계정 제한 증가 요청
@@ -91,4 +91,4 @@
 - DocumentDB에 대해 자세히 알아보려면 [여기](http://azure.com/docdb)를 클릭하세요.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

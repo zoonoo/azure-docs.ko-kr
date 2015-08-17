@@ -63,7 +63,7 @@ Azure AD에 개체를 프로비전하는 경우에는 메타 버스 특성 **sou
 
 ## sourceAnchor 변경
 
-개체를 Azure AD로 내보내면 더 이상 sourceAnchor를 변경할 수 없습니다. 개체가 내보내기되면 메타 버스 특성 **cloudSourceAnchor**가 Azure AD에서 허용한 **sourceAnchor** 값으로 설정됩니다. **sourceAnchor**가 변경되었으며 **cloudSourceAnchor**와 일치하지 않으면\*\* Out to AAD – 사용자 조인\*\*이 **sourceAnchor 특성이 변경되었습니다**라는 오류를 발생시킵니다. 이 경우 개체를 다시 동기화하기 전에 동일한 sourceAnchor가 메타 버스에 다시 나타나도록 구성 또는 데이터를 수정해야 합니다.
+개체를 Azure AD로 내보내면 더 이상 sourceAnchor를 변경할 수 없습니다. 개체가 내보내기되면 메타 버스 특성 **cloudSourceAnchor**가 Azure AD에서 허용한 **sourceAnchor** 값으로 설정됩니다. **sourceAnchor**가 변경되었으며 **cloudSourceAnchor**와 일치하지 않으면** Out to AAD – 사용자 조인**이 **sourceAnchor 특성이 변경되었습니다**라는 오류를 발생시킵니다. 이 경우 개체를 다시 동기화하기 전에 동일한 sourceAnchor가 메타 버스에 다시 나타나도록 구성 또는 데이터를 수정해야 합니다.
 
 
 
@@ -75,4 +75,4 @@ Azure AD에 개체를 프로비전하는 경우에는 메타 버스 특성 **sou
  
 <!--Image references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

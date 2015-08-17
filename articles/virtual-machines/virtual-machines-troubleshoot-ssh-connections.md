@@ -3,7 +3,7 @@
 	description="Linux 기반 Azure 가상 컴퓨터에 액세스 할수 없는 경우, 문제의 원인을 분리해 내기 위해 다음 단계를 사용하세요."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="dsk-2015"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/07/2015"
-	ms.author="josephd"/>
+	ms.author="dkshir"/>
 
 # Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결
 
@@ -86,7 +86,7 @@ SSH 클라이언트가 Azure 가상 컴퓨터의 SSH 서비스에 연결할 수 
 인증서 인증을 사용하는 경우 홈 디렉터리의 .ssh 폴더에 대해 다음 권한이 있는지 확인하세요.
 
 - Chmod 700 \~/.ssh
-- Chmod 644 \~/.ssh/\*.pub
+- Chmod 644 \~/.ssh/*.pub
 - Chmod 600 \~/.ssh/id\_rsa(또는 개인 키가 저장되어 있을 수 있는 기타 파일)
 - Chmod 644 \~/.ssh/known\_hosts(SSH를 통해 연결한 호스트 포함)
 
@@ -165,4 +165,4 @@ Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azu
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,7 +1,6 @@
 <properties
 	pageTitle="Azure 스트림 분석 사용 시작 : 실시간 부정 행위 감지 | Microsoft Azure"
 	description="스트림 분석으로 실시간 부정 행위 감지 솔루션을 만드는 방법에 대해 알아봅니다. 이벤트 허브를 사용하여 실시간 이벤트를 처리합니다."
-	keywords="event hub,fraud detection,real-time,real-time processing"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -14,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="04/28/2015"
+	ms.date="08/04/2015"
 	ms.author="jeffstok" />
 
 
@@ -131,7 +130,7 @@ Azure 스트림 분석은 완전히 관리되는 서비스로, 클라우드의 �
 
 1.	이벤트 허브 입력을 선택하고 페이지 아래쪽에서 **샘플 데이터**를 클릭합니다.
 2.	대화 상자가 표시되면 데이터 수집을 시작할 **시작 시간** 및 소비할 추가 데이터의 양에 대한 **기간**을 지정합니다.
-3.	입력에서 샘플링 데이터를 시작하려면 확인 단추를 클릭합니다. 데이터 파일 생성에 1~2분 정도 소요될 수 있습니다. 프로세스가 완료되면 **세부 정보**를 클릭하고 생성된 .JSON 파일을 다운로드하여 저장합니다.
+3.	입력에서 샘플링 데이터를 시작하려면 확인 단추를 클릭합니다. 데이터 파일 생성에 1\~2분 정도 소요될 수 있습니다. 프로세스가 완료되면 **세부 정보**를 클릭하고 생성된 .JSON 파일을 다운로드하여 저장합니다.
 
 	![JSON 파일에서 처리된 데이터 다운로드 및 저장](./media/stream-analytics-get-started/stream-analytics-download-save-json-file.png)
 
@@ -258,4 +257,4 @@ Blob 저장소의 컨테이너가 없는 경우 아래 단계에 따라 만듭�
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

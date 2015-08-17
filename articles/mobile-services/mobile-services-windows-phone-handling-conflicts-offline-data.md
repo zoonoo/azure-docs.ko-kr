@@ -81,7 +81,7 @@
           }
 
 
-3. Visual Studio의 솔루션 탐색기에서 **App_Start** 폴더를 확장한 다음 WebApiConfig.cs 파일을 엽니다.
+3. Visual Studio의 솔루션 탐색기에서 **App\_Start** 폴더를 확장한 다음 WebApiConfig.cs 파일을 엽니다.
 
     WebApiConfig.cs 파일에서 기본 데이터베이스 이니셜라이저 클래스는 `DropCreateDatabaseIfModelChanges` 클래스에서 파생됩니다. 즉, 모델을 변경하면 테이블이 삭제되고 새 모델을 수용하는 테이블이 다시 생성됩니다. 테이블의 데이터가 손실되고 테이블이 다시 시드됩니다. `Seed()` 초기화 함수가 새 DueDate 열을 초기화하도록 데이터베이스 이니셜라이저의 Seed 메서드를 수정합니다. WebApiConfig.cs 파일을 저장합니다.
 
@@ -240,4 +240,4 @@ JavaScript 백 엔드 모바일 서비스에 대해 **TodoWithDate**라는 새 �
 [Get started with data]: mobile-services-windows-phone-get-started-data.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

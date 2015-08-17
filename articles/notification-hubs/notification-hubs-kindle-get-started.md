@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-kindle"
 	ms.devlang="Java"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
@@ -79,7 +79,8 @@
 Eclipse 프로젝트에 ADM 라이브러리를 추가합니다.
 
 1. ADM 라이브러리를 가져오려면 [SDK를 다운로드합니다]. SDK zip 파일의 압축을 풉니다.
-2. Eclipse에서 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **Properties**를 클릭합니다. 왼쪽에서 **Java Build Path**를 선택한 다음 맨 위에 있는 **Libraries** 탭을 선택합니다. **Add External Jar**을 클릭하고, Amazon SDK의 압축을 푼 디렉터리에서 `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` 파일을 선택합니다. 3. NotificationHubs Android SDK(링크)를 다운로드합니다.
+2. Eclipse에서 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **Properties**를 클릭합니다. 왼쪽에서 **Java Build Path**를 선택한 다음 맨 위에 있는 **Libraries** 탭을 선택합니다. **Add External Jar**을 클릭하고, Amazon SDK의 압축을 푼 디렉터리에서 `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` 파일을 선택합니다.
+3. NotificationHubs Android SDK(링크)를 다운로드합니다.
 4. 패키지의 압축을 푼 후 `notification-hubs-sdk.jar` 파일을 Eclipse의 `libs ` 폴더로 끌어옵니다.
 
 ADM을 지원하도록 앱 매니페스트를 편집합니다.
@@ -241,7 +242,7 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 
 ## 앱에 API 키 추가
 
-1. Eclipse에서 프로젝트의 디렉터리 자산에 **api_key.txt**라는 새 파일을 만듭니다.
+1. Eclipse에서 프로젝트의 디렉터리 자산에 **api\_key.txt**라는 새 파일을 만듭니다.
 2. 파일을 열고 Amazon 개발자 포털에서 생성한 **API 키**를 복사합니다.
 
 ## 앱 실행
@@ -281,4 +282,4 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

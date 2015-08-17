@@ -106,4 +106,4 @@ Azure Preview 포털에서는 현재 Azure 포털에서와 같이 리소스를 �
 
 [Azure Preview 포털]: https://portal.azure.com
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

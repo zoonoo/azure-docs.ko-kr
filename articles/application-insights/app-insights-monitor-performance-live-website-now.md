@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="04/27/2015" 
 	ms.author="awills"/>
  
@@ -170,4 +170,4 @@ IIS 지원: IIS 7, 7.5, 8, 8.5(IIS 필요)
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

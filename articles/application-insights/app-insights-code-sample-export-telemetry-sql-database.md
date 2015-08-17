@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # 연습: 작업자 역할을 사용하여 Application Insights에서 SQL로 내보내기
@@ -134,7 +134,7 @@ Visual Studio에서는 저장소 계정 연결 문자열로 작업자 역할 설
  * EntityFramework 6.1.2 이상 - Blob의 JSON 내용을 기반으로 하여 즉석에서 DB 테이블 스키마를 생성할 때 사용합니다.
  * JsonFx - JSON을 C# 클래스 속성으로 평면화하는 데 사용합니다.
 
-이 도구를 사용하여 단일 JSON 문서에서 C# 클래스를 생성합니다. 이렇게 하려면 JSON 배열을 단일 C# 속성으로 평면화한 다음 DB 테이블(예: urlData_port)의 단일 열로 평면화하는 등의 사소한 변경이 필요합니다.
+이 도구를 사용하여 단일 JSON 문서에서 C# 클래스를 생성합니다. 이렇게 하려면 JSON 배열을 단일 C# 속성으로 평면화한 다음 DB 테이블(예: urlData\_port)의 단일 열로 평면화하는 등의 사소한 변경이 필요합니다.
 
  * [JSON C# 클래스 생성기](http://jsonclassgenerator.codeplex.com/)
 
@@ -519,6 +519,7 @@ PageView에 대해 생성되는 테이블의 스키마입니다.
 * [작업자 역할을 사용하여 SQL로 내보내기](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Application Insights에서 연속 내보내기](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
+* [추가 샘플 및 연습](app-insights-code-samples.md)
 
 <!--Link references-->
 
@@ -530,4 +531,4 @@ PageView에 대해 생성되는 테이블의 스키마입니다.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

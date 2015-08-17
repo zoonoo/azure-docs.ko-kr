@@ -346,7 +346,7 @@ LAMP 스택이 성공적으로 설정되면 Apache 웹 서버(가상 컴퓨터)�
 		sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup
 
 	>[AZURE.NOTE] /var/www/html/에서 파일을 수정하려는 경우 다시 로그인해야 할 수도 있습니다.
--	SFTP 클라이언트(예: FileZilla)를 사용하여 가상 컴퓨터의 DNS 이름(예: lampdemo.cloudapp.net)에 연결한 다음 /var/www/html로 이동하여 사이트를 게시합니다. ![][18]
+-	SFTP 클라이언트(예: FileZilla)를 사용하여 가상 컴퓨터의 DNS 이름(예: lampdemo.cloudapp.net)에 연결한 다음 /**var/www/html**로 이동하여 사이트를 게시합니다.![][18]
 
 
 
@@ -452,4 +452,4 @@ LAMP 스택이 성공적으로 설정되면 Apache 웹 서버(가상 컴퓨터)�
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

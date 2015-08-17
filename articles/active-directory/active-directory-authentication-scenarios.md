@@ -204,7 +204,7 @@ Azure AD에서 발급된 토큰의 수명이 만료되면 사용자의 세션이
 ### SPA(단일 페이지 응용 프로그램)
 
 
-이 섹션에서는 Azure AD를 사용하여 웹 API 백 엔드의 보안을 유지하는 단일 페이지 응용 프로그램에 대한 인증을 설명합니다. 단일 페이지 응용 프로그램은 일반적으로 브라우저에서 실행되는 JavaScript 프레젠테이션 레이어(프런트 엔드) 및 서버에서 실행되며 응용 프로그램 비즈니스 논리를 구현하는 웹 API 백 엔드로 구성됩니다. 이 시나리오에서는 사용자가 로그인하면JavaScript 프런트 엔드에서 [JavaScript용 Active Directory 인증 라이브러리(ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) 미리 보기 및 OAuth 2.0 암시적 허용 프로토콜을 사용하여 Azure AD로부터 ID 토큰(id_token)을 가져옵니다. 토큰이 캐시되고, 클라이언트가 웹 API 백 엔드에 대해 호출할 때 이 토큰을 요청에 전달자 토큰으로 첨부합니다. 그러면 OWIN 미들웨어를 사용하여 보안됩니다.
+이 섹션에서는 Azure AD를 사용하여 웹 API 백 엔드의 보안을 유지하는 단일 페이지 응용 프로그램에 대한 인증을 설명합니다. 단일 페이지 응용 프로그램은 일반적으로 브라우저에서 실행되는 JavaScript 프레젠테이션 레이어(프런트 엔드) 및 서버에서 실행되며 응용 프로그램 비즈니스 논리를 구현하는 웹 API 백 엔드로 구성됩니다. 이 시나리오에서는 사용자가 로그인하면JavaScript 프런트 엔드에서 [JavaScript용 Active Directory 인증 라이브러리(ADAL.JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js/tree/dev) 미리 보기 및 OAuth 2.0 암시적 허용 프로토콜을 사용하여 Azure AD로부터 ID 토큰(id\_token)을 가져옵니다. 토큰이 캐시되고, 클라이언트가 웹 API 백 엔드에 대해 호출할 때 이 토큰을 요청에 전달자 토큰으로 첨부합니다. 그러면 OWIN 미들웨어를 사용하여 보안됩니다.
 
 
 #### 다이어그램
@@ -434,7 +434,7 @@ AD 인증 라이브러리를 사용하는 경우 아래에서 설명하는 브�
 1. 네이티브 응용 프로그램이 첫 번째 계층 웹 API에 액세스 토큰을 보냅니다.
 
 
-2. 첫 번째 계층 웹 API가 Azure AD의 토큰 끝점에 요청을 보내 클라이언트 ID와 자격 증명 및 사용자의 액세스 토큰을 제공합니다. 또 이 요청은 웹 API가 원래 사용자를 대신하여 다운스트림 웹 API를 호출하는 새 토큰을 요청한다는 것을 나타내는 on_behalf_of 매개 변수와 함께 전송됩니다.
+2. 첫 번째 계층 웹 API가 Azure AD의 토큰 끝점에 요청을 보내 클라이언트 ID와 자격 증명 및 사용자의 액세스 토큰을 제공합니다. 또 이 요청은 웹 API가 원래 사용자를 대신하여 다운스트림 웹 API를 호출하는 새 토큰을 요청한다는 것을 나타내는 on\_behalf\_of 매개 변수와 함께 전송됩니다.
 
 
 3. Azure AD가 첫 번째 계층 웹 API에 두 번째 웹 API에 액세스할 권한이 있는지 확인하고 요청의 유효성을 검사하여 JWT 액세스 토큰 및 JWT 새로 고침 토큰을 첫 번째 계층 웹 API에 반환합니다.
@@ -466,4 +466,4 @@ AD 인증 라이브러리를 사용하는 경우 아래에서 설명하는 브�
 [Azure AD의 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -31,7 +31,7 @@
 
 갤러리에 있는 일반적인 CMS에서 새 웹 앱을 신속하게 만들거나, 다양한 언어와 프레임워크의 기존 웹 자산을 앱 서비스 웹 앱으로 가져올 수 있습니다.
 
-Azure 마켓플레이스에서는 [Orchard], [Umbraco], [Drupal], [WordPress] 등 일반적인 웹 사이트 CMS(콘텐츠 관리 시스템)의 템플릿을 제공합니다. 선호하는 CMS를 사용하여 웹 앱을 만들 수 있습니다. [Azure SQL 데이터베이스] 및 [MySQL] 등 다양한 데이터베이스 백 엔드 중에서 선택하여 요구를 충족할 수 있습니다.
+Azure 마켓플레이스에서는 [Orchard], [Umbraco], Drupal, [WordPress] 등 일반적인 웹 사이트 CMS(콘텐츠 관리 시스템)의 템플릿을 제공합니다. 선호하는 CMS를 사용하여 웹 앱을 만들 수 있습니다. [Azure SQL 데이터베이스] 및 [MySQL] 등 다양한 데이터베이스 백 엔드 중에서 선택하여 요구를 충족할 수 있습니다.
 
 기존 웹 자산은 .NET, PHP, Java, Node.js 또는 Python이든 상관없이 웹 앱에서 실행할 수 있습니다. 친숙한 [FTP] 도구를 사용하여 웹앱으로 이동할 수 있습니다. 디지털 마케팅 캠페인을 자주 만드는 경우, 소스 제어 관리 시스템에 기존 웹 자산이 있을 수 있습니다. [Visual Studio], [Visual Studio Online] 및 [Git](로컬, GitHub, BitBucket, DropBox, Mercurial 등)와 같은 일반적인 소스 제어 옵션에서 웹앱에 직접 게시할 수 있습니다.
 
@@ -97,7 +97,6 @@ Azure 또는 타사 도구를 사용하여 웹 앱의 성능을 최신 상태로
 
 [Orchard]: web-sites-dotnet-orchard-cms-gallery.md
 [Umbraco]: web-sites-gallery-umbraco.md
-[Drupal]: web-sites-php-migrate-drupal.md
 [WordPress]: web-sites-php-web-site-gallery.md
   
 [MySQL]: web-sites-php-mysql-deploy-use-git.md
@@ -141,4 +140,4 @@ Azure 또는 타사 도구를 사용하여 웹 앱의 성능을 최신 상태로
   [gitstaging]: http://www.bradygaster.com/post/multiple-environments-with-windows-azure-web-sites
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

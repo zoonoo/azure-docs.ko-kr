@@ -187,7 +187,7 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
 
 	이 파일은 Chrome 앱 창 html(*register.html*) 팝업을 표시하며 들어오는 푸시 알림을 처리하는 처리기 *messageReceived*도 정의합니다.
 
-6. Chrome 앱의 UI를 정의하는 *register.html*라는 파일을 만듭니다. 이 샘플에서는 *CryptoJS v3.1.2*를 사용합니다. 다른 버전을 다운로드한 경우에는 스크립트 src 경로를 수정합니다.
+6. Chrome 앱의 UI를 정의하는 *register.html*이라는 파일을 만듭니다. 이 샘플에서는 *CryptoJS v3.1.2*를 사용합니다. 다른 버전을 다운로드한 경우에는 스크립트 src 경로를 수정합니다.
 
 		<html>
 
@@ -499,4 +499,4 @@ REST API를 사용하여 알림을 보내는 방법에 대한 예제는 **Java/P
 [Azure 알림 허브 속보]: notification-hubs-windows-store-dotnet-send-breaking-news.md
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

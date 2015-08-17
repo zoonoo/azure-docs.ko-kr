@@ -65,4 +65,4 @@ Xcode에서 프로젝트를 엽니다. **실행** 단추를 눌러 앱을 시작
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

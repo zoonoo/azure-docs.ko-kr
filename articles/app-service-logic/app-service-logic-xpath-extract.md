@@ -36,23 +36,10 @@ BizTalk XPath Extract 커넥터는 앱 조회를 지원하며, 지정된 XPath�
 
 ![BIzTalk XPath 추출기 입력][2]
 
-<table>
-	<tr>
-		<th>매개 변수</th>
-		<th>형식</th>
-		<th>매개 변수에 대한 설명</th>
-	</tr>
-	<tr>
-		<td>XPath</td>
-		<td>string</td>
-		<td>Xml 내의 쿼리 경로</td>
-	</tr>
-	<tr>
-		<td>Input Xml</td>
-		<td>string</td>
-		<td>입력 Xml 내용</td>
-	</tr>
-</table>
+매개 변수|형식|매개 변수에 대한 설명
+---|---|---
+XPath|string|Xml 내의 쿼리 경로
+Input Xml|string|입력 Xml 내용
 
 작업에서 출력을 문자열(Result)로 반환합니다. Result에는 Xml 내의 쿼리 경로 값이 들어 있습니다.
 
@@ -63,4 +50,4 @@ BizTalk XPath Extract 커넥터는 앱 조회를 지원하며, 지정된 XPath�
 <!-- Links -->
 [새 논리 앱 만들기]: app-service-logic-create-a-logic-app.md
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

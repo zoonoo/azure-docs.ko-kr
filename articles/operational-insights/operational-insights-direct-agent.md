@@ -12,7 +12,7 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="07/02/2015" 
 	ms.author="banders"/>
 # Operational Insights에 컴퓨터를 직접 연결
@@ -76,4 +76,4 @@ $healthServiceSettings.ReloadConfiguration()
 
 - [프록시 및 방화벽 설정 구성(선택 사항)](operational-insights-proxy-firewall.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

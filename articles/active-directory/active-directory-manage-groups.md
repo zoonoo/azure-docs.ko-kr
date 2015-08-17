@@ -92,4 +92,4 @@ Azure Active Directory의 액세스 관리 솔루션 센터에 보안 그룹이 
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

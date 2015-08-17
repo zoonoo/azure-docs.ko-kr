@@ -1,9 +1,7 @@
 <properties 
 	pageTitle="고급 분석 처리 및 기술: 1TB Criteo 데이터 집합에서 HDInsight Hadoop 클러스터 사용 | Azure" 
 	description="HDInsight Hadoop 클러스터를 사용하는 종단 간 시나리오에 ADAPT(고급 분석 처리 및 기술)를 사용하여 공개적으로 사용 가능한 1TB 데이터 집합으로 모델을 빌드 및 배포합니다." 
-	metaKeywords="" 
 	services="machine-learning,hdinsight" 
-	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -86,11 +84,11 @@ Criteo 데이터는 클릭 예측 데이터 집합으로, 43억 개가 넘는 �
 
 1. 이 공용 Blob 저장소의 데이터는 압축 해제된 데이터의 하위 폴더 3개로 구성됩니다.
 		
-	1. 하위 폴더 *raw/count/*는 처음 21일간의 데이터(day_00~day_20)를 포함합니다.
-	2. 하위 폴더 *raw/train/*은 단일 날짜의 데이터(day_21)를 포함합니다.
-	3. 하위 폴더 *raw/test/*는 2일간의 데이터(day_22 및 day_23)를 포함합니다.
+	1. 하위 폴더 *raw/count/*는 처음 21일간의 데이터(day\_00\~day\_20)를 포함합니다.
+	2. 하위 폴더 *raw/train/*은 단일 날짜의 데이터(day\_21)를 포함합니다.
+	3. 하위 폴더 *raw/test/*는 2일간의 데이터(day\_22 및 day\_23)를 포함합니다.
 
-2. 원시 gzip 데이터로 시작하려는 경우 기본 폴더 *raw/*에서 day_NN.gz(여기서 NN은 00~23)로 제공됩니다.
+2. 원시 gzip 데이터로 시작하려는 경우 기본 폴더 *raw/*에서 day\_NN.gz(여기서 NN은 00\~23)로 제공됩니다.
 
 로컬 다운로드가 필요 없는 이 데이터를 액세스, 탐색 및 모델링하는 다른 방법은 이 연습의 뒷부분에서 Hive 테이블을 만들 때 설명합니다.
 
@@ -114,16 +112,16 @@ Criteo 데이터 집합에 대한 Hive 테이블을 만들려면 헤드 노드�
 
 **중요**: **이 연습의 모든 Hive 명령은 위의 Hive bin/ 디렉터리 프롬프트에서 실행합니다. 경로 문제가 자동으로 해결됩니다. "Hive 디렉터리 프롬프트", "Hive bin/ 디렉터리 프롬프트" 및 "Hadoop Command Line"은 상호 교환적으로 사용되는 용어입니다.**
 
-**중요 2**: **하이브 쿼리를 실행하려면 항상 다음을 수행합니다.** cd %hive_home%\bin hive
+**중요 2**: **하이브 쿼리를 실행하려면 항상 다음을 수행합니다.** cd %hive\_home%\\bin hive
 
 "hive >" 기호와 함께 Hive REPL이 표시되면 쿼리를 잘라내고 붙여넣어 실행하면 됩니다.
 
 아래 코드는 "criteo" 데이터베이스를 만들고 4개의 테이블을 생성합니다.
 
 
-* *개수 생성을 위한 테이블* 한 개(day_00 - day_20의 날짜를 기반으로 작성) 
-* *학습 데이터 집합으로 사용하기 위한 테이블* 한 개(day_21의 날짜를 기반으로 작성) 
-* *테스트 데이터 집합으로 사용하기 위한 테이블* 두 개(각각 day_22와 day_23의 날짜를 기반으로 작성) 
+* *개수 생성을 위한 테이블* 한 개(day\_00 - day\_20의 날짜를 기반으로 작성) 
+* *학습 데이터 집합으로 사용하기 위한 테이블* 한 개(day\_21의 날짜를 기반으로 작성) 
+* *테스트 데이터 집합으로 사용하기 위한 테이블* 두 개(각각 day\_22와 day\_23의 날짜를 기반으로 작성) 
 
 날짜 중 하루는 휴일이며 모델에서 휴일과 평일 간의 클릭률 차이를 감지할 수 있는지 확인할 것이기 때문에 테스트 데이터 집합을 두 개의 테이블로 분할합니다.
 
@@ -234,7 +232,7 @@ Criteo 데이터 집합에 대한 Hive 테이블을 만들려면 헤드 노드�
 
 		hive -f C:\temp\sample_hive_count_criteo_test_day_22_table_examples.hql
 
-마지막으로 day_23을 기준으로 테스트 데이터 집합의 test 예제 수를 알아봅니다.
+마지막으로 day\_23을 기준으로 테스트 데이터 집합의 test 예제 수를 알아봅니다.
 
 명령은 위와 유사합니다([sample&#95;hive&#95;count&#95;criteo&#95;test&#95;day&#95;23&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_23_examples.hql) 참조).
 
@@ -261,7 +259,7 @@ Criteo 데이터 집합에 대한 Hive 테이블을 만들려면 헤드 노드�
 		
 ### 학습 데이터 집합의 일부 숫자 변수에 대한 히스토그램 분포
 
-Hive의 기본 "histogram_numeric" 함수를 사용하여 숫자 변수의 변수를 확인할 수 있습니다. [sample&#95;hive&#95;criteo&#95;histogram&#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql)의 내용은 다음과 같습니다.
+Hive의 기본 "histogram\_numeric" 함수를 사용하여 숫자 변수의 변수를 확인할 수 있습니다. [sample&#95;hive&#95;criteo&#95;histogram&#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql)의 내용은 다음과 같습니다.
 
 		SELECT CAST(hist.x as int) as bin_center, CAST(hist.y as bigint) as bin_height FROM 
 			(SELECT
@@ -299,7 +297,7 @@ Hive의 LATERAL VIEW - explode 조합은 일반 목록 대신 SQL과 유사한 �
 
 ### 학습 데이터 집합의 일부 숫자 변수에 대한 백분위수 근사치
 
-숫자 변수와 함께 백분위수 근사치도 알아보겠습니다. 여기에는 Hive의 기본 "percentile_approx"가 사용됩니다. [sample&#95;hive&#95;criteo&#95;approximate&#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql)의 내용은 다음과 같습니다.
+숫자 변수와 함께 백분위수 근사치도 알아보겠습니다. 여기에는 Hive의 기본 "percentile\_approx"가 사용됩니다. [sample&#95;hive&#95;criteo&#95;approximate&#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql)의 내용은 다음과 같습니다.
 
 		SELECT MIN(Col2) AS Col2_min, PERCENTILE_APPROX(Col2, 0.1) AS Col2_01, PERCENTILE_APPROX(Col2, 0.3) AS Col2_03, PERCENTILE_APPROX(Col2, 0.5) AS Col2_median, PERCENTILE_APPROX(Col2, 0.8) AS Col2_08, MAX(Col2) AS Col2_max FROM criteo.criteo_train;
 
@@ -363,7 +361,7 @@ Col20을 제외하고 다른 모든 열에도 많은 고유 값이 있습니다.
 
 ## <a name="downsample"></a> Azure 기계 학습에 대한 데이터 집합 다운 샘플링
 
-데이터 집합을 탐색하고 모든 변수(조합 포함)에 대해 이 유형의 탐색을 수행하는 방법을 살펴보았으므로 이제 Azure 기계 학습에서 모델을 빌드할 수 있도록 데이터 집합을 다운 샘플링합니다. 중점을 두는 문제는 지정된 예제 특성 집합(Col2~Col40의 기능 값)에 대해 Col1이 0(클릭 안 함)인지 1(클릭)인지 예측하는 것입니다.
+데이터 집합을 탐색하고 모든 변수(조합 포함)에 대해 이 유형의 탐색을 수행하는 방법을 살펴보았으므로 이제 Azure 기계 학습에서 모델을 빌드할 수 있도록 데이터 집합을 다운 샘플링합니다. 중점을 두는 문제는 지정된 예제 특성 집합(Col2\~Col40의 기능 값)에 대해 Col1이 0(클릭 안 함)인지 1(클릭)인지 예측하는 것입니다.
 
 학습 및 테스트 데이터 집합을 원래 크기의 1%로 다운 샘플링하려면 Hive의 기본 RAND() 함수를 사용합니다. [sample&#95;hive&#95;criteo&#95;downsample&#95;train&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) 스크립트는 train 데이터 집합에 대해 이 작업을 수행합니다.
 
@@ -382,7 +380,7 @@ Col20을 제외하고 다른 모든 열에도 많은 고유 값이 있습니다.
 		Time taken: 12.22 seconds
 		Time taken: 298.98 seconds
 
-[sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;22&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) 스크립트는 test 데이터 day_22에 대해 이 작업을 수행합니다.
+[sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;22&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) 스크립트는 test 데이터 day\_22에 대해 이 작업을 수행합니다.
 
 		--- Now for test data (day_22)
 
@@ -400,7 +398,7 @@ Col20을 제외하고 다른 모든 열에도 많은 고유 값이 있습니다.
 		Time taken: 317.66 seconds
 
 
-마지막으로 [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;23&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) 스크립트는 test 데이터 day_23에 대해 이 작업을 수행합니다.
+마지막으로 [sample&#95;hive&#95;criteo&#95;downsample&#95;test&#95;day&#95;23&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) 스크립트는 test 데이터 day\_23에 대해 이 작업을 수행합니다.
 
 		--- Finally test data day_23
 		CREATE TABLE criteo.criteo_test_day_23_downsample_1perc (
@@ -452,7 +450,7 @@ Hive 테이블에서 데이터를 가져오는 동안의 **Reader** 모양은 �
 **판독기** 모듈의 경우 그래픽에서 제공되는 매개 변수의 값은 사용자가 제공해야 하는 값 종류에 해당하는 예입니다. 다음은 **판독기** 모듈에 대해 설정된 매개 변수를 입력하는 방법에 대한 일반적인 지침입니다.
 
 1. **데이터 원본**에서 "Hive query"(Hive 쿼리)를 선택합니다.
-2. **Hive database query**(Hive 데이터베이스 쿼리) 상자에 SELECT * FROM <your_database_name.your_table_name> 정도만 입력합니다.
+2. **Hive database query**(Hive 데이터베이스 쿼리) 상자에 SELECT * FROM <your\_database\_name.your\_table\_name> 정도만 입력합니다.
 3. **Hcatalog server URI**(Hcatalog 서버 URI): 클러스터가 "abc"인 경우 간단하게 https://abc.azurehdinsight.net입니다.
 4. **Hadoop user account name**(Hadoop 사용자 계정 이름): 클러스터를 지정할 때 선택한 사용자 이름입니다. (원격 액세스 사용자 이름이 아님).
 5. **Hadoop user account password**(Hadoop 사용자 계정 암호): 클러스터를 지정할 때 선택한 위 사용자 이름에 대한 암호입니다. (원격 액세스 암호가 아님).
@@ -540,7 +538,7 @@ MapReduce 모드에서 모듈을 사용하려면(큰 데이터 집합에 적합)
 
 ![](http://i.imgur.com/91wvcwN.png)
 
-이 간단한 R 스크립트에서 "pos_neg_ratio"를 사용하여 양수 클래스와 음수 클래스 간의 균형량을 설정합니다. 클래스의 불균형을 개선하면 일반적으로 클래스 분포가 편향되는 분류 문제에 대해 성능 이점이 있으므로 이 작업이 중요합니다(우리 사례의 경우 양수 클래스가 3.3%이고 음수 클래스가 96.7%임).
+이 간단한 R 스크립트에서 "pos\_neg\_ratio"를 사용하여 양수 클래스와 음수 클래스 간의 균형량을 설정합니다. 클래스의 불균형을 개선하면 일반적으로 클래스 분포가 편향되는 분류 문제에 대해 성능 이점이 있으므로 이 작업이 중요합니다(우리 사례의 경우 양수 클래스가 3.3%이고 음수 클래스가 96.7%임).
 
 ##### 개수 변환을 데이터에 적용
 
@@ -658,4 +656,4 @@ count 테이블이 크기 때문에 먼저 테스트 데이터의 몇 줄을 가
 
 Azure 기계 학습을 사용하여 대규모 데이터 집합을 처리하는 방법을 보여 주는 전체 연습이 끝났습니다. 테라바이트의 데이터로 시작해서 예측 모델을 구성하고 클라우드의 웹 서비스로 배포했습니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

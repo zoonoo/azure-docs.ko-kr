@@ -60,8 +60,8 @@
 - @@NESTLEVEL()
 - @@IDENTITY()
 - @@ROWCOUNT()
-- ROWCOUNT_BIG
-- ERROR_LINE()
+- ROWCOUNT\_BIG
+- ERROR\_LINE()
 
 다시 이러한 많은 문제를 해결할 수 있습니다.
 
@@ -100,4 +100,4 @@ AND     request_id IN
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

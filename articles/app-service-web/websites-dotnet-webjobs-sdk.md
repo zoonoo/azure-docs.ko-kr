@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/05/2015" 
 	ms.author="tdykstra"/>
 
 # Azure WebJobs SDK 정의
@@ -46,6 +46,8 @@ WebJob SDK에는 다음 구성 요소가 포함되어 있습니다.
 
 * 백그라운드 스레드에서 실행할 기타 장기 실행 작업(예: [전자 메일 전송](https://github.com/victorhurdugaci/AzureWebJobsSamples/tree/master/SendEmailOnFailure))
 
+대부분의 이러한 시나리오에서 여러 WebJob을 동시에 실행하는 다수의 VM에서 웹앱이 실행되도록 확장하는 것이 좋습니다. 일부 시나리오에서 이렇게 하면 동일한 데이터를 여러 번 처리하지만, 기본 제공 큐, blob 및 WebJobs SDK의 서비스 버스 트리거를 사용하는 경우 이는 문제가 되지 않습니다. SDK는 각 메시지 또는 blob에 대해 함수를 한 번만 처리하도록 합니다.
+
 ## <a id="code"></a> 코드 샘플
 
 Azure 저장소를 사용하는 일반적인 작업을 처리하기 위한 코드는 간단합니다. 콘솔 응용 프로그램에서 실행하려는 백그라운드 작업에 대한 메서드를 작성한 후 WebJobs SDK의 특성으로 데코레이트합니다. `Main` 메서드는 작성하는 메서드에 대한 호출을 조정하는 `JobHost` 개체를 만듭니다. WebJobs SDK 프레임워크는 사용하는 WebJobs SDK 특성을 토대로 메서드 호출 시기를 파악합니다.
@@ -66,15 +68,12 @@ Azure 저장소를 사용하는 일반적인 작업을 처리하기 위한 코�
 
 `JobHost` 개체는 백그라운드 함수 집합에 대한 컨테이너입니다. `JobHost` 개체는 함수를 모니터링하고, 이러한 함수를 트리거하는 이벤트를 조사하고, 트리거 이벤트가 발생할 때 함수를 실행합니다. `JobHost` 메서드를 호출하여 컨테이너 프로세스를 현재 스레드에서 실행할지 또는 백그라운드 스레드에서 실행할지를 지정합니다. 이 예에서 `RunAndBlock` 메서드는 현재 스레드에서 해당 프로세스를 계속 실행합니다.
 
-이 예의 `ProcessQueueMessage` 메서드는 `QueueTrigger` 특성을 가지므로 새 큐 메시지가 수신되면 해당 함수가 트리거됩니다. `JobHost` 개체는 지정된 큐에서 새 큐 메시지를 찾고(이 예에서는 "webjobsqueue") 찾은 후에는 `ProcessQueueMessage`를 호출합니다. `QueueTrigger` 특성은 `inputText` 매개 변수를 큐 메시지의 값에 바인딩하도록 프레임워크에 전달합니다.
+이 예의 `ProcessQueueMessage` 메서드는 `QueueTrigger` 특성을 가지므로 새 큐 메시지가 수신되면 해당 함수가 트리거됩니다. `JobHost` 개체는 지정된 큐에서 새 큐 메시지를 찾고(이 예에서는 "webjobsqueue") 찾은 후에는 `ProcessQueueMessage`를 호출합니다.
 
-<pre class="prettyprint">public static void ProcessQueueMessage([QueueTrigger("webjobsqueue")]] <mark>string inputText</mark>, 
-    [Blob("containername/blobname")]TextWriter writer)</pre>
+`QueueTrigger` 특성은 `inputText` 매개 변수를 큐 메시지의 값에 바인딩합니다. 또 `Blob` 특성은 `TextWriter` 개체를 "containername"라는 컨테이너의 "blobname"라는 blob에 바인딩합니다.
 
-또한 프레임워크는 `TextWriter` 개체를 "containername" 컨테이너의 "blobname" Blob에 바인딩합니다.
-
-<pre class="prettyprint">public static void ProcessQueueMessage([QueueTrigger("webjobsqueue")]] string inputText, 
-    <mark>[Blob("containername/blobname")]TextWriter writer</mark>)</pre>
+		public static void ProcessQueueMessage([QueueTrigger("webjobsqueue")]] string inputText, 
+		    [Blob("containername/blobname")]TextWriter writer)
 
 그런 후 함수는 이러한 매개 변수를 사용하여 큐 메시지의 값을 Blob에 씁니다.
 
@@ -105,4 +104,4 @@ Azure 저장소 큐, 테이블, Blob 또는 서비스 버스 큐를 직접 사�
 WebJobs SDK에 대한 자세한 내용은 [Azure WebJobs 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

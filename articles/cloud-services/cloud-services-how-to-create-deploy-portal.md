@@ -102,10 +102,10 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 2. **Essentials**에서 **사이트 URL**을 클릭하여 웹 브라우저에서 클라우드 서비스를 엽니다.
 
-    ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
+    ![CloudServices\_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

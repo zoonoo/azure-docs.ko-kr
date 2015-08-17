@@ -11,7 +11,7 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="05/27/2015" 
 	ms.author="wesmc"/>
 
@@ -66,7 +66,7 @@
 
 ###코드 추가
 
-1. <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">여기</a>에서 알림 허브 Android SDK를 다운로드합니다. .zip 파일의 압축을 풀고 **notificationhubs\notification-hubs-0.4.jar** 및 **notifications\notifications-1.0.1.jar**을 프로젝트의 **app\libs** 디렉터리로 복사합니다. Android Studio의 Project View 창에서 **libs** 폴더로 파일을 직접 끌어올 수 있습니다. libs 폴더를 새로 고칩니다.
+1. <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">여기</a>에서 알림 허브 Android SDK를 다운로드합니다. .zip 파일의 압축을 풀고 **notificationhubs\\notification-hubs-0.4.jar** 및 **notifications\\notifications-1.0.1.jar**을 프로젝트의 **app\\libs** 디렉터리로 복사합니다. Android Studio의 Project View 창에서 **libs** 폴더로 파일을 직접 끌어올 수 있습니다. libs 폴더를 새로 고칩니다.
 
 
 
@@ -106,7 +106,7 @@
 		private String HubListenConnectionString = "<Your default listen connection string>";
 
 
-	자리 표시자 3개를 업데이트해야 합니다. * **SENDER_ID**: `SENDER_ID`를 이전에 [Google 클라우드 콘솔](http://cloud.google.com/console)에서 만든 프로젝트에서 얻은 프로젝트 번호로 설정합니다. * **HubListenConnectionString**: `HubListenConnectionString`을 허브의 **DefaultListenAccessSignature** 연결 문자열로 설정합니다. [Azure 관리 포털]에서 허브의 **대시보드** 탭에 있는 **연결 문자열 보기**를 클릭하여 이 연결 문자열을 복사할 수 있습니다. * **HubName**: Azure의 허브 페이지 위쪽에 표시된 알림 허브의 이름(전체 URL이 **아님**)입니다. 예: `"myhub"`.
+	자리 표시자 3개를 업데이트해야 합니다. * **SENDER\_ID**: `SENDER_ID`를 이전에 [Google 클라우드 콘솔](http://cloud.google.com/console)에서 만든 프로젝트에서 얻은 프로젝트 번호로 설정합니다. * **HubListenConnectionString**: `HubListenConnectionString`을 허브의 **DefaultListenAccessSignature** 연결 문자열로 설정합니다. [Azure 관리 포털]에서 허브의 **대시보드** 탭에 있는 **연결 문자열 보기**를 클릭하여 이 연결 문자열을 복사할 수 있습니다. * **HubName**: Azure의 허브 페이지 위쪽에 표시된 알림 허브의 이름(전체 URL이 **아님**)입니다. 예: `"myhub"`.
 
 
 
@@ -259,7 +259,7 @@
 
 ![][31]
 
-1. Android Studio Project View에서 **App**->**src**->**main**->**res**->**layout**을 확장합니다. **activity_main.xml** 레이아웃 파일을 열고 **Text** 탭을 클릭하여 파일의 텍스트 내용을 업데이트합니다. 아래 코드로 업데이트하여 알림 허브에 알림 메시지는 보내는 새 `Button` 및 `EditText` 컨트롤을 추가합니다. 이 코드는 맨 아래의 `</RelativeLayout>` 바로 앞에 추가합니다.
+1. Android Studio Project View에서 **App**->**src**->**main**->**res**->**layout**을 확장합니다. **activity\_main.xml** 레이아웃 파일을 열고 **Text** 탭을 클릭하여 파일의 텍스트 내용을 업데이트합니다. 아래 코드로 업데이트하여 알림 허브에 알림 메시지는 보내는 새 `Button` 및 `EditText` 컨트롤을 추가합니다. 이 코드는 맨 아래의 `</RelativeLayout>` 바로 앞에 추가합니다.
 
 	    <Button
         android:layout_width="wrap_content"
@@ -448,9 +448,9 @@
 ##앱 테스트
 
 ####에뮬레이터 테스트
-에뮬레이터에서 테스트하려는 경우 에뮬레이터 이미지가 앱에 대해 선택한 Google API 수준을 지원하는지 확인합니다. 이미지가 Google API를 지원하지 않으면 **SERVICE_NOT_AVAILABLE** 예외가 발생합니다.
+에뮬레이터에서 테스트하려는 경우 에뮬레이터 이미지가 앱에 대해 선택한 Google API 수준을 지원하는지 확인합니다. 이미지가 Google API를 지원하지 않으면 **SERVICE\_NOT\_AVAILABLE** 예외가 발생합니다.
 
-또한 **Settings**->**Accounts**에서 실행 중인 에뮬레이터에 Google 계정을 추가해야 합니다. 그렇지 않으면 GCM 등록 시 **AUTHENTICATION_FAILED** 예외가 발생할 수 있습니다.
+또한 **Settings**->**Accounts**에서 실행 중인 에뮬레이터에 Google 계정을 추가해야 합니다. 그렇지 않으면 GCM 등록 시 **AUTHENTICATION\_FAILED** 예외가 발생할 수 있습니다.
 
 ####앱 테스트     
 
@@ -511,4 +511,4 @@
 [알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-aspnet-backend-android-breaking-news.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

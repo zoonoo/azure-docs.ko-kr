@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 
@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
 
-Microsoft Azure Operational Insights에서 경고 관리를 사용하려면 먼저 솔루션이 설치되어 있어야 합니다. 솔루션 설치에 대한 더 알려면 [솔루션 갤러리를 사용하여 솔루션 추가 및 제거](operational-insights-add-solution.md)를 참조하십시오. 서버를 Operations Manager 에이전트에서 모니터링하는 경우 솔루션만이 작동합니다. Operational Insights로 Operations Manager 사용에 대한 추가 정보는 [System Center Operations Manager에서 Operational Insights에 연결](operational-insights-connect-scom.md)을 참조하십시오.
+Microsoft Azure Operational Insights에서 경고 관리를 사용하려면 먼저 솔루션이 설치되어 있어야 합니다. 솔루션 설치에 대한 자세한 내용은 [작업 영역 설정](operational-insights-setup-workspace.md)을 참조하세요. 서버를 Operations Manager 에이전트에서 모니터링하는 경우 솔루션만이 작동합니다. Operational Insights로 Operations Manager 사용에 대한 추가 정보는 [System Center Operations Manager에서 Operational Insights에 연결](operational-insights-connect-scom.md)을 참조하십시오.
 
 솔루션이 설치된 후, Operational Insights의 **개요** 대시보드에서 **경고 관리** 타일을 사용하여 모니터링된 서버에 대한 경고를 볼 수 있습니다.
 
@@ -58,4 +58,4 @@ Microsoft Azure Operational Insights에서 경고 관리를 사용하려면 먼�
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

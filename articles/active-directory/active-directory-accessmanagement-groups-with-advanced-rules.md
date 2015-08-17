@@ -59,7 +59,7 @@ Azure 관리 포털을 사용하면 그룹의 동적 멤버 자격을 사용하�
 |----------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 오류: 특성이 지원되지 않습니다. | (user.invalidProperty -eq "Value") | (user.department -eq "value")속성은 위의 지원되는 속성 목록 중 하나의 항목과 일치해야 합니다. |
 | 오류: 특성에서는 연산자가 지원되지 않습니다. | (user.accountEnabled -contains true) | (user.accountEnabled -eq true)속성은 부울 형식입니다. 위의 목록에서 부울 형식에 지원되는 연산자(-eq 또는 -ne)를 사용합니다. |
-| 오류: 쿼리 컴파일 오류입니다. | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "\*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing")논리 연산자는 위의 지원되는 특성 목록 중 하나의 항목과 일치해야 합니다.(user.userPrincipalName -match ".\*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")정규식 오류입니다. |
+| 오류: 쿼리 컴파일 오류입니다. | (user.department -eq "Sales") -and (user.department -eq "Marketing")(user.userPrincipalName -match "*@domain.ext") | (user.department -eq "Sales") -and (user.department -eq "Marketing")논리 연산자는 위의 지원되는 특성 목록 중 하나의 항목과 일치해야 합니다.(user.userPrincipalName -match ".*@domain.ext")or(user.userPrincipalName -match "@domain.ext$")정규식 오류입니다. |
 | 오류: 이진 식 형식이 올바르지 않습니다. | (user.department –eq “Sales”) (user.department -eq "Sales")(user.department-eq"Sales") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")쿼리에 오류가 여러 개 있습니다. 괄호 위치가 적절하지 않습니다. |
 | 오류: 동적 멤버 자격을 설정하는 동안 알 수 없는 오류가 발생했습니다. | (user.accountEnabled -eq "True" AND user.userPrincipalName -contains "alias@domain") | (user.accountEnabled -eq true) -and (user.userPrincipalName -contains "alias@domain")쿼리에 오류가 여러 개 있습니다. 괄호 위치가 적절하지 않습니다. |
 
@@ -168,4 +168,4 @@ Azure 관리 포털을 사용하면 그룹의 동적 멤버 자격을 사용하�
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

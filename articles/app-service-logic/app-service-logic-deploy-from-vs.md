@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/26/2015"
+	ms.date="07/30/2015"
 	ms.author="stepsic"/>
 	
 # Visual Studio에서 배포
@@ -23,7 +23,7 @@
 - 솔루션의 다른 자산과 함께 논리 앱을 저장하면 응용 프로그램의 모든 측면을 포함할 수 있습니다.
 - 소스 제어에서 확인된 논리 앱 정의를 유지하면 TFS 또는 Git를 사용하여 수정 버전을 추적할 수 있습니다. 
 
-아래의 다음 단계를 수행하기 위해 Azure SDK 2.6이 설치되어 있어야 합니다. 여기서 [VS용 최신 SDK](http://azure.microsoft.com/downloads/)을 찾습니다.
+아래의 다음 단계를 수행하기 위해 Azure SDK 2.7이 설치되어 있어야 합니다. 여기서 [VS용 최신 SDK](http://azure.microsoft.com/downloads/)을 찾습니다.
 
 ## 프로젝트 만들기
 
@@ -45,7 +45,7 @@
 
 오늘날, Visual Studio에 기본 제공된 디자이너가 없으므로 그래픽 인터페이스(JSON와 대조적)를 사용하려는 경우 Azure 포털을 사용해야 합니다.
 
-Azure 포털 내에서 이전에 논리 앱을 만들었고 이제 소스 제어를 위해 이를 확인하려는 경우 다음을 수행할 수 있습니다. - 포털에서 **코드 보기**로 이동하여 정의를 복사합니다. - [REST API](https://msdn.microsoft.com/library/azure/dn948510.aspx) 논리 앱을 사용하여 정의를 확인합니다. - [Azure 리소스 관리자 powershell](../powershell-azure-resource-manager.md), 특히 [`Get-AzureResource` 명령](https://msdn.microsoft.com/library/dn654579.aspx)을 사용하여 정의를 다운로드합니다.
+Azure 포털 내에서 이전에 논리 앱을 만들었고 이제 소스 제어를 위해 이를 확인하려는 경우 다음 3가지 방법으로 수행할 수 있습니다. - 포털에서 **코드 보기**로 이동하여 정의를 복사합니다. - [REST API](https://msdn.microsoft.com/library/azure/dn948510.aspx) 논리 앱을 사용하여 정의를 확인합니다. - [Azure 리소스 관리자 powershell](../powershell-azure-resource-manager.md), 특히 [`Get-AzureResource` 명령](https://msdn.microsoft.com/library/dn654579.aspx)을 사용하여 정의를 다운로드합니다.
 
 ## 논리 앱 배포
 
@@ -63,6 +63,6 @@ Azure 포털 내에서 이전에 논리 앱을 만들었고 이제 소스 제어
 
 나중에 소스 제어에서 논리 앱을 수정하고 새 버전을 배포하기 위해 Visual Studio를 사용할 수 있습니다. Azure 포털에서 정의를 직접 수정하면 다음에 Visual Studio에서 변경 내용을 배포하면 해당 변경 내용이 재정의됩니다.
 
-Visual Studio를 사용하지 않고 싶지만 소스 제어에서 논리 앱을 배포하기 위해 여전히 장사를 하고 싶은 경우 [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) 또는 [Powershell](../powershell-azure-resource-manager.md)을 직접 사용하여 배포를 자동화하는 데 사용할 수 있습니다.
+Visual Studio를 사용하지 않고 싶지만 소스 제어에서 논리 앱을 배포하기 위해 여전히 도구를 보유하고자 하는 경우 [API](https://msdn.microsoft.com/library/azure/dn948510.aspx) 또는 [Powershell](../powershell-azure-resource-manager.md)을 직접 사용하여 배포를 자동화하는 데 사용할 수 있습니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

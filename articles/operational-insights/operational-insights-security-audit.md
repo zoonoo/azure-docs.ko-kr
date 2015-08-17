@@ -100,4 +100,4 @@ Windows 컴퓨팅 환경은 보안 관련 레코드의 캡처 수준을 구성�
 
 로컬 정책 설정 외에도, AppLocker를 사용하여 감사 데이터를 수집하는 경우 Operational Insights에 의해 데이터가 수집되며 볼 수 있습니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

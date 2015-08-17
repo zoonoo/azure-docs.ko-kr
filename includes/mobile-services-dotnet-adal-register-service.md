@@ -39,4 +39,4 @@
 [Azure Active Directory에 등록하는 방법]: ../articles/mobile-services/mobile-services-how-to-register-active-directory-authentication.md
 [Azure 관리 포털]: https://manage.windowsazure.com/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

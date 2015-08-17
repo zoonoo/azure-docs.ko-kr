@@ -74,7 +74,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](htt
 	from azure.servicemanagement import *
 
 	subscription_id = '<your_subscription_id>'
-	certificate_path = 'CURRENT_USER\my\AzureCertificate'
+	certificate_path = 'CURRENT_USER\\my\\AzureCertificate'
 
 	sms = ServiceManagementService(subscription_id, certificate_path)
 
@@ -82,7 +82,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](htt
 
 ## <a name="ListAvailableLocations"> </a>방법: 사용 가능한 위치 나열
 
-서비스를 호스트하는 데 사용할 수 있는 위치를 나열하려면 **list_locations** 메서드를 사용합니다.
+서비스를 호스트하는 데 사용할 수 있는 위치를 나열하려면 **list\_locations** 메서드를 사용합니다.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -93,7 +93,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](htt
 	for location in result:
 		print(location.name)
 
-클라우드 서비스 또는 저장소 서비스를 만드는 경우 유효한 위치를 제공해야 합니다. **list_locations** 메서드는 항상 현재 사용 가능한 위치의 최신 목록을 반환합니다. 현재 사용 가능한 위치는 다음과 같습니다.
+클라우드 서비스 또는 저장소 서비스를 만드는 경우 유효한 위치를 제공해야 합니다. **list\_locations** 메서드는 항상 현재 사용 가능한 위치의 최신 목록을 반환합니다. 현재 사용 가능한 위치는 다음과 같습니다.
 
 - 서유럽
 - 북유럽
@@ -112,7 +112,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](htt
 
 ## <a name="CreateCloudService"> </a>방법: 클라우드 서비스 만들기
 
-응용 프로그램을 만들어 Azure에서 실행하면 코드와 구성은 모두 Azure [클라우드 서비스](이전 Azure 릴리스에서는 *호스팅 서비스*라 함)라고 합니다. **create_hosted_service** 메서드를 통해 호스팅 서비스 이름(Azure에서 고유해야 함), 레이블(base64로 자동 인코딩됨), 설명 및 위치를 제공하여 새 호스팅 서비스를 만들 수 있습니다.
+응용 프로그램을 만들어 Azure에서 실행하면 코드와 구성은 모두 Azure [클라우드 서비스](이전 Azure 릴리스에서는 *호스팅 서비스*라 함)라고 합니다. **create\_hosted\_service** 메서드를 통해 호스팅 서비스 이름(Azure에서 고유해야 함), 레이블(base64로 자동 인코딩됨), 설명 및 위치를 제공하여 새 호스팅 서비스를 만들 수 있습니다.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -126,7 +126,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](htt
 
 	sms.create_hosted_service(name, label, desc, location)
 
-**list_hosted_services** 메서드로 구독의 모든 호스티드 서비스를 나열할 수 있습니다.
+**list\_hosted\_services** 메서드로 구독의 모든 호스티드 서비스를 나열할 수 있습니다.
 
 	result = sms.list_hosted_services()
 
@@ -136,7 +136,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](htt
 		print('Location: ' + hosted_service.hosted_service_properties.location)
 		print('')
 
-특정 호스팅 서비스에 대한 정보를 가져오려면 호스팅 서비스 이름을 **get_hosted_service_properties** 메서드에 전달하여 가져올 수 있습니다.
+특정 호스팅 서비스에 대한 정보를 가져오려면 호스팅 서비스 이름을 **get\_hosted\_service\_properties** 메서드에 전달하여 가져올 수 있습니다.
 
 	hosted_service = sms.get_hosted_service_properties('myhostedservice')
 
@@ -144,11 +144,11 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](htt
 	print('Management URL: ' + hosted_service.url)
 	print('Location: ' + hosted_service.hosted_service_properties.location)
 
-클라우드 서비스를 만든 후에는 **create_deployment** 메서드로 코드를 서비스에 배포할 수 있습니다.
+클라우드 서비스를 만든 후에는 **create\_deployment** 메서드로 코드를 서비스에 배포할 수 있습니다.
 
 ## <a name="DeleteCloudService"> </a>방법: 클라우드 서비스 삭제
 
-서비스 이름을 **delete_hosted_service** 메서드에 전달하여 클라우드 서비스를 삭제할 수 있습니다.
+서비스 이름을 **delete\_hosted\_service** 메서드에 전달하여 클라우드 서비스를 삭제할 수 있습니다.
 
 	sms.delete_hosted_service('myhostedservice')
 
@@ -156,7 +156,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](htt
 
 ## <a name="DeleteDeployment"> </a>방법: 배포 삭제
 
-배포를 삭제하려면 **delete_deployment** 메서드를 사용합니다. 다음 예제에서는 이름이 `v1`인 배포를 삭제하는 방법을 보여 줍니다.
+배포를 삭제하려면 **delete\_deployment** 메서드를 사용합니다. 다음 예제에서는 이름이 `v1`인 배포를 삭제하는 방법을 보여 줍니다.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -184,9 +184,9 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](htt
 	operation_result = sms.get_operation_status(result.request_id)
 	print('Operation status: ' + operation_result.status)
 
-위 예제에서 **create_storage_account** 작업 상태는 **create_storage_account**가 반환한 결과를 **get_operation_status** 메서드에 전달하여 검색할 수 있습니다.
+위 예제에서 **create\_storage\_account** 작업 상태는 **create\_storage\_account**가 반환한 결과를 **get\_operation\_status** 메서드에 전달하여 검색할 수 있습니다.
 
-**list_storage_accounts** 메서드로 저장소 계정 및 그 속성을 나열할 수 있습니다.
+**list\_storage\_accounts** 메서드로 저장소 계정 및 그 속성을 나열할 수 있습니다.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -201,7 +201,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](htt
 
 ## <a name="DeleteStorageService"> </a>방법: 저장소 서비스 삭제
 
-저장소 서비스 이름을 **delete_storage_account** 메서드에 전달하여 저장소 서비스를 삭제할 수 있습니다. 저장소 서비스를 삭제하면 그 서비스에 저장되어 있는 모든 데이터(Blob, 테이블, 큐)가 삭제됩니다.
+저장소 서비스 이름을 **delete\_storage\_account** 메서드에 전달하여 저장소 서비스를 삭제할 수 있습니다. 저장소 서비스를 삭제하면 그 서비스에 저장되어 있는 모든 데이터(Blob, 테이블, 큐)가 삭제됩니다.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -212,7 +212,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](htt
 
 ## <a name="ListOperatingSystems"> </a>방법: 사용 가능한 운영 체제 나열
 
-서비스를 호스팅하는 데 사용할 수 있는 운영 체제를 나열하려면 **list_operating_systems** 메서드를 사용합니다.
+서비스를 호스팅하는 데 사용할 수 있는 운영 체제를 나열하려면 **list\_operating\_systems** 메서드를 사용합니다.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -226,7 +226,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](htt
 		print('Family: ' + os.family_label)
 		print('Active: ' + str(os.is_active))
 
-또는 운영 체제를 제품군별로 그룹화하는 **list_operating_system_families** 메서드를 사용할 수 있습니다.
+또는 운영 체제를 제품군별로 그룹화하는 **list\_operating\_system\_families** 메서드를 사용할 수 있습니다.
 
 	result = sms.list_operating_system_families()
 
@@ -240,7 +240,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](htt
 
 ## <a name="CreateVMImage"> </a>방법: 운영 체제 이미지 만들기
 
-운영 체제 이미지를 이미지 리포지토리에 추가하려면 **add_os_image** 메서드를 사용합니다.
+운영 체제 이미지를 이미지 리포지토리에 추가하려면 **add\_os\_image** 메서드를 사용합니다.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -257,7 +257,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](htt
 	operation_result = sms.get_operation_status(result.request_id)
 	print('Operation status: ' + operation_result.status)
 
-사용 가능한 운영 체제 이미지를 나열하려면 **list_os_images** 메서드를 사용합니다. 여기에는 모든 플랫폼 이미지 및 사용자 이미지가 포함됩니다.
+사용 가능한 운영 체제 이미지를 나열하려면 **list\_os\_images** 메서드를 사용합니다. 여기에는 모든 플랫폼 이미지 및 사용자 이미지가 포함됩니다.
 
 	result = sms.list_os_images()
 
@@ -273,7 +273,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](htt
 
 ## <a name="DeleteVMImage"> </a>방법: 운영 체제 이미지 삭제
 
-사용자 이미지를 삭제하려면 **delete_os_image** 메서드를 사용합니다.
+사용자 이미지를 삭제하려면 **delete\_os\_image** 메서드를 사용합니다.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -287,7 +287,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](htt
 
 ## <a name="CreateVM"> </a>방법: 가상 컴퓨터 만들기
 
-가상 컴퓨터를 만들려면 먼저 [클라우드 서비스](#CreateCloudService)를 만들어야 합니다. 그런 다음 **create_virtual_machine_deployment** 메서드를 사용하여 가상 컴퓨터 배포를 만듭니다.
+가상 컴퓨터를 만들려면 먼저 [클라우드 서비스](#CreateCloudService)를 만들어야 합니다. 그런 다음 **create\_virtual\_machine\_deployment** 메서드를 사용하여 가상 컴퓨터 배포를 만듭니다.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -326,7 +326,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](htt
 
 ## <a name="DeleteVM"> </a>방법: 가상 컴퓨터 삭제
 
-가상 컴퓨터를 삭제하려면 **delete_deployment** 메서드를 사용하여 먼저 배포를 삭제합니다.
+가상 컴퓨터를 삭제하려면 **delete\_deployment** 메서드를 사용하여 먼저 배포를 삭제합니다.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -336,13 +336,13 @@ Azure 인증서에 대한 자세한 내용은 [Azure에서 인증서 관리](htt
 	sms.delete_deployment(service_name='myvm',
 		deployment_name='myvm')
 
-그런 다음 **delete_hosted_service** 메서드를 사용하여 클라우드 서비스를 삭제할 수 있습니다.
+그런 다음 **delete\_hosted\_service** 메서드를 사용하여 클라우드 서비스를 삭제할 수 있습니다.
 
 	sms.delete_hosted_service(service_name='myvm')
 
 ##방법: 캡처된 가상 컴퓨터 이미지에서 가상 컴퓨터 만들기
 
-VM 이미지를 캡처하기 위해 먼저 **capture_vm_image** 메서드를 호출합니다.
+VM 이미지를 캡처하기 위해 먼저 **capture\_vm\_image** 메서드를 호출합니다.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -369,11 +369,11 @@ VM 이미지를 캡처하기 위해 먼저 **capture_vm_image** 메서드를 호
 			image
 		)
 
-그런 다음 이미지가 캡처되었는지 확인하기 위해 **list_vm_images** API를 사용하여 이미지가 결과에 표시되는지 확인합니다.
+그런 다음 이미지가 캡처되었는지 확인하기 위해 **list\_vm\_images** API를 사용하여 이미지가 결과에 표시되는지 확인합니다.
 
 	images = sms.list_vm_images()
 
-최종적으로 캡처된 이미지를 사용하여 가상 컴퓨터를 만들기 위해 이전처럼 **create_virtual_machine_deployment** 메서드를 사용하지만, 이번에는 대신 vm_image_name을 전달합니다.
+최종적으로 캡처된 이미지를 사용하여 가상 컴퓨터를 만들기 위해 이전처럼 **create\_virtual\_machine\_deployment** 메서드를 사용하지만, 이번에는 대신 vm\_image\_name을 전달합니다.
 
 	from azure import *
 	from azure.servicemanagement import *
@@ -445,4 +445,4 @@ Windows 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [W
 [Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

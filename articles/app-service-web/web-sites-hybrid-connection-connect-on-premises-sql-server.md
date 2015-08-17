@@ -49,25 +49,11 @@
 
 - 다음 포트를 통해 Azure와의 아웃바운드 연결이 설정되어야 합니다.
 
-> <table border="1">
-    <tr>
-       <th><strong>포트</strong></th>
-        <th>이유</th>
-    </tr>
-    <tr>
-        <td>80</td>
-        <td>인증서 유효성 검사용 HTTP 포트에 <strong>필요하며</strong> 선택적으로 데이터 연결에 필요합니다.</td>
-    </tr>
-    <tr>
-        <td>443</td>
-        <td>데이터 연결에 대해 <strong>선택사항</strong>입니다. 443에 대한 아웃바운드 연결을 사용할 수 없으면 TCP 포트 80이 사용됩니다.</td>
-    </tr>
-	<tr>
-        <td>5671 및 9352</td>
-        <td>데이터 연결에 대해 <strong>권장</strong>하지만 선택사항입니다. 이 모드를 사용하면 일반적으로 더 높은 처리량을 얻을 수 있습니다. 이러한 포트에 대한 아웃바운드 연결을 사용할 수 없으면 TCP 포트 443이 사용됩니다.</td>
-	</tr>
-</table>
-
+포트|이유
+---|---
+80|인증서 유효성 검사용 HTTP 포트에 **필요하며** 선택적으로 데이터 연결에 필요합니다.
+443|데이터 연결에 대해 **선택사항**입니다. 443에 대한 아웃바운드 연결을 사용할 수 없으면 TCP 포트 80이 사용됩니다.
+5671 및 9352|데이터 연결에 대해 **권장**하지만 선택사항입니다. 이 모드를 사용하면 일반적으로 더 높은 처리량을 얻을 수 있습니다. 이러한 포트에 대한 아웃바운드 연결을 사용할 수 없으면 TCP 포트 443이 사용됩니다.
 - 온-프레미스 리소스의 *호스트이름*:*포트번호*에 연결할 수 있어야 합니다. 
 
 이 자습서의 단계에서는 온-프레미스 하이브리드 연결 에이전트를 호스트하는 컴퓨터에서 브라우저를 사용하고 있다고 가정합니다.
@@ -81,7 +67,7 @@
 
 ### SQL Server Express 설치 ###
 
-1. SQL Server Express를 설치하기 위해 다운로드한 **SQLEXPRWT_x64_ENU.exe** 또는 **SQLEXPR_x86_ENU.exe** 파일을 실행합니다. SQL Server 설치 센터 마법사가 나타납니다.
+1. SQL Server Express를 설치하기 위해 다운로드한 **SQLEXPRWT\_x64\_ENU.exe** 또는 **SQLEXPR\_x86\_ENU.exe** 파일을 실행합니다. SQL Server 설치 센터 마법사가 나타납니다.
 	
 	![SQL Server 설치][SQLServerInstall]
 	
@@ -218,7 +204,7 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
 	
 	연결 문자열을 작성할 때 다음 사항을 기억하세요.
 	
-	- 기본 인스턴스(예: YourServer\SQLEXPRESS)가 아닌 명명된 인스턴스에 연결하는 경우 정적 포트를 사용하도록 SQL Server를 구성해야 합니다. 정적 포트를 구성하는 방법에 대한 자세한 내용은 [특정 포트에서 수신하도록 SQL Server를 구성하는 방법](http://support.microsoft.com/kb/823938)을 참조하세요. 기본적으로, 명명된 인스턴는 하이브리드 연결에서 지원되지 않는 UDP 및 동적 포트를 사용합니다. 
+	- 기본 인스턴스(예: YourServer\\SQLEXPRESS)가 아닌 명명된 인스턴스에 연결하는 경우 정적 포트를 사용하도록 SQL Server를 구성해야 합니다. 정적 포트를 구성하는 방법에 대한 자세한 내용은 [특정 포트에서 수신하도록 SQL Server를 구성하는 방법](http://support.microsoft.com/kb/823938)을 참조하세요. 기본적으로, 명명된 인스턴는 하이브리드 연결에서 지원되지 않는 UDP 및 동적 포트를 사용합니다. 
 	
 	- 로컬 SQL Server가 TCP를 사용하도록 설정하고 올바른 포트를 사용하고 있는지 확인할 수 있도록 연결 문자열에서 포트(예와 같이 기본적으로는 1433)를 지정하는 것이 좋습니다.
 	
@@ -378,4 +364,4 @@ Visual Studio 웹 응용 프로그램을 사용하려면 Azure에서 액세스�
 [HCTestShowMemberDb]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

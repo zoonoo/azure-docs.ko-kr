@@ -4,7 +4,6 @@
 	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="Rick-Anderson" 
-	writer="Rick-Anderson" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -76,10 +75,11 @@ ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity 
 ### 페이지 머리글 및 바닥글 설정
 
 
-1. **솔루션 탐색기**에서 *Views\Shared* 폴더를 확장하고 *_Layout.cshtml* 파일을 엽니다. 
-	![솔루션 탐색기의 _Layout.cshtml][newapp004]
+1. **솔루션 탐색기**에서 *Views\\Shared* 폴더를 확장하고 *\_Layout.cshtml* 파일을 엽니다.
 
-1. *Views\Shared_Layout.cshtml* 파일 내용을 다음 코드로 바꿉니다.
+	![솔루션 탐색기의 \_Layout.cshtml][newapp004]
+
+1. *Views\\Shared\_Layout.cshtml* 파일 내용을 다음 코드로 바꿉니다.
 
 
 		<!DOCTYPE html>
@@ -232,11 +232,11 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 		add-migration Initial
 
-	**add-migration Initial** 명령은 데이터베이스를 만드는 **&lt;date_stamp&gt;Initial**이라는 클래스를 생성합니다. 첫 번째 매개 변수(*Initial*)는 임의이며 파일 이름을 만드는 데 사용됩니다. **솔루션 탐색기**에서 새 클래스 파일을 볼 수 있습니다.
+	**add-migration Initial** 명령은 데이터베이스를 만드는 **&lt;date\_stamp&gt;Initial**이라는 클래스를 생성합니다. 첫 번째 매개 변수(*Initial*)는 임의이며 파일 이름을 만드는 데 사용됩니다. **솔루션 탐색기**에서 새 클래스 파일을 볼 수 있습니다.
 
 	**Initial** 클래스의 **Up** 메서드는 Contacts 테이블을 만들고 이전 상태로 돌아가려는 경우 사용되는 **Down** 메서드는 테이블을 삭제합니다.
 
-3. *Migrations\Configuration.cs* 파일을 엽니다.
+3. *Migrations\\Configuration.cs* 파일을 엽니다.
 
 4. 다음 네임스페이스를 추가합니다.
 
@@ -319,7 +319,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 ## 뷰 편집
 
-1. *Views\Home\Index.cshtml* 파일을 엽니다. 다음 단계에서는 생성된 변경 내용을 [jQuery](http://jquery.com/) 및 [Knockout.js](http://knockoutjs.com/)를 사용하는 코드로 바꿀 것입니다. 이 새 코드는 웹 API 및 JSON을 사용하여 연락처 목록을 가져온 후 knockout.js를 사용하여 연락처 데이터를 UI에 바인딩합니다. 자세한 내용은 이 자습서의 후반부에서 [다음 단계](#nextsteps) 섹션을 참조하세요. 
+1. *Views\\Home\\Index.cshtml* 파일을 엽니다. 다음 단계에서는 생성된 변경 내용을 [jQuery](http://jquery.com/) 및 [Knockout.js](http://knockoutjs.com/)를 사용하는 코드로 바꿀 것입니다. 이 새 코드는 웹 API 및 JSON을 사용하여 연락처 목록을 가져온 후 knockout.js를 사용하여 연락처 데이터를 UI에 바인딩합니다. 자세한 내용은 이 자습서의 후반부에서 [다음 단계](#nextsteps) 섹션을 참조하세요. 
 
 
 2. 파일 내용을 다음 코드로 바꿉니다.
@@ -476,7 +476,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 	Contact Manager 앱에 사용되는 레이아웃, 색 및 스타일에 이 스타일시트를 사용하겠습니다.
 
-6. *App_Start\BundleConfig.cs* 파일을 엽니다.
+6. *App\_Start\\BundleConfig.cs* 파일을 엽니다.
 
 
 7. 다음 코드를 추가하여 [Knockout](http://knockoutjs.com/index.html "KO") 플러그인을 등록합니다.
@@ -629,7 +629,7 @@ XSRF 공격은 피싱 공격과는 구분됩니다. 피싱 공격에는 피해�
 
 	[ValidateHttpAntiForgeryToken] public IHttpActionResult PutContact(int id, Contact contact) {
 
-1. *Views\Home\Index.cshtml* 파일의 *Scripts* 섹션을 업데이트하여 XSRF 토큰을 가져오는 코드를 포함합니다.
+1. *Views\\Home\\Index.cshtml* 파일의 *Scripts* 섹션을 업데이트하여 XSRF 토큰을 가져오는 코드를 포함합니다.
 
          @section Scripts {
             @Scripts.Render("~/bundles/knockout")
@@ -810,4 +810,4 @@ Azure 응용 프로그램에 데이터를 저장하는 또 다른 방법은 Azur
 [prevent-csrf-attacks]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

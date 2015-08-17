@@ -12,7 +12,7 @@
 	ms.workload="storage-backup-recovery" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="hero-article" 
 	ms.date="06/03/2015" 
 	ms.author="markgal"/>
 
@@ -99,4 +99,4 @@ Windows Server의 파일과 데이터를 Azure에 백업하려면 데이터를 �
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

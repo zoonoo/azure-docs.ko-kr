@@ -77,7 +77,7 @@ Azure는 SQL 데이터베이스의 과거 리소스 사용량을 평가하여 �
 
 ## 다음 단계
 
-특정 데이터베이스의 세부 정보에 따라 일반적으로 업그레이드 또는 다운그레이드가 즉시 수행되지는 않습니다. 데이터베이스가 새 계층으로 전환되면 관리 포털에서 알림을 제공합니다. 또는 사용자가 SQL 데이터베이스 서버의 마스터 데이터베이스에서 [sys.dm_operation_status(Azure SQL 데이터베이스)](https://msdn.microsoft.com/library/dn270022.aspx) 보기를 쿼리하여 업그레이드 상태를 모니터링할 수 있습니다.
+특정 데이터베이스의 세부 정보에 따라 일반적으로 업그레이드 또는 다운그레이드가 즉시 수행되지는 않습니다. 데이터베이스가 새 계층으로 전환되면 관리 포털에서 알림을 제공합니다. 또는 사용자가 SQL 데이터베이스 서버의 마스터 데이터베이스에서 [sys.dm\_operation\_status(Azure SQL 데이터베이스)](https://msdn.microsoft.com/library/dn270022.aspx) 보기를 쿼리하여 업그레이드 상태를 모니터링할 수 있습니다.
 
 
 <!--Image references-->
@@ -90,4 +90,4 @@ Azure는 SQL 데이터베이스의 과거 리소스 사용량을 평가하여 �
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

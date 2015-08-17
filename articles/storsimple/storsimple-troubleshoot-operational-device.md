@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/28/2015"
+   ms.date="07/30/2015"
    ms.author="v-sharos" />
 
 # 작동 StorSimple 장치 문제 해결
@@ -63,4 +63,4 @@
 
 문제를 해결할 수 없는 경우 [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하십시오.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

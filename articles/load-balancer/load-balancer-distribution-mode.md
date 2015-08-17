@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="08/02/2015"
    ms.author="joaoma" />
 
 
-# 개요
+# 부하 분산 장치용 배포 모드(원본 IP 선호도)
 
 원본 IP 선호도(세션 선호도 또는 클라이언트 IP 선호도라고도 함)라는 새로운 배포 모드가 도입되었습니다. 2개 튜플(원본 IP, 대상 IP) 또는 3개 튜플(원본 IP, 대상 IP, 프로토콜)을 사용하도록 Azure 부하 분산 장치를 구성하여 사용 가능한 서버에 트래픽을 매핑할 수 있습니다. 원본 IP 선호도를 사용하면 동일한 클라이언트 컴퓨터에서 시작된 연결이 동일한 DIP 끝점으로 이어집니다.
 
@@ -149,4 +149,4 @@ LoadBalancerDistribution의 값은 2개 튜플 선호도의 경우 sourceIP로, 
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

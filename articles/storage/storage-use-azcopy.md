@@ -22,9 +22,9 @@
 
 AzCopy는 Microsoft Azure Blob, 파일 및 테이블 저장소에 대해 고성능으로 데이터 업로드, 다운로드 및 복사를 수행하도록 디자인된 명령줄 유틸리티입니다. 이 설명서는 AzCopy 사용의 개요를 제공합니다.
 
-> [AZURE.NOTE]이 설명서에서는 AzCopy 3.1.0 이상을 설치했다고 가정합니다. AzCopy 3.x는 이제 일반 공급으로 제공됩니다.
+> [AZURE.NOTE]이 설명서에서는 AzCopy 3.2.0 이상을 설치했다고 가정합니다. AzCopy 3.x는 이제 일반 공급으로 제공됩니다.
 > 
-> 이 설명서에서는 AzCopy의 미리 보기 릴리스인 AzCopy 4.1.0 사용에 대해서도 설명합니다. 이 설명서 전체에서 미리 보기 릴리스로만 제공되는 기능은 *미리 보기*로 지정됩니다.
+> 이 설명서에서는 AzCopy의 미리 보기 릴리스인 AzCopy 4.2.0 사용에 대해서도 설명합니다. 이 설명서 전체에서 미리 보기 릴리스로만 제공되는 기능은 *미리 보기*로 지정됩니다.
 > 
 > AzCopy 4.x의 경우 명령줄 옵션 및 기능이 향후 릴리스에서 변경될 수 있습니다.
 
@@ -91,6 +91,8 @@ AzCopy는 Microsoft Azure Blob, 파일 및 테이블 저장소에 대해 고성�
           <br />
           지정된 소스가 Azure 파일 공유이면 단일 파일을 복사할 정확한 파일 이름(예: abc.txt)을 지정하거나 /S 옵션을 지정하여 공유의 모든 파일을 재귀 방식으로 복사해야 합니다. 파일 패턴과 /S 옵션을 모두 지정하려고 하면 오류가 발생합니다.
           <br />
+          AzCopy는 /Source가 blob 컨테이너 또는 blob 가상 디렉터리일 때 대/소문자를 구분해서 검색하고 다른 모든 경우에서 대/소문자를 구분하지 않습니다.
+          <br/>
           파일 패턴을 지정하지 않을 때 사용되는 기본 파일 패턴은 파일 시스템 위치의 경우 *.* 이고 Azure 저장소 위치의 경우에는 빈 접두사입니다. 여러 파일 패턴을 지정할 수는 없습니다.</td>
     <td>Y</td>
     <td>Y<br /> (미리 보기 전용)</td>
@@ -105,11 +107,11 @@ AzCopy는 Microsoft Azure Blob, 파일 및 테이블 저장소에 대해 고성�
   </tr>
   <tr>
     <td class="auto-style1"><b>/DestSAS:&lt;sas-token></b></td>
-    <td class="auto-style1">대상 컨테이너에 대한 SAS(공유 액세스 서명)를 지정합니다(해당되는 경우). SAS가 특수한 명령줄 문자를 포함할 수 있으므로 큰따옴표로 묶습니다.<br />
-        대상 리소스가 Blob 컨테이너 또는 테이블이면 이 옵션을 지정하고 SAS 토큰을 지정하거나 이 옵션 없이 대상 Blob URI의 일부로 SAS를 지정할 수 있습니다.<br />
+    <td class="auto-style1">대상에 대해 읽기 및 쓰기 권한이 있는 SAS(공유 액세스 서명)를 지정합니다(해당되는 경우). SAS가 특수한 명령줄 문자를 포함할 수 있으므로 큰따옴표로 묶습니다.<br />
+        대상 리소스가 Blob 컨테이너, 파일 공유 또는 테이블이면 이 옵션을 지정하고 SAS 토큰을 지정하거나 이 옵션 없이 대상 Blob 컨테이너, 파일 공유 또는 테이블 URI의 일부로 SAS를 지정할 수 있습니다.<br />
         소스와 대상이 모두 Blob이면 대상 Blob은 소스 Blob과 같은 저장소 계정 내에 있어야 합니다.</td>
     <td class="auto-style1">Y</td>
-    <td class="auto-style1">N</td>
+    <td class="auto-style1">Y<br /> (미리 보기 전용)</td>
     <td class="auto-style1">Y<br /> (미리 보기 전용)</td>
   </tr>
   <tr>
@@ -121,13 +123,13 @@ AzCopy는 Microsoft Azure Blob, 파일 및 테이블 저장소에 대해 고성�
   </tr>
   <tr>
     <td><b>/SourceSAS:&lt;sas-token></b></td>
-    <td>소스 컨테이너에 대한 SAS(공유 액세스 서명)를 지정합니다(해당되는 경우). SAS가 특수한 명령줄 문자를 포함할 수 있으므로 큰따옴표로 묶습니다.
+    <td>소스에 대해 읽기 및 목록 권한이 있는 공유 액세스 서명을 지정합니다(해당되는 경우). SAS가 특수한 명령줄 문자를 포함할 수 있으므로 큰따옴표로 묶습니다.
         <br />
         소스 리소스가 Blob 컨테이너인 경우 키와 SAS를 모두 지정하지 않으면 익명 액세스를 통해 Blob 컨테이너를 읽습니다.
         <br />
-        소스가 테이블이면 키나 SAS를 지정해야 합니다.</td>
+        소스가 파일 공유 또는 테이블이면 키나 SAS를 지정해야 합니다.</td>
     <td>Y</td>
-    <td>N</td>
+    <td>Y<br /> (미리 보기 전용)</td>
     <td>Y<br /> (미리 보기 전용)</td>
   </tr>
   <tr>
@@ -138,8 +140,8 @@ AzCopy는 Microsoft Azure Blob, 파일 및 테이블 저장소에 대해 고성�
     <td>N</td>
   </tr>
   <tr>
-    <td><b>/BlobType:&lt;block | page></b></td>
-    <td>대상 Blob이 블록 Blob인지 아니면 페이지 Blob인지를 지정합니다. 이 옵션은 Blob를 업로드할 때만 적용되며 그 외의 경우에는 오류가 생성됩니다. 대상이 Blob인데 이 옵션을 지정하지 않으면 기본적으로 AzCopy는 블록 Blob를 만듭니다.</td>
+    <td><b>/BlobType:&lt;block | page | append></b></td>
+    <td>대상 Blob이 블록 Blob인지, 페이지 Blob인지 아니면 추가 Blob인지를 지정합니다. 이 옵션은 Blob를 업로드할 때만 적용되며 그 외의 경우에는 오류가 생성됩니다. 대상이 Blob인데 이 옵션을 지정하지 않으면 기본적으로 AzCopy는 블록 Blob를 만듭니다.</td>
     <td>Y</td>
     <td>N</td>
     <td>N</td>
@@ -210,7 +212,13 @@ AzCopy는 Microsoft Azure Blob, 파일 및 테이블 저장소에 대해 고성�
   </tr>
   <tr>
     <td><b>/L</b></td>
-    <td>열거 작업만 지정하고 데이터는 복사되지 않습니다.</td>
+    <td>열거 작업만 지정하고 데이터는 복사되지 않습니다.
+    <br />
+    AzCopy는 이 옵션의 사용을 이 옵션 /L 없이 명령줄을 실행하기 위한 시뮬레이션으로 해석하고 복사할 개체의 수를 계산하므로, 사용자는 /V 옵션을 동시에 지정하여 자세한 로그에 복사할 개체를 확인할 수 있습니다.
+    <br />
+    이 옵션의 동작은 소스 데이터의 위치와 재귀 모드 옵션 /S 및 파일 패턴 옵션 /Pattern의 유무에 따라 결정됩니다.
+    <br />
+    AzCopy는 이 옵션을 사용하는 경우 이 원본 위치에 대한 목록 및 읽기 권한이 필요합니다.</td>
     <td>Y</td>
     <td>Y<br /> (미리 보기 전용)</td>
     <td>N</td>
@@ -378,8 +386,10 @@ AzCopy는 Microsoft Azure Blob, 파일 및 테이블 저장소에 대해 고성�
   </tr>
   <tr>
     <td><b>/Manifest:&lt;manifest-file></b></td>
-    <td>가져오기 작업을 위한 매니페스트 파일을 지정합니다. <br />
-        매니페스트 파일은 내보내기 작업 중에 생성됩니다.</td>
+    <td>테이블 내보내기 및 가져오기 작업을 위한 매니페스트 파일을 지정합니다. <br />
+    내보내기 작업 중에는 이 옵션이 선택 사항이므로 이 옵션을 지정하지 않으면 AzCopy는 미리 정의된 이름의 매니페스트 파일을 생성합니다.
+    <br />
+    이 옵션은 데이터 파일 찾기를 위한 가져오기 작업 중에 필요합니다.</td>
     <td>N</td>
     <td>N</td>
     <td>Y<br /> (미리 보기 전용)</td>
@@ -400,8 +410,15 @@ AzCopy는 Microsoft Azure Blob, 파일 및 테이블 저장소에 대해 고성�
     <td>Y<br /> (미리 보기 전용)</td>
     <td>N</td>
   </tr>
+    <tr>
+    <td><b>/PayloadFormat:&lt;JSON | CSV></b></td>
+    <td>테이블의 내보낸 데이터 파일의 형식을 지정합니다.<br />
+    이 옵션을 지정하지 않으면 기본적으로 AzCopy는 JSON 형식으로 테이블 데이터 파일을 내보냅니다.</td>
+    <td>N</td>
+    <td>N</td>
+    <td>Y<br /> (미리 보기 전용)</td>
+  </tr>
 </table>
-
 <br/>
 
 ## 데이터를 복사하는 동안 동시 쓰기 제한
@@ -462,7 +479,7 @@ AzCopy를 사용하여 Blob 또는 파일을 복사할 때는 복사하는 동�
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer/vd /DestKey:key /Pattern:abc.txt
 
-지정한 가상 디렉터리가 없으면 AzCopy는 해당 이름에 가상 디렉터리를 포함하여 파일을 업로드합니다(\*예:\* 위 예의 `vd/abc.txt`).
+지정한 가상 디렉터리가 없으면 AzCopy는 해당 이름에 가상 디렉터리를 포함하여 파일을 업로드합니다(*예*: 위 예의 `vd/abc.txt`).
 
 ### 새 폴더에 Blob 다운로드
 
@@ -741,11 +758,11 @@ AzCopy로 명령을 실행할 때마다 AzCopy는 기본 폴더에 저널 파일
 
 기본적으로 AzCopy는 두 저장소 끝점 간에 데이터를 비동기적으로 복사합니다. 따라서 복사 작업은 Blob이 복사되는 속도와 관련하여 SLA가 없는 여분의 대역폭 용량을 사용하여 백그라운드로 실행되며, AzCopy는 복사가 완료되거나 실패할 때까지 복사 상태를 정기적으로 확인합니다.
 
-3\.1.0 릴리스에서 제공되는 새로운 `/SyncCopy` 옵션을 사용하면 복사 작업이 일관된 속도를 유지할 수 있습니다. AzCopy는 지정된 소스에서 로컬 메모리로 복사할 Blob을 다운로드한 후 대상 Blob 저장소에 업로드하여 동기 복사를 수행합니다.
+`/SyncCopy` 옵션을 사용하면 복사 작업이 일관된 속도를 유지할 수 있습니다. AzCopy는 지정된 소스에서 로컬 메모리로 복사할 Blob을 다운로드한 후 대상 Blob 저장소에 업로드하여 동기 복사를 수행합니다.
 
 	AzCopy /Source:https://myaccount1.blob.core.windows.net/myContainer/ /Dest:https://myaccount2.blob.core.windows.net/myContainer/ /SourceKey:key1 /DestKey:key2 /Pattern:ab /SyncCopy
 
-/SyncCopy는 비동기 복사와 비교하여 추가적인 송신 비용이 발생할 수 있으므로 송신 비용을 방지하려면 원본 저장소 계정과 동일한 지역에 있는 Azure VM에서 이 옵션을 사용하는 것이 좋습니다.
+`/SyncCopy`는 비동기 복사와 비교하여 추가적인 송신 비용이 발생할 수 있으므로 송신 비용을 방지하려면 원본 저장소 계정과 동일한 지역에 있는 Azure VM에서 이 옵션을 사용하는 것이 좋습니다.
 
 ### 대상 Blob의 MIME 콘텐츠 형식을 지정합니다.
 
@@ -765,11 +782,11 @@ AzCopy로 명령을 실행할 때마다 AzCopy는 기본 폴더에 저널 파일
 
 	AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/myfolder1/ /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
-지정된 소스가 Azure 파일 공유이면 단일 파일을 복사할 정확한 파일 이름(\*예:\* `abc.txt`)을 지정하거나 `/S` 옵션을 지정하여 공유의 모든 파일을 재귀 방식으로 복사해야 합니다. 파일 패턴과 `/S` 옵션을 함께 지정하려고 하면 오류가 발생합니다.
+지정된 소스가 Azure 파일 공유이면 단일 파일을 복사할 정확한 파일 이름(*예:* `abc.txt`)을 지정하거나 `/S` 옵션을 지정하여 공유의 모든 파일을 재귀 방식으로 복사해야 합니다. 파일 패턴과 `/S` 옵션을 함께 지정하려고 하면 오류가 발생합니다.
 
-### Azure 파일 공유의 파일 및 폴더를 파일 시스템으로 재귀적으로 다운로드
+### Azure 파일 공유의 파일 및 폴더를 파일 시스템으로 재귀적으로 다운로드 및 공유 액세스 서명 지정
 
-	AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/ /Dest:C:\myfolder /SourceKey:key /S
+	AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/ /Dest:C:\myfolder /SourceSAS:SAS /S
 
 빈 폴더는 복사되지 않습니다.
 
@@ -785,10 +802,27 @@ AzCopy로 명령을 실행할 때마다 AzCopy는 기본 폴더에 저널 파일
 
 	AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfileshare/ /DestKey:key /Pattern:ab* /S
 
+### Azure 파일 저장소에 동기적으로 파일 복사
+
+Azure 파일 저장소는 서버 쪽 비동기 복사를 지원합니다.
+
+파일 저장소 간의 비동기 복사
+
+	AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S
+
+파일 저장소-블록 Blob로의 비동기 복사
+  
+	AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare/ /Dest:https://myaccount2.blob.core.windows.net/mycontainer/ /SourceKey:key1 /DestKey:key2 /S
+
+블록/페이지 Blob-파일 저장소로의 비동기 복사
+
+	AzCopy /Source:https://myaccount1.blob.core.windows.net/mycontainer/ /Dest:https://myaccount2.file.core.windows.net/myfileshare/ /SourceKey:key1 /DestKey:key2 /S
+
+파일 저장소-페이지 Blob로의 비동기 복사는 지원되지 않습니다.
 
 ### Azure 파일 저장소에 동기적으로 파일 복사
 
-4\.1.0-미리 보기 버전에서 제공되는 새로운 /SyncCopy 옵션을 사용하면 파일 저장소에서 파일 저장소로, 파일 저장소에서 Blob 저장소로, Blob 저장소에서 파일 저장소로 파일을 복사할 수 있습니다.
+사용자는 비동기 복사 외에도, `/SyncCopy` 옵션을 지정하여 파일 저장소 간에, 파일 저장소에서 Blob 저장소로, Blob 저장소에서 파일 저장소로 동기적으로 데이터를 복사할 수 있습니다. AzCopy는 로컬 메모리에 원본 데이터를 다운로드한 후 대상에 다시 업로드하여 이 작업을 수행합니다.
 
 	AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:https://myaccount2.file.core.windows.net/myfileshare2/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
 
@@ -796,9 +830,9 @@ AzCopy로 명령을 실행할 때마다 AzCopy는 기본 폴더에 저널 파일
 	
 	AzCopy /Source:https://myaccount1.blob.core.windows.net/mycontainer/ /Dest:https://myaccount2.file.core.windows.net/myfileshare/ /SourceKey:key1 /DestKey:key2 /S /SyncCopy
 
-파일 저장소에서 Blob 저장소로 복사할 경우 기본 Blob 형식은 블록 Blob입니다. /BlobType:page 옵션을 지정하면 사용자가 대상 Blob 유형을 변경할 수 있습니다.
+파일 저장소에서 Blob 저장소로 복사할 경우 기본 Blob 형식은 블록 Blob입니다. `/BlobType:page` 옵션을 지정하면 사용자가 대상 Blob 유형을 변경할 수 있습니다.
 
-AzCopy 4.1.0-미리 보기 릴리스에서는 Azure 저장소 서비스가 아직 비동기 복사를 지원하지 않습니다. 따라서 /SyncCopy 옵션을 지정하지 않으면 위의 복사 작업이 실패하게 됩니다.
+`/SyncCopy`는 비동기 복사와 비교하여 추가적인 송신 비용이 발생할 수 있으므로 송신 비용을 방지하려면 원본 저장소 계정과 동일한 지역에 있는 Azure VM에서 이 옵션을 사용하는 것이 좋습니다.
 
 
 ## AzCopy를 사용하여 Azure 테이블의 엔터티 복사(미리 보기 버전 전용)
@@ -808,6 +842,23 @@ AzCopy 4.1.0-미리 보기 릴리스에서는 Azure 저장소 서비스가 아�
 ### 로컬 파일 시스템으로 엔터티 내보내기
 
 	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key
+
+AzCopy는 지정된 대상 폴더 또는 Blob 컨테이너에 매니페스트 파일을 씁니다. 이 매니페스트 파일은 가져오기 프로세스에서 필요한 데이터 파일을 찾고 가져오기 프로세스 중에 데이터 유효성 검사를 수행하는 데 사용됩니다. 매니페스트 파일에는 기본적으로 다음의 명명 규칙이 사용됩니다.
+
+	<account name>_<table name>_<timestamp>.manifest
+
+매니페스트 파일 이름을 설정하는 `/Manifest:<manifest file name>` 옵션을 지정할 수도 있습니다.
+
+	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /Manifest:abc.manifest
+
+
+### 엔터티를 JSON 및 CSV 데이터 파일 형식으로 내보내기
+
+기본적으로 AzCopy는 테이블 엔터티를 JSON 파일로 내보내며 사용자는 내보낸 데이터 파일 형식을 결정하는 `/PayloadFormat:JSON|CSV` 옵션을 지정할 수 있습니다.
+
+	AzCopy /Source:https://myaccount.table.core.windows.net/myTable/ /Dest:C:\myfolder\ /SourceKey:key /PayloadFormat:CSV
+
+`/Dest` 매개 변수에 의해 지정된 위치에 있는 `.csv` 확장명의 데이터 파일 외에, CSV 페이로드 형식을 지정하면 AzCopy는 각 데이터 파일에 대해 파일 확장명이 `.schema.csv`인 스키마 파일을 생성합니다. AzCopy는 CSV 데이터 파일의 "가져오기"를 지원하지 않으므로 JSON 형식을 사용하여 테이블 데이터를 내보내고 가져올 수 있습니다.
 
 ### Azure Blob로 엔터티 내보내기
 
@@ -848,10 +899,6 @@ AzCopy는 분할 데이터 파일 이름에서 *볼륨 인덱스*를 사용해 �
 
 	AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.core.windows.net/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace 
 
-테이블 엔터티를 내보낼 때 AzCopy는 지정된 대상 폴더 또는 Blob 컨테이너에 매니페스트 파일을 씁니다. 이 매니페스트 파일은 가져오기 프로세스에서 필요한 데이터 파일을 찾고 가져오기 프로세스 중에 데이터 유효성 검사를 수행하는 데 사용됩니다. 매니페스트 파일에는 다음의 명명 규칙이 사용됩니다.
-
-	<account name>_<table name>_<timestamp>.manifest
-
 `/EntityOperation` 옵션은 테이블에 엔터티를 삽입하는 방법을 나타냅니다. 가능한 값은 다음과 같습니다.
 
 - `InsertOrSkip`: 기존 엔터티를 건너뛰거나 테이블에 엔터티가 없으면 새 엔터티를 삽입합니다.
@@ -866,27 +913,41 @@ AzCopy는 분할 데이터 파일 이름에서 *볼륨 인덱스*를 사용해 �
 #### 한 컴퓨터에서 AzCopy 인스턴스 하나를 실행합니다.
 AzCopy는 데이터 전송 속도를 높이기 위해 컴퓨터 리소스를 최대한 활용할 수 있도록 설계되었습니다. 따라서 컴퓨터 한 대에서 AzCopy 인스턴스를 하나만 실행하는 것이 좋으며 더 많은 동시 작업을 수행해야 하는 경우에는 `/NC` 옵션을 지정해야 합니다. 자세한 내용을 확인하려면 명령줄에 `AzCopy /?:NC`를 입력하세요.
 
-#### AzCopy를 사용하는 경우 "암호화, 해시, 서명에 FIPS 호환 알고리즘 사용" 옵션이 사용하지 않도록 설정되어 있는지 확인합니다. 이 옵션은 기본적으로 비활성화되어 있습니다.
-`Run` 창에서 `secpol.msc`를 입력하고 `Security Setting->Local Policy->Security Options->System cryptography: Use FIPS compliant algorithms for encryption, hashing and signing`에서 이 스위치를 확인할 수 있습니다. 이 설정 경로는 사용하는 Windows 운영 체제에 따라 다를 수 있습니다.
+#### "암호화, 해시 및 서명에 FIPS 호환 알고리즘을 사용"할 경우 AzCopy에 대해 FIPS 규격 MD5 알고리즘을 사용하도록 설정합니다.
+기본적으로 AzCopy는 개체를 복사할 때 .NET MD5 구현을 사용하여 MD5를 계산하지만 보안 요구 때문에 FIPS 규격 MD5 설정을 사용하도록 설정하는 데 AzCopy가 필요합니다.
 
+`AzCopy.exe.config` 속성 `AzureStorageUseV1MD5`를 사용하여 app.config 파일을 만든 후 AzCopy.exe를 통해 일단 사용을 보류할 수 있습니다.
+
+	<?xml version="1.0" encoding="utf-8" ?>
+	<configuration>
+	  <appSettings>
+	    <add key="AzureStorageUseV1MD5" value="false"/>
+	  </appSettings>
+	</configuration>
+
+속성 "AzureStorageUseV1MD5" • True - 기본값 AzCopy는 .NET MD5 구현을 사용합니다. • False - AzCopy는 FIPS 규격 MD5 알고리즘을 사용합니다.
+
+FIPS 규격 알고리즘은 Windows 컴퓨터에는 기본적으로 사용되지 않도록 설정되어 있으며 실행 창에 secpol.msc를 입력하고 보안 설정-> 로컬 정책-> 보안 옵션->시스템 암호화: 암호화, 해시, 서명에 FIPS 규격 알고리즘 사용에서 이 스위치를 선택할 수 있습니다.
 
 ## AzCopy 버전
 
 | 버전 | 새로운 기능 |
 |---------|-----------------------------------------------------------------------------------------------------------------|
-| **V4.1.0** | **최신 미리 보기 버전으로, V3.1.0 이후의 모든 기능을 포함합니다. Blob 및 파일의 동기 복사를 지원하고 대상 Blob 및 파일의 콘텐츠 형식 지정을 지원합니다.**	
-| **V3.1.0** | **최신 릴리스 버전입니다. Blob의 동기 복사를 지원하고 대상 Blob의 콘텐츠 형식 지정을 지원합니다.**
+| **V4.2.0** | **최신 미리 보기 버전으로, V3.2.0의 모든 기능을 포함합니다. 또한 파일 저장소 공유 SAS, 파일 저장소 비동기 복사, 테이블 엔터티를 CSV로 내보내기 및 테이블 엔터티를 내보낼 때 매니페스트 이름 지정도 지원합니다.**
+| **V3.2.0** | **최신 릴리스 버전입니다. 추가 Blob 및 FIPS 규격 MD5 설정을 지원합니다.**
+| V4.1.0 | V3.1.0 이후의 모든 기능을 포함합니다. Blob 및 파일의 동기식 복사와 대상 Blob 및 파일의 콘텐츠 형식 지정을 지원합니다.
+| V3.1.0 | Blob의 동기식 복사와 대상 Blob의 콘텐츠 형식 지정을 지원합니다.
 | V4.0.0 | V3.0.0 이후의 모든 기능을 포함합니다. 또한 Azure 파일 저장소에 대한 파일 복사와 Azure 테이블 저장소에 대한 엔터티 복사도 지원합니다.
 | V3.0.0 | 매개 변수 이름을 포함해야 하도록 AzCopy 명령줄 구문이 수정되었으며 명령줄 도움말이 다시 디자인되었습니다. 이 버전에서는 Azure Blob 저장소에 대한 복사만 지원됩니다.	
 | V2.5.1 | /xo 및 /xn 옵션 사용 시 성능을 최적화합니다. 소스 파일 이름의 특수 문자 관련 버그와 사용자가 잘못된 명령줄 구문을 입력한 후의 저널 파일 손상 현상이 수정되었습니다.	
-| V2.5.0 | 대규모 복사 시나리오에 맞게 성능이 최적화되었으며 몇 가지 향상된 중요한 사용 편의성을 제공합니다.	
+| V2.5.0 | 대규모 복사 시나리오에 맞게 성능이 최적화되었으며 몇 가지 향상된 중요한 사용 편의성을 제공합니다.
 | V2.4.1 | 설치 마법사에서 대상 폴더를 지정할 수 있습니다.                     			
-| V2.4.0 | Azure 파일 저장소 파일을 업로드 및 다운로드할 수 있습니다.                       				                              
-| V2.3.0 | 읽기 액세스 지역 중복 저장소 계정을 지원합니다. |
-| V2.2.2 | Azure 저장소 클라이언트 라이브러리 버전 3.0.3을 사용하도록 업그레이드되었습니다.                                            				                    
-| V2.2.1 | 동일한 저장소 계정 내에서 대량의 파일을 복사할 때의 성능 문제가 수정되었습니다.            				                                                
-| V2.2 | Blob 이름에 대한 가상 디렉터리 구분 기호를 설정할 수 있습니다. 저널 파일 경로를 지정할 수 있습니다. |
-| V2.1 | 효율적인 방법으로 Blob 업로드, 다운로드 및 복사 작업을 지원하기 위한 20가지 이상의 옵션을 제공합니다. |
+| V2.4.0 | Azure 파일 저장소 파일을 업로드 및 다운로드할 수 있습니다.
+| V2.3.0 | 읽기 액세스 지역 중복 저장소 계정을 지원합니다.|
+| V2.2.2 | Azure 저장소 클라이언트 라이브러리 버전 3.0.3을 사용하도록 업그레이드되었습니다.
+| V2.2.1 | 동일한 저장소 계정 내에서 대량의 파일을 복사할 때의 성능 문제가 수정되었습니다.
+| V2.2 | Blob 이름에 대한 가상 디렉터리 구분 기호를 설정할 수 있습니다. 저널 파일 경로를 지정할 수 있습니다.|
+| V2.1 | 효율적인 방법으로 Blob 업로드, 다운로드 및 복사 작업을 지원하기 위한 20가지 이상의 옵션을 제공합니다.|
 
 
 ## 다음 단계
@@ -911,4 +972,4 @@ Azure 저장소 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

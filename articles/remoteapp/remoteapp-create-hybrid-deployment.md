@@ -136,4 +136,4 @@ RemoteApp 하이브리드 컬렉션을 성공적으로 만들고 배포했습니
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

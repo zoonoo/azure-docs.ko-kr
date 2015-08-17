@@ -62,23 +62,23 @@ Azure Multi-Factor Authentication | Azure Multi-factor Authentication은 가장 
 
 기능 | Office 365용 Multi-Factor Authentication(Office 365 SKU에 포함됨)|Azure 관리자용 Multi-Factor Authentication(Azure 구독에 포함됨) | Azure Multi-Factor Authentication(Azure AD Premium 및 Enterprise Mobility Suite에 포함됨) 
 ------------- | :-------------: |:-------------: |:-------------: |
-관리자는 MFA를 사용하여 계정을 보호할 수 있습니다.| \* | \* (Azure 관리자 계정에 대해서만 사용 가능)|\*
-두 번째 단계로 모바일 앱|\* | \* | \*
-두 번째 단계로 전화 통화|\* | \* | \*
-두 번째 단계로 SMS|\* | \* | \*
-MFA를 지원하지 않는 클라이언트에 대한 앱 암호|\* | \* | \*
-인증 방법에 대한 관리자 제어| | | \*
-PIN 모드| | | \*
-사기 행위 경고| | | \*
-MFA 보고서| | | \*
-일회성 바이패스| | | \*
-전화 통화에 대한 사용자 지정 인사말| | | \*
-전화 통화에 대한 발신자 번호 사용자 지정| | | \*
-이벤트 확인| | | \*
-신뢰할 수 있는 IP| | | \*
-기억된 장치에 대한 MFA 일시 중단(공개 미리 보기)| | | \*
-MFA SDK| | | \*
-MFA 서버를 사용한 온-프레미스 응용프로그램에 대한 MFA| | | \*
+관리자는 MFA를 사용하여 계정을 보호할 수 있습니다.| * | * (Azure 관리자 계정에 대해서만 사용 가능)|*
+두 번째 단계로 모바일 앱|* | * | *
+두 번째 단계로 전화 통화|* | * | *
+두 번째 단계로 SMS|* | * | *
+MFA를 지원하지 않는 클라이언트에 대한 앱 암호|* | * | *
+인증 방법에 대한 관리자 제어| | | *
+PIN 모드| | | *
+사기 행위 경고| | | *
+MFA 보고서| | | *
+일회성 바이패스| | | *
+전화 통화에 대한 사용자 지정 인사말| | | *
+전화 통화에 대한 발신자 번호 사용자 지정| | | *
+이벤트 확인| | | *
+신뢰할 수 있는 IP| | | *
+기억된 장치에 대한 MFA 일시 중단(공개 미리 보기)| | | *
+MFA SDK| | | *
+MFA 서버를 사용한 온-프레미스 응용프로그램에 대한 MFA| | | *
 
 
 ##Azure Multi-Factor Authentication 획득 방법
@@ -102,4 +102,4 @@ Azure Multi-Factor Authentication을 사용할 때 두 가지의 대금 청구 �
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

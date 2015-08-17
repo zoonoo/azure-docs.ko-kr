@@ -48,7 +48,7 @@ Azure AD는 보호된 리소스에 액세스해야 하는 iOS 클라이언트의
 - 	**aap-scheme** - XCode 프로젝트에 등록됩니다. 다른 응용 프로그램이 사용자를 호출할 수 있는 방법입니다. Info.plist -> URL 형식 -> URL ID에 있을 수 있습니다. 하나 이상이 구성되어 있지 않으면 하나를 만들어야 합니다.
 - 	**bundle-id** - XCode의 프로젝트 설정의 "ID" 아래에 있는 번들 ID입니다.
 	
-이 빠른 시작 코드에 대한 예는 다음과 같습니다. ***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
+이 빠른 시작 코드에 대한 예는 다음과 같습니다.******msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
 ## *2. DirectorySearcher 응용 프로그램 등록*
 앱에서 토큰을 가져올 수 있게 하려면 먼저 Azure AD 테넌트에 등록하고 Azure AD Graph API에 액세스할 수 있는 권한을 부여해야 합니다.
@@ -136,7 +136,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
 
 ```
 
-- 이제 이 토큰을 사용하여 그래프에서 사용자에 대해 검색해야 합니다. `// TODO: implement SearchUsersList` commentThis 메서드는 Azure AD Graph API에 해당 UPN이 지정된 검색어로 시작하는 사용자를 쿼리하라는 GET 요청을 만듭니다. 그렇지만 Graph API를 쿼리하려면 ADAL이 연결되는 요청의 `Authorization` 헤더에 access_token을 포함해야 합니다.
+- 이제 이 토큰을 사용하여 그래프에서 사용자에 대해 검색해야 합니다. `// TODO: implement SearchUsersList` commentThis 메서드는 Azure AD Graph API에 해당 UPN이 지정된 검색어로 시작하는 사용자를 쿼리하라는 GET 요청을 만듭니다. 그렇지만 Graph API를 쿼리하려면 ADAL이 연결되는 요청의 `Authorization` 헤더에 access\_token을 포함해야 합니다.
 
 ```ObjC
 +(void) searchUserList:(NSString*)searchString
@@ -225,4 +225,4 @@ ADAL은 응용 프로그램에 이러한 모든 일반적인 ID 기능을 쉽게
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

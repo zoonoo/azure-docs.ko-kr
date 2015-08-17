@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="공유 액세스 서명: SAS 모델 | Microsoft Azure 이해하기" 
-	description="공유 액세스 서명(SAS)을 사용하여 Blob, 큐 및 테이블을 비롯한 Azure 저장소 리소스에 대한 액세스 권한을 위임하는 방법에 대해 알아봅니다. 공유 액세스 서명을 사용하여 계정에서 다른 사용자에게 리소스에 대한 액세스를 부여하는 동안 저장소 계정을 보호할 수 있습니다. 부여하는 사용 권한 및 SAS 유효 간격을 제어할 수 있습니다. 저장된 액세스 정책도 설정하는 경우 계정 보안 문제가 발생할 염려가 있는 SAS를 취소할 수 있습니다." 
+	description="SAS(공유 액세스 서명)를 사용하여 Blob, 큐, 테이블 및 파일을 비롯한 Azure 저장소 리소스에 대한 액세스 권한을 위임하는 방법을 알아봅니다. 공유 액세스 서명을 사용하여 계정에서 다른 사용자에게 리소스에 대한 액세스를 부여하는 동안 저장소 계정을 보호할 수 있습니다. 부여하는 사용 권한 및 SAS 유효 간격을 제어할 수 있습니다. 저장된 액세스 정책도 설정하는 경우 계정 보안 문제가 발생할 염려가 있는 SAS를 취소할 수 있습니다." 
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="08/04/2015" 
 	ms.author="tamram"/>
 
 
@@ -22,11 +22,11 @@
 
 ## 개요
 
-SAS(공유 액세스 서명)를 사용하면 계정 키를 노출하지 않고 다른 클라이언트에게 저장소 계정의 Blob, 테이블 및 큐에 대한 제한된 액세스 권한을 확실히 부여할 수 있습니다. 공유 액세스 서명에 관한 이 자습서의 1부에서는 SAS 모델의 개요를 제공하고 SAS 모범 사례를 검토합니다. 자습서의 [2부](storage-dotnet-shared-access-signature-part-2.md)에서는 Blob 서비스를 통해 공유 액세스 서명을 만드는 프로세스를 안내합니다.
+SAS(공유 액세스 서명)를 사용하면 계정 키를 노출하지 않고 다른 클라이언트에게 저장소 계정의 개체에 대한 제한된 액세스 권한을 확실히 부여할 수 있습니다. 공유 액세스 서명에 관한 이 자습서의 1부에서는 SAS 모델의 개요를 제공하고 SAS 모범 사례를 검토합니다. 자습서의 [2부](storage-dotnet-shared-access-signature-part-2.md)에서는 Blob 서비스를 통해 공유 액세스 서명을 만드는 프로세스를 안내합니다.
 
 ## 공유 액세스 서명 정의 ##
 
-공유 액세스 서명은 저장소 계정의 리소스에 대한 위임된 권한을 제공합니다. 즉, 계정 액세스 키를 공유할 필요 없이 지정된 권한 집합을 사용하여 지정된 기간 동안 클라이언트에게 Blob, 큐 또는 테이블에 대한 제한된 권한을 부여할 수 있습니다. SAS는 저장소 리소스에 인증된 액세스를 수행하는 데 필요한 모든 정보가 쿼리 매개 변수에 있는 URI입니다. SAS를 사용하여 저장소 리소스에 액세스하려는 클라이언트는 SAS를 적절한 생성자 또는 메서드에 전달하면 됩니다.
+공유 액세스 서명은 저장소 계정의 리소스에 대한 위임된 권한을 제공합니다. 즉, 계정 액세스 키를 공유할 필요 없이 지정된 권한 집합을 사용하여 지정된 기간 동안 클라이언트에게 저장소 계정의 개체에 대한 제한된 권한을 부여할 수 있습니다. SAS는 저장소 리소스에 인증된 액세스를 수행하는 데 필요한 모든 정보가 쿼리 매개 변수에 있는 URI입니다. SAS를 사용하여 저장소 리소스에 액세스하려는 클라이언트는 SAS를 적절한 생성자 또는 메서드에 전달하면 됩니다.
 
 ## 공유 액세스 서명은 언제 사용하나요? ##
 
@@ -45,13 +45,23 @@ SAS가 유용한 일반적인 시나리오로는 다른 사용자가 저장소 �
 
 대부분의 실제 서비스에서는 포함된 시나리오에 따라 두 가지 방법을 혼합하여 사용할 수 있습니다. 즉, 일부 데이터는 프런트 엔드 프록시를 통해 처리 및 확인하고 일부 데이터는 SAS를 사용하여 직접 저장하거나 읽습니다.
 
+또한 특정 시나리오에서는 SAS를 사용하여 복사 작업의 원본 개체를 인증해야 합니다.
+
+- 다른 저장소 계정에 있는 다른 Blob에 Blob을 복사하는 경우 SAS를 사용하여 원본 Blob을 인증해야 합니다. 2013-08-15 이상 버전의 저장소 서비스를 사용하기만 하면 필요에 따라 SAS를 사용하여 대상 Blob을 인증할 수 있습니다.
+- 다른 저장소 계정에 있는 다른 파일에 파일을 복사하는 경우 SAS를 사용하여 원본 파일을 인증해야 합니다. 필요에 따라 SAS를 사용하여 대상 파일을 인증할 수 있습니다.
+- Blob을 파일에 복사하거나 파일을 Blob에 복사하는 경우 원본 및 대상 개체가 동일한 저장소 계정 내에 있더라도 SAS를 사용하여 원본 개체를 인증해야 합니다.
+
 ## 공유 액세스 서명 사용 방법 ##
 
 공유 액세스 서명은 저장소 리소스를 가리키고 클라이언트가 리소스에 액세스하는 방법을 나타내는 특수한 일련의 쿼리 매개 변수를 포함하는 URI입니다. 이러한 매개 변수 중 하나인 서명은 SAS 매개 변수에서 구성되고 계정 키로 서명됩니다. 이 서명은 Azure 저장소에서 SAS를 인증하는 데 사용됩니다.
 
 공유 액세스 서명에는 정의를 제공하고 URI에 매개 변수로 표시되는 다음과 같은 제약 조건이 있습니다.
 
-- **저장소 리소스.** 액세스를 위임할 수 있는 저장소 리소스에는 컨테이너, Blob, 큐, 테이블 및 테이블 엔터티 범위가 포함됩니다.
+- **저장소 리소스.** 액세스 권한을 위임할 수 있는 저장소 리소스는 다음과 같습니다.
+	- 컨테이너 및 Blob
+	- 파일 공유 및 파일
+	- 큐
+	- 테이블 및 테이블 엔터티 범위
 - **시작 시간.** SAS가 유효해지는 시간입니다. 공유 액세스 서명의 시작 시간은 선택 사항이며, 생략할 경우 SAS가 즉시 유효해집니다. 
 - **만료 시간.** SAS가 더 이상 유효하지 않게 되는 시간입니다. 모범 사례에 따라 SAS의 만료 시간을 지정하거나 만료 시간을 저장된 액세스 정책과 연결하는 것이 좋습니다(아래 내용 참조).
 - **사용 권한** SAS에 지정된 사용 권한은 클라이언트가 SAS를 사용하여 저장소 리소스에 대해 수행할 수 있는 작업을 나타냅니다. 
@@ -60,137 +70,22 @@ SAS가 유용한 일반적인 시나리오로는 다른 사용자가 저장소 �
 
 https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 
-<table border="1" cellpadding="0" cellspacing="0">
-    <tbody>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    Blob URI
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    Blob의 주소입니다. HTTPS를 사용하는 것이 좋습니다.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    저장소 서비스 버전
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    sv=2012-02-12
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    2012-02-12 이후의 저장소 서비스 버전의 경우 이 매개 변수는 사용할 버전을 나타냅니다.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    시작 시간
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    st=2013-04-29T22%3A18%3A26Z
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    ISO 8061 형식으로 지정됩니다. SAS를 즉시 유효화하려면 시작 시간을 생략하십시오.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    만료 시간
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    se=2013-04-30T02%3A23%3A26Z
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    ISO 8061 형식으로 지정됩니다.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    리소스
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    sr=b
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    Blob의 리소스입니다.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    권한
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    sp=rw
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    SAS에서 부여하는 권한에는 읽기 및 쓰기가 포함됩니다.
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top" width="213">
-                <p>
-                    서명
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
-                </p>
-            </td>
-            <td valign="top" width="213">
-                <p>
-                    Blob에 대한 액세스 권한을 인증하는 데 사용합니다. 이 서명은 SHA256 알고리즘을 사용하여 서명할 문자열과 키를 통해 계산되고 Base64 인코딩을 사용하여 인코드되는 HMAC입니다.
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
-
+이름|링크 섹션|설명
+---|---|---
+Blob URI|https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt | Blob의 주소입니다. HTTPS를 사용하는 것이 좋습니다.
+저장소 서비스 버전|sv=2012-02-12|2012-02-12 이후의 저장소 서비스 버전의 경우 이 매개 변수는 사용할 버전을 나타냅니다.
+시작 시간|st=2013-04-29T22%3A18%3A26Z|ISO 8061 형식으로 지정됩니다. SAS를 즉시 유효화하려면 시작 시간을 생략하십시오.
+만료 시간|se=2013-04-30T02%3A23%3A26Z|ISO 8061 형식으로 지정됩니다.
+리소스|sr=b|Blob의 리소스입니다.
+권한|sp=rw|SAS에서 부여하는 권한에는 읽기 및 쓰기가 포함됩니다.
+서명|sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D|Blob에 대한 액세스 권한을 인증하는 데 사용합니다. 이 서명은 SHA256 알고리즘을 사용하여 서명할 문자열과 키를 통해 계산되고 Base64 인코딩을 사용하여 인코드되는 HMAC입니다.
 
 ## 공유 액세스 정책을 사용하여 공유 액세스 서명 제어 ##
 
 공유 액세스 서명은 다음 두 가지 형식 중 하나를 사용할 수 있습니다.
 
-- **임시 SAS:** 임시 SAS를 만들 때 SAS의 시작 시간, 만료 시간 및 사용 권한이 SAS URI에 모두 지정되거나 시작 시간이 생략되는 경우에는 묵시적으로 지정됩니다. 이 유형의 SAS는 컨테이너, Blob, 테이블 또는 큐에서 만들 수 있습니다.
-- **저장된 액세스 정책 사용 SAS:** 저장된 액세스 정책은 리소스 컨테이너(Blob 컨테이너, 테이블 또는 큐)에서 정의되며, 하나 이상의 공유 액세스 서명에 대한 제약 조건을 관리하는 데 사용할 수 있습니다. SAS를 공유 액세스 정책과 연결할 경우 SAS는 저장된 액세스 정책에 대해 정의된 제약 조건(시작 시간, 만료 시간 및 사용 권한)을 상속합니다.
+- **임시 SAS:** 임시 SAS를 만들 때 SAS의 시작 시간, 만료 시간 및 사용 권한이 SAS URI에 모두 지정되거나 시작 시간이 생략되는 경우에는 묵시적으로 지정됩니다. 이 유형의 SAS는 컨테이너, Blob, 파일 공유, 파일, 테이블 또는 큐에서 만들 수 있습니다.
+- **저장된 액세스 정책 사용 SAS:** 저장된 액세스 정책은 리소스 컨테이너(Blob 컨테이너, 테이블, 큐 또는 파일 공유)에서 정의되며, 하나 이상의 공유 액세스 서명에 대한 제약 조건을 관리하는 데 사용할 수 있습니다. SAS를 공유 액세스 정책과 연결할 경우 SAS는 저장된 액세스 정책에 대해 정의된 제약 조건(시작 시간, 만료 시간 및 사용 권한)을 상속합니다.
 
 두 형식의 차이점은 주요 시나리오인 해지에 중요합니다. SAS는 URL이므로 SAS를 시작하도록 요청한 사용자에 상관없이 SAS를 획득한 모든 사용자가 SAS를 사용할 수 있습니다. SAS가 공개적으로 게시된 경우 전 세계의 모든 사용자가 SAS를 사용할 수 있습니다. 분산된 SAS는 다음 네 가지 중 하나에 해당할 때까지 유효합니다.
 
@@ -225,17 +120,13 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&s
 
 ## 다음 단계 ##
 
-[공유 액세스 서명, 2부: Blob 서비스를 사용하여 SAS 만들기 및 사용](../storage-dotnet-shared-access-signature-part-2/)
-
-[Azure 저장소 리소스에 대한 액세스 관리](http://msdn.microsoft.com/library/azure/ee393343.aspx)
-
-[공유 액세스 서명을 사용하여 액세스 위임(REST API)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-
-[테이블 및 큐 SAS 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
-[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
-[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+- [공유 액세스 서명, 2부: Blob 서비스를 사용하여 SAS 만들기 및 사용](storage-dotnet-shared-access-signature-part-2.md)
+- [PowerShell 및 .NET와 함께 Azure 파일 저장소를 사용하는 방법](storage-dotnet-how-to-use-files.md)
+- [Azure 저장소 리소스에 대한 액세스 관리](storage-manage-access-to-resources.md)
+- [공유 액세스 서명을 사용하여 액세스 위임(REST API)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
+- [테이블 및 큐 SAS 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
 
  
 
-<!-------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

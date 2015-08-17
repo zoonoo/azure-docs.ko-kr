@@ -90,4 +90,4 @@ Azure Preview 포털에서 병렬 메트릭 차트를 만들 수 있습니다.
 DocumentDB에 대한 자세한 내용은 [DocumentDB 용량 관리](documentdb-manage.md)를 참조하세요.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

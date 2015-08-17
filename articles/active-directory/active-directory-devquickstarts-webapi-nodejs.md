@@ -32,7 +32,7 @@ Microsoft는 이 실행 예제의 모든 소스 코드를 GitHub의 Apache 2.0 �
 
 ## Node.js 모듈 정보
 
-이 연습에서는 Node.js 모듈을 사용합니다. 모듈은 응용 프로그램의 특정 기능을 제공하는 로드 가능한 JavaScript 패키지입니다. 일반적으로 NPM 설치 디렉터리에 Node.js NPM 명령줄 도구를 사용하여 모듈을 설치하지만 HTTP 모듈과 같은 일부 모듈이 핵심 Node.js 패키지에 포함되어 있습니다. 설치된 모듈은 Node.js 설치 디렉터리의 루트에 있는 node_modules 디렉터리에 저장됩니다. node_modules 디렉터리 내의 각 모듈은 종속되는 모든 모듈이 포함된 고유한 node_modules 디렉터리를 유지합니다. 이러한 반복되는 디렉터리 구조는 종속성 체인을 나타냅니다.
+이 연습에서는 Node.js 모듈을 사용합니다. 모듈은 응용 프로그램의 특정 기능을 제공하는 로드 가능한 JavaScript 패키지입니다. 일반적으로 NPM 설치 디렉터리에 Node.js NPM 명령줄 도구를 사용하여 모듈을 설치하지만 HTTP 모듈과 같은 일부 모듈이 핵심 Node.js 패키지에 포함되어 있습니다. 설치된 모듈은 Node.js 설치 디렉터리의 루트에 있는 node\_modules 디렉터리에 저장됩니다. node\_modules 디렉터리 내의 각 모듈은 종속되는 모든 모듈이 포함된 고유한 node\_modules 디렉터리를 유지합니다. 이러한 반복되는 디렉터리 구조는 종속성 체인을 나타냅니다.
 
 이 종속성 체인 구조 때문에 응용 프로그램 메모리 사용량이 증가하지만 모든 종속성이 충족되고 개발에 사용되는 모듈의 버전을 프로덕션 환경에서도 사용할 수 있게 됩니다. 따라서 프로덕션 앱 동작을 예측하기 쉬워지고 사용자에게 영향을 줄 수 있는 버전 문제도 방지됩니다.
 
@@ -197,7 +197,7 @@ MongoDB를 데이터 저장소로 사용할 예정입니다. 따라서 널리 �
 `cd azuread`
 
 
-다음 명령을 입력하여 node_modules 디렉터리에 다음 모듈을 설치합니다.
+다음 명령을 입력하여 node\_modules 디렉터리에 다음 모듈을 설치합니다.
 
 * `npm install crypto`
 * `npm install assert-plus`
@@ -274,7 +274,7 @@ server.js 파일이 Web API 서버의 기능 대부분을 제공하게 됩니다
 
 **참고:** 이러한 값은 절대 변경할 필요가 없습니다.
 
-**참고:** 키는 자주 롤링하게 됩니다. 항상 "openid_keys" URL에서 끌어오고 있으며 앱에서 인터넷에 액세스할 수 있는지 확인하세요.
+**참고:** 키는 자주 롤링하게 됩니다. 항상 "openid\_keys" URL에서 끌어오고 있으며 앱에서 인터넷에 액세스할 수 있는지 확인하세요.
 
 
 ## 12단계: server.js 파일에 구성 추가
@@ -540,7 +540,7 @@ this.aadutils = new var Metadata = require('./metadata').Metadata;
 
 이 연습에서는 ***4단계***에 설명된 것처럼 MongoDB를 사용하여 작업을 저장할 것입니다.
 
-***11단계***에서 만든 `config.js` 파일에서 기억할 수 있는 것처럼 mogoose_auth_local 연결 URL의 끝에 추가했던 데이터베이스 `tasklist`를 호출했습니다. 서버 응용 프로그램을 처음 실행할 때 생성되므로(존재하지 않을 경우) MongoDB에서 이 데이터베이스를 미리 만들 필요는 없습니다.
+***11단계***에서 만든 `config.js` 파일에서 기억할 수 있는 것처럼 mogoose\_auth\_local 연결 URL의 끝에 추가했던 데이터베이스 `tasklist`를 호출했습니다. 서버 응용 프로그램을 처음 실행할 때 생성되므로(존재하지 않을 경우) MongoDB에서 이 데이터베이스를 미리 만들 필요는 없습니다.
 
 사용하려는 MongoDB 데이터베이스를 서버에 알렸으므로 일부 추가 코드를 작성하여 서버 작업에 대한 모델 및 스키마를 만들어야 합니다.
 
@@ -847,7 +847,7 @@ var server = restify.createServer({
     formatters: {
         'application/json': function(req, res, body){
             if(req.params.callback){
-                var callbackFunctionName = req.params.callback.replace(/[^A-Za-z0-9_.]/g, '');
+                var callbackFunctionName = req.params.callback.replace(/[^A-Za-z0-9_\.]/g, '');
                 return callbackFunctionName + "(" + JSON.stringify(body) + ");";
             } else {
                 return JSON.stringify(body);
@@ -1029,7 +1029,7 @@ var passport = require('passport')
   , OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
 ```
 
-### 2. 인증을 사용하고 있음을 서버에 알리기
+### 2\. 인증을 사용하고 있음을 서버에 알리기
 
 즐겨 사용하는 편집기에서 `server.js` 파일을 열고 경로를 정의한 **server.get()의 아래**, **server.listen()** 메서드의 위에 다음 정보를 추가합니다.
 
@@ -1043,7 +1043,7 @@ Restify에 해당 `authorizationParser()`를 사용할 것을 알리고 권한 �
 ```
 
 
-### 3. 코드에 Passport OAuth2 모듈 추가
+### 3\. 코드에 Passport OAuth2 모듈 추가
 
 여기서는 config.js 파일에 추가한 특정 OAuth2 매개 변수를 사용합니다. `aadutils.js` 파일이 페더레이션 메타데이터 문서 구문 분석 작업을 수행하면 이러한 모든 값은 config.js 파일에는 비어 있더라도 자동으로 채워집니다.
 
@@ -1180,4 +1180,4 @@ ADAL 과정의 다음 단계에 관심이 있는 경우 여기서 권장하는 A
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

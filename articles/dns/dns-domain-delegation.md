@@ -10,7 +10,7 @@
 <tags
    ms.service="dns"
    ms.devlang="na"
-   ms.topic="get-started-article"
+   ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
    ms.date="04/28/2015"
@@ -72,7 +72,7 @@ Azure DNS에서 DNS 영역을 만든 후 부모 영역에서 NS 레코드를 설
 
 Azure PowerShell을 사용하면 권한이 있는 NS 레코드를 다음과 같이 검색할 수 있습니다(레코드 이름 "@"는 영역 루트에 있는 레코드를 가리키는 데 사용됨).
 
-	PS C:\> $zone = New-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
+	PS C:\> $zone = Get-AzureDnsZone –Name contoso.com –ResourceGroupName MyAzureResourceGroup
 	PS C:\> Get-AzureDnsRecordSet –Name “@” –RecordType NS –Zone $zone
 
 	Name              : @
@@ -161,4 +161,4 @@ Azure dns에서 'contoso.com'을 설정하고 위임하면 별도의 자식 영�
 [Azure DNS REST API 참조](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

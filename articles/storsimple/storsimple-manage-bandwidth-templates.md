@@ -176,4 +176,4 @@ StorSimple 장치에 대해 이 모범 사례를 따릅니다.
 
 [StorSimple 구성 요소](storsimple-components.md)에 대해 자세히 알아봅니다.
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

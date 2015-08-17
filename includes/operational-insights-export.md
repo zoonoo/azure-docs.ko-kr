@@ -8,4 +8,4 @@
 2. 브라우저에서 .csv 파일을 저장하라는 메시지가 표시됩니다. 파일을 열거나 저장합니다.
 3. Excel 또는 다른 응용 프로그램에서 파일을 엽니다. 데이터를 검토하고 원하는 방식으로 사용자 지정합니다. ![Excel 결과](./media/operational-insights-export/export-excel.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -65,7 +65,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다. 
 	warn:   Remember to delete it now that it has been imported.
 	info:   Account publish settings imported successfully
 
-> [AZURE.NOTE]publishsettings 파일은 여러 구독에 대한 세부 정보(즉, 구독 이름 및 ID)를 포함할 수 있습니다. publishsettings 파일을 가져올 때 첫 번째 구독이 기본 설명으로 사용됩니다. 다른 구독을 사용하려면 다음 명령을 실행합니다. <code>~$ azure config set subscription &lt;other-subscription-id&gt;</code>
+> [AZURE.NOTE]publishsettings 파일은 여러 구독에 대한 세부 정보(즉, 구독 이름 및 ID)를 포함할 수 있습니다. publishsettings 파일을 가져올 때 첫 번째 구독이 기본 설명으로 사용됩니다. 다른 구독을 사용하려면 다음 명령을 실행합니다. <code>\~$ azure config set subscription &lt;other-subscription-id&gt;</code>
 
 **account clear [options]**
 
@@ -188,7 +188,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다. 
 
 ![Azure 기술 다이어그램](./media/virtual-machines-command-line-tools/architecturediagram.jpg)
 
-**create-new**는 Blob 저장소에서 드라이브(즉, 다이어그램의 e:\)를 만들고, **연결**은 이미 만들어졌지만 연결되지 않은 디스크를 가상 컴퓨터에 연결합니다.
+**create-new**는 Blob 저장소에서 드라이브(즉, 다이어그램의 e:\\)를 만들고, **연결**은 이미 만들어졌지만 연결되지 않은 디스크를 가상 컴퓨터에 연결합니다.
 
 **vm create [options] &lt;dns-name> &lt;image> &lt;userName> [password]**
 
@@ -196,7 +196,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다. 
 
 Azure 포털처럼 vm create 명령은 프로덕션 배포 환경에서만 가상 컴퓨터를 만듭니다. 클라우드 서비스의 스테이징 배포 환경에서 가상 컴퓨터를 만들 수 있는 옵션이 없습니다. 구독에 기존 Azure 저장소 계정이 없는 경우 이 명령은 계정을 만듭니다.
 
---location 매개 변수를 사용하여 위치를 지정하거나 --affinity-group 매개 변수를 사용하여 선호도 그룹을 지정할 수 있습니다. 둘 중 아무것도 제공하지 않을 경우 유효한 위치 목록에서 위치를 선택하라는 메시지가 표시됩니다.
+\--location 매개 변수를 사용하여 위치를 지정하거나 --affinity-group 매개 변수를 사용하여 선호도 그룹을 지정할 수 있습니다. 둘 중 아무것도 제공하지 않을 경우 유효한 위치 목록에서 위치를 선택하라는 메시지가 표시됩니다.
 
 제공된 암호는 8-123자여야 하며 이 가상 컴퓨터에 대해 사용 중인 운영 체제의 암호 복잡성 요구 사항을 충족해야 합니다.
 
@@ -206,9 +206,9 @@ Windows 가상 컴퓨터에서는 포트 3389를 끝점으로 추가하여 나�
 
 이 명령에서 지원되는 선택적 매개 변수는 다음과 같습니다.
 
-**-c, --connect**는 호스팅 서비스에서 이미 만들어진 배포 내에 가상 컴퓨터를 만듭니다. -vmname을 이 옵션과 함께 사용하지 않는 경우 새 가상 컴퓨터의 이름이 자동으로 생성됩니다.<br /> **-n, --vm-name** 가상 컴퓨터의 이름을 지정합니다. 이 매개 변수는 기본적으로 호스팅 서비스 이름을 가져옵니다. -vmname을 지정하지 않은 경우 새 가상 컴퓨터의 이름은 &lt;service-name>&lt;id>로 생성되며, 여기서 &lt;id>는 서비스에 1을 더한 기존 가상 컴퓨터의 번호입니다. 예를 들어 이 명령을 사용하여 기존 가상 컴퓨터가 하나인 호스팅 서비스 MyService에 새 가상 컴퓨터를 추가할 경우 새 가상 컴퓨터의 이름은 MyService2입니다.<br /> **-u, --blob-url** 가상 컴퓨터 시스템 디스크를 생성할 대상 Blob 저장소 URL을 지정합니다. <br /> **-z, --vm-size** 가상 컴퓨터의 크기를 지정합니다. 유효한 값은 다음과 같습니다. "ExtraSmall", "Small", "Medium", "Large", "ExtraLarge", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "Basic_A0", "Basic_A1", "Basic_A2", "Basic_A3", "Basic_A4", "Standard_D1", "Standard_D2", "Standard_D3", "Standard_D4", "Standard_D11", "Standard_D12", "Standard_D13", "Standard_D14", "Standard_DS1", "Standard_DS2", "Standard_DS3", "Standard_DS4", "Standard_DS11", "Standard_DS12", "Standard_DS13", "Standard_DS14", "Standard_G1", "Standard_G2", "Standard_G3", "Standard_G4", "Standard_G55". 기본값은 "Small"입니다. <br /> **-r** RDP 연결을 Windows 가상 컴퓨터에 추가합니다. <br /> **-e, --ssh** SSH 연결을 Windows 가상 컴퓨터에 추가합니다. <br /> **-t, --ssh-cert** SSH 인증서를 지정합니다. <br /> **-s** 구독 <br /> **-o, --community** 지정된 이미지는 커뮤니티 이미지입니다. <br /> **-w** 가상 네트워크 이름 <br/> **-l,--location**은 위치를 지정합니다(예: "미국 중 북부"). <br /> **-a, --affinity-group**은 선호도 그룹을 지정합니다.<br /> **-w, --virtual-network-name** 새 가상 컴퓨터에 추가할 가상 네트워크를 지정합니다. 가상 네트워크를 설정하고 Azure 포털에서 관리할 수 있습니다.<br /> **-b, --subnet-names** 가상 컴퓨터를 할당할 서브넷 이름을 지정합니다.
+**-c, --connect**는 호스팅 서비스에서 이미 만들어진 배포 내에 가상 컴퓨터를 만듭니다. -vmname을 이 옵션과 함께 사용하지 않는 경우 새 가상 컴퓨터의 이름이 자동으로 생성됩니다.<br /> **-n, --vm-name** 가상 컴퓨터의 이름을 지정합니다. 이 매개 변수는 기본적으로 호스팅 서비스 이름을 가져옵니다. -vmname을 지정하지 않은 경우 새 가상 컴퓨터의 이름은 &lt;service-name>&lt;id>로 생성되며, 여기서 &lt;id>는 서비스에 1을 더한 기존 가상 컴퓨터의 번호입니다. 예를 들어 이 명령을 사용하여 기존 가상 컴퓨터가 하나인 호스팅 서비스 MyService에 새 가상 컴퓨터를 추가할 경우 새 가상 컴퓨터의 이름은 MyService2입니다.<br /> **-u, --blob-url** 가상 컴퓨터 시스템 디스크를 생성할 대상 Blob 저장소 URL을 지정합니다. <br /> **-z, --vm-size** 가상 컴퓨터의 크기를 지정합니다. 유효한 값은 다음과 같습니다. "ExtraSmall", "Small", "Medium", "Large", "ExtraLarge", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "Basic\_A0", "Basic\_A1", "Basic\_A2", "Basic\_A3", "Basic\_A4", "Standard\_D1", "Standard\_D2", "Standard\_D3", "Standard\_D4", "Standard\_D11", "Standard\_D12", "Standard\_D13", "Standard\_D14", "Standard\_DS1", "Standard\_DS2", "Standard\_DS3", "Standard\_DS4", "Standard\_DS11", "Standard\_DS12", "Standard\_DS13", "Standard\_DS14", "Standard\_G1", "Standard\_G2", "Standard\_G3", "Standard\_G4", "Standard\_G55". 기본값은 "Small"입니다. <br /> **-r** RDP 연결을 Windows 가상 컴퓨터에 추가합니다. <br /> **-e, --ssh** SSH 연결을 Windows 가상 컴퓨터에 추가합니다. <br /> **-t, --ssh-cert** SSH 인증서를 지정합니다. <br /> **-s** 구독 <br /> **-o, --community** 지정된 이미지는 커뮤니티 이미지입니다. <br /> **-w** 가상 네트워크 이름 <br/> **-l,--location**은 위치를 지정합니다(예: "미국 중 북부"). <br /> **-a, --affinity-group**은 선호도 그룹을 지정합니다.<br /> **-w, --virtual-network-name** 새 가상 컴퓨터에 추가할 가상 네트워크를 지정합니다. 가상 네트워크를 설정하고 Azure 포털에서 관리할 수 있습니다.<br /> **-b, --subnet-names** 가상 컴퓨터를 할당할 서브넷 이름을 지정합니다.
 
-이 예에서 MSFT__Win2K8R2SP1-120514-1520-141205-01-ko-kr-30GB는 플랫폼에서 제공되는 이미지입니다. 운영 체제 이미지에 대한 자세한 내용은 vm 이미지 목록을 참조하십시오.
+이 예에서 MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-ko-kr-30GB는 플랫폼에서 제공되는 이미지입니다. 운영 체제 이미지에 대한 자세한 내용은 vm 이미지 목록을 참조하십시오.
 
 	~$ azure vm create my-vm-name MSFT__Windows-Server-2008-R2-SP1.11-29-2011 username --location "West US" -r
 	info:   Executing command vm create
@@ -787,7 +787,7 @@ Azure 웹 앱은 URI로 액세스할 수 있는 웹 구성입니다. 웹 앱은 
 
 이 명령은 다음과 같은 추가 옵션을 지원합니다.
 
-**-q 또는 **--quiet**: 확인 프롬프트를 표시하지 않습니다. 자동화된 스크립트에서 이 옵션을 사용합니다.
+****-q 또는 **--quiet**: 확인 프롬프트를 표시하지 않습니다. 자동화된 스크립트에서 이 옵션을 사용합니다.
 
 
 **site start [options] [name]**
@@ -810,7 +810,7 @@ Azure 웹 앱은 URI로 액세스할 수 있는 웹 구성입니다. 웹 앱은 
 	info:   Site mysite has been stopped
 	info:   site stop command OK
 
-**site restart [options] [name]
+****site restart [options] [name]
 
 이 명령은 지정된 웹 앱을 중지한 후 시작합니다.
 
@@ -2346,4 +2346,4 @@ DNS 서버 항목을 네트워크 구성에서 제거합니다.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

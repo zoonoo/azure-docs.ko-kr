@@ -40,18 +40,9 @@ Wait 커넥터는 동작으로 사용할 수 있습니다. 트리거가 필요�
 
 	![구성된 동작][3]
 
-<table>
-	<tr>
-		<th>매개 변수</th>
-		<th>형식</th>
-		<th>매개 변수에 대한 설명</th>
-	</tr>
-	<tr>
-		<td>기간(분)</td>
-		<td>정수</td>
-		<td>지연 기간(분)</td>
-	</tr>
-</table>
+매개 변수|형식|매개 변수에 대한 설명
+---|---|---
+기간(분)|정수|지연 기간(분)
 
 
 ## 커넥터의 추가 기능
@@ -64,4 +55,4 @@ Wait 커넥터는 동작으로 사용할 수 있습니다. 트리거가 필요�
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

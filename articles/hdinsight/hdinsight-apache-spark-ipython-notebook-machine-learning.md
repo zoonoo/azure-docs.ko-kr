@@ -32,7 +32,7 @@ Apache Spark 클러스터를 사용하여 HDInsight에서 기계 학습 응용 �
 
 응용 프로그램 빌드를 시작하기 전에 데이터 구조 및 데이터에 대해 수행할 분석 종류를 알려주세요.
 
-이 문서에서는 기본적으로 모든 HDInsight 클러스터에서 사용할 수 있는 샘플 **HVAC.csv** 데이터 파일(**\HdiSamples\SensorSampleData\hvac**)을 사용합니다. CSV 파일을 다운로드하고 열어서 데이터의 스냅숏을 가져옵니다.
+이 문서에서는 기본적으로 모든 HDInsight 클러스터에서 사용할 수 있는 샘플 **HVAC.csv** 데이터 파일(**\\HdiSamples\\SensorSampleData\\hvac**)을 사용합니다. CSV 파일을 다운로드하고 열어서 데이터의 스냅숏을 가져옵니다.
 
 ![HVAC 데이터 스냅숏](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.ML.Show.Data.png "HVAC 데이터의 스냅숏")
 
@@ -213,7 +213,7 @@ Apache Spark 클러스터를 사용하여 HDInsight에서 기계 학습 응용 �
 
 ##<a name="anaconda"></a>기계 학습에 대한 Anaconda scikit-learn 라이브러리 사용
 
-HDInsight에서 Apache Spark 클러스터에는 Anaconda 라이브러리가 포함되어 있습니다. 기계 학습에 대한 **scikit-learn** 라이브러리도 있습니다. 또한 라이브러리에는 Jupyter 노트북에서 직접 샘플 응용 프로그램을 빌드하는 데 사용할 수 있는 다양한 데이터 집합이 포함되어 있습니다. scikit-learn 라이브러리 사용에 대한 예제는 [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html)를 참조하세요.
+HDInsight에서 Apache Spark 클러스터에는 Anaconda 라이브러리가 포함되어 있습니다. 기계 학습에 대한 **scikit-learn** 라이브러리도 있습니다. 또한 라이브러리에는 Jupyter 노트북에서 직접 샘플 응용 프로그램을 빌드하는 데 사용할 수 있는 다양한 데이터 집합이 포함되어 있습니다. scikit-learn 라이브러리 사용에 대한 예는 [http://scikit-learn.org/stable/auto\_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html)를 참조하세요.
 
 ##<a name="seealso"></a>참고 항목
 
@@ -240,4 +240,4 @@ HDInsight에서 Apache Spark 클러스터에는 Anaconda 라이브러리가 포�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

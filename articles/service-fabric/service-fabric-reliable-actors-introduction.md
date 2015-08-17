@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 서비스 패브릭 행위자 개요"
-   description="Azure 서비스 패브릭 행위자 프로그래밍 모델 소개"
+   pageTitle="서비스 패브릭 신뢰할 수 있는 행위자 개요"
+   description="서비스 패브릭 신뢰할 수 있는 행위자 프로그래밍 모델 소개"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/10/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# Azure 서비스 패브릭 행위자 소개
+# 서비스 패브릭 신뢰할 수 있는 행위자 소개
 신뢰할 수 있는 서비스 API는 [신뢰할 수 있는 서비스 API](service-fabric-reliable-services-introduction.md)와 함께 [서비스 패브릭](service-fabric-technical-overview.md)에서 제공한 두 개의 수준 높은 프레임워크 중 하나입니다.
 
 행위자 패턴에 따라, 신뢰할 수 있는 행위자 API는 서비스 패브릭에서 제공한 확장성 및 안정성 보증을 활용하면서 코드를 단순화하는 비동기, 단일 스레드 프로그래밍 모델을 제공합니다.
@@ -191,11 +191,11 @@ public interface IVoicemailBoxActor : IActor
 
 [패브릭 행위자가 서비스 패브릭 플랫폼을 사용하는 방법](service-fabric-reliable-actors-platform.md)
 
-[KVSActorStateProvider 행위자 구성](../Service-Fabric/service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)
+[KVSActorStateProvider 행위자 구성](service-fabric-reliable-actors-KVSActorstateprovider-configuration.md)
 
 [행위자 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

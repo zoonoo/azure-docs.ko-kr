@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DocumentDB 한도 및 할당량 | Azure" 
+	pageTitle="DocumentDB 한도 및 할당량 | Microsoft Azure" 
 	description="DocumentDB의 한도 및 할당량 적용에 대해 알아봅니다." 
 	services="documentdb" 
 	authors="mimig1" 
@@ -23,4 +23,4 @@
 
 [AZURE.INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

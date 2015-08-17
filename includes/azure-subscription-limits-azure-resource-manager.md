@@ -35,6 +35,11 @@
    <td valign="middle"><p>시간당 1200</p></td>
 </tr>
 <tr>
+   <td valign="middle"><p>리소스 관리자 API 요청 크기</p></td>
+   <td valign="middle"><p>4194304바이트</p></td>
+   <td valign="middle"><p>4194304바이트</p></td>
+</tr>
+<tr>
    <td valign="middle"><p>구독당 <a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">클라우드 서비스</a></p></td>
    <td valign="middle"><p>사용되지 않음<sup>3</sup></p></td>
    <td valign="middle"><p>사용되지 않음<sup>3</sup></p></td>
@@ -52,4 +57,4 @@
 
 <sup>3</sup>Azure 리소스 그룹 및 Azure 리소스 관리자를 사용하면 이러한 기능이 더 이상 필요하지 않습니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

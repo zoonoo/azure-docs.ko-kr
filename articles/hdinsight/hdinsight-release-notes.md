@@ -13,11 +13,62 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/26/2015"
+	ms.date="07/30/2015"
 	ms.author="nitinme"/>
 
 
 # Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보
+
+## HDInsight의 2015/07/31 릴리스 정보 ##
+
+이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
+
+* HDInsight 2.1.10.640.1695824(HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight 3.0.6.640.1695824(HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight 3.1.4.640.1695824(HDP 2.1.15.0-2334 - 변경되지 않음)
+* HDInsight 3.2.6.640.1695824(HDP 2.2.6.1-0012 - 변경되지 않음)
+* SDK 1.5.8
+
+이 릴리스에는 다음 업데이트가 포함되어 있습니다.
+
+| 제목 | 설명 | 영향을 받는 영역(예: 서비스, 구성 요소 또는 SDK) | 클러스터 유형(예: Hadoop, HBase 또는 Storm) | JIRA(적용 가능한 경우) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| Spark 클러스터 노드 다시 이미징 워크플로 수정 | 다시 이미징 후 Spark 클러스터 노드를 복구할 수 없도록 만드는 버그 수정 | 부여 | Spark| 해당 없음 |
+
+
+## HDInsight의 2015/07/31 릴리스 정보 ##
+
+이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
+
+* HDInsight 2.1.10.635.1684502(HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight 3.0.6.635.1684502(HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight 3.1.4.635.1684502(HDP 2.1.15.0-2334 - 변경되지 않음)
+* HDInsight 3.2.6.635.1684502(HDP 2.2.6.1-0012 - 변경되지 않음)
+* SDK 1.5.8
+
+이 릴리스에는 다음 업데이트가 포함되어 있습니다.
+
+| 제목 | 설명 | 영향을 받는 영역(예: 서비스, 구성 요소 또는 SDK) | 클러스터 유형(예: Hadoop, HBase 또는 Storm) | JIRA(적용 가능한 경우) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| 모든 HDInsight 클러스터에 대해 HDInsight 버전 업데이트됨 | 이 릴리스에서 HDInsight 버전이 업데이트됨 | 부여 | 모두| 해당 없음 |
+
+
+## HDInsight의 2015/07/07 릴리스 정보 ##
+
+이 릴리스와 함께 배포된 HDInsight 클러스터의 전체 버전 번호는 다음과 같습니다.
+
+* HDInsight 2.1.10.610.1630216(HDP 1.3.12.0-01795 - 변경되지 않음)
+* HDInsight 3.0.6.610.1630216(HDP 2.0.13.0-2117 - 변경되지 않음)
+* HDInsight 3.1.4.610.1630216(HDP 2.1.15.0-2334 - 변경되지 않음)
+* HDInsight 3.2.4.610.1630216(HDP 2.2.6.1-0012)
+* SDK 1.5.8
+
+
+이 릴리스에는 다음 업데이트가 포함되어 있습니다.
+
+| 제목 | 설명 | 영향을 받는 영역(예: 서비스, 구성 요소 또는 SDK) | 클러스터 유형(예: Hadoop, HBase 또는 Storm) | JIRA(적용 가능한 경우) |
+|-------------------------------------------------|------------------------------------------------------|---------------------------------------------------------|-----------------------------------------------------|----------------------|
+| HDInsight 3.2 클러스터에 대한 업데이트된 HDP 버전 | 이 릴리스에서는 HDInsight 3.2가 HDP 2.2.6.1-0012를 배포함 | 부여 | 모두 | 해당 없음 |
 
 
 ## HDInsight의 2015/06/26 릴리스 정보 ##
@@ -1017,7 +1068,7 @@ Apache Mahout는 Apache Hadoop 기계 학습 라이브러리입니다. Mahout에
 
 ## 2014/10/7 릴리스 정보 ##
 
-* Ambari 끝점 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}"을 사용할 때 *host_name* 필드에서 호스트 이름만이 아니라 노드의 FQDN(정규화된 도메인 이름)을 반환합니다. 예를 들어 "**headnode0**"이 반환되는 대신 FQDN인 “**headnode0.{ClusterDNS}.azurehdinsight.net**”이 반환됩니다. 이 변경은 HBase, Hadoop 등의 여러 클러스터 유형을 가상 네트워크 하나에 배포할 수 있는 시나리오를 원활하게 수행하기 위해 필요한 작업이었습니다. 예를 들어 Hadoop의 백 엔드 플랫폼으로 HBase를 사용하는 등의 경우 이 변경이 적용됩니다.
+* Ambari 끝점 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}"을 사용할 때 *host\_name* 필드에서 호스트 이름만이 아니라 노드의 FQDN(정규화된 도메인 이름)을 반환합니다. 예를 들어 "**headnode0**"이 반환되는 대신 FQDN인 “**headnode0.{ClusterDNS}.azurehdinsight.net**”이 반환됩니다. 이 변경은 HBase, Hadoop 등의 여러 클러스터 유형을 가상 네트워크 하나에 배포할 수 있는 시나리오를 원활하게 수행하기 위해 필요한 작업이었습니다. 예를 들어 Hadoop의 백 엔드 플랫폼으로 HBase를 사용하는 등의 경우 이 변경이 적용됩니다.
 
 * HDInsight 클러스터의 기본 배포에 대해 새 메모리 설정이 제공됩니다. 이전의 기본 메모리 설정에서는 배포 중인 CPU 코어 수에 대한 지침을 적절하게 고려하지 않았습니다. 이러한 새 메모리 설정은 Hortonworks 권장 사항에 따라 향상된 기본값을 제공합니다. 이를 변경하려면 클러스터 구성 변경에 대한 SDK 참조 설명서를 참조하세요. 아래 표에는 기본 4개 CPU 코어(8개 컨테이너) HDInsight 클러스터에서 사용되는 새 메모리 설정이 개별 항목으로 나와 있습니다. 이 릴리스 이전에 사용되었던 값도 괄호 안에 나와 있습니다.
 
@@ -1027,9 +1078,9 @@ Apache Mahout는 Apache Hadoop 기계 학습 라이브러리입니다. Mahout에
 
 HDInsight에서 사용하는 Hortonworks Data Platform에서 YARN 및 MapReduce에 사용되는 메모리 구성 설정에 대한 자세한 내용은 [HDP 메모리 구성 설정 확인](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1-latest/bk_installing_manually_book/content/rpm-chap1-11.html)을 참조하세요. Hortonworks에서는 적절한 메모리 설정을 계산하는 도구도 제공합니다.
 
-Azure PowerShell 및 HDInsight SDK 오류 메시지: "*클러스터가 HTTP 서비스 액세스를 위해 구성되어 있지 않습니다.*":
+Azure PowerShell 및 HDInsight SDK 오류 메시지: "*클러스터가 HTTP 서비스 액세스를 위해 구성되어 있지 않습니다.*"
 
-* 이 오류는 HDInsight SDK 또는 Azure PowerShell 버전과 클러스터의 버전 차이로 인해 발생할 수 있는 알려진 [호환성 문제](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight)입니다. 8/15 또는 그 이후에 만든 클러스터는 가상 네트워크에 대한 새로운 프로비전 기능을 지원합니다. 그러나 이전 버전의 HDInsight SDK 또는 Azure PowerShell에서는 이 기능이 올바르게 해석되지 않습니다. 따라서 일부 작업 제출 작업이 실패합니다. HDInsight SDK API 또는 Azure PowerShell cmdlet(**Use-AzureHDInsightCluster** 또는 **Invoke-Hive**)을 사용하여 작업을 제출하는 경우 해당 작업이 실패하고 “*<clustername> 클러스터가 HTTP 서비스 액세스를 위해 구성되어 있지 않습니다.*" 오류 메시지가 표시되거나 작업에 따라 "*클러스터에 연결할 수 없습니다.*" 등의 다른 오류 메시지가 표시될 수 있습니다.
+* 이 오류는 HDInsight SDK 또는 Azure PowerShell 버전과 클러스터의 버전 차이로 인해 발생할 수 있는 알려진 [호환성 문제](https://social.msdn.microsoft.com/Forums/azure/a7de016d-8de1-4385-b89e-d2e7a1a9d927/hdinsight-powershellsdk-error-cluster-is-not-configured-for-http-services-access?forum=hdinsight)입니다. 8/15 또는 그 이후에 만든 클러스터는 가상 네트워크에 대한 새로운 프로비전 기능을 지원합니다. 그러나 이전 버전의 HDInsight SDK 또는 Azure PowerShell에서는 이 기능이 올바르게 해석되지 않습니다. 따라서 일부 작업 제출 작업이 실패합니다. HDInsight SDK API 또는 Azure PowerShell cmdlet(**Use-AzureHDInsightCluster** 또는 **Invoke-Hive**)을 사용하여 작업을 제출하는 경우 해당 작업이 실패하고 “*클러스터 <clustername>이 HTTP 서비스 액세스를 위해 구성되어 있지 않습니다.*” 오류 메시지가 표시되거나 작업에 따라 "*클러스터에 연결할 수 없습니다.*" 등의 다른 오류 메시지가 표시될 수 있습니다.
 
 * HDInsight SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성 문제가 해결되었습니다. HDInsight SDK는 버전 1.3.1.6 이상으로, Azure PowerShell 도구는 버전 0.8.8 이상으로 업데이트하는 것이 좋습니다. 최신 HDInsight SDK는 [](http://nuget.codeplex.com/wikipage?title=Getting%20Started)에서, Azure PowerShell 도구는 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure/)에서 얻을 수 있습니다.
 
@@ -1147,7 +1198,7 @@ Oozie Metastore는 특정 클러스터에 연결되며 클러스터 간에 공�
 * javax.inject
 * activation
 * jsr305
-* geronimo-jaspic_1.0_spec
+* geronimo-jaspic\_1.0\_spec
 * jul-to-slf4j
 * java-xmlbuilder
 * ant
@@ -1174,7 +1225,7 @@ Oozie Metastore는 특정 클러스터에 연결되며 클러스터 간에 공�
 * jpam
 * jersey-client
 * aopalliance
-* geronimo-annotation_1.0_spec
+* geronimo-annotation\_1.0\_spec
 * ant-launcher
 * jersey-guice
 * xml-apis
@@ -1182,7 +1233,7 @@ Oozie Metastore는 특정 클러스터에 연결되며 클러스터 간에 공�
 * asm-commons
 * asm-tree
 * wadl
-* geronimo-jta_1.1_spec
+* geronimo-jta\_1.1\_spec
 * guice
 * leveldbjni-all
 * velocity
@@ -1234,7 +1285,7 @@ Oozie Metastore는 특정 클러스터에 연결되며 클러스터 간에 공�
 * datanucleus-api-jdo: ['3.0.7'] -> ['3.2.6']
 * zookeeper: ['3.4.5.1.3.9.0-01320'] -> ['3.4.5.2.1.3.0-1948']
 * bonecp: ['0.7.1.RELEASE'] -> ['
-* 0.8.0.RELEASE']
+* 0\.8.0.RELEASE']
 
 
 ###드라이버
@@ -1280,4 +1331,4 @@ HDInsight 버전 클러스터에 사용되는 HDP(Hortonworks Data Platform)에 
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

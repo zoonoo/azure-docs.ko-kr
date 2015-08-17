@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # Application Insights란?
@@ -103,6 +103,11 @@ ASP.NET 서버 및 Azure 웹 앱의 경우 두 가지 용도로 사용되는 [�
 
 자세한 내용은 페이지의 왼쪽 탐색 모음에서 시작하기의 앱 유형을 선택 합니다.
 
+## 샘플
+
+
+[샘플 및 연습](app-insights-code-samples.md)
+
 
 ## 지원 및 피드백
 
@@ -145,4 +150,4 @@ ASP.NET 서버 및 Azure 웹 앱의 경우 두 가지 용도로 사용되는 [�
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

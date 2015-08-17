@@ -54,4 +54,4 @@ Exchange Active Sync를 사용하는 Apple 네이티브 메일 클라이언트�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

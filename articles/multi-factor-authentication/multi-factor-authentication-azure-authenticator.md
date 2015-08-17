@@ -66,4 +66,4 @@ QR 코드가 있으면 앱을 시작합니다. +를 클릭합니다.
 * [MSDN에서 Azure Multi-Factor Authentication](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 * [Windows Phone](http://www.windowsphone.com/ko-kr/store/app/azure-authenticator/03a5b2bf-6066-418f-b569-e8aecbc06e50), [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) 및 [IOS](https://itunes.apple.com/us/app/azure-authenticator/id983156458)용 Azure Authenticator 앱
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory 릴리스 정보
@@ -115,7 +115,7 @@
 	        },
 	        "availability": {
 	            "frequency": "Hour",
-	            "interval": "1"
+	            "interval": 1
 	        }
 	    }
 	}
@@ -124,7 +124,7 @@
 
 - **type** 속성이 한 수준 위로 이동하고 형식 이름 **AzureTableLocation**이 **AzureTable**로 변경되었습니다.
 - **linkedServiceName**이 한 수준 위로 이동했습니다. 
-- 이제 **location** 요소가 제거되고 **location** 섹션에서 지정된 **tableName** 같은 형식 관련 속성이 새 **typeProperties** 섹션에서 지정됩니다.  
+- 이제 **location** 요소가 제거되고 **location** 섹션에서 지정된 **tableName**과 같은 형식 관련 속성이 새 **typeProperties** 섹션에서 지정됩니다.  
 
 ### 이전 작업 JSON
 
@@ -239,7 +239,7 @@
 
 - **availability** 섹션에서 **waitOnExternal** 속성이 제거되었습니다. 
 - 새 **external** 속성이 한 수준 위로 추가되고 외부 테이블에 대해 **true**로 설정되었습니다. 
-- **retryInterval** 같은 **waitOnExternal** 요소의 속성이 **Policy** 요소의 새 **externalData** 섹션에 추가되었습니다.
+- **retryInterval**과 같은 **waitOnExternal** 요소의 속성이 **Policy** 요소의 새 **externalData** 섹션에 추가되었습니다.
 - **externalData** 요소는 선택적 요소입니다. 
 - **externalData** 요소를 사용하는 경우 **external** 속성을 **true**로 설정해야 합니다. 
  
@@ -286,12 +286,12 @@ HDInsight 작업(Hive, Pig, MapReduce, Hadoop 스트리밍)은 새 속성인 **g
 -  Azure Blob에서 텍스트 파일의 인코딩을 지정할 수 있습니다. 새 [encodingName 속성](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob)을 참조하십시오. 
 - SQL 싱크로 복사하는 경우 추가 매개 변수가 있는 저장 프로시저를 호출할 수 있습니다. 자세한 내용은 [SQL 싱크에 대한 저장 프로시저 호출][adf-copy-advanced]을 참조하십시오.   
 
-예제를 포함하여 자세한 내용은 Blob 게시물: [Azure Data Factory 업데이트 - 새 데이터 저장소](http://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/)를 참조하십시오.
+예제를 포함하여 자세한 내용은 Blob 게시물: [Azure 데이터 팩터리 업데이트 - 새 데이터 저장소](http://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/)를 참조하십시오.
 
 ## 데이터 팩터리의 2015/2/27 릴리스 정보
 
 ### 새롭게 향상된 기능
-- **Azure Data Factory 편집기**. Azure Preview 포털의 일부인 데이터 팩터리 편집기를 사용하면 연결된 서비스, 데이터 집합 및 파이프라인을 정의하는 JSON 파일을 만들고 편집 및 배포할 수 있습니다. 편집기의 주요 목표는 Azure PowerShell 설치 및 PowerShell cmdlet을 사용한 규모 확장을 요구하지 않고 Azure Data Factory 아티팩트를 만들기 위한 빠르고 간단한 UI(사용자 인터페이스)를 제공하는 것입니다. 데이터 팩터리 편집기에 대한 간략한 개요와 동영상은 [Azure Data Factory 편집기 - 경량 웹 편집기][adf-editor-blog](영문) 블로그 게시물을 참조하세요. 편집기에 대한 자세한 개요는 [데이터 팩터리 편집기][adf-editor] 문서를 참조하세요.          
+- **Azure 데이터 팩터리 편집기**. Azure Preview 포털의 일부인 데이터 팩터리 편집기를 사용하면 연결된 서비스, 데이터 집합 및 파이프라인을 정의하는 JSON 파일을 만들고 편집 및 배포할 수 있습니다. 편집기의 주요 목표는 Azure PowerShell 설치 및 PowerShell cmdlet을 사용한 규모 확장을 요구하지 않고 Azure Data Factory 아티팩트를 만들기 위한 빠르고 간단한 UI(사용자 인터페이스)를 제공하는 것입니다. 데이터 팩터리 편집기에 대한 간략한 개요와 동영상은 [Azure 데이터 팩터리 편집기 - 경량 웹 편집기][adf-editor-blog](영문) 블로그 게시물을 참조하세요. 편집기에 대한 자세한 개요는 [데이터 팩터리 편집기][adf-editor] 문서를 참조하세요.          
 
 ### 변경 내용
 
@@ -310,7 +310,7 @@ HDInsight 작업(Hive, Pig, MapReduce, Hadoop 스트리밍)은 새 속성인 **g
 ### 새롭게 향상된 기능
 
 - Azure 기계 학습 통합
-	- 이 릴리스의 Azure Data Factory 서비스를 통해 **AzureMLLinkedService** 및 **AzureMLBatchScoringActivity**를 사용하여 Azure Data Factory를 Azure ML(기계 학습)과 통합할 수 있습니다. 자세한 내용은 [데이터 팩터리 및 Azure 기계 학습을 사용하여 예측 파이프라인 만들기][adf-azure-ml]를 참조하십시오. 
+	- 이 릴리스의 Azure 데이터 팩터리 서비스를 통해 **AzureMLLinkedService** 및 **AzureMLBatchScoringActivity**를 사용하여 Azure 데이터 팩터리를 Azure ML(기계 학습)과 통합할 수 있습니다. 자세한 내용은 [데이터 팩터리 및 Azure 기계 학습을 사용하여 예측 파이프라인 만들기][adf-azure-ml]를 참조하십시오. 
 - 게이트웨이 버전 상태가 제공됨
 	- 현재 설치된 버전보다 최신 버전의 게이트웨이를 사용할 수 있는 경우 Azure 미리 보기 포털 및 Get-AzureDataFactoryGateway cmdlet의 출력에 "NewVersionAvailable" 상태가 표시됩니다. 그러면 포털 경로를 따라 새 설치 파일(.msi)을 다운로드한 다음 실행하여 최신 게이트웨이를 설치할 수 있습니다. 추가 구성은 필요하지 않습니다.
 
@@ -335,7 +335,7 @@ HDInsight 작업(Hive, Pig, MapReduce, Hadoop 스트리밍)은 새 속성인 **g
 
 		이전 버전의 SDK 및 Azure PowerShell을 사용하는 경우 DotNetActivity 대신 CustomActivity를 계속 사용할 수 있습니다.
     
-  		사용자 지정 작업을 만들어 Azure Data Factory 파이프라인에서 사용하는 방법에 대한 연습은 [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용][adf-custom-activities](영문)을 참조하세요.
+  		사용자 지정 작업을 만들어 Azure 데이터 팩터리 파이프라인에서 사용하는 방법에 대한 연습은 [Azure 데이터 팩터리 파이프라인에서 사용자 지정 작업 사용][adf-custom-activities](영문)을 참조하세요.
 
 [adf-azure-ml]: data-factory-create-predictive-pipelines.md
 [adf-custom-activities]: data-factory-use-custom-activities.md
@@ -355,4 +355,4 @@ HDInsight 작업(Hive, Pig, MapReduce, Hadoop 스트리밍)은 새 속성인 **g
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -86,7 +86,7 @@
 	        public DateTime Date { get; set; }
     	}
 
-4. Models 폴더를 확장하고 *service\_name\*Context.cs라는 데이터 모델 컨텍스트 파일을 열어 입력한 **DbSet**를 반환하는 다음 속성을 추가합니다.
+4. Models 폴더를 확장하고 *service\_name*Context.cs라는 데이터 모델 컨텍스트 파일을 열어 입력한 **DbSet**를 반환하는 다음 속성을 추가합니다.
 
 		public DbSet<Updates> Updates { get; set; }
 
@@ -213,7 +213,7 @@
 		    }
 		}
 
-	위의 코드에서 _todolistService_ 및 _todolistContext_ 문자열을 각각 *mobile&#95;service&#95;name\*Service 및 *mobile&#95;service&#95;name\*Context에 해당하는 다운로드한 프로젝트의 네임스페이스 및 DbContext로 바꾸어야 합니다.
+	위의 코드에서 _todolistService_ 및 _todolistContext_ 문자열을 각각 *mobile&#95;service&#95;name*Service 및 *mobile&#95;service&#95;name*Context에 해당하는 다운로드한 프로젝트의 네임스페이스 및 DbContext로 바꾸어야 합니다.
    	
 	위의 코드에서 **ExecuteAsync** 재정의 메서드는 `#mobileservices` 해시태그를 포함한 최근 트윗을 요청하기 위해 저장된 자격 증명을 사용하여 Twitter 쿼리 API를 호출합니다. 중복 트윗 및 회신은 테이블에 저장되기 전에 결과에서 제거됩니다.
 
@@ -300,4 +300,4 @@ Azure에 게시하고 포털에 등록하기 전에 로컬에서 작업 예약�
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [LINQ to Twitter CodePlex 프로젝트]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

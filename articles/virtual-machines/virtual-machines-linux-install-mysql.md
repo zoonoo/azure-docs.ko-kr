@@ -239,4 +239,4 @@ MySQL에는 이진 패키지, rpm 패키지 및 원본 패키지라는 세 가�
            #mysql-test:~ # insserv mysql
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

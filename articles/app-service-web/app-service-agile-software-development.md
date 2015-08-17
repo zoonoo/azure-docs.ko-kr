@@ -105,7 +105,7 @@ Agile 방법론의 성공적인 구현을 기술적인 과정의 제약이 나�
 
 	![](./media/app-service-agile-software-development/production-4-swap.png)
 
-7.	스크립트가 완료되면 Frontend의 주소(http://ToDoApp*&lt;unique_string> \* master.azurewebsites.net/)로 돌아가서 프로덕션 내의 응용 프로그램 실행을 봅니다.
+7.	스크립트가 완료되면 Frontend의 주소(http://ToDoApp*&lt;unique_string> * master.azurewebsites.net/)로 돌아가서 프로덕션 내의 응용 프로그램 실행을 봅니다.
  
 5.	[Azure Preview 포털](https://portal.azure.com)에 로그인하고 생성된 것을 살펴보세요.
 
@@ -279,4 +279,4 @@ Agile 소프트웨어 개발은 Azure를 응용 프로그램 플랫폼으로 채
 -	[Azure AD에서 사용자 만들기 또는 편집](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[프로젝트 Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

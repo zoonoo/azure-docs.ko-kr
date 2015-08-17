@@ -70,7 +70,7 @@ Python 및 Git를 이미 설치했어야 하지만 Python 버전은 2.7 또는 3
 
 다음은 초기 Git 리포지토리에 표시되는 파일의 개요입니다(다음 섹션에서 복제).
 
-    \app__init__.py
+    \app\__init__.py
     \app\forms.py
     \app\models.py
     \app\tests.py
@@ -84,7 +84,7 @@ Python 및 Git를 이미 설치했어야 하지만 Python 버전은 2.7 또는 3
     \app\templates\layout.html
     \app\templates\login.html
     \app\templates\loginpartial.html
-    \DjangoWebProject__init__.py
+    \DjangoWebProject\__init__.py
     \DjangoWebProject\settings.py
     \DjangoWebProject\urls.py
     \DjangoWebProject\wsgi.py
@@ -423,7 +423,7 @@ Django에는 정적 파일 수집 개념이 있습니다. 이는 모든 정적 �
 
 Django 응용 프로그램에 대한 정적 파일 수집을 건너뛰려는 경우:
 
-    .skipDjango
+    \.skipDjango
 
 그런 다음 로컬 컴퓨터에서 수동으로 수집을 수행해야 합니다.
 
@@ -515,4 +515,4 @@ SQL 데이터베이스 및 MySQL 사용에 대한 자세한 정보:
 [Django 설명서]: https://www.djangoproject.com/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -126,4 +126,4 @@ URL 및 `api-key`를 app.config에 추가하고 나면 응용 프로그램 설�
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

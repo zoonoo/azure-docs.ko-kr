@@ -339,4 +339,4 @@ private ip address2:16
 
 * Intel MPI에 대한 지침은 [Intel MPI Library 설명서](https://software.intel.com/ko-kr/articles/intel-mpi-library-documentation/)를 참조하세요.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

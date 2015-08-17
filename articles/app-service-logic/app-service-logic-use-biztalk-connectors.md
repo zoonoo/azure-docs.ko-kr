@@ -124,4 +124,4 @@ Azure 앱 서비스는 바로 사용할 수 있는 다양한 커넥터를 제공
 [BizTalk 변환 서비스]: app-service-logic-transform-xml-documents.md
 [Wait 커넥터]: app-service-logic-wait.md
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

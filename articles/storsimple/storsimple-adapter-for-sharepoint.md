@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/17/2015"
+   ms.date="07/30/2015"
    ms.author="v-sharos" />
 
 # SharePoint용 StorSimple 어댑터
@@ -230,7 +230,7 @@ RBS를 사용하도록 설정하면 이 유지 관리 프로그램(Microsoft.Dat
 
 ## 다음 단계
 
-[StorSimple에 대한 자세히 알아보기](storsimple-overview.md) 및 [StorSimple 구성 요소](storsimple-components.md)
+[StorSimple에 대해 자세히 알아봅니다](storsimple-overview.md).
 
 <!--Reference links-->
 [1]: https://www.microsoft.com/download/details.aspx?id=44073
@@ -240,4 +240,4 @@ RBS를 사용하도록 설정하면 이 유지 관리 프로그램(Microsoft.Dat
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/ko-kr/library/ff943565.aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

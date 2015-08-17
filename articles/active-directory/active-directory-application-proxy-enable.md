@@ -12,7 +12,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="07/07/2015"
 	ms.author="rkarlin"/>
 
@@ -73,4 +73,4 @@ Microsoft Azure AD Application Proxy를 사용하면 SharePoint 사이트, Outlo
 * [조직으로 Azure 등록](..sign-up-organization.md)
 * [Azure ID](..fundamentals-identity.md)
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

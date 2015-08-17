@@ -181,7 +181,7 @@
 		</body>
 		</html> 
 
-8. **Run** 메뉴에서 **Run**을 클릭합니다. 디렉터리 테넌트 자격 증명을 사용하여 로그인할 수 있는 Office 365 ID 공급자 페이지로 자동으로 리디렉션되어야 합니다(예: *john.doe@fabrikam.onmicrosoft.com*).
+8. **Run** 메뉴에서 **Run**을 클릭합니다. 디렉터리 테넌트 자격 증명을 사용하여 로그인할 수 있는 Office 365 ID 공급자 페이지로 자동으로 리디렉션되어야 합니다(예: 예를 들어, **john.doe@fabrikam.onmicrosoft.com*합니다.
 
 ## 요약
 이 자습서에서는 Azure Active Directory의 Single Sign-On 기능을 사용하여 단일 테넌트 PHP 응용 프로그램을 만들고 구성하는 방법을 살펴보았습니다.
@@ -203,4 +203,4 @@ PHP 웹 사이트에 Azure Active Directory 및 Single Sign-On을 사용하는 �
 [Azure Active Directory용 PHP 샘플 코드]: https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/WAAD.WebSSO.PHP
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

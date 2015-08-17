@@ -277,4 +277,4 @@ A: 예. 인덱서는 검색 서비스의 노드 중 하나에서 실행되므로
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

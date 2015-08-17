@@ -107,4 +107,4 @@ API 관리에는 다음과 같은 변경할 수 없는 시스템 그룹이 있�
 [Azure API 관리 시작]: api-management-get-started.md#create-service-instance
 [연관된 Azure Active Directory 테넌트에서 외부 그룹을 가져올 수 있습니다.]: api-management-howto-aad.md#how-to-add-an-external-azure-active-directory-group
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

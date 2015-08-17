@@ -77,4 +77,4 @@
 [데이터 직렬화](service-fabric-application-upgrade-data-serialization.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -40,4 +40,4 @@
 
 이 문서의 [여기](active-directory-aadconnect-o365-certs.md)에 나온 지침을 사용하여 인증서를 갱신하세요.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

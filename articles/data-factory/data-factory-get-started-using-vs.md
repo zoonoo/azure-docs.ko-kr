@@ -101,11 +101,12 @@
 
 5. **솔루션 탐색기**에서 다시 **Linked Services**(연결된 서비스)를 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다. 
 6. 이번에는 **Azure SQL Linked Service**(Azure SQL 연결된 서비스)를 선택하고 **추가**를 클릭합니다. 
-7. **AzureSqlLinkedService1.json 파일**에서 **servername**, **databasename**, **username@servername** 및 **password**를 Azure SQL Server, 데이터베이스, 사용자 계정 및 암호로 바꿉니다. 8.  **AzureSqlLinkedService1.json** 파일을 저장합니다. 
+7. **AzureSqlLinkedService1.json 파일**에서 **servername**, **databasename**, ****username@servername** 및 **password**를 Azure SQL Server, 데이터베이스, 사용자 계정 및 암호로 바꿉니다.
+8.  **AzureSqlLinkedService1.json** 파일을 저장합니다. 
 
 
 ### 입력 및 출력 테이블 만들기
-이전 단계에서는 연결된 서비스 **AzureStorageLinkedService1** 및 **AzureSqlLinkedService1**을 만들어 Azure 저장소 계정과 Azure SQL 데이터베이스를 데이터 팩터리 **ADFTutorialDataFactory**에 연결했습니다. 이 단계에서는 각각 AzureStorageLinkedService1 및 AzureSqlLinkedService1로 참조되는 데이터 저장소에 저장된 입출력 데이터를 나타내는 **EmpTableFromBlob** 및 **EmpSQLTable** 등 2개의 데이터 팩터리 테이블을 정의합니다. EmpTableFromBlob에 대해 원본 데이터가 있는 Blob을 포함하는 Blob 컨테이너를 지정하고, EmpSQLTable에 대해 출력 데이터를 저장할 SQL 테이블을 지정합니다.
+이전 단계에서는 연결된 서비스 **AzureStorageLinkedService1** 및 **AzureSqlLinkedService1**을 만들어 Azure 저장소 계정과 Azure SQL 데이터베이스를 데이터 팩터리 **ADFTutorialDataFactory**에 연결했습니다. 이 단계에서는 각각 AzureStorageLinkedService1 및 AzureSqlLinkedService1로 참조되는 데이터 저장소에 저장된 입출력 데이터를 나타내는 **EmpTableFromBlob** 및 **EmpSQLTable**의 2개 데이터 팩터리 테이블을 정의합니다. EmpTableFromBlob에 대해 원본 데이터가 있는 Blob을 포함하는 Blob 컨테이너를 지정하고, EmpSQLTable에 대해 출력 데이터를 저장할 SQL 테이블을 지정합니다.
 
 #### 입력 테이블 만들기
 
@@ -176,7 +177,7 @@
 
 
 1. **솔루션 탐색기**에서 **파이프라인**을 마우스 오른쪽 단추로 클릭하고 **추가**를 가리킨 다음 **새 항목**을 클릭합니다.  
-15. **새 항목 추가** 대화 상자에서 **Copy Data Pipeline**(데이터 파이프라인 복사)를 선택하고 **추가**를 클릭합니다. 
+15. **새 항목 추가** 대화 상자에서 **데이터 파이프라인 복사**를 선택하고 **추가**를 클릭합니다. 
 16. JSON을 다음 JSON으로 바꾸고 **CopyActivity1.json** 파일을 저장합니다.
 			
 		 {
@@ -225,8 +226,8 @@
 #### 데이터 팩터리 엔터티 게시/배포
   
 18. 데이터 팩터리 도구 모음이 아직 사용하도록 설정되지 않은 경우 도구 모음 영역에서 마우스 오른쪽 단추로 클릭하고 **데이터 팩터리**를 선택하여 사용하도록 설정합니다. 
-19. **데이터 팩터리 도구 모음**에서 **드롭다운 상자**를 클릭하여 Azure 구독의 모든 데이터 팩터리를 봅니다. **Visual Studio에 로그인** 대화 상자가 표시되는 경우 
-	20. 데이터 팩터리를 만들려는 Azure 구독과 연결된 **메일 계정**을 입력하고 **암호**를 입력한 다음 **로그인**을 클릭합니다.
+19. **데이터 팩터리 도구 모음**에서 **드롭다운 상자**를 클릭하여 Azure 구독의 모든 데이터 팩터리를 봅니다. **Visual Studio에 로그인** 대화 상자가 표시되는 경우: 
+	20. 데이터 팩터리를 만들려는 Azure 구독과 연결된 **전자 메일 계정**을 입력하고 **암호**를 입력한 다음 **로그인**을 클릭합니다.
 	21. 로그인이 성공하면 Azure 구독에 모든 데이터 팩터리가 표시됩니다. 이 자습서에서는 새 데이터 팩터리를 만듭니다.       
 22. 드롭다운 목록에서 **ADFTutorialFactoryVS**를 클릭하고 **게시** 단추를 클릭하여 연결된 서비스, 데이터 집합 및 파이프라인을 배포/게시합니다.    
 
@@ -237,16 +238,16 @@
 ## 서버 탐색기를 사용하여 데이터 팩터리 엔터티를 검토합니다.
 
 1. **Visual Studio**의 메뉴에서 **보기**를 클릭하고 **서버 탐색기**를 클릭합니다.
-2. 서버 탐색기 창에서 **Azure**를 확장하고 **데이터 팩터리**를 확장합니다. **Visual Studio에 로그인**이 표시되면 Azure 구독과 연결된 **계정**을 입력하고 **계속**을 클릭합니다. **암호**를 입력하고 **로그인**을 클릭합니다. Visual Studio에서는 구독에 있는 모든 Azure Data Factory에 대한 정보를 가져오려고 시도합니다. **Data Factory Task List**(데이터 팩터리 작업 목록) 창에서 이 작업 상태가 보입니다.![서버 탐색기](./media/data-factory-get-started-using-vs/server-explorer.png)
-3. 데이터 팩터리를 마우스 오른쪽 단추로 클릭하고 Export Data Factory to New Project(새 프로젝트로 데이터 팩터리 내보내기)를 선택하여 기존 데이터 팩터리에 따라 Visual Studio 프로젝트를 만들 수 있습니다. ![VS 프로젝트로 데이터 팩터리 내보내기](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
+2. 서버 탐색기 창에서 **Azure**를 확장하고 **데이터 팩터리**를 확장합니다. **Visual Studio에 로그인**이 표시되면 Azure 구독과 연결된 **계정**을 입력하고 **계속**을 클릭합니다. **암호**를 입력하고 **로그인**을 클릭합니다. Visual Studio에서는 구독에 있는 모든 Azure Data Factory에 대한 정보를 가져오려고 시도합니다. **데이터 팩터리 작업 목록** 창에서 이 작업 상태가 보입니다. ![서버 탐색기](./media/data-factory-get-started-using-vs/server-explorer.png)
+3. 데이터 팩터리를 마우스 오른쪽 단추로 클릭하고 새 프로젝트로 데이터 팩터리 내보내기를 선택하여 기존 데이터 팩터리에 따라 Visual Studio 프로젝트를 만들 수 있습니다. ![VS 프로젝트로 데이터 팩터리 내보내기](./media/data-factory-get-started-using-vs/export-data-factory-menu.png)  
 
 ## Visual Studio용 데이터 팩터리 도구 업데이트
 Visual Studio용 Azure Data Factory 도구를 업데이트하려면 다음을 수행합니다.
 
 1. 메뉴에서 **도구**를 클릭하고 **확장 및 업데이트**를 선택합니다. 
 2. 왼쪽 창에서 **업데이트**를 선택한 다음 **Visual Studio 갤러리**를 선택합니다.
-4. **Azure Data Factory tools for Visual Studio**(Visual Studio용 Azure Data Factory 도구)를 선택하고 **업데이트**를 클릭합니다. 이 항목이 표시되지 않으면 이미 최신 버전의 도구가 있는 것입니다. 
+4. **Visual Studio용 Azure Data Factory 도구**를 선택하고 **업데이트**를 클릭합니다. 이 항목이 표시되지 않으면 이미 최신 버전의 도구가 있는 것입니다. 
 
 Azure Preview 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데이터 집합을 모니터링하는 방법에 대한 지침은 [데이터 집합 및 파이프라인 모니터링](data-factory-get-started-using-editor.md/#MonitorDataSetsAndPipeline)을 참조하세요.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -51,9 +51,9 @@ ALTER ROLE db_datareader ADD MEMBER ApplicationUser; -- allows ApplicationUser t
 ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser to write data
 ```
 
-연결 중인 서버 관리자 계정은 데이터베이스 내에서 작업을 수행할 권한이 있는 db_owner의 구성원입니다. 스키마 업그레이드 및 기타 관리 작업을 배포하기 위해서는 이 계정을 저장합니다. 응용 프로그램에서 해당 응용 프로그램에 필요한 최소한의 권한이 있는 데이터베이스에 연결하려면 보다 제한된 사용 권한을 가진 "ApplicationUser" 계정을 사용합니다.
+연결 중인 서버 관리자 계정은 데이터베이스 내에서 작업을 수행할 권한이 있는 db\_owner의 구성원입니다. 스키마 업그레이드 및 기타 관리 작업을 배포하기 위해서는 이 계정을 저장합니다. 응용 프로그램에서 해당 응용 프로그램에 필요한 최소한의 권한이 있는 데이터베이스에 연결하려면 보다 제한된 사용 권한을 가진 "ApplicationUser" 계정을 사용합니다.
 
-사용자가 Azure SQL 데이터베이스로 수행할 수 있는 작업을 추가로 제한하는 방법이 있습니다.- db_datareader 및 db_datawriter 이외에 [데이터베이스 역할][]을 사용하여 더 강력한 응용 프로그램 사용자 계정 또는 덜 강력한 관리 계정을 만들 수 있습니다. - 세분화된 [사용 권한][]을 통해 개별 열, 테이블, 뷰, 프로시저 및 데이터베이스 내 다른 개체에 대해 수행할 수 있는 작업을 제어할 수 있습니다. - [저장 프로시저][]를 사용하여 데이터베이스에서 수행할 수 있는 작업을 제한할 수 있습니다.
+사용자가 Azure SQL 데이터베이스로 수행할 수 있는 작업을 추가로 제한하는 방법이 있습니다.- db\_datareader 및 db\_datawriter 이외에 [데이터베이스 역할][]을 사용하여 더 강력한 응용 프로그램 사용자 계정 또는 덜 강력한 관리 계정을 만들 수 있습니다. - 세분화된 [사용 권한][]을 통해 개별 열, 테이블, 뷰, 프로시저 및 데이터베이스 내 다른 개체에 대해 수행할 수 있는 작업을 제어할 수 있습니다. - [저장 프로시저][]를 사용하여 데이터베이스에서 수행할 수 있는 작업을 제한할 수 있습니다.
 
 Azure 관리 포털에서 또는 Azure 리소스 관리자 API를 사용하여 데이터베이스 및 논리 서버를 관리하는 것은 포털 사용자 계정의 역할 할당에 의해 제어됩니다. 이 항목에 대한 자세한 내용은 [Azure Preview 포털의 역할 기반 액세스 제어][]를 참조하세요.
 
@@ -78,4 +78,4 @@ Azure 관리 포털에서 또는 Azure 리소스 관리자 API를 사용하여 �
 <!--Other Web references-->
 [Azure Preview 포털의 역할 기반 액세스 제어]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

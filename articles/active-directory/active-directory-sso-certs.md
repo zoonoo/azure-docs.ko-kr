@@ -80,4 +80,4 @@
 
 [Azure AD에서 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

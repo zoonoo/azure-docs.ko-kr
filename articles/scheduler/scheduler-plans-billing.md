@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="dotnet" 
  ms.topic="article" 
- ms.date="05/12/2015" 
+ ms.date="08/04/2015" 
  ms.author="krisragh"/>
  
 # Azure 스케줄러의 버전 및 요금 청구
@@ -46,13 +46,13 @@ Standard 작업 컬렉션이 하나이고 Premium 작업 컬렉션이 하나라�
 
 Standard 청구 가능 단위는 최대 10개의 Standard 작업 컬렉션을 포함할 수 있습니다. Standard 작업 컬렉션에는 작업 컬렉션당 최대 50개의 작업이 있을 수 있으므로 Standard 청구 단위 1개에서는 최대 500개 작업(매월 최대 약 2,200만 개의 작업 실행)이 있을 수 있습니다.
 
-Standard 작업 컬렉션 수가 1~10인 경우 1개의 Standard 청구 단위에 대해 청구됩니다. Standard 작업 컬렉션 수가 11~20인 경우 2개의 Standard 청구 단위에 대해 청구됩니다. Standard 작업 컬렉션 수가 21~30인 경우 3개의 Standard 청구 단위에 대해 청구되는 식입니다.
+Standard 작업 컬렉션 수가 1\~10인 경우 1개의 Standard 청구 단위에 대해 청구됩니다. Standard 작업 컬렉션 수가 11\~20인 경우 2개의 Standard 청구 단위에 대해 청구됩니다. Standard 작업 컬렉션 수가 21\~30인 경우 3개의 Standard 청구 단위에 대해 청구되는 식입니다.
 
 ## Premium 청구 가능 단위
 
 Premium 청구 가능 단위는 최대 10,000개의 Premium 작업 컬렉션을 포함할 수 있습니다. Premium 작업 컬렉션에는 작업 컬렉션당 최대 50개의 작업이 있을 수 있으므로 Standard 청구 단위 1개에서는 최대 500,000개 작업(매월 최대 약 220억 개의 작업 실행)이 있을 수 있습니다.
 
-Standard 작업 컬렉션 수가 1~10,000인 경우 1개의 Premium 청구 단위에 대해 청구됩니다. Standard 작업 컬렉션 수가 10,001~20,000인 경우 2개의 Premium 청구 단위에 대해 청구됩니다.
+Standard 작업 컬렉션 수가 1\~10,000인 경우 1개의 Premium 청구 단위에 대해 청구됩니다. Standard 작업 컬렉션 수가 10,001\~20,000인 경우 2개의 Premium 청구 단위에 대해 청구됩니다.
 
 따라서 Premium 작업 컬렉션은 Standard 작업 컬렉션과 동일하게 작동하지만, 응용 프로그램에 작업 컬렉션이 많은 경우 경제적입니다.
 
@@ -87,4 +87,4 @@ Standard 작업 컬렉션 수가 1~10,000인 경우 1개의 Premium 청구 단�
  [스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
   
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

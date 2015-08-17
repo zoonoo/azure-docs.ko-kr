@@ -110,16 +110,16 @@ GA 가격과 3개 이상의 데이터베이스에 의해 1개의 DTU가 공유 �
 
 1. 풀에 예상 dtus가 다음과 같을 때 필요합니다.
     
-    MAX (* 총 수의 Db * * *DTU 사용률 DB 당 평균*, *데 최고 동시에 횟수 Db* * *DB 당 최대 DTU 사용률*)
+    MAX(*총 DB 수* * *DB당 평균 DTU 사용률*, *동시 최고 DB 수* * *DB당 최고 DTU 사용률*)
 
-2. 1단계에서 가장 작은 사용 가능한 dtu값을 예상보다 더 큰 풀에서 선택합니다. 사용 가능한 dtu선택, dtu목록의 유효한 값을 보려면 : [DTU 및 저장소 풀을 확대/축소 및 확대/축소 데이터베이스 제한](sql-database-elastic-pool-reference.md#dtu-and-storage-limits-for-elastic-pools-and-elastic-databases)을 참고하세요.
+2. 1단계에서 가장 작은 사용 가능한 dtu값을 예상보다 더 큰 풀에서 선택합니다. 사용 가능한 DTU 선택 항목은 [탄력적 풀 및 탄력적 데이터베이스에 대한 DTU 및 저장소 제한](sql-database-elastic-pool-reference.md#dtu-and-storage-limits-for-elastic-pools-and-elastic-databases)에 나열된 유효한 DTU 값을 참조하세요.
 
     
 
 
 3. 다음과 같이 풀에 대한 가격을 계산 합니다.
 
-    풀 가격 = (* 풀 Dtu * * *풀 DTU 단가*) + (* 총 번호 Db * * *풀 DB 단가*)
+    풀 가격 = (*풀 DTU* * *풀 DTU 단가*) + (*총 DB 수* * *풀 DB 단가*)
 
     가격 정보는 [SQL 데이터베이스 가격 정보](http://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.
 
@@ -141,9 +141,9 @@ GA 가격과 3개 이상의 데이터베이스에 의해 1개의 DTU가 공유 �
 
 STA 및 Dmv는 탄력적 풀의 다른 도구옵션과 크기 조정 기능을 제공합니다. 도구 옵션 사용에 관계 없이 예상 규모는 탄력적 풀의 생성과 초기 평가에만 사용해야 합니다. 탄력적 풀을 만든 후 해당 리소스 사용량을 정확 하 게 모니터링 해야 하 고 필요에 따라 위쪽과 아래쪽 풀의 성능 설정을 조정 합니다.
 
-**STA**<br>STA는 자동으로 기존 SQL 데이터베이스 서버에서 데이터베이스의 기록 리소스 사용률을 평가 하 고 적절한 탄력적 풀 구성을 권장 하는 Azure 포털의 기본 제공 도구입니다.
+**STA**<br>STA는 자동으로 기존 SQL 데이터베이스 서버에서 데이터베이스의 기록 리소스 사용률을 평가하고 적절한 탄력적 풀 구성을 권장하는 Azure 포털의 기본 제공 도구입니다.
 
-**DMV크기조정도구**<br>DMV 크기 조정 도구는 PowerShell 스크립트로 제공 되 고 기존 데이터베이스 서버에 대한 탄력적 풀의 크기 예측을 사용자 지정할 수 있습니다.
+**DMV 크기 조정 도구**<br>DMV 크기 조정 도구는 PowerShell 스크립트로 제공되고 기존 데이터베이스 서버에 대한 탄력적 풀의 크기 예측을 사용자 지정할 수 있게 해줍니다.
 
 ### STA 및 DMV 도구 중에서 선택 
 
@@ -165,7 +165,7 @@ STA는 기존 서버에 탄력적 풀을 추가 하는 경우 Azure 포털에서
 
 ### 동적 관리 뷰(Dmv)를 사용하여 탄력적 풀 크기 추정 
 
-[sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV 개별 데이터베이스의 리소스 사용량을 측정 합니다. 이 DMV는 데이터베이스 성능 수준 제한을 백분율로 표시하는 데이터베이스의 로그 사용률, 로그, IO,CPU를 제공합니다. 이 데이터는 15초 간격으로 데이터베이스의 DTU사용량을 계산하는데 쓰입니다.
+[sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV는 개별 데이터베이스의 리소스 사용률을 측정합니다. 이 DMV는 데이터베이스 성능 수준 제한을 백분율로 표시하는 데이터베이스의 로그 사용률, 로그, IO,CPU를 제공합니다. 이 데이터는 15초 간격으로 데이터베이스의 DTU사용량을 계산하는데 쓰입니다.
 
 15초 간격동안 탄력적 풀의 DTU 사용량 집계는 그 시간동안 모든 후보의 데이터베이스의 DTUI사용량을 집계하여 예상할 수 있습니다. 특정 성능 목표에 따라 샘플 데이터의 작은 비율을 취소하는 것이 합리적일 수도 있습니다. 예를 들어 모든 시간 간격에 걸쳐 집계하는 Dtu의 99번째 백분위 수 값을 적용할 제외된 분리물에 적용할 수 있습니다. 그리고 샘플 시간 간격의 99%에 맞는 탄력적 풀 DTU를 제공합니다.
 
@@ -181,8 +181,8 @@ SQL 데이터베이스 서버에서 사용자 데이터베이스에 대한 집�
 
 스크립트를 실행 하기 전에 다음을 설치 합니다.:
 
-- 최신 [Powershell 명령줄 도구](http://go.microsoft.com/?linkid=9811175&clcid=0x409).
-- [SQL Server 2014 기능 팩](https://www.microsoft.com/download/details.aspx?id=42295).
+- 최신 [PowerShell 명령줄 도구](http://go.microsoft.com/?linkid=9811175&clcid=0x409)
+- [SQL Server 2014 기능 팩](https://www.microsoft.com/download/details.aspx?id=42295)
 
 
 ### 스크립트 세부 정보
@@ -402,4 +402,4 @@ SQL 데이터베이스 서버에서 사용자 데이터베이스에 대한 집�
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

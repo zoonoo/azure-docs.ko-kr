@@ -180,7 +180,7 @@ VM에 대한 정보를 가져오려면 이 명령을 실행하고 < and > 문자
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 ## 데이터 디스크 연결
-이 작업에는 몇 단계가 필요합니다. 먼저, **Add-AzureDataDisk** cmdlet를 사용하여 $vm 개체에 디스크를 추가합니다. 그런 다음 Update-AzureVM cmdlet를 사용하여 VM의 구성을 업데이트합니다.
+이 작업에는 몇 단계가 필요합니다. 먼저 **Add-AzureDataDisk** cmdlet를 사용하여 $vm 개체에 디스크를 추가합니다. 그런 다음 Update-AzureVM cmdlet를 사용하여 VM의 구성을 업데이트합니다.
 
 또한 새 디스크를 연결할지 데이터를 포함하는 디스크를 연결할지를 결정해야 합니다. 새 디스크의 경우 명령에서 .vhd 파일을 만들고 동일한 명령으로 디스크를 연결합니다.
 
@@ -209,4 +209,4 @@ Blob 저장소의 기존 .vhd 파일에서 데이터 디스크를 연결하려�
 
 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

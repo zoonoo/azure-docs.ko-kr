@@ -402,4 +402,4 @@ ACS 기능을 자세히 살펴보고 추가 시나리오를 실험하려면 [액
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -345,4 +345,4 @@ Azure AD Connect 도구에서 암호 쓰기 저장을 사용하도록 설정한 
 
  
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

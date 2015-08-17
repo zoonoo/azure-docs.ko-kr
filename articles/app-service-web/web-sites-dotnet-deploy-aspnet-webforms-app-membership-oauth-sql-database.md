@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="Erikre" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.date="07/31/2015" 
 	ms.author="erikre"/>
 
 
@@ -112,7 +112,7 @@ ASP.NET Web Forms에서 마스터 페이지를 통해 응용 프로그램의 페
 
 1. **솔루션 탐색기**에서 *Site.Master* 페이지를 찾아서 엽니다.
 2. 페이지가 **디자인** 보기에 있는 경우 **소스** 보기로 전환합니다.
-3. 노랑으로 강조 표시된 마크업을 수정하거나 추가하여 마스터 페이지를 업데이트합니다.
+3. 태그를 수정하거나 추가하여 페이지의 태그가 다음과 같이 나타나도록 마스터 페이지를 업데이트합니다.
 
 <pre class="prettyprint">
 &lt;%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ContactManager.SiteMaster" %>
@@ -123,7 +123,7 @@ ASP.NET Web Forms에서 마스터 페이지를 통해 응용 프로그램의 페
 &lt;head runat="server">
     &lt;meta charset="utf-8" />
     &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    &lt;title>&lt;%: Page.Title %> - <mark>Contact Manager</mark>&lt;/title>
+    &lt;title>&lt;%: Page.Title %> - Contact Manager&lt;/title>
 
     &lt;asp:PlaceHolder runat="server">
         &lt;%: Scripts.Render("~/bundles/modernizr") %>
@@ -163,7 +163,7 @@ ASP.NET Web Forms에서 마스터 페이지를 통해 응용 프로그램의 페
                         &lt;span class="icon-bar">&lt;/span>
                         &lt;span class="icon-bar">&lt;/span>
                     &lt;/button>
-                    &lt;a class="navbar-brand" runat="server" <mark>id="ContactDemoLink"</mark> href="~/<mark>Contacts/Default.aspx</mark>"><mark>연락처 데모</mark>&lt;/a>
+                    &lt;a class="navbar-brand" runat="server" id="ContactDemoLink" href="~/Contacts/Default.aspx">Contact Demo&lt;/a>
                 &lt;/div>
                 &lt;div class="navbar-collapse collapse">
                     &lt;ul class="nav navbar-nav">
@@ -195,7 +195,7 @@ ASP.NET Web Forms에서 마스터 페이지를 통해 응용 프로그램의 페
             &lt;/asp:ContentPlaceHolder>
             &lt;hr />
             &lt;footer>
-                &lt;p>&amp;copy; &lt;%: DateTime.Now.Year %> - <mark>Contact Manager</mark>&lt;/p>
+                &lt;p>&amp;copy; &lt;%: DateTime.Now.Year %> - Contact Manager&lt;/p>
             &lt;/footer>
         &lt;/div>
     &lt;/form>
@@ -505,8 +505,8 @@ ASP.NET Web Forms는 멤버 자격 및 인증을 위해 개선된 옵션을 제�
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
-                ClientId = "<mark>000000000000.apps.googleusercontent.com</mark>",
-                ClientSecret = "<mark>00000000000</mark>"
+                ClientId = "000000000000.apps.googleusercontent.com",
+                ClientSecret = "00000000000"
             });
         }
     }
@@ -574,7 +574,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 	<pre class="prettyprint">
     protected override void Seed(ContactManager.Models.ApplicationDbContext context)
     {
-        <mark>AddUserAndRole(context);</mark>
+        AddUserAndRole(context);
 </pre>
 5. 모든 변경 내용을 저장한 후 **패키지 관리자 콘솔**에서 다음 명령을 실행합니다.  
 	<pre class="prettyprint">
@@ -608,7 +608,7 @@ Update-Database
 	            AllowPaging=&quot;true&quot; AllowSorting=&quot;true&quot;
 	            SelectMethod=&quot;GetData&quot;&gt;
 	            &lt;EmptyDataTemplate&gt;
-	                There are no entries found for Contacts
+	                연락처에 대한 항목이 없습니다.
 	            &lt;/EmptyDataTemplate&gt;
 	            &lt;LayoutTemplate&gt;
 	                &lt;table class=&quot;table&quot;&gt;
@@ -784,4 +784,4 @@ ASP.NET Web Forms에 대해 자세한 내용은 ASP.NET 웹 앱 및 [Microsoft A
 
  
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

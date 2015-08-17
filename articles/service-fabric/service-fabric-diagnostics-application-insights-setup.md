@@ -41,7 +41,7 @@ Application Insights에서 서비스 패브릭 이벤트를 자동으로 수신�
     Microsoft.ServiceFabric.Telemetry.ApplicationInsights.Listener.Enable(EventLevel.Verbose);
 ```
  
-### StatefulActor\Program.cs의 예:
+### StatefulActor\\Program.cs의 예:
 
 ```csharp
     public static void Main(string[] args)
@@ -89,4 +89,4 @@ Application Insights를 사용하여 서비스 패브릭 앱을 계측하는 방
 - [고유의 사용자 지정 이벤트 및 매트릭 생성 방법 알아보기](../app-insights-custom-events-metrics-api.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

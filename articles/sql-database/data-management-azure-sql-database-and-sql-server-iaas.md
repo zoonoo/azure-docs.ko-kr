@@ -140,7 +140,7 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 
 현재 **Azure SQL 데이터베이스**는 여러 서비스 계층으로 제공됩니다. Basic, Standard 및 Premium 서비스 계층의 경우 선택하는 서비스 계층과 성능 수준을 기준으로 고정 요금이 시간당 청구됩니다. Basic, Standard 및 Premium 서비스 계층은 응용 프로그램의 최대 요구 사항에 맞게 여러 성능 수준의 예측 가능한 성능을 제공하기 위해 설계되었습니다. 응용 프로그램의 다양한 처리량 요구에 맞게 서비스 계층과 성능 수준을 변경할 수 있습니다. 현재 지원되는 서비스 계층에 대한 최신 정보는 [Azure SQL 데이터베이스 서비스 계층(버전)](http://msdn.microsoft.com/library/azure/dn741340.aspx)을 참조하세요.
 
-**Azure SQL 데이터베이스**에서는 데이터베이스 소프트웨어의 구성, 패치 적용 및 업그레이드가 전 세계 데이터 센터의 Microsoft Azure를 통해 자동으로 수행됩니다. 따라서 관리 비용이 줄어듭니다. 또한 [기본 제공 백업](http://msdn.microsoft.com/library/azure/jj650016.aspx) 기능을 사용하여 비용을 크게 절감할 수 있으며, 특히 데이터베이스 수가 많을 경우 그 효과가 큽니다. Azure SQL 데이터베이스를 사용할 경우 Azure SQL 데이터베이스에 대해 실행하는 개별 쿼리나 수신/발신 인터넷 트래픽에 대해 요금이 청구되지 않습니다. 데이터베이스에 트랜잭션 볼륨이 많고 지원해야 하는 동시 사용자가 많은 경우 Basic 또는 Standard 서비스 계층보다는 Premium을 사용하는 것이 좋습니다.
+**Azure SQL 데이터베이스**에서는 데이터베이스 소프트웨어의 구성, 패치 적용 및 업그레이드가 전 세계 데이터 센터의 Microsoft Azure를 통해 자동으로 수행됩니다. 따라서 관리 비용이 줄어듭니다. 또한 [기본 제공 백업](http://msdn.microsoft.com/library/azure/jj650016.aspx) 기능을 사용하여 비용을 크게 절감할 수 있으며, 특히 데이터베이스 수가 많을 경우 그 효과가 큽니다. Azure SQL 데이터베이스를 사용할 경우 Azure SQL 데이터베이스에 대해 실행하는 개별 쿼리나 수신 인터넷 트래픽에 대해서는 요금이 청구되지 않습니다. [발신 인터넷 트래픽](http://azure.microsoft.com/pricing/details/data-transfers/)에 대해 요금이 청구됩니다. 데이터베이스에 트랜잭션 볼륨이 많고 지원해야 하는 동시 사용자가 많은 경우 Basic 또는 Standard 서비스 계층보다는 Premium을 사용하는 것이 좋습니다.
 
 **Azure VM의 SQL Server**에서는 기존 SQL Server 라이선스를 사용합니다. 플랫폼에서 제공하는 SQL Server 이미지를 사용하거나 자신의 SQL Server 라이선스를 Azure로 가져올 수 있습니다. SQL Server 플랫폼에서 제공하는 이미지를 사용할 경우 VM 크기 및 선택하는 SQL Server 버전에 따라 비용이 달라집니다. 기본적으로 SQL Server에 대한 분당 라이선스 비용, Windows Server에 대한 분당 라이선스 비용 및 Azure 저장소 비용을 지불합니다. 분당 청구 옵션을 사용하면 전체 SQL Server 라이선스를 구입하지 않고 필요한 시간 동안만 SQL Server를 사용할 수 있습니다. 고유한 SQL Server 라이선스를 Azure에 가져오는 경우 Azure 계산 및 저장소 비용만 청구됩니다. 자세한 내용은 [Azure에서 Software Assurance를 통한 라이선스 이동](http://azure.microsoft.com/pricing/license-mobility/)을 참조하세요.
 
@@ -158,7 +158,7 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 
 *총 응용 프로그램 비용 = 최소 소프트웨어 개발/수정 비용 + 관리 비용 + SQL Server 및 Windows Server 라이선스 비용 + Azure 저장소 비용*
 
-**중요 참고 사항:**현재 Azure SQL 데이터베이스는 SQL Server의 일부 기능을 지원하지 않습니다. 자세한 비교 정보는[Azure SQL 데이터베이스 지침 및 제한 사항](http://msdn.microsoft.com/library/azure/ff394102.aspx)을 참조하세요. 따라서 기존 데이터베이스를 Azure SQL 데이터베이스로 이동하려는 경우 데이터베이스 재설계에 따른 추가 예산이 필요할 수 있습니다. Azure SQL 데이터베이스는 Microsoft의 PasS(Platform-as-a-Service) 제품입니다. 기존 온-프레미스 SQL Server 응용 프로그램을 Azure SQL 데이터베이스로 마이그레이션하는 경우에는 PasS(Platform-as-a-Service) 제품을 최대한 활용하기 위해 응용 프로그램을 업데이트하는 것이 좋습니다. 예를 들어 응용 프로그램 계층에서 [Azure 웹 사이트](http://azure.microsoft.com/documentation/services/websites/)나 [Azure 클라우드 서비스](http://azure.microsoft.com/services/cloud-services/)를 사용하면 비용 혜택이 증가합니다. 또한 서로 다른 Azure SQL 데이터베이스 서비스 계층에 대해 응용 프로그램의 유효성을 검사하고 응용 프로그램 요구에 가장 적합한 계층을 확인하세요. 이러한 과정을 통해 성능 결과를 더 향상하고 비용을 최소화할 수 있습니다. 자세한 정보는 [Azure SQL 데이터베이스 서비스 계층 및 성능 수준](http://msdn.microsoft.com/library/azure/dn741336.aspx)을 참조하세요.
+**중요 참고 사항:** 현재 Azure SQL 데이터베이스는 SQL Server의 일부 기능을 지원하지 않습니다. 자세한 비교 정보는 [Azure SQL 데이터베이스 지침 및 제한 사항](http://msdn.microsoft.com/library/azure/ff394102.aspx)을 참조하세요. 따라서 기존 데이터베이스를 Azure SQL 데이터베이스로 이동하려는 경우 데이터베이스 재설계에 따른 추가 예산이 필요할 수 있습니다. Azure SQL 데이터베이스는 Microsoft의 PasS(Platform-as-a-Service) 제품입니다. 기존 온-프레미스 SQL Server 응용 프로그램을 Azure SQL 데이터베이스로 마이그레이션하는 경우에는 PasS(Platform-as-a-Service) 제품을 최대한 활용하기 위해 응용 프로그램을 업데이트하는 것이 좋습니다. 예를 들어 응용 프로그램 계층에서 [Azure 웹 사이트](http://azure.microsoft.com/documentation/services/websites/)나 [Azure 클라우드 서비스](http://azure.microsoft.com/services/cloud-services/)를 사용하면 비용 혜택이 증가합니다. 또한 서로 다른 Azure SQL 데이터베이스 서비스 계층에 대해 응용 프로그램의 유효성을 검사하고 응용 프로그램 요구에 가장 적합한 계층을 확인하세요. 이러한 과정을 통해 성능 결과를 더 향상하고 비용을 최소화할 수 있습니다. 자세한 내용은 [Azure SQL 데이터베이스 서비스 계층 및 성능 수준](http://msdn.microsoft.com/library/azure/dn741336.aspx)을 참조하세요.
 
 예상 비용을 자세히 알아보려면 [Azure 비용 계산기](http://azure.microsoft.com/pricing/calculator/)를 사용하세요.
 
@@ -253,4 +253,4 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

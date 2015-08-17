@@ -37,4 +37,4 @@
 - `EngagementConfiguration.xml`: Mobile Engagement 구성 파일입니다. 이 파일에서 Engagement 연결 문자열, 작동 중단 보고 등의 Engagement 설정을 사용자 지정할 수 있습니다.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

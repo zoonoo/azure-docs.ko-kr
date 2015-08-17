@@ -104,10 +104,10 @@ OR  y.[is_user_defined] = 1
 - 텍스트 기반이 varchar/nvarchar를 사용하는 경우 **image**, **text**, **ntext**(작을수록 더 좋음)
 - **nvarchar(max)**, 더 나은 성능을 위해 varchar(4000) 이하 사용
 - **numeric**, decimal 사용
-- **sql_variant**, 열을 강력한 형식의 열로 분할
+- **sql\_variant**, 열을 강력한 형식의 열로 분할
 - **sysname**, nvarchar(128) 사용
 - **table**, 임시 테이블로 변환
-- **timestamp**, datetime2 및 `CURRENT_TIMESTAMP` 함수를 사용하도록 코드 재작업. current_timestamp를 기본 제약 조건으로 사용할 수 없으며 값은 자동으로 업데이트되지 않습니다. rowversion 값을 타임스탬프 형식의 열에서 마이그레이션해야 하는 경우, NOT NULL 또는 NULL 행 버전 값으로 BINARY(8) 또는 VARBINARY(8)을 사용합니다.
+- **timestamp**, datetime2 및 `CURRENT_TIMESTAMP` 함수를 사용하도록 코드 재작업. current\_timestamp를 기본 제약 조건으로 사용할 수 없으며 값은 자동으로 업데이트되지 않습니다. rowversion 값을 타임스탬프 형식의 열에서 마이그레이션해야 하는 경우, NOT NULL 또는 NULL 행 버전 값으로 BINARY(8) 또는 VARBINARY(8)을 사용합니다.
 - **varchar(max)**, 더 나은 성능을 위해 varchar(8000) 이하 사용
 - **uniqueidentifier**, varbinary(8) 사용
 - **사용자 정의 형식**, 가능한 경우 해당 네이티브 형식으로 다시 변환
@@ -306,4 +306,4 @@ SQL 데이터 웨어하우스는 이 기능을 사용하지 않거나 지원하�
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

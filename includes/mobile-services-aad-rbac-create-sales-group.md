@@ -33,8 +33,8 @@
    
     ![](./media/mobile-services-aad-rbac-create-sales-group/sales-group-id.png)
 
-4. 모바일 서비스 구성 페이지로 다시 이동하고 **AAD_SALES_GROUP_ID**라는 앱 설정으로 개체 ID를 추가합니다. 이 자습서에서는 그룹 이름을 기반으로 ID를 확인하지 않고 앱 설정으로 그룹의 개체 ID를 사용 합니다. 그룹 이름이 변경될 수도 있지만 ID는 동일하게 유지되기 때문입니다.
+4. 모바일 서비스 구성 페이지로 다시 이동하고 **AAD\_SALES\_GROUP\_ID**라는 앱 설정으로 개체 ID를 추가합니다. 이 자습서에서는 그룹 이름을 기반으로 ID를 확인하지 않고 앱 설정으로 그룹의 개체 ID를 사용 합니다. 그룹 이름이 변경될 수도 있지만 ID는 동일하게 유지되기 때문입니다.
 
     ![](./media/mobile-services-aad-rbac-create-sales-group/sales-group-id-app-setting.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

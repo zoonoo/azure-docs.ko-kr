@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="hero-article" 
 	ms.date="05/19/2015"
 	ms.author="bwren"/>
 
@@ -26,7 +26,7 @@ Microsoft Azure 자동화를 통해 사용자는 일반적으로 클라우드 �
 ## 자습서
 이 자습서에서는 자동화 계정을 만들고 샘플 "Hello World" Runbook을 Azure 자동화로 가져오고 Runbook을 실행한 후 출력을 확인하는 작업을 단계별로 안내합니다.
 
-이 자습서를 완료하려면 Azure 구독이 필요합니다. 계정이 아직 없는 경우 <a href="/pricing/member-offers/msdn-benefits-details/" target="_blank">MSDN 구독자 혜택을 활성화</a>하거나 <a href="/pricing/free-trial/" target="_blank">무료 평가판에 등록</a>할 수 있습니다.
+이 자습서를 완료하려면 Azure 구독이 필요합니다. 계정이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](../pricing/member-offers/msdn-benefits-details/)하거나 [무료 평가판에 등록](../pricing/free-trial.md)</a>할 수 있습니다.
 
 [AZURE.INCLUDE [automation-note-authentication](../../includes/automation-note-authentication.md)]
 
@@ -138,7 +138,7 @@ Microsoft 및 Azure 자동화 커뮤니티에서는 사용자 고유의 솔루�
 
 ## 사용자 의견
 
-<strong>사용자 의견 보내기</strong> Azure 자동화 Runbook 솔루션 또는 통합 모듈을 찾고 있는 경우 스크립트 센터에 스크립트 요청을 게시하세요. Azure 자동화에 대한 의견이나 기능 요청이 있는 경우 [사용자 음성](http://feedback.windowsazure.com/forums/34192--general-feedback)에 게시하세요. 감사합니다.
+**피드백 보내기** Azure 자동화 Runbook 솔루션 또는 통합 모듈을 찾고 있는 경우 스크립트 센터에 스크립트 요청을 게시하세요. Azure 자동화에 대한 의견이나 기능 요청이 있는 경우 [사용자 음성](http://feedback.windowsazure.com/forums/34192--general-feedback)에 게시하세요. 감사합니다.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

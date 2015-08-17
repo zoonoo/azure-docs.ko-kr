@@ -310,4 +310,4 @@ Azure SQL 데이터베이스 서비스는 Web/Business 데이터베이스 작업
 
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

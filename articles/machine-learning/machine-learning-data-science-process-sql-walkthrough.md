@@ -26,7 +26,7 @@
 
 NYC Taxi Trip 데이터는 1억 7,300만 개가 넘는 개별 여정 및 각 여정의 요금으로 구성된 약 20GB의 압축된 CSV 파일(압축되지 않은 경우 약 48GB)입니다. 각 여정 레코드는 승차 및 하차 위치, 익명 처리된 hack(기사) 면허증 번호 및 medallion(택시의 고유 ID) 번호를 포함합니다. 데이터는 2013년의 모든 여정을 포괄하며, 매월 다음 두 개의 데이터 집합으로 제공됩니다.
 
-1. 'trip_data' CSV는 승객 수, 승차 및 하차 지점, 여정 기간, 여정 거리 등 여정 세부 정보를 포함합니다. 다음은 몇 가지 샘플 레코드입니다.
+1. 'trip\_data' CSV는 승객 수, 승차 및 하차 지점, 여정 기간, 여정 거리 등 여정 세부 정보를 포함합니다. 다음은 몇 가지 샘플 레코드입니다.
 
 		medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
 		89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
@@ -35,7 +35,7 @@ NYC Taxi Trip 데이터는 1억 7,300만 개가 넘는 개별 여정 및 각 여
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
 
-2. 'trip_fare' CSV는 지불 유형, 금액, 추가 요금 및 세금, 팁 및 통행료, 총 지불 금액 등 각 여정의 요금에 대한 세부 정보를 포함합니다. 다음은 몇 가지 샘플 레코드입니다.
+2. 'trip\_fare' CSV는 지불 유형, 금액, 추가 요금 및 세금, 팁 및 통행료, 총 지불 금액 등 각 여정의 요금에 대한 세부 정보를 포함합니다. 다음은 몇 가지 샘플 레코드입니다.
 
 		medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
 		89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
@@ -44,15 +44,15 @@ NYC Taxi Trip 데이터는 1억 7,300만 개가 넘는 개별 여정 및 각 여
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-trip_data와 trip_fare를 조인할 고유 키는 medallion, hack_licence 및 pickup_datetime 필드로 구성됩니다.
+trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및 pickup\_datetime 필드로 구성됩니다.
 
 ## <a name="mltasks"></a>예측 작업의 예제
 
-*tip_amount*를 기반으로 다음 세 가지 예측 문제를 작성해 보겠습니다.
+*tip\_amount*를 기반으로 다음 세 가지 예측 문제를 작성해 보겠습니다.
 
-1. 이진 분류: 여정에 대해 팁이 지불되었는지 여부를 예측합니다. 즉, *tip_amount*가 $0보다 크면 지불된 것이며 *tip_amount*가 $0이면 지불되지 않은 것입니다.
+1. 이진 분류: 여정에 대해 팁이 지불되었는지 여부를 예측합니다. 즉, *tip\_amount*가 $0보다 크면 지불된 것이며 *tip\_amount*가 $0이면 지불되지 않은 것입니다.
 
-2. 다중 클래스 분류: 여정에 대해 지불된 팁의 범위를 예측합니다. *tip_amount*를 5개의 bin 또는 클래스로 나눕니다.
+2. 다중 클래스 분류: 여정에 대해 지불된 팁의 범위를 예측합니다. *tip\_amount*를 5개의 bin 또는 클래스로 나눕니다.
 	
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -99,9 +99,9 @@ AzCopy를 사용하여 데이터를 복사하려면
 
 		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-	AzCopy가 완료되면 데이터 폴더에 총 24개의 압축된 CSV 파일(trip_data 파일 12개와 trip_fare 12개)이 있어야 합니다.
+	AzCopy가 완료되면 데이터 폴더에 총 24개의 압축된 CSV 파일(trip\_data 파일 12개와 trip\_fare 12개)이 있어야 합니다.
 
-4. 다운로드한 파일의 압축을 풉니다. 압축을 푼 파일이 있는 폴더를 적어 둡니다. 이 폴더를 <path_to_data_files>라고 합니다.
+4. 다운로드한 파일의 압축을 풉니다. 압축을 푼 파일이 있는 폴더를 적어 둡니다. 이 폴더를 <path\_to\_data\_files>라고 합니다.
 
 ## <a name="dbload"></a>SQL Server 데이터베이스로 대량 데이터 가져오기
 
@@ -113,7 +113,7 @@ _분할된 테이블 및 뷰_를 사용하여 대량의 데이터를 SQL 데이�
 
 	![SSMS 연결][12]
 
-3. SQL Server 인증 모드를 변경하여 새 SQL 로그인 사용자를 만드는 작업을 아직 수행하지 않은 경우 **Sample Scripts** 폴더에서 **change\_auth.sql**이라는 스크립트 파일을 엽니다. 기본 사용자 이름 및 암호를 변경합니다. 도구 모음에서 **!실행**을 클릭하여 스크립트를 실행합니다.
+3. SQL Server 인증 모드를 변경하여 새 SQL 로그인 사용자를 만드는 작업을 아직 수행하지 않은 경우 **Sample Scripts** 폴더에서 **change\\\_auth.sql**이라는 스크립트 파일을 엽니다. 기본 사용자 이름 및 암호를 변경합니다. 도구 모음에서 **!실행**을 클릭하여 스크립트를 실행합니다.
 
 	![스크립트 실행][13]
 
@@ -129,22 +129,22 @@ _분할된 테이블 및 뷰_를 사용하여 대량의 데이터를 SQL 데이�
 	
 		![SQL 데이터베이스 기본값][15]
 
-5. 새 데이터베이스 및 파일 그룹 집합을 만들어 분할된 테이블을 유지하려면 **create\_db\_default.sql** 샘플 스크립트를 엽니다. 이 스크립트는 **TaxiNYC**라는 새 데이터베이스를 만들고 기본 데이터 위치에 12개의 파일 그룹을 만듭니다. 각 파일 그룹에는 한 달 분량의 trip_data 및 trip_fare 데이터가 유지됩니다. 필요한 경우 데이터베이스 이름을 수정합니다. **!실행**을 클릭하여 스크립트를 실행합니다.
+5. 새 데이터베이스 및 파일 그룹 집합을 만들어 분할된 테이블을 유지하려면 **create\\\_db\\\_default.sql** 샘플 스크립트를 엽니다. 이 스크립트는 **TaxiNYC**라는 새 데이터베이스를 만들고 기본 데이터 위치에 12개의 파일 그룹을 만듭니다. 각 파일 그룹에는 한 달 분량의 trip\_data 및 trip\_fare 데이터가 유지됩니다. 필요한 경우 데이터베이스 이름을 수정합니다. **!실행**을 클릭하여 스크립트를 실행합니다.
 
-6. 이제 trip_data와 trip_fare에 대해 각각 하나씩 두 개의 파티션 테이블을 만듭니다. 다음 작업을 수행하는 **create_partitioned_table.sql** 샘플 스크립트를 엽니다.
+6. 이제 trip\_data와 trip\_fare에 대해 각각 하나씩 두 개의 파티션 테이블을 만듭니다. 다음 작업을 수행하는 **create\_partitioned\_table.sql** 샘플 스크립트를 엽니다.
 
 	- 데이터를 월별로 분할하는 파티션 함수를 만듭니다.
 	- 각 월의 데이터를 다른 파일 그룹에 매핑하는 파티션 구성표를 만듭니다.
-	- 파티션 구성표에 매핑된 분할된 테이블 두 개를 만듭니다. **nyctaxi_trip**은 trip_data 보유하고 **nyctaxi_fare**는 trip_fare 데이터를 보관합니다.
+	- 파티션 구성표에 매핑된 분할된 테이블 두 개를 만듭니다. **nyctaxi\_trip**은 trip\_data 보유하고 **nyctaxi\_fare**는 trip\_fare 데이터를 보관합니다.
 
 	**!실행**을 클릭하여 스크립트를 실행하고 분할된 테이블을 만듭니다.
 
 7. **Sample Scripts** 폴더에는 대량의 데이터를 SQL Server 테이블로 병렬로 가져오는 방법을 보여 주는 두 개의 샘플 PowerShell 스크립트가 제공되어 있습니다.
 
-	- **bcp\_parallel\_generic.ps1**은 대량의 데이터를 테이블로 병렬로 가져오는 일반 스크립트입니다. 이 스크립트를 수정하여 스크립트의 명령줄에 표시된 대로 입력 및 대상 변수를 설정합니다.
-	- **bcp_parallel_nyctaxi.ps1**은 미리 구성된 버전의 일반 스크립트로서, NYC Taxi Trips 데이터의 두 테이블을 모두 로드하는 데 사용될 수 있습니다.  
+	- **bcp\\\_parallel\\\_generic.ps1**은 대량의 데이터를 테이블로 병렬로 가져오는 일반 스크립트입니다. 이 스크립트를 수정하여 스크립트의 명령줄에 표시된 대로 입력 및 대상 변수를 설정합니다.
+	- **bcp\_parallel\_nyctaxi.ps1**은 미리 구성된 버전의 일반 스크립트로서, NYC Taxi Trips 데이터의 두 테이블을 모두 로드하는 데 사용될 수 있습니다.  
 
-8. **bcp_parallel_nyctaxi.ps1** 스크립트 이름을 마우스 오른쪽 단추로 클릭하고 **편집**을 클릭하여 PowerShell에서 엽니다. 사전 설정 변수를 검토하고 선택한 데이터베이스 이름, 입력 데이터 폴더, 대상 로그 폴더 및 샘플 형식파일 **nyctaxi_trip.xml** 및 **nyctaxi_fare.xml**(**Sample Scripts** 폴더에 제공)의 경로에 따라 수정합니다.
+8. **bcp\_parallel\_nyctaxi.ps1** 스크립트 이름을 마우스 오른쪽 단추로 클릭하고 **편집**을 클릭하여 PowerShell에서 엽니다. 사전 설정 변수를 검토하고 선택한 데이터베이스 이름, 입력 데이터 폴더, 대상 로그 폴더 및 샘플 형식파일 **nyctaxi\_trip.xml** 및 **nyctaxi\_fare.xml**(**Sample Scripts** 폴더에 제공)의 경로에 따라 수정합니다.
 
 	![대용량 데이터 가져오기][16]
 
@@ -152,22 +152,22 @@ _분할된 테이블 및 뷰_를 사용하여 대량의 데이터를 SQL 데이�
 
 9. PowerShell 스크립트는 시작 및 종료 시간을 보고합니다. 모든 대량 가져오기가 완료되면 종료 시간이 보고됩니다. 대상 로그 폴더를 확인하여 대량 가져오기에 성공했는지, 즉 대상 로그 폴더에 보고된 오류가 없는지 확인합니다.
 
-10. 이제 데이터베이스에서 탐색, 기능 엔지니어링 및 필요에 따라 다른 작업을 수행할 준비가 완료되었습니다. 테이블은 **pickup_datetime** 필드에 따라 분할되어 있으므로 **WHERE** 절에 **pickup_datetime** 조건이 포함된 쿼리에서 파티션 구성테이블을 활용합니다.
+10. 이제 데이터베이스에서 탐색, 기능 엔지니어링 및 필요에 따라 다른 작업을 수행할 준비가 완료되었습니다. 테이블은 **pickup\_datetime** 필드에 따라 분할되어 있으므로 **WHERE** 절에 **pickup\_datetime** 조건이 포함된 쿼리에서 파티션 구성테이블을 활용합니다.
 
-11. **SQL Server Management Studio**에서 제공된 샘플 스크립트인 **sample\_queries.sql**을 탐색합니다. 샘플 쿼리를 실행하려면 쿼리 줄을 강조 표시한 다음 도구 모음에서 **!실행**을 클릭합니다.
+11. **SQL Server Management Studio**에서 제공된 샘플 스크립트인 **sample\\\_queries.sql**을 탐색합니다. 샘플 쿼리를 실행하려면 쿼리 줄을 강조 표시한 다음 도구 모음에서 **!실행**을 클릭합니다.
 
-12. NYC Taxi Trips 데이터가 별도 두 테이블에 로드됩니다. 조인 작업을 향상시키려면 테이블을 인덱싱하는 것이 좋습니다. 샘플 스크립트 **create_partitioned_index.sql**은 복합 조인 키 **medallion, hack_license 및 pickup_datetime**에 대한 분할된 인덱스를 만듭니다.
+12. NYC Taxi Trips 데이터가 별도 두 테이블에 로드됩니다. 조인 작업을 향상시키려면 테이블을 인덱싱하는 것이 좋습니다. 샘플 스크립트 **create\_partitioned\_index.sql**은 복합 조인 키 **medallion, hack\_license 및 pickup\_datetime**에 대한 분할된 인덱스를 만듭니다.
 
 ## <a name="dbexplore"></a>SQL Server에서 데이터 탐색 및 기능 엔지니어링
 
-이 섹션에서는 이전에 만든 SQL Server 데이터베이스를 사용하여 **SQL Server Management Studio**에서 직접 SQL 쿼리를 실행해 데이터 탐색 및 기능 생성을 수행합니다. **sample_queries.sql**이라는 샘플 스크립트는 **Sample Scripts** 폴더에서 제공됩니다. 기본값과 다른 경우 스크립트를 수정하여 데이터베이스 이름을 변경합니다. **TaxiNYC**
+이 섹션에서는 이전에 만든 SQL Server 데이터베이스를 사용하여 **SQL Server Management Studio**에서 직접 SQL 쿼리를 실행해 데이터 탐색 및 기능 생성을 수행합니다. **sample\_queries.sql**이라는 샘플 스크립트는 **Sample Scripts** 폴더에서 제공됩니다. 기본값과 다른 경우 스크립트를 수정하여 데이터베이스 이름을 변경합니다. **TaxiNYC**
 
 이 연습에서는 다음을 수행합니다.
 
 - Windows 인증 또는 SQL 인증과 SQL 로그인 이름 및 암호를 사용하여 **SQL Server Management Studio**에 연결합니다.
 - 다양한 기간에 걸쳐 몇몇 필드의 데이터 분포를 탐색합니다.
 - 경도 및 위도 필드의 데이터 품질을 조사합니다.
-- **tip_amount**에 따라 이진 및 다중 클래스 분류 레이블을 생성합니다.
+- **tip\_amount**에 따라 이진 및 다중 클래스 분류 레이블을 생성합니다.
 - 기능을 생성하고 여정 거리를 계산/비교합니다.
 - 두 테이블을 조인하고 모델을 빌드하는 데 사용할 무작위 샘플을 추출합니다.
 
@@ -188,7 +188,7 @@ Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 
 
 #### 탐색: medallion별 여정 분포
 
-이 예제에서는 지정된 기간 내의 여정이 100개가 넘는 medallion(택시 번호)을 식별합니다. 쿼리는 **pickup_datetime** 파티션 구성표를 조건으로 하므로 분할된 테이블 액세스를 활용합니다. 전체 데이터 집합을 쿼리할 때도 분할된 테이블 및/또는 인덱스 검색을 사용합니다.
+이 예제에서는 지정된 기간 내의 여정이 100개가 넘는 medallion(택시 번호)을 식별합니다. 쿼리는 **pickup\_datetime** 파티션 구성표를 조건으로 하므로 분할된 테이블 액세스를 활용합니다. 전체 데이터 집합을 쿼리할 때도 분할된 테이블 및/또는 인덱스 검색을 사용합니다.
 
 	SELECT medallion, COUNT(*)
 	FROM nyctaxi_fare
@@ -196,7 +196,7 @@ Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 
 	GROUP BY medallion
 	HAVING COUNT(*) > 100
 
-#### 탐색: medallion 및 hack_license별 여정 분포
+#### 탐색: medallion 및 hack\_license별 여정 분포
 
 	SELECT medallion, hack_license, COUNT(*)
 	FROM nyctaxi_fare
@@ -206,7 +206,7 @@ Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 
 
 #### 데이터 품질 평가: 경도 및/또는 위도가 잘못된 레코드 확인
 
-이 예제에서는 경도 및/또는 위도 필드에 유효하지 않은 값(라디안이 -90도~90도에 속해야 함)이 포함되거나 (0, 0) 좌표가 있는지 조사합니다.
+이 예제에서는 경도 및/또는 위도 필드에 유효하지 않은 값(라디안이 -90도\~90도에 속해야 함)이 포함되거나 (0, 0) 좌표가 있는지 조사합니다.
 
 	SELECT COUNT(*) FROM nyctaxi_trip
 	WHERE pickup_datetime BETWEEN '20130101' AND '20130331'
@@ -264,7 +264,7 @@ Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 
 
 #### 모델 빌드를 위한 데이터 준비
 
-다음 쿼리는 **nyctaxi_trip** 및 **nyctaxi_fare** 테이블을 조인하고, 이진 분류 레이블 **tipped**와 다중 클래스 분류 레이블 **tip_class**를 생성하며, 조인된 전체 데이터 집합에서 1% 무작위 샘플을 추출합니다. Azure의 SQL Server 데이터베이스 인스턴스에서 데이터를 직접 수집하기 위해 이 쿼리를 복사한 다음 [Azure 기계 학습 스튜디오](https://studio.azureml.net) [판독기][reader] 모듈에 직접 붙여 넣을 수 있습니다. 잘못된 (0, 0) 좌표가 있는 레코드는 쿼리에서 제외됩니다.
+다음 쿼리는 **nyctaxi\_trip** 및 **nyctaxi\_fare** 테이블을 조인하고, 이진 분류 레이블 **tipped**와 다중 클래스 분류 레이블 **tip\_class**를 생성하며, 조인된 전체 데이터 집합에서 1% 무작위 샘플을 추출합니다. Azure의 SQL Server 데이터베이스 인스턴스에서 데이터를 직접 수집하기 위해 이 쿼리를 복사한 다음 [Azure 기계 학습 스튜디오](https://studio.azureml.net) [판독기][reader] 모듈에 직접 붙여 넣을 수 있습니다. 잘못된 (0, 0) 좌표가 있는 레코드는 쿼리에서 제외됩니다.
 
 	SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount, 	f.total_amount, f.tip_amount,
 	    CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -316,7 +316,7 @@ Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 
     CONNECTION_STRING = 'DRIVER={'+DRIVER+'};SERVER='+SERVER_NAME+';DATABASE='+DATABASE_NAME+';UID='+USERID+';PWD='+PASSWORD
     conn = pyodbc.connect(CONNECTION_STRING)
 
-#### nyctaxi_trip 테이블의 행 및 열 수 보고
+#### nyctaxi\_trip 테이블의 행 및 열 수 보고
 
     nrows = pd.read_sql('''
 		SELECT SUM(rows) FROM sys.partitions 
@@ -360,7 +360,7 @@ Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 
     
 #### 기술 통계
 
-이제 샘플링된 데이터를 탐색할 준비가 완료되었습니다. **trip_distance**(또는 다른 모든) 필드에 대한 기술 통계부터 살펴봅니다.
+이제 샘플링된 데이터를 탐색할 준비가 완료되었습니다. **trip\_distance**(또는 다른 모든) 필드에 대한 기술 통계부터 살펴봅니다.
 
     df1['trip_distance'].describe()
 
@@ -403,13 +403,13 @@ Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 
 
 #### 시각화: 산점도 예제
 
-**trip_time_in_secs**와 **trip_distance** 사이의 산점도를 표시하여 상관관계가 있는지 확인합니다.
+**trip\_time\_in\_secs**와 **trip\_distance** 사이의 산점도를 표시하여 상관관계가 있는지 확인합니다.
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
 ![그릴 #6][6]
 
-마찬가지로 **rate_code**와 **trip_distance** 간의 관계를 확인할 수 있습니다.
+마찬가지로 **rate\_code**와 **trip\_distance** 간의 관계를 확인할 수 있습니다.
 
     plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
@@ -417,13 +417,13 @@ Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 
 
 ### SQL에서 데이터 하위 샘플링
 
-[Azure 기계 학습 스튜디오](https://studio.azureml.net)에서 모델을 빌드하기 위해 데이터를 준비할 때 **판독기 모듈에서 직접 사용할 SQL 쿼리**를 결정하거나, 간단한 **SELECT * FROM <your_new_table_name>**을 사용하여 [판독기][reader] 모듈에서 사용할 수 있는 엔지니어링 및 샘플링된 데이터를 새 테이블에 유지할 수 있습니다.
+[Azure 기계 학습 스튜디오](https://studio.azureml.net)에서 모델을 빌드하기 위해 데이터를 준비할 때 **판독기 모듈에서 직접 사용할 SQL 쿼리**를 결정하거나, 간단한 **SELECT * FROM <your\_new\_table\_name>**을 사용하여 [판독기][reader] 모듈에서 사용할 수 있는 엔지니어링 및 샘플링된 데이터를 새 테이블에 유지할 수 있습니다.
 
 이 섹션에서는 샘플링 및 엔지니어링된 데이터를 유지할 새 테이블을 만듭니다. 모델 빌드를 위한 직접 SQL 쿼리 예제는 SQL Server에서 [데이터 탐색 및 기능 엔지니어링 섹션](#dbexplore)에서 제공됩니다.
 
 #### 샘플 테이블을 만들고 조인된 테이블의 1%로 채우기(테이블이 있는 경우 먼저 해당 테이블 삭제)
 
-이 섹션에서는 **nyctaxi_trip**과 **nyctaxi_fare**를 조인하고, 1% 무작위 샘플을 추출하며, 이름이 **nyctaxi_one_percent**인 새 테이블에 샘플링된 데이터를 유지합니다.
+이 섹션에서는 **nyctaxi\_trip**과 **nyctaxi\_fare**를 조인하고, 1% 무작위 샘플을 추출하며, 이름이 **nyctaxi\_one\_percent**인 새 테이블에 샘플링된 데이터를 유지합니다.
 
     cursor = conn.cursor()
     
@@ -448,7 +448,7 @@ Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 
     
 ### IPython Notebook에서 SQL 쿼리를 사용하여 데이터 탐색
 
-이 섹션에서는 위에서 만든 새 테이블에 유지되는 1%의 샘플링된 데이터를 사용하여 데이터 분포를 탐색합니다. [SQL Server에서 데이터 탐색 및 기능 엔지니어링](#dbexplore) 섹션에 설명된 대로 선택적으로 **TABLESAMPLE**을 사용하여 탐색 샘플을 제한하거나, **pickup_datetime** 파티션을 사용하여 결과를 지정된 기간으로 제한하여 원래 테이블로 유사한 탐색을 수행할 수 있습니다.
+이 섹션에서는 위에서 만든 새 테이블에 유지되는 1%의 샘플링된 데이터를 사용하여 데이터 분포를 탐색합니다. [SQL Server에서 데이터 탐색 및 기능 엔지니어링](#dbexplore) 섹션에 설명된 대로 선택적으로 **TABLESAMPLE**을 사용하여 탐색 샘플을 제한하거나, **pickup\_datetime** 파티션을 사용하여 결과를 지정된 기간으로 제한하여 원래 테이블로 유사한 탐색을 수행할 수 있습니다.
 
 #### 탐색: 일일 여정 분포
 
@@ -479,7 +479,7 @@ Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 
 다음 예제에서는 모델링에 사용할 두 개의 레이블 집합을 생성합니다.
 
 1. 이진 클래스 레이블 **tipped**(팁이 제공되는지 예측)
-2. 다중 클래스 레이블 **tip\_class**(팁 bin 또는 범위 예측)
+2. 다중 클래스 레이블 **tip\\\_class**(팁 bin 또는 범위 예측)
 
 		nyctaxi_one_percent_add_col = '''
 			ALTER TABLE nyctaxi_one_percent ADD tipped bit, tip_class int
@@ -649,7 +649,7 @@ SQL Server 데이터베이스에서 직접 데이터를 읽는 이진 분류 실
 
 ![Azure 기계 학습][10]
 
-> [AZURE.IMPORTANT]이전 섹션에 제공된 모델링 데이터 추출 및 샘플링 쿼리 예제에서는 **세 가지 모델링 연습에 대한 모든 레이블이 쿼리에 포함되어 있습니다**. 각 모델링 연습의 중요한(필수) 단계는 다른 두 문제에 대한 필요 없는 레이블 및 다른 모든 **목표 누설**을 **제외**하는 것입니다. 예를 들어 이진 분류를 사용할 때는 레이블 **tipped**를 사용하고, **tip_class**, **tip_amount** 및 **total_amount** 필드를 제외합니다. 이러한 필드는 지불된 팁을 의미하므로 목표 누설입니다.
+> [AZURE.IMPORTANT]이전 섹션에 제공된 모델링 데이터 추출 및 샘플링 쿼리 예제에서는 **세 가지 모델링 연습에 대한 모든 레이블이 쿼리에 포함되어 있습니다**. 각 모델링 연습의 중요한(필수) 단계는 다른 두 문제에 대한 필요 없는 레이블 및 다른 모든 **목표 누설**을 **제외**하는 것입니다. 예를 들어 이진 분류를 사용할 때는 레이블 **tipped**를 사용하고, **tip\_class**, **tip\_amount** 및 **total\_amount** 필드를 제외합니다. 이러한 필드는 지불된 팁을 의미하므로 목표 누설입니다.
 >
 > 필요 없는 열 및/또는 목표 누설을 제외하려면 [프로젝트 열][project-columns] 모듈 또는 [메타데이터 편집기][metadata-editor]를 사용하면 됩니다. 자세한 내용은 [프로젝트 열][project-columns] 및 [메타데이터 편집기][metadata-editor] 참조 페이지를 참조하세요.
 
@@ -715,4 +715,4 @@ Azure 기계 학습에서는 학습 실험의 구성 요소를 기반으로 점�
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

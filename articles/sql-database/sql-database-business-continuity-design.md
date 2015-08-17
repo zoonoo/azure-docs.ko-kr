@@ -80,7 +80,7 @@ Azure 포털을 사용하거나 REST API 또는 PowerShell 명령을 호출하�
 
 		Start-AzureSqlDatabaseCopy -ServerName "SecondaryServerName" -DatabaseName "SecondaryDatabaseName" -PartnerServer "PartnerServerName" –ContinuousCopy
 		 
-이 명령은 비동기적입니다. 반환 후 [Get-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720235.aspx) cmdlet을 사용하여 이 작업의 상태를 확인합니다. 작업이 완료되면 반환된 개체의 ReplicationState 필드가 CATCH_UP 값을 가집니다.
+이 명령은 비동기적입니다. 반환 후 [Get-AzureSqlDatabaseCopy](https://msdn.microsoft.com/library/dn720235.aspx) cmdlet을 사용하여 이 작업의 상태를 확인합니다. 작업이 완료되면 반환된 개체의 ReplicationState 필드가 CATCH\_UP 값을 가집니다.
 
 		Get-AzureSqlDatabaseCopy -ServerName "PrimaryServerName" -DatabaseName "PrimaryDatabaseName" -PartnerServer "SecondaryServerName"
 
@@ -89,7 +89,7 @@ Azure 포털을 사용하거나 REST API 또는 PowerShell 명령을 호출하�
 
 [Start Database Copy](https://msdn.microsoft.com/library/azure/dn509576.aspx) API를 사용하면 프로그래밍 방식으로 지역에서 복제 구성을 만들 수 있습니다.
 
-이 API는 비동기적입니다. 반환 후 [Get Database Copy](https://msdn.microsoft.com/library/azure/dn509570.aspx) API를 사용하여 작업의 상태를 확인합니다. 작업이 완료되면 응답 본문의 ReplicationState 필드가 CATCH_UP 값을 가집니다.
+이 API는 비동기적입니다. 반환 후 [Get Database Copy](https://msdn.microsoft.com/library/azure/dn509570.aspx) API를 사용하여 작업의 상태를 확인합니다. 작업이 완료되면 응답 본문의 ReplicationState 필드가 CATCH\_UP 값을 가집니다.
 
 
 ##장애 조치(failover) 구성을 선택하는 방법 
@@ -99,4 +99,4 @@ Azure 포털을 사용하거나 REST API 또는 PowerShell 명령을 호출하�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

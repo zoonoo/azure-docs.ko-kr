@@ -29,7 +29,7 @@
 
 	이는 인증된 사용자 자격 증명이 있는 동일한 클라이언트 인스턴스를 사용하여 등록이 수행되도록 합니다. 인증된 사용자 자격 증명이 없으면 권한 없음(401) 오류로 인해 등록에 실패합니다.
 
-3. 공유 MainPage.cs 프로젝트 파일을 열고 **ButtonLogin_Click** 처리기를 다음으로 바꿉니다.
+3. 공유 MainPage.cs 프로젝트 파일을 열고 **ButtonLogin\_Click** 처리기를 다음으로 바꿉니다.
 
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -44,7 +44,7 @@
 
 	이렇게 하면 푸시 등록을 시도하기 전에 해당 인증이 발생합니다.
 
-4. 	이전 코드에서는 생성된 푸시 클래스 이름(`todolistPush`)을 마법사에 의해 생성된 클래스 이름(일반적으로 <code><em>mobile_service</em>Push</code> 형식)으로 바꿔야 합니다.
+4. 	이전 코드에서는 생성된 푸시 클래스 이름(`todolistPush`)을 마법사에 의해 생성된 클래스 이름(일반적으로 <code><em>mobile\_service</em>Push</code> 형식)으로 바꿔야 합니다.
 
 ###수동으로 설정한 푸시 알림		
 
@@ -54,7 +54,7 @@
  
 2. **InitNotificationsAsync** 메서드의 액세스 가능성을 `private`에서 `public`(으)로 변경하고 `static` 한정자를 추가합니다.
 
-3. 공유 MainPage.cs 프로젝트 파일을 열고 **ButtonLogin_Click** 처리기를 다음으로 바꿉니다.
+3. 공유 MainPage.cs 프로젝트 파일을 열고 **ButtonLogin\_Click** 처리기를 다음으로 바꿉니다.
 
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -69,4 +69,4 @@
 	
 	이렇게 하면 푸시 등록을 시도하기 전에 해당 인증이 발생합니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

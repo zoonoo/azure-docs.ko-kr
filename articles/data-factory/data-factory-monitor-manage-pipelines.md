@@ -25,13 +25,13 @@
 Azure Preview 포털을 사용하면 데이터 팩터리를 다이어그램으로 볼 수 있고 활동을 파이프라인에서 볼 수 있고 입력 및 출력 데이터 집합 등을 볼 수 있습니다. 이 섹션은 조각이 하나의 상태에서 다른 상태로 전환되는 방식을 제공합니다.
 
 ### 데이터 팩터리로 이동
-1.	[Azure 미리 보기 포털](http://portal.azure.com)에 로그인합니다.
+1.	[Azure Preview 포털](http://portal.azure.com)에 로그인합니다.
 2.	**모두 찾아보기**를 클릭하고 **데이터 팩터리**를 선택합니다.
 	
 	![모두 찾아보기 -> 데이터 팩터리](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
 
 	**데이터 팩터리** 블레이드에 모든 데이터 팩터리가 표시됩니다. 
-4. 데이터 팩터리 블레이드에서 원하는 데이터 팩터리를 선택하면 데이터 팩터리의 홈 페이지(\*\*데이터 팩터리\*\* 블레이드) 가 표시됩니다.
+4. 데이터 팩터리 블레이드에서 원하는 데이터 팩터리를 선택하면 데이터 팩터리의 홈 페이지(**데이터 팩터리** 블레이드) 가 표시됩니다.
 
 	![데이터 팩터리 블레이드](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
 
@@ -87,7 +87,7 @@ Skip | | 이 조각을 처리하지 않습니다.
 
 ![작업 실행 세부 정보](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
-조각이 **Ready**(준비) 상태가 아니면 준비되지 않은 업스트림 조각이 **Upstream slices that are not ready** (준비되지 않은 업스트림 조각)에서 현재 조각의 실행을 차단하고 있는 것이 표시됩니다. 조각이 **Waiting**(대기) 상태일 때 조각이 기다리고 있는 업스트림 종속성을 이해하려는 경우에 유용합니다.
+조각이 **Ready** 상태가 아닌 경우 **Upstream slices that are not ready(준비되지 않은 업스트림 조각)** 목록에서 Ready 상태가 아니고 현재 조각의 실행을 차단하는 업스트림 조각을 확인할 수 있습니다. 조각이 **Waiting**(대기) 상태일 때 조각이 기다리고 있는 업스트림 종속성을 이해하려는 경우에 유용합니다.
 
 ![준비되지 않은 업스트림 조각](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
 
@@ -205,7 +205,7 @@ Azure 데이터 팩터리는 Azure 포털 및 Azure PowerShell을 통해 파이�
 		Type                	:
 	
 	
-6. 	위의 출력에 표시된 ID 값을 사용하여 **Save-AzureDataFactoryLog** cmdlet을 실행하고 cmdlet에 **-DownloadLogs** 옵션을 사용하여 로그 파일을 다운로드할 수 있습니다.
+6. 	위의 출력에 표시된 ID 값을 사용하여 **Save-AzureDataFactoryLog** cmdlet을 실행하고 cmdlet에 **-DownloadLogsoption** 옵션을 사용하여 로그 파일을 다운로드할 수 있습니다.
 
 	Save-AzureDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\\Test"
 
@@ -341,7 +341,7 @@ OnDemandClusterDeleted | Succeeded
 
 ![작업](./media/data-factory-monitor-manage-pipelines/operations.png)
 
-Powershell을 사용하여 경고 설정을 보려면 다음과 같은 명령을 실행한 후 생성된 모든 경고를 확인합니다. **microsoft.insights/alertrules** 리소스 유형과 함께 메트릭과 이벤트에 대한 경고 설정이 표시됩니다.
+Powershell을 사용하여 경고 설정을 보려면 다음과 같은 명령을 실행한 후 생성된 모든 경고를 확인합니다. **microsoft.insights/alertrules** 리소스 형식과 함께 메트릭과 이벤트에 대한 경고 설정이 표시됩니다.
 
 	Get-AzureResourceGroup -Name $resourceGroupName
 
@@ -467,4 +467,4 @@ Powershell을 사용하여 경고 설정을 보려면 다음과 같은 명령을
 	Parameters        :
 	Outputs           
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

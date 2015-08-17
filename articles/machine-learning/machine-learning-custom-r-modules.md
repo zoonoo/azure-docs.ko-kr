@@ -86,7 +86,7 @@
 	</Module>
 
  
-XML 파일의 **Input** 및 **Arg** 요소에 대한 **id** 특성 값은 R 코드의 함수 매개 변수 이름(이 예제의 경우 \*dataset1\*, *dataset2* 및 *swap*)과 정확히 일치해야 합니다. 마찬가지로, **Language** 요소의 **entryPoint** 특성 값은 R 스크립트의 함수 이름(이 예제의 경우 \*CustomAddRows\*)과 정확히 일치해야 합니다. 반면, **Output** 요소의 **id** 특성은 R 스크립트의 변수에 해당하지 않습니다. 둘 이상의 출력이 필요한 경우 XML 파일에 선언된 출력과 동일한 순서로 결과가 배치된 목록이 R 함수에서 반환됩니다.
+XML 파일의 **Input** 및 **Arg** 요소에 대한 **id** 특성 값은 R 코드의 함수 매개 변수 이름(이 예제의 경우 *dataset1*, *dataset2* 및 *swap*)과 정확히 일치해야 합니다. 마찬가지로, **Language** 요소의 **entryPoint** 특성 값은 R 스크립트의 함수 이름(이 예제의 경우 *CustomAddRows*)과 정확히 일치해야 합니다. 반면, **Output** 요소의 **id** 특성은 R 스크립트의 변수에 해당하지 않습니다. 둘 이상의 출력이 필요한 경우 XML 파일에 선언된 출력과 동일한 순서로 결과가 배치된 목록이 R 함수에서 반환됩니다.
 
 이 두 파일을 *CustomAddRows.R*과 *CustomAddRows.xml*로 저장한 다음 *CustomAddRows.zip* 파일로 압축합니다.
 
@@ -114,7 +114,7 @@ XML 파일의 **Input** 및 **Arg** 요소에 대한 **id** 특성 값은 R 코�
 * **Description** 요소의 내용은 128자를 초과할 수 없습니다.
 * **Owner** 요소의 내용은 32자를 초과할 수 없습니다.
 
-\*\* 모듈의 결과가 결정적인지 또는 비결정적인지를 나타냅니다.
+** 모듈의 결과가 결정적인지 또는 비결정적인지를 나타냅니다.
 
 기본적으로 모든 모듈은 결정적인 것으로 간주됩니다. 즉, 변경되지 않는 매개 변수 집합이 주어진 경우 모듈은 실행될 때마다 같은 결과를 반환합니다. 이 동작에 따라 Azure 기계 학습 스튜디오는 매개 변수 또는 입력 데이터가 변경되지 않은 경우 결정적으로 표시된 모듈을 다시 실행하지 않습니다. 보다 빠른 실험 실행을 위해 캐시된 결과가 반환됩니다.
 
@@ -254,7 +254,7 @@ XML 정의 파일의 **Language** 요소는 사용자 지정 모듈 언어를 �
 
 * *선택적 속성*: **default** - 설정하지 않은 경우 false
 
-**string**: 표준 문자열입니다.
+**string**: 표준 문자열
 
         <Arg id="stringValue1" name="My string Param" type="string">
 		   <Properties default="Default string value." isOptional="true" />
@@ -363,4 +363,4 @@ R 스크립트의 실행 환경에서는 **R 스크립트 실행** 모듈과 동
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

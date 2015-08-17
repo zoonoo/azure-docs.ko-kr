@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/23/2015"
+	ms.date="08/03/2015"
 	ms.author="mwasson"/>
 
 
@@ -572,4 +572,4 @@ MongoDB를 보호하는 방법을 알아보려면 [MongoDB 보안][mongosecurity
 [mongodbonazure]: http://docs.mongodb.org/ecosystem/tutorial/install-mongodb-on-linux-in-azure/
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

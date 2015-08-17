@@ -34,7 +34,7 @@
 |![감전 아이콘](./media/storsimple-safety/IC740882.png) **감전 위험** |높은 전압|
 |![무거운 무게 아이콘](./media/storsimple-safety/IC740883.png) **무거운 무게**| |
 |![사용자 서비스 가능 부품 없음 아이콘](./media/storsimple-safety/IC740879.png) **사용자 서비스 가능 부품 없음**|제대로 교육을 받지 않은 경우 액세스하지 마십시오.|
-|![안전성 고지 읽기 아이콘](./media/storsimple-safety/IC740885.png)\*\*모든 지침 처음 읽기\*\*| |
+|![안전성 고지 읽기 아이콘](./media/storsimple-safety/IC740885.png)**모든 지침 처음 읽기**| |
 |![기울어짐 위험 아이콘](./media/storsimple-safety/IC740886.png) **기울어짐 위험**| |
 
 
@@ -179,4 +179,4 @@
 
 - 8600 장치의 경우 [8600 장치 개봉, 랙 및 케이블 연결](storsimple-8600-hardware-installation)로 이동합니다.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,5 +1,5 @@
 <properties
-    pageTitle="DocumentDB를 사용하여 Python 및 Flask로 웹 앱 작성 | Azure"
+    pageTitle="DocumentDB를 사용하여 Python 및 Flask로 웹앱 작성 | Microsoft Azure"
     description="DocumentDB를 사용하여 Azure에 호스팅되는 Python 및 Flask(MVC) 웹 응용 프로그램의 데이터를 저장하고 액세스하는 방법을 알아봅니다."
     services="documentdb"
     documentationCenter="python"
@@ -350,4 +350,4 @@ templates 폴더 아래에 다음 html 파일을 추가합니다. create.html, r
   [Azure Management Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

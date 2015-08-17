@@ -1485,4 +1485,4 @@ Azure AD Connect 패키지를 재설치하면 클라우드 서비스 연결 또�
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

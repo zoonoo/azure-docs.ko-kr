@@ -215,7 +215,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
    	![][11]
 
-5. 패키지 폴더 "todolist_1.0.0.0_AnyCPU_Debug_Test"를 두 번째 컴퓨터에 복사합니다. 아래와 같이 두 번째 컴퓨터에서 패키지 폴더를 열고 **Add-AppDevPackage.ps1** PowerShell 스크립트를 마우스 오른쪽 단추로 클릭하고 **PowerShell에서 실행**을 클릭합니다. 프롬프트에 따라 앱을 설치합니다.
+5. 패키지 폴더 "todolist\_1.0.0.0\_AnyCPU\_Debug\_Test"를 두 번째 컴퓨터에 복사합니다. 아래와 같이 두 번째 컴퓨터에서 패키지 폴더를 열고 **Add-AppDevPackage.ps1** PowerShell 스크립트를 마우스 오른쪽 단추로 클릭하고 **PowerShell에서 실행**을 클릭합니다. 프롬프트에 따라 앱을 설치합니다.
 
 	![][12]
   
@@ -350,7 +350,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 <!-- URLs. -->
 [낙관적 동시성 제어]: http://go.microsoft.com/fwlink/?LinkId=330935
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
-[Azure 계정]: http://azure.microsoft.com/pricing/free-trial/
+[Azure 계정]: http://www.windowsazure.com/pricing/free-trial/
 [Validate and modify data with scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
 [Refine queries with paging]: /develop/mobile/tutorials/add-paging-to-data-dotnet
 [모바일 서비스 시작]: /develop/mobile/tutorials/get-started
@@ -367,4 +367,4 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 [시스템 속성]: http://go.microsoft.com/fwlink/?LinkId=331143
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

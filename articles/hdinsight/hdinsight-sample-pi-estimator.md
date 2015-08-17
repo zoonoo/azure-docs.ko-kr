@@ -474,4 +474,4 @@ HDInsight를 사용하여 MapReduce 작업을 실행하는 데 도움이 될 수
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -137,4 +137,4 @@ LDAP를 사용하도록 구성하고 LDAP 디렉터리가 DirSync 컨트롤을 �
 
 ![Multi-Factor-Auth 서버](./media/multi-factor-authentication-get-started-server-dirint/dirint6.png)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

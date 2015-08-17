@@ -5,4 +5,4 @@
 > 
 > 현재 Azure 구독에 로그인되지 않은 경우 [미리 보기 포털](https://portal.azure.com/)을 방문할 때 로그인하라는 메시지가 표시됩니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

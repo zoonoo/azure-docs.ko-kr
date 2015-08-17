@@ -46,7 +46,7 @@ Azure 역할이나 온-프레미스 응용 프로그램에서 블록을 호스�
 
 블록은 다음 두 가지 유형의 규칙을 사용하여 응용 프로그램의 자동 규칙 조정 동작을 정의합니다.
 
--   **제약 조건 규칙:** 인스턴스 수의 상한 및 하한을 설정하려면, 예를 들어 매일 아침 8:00~10:00에 인스턴스를 최소 4개와 최대 6개를 설정하려면 **제약 조건 규칙**을 사용합니다. 다이어그램에서 빨간 선과 파란 선은 제약 조건 규칙을 나타냅니다. 예를 들어 다이어그램에서 **A** 지점의 역할 인스턴스 최소 수는 현재 응용 프로그램의 작업에서 예상 증가량을 수용하기 위해 2개에서 4개로 늘어납니다. 다이어그램에서 **B** 지점의 역할 인스턴스 수는 응용 프로그램의 실행 비용을 제어하기 위해 5개 위로 올라가지 못합니다.
+-   **제약 조건 규칙:** 인스턴스 수의 상한 및 하한을 설정하려면, 예를 들어 매일 아침 8:00\~10:00에 인스턴스를 최소 4개와 최대 6개를 설정하려면 **제약 조건 규칙**을 사용합니다. 다이어그램에서 빨간 선과 파란 선은 제약 조건 규칙을 나타냅니다. 예를 들어 다이어그램에서 **A** 지점의 역할 인스턴스 최소 수는 현재 응용 프로그램의 작업에서 예상 증가량을 수용하기 위해 2개에서 4개로 늘어납니다. 다이어그램에서 **B** 지점의 역할 인스턴스 수는 응용 프로그램의 실행 비용을 제어하기 위해 5개 위로 올라가지 못합니다.
 
 -   **반응 규칙:** 예기치 않은 수요 변화에 따라 역할 인스턴스 수를 변경하려면 **반응 규칙**을 사용합니다. 다이어그램에서 **C** 지점의 블록은 역할 인스턴스 수를 작업의 감소에 따라 4개에서 3개로 자동으로 줄입니다. **D** 지점에서 블록은 작업 증가를 감지하여 실행 중인 역할 인스턴스 수를 3개에서 4개로 자동으로 늘립니다.
 
@@ -236,7 +236,7 @@ Visual Studio에서 규칙 파일이 출력 폴더에 복사되었는지 확인�
       </reactiveRules>
       <operands>
         <performanceCounter alias="WebRoleA_CPU_Avg_5m"
-          performanceCounterName="\Processor(_Total)% Processor Time"
+          performanceCounterName="\Processor(_Total)\% Processor Time"
           source ="AutoscalingApplicationRole"
           timespan="00:05:00" aggregate="Average"/>
       </operands>
@@ -246,7 +246,7 @@ Visual Studio에서 규칙 파일이 출력 폴더에 복사되었는지 확인�
 
 -   제약 조건 규칙은 항상 활성화되어 있으며 최소 역할 인스턴스 수는 2개로, 최대 역할 인스턴스 수는 6개로 설정합니다.
 
--   두 개의 반응 규칙은 모두 **AutoscalingApplicationRole**이라는 Azure 역할의 지난 5분 동안의 평균 CPU 사용량을 계산하는 **WebRoleA_CPU_Avg_5m**이라는 **피연산자**를 사용합니다. 이 역할은 **서비스 모델**에 정의되어 있습니다.
+-   두 개의 반응 규칙은 모두 **AutoscalingApplicationRole**이라는 Azure 역할의 지난 5분 동안의 평균 CPU 사용량을 계산하는 **WebRoleA\_CPU\_Avg\_5m**이라는 **피연산자**를 사용합니다. 이 역할은 **서비스 모델**에 정의되어 있습니다.
 
 -   **ScaleUpOnHighUtilization**이라는 반응 규칙은 지난 5분 동안의 평균 CPU 사용량이 60% 이상인 경우 대상 역할의 인스턴스 수를 하나씩 늘립니다.
 
@@ -363,7 +363,7 @@ Visual Studio에서 규칙 파일이 출력 폴더에 복사되었는지 확인�
   [방법: 서비스 모델 정의]: #DefineServiceModel
   [방법: 자동 크기 조정 규칙 정의]: #DefineAutoscalingRules
   [방법: 자동 크기 조정 응용 프로그램 블록 구성]: #Configure
-  [Azure에서 성능 카운터 사용]: http://azure.microsoft.com/develop/net/common-tasks/performance-profiling/
+  [Azure에서 성능 카운터 사용]: http://www.windowsazure.com/develop/net/common-tasks/performance-profiling/
   [NuGet]: http://nuget.org/
   [Azure 관리 포털]: http://manage.windowsazure.com
   [서비스 정보 데이터 저장]: http://msdn.microsoft.com/library/hh680878(PandP.50).aspx
@@ -380,4 +380,4 @@ Visual Studio에서 규칙 파일이 출력 폴더에 복사되었는지 확인�
   [TechNet 및 MSDN 호스팅 비용과 Azure에서 자동 크기 조정으로 인한 환경적 영향 줄이기]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

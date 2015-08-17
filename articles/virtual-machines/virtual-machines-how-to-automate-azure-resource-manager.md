@@ -72,4 +72,4 @@ Azure 리소스 관리자는 Azure 인프라 서비스에서 실행되는 복잡
 
 [가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

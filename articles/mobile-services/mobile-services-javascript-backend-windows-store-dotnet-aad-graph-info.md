@@ -88,7 +88,7 @@ Azure AD Graph API에 대한 자세한 내용은 [Azure Active Directory 그래�
             });
         }
 
-    *tenant_domain*, 통합 응용 프로그램 *client id* 및 응용 프로그램 *key*가 제공된 경우 이 함수는 디렉터리 정보를 읽기 위해 사용되는 그래프 액세스 토큰을 제공합니다.
+    *tenant\_domain*, 통합 응용 프로그램 *client id* 및 응용 프로그램 *key*가 제공된 경우 이 함수는 디렉터리 정보를 읽기 위해 사용되는 그래프 액세스 토큰을 제공합니다.
 
 4. 그래프 API를 사용하여 사용자의 정보를 반환하는 다음 `getUser` 함수를 추가합니다.
 
@@ -181,4 +181,4 @@ Azure AD Graph API에 대한 자세한 내용은 [Azure Active Directory 그래�
 [모바일 서비스의 AAD에서 역할 기반 액세스 제어]: mobile-services-javascript-backend-windows-store-dotnet-aad-rbac.md
 [Azure Active Directory 그래프 팀 블로그]: http://go.microsoft.com/fwlink/?LinkId=510536
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

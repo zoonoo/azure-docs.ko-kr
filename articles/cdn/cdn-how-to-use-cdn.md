@@ -12,7 +12,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="05/19/2015" 
 	ms.author="mazha"/>
 
@@ -54,4 +54,4 @@ CDN에 캐시된 콘텐츠에 액세스하려면 포털에 제공된 CDN URL을 
 [Azure CDN(콘텐츠 배달 네트워크) 개요](cdn-overview.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

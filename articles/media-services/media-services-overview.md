@@ -87,4 +87,4 @@ Azure 미디어 서비스는 iOS 장치, Android 장치, Windows, Windows Phone,
 [overview]: ./media/media-services-overview/media-services-overview.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

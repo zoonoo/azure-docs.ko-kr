@@ -94,7 +94,7 @@ Windows 기반 및 Linux 기반 또는 독립적으로 개발된 클러스터용
 
 Azure에는 큰 계산 솔루션 및 워크플로에 사용할 수 있는 다양한 계산, 데이터, 네트워킹 및 관련된 서비스가 있습니다. 이러한 서비스의 각 세부 지침에 대 해서는 Azure 서비스 설명서를 참조하세요. 배치 및 HPC 응용 프로그램을 사용하는 일부 일반적인 접근 방법에 대해서는 이 문서의 [솔루션 시나리오](#solution-scenarios)를 참조하세요.
 
->[AZURE.NOTE]새로운 서비스는 Azure 플랫폼에 정기적으로 도입되며 사용자의 시나리오에 유용할 수 있습니다. 미리 보기 서비스의 사용은 프로덕션워크로드가 아니라 개념 배포의 테스트 또는 증명에만 권장됩니다. 질문이 있는 경우 [Azure 파트너](https://pinpoint.microsoft.com/ko-kr/search?keyword=azure) 또는 전자 메일*bigcompute@microsoft.com*에 문의하세요.
+>[AZURE.NOTE]새로운 서비스는 Azure 플랫폼에 정기적으로 도입되며 사용자의 시나리오에 유용할 수 있습니다. 미리 보기 서비스의 사용은 프로덕션워크로드가 아니라 개념 배포의 테스트 또는 증명에만 권장됩니다. 질문이 있는 경우 [Azure 파트너](https://pinpoint.microsoft.com/ko-kr/search?keyword=azure) 또는 전자 메일 **bigcompute@microsoft.com*에 문의하세요.
 
 ### 계산 서비스
 
@@ -104,7 +104,7 @@ Azure에서 계산 서비스는 큰 계산 솔루션의 핵심입니다. 다음 
 
 부여 | 설명
 ------------- | -----------
-**[클라우드 서비스](http://azure.microsoft.com/documentation/services/cloud-services)**<br/><br/> |• Windows Server를 실행 중인 가상 컴퓨터에 있으며 Azure에서 완전히 관리되는 작업자 역할 인스턴스에서 큰 계산 응용 프로그램을 실행할 수 있음<br/><br/>• 서비스 (PaaS) 모델로 플랫폼에서 실행되는 관리 오버헤드가 낮은 확장 가능하고 신뢰할 수 있는 응용 프로그램을 사용 <br/><br/>• 온-프레미스 HPC 클러스터 솔루션으로 통합하는 추가 도구 또는 개발이 필요함
+**[클라우드 서비스](http://azure.microsoft.com/documentation/services/cloud-services)**<br/><br/> |• Windows Server를 실행 중인 가상 컴퓨터에 있으며 Azure에서 완전히 관리되는 작업자 역할 인스턴스에서 큰 계산 응용 프로그램을 실행할 수 있음<br/><br/>• 서비스 (PaaS) 모델로 플랫폼에서 실행되는 관리 오버헤드가 낮은 확장 가능하고 신뢰할 수 있는 응용 프로그램을 사용<br/><br/>• 온-프레미스 HPC 클러스터 솔루션으로 통합하는 추가 도구 또는 개발이 필요함
 **[가상 컴퓨터](http://azure.microsoft.com/documentation/services/virtual-machines)**<br/><br/> |• Microsoft Hyper-V 기술을 사용하여 서비스(IaaS)로서 계산 인프라를 제공<br/><br/>•사용자가 표준 Windows Server 또는 Linux 이미지, 또는 사용자가 공급하거나 [Azure Marketplace](https://azure.microsoft.com/marketplace/)<br/><br/>에서 공급된 이미지 및 데이터 디스크에 서 나온 영구 클라우드 컴퓨터를 유연하게 제공하고 관리할 수 있도록 함• 클라우드에서 온-프레미스 계산 클러스터 도구 및 응용 프로그램을 완전히 실행
 **[배치](http://azure.microsoft.com/documentation/services/batch)**<br/><br/> |• 완전히 관리되는 서비스에서 이미지 렌더링 및 미디어 인코딩 및 코드 변환 등의 대규모 병렬 및 배치 작업을 실행<br/><br/>• 작업 예약 및 가상 컴퓨터의 관리된 풀의 자동 크기 조정 제공<br/><br/>• 개발자가 서비스 또는 클라우드 가능 기존 응용 프로그램으로 응용 프로그램을 작성하거나 실행할 수 있도록 함<br/>
 
@@ -132,7 +132,7 @@ Azure에서 계산 서비스는 큰 계산 솔루션의 핵심입니다. 다음 
 
 큰 계산 솔루션은 온-프레미스 또는 다른 환경에서 리소스에 연결할 다른 Azure 인프라 및 플랫폼 서비스를 포함해야 합니다. 예를 들면 다음과 같습니다.
 
-* [가상 네트워크](http://azure.microsoft.com/documentation/services/virtual-network) - Azure에 논리적으로 분리된 섹션을 만들어서 온-프레미스 데이터 센터 또는 IPSec을 사용하여 단일 클라이언트 컴퓨터에 Azure 리소스를 연결. 온-프레미스 데이터, Active Directory 서비스에 및 라이선스 서버에 큰 계산 응용 프로그램을 액세스 함.
+* [가상 네트워크](http://azure.microsoft.com/documentation/services/virtual-network) - Azure에 논리적으로 분리된 섹션을 만들어서 온-프레미스 데이터 센터 또는 IPSec을 사용하여 단일 클라이언트 컴퓨터에 Azure 리소스를 연결합니다. 온-프레미스 데이터, Active Directory 서비스에 및 라이선스 서버에 큰 계산 응용 프로그램을 액세스합니다.
 
 * [Express 경로](http://azure.microsoft.com/documentation/services/expressroute) - 인터넷을 통해 보안성이 높으며, 더 많은 안정성, 더 빠른 속도 및 일반 연결 보다 대기 시간이 짧은 온-프레미스 또는 공동 배치 환경에서 Microsoft 데이터 센터와 인프라 간의 개인 연결을 만듭니다.
 
@@ -148,7 +148,7 @@ Azure에서 계산 서비스는 큰 계산 솔루션의 핵심입니다. 다음 
 
 **언제 선택할까요?** - 계산 집약적인 워크로드를 실행하는 온-프레미스 HPC 클러스터가 이미 있을 수도 있습니다. 그러나 월말 보고 또는 특별 프로젝트와 같이 사용량이 많은 기간에 대한 추가 리소스를 계산해야 합니다. 대부분의 경우 유휴 상태일 수 있는 추가 하드웨어 및 소프트웨어를 구입, 배포, 관리하는 대신, Azure를 사용하여 기존 클러스터에 주문형 계산 능력을 추가할 수 있습니다.
 
-예를들어 기존 온-프레미스 HPC 클러스터를 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029)를 사용하여 구축한 경우 클라우드 서비스에서 실행되는 Azure 작업자 역할 인스턴스의 형태로 추가 계산 리소스를 추가할 수 있습니다. 다음 그림을 참조하세요. 자세한 내용 및 단계별 지침에 대해서는[Microsoft HPC Pack을 사용하여 Azure로 버스트](https://technet.microsoft.com/library/gg481749.aspx)을 참조하세요.
+예를 들어, 기존 온-프레미스 HPC 클러스터를 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029)를 사용하여 구축한 경우 클라우드 서비스에서 실행되는 Azure 작업자 역할 인스턴스의 형태로 추가 계산 리소스를 추가할 수 있습니다. 다음 그림을 참조하세요. 자세한 내용 및 단계별 지침에 대해서는 [Microsoft HPC Pack을 사용하여 Azure로 버스트](https://technet.microsoft.com/library/gg481749.aspx)을 참조하세요.
 
 ![클러스터 버스트][burst_cluster]
 
@@ -172,7 +172,7 @@ Azure 자동화 도구를 사용하여 필요한 용량을 만들기 위해서 A
 
 * Azure 인프라 서비스에서 HPC 팩 클러스터를 배포하려면 클라이언트 컴퓨터에서 [Azure PowerShell 스크립트](https://msdn.microsoft.com/library/azure/dn864734.aspx)를 실행할 수 있습니다. 이 스크립트는 사전에 HPC Pack을 설치하여 Windows Server VM 이미지를 사용합니다. Azure PowerShell 또는 Azure CLI 로 Azure [퀵스타트 템플릿](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)을 사용하여 HPC 팩 클러스터를 배포할 수 있습니다.
 
-* Azure PowerShell 또는 Azure CLI 로 Azure [퀵스타트 템플릿](https://azure.microsoft.com/documentation/templates/slurm/)을 사용하여 [SLURM](https://computing.llnl.gov/linux/slurm/) 공개 소스 워크로드 관리자를 실행하는 Linux 클러스터를 배포할 수 있습니다.
+* Azure PowerShell 또는 Azure CLI로 Azure [퀵스타트 템플릿](https://azure.microsoft.com/documentation/templates/slurm/)을 사용하여 [SLURM](https://computing.llnl.gov/linux/slurm/) 공개 소스 워크로드 관리자를 실행하는 Linux 클러스터를 배포할 수 있습니다.
 
 클라우드에 전체 HPC 클러스터를 배치하면 분명한 이점을 얻을 수 있습니다.
 
@@ -222,4 +222,4 @@ Azure 자동화 도구를 사용하여 필요한 용량을 만들기 위해서 A
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

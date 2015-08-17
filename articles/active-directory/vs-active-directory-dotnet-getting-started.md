@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/22/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Azure Active Directory 시작(.NET 프로젝트)
 
@@ -28,9 +28,9 @@
  
 ##SignIn/SignOut 컨트롤 추가 
 
-뷰에 SignIn/SignOut 컨트롤을 추가하려면 **_LoginPartial.cshtml\*\* 부분 뷰를 사용하여 뷰 중 하나에 기능을 추가할 수 있습니다. 다음은 표준 **_Layout.cshtml\*\* 뷰에 추가한 기능의 예입니다. (navbar-collapse 클래스가 포함된 div의 마지막 요소를 확인):
+뷰에 SignIn/SignOut 컨트롤을 추가하려면 **\_LoginPartial.cshtml** 부분 뷰를 사용하여 뷰 중 하나에 기능을 추가할 수 있습니다. 다음은 표준 **\_Layout.cshtml** 뷰에 추가한 기능의 예입니다. (navbar-collapse 클래스가 포함된 div의 마지막 요소를 확인):
 
-<PRE class="prettyprint">
+```
     &lt;!DOCTYPE html&gt; 
      &lt;html&gt; 
      &lt;head&gt; 
@@ -73,8 +73,8 @@
         @RenderSection("scripts", required: false) 
     &lt;/body&gt; 
     &lt;/html&gt;
-</PRE>
+```
 
 [Azure Active Directory에 대한 자세한 정보](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -197,10 +197,12 @@ Azure PowerShell 또는 Azure 포털에서 사용자에게 표시될 수 있는 
 
 ### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
 - **설명**: DNS *yourDnsUrl*을(를) 확인할 수 없습니다. Blob 끝점에 정규화된 URL을 지정했는지 확인하세요.  
-- **해결 방법**: 올바른 Blob URL을 제공하세요. URL은 전체가 유효해야 하며, *http://*로 시작하고 *.com*으로 끝나야 합니다. 정규화된 URL은 일반적으로 manage.windowsazure.com 포털의 저장소 탭에서 찾아볼 수 있습니다. 
+- **해결 방법**: 올바른 Blob URL을 제공하세요. URL은 전체가 유효해야 하며, **http://*로 시작하고 *.com*으로 끝나야 합니다. 정규화된 URL은 일반적으로 manage.windowsazure.com 포털의 저장소 탭에서 찾아볼 수 있습니다.
+
 ### <a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
 - **설명**: *yourDnsUrl* 리소스의 위치를 확인할 수 없습니다. Blob 끝점에 정규화된 URL을 지정했는지 확인하세요.  
-- **해결 방법**: 올바른 Blob URL을 제공하세요. URL은 전체가 유효해야 하며, *http://*로 시작하고 *.com*으로 끝나야 합니다. 정규화된 URL은 일반적으로 manage.windowsazure.com 포털의 저장소 탭에서 찾아볼 수 있습니다. 
+- **해결 방법**: 올바른 Blob URL을 제공하세요. URL은 전체가 유효해야 하며, **http://*로 시작하고 *.com*으로 끝나야 합니다. 정규화된 URL은 일반적으로 manage.windowsazure.com 포털의 저장소 탭에서 찾아볼 수 있습니다.
+
 ### <a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
 - **설명**: *specifiedVersion* 버전 및 구독 ID *yourSubscriptionId*에서 사용할 수 없는 버전 정보 값입니다.  
 - **해결 방법**: 사용할 수 있는 버전을 선택한 후 작업을 다시 시도하세요. 
@@ -232,4 +234,4 @@ Azure PowerShell 또는 Azure 포털에서 사용자에게 표시될 수 있는 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

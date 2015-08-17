@@ -91,4 +91,4 @@ Azure AD Connect Sync는 견고한 메타 디렉터리 동기화 플랫폼상에
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -79,4 +79,4 @@ Azure 기계 학습을 통해 고급 분석을 수행하는 환경을 설정할 
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

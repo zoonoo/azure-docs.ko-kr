@@ -135,7 +135,7 @@ Visual Studio Application Insights는 로그 필터링과 검색을 위한 도�
 
 > [AZURE.NOTE]일부 유형의 로깅 버퍼는 로그 파일에 기록하고 이로 인해 스크림에서 이벤트가 작동하지 않을 수 있습니다. 예를 들어 사용자가 페이지를 방문할 때 발생한 응용 프로그램 로그 항목이 페이지 요청에 대한 해당 HTTP 로그 항목보다 먼저 스트림에 표시될 수 있습니다.
 
-> [AZURE.NOTE]로그 스트리밍은 **D:\\home\\LogFiles\\** 폴더에 저장된 모든 텍스트 파일에 기록된 정보를 스트리밍할 수도 있습니다.
+> [AZURE.NOTE]로그 스트리밍은 **D:\\home\\LogFiles\** 폴더에 저장된 모든 텍스트 파일에 기록된 정보를 스트리밍할 수도 있습니다.
 
 ### Azure PowerShell로 스트리밍
 
@@ -197,107 +197,35 @@ __테이블 저장소__
 
 테이블 저장소에 로깅하면 추가 속성을 사용하여 테이블에 저장된 데이터와 이벤트에 대한 좀 더 세부적인 정보를 쉽게 검색할 수 있습니다. 다음 속성(열)이 테이블에 저장된 각 엔터티(행)에 사용됩니다.
 
-<table style="width:100%;border-collapse:collapse">
-<thead>
-<tr>
-<th style="width:45%;border:1px solid black;background-color:#0099dd">속성 이름</th>
-<th style="border:1px solid black;vertical-align:top;background-color:#0099dd">값/형식</th>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">PartitionKey</td>
-<td style="border:1px solid black;vertical-align:top">yyyyMMddHH 형식의 이벤트 날짜/시간</td>
-</tr>
-</thead>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">RowKey</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">이 엔터티를 고유하게 식별하는 GUID 값</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Timestamp</td>
-<td style="border:1px solid black;vertical-align:top">이벤트가 발생한 날짜 및 시간</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">EventTickCount</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">이벤트가 발생한 날짜 및 시간(눈금 형식, 더 높은 정밀도)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">ApplicationName</td>
-<td style="border:1px solid black;vertical-align:top">웹 앱 이름</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">수준</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">이벤트 수준(예: 오류, 경고, 정보)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">EventId</td>
-<td style="border:1px solid black;vertical-align:top">이 이벤트의 이벤트 ID<br>없음이 지정된 경우 기본값은 0</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">InstanceId</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">이벤트가 발생한 웹 앱의 인스턴스</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Pid</td>
-<td style="border:1px solid black;vertical-align:top">프로세스 ID</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Tid</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">이벤트가 생성된 스레드의 스레드 ID</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Message</td>
-<td style="border:1px solid black;vertical-align:top">이벤트 세부 정보 메시지</td>
-</tr>
-</table>
+속성 이름|값/형식
+---|---
+PartitionKey|yyyyMMddHH 형식의 이벤트 날짜/시간
+RowKey|이 엔터티를 고유하게 식별하는 GUID 값
+Timestamp|이벤트가 발생한 날짜 및 시간
+EventTickCount|이벤트가 발생한 날짜 및 시간(눈금 형식, 더 높은 정밀도)
+ApplicationName|웹 앱 이름
+수준|이벤트 수준(예: 오류, 경고, 정보)
+EventId|이 이벤트의 이벤트 ID<p><p>지정된 값이 없으면 0으로 기본 설정됨
+InstanceId|이벤트가 발생한 웹 앱의 인스턴스
+Pid|프로세스 ID
+Tid|이벤트가 생성된 스레드의 스레드 ID
+Message|이벤트 세부 정보 메시지
 
 __Blob 저장소__
 
 Blob 저장소에 로깅하는 경우 데이터는 쉼표로 구분된 값(CSV) 형식으로 저장됩니다. 테이블 저장소와 마찬가지로 이벤트에 대해 좀 더 세부적인 정보를 제공하기 위해 추가 필드가 로깅됩니다. CSV에서 다음 속성이 각 행에 사용됩니다.
 
-<table style="width:100%;border-collapse:collapse">
-<thead>
-<tr>
-<th style="width:45%;border:1px solid black;background-color:#0099dd">속성 이름</th>
-<th style="border:1px solid black;vertical-align:top;background-color:#0099dd">값/형식</th>
-</tr>
-</thead>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Date</td>
-<td style="border:1px solid black;vertical-align:top">이벤트가 발생한 날짜 및 시간</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Level</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">이벤트 수준(예: 오류, 경고, 정보)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">ApplicationName</td>
-<td style="border:1px solid black;vertical-align:top">웹 앱 이름</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">InstanceId</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">이벤트가 발생한 웹 앱의 인스턴스</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">EventTickCount</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">이벤트가 발생한 날짜 및 시간(눈금 형식, 더 높은 정밀도)</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">EventId</td>
-<td style="border:1px solid black;vertical-align:top">이 이벤트의 이벤트 ID<br>없음이 지정된 경우 기본값은 0</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Pid</td>
-<td style="border:1px solid black;vertical-align:top">프로세스 ID</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">Tid</td>
-<td style="border:1px solid black;vertical-align:top;background-color:#8ddaf6">이벤트가 생성된 스레드의 스레드 ID</td>
-</tr>
-<tr>
-<td style="border:1px solid black;vertical-align:top">Message</td>
-<td style="border:1px solid black;vertical-align:top">이벤트 세부 정보 메시지</td>
-</tr>
-</table>
+속성 이름|값/형식
+---|---
+Date|이벤트가 발생한 날짜 및 시간
+Level|이벤트 수준(예: 오류, 경고, 정보)
+ApplicationName|웹 앱 이름
+InstanceId|이벤트가 발생한 웹 앱의 인스턴스
+EventTickCount|이벤트가 발생한 날짜 및 시간(눈금 형식, 더 높은 정밀도)
+EventId|이 이벤트의 이벤트 ID<p><p>지정된 값이 없으면 0으로 기본 설정됨
+Pid|프로세스 ID
+Tid|이벤트가 생성된 스레드의 스레드 ID
+Message|이벤트 세부 정보 메시지
 
 Blob에 저장된 데이터는 다음과 비슷합니다.
 
@@ -335,4 +263,4 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

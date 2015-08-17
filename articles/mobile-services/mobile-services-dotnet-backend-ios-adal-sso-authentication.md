@@ -121,4 +121,4 @@
 [iOS용 Active Directory 인증 라이브러리]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

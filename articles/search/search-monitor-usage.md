@@ -57,4 +57,4 @@ Azure 검색 REST API와 .NET SDK는 모두 서비스 메트릭에 대한 프로
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -139,7 +139,7 @@ Visual Studio 2013에서 ASP.NET 웹 응용 프로그램 프로젝트에는 Azur
 
 이 컨트롤러는 **TableController<T>**에서 파생됩니다. 이 클래스는 **ApiController**를 상속하지만 Azure 모바일 서비스에 맞게 특별히 설정됩니다.
  
-- 라우팅: **TableController**의 기본 경로는 `/tables/{table_name}/{id}`입니다. 여기서 *table_name*은 엔터티 이름과 일치합니다. 따라서 Player 컨트롤러의 경로는 */tables/player/{id}*입니다. 이 라우팅 규칙에 따라 **TableController**가 모바일 서비스 [REST API](http://msdn.microsoft.com/library/azure/jj710104.aspx)와 일치하게 됩니다.
+- 라우팅: **TableController**의 기본 경로는 `/tables/{table_name}/{id}`입니다. 여기서 *table\_name*은 엔터티 이름과 일치합니다. 따라서 Player 컨트롤러의 경로는 */tables/player/{id}*입니다. 이 라우팅 규칙에 따라 **TableController**가 모바일 서비스 [REST API](http://msdn.microsoft.com/library/azure/jj710104.aspx)와 일치하게 됩니다.
 - 데이터 액세스: 데이터베이스 작업의 경우 **TableController** 클래스는 데이터 액세스의 추상을 정의하는 **IDomainManager** 인터페이스를 사용합니다. 스캐폴딩에는 EF 컨텍스트를 래핑하는 **IDomainManager**의 구체적 구현인 **EntityDomainManager**가 사용됩니다. 
 
 이제 PlayerRank 엔터티에 대한 보조 컨트롤러를 추가합니다. 동일한 단계를 수행하지만 모델 클래스에 대해 PlayerRank를 선택합니다. 동일한 데이터 컨텍스트 클래스를 사용하고 새 클래스를 만들지 않습니다. 컨트롤러 이름을 “PlayerRankController”로 지정합니다.
@@ -332,7 +332,7 @@ NuGet 패키지 관리자를 사용해서 모바일 서비스 클라이언트 �
 
 	Install-Package WindowsAzure.MobileServices -Project LeaderboardApp
 
--Project 스위치는 패키지를 설치할 프로젝트를 지정합니다.
+\-Project 스위치는 패키지를 설치할 프로젝트를 지정합니다.
 
 ## 모델 클래스 추가
 
@@ -762,4 +762,4 @@ MVVM(Model-View-ViewModel)은 MVC(Model-View-Controller)의 변형 중 하나입
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

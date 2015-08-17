@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="04/28/2015" 
+    ms.date="08/03/2015" 
     ms.author="elizapo" />
 
 
@@ -21,7 +21,7 @@
 # Azure RemoteApp에 대해 Active Directory 구성
 
 
-RemoteApp 하이브리드 컬렉션의 경우 온-프레미스 Active Directory 도메인 인프라와 디렉터리 통합(및 선택적으로 Single Sign-On)이 포함된 Azure Active Directory 테넌트를 설정해야 합니다. 또한 온-프레미스 디렉터리에 일부 Active Directory 개체를 만들어야 합니다. 다음 정보를 사용하여 온-프레미스 Active Directory와 Azure AD를 구성한 후 통합합니다.
+Azure RemoteApp 하이브리드 컬렉션의 경우 온-프레미스 Active Directory 도메인 인프라와 디렉터리 통합(및 선택적으로 Single Sign-On)이 포함된 Azure Active Directory 테넌트를 설정해야 합니다. 또한 온-프레미스 디렉터리에 일부 Active Directory 개체를 만들어야 합니다. 다음 정보를 사용하여 온-프레미스 Active Directory와 Azure AD를 구성한 후 통합합니다.
 
 ## 온-프레미스 Active Directory 구성
 먼저 온-프레미스 Active Directory를 구성합니다. 사용할 UPN 도메인 접미사를 식별한 후 RemoteApp에 대한 Active Directory 개체를 만들어야 합니다.
@@ -105,7 +105,7 @@ RemoteApp을 사용하려면 온-프레미스 Active Directory에 다음 두 개
 -	**Active Directory->기본 디렉터리->사용자** 아래에서 해당 도메인 아래 새 사용자를 추가합니다(예: myAzureSyncUser@mydomain.com)).
 -	Active Directory의 도메인에서 새 도메인 사용자를 추가하여 Active Directory 멤버로 등록했습니다(예: myDomainSyncUser@mydomain.com)).
 
-이제 Azure Directory 동기화 도구를 시작하고 첫 번째 프로프트에 **myAzureSyncUser@mydomain.com** 자격 증명(Microsoft Azure Active Directory 관리자 자격 증명)을 사용하고 두 번째 프롬프트에 **myDomainSyncUser@mydomain.com**을(를) 사용합니다.
+이제 Azure Directory 동기화 도구를 시작하고 첫 번째 프로프트에 ****myAzureSyncUser@mydomain.com** 자격 증명(Microsoft Azure Active Directory 관리자 자격 증명)을 사용하고 두 번째 프롬프트에 ****myDomainSyncUser@mydomain.com**을(를) 사용합니다.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

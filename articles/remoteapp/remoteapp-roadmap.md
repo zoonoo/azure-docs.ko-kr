@@ -39,4 +39,4 @@ Microsoft는 고객의 의견에 따라 RemoteApp를 개선하기 위해 항상 
 - 오스트레일리아 데이터 센터의 가용성
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

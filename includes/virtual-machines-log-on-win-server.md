@@ -27,4 +27,4 @@
 
 이제 원격으로 가상 컴퓨터를 사용할 수 있습니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -35,7 +35,13 @@
 
 > [AZURE.NOTE]VHDX 형식은 Microsoft Azure에서 지원되지 않습니다. Hyper-V 관리자 또는 [Convert-VHD cmdlet](http://technet.microsoft.com/library/hh848454.aspx)을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다. 이에 대한 자습서는 [여기](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx)에서 찾을 수 있습니다.
  
- 지원되는 Windows Server 버전은 다음과 같습니다. <P> <TABLE BORDER="1" WIDTH="600"> <TR BGCOLOR="#E9E7E7"> <TH>OS</TH> <TH>SKU</TH> <TH>서비스 팩</TH> <TH>아키텍처</TH> </TR> <TR> <TD>Windows Server 2012 R2</TD> <TD>모든 버전</TD> <TD>해당 없음</TD> <TD>x64</TD> </TR> <TR> <TD>Windows Server 2012</TD> <TD>모든 버전</TD> <TD>해당 없음</TD> <TD>x64</TD> </TR> <TR> <TD>Windows Server 2008 R2</TD> <TD>모든 버전</TD> <TD>SP1</TD> <TD>x64</TD> </TR> </TABLE> </P>
+ 다음 Windows Server 버전이 지원됩니다.
+
+OS|SKU|서비스 팩|아키텍처
+---|---|---|---
+Windows Server 2012 R2|모든 버전|해당 없음|x64
+Windows Server 2012|모든 버전|해당 없음|x64
+Windows Server 2008 R2|모든 버전|SP1|x64
 
 
 이 작업에는 다음 단계가 포함됩니다.
@@ -53,7 +59,7 @@ Azure에 이미지를 업로드하려면, Sysprep 명령을 사용하여 일반�
 
 1. 운영 체제에 로그인합니다.
 
-2. 관리자로 명령 프롬프트 창을 엽니다. 디렉터리를 **%windir%\system32\sysprep**로 변경한 후 `sysprep.exe`를 실행합니다.
+2. 관리자로 명령 프롬프트 창을 엽니다. 디렉터리를 **%windir%\\system32\\sysprep**로 변경한 후 `sysprep.exe`를 실행합니다.
 
 	![명령 프롬프트 창 열기](./media/virtual-machines-create-upload-vhd-windows-server/sysprep_commandprompt.png)
 
@@ -211,4 +217,4 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 [4단계: .vhd 파일 업로드]: #upload
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

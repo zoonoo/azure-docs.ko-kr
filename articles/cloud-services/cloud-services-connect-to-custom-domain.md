@@ -147,4 +147,4 @@ Azure에서 클라우드 서비스 프로젝트가 배포되면 AD 도메인 확
 도움이 되었기를 바랍니다!
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

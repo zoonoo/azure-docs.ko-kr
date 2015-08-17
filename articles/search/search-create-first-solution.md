@@ -56,7 +56,7 @@
 1.	Visual Studio에서 Azure 검색 데모 솔루션 **AdventureWorksCatalog.sln**을 엽니다.  
 2.	솔루션 탐색기에서 **CatalogIndexer**를 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정**을 선택합니다. 그러면 **F5** 키를 누를 때 **AdventureWorksWeb** 프로젝트가 아닌 이 응용 프로그램이 실행됩니다.
 3.	이 프로젝트의 **App.config**를 열고 "SearchServiceName" 및 "SearchServiceApiKey"의 값을 Azure 검색 서비스의 값으로 업데이트합니다. 검색 서비스 이름의 경우 서비스가 "mysearch.search.windows.net"이면 "mysearch"를 입력합니다.
-4.	App.config에는 SQL Server 2014 Express LocalDB를 사용한다고 가정하는 "SourceSqlConnectionString"의 항목(Server=(LocalDB)\v11.0)도 선택적으로 포함됩니다. 다른 SQL Server 버전을 사용하는 경우에는 해당 버전에 따라 서버 이름을 업데이트합니다. 예를 들어 로컬 기본 인스턴스가 있으면 (local) 또는 localhost를 사용할 수 있습니다.
+4.	App.config에는 SQL Server 2014 Express LocalDB를 사용한다고 가정하는 "SourceSqlConnectionString"의 항목(Server=(LocalDB)\\v11.0)도 선택적으로 포함됩니다. 다른 SQL Server 버전을 사용하는 경우에는 해당 버전에 따라 서버 이름을 업데이트합니다. 예를 들어 로컬 기본 인스턴스가 있으면 (local) 또는 localhost를 사용할 수 있습니다.
 5.	**App.config**를 저장합니다.
 6.	**F5** 키를 눌러 프로젝트를 시작합니다.
 
@@ -206,4 +206,4 @@ MSDN에서 [Azure 검색 REST API](http://msdn.microsoft.com/library/azure/dn798
 [11]: ./media/search-create-first-solution/AzureSearch_Create1_Suggestions.PNG
 [12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

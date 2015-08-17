@@ -76,7 +76,7 @@
 >이 웹 서비스는 Azure 기계 학습을 사용하여 만들었습니다. 무료 평가판 및 실험을 만들고 [웹 서비스를 게시](machine-learning-publish-a-machine-learning-web-service.md)하는 방법에 대한 소개 비디오는 [azure.com/ml](http://azure.com/ml)을 참조하세요. 다음은 웹 서비스를 만든 실험과 실험 내 각 모듈의 예제 코드의 스크린샷입니다.
 
 
-Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌습니다. 아래의 그림은 어휘집 기반 감정 분석의 실험 흐름을 보여 줍니다. "sent_dict.csv" 파일은 MPQA 주관성 어휘집이며 [R 스크립트 실행][execute-r-script]의 입력 중 하나로 설정되었습니다. 다른 입력은 테스트를 위해 Amazon 리뷰 데이터 집합에서 샘플링된 리뷰입니다. 여기서는 선택, 열 이름 수정, 분할 작업을 수행했습니다. 해시 패키지를 사용하여 메모리에 주관성 어휘집을 저장하고 점수 계산 프로세스를 가속화합니다. 전체 텍스트는 "tm" 패키지에 의해 토큰화되고 감정 사전에 있는 단어와 비교됩니다. 마지막으로, 텍스트에 있는 주관적인 각 단어의 가중치를 더하여 점수가 계산됩니다.
+Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌습니다. 아래의 그림은 어휘집 기반 감정 분석의 실험 흐름을 보여 줍니다. "sent\_dict.csv" 파일은 MPQA 주관성 어휘집이며 [R 스크립트 실행][execute-r-script]의 입력 중 하나로 설정되었습니다. 다른 입력은 테스트를 위해 Amazon 리뷰 데이터 집합에서 샘플링된 리뷰입니다. 여기서는 선택, 열 이름 수정, 분할 작업을 수행했습니다. 해시 패키지를 사용하여 메모리에 주관성 어휘집을 저장하고 점수 계산 프로세스를 가속화합니다. 전체 텍스트는 "tm" 패키지에 의해 토큰화되고 감정 사전에 있는 단어와 비교됩니다. 마지막으로, 텍스트에 있는 주관적인 각 단어의 가중치를 더하여 점수가 계산됩니다.
 
 ###실험 흐름:
 
@@ -89,7 +89,7 @@ Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌습니다. 아
     sent_dict_data<- maml.mapInputPort(1) # class: data.frame
     dataset2 <- maml.mapInputPort(2) # class: data.frame
  
-   # Install hash package install.packages("src/hash_2.2.6.zip", lib = ".", repos = NULL, verbose = TRUE) success <- library("hash", lib.loc = ".", logical.return = TRUE, verbose = TRUE) library(tm) library(stringr)
+   # Install hash package install.packages("src/hash\_2.2.6.zip", lib = ".", repos = NULL, verbose = TRUE) success <- library("hash", lib.loc = ".", logical.return = TRUE, verbose = TRUE) library(tm) library(stringr)
 
     #create sentiment dictionary
     negation_word <- c("not","nor", "no")
@@ -153,4 +153,4 @@ Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌습니다. 아
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

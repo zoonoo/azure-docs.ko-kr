@@ -29,4 +29,4 @@ SQL 데이터베이스는 가벼운 데이터베이스 작업부터 대규모 �
 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)으로 시작하여 단 몇 분만에 [첫 번째 SQL 데이터베이스를 만드는 방법](sql-database-get-started.md)을 알아보세요.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

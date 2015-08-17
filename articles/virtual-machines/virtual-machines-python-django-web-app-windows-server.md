@@ -198,4 +198,4 @@
 
 [웹 플랫폼 설치 관리자]: http://www.microsoft.com/web/downloads/platform.aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

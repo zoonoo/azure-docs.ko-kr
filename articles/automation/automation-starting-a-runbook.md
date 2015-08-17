@@ -232,4 +232,4 @@ user 매개 변수에 다음 텍스트를 사용할 수 있습니다.
 
 - [다른 Runbook에서 Runbook 시작](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

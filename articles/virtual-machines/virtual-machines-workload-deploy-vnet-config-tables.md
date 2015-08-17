@@ -67,4 +67,4 @@
 
 [Azure 가상 네트워크에 대한 프레미스 사이 사이트 간 연결 구성](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -63,4 +63,4 @@ SQL Server AlwaysOn(수신기) 끝점에 대해 ILB 지원을 사용할 수 있�
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

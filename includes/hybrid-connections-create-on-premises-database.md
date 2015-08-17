@@ -5,7 +5,7 @@
 
 하이브리드 연결을 사용하여 온-프레미스 SQL Server 또는 SQL Server Express 데이터베이스를 사용하려면 TCP/IP를 고정 포트에서 사용할 수 있어야 합니다. SQL Server의 기본 인스턴스에서는 고정 포트 1433을 사용하는 반면 명명된 인스턴스에서는 이 포트를 사용하지 않습니다. 이러한 이유 때문에 기본 인스턴스를 설치하겠습니다. 이미 SQL Server Express의 기본 인스턴스가 설치되어 있다면 이 섹션을 건너뛸 수 있습니다.
 
-1. SQL Server Express를 설치하기 위해 다운로드한 **SQLEXPRWT_x64_ENU.exe** 또는 **SQLEXPR_x86_ENU.exe** 파일을 실행합니다. SQL Server 설치 센터 마법사가 나타납니다.
+1. SQL Server Express를 설치하기 위해 다운로드한 **SQLEXPRWT\_x64\_ENU.exe** 또는 **SQLEXPR\_x86\_ENU.exe** 파일을 실행합니다. SQL Server 설치 센터 마법사가 나타납니다.
 	
 2. **새 SQL Server 독립 실행형 설치 또는 기존 설치**에 기능 추가를 클릭한 다음 **인스턴스 구성** 페이지가 나타날 때까지 지침에 따라 기본 선택 및 설정을 수락합니다.
 	
@@ -78,4 +78,4 @@
 
 4. 쿼리를 **실행**하여 새 로그인을 만들고 온-프레미스 데이터베이스에 필요한 권한을 부여합니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

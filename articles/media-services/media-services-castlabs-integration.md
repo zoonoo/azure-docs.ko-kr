@@ -44,25 +44,24 @@ castLabs 및 AMS는 둘 다 라이선스를 인증하는 데 사용되는 JWT(JS
 
 다음 표에서는 AMS의 JWT 토큰을 설명합니다.
 
-<table border="1">
-<tr><td>발급자</td><td>선택한 STS(보안 토큰 서비스)의 발급자 문자열</td></tr>
-<tr><td>대상</td><td>사용된 STS의 대상 문자열</td></tr>
-<tr><td>클레임</td><td>클레임 집합</td></tr>
-<tr><td>NotBefore</td><td>토큰의 시작 유효성</td></tr>
-<tr><td>만료</td><td>토큰의 종료 유효성</td></tr>
-<tr><td>SigningCredentials</td><td>PlayReady 라이선스 서버, castLabs 라이선스 서버 및 STS 간에 공유되는 키로, 대칭 또는 비대칭 키일 수 있습니다.</td></tr>
-</table>
+발급자|선택한 STS(보안 토큰 서비스)의 발급자 문자열
+---|---
+대상|사용된 STS의 대상 문자열
+클레임|클레임 집합
+NotBefore|토큰의 시작 유효성
+만료|토큰의 종료 유효성
+SigningCredentials|PlayReady 라이선스 서버, castLabs 라이선스 서버 및 STS 간에 공유되는 키로, 대칭 또는 비대칭 키일 수 있습니다.
 
 ###castLabs의 JWT 토큰
 
 다음 표에서는 castLabs의 JWT 토큰을 설명합니다.
 
-<table border="1">
-<tr><td>optData</td><td>사용자에 대한 정보가 포함된 JSON 문자열. </td></tr>
-<tr><td>crt</td><td>자산, 해당 자산의 라이선스 정보 및 재생 권한에 대한 정보가 포함된 JSON 문자열.</td></tr>
-<tr><td>iat</td><td>Epoch의 현재 날짜/시간.</td></tr>
-<tr><td>jti</td><td>이 토큰에 대한 고유 식별자(모든 토큰은 castLabs 시스템에서 한 번만 사용할 수 있음).</td></tr>
-</table>
+이름|설명
+---|---
+optData|사용자에 대한 정보가 포함된 JSON 문자열. 
+crt|자산, 해당 자산의 라이선스 정보 및 재생 권한에 대한 정보가 포함된 JSON 문자열.
+iat|Epoch의 현재 날짜/시간.
+jti|이 토큰에 대한 고유 식별자(모든 토큰은 castLabs 시스템에서 한 번만 사용할 수 있음).
 
 ##샘플 솔루션 설정 
 
@@ -114,4 +113,4 @@ Chrome에서 castLabs 플레이어를 사용하여 HTML5 형식의 보호된 비
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

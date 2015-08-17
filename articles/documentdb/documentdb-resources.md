@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DocumentDB 리소스 모델 및 개념 | Azure" 
+	pageTitle="DocumentDB 리소스 모델 및 개념 | Microsoft Azure" 
 	description="Microsoft Azure DocumentDB는 리소스를 관리하기 위해 데이터베이스 계정의 계층 모델, 데이터베이스, 컬렉션, 저장 프로시저, 트리거, UDF, 문서, 첨부 파일, 미디어, 사용자 및 사용 권한을 사용하는 문서 데이터베이스로 완전하게 관리됩니다."  
 	services="documentdb" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="08/03/2015" 
 	ms.author="anhoh"/>
 
 #DocumentDB 리소스 모델 및 개념
@@ -282,7 +282,6 @@ DocumentDB 쿼리 모델은 기능, 효율성 및 간결성 간의 균형을 이
 저장 프로시저와 트리거는 현재 컬렉션 컨텍스트를 노출하는 잘 정의된 개체 모델을 통해 컬렉션 및 컬렉션 내 문서를 조작합니다.
 
 [Azure DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [클라이언트 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)를 사용하여 DocumentDB의 컬렉션을 쉽게 만들거나 삭제하거나 읽거나 열거할 수 있습니다. DocumentDB는 컬렉션의 메타데이터 읽기 또는 쿼리에 대해 항상 강력한 일관성을 제공합니다. 컬렉션을 삭제하면 자동으로 컬렉션 내에 포함된 문서, 첨부 파일, 저장 프로시저, 트리거 및 UDF에 액세스할 수 없게 됩니다.
-
 ##저장 프로시저, 트리거 및 UDF
 이전 섹션에서 설명한 대로 데이터베이스 엔진의 내부 트랜잭션 내에서 직접 실행할 응용 프로그램 논리를 작성할 수 있습니다. 전적으로 JavaScript로 응용 프로그램 논리를 작성하고 저장 프로시저, 트리거 또는 UDF로 모델링할 수 있습니다. 저장 프로시저 또는 트리거 내의 JavaScript 코드는 컬렉션 내 문서를 삽입하거나 바꾸거나 삭제하거나 읽거나 쿼리할 수 있습니다. 반면, UDF 내의 JavaScript는 쿼리 결과 집합의 문서를 열거하여 파생 작업 없는 계산을 수행하고 다른 결과 집합을 생성할 수만 있습니다. 다중 테넌트 지원을 위해 DocumentDB는 엄격한 예약 기반 리소스 거버넌스를 적용합니다. 각 저장 프로시저, 트리거 또는 UDF는 작업 수행을 위해 운영 체제 리소스의 고정 퀀텀을 받습니다. 또한 저장 프로시저, 트리거 또는 UDF는 외부 JavaScript 라이브러리에 대해 연결할 수 없으며 할당된 리소스 예산을 초과할 경우 블랙리스트에 추가됩니다. REST API를 통해 저장 프로시저, 트리거 또는 UDF를 컬렉션에 등록하거나 등록 취소할 수 있습니다. 등록하면 저장 프로시저, 트리거 또는 UDF가 사전 컴파일되고 나중에 실행되는 바이트 코드로 저장됩니다. 다음 섹션에서는 DocumentDB JavaScript SDK를 사용하여 저장 프로시저, 트리거 및 UDF를 등록, 실행 및 등록 취소하는 방법을 보여 줍니다. JavaScript SDK는 [DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 위의 단순한 래퍼입니다.
 
@@ -437,7 +436,6 @@ DocumentDB를 사용하여 잉크 주석과 설명, 강조, 책갈피, 등급, �
 DocumentDB에서 관리되는 미디어의 경우 첨부 파일의 _media 속성이 해당 URI로 미디어를 참조합니다. DocumentDB는 처리 중인 참조가 모두 삭제되면 미디어를 가비지 수집합니다. 새 미디어를 업로드하면 DocumentDB에서 자동으로 첨부 파일을 생성하고 새로 추가한 미디어를 가리키도록 _media를 채웁니다. 직접 관리하는 원격 blob 저장소(예: OneDrive, Azure Storage, DropBox 등)에 미디어를 저장하는 경우에도 첨부 파일을 사용하여 미디어를 참조할 수 있습니다. 이 경우 직접 첨부 파일을 만들고 해당 _media 속성을 채웁니다. 
 
 다른 모든 리소스와 마찬가지로, REST API 또는 클라이언트 SDK를 사용하여 첨부 파일을 쉽게 만들거나, 바꾸거나, 삭제하거나, 읽거나, 열거할 수 있습니다. 문서와 마찬가지로, 첨부 파일의 읽기 일관성 수준은 데이터베이스 계정의 일관성 정책을 따릅니다. 응용 프로그램의 데이터 일관성 요구 사항에 따라 요청 단위로 이 정책을 재정의할 수 있습니다. 첨부 파일을 쿼리할 때 읽기 일관성은 컬렉션에 설정된 인덱싱 모드를 따릅니다. "일관성"의 경우 계정의 일관성 정책을 따릅니다.
-
 ##사용자
 DocumentDB 사용자는 사용 권한 그룹화를 위한 논리적 네임스페이스를 나타냅니다. DocumentDB의 사용자는 ID 관리 시스템이나 미리 정의된 응용 프로그램 역할의 사용자에 해당할 수 있습니다. DocumentDB에서 사용자는 단순히 데이터베이스 아래의 사용 권한 집합을 그룹화하는 추상화를 나타냅니다.
 
@@ -473,4 +471,4 @@ DocumentDB 사용자는 사용 권한 그룹화를 위한 논리적 네임스페
 [3]: media/documentdb-resources/resources3.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

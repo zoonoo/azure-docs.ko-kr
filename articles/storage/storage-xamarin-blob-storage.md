@@ -47,7 +47,7 @@ Xamarin용 Azure 저장소 클라이언트 라이브러리와 함께 개발할 �
 
 	https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
 
-컨테이너에서 만든 공유 액세스 서명이 다음 날 유효해집니다. 서명은 컨테이너 내에서 blob에 대해 전체 권한을 부여합니다(예: 읽기, 쓰기, 삭제 및 나열).
+컨테이너에서 만든 공유 액세스 서명이 다음 날 유효해집니다. 서명은 컨테이너 내에서 Blob에 대한 모든 권한을 부여합니다(*예*: 읽기, 쓰기, 삭제 및 나열).
 
 공유된 액세스 서명에 대한 자세한 내용은 [.NET용 SAS 자습서](storage-dotnet-shared-access-signature-part-2.md)를 참조하십시오.
 
@@ -179,4 +179,4 @@ Xamarin용 Azure 저장소 클라이언트 라이브러리와 함께 개발할 �
 [.NET에서 큐 저장소를 사용하는 방법](storage-dotnet-how-to-use-queues.md)
  
 
-<!---------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

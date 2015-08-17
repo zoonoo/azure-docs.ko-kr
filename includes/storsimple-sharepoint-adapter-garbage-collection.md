@@ -1,3 +1,4 @@
+
 이 절차에서는 다음을 수행합니다.
 
 1. [유지 관리자 실행 파일을 실행할 준비를 합니다](#to-prepare-to-run-the-maintainer).
@@ -6,7 +7,7 @@
 
 3. [Maintainer.exe를 실행합니다](#to-run-the-maintainer).
 
-4. [콘텐츠 데이터베이스 및 휴지통 설정을 되돌립니다](to-revert-the-content-database-and-recycle-bin-settings).
+4. [콘텐츠 데이터베이스 및 휴지통 설정을 되돌립니다](#to-revert-the-content-database-and-recycle-bin-settings).
 
 #### 유지 관리자 실행을 준비하려면
 
@@ -62,4 +63,4 @@
 
 2. 웹 프런트 엔드 서버의 **중앙 관리**에서 원하는 콘텐츠 데이터베이스에 대한 **웹 응용 프로그램의 일반 설정**을 편집하여 휴지통을 다시 사용할 수 있도록 설정합니다. 이 작업을 수행하려면 **중앙 관리** -> **응용 프로그램 관리** -> **웹 응용 프로그램(웹 응용 프로그램 관리)** -> **SharePoint - 80** -> **일반 응용 프로그램 설정**을 클릭합니다. 휴지통 상태를 **ON**으로 설정합니다.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,19 +1,5 @@
-<properties 
-	pageTitle="Azure에서 Oracle WebLogic Server 12c 및 Oracle Database 12c 가상 컴퓨터 만들기" 
-	description="Oracle WebLogic Server 12c 및 Microsoft Azure에서 Windows Server 2012에서 실행 중인 Oracle Database 12c 이미지를 만드는 예제를 단계별로 설명합니다." 
-	services="virtual-machines" 
-	authors="bbenz" 
-	documentationCenter=""/>
-
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
-	ms.author="bbenz" />
-
+<properties title="Creating an Oracle WebLogic Server 12c and Oracle Database 12c Virtual Machine in Azure" pageTitle="Azure에서 Oracle WebLogic Server 12c 및 Oracle Database 12c 가상 컴퓨터 만들기" description="Oracle WebLogic Server 12c 및 Microsoft Azure에서 Windows Server 2012에서 실행 중인 Oracle Database 12c 이미지를 만드는 예제를 단계별로 설명합니다." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Azure에서 Oracle WebLogic Server 11g 가상 컴퓨터 만들기
 다음 예제에서는 Azure에서 Windows Server 2008 R2에서 실행되는 Microsoft에서 제공한 Oracle WebLogic Server 11g 이미지에 따라 가상 컴퓨터를 만드는 방법을 보여줍니다.
 
@@ -103,7 +89,7 @@
 
 ## Azure에서 Oracle WebLogic Server 11g 가상 컴퓨터에 응용 프로그램 설치하기
 
-1. 가상 컴퓨터에 로그인된 상태에서 [http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war](http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war)에서 사용할 수 있는 shoppingcart.war 예제를 로컬로 복사합니다. 예를 들어 **c:\mywar**라는 폴더를 만들고 [http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war](http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war)에서 WAR를 **c:\mywar**로 저장합니다.
+1. 가상 컴퓨터에 로그인된 상태에서 [http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war](http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war)에서 사용할 수 있는 shoppingcart.war 예제를 로컬로 복사합니다. 예를 들어 **c:\\mywar**라는 폴더를 만들고 [http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war](http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war)에서 WAR를 **c:\\mywar**로 저장합니다.
 
 2. **WebLogic Server 관리 콘솔**인 [http://localhost:7001/console](http://localhost:7001/console)을 엽니다. 메시지가 표시되면 WebLogic 사용자 이름과 암호를 제공합니다.
 
@@ -181,4 +167,4 @@
 
 - [Azure용 Oracle 가상 컴퓨터 이미지](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

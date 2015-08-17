@@ -46,10 +46,10 @@ Hadoop 관련 기술(예: Java 기반 MapReduce 프로그래밍 및 스트리밍
 
 HDInsight에는 다음 샘플이 함께 제공됩니다.
 
-- [**Pi 추정 Hadoop 샘플**][hdinsight-sample-pi-estimator]: HDInsight에서 통계(준난수 몬테카를로) 방법을 사용하는 MapReduce 프로그램을 실행하여 Pi 값을 추정하는 방법을 보여 줍니다.
-- [**Hadoop 클러스터에서 MapReduce 단어 개수 예제 실행**][hdinsight-sample-wordcount]: HDInsight 클러스터를 사용하여 텍스트 파일에 나오는 단어 수를 계산하는 MapReduce 프로그램을 실행하는 방법을 보여 줍니다.
-- [**10GB GraySort Hadoop 샘플**][hdinsight-sample-10gb-graysort]: HDInsight를 사용하여 10GB 파일에 대해 일반적인 용도의 GraySort를 실행하는 방법을 보여 줍니다. 실행할 작업에는 데이터를 생성하는 Teragen, 데이터를 정렬하는 Terasort, 데이터가 제대로 정렬되었는지 확인하는 Teravalidate의 세 가지가 있습니다.
-- [**Hadoop의 C# 스트리밍 wordcount MapReduce 샘플**][hdinsight-sample-csharp-streaming]: C#을 사용하여 Hadoop 스트리밍 인터페이스를 사용하는 MapReduce 프로그램을 작성하는 방법을 보여 줍니다.
+- [**Pi 추정 Hadoop 샘플**][hdinsight-sample-pi-estimator]\: HDInsight에서 통계(준난수 몬테카를로) 방법을 사용하는 MapReduce 프로그램을 실행하여 Pi 값을 추정하는 방법을 보여 줍니다.
+- [**Hadoop 클러스터에서 MapReduce 단어 개수 예제 실행**][hdinsight-sample-wordcount]\: HDInsight 클러스터를 사용하여 텍스트 파일에 나오는 단어 수를 계산하는 MapReduce 프로그램을 실행하는 방법을 보여 줍니다.
+- [**10GB GraySort Hadoop 샘플**][hdinsight-sample-10gb-graysort]\: HDInsight를 사용하여 10GB 파일에 대해 일반적인 용도의 GraySort를 실행하는 방법을 보여 줍니다. 실행할 작업에는 데이터를 생성하는 Teragen, 데이터를 정렬하는 Terasort, 데이터가 제대로 정렬되었는지 확인하는 Teravalidate의 세 가지가 있습니다.
+- [**Hadoop의 C# 스트리밍 wordcount MapReduce 샘플**][hdinsight-sample-csharp-streaming]\: C#을 사용하여 Hadoop 스트리밍 인터페이스를 사용하는 MapReduce 프로그램을 작성하는 방법을 보여 줍니다.
 
 
 ## 샘플을 실행하는 방법 ##
@@ -89,4 +89,4 @@ Azure PowerShell을 사용하여 샘플을 실행할 수 있습니다. 실행 �
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

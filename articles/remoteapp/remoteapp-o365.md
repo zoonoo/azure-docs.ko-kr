@@ -48,4 +48,4 @@ RemoteApp의 30일 평가 기간 동안 Office 2013 Professional Plus(평가판)
 평가판이 만료될 때까지 프로덕션 모드로 전환하지 않으면 RemoteApp 컬렉션을 사용할 수 없습니다. 걱정하지 마세요. 설정과 사용자 데이터는 90일 동안 저장되므로 데이터 손실 없이 서비스를 활성화하고 프로덕션 모드로 전환할 수 있습니다.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

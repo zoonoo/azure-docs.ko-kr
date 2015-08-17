@@ -85,4 +85,4 @@ AutocertificateRollover 설정이 True이지만 페더레이션 메타 데이터
 
 >[AZURE.NOTE]contoso.com과 fabrikam.com 등의 여러 최상위 도메인을 지원해야 하는 경우에는 cmdlet과 함께 SupportMultipleDomain 스위치를 사용해야 합니다. 자세한 내용은 여러 최상위 도메인에 대한 지원을 참조하세요. 마지막으로, 모든 웹 응용 프로그램 프록시 서버가 [Windows Server May 2014](http://support.microsoft.com/kb/2955164) 롤업으로 업데이트되었는지 확인합니다. 그렇지 않으면 프록시가 새 인증서로 업데이트되지 못하여 중단될 수 있습니다.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

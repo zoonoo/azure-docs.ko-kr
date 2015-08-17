@@ -203,4 +203,4 @@ ADAL은 응용 프로그램에 일반적인 ID 기능을 쉽게 통합할 수 �
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

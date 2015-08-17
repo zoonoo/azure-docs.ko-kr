@@ -105,7 +105,7 @@ Twilio는 Node.js 라이브러리를 제공하며, 이 라이브러리는 Twilio
 		  "keywords":[]
 		}
 
-	>[AZURE.NOTE]Twilio에 대한 종속성은 (~)를 사용하여 `"twilio": "~1.7.0"`(으)로 추가해야 합니다. 캐럿(^)을 사용한 참조는 지원되지 않습니다.
+	>[AZURE.NOTE]Twilio에 대한 종속성은 (\~)를 사용하여 `"twilio": "~1.7.0"`(으)로 추가해야 합니다. 캐럿(^)을 사용한 참조는 지원되지 않습니다.
 
 4. 이 파일 업데이트를 커밋하고 모바일 서비스에 다시 업데이트를 푸시하세요.
 
@@ -170,7 +170,7 @@ Twilio는 Node.js 라이브러리를 제공하며, 이 라이브러리는 Twilio
 
 응용 프로그램에서 Twilio API에 대한 호출을 시작하면(예: client.InitiateOutboundCall 메서드를 통해) Twilio에서 TwiML 응답을 반환해야 하는 URL로 요청을 보냅니다. 발신 전화 걸기의 예제: Twilio 제공 URL인 http://twimlets.com/message을(를) 사용하여 응답을 반환합니다.
 
-> [AZURE.NOTE]TwiML이 웹 서비스에 사용하도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어 [twimlet_message_url](http://twimlets.com/message)를 클릭하면 빈 &lt;Response&gt; 요소를 볼 수 있습니다. 또 다른 예로, [twimlet_message_url_hello_world](http://twimlets.com/message?Message%5B0%5D=Hello%20World)를 클릭하면 &lt;Say&gt; 요소가 포함된 &lt;Response&gt; 요소를 볼 수 있습니다.
+> [AZURE.NOTE]TwiML이 웹 서비스에 사용하도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어 [twimlet\_message\_url](http://twimlets.com/message)를 클릭하면 빈 &lt;Response&gt; 요소를 볼 수 있습니다. 또 다른 예로, [twimlet\_message\_url\_hello\_world](http://twimlets.com/message?Message%5B0%5D=Hello%20World)를 클릭하면 &lt;Say&gt; 요소가 포함된 &lt;Response&gt; 요소를 볼 수 있습니다.
 
 Twilio 제공 URL을 사용하지 않고 HTTP 응답을 반환하는 고유한 URL 사이트를 만들 수 있습니다. HTTP 응답을 반환하는 사이트는 어떤 언어로든 만들 수 있습니다. 이 항목에서는 ASP.NET 제네릭 처리기에서 URL을 호스트한다고 가정합니다.
 
@@ -207,7 +207,7 @@ TwiML 응답을 제공하는 방법을 설정한 후에는 다음 코드 샘플�
         });
     };
 
-[AZURE.INCLUDE [twilio_additional_services_and_next_steps](../../includes/twilio_additional_services_and_next_steps.md)]
+[AZURE.INCLUDE [twilio\_additional\_services\_and\_next\_steps](../../includes/twilio_additional_services_and_next_steps.md)]
 
 
 [twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls
@@ -230,4 +230,4 @@ TwiML 응답을 제공하는 방법을 설정한 후에는 다음 코드 샘플�
 [azure_twilio_howto_php]: /develop/php/how-to-guides/twilio-voice-and-sms-service/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

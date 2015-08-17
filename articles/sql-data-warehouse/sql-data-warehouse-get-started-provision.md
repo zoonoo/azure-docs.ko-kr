@@ -10,7 +10,7 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/23/2015"
@@ -153,17 +153,17 @@ Azure 포털의 아래 왼쪽 모서리는 새로 만들기 단추입니다. 새
 
 이제 SQLDW 서비스가 성공적으로 프로비전했으므로 계속 사용 방법에 대해 알아봅니다.
 
-다음 단계에서는 방법: 1에 대해 알아봅니다. 데이터 웨어하우스를 [연결 및 쿼리][]합니다. 2. 데이터 웨어하우스에서 Azure blob 저장소로 데이터를 내보냅니다. 3. 데이터 웨어하우스에 더 많은 데이터를 로드합니다.
-
+다음 단계에서는 방법: 1에 대해 알아봅니다. 데이터 웨어하우스를 [연결 및 쿼리][]합니다. 2. [샘플 데이터]를 로드합니다.
 
 <!--Image references-->
 
 
 <!-- Articles -->
 [연결 및 쿼리]: sql-data-warehouse-get-started-connect-query.md
+[샘플 데이터]: ./sql-data-warehouse-get-started-load-samples.md
 
 <!--External links-->
 [무료 평가판]: https://azure.microsoft.com/ko-kr/pricing/free-trial/
 [Azure 포털]: https://portal.azure.com/
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

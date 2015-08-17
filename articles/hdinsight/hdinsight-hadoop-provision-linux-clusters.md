@@ -758,4 +758,4 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5**를 눌러 응�
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "HDInsight에서 Sqoop 사용"
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -155,4 +155,4 @@ Azure SQL DB의 컨텍스트에서 분할된 데이터베이스 탄력성의 데
 [Action]: #action
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

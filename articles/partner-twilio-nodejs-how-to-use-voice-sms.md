@@ -63,7 +63,7 @@ Twilio 서비스를 사용하기 전에 먼저 [계정을 등록][signup](영문
 
 Twilio 백 엔드에 대해 인증된 요청을 만들려면 Twilio 계정에 대해 사용자 이름 및 암호 집합 역할을 하는 계정 SID 및 인증 토큰이 필요합니다. Azure에서 노드 모듈에 사용하기 위해 이를 구성하는 가장 안전한 방법은 시스템 환경 변수를 사용하는 것입니다. 시스템 환경 변수는 Azure 관리 콘솔에서 직접 설정할 수 있습니다.
 
-node.js 웹 사이트를 선택하고 "구성" 링크를 클릭합니다. 아래로 조금 스크롤하면 응용 프로그램의 구성 속성을 설정할 수 있는 영역이 표시됩니다. 표시된 것처럼 Twilio 계정 자격 증명([Twilio 대시보드에서 찾을 수 있음][twilio_dashboard](영문))을 입력하고 이름을 각각 "TWILIO_ACCOUNT_SID" 및 "TWILIO_AUTH_TOKEN"으로 지정합니다.
+node.js 웹 사이트를 선택하고 "구성" 링크를 클릭합니다. 아래로 조금 스크롤하면 응용 프로그램의 구성 속성을 설정할 수 있는 영역이 표시됩니다. 표시된 것처럼 Twilio 계정 자격 증명([Twilio 대시보드에서 찾을 수 있음][twilio_dashboard](영문))을 입력하고 이름을 각각 "TWILIO\_ACCOUNT\_SID" 및 "TWILIO\_AUTH\_TOKEN"으로 지정합니다.
 
 ![Azure 관리 콘솔][azure-admin-console]
 
@@ -80,7 +80,7 @@ node.js 웹 사이트를 선택하고 "구성" 링크를 클릭합니다. 아래
 <a id="makecall"/>
 ## 아웃바운드 전화 걸기
 
-선택한 번호로 전화하는 간단한 양식을 만들어보겠습니다. server.js를 열고 다음 코드를 입력합니다. "CHANGE_ME"라고 표시된 곳에 Azure 웹 사이트의 이름을 배치합니다.
+선택한 번호로 전화하는 간단한 양식을 만들어보겠습니다. server.js를 열고 다음 코드를 입력합니다. "CHANGE\_ME"라고 표시된 곳에 Azure 웹 사이트의 이름을 배치합니다.
 
     // Module dependencies
     var express = require('express'), 
@@ -223,7 +223,7 @@ Azure에서 node.js와 Twilio 해킹을 즐기시기를 바랍니다.
 [purchase_phone]: https://www.twilio.com/user/account/phone-numbers/available/local
 [twiml]: https://www.twilio.com/docs/api/twiml
 [signup]: http://ahoy.twilio.com/azure
-[azure_new_site]: http://azure.microsoft.com/develop/nodejs/tutorials/create-a-website-(mac)/
+[azure_new_site]: http://www.windowsazure.com/develop/nodejs/tutorials/create-a-website-(mac)/
 [twilio_dashboard]: https://www.twilio.com/user/account
 [npm]: http://npmjs.org
 [express]: http://expressjs.com
@@ -233,4 +233,4 @@ Azure에서 node.js와 Twilio 해킹을 즐기시기를 바랍니다.
 [pair]: http://www.twilio.com/blog/2013/06/pair-programming-in-the-browser-with-twilio.html
 [azure-admin-console]: ./media/partner-twilio-nodejs-how-to-use-voice-sms/twilio_1.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

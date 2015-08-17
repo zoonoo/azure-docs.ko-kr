@@ -58,16 +58,16 @@
 
 Office 365 FastTrack 평가판을 시작하려면 가상 회사 이름 및 Microsoft 계정이 필요합니다. Contoso라는 회사 이름의 변형을 회사 이름으로 사용하는 것이 좋습니다. 이는 Microsoft 샘플 콘텐츠에서 사용되는 가상 회사이지만 필수 사항은 아닙니다.
 
-새 Microsoft 계정에 등록합니다. **http://outlook.com**로 이동하여 user123@outlook.com과 같이 전자 메일 주소로 계정을 생성합니다. 이 계정으로 Office 365 FastTrack 평가판에 등록할 수 있습니다.  
-
+새 Microsoft 계정에 등록합니다. **http://outlook.com**로 이동하여 user123@outlook.com과 같이 전자 메일 주소로 계정을 생성합니다. 이 계정을 사용하여 Office 365 FastTrack 평가판에 등록합니다.
 
 그런 다음 새 Office 365 FastTrack 평가판에 등록합니다.
 
 1.	CORP\\User1 계정 자격 증명을 사용하여 CLIENT1에 로그온합니다.
-2.	Internet Explorer를 열고 **http://fasttrack.office.com**로 이동합니다.3.	**FastTracK으로 시작**을 클릭합니다.
+2.	Internet Explorer를 열고 ****http://fasttrack.office.com**로 이동합니다.
+3.	**FastTracK 시작**을 클릭합니다.
 4.	FastTrack 시작 페이지에서 **먼저 Office 365 평가판에 등록하고** **기업용은 여기에서 등록**을 클릭합니다.
 5.	1단계 페이지에서 항목들을 채우고 **기업용 전자 메일 주소** 란에 새 Microsoft 계정을 지정한 후 **다음**을 클릭합니다.
-6.	2단계 페이지에서 첫 번째 필드인 가상 회사 이름에 초기 Office 365 계정의 이름을 입력하고 암호를 입력합니다. 결과 전자 주소(user123@contoso123.onmicrosoft.com과 같은)와 암호를 안전한 위치에 기록하십시오. 이 정보는 단계 3에서 Active Directory 동기화 도구 구성 마법사를 완료하는 데 필요합니다. **다음**을 클릭합니다.
+6.	2단계 페이지에서 첫 번째 필드인 가상 회사 이름에 초기 Office 365 계정의 이름을 입력하고 암호를 입력합니다. 결과 전자 메일 주소(예: user123@contoso123.onmicrosoft.com)와 암호를 안전한 위치에 기록해 둡니다. 이 정보는 단계 3에서 Active Directory 동기화 도구 구성 마법사를 완료하는 데 필요합니다. **다음**을 클릭합니다.
 7.	3단계 페이지에서 문자 메시지를 받을 수 있는 휴대폰 또는 스마트폰의 전화 번호를 입력하고 **문자 보내기**를 클릭합니다.
 8.	문자 메시지를 받으면 확인 코드를 입력하고 **내 계정 만들기**를 클릭합니다. 
 9.	Office 365에서 계정 만들기가 완료되면 **준비가 되었습니다.**를 클릭합니다.
@@ -92,7 +92,7 @@ Office 365 FastTrack 평가판을 시작하려면 가상 회사 이름 및 Micro
 
 그런 다음 DS1 가상 컴퓨터에 연결합니다.
 
-1.	Azure 관리 포털의 가상 컴퓨터 페이지에서 DS1 가상 컴퓨터에 대한 상태 열에 표시된 **실행 중**을 클릭합니다.
+1.	Azure 관리 포털의 가상 컴퓨터 페이지에서 DS1 가상 컴퓨터에 대한 STATUS 열에 표시된 **실행 중**을 클릭합니다.
 2.	작업 표시줄에서 **연결**을 클릭합니다. 
 3.	DS1.rdp를 열라는 메시지가 나타나면 **열기**를 클릭합니다.
 4.	원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **연결**을 클릭합니다.
@@ -114,19 +114,20 @@ Windows PowerShell 명령 프롬프트에서 다음 명령을 사용하여 DS1�
 
 그런 다음 DS1에 디렉터리 동기화를 설치합니다.
 
-1.	Internet Explorer를 열고 주소 표시줄에 **http://go.microsoft.com/fwlink/?LinkID=278924**를 입력한 뒤 ENTER 키를 누릅니다. dirsync.exe를 실행할지 묻는 메시지가 나타나면 **저장** 옆의 화살표를 클릭한 후 **다른 이름으로 저장**, **저장**을 차례로 클릭하여 Downloads 폴더에 파일을 저장합니다. 도구 설치에 대한 자세한 내용은 [디렉터리 동기화 도구 설치 또는 업그레이드](http://technet.microsoft.com/library/jj151800)를 참조하십시오.2.	**Downloads** 폴더를 열고 **dirsync** 파일을 마우스 오른쪽 단추로 클릭한 후 **관리자 권한으로 실행**을 클릭합니다.
+1.	Internet Explorer를 열고 주소 표시줄에 ****http://go.microsoft.com/fwlink/?LinkID=278924**를 입력한 뒤 ENTER를 누릅니다. dirsync.exe를 실행할지 묻는 메시지가 나타나면 **저장** 옆의 화살표를 클릭한 후 **다른 이름으로 저장**, **저장**을 차례로 클릭하여 Downloads 폴더에 파일을 저장합니다. 도구 설치에 대한 자세한 내용은 [디렉터리 동기화 도구 설치 또는 업그레이드](http://technet.microsoft.com/library/jj151800)를 참조하십시오.
+2.	**Downloads** 폴더를 열고 **dirsync** 파일을 마우스 오른쪽 단추로 클릭한 후 **관리자 권한으로 실행**을 클릭합니다.
 3.	Active Directory 동기화 설정 마법사의 시작 페이지에서 **다음**을 클릭합니다. 
 4.	사용 조건 페이지에서 **동의함**을 클릭한 후 **다음**을 클릭합니다.
 5.	폴더 설치 선택 페이지에서 다음을 **클릭**합니다. 설치를 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 6.	마침 페이지에서 **지금 구성 마법사 시작**의 선택을 취소하고 **마침**을 클릭합니다.
-7.	시작 화면에서 **user1**을 클릭한 후 **로그아웃**을 클릭합니다.
+7.	시작 화면에서 **user1**을 클릭한 다음 **로그아웃**을 클릭합니다.
 
 그런 다음 Office 365 평가판에 대한 디렉터리 동기화를 사용하도록 설정합니다.
 
 1.	CLIENT1의 **Office 365 관리 센터** 페이지 왼쪽 창에서 **사용자**를 클릭한 후 **활성 사용자**를 클릭합니다.
-2.	**Active Directory 동기화**를 하려면 **설정**을 클릭합니다.
+2.	**Active Directory 동기화**를 위해 **설정**을 클릭합니다.
 3.	Active Directory 동기화 설정 및 관리 페이지의 3단계에서 **활성화**를 클릭합니다.
-4.	**활성 디렉터리 동기화를 활성화하시겠습니까?**라는 메시지가 나타나면 **활성화**를 클릭합니다. 그러면 **Active Directory 동기화가 활성화되었습니다.**가 3단계에 표시됩니다.
+4.	**Active Directory 동기화를 활성화하시겠습니까?**라는 메시지가 나타나면 **활성화**를 클릭합니다. 그러면 **Active Directory 동기화가 활성화되었습니다.**가 3단계에 표시됩니다.
 5.	CLIENT1에서 **Active Directory 동기화 설정 및 관리 페이지**를 열린 상태로 둡니다.
 
 그런 다음 CORP\\User1 계정으로 DC1에 로그온하여 관리자 수준 Windows PowerShell 명령 프롬프트를 엽니다. 다음 명령을 한 번에 하나씩 실행하여 contoso\_users라는 새 조직 구성 단위를 만들고 Marci Kaufman 및 Lynda Meyer에 대한 새 사용자 계정 두 개를 추가합니다.
@@ -163,9 +164,10 @@ CLIENT1의 **Active Directory 동기화 설정 및 관리 페이지**에서 이 
 1.	CLIENT1의 **활성 사용자** 페이지에서 **Lynda Meyer** 계정을 선택합니다.
 2.	Lynda Meyer 계정의 속성에서 **할당된 라이선스** 아래의 **편집**을 클릭합니다.
 3.	**라이선스 할당** 탭의 **사용자 위치 선택**에서 위치(예: 미국)를 선택합니다.
-4.	**Microsoft Office 365(계획 E3)**를 선택하고 **저장**을 클릭합니다.
+4.	**Microsoft Office 365 Plan E3**를 선택하고 **저장**을 클릭합니다.
 5.	Internet Explorer를 닫습니다.
-6.	Internet Explorer를 열고 **http://portal.microsoftonline.com**로 이동합니다.7.	Lynda Meyer의 Office 365 자격 증명으로 로그온합니다. 사용자 이름은 lyndam@<\*가상의 이름>.onmicrosoft.com입니다. 암호는 Lynda Meyer Active Directory 사용자 계정 암호입니다.
+6.	Internet Explorer를 열고 ****http://portal.microsoftonline.com**로 이동합니다.
+7.	Lynda Meyer의 Office 365 자격 증명으로 로그온합니다. 사용자 이름은 lyndam@<*가상의 이름*>.onmicrosoft.com입니다. 암호는 Lynda Meyer Active Directory 사용자 계정 암호입니다.
 8.	로그온에 성공하면 **Let's make a difference today**가 표시된 Office 365 기본 포털 페이지가 나타납니다.
 
 다음은 현재 구성입니다.
@@ -195,4 +197,4 @@ CLIENT1의 **Active Directory 동기화 설정 및 관리 페이지**에서 이 
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

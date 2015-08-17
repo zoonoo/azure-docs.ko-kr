@@ -1,7 +1,8 @@
 <properties 
 	pageTitle="탄력적 데이터베이스 작업 개요" 
 	description="탄력적 데이터베이스 작업 서비스를 설명합니다." 
-	services="sql-database" documentationCenter=""  
+	services="sql-database" 
+	documentationCenter=""  
 	manager="jeffreyg" 
 	authors="sidneyh"/>
 
@@ -57,4 +58,4 @@
 [1]: ./media/sql-database-elastic-jobs-overview/elastic-jobs.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

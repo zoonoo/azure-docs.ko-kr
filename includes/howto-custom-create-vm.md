@@ -35,7 +35,7 @@
 	- 클라우드 서비스의 첫 번째 또는 유일한 가상 컴퓨터인 경우 **Create a New Cloud Service**를 선택합니다. **Cloud Service DNS Name**에 3자에서 24자 사이의 소문자와 숫자를 사용하는 이름을 입력합니다. 이 이름은 클라우드 서비스를 통해 가상 컴퓨터에 연결하는 데 사용되는 URI의 일부가 됩니다.
 	- 이 가상 컴퓨터를 클라우드 서비스에 추가하는 경우 목록에서 선택합니다.
 
-	**참고**: 동일한 클라우드 서비스에 가상 컴퓨터를 배치하는 방법에 대한 자세한 내용은 [클라우드 서비스에서 가상 컴퓨터를 연결하는 방법](http://azure.microsoft.com/manage/windows/how-to-guides/connect-to-a-cloud-service/)을 참조하세요.
+	**참고**: 동일한 클라우드 서비스에 가상 컴퓨터를 배치하는 방법에 대한 자세한 내용은 [클라우드 서비스에서 가상 컴퓨터를 연결하는 방법](http://www.windowsazure.com/manage/windows/how-to-guides/connect-to-a-cloud-service/)을 참조하세요.
 
 12. **Region/Affinity Group/Virtual Network**에서 가상 컴퓨터에 사용할 영역, 선호도 그룹 또는 가상 네트워크를 선택합니다. 선호도 그룹에 대한 자세한 내용은 [가상 네트워크의 선호도 그룹 정보](http://msdn.microsoft.com/library/azure/jj156085.aspx)를 참조하십시오.
 
@@ -60,4 +60,4 @@
 - [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

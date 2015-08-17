@@ -83,4 +83,4 @@ Exchange가 1개 이상의 포리스트에 있다면 1개의 포리스트에 있
 [2]: ./media/active-directory-aadsync-scenario-overview/ic750600.png
 [3]: ./media/active-directory-aadsync-scenario-overview/ic750601.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

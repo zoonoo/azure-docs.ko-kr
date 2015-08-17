@@ -41,7 +41,7 @@
 
 **StorageEncrypted** 옵션을 사용하여 암호화할 자산을 지정하는 경우, .NET용 Media Services SDK가 자산을 위해 **StorateEncrypted** **ContentKey**를 만듭니다.
 
->[AZURE.NOTE]미디어 서비스는 스트리밍 콘텐트에 대해 URL을 작성할 때 IAssetFile.Name 속성의 값을 사용합니다(예: http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. **Name** 속성 값에는 !\*'();:@&=+$,/?%#"과 같은 [퍼센트 인코딩 예약 문자](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 파일 이름 확장명에는 ‘.’ 하나만 사용할 수 있습니다.
+>[AZURE.NOTE]미디어 서비스는 스트리밍 콘텐트에 대해 URL을 작성할 때 IAssetFile.Name 속성의 값을 사용합니다(예: http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. **Name** 속성 값에는 !*'();:@&=+$,/?%#"과 같은 [퍼센트 인코딩 예약 문자](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 파일 이름 확장명에는 ‘.’ 하나만 사용할 수 있습니다.
 
 이 항목에서는 Media Services 자산으로 파일을 업로드하기 위해 Media Services .NET SDK extensions는 물론 Media Services .NET SDK를 사용하는 방법을 보여 줍니다.
 
@@ -275,7 +275,7 @@ IngestManifest의 **IIngestManifest.BlobStorageUriForUpload** 속성이 제공�
 
 ##.NET SDK Extensions를 사용하여 파일 업로드 
 
-아래 예제는 .NET SDK Extensions를 사용하여 단일 파일을 업로드하는 방법을 보여 줍니다. 이 경우, **CreateFromFile** 메서드가 사용되지만 비동기 버전도 사용됩니다(\*\*CreateFromFileAsync\*\*). **CreateFromFile** 메서드를 사용하면 파일 이름, 암호화 옵션 및 파일의 업로드 과정을 보고하기 위한 콜백을 지정할 수 있습니다.
+아래 예제는 .NET SDK Extensions를 사용하여 단일 파일을 업로드하는 방법을 보여 줍니다. 이 경우, **CreateFromFile** 메서드가 사용되지만 비동기 버전도 사용됩니다(**CreateFromFileAsync**). **CreateFromFile** 메서드를 사용하면 파일 이름, 암호화 옵션 및 파일의 업로드 과정을 보고하기 위한 콜백을 지정할 수 있습니다.
 
 
 	static public IAsset UploadFile(string fileName, AssetCreationOptions options)
@@ -305,4 +305,4 @@ IngestManifest의 **IIngestManifest.BlobStorageUriForUpload** 속성이 제공�
 [미디어 프로세서를 가져오는 방법]: media-services-get-media-processor.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

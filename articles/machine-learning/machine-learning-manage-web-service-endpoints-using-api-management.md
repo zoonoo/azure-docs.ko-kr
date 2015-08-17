@@ -1,7 +1,6 @@
 <properties
 	pageTitle="API 관리를 사용하여 AzureML 웹 서비스를 관리하는 방법 알아보기 | Microsoft Azure"
 	description="API 관리를 사용하여 AzureML 웹 서비스를 관리하는 방법에 대한 가이드입니다."
-	keywords="machine learning,api management"
 	services="machine-learning"
 	documentationCenter=""
 	authors="roalexan"
@@ -38,7 +37,7 @@ AzureML은 고급 분석 솔루션을 손쉽게 빌드, 배포 및 공유할 수
 
 * Azure 계정. Azure 계정이 없는 경우 무료 평가판 계정을 만드는 방법에 대한 자세한 내용은 [여기](http://azure.microsoft.com/pricing/free-trial/)를 클릭하세요.
 * AzureML 계정. AzureML 계정이 없는 경우 무료 평가판 계정을 만드는 방법에 대한 자세한 내용은 [여기](https://studio.azureml.net/)를 클릭하세요.
-* AzureML 실험에 대한 작업 영역, 서비스 및 api_key는 웹 서비스로 게시됩니다. AzureML 실험을 만드는 방법에 대한 자세한 내용은 [여기](machine-learning/machine-learning-create-experiment.md)를 클릭하세요. AzureML 실험을 웹 서비스로 게시하는 방법에 대한 자세한 내용은 [여기](machine-learning/machine-learning-publish-a-machine-learning-web-service.md)를 클릭하세요. 또는 간단한 AzureML 실험을 만들고 테스트하고 이를 웹 서비스로 게시하는 방법에 대한 지침이 부록 A에 있습니다.
+* AzureML 실험에 대한 작업 영역, 서비스 및 api\_key는 웹 서비스로 게시됩니다. AzureML 실험을 만드는 방법에 대한 자세한 내용은 [여기](machine-learning/machine-learning-create-experiment.md)를 클릭하세요. AzureML 실험을 웹 서비스로 게시하는 방법에 대한 자세한 내용은 [여기](machine-learning/machine-learning-publish-a-machine-learning-web-service.md)를 클릭하세요. 또는 간단한 AzureML 실험을 만들고 테스트하고 이를 웹 서비스로 게시하는 방법에 대한 지침이 부록 A에 있습니다.
 
 ##API 관리 인스턴스 만들기
 
@@ -72,7 +71,7 @@ API 관리 서비스에 대해 Azure 포털에서 **관리**를 클릭합니다.
 
 ![api-management-menu](./media/machine-learning-manage-web-service-endpoints-using-api-management/api-management-menu.png)
 
-**Web API 이름**으로 **AzureML 데모 API**를 입력합니다. **웹 서비스 URL**로 **https://ussouthcentral.services.azureml.net**을(를) 입력합니다. **Web API URL 접미사**로 **azureml-demo**를 입력합니다. **Web API URL** 체계로 **HTTPS**를 확인합니다. **제품**으로 **시작**을 선택합니다. 완료되면 **저장**을 클릭하여 API를 만듭니다.
+**Web API 이름**으로 **AzureML 데모 API**를 입력합니다. **웹 서비스 URL**로 ****https://ussouthcentral.services.azureml.net**을 입력합니다. **Web API URL 접미사**로 **azureml-demo**를 입력합니다. **Web API URL** 체계가 **HTTPS**인지 확인합니다. **제품**으로 **시작**을 선택합니다. 완료되면 **저장**을 클릭하여 API를 만듭니다.
 
 ![add-new-api](./media/machine-learning-manage-web-service-endpoints-using-api-management/add-new-api.png)
 
@@ -200,11 +199,11 @@ This is a good day | 1 1 2 2 0 2 0 1
 
 AzureML 웹 서비스는 RSS(요청/응답 서비스) 및 BES(일괄 처리 실행 서비스) 끝점으로 구성됩니다. RSS는 동기 실행에 사용됩니다. BES는 비동기 작업 실행에 사용됩니다. 다음 샘플 Python 소스로 웹 서비스를 테스트하려면 Python용 Azure SDK를 다운로드해야 할 수 있습니다([Python을 설치하는 방법](python-how-to-install.md) 참조).
 
-또한 다음 샘플 소스에 대한 실험의 **workspace**, **service** 및 **api_key**가 필요합니다. 웹 서비스 대시보드에서 실험의 **요청/응답** 또는 **일괄 처리 실행**을 클릭하여 workspace 및 service를 찾을 수 있습니다.
+또한 다음 샘플 소스에 대한 실험의 **workspace**, **service** 및 **api\_key**가 필요합니다. 웹 서비스 대시보드에서 실험의 **요청/응답** 또는 **일괄 처리 실행**을 클릭하여 workspace 및 service를 찾을 수 있습니다.
 
 ![find-workspace-and-service](./media/machine-learning-manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
 
-웹 서비스 대시보드에서 실험을 클릭하여 **api_key**를 찾을 수 있습니다.
+웹 서비스 대시보드에서 실험을 클릭하여 **api\_key**를 찾을 수 있습니다.
 
 ![find-api-key](./media/machine-learning-manage-web-service-endpoints-using-api-management/find-api-key.png)
 
@@ -228,7 +227,7 @@ RRS 끝점을 테스트하는 간편한 방법은 웹 서비스 대시보드에�
 
 RRS를 테스트하는 또 다른 방법은 클라이언트 코드를 사용하는 것입니다. 대시보드에서 **요청/응답**을 클릭하고 아래쪽으로 스크롤하면 C#, Python 및 R에 대한 샘플 코드가 표시됩니다. 요청 URI, 헤더 및 본문을 포함한 RRS 요청 구문도 표시됩니다.
 
-이 가이드에서는 작동하는 Python 예제를 보여 줍니다. 실험의 **workspace**, **service** 및 **api_key**를 사용하여 예제를 수정해야 합니다.
+이 가이드에서는 작동하는 Python 예제를 보여 줍니다. 실험의 **workspace**, **service** 및 **api\_key**를 사용하여 예제를 수정해야 합니다.
 
 	import urllib2
 	import json
@@ -260,7 +259,7 @@ RRS를 테스트하는 또 다른 방법은 클라이언트 코드를 사용하�
 ####BES 끝점 테스트
 대시보드에서 **일괄 처리 실행**을 클릭하고 아래쪽으로 스크롤합니다. C#, Python 및 R에 대한 샘플 코드가 표시됩니다. 작업을 제출하고, 작업을 시작하고, 작업의 상태나 결과를 가져오고, 작업을 삭제하기 위한 BES 요청 구문도 표시됩니다.
 
-이 가이드에서는 작동하는 Python 예제를 보여 줍니다. 실험의 **workspace**, **service** 및 **api_key**를 사용하여 예제를 수정해야 합니다. 또한 **저장소 계정 이름**, **저장소 계정 키** 및 **저장소 컨테이너 이름**을 수정해야 합니다. 마지막으로 **입력 파일**의 위치와 **출력 파일**의 위치를 수정해야 합니다.
+이 가이드에서는 작동하는 Python 예제를 보여 줍니다. 실험의 **workspace**, **service** 및 **api\_key**를 사용하여 예제를 수정해야 합니다. 또한 **저장소 계정 이름**, **저장소 계정 키** 및 **저장소 컨테이너 이름**을 수정해야 합니다. 마지막으로 **입력 파일**의 위치와 **출력 파일**의 위치를 수정해야 합니다.
 
 	import urllib2
 	import json
@@ -272,8 +271,8 @@ RRS를 테스트하는 또 다른 방법은 클라이언트 코드를 사용하�
 	storage_account_name = "<REPLACE WITH YOUR AZURE STORAGE ACCOUNT NAME>"
 	storage_account_key = "<REPLACE WITH YOUR AZURE STORAGE KEY>"
 	storage_container_name = "<REPLACE WITH YOUR AZURE STORAGE CONTAINER NAME>"
-	input_file = "<REPLACE WITH THE LOCATION OF YOUR INPUT FILE>" # Example: C:\mydata.csv
-	output_file = "<REPLACE WITH THE LOCATION OF YOUR OUTPUT FILE>" # Example: C:\myresults.csv
+	input_file = "<REPLACE WITH THE LOCATION OF YOUR INPUT FILE>" # Example: C:\\mydata.csv
+	output_file = "<REPLACE WITH THE LOCATION OF YOUR OUTPUT FILE>" # Example: C:\\myresults.csv
 	input_blob_name = "mydatablob.csv"
 	output_blob_name = "myresultsblob.csv"
 	def printHttpError(httpError):
@@ -384,4 +383,4 @@ RRS를 테스트하는 또 다른 방법은 클라이언트 코드를 사용하�
 	return
 	invokeBatchExecutionService()
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

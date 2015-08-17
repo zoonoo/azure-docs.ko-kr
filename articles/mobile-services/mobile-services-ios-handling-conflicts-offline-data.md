@@ -23,7 +23,7 @@
 
 이 항목에서는 Azure 모바일 서비스의 오프라인 기능을 사용할 때 데이터를 동기화하고 충돌을 처리하는 방법을 보여 줍니다. 이 자습서는 이전 자습서인 [오프라인 데이터 시작]의 단계 및 샘플 앱을 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [오프라인 데이터 시작]을 완료해야 합니다.
 
->[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+>[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
 이 자습서에서는 다음 기본 단계를 단계별로 안내합니다.
 
@@ -51,7 +51,7 @@ SDK의 오프라인 동기화 기능을 사용하면 코드를 통해 이러한 
 
 ### <a name="update-list-view"></a>할 일 목록 보기 컨트롤러 업데이트
 
-1. Xcode 프로젝트 탐색기에서 **MainStoryboard_iPhone.storyboard**를 선택하고 **할 일 목록 보기 컨트롤러**를 선택합니다. 테이블 보기 셀을 선택하고 해당 액세서리 모드를 **표시 지시기**로 설정합니다. 표시 지시기는 사용자가 연결된 테이블 보기 컨트롤러를 누르면 새 보기가 표시됨을 나타내며, 이벤트를 생성하지는 않습니다.
+1. Xcode 프로젝트 탐색기에서 **MainStoryboard\_iPhone.storyboard**를 선택하고 **할 일 목록 보기 컨트롤러**를 선택합니다. 테이블 보기 셀을 선택하고 해당 액세서리 모드를 **표시 지시기**로 설정합니다. 표시 지시기는 사용자가 연결된 테이블 보기 컨트롤러를 누르면 새 보기가 표시됨을 나타내며, 이벤트를 생성하지는 않습니다.
 
       ![][update-todo-list-view-controller-2]
 
@@ -145,7 +145,7 @@ SDK의 오프라인 동기화 기능을 사용하면 코드를 통해 이러한 
 
 ### <a name="add-segue"></a>스토리보드에 할 일 항목 보기 컨트롤러 및 Segue 추가
 
-1. 프로젝트 탐색기를 사용하여 **MainStoryboard_iPhone.storyboard** 파일로 돌아옵니다.
+1. 프로젝트 탐색기를 사용하여 **MainStoryboard\_iPhone.storyboard** 파일로 돌아옵니다.
 
 2. 스토리보드에서 기존 **Todo List View Controller**의 오른쪽에 할 일 항목에 대한 새 보기 컨트롤러를 추가합니다. 이 새 보기 컨트롤러의 사용자 지정 클래스를 **QSItemViewController**로 설정합니다. 자세한 내용은 [스토리보드에 장면 추가]를 참조하세요.
 
@@ -471,4 +471,4 @@ SDK의 오프라인 동기화 기능을 사용하면 코드를 통해 이러한 
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
 [Get started with data]: mobile-services-ios-get-started-data.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -191,4 +191,4 @@ Azure 검색에서 주목할 만한 기능 중 하나는 요구에 따라 쉽게
 [1]: ./media/search-workflow/AzSearch-Workflow.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

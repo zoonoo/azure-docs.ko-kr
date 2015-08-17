@@ -3,8 +3,8 @@
    description="Azure 데이터 카탈로그 용어"
    services="data-catalog"
    documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
+   authors="steelanddata"
+   manager="NA"
    editor=""
    tags=""/>
 <tags
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+   ms.date="07/31/2015"
+   ms.author="maroche"/>
 
 # Azure 데이터 카탈로그 용어
 
@@ -42,6 +42,15 @@ Azure 데이터 카탈로그는 데이터 원본이 있는 클라우드 기반 �
 
 설명이 포함된 메타데이터는 목적 또는 데이터 자산의 의도를 설명하는 메타데이터입니다. 일반적으로 설명이 포함된 메타데이터는 Azure 데이터 카탈로그 포털을 사용하여 카탈로그 사용자가 추가하지만 등록 중에 데이터 원본에서 추출할 수도 있습니다. Azure 데이터 카탈로그 등록 도구는 SQL Server Analysis Services 및 SQL Server Reporting Services의 Description 속성 및 SQL Server의 [ms\_description extended property](https://technet.microsoft.com/library/ms190243.aspx)(이러한 속성이 값으로 채워진 경우)에서 설명을 추출합니다.
 
+## 액세스 요청
+
+데이터 자산의 설명이 포함된 메타데이터는 데이터 자산이나 데이터 원본에 대한 액세스를 요청하는 방법에 대한 정보를 포함할 수 있습니다. 이 정보는 데이터 자산 위치에 함께 표시되며 다음 중 하나 이상의 선택적 정보를 포함할 수 있습니다.
+
+- 데이터 원본에 대한 액세스를 허용하는 역할을 하는 사용자나 팀의 전자 메일 주소.
+- 데이터 원본에 대한 액세스 권한을 얻기 위해 사용자가 따라야 하는 절차가 설명된 문서의 URL.
+- 데이터 원본에 대한 액세스 권한을 얻는 데 사용되는 ID 및 액세스 관리 도구(예: Microsoft Identity Manager)의 URL.
+- 데이터 원본에 대한 액세스 권한을 얻는 방법을 설명하는 자유로운 형식의 텍스트 항목.
+
 ## 미리 보기
 
 Azure 데이터 카탈로그에 있는 미리 보기는 등록 시 데이터 원본에서 추출할 수 있고 데이터 자산 메타데이터와 함께 카탈로그에 저장할 수 있는 최대 20개 레코드의 스냅숏입니다. 미리 보기는 사용자가 해당 기능 및 용도를 더 잘 이해하기 위해 데이터 자산을 검색할 수 있도록 돕습니다. 즉, 샘플 데이터를 보는 것이 열 이름 및 데이터 유형을 보는 것보다 더 중요할 수 있습니다. 미리 보기는 테이블 및 뷰에 대해서만 지원하며, 등록 중에 사용자가 명시적으로 선택해야 합니다.
@@ -60,7 +69,7 @@ Azure 데이터 카탈로그에서 모든 사용자가 등록된 데이터 자�
 
 소유자는 Azure 데이터 카탈로그에서 데이터 자산을 관리하기 위한 추가 권한이 있는 사용자입니다. 사용자는 등록된 자산 데이터의 소유권을 가져올 수 있으며 소유자는 다른 사용자를 공동 소유자로 추가할 수 있습니다.
 > [AZURE.NOTE]소유권 및 관리는 Azure 데이터 카탈로그의 표준 버전에서만 사용할 수 있습니다.
- 
+
 ## 등록
 
 등록은 데이터 원본에서 데이터 자산 메타데이터를 추출하고 Azure 데이터 카탈로그 서비스에 이를 복사하는 작업입니다. 등록된 데이터 자산은 주석을 첨부하고 검색할 수 있습니다.
@@ -68,7 +77,7 @@ Azure 데이터 카탈로그에서 모든 사용자가 등록된 데이터 자�
 ## 참고 항목
 
 - [Azure 데이터 카탈로그란?](data-catalog-what-is-data-catalog.md) - 이 문서에서는 Azure 데이터 카탈로그 서비스, 제공하는 값, 지원하는 시나리오에 대한 개요를 제공합니다.
+  
+- [Azure 데이터 카탈로그 시작](data-catalog-get-started.md) - 이 문서에서는 데이터 원본 검색을 위해 Azure 데이터 카탈로그를 사용하는 방법을 보여주는 포괄적인 자습서를 제공합니다.
 
-- [Azure 데이터 카탈로그 시작](data-catalog-get-started.md) - 이 문서에서는 데이터 원본 검색에 대한 Azure 데이터 카탈로그를 사용하는 방법을 보여주는 종단간 자습서를 제공합니다.
-
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

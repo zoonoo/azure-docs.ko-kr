@@ -57,7 +57,7 @@
 
     또한 일부 using 문을 **MainPage.cs**로 전송하려고 합니다.
 
-2. 이 메서드는 **ButtonLogin_Click**에서 **AuthenticateAsync** 호출 바로 뒤에 사용합니다.
+2. 이 메서드는 **ButtonLogin\_Click**에서 **AuthenticateAsync** 호출 바로 뒤에 사용합니다.
 
         await AuthenticateAsync();
         InitNotificationAsync();
@@ -107,4 +107,4 @@
 [템플릿]: https://msdn.microsoft.com/ko-kr/library/dn530748.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

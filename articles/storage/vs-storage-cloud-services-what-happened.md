@@ -1,28 +1,28 @@
-<properties 
-	pageTitle="Azure 저장소 시작" 
-	description="Visual Studio 클라우드 서비스 프로젝트에서 Azure 저장소를 만들 때 발생하는 상황을 설명합니다." 
-	services="storage" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+<properties
+	pageTitle="Azure 저장소 시작"
+	description="Visual Studio 클라우드 서비스 프로젝트에서 Azure 저장소를 사용할 때 발생하는 상황을 설명합니다."
+	services="storage"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-what-happened" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/22/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-what-happened"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/22/2015"
 	ms.author="patshea123"/>
 
 # 내 프로젝트에서 무엇이 변경되었습니까?
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-cloud-services-getting-started-blobs.md)
-> - [What Happened](vs-storage-cloud-services-what-happened.md)
+> - [Getting started](vs-storage-cloud-services-getting-started-blobs.md)
+> - [What happened](vs-storage-cloud-services-what-happened.md)
 
-###내 프로젝트에서 무엇이 변경되었나요?</span>
+###내 프로젝트에서 무엇이 변경되었습니까?
 
 ###### 참조 추가됨
 
@@ -37,13 +37,11 @@ Azure Storage NuGet 패키지가 Visual Studio 프로젝트에 추가되었습�
 - `System.Data`
 - `System.Spatial`
 
-######추가된 Azure 저장소에 대한 연결 문자열 
+######추가된 Azure 저장소에 대한 연결 문자열
 선택한 저장소 계정의 연결 문자열과 키를 포함하는 요소가 생성되었습니다. 다음 파일이 수정되었습니다.
 
 - `ServiceDefinition.csdef`
 - `ServiceConfiguration.Cloud.cscfg`
 - `ServiceConfiguration.Local.cscfg`
 
- 
-
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

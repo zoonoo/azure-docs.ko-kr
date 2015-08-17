@@ -5,7 +5,7 @@
 
 2. 다운로드한 파일의 압축을 풀고 해당 위치를 적어 두거나, Android Studio 프로젝트 디렉터리로 이동합니다.
 
-3. Android Studio를 엽니다. 다른 프로젝트로 작업 중인 경우 해당 프로젝트가 나타나면 프로젝트를 닫습니다(**File => Close Project**).
+3. Android Studio를 엽니다. 다른 프로젝트로 작업 중인 경우 해당 프로젝트가 나타나면 프로젝트를 닫습니다(**파일 => 프로젝트 닫기**).
 
 4. **기존 Android Studio 프로젝트 열기**를 선택하고 *GettingStartedWithData*의 *AndroidStudio* 폴더에서 프로젝트 위치를 찾은 다음 **확인**을 클릭합니다.
 
@@ -15,4 +15,4 @@
 	이제 프로젝트로 작업할 준비가 되었습니다.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

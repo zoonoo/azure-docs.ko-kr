@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DocumentDB를 사용하여 Java 웹 응용 프로그램 빌드" 
+	pageTitle="DocumentDB를 사용하여 Java 웹 응용 프로그램 빌드 | Microsoft Azure" 
 	description="이 자습서에서는 Azure DocumentDB 서비스를 사용하여 Azure 웹 사이트에 호스트된 Java 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 보여 줍니다." 
 	services="documentdb" 
 	documentationCenter="java" 
@@ -118,7 +118,7 @@ DocumentDB Java SDK 및 해당 종속성을 가져오는 가장 쉬운 방법은
 
 	이 프로젝트에서는 [Project Lombok](http://projectlombok.org/)을 사용해서 생성자, getter, setter 및 작성기를 생성합니다. 또는 이 코드를 수동으로 작성하거나 IDE에서 생성하도록 할 수도 있습니다.
 
-2. **DocumentDB** 서비스를 호출하려면 새 DocumentClient를 인스턴스화해야 합니다. 일반적으로 각 후속 요청에 대해 새 클라이언트를 생성하는 것보다는 **DocumentClient**를 다시 사용하는 것이 가장 좋습니다. **DocumentClientFactory**에 클라이언트를 래핑하면 클라이언트를 다시 사용할 수 있습니다. 또한 여기서는 [1단계](#CreateDB)에서 클립보드에 저장한 URI 및 PRIMARY KEY 값을 붙여넣을 수도 있습니다. [YOUR_ENDPOINT_HERE]를 해당 URI로 바꾸고 [YOUR_KEY_HERE]를 해당 PRIMARY KEY로 바꿉니다.
+2. **DocumentDB** 서비스를 호출하려면 새 DocumentClient를 인스턴스화해야 합니다. 일반적으로 각 후속 요청에 대해 새 클라이언트를 생성하는 것보다는 **DocumentClient**를 다시 사용하는 것이 가장 좋습니다. **DocumentClientFactory**에 클라이언트를 래핑하면 클라이언트를 다시 사용할 수 있습니다. 또한 여기서는 [1단계](#CreateDB)에서 클립보드에 저장한 URI 및 PRIMARY KEY 값을 붙여넣을 수도 있습니다. [YOUR\_ENDPOINT\_HERE]를 해당 URI로 바꾸고 [YOUR\_KEY\_HERE]를 해당 PRIMARY KEY로 바꿉니다.
 
 	    private static final String HOST = "[YOUR_ENDPOINT_HERE]";
 	    private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -747,7 +747,7 @@ Azure 웹 사이트에서는 Java 응용 프로그램을 간단히 배포할 수
 3. 이제 WAR 파일이 준비되었으므로 간단히 Azure 웹 사이트의 **webapps** 디렉터리로 업로드하면 됩니다. 파일 업로드에 대한 자세한 내용은 [Azure에서 Java 웹 사이트에 응용 프로그램 추가](../web-sites-java-add-app.md)를 참조하세요.
 
 	WAR 파일이 webapps 디렉터리에 업로드되면 런타임 환경에서 이 파일이 추가되었음을 감지하고 자동으로 로드합니다.
-4. 완료된 제품을 보려면 http://YOUR_SITE_NAME.azurewebsites.net/azure-documentdb-java-sample/로 이동하고 작업 추가를 시작합니다.
+4. 완료된 제품을 보려면 http://YOUR\_SITE\_NAME.azurewebsites.net/azure-documentdb-java-sample/로 이동하고 작업 추가를 시작합니다.
 
 ##<a id="GetProject"></a>GitHub에서 프로젝트 가져오기##
 
@@ -763,7 +763,7 @@ Azure 웹 사이트에서는 Java 응용 프로그램을 간단히 배포할 수
 8. **Local Destination** 화면에서 **Browse**를 클릭하여 리포지토리를 복사할 수 있는 폴더를 선택한 후 **Next**를 클릭합니다.
 9. **Select a wizard to use for importing projects** 화면에서 **Import existing projects**가 선택되었는지 확인하고 **Next**를 클릭합니다.
 10. **Import Projects** 화면에서 **DocumentDB** 프로젝트를 선택 취소한 후 **Finish**를 클릭합니다. DocumentDB 프로젝트에는 종속성으로 추가할 DocumentDB Java SDK가 포함됩니다.
-11. **프로젝트 탐색기**에서 azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java로 이동하고 HOST 및 MASTER_KEY 값을 각각 해당 DocumentDB 계정의 URI 및 PRIMARY KEY로 바꾸고 파일을 저장합니다. 자세한 내용은 [1단계. DocumentDB 데이터베이스 계정 만들기](#CreateDB)를 참조하세요.
+11. **프로젝트 탐색기**에서 azure-documentdb-java-sample\\src\\com.microsoft.azure.documentdb.sample.dao\\DocumentClientFactory.java로 이동하고 HOST 및 MASTER\_KEY 값을 각각 해당 DocumentDB 계정의 URI 및 PRIMARY KEY로 바꾸고 파일을 저장합니다. 자세한 내용은 [1단계. DocumentDB 데이터베이스 계정 만들기](#CreateDB)를 참조하세요.
 12. **프로젝트 탐색기**에서 **azure-documentdb-java-sample**을 마우스 오른쪽 단추로 클릭하고 **빌드 경로**를 클릭한 후 **빌드 경로 구성**을 클릭합니다.
 13. **Java 빌드 경로** 화면의 오른쪽 창에서 **라이브러리** 탭을 선택한 후 **외부 JAR 추가**를 클릭합니다. lombok.jar 파일의 위치로 이동하고 **열기**를 클릭한 후 **확인**을 클릭합니다.
 14. 12단계를 수행해서 **속성** 창을 다시 열고 왼쪽 창에서 **대상 런타임**을 클릭합니다.
@@ -779,4 +779,4 @@ Azure 웹 사이트에서는 Java 응용 프로그램을 간단히 배포할 수
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

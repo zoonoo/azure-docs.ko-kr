@@ -99,4 +99,4 @@ HDInsight에서 Spark에는 기본적으로 클러스터에서 사용할 수 있
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -32,7 +32,7 @@ Azure AD Connect를 사용하여 웹 응용 프로그램 프록시 또는 Active
 - 관리자 권한 PSH 명령 창에서 "Enable-psremoting-force" 명령을 사용합니다.
 	- 마법사를 실행 중인 컴퓨터(대상 컴퓨터가 도메인에 가입되지 않거나 신뢰할 수 없는 도메인인 경우): 
 
-- 관리자 권한 PSH 명령 창에서 “Set-Item WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate” 명령을 사용합니다.
+- 관리자 권한 PSH 명령 창에서 “Set-Item WSMan:\\localhost\\Client\\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate” 명령을 사용합니다.
 	- 서버 관리자:
 		- DMZ WAP 호스트를 컴퓨터 풀에 추가(서버 관리자 -> 관리 -> 서버 추가...DNS 탭 사용) 
 		- 서버 관리자 모든 서버 탭: WAP 서버를 마우스 오른쪽 단추로 클릭하고 다음으로 관리...를 선택하고, WAP 컴퓨터에 대한 로컬(도메인이 아닌) 자격 증명을 입력합니다. 
@@ -45,4 +45,4 @@ Azure AD Connect를 사용하여 웹 응용 프로그램 프록시 또는 Active
 * [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)
 * [MSDN의 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

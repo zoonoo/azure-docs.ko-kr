@@ -111,11 +111,11 @@ HDInsight 클러스터에서 이 예제를 실행하는 방법에 대해서는 [
 
 1. 이 예제는 **Jython**을 사용하여 Python 스크립트(**jython.py**)를 포함하는 파일을 등록하며 Pig에 **myfuncs**로 표시합니다. Jython은 Java를 사용한 Python 구현이며 Pig와 동일한 Java 가상 컴퓨터에서 실행됩니다. 따라서 Python 스크립트를 기존 함수 호출 및 Hive에 사용되는 스트리밍 접근 방식처럼 처리할 수 있습니다.
 
-2. 다음 줄은 샘플 데이터 파일인 **sample.log**를 **LOGS**에 로드합니다. 이 로그 파일에 일관된 스키마가 없으므로 각 레코드(이 예제의 경우 **LINE**)를 **chararray**로 정의합니다. Chararray는 결과적으로 문자열입니다.
+2. 다음 줄은 샘플 데이터 파일인 **sample.log**를 **LOGS**에 로드합니다. 이 로그 파일에 일관된 스키마가 없으므로 각 레코드(이 경우, **LINE**)를 **chararray**로 정의합니다. Chararray는 결과적으로 문자열입니다.
 
 3. 세 번째 줄은 모든 Null 값을 제외하고 작업의 결과를 **LOG**에 저장합니다.
 
-4. 그런 다음 **LOG**의 레코드에 대해 반복하고 **GENERATE**를 사용하여 **create_structure** 메서드를 호출합니다. 이 메서드는 **myfuncs**로 로드된 **jython.py** 스크립트에 포함되어 있습니다. **LINE**은 현재 레코드를 함수에 전달하는 데 사용됩니다.
+4. 그런 다음 **LOG**의 레코드에 대해 반복하고 **GENERATE**를 사용하여 **create\_structure** 메서드를 호출합니다. 이 메서드는 **myfuncs**로 로드된 **jython.py** 스크립트에 포함되어 있습니다. **LINE**은 현재 레코드를 함수에 전달하는 데 사용됩니다.
 
 5. 마지막으로 출력은 **DUMP** 명령을 사용하여 STDOUT로 덤프됩니다. 따라서 작업이 완료되면 바로 결과가 표시됩니다. 실제 스크립트에서는 보통 데이터를 새 파일에 **저장**합니다.
 
@@ -138,7 +138,7 @@ HDInsight 클러스터에서 이 예제를 실행하는 방법에 대해서는 [
 	* level - 로그 수준
 	* detail - 로그 항목에 대한 세부 정보
 
-2. 그런 다음 **def create_structure(input)**가 Pig에서 줄 항목을 전달할 함수를 정의합니다.
+2. 그런 다음 **def create\_structure(input)**가 Pig에서 줄 항목을 전달할 함수를 정의합니다.
 
 3. 예제 데이터인 **sample.log**는 대개 date, time, classname, level 및 detail(반환을 원하는 필드) 스키마를 준수합니다. 그러나 '*java.lang.Exception*' 문자열로 시작하며 스키마와 일치하도록 수정해야 하는 몇 개의 줄도 포함되어 있습니다. **if** 문이 이러한 줄을 확인한 후 '*java.lang.Exception*' 문자열을 끝으로 이동하고, 원하는 출력 스키마에 따라 인라인 데이터를 가져오는 입력 데이터를 전달합니다.
 
@@ -330,4 +330,4 @@ Pig 및 Hive를 사용하고 MapReduce 사용에 대해 배우는 다른 방법�
 
 * [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

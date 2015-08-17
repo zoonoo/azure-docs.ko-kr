@@ -128,10 +128,10 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 물론 앞의 Java 코드 샘플을 실제로 실행하려면 연결 문자열에 실제 값을 입력하여 자리 표시자를 대체해야 합니다.
 
 
-- your_server
-- your_database
-- your_user
-- your_password
+- your\_server
+- your\_database
+- your\_user
+- your\_password
 
 
 ## 테이블에 두 행 삽입
@@ -144,7 +144,7 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
  - 나중에 **id** 키 값으로 자동 생성되는 값을 가져올 수 있도록 매개 변수 `Statement.RETURN_GENERATED_KEYS`을(를) 포함시켰습니다.
 2. `PreparedStatement` 개체에서 `execute` 메서드를 호출합니다.
 3. `PreparedStatement` 개체를 사용하여 기본 키에 대해 자동으로 생성된 숫자 값을 가져옵니다.
- - 이는 Person 테이블의 **id** 열에 있는 AUTO_INCREMENT 사양과 관련됩니다.
+ - 이는 Person 테이블의 **id** 열에 있는 AUTO\_INCREMENT 사양과 관련됩니다.
 
 
 이 짧은 Java 세그먼트를 주석 `// INSERT two rows into the table.`이(가) 표시된 기본 코드 샘플에 복사하여 붙여넣습니다.
@@ -225,4 +225,4 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

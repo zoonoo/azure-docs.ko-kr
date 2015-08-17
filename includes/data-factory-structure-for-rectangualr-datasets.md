@@ -1,16 +1,16 @@
-## Specifying structure definition for rectangular datasets
-The structure section in the datasets JSON is an **optional** section for rectangular tables (with rows & columns) and contains a collection of columns for the table. You will use the structure section for either providing type information for type conversions or doing column mappings. The following sections describe these features in detail. 
+## 사각형 데이터 집합의 구조 정의 지정
+데이터 집합 JSON의 구조 섹션은 사각형 테이블(행 및 열 포함)에 대한 **선택적** 섹션으로, 해당 테이블에 대한 열 모음을 포함합니다. 형식 변환에 필요한 형식 정보를 제공하거나 열 매핑을 수행하기 위해 구조 섹션을 사용합니다. 다음 섹션에서는 이러한 기능을 자세히 설명합니다.
 
-Each column contains the following properties:
+각 열에는 다음 속성이 포함됩니다.
 
-| Property | Description | Required |
+| 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- |
-| name | Name of the column. | Yes |
-| type | Data type of the column. See type conversions section below for more details regarding when should you specify type information | No |
-| culture | .NET based culture to be used when type is specified and is .NET type Datetime or Datetimeoffset. Default is “en-us”.  | No |
-| format | Format string to be used when type is specified and is .NET type Datetime or Datetimeoffset. | No |
+| name | 열의 이름입니다. | 예 |
+| type | 열의 데이터 형식입니다. 형식 정보를 지정해야 할 시기에 대한 자세한 내용은 아래의 형식 변환 섹션을 참조하세요. | 아니요 |
+| culture | 지정된 형식이 .NET 형식 Datetime 또는 Datetimeoffset일 때 사용할 .NET 기반 culture입니다. 기본값은 "ko-kr"입니다. | 아니요 |
+| format | 지정된 형식이 .NET 형식 Datetime 또는 Datetimeoffset일 때 사용할 형식 문자열입니다. | 아니요 |
 
-The following sample shows the structure section JSON for a table that has three columns userid, name, and lastlogindate.
+다음 샘플에서는 3개의 열 즉, userid, name 및 lastlogindate가 있는 테이블에 대한 구조 섹션 JSON을 보여줍니다.
 
     "structure": 
     [
@@ -19,31 +19,32 @@ The following sample shows the structure section JSON for a table that has three
         { "name": "lastlogindate"}
     ],
 
-Please use the following guidelines for when to include “structure” information and what to include in the **structure** section.
+"structure" 정보를 포함할 시기 및 **structure** 섹션에 포함할 항목에 대해서는 다음 지침을 따르세요.
 
-1.	**For structured data sources** that store data schema and type information along with the data itself (sources like SQL Server, Oracle, Azure table etc.), you should specify the “structure” section only if you want do column mapping of specific source columns to specific columns in sink and their names are not the same (see details in column mapping section below). 
+1.	데이터 스키마 및 형식 정보를 데이터 자체(SQL Server, Oracle, Azure 테이블 등과 같은 원본)와 함께 저장하는 **구조화된 데이터 원본**의 경우, 싱크의 특정 열에 대해 특정 원본 열의 열 매핑을 수행하려 하고 해당 이름이 동일하지는 않은 경우(아래 열 매핑 섹션의 세부 정보 참조)에만 "structure" 섹션을 지정해야 합니다. 
 
-	As mentioned above, the type information is optional in “structure” section. For structured sources, type information is already available as part of dataset definition in the data store, so you should not include type information when you do include the “structure” section.
-2. **For schema on read data sources (specifically Azure blob)**  you can chose to store data without storing any schema or type information with the data. For these types of data sources you should include “structure” in the following 2 cases:
-	1. You want to do column mapping.
-	2. When the dataset is a source in a Copy activity, you can provide type information in “structure” and data factory will use this type information for conversion to native types for the sink. See [Move data to and from Azure Blob](../articles/data-factory/data-factory-azure-blob-connector.md) article for more information.
+	위에서 설명했듯이 형식 정보는 "structure" 섹션에서 선택 사항입니다. 구조화된 원본의 경우는 데이터 저장소에서 데이터 집합 정의의 일부로 형식 정보를 이미 사용할 수 있으므로 "structure" 섹션을 포함할 때는 형식 정보를 포함시키지 않아야 합니다.
+2. **읽기 데이터 원본(특히 Azure Blob)의 스키마인 경우** 스키마 또는 형식 정보를 데이터와 함께 저장하지 않고도 데이터를 저장할 수 있습니다. 이러한 유형의 데이터 원본에서 다음 2가지 경우는 "structure"를 포함해야 합니다.
+	1. 열 매핑을 수행하려는 경우.
+	2. 데이터 집합이 복사 작업의 원본이면 "structure"에 형식 정보를 제공할 수 있으며 데이터 팩터리는 싱크에 대한 네이티브 형식으로 변환하기 위해 이 형식 정보를 사용합니다. 자세한 내용은 [Azure Blob 저장소의 데이터 이동](../articles/data-factory/data-factory-azure-blob-connector.md)을 참조하세요.
 
-### Supported .NET-based types 
-Data factory supports the following CLS compliant .NET based type values for providing type information in “structure” for schema on read data sources like Azure blob.
+### 지원되는 .NET 기반 형식 
+데이터 팩터리는 Azure Blob과 같은 읽기 데이터 원본의 스키마에 대해 "structure"에 형식 정보를 제공하기 위해 다음과 같은 CLS 규격 .NET 기반 형식 값을 지원합니다.
 
 - Int16
 - Int32 
 - Int64
 - Single
 - Double
-- Decimal
-- Byte[]
+- 10진수
+- Byte
 - Bool
-- String 
+- 문자열 
 - Guid
 - Datetime
 - Datetimeoffset
 - Timespan 
 
-For Datetime & Datetimeoffset you can also optionally specify “culture” & “format” string to facilitate parsing of your custom Datetime string. See sample for type conversion below.
+Datetime 및 Datetimeoffset의 경우 사용자 지정 Datetime 문자열의 구문 분석을 용이하게 하려면 "culture" 및 "format" 문자열을 지정할 수도 있습니다. 아래의 형식 변환 샘플을 참조하세요.
 
+<!---HONumber=August15_HO6-->

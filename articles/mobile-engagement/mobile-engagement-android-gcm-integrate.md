@@ -103,7 +103,7 @@ Engagement 푸시 서비스에 장치의 등록 ID를 전달하고 해당 알림
 -   "Server key"를 선택합니다.
 -   다음 화면에서 서버 키를 공란으로 비워 두고**(IP 제한 없음)** Create를 클릭합니다.
 -   생성된 **API 키**를 복사합니다.
--   $/#application/YOUR_ENGAGEMENT_APPID/native-push로 이동합니다.
+-   $/#application/YOUR\_ENGAGEMENT\_APPID/native-push로 이동합니다.
 -   GCM 섹션에서 방금 생성하고 복사한 키로 API 키를 편집합니다.
 
 이제 도달률 알림 및 설문 조사를 만들 때 "Any Time"을 선택할 수 있습니다.
@@ -123,4 +123,4 @@ Engagement 푸시 서비스에 장치의 등록 ID를 전달하고 해당 알림
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

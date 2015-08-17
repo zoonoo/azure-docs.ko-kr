@@ -60,9 +60,9 @@ REST API를 통해 바로 미디어 서비스에 액세스하려면 ACS에서 �
 	
 **본문**:
 
-이 요청의 본문에 있는 client_id와 client_secret 값을 입증해야 합니다. client_id와 client_secret은 각각 AccountName과 AccountKey 값에 해당합니다. 이러한 값은 계정을 설정할 때 미디어 서비스에서 제공합니다.
+이 요청의 본문에 있는 client\_id와 client\_secret 값을 입증해야 합니다. client\_id와 client\_secret은 각각 AccountName과 AccountKey 값에 해당합니다. 이러한 값은 계정을 설정할 때 미디어 서비스에서 제공합니다.
 
-미디어 서비스 계정에 대한 AccountKey는 URL 인코딩이어야 합니다(이 항목을 액세스 토큰 요청에서 client_secret 값으로 사용할 경우 [퍼센트 인코딩](http://tools.ietf.org/html/rfc3986#section-2.1) 참조).
+미디어 서비스 계정에 대한 AccountKey는 URL 인코딩이어야 합니다(이 항목을 액세스 토큰 요청에서 client\_secret 값으로 사용할 경우 [퍼센트 인코딩](http://tools.ietf.org/html/rfc3986#section-2.1) 참조).
 
 	grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
@@ -93,9 +93,9 @@ REST API를 통해 바로 미디어 서비스에 액세스하려면 ACS에서 �
 	}
 	
 
->[AZURE.NOTE]외부 저장소에 "access_token" 및 "expires_in" 값을 캐시하는 것이 좋습니다. 나중에 저장소에서 토큰 데이터를 검색하여 미디어 서비스 REST API 호출에서 다시 사용할 수 있습니다. 여러 프로세스 또는 컴퓨터 사이에서 토큰을 안전하게 공유할 수 있는 시나리오에 특히 유용합니다.
+>[AZURE.NOTE]외부 저장소에 "access\_token" 및 "expires\_in" 값을 캐시하는 것이 좋습니다. 나중에 저장소에서 토큰 데이터를 검색하여 미디어 서비스 REST API 호출에서 다시 사용할 수 있습니다. 여러 프로세스 또는 컴퓨터 사이에서 토큰을 안전하게 공유할 수 있는 시나리오에 특히 유용합니다.
 
-액세스 토큰의 "expires_in" 값을 모니터링하고 필요에 따라 REST API 호출을 새 토큰으로 업데이트해야 합니다.
+액세스 토큰의 "expires\_in" 값을 모니터링하고 필요에 따라 REST API 호출을 새 토큰으로 업데이트해야 합니다.
 
 ###미디어 서비스 URI에 연결
 
@@ -167,4 +167,4 @@ REST API를 통해 바로 미디어 서비스에 액세스하려면 ACS에서 �
 
 <!-- URLs. -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

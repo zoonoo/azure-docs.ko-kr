@@ -140,4 +140,4 @@ Ahmet 에 대한 자세한 정보를 입력합니다. 하지만 적절한 **역�
     data:
     info:    group create command OK
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

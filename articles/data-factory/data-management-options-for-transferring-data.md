@@ -270,4 +270,4 @@ Microsoft Azure 이벤트 허브는 짧은 대기 시간 및 높은 안정성으
 [hybrid]: ../integration-hybrid-connection-overview.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

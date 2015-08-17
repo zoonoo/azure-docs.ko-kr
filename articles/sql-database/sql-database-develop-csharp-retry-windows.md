@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/24/2015" 
+	ms.date="08/04/2015" 
 	ms.author="genemi"/>
 
 
@@ -395,8 +395,7 @@ Microsoft는 해당 디자인 선택을 권장하거나 권장하지 않습니�
 	        static Custom_SqlDatabaseTransientErrorDetectionStrategy()
 	        {
 	            int[] arrayOfTransientErrorNumbers =
-	                {4060, 10928, 10929, 40197, 40501, 40613
-	};
+	                {4060, 10928, 10929, 40197, 40501, 40613 };
 	
 	            M_listTransientErrorNumbers = new G.List<int>(arrayOfTransientErrorNumbers);
 	        }
@@ -413,10 +412,10 @@ Microsoft는 해당 디자인 선택을 권장하거나 권장하지 않습니�
 ## Program.cs의 짧은 버전
 
 
-이 섹션의 소스 코드는 앞에서 설명한 더 긴 `Program.cs` 파일의 축약된 반복입니다. 모든 다시 시도 논리와 모든 `Exception` 처리가 제거되었습니다.
+이 섹션의 소스 코드는 앞에서 설명한 더 긴 `Program.cs` 파일의 축약된 반복입니다. 모든 재시도 논리와 모든 예외 처리가 제거되었습니다.
 
 
-짧은 버전은 일반적으로 작동하는 것을 파악하여 ADO.NET 호출을 보기 쉽게 합니다. 일반적으로 일시적인 오류가 발생하지 않으며 `Exception`이(가) 발생되지 않습니다. 일반적으로 스카이다이버는 백업 낙하산이 필요하지 않습니다.
+짧은 버전은 일반적으로 작동하는 것을 파악하여 ADO.NET 호출을 보기 쉽게 합니다. 일반적으로 일시적인 오류가 발생하지 않으며 예외가 발생하지 않습니다. 일반적으로 스카이다이버는 백업 낙하산이 필요하지 않습니다.
 
 
 	using     System;  // C#, pure ADO.NET, no retry logic, no Exception handling.
@@ -497,4 +496,4 @@ Microsoft는 해당 디자인 선택을 권장하거나 권장하지 않습니�
 
 - [SQL 데이터베이스에 대한 클라이언트 빠른 시작 코드 샘플](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

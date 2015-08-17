@@ -60,4 +60,4 @@
 - 보고된 항목에 ```SyntheticSource``` 속성을 추가하여 원격 분석 항목에 가상으로 태그를 지정할 수 있습니다.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

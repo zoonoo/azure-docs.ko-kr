@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="03/18/2015"
+   ms.date="07/24/2015"
    ms.author="elfish; v-romcal"/>
 
 # Azure 포털의 특정 시점 복원 기능을 사용하여 Azure SQL 데이터베이스 복원
@@ -74,4 +74,4 @@
 
 [Azure SQL 데이터베이스 특정 시점 복원(블로그)](http://azure.microsoft.com/blog/2014/10/01/azure-sql-database-point-in-time-restore/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -956,4 +956,4 @@ New-AzureResourceGroupDeployment 명령을 실행하면 JSON 파일의 매개 �
 
 [Azure PowerShell을 설치 및 구성하는 방법](install-configure-powershell.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

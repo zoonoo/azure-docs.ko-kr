@@ -69,4 +69,4 @@ Windows 컴퓨터를 사용하는 경우 PuTTY를 사용하여 VM에 연결합�
 
 [Image6]: ./media/create-and-configure-centos-vm-in-portal/putty.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

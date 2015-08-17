@@ -49,4 +49,4 @@ Azure AD Premium이 있는 경우 그룹을 사용하여 Azure AD와 통합되�
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

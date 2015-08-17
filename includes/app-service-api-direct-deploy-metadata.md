@@ -36,4 +36,4 @@ API 앱이 동적 [Swagger](http://swagger.io/) API 정의를 반환할 수 있�
 
 *apiapp.json* 파일에서 `endpoints.apiDefinition`을 그대로 두거나 해당 값을 null로 설정합니다. `endpoints.apiDefinition` URL과 *apiDefinition.swagger.json* 파일을 둘 다 포함한 경우에는 URL이 우선적으로 적용되며 파일은 무시됩니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

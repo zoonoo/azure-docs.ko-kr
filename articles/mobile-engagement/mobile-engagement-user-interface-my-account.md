@@ -44,7 +44,7 @@ UI의 내 계정 섹션에서는 프로필 설정, 테스트 장치 ID 등 계�
 3. 도달률 알림에서 알림과 연결된 작업 URL에 {deviceid} 패턴이 포함되어 있으면 작업을 트리거한 장치의 식별자로 자동 교체됩니다. http://<example>.com/registeruser?deviceid={deviceid}&otherparam=myparamdata는 다음과 같이 바뀝니다. http://<example>.com/registeruser?deviceid=XXXXXXXXXXXXXXXX&otherparam=myparamdata 
 4. 도달률 웹 알림에서 알림의 HTML 코드에 {deviceid} 패턴이 포함되어 있으면 웹 알림을 표시하는 장치의 식별자로 자동 교체됩니다. 예를 들어 {deviceid} 장치 식별자는 다음과 같이 바뀝니다. XXXXXXXXXXXXXXXX
 5.  장치에서 응용 프로그램을 열고 태그가 지정된 앱에서 이벤트를 수행합니다. "UI - 앱 - 모니터 - 이벤트 - 세부 정보"의 목록에서 수행한 이벤트를 찾습니다. 모니터에서 이 이벤트를 클릭합니다. 그러면 해당 이벤트를 수행한 장치 목록에서 장치 ID를 확인할 수 있습니다. 이 장치 ID를 복사한 다음 "UI - 내 계정 - 장치 - 새 장치 - 장치 플랫폼 선택"에서 등록할 수 있습니다.
->
+>iOS에 대해 IDFA를 사용하지 않도록 설정된 경우 앱을 제거했다가 다시 설치하면 시간이 지남에 따라 장치 ID가 변경될 수 있습니다.
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -145,4 +145,4 @@ UI의 내 계정 섹션에서는 프로필 설정, 테스트 장치 ID 등 계�
  
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

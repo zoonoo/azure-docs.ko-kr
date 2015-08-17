@@ -111,9 +111,9 @@ SSH 키 액세스가 있는 새 sudo 사용자를 만들려면, [SSH 키 재설�
 
 ### <a name="sshconfigresetcli"></a>SSH 구성 재설정
 
-SSH 구성이 원치 않는 상태인 경우, VM에 대한 액세스도 손실될 수 있습니다. 구성을 기본 상태로 다시 설정하려면 VMAccess 확장을 사용할 수 있습니다. 이렇게 하려면 "reset_ssh" 키를 "True"로 설정하기만 하면 됩니다. 확장에서 SSH 서버를 다시 시작하고, VM에서 SSH 포트를 연 다음, SSH 구성을 기본값으로 다시 설정합니다. 사용자 계정(이름, 암호 또는 SSH 키)은 변경되지 않습니다.
+SSH 구성이 원치 않는 상태인 경우, VM에 대한 액세스도 손실될 수 있습니다. 구성을 기본 상태로 다시 설정하려면 VMAccess 확장을 사용할 수 있습니다. 이렇게 하려면 "reset\_ssh" 키를 "True"로 설정하기만 하면 됩니다. 확장에서 SSH 서버를 다시 시작하고, VM에서 SSH 포트를 연 다음, SSH 구성을 기본값으로 다시 설정합니다. 사용자 계정(이름, 암호 또는 SSH 키)은 변경되지 않습니다.
 
-> [AZURE.NOTE]재설정된 SSH 구성 파일은 /etc/ssh/sshd_config에 있습니다.
+> [AZURE.NOTE]재설정된 SSH 구성 파일은 /etc/ssh/sshd\_config에 있습니다.
 
 1단계:이 콘텐츠를 포함한 PrivateConf.json이라는 파일을 만듭니다.
 
@@ -228,7 +228,7 @@ SSH 구성 오류로 인해 가상 컴퓨터에 액세스하지 못할 수 있�
 	$Version = "1.*"
 	Set-AzureVMExtension -ExtensionName $ExtensionName -VM  $vm -Publisher $Publisher -Version $Version -PrivateConfiguration $PrivateConfig | Update-AzureVM
 
-> [AZURE.NOTE]SSH 구성 파일은 /etc/ssh/sshd_config에 있습니다.
+> [AZURE.NOTE]SSH 구성 파일은 /etc/ssh/sshd\_config에 있습니다.
 
 ### <a name="delete"></a> 사용자 삭제
 
@@ -263,4 +263,4 @@ VMAccess 확장 상태를 표시하려면, 다음 명령을 실행합니다.
 [RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결]: http://msdn.microsoft.com/library/azure/dn535788.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

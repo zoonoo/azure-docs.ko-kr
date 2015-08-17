@@ -3,7 +3,7 @@
 	description="iOS 앱에 대해 분석 및 푸시 알림과 함께 Azure Mobile Engagement를 사용하는 방법을 알아봅니다."
 	services="mobile-engagement"
 	documentationCenter="Mobile"
-	authors="piyushjo"
+	authors="MehrdadMzfr"
 	manager="dwrede"
 	editor="" />
 
@@ -12,9 +12,9 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
-	ms.topic="get-started-article" 
-	ms.date="04/30/2015"
-	ms.author="piyushjo" />
+	ms.topic="get-started-article"
+	ms.date="08/05/2015"
+	ms.author="MehrdadMzfr" />
 
 # Objective C에서 iOS 앱용 Azure Mobile Engagement 시작
 
@@ -52,28 +52,28 @@
 
 2. **앱 서비스**, **Mobile Engagement**, **만들기**를 차례로 클릭합니다.
 
-   	![][7]
+	![][7]
 
 3. 팝업이 표시되면 다음 정보를 입력합니다.
 
-   	![][8]
+   ![][8]
 
-	- **응용 프로그램 이름**: 응용 프로그램의 이름을 입력합니다. 원하는 모든 문자를 사용할 수 있습니다.
-	- **플랫폼**: 앱의 대상 플랫폼(\*\*iOS\*\*)을 선택합니다. 앱의 대상 플랫폼이 여러 개이면 각 플랫폼에 대해 이 자습서의 작업을 반복합니다.
-	- **응용 프로그램 리소스 이름**: API 및 URL을 통해 이 응용 프로그램에 액세스하는 데 사용되는 이름입니다. 기본 URL 문자만 사용해야 합니다. 자동으로 생성되는 이름을 기준으로 사용할 수 있습니다. 또한 이 이름은 고유해야 하므로 이름 충돌을 방지하기 위해 플랫폼 이름을 추가해야 합니다.
-	- **위치**: 이 앱과 해당 컬렉션을 호스트할 데이터 센터를 선택합니다.
-	- **컬렉션**: 응용 프로그램을 이미 만든 경우 이전에 만든 컬렉션을 선택하고 그렇지 않으면 새 컬렉션을 선택합니다.
-	- **컬렉션 이름**: 응용 프로그램 그룹을 나타냅니다. 또한 그룹을 사용하는 경우에는 모든 앱이 그룹에 포함되므로 메트릭의 집계 계산이 가능합니다. 해당하는 경우 여기에 회사 이름이나 부서를 사용해야 합니다.
+   - **응용 프로그램 이름**: 응용 프로그램의 이름을 입력합니다. 원하는 모든 문자를 사용할 수 있습니다.
+   - **플랫폼**: 앱의 대상 플랫폼(**iOS**)을 선택합니다. 앱의 대상 플랫폼이 여러 개이면 각 플랫폼에 대해 이 자습서의 작업을 반복합니다.
+   - **응용 프로그램 리소스 이름**: API 및 URL을 통해 이 응용 프로그램에 액세스하는 데 사용되는 이름입니다. 기본 URL 문자만 사용해야 합니다. 자동으로 생성되는 이름을 기준으로 사용할 수 있습니다. 또한 이 이름은 고유해야 하므로 이름 충돌을 방지하기 위해 플랫폼 이름을 추가해야 합니다.
+   - **위치**: 이 앱과 해당 컬렉션을 호스트할 데이터 센터를 선택합니다.
+   - **컬렉션**: 응용 프로그램을 이미 만든 경우 이전에 만든 컬렉션을 선택하고 그렇지 않으면 새 컬렉션을 선택합니다.
+   - **컬렉션 이름**: 응용 프로그램 그룹을 나타냅니다. 또한 그룹을 사용하는 경우에는 모든 앱이 그룹에 포함되므로 메트릭의 집계 계산이 가능합니다. 해당하는 경우 여기에 회사 이름이나 부서를 사용해야 합니다.
 
 4. **응용 프로그램** 탭에서 방금 만든 앱을 선택합니다.
 
 5. **연결 정보**를 클릭하여 모바일 앱의 SDK 통합에 적용할 연결 설정을 표시합니다.
 
-   	![][10]
+	![][10]
 
 6. **연결 문자열** 복사 - 응용 프로그램 코드에서 이 앱을 식별하고 Phone 앱에서 Mobile Engagement와 연결하는 데 필요합니다.
 
-   	![][11]
+	![][11]
 
 ##<a id="connecting-app"></a>Mobile Engagement 백 엔드에 앱 연결
 
@@ -87,15 +87,15 @@
 
 1. Xcode를 시작하고 팝업에서 **Create a new Xcode project**를 선택합니다.
 
-   	![][12]
+	![][12]
 
 2. **Single View Application**을 선택하고 Next를 클릭합니다.
 
-   	![][14]
+	![][14]
 
 3. **Product Name**, **Organization Name** 및 **Organization Identifier**를 입력합니다. 언어에서 **Objective-C**를 선택했는지 확인합니다.
 
-   	![][13]
+	![][13]
 
 그러면 Xcode가 모바일 고객 관리를 통합할 데모 앱을 만듭니다.
 
@@ -172,6 +172,11 @@
 
 Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 내 메시징을 사용하여 사용자와 상호 작용하고 사용자에게 메시지를 보낼 수 있습니다. Mobile Engagement 포털에서는 이 모듈을 도달률이라고 합니다. 다음 섹션에서는 해당 알림과 메시지를 받도록 앱을 설정합니다.
 
+### 앱이 자동 푸시 알림을 받을 수 있도록 설정
+
+[AZURE.INCLUDE [mobile-engagement-ios-자동-푸시](../../includes/mobile-engagement-ios-silent-push.md)]
+
+
 ### 프로젝트에 도달률 라이브러리 추가
 
 1. 프로젝트를 마우스 오른쪽 단추로 클릭합니다.
@@ -210,16 +215,16 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
 2. 다음과 같이 `application:didRegisterForRemoteNotificationsWithDeviceToken` 메서드를 추가합니다.
 
-		(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+		- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 		{
  			[[EngagementAgent shared] registerDeviceToken:deviceToken];
 		}
 
-3. 다음과 같이 `didReceiveRemoteNotification` 메서드를 추가합니다.
+3. 다음과 같이 `didReceiveRemoteNotification:fetchCompletionHandler` 메서드를 추가합니다.
 
-		(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+		- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
 		{
-		    [[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo];
+			[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
 		}
 
 ###Mobile Engagement에 푸시 인증서에 대한 액세스 권한 부여
@@ -299,6 +304,5 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [37]: ./media/mobile-engagement-ios-get-started/campaign-content.png
 [38]: ./media/mobile-engagement-ios-get-started/campaign-create.png
 [39]: ./media/mobile-engagement-ios-get-started/campaign-activate.png
- 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

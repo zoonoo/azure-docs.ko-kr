@@ -167,7 +167,7 @@ Bellows College의 IT 관리자가 셀프 서비스 제공 사항에 등록한 �
 
 3. 그런 다음 Get-MsolDomainVerificationDns cmdlet을 실행하여 챌린지를 만듭니다.
 
-	Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
+	Get-MsolDomainVerificationDns –DomainName *your\_domain\_name* –Mode DnsTxtRecord
 
 	예:
 
@@ -185,7 +185,7 @@ Bellows College의 IT 관리자가 셀프 서비스 제공 사항에 등록한 �
 
 6. Confirm-MsolDomain cmdlet을 실행하여 챌린지를 확인합니다.
 
-	Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
+	Confirm-MsolEmailVerifiedDomain -DomainName *your\_domain\_name*
 
 	예:
 
@@ -236,4 +236,4 @@ Bellows College의 IT 관리자가 셀프 서비스 제공 사항에 등록한 �
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

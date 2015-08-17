@@ -180,7 +180,7 @@ Deis 클러스터를 제어하기 위해 **deisctl**이 필요합니다. deisctl
         cd ~/.ssh
         ssh-keygen (press [Enter]s to use default file names and empty passcode)
 
-4. GitHub로 id_rsa.pub 또는 사용자가 선택한 공용 키를 추가합니다. SSH 키 구성 화면에서 SSH 키 추가 단추를 사용하여 수행할 수 있습니다.
+4. GitHub로 id\_rsa.pub 또는 사용자가 선택한 공용 키를 추가합니다. SSH 키 구성 화면에서 SSH 키 추가 단추를 사용하여 수행할 수 있습니다.
 
   ![Github 키](media/virtual-machines-deis-cluster/github-key.png) <p /> 5. 새 사용자 등록:
 
@@ -254,4 +254,4 @@ Deis 클러스터를 제어하기 위해 **deisctl**이 필요합니다. deisctl
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

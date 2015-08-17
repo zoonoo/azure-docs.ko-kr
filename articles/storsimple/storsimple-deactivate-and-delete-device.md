@@ -91,4 +91,4 @@ StorSimple 가상 장치의 경우 비활성화하면 해당 가상 컴퓨터와
 
 기술 지원을 받으려면 [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하세요.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

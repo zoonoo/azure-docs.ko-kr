@@ -239,4 +239,4 @@ Azure 알림 허브를 사용하면 일반 `SendNotification` API(예: .NET SDK�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

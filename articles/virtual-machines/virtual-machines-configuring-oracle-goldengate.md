@@ -1,19 +1,5 @@
-<properties 
-	pageTitle="Azure에 대한 Oracle GoldenGate 구성" 
-	description="고가용성 및 재해복구에 대한 Azure 가상 컴퓨터의 Oracle GoldenGate의 설치 및 실행을 단계별로 설명합니다." 
-	services="virtual-machines" 
-	authors="bbenz" 
-	documentationCenter=""/>
-
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
-	ms.author="bbenz" />
-
+<properties title="Configuring Oracle GoldenGate for Azure" pageTitle="Azure에 대한 Oracle GoldenGate 구성" description="고가용성 및 재해복구에 대한 Azure 가상 컴퓨터의 Oracle GoldenGate의 설치 및 실행을 단계별로 설명합니다." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Azure에 대한 Oracle GoldenGate 구성
 이 자습서에서는 고가용성 및 재해 복구를 위해 Azure 가상 컴퓨터 환경에서 Oracle GoldenGate를 설정 및 구현하는 방법에 대해 설명합니다. 이 자습서는 활성화 되어있는 두개의 사이트가 필요한 비 RAC Oracle 데이터 베이스의[양방향 복제](http://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_about_gg.htm)에 대해 중점을 둡니다.
 
@@ -35,7 +21,7 @@ oracle GoldenGate는 다음 주요 구성 요소를 포함합니다: 추출, 복
 
 - 사이트 A와 사이트 B에서 "TestGG2"에서 "TestGG1" 테스트 데이터베이스를 만든 후
 
-- 관리자 그룹의 구성원 혹은 **ORA_DBA**그룹의 구성원으로 Windows 서버에 로그 온 합니다.
+- 관리자 그룹의 구성원 혹은 **ORA\_DBA**그룹의 구성원으로 Windows 서버에 로그 온 합니다.
 
 이 자습서에서는 다음을 수행합니다.
 
@@ -87,7 +73,7 @@ oracle GoldenGate는 다음 주요 구성 요소를 포함합니다: 추출, 복
 
 Oracle 데이터베이스 및 Oracle GoldenGate의 후속 릴리스에서 구현하는 데 필요한 일부 추가 변경 내용이 있을 수 있습니다. 최신 버전 특정 정보는 Oracle 웹 사이트에서 [Oracle GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) 및 [Oracle 데이터베이스](http://www.oracle.com/us/corporate/features/database-12c/index.html) 설명서를 참조하세요. 예를 들어, 릴리스 11.2.0.4 원본 데이터베이스와 이후 버전에서는 DDL의 캡처 logmining 서버에 의해 비동기적으로 수행되고, 특별한 트리거, 테이블 또는 따로 설치해야 하는 다른 데이터베이스 개체가 필요 없습니다. 사용자 응용 프로그램을 중지 하지 않고 oracle GoldenGate 업그레이드를 수행할 수 있습니다. DDL 트리거 및 지원 개체의 사용은 추출물이11.2.0.4 버전 보다 이전 Oracle 11g 원본 데이터베이스의 통합 모드에 있을 때 필요 합니다. 보다 자세한 설명은 [ Oracle 데이터베이스에 대한 Oracle GoldenGate 설치 및 구성](http://docs.oracle.com/goldengate/1212/gg-winux/GIORA.pdf)을 참고하세요.
 
-##1. 사이트 A와 사이트 B에서 데이터베이스를 설치 합니다.
+##1\. 사이트 A와 사이트 B에서 데이터베이스를 설치 합니다.
 이 섹션에서는 데이터베이스 필수 구성 요소에 사이트 A와 사이트 B를 모두 수행 하는 방법에 대해 설명합니다. 이 섹션의 모든 단계를 두 사이트에서 수행 해야 합니다: 사이트 A와 사이트 B
 
 첫째, 원격 데스크톱을 사이트 A와 사이트 B에 관리 포털을 통해 연결합니다. Windows 명령 프롬프트를 열고 Oracle GoldenGate 설치 파일에 대한 홈 디렉터리를 만듭니다.
@@ -96,7 +82,7 @@ Oracle 데이터베이스 및 Oracle GoldenGate의 후속 릴리스에서 구현
 
 그런 다음의 압축을 풀고 이 폴더에 Oracle GoldenGate 소프트웨어를 설치 합니다. 이 단계를 수행한 후 다음 명령을 실행하여 GoldenGate 소프트웨어 명령 인터프리터 (GGSCI)를 시작할 수 있습니다.
 
-	C:\OracleGG.\ggsci
+	C:\OracleGG\.\ggsci
 
 [GGSCI](http://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_gettingstarted.htm)를 사용하여 제어를 구성 하는 여러 명령을 실행하고 Oracle GoldenGate를 모니터링 할 수 있습니다.
 
@@ -130,10 +116,10 @@ SQL*Plus 명령창을 **SYSDBA**, 같은 데이터베이스 관리자 권한을 
 	      grant delete any table to ggate;
 	      grant drop any table to ggate;
 
-다음으로 %ORACLE_HOME%\database 폴더에 있는 INIT<DatabaseSID>.ORA 파일을 찾아서 INITTEST.ora에 다음과 같은 데이터베이스 매개 변수를 추가 합니다.
+다음으로 %ORACLE\_HOME%\\database 폴더에 있는 INIT<DatabaseSID>.ORA 파일을 찾아서 INITTEST.ora에 다음과 같은 데이터베이스 매개 변수를 추가 합니다.
 
-	UNDO_MANAGEMENT=AUTO
-	UNDO_RETENTION=86400
+	UNDO\_MANAGEMENT=AUTO
+	UNDO\_RETENTION=86400
 
 Oracle GoldenGate GGSCI의 모든 명령 목록은 [Windows용 Oracle GoldenGate의 참조사항](http://docs.oracle.com/goldengate/1212/gg-winux/GWURF/ggsci_commands.htm)을 확인하세요.
 
@@ -159,7 +145,7 @@ Oracle GoldenGate 복제 프로세스를 설명 하기 위해 이 자습서는 �
 
 	grant all on scott.inventory to ggate;
 
-다음으로, 만약 사용자가 ggate가 아닌 경우, 모든 트랜잭션이 새 테이블에 기록되었는지 확인하기 위해 데이터베이스 트리거, VENTORY_CDR_TRG,를 새로 만든 테이블에 생성하고 사용할 있게 합니다. 사이트 A와 사이트 B에 대해 이 작업을 수행 합니다.
+다음으로, 만약 사용자가 ggate가 아닌 경우, 모든 트랜잭션이 새 테이블에 기록되었는지 확인하기 위해 데이터베이스 트리거, VENTORY\_CDR\_TRG,를 새로 만든 테이블에 생성하고 사용할 있게 합니다. 사이트 A와 사이트 B에 대해 이 작업을 수행 합니다.
 
 	CREATE OR REPLACE TRIGGER INVENTORY_CDR_TRG
 	BEFORE UPDATE
@@ -175,7 +161,7 @@ Oracle GoldenGate 복제 프로세스를 설명 하기 위해 이 자습서는 �
 	/ 
 
 
-##2. 사이트 A와 사이트 B의 데이터베이스 복제를 준비합니다.
+##2\. 사이트 A와 사이트 B의 데이터베이스 복제를 준비합니다.
 이 섹션에서는 데이터베이스 복제를 위한 사이트 A와 사이트 B를 준비 하는 방법에 설명 합니다. 이 섹션의 모든 단계를 두 사이트에 수행 해야 합니다: 사이트 A와 사이트 B
 
 첫째, 원격 데스크톱을 Azure 포털을 통해 사이트 A와 사이트 B에 연결합니다. 데이터베이스를 SQL*Plus 명령창을 사용하여 archivelog 모드로 전환합니다.
@@ -200,10 +186,10 @@ Oracle GoldenGate 복제 프로세스를 설명 하기 위해 이 자습서는 �
 	sql>startup
 
 
-##3. DDL 복제를 지원 하기 위해 필요한 모든 개체를 만듭니다.
+##3\. DDL 복제를 지원 하기 위해 필요한 모든 개체를 만듭니다.
 이 섹션에는 DDL복제를 지원하는 모든 필요한 개체를 만들기 위해 필요한 스크립트를 나열 합니다. 사이트 A와 사이트 B 모두에 이 섹션에 지정된 스크립트를 실행 해야 합니다.
 
-Windows 명령 프롬프트를 열고 C:\OracleGG 같은 Oracle GoldenGate 폴더로 이동 합니다. SQL * Plus 명령 프롬프트를 **SYSDBA**와 같은 데이터 베이스 관리자 권한을 사용하여 사이트 A와 사이트 B에서 실행합니다.
+Windows 명령 프롬프트를 열고 C:\\OracleGG 같은 Oracle GoldenGate 폴더로 이동 합니다. SQL * Plus 명령 프롬프트를 **SYSDBA**와 같은 데이터 베이스 관리자 권한을 사용하여 사이트 A와 사이트 B에서 실행합니다.
 
 다음 스크립트를 실행 합니다.
 	
@@ -226,7 +212,7 @@ Oracle GoldenGate 도구는 DDL (데이터 정의 언어)을 지원하기 위해
 
 	GGSCI(Hostname) 6> add trandata scott.inventory
 
-##4. 사이트 A와 사이트 B에서 GoldenGate 관리자를 구성합니다.
+##4\. 사이트 A와 사이트 B에서 GoldenGate 관리자를 구성합니다.
 Oracle GoldenGate 관리자는 다른 Golden gate 프로세스를 시작하거나, 추적 로그 파일 관리 및 보고하는 여러 기능을 수행합니다.
 
 사이트 A와 사이트 B 모두에서 Oracle GoldenGate 관리자 프로세스를 구성해야 합니다. 그러기 위해서, 사이트 A와 사이트 B에서 다음 단계를 수행합니다.
@@ -276,7 +262,7 @@ PARAMS 편집 명령을 사용 하여 매개 변수 파일을 열고 다음 정�
 	GGSCI (HostName) 48> start manager
 	Manager started.
 
-##5. 사이트 A와 사이트 B에서 추출 그룹 및 데이터 펌프 프로세스를 생성합니다.
+##5\. 사이트 A와 사이트 B에서 추출 그룹 및 데이터 펌프 프로세스를 생성합니다.
 
 ###사이트 A에서 추출 및 데이터 펌프 프로세스를 만듭니다.
 
@@ -291,7 +277,7 @@ PARAMS 편집 명령을 사용 하여 매개 변수 파일을 열고 다음 정�
 	GGSCI (MachineGG1) 17> add rmttrail C:\OracleGG\dirdat\ab extract dpump1
 	RMTTRAIL added.
 
-PARAMS 편집 명령을 사용하여 매개 변수 파일을 열고 다음 정보를 추가 하십시오: GGSCI (MachineGG1) 18> edit params ext1 EXTRACT ext1 USERID ggate, PASSWORD ggate EXTTRAIL C:\OracleGG\dirdat\aa TRANLOGOPTIONS EXCLUDEUSER ggate TABLE scott.inventory, GETBEFORECOLS ( ON UPDATE KEYINCLUDING (prod_category,qty_in_stock, last_dml), ON DELETE KEYINCLUDING (prod_category,qty_in_stock, last_dml));
+PARAMS 편집 명령을 사용하여 매개 변수 파일을 열고 다음 정보를 추가 하십시오: GGSCI (MachineGG1) 18> edit params ext1 EXTRACT ext1 USERID ggate, PASSWORD ggate EXTTRAIL C:\\OracleGG\\dirdat\\aa TRANLOGOPTIONS EXCLUDEUSER ggate TABLE scott.inventory, GETBEFORECOLS ( ON UPDATE KEYINCLUDING (prod\_category,qty\_in\_stock, last\_dml), ON DELETE KEYINCLUDING (prod\_category,qty\_in\_stock, last\_dml));
 
 PARAMS 편집 명령을 사용 하여 매개 변수 파일을 열고 다음 정보를 추가 합니다.
 
@@ -546,7 +532,7 @@ Replicat 그룹의 상태를 표시 합니다.
 	GGSCI (MachineGG2) 27> status replicat rep2
 	REPLICAT REP2: RUNNING
 
-##6. 양방향 복제 프로세스를 확인 합니다.
+##6\. 양방향 복제 프로세스를 확인 합니다.
 
 Oracle GoldenGate 구성을 확인 하려면 사이트 A에서 데이터베이스에 행을 삽입합니다. 원격 데스크톱을 사이트 A에 연결 후, SQL*Plus 명령 창을 열고 실행: SQL > v$ 데이터베이스에서 이름을 선택합니다.
 	
@@ -597,4 +583,4 @@ Oracle GoldenGate 구성을 확인 하려면 사이트 A에서 데이터베이�
 ##추가 리소스
 [Azure용 Oracle 가상 컴퓨터 이미지](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

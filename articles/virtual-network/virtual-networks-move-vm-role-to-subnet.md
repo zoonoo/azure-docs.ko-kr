@@ -51,4 +51,4 @@ VM에 대한 고정 DIP를 지정한 경우 먼저 해당 설정을 제거해야
 	    </AddressAssignments>
 	</NetworkConfiguration> 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

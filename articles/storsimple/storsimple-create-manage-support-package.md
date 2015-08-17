@@ -199,4 +199,4 @@ Microsoft 지원 사이트에 업로드하기 전에 지원 패키지를 편집�
 
 [지원 패키지 및 장치 로그를 사용하여 장치 배포 문제 해결](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting) 방법을 알아봅니다.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

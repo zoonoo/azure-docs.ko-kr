@@ -1,19 +1,5 @@
-<properties 
-	pageTitle="Oracle 가상 컴퓨터 이미지에 대한 기타 고려 사항" 
-	description="Microsoft Azure 내에서 Oracle 가상 컴퓨터를 배포하기 전 추가 고려 사항에 대해 알아봅니다." 
-	services="virtual-machines" 
-	authors="bbenz" 
-	documentationCenter=""/>
-
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
-	ms.author="bbenz" />
-
+<properties title="Miscellaneous Considerations for Oracle Virtual Machine Images" pageTitle="Oracle 가상 컴퓨터 이미지에 대한 기타 고려 사항" description="Microsoft Azure 내에서 Oracle 가상 컴퓨터를 배포하기 전 추가 고려 사항에 대해 알아봅니다." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Oracle 가상 컴퓨터 이미지에 대한 기타 고려 사항
 이 문서는 운영 체제로 Windows Server와 함께 Microsoft에 의해 제공되는 Azure에서의 Oracle 가상 컴퓨터에 대한 고려 상황을 다룹니다.
 
@@ -101,4 +87,4 @@ Oracle 데이터 가드로, 가상 컴퓨터에서 주 데이터베이스, 또 �
 ##추가 리소스
 [Azure용 Oracle 가상 컴퓨터 이미지 ](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -2,7 +2,6 @@
 	pageTitle="고급 분석 프로세스 및 기술 작동: Hadoop 클러스터 사용 | Microsoft Azure" 
 	description="HDInsight Hadoop 클러스터를 사용하는 종단 간 시나리오에 ADAPT(고급 분석 처리 및 기술)를 사용하여 공개적으로 사용 가능한 데이터 집합으로 모델을 빌드 및 배포합니다."  
 	services="machine-learning,hdinsight" 
-	solutions="" 
 	documentationCenter="" 
 	authors="bradsev" 
 	manager="paulettm" 
@@ -31,7 +30,7 @@ IPython 노트북에서 1TB 데이터 집합을 사용하는 연습의 작업을
 
 NYC Taxi Trip 데이터는 1억 7,300만 개가 넘는 개별 여정 및 각 여정의 요금으로 구성된 약 20GB의 압축된 CSV(쉼표로 구분된 값) 파일(압축되지 않은 경우 약 48GB)입니다. 각 여정 레코드는 승차 및 하차 위치, 익명 처리된 hack(기사) 면허증 번호 및 medallion(택시의 고유 ID) 번호를 포함합니다. 데이터는 2013년의 모든 여정을 포괄하며, 매월 다음 두 개의 데이터 집합으로 제공됩니다.
 
-1. 'trip_data' CSV 파일은 승객 수, 승차 및 하차 지점, 여정 기간, 여정 거리 등 여정 세부 정보를 포함합니다. 다음은 몇 가지 샘플 레코드입니다.
+1. 'trip\_data' CSV 파일은 승객 수, 승차 및 하차 지점, 여정 기간, 여정 거리 등 여정 세부 정보를 포함합니다. 다음은 몇 가지 샘플 레코드입니다.
 
 		medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
 		89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
@@ -40,7 +39,7 @@ NYC Taxi Trip 데이터는 1억 7,300만 개가 넘는 개별 여정 및 각 여
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
 
-2. 'trip_fare' CSV 파일은 지불 유형, 금액, 추가 요금 및 세금, 팁 및 통행료, 총 지불 금액 등 각 여정의 요금에 대한 세부 정보를 포함합니다. 다음은 몇 가지 샘플 레코드입니다.
+2. 'trip\_fare' CSV 파일은 지불 유형, 금액, 추가 요금 및 세금, 팁 및 통행료, 총 지불 금액 등 각 여정의 요금에 대한 세부 정보를 포함합니다. 다음은 몇 가지 샘플 레코드입니다.
 
 		medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
 		89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
@@ -49,21 +48,21 @@ NYC Taxi Trip 데이터는 1억 7,300만 개가 넘는 개별 여정 및 각 여
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
 		DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-trip_data와 trip_fare를 조인할 고유 키는 medallion, hack_licence 및 pickup_datetime 필드로 구성됩니다.
+trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및 pickup\_datetime 필드로 구성됩니다.
 
-특정 여정과 관련된 모든 세부 정보를 가져오려면 세 개의 키인 "medallion", "hack_license" 및 "pickup_datetime"을 사용하여 조인하면 됩니다.
+특정 여정과 관련된 모든 세부 정보를 가져오려면 세 개의 키인 "medallion", "hack\_license" 및 "pickup\_datetime"을 사용하여 조인하면 됩니다.
 
 데이터에 대한 보다 자세한 정보는 잠시 후 Hive 테이블을 저장할 때 살펴봅니다.
 
 ## <a name="mltasks"></a>예측 작업의 예제
-데이터에 접근할 때 분석을 기반으로 수행할 예측의 종류를 결정하면 프로세스에 포함해야 하는 작업을 명확하게 확인할 수 있습니다. 다음은 이 연습에서 우리가 해결할 예측 문제에 대한 3가지 예제입니다. 예제의 공식은 *tip_amount*를 기반으로 합니다.
+데이터에 접근할 때 분석을 기반으로 수행할 예측의 종류를 결정하면 프로세스에 포함해야 하는 작업을 명확하게 확인할 수 있습니다. 다음은 이 연습에서 우리가 해결할 예측 문제에 대한 3가지 예제입니다. 예제의 공식은 *tip\_amount*를 기반으로 합니다.
 
-1. **이진 분류**: 여정에 대해 팁이 지불되었는지 여부를 예측합니다. 즉, *tip_amount*가 $0보다 크면 지불된 것이며 *tip_amount*가 $0이면 지불되지 않은 것입니다.
+1. **이진 분류**: 여정에 대해 팁이 지불되었는지 여부를 예측합니다. 즉, *tip\_amount*가 $0보다 크면 지불된 것이며 *tip\_amount*가 $0이면 지불되지 않은 것입니다.
 
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0
 
-2. **다중 클래스 분류**: 여정에 대해 지불된 팁 금액의 범위를 예측합니다. *tip_amount*를 5개의 bin 또는 클래스로 나눕니다.
+2. **다중 클래스 분류**: 여정에 대해 지불된 팁 금액의 범위를 예측합니다. *tip\_amount*를 5개의 bin 또는 클래스로 나눕니다.
 	
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -103,7 +102,7 @@ trip_data와 trip_fare를 조인할 고유 키는 medallion, hack_licence 및 pi
 		
 		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-2. 복사가 완료되면 총 24개의 압축된 파일이 선택한 데이터 폴더에 생성됩니다. 로컬 컴퓨터에서 동일한 디렉터리에 다운로드한 파일의 압축을 풉니다. 압축을 푼 파일이 있는 폴더를 적어 둡니다. 이 폴더를 *<path_to_unzipped_data_files>*라고 합니다.
+2. 복사가 완료되면 총 24개의 압축된 파일이 선택한 데이터 폴더에 생성됩니다. 로컬 컴퓨터에서 동일한 디렉터리에 다운로드한 파일의 압축을 풉니다. 압축을 푼 파일이 있는 폴더를 적어 둡니다. 이 폴더를 *<path\_to\_unzipped\_data\_files>*라고 합니다.
 
 
 ## <a name="upload"></a>Azure HDInsight Hadoop 클러스터의 기본 컨테이너에 데이터 업로드
@@ -112,7 +111,7 @@ trip_data와 trip_fare를 조인할 고유 키는 medallion, hack_licence 및 pi
 
 다음 AzCopy 명령에서 다음 매개 변수를 Hadoop 클러스터를 만들고 데이터 파일의 압축을 풀 때 지정한 실제 값으로 바꿉니다.
 
-* ***&#60;path_to_data_folder>*** - 압축을 푼 데이터 파일이 들어 있는 컴퓨터의 디렉터리(경로와 함께)  
+* ***&#60;path\_to\_data\_folder>*** - 압축을 푼 데이터 파일이 들어 있는 컴퓨터의 디렉터리(경로와 함께)  
 * ***&#60;storage account name of Hadoop cluster>*** - HDInsight 클러스터와 연결된 저장소 계정
 * ***&#60;default container of Hadoop cluster>*** - 클러스터에서 사용하는 기본 컨테이너. 기본 컨테이너의 이름은 일반적으로 클러스터 자체의 이름과 같습니다. 예를 들어 클러스터가 "abc123.azurehdinsight.net"인 경우 기본 컨테이너는 abc123입니다.
 * ***&#60;storage account key>*** - 클러스터에서 사용하는 저장소 계정의 키
@@ -137,13 +136,13 @@ trip_data와 trip_fare를 조인할 고유 키는 medallion, hack_licence 및 pi
 
 이 연습에서는 주로 SQL과 유사한 쿼리 언어인 [Hive](https://hive.apache.org/)로 작성된 쿼리를 사용하여 예비 데이터 탐색을 수행합니다. Hive 쿼리는 .hql 파일에 저장됩니다. 그런 다음 모델 빌드를 위해 Azure 기계 학습 내에서 사용하도록 이 데이터를 다운 샘플링합니다.
 
-예비 데이터 분석을 위해 클러스터를 준비하려면 [github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts)에서 관련 Hive 스크립트가 포함된 .hql 파일을 헤드 노드의 로컬 디렉터리(C:\temp)에 다운로드합니다. 이렇게 하려면 클러스터의 헤드 노드 내에서 **명령 프롬프트**를 열고 다음 두 명령을 실행합니다.
+예비 데이터 분석을 위해 클러스터를 준비하려면 [github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts)에서 관련 Hive 스크립트가 포함된 .hql 파일을 헤드 노드의 로컬 디렉터리(C:\\temp)에 다운로드합니다. 이렇게 하려면 클러스터의 헤드 노드 내에서 **명령 프롬프트**를 열고 다음 두 명령을 실행합니다.
 
 	set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/DataScienceProcess/DataScienceScripts/Download_DataScience_Scripts.ps1'
 
 	@powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 
-이 두 명령은 이 연습에 필요한 모든 .hql 파일을 헤드 노드의 로컬 디렉터리 ***C:\temp & #92;***에 다운로드합니다.
+이 두 명령은 이 연습에 필요한 모든 .hql 파일을 헤드 노드의 로컬 디렉터리 ***C:\\temp & #92;***에 다운로드합니다.
 
 ## <a name="#hive-db-tables"></a>월별로 분할된 Hive 데이터베이스 및 테이블 만들기
 
@@ -159,7 +158,7 @@ Hive 디렉터리 프롬프트에서 헤드 노드의 Hadoop 명령줄에 다음
 	
 	hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
 
-다음은 Hive 데이터베이스 ***nyctaxidb***와 테이블 ***trip*** 및 ***fare***를 만드는 ***C:\temp\sample_hive_create_db_and_tables.hql*** 파일의 콘텐츠입니다.
+다음은 Hive 데이터베이스 ***nyctaxidb***와 테이블 ***trip*** 및 ***fare***를 만드는 ***C:\\temp\\sample\_hive\_create\_db\_and\_tables.hql*** 파일의 콘텐츠입니다.
 
 	create database if not exists nyctaxidb;
 
@@ -215,7 +214,7 @@ NYC taxi 데이터 집합에는 처리 및 쿼리 시간을 단축하기 위해 
 
 	for /L %i IN (1,1,12) DO (hive -hiveconf MONTH=%i -f "C:\temp\sample_hive_load_data_by_partitions.hql")
 
-*sample_hive_load_data_by_partitions.hql* 파일에는 다음 **LOAD** 명령이 포함되어 있습니다.
+*sample\_hive\_load\_data\_by\_partitions.hql* 파일에는 다음 **LOAD** 명령이 포함되어 있습니다.
 
 	LOAD DATA INPATH 'wasb:///nyctaxitripraw/trip_data_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.trip PARTITION (month=${hiveconf:MONTH});
 	LOAD DATA INPATH 'wasb:///nyctaxifareraw/trip_fare_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.fare PARTITION (month=${hiveconf:MONTH});
@@ -283,7 +282,7 @@ Hive 테이블에 로드된 데이터에 대한 데이터 탐색 및 기능 엔�
 - 두 테이블의 상위 10개 레코드를 봅니다.
 - 다양한 기간에 걸쳐 몇몇 필드의 데이터 분포를 탐색합니다.
 - 경도 및 위도 필드의 데이터 품질을 조사합니다.
-- **tip_amount**에 따라 이진 및 다중 클래스 분류 레이블을 생성합니다.
+- **tip\_amount**에 따라 이진 및 다중 클래스 분류 레이블을 생성합니다.
 - 직접 여정 거리를 계산하여 기능을 생성합니다.
 
 ### 탐색: trip 테이블의 상위 10개 레코드 보기
@@ -380,7 +379,7 @@ Hive 디렉터리 프롬프트에서 아래 명령을 사용하여 fare 데이�
 
 	hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 
-다음은 검사할 *sample_hive_trip_count_by_medallion.hql* 파일의 내용입니다.
+다음은 검사할 *sample\_hive\_trip\_count\_by\_medallion.hql* 파일의 내용입니다.
 
 	SELECT medallion, COUNT(*) as med_count
 	FROM nyctaxidb.fare
@@ -389,9 +388,9 @@ Hive 디렉터리 프롬프트에서 아래 명령을 사용하여 fare 데이�
 	HAVING med_count > 100 
 	ORDER BY med_count desc;
 
-NYC taxi 데이터 집합의 medallion은 고유한 택시를 식별합니다. 특정 기간에 특정 여정 수를 초과하는 택시를 조회하여 "운행량이 많은" 택시를 식별할 수 있습니다. 다음 예제에서는 첫 3개월 동안 여정 수가 100건이 넘는 택시를 식별하여 쿼리 결과를 로컬 파일 C:\temp\queryoutput.tsv에 저장합니다.
+NYC taxi 데이터 집합의 medallion은 고유한 택시를 식별합니다. 특정 기간에 특정 여정 수를 초과하는 택시를 조회하여 "운행량이 많은" 택시를 식별할 수 있습니다. 다음 예제에서는 첫 3개월 동안 여정 수가 100건이 넘는 택시를 식별하여 쿼리 결과를 로컬 파일 C:\\temp\\queryoutput.tsv에 저장합니다.
 
-다음은 검사할 *sample_hive_trip_count_by_medallion.hql* 파일의 내용입니다.
+다음은 검사할 *sample\_hive\_trip\_count\_by\_medallion.hql* 파일의 내용입니다.
 
 	SELECT medallion, COUNT(*) as med_count
 	FROM nyctaxidb.fare
@@ -404,13 +403,13 @@ Hive 디렉터리 프롬프트에서 아래 명령을 실행합니다.
 
 	hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 
-### 탐색: medallion 및 hack_license별 여정 분포
+### 탐색: medallion 및 hack\_license별 여정 분포
 
 >[AZURE.NOTE]이는 일반적으로 **데이터 과학자** 작업입니다.
 
 데이터 집합을 탐색할 때 값 그룹의 동시 발생 횟수를 조사하는 경우가 많습니다. 이 섹션에서는 택시와 운전 기사에 대해 이 작업을 수행하는 방법에 대한 예제를 제공합니다.
 
-*sample_hive_trip_count_by_medallion_license.hql* 파일은 "medallion" 및 "hack_license"에서 fare 데이터 집합을 그룹화하고 각 조합의 개수를 반환합니다. 내용은 다음과 같습니다.
+*sample\_hive\_trip\_count\_by\_medallion\_license.hql* 파일은 "medallion" 및 "hack\_license"에서 fare 데이터 집합을 그룹화하고 각 조합의 개수를 반환합니다. 내용은 다음과 같습니다.
 	
     SELECT medallion, hack_license, COUNT(*) as trip_count
 	FROM nyctaxidb.fare
@@ -425,7 +424,7 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 
 	hive -f "C:\temp\sample_hive_trip_count_by_medallion_license.hql" > C:\temp\queryoutput.tsv
 
-쿼리 결과는 로컬 파일 C:\temp\queryoutput.tsv에 작성됩니다.
+쿼리 결과는 로컬 파일 C:\\temp\\queryoutput.tsv에 작성됩니다.
 
 ### 탐색: 잘못된 경도/위도 레코드를 확인하여 데이터 품질 평가
 
@@ -433,7 +432,7 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 
 예비 데이터 분석의 일반적인 목적은 유효하지 않거나 잘못된 레코드를 걸러내는 것입니다. 이 섹션의 예제에서는 위도 또는 경도 필드에 NYC 영역 밖의 값이 포함되어 있는지 여부를 확인합니다. 이러한 레코드에는 잘못된 경도-위도 값이 있을 수 있기 때문에 모델링에 사용할 데이터에서 이를 제거하려고 합니다.
 
-다음은 검사할 *sample_hive_quality_assessment.hql* 파일의 내용입니다.
+다음은 검사할 *sample\_hive\_quality\_assessment.hql* 파일의 내용입니다.
 
     	SELECT COUNT(*) FROM nyctaxidb.trip
     	WHERE month=1
@@ -455,10 +454,10 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 
 [예측 작업의 예제](machine-learning-data-science-process-hive-walkthrough.md#mltasks) 섹션에 설명된 이진 분류 문제의 경우 팁 제공 여부를 아는 것이 유용합니다. 이 팁 분포는 이진입니다.
 
-* tip given(Class 1, tip_amount > $0)  
-* no tip(Class 0, tip_amount = $0). 
+* tip given(Class 1, tip\_amount > $0)  
+* no tip(Class 0, tip\_amount = $0). 
 
-아래에 표시된 *sample_hive_tipped_frequencies.hql* 파일에서 이 작업을 수행합니다.
+아래에 표시된 *sample\_hive\_tipped\_frequencies.hql* 파일에서 이 작업을 수행합니다.
 
     SELECT tipped, COUNT(*) AS tip_freq 
     FROM 
@@ -477,7 +476,7 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 
 **참고:** 이는 일반적으로 **데이터 과학자** 작업입니다.
 
-[예측 작업의 예제](machine-learning-data-science-process-hive-walkthrough.md#mltasks) 섹션에 설명된 다중 클래스 분류 문제의 경우 이 데이터 집합은 제공된 팁 금액을 예측할 수 있는 자연 분류 기능을 제공합니다. bin을 사용하여 쿼리에서 팁 범위를 정의할 수 있습니다. 여러 팁 범위에 대한 클래스 분포를 가져오려면 *sample_hive_tip_range_frequencies.hql* 파일을 사용합니다. 내용은 다음과 같습니다.
+[예측 작업의 예제](machine-learning-data-science-process-hive-walkthrough.md#mltasks) 섹션에 설명된 다중 클래스 분류 문제의 경우 이 데이터 집합은 제공된 팁 금액을 예측할 수 있는 자연 분류 기능을 제공합니다. bin을 사용하여 쿼리에서 팁 범위를 정의할 수 있습니다. 여러 팁 범위에 대한 클래스 분포를 가져오려면 *sample\_hive\_tip\_range\_frequencies.hql* 파일을 사용합니다. 내용은 다음과 같습니다.
 
 	SELECT tip_class, COUNT(*) AS tip_freq 
     FROM 
@@ -532,13 +531,13 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 	hive -f "C:\temp\sample_hive_trip_direct_distance.hql"
 
 
-쿼리 결과는 Hadoop 클러스터 기본 컨테이너 아래 9개의 Azure blob(***queryoutputdir/000000_0***~***queryoutputdir/000008_0***)에 기록됩니다.
+쿼리 결과는 Hadoop 클러스터 기본 컨테이너 아래 9개의 Azure blob(***queryoutputdir/000000\_0***\~***queryoutputdir/000008\_0***)에 기록됩니다.
 
 개별 blob의 크기를 보려면 Hive 디렉터리 프롬프트에서 다음 명령을 실행합니다.
 
 	hdfs dfs -ls wasb:///queryoutputdir
 
-지정된 파일, 즉 000000_0의 내용을 보려면 Hadoop의 `copyToLocal` 명령을 사용합니다.
+지정된 파일, 즉 000000\_0의 내용을 보려면 Hadoop의 `copyToLocal` 명령을 사용합니다.
 
 	hdfs dfs -copyToLocal wasb:///queryoutputdir/000000_0 C:\temp\tempfile
 
@@ -555,15 +554,15 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 
 ### 데이터 다운 샘플링
 
-이 절차에는 두 단계가 있습니다. 먼저 모든 레코드에 있는 세 개의 키("medallion", "hack_license" 및 "pickup_datetime")에서 **nyctaxidb.trip** 및 **nyctaxidb.fare** 테이블을 조인합니다. 그런 다음 이진 분류 레이블 **tipped**와 다중 클래스 분류 레이블 **tip_class**를 생성합니다.
+이 절차에는 두 단계가 있습니다. 먼저 모든 레코드에 있는 세 개의 키("medallion", "hack\_license" 및 "pickup\_datetime")에서 **nyctaxidb.trip** 및 **nyctaxidb.fare** 테이블을 조인합니다. 그런 다음 이진 분류 레이블 **tipped**와 다중 클래스 분류 레이블 **tip\_class**를 생성합니다.
 
 다운 샘플링한 데이터를 Azure 기계 학습의 [판독기][reader] 모듈에서 직접 사용하려면 위 쿼리 결과를 내부 Hive 테이블에 저장해야 합니다. 내부 Hive 테이블을 만들고 조인 및 다운 샘플링된 데이터로 채웁니다.
 
-이 쿼리는 표준 Hive 함수를 직접 적용하여 "pickup_datetime" 필드에서 시간, 주, 요일(월요일은 1, 토요일은 7)을 생성하고 승차 위치와 하차 위치 간의 직접 거리를 생성합니다. 이러한 항목의 전체 목록은 [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF)에서 확인할 수 있습니다.
+이 쿼리는 표준 Hive 함수를 직접 적용하여 "pickup\_datetime" 필드에서 시간, 주, 요일(월요일은 1, 토요일은 7)을 생성하고 승차 위치와 하차 위치 간의 직접 거리를 생성합니다. 이러한 항목의 전체 목록은 [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF)에서 확인할 수 있습니다.
 
 그런 다음 이 쿼리는 쿼리 결과가 Azure 기계 학습 스튜디오에 적합하도록 데이터를 다운 샘플링합니다. 원래 데이터 집합의 약 1%만 스튜디오로 가져옵니다.
 
-다음은 Azure 기계 학습에서 모델 빌드를 위한 데이터를 준비하는 *sample_hive_prepare_for_aml_full.hql* 파일의 내용입니다.
+다음은 Azure 기계 학습에서 모델 빌드를 위한 데이터를 준비하는 *sample\_hive\_prepare\_for\_aml\_full.hql* 파일의 내용입니다.
 		
 		set R = 3959;
 	    set pi=radians(180);
@@ -690,7 +689,7 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 
 	hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 
-이제 Azure 기계 학습의 [판독기][reader] 모듈을 사용하여 액세스할 수 있는 내부 테이블 "nyctaxidb.nyctaxi_downsampled_dataset"가 생성되었습니다. 또한 이 데이터 집합을 사용하여 기계 학습 모델을 빌드할 수 있습니다.
+이제 Azure 기계 학습의 [판독기][reader] 모듈을 사용하여 액세스할 수 있는 내부 테이블 "nyctaxidb.nyctaxi\_downsampled\_dataset"가 생성되었습니다. 또한 이 데이터 집합을 사용하여 기계 학습 모델을 빌드할 수 있습니다.
 
 ### Azure 기계 학습의 판독기 모듈을 사용하여 다운 샘플링된 데이터 액세스
 
@@ -722,7 +721,7 @@ Hive 디렉터리 프롬프트에서 다음 명령을 실행합니다.
 
 ![](http://i.imgur.com/1eTYf52.png)
 
-다운 샘플링된 데이터는 기본 컨테이너에 있으므로 Azure 기계 학습의 결과 Hive 쿼리는 매우 단순하며 "SELECT * FROM nyctaxidb.nyctaxi_downsampled_data"입니다.
+다운 샘플링된 데이터는 기본 컨테이너에 있으므로 Azure 기계 학습의 결과 Hive 쿼리는 매우 단순하며 "SELECT * FROM nyctaxidb.nyctaxi\_downsampled\_data"입니다.
 
 이제 이 데이터 집합을 기계 학습 모델 빌드를 위한 시작 지점으로 사용할 수 있습니다.
 
@@ -734,7 +733,7 @@ Hive 디렉터리 프롬프트에서 다음 명령을 실행합니다.
 
 **사용된 학습자:** 2클래스 로지스틱 회귀
 
-a. 이 문제의 경우 대상(또는 클래스) 레이블은 "tipped"입니다. 원래 다운 샘플링된 데이터 집합에는 이 분류 실험에 대한 대상 누수인 몇 가지 열이 있습니다. 특히 tip_class, tip_amount 및 total_amount는 테스트 시 사용할 수 없는 대상 레이블에 대한 정보를 표시합니다. [프로젝트 열][project-columns] 모듈을 사용하여 이러한 열을 고려 대상에서 제거합니다.
+a. 이 문제의 경우 대상(또는 클래스) 레이블은 "tipped"입니다. 원래 다운 샘플링된 데이터 집합에는 이 분류 실험에 대한 대상 누수인 몇 가지 열이 있습니다. 특히 tip\_class, tip\_amount 및 total\_amount는 테스트 시 사용할 수 없는 대상 레이블에 대한 정보를 표시합니다. [프로젝트 열][project-columns] 모듈을 사용하여 이러한 열을 고려 대상에서 제거합니다.
 
 아래 스냅숏은 주어진 여정에 대해 팁이 지불되었는지 여부를 예측하는 실험을 보여 줍니다.
 
@@ -754,7 +753,7 @@ b. 이 실험의 경우 대상 레이블 분포는 약 1:1입니다.
 
 **사용된 학습자:** 다중 클래스 로지스틱 회귀
 
-a. 이 문제의 경우 대상(또는 클래스) 레이블은 5개 값(0,1,2,3,4) 중 하나일 수 있는 "tip_class"입니다. 이진 분류와 마찬가지로 이 실험에 대한 대상 누수인 몇 개 열이 있습니다. 특히 tipped, tip_amount 및 total_amount는 테스트 시 사용할 수 없는 대상 레이블에 대한 정보를 표시합니다. [프로젝트 열][project-columns] 모듈을 사용하여 이러한 열을 제거합니다.
+a. 이 문제의 경우 대상(또는 클래스) 레이블은 5개 값(0,1,2,3,4) 중 하나일 수 있는 "tip\_class"입니다. 이진 분류와 마찬가지로 이 실험에 대한 대상 누수인 몇 개 열이 있습니다. 특히 tipped, tip\_amount 및 total\_amount는 테스트 시 사용할 수 없는 대상 레이블에 대한 정보를 표시합니다. [프로젝트 열][project-columns] 모듈을 사용하여 이러한 열을 제거합니다.
 
 아래 스냅숏은 팁이 속할 수 있는 bin을 예측하는 실험을 보여 줍니다(Class 0: tip = $0, class 1 : tip > $0 and tip <= $5, Class 2 : tip > $5 and tip <= $10, Class 3 : tip > $10 and tip <= $20, Class 4 : tip > $20).
 
@@ -775,7 +774,7 @@ b. 이 실험에서는 혼동 행렬을 사용하여 예측 정확도를 확인�
 
 **사용된 학습자:** 향상된 의사 결정 트리
 
-a. 이 문제의 경우 대상(또는 클래스) 레이블은 "tip_amount"입니다. 이 경우 대상 누수는 tipped, tip_class, total_amount입니다. 이러한 변수는 모두 일반적으로 테스트 시 사용할 수 없는 팁 금액에 대한 정보를 표시합니다. [프로젝트 열][project-columns] 모듈을 사용하여 이러한 열을 제거합니다.
+a. 이 문제의 경우 대상(또는 클래스) 레이블은 "tip\_amount"입니다. 이 경우 대상 누수는 tipped, tip\_class, total\_amount입니다. 이러한 변수는 모두 일반적으로 테스트 시 사용할 수 없는 팁 금액에 대한 정보를 표시합니다. [프로젝트 열][project-columns] 모듈을 사용하여 이러한 열을 제거합니다.
 
 아래 스냅숏에서는 주어진 팁 금액을 예측하는 실험을 보여 줍니다.
 
@@ -810,4 +809,4 @@ b. 회귀 문제의 경우 예측의 제곱된 오류, 결정 계수 등을 확�
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

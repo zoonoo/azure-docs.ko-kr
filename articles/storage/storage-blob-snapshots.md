@@ -53,13 +53,13 @@ Blob 및 스냅숏 관련 복사 작업에는 다음 규칙이 적용됩니다.
 ## 프리미엄 저장소를 사용하는 스냅숏
 프리미엄 저장소에서 스냅숏을 사용할 때는 다음 규칙이 적용됩니다.
 
-- 프리미엄 저장소 계정의 페이지 Blob당 스냅숏 수는 100개로 제한됩니다. 해당 제한을 초과하면 스냅숏 Blob 작업에서 오류 코드 409 (**SnapshotCountExceeded**)가 반환됩니다.
+- 프리미엄 저장소 계정의 페이지 Blob당 스냅숏 수는 100개로 제한됩니다. 해당 제한을 초과하면 스냅숏 Blob 작업에서 오류 코드 409(**SnapshotCountExceeded**)가 반환됩니다.
 
-- 프리미엄 저장소 계정의 페이지 Blob 스냅숏은 10분마다 생성할 수 있습니다. 해당 속도를 초과하면 스냅숏 Blob 작업에서 오류 코드 409 (**SnaphotOperationRateExceeded**)가 반환됩니다.
+- 프리미엄 저장소 계정의 페이지 Blob 스냅숏은 10분마다 생성할 수 있습니다. 해당 속도를 초과하면 스냅숏 Blob 작업에서 오류 코드 409(**SnaphotOperationRateExceeded**)가 반환됩니다.
 
 - Blob 가져오기를 통해 프리미엄 저장소 계정의 페이지 Blob 스냅숏을 읽을 수는 없습니다. 프리미엄 저장소 계정에서 스냅숏에 대해 Blob 가져오기를 호출하면 오류 코드 400(**InvalidOperation**)이 반환됩니다. 그러나 스냅숏에 대해 Blob 속성 가져오기 및 Blob 메타데이터 가져오기를 호출할 수는 있습니다.
 
-- 스냅숏을 읽으려는 경우 Blob 복사 작업을 사용하여 계정의 다른 페이지 Blob에 스냅숏을 복사할 수 있습니다. 이때 복사 작업의 대상 Blob에는 기존 스냅숏이 없어야 합니다. 대상 Blob에 스냅숏이 있으면 Blob 복사 작업에서 오류 코드 409 (**SnapshotsPresent**)가 반환됩니다.
+- 스냅숏을 읽으려는 경우 Blob 복사 작업을 사용하여 계정의 다른 페이지 Blob에 스냅숏을 복사할 수 있습니다. 이때 복사 작업의 대상 Blob에는 기존 스냅숏이 없어야 합니다. 대상 Blob에 스냅숏이 있으면 Blob 복사 작업에서 오류 코드 409(**SnapshotsPresent**)가 반환됩니다.
 
 ## 스냅숏에 대한 절대 URI 반환 
 
@@ -125,4 +125,4 @@ Blob의 읽기 전용 복사본인 스냅숏을 만들면 계정에 데이터 �
 
 ![Azure 저장소 리소스](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

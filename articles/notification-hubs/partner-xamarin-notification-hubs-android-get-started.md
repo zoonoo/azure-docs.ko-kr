@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="06/09/2015"
 	ms.author="yuaxu;wesmc"/>
 
@@ -498,4 +498,4 @@ Microsoft는.NET 플랫폼에서 알림을 보내기 위한 Azure 서비스 버�
 [Azure 메시징 구성 요소]: http://components.xamarin.com/view/azure-messaging
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

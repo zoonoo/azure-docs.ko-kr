@@ -12,7 +12,7 @@
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="05/12/2015" 
 	ms.author="Justinha"/>
 
@@ -58,7 +58,8 @@ contoso.onmicrosoft.com과 같이 등록 중 클라우드 서비스에서 사용
 ### Azure 관리 포털을 사용하여 도메인 추가 및 확인
 
 1. 포털에서 **Active Directory**를 클릭한 다음 조직의 디렉터리 이름을 클릭합니다. 다음 중 하나를 수행할 수 있습니다.
-    1. 기본 디렉터리 페이지의 **사용자 로그인 환경 개선 ** 섹션에서 **도메인 추가**를 클릭합니다.2. **도메인**을 클릭한 다음 **고객 도메인 추가** 또는 **추가** 단추를 클릭합니다.
+    1. 기본 디렉터리 페이지의 **사용자 로그인 환경 개선 **섹션에서 **도메인 추가**를 클릭합니다.
+2. **도메인**을 클릭한 다음 **고객 도메인 추가** 또는 **추가** 단추를 클릭합니다.
 2. **도메인 추가** 페이지에서 추가할 도메인 이름을 입력하고 다음 중 하나를 수행합니다.
     1. Azure AD와 온-프레미스 Active Directory를 통합하지 않으려면 다음을 수행합니다.
         1. **내 로컬 Active Directory를 사용하는 single sign-on에 대해 이 도메인을 구성하려고 함** 확인란을 선택 취소된 상태로 유지하고 **추가** 단추를 클릭합니다.
@@ -211,4 +212,4 @@ Azure AD에 도메인 이름을 추가한 후 새 사용자 계정을 만들 때
 - [조직으로 Azure에 등록](sign-up-organization.md)
 - [Azure AD에서 도메인 관리](https://msdn.microsoft.com/library/azure/dn919677.aspx) 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

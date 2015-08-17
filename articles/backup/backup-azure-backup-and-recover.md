@@ -1,20 +1,6 @@
-<properties
-   pageTitle="Azure Backup - backup and restore from a Windows Server or Windows Client" | Microsoft Azure
-   description="백업 및 Windows Server 또는 Windows 클라이언트에서 복원하는 방법을 알아봅니다"
-   services="backup"
-   documentationCenter=""
-   authors="Jim-Parker"
-   manager="jwhit"
-   editor=""/>
+<properties pageTitle="Azure Backup - backup and restore from a Windows Server or Windows Client" | Microsoft Azure description="백업 및 Windows Server 또는 Windows 클라이언트에서 복원하는 방법을 알아봅니다.” The article also covers alternate server recovery" services="backup" documentationCenter="" authors="Jim-Parker" manager="jwhit" editor=""/>
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="07/01/2015"
-	 ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
 
 # Windows 서버 또는 Windows 클라이언트 컴퓨터에서 백업 및 복원
 이 문서는 Windows 서버 또는 Windows 클라이언트 컴퓨터에서 백업하는 데 필요한 단계를 설명합니다. 또한 동일한 컴퓨터에 백업된 파일을 복원하는 데 필요한 단계와 다른 컴퓨터에 백업된 파일을 복원하는 데 필요한 단계를 다룹니다.
@@ -56,7 +42,7 @@
 
     ![데이터 복구](./media/backup-azure-backup-and-recover/recover.png)
 
-3. 동일한 컴퓨터에 백업된 파일을 복원하려면 **이 서버(\*yourmachinename\*)** 옵션을 선택합니다.
+3. 동일한 컴퓨터에 백업된 파일을 복원하려면 **이 서버(*yourmachinename*)** 옵션을 선택합니다.
 
     ![동일한 컴퓨터](./media/backup-azure-backup-and-recover/samemachine.png)
 
@@ -85,7 +71,7 @@
 ## 다른 컴퓨터로 복구
 전체 서버가 손실된 경우에도 파일/볼륨을 다른 컴퓨터에 복구할 수 있습니다. 다음 단계는 워크플로를 보여줍니다.
 
-단계에서 사용 되는 용어 체계는 다음과 같습니다:-*원본 컴퓨터*– 백업하고 있고 현재 사용할 수 없는 원본 컴퓨터.-*대상 컴퓨터*– 데이터가 검색 되는 컴퓨터입니다.-*샘플 자격 증명 모음*– The 백업 자격 증명을 등록된 *원본 컴퓨터*및*대상 컴퓨터*로 부터 저장합니다<br/>
+단계에서 사용되는 용어 체계는 다음과 같습니다. - *원본 컴퓨터* – 백업을 수행하고 있어 현재 사용할 수 없는 원본 컴퓨터. - *대상 컴퓨터* – 데이터가 검색되는 컴퓨터입니다.- *샘플 자격 증명 모음* – *원본 컴퓨터* 및 *대상 컴퓨터*가 등록되는 백업 자격 증명 모음입니다.<br/>
 
 > [AZURE.NOTE]이전 버전의 운영 체제를 실행 중인 컴퓨터에는 컴퓨터에서 수행된 백업을 복원할 수 없습니다. 예를 들어 백업이 Windows 7 컴퓨터에서 수행된 경우 Windows 8 이상의 컴퓨터에서 복원할 수 있습니다. 그러나 그 반대의 경우는 그렇지 않습니다.
 
@@ -128,4 +114,4 @@
 ## 다음 단계
 - [Azure 백업 - FAQ](backup-azure-backup-faq.md)
 
-<!-------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

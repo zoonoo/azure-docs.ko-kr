@@ -118,14 +118,14 @@ SQL1의 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합�
 3.	개체 탐색기 트리 창에서 **SQL1**을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 4.	**서버 속성** 창에서 **데이터베이스 설정**을 클릭합니다.
 5.	**데이터베이스 기본 위치**를 찾아서 다음 값을 설정합니다. 
-	- **데이터**에 경로 **f:\Data**를 입력합니다.
-	- **로그**에 경로 **f:\Log**를 입력합니다.
-	- **백업**에 경로 **f:\Backup**을 입력합니다.
+	- **데이터**에 경로 **f:\\Data**를 입력합니다.
+	- **로그**에 경로 **f:\\Log**를 입력합니다.
+	- **백업**에 경로 **f:\\Backup**을 입력합니다.
 	- 참고: 새 데이터베이스에서만 이러한 위치를 사용합니다.
 6.	**확인**을 클릭하여 창을 닫습니다.
 7.	**개체 탐색기** 트리 창에서 **보안**을 엽니다.
 8.	**로그인**을 마우스 오른쪽 단추로 클릭하고 **새 로그인**을 클릭합니다.
-9.	**로그인 이름**에 **CORP\User1**을 입력합니다.
+9.	**로그인 이름**에 **CORP\\User1**을 입력합니다.
 10.	**서버 역할** 페이지에서 **sysadmin**을 클릭한 다음 **확인**을 클릭합니다.
 11.	Microsoft SQL Server Management Studio를 닫습니다.
 
@@ -146,7 +146,7 @@ SQL1의 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합�
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
-그런 다음 CORP\User1 계정 자격 증명을 사용하여 LOB1 가상 컴퓨터에 연결합니다.
+그런 다음 CORP\\User1 계정 자격 증명을 사용하여 LOB1 가상 컴퓨터에 연결합니다.
 
 그런 다음 기본 연결 테스트에 대한 트래픽을 허용하도록 Windows 방화벽 규칙을 구성합니다. LOB1의 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
 
@@ -168,8 +168,9 @@ Ping 명령을 실행한 경우 IP 주소 10.0.0.1에서 성공적인 회신 4�
 9.	역할 서비스 선택 페이지에서 LOB 응용 프로그램을 테스트하는 데 필요한 서비스의 확인란을 선택하거나 선택 취소하고 **다음**을 클릭합니다.
 10.	설치 선택 확인 페이지에서 **설치**를 클릭합니다.
 11.	구성 요소 설치가 완료될 때까지 기다렸다가 **닫기**를 클릭합니다.
-12.	CORP\User1 계정 자격 증명으로 CLIENT1 컴퓨터에 로그온한 다음 Internet Explorer를 시작합니다.
-13.	주소 표시줄에 **http://lob1/**을 입력하고 Enter 키를 누릅니다. 기본 IIS 8 웹 페이지가 표시됩니다.
+12.	CORP\\User1 계정 자격 증명으로 CLIENT1 컴퓨터에 로그온한 다음 Internet Explorer를 시작합니다.
+13.	주소 표시줄에 ****http://lob1/**을 입력하고 Enter 키를 누릅니다. 기본 IIS 8 웹 페이지가 표시됩니다.
+
 다음은 현재 구성입니다.
 
 ![](./media/virtual-networks-setup-lobapp-hybrid-cloud-testing/CreateLOBAppHybridCloud_3.png)
@@ -195,4 +196,4 @@ Ping 명령을 실행한 경우 IP 주소 10.0.0.1에서 성공적인 회신 4�
 [Azure 인프라 서비스 구현 지침](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

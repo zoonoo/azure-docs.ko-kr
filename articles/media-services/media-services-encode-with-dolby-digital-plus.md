@@ -592,17 +592,17 @@ Azure 미디어 인코더는 DPLM SDK를 사용하여 입력 오디오에서 대
 이 특성은 음의 강도 측정 모드를 결정합니다. 허용되는 값은 다음과 같습니다.
 
  
-**ITU_R_BS_1770_2_DI**(기본값) - ITU-R BS.1770-2 및 Dialogue Intelligence를 나타냅니다.
+**ITU\_R\_BS\_1770\_2\_DI**(기본값) - ITU-R BS.1770-2 및 Dialogue Intelligence를 나타냅니다.
 
-**ITU_R_BS_1770_1_DI** - ITU-R BS.1770-1 및 Dialogue Intelligence를 나타냅니다.
+**ITU\_R\_BS\_1770\_1\_DI** - ITU-R BS.1770-1 및 Dialogue Intelligence를 나타냅니다.
 
-**ITU_R_BS_1770_2** - ITU-R BS.1770-2를 나타냅니다.
+**ITU\_R\_BS\_1770\_2** - ITU-R BS.1770-2를 나타냅니다.
 
-**LEQA_DI** - Leq(A) 및 Dialogue Intelligence를 나타냅니다.
+**LEQA\_DI** - Leq(A) 및 Dialogue Intelligence를 나타냅니다.
 
 **참고:**
 
-** EBU R128** 모드는 **ITU_R_BS_1770_2_DI**로 얻을 수 있습니다.
+** EBU R128** 모드는 **ITU\_R\_BS\_1770\_2\_DI**로 얻을 수 있습니다.
 
 **Leq(A)**는 레거시용으로만 포함되며 특정 레거시 워크플로에서만 사용되어야 합니다.
 
@@ -610,7 +610,7 @@ Azure 미디어 인코더는 DPLM SDK를 사용하여 입력 오디오에서 대
 
 ###SpeechThreshold 특성
 
-DPLM에서 통합된 음의 강도 결과(예: 음성 제어, 수준 제어 및 제어 없음에서 선택)를 생성하는 데 사용하는 음성 임계값을 지정합니다. 음성 임계값 설정의 범위는 0%에서 100% 사이이며, 1% 단위로 증가합니다. 이 매개 변수는 DPLM이 Dialogue Intelligence를 사용하는 모드로 구성된 경우에만 적용됩니다. 즉, 모드가 ITU_R_BS_1770_2_DI 또는 ITU_R_BS_1770_1_DI로 설정된 경우에만 지정할 수 있다는 의미입니다. 모드가 ITU_R_BS_1770_2_DI 또는 ITU_R_BS_1770_1_DI인 경우 기본값은 20%입니다. 이 특성에 대한 값은 0, 1 – 100 범위로 설정해야 합니다.
+DPLM에서 통합된 음의 강도 결과(예: 음성 제어, 수준 제어 및 제어 없음에서 선택)를 생성하는 데 사용하는 음성 임계값을 지정합니다. 음성 임계값 설정의 범위는 0%에서 100% 사이이며, 1% 단위로 증가합니다. 이 매개 변수는 DPLM이 Dialogue Intelligence를 사용하는 모드로 구성된 경우에만 적용됩니다. 즉, 모드가 ITU\_R\_BS\_1770\_2\_DI 또는 ITU\_R\_BS\_1770\_1\_DI로 설정된 경우에만 지정할 수 있다는 의미입니다. 모드가 ITU\_R\_BS\_1770\_2\_DI 또는 ITU\_R\_BS\_1770\_1\_DI인 경우 기본값은 20%입니다. 이 특성에 대한 값은 0, 1 – 100 범위로 설정해야 합니다.
 
 ###TruePeakDCBlock 특성
 
@@ -640,7 +640,7 @@ true‐peak 측정 내에서 강조 필터가 사용되는지(true) 사용되지
 
 **DialogNormalization** - 입력 오디오에서 측정된 DialNorm의 값(데시벨 단위)으로 출력 DD+ 스트림에 포함되며 범위는 {-31, -30, …, -1}dB입니다.
 
-**IntegratedLoudness** - DPLM에서 측정된 통합된 음의 강도로 범위는 -70에서 +10 LKFS/dBFS 사이입니다. 여기서 dBFS는 모드가 LEQA_DI로 설정된 경우에만 사용됩니다.
+**IntegratedLoudness** - DPLM에서 측정된 통합된 음의 강도로 범위는 -70에서 +10 LKFS/dBFS 사이입니다. 여기서 dBFS는 모드가 LEQA\_DI로 설정된 경우에만 사용됩니다.
 
 **IntegratedLoudnessGatingMethod** - 유효한 값은 0 – 없음/제어 없음, 1 – 음성 제어, 2 – 수준 제어입니다.
 
@@ -651,4 +651,4 @@ true‐peak 측정 내에서 강조 필터가 사용되는지(true) 사용되지
 **TruePeak** - 이 결과에는 측정이 재설정된 이후 채널에서 가장 큰 절대 true‐peak 값이 포함됩니다. true peak에 대한 설명은 ITU‐R BS.1770‐2를 참조하세요. 값의 범위는 -70에서 12.04dBTP 사이입니다.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

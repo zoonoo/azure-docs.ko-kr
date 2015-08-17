@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure Mobile Engagement iOS SDK 콘텐츠" 
+<properties
+	pageTitle="Azure Mobile Engagement iOS SDK 콘텐츠"
 	description="Azure Mobile Engagement용 iOS SDK의 최신 업데이트 및 절차"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="MehrdadMzfr"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="02/12/2015" 
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="08/05/2015"
 	ms.author="kapiteir" />
 
 #SDK 콘텐츠
@@ -41,6 +41,5 @@
 `src` 폴더
 
 > Engagement 클래스를 필요에 따라 조정하려는 고급 사용자를 위해 제공되는 Engagement 뷰 컨트롤러 및 도달률 SDK의 소스 코드입니다.
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -210,4 +210,4 @@ Azure 검색에서는 역할 기반 액세스 제어에 따라 다음 관리 작
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

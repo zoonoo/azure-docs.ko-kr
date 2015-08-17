@@ -78,4 +78,4 @@ Azure SQL 데이터 웨어하우스는 중요한 수정 사항을 설치하기 �
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

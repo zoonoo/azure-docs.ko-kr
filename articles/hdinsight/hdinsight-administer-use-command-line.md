@@ -158,4 +158,4 @@ Azure 포털을 사용하여 정보를 얻는 방법에 대한 자세한 내용�
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "클러스터 나열 및 표시"
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

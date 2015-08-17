@@ -35,7 +35,7 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 
 1. [알림 허브 시작(Android)](notification-hubs-android-get-started.md) 자습서에 따라 앱을 만들고 GCM에서 푸시 알림을 받도록 구성합니다.
 
-2. **res/layout/activity_main.xml** 파일을 열고 다음 콘텐츠 정의로 바꿉니다.
+2. **res/layout/activity\_main.xml** 파일을 열고 다음 콘텐츠 정의로 바꿉니다.
  
     그러면 사용자로 로그인할 수 있는 새 EditText 컨트롤이 추가됩니다. 또한 보내는 알림의 일부가 될 사용자 이름 태그 필드가 추가됩니다.
 			
@@ -133,7 +133,7 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 			Recipient username tag
 		</string>
 
-	main_activity.xml 그래픽 레이아웃은 다음과 같이 표시되어야 합니다.
+	main\_activity.xml 그래픽 레이아웃은 다음과 같이 표시되어야 합니다.
 
 	![][A1]
 
@@ -434,4 +434,4 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

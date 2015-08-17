@@ -27,8 +27,8 @@
 
 - 프로 비전 시 Azure 포털, Azure PowerShell 또는 크로스 플랫폼 명령줄 인터페이스를 사용하여 작업자 노드의 수를 지정할 수 있습니다. 자세한 내용은 [HDInsight 클러스터 프로비전](hdinsight-provision-clusters.md)을 참조하세요. 다음 화면은 Azure 포털에서 작업자 노드 구성을 표시합니다.
 
-	![scaleout_1][image-hdi-optimize-hive-scaleout_1]
-- 런타임 시, 다시 만들지 않고도 확장할 수도 있습니다. 다음과 같습니다. ![scaleout_1][image-hdi-optimize-hive-scaleout_2]
+	![scaleout\_1][image-hdi-optimize-hive-scaleout_1]
+- 런타임 시, 다시 만들지 않고도 확장할 수도 있습니다. 다음과 같습니다. ![scaleout\_1][image-hdi-optimize-hive-scaleout_2]
 
 HDInsight에서 지원하는 다른 가상 컴퓨터에 대한 자세한 정보는 [HDInsight 가격](http://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
 
@@ -36,7 +36,7 @@ HDInsight에서 지원하는 다른 가상 컴퓨터에 대한 자세한 정보�
 
 [Apache Tez](http://hortonworks.com/hadoop/tez/)는 MapReduce 엔진에 대한 대체 실행 엔진입니다.
 
-![tez_1][image-hdi-optimize-hive-tez_1]
+![tez\_1][image-hdi-optimize-hive-tez_1]
 
 
 다음의 이유로 Tez가 훨씬 빠릅니다.
@@ -215,4 +215,4 @@ ORC 형식에 대한 자세한 내용은 [여기](https://cwiki.apache.org/confl
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -5,7 +5,7 @@
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor=""/>
 
 <tags 
 	ms.service="app-service-web" 
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="08/01/2015" 
 	ms.author="cephalin;riande"/>
 
 
 # Azure 앱 서비스에 ASP.NET MVC 5 모바일 웹 앱 배포
 
-이 자습서에서는 모바일 친화적인 ASP.NET MVC 5 웹 앱을 만들고 Azure 앱 서비스에 배포하는 방법에 대한 기초적인 내용을 알려 줍니다. 이 자습서를 사용하려면 [Visual Studio Express 2013 for Web][Visual Studio Express 2013] 또는 이미 보유하고 있는 Visual Studio의 Professional 버전이 필요합니다.
+이 자습서에서는 모바일 친화적인 ASP.NET MVC 5 웹 앱을 만들고 Azure 앱 서비스에 배포하는 방법에 대한 기초적인 내용을 알려 줍니다. 이 자습서를 사용하려면 [Visual Studio Express 2013 for Web][Visual Studio Express 2013] 또는 이미 보유하고 있는 Visual Studio의 Professional 버전이 필요합니다. [Visual Studio 2015]를 사용할 수 있지만 스크린샷이 달라지게 되고 ASP.NET 4.x 템플릿을 사용해야 합니다.
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
@@ -216,7 +216,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
         DisplayModeProvider.Instance.RequireConsistentDisplayMode = true;
     }
 
-`RequireConsistentDisplayMode`가 `true`로 설정되면 모바일 레이아웃(*_Layout.Mobile.cshtml*)이 모바일 뷰에 대해서만 사용됩니다(예: 뷰 파일이 ***ViewName**.Mobile.cshtml* 형식일 때). 모바일 뷰가 아닌 뷰에서 모바일 레이아웃이 제대로 작동하지 않을 때 `RequireConsistentDisplayMode`를 `true`로 설정할 수도 있습니다. 아래의 스크린샷은 `RequireConsistentDisplayMode`가 `true`로 설정되어 있을 때 *발표자* 페이지가 어떻게 렌더링되는 지를 보여줍니다(맨 위의 탐색 표시줄에 "(Mobile)" 문자열이 없음).
+`RequireConsistentDisplayMode`이(가) `true`(으)로 설정되면 모바일 레이아웃(*\_Layout.Mobile.cshtml*)이 모바일 뷰에 대해서만 사용됩니다(예: 뷰 파일이 ***ViewName**.Mobile.cshtml* 형식일 때). 모바일 뷰가 아닌 뷰에서 모바일 레이아웃이 제대로 작동하지 않을 때 `RequireConsistentDisplayMode`를 `true`로 설정할 수도 있습니다. 아래의 스크린샷은 `RequireConsistentDisplayMode`가 `true`로 설정되어 있을 때 *발표자* 페이지가 어떻게 렌더링되는 지를 보여줍니다(맨 위의 탐색 표시줄에 "(Mobile)" 문자열이 없음).
 
 ![][AllSpeakers_LayoutMobileOverridden]
 
@@ -560,6 +560,7 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 
 <!-- External Links -->
 [Visual Studio Express 2013]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
+[Visual Studio 2015]: https://www.visualstudio.com/downloads/download-visual-studio-vs
 [AzureSDKVs2013]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
 [Fiddler]: http://www.fiddler2.com/fiddler2/
 [EmulatorIE11]: http://msdn.microsoft.com/library/ie/dn255001.aspx
@@ -616,4 +617,4 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

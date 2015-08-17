@@ -18,9 +18,13 @@
 
 # Azure AD Connect 작동 방법
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../active-directory-aadconnect/" title="정의">정의</a> <a href="../active-directory-aadconnect-how-it-works/" title="작동 방식" class="current">작동 방식</a> <a href="../active-directory-aadconnect-get-started/" title="시작">시작</a> <a href="../active-directory-aadconnect-whats-next/" title="다음 단계">다음 단계</a> <a href="../active-directory-aadconnect-learn-more/" title="자세한 정보">자세한 정보</a>
-</div>
+ > [AZURE.SELECTOR]
+- [What is It](../active-directory-aadconnect/)
+- [How it Works](../active-directory-aadconnect-how-it-works/)
+- [Getting Started](../active-directory-aadconnect-get-started/)
+- [What's Next](../active-directory-aadconnect-whats-next/) 
+- [Learn More](../active-directory-aadconnect-learn-more/)
+
 Azure Active Directory Connect는 기본 세 부분으로 구성됩니다. 이러한 주요 부분은 동기화 서비스, 선택적 Active Directory Federation Services 부분, [Azure AD Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx)를 사용하여 수행하는 모니터링 부분입니다.
 
 
@@ -48,4 +52,4 @@ Azure Active Directory Connect는 기본 세 부분으로 구성됩니다. 이�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -250,4 +250,4 @@ BizTalk 규칙은 명시적 연결 전달을 지원합니다. 즉, 사용자가 
 [10]: ./media/app-service-logic-use-biztalk-rules/APIDef.PNG
 [11]: ./media/app-service-logic-use-biztalk-rules/PublicAnon.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

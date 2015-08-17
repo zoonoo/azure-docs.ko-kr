@@ -255,4 +255,4 @@ Azure AD Graph API에 대한 자세한 내용은 [Azure Active Directory 그래�
 [모바일 서비스의 AAD에서 역할 기반 액세스 제어]: mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

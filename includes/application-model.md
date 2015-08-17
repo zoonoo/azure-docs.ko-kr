@@ -168,7 +168,7 @@ Azure에 호스티드 서비스를 배포하려면 서비스 정의 파일과 �
 
 </td>
 <td>
-~5Mbps
+\~5Mbps
 
 </td>
 </tr>
@@ -190,7 +190,7 @@ Azure에 호스티드 서비스를 배포하려면 서비스 정의 파일과 �
 
 </td>
 <td>
-~100Mbps
+\~100Mbps
 
 </td>
 </tr>
@@ -212,7 +212,7 @@ Azure에 호스티드 서비스를 배포하려면 서비스 정의 파일과 �
 
 </td>
 <td>
-~200Mbps
+\~200Mbps
 
 </td>
 </tr>
@@ -234,7 +234,7 @@ Azure에 호스티드 서비스를 배포하려면 서비스 정의 파일과 �
 
 </td>
 <td>
-~400Mbps
+\~400Mbps
 
 </td>
 </tr>
@@ -256,7 +256,7 @@ Azure에 호스티드 서비스를 배포하려면 서비스 정의 파일과 �
 
 </td>
 <td>
-~800Mbps
+\~800Mbps
 
 </td>
 </tr>
@@ -284,7 +284,7 @@ Azure에 호스티드 서비스를 배포하려면 서비스 정의 파일과 �
 
 서비스 구성(CSCFG) 파일은 응용 프로그램을 다시 배포하지 않고도 변경할 수 있는 설정을 설명하는 XML 파일입니다. XML 파일의 전체 스키마는 [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx][]에서 확인할 수 있습니다. CSCFG 파일에는 응용 프로그램의 각 역할에 대한 Role 요소가 포함되어 있습니다. 다음은 CSCFG 파일에 지정할 수 있는 항목 중 일부입니다.
 
--   **OS 버전**. 이 특성을 사용하면 응용 프로그램 코드를 실행 중인 모든 역할 인스턴스에 사용하려는 OS(운영 체제) 버전을 선택할 수 있습니다. 이 OS를 *게스트 OS*라고 하며, 각각의 새로운 버전에 게스트 OS가 릴리스될 당시 사용 가능한 최신 보안 패치와 업데이트가 포함되어 있습니다. osVersion 특성 값을 "*"로 설정하면 새 게스트 OS 버전이 사용 가능할 때 Azure에서 각 역할 인스턴스의 게스트 OS를 자동으로 업데이트합니다. 그러나 특정 게스트 OS 버전을 선택하여 자동 업데이트를 옵트아웃(opt out)할 수 있습니다. 예를 들어 osVersion 특성을 "WA-GUEST-OS-2.8_201109-01" 값으로 설정하면 모든 역할 인스턴스가 [http://msdn.microsoft.com/library/hh560567.aspx][] 웹 페이지에 설명된 항목을 얻게 됩니다. 게스트 OS 버전에 대한 자세한 내용은 [Azure 게스트 OS에 대한 업그레이드 관리]를 참조하세요.
+-   **OS 버전**. 이 특성을 사용하면 응용 프로그램 코드를 실행 중인 모든 역할 인스턴스에 사용하려는 OS(운영 체제) 버전을 선택할 수 있습니다. 이 OS를 *게스트 OS*라고 하며, 각각의 새로운 버전에 게스트 OS가 릴리스될 당시 사용 가능한 최신 보안 패치와 업데이트가 포함되어 있습니다. osVersion 특성 값을 "*"로 설정하면 새 게스트 OS 버전이 사용 가능할 때 Azure에서 각 역할 인스턴스의 게스트 OS를 자동으로 업데이트합니다. 그러나 특정 게스트 OS 버전을 선택하여 자동 업데이트를 옵트아웃(opt out)할 수 있습니다. 예를 들어 osVersion 특성을 "WA-GUEST-OS-2.8\_201109-01" 값으로 설정하면 모든 역할 인스턴스가 [http://msdn.microsoft.com/library/hh560567.aspx][] 웹 페이지에 설명된 항목을 얻게 됩니다. 게스트 OS 버전에 대한 자세한 내용은 [Azure 게스트 OS에 대한 업그레이드 관리]를 참조하세요.
 
 -   **인스턴스**. 이 요소의 값은 특정 역할에 대한 코드를 실행하여 프로비전하려는 역할 인스턴스 수를 나타냅니다. 응용 프로그램을 다시 배포하지 않고도 새 CSCFG 파일을 Azure에 업로드할 수 있으므로 간단하게 이 요소의 값을 변경하고 새 CSCFG 파일을 업로드하여 응용 프로그램 코드를 실행하는 역할 인스턴스 수를 동적으로 늘리거나 줄일 수 있습니다. 이렇게 하면 역할 인스턴스 실행에 대해 부과되는 요금을 제어하는 동시에 실제 작업 요구에 맞게 응용 프로그램을 쉽게 확장하거나 축소할 수 있습니다.
 
@@ -328,22 +328,22 @@ Azure에 호스티드 서비스를 배포하려면 서비스 정의 파일과 �
   [0]: ./media/application-model/application-model-3.jpg
   [1]: ./media/application-model/application-model-4.jpg
   [2]: ./media/application-model/application-model-5.jpg
-  [Azure에서 사용자 지정 도메인 이름 구성]: http://azure.microsoft.com/develop/net/common-tasks/custom-dns/
-  [Azure의 데이터 저장소 제공]: http://azure.microsoft.com/develop/net/fundamentals/cloud-storage/
+  [Azure에서 사용자 지정 도메인 이름 구성]: http://www.windowsazure.com/develop/net/common-tasks/custom-dns/
+  [Azure의 데이터 저장소 제공]: http://www.windowsazure.com/develop/net/fundamentals/cloud-storage/
   [3]: ./media/application-model/application-model-6.jpg
   [4]: ./media/application-model/application-model-7.jpg
   
-  [Azure 가격 책정]: http://azure.microsoft.com/pricing/calculator/
+  [Azure 가격 책정]: http://www.windowsazure.com/pricing/calculator/
   [Managing Certificates in Azure]: http://msdn.microsoft.com/library/windowsazure/gg981929.aspx
   [http://msdn.microsoft.com/library/windowsazure/ee758710.aspx]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
   [http://msdn.microsoft.com/library/hh560567.aspx]: http://msdn.microsoft.com/library/hh560567.aspx
   [Managing Upgrades to the Azure Guests OS]: http://msdn.microsoft.com/library/ee924680.aspx
   [Azure 관리 포털]: http://manage.windowsazure.com/
   [5]: ./media/application-model/application-model-8.jpg
-  [Azure 응용 프로그램 배포 및 업데이트]: http://azure.microsoft.com/develop/net/fundamentals/deploying-applications/
+  [Azure 응용 프로그램 배포 및 업데이트]: http://www.windowsazure.com/develop/net/fundamentals/deploying-applications/
   [Azure에 대한 호스팅 서비스 만들기]: http://msdn.microsoft.com/library/gg432967.aspx
   [Azure에서 호스팅 서비스 관리]: http://msdn.microsoft.com/library/gg433038.aspx
   [응용 프로그램을 Azure로 마이그레이션]: http://msdn.microsoft.com/library/gg186051.aspx
   [Azure 응용 프로그램 구성]: http://msdn.microsoft.com/library/windowsazure/ee405486.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

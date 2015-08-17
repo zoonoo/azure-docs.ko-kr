@@ -1,19 +1,21 @@
-##Related Articles
+##관련 문서
 
-This article is part of a series on how to manage SaaS applications with Azure Active Directory. Below are all of the articles in the series:
+이 문서는 Azure Active Directory를 통한 SaaS 응용 프로그램 관리 방법 관련 시리즈의 일부입니다. 이 시리즈의 전체 글은 다음과 같습니다.
 
-- [Introduction to Single Sign-On and Managing App Access with Azure Active Directory](active-directory-appssoaccess-whatis.md)
-- [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md)
-- [Automate User Provisioning and Deprovisioning to SaaS Applications](active-directory-saas-app-provisioning.md)
-	- [Customizing Attribute Mappings for User Provisioning](active-directory-saas-customizing-attribute-mappings.md)
-	- [Writing Expressions for Attribute Mappings](active-directory-saas-writing-expressions-for-attribute-mappings.md)
-	- [Scoping Filters for User Provisioning](active-directory-saas-scoping-filters.md)
-	- [Account Provisioning Notifications](active-directory-saas-account-provisioning-notifications.md)
-- [List of Tutorials on How to Integrate SaaS Apps](active-directory-saas-tutorial-list.md)
-	- [How to integrate Salesforce](active-directory-saas-salesforce-tutorial.md)
-	- [How to integrate Google Apps](active-directory-saas-google-apps-tutorial.md)
-	- [How to integrate Box](https://msdn.microsoft.com/library/azure/dn308589.aspx)
-	- [How to integrate ServiceNow](https://msdn.microsoft.com/library/azure/dn510971.aspx)
-	- [How to integrate Dropbox for Business](https://msdn.microsoft.com/en-us/library/azure/dn510978.aspx)
-	- [How to integrate Workday](https://msdn.microsoft.com/en-us/library/azure/dn510972.aspx) 
-	- [More SaaS App Tutorials...](active-directory-saas-tutorial-list.md)
+- [Azure Active Directory를 통한 Single Sign-on 및 응용 프로그램 액세스 관리 소개](active-directory-appssoaccess-whatis.md)
+- [액세스 패널 소개](active-directory-saas-access-panel-introduction.md)
+- [SaaS 응용 프로그램에 자동화된 사용자 프로비저닝 및 프로비저닝 해제](active-directory-saas-app-provisioning.md)
+	- [사용자 프로비저닝에 대한 특성 매핑 사용자 지정](active-directory-saas-customizing-attribute-mappings.md)
+	- [특성 매핑에 대한 식 작성](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+	- [사용자 프로 비전에 대 한 필터 범위 지정](active-directory-saas-scoping-filters.md)
+	- [계정 프로비전 알림](active-directory-saas-account-provisioning-notifications.md)
+- [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
+	- [Salesforce를 통합하는 방법](active-directory-saas-salesforce-tutorial.md)
+	- [Google Apps를 통합하는 방법](active-directory-saas-google-apps-tutorial.md)
+	- [Box를 통합하는 방법](https://msdn.microsoft.com/library/azure/dn308589.aspx)
+	- [ServiceNow를 통합하는 방법](https://msdn.microsoft.com/library/azure/dn510971.aspx)
+	- [Dropbox for Business를 통합하는 방법](https://msdn.microsoft.com/ko-kr/library/azure/dn510978.aspx)
+	- [Workday를 통합하는 방법](https://msdn.microsoft.com/ko-kr/library/azure/dn510972.aspx) 
+	- [다른 SaaS 앱 자습서...](active-directory-saas-tutorial-list.md)
+
+<!---HONumber=August15_HO6-->

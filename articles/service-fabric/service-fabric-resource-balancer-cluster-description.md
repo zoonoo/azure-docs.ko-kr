@@ -192,4 +192,4 @@ NodeName, NodeType, FaultDomain, 그리고 UpgradeDomain 배치 속성에는 기
 [Image6]: media/service-fabric-resource-balancer-cluster-description/Thresholds.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

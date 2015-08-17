@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="dotnet" 
  ms.topic="article" 
- ms.date="05/12/2015" 
+ ms.date="08/04/2015" 
  ms.author="krisragh"/>
  
  
@@ -87,4 +87,4 @@ Azure 스케줄러 작업에 대한 대상 끝점이 연결 불가 상태로 있
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

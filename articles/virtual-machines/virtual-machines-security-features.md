@@ -43,4 +43,4 @@ Microsoft Azure 보안 센터의 [리소스](http://azure.microsoft.com/support/
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

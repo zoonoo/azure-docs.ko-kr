@@ -44,4 +44,4 @@ Azure AD는 관리자를 위한 다양한 보고서를 제공합니다. Azure AD
 * [조직으로 Azure 등록](sign-up-organization.md)
 * [Azure ID](fundamentals-identity.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

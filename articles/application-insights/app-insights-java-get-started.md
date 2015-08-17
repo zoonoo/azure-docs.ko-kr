@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/30/2015" 
 	ms.author="awills"/>
  
@@ -35,7 +35,7 @@
 *이미 라이브 상태인 웹앱이 있는 경우 다른 절차에 따라 [웹 서버에서 런타임으로 SDK를 추가](app-insights-java-live.md)할 수 있습니다. 해당 다른 절차는 코드를 다시 작성할 필요가 없지만 사용자 활동을 추적하는 코드를 작성하는 옵션이 없습니다.*
 
 
-## 1. Application Insights 계측 키 가져오기
+## 1\. Application Insights 계측 키 가져오기
 
 1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 새 Application Insights 리소스 만들기
@@ -48,7 +48,7 @@
 
     ![새 리소스 개요에서 속성을 클릭하고 계측 키 복사](./media/app-insights-java-get-started/03-key.png)
 
-## 2. 프로젝트에 Java용 Aplication Insights SDK 추가
+## 2\. 프로젝트에 Java용 Aplication Insights SDK 추가
 
 *프로젝트에 적합한 방법을 선택합니다.*
 
@@ -123,7 +123,7 @@
 
 
 
-## 3. Application Insights xml 파일 추가
+## 3\. Application Insights xml 파일 추가
 
 ApplicationInsights.xml을 프로젝트의 리소스 폴더에 추가합니다. 그렇지 않으면 ApplicationInsights.xml이 프로젝트의 배포 클래스 경로에 추가되었는지 확인합니다. 다음 XML을 복사합니다.
 
@@ -164,7 +164,7 @@ Azure 포털에서 가져온 계측 키를 대체합니다.
 * HTTP 요청 구성 요소는 선택 사항입니다. 자동으로 포털에 요청 및 응답 시간에 대한 원격 분석을 보냅니다.
 * 이벤트 상관 관계는 HTTP 요청 구성 요소에 추가됩니다. 이는 서버가 수신하는 요청마다 식별자를 할당하며 'Operation.Id' 속성으로 원격 분석의 모든 항목에 이를 속성으로 추가합니다. [진단 검색][diagnostic]에서 필터를 설정하여 각 요청과 연결된 원격 분석의 상관 관계를 지정할 수 있습니다.
 
-## 4. HTTP 필터 추가
+## 4\. HTTP 필터 추가
 
 마지막 구성 단계는 HTTP 요청 구성 요소가 각 웹 요청을 로그하도록 허용합니다. (완전한 API를 원하는 경우에는 요청되지 않습니다.)
 
@@ -207,7 +207,7 @@ Struts 구성 파일에 이 항목 추가(일반적으로 struts.xml 또는 stru
 
 (기본 스택에 정의된 인터셉터가 있는 경우 해당 인터셉터를 스택에 추가하면 됩니다.)
 
-## 5. 서버에 설치
+## 5\. 서버에 설치
 
 Windows 서버에 다음을 설치합니다.
 
@@ -215,11 +215,11 @@ Windows 서버에 다음을 설치합니다.
 
 (이를 통해 성능 카운터를 사용할 수 있게 됩니다.)
 
-## 6. 응용 프로그램 실행
+## 6\. 응용 프로그램 실행
 
 응용 프로그램을 디버그 모드로 개발 컴퓨터에서 실행하거나 서버에 게시합니다.
 
-## 7. Application Insights에서 원격 분석 보기
+## 7\. Application Insights에서 원격 분석 보기
 
 [Microsoft Azure 포털](https://portal.azure.com)의 Application Insights 리소스로 돌아갑니다.
 
@@ -373,4 +373,4 @@ Application Insights를 사용하여 Log4J, Logback 또는 다른 로깅 프레�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

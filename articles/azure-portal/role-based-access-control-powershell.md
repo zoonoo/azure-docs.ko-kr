@@ -165,4 +165,4 @@ Windows PowerShell을 사용하여 역할 기반 액세스 제어를 관리하�
 - [역할 기반 액세스 제어 문제 해결](role-based-access-control-troubleshooting.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

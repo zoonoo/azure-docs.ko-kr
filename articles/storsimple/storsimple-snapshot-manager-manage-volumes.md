@@ -235,7 +235,7 @@ StorSimple 스냅숏 관리자 **볼륨** 노드(**범위** 창)를 사용하여
 
     ![동적 디스크 변환 메시지](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Disk_management_msg.png)
 
-10. 디스크 관리에서 디스크 1 및 디스크 2가 동적 미러 볼륨으로 표시되어 있는지 확인합니다(\*\*동적\*\*이 상태 열에 표시되고 용량 막대의 색은 미러 볼륨을 나타내는 적색으로 변경되어야 합니다.)
+10. 디스크 관리에서 디스크 1과 디스크 2가 동적 미러 볼륨으로 표시되는지 확인합니다. **동적**이 상태 열에 표시되고 용량 막대의 색은 미러 볼륨을 나타내는 빨강으로 변경되어야 합니다.
 
     ![디스크 관리에서 미러링한 동적 디스크](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Verify_dynamic_disks_2.png)
  
@@ -270,4 +270,4 @@ StorSimple 스냅숏 관리자 **볼륨** 노드(**범위** 창)를 사용하여
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -205,52 +205,52 @@ Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/librar
 
 ```
 	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2014-10-10
-  ```
+```
 
-Supported methods: GET PUT DELETE
+지원되는 메서드: GET PUT DELETE
 
-Supported collection methods: GET
+지원되는 컬렉션 메서드: GET
 
-The following table describes the properties that are available.
+다음 테이블에서 사용할 수 있는 속성을 설명합니다.
 
-|Property|Description|
+|속성|설명|
 |---|---|
-|Id|The unique identifier.|
-|Etag|**Required for Patch**. Updated by server on each write. Value must be equal to the current stored value or ‘*’ to update. 409 returned for old/invalid values.|
-|properties.query|**Required**. The search query.|
-|properties.displayName|**Required**. The user defined display name of the query. If modeled as an Azure resource, this would be a Tag.|
-|properties.category|**Required**. The user defined category of the query. If modeled as an Azure resource this would be a Tag.|
+|Id|고유 식별자|
+|ETag|**패치에 필요합니다**. 각 쓰기에 대해 서버에서 업데이트되었습니다. 값은 현재 저장 된 값 또는 업데이트할 ‘*’과 같아야 합니다. 오래되거나 잘못된 값에 대해 409가 반환되었습니다.|
+|properties.query|**필수입니다**. 검색 쿼리.|
+|properties.displayName|**필수입니다**. 쿼리의 사용자 정의된 표시 이름입니다. Azure 리소스로 모델링되는 경우 이것은 태그입니다.|
+|properties.category|**필수입니다**. 쿼리의 사용자 정의된 범주입니다. Azure 리소스로 모델링되는 경우 이것은 태그입니다.|
 
->[AZURE.NOTE]The Operational Insights Search API currently returns user-created saved searches when polled for saved searches in a workspace. The API will not return saved searches provided by solutions at this time. This functionality will be added at a later date.
+>[AZURE.NOTE]Operational Insights 검색 API는 작업 영역에서 저장된 검색에 대해 폴링될 때 사용자가 만든 저장된 검색을 현재 반환합니다. API는 현재 솔루션에서 제공되는 저장된 검색을 반환하지 않습니다. 이 기능은 나중에 추가됩니다.
 
-### Delete saved searches
+### 저장된 검색 삭제
 
-**Request:**
+**요청:**
 
 ```
 	armclient delete /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2014-10-10
 ```
 
-### Update saved searches
+### 저장된 검색 업데이트
 
- **Request:**
+ **요청:**
 
 ```
 	$savedSearchParametersJson = "{'etag': 'W/`"datetime\'2015-04-16T23%3A35%3A35.3182423Z\'`"', 'properties': { 'Category': 'myCategory', 'DisplayName':'myDisplayName', 'Query':'* | measure Count() by Source', 'Version':'1'  }"
 	armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2014-10-10 $savedSearchParametersJson
 ```
 
-### Metadata - JSON only
+### 메타데이터-JSON만
 
-Here’s a way to see the fields for all log types for the data collected in your workspace. For example, if you want you know if the Event type has a field named Computer, then this is one way to look up and confirm.
+작업 영역에 수집된 데이터에 대한 모든 로그 형식에 대해 필드를 참조하는 방법은 다음과 같습니다. 예를 들어 원하는 이벤트 유형에 컴퓨터라는 필드가 있는지 알고 싶은 경우 이것이 조회하고 확인하는 한 가지 방법입니다.
 
-**Request for Fields:**
+**필드에 대한 요청:**
 
 ```
 	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/schema?api-version=2014-10-10
 ```
 
-**Response:**
+**응답:**
 
 ```
 	{
@@ -281,29 +281,28 @@ Here’s a way to see the fields for all log types for the data collected in you
 	}
 ```
 
-The following table describes the properties that are available.
+다음 테이블에서 사용할 수 있는 속성을 설명합니다.
 
-|**Property**|**Description**|
+|**속성**|**설명**|
 |---|---|
-|name|Field name.|
-|displayName|The display name of the field.|
-|type|The Type of the field value.|
-|facetable|Combination of current ‘indexed’, ‘stored ‘and ‘facet’ properties.|
-|display|Current ‘display’ property. True if field is visible in search.|
-|ownerType|Reduced to only Types belonging to onboarded IP’s.|
+|name|필드 이름.|
+|displayName|필드의 표시 이름입니다.|
+|type|필드 값의 형식입니다.|
+|facetable|현재 'indexed', 'store' 및 'facet' 속성의 조합입니다.|
+|display|현재 'display' 속성입니다. 필드를 검색에서 볼 수 있는 경우 true입니다.|
+|ownerType|등록된 IP에 속하는 형식에만 줄어듭니다.|
 
 
-## Optional parameters
-The following information describes optional parameters available.
+## 선택적 매개 변수
+다음 정보는 사용 가능한 선택적 매개 변수를 설명합니다.
 
-### Highlighting
+### 강조 표시
 
-The “Highlight” parameter is an optional parameter you may use to request the search subsystem include a set of markers in its response.
+“Highlight” 매개변수는 해당 응답의 표식 집합을 포함하는 검색 하위 시스템을 요청할 때 사용할 수도 있는 선택적 매개 변수입니다.
 
-These markers indicate the start and end highlighted text that matches the terms provided in your search query.
-You may specify the start and end markers that will be used by search to wrap the highlighted term.
+이러한 표식은 검색 쿼리에 제공된 용어와 일치하는 시작 및 종료 강조 표시된 텍스트를 나타냅니다. 강조 표시된 용어를 래핑할 검색에서 사용되는 시작 및 종료 표식을 지정할 수 있습니다.
 
-**Example search query**
+**예제 검색 쿼리**
 
 ```
 	$savedSearchParametersJson =
@@ -320,7 +319,7 @@ You may specify the start and end markers that will be used by search to wrap th
 	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2014-10-10 $searchParametersJson
 ```
 
-**Sample result:**
+**샘플 결과:**
 
 ```
 	{
@@ -346,4 +345,4 @@ You may specify the start and end markers that will be used by search to wrap th
 
 위의 결과 접두사가 있고 추가된 오류 메시지를 포함합니다.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

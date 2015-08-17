@@ -97,11 +97,11 @@ Azure 모바일 서비스를 사용하여 앱을 배포하는 경우 서버 오�
 [SQL 데이터베이스 비즈니스 연속성 지침]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
 [Team Foundation Service]: http://tfs.visualstudio.com/
 
-[소스 제어 기능]: http://azure.microsoft.com/develop/mobile/tutorials/store-scripts-in-source-control/
-[Azure CLI를 사용]: http://azure.microsoft.com/develop/mobile/tutorials/command-line-administration/
+[소스 제어 기능]: http://www.windowsazure.com/develop/mobile/tutorials/store-scripts-in-source-control/
+[Azure CLI를 사용]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 [비정상]: http://manage.windowsazure.com/
-[Azure 서비스 대시보드]: http://azure.microsoft.com/support/service-dashboard/
-[Azure CLI를 사용하여 모바일 서비스 자동화]: http://azure.microsoft.com/develop/mobile/tutorials/command-line-administration/
+[Azure 서비스 대시보드]: http://www.windowsazure.com/support/service-dashboard/
+[Azure CLI를 사용하여 모바일 서비스 자동화]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

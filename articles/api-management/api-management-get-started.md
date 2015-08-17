@@ -12,8 +12,8 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.topic="hero-article"
+	ms.date="08/05/2015"
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 첫 번째 API 관리
@@ -107,7 +107,8 @@ API는 Azure 관리 포털을 통해 액세스할 수 있는 API 게시자 포�
 
 다음 단계를 수행하여 계산기 API를 구성합니다.
 
-1. **URL에서**를 클릭하고 **사양 문서 URL** 텍스트 상자에 **http://calcapi.cloudapp.net/calcapi.json**을 입력하고 **Swagger** 라디오 단추를 클릭합니다. 2. **웹 API URL 접미사** 텍스트 상자에 **calc**를 입력합니다.
+1. **URL에서**를 클릭하고 **사양 문서 URL** 텍스트 상자에 ****http://calcapi.cloudapp.net/calcapi.json**을 입력하고 **Swagger** 라디오 단추를 클릭합니다.
+2. **웹 API URL 접미사** 텍스트 상자에 **calc**를 입력합니다.
 3. **제품(선택 사항)** 상자를 클릭하고 **Starter**를 선택합니다.
 4. **저장**을 클릭하여 API를 가져옵니다.
 
@@ -243,4 +244,4 @@ API 및 작업과 함께 가져온 매개 변수와 샘플 설명을 참고하�
 [api-management-]: ./media/api-management-get-started/api-management-.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -22,6 +22,10 @@
 
 Azure 리소스 관리자는 관리 플랫폼으로 액세스 제어를 고유하게 통합하므로 조직에서 사용자는 리소스 그룹에 대해 어떤 작업을 할지 지정할 수 있습니다.
 
+이 개요는 다음과 같습니다.
+
+[AZURE.VIDEO azure-resource-manager-overview]
+
 > [AZURE.NOTE]이 항목에서는 개념을 설명하기 위해 미리 보기 포털을 사용하여 리소스, 그룹 및 템플릿을 설명합니다. 하지만 [PowerShell](powershell-azure-resource-manager.md)을 비롯하여 [Mac, Linux 및 Windows용 Azure CLI](virtual-machines/xplat-cli-azure-resource-manager.md)를 사용하여 Azure 리소스를 생성하고, 관리하고, 삭제하는 방법에 대해 설명합니다.
 
 ## 리소스 그룹
@@ -125,4 +129,4 @@ Preview 포털 사용에 대한 내용은 [Azure Preview 포털을 사용하여 
 - 템플릿에서 사용할 수 있는 함수를 이해하려면 [템플릿 함수](./resource-group-template-functions.md)를 참조하세요.
 - 템플릿 설계에 대한 지침은 [Azure 리소스 관리자 템플릿 설계의 모범 사례](best-practices-resource-manager-design-templates.md)를 참조하세요.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

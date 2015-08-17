@@ -123,4 +123,4 @@ Azure 검색에서 문서 키 필드 내부의 문자는 URL 안전 문자로 �
 오늘은 여기까지 하겠습니다. 향후 콘텐츠 아이디어에 대해 의견이나 제안이 있다면 #AzureSearch 해시 태그를 사용하여 트윗하거나 [UserVoice 페이지](http://feedback.azure.com/forums/263029-azure-search)에 아이디어를 제출하세요.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

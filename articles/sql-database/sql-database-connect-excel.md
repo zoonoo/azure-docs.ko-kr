@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="07/09/2015"
 	ms.author="joseidz"/>
 
@@ -23,7 +23,7 @@ Excel을 Azure SQL 데이터베이스에 연결하고 데이터베이스의 데�
 
 ## 필수 조건
 - Azure SQL 데이터베이스가 프로비전되고 실행 중이어야 합니다. 새 SQL 데이터베이스를 만들려면 [Microsoft Azure SQL 데이터베이스 시작](sql-database-get-started.md)을 참조하세요.
-- [Microsoft Excel 2013](https://products.office.com/ko-kr/)(또는 Microsoft Excel 2010)
+- [Microsoft Excel 2013](https://products.office.com/en-US/)(또는 Microsoft Excel 2010)
 
 ## SQL 데이터베이스에 연결 및 보고서 만들기
 1.	Excel을 엽니다.
@@ -63,4 +63,4 @@ SaaS(Software as a Service) 개발자인 경우 [탄력적 데이터베이스 �
 [4]: ./media/sql-database-connect-excel/power-pivot-results.png
 [5]: ./media/sql-database-connect-excel/select-database-and-table.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

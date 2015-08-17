@@ -32,32 +32,11 @@ Azure 저장소 계정에서 Blob 데이터에 액세스할 수 있도록 사용
 
 다음 표는 이름이 **mystorageaccount**인 저장소 계정의 Blob 데이터에 액세스하기 위한 샘플 URL을 보여 줍니다. 저장소 계정에 등록된 사용자 지정 도메인은 **www.contoso.com**입니다.
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-	<tbody>
-		<tr>
-			<td style="width: 100px;"><strong>리소스 종류</strong></td>
-			<td><strong>URL 형식</strong></td>
-		</tr>
-		<tr>
-			<td>저장소 계정</td>
-			<td><strong>기본 URL:</strong> http://mystorageaccount.blob.core.windows.net<br />
-			<strong>사용자 지정 도메인 URL:</strong> http://www.contoso.com</td>
-		</tr>
-		<tr>
-			<td>Blob</td>
-			<td><strong>기본 URL:</strong> http://mystorageaccount.blob.core.windows.net/mycontainer/myblob<br /><strong>사용자 지정 도메인 URL:</strong> http://www.contoso.com/mycontainer/myblob</td>
-		</tr>
-		<tr>
-			<td>루트 컨테이너</td>
-			<td><strong>기본 URL:</strong> http://mystorageaccount.blob.core.windows.net/myblob 
-			<br/>또는<br />
-			http://mystorageaccount.blob.core.windows.net/$root/myblob<br />
-			<strong>사용자 지정 도메인 URL:</strong> http://www.contoso.com/myblob
-			<br/>또는<br />
-			http://www.contoso.com/$root/myblob</td>
-		</tr>
-	</tbody>
-</table>
+리소스 종류|URL 형식
+---|---
+저장소 계정|**기본 URL:** http://mystorageaccount.blob.core.windows.net<p>**사용자 지정 도메인 URL:** http://www.contoso.com</td>
+Blob|**기본 URL:** http://mystorageaccount.blob.core.windows.net/mycontainer/myblob<p>**사용자 지정 도메인 URL:** http://www.contoso.com/mycontainer/myblob
+루트 컨테이너|**기본 URL:** http://mystorageaccount.blob.core.windows.net/myblob 또는 http://mystorageaccount.blob.core.windows.net/$root/myblob<p>**사용자 지정 도메인 URL:** http://www.contoso.com/myblob 또는 http://www.contoso.com/$root/myblob
 
 ## 저장소 계정의 사용자 지정 도메인 등록
 
@@ -111,7 +90,7 @@ asverify 하위 도메인은 Azure에서 인식하는 특수한 하위 도메인
 
 8.  CNAME 레코드를 만든 후에 **사용자 지정 도메인 관리** 대화 상자로 돌아와 사용자 지정 도메인의 이름을 **사용자 지정 도메인 이름** 필드에 입력합니다. 예를 들어 도메인이 **contoso.com**이고 하위 도메인이 **www**인 경우 **www.contoso.com**을 입력합니다. 하위 도메인이 **photos**인 경우에는 **photos.contoso.com**을 입력합니다. 하위 도메인은 필수입니다.
 
-9.	**고급: ‘asverify’하위 도메인을 사용하여 내 사용자 지정 도메인을 미리등록**이라고 쓰여진 확인란을 클릭합니다.
+9.	**고급: 'asverify' 하위 도메인을 사용하여 내 사용자 지정 도메인을 미리 등록합니다.** 확인란을 클릭합니다.
 
 10. **등록** 버튼을 클릭하여 사용자 지정 도메인을 미리 등록합니다.
 
@@ -138,4 +117,4 @@ asverify 하위 도메인은 Azure에서 인식하는 특수한 하위 도메인
 -   <a href="http://msdn.microsoft.com/library/azure/gg680307.aspx">CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법</a>
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

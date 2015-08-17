@@ -18,30 +18,20 @@
 
 # Azure CLI(명령줄 인터페이스)를 사용하여 역할 기반 액세스 제어 관리#
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/documentation/articles/powershell-rbac.md" title="Windows PowerShell" class="current">Windows PowerShell</a><a href="/documentation/articles/xplat-cli-rbac.md" title="Azure CLI">Azure CLI</a></div>
-
 Azure 포털 및 Azure 리소스 관리자 API의 RBAC(역할 기반 액세스 제어)를 사용하면 세밀한 수준에서 구독에 대한 액세스를 관리할 수 있습니다. 이 기능을 통해 특정 범위에서 Active Directory 사용자, 그룹 또는 서비스 사용자에게 일부 역할을 할당하여 액세스 권한을 부여할 수 있습니다.
 
 이 자습서에서는 Azure CLI를 사용하여 RBAC를 관리하는 방법에 대해 알아보고 역할 할당을 만들고 확인하는 프로세스를 단계별로 살펴봅니다.
 
 **예상 완료 시간:** 15분
 
-## 필수 조건 ##
+## 필수 조건
 
 Azure CLI를 사용하여 RBAC를 관리하려면 다음 항목이 필요합니다.
 
 - Azure CLI 버전 0.8.8 이상을 사용하세요. 최신 버전을 설치하고 Azure 구독에 연결하려면 [install](xplat-cli-install.md)을 참조하세요.
 - Azure CLI에서 Azure 리소스 관리자를 설치하고 사용하는 방법을 익히려면 다음 자습서도 확인하세요.[리소스 관리자에서 Azure CLI 사용](xplat-cli-azure-resource-manager.md)
 
-## 자습서 내용 ##
-
-* [구독에 연결](#connect)
-* [기존 역할 할당 확인](#check)
-* [역할 할당 만들기](#create)
-* [권한 확인](#verify)
-* [다음 단계](#next)
-
-## <a id="connect"></a>구독에 연결 ##
+## 구독에 연결 
 
 RBAC는 Azure 리소스 관리자에서만 작동하므로 먼저 Azure 리소스 관리자 모드로 전환해야 합니다. 이렇게 하려면 다음을 입력합니다.
 
@@ -86,7 +76,7 @@ Azure 구독에 연결하려면 다음을 입력합니다.
 
 이 cmdlet의 모든 매개 변수는 선택 사항입니다. 매개 변수를 적절하게 조합하여 각기 다른 필터로 역할 할당을 확인할 수 있습니다.
 
-## <a id="create"></a>역할 할당 만들기 ##
+## 역할 할당 만들기 
 
 역할 할당을 만들려면 다음 사항을 고려해야 합니다.
 
@@ -124,7 +114,7 @@ Azure 구독에 연결하려면 다음을 입력합니다.
 
     `azure role assignment create --mail <user's email> -o Owner -g group1 -r Microsoft.Web/sites -u site1`
 
-## <a id="verify"></a>권한 확인 ##
+## 권한 확인 
 
 계정에 역할이 할당되었음을 확인한 후에는 다음 명령을 실행하여 이러한 역할 할당을 통해 부여되는 권한을 실제로 확인할 수 있습니다.
 
@@ -135,7 +125,7 @@ Azure 구독에 연결하려면 다음을 입력합니다.
 
 `azure group create` 등의 다른 cmdlet을 실행할 때 권한이 없으면 액세스 거부 오류가 발생합니다.
 
-## <a id="next"></a>다음 단계 ##
+## 다음 단계 
 
 Azure CLI를 사용하여 역할 기반 액세스 제어를 관리하는 방법과 관련 항목에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
@@ -143,4 +133,4 @@ Azure CLI를 사용하여 역할 기반 액세스 제어를 관리하는 방법�
 - [리소스 관리자에서 Azure CLI 사용](xplat-cli-azure-resource-manager.md)
 - [리소스 그룹을 사용하여 Azure 리소스 관리](resource-groups-overview.md): Azure 관리 포털에서 리소스 그룹을 만들고 관리하는 방법에 대해 알아봅니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

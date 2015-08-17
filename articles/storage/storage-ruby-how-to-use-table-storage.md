@@ -159,4 +159,4 @@ Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS\_KEY** 
 - GitHub에서 [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby)(영문) 리포지토리를 방문하십시오.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

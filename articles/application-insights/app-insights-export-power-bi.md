@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # Application Insights 데이터의 Power BI 보기
@@ -152,7 +152,7 @@ Application Insights 리소스의 이름 및 iKey를 가져오려면 해당 개�
 ```SQL
 
     SELECT
-      flat.ArrayValue.name
+      flat.ArrayValue.name,
       count(*)
     INTO
       [pbi-output]
@@ -195,5 +195,6 @@ Noam Ben Zeev는 Power BI를 내보내는 방법을 보여줍니다.
 
 * [연속 내보내기](app-insights-export-telemetry.md)
 * [Application Insights](app-insights-overview.md)
+* [추가 샘플 및 연습](app-insights-code-samples.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

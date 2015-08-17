@@ -42,7 +42,7 @@ Azure PowerShell 명령 프롬프트에서 다음 명령을 실행하여 Azure �
 	Select-AzureSubscription -SubscriptionName $subscr –Current
 	Set-AzureSubscription -SubscriptionName $subscr -CurrentStorageAccountName $staccount
 
-**Get-AzureSubscription** 명령의 출력에 표시된 SubscriptionName 속성에서 올바른 구독 이름을 가져올 수 있습니다. **Select-AzureSubscription** 명령을 실행한 후 **Get-AzureStorageAccount** 명령의 출력에 표시된 Label 속성에서 올바른 저장소 계정 이름을 가져올 수 있습니다. 또한 이러한 명령을 텍스트 파일에 저장하여 나중에 사용할 수 있습니다.
+**Get-AzureSubscription** 명령의 출력에 표시된 **SubscriptionName** 속성에서 올바른 구독 이름을 가져올 수 있습니다. **Select-AzureSubscription** 명령을 실행한 후 **Get-AzureStorageAccount** 명령의 출력에 표시된 **Label** 속성에서 올바른 저장소 계정 이름을 가져올 수 있습니다. 또한 이러한 명령을 텍스트 파일에 저장하여 나중에 사용할 수 있습니다.
 
 ## 3단계: ImageFamily 확인
 
@@ -63,7 +63,7 @@ Azure PowerShell 명령 프롬프트에서 다음 명령을 실행하여 Azure �
 
 ## 4단계: 명령 집합 작성
 
-아래에서 해당 블록 집합을 새 텍스트 파일이나 PowerShell ISE에 복사한 다음 변수 값을 입력하고 < and > 문자를 제거하여 나머지 명령 집합을 작성합니다. 최종 결과의 개념은 이 문서 끝의 두 [예제](#examples)를 참조하세요.
+아래에서 다음 명령 블록 집합 중 하나를 새 텍스트 파일이나 PowerShell ISE에 복사한 다음 변수 값을 입력하고 < and > 문자를 제거하여 나머지 명령 집합을 작성합니다. 최종 결과의 개념은 이 문서 끝의 두 [예제](#examples)를 참조하세요.
 
 다음 두 명령 블록 중 하나를 선택하여 명령 집합을 시작합니다(필수).
 
@@ -82,7 +82,7 @@ Azure PowerShell 명령 프롬프트에서 다음 명령을 실행하여 Azure �
 
 D-, DS- 또는 G-시리즈 가상 컴퓨터에 대한 InstanceSize 값은 [Azure용 가상 컴퓨터 및 클라우드 서비스 크기](https://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하세요.
 
-초기 Linux 사용자 이름 및 암호를 지정합니다(필수). 강력한 암호를 선택합니다. 암호 강도를 확인하려면 [암호 검사기: 강력한 암호 사용](https://www.microsoft.com/security/pc-security/password-checker.aspx)을 참조하세요.
+다음 명령을 사용하여 초기 Linux 사용자 이름 및 암호를 지정합니다(필수). 강력한 암호를 선택합니다. 암호 강도를 확인하려면 [암호 검사기: 강력한 암호 사용](https://www.microsoft.com/security/pc-security/password-checker.aspx)을 참조하세요.
 
 	$cred=Get-Credential -Message "Type the name and password of the initial Linux account."
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
@@ -103,7 +103,7 @@ Linux 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-Azur
 
 	$vm1 | Set-AzureStaticVNetIP -IPAddress <IP address>
 
-특정 IP 주소를 사용할 수 있는지 확인할 수 있습니다.
+다음 명령으로 특정 IP 주소를 사용할 수 있는지 확인할 수 있습니다.
 
 	Test-AzureStaticVNetIP –VNetName <VNet name> –IPAddress <IP address>
 
@@ -137,7 +137,7 @@ Linux 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-Azur
 
 	New-AzureVM –ServiceName "<short name of the cloud service>" -VMs $vm1
 
-클라우드 서비스의 짧은 이름은 Azure 관리 포털의 클라우드 서비스 목록에 표시된 이름 또는 Azure 미리 보기 포털의 리소스 그룹 목록에 표시된 이름입니다.
+클라우드 서비스의 짧은 이름은 Azure 포털의 Azure 클라우드 서비스 목록에 표시된 이름 또는 Azure 미리 보기 포털의 리소스 그룹 목록에 표시된 이름입니다.
 
 옵션 2: 기존 클라우드 서비스 및 가상 네트워크에서 가상 컴퓨터를 만듭니다.
 
@@ -157,12 +157,12 @@ Linux 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-Azur
 
 이 가상 컴퓨터 또는 이와 유사한 가상 컴퓨터를 다시 만들려는 경우 다음과 같이 할 수 있습니다.
 
-- 이 명령 집합을 PowerShell 스크립트 파일(\*.ps1)로 저장
-- Azure 관리 포털의 **자동화** 섹션에서 이 명령을 Azure 자동화 Runbook으로 저장
+- 이 명령 집합을 PowerShell 스크립트 파일(*.ps1)로 저장
+- Azure 포털의 **자동화** 섹션에서 이 명령을 Azure 자동화 Runbook으로 저장
 
 ## <a id="examples"></a>예제
 
-다음은 위 단계를 사용하여 Azure에서 Linux 기반 가상 컴퓨터를 만드는 Azure PowerShell 명령 집합을 작성하는 두 가지 예제입니다.
+다음은 앞의 단계를 사용하여 Azure에서 Linux 기반 가상 컴퓨터를 만드는 Azure PowerShell 명령 집합을 작성하는 두 가지 예제입니다.
 
 ### 예제 1
 
@@ -260,4 +260,4 @@ Linux 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-Azur
 
 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

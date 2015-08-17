@@ -70,4 +70,4 @@ RRS 호출은 다음 두 가지 상황에서 수행됩니다.
 [4]: ./media/machine-learning-consuming-from-excel/sampletable.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

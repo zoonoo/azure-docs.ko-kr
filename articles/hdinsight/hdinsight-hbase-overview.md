@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="HDInsight의 HBase | Microsoft Azure" 
 	description="Hadoop을 기반으로 하는 NoSQL 데이터베이스인 HDInsight의 Apache HBase를 소개합니다. 사용 사례에 대해 알아보고 HBase를 다른 Hadoop 클러스터와 비교합니다." 
-	keywords="bigtable,nosql,what is hbase"
 	services="hdinsight" 
 	documentationCenter="" 
 	authors="mumian" 
@@ -104,4 +103,4 @@ BigTable 및 확장에 의해 HBase를 만드는 정식 사용 사례는 웹 검
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

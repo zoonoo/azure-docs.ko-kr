@@ -72,14 +72,14 @@
 
 먼저 SQL Server 데이터베이스, 테이블, 사용자 정의 형식 및 저장 프로시저를 만들어야 합니다. **MarketingCampaignEffectiveness** 결과를 Azure Blob에서 SQL Server 데이터베이스로 이동하는 데 사용됩니다.
 
-1.	**Windows 탐색기**에서 **C:\ADFWalkthrough**(또는 샘플의 압축을 푼 위치)의 **OnPremises** 하위 폴더로 이동합니다.
+1.	**Windows 탐색기**에서 **C:\\ADFWalkthrough**(또는 샘플의 압축을 푼 위치)의 **OnPremises** 하위 폴더로 이동합니다.
 2.	즐겨 사용하는 편집기에서 **prepareOnPremDatabase&Table.ps1**을 열고, 강조 표시된 내용을 SQL Server 정보로 바꾼 다음 파일을 저장합니다. **SQL 인증** 세부 정보를 제공하세요. 이 자습서에서는 데이터베이스에 SQL 인증을 사용하도록 설정합니다. 
 			
 		$dbServerName = "<servername>"
 		$dbUserName = "<username>"
 		$dbPassword = "<password>"
 
-3. **Azure PowerShell**에서 **C:\ADFWalkthrough\OnPremises** 폴더로 이동합니다.
+3. **Azure PowerShell**에서 **C:\\ADFWalkthrough\\OnPremises** 폴더로 이동합니다.
 4.	**prepareOnPremDatabase&Table.ps1**을 실행합니다.**(큰따옴표의 & 또는 아래와 같이).**
 			
 		& '.\prepareOnPremDatabase&Table.ps1'
@@ -106,7 +106,8 @@
 7.	**MarketingCampaigns**를 데이터베이스로 입력합니다. 
 8.	**자격 증명**을 클릭합니다. 
 9.	**자격 증명** 블레이드에서 **Click here to set Credentials securely(자격 증명을 안전하게 설정하려면 여기를 클릭하세요.)**를 클릭합니다.
-10.	One-Click 응용프로그램이 처음으로 설치되고 **자격 증명 설정 **대화 상자가 시작됩니다. 11.	**자격 증명 설정** 대화 상자에서 **사용자 이름** 및 **암호**를 입력하고 **확인**을 클릭합니다. 대화 상자가 닫힐 때까지 기다립니다. 
+10.	One-Click 응용 프로그램이 처음으로 설치되고 **Setting Credentials **대화 상자가 시작됩니다.
+11.	**자격 증명 설정** 대화 상자에서 **사용자 이름** 및 **암호**를 입력하고 **확인**을 클릭합니다. 대화 상자가 닫힐 때까지 기다립니다. 
 12.	**새 데이터 저장소** 블레이드에서 **확인**을 클릭합니다. 
 13.	**연결된 서비스** 블레이드에서 **OnPremSqlLinkedService**가 목록에 표시되고 연결된 서비스의 **상태**가 **Good**인지 확인합니다.
 
@@ -114,7 +115,7 @@
 
 ### 온-프레미스 논리 테이블 만들기
 
-1.	**Azure PowerShell**에서 **C:\ADFWalkthrough\OnPremises** 폴더로 전환합니다. 
+1.	**Azure PowerShell**에서 **C:\\ADFWalkthrough\\OnPremises** 폴더로 전환합니다. 
 2.	다음과 같이 **New-AzureDataFactoryTable** cmdlet을 사용하여 **MarketingCampaignEffectivenessOnPremSQLTable.json**에 대한 테이블을 만듭니다.
 
 			
@@ -170,4 +171,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

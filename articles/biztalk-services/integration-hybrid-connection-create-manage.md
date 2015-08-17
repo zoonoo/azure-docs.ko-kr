@@ -45,8 +45,8 @@
 
 	속성 | 설명
 --- | ---
-이름 | 하이브리드 연결 이름은 고유해야 하며 BizTalk 서비스와 같은 이름일 수 없습니다. 어떤 이름을 입력해도 괜찮지만 용도에 맞는 구체적인 이름을 입력하는 것이 좋습니다. 예:<br/><br/>급여\*SQLServer\*<br/>SupplyList\*SharepointServer\*<br/>고객\*OracleServer\*
-호스트 이름 | 온-프레미스 리소스의 정규화된 호스트 이름, 호스트 이름만 또는 IPv4 주소를 입력합니다. 예:<br/><br/>mySQLServer<br/>\*mySQLServer\*.\*도메인\*.corp.\*yourCompany\*.com<br/>\*myHTTPSharePointServer\*<br/>\*myHTTPSharePointServer\*.\*yourCompany\*.com<br/>10.100.10.10
+이름 | 하이브리드 연결 이름은 고유해야 하며 BizTalk 서비스와 같은 이름일 수 없습니다. 어떤 이름을 입력해도 괜찮지만 용도에 맞는 구체적인 이름을 입력하는 것이 좋습니다. 예:<br/><br/>급여*SQLServer*<br/>SupplyList*SharepointServer*<br/>고객*OracleServer*
+호스트 이름 | 온-프레미스 리소스의 정규화된 호스트 이름, 호스트 이름만 또는 IPv4 주소를 입력합니다. 예는 다음을 포함합니다.<br/><br/>mySQLServer<br/>* mySQLServer *.*도메인*. corp.*yourCompany*.com<br/>* myHTTPSharePointServer *<br/>* myHTTPSharePointServer *.*yourCompany*.com<br/>10.100.10.10
 포트 | 온-프레미스 리소스의 포트 번호를 입력합니다. 예를들어, 웹앱을 사용하는 경우 포트 80 또는 443을 입력합니다. SQL Server를 사용하는 경우 포트 1433을 입력합니다.
 
 5. 설정을 완료하려면 확인 표시를 선택합니다.
@@ -146,4 +146,4 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

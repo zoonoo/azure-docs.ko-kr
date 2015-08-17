@@ -56,4 +56,4 @@ RemoteApp용 응용 프로그램을 개발하기 위해 다음 지침을 사용�
 - 성능을 최적화하려면 응용 프로그램이 클라이언트 세션에서 실행 중인지 [감지](https://msdn.microsoft.com/library/aa380798.aspx)하도록 하는 것이 좋습니다. 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

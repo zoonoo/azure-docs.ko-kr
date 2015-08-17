@@ -226,4 +226,4 @@ Azure 자동화 DSC는 현재 [Azure 리소스 관리자 PowerShell 모듈](http
 
 - Azure 자동화 DSC로 온보드 된 DCS 노드는 처음에 ‘호환' 상태로 표시되며, 매핑된 DCS 노드 구성과 실제로 호환이 되지 않을 경우에도 마찬가지로 표시됩니다. 노드가 첫 번째 끌어오기 수행 및 Azure 자동화 DSC에 첫 번째 DSC 보고를 전송한 후, 노드의 상태는 수정 됩니다.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

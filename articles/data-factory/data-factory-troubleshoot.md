@@ -52,44 +52,42 @@ Azure 포털을 통해 SQL Server 연결된 서비스를 설치 또는 업데이
 
 ## 문제: 입력 조각이 무기한 PendingExecution 또는 PendingValidation 상태임
 
-다양한 이유로 조각이 **PendingExecution** 또는 **PendingValidation** 상태일 수 있으며, 일반적인 이유 중 하나는 파이프라인에 있는 첫 번째 테이블/데이터 집합의 **availability** 섹션에서 **waitOnExternal** 속성이 지정되지 않은 것입니다. Azure 데이터 팩터리의 범위 외부에 생성된 데이터 집합은 **availability** 섹션에서 **waitOnExternal** 속성으로 표시되어야 합니다. 이 속성은 데이터가 외부이며 데이터 팩터리 내의 파이프라인에서 지원되지 않음을 나타냅니다. 해당 저장소에서 데이터를 사용할 수 있으면 데이터 조각이 **Ready**로 표시됩니다.
+몇 가지 이유로 인해 조각이 **PendingExecution** 또는 **PendingValidation** 상태일 수 있습니다. 일반적인 이유 중 하나는 **external** 속성이 **true**로 설정되지 않은 것입니다. Azure 데이터 팩터리의 외부에서 생성된 데이터 집합은 **external** 속성으로 표시되어야 합니다. 이 속성은 데이터가 외부이며 데이터 팩터리 내의 파이프라인에서 지원되지 않음을 나타냅니다. 해당 저장소에서 데이터를 사용할 수 있으면 데이터 조각이 **Ready**로 표시됩니다.
 
-**waitOnExternal** 속성의 사용 방법은 다음 예제를 참조하십시오. 기본값이 사용되도록 섹션에서 속성 값을 설정하지 않고 **waitOnExternal{}**을 지정할 수 있습니다.
+**external** 속성의 사용 방법은 다음 예를 참조하십시오. external을 true로 설정할 경우 선택적으로 **externalData***를 지정할 수 있습니다.
 
 이 속성에 대한 자세한 내용은 [JSON 스크립팅 참조][json-scripting-reference]의 테이블 항목을 참조하십시오.
 	
 	{
-	    "name": "CustomerTable",
-	    "properties":
-	    {
-	        "location":
-	        {
-	            "type": "AzureBlobLocation",
-	            "folderPath": "MyContainer/MySubFolder/",
-	            "linkedServiceName": "MyLinkedService",
-	            "format":
-	            {
-	                "type": "TextFormat",
-	                "columnDelimiter": ",",
-	                "rowDelimiter": ";"
-	            }
-	        },
-	        "availability":
-	        {
-	            "frequency": "Hour",
-	            "interval": 1,
-	            "waitOnExternal":
-	            {
-	                "dataDelay": "00:10:00",
-	                "retryInterval": "00:01:00",
-	                "retryTimeout": "00:10:00",
-	                "maximumRetry": 3
-	            }
-	        }
+	  "name": "CustomerTable",
+	  "properties": {
+	    "type": "AzureBlob",
+	    "linkedServiceName": "MyLinkedService",
+	    "typeProperties": {
+	      "folderPath": "MyContainer/MySubFolder/",
+	      "format": {
+	        "type": "TextFormat",
+	        "columnDelimiter": ",",
+	        "rowDelimiter": ";"
+	      }
+	    },
+	    "external": true,
+	    "availability": {
+	      "frequency": "Hour",
+	      "interval": 1
+	    },
+	    "policy": {
+	      "externalData": {
+	        "dataDelay": "00:10:00",
+	        "retryInterval": "00:01:00",
+	        "retryTimeout": "00:10:00",
+	        "maximumRetry": 3
+	      }
 	    }
+	  }
 	}
 
- 오류를 해결하려면 입력 테이블의 JSON 정의에 **waitOnExternal** 섹션을 추가하고 테이블을 다시 만듭니다.
+ 오류를 해결하려면 입력 테이블의 JSON 정의에 **external** 속성과 **externalData** 섹션을 추가하고 테이블을 다시 만듭니다.
 
 ## 문제: 하이브리드 복사 작업 실패
 자세히 알아보려면 다음을 수행하십시오.
@@ -131,7 +129,7 @@ Azure 데이터 팩터리에서 사용자 지정 작업(파이프라인 작업 �
 
 사용자 지정 작업에서 발생하는 **일반적인 오류** 중 하나는 패키지 실행 실패(종료 코드 '1')입니다. 자세한 내용은 'wasb://adfjobs@storageaccount.blob.core.windows.net/PackageJobs/<guid>/<jobid>/Status/stderr'을 참조하십시오.
 
-이러한 종류의 오류에 대한 자세한 내용을 보려면 **stderr** 파일을 엽니다. 여기에 표시되는 일반적인 오류 중 하나는 다음과 같습니다. INFO mapreduce.Job: Task Id : attempt_1424212573646_0168_m_000000_0, Status : FAILED AttemptID:attempt_1424212573646_0168_m_000000_0 Timed out after 600 secs
+이러한 종류의 오류에 대한 자세한 내용을 보려면 **stderr** 파일을 엽니다. 여기에 표시되는 일반적인 오류 중 하나는 다음과 같습니다. INFO mapreduce.Job: Task Id : attempt\_1424212573646\_0168\_m\_000000\_0, Status : FAILED AttemptID:attempt\_1424212573646\_0168\_m\_000000\_0 Timed out after 600 secs
 
 예를 들어 30분 이상 기간에 작업이 3회 다시 시도된 경우 이 동일한 오류가 여러 번 나타날 수도 있습니다.
 
@@ -386,4 +384,4 @@ HDInsight 프로비저닝 클러스터를 프로비전할 때 기본값을 변�
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

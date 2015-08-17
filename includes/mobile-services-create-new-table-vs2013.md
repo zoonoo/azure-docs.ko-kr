@@ -13,6 +13,6 @@
 
 	>[AZURE.NOTE]응용 프로그램 키는 응용 프로그램과 함께 분산됩니다. 이 키는 안전하게 분산된 것이 아니므로 보안 토큰으로 생각하면 안 됩니다. 모바일 서비스 데이터에 안전하게 액세스하려면 먼저 사용자 인증을 완료해야 합니다. 자세한 정보는 [사용 권한](http://msdn.microsoft.com/library/windowsazure/jj193161.aspx)을 참조하십시오.
 	>
-	>새 테이블은 Id, __createdAt, __updatedAt 및 __version 열을 사용하여 만들어집니다. 동적 스키마가 사용하도록 설정된 경우 모바일 서비스에서 삽입 또는 업데이트 요청의 JSON 개체를 기준으로 새 열을 자동으로 생성합니다. 자세한 내용은 [동적 스키마](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx)를 참조하세요.
+	>새 테이블은 Id, \_\_createdAt, \_\_updatedAt 및 \_\_version 열을 사용하여 만들어집니다. 동적 스키마가 사용하도록 설정된 경우 모바일 서비스에서 삽입 또는 업데이트 요청의 JSON 개체를 기준으로 새 열을 자동으로 생성합니다. 자세한 내용은 [동적 스키마](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx)를 참조하십시오.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

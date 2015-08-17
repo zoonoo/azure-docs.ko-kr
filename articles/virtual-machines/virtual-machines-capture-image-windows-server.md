@@ -85,4 +85,4 @@ Azure에서는 이미지를 **내 이미지** 아래에 저장합니다. 사용�
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

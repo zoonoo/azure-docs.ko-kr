@@ -10,7 +10,7 @@
 <tags
    ms.service="app-service-logic"
    ms.devlang="multiple"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
    ms.date="06/24/2015"
@@ -109,4 +109,4 @@ Azure 관리 포털 화면의 왼쪽 아래에서 **+새로 만들기** 단추�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

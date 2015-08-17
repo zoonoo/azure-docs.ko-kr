@@ -207,4 +207,4 @@ StorSimple 스냅숏 관리자는 예비 백업이 생성되는 동안 다음 �
 
 사용 가능한 [StorSimple 스냅숏 관리자 작업 및 워크플로](storsimple-what-is-snapshot-manager.md#storsimple-snapshot-manager-tasks-and-workflows)를 참조하세요.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

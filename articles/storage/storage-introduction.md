@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.date="08/03/2015" 
 	ms.author="tamram"/>
 
 # Microsoft Azure 저장소 소개
@@ -93,7 +93,9 @@ Azure 프리미엄 저장소는 현재 Azure 가상 컴퓨터 디스크만 지�
 
 모든 Blob은 컨테이너로 구성됩니다. 컨테이너를 통해 유용하게 개체 그룹에 보안 정책을 할당할 수도 있습니다. 저장소 계정에 포함할 수 있는 컨테이너 수에는 제한이 없으며, 컨테이너에 포함할 수 있는 Blob의 수에는 저장소 계정의 최대 500TB 용량 한도까지 제한이 없습니다.
 
-Blob 저장소에는 2가지 유형의 Blob, 즉 블록 Blob 및 페이지 Blob(디스크)이 있습니다. 블록 Blob은 클라우드 개체 스트리밍 및 저장을 위해 최적화되며 문서, 미디어 파일, 백업 등을 저장하는 데 적합합니다. 블록 Blob의 크기는 최대 200GB일 수 있습니다. 페이지 Blob은 IaaS 디스크를 나타내고 임의 쓰기를 지원하기 위해 최적화되며 크기가 최대 1TB일 수 있습니다. Azure 가상 컴퓨터 네트워크에 추가된 IaaS 디스크는 페이지 Blob으로 저장된 VHD입니다.
+Blob 저장소에는 블록 Blob, 추가 Blob 및 페이지 Blob(디스크)의 세 가지 Blob 유형이 있습니다. 블록 Blob은 클라우드 개체 스트리밍 및 저장을 위해 최적화되며 문서, 미디어 파일, 백업 등을 저장하는 데 적합합니다. 추가 Blob은 블록 Blob과 유사하지만 추가 작업에 최적화되어 있습니다. 새 블록을 끝에 추가해야만 추가 Blob을 업데이트할 수 있습니다. 추가 Blob은 Blob 끝에만 새 데이터를 써야 하는 로깅과 같은 시나리오에 적합합니다.
+
+페이지 Blob은 IaaS 디스크를 나타내고 임의 쓰기를 지원하기 위해 최적화되며 크기가 최대 1TB일 수 있습니다. Azure 가상 컴퓨터 네트워크에 추가된 IaaS 디스크는 페이지 Blob으로 저장된 VHD입니다.
 
 네트워크 제약 조건으로 인해 네트워크를 통해 Blob 저장소를 대상으로 데이터를 업로드하거나 다운로드하는 것이 불가능한 대규모 데이터 집합의 경우, 하드 드라이브를 Microsoft로 운송하여 [Azure 가져오기/내보내기 서비스](storage-import-export-service.md)(영문)를 사용해 데이터 센터에서 바로 데이터를 가져오거나 내보내도록 요청할 수 있습니다. 저장소 계정 내에서 또는 여러 저장소 계정에서 Blob 데이터를 복사할 수도 있습니다.
 
@@ -171,6 +173,7 @@ Azure 저장소를 시작하려면 다음 리소스를 탐색하세요.
 - [Azure 저장소 NuGet 패키지 - .NET용 클라이언트 라이브러리, Windows Phone 및 Windows 런타임](https://www.nuget.org/packages/WindowsAzure.Storage/)
 - [Azure SDK 및 도구](http://azure.microsoft.com/downloads/)
 - [Azure 저장소 에뮬레이터](http://www.microsoft.com/en-in/download/details.aspx?id=43709)
+- [Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409)
 
 ### 소스 코드
 
@@ -183,7 +186,9 @@ Azure 저장소를 시작하려면 다음 리소스를 탐색하세요.
 - [AzCopy 명령줄 도구 참조](storage-use-azcopy.md)
 
 ### PowerShell 사용자
-- [Azure 저장소 Cmdlet](http://msdn.microsoft.com/library/azure/dn806401.aspx)
+- [Azure 저장소와 함께 Azure PowerShell 사용](storage-powershell-guide-full.md)
+- [서비스 관리에 대한 Azure 저장소 Cmdlet](http://msdn.microsoft.com/library/azure/dn806401.aspx)
+- [Azure 리소스 관리자에 대한 Azure 저장소 Cmdlet](https://msdn.microsoft.com/library/azure/mt269418.aspx)
 
 ### .NET 개발자
 
@@ -191,6 +196,7 @@ Azure 저장소를 시작하려면 다음 리소스를 탐색하세요.
 - [.NET에서 Blob 저장소를 사용하는 방법](storage-dotnet-how-to-use-blobs.md)
 - [.NET에서 테이블 저장소를 사용하는 방법](storage-dotnet-how-to-use-tables.md)
 - [.NET에서 큐 저장소를 사용하는 방법](storage-dotnet-how-to-use-queues.md)
+- [PowerShell 및 .NET과 함께 파일 저장소를 사용하는 방법](storage-dotnet-how-to-use-files.md)
 
 ### Java/Android 개발자
 
@@ -224,4 +230,4 @@ Azure 저장소를 시작하려면 다음 리소스를 탐색하세요.
 - [Python에서 큐 저장소를 사용하는 방법](storage-python-how-to-use-queue-storage.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

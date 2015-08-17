@@ -45,7 +45,7 @@
 
 	![새 데이터 팩터리 블레이드](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
-	> [AZURE.IMPORTANT] 
+	> [AZURE.IMPORTANT]Azure 데이터 팩터리 이름은 전역적으로 고유합니다. 팩터리를 성공적으로 만들려면 데이터 팩터리의 이름의 접두사를 사용자의 이름으로 해야 합니다. 
 3.	만들어 놓은 리소스 그룹이 없으면 리소스 그룹을 만들어야 합니다. 다음을 수행합니다.
 	1.	**리소스 그룹 이름**을 클릭합니다.
 	2.	**리소스 그룹** 블레이드에서 **새 리소스 그룹 만들기**를 선택합니다.
@@ -76,7 +76,7 @@
 	![Azure 저장소 연결된 서비스](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
 	편집기에 Azure 저장소 연결된 서비스를 만들기 위한 JSON 스크립트가 표시됩니다. 
-4. **계정 이름**을 Azure 저장소 계정 이름으로 변경하고 **계정 키**를 Azure 저장소 계정의 액세스 키로 변경합니다. 저장소 액세스 키를 확보하는 방법을 알아보려면 [저장소 액세스 키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
+4. **계정 이름**을 Azure 저장소 계정 이름으로 변경하고 **계정 키**를 Azure 저장소 계정의 선택키로 변경합니다. 저장소 선택키를 확보하는 방법을 알아보려면 [저장소 선택키 보기, 복사 및 다시 생성](../storage/storage-create-storage-account.md/#view-copy-and-regenerate-storage-access-keys)을 참조하십시오.
 5. 명령 모음에서 **배포**를 클릭하여 연결된 서비스를 배포합니다.
 
 	![배포 단추](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
@@ -178,6 +178,10 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 		            "name": "AzureBlobOutput"
 		          }
 		        ],
+                "scheduler": {
+                    "frequency": "Month",
+                    "interval": 1
+                },
 		        "policy": {
 		          "concurrency": 1,
 		          "retry": 3
@@ -193,13 +197,13 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
  
 	JSON 코드 조각에서 Hive를 사용하여 HDInsight 클러스터에서 데이터를 처리하는 단일 작업으로 구성되는 파이프라인을 만듭니다.
 	
-	Hive 스크립트 파일 **partitionweblogs.hql**은 Azure 저장소 계정(**StorageLinkedService**라고 하는 scriptLinkedService에 의해 지정되는)과 **script** 컨테이너에 저장됩니다.
+	Hive 스크립트 파일 **partitionweblogs.hql**은 Azure 저장소 계정(**StorageLinkedService**라고 하는 scriptLinkedService에 의해 지정되는)과 **스크립트** 컨테이너에 저장됩니다.
 
-	**extendedProperties** 섹션은 Hive 스크립트에 Hive 구성 값(예: ${hiveconf:PartitionedData})으로 전달되는 런타임 설정을 지정하는데 사용됩니다.
+	**extendedProperties** 섹션은 Hive 스크립트에 Hive 구성 값(예를 들어 ${hiveconf:PartitionedData})으로 전달되는 런타임 설정을 지정하는데 사용됩니다.
 
-	파이프라인의 **start** 및 **end** 속성은 파이프라인의 활성 기간을 지정합니다.
+	파이프라인의 **시작** 및 **끝** 속성은 파이프라인의 활성 기간을 지정합니다.
 
-	작업 JSON에서 Hive 스크립트가 연결된 서비스 **HDInsightOnDemandLinkedService**에 의해 지정된 계산에 실행되도록 지정합니다.
+	작업 JSON에서 Hive 스크립트가 연결된 서비스 **HDInsightOnDemandLinkedService**에서 지정된 계산에 실행되도록 지정합니다.
 3. 명령 모음에서 **배포**를 클릭하여 파이프라인을 배포합니다.
 4. 트리 뷰에 파이프라인이 표시되는지 확인합니다.
 
@@ -214,16 +218,16 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 8. 다이어그램 뷰에서 **AzureBlobOutput** 데이터 집합을 두 번 클릭합니다. 현재 처리 중인 조각이 표시됩니다.
 
 	![데이터 집합](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
-9. 처리가 완료되면 **Ready**(준비) 상태에 조각이 표시됩니다. 주문형 HDInsight 클러스터 만들기는 일반적으로 시간이 소요됩니다. 
+9. 처리가 완료되면 **준비** 상태에 조각이 표시됩니다. 주문형 HDInsight 클러스터 만들기는 일반적으로 시간이 소요됩니다. 
 
 	![데이터 집합](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)	
-10. 조각이 **Ready**(준비) 상태에 있으면 BLOB 저장소의 **data** 컨테이너에 있는 **partitioneddata** 폴더에서 출력 데이터를 확인합니다.  
+10. 조각이 **준비** 상태에 있으면 blob 저장소의 **데이터** 컨테이너에 있는**partitioneddata** 폴더에서 출력 데이터를 확인합니다.  
  
 
  
 
 ## 다음 단계
-이 문서에서 파이프라인과 주문형 HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Azure Blob에서 Azure SQL로 데이터를 복사하는 방법은 [자습서: Azure Blob에서 Azure SQL로 데이터 복사](./data-factory-get-started.md)를 참조하세요.
+이 문서에서 파이프라인과 주문형 HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Azure Blob에서 Azure SQL로 데이터를 복사하는 방법은 [자습서: Azure Blob에서 Azure SQL로 데이터 복사](./data-factory-get-started.md)를 참조하십시오.
   
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

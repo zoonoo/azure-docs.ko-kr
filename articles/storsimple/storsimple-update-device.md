@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/28/2015"
+   ms.date="07/30/2015"
    ms.author="v-sharos" />
 
 # StorSimple 장치 업데이트
@@ -58,7 +58,7 @@ StorSimple 업데이트 기능을 사용하면 쉽게 StorSimple 장치를 최�
 
 또는, StorSimple 용 Windows PowerShell을 사용하여 일반(표준 모드) 업데이트를 적용할 수 있습니다.
 
-> [AZURE.IMPORTANT]StorSimple 용 Windows PowerShell을 사용 하여 정기적으로 업데이트를 설치할 수 있지만 관리 포털을 통해 정기적으로 업데이트를 설치하는 것이 좋습니다. 업데이트 1부터는 오류를 미연에 방지하고 원활한 환경을 보장하기 위해 포털에서 업데이트를 설치하기 전에 사전 검사를 수행합니다.
+> [AZURE.IMPORTANT]StorSimple용 Windows PowerShell을 사용 하여 정기적으로 업데이트를 설치할 수 있지만 관리 포털을 통해 정기적으로 업데이트를 설치하는 것이 좋습니다. 업데이트 1부터, 포털에서 업데이트를 설치하기 전에 사전 검사를 수행합니다. 이러한 검사는 오류의 사전 파악과 더 원활한 환경을 위한 것입니다.
 
 [AZURE.INCLUDE [storsimple-install-regular-updates-powershell](../../includes/storsimple-install-regular-updates-powershell.md)]
 
@@ -119,4 +119,4 @@ Microsoft Azure StorSimple에 대한 업데이트와 달리 핫픽스는 공유 
 [StorSimple용 Windows PowerShell](https://msdn.microsoft.com/library/azure/dn772425.aspx)에 대해 배웁니다.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

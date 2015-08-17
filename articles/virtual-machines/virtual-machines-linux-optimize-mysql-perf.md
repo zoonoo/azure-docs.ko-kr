@@ -210,13 +210,13 @@ MySQL 서버 설정을 최적화하려면 서버 컴퓨터와 클라이언트 �
 
 다음 구성 항목은 MySQL 성능에 영향을 주요 요소입니다.
 
--	**innodb_buffer_pool_size**: 버퍼 풀에는 버퍼된 데이터와 인덱스가 포함됩니다. 이는 일반적으로 실제 메모리의 70%로 설정됩니다.
--	**innodb_log_file_size**: 다시 실행 로그 크기입니다. 다시 실행 로그를 사용하면 쓰기 작업이 빠르고 안정적이며 크래시 후 복구할 수 있게 됩니다. 쓰기 작업을 로깅하는 데 충분한 공간인 512MB로 설정됩니다.
--	**max_connections**: 일부 응용 프로그램은 연결을 제대로 닫지 않습니다. 이 값이 클수록 서버에 유휴 상태의 연결을 재순환할 수 있는 시간이 더 많이 제공됩니다. 최대 연결 수는 10000개이지만 권장 최대값은 5000개입니다.
--	**Innodb_file_per_table**: 이 설정은 InnoDB에서 테이블을 별도의 파일에 저장할 수 있는 기능을 사용하거나 사용하지 않도록 설정합니다. 이 옵션을 설정하면 여러 고급 관리 작업을 효율적으로 적용할 수 있습니다. 성능 면에서는 테이블 공간 전송 속도를 높이고 잔류물 관리 성능을 최적화할 수 있습니다. 따라서 이를 설정하는 것이 권장 설정입니다.</br> MySQL 5.6부터는 기본적으로 설정됩니다. 그러므로 별도의 작업이 필요 없습니다. 5.6 이전 버전에서는 기본적으로 해제됩니다. 수동으로 설정해야 합니다. 또한 새로 만든 테이블만 영향을 받으므로 데이터를 로드하기 전에 적용해야 합니다.
--	**innodb_flush_log_at_trx_commit**: 기본값은 1이며 범위는 0 ~ 2로 설정됩니다. 기본값은 독립 실행형 MySQL DB에 가장 적합한 옵션입니다. 2로 설정하면 데이터 무결성이 가장 높아지며, 이는 MySQL 클러스터의 마스터에 적합합니다. 0으로 설정하면 데이터가 손실되어 안정성이 저하(경우에 따라 성능이 향상될 수 있음)되며, 이는 MySQL 클러스터의 슬레이브에 적합합니다.
--	**Innodb_log_buffer_size**: 로그 버퍼는 트랜잭션이 커밋되기 전에 로그를 디스크에 플러시하지 않고도 트랜잭션이 실행되도록 해줍니다. 그러나 큰 이진 개체 또는 텍스트 필드가 있는 경우에는 캐시가 매우 빠르게 소모되고 디스크 I/O가 자주 트리거됩니다. Innodb_log_waits 상태 변수가 0이 아닌 경우 버퍼 크기를 늘리는 것이 좋습니다.
--	**query_cache_size**: 처음부터 사용하지 않도록 설정하는 것이 가장 좋습니다. query_cache_size를 0(현재 MySQL 5.6의 기본 설정)으로 설정하고 다른 방법을 사용하여 쿼리 속도를 높이세요.  
+-	**innodb\_buffer\_pool\_size**: 버퍼 풀에는 버퍼된 데이터와 인덱스가 포함됩니다. 이는 일반적으로 실제 메모리의 70%로 설정됩니다.
+-	**innodb\_log\_file\_size**: 다시 실행 로그 크기입니다. 다시 실행 로그를 사용하면 쓰기 작업이 빠르고 안정적이며 크래시 후 복구할 수 있게 됩니다. 쓰기 작업을 로깅하는 데 충분한 공간인 512MB로 설정됩니다.
+-	**max\_connections**: 일부 응용 프로그램은 연결을 제대로 닫지 않습니다. 이 값이 클수록 서버에 유휴 상태의 연결을 재순환할 수 있는 시간이 더 많이 제공됩니다. 최대 연결 수는 10000개이지만 권장 최대값은 5000개입니다.
+-	**Innodb\_file\_per\_table**: 이 설정은 InnoDB에서 테이블을 별도의 파일에 저장할 수 있는 기능을 사용하거나 사용하지 않도록 설정합니다. 이 옵션을 설정하면 여러 고급 관리 작업을 효율적으로 적용할 수 있습니다. 성능 면에서는 테이블 공간 전송 속도를 높이고 잔류물 관리 성능을 최적화할 수 있습니다. 따라서 이를 설정하는 것이 권장 설정입니다.</br> MySQL 5.6부터는 기본적으로 설정됩니다. 그러므로 별도의 작업이 필요 없습니다. 5.6 이전 버전에서는 기본적으로 해제됩니다. 수동으로 설정해야 합니다. 또한 새로 만든 테이블만 영향을 받으므로 데이터를 로드하기 전에 적용해야 합니다.
+-	**innodb\_flush\_log\_at\_trx\_commit**: 기본값은 1이며 범위는 0 \~ 2로 설정됩니다. 기본값은 독립 실행형 MySQL DB에 가장 적합한 옵션입니다. 2로 설정하면 데이터 무결성이 가장 높아지며, 이는 MySQL 클러스터의 마스터에 적합합니다. 0으로 설정하면 데이터가 손실되어 안정성이 저하(경우에 따라 성능이 향상될 수 있음)되며, 이는 MySQL 클러스터의 슬레이브에 적합합니다.
+-	**Innodb\_log\_buffer\_size**: 로그 버퍼는 트랜잭션이 커밋되기 전에 로그를 디스크에 플러시하지 않고도 트랜잭션이 실행되도록 해줍니다. 그러나 큰 이진 개체 또는 텍스트 필드가 있는 경우에는 캐시가 매우 빠르게 소모되고 디스크 I/O가 자주 트리거됩니다. Innodb\_log\_waits 상태 변수가 0이 아닌 경우 버퍼 크기를 늘리는 것이 좋습니다.
+-	**query\_cache\_size**: 처음부터 사용하지 않도록 설정하는 것이 가장 좋습니다. query\_cache\_size를 0(현재 MySQL 5.6의 기본 설정)으로 설정하고 다른 방법을 사용하여 쿼리 속도를 높이세요.  
   
 최적화 후의 성능 비교는 [부록 D](#AppendixD)를 참조하세요.
 
@@ -303,20 +303,20 @@ MySQL 느린 쿼리 로그를 사용하면 MySQL에 대한 느린 쿼리를 식�
 
 |매개 변수 |기본값 |optmization
 |-----------|-----------|-----------
-|**innodb_buffer_pool_size** |없음 |7G
-|**innodb_log_file_size** |5M |512M
-|**max_connections** |100 |5000
-|**innodb_file_per_table** |0 |1
-|**innodb_flush_log_at_trx_commit** |1 |2
-|**innodb_log_buffer_size** |8M |128M
-|**query_cache_size** |16M |0
+|**innodb\_buffer\_pool\_size** |없음 |7G
+|**innodb\_log\_file\_size** |5M |512M
+|**max\_connections** |100 |5000
+|**innodb\_file\_per\_table** |0 |1
+|**innodb\_flush\_log\_at\_trx\_commit** |1 |2
+|**innodb\_log\_buffer\_size** |8M |128M
+|**query\_cache\_size** |16M |0
 
 
 지속적으로 증가하고 있는 세부적인 최적화 구성 매개 변수는 MySQL 공식 지침을 참조하세요.
 
 [http://dev.mysql.com/doc/refman/5.6/en/innodb-configuration.html](http://dev.mysql.com/doc/refman/5.6/en/innodb-configuration.html)
 
-[http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_flush_method](http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_flush_method)
+[http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar\_innodb\_flush\_method](http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_flush_method)
 
 **테스트 환경**
 
@@ -345,4 +345,4 @@ MySQL 느린 쿼리 로그를 사용하면 MySQL에 대한 느린 쿼리를 식�
 [14]: ./media/virtual-machines-linux-optimize-mysql-perf/virtual-machines-linux-optimize-mysql-perf-14.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

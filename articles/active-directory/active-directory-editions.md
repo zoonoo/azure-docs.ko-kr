@@ -122,4 +122,4 @@ Active Directory Premium 버전은 Azure Active Directory의 유료 버전이며
 - [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

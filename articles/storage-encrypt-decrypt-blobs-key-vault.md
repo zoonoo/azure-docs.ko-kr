@@ -237,4 +237,4 @@ Microsoft Azure 저장소에 관한 최신 정보를 보려면 [Microsoft Azure 
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

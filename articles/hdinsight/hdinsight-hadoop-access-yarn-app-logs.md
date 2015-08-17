@@ -39,7 +39,7 @@ Visual Studio 응용 프로그램에서 HDInsight SDK를 설치하려면 **도�
 
 <a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline Server</a>(영문)는 두 가지 다른 인터페이스를 통해 완료된 응용 프로그램에 대한 제네릭 정보 및 프레임워크별 응용 프로그램 정보를 제공합니다. 구체적으로 살펴보면 다음과 같습니다.
 
-* 3.1.1.374 이상 버전에서는 HDInsight 클러스터에서 제네릭 응용 프로그램 정보를 저장하고 검색할 수 있습니다. 
+* 3\.1.1.374 이상 버전에서는 HDInsight 클러스터에서 제네릭 응용 프로그램 정보를 저장하고 검색할 수 있습니다. 
 * Timeline Server의 프레임워크별 응용 프로그램 정보 구성 요소는 HDInsight 클러스터에서 현재 사용할 수 없습니다.
 
 
@@ -115,7 +115,7 @@ YARN은 여러 프로그래밍 모델(예: MapReduce)을 지원하여 리소스 
 이제 응용 프로그램 기록 클라이언트를 사용하여 완료된 응용 프로그램을 나열하고 기준에 따라 응용 프로그램을 필터링하고 관련 응용 프로그램 로그를 다운로드할 수 있습니다. 다음 코드 조각에서는 이 작업을 프로그래밍 방식으로 수행하는 방법을 보여 줍니다.
 
 	// Local download folder location where the logs will be placed
-	string downloadLocation = "E:\YarnApplicationLogs";
+	string downloadLocation = "E:\\YarnApplicationLogs";
 	
 	// List completed applications on your cluster that were submitted in the last 24 hours but failed
 	// Search for applications based on application name
@@ -137,7 +137,7 @@ YARN은 여러 프로그래밍 모델(예: MapReduce)을 지원하여 리소스 
 
 위의 코드는 응용 프로그램 기록 클라이언트를 사용하여 관심 있는 응용 프로그램을 나열/검색한 다음 이러한 응용 프로그램의 로그를 로컬 폴더로 다운로드합니다.
 
-또는 아래 코드 조각은 응용 프로그램 ID를 아는 응용 프로그램의 로그를 다운로드합니다. 응용 프로그램 ID는 RM이 할당한 응용 프로그램의 전역 고유 식별자입니다. 이 식별자는 RM의 시작 시간과 RM에서 제출된 응용 프로그램 수를 나타내는 단조롭게 증가하는 카운터를 함께 사용하여 생성됩니다. 응용 프로그램 ID의 형식은 "application_&lt;RM-start-time&gt;_&lt;Counter&gt;"입니다. 응용프로그램 ID와 작업 ID는 서로 다릅니다. 작업 ID는 MapReduce 프레임워크에 고유한 개념인 반면 응용 프로그램 ID는프레임워크와 상관없는 YARN 개념입니다. YARN에서 작업 ID는 RM에 제출된 MapReduce 응용 프로그램의 응용 프로그램 AM에서 처리하는 특정 MapReduce 작업을 식별합니다.
+또는 아래 코드 조각은 응용 프로그램 ID를 아는 응용 프로그램의 로그를 다운로드합니다. 응용 프로그램 ID는 RM이 할당한 응용 프로그램의 전역 고유 식별자입니다. 이 식별자는 RM의 시작 시간과 RM에서 제출된 응용 프로그램 수를 나타내는 단조롭게 증가하는 카운터를 함께 사용하여 생성됩니다. 응용 프로그램 ID의 형식은 "application\_&lt;RM-start-time&gt;\_&lt;Counter&gt;"입니다. 응용프로그램 ID와 작업 ID는 서로 다릅니다. 작업 ID는 MapReduce 프레임워크에 고유한 개념인 반면 응용 프로그램 ID는프레임워크와 상관없는 YARN 개념입니다. YARN에서 작업 ID는 RM에 제출된 MapReduce 응용 프로그램의 응용 프로그램 AM에서 처리하는 특정 MapReduce 작업을 식별합니다.
 
 	// Download application logs for an application whose application ID is known
 	string applicationId = "application_1416017767088_0028";
@@ -173,4 +173,4 @@ YARN은 여러 프로그래밍 모델(예: MapReduce)을 지원하여 리소스 
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

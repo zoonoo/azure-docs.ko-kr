@@ -14,7 +14,7 @@
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
 	ms.date="07/02/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # 내 프로젝트에서 무엇이 변경되었습니까?
 
@@ -22,7 +22,7 @@
 > - [Getting Started](vs-mobile-services-javascript-getting-started.md)
 > - [What Happened](vs-mobile-services-javascript-what-happened.md)
 
-###내 프로젝트에서 무엇이 변경되었나요?</id>
+###내 프로젝트에서 무엇이 변경되었습니까?
 
 #####NuGet 패키지가 추가됨
 
@@ -46,4 +46,4 @@
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

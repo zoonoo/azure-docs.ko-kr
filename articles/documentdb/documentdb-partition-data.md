@@ -1,11 +1,12 @@
 <properties      
-    pageTitle="DocumentDB에서 데이터 분할 | Azure"      
+    pageTitle="DocumentDB에서 데이터 분할 | Microsoft Azure"      
     description="DocumentDB에서 데이터를 분할하는 방법 및 해시, 범위 및 조회 분할을 사용해야 하는 경우에 대해 알아봅니다."          
     services="documentdb"      
     authors="arramac"      
-    manager="johnmac"      
+    manager="jhubbard"      
     editor="monicar"      
-    documentationCenter=""/> <tags      
+    documentationCenter=""/>
+<tags     
     ms.service="documentdb"      
     ms.workload="data-services"      
     ms.tgt_pltfrm="na"      
@@ -113,4 +114,4 @@ DocumentDB에서는 언제라도 컬렉션을 추가 및 제거하고, 이를 �
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

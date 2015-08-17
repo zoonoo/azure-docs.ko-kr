@@ -55,7 +55,7 @@
 			<uses-permission android:name="android.permission.INTERNET"/>
 			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
--   일부 장치 모델에서는 ANDROID_ID의 Engagement 장치 식별자를 생성할 수 없습니다(버그가 있거나 사용할 수 없음). 이러한 경우에 SDK는 다른 Engagement 응용 프로그램에서 동일한 장치 식별자를 공유할 수 있도록 임의 장치 식별자를 생성하고 장치의 외부 저장소에 저장하려고 시도합니다. 또한 이 식별자는 외부 저장소에서 어떤 일이 발생하든지 응용 프로그램 자체에서 항상 동일한 장치 식별자를 사용할 수 있도록 공유 기본 설정으로도 저장됩니다. 이러한 메커니즘이 제대로 작동하도록 다음 권한을 `<application>` 태그 앞에 추가해야 합니다(없는 경우).
+-   일부 장치 모델에서는 ANDROID\_ID의 Engagement 장치 식별자를 생성할 수 없습니다(버그가 있거나 사용할 수 없음). 이러한 경우에 SDK는 다른 Engagement 응용 프로그램에서 동일한 장치 식별자를 공유할 수 있도록 임의 장치 식별자를 생성하고 장치의 외부 저장소에 저장하려고 시도합니다. 또한 이 식별자는 외부 저장소에서 어떤 일이 발생하든지 응용 프로그램 자체에서 항상 동일한 장치 식별자를 사용할 수 있도록 공유 기본 설정으로도 저장됩니다. 이러한 메커니즘이 제대로 작동하도록 다음 권한을 `<application>` 태그 앞에 추가해야 합니다(없는 경우).
 
 			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
@@ -311,4 +311,4 @@ Engagement는 이 설정을 관리하기 위한 기본 설정 파일 내에서 �
 [장치 API]: http://go.microsoft.com/?linkid=9876094
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

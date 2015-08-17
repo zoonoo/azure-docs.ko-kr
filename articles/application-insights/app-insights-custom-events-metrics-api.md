@@ -4,7 +4,7 @@
 	services="application-insights"
     documentationCenter="" 
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
  
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/01/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
 
 # 사용자 지정 이벤트 및 메트릭용 Application Insights API 
@@ -35,6 +35,7 @@ API는 사소한 차이를 제외하고 모든 플랫폼에서 동일합니다.
 [`TrackException`](#track-exception)로 바꿉니다.|진단 예외를 기록합니다. 다른 이벤트와 관련하여 발생 위치를 추적하고 스택 추적을 검사합니다.
 [`TrackRequest`](#track-request)로 바꿉니다.| 성능 분석에 대한 서버 요청 빈도 및 기간을 기록합니다.
 [`TrackTrace`](#track-trace)로 바꿉니다.|진단 로그 메시지. 타사 로그도 캡처할 수 있습니다.
+[`TrackDependency`](#track-dependency)로 바꿉니다.|기간 및 빈도 앱이 종속된 외부 구성 요소에 대한 호출을 기록합니다.
 
 이러한 대부분의 원격 분석 호출에 [속성 및 메트릭을 연결](#properties)할 수 있습니다.
 
@@ -107,17 +108,17 @@ TelemetryClient는 스레드로부터 안전합니다.
 
 개요 블레이드에서 사용자 지정 이벤트 타일을 클릭합니다.
 
-![Portal.azure.com에서 응용 프로그램 리소스를 찾습니다.](./media/app-insights-custom-events-metrics-api/01-custom.png)
+![Portal.azure.com에서 응용 프로그램 리소스를 찾습니다.](./media/app-insights-api-custom-events-metrics/01-custom.png)
 
 클릭하여 개요 차트와 전체 목록을 살펴봅니다.
 
 차트를 선택하고 이벤트 이름별로 분할하여 가장 중요한 이벤트의 상대적인 기여도를 살펴봅니다.
 
-![차트를 선택하고 그룹화를 선택합니다.](./media/app-insights-custom-events-metrics-api/02-segment.png)
+![차트를 선택하고 그룹화를 선택합니다.](./media/app-insights-api-custom-events-metrics/02-segment.png)
 
 차트 아래에 있는 목록에서 이벤트 이름을 선택합니다. 클릭하여 개별 이벤트 항목을 살펴봅니다.
 
-![이벤트를 드릴스루합니다.](./media/app-insights-custom-events-metrics-api/03-instances.png)
+![이벤트를 드릴스루합니다.](./media/app-insights-api-custom-events-metrics/03-instances.png)
 
 원하는 항목을 클릭하여 자세히 살펴볼 수 있습니다.
 
@@ -184,34 +185,34 @@ TelemetryClient는 스레드로부터 안전합니다.
     metrics.put("Score", currentGame.getScore());
     metrics.put("Opponents", currentGame.getOpponentCount());
     
-    telemetry.trackEvent("WinGame", properties, metrics2/7/2015 12:05:25 AM );
+    telemetry.trackEvent("WinGame", properties, metrics);
 
 
 > [AZURE.NOTE]속성에 개인 식별이 가능한 정보를 기록하지 않도록 주의해야 합니다.
 
 **메트릭을 사용한 경우** 메트릭 탐색기를 열고 사용자 지정 그룹에서 메트릭을 선택합니다.
 
-![메트릭 탐색기를 열고, 차트를 선택하고, 메트릭을 선택합니다.](./media/app-insights-custom-events-metrics-api/03-track-custom.png)
+![메트릭 탐색기를 열고, 차트를 선택하고, 메트릭을 선택합니다.](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
 *메트릭이 나타나지 않으면 선택 블레이드를 닫고 잠시 기다린 후 새로 고침을 클릭합니다.*
 
 **속성 및 메트릭을 사용한 경우** 속성에 따라 메트릭을 분할합니다.
 
 
-![그룹화를 설정한 다음 그룹화 기준 아래에서 속성을 선택합니다.](./media/app-insights-custom-events-metrics-api/04-segment-metric-event.png)
+![그룹화를 설정한 다음 그룹화 기준 아래에서 속성을 선택합니다.](./media/app-insights-api-custom-events-metrics/04-segment-metric-event.png)
 
 
 
 **진단 검색**에서 개별 이벤트 항목의 속성 및 메트릭을 볼 수 있습니다.
 
 
-![인스턴스를 선택한 다음 '...'를 선택합니다.](./media/app-insights-custom-events-metrics-api/appinsights-23-customevents-4.png)
+![인스턴스를 선택한 다음 '...'를 선택합니다.](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-4.png)
 
 
 검색 필드를 사용하여 특정 속성 값이 포함된 이벤트 항목을 볼 수 있습니다.
 
 
-![검색에 용어를 입력합니다.](./media/app-insights-custom-events-metrics-api/appinsights-23-customevents-5.png)
+![검색에 용어를 입력합니다.](./media/app-insights-api-custom-events-metrics/appinsights-23-customevents-5.png)
 
 [검색 식에 대해 자세히 알아보세요][diagnostic].
 
@@ -229,6 +230,7 @@ TelemetryClient는 스레드로부터 안전합니다.
     event.Metrics["Opponents"] = currentGame.Opponents.Length;
 
     telemetry.TrackEvent(event);
+
 
 
 #### <a name="timed"></a> 타이밍 이벤트
@@ -296,7 +298,7 @@ TrackMetric을 사용하여 특정 이벤트에 연결되지 않은 메트릭을
 
 결과를 보려면 메트릭 탐색기를 열고 새 차트를 추가합니다. 메트릭을 표시하도록 설정합니다.
 
-![새 차트를 추가하거나 차트를 선택하고, 사용자 지정 아래에서 메트릭을 선택합니다.](./media/app-insights-custom-events-metrics-api/03-track-custom.png)
+![새 차트를 추가하거나 차트를 선택하고, 사용자 지정 아래에서 메트릭을 선택합니다.](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
 [메트릭 수에 제한을 적용](#limits)할 수 있습니다.
 
@@ -304,7 +306,7 @@ TrackMetric을 사용하여 특정 이벤트에 연결되지 않은 메트릭을
 
 장치 또는 웹 페이지 앱에서 각 화면 또는 페이지가 로드되면 기본적으로 페이지 보기 원격 분석이 전송됩니다. 하지만 추가 시간에 또는 다른 시간에 페이지 보기를 추적하도록 변경할 수 있습니다. 예를 들어 탭 또는 블레이드를 표시하는 앱에서 사용자가 새 블레이드를 열 때마다 "페이지"를 추적할 수 있습니다.
 
-![개요 블레이드의 사용 현황 렌즈](./media/app-insights-custom-events-metrics-api/appinsights-47usage-2.png)
+![개요 블레이드의 사용 현황 렌즈](./media/app-insights-api-custom-events-metrics/appinsights-47usage-2.png)
 
 사용자 및 세션 데이터는 페이지 보기와 함께 속성으로 전송됩니다. 따라서 페이지 보기 원격 분석이 있으면 사용자 및 세션 차트가 실시간으로 표시됩니다.
 
@@ -367,7 +369,7 @@ trackPageView 대신 이 메서드 쌍을 호출하여 사용자가 페이지에
 
 ## 예외 추적
 
-Application Insights로 예외를 보낸 후 [집계][metrics]하여 문제 발생 빈도를 확인하거나 [개별 항목을 검사][diagnostic]할 수 있습니다.
+Application Insights로 예외를 보낸 후 [집계][metrics]하여 문제 발생 빈도를 확인하거나 [개별 항목을 검사][diagnostic]할 수 있습니다. 보고서는 스택 추적을 포함합니다.
 
 *C#*
 
@@ -398,87 +400,29 @@ Windows 모바일 앱에서 SDK는 처리되지 않은 예외를 catch합니다.
 
 `message`의 크기 제한이 속성의 크기 제한보다 훨씬 높습니다. 메시지 내용을 검색할 수 있지만 속성 값과는 달리 필터링할 수는 없습니다.
 
+## 종속성을 추적합니다.
 
-## <a name="default-properties"></a>모든 원격 분석에 대한 기본 속성 설정
+이 호출을 사용하여 응답 시간과 외부 코드 부분에 대한 호출의 성공률을 추적합니다. 포털에서 종속성 차트에 결과가 나타납니다.
 
-유니버설 아니셜라이저를 설정하여 새로운 모든 TelemetryClients는 사용자 컨텍스트를 자동으로 사용할 수 있습니다. 여기에는 웹 서버 요청 추적처럼 플랫폼별 원격 분석 모듈에서 전송하는 표준 원격 분석이 포함됩니다.
+```C#
 
-일반적으로 여러 앱 버전 또는 여러 앱 구성 요소에서 들어오는 원격 분석을 식별하는 데 사용됩니다. 포털에서 이 속성을 사용하여 결과를 필터링 또는 그룹화할 수 있습니다.
+            var success = false;
+            var startTime = DateTime.UtcNow;
+            var timer = System.Diagnostics.Stopwatch.StartNew();
+            try
+            {
+                success = dependency.Call();
+            }
+            finally
+            {
+                timer.Stop();
+                telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+            }
+```
 
-*C#*
+서버 SDK는 특정 종속성 호출(데이터베이스 및 REST API 등)을 검색하고 자동으로 추적하는 [종속성 모듈](app-insights-dependencies.md)을 포함합니다. 모듈 작업을 만들기 위해 서버에 에이전트를 설치해야 합니다. 자동화된 추적에서 포착되지 않는 호출을 추적하려는 경우 또는 에이전트를 설치하지 않으려는 경우, 이 호출을 사용합니다.
 
-    // Telemetry initializer class
-    public class MyTelemetryInitializer : IContextInitializer
-    {
-        public void Initialize (TelemetryContext context)
-        {
-            context.Properties["AppVersion"] = "v2.1";
-        }
-    }
-
-    // In the app initializer such as Global.asax.cs:
-
-    protected void Application_Start()
-    {
-        // ...
-        TelemetryConfiguration.Active.ContextInitializers
-        .Add(new MyTelemetryInitializer());
-    }
-
-*Java*
-
-    import com.microsoft.applicationinsights.extensibility.ContextInitializer;
-    import com.microsoft.applicationinsights.telemetry.TelemetryContext;
-
-    public class MyTelemetryInitializer implements ContextInitializer {
-      @Override
-      public void initialize(TelemetryContext context) {
-        context.getProperties().put("AppVersion", "2.1");
-      }
-    }
-
-    // load the context initializer
-    TelemetryConfiguration.getActive().getContextInitializers().add(new MyTelemetryInitializer());
-
-
-JavaScript 웹 클라이언트에서 현재 기본 속성을 설정하는 방법은 없습니다.
-
-## <a name="dynamic-ikey"></a> 동적 계측 키
-
-개발, 테스트 및 프로덕션 환경에서 원격 분석이 섞이지 않게 방지하려면 [별도의 Application Insights 리소스를 만들고][create] 환경에 따라 키를 변경하세요.
-
-구성 파일에서 계측 키를 가져오는 대신 코드에서 설정할 수 있습니다. ASP.NET 서비스의 global.aspx.cs 같은 초기화 메서드에서 키를 설정합니다.
-
-*C#*
-
-    protected void Application_Start()
-    {
-      Microsoft.ApplicationInsights.Extensibility.
-        TelemetryConfiguration.Active.InstrumentationKey = 
-          // - for example -
-          WebConfigurationManager.Settings["ikey"];
-      ...
-
-*JavaScript*
-
-    appInsights.config.instrumentationKey = myKey; 
-
-
-
-웹 페이지에서 문자 그대로 스크립트에 코딩하는 대신 웹 서버의 상태를 이용하여 설정할 수 있습니다. 예를 들어 ASP.NET 앱에서 생성된 웹 페이지에서 다음과 같이 설정합니다.
-
-*Razor에서 JavaScript*
-
-    <script type="text/javascript">
-    // Standard Application Insights web page script:
-    var appInsights = window.appInsights || function(config){ ...
-    // Modify this part:
-    }({instrumentationKey:  
-      // Generate from server property:
-      @Microsoft.ApplicationInsights.Extensibility.
-         TelemetryConfiguration.Active.InstrumentationKey"
-    }) // ...
-
+표준 종속성 추적 모듈을 해제하려면 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)을 편집하고 `DependencyCollector.DependencyTrackingTelemetryModule`에 대한 참조를 삭제합니다.
 
 ## <a name="defaults"></a>선택한 사용자 지정 원격 분석에 대한 기본값 설정
 
@@ -517,6 +461,7 @@ JavaScript 웹 클라이언트에서 현재 기본 속성을 설정하는 방법
 
 
 
+
 ## <a name="ikey"></a> 선택한 사용자 지정 원격 분석에 대해 계측 키를 설정합니다.
 
 *C#*
@@ -524,6 +469,205 @@ JavaScript 웹 클라이언트에서 현재 기본 속성을 설정하는 방법
     var telemetry = new TelemetryClient();
     telemetry.Context.InstrumentationKey = "---my key---";
     // ...
+
+
+## <a name="default-properties"></a>컨텍스트 이니셜라이저 - 모든 원격 분석에 대한 기본 속성 설정
+
+유니버설 아니셜라이저를 설정하여 새로운 모든 TelemetryClients는 사용자 컨텍스트를 자동으로 사용할 수 있습니다. 여기에는 웹 서버 요청 추적처럼 플랫폼별 원격 분석 모듈에서 전송하는 표준 원격 분석이 포함됩니다.
+
+일반적으로 여러 앱 버전 또는 여러 앱 구성 요소에서 들어오는 원격 분석을 식별하는 데 사용됩니다. 포털에서 "응용 프로그램 버전" 속성을 사용하여 결과를 필터링 또는 그룹화할 수 있습니다.
+
+**이니셜라이저 정의**
+
+
+*C#*
+
+```C#
+
+    using System;
+    using Microsoft.ApplicationInsights.Channel;
+    using Microsoft.ApplicationInsights.DataContracts;
+    using Microsoft.ApplicationInsights.Extensibility;
+
+    namespace MyNamespace
+    {
+      // Context initializer class
+      public class MyContextInitializer : IContextInitializer
+      {
+        public void Initialize (TelemetryContext context)
+        {
+            if (context == null) return;
+
+            context.Component.Version = "v2.1";
+        }
+      }
+    }
+```
+
+*Java*
+
+```Java
+
+    import com.microsoft.applicationinsights.extensibility.ContextInitializer;
+    import com.microsoft.applicationinsights.telemetry.TelemetryContext;
+
+    public class MyContextInitializer implements ContextInitializer {
+      @Override
+      public void initialize(TelemetryContext context) {
+        context.Component.Version = "2.1";
+      }
+    }
+```
+
+**이니셜라이저 로드**
+
+ApplicationInsights.config에서:
+
+    <ApplicationInsights>
+      <ContextInitializers>
+        <!-- Fully qualified type name, assembly name: -->
+        <Add Type="MyNamespace.MyContextInitializer, MyAssemblyName"/> 
+        ...
+      </ContextInitializers>
+    </ApplicationInsights>
+
+*또는*, 코드에서 이니셜라이저를 인스턴스화할 수 있습니다.
+
+*C#*
+
+```C#
+
+    protected void Application_Start()
+    {
+        // ...
+        TelemetryConfiguration.Active.ContextInitializers
+        .Add(new MyContextInitializer());
+    }
+```
+
+*Java*
+
+```Java
+
+    // load the context initializer
+    TelemetryConfiguration.getActive().getContextInitializers().add(new MyContextInitializer());
+```
+
+JavaScript 웹 클라이언트에서 현재 기본 속성을 설정하는 방법은 없습니다.
+
+## 원격 분석 이니셜라이저
+
+원격 분석 이니셜라이저를 사용하여 표준 원격 분석 모듈의 선택한 동작을 재정의할 수 있습니다.
+
+예를 들어, 웹 패키지에 대한 Application Insights는 HTTP 요청에 대한 원격 분석을 수집합니다. 기본적으로, 모든 요청을 응답 코드 > = 400으로 실패한 것으로 플래그합니다. 하지만 400를 성공으로 처리하려는 경우 성공 속성을 설정하는 원격 분석 이니셜라이저를 제공할 수 있습니다.
+
+원격 분석 이니셜라이저를 제공하는 경우 Track*() 메소드가 호출될 때마다 호출됩니다. 표준 원격 분석 모듈에 의해 호출되는 메서드가 포함됩니다. 규칙에 따라 이러한 모듈은 이니셜라이저에서 이미 설정된 모든 속성을 설정하지 않습니다.
+
+**이니셜라이저 정의**
+
+*C#*
+
+```C#
+
+    using System;
+    using Microsoft.ApplicationInsights.Channel;
+    using Microsoft.ApplicationInsights.DataContracts;
+    using Microsoft.ApplicationInsights.Extensibility;
+
+    namespace MvcWebRole.Telemetry
+    {
+      /*
+       * Custom TelemetryInitializer that overrides the default SDK 
+       * behavior of treating response codes >= 400 as failed requests
+       * 
+       */
+      public class MyTelemetryInitializer : ITelemetryInitializer
+      {
+        public void Initialize(ITelemetry telemetry)
+        {
+            var requestTelemetry = telemetry as RequestTelemetry;
+            // Is this a TrackRequest() ?
+            if (requestTelemetry == null) return;
+            int code;
+            bool parsed = Int32.TryParse(requestTelemetry.ResponseCode, out code);
+            if (!parsed) return;
+            if (code >= 400 && code < 500)
+            {
+                // If we set the Success property, the SDK won't change it:
+                requestTelemetry.Success = true;
+                // Allow us to filter these requests in the portal:
+                requestTelemetry.Context.Properties["Overridden400s"] = "true";
+            }
+            // else leave the SDK to set the Success property      
+        }
+      }
+    }
+```
+
+**이니셜라이저 로드**
+
+ApplicationInsights.config에서:
+
+    <ApplicationInsights>
+      <TelemetryInitializers>
+        <!-- Fully qualified type name, assembly name: -->
+        <Add Type="MvcWebRole.Telemetry.MyTelemetryInitializer, MvcWebRole"/> 
+        ...
+      </TelemetryInitializers>
+    </ApplicationInsights>
+
+*또는*, 코드에서 이니셜라이저를 인스턴스화할 수 있습니다(예: Global.aspx.cs).
+
+
+```C#
+    protected void Application_Start()
+    {
+        // ...
+        TelemetryConfiguration.Active.TelemetryInitializers
+        .Add(new MyTelemetryInitializer());
+    }
+```
+
+
+[이 샘플에 대해 자세히 알아봅니다.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
+
+## <a name="dynamic-ikey"></a> 동적 계측 키
+
+개발, 테스트 및 프로덕션 환경에서 원격 분석이 섞이지 않게 방지하려면 [별도의 Application Insights 리소스를 만들고][create] 환경에 따라 키를 변경하세요.
+
+구성 파일에서 계측 키를 가져오는 대신 코드에서 설정할 수 있습니다. ASP.NET 서비스의 global.aspx.cs 같은 초기화 메서드에서 키를 설정합니다.
+
+*C#*
+
+    protected void Application_Start()
+    {
+      Microsoft.ApplicationInsights.Extensibility.
+        TelemetryConfiguration.Active.InstrumentationKey = 
+          // - for example -
+          WebConfigurationManager.Settings["ikey"];
+      ...
+
+*JavaScript*
+
+    appInsights.config.instrumentationKey = myKey; 
+
+
+
+웹 페이지에서 문자 그대로 스크립트에 코딩하는 대신 웹 서버의 상태를 이용하여 설정할 수 있습니다. 예를 들어 ASP.NET 앱에서 생성된 웹 페이지에서 다음과 같이 설정합니다.
+
+*Razor에서 JavaScript*
+
+    <script type="text/javascript">
+    // Standard Application Insights web page script:
+    var appInsights = window.appInsights || function(config){ ...
+    // Modify this part:
+    }({instrumentationKey:  
+      // Generate from server property:
+      @Microsoft.ApplicationInsights.Extensibility.
+         TelemetryConfiguration.Active.InstrumentationKey"
+    }) // ...
+
+
 
 ## 데이터 플러시
 
@@ -533,7 +677,7 @@ JavaScript 웹 클라이언트에서 현재 기본 속성을 설정하는 방법
 
     telemetry.Flush();
 
-함수는 방식입니다.
+기능은 채널 구현에 따라 동기화될 수 있습니다.
 
 
 
@@ -575,6 +719,9 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 * **Session** 사용자의 세션을 식별합니다. ID는 생성된 값으로 설정되며, 사용자가 잠시 동안 비활성 상태이면 값이 변경됩니다.
 * **User** 사용자 수를 계산할 수 있습니다. 웹 앱의 경우 쿠키가 있으면 해당 쿠키에서 사용자 ID를 가져옵니다. 쿠키가 없으면 새 쿠키가 생성됩니다. 사용자가 앱에 로그인해야 하는 경우 사용자의 인증된 ID로 ID를 설정하면 사용자가 다른 컴퓨터에서 로그인하더라도 사용자 수를 정확하게 계산할 수 있습니다. 
 
+
+
+
 ## 제한
 
 응용프로그램당 허용되는 메트릭 및 이벤트 수가 제한되어 있습니다.
@@ -588,10 +735,12 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
     [데이터 보존 및 개인 정보][data]를 참조하세요.
 
+
 ## 참조 문서
 
 * [ASP.NET 참조](https://msdn.microsoft.com/library/dn817570.aspx)
 * [Java 참조](http://dl.windowsazure.com/applicationinsights/javadoc/)
+* [JavaScript 참조](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 ## 질문
 
@@ -609,6 +758,8 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
 
 [검색 이벤트 및 로그][diagnostic]
+
+[샘플 및 연습](app-insights-code-samples.md)
 
 [문제 해결][qna]
 
@@ -630,4 +781,4 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,3 +1,5 @@
+
+
 >[AZURE.NOTE]SharePoint RBS용 StorSimple 어댑터 구성을 변경하면, Domain Admins 그룹에 속하는 사용자 계정으로 로그온해야 합니다. 또한 중앙 관리와 같은 호스트에서 실행 되는 브라우저에서 구성 페이지에 액세스해야 합니다.
 
 #### RBS를 구성하려면
@@ -26,7 +28,7 @@
 
           ![StorSimple 어댑터 사용 또는 사용 안함 구성](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_ConfigureStorSimpleAdapterEnableDisableMessage-include.png)
 
-    4. **업데이트** 단추를 클릭하여 구성을 적용합니다. 업데이트 단추를 클릭하면 RBS 구성 상태가 모든 WFE 서버에서 업데이트되며, 전체 팜에서 RBS가 사용됩니다. 다음과 같은 메시지가 나타납니다.
+    4. **업데이트** 단추를 클릭하여 구성을 적용합니다. **업데이트** 단추를 클릭하면 RBS 구성 상태가 모든 WFE 서버에서 업데이트되며, 전체 팜에서 RBS가 사용됩니다. 다음과 같은 메시지가 나타납니다.
 
            ![어댑터 구성 메시지](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS3-include.png)
 
@@ -95,11 +97,11 @@
  
      StorSimple 장치에 대한 별도 볼륨에 BLOB 및 콘텐츠 데이터베이스를 저장하는 경우, 동일한 볼륨 컨테이너에 구성하는 것이 좋습니다. 이렇게 하면 같이 백업됩니다.
 
-     >[AZURE.WARNING]RBS를 사용하도록 설정하지 않은 경우, 콘텐츠 데이터베이스를 StorSimple 장치로 이동하지 않는 것이 좋습니다. 테스트되지 않은 구성입니다.
+       >[AZURE.WARNING]RBS를 사용하도록 설정하지 않은 경우, 콘텐츠 데이터베이스를 StorSimple 장치로 이동하지 않는 것이 좋습니다. 테스트되지 않은 구성입니다.
  
 9. 다음 단계, [가비지 수집 구성](#configure-garbage-collection)으로 이동합니다.
 
 [6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
 [7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DocumentDB 학습 지도 | Azure" 
+	pageTitle="DocumentDB 학습 맵 | Microsoft Azure" 
 	description="Azure DocumentDB에서 0에서 60까지 진행하는 데 사용할 수 있는 리소스의 시각적 맵을 확인할 수 있습니다."
 	services="documentdb" 
 	documentationCenter="" 
@@ -23,4 +23,4 @@ Azure DocumentDB는 데이터베이스 엔진 내에서 직접 JSON과 JavaScrip
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/DocumentDB.Content.Flow.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

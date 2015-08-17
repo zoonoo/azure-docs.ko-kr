@@ -96,4 +96,4 @@ CDN 특정 URL을 통해 Blob을 사용할 수 있는지 테스트합니다. 위
 
 [Azure CDN(콘텐츠 배달 네트워크)에서 클라우드 서비스 콘텐츠의 만료를 관리하는 방법](./cdn-manage-expiration-of-cloud-service-content.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

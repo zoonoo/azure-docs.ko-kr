@@ -142,7 +142,7 @@ ASR에 대한 지원 티켓을 모으려면 <http://aka.ms/getazuresupport> URL�
 ## 기술 자료 문서
 
 -   [보호된 가상 컴퓨터에 대한 드라이브 문자를 유지하는 방법
-    > http://support.microsoft.com/kb/3031135
+    > 장애 조치 또는 Azure로 마이그레이션되는](http://support.microsoft.com/kb/3031135)
 
 -   [Azure 복구 서비스 문제를 해결하는
     > 방법](http://support.microsoft.com/kb/3005185)
@@ -222,4 +222,4 @@ CS(구성 서버), PS(프로세스 서버), MT(마스터 대상)
 ### 장애 조치(Failover) 후 원격 데스크톱 문제 해결
 많은 고객이 Azure에서 장애 조치(Failover)된 VM에 연결하는 데 문제에 직면합니다. 문제 해결 문서를 사용하여 VM에 RDP를 연결합니다. [문서 링크](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

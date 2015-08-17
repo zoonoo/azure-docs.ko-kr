@@ -1,7 +1,6 @@
 <properties
     pageTitle="Azure 기계 학습이란 무엇인가요? | Microsoft Azure"
     description="솔루션을 만들고, 운영하고, 화폐화하는 데 사용할 수 있는 클라우드 기술인 완전한 관리 기계 학습 서비스의 기본 개념에 대해 설명합니다."
-	keywords="what is machine learning,cloud technology,predictive,what is predictive analytics,operationalize"
 	services="machine-learning"
     documentationCenter=""
     authors="cjgronlund"
@@ -116,4 +115,4 @@ Azure 기계 학습에서는 학습 데이터 및 기능 모듈(예: 점수 매�
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

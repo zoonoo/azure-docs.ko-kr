@@ -53,7 +53,7 @@ Azure PowerShell cmdlet을 사용하여 배치 계정 및 키를 만들고 관�
 New-AzureResourceGroup –Name MyBatchResourceGroup –location "Central US"
 ```
 
-그런 다음, 리소스 그룹에 새 배치 계정을 만듭니다. <\*account\_name\*>의 계정 이름과 배치 서비스를 사용할 수 있는 위치도 지정합니다. 계정을 만드는 데는 몇 분 정도 걸릴 수 있습니다. 예:
+그런 다음, 리소스 그룹에 새 배치 계정을 만듭니다. <*account\_name*>의 계정 이름과 배치 서비스를 사용할 수 있는 위치도 지정합니다. 계정을 만드는 데는 몇 분 정도 걸릴 수 있습니다. 예:
 
 ```
 New-AzureBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName MyBatchResourceGroup
@@ -105,7 +105,7 @@ $context = Get-AzureBatchAccountKeys "<account_name>"
 
 ### 데이터에 대한 쿼리
 
-예제와 같이**Get AzureBatchPools**을 사용하여 풀을 찾습니다. 이 작업은 기본적으로 사용자 계정 아래의 모든 풀을 쿼리합니다. 이때 *$context*에는 이미 BatchAccountContext 개체가 저장되어 있다고 가정합니다.
+예제와 같이 **Get AzureBatchPools**을 사용하여 풀을 찾습니다. 이 작업은 기본적으로 사용자 계정 아래의 모든 풀을 쿼리합니다. 이때 *$context*에는 이미 BatchAccountContext 개체가 저장되어 있다고 가정합니다.
 
 ```
 Get-AzureBatchPool -BatchContext $context
@@ -156,4 +156,4 @@ Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 * [Azure 배치 cmdlet 참조](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [효율적인 목록 쿼리](batch-efficient-list-queries.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

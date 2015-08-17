@@ -74,4 +74,4 @@ VM에서 작업을 수행해 봅니다.
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

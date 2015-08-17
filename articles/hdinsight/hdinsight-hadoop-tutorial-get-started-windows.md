@@ -1,7 +1,6 @@
 <properties
    pageTitle="Hadoop 자습서: Windows에서 Hadoop 시작 | Microsoft Azure"
    description="HDInsight에서 Hadoop을 시작합니다. Windows에서 Hadoop 클러스터를 프로비전하고, 데이터에 대해 Hive 쿼리를 실행하고 Excel에서 결과를 분석하는 방법을 알아봅니다."
-   keywords="hadoop tutorial,hadoop on windows,hadoop cluster,learn hadoop, hive query"
    services="hdinsight"
    documentationCenter=""
    authors="nitinme"
@@ -163,7 +162,7 @@ HDInsight 클러스터를 프로비전했으므로 다음 단계는 Hive 작업�
 
     ![HDInsight 클러스터 대시보드의 작업 기록 탭에 나열된 작업 시작 시간.][img-hdi-dashboard-query-select-result-output]
 
-    페이지에는 **작업 출력**과 **작업 로그**도 표시됩니다. 출력 파일(_stdout)과 로그 파일(_stderr)을 다운로드하기 위한 옵션도 제공됩니다.
+    페이지에는 **작업 출력**과 **작업 로그**도 표시됩니다. 출력 파일(\_stdout)과 로그 파일(\_stderr)을 다운로드하기 위한 옵션도 제공됩니다.
 
 
 **출력 파일 찾아보기**
@@ -276,4 +275,4 @@ Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight의 작�
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

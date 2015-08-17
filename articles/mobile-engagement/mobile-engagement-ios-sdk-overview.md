@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Azure Mobile Engagement iOS SDK 개요" 
+<properties
+	pageTitle="Azure Mobile Engagement iOS SDK 개요"
 	description="Azure Mobile Engagement용 iOS SDK의 최신 업데이트 및 절차"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
 	editor="" />
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="07/28/2015" 
-	ms.author="piyushjo" />
+<tags
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="08/05/2015"
+	ms.author="MehrdadMzfr" />
 
 #Azure Mobile Engagement용 iOS SDK
 
@@ -32,9 +32,9 @@
 
 ##릴리스 정보
 
-###2\.2.0(05/21/2015)
+##3\.0.0(2015/08/05)
 
--   iOS 6 이전 장치에 대한 Mobile Engagement 장치 ID는 설치 시 생성된 GUID를 따릅니다.
+-   Mobile Engagement는 자동 푸시 알림을 사용합니다.
 
 이전 버전에 대한 내용은 [전체 릴리스 정보](mobile-engagement-ios-release-notes.md)를 참조하세요.
 
@@ -48,6 +48,5 @@ SDK의 각 새 버전에 대해 먼저 EngagementSDK 및 EngagementReach 폴더�
 
 ###2\.0.0에서 2.1.0으로 마이그레이션
 없음
- 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

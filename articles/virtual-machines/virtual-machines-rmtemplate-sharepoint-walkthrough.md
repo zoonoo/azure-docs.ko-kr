@@ -3,15 +3,14 @@
 	description="세 개의 서버 SharePoint 팜용 Azure 리소스 관리자 템플릿 파일의 구조를 단계별로 안내합니다."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="davidmu1"
+	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/28/2015"
@@ -21,7 +20,7 @@
 
 이 항목에서는 세 개의 서버 SharePoint 팜용 azuredeploy.json 템플릿 파일의 구조를 단계별로 안내합니다. [여기](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sharepoint-three-vm/azuredeploy.json)에서 브라우저를 통해 이 템플릿의 내용을 확인할 수도 있습니다.
 
-또는, azuredeploy.json 파일의 로컬 복사본을 검사하고 파일 위치로 로컬 폴더를 지정하여 해당 폴더를 만듭니다(예를 들어, C:\\Azure\\Templates\\SharePointFarm). 폴더 이름을 입력하고 Azure PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
+또는, azuredeploy.json 파일의 로컬 복사본을 검사하고 파일 위치로 로컬 폴더를 지정한 다음 해당 폴더를 만듭니다(예를 들어, C:\\Azure\\Templates\\SharePointFarm). 폴더 이름을 입력하고 Azure PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
 
 	$folderName="<folder name, such as C:\Azure\Templates\SharePointFarm>"
 	$webclient = New-Object System.Net.WebClient
@@ -33,7 +32,7 @@
 
 ## "parameters" 섹션
 
-"parameters" 섹션은 이 템플릿에 데이터를 입력하는 데 사용되는 매개 변수를 지정합니다. 최대 50개의 매개 변수를 정의할 수 있습니다. Azure 위치에 대한 매개 변수의 예는 다음과 같습니다.
+**"parameters"** 섹션은 이 템플릿에 데이터를 입력하는 데 사용되는 매개 변수를 지정합니다. 템플릿을 실행할 때는 데이터를 제공해야 합니다. 최대 50개의 매개 변수를 정의할 수 있습니다. Azure 위치에 대한 매개 변수의 예는 다음과 같습니다.
 
 	"deploymentLocation": {
 		"type": "string",
@@ -52,7 +51,7 @@
 
 ## "variables" 섹션
 
-"variables" 섹션은 이 템플릿 전체에서 사용할 수 있는 변수를 지정합니다. 최대 100개의 변수를 정의할 수 있습니다. 다음은 몇 가지 예입니다.
+**"variables"** 섹션은 템플릿에서 사용하는 변수와 그 값을 지정합니다. 변수 값은 명시적으로 설정되거나 매개 변수 값에서 파생될 수 있습니다. 매개 변수와는 반대로, 템플릿을 실행할 때 변수 값을 제공하지 않습니다. 최대 100개의 변수를 정의할 수 있습니다. 다음은 몇 가지 예입니다.
 
 	"LBFE": "LBFE",
 	"LBBE": "LBBE",
@@ -108,7 +107,7 @@
 
 - Active Directory 도메인 컨트롤러
 - SQL Server 클러스터
-- SharePoint Server
+- SharePoint 서버
 
 다음은 예제입니다.
 
@@ -141,7 +140,7 @@
 
 ### Microsoft.Network/loadBalancers
 
-이러한 섹션은 각 가상 컴퓨터에 대해 인터넷을 통해 전달되는 인바운드 트래픽에 대한 NAT 및 트래픽 필터링을 제공하는 부하 분산 장치 인스턴스를 만듭니다. 각 부하 분산 장치에 대한 설정은 프런트 엔드, 백 엔드 및 인바운드 NAT 규칙을 구성합니다. 예를 들어 각 가상 컴퓨터에 대한 원격 데스크톱 트래픽 규칙과 SharePoint 서버에서 인터넷을 통해 전달되는 인바운드 웹 트래픽(TCP 포트 80)을 허용하는 규칙이 있습니다. SharePoint 서버에 대한 예는 다음과 같습니다.
+이러한 섹션은 각 가상 컴퓨터에 대해 인터넷을 통해 전달되는 인바운드 트래픽에 대한 네트워크 주소 변환(NAT) 및 트래픽 필터링을 제공하는 부하 분산 장치 인스턴스를 만듭니다. 각 부하 분산 장치에 대한 설정은 프런트 엔드, 백 엔드 및 인바운드 NAT 규칙을 구성합니다. 예를 들어 각 가상 컴퓨터에 대한 원격 데스크톱 트래픽 규칙과 SharePoint 서버에서 인터넷을 통해 전달되는 인바운드 웹 트래픽(TCP 포트 80)을 허용하는 규칙이 있습니다. SharePoint 서버에 대한 예는 다음과 같습니다.
 
 
 	{
@@ -245,7 +244,7 @@
 
 - 저장소 계정, 가용성 집합, 네트워크 인터페이스 및 부하 분산 장치 인스턴스 지정
 - 추가 디스크 추가
-- PowerShell 스크립트를 실행하여 도메인 컨트롤러를 구성합니다.
+- PowerShell 스크립트를 실행하여 도메인 컨트롤러 구성
 
 JSON 코드는 다음과 같습니다.
 
@@ -369,12 +368,10 @@ Azure에서 다중 계층 인프라를 구축하는 사용자 고유의 JSON 템
 
 ## 추가 리소스
 
-[Azure 리소스 관리자의 Azure 계산, 네트워크 및 저장소 공급자](virtual-machines-azurerm-versus-azuresm.md)
+[Azure 리소스 관리자의 Azure 계산, 네트워크 및 저장소 공급자](virtual-machines-azurerm-versus-azuresm.md)[Azure 리소스 관리자 개요](../resource-group-overview.md)
 
-[Azure 리소스 관리자 개요](resource-group-overview.md)
-
-[Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)
+[Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)
 
 [가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

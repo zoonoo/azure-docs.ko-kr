@@ -71,4 +71,4 @@ SSMS에서 직접 배포하는 방법은 항상 스키마와 데이터를 함께
 ##대안
 BACPAC 명령줄 유틸리티 sqlpackage.exe를 사용하여 데이터베이스를 배포하거나 BACPAC 파일을 내보내고 가져올 수도 있습니다 Sqlpackage.exe는 SSMS와 동일한 DAC 기술을 사용하기 때문에 결과도 동일합니다. 자세한 내용은 [MSDN에서 SqlPackage.exe](https://msdn.microsoft.com/library/hh550080.aspx)를 참조하세요.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

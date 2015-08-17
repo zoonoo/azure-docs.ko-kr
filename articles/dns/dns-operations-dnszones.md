@@ -103,4 +103,4 @@ Get-AzureDnsZone에서 $zone 개체를 사용하여 영역을 지정합니다.
 
 [.NET SDK로 작업 자동화](../dns-sdk)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -139,4 +139,4 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

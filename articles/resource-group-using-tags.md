@@ -13,22 +13,21 @@
 	ms.tgt_pltfrm="AzurePortal" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2015" 
+	ms.date="08/05/2015" 
 	ms.author="tomfitz"/>
 
 
 # 태그를 사용하여 Azure 리소스 구성
 
-Azure 포털 및 기본 리소스 관리자는 리소스를 구성하고 사용자에게 잘 맞게 환경을 사용자 지정하는 작업에 사용됩니다.
+리소스 관리자를 사용하면 태그를 적용하여 리소스를 논리적으로 구성할 수 있습니다. 태그는 정의하는 속성을 가진 리소스를 식별하는 키/값 쌍으로 구성됩니다. 동일한 범주에 속하는 것으로 리소스를 표시하려면 이러한 리소스에 동일한 태그를 적용합니다.
 
-Azure 클래식 포털에서는 리소스를 분류하고 그룹화하기 위해 반드시 구독이 필요합니다. Azure 포털에서 관련 엔터티를 그룹화할 수 있는 [리소스 그룹을 도입](./resource-group-portal.md)했습니다. 이 리소스 그룹은 [역할 기반 액세스를 도입](./role-based-access-control-configure.md)했을 때 더 유용해졌습니다. 이제 같은 맥락으로 여러 리소스 그룹에서, 포털 내에서, 구독 간에 리소스를 추가적으로 분류하고 확인할 수 있게 리소스에 키/값 쌍을 태그로 지정할 수 있습니다.
+특정 태그를 사용하여 리소스를 보는 경우 모든 리소스 그룹에서 리소스를 참조합니다. 배포 관계와 무관하게 연결되는 방식으로 리소스를 구성할 수 있도록 하는 동일한 리소스 그룹의 리소스에 제한되지는 않습니다. 태그는 청구 또는 관리에 대한 리소스를 구성해야 하는 경우 특히 유용할 수 있습니다.
 
-팀, 프로젝트 또는 심지어 작업 환경별로 리소스를 그룹화하여 보고 싶을 때 보려는 리소스를 정확히 확인할 수 있습니다.
+> [AZURE.NOTE]리소스 관리자 작업을 지원하는 리소스에만 태그를 적용할 수 있습니다. 기존 배포 모델을 통해(예: Azure 포털 또는[서비스 관리 API](https://msdn.microsoft.com/library/azure/dn948465.aspx)를 통해) 가상 컴퓨터, 가상 네트워크 또는 저장소를 만든 경우, 해당 리소스에 태그를 적용할 수 없습니다. 태그 지정을 지원하기 위해서는 리소스 관리자를 통해 이러한 리소스를 다시 배포해야 합니다. 다른 모든 리소스는 태그 지정을 지원합니다.
 
+## 미리 보기 포털의 태그
 
-## Azure 포털의 태그
-
-포털에서 리소스 및 리소스 그룹에 쉽게 태그를 지정할 수 있습니다. 찾아보기 허브를 사용하여 태그를 지정할 리소스 또는 리소스 그룹으로 이동한 후 블레이드 위쪽의 개요 섹션에서 태그 부분을 클릭합니다.
+미리 보기 포털에서 리소스 및 리소스 그룹에 쉽게 태그를 지정할 수 있습니다. 찾아보기 허브를 사용하여 태그를 지정할 리소스 또는 리소스 그룹으로 이동한 후 블레이드 위쪽의 개요 섹션에서 태그 부분을 클릭합니다.
 
 ![리소스 및 리소스 그룹 블레이드에서 태그 파트](./media/resource-group-using-tags/rgblade.png)
 
@@ -62,7 +61,7 @@ Azure 클래식 포털에서는 리소스를 분류하고 그룹화하기 위해
 ![PowerShell에서 Get-AzureResource 및 Get-AzureResourceGroup을 사용하여 태그가 지정된 리소스 및 리소스 그룹 가져오기](./media/resource-group-using-tags/Get-AzureResourceGroup-with-tags-in-PowerShell.png)
 
 
-## 리소스 관리자를 사용하여 태그 지정
+## REST API를 사용하여 태그 지정
 
 포털 및 PowerShell 둘 다 백그라운드에서 [리소스 관리자 REST API](http://msdn.microsoft.com/library/azure/dn790568.aspx)를 사용합니다. 태그를 다른 환경으로 통합해야 하는 경우 리소스 ID에 대해 GET을 사용하여 태그를 얻고 PATCH 호출을 통해 태그 집합을 업데이트할 수 있습니다.
 
@@ -99,26 +98,12 @@ PowerShell을 사용하여 구독 내의 모든 태그 목록을 가져오려면
 ![요금 청구에 대한 태그를 참조하십시오.](./media/resource-group-using-tags/billing_csv.png)
 
 ## 다음 단계
-시작하기
 
-- [Azure 리소스 관리자 개요](./resource-group-overview.md)  
-- [Azure 리소스 관리자로 Azure PowerShell 사용](./powershell-azure-resource-manager.md)
-- [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](./xplat-cli-azure-resource-manager.md)  
-- [Azure 포털을 사용하여 Azure 리소스 관리](./resource-group-portal.md)  
-  
-응용 프로그램 만들기 및 배포
-  
-- [Azure 리소스 관리자 템플릿 작성](./resource-group-authoring-templates.md)  
-- [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](./resource-group-template-deploy.md)  
-- [Azure에서 리소스 그룹 배포 문제 해결](./resource-group-deploy-debug.md)  
-- [Azure 리소스 관리자 템플릿 함수](./resource-group-template-functions.md)  
-- [고급 템플릿 작업](./resource-group-advanced-template.md)  
-  
-액세스 관리 및 감사
-  
-- [리소스에 대한 액세스 관리 및 감사](./resource-group-rbac.md)  
-- [Azure 리소스 관리자를 사용하여 서비스 사용자 인증](./resource-group-authenticate-service-principal.md)  
-- [Azure 클래식 포털을 사용하여 새 Azure 서비스 사용자 만들기](./resource-group-create-service-principal-portal.md)  
+- 리소스 배포 시 Azure PowerShell 사용에 대한 소개는 [Azure 리소스 관리자와 함께 Azure PowerShell 사용](./powershell-azure-resource-manager.md)을 참조하세요.
+- 리소스 배포 시 Azure CLI 사용에 대한 소개는 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](./xplat-cli-azure-resource-manager.md)을 참조하세요.
+- 미리 보기 포털 사용에 대한 소개는 [Azure Preview 포털을 사용하여 Azure 리소스 관리](./resource-group-portal.md)를 참조하세요.  
   
 
-<!---HONumber=July15_HO5-->
+  
+
+<!---HONumber=August15_HO6-->

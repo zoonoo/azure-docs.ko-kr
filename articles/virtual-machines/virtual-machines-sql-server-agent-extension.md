@@ -74,4 +74,4 @@ VM에서 이 확장을 제거하려는 경우 다음 Azure Powershell cmdlet을 
 ### 구문
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

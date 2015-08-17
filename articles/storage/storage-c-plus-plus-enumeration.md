@@ -54,8 +54,8 @@ Storage Client Library for C++는 [C++ REST 라이브러리(Casablanca 프로젝
 
 분할된 목록 작업에 대한 응답에는 다음이 포함됩니다.
 
--	<i>_segment</i>은 API 목록에 단일 호출을 반환한 결과 집합을 포함합니다. 
--	*continuation_token*은 결과의 다음 페이지를 가져오기 위해 다음 호출에 전달됩니다. 더 이상 반환할 결과가 없으면 연속 토큰이 null입니다.
+-	<i>\_segment</i>은 API 목록에 단일 호출을 반환한 결과 집합을 포함합니다. 
+-	*continuation\_token*은 결과의 다음 페이지를 가져오기 위해 다음 호출에 전달됩니다. 더 이상 반환할 결과가 없으면 연속 토큰이 null입니다.
 
 예를 들어 컨테이너의 모든 blob을 나열하는 일반적인 호출은 다음 코드 조각처럼 보일 수 있습니다. 코드는 다음과 같은 [샘플](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp)에서 사용할 수 있습니다.
 
@@ -80,15 +80,15 @@ Storage Client Library for C++는 [C++ REST 라이브러리(Casablanca 프로젝
 	}
 	while (!token.empty());
 
-예를 들어, 페이지에 반환되는 결과 수는 각 API의 오버로드에서 *max_results* 매개 변수를 통해 제어할 수 있습니다.
+예를 들어, 페이지에 반환되는 결과 수는 각 API의 오버로드에서 *max\_results* 매개 변수를 통해 제어할 수 있습니다.
 	
 	list_blob_item_segment list_blobs_segmented(const utility::string_t& prefix, bool use_flat_blob_listing, 
 		blob_listing_details::values includes, int max_results, const continuation_token& token, 
 		const blob_request_options& options, operation_context context)
 
-*max_results* 매개 변수를 지정하지 않는 경우 한 페이지에 최대 5000개의 기본 최대 결과 값이 반환됩니다.
+*max\_results* 매개 변수를 지정하지 않는 경우 한 페이지에 최대 5000개의 기본 최대 결과 값이 반환됩니다.
 
-또한 Azure 저장소에 대한 쿼리는 연속 토큰이 비어 있지 않은 경우에도 사용자가 지정한 *max_results* 매개 변수 값보다 더 적은 레코드를 반환하거나 레코드를 반환하지 않을 수 있습니다. 한 가지 이유는 쿼리가 5초 이내에 완료할 수 없기 때문일 수 있습니다. 연속 토큰이 비어 있지 않으면 해당 쿼리가 계속되며 코드가 세그먼트 결과의 크기를 가정하지 않습니다.
+또한 Azure 저장소에 대한 쿼리는 연속 토큰이 비어 있지 않은 경우에도 사용자가 지정한 *max\_results* 매개 변수 값보다 더 적은 레코드를 반환하거나 레코드를 반환하지 않을 수 있습니다. 한 가지 이유는 쿼리가 5초 이내에 완료할 수 없기 때문일 수 있습니다. 연속 토큰이 비어 있지 않으면 해당 쿼리가 계속되며 코드가 세그먼트 결과의 크기를 가정하지 않습니다.
 
 거의 모든 시나리오에 대한 권장 코딩 패턴은 목록 또는 쿼리의 명시적 진행을 제공하는 목록 및 서비스가 각 요청에 응답하는 방식을 분할하는 것입니다. 특히 C++ 응용 프로그램 또는 서비스의 경우, 하위 수준의 목록 진행 제어가 메모리 및 성능 제어에 도움이 될 수 있습니다.
 
@@ -128,7 +128,7 @@ Storage Client Library for C++ 이전 버전(0.5.0 Preview 버전 이하)에는 
 	    token = segment.continuation_token();
 	} while (!token.empty());
 
-세그먼트의 *max_results* 매개 변수를 지정하여 응용 프로그램에 대한 성능 고려 사항을 충족하도록 요청 수와 메모리 사용량 사이의 균형을 조절할 수 있습니다.
+세그먼트의 *max\_results* 매개 변수를 지정하여 응용 프로그램에 대한 성능 고려 사항을 충족하도록 요청 수와 메모리 사용량 사이의 균형을 조절할 수 있습니다.
 
 또한 분할된 목록 API를 사용하지만 "greedy" 스타일로 로컬 모음에 데이터를 저장하는 경우, 규모별로 주의 깊게 로컬 모음에서 데이터 저장을 처리하도록 코드를 리펙터링하는 것이 좋습니다.
 
@@ -138,7 +138,7 @@ greedy 목록에 잠재적인 문제가 발생했어도 컨테이너에 너무 �
 
 또한 사용자가 C# 또는 Oracle Java SDK를 사용하는 경우, 필요한 경우 특정 오프셋의 데이터만 가져오는 lazy 스타일의 목록을 제공하는 열거 프로그래밍 모델에 친숙해야 합니다. C++에서는 반복기 기반 템플릿이 유사한 방식을 제공합니다.
 
-예를 들어, **list_blobs**를 사용하는 일반적인 lazy 목록 API는 다음과 같습니다.
+예를 들어, **list\_blobs**를 사용하는 일반적인 lazy 목록 API는 다음과 같습니다.
 
 	list_blob_item_iterator list_blobs() const;
 
@@ -184,4 +184,4 @@ Azure 저장소 및 Storage Client Library for C++에 대한 자세한 내용은
 -	[Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
 -	[Azure 저장소 설명서](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

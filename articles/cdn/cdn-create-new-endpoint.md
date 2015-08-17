@@ -54,4 +54,4 @@ Azure 관리 포털을 통해 원본에 대해 CDN을 사용할 수 있습니다
 [customorigin]: ./media/cdn-create-new-endpoint/cdn-custom-origin.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

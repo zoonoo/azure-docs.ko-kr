@@ -39,6 +39,7 @@ Azure 웹 사이트용 웹 프로젝트를 만들면 Azure에서 가상 컴퓨�
 9. 이 가상 컴퓨터의 로그인 자격 증명을 지정합니다. 원격 데스크톱을 통해 이 컴퓨터에 액세스할 때 필요하므로 이러한 자격 증명을 적어둡니다.
 10. **위치** 목록에서 가상 컴퓨터를 호스트하는 지역을 선택합니다.
 11. **확인** 단추를 선택하여 가상 컴퓨터를 만들기 시작합니다. **결과 ** 창에서 작업의 진행률을 확인할 수 있습니다.
+
 	![][3]
 
 12. 가상 컴퓨터가 프로비전되면 솔루션의 **PublishScripts** 노드에 게시 스크립트가 만들어집니다. 이 게시 스크립트가 실행되고 Azure에서 가상 컴퓨터를 프로비전합니다. **출력** 창에 상태가 표시됩니다. 이 스크립트는 가상 컴퓨터 설치를 위해 다음을 수행합니다.
@@ -67,4 +68,4 @@ Azure 웹 사이트용 웹 프로젝트를 만들면 Azure에서 가상 컴퓨�
 [4]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_SolutionExplorer.png
 [5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_Create_VM_Connect.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

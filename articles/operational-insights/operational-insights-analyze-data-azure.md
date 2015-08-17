@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="08/05/2015"
    ms.author="banders"/>
 # Microsoft Azure의 서버에서 데이터 분석
 
@@ -21,9 +21,9 @@
 
 Operational Insights는 온-프레미스 또는 클라우드 인프라의 서버에서 데이터를 사용합니다. Azure 진단에 의해 생성된 경우에 Azure 저장소에서 컴퓨터 데이터를 수집할 수 있습니다.
 
-Azure 저장소에서 수집한 데이터를 사용하여 [Azure 진단](operational-insights-log-collection.md)을 사용하여 클라우드 서비스 및 가상 컴퓨터에 대한 이벤트 및 IIS 로그를 빠르게 검색할 수 있습니다. Microsoft Monitoring Agent를 설치하여 가상 컴퓨터에서 자세한 내용을 알아볼 수도 있습니다.
+Azure 저장소에서 수집한 데이터를 사용하여 클라우드 서비스 및 가상 컴퓨터에 대한 이벤트 및 IIS 로그를 빠르게 검색할 수 있습니다. Microsoft Monitoring Agent를 설치하여 가상 컴퓨터에서 자세한 내용을 알아볼 수도 있습니다.
 
-업데이트 평가, 변경 추적 및 SQL 평가 솔루션 모두는 Microsoft 모니터링 에이전트와 작업하여 가상 컴퓨터에 심층적인 통찰력을 제공합니다. 아직 작업하지 않은 경우, [Operational Insights 포털](https://preview.opinsights.azure.com/)로 로그인한 경우 [솔루션을 추가](operational-insights-add-solution.md)할 수 있습니다.
+업데이트 평가, 변경 추적 및 SQL 평가 솔루션 모두는 Microsoft 모니터링 에이전트와 작업하여 가상 컴퓨터에 심층적인 통찰력을 제공합니다. 아직 작업하지 않은 경우, [Operational Insights 포털](https://www.microsoft.com/oms/)로 로그인한 경우 [솔루션을 추가](operational-insights-setup-workspace.md)할 수 있습니다.
 
 Azure 가상 컴퓨터의 경우, 에이전트 기반 데이터 수집을 설정하는 쉬운 두 가지 방법이 있습니다.
 
@@ -31,7 +31,7 @@ Azure 가상 컴퓨터의 경우, 에이전트 기반 데이터 수집을 설정
 
 - PowerShell 사용
 
-로그 데이터에 대한 에이전트 기반 컬렉션을 사용하는 경우, [Operational Insights 포털](https://preview.opinsights.azure.com/)의 로그 관리 구성 페이지에서 수집할 로그를 구성해야 합니다
+로그 데이터에 대한 에이전트 기반 컬렉션을 사용하는 경우, [Operational Insights 포털](https://www.microsoft.com/oms/)의 로그 관리 구성 페이지에서 수집할 로그를 구성해야 합니다
 
  >[AZURE.NOTE]Azure 진단을 사용하여 로그 데이터를 인덱스하도록 Operational Insights 에이전트를 구성하고 로그를 수집하도록 에이전트를 구성한 경우, 동일한 로그가 두 번 인덱싱됩니다. 두 데이터 소스에 대한 일반적인 데이터 요금이 청구됩니다. 에이전트가 설치되어 있는 경우, 에이전트를 사용하여 로그 데이터를 수집해야 하며 Azure 진단으로 수집된 로그를 인덱싱하지 않아야 합니다.
 
@@ -55,7 +55,7 @@ Operational Insights 작업 영역에 대해 에이전트가 자동적으로 설
 
 Azure 가상 컴퓨터를 변경하는 데 스크립팅을 선호하는 경우, PowerShell을 사용하여 Microsoft 모니터링 에이전트를 활성화할 수 있습니다.
 
-Microsoft Monitoring 에이전트는 [Azure 가상 컴퓨터 확장](https://msdn.microsoft.com/library/azure/dn832621.aspx) 이고 아래 예제처럼 PowerShell을 사용하여 관리할 수 있습니다.
+Microsoft Monitoring 에이전트는 [Azure 가상 컴퓨터 확장](https://msdn.microsoft.com/library/azure/dn832621.aspx)이고 아래 예제처럼 PowerShell을 사용하여 관리할 수 있습니다.
 
 ```powershell
 Add-AzureAccount
@@ -88,7 +88,7 @@ Azure 진단은 Azure에서 실행 중인 작업자 역할, 웹 역할 또는 �
 Azure 진단에서는 다음과 같은 유형의 원격 분석 데이터를 수집할 수 있습니다.
 
 데이터 원본|설명
- ---|--- 
+ ---|---
 IIS 로그|IIS 웹 사이트에 대한 정보입니다.
 Azure 진단 인프라 로그|진단 프로그램 자체에 대한 정보입니다.
 IIS 실패한 요청 로그 |IIS 사이트 또는 응용 프로그램에 대한 실패한 요청과 관련된 정보입니다.
@@ -249,4 +249,4 @@ Azure PowerShell을 사용하여 Azure 저장소에 기록된 이벤트를 보�
 
 [프록시 및 방화벽 설정 구성(선택 사항)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

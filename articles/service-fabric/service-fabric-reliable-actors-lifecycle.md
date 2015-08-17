@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 서비스 패브릭 행위자 수명 주기"
-   description="Azure 서비스 패브릭 행위자에 대한 수명 주기 및 가비지 수집을 설명합니다."
+   pageTitle="신뢰할 수 있는 행위자 수명 주기"
+   description="서비스 패브릭 신뢰할 수 있는 행위자에 대한 수명 주기 및 가비지 수집을 설명합니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="08/05/2015"
    ms.author="amanbha"/>
 
 
-#행위자 수명 주기 및 가비지 수집
+# 행위자 수명 주기 및 가비지 수집
 첫 번째 호출이 수행되면 행위자가 활성화되고 일정 기간 동안 사용되지 않으면 비활성화됩니다(행위자 런타임에 의한 가비지 수집). 이 기간을 구성하려면 아래의 행위자 가비지 수집 섹션을 참조하세요.
 
 행위자 활성화 시 수행하는 작업
@@ -89,6 +89,5 @@ class HelloActor : Actor, IHello
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

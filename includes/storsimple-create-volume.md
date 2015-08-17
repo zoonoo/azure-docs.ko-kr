@@ -1,4 +1,5 @@
 
+
 #### 볼륨을 만들려면
 
 1. 장치 **퀵 스타트** 페이지에서 클릭 **볼륨 추가**를 클릭합니다. 추가 볼륨 마법사가 시작됩니다.
@@ -22,4 +23,4 @@
 
 4. 확인 아이콘![확인 아이콘](./media/storsimple-create-volume/HCS_CheckIcon-include.png)을 클릭합니다. 지정한 설정으로 볼륨이 만들어집니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

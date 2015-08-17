@@ -36,7 +36,7 @@
 
 첫 번째 단계는 기존의 스토리보드에 사용자가 등록할 범주를 선택할 수 있도록 하는 UI 요소를 추가하는 것입니다. 사용자가 선택한 범주는 장치에 저장됩니다. 앱을 시작하면 장치 등록이 선택한 범주와 함께 태그로서 알림 허브에 생성됩니다.
 
-1. MainStoryboard_iPhone.storyboard의 개체 라이브러리에서 다음 구성 요소를 추가합니다.
+1. MainStoryboard\_iPhone.storyboard의 개체 라이브러리에서 다음 구성 요소를 추가합니다.
 	+ "Breaking News" 텍스트가 포함된 레이블
 	+ "World", "Politics", "Business", "Technology", "Science", "Sports" 범주 텍스트가 포함된 레이블
 	+ 범주당 하나씩인 6개의 스위치는 각 스위치 **상태**를 기본적으로 **Off(꺼짐)**가 되도록 설정합니다.
@@ -387,4 +387,4 @@
 [get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

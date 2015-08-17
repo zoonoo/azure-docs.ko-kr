@@ -47,13 +47,14 @@ Azure Active Directory 연결 동기화 서비스 (Azure AD Connect Sync)는 For
 다음과 같은 연산자를 사용할 수 있습니다.
 
 - **비교**: <, <=, <>, =, >, >=
-- **수학**: +, -, *, - - **문자열**: & (연결)
+- **수학**: +, -, *, -
+- **문자열**: &(연결)
 - **논리**: && (및), || (또는)
 - **평가 순서**: ( )
 
 
 
-연산자는 왼쪽에서 오른쪽으로 계산됩니다. 2\*(5+3)은 2\*5+3과 같지 않습니다.<br> 대괄호()는 평가 순서를 변경하는 데 사용됩니다.
+연산자는 왼쪽에서 오른쪽으로 계산됩니다. 2*(5+3)은 2*5+3과 같지 않습니다.<br> 대괄호()는 평가 순서를 변경하는 데 사용됩니다.
 
 
 
@@ -124,7 +125,7 @@ ImportedValues 함수는 특성 이름을 대괄호 대신 따옴표에 묶어�
 
 `proxyAddresses <- RemoveDuplicates(Trim(ImportedValues(“proxyAddresses”)))`
 
-전체 함수 목록은 [Azure AD Connect Sync: 함수 참조](active-directory-aadconnectsync-functions-reference.md)를 참조하십시오.
+전체 함수 목록은 [Azure AD Connect Sync: 함수 참조](active-directory-aadconnectsync-functions-reference.md)를 참조하세요.
 
 
 ## 추가 리소스
@@ -134,4 +135,4 @@ ImportedValues 함수는 특성 이름을 대괄호 대신 따옴표에 묶어�
  
 <!--Image references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

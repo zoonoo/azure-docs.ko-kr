@@ -298,4 +298,4 @@ Visual Studio Online의 단위 테스트에 대한 자세한 내용은 [빌드�
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

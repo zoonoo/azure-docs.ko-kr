@@ -12,7 +12,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="06/02/2015"
 	ms.author="rkarlin"/>
 
@@ -79,4 +79,4 @@ Azure Active Directory 응용 프로그램 프록시를 사용하여 응용 프�
 
 * [Kerberos 제한 위임 정보](http://technet.microsoft.com/library/cc995228.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -2,7 +2,6 @@
 	pageTitle="데이터를 만들어서 Blob 저장소의 Hive 테이블에 로드 | Microsoft Azure" 
 	description="Hive 테이블을 만들어서 blob의 데이터를 Hive 테이블에 로드" 
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -146,4 +145,4 @@ Hadoop 클러스터 헤드 노드의 Hadoop 명령줄에서 Hive 쿼리를 제�
 이제 ORC 형식의 데이터를 사용할 수 있는 테이블이 준비되었습니다.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

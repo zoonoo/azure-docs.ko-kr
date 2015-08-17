@@ -1,4 +1,4 @@
-<properties 
+<properties title="List of Oracle virtual machine images"
 pageTitle="Oracle 가상 컴퓨터 이미지 목록"
 description="Azure 갤러리의 Oracle 이미지 목록을 가져오고 이미지 한 개를 기반으로 하여 Oracle 가상 컴퓨터를 만드는 방법을 알아봅니다."
 services="virtual-machines"
@@ -67,4 +67,4 @@ Oracle 이미지에 따라 가상 컴퓨터를 만들려면 [Azure 포털](https
 
 [Oracle 가상 컴퓨터 이미지 - 기타 고려 사항](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

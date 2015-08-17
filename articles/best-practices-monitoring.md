@@ -612,4 +612,4 @@ _그림 6. 분석 및 저장소 요구 사항에 따라 데이터 분할_
 - Microsoft 웹 사이트의 [Azure의 모니터링 경고 및 알림 이해](https://msdn.microsoft.com/library/azure/dn306639.aspx) 페이지
 - Microsoft 웹 사이트의 [Application Insights](app-insights-get-started/) 페이지
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -69,4 +69,4 @@ Azure 백업은 데이터가 온-프레미스에 있든 Azure에 있든 백업�
 + Azure 백업 서비스에 대한 질문과 대답은 [여기](backup-azure-backup-faq.md)에 나열되어 있습니다.
 + [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하세요.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

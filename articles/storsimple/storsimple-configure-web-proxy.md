@@ -147,4 +147,4 @@
 ## 다음 단계
 장치를 배포하거나 웹 프록시 설정을 구성하는 동안 문제가 발생하면 [StorSimple 장치 문제 해결](storsimple-troubleshoot-deployment.md)을 참조하십시오.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -110,16 +110,16 @@ Hudson으로 Blob 서비스를 사용하려면 Azure 저장소 플러그 인을 
  
 5. 작업 구성의 **Post-build Actions** 섹션에서 **Upload artifacts to Microsoft Azure Blob storage**를 클릭합니다.
 6. **Storage Account Name**에서는 사용할 저장소 계정을 선택합니다.
-7. **컨테이너 이름**에 대해 컨테이너 이름을 지정합니다. (컨테이너는 빌드 아티팩트가 업로드될 때 없으면 만들어집니다.) 환경 변수를 사용할 수 있으며, 이 예제에서는 컨테이너 이름으로 **${JOB_NAME}**를 입력합니다.
+7. **컨테이너 이름**에 대해 컨테이너 이름을 지정합니다. (컨테이너는 빌드 아티팩트가 업로드될 때 없으면 만들어집니다.) 환경 변수를 사용할 수 있으며, 이 예제에서는 컨테이너 이름으로 **${JOB\_NAME}**를 입력합니다.
 
     **팁**
     
-    **Execute Windows batch command** 스크립트를 입력한 아래 **Command** 섹션은 Hudson에서 인식하는 환경 변수에 대한 링크입니다. 환경 변수 이름과 설명을 알아보려면 이 링크를 클릭합니다. **BUILD_URL** 환경 변수와 같은 특수 문자가 포함된 환경 변수는 컨테이너 이름이나 일반 가상 경로로 사용할 수 없습니다.
+    **Execute Windows batch command** 스크립트를 입력한 아래 **Command** 섹션은 Hudson에서 인식하는 환경 변수에 대한 링크입니다. 환경 변수 이름과 설명을 알아보려면 이 링크를 클릭합니다. **BUILD\_URL** 환경 변수와 같은 특수 문자가 포함된 환경 변수는 컨테이너 이름이나 일반 가상 경로로 사용할 수 없습니다.
 
 8. 이 예의 경우 **Make new container public by default**를 클릭합니다. (개인 컨테이너를 사용하려는 경우 액세스를 허용하려면 공유 액세스 서명을 만들어야 합니다. 이 내용은 이 항목에서는 다루지 않습니다. [공유 액세스 서명 만들기](http://go.microsoft.com/fwlink/?LinkId=279889)에서 공유 액세스 서명에 대한 자세한 내용을 알아볼 수 있습니다.)
 9. [옵션] 빌드 아티팩트를 업로드하기 전에 컨테이너에서 내용을 지우려면 **Clean container before uploading**을 클릭합니다. 컨테이너의 내용을 지우지 않으려면 선택 취소한 상태로 둡니다.
 10. **List of Artifacts to upload**에 대해 **text/*.txt**를 입력합니다.
-11. **Common virtual path for uploaded artifacts**에 대해 **${BUILD_ID}/${BUILD_NUMBER}**를 입력합니다.
+11. **Common virtual path for uploaded artifacts**에 대해 **${BUILD\_ID}/${BUILD\_NUMBER}**를 입력합니다.
 12. **Save**를 클릭하여 설정을 저장합니다.
 13. Hudson 대시보드에서 **Build Now**를 클릭하여 **MyJob**을 실행합니다. 상태에 대한 콘솔 출력을 검사합니다. 빌드 후 작업이 빌드 아티팩트를 업로드하기 시작하면 Azure 저장소 상태 메시지가 콘솔 출력에 포함됩니다.
 14. 작업이 성공적으로 완료되었을 때 공용 Blob을 열어 빌드 아티팩트를 검사할 수 있습니다.
@@ -158,7 +158,7 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
     
     (위 형식은 공용 Azure 클라우드에 적용됩니다. 다른 Azure 클라우드를 사용 중이면 Azure 관리 포털 내의 끝점을 사용하여 URL 끝점을 확인합니다.)
 
-    위 형식에서 `storageaccount`은(는) 저장소 계정 이름을 나타내고, `container_name`은(는) 컨테이너 이름을 나타내고, `blob_name`은(는) Blob 이름을 각각 나타냅니다. 컨테이너 이름 내에 슬래시(**/**)로 구분하여 여러 경로를 포함할 수 있습니다. 이 자습서에서 컨테이너 이름의 예는 **MyJob**이었고 **${BUILD_ID}/${BUILD_NUMBER}**는 일반 가상 경로에 사용되었으므로 Blob의 URL 형식은 다음과 같습니다.
+    위 형식에서 `storageaccount`은(는) 저장소 계정 이름을 나타내고, `container_name`은(는) 컨테이너 이름을 나타내고, `blob_name`은(는) Blob 이름을 각각 나타냅니다. 컨테이너 이름 내에 슬래시(**/**)로 구분하여 여러 경로를 포함할 수 있습니다. 이 자습서에서 컨테이너 이름의 예는 **MyJob**이었고 **${BUILD\_ID}/${BUILD\_NUMBER}**는 일반 가상 경로에 사용되었으므로 Blob의 URL 형식은 다음과 같습니다.
 
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 
@@ -168,4 +168,4 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

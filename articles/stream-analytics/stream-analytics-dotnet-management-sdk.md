@@ -1,7 +1,6 @@
 <properties 
 	pageTitle="스트림 분석 관리 .NET SDK를 사용하는 방법 알아보기 | Microsoft Azure" 
 	description="스트림 분석 관리 .NET SDK를 시작합니다. 분석 작업 설정 및 실행 방법 알아보기: 프로젝트, 입력, 출력 및 변환을 만듭니다." 
-	keywords=".net skd,analytics jobs,event hub"
 	services="stream-analytics" 
 	documentationCenter="" 
 	authors="jeffstokes72" 
@@ -14,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/16/2015" 
+	ms.date="08/04/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -365,4 +364,4 @@ Blob 저장소 또는 이벤트 허브의 입력 소스는 특정 작업에 연�
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

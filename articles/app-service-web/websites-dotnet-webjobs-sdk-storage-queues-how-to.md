@@ -329,7 +329,7 @@ SDK에서 자동으로 개체를 JSON으로 serialize합니다. 개체가 null�
 
 큐 메시지에 JSON으로 저장된 POCO의 경우 개체 속성의 이름을 지정하는 자리 표시자를 `Queue` 특성의 `blobPath` 매개 변수에 사용할 수 있습니다. [큐 메타데이터 속성 이름](#queuemetadata)을 자리 표시자로 사용할 수도 있습니다.
 
-다음 예제에서는 Blob를 확장명이 다른 새 Blob에 복사합니다. 큐 메시지는 `BlobInformation` 및 `BlobName` 속성이 포함된 `BlobNameWithoutExtension` 개체입니다. 속성 이름은 `Blob` 특성에 대한 Blob 경로에서 자리 표시자로 사용됩니다.
+다음 예제에서는 Blob을 확장명이 다른 새 Blob에 복사합니다. 큐 메시지는 `BlobInformation` 및 `BlobName` 속성이 포함된 `BlobNameWithoutExtension` 개체입니다. 속성 이름은 `Blob` 특성에 대한 Blob 경로에서 자리 표시자로 사용됩니다.
  
 		public static void CopyBlobPOCO(
 		    [QueueTrigger("copyblobqueue")] BlobInformation blobInfo,
@@ -562,7 +562,7 @@ WebJobs SDK 대시보드에서 콘솔 출력의 최근 100줄은 함수 호출�
  
 ![출력 설정/해제 클릭](./media/websites-dotnet-webjobs-sdk-storage-queues-how-to/dashboardapplogs.png)
 
-연속 WebJob에서는 응용 프로그램 로그가 웹앱 파일 시스템의 /data/jobs/continuous/*{webjobname}*/job_log.txt에 표시됩니다.
+연속 WebJob에서는 응용 프로그램 로그가 웹앱 파일 시스템의 /data/jobs/continuous/*{webjobname}*/job\_log.txt에 표시됩니다.
 
 		[09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
 		[09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
@@ -581,4 +581,4 @@ Azure Blob에서 응용 프로그램 로그는 다음과 같습니다. 2014-09-2
 이 가이드에서는 Azure 큐 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure WebJob 및 WebJob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

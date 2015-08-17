@@ -63,15 +63,17 @@ SQL 데이터 웨어하우스는 몇 초 만에 쉽게 배포됩니다. 이 서�
 
 
 ## 다음 단계
-[데이터 웨어하우스 워크로드]에 대해 알아봅니다.
+[데이터 웨어하우스 워크로드]에 대해 알아봅니다. 시작하려면 [샘플 데이터]를 [프로비전] 및 로드합니다.
 
 <!--Image references-->
 
 <!--Article references-->
 [데이터 웨어하우스 워크로드]: ./sql-data-warehouse-overview-workload.md
+[샘플 데이터]: ./sql-data-warehouse-get-started-load-samples.md
+[프로비전]: ./sql-data-warehouse-get-started-provision.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

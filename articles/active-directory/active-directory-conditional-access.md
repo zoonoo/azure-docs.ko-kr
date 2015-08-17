@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="조건부 액세스를 사용한 위험 관리" 
-	description="정책을 준수하는 알려진 장치에서 원격으로 특정 리소스에 액세스하도록 허용하고 분실되었거나, 도난당했거나, 호환되지 않는 장치에서는 액세스할 수 없도록 하는 방법을 설명하는 항목입니다." 
-	services="active-directory, virtual-network" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
-	editor="LisaToft"/>
+<properties
+	pageTitle="조건부 액세스를 사용한 위험 관리"
+	description="정책을 준수하는 알려진 장치에서 원격으로 특정 리소스에 액세스하도록 허용하고 분실되었거나, 도난당했거나, 호환되지 않는 장치에서는 액세스할 수 없도록 하는 방법을 설명하는 항목입니다."
+	services="active-directory, virtual-network"
+	documentationCenter=""
+	authors="femila"
+	manager="stevepo"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.devlang="na" 
-	ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.workload="identity" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.devlang="na"
+	ms.topic="article"
+  ms.tgt_pltfrm="na"
+  ms.workload="identity" 
+	ms.date="07/31/2015"
+	ms.author="femila"/>
 
 
 # 조건부 액세스를 사용한 위험 관리
@@ -43,6 +43,5 @@ Azure Active Directory, Office 365 및 Microsoft Intune을 통해 제공되는 �
 
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access/condaccoverviewvsdx1.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

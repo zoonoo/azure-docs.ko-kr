@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="08/03/2015" 
 	ms.author="tomfitz"/>
 
 #Microsoft Azure의 마켓플레이스에서 Umbraco 웹 앱 만들기#
@@ -34,15 +34,9 @@ Umbraco CMS는 소규모 응용 프로그램에서 복잡한 응용 프로그램
 
 2. **마켓플레이스** 아이콘을 선택합니다.
 	
-	![웹 갤러리 선택][01Startboard]
-	
-3. **마켓플레이스**에서 **웹 앱** 탭을 선택한 다음 **Umbraco CMS**를 선택합니다.
-	
-	![웹 갤러리에서 Umbraco 선택][02WebGallery]
+3. **마켓플레이스**에서 **웹 + 모바일** 탭을 선택한 다음 **Umbraco CMS**를 선택합니다.
 	
 4. 새 Umbraco CMS 웹 앱을 만들려면 **만들기**를 클릭합니다.
-	
-	![만들기 클릭][03UmbracoCMS]
 	
 5. 다음 단계는 Umbraco CMS와 연결된 모든 리소스를 구성하는 것입니다. 이 경우 리소스는 웹 앱과 SQL Server 데이터베이스입니다. 먼저 **웹 앱**을 선택하여 **URL**, **앱 서비스 계획**, **웹 앱 설정** 및 **위치**와 같은 웹 앱 설정을 구성합니다.
 	
@@ -57,8 +51,6 @@ Umbraco CMS는 소규모 응용 프로그램에서 복잡한 응용 프로그램
 	![만들기 클릭][06UmbracoCMSGroup]
 	
 배포가 완료된 후 Umbraco CMS 웹 앱의 리소스 그룹에 대한 블레이드는 포털에 표시됩니다. **요약** 섹션에서 웹 앱의 속성을 보려면 웹 앱 이름을 클릭합니다. 또한 **요약** 섹션에서 데이터베이스 리소스를 선택하여 연결된 데이터베이스의 속성을 확인할 수 있습니다.
-	
-![][07UmbracoCMSGroupBlade]
 
 ## Umbraco CMS 웹 앱 시작 및 구성 ##
 
@@ -135,4 +127,4 @@ Umbraco CMS는 소규모 응용 프로그램에서 복잡한 응용 프로그램
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

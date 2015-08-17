@@ -40,4 +40,4 @@ TDS 버전 7.3 이하를 지원하는 "하위 클라이언트"의 경우, 연결
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

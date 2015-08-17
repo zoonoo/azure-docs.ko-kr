@@ -281,4 +281,4 @@ Azure CLI는 오류 정보를 STDERR에 기록하지만 스크립트가 실행�
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [Using the Azure CLI]: virtual-machines-command-line-tools.md
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

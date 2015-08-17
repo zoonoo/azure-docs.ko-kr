@@ -70,4 +70,4 @@
 ## 다음 단계
 [서비스 정의 XML](https://msdn.microsoft.com/library/azure/ee758711.aspx) 스키마와 [서비스 구성 XML](https://msdn.microsoft.com/library/azure/ee758710.aspx) 스키마를 검토합니다.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

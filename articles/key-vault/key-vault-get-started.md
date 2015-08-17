@@ -85,7 +85,7 @@ Azure 리소스 관리자를 사용하면 관련된 모든 리소스는 리소�
 
 	New-AzureResourceGroup –Name 'ContosoResourceGroup' –Location 'East Asia'
 
--Location 매개 변수의 경우, [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn654582.aspx) 명령을 사용하여 이 예에서 대체 위치를 지정하는 방법을 식별합니다. 자세한 정보가 필요한 경우 `Get-Help Get-AzureLocation`을 입력합니다.
+\-Location 매개 변수의 경우, [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn654582.aspx) 명령을 사용하여 이 예에서 대체 위치를 지정하는 방법을 식별합니다. 자세한 정보가 필요한 경우 `Get-Help Get-AzureLocation`을 입력합니다.
 
 
 ## <a id="vault"></a>키 자격 증명 모음 만들기 ##
@@ -110,7 +110,7 @@ Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수�
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -Destination 'Software'
 
 
-그러나 Azure 키 자격 증명 모음에 업로드할 softkey.pfx라는 파일에 C:\ 드라이브에 저장된 .PFX 파일에 소프트웨어 보호된 기존 키가 있는 경우, .PFX 파일에 대해 **123**의 암호로 변수 **securepfxpwd**를 설정하려면 다음을 입력합니다.
+그러나 Azure 키 자격 증명 모음에 업로드할 softkey.pfx라는 파일에 C:\\ 드라이브에 저장된 .PFX 파일에 소프트웨어 보호된 기존 키가 있는 경우, .PFX 파일에 대해 **123**의 암호로 변수 **securepfxpwd**를 설정하려면 다음을 입력합니다.
 
     $securepfxpwd = ConvertTo-SecureString –String '123' –AsPlainText –Force
 
@@ -119,7 +119,7 @@ Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수�
     $key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey' -KeyFilePath 'c:\softkey.pfx' -KeyFilePassword $securepfxpwd
 
 
-이제 해당 URI를 사용하여 Azure 키 자격 증명 모음을 만들거나 업로드하는 이 키를 참조할 수 있습니다. **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**를 사용하면 항상 최신 버전을 가져오고 **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**를 사용하면 이 특정 버전을 가져옵니다. 
+이제 해당 URI를 사용하여 Azure 키 자격 증명 모음을 만들거나 업로드하는 이 키를 참조할 수 있습니다. ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey**를 사용하면 항상 최신 버전을 가져오고 ****https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87**를 사용하면 이 특정 버전을 가져옵니다.
 
 이 키에 대한 URI를 표시하려면 다음을 입력합니다.
 
@@ -133,7 +133,7 @@ Azure 계정은 이제 이 키 자격 증명 모음에서 모든 작업을 수�
 
 	$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword' -SecretValue $secretvalue
 
-이제 해당 URI를 사용하여 Azure 키 자격 증명 모음에 추가한 이 암호를 참조할 수 있습니다. **https://ContosoVault.vault.azure.net/secrets/SQLPassword**를 사용하면 항상 최신 버전을 가져오고 **https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**를 사용하면 이 특정 버전을 가져옵니다.
+이제 해당 URI를 사용하여 Azure 키 자격 증명 모음에 추가한 이 암호를 참조할 수 있습니다. ****https://ContosoVault.vault.azure.net/secrets/SQLPassword**를 사용하면 항상 최신 버전을 가져오고 ****https://ContosoVault.vault.azure.net/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d**를 사용하면 이 특정 버전을 가져옵니다.
 
 이 비밀에 대한 URI를 표시하려면 다음을 입력합니다.
 
@@ -248,4 +248,4 @@ Azure 키 자격 증명 모음에 대한 Windows PowerShell cmdlet의 목록은 
 프로그래밍 참조의 경우 MSDN의 Microsoft Azure 문서에서 [키 자격 증명 모음](https://msdn.microsoft.com/library/azure/dn903625.aspx)을 참조하세요.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -45,4 +45,4 @@ Express 경로를 사용하여 Microsoft 클라우드 서비스에 연결하려�
 	- [Exchange 공급자를 통해 Express 경로 연결 구성](expressroute-configuring-exps.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -117,7 +117,7 @@ parameters 섹션 내에서는 다른 매개 변수 값을 생성하는 매개 �
 - string 또는 secureString - 유효한 모든 JSON 문자열
 - int - 유효한 모든 JSON 정수
 - bool - 유효한 모든 JSON 부울
-- object - 유효한 모든 JSON 개체
+- object 또는 secureObject - 유효한 모든 JSON 개체
 - array - 유효한 모든 JSON 배열
 
 
@@ -405,4 +405,4 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 예를 �
 - 응용 프로그램 배포에 대한 자세한 예제는 [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
 - 사용할 수 있는 스키마는 [Azure 리소스 관리자 스키마](https://github.com/Azure/azure-resource-manager-schemas)를 참조하세요.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -88,4 +88,4 @@
 - [상태 저장 신뢰할 수 있는 서비스 진단](service-fabric-reliable-services-diagnostics.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

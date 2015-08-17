@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DocumentDB 및 HDInsight를 사용하여 Hadoop 작업 실행 | Azure" 
+	pageTitle="DocumentDB 및 HDInsight를 사용하여 Hadoop 작업 실행 | Microsoft Azure" 
 	description="단순 Hive, Pig 및 MapReduce 작업을 DocumentDB 및 Azure HDInsight에서 실행하는 방법을 알아봅니다."
 	services="documentdb" 
 	authors="AndrewHoh" 
@@ -442,7 +442,7 @@ HDInsight 클러스터를 프로비전할 때 Azure 저장소 계정을 지정�
 
 축하합니다. 지금까지 Azure DocumentDB 및 HDInsight를 사용해서 처음으로 Hive, Pig 및 MapReduce 작업을 실행했습니다.
 
-Hadoop 커넥터는 소스가 공개되어 있습니다. 관심이 있으면 [GitHub][documentdb-github]에서 기여할 수 있습니다.
+Hadoop 커넥터는 소스가 공개되어 있습니다. 관심이 있으면 [GitHub][documentdb-github]에서 참여할 수 있습니다.
 
 자세한 내용은 다음 문서를 참조하세요.
 
@@ -492,4 +492,4 @@ Hadoop 커넥터는 소스가 공개되어 있습니다. 관심이 있으면 [Gi
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!--------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

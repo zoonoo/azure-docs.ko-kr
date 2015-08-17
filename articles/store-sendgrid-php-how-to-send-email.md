@@ -57,7 +57,7 @@ SendGrid에서 제공하는 SMTP 또는 웹 API를 사용하여 전자 메일을
 
 ### SMTP API
 
-SendGrid SMTP API를 사용하여 메일을 보내려면 PHP 응용 프로그램에서 메일을 보내기 위한 구성 요소 기반 라이브러리인 *Swift Mailer*를 사용합니다. [http://swiftmailer.org/download][] v5.3.0에서 *Swift Mailer* 라이브러리를 다운로드할 수 있습니다([Composer]를 사용하여 Swift Mailer 설치). 라이브러리를 사용하여 전자 메일 보내기에는<span class="auto-style2">Swift_SmtpTransport</span>, <span class="auto-style2">Swift_Mailer</span> 및 <span class="auto-style2">Swift_Message</span> 클래스의 인스턴스 생성, 적절한 속성 설정 및 <span class="auto-style2">Swift_Mailer::send</span> 메서드 호출이 포함됩니다.
+SendGrid SMTP API를 사용하여 메일을 보내려면 PHP 응용 프로그램에서 메일을 보내기 위한 구성 요소 기반 라이브러리인 *Swift Mailer*를 사용합니다. [http://swiftmailer.org/download][] v5.3.0에서 *Swift Mailer* 라이브러리를 다운로드할 수 있습니다([Composer]를 사용하여 Swift Mailer 설치). 라이브러리를 사용하여 전자 메일 보내기에는<span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_Mailer</span> 및 <span class="auto-style2">Swift\_Message</span> 클래스의 인스턴스 생성, 적절한 속성 설정 및 <span class="auto-style2">Swift\_Mailer::send</span> 메서드 호출이 포함됩니다.
 
     <?php
      include_once "vendor/autoload.php";
@@ -236,7 +236,7 @@ SMTP API를 사용하여 첨부 파일을 보내는 프로세스에는 Swift Mai
 
      $message->attach(Swift_Attachment::fromPath("path\to\file")->setFileName('file_name'));
 
-이 코드 줄은 <span class="auto-style2">Swift_Message</span> 개체에서 첨부 메서드를 호출하고 <span class="auto-style2">Swift_Attachment</span> 클래스의 정적 <span class="auto-style2">fromPath</span> 메서드를 사용하여 파일을 가져와서 메시지에 첨부합니다.
+이 코드 줄은 <span class="auto-style2">Swift\_Message</span> 개체에서 첨부 메서드를 호출하고 <span class="auto-style2">Swift\_Attachment</span> 클래스의 정적 <span class="auto-style2">fromPath</span> 메서드를 사용하여 파일을 가져와서 메시지에 첨부합니다.
 
 ### Web API
 
@@ -420,4 +420,4 @@ SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으�
   [sendgrid-php 라이브러리]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Composer]: https://getcomposer.org/download/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

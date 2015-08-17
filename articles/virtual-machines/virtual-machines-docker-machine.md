@@ -30,7 +30,7 @@
 
 ## docker-machine 다운로드 또는 빌드
 
-**docker-machine**을 사용하는 가장 빠른 방법은 [릴리스 공유](https://github.com/docker/machine/releases)에서 해당 릴리스를 직접 다운로드하는 것입니다. 이 자습서에서 사용한 클라이언트 컴퓨터는 x64 컴퓨터에서 Ubuntu를 실행하므로 **docker-machine_linux-amd64** 이미지가 사용됩니다.
+**docker-machine**을 사용하는 가장 빠른 방법은 [릴리스 공유](https://github.com/docker/machine/releases)에서 해당 릴리스를 직접 다운로드하는 것입니다. 이 자습서에서 사용한 클라이언트 컴퓨터는 x64 컴퓨터에서 Ubuntu를 실행하므로 **docker-machine\_linux-amd64** 이미지가 사용됩니다.
 
 [Machine 빌드](https://github.com/docker/machine#contributing)의 단계에 따라 **docker-machine**을 직접 빌드할 수도 있습니다. 빌드를 수행하려면 1GB 이상의 콘텐츠를 다운로드해야 합니다. 이렇게 하면 환경을 원하는 방식으로 정확하게 사용자 지정할 수 있습니다.
 
@@ -38,7 +38,7 @@
 
 <br />
 
->  어떤 방법을 선택하든 명령줄에서 바이너리를 직접 호출하거나 **/usr/local/bin**과 같은 경로에 바이너리를 저장해야 합니다. `chmod +x` &lt;*`binaryName`*&gt;을 입력하여 실행 파일로 표시되는지 확인합니다. 여기서, &lt;*`binaryName`*&gt;은 Docker Machine 실행 파일의 이름입니다. 이 자습서에서는 **docker-machine_linux-amd64**를 사용합니다.
+>  어떤 방법을 선택하든 명령줄에서 바이너리를 직접 호출하거나 **/usr/local/bin**과 같은 경로에 바이너리를 저장해야 합니다. `chmod +x` &lt;*`binaryName`*&gt;을 입력하여 실행 파일로 표시되는지 확인합니다. 여기서, &lt;*`binaryName`*&gt;은 Docker Machine 실행 파일의 이름입니다. 이 자습서에서는 **docker-machine\_linux-amd64**를 사용합니다.
 
 ## Docker, Machine 및 Azure용 인증서 및 키 파일 만들기
 
@@ -210,4 +210,4 @@ Docker가 컨테이너 포트 80을 VM 포트 49153에 할당했음을 확인할
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

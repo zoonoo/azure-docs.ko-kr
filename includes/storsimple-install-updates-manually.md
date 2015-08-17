@@ -11,4 +11,4 @@
 
     업데이트가 성공적으로 설치되면 알림이 표시됩니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

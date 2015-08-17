@@ -65,68 +65,19 @@ Edifact 커넥터는 트리거 또는 작업으로 사용할 수 있습니다.
 
 	![구성된 인코딩][10]
 
-<table>
-	<tr>
-		<th>매개 변수</th>
-		<th>형식</th>
-		<th>매개 변수에 대한 설명</th>
-	</tr>
-	<tr>
-		<td>Content</td>
-		<td>string</td>
-		<td>XML 메시지</td>
-	</tr>
-	<tr>
-		<td>Agreement ID</td>
-		<td>정수</td>
-		<td>규약 ID</td>
-	</tr>
-	<tr>
-		<td>Is Batched Message</td>
-		<td>부울</td>
-		<td>메시지 일괄 처리 여부</td>
-	</tr>
-	<tr>
-		<td>Data Element Separator</td>
-		<td>string</td>
-		<td>데이터 요소 구분 기호</td>
-	</tr>
-	<tr>
-		<td>Component Separator</td>
-		<td>string</td>
-		<td>구성 요소 구분 기호</td>
-	</tr>
-	<tr>
-		<td>Segment Terminator</td>
-		<td>string</td>
-		<td>세그먼트 마침 표시</td>
-	</tr>
-	<tr>
-		<td>Decimal Point Indicator</td>
-		<td>string</td>
-		<td>소수점 표시기</td>
-	</tr>
-	<tr>
-		<td>Repetition Separator</td>
-		<td>string</td>
-		<td>반복 구분 기호</td>
-	</tr>
-	<tr>
-		<td>Escape Character</td>
-		<td>string</td>
-		<td>이스케이프 문자</td>
-	</tr>
-	<tr>
-		<td>Replacement Character</td>
-		<td>string</td>
-		<td>대체 문자</td>
-	</tr>
-	<tr>
-		<td>Segment Terminator Suffix</td>
-		<td>string</td>
-		<td>세그먼트 마침 표시 접미사</td>
-	</tr>
-</table>
+매개 변수|형식|매개 변수에 대한 설명
+---|---|---
+Content|string|XML 메시지
+Agreement ID|정수|규약 ID
+Is Batched Message|부울|메시지 일괄 처리 여부
+Data Element Separator|string|데이터 요소 구분 기호
+Component Separator|string|구성 요소 구분 기호
+Segment Terminator|string|세그먼트 마침 표시
+Decimal Point Indicator|string|소수점 표시기
+Repetition Separator|string|반복 구분 기호
+Escape Character|string|이스케이프 문자
+Replacement Character|string|대체 문자
+Segment Terminator Suffix|string|세그먼트 마침 표시 접미사
 
 작업이 성공적으로 완료되면 EDIFACT 페이로드를 포함하는 개체를 반환합니다.
 
@@ -148,4 +99,4 @@ Edifact 커넥터는 트리거 또는 작업으로 사용할 수 있습니다.
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

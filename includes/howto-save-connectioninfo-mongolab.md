@@ -8,16 +8,16 @@ MongoLab URI를 코드에 붙여 넣을 수 있지만 관리하기 쉽도록 환
 
 1. 연결 문자열 섹션까지 아래로 스크롤합니다. ![WebAppConnectionStrings][focus-mongolab-websiteconnectionstring]
 
-1. **Name**에 MONGOLAB_URI를 입력합니다.
+1. **Name**에 MONGOLAB\_URI를 입력합니다.
 1. **Value**에 이전 섹션에서 얻은 연결 문자열을 붙여 넣습니다.
 1. **Type** 드롭다운 목록에서 기본값 **SQLAzure** 대신 **Custom**을 선택합니다.
 1. 도구 모음에서 **Save**를 클릭합니다.![SaveWebApp][button-website-save]
 
-**참고:** Azure는 **CUSTOMCONNSTR_** 접두사를 변수에 추가합니다. 위의 코드에서 **CUSTOMCONNSTR_MONGOLAB_URI.**를 참조하는 것은 이 때문입니다.
+**참고:** Azure는 **CUSTOMCONNSTR\_** 접두사를 변수에 추가합니다. 위의 코드에서 **CUSTOMCONNSTR\_MONGOLAB\_URI.**를 참조하는 것은 이 때문입니다.
 
 [entry-website]: ./media/howto-save-connectioninfo-mongolab/entry-website.png
 [focus-mongolab-websitedashboard-config]: ./media/howto-save-connectioninfo-mongolab/focus-mongolab-websitedashboard-config.png
 [focus-mongolab-websiteconnectionstring]: ./media/howto-save-connectioninfo-mongolab/focus-mongolab-websiteconnectionstring.png
 [button-website-save]: ./media/howto-save-connectioninfo-mongolab/button-website-save.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

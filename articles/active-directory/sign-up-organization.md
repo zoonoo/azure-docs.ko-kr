@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="조직으로 Azure 등록" 
-	description="회사 또는 학교 계정을 사용하여 이미 소유하고 있는 기존 사용자 계정, 정책, 설정 또는 온-프레미스 서버 배포를 활용하고 조직의 온-프레미스 ID 인프라와 Azure AD 간의 효율성을 개선하는 방법에 대해 알아봅니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="terrylan" 
-	editor="Lisatoft"/>
+<properties
+	pageTitle="조직으로 Azure 등록"
+	description="회사 또는 학교 계정을 사용하여 이미 소유하고 있는 기존 사용자 계정, 정책, 설정 또는 온-프레미스 서버 배포를 활용하고 조직의 온-프레미스 ID 인프라와 Azure AD 간의 효율성을 개선하는 방법에 대해 알아봅니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="markvi"
+	manager="stevenpo"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
-	ms.author="terrylan"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/30/2015"
+	ms.author="markvi"/>
 
 
 # 조직으로 Azure 등록
@@ -27,13 +27,12 @@
 
 	이 디렉터리가 작성되고 나면 관리자는 사용자를 만들고 해당 사용자가 액세스해야 하는 클라우드 서비스 구독(예: Azure)에 따라 라이선스를 할당할 수 있습니다.
 
-조직으로 Azure를 등록하려면 [**지금 등록**](http://go.microsoft.com/fwlink/?LinkId=269967)
+조직으로 Azure를 등록하려면 [**지금 등록**](https://azure.microsoft.com/pricing/purchase-options/)
 
 **추가 리소스**
 
-* [Microsoft Azure 블로그](http://azure.microsoft.com/blog/) 
+* [Microsoft Azure 블로그](http://azure.microsoft.com/blog/)
 * [ Azure AD란?](active-directory-whatis.md)
 * [클라우드에서 온-프레미스 ID 인프라 사용](active-directory-aadconnect.md)
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

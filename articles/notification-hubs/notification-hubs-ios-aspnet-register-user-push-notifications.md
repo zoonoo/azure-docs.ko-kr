@@ -17,9 +17,11 @@
 	ms.author="wesmc"/>
 # ASP.NET을 사용하여 푸시 알림에 현재 사용자 등록
 
-<div class="dev-center-tutorial-selector sublanding">
-    <a href="/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows 스토어 C#">Windows 스토어 C#</a><a href="/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
-</div>
+> [AZURE.SELECTOR]
+- [Windows Store C#](notification-hubs-windows-store-aspnet-register-user-push-notifications.md)
+- [iOS](notification-hubs-ios-aspnet-register-user-push-notifications.md)
+
+
 
 ##개요
 
@@ -27,7 +29,7 @@
 
 ##앱 업데이트  
 
-1. MainStoryboard_iPhone.storyboard의 개체 라이브러리에서 다음 구성 요소를 추가합니다.
+1. MainStoryboard\_iPhone.storyboard의 개체 라이브러리에서 다음 구성 요소를 추가합니다.
 
 	+ **레이블**: "Push to User with Notification Hubs"
 	+ **레이블**: "InstallationId"
@@ -236,4 +238,4 @@
 [알림 허브 시작]: /manage/services/notification-hubs/get-started-notification-hubs-ios
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

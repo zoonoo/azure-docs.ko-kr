@@ -89,7 +89,7 @@ Restart-ServiceFabricNode -NodeName $nodeName -CompletionMode DoNotVerify
 
 ![](media/service-fabric-testability-actions/Restart-ServiceFabricNode.png)
 
-첫 번째 *Get-ServiceFabricNode*(ServiceFabric PowerShell 모듈의 cmdlet)의 출력은 로컬 클러스터에 다섯 개의 노드(Node.1~Node.5)가 있음을 보여 줍니다. Node.4 노드에서 테스트 용이성 작업(cmdlet) **Restart-ServiceFabricNode**를 실행하면 노드의 가동 시간이 다시 설정된 것을 알 수 있습니다.
+첫 번째 *Get-ServiceFabricNode*(ServiceFabric PowerShell 모듈의 cmdlet)의 출력은 로컬 클러스터에 다섯 개의 노드(Node.1\~Node.5)가 있음을 보여 줍니다. Node.4 노드에서 테스트 용이성 작업(cmdlet) **Restart-ServiceFabricNode**를 실행하면 노드의 가동 시간이 다시 설정된 것을 알 수 있습니다.
 
 ### Azure 클러스터에 대해 작업 실행
 
@@ -233,4 +233,4 @@ ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(par
    - [서비스 대 서비스 통신 오류](service-fabric-testability-scenarios-service-communication.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

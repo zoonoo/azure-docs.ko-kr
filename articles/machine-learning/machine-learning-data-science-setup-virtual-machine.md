@@ -66,7 +66,7 @@ Azure에서 가상 컴퓨터를 만드는 프로세스를 시작하기 전에 �
 
 ## <a name="run-commands"></a>3단계: IPython Notebook 및 기타 지원 도구 설치
 
-가상 컴퓨터를 만들 후 RDP(원격 데스크톱 프로토콜)를 사용하여 Windows 가상 컴퓨터에 로그온합니다. 지침은 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines-log-on-windows-server.md)을 참조하세요. **관리자** 권한으로 **명령 프롬프트**(\*\*Powershell 명령 창이 아님\*\*)를 열고 다음 명령을 실행합니다.
+가상 컴퓨터를 만들 후 RDP(원격 데스크톱 프로토콜)를 사용하여 Windows 가상 컴퓨터에 로그온합니다. 지침은 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../virtual-machines-log-on-windows-server.md)을 참조하세요. **관리자** 권한으로 **명령 프롬프트**(**Powershell 명령 창이 아님**)를 열고 다음 명령을 실행합니다.
 
     set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/MachineSetup/Azure_VM_Setup_Windows.ps1'
 
@@ -83,7 +83,7 @@ IPython Notebook 서버에 액세스하려면 웹 브라우저를 열고 URL 텍
 
 ![작업 영역 만들기][19]
 
-다음 그림과 같이 _이 웹 사이트의 보안 인증서에 문제가 있습니다_(Internet Explorer) 또는 _Your connection is not private_(Chrome)이라는 경고가 나타납니다. **이 웹 사이트를 계속 탐색합니다(권장하지 않음)**(Internet Explorer)를 클릭하거나 **Advanced**, **Proceed to &#60;\*DNS Name\*> (unsafe)**(Chrome)를 차례로 클릭하여 계속합니다. 그런 다음 이전에 지정한 암호를 입력하여 IPython Notebook에 액세스합니다.
+다음 그림과 같이 _이 웹 사이트의 보안 인증서에 문제가 있습니다_(Internet Explorer) 또는 _Your connection is not private_(Chrome)이라는 경고가 나타납니다. **이 웹 사이트를 계속 탐색합니다(권장하지 않음)**(Internet Explorer)를 클릭하거나 **Advanced**, **Proceed to &#60;*DNS Name*> (unsafe)**(Chrome)를 차례로 클릭하여 계속합니다. 그런 다음 이전에 지정한 암호를 입력하여 IPython Notebook에 액세스합니다.
 
 Internet Explorer: ![작업 영역 만들기][20]
 
@@ -124,7 +124,7 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 
 이제 데이터 과학 연습에서 가상 컴퓨터를 사용할 준비가 완료되었습니다. 또한 데이터 탐색 및 처리, Azure 기계 학습 및 고급 분석 프로세스 및 기술(ADAPT)과 함께 수행할 다른 작업 등에 가상 컴퓨터를 IPython Notebook 서버로 사용할 준비가 완료되었습니다.
 
-고급 분석 프로세스 및 기술의 다음 단계는 [학습 가이드: Azure에서 고급 데이터 처리](machine-learning-data-science-advanced-data-processing.md)에서 매핑되며, 데이터를 HDInsight로 이동한 후 Azure 기계 학습에서 데이터를 통해 학습할 준비를 수행하면서 데이터를 처리 및 샘플링하는 단계를 포함할 수 있습니다.
+고급 분석 프로세스 및 기술의 다음 단계는 [학습 가이드: Azure에서 고급 데이터 처리](machine-learning-data-science-advanced-data-processing.md)에서 확인할 수 있으며, 데이터를 HDInsight로 이동한 후 Azure 기계 학습에서 데이터를 통해 학습할 준비를 수행하면서 데이터를 처리 및 샘플링하는 단계도 여기에 포함할 수 있습니다.
 
 
 [15]: ./media/machine-learning-data-science-setup-virtual-machine/vmshutdown.png
@@ -143,4 +143,4 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

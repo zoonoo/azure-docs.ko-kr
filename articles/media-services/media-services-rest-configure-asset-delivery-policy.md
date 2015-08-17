@@ -186,7 +186,7 @@ HTTP 요청의 본문을 가져오려면 URL의 유형을 지정 합니다. Play
 
 ###자산 배달 정책 만들기
 
-다음 HTTP 요청은 **HLS** 프로토콜에 동적 봉투 암호화(**DynamicEnvelopeEncryption**)를 적용 하도록 구성된 **AssetDeliveryPolicy**를 만듭니다(이 예제에서는 다른 프로토콜이 스트리밍에서 차단 됩니다).
+다음 HTTP 요청은** HLS** 프로토콜에 동적 봉투 암호화(**DynamicEnvelopeEncryption**)를 적용하도록 구성된 **AssetDeliveryPolicy**를 만듭니다(이 예제에서는 다른 프로토콜이 스트리밍에서 차단됩니다).
 
 
 AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세한 정보는 [AssetDeliveryPolicy를 정의할 때 사용되는 형식](#types) 섹션을 참조하세요.
@@ -205,7 +205,7 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
 	x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
 	Host: media.windows.net
 	
-	{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{"Key":2,"Value":"https://amsaccount1.keydelivery.mediaservices.windows.net/"}]"}
+	{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{"Key":2,"Value":"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/"}]"}
 
 	
 응답:
@@ -224,7 +224,7 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
 	Strict-Transport-Security: max-age=31536000; includeSubDomains
 	Date: Mon, 09 Feb 2015 05:24:38 GMT
 	
-	{"odata.metadata":"media.windows.net/api/$metadata#AssetDeliveryPolicies/@Element","Id":"nb:adpid:UUID:ec9b994e-672c-4a5b-8490-a464eeb7964b","Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{"Key":2,"Value":"https://amsaccount1.keydelivery.mediaservices.windows.net/"}]","Created":"2015-02-09T05:24:38.9167436Z","LastModified":"2015-02-09T05:24:38.9167436Z"}
+	{"odata.metadata":"media.windows.net/api/$metadata#AssetDeliveryPolicies/@Element","Id":"nb:adpid:UUID:ec9b994e-672c-4a5b-8490-a464eeb7964b","Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{"Key":2,"Value":"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/"}]","Created":"2015-02-09T05:24:38.9167436Z","LastModified":"2015-02-09T05:24:38.9167436Z"}
 
 
 ###자산을 자산 배달 정책과 연결
@@ -244,7 +244,7 @@ DynamicCommonEncryption 배달 정책을 지정할 때 CommonEncryption 형식�
 
 ###자산 배달 정책 만들기
 
-다음 HTTP 요청은 **부드러운 스트리밍** 프로토콜에 동적 일반 암호화(**DynamicCommonEncryption**)를 적용 하도록 구성된 **AssetDeliveryPolicy**를 만듭니다(이 예제에서는 다른 프로토콜이 스트리밍에서 차단 됩니다).
+다음 HTTP 요청은 **부드러운 스트리밍** 프로토콜에 동적 일반 암호화(**DynamicCommonEncryption**)를 적용하도록 구성된 **AssetDeliveryPolicy**를 만듭니다(이 예제에서는 다른 프로토콜이 스트리밍에서 차단됩니다).
 
 AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세한 정보는 [AssetDeliveryPolicy를 정의할 때 사용되는 형식](#types) 섹션을 참조하세요.
 
@@ -263,7 +263,7 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
 	x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
 	Host: media.windows.net
 	
-	{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{"Key":2,"Value":"https://amsaccount1.keydelivery.mediaservices.windows.net/PlayReady/"}]"}
+	{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{"Key":2,"Value":"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
 
 
 ###자산을 자산 배달 정책과 연결
@@ -413,4 +413,4 @@ AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세
     }
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

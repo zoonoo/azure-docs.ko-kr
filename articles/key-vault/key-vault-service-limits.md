@@ -22,4 +22,4 @@
 
 [AZURE.INCLUDE [키 자격 증명 모음 제한 사항](../../includes/key-vault-limits.md)]
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

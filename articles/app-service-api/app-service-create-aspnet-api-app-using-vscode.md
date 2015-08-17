@@ -142,7 +142,7 @@ namespace ContactsList.Models
 	using System.Collections.Generic;
 	using Microsoft.AspNet.Mvc;
 	using ContactsList.Models;
-	
+
 	namespace ContactsList.Controllers
 	{
 	    [Route("api/[controller]")]
@@ -150,7 +150,7 @@ namespace ContactsList.Models
 	    {
 	        // GET: api/Contacts
 	        [HttpGet]
-	        public IEnumerable&lt;Contact&gt; Get()
+	        public IEnumerable&lt;Contact> Get()
 	        {
 	            return new Contact[]{
 	                new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
@@ -450,4 +450,4 @@ Azure Preview 포털에서 API 앱에 대한 **API 앱 호스트** 블레이드�
 이 자습서에서는 Visual Studio Code에서 API 앱을 만드는 방법을 알아보았습니다. Visual Studio Code에 대한 자세한 내용은 [Visual Studio Code](https://code.visualstudio.com/Docs/)를 참조하세요. API 앱에 대한 자세한 내용은 [API 앱 정의](app-service-api-apps-why-best-platform.md)를 참조하세요.
  
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -10,7 +10,7 @@
 <tags
    ms.service="active-directory"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
    ms.date="06/10/2015"
@@ -116,7 +116,7 @@ Azure Active Directory를 사용한 앱 개발에 관한 이 개요 프레젠테
 - **[Azure Active Directory를 사용하여 최신 네이티브 응용 프로그램 개발](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)**(영문)
 
 ### Azure Friday
-[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/)는 금요일마다 다양한 전문가를 대상으로 진행된 Azure 토픽에 대한 10~15분 정도의 짧은 인터뷰를 집중적으로 소개하는 1:1 비디오 시리즈입니다. 이 페이지의 서비스 필터 기능을 사용하여 모든 Azure Active Directory 비디오를 시청할 수 있습니다.
+[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/)는 금요일마다 다양한 전문가를 대상으로 진행된 Azure 토픽에 대한 10\~15분 정도의 짧은 인터뷰를 집중적으로 소개하는 1:1 비디오 시리즈입니다. 이 페이지의 서비스 필터 기능을 사용하여 모든 Azure Active Directory 비디오를 시청할 수 있습니다.
 
 - **[Azure Identity 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)**(영문)
 - **[Azure Identity 102](http://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)**(영문)
@@ -132,4 +132,4 @@ Azure Active Directory를 사용한 앱 개발에 관한 이 개요 프레젠테
 
 - **[Twitter의 Azure AD](https://twitter.com/azuread)**(영문): 140자 이하의 Azure AD 알림입니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

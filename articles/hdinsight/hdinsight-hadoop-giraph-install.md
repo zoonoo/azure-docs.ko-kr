@@ -61,7 +61,7 @@ HDInsight 클러스터에 Giraph를 설치하는 샘플 스크립트는 읽기 �
 
 SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 가장 짧은 경로를 찾기 위한 기본 <a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> 구현을 보여줍니다. 다음 단계에 따라 샘플 데이터와 샘플 jar을 업로드하고, SimpleShortestPathsComputation 예제를 사용하여 작업을 실행한 후 결과를 확인합니다.
 
-1. 샘플 데이터 파일을 Azure Blob 저장소에 업로드합니다. 로컬 워크스테이션에서 **tiny_graph.txt**라는 새 파일을 만듭니다. 이 파일은 다음 줄을 포함해야 합니다.
+1. 샘플 데이터 파일을 Azure Blob 저장소에 업로드합니다. 로컬 워크스테이션에서 **tiny\_graph.txt**라는 새 파일을 만듭니다. 이 파일은 다음 줄을 포함해야 합니다.
 
 		[0,0,[[1,1],[3,3]]]
 		[1,0,[[0,1],[2,2],[3,1]]]
@@ -69,17 +69,17 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
 		[3,0,[[0,3],[1,1],[4,4]]]
 		[4,0,[[3,4],[2,4]]]
 
-	tiny_graph.txt 파일을 HDInsight 클러스터의 기본 저장소에 업로드합니다. 데이터를 업로드하는 방법은 [HDInsight에서 Hadoop 작업에 대한 데이터 업로드](hdinsight-upload-data.md)를 참조하세요.
+	tiny\_graph.txt 파일을 HDInsight 클러스터의 기본 저장소에 업로드합니다. 데이터를 업로드하는 방법은 [HDInsight에서 Hadoop 작업에 대한 데이터 업로드](hdinsight-upload-data.md)를 참조하세요.
 
-	이 데이터는 [source_id, source_value,[[dest_id], [edge_value],...]]의 형식을 사용하여 방향이 지정된 그래프의 개체 간 관계를 설명합니다. 각 줄은 **source_id** 개체와 하나 이상의 **dest_id** 개체 간 관계를 나타냅니다. **edge_value**(또는 가중치)는 **source_id**와 **dest_id** 간 연결의 강도 또는 거리로 생각할 수 있습니다.
+	이 데이터는 [source\_id, source\_value,[[dest\_id], [edge\_value],...]]의 형식을 사용하여 방향이 지정된 그래프의 개체 간 관계를 설명합니다. 각 줄은 **source\_id** 개체와 하나 이상의 **dest\_id** 개체 간 관계를 나타냅니다. **edge\_value**(또는 가중치)는 **source\_id**와 **dest\_id** 간 연결의 강도 또는 거리로 생각할 수 있습니다.
 
 	개체 간 거리로 위의 값(또는 가중치)을 사용하여 그리면 다음과 같을 수 있습니다.
 
-	![원과 거리가 다른 선으로 그린 tiny_graph.txt](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
+	![원과 거리가 다른 선으로 그린 tiny\_graph.txt](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
 
 	
 
-4. SimpleShortestPathsComputation 예제를 실행합니다. 다음 Azure PowerShell cmdlet에서 tiny_graph.txt 파일을 입력으로 사용하여 예제를 실행합니다. 그렇게 하려면 [Azure PowerShell][powershell-install]을 설치하고 구성해야 합니다.
+4. SimpleShortestPathsComputation 예제를 실행합니다. 다음 Azure PowerShell cmdlet에서 tiny\_graph.txt 파일을 입력으로 사용하여 예제를 실행합니다. 그렇게 하려면 [Azure PowerShell][powershell-install]을 설치하고 구성해야 합니다.
 
 		$clusterName = "clustername"
 		# Giraph examples jar
@@ -109,7 +109,7 @@ SimpleShortestPathsComputation 예제를 사용하여 그래프의 개체 간 �
 
 	위의 예제에서는**clustername**을 Giraph가 설치된 HDInsight 클러스터의 이름으로 바꿉니다.
 
-5. 결과를 확인합니다. 작업이 완료되면 결과가 __wasb:///example/out/shotestpaths__ 폴더에 있는 두 출력 파일에 저장됩니다. 파일 이름은 __part-m-00001__ 및 __part-m-00002__입니다. 다음 단계에 따라 다운로드하고 출력을 확인합니다.
+5. 결과를 확인합니다. 작업이 완료되면 결과가 \_\___wasb:///example/out/shotestpaths__ 폴더에 있는 두 출력 파일에 저장됩니다. 파일 이름은 __part-m-00001__ 및 __part-m-00002__입니다. 다음 단계에 따라 다운로드하고 출력을 확인합니다.
 
 		$subscriptionName = "<SubscriptionName>"       # Azure subscription name
 		$storageAccountName = "<StorageAccountName>"   # Azure Storage account name
@@ -329,7 +329,7 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 
 **응용 프로그램을 실행하려면**
 
-Azure PowerShell 콘솔을 열고 Visual Studio 프로젝트를 저장한 위치로 이동하고 프로젝트 내의 \bin\debug 디렉터리로 이동한 후 다음 명령을 실행합니다.
+Azure PowerShell 콘솔을 열고 Visual Studio 프로젝트를 저장한 위치로 이동하고 프로젝트 내의 \\bin\\debug 디렉터리로 이동한 후 다음 명령을 실행합니다.
 
 	.\CreateGiraphCluster <cluster-name>
 
@@ -353,4 +353,4 @@ Azure PowerShell 콘솔을 열고 Visual Studio 프로젝트를 저장한 위치
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

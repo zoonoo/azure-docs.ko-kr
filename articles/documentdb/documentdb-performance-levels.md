@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DocumentDB의 성능 수준 | Azure" 
+	pageTitle="DocumentDB의 성능 수준 | Microsoft Azure" 
 	description="DocumentDB의 성능 수준을 통해 컬렉션별 기준에 따라 처리량을 예약하는 방법을 알아봅니다." 
 	services="documentdb" 
 	authors="johnfmacintyre" 
@@ -141,4 +141,4 @@ DocumentDB에 대해 자세히 알아보려면 Azure DocumentDB [설명서](http
 
 [1]: ./media/documentdb-performance-levels/img1.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

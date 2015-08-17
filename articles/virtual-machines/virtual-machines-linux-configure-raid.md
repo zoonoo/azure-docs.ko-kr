@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/13/2015" 
+	ms.date="07/29/2015" 
 	ms.author="szark"/>
 
 
@@ -23,7 +23,7 @@ Azure에서 Linux 가상 컴퓨터의 소프트웨어 RAID를 사용하여 연�
 
 
 ## 데이터 디스크 연결
-RAID 장치를 구성하는 데 일반적으로 두 개 이상의 빈 데이터 디스크가 필요합니다. 이 문서에서는 Linux 가상 컴퓨터에 데이터 디스크를 연결하는 방법은 자세히 다루지 않습니다. Azure에서 빈 데이터 디스크를 Linux 가상 컴퓨터에 연결하는 방법에 대한 자세한 내용은 Azure 문서 [디스크 연결](storage-windows-attach-disk.md#attachempty)을 참조하십시오.
+RAID 장치를 구성하는 데 일반적으로 두 개 이상의 빈 데이터 디스크가 필요합니다. 이 문서에서는 Linux 가상 컴퓨터에 데이터 디스크를 연결하는 방법은 자세히 다루지 않습니다. Azure에서 빈 데이터 디스크를 Linux 가상 컴퓨터에 연결하는 방법에 대한 자세한 내용은 Microsoft Azure 문서 [디스크 연결](storage-windows-attach-disk.md#attachempty)을 참조하십시오.
 
 >[AZURE.NOTE]ExtraSmall VM 크기는 가상 컴퓨터에 연결된 2개 이상의 데이터 디스크를 지원하지 않습니다. VM 크기 및 지원되는 데이터 디스크 수에 대한 자세한 내용은 [Microsoft Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](https://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하세요.
 
@@ -108,20 +108,20 @@ RAID 장치를 구성하는 데 일반적으로 두 개 이상의 빈 데이터 
 
 2. 새 RAID 장치에서 파일 시스템 만들기
 
-	**CentOS, Oracle Linux, openSUSE 및 Ubuntu**
+	**CentOS, Oracle Linux, SLES 12, openSUSE 및 Ubuntu**
 
 		# sudo mkfs -t ext4 /dev/md127
 
-	**SLES**
+	**SLES 11**
 
 		# sudo mkfs -t ext3 /dev/md127
 
-3. **SLES 및 openSUSE** - boot.md 사용 및 mdadm.conf 만들기
+3. **SLES 11 및 openSUSE** - boot.md 사용 및 mdadm.conf 만들기
 
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
 
-	>[AZURE.NOTE]SUSE 시스템에서 이렇게 변경한 후에는 다시 부팅해야 할 수 있습니다.
+	>[AZURE.NOTE]SUSE 시스템에서 이렇게 변경한 후에는 다시 부팅해야 할 수 있습니다. SLES 12에서는 이 단계가 필요하지 *않습니다*.
 
 
 ## /etc/fstab에 새 파일 시스템 추가
@@ -142,7 +142,7 @@ RAID 장치를 구성하는 데 일반적으로 두 개 이상의 빈 데이터 
 
 		UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
 
-	**SLES 및 openSUSE**의 경우
+	또는 **SLES 11 및 openSUSE**의 경우:
 
 		/dev/disk/by-uuid/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext3  defaults  0  2
 
@@ -178,4 +178,4 @@ RAID 장치를 구성하는 데 일반적으로 두 개 이상의 빈 데이터 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -140,4 +140,4 @@ Todo List Service가 작동하는 것을 보려면 먼저 AAD에서 토큰을 �
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

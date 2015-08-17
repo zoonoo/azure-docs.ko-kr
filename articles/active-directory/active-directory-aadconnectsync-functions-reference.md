@@ -186,7 +186,7 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 
 **예제**<br> `ConvertFromBase64("SABlAGwAbABvACAAdwBvAHIAbABkACEA")`<br> `ConvertFromBase64("SGVsbG8gd29ybGQh", UTF8)`
 
-두 예제 모두 "\* Hello world! \*"로 반환합니다.
+두 예제 모두 "*Hello world!*"를 반환합니다.
  
  
 
@@ -202,7 +202,7 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
  
 **주의:**<br> 이 함수와 ConvertFromBase64(,UTF8) 결과의 차이점은 DN 특성을 사용하기 쉽다는 것입니다.<br> 이 형식은 DN으로 Azure Active Directory에서 사용됩니다.
  
-**예:**<br> `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")`<br>"\* Hello world! \*"를 반환합니다.
+**예:**<br> `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")`<br>"*Hello world!*"를 반환합니다.
  
  
 
@@ -228,7 +228,7 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
  
 **주의:**<br> 이 함수의 출력 형식은 DN 특성 형식으로 Azure Active Directory에서 사용됩니다.
  
-**예:** <br> `ConvertToUTF8Hex("Hello world!")` <br> 48656C6C6F20776F726C6421를 반환합니다.
+**예:** <br> `ConvertToUTF8Hex("Hello world!")` <br> 48656C6C6F20776F726C6421을 반환합니다.
  
  
 
@@ -236,7 +236,7 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 ----------
 ### 개수
 
-**설명:**<br> Count 함수는 다중값 특성의 요소의 수를 반환합니다.
+**설명:**<br> Count 함수는 다중값 특성의 요소 수를 반환합니다.
  
 **구문:** <br> `num Count(mvstr attribute)`
  
@@ -282,7 +282,7 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 ----------
 ### DateAdd
 
-**설명:** <br>시간 간격이 추가된 지정 날짜를 포함하는 날짜를 반환합니다.
+**설명:** <br> 지정된 시간 간격이 추가된 날짜를 포함하는 날짜를 반환합니다.
  
 **구문:** <br> `dt DateAdd(str interval, num value, dt date)`
 
@@ -308,7 +308,7 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 ----------
 ### DateFromNum
 
-**설명:** <br> DateFromNum 함수는 AD의 날짜의 값 형식을 날짜/시간 형식으로 변환합니다.
+**설명:** <br> DateFromNum 함수는 AD의 날짜 값 형식을 날짜/시간 형식으로 변환합니다.
  
 **구문:** <br> `dt DateFromNum(num value)`
  
@@ -320,7 +320,7 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 ----------
 ### DNComponent
 
-**설명:**<br> DNComponent 함수는 왼쪽에서 이동하는 지정된 DN 구성 요소의 값을 반환합니다.
+**설명:**<br> DNComponent 함수는 왼쪽부터 지정된 DN 구성 요소의 값을 반환합니다.
  
 **구문:** <br> `str DNComponent(ref dn, num ComponentNumber)`
 
@@ -335,7 +335,7 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 ----------
 ### DNComponentRev
 
-**설명:** <br> DNComponentRev 함수는 오른쪽(끝)에서 이동하는 지정된 DN 구성요소의 값을 반환합니다.
+**설명:** <br> DNComponentRev 함수는 오른쪽(끝)부터 지정된 DN 구성 요소의 값을 반환합니다.
  
 **구문:** <br> `str DNComponentRev(ref dn, num ComponentNumber)` <br> `str DNComponentRev(ref dn, num ComponentNumber, enum Options)`
 
@@ -351,7 +351,7 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 ----------
 ### 오류
 
-**설명:** <br> Error 함수는 사용자 지정 오류를 반환하는데 사용됩니다.
+**설명:** <br> Error 함수는 사용자 지정 오류를 반환하는 데 사용됩니다.
  
 **구문:** <br> `void Error(str ErrorMessage)`
  
@@ -367,7 +367,7 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
  
 **구문:** <br> `str EscapeDNComponent(str value)`
  
-**예제:** <br> `EscapeDNComponent(“cn=” & [displayName]) & “,” & %ForestLDAP%` <br> LDAP 디렉터리 내에서, displayName 특성에 LDAP에서 이스케이프된 문자가 포함된 경우에도 개체가 생성될 수 있음을 확인합니다.
+**예:** <br> `EscapeDNComponent(“cn=” & [displayName]) & “,” & %ForestLDAP%` <br> LDAP 디렉터리 내에서, displayName 특성에 LDAP에서 이스케이프된 문자가 포함된 경우에도 개체가 생성될 수 있음을 확인합니다.
  
  
 
@@ -375,20 +375,20 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 ----------
 ### FormatDateTime
 
-**설명:** <br> FormatDateTime 함수는 지정된 형식으로 문자열을 날짜/시간을 구성하는데 사용됩니다
+**설명:** <br> FormatDateTime 함수는 날짜/시간을 지정된 형식의 문자열로 구성하는 데 사용됩니다.
  
 **구문:** <br> `str FormatDateTime(dt value, str format)`
 
-- 값: 날짜/시간 형식의 값<br>
+- 값: 날짜/시간 형식의 값 <br>
 - 형식: 변환할 형식을 나타내는 문자열입니다.
  
 **주의:**<br> 형식에 대해 가능한 값은 여기에서 찾을 수 있습니다. [User-Defined Date/Time Formats (Format Function)](http://msdn2.microsoft.com/library/73ctwf33(VS.90).aspx)
  
 **예:** <br>
  
-`FormatDateTime(CDate(“12/25/2007”),”yyyy-mm-dd”)` <br>"2007-12-25"의 결과입니다.
+`FormatDateTime(CDate(“12/25/2007”),”yyyy-mm-dd”)` <br> "2007-12-25"의 결과입니다.
 
-`FormatDateTime(DateFromNum([pwdLastSet]),”yyyyMMddHHmmss.0Z”)` <br>"20140905081453.0Z"의 결과일 수 있습니다
+`FormatDateTime(DateFromNum([pwdLastSet]),”yyyyMMddHHmmss.0Z”)` <br> "20140905081453.0Z"의 결과일 수 있습니다.
  
  
 
@@ -396,7 +396,7 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 ----------
 ### GUID
 
-**설명:** <br> 함수 GUID는 새로운 임의의 GUID를 제공합니다.
+**설명:** <br> 함수 GUID는 임의의 GUID를 새로 생성합니다.
  
 **구문:** <br> `str GUID()`
  
@@ -406,7 +406,7 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 ----------
 ### IIF
 
-**설명:** <br> IIF 함수는 지정 된 조건에 따라 가능한 값의 집합 중 하나를 반환합니다.
+**설명:** <br> IIF 함수는 지정된 조건에 따라 가능한 값 집합 중 하나를 반환합니다.
  
 **구문:** <br> `var IIF(exp condition, var valueIfTrue, var valueIfFalse)`
 
@@ -414,7 +414,7 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 - valueIfTrue: true로 조건이 계산되는 경우 반환되는 값입니다.
 - valueIfFalse: false로 조건이 계산되는 경우 반환되는 값입니다.
 
-**예:** <br> `IIF([employeeType]=“Intern”,”t-“&[alias],[alias])` <br> 사용자가 인턴일 경우 사용자 별칭앞에 “t-”를 추가하여 반환하고, 그 외의 경우에는 본래의 별칭으로 반환합니다.
+**예:** <br> `IIF([employeeType]=“Intern”,”t-“&[alias],[alias])` <br> 사용자가 인턴일 경우 사용자 별칭 앞에 “t-”를 추가하여 반환하고, 그 외의 경우에는 본래의 별칭 그대로 반환합니다.
  
  
 
@@ -422,18 +422,18 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 ----------
 ### InStr
 
-**설명:** <br> InStr 함수는 문자열에서 부분 문자열의 첫 번째 발생을 찾습니다
+**설명:** <br> InStr 함수는 문자열에서 부분 문자열이 처음 나오는 경우를 찾습니다.
  
 **구문:** <br>
  
 `num InStr(str stringcheck, str stringmatch)` <br> `num InStr(str stringcheck, str stringmatch, num start)` <br> `num InStr(str stringcheck, str stringmatch, num start , enum compare)`
 
-- stringcheck: 검색되는 문자열<br>
-- stringmatch: 일치하는 문자열<br>
-- start: 부분 문자열을 찾을 시작 위치<br>
+- stringcheck: 검색되는 문자열 <br>
+- stringmatch: 일치하는 문자열 <br>
+- start: 부분 문자열을 찾을 시작 위치 <br>
 - compare: vbTextCompare 또는 vbBinaryCompare
  
-**주의:** <br> 부분 문자열을 찾으면 위치가 반환되고, 찾지 못할 경우 0으로 반환됩니다.
+**주의:** <br> 부분 문자열을 찾으면 위치가 반환되고, 찾지 못할 경우 0이 반환됩니다.
 
 **예:** <br> `InStr("The quick brown fox","quick")` <br> 5로 계산합니다.
 
@@ -445,18 +445,18 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 ----------
 ### InStrRev
 
-**설명:**<br> InStrRev 함수는 문자열에서 부분 문자열의 마지막 항목을 찾습니다.
+**설명:**<br> InStrRev 함수는 문자열에서 부분 문자열이 마지막으로 나오는 경우를 찾습니다.
  
-**구문:**<br>`num InstrRev(str stringcheck, str stringmatch)`<br>`num InstrRev(str stringcheck, str stringmatch, num start)`<br>`num InstrRev(str stringcheck, str stringmatch, num start, enum compare)`
+**구문:** <br> `num InstrRev(str stringcheck, str stringmatch)` <br> `num InstrRev(str stringcheck, str stringmatch, num start)` <br> `num InstrRev(str stringcheck, str stringmatch, num start, enum compare)`
 
-- stringcheck: 검색되는 문자열<br>
-- stringmatch: 일치하는 문자열<br>
-- start: 부분 문자열을 찾을 시작 위치<br>
+- stringcheck: 검색할 문자열 <br>
+- stringmatch: 찾을 문자열 <br>
+- start: 부분 문자열을 찾을 시작 위치 <br>
 - compare: vbTextCompare 또는 vbBinaryCompare
 
-**주의:** <br> 부분 문자열을 찾으면 위치가 반환되고, 찾지 못할 경우 0으로 반환됩니다.
+**주의:** <br> 부분 문자열을 찾으면 위치가 반환되고, 찾지 못할 경우 0이 반환됩니다.
 
-**예:** <br> `InStrRev("abbcdbbbef","bb")` <br> 7을 반환합니다.
+**예:** <br> `InStrRev("abbcdbbbef","bb")` <br> 734를 반환합니다.
  
  
 
@@ -464,13 +464,13 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 ----------
 ### IsBitSet
 
-**설명:**<br> IsBitSet함수는 비트가 설정되었는지 아닌지 테스트합니다.
+**설명:**<br> IsBitSet 함수는 비트 설정 여부를 테스트합니다.
  
 **구문:** <br> `bool IsBitSet(num value, num flag)`
 
 - 값: 숫자 값은 evaluated.flag: 숫자 값은 계산할 수 있는 숫자 값을 가집니다.
  
-**예:** <br> `IsBitSet(&HF,4)` <br> 비트”4”는 16진수 값 “F”안에 설정되었기 때문에 True로 반환됩니다.
+**예:** <br> `IsBitSet(&HF,4)` <br> 비트”4”는 16진수 값 “F” 안에 설정되었기 때문에 True로 반환됩니다.
  
 
 
@@ -478,11 +478,11 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 ----------
 ### IsDate
 
-**설명:** <br> IsDate 함수는 식이 날짜/시간 형식으로 계산될 경우 True로 계산합니다.
+**설명:** <br> IsDate 함수는 식이 날짜/시간 형식으로 계산될 경우 True로 계산됩니다.
  
 **구문:** <br> `bool IsDate(var Expression)`
  
-**주의:** <br> CDate가 성공적으로 수행될지 결정하는데 사용됩니다.
+**주의:** <br> CDate()가 성공적으로 수행될지 결정하는 데 사용됩니다.
  
 
 
@@ -490,7 +490,7 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 ----------
 ###IsEmpty
 
-**설명:** <br> IsEmpty 함수는 특성이 CS 혹은 MV에서 나타날 경우 True로 계산하지만 아닐 경우 빈 문자열로 계산합니다.
+**설명:** <br> IsEmpty 함수는 특성이 CS 또는 MV에서 나타날 경우 True로 계산합지만 아닐 경우 빈 문자열로 계산합니다.
  
 **구문:** <br> `bool IsEmpty(var Expression)`
  
@@ -504,7 +504,7 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
  
 **구문:** <br> `bool IsGuid(str GUID)`
  
-**주의:** <br> GUID는 다음 패턴들 중 하나로 정의됩니다.: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 또는 {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
+**주의:** <br> GUID는 다음 패턴들 중 하나로 정의됩니다. xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 또는 {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
 CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
  
@@ -560,7 +560,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
  
 **구문:** <br> `bool IsString(var expression)`
  
-**주의:** <br> CStr()이 식 구문분석의 성공 여부를 결정할 때 사용됩니다.
+**주의:** <br> CStr()이 식 구문 분석의 성공 여부를 결정할 때 사용됩니다.
  
 
 
@@ -568,11 +568,11 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 ----------
 ### IsPresent
 
-**설명:**<br> IsPresent 함수는 식이 Null이 아니고 비어 있지 않은 문자열로 계산 되는 경우 true를 반환합니다.
+**설명:**<br> IsPresent 함수는 식이 Null이 아니고 비어 있지 않은 문자열로 계산되는 경우 true를 반환합니다.
  
 **구문:** <br> `bool IsPresent(var expression)`
  
-**주의:** <br> 이 함수의 역함수는 IsNullOrEmpty라고 합니다.
+**주의:** <br> 이 함수의 역함수는 IsNullOrEmpty으로 지칭됩니다.
  
 **예:** <br>
  
@@ -584,18 +584,18 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 ----------
 ### 항목
 
-**설명:** <br> Item 함수 다중값 문자열/특성에서 하나의 항목을 반환합니다.
+**설명:** <br> Item 함수는 다중값 문자열/특성에서 하나의 항목을 반환합니다.
  
 **구문:** <br> `var Item(mvstr attribute, num index)`
 
-- 특성: 다중값 특성<br>
+- 특성: 다중값 특성 <br>
 - 인덱스: 다중값 문자열에 있는 항목에 대한 인덱스입니다.
  
-**주의:** <br> Item 함수는 다중값 특성의 항목에 대한 인덱스를 반환하는 Contains 함수와 함께 유용합니다.
+**주의:** <br> Item 함수는 다중값 특성의 항목에 대한 인덱스를 반환하는 Contains 함수와 함께 사용할 수 있습니다.
 
 인덱스가 범위를 초과하는 경우 오류가 나타납니다.
  
-**예:** <br> `Mid(Item([proxyAddress],Contains([proxyAddress], ”SMTP:”)),6)` <br> 기본 이메일 주소를 반환합니다.
+**예:** <br> `Mid(Item([proxyAddress],Contains([proxyAddress], ”SMTP:”)),6)` <br> 기본 전자 메일 주소를 반환합니다.
  
  
 
@@ -603,14 +603,14 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 ----------
 ### ItemOrNull
 
-**설명:** <br> ItemOrNull 함수는 다중값된 문자열/특성에서 하나의 항목을 반환합니다.
+**설명:** <br> ItemOrNull 함수는 다중값 문자열/특성에서 하나의 항목을 반환합니다.
  
 **구문:** <br> `var ItemOrNull(mvstr attribute, num index)`
 
-- 특성: 다중값 특성<br>
+- 특성: 다중값 특성 <br>
 - 인덱스: 다중값 문자열에 있는 항목에 대한 인덱스입니다.
  
-**주의:** <br> ItemOrNull 함수는 다중값 특성의 항목에 대한 인덱스를 반환하는 Contains 함수와 함께 유용합니다.
+**주의:** <br> ItemOrNull 함수는 다중값 특성의 항목에 대한 인덱스를 반환하는 Contains 함수와 함께 사용할 수 있습니다.
 
 인덱스가 범위를 초과하는 경우 Null 값이 반환됩니다.
  
@@ -620,11 +620,11 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 ----------
 ### Join
 
-**설명:** <br> Join 함는 다중값 문자열을 사용하여 각 항목 사이에 삽입하는 지정된 구분 기호로 단일 값 문자열을 반환합니다.
+**설명:** <br> Join 함수는 다중값 문자열을 사용하여 각 항목 사이에 지정된 구분 기호를 삽입하여 단일 값 문자열을 반환합니다.
  
 **구문:** <br> `str Join(mvstr attribute)` <br> `str Join(mvstr attribute, str Delimiter)`
 
-- 특성: 연결할 텍스트 문자열을 포함하는 다중값 특성입니다.<br>
+- 특성: 연결할 문자열을 포함하는 다중값 특성입니다. <br>
 - 구분 기호: 반환된 문자열의 부분 문자열을 구분하는데 사용되는 모든 문자열입니다. 생략하면 공백(" ")이 사용됩니다. 구분 기호가 길이가 0인 문자열(“”)또는 없을 경우 ,목록에서 모든 항목이 구분 기호 없이 연결됩니다.
  
 **주의** <br> Join 및 Split 함수 사이에 패리티가 있습니다. Join 함수는 단일 문자열을 반환하기 위해 문자열의 배열을 채택하고 구분 기호 문자열을 사용하여 배열을 연결합니다. Split 함수는 문자열의 배열을 반환하기 위해 문자열을 채택하고 구분 기호로 구분합니다. 그러나 Join 함수는 모든 구분 기호 문자열을 사용하여 문자열을 연결할 수 있지만, Split 함수는 단일 문자 구분 기호를 사용하여 오직 문자열을 나눌 수만 있다는 것이 가장 중요한 차이점입니다.
@@ -649,14 +649,14 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 ----------
 ### Left
 
-**설명:**<br>Left 함수는 문자열의 왼쪽에서 지정된 수의 문자를 반환합니다.
+**설명:**<br> Left 함수는 문자열 왼쪽부터 지정된 수의 문자를 반환합니다.
  
 **구문:** <br> `str Left(str string, num NumChars)`
 
-- string: <br>에서 문자를 반환할 문자열입니다.
+- string: 문자로 반환될 문자열입니다. <br>
 - NumChars: 문자열의 시작(왼쪽)에서 반환될 문자의 개수를 식별하는 번호입니다.
  
-**주의:** <br>문자열은 문자열의 첫번째 numChars 문자를 포함합니다.
+**주의:** <br> 문자열의 첫 번째 numChars 문자를 포함하는 문자열입니다.
 
 - numChars = 0 인 경우, 빈 문자열을 반환합니다.
 - numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
@@ -696,16 +696,16 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 ----------
 ### Mid
 
-**설명:** <br> Mid 함수는 문자열의 지정된 위치에서 지정한 문자의 개수를 반환합니다.
+**설명:** <br> Mid 함수는 문자열의 지정된 위치부터 지정된 수의 문자를 반환합니다.
  
 **구문:** <br> `str Mid(str string, num start, num NumChars)`
 
-- string: <br>에서 문자를 반환할 문자열입니다.
+- string: 문자로 반환될 문자열입니다. <br>
 - start : 문자열 내의 시작지점에서 반환할 문자를 식별하는 번호입니다.
 - NumChars: 문자열의 위치에서 반환될 문자의 수를 식별하는 번호입니다.
  
 
-**주의:** <br> 문자열의 시작위치에서 numChars 문자 문자열 시작을 반환합니다.<br> 문자열의 start 위치에서 numChars 문자를 포함하는 문자열:
+**주의:** <br> 문자열의 시작 위치에서 시작되는 numChars 문자를 반환합니다.<br> 문자열의 start 위치에서 numChars 문자를 포함하는 문자열:
 
 - numChars = 0 인 경우, 빈 문자열을 반환합니다.
 - numCahrs < 0,인 경우, 입력된 문자열을 반환합니다.
@@ -717,9 +717,9 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
  
 **예:** <br>
  
-`Mid(“John Doe”, 3, 5)` <br>는 "Hn Do"를 반환합니다.
+`Mid(“John Doe”, 3, 5)` <br> "hn Do"를 반환합니다.
 
-`Mid(“John Doe”, 6, 999)` <br>는 "Doe"를 반환합니다.
+`Mid(“John Doe”, 6, 999)` <br> "Doe"를 반환합니다.
  
  
 
@@ -742,7 +742,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 **구문:** <br> `num NumFromDate(dt value)`
  
 
-**예:** <br> `NumFromDate(CDate("2012-01-01 23:00:00"))` <br> 129699324000000000를 반환합니다.
+**예:** <br> `NumFromDate(CDate("2012-01-01 23:00:00"))` <br> 129699324000000000을 반환합니다.
  
  
 
@@ -754,8 +754,8 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
  
 **구문:** <br> `str PadLeft(str string, num length, str padCharacter)`
 
-- String: 문자열을 채웁니다.<br>
-- length: 원하는 문자열의 길이를 나타내는 정수입니다.<br>
+- string: 채울 문자열입니다. <br>
+- length: 원하는 문자열의 길이를 나타내는 정수입니다. <br>
 - padCharacter: 채움 문자를 사용하여 단일 문자로 문자열을 구성합니다.
  
 
@@ -796,7 +796,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 - 문자열이 null이면, 함수는 빈 문자열을 반환합니다.
  
 
-**예:** <br> `PadRight(“User”, 10, “0”)` <br> "User000000"를 반환합니다.
+**예:** <br> `PadRight(“User”, 10, “0”)` <br> "User000000"을 반환합니다.
  
  
 
@@ -804,7 +804,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 ----------
 ### PCase
 
-**설명:** <br> PCase 함수는 문자열내의 각 공백으로 구분된 단어의 첫 문자를 대문자로 변환하고 다른 모든 문자를 소문자로 변환합니다.
+**설명:** <br> PCase 함수는 문자열 내의 공백으로 구분된 각 단어의 첫 문자를 대문자로 변환하고 다른 모든 문자를 소문자로 변환합니다.
  
 **구문:** <br> `String PCase(string)`
  
@@ -820,7 +820,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
  
 **구문:** <br> `num RandomNum(num start, num end)`
 
-- 시작: 난수 값의 하한값을 식별하는 번호를 생성 <br>
+- start: 생성할 난수 값의 하한을 식별하는 번호 <br>
 - 끝: 난수 값의 상한값을 식별 하는 번호를 생성
  
 **예:** <br> `Random(100,999)` <br> 734를 반환합니다.
@@ -843,12 +843,12 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 ----------
 ### Replace
 
-**설명:** <br> Replace 함수는 다른 문자열에 대한 문자열의 모든 항목을 대체합니다.
+**설명:** <br> Replace 함수는 한 문자열이 나오는 모든 경우를 다른 문자열로 바꿉니다.
  
 **구문:** <br> `str Replace(str string, str OldValue, str NewValue)`
 
-- string: <br>의 값을 대체하는 문자열입니다.
-- OldValue: 문자열을 검색하고 대체합니다.<br>
+- string: 값을 바꿀 문자열입니다. <br>
+- OldValue: 검색한 후 바꿀 문자열입니다. <br>
 - NewValue: 문자열을 대체합니다.
  
 
@@ -861,7 +861,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 **예:** <br>
  
-`Replace([address],”\r\n”,”, “)` <br> 쉼표와 공백이 있는 CRLF를 대체하고, “One Microsoft Way, Redmond, WA, USA”로 나타낼수 있습니다.
+`Replace([address],”\r\n”,”, “)` <br> CRLF를 쉼표와 공백으로 바꾸고 “One Microsoft Way, Redmond, WA, USA”로 나타낼수 있습니다.
  
  
 
@@ -869,7 +869,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 ----------
 ### ReplaceChars
 
-**설명:** <br> ReplaceChars 함수는 ReplacePattern 문자열에서 찾을수 있는 문자의 모든 항목을 대체합니다.
+**설명:** <br> ReplaceChars 함수는 ReplacePattern 문자열에 해당 문자가 나오는 모든 경우를 바꿉니다.
 
 **구문:** <br> `str ReplaceChars(str string, str ReplacePattern)`
 
@@ -891,11 +891,11 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 - ReplacePattern의 공백 및 white character는 무시됩니다.
  
 
-**예:** <br> '% ReplaceString % = ':, Å:A, Ä:A, Ö:O, å:a, ä:a, ö, o'
+**예:** <br> '%ReplaceString% = ’:,Å:A,Ä:A,Ö:O,å:a,ä:a,ö,o'
 
 `ReplaceChars(”Räksmörgås”,%ReplaceString%)` <br> Raksmorgas를 반환합니다.
 
-`ReplaceChars(“O’Neil”,%ReplaceString%)` <br> 단일 틱이 제거 대상으로 정의되면 “ONeil”로 반환됩니다.
+`ReplaceChars(“O’Neil”,%ReplaceString%)` <br> “ONeil”을 반환합니다. 단일 틱이 제거 대상으로 정의됩니다.
  
 
 
@@ -903,14 +903,14 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 ----------
 ### Right
 
-**설명:** <br> Right 함수는 문자열의 오른쪽(끝)에서 지정한 개수의 문자를 반환 합니다.
+**설명:** <br> Right 함수는 문자열의 오른쪽(끝)부터 지정된 수의 문자를 반환합니다.
  
 **구문:** <br> `str Right(str string, num NumChars)`
 
 - string: 문자로 반환될 문자열입니다. 
 - NumChars: 숫자는 문자열의 끝(오른쪽)에서 반환될 문자열의 수를 식별합니다.
  
-**주의:** <br> 문자열의 마지막 위치에서 NumChars 문자가 반환됩니다.
+**주의:** <br> 문자열의 마지막 위치부터 NumChars 문자가 반환됩니다.
 
 문자열의 마지막 numChars 문자를 포함 하는 문자열:
 
@@ -940,16 +940,16 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 ----------
 ### 분할
 
-**설명:** <br> Split 함수는 구분 기호로 구분된 문자열을 사용하며 다중값 문자열을 만듭니다.
+**설명:** <br> Split 함수는 구분 기호로 구분된 문자열을 다중값 문자열로 만듭니다.
  
 
-**구문:** <br> `mvstr Split(str value, str delimiter)` <b r? `mvstr Split(str value, str delimiter, num limit)`
+**구문:** <br> `mvstr Split(str value, str delimiter)` <br? `mvstr Split(str value, str delimiter, num limit)`
 
 - value: 구분할 구분 기호 문자를 포함하는 문자열입니다.
 - delimiter: 구분 기호로 사용할 수 있는 단일 문자입니다. 
 - limit: 반환할 값의 최대 갯수입니다.
  
-**예:** <br> `Split(“SMTP:john.doe@contoso.com,smtp:jd@contoso.com”,”,”)` <br> proxyAddress 특성에 대한 유용한 2개 이상의 요소가 있는 다중값 문자열을 반환합니다.
+**예:** <br> `Split(“SMTP:john.doe@contoso.com,smtp:jd@contoso.com”,”,”)` <br> proxyAddress 특성에 유용한 2개 이상의 요소가 있는 다중값 문자열을 반환합니다.
  
 
 
@@ -957,7 +957,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 ----------
 ### StringFromGuid
 
-**설명:** <br> StringFromGuid 함수는 이진 GUID를 사용하여 문자열로 변환합니다
+**설명:**<br> StringFromGuid 함수는 이진 GUID를 문자열로 변환합니다.
  
 **구문:** <br> `str StringFromGuid(bin GUID)`
  
@@ -967,7 +967,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 ----------
 ### StringFromSid
 
-**설명:** <br> StringFromSid 함수는 바이트 배열 또는 보안 식별자를 포함한 다중값 바이트 배열을 문자열 혹은 다중값 문자열로 바꿉니다.
+**설명:** <br> StringFromSid 함수는 바이트 배열 또는 보안 식별자를 포함한 다중값 바이트 배열을 문자열 또는 다중값 문자열로 변환합니다.
  
 **구문:** <br> `str StringFromSid(bin ObjectSID)` <br> `mvstr StringFromSid(mvbin ObjectSID)`
  
@@ -977,7 +977,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 ----------
 ### Switch
 
-**설명:** <br> Switch 함수는 계산 조건에 따라 단일 값을 반환하는데 사용됩니다.
+**설명:** <br> Switch 함수는 계산 조건에 따라 단일 값을 반환하는 데 사용됩니다.
 
 **구문:** <br> `var Switch(exp expr1, var value1[, exp expr2, var value … [, exp expr, var valueN]])`
 
@@ -1002,7 +1002,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 ----------
 ### Trim
 
-**설명:** <br> Trim 함수는 선행 및 후행 공백을 문자열에서 제거합니다.
+**설명:** <br> Trim 함수는 문자열에서 선행 및 후행 공백을 제거합니다.
  
 **구문:** <br> `str Trim(str value)` <br> `mvstr Trim(mvstr value)`
  
@@ -1028,7 +1028,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 ----------
 ### Word
 
-**설명:** <br> Word 함수는 사용할 구분 기호를 설명하는 매개 변수에 기초하는 문자열을 포함한 단어와 반환할 단어 수를 반환합니다.
+**설명:** <br> Word 함수는 사용할 구분 기호를 설명하는 매개 변수에 따라 문자열 내에 포함된 단어와 반환할 단어 수를 반환합니다.
  
 **구문:** <br> `str Word(str string, num WordNumber, str delimiters)`
 
@@ -1036,7 +1036,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 - WordNumber: 반환될 단어 수를 식별하는 번호입니다. 
 - delimiters : 단어를 식별하는데 사용될 구분 기호를 나타내는 문자열입니다.
  
-**주의:** <br> 구분 기호내의 문자 중의 하나로 나누어지는 문자열에 있는 문자의 각 문자열은 단어로 식별됩니다.
+**주의:** <br> 구분 기호 내의 문자 중 하나로 구분되는 전체 문자열의 각 문자열은 단어로 식별됩니다.
 
 - 숫자가 < 1인경우 , 빈 문자열을 반환합니다.
 - 문자열이 null이면, 빈 문자열을 반환합니다.
@@ -1046,7 +1046,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 
 **예:** <br> `Word(“The quick brown fox”,3,” “)` <br> "brown"을 반환합니다.
 
-`Word(“This,string!has&many seperators”,3,”,!&#”)` <br>"has"를 반환합니다.
+`Word(“This,string!has&many seperators”,3,”,!&#”)` <br> "has"를 반환합니다.
 
 
 ## 추가 리소스
@@ -1058,4 +1058,4 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
  
 <!--Image references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

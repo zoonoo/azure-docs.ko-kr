@@ -95,9 +95,9 @@ Azure CLI는 Azure 서비스를 관리할 수 있도록 하는 크로스 플랫�
 
 > [AZURE.NOTE]항상 동일한 저장소 계정으로 작업하는 경우 모든 명령에 대한 키를 지정하는 대신 다음의 환경 변수를 설정할 수 있습니다:
 >
-> * **AZURE_STORAGE_ACCOUNT**: 저장소 계정 이름
+> * **AZURE\_STORAGE\_ACCOUNT**: 저장소 계정 이름
 >
-> * **AZURE_STORAGE_ACCESS_KEY**: 저장소 계정 키
+> * **AZURE\_STORAGE\_ACCESS\_KEY**: 저장소 계정 키
 
 ###<a id="powershell"></a>Azure PowerShell
 
@@ -279,4 +279,4 @@ Azure SDK 설치에 대한 자세한 내용은 [Azure 다운로드](http://azure
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

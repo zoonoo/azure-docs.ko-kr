@@ -212,7 +212,7 @@ Azure VPN 게이트웨이 통해 트래픽을 전송할 수 있지만, NETCFG �
 
 ### Azure는 동일한 가상 네트워크의 모든 VPN 연결에 대해 동일한 IPsec/IKE 미리 공유한 키를 생성합니까?
 
-아니요, 기본적으로 Azure는 VPN 연결마다 다른 미리 공유한 키를 생성합니다. 하지만 VPN 게이트웨이 키 생성 REST API 또는 PowerShell cmdlet을 사용하여 원하는 키 값을 설정할 수 있습니다. 키는 1 ~ 128자 사이의 영숫자 문자열이어야 합니다.
+아니요, 기본적으로 Azure는 VPN 연결마다 다른 미리 공유한 키를 생성합니다. 하지만 VPN 게이트웨이 키 생성 REST API 또는 PowerShell cmdlet을 사용하여 원하는 키 값을 설정할 수 있습니다. 키는 1 \~ 128자 사이의 영숫자 문자열이어야 합니다.
 
 ### Azure는 가상 네트워크 간 트래픽에 대해 요금을 청구합니까?
 
@@ -244,4 +244,4 @@ Azure VPN 게이트웨이 통해 트래픽을 전송할 수 있지만, NETCFG �
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -119,4 +119,4 @@ Azure 트래픽 관리자는 관리 포털에서 프로필 및 끝점 서비스 
 [Azure 트래픽 관리자의 성능 저하 상태 문제해결](traffic-manager-troubleshooting-degraded.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

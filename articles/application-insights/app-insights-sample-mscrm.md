@@ -3,8 +3,8 @@
 	description="Application Insights를 사용하여 Microsoft CRM Online에서 원격 분석 가져오기 설정, 데이터 가져오기, 시각화 및 내보내기의 연습입니다." 
 	services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+	authors="mazharmicrosoft" 
+	manager="klin"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,12 +12,14 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/04/2015" 
 	ms.author="awills"/>
  
 # 연습: Application Insights를 사용하여 Microsoft CRM Online 작업에 대한 원격 분석 설정
 
 이 문서는 [Visual Studio Application Insights](https://azure.microsoft.com/services/application-insights/)를 사용하여 [Microsoft CRM Online](https://www.dynamics.com/)에서 원격 분석 데이터를 가져오는 방법을 보여줍니다. 응용 프로그램에 Application Insights 스크립트 추가, 데이터 캡처 및 데이터 시각화의 전체 프로세스를 연습합니다.
+
+>[AZURE.NOTE] [Browse the sample code](https://dynamicsandappinsights.codeplex.com/).
 
 ## 기존 또는 새 CRM Online 인스턴스에 Application Insights를 추가합니다. 
 
@@ -139,15 +141,24 @@
 
 ![](./media/app-insights-sample-mscrm/30.png)
 
+## 샘플 코드
+
+[샘플 코드를 탐색합니다](https://dynamicsandappinsights.codeplex.com/).
+
 ## Power BI
 
 [Microsoft Power BI에 데이터를 내보내는](app-insights-export-power-bi.md) 경우 훨씬 심도 깊은 분석을 수행할 수 있습니다.
+
+## 샘플 CRM 솔루션
+
+다음은 원격 분석 캡처를 시작하기 위해 CRM에서 구현된 샘플 솔루션입니다.https://dynamicsandappinsights.codeplex.com/
 
 ## 자세한 정보
 
 * [Application Insights란?](app-insights-overview.md)
 * [웹 페이지용 Application Insights](app-insights-javascript.md)
+* [추가 샘플 및 연습](app-insights-code-samples.md)
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

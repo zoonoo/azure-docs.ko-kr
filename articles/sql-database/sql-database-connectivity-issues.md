@@ -72,4 +72,4 @@ SQL Server Management Studio 또는 SQLCMD.EXE를 사용하여 데이터베이�
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

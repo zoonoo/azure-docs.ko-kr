@@ -64,4 +64,4 @@ Power BI에서 열기 단추를 사용 하는 것 외에도 사용자는 Power B
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

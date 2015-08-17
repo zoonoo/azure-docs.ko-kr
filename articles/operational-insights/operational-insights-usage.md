@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # 서버 및 사용 현황 데이터 관리
@@ -27,7 +27,7 @@ Operational Insights의 **개요** 대시보드에서 **서버 및 사용량** �
 
 ![서버 및 사용량 타일의 이미지](./media/operational-insights-usage/overview-servers-usage.png)
 
-일일 사용량 한도를 초과하거나 거의 한도에 도달한 경우, 선택적으로 솔루션을 제거하여 Operational Insights 서비스에 보내는 데이터의 크기를 줄일 수 있습니다. 솔루션 제거에 대한 자세한 정보는 [솔루션 갤러리를 사용하여 솔루션 추가 및 제거](operational-insights-add-solution.md)를 참조하십시오.
+일일 사용량 한도를 초과하거나 거의 한도에 도달한 경우, 선택적으로 솔루션을 제거하여 Operational Insights 서비스에 보내는 데이터의 크기를 줄일 수 있습니다. 솔루션 제거에 대한 자세한 정보는 [솔루션 갤러리를 사용하여 솔루션 추가 및 제거](operational-insights-setup-workspace.md)를 참조하세요.
 
 Operations Manager 관리 그룹에서 Operational Insights 서비스에 데이터를 전송하는 데 문제가 있는 경우, 문제를 해결할 수 있거나 필요한 경우 Operational Insights에서 그룹을 제거할 수 있습니다.
 
@@ -59,4 +59,4 @@ Operations Manager 관리 그룹에서 Operational Insights 서비스에 데이�
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

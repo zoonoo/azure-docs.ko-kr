@@ -224,7 +224,7 @@ Azure 포털은 사용자 지정 구성 옵션을 사용한 HDInsight 클러스�
 
 **Contoso-HBase-US를 복제 피어로 추가하려면**
 
-1. **Contso-HBase_EU** RDP 창으로 전환합니다.
+1. **Contso-HBase\_EU** RDP 창으로 전환합니다.
 2. HBase 셸 창에서 대상 클러스터(Contoso-HBase-US)를 피어로 추가합니다. 예를 들면 다음과 같습니다.
 
 		add_peer '1', 'zookeeper0.contoso-hbase-us.d4.internal.cloudapp.net,zookeeper1.contoso-hbase-us.d4.internal.cloudapp.net,zookeeper2.contoso-hbase-us.d4.internal.cloudapp.net:2181:/hbase'
@@ -311,4 +311,4 @@ Azure 포털은 사용자 지정 구성 옵션을 사용한 HDInsight 클러스�
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-get-started]: ../hdinsight-hbase-get-started.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

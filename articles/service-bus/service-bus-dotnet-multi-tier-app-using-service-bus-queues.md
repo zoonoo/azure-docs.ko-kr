@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="07/02/2015"
 	ms.author="sethm"/>
 
@@ -93,7 +93,7 @@ Visual Studio 서버 탐색기를 사용하여 네임스페이스 및 서비스 
 
 1.  [Azure 관리 포털][]에 로그인합니다.
 
-2.  관리 포털의 왼쪽 탐색 창에서 **Service Bus**를 클릭합니다.
+2.  관리 포털의 왼쪽 탐색 창에서 **서비스 버스**를 클릭합니다.
 
 3.  관리 포털의 아래쪽 창에서 **Create**를 클릭합니다.
 
@@ -177,7 +177,7 @@ Visual Studio 서버 탐색기를 사용하여 네임스페이스 및 서비스 
             }
         }
 
-2.  **솔루션 탐색기**에서 **Controllers\HomeController.cs**를 두 번 클릭합니다. 파일 맨 위에 다음 **using** 문을 추가하여 서비스 버스뿐만 아니라 방금 만든 모델에 대한 네임스페이스를 포함합니다.
+2.  **솔루션 탐색기**에서 **Controllers\\HomeController.cs**를 두 번 클릭합니다. 파일 맨 위에 다음 **using** 문을 추가하여 서비스 버스뿐만 아니라 방금 만든 모델에 대한 네임스페이스를 포함합니다.
 
         using FrontendWebRole.Models;
         using Microsoft.ServiceBus.Messaging;
@@ -246,7 +246,7 @@ Visual Studio 서버 탐색기를 사용하여 네임스페이스 및 서비스 
 
 7.  **추가**를 클릭합니다.
 
-8.  이제 응용 프로그램의 표시 이름을 변경합니다. **솔루션 탐색기**에서 **Views\Shared\_Layout.cshtml** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
+8.  이제 응용 프로그램의 표시 이름을 변경합니다. **솔루션 탐색기**에서 **Views\\Shared\\\_Layout.cshtml** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
 
 9.  **내 ASP.NET 응용 프로그램**과 일치하는 모든 항목을 **LITWARE 제품**으로 바꿉니다.
 
@@ -254,7 +254,7 @@ Visual Studio 서버 탐색기를 사용하여 네임스페이스 및 서비스 
 
 	![][28]
 
-11. 마지막으로 큐에 대한 일부 정보를 포함하도록 제출 페이지를 수정합니다. **솔루션 탐색기**에서 **Views\Home\Submit.cshtml** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다. **&lt;h2>Submit&lt;/h2>** 뒤에 다음 줄을 추가합니다. 지금은 **ViewBag.MessageCount**가 비어 있습니다. 나중에 채웁니다.
+11. 마지막으로 큐에 대한 일부 정보를 포함하도록 제출 페이지를 수정합니다. **솔루션 탐색기**에서 **Views\\Home\\Submit.cshtml** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다. **&lt;h2>Submit&lt;/h2>** 뒤에 다음 줄을 추가합니다. 지금은 **ViewBag.MessageCount**가 비어 있습니다. 나중에 채웁니다.
 
         <p>Current number of orders in queue waiting to be processed: @ViewBag.MessageCount</p>
 
@@ -333,13 +333,13 @@ Visual Studio 서버 탐색기를 사용하여 네임스페이스 및 서비스 
 
     참고로 이 자습서의 뒷부분에서 **네임스페이스** 이름 및 SAS 키 값을 구성 파일에 저장하는 방법을 알아봅니다.
 
-4.  이제 **Initialize** 메서드를 호출합니다. **솔루션 탐색기**에서 **Global.asax\Global.asax.cs**를 두 번 클릭합니다.
+4.  이제 **Initialize** 메서드를 호출합니다. **솔루션 탐색기**에서 **Global.asax\\Global.asax.cs**를 두 번 클릭합니다.
 
-5.  **Application_Start** 메서드 맨 아래에 다음 줄을 추가합니다.
+5.  **Application\_Start** 메서드 맨 아래에 다음 줄을 추가합니다.
 
         FrontendWebRole.QueueConnector.Initialize();
 
-6.  끝으로, 앞에서 만든 웹 코드를 업데이트하여 항목을 큐에 제출합니다. **솔루션 탐색기**에서 **Controllers\HomeController.cs**를 두 번 클릭합니다.
+6.  끝으로, 앞에서 만든 웹 코드를 업데이트하여 항목을 큐에 제출합니다. **솔루션 탐색기**에서 **Controllers\\HomeController.cs**를 두 번 클릭합니다.
 
 7.  **Submit()** 메서드를 다음과 같이 업데이트하여 큐에 대한 메시지 수를 가져옵니다.
 
@@ -444,7 +444,7 @@ Visual Studio 서버 탐색기를 사용하여 네임스페이스 및 서비스 
 
 9.  **OnlineOrder** 클래스를 만들어 큐에서 처리할 때 주문을 나타냅니다. 이미 만든 클래스를 다시 사용할 수 있습니다. 솔루션 탐색기에서 **OrderProcessingRole** 프로젝트(역할이 아닌 프로젝트를 마우스 오른쪽 단추로 클릭)를 마우스 오른쪽 단추로 클릭합니다. **추가**를 클릭한 후 **기존 항목**을 클릭합니다.
 
-10. **FrontendWebRole\Models**에 대한 하위 폴더로 이동하고 **OnlineOrder.cs**를 두 번 클릭하여 이 프로젝트에 추가합니다.
+10. **FrontendWebRole\\Models**에 대한 하위 폴더로 이동하고 **OnlineOrder.cs**를 두 번 클릭하여 이 프로젝트에 추가합니다.
 
 11. 다음 코드와 같이, **WorkerRole.cs**의 **QueueName** 변수 값을 `"ProcessingQueue"`에서 `"OrdersQueue"`로 바꿉니다.
 
@@ -539,4 +539,4 @@ Azure 웹 사이트에 프런트 엔드를 배포하는 방법에 대한 자세�
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

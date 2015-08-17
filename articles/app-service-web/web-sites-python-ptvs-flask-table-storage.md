@@ -153,7 +153,7 @@ Azure .NET SDK를 통해 Azure 앱 서비스에 웹앱을 쉽게 배포할 수 �
 
   	<!-- ![Top Menu](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteTopMenu.png) -->
 
-1.  **앱 설정** 섹션으로 스크롤한 후 위 섹션에 설명된 대로 **REPOSITORY_NAME**, **STORAGE_NAME** 및 **STORAGE_KEY** 값을 설정합니다.
+1.  **앱 설정** 섹션으로 스크롤한 후 위 섹션에 설명된 대로 **REPOSITORY\_NAME**, **STORAGE\_NAME** 및 **STORAGE\_KEY** 값을 설정합니다.
 
   	<!-- ![App Settings](./media/web-sites-python-ptvs-flask-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png) -->
 
@@ -210,4 +210,4 @@ Python Tools for Visual Studio, Flask 및 Azure 테이블 저장소에 대해 �
 [Python용 Azure SDK]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

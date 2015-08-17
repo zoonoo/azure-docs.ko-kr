@@ -54,4 +54,4 @@ SQL 데이터 웨어하우스는 쿼리 레이블이라는 개념을 지원합�
 
 <!--Other Web references-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

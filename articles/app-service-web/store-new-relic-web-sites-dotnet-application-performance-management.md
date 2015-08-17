@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/17/2015" 
+	ms.date="07/30/2015" 
 	ms.author="stepsic"/>
 
 
@@ -47,7 +47,7 @@ Azure 마켓플레이스에서 직접 New Relic에 등록하려면 다음과 같
 
 ## 1단계. New Relic 계정 만들기
 
-1. [Azure 미리 보기 포털](https://portal.azure.com)에 로그인하여 왼쪽 하단에서 **새로 만들기**를 클릭합니다.
+1. [Azure 미리 보기 포털](https://portal.azure.com)에 로그인하여 구석에 있는 **새로 만들기**를 클릭합니다.
 3. **개발자 서비스** > **New Relic APM**을 클릭합니다.
 4. 다음을 지정하여 New Relic 계정을 구성한 다음 **만들기**를 클릭합니다.
 	- **Name**
@@ -63,8 +63,12 @@ Azure 마켓플레이스에서 직접 New Relic에 등록하려면 다음과 같
 
 ## 2단계: 웹 앱에 대해 New Relic 통합 구성
 
-2. [Azure 미리 보기 포털](https://portal.azure.com)에서 웹 앱의 블레이드를 엽니다.
-3. **응용 프로그램 모니터링** > **New Relic**를 클릭합니다. 이전 단계에서 만든 계정을 선택한 다음 **확인**을 클릭합니다. 
+1. [Azure 미리 보기 포털](https://portal.azure.com)에서 웹 앱의 블레이드를 엽니다.
+2. 블레이드 맨 위에 있는 "..." 메뉴에서 **타일 추가**를 클릭합니다.
+3. **모니터링**탭에서 **응용 프로그램 요약**을 선택하고 타일이 웹 앱의 블레이드에 나타나도록 하려는 위치로 끕니다.
+4. 완료를 클릭하여 타일 추가 작업을 마칩니다.
+5. **응용 프로그램 모니터링** 타일을 클릭하고 **New Relic**을 선택합니다.
+6. 이전 단계에서 만든 계정을 선택한 다음 **확인**을 클릭합니다. 
 
 	![](./media/store-new-relic-web-sites-dotnet-application-performance-management/configure-new-relic-integration.png)
 
@@ -176,4 +180,4 @@ Applications Overview 대시보드에는 <a href="https://newrelic.com/docs/site
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

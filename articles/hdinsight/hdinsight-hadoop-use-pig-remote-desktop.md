@@ -94,7 +94,7 @@ HDInsight 클러스터에 대해 원격 데스크톱을 사용하도록 설정�
 
 Pig 명령을 사용하여 파일에 포함된 Pig Latin을 실행할 수도 있습니다.
 
-3. 성가신 프롬프트를 종료한 후 **메모장**을 열고 **%PIG_HOME%** 디렉터리에 **pigbatch.pig**라는 새 파일을 만듭니다.
+3. 성가신 프롬프트를 종료한 후 **메모장**을 열고 **%PIG\_HOME%** 디렉터리에 **pigbatch.pig**라는 새 파일을 만듭니다.
 
 4. 다음 줄을 **pigbatch.pig** 파일에 입력하거나 붙여 넣은 다음 저장합니다.
 
@@ -135,4 +135,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 * [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

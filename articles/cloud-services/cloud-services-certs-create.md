@@ -49,7 +49,7 @@ Azure에서 사용하는 인증서에는 개인 또는 공개 키가 포함될 �
 * 개인 키가 포함되어 있어야 합니다.
 * 키 교환용으로 만들어졌어야 합니다(.pfx 파일).
 * 주체 이름은 클라우드 서비스 액세스에 사용되는 도메인과 일치해야 합니다.
-    > **contoso.net****contoso.cloudapp.net**
+    > cloudapp.net(또는 관련된 모든 Azure) 도메인용 SSL 인증서를 얻을 수 없으므로, 인증서의 주체 이름은 사용 중인 응용 프로그램 액세스에 사용되는 사용자 지정 도메인 이름과 일치해야 합니다. 예를 들어, **contoso.cloudapp.net**이 아니라**contoso.net**입니다.
 * 최소한 2048비트 암호화를 사용해야 합니다.
 * **서비스 인증서에만 해당**: 클라이언트 쪽 인증서는 *개인* 인증서 저장소에 있어야 합니다.
 
@@ -77,4 +77,4 @@ Java를 사용하여 [인증서를 만들](../app-service-web/java-create-azure-
 
 >[AZURE.NOTE]Azure Preview 포털은 API에 액세스하는 데 관리 인증서를 사용하지 않고 사용자 계정을 사용합니다.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

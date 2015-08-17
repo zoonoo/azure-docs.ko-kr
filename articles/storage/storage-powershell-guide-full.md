@@ -255,7 +255,7 @@ Azure Blob 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 자�
 
 다음 예제에서는 [Get-ChildItem ](http://technet.microsoft.com/library/hh849800.aspx)cmdlet을 실행하여 지정된 폴더의 모든 파일을 가져온 다음 파이프라인 연산자를 사용하여 다음 cmdlet에 전달합니다. [Set-AzureStorageBlobContent ](http://msdn.microsoft.com/library/azure/dn806379.aspx)cmdlet은 컨테이너에 로컬 파일을 업로드합니다.
 
-    Get-ChildItem –Path C:\Images\* | Set-AzureStorageBlobContent -Container "yourcontainername"
+    Get-ChildItem –Path C:\Images* | Set-AzureStorageBlobContent -Container "yourcontainername"
 
 ### 컨테이너에서 Blob을 다운로드하는 방법
 다음 예제에서는 컨테이너에서 Blob을 다운로드하는 방법을 보여 줍니다. 이 예제는 먼저 저장소 계정 이름 및 해당 기본 액세스 키를 포함하는 저장소 계정 컨텍스트를 사용하여 Azure 저장소에 대한 연결을 설정합니다. 그런 다음 [Get-AzureStorageBlob](http://msdn.microsoft.com/library/azure/dn806392.aspx) cmdlet을 사용하여 Blob 참조를 검색합니다. 그리고 [Get-AzureStorageBlobContent](http://msdn.microsoft.com/library/azure/dn806418.aspx) cmdlet을 사용하여 로컬 대상 폴더에 Blob을 다운로드합니다.
@@ -736,4 +736,4 @@ AzureChinaCloud와 함께 Azure 저장소를 사용하려면 AzureChinaCloud와 
 [Next Steps]: #next
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

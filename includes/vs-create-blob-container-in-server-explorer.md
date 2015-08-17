@@ -12,4 +12,4 @@ Visual Studio **서버 탐색기**를 사용하여 Azure 저장소 큐를 만들
 
 [Image1]: ./media/vs-create-blob-container-in-server-explorer/vs-storage-create-blob-containers-in-Server-Explorer.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

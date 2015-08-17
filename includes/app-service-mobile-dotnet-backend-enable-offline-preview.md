@@ -6,4 +6,4 @@ ASP.NET 프로젝트에서 다음을 확인해야 합니다.
 
 * WebApiConfig.cs에서 MobileAppConfiguration 개체에 대해 `UseDefaultConfiguration()` 메서드가 호출됩니다. 이 메서드는 위 NuGet 패키지에서 제공되는 `AddTablesWithEntityFramework()` 확장 메서드를 호출하며,
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

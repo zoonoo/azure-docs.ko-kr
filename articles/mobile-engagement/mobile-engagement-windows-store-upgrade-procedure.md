@@ -22,12 +22,12 @@
 
 여러 SDK 버전을 건너뛴 경우에는 여러 절차를 수행해야 할 수 있습니다. 예를 들어 0.10.1에서 0.11.0으로 마이그레이션하는 경우에는 먼저 "0.9.0에서 0.10.1로 마이그레이션" 절차를 수행한 후에 "0.10.1에서 0.11.0으로 마이그레이션" 절차를 수행해야 합니다.
 
-##2.0.0에서 3.0.0으로
+##2\.0.0에서 3.0.0으로
 
 ### 리소스
 이 단계는 사용자 지정된 리소스에만 관련됩니다. SDK(html, 이미지, 오버레이)에서 제공되는 리소스를 사용자 지정한 경우 업그레이드된 리소스에서 사용자 지정한 내용을 업그레이드 및 다시 적용하기 전에 백업해야 합니다.
 
-##1.1.1에서 2.0.0으로 마이그레이션
+##1\.1.1에서 2.0.0으로 마이그레이션
 
 아래에서는 SDK 통합을 Capptain SAS 제공 Capptain 서비스에서 Azure Mobile Engagement 구동 앱으로 마이그레이션하는 방법을 설명합니다.
 
@@ -129,8 +129,8 @@ Capptain 리소스를 사용자 지정한 경우 이전 파일 콘텐츠를 복�
 
 Package.appxmanifest에서 `File Type Associations`이(가) 다음과 같이 업데이트되었습니다.
 
- -   capptain_reach_content to engagement_reach_content
- -   capptain_log_file to engagement_log_file
+ -   capptain\_reach\_content to engagement\_reach\_content
+ -   capptain\_log\_file to engagement\_log\_file
 
 ### 응용 프로그램 ID/SDK 키
 
@@ -169,4 +169,4 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

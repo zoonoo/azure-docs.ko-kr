@@ -26,7 +26,7 @@
 
 	![찾아보기 허브 -> 데이터 팩터리][image-data-factory-browse-datafactories]
 
-	 **데이터 팩터리**가 표시되지 않으면 **모두**를 클릭한 다음 **찾아보기** 블레이드에서 **데이터 팩터리**를 클릭합니다.
+	**데이터 팩터리**가 표시되지 않으면 **모두**를 클릭한 다음 **찾아보기** 블레이드에서 **데이터 팩터리**를 클릭합니다.
 
 	![찾아보기 허브 -> 모두][image-data-factory-browse-everything]
 
@@ -221,4 +221,4 @@ Frequency(빈도) | 간격 값 범위 | 결과 시간 청크
 [image-data-factory-events]: ./media/data-factory-monitor-manage-using-management-portal/Events.png
 [DataSlicesBySliceTime]: ./media/data-factory-monitor-manage-using-management-portal/DataSlicesBySliceTime.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

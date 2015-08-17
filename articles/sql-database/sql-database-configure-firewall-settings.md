@@ -13,7 +13,7 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="06/22/2015"
 	ms.author="rickbyh"/>
 
@@ -62,11 +62,11 @@
 1. 관리 포털 또는 SQL Server Management Studio를 통해 쿼리 창을 시작 합니다.
 2. Master 데이터베이스에 연결을 확인 합니다.
 3. 서버 수준 방화벽 규칙은 쿼리 창 내에서 생성, 업데이트 또는 삭제할 수 있습니다.
-4. 0서버 수준 방화벽 규칙을 만들거나 업데이트 하려면 sp_set_firewall 규칙 저장 프로시저를 실행 합니다. 다음의 예는 Contoso 서버에 일정 범위의 IP 주소를 사용하도록 하게 합니다.
+4. 0서버 수준 방화벽 규칙을 만들거나 업데이트 하려면 sp\_set\_firewall 규칙 저장 프로시저를 실행 합니다. 다음의 예는 Contoso 서버에 일정 범위의 IP 주소를 사용하도록 하게 합니다.
 
 		EXEC sp_set_firewall_rule @name = N'ContosoFirewallRule', @start_ip_address = '192.168.1.1', @end_ip_address = '192.168.1.10'
 
-	서버 수준 방화벽 규칙을 삭제 하려면 sp_delete_firewall_rule 저장 프로시저를 실행 합니다. 다음 예제에서는 ContosoFirewallRule 이라는 규칙을 삭제 합니다.
+	서버 수준 방화벽 규칙을 삭제 하려면 sp\_delete\_firewall\_rule 저장 프로시저를 실행 합니다. 다음 예제에서는 ContosoFirewallRule 이라는 규칙을 삭제 합니다.
  
 		EXEC sp_delete_firewall_rule @name = N'ContosoFirewallRule'
  
@@ -112,11 +112,11 @@
 1. 사용자의 IP 주소에 대한 서버 수준 방화벽을 만든 후 관리 포털 또는 SQL Server Management Studio를 통해 쿼리 창을 시작합니다.
 2. 데이터베이스 수준 방화벽 규칙을 만들려는 데이터베이스에 연결 합니다.
 
-	기존 데이터베이스 수준 방화벽 규칙을 새로 만들거나 업데이트 하려면 sp_set_database_firewall_rule 저장 프로시저를 실행 합니다. 다음 예제에서는 ContosoFirewallRule 이라는 새 방화벽 규칙을 만듭니다.
+	기존 데이터베이스 수준 방화벽 규칙을 새로 만들거나 업데이트 하려면 sp\_set\_database\_firewall\_rule 저장 프로시저를 실행 합니다. 다음 예제에서는 ContosoFirewallRule 이라는 새 방화벽 규칙을 만듭니다.
  
 		EXEC sp_set_database_firewall_rule @name = N'ContosoFirewallRule', @start_ip_address = '192.168.1.11', @end_ip_address = '192.168.1.11'
  
-	기존 데이터베이스 수준 방화벽 규칙을 삭제 하려면 sp_delete_database_firewall_rule 저장 프로시저를 실행 합니다. 다음 예제에서는 ContosoFirewallRule 이라는 규칙을 삭제 합니다.
+	기존 데이터베이스 수준 방화벽 규칙을 삭제 하려면 sp\_delete\_database\_firewall\_rule 저장 프로시저를 실행 합니다. 다음 예제에서는 ContosoFirewallRule 이라는 규칙을 삭제 합니다.
  
 		EXEC sp_delete_database_firewall_rule @name = N'ContosoFirewallRule'
 
@@ -144,4 +144,4 @@
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

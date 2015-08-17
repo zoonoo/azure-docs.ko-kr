@@ -65,28 +65,11 @@ X12 커넥터는 트리거 또는 작업으로 사용할 수 있습니다.
 
 	![구성된 인코딩][10]
 
-<table>
-	<tr>
-		<th>매개 변수</th>
-		<th>형식</th>
-		<th>매개 변수에 대한 설명</th>
-	</tr>
-	<tr>
-		<td>Content</td>
-		<td>string</td>
-		<td>XML 메시지</td>
-	</tr>
-	<tr>
-		<td>규약 ID</td>
-		<td>문자열</td>
-		<td>규약 ID</td>
-	</tr>
-	<tr>
-		<td>메시지 일괄 처리 여부</td>
-		<td>문자열</td>
-		<td>메시지 일괄 처리 여부</td>
-	</tr>
-</table>
+매개 변수|형식|매개 변수에 대한 설명
+---|---|---
+Content|string|XML 메시지
+규약 ID|문자열|규약 ID
+메시지 일괄 처리 여부|문자열|메시지 일괄 처리 여부
 
 작업은 X12 페이로드를 포함하는 개체를 반환합니다.
 
@@ -109,4 +92,4 @@ X12 커넥터는 트리거 또는 작업으로 사용할 수 있습니다.
 [10]: ./media/app-service-logic-connector-x12/EncodeConfigured.PNG
 [11]: ./media/app-service-logic-connector-x12/TriggerSettings.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

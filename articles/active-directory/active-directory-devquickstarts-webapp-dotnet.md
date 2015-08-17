@@ -123,7 +123,7 @@ public void SignOut()
 }
 ```
 
--	이제 `Views\Shared_LoginPartial.cshtml`을 엽니다. 여기서 사용자에게 앱 로그인 및 로그아웃 링크를 표시하고 보기에 사용자 이름을 출력하게 됩니다.
+-	이제 `Views\Shared\_LoginPartial.cshtml`을 엽니다. 여기서 사용자에게 앱 로그인 및 로그아웃 링크를 표시하고 보기에 사용자 이름을 출력하게 됩니다.
 
 ```HTML
 @if (Request.IsAuthenticated)
@@ -148,7 +148,7 @@ else
 ```
 
 ## *4. 사용자 정보 표시*
-OpenID Connect로 사용자를 인증할 때 Azure AD는 "클레임" 또는 사용자에 대한 어설션을 포함하는 id_token을 응용 프로그램에 반환합니다. 이러한 클레임을 사용하여 앱 개인 설정을 수행할 수 있습니다.
+OpenID Connect로 사용자를 인증할 때 Azure AD는 "클레임" 또는 사용자에 대한 어설션을 포함하는 id\_token을 응용 프로그램에 반환합니다. 이러한 클레임을 사용하여 앱 개인 설정을 수행할 수 있습니다.
 
 - `Controllers\HomeController.cs` 파일을 엽니다. `ClaimsPrincipal.Current` 보안 주체 개체를 통해 컨트롤러의 사용자 클레임에 액세스할 수 있습니다.
 
@@ -165,7 +165,7 @@ public ActionResult About()
 }
 ```
 
-마지막으로 앱을 빌드하고 실행합니다. 새 사용자를 아직 만들지 않았으면 *.onmicrosoft.com 도메인을 사용하여 테넌트에 새 사용자를 만들어야 합니다. 해당 사용자로 로그인하고 위쪽 탐색 모음에 사용자 ID가 반영되는 방식을 확인합니다. 로그아웃하고 테넌트의 다른 사용자로 다시 로그인합니다. 관심이 있으면 이 응용 프로그램의 다른 인스턴스를 등록 및 실행하고(자체 clientId 사용) SSO(Single Sign-On) 작동을 살펴봅니다.
+마지막으로 앱을 빌드하고 실행합니다. 새 사용자를 아직 만들지 않았으면 .onmicrosoft.com 도메인을 사용하여 테넌트에 새 사용자를 만들어야 합니다. 해당 사용자로 로그인하고 위쪽 탐색 모음에 사용자 ID가 반영되는 방식을 확인합니다. 로그아웃하고 테넌트의 다른 사용자로 다시 로그인합니다. 관심이 있으면 이 응용 프로그램의 다른 인스턴스를 등록 및 실행하고(자체 clientId 사용) SSO(Single Sign-On) 작동을 살펴봅니다.
 
 참조를 위해 완성된 샘플(사용자 구성 값 제외)이 [여기](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/complete.zip)에 제공됩니다.
 
@@ -176,4 +176,4 @@ public ActionResult About()
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

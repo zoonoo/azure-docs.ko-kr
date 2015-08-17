@@ -10,4 +10,4 @@
 | 액세스 패널 | <ul><li>Azure AD Premium 또는 Enterprise Mobility Suite 라이선스가 할당된 사용자의 경우 각 최종 사용자의 액세스 패널에 표시될 수 있는 응용 프로그램의 수는 제한이 없습니다.</li><li>Azure Active Directory의 무료 버전 또는 Azure AD Basic 버전에 대한 라이선스가 할당된 사용자의 경우 각 최종 사용자의 액세스 패널에 표시될 수 있는 앱 타일(예: Box, Salesforce 또는 Dropbox) 수는 최대 10개입니다. 관리자 계정에는 이 제한이 적용되지 않습니다.</li></ul> |
 | 보고서 | 최대 1,000행을 표시하거나 보고서에 다운로드할 수 있습니다. 그 외의 데이터는 잘립니다. |
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

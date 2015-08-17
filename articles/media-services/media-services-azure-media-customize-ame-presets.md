@@ -70,7 +70,7 @@ Azure 미디어 서비스 인코더를 사용하여 사용자 지정 기본 설�
 	   </OutputFormat>
 	</MediaFile>
 
-인코더는 각 매크로 사이로 밑줄을 삽입합니다. 예를 들어, 위의 구성에서는 다음과 같은 파일 이름이 작성됩니다. MyVideo_H264_4500kpbs_AAC_und_ch2_128kbps.mp4.
+인코더는 각 매크로 사이로 밑줄을 삽입합니다. 예를 들어, 위의 구성에서는 다음과 같은 파일 이름이 작성됩니다. MyVideo\_H264\_4500kpbs\_AAC\_und\_ch2\_128kbps.mp4.
 
 
 ##오버레이 만들기
@@ -458,11 +458,11 @@ Azure 미디어 서비스 인코더를 사용하여 이미지(jpg, bmp, gif, tif
 
 1. 수정된 기본 설정 파일을 로컬 하드 드라이브에 저장하고 다음과 같은 코드를 사용하여 사용자 지정 기본 설정으로 인코딩합니다.
 	
-	// Upload file and create asset IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, @"C:\TEMP\Original.mp4");
+	// Upload file and create asset IAsset asset = CreateAssetAndUploadSingleFile(AssetCreationOptions.None, @"C:\\TEMP\\Original.mp4");
 	 
-	string inputPresetFile = @"C:\TEMP\H264 Broadband 720p NoAudioNorm.xml"; string presetName = Path.GetFileNameWithoutExtension(inputPresetFile);
+	string inputPresetFile = @"C:\\TEMP\\H264 Broadband 720p NoAudioNorm.xml"; string presetName = Path.GetFileNameWithoutExtension(inputPresetFile);
 	 
-	IJob job = _context.Jobs.Create("Encode Job for " + asset.Name + ", encoded using " + presetName);
+	IJob job = \_context.Jobs.Create("Encode Job for " + asset.Name + ", encoded using " + presetName);
 	
 	Console.WriteLine("Encode Job for " + asset.Name + ", encoded using " + presetName);
 	
@@ -482,4 +482,4 @@ Azure 미디어 서비스 인코더를 사용하여 이미지(jpg, bmp, gif, tif
 
 [Azure 미디어 인코더 XML 스키마](https://msdn.microsoft.com/library/azure/dn584702.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

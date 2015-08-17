@@ -40,4 +40,4 @@
 - [바로 사용할 수 있는 응용 프로그램 찾아보기](https://datamarket.azure.com/browse?query=machine+learning)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

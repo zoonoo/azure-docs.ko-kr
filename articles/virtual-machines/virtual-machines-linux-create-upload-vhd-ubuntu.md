@@ -91,9 +91,9 @@
 
 5.	(선택 사항) Ubuntu 시스템에서 오류가 발생하여 다시 부팅되는 경우 grub 부팅 프롬프트에서 사용자 입력을 대기하므로 시스템이 정상적으로 부팅되지 않는 경우가 많습니다. 이를 예방하려면 다음 단계를 완료하십시오.
 
-	a) /etc/grub.d/00_header 파일을 엽니다.
+	a) /etc/grub.d/00\_header 파일을 엽니다.
 
-	b) 함수 **make_timeout()**에서 **if ["\${recordfail}" = 1 ]; then**을 검색합니다.
+	b) 함수 **make\_timeout()**에서 **if ["\\${recordfail}" = 1 ]; then**을 검색합니다.
 
 	c) 해당 줄 아래 문을 **set timeout=5**로 변경합니다.
 
@@ -125,4 +125,4 @@
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

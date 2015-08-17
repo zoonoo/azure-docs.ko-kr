@@ -89,7 +89,7 @@
 ----|----|----
 Logback|[Logback 어펜더를 사용한 SDK](http://dl.windowsazure.com/applicationinsights/javabin/logbackAppender.zip)|applicationinsights-logging-logback
 Log4J v2.0|[Log4J v2 어펜더를 사용한 SDK](http://dl.windowsazure.com/applicationinsights/javabin/log4j2Appender.zip)|applicationinsights-logging-log4j2 
-Log4j v1.2|[Log4J v1.2 어펜더를 사용한 SDK](http://dl.windowsazure.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1_2 
+Log4j v1.2|[Log4J v1.2 어펜더를 사용한 SDK](http://dl.windowsazure.com/applicationinsights/javabin/log4j1_2Appender.zip)|applicationinsights-logging-log4j1\_2 
 
 
 
@@ -149,4 +149,4 @@ Application Insights 어펜더는 루트 로거만이 아니라 구성된 모든
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

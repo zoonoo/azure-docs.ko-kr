@@ -333,4 +333,4 @@ Azure CLI 명령과 Github 템플릿 리포지토리의 리소스 관리자 템�
 
 [Azure PowerShell을 설치 및 구성하는 방법](install-configure-powershell.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

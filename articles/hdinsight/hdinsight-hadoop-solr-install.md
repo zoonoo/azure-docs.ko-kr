@@ -62,7 +62,7 @@ HDInsight 클러스터에 Solr을 설치하는 샘플 스크립트는 읽기 전
 
 1. **RDP(원격 데스크톱 프로토콜)를 사용하여 Solr이 설치된 HDInsight 클러스터에 원격으로 연결**합니다. Azure 포털에서 Solr을 설치하여 만든 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 클러스터에 원격으로 연결합니다. 지침은 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">RDP를 사용하여 HDInsight 클러스터에 연결</a>을 참조하세요.
 
-2. **데이터 파일을 업로드하여 Solr을 인덱싱**합니다. Solr을 인덱싱할 때 검색이 필요할 수 있는 문서를 포함시킵니다. Solr을 인덱싱하려면 RDP를 사용하여 클러스터에 원격으로 연결한 후 Hadoop 명령줄을 열고 **C:\apps\dist\solr-4.7.2\example\exampledocs**로 이동합니다. 다음 명령을 실행합니다.
+2. **데이터 파일을 업로드하여 Solr을 인덱싱**합니다. Solr을 인덱싱할 때 검색이 필요할 수 있는 문서를 포함시킵니다. Solr을 인덱싱하려면 RDP를 사용하여 클러스터에 원격으로 연결한 후 Hadoop 명령줄을 열고 **C:\\apps\\dist\\solr-4.7.2\\example\\exampledocs**로 이동합니다. 다음 명령을 실행합니다.
 	
 		java -jar post.jar solr.xml monitor.xml
 
@@ -76,7 +76,7 @@ HDInsight 클러스터에 Solr을 설치하는 샘플 스크립트는 읽기 전
 
 	post.jar 유틸리티는 두 개의 샘플 문서 **solr.xml** 및 **monitor.xml**로 Solr을 인덱싱합니다. post.jar 유틸리티와 샘플 문서는 Solr 설치에서 사용할 수 있습니다.
 
-3. **Solr 대시보드를 사용하여 인덱싱된 문서 내에서 검색**합니다. HDInsight 클러스터에 대한 RDP 세션에서 Internet Explorer를 열고 **http://headnodehost:8983/solr/#/**에서 Solr 대시보드를 실행합니다. 왼쪽 창의 **Core Selector** 드롭다운에서 **collection1**을 선택하고, 그 안에서 **Query**를 클릭합니다. 예를 들어 Solr의 모든 문서를 선택하고 반환하려면 다음 값을 제공합니다.
+3. **Solr 대시보드를 사용하여 인덱싱된 문서 내에서 검색**합니다. HDInsight 클러스터에 대한 RDP 세션에서 Internet Explorer를 열고 ****http://headnodehost:8983/solr/#/**에서 Solr 대시보드를 실행합니다. 왼쪽 창의 **Core Selector** 드롭다운에서 **collection1**을 선택하고, 그 안에서 **Query**를 클릭합니다. 한 예로, Solr의 모든 문서를 선택하고 반환하려면 다음 값을 제공하세요.
 	1. **q** 텍스트 상자에 ***:***을 입력합니다. 이렇게 하면 Solr에서 인덱싱되는 문서는 모두 반환됩니다. 문서 내에서 특정 문자열을 검색하려는 경우 여기에 해당 문자열을 입력할 수 있습니다.
 	2. **wt** 텍스트 상자에서 출력 형식을 선택합니다. 기본값은 **json**입니다. **Execute Query**를 클릭합니다.
 
@@ -154,7 +154,7 @@ HDInsight 클러스터에 Solr을 설치하는 샘플 스크립트는 읽기 전
 			  <str name="status">OK</str>
 			</response>
 
-	2. 원격 세션에서 {SOLR_HOME}\{Collection}\data로 이동합니다. 샘플 스크립트를 통해 만든 클러스터의 경우 이 경로는 **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**입니다. 이 위치에 **snapshot.*timestamp***와 유사한 이름으로 만든 스냅숏 폴더가 표시됩니다.
+	2. 원격 세션에서 {SOLR\_HOME}\\{Collection}\\data로 이동합니다. 샘플 스크립트를 통해 만든 클러스터의 경우 이 경로는 **C:\\apps\\dist\\solr-4.7.2\\example\\solr\\collection1\\data**입니다. 이 위치에 **snapshot.*timestamp***와 유사한 이름으로 만든 스냅숏 폴더가 표시됩니다.
 	
 	3. 스냅숏 폴더를 압축하고 Azure Blob 저장소에 업로드합니다. Hadoop 명령줄에서 다음 명령을 사용하여 스냅숏 폴더의 위치로 이동합니다.
 
@@ -344,7 +344,7 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 
 **응용 프로그램을 실행하려면**
 
-Windows PowerShell 또는 Azure PowerShell 콘솔을 열고 Visual Studio 프로젝트를 저장한 위치로 이동하고 프로젝트 내의 \bin\debug 디렉터리로 이동한 후 다음 명령을 실행합니다.
+Windows PowerShell 또는 Azure PowerShell 콘솔을 열고 Visual Studio 프로젝트를 저장한 위치로 이동하고 프로젝트 내의 \\bin\\debug 디렉터리로 이동한 후 다음 명령을 실행합니다.
 
 	.\CreateSolrCluster <cluster-name>
 
@@ -365,4 +365,4 @@ Windows PowerShell 또는 Azure PowerShell 콘솔을 열고 Visual Studio 프로
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

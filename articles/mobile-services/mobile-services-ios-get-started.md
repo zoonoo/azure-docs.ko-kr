@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="07/28/2015"
 	ms.author="krisragh"/>
 
@@ -46,7 +46,7 @@
 
 [AZURE.INCLUDE [mobile-services-ios-run-app](../../includes/mobile-services-ios-run-app.md)]
 
-<ol start="4"> <li><p>관리 포털로 돌아가서 <strong>데이터</strong> 탭을 클릭하고 <strong>TodoItem</strong> 테이블을 클릭합니다. 이를 통해 앱에서 테이블로 삽입된 데이터를 찾을 수 있습니다.<p></li></ol></p>
+<ol start="4"> <li><p>관리 포털로 돌아가서 **데이터** 탭을 클릭한 후 **TodoItem** 테이블을 클릭합니다. 이를 통해 앱에서 테이블로 삽입된 데이터를 찾을 수 있습니다.<p></li></ol></p>
 
 ## <a name="next-steps"> </a>다음 단계
 모바일 서비스에서 중요한 추가 작업을 수행하는 방법에 대해 알아봅니다.
@@ -88,4 +88,4 @@
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [.NET 백 엔드 버전]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

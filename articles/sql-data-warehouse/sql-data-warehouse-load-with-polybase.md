@@ -110,7 +110,7 @@ PolyBase는 구분 기호로 분리된 텍스트, Hive RCFILE 및 HIVE ORC 형�
 
 외부 테이블 정의는 관계형 테이블 정의와 유사합니다. 주요 차이점은 데이터 형식 및 위치입니다. 외부 테이블 정의는 SQL 데이터 웨어하우스 데이터베이스에 저장됩니다. 데이터는 데이터 원본에서 지정한 위치에 저장됩니다.
 
-위치 옵션은 데이터 원본의 루트에서의 데이터에 대한 경로를 지정합니다. 이 예제에서 데이터는 'wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/'에 있습니다.
+위치 옵션은 데이터 원본의 루트에서의 데이터에 대한 경로를 지정합니다. 이 예제에서 데이터는 'wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/'에 있습니다. 동일 테이블의 모든 파일은 Azure BLOB의 동일한 논리 폴더 아래 있어야 합니다.
 
 ```
 -- Creating external table pointing to file stored in Azure Storage
@@ -129,7 +129,6 @@ WITH (LOCATION='/Demo/',
 
 > [AZURE.NOTE]이 때에는 외부 테이블에 통계를 만들 수 없습니다.
 
-동일 테이블의 모든 파일은 Azure BLOB의 동일한 논리 폴더 아래 있어야 합니다. 모범 사례로, SQL 데이터 웨어하우스로 병렬 처리가 가능한 경우 1GB 미만의 파일로 Azure 저장소 데이터를 구분합니다.
 
 참조 항목: [CREATE EXTERNAL TABLE (Transact-SQL)][].
 
@@ -207,4 +206,4 @@ PolyBase로 로딩하면 UTF-8 인코딩 스타일만 지원합니다. 다른 �
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ko-kr/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ko-kr/library/ms189450.aspx
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

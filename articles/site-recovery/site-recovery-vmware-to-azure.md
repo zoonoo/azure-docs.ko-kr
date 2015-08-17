@@ -150,7 +150,7 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 - 필요한 보존 저장소 볼륨은 일일 변경률 및 보존 일수에 따라 다릅니다. 마스터 대상 서버당 필요한 보존 저장소 = 1일 원본의 총 변동 수 * 보존 일수 
 - 각각의 마스터 대상 서버에는 하나의 보존 볼륨만 있습니다. 보존 볼륨은 마스터 대상 서버에 연결된 디스크 사이에서 공유됩니다. 예:
 	- 디스크가 5개이고 각 디스크가 원본에서 120 IOP(8K 크기)를 생성할 경우 디스크당 240 IOPS가 됩니다(원본 IO당 대상 디스크에서 2개 작업). 240 IOPS는 Azure 내에서 디스크당 IOPS 한도인 500을 초과하지 않습니다.
-	- 보존 볼륨에서는 120* 5 = 600 IOP가 되므로 병목이 될 수 있습니다. 이 시나리오에서 적합한 전략은 보존 볼륨에 디스크를 추가하고 RAID 스트라이프 구성으로 확장하는 것입니다. 그러명 IOPS가 여러 드라이브로 분산되므로 성능이 개선됩니다. 보존 볼륨에 추가할 드라이브 수는 다음과 같습니다.
+	- 보존 볼륨에서는 120* 5 = 600 IOP가 되므로 병목이 될 수 있습니다. 이 시나리오에서 적합한 전략은 보존 볼륨에 디스크를 추가하고 RAID 스트라이프 구성으로 확장하는 것입니다. 그러면 IOPS가 여러 드라이브로 분산되므로 성능이 개선됩니다. 보존 볼륨에 추가할 드라이브 수는 다음과 같습니다.
 		- 원본 환경의 총 IOPS / 500
 		- 원본 환경에서 일일 총 변동 수(비압축)/287GB 287GB는 일일 대상 디스크에서 지원하는 최대 처리량입니다. 이 경우 쓰기 크기로 8K를 가정하므로 이 메트릭은 쓰기 크기인 8K를 기준으로 달라집니다. 예를 들어 쓰기 크기가 4K인 경우 처리량은 287/2가 됩니다. 쓰기 크기가 16K인 경우에는 처리량이 287*2가 됩니다.
 - 필요한 저장소 계정 수 = 총 원본 IOPS/10,000
@@ -165,12 +165,12 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 **Azure 가상 네트워크** | 구성 서버와 마스터 대상 서버를 배포할 Azure 가상 네트워크가 필요합니다. 이 네트워크는 Azure Site Recovery 자격 증명 모음과 동일한 구독 및 지역에 있어야 합니다. Express 경로 또는 VPN 연결을 통해 데이터를 복제하려는 경우 Azure 가상 네트워크가 Express 경로 연결 또는 사이트 간 VPN을 통해 온-프레미스 네트워크에 연결되어야 합니다.
 **Azure 리소스** | 모든 구성 요소를 배포하기에 충분한 Azure 리소스가 있는지 확인합니다. 자세한 내용은 [Azure 구독 제한](../azure-subscription-service-limits.md)을 참조하세요.
 **Azure 가상 컴퓨터** | <p>보호하려는 가상 컴퓨터가 [Azure 필수 구성 요소](site-recovery-best-practices.md)를 준수해야 합니다.</p><p>**디스크 수**—단일 보호 서버에서 최대 31개 디스크가 지원됩니다.</p><p>**디스크 크기**—개별 디스크 용량은 1023GB보다 클 수 없습니다.</p><p>**클러스터링**—클러스터링된 서버는 지원되지 않습니다.</p><p>**부팅**—UEFI(Unified Extensible Firmware Interface)/EFI(Extensible Firmware Interface) 부팅은 지원되지 않습니다.</p><p>**볼륨**—Bitlocker 암호화된 볼륨은 지원되지 않습니다.</p><p> **서버 이름**—이름은 1~63자(문자, 숫자, 하이픈)를 포함해야 합니다. 이름은 문자나 숫자로 시작하고 문자나 숫자로 끝나야 합니다. 컴퓨터가 보호된 후 Azure 이름을 수정할 수 있습니다.</p>
-**구성 서버** | <p>Azure Site Recovery Windows Server 2012 R2 갤러리 이미지를 기반으로 하는 표준 A3 가상 컴퓨터가 구성 서버 구독에 만들어집니다. 새 클라우드 서비스에 예약된 공용 IP 주소를 사용하는 첫 번째 인스턴스로 만들어집니다.</p><p>설치 경로는 영어 문자로만 입력해야 합니다.</p>
+**구성 서버** | <p>Azure Site Recovery Windows Server 2012 R2 갤러리 이미지를 기반으로 하는 표준 A3 가상 컴퓨터가 구성 서버 구독에 만들어집니다. 새 클라우드 서비스에 첫 번째 인스턴스로 만들어집니다. 구성 서버에 대해 연결 유형으로 공용 인터넷을 선택하는 경우 클라우드 서비스는 예약된 공용 IP 주소를 사용하여 만들어집니다.</p><p>설치 경로는 영어 문자로만 이루어져야 합니다.</p>
 **마스터 대상 서버** | <p>Azure 가상 컴퓨터, 표준 A4 또는 D14.</p><p>설치 경로는 영어 문자로만 입력해야 합니다. 예를 들어 Linux를 실행하는 마스터 대상 서버의 경로는 **/usr/local/ASR**이어야 합니다.</p></p>
 **프로세스 서버** | <p>최신 업데이트를 설치한 Windows Server 2012 R2를 실행하는 물리적 컴퓨터나 가상 컴퓨터에 프로세스 서버를 배포할 수 있습니다. C:/에 설치합니다.</p><p>보호할 컴퓨터와 동일한 네트워크 및 서브넷에 서버를 배치하는 것이 좋습니다.</p><p>프로세스 서버에 VMware vSphere CLI 5.5.0을 설치합니다. ESXi 호스트에서 실행되는 가상 컴퓨터 또는 vCenter 서버로 관리하는 가상 컴퓨터를 검색하려면 프로세스 서버에 VMware vSphere CLI 구성 요소가 필요합니다.</p><p>설치 경로는 영어 문자로만 입력해야 합니다.</p>
 **VMware** | <p>VMware vSphere 하이퍼바이저를 관리하는 VMWare vCenter 서버. 최신 업데이트를 설치한 vCenter 버전 5.1 또는 5.5를 실행해야 합니다.</p><p>보호하려는 VMware 가상 컴퓨터가 포함된 하나 이상의 vSphere 하이퍼바이저. 하이퍼바이저는 최신 업데이트를 설치한 ESX/ESXi 버전 5.1 또는 5.5를 실행해야 합니다.</p><p>VMware 가상 컴퓨터는 VMware 도구를 설치 및 실행해야 합니다.</p>
-**Windows 컴퓨터** | <p>Windows를 실행하는 VMware 가상 컴퓨터 또는 보호된 물리적 서버에는 여러 요구 사항이 있습니다.</p><p>지원되는 64비트 운영 체제:**Windows Server 2012 R2**, **Windows Server 2012** 또는 **Windows Server 2008 R2 SP1 이상**.</p><p>호스트 이름, 마운트 지점, 장치 이름, Windows 시스템 경로(예: C:\Windows)는 영어로만 입력해야 합니다.</p><p>운영 체제는 C:\드라이브에 설치해야 합니다.</p><p>기본 디스크만 지원됩니다. 동적 디스크는 지원되지 않습니다.</p><p><Firewall rules on protected machines should allow them to reach the configuration and master target servers in Azure.p><p>Windows 서버에 모바일 서비스를 푸시 방식으로 설치하려면 관리자 계정을 제공해야 합니다(Windows 컴퓨터의 로컬 관리자여야 함). 관리자 계정이 도메인 계정이 아닌 경우 로컬 컴퓨터에서 원격 사용자 계정 제어를 사용하지 않도록 설정해야 합니다. 그러려면 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System에서 값이 1인 LocalAccountTokenFilterPolicy DWORD 레지스트리 항목을 추가합니다. CLI에서 레지스트리 항목을 추가하려면 cmd 또는 powershell을 열고 **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**을(를) 입력합니다. 액세스 제어에 대해 [자세히 알아보세요](https://msdn.microsoft.com/library/aa826699.aspx).</p><p>장애 조치(Failover) 후에 원격 데스크톱을 사용하여 Azure의 Windows 가상 컴퓨터에 연결하려는 경우 온-프레미스 컴퓨터에 대해 원격 데스크톱이 사용하도록 설정되었는지 확인합니다. VPN을 통해 연결하지 않는 경우 방화벽 규칙에서 인터넷을 통한 원격 데스크톱 연결을 허용해야 합니다.</p>
-**Linux 컴퓨터** | <p> 지원되는 64비트 운영 체제: **Centos 6.4, 6.5, 6.6**, **Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)를 실행하는 Oracle Enterprise Linux 6.4, 6.5**, **SUSE Linux Enterprise Server 11 SP3**.</p><p>보호된 컴퓨터의 방화벽 규칙은 Azure에서 구성 및 마스터 대상 서버에 연결할 수 있도록 허용해야 합니다.</p><p>보호된 컴퓨터의 /etc/hosts 파일은 로컬 호스트 이름을 모든 NIC와 연결된 IP 주소로 매핑하는 항목이 포함되어 있어야 합니다. </p><p>장애 조치(Failover) 후 SSH(Secure Shell) 클라이언트를 사용하여 Linux를 실행하는 Azure 가상 컴퓨터에 연결하려면 보호된 컴퓨터의 Secure Shell 서비스가 시스템 부팅 시 자동으로 시작하도록 설정되어 있고 방화벽 규칙에서 SSH 연결을 허용하지를 확인해야 합니다.</p><p>호스트 이름, 마운트 지점, 장치 이름, Linux 시스템 경로와 파일 이름(eg /etc/; /usr)은 영어로만 입력해야 합니다.</p><p>다음 스토리지를 사용하여 온-프레미스 시스템에 보호를 사용하도록 설정할 수 있습니다. 파일 시스템: EXT3, ETX4, ReiserFS, XFS/다중 경로 소프트웨어-장치 매퍼(다중 경로)/볼륨 관리자: HP CCISS 컨트롤러 저장소를 사용하는 LVM2\물리적 서버는 지원되지 않습니다.</p>
+**Windows 컴퓨터** | <p>Windows를 실행하는 VMware 가상 컴퓨터 또는 보호된 물리적 서버에는 여러 요구 사항이 있습니다.</p><p>지원되는 64비트 운영 체제:**Windows Server 2012 R2**, **Windows Server 2012** 또는 **Windows Server 2008 R2 SP1 이상**.</p><p>호스트 이름, 마운트 지점, 장치 이름, Windows 시스템 경로(예: C:\Windows)는 영어로만 입력해야 합니다.</p><p>운영 체제는 C:\드라이브에 설치해야 합니다.</p><p>기본 디스크만 지원됩니다. 동적 디스크는 지원되지 않습니다.</p><p><Firewall rules on protected machines should allow them to reach the configuration and master target servers in Azure.p><p>Windows 서버에 모바일 서비스를 푸시 방식으로 설치하려면 관리자 계정을 제공해야 합니다(Windows 컴퓨터의 로컬 관리자여야 함). 관리자 계정이 도메인 계정이 아닌 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정해야 합니다. 그러려면 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System에서 값이 1인 LocalAccountTokenFilterPolicy DWORD 레지스트리 항목을 추가합니다. CLI에서 레지스트리 항목을 추가하려면 cmd 또는 powershell을 열고 **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**을(를) 입력합니다. 액세스 제어에 대해 [자세히 알아보세요](https://msdn.microsoft.com/library/aa826699.aspx).</p><p>장애 조치(Failover) 후에 원격 데스크톱을 사용하여 Azure의 Windows 가상 컴퓨터에 연결하려는 경우 온-프레미스 컴퓨터에 대해 원격 데스크톱이 사용하도록 설정되었는지 확인합니다. VPN을 통해 연결하지 않는 경우 방화벽 규칙에서 인터넷을 통한 원격 데스크톱 연결을 허용해야 합니다.</p>
+**Linux 컴퓨터** | <p> 지원되는 64비트 운영 체제: **Centos 6.4, 6.5, 6.6**, **Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)를 실행하는 Oracle Enterprise Linux 6.4, 6.5**, **SUSE Linux Enterprise Server 11 SP3**.</p><p>보호된 컴퓨터의 방화벽 규칙은 Azure에서 구성 및 마스터 대상 서버에 연결할 수 있도록 허용해야 합니다.</p><p>보호된 컴퓨터의 /etc/hosts 파일은 로컬 호스트 이름을 모든 NIC와 연결된 IP 주소로 매핑하는 항목이 포함되어 있어야 합니다. </p><p>장애 조치(Failover) 후 SSH(Secure Shell) 클라이언트를 사용하여 Linux를 실행하는 Azure 가상 컴퓨터에 연결하려면 보호된 컴퓨터의 Secure Shell 서비스가 시스템 부팅 시 자동으로 시작하도록 설정되어 있고 방화벽 규칙에서 SSH 연결을 허용하지를 확인해야 합니다.</p><p>호스트 이름, 마운트 지점, 장치 이름, Linux 시스템 경로와 파일 이름(eg /etc/; /usr)은 영어로만 입력해야 합니다.</p><p>다음 스토리지를 사용하여 온-프레미스 시스템에 보호를 사용하도록 설정할 수 있습니다.<br>파일 시스템: EXT3, ETX4, ReiserFS, XFS<br>다중 경로 소프트웨어-장치 매퍼(다중 경로)<br>볼륨 관리자:LVM2<br>HP CCISS 컨트롤러 저장소를 사용하는 물리적 서버는 지원되지 않습니다.</p>
 **타사** | 이 시나리오의 일부 배포 구성 요소는 제대로 작동하기 위해 타사 소프트웨어를 사용합니다. 전체 목록은 [타사 소프트웨어 통지 및 정보](#third-party)를 참조하세요.
 
 ## 배포
@@ -377,8 +377,9 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 
 8. Linux를 실행하는 경우 다음을 수행합니다.
 	1. 마스터 대상 서버 소프트웨어를 설치하기 전에 최신 LIS(Linux Integration Services)를 설치했는지 확인하십시오. [여기](https://www.microsoft.com/ko-kr/download/details.aspx?id=46842)에서 설치 방법에 대한 지침과 함께 최신 버전의 LIS를 찾을 수 있습니다. LIS 설치 후 컴퓨터를 다시 시작합니다.
-	2. **대상(Azure) 리소스 준비**에서 **추가 소프트웨어 다운로드 및 설치(Linux 마스터 대상 서버 전용)**를 클릭하고 Linux 마스터 대상 서버 패키지를 다운로드합니다. 다운로드한 tar 파일을 sftp 클라이언트를 사용하여 가상 컴퓨터로 복사합니다. 또는 배포된 Linux 마스터 대상 서버에 로그인한 다음 *wgethttp://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409*을 사용하여 파일을 다운로드할 수 있습니다.2. 보안 셸 클라이언트를 사용하여 서버에 로그온합니다. VPN을 통해 Azure 네트워크에 연결되어 있는 경우 내부 IP 주소를 사용합니다. 그렇지 않으면 외부 IP 주소와 SSH 공용 끝점을 사용합니다.
-	3. **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64**\* ![Linux 마스터 대상 서버](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)를 실행하여 GZip 압축된 설치 프로그램에서 파일을 추출합니다.
+	2. **대상(Azure) 리소스 준비**에서 **추가 소프트웨어 다운로드 및 설치(Linux 마스터 대상 서버 전용)**를 클릭하고 Linux 마스터 대상 서버 패키지를 다운로드합니다. 다운로드한 tar 파일을 sftp 클라이언트를 사용하여 가상 컴퓨터로 복사합니다. 또는 배포된 Linux 마스터 대상 서버에 로그인한 다음 *wget http://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409*을 사용하여 파일을 다운로드할 수 있습니다.
+	2. 보안 셸 클라이언트를 사용하여 서버에 로그온합니다. VPN을 통해 Azure 네트워크에 연결되어 있는 경우 내부 IP 주소를 사용합니다. 그렇지 않으면 외부 IP 주소와 SSH 공용 끝점을 사용합니다.
+	3. **tar –xvzf Microsoft-ASR_UA_8.4.0.0_RHEL6-64*** ![Linux 마스터 대상 서버](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)를 실행하여 GZip 압축된 설치 프로그램에서 파일을 추출합니다.
 	4. 현재 위치가 tar 파일의 내용을 추출한 디렉터리인지 확인합니다.
 	5. **echo *`<passphrase>`* >passphrase.txt** 명령을 사용하여 구성 서버 암호를 로컬 파일로 복사합니다.
 	6. “**sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt**” 명령을 실행합니다.
@@ -401,12 +402,12 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 
 2.  프로세스 서버를 설치할 서버에 다운로드한 zip 파일을 복사합니다. zip 파일에는 다음 두 개의 설치 파일이 들어 있습니다.
 
-	- Microsoft-ASR\_CX\_TP\_8.4.0.0\_Windows\*
-	- Microsoft-ASR\_CX\_8.4.0.0\_Windows\*
+	- Microsoft-ASR_CX_TP_8.4.0.0_Windows*
+	- Microsoft-ASR_CX_8.4.0.0_Windows*
 
 3. 보관 파일의 압축을 풀고 설치 파일을 서버의 한 위치에 복사합니다.
-4. **Microsoft-ASR\_CX\_TP\_8.4.0.0\_Windows**\* 설치 파일을 실행하고 지침을 따릅니다. 이렇게 하면 배포에 필요한 타사 구성 요소가 설치됩니다.
-5. 그런 다음 **Microsoft-ASR\_CX\_8.4.0.0\_Windows**\*를 실행합니다.
+4. **Microsoft-ASR_CX_TP_8.4.0.0_Windows*** 설치 파일을 실행하고 지침을 따릅니다. 이렇게 하면 배포에 필요한 타사 구성 요소가 설치됩니다.
+5. 그런 다음 **Microsoft-ASR_CX_8.4.0.0_Windows***를 실행합니다.
 6. **서버 모드** 페이지에서 **프로세스 서버**를 선택합니다.
 
 	![서버 선택 모드](./media/site-recovery-vmware-to-azure/ASRVMWare_ProcessServerSelection.png)
@@ -547,7 +548,7 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 	![방화벽 설정](./media/site-recovery-vmware-to-azure/ASRVMWare_PushInstallFirewall.png)
 
 4. 푸시 설치에 사용되는 계정은 보호할 컴퓨터의 Administrators 그룹에 속해야 합니다. 이러한 자격 증명은 모바일 서비스 푸시 설치에만 사용되며 보호 그룹에 컴퓨터를 추가할 때 제공해야 합니다.
-5. 제공된 계정이 도메인 계정이 아닌 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정해야 합니다. 그러려면 HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System에서 값이 1인 LocalAccountTokenFilterPolicy DWORD 레지스트리 항목을 추가합니다. CLI에서 레지스트리 항목을 추가하려면 cmd 또는 powershell을 열고 **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**을(를) 입력합니다. 
+5. 제공된 계정이 도메인 계정이 아닌 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정해야 합니다. 그러려면 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\PoliciesSystem에서 값이 1인 LocalAccountTokenFilterPolicy DWORD 레지스트리 항목을 추가합니다. CLI에서 레지스트리 항목을 추가하려면 cmd 또는 powershell을 열고 **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**를 입력합니다. 
 
 **Linux 서버에 모바일 서비스 자동 푸시 설치:**
 
@@ -611,9 +612,9 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 **Linux 서버에 모바일 서비스 수동 설치**:
 
 1. 위 표를 기준으로 프로세스 서버에서 원본 컴퓨터로 적절한 tar를 복사합니다.
-2. 셸 프로그램을 열고 `tar -xvzf Microsoft-ASR_UA_8.2.0.0*`을(를) 실행하여 압축된 tar 아카이브를 로컬 경로로 추출합니다.
-3. 셸에서 *`echo <passphrase> >passphrase.txt`*을(를) 입력하여 tar 아카이브의 내용을 추출한 로컬 디렉터리에 passphrase.txt 파일을 만듭니다.
-4. *`sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i <IP address> -p <port> -s y -c https -P passphrase.txt`*을(를) 입력하여 모바일 서비스를 설치합니다.
+2. 셸 프로그램을 열고 `tar -xvzf Microsoft-ASR_UA_8.2.0.0*`을 실행하여 압축된 tar 아카이브를 로컬 경로로 추출합니다.
+3. 셸에서 *`echo <passphrase> >passphrase.txt`*를 입력하여 tar 아카이브의 내용을 추출한 로컬 디렉터리에 passphrase.txt 파일을 만듭니다.
+4. *`sudo ./install -t both -a host -R Agent -d /usr/local/ASR -i <IP address> -p <port> -s y -c https -P passphrase.txt`*를 입력하여 모바일 서비스를 설치합니다.
 5. IP 주소와 포트를 지정합니다.
 
 	- 인터넷을 통해 구성 서버에 연결하는 경우 `<IP address>` 및 `<port>`에서 구성 서버 가상 공용 IP 주소 및 공용 HTTPS 끝점을 지정합니다.
@@ -767,4 +768,4 @@ Microsoft 제품이나 서비스에서 실행되는 소프트웨어와 펌웨어
 
 전체 파일은 [Microsoft 다운로드 센터](http://go.microsoft.com/fwlink/?LinkId=529428)에서 확인할 수 있습니다. Microsoft에서 명시적으로 부여하지 않은 모든 권한은 묵시적, 금반언적 또는 기타 어떠한 방식에 의해서든 Microsoft가 보유합니다.
 
-<!--------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

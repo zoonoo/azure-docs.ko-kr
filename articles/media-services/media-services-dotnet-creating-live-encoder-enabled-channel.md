@@ -501,4 +501,4 @@ app.config 파일에 appSettings 섹션을 추가하고 미디어 서비스 계�
 [단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 작업](media-services-manage-live-encoder-enabled-channels.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

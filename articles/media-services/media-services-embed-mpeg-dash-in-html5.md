@@ -106,4 +106,4 @@ Dash.js는 JavaScript로 작성된 오픈 소스 MPEG-DASH 비디오 플레이�
 
 [GitHub dash.js 리포지토리](https://github.com/Dash-Industry-Forum/dash.js)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

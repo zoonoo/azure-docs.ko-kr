@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="06/30/2015"
 	ms.author="adegeo"/>
 
@@ -147,4 +147,4 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

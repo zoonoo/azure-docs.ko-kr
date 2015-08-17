@@ -263,27 +263,27 @@ SQL Server Management Studio에서 데이터베이스에 연결하기 위해 이
 
 #### 고급 메트릭
 
-Basic, Standard 및 Premium 계층을 사용 중인 경우 관리 포털에서 일부 메트릭을 바로 사용할 수 있습니다. 하지만 Web 및 Business 계층을 사용할 경우에는 저장소 메트릭만 포털을 통해 사용할 수 있습니다. 다행스럽게도, 사용 중인 계층에 관계없이 **[sys.resource_stats](http://msdn.microsoft.com/library/dn269979.aspx)** 관리 뷰를 사용하면 이러한 메트릭 및 기타 메트릭을 쉽게 가져올 수 있습니다. 다음과 같은 쿼리를 고려해 보세요.
+Basic, Standard 및 Premium 계층을 사용 중인 경우 관리 포털에서 일부 메트릭을 바로 사용할 수 있습니다. 하지만 Web 및 Business 계층을 사용할 경우에는 저장소 메트릭만 포털을 통해 사용할 수 있습니다. 다행스럽게도, 사용 중인 계층에 관계없이 **[sys.resource\_stats](http://msdn.microsoft.com/library/dn269979.aspx)** 관리 뷰를 사용하면 이러한 메트릭 및 기타 메트릭을 쉽게 가져올 수 있습니다. 다음과 같은 쿼리를 고려해 보세요.
 
     SELECT TOP 10 * 
     FROM sys.resource_stats 
     WHERE database_name = 'todoitem_db' 
     ORDER BY start_time DESC
 
-> [AZURE.NOTE]이 쿼리는 서버의 **master** 데이터베이스에서 실행하세요. **sys.resource_stats** 뷰는 이 데이터베이스에서만 제공됩니다.
+> [AZURE.NOTE]이 쿼리는 서버의 **master** 데이터베이스에서 실행하세요. **sys.resource\_stats** 뷰는 이 데이터베이스에서만 제공됩니다.
 
 결과에는 다음과 같은 유용한 메트릭이 포함됩니다. CPU(계층 제한의 %), 저장소(MB), 물리적 데이터 읽기(계층 제한의 %), 로그 쓰기(계층 제한의 %), 메모리(계층 제한의 %), 작업자 수, 세션 수 등입니다.
 
 #### SQL 연결 이벤트
 
-**[sys.event_log](http://msdn.microsoft.com/library/azure/jj819229.aspx)** 뷰에는 연결 관련 이벤트에 대한 세부 정보가 포함됩니다.
+**[sys.event\_log](http://msdn.microsoft.com/library/azure/jj819229.aspx)** 뷰에는 연결 관련 이벤트에 대한 세부 정보가 포함됩니다.
 
     select * from sys.event_log 
     where database_name = 'todoitem_db'
     and event_type like 'throttling%'
     order by start_time desc
 
-> [AZURE.NOTE]이 쿼리는 서버의 **master** 데이터베이스에서 실행하세요. **sys.event_log** 뷰는 이 데이터베이스에서만 제공됩니다.
+> [AZURE.NOTE]이 쿼리는 서버의 **master** 데이터베이스에서 실행하세요. **sys.event\_log** 뷰는 이 데이터베이스에서만 제공됩니다.
 
 <a name="AdvancedIndexing" />
 ### 고급 인덱싱
@@ -296,7 +296,7 @@ Basic, Standard 및 Premium 계층을 사용 중인 경우 관리 포털에서 �
 
 실제 비유를 제공하려면 책이나 기술 매뉴얼을 고려해보세요. 각 페이지의 콘텐츠를 레코드라고 할 때 페이지 번호는 클러스터형 인덱스가 되고, 책 뒷면에 있는 색인은 비클러스터형 인덱스가 됩니다. 색인의 각 항목은 클러스터형 인덱스인 페이지 번호를 가리킵니다.
 
-> [AZURE.NOTE]기본적으로 Azure 모바일 서비스의 JavaScript 백 엔드는 **_createdAt**을 클러스터형 인덱스로 설정합니다. 이 열을 제거하거나 다른 클러스터형 인덱스를 원할 경우에는 아래의 [클러스터형 인덱스 디자인 지침](#ClusteredIndexes)을 따라야 합니다. .NET 백 엔드에서 `EntityData` 클래스는 `[Index(IsClustered = true)]` 주석을 사용하여 `CreatedAt`을(를) 클러스터형 인덱스로 정의합니다.
+> [AZURE.NOTE]기본적으로 Azure 모바일 서비스의 JavaScript 백 엔드는 **\_createdAt**을 클러스터형 인덱스로 설정합니다. 이 열을 제거하거나 다른 클러스터형 인덱스를 원할 경우에는 아래의 [클러스터형 인덱스 디자인 지침](#ClusteredIndexes)을 따라야 합니다. .NET 백 엔드에서 `EntityData` 클래스는 `[Index(IsClustered = true)]` 주석을 사용하여 `CreatedAt`을(를) 클러스터형 인덱스로 정의합니다.
 
 <a name="ClusteredIndexes"></a>
 #### 클러스터형 인덱스 디자인 지침
@@ -476,4 +476,4 @@ JavaScript 백 엔드의 경우, SQL Server Management Studio 또는 Azure SQL �
 [키 비용 확인]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

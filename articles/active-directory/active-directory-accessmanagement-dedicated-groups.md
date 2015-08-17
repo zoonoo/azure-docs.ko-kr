@@ -33,4 +33,4 @@ Azure Active Directory에서는 자동으로 전용 그룹이 생성되며 전�
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -53,7 +53,7 @@ Azure에는 관리자가 대부분의 Azure 기능(일부 기능 제외)에 액�
 
 ### Azure 가상 컴퓨터
 
-![Azure 가상 컴퓨터 ROBBCSIART_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *그림: Azure 가상 컴퓨터에서 클라우드의 가상 컴퓨터 인스턴스를 완벽하게 관리할 수 있습니다.*
+![Azure 가상 컴퓨터 ROBBCSIART\_TEST](./media/fundamentals-introduction-to-azure/mscsiart_VirtualMachinesIntroNew_12345.png) *그림: Azure 가상 컴퓨터에서 클라우드의 가상 컴퓨터 인스턴스를 완벽하게 관리할 수 있습니다.*
 
 표준 이미지 또는 사용자가 제공한 이미지를 사용하여 주문형 가상 컴퓨터를 만드는 기능은 매우 유용합니다. Azure 가상 컴퓨터에서는 일반적으로 IaaS(Infrastructure as a Service)로 알려진 이 방법을 제공합니다. 그림 2는 VM(가상 컴퓨터) 실행 방법과 VHD에서 가상 컴퓨터를 만드는 방법을 함께 보여 줍니다.
 
@@ -75,7 +75,7 @@ VHD를 어디에서 가져오더라도 VM을 실행하는 동안 지속적으로
 
 ### 웹앱
 
-![Azure 웹앱 ROBBCSIART_TEST](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png) *그림: Azure 웹앱에서는 기본 웹 서버를 관리하지 않으면서 클라우드에서 웹 사이트 응용 프로그램을 실행합니다.*
+![Azure 웹앱 ROBBCSIART\_TEST](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png) *그림: Azure 웹앱에서는 기본 웹 서버를 관리하지 않으면서 클라우드에서 웹 사이트 응용 프로그램을 실행합니다.*
 
 클라우드에서 실행하는 가장 일반적인 내용 중 하나는 웹 사이트와 웹 응용 프로그램을 실행하는 것입니다. Azure 가상 컴퓨터에서는 이러한 작업이 허용되지만, 여전히 담당자가 하나 이상의 VM과 기본 운영 체제를 관리해야 합니다. 클라우드 서비스 웹 역할이 이 작업을 수행할 수 있지만 이 역할을 배포하여 관리하는 것도 관리 작업입니다. 다른 사람이 관리를 해주는 웹 사이트를 원한다면 어떨까요?
 
@@ -179,9 +179,9 @@ Blob 저장소는 다른 많은 Azure 기능(가상 컴퓨터 포함)에 사용�
 
 
 ### 파일 서비스
-![Azure 파일 서비스](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *그림: Azure 파일 서비스는 클라우드에서 실행 중인 응용 프로그램에 대해 SMB \\server\share paths를 제공합니다.*
+![Azure 파일 서비스](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *그림: Azure 파일 서비스는 클라우드에서 실행 중인 응용 프로그램에 대해 SMB \\\\server\\share paths를 제공합니다.*
 
-온-프레미스에서는 \\Server\share 형식을 사용하여 SMB(서버 메시지 블록) 프로토콜을 통해 액세스 가능한 대량의 파일 저장소를 사용하는 것이 일반적입니다. 이제 Azure는 클라우드에서 이 프로토콜을 사용하도록 허용하는 서비스를 갖추었습니다. Azure에서 실행되는 응용 프로그램은 이 서비스를 통해 ReadFile 및 WriteFile과 같은 친숙한 파일 시스템을 사용하는 VM 간에 파일을 공유할 수 있습니다. 또한 REST 인터페이스를 통해 파일에 동시에 액세스할 수 있으므로, 가상 네트워크를 설치한 경우에도 온-프레미스에서 공유에 액세스할 수 있습니다. Azure 파일은 Blob 서비스를 기반으로 하므로, Azure 저장소에 기본 제공된 가용성, 영속성, 확장성 및 원자성, 일관성, 격리, 지리적 중복성을 동일하게 상속합니다.
+온-프레미스에서는 \\\\Server\\share 형식을 사용하여 SMB(서버 메시지 블록) 프로토콜을 통해 액세스 가능한 대량의 파일 저장소를 사용하는 것이 일반적입니다. 이제 Azure는 클라우드에서 이 프로토콜을 사용하도록 허용하는 서비스를 갖추었습니다. Azure에서 실행되는 응용 프로그램은 이 서비스를 통해 ReadFile 및 WriteFile과 같은 친숙한 파일 시스템을 사용하는 VM 간에 파일을 공유할 수 있습니다. 또한 REST 인터페이스를 통해 파일에 동시에 액세스할 수 있으므로, 가상 네트워크를 설치한 경우에도 온-프레미스에서 공유에 액세스할 수 있습니다. Azure 파일은 Blob 서비스를 기반으로 하므로, Azure 저장소에 기본 제공된 가용성, 영속성, 확장성 및 원자성, 일관성, 격리, 지리적 중복성을 동일하게 상속합니다.
 
 **Azure 파일에 대한 시나리오**
 
@@ -592,4 +592,4 @@ SendGrid는 메일을 보낼 수 있는 Azure 스토어의 응용 프로그램�
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

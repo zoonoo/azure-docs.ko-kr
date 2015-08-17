@@ -165,7 +165,7 @@ Azure 웹앱을 Azure CDN과 통합하는 경우 Azure CDN을 통해 컨트롤�
 
 위의 단계에 따라 이 컨트롤러 작업을 설정하려면 다음을 수행합니다.
 
-1. *\Controllers* 폴더에서 *MemeGeneratorController.cs*라는 새로운 .cs 파일을 만들고 내용을 다음 코드로 바꿉니다. 또한 강조 표시된 부분을 사용 중인 파일 경로 및 CDN 이름으로 바꿉니다.
+1. *\\Controllers* 폴더에서 *MemeGeneratorController.cs*라는 새로운 .cs 파일을 만들고 내용을 다음 코드로 바꿉니다. `~/Content/chuck.bmp`의 파일 경로와 `yourCDNName`의 CDN 이름을 대신합니다.
 	<pre class="prettyprint">
 using System;
 using System.Collections.Generic;
@@ -507,7 +507,7 @@ public static void RegisterBundles(BundleCollection bundles)
 
 4. *App_Start\StyleFundleExtensions.cs*에서 네임스페이스의 이름을 ASP.NET 응용 프로그램의 네임스페이스(예: **cdnwebapp**)로 바꿉니다.
 
-3. `App_Start\BundleConfig.cs` 파일로 돌아가 마지막 `bundles.Add` 문을 다음과 같은 강조 표시된 코드로 수정합니다.
+3. `App_Start\BundleConfig.cs`(으)로 돌아가서 아래와 같이 마지막 `bundles.Add`문을 수정합니다.
 	<pre class="prettyprint">
 bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
     <mark>.IncludeFallback("~/Content/css", "sr-only", "width", "1px")</mark>
@@ -574,4 +574,4 @@ bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"
 - [Azure에 CDN 사용](../cdn-how-to-use.md)
  
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -54,7 +54,7 @@ Azure 명령줄 도구가 개발 환경에 설치되어 있는 경우 다음 명
 
 	azure site restart [sitename]
 
-> [AZURE.NOTE]loggingEnabled 및 devErrorsEnabled가 진단 정보를 캡처하기 위해 가장 일반적으로 사용되는 IISNode.yml 구성 옵션이긴 하지만 IISNode.yml을 사용하여 호스팅 환경을 위한 다양한 옵션을 구성할 수 있습니다. 전체 구성 옵션 목록에 대해서는 [iisnode_schema.xml](https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml)(영문) 파일을 참조하십시오.
+> [AZURE.NOTE]loggingEnabled 및 devErrorsEnabled가 진단 정보를 캡처하기 위해 가장 일반적으로 사용되는 IISNode.yml 구성 옵션이긴 하지만 IISNode.yml을 사용하여 호스팅 환경을 위한 다양한 옵션을 구성할 수 있습니다. 전체 구성 옵션 목록에 대해서는 [iisnode\_schema.xml](https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml)(영문) 파일을 참조하십시오.
 
 <a id="viewlogs"></a>
 ## 로그 액세스
@@ -125,4 +125,4 @@ Node.js 버전의 응용 프로그램 지정에 대한 자세한 내용은 [Azur
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

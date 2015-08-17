@@ -400,4 +400,4 @@ Azure 테이블 저장소 및 MongoDB에 대한 자세한 정보:
 [Bottle 설명서]: http://bottlepy.org/docs/dev/index.html
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

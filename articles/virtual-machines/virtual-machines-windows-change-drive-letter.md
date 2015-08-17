@@ -64,4 +64,4 @@ D 드라이브에서 기존 데이터 디스크를 사용하려면 VHD를 저장
 
 [Storage]: ../storage-whatis-account.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

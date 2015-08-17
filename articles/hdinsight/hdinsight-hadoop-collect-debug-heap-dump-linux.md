@@ -41,7 +41,7 @@ HDInsight에서 실행하는 map 및 reduce프로세스에 힙 덤프를 사용�
 
 힙 덤프를 사용하려면 서비스를 시작할 때 JVM으로 옵션(opts 또는 매개 변수라고도 함)을 전달합니다. 대부분의 Hadoop 서비스는 서비스를 시작하는 데 사용되는 셸 스크립트를 수정하여 이 작업을 수행할 수 있습니다.
 
-각 스크립트에는 JVM으로 전달되는 옵션이 포함된 ***_OPTS**에 대한 내보내기가 있습니다. 예를 들어 **hadoop env.sh** 스크립트에는 `export HADOOP_NAMENODE_OPTS=`로 시작하는 줄에 NameNode 서비스에 대한 옵션이 포함되어 있습니다.
+각 스크립트에는 JVM으로 전달되는 옵션이 포함된 ***\_OPTS**에 대한 내보내기가 있습니다. 예를 들어 **hadoop env.sh** 스크립트에는 `export HADOOP_NAMENODE_OPTS=`로 시작하는 줄에 NameNode 서비스에 대한 옵션이 포함되어 있습니다.
 
 map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로세스이므로 서로 약간 다릅니다. 각 map 또는 reduce 프로세스는 자식 컨테이너에서 실행되며, 각각에 대한 JVM 옵션을 포함하는 두 가지 항목이 있습니다. **mapred-site.xml**에 포함된 두 항목은 다음과 같습니다.
 
@@ -96,9 +96,9 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
 
     ![필터링된 목록](./media/hdinsight-hadoop-heap-dump-linux/filter.png)
 
-4. 힙 덤프를 사용할 서비스에 대한 ***_OPTS** 항목을 찾아서 사용할 옵션을 추가합니다. 다음 그림에서는 **HADOOP_NAMENODE_OPTS** 항목에 `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/`를 추가했습니다.
+4. 힙 덤프를 사용할 서비스에 대한 ***\_OPTS** 항목을 찾아서 사용할 옵션을 추가합니다. 다음 그림에서는 **HADOOP\_NAMENODE\_OPTS** 항목에 `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/`를 추가했습니다.
 
-    ![-XX가 포함된 HADOOP_NAMENODE_OPTS:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
+    ![\-XX가 포함된 HADOOP\_NAMENODE\_OPTS:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
 
 	> [AZURE.NOTE]map 또는 reduce 자식 프로세스에 힙 덤프를 사용할 때는 대신 **mapreduce.admin.map.child.java.opts** 및 **mapreduce.admin.reduce.child.java.opts**라는 레이블이 지정된 필드를 찾습니다.
 
@@ -120,4 +120,4 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
 
 8. 서비스가 다시 시작되면 **Service Actions** 단추를 사용하여 **Turn Off Maintenance Mode**를 지정합니다. 그러면 Ambari에서 서비스에 대한 경고 모니터링을 재개합니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -64,11 +64,11 @@ Azure에서 Linux VM을 만들 때 도움이 필요하면 [Linux를 실행하는
 
 **업로드**
 
-스크립트를 *lamp_install.sh*와 같은 텍스트 파일로 저장한 다음 Azure 저장소에 업로드합니다. Azure CLI를 사용하면 이 작업을 쉽게 수행할 수 있습니다. 다음 예제에서는 "scripts"라는 저장소 컨테이너에 이 파일을 업로드합니다. 참고: 컨테이너가 없으면 먼저 만들어야 합니다.
+스크립트를 *lamp\_install.sh*와 같은 텍스트 파일로 저장한 다음 Azure 저장소에 업로드합니다. Azure CLI를 사용하면 이 작업을 쉽게 수행할 수 있습니다. 다음 예제에서는 "scripts"라는 저장소 컨테이너에 이 파일을 업로드합니다. 참고: 컨테이너가 없으면 먼저 만들어야 합니다.
 
     azure storage blob upload -a <yourStorageAccountName> -k <yourStorageKey> --container scripts ./install_lamp.sh
 
-또한 Azure 저장소에서 스크립트를 다운로드하는 방법을 설명하는 JSON 파일도 만듭니다. 이 파일을 *public_config.json*으로 저장하고, "mystorage"는 저장소 계정 이름으로 바꿉니다.
+또한 Azure 저장소에서 스크립트를 다운로드하는 방법을 설명하는 JSON 파일도 만듭니다. 이 파일을 *public\_config.json*으로 저장하고, "mystorage"는 저장소 계정 이름으로 바꿉니다.
 
     {"fileUris":["https://mystorage.blob.core.windows.net/scripts/install_lamp.sh"], "commandToExecute":"sh install_lamp.sh" }
 
@@ -79,7 +79,7 @@ Azure에서 Linux VM을 만들 때 도움이 필요하면 [Linux를 실행하는
 
     azure vm extension set -c "./public_config.json" lamp-vm CustomScriptForLinux Microsoft.OSTCExtensions 1.*
 
-*lamp-vm*이라는 VM에서 *lamp_install.sh* 스크립트를 다운로드하고 실행합니다.
+*lamp-vm*이라는 VM에서 *lamp\_install.sh* 스크립트를 다운로드하고 실행합니다.
 
 앱은 웹 서버를 포함하므로 원격 VM에서 HTTP 수신 대기 포트를 열어야 합니다.
 
@@ -92,7 +92,7 @@ Azure에서 Linux VM을 만들 때 도움이 필요하면 [Linux를 실행하는
     cd /var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.3.0.0/
     tail -f extension.log
 
-CustomScript 확장 실행이 완료되면 앞에서 만든 PHP 페이지를 찾아볼 수 있습니다. 이 예제에서 해당 페이지는 *http://lamp-vm.cloudapp.net/phpinfo.php*.입니다.
+CustomScript 확장 실행이 완료되면 앞에서 만든 PHP 페이지를 찾아볼 수 있습니다. 이 예제에서 해당 페이지는 **http://lamp-vm.cloudapp.net/phpinfo.php*입니다.
 
 ## 추가 리소스
 
@@ -107,4 +107,4 @@ CustomScript 확장 실행이 완료되면 앞에서 만든 PHP 페이지를 찾
 [Azure에서 Linux 및 오픈 소스 컴퓨팅](virtual-machines-linux-opensource.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

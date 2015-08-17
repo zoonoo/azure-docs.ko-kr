@@ -104,7 +104,7 @@ Azure PowerShell은 HDInsight에서 MapReduce 작업을 원격으로 실행할 �
 
 ##<a id="results"></a>작업 출력 보기
 
-MapReduce 작업은 작업 인수로 지정한 **wasb:///example/data/WordCountOutput** 경로의 Azure Blob 저장소에 작업 결과를 저장합니다. Azure Blob 저장소는 Azure PowerShell을 통해 액세스할 수 있지만 저장소 계정 이름, 키 및 파일에 직접 액세스하기 위해 HDInsight 클러스터에서 사용되는 컨테이너를 알고 있어야 합니다.
+MapReduce 작업은 작업 인수로 지정한 ****wasb:///example/data/WordCountOutput** 경로의 Azure Blob 저장소에 작업 결과를 저장합니다. Azure Blob 저장소는 Azure PowerShell을 통해 액세스할 수 있지만 저장소 계정 이름, 키 및 파일에 직접 액세스하기 위해 HDInsight 클러스터에서 사용되는 컨테이너를 알고 있어야 합니다.
 
 다행스럽게도 다음 Azure PowerShell cmdlet을 사용하여 이 정보를 얻을 수 있습니다.
 
@@ -113,7 +113,7 @@ MapReduce 작업은 작업 인수로 지정한 **wasb:///example/data/WordCountO
 * **Get-AzureStorageBlob**: 컨텍스트 개체 및 컨테이너 이름을 지정하면 컨테이너 내의 Blob 목록을 반환합니다.
 * **Get-AzureStorageBlobContent**: 컨텍스트 개체, 파일 경로 및 이름, 컨테이너 이름(**Get-AzureHDinsightCluster**에서 반환된 값)을 지정하면 Azure Blob 저장소에서 파일을 다운로드합니다.
 
-다음 예에서는 저장소 정보를 검색한 다음 **wasb:///example/data/WordCountOutput**에서 출력을 다운로드합니다. **CLUSTERNAME**을 HDInsight 클러스터의 이름으로 바꿉니다.
+다음 예에서는 저장소 정보를 검색한 다음 ****wasb:///example/data/WordCountOutput**에서 출력을 다운로드합니다. **CLUSTERNAME**을 HDInsight 클러스터의 이름으로 바꿉니다.
 
 		#Login to your Azure subscription
 		# Is there an active Azure subscription?
@@ -173,4 +173,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 
 * [HDInsight에서 Hadoop과 Pig 사용](hdinsight-use-pig.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

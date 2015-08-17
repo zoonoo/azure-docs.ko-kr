@@ -89,7 +89,7 @@ CHAP는 StorSimple 장치에서 원격 클라이언트의 ID를 확인하는데 
 > [AZURE.IMPORTANT]
 > 
 > * CHAP 사용자 이름은 233 미만의 문자를 포함해야 합니다.
-> * CHAP 암호는 12 ~ 16 자 사이여야 합니다. 더 긴 사용자 이름이나 암호를 사용하려고 하면 Windows 호스트에서 인증 오류가 발생합니다.
+> * CHAP 암호는 12 \~ 16 자 사이여야 합니다. 더 긴 사용자 이름이나 암호를 사용하려고 하면 Windows 호스트에서 인증 오류가 발생합니다.
 > * CHAP 초기자와 CHAP 대상 모두에 대해 동일한 암호를 사용할 수 없습니다.
 > * 암호를 설정한 후 변경할 수 있지만 검색할 수 없습니다. 암호가 변경되는 경우 StorSimple 장치에 연결할 수 있도록 모든 원격 액세스 사용자에게 알려야 합니다.
 
@@ -99,7 +99,7 @@ StorSimple 스냅숏 관리자는 볼륨 그룹 및 Windows 볼륨 섀도 복사
 
 StorSimple 스냅숏 관리자를 사용하여 장치를 구성할 때 StorSimple 스냅숏 관리자 암호를 제공해야 합니다. 이 암호는 등록 중 StorSimple에 대한 Windows PowerShell에서 먼저 설정됩니다. StorSimple Manager 서비스에서 암호를 설정하고 변경할 수도 있습니다. 이 암호는 StorSimple 스냅숏 관리자 장치를 인증합니다.
 
-> [AZURE.IMPORTANT]<ul><li>이 암호는 14 ~ 15 자여야 하며 3 개 이상의 대문자, 소문자, 숫자 및 특수 문자의 조합이 포함되어야 합니다.</li><li>StorSimple 스냅숏 관리자 암호를 설정한 후 변경 될 수 있지만 검색할 수 없습니다. 암호를 변경하는 경우에 모든 원격 사용자에게 알려야 합니다.</li></ul>
+> [AZURE.IMPORTANT]<ul><li>이 암호는 14 \~ 15 자여야 하며 3 개 이상의 대문자, 소문자, 숫자 및 특수 문자의 조합이 포함되어야 합니다.</li><li>StorSimple 스냅숏 관리자 암호를 설정한 후 변경 될 수 있지만 검색할 수 없습니다. 암호를 변경하는 경우에 모든 원격 사용자에게 알려야 합니다.</li></ul>
 
 
 ### 암호 모범 사례
@@ -246,4 +246,4 @@ StorSimple는 StorSimple 솔루션의 구성 요소 간 이동되는 또는 저�
 [물리적 장치 시작](https://msdn.microsoft.com/library/azure/dn772410.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

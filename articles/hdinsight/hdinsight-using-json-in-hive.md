@@ -81,7 +81,7 @@ HDInsight에서 Hive를 사용하여 JSON 파일을 분석하고 처리하는 �
 	
 	SELECT * FROM StudentsOneLine
 
-원시 JSON 파일은 **wasb://processjson@hditutorialdata.blob.core.windows.net/**에 있습니다. *StudentsRaw* Hive 테이블은 평면화되지 않은 JSON 문서를 가리킵니다.
+원시 JSON 파일은 ****wasb://processjson@hditutorialdata.blob.core.windows.net/**에 있습니다. *StudentsRaw* Hive 테이블은 평면화되지 않은 JSON 문서를 가리킵니다.
 
 *StudentsOneLine* Hive 테이블은 HDInsight 기본 파일 시스템에서 데이터를 */json/students/* 경로에 저장합니다.
 
@@ -100,10 +100,10 @@ SELECT 문의 출력은 다음과 같습니다.
 - GET\_JSON\_OBJECT UDF(사용자 정의 함수) 사용
 - JSON\_TUPLE UDF 사용
 - 사용자 지정 SerDe 사용
-- Python 또는 기타 언어를 사용하여 자체 UDF를 작성합니다. Hive에서의 Python 실행은 [이 문서][hdinsight-python]를 참조하세요. 
+- Python 또는 기타 언어를 사용하여 자체 UDF를 작성합니다. Hive에서 Python 실행에 대한 자세한 내용은 [이 문서][hdinsight-python]를 참조하세요. 
 
 ### GET\_JSON\_OBJECT UDF 사용
-Hive는 런타임에 JSON 쿼리를 수행할 수 있는 [get\_json\_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object)라는 기본 제공 UDF를 제공합니다. 이 메서드에는 두 개의 인수, 즉 평면화된 JSON 문서와 구문 분석해야 하는 JSON 필드가 있는 테이블 이름 및 메서드 이름이 사용됩니다. 이 UDF의 작동 방식에 대한 예를 살펴보겠습니다.
+Hive는 런타임에 JSON 쿼리를 수행할 수 있는 [get json object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object)라는 기본 제공 UDF를 제공합니다. 이 메서드에는 두 개의 인수, 즉 평면화된 JSON 문서와 구문 분석해야 하는 JSON 필드가 있는 테이블 이름 및 메서드 이름이 사용됩니다. 이 UDF의 작동 방식에 대한 예를 살펴보겠습니다.
 
 학생의 이름 및 성 가져오기
 
@@ -126,7 +126,7 @@ get-json\_object UDF에는 몇 가지 제한 사항이 있습니다.
 
 ### JSON\_TUPLE UDF 사용
 
-Hive에서 제공하는 다른 UDF는 [get\_ json _개체](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object)보다 성능이 뛰어난 [json\_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple)입니다. 이 메서드는 키 집합 및 JSON 문자열을 사용하며, 하나의 함수를 통해 값의 튜플을 반환합니다. 다음 쿼리는 JSON 문서에서 학생 ID와 등급을 반환합니다.
+Hive에서 제공하는 다른 UDF는 [get\_ json \_object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object)보다 성능이 뛰어난 [json\_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple)입니다. 이 메서드는 키 집합 및 JSON 문자열을 사용하며, 하나의 함수를 통해 값의 튜플을 반환합니다. 다음 쿼리는 JSON 문서에서 학생 ID와 등급을 반환합니다.
 
     SELECT q1.StudentId, q1.Grade 
       FROM StudentsOneLine jt
@@ -261,4 +261,4 @@ JSON 문서의 성적 합계를 계산하려면
 [image-hdi-hivejson-serde_result]: ./media/hdinsight-using-json-in-hive/serde_result.png
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

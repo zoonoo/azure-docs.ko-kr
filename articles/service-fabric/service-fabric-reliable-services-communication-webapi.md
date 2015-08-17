@@ -449,7 +449,7 @@ protected override ICommunicationListener CreateCommunicationListener()
 
 ```
 
-이는 Web API *응용 프로그램* 및 OWIN *호스트*가 마침내 만나는 곳입니다. *호스트*(\*\*OwinCommunicationListener\*\*)에는 (**Startup**을 통해 Web API) *응용 프로그램* 인스턴스가 지정되고, 서비스 패브릭이 수명 주기를 관리합니다. 일반적으로 모든 통신 스택 뒤에 이와 동일한 패턴이 올 수 있습니다.
+이는 Web API *응용 프로그램* 및 OWIN *호스트*가 마침내 만나는 곳입니다. *호스트*(**OwinCommunicationListener**)에는 (**Startup**을 통해 Web API) *응용 프로그램* 인스턴스가 지정되고, 서비스 패브릭이 수명 주기를 관리합니다. 일반적으로 모든 통신 스택 뒤에 이와 동일한 패턴이 올 수 있습니다.
 
 ## 모든 항목 요약
 
@@ -570,7 +570,7 @@ namespace WebApi
 아직 하지 않았다면 [개발 환경을 설정](service-fabric-get-started.md)합니다.
 
 
-이제 서비스를 빌드하고 배포할 수 있습니다. Visual Studio에서 **F5** 키를 눌러 응용 프로그램을 빌드하고 배포합니다. 진단 이벤트 창에 웹 서버가 **http://localhost:80/api**에 열렸음을 나타내는 메시지가 표시됩니다.
+이제 서비스를 빌드하고 배포할 수 있습니다. Visual Studio에서 **F5** 키를 눌러 응용 프로그램을 빌드하고 배포합니다. 진단 이벤트 창에 웹 서버가 ****http://localhost:80/api**에 열렸음을 나타내는 메시지가 표시됩니다.
 
 
 ![](media/service-fabric-reliable-services-communication-webapi/webapi-diagnostics.png)
@@ -614,4 +614,4 @@ ASP.NET 5에서 웹 응용 프로그램의 *호스트*와 *응용 프로그램*�
 
 [Visual Studio에서 서비스 패브릭 응용 프로그램 디버깅](service-fabric-debugging-your-application.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

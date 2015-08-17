@@ -310,7 +310,7 @@ Azure에서 디스크를 생성하는 경우 용량, 성능, 확장성 및 최�
 	<td></td> <td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 필수 </a></td> </tr> <tr> <td>7.1</td> <td>3.10.0-229.1.2.el7</td> <td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 권장 </a></td> </tr>
 
 <tr>
-	<td rowspan="2"><strong>Oracle</strong></td>
+	<td rowspan="2"><link id="138" refid="139" url="virtual-machines-oracle-azure-virtual-machines.md">Oracle</link></td>
 	<td>6.4</td>
 	<td></td>
 	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 필수 </a></td>
@@ -321,6 +321,16 @@ Azure에서 디스크를 생성하는 경우 용량, 성능, 확장성 및 최�
 	<td>세부 정보는 지원에 문의</td>
 </tr>
 </tbody> </table>
+
+
+### Openlogic CentOS용 LIS 드라이버
+
+OpenLogic CentOS VM을 실행하는 고객은 다음 명령을 실행하여 최신 드라이버를 설치해야 합니다.
+
+	sudo yum install microsoft-hyper-v
+
+새 드라이버를 활성화하려면 다시 부팅해야 합니다.
+
 
 
 ## 프리미엄 저장소 사용 시 가격 책정 및 청구
@@ -436,4 +446,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

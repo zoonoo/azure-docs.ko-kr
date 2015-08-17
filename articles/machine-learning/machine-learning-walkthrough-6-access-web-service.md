@@ -42,4 +42,4 @@ API 도움말 페이지에는 R, C# 및 Python 프로그래밍 언어에 대한 
 
 웹 서비스 액세스 및 사용 방법에 대한 자세한 내용은 [컴퓨터 학습 실험에서 게시된 Azure 컴퓨터 학습 웹 서비스 사용 방법](machine-learning-consume-web-services.md)을 참조하세요.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

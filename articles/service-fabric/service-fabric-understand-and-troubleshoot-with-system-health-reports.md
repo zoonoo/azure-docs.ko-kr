@@ -74,7 +74,7 @@ HealthEvents          :
 
 
 ### 인증서가 만료
-System.FabricNode는 노드에 의해 사용되는 인증서가 만료가 가까워질 경우 경고를 보고합니다. 노드당 다음 3가지 인증서가 있습니다. Certificate_cluster, Certificate_server 및 Certificate_default_client. 만료 최소 2주 전에는 보고서 유형이 OK입니다. 만료가 2주 이내일 때는 보고서 유형이 경고입니다. 이러한 이벤트의 TTL은 무한대이며, 노드가 클러스터를 벗어나면 제거됩니다
+System.FabricNode는 노드에 의해 사용되는 인증서가 만료가 가까워질 경우 경고를 보고합니다. 노드당 다음 3가지 인증서가 있습니다. Certificate\_cluster, Certificate\_server 및 Certificate\_default\_client. 만료 최소 2주 전에는 보고서 유형이 OK입니다. 만료가 2주 이내일 때는 보고서 유형이 경고입니다. 이러한 이벤트의 TTL은 무한대이며, 노드가 클러스터를 벗어나면 제거됩니다
 
 - SourceId: System.FabricNode
 - 속성: "인증서"로 시작하고 인증서 종류에 대한 자세한 정보를 포함합니다.
@@ -530,4 +530,4 @@ System.Hosting은 업그레이드 중에 유효성 검사에 실패하거나 노
 [서비스 패브릭 응용프로그램 업그레이드](service-fabric-application-upgrade.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

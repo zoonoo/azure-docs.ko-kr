@@ -12,8 +12,8 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.topic="get-started-article" 
+	ms.date="07/30/2015" 
 	ms.author="glenga"/>
 
   
@@ -107,15 +107,9 @@
 
 	이제 서비스는 SQL Server 데이터베이스에 새 연결을 사용합니다.
  
-##데이터베이스 연결을 로컬로 테스트
-
-Azure에 게시하고 하이브리드 연결을 사용하기 전에 로컬로 실행할 때 데이터베이스 연결이 작동하는지 확인하는 것이 좋습니다. 이렇게 하면 하이브리드 연결 사용을 게시하고 시작하기 전에 연결 문제를 보다 쉽게 진단하고 수정할 수 있습니다.
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service-api-documentation](../../includes/app-service-mobile-dotnet-backend-test-local-service-api-documentation.md)]
-
 ## 온-프레미스 연결 문자열을 사용하도록 Azure 업데이트
 
-이제 데이터베이스 연결을 확인하고 새 연결 문자열에 대한 앱 설정을 추가하여 Azure에서 사용합니다.
+그 다음, 새 연결 문자열에 대한 앱 설정을 추가하여 Azure에서 사용합니다.
 
 1. 모바일 앱에 대한 웹앱 백 엔드 코드의 [Azure 포털]로 돌아가서 **모든 설정** 그런 다음 **응용 프로그램 설정**을 클릭합니다. 
 
@@ -168,4 +162,4 @@ Azure에 게시하고 하이브리드 연결을 사용하기 전에 로컬로 �
 [Get started with Mobile Services]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

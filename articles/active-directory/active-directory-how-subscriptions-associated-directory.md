@@ -12,7 +12,7 @@
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="05/05/2015" 
 	ms.author="Justinha"/>
 
@@ -126,4 +126,4 @@ Azure에 등록하기 전에 Office 365에 등록했다고 가정해 보겠습�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

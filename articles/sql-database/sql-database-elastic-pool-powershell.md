@@ -59,7 +59,7 @@ SQL 데이터베이스 및 탄력적 데이터베이스 풀을 만들고 관리�
 
 ### Azure 구독 선택
 
-구독을 선택하려면 구독 ID 또는 구독 이름(\*\*-SubscriptionName\*\*)이 필요합니다. 이는 이전 단계에서 복사하거나, 또는 구독이 여러 개일 경우 **Get-AzureSubscription** cmdlet을 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다. 구독을 설정한 후 다음 cmdlet을 실행합니다.
+구독을 선택하려면 구독 ID 또는 구독 이름(**-SubscriptionName**)이 필요합니다. 이는 이전 단계에서 복사하거나, 또는 구독이 여러 개일 경우 **Get-AzureSubscription** cmdlet을 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다. 구독을 설정한 후 다음 cmdlet을 실행합니다.
 
 	Select-AzureSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
@@ -116,7 +116,7 @@ SQL 데이터베이스 및 탄력적 데이터베이스 풀을 만들고 관리�
 
 ### 기존 데이터베이스를 탄력적 데이터베이스 풀 내로 이동
 
-기존 데이터베이스를 풀 내로 이동하려면 **Set-AzurSqlDatabase** cmdlet을 사용하고 **ElasticPoolName** 매개 변수를 설정합니다.
+기존 데이터베이스를 풀로 이동하려면 **Set-AzurSqlDatabase** cmdlet을 사용하고 **ElasticPoolName** 매개 변수를 설정합니다.
 
 
 데모 목적으로 탄력적 데이터베이스 풀에 포함되지 않은 데이터베이스를 만듭니다.
@@ -234,4 +234,4 @@ CSV 파일로 내보내기:
 
 API 및 오류 세부 정보를 포함하여 탄력적 데이터베이스 및 탄력적 데이터베이스 풀에 대한 자세한 내용은 [탄력적 데이터베이스 참조](sql-database-elastic-pool-reference.md)를 참조하세요.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

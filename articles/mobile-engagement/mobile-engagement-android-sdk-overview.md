@@ -35,7 +35,7 @@ Android 앱에서 Azure Mobile Engagement를 통합하는 방법에 대한 모�
 
 ##릴리스 정보
 
-###4.0.0(07/06/2015)
+###4\.0.0(07/06/2015)
 
 -   내부 프로토콜이 분석을 수행하고 더 안정적으로 푸시하도록 변경됩니다.
 -   네이티브 푸시(GCM/ADM)가 이제 앱 알림에도 사용되므로 모든 푸시 캠페인 유형에 대한 네이티브 푸시 자격 증명을 구성해야 합니다.
@@ -55,7 +55,7 @@ Android 앱에서 Azure Mobile Engagement를 통합하는 방법에 대한 모�
 
 업그레이드를 수행하려는 소스 버전이 무엇이든, `mobile-engagement-VERSION.jar`을 새로운 파일로 바꾸세요.
 
-###3.0.0에서 4.0.0으로
+###3\.0.0에서 4.0.0으로
 
 #### 네이티브 푸시
 
@@ -118,4 +118,4 @@ Android 앱에서 Azure Mobile Engagement를 통합하는 방법에 대한 모�
 
 새 `res/layout/engagement_loading.xml` 파일을 프로젝트에 포함합니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

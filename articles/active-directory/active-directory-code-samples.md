@@ -1,22 +1,22 @@
-<properties 
-   pageTitle="Azure Active Directory 코드 샘플" 
-   description="시나리오별로 구성된 Azure Active Directory 코드 샘플의 인덱스입니다." 
-   services="active-directory" 
-   documentationCenter="dev-center-name" 
-   authors="msmbaldwin" 
-   manager="mbaldwin" 
+<properties
+   pageTitle="Azure Active Directory 코드 샘플"
+   description="시나리오별로 구성된 Azure Active Directory 코드 샘플의 인덱스입니다."
+   services="active-directory"
+   documentationCenter="dev-center-name"
+   authors="msmbaldwin"
+   manager="mbaldwin"
    editor=""/>
 
 <tags
-   ms.service="azure"
+   ms.service="active-directory"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="identity" 
-   ms.date="04/06/2015"
+   ms.workload="identity"
+   ms.date="07/30/2015"
    ms.author="mbaldwin"/>
 
-# Azure Active Directory 코드 샘플 
+# Azure Active Directory 코드 샘플
 
 [AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
 
@@ -26,7 +26,7 @@ Microsoft Azure AD(Azure Active Directory)를 사용하여 웹 응용 프로그�
 
 GitHub에서 샘플에 참가: [Microsoft Azure Active Directory 샘플 및 설명서](https://github.com/AzureADSamples).
 
-## 웹 브라우저-웹 응용 프로그램 
+## 웹 브라우저-웹 응용 프로그램
 
 다음 샘플에서는 사용자의 브라우저가 사용자를 Azure AD에 로그인하도록 지시하는 웹 응용 프로그램을 작성하는 방법을 보여 줍니다.
 
@@ -53,9 +53,9 @@ GitHub에서 샘플에 참가: [Microsoft Azure Active Directory 샘플 및 설�
 
 
 ## 네이티브 응용 프로그램-Web API
- 
+
 다음 코드 샘플에서는 Azure AD로 보안이 설정된 Web API를 호출하는 네이티브 클라이언트 응용 프로그램을 빌드하는 방법을 보여 줍니다. [Azure ADAL(AD 인증 라이브러리)](http://go.microsoft.com/fwlink/?LinkID=258232) 및 [Azure AD의 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)이 사용됩니다.
- 
+
 | 언어/플랫폼 | 샘플 | 설명
 | ----------------- | ------ | -----------
 | JavaScript | [NativeClient-MultiTarget-Cordova](https://github.com/AzureADSamples/NativeClient-MultiTarget-Cordova) | 웹 API를 호출하고 인증을 위해 Azure AD를 사용하는 Apache Cordova 앱을 빌드하는 데 Apache Cordova용 ADAL 플러그인을 사용합니다.
@@ -71,7 +71,7 @@ GitHub에서 샘플에 참가: [Microsoft Azure Active Directory 샘플 및 설�
 | C#/Xamarin | [NativeClient-MultiTarget-DotNet](http://github.com/AzureADSamples/NativeClient-MultiTarget-DotNet) | 5개의 플랫폼을 대상으로 하며 Azure AD로 보안되는 웹 API를 호출하는 Xamarin 프로젝트입니다.
 | C#/.NET | [NativeClient-Headless-DotNet](http://github.com/AzureADSamples/NativeClient-Headless-DotNet) | 비대화형 인증을 수행하고 Azure AD로 보안되는 웹 API를 호출하는 네이티브 응용 프로그램입니다.
 
-   
+
 
 ## 웹 응용 프로그램-Web API
 
@@ -150,9 +150,4 @@ PHP | [Azure AD Graph API용 PHP 샘플 앱](http://code.msdn.microsoft.com/PHP-
 
 [OAuth 및 Active Directory Federation Services를 사용하여 최신 응용 프로그램 개발](http://msdn.microsoft.com/library/dn633593.aspx)
 
-
-
-
- 
-
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

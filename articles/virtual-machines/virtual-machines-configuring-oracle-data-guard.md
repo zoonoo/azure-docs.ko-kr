@@ -1,19 +1,5 @@
-<properties 
-	pageTitle="Azure용 Oracle Data Guard 구성하기" 
-	description="고가용성 및 재해복구에 대한 Azure 가상 컴퓨터의 Oracle Data Guard 설치 및 구현을 단계별로 설명합니다." 
-	services="virtual-machines" 
-	authors="bbenz" 
-	documentationCenter=""/>
-
-<tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="infrastructure-services" 
-	ms.date="06/22/2015" 
-	ms.author="bbenz" />
-
+<properties title="Configuring Oracle Data Guard for Azure" pageTitle="Azure용 Oracle Data Guard 구성하기" description="고가용성 및 재해복구에 대한 Azure 가상 컴퓨터의 Oracle Data Guard 설치 및 구현을 단계별로 설명합니다." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Azure용 Oracle Data Guard 구성하기
 이 자습서에서는 고가용성 및 재해 복구를 위해 Azure 가상 컴퓨터 환경에서 Oracle Data Guard를 설정 및 구현하는 방법에 대해 설명합니다. 이 자습서에서는 비 RAC Oracle 데이터베이스에 대한 단방향 복제에 초점을 맞춥니다.
 
@@ -29,9 +15,9 @@ Oracle Data Guard는 Oracle 데이터베이스에 대한 데이터 보호 및 �
 
 - Azure 포털에서 기본 VM은 “Machine1”, 대기 VM은 “Machine2”로 가상 컴퓨터 이름을 설정했습니다.
 
-- `C:\OracleDatabase\product\11.2.0\dbhome_1\database`와(과) 같이 기본 및 대기 가상 컴퓨터에서 동일한 Oracle 루트 설치 경로를 가리키도록 **ORACLE_HOME** 환경 변수를 설정했습니다.
+- `C:\OracleDatabase\product\11.2.0\dbhome_1\database`와(과) 같이 기본 및 대기 가상 컴퓨터에서 동일한 Oracle 루트 설치 경로를 가리키도록 **ORACLE\_HOME** 환경 변수를 설정했습니다.
 
-- **관리자** 그룹의 구성원 또는 **ORA_DBA** 그룹의 구성원으로 Windows 서버에 로그온합니다.
+- **관리자** 그룹의 구성원 또는 **ORA\_DBA** 그룹의 구성원으로 Windows 서버에 로그온합니다.
 
 이 자습서에서는 다음을 수행합니다.
 
@@ -78,14 +64,14 @@ Oracle Data Guard는 Oracle 데이터베이스에 대한 데이터 보호 및 �
 >| **Oracle 릴리스** | Oracle11g Enterprise 릴리스(11.2.0.4.0) | Oracle11g Enterprise 릴리스(11.2.0.4.0) |
 >| **컴퓨터 이름** | Machine1 | Machine2 |
 >| **운영 체제** | Windows 2008 R2 | Windows 2008 R2 |
->| **Oracle SID** | 테스트 | TEST_STBY |
+>| **Oracle SID** | 테스트 | TEST\_STBY |
 >| **메모리** | 최소 2GB | 최소 2GB |
 >| **디스크 공간** | 최소 5GB | 최소 5GB |
 
 Oracle 데이터베이스 및 Oracle Data Guard의 후속 릴리스에서 구현하는 데 필요한 일부 추가 변경 내용이 있을 수 있습니다. 최신 버전 특정 정보는 Oracle 웹 사이트에서 [Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) 및 [Oracle 데이터베이스](http://www.oracle.com/us/corporate/features/database-12c/index.html) 설명서를 참조하세요.
 
 ##실제 대기 데이터베이스 환경 구현
-### 1. 주 데이터베이스 만들기
+### 1\. 주 데이터베이스 만들기
 
 - 기본 가상 컴퓨터에서 주 데이터베이스 “테스트”를 만듭니다. 자세한 내용은 Oracle 데이터베이스 만들기 및 구성을 참조하세요.
 - SQL*Plus 명령 프롬프트에서 SYSDBA 역할이 있는 SYS 사용자로 데이터베이스에 연결하고 다음 문을 실행하여 데이터베이스의 이름을 봅니다.
@@ -97,7 +83,7 @@ Oracle 데이터베이스 및 Oracle Data Guard의 후속 릴리스에서 구현
 		NAME
 		---------
 		TEST
-- 그런 다음 dba_data_files 시스템 뷰에서 데이터베이스 파일의 이름을 쿼리합니다.
+- 그런 다음 dba\_data\_files 시스템 뷰에서 데이터베이스 파일의 이름을 쿼리합니다.
 
 		SQL> select file_name from dba_data_files; 
 		FILE_NAME 
@@ -108,7 +94,7 @@ Oracle 데이터베이스 및 Oracle Data Guard의 후속 릴리스에서 구현
 		C:<YourLocalFolder>\TEST\SYSTEM01.DBF
 		C:<YourLocalFolder>\TEST\EXAMPLE01.DBF
 
-### 2. 대기 데이터베이스를 만들기 위한 주 데이터베이스 준비
+### 2\. 대기 데이터베이스를 만들기 위한 주 데이터베이스 준비
 
 대기 데이터베이스를 만들기 전에 주 데이터베이스가 제대로 구성되었는지 확인하는 것이 좋습니다. 다음은 수행에 필요한 단계 목록입니다.
 
@@ -132,9 +118,9 @@ Oracle 데이터베이스 및 Oracle Data Guard의 후속 릴리스에서 구현
 
 >[AZURE.IMPORTANT]Oracle 데이터베이스 12c 사용 시 Oracle Data Guard를 관리하는 데 사용할 수 있는 새 사용자 **SYSDG**가 있습니다. 자세한 내용은 [Oracle 데이터베이스 12c 릴리스의 변경 내용](http://docs.oracle.com/cd/E16655_01/server.121/e10638/release_changes.htm)을 참조하세요.
 
-또한 ORACLE_HOME 환경이 Machine1에 이미 정의되어 있어야 합니다. 그렇지 않은 경우 환경 변수 대화 상자를 사용하여 환경 변수로 이를 정의해야 합니다. 이 대화 상자에 액세스하려면 **제어판**에서 시스템 아이콘을 두 번 클릭하여 **시스템** 유틸리티를 시작한 다음 **고급** 탭을 클릭하고 **환경 변수**를 선택합니다. **시스템 변수**에서 **새로 만들기** 단추를 클릭하여 환경 변수를 설정합니다. 환경 변수를 설정한 후 기존 Windows 명령 프롬프트를 닫고 새 프롬프트를 엽니다.
+또한 ORACLE\_HOME 환경이 Machine1에 이미 정의되어 있어야 합니다. 그렇지 않은 경우 환경 변수 대화 상자를 사용하여 환경 변수로 이를 정의해야 합니다. 이 대화 상자에 액세스하려면 **제어판**에서 시스템 아이콘을 두 번 클릭하여 **시스템** 유틸리티를 시작한 다음 **고급** 탭을 클릭하고 **환경 변수**를 선택합니다. **시스템 변수**에서 **새로 만들기** 단추를 클릭하여 환경 변수를 설정합니다. 환경 변수를 설정한 후 기존 Windows 명령 프롬프트를 닫고 새 프롬프트를 엽니다.
 
-C:\OracleDatabase\product\11.2.0\dbhome_1\database 같은 Oracle_Home 디렉터리로 전환하려면 다음 문을 실행합니다.
+C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\database 같은 Oracle\_Home 디렉터리로 전환하려면 다음 문을 실행합니다.
 
 	cd %ORACLE_HOME%\database
 
@@ -142,7 +128,7 @@ C:\OracleDatabase\product\11.2.0\dbhome_1\database 같은 Oracle_Home 디렉터�
 
 	ORAPWD FILE=PWDTEST.ora PASSWORD=password FORCE=y
 
-이 명령은 ORACLE_HOME\database 디렉터리에 PWDTEST.ora라는 암호 파일을 만듭니다. 이 파일을 Machine2의 %ORACLE_HOME%\database 디렉터리에 수동으로 복사해야 합니다.
+이 명령은 ORACLE\_HOME\\database 디렉터리에 PWDTEST.ora라는 암호 파일을 만듭니다. 이 파일을 Machine2의 %ORACLE\_HOME%\\database 디렉터리에 수동으로 복사해야 합니다.
 
 #### 대기 다시 실행 로그 구성
 
@@ -237,7 +223,7 @@ INIT.ORA 파일의 매개 변수를 사용하여 Data Guard 환경을 제어할 
 	SQL> create pfile from spfile;
 	File created.
 
-다음으로 대기 매개 변수를 추가하려면 pfile을 편집해야 합니다. 이를 위해서 %ORACLE_HOME%\database의 해당 위치에서 INITTEST.ORA를 엽니다. 다음으로 INITTEST.ora 파일에 다음 문을 추가합니다. INIT.ORA 파일에 대한 명명 규칙은 INIT<YourDatabaseName>.ORA입니다.
+다음으로 대기 매개 변수를 추가하려면 pfile을 편집해야 합니다. 이를 위해서 %ORACLE\_HOME%\\database의 해당 위치에서 INITTEST.ORA를 엽니다. 다음으로 INITTEST.ora 파일에 다음 문을 추가합니다. INIT.ORA 파일에 대한 명명 규칙은 INIT<YourDatabaseName>.ORA입니다.
 	
 	db_name='TEST' 
 	db_unique_name='TEST' 
@@ -258,7 +244,7 @@ INIT.ORA 파일의 매개 변수를 사용하여 Data Guard 환경을 제어할 
 	# ---------------------------------------------------------------------------------------------
 
 
-이전 문 블록은 다음과 같이 세 가지 중요한 설치 항목을 포함합니다. - **LOG_ARCHIVE_CONFIG...:** 이 문을 사용하여 고유한 데이터베이스 ID를 정의합니다. - **LOG_ARCHIVE_DEST_1...:** 이 문을 사용하여 로컬 보관 폴더 위치를 정의합니다. 데이터베이스의 보관 요구를 위해 새 디렉터리를 만들고 Oracle의 기본 폴더인 %ORACLE_HOME%\database\archive를 사용하기 보다는 이 문을 명시적으로 사용하여 로컬 보관 위치를 지정하는 것이 좋습니다. - **LOG_ARCHIVE_DEST_2 .... LGWR ASYNC...:** LGWR(비동기 로그 기록기 프로세스)를 정의하여 트랜잭션 다시 실행 데이터를 수집하고 이를 대기 대상으로 전송합니다. 여기서는 DB_UNIQUE_NAME이 대상 대기 서버에서 데이터베이스의 고유한 이름을 지정합니다.
+이전 문 블록은 다음과 같이 세 가지 중요한 설치 항목을 포함합니다. - **LOG\_ARCHIVE\_CONFIG...:** 이 문을 사용하여 고유한 데이터베이스 ID를 정의합니다. - **LOG\_ARCHIVE\_DEST\_1...:** 이 문을 사용하여 로컬 보관 폴더 위치를 정의합니다. 데이터베이스의 보관 요구를 위해 새 디렉터리를 만들고 Oracle의 기본 폴더인 %ORACLE\_HOME%\\database\\archive를 사용하기 보다는 이 문을 명시적으로 사용하여 로컬 보관 위치를 지정하는 것이 좋습니다. - **LOG\_ARCHIVE\_DEST\_2 .... LGWR ASYNC...:** LGWR(비동기 로그 기록기 프로세스)를 정의하여 트랜잭션 다시 실행 데이터를 수집하고 이를 대기 대상으로 전송합니다. 여기서는 DB\_UNIQUE\_NAME이 대상 대기 서버에서 데이터베이스의 고유한 이름을 지정합니다.
 
 새 매개 변수 파일이 준비되면 spfile을 만들어야 합니다.
 
@@ -284,7 +270,7 @@ INIT.ORA 파일의 매개 변수를 사용하여 Data Guard 환경을 제어할 
 
 이제는 spfile을 만듭니다.
 
-	SQL>create spfile frompfile='c:\OracleDatabase\product\11.2.0\dbhome_1\database\initTEST.ora';
+	SQL>create spfile frompfile='c:\OracleDatabase\product\11.2.0\dbhome\_1\database\initTEST.ora';
 
 	File created.
 
@@ -311,7 +297,7 @@ INIT.ORA 파일의 매개 변수를 사용하여 Data Guard 환경을 제어할 
 
 먼저, Azure 포털을 통해 Machine2에 원격 데스크톱이 필요합니다.
 
-그런 다음 대기 서버(Machine2)에서 C:\<YourLocalFolder>\TEST와 같이 대기 데이터베이스에 필요한 모든 폴더를 만듭니다. 이 자습서를 수행하는 동안 controlfile, datafiles, redologfiles, udump, bdump 및 cdump 파일과 같이 필요한 모든 파일을 유지하기 위해 해당 폴더 구조와 Machine1의 폴더 구조가 일치해야 합니다. 또한 Machine2에서 ORACLE_HOME 및 ORACLE_BASE 환경 변수를 정의합니다. 그렇지 않은 경우 환경 변수 대화 상자를 사용하여 이를 환경 변수로 정의합니다. 이 대화 상자에 액세스하려면 **제어판**에서 시스템 아이콘을 두 번 클릭하여 **시스템** 유틸리티를 시작한 다음 **고급** 탭을 클릭하고 **환경 변수**를 선택합니다. **시스템 변수**에서 **새로 만들기** 단추를 클릭하여 환경 변수를 설정합니다. 환경 변수를 설정한 후 변경 내용을 보기 위해 기존 Windows 명령 프롬프트를 닫고 새 프롬프트를 열어야 합니다.
+그런 다음 대기 서버(Machine2)에서 C:\\<YourLocalFolder>\\TEST와 같이 대기 데이터베이스에 필요한 모든 폴더를 만듭니다. 이 자습서를 수행하는 동안 controlfile, datafiles, redologfiles, udump, bdump 및 cdump 파일과 같이 필요한 모든 파일을 유지하기 위해 해당 폴더 구조와 Machine1의 폴더 구조가 일치해야 합니다. 또한 Machine2에서 ORACLE\_HOME 및 ORACLE\_BASE 환경 변수를 정의합니다. 그렇지 않은 경우 환경 변수 대화 상자를 사용하여 이를 환경 변수로 정의합니다. 이 대화 상자에 액세스하려면 **제어판**에서 시스템 아이콘을 두 번 클릭하여 **시스템** 유틸리티를 시작한 다음 **고급** 탭을 클릭하고 **환경 변수**를 선택합니다. **시스템 변수**에서 **새로 만들기** 단추를 클릭하여 환경 변수를 설정합니다. 환경 변수를 설정한 후 변경 내용을 보기 위해 기존 Windows 명령 프롬프트를 닫고 새 프롬프트를 열어야 합니다.
 
 이어서 다음 단계를 수행합니다.
 
@@ -333,9 +319,9 @@ INIT.ORA 파일의 매개 변수를 사용하여 Data Guard 환경을 제어할 
 
 6. 실제 대기 데이터베이스 확인
 
-### 1. 대기 데이터베이스에 대한 초기화 매개 변수 파일 준비
+### 1\. 대기 데이터베이스에 대한 초기화 매개 변수 파일 준비
 
-이 섹션에서는 대기 데이터베이스에 대한 초기화 매개 변수 파일을 준비하는 방법을 설명합니다. 이를 위해서는 먼저 Machine1에서 Machine2로 INITTEST.ORA 파일을 수동으로 복사합니다. 두 컴퓨터에서 모두 %ORACLE_HOME%\database 폴더의 INITTEST.ORA 파일을 볼 수 있어야 합니다. 그런 다음 아래 지정된 대로 대기 역할 설정을 위해 Machine2에서 INITTEST.ORA 파일을 수정합니다.
+이 섹션에서는 대기 데이터베이스에 대한 초기화 매개 변수 파일을 준비하는 방법을 설명합니다. 이를 위해서는 먼저 Machine1에서 Machine2로 INITTEST.ORA 파일을 수동으로 복사합니다. 두 컴퓨터에서 모두 %ORACLE\_HOME%\\database 폴더의 INITTEST.ORA 파일을 볼 수 있어야 합니다. 그런 다음 아래 지정된 대로 대기 역할 설정을 위해 Machine2에서 INITTEST.ORA 파일을 수정합니다.
 	
 	db_name='TEST'
 	db_unique_name='TEST_STBY'
@@ -356,21 +342,21 @@ INIT.ORA 파일의 매개 변수를 사용하여 Data Guard 환경을 제어할 
 
 이전 문 블록은 다음과 같이 중요한 두 가지 설정 항목을 포함합니다.
 
--	***.LOG_ARCHIVE_DEST_1:** Machine2에 c:\OracleDatabase\TEST_STBY\archives 폴더를 수동으로 만들어야 합니다.
--	***.LOG_ARCHIVE_DEST_2:** 이 단계는 선택 사항입니다. 주 컴퓨터가 유지 관리 중이고 대기 컴퓨터가 주 데이터베이스가 될 때 필요할 수 있기 때문에 이 단계를 설정합니다.
+-	***.LOG\_ARCHIVE\_DEST\_1:** Machine2에 c:\\OracleDatabase\\TEST\_STBY\\archives 폴더를 수동으로 만들어야 합니다.
+-	***.LOG\_ARCHIVE\_DEST\_2:** 이 단계는 선택 사항입니다. 주 컴퓨터가 유지 관리 중이고 대기 컴퓨터가 주 데이터베이스가 될 때 필요할 수 있기 때문에 이 단계를 설정합니다.
 
 그런 다음 대기 인스턴스를 시작해야 합니다. 대기 데이터베이스 서버에서 새 Windows 서비스를 만들어 Oracle 인스턴스를 만들기 위해 Windows 명령 프롬프트에서 다음 명령을 입력합니다.
 
-	oradim -NEW -SID TEST_STBY -STARTMODE MANUAL
+	oradim -NEW -SID TEST\_STBY -STARTMODE MANUAL
 
-**Oradim** 명령은 Oracle 인스턴스를 만들지만 시작하지는 않습니다. C:\OracleDatabase\product\11.2.0\dbhome_1\BIN 디렉터리에서 찾을 수 있습니다.
+**Oradim** 명령은 Oracle 인스턴스를 만들지만 시작하지는 않습니다. C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\BIN 디렉터리에서 찾을 수 있습니다.
 
 ##주 및 대기 컴퓨터에서 데이터베이스를 지원하기 위해 수신기 및 tnsnames 구성
 대기 데이터베이스를 만들기 전에 구성에서 주 및 대기 데이터베이스가 서로 통신할 수 있는지 확인해야 합니다. 이렇게 하려면 수동으로 또는 네트워크 구성 유틸리티 NETCA를 사용하여 수신기와 TNSNames를 모두 구성해야 합니다. 이는 RMAN(복구 관리자 유틸리티)를 사용할 때 필수 작업입니다.
 
 ### 두 데이터베이스 모두에 대한 항목을 보유하도록 두 서버에 모두 listener.ora 구성
 
-Machine1에 원격 데스크톱을 설정하고 아래 지정된 대로 listener.ora 파일을 편집합니다. listener.ora 파일을 편집할 때에는 항상 여는 괄호와 닫는 괄호가 항상 동일한 열에 배열되도록 합니다. c:\OracleDatabase\product\11.2.0\dbhome_1\NETWORK\ADMIN\ 폴더에서 listener.ora 파일을 찾을 수 있습니다.
+Machine1에 원격 데스크톱을 설정하고 아래 지정된 대로 listener.ora 파일을 편집합니다. listener.ora 파일을 편집할 때에는 항상 여는 괄호와 닫는 괄호가 항상 동일한 열에 배열되도록 합니다. c:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\NETWORK\\ADMIN\\ 폴더에서 listener.ora 파일을 찾을 수 있습니다.
 
 	# listener.ora Network Configuration File: C:\OracleDatabase\product\11.2.0\dbhome_1\network\admin\listener.ora
 	
@@ -394,7 +380,7 @@ Machine1에 원격 데스크톱을 설정하고 아래 지정된 대로 listener
 	    )
 	  )
 
-이어서 Machine2에 원격 데스크톱을 설정하고 다음과 같이 listener.ora 파일을 편집합니다. # listener.ora Network Configuration File: C:\OracleDatabase\product\11.2.0\dbhome_1\network\admin\listener.ora
+이어서 Machine2에 원격 데스크톱을 설정하고 다음과 같이 listener.ora 파일을 편집합니다. # listener.ora Network Configuration File: C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\network\\admin\\listener.ora
 	
 	# Generated by Oracle configuration tools.
 	
@@ -419,7 +405,7 @@ Machine1에 원격 데스크톱을 설정하고 아래 지정된 대로 listener
 
 ### 주 및 대기 데이터베이스에 대한 항목을 보유하는 주 및 대기 가상 컴퓨터에서 tnsnames.ora 구성
 
-Machine1에 원격 데스크톱을 설정하고 아래 지정된 대로 tnsnames.ora 파일을 편집합니다. c:\OracleDatabase\product\11.2.0\dbhome_1\NETWORK\ADMIN\ 폴더에서 tnsnames.ora 파일을 찾을 수 있습니다.
+Machine1에 원격 데스크톱을 설정하고 아래 지정된 대로 tnsnames.ora 파일을 편집합니다. c:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\NETWORK\\ADMIN\\ 폴더에서 tnsnames.ora 파일을 찾을 수 있습니다.
 
 	TEST =
 	  (DESCRIPTION =
@@ -621,4 +607,4 @@ SQL*PLUS 명령 프롬프트 창을 열고 기본 컴퓨터(Machine1)에서 logf
 ##추가 리소스
 [Azure용 Oracle 가상 컴퓨터 이미지](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/22/2015"
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # 내 프로젝트에서 무엇이 변경되었습니까?
 
@@ -59,11 +59,13 @@ Azure AD 인증에 대한 시작 논리가 포함된 인증 시작 클래스 **A
 
 ###app.config 또는 web.config 파일에 새 구성 값이 추가됨
 
-다음 구성 항목이 추가되었습니다. <pre> `<appSettings>
+다음 구성 항목이 추가되었습니다. ```
+	`<appSettings>
     		<add key="ida:ClientId" value="ClientId from the new Azure AD App" />
     		<add key="ida:Tenant" value="Your selected Azure AD Tenant" />
     		<add key="ida:Audience" value="The App ID Uri from the wizard" />
-	</appSettings>` </pre>
+	</appSettings>` 
+```
 
 ###Azure AD 앱이 만들어짐
 
@@ -101,13 +103,17 @@ NuGet 패키지 참조가 제거되고 파일이 제거 및 백업되었습니�
 
 ###app.config 또는 web.config에 변경 내용 추가됨
 
-다음 추가 구성 항목이 추가되었습니다. <pre> `<appSettings>
+다음 추가 구성 항목이 추가되었습니다.
+
+```
+	`<appSettings>
 	    <add key="ida:Password" value="Your Azure AD App's new password" />
-	</appSettings>` </pre>
+	</appSettings>` 
+```
 
 ###Azure Active Directory 앱이 업데이트됨
 Azure Active Directory 앱이 *디렉터리 데이터 읽기* 권한을 포함하도록 업데이트되었으며, 추가 키가 생성되어 `web.config` 파일에서 *ida:Password*로 사용되었습니다.
 
 [Azure Active Directory에 대한 자세한 정보](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

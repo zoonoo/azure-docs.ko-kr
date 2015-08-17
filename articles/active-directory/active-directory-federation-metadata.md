@@ -39,7 +39,7 @@ Azure AD는 페더레이션 메타데이터를 *https://login.windows.net/<Tenan
 
 **테넌트 독립적 끝점**의 경우 <TenantDomainName>은 **일반**입니다. 이 이름은 login.windows.net에서 호스팅되는 모든 Azure AD 테넌트에 공통된 페더레이션 메타데이터 요소만을 나타냅니다.
 
-예를 들어, 테넌트별 끝점은 *https://login.windows.net/contoso.onmicrosoft.comFederationMetadata/2007-06/FederationMetadata.xml*일 수 있습니다. 테넌트 독립적 끝점은 *https://login.windows.net/common/FederationMetadata/2007-06/FederationMetadata.xml*입니다.
+예를 들어, 테넌트별 끝점은 **https://login.windows.net/contoso.onmicrosoft.comFederationMetadata/2007-06/FederationMetadata.xml*일 수 있습니다. 테넌트 독립적 끝점은 **https://login.windows.net/common/FederationMetadata/2007-06/FederationMetadata.xml*입니다.
 
 ## 페더레이션 메타데이터의 내용
 
@@ -149,4 +149,4 @@ SAML 관련 섹션에서 WS-Federation 메타 데이터 판독기는 **IDPSSODes
 
 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

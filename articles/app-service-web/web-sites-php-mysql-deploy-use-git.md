@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="08/03/2015"
 	ms.author="tomfitz"/>
 
 #Azure 웹 앱 서비스에서 PHP-MySQL 웹 앱 만들기 및 Git를 사용하여 배포
@@ -41,17 +41,11 @@
 웹 앱 및 MySQL 데이터베이스를 만들려면 다음 단계를 따르세요.
 
 1. [Azure 포털][management-portal]에 로그인합니다.
-2. 포털의 왼쪽 아래에서 **새로 만들기** 아이콘을 클릭합니다.
-
-	![새 Azure 웹앱 만들기][new-website]
+2. **새로 만들기** 아이콘을 클릭합니다.
 
 3. **웹 + 모바일**, **Azure 마켓플레이스**를 차례로 클릭합니다.
 
-	![새 웹앱 사용자 지정 만들기][custom-create]
-
 4. **웹앱**, **웹앱 + MySQL**을 클릭합니다. 그런 다음에 **만들기**를 클릭합니다.
-
-	![](./media/web-sites-php-mysql-deploy-use-git/create_marketplace.png)
 
 4. 리소스 그룹의 올바른 이름을 입력합니다.
 
@@ -66,8 +60,6 @@
 	![새 MySQL 데이터베이스 만들기][new-mysql-db]
 
 7. 웹 앱이 만들어지면 새 리소스 그룹이 보입니다. 웹 앱의 이름을 클릭하여 해당 설정을 구성합니다.
-
-	![웹앱을 엽니다.][go-to-webapp]
 
 7. **연속 배포 설정**을 클릭합니다.
 
@@ -210,7 +202,7 @@
 		</body>
 		</html>
 
-이제 **http://localhost/registration/index.php**로 이동하여 응용 프로그램을 테스트할 수 있습니다.
+이제 ****http://localhost/registration/index.php**(으)로 이동하여 응용 프로그램을 테스트할 수 있습니다.
 
 
 ##응용 프로그램 게시
@@ -296,4 +288,4 @@
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

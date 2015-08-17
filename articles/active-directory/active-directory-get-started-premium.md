@@ -12,7 +12,7 @@
 	ms.workload="infrastructure-services" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="05/05/2015" 
 	ms.author="Justinha"/>
 
@@ -124,4 +124,4 @@ Microsoft 클라우드 서비스의 서비스 및 기능에 대한 가용성은 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

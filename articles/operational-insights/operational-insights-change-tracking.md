@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # 변경 내용 추적으로 차이를 식별합니다.
@@ -25,7 +25,7 @@ Microsoft Azure Operational Insights에서 구성 변경 내용 추적 솔루션
 
 ## 변경 내용 추적 사용
 
-Operational Insights의 변경 내용 추적을 사용하려면 솔루션이 설치되어 있어야 합니다. 솔루션 설치에 대해 더 알려면 [솔루션 갤러리를 사용하여 솔루션 추가 및 제거](operational-insights-add-solution.md)를 참조하십시오.
+Operational Insights의 변경 내용 추적을 사용하려면 솔루션이 설치되어 있어야 합니다. 솔루션 설치에 대해 더 알려면 [솔루션 갤러리를 사용하여 솔루션 추가 및 제거](operational-insights-setup-workspace.md)를 참조하세요.
 
 설치된 후, Operational Insights의 **개요** 페이지에 있는 **변경 내용 추적** 타일을 사용하여 모니터링되는 서버에 대한 변경 내용 요약을 볼 수 있습니다.
 
@@ -54,4 +54,4 @@ Operational Insights의 변경 내용 추적을 사용하려면 솔루션이 설
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

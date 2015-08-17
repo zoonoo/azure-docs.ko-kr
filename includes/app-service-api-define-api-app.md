@@ -71,7 +71,7 @@
 
 **참고:** API 앱을 *공용(익명)*으로 Swagger UI를 사용 가능하도록 배포하는 경우 누구든지 API를 검색하고 호출하는 Swagger UI를 사용할 수 있습니다.
 
-1. *App_Start/SwaggerConfig.cs* 파일을 열고 **EnableSwaggerUI**를 검색합니다.
+1. *App\_Start/SwaggerConfig.cs* 파일을 열고 **EnableSwaggerUI**를 검색합니다.
 
 	![](./media/app-service-api-define-api-app/12-enable-swagger-ui-with-box.png)
 
@@ -97,4 +97,4 @@ API 테스트 페이지를 보려면 다음 단계를 수행합니다.
 
 	![](./media/app-service-api-define-api-app/15-swagger-ui-post-test.png)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

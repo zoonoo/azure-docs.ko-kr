@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.date="08/04/2015" 
 	ms.author="sidneyh"/>
 
 # 탄력적 데이터베이스 클라이언트 라이브러리에 대한 자격 증명 관리
@@ -60,4 +60,4 @@
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

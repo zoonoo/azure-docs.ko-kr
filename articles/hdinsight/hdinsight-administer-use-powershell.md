@@ -279,4 +279,4 @@ Hive 사용에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용][hdin
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

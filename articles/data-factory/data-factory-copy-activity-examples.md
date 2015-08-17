@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="08/03/2015" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리에서 복사 작업을 사용하는 예제
@@ -40,6 +40,7 @@
 	        "connectionString": "Data Source=<servername>;Initial Catalog=<database>;Integrated Security=False;User ID=<username>;Password=<password>;",
 	        "gatewayName": "mygateway"
 	    }
+	  }
 	}
 
 다음 사항에 유의하세요.
@@ -60,6 +61,7 @@
 	        "type": "AzureStorageLinkedService",
 	        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>" "
 	    }
+	  }
 	}
 
 다음 사항에 유의하세요.
@@ -72,7 +74,7 @@ Azure 저장소 연결된 서비스를 정의하는 JSON 요소에 대한 자세
 ### 입력 테이블 JSON
 다음 JSON 스크립트는 **MyOnPremisesSQLDB** 연결 서비스에 정의된 온-프레미스 SQL Server 데이터베이스에서 **MyTable** SQL 테이블을 참조하는 입력 테이블을 정의합니다. **name**은 Azure 데이터 팩터리 테이블의 이름이고 **tableName**은 SQL Server 데이터베이스에 있는 SQL 테이블의 이름입니다.
 
-         
+	         
 	{
 		"name": "MyOnPremTable",
     	"properties":
@@ -97,7 +99,7 @@ Azure 저장소 연결된 서비스를 정의하는 JSON 요소에 대한 자세
 - **tableName**을 원본 데이터가 들어 있는 **MyTable**로 설정합니다. 
 - **linkedServiceName**을 온-프레미스 SQL 데이터베이스에 대해 만든 연결된 서비스인 **MyOnPremisesSQLDB**로 설정합니다.
 
-SQL Server 테이블을 참조하는 데이터 팩터리 테이블을 정의하는 JSON 요소에 대한 자세한 내용은 [온-프레미스 SQL 위치 속성](https://msdn.microsoft.com/library/dn894089.aspx#OnPremSQL)을 참조하세요.
+SQL Server 테이블을 참조하는 데이터 팩터리 테이블을 정의하는 JSON 요소에 대한 자세한 내용은 [온-프레미스 SQL 형식 속성](https://msdn.microsoft.com/library/mt185722.aspx#OnPremSQL)을 참조하세요.
 
 ### 출력 테이블 JSON
 다음 JSON 스크립트는 Blob 폴더 **MySubFolder** 및 Blob 컨테이너 **MyContainer**의 Azure Blob **MyBlob**을 참조하는 **MyAzureBlob**이라는 출력 테이블을 정의합니다.
@@ -136,7 +138,7 @@ SQL Server 테이블을 참조하는 데이터 팩터리 테이블을 정의하�
 - **fileName**을 출력 데이터를 보유하는 Blob인 **MyBlob**으로 설정합니다.
 - **linkedServiceName**을 Azure 저장소에 대해 만든 연결된 서비스인 **MyAzureStorge**로 설정합니다.    
 
-Azure Blob을 참조하는 데이터 팩터리 테이블을 정의하는 JSON 요소에 대한 자세한 내용은 [Azure Blob 위치 속성](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob)을 참조하세요.
+Azure Blob을 참조하는 데이터 팩터리 테이블을 정의하는 JSON 요소에 대한 자세한 내용은 [Azure Blob 형식 속성](https://msdn.microsoft.com/library/mt185722.aspx#AzureBlob)을 참조하세요.
 
 ### 파이프라인(복사 작업 포함) JSON
 이 예제에서는 **CopyActivityPipeline** 파이프라인을 다음 속성으로 정의합니다.
@@ -177,7 +179,7 @@ Azure Blob을 참조하는 데이터 팩터리 테이블을 정의하는 JSON �
     		}
 		}
 
-데이터 팩터리 파이프라인을 정의하는 JSON 요소에 대한 자세한 내용은 [파이프라인 JSON 참조](https://msdn.microsoft.com/library/dn834988.aspx)를 참조하고, SqlSource의 속성(예: 예제의 **sqlReaderQuery**) 및 BlobSink에 대해서는 [지원되는 원본 및 싱크](https://msdn.microsoft.com/library/dn894007.aspx)를 참조하세요.
+데이터 팩터리 파이프라인을 정의하는 JSON 요소에 대한 자세한 내용은 [파이프라인 JSON 참조](https://msdn.microsoft.com/library/dn834988.aspx)를 참조하고, SqlSource의 속성(예: 예제의 **sqlReaderQuery **) 및 BlobSink에 대한 자세한 내용은 [지원되는 원본 및 싱크](https://msdn.microsoft.com/library/dn894007.aspx)를 참조하세요.
 
 
 ## 온-프레미스 파일 시스템에서 Azure Blob으로 데이터 복사
@@ -186,11 +188,11 @@ Azure Blob을 참조하는 데이터 팩터리 테이블을 정의하는 JSON �
 ### 가정
 이 예제에서는 다음을 가정합니다.
 
-- **Host** - 파일 시스템을 호스트하는 서버의 이름(**\contoso**)입니다.
-- **Folder** - 입력 파일이 들어 있는 폴더의 이름(**marketingcampaign\regionaldata\{slice})입니다. 여기서 파일은 2014121112(2014년, 12월, 11일, 12시)와 같이 {slice}라는 폴더에 분할됩니다. 
+- **Host** - 파일 시스템을 호스트하는 서버의 이름(**\\contoso**)입니다.
+- **Folder** - 입력 파일이 들어 있는 폴더의 이름: **marketingcampaign\\regionaldata\\{slice}. 여기서 파일은 2014121112(2014년, 12월, 11일, 12시)와 같이 {slice}라는 폴더에 분할됩니다.
 
 ### 온-프레미스 파일 시스템 연결된 서비스 만들기
-다음 샘플 JSON을 사용하여 **FolderDataStore**라는 **OnPremisesFileSystemLinkedService** 형식의 연결된 서비스를 만들 수 있습니다.
+다음 샘플 JSON을 사용하여 **FolderDataStore**라는 **OnPremisesFileServer** 형식의 연결된 서비스를 만들 수 있습니다.
 
 	{
 	    "name": "FolderDataStore",
@@ -201,6 +203,7 @@ Azure Blob을 참조하는 데이터 팩터리 테이블을 정의하는 JSON �
 	        "password": "password",
 	        "gatewayName": "ContosoGateway"
 	    }
+	  }
 	}
 
 > [AZURE.NOTE]JSON 파일의 호스트 및 폴더 이름에는 이스케이프 문자 ''를 사용해야 합니다. **\Contoso**의 경우 **\\Contoso**를 사용합니다.
@@ -243,7 +246,7 @@ Azure 저장소 연결된 서비스를 정의하는 JSON 요소에 대한 자세
 	    }
 	}
 
-온-프레미스 파일 시스템을 참조하는 데이터 팩터리 테이블을 정의하는 JSON 요소에 대한 자세한 내용은 [온-프레미스 파일 시스템 위치 속성](https://msdn.microsoft.com/library/dn894089.aspx#OnPremFileSystem)을 참조하세요.
+온-프레미스 파일 시스템을 참조하는 데이터 팩터리 테이블을 정의하는 JSON 요소에 대한 자세한 내용은 [온-프레미스 파일 시스템 형식 속성](https://msdn.microsoft.com/library/mt185722.aspx#OnPremFileSystem)을 참조하세요.
 
 ### 출력 테이블 만들기
 다음 JSON 스크립트는 Blob 폴더 **MySubFolder** 및 Blob 컨테이너 **MyContainer**의 Azure Blob **MyBlob**을 참조하는 **AzureBlobDest**라는 출력 테이블을 정의합니다.
@@ -275,7 +278,7 @@ Azure 저장소 연결된 서비스를 정의하는 JSON 요소에 대한 자세
    		}
 	}
 
-Azure Blob을 참조하는 데이터 팩터리 테이블을 정의하는 JSON 요소에 대한 자세한 내용은 [Azure Blob 위치 속성](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob)을 참조하세요.
+Azure Blob을 참조하는 데이터 팩터리 테이블을 정의하는 JSON 요소에 대한 자세한 내용은 [Azure Blob 형식 속성](https://msdn.microsoft.com/library/mt185722.aspx#AzureBlob)을 참조하세요.
 
 ### 파이프라인 만들기
 다음 파이프라인 JSON은 온-프레미스 파일 시스템에서 대상 Azure Blob으로 데이터를 복사하는 복사 작업이 있는 파이프라인을 정의합니다.
@@ -412,7 +415,7 @@ Azure 저장소 연결된 서비스를 정의하는 JSON 요소에 대한 자세
 	    }
 	} 
 
-온-프레미스 Oracle 데이터베이스의 테이블을 참조하는 데이터 팩터리 테이블을 정의하는 JSON 요소에 대한 자세한 내용은 [온-프레미스 Oracle 위치 속성](https://msdn.microsoft.com/library/dn894089.aspx#Oracle)을 참조하세요.
+온-프레미스 Oracle 데이터베이스의 테이블을 참조하는 데이터 팩터리 테이블을 정의하는 JSON 요소에 대한 자세한 내용은 [온-프레미스 Oracle 형식 속성](https://msdn.microsoft.com/library/mt185722.aspx#Oracle)을 참조하세요.
 
 ### 출력 테이블 만들기
 다음 JSON 스크립트는 Blob 폴더 **MySubFolder** 및 Blob 컨테이너 **MyContainer**의 Azure Blob **MyBlob**을 참조하는 **MyAzureBlob**이라는 출력 테이블을 정의합니다.
@@ -444,7 +447,7 @@ Azure 저장소 연결된 서비스를 정의하는 JSON 요소에 대한 자세
    		}
 	}
 
-Azure Blob을 참조하는 데이터 팩터리 테이블을 정의하는 JSON 요소에 대한 자세한 내용은 [Azure Blob 위치 속성](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob)을 참조하세요.
+Azure Blob을 참조하는 데이터 팩터리 테이블을 정의하는 JSON 요소에 대한 자세한 내용은 [Azure Blob 형식 속성](https://msdn.microsoft.com/library/mt185722.aspx#AzureBlob)을 참조하세요.
 
 ### 파이프라인 만들기
 다음 샘플 파이프라인에는 Oracle 데이터베이스 테이블에서 Azure 저장소 Blob으로 데이터를 복사하는 복사 작업이 있습니다.
@@ -492,4 +495,4 @@ Azure Blob을 참조하는 데이터 팩터리 테이블을 정의하는 JSON �
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

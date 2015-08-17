@@ -63,7 +63,7 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 
 	 ![Jupyter 노트북 작업의 상태](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Jupyter.Job.Status.png "Jupyter 노트북 작업의 상태")
 
-4. 샘플 데이터를 임시 테이블에 로드합니다. HDInsight에서 Spark 클러스터를 프로비전하면 샘플 데이터 파일인 **hvac.csv**가 **\HdiSamples\SensorSampleData\hvac** 아래 연결된 저장소 계정에 복사됩니다.
+4. 샘플 데이터를 임시 테이블에 로드합니다. HDInsight에서 Spark 클러스터를 프로비전하면 샘플 데이터 파일인 **hvac.csv**가 **\\HdiSamples\\SensorSampleData\\hvac** 아래 연결된 저장소 계정에 복사됩니다.
 
 	빈 셀에서 다음 코드 조각을 붙여넣고 **SHIFT + ENTER**를 누릅니다. 이 코드 조각은 **hvac**라는 하이브 테이블에 데이터로 등록됩니다.
 
@@ -205,4 +205,4 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

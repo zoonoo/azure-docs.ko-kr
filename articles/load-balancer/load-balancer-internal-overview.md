@@ -92,4 +92,4 @@ LOB에 대한 다른 시나리오는 ILB 끝점이 구성된 가상 네트워크
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

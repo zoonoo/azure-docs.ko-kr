@@ -64,7 +64,7 @@
 
 	![Azure AD Single Sign-On 선택][7]
 
-	> [AZURE.NOTE]다른 Single Sign-On 옵션에 대해 자세히 알아보려면 [여기를 클릭](https://msdn.microsoft.com/library/azure/dn308588.aspx)하세요.
+	> [AZURE.NOTE]다른 Single Sign-On 옵션에 대해 자세히 알아보려면 [여기를 클릭](../active-directory-appssoaccess-whatis/#how-does-single-sign-on-with-azure-active-directory-work)하세요.
 
 3. **앱 설정 구성** 페이지에서 **로그온 URL** 필드에 다음 형식으로 Google Apps 테넌트 URL을 입력합니다.`https://mail.google.com/a/<yourdomain>`
 
@@ -212,11 +212,7 @@
 
 4. Single Sign-On 설정을 테스트하려면 [https://myapps.microsoft.com](https://myapps.microsoft.com/)에서 액세스 패널을 연 다음 테스트 계정에 로그인하고 **Google Apps**를 클릭합니다.
 
-##참고 항목
-
-- [SaaS 응용 프로그램 통합 자습서 목록](active-directory-saas-tutorial-list.md)
-- [Azure AD에서 응용 프로그램 액세스](https://msdn.microsoft.com/library/azure/dn308590.aspx)
-- [액세스 패널 소개](https://msdn.microsoft.com/library/azure/dn308586.aspx)
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
 [0]: ./media/active-directory-saas-google-apps-tutorial/azure-active-directory.png
 [1]: ./media/active-directory-saas-google-apps-tutorial/applications-tab.png
@@ -250,4 +246,4 @@
 [29]: ./media/active-directory-saas-google-apps-tutorial/assign-users.png
 [30]: ./media/active-directory-saas-google-apps-tutorial/assign-confirm.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

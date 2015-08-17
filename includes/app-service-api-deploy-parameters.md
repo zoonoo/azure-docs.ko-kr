@@ -20,7 +20,7 @@ Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 �
 
 ### apiAppSecret
 
-API 앱에 대한 암호입니다. 이 값은 base64로 인코딩된 문자열이어야 합니다.
+API 앱에 대한 암호입니다. 이 값은 base64로 인코딩된 문자열이어야 합니다. 64자 길이의 임의 문자열로, 정수 및 소문자로만 구성되어야 합니다.
 
     "apiAppSecret": {
       "type": "securestring"
@@ -28,10 +28,10 @@ API 앱에 대한 암호입니다. 이 값은 base64로 인코딩된 문자열�
 
 ### location
 
-새 API 앱에 대한 위치입니다.
+새 API 앱에 대한 위치입니다. PowerShell 명령 `Get-AzureLocation` 또는 Azure CLI 명령 `azure location list`을 실행하여 유효한 위치를 가져올 수 있습니다.
 
     "location": {
       "type": "string"
     }
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

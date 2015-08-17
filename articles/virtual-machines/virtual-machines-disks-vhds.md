@@ -65,4 +65,4 @@ Windows VM의 경우:
 -  [Windows 가상 컴퓨터를 캡쳐](virtual-machines-capture-image-windows-server.md)
 -  [디스크를 분리](storage-windows-detach-disk.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

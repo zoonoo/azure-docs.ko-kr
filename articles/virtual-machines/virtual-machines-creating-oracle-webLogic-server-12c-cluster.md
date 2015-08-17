@@ -1,4 +1,4 @@
-<properties pageTitle="Azure에서 Oracle WebLogic Server 12c 클러스터 만들기" description="Microsoft Azure에서 Oracle WebLogic Server 12c 클러스터를 만드는 예제를 단계별로 설명합니다." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<properties title="Creating an Oracle WebLogic Server 12c cluster in Azure" pageTitle="Azure에서 Oracle WebLogic Server 12c 클러스터 만들기" description="Microsoft Azure에서 Oracle WebLogic Server 12c 클러스터를 만드는 예제를 단계별로 설명합니다." services="virtual-machines" authors="bbenz" documentationCenter=""/>
 <tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Azure에서 Oracle WebLogic Server 12c 클러스터 만들기
 다음 예제에서는 Windows Server 2012에서 실행되는 Microsoft에서 제공한 Oracle WebLogic Server 12c 이미지에 따라 Azure에서 Oracle WebLogic Server 클러스터를 만드는 방법을 보여줍니다.
@@ -99,7 +99,7 @@ Azure에서 사용할 수 있는 Oracle WebLogic Server 12c 이미지를 사용�
 
 	2. **새 서버 만들기** 대화 상자에서 다음을 수행합니다.
 
-		1. **서버 이름**에 첫 번째 관리되는 서버의 이름을 입력합니다. 예를 들면 \*\*MYVM2-MANAGED\*\*입니다.
+		1. **서버 이름**에 첫 번째 관리되는 서버의 이름을 입력합니다. 예를 들면 **MYVM2-MANAGED**입니다.
 
 		2. **서버 수신 대기 주소**에 이름을 다시 입력합니다.
 
@@ -177,26 +177,27 @@ Azure에서 사용할 수 있는 Oracle WebLogic Server 12c 이미지를 사용�
 
 	6. 명령 프롬프트 현재 디렉터리를 **C:\\Oracle\\Middleware\\Oracle\_Home\\user\_projects\\domains\\base\_domain\\bin**으로 변경합니다.
 
-	7. start<< \* MACHINENAME \* >>.cmd를 실행합니다. 여기서 << \* MACHINENAME \* >> 관리되는 컴퓨터의 이름입니다. 예를 들어 **startMYVM2-MANAGED**입니다.
+	7. start<<*MACHINENAME*>>.cmd를 실행합니다. 여기서 <<*MACHINENAME*>>은 관리되는 컴퓨터의 이름입니다. 예를 들어 **startMYVM2-MANAGED**입니다.
 
 	8. 메시지가 표시되면 WebLogic Server 사용자 이름과 암호를 제공합니다.
 
 	9. 7008 포트에 대한 방화벽을 통해 인바운드 연결을 허용합니다. 관리 서버에서 포트 7001를 여는 데 사용되는 단계를 수행하지만 관리되는 서버에 7008를 대신 사용합니다.
 
-15. 관리 가상 컴퓨터에서 **WebLogic Server 관리 콘솔**을 열고 <http://localhost:7001/console> 및 실행 중인 서버를 참조하세요.
+15. 관리 가상 컴퓨터에서 **WebLogic Server 관리 콘솔** <http://localhost:7001/console>을 열고 실행 중인 서버를 확인합니다.
 
 	![](media/virtual-machines-creating-oracle-webLogic-server-12c-cluster/image003.png)
 
 16. 관리되는 가상 컴퓨터의 부하 분산된 끝점 집합을 만듭니다.
 
-	1. [Azure 포털](https://ms.portal.azure.com/)의 **가상 컴퓨터 ** 섹션에서 첫 번째 관리되는 가상 컴퓨터(예: **MYVM2-MANAGED)**를 선택합니다. 
+	1. [Azure 포털](https://ms.portal.azure.com/)의 **Virtual Machines ** 섹션에서 첫 번째 관리되는 가상 컴퓨터(예: **MYVM2-MANAGED**)를 선택합니다.
+
 	2. **설정**, **끝점,** **추가**를 차례로 클릭합니다.
 
 	3. 끝점에 이름을, 프로토콜에 **TCP**를 지정하고 공용 포트 **80** 및 개인 포트 **7008**을 지정합니다. 나머지 옵션은 그대로 둡니다.
 
 	4. **create a load-balanced set**를 선택한 후 **완료**를 클릭합니다.
 
-	5. 부하 분산된 집합의 이름을 지정하고 다른 매개 변수의 기본값을 적용한 다음 **완료를 클릭합니다.\*\*
+	5. 부하 분산된 집합의 이름을 지정하고 다른 매개 변수의 기본값을 적용한 다음 **완료**를 클릭합니다.
 
 17. 가상 컴퓨터의 끝점 만들기:
 
@@ -236,11 +237,11 @@ Azure에서 사용할 수 있는 Oracle WebLogic Server 12c 이미지를 사용�
 
 이제 다음 단계를 사용하여 응용 프로그램을 배포할 수 있습니다. <http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war>에서 다운로드할 수 있는 Oracle shoppingcart 응용 프로그램을 배포하는 경우를 가정해 보겠습니다.
 
-1. WebLogic Server 클러스터에 대한 관리자로 제공 중인 가상 컴퓨터에 로그인합니다(예: **MYVM1-ADMIN**). 
+1. WebLogic Server 클러스터에 대한 관리자로 서비스 중인 가상 컴퓨터에 로그인합니다(예: **MYVM1-ADMIN**). 
 
 2. Shoppingcart.war를 로컬로 복사합니다. 예를 들어 **c:\\mywar**라는 폴더를 만들고 <http://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12-ManageSessions--4478/files/shoppingcart.war>에서 WAR를 **c:\\mywar**로 저장합니다.
 
-3. **WebLogic Server 관리 콘솔**을 열고 <http://localhost:7001/console>합니다. 메시지가 표시되면 WebLogic 사용자 이름과 암호를 제공합니다.
+3. **WebLogic Server 관리 콘솔**, <http://localhost:7001/console>을 엽니다. 메시지가 표시되면 WebLogic 사용자 이름과 암호를 제공합니다.
 
 4. **WebLogic Server 관리 콘솔**에서 **잠금 및 편집**을 클릭하고 **배포**를 클릭한 다음 **설치**를 클릭합니다.
 
@@ -305,4 +306,4 @@ Azure에서 사용할 수 있는 Oracle WebLogic Server 12c 이미지를 사용�
 
 - [Microsoft Azure에서 Linux를 사용하는 Oracle WebLogic Server 12c](http://www.oracle.com/technetwork/middleware/weblogic/learnmore/oracle-weblogic-on-azure-wp-2020930.pdf)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

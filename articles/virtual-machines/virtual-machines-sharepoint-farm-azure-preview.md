@@ -45,7 +45,7 @@ SharePoint 팜으로 SharePoint Server 팜 템플릿을 만들려면 다음을 �
 4. 고가용성 팜을 원하는 경우 **고가용성 사용**을 클릭합니다.
 5. 도메인 컨트롤러를 구성하려면 화살표를 클릭합니다. 호스트 이름 접두사(기본값은 리소스 그룹 이름), 포리스트 루트 도메인 이름(기본값은 contoso.com) 및 도메인 컨트롤러의 크기(기본값은 A1) 을 지정할 수 있습니다.
 6. SQL Server를 구성하려면 화살표를 클릭합니다. 호스트 이름 접두사(기본값은 리소스 그룹 이름), SQL Server의 크기(기본값은 A5), 데이터베이스 액세스 계정 이름 및 암호(기본값은 관리자 계정 사용), SQL Server 서비스 계정 이름(기본값은 sqlservice) 및 암호(기본값은 관리자 계정과 동일한 암호 사용)를 지정할 수 있습니다.
-7. SharePoint 서버를 구성하려면 화살표를 클릭합니다. 호스트 이름 접두사(기본값은 리소스 그룹 이름), SharePoint 서버의 크기(기본값은 A2), SharePoint 사용자 계정(기본값은 sp_setup) 및 암호, SharePoint 팜 계정 이름(기본값은 sp_farm) 및 암호, SharePoint 팜 암호를 지정할 수 있습니다. 기본값은 SharePoint 사용자 계정, 팜 계정 및 암호에 대해 관리자 암호를 사용하는 것입니다.
+7. SharePoint 서버를 구성하려면 화살표를 클릭합니다. 호스트 이름 접두사(기본값은 리소스 그룹 이름), SharePoint 서버의 크기(기본값은 A2), SharePoint 사용자 계정(기본값은 sp\_setup) 및 암호, SharePoint 팜 계정 이름(기본값은 sp\_farm) 및 암호, SharePoint 팜 암호를 지정할 수 있습니다. 기본값은 SharePoint 사용자 계정, 팜 계정 및 암호에 대해 관리자 암호를 사용하는 것입니다.
 8. 가상 네트워크, 저장소 계정 또는 진단을 위한 선택적 구성을 구성하려면 해당 화살표를 클릭합니다.
 9. 구독을 지정하려면 화살표를 클릭합니다.
 10. 완료하면 **만들기**를 클릭합니다.
@@ -95,4 +95,4 @@ Azure 미리보기 포털의 SharePoint 서버 팜 기능은 서비스 관리에
 
 [Azure 인프라 서비스에서 호스트되는 SharePoint 팜](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -19,7 +19,10 @@
 
 # JavaScript 백 엔드 모바일 서비스 작업
 
-<div class="dev-center-tutorial-subselector"><a href="/documentation/articles/mobile-services-dotnet-backend-how-to-use/" title=".NET 백 엔드">.NET 백 엔드</a> | <a href="/documentation/articles/mobile-services-how-to-use-server-scripts/"  title="JavaScript 백 엔드" class="current">JavaScript 백 엔드</a></div>
+> [AZURE.SELECTOR]
+[.NET backend](mobile-services-dotnet-backend-how-to-use.md)
+[JavaScript backend](mobile-services-how-to-use-server-scripts.md)
+ 
 이 문서에서는 Azure 모바일 서비스에서 JavaScript 백 엔드 작업을 수행하는 방법에 대한 자세한 정보와 예를 제공합니다.
 
 ##<a name="intro"></a>소개
@@ -77,10 +80,10 @@ JavaScript 백 엔드 모바일 서비스에서 사용자 지정 비즈니스 �
 
 다음은 테이블 작업에 대한 정식 main 함수 서명입니다.
 
-+ [삽입][insert function]: `function insert (item, user, request) { ... }`
-+ [업데이트][update function]: `function update (item, user, request) { ... }`
-+ [삭제][delete function]: `function del (id, user, request) { ... }`
-+ [읽기][read function]: `function read (query, user, request) { ... }`
++ [삽입][insert function]\: `function insert (item, user, request) { ... }`
++ [업데이트][update function]\: `function update (item, user, request) { ... }`
++ [삭제][delete function]\: `function del (id, user, request) { ... }`
++ [읽기][read function]\: `function read (query, user, request) { ... }`
 
 >[AZURE.NOTE]삭제 작업에 등록된 함수는 JavaScript에서 delete가 예약된 키워드이기 때문에 이름이 _del_로 지정되어야 합니다.
 
@@ -96,7 +99,7 @@ JavaScript 백 엔드 모바일 서비스에서 사용자 지정 비즈니스 �
 	
 	작업 방법은 [모바일 서비스에서 서버 스크립트를 사용하여 데이터 유효성 검사 및 수정]을 참조하십시오.
 
-+ 소스 제어 사용. 소스 제어가 사용하도록 설정된 경우 git 리포지토리의 .\service\table 하위 폴더에 <em>`<table>`</em>.<em>`<operation>`</em>.js라는 파일을 만듭니다. 여기서 <em>`<table>`</em>은(는) 테이블의 이름이고 <em>`<operation>`</em>은(는) 등록되는 테이블 작업입니다. 자세한 내용은 [소스 제어 및 공유 코드][Source control, shared code, and helper functions]를 참조하십시오.
++ 소스 제어 사용. 소스 제어가 사용하도록 설정된 경우 git 리포지토리의 .\\service\\table 하위 폴더에 <em>`<table>`</em>.<em>`<operation>`</em>.js라는 파일을 만듭니다. 여기서 <em>`<table>`</em>은(는) 테이블의 이름이고 <em>`<operation>`</em>은(는) 등록되는 테이블 작업입니다. 자세한 내용은 [소스 제어 및 공유 코드][Source control, shared code, and helper functions]를 참조하십시오.
 
 + 명령 프롬프트에서 Azure 명령줄 도구 사용. 자세한 내용은 [명령줄 도구 사용]을 참조하십시오.
 
@@ -343,7 +346,7 @@ Azure 모바일 서비스에서 ID 공급자를 통해 사용자를 인증할 �
 	
 	사용자 지정 API 메서드에 대한 액세스 권한은 사용 권한 탭에서 할당됩니다. 이 사용자 지정 API가 생성된 방법을 확인하려면 [클라이언트에서 사용자 지정 API 호출]을 참조하십시오.
 
-+ 소스 제어 사용. 소스 제어가 사용하도록 설정된 경우 git 리포지토리의 .\service\api 하위 폴더에 <em>`<custom_api>`</em>.js라는 파일을 만듭니다. 여기서 <em>`<custom_api>`</em>은(는) 등록되는 사용자 지정 API의 이름입니다. 이 스크립트 파일에는 사용자 지정 API에 의해 노출되는 각 HTTP 메서드에 대한 _exported_ 함수가 포함되어 있습니다. 사용 권한은 도우미 .json 파일에서 정의됩니다. 자세한 내용은 [소스 제어 및 공유 코드][Source control, shared code, and helper functions]를 참조하십시오.
++ 소스 제어 사용. 소스 제어가 사용하도록 설정된 경우 git 리포지토리의 .\\service\\api 하위 폴더에 <em>`<custom_api>`</em>.js라는 파일을 만듭니다. 여기서 <em>`<custom_api>`</em>은(는) 등록되는 사용자 지정 API의 이름입니다. 이 스크립트 파일에는 사용자 지정 API에 의해 노출되는 각 HTTP 메서드에 대한 _exported_ 함수가 포함되어 있습니다. 사용 권한은 도우미 .json 파일에서 정의됩니다. 자세한 내용은 [소스 제어 및 공유 코드][Source control, shared code, and helper functions]를 참조하십시오.
 
 + 명령 프롬프트에서 Azure 명령줄 도구 사용. 자세한 내용은 [명령줄 도구 사용]을 참조하십시오.
 
@@ -462,7 +465,7 @@ Azure 모바일 서비스에서 ID 공급자를 통해 사용자를 인증할 �
 
 + 명령 프롬프트에서 Azure 명령줄 도구 사용. 자세한 내용은 [명령줄 도구 사용]을 참조하십시오.
 
->[AZURE.NOTE]소스 제어가 사용하도록 설정된 경우 git 리포지토리의 .\service\scheduler 하위 폴더에서 직접 예약된 작업 스크립트를 편집할 수 있습니다. 자세한 내용은 [방법: 소스 제어를 사용하여 코드 공유]를 참조하세요.
+>[AZURE.NOTE]소스 제어가 사용하도록 설정된 경우 git 리포지토리의 .\\service\\scheduler 하위 폴더에서 직접 예약된 작업 스크립트를 편집할 수 있습니다. 자세한 내용은 [방법: 소스 제어를 사용하여 코드 공유]를 참조하세요.
 
 ##<a name="shared-code"></a>소스 제어, 공유 코드 및 도우미 함수
 
@@ -772,38 +775,16 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
 
 [tables 개체] 또는 [mssql 개체]를 사용하거나 테이블 스크립트가 실행되도록 하면 역직렬화된 JavaScript 개체가 SQL 데이터베이스에 삽입됩니다. 해당 프로세스에서 개체 속성은 다음과 같이 T-SQL 형식에 매핑됩니다.
 
-<table border="1">
-<tr>
-<td>JavaScript 속성</td>
-<td>T-SQL 형식</td>
-</tr><tr>
-<td>Number</td>
-<td>Float(53)</td>
-</tr><tr>
-<td>Boolean</td>
-<td>Bit</td>
-</tr><tr>
-<td>Date</td>
-<td>DateTimeOffset(3)</td>
-</tr>
-<tr>
-<td>String</td>
-<td>Nvarchar(max)</td>
-</tr>
-<tr>
-<td>Buffer</td>
-<td>지원되지 않음</td>
-</tr><tr>
-<td>Object</td>
-<td>지원되지 않음</td>
-</tr><tr>
-<td>Array</td>
-<td>지원되지 않음</td>
-</tr><tr>
-<td>Stream</td>
-<td>지원되지 않음</td>
-</tr>
-</table>
+JavaScript 속성|T-SQL 형식
+---|---
+Number|Float(53)
+Boolean|Bit
+Date|DateTimeOffset(3)|
+String|Nvarchar(max)
+Buffer|지원되지 않음
+Object|지원되지 않음
+Array|지원되지 않음
+Stream|지원되지 않음
 
 ###<a name="TSQL"></a>Transact-SQL을 사용하여 테이블 액세스
 
@@ -1080,4 +1061,4 @@ npm(Node.js 패키지 관리자)과 함께 소스 제어를 사용하여 모바�
 [Azure 모바일 서비스에서 package.json 지원]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

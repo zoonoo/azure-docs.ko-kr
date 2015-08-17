@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="인덱서를 사용해서 DocumentDB를 Azure 검색에 연결 | Azure" 
+    pageTitle="인덱서를 사용해서 DocumentDB를 Azure 검색에 연결 | Microsoft Azure" 
     description="이 문서에서는 DocumentDB에서 Azure 검색 인덱서를 데이터 소스로 사용하는 방법을 보여 줍니다."
     services="documentdb" 
     documentationCenter="" 
@@ -132,52 +132,18 @@ HTTP POST 요청을 실행해서 Azure 검색 서비스에서 다음 요청 헤�
 
 ###그림 A: JSON 데이터 형식과 Azure 검색 데이터 형식 사이의 매핑
 
-<table style="font-size:12">
-    <tr>
-        <th>JSON 데이터 형식</th>
-        <th>호환되는 대상 인덱스 필드 유형</th>
-    </tr>
-    <tr>
-        <td>Bool</td>
-        <td>Edm.Boolean, Edm.String</td>
-    </tr>
-    <tr>
-        <td>정수와 같이 보이는 숫자</td>
-        <td>Edm.Int32, Edm.Int64, Edm.String</td>
-    </tr>
-    <tr>
-        <td>부동소수점처럼 보이는 숫자</td>
-        <td>Edm.Double, Edm.String</td>
-    </tr>
-    <tr>
-        <td>문자열</td>
-        <td>Edm.String</td>
-    </tr>
-    <tr>
-        <td>
-            기본 형식의 배열<br/>
-            예: ["a", "b", "c"]
-        </td>
-        <td>Collection(Edm.String)</td>
-    </tr>
-    <tr>
-        <td>날짜처럼 보이는 문자열</td>
-        <td>Edm.DateTimeOffset, Edm.String</td>
-    </tr>
-    <tr>
-        <td>
-            GeoJSON 개체<br/>
-            예: { "type": "Point", "coordinates": [ long, lat ] }
-        </td>
-        <td>Edm.GeographyPoint</td>
-    </tr>
-    <tr>
-        <td>기타 JSON 개체</td>
-        <td>해당 없음</td>
-    </tr>
-</table>
+| JSON 데이터 형식|	호환되는 대상 인덱스 필드 형식|
+|---|---|
+|Bool|Edm.Boolean, Edm.String|
+|정수와 같이 보이는 숫자|Edm.Int32, Edm.Int64, Edm.String|
+|부동소수점처럼 보이는 숫자|Edm.Double, Edm.String|
+|문자열|Edm.String|
+|기본 형식의 배열, 예: "a", "b", "c" |Collection(Edm.String)|
+|날짜처럼 보이는 문자열| Edm.DateTimeOffset, Edm.String|
+|GeoJSON 개체, 예: { "type": "Point", "coordinates": [ long, lat ] } | Edm.GeographyPoint |
+|기타 JSON 개체|해당 없음|
 
-###<a id="CreateIndexExample"></a>요청 본문 예제
+###<a id="CreateIndexExample"></a>요청 본문 예
 
 다음 예제에서는 id 및 설명 필드를 사용해서 인덱스를 만듭니다.
 
@@ -228,9 +194,9 @@ HTTP POST 요청을 실행해서 Azure 검색 서비스에서 다음 요청 헤�
 
 - **startTime**: 필수입니다. 인덱서 실행을 시작해야 할 경우를 지정하는 UTC 날짜/시간입니다.
 
-###<a id="CreateIndexerExample"></a>요청 본문 예제
+###<a id="CreateIndexerExample"></a>요청 본문 예
 
-다음 예제에서는 `myDocDbDataSource` 데이터 원본에서 참조되는 컬렉션에서 2015년 1월 1일 UTC에 시작하고 시간별로 실행되는 일정의 `mySearchIndex` 인덱스로 데이터를 복사하는 인덱서를 만듭니다.
+다음 예에서는 `myDocDbDataSource` 데이터 원본에서 참조되는 컬렉션에서 2015년 1월 1일 UTC에 시작하고 시간별로 실행되는 일정의 `mySearchIndex` 인덱스로 데이터를 복사하는 인덱서를 만듭니다.
 
     {
         "name" : "mysearchindexer",
@@ -304,4 +270,4 @@ HTTP GET 요청을 실행해서 인덱서의 현재 상태 및 실행 기록을 
  - Azure 검색에 대해 자세히 알아보려면 [여기](/services/search/)를 클릭하십시오.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

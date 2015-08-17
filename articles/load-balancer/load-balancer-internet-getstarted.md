@@ -13,10 +13,14 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
+   ms.date="08/03/2015"
    ms.author="joaoma" />
 
 # 인터넷 연결 부하 분산 장치 구성 시작
+
+> [AZURE.SELECTOR]
+- [Azure classic steps](load-balancer-internet-getstarted.md)
+- [Resource Manager Powershell steps](load-balancer-arm-powershell.md)
 
 Microsoft Azure의 부하 분산 서비스는 모든 테넌트 유형(PaaS 또는 IaaS) 및 모든 OS 버전(지원되는 Windows 또는 Linux 기반 OS)에서 작동합니다.
 
@@ -135,4 +139,4 @@ Azure SDK for .NET 2.5를 사용하여 클라우드 서비스를 업데이트할
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

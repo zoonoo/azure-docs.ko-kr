@@ -43,7 +43,7 @@ ApplicationInsights.config를 엽니다. 노드 `ActiveProfile` 및 `Profiles`�
     ![](./media/app-insights-upgrade-vso-azure/csdef.png)
 4. SDK: 프로젝트를 마우스 오른쪽 단추로 클릭하고 [Application Insights 추가를 선택][greenbrown]합니다. 이는 프로젝트에 SDK를 추가하고 Azure에서 새 Application Insights 리소스도 만듭니다.
 5. 로깅: 코드에 LogEvent()와 같은 이전 API에 대한 호출을 포함되는 경우 솔루션을 구축 시 탐색합니다. [새 API를 사용][track]하려면 업데이트합니다.
-6. 웹 페이지: 프로젝트에 웹 페이지가 포함되는 경우 <head> 섹션에서 스크립트를 교체합니다. 일반적으로 Views\Shared_Layout.cshtml 같은 마스터 페이지에 복사본을 하나만 있습니다. [Azure에서 Application Insights의 퀵 스타트 블레이드에서 새 스크립트를 가져옵니다][usage]. 웹 페이지에 logEvent 또는 logPage와 같은 본문에 원격 분석 호출이 포함되는 경우 [이를 업데이트하여 새 API를 사용][api]합니다.
+6. 웹 페이지: 프로젝트에 웹 페이지가 포함되는 경우 <head> 섹션에서 스크립트를 교체합니다. 일반적으로 Views\\Shared\_Layout.cshtml 같은 마스터 페이지에 복사본을 하나만 있습니다. [Azure에서 Application Insights의 퀵 스타트 블레이드에서 새 스크립트를 가져옵니다][usage]. 웹 페이지에 logEvent 또는 logPage와 같은 본문에 원격 분석 호출이 포함되는 경우 [이를 업데이트하여 새 API를 사용][api]합니다.
 7. 서버 모니터: 앱이 IIS에서 실행 중인 서비스인 경우, 서버에서 Microsoft Monitoring Agent를 제거했다가 [Application Insights 상태 모니터를 설치][redfield]합니다.
 8. 웹 테스트: 웹 가용성 테스트를 사용하는 경우 경고와 함께 [새 포털에서 다시 만듭니다][availability].
 9. 경고: Azure 포털에서 [메트릭에 대한 경고][alerts]를 설정합니다.
@@ -73,4 +73,4 @@ ApplicationInsights.config를 엽니다. 노드 `ActiveProfile` 및 `Profiles`�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

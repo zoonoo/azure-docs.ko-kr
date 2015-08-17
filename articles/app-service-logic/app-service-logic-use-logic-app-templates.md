@@ -40,4 +40,4 @@ Twitter, Yammer 및 이메일과 같은 소셜 미디어 서비스와 통합하�
 템플릿 중 하나를 선택한 후 자신만의 논리 앱을 생성했다면 배포를 완료합니다. [논리 앱 만들기](app-service-logic-create-a-logic-app.md)를 참조하세요.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

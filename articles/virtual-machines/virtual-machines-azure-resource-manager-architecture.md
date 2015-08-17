@@ -79,4 +79,4 @@ Azure 리소스 관리자의 경우, 리소스 공급자는 사용자가 필요�
 
 [Azure 리소스 관리자 개요](resource-group-overview.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

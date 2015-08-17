@@ -127,7 +127,7 @@
 ## 4단계: 실제 연결 정보로 대체
 
 
-- 붙여넣은 소스 코드에서 *[Your_Connection_String]* 자리 표시자를 연결 문자열로 바꾸고 *your_password_here*도 실제 암호로 바꿉니다.
+- 붙여넣은 소스 코드에서 *[Your\_Connection\_String]* 자리 표시자를 연결 문자열로 바꾸고 *your\_password\_here*도 실제 암호로 바꿉니다.
 
 
 ## 5단계: 응용 프로그램 실행
@@ -137,4 +137,4 @@
 2. 프로그램에서 콘솔 창에 쿼리 결과를 표시합니다.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

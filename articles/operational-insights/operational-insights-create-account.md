@@ -40,4 +40,4 @@ Operational Insights로 시작하는 방법에 대한 자세한 내용은 다음
 
 - [작업 영역 설정 및 구성](operational-insights-setup-workspace.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

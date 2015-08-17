@@ -12,7 +12,7 @@
 	ms.service="search"
 	ms.devlang="NA"
 	ms.workload="search"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.tgt_pltfrm="na"
 	ms.date="07/08/2015"
 	ms.author="heidist"/>
@@ -131,4 +131,4 @@ REST API는 내용이 JSON 형식으로 되어 있는 HTTP 요청 및 응답으�
 
 [.NET에서 Azure 검색을 사용하는 방법](search-howto-dotnet-sdk.md) [Azure 검색 .NET 시작](search-get-started-dotnet.md) [Azure 검색: 자습서, 비디오 데모 및 샘플](https://msdn.microsoft.com/library/azure/dn818681.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -49,7 +49,8 @@ Azure AD Connect Health를 사용하여 시작하려면 [Azure AD Connect Health
 ### Azure 서비스 끝점에 대한 아웃바운드 연결
 에이전트는 설치 및 런타임 중에 아래 나열된 Azure AD Connect Health 서비스 끝점에 연결되어야 합니다. 아웃바운드 연결을 차단하는 경우 다음 항목이 허용 목록에 추가되어 있는지 확인합니다.
 
-- *.servicebus.windows.net - Port: 5671 - https://*.adhybridhealth.azure.com/
+- **.servicebus.windows.net - Port: 5671
+- https://*.adhybridhealth.azure.com/
 - https://*.table.core.windows.net/
 - https://policykeyservice.dc.ad.msft.net/
 - https://login.windows.net
@@ -155,4 +156,4 @@ Windows Server 2008 R2 서버에 대해 다음을 수행합니다.
  
 ![Azure AD Connect Health 확인](./media/active-directory-aadconnect-health-requirements/install5.png)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

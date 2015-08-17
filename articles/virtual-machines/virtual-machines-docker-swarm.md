@@ -134,4 +134,4 @@ swarm에서 직접 코드를 실행해 보세요. 관련 지침은 [https://gith
 [docker-machine-azure]: virtual-machines-docker-machine.md
  
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

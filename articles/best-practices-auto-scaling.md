@@ -133,4 +133,4 @@ Azure 자동 크기 조정은 클라우드 서비스 역할, 가상 컴퓨터 �
 - [Microsoft.WindowsAzure.Management.Monitoring.Autoscale Namespace](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.management.monitoring.autoscale.aspx)
 - [자동 크기 조정 응용 프로그램 블록](http://msdn.microsoft.com/library/hh680892%28v=pandp.50%29.aspx) 설명서 및 주요 시나리오는 MSDN에 있습니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

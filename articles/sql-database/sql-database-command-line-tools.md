@@ -49,7 +49,7 @@ Azure 구독에 대한 PowerShell cmdlet을 실행 하려면 먼저 Azure 계정
 
 ## Azure 구독 선택
 
-사용하고 싶은 구독을 선택하려면 구독 ID (\*\*-SubscriptionId\*\*) 또는 구독 이름(\*\*-SubscriptionName\*\*)이 필요합니다. 이는 이전 단계에서 복사하거나, 또는 구독이 여러 개일 경우 **Get-AzureSubscription** cmdlet을 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다.
+사용하고 싶은 구독을 선택하려면 구독 ID(**-SubscriptionId**) 또는 구독 이름(**-SubscriptionName**)이 필요합니다. 이는 이전 단계에서 복사하거나, 또는 구독이 여러 개일 경우 **Get-AzureSubscription** cmdlet을 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다.
 
 현재 구독을 설정 하 여 구독 정보로 다음 cmdlet을 실행 합니다.
 
@@ -72,7 +72,7 @@ Azure 구독에 대한 PowerShell cmdlet을 실행 하려면 먼저 Azure 계정
 
 ## 서버 만들기 
 
-새 V12 서버 사용을 만들려면 [새 AzureSqlServer](https://msdn.microsoft.com/library/mt163526.aspx)명령을 사용합니다. Server12을 서버 이름으로 바꿉니다 서버 이름은 Azure SQL Server에 대해 고유해야 하며, 그렇지 않으면 서버 이름이 이미 사용 중이라는 오류가 발생할 수 있습니다. 또한 이 명령을 완료하는 데 몇 분 정도 걸릴 수 있다는 점도 유의해야 합니다. 서버가 성공적으로 생성된 후 서버 세부 정보와 PowerShell 프롬프트가 표시됩니다. 명령을 편집하여 선택한 모든 유효한 위치를 사용할 수 있습니다.
+새 V12 서버 사용을 만들려면 [New-AzureSqlServer](https://msdn.microsoft.com/library/mt163526.aspx)명령을 사용합니다. Server12을 서버 이름으로 바꿉니다 서버 이름은 Azure SQL Server에 대해 고유해야 하며, 그렇지 않으면 서버 이름이 이미 사용 중이라는 오류가 발생할 수 있습니다. 또한 이 명령을 완료하는 데 몇 분 정도 걸릴 수 있다는 점도 유의해야 합니다. 서버가 성공적으로 생성된 후 서버 세부 정보와 PowerShell 프롬프트가 표시됩니다. 명령을 편집하여 선택한 모든 유효한 위치를 사용할 수 있습니다.
 
 	New-AzureSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -Location "Japan West" -ServerVersion "12.0"
 
@@ -80,7 +80,7 @@ Azure 구독에 대한 PowerShell cmdlet을 실행 하려면 먼저 Azure 계정
 
 ## 서버 방화벽 규칙 만들기
 
-서버에 액세스하는 방화벽 규칙을 만들려면 [새 AzureSqlServerFirewallRule](https://msdn.microsoft.com/library/mt125953.aspx) 명령을 사용합니다. 다음 명령을 실행하여 시작 및 끝 IP 주소를 사용자 컴퓨터에 유효한 값으로 바꿉니다.
+서버에 액세스하는 방화벽 규칙을 만들려면 [New-AzureSqlServerFirewallRule](https://msdn.microsoft.com/library/mt125953.aspx) 명령을 사용합니다. 다음 명령을 실행하여 시작 및 끝 IP 주소를 사용자 컴퓨터에 유효한 값으로 바꿉니다.
 
 서버에서 다른 Azure 서비스에 대한 액세스를 허용해야 하는 경우, 특별한 방화벽 규칙을 추가하고 모든 Azure 트래픽이 서버에 액세스할 수 있도록 하는 **-AllowAllAzureIPs** 스위치를 추가합니다.
 
@@ -90,27 +90,27 @@ Azure 구독에 대한 PowerShell cmdlet을 실행 하려면 먼저 Azure 계정
 
 ## SQL 데이터베이스 만들기
 
-데이터베이스를 만들려면 [새 AzureSqlDatabase](https://msdn.microsoft.com/library/mt125915.aspx) 명령을 이용합니다. 데이터베이스를 만들려면 서버가 필요 합니다. 다음 예제에서는 TestDB12 라는 SQL 데이터베이스를 만듭니다. 데이터베이스는 표준 S1 데이터베이스로 생성 됩니다.
+데이터베이스를 만들려면 [New-AzureSqlDatabase](https://msdn.microsoft.com/library/mt125915.aspx) 명령을 사용합니다. 데이터베이스를 만들려면 서버가 필요 합니다. 다음 예제에서는 TestDB12 라는 SQL 데이터베이스를 만듭니다. 데이터베이스는 표준 S1 데이터베이스로 생성 됩니다.
 
 	New-AzureSqlDatabase -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -DatabaseName "TestDB12" -Edition Standard -RequestedServiceObjectiveName "S1"
 
 
 ## SQL 데이터베이스의 성능 수준을 변경 합니다.
 
-위나 아래로 이동 된 데이터베이스를 확장할 수 있는[Set-azuresqldatabase](https://msdn.microsoft.com/library/mt125814.aspx) 명령을 사용합니다. 다음 예제에서는 표준 S3 수준의 현재 성능 수준에서 TestDB12 라는 SQL 데이터베이스를 조정 합니다.
+[Set-AzureSqlDatabase](https://msdn.microsoft.com/library/mt125814.aspx) 명령을 사용하여 데이터베이스 규모를 확장하거나 축소할 수 있습니다. 다음 예제에서는 표준 S3 수준의 현재 성능 수준에서 TestDB12 라는 SQL 데이터베이스를 조정 합니다.
 
 	Set-AzureSqlDatabase -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -DatabaseName "TestDB12" -Edition Standard -RequestedServiceObjectiveName "S3"
 
 
 ## SQL 데이터베이스 삭제하기
 
-[Remove- AzureSqlDatabase](https://msdn.microsoft.com/library/mt125977.aspx)명령으로 SQL 데이터베이스를 삭제합니다. 다음 예제에서는 TestDB12 라는 SQL 데이터베이스를 삭제 합니다.
+[Remove-AzureSqlDatabase](https://msdn.microsoft.com/library/mt125977.aspx) 명령을 사용하여 SQL 데이터베이스를 삭제할 수 있습니다. 다음 예제에서는 TestDB12 라는 SQL 데이터베이스를 삭제 합니다.
 
 	Remove-AzureSqlDatabase -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -DatabaseName "TestDB12"
 
 ## 서버 삭제
 
-또한 [Remove-AzureSqlServer](https://msdn.microsoft.com/library/mt125891.aspx) 명령을 사용하여 서버를 삭제 할 수도 있습니다. 다음 예제에서는 server12 이라는 서버를 삭제 합니다.
+[Remove-AzureSqlServer](https://msdn.microsoft.com/library/mt125891.aspx) 명령을 사용하여 서버를 삭제할 수도 있습니다. 다음 예제에서는 server12 이라는 서버를 삭제 합니다.
 
 	Remove-AzureSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12"
 
@@ -118,12 +118,12 @@ Azure 구독에 대한 PowerShell cmdlet을 실행 하려면 먼저 Azure 계정
 
 Azure SQL 리소스를 다시 만들거나 유사한 리소스를 만들 경우 다음과 같이 할 수 있습니다.
 
-- 이 명령을 PowerShell 스크립트 파일(\*.ps1)으로 저장
+- 이 명령을 PowerShell 스크립트 파일(*.ps1)으로 저장
 - Azure 관리 포털의 자동화 섹션에서 이 명령을 Azure 자동화 Runbook으로 저장 
 
 ## 다음 단계
 
-명령을 결합 하 고 자동화 합니다. 예를 들어 따옴표 내의 모든 항목의 교체는 < and > 서버, 서버를 만들기 위한 값, 방화벽 규칙 그리고 데이터 베이스를 포함한 따옴표안의 모든 것을 바꿀 수 있습니다.
+명령을 결합 하 고 자동화 합니다. 예를 들어 < and > 문자를 포함하여 따옴표 안의 모든 항목을 서버, 방화벽 규칙 및 데이터베이스를 만드는 데 사용할 값으로 바꿉니다.
 
 
     New-AzureResourceGroup -Name "<resourceGroupName>" -Location "<Location>"
@@ -137,4 +137,4 @@ Azure SQL 리소스를 다시 만들거나 유사한 리소스를 만들 경우 
 - [Azure SQL 데이터베이스 서비스 관리자 Cmdlet](https://msdn.microsoft.com/library/dn546726.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

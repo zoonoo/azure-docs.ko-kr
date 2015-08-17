@@ -36,4 +36,4 @@ Azure는 응용 프로그램을 실행하기 위한 여러 호스팅 모델을 �
 [가상 컴퓨터]: ../virtual-machines-choose-me.md
 [클라우드 서비스]: #tellmecs
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

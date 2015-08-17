@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.date="08/04/2015" 
 	ms.author="jeffstok"/>
 
 # 참조 아키텍처: Microsoft Azure 스트림 분석으로 실시간 이벤트 처리
@@ -62,4 +62,4 @@ Microsoft Azure는 여러 솔루션 시나리오 및 요구 사항을 지원할 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -38,7 +38,7 @@ Azure Blob 서비스에 액세스하는 PHP 응용 프로그램을 만드는 데
 
 Azure 서비스 버스 큐 API를 사용하려면 다음을 수행합니다.
 
-1. [require_once][require_once] 문을 사용하여 자동 로더 파일을 참조합니다.
+1. [require\_once][require_once] 문을 사용하여 자동 로더 파일을 참조합니다.
 2. 사용할 수 있는 모든 클래스 참조
 
 다음 예제에서는 자동 로더 파일을 포함하고 **ServicesBuilder** 클래스를 참조하는 방법을 보여 줍니다.
@@ -213,4 +213,4 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

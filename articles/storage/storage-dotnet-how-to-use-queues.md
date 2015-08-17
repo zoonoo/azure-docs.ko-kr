@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="06/15/2015"
+	ms.date="08/04/2015"
 	ms.author="tamram"/>
 
 # .NET에서 큐 저장소를 사용하는 방법
@@ -24,7 +24,7 @@
 
 이 가이드에서는 Azure 큐 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 C# 코드로 작성되었으며 Azure Storage Client for .NET을 사용합니다. 여기서 다루는 시나리오에는 큐 메시지 **삽입**, **보기**, **가져오기** 및 **삭제**와 **큐 만들기 및 삭제**가 포함됩니다.
 
-> [AZURE.NOTE]이 가이드는 Azure .NET Storage Client Library 2.x 이상을 대상으로 합니다. 권장되는 버전은 [NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/)을 통해 또는 [Azure SDK for .NET](/downloads/)의 일부로 사용할 수 있는 Storage Client Library 4.x입니다. 저장소 클라이언트 라이브러리 가져오기에 대한 자세한 내용은 아래의 [프로그래밍 방식으로 큐 저장소 액세스](#programmatically-access-queue-storage)를 참조하세요.
+[AZURE.INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
 [AZURE.INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -241,24 +241,15 @@
 
 이제 큐 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업에 대해 알아보세요.
 
-<ul>
-<li>사용 가능한 API에 대한 자세한 내용은 큐 서비스 참조 설명서를 참조하세요.
-  <ul>
-    <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Storage Client Library for .NET 참조</a>
-    </li>
-    <li><a href="http://msdn.microsoft.com/library/azure/dd179355">REST API 참조</a></li>
-  </ul>
-</li>
-<li>Azure 저장소를 사용하여 수행할 수 있는 고급 작업에 대한 자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/gg433040.aspx">Azure에 데이터 저장 및 액세스</a>를 참조하세요.</li>
-<li>Azure WebJobs SDK를 사용하여 <a href="../websites-dotnet-webjobs-sdk/">Azure 저장소 작업을 위해 작성하는 코드를 간소화하는 방법을 알아봅니다.</li>
-<li>Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하세요.
-  <ul>
-    <li><a href="/documentation/articles/storage-dotnet-how-to-use-tables/">테이블 저장소</a>를 사용하여 구조화된 데이터를 저장합니다.</li>
-    <li><a href="/documentation/articles/storage-dotnet-how-to-use-blobs/">Blob 저장소</a>를 사용하여 구조화되지 않은 데이터를 저장합니다.</li>
-    <li><a href="/documentation/articles/sql-database-dotnet-how-to-use/">SQL 데이터베이스</a>를 사용하여 관계형 데이터를 저장합니다.</li>
-  </ul>
-</li>
-</ul>
+- 사용 가능한 API에 대한 자세한 내용은 큐 서비스 참조 설명서를 참조하세요.
+    - [Storage Client Library for .NET 참조](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+    - [REST API 참조](http://msdn.microsoft.com/library/azure/dd179355)
+- Azure 저장소를 사용하여 수행할 수 있는 고급 작업에 대한 자세한 내용은 [Azure에 데이터 저장 및 액세스](http://msdn.microsoft.com/library/azure/gg433040.aspx)를 참조하세요.
+- [Azure WebJobs SDK](../websites-dotnet-webjobs-sdk/)를 사용하여 Azure 저장소 작업을 위해 작성하는 코드를 간소화하는 방법을 알아봅니다.
+- Azure에 데이터를 저장하기 위한 추가 옵션에 대한 자세한 내용은 추가 기능 가이드를 참조하세요.
+    - [테이블 저장소](storage-dotnet-how-to-use-tables.md)를 사용하여 구조화된 데이터를 저장합니다. 
+    - [Blob 저장소](storage-dotnet-how-to-use-blobs.md)를 사용하여 구조화되지 않은 데이터를 저장합니다.
+    - [SQL 데이터베이스](sql-database-dotnet-how-to-use.md)를 사용하여 관계형 데이터를 저장합니다.
 
   [Download and install the Azure SDK for .NET]: /develop/net/
   [.NET client library reference]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
@@ -272,4 +263,4 @@
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

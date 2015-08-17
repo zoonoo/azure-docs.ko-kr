@@ -12,7 +12,7 @@
  ms.tgt_pltfrm="na"
  ms.devlang="dotnet"
  ms.topic="get-started-article" 
- ms.date="05/12/2015"
+ ms.date="08/04/2015"
  ms.author="krisragh"/>
 
 # 스케줄러란?
@@ -51,4 +51,4 @@ Azure 스케줄러를 사용하는 여러 가지 시나리오가 있습니다. �
  [스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

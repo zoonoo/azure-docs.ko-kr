@@ -18,9 +18,11 @@
 
 #Azure 알림 허브 보안 푸시
 
-<div class="dev-center-tutorial-selector sublanding">
-    	<a href="/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows 유니버설">Windows 유니버설</a><a href="/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a> <a href="/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
-</div>
+> [AZURE.SELECTOR]
+- [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-secure-push.md)
+- [iOS](notification-hubs-aspnet-backend-ios-secure-push.md)
+- [Android](notification-hubs-aspnet-backend-android-secure-push.md)
+
 
 ##개요
 
@@ -63,6 +65,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 
 3. 그리고 나서 구현 섹션에 다음 코드를 추가하여 자리 표시자 `{back-end endpoint}`를 이전에 얻은 백 엔드의 끝점으로 대체합니다.
 
+```
 		NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
 
 		- (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
@@ -107,8 +110,9 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 		    }];
 		    [dataTask resume];
 		}
+```
 
-	이 메서드는 앱 백 엔드를 호출하여 공유 기본 설정에 저장된 자격 증명을 통해 알림 콘텐츠를 검색합니다.
+	This method calls your app back-end to retrieve the notification content using the credentials stored in the shared preferences.
 
 4. 이제 들어오는 알림을 처리하고 위의 메서드를 사용하여 표시할 콘텐츠를 검색해야 합니다. 먼저 푸시 알림을 받을 때 iOS 앱이 백그라운드에서 실행될 수 있도록 설정해야 합니다. **XCode**의 왼쪽 패널에서 앱 프로젝트를 선택하고 가운데 창의 **대상** 섹션에서 기본 앱 대상을 클릭합니다.
 
@@ -155,4 +159,4 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

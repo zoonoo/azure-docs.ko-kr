@@ -48,4 +48,4 @@
 
 * [조직 내에서 사용되고 있는 허용되지 않은 클라우드 앱을 검색하는 방법](active-directory-cloudappdiscovery-whatis.md) 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

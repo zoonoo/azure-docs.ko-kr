@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="TBD"
-   ms.date="07/27/2015"
+   ms.date="07/30/2015"
    ms.author="alkohli" />
 
 # StorSimple 장치에 대한 CHAP 구성
@@ -192,4 +192,4 @@ CHAP 구성이 올바르지 않은 경우 **인증 실패** 오류 메시지가 
 
 [StorSimple 보안](storsimple-security.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

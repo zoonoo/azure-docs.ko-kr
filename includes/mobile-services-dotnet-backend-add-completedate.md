@@ -1,6 +1,6 @@
 이 섹션에서는 이름이 **CompleteDate**인 새 타임스탬프 필드를 추가하여 데이터베이스의 모델을 수정합니다. 이 필드는 todo 항목이 완료된 마지막 시간을 기록합니다. Entity Framework는 [DropCreateDatabaseIfModelChanges](http://go.microsoft.com/fwlink/?LinkId=394621)에서 파생된 기본 데이터베이스 이니셜라이저 클래스를 사용하는 모델 변경에 따라 데이터베이스를 업데이트합니다.
 
-1. Visual Studio의 솔루션 탐색기에서 todolist 서비스 프로젝트의 **App_Start** 폴더를 확장합니다. WebApiConfig.cs 파일을 엽니다.
+1. Visual Studio의 솔루션 탐색기에서 todolist 서비스 프로젝트의 **App\_Start** 폴더를 확장합니다. WebApiConfig.cs 파일을 엽니다.
 
 2. WebApiConfig.cs 파일에서 기본 데이터베이스 이니셜라이저 클래스는 `DropCreateDatabaseIfModelChanges` 클래스에서 파생됩니다. 즉, 모델을 변경하면 테이블이 삭제되고 새 모델을 수용하는 테이블이 다시 생성됩니다. 테이블의 데이터가 손실되고 테이블이 다시 시드됩니다. 초기값 데이터가 다음과 같도록 데이터베이스 이니셜라이저의 Seed 메서드를 수정하고 WebApiConfig.cs 파일을 저장합니다.
 
@@ -40,4 +40,4 @@
 
 그런 다음, 새 **CompleteDate** 데이터를 표시하도록 클라이언트 앱을 업데이트합니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

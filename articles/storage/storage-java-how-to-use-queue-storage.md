@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Java에서 큐 저장소를 사용하는 방법 | Microsoft Azure";" 
+	pageTitle="Java에서 큐 저장소를 사용하는 방법 | Microsoft Azure&quot;" 
 	description="Azure 큐 서비스를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다. 샘플은 Java로 작성되었습니다." 
 	services="storage" 
 	documentationCenter="java" 
@@ -393,4 +393,4 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

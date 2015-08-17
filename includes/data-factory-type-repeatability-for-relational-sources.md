@@ -1,21 +1,21 @@
-## Repeatability during Copy
+## 복사 중 반복성
 
-When copying data from and to relational stores, you need to keep repeatability in mind to avoid unintended outcomes. 
+관계형 저장소로부터 또는 관계형 저장소에 데이터를 복사할 때는 의도치 않는 결과를 방지하기 위해 반복성을 염두에 두어야 합니다.
 
-**Note:** A slice can be re-run automatically in Azure Data Factory as per the retry policy specified. It is recommended to set a retry policy to guard against transient failures. Hence repeatability is an important aspect to take care of during data movement. 
+**참고:** 조각은 지정된 재시도 정책에 따라 Azure 데이터 팩터리에서 자동으로 다시 실행할 수도 있습니다. 일시적인 오류를 방지할 수 있게 재시도 정책을 설정하는 것이 좋습니다. 이 때문에 반복성은 데이터 이동 중에 유념해 두어야 할 중요한 부분입니다.
 
-**As a source:**
+**원본으로:**
 
-In most cases when reading from relational stores, you would want to read only the data corresponding to that slice. A way to do so would be by using the WindowStart and WindowEnd variables available in Azure Data Factory. Read about the variables and functions in Azure Data Factory here in the [Scheduling and Execution](data-factory-scheduling-and-execution.md) article. Example: 
+대부분의 경우 관계형 저장소에서 읽어올 때는 해당 조각에 대한 데이터만 읽고자 할 것입니다. 이것은 Azure 데이터 팩터리에서 제공하는 WindowStart 및 WindowEnd 변수를 사용하면 됩니다. [예약 및 실행](data-factory-scheduling-and-execution.md) 문서의 Azure 데이터 팩터리 부분에서 변수 및 함수에 대해 확인해 보세요. 예제:
 	
 	  "source": {
 	    "type": "SqlSource",
 	    "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm\\'', WindowStart, WindowEnd)"
 	  },
 
-The above query will read data from ‘MyTable’ that falls in the slice duration range. Re-run of this slice would also always ensure this behavior. 
+위의 쿼리에서는 조각 기간 범위 안에 해당하는 'MyTable'에서 데이터를 읽을 것입니다. 이 조각을 다시 실행하면 항상 해당 동작을 확인하게 됩니다.
 
-In other cases, you may wish to read the entire Table (suppose for one time move only) and may define the sqlReaderQuery as follows:
+다른 경우 전체 테이블을 읽고(단 한 번의 이동이라고 가정할 때) 다음과 같이 sqlReaderQuery를 정의하고자 할 수 있습니다.
 
 	
 	"source": {
@@ -23,3 +23,5 @@ In other cases, you may wish to read the entire Table (suppose for one time move
 	            "sqlReaderQuery": "select * from MyTable"
 	          },
 	
+
+<!---HONumber=August15_HO6-->

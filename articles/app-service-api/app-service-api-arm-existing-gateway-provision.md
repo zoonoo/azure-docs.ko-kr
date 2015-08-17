@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/04/2015" 
 	ms.author="tomfitz"/>
 
 # 기존 게이트웨이로 API 앱을 프로비전
@@ -40,7 +40,7 @@
 
 ### hostingPlanId
 
-기존 호스팅 계획의 식별자입니다.
+기존 앱 서비스 호스팅 계획의 식별자입니다.
 
     "hostingPlanId": {
       "type": "string"
@@ -65,7 +65,7 @@
       "packageId": "Microsoft.ApiApp"
     }
     
-값은 아래와 같이 **variables('packageId')**으로 사용됩니다.
+값은 아래와 같이 **variables('packageId')**으로 사용됩니다. API 앱에 대한 NuGet 패키지 Id를 포함합니다.
 
 ## 배포할 리소스
 
@@ -73,7 +73,7 @@
 
 API 앱을 호스팅하는 웹 앱을 만듭니다.
 
-**종류**는 해당 웹 앱이 게이트웨이를 호스팅하는 Azure 포털임을 알리는 **apiApp**으로 설정됩니다. 포털은 웹 앱 블레이드 찾아보기에서 웹 앱을 숨깁니다. 앱은 기본 빈 API 앱 패키지를 설치하기 위해 확장을 포함합니다. 링크는 API 앱과 호스팅 웹 앱 간에 정의됩니다. 앱 설정 섹션에는 API 앱 호스팅에 필요한 값이 포함됩니다.
+**종류**는 해당 웹앱이 API 앱을 호스팅하는 Azure 포털임을 알리는 **apiApp**으로 설정됩니다. 포털은 웹앱 블레이드 찾아보기에서 웹앱을 숨깁니다. 앱은 기본 빈 API 앱 패키지를 설치하기 위해 확장을 포함합니다. 링크는 API 앱과 호스팅 웹 앱 간에 정의됩니다. 앱 설정 섹션에는 API 앱 호스팅에 필요한 값이 포함됩니다. **serverFarmId** 속성은 **hostingPlanId** 매개 변수에서 제공한 값으로 설정됩니다.
 
     {
       "type": "Microsoft.Web/sites",
@@ -191,4 +191,4 @@ API 앱을 만듭니다.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

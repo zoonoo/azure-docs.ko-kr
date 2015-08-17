@@ -1,5 +1,5 @@
 
-1. Visual Studio의 솔루션 탐색기에서 App_Start 폴더를 확장한 다음 WebApiConfig.cs 프로젝트 파일을 엽니다.
+1. Visual Studio의 솔루션 탐색기에서 App\_Start 폴더를 확장한 다음 WebApiConfig.cs 프로젝트 파일을 엽니다.
 
 2. Register 메서드의 **ConfigOptions** 정의 뒤에 다음 코드 줄을 추가합니다.
 
@@ -92,4 +92,4 @@
 이제 서비스에서 사용자 ID 태그를 사용하여 로그인된 사용자가 만든 모든 등록에 푸시 알림(삽입된 항목의 텍스트 포함)을 보냅니다.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

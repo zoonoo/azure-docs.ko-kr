@@ -31,4 +31,4 @@ Visual Studio로 돌아가서 공유 코드 클라이언트 앱 프로젝트를 
 
 	Windows 앱이 시작된 후 이전 단계에서 저장한 데이터가 모바일 앱에서 로드됩니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

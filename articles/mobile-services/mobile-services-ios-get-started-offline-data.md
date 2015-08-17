@@ -30,7 +30,7 @@
 * 여러 장치에서 데이터 동기화
 * 두 장치에서 동일한 레코드 수정 시 충돌 감지
 
-> [AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 Azure 평가판을 등록하고 [평가판 사용 기간이 끝난 후에도 계속 사용할 수 있는 무료 모바일 서비스](http://azure.microsoft.com/pricing/details/mobile-services/)를 사용할 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="_blank")을 참조하세요.
+> [AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 Azure 평가판을 등록하고 [평가판 사용 기간이 끝난 후에도 계속 사용할 수 있는 무료 모바일 서비스](http://azure.microsoft.com/pricing/details/mobile-services/)를 사용할 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28 target="\_blank")을 참조하세요.
 
 이 자습서는 먼저 완료해야 하는 [모바일 서비스 퀵 스타트 자습서]를 기반으로 합니다. 먼저 퀵 스타트에서 오프라인 동기화와 관련된 코드를 검토해 보겠습니다.
 
@@ -110,10 +110,10 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 
 - **QSDataModel.xcdatamodeld**를 엽니다. SDK에서 사용되는 3개의 테이블과 할 일 항목 자체에 사용되는 1개의 테이블 등 모두 4개의 테이블이 정의되어 있습니다.
 
-      * MS_TableOperations: 서버와 동기화되는 항목 추적
-      * MS_TableOperationErrors: 오프라인 동기화 중에 발생하는 모든 오류 추적
-      * MS_TableConfig: 모든 끌어오기 작업에 대한 마지막 동기화 작업의 마지막 업데이트 시간 추적
-      * TodoItem: 할 일 항목 저장 시스템 열 **ms_createdAt**, **ms_updatedAt** 및 **ms_version**은 선택적 시스템 속성입니다.
+      * MS\_TableOperations: 서버와 동기화되는 항목 추적
+      * MS\_TableOperationErrors: 오프라인 동기화 중에 발생하는 모든 오류 추적
+      * MS\_TableConfig: 모든 끌어오기 작업에 대한 마지막 동기화 작업의 마지막 업데이트 시간 추적
+      * TodoItem: 할 일 항목 저장 시스템 열 **ms\_createdAt**, **ms\_updatedAt** 및 **ms\_version**은 선택적 시스템 속성입니다.
 
 >[AZURE.NOTE]모바일 서비스 SDK는 "**`ms_`**"(으)로 시작하는 열 이름을 예약합니다. 시스템 열 이외에 이 접두사를 사용하지 마세요. 사용하는 경우 원격 서비스를 사용하면 열 이름이 수정됩니다.
 
@@ -121,7 +121,7 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 
     ### 시스템 테이블
 
-    #### MS_TableOperations
+    #### MS\_TableOperations
 
     | 특성 | 유형 |
     |-------------- |   ------    |
@@ -131,7 +131,7 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
     | 테이블 | String |
     | tableKind | 정수 16 |
 
-    #### MS_TableOperationErrors
+    #### MS\_TableOperationErrors
 
     | 특성 | 유형 |
     |-------------- | ----------  |
@@ -140,7 +140,7 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
     | properties | 이진 데이터 |
     | tableKind | 정수 16 |
 
-    #### MS_TableConfig
+    #### MS\_TableConfig
 
 
     | 특성 | 유형 |
@@ -160,7 +160,7 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
     | id(필수) | 문자열 | 원격 저장소의 기본 키(필수) |
     | complete | Boolean | todo 항목 필드 |
     | 텍스트 | String | todo 항목 필드 |
-    | ms_createdAt | Date | (선택 사항) __createdAt 시스템 속성에 매핑됩니다. | | ms_updatedAt | Date | (선택 사항) __updatedAt 시스템 속성에 매핑됩니다. | | ms_version | String | (선택 사항) 충돌을 감지하는 데 사용되며 __version에 매핑됩니다. |
+    | ms\_createdAt | Date | (선택 사항) \_\_createdAt 시스템 속성에 매핑됩니다. | | ms\_updatedAt | Date | (선택 사항) \_\_updatedAt 시스템 속성에 매핑됩니다. | | ms\_version | String | (선택 사항) 충돌을 감지하는 데 사용되며 \_\_version에 매핑됩니다. |
 
 
 
@@ -271,4 +271,4 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 
 [모바일 서비스 퀵 스타트 자습서]: mobile-services-ios-get-started.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

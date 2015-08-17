@@ -18,9 +18,6 @@
 
 
 # 모바일 서비스 및 Pusher를 사용하여 실시간 앱 빌드
-<div class="dev-center-tutorial-selector sublanding">
-	<a href="" title="iOS" class="current">iOS</a>
-</div>
 
 이 항목에서는 Azure 모바일 서비스 기반 앱에 실시간 기능을 추가하는 방법을 보여 줍니다. 완료하면 실행 중인 모든 앱 인스턴스에서 TodoList 데이터가 실시간으로 동기화됩니다.
 
@@ -76,11 +73,11 @@ Pusher는 모바일 서비스처럼 실시간 앱을 쉽게 빌드할 수 있게
 	- Security.framework
 	- SystemConfiguration.framework
 
-9. 마지막으로, **Build Settings** 내에서 대상 빌드 설정 **Other Linker Flags**를 찾은 후 **-all_load** 플래그를 추가합니다.
+9. 마지막으로, **Build Settings** 내에서 대상 빌드 설정 **Other Linker Flags**를 찾은 후 **-all\_load** 플래그를 추가합니다.
 
 	![][add-linker-flag]
 
-	Debug build target에 대해 **-all_load** 플래그가 설정됩니다.
+	Debug build target에 대해 **-all\_load** 플래그가 설정됩니다.
 
 이제 라이브러리가 설치되고 사용할 준비가 되었습니다.
 
@@ -240,7 +237,7 @@ Pusher는 모바일 서비스처럼 실시간 앱을 쉽게 빌드할 수 있게
 		    }];
 		}
 
-11. `**your_app_key**` 자리 표시자를 이전에 연결 정보 대화 상자에서 복사한 app_key 값으로 바꿉니다.
+11. `**your_app_key**` 자리 표시자를 이전에 연결 정보 대화 상자에서 복사한 app\_key 값으로 바꿉니다.
 
 12. **onAdd** 메서드를 다음 코드로 바꿉니다.
 
@@ -444,4 +441,4 @@ Pusher는 모바일 서비스처럼 실시간 앱을 쉽게 빌드할 수 있게
 [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/p/?LinkId=262293
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

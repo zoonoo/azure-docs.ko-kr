@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="js"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="07/02/2015"
 	ms.author="piyushjo" />
 
@@ -233,7 +233,7 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
 **[iOS]**
 
-1. iOS에서는 실제 장치에 대한 푸시 알림만 허용하므로 XCode를 사용하여 푸시 알림을 테스트할 장치에서 앱을 빌드하고 배포합니다. Cordova 프로젝트가 생성된 위치로 이동하고 **...\platforms\ios** 위치로 이동합니다. XCode에서 네이티브 .xcodeproj 파일을 엽니다. 
+1. iOS에서는 실제 장치에 대한 푸시 알림만 허용하므로 XCode를 사용하여 푸시 알림을 테스트할 장치에서 앱을 빌드하고 배포합니다. Cordova 프로젝트가 생성된 위치로 이동하고 **...\\platforms\\ios** 위치로 이동합니다. XCode에서 네이티브 .xcodeproj 파일을 엽니다. 
 	
 2. 방금 Mobile Engagement 포털에 업로드한 인증서가 포함된 프로비저닝 프로필이 있는 계정과 Cordova 앱을 만들 때 제공한 것과 일치하는 앱 ID를 사용하여 Cordova 앱을 빌드하고 iOS 장치에 배포합니다. XCode의 **Resources*-info.plist** 파일에서 *번들 식별자*가 일치하는지 확인할 수 있습니다.
 
@@ -273,7 +273,7 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
 
 	![][15]
 
-5. [선택 사항] 작업 URL을 제공할 수도 있습니다. 플러그 인의 **AZME REDIRECT URL** 변수를 구성하는 동안 제공된 URL 체계가 사용되는지 확인합니다(예: *myapp://test*). 
+5. [선택 사항] 작업 URL을 제공할 수도 있습니다. 플러그 인의 **AZME REDIRECT URL** 변수를 구성하는 동안 제공된 URL 체계가 사용되는지 확인합니다(예: **myapp://test*).
 
 5. 이제 가능한 가장 기본적인 캠페인 설정을 완료했습니다. 다시 아래쪽으로 스크롤하여 캠페인을 **만든** 다음 저장해 보세요.
 	
@@ -312,4 +312,4 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
 [20]: ./media/mobile-engagement-cordova-get-started/native-push-settings.png
 [21]: ./media/mobile-engagement-cordova-get-started/api-key.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

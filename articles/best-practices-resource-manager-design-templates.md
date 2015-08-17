@@ -245,7 +245,7 @@ JSON 기반 템플릿을 사용하여 고객에게 고유한 변형을 제공할
 
 **선택적 리소스 템플릿**
 
-예를 들어 선택적 리소스 템플릿을 사용하여 공용 인터넷에서 배포된 환경에 간접적인 액세스를 가능하게 하는 jumpbox를 구성할 수 있습니다. 매개 변수 또는 변수를 사용하여 jumpbox 사용 여부를 확인하고 *concat* 함수를 사용하여 템플릿에 대한 대상 이름(예: *jumpbox_enabled.json*)을 빌드할 수 있습니다. 템플릿 연결은 jumpbox를 설치하기 위해 생성된 변수를 사용합니다.
+예를 들어 선택적 리소스 템플릿을 사용하여 공용 인터넷에서 배포된 환경에 간접적인 액세스를 가능하게 하는 jumpbox를 구성할 수 있습니다. 매개 변수 또는 변수를 사용하여 jumpbox 사용 여부를 확인하고 *concat* 함수를 사용하여 템플릿에 대한 대상 이름(예: *jumpbox\_enabled.json*)을 빌드할 수 있습니다. 템플릿 연결은 jumpbox를 설치하기 위해 생성된 변수를 사용합니다.
 
 여러 위치에서 선택적 리소스 템플릿을 링크할 수 있습니다.
 
@@ -309,7 +309,7 @@ VM의 경우 일반적으로 두 가지 유형의 스크립트(광범위한 재�
 
 이름이 shared-resources.json인 공유 리소스 템플릿을 만듭니다.
 
-이름이 jumpbox_enabled.json인 jumpbox를 배포할 수 있도록 선택적 리소스 템플릿을 만듭니다.
+이름이 jumpbox\_enabled.json인 jumpbox를 배포할 수 있도록 선택적 리소스 템플릿을 만듭니다.
 
 Redis는 단일 노드 유형만을 사용하기 때문에 이름이 node-resources.json인 단일 멤버 리소스 템플릿을 만듭니다.
 
@@ -319,9 +319,9 @@ Redis를 사용하여 각각의 개별 노드를 설치한 후 모든 노드가 
 
 기본 템플릿은 템플릿 연결을 사용하여 공유 리소스 템플릿으로 연결하고 이를 통해 가상 네트워크가 수립됩니다.
 
-jumpbox 배포 여부를 템플릿 소비자가 지정할 수 있도록 기본 템플릿 내에 논리가 추가됩니다. *EnableJumpbox* 매개 변수에 *enabled* 값을 설정하면 고객이 jumpbox 배포를 원한다는 것을 나타냅니다. 이 값이 제공되면 템플릿은 jumpbox 기능에 대한 기본 템플릿 이름에 *_enabled*를 접미사를 연결합니다.
+jumpbox 배포 여부를 템플릿 소비자가 지정할 수 있도록 기본 템플릿 내에 논리가 추가됩니다. *EnableJumpbox* 매개 변수에 *enabled* 값을 설정하면 고객이 jumpbox 배포를 원한다는 것을 나타냅니다. 이 값이 제공되면 템플릿은 jumpbox 기능에 대한 기본 템플릿 이름에 *\_enabled*를 접미사를 연결합니다.
 
-기본 템플릿은 티셔츠 크기에 대한 기본 템플릿 이름에 *large* 매개 변수 값을 접미사로 적용한 후 *technology_on_os_large.json*에 대한 템플릿 링크에 그 값을 사용합니다.
+기본 템플릿은 티셔츠 크기에 대한 기본 템플릿 이름에 *large* 매개 변수 값을 접미사로 적용한 후 *technology\_on\_os\_large.json*에 대한 템플릿 링크에 그 값을 사용합니다.
 
 토폴로지는 이러한 예시와 유사합니다.
 
@@ -378,7 +378,7 @@ jumpbox 배포 여부를 템플릿 소비자가 지정할 수 있도록 기본 �
 ## 다음 단계
 
 - 이 항목에 제시된 설계 원칙을 구현하는 방법에 대한 상황별 예제를 보려면 [템플릿 구현 모범 사례의 상황별 예제](best-practices-resource-manager-examples.md)를 참조하세요.
-- Azure 리소스 관리자에서 보안을 처리하는 방법에 대한 권장 사항을 보려면 [Security considerations for Azure Resource Manager](best-practices-resource-manager-security.md)(Azure 리소스 관리자에 대한 보안 고려 사항)을 참조하세요.
+- Azure 리소스 관리자에서 보안을 처리하는 방법에 대한 권장 사항을 보려면 [Azure 리소스 관리자에 대한 보안 고려 사항](best-practices-resource-manager-security.md)을 참조하세요.
 - 템플릿 내부 및 외부로 상태를 공유하는 방법을 알아보려면 [Azure 리소스 관리자 템플릿에서 상태 공유](best-practices-resource-manager-state.md)를 참조하세요.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,42 +1,42 @@
-<properties 
-	pageTitle="Blob 저장소를 사용하는 온-프레미스 응용 프로그램(Java) | Microsoft Azure" 
-	description="Azure에 이미지를 업로드한 다음 브라우저에 해당 이미지를 표시하는 콘솔 응용 프로그램을 만드는 방법에 대해 알아봅니다. 코드 샘플은 Java로 작성되었습니다." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+<properties
+	pageTitle="Blob 저장소를 사용하는 온-프레미스 응용 프로그램(Java) | Microsoft Azure"
+	description="Azure에 이미지를 업로드한 다음 브라우저에 해당 이미지를 표시하는 콘솔 응용 프로그램을 만드는 방법에 대해 알아봅니다. 코드 샘플은 Java로 작성되었습니다."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="06/03/2015"
 	ms.author="robmcm"/>
 
 # Blob 저장소를 사용하는 온-프레미스 응용 프로그램
 
 ## 개요
 
-다음 예제에서는 Azure 저장소를 사용하여 이미지를 Azure에 저장할 수 있는 방법을 보여 줍니다. 아래 코드는 Azure에 이미지를 업로드한 다음 그 이미지를 브라우저에 표시하는 HTML 파일을 만드는 콘솔 응용 프로그램용 코드입니다.
+다음 예제에서는 Azure 저장소를 사용하여 이미지를 Azure에 저장할 수 있는 방법을 보여 줍니다. 이 문서의 코드는 Azure에 이미지를 업로드한 다음 그 이미지를 브라우저에 표시하는 HTML 파일을 만드는 콘솔 응용 프로그램용 코드입니다.
 
 ## 필수 조건
 
-1.  JDK(Java Developer Kit) v1.6 이상이 설치되어 있어야 합니다.
-2.  Azure SDK가 설치되어 있어야 합니다.
-3.  Java용 Azure 라이브러리를 위한 JAR 및 해당하는 종속성 JAR이 설치되어 있어야 하며 Java 컴파일러가 사용하는 빌드 경로에 있어야 합니다. Java용 Azure 라이브러리 설치에 대한 자세한 내용은 [Java용 Azure SDK 다운로드]를 참조하세요.
-4.  Azure 저장소 계정이 설정되어 있어야 합니다. 아래 코드에서 저장소 계정의 계정 이름 및 계정 키를 사용해야 합니다. 저장소 계정 만들기에 대한 내용은 [저장소 계정을 만드는 방법]을, 계정 키 검색에 대한 내용은 [저장소 계정을 관리하는 방법]을 참조하십시오.
-5.  이름을 지정한 로컬 이미지 파일을 만들어 c:\myimages\image1.jpg 경로에 저장해야 합니다. 또는 예제에서 **FileInputStream** 생성자를 수정하여 다른 이미지 경로 및 파일 이름을 사용합니다.
+- JDK(Java Developer Kit) 버전 1.6 이상이 설치되어 있어야 합니다.
+- Azure SDK가 설치되어 있어야 합니다.
+- Java용 Azure 라이브러리를 위한 JAR 및 해당하는 종속성 JAR이 설치되어 있어야 하며 Java 컴파일러가 사용하는 빌드 경로에 있어야 합니다. Java용 Azure 라이브러리 설치에 대한 자세한 내용은 [Java용 Azure SDK 다운로드]를 참조하세요.
+- Azure 저장소 계정이 설정되어 있어야 합니다. 이 문서의 코드에서는 저장소 계정의 계정 이름 및 계정 키를 사용합니다. 저장소 계정 만들기에 대한 내용은 [저장소 계정을 만드는 방법]을, 계정 키 검색에 대한 내용은 [저장소 계정을 관리하는 방법]을 참조하십시오.
+- 이름을 지정한 로컬 이미지 파일을 만들어 c:\\myimages\\image1.jpg 경로에 저장해야 합니다. 또는 예제에서 **FileInputStream** 생성자를 수정하여 다른 이미지 경로 및 파일 이름을 사용합니다.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ## Azure Blob 저장소를 사용하여 파일을 업로드하려면
 
-여기에 단계별 절차가 있습니다. 건너뛰고 싶은 경우 이 항목의 뒷부분에 전체 코드가 제공됩니다.
+여기서는 단계별 절차를 제공합니다. 건너뛰고 싶은 경우 이 문서의 뒷부분에 전체 코드가 제공됩니다.
 
-Azure 핵심 저장소 클래스, Azure Blob 클라이언트 클래스, Java IO 클래스, **URISyntaxException** 클래스에 대한 가져오기를 포함하며 코드를 시작합니다.
+Azure 핵심 저장소 클래스, Azure Blob 클라이언트 클래스, Java IO 클래스, **URISyntaxException** 클래스에 대한 가져오기를 포함하여 코드를 시작합니다.
 
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.blob.*;
@@ -47,16 +47,16 @@ Azure 핵심 저장소 클래스, Azure Blob 클라이언트 클래스, Java IO 
 
     public class StorageSample {
 
-**StorageSample** 클래스 내에서 Azure 저장소 계정에 지정된 것과 같이 기본 끝점 프로토콜, 저장소 계정 이름, 저장소 액세스 키가 포함될 문자열 변수를 선언합니다. **your_account_name** 및 **your_account_key** 자리 표시자 값을 각각 자신의 계정 이름 및 계정 키로 바꿉니다.
+**StorageSample** 클래스 내에서 Azure 저장소 계정에 지정된 것과 같이 기본 끝점 프로토콜, 저장소 계정 이름, 저장소 액세스 키가 포함될 문자열 변수를 선언합니다. **your\_account\_name** 및 **your\_account\_key** 자리 표시자 값을 각각 자신의 계정 이름 및 계정 키로 바꿉니다.
 
-    public static final String storageConnectionString = 
-           "DefaultEndpointsProtocol=http;" + 
-               "AccountName=your_account_name;" + 
-               "AccountKey=your_account_name"; 
+    public static final String storageConnectionString =
+           "DefaultEndpointsProtocol=http;" +
+               "AccountName=your_account_name;" +
+               "AccountKey=your_account_name";
 
 **main** 선언을 추가하고 **try** 블록을 포함하며 필요한 여는 중괄호(**{**)를 포함합니다.
 
-    public static void main(String[] args) 
+    public static void main(String[] args)
     {
         try
         {
@@ -88,7 +88,7 @@ Azure 핵심 저장소 클래스, Azure Blob 클라이언트 클래스, Java IO 
     // Container name must be lower case.
     container = serviceClient.getContainerReference("gettingstarted");
 
-컨테이너를 만듭니다. 이 메서드는 컨테이너가 없으면(그리고 **true**를 반환하면) 컨테이너를 만듭니다. 컨테이너가 있으면 **false**를 반환합니다. **createIfNotExists** 대신 **create** 메서드(컨테이너가 이미 있는 경우 오류를 반환함)를 사용할 수 있습니다.
+컨테이너를 만듭니다. 이 메서드는 컨테이너가 없을 경우 컨테이너를 만들고 **true**를 반환합니다. 컨테이너가 있으면 **false**를 반환합니다. **createIfNotExists** 대신 **create** 메서드(컨테이너가 이미 있는 경우 오류를 반환함)를 사용할 수 있습니다.
 
     container.createIfNotExists();
 
@@ -106,7 +106,7 @@ Azure 핵심 저장소 클래스, Azure Blob 클라이언트 클래스, Java IO 
 
 **File** 생성자를 사용하여, 로컬로 만들어졌으며 업로드할 파일에 대한 참조를 가져옵니다. 이 파일은 코드를 실행하기 전에 만들어야 합니다.
 
-    File fileReference = new File ("c:\myimages\image1.jpg");
+    File fileReference = new File ("c:\\myimages\\image1.jpg");
 
 **CloudBlockBlob.upload** 메서드에 대한 호출을 통해 로컬 파일을 업로드합니다. **CloudBlockBlob.upload** 메서드의 첫 번째 매개 변수는 Azure 저장소에 업로드할 로컬 파일을 나타내는 **FileInputStream** 개체입니다. 두 번째 매개 변수는 파일의 크기(바이트)입니다.
 
@@ -198,7 +198,7 @@ Azure 핵심 저장소 클래스, Azure Blob 클라이언트 클래스, Java IO 
 
 다음 닫는 중괄호(**}**)를 삽입하여 **StorageSample**을 닫습니다.
 
-다음은 이 예제의 완성 코드입니다. 계정 이름 및 계정 키를 사용하도록 **your_account_name** 및 **your_account_key** 자리 표시자 값을 각각 수정해야 합니다.
+다음은 이 예제의 완성 코드입니다. 계정 이름 및 계정 키를 사용하도록 **your\_account\_name** 및 **your\_account\_key** 자리 표시자 값을 각각 수정해야 합니다.
 
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.blob.*;
@@ -206,14 +206,14 @@ Azure 핵심 저장소 클래스, Azure Blob 클라이언트 클래스, Java IO 
     import java.net.URISyntaxException;
 
     // Create an image, c:\myimages\image1.jpg, prior to running this sample.
-    // Alternatively, change the value used by the FileInputStream constructor 
+    // Alternatively, change the value used by the FileInputStream constructor
     // to use a different image path and file that you have already created.
     public class StorageSample {
 
         public static final String storageConnectionString =
                 "DefaultEndpointsProtocol=http;" +
-                       "AccountName=your_account_name;" + 
-                       "AccountKey=your_account_name"; 
+                       "AccountName=your_account_name;" +
+                       "AccountKey=your_account_name";
 
         public static void main(String[] args) {
             try {
@@ -237,7 +237,7 @@ Azure 핵심 저장소 클래스, Azure Blob 클라이언트 클래스, Java IO 
                 // Upload an image file.
                 blob = container.getBlockBlobReference("image1.jpg");
 
-                File fileReference = new File("c:\myimages\image1.jpg");
+                File fileReference = new File("c:\\myimages\\image1.jpg");
                 blob.upload(new FileInputStream(fileReference), fileReference.length());
 
                 // At this point the image is uploaded.
@@ -303,32 +303,32 @@ Azure 핵심 저장소 클래스, Azure Blob 클라이언트 클래스, Java IO 
     container = serviceClient.getContainerReference("gettingstarted");
     container.delete();
 
-**CloudBlobContainer.delete** 메서드를 호출하는 경우 **CloudStorageAccount**, **ClodBlobClient**, **CloudBlobContainer** 개체의 초기화 과정은 **createIfNotExist** 메서드에 대해 보여 준 것과 같습니다. 다음은 **gettingstarted**라는 컨테이너를 삭제하는 완성 예제입니다.
+**CloudBlobContainer.delete** 메서드를 호출하기 위해 **CloudStorageAccount**, **ClodBlobClient**, **CloudBlobContainer** 개체를 초기화하는 프로세스는 **createIfNotExist** 메서드의 경우와 동일합니다. 다음은 **gettingstarted**라는 컨테이너를 삭제하는 완성 예제입니다.
 
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.blob.*;
 
     public class DeleteContainer {
 
-        public static final String storageConnectionString = 
-                "DefaultEndpointsProtocol=http;" + 
-                   "AccountName=your_account_name;" + 
-                   "AccountKey=your_account_key"; 
+        public static final String storageConnectionString =
+                "DefaultEndpointsProtocol=http;" +
+                   "AccountName=your_account_name;" +
+                   "AccountKey=your_account_key";
 
-        public static void main(String[] args) 
+        public static void main(String[] args)
         {
             try
             {
                 CloudStorageAccount account;
                 CloudBlobClient serviceClient;
                 CloudBlobContainer container;
-                
+
                 account = CloudStorageAccount.parse(storageConnectionString);
                 serviceClient = account.createCloudBlobClient();
                 // Container name must be lower case.
                 container = serviceClient.getContainerReference("gettingstarted");
                 container.delete();
-                
+
                 System.out.println("Container deleted.");
 
             }
@@ -347,7 +347,7 @@ Azure 핵심 저장소 클래스, Azure Blob 클라이언트 클래스, Java IO 
         }
     }
 
-다른 Blob 저장소 클래스 및 메서드 개요는 [Java에서 Blob 저장소 서비스를 사용하는 방법]을 참조하십시오.
+기타 Blob 저장소 클래스 및 메서드에 대한 개요는 [Java에서 Blob 저장소 서비스를 사용하는 방법]을 참조하세요.
 
 ## 다음 단계
 
@@ -366,6 +366,5 @@ Azure 핵심 저장소 클래스, Azure Blob 클라이언트 클래스, Java IO 
   [Azure 저장소 클라이언트 SDK 참조]: http://dl.windowsazure.com/storage/javadoc/
   [Azure 저장소 REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="07/13/2015"
+	ms.date="08/04/2015"
 	ms.author="jeffstok"/>
 
 # 처리량을 높이기 위한 Azure 스트림 분석 작업 규모 지정 #
@@ -260,4 +260,4 @@ SU(스트리밍 단위)는 Azure 스트림 분석 작업을 실행하는 리소�
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

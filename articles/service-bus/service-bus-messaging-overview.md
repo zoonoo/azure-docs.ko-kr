@@ -38,4 +38,4 @@ Microsoft Azure 서비스 버스 메시징은 안정적인 정보 배달 서비�
 - [서비스 버스 토픽을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

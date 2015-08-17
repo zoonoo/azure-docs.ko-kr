@@ -156,4 +156,4 @@ Azure AD 플랫폼에서 처리한 수많은 인증 및 로그인으로 인해 �
 
 > [AZURE.TIP]Azure AD Reporting에 대한 설명서에 대해서는 [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)를 확인하세요.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

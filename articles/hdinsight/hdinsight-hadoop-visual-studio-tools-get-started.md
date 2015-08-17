@@ -1,7 +1,6 @@
 <properties
 	pageTitle="HDInsight용 Visual Studio Hadoop 도구를 사용하는 방법 알아보기 | Microsoft Azure"
 	description="HDInsight용 Visual Studio Hadoop 도구를 설치하고 이를 사용하여 Hadoop 클러스터에 연결한 후 Hive 쿼리를 실행하는 방법에 대해 알아봅니다."
-	keywords="hadoop tools,hive query,visual studio"
 	services="HDInsight"
 	documentationCenter=""
 	authors="mumian"
@@ -67,7 +66,7 @@ Visual Studio용 HDInsight 도구를 사용하면 HDInsight 클러스터에 연�
 2.	**보기** 메뉴에서 **서버 탐색기**를 클릭하여 서버 탐색기 창을 엽니다.
 3.	**Azure**를 확장한 다음 **HDInsight**를 확장합니다.
 
-	>[AZURE.NOTE]**HDInsight 작업 목록****다른 창****보기****HDInsight 작업 목록 창**  
+	>[AZURE.NOTE]**HDInsight 작업 목록** 창이 열립니다. 이 창이 표시되지 않는 경우 **보기** 메뉴에서 **다른 창**을 클릭한 후 **HDInsight 작업 목록 창**를 클릭하여 열 수 있습니다.  
 4.	Azure 구독 자격 증명을 입력한 후 **로그인**을 클릭합니다. 이 과정은 이 워크스테이션에서 Visual Studio를 통해 Azure 구독에 연결한 적이 없는 경우에만 필요합니다.
 5.	서버 탐색기에서 기존 HDInsight 클러스터 목록이 표시됩니다. 클러스터가 없는 경우 Azure 포털, Azure PowerShell 또는 HDInsight SDK를 사용하여 클러스터를 프로비전할 수 있습니다. 자세한 내용은 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요.
 
@@ -141,7 +140,7 @@ GUI를 사용하여 Hive 테이블을 만들거나 Hive 쿼리를 사용할 수 
 
 	![Hadoop 도구: HDInsight Visual Studio Tools Intellisense][14]
 
-	> [AZURE.NOTE]
+	> [AZURE.NOTE]HDInsight 도구 모음에서 선택한 클러스터의 메타데이터만 제안됩니다.
 4. (선택 사항) **스크립트 유효성 검사**를 클릭하여 스크립트 구문 오류를 확인합니다.
 
 	![Hadoop 도구: Visual Studio용 HDInsight 도구 로컬 유효성 검사][10]
@@ -236,4 +235,4 @@ Visual Studio용 HDInsight 도구는 Pig 스크립트를 만들어 HDInsight 클
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

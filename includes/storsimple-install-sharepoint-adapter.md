@@ -1,3 +1,4 @@
+
 #### SharePoint용 StorSimple 어댑터를 설치하려면
 
 1. SharePoint 중앙 관리 웹 응용 프로그램을 실행하도록 구성된 WFE(웹 프런트 엔드) 서버에 설치 프로그램을 복사합니다. 
@@ -24,4 +25,4 @@
 
 8. 다음 단계, [RBS 구성](#configure-rbs)으로 이동합니다.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

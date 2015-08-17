@@ -40,4 +40,4 @@ Azure 관리 포털에서 Azure AD 디렉터리를 추가하려면 왼쪽의 Act
 
 Azure AD 라이선스 문제 및 모범 사례에 대한 광범위한 개요는 [Azure Active Directory 라이선스란?](active-directory-licensing-what-is.md)을 참조하세요.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

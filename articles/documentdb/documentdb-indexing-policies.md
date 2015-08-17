@@ -1,9 +1,9 @@
 <properties 
-    pageTitle="DocumentDB 인덱싱 정책 | Azure" 
+    pageTitle="DocumentDB 인덱싱 정책 | Microsoft Azure" 
     description="인덱싱이 DocumentDB에서 작동하는 방식을 이해하고 인덱싱 정책 구성 및 변경하는 방법을 알아봅니다." 
     services="documentdb" 
     documentationCenter="" 
-    authors="mimig1" 
+    authors="arramac" 
     manager="jhubbard" 
     editor="monicar"/>
 
@@ -13,55 +13,32 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="07/19/2015" 
+    ms.date="08/03/2015" 
     ms.author="mimig"/>
 
 
 # DocumentDB 인덱싱 정책
 
-DocumentDB는 진정한 스키마 없는 데이터베이스입니다. 인덱싱하는 JSON 문서에 대해 스키마를 가정하거나 요구하지 않습니다. 따라서 신속하게 응용 프로그램 데이터 모델을 정의하여 응용 프로그램 데이터 모델에 대해 반복할 수 있습니다. 컬렉션에 문서를 추가하면 DocumentDB에서 자동으로 모든 문서 속성을 인덱싱하므로 쿼리에 이러한 속성을 사용할 수 있습니다. 자동 인덱싱을 통해 다른 유형의 문서를 저장할 수도 있습니다.
+많은 고객이 DocumentDB가 [인덱싱의 모든 측면](documentdb-indexing.md)을 자동으로 처리할 수 있어 만족하지만, DocumentDB는 작성 중 컬렉션에 대한 사용자 지정 **인덱싱 정책** 지정도 지원합니다. DocumentDB의 인덱싱 정책은 더 유연하며 다른 데이터베이스 플랫폼에서 제공하는 보조 인덱스보다 강력하므로, 스키마 유연성을 유지하면서 인덱스의 모양을 디자인하고 사용자 지정할 수 있습니다. 인덱싱 정책을 관리하여, 인덱스 저장소 오버 헤드, 쓰기 및 쿼리 처리량 및 쿼리 일관성 간 세분화된 균형을 맞출 수 있습니다.
 
-문서의 자동 인덱싱은 쓰기 최적화, 잠금 없는 로그 구조 인덱스 유지 관리 기술로 가능합니다. DocumentDB는 일관성 있는 쿼리를 제공하는 동시에 빠른 쓰기의 지속적인 볼륨을 지원합니다.
-
-DocumentDB 인덱싱 하위 시스템은 다음을 지원하도록 설계되었습니다.
-
--  스키마 또는 인덱스 정의가 없는 효율적이고 풍부한 계층적 및 관계형 쿼리
--  지속적인 쓰기 볼륨을 처리하는 동안 일관성 있는 쿼리 결과 일관성 있는 쿼리와 더불어 높은 쓰기 처리량 작업을 위해 지속적인 쓰기 볼륨을 처리하는 동안 인덱스가 온라인에서 효율적으로 증분 업데이트됩니다.
-- 효율적인 저장소 비용 효율성을 위해 인덱스의 디스크에 있는 저장소 오버헤드가 제한되고 예측 가능합니다.
-- 다중 테넌트 지원 인덱스 업데이트가 DocumentDB 컬렉션당 할당된 시스템 리소스의 예산 내에서 수행됩니다. 
-
-대부분의 응용 프로그램에 대해 기본 자동 인덱싱 정책을 사용할 수 있습니다. 기본 자동 인덱싱 정책만으로도 최대 유연성이 보장되고 성능과 저장소 효율성 간의 균형을 잘 유지할 수 있기 때문입니다. 반면에 사용자 지정 인덱싱 정책을 지정하면 쿼리 성능, 쓰기 성능 및 인덱스 저장소 오버헤드 간의 균형을 좀 더 세분화하여 조정할 수 있습니다.
-
-예를 들어 특정 문서나 문서 내의 경로를 인덱싱에서 제외하여 인덱싱에 사용되는 저장소 공간을 줄일 수 있을 뿐만 아니라 인덱스 유지 관리를 위한 삽입 시간 비용도 줄일 수 있습니다. 범위 쿼리에 더 적합하도록 인덱스 유형을 변경하거나 쿼리 성능을 향상하기 위해 인덱스 자릿수(바이트)를 늘릴 수 있습니다. 이 문서에서는 DocumentDB에서 사용할 수 있는 다양한 인덱싱 구성 옵션과 작업에 맞게 인덱싱 정책을 사용자 지정하는 방법을 설명합니다.
+이 문서에서는 DocumentDB 인덱싱 정책, 인덱싱 정책을 사용자 지정할 수 있는 방법 및 연관된 장단점을 살펴보겠습니다.
 
 이 문서를 읽은 다음에는 다음과 같은 질문에 답할 수 있습니다.
 
-- DocumentDB는 어떻게 기본적으로 모든 속성의 인덱싱을 지원하나요?
+- DocumentDB는 기본적으로 자동 인덱싱을 어떻게 지원하나요?
 - 인덱싱에서 포함하거나 제외할 속성을 어떻게 재정의하나요?
 - 최종 업데이트에 대한 인덱스를 어떻게 구성하나요?
 - Order By 또는 범위 쿼리를 수행하는 인덱싱을 어떻게 구성하나요?
+- 컬렉션의 인덱싱 정책을 어떻게 변경하나요?
+- 저장소 및 다른 인덱싱 정책의 성능을 어떻게 비교하나요?
 
-## DocumentDB 인덱싱 작동 방법
+##<a id="CustomizingIndexingPolicy"></a> 컬렉션의 인덱싱 정책 사용자 지정
 
-DocumentDB의 인덱싱은 JSON 문법에서 문서를 **트리로 표현**할 수 있다는 사실을 이용합니다. JSON 문서를 트리로 표현하려면 문서 아래에 있는 나머지 실제 노드의 상위 항목이 되는 더미 루트 노드를 만들어야 합니다. JSON 문서의 배열 인덱스를 포함하는 각 레이블은 트리의 노드가 됩니다. 아래 그림은 예제 JSON 문서 및 해당 트리 표현을 보여 줍니다.
+개발자는 DocumentDB 컬렉션의 기본 인덱싱 정책을 재정의하고 다음 측면을 구성하여 저장소, 쓰기/쿼리 성능 및 쿼리 일관성 간의 장단점을 사용자 지정할 수 있습니다.
 
-![인덱싱 정책](media/documentdb-indexing-policies/image001.png)
-
-예를 들어 위의 예에서 JSON 속성 `{"headquarters": "Belgium"}` 속성은 경로 `/headquarters/Belgium`에 해당합니다. JSON 배열 `{"exports": [{"city": “Moscow"}, {"city": Athens"}]}` 배열은 경로 `/exports/[]/city/Moscow` 및 `/exports/[]/city/Athens`에 해당합니다.
-
->[AZURE.NOTE]경로 표현은 문서의 구조/스키마와 인스턴스 값 간의 경계를 모호하게 하여 DocumentDB를 진정한 스키마 없는 데이터베이스로 만들어 줍니다.
-
-DocumentDB에서 문서는 SQL을 사용하여 쿼리될 수 있거나 단일 트랜잭션 범위 내에서 처리될 수 있는 컬렉션으로 구성됩니다. 각 컬렉션은 경로를 기준으로 표현된 고유한 인덱싱 정책으로 구성할 수 있습니다. 다음 섹션에서는 DocumentDB 컬렉션의 인덱싱 동작 구성하는 방법을 살펴보겠습니다.
-
-## 컬렉션의 인덱싱 정책 구성
-
-모든 DocumentDB 컬렉션에 대해 다음 옵션을 구성할 수 있습니다.
-
-- 인덱싱 모드: **일관성**, **지연**(비동기 업데이트의 경우) 또는 **없음**("id" 기반 액세스 경우에만)
-- 경로 포함 및 제외: 포함하거나 제외할 JSON 내의 경로를 선택합니다.
-- 인덱스 종류: **해시**(같음 쿼리), **범위**(같음, 범위 및 저장소의 오버헤드가 높은 경우 Order By 쿼리)
-- 인덱스 전체 자릿수: 1-8 또는 저장소와 성능 간에 적절한 균형을 유지하려면 최대 전체 자릿수(-1)
-- 자동: **true** 또는 **false**를 사용하도록 설정 또는 **manual**(삽입할 때마다 옵트인(opt in))
+- **문서 및 인덱스까지/로부터의 경로 포함/제외**. 개발자는 특정 문서를 선택하여 컬렉션에 삽입하거나 대체할 때 인덱스에 포함하거나 제외할 수 있습니다. 개발자는 인덱스에 포함된 문서 간에 인덱싱할 특정 JSON 속성 a.k.a 경로(와일드 카드 패턴 포함)를 포함하거나 제외하도록 선택할 수도 있습니다.
+- **다양한 인덱스 유형 구성**. 포함된 각 경로에 대해 개발자는 자신의 데이터 및 예상 쿼리 워크로드 및 각 경로에 대한 숫자/문자열 "전체 자릿수"를 기반으로 컬렉션에 대해 필요한 인덱스의 유형을 지정할 수도 있습니다.
+- **인덱스 업데이트 모드 구성**. DocumentDB는 DocumentDB 컬렉션의 인덱싱 정책을 통해 구성될 수 있는 세 가지 인덱싱 모드, 일관성, 지연 및 없음을 지원합니다. 
 
 다음 .NET 코드 조각에서는 컬렉션을 만드는 동안 사용자 지정 인덱싱 정책을 설정하는 방법을 보여 줍니다. 여기에서 최대 전체 자릿수의 문자열 및 숫자에 대한 범위 인덱스를 사용하여 정책을 설정합니다. 이 정책을 통해 문자열에 대한 Order By 쿼리를 실행할 수 있습니다.
 
@@ -87,12 +64,228 @@ DocumentDB에서 문서는 SQL을 사용하여 쿼리될 수 있거나 단일 �
 
 ### 인덱싱 모드
 
-동기(\*\*일관성\*\*), 비동기(\*\*지연\*\*) 및 없음(\*\*없음\*\*) 인덱스 업데이트 간에 선택할 수 있습니다. 기본적으로 컬렉션의 문서를 삽입하거나 바꾸거나 삭제할 때마다 인덱스가 동기적으로 업데이트됩니다. 따라서 쿼리가 인덱스가 따라잡을 때까지의 지연 없이 문서 읽기의 일관성 수준과 동일한 일관성 수준을 적용할 수 있습니다.
+DocumentDB는 DocumentDB 컬렉션의 인덱싱 정책을 통해 구성될 수 있는 세 가지 인덱싱 모드, 일관성, 지연 및 없음을 지원합니다.
 
-DocumentDB는 쓰기 최적화되며 동기 인덱스 유지 관리와 함께 문서 쓰기의 지속적인 볼륨을 지원하지만 인덱스를 지연 업데이트하도록 특정 컬렉션을 구성할 수 있습니다. 지연 인덱싱은 데이터가 갑자기 작성되는 시나리오에 적합하며, 오랜 시간 동안 콘텐츠를 인덱싱하는 데 필요한 작업을 분할하고자 합니다. 그러면 프로비전된 처리량을 효과적으로 사용하고 최대 사용 시간에 최소 대기 시간으로 쓰기 요청을 처리할 수 있습니다. 지연 인덱싱을 설정한 경우 쿼리 결과는 데이터베이스 계정에 대해 구성된 일관성 수준과 관계없이 결국 일관성을 지니게 됩니다.
+**일관성**: DocumentDB 컬렉션의 정책이 "일관되게" 지정되면, 지정된 DocumentDB 컬렉션의 쿼리는 지점 읽기(즉, 강력, 제한된 부실, 세션 또는 최종)에 대해 지정된 것과 동일한 일관성 수준을 따릅니다. 인덱스는 문서 업데이트(즉, DocumentDB 컬렉션의 문서 삽입, 대체, 업데이트 및 삭제)의 일부로 동기적으로 업데이트됩니다. 일관된 인덱싱은 쓰기 처리량에 가능한 비용 감소로 일관된 쿼리를 지원합니다. 이 감소는 "일관성 수준"으로 인덱싱할 필요가 있는 고유 경로 함수입니다. 일관성 인덱싱 모드는 "신속하게 쿼리를 즉시 쓰기" 작업을 위해 설계되었습니다.
+
+**지연**: 최대 문서 수집 처리량을 허용하려면 DocumentDB 컬렉션은 지연 일관성으로 구성할 수 있으며 쿼리가 결국 일치함을 의미합니다. DocumentDB 컬렉션이 정지 상태 즉, 사용자 요청을 처리할 만큼 컬렉션의 처리량 용량이 충분히 활용되지 않은 경우 인덱스가 비동기적으로 업데이트됩니다. 아무런 제약 없이 문서 수집을 필요로 하는 "지금 수집, 나중에 쿼리" 워크로드의 경우, "지연" 인덱싱 모드가 적합할 수 있습니다.
+
+**없음**: 인덱스 모드가 "없음"으로 표시되는 컬렉션에는 연관된 인덱스가 없습니다. "없음"으로 인덱싱 정책을 구성하면 모든 기존 인덱스를 삭제하는 부작용이 있습니다.
+
+>[AZURE.NOTE]“없음”으로 인덱싱 정책을 구성하면 모든 기존 인덱스를 삭제하는 부작용이 있습니다. 액세스 패턴이 "Id" 및/또는 "자체 링크"만을 필요로 하면 이를 사용합니다.
 
 다음 샘플은 모든 문서 삽입에 일관된 자동 인덱싱을 사용하여 .NET SDK로 DocumentDB 컬렉션을 만드는 방법을 보여 줍니다.
 
+다음 표에서 컬렉션에 대해 구성된 인덱싱 모드(일관성 및 지연) 및 쿼리 요청에 대해 지정된 일관성 수준에 따라 쿼리에 대한 일관성을 보여줍니다. 모든 인터페이스 - REST API, SDK또는 저장 프로시저 및 트리거 내에서 사용하여 만든 쿼리에 적용합니다.
+
+<table border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td valign="top">
+                <p>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    <strong>일관</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    <strong>지연</strong>
+                </p>
+            </td>            
+        </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    <strong>강력</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    강력
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    최종
+                </p>
+            </td>            
+        </tr>       
+        <tr>
+            <td valign="top">
+                <p>
+                    <strong>제한된 부실</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    제한된 부실
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    최종
+                </p>
+            </td>            
+        </tr>          
+        <tr>
+            <td valign="top">
+                <p>
+                    <strong>세션</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    세션
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    최종
+                </p>
+            </td>            
+        </tr>      
+        <tr>
+            <td valign="top">
+                <p>
+                    <strong>최종</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    최종
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    최종
+                </p>
+            </td>            
+        </tr>         
+    </tbody>
+</table>
+
+기본적으로 쿼리를 제공하기 위해 검색이 필요할 수 있음을 알리도록 없음 인덱싱 모드로 컬렉션이 설정되면 오류가 모든 쿼리에 대해 반환됩니다. REST API의 `x-ms-documentdb-enable-scans` 헤더 또는 .NET SDK를 사용하는 `EnableScanInQuery` 요청 옵션을 사용하여 범위 인덱스 없이 이 쿼리를 수행할 수 있습니다. 예를 들어, ORDER BY를 사용하는 일부 커리는 `EnableScanInQuery`가 포함된 없음을 사용할 수 없습니다.
+
+다음 표에서 EnableScanInQuery가 지정되면 인덱싱 모드(일관성, 지연, 및 없음)에 기반하는 쿼리에 대한 일관성을 보여 줍니다.
+
+<table border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td valign="top">
+                <p>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    <strong>일관</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    <strong>지연</strong>
+                </p>
+            </td>       
+            <td valign="top">
+                <p>
+                    <strong>없음</strong>
+                </p>
+            </td>             
+        </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    <strong>강력</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    강력
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    최종
+                </p>
+            </td>    
+            <td valign="top">
+                <p>
+                    강력
+                </p>
+            </td>                
+        </tr>       
+        <tr>
+            <td valign="top">
+                <p>
+                    <strong>제한된 부실</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    제한된 부실
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    최종
+                </p>
+            </td>      
+            <td valign="top">
+                <p>
+                    제한된 부실
+                </p>
+            </td> 
+        </tr>          
+        <tr>
+            <td valign="top">
+                <p>
+                    <strong>세션</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    세션
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    최종
+                </p>
+            </td>   
+            <td valign="top">
+                <p>
+                    세션
+                </p>
+            </td>             
+        </tr>      
+        <tr>
+            <td valign="top">
+                <p>
+                    <strong>최종</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    최종
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    최종
+                </p>
+            </td>      
+            <td valign="top">
+                <p>
+                    최종
+                </p>
+            </td>              
+        </tr>         
+    </tbody>
+</table>
+
+다음 코드 샘플은 모든 문서 삽입에 일관된 인덱싱을 사용하여 .NET SDK로 DocumentDB 컬렉션을 만드는 방법을 보여 줍니다.
 
      // Default collection creates a hash index for all string and numeric    
      // fields. Hash indexes are compact and offer efficient
@@ -100,22 +293,18 @@ DocumentDB는 쓰기 최적화되며 동기 인덱스 유지 관리와 함께 �
      
      var collection = new DocumentCollection { Id ="defaultCollection" };
      
-     // Optional. Override Automatic to false for opt-in indexing of documents.
-     collection.IndexingPolicy.Automatic = true;
-     
-     // Optional. Set IndexingMode to Lazy for bulk import/read heavy        
-     // collections. Queries might return stale results with Lazy indexing.
      collection.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
      
      collection = await client.CreateDocumentCollectionAsync(database.SelfLink, collection);
 
+
 ### 인덱스 경로
 
-문서 내에서 인덱싱에 포함하거나 인덱싱에서 제외할 경로를 선택할 수 있습니다. 따라서 쿼리 패턴을 사전에 알고 있는 경우 시나리오의 쓰기 성능이 향상되고 인덱스 저장소를 줄일 수 있습니다.
+DocumentDB는 JSON 문서 및 인덱스를 트리로 모델링하고 트리 내 경로에 대한 정책을 튜닝할 수 있습니다. 이 [DocumentDB 인덱싱 소개](documentdb-indexing.md)에서 자세한 세부 정보를 찾을 수 있습니다. 문서 내에서 인덱싱에 포함하거나 인덱싱에서 제외할 경로를 선택할 수 있습니다. 따라서 쿼리 패턴을 사전에 알고 있는 경우 시나리오의 쓰기 성능이 향상되고 인덱스 저장소를 줄일 수 있습니다.
 
-인덱스 경로는 루트(/)로 시작하며, 일반적으로 ? 와일드카드 연산자로 끝나 접두사에 대해 가능한 값이 여러 개 있음을 나타냅니다. 예를 들어 SELECT \* FROM Families F WHERE F.familyName = "Andersen"을 처리하려면 컬렉션의 인덱스 정책에 /familyName/?의 인덱스 경로를 포함해야 합니다.
+인덱스 경로는 루트(/)로 시작하며, 일반적으로 ? 와일드카드 연산자로 끝나 접두사에 대해 가능한 값이 여러 개 있음을 나타냅니다. 예를 들어 SELECT * FROM Families F WHERE F.familyName = "Andersen"을 처리하려면 컬렉션의 인덱스 정책에 /familyName/?의 인덱스 경로를 포함해야 합니다.
 
-또한 인덱스 경로에 \* 와일드카드 연산자를 사용하여 접두사 아래에 재귀적으로 경로에 대한 동작을 지정할 수 있습니다. 예를 들어 /payload/\*를 사용하여 payload 속성 아래의 모든 항목을 인덱싱에서 제외할 수 있습니다.
+또한 인덱스 경로에 * 와일드카드 연산자를 사용하여 접두사 아래에 재귀적으로 경로에 대한 동작을 지정할 수 있습니다. 예를 들어 /payload/*를 사용하여 payload 속성 아래의 모든 항목을 인덱싱에서 제외할 수 있습니다.
 
 인덱스 경로를 지정하는 일반적인 패턴은 다음과 같습니다.
 
@@ -250,7 +439,7 @@ DocumentDB는 쓰기 최적화되며 동기 인덱스 유지 관리와 함께 �
     </tbody>
 </table>
 
->[AZURE.NOTE]사용자 지정 인덱스 경로를 설정하는 동안 특수 경로 "/\*”로 지정된 전체 문서 트리에 대한 기본 인덱싱 규칙을 지정해야 합니다.
+>[AZURE.NOTE]사용자 지정 인덱스 경로를 설정하는 동안 특수 경로 "/*”로 지정된 전체 문서 트리에 대한 기본 인덱싱 규칙을 지정해야 합니다.
 
 다음 예제에서는 범위 인덱싱을 사용하고 사용자 지정 전체 자릿수 값이 20바이트인 특정 경로를 구성합니다.
 
@@ -280,23 +469,82 @@ DocumentDB는 쓰기 최적화되며 동기 인덱스 유지 관리와 함께 �
 이제 경로를 지정하는 방법을 살펴보았으므로 경로에 대한 인덱싱 정책을 구성하는 데 사용할 수 있는 옵션에 대해 살펴보겠습니다. 모든 경로에 대해 하나 이상의 인덱싱 정의를 지정할 수 있습니다.
 
 - 데이터 형식: **문자열** 또는 **숫자**(경로별로 데이터 형식당 하나만 포함할 수 있음)
-- 인덱스 종류: **해시**(같음 쿼리) 또는 **범위**(같음, 범위 또는 Order By 쿼리)
+- 인덱스 종류: **해시**(같음 쿼리) 또는**범위**(같음, 범위 또는 Order By 쿼리)
 - 전체 자릿수: 숫자의 경우 1-8 또는 -1(최대 전체 자릿수), 문자열의 경우 1-100(최대 전체 자릿수)
 
 #### 인덱스 종류
 
 DocumentDB는 모든 경로와 데이터 형식 쌍에 대해 두 가지 인덱스 종류를 지원합니다.
 
-- **해시**는 효율적인 같음 쿼리를 지원합니다. 대부분의 사용 사례에서는 기본값 3바이트보다 큰 자릿수의 해시 인덱스가 불필요합니다.
+- **해시**는 효율적인 같음 및 JOIN 쿼리를 지원합니다. 대부분의 사용 사례에서는 기본값 3바이트보다 큰 자릿수의 해시 인덱스가 불필요합니다.
 - **범위**는 효율적인 같음 쿼리, 범위 쿼리(>, <, >=, <=, != 사용) 및 Order By 쿼리를 지원합니다. 또한 Order By 쿼리에는 기본적으로 최대 인덱스 전체 자릿수(-1)가 필요합니다.
+
+다음은 지원되는 인덱스 종류와 제공될 수 있는 쿼리 예입니다.
+
+<table border="0" cellspacing="0" cellpadding="0">
+    <tbody>
+        <tr>
+            <td valign="top">
+                <p>
+                    <strong>인덱스 종류</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    <strong>설명/사용 사례</strong>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    <strong>인덱스 종류</strong>
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                    <strong>설명/사용 사례</strong>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    해시
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                     /prop/? (또는 /*)를 통한 해시를 사용하여 다음 쿼리를 효율적으로 처리할 수 있습니다. SELECT * FROM collection c WHERE c.prop = "value" Hash over /props/[]/? (또는 /* 또는 /props/*)를 사용하여 다음 쿼리를 효율적으로 처리할 수 있습니다. SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top">
+                <p>
+                    범위
+                </p>
+            </td>
+            <td valign="top">
+                <p>
+                     /prop/? (또는 /*)를 통한 범위를 사용하여 다음 쿼리를 효율적으로 처리할 수 있습니다. SELECT * FROM collection c WHERE c.prop = "value" SELECT * FROM collection c WHERE c.prop > 5 SELECT * FROM collection c ORDER BY c.prop
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+기본적으로, 쿼리를 처리하는 데 검색이 필요할 수 있음을 알리기 위한 범위 인덱스가 없는 경우(자릿수) >=와 같은 범위 연산자로 쿼리에 대한 오류가 반환됩니다. REST API의 x-ms-documentdb-enable-scans 헤더를 사용하거나 .NET SDK의 EnableScanInQuery 요청 옵션을 사용하여 범위 인덱스 없이 범위 쿼리를 수행할 수 있습니다. DocumentDB가 필터링하는 데 인덱스를 사용할 수 있는 쿼리에 다른 필터가 있는 경우, 오류가 반환되지 않습니다.
 
 #### 인덱스 전체 자릿수
 
-인덱스 전체 자릿수를 사용하면 인덱스 저장소 오버헤드와 쿼리 성능 간에 적절한 균형을 유지할 수 있습니다. 숫자의 경우 기본 전체 자릿수 구성인 -1을 사용하는 것이 좋습니다. 숫자는 JSON에서 8바이트이므로 8바이트 구성과 같습니다. 1-7과 같이 낮은 전체 자릿수 값을 선택하면 일부 범위 내의 값이 같은 인덱스 항목에 매핑됩니다. 따라서 인덱스 저장소 공간은 줄어들지만 쿼리 실행은 더 많은 문서를 처리하고 결과적으로 더 많은 처리량(즉, 요청 단위)을 소모해야 할 수 있습니다.
+인덱스 전체 자릿수를 사용하면 인덱스 저장소 오버헤드와 쿼리 성능 간에 적절한 균형을 유지할 수 있습니다. 숫자의 경우 기본 전체 자릿수 구성인 -1(“최대값”)을 사용하는 것이 좋습니다. 숫자는 JSON에서 8바이트이므로 8바이트 구성과 같습니다. 1-7과 같이 낮은 전체 자릿수 값을 선택하면 일부 범위 내의 값이 같은 인덱스 항목에 매핑됩니다. 따라서 인덱스 저장소 공간은 줄어들지만 쿼리 실행은 더 많은 문서를 처리하고 결과적으로 더 많은 처리량(즉, 요청 단위)을 소모해야 할 수 있습니다.
 
-인덱스 전체 자릿수 구성은 문자열 범위와 함께 사용할 때 실질적으로 더 유용합니다. 문자열은 임의의 길이일 수 있으므로 인덱스 전체 자릿수 선택은 문자열 범위 쿼리의 성능에 영향을 줄 수 있으며 필요한 인덱스 저장소 공간의 크기에 영향을 줄 수 있습니다. 문자열 범위 인덱스는 1-100 또는 최대 전체 자릿수 값(-1)으로 구성할 수 있습니다. 문자열에서 Order By가 필요하면 지정된 경로(-1)를 통해 지정해야 합니다.
+인덱스 전체 자릿수 구성은 문자열 범위와 함께 사용할 때 더 유용합니다. 문자열은 임의의 길이일 수 있으므로 인덱스 전체 자릿수 선택은 문자열 범위 쿼리의 성능에 영향을 줄 수 있으며 필요한 인덱스 저장소 공간의 크기에 영향을 줄 수 있습니다. 문자열 범위 인덱스는 1-100 또는 -1(“최대값”)으로 구성할 수 있습니다. 문자열 속성에 대한 Order By 쿼리를 수행하려는 경우, 해당 경로에 대해 -1의 전체 자릿수를 지정해야 합니다.
 
-다음 예제에서는 .NET SDK를 사용하여 컬렉션의 범위 인덱스 자릿수를 늘리는 방법을 보여 줍니다. 여기에서는 기본 경로 "/\*"를 사용합니다.
+다음 예제에서는 .NET SDK를 사용하여 컬렉션의 범위 인덱스 자릿수를 늘리는 방법을 보여 줍니다. 여기에서는 기본 경로 "/*"를 사용합니다.
+
+**사용자 지정 인덱스 전체 자릿수로 컬렉션 만들기**
 
     var rangeDefault = new DocumentCollection { Id = "rangeCollection" };
     
@@ -313,12 +561,8 @@ DocumentDB는 모든 경로와 데이터 형식 쌍에 대해 두 가지 인덱�
 
 
 > [AZURE.NOTE]DocumentDB는 쿼리가 Order By를 사용하지만 최대 전체 자릿수로 쿼리된 경로에 대한 범위 인덱스가 없는 경우 오류를 반환합니다.
->
-> 범위 인덱스(모든 전체 자릿수)가 없는 경우 >=와 같은 범위 연산자를 사용하여 쿼리에 오류가 반환되지만 인덱스에서 제공될 수 있는 다른 필터가 있는 경우 제공될 수 있습니다.
-> 
-> REST API의 x-ms-documentdb-enable-scans 헤더를 사용하거나 .NET SDK의 EnableScanInQuery 요청 옵션을 사용하여 범위 인덱스 없이 범위 쿼리를 수행할 수 있습니다.
 
-마찬가지로 경로는 인덱싱에서 완전히 제외될 수 있습니다. 다음 예제는 "\*" 와일드카드를 사용하여 인덱싱에서 문서의 전체 섹션(하위 트리라고도 함)을 제외하는 방법을 보여 줍니다.
+마찬가지로 경로는 인덱싱에서 완전히 제외될 수 있습니다. 다음 예제는 "*" 와일드카드를 사용하여 인덱싱에서 문서의 전체 섹션(하위 트리라고도 함)을 제외하는 방법을 보여 줍니다.
 
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
     collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/" });
@@ -327,7 +571,7 @@ DocumentDB는 모든 경로와 데이터 형식 쌍에 대해 두 가지 인덱�
     collection = await client.CreateDocumentCollectionAsync(database.SelfLink, excluded);
 
 
-### 자동 인덱싱
+## 인덱싱 옵트인 및 옵트아웃
 
 컬렉션에서 모든 문서를 자동으로 인덱싱하도록 할지 여부를 선택할 수 있습니다. 기본적으로 모든 문서는 자동으로 인덱싱되지만 이 기능을 해제하도록 선택할 수 있습니다. 인덱싱을 해제하면 자체 링크를 통해서나 ID를 사용한 쿼리로만 문서에 액세스할 수 있습니다.
 
@@ -342,11 +586,81 @@ DocumentDB는 모든 경로와 데이터 형식 쌍에 대해 두 가지 인덱�
         new { id = "AndersenFamily", isRegistered = true },
         new RequestOptions { IndexingDirective = IndexingDirective.Include });
 
+## 컬렉션의 인덱싱 정책 수정
+
+DocumentDB를 사용하면 즉석에서 컬렉션의 인덱싱 정책을 변경할 수 있습니다. DocumentDB 컬렉션의 인덱싱 정책 변경으로 인덱싱할 수 있는 경로, 자릿수 및 인덱스 자체의 일관성 모델을 포함한 인덱스 모양이 변경될 수 있습니다. 따라서 색인 정책을 변경하려면 이전 인덱스에서 새 인덱스로의 효과적인 변환이 필요합니다.
+
+**온라인 인덱스 변환**
+
+![온라인 인덱스 변환](media/documentdb-indexing-policies/index-transformations.png)
+
+인덱스 변환은 온라인으로 작성되며, 이전 정책 당 인덱싱된 문서는 컬렉션의 **쓰기 가용성 또는 프로비전된 처리량에 영향을 주지않고** 각 새 정책으로 효과적으로 변환됨을 의미합니다. 일관성 읽기 및 쓰기 작업은 REST API, SDK 또는 내부 저장된 프로시저를 사용하여 수행되며 인덱스 변환 중 트리거는 영향을 받지 않습니다. 인덱싱 정책을 변경해도 앱에 대한 성능 저하나 가동 중지가 없음을 의미합니다.
+
+그러나 인덱스 변환이 진행되는 동안 쿼리는 결국 인덱싱 모드 구성(일관성 또는 지연)에 관계 없이 일관됩니다. 모든 인터페이스, REST API, SDK 및 저장 프로시저 및 트리거 내에서 사용하여 만든 쿼리에도 적용합니다. 지연 인덱싱과 마찬가지로, 인덱스 변환은 지정된 복제본에 대에 사용 가능한 예비 리소스를 사용하여 백그라운드에서 비동기적으로 수행됩니다.
+
+인덱스 변환도 **situ에서**(위치)에 작성되며, 즉 DocumentDB는 인덱스의 두 복사본을 유지 관리하지 않으며 이전 인덱스를 새 인덱스로 교체합니다. 즉, 추가 디스크 공간이 없는 필요하지 않거나 인덱스 변환을 수행하는 동안 컬렉션에서 사용할 수 있음을 의미합니다.
+
+인덱싱 정책을 변경하는 경우 이전 인덱스에서 새 인덱스로 이동하기 위해 변경 내용을 적용하는 방식은 주로 포함/제회 경로, 인덱스 유형 및 자릿수보다 인덱싱 모드 구성을 기반으로 합니다. 이전 정책과 새 정책 모두가 일관성 인덱싱을 사용하는 경우, DocumentDB는 온라인 인덱스 변환을 수행합니다. 변환이 진행 중인 동안 일관성 인덱싱 모드로 다른 인덱싱 정책 변경을 적용할 수 없습니다.
+
+그러나 변환이 진행 중인 동안 지연 또는 없음 인덱싱 모드로 이동할 수 있습니다.
+
+- 지연으로 이동하면 인덱스 정책이 효과적으로 즉시 변경되고 DocumentDB는 비동기적으로 인덱스 다시 만들기를 시작합니다. 
+- 없음으로 이동하면 인덱스가 즉시 삭제됩니다. 진행 중인 변환을 취소하고 다른 인덱싱 정책으로 새로 시작하려는 경우 없음으로 이동하는 것이 유용합니다. 
+
+.NET SDK를 사용하는 경우, 새 **ReplaceDocumentCollectionAsync** 메서드를 사용하여 인덱싱 정책 변경을 시작하고 **ReadDocumentCollectionAsync** 호출에서 **IndexTransformationProgress** 응답 속성을 사용하여 인덱스 변환의 진행률을 추적할 수 있습니다. 다른 SDK 및 REST API는 인덱싱 정책 변경에 해당하는 속성 및 메서드를 지원합니다.
+
+일관성 인덱싱 모드에서 지연으로 인덱싱 정책을 수정하는 방법을 보여주는 코드 조각은 다음과 같습니다.
+
+**일관성에서 지연으로 인덱싱 정책 수정**
+
+    // Switch to lazy indexing.
+    Console.WriteLine("Changing from Default to Lazy IndexingMode.");
+
+    collection.IndexingPolicy.IndexingMode = IndexingMode.Lazy;
+
+    await client.ReplaceDocumentCollectionAsync(collection);
+
+
+예를 들어, 아래와 같이 ReadDocumentCollectionAsync를 호출하여 인덱스 변환의 진행률을 확인할 수 있습니다.
+
+**인덱스 변환의 진행률 추적**
+
+    long smallWaitTimeMilliseconds = 1000;
+    long progress = 0;
+
+    while (progress < 100)
+    {
+        ResourceResponse<DocumentCollection> collectionReadResponse = await     client.ReadDocumentCollectionAsync(collection.SelfLink);
+        progress = collectionReadResponse.IndexTransformationProgress;
+
+        await Task.Delay(TimeSpan.FromMilliseconds(smallWaitTimeMilliseconds));
+    }
+
+없음 인덱싱 모드로 이동하여 컬렉션에 대한 인덱스를 삭제할 수 있습니다. 진행 중인 변환을 취소하고 새 변환을 즉시 시작하려는 경우 유용한 작업 도구일 수 있습니다.
+
+**컬렉션에 대한 인덱스 삭제**
+
+    // Switch to lazy indexing.
+    Console.WriteLine("Dropping index by changing to to the None IndexingMode.");
+
+    collection.IndexingPolicy.IndexingMode = IndexingMode.None;
+
+    await client.ReplaceDocumentCollectionAsync(collection);
+
+언제 DocumentDB 컬렉션에 대한 인덱싱 정책을 변경하나요? 다음은 가장 일반적인 사용 사례입니다.
+
+- 정상 작동 중에는 일관된 결과를 제공하지만 대량 데이터를 가져오는 동안 지연 인덱싱으로 대체됩니다.
+- 새로 도입된 문자열 범위 인덱스 종류를 필요로 하는 Order By 및 문자열 범위 쿼리와 같이 현재 DocumentDB 컬렉션에서 새 인덱싱 기능을 사용하여 시작합니다.
+- 인덱싱할 속성을 선택하고 시간이 지남에 따라 변경합니다.
+- 쿼리 성능을 향상시키거나 저장소 소비를 줄일 인덱싱 정밀도를 조정합니다.
+
+>[AZURE.NOTE]ReplaceDocumentCollectionAsync를 사용하여 인덱싱 정책을 수정하려면 NET SDK의 1.3.0 이상의 버전이 필요합니다.
+
 ## 성능 튜닝
 
 DocumentDB API는 사용된 인덱스 저장소와 같은 성능 메트릭에 대한 정보와 모든 작업에 대한 처리량 비용(요청 단위)을 제공합니다. 이 정보는 다양한 인덱싱 정책 및 성능 튜닝을 비교하는 데 사용할 수 있습니다.
 
-컬렉션의 저장소 할당량 및 사용량을 확인하려면 컬렉션 리소스에 대해 HEAD 또는 GET 요청을 실행하고 x-ms-request-quota 및 x-ms-request-usage 헤더를 검사합니다. .NET SDK에서는 [ResourceResponse<T>](http://msdn.microsoft.com/library/dn799209.aspx)의 [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) 및 [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) 속성에 이에 해당하는 값이 포함되어 있습니다.
+컬렉션의 저장소 할당량 및 사용량을 확인하려면 컬렉션 리소스에 대해 HEAD 또는 GET 요청을 실행하고 x-ms-request-quota 및 x-ms-request-usage 헤더를 검사합니다. .NET SDK에서는 [ResourceResponse<T>](http://msdn.microsoft.com/library/dn799209.aspx)의 [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) 및 [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) 속성은 이에 해당하는 값을 포함합니다.
 
      // Measure the document size usage (which includes the index size) against   
      // different policies.        
@@ -354,7 +668,7 @@ DocumentDB API는 사용된 인덱스 저장소와 같은 성능 메트릭에 �
      Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentQuota, collectionInfo.DocumentUsage);
 
 
-각 쓰기 작업(만들기, 업데이트 또는 삭제)에 대한 인덱싱의 오버헤드를 측정하려면 x-ms-request-charge 헤더(또는 .NET SDK의 [ResourceResponse<T>](http://msdn.microsoft.com/library/dn799209.aspx)에 있는 [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) 속성)를 검사하여 이러한 작업에 사용된 요청 단위 수를 측정합니다.
+각 쓰기 작업(만들기, 업데이트 또는 삭제)에 대한 인덱싱의 오버헤드를 측정하려면, x-ms-request-charge 헤더(또는 .NET SDK의 [ResourceResponse<T>](http://msdn.microsoft.com/library/dn799209.aspx)에 있는 [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) 속성)을 검사하여 이 작업에 사용된 요청 단위 수를 측정합니다.
 
      // Measure the performance (request units) of writes.     
      ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument);              
@@ -381,7 +695,7 @@ DocumentDB API는 사용된 인덱스 저장소와 같은 성능 메트릭에 �
 - 각 경로는 각 데이터 형식에 하나씩 여러 인덱스 정의가 존재
 - 인덱싱 정확도가 숫자의 경우 1-8, 문자열의 경우 1-100 및 -1(최대 전체 자릿수) 지원
 - 경로 세그먼트는 각 경로에서 벗어나기 위해 큰따옴표를 사용할 필요가 없습니다. 예를 들어 /”title”/? 대신 /title/?에 대한 경로를 추가할 수 있습니다.
-- "모든 경로"를 나타내는 루트 경로는 /\*(및 /)로 표시
+- "모든 경로"를 나타내는 루트 경로는 /*(및 /)로 표시
 
 버전 1.1.0의 .NET SDK 또는 이전 버전으로 작성된 사용자 지정 인덱싱 정책을 사용하여 컬렉션을 프로비전하는 코드가 있으면 SDK 버전 1.2.0으로 이동하기 위해서 이러한 변경 내용을 처리하도록 응용 프로그램 코드를 변경해야 합니다. 인덱싱 정책을 구성하는 코드 또는 이전 SDK 버전을 사용하려는 계획이 없는 경우 변경하지 않아도 됩니다.
 
@@ -444,4 +758,4 @@ DocumentDB API는 사용된 인덱스 저장소와 같은 성능 메트릭에 �
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -145,7 +145,7 @@
 
 	![][7]
 
-6. 다음 페이지에서 Tomcat 설치 디렉터리를 지정합니다. Windows 컴퓨터의 경우 일반적으로 C:\Program Files\Apache Software Foundation\Tomcat *버전*입니다.
+6. 다음 페이지에서 Tomcat 설치 디렉터리를 지정합니다. Windows 컴퓨터의 경우 일반적으로 C:\\Program Files\\Apache Software Foundation\\Tomcat *버전*입니다.
 
 6. **마침**을 클릭합니다.
 
@@ -232,4 +232,4 @@ Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 �
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -9,4 +9,4 @@
 
 이제 모바일 서비스와 앱이 GCM 및 알림 허브를 사용하도록 둘 다 구성되었습니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

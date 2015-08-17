@@ -3,7 +3,7 @@
 	description="저장된 프로시저, 트리거 및 사용자 정의 함수를 포함하여 DocumentDB 서버 쪽 프로그래밍 아티팩트를 볼 수 있도록 하는 Azure Preview 포털 도구, DocumentDB 스크립트 탐색기에 대해 알아봅니다."
 	services="documentdb"
 	authors="stephbaron"
-	manager="johnmac"
+	manager="jhubbard"
 	editor="monicar"
 	documentationCenter=""/>
 
@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="06/10/2015"
 	ms.author="stbaro"/>
 
@@ -75,11 +75,11 @@
 
 	![스크립트 탐색기 스크립트 속성 보기의 스크린샷](./media/documentdb-view-scripts/scriptproperties.png)
 
-	> [AZURE.NOTE]타임스탬프(_ts) 속성은 내부적으로 epoch 시간으로 표시되지만 스크립트 탐색기에서는 이 값을 사람이 읽을 수 있는 GMT 형식으로 표시합니다.
+	> [AZURE.NOTE]타임스탬프(\_ts) 속성은 내부적으로 epoch 시간으로 표시되지만 스크립트 탐색기에서는 이 값을 사람이 읽을 수 있는 GMT 형식으로 표시합니다.
 
 ## 다음 단계
 
 DocumentDB에 대해 자세히 알아보려면 [여기](http://azure.com/docdb)를 클릭하세요.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

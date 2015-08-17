@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/16/2015" 
 	ms.author="awills"/>
 
@@ -196,7 +196,7 @@ Visual Studio를 사용하여 설치 단계를 수행하려면 Windows Phone, Wi
 
 ## SDK의 새 릴리스로 업그레이드하려면
 
-[새 SDK 버전이 출시된 경우](app-insights-release-notes-windows.md): \* 프로젝트를 마우스 오른쪽 단추로 클릭하고 NuGet 패키지 관리를 선택합니다. \* 설치된 Application Insights 패키지를 선택하고 작업: 업그레이드를 선택합니다.
+[새 SDK 버전이 출시된 경우](app-insights-release-notes-windows.md): * 프로젝트를 마우스 오른쪽 단추로 클릭하고 NuGet 패키지 관리를 선택합니다. * 설치된 Application Insights 패키지를 선택하고 작업: 업그레이드를 선택합니다.
 
 
 ## <a name="usage"></a>다음 단계
@@ -229,4 +229,4 @@ Visual Studio를 사용하여 설치 단계를 수행하려면 Windows Phone, Wi
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

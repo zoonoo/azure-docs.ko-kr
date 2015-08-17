@@ -50,7 +50,7 @@ Azure 저장소 API를 사용하려면 저장소 서비스를 액세스하고자
 	    "AccountName=your_storage_account_name;" + 
 	    "AccountKey=your_storage_account_key";
 
-> [AZURE.NOTE]your_storage_account_name과 your_storage_account_key를 자신의 저장소 계정에 대한 실제 값으로 바꿉니다.
+> [AZURE.NOTE]your\_storage\_account\_name과 your\_storage\_account\_key를 자신의 저장소 계정에 대한 실제 값으로 바꿉니다.
 
 ## Azure 저장소 계정에 연결
 
@@ -97,7 +97,7 @@ Azure 파일 저장소 공유에는 파일이 상주할 수 있는 최소한의 
 이제 공유의 루트 디렉터리에 대한 참조를 가졌으므로 다음 코드를 사용하여 파일을 업로드할 수 있습니다.
 
 	// Define the path to a local file.
-	final String filePath = "C:\temp\Readme.txt";
+	final String filePath = "C:\\temp\\Readme.txt";
 
 	CloudFile cloudFile = rootDir.getFileReference("Readme.txt");
 	cloudFile.uploadFromFile(filePath);
@@ -221,4 +221,4 @@ Azure 파일 저장소 공유에는 파일이 상주할 수 있는 최소한의 
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

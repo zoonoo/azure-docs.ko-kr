@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="07/22/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # 내 프로젝트에서 무엇이 변경되었습니까?
 
@@ -22,7 +22,7 @@
 > - [Getting Started](vs-storage-aspnet-getting-started-blobs.md)
 > - [What Happened](vs-storage-aspnet-what-happened.md)
 
-###내 프로젝트에서 무엇이 변경되었나요?</span>
+###내 프로젝트에서 무엇이 변경되었습니까?
 
 ##### 참조 추가됨
 
@@ -42,4 +42,4 @@ Azure Storage NuGet 패키지가 Visual Studio 프로젝트에 추가되었습�
 
 자세한 내용은 [ASP.NET](http://www.asp.net)을 참조하세요.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

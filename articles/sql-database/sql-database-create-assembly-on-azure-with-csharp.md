@@ -50,7 +50,7 @@ Converting plain text "CREATE ASSEMBLY" into a link to the MSDN topic, ms189524.
 5. T-SQL SELECT 문을 실행하여 함수를 호출하고 테스트합니다.
 
 
-이전 목록이 <br/>에 대해 언급이 없다면 **sp_configure 'clr enabled', 1; 실행**<br/> ...그 이유는 심지어 Microsoft SQL 서버를 필요로 하더라도 Azure SQL 데이터 베이스가 필요없기 때문입니다.
+이전 목록이 <br/>에 대해 언급이 없다면 **sp\_configure 'clr enabled', 1; 실행**<br/> ...그 이유는 심지어 Microsoft SQL 서버를 필요로 하더라도 Azure SQL 데이터 베이스가 필요없기 때문입니다.
 
 
 다시 실행하는 데 필요한 경우 함수 및 어셈블리를 삭제하는 T-SQL 코드는 다음과 같습니다.
@@ -328,4 +328,4 @@ Visual Studio 프로젝트는 컴파일을 위해 다음 어셈블리를 참조�
 
 <!-- EndOfFile -->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

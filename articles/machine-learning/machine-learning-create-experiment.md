@@ -67,7 +67,7 @@
 
 ![데이터 집합 시각화][screen1b]
 
-오른쪽 위 모서리에서 "\*\*x\*\*"를 클릭하여 시각화 창을 닫습니다.
+오른쪽 위 모서리에서 "**x**"를 클릭하여 시각화 창을 닫습니다.
 
 ## 2단계: 데이터 전처리
 
@@ -232,4 +232,4 @@
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

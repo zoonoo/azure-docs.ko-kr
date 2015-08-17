@@ -25,7 +25,7 @@ ms.service="virtual-machines"
 
 ## Linux 계산 노드가 포함된 HPC Pack 클러스터 배포
 
-Microsoft HPC Pack IaaS 배포 스크립트(\*\*New-HpcIaaSCluster.ps1\*\*)를 사용하여 IaaS(Azure 인프라 서비스)에서 클러스터 배포를 자동화합니다. 이 Azure PowerShell 스크립트는 빠른 배포를 위해 Azure 마켓플레이스의 HPC Pack VM 이미지를 사용하며 배포가 쉽고 유연하도록 포괄적인 구성 매개 변수 집합을 제공합니다. 스크립트를 사용하여 Azure 가상 네트워크, 저장소 계정, 클라우드 서비스, 도메인 컨트롤러, 선택적 별도 SQL Server 데이터베이스 서버, 클러스터 헤드 노드, 계산 노드, 브로커 노드, Azure PaaS("버스트") 노드 및 Linux 계산 노드를 배포할 수 있습니다(Linux 지원은 [HPC Pack 2012 R2 업데이트 2](https://technet.microsoft.com/library/mt269417.aspx)에서 도입됨).
+Microsoft HPC Pack IaaS 배포 스크립트(**New-HpcIaaSCluster.ps1**)를 사용하여 IaaS(Azure 인프라 서비스)에서 클러스터 배포를 자동화합니다. 이 Azure PowerShell 스크립트는 빠른 배포를 위해 Azure 마켓플레이스의 HPC Pack VM 이미지를 사용하며 배포가 쉽고 유연하도록 포괄적인 구성 매개 변수 집합을 제공합니다. 스크립트를 사용하여 Azure 가상 네트워크, 저장소 계정, 클라우드 서비스, 도메인 컨트롤러, 선택적 개별 SQL Server 데이터베이스 서버, 클러스터 헤드 노드, 계산 노드, 브로커 노드, Azure PaaS("버스트") 노드 및 Linux 계산 노드를 배포할 수 있습니다(Linux 지원은 [HPC Pack 2012 R2 업데이트 2](https://technet.microsoft.com/library/mt269417.aspx)에서 도입됨).
 
 HPC Pack 클러스터 배포 옵션에 대한 개요는 [HPC Pack 2012 R2 및 HPC Pack 2012용 시작 가이드](https://technet.microsoft.com/library/jj884144.aspx)를 참조하세요.
 
@@ -92,15 +92,15 @@ HPC Pack IaaS 배포 스크립트는 HPC 클러스터의 인프라를 설명하�
 
     >[AZURE.NOTE]또는 사용하려는 구독을 구독 ID로 지정할 수 있습니다. 스크립트 폴더의 Manual.rtf 파일을 참조하세요.
 
-* **StorageAccount** - HPC Pack 클러스터에 대한 모든 영구적 데이터는 지정된 저장소 계정(이 예제에서는 allvhdsje)에 저장됩니다. 저장소 계정이 없으면 스크립트에서 **위치**에 지정된 지역에 만듭니다.
+* **StorageAccount** - HPC Pack 클러스터에 대한 모든 영구적 데이터는 지정된 저장소 계정(이 예제에서는 allvhdsje)에 저장됩니다. 저장소 계정이 없으면 스크립트에서 **Location**에 지정된 지역에 만듭니다.
 
-* **위치** - HPC Pack 클러스터를 배포할 Azure 지역(이 예제에서는 일본 동부)입니다.
+* **Location** - HPC Pack 클러스터를 배포할 Azure 지역(이 예제에서는 일본 동부)입니다.
 
 * **VNet** - HPC 클러스터를 만들 가상 네트워크 및 서브넷의 설정입니다. 이 스크립트를 실행하기 전에 가상 네트워크 및 서브넷을 직접 만들 수 있거나, 스크립트에서 주소 공간이 192.168.0.0/20인 가상 네트워크와 주소 공간이 192.168.0.0/23인 서브넷을 만듭니다. 이 예제에서는 스크립트가 가상 네트워크 centos7rdmavnetje 및 서브넷 CentOS7RDMACluster를 만듭니다.
 
-* **도메인** - HPC Pack 클러스터에 대한 Active Directory 도메인 설정입니다. 스크립트에서 만든 모든 Windows VM이 도메인에 가입합니다. 현재 스크립트는 ExistingDC, NewDC 및 HeadNodeAsDC의 세 가지 도메인 옵션을 지원합니다. 이 예제에서는 헤드 노드를 도메인 컨트롤러로 구성합니다. 정규화된 도메인 이름은 hpc.local입니다.
+* **Domain** - HPC Pack 클러스터에 대한 Active Directory 도메인 설정입니다. 스크립트에서 만든 모든 Windows VM이 도메인에 가입합니다. 현재 스크립트는 ExistingDC, NewDC 및 HeadNodeAsDC의 세 가지 도메인 옵션을 지원합니다. 이 예제에서는 헤드 노드를 도메인 컨트롤러로 구성합니다. 정규화된 도메인 이름은 hpc.local입니다.
 
-* **데이터베이스** - HPC Pack 클러스터에 대한 데이터베이스 설정입니다. 현재 스크립트는 ExistingDB, NewRemoteDB 및 LocalDB의 세 가지 데이터베이스 옵션을 지원합니다. 이 예제에서는 헤드 노드에 로컬 데이터베이스를 만듭니다.
+* **Database** - HPC Pack 클러스터에 대한 데이터베이스 설정입니다. 현재 스크립트는 ExistingDB, NewRemoteDB 및 LocalDB의 세 가지 데이터베이스 옵션을 지원합니다. 이 예제에서는 헤드 노드에 로컬 데이터베이스를 만듭니다.
 
 * **HeadNode** - HPC Pack 헤드 노드에 대한 설정입니다. 이 예제에서는 클라우드 서비스 centos7rdma-je에 CentOS7RDMA-HN이라는 크기 A7 헤드 노드를 만듭니다. 원격(도메인에 가입되지 않은) 클라이언트 컴퓨터에서 HPC 작업 제출을 지원하기 위해 스크립트에서 HPC 작업 스케줄러 REST API 및 HPC 웹 포털을 사용하도록 설정합니다.
 
@@ -176,9 +176,9 @@ cd E:\IaaSClusterScript
 
 ### Azure 파일
 
-[Azure 파일](https://azure.microsoft.com/services/storage/files/) 서비스는 표준 SMB 2.1 프로토콜을 사용하여 파일 공유를 노출합니다. Azure VM 및 클라우드 서비스는 탑재된 공유를 통해 여러 응용 프로그램 구성 요소에서 파일 데이터를 공유할 수 있으며, 온-프레미스 응용 프로그램은 파일 저장소 API를 통해 공유의 파일 데이터에 액세스할 수 있습니다. 자세한 내용은 [PowerShell 및 .NET에서 Azure 파일 저장소를 사용하는 방법](../storage/storage-dotnet-how-to-use-files.md)(영문)을 참조하세요.
+[Azure 파일](https://azure.microsoft.com/services/storage/files/) 서비스는 표준 SMB 2.1 프로토콜을 사용하여 파일 공유를 노출합니다. Azure VM 및 클라우드 서비스는 탑재된 공유를 통해 여러 응용 프로그램 구성 요소에서 파일 데이터를 공유할 수 있으며, 온-프레미스 응용 프로그램은 파일 저장소 API를 통해 공유의 파일 데이터에 액세스할 수 있습니다. 자세한 내용은 [PowerShell 및 .NET에서 Azure 파일 저장소를 사용하는 방법](../storage/storage-dotnet-how-to-use-files.md)을 참조하세요.
 
-Azure 파일 공유를 만들려면 [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)의 자세한 단계를 참조하세요. 영구적 연결을 설정하려면 [Microsoft Azure 파일에 대한 영구적 연결](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)(영문)을 참조하세요.
+Azure 파일 공유를 만들려면 [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)의 자세한 단계를 참조하세요. 영구적 연결을 설정하려면 [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)(영문)를 참조하세요.
 
 이 예제에서는 저장소 계정 allvhdsje에서 rdma라는 Azure 파일 공유를 만듭니다. 헤드 노드에 공유를 탑재하려면 명령 창을 열고 다음 명령을 입력합니다.
 
@@ -189,7 +189,7 @@ Azure 파일 공유를 만들려면 [Microsoft Azure 파일 서비스 소개](ht
 
 이 예제에서 allvhdsje는 저장소 계정 이름이고, storageaccountkey는 저장소 계정 키이고, rdma는 Azure 파일 공유 이름입니다. Azure 파일 공유는 헤드 노드의 Z:에 탑재됩니다.
 
-Linux 노드에 Azure 파일 공유를 탑재하려면 헤드 노드에서 **clusrun** 명령을 실행합니다. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)**은 여러 노드에서 관리 작업을 수행할 수 있는 유용한 HPC Pack 도구입니다. 이 문서의 [Linux 노드에 대한 CLusrun](#CLusrun-for-Linux-nodes)을 참조하세요.
+Linux 노드에 Azure 파일 공유를 탑재하려면 헤드 노드에서 **clusrun** 명령을 실행합니다. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)**은 여러 노드에서 관리 작업을 수행할 수 있는 유용한 HPC Pack 도구입니다. 이 문서의 [Linux 노드에 대한 CLusrun](#CLusrun-for-Linux-nodes)도 참조하세요.
 
 Windows PowerShell 창을 열고 다음 명령을 입력합니다.
 
@@ -260,7 +260,7 @@ HPC Pack 클러스터에 작업을 제출하는 방법에는 여러 가지가 �
 
 * REST API
 
-Azure에서 HPC Pack GUI 도구 및 HPC 웹 포털을 통해 클러스터에 작업을 제출하는 방법은 Windows 컴퓨터 노드의 경우와 동일합니다. [HPC Pack 작업 관리자](https://technet.microsoft.com/library/ff919691.aspx)및[온-프레미스 클라이언트에서 작업을 제출하는 방법](https://msdn.microsoft.com/library/azure/dn689084.aspx)을 참조하세요.
+Azure에서 HPC Pack GUI 도구 및 HPC 웹 포털을 통해 클러스터에 작업을 제출하는 방법은 Windows 컴퓨터 노드의 경우와 동일합니다. [HPC Pack 작업 관리자](https://technet.microsoft.com/library/ff919691.aspx) 및 [온-프레미스 클라이언트에서 작업을 제출하는 방법](https://msdn.microsoft.com/library/azure/dn689084.aspx)을 참조하세요.
 
 REST API를 통해 작업을 제출하려면 [Microsoft HPC Pack의 REST API를 사용하여 작업 만들기 및 제출](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx)을 참조하세요. 또한 Linux 클라이언트에서 작업을 제출하려면 [HPC Pack SDK](https://www.microsoft.com/download/details.aspx?id=47756)의 Python 샘플을 참조하세요.
 
@@ -311,4 +311,4 @@ HPC Pack **clusrun** 도구를 사용하여 명령 창 또는 HPC 클러스터 �
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

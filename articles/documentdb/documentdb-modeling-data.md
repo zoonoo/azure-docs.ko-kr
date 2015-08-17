@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure DocumentDB에서 데이터 모델링" 
+	pageTitle="Azure DocumentDB에서 데이터 모델링 | Microsoft Azure" 
 	description="Azure DocumentDB와 같은 비SQL 문서 데이터베이스에 대해 데이터를 모델링하는 방법을 알아봅니다." 
 	services="documentdb" 
 	authors="ryancrawcour" 
@@ -392,4 +392,4 @@ Azure DocumentDB의 인덱스 튜닝에 대한 자세한 내용은 [인덱싱 �
 끝으로, 다중 테넌트 응용 프로그램에 대한 데이터 모델링 및 분할에 대한 자세한 내용은 [Azure DocumentDB로 다중 테넌트 응용 프로그램 확장](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx)을 참조하십시오.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

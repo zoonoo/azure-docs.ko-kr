@@ -69,7 +69,7 @@ Azure 앱 서비스를 사용하여 Windows 범용 앱에 푸시 알림을 전�
 
     이렇게 하면 필요한 Windows 스토어 등록 정보가 응용 프로그램 매니페스트에 추가됩니다.
 
-7. (옵션) Windows Phone 스토어 앱 프로젝트에 대해 4~6단계를 반복합니다.
+7. (옵션) Windows Phone 스토어 앱 프로젝트에 대해 4\~6단계를 반복합니다.
 
 7. 새 앱의 Windows 개발자 센터 페이지로 돌아가서 **Services**를 클릭합니다.
 
@@ -195,4 +195,4 @@ Azure 앱 서비스를 사용하여 Windows 범용 앱에 푸시 알림을 전�
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

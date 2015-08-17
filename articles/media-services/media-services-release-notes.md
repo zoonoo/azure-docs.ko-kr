@@ -54,11 +54,19 @@
 
 ### <a id="general_issues"></a>미디어 서비스 관련 일반 문제
 
-<table border="1"> <tr><th>문제</th><th>설명</yt></tr> <tr><td>REST API에 다양한 일반 HTTP 헤더가 제공되지 않습니다.</td><td>REST API를 사용하여 미디어 서비스 응용 프로그램을 개발하는 경우 CLIENT-REQUEST-ID, REQUEST-ID, RETURN-CLIENT-REQUEST-ID를 비롯한 몇 가지 일반 HTTP 헤더 필드가 지원되지 않습니다. 이 헤더는 이후 업데이트에서 추가될 예정입니다.</td></tr> <tr><td>%20과 같이 이스케이프 문자가 포함된 파일 이름으로 자산을 인코딩하면 "MediaProcessor: 파일을 찾을 수 없음" 오류가 발생합니다.</td><td>자산에 추가된 후 인코딩되는 파일 이름에는 영숫자와 공백만 사용할 수 있습니다. 이 문제는 이후 업데이트에서 수정될 예정입니다.</td></tr> <tr><td>Azure 저장소 SDK 버전 3.x의 일부분인 ListBlobs 메서드에서 오류가 발생합니다.</td><td>미디어 서비스에서는 <a href="http://msdn.microsoft.com/library/azure/dn592123.aspx">2012-02-12</a> 버전을 기반으로 SAS URL을 생성합니다. Azure 저장소 SDK를 사용하여 Blob 컨테이너의 Blob을 나열하려는 경우 Azure 저장소 SDK 버전 2.x에 포함된 <a href="http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx">CloudBlobContainer.ListBlobs</a> 메서드를 사용합니다. Azure 저장소 SDK 버전 3.x의 일부분인 ListBlobs 메서드에서는 오류가 발생합니다.</td></tr> <tr><td>미디어 서비스 제한 메커니즘은 서비스에 과도한 요청을 보내는 응용 프로그램의 리소스 사용을 제한합니다. 해당 서비스에서 서비스를 사용할 수 없음(503) HTTP 상태 코드가 반환될 수 있습니다.</td><td>자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/dn168949.aspx">Azure 미디어 서비스 오류 코드</a> 항목의 503 HTTP 상태 코드 설명을 참조하세요.</td></tr> </table><br/>
- 
+문제|설명
+---|---
+REST API에 다양한 일반 HTTP 헤더가 제공되지 않습니다.|REST API를 사용하여 미디어 서비스 응용 프로그램을 개발하는 경우 CLIENT-REQUEST-ID, REQUEST-ID, RETURN-CLIENT-REQUEST-ID를 비롯한 몇 가지 일반 HTTP 헤더 필드가 지원되지 않습니다. 이 헤더는 이후 업데이트에서 추가될 예정입니다.
+%20과 같이 이스케이프 문자가 포함된 파일 이름으로 자산을 인코딩하면 "MediaProcessor: 파일을 찾을 수 없습니다."라는 메시지와 함께 작업에 실패합니다.|자산에 추가된 후 인코딩되는 파일 이름에는 영숫자와 공백만 사용할 수 있습니다. 이 문제는 이후 업데이트에서 수정될 예정입니다.
+Azure 저장소 SDK 버전 3.x의 일부분인 ListBlobs 메서드에서 오류가 발생합니다.|미디어 서비스에서는 [2012-02-12](http://msdn.microsoft.com/library/azure/dn592123.aspx) 버전을 기반으로 SAS URL을 생성합니다. Azure 저장소 SDK를 사용하여 Blob 컨테이너의 Blob을 나열하려는 경우 Azure 저장소 SDK 버전 2.x에 포함된 [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) 메서드를 사용합니다. Azure 저장소 SDK 버전 3.x의 일부분인 ListBlobs 메서드에서는 오류가 발생합니다.
+미디어 서비스 제한 메커니즘은 서비스에 과도한 요청을 보내는 응용 프로그램의 리소스 사용을 제한합니다. 해당 서비스에서 서비스를 사용할 수 없음(503) HTTP 상태 코드가 반환될 수 있습니다.|자세한 내용은 [Azure 미디어 서비스 오류 코드](http://msdn.microsoft.com/library/azure/dn168949.aspx) 항목의 503 HTTP 상태 코드 설명을 참조하세요.
+
+
 ### <a id="dotnet_issues"></a>.NET용 미디어 서비스 SDK 관련 문제
 
-<table border="1"> <tr><th>문제</th><th>설명</yt></tr> <tr><td>SDK의 미디어 서비스 개체는 직렬화할 수 없으며, 결과적으로 Azure 캐싱에서 작동하지 않습니다.</td><td>SDK AssetCollection 개체를 직렬화하여 Azure 캐싱에 추가하려는 경우 예외가 Throw됩니다.</td></tr> </table><br/>
+문제|설명
+---|---
+SDK의 미디어 서비스 개체는 직렬화할 수 없으며, 결과적으로 Azure 캐싱에서 작동하지 않습니다.|SDK AssetCollection 개체를 직렬화하여 Azure 캐싱에 추가하려는 경우 예외가 Throw됩니다.
 
 ##<a id="rest_version_history"></a>REST API 버전 기록
 
@@ -66,9 +74,9 @@
 
 ##<a id="july_changes_15"></a>2015년 7월 릴리스
 
-미디어 인코더 표준의 일반 공급 발표 자세한 내용은 [이 블로그](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)를 참조하세요.
+미디어 인코더 표준의 일반 공급 발표 자세한 내용은 [이 게시물](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)을 참조하세요.
 
-미디어 인코더 표준은 [이](http://go.microsoft.com/fwlink/?LinkId=618336) 섹션에 설명된 기본 설정을 사용합니다. 4k 인코드에 대한 기본 설정을 사용하는 경우 **프리미엄 \* \* 예약 단위 형식을 가져와야 합니다. 자세한 내용은 [인코딩 크기를 조정하는 방법](media-services-portal-encoding-units)을 참조하세요.
+미디어 인코더 표준은 [이](http://go.microsoft.com/fwlink/?LinkId=618336) 섹션에 설명된 기본 설정을 사용합니다. 4k 인코드에 대한 기본 설정을 사용하는 경우 **프리미엄** 예약 단위 형식을 가져와야 합니다. 자세한 내용은 [인코딩 크기를 조정하는 방법](media-services-portal-encoding-units)을 참조하세요.
 
 
 ###미디어 서비스 .NET SDK 업데이트
@@ -331,7 +339,7 @@ Azure 미디어 서비스 패키지 작성 도구 및 암호기에 대한 다음
 
 * 버전 3.0.3.0을 사용하도록 Azure 저장소 종속성이 업그레이드되었습니다. 
 
-* 3\.0.\*.\* 릴리스에 대한 이전 버전과의 호환성 문제가 해결되었습니다.
+* 3\.0.*.* 릴리스에 대한 이전 버전과의 호환성 문제가 해결되었습니다.
 
 
 ##<a id="december_changes_13"></a>2013년 12월 릴리스
@@ -555,4 +563,4 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 [미디어 서비스 작업 알림 처리]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -107,4 +107,4 @@ Console.WriteLine("Greeting is {0}", message.Content);
 >[AZURE.NOTE]통신 프레임워크는 서비스에서 클라이언트에 throw된 예외 전파를 처리합니다. 따라서 ServiceProxy를 사용하는 클라이언트에서 예외 처리 논리는 서비스가 잠재적으로 throw할 수 있는 예외를 직접 처리할 수 있습니다.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

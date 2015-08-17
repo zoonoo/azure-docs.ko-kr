@@ -70,7 +70,7 @@ Python 및 Git를 이미 설치했어야 하지만 Python 버전은 2.7 또는 3
 
 다음은 초기 Git 리포지토리에 표시되는 파일의 개요입니다(다음 섹션에서 복제).
 
-    \FlaskWebProject__init__.py
+    \FlaskWebProject\__init__.py
     \FlaskWebProject\views.py
     \FlaskWebProject\static\content\
     \FlaskWebProject\static\fonts\
@@ -401,4 +401,4 @@ Azure 테이블 저장소 및 MongoDB에 대한 자세한 정보:
 [Flask 설명서]: http://flask.pocoo.org/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

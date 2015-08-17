@@ -23,8 +23,8 @@
 7. **프로젝트 빌드 대상**에서 적절한 SDK 수준에 대해 `Google APIs x86`(또는 개발 플랫폼에 따라 `Google APIs`)을(를) 선택해야 합니다.
 
  
-8. **Library** 섹션에서 **Add**를 선택하여 Google Play Services 프로젝트(*google-play-services-lib*)를 선택하고 **확인**을 클릭합니다.
+8. **Library** 섹션에서 **Add**를 선택하여 Google Play Services 프로젝트(*google-play-services-lib*)를 선택하고 **OK**를 클릭합니다.
 
 9. **Apply**를 클릭한 후 **OK**를 클릭합니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -298,4 +298,4 @@ SAS를 사용하여 Blob 저장소에 이미지를 업로드하려면 먼저 Win
 
 이미지 업로드 자습서를 완료했습니다.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

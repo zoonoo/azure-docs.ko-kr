@@ -29,15 +29,15 @@ Azure 인프라 서비스의 SQL Server AlwaysOn 가용성 그룹을 사용하�
 
 항목 | 가상 컴퓨터 이름 | 갤러리 이미지 | 최소 크기
 --- | --- | --- | ---
-1. | ______________(DC1 등의 첫 번째 도메인 컨트롤러) | Windows Server 2012 R2 Datacenter | A2(중형)
-2. | ______________(DC2 등의 두 번째 도메인 컨트롤러) | Windows Server 2012 R2 Datacenter | A2(중형)
-3. | ______________(SQL1 등의 첫 번째 SQL Server 컴퓨터) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
-4. | ______________(SQL2 등의 두 번째 SQL Server 컴퓨터) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
-5. | ______________(MN1 등의 클러스터에 대한 주 노드 감시) | Windows Server 2012 R2 Datacenter | A1(소형)
-6. | ______________(APP1 등의 첫 번째 SharePoint 응용 프로그램 서버) | Microsoft SharePoint Server 2013 평가판 – Windows Server 2012 R2 | A4(초대형)
-7. | ______________(APP2 등의 두 번째 SharePoint 응용 프로그램 서버) | Microsoft SharePoint Server 2013 평가판 – Windows Server 2012 R2 | A4(초대형)
-8. | ______________(WEB1 등의 첫 번째 SharePoint 웹 서버) | Microsoft SharePoint Server 2013 평가판 – Windows Server 2012 R2 | A4(초대형)
-9. | ______________(WEB2 등의 두 번째 SharePoint 웹 서버) | Microsoft SharePoint Server 2013 평가판 – Windows Server 2012 R2 | A4(초대형)
+1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(DC1 등의 첫 번째 도메인 컨트롤러) | Windows Server 2012 R2 Datacenter | A2(중형)
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(DC2 등의 두 번째 도메인 컨트롤러) | Windows Server 2012 R2 Datacenter | A2(중형)
+3\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(SQL1 등의 첫 번째 SQL Server 컴퓨터) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
+4\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(SQL2 등의 두 번째 SQL Server 컴퓨터) | Microsoft SQL Server 2014 Enterprise – Windows Server 2012 R2 | 	A7
+5\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(MN1 등의 클러스터에 대한 주 노드 감시) | Windows Server 2012 R2 Datacenter | A1(소형)
+6\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(APP1 등의 첫 번째 SharePoint 응용 프로그램 서버) | Microsoft SharePoint Server 2013 평가판 – Windows Server 2012 R2 | A4(초대형)
+7\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(APP2 등의 두 번째 SharePoint 응용 프로그램 서버) | Microsoft SharePoint Server 2013 평가판 – Windows Server 2012 R2 | A4(초대형)
+8\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(WEB1 등의 첫 번째 SharePoint 웹 서버) | Microsoft SharePoint Server 2013 평가판 – Windows Server 2012 R2 | A4(초대형)
+9\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_(WEB2 등의 두 번째 SharePoint 웹 서버) | Microsoft SharePoint Server 2013 평가판 – Windows Server 2012 R2 | A4(초대형)
 
 **표 M – Azure의 SharePoint 2013 인트라넷 팜용 가상 컴퓨터**
 
@@ -125,7 +125,7 @@ Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤
 1.	Server Manager의 왼쪽 창에서 **파일 및 저장소 서비스**를 클릭한 다음 **디스크**를 클릭합니다.
 2.	내용 창의 **디스크** 그룹에서 **디스크 2**(**파티션**이 **알 수 없음**으로 설정됨)를 클릭합니다.
 3.	**작업**을 클릭한 후 **새 볼륨**을 클릭합니다.
-4.	새 볼륨 마법사의 **시작하기 전에** 페이지에서 **다음**을 클릭합니다.
+4.	새 볼륨 마법사를 **시작하기 전**에 페이지에서 **다음**을 클릭합니다.
 5.	**서버 및 디스크 선택** 페이지에서 **디스크 2**를 클릭하고 **다음**을 클릭합니다. 메시지가 표시되면 **확인**을 클릭합니다.
 6.	**볼륨 크기를 선택합니다** 페이지에서 **다음**을 클릭합니다.
 7.	**드라이브 문자 또는 폴더에 할당** 페이지에서 **다음**을 클릭합니다.
@@ -170,9 +170,9 @@ Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤
 
 SharePoint 팜에는 다음 사용자 계정이 필요합니다.
 
-- sp_farm: SharePoint 팜 관리용 사용자 계정입니다.
-- sp_farm_db: SQL Server 인스턴스에 대한 sysadmin 권한이 있는 사용자 계정입니다.
-- sp_install: 역할 및 기능 설치에 필요한 도메인 관리 권한이 있는 사용자 계정입니다.
+- sp\_farm: SharePoint 팜 관리용 사용자 계정입니다.
+- sp\_farm\_db: SQL Server 인스턴스에 대한 sysadmin 권한이 있는 사용자 계정입니다.
+- sp\_install: 역할 및 기능 설치에 필요한 도메인 관리 권한이 있는 사용자 계정입니다.
 - sqlservice: SQL Server 인스턴스를 실행할 수 있는 사용자 계정입니다.
 
 다음으로 도메인 컨트롤러가 멤버로 속해 있는 도메인의 도메인 관리자 계정을 사용하여 원하는 컴퓨터에 로그온한 다음 관리자 수준 Windows PowerShell 명령 프롬프트를 열고 다음 명령을 *한 번에 하나씩* 실행합니다.
@@ -191,14 +191,14 @@ SharePoint 팜에는 다음 사용자 계정이 필요합니다.
 
 1.	시작 화면에서 **Active Directory 사용자**를 입력하고 **Active Directory 사용자 및 컴퓨터**를 클릭합니다.
 2.	트리 창에서 도메인을 열고 **사용자**를 클릭합니다.
-3.	내용 창에서 **sp_install**을 마우스 오른쪽 단추로 클릭하고 **그룹에 추가**를 클릭합니다.
+3.	내용 창에서 **sp\_install**을 마우스 오른쪽 단추로 클릭하고 **그룹에 추가**를 클릭합니다.
 4.	**그룹 선택** 대화 상자에서 **도메인 관리자**를 입력하고 **확인**을 두 번 클릭합니다.
 5.	대화 상자에서 **고급 기능 보기 및 클릭**을 클릭합니다. 이 옵션을 사용하면 Active Directory 개체에 대해 속성 창에서 숨겨진 컨테이너와 탭을 모두 표시할 수 있습니다.
 6.	도메인 이름을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 7.	**속성** 대화 상자에서 **보안** 탭을 클릭하고 **고급** 단추를 클릭합니다.
 8.	**<YourDomain> 고급 보안 설정** 창에서 **추가**를 클릭합니다.
 9.	**<YourDomain> 권한 항목** 창에서 **보안 주체 선택**을 클릭합니다.
-10.	텍스트 상자에 **<YourDomain>\sp_install**을 입력하고 **확인**을 클릭합니다.
+10.	텍스트 상자에 **<YourDomain>\\sp\_install**을 입력하고 **확인**을 클릭합니다.
 11.	**컴퓨터 개체 만들기**에 대해 **허용**을 선택하고 **확인**을 세 번 클릭합니다.
 
 다음으로 가상 네트워크의 DNS 서버를 업데이트합니다. 그러면 Azure에서 두 새 도메인 컨트롤러의 IP 주소를 DNS 서버로 사용하도록 가상 컴퓨터에 할당합니다. 이 절차에서는 가상 네트워크 설정에 대해 표 V의 값을 사용합니다.
@@ -217,7 +217,7 @@ SharePoint 팜에는 다음 사용자 계정이 필요합니다.
 
 여기서는 두 도메인 컨트롤러를 다시 시작하여 온-프레미스 DNS 서버와 함께 DNS 서버로 구성되지 않도록 합니다. 이 두 도메인 컨트롤러는 모두 DNS 서버이므로 도메인 컨트롤러로 수준을 올릴 때 온-프레미스 DNS 서버와 함께 DNS 전달자로 자동 구성됩니다.
 
-다음으로는 Azure 가상 네트워크의 서버가 로컬 도메인 컨트롤러를 사용하도록 Active Directory 복제 사이트를 만듭니다. sp_install 계정을 사용하여 주 도메인 컨트롤러에 로그온한 다음 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
+다음으로는 Azure 가상 네트워크의 서버가 로컬 도메인 컨트롤러를 사용하도록 Active Directory 복제 사이트를 만듭니다. sp\_install 계정을 사용하여 주 도메인 컨트롤러에 로그온한 다음 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
 
 	$vnet="<Table V – Item 1 – Value column>"
 	$vnetSpace="<Table V – Item 5 – Value column>"
@@ -244,4 +244,4 @@ SharePoint 팜에는 다음 사용자 계정이 필요합니다.
 
 [Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

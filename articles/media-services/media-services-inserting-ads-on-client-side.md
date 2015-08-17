@@ -151,15 +151,15 @@ VAST 파일은 표시할 광고를 지정합니다. 다음 XML은 선형 광고�
 	</Creative>
 
  
-**<NonLinearAds>** 요소에는 각각 비선형 광고를 설명할 수 있는 **<NonLinear>** 요소가 두 개 이상 포함될 수 있습니다. **<NonLinear>** 요소는 비선형 광고의 리소스를 지정합니다. 리소스는 **<StaticResouce>**, **<IFrameResource>** 또는 **<HTMLResouce>**가 될 수 있습니다. \*\*<StaticResource>\*\*는 비 HTML 리소스를 설명하고 리소스가 표시되는 방식을 지정하는 creativeType 특성을 정의합니다.
+**<NonLinearAds>** 요소에는 각각 비선형 광고를 설명할 수 있는 **<NonLinear>** 요소가 두 개 이상 포함될 수 있습니다. **<NonLinear>** 요소는 비선형 광고의 리소스를 지정합니다. 리소스는 **<StaticResouce>**, **<IFrameResource>** 또는 **<HTMLResouce>**가 될 수 있습니다. **<StaticResource>**는 비 HTML 리소스를 설명하고 리소스가 표시되는 방식을 지정하는 creativeType 특성을 정의합니다.
 
 Image/gif, image/jpeg, image/png – 리소스가 HTML **<img>** 태그에 표시됩니다.
 
-Application/x-javascript – 리소스가 HTML <\*\*script\*\*> 태그에 표시됩니다.
+Application/x-javascript – 리소스가 HTML <**script**> 태그에 표시됩니다.
 
 Application/x-shockwave-flash – 리소스가 Flash Player에 표시됩니다.
 
-**<IFrameResource>**는 IFrame에 표시될 수 있는 HTML 리소스를 설명합니다. **<HTMLResource>**는 웹 페이지에 삽입될 수 있는 HTML 코드 조각을 설명합니다. **<TrackingEvents>**는 이벤트가 발생할 때 요청할 URI 및 추적 이벤트를 지정합니다. 이 샘플에서 acceptInvitation 및 collapse 이벤트가 추적됩니다. **<NonLinearAds>** 요소 및 해당 자식에 대한 자세한 내용은 IAB.NET/VAST를 참조하세요. **<TrackingEvents>** 요소는 **<NonLinear>** 요소가 아닌 \*\* <NonLinearAds>\*\* 요소 내에 있습니다.
+**<IFrameResource>**는 IFrame에 표시될 수 있는 HTML 리소스를 설명합니다. **<HTMLResource>**는 웹 페이지에 삽입될 수 있는 HTML 코드 조각을 설명합니다. **<TrackingEvents>**는 이벤트가 발생할 때 요청할 URI 및 추적 이벤트를 지정합니다. 이 샘플에서 acceptInvitation 및 collapse 이벤트가 추적됩니다. **<NonLinearAds>** 요소 및 해당 자식에 대한 자세한 내용은 IAB.NET/VAST를 참조하세요. **<TrackingEvents>** 요소는 **<NonLinear>** 요소가 아닌 ** <NonLinearAds>** 요소 내에 있습니다.
 
 동반 광고는 <CompanionAds> 요소 내에서 정의됩니다. <CompanionAds> 요소에는 하나 이상의 <Companion> 요소가 포함될 수 있습니다. 각 <Companion> 요소는 동반을 설명하며, 비선형 광고에서와 같은 방법으로 지정되는 <StaticResource>, <IFrameResource> 또는 <HTMLResource>를 포함할 수 있습니다. VAST 파일은 여러 동반 광고를 포함할 수 있고 플레이어 응용 프로그램은 표시할 가장 적합한 광고를 선택할 수 있습니다. VAST에 대한 자세한 내용은 [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf)(영문)을 참조하세요.
 
@@ -221,13 +221,13 @@ VMAP 파일은 각각 광고를 정의하는 하나 이상의 <AdBreak> 요소�
 1. Start/End – 비디오가 표시되기 전이나 후에 광고가 표시되도록 지정합니다.
 1. Position – 라이브 스트리밍과 같이 광고 타이밍을 알 수 없을 때 광고 순서를 지정합니다. 각 광고 순서는 #n 형식으로 지정합니다. 여기서 n은 정수 1 이상입니다. 1은 광고가 첫 번째 기회에 재생되어야 함을 나타내고, 2는 광고가 두 번째 기회에 재생되어야 함을 나타냅니다.
 
-<\*\*AdBreak\*\*> 요소 내에는 <\*\*AdSource\*\*> 요소 하나가 있을 수 있습니다. <\*\*AdSource\*\*> 요소는 다음 특성을 포함합니다.
+<**AdBreak**> 요소 내에는 <**AdSource**> 요소 하나가 있을 수 있습니다. <**AdSource**> 요소는 다음 특성을 포함합니다.
 
 1. Id – 광고 소스의 식별자를 지정합니다.
 1. allowMultipleAds – 광고 중에 여러 광고를 표시할 수 있는지를 지정하는 부울 값입니다.
 1. followRedirects – 비디오 플레이어가 광고 응답 내에서 리디렉션을 제공해야 하는지 지정하는 선택적 부울 값입니다.
 
-<\*\*AdSource\*\*> 요소는 플레이어에 인라인 광고 응답이나 광고 응답에 대한 참조를 제공합니다. 다음 요소의 하나를 포함할 수 있습니다.
+<**AdSource**> 요소는 플레이어에 인라인 광고 응답이나 광고 응답에 대한 참조를 제공합니다. 다음 요소의 하나를 포함할 수 있습니다.
 
 - <VASTAdData>는 VAST 광고 응답이 VMAP 파일 내에 포함됨을 나타냅니다.
 - <AdTagURI>는 다른 시스템에서 나오는 광고 응답을 참조하는 URI입니다.
@@ -235,7 +235,7 @@ VMAP 파일은 각각 광고를 정의하는 하나 이상의 <AdBreak> 요소�
 
 이 예제에서 인라인 광고 응답은 VAST 광고 응답을 포함하는 <VASTAdData> 요소로 지정합니다. 기타 요소에 대한 자세한 내용은 [VMAP](http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap)(영문)를 참조하세요.
 
-<\*\*AdBreak\*\*> 요소는 하나의 <\*\*TrackingEvents\*\*> 요소도 포함할 수 있습니다. <\*\*TrackingEvents\*\*> 요소를 사용하여 광고의 시작 또는 종료를 추적하거나 광고 중에 오류가 발생했는지를 추적할 수 있습니다. <\*\*TrackingEvents\*\*> 요소는 각각 추적 이벤트와 추적 URI를 지정하는 <\*\*Tracking\*\*> 요소를 하나 이상 포함합니다. 가능한 추적 이벤트는 다음과 같습니다.
+<**AdBreak**> 요소는 하나의 <**TrackingEvents**> 요소도 포함할 수 있습니다. <**TrackingEvents**> 요소를 사용하여 광고의 시작 또는 종료를 추적하거나 광고 중에 오류가 발생했는지를 추적할 수 있습니다. <**TrackingEvents**> 요소는 각각 추적 이벤트와 추적 URI를 지정하는 <**Tracking**> 요소를 하나 이상 포함합니다. 가능한 추적 이벤트는 다음과 같습니다.
 
 1. breakStart – 광고의 시작을 추적합니다.
 1. breakStart – 광고의 완료를 추적합니다.
@@ -264,7 +264,7 @@ VMAP 파일은 각각 광고를 정의하는 하나 이상의 <AdBreak> 요소�
 	  </vmap:AdBreak>
 	</vmap:VMAP>
 
-<\*\*TrackingEvents\*\*> 요소 및 해당 자식에 대한 자세한 내용은 http://iab.org/VMAP.pdf(영문)를 참조하세요.
+<**TrackingEvents**> 요소 및 해당 자식에 대한 자세한 내용은 http://iab.org/VMAP.pdf(영문)를 참조하세요.
 
 ###MAST(Media Abstract Sequencing Template) 파일 사용
 
@@ -804,4 +804,4 @@ Microsoft Media Platform: iOS용 플레이어 프레임워크에는 프레임워
 
 [비디오 플레이어 응용 프로그램 개발](media-services-develop-video-players.md) [iOS용 Azure 미디어 플레이어 프레임워크 소개](https://channel9.msdn.com/Series/Windows-Azure-Media-Services-Tutorials/An-introduction-to-Azure-Media-Player-Framework-for-IOS)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

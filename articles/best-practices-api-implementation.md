@@ -46,11 +46,11 @@ ASP.NET Web API를 사용하여 구현된 서비스에서 각 요청은 _control
 	);
 	```
 
-	경로는 일반적이며, _api_와 같은 리터럴과 _{controller}_ 및 _{id}_와 같은 변수로 구성됩니다. 규칙 기반 라우팅은 경로의 일부 요소를 선택하도록 허용합니다. Web API 프레임워크는 요청에 포함된 HTTP 메서드를 API에 포함된 메서드 이름의 처음 부분과 비교한 후 선택적인 매개 변수를 부합시키는 방법으로 컨트롤러에서 호출할 메서드를 결정합니다. 예를 들어, 이름이 _orders_인 컨트롤러에 _GetAllOrders()_ 또는 _GetOrderByInt(int id)_ 메서드가 포함되면 GET 요청은 _http://www.adventure-works.com/api/orders/_ _GetAlllOrders()_ 메서드로 직접 연결되고 GET 요청은 _http://www.adventure-works.com/api/orders/99_ _GetOrderByInt(int id)_ 메서드로 라우팅됩니다. 컨트롤러에 접두사 Get으로 시작하는 부합되는 메서드가 없는 경우, Web API 프레임워크는 HTTP 405(메서드가 허용되지 않음) 메시지로 응답합니다. 또한 라우팅 테이블에 지정된 매개 변수 이름(id)이 _GetOrderById_ 메서드에 대한 매개 변수의 이름과 반드시 같아야 하며, 그렇지 않으면 Web API 프레임워크는 HTTP 404(찾을 수 없음)으로 응답합니다.
+	경로는 일반적이며, _api_와 같은 리터럴과 _{controller}_ 및 _{id}_와 같은 변수로 구성됩니다. 규칙 기반 라우팅은 경로의 일부 요소를 선택하도록 허용합니다. Web API 프레임워크는 요청에 포함된 HTTP 메서드를 API에 포함된 메서드 이름의 처음 부분과 비교한 후 선택적인 매개 변수를 부합시키는 방법으로 컨트롤러에서 호출할 메서드를 결정합니다. 예를 들어, 이름이 _orders_인 컨트롤러에 _GetAllOrders()_ 또는 _GetOrderByInt(int id)_ 메서드가 포함되면 GET 요청은 \__http://www.adventure-works.com/api/orders/_ _GetAlllOrders()_ 메서드로 직접 연결되고 GET 요청 \__http://www.adventure-works.com/api/orders/99_은(는) _GetOrderByInt(int id)_ 메서드로 라우팅됩니다. 컨트롤러에 접두사 Get으로 시작하는 부합되는 메서드가 없는 경우, Web API 프레임워크는 HTTP 405(메서드가 허용되지 않음) 메시지로 응답합니다. 또한 라우팅 테이블에 지정된 매개 변수 이름(id)이 _GetOrderById_ 메서드에 대한 매개 변수의 이름과 반드시 같아야 하며, 그렇지 않으면 Web API 프레임워크는 HTTP 404(찾을 수 없음)으로 응답합니다.
 
-	POST, PUT, 및 DELETE HTTP 요청에 동일한 규칙이 적용됩니다. order 101의 세부 정보를 업데이트 하는 PUT 요청이 URI에 전달되고_http://www.adventure-works.com/api/orders/101_, 메시지 본문은 order에 대한 새로운 세부 정보를 포함하고, 이 정보는 orders 컨트롤러에 포함된 메서드에 _PutOrder_와 같이 이름이 접두사 _Put_으로 시작되는 매개 변수로 전달됩니다.
+	POST, PUT, 및 DELETE HTTP 요청에 동일한 규칙이 적용됩니다. order 101의 세부 정보를 업데이트 하는 PUT 요청이 URI \__http://www.adventure-works.com/api/orders/101_에 전달되고, 메시지 본문은 order에 대한 새로운 세부 정보를 포함하고, 이 정보는 orders 컨트롤러에 포함된 메서드에 _PutOrder_와 같이 이름이 접두사 _Put_으로 시작되는 매개 변수로 전달됩니다.
 
-	기본 라우팅 테이블은 _http://www.adventure-works.com/api/customers/1/orders_(customer 1에 의해 배치된 모든 orders의 세부 사항을 찾는)와 같이 RESTful Web API의 자식 리소스를 참조하는 요청과 부합하지 않습니다. 이러한 경우를 처리하려면, 라우팅 테이블에 사용자 지정 경로를 추가합니다.
+	기본 라우팅 테이블은 \__http://www.adventure-works.com/api/customers/1/orders_(customer 1에 의해 배치된 모든 orders의 세부 사항을 찾는)와 같이 RESTful Web API의 자식 리소스를 참조하는 요청과 부합하지 않습니다. 이러한 경우를 처리하려면, 라우팅 테이블에 사용자 지정 경로를 추가합니다.
 
 	```C#
 	config.Routes.MapHttpRoute(
@@ -145,7 +145,7 @@ ASP.NET Web API를 사용하여 구현된 서비스에서 각 요청은 _control
 
 - **API를 하위 도메인에 배치하는 것에 대한 장단점을 고려합니다**.
 
-	기본적으로 ASP.NET Web API는 API를 도메인의 _/api_ 디렉터리로 구성합니다(예: _http://www.adventure-works.com/api/orders_). 이 디렉터리는 동일한 호스트에 의해 노출되는 다른 서비스와 같은 도메인에 존재합니다. URI를 사용하여 개별 호스트에서 실행되는 자체 하위 도메인으로 Web API를 분리하는 것이 유익할 수 있습니다(예: _http://api.adventure-works.com/orders_). 이렇게 분리하면 _www.adventure-works.com_ 도메인에서 실행되는 다른 웹 응용 프로그램이나 서비스에 영향을 미치지 않고 보다 효과적으로 Web API의 크기와 파티션을 조정할 수 있습니다.
+	기본적으로 ASP.NET Web API는 API를 도메인의 _/api_ 디렉터리로 구성합니다(예: \__http://www.adventure-works.com/api/orders_). 이 디렉터리는 동일한 호스트에 의해 노출되는 다른 서비스와 같은 도메인에 존재합니다. URI를 사용하여 개별 호스트에서 실행되는 자체 하위 도메인으로 Web API를 분리하는 것이 유익할 수 있습니다(예: \__http://api.adventure-works.com/orders_). 이렇게 분리하면 _www.adventure-works.com_ 도메인에서 실행되는 다른 웹 응용 프로그램이나 서비스에 영향을 미치지 않고 보다 효과적으로 Web API의 크기와 파티션을 조정할 수 있습니다.
 
 	하지만, Web API를 다른 하위 도메인에 배치하면 보안 문제가 발생할 수 있습니다. 다른 위치에서 실행되는 Web API를 호출하는 _www.adventure-works.com_에 호스팅되는 웹 응용 프로그램이나 서비스는 많은 웹 브라우저의 동일 원본 정책을 위반할 수 있습니다. 이런 경우, 호스트 간에 크로스-원본 자원 공유(CORS)를 사용할 수 있도록 해야 합니다. 자세한 정보는 API 보안 지침 문서를 참조하세요.
 
@@ -302,14 +302,15 @@ ASP.NET Web API를 사용하여 구현된 서비스에서 각 요청은 _control
 
 	HTTP 응답 예제에 있는 HATEOAS 링크는 클라이언트 응용 프로그램이 다음 작업을 수행할 수 있다는 것을 나타냅니다.
 
-	- _http://adventure-works.com/customers/2_ URI에 대한 HTTP GET 요청: 고객 세부 정보를 (다시) 가져오기 위한 요청입니다. 데이터는 XML 또는 JSON으로 반환될 수 있습니다. 
-	- _http://adventure-works.com/customers/2_ URI 에 대한 HTTP PUT 요청: 고객의 세부 정보를 수정하기 위한 요청입니다. 요청 메시지에 x-www-form-urlencoded 형식의 새로운 데이터가 제공되어야 합니다.
+	- URI \__http://adventure-works.com/customers/2_에 대한 HTTP GET 요청: 고객 세부 정보를 (다시) 가져오기 위한 요청입니다. 데이터는 XML 또는 JSON으로 반환될 수 있습니다.
 
-	- _http://adventure-works.com/customers/2_ URI에 대한 HTTP DELETE 요청: 고객을 삭제하기 위한 요청입니다. 이 요청은 추가적인 정보를 요구하지 않거나 응답 메시지 본문에 데이터를 반환합니다.
+	- URI \__http://adventure-works.com/customers/2_에 대한 HTTP PUT 요청: 고객의 세부 정보를 수정하기 위한 요청입니다. 요청 메시지에 x-www-form-urlencoded 형식의 새로운 데이터가 제공되어야 합니다.
 
-	- _http://adventure-works.com/customers/2/orders_ URI에 대한 HTTP GET 요청: 고객의 모든 주문을 찾기 위한 요청입니다. 데이터는 XML 또는 JSON으로 반환될 수 있습니다.
+	- URI \__http://adventure-works.com/customers/2_에 대한 HTTP DELETE 요청: 고객을 삭제하기 위한 요청입니다. 이 요청은 추가적인 정보를 요구하지 않거나 응답 메시지 본문에 데이터를 반환합니다.
 
-	- _http://adventure-works.com/customers/2/orders_ URI에 대한 HTTP PUT 요청: 고객의 새 주문을 생성하기 위한 요청입니다. 요청 메시지에 x-www-form-urlencoded 형식의 데이터가 제공되어야 합니다.
+	- URI \__http://adventure-works.com/customers/2/orders_에 대한 HTTP GET 요청: 고객의 모든 주문을 찾기 위한 요청입니다. 데이터는 XML 또는 JSON으로 반환될 수 있습니다.
+
+	- URI \__http://adventure-works.com/customers/2/orders_에 대한 HTTP PUT 요청: 고객의 새 주문을 생성하기 위한 요청입니다. 요청 메시지에 x-www-form-urlencoded 형식의 데이터가 제공되어야 합니다.
 
 ## 예외 처리에 대한 고려 사항
 기본적으로, ASP.NET Web API 프레임워크에서, 작업이 catch할 수 없는 예외를 throw하면 프레임워크는 HTTP 상태 코드 500(내부 서버 오류)으로 응답 메시지를 반환합니다. 대부분의 경우 이렇게 극도로 단순한 접근 방식은 구분하는데 유용하지 않으며 예외의 원인을 판단하기 어렵게 만듭니다. 따라서 다음 사항을 고려하고, 예외를 처리하기 위하여 보다 포괄적인 접근 방식을 채택해야 합니다.
@@ -880,7 +881,7 @@ ASP.NET Web API를 사용하여 구현된 서비스에서 각 요청은 _control
 
 - **비동기 작업을 지원하지 않는 클라이언트에 대해 부분 응답을 구현합니다**.
 
-	비동기 스트리밍에 대한 대안으로 클라이언트 응용 프로그램은 큰 개체의 데이터를 명시적으로 청크로 요청할 수 있으며 이를 부분 응답이라고도 합니다. 클라이언트 응용 프로그램은 개체에 대한 정보를 입수하기 위해 HTTP HEAD 요청을 보냅니다. Web API가 부분 응답을 지원하면 HEAD 요청에 대해 Accept-Ranges 헤더 및 개체의 총 크기를 나타내는 Content-Length 헤더를 포함하지만 메시지 본문은 빈 상태의 응답 메시지로 응답해야 합니다. 클라이언트 응용 프로그램은 이 정보를 사용하여 수신할 바이트의 범위를 지정하는 일련의 GET 요청을 구성할 수 있습니다. Web API는 HTTP 상태 코드 206(부분 콘텐츠), 응답 메시지의 본문에 포함된 실제 데이터 양을 나타내는 Content-Length 헤더, 데이터가 개체의 어느 부분(예: 4000~ 8000바이트)에 해당하는지를 나타내는 Content-Range 헤더를 포함하는 응답 메시지를 반환해야 합니다.
+	비동기 스트리밍에 대한 대안으로 클라이언트 응용 프로그램은 큰 개체의 데이터를 명시적으로 청크로 요청할 수 있으며 이를 부분 응답이라고도 합니다. 클라이언트 응용 프로그램은 개체에 대한 정보를 입수하기 위해 HTTP HEAD 요청을 보냅니다. Web API가 부분 응답을 지원하면 HEAD 요청에 대해 Accept-Ranges 헤더 및 개체의 총 크기를 나타내는 Content-Length 헤더를 포함하지만 메시지 본문은 빈 상태의 응답 메시지로 응답해야 합니다. 클라이언트 응용 프로그램은 이 정보를 사용하여 수신할 바이트의 범위를 지정하는 일련의 GET 요청을 구성할 수 있습니다. Web API는 HTTP 상태 코드 206(부분 콘텐츠), 응답 메시지의 본문에 포함된 실제 데이터 양을 나타내는 Content-Length 헤더, 데이터가 개체의 어느 부분(예: 4000\~ 8000바이트)에 해당하는지를 나타내는 Content-Range 헤더를 포함하는 응답 메시지를 반환해야 합니다.
 
 	HTTP HEAD 요청 및 부분 응답은 API 디자인 지침에 보다 자세히 설명되어 있습니다.
 
@@ -923,7 +924,7 @@ ASP.NET Web API를 사용하여 구현된 서비스에서 각 요청은 _control
 	}
 	```
 
-	클라이언트 응용 프로그램은 _http://www.adventure-works.com/api/orders?limit=30&offset=50_ URI를 사용하여 offset 50에서 시작하여 order 30개를 가져오기 위해 요청을 발급할 수 있습니다.
+	클라이언트 응용 프로그램은 URI \__http://www.adventure-works.com/api/orders?limit=30&offset=50_를 사용하여 offset 50에서 시작하여 order 30개를 가져오기 위해 요청을 발급할 수 있습니다.
 
 	> [AZURE.TIP]2000자 보다 긴 URI를 생성하는 쿼리 문자열을 지정하도록 클라이언트 응용 프로그램을 사용하지 않습니다. 많은 웹 클라이언트 및 서버는 이렇게 긴 URI를 처리할 수 없습니다.
 
@@ -1151,4 +1152,4 @@ API 관리 서비스를 사용하여 Web API를 게시한 경우 Azure 관리 �
 - Microsoft 웹 사이트의 [단위 테스트를 사용하여 코드 확인](https://msdn.microsoft.com/library/dd264975.aspx) 페이지는 Visual Studio를 사용하여 단위 테스트를 생성하고 관리하는 자세한 정보를 제공합니다.
 - Microsoft 웹 사이트의 [앱에서 성능 테스트 실행](https://msdn.microsoft.com/library/dn250793.aspx) 페이지는 Visual Studio Ultimate을 사용하여 웹 성능 및 부하 테스트 프로젝트를 생성하는 방법을 설명합니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

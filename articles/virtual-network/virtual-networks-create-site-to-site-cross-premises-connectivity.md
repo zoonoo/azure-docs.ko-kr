@@ -271,4 +271,4 @@ Azure 가상 네트워크를 만든 후 사이트 간 VPN을 만들려면 다음
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

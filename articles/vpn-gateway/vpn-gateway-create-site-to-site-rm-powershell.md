@@ -123,7 +123,7 @@ ARM 모드로 전환합니다. 이렇게 하면 모드를 전환하여 ARM cmdle
 이 단계에서는 가상 네트워크 게이트웨이를 만듭니다. 다음 값을 사용합니다.
 
 - 게이트웨이 형식은 *Vpn*입니다.
-- VpnType은 RouteBased\*(일부 설명서에서는 동적 게이트웨이라고도 함) 또는 *정책 기반*(일부 설명서에서는 정적 게이트웨이라고도 함)일 수 있습니다. VPN 게이트웨이 형식에 대한 자세한 내용은 [VPN 게이트웨이 정보](vpn-gateway-about-vpngateways.md)를 참조하세요. 	
+- VpnType은 RouteBased*(일부 설명서에서는 동적 게이트웨이라고도 함) 또는 *정책 기반*(일부 설명서에서는 정적 게이트웨이라고도 함)일 수 있습니다. VPN 게이트웨이 형식에 대한 자세한 내용은 [VPN 게이트웨이 정보](vpn-gateway-about-vpngateways.md)를 참조하세요. 	
 
 		New-AzureVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn -VpnType RouteBased
 
@@ -152,4 +152,4 @@ ARM 모드로 전환합니다. 이렇게 하면 모드를 전환하여 ARM cmdle
 
 가상 네트워크에 가상 컴퓨터를 추가합니다. [가상 컴퓨터를 만듭니다](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

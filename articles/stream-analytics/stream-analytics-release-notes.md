@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/30/2015" 
+	ms.date="08/05/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft 스트림 분석 릴리스 정보
@@ -29,23 +29,23 @@
 </tr>
 <tr>
 <td>Azure ID에서 분리된 Power BI 조직 ID</td>
-<td>이 기능을 통해 모든 Azure 계정 유형의 ASA 작업에 대한 Power BI 출력을 사용합니다(Live ID 또는 조직 ID). 또한 Azure 계정에 대한 하나의 조직 ID를 포함하고 Power BI 출력 권한 부여를 위한 다른 하나를 사용할 수 있습니다.</td>
+<td>이 기능을 통해 모든 Azure 계정 유형의 ASA 작업에 대한 <a href="https://azure.microsoft.com/documentation/articles/stream-analytics-power-bi-dashboard/">Power BI 출력</a>을 사용합니다(Live ID 또는 조직 ID). 또한 Azure 계정에 대한 하나의 조직 ID를 포함하고 Power BI 출력 권한 부여를 위한 다른 하나를 사용할 수 있습니다.</td>
 </tr>
 <tr>
 <td>서비스 버스 큐 출력에 대한 지원</td>
-<td>서비스 버스 큐 출력은 지금 스트림 분석 작업에서 사용할 수 있습니다.</td>
+<td><a href="https://azure.microsoft.com/documentation/articles/stream-analytics-connect-data-event-outputs/#service-bus-queues">서비스 버스 큐</a> 출력은 지금 스트림 분석 작업에서 사용할 수 있습니다.</td>
 </tr>
 <tr>
 <td>서비스 버스 토픽 출력에 대한 지원</td>
-<td>서비스 버스 토픽 출력은 지금 스트림 분석 작업에서 사용할 수 있습니다.</td>
+<td><a href="https://azure.microsoft.com/documentation/articles/stream-analytics-connect-data-event-outputs/#service-bus-topics">서비스 버스 토픽</a> 출력은 지금 스트림 분석 작업에서 사용할 수 있습니다.</td>
 </tr>
 <tr>
 <td>새 배열 함수</td>
-<td>배열 함수 GetArrayElement, GetArrayElements, GetArrayLength 추가됨</td>
+<td>배열 함수 <a href="https://msdn.microsoft.com/library/azure/mt270218.aspx">GetArrayElement</a>, <a href="https://msdn.microsoft.com/library/azure/mt298451.aspx">GetArrayElements</a>, <a href="https://msdn.microsoft.com/library/azure/mt270226.aspx">GetArrayLength</a> 추가됨</td>
 </tr>
 <tr>
 <td>새 레코드 함수</td>
-<td>레코드 함수 GetRecordProperties 및 GetRecordPropertyValue 추가됨</td>
+<td>레코드 함수 <a href="https://msdn.microsoft.com/library/azure/mt270221.aspx">GetRecordProperties</a> 및 <a href="https://msdn.microsoft.com/library/azure/mt270220.aspx">GetRecordPropertyValue</a> 추가됨</td>
 </tr>
 </table>
 
@@ -152,4 +152,4 @@
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

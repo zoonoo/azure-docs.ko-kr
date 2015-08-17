@@ -149,4 +149,4 @@ VM 상태가 실행 중이거나 정지되면 요금이 부과되지만, VM 상�
 
 [Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

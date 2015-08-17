@@ -50,4 +50,4 @@
 [트래픽 관리자 작업(REST API 참조)](http://go.microsoft.com/fwlink/?LinkId=313584)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

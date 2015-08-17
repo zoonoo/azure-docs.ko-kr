@@ -280,4 +280,4 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 ## 다음 단계
 DPM에 대한 Azure 백업에 대한 자세한 정보는 [Azure DPM 백업 소개](backup-azure-dpm-introduction.md)를 참조합니다.
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

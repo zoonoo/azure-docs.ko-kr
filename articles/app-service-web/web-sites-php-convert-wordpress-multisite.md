@@ -34,7 +34,7 @@
 
 ## 멀티 사이트 허용
 
-먼저 `wp-config.php` 파일에서 **WP_ALLOW_MULTISITE** 상수를 사용하여 다중 사이트를 사용하도록 설정해야 합니다. 웹 앱 파일은 두 가지 방법으로 편집할 수 있습니다. 첫 번째는 FTP를 통하는 것이고 두 번째는 Git를 통하는 것입니다. 이러한 방법을 설정하는 데 익숙지 않다면 다음 자습서를 참조하십시오.
+먼저 `wp-config.php` 파일에서 **WP\_ALLOW\_MULTISITE** 상수를 사용하여 다중 사이트를 사용하도록 설정해야 합니다. 웹 앱 파일은 두 가지 방법으로 편집할 수 있습니다. 첫 번째는 FTP를 통하는 것이고 두 번째는 Git를 통하는 것입니다. 이러한 방법을 설정하는 데 익숙지 않다면 다음 자습서를 참조하십시오.
 
 * [MySQL 및 FTP를 사용하는 PHP 웹 사이트][website-w-mysql-and-ftp-ftp-setup]
 
@@ -93,7 +93,7 @@ Azure 웹 앱에서 사이트에 도메인을 매핑하려면 먼저 도메인�
 
 * 도메인의 DNS 관리자에 로그온합니다.
 * 새로운 CNAME *awverify*를 만듭니다.
-* *awverify*로 *awverify.YOUR_DOMAIN.azurewebsites.net*을 가리킵니다.
+* *awverify*로 *awverify.YOUR\_DOMAIN.azurewebsites.net*을 가리킵니다.
 
 DNS 변경 내용이 완전히 적용되는 데 어느 정도 시간이 걸릴 수 있으므로, 다음 단계가 즉시 진행되지 않으면 잠시 쉬었다가 나중에 다시 시도해 보십시오.
 
@@ -113,7 +113,7 @@ Azure 포털을 통해 웹앱에 반환하고 **설정**, **사용자 지정 도
 
 다른 단계가 완료되었다면 이제 DNS A 레코드를 통해 Azure 웹 앱에 도메인을 할당할 수 있습니다.
 
-Azure 웹앱에서 CNAME과 A 레코드를 모두 허용하지만 적절한 도메인 매핑을 사용하려면 *반드시* A 레코드를 사용해야 합니다. CNAME은 YOUR_DOMAIN.azurewebsites.net을 사용하여 자동으로 만들어지는 다른 CNAME으로 전달할 수 없습니다.
+Azure 웹앱에서 CNAME과 A 레코드를 모두 허용하지만 적절한 도메인 매핑을 사용하려면 *반드시* A 레코드를 사용해야 합니다. CNAME은 YOUR\_DOMAIN.azurewebsites.net을 사용하여 자동으로 만들어지는 다른 CNAME으로 전달할 수 없습니다.
 
 이전 단계의 IP 주소를 사용하여 DNS 관리자로 돌아와서 해당 IP를 가리키도록 A 레코드를 설정하십시오.
 
@@ -154,4 +154,4 @@ Azure 웹 앱에서는 웹 앱에 도메인을 무제한으로 추가할 수 있
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

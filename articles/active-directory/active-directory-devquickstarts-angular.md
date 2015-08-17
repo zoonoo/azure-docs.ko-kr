@@ -111,7 +111,7 @@ adalProvider.init(
 ...
 ```
 
-이제 사용자를 로그인하고 전달자 토큰으로 보호된 요청을 해당 백 엔드 API에 실행하는 기능을 제공하는 보안 단일 페이지 응용 프로그램을 사용할 수 있습니다. 사용자가 `TodoList` 링크를 클릭하면 필요한 경우 로그인을 위해 adal.js가 Azure AD에 자동으로 리디렉션됩니다. 또한 adal.js는 응용 프로그램의 백 엔드로 전송되는 모든 ajax 요청에 자동으로 access_token을 연결합니다. 위 내용은 adal.js로 SPA를 빌드하는 데 필요한 최소 기능이며, SPA에서 유용하게 사용할 수 있는 다른 기능이 많이 있습니다.
+이제 사용자를 로그인하고 전달자 토큰으로 보호된 요청을 해당 백 엔드 API에 실행하는 기능을 제공하는 보안 단일 페이지 응용 프로그램을 사용할 수 있습니다. 사용자가 `TodoList` 링크를 클릭하면 필요한 경우 로그인을 위해 adal.js가 Azure AD에 자동으로 리디렉션됩니다. 또한 adal.js는 응용 프로그램의 백 엔드로 전송되는 모든 ajax 요청에 자동으로 access\_token을 연결합니다. 위 내용은 adal.js로 SPA를 빌드하는 데 필요한 최소 기능이며, SPA에서 유용하게 사용할 수 있는 다른 기능이 많이 있습니다.
 
 - 로그인 및 로그아웃 요청을 명시적으로 실행하기 위해 adal.js를 호출하는 컨트롤러에서 함수를 정의할 수 있습니다. `App/Scripts/homeCtrl.js`:
 
@@ -151,4 +151,4 @@ Adal.js는 응용 프로그램에 이러한 모든 일반적인 ID 기능을 쉽
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

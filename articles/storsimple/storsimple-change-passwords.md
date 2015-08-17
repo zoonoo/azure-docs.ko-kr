@@ -66,4 +66,4 @@ Windows PowerShell 인터페이스를 사용하여 StorSimple 장치에 액세�
 
 [장치 구성을 수정하는 방법에 대한 자세히 알아봅니다](storsimple-modify-device-config.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

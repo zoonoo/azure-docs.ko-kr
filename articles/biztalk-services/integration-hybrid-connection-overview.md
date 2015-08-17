@@ -12,7 +12,7 @@
 	ms.workload="integration" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="06/14/2015" 
 	ms.author="mandia"/>
 
@@ -85,7 +85,7 @@
 --- | ---
 9350 - 9354 | 이러한 포트는 데이터 전송에 사용됩니다. 서비스 버스 릴레이 관리자는 포트 9350를 조사하여 TCP 연결을 사용할 수 있는지 확인합니다. 사용 가능한 경우 포트 9352도 사용 가능한 것으로 가정합니다. 데이터 트래픽이 포트 9352를 통해 이동합니다. <br/><br/>이러한 포트에 아웃 바운드 연결을 허용합니다.
 5671 | 데이터 트래픽에 포트 9352를 사용하는 경우 포트 5671을 제어 채널로 사용합니다. <br/><br/>이 포트에 아웃 바운드 연결을 허용합니다. 
-80, 443 | 포트 9352 및 5671를 사용할 수 없는 경우 *다음으로* 포트 80 및 443가 데이터 전송 및 제어 채널로 사용되는 대체(fallback) 포트입니다.<br/><br/>이러한 포트에 아웃 바운드 연결을 허용합니다. <br/><br/>\*\*참고\*\* 다른 TCP 포트 대신 이러한 대체 포트를 사용하는 것은 권장되지 않습니다. HTTP/WebSocket이 데이터 채널에 대한 기본 TCP 대신 프로토콜로 사용됩니다. 성능이 저하될 수 있습니다.
+80, 443 | 포트 9352 및 5671를 사용할 수 없는 경우 *다음으로* 포트 80 및 443가 데이터 전송 및 제어 채널로 사용되는 대체(fallback) 포트입니다.<br/><br/>이러한 포트에 아웃 바운드 연결을 허용합니다. <br/><br/>**참고** 다른 TCP 포트 대신 이러한 대체 포트를 사용하는 것은 권장되지 않습니다. HTTP/WebSocket이 데이터 채널에 대한 기본 TCP 대신 프로토콜로 사용됩니다. 성능이 저하될 수 있습니다.
 
 
 
@@ -103,4 +103,4 @@
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

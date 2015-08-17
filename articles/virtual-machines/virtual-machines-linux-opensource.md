@@ -228,7 +228,7 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
     - [Microsoft Azure에서 MySQL 고가용성 아키텍처](http://download.microsoft.com/download/6/1/C/61C0E37C-F252-4B33-9557-42B90BA3E472/MySQL_HADR_solution_in_Azure.pdf)
 7. MariaDB
     - [방법: MariaDbs의 다중 마스터 클러스터 만들기](virtual-machines-mariadb-cluster.md)
-8. [ILB를 사용하여 corosync, pg_bouncer와 함께 Postgres 설치](https://github.com/chgeuer/postgres-azure)
+8. [ILB를 사용하여 corosync, pg\_bouncer와 함께 Postgres 설치](https://github.com/chgeuer/postgres-azure)
 
 
 ## 인증 및 암호화
@@ -296,4 +296,4 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

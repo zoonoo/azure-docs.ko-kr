@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="NA"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="08/05/2015"
 	ms.author="alfran"/>
 
 # Operational Insights의 솔루션
@@ -24,7 +24,7 @@
 
 이 가이드에서는 사용할 수 있는 다양한 솔루션 및 용도를 안내합니다.
 
->[AZURE.NOTE]솔루션 *추가*에 대한 자세한 내용은 [솔루션 추가](operational-insights-add-solution.md)를 참조하세요.
+>[AZURE.NOTE]솔루션 *추가*에 대한 자세한 내용은 [솔루션 추가](operational-insights-setup-workspace.md)를 참조하세요.
 
 ## SQL 평가
 
@@ -129,4 +129,4 @@ Microsoft Azure Operational Insights의 용량 관리 솔루션을 사용하여 
 - 마지막 업데이트 이후 기간(일)
 - Windows Update 에이전트 버전
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

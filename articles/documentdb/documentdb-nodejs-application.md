@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DocumentDB를 사용하여 Node.js 웹 응용 프로그램 빌드 | Azure" 
+	pageTitle="DocumentDB를 사용하여 Node.js 웹 응용 프로그램 빌드 | Microsoft Azure" 
 	description="Microsoft Azure DocumentDB를 사용하여 Azure 웹 사이트에 호스트된 Node.js Express 웹 응용 프로그램에 데이터를 저장하고 액세스하는 방법을 알아봅니다." 
 	services="documentdb" 
 	documentationCenter="nodejs" 
@@ -559,4 +559,4 @@
   [Git]: http://git-scm.com/
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

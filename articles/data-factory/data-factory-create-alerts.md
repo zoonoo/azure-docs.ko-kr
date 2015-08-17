@@ -111,7 +111,7 @@ StorageAccountName은 배포된 경고 JSON 파일을 저장하기 위한 저장
 
 | 작업 이름 | 상태 | Sub Status |
 | -------------- | ------ | ---------- |
-| RunStarted | 시작 | Starting |
+| RunStarted | Started | Starting |
 | RunFinished | 실패/성공 |	<p>FailedResourceAllocation </p><p>Succeeded</p><p>FailedExecution</p><p>TimedOut</p><p>Canceled</p><p>FailedValidation</p><p>Abandoned</p> | 
 | SliceOnTime | In Progress | Ontime |
 | SliceDelayed | In Progress | Late |
@@ -126,4 +126,4 @@ StorageAccountName은 배포된 경고 JSON 파일을 저장하기 위한 저장
 	Get-AzureResourceGroupLog –Name $ResourceGroup -All | Where-Object EventSource -eq "Microsoft.DataFactory"
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

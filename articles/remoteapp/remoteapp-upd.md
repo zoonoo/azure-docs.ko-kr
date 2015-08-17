@@ -2,7 +2,7 @@
 <properties 
     pageTitle="Azure RemoteApp의 사용자 프로필 데이터"
 	description="사용자 데이터가 저장되고 Azure RemoteApp에서 액세스되는 방법에 대해 알아봅니다."
-	services="remoteapp" 
+	services="remoteapp"
 	documentationCenter="" 
 	authors="lizap" 
 	manager="mbaldwin" />
@@ -39,11 +39,11 @@ Azure RemoteApp은 장치와 세션에서 사용자 ID 및 사용자 지정을 �
 
 ## 사용자가 서버측에서 어떻게 UPD를 볼 수 있습니까?
 
-각 사용자는 자신의 UPD: c:\Users\username에 매핑되는 서버에 자신의 디렉터리를 갖습니다.
+각 사용자는 자신의 UPD: c:\\Users\\username에 매핑되는 서버에 자신의 디렉터리를 갖습니다.
 
 ## UPD 및 Outlook을 사용하는 가장 좋은 방법은 무엇입니까?
 
-Azure RemoteApp은 세션 간에 Outlook 상태(사서함, PST)를 저장합니다. 이 기능을 사용하려면, PST를 사용자 프로필 데이터(c:\users<사용자 이름>)에 저장해야 합니다. 데이터에 대한 기본 위치이며, 위치를 변경하지 않으면 데이터는 세션 간에 유지됩니다.
+Azure RemoteApp은 세션 간에 Outlook 상태(사서함, PST)를 저장합니다. 이 기능을 사용하려면, PST를 사용자 프로필 데이터(c:\\users<사용자 이름>)에 저장해야 합니다. 데이터에 대한 기본 위치이며, 위치를 변경하지 않으면 데이터는 세션 간에 유지됩니다.
 
 Outlook에서 "캐시" 모드를 사용하고 검색을 위해 "서버/온라인" 모드를 사용하는 것이 좋습니다.
 
@@ -115,7 +115,7 @@ Outlook에서 "캐시" 모드를 사용하고 검색을 위해 "서버/온라인
 
 ## 시작 메뉴에서 시작 스크립트를 어떻게 배치합니까? 작동되나요?
 
-즉, config window 스크립트를 실행하는 .bat 파일을 만들고 c:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp 폴더에 저장한 다음, 사용자가 RemoteApp 세션을 시작할 때마다 해당 스크립트를 실행할 수 있습니까?
+즉, config window 스크립트를 실행하는 .bat 파일을 만들고 c:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp 폴더에 저장한 다음, 사용자가 RemoteApp 세션을 시작할 때마다 해당 스크립트를 실행할 수 있습니까?
 
 아니요, Azure RemoteApp에서 지원되지 않으며, 시작 메뉴에서 시작 스크립트를 지원하지 않는 RDSH를 사용합니다.
 
@@ -123,4 +123,4 @@ Outlook에서 "캐시" 모드를 사용하고 검색을 위해 "서버/온라인
 
 아니요, Azure RemoteApp에서 지원되지 않습니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

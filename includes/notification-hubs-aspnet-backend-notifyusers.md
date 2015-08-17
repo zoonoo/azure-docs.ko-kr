@@ -101,7 +101,7 @@
 
 	> [AZURE.NOTE]**보안 정보**: `AuthenticationTestHandler` 클래스는 진정한 의미의 인증을 제공하지 않습니다. 이 클래스는 기본 인증과 비슷한 동작을 하고 보안이 안전하지 않습니다. 프로덕션 응용프로그램 및 서비스에 보안 인증 메커니즘을 구현해야 합니다.
 
-4. **App_Start/WebApiConfig.cs** 클래스의 `Register` 메서드 끝에 다음 코드를 추가하여 메시지 처리기를 등록합니다.
+4. **App\_Start/WebApiConfig.cs** 클래스의 `Register` 메서드 끝에 다음 코드를 추가하여 메시지 처리기를 등록합니다.
 
 		config.MessageHandlers.Add(new AuthenticationTestHandler());
 
@@ -359,4 +359,4 @@
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -130,4 +130,4 @@ ARM VNet에 대한 VPN 게이트웨이를 만들려면 아래 지침을 따르�
 - [ARM에 대한 NRP(네트워크 리소스 공급자)](../resource-groups-networking.md)에 대해 자세히 알아봅니다.
 - [S2S VPN을 사용하여 클래식 VNet을 ARM VNet에 연결하는 종단 간 솔루션](../virtual-networks-arm-asm-s2s.md)을 만듭니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

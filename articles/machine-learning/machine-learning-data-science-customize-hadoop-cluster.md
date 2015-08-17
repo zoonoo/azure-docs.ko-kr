@@ -2,7 +2,6 @@
 	pageTitle="고급 분석 프로세스 및 기술을 위한 Hadoop 클러스터 사용자 지정 | Microsoft Azure" 
 	description="일반적인 Python 모듈을 사용자 지정 Azure HDInsight Hadoop 클러스터에서 사용할 수 있습니다."
 	services="machine-learning" 
-	solutions="" 
 	documentationCenter="" 
 	authors="hangzh-msft" 
 	manager="paulettm" 
@@ -52,7 +51,8 @@
  
 * **이름** - 이 스크립트 동작의 이름인 모든 문자열입니다. 
 * **노드 유형** - **모든 노드**를 선택합니다. 
-* **스크립트 URI** - *http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1* 	* *publicscripts*는 저장소 계정의 공용 컨테이너입니다. 
+* **SCRIPT URI** - **http://getgoing.blob.core.windows.net/publicscripts/Azure_HDI_Setup_Windows.ps1*
+	* *publicscripts*는 저장소 계정의 공용 컨테이너입니다. 
 	* *getgoing*은 Azure에서 사용자의 작업을 용이하게 하기 위해 PowerShell 스크립트 파일을 공유하는 데 사용됩니다. 
 * **매개 변수** - 비어 있는 상태로 둡니다.
 
@@ -98,4 +98,4 @@ RDP를 통해 Hadoop 클러스터의 헤드 노드에 액세스하려면 먼저 
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

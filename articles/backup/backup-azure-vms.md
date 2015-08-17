@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 가상 컴퓨터 백업 - 백업"
+	pageTitle="Azure 가상 컴퓨터 백업 - 백업 | Microsoft Azure"
 	description="등록 후 Azure 가상 컴퓨터를 백업하는 방법 배우기"
 	services="backup"
 	documentationCenter=""
@@ -7,14 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="07/06/2015"
-	ms.author="aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="07/30/2015" ms.author="aashishr"; "jimpark"/>
 
 
 # Azure 가상 컴퓨터 백업
@@ -33,13 +26,19 @@ Azure 가상 컴퓨터 백업에는 3가지 주요 단계가 포함됩니다.
 
 1. Azure 포털의 **복구 서비스**에서 찾을 수 있는 백업 저장소로 이동하여 **등록된 항목** 탭을 클릭합니다.
 
-2. 드롭다운 메뉴의 작업 유형을 **Azure 가상 컴퓨터**로 선택하고 **선택** 단추를 클릭합니다. ![작업 선택](./media/backup-azure-vms/discovery-select-workload.png)
+2. 드롭다운 메뉴의 작업 유형을 **Azure 가상 컴퓨터**로 선택하고 **선택** 단추를 클릭합니다.
+
+    ![작업 선택](./media/backup-azure-vms/discovery-select-workload.png)
 
 3. 페이지 맨 아래에 있는 **검색** 단추를 클릭합니다. ![검색 단추](./media/backup-azure-vms/discover-button-only.png)
 
-4. 검색 프로세스는 가상 컴퓨터를 표로 정리하는 동안 몇 분 동안 실행할 수 있습니다. 검색 프로세스가 실행되는 동안 화면 아래쪽에 알림 메시지가 표시됩니다. ![vms 검색](./media/backup-azure-vms/discovering-vms.png)
+4. 검색 프로세스는 가상 컴퓨터를 표로 정리하는 동안 몇 분 동안 실행할 수 있습니다. 검색 프로세스가 실행되는 동안 화면 아래쪽에 알림 메시지가 표시됩니다.
 
-5. 검색 프로세스가 완료되면 알림 메시지가 표시됩니다. ![검색-완료](./media/backup-azure-vms/discovery-complete.png)
+    ![vms 검색](./media/backup-azure-vms/discovering-vms.png)
+
+5. 검색 프로세스가 완료되면 알림 메시지가 표시됩니다.
+
+    ![검색-완료](./media/backup-azure-vms/discovery-complete.png)
 
 ##  2\. Azure 가상 컴퓨터 등록
 가상 컴퓨터를 보호하려면 먼저 Azure 백업 서비스에 등록해야 합니다. 등록 프로세스에는 두 가지 기본 목표가 있습니다.
@@ -52,9 +51,11 @@ Azure 가상 컴퓨터 백업에는 3가지 주요 단계가 포함됩니다.
 
 ### 가상 컴퓨터를 등록하려면
 
-1. Azure 포털의 **복구 서비스** 아래에 있는 백업 자격 증명 모음으로 이동한 다음 **등록된 항목** 탭을 클릭합니다.
+1. Azure 포털의 **복구 서비스**에서 찾을 수 있는 백업 저장소로 이동하여 **등록된 항목** 탭을 클릭합니다.
 
-2. 드롭다운 메뉴에서 작업 유형을 **Azure 가상 컴퓨터**로 선택하고 선택 단추를 클릭합니다. ![작업 선택](./media/backup-azure-vms/discovery-select-workload.png)
+2. 드롭다운 메뉴의 작업 유형을 **Azure 가상 컴퓨터**로 선택하고 선택 단추를 클릭합니다.
+
+    ![작업 선택](./media/backup-azure-vms/discovery-select-workload.png)
 
 3. 페이지 맨 아래에 있는 **등록** 단추를 클릭합니다. ![등록 단추](./media/backup-azure-vms/register-button-only.png)
 
@@ -64,18 +65,26 @@ Azure 가상 컴퓨터 백업에는 3가지 주요 단계가 포함됩니다.
 
     >[AZURE.NOTE]등록되지 않았으며 백업 자격 증명 모음과 동일한 지역에 있는 가상 컴퓨터만 표시됩니다.
 
-5. 등록해야 하는 각 가상 컴퓨터에 대한 작업이 만들어집니다. 알림 메시지는 이 활동의 상태를 보여줍니다. **작업 보기**를 클릭하여 **작업** 페이지로 이동합니다. ![등록 작업](./media/backup-azure-vms/register-create-job.png)
+5. 등록해야 하는 각 가상 컴퓨터에 대한 작업이 만들어집니다. 알림 메시지는 이 활동의 상태를 보여줍니다. **작업 보기**를 클릭하여 **작업** 페이지로 이동합니다.
 
-6. 가상 컴퓨터가 등록된 항목 목록에도 나타나며 등록 작업의 상태가 표시됩니다. ![등록 상태 1](./media/backup-azure-vms/register-status01.png)
+    ![등록 작업](./media/backup-azure-vms/register-create-job.png)
 
-7. 작업이 완료되면 포털의 상태가 등록된 상태를 반영하도록 변경됩니다. ![등록 상태 2](./media/backup-azure-vms/register-status02.png)
+6. 가상 컴퓨터가 등록된 항목 목록에도 나타나며 등록 작업의 상태가 표시됩니다.
+
+    ![등록 상태 1](./media/backup-azure-vms/register-status01.png)
+
+7. 작업이 완료되면 포털의 상태가 등록된 상태를 반영하도록 변경됩니다.
+
+    ![등록 상태 2](./media/backup-azure-vms/register-status02.png)
 
 ## 3\. 보호: Azure 가상 컴퓨터 백업
 이 단계에는 가상 컴퓨터의 백업 및 보존 정책 설정이 포함됩니다. 가상 컴퓨터를 보호하려면 다음 단계를 수행합니다.
 
 ### Azure 가상 컴퓨터를 백업하려면
 1. Azure 포털의 **복구 서비스**에서 찾을 수 있는 백업 저장소로 이동하여 **등록된 항목** 탭을 클릭합니다.
-2. 드롭다운 메뉴의 작업 유형을 **Azure 가상 컴퓨터**로 선택하고 **선택** 단추를 클릭합니다. ![포털에서 작업 선택](./media/backup-azure-vms/select-workload.png)
+2. 드롭다운 메뉴의 작업 유형을 **Azure 가상 컴퓨터**로 선택하고 **선택** 단추를 클릭합니다.
+
+    ![포털에서 작업 선택](./media/backup-azure-vms/select-workload.png)
 
 3. 페이지 맨 아래에 있는 **보호** 단추를 클릭합니다.
 
@@ -93,17 +102,25 @@ Azure 가상 컴퓨터 백업에는 3가지 주요 단계가 포함됩니다.
 
     각 백업 정책 정책에는 해당 정책과 연관된 여러 가상 컴퓨터가 있을 수 있습니다. 가상 컴퓨터는 특정 시간에 한 정책과만 연관될 수 있습니다.
 
-6. 각 가상 컴퓨터에 대한 작업을 만들어 보호 정책을 구성하고 가상 컴퓨터를 정책과 연결합니다. **작업** 탭을 클릭하고 적합한 필터를 선택하여 **보호 구성** 작업 목록을 봅니다. ![보호 작업 구성](./media/backup-azure-vms/protect-configureprotection.png)
+6. 각 가상 컴퓨터에 대한 작업을 만들어 보호 정책을 구성하고 가상 컴퓨터를 정책과 연결합니다. **작업** 탭을 클릭하고 적합한 필터를 선택하여 **보호 구성** 작업 목록을 봅니다.
+
+    ![보호 작업 구성](./media/backup-azure-vms/protect-configureprotection.png)
 
 7. 완료되면 가상 컴퓨터가 정책으로 보호되며 초기 백업에 대해 예약된 백업 시간이 완료될 때까지 기다려야 합니다. 이제 가상 컴퓨터가 **보호된 항목** 탭 아래에 표시되며 *보호됨*의 보호된 상태가 됩니다(초기 백업 보류 중).
     >[AZURE.NOTE]보호 구성 후 곧바로 초기 백업을 시작하면 오늘 옵션으로 사용할 수 없습니다.
 
-8. 예약된 시간에 Azure 백업 서비스는 백업이 필요한 각 가상 컴퓨터에 대한 백업 작업을 만듭니다. **작업** 탭을 클릭하여 **백업** 박업 목록을 봅니다. 백업 작업의 일부로 Azure 백업 서비스는 각 가상 컴퓨터에서 백업 확장에 대한 명령을 발행하여 모든 쓰기를 플러시하고 일관된 스냅숏을 찍습니다.![진행 중인 백업](./media/backup-azure-vms/protect-inprogress.png)
+8. 예약된 시간에 Azure 백업 서비스는 백업이 필요한 각 가상 컴퓨터에 대한 백업 작업을 만듭니다. **작업** 탭을 클릭하여 **백업** 박업 목록을 봅니다. 백업 작업의 일부로 Azure 백업 서비스는 각 가상 컴퓨터에서 백업 확장에 대한 명령을 발행하여 모든 쓰기를 플러시하고 일관된 스냅숏을 찍습니다.
 
-9. 완료되면 **보호된 항목** 탭에서 가상 컴퓨터의 보호 상태가 *보호됨*으로 표시됩니다. ![가상 컴퓨터는 복구 지점으로 백업됨](./media/backup-azure-vms/protect-backedupvm.png)
+    ![진행 중인 백업](./media/backup-azure-vms/protect-inprogress.png)
+
+9. 완료되면 **보호된 항목** 탭에서 가상 컴퓨터의 보호 상태가 *보호됨*으로 표시됩니다.
+
+    ![가상 컴퓨터는 복구 지점으로 백업됨](./media/backup-azure-vms/protect-backedupvm.png)
 
 ## 백업 상태 및 세부 정보 보기
-보호되면 가상 컴퓨터 수가 **대시보드** 페이지 요약에서도 증가합니다. 또한 대시보드 페이지에서 지난 24시간 내의 성공 및 실패한 작업 수 및 아직 진행 중인 작업 수를 보여줍니다. 한 범주를 클릭하면 **작업** 페이지에서 해당 범주를 자세히 다루게 됩니다. ![대시보드 페이지에서 백업 상태](./media/backup-azure-vms/dashboard-protectedvms.png)
+보호되면 가상 컴퓨터 수가 **대시보드** 페이지 요약에서도 증가합니다. 또한 대시보드 페이지에서 지난 24시간 내의 성공 및 실패한 작업 수 및 아직 진행 중인 작업 수를 보여줍니다. 한 범주를 클릭하면 **작업** 페이지에서 해당 범주를 자세히 다루게 됩니다.
+
+![대시보드 페이지에서 백업 상태](./media/backup-azure-vms/dashboard-protectedvms.png)
 
 ## 문제 해결
 아래 표에 나열된 정보를 참조하여 Azure 백업을 사용하는 동안 발생하는 오류를 해결할 수 있습니다.
@@ -180,6 +197,6 @@ Windows VM에서 VM 에이전트 버전을 확인하는 방법
 Azure 백업 시작하기에 대해 자세히 알아보려면 다음을 참조하세요.
 
 - [가상 컴퓨터 복원](backup-azure-restore-vms.md)
-- [가상 컴퓨터 관리](backup-azure-manage-vms)
+- [가상 컴퓨터 관리](backup-azure-manage-vms.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

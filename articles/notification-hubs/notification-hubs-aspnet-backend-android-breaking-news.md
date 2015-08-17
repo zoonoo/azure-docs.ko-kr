@@ -36,7 +36,7 @@
 
 첫 번째 단계는 기존의 기본 활동에 사용자가 등록할 범주를 선택할 수 있도록 하는 UI 요소를 추가하는 것입니다. 사용자가 선택한 범주는 장치에 저장됩니다. 앱을 시작하면 장치 등록이 선택한 범주와 함께 태그로서 알림 허브에 생성됩니다.
 
-1. res/layout/activity_main.xml 파일을 열고 콘텐츠를 다음으로 대체합니다.
+1. res/layout/activity\_main.xml 파일을 열고 콘텐츠를 다음으로 대체합니다.
 			
 		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		    xmlns:tools="http://schemas.android.com/tools"
@@ -96,7 +96,7 @@
 	    <string name="label_science">Science</string>
 	    <string name="label_sports">Sports</string>
 
-	main_activity.xml 그래픽 레이아웃은 다음과 같이 표시되어야 합니다.
+	main\_activity.xml 그래픽 레이아웃은 다음과 같이 표시되어야 합니다.
 
 	![][A1]
 
@@ -319,4 +319,4 @@
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

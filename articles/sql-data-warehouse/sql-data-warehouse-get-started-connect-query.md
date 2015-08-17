@@ -10,7 +10,7 @@
 <tags
    ms.service="sql-data-warehouse"
    ms.devlang="NA"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
    ms.date="06/23/2015"
@@ -105,9 +105,7 @@ SSDT 엔지니어는 새로운 기능으로 매우 자주 플러그인을 업데
 
 3. SQL Server 개체 탐색기에서 "서버 추가" 단추를 클릭합니다. 아래 이미지에서 강조 표시됩니다.
 
-4. 서버에 연결 대화 상자 채우기
-
-논리 서버를 만들 때 선택한 값을 사용합니다.
+4. 논리 서버를 만들 때 선택한 값으로 서버에 연결 대화 상자를 채웁니다. 또한 연결하기 전에 옵션 단추를 클릭하고 연결할 데이터베이스(SQL 데이터 웨어하우스 인스턴스)를 지정합니다.
 
 원하는 경우 "암호 저장" 눈금 확인란을 확인합니다. 좋은 시간 보호기이지만 사용자 프로파일에 대한 실제 액세스 권한을 가진 모든 사람이 이 계정을 사용하여 쿼리를 실행할 수 있습니다.
 
@@ -185,6 +183,7 @@ Sqlcmd 대한 추가 정보는 [sqlcmd 설명서](https://msdn.microsoft.com/lib
 	쿼리를 실행하려면, 아래 녹색 화살표를 클릭하거나 다음 바로 가기를 사용합니다. `CTRL`+`SHIFT`+`F5`:
 
 ## 다음 단계 ##
+[Load sample data.]: ./sql-data-warehouse-get-started-load-samples.md
 [Start developing code]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

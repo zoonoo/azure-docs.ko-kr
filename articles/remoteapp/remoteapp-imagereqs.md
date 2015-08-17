@@ -43,4 +43,4 @@ Azure RemoteApp과 사용하기 위해 업로드할 수 있는 이미지의 요�
 - 스냅숏 체인으로부터의 VHD 업로드는 지원되지 않습니다.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

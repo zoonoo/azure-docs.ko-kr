@@ -94,4 +94,4 @@ Azure RemoteApp은 Windows 및 Windows RT용 RemoteApp 클라이언트 앱과 Ma
 - [Azure RemoteApp FAQ](remoteapp-faq.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

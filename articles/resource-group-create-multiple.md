@@ -114,4 +114,4 @@
 - [Azure 리소스 관리자 템플릿 함수](./resource-group-template-functions.md)
 - [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -46,7 +46,7 @@ SSH는 시스템 관리자에게 중요한 도구입니다. 그러나 사람이 
 
 SSH 인증 키를 생성하려면 다음 단계를 수행합니다.
 
-1.	다음 위치에서 puttygen 다운로드 및 설치: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 
+1.	다음 위치에서 puttygen 다운로드 및 설치: [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 
 2.	PUTTYGEN.EXE를 실행합니다.
 3.	**생성**을 클릭하여 키를 생성합니다. 프로세스에서 마우스를 창의 빈 영역 위로 이동하여 임의성을 늘릴 수 있습니다. ![][1]
 4.	생성 프로세스 후 Puttygen.exe에서 생성된 키를 표시합니다. 예: ![][2]
@@ -269,7 +269,7 @@ tomcat 서비스를 다시 시작하려면：
 
 		sudo chown azureuser -R /var/lib/tomcat7/webapps
 
-	-R 옵션을 사용하여 디렉터리 내의 모든 파일에 대해서도 권한을 적용합니다.
+	\-R 옵션을 사용하여 디렉터리 내의 모든 파일에 대해서도 권한을 적용합니다.
 
 	이 명령은 디렉터리에서도 작동합니다. -R 옵션은 디렉터리 내의 모든 파일과 디렉터리에 대해 권한을 변경합니다. 다음은 예제입니다.
 
@@ -303,4 +303,4 @@ tomcat 서비스를 다시 시작하려면：
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -46,4 +46,4 @@ Operations Manager를 사용하여 다음 작업을 모니터링하는 경우 Op
 
 [프록시 및 방화벽 설정 구성(선택 사항)](operational-insights-proxy-firewall.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

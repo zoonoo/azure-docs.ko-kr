@@ -135,4 +135,4 @@ Azure 알림 허브에서는 Azure 관리 포털의 원격 분석 데이터를 �
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -67,4 +67,4 @@ PurgeBackupBizTalkService | 보존 기간이 지난 BizTalk 서비스의 백업�
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

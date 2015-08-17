@@ -23,4 +23,4 @@ Azure 앱 서비스 웹 응용 프로그램을 테스트하고, 웹 자산을 Az
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/websites-learning-map.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

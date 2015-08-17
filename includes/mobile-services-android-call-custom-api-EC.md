@@ -1,7 +1,7 @@
 
 ##<a name="update-app"></a>사용자 지정 API를 호출하도록 앱 업데이트
 
-1. 기존 단추 옆에 "Complete All" 레이블의 단추를 추가하고 두 개의 단추를 한 줄 아래로 이동합니다. Eclipse에서 퀵 스타트 프로젝트의 *res\layout\activity_to_do.xml* 파일을 열고 이름이 `buttonAddToDo`인 **Button** 요소가 포함된 **LinearLayout** 요소를 찾습니다. **LinearLayout**을 복사하여 원래 요소 바로 뒤에 붙여넣습니다. 첫 번째 **LinearLayout**에서 **Button** 요소를 삭제합니다.
+1. 기존 단추 옆에 "Complete All" 레이블의 단추를 추가하고 두 개의 단추를 한 줄 아래로 이동합니다. Eclipse에서 퀵 스타트 프로젝트의 *res\\layout\\activity\_to\_do.xml* 파일을 열고 이름이 `buttonAddToDo`인 **Button** 요소가 포함된 **LinearLayout** 요소를 찾습니다. **LinearLayout**을 복사하여 원래 요소 바로 뒤에 붙여넣습니다. 첫 번째 **LinearLayout**에서 **Button** 요소를 삭제합니다.
 
 2. 두 번째 **LinearLayout**에서 **EditText** 요소를 삭제하고 다음 코드를 기존 **Button** 요소 바로 뒤에 추가합니다.
 
@@ -36,7 +36,7 @@
 	    </LinearLayout>
 	
 
-4. res\values\string.xml 파일을 열고 다음 코드 줄을 추가합니다.
+4. res\\values\\string.xml 파일을 열고 다음 코드 줄을 추가합니다.
 
     	<string name="complete_button_text">Complete All</string>
 
@@ -112,4 +112,4 @@
 
 	완료 표시된 항목 수를 나타내는 메시지 대화 상자가 표시되고 필터링된 쿼리가 다시 실행되어 목록에서 모든 항목을 지웁니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -48,7 +48,7 @@ SAS에 대해 잘 이해하기 위해서는 정책부터 시작하는 것이 중
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
 ```
 
-여기서 `signature-string`은 토큰 범위(이전 섹션에서 설명한 대로 \*\*범위\*\*)의 SHA-256 해시로, CRLF가 첨부되어 있고 만료 시간(Epoch 이후 초 단위: 1970년 1월1이 `00:00:00 UTC`)이 있습니다.
+여기서 `signature-string`은 토큰 범위(이전 섹션에서 설명한 대로 **범위**)의 SHA-256 해시로, CRLF가 첨부되어 있고 만료 시간(Epoch 이후 초 단위: 1970년 1월 1일에 `00:00:00 UTC`)이 있습니다.
 
 해시는 다음 의사 코드와 유사하며 32바이트를 반환합니다.
 
@@ -165,7 +165,7 @@ private static string createToken(string resourceUri, string keyName, string key
 }
 ```
 
-## 공유 액세스 서명 사용
+## 공유 액세스 서명 사용(HTTP 수준에서)
  
 서비스 버스의 모든 엔터티에 대해 공유 액세스 서명을 만드는 방법을 알았으므로 HTTP POST를 수행할 준비가 되었습니다.
 
@@ -176,9 +176,76 @@ Authorization: SharedAccessSignature sr=https%3A%2F%2F<yournamespace>.servicebus
 ContentType: application/atom+xml;type=entry;charset=utf-8
 ``` 
 	
-이 방식은 모든 항목에 대해 작동한다는 것을 기억하세요. 큐, 토픽, 구독, 이벤트 허브 또는 릴레이에 대해 SAS를 만들 수 있습니다. 이벤트 허브에 대한 게시자별 ID를 사용하는 경우 `/publishers/< publisherid>`를 추가하면 됩니다.
+이 방식은 모든 항목에 대해 작동한다는 것을 기억하세요. 큐, 토픽, 구독, 이벤트 허브 또는 릴레이에 대해 SAS를 만들 수 있습니다. 이벤트 허브에 대한 게시자별 ID를 사용하는 경우 `/publishers/< publisherid>`을 추가하면 됩니다.
 
 발신자 또는 클라이언트에게 SAS 토큰을 제공하면 직접 키를 가질 수 없으며 키를 얻기 위해 해시를 되돌릴 수도 없습니다. 예를 들어 사용자가 액세스할 수 있는 항목 및 액세스 기간을 제어할 수 있습니다. 정책에서 기본 키를 다시 생성하거나 변경할 경우, 만든 공유 액세스 서명이 무효화되므로 주의해야 합니다.
+
+## 공유 액세스 서명 사용(AMQP 수준에서)
+
+이전 섹션에서는 HTTP POST 요청과 함께 SAS 토큰을 사용하여 데이터를 서비스 버스에 보내는 방법을 살펴봤습니다. 아시다시피, 서비스 버스는 많은 시나리오에서 성능상의 이유로 사용하는 기본 및 선호 프로토콜인 AMQP(고급 메시지 큐 프로토콜) 프로토콜을 사용하여 액세스할 수 있습니다. AMQP와 함께 SAS 토큰을 사용하는 방법은 2013년 이후 초안 상태이지만 현재 Azure에서 충분한 지원을 받고 있는 다음 문서 [AMQP 클레임 기반 보안 버전 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc)에 설명되어 있습니다.
+
+서비스 버스에 데이터의 전송을 시작하기 전에 게시자는 AMQP 메시지 안에 있는 SAS 토큰을 **"$cbs"**(모든 SAS 토큰을 얻고 유효성을 검사하기 위해 서비스에서 사용하는 "특별" 큐)라는 이름의 정의된 AMQP 노드에 전송해야 합니다. 게시자는 MQP 메시지 내부에 있는 **"ReplyTo"** 필드를 지정해야 합니다. 이것은 서비스가 토큰 유효성 검사 결과와 함께 게시자에게 응답하는 노드입니다(게시자와 서비스 간의 간단한 요청/응답 패턴). 이 회신 노드는 "즉시" 생성되며 AMQP 1.0 사양에 설명된 것처럼 “원격 노드 동적 생성”에 대해 얘기합니다. SAS 토큰이 유효한지 확인한 후 게시자는 이제 데이터를 서비스에 보내기 시작할 수 있습니다.
+
+다음 단계는 C&#35;에서 개발 중인 공식 서비스 버스 SDK(예를 들어 WinRT, .Net Compact Framework, .Net Micro Framework 및 Mono에서)를 사용할 수 없는 경우에 유용한 [AMQP.Net Lite](http://amqpnetlite.codeplex.com) 라이브러리를 사용하여 AMQP 프로토콜과 함께 SAS토큰을 보내는 방법을 알려줍니다. 물론 이 라이브러리는 클레임 기반 보안이 HTTP 수준에서 작동하는 방식을 볼 때처럼 AMQP 수준에서 작동하는 방식을 이해하는 데 유용합니다(“권한 부여" 헤더 내에서 전송되는 HTTP POST 요청 및 SAS 토큰과 함께). 그러나 염려하지 마십시오. AMQP에 대한 깊은 지식이 없어도 모든 다른 플랫폼에 대해 [Azure SB Lite](http://azuresblite.codeplex.com) 라이브러리 또는 .Net Framework 응용 프로그램과 함께 공식 서비스 버스 SDK를 사용할 수 있습니다(위 참조).
+
+### C&#35;
+
+```
+/// <summary>
+/// Send Claim Based Security (CBS) token
+/// </summary>
+/// <param name="shareAccessSignature">Shared access signature (token) to send</param>
+private bool PutCbsToken(Connection connection, string sasToken)
+{
+    bool result = true;
+    Session session = new Session(connection);
+
+    string cbsClientAddress = "cbs-client-reply-to";
+    var cbsSender = new SenderLink(session, "cbs-sender", "$cbs");
+    var cbsReceiver = new ReceiverLink(session, cbsClientAddress, "$cbs");
+
+    // construct the put-token message
+    var request = new Message(sasToken);
+    request.Properties = new Properties();
+    request.Properties.MessageId = "1";
+    request.Properties.ReplyTo = cbsClientAddress;
+    request.ApplicationProperties = new ApplicationProperties();
+    request.ApplicationProperties["operation"] = "put-token";
+    request.ApplicationProperties["type"] = "servicebus.windows.net:sastoken";
+    request.ApplicationProperties["name"] = Fx.Format("amqp://{0}/{1}", sbNamespace, entity);
+    cbsSender.Send(request);
+
+    // receive the response
+    var response = cbsReceiver.Receive();
+    if (response == null || response.Properties == null || response.ApplicationProperties == null)
+    {
+        result = false;
+    }
+    else
+    {
+        int statusCode = (int)response.ApplicationProperties["status-code"];
+        if (statusCode != (int)HttpStatusCode.Accepted && statusCode != (int)HttpStatusCode.OK)
+        {
+            result = false;
+        }
+    }
+
+    // the sender/receiver may be kept open for refreshing tokens
+    cbsSender.Close();
+    cbsReceiver.Close();
+    session.Close();
+
+    return result;
+}
+```
+
+위의*PutCbsToken()* 메서드는 서비스에 대한 TCP 연결 및 전송할 SAS 토큰인 *sasToken* 매개 변수를 나타내는 *연결*(AMQP.Net Lite 라이브러리에서 제공하는 대로 AMQP 연결 클래스 인스턴스)을 수신합니다. 참고:연결이 **외부로 설정된 SASL 인증 메커니즘**(SAS 토큰을 보낼 필요가 없을 때 사용하는 사용자 이름 및 암호를 가진 기본 PLAIN이 아닌)으로 생성된다는 사실이 중요합니다.
+
+그런 다음 게시자는 SAS 토큰을 보내고 서비스로부터 회신(토큰 유효성 검사 결과)을 받기 위한 2개의 AMQP 링크를 만듭니다.
+
+AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많으므로 다소 복잡합니다. SAS 토큰은 메시지의 본문으로 배치됩니다(해당 생성자를 사용하여). **"ReplyTo"** 속성은 수신기 링크에 대한 유효성 검사 결과를 받기 위한 노드 이름으로 설정됩니다(원하는 대로 이름을 변경할 수 있으며 서비스에서 동적으로 생성합니다). 마지막 세 응용 프로그램/사용자 지정 속성은 서비스에서 실행하는 작업의 종류를 이해하는 데 사용합니다. CBS 초안 사양에서 설명한 것처럼 이들은 **작업 이름**("put-token"), 넣는 ("servicebus.windows.net:sastoken") **토큰의 형식**, 마지막으로 토큰이 적용되는 **청중의 "이름"**이어야 합니다(전체 엔터티).
+
+보낸 사람 링크에서 SAS 토큰을 보낸 후 게시자는 수신자 링크에서 회신을 읽어야 합니다. 회신은 HTTP 상태 코드와 동일한 값을 포함할 수 있는 **"status-code"**라는 이름의 응용 프로그램 속성을 가진 간단한 AMQP메시지입니다.
 
 ## 다음 단계
 
@@ -186,4 +253,4 @@ ContentType: application/atom+xml;type=entry;charset=utf-8
 
 SAS에 대한 자세한 내용은 MSDN의 [서비스 버스 인증](https://msdn.microsoft.com/library/azure/dn155925.aspx) 노드를 참조하세요.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="스트림 분석에 대한 작업을 프로그래밍 방식으로 모니터링 | Microsoft Azure" 
+	pageTitle="프로그래밍 방식으로 스트림 분석 작업 모니터링| Microsoft Azure" 
 	description="REST API, Azure SDK 또는 PowerShell을 통해 생성된 스트림 분석 작업을 프로그래밍 방식으로 모니터링하는 방법에 대해 알아봅니다." 
 	services="stream-analytics" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="07/16/2015" 
+	ms.date="08/05/2015" 
 	ms.author="jeffstok"/>
 
 
@@ -166,7 +166,7 @@
 
 
 ## 지원 받기
-추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-kr/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 
 ## 다음 단계
@@ -178,4 +178,4 @@
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

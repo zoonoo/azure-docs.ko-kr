@@ -47,17 +47,17 @@
 
 분할된 데이터베이스에서 아직 RLS를 설정하지 않았기 때문에 각 테스트에서 다음 문제가 발생합니다. 테넌트가 자신에게 속하지 않은 블로그를 볼 수 있으며 응용 프로그램에서 잘못된 테넌트에 대한 블로그를 삽입할 수 있습니다. 이 문서의 나머지 부분에서는 RLS로 테넌트를 강제 격리하여 이러한 문제를 해결하는 방법을 설명합니다. 두 단계가 있습니다.
 
-1. **응용 프로그램 계층**: 연결을 연 후 응용 프로그램 코드를 수정하여 CONTEXT_INFO를 현재 TenantId로 설정합니다. 샘플 프로젝트는 이 작업이 이미 완료되었습니다. 
-2. **데이터 계층**: 각 분할된 데이터베이스에서 CONTEXT_INFO 값에 따라 행을 필터링하는 RLS 보안 정책을 만듭니다. 분할된 데이터베이스 각각에 대해 이 작업을 수행해야 합니다. 그렇지 않으면 다중 테넌트 분할된 데이터베이스의 행이 필터링되지 않습니다. 
+1. **응용 프로그램 계층**: 연결을 연 후 응용 프로그램 코드를 수정하여 CONTEXT\_INFO를 현재 TenantId로 설정합니다. 샘플 프로젝트는 이 작업이 이미 완료되었습니다. 
+2. **데이터 계층**: 각 분할된 데이터베이스에서 CONTEXT\_INFO 값에 따라 행을 필터링하는 RLS 보안 정책을 만듭니다. 분할된 데이터베이스 각각에 대해 이 작업을 수행해야 합니다. 그렇지 않으면 다중 테넌트 분할된 데이터베이스의 행이 필터링되지 않습니다. 
 
 
-## 1단계) 응용 프로그램 계층: Set CONTEXT_INFO를 TenantId로 설정
+## 1단계) 응용 프로그램 계층: Set CONTEXT\_INFO를 TenantId로 설정
 
-탄력적 데이터베이스 클라이언트 라이브러리의 데이터 종속 라우팅 API를 사용하여 분할된 데이터베이스에 연결된 후에도 RLS 보안 정책에서 다른 테넌트에 속한 행을 필터링할 수 있도록 응용 프로그램에서는 어떤 TenantId가 해당 연결을 사용하고 있는지 데이터베이스에 알려야 합니다. 이 정보를 전달하는 권장 방법은 [CONTEXT_INFO](https://msdn.microsoft.com/library/ms180125)를 해당 연결의 현재 TenantId로 설정하는 것입니다. Azure SQL 데이터베이스에서 CONTEXT_INFO이 세션별 GUID로 미리 채워져 있는지 확인하고, 실수로 유출되는 행이 없는지 확인한 새 연결에 쿼리를 실행하기 전에 올바른 Tenantld로 CONTEXT_INFO로 설정*해야*합니다.
+탄력적 데이터베이스 클라이언트 라이브러리의 데이터 종속 라우팅 API를 사용하여 분할된 데이터베이스에 연결된 후에도 RLS 보안 정책에서 다른 테넌트에 속한 행을 필터링할 수 있도록 응용 프로그램에서는 어떤 TenantId가 해당 연결을 사용하고 있는지 데이터베이스에 알려야 합니다. 이 정보를 전달하는 권장 방법은 [CONTEXT\_INFO](https://msdn.microsoft.com/library/ms180125)를 해당 연결의 현재 TenantId로 설정하는 것입니다. Azure SQL 데이터베이스에서 CONTEXT\_INFO이 세션별 GUID로 미리 채워져 있는지 확인하고, 실수로 유출되는 행이 없는지 확인한 새 연결에 쿼리를 실행하기 전에 올바른 Tenantld로 CONTEXT\_INFO로 설정*해야*합니다.
 
 ### Entity Framework
 
-Entity Framework를 사용하는 응용 프로그램의 경우 가장 간단한 방법은 [EF DbContext를 사용하는 데이터 종속 라우팅](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md/#data-dependent-routing-using-ef-dbcontext)에 설명된 ElasticScaleContext 재정의 내에서 CONTEXT_INFO를 설정하는 것입니다. 데이터 종속 라우팅을 통해 조정된 연결을 반환하기 전에 CONTEXT_INFO를 해당 연결에 대해 지정된 shardingKey(TenantId)로 설정하는 SqlCommand를 만들어서 실행하면 됩니다. 이 방법을 사용하면 CONTEXT_INFO를 설정하는 코드를 한 번만 작성하면 됩니다.
+Entity Framework를 사용하는 응용 프로그램의 경우 가장 간단한 방법은 [EF DbContext를 사용하는 데이터 종속 라우팅](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md/#data-dependent-routing-using-ef-dbcontext)에 설명된 ElasticScaleContext 재정의 내에서 CONTEXT\_INFO를 설정하는 것입니다. 데이터 종속 라우팅을 통해 조정된 연결을 반환하기 전에 CONTEXT\_INFO를 해당 연결에 대해 지정된 shardingKey(TenantId)로 설정하는 SqlCommand를 만들어서 실행하면 됩니다. 이 방법을 사용하면 CONTEXT\_INFO를 설정하는 코드를 한 번만 작성하면 됩니다.
 
 ```
 // ElasticScaleContext.cs 
@@ -103,7 +103,7 @@ public static SqlConnection OpenDDRConnection(ShardMap shardMap, T shardingKey, 
 // ... 
 ```
 
-이제 ElasticScaleContext가 호출될 때마다 CONTEXT_INFO는 자동으로 지정된 TenantId로 설정됩니다.
+이제 ElasticScaleContext가 호출될 때마다 CONTEXT\_INFO는 자동으로 지정된 TenantId로 설정됩니다.
 
 ```
 // Program.cs 
@@ -126,7 +126,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ### ADO.NET SqlClient 
 
-ADO.NET sqlClient를 사용하는 응용 프로그램에 권장되는 방법은 shardmap주위에 래퍼함수를 생성하는 것입니다. OpenConnectionForKey()는 연결이 반환되기 전에 올바른 Tenantld로 CONTEXT_INFO를 자동적으로 설정해줍니다. CONTEXT_INFO 항성 제대로 설정되도록 하기위해 래퍼함수를 사용하여 연결을 열기만 해야합니다.
+ADO.NET sqlClient를 사용하는 응용 프로그램에 권장되는 방법은 shardmap주위에 래퍼함수를 생성하는 것입니다. OpenConnectionForKey()는 연결이 반환되기 전에 올바른 Tenantld로 CONTEXT\_INFO를 자동적으로 설정해줍니다. CONTEXT\_INFO 항성 제대로 설정되도록 하기위해 래퍼함수를 사용하여 연결을 열기만 해야합니다.
 
 ```
 // Program.cs
@@ -188,9 +188,9 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ### SELECT, UPDATE 및 DELETE 쿼리를 필터링하는 보안 정책 만들기 
 
-응용 프로그램에서 CONTEXT_INFO를 현재 TenantId로 설정한 후 쿼리하므로 RLS 보안 정책에서 쿼리를 필터링하고 TenantId가 다른 행을 제외할 수 있습니다.
+응용 프로그램에서 CONTEXT\_INFO를 현재 TenantId로 설정한 후 쿼리하므로 RLS 보안 정책에서 쿼리를 필터링하고 TenantId가 다른 행을 제외할 수 있습니다.
 
-RLS는 T-SQL에서 구현됩니다. 사용자 정의 조건자 함수에서 필터링 논리를 정의하고, 보안 정책에서 이 함수를 모든 테이블에 바인딩합니다. 이 프로젝트의 경우 조건자 함수는 다른 SQL 사용자가 아닌 응용 프로그램이 데이터베이스에 연결되었는지, CONTEXT_INFO의 값이 지정된 행의 TenantId와 일치하는지만 확인합니다. 이러한 조건을 만족하는 행은 SELECT, UPDATE 및 DELETE 쿼리에 대한 필터를 통과하도록 허용됩니다. CONTEXT_INFO가 설정되지 않으면 어떠한 행도 반환되지 않습니다.
+RLS는 T-SQL에서 구현됩니다. 사용자 정의 조건자 함수에서 필터링 논리를 정의하고, 보안 정책에서 이 함수를 모든 테이블에 바인딩합니다. 이 프로젝트의 경우 조건자 함수는 다른 SQL 사용자가 아닌 응용 프로그램이 데이터베이스에 연결되었는지, CONTEXT\_INFO의 값이 지정된 행의 TenantId와 일치하는지만 확인합니다. 이러한 조건을 만족하는 행은 SELECT, UPDATE 및 DELETE 쿼리에 대한 필터를 통과하도록 허용됩니다. CONTEXT\_INFO가 설정되지 않으면 어떠한 행도 반환되지 않습니다.
 
 RLS를 사용하려면 Visual Studio(SSDT), SSMS 또는 프로젝트에 포함된 PowerShell 스크립트 중 하나를 사용하여 모든 분할된 데이터베이스에서 다음 T-SQL을 실행합니다. 또는 [Elastic Database Jobs](sql-database-elastic-jobs-overview.md)를 사용하는 경우 모든 분할된 데이터베이스에서 이 T-SQL을 자동으로 실행할 수 있습니다.
 
@@ -262,7 +262,7 @@ GO
 
 ### 삽입 시 TenantId를 자동으로 채우도록 기본 제약 조건 추가 
 
-Check 제약 조건을 사용하여 잘못된 테넌트 삽입을 차단하는 방법 외에도 행을 삽입할 때 자동으로 CONTEXT_INFO의 현재 값으로 TenantId를 채우도록 각 테이블에 기본 제약 조건을 추가할 수 있습니다. 예:
+Check 제약 조건을 사용하여 잘못된 테넌트 삽입을 차단하는 방법 외에도 행을 삽입할 때 자동으로 CONTEXT\_INFO의 현재 값으로 TenantId를 채우도록 각 테이블에 기본 제약 조건을 추가할 수 있습니다. 예:
 
 ```
 -- Create default constraints to auto-populate TenantId with the value of CONTEXT_INFO for inserts 
@@ -291,7 +291,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 }); 
 ```
 
-> [AZURE.NOTE]Entity Framework 프로젝트에 기본 제약 조건을 사용하는 경우 EF 데이터 모델에 TenantId 열을 포함하지 않는 것이 좋습니다. Entity Framework 쿼리에서 자동으로 기본값을 제공하는데, 이 기본값은 T-SQL에서 만든 CONTEXT_INFO를 사용하는 기본 제약 조건을 재정의하기 때문입니다. 예를 들어 샘플 프로젝트에서 기본 제약 조건을 사용하려면 DataClasses.cs에서 TenantId를 제거하고(그리고 패키지 관리자 콘솔에서 Add-Migration을 실행하고) 데이터베이스 테이블에만 필드가 있도록 T-SQL을 사용해야 합니다. 그러면 데이터 삽입 시 EF에서 잘못된 기본값을 자동으로 제공하지 않습니다.
+> [AZURE.NOTE]Entity Framework 프로젝트에 기본 제약 조건을 사용하는 경우 EF 데이터 모델에 TenantId 열을 포함하지 않는 것이 좋습니다. Entity Framework 쿼리에서 자동으로 기본값을 제공하는데, 이 기본값은 T-SQL에서 만든 CONTEXT\_INFO를 사용하는 기본 제약 조건을 재정의하기 때문입니다. 예를 들어 샘플 프로젝트에서 기본 제약 조건을 사용하려면 DataClasses.cs에서 TenantId를 제거하고(그리고 패키지 관리자 콘솔에서 Add-Migration을 실행하고) 데이터베이스 테이블에만 필드가 있도록 T-SQL을 사용해야 합니다. 그러면 데이터 삽입 시 EF에서 잘못된 기본값을 자동으로 제공하지 않습니다.
 
 ### (선택 사항) 모든 행에 액세스 하려면 "superuser"를 사용 하도록 설정
 예를 들면 일부 응용 프로그램은 모든shard안의 모든 tenant가 보고할 수 있게 하거나 데이터베이스간의 이동 테넌트 행에 관련된 shard에서 분할/합병 작업을 수행하기 위해 모든 행에 액세스할 수 있는 “SuperUser”생성을 요구합니다. 이 기능을 사용 하려면 각 분할 데이터베이스에서 새 SQL 사용자 (이 예에서 "superuser")를 만들어야 합니다. 그런 다음 사용자를 모든 행에 액세스할 수 있도록 하는 새 조건자 함수를 사용하여 보안 정책을 변경 합니다.
@@ -340,4 +340,4 @@ GO
 [1]: ./media/sql-database-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

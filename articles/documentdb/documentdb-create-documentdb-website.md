@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Azure 리소스 관리자 템플릿을 사용하여 DocumentDB 및 Azure 앱 서비스 웹앱 배포 | Azure" 
+	pageTitle="Azure 리소스 관리자 템플릿을 사용하여 DocumentDB 및 Azure 앱 서비스 웹앱 배포 | Microsoft Azure" 
 	description="Azure 리소스 관리자 템플릿을 사용하여 DocumentDB 계정, Azure 앱 서비스 웹앱 및 샘플 웹 응용 프로그램을 배포하는 방법을 알아봅니다." 
 	services="documentdb, app-service\web" 
 	authors="stephbaron" 
-	manager="johnmac" 
+	manager="jhubbard" 
 	editor="monicar" 
 	documentationCenter=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="07/28/2015" 
 	ms.author="stbaro"/>
 
 # Azure 리소스 관리자 템플릿을 사용하여 DocumentDB 및 Azure 앱 서비스 웹앱 배포 #
@@ -38,9 +38,9 @@
 ##<a id="CreateDB"></a>1단계: 샘플 파일 다운로드 및 압축 풀기 ##
 먼저 이 자습서에서 사용할 샘플 파일을 다운로드합니다.
 
-1. [DocumentDB 계정, 웹앱 만들기 및 데모 응용 프로그램 배포 샘플](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip)을 로컬 폴더(예: C:\DocumentDBTemplates)에 다운로드하고 파일 압축을 풉니다. 이 샘플은 DocumentDB 계정, 앱 서비스 웹앱 및 웹 응용 프로그램을 배포합니다. 또한 DocumentDB 계정에 연결되도록 웹 응용 프로그램을 자동으로 구성합니다.
+1. [DocumentDB 계정, 웹앱 만들기 및 데모 응용 프로그램 배포 샘플](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip)을 로컬 폴더(예: C:\\DocumentDBTemplates)에 다운로드하고 파일 압축을 풉니다. 이 샘플은 DocumentDB 계정, 앱 서비스 웹앱 및 웹 응용 프로그램을 배포합니다. 또한 DocumentDB 계정에 연결되도록 웹 응용 프로그램을 자동으로 구성합니다.
 
-2. [DocumentDB 계정 및 웹앱 만들기 샘플을 로컬 폴더](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip)(예: C:\DocumentDBTemplates)에 다운로드하고 파일 압축을 풉니다. 이 샘플은 DocumentDB 계정 및 앱 서비스 웹앱을 배포하고 쉽게 DocumentDB 연결 정보를 노출하도록 웹앱의 구성을 수정하지만 웹 응용 프로그램을 포함하지는 않습니다.
+2. [DocumentDB 계정 및 웹앱 만들기 샘플을 로컬 폴더](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip)(예: C:\\DocumentDBTemplates)에 다운로드하고 파일 압축을 풉니다. 이 샘플은 DocumentDB 계정 및 앱 서비스 웹앱을 배포하고 쉽게 DocumentDB 연결 정보를 노출하도록 웹앱의 구성을 수정하지만 웹 응용 프로그램을 포함하지는 않습니다.
 
 > [AZURE.TIP]컴퓨터의 보안 설정에 따라, 압축을 푼 파일을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭한 후 **차단 해제**를 클릭하여 해당 파일을 차단 해제해야 할 수 있습니다.
 
@@ -53,7 +53,7 @@
 
 > [AZURE.TIP]템플릿은 아래에 입력된 웹앱 이름과 DocumentDB 계정 이름이 a) 유효한지, b) 사용 가능한지를 확인하지 않습니다. PowerShell 배포 스크립트를 실행하기 전에 지정하려는 이름의 가용성을 확인하는 것이 좋습니다.
 
-1. Microsoft Azure PowerShell을 열고 [DocumentDB 계정, 앱 서비스 웹앱 만들기 및 데모 응용 프로그램 배포 샘플](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip)을 다운로드하고 압축을 푼 폴더(예: C:\DocumentDBTemplates\CreateDocDBWebsiteTodo)로 이동합니다.
+1. Microsoft Azure PowerShell을 열고 [DocumentDB 계정, 앱 서비스 웹앱 만들기 및 데모 응용 프로그램 배포 샘플](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip)을 다운로드하고 압축을 푼 폴더(예: C:\\DocumentDBTemplates\\CreateDocDBWebsiteTodo)로 이동합니다.
 
 
 2. CreateDocDBWebsiteTodo.ps1 PowerShell 스크립트를 실행할 것입니다. 이 스크립트는 다음과 같은 필수 매개 변수를 사용합니다.
@@ -70,7 +70,7 @@
 
     	PS C:\DocumentDBTemplates\CreateDocDBWebAppTodo> .\CreateDocDBWebsiteTodo.ps1 -WebSiteName "mydemodocdbwebapp" -ResourceGroupName "myDemoResourceGroup" -docDBAccountName "mydemodocdbaccount" -location "West US"
 
-	> [AZURE.TIP]스크립트 실행의 일부로 Azure 계정 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다. 전체 배포를 완료하는 데 10~15분이 걸립니다.
+	> [AZURE.TIP]스크립트 실행의 일부로 Azure 계정 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다. 전체 배포를 완료하는 데 10\~15분이 걸립니다.
 
 4. 다음은 결과 출력의 예입니다.
 
@@ -153,7 +153,7 @@
 
 > [AZURE.TIP]템플릿은 아래에 입력된 웹앱 이름과 DocumentDB 계정 이름이 a) 유효한지, b) 사용 가능한지를 확인하지 않습니다. PowerShell 배포 스크립트를 실행하기 전에 지정하려는 이름의 가용성을 확인하는 것이 좋습니다.
 
-1. Microsoft Azure PowerShell을 열고 [DocumentDB 계정 및 웹앱 만들기 샘플](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip)을 다운로드하고 압축을 푼 폴더(예: C:\DocumentDBTemplates\CreateDocDBWebsite)로 이동합니다.
+1. Microsoft Azure PowerShell을 열고 [DocumentDB 계정 및 웹앱 만들기 샘플](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebSite.zip)을 다운로드하고 압축을 푼 폴더(예: C:\\DocumentDBTemplates\\CreateDocDBWebsite)로 이동합니다.
 
 
 2. CreateDocDBWebsite.ps1 PowerShell 스크립트를 실행할 것입니다. 이 스크립트는 배포한 첫 번째 템플릿과 동일한 매개 변수를 사용합니다. 즉, 다음과 같습니다.
@@ -169,7 +169,7 @@
 
     	PS C:\DocumentDBTemplates\CreateDocDBWebSite> .\CreateDocDBWebSite.ps1 -WebSiteName "myotherdocumentdbwebapp" -ResourceGroupName "myOtherDemoResourceGroup" -docDBAccountName "myotherdocumentdbdemoaccount" -location "East US"
 
-	> [AZURE.TIP]스크립트 실행의 일부로 Azure 계정 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다. 전체 배포를 완료하는 데 10~15분이 걸립니다.
+	> [AZURE.TIP]스크립트 실행의 일부로 Azure 계정 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다. 전체 배포를 완료하는 데 10\~15분이 걸립니다.
 
 4. 배포 출력은 첫 번째 템플릿 예제와 매우 유사합니다.
 5. Azure Preview 포털을 열기 전에 이 템플릿 배포에서 수행한 내용을 살펴보겠습니다.
@@ -210,4 +210,4 @@
 >[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

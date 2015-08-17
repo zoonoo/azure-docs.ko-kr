@@ -273,7 +273,7 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
             DeviceToken = deviceToken
         };
 
-이제 푸시 알림을 지원하도록 앱이 업데이트됩니다.
+이제 앱이 푸시 알림을 지원하도록 업데이트되었습니다.
 
 ## <a name="update-scripts"></a>관리 포털에서 등록된 삽입 스크립트 업데이트
 
@@ -315,7 +315,7 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
 
    >[AZURE.NOTE]앱에서 푸시 알림을 명시적으로 수락해야 합니다. This request only occurs the first time that the app runs.
 
-2. 앱에서 _새 모바일 서비스 작업_과 같은 의미 있는 텍스트를 입력하고 더하기(\*\*+\*\*) 아이콘을 클릭합니다.
+2. 앱에서 _새 모바일 서비스 작업_과 같은 의미 있는 텍스트를 입력하고 (**+**) 아이콘을 클릭합니다.
 
     ![][24]
 
@@ -399,4 +399,4 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
 [Xamarin.iOS]: http://xamarin.com/download
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

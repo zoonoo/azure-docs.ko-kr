@@ -30,7 +30,6 @@
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
-
 ## 이미지 선택
 
 Preview 포털의 Azure 마켓플레이스로 이동하여 원하는 Windows Server VM 이미지를 찾습니다.
@@ -55,7 +54,7 @@ Preview 포털의 Azure 마켓플레이스로 이동하여 원하는 Windows Ser
 
 	![VM 기본 사항 구성](./media/virtual-machines-windows-tutorial/create_vm_basics.PNG)
 
-	>[AZURE.NOTE]\*\*사용자 이름\*\*은 서버를 관리하는 데 사용할 관리 계정을 나타냅니다. 자신이 기억할 수 있지만 다른 사람이 추측하기 어려운 암호를 만듭니다. **가상 컴퓨터에 로그온하는 데 이 사용자 이름과 암호가 필요합니다**.
+	>[AZURE.NOTE]**사용자 이름**은 서버를 관리하는 데 사용할 관리 계정을 나타냅니다. 자신이 기억할 수 있지만 다른 사람이 추측하기 어려운 암호를 만듭니다. **가상 컴퓨터에 로그온하는 데 이 사용자 이름과 암호가 필요합니다**.
 
 2. **크기**를 클릭하고 요구에 적합한 VM 크기를 선택합니다. 각각의 크기는 계산 코어, 메모리 및 기타 기능(예: 프리미엄 저장소에 대한 지원)의 수를 지정하며 가격에 영향을 미칩니다. Azure는 선택하는 이미지에 따라 특정 크기를 자동으로 권장합니다.
 
@@ -102,4 +101,4 @@ VM을 만든 후에, 해당 VM에 로그인을 하여, 자체 설정 및 실행�
 * Azure PowerShell 및 Azure CLI를 사용하여 [VM 이미지를 찾아서 선택](resource-groups-vm-searching.md)합니다.
 * [Azure 리소스 관리자](virtual-machines-how-to-automate-azure-resource-manager.md) 및 [Azure 리소스 관리자 템플릿](http://azure.microsoft.com/documentation/templates/)을 사용하여 VM 및 작업 배포 및 관리를 자동화합니다.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

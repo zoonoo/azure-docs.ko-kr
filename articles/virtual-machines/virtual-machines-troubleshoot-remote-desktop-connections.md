@@ -3,7 +3,7 @@
 	description="Windows 기반 Azure 가상 컴퓨터에 연결할 수 없는 경우, 문제의 원인을 격리하기 위해 진단 프로그램 및 단계를 사용합니다."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="JoeDavies-MSFT"
+	authors="dsk-2015"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management,azure-resource-manager"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/07/2015"
-	ms.author="josephd"/>
+	ms.author="dkshir"/>
 
 # Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결
 
@@ -72,7 +72,7 @@ Azure 포털에서 생성된 RDP 파일의 예는 다음과 같습니다.
 
 원인:연결 중인 가상 컴퓨터는 자격 증명의 사용자 이름 부분에 표시된 보안 기관을 찾을 수 없습니다.
 
-사용자 이름이 *SecurityAuthority*\*UserName* (예: CORP\User1) 형식인 경우, *SecurityAuthority* 부분은 가상 컴퓨터 이름(로컬 보안 기관)이거나 활성 디렉토리 도메인 이름입니다.
+사용자 이름이 *SecurityAuthority*\*UserName* (example: CORP\\User1) 형식인 경우, *SecurityAuthority* 부분은 가상 컴퓨터 이름(로컬 보안 기관)이거나 Active Directory 도메인 이름입니다.
 
 이 문제의 가능한 해결책:
 
@@ -86,10 +86,10 @@ Azure 포털에서 생성된 RDP 파일의 예는 다음과 같습니다.
 
 Windows 기반 컴퓨터는 로컬 계정 또는 도메인 기반 계정 자격 증명의 유효성을 검사할 수 있습니다.
 
-- 로컬 계정의 경우 *ComputerName*\*UserName* 구문 (예: SQL1\Admin4798)을 사용합니다.
-- 도메인 계정의 경우*DomainName*\*UserName* 구문(예: CONTOSO\johndoe)을 사용합니다.
+- 로컬 계정의 경우 *ComputerName*\*UserName* 구문(예: SQL1\\Admin4798)을 사용합니다.
+- 도메인 계정의 경우*DomainName*\*UserName* 구문(예: CONTOSO\\johndoe)을 사용합니다.
 
-새 Active Directory 포리스트의 도메인 컨트롤러로 승격하는 컴퓨터의 경우 승격을 수행할 때 사용자가 로그인된 로컬 관리자 계정이 새 포리스트 및 도메인과 같은 암호를 가진 동일한 계정으로 변환됩니다. 이전 로컬 관리자 계정은 삭제됩니다. 예를 들어 DC1\DCAdmin 로컬 관리자 계정으로 로그인하고 가상 컴퓨터를 corp.contoso.com 도메인에 대한 새 포리스트의 도메인 컨트롤러로 승격하는 경우 DC1\DCAdmin 로컬 계정이 삭제되고 같은 암호를 가진 새 도메인 계정 CORP\DCAdmin이 생성됩니다.
+새 Active Directory 포리스트의 도메인 컨트롤러로 승격하는 컴퓨터의 경우 승격을 수행할 때 사용자가 로그인된 로컬 관리자 계정이 새 포리스트 및 도메인과 같은 암호를 가진 동일한 계정으로 변환됩니다. 이전 로컬 관리자 계정은 삭제됩니다. 예를 들어 DC1\\DCAdmin 로컬 관리자 계정으로 로그인하고 가상 컴퓨터를 corp.contoso.com 도메인에 대한 새 포리스트의 도메인 컨트롤러로 승격하는 경우 DC1\\DCAdmin 로컬 계정이 삭제되고 같은 암호를 가진 새 도메인 계정 CORP\\DCAdmin이 생성됩니다.
 
 계정 이름을 다시 확인하여 가상 컴퓨터가 유효한 계정으로 확인할 수 있는 이름인지 확인하십시오. 암호를 다시 확인하여 올바른 암호인지 확인하십시오.
 
@@ -113,7 +113,7 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 기반 계정 자격 
 
 단계별 문제 해결 프로세스를 살펴보기 전에 마지막으로 원격 데스크톱 연결을 성공적으로 설정한 이후로 변경된 사항을 마음속으로 생각해보고 이를 바탕으로 문제를 해결하면 유용합니다. 예:
 
-- 원격 데스크톱 연결을 설정한 후 가상 컴퓨터를 포함하는 가상 컴퓨터 또는 클라우드 서비스의 공용 IP 주소(가상 IP 주소, 즉 [VIP]라고도 함)를 변경한 경우 DNS 클라이언트 캐시에는 DNS 이름 및 *이전 IP 주소*에 대한 항목이 있을 수 있습니다. DNS 클라이언트 캐시를 플러시하고 다시 시도하세요. 또는 새 VIP를 사용하여 연결을 설정해 보세요.
+- 원격 데스크톱 연결을 설정한 후 가상 컴퓨터를 포함하는 가상 컴퓨터 또는 클라우드 서비스의 공용 IP 주소(가상 IP 주소 [VIP]라고도 함)를 변경한 경우 DNS 클라이언트 캐시에는 DNS 이름 및 *이전 IP 주소*에 대한 항목이 있을 수 있습니다. DNS 클라이언트 캐시를 플러시하고 다시 시도하세요. 또는 새 VIP를 사용하여 연결을 설정해 보세요.
 - Azure 포털 또는 Azure Preview 포털을 사용하다가 응용 프로그램을 사용하여 원격 데스크톱 연결을 관리하는 경우 응용 프로그램 구성에 원격 데스크톱 트래픽에 대한 무작위 지정 TCP 포트가 포함되어 있는지 확인하세요.
 
 다음 섹션에서는 단계별로 이 문제의 다양한 근본 원인을 별도로 확인하고 솔루션 및 해결 방법을 제공합니다.
@@ -201,7 +201,7 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 기반 계정 자격 
 먼저 **Azure VM에 대한 RDP 연결(다시 부팅 필요)** 문제로 인해 [Azure IaaS(Windows) 진단 패키지](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)를 실행할 수 없는 경우에는 [Windows 가상 컴퓨터에 대한 원격 데스크톱 서비스 또는 암호를 다시 설정하는 방법](virtual-machines-windows-reset-password.md)의 지침을 따라 가상 컴퓨터에 대한 원격 데스크톱 서비스를 다시 설정합니다. 그러면
 
 - "원격 데스크톱" Windows 방화벽 기본 규칙(TCP 포트 3389)이 활성화됩니다.
-- HKLM\System\CurrentControlSet\Control\Terminal Server\fDenyTSConnections 레지스트리 값이 0으로 설정되어 원격 데스크톱 연결이 활성화됩니다.
+- HKLM\\System\\CurrentControlSet\\Control\\Terminal Server\\fDenyTSConnections 레지스트리 값이 0으로 설정되어 원격 데스크톱 연결이 활성화됩니다.
 
 컴퓨터에서 연결을 다시 시도하세요. 실패할 경우 다음과 같은 문제 때문일 수 있습니다.
 
@@ -225,7 +225,7 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 기반 계정 자격 
 
 **Get-AzureSubscription** 명령 표시의 SubscriptionName 속성에서 올바른 구독 이름을 가져올 수 있습니다. **Get-AzureVM** 명령 표시의 ServiceName 열에서 가상 컴퓨터의 클라우드 서비스 이름을 가져올 수 있습니다.
 
-이 새 인증서가 있는지 확인하려면 현재 사용자에 초점을 맞추고 인증서 스냅인을 열고 **신뢰할 수 있는 루트 인증 기관\인증서** 폴더를 살펴봅니다. 인증서 발급 대상 열에 클라우드 서비스의 DNS 이름을 가진 인증서가 표시되어야 합니다(예: cloudservice4testing.cloudapp.net).
+이 새 인증서가 있는지 확인하려면 현재 사용자에 초점을 맞추고 인증서 스냅인을 열고 **Trusted Root Certification Authorities\\Certificates** 폴더를 살펴봅니다. 인증서 발급 대상 열에 클라우드 서비스의 DNS 이름을 가진 인증서가 표시되어야 합니다(예: cloudservice4testing.cloudapp.net).
 
 다음으로, 이러한 명령을 사용하여 원격 Azure PowerShell 세션을 시작합니다.
 
@@ -267,7 +267,7 @@ MSDN Azure 또는 스택 오버플로 포럼에 문제를 제출하면 전 세�
 
 ## 6단계: Azure 기술 지원 인시던트 제출
 
-**Azure VM에 대한 RDP 연결(다시 부팅 필요)** 문제로 인해 [Azure IaaS(Windows) 진단 패키지](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)를 실행했거나 이 문서의 2~5단계를 수행하고 Azure 지원 포럼에 문제를 제출했지만 여전히 원격 데스크톱에 연결할 수 없는 경우 한 가지 대안은 가상 컴퓨터를 다시 만들 수 있는지 여부를 고려하는 것입니다.
+**Azure VM에 대한 RDP 연결(다시 부팅 필요)** 문제로 인해 [Azure IaaS(Windows) 진단 패키지](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)를 실행했거나 이 문서의 2\~5단계를 수행하고 Azure 지원 포럼에 문제를 제출했지만 여전히 원격 데스크톱에 연결할 수 없는 경우 한 가지 대안은 가상 컴퓨터를 다시 만들 수 있는지 여부를 고려하는 것입니다.
 
 가상 컴퓨터를 다시 만들 수 없는 경우 Azure 기술 지원 인시던트를 제출하는 것이 좋을 수 있습니다.
 
@@ -287,4 +287,4 @@ Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azu
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

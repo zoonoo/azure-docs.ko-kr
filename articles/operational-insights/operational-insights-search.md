@@ -467,7 +467,7 @@ Microsoft System Center Operations Manager에 익숙하다면 where 명령을 �
 
 filterExpression | command1 | command2 …
 
-필터 식(\*\*filterExpression\*\*)은 쿼리에 "where" 조건을 정의합니다. 명령은 쿼리에 의해 반환된 결과에 적용됩니다. 여러 명령은 세로줄 문자(|)로 구분해야 합니다.
+필터 식(**filterExpression**)은 쿼리에 "where" 조건을 정의합니다. 명령은 쿼리에 의해 반환된 결과에 적용됩니다. 여러 명령은 세로줄 문자(|)로 구분해야 합니다.
 
 #### 일반 구문 예제
 
@@ -523,7 +523,7 @@ filterExpression | command1 | command2 …
 
 시스템에서 데이터의 모든 부분에 원래 날짜와 레코드의 시간을 나타내는 **TimeGenerated** 속성이 있습니다. 또한 일부 데이터 형식에 더 많은 날짜/시간 필드가 있을 수 있습니다.(예를 들어 **LastModified**)
 
-Operational Insights에서 타임라인 차트/시간 선택기는 **TimeGenerated** 필드에 기반하여 시간에 따라.(현재 실행되는 쿼리에 따라) 결과의 분포를 보여줍니다. 날짜/시간 필드는 쿼리에 사용할 수 있는 특정 문자열 형식이 있어서 특정 기간에 쿼리를 제한합니다. 또한 상대적 시간 간격을 참조하도록 구문을 사용할 수 있습니다.(예를 들어 "3일 전 및 2시간 전")
+Operational Insights에서 타임라인 차트/시간 선택기는 **TimeGenerated** 필드에 기반하여 시간에 따라.(현재 실행되는 쿼리에 따라) 결과의 분포를 보여 줍니다. 날짜/시간 필드는 쿼리에 사용할 수 있는 특정 문자열 형식이 있어서 특정 기간에 쿼리를 제한합니다. 또한 상대적 시간 간격을 참조하도록 구문을 사용할 수 있습니다.(예를 들어 "3일 전 및 2시간 전")
 
 구문
 
@@ -809,7 +809,7 @@ BY 절을 생략하지만 간격을 지정하는 경우(두 번째 구문처럼)
 
 *설명*
 
-이전 예제와 동일하지만 집계된 필드 별칭을 사용합니다.(\*\*AlertsPerHour\*\*)
+이전 예제와 동일하지만 집계된 필드 별칭을 사용합니다.(**AlertsPerHour**)
 
 **예제 4**
 
@@ -1490,7 +1490,7 @@ ObjectId로 PerfHourly를 그룹화하고 평균(평균)을 계산합니다.
 	</tr>
 	<tr>
 		<td>
-		<p>UserName</p>
+		<p>사용자 이름</p>
 		</td>
 		<td>
 		<p>이벤트</p>
@@ -2049,4 +2049,4 @@ ObjectId로 PerfHourly를 그룹화하고 평균(평균)을 계산합니다.
 ## 기타 리소스
 Stefan Roth가 편리한 검색 치트 시트를 만들었습니다. 자세한 내용을 확인하고 치트 시트를 다운로드하려면 [블로그](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/)를 확인하세요.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

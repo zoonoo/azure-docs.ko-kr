@@ -625,4 +625,4 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 데이터 �
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -56,7 +56,7 @@ Reporting API는 [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
 ### 디렉터리 ID, 클라이언트 ID, 클라이언트 암호 가져오기
 
-아래 단계는 응용 프로그램의 클라이언트 ID 및 클라이언트 암호를 가져오는 방법을 안내합니다. 테넌트 이름을 알고 있어야 하며, *. onmicrosoft.com이나 사용자 지정 도메인 이름 중 하나일 수 있습니다. 스크립트를 수정하는 데 사용되니 이 이름을 별도로 복사해 놓으세요.
+아래 단계는 응용 프로그램의 클라이언트 ID 및 클라이언트 암호를 가져오는 방법을 안내합니다. 테넌트 이름을 알고 있어야 하며, *.onmicrosoft.com이나 사용자 지정 도메인 이름 중 하나일 수 있습니다. 스크립트를 수정하는 데 사용되니 이 이름을 별도로 복사해 놓으세요.
 
 #### 응용 프로그램 클라이언트 ID
 - 응용 프로그램 탭으로 이동합니다.
@@ -137,4 +137,4 @@ Reporting API는 [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 - 감사 보고서에 대한 자세한 내용은 [Azure AD 감사 보고서 이벤트](active-directory-reporting-audit-events.md) 참조
 - Graph API REST 서비스에 대한 자세한 내용은 [Azure AD 보고서 및 이벤트(미리 보기)](https://msdn.microsoft.com/library/azure/mt126081.aspx) 참조
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

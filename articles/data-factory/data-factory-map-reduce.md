@@ -13,103 +13,82 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="07/31/2015" 
 	ms.author="spelluru"/>
 
 # 데이터 팩터리에서 MapReduce 프로그램 호출
-이 문서에서는 **HDInsight 작업**과 **MapReduce 변환**을 사용하여 Azure 데이터 팩터리 파이프라인에서 **MapReduce** 프로그램을 호출하는 방법을 설명합니다.
+이 문서에서는 **HDInsight MapReduce 작업**을 사용하여 Azure 데이터 팩터리 파이프라인에서 **MapReduce** 프로그램을 호출하는 방법을 설명합니다.
 
 ## 소개 
 Azure 데이터 팩터리의 파이프라인은 연결된 저장소 서비스의 데이터를 연결된 계산 서비스를 사용하여 처리합니다. 파이프라인에는 일련의 작업이 포함되며 각 작업에서는 특정 처리 작업을 수행합니다. 이 문서에서는 HDInsight 작업의 MapReduce 변환을 사용하는 방법을 설명합니다.
  
-HDInsight 작업의 Pig/Hive 변환을 사용하여 Azure 데이터 팩터리 파이프라인에서 HDInsight 클러스터에 대해 Pig/Hive 스크립트를 실행하는 방법에 대한 자세한 내용은 [데이터 팩터리에서 Pig 및 Hive 사용][data-factory-pig-hive-activities]을 참조하십시오.
+HDInsight 작업의 Pig/Hive 변환을 사용하여 Azure 데이터 팩터리 파이프라인에서 HDInsight 클러스터에 대해 Pig/Hive 스크립트를 실행하는 방법에 대한 자세한 내용은 [Pig](data-factory-pig-activity) 및 [Hive](data-factory-hive-activity.md) 문서를 참조하세요.
 
 ## MapReduce 변환을 사용하는 HDInsight 작업에 대한 JSON 
 
 HDInsight 작업에 대한 JSON 정의에서 다음을 수행합니다:
  
-1. **activity**의 **type**을 **HDInsightActivity**로 설정합니다.
-2. **transformation**의 **type**을 **MapReduce**로 설정합니다.
+1. **activity**의 **type**을 **HDInsight**로 설정합니다.
 3. **className** 속성에 대한 클래스 이름을 지정합니다.
 4. **jarFilePath **속성의 JAR 파일 경로(파일 이름 포함)를 지정합니다.
 5. **jarLinkedService** 속성의 JAR 파일이 포함된 Azure Blob 저장소를 참조하는 연결된 서비스를 지정합니다.   
 6. **arguments** 섹션에 MapReduce 프로그램의 모든 인수를 지정합니다. 
 
-   
  
 
-		{  
-		   "name":"MahoutMapReduceSamplePipeline",
-		   "properties":{  
-		      "description":"Sample Pipeline to Run a Mahout Custom Map Reduce Jar. This job calcuates an Item Similarity Matrix to determine the similarity between 2 items",
-		      "activities":[  
-		         {  
-		            "name":"MyMahoutActivity",
-		            "description":"Custom Map Reduce to generate Mahout result",
-		            "type":"HDInsightActivity",
-		            "inputs":[  
-		               {  
-		                  "Name":"MahoutInput"
-		               }
-		            ],
-		            "outputs":[  
-		               {  
-		                  "Name":"MahoutOutput"
-		               }
-		            ],
-		            "linkedServiceName":"HDInsightLinkedService",
-		            "transformation":{  
-		               "type":"MapReduce",
-		               "className":"org.apache.mahout.cf.taste.hadoop.similarity.item.ItemSimilarityJob",
-		               "jarFilePath":"<container>/Mahout/Jars/mahout-core-0.9.0.2.1.3.2-0002-job.jar",
-		               "jarLinkedService":"StorageLinkedService",
-		               "arguments":[  
-		                  "-s",
-		                  "SIMILARITY_LOGLIKELIHOOD",
-		                  "--input",
-		                  "wasb://<container>@<accountname>.blob.core.windows.net/Mahout/input",
-		                  "--output",
-		                  "wasb://<container>@<accountname>.blob.core.windows.net/Mahout/output/",
-		                  "--maxSimilaritiesPerItem",
-		                  "500",
-		                  "--tempDir",
-		                  "wasb://<container>@<accountname>.blob.core.windows.net/Mahout/temp/mahout"
-		               ]
-		            },
-		            "policy":{  
-		               "concurrency":1,
-		               "executionPriorityOrder":"OldestFirst",
-		               "retry":3,
-		               "timeout":"01:00:00"
-		            }
-		         }
-		      ]
-		   }
+		{
+		  "name": "MahoutMapReduceSamplePipeline",
+		  "properties": {
+		    "description": "Sample Pipeline to Run a Mahout Custom Map Reduce Jar. This job calcuates an Item Similarity Matrix to determine the similarity between 2 items",
+		    "activities": [
+		      {
+		        "name": "MyMahoutActivity",
+		        "description": "Custom Map Reduce to generate Mahout result",
+		        "inputs": [
+		          {
+		            "Name": "MahoutInput"
+		          }
+		        ],
+		        "outputs": [
+		          {
+		            "Name": "MahoutOutput"
+		          }
+		        ],
+		        "linkedServiceName": "HDInsightLinkedService",
+		        "type": "HDInsightMapReduce",
+		        "typeProperties": {
+		          "className": "org.apache.mahout.cf.taste.hadoop.similarity.item.ItemSimilarityJob",
+		          "jarFilePath": "<container>/Mahout/Jars/mahout-core-0.9.0.2.1.3.2-0002-job.jar",
+		          "jarLinkedService": "StorageLinkedService",
+		          "arguments": [
+		            "-s",
+		            "SIMILARITY_LOGLIKELIHOOD",
+		            "--input",
+		            "wasb://<container>@<accountname>.blob.core.windows.net/Mahout/input",
+		            "--output",
+		            "wasb://<container>@<accountname>.blob.core.windows.net/Mahout/output/",
+		            "--maxSimilaritiesPerItem",
+		            "500",
+		            "--tempDir",
+		            "wasb://<container>@<accountname>.blob.core.windows.net/Mahout/temp/mahout"
+		          ]
+		        },
+		        "policy": {
+		          "concurrency": 1,
+		          "executionPriorityOrder": "OldestFirst",
+		          "retry": 3,
+		          "timeout": "01:00:00"
+		        }
+		      }
+		    ]
+		  }
 		}
 
 MapReduce 변환을 사용하여 HDInsight 클러스터에 대해 모든 MapReduce jar 파일을 실행할 수 있습니다. 다음 파이프라인의 샘플 JSON 정의에서 HDInsight 작업은 Mahout JAR 파일을 실행하도록 구성되어 있습니다.
 
 ## 샘플
-HDInsight 작업과 MapReduce 변환을 사용하는 샘플은 [GitHub의 데이터 팩터리 샘플][data-factory-samples]에서 다운로드할 수 있습니다.
+HDInsight 작업과 MapReduce 변환을 사용하는 샘플은 [GitHub의 데이터 팩터리 샘플](data-factory-samples.md)에서 다운로드할 수 있습니다.
 
-## 참고 항목
-
-문서 | 설명
------- | ---------------
-[자습서: 데이터 팩터리를 사용하여 로그 파일 이동 및 처리][adf-tutorial] | 이 문서에서는 Azure 데이터 팩터리를 사용하는 거의 실제 시나리오를 구현하여 로그 파일의 데이터에서 통찰력을 얻는 방법을 보여 주는 완전한 연습을 제공합니다. 이 자습서에서는 Pig 및 Hive 변환을 사용하여 데이터를 처리합니다. 
-[Azure 데이터 팩터리 개발자 참조][developer-reference] | 개발자 참조에는 cmdlet, JSON 스크립트, 함수 등에 대한 포괄적인 참조 콘텐츠가 포함되어 있습니다. 
-
-
-[data-factory-samples]: http://go.microsoft.com/fwlink/?LinkId=516907
-[data-factory-pig-hive-activities]: data-factory-pig-hive-activities.md
-[data-factory-copy-activity]: ..//data-factory-copy-activity
-[adf-getstarted]: data-factory-get-started.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[adf-tutorial]: data-factory-tutorial.md
-[use-custom-activities]: data-factory-use-custom-activities.md
-[monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
-[troubleshoot]: data-factory-troubleshoot.md
-[data-factory-introduction]: data-factory-introduction.md
 
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
@@ -123,4 +102,4 @@ HDInsight 작업과 MapReduce 변환을 사용하는 샘플은 [GitHub의 데이
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

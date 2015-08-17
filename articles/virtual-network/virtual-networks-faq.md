@@ -23,4 +23,4 @@
 
 가상 네트워크 VPN에 대한 최신 FAQ는 [VPN 게이트웨이 FAQ](vpn-gateway-vpn-faq.md)를 참조하세요.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

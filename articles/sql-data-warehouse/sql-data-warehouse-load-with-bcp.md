@@ -71,7 +71,7 @@ GO
 20150101,1,3
 ```
 
-로컬 임시 디렉터리, C:\Temp\DimDate2.txt로 저장합니다.
+로컬 임시 디렉터리, C:\\Temp\\DimDate2.txt로 저장합니다.
 
 > [AZURE.NOTE]해당 bcp.exe는 UTF-8 파일 인코딩을 지원하지 않습니다. bcp.exe 사용 시 파일에 ASCII 인코딩 파일 또는 UTF-16 인코딩을 사용하세요.
 
@@ -107,7 +107,7 @@ DateId |CalendarQuarter |FiscalQuarter
 20151201 |4 |2
 
 ## SQL 데이터 웨어하우스에서 데이터 내보내기
-이 자습서에서는 SQL 데이터 웨어하우스의 테이블에서 데이터 파일이 만들어집니다. 위에서 만든 데이터를 DimDate2_export.txt라는 새 데이터 파일로 내보냅니다.
+이 자습서에서는 SQL 데이터 웨어하우스의 테이블에서 데이터 파일이 만들어집니다. 위에서 만든 데이터를 DimDate2\_export.txt라는 새 데이터 파일로 내보냅니다.
 
 ### 1단계: 데이터 내보내기
 
@@ -152,4 +152,4 @@ bcp DimDate2 out C:\Temp\DimDate2_export.txt -S <Server Name> -d <Database Name>
 <!--Other Web references-->
 [Microsoft 다운로드 센터]: http://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -228,4 +228,4 @@ Azure ML 권장 사항 이벤트 라이브러리는 동일한 브라우저에서
 [3]: ./media/machine-learning-recommendation-api-javascript-integration/Drawing3.png
  
 
-<!------HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

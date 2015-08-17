@@ -127,4 +127,4 @@ StorSimple 스냅숏 관리자에서 모든 작업 메뉴에 나열된 다음과
 
 [StorSimple 스냅숏 관리자 사용자 인터페이스에 대해 자세히 알아봅니다.](storsimple-use-snapshot-manager.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

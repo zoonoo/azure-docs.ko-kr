@@ -56,36 +56,14 @@ Windows 스토어 응용 프로그램 개발에 대한 자세한 내용은 [유�
 2.	**파일** 메뉴에서 **새로 만들기**와 **프로젝트**를 차례로 클릭합니다.
 3.	새 프로젝트 대화 상자에서 다음 값을 입력하거나 선택합니다.
 
-	<table border="1">
-<tr>
-	<th>이름</th>
-	<th>값</th>
-</tr>
-<tr>
-	<td>템플릿 그룹</td>
-	<td>Installed/Templates/Visual C#/Windows Store</td>
-</tr>
-<tr>
-	<td>템플릿</td>
-	<td>새 응용 프로그램(XAML)</td>
-</tr>
-<tr>
-	<td>이름</td>
-	<td>SSPlayer</td>
-</tr>
-<tr>
-	<td>위치</td>
-	<td>C:\SSTutorials</td>
-</tr>
-<tr>
-	<td>솔루션 이름</td>
-	<td>SSPlayer</td>
-</tr>
-<tr>
-	<td>솔루션용 디렉터리 만들기</td>
-	<td>(선택됨)</td>
-</tr>
-</table>
+이름|값
+---|---
+템플릿 그룹|Installed/Templates/Visual C#/Windows Store
+템플릿|새 응용 프로그램(XAML)
+이름|SSPlayer
+위치|C:\\SSTutorials
+솔루션 이름|SSPlayer
+솔루션용 디렉터리 만들기|(선택됨)
 
 4.	**확인**을 클릭합니다.
 
@@ -94,23 +72,12 @@ Windows 스토어 응용 프로그램 개발에 대한 자세한 내용은 [유�
 1.	솔루션 탐색기에서 **SSPlayer**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 클릭합니다.
 2.	다음 값을 입력하거나 선택합니다.
 
-	<table border="1">
-<tr>
-	<th>이름</th>
-	<th>값</th>
-</tr>
-<tr>
-	<td>참조 그룹</td>
-	<td>Windows/Extensions</td>
-</tr>
-<tr>
-	<td>참조</td>
-	<td>Microsoft Smooth Streaming Client SDK for Windows 8 및 Microsoft Visual C++ 런타임 패키지 선택 
-	</td>
-</tr>
-</table>
+이름|값
+---|---
+참조 그룹|Windows/Extensions
+참조|Microsoft Smooth Streaming Client SDK for Windows 8 및 Microsoft Visual C++ 런타임 패키지 선택
 	
-3.	**확인**을 클릭합니다.
+3.	**확인**을 클릭합니다. 
 
 참조를 추가한 후 대상 플랫폼(x64 또는 x86)을 선택해야 합니다. 임의 CPU 플랫폼 구성에서는 참조 추가가 작동하지 않습니다. 솔루션 탐색기에서 추가된 이 참조에 대해 노란색 경고 표시가 나타납니다.
 
@@ -228,7 +195,7 @@ MediaElement 컨트롤은 기본적으로 부드러운 스트리밍 콘텐츠를
 		}
 		#endregion
 
-	여기에는 sliderProgress_PointerPressed 이벤트 처리기가 정의되어 있습니다. 작동하는 데 필요한 추가 작업이 있으며, 이 자습서의 다음 단원에서 설명합니다.
+	여기에는 sliderProgress\_PointerPressed 이벤트 처리기가 정의되어 있습니다. 작동하는 데 필요한 추가 작업이 있으며, 이 자습서의 다음 단원에서 설명합니다.
 6.	**Ctrl+S**를 눌러 파일을 저장합니다.
 
 완성된 코드 숨김 파일은 다음과 같이 표시됩니다.
@@ -320,7 +287,7 @@ lesson1을 완성했습니다. 이 단원에서는 MediaElement 컨트롤을 사
 
 4.	**MainPage** 생성자의 끝에 다음 줄을 추가하여 적응 원본 열기 이벤트를 구독합니다.
 	
-	adaptiveSourceManager.AdaptiveSourceOpenedEvent += new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
+	adaptiveSourceManager.AdaptiveSourceOpenedEvent += new AdaptiveSourceOpenedEventHandler(mediaElement\_AdaptiveSourceOpened);
 
 5.	**Ctrl+S**를 눌러 파일을 저장합니다.
 
@@ -352,7 +319,7 @@ lesson1을 완성했습니다. 이 단원에서는 MediaElement 컨트롤을 사
 		}
 		#endregion Adaptive Source Level Events
 
-4.	<strong>mediaElement AdaptiveSourceOpened</strong> 메서드의 끝에 다음 코드를 추가하여 이벤트를 구독합니다.
+4.	**mediaElement AdaptiveSourceOpened** 메서드의 끝에 다음 코드를 추가하여 이벤트를 구독합니다.
 	
 		adaptiveSource.ManifestReadyEvent +=
 	                mediaElement_ManifestReady;
@@ -498,7 +465,7 @@ lesson1을 완성했습니다. 이 단원에서는 MediaElement 컨트롤을 사
 		  sliderProgress.Maximum = absvalue; }); 
 		
 
-6.	**mediaElement_AdaptiveSourceStatusUpdated** 메서드의 끝에 다음 코드를 추가합니다.
+6.	**mediaElement\_AdaptiveSourceStatusUpdated** 메서드의 끝에 다음 코드를 추가합니다.
 	
 		setSliderStartTime(args.StartTime);
 		setSliderEndTime(args.EndTime);
@@ -762,7 +729,7 @@ lesson1을 완성했습니다. 이 단원에서는 MediaElement 컨트롤을 사
 		}
 		#endregion stream selection
 
-5. mediaElement_ManifestReady 메서드를 찾은 후 함수의 끝에 다음 코드를 추가합니다.
+5. mediaElement\_ManifestReady 메서드를 찾은 후 함수의 끝에 다음 코드를 추가합니다.
 	
 		getStreams(manifestObject);
         refreshAvailableStreamsListBoxItemSource();
@@ -788,7 +755,7 @@ lesson1을 완성했습니다. 이 단원에서는 MediaElement 컨트롤을 사
 2.	**F5** 키를 눌러 응용 프로그램을 실행합니다.
 3.	응용 프로그램 맨 위에 기본 부드러운 스트리밍 URL을 사용하거나 다른 URL을 입력할 수 있습니다. 
 4.	**원본 설정**을 클릭합니다. 
-5.	기본 언어는 audio_eng입니다. audio_eng와 audio_es 간에 전환해 보세요. 새 스트림을 선택할 때마다 제출 단추를 클릭해야 합니다.
+5.	기본 언어는 audio\_eng입니다. audio\_eng와 audio\_es 간에 전환해 보세요. 새 스트림을 선택할 때마다 제출 단추를 클릭해야 합니다.
 
 단원 3을 완료했습니다. 이 단원에서는 스트림을 선택하는 기능을 추가합니다.
 
@@ -967,7 +934,7 @@ lesson1을 완성했습니다. 이 단원에서는 MediaElement 컨트롤을 사
         }
         #endregion track selection
 
-5. mediaElement_ManifestReady 메서드를 찾은 후 함수의 끝에 다음 코드를 추가합니다.
+5. mediaElement\_ManifestReady 메서드를 찾은 후 함수의 끝에 다음 코드를 추가합니다.
 
 		getTracks(manifestObject);
 		refreshAvailableTracksListBoxItemSource();
@@ -1004,4 +971,4 @@ lesson1을 완성했습니다. 이 단원에서는 MediaElement 컨트롤을 사
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

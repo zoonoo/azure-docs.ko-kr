@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="banders" />
 
 # 인프라 용량 관리
@@ -25,7 +25,7 @@ Microsoft Azure Operational Insights의 용량 계획 솔루션을 사용하여 
 
 ## 용량 관리 대시보드
 
-Microsoft Azure Operational Insights에서 용량 관리 대시보드를 사용하려면 먼저 솔루션이 설치되어 있어야 합니다. 솔루션 설치에 대해 더 알려면 [솔루션 갤러리를 사용하여 솔루션 추가 및 제거](operational-insights-add-solution.md)를 참조하십시오. 용량 계획 솔루션이 설치된 후, Operational Insights의 **개요** 페이지에서 **용량 계획** 타일을 사용하여 모니터링되는 서버의 용량을 볼 수 있습니다.
+Microsoft Azure Operational Insights에서 용량 관리 대시보드를 사용하려면 먼저 솔루션이 설치되어 있어야 합니다. 솔루션 설치에 대해 더 알려면 [솔루션 갤러리를 사용하여 솔루션 추가 및 제거](operational-insights-setup-workspace.md)를 참조하세요. 용량 계획 솔루션이 설치된 후, Operational Insights의 **개요** 페이지에서 **용량 계획** 타일을 사용하여 모니터링되는 서버의 용량을 볼 수 있습니다.
 
 ![용량 계획 타일의 이미지](./media/operational-insights-capacity/overview-cap-plan.png)
 
@@ -164,4 +164,4 @@ Operational Insights를 사용하여 디스크 공간 사용률에 대한 과거
 
 [AZURE.INCLUDE [operational-insights-export](../../includes/operational-insights-export.md)]
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

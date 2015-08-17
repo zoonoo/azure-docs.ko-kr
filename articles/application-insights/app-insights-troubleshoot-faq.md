@@ -213,7 +213,7 @@ POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사�
 <tr><th>표시 내용</th><th>시작 방법</th><th>원하는 이유</th></tr>
 <tr><td>가용성 차트</td><td><a href="../app-insights-monitor-web-app-availability/">웹 테스트</a></td><td>웹 앱이 작동 중인지 확인</td></tr>
 <tr><td>서버 앱 성능: 응답시간. ...
-</td><td><a href="../app-insights-start-monitoring-app-health-usage/">프로젝트에 Application Insights 추가</a><br/>또는 <br/><a href="../app-insights-monitor-performance-live-website-now/">서버에 AI 상태 모니터 설치</a></td><td>성능 문제 검색</td></tr>
+</td><td><a href="../app-insights-start-monitoring-app-health-usage/">프로젝트에 Application Insights 추가</a><br/>또는 <br/><a href="../app-insights-monitor-performance-live-website-now/">서버에 AI 상태 모니터 설치</a>(또는 자체 코드를 <a href="../app-insights-api-custom-events-metrics/#track-dependency">종속성 추적</a>에 작성)</td><td>성능 문제 검색</td></tr>
 <tr><td>종속성 원격 분석</td><td><a href="../app-insights-monitor-performance-live-website-now/">서버에 AI 상태 모니터 설치</a></td><td>데이터베이스 또는 다른 외부 구성 요소의 문제 진단</td></tr>
 <tr><td>예외에서 스택 추적 가져오기</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">TrackException 호출을 코드에 삽입합니다</a> (하지만 일부는 자동으로 보고 됩니다)</td><td>예외 감지 및 진단</td></tr>
 <tr><td>로그 추적 검색</td><td><a href="../app-insights-search-diagnostic-logs/">로깅 어댑터 추가</a></td><td>예외, 성능 문제 진단</td></tr>
@@ -239,4 +239,4 @@ Application Insights 리소스를 만드는 [PowerShell script 스크립트를 �
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

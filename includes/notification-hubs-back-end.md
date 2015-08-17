@@ -3,7 +3,7 @@
 
 다음 코드는 Windows 스토어, Windows Phone, iOS 및 Android 장치에 알림을 보냅니다.
 
-[알림 허브 시작][get-started]을 완료했을 때 콘솔 응용 프로그램을 만들었으면 1~3단계를 건너뛰세요.
+[알림 허브 시작][get-started]을 완료했을 때 콘솔 응용 프로그램을 만들었으면 1\~3단계를 건너뛰세요.
 
 1. Visual Studio에서 다음과 같이 새로운 Visual C# 콘솔 응용프로그램을 만듭니다. 
 
@@ -100,4 +100,4 @@
 [Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

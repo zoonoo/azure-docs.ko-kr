@@ -184,4 +184,4 @@ SQL 데이터베이스로 빅 데이터를 로드/전송할 때 _분할된 테�
 공용 데이터 집합에서 ADAPT(고급 분석 프로세스 및 기술)를 사용하는 종단 간 연습 예제는 [고급 분석 프로세스 및 기술 작동: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)을 참조하세요.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

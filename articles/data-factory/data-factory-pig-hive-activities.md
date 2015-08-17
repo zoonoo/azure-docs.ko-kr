@@ -284,7 +284,7 @@ HDInsight 클러스터와 연결된 Azure Blob 저장소에 Pig/Hive 스크립�
 ## 매개 변수가 지정된 Pig 및 Hive 쿼리
 데이터 팩터리 Pig 및 Hive 작업에서는 **defines**를 사용하여 Pig 및 Hive 스크립트에 사용되는 매개 변수의 값을 지정할 수 있습니다. defines 섹션은 매개 변수 이름과 매개 변수 값으로 구성됩니다.
 
-**defines**를 사용하여 Hive 스크립트의 매개 변수를 지정하는 방법은 다음 예제를 참조하세요. 매개 변수가 있는 Hive 스크립트를 사용하려면 다음을 수행합니다.
+**defines**를 사용하여 Hive 스크립트의 매개 변수를 지정하는 방법은 다음 예를 참조하세요. 매개 변수가 있는 Hive 스크립트를 사용하려면 다음을 수행합니다.
 
 1.	**defines**에서 매개 변수를 정의합니다.
 2.	인라인 Hive 스크립트 또는 Blob 저장소에 저장된 Hive 스크립트 파일에서 **${hiveconf:parameterName}**을 사용하여 매개 변수를 참조합니다.
@@ -353,4 +353,4 @@ HDInsight 클러스터와 연결된 Azure Blob 저장소에 Pig/Hive 스크립�
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

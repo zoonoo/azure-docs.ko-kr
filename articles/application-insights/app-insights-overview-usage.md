@@ -11,7 +11,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="05/03/2015"
 	ms.author="awills"/>
 
@@ -259,4 +259,4 @@ Global.asax.cs 같은 앱 이니셜라이저에서:
 [start]: app-insights-get-started.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

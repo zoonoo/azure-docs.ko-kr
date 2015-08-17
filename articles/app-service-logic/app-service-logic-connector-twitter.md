@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/14/2015"
+   ms.date="07/28/2015"
    ms.author="sameerch"/>
 
 
@@ -23,6 +23,7 @@ Twitter 피드에 연결하여 트윗을 게시하고 본인의 타임라인, �
 
 - 지정된 키워드 또는 텍스트와 연결된 새 트윗을 가져옵니다. 새 트윗이 검색되면 워크플로의 새 인스턴스를 트리거하고 워크플로의 다음 커넥터로 데이터를 전달합니다. 예를 들어 Twitter 커넥터를 만들고 New Tweet From Search(새 트윗 검색) 트리거를 사용하여 #peanutbutterandjelly를 모니터링할 수 있습니다. #peanutbutterandjelly에 대한 새 트윗이 있을 때마다 워크플로(즉, 논리 앱)가 자동으로 시작됩니다.
 - "트윗 검색" 등의 다른 동작을 사용하여 응답을 얻은 후 워크플로 내에서 사용할 수 있습니다. 예를 들어 트윗에서 회사 이름을 검색할 수 있습니다. 회사 이름이 발견되면 논리 앱을 사용하여 SQL Server 데이터베이스에 이 데이터를 쓸 수 있습니다. 그런 후 SQL Server 데이터를 사용하여 회사에 대해 트윗되는 내용을 확인할 수 있습니다. 
+- [Twitter 검색](https://twitter.com/search)에서 모든 연산자를 사용합니다. **연산자** 링크를 선택합니다. Twitter 커넥터는 나열된 모든 연산자를 지원합니다.
 
 
 ## 트리거 및 작업
@@ -62,7 +63,7 @@ API 앱이 생성되면 이제 논리 앱에 대한 트리거 또는 동작으�
 3.	Twitter 커넥터가 오른쪽에 표시됩니다. 이를 선택하면 논리 앱에 자동으로 추가됩니다.
 
 	![][4]
-4.	**인증**을 선택하고 Twitter 자격 증명을 입력한 후 **앱 증인**을 선택합니다.
+4.	**인증**을 선택하고 Twitter 자격 증명을 입력한 후 **앱 인증**을 선택합니다.
 
 	![][5]
 
@@ -92,4 +93,4 @@ REST API를 사용하여 API 앱을 만듭니다. [커넥터 및 API 앱 참조]
 [7]: ./media/app-service-logic-connector-twitter/img7.png
 [8]: ./media/app-service-logic-connector-twitter/actions.png
 
-<!------HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

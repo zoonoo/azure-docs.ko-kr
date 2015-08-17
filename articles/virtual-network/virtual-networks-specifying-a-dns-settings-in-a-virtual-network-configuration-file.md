@@ -53,4 +53,4 @@
 
 [Azure 서비스 구성 스키마](https://msdn.microsoft.com/library/windowsazure/ee758710)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

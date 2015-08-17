@@ -9,7 +9,7 @@
 <tags 
    ms.service="service-bus"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
    ms.date="07/07/2015"
@@ -298,7 +298,7 @@ REST 스타일 서비스 버스 서비스를 만들려면 첫째로 계약을 �
   
 	이 단계는 이전에 정의된 기본 **webHttpRelayBinding**을 사용하는 서비스를 구성합니다. 기본 **sbTokenProvider**도 사용하며, 이것은 다음 단계에서 정의됩니다.
 
-6. `<services>` 요소 다음으로 다음과 같은 콘텐츠로 `<behaviors>` 요소를 만들고, "SAS_KEY"를 1단계에서 Azure 관리 포털로부터 확보한 *공유 액세스 서명*(SAS) 키로 대체합니다.
+6. `<services>` 요소 다음으로 다음과 같은 콘텐츠로 `<behaviors>` 요소를 만들고, "SAS\_KEY"를 1단계에서 Azure 관리 포털로부터 확보한 *공유 액세스 서명*(SAS) 키로 대체합니다.
   
 	```xml
 	<behaviors>
@@ -568,7 +568,7 @@ namespace Microsoft.ServiceBus.Samples
 
 솔루션을 빌드한 후 다음을 수행하여 응용 프로그램을 실행합니다.
 
-1. 명령 프롬프트에서 서비스(ImageListener\bin\Debug\ImageListener.exe)를 실행합니다.
+1. 명령 프롬프트에서 서비스(ImageListener\\bin\\Debug\\ImageListener.exe)를 실행합니다.
 
 2. 이미지를 보려면 명령 프롬프트에서 주소를 복사하여 브라우저로 붙여 넣습니다.
 
@@ -580,4 +580,4 @@ namespace Microsoft.ServiceBus.Samples
 
 - [서비스 버스 릴레이 서비스를 사용하는 방법](service-bus-dotnet-how-to-use-relay.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

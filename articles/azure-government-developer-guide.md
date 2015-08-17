@@ -105,4 +105,4 @@ Azure Government에 대한 자세한 내용과 조직이 액세스하기 위한 
 [Link 2 to another azure.microsoft.com documentation topic]: web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: storage-whatis-account.md
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -12,7 +12,7 @@
                 ms.workload="identity" 
                 ms.tgt_pltfrm="na" 
                 ms.devlang="na" 
-                ms.topic="hero-article" 
+                ms.topic="article" 
                 ms.date="07/14/2015" 
                 ms.author="markusvi"/>
 
@@ -92,4 +92,4 @@ Azure AD에 대한 자세한 내용을 알아볼 수 있도록 수많은 리소�
 - [클라우드를 활용하여 온-프레미스 ID 시스템 향상 및 모니터링](https://msdn.microsoft.com/library/azure/dn906722.aspx)
 - [개발자를 위한 다양한 표준 기반 플랫폼](https://msdn.microsoft.com/library/azure/ff800682.aspx)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -49,7 +49,7 @@
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
 
-3.  **ls** 명령을 수동으로 실행하여 **node_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 서비스 버스 토픽에 액세스하는 데 필요한 라이브러리가 들어 있는 **azure** 패키지를 찾습니다.
+3.  **ls** 명령을 수동으로 실행하여 **node\_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 서비스 버스 토픽에 액세스하는 데 필요한 라이브러리가 들어 있는 **azure** 패키지를 찾습니다.
 
 ### 모듈 가져오기
 
@@ -59,7 +59,7 @@
 
 ### 서비스 버스 연결 설정
 
-Azure 모듈은 AZURE_SERVICEBUS_NAMESPACE 및 AZURE_SERVICEBUS_ACCESS_KEY 환경 변수를 읽고 Azure 서비스 버스에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되지 않은 경우 **createServiceBusService**를 호출할 때 계정 정보를 지정해야 합니다.
+Azure 모듈은 AZURE\_SERVICEBUS\_NAMESPACE 및 AZURE\_SERVICEBUS\_ACCESS\_KEY 환경 변수를 읽고 Azure 서비스 버스에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되지 않은 경우 **createServiceBusService**를 호출할 때 계정 정보를 지정해야 합니다.
 
 Azure 클라우드 서비스의 구성 파일에서 환경 변수를 설정하는 방법에 대한 예제는 [Node.js 클라우드 서비스 및 저장소]를 참조하십시오.
 
@@ -305,4 +305,4 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
   [Node.js 웹 응용 프로그램 및 저장소]: /develop/nodejs/tutorials/web-site-with-storage/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

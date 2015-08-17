@@ -76,4 +76,4 @@ StorSimple 관리자 서비스 대시보드에 다음 정보가 표시됩니다.
 
 [StorSimple 장치 문제 해결](storsimple-troubleshoot-operational-device.md) 방법을 알아봅니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

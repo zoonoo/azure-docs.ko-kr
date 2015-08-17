@@ -80,7 +80,7 @@
 
 | 번호| 오류 메시지 | 가능한 원인 | 권장 작업 |
 | ---| ------------- | --------------- | ------------------ |
-| 1 | Invoke-HcsSetupWizard: 잘못된 매개 변수(HRESULT: 0x80070057에서 예외 발생) | 프록시 설정에 대해 제공된 매개 변수 중 하나가 잘못되었습니다.| URI는 올바른 형식으로 제공되지 않습니다. http://*<IP address or FQDN of the web proxy server>*:*<TCP port number>*의 형식을 사용합니다. |
+| 1 | Invoke-HcsSetupWizard: 잘못된 매개 변수(HRESULT: 0x80070057에서 예외 발생) | 프록시 설정에 대해 제공된 매개 변수 중 하나가 잘못되었습니다.| URI는 올바른 형식으로 제공되지 않습니다. 다음 형식을 사용하세요. http://*<IP address or FQDN of the web proxy server>*:*<TCP port number>* |
 | 2 | Invoke-HcsSetupWizard: RPC 서버 사용 불가능(HRESULT: 0x800706ba에서 예외 발생) | 근본 원인은 다음 중 하나입니다. <ol><li>클러스터가 작동하지 않습니다.</li><li>수동 컨트롤러는 활성 컨트롤러와 통신할 수 없으며 수동 컨트롤러에서 명령을 실행합니다.</li></ol> | 근본 원인에 따라:<ol><li>[Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하여 클러스터가 작동하는지 확인합니다.</li><li>활성 컨트롤러에서 명령을 실행합니다. 수동 컨트롤러에서 명령을 실행하려는 경우 수동 컨트롤러가 활성 컨트롤러와 통신할 수 있는지 확인해야 합니다. 이 연결이 끊어진 경우, [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)해야 합니다.</li></ol> |
 | 3 | Invoke-HcsSetupWizard: RPC 호출 실패함(HRESULT: 0x800706be에서 예외 발생) | 클러스터의 작동이 중단되었습니다. | [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하여 클러스터가 작동하는지 확인합니다.|
 | 4 | Invoke-HcsSetupWizard: 클러스터 리소스를 찾을 수 없음(HRESULT: 0x8007138f에서 예외 발생) | 클러스터 리소스를 찾을 수 없습니다. 설치가 올바르지 않은 경우 발생할 수 있습니다. | 장치를 공장 기본 설정으로 다시 설정해야 합니다. [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하여 클러스터 리소스를 만듭니다.|
@@ -167,8 +167,8 @@ StorSimple은 StorSimple 솔루션 문제를 해결하는데 사용할 수 있�
 
 5. 로그가 이벤트 뷰어에서 열리면, 장치 구성과 관련된 문제를 포함하는 다음 로그를 찾습니다.
 
-  - hcs_pfconfig/Operational 로그
-  - hcs_pfconfig/Config
+  - hcs\_pfconfig/Operational 로그
+  - hcs\_pfconfig/Config
 
 6. 로그 파일에서, 설치 마법사에서 호출한 cmdlet와 관련된 문자열을 검색합니다. 이 cmdlet의 목록은 [처음 설치 마법사 프로세스](#first-time-setup-wizard-process)를 참조하세요. 
 
@@ -575,4 +575,4 @@ StorSimple 장치에 업데이트 1을 실행하는 경우 데이터 0 네트워
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -49,7 +49,20 @@ Azure CDN이 요구 사항에 맞지 않는 경우에는 응용 프로그램에�
 
 - 다음 테이블에서는 여러 지리적 위치에서 첫 번째 바이트까지의 중간 시간 값의 예를 보여줍니다. 대상 웹 역할은 Azure West US에 배포됩니다. CDN으로 인한 대폭적인 증가와 CDN 노드까지의 근접도 간에는 큰 상관관계가 있습니다. Azure CDN 노드 위치 목록은 [Azure CDN(콘텐츠 배달 네트워크) 노드 위치](http://msdn.microsoft.com/library/azure/gg680302.aspx)를 참조하세요.
 
-<table xmlns:xlink="http://www.w3.org/1999/xlink"><tr><th><a name="_MailEndCompose" href="#"><span /></a><br /></th><th><p>첫 번째 바이트까지의 시간(기준)</p></th><th><p>첫 번째 바이트까지의 시간(CDN)</p></th><th><p>CDN에서 빠른 비율(%)</p></th></tr><tr><td><p>* 새너제이, CA</p></td><td><p>47.5</p></td><td><p>46.5</p></td><td><p>2 %</p></td></tr><tr><td><p>** 덜레스, VA</p></td><td><p>109</p></td><td><p>40.5</p></td><td><p>169 %</p></td></tr><tr><td><p>부에노스아이레스, AR</p></td><td><p>210</p></td><td><p>151</p></td><td><p>39 %</p></td></tr><tr><td><p>* 런던, UK</p></td><td><p>195</p></td><td><p>44</p></td><td><p>343 %</p></td></tr><tr><td><p>상하이, CN</p></td><td><p>242</p></td><td><p>206</p></td><td><p>17 %</p></td></tr><tr><td><p>* 싱가포르</p></td><td><p>214</p></td><td><p>74</p></td><td><p>189%</p></td></tr><tr><td><p>* 도쿄, JP</p></td><td><p>163</p></td><td><p>48</p></td><td><p>240 %</p></td></tr><tr><td><p>서울, KR</p></td><td><p>190</p></td><td><p>190</p></td><td><p>0 %</p></td></tr></table>* 같은 도시에 Azure CDN 노드가 있습니다. * 인접 도시에 Azure CDN 노드가 있습니다.
+
+
+|City |첫 번째 바이트까지 시간(원점) |첫 번째 바이트까지 시간(CDN) | CDN에서 % 빠름|
+|---|---|---|---|
+|산호세, 캘리포니아<sub>1</sub> |47\.5 |46\.5 |2%|
+|덜레스, 버지니아<sub>2</sub> |109 |40\.5 |169%|
+|부에노스아이레스, AR |210 |151 |39%|
+|런던, 영국<sub>1</sub> |195 |44 |343%|
+|상하이, 중국 |242 |206 |17%|
+|싱가포르<sub>1</sub> |214 |74 |189%|
+|도쿄, 일본<sub>1</sub> |163 |48 |240%|
+|서울, 한국 |190 |190 |0%|
+
+같은 도시에서는 Azure CDN 노드를 가집니다.<sub>1</sub>인접한 도시에서는 Azure CDN 노드를 가집니다.<sub>2</sub>
 
 
 ## 과제  
@@ -85,7 +98,8 @@ CDN을 사용하려고 계획할 때 고려해야 할 몇 가지 과제가 있�
 
 CDN 사용은 응용 프로그램에 대한 부하를 최소화하고 가용성과 성능을 극대화하는 좋은 방법입니다. 따라서 응용 프로그램이 사용하는 모든 적절한 콘텐츠 및 리소스에서 이를 고려해야 합니다. CDN을 사용하는 전략을 설계할 때 다음 사항을 고려하세요.
 
-- **원본 ** CDN을 통해 콘텐츠를 배포할 때는 CDN 서비스가 콘텐츠에 액세스하여 캐시하는 데 사용할 HTTP(포트 80) 끝점을 지정해야 합니다. + 끝점은 CDN을 통해 전달하려는 정적 콘텐츠를 보유하고 있는 Azure BLOB 저장소 컨테이너를 지정할 수 있습니다. 컨테이너는 공용으로 표시되어야 합니다. 공용 읽기 액세스 권한이 있는 공용 컨테이너의 BLOB만 CDN을 통해 사용할 수 있습니다. 
+- **원본** CDN을 통해 콘텐츠를 배포할 때는 CDN 서비스가 콘텐츠에 액세스하여 캐시하는 데 사용할 HTTP(포트 80) 끝점을 지정해야 합니다. + 끝점은 CDN을 통해 전달하려는 정적 콘텐츠를 보유하고 있는 Azure BLOB 저장소 컨테이너를 지정할 수 있습니다. 컨테이너는 공용으로 표시되어야 합니다. 공용 읽기 액세스 권한이 있는 공용 컨테이너의 BLOB만 CDN을 통해 사용할 수 있습니다.
+
 - 끝점은 응용 프로그램의 계산 계층(예: 웹 역할 또는 가상 컴퓨터) 중 하나의 루트에 **cdn**이라는 폴더를 지정할 수 있습니다. ASPX 페이지 등의 동적 리소스를 포함한 리소스에 대한 요청의 결과가 CDN에 캐시됩니다. 최소 캐시 가능한 시간은 300초입니다. 더 짧은 기간은 CDN에 콘텐츠가 배포되지 않습니다(자세한 내용은 "<a href="#cachecontrol" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">캐시 제어</a>" 섹션 참조).
 
 - Azure 웹 사이트를 사용하는 경우 CDN 인스턴스를 만들 때 사이트를 선택하면 해당 사이트의 루트 폴더로 끝점이 설정됩니다. 사이트의 모든 콘텐츠는 CDN을 통해 사용할 수 있습니다.
@@ -176,7 +190,7 @@ CDN 사용은 응용 프로그램에 대한 부하를 최소화하고 가용성�
   <rewrite>
     <rules>
       <rule name="VersionedResource" stopProcessing="false">
-        <match url="(.*)_v(.*).(.*)" ignoreCase="true" />
+        <match url="(.*)_v(.*)\.(.*)" ignoreCase="true" />
         <action type="Rewrite" url="{R:1}.{R:3}" appendQueryString="true" />
       </rule>
       <rule name="CdnImages" stopProcessing="true">
@@ -203,7 +217,8 @@ CDN 사용은 응용 프로그램에 대한 부하를 최소화하고 가용성�
 
 다시 쓰기 규칙을 추가하면 다음 리디렉션이 수행됩니다.
 
-- 첫 번째 규칙을 사용하면 리소스의 파일 이름에 버전을 포함할 수 있으며, 그런 다음 이 이름은 무시됩니다. 예를 들어, **Filename_v123.jpg**를 **Filename.jpg**로 다시 씁니다. 
+- 첫 번째 규칙을 사용하면 리소스의 파일 이름에 버전을 포함할 수 있으며, 그런 다음 이 이름은 무시됩니다. 예를 들어, **Filename\_v123.jpg**를 **Filename.jpg**로 다시 씁니다.
+
 - 다음 4개의 규칙에서는 웹 역할의 루트에 있는 **cdn** 폴더에 리소스를 저장하지 않을 경우 요청을 리디렉션하는 방법을 보여줍니다. 규칙이 **cdn/Images**, **cdn/Content**, **cdn/Scripts**, **cdn/bundles** URL을 웹 역할의 해당 루트 폴더에 매핑합니다. URL 다시 쓰기를 사용하면 리소스 묶음에 대한 변경을 수행해야 합니다.
 
 
@@ -219,4 +234,4 @@ CDN 사용은 응용 프로그램에 대한 부하를 최소화하고 가용성�
 + [Azure CDN과 클라우드 서비스 통합](cdn-cloud-service-with-cdn.md)
 + [Azure CDN(콘텐츠 배달 네트워크) 모범 사례](http://azure.microsoft.com/blog/2011/03/18/best-practices-for-the-windows-azure-content-delivery-network/)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

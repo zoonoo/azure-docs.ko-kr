@@ -113,4 +113,4 @@ Azure 기계 학습 갤러리에서 한 번의 클릭으로 실험을 작업 영
 **[갤러리로 이동 >>](http://gallery.azureml.net)**
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

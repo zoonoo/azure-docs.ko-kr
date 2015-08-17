@@ -157,4 +157,4 @@ O365 커넥터 API 앱을 만들려면 다음 단계를 수행합니다.
 [20]: ./media/app-service-logic-connector-office365/20_Office365_Send_Configured.png
 [21]: ./media/app-service-logic-connector-office365/21-create-new-o365-api-app.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

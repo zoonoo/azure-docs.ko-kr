@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="article" 
+	ms.topic="get-started-article" 
 	ms.date="07/08/2015" 
 	ms.author="awills"/>
  
@@ -69,7 +69,7 @@ Application Insights 리소스에서 가용성 타일을 찾습니다. 이것을
 
 #### 더 많은 URL 테스트
 
-원하는 만큼 많은 URL에 대한 테스트를 추가할 수 있습니다. 예를 들어 홈페이지를 테스트할 수 있을 뿐 아니라 검색을 위한 URL을 테스트하여 데이터베이스가 실행되고 있는지 확인할 수 있습니다.
+테스트를 더 추가 합니다. 예를 들어 홈페이지를 테스트할 수 있을 뿐 아니라 검색을 위한 URL을 테스트하여 데이터베이스가 실행되고 있는지 확인할 수 있습니다.
 
 
 ### <a name="monitor"></a>3. 가용성 보고서 보기
@@ -207,6 +207,16 @@ Visual Studio Ultimate를 사용하여 웹 세션을 기록합니다.
 
 서비스에 대한 유지 관리를 수행하는 동안 웹 테스트를 사용하지 않도록 설정할 수 있습니다.
 
+## 질문이 있으십니까? 문제가 있습니까?
+
+* 다음과 같은 경우 "잘못된 문자"에 대한 오류가 발생합니다. 
+
+* **"웹 테스트" 및 "가용성" 간의 차이가 있습니까?
+
+    두 용어는 같은 의미로 사용됩니다.
+
+
+
 ## <a name="video"></a>동영상
 
 > [AZURE.VIDEO monitoring-availability-with-application-insights]
@@ -229,4 +239,4 @@ Visual Studio Ultimate를 사용하여 웹 세션을 기록합니다.
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -75,7 +75,7 @@
 
 5.	Azure Active Directory 응용 프로그램을 올바르게 구성하고 Web.config에서 해당 설정을 지정하면 로그인으로 리디렉션되어야 합니다. Azure 포털에서 Azure Active Directory 응용 프로그램을 만드는 데 사용된 계정이 Azure Active Directory 응용 프로그램의 기본 소유자이므로 이 계정을 사용하여 로그인하면 됩니다.
 	
-	> [AZURE.NOTE] 예제 프로젝트의 Startup.Auth.cs에서 응용 프로그램 소유자를 관리자 역할에 추가하는 데 사용되는 <code>AddOwnerAdminClaim</code>이라는 메서드가 응용 프로그램에 있는지 확인합니다. 이 메서드가 있으면 <code>Roles</code> 컨트롤러에서 응용 프로그램 역할 관리를 즉시 시작할 수 있습니다.
+	> [AZURE.NOTE] 예제 프로젝트의 Startup.Auth.cs에서 응용 프로그램 소유자를 관리자 역할에 추가하는 데 사용되는 <code>AddOwnerAdminClaim</code>이라는 메서드가 응용 프로그램에 있는지 확인합니다. 이 메서드가 있으면 <code>Roles</code> 컨트롤러에서 응용 프로그램 역할을 즉시 관리할 수 있습니다.
 	
 4.	로그인되면 **역할**을 클릭하여 응용 프로그램 역할을 관리합니다.
 
@@ -376,4 +376,4 @@ public class GroupClaimContext : DbContext
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

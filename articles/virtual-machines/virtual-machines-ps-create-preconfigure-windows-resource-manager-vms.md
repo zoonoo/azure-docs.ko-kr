@@ -311,7 +311,7 @@ VM에 데이터 디스크를 더 추가하려면 다음 줄을 명령 집합으�
 
 텍스트 편집기에서 명령을 작성한 경우 명령 집합을 클립보드로 복사한 다음, 열려 있는 Azure PowerShell 프롬프트를 마우스 오른쪽 단추로 클릭합니다. 그러면 명령 집합이 일련의 PowerShell 명령으로 실행되고 Azure 가상 컴퓨터가 만들어집니다. 또는 Azure PowerShell ISE에서 명령 집합을 실행합니다.
 
-이 가상 컴퓨터를 다시 만들거나 유사한 가상 컴퓨터를 생성하는 경우 이 명령 집합을 PowerShell 스크립트 파일(\*.ps1)로 저장합니다.
+이 가상 컴퓨터를 다시 만들거나 유사한 가상 컴퓨터를 생성하는 경우 이 명령 집합을 PowerShell 스크립트 파일(*.ps1)로 저장합니다.
 
 ## 예
 
@@ -387,4 +387,4 @@ VM에 데이터 디스크를 더 추가하려면 다음 줄을 명령 집합으�
 
 [Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

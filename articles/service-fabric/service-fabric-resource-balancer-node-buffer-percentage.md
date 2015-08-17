@@ -47,4 +47,4 @@
 자세한 내용: [리소스 분산 아키텍처](service-fabric-resource-balancer-architecture.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -20,7 +20,10 @@
 
 소셜 웹 사이트는 빅데이터 채택의 주요 추진력 중 하나입니다. Twitter와 같은 사이트에서 제공하는 공개 API는 대중적인 추세를 분석하고 이해하는 데 유용한 데이터 원본입니다. 이 자습서에서는 Twitter 스트리밍 API를 사용해 트윗을 가져온 다음 Azure HDInsight의 Apache Hive를 사용하여 특정 단어가 포함된 트윗을 가장 많이 보낸 Twitter 사용자 목록을 가져옵니다.
 
-> [AZURE.NOTE]비슷한 샘플이 HDInsight 샘플 갤러리에 있습니다. Channel 9 동영상 보기: <a href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Analyze-Twitter-trend-using-Apache-Hive-in-HDInsight" target="_blank">HDInsight의 Apache Hive를 사용하여 Twitter 추세를 분석합니다</a>.
+> [AZURE.NOTE]이 문서 내의 단계는 Windows 기반 HDInsight 클러스터 사용을 기반으로 합니다. Linux 기반 클러스터에 대한 단계는 [HDInsight에서 Hive를 사용하여 Twitter 데이터 분석](hdinsight-analyze-twitter-data-linux.md)을 참조하세요.
+
+비슷한 샘플이 HDInsight 샘플 갤러리에 있습니다. Channel 9 동영상 보기: <a href="http://channel9.msdn.com/Series/Getting-started-with-Windows-Azure-HDInsight-Service/Analyze-Twitter-trend-using-Apache-Hive-in-HDInsight" target="_blank">HDInsight의 Apache Hive를 사용하여 Twitter 추세를 분석합니다</a>.
+
 
 ###필수 조건
 
@@ -52,7 +55,7 @@ Azure Blob 저장소 구문은 다음과 같습니다.
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [AZURE.NOTE]HDInsight 클러스터 버전 3.0에서는 *wasb://* 구문만 지원됩니다. 이전 *asv://* 구문은 HDInsight 2.1 및 1.6 클러스터에서 지원되지만, HDInsight 3.0 클러스터에서는 지원되지 않으며 이후 버전에서도 지원되지 않습니다.
+> [AZURE.NOTE]HDInsight 클러스터 버전 3.0에서는 **wasb://* 구문만 지원됩니다. 이전 **asv://* 구문은 HDInsight 2.1 및 1.6 클러스터에서 지원되지만, HDInsight 3.0 클러스터에서는 지원되지 않으며 이후 버전에서도 지원되지 않습니다.
 
 > Azure Blob 저장소 경로는 가상 경로입니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요.
 
@@ -113,7 +116,7 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 
 **트윗을 가져오려면**
 
-1. Windows PowerShell ISE(통합 스크립팅 환경)를 엽니다. Windows 8 시작 화면에서 **PowerShell_ISE**를 입력하고 **Windows PowerShell ISE**를 클릭하면 됩니다. [Windows 8 및 Windows에서 Windows PowerShell 시작][powershell-start](영문)을 참조하세요.
+1. Windows PowerShell ISE(통합 스크립팅 환경)를 엽니다. Windows 8 시작 화면에서 **PowerShell\_ISE**를 입력하고 **Windows PowerShell ISE**를 클릭하면 됩니다. [Windows 8 및 Windows에서 Windows PowerShell 시작][powershell-start](영문)을 참조하세요.
 
 2. 스크립트 창에서 다음 스크립트를 복사합니다.
 
@@ -240,7 +243,7 @@ OAuth를 사용하는 첫 단계는 Twitter 개발자 사이트에서 새 응용
 		
 		Write-Host "Completed!" -ForegroundColor Green
 
-3. 스크립트에서 첫 번째 5~8개의 변수를 설정합니다.
+3. 스크립트에서 첫 번째 5\~8개의 변수를 설정합니다.
 
 	<table border="1">
 <tr><th>변수</th><th>설명</th></tr>
@@ -269,11 +272,11 @@ Azure PowerShell을 사용하여 여러 HiveQL 문을 한 번에 하나씩 실�
 
 HiveQL 스크립트는 다음을 수행합니다.
 
-1. 이미 있는 경우 **tweets_raw 테이블을 삭제**합니다.
-2. **tweets_raw Hive 테이블을 만듭니다**. 이 임시 Hive 구조적 테이블에는 추가 ETL(추출, 변환 및 로드) 처리를 위한 데이터가 저장됩니다. 파티션에 대한 자세한 내용은 [Hive 자습서][apache-hive-tutorial](영문)을 참조하세요.  
+1. 이미 있는 경우 **tweets\_raw 테이블을 삭제**합니다.
+2. **tweets\_raw Hive 테이블을 만듭니다**. 이 임시 Hive 구조적 테이블에는 추가 ETL(추출, 변환 및 로드) 처리를 위한 데이터가 저장됩니다. 파티션에 대한 자세한 내용은 [Hive 자습서][apache-hive-tutorial](영문)을 참조하세요.  
 3. 원본 폴더인 /tutorials/twitter/data에서 **데이터를 로드**합니다. 이제 중첩 JSON 형식의 대량 트윗 데이터 집합이 임시 Hive 테이블 구조로 변환되었습니다.
 3. 이미 있는 경우 **tweets 테이블을 삭제**합니다.
-4. **tweets 테이블을 만듭니다**. Hive를 사용하여 트윗 데이터 집합에 대해 쿼리하려면 먼저 다른 ETL 프로세스를 실행해야 합니다. 이 ETL 프로세스는 "twitter_raw" 테이블에 저장한 데이터에 대해 더욱 자세한 테이블 스키마를 정의합니다.  
+4. **tweets 테이블을 만듭니다**. Hive를 사용하여 트윗 데이터 집합에 대해 쿼리하려면 먼저 다른 ETL 프로세스를 실행해야 합니다. 이 ETL 프로세스는 "twitter\_raw" 테이블에 저장한 데이터에 대해 더욱 자세한 테이블 스키마를 정의합니다.  
 5. **overwrite 테이블을 삽입**합니다. 이 복잡한 Hive 스크립트는 Hadoop 클러스터로 긴 MapReduce 작업 집합을 시작합니다. 데이터 집합 및 클러스터의 크기에 따라 이 작업은 약 10분 정도 걸릴 수 있습니다.
 6. **overwrite 디렉터리 삽입**합니다. 쿼리를 실행하고 데이터 집합을 파일로 출력합니다. 이 쿼리는 "Azure"라는 단어가 포함된 트윗을 가장 많이 보낸 Twitter 사용자의 목록을 반환합니다.
 
@@ -520,7 +523,7 @@ HiveQL 스크립트는 다음을 수행합니다.
 	Write-Host "==================================" -ForegroundColor Green
 	#end region
 
-> [AZURE.NOTE]Hive 테이블은 필드 구분 기호로 \001을 사용합니다. 구분 기호는 출력에서 보이지 않습니다.
+> [AZURE.NOTE]Hive 테이블은 필드 구분 기호로 \\001을 사용합니다. 구분 기호는 출력에서 보이지 않습니다.
 
 분석 결과가 Azure Blob 저장소에 배치된 후에는 데이터를 Azure SQL 데이터베이스/SQL Server로 내보내거나, 파워 쿼리를 사용하여 데이터를 Excel로 내보내거나, Hive ODBC 드라이버를 사용하여 응용 프로그램을 데이터에 연결할 수 있습니다. 자세한 내용은 [HDInsight에서 Sqoop 사용][hdinsight-use-sqoop], [HDInsight를 사용하여 비행 지연 데이터 분석][hdinsight-analyze-flight-delay-data], [파워 쿼리로 HDInsight에 Excel 연결][hdinsight-power-query] 및 [Microsoft Hive ODBC 드라이버로 HDInsight에 Excel 연결][hdinsight-hive-odbc]을 참조하세요.
 
@@ -559,4 +562,4 @@ HiveQL 스크립트는 다음을 수행합니다.
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

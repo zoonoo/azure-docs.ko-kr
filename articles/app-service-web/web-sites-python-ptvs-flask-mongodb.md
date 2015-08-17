@@ -100,7 +100,7 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 1.  [Azure 관리 포털]에서 **마켓플레이스**를 클릭하고 이전에 만든 MongoLab 서비스를 클릭합니다.
 
-1.  **연결 정보**를 클릭합니다. 복사 단추를 사용하여 **MONGOLAB_URI** 값을 클립보드에 저장합니다.
+1.  **연결 정보**를 클릭합니다. 복사 단추를 사용하여 **MONGOLAB\_URI** 값을 클립보드에 저장합니다.
 
   	![연결 정보 대화 상자](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonMongoLabConnectionInfo.png)
 
@@ -130,17 +130,17 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 [RoboMongo]와 같은 응용프로그램을 사용하여 MongoDB 데이터베이스를 쿼리하고 편집할 수 있습니다. 이 섹션에서는 RoboMongo를 사용하여 설문 조사 응용 프로그램 데이터베이스의 내용을 확인합니다.
 
-1.  새 연결을 만듭니다. 이전 섹션에서 가져온 **MONGOLAB_URI**가 필요합니다.
+1.  새 연결을 만듭니다. 이전 섹션에서 가져온 **MONGOLAB\_URI**가 필요합니다.
 
     URI 형식은 `mongodb://<name>:<password>@<address>:<port>/<name>`입니다.
 
     이 이름은 Azure로 서비스를 만들 때 입력한 이름과 일치합니다. 이 이름은 데이터베이스 이름과 사용자 이름 둘 다에 사용됩니다.
 
-1.  연결 페이지에서 **이름**을 연결에 사용할 아무 이름으로 설정합니다. 또한 **주소** 및 **포트** 필드를 **MONGOLAB_URI**의 *address* 및 *port*로 설정합니다.
+1.  연결 페이지에서 **이름**을 연결에 사용할 아무 이름으로 설정합니다. 또한 **주소** 및 **포트** 필드를 **MONGOLAB\_URI**의 *address* 및 *port*로 설정합니다.
 
   	![연결 설정 대화 상자](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoCreateConnection1.png)
 
-1.  인증 페이지에서 **데이터베이스** 및 **사용자 이름**을 **MONGOLAB_URI**의 *name*으로 설정합니다. 또한 **암호**를 **MONGOLAB_URI**의 *password*로 설정합니다.
+1.  인증 페이지에서 **데이터베이스** 및 **사용자 이름**을 **MONGOLAB\_URI**의 *name*으로 설정합니다. 또한 **암호**를 **MONGOLAB\_URI**의 *password*로 설정합니다.
 
   	![연결 설정 대화 상자](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonRobomongoCreateConnection2.png)
 
@@ -185,7 +185,7 @@ PTVS를 통해 Azure 앱 서비스에 웹앱을 쉽게 배포할 수 있습니�
 
   	<!-- ![Top Menu](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonWebSiteTopMenu.png) -->
 
-1.  **앱 설정** 섹션으로 스크롤한 후 **REPOSITORY_NAME**, **MONGODB_HOST** 및 **MONGODB_DATABASE** 값을 위 섹션에 설명된 대로 설정합니다.
+1.  **앱 설정** 섹션으로 스크롤한 후 **REPOSITORY\_NAME**, **MONGODB\_HOST** 및 **MONGODB\_DATABASE** 값을 위 섹션에 설명된 대로 설정합니다.
 
   	<!-- ![App Settings](./media/web-sites-python-ptvs-flask-mongodb/PollsCommonWebSiteConfigureSettingsMongoDB.png) -->
 
@@ -240,4 +240,4 @@ Python Tools for Visual Studio, Flask 및 MongoDB에 대해 자세히 알아보�
 [클라우드 서비스 프로젝트]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

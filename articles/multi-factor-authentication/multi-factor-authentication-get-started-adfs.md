@@ -55,4 +55,4 @@ Azure Multi-Factor Authentication 또는 AD FS를 통한 Azure Multi-factor Auth
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

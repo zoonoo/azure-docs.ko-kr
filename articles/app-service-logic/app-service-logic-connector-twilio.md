@@ -77,4 +77,4 @@ API 앱을 만들고 나면 이제 Twilio 커넥터를 논리 앱에 대한 동�
 [5]: ./media/app-service-logic-connector-twilio/img5.PNG
 [6]: ./media/app-service-logic-connector-twilio/img6.PNG
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

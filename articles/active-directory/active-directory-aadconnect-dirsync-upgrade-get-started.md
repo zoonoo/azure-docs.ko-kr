@@ -126,7 +126,7 @@ DirSync에서 사용 중인 기존 SQL Server 데이터베이스 서버와 관�
 1. Azure AD Connect 설치 관리자(MSI)를 실행합니다.
 2. "Azure AD Connect 시작" 화면이 표시됩니다. 창 오른쪽 위에 있는 모서리에서 "X"를 클릭하여 마법사를 종료합니다.
 3. 명령 프롬프트를 엽니다.
-4. Azure AD Connect 위치에서(기본값: C:\Program Files\Microsoft Azure Active Directory Connect) 다음 명령을 실행합니다.
+4. Azure AD Connect 위치에서(기본값: C:\\Program Files\\Microsoft Azure Active Directory Connect) 다음 명령을 실행합니다.
     * AzureADConnect.exe /migrate
 
 Azure AD Connect가 연결되고 다음 UI가 표시됩니다.
@@ -206,4 +206,4 @@ Azure AD Connect가 DirSync로부터 인수할 준비가 되었는지 여부를 
 * [MSDN의 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

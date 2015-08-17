@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/29/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 # HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리
@@ -532,17 +532,17 @@ EventHubSpout는 해당 상태의 검사점을 큐에서 읽은 메시지의 현
 
 * 토폴로지자 종료되고 **동일한 이름**으로 다시 시작된 경우
 
-영구 검사점을 WASB(HDInsight 클러스터에서 사용하는 Azure 저장소)로 내보내고 가져올 수도 있습니다. 이 작업을 수행하는 스크립트는 HDInsight의 Storm 클러스터(**c:\apps\dist\storm-0.9.3.2.2.1.0-2340\zkdatatool-1.0\bin**)에 있습니다.
+영구 검사점을 WASB(HDInsight 클러스터에서 사용하는 Azure 저장소)로 내보내고 가져올 수도 있습니다. 이 작업을 수행하는 스크립트는 HDInsight의 Storm 클러스터(**c:\\apps\\dist\\storm-0.9.3.2.2.1.0-2340\\zkdatatool-1.0\\bin**)에 있습니다.
 
 >[AZURE.NOTE]클러스터에 설치된 Storm 버전이 나중에 변경될 수 있으므로 경로의 버전 번호는 다를 수 있습니다.
 
 이 디렉터리의 스크립트는 다음과 같습니다.
 
-* **stormmeta_import.cmd**: 클러스터 기본 저장소 컨테이너의 모든 Storm 메타데이터를 Zookeeper로 가져옵니다.
+* **stormmeta\_import.cmd**: 클러스터 기본 저장소 컨테이너의 모든 Storm 메타데이터를 Zookeeper로 가져옵니다.
 
-* **stormmeta_export.cmd**: Zookeeper의 모든 Storm 메타데이터를 클러스터 기본 저장소 컨테이너로 내보냅니다.
+* **stormmeta\_export.cmd**: Zookeeper의 모든 Storm 메타데이터를 클러스터 기본 저장소 컨테이너로 내보냅니다.
 
-* **stormmeta_delete.cmd**: Zookeeper에서 모든 Storm 메타데이터를 삭제합니다.
+* **stormmeta\_delete.cmd**: Zookeeper에서 모든 Storm 메타데이터를 삭제합니다.
 
 내보내기 및 가져오기를 통해 클러스터를 삭제해야 하는 경우 검사점 데이터를 유지할 수 있지만 새 클러스터를 다시 온라인으로 전환할 때 허브의 현재 오프셋에서 처리를 다시 시작할 수 있습니다.
 
@@ -557,4 +557,4 @@ EventHubSpout는 해당 상태의 검사점을 큐에서 읽은 메시지의 현
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

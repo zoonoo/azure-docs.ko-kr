@@ -66,4 +66,4 @@
 1. 제출을 클릭하여 티켓을 엽니다.
   
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

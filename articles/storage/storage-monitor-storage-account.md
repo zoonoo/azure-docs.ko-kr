@@ -72,7 +72,7 @@ Azure 관리 포털에서 저장소 계정을 모니터링할 수 있습니다. 
 	
 	- 차트에 그려진 메트릭을 숨기려면 메트릭 헤더 옆에 있는 색이 지정된 확인란의 선택을 취소합니다.
 	
-		![모니터링_n자세히](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
+		![모니터링\_n자세히](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
   
 3. 기본적으로 차트는 추세를 보여 주며, 각 메트릭의 현재 값(차트 맨 위의 **상대값** 옵션)만 표시합니다. 절대값을 볼 수 있도록 Y축을 표시하려면 **절대값**을 선택합니다.
 
@@ -99,7 +99,7 @@ Azure 관리 포털에서 저장소 계정을 모니터링할 수 있습니다. 
 	**모니터** 페이지가 열립니다. 기본적으로 메트릭 테이블에는 모니터링에 사용할 수 있는 메트릭의 하위 집합이 표시됩니다. 다음 그림은 세 가지 서비스 모두에 대해 세부 정보 표시 모니터링을 구성한 저장소 계정의 기본 모니터 화면을 보여 줍니다. 사용 가능한 모든 메트릭에서 모니터링할 메트릭을 선택하려면 **메트릭 추가**를 사용합니다.
 
 
-	![모니터링_세부 정보 표시 화면](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
+	![모니터링\_세부 정보 표시 화면](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
 
 	> [AZURE.NOTE]메트릭을 선택할 때 비용을 고려하세요. 모니터링 화면 새로 고침과 관련한 트랜잭션 및 송신 비용이 발생할 수 있습니다. 자세한 내용은 [저장소 분석 및 청구](http://msdn.microsoft.com/library/azure/hh360997.aspx)를 참조하세요.
 
@@ -159,4 +159,4 @@ Azure 관리 포털에서 저장소 계정을 모니터링할 수 있습니다. 
 진단 로그는 저장소 계정의 이름이 $logs인 Blob 컨테이너에 저장됩니다. $logs 컨테이너 액세스에 대한 자세한 내용은 [저장소 분석 로깅 정보](http://msdn.microsoft.com/library/azure/hh343262.aspx)를 참조하십시오.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

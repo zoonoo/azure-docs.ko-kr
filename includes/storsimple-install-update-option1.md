@@ -1,3 +1,4 @@
+
 #### StorSimple용 Windows PowerShell을 통해 업데이트 1을 설치하려면
 
 1. 소프트웨어 업데이트를 다운로드하려면 다음 단계를 수행합니다.
@@ -19,7 +20,7 @@
  
         ![바구니 보기](./media/storsimple-install-update-option-1/HCS_InstallBasket-include.png)
 
-    6. **다운로드**를 클릭합니다. 다운로드를 나타낼 로컬 위치를 지정하거나 검색합니다. 업데이트(all-hcsmdssoftwareupdate_288da2cc8cd2e3c3958b603a79346cb586fb8fe3.exe)가 선택된 위치에 StorSimple 업데이트 1.0 어플라이언스 업데이트 번들(KB3063418)” 폴더로 다운로드됩니다. 장치에서 연결할 수 있는 네트워크 공유에 폴더도 복사할 수 있습니다.
+    6. **다운로드**를 클릭합니다. 다운로드를 나타낼 로컬 위치를 지정하거나 검색합니다. 업데이트(all-hcsmdssoftwareupdate\_288da2cc8cd2e3c3958b603a79346cb586fb8fe3.exe)가 선택된 위치에 StorSimple 업데이트 1.0 어플라이언스 업데이트 번들(KB3063418)” 폴더로 다운로드됩니다. 장치에서 연결할 수 있는 네트워크 공유에 폴더도 복사할 수 있습니다.
         
 2. 소프트웨어 업데이트를 설치하려면 StorSimple 장치 직렬 콘솔에서 Windows PowerShell 인터페이스에 액세스합니다. [PuTTy를 사용하여 직렬 콘솔에 연결](#use-putty-to-connect-to-the-serial-console)에서 자세한 지침을 따르세요.
 
@@ -36,7 +37,7 @@
     샘플 출력은 다음과 같습니다.
 
         ````
-        Controller0>Start-HcsHotfix -Path \10.100.100.100\share
+        Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
         \hcsmdssoftwareupdate.exe -Credential contoso\John
       
         Confirm
@@ -96,4 +97,4 @@
 
     펌웨어 상태는 **UpToDate**여야 합니다.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

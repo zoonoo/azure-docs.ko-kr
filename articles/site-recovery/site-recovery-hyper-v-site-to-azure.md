@@ -61,7 +61,12 @@ Azure Site Recovery 배포의 일환으로 보호하려는 가상 컴퓨터를 �
 - 최신 버전의 공급자 및 에이전트를 실행해야 합니다.
 - 자격 증명 모음상의 모든 Hyper-V 서버는 동일한 버전이어야 합니다.
 - 공급자는 인터넷을 통해 Azure Site Recovery에 연결해야 합니다. 현재 VMM 서버에 구성된 프록시 설정 또는 공급자 설치 중에 구성하는 사용자 지정 프록시 설정을 사용하여 프록시 없이 이를 수행하도록 선택할 수 있습니다. 기존 프록시 서버를 사용하려면 Azure에 연결하기 위한 URL이 방화벽을 통해 허용되도록 해야 합니다.
-	- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
+	- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+
 - 사용자 지정 프록시를 사용하려면 공급자 설치 전에 프록시 서버를 설정합니다. 공급자를 설치하는 동안 프록시 서버 주소 및 포트와 액세스를 위해 사용할 수 있는 자격 증명을 지정해야 합니다.
 
 아래 그림에서는 조정 및 복제를 위해 Azure Site Recovery에서 사용되는 다양한 통신 채널을 보여줍니다.
@@ -106,7 +111,7 @@ Azure Site Recovery 배포의 일환으로 보호하려는 가상 컴퓨터를 �
 
 
 ## 3단계: 공급자 및 에이전트 설치
-공급자 및 에이전트를 설치합니다. Hyper-V 클러스터를 설치하는 경우 장애 조치 클러스터의 각 노드에서 5~11단계를 수행합니다. 모든 노드를 등록하고 보호 기능을 설정한 후 가상 컴퓨터는 장애 조치 클러스터 내의 노드 간에 마이그레이션할 경우에도 보호됩니다.
+공급자 및 에이전트를 설치합니다. Hyper-V 클러스터를 설치하는 경우 장애 조치 클러스터의 각 노드에서 5\~11단계를 수행합니다. 모든 노드를 등록하고 보호 기능을 설정한 후 가상 컴퓨터는 장애 조치 클러스터 내의 노드 간에 마이그레이션할 경우에도 보호됩니다.
 
 1. **Hyper-V 서버 준비**에서 **등록 키 다운로드** 파일을 클릭합니다.
 2. **등록 키 다운로드** 페이지에서 사이트 옆의 **다운로드**를 클릭합니다. Hyper-V 서버에서 쉽게 액세스할 수 있는 안전한 위치로 키를 다운로드합니다. 이 키는 생성된 날로부터 5일간 유효합니다.
@@ -139,7 +144,12 @@ Azure Site Recovery 배포의 일환으로 보호하려는 가상 컴퓨터를 �
 	- Hyper-V 서버에서 기본 프록시에 인증이 필요한 경우 사용자 지정 프록시 서버를 사용하도록 선택해야 합니다. 기본 프록시 세부 정보에서 입력하고 자격 증명을 지정합니다.
 	- 사용자 지정 프록시 서버를 사용하려는 경우 공급자를 설치하기 전에 설정해야 합니다. 
 	- 다음 url은 Hyper-v 호스트에서 액세스할 수 있어야 합니다.
-		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+
 	- [Azure 데이터센터 IP 범위](http://go.microsoft.com/fwlink/?LinkId=511094) 및 HTTPS(443) 프로토콜에 설명된 IP 주소를 허용합니다. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
 
 9. **자격 증명 모음 설정** 페이지에서 **찾아보기**를 클릭하고 키 파일을 선택합니다. Azure Site Recovery 구독, 자격 증명 모음 이름 및 Hyper-V 서버가 속한 Hyper-V 사이트를 지정합니다.
@@ -157,7 +167,7 @@ Azure Site Recovery 배포의 일환으로 보호하려는 가상 컴퓨터를 �
 
 Windows Server 2012 R2용 Server Core 또는 독립 실행형 Hyper-V Server 2012 R2에 공급자를 설치하려는 경우 다음을 수행해야 합니다.
 
-1. 공급자 설치 파일 및 등록 키를 폴더(예: C:\ASR)로 다운로드합니다.
+1. 공급자 설치 파일 및 등록 키를 폴더(예: C:\\ASR)로 다운로드합니다.
 2. 다음을 입력하여 공급자 설치 관리자를 추출합니다.
 
 	    C:\Windows\System32> CD C:\ASR
@@ -218,13 +228,13 @@ Windows Server 2012 R2용 Server Core 또는 독립 실행형 Hyper-V Server 201
 	보호 사용 작업이 시작됩니다. **작업** 탭에서 진행률을 추적할 수 있습니다. 보호 완료 작업이 실행된 후에는 가상 컴퓨터가 장애 조치(Failover)를 수행할 준비가 되어 있습니다. 
 3. 보호가 설정된 후 다음을 수행할 수 있습니다.
 
-	- **보호된 항목** > **보호 그룹** > *protectiongroup_name* > **가상 컴퓨터**에서 보호된 가상 컴퓨터를 볼 수 있습니다. **속성** 탭에서 컴퓨터 세부 정보를 자세히 다룰 수 있습니다.
-	- **보호된 항목** > **보호 그룹** > *protectiongroup_name* > **가상 컴퓨터** *virtual_machine_name* > **구성**에서 가상 컴퓨터의 장애 조치 속성을 구성합니다. 다음을 구성할 수 있습니다.
+	- **보호된 항목** > **보호 그룹** > *protectiongroup\_name* > **가상 컴퓨터**에서 보호된 가상 컴퓨터를 볼 수 있습니다. **속성** 탭에서 컴퓨터 세부 정보를 자세히 다룰 수 있습니다.
+	- **보호된 항목** > **보호 그룹** > *protectiongroup\_name* > **가상 컴퓨터** *virtual\_machine\_name* > **구성**에서 가상 컴퓨터의 장애 조치 속성을 구성합니다. 다음을 구성할 수 있습니다.
 		- **이름**: Azure의 가상 컴퓨터 이름입니다.
 		- **크기**: 장애 조치된 가상 컴퓨터의 대상 크기입니다.
 
 		![가상 컴퓨터 속성 구성](./media/site-recovery-hyper-v-site-to-azure/VMProperties.png)
-	- 다음을 포함하여 *보호된 항목** > **보호 그룹** > *protectiongroup_name* > **가상 컴퓨터** *virtual_machine_name* > **구성**에서 추가적인 가상 컴퓨터의 설정을 구성합니다.
+	- 다음을 포함하여 *보호된 항목** > **보호 그룹** > *protectiongroup\_name* > **가상 컴퓨터** *virtual\_machine\_name* > **구성**에서 추가적인 가상 컴퓨터의 설정을 구성합니다.
 
 		- **네트워크 어댑터**: 네트워크 어댑터 수가 대상 가상 컴퓨터에 대해 지정하는 크기에 따라 결정됩니다. 
 			- Large(A3) 및 A6: 2
@@ -296,4 +306,4 @@ Azure 대상 네트워크를 지정하지 않고 Azure로 보호되도록 설정
 
 배포가 설정되고 실행된 후 장애 조치에 대해 [알아봅니다](site-recovery-failover.md).
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

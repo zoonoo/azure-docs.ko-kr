@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Node.js에서 테이블 저장소를 사용하는 방법 | Microsoft Azure";" 
+	pageTitle="Node.js에서 테이블 저장소를 사용하는 방법 | Microsoft Azure&quot;" 
 	description="Azure에서 테이블 저장소 서비스를 사용하는 방법을 알아봅니다. 코드 샘플은 Node.js API를 사용하여 작성되었습니다." 
 	services="storage" 
 	documentationCenter="nodejs" 
@@ -58,7 +58,7 @@ Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편�
 		├── xml2js@0.2.7 (sax@0.5.2)
 		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
 
-3.  **ls** 명령을 수동으로 실행하여 **node_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 저장소에 액세스하는 데 필요한 라이브러리가 들어 있는 **azure-storage** 패키지를 찾습니다.
+3.  **ls** 명령을 수동으로 실행하여 **node\_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 저장소에 액세스하는 데 필요한 라이브러리가 들어 있는 **azure-storage** 패키지를 찾습니다.
 
 ### 패키지 가져오기
 
@@ -68,7 +68,7 @@ Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편�
 
 ## Azure 저장소 연결 설정
 
-Azure 모듈은 AZURE_STORAGE_ACCOUNT 및 AZURE_STORAGE_ACCESS_KEY, 또는 AZURE_STORAGE_CONNECTION_STRING 환경 변수를 읽고 Azure 저장소 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되어 있지 않은 경우 **TableService**를 호출할 때 계정 정보를 지정해야 합니다.
+Azure 모듈은 AZURE\_STORAGE\_ACCOUNT 및 AZURE\_STORAGE\_ACCESS\_KEY, 또는 AZURE\_STORAGE\_CONNECTION\_STRING 환경 변수를 읽고 Azure 저장소 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되어 있지 않은 경우 **TableService**를 호출할 때 계정 정보를 지정해야 합니다.
 
 Azure 웹 사이트의 관리 포털에서 환경 변수를 설정하는 방법에 대한 예는 [Node.js 웹 응용 프로그램 및 저장소]를 참조하세요.
 
@@ -148,7 +148,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 예제 응답:
 
-	{ '.metadata': { etag: 'W/"datetime'2015-02-25T01%3A22%3A22.5Z'"' } }
+	{ '.metadata': { etag: 'W/"datetime\'2015-02-25T01%3A22%3A22.5Z\'"' } }
 
 > [AZURE.NOTE]기본적으로 **insertEntity**는 삽입된 엔터티를 `response`정보의 일부로 반환하지 않습니다. 이 엔터티에서 다른 작업을 수행할 계획이거나 정보를 캐시하고 싶은 경우 `result`의 일부로 반환하면 유용합니다. 다음과 같이 **echoContent**를 사용하도록 설정하면 됩니다.
 >
@@ -319,7 +319,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 테이블에 대한 많은 양의 결과가 쿼리되는 경우 연속 토큰을 찾아야 합니다. 당신이 인식하지 못한 쿼리에 대한 사용 가능한 많은 양의 데이터가 있을 경우 연속토큰의 유무를 인식하지 못하도록 작성하지마세요.
 
-연속 토큰이 있을 경우 쿼리하는 엔터티가 `continuationToken`속성을 설정할 때 결과 개체가 반환됩니다. 그 다음 파티션 및 테이블 엔터티 간에 이동을 계속하기 위해 쿼리를 수행 할 경우 이것을 사용할 수 있습니다.
+연속 토큰이 있을 경우 쿼리하는 엔터티가 `continuationToken` 속성을 설정할 때 결과 개체가 반환됩니다. 그 다음 파티션 및 테이블 엔터티 간에 이동을 계속하기 위해 쿼리를 수행 할 경우 이것을 사용할 수 있습니다.
 
 쿼리할 때, 쿼리개체 인스턴스와 콜백 기능간에 연속토큰 매개 변수가 제공될 수 있습니다.
 
@@ -340,9 +340,9 @@ dc.table.queryEntities(tableName,
     });
 ```
 
-`continuationToken`개체를 조사하면, 모든 결과를 통해 반복할 수 있는 `nextPartitionKey`,`nextRowKey` 그리고 `targetLocation`와 같은 속성을 발견할 수 있습니다.
+`continuationToken` 개체를 조사하면, 모든 결과를 반복하는 데 사용할 수 있는 `nextPartitionKey`, `nextRowKey` 및 `targetLocation`과 같은 속성을 찾을 수 있습니다.
 
-또한 GitHub의 Azure Storage Node.js 리포지토리 내에 연속 샘플이 있으며, `examples/samples/continuationsample.js`을 찾습니다.
+또한 GitHub의 Azure Storage Node.js 리포지토리 내에 연속된 샘플이 있습니다. `examples/samples/continuationsample.js`를 찾아보세요.
 
 ## 공유 액세스 서명 작업 방법
 
@@ -431,8 +431,8 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
 
 이제 테이블 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업을 수행하는 방법을 알아보세요.
 
--   다음 MSDN 참조를 확인하세요. [Azure에 데이터 저장 및 액세스][]
--   [Azure 저장소 팀 블로그][](영문)를 방문하십시오.
+-   다음 MSDN 참조를 확인하세요. [Azure에 데이터 저장 및 액세스][].
+-   [Azure 저장소 팀 블로그][](영문)를 방문하세요.
 -   GitHub에서 [Azure Storage SDK for Node][] 리포지토리를 방문하세요.
 
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
@@ -449,4 +449,4 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   [Create and deploy a Node.js application to an Azure Web Site]: ../web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

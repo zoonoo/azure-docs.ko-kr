@@ -98,4 +98,4 @@ AMQP 1.0은 2008년 이래로 기술 공급업체와 최종 사용자 업체를 
 [0]: ./media/service-bus-amqp-overview/Example1.png
 [서비스 버스 AMQP 개발자 가이드]: http://msdn.microsoft.com/library/jj841071.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

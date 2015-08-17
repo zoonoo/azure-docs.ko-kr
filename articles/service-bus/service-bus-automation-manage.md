@@ -44,4 +44,4 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure 서비
 * [PowerShell을 사용하여 서비스 버스 관리](service-bus-powershell-how-to-provision.md) 문서 참조
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -51,7 +51,7 @@
 2. 요청이 Azure API 관리에서 들어오는지 확인합니다(선택 사항이지만 보안을 위해 상당히 권장됨).
 
 	* **returnUrl** 및 **salt** 쿼리 매개 변수([아래 제공된 예제 코드])에 따라 문자열의 HMAC-SHA512 해시를 계산합니다.
-        > **returnUrl**
+        > HMAC(**salt** + '\\n' + **returnUrl**)
 		 
 	* 위의 계산된 해시와 **sig** 쿼리 매개 변수 값을 비교합니다. 두 해시가 일치하면 다음 단계를 진행하고, 그렇지 않으면 요청을 거부합니다.
 
@@ -107,7 +107,7 @@
 2. 요청이 Azure API 관리에서 들어오는지 확인합니다(선택 사항이지만 보안을 위해 상당히 권장됨).
 
 	* **productId**, **userId** 및 **salt** 쿼리 매개 변수를 기반으로 하여 문자열의 HMAC-SHA512를 다음과 같이 계산합니다.
-		> **productId****userId**
+		> HMAC(**salt** + '\\n' + **productId** + '\\n' + **userId**)
 		 
 	* 위의 계산된 해시와 **sig** 쿼리 매개 변수 값을 비교합니다. 두 해시가 일치하면 다음 단계를 진행하고, 그렇지 않으면 요청을 거부합니다.
 	
@@ -168,4 +168,4 @@
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

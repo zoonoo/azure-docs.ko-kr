@@ -58,4 +58,4 @@
 * [신뢰할 수 있는 서비스에 대한 WCF 기반 통신 스택](service-fabric-reliable-services-communication-wcf.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

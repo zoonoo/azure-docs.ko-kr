@@ -39,4 +39,4 @@ WCF “릴레이” 바인딩 모음을 사용하여 온-프레미스 서비스�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

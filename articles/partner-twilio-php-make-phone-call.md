@@ -63,7 +63,7 @@
 	</html>
 
 ## 코드를 만들어 전화 걸기
-다음 코드는 사용자가 **callform.html**에 의해 표시된 양식을 제출할 때 호출되는 웹 페이지(**makecall.php**)를 빌드하는 방법을 보여줍니다. 아래 표시된 코드는 통화 메시지를 만들고 통화를 생성합니다. (아래 코드에서 **$sid** 및 **$token**에 할당된 자리 표시자 값 대신 Twilio 계정 및 인증 토큰을 사용하십시오.)
+다음 코드는 사용자가 **callform.html**에 의해 표시된 양식을 제출할 때 호출되는 웹 페이지(**makecall.php**)를 빌드하는 방법을 보여 줍니다. 아래 표시된 코드는 통화 메시지를 만들고 통화를 생성합니다. (아래 코드에서 **$sid** 및 **$token**에 할당된 자리 표시자 값 대신 Twilio 계정 및 인증 토큰을 사용하십시오.)
 
     <html>
 	<head><title>Making call...</title></head>
@@ -143,4 +143,4 @@ Twilio에 대한 자세한 내용은 [https://www.twilio.com/docs][twilio_docs](
 [website-webmatrix]: https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-webmatrix/
 [twilio_php_github]: https://github.com/twilio/twilio-php
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -38,13 +38,13 @@
 
 Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다. 하지만 변수가 존재하며 시스템에 대한 올바른 값을 포함하는지 확인해야 합니다.
 
-* **JAVA_HOME** - JRE(Java runtime environment)가 설치된 디렉터리를 가리켜야 합니다. 예를 들어 OS X, Unix 또는 Linux 시스템에서는 `/usr/lib/jvm/java-7-oracle`과 유사한 값이어야 합니다. Windows에서는 `c:\Program Files (x86)\Java\jre1.7`과 유사한 값이어야 합니다.
+* **JAVA\_HOME** - JRE(Java runtime environment)가 설치된 디렉터리를 가리켜야 합니다. 예를 들어 OS X, Unix 또는 Linux 시스템에서는 `/usr/lib/jvm/java-7-oracle`과 유사한 값이어야 합니다. Windows에서는 `c:\Program Files (x86)\Java\jre1.7`과 유사한 값이어야 합니다.
 
 * **PATH** - 다음 경로를 포함해야 합니다.
 
-	* **JAVA_HOME** 또는 그와 동등한 경로
+	* **JAVA\_HOME** 또는 그와 동등한 경로
 
-	* **JAVA_HOME\bin** 또는 그와 동등한 경로
+	* **JAVA\_HOME\\bin** 또는 그와 동등한 경로
 
 	* Maven이 설치된 디렉터리
 
@@ -60,9 +60,9 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 	* __pom.xml__ - [프로젝트 개체 모델(POM)](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)은 프로젝트를 빌드하는 데 사용된 정보 및 구성 세부 정보를 포함합니다.
 
-	* __src__ - __main/java/org/apache/hadoop/examples__ 디렉터리를 포함하는 디렉터리이며 여기서 응용 프로그램을 작성합니다.
+	* __src__ - __main/java/org/apache/hadoop/examples__ 디렉터리를 포함하는 디렉터리이며, 여기서 응용 프로그램을 작성합니다.
 
-3. __src/test/java/org/apache/hadoop/examples/apptest.java__ 파일은 이 예제에서 사용되지 않으므로 삭제합니다.
+3. __src/test/java/org/apache/hadoop/examples/apptest.java__ 파일은 이 예에서 사용되지 않으므로 삭제합니다.
 
 ##종속성 추가
 
@@ -220,7 +220,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 	이 코드는 이전 빌드 아티팩트를 정리하고, 아직 설치되지 않은 모든 종속성을 다운로드한 후 응용 프로그램을 빌드 및 패키지화합니다.
 
-3. 명령이 완료되면 __wordcountjava\target__ 디렉터리에 __wordcountjava-1.0-SNAPSHOT.jar__라는 파일이 포함됩니다.
+3. 명령이 완료되면 __wordcountjava/target__ 디렉터리에 __wordcountjava-1.0-SNAPSHOT.jar__라는 파일이 포함됩니다.
 
 	> [AZURE.NOTE]__wordcountjava-1.0-SNAPSHOT.jar__ 파일은 는 WordCount 작업뿐만 아니라 런타임에 작업에서 필요로 하는 종속성을 포함하는 uberjar입니다.
 
@@ -241,7 +241,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 1. 다음 문서에 설명된 대로 SSH를 사용하여 HDInsight에 연결합니다.
 
-    - [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH를 사용합니다.](hdinsight-hadoop-linux-use-ssh-unix.md)
+    - [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
 
     - [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH를 사용합니다.](hdinsight-hadoop-linux-use-ssh-windows.md)
 
@@ -249,7 +249,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 		hadoop jar wordcountjava.jar org.apache.hadoop.examples.WordCount wasb:///example/data/gutenberg/davinci.txt wasb:///example/data/wordcountout
 
-	이 명령은 WordCount MapReduce 응용 프로그램을 사용하여 davinci.txt 파일에서 단어 수를 계산하고 결과를 __wasb:///example/data/wordcountout__에 저장합니다. 입력 파일과 출력 모두 클러스터의 기본 저장소에 저장됩니다.
+	이 명령은 WordCount MapReduce 응용 프로그램을 사용하여 davinci.txt 파일에서 단어 수를 계산하고 결과를 \_\___wasb:///example/data/wordcountout__에 저장합니다. 입력 파일과 출력 모두 클러스터의 기본 저장소에 저장됩니다.
 
 3. 작업이 완료되면 다음을 사용하여 결과를 확인합니다.
 
@@ -297,4 +297,4 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

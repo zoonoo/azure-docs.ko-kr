@@ -1,4 +1,4 @@
-<properties pageTitle="인덱서 작업(Azure 검색 서비스 REST API: 2014-10-20-Preview)" description="인덱서 작업(Azure 검색 서비스 REST API: 2014-10-20-Preview)" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" />
+<properties title="" pageTitle="인덱서 작업(Azure 검색 서비스 REST API: 2014-10-20-Preview)" description="인덱서 작업(Azure 검색 서비스 REST API: 2014-10-20-Preview)" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" />
 
 <tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/08/2015" ms.author="heidist" />
 
@@ -276,7 +276,7 @@ HTTP PUT 요청을 사용하여 기존 데이터 원본을 업데이트할 수 �
 
 **응답**
 
-상태 코드: 응답에 성공하면 ‘204 콘텐츠 없음'이 반환됩니다.
+상태 코드: 응답에 성공하면 ‘204 콘텐츠 없음’이 반환됩니다.
 
 ## 인덱서 작업
 
@@ -657,4 +657,4 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 </tr>
 </table>
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

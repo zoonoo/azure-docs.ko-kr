@@ -188,4 +188,4 @@ UI의 세그먼트 섹션에서는 응용 프로그램에서 확인할 수 있�
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

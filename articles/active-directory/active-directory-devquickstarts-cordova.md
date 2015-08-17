@@ -65,8 +65,8 @@ Azure AD 테넌트가 없는 경우 [여기에서 가져오는 방법에 대한 
 	-   [ios sim](https://www.npmjs.org/package/ios-sim) – 명령줄에서 iOS 시뮬레이터로 iOS 앱을 시작할 수 있습니다(`npm install -g ios-sim` 터미널을 통해 쉽게 설치 가능).
 
 - Android용 응용 프로그램을 빌드하고 실행하려면
-	- [JDK(Java Development Kit) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 이상을 설치합니다. JDK 설치 경로(예: C:\Program Files\Java\jdk1.7.0_75)에 따라 `JAVA_HOME`(환경 변수)이 올바르게 설정되어 있는지 확인합니다.
-	- [Android SDK](http://developer.android.com/sdk/installing/index.html?pkg=tools)를 설치하고 `<android-sdk-location>\tools` 위치(예: C:\tools\Android\android-sdk\tools)를 `PATH` 환경 변수에 추가합니다.
+	- [JDK(Java Development Kit) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 이상을 설치합니다. JDK 설치 경로(예: C:\\Program Files\\Java\\jdk1.7.0\_75)에 따라 `JAVA_HOME`(환경 변수)이 올바르게 설정되어 있는지 확인합니다.
+	- [Android SDK](http://developer.android.com/sdk/installing/index.html?pkg=tools)를 설치하고 `<android-sdk-location>\tools` 위치(예: C:\\tools\\Android\\android-sdk\\tools)를 `PATH` 환경 변수에 추가합니다.
 	- Android SDK Manager를 열고(예를 들어 `android` 터미널을 통해) 설치합니다.
     - *Android 5.0.1(API 21)* 플랫폼 SDK
     - *Android SDK Build-tools* 버전 19.1.0 이상
@@ -257,4 +257,4 @@ Graph API를 호출하는 데 필요한 허용 목록 플러그 인을 추가합
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

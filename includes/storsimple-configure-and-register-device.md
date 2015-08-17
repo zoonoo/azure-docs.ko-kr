@@ -1,3 +1,6 @@
+
+
+
 #### 장치를 구성 및 등록하려면
 
 1. StorSimple 장치 직렬 콘솔에서 Windows PowerShell 인터페이스에 액세스합니다. 지침은 [장치 직렬 콘솔 연결에 PuTTY 사용](#use-putty-to-connect-to-the-device-serial-console)을 참조하세요. **과정을 정확하게 따르지 않으면 콘솔에 액세스할 수 없습니다.**
@@ -61,4 +64,4 @@
   
       >[AZURE.NOTE]장치 상태가 **오프라인**이면 장치가 온라인 상태가 될 때까지 몇 분 정도 기다립니다.
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

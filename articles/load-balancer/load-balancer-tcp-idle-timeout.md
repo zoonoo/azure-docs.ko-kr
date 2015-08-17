@@ -166,4 +166,4 @@ Azure SDK for .NET 2.4를 사용하여 클라우드 서비스를 업데이트할
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="storage-backup-recovery" 
-   ms.date="07/15/2015"
+   ms.date="07/24/2015"
    ms.author="elfish; v-romcal"/>
 
 # Azure 포털에서 삭제된 Azure SQL 데이터베이스 복원
@@ -73,4 +73,4 @@
 
 [Azure SQL 데이터베이스 백업 및 복원](http://msdn.microsoft.com/library/azure/jj650016.aspx)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

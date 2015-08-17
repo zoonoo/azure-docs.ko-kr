@@ -39,24 +39,10 @@ BizTalk JSON 인코더를 사용하려면 먼저 BizTalk JSON 인코더 API 앱�
 
 	![인코딩 및 송신 구성][6]
 
-<table>
-	<tr>
-		<th>매개 변수</th>
-		<th>형식</th>
-		<th>매개 변수에 대한 설명</th>
-	</tr>
-	<tr>
-		<td>Input Xml</td>
-		<td>object</td>
-		<td>입력 Xml 내용</td>
-	</tr>
-	<tr>
-		<td>외부 봉투 제거</td>
-		<td>string</td>
-		<td>Xml 콘텐츠에서 루트 노드를 제거하도록 플래그 설정</td>
-	</tr>
-</table>
-
+매개 변수|형식|매개 변수에 대한 설명
+---|---|---
+Input Xml|object|입력 Xml 내용
+외부 봉투 제거|string|Xml 콘텐츠에서 루트 노드를 제거하도록 플래그 설정
 
 이 작업은 입력 콘텐츠의 JSON 표현을 반환합니다.
 
@@ -76,4 +62,4 @@ BizTalk JSON 인코더를 사용하려면 먼저 BizTalk JSON 인코더 API 앱�
 <!--Links -->
 [논리 앱 만들기]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

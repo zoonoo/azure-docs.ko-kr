@@ -48,4 +48,4 @@ Azure Active Directory 연결 동기화 서비스 (Azure AD Connect Sync)는 클
  
 <!--Image references-->
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -249,4 +249,4 @@ Windows PowerShell 워크플로의 한 가지 장점은 일반적인 스크립�
 
 - [Windows PowerShell 워크플로 시작](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

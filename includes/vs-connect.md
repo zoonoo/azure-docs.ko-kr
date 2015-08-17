@@ -13,4 +13,4 @@
 
 	자세한 내용은 [Visual Studio에서 Azure에 연결하는 방법](http://go.microsoft.com/fwlink/?LinkId=324796)을 참조하십시오.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

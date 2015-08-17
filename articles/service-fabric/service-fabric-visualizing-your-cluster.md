@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/20/2015"
+   ms.date="08/05/2015"
    ms.author="jesseb"/>
 
 # 서비스 패브릭 탐색기를 사용하여 클러스터 시각화
@@ -26,7 +26,7 @@
 
 [서비스 패브릭 개발 환경 설정](service-fabric-get-started.md)에 있는 지침을 따라 로컬 개발 환경이 설정되었는지 확인합니다.
 
-로컬 설치 경로(%Program Files%\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe)에서 서비스 패브릭 탐색기를 실행합니다. 도구가 있는 경우에는 자동으로 로컬 개발 클러스터에 연결합니다. 클러스터에 정보를 다음과 같이 표시합니다.
+로컬 설치 경로(%Program Files%\\Microsoft SDKs\\Service Fabric\\Tools\\ServiceFabricExplorer\\ServiceFabricExplorer.exe)에서 서비스 패브릭 탐색기를 실행합니다. 도구가 있는 경우에는 자동으로 로컬 개발 클러스터에 연결합니다. 클러스터에 정보를 다음과 같이 표시합니다.
 
 - 클러스터에서 실행 중인 응용 프로그램
 - 클러스터의 노드에 대한 정보
@@ -74,6 +74,5 @@
 [connecttocluster]: ./media/service-fabric-visualizing-your-cluster/connecttocluster.png
 [replicadetails]: ./media/service-fabric-visualizing-your-cluster/replicadetails.png
 [servicefabricexplorer]: ./media/service-fabric-visualizing-your-cluster/servicefabricexplorer.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

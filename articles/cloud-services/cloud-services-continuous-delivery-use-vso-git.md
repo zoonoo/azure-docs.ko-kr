@@ -258,4 +258,4 @@ Git을 사용할 경우 보통 작업 분기에서 변경한 다음 개발이 �
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
  
 
-<!----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

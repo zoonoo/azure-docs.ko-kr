@@ -218,17 +218,17 @@ PowerShell 스크립트에서 모든 Blob의 Cache-Control 헤더를 설정하�
 <a name="query"></a>
 ## 쿼리 문자열을 사용하여 최신 콘텐츠 즉시 제공 ##
 
-Azure CDN에서 쿼리 문자열을 사용하도록 설정하여 특정 쿼리 문자열이 포함된 URL의 콘텐츠가 별도로 캐시되도록 할 수 있습니다. 이는 캐시된 CDN 콘텐츠가 만료될 때까지 기다리지 않고 클라이언트 브라우저로 특정 콘텐츠 업데이트를 즉시 푸시하려는 경우 매우 유용한 기능입니다. URL에 버전 번호가 포함된 웹 페이지를 게시한다고 가정합니다. <pre class="prettyprint"> &lt;link href=&quot;http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=3.0.0</mark>&quot; rel=&quot;stylesheet&quot;/&gt; </pre>
+Azure CDN에서 쿼리 문자열을 사용하도록 설정하여 특정 쿼리 문자열이 포함된 URL의 콘텐츠가 별도로 캐시되도록 할 수 있습니다. 이는 캐시된 CDN 콘텐츠가 만료될 때까지 기다리지 않고 클라이언트 브라우저로 특정 콘텐츠 업데이트를 즉시 푸시하려는 경우 매우 유용한 기능입니다. URL에 버전 번호가 포함된 웹 페이지를 게시한다고 가정합니다. <pre class="prettyprint"> &lt;link href=&quot;http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=3.0.0&quot; rel=&quot;stylesheet&quot;/&gt; </pre>
 
-CSS 업데이트를 게시할 경우 다음과 같이 CSS URL에 다른 버전 번호를 사용합니다. <pre class="prettyprint"> &lt;link href=&quot;http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=3.1.1</mark>&quot; rel=&quot;stylesheet&quot;/&gt; </pre>
+CSS 업데이트를 게시할 경우 다음과 같이 CSS URL에 다른 버전 번호를 사용합니다. <pre class="prettyprint"> &lt;link href=&quot;http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=3.1.1&quot; rel=&quot;stylesheet&quot;/&gt; </pre>
 
 쿼리 문자열을 사용하도록 설정한 CDN 끝점에 대해 두 URL은 서로 고유하므로 새로운 *bootstrap.css*를 검색하도록 웹 서버에 새로운 요청을 제출하는 것입니다. 그러나 쿼리 문자열을 사용하지 않도록 설정한 CDN 끝점에 대해서는 URL이 동일하므로 단순히 캐시된 *bootstrap.css*가 제공됩니다.
 
-즉, 버전 번호를 자동으로 업데이트하는 것이 중요합니다. Visual Studio에서는 이것이 쉽습니다. 위의 링크를 사용할 .cshtml 파일에서는 어셈블리 번호를 기반으로 버전 번호를 지정할 수 있습니다. <pre class="prettyprint"> @{ <mark>var cdnVersion = System.Reflection.Assembly.GetAssembly( typeof(MyMvcApp.Controllers.HomeController)) .GetName().Version.ToString();</mark> }
+즉, 버전 번호를 자동으로 업데이트하는 것이 중요합니다. Visual Studio에서는 이것이 쉽습니다. 위의 링크를 사용할 .cshtml 파일에서는 어셈블리 번호를 기반으로 버전 번호를 지정할 수 있습니다. <pre class="prettyprint"> @{ var cdnVersion = System.Reflection.Assembly.GetAssembly( typeof(MyMvcApp.Controllers.HomeController)) .GetName().Version.ToString(); }
 
 ...
 
-&lt;link href=&quot;http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css<mark>?v=@cdnVersion</mark>&quot; rel=&quot;stylesheet&quot;/&gt; </pre>
+&lt;link href=&quot;http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=@cdnVersion&quot; rel=&quot;stylesheet&quot;/&gt; </pre>
 
 모든 게시 주기의 일부로 어셈블리 번호를 변경하면 마찬가지로 웹앱을 게시할 때마다 고유한 버전 번호를 가져올 수 있으며 다음 게시 주기 때까지 동일한 번호가 유지됩니다. 또는 Visual Studio 프로젝트의 * Properties\\AssemblyInfo.cs*를 열고 `AssemblyVersion`에 `*`을(를) 사용하여 웹앱을 빌드할 때마다 Visual Studio가 어셈블리 버전 번호를 자동으로 증분하도록 설정할 수 있습니다. 예:
 
@@ -261,4 +261,4 @@ Azure 앱 서비스 웹앱 또는 Azure 클라우드 서비스와 통합하지 �
 - [Azure에 CDN 사용](cdn-how-to-use-cdn.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

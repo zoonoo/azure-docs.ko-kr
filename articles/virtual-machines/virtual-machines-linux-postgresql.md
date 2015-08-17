@@ -93,7 +93,7 @@ putty를 통해 생성한 Linux VM에 연결합니다. 처음으로 Azure Linux 
     >[Azure.NOTE]보안상의 이유로, PostgreSQL은 루트가 아닌 사용자를 사용하여 데이터베이스를 초기화, 시작 또는 종료합니다.
 
 
-4. 아래 명령을 입력하여 *bash_profile*을 편집합니다. *bash_profile* 파일 끝에 다음 줄이 추가됩니다.
+4. 아래 명령을 입력하여 *bash\_profile*을 편집합니다. *bash\_profile* 파일 끝에 다음 줄이 추가됩니다.
 
 		cat >> ~/.bash_profile <<EOF
 		export PGPORT=1999
@@ -108,7 +108,7 @@ putty를 통해 생성한 Linux VM에 연결합니다. 처음으로 Azure Linux 
 		alias ll='ls -lh'
 		EOF
 
-5. *bash_profile* 파일을 실행합니다.
+5. *bash\_profile* 파일을 실행합니다.
 
 		$ source .bash_profile
 
@@ -142,7 +142,7 @@ putty를 통해 생성한 Linux VM에 연결합니다. 처음으로 Azure Linux 
 
 	# cp linux /etc/init.d/postgresql
 
-/Etc/init.d/postgresql 파일에서 두 변수를 수정합니다. Thhe 접두사가 PostgreSQL의 설치 경로인 **/opt/pgsql**로 설정됩니다. PGDATA가 PostgreSQL의 데이터 저장소 경로인 **/opt/pgsql_data**로 설정됩니다.
+/Etc/init.d/postgresql 파일에서 두 변수를 수정합니다. Thhe 접두사가 PostgreSQL의 설치 경로인 **/opt/pgsql**로 설정됩니다. PGDATA가 PostgreSQL의 데이터 저장소 경로인 **/opt/pgsql\_data**로 설정됩니다.
 
 	# sed -i '32s#usr/local#opt#' /etc/init.d/postgresql
 
@@ -251,4 +251,4 @@ Postgres 데이터베이스를 만듭니다.
 ##PostgreSQL에 관한 추가 내용
 지금 바로 Microsoft Azure Linux VM에서 PostgreSQL 설치를 완료하고 Microsoft Azure에서 사용해 보세요. PostgreSQL에 관한 추가 내용은 [여기](http://www.postgresql.org/)를 참조하세요.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

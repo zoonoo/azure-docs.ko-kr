@@ -12,7 +12,7 @@
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="07/07/2015"
 	ms.author="rkarlin"/>
 
@@ -61,4 +61,4 @@ Azure AD 기본 또는 프리미엄 구독이 있고 자신이 전역 관리자�
 * [조직으로 Azure 등록](../sign-up-organization.md)
 * [Azure ID](../fundamentals-identity.md)
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

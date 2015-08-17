@@ -85,4 +85,4 @@ Azure 미디어 서비스에서 **Channel**, **Program**, and **StreamingEndpoin
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

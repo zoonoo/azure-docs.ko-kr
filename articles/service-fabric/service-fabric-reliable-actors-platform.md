@@ -1,6 +1,6 @@
 <properties
-   pageTitle="패브릭 행위자가 서비스 패브릭 플랫폼을 사용하는 방법"
-   description="이 문서에서는 패브릭 행위자가 서비스 패브릭 플랫폼의 기능을 사용하는 방법을 설명합니다. 행위자 개발자의 관점에서 서비스 패브릭 플랫폼 개념을 설명합니다."
+   pageTitle="신뢰할 수 있는 행위자가 서비스 패브릭 플랫폼을 사용하는 방법"
+   description="이 문서에서는 신뢰할 수 있는 행위자가 서비스 패브릭 플랫폼의 기능을 사용하는 방법을 설명합니다. 행위자 개발자의 관점에서 서비스 패브릭 플랫폼 개념을 설명합니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/21/2015"
+   ms.date="08/05/2015"
    ms.author="abhisram"/>
 
-# 패브릭 행위자가 서비스 패브릭 플랫폼을 사용하는 방법
+# 신뢰할 수 있는 행위자가 서비스 패브릭 플랫폼을 사용하는 방법
 
 ## 행위자를 위한 서비스 패브릭 응용 프로그램 모델 개념
 행위자는 서비스 패브릭 응용 프로그램 모델을 사용하여 응용 프로그램 수명 주기를 관리합니다. 모든 행위자 형식이 서비스 패브릭 [서비스 유형](service-fabric-application-model.md#describe-a-service)에 매핑됩니다. 행위자 코드는 서비스 패브릭 응용 프로그램으로 [패키지](service-fabric-application-model.md#package-an-application)되며 클러스터에 [배포](service-fabric-deploy-remove-applications.md#deploy-an-application)됩니다.
@@ -242,4 +242,4 @@ public class VoicemailBoxActor : Actor<VoicemailBox>, IVoicemailBoxActor
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

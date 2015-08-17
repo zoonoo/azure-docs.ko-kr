@@ -6,8 +6,7 @@
    authors="dvana"
    manager="mblythe"
    editor=""
-   tags=""/>
- <tags
+   tags=""/> <tags
    ms.service="data-catalog"
    ms.devlang="NA"
    ms.topic="article"
@@ -163,18 +162,18 @@ Azure 데이터 카탈로그는 두 가지 권한 부여 메커니즘을 사용�
 
 ## REST API
 
-**PUT**및**POST**보기 항목은 역할 및 권한을 제어하는 데 사용할 수 있습니다.또한 두 시스템 속성을 페이로드하는 항목은 **__역할 \* \* 및 **__권한을 \* \*.지정할 수 있습니다.
+**PUT** 및 **POST** 보기 항목 요청은 역할 및 권한을 제어하는 데 사용할 수 있습니다. 항목 페이로드 외에도 두 시스템 속성인 **\_\_roles** 및 **\_\_permissions**를 지정할 수 있습니다.
 
 > [AZURE.NOTE]
 >
-> **__사용 권한 \* \* 루트 항목에만 적용됩니다.
+> **__**\_\_permissions**는 루트 항목에만 적용됩니다.
 >
-> **소유자**역할은 루트 항목에만 적용됩니다.
+> **소유자** 역할은 루트 항목에만 적용됩니다.
 >
-> 기본적으로 카탈로그에서 항목을 만들 때 해당**참여자**는 현재 인증된 사용자로 설정합니다. 모든 사용자가 항목을 업데이트 할 수 있어야 하는 경우, 항목을 첫 번째 게시할 때 **참여자**는 **__역할 \* \* 속성의 <Everyone>특수 보안 주체로 설정해야 합니다 (아래 예제 참조). **참여자**는 변경할 수 없으며 항목의 수명 동안 동일하게 유지됩니다 (즉, **관리자** 또는 **소유자**가 **참여자**)를 변경할 수 있는 권한이 없는 경우에도 해당). **참여자**의 명시적 설정에 대해 지원 되는 유일한 값. <Everyone> 즉, **참여자**는 항목을 만들거나 <Everyone>. 한 사용자만 될 수 있습니다.
+> 기본적으로 카탈로그에서 항목을 만들면 **참여자**는 현재 인증된 사용자로 설정됩니다. 항목을 누구나 업데이트할 수 있어야 한다면 항목을 처음 게시할 때 **\_\_roles** 속성에서 **참여자**를 <Everyone> 특수 보안 주체로 설정해야 합니다. 아래 예를 참조하세요. **참여자**는 변경할 수 없으며 항목의 수명 동안 동일하게 유지됩니다. 예를 들어 **관리자**나 **소유자**도 **참여자**를 변경할 수 있는 권한은 없습니다. **참여자**의 명시적 설정에 지원되는 유일한 값은 <Everyone>입니다. 예를 들어 **참여자**는 항목을 만든 사용자나 <Everyone>으로만 설정할 수 있습니다.
 
 ###예
-<Everyone>항목을 게시 하는 경우에 대한 **참가자 설정.** 특수 보안 주체에는 <Everyone>objectId "00000000-0000-0000-0000-000000000201"가 있습니다. **POST**https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/?api-version=2015-07.1.0-Preview**Body**
+**항목을 게시할 때 참여자를 <Everyone>으로 설정합니다.** 특수 보안 주체에는 <Everyone>의 objectId는 "00000000-0000-0000-0000-000000000201"입니다. **POST** https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/?api-version=2015-07.1.0-Preview **Body**
 
 	{
 	    "__roles": [
@@ -190,7 +189,7 @@ Azure 데이터 카탈로그는 두 가지 권한 부여 메커니즘을 사용�
 	    … other table properties
 	}
 
-**기존 루트 항목 **PUT**https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/042297b0...1be45ecd462a?api-version=2015-07.1.0-Preview에 대해 소유자를 할당하고 표시를 제한**
+**소유자를 할당하고 기존 루트 항목에 대한 표시를 제한** **PUT** https://123154bb...6aad6370ee14.datacatalog.azure.com/default/views/tables/042297b0...1be45ecd462a?api-version=2015-07.1.0-Preview
 
 	{
 	    "__roles": [
@@ -234,9 +233,9 @@ Azure 데이터 카탈로그는 두 가지 권한 부여 메커니즘을 사용�
 	    ]
 	}
 
-> [AZURE.NOTE]PUT에서 본문에는 항목 페이로드 지정은 필수 사항이 아닙니다.PUT은 역할 및/또는 사용 권한을 업데이트 하는 데에만 사용할 수 있습니다.
+> [AZURE.NOTE]PUT에서 본문에는 항목 페이로드 지정은 필수 사항이 아닙니다. PUT은 역할 및/또는 사용 권한을 업데이트 하는 데에만 사용할 수 있습니다.
 
 <!--Image references-->
 [1]: ./media/data-catalog-developer-concepts/concept.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

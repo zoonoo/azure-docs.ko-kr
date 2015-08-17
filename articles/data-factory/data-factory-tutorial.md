@@ -31,7 +31,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 3.	컴퓨터에 [Azure PowerShell][download-azure-powershell]을 다운로드하고 설치해야 합니다. 데이터 팩터리 cmdlet을 실행하여 샘플 데이터 및 pig/hive 스크립트를 Blob 저장소로 업로드합니다. 
 2.	**(권장)** [Azure 데이터 팩터리 시작][adfgetstarted] 문서의 간단한 자습서를 검토하고 연습하여 포털 및 cmdlet을 익힙니다.
 3.	**(권장)** [Azure 데이터 팩터리에서 Pig 및 Hive 사용][usepigandhive] 문서의 연습을 검토하고 실습하여 온-프레미스에서 Azure Blob 저장소로 데이터를 복사하는 파이프라인을 만들어 봅니다.
-4.	[ADFWalkthrough][adfwalkthrough-download] 파일을 **C:\ADFWalkthrough** 폴더로 다운로드합니다. 이때 다음과 같이 **폴더 구조를 유지**합니다.
+4.	[ADFWalkthrough][adfwalkthrough-download] 파일을 **C:\\ADFWalkthrough** 폴더로 다운로드합니다. 이때 다음과 같이 **폴더 구조를 유지**합니다.
 	- **Pipelines:** 파이프라인 정의가 포함된 JSON 파일을 포함합니다.
 	- **Tables:** 테이블 정의가 포함된 JSON 파일을 포함합니다.
 	- **LinkedServices:** 저장소 및 계산(HDInsight) 클러스터에 대한 정의가 포함된 JSON 파일을 포함합니다. 
@@ -106,7 +106,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 
 테이블, 사용자 정의 형식 및 저장 프로시저는 Azure Blob 저장소에서 Azure SQL 데이터베이스로 마케팅 캠페인 효과 결과를 이동할 때 사용됩니다.
 
-1. 즐겨 사용하는 편집기에서 **uploadSampleDataAndScripts.ps1** 파일을 **C:\ADFWalkthrough** 폴더(또는 압축을 푼 파일이 포함된 폴더)에서 열고 강조 표시된 내용을 클러스터 정보로 바꾼 다음 파일을 저장합니다.
+1. 즐겨 사용하는 편집기에서 **uploadSampleDataAndScripts.ps1** 파일을 **C:\\ADFWalkthrough** 폴더(또는 압축을 푼 파일이 포함된 폴더)에서 열고 강조 표시된 내용을 클러스터 정보로 바꾼 다음 파일을 저장합니다.
 
 
 		$storageAccount = <storage account name>
@@ -118,10 +118,10 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
  
 	이 스크립트를 사용하려면 컴퓨터에 sqlcmd 유틸리티가 설치되어 있어야 합니다. SQL Server를 설치한 경우에는 이 유틸리티가 이미 설치되어 있습니다. 그렇지 않은 경우 유틸리티를 [다운로드][sqlcmd-install]하고 설치합니다.
 	
-	또는 C:\ADFWalkthrough\Scripts 폴더의 파일을 사용하여 pig/hive 스크립트 및 샘플 파일을 blob 저장소의 adfwalkthrough 컨테이너로 업로드하고 MarketingCamapaigns Azure SQL 데이터베이스에 MarketingCampaignEffectiveness 테이블을 만들 수 있습니다.
+	또는 C:\\ADFWalkthrough\\Scripts 폴더의 파일을 사용하여 pig/hive 스크립트 및 샘플 파일을 blob 저장소의 adfwalkthrough 컨테이너로 업로드하고 MarketingCamapaigns Azure SQL 데이터베이스에 MarketingCampaignEffectiveness 테이블을 만들 수 있습니다.
    
-2. 로컬 컴퓨터가 Azure SQL 데이터베이스에 액세스할 수 있는지 확인합니다. 액세스할 수 있게 하려면 **Azure 관리 포털**이나 master 데이터베이스의 **sp_set_firewall_rule**을 사용하여 컴퓨터의 IP 주소에 대한 방화벽 규칙을 만듭니다. 이 변경 내용이 적용되려면 최대 5분까지 걸릴 수 있습니다. [Azure SQL에 대한 방화벽 규칙 설정][azure-sql-firewall]을 참조하세요.
-4. Azure PowerShell에서 샘플의 압축을 푼 위치(**C:\ADFWalkthrough**)로 이동합니다.
+2. 로컬 컴퓨터가 Azure SQL 데이터베이스에 액세스할 수 있는지 확인합니다. 액세스할 수 있게 하려면 **Azure 관리 포털**이나 master 데이터베이스의 **sp\_set\_firewall\_rule**을 사용하여 컴퓨터의 IP 주소에 대한 방화벽 규칙을 만듭니다. 이 변경 내용이 적용되려면 최대 5분까지 걸릴 수 있습니다. [Azure SQL에 대한 방화벽 규칙 설정][azure-sql-firewall]을 참조하세요.
+4. Azure PowerShell에서 샘플의 압축을 푼 위치(**C:\\ADFWalkthrough**)로 이동합니다.
 5. **uploadSampleDataAndScripts.ps1** 실행 
 6. 스크립트가 성공적으로 실행되면 다음이 표시됩니다.
 
@@ -227,7 +227,8 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 
 ### AzureSqlLinkedService 만들기
 1. **데이터 팩터리 편집기**의 도구 모음에서 **새 데이터 저장소** 단추를 클릭하고 드롭다운 메뉴에서 **Azure SQL 데이터베이스**를 선택합니다. 오른쪽 창에 Azure SQL 연결된 서비스를 만들기 위한 JSON 템플릿이 표시됩니다.
-2. **servername**, **username@servername** 및 **password**를 Azure SQL Server, 사용자 계정의 이름 및 암호로 바꿉니다. 3. **databasename**을 **MarketingCampaigns**로 바꿉니다. 이 Azure SQL 데이터베이스는 1단계에서 실행한 스크립트에 의해 생성되었습니다. 이 데이터베이스가 스크립트에 의해 실제로 생성되었는지 확인해야 합니다(오류가 발생한 경우). 
+2. **servername**, ****username@servername** 및 **password**를 Azure SQL Server의 이름, 사용자 계정 및 암호로 바꿉니다.
+3. **databasename**을 **MarketingCampaigns**로 바꿉니다. 이 Azure SQL 데이터베이스는 1단계에서 실행한 스크립트에 의해 생성되었습니다. 이 데이터베이스가 스크립트에 의해 실제로 생성되었는지 확인해야 합니다(오류가 발생한 경우). 
 3. 도구 모음에서 **배포**를 클릭하여 AzureSqlLinkedService를 만들고 배포합니다.
 
 ### HDInsightLinkedService 만들기
@@ -292,7 +293,7 @@ Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지�
 ### 테이블을 만들려면
 	
 1. 데이터 팩터리에 대한 **편집기**의 도구 모음에서 **새 데이터 집합** 단추를 클릭하고 드롭다운 메뉴에서 **Azure Blob 저장소**를 클릭합니다. 
-2. 오른쪽 창의 JSON을 **C:\ADFWalkthrough\Tables** 폴더의 **RawGameEventsTable.json** 파일에 있는 JSON 스크립트로 바꿉니다.
+2. 오른쪽 창의 JSON을 **C:\\ADFWalkthrough\\Tables** 폴더의 **RawGameEventsTable.json** 파일에 있는 JSON 스크립트로 바꿉니다.
 3. 도구 모음에서 **배포**를 클릭하여 테이블을 만들고 배포합니다. 편집기의 제목 표시줄에 **테이블이 성공적으로 생성됨** 메시지가 표시되는지 확인합니다.
 4. 다음 파일의 내용으로 1-3단계를 반복합니다. 
 	1. PartitionedGameEventsTable.json
@@ -314,7 +315,7 @@ Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지�
 ### 파이프라인을 만들려면
 
 1. **데이터 팩터리 편집기**의 도구 모음에서 **새 파이프라인** 단추를 클릭합니다. 단추가 표시되지 않는 경우 도구 모음에서 **... (줄임표)**을 클릭합니다. 또는 트리 뷰에서 **파이프라인**을 마우스 오른쪽 단추로 클릭하고 **새 파이프라인**을 클릭할 수 있습니다.
-2. 오른쪽 창의 JSON을 **C:\ADFWalkthrough\Pipelines** 폴더의 **PartitionGameLogsPipeline.json** 파일에 있는 JSON 스크립트로 바꿉니다.
+2. 오른쪽 창의 JSON을 **C:\\ADFWalkthrough\\Pipelines** 폴더의 **PartitionGameLogsPipeline.json** 파일에 있는 JSON 스크립트로 바꿉니다.
 3. JSON의 **닫는 대괄호 (']')** 끝에 **쉼표 (',')**를 추가한 다음 닫는 대괄호 후 다음 세 줄을 추가합니다. 
 
         "start": "2014-05-01T00:00:00Z",
@@ -327,7 +328,8 @@ Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지�
 4. 다음 파일의 내용으로 1-3단계를 반복합니다. 
 	1. EnrichGameLogsPipeline.json
 	2. AnalyzeMarketingCampaignPipeline.json
-4. **X**(오른쪽 위)를 눌러 데이터 팩터리 블레이드를 닫으면 데이터 팩터리의 홈페이지(**데이터 팩터리 **블레이드)가 표시됩니다. 
+4. **X**(오른쪽 위)를 눌러 데이터 팩터리 블레이드를 닫으면 데이터 팩터리의 홈 페이지(**DATA FACTORY** 블레이드)가 표시됩니다.
+
 ### 다이어그램 뷰
 
 1. **LogProcessingFactory**의 **데이터 팩터리** 블레이드에서 **다이어그램**을 클릭합니다. 
@@ -392,7 +394,7 @@ Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지�
 
 	![RawGameEventsTable 데이터 조각 블레이드][image-data-factory-monitoring-raw-game-events-table-dataslice-blade]
 
-	오류가 발생한 경우 여기에 **Failed** 상태가 표시됩니다. 두 조각의 상태가 모두 **Ready**이거나 **PendingValidation**일 수 있으며, 이는 조각이 얼마나 빨리 처리되는지에 따라 다릅니다.
+	오류가 발생한 경우 여기에 **Failed ** 상태가 표시됩니다. 두 조각의 상태가 모두 **Ready**이거나 **PendingValidation**일 수 있으며, 이는 조각이 얼마나 빨리 처리되는지에 따라 다릅니다.
 
 	조각이 **Ready** 상태가 아닌 경우 **Upstream slices that are not ready(준비되지 않은 업스트림 조각)** 목록에서 Ready 상태가 아니고 현재 조각의 실행을 차단하는 업스트림 조각을 확인할 수 있습니다.
  
@@ -525,4 +527,4 @@ Azure Blob에서 온-프레미스 SQL Server로 마케팅 캠페인 효과 데�
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

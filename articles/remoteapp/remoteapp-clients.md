@@ -2,7 +2,7 @@
 <properties
     pageTitle="앱 액세스"
     description="Azure RemoteApp에 지원되는 클라이언트 및 앱에 액세스하는 방법을 알아봅니다."
-    services="remoteapp" 
+    services="remoteapp"
 	documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
@@ -207,4 +207,4 @@ Windows Phone 8.1 스토어에서 Microsoft 원격 데스크톱 앱을 설치하
 	![Azure RemoteApp에 대한 데모 피드](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

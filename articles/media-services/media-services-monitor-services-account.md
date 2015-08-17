@@ -34,7 +34,7 @@ Azure 미디어 서비스 대시보드는 사용량 메트릭 및 미디어 서�
 
 1. [관리 포털](http://go.microsoft.com/fwlink/?LinkID=256666)에서 **미디어 서비스**를 클릭한 후 대시보드를 열 미디어 서비스 계정 이름을 클릭합니다. 
 
-	![MediaServices_Dashboard][dashboard]
+	![MediaServices\_Dashboard][dashboard]
 
 2. 인코딩 작업 또는 데이터를 모니터링하려면 인코딩 작업을 미디어 서비스에 제출하기 시작하거나 Azure 미디어 주문형 스트리밍을 사용하여 고객에게 콘텐츠를 스트리밍하기 시작하면 됩니다. 약 1시간 후에 대시보드에 모니터링 데이터가 표시되기 시작합니다.
 
@@ -67,4 +67,4 @@ Azure 미디어 서비스 대시보드는 사용량 메트릭 및 미디어 서�
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

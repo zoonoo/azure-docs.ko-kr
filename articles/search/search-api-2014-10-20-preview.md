@@ -1,4 +1,4 @@
-<properties pageTitle="Azure 검색 서비스 REST API 버전 2014-10-20-Preview" description="Azure 검색 서비스 REST API 버전 2014-10-20-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor="" />
+<properties pageTitle="Azure 검색 서비스 REST API 버전 2014-10-20-Preview" description="Azure 검색 서비스 REST API 버전 2014-10-20-Preview" services="search"  documentationCenter="" authors="HeidiSteen" manager="mblythe" editor="" />
 
 <tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/22/2015" ms.author="heidist" />
 
@@ -1455,4 +1455,4 @@ OData 구문을 사용하여 '3' 키가 있는 문서 조회
 
     GET /indexes/hotels/docs/suggest?search=lux&$top=5&suggesterName=sg&api-version=2014-10-20-Preview
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

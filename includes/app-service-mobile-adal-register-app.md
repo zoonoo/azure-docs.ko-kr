@@ -27,4 +27,4 @@
 [Active Directory]: https://manage.windowsazure.com/
 [Azure Active Directory로 모바일 앱을 구성하는 방법]: ../articles/app-service-how-to-configure-active-directory-authentication-preview.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -35,11 +35,11 @@ AMQP(Advanced Message Queuing Protocol) 1.0은 강력한 크로스 플랫폼 메
 
 ## AMQP 1.0 JMS 클라이언트 라이브러리 다운로드
 
-최신 버전의 Apache Qpid JMS AMQP 1.0 클라이언트 라이브러리를 다운로드할 위치에 대한 자세한 내용은 [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html)을 참조하십시오.
+최신 버전의 Apache Qpid JMS AMQP 1.0 클라이언트 라이브러리를 다운로드할 위치에 대한 자세한 내용은 [http://people.apache.org/\~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html)을 참조하십시오.
 
 서비스 버스를 사용하여 JMS 응용 프로그램을 빌드 및 실행할 때 Apache Qpid JMS AMQP 1.0 배포 보관에 포함된 다음 JAR 파일 4개를 Java CLASSPATH에 추가해야 합니다.
 
-*    geronimo-jms_1.1_spec-1.0.jar
+*    geronimo-jms\_1.1\_spec-1.0.jar
 *    qpid-amqp-1-0-client-[version].jar
 *    qpid-amqp-1-0-client-jms-[version].jar
 *    qpid-amqp-1-0-common-[version].jar
@@ -71,9 +71,9 @@ Qpid 속성 파일 JNDI 공급자에서 **ConnectionFactory**를 정의하는 �
 connectionfactory.[jndi_name] = [ConnectionURL]
 ```
 
-여기서 **[jndi_name]** 및 **[ConnectionURL]**의 의미는 다음과 같습니다.
+여기서 **[jndi\_name]** 및 **[ConnectionURL]**의 의미는 다음과 같습니다.
 
-- **[jndi_name]**: ConnectionFactory의 논리적 이름입니다. JNDI IntialContext.lookup() 메서드를 사용하여 Java 응용 프로그램에서 확인되는 이름입니다.
+- **[jndi\_name]**: ConnectionFactory의 논리적 이름입니다. JNDI IntialContext.lookup() 메서드를 사용하여 Java 응용 프로그램에서 확인되는 이름입니다.
 - **[ConnectionURL]**: AMQP 브로커에 필요한 정보를 JMS 라이브러리에 제공하는 URL입니다.
 
 **ConnectionURL**의 형식은 다음과 같습니다.
@@ -87,7 +87,7 @@ amqps://[username]:[password]@[namespace].servicebus.windows.net
 - **[username]**: 서비스 버스 발급자 이름입니다.
 - **[password]**: URL 인코딩된 형식의 서비스 버스 발급자 키입니다.
 
-> [AZURE.NOTE]수동으로 암호를 URL 인코딩해야 합니다. 유용한 URL 인코딩 유틸리티는 [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp)에서 사용할 수 있습니다.
+> [AZURE.NOTE]수동으로 암호를 URL 인코딩해야 합니다. 유용한 URL 인코딩 유틸리티는 [http://www.w3schools.com/tags/ref\_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp)에서 사용할 수 있습니다.
 
 #### Destinations 구성
 
@@ -103,10 +103,10 @@ queue.[jndi_name] = [physical_name]
 topic.[jndi_name] = [physical_name]
 ```
 
-여기서 **[jndi_name]** 및 **[physical_name]**의 의미는 다음과 같습니다.
+여기서 **[jndi\_name]** 및 **[physical\_name]**의 의미는 다음과 같습니다.
 
-- **[jndi_name]**: destination의 논리적 이름입니다. JNDI IntialContext.lookup() 메서드를 사용하여 Java 응용 프로그램에서 확인되는 이름입니다.
-- **[physical_name]**: 응용 프로그램이 메시지를 보내거나 받는 서비스 버스 엔터티의 이름입니다.
+- **[jndi\_name]**: destination의 논리적 이름입니다. JNDI IntialContext.lookup() 메서드를 사용하여 Java 응용 프로그램에서 확인되는 이름입니다.
+- **[physical\_name]**: 응용 프로그램이 메시지를 보내거나 받는 서비스 버스 엔터티의 이름입니다.
 
 > [AZURE.NOTE]서비스 버스 토픽 구독에서 받는 경우 JNDI에 지정된 물리적 이름은 토픽 이름이어야 합니다. 구독 이름은 JMS 응용 프로그램 코드에서 지속형 구독을 만들 때 제공됩니다. [Service Bus AMQP 1.0 개발자 가이드](http://msdn.microsoft.com/library/jj841071.aspx)에서는 JMS의 서비스 버스 토픽 구독 작업에 대한 세부 정보를 제공합니다.
 
@@ -338,4 +338,4 @@ exit
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

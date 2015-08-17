@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="article" 
 	ms.date="04/29/2015"
 	ms.author="tdykstra"/>
 
@@ -79,7 +79,7 @@ Azure 앱 서비스에서는 이전의 IIS6 응용 프로그램 마이그레이�
 
 ### <a id="smallbusiness"></a>작은 비즈니스 소유자가 사이트를 저렴하게 호스트할 방법을 찾고 있지만 미래 성장도 염두에 두고 있는 경우
 
-Azure 앱 서비스는 처음에 무료로 사용한 후 필요할 때 기능을 추가할 수 있으므로 이 시나리오에 적합한 솔루션입니다. 각 무료 웹앱에는 Azure에서 제공하는 도메인(*your_company*.azurewebsites.net)이 제공되며 플랫폼에는 통합 배포 및 관리 도구와 작업을 쉽게 시작할 수 있는 응용 프로그램 갤러리가 포함되어 있습니다. 사용자 수요 증가에 따라 사이트를 발전시킬 수 있는 다른 여러 서비스 및 확장 옵션도 있습니다. Azure 앱 서비스를 통해 다음 작업을 수행할 수 있습니다.
+Azure 앱 서비스는 처음에 무료로 사용한 후 필요할 때 기능을 추가할 수 있으므로 이 시나리오에 적합한 솔루션입니다. 각 무료 웹앱에는 Azure에서 제공하는 도메인(*your\_company*.azurewebsites.net)이 제공되며 플랫폼에는 통합 배포 및 관리 도구와 작업을 쉽게 시작할 수 있는 응용 프로그램 갤러리가 포함되어 있습니다. 사용자 수요 증가에 따라 사이트를 발전시킬 수 있는 다른 여러 서비스 및 확장 옵션도 있습니다. Azure 앱 서비스를 통해 다음 작업을 수행할 수 있습니다.
 
 - 무료 계층으로 시작한 후 필요에 따라 확장할 수 있습니다.
 - 응용 프로그램 갤러리를 사용하여 널리 사용되는 WordPress 등의 웹 응용 프로그램을 빠르게 설정할 수 있습니다.
@@ -140,197 +140,34 @@ HTTP 기반 웹 서비스를 사용하면 모바일 클라이언트를 포함하
 
 다음 표에서는 최상의 옵션 선택에 도움이 되도록 앱 서비스, 클라우드 서비스 및 가상 컴퓨터의 기능을 비교합니다. 각 옵션의 SLA에 대한 최신 정보는 [Azure 서비스 수준 계약](/support/legal/sla/)을 참조하세요.
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="middle">기능</th>
-   <th align="left" valign="middle">앱 서비스(웹앱)</th>
-   <th align="left" valign="middle">클라우드 서비스(웹 역할)</th>
-   <th align="left" valign="middle">가상 컴퓨터</th>
-   <th align="left" valign="middle">참고 사항</th>
-</tr>
-<tr>
-   <td valign="middle"><p>빠른 배포</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-   <td valign="middle">응용 프로그램이나 응용 프로그램 업데이트를 클라우드 서비스로 배포하거나 VM을 만들려면 최소한 몇 분이 걸리지만 응용 프로그램을 웹앱으로 배포하는 데는 몇 초밖에 걸리지 않습니다.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>다시 배포하지 않고 대규모 컴퓨터로 확장</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>웹 서버 인스턴스는 콘텐츠와 구성을 공유하므로 확장 시 다시 배포하거나 다시 구성하지 않아도 됨</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>여러 배포 환경(프로덕션 및 스테이징)</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>자동 OS 업데이트 관리</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>원활한 플랫폼 전환(32비트와 64비트 간을 쉽게 이동)</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>GIT, FTP를 사용하여 코드 배포</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>웹 배포를 사용하여 코드 배포</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">클라우드 서비스에서는 웹 배포를 사용하여 개별 역할 인스턴스로 업데이트를 배포할 수 있습니다. 그러나 역할의 초기 배포에는 웹 배포를 사용할 수 없으며 업데이트에 웹 배포를 사용하는 경우에는 각 역할 인스턴스로 업데이트를 개별 배포해야 합니다. 프로덕션 환경의 클라우드 서비스 SLA를 충족하려면 여러 인스턴스가 필요합니다.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>WebMatrix 지원</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>서비스 버스, 저장소, SQL 데이터베이스 등의 서비스에 대한 액세스</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>다중 계층 아키텍처의 웹 또는 웹 서비스 계층 호스트</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>다중 계층 아키텍처의 중간 계층 호스트</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">앱 서비스 웹앱은 REST API 중간 계층을 쉽게 호스트할 수 있고, <a href="http://go.microsoft.com/fwlink/?linkid=390226">WebJobs</a> 기능은 백그라운드 처리 작업을 호스트할 수 있습니다. 전용 웹 사이트에서 WebJobs를 실행하여 계층을 독립적으로 확장할 수 있습니다. 미리 보기[API 앱](../app-service-api/app-service-api-apps-why-best-platform.md) 기능은 REST 서비스를 호스트하기 위한 추가 기능을 제공합니다.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>통합된 MySQL-as-a-Service 지원</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">클라우드 서비스는 ClearDB 제공 항목을 통해 MySQL-as-a-Service를 통합할 수 있지만 관리 포털 워크플로에는 포함되지 않습니다.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>ASP.NET, 클래식 ASP, Node.js, PHP, Python 지원</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>다시 배포하지 않고 여러 인스턴스로 규모 확장</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">가상 컴퓨터는 여러 인스턴스로 규모 확장될 수 있지만 이러한 컴퓨터에서 실행되는 서비스가 이 규모 확장을 처리하도록 작성되어야 합니다. 컴퓨터 간에 요청을 라우팅하는 부하 분산 장치를 구성하고 유지 관리 또는 하드웨어 오류로 인해 모든 인스턴스가 동시에 다시 시작되지 않도록 선호도 그룹을 만들어야 합니다.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>SSL 지원</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">앱 서비스 웹앱의 경우 사용자 지정 도메인 이름에 대한 SSL은 기본 및 표준 모드에서만 지원됩니다. 웹앱에 SSL을 사용하는 방법에 대한 자세한 내용은 <a href="../web-sites-configure-ssl-certificate/">Azure 웹 사이트에 대한 SSL 인증서 구성</a>을 참조하세요.</td>
-</tr>
-<tr>
-   <td valign="middle"><p>Visual Studio 통합</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>원격 디버깅</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>TFS를 사용하여 코드 배포</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="/services/virtual-network/">Azure 가상 네트워크</a>를 사용한 네트워크 격리</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"><a href="/blog/2014/09/15/azure-websites-virtual-network-integration/">Azure 웹 사이트 가상 네트워크 통합</a>도 참조하세요.</td>
-</tr>
-<tr>
-   <td valign="middle"><p><a href="/services/traffic-manager/">Azure 트래픽 관리자</a> 지원</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>통합된 끝점 모니터링</p></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>서버에 대한 원격 데스크톱 액세스</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>사용자 지정 MSI 설치</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>시작 작업 정의/실행 기능</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-<tr>
-   <td valign="middle"><p>ETW 이벤트 수신 가능</p></td>
-   <td valign="middle"></td>
-   <td valign="middle">X</td>
-   <td valign="middle">X</td>
-   <td valign="middle"></td>
-</tr>
-</table>
+기능|앱 서비스(웹앱)|클라우드 서비스(웹 역할)|가상 컴퓨터|참고 사항
+---|---|---|---|---
+빠른 배포|X|||응용 프로그램이나 응용 프로그램 업데이트를 클라우드 서비스로 배포하거나 VM을 만들려면 최소한 몇 분이 걸리지만 응용 프로그램을 웹앱으로 배포하는 데는 몇 초밖에 걸리지 않습니다.
+다시 배포하지 않고 대규모 컴퓨터로 확장|X|||
+웹 서버 인스턴스는 콘텐츠와 구성을 공유하므로 확장 시 다시 배포하거나 다시 구성하지 않아도 됨|X|||
+여러 배포 환경(프로덕션 및 스테이징)|X|X||
+자동 OS 업데이트 관리|X|X||
+원활한 플랫폼 전환(32비트와 64비트 간을 쉽게 이동)|X|X||
+GIT, FTP를 사용하여 코드 배포|X||X|
+웹 배포를 사용하여 코드 배포|X||X|클라우드 서비스에서는 웹 배포를 사용하여 개별 역할 인스턴스로 업데이트를 배포할 수 있습니다. 그러나 역할의 초기 배포에는 웹 배포를 사용할 수 없으며 업데이트에 웹 배포를 사용하는 경우에는 각 역할 인스턴스로 업데이트를 개별 배포해야 합니다. 프로덕션 환경의 클라우드 서비스 SLA를 충족하려면 여러 인스턴스가 필요합니다.
+WebMatrix 지원|X||X|
+서비스 버스, 저장소, SQL 데이터베이스 등의 서비스에 대한 액세스|X|X|X|
+다중 계층 아키텍처의 웹 또는 웹 서비스 계층 호스트|X|X|X|
+다중 계층 아키텍처의 중간 계층 호스트|X|X|X|앱 서비스 웹앱은 REST API 중간 계층을 쉽게 호스트할 수 있고, [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) 기능은 백그라운드 처리 작업을 호스트할 수 있습니다. 전용 웹 사이트에서 WebJobs를 실행하여 계층을 독립적으로 확장할 수 있습니다. 미리 보기 [API 앱](../app-service-api/app-service-api-apps-why-best-platform/) 기능은 REST 서비스를 호스트하기 위한 추가 기능을 제공합니다.
+통합된 MySQL-as-a-Service 지원|X|X|X|클라우드 서비스는 ClearDB 제공 항목을 통해 MySQL-as-a-Service를 통합할 수 있지만 관리 포털 워크플로에는 포함되지 않습니다.
+ASP.NET, 클래식 ASP, Node.js, PHP, Python 지원|X|X|X|
+다시 배포하지 않고 여러 인스턴스로 규모 확장|X|X|X|가상 컴퓨터는 여러 인스턴스로 규모 확장될 수 있지만 이러한 컴퓨터에서 실행되는 서비스가 이 규모 확장을 처리하도록 작성되어야 합니다. 컴퓨터 간에 요청을 라우팅하는 부하 분산 장치를 구성하고 유지 관리 또는 하드웨어 오류로 인해 모든 인스턴스가 동시에 다시 시작되지 않도록 선호도 그룹을 만들어야 합니다.
+SSL 지원|X|X|X|앱 서비스 웹앱의 경우 사용자 지정 도메인 이름에 대한 SSL은 기본 및 표준 모드에서만 지원됩니다. 웹앱에 SSL을 사용하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 대한 SSL 인증서 구성](../app-service-web/web-sites-configure-ssl-certificate/)을 참조하세요.
+Visual Studio 통합|X|X|X|
+원격 디버깅|X|X|X|
+TFS를 사용하여 코드 배포|X|X|X|
+[Azure 가상 네트워크](../services/virtual-network/)를 사용한 네트워크 격리|X|X|X|[Azure 웹 사이트 가상 네트워크 통합](../blog/2014/09/15/azure-websites-virtual-network-integration/)도 참조하세요.
+[Azure 트래픽 관리자](../services/traffic-manager/) 지원|X|X|X|
+통합된 끝점 모니터링|X|X|X|
+서버에 대한 원격 데스크톱 액세스||X|X|
+사용자 지정 MSI 설치||X|X|
+시작 작업 정의/실행 기능||X|X|
+ETW 이벤트 수신 가능||X|X|
 
 
 > [AZURE.NOTE]계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>으로 이동합니다. 여기서 Azure 앱 서비스에 단기 시작 앱을 무료로 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
@@ -355,16 +192,16 @@ HTTP 기반 웹 서비스를 사용하면 모바일 클라이언트를 포함하
   [가상 컴퓨터]: http://go.microsoft.com/fwlink/?LinkID=306053
   [ClearDB]: http://www.cleardb.com/
   [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
-  [Configuring an SSL certificate for an Azure Website]: http://azure.microsoft.com/develop/net/common-tasks/enable-ssl-web-site/
-  [azurestore]: http://azure.microsoft.com/gallery/store/
-  [scripting]: http://azure.microsoft.com/documentation/scripts/?services=web-sites
-  [dotnet]: http://azure.microsoft.com/develop/net/
-  [nodejs]: http://azure.microsoft.com/develop/nodejs/
-  [PHP]: http://azure.microsoft.com/develop/php/
-  [Python]: http://azure.microsoft.com/develop/python/
-  [servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
-  [sqldatabase]: http://azure.microsoft.com/documentation/services/sql-database/
-  [저장소]: http://azure.microsoft.com/documentation/services/storage/
+  [Configuring an SSL certificate for an Azure Website]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
+  [azurestore]: http://www.windowsazure.com/gallery/store/
+  [scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
+  [dotnet]: http://www.windowsazure.com/develop/net/
+  [nodejs]: http://www.windowsazure.com/develop/nodejs/
+  [PHP]: http://www.windowsazure.com/develop/php/
+  [Python]: http://www.windowsazure.com/develop/python/
+  [servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
+  [sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
+  [저장소]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

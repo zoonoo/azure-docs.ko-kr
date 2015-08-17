@@ -251,7 +251,7 @@
 
 	이 메서드는 [ClaimsIdentity]를 [ProviderCredentials] 개체로 변환합니다. 이 개체는 인증 토큰 발행 단계에서 사용됩니다. 여기에서 추가 클레임을 다시 캡처해야 합니다.
 	
-6. App_Start 폴더에서 WebApiConfig.cs 프로젝트 파일을 열면 **ConfigOptions** 뒤에 다음 줄의 코드가 작성됩니다.
+6. App\_Start 폴더에서 WebApiConfig.cs 프로젝트 파일을 열면 **ConfigOptions** 뒤에 다음 줄의 코드가 작성됩니다.
 		
 		options.LoginProviders.Add(typeof(CustomLoginProvider));
 
@@ -346,7 +346,7 @@
 
 	그러면 모바일 서비스 백 엔드 프로젝트의 새 디버깅 인스턴스가 시작됩니다. 서비스가 성공적으로 시작되면 **이제 코드가 실행되고 있습니다**라는 시작 페이지가 시작됩니다.
 
-2. 서비스 시작 페이지에서 **체험**을 클릭한 다음 인증 대화 상자에 사용자 이름이 비어 있는 web.config 파일에 **MS_ApplicationKey** 앱 설정에 대해 설정한 암호를 입력합니다.
+2. 서비스 시작 페이지에서 **체험**을 클릭한 다음 인증 대화 상자에 사용자 이름이 비어 있는 web.config 파일에 **MS\_ApplicationKey** 앱 설정에 대해 설정한 암호를 입력합니다.
 
 3. 도움말 페이지에서 **CustomRegistration** 끝점을 클릭한 다음 **사용해보기**를 클릭합니다.
 
@@ -420,4 +420,4 @@
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

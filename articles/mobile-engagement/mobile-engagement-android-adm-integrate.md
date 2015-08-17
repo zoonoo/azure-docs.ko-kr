@@ -102,7 +102,7 @@ Engagement 푸시 서비스에 장치의 등록 ID를 전달하고 해당 알림
 
 ##Engagement OAuth 자격 증명 부여
 
-$/#application/YOUR_APPID/native-push에서 OAuth 자격 증명(클라이언트 ID 및 클라이언트 암호)을 제출합니다.
+$/#application/YOUR\_APPID/native-push에서 OAuth 자격 증명(클라이언트 ID 및 클라이언트 암호)을 제출합니다.
 
 이제 도달률 알림 및 설문 조사를 만들 때 "Any Time"을 선택할 수 있습니다.
 
@@ -113,4 +113,4 @@ $/#application/YOUR_APPID/native-push에서 OAuth 자격 증명(클라이언트 
 [이 절차]: https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

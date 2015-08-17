@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="required"
-   ms.date="04/30/2015"
+   ms.date="08/04/2015"
    ms.author="mwasson"/>
 
 # Azure Redis Cache를 Node.js와 함께 사용하는 방법
@@ -25,11 +25,11 @@ Azure Redis Cache는 Microsoft에서 관리하는 안전한 전용 Redis Cache�
 
 ## 필수 조건
 
-[node_redis](https://github.com/mranney/node_redis)를 설치합니다.
+[node\_redis](https://github.com/mranney/node_redis)를 설치합니다.
 
     npm install redis
 
-이 자습서에서는 [node_redis](https://github.com/mranney/node_redis)를 사용하지만 [http://redis.io/clients](http://redis.io/clients)에 나열된 모든 Node.js 클라이언트를 사용할 수 있습니다.
+이 자습서에서는 [node\_redis](https://github.com/mranney/node_redis)를 사용하지만 [http://redis.io/clients](http://redis.io/clients)에 나열된 모든 Node.js 클라이언트를 사용할 수 있습니다.
 
 ## Azure에 Redis 캐시 만들기
 
@@ -50,7 +50,7 @@ DNS 호스트 이름을 입력합니다. 양식은 `<name>.redis.cache.windows.n
 ## 비 SSL 끝점 사용
 
 
-**포트** 아래 링크를 클릭하고 "SSL을 통해서만 액세스 허용"에 대해 **아니요**를 클릭합니다. 이렇게 하면 캐시에 대해 비 SSL 포트를 사용할 수 있습니다. 현재 node_redis 클라이언트는 SSL을 지원하지 않습니다.
+**포트** 아래 링크를 클릭하고 "SSL을 통해서만 액세스 허용"에 대해 **아니요**를 클릭합니다. 이렇게 하면 캐시에 대해 비 SSL 포트를 사용할 수 있습니다. 현재 node\_redis 클라이언트는 SSL을 지원하지 않습니다.
 
   ![][3]
 
@@ -91,4 +91,4 @@ DNS 호스트 이름을 입력합니다. 양식은 `<name>.redis.cache.windows.n
 
 [Azure 웹 사이트에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

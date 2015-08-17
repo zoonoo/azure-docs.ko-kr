@@ -103,7 +103,12 @@ System Center 2012 R2에서 VMM(권장) (클러스터 또는 독립 실행형) |
 
 	- 공급자 설치 전에 사용자 지정 프록시 서버를 설정합니다.
 	- 방화벽을 통해 다음 URL을 허용:
-		- *.hypervrecoverymanager.windowsazure.com - *.accesscontrol.windows.net - *.backup.windowsazure.com - *.blob.core.windows.net - *.store.core.windows.net 
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+
 	- VMM으로 사이트 복구를 배포하고 사용자 지정 프록시를 사용하는 경우 VMM RunAs 계정 (DRAProxyAccount)이 사이트 복구 포털 내 사용자 지정 프록시 설정에서 지정한 프록시 자격 증명을 사용하여 자동으로 생성됩니다. 이 계정이 성공적으로 인증될 수 있도록 프록시 서버를 설정해야 합니다.
 
 
@@ -189,4 +194,4 @@ System Center 2012 R2에서 VMM(권장) (클러스터 또는 독립 실행형) |
 - [단일 VMM 서버로 보호 설정](site-recovery-single-vmm.md)
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -1,7 +1,6 @@
 <properties
 	pageTitle="HDFS 호환 가능 Blob 저장소에서 데이터 쿼리 | Microsoft Azure"
 	description="HDInsight에서는 Blob 저장소를 HDFS용 빅 데이터 저장소로 사용합니다. Blob 저장소에서 데이터를 쿼리하고 분석을 위해 결과를 저장하는 방법에 대해 알아봅니다."
-	keywords="blob storage,hdfs,structured data,unstructured data"
 	services="hdinsight,storage"
 	documentationCenter=""
 	authors="mumian"
@@ -13,7 +12,7 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="get-started-article"
 	ms.date="06/10/2015"
 	ms.author="jgao"/>
 
@@ -26,7 +25,7 @@ Azure Blob 저장소는 HDInsight와 매끄럽게 통합되는 강력한 범용 
 
 Blob 저장소에 데이터를 저장하면 사용자 데이터 손실 없이 계산에 사용된 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
 
-> [AZURE.NOTE]HDInsight 버전 3.0 클러스터에서는 *asv://* 구문이 지원되지 않습니다. 즉, 정확히 *asv://* 구문을 명시적으로 사용하는 HDInsight 버전 3.0 클러스터에 제출하는 작업은 실패하게 됩니다. 대신 *wasb://*구문을 사용해야 합니다. 또한 asv:// 구문을 사용하는 리소스에 대한 명시적 참조를 포함하는 기존의 메타스토어로 만들어 HDInsight 버전 3.0 클러스터에 제출하는 작업도 실패하게 됩니다. 리소스 주소를 지정하려면 wasb:// 구문을 사용하여 이 Metastore를 다시 만들어야 합니다.
+> [AZURE.NOTE]HDInsight 버전 3.0 클러스터에서는 **asv://* 구문이 지원되지 않습니다. 즉, 정확히 **asv://* 구문을 명시적으로 사용하는 HDInsight 버전 3.0 클러스터에 제출하는 작업은 실패하게 됩니다. 대신 **wasb://*구문을 사용해야 합니다. 또한 asv:// 구문을 사용하는 리소스에 대한 명시적 참조를 포함하는 기존의 메타스토어로 만들어 HDInsight 버전 3.0 클러스터에 제출하는 작업도 실패하게 됩니다. 리소스 주소를 지정하려면 wasb:// 구문을 사용하여 이 Metastore를 다시 만들어야 합니다.
 
 > HDInsight는 현재 블록 Blob만 지원합니다.
 
@@ -62,7 +61,7 @@ Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 파일 �
 - **클러스터에 연결되지 않은 저장소 계정의 개인 컨테이너:** WebHCat 작업을 제출할 때 저장소 계정을 정의하지 않는 경우 컨테이너의 Blob에 액세스할 수 없습니다. 이것은 문서 뒷부분에 설명되어 있습니다.
 
 
-프로비전 프로세스에서 정의된 저장소 계정과 해당 키는 클러스터 노드의 %HADOOP_HOME%/conf/core-site.xml에 저장됩니다. HDInsight의 기본 동작은 core-site.xml 파일에 정의된 저장소 계정을 사용하는 것입니다. 클러스터 헤드 노드(마스터)는 언제든지 다시 이미징되거나 마이그레이션될 수 있으며 해당 파일의 변경 내용은 손실되므로 core-site.xml 파일은 편집하지 않는 것이 좋습니다.
+프로비전 프로세스에서 정의된 저장소 계정과 해당 키는 클러스터 노드의 %HADOOP\_HOME%/conf/core-site.xml에 저장됩니다. HDInsight의 기본 동작은 core-site.xml 파일에 정의된 저장소 계정을 사용하는 것입니다. 클러스터 헤드 노드(마스터)는 언제든지 다시 이미징되거나 마이그레이션될 수 있으며 해당 파일의 변경 내용은 손실되므로 core-site.xml 파일은 편집하지 않는 것이 좋습니다.
 
 Hive, MapReduce, Hadoop 스트리밍 및 Pig를 비롯한 여러 WebHCat 작업은 저장소 계정 및 메타데이터 설명을 포함할 수 있습니다. (현재 메타데이터가 아닌 저장소 계정이 있는 Pig에서 작동합니다.) 이 문서의 [PowerShell을 사용하여 Blob 액세스](#powershell) 섹션에는 이 기능의 샘플이 포함되어 있습니다. 자세한 내용은 [대체 저장소 계정 및 메타스토어와 HDInsight 클러스터 사용](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)을 참조하세요.
 
@@ -328,4 +327,4 @@ URI 체계는암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SS
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

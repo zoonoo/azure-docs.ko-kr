@@ -159,7 +159,7 @@ Azure 저장소 계정으로 직접 작업하려는 경우 메서드 서명에 `
 
 포이즌 Blob에 대한 큐 메시지는 다음 속성을 포함하는 JSON 개체입니다.
 
-* FunctionId(*{WebJob name}*.Functions.\*{Function name}\* 형식, 예: WebJob1.Functions.CopyBlob)
+* FunctionId(*{WebJob name}*.Functions.*{Function name}* 형식, 예: WebJob1.Functions.CopyBlob)
 * BlobType("BlockBlob" 또는 "PageBlob")
 * ContainerName
 * BlobName
@@ -198,7 +198,7 @@ SDK는 JSON 메시지를 자동으로 deserialize합니다. 다음은 `PoisonBlo
 
 ### <a id="polling"></a> Blob 폴링 알고리즘
 
-WebJobs SDK는 응용 프로그램이 시작될 때 `BlobTrigger` 특성에 지정된 모든 컨테이너를 검사합니다. 대용량 저장소 계정의 경우 이러한 검사에 약간의 시간이 걸릴 수 있으므로 새 Blob을 찾고 `BlobTrigger` 함수를 실행하기까지 조금 기다려야 할 수 있습니다.
+WebJobs SDK는 응용 프로그램이 시작될 때 `BlobTrigger` 특성에 지정된 모든 컨테이너를 검사합니다. 대용량 저장소 계정의 경우 이러한 검사에 약간의 시간이 걸릴 수 있으므로 새 Blob를 찾고 `BlobTrigger` 함수를 실행하기까지 조금 기다려야 할 수 있습니다.
 
 응용 프로그램이 시작된 후 새 Blob 또는 변경된 Blob을 검색하기 위해 SDK는 Blob 저장소 로그를 주기적으로 읽습니다. Blob 로그는 버퍼되고 약 10분마다 실제로 작성되므로 Blob가 생성되거나 업데이트된 후 해당 `BlobTrigger` 함수가 실행되기 전에 지연이 발생할 수 있습니다.
 
@@ -210,13 +210,13 @@ WebJobs SDK는 동일한 새 Blob 또는 업데이트된 Blob에 대해 `BlobTri
 
 Blob 수신 확인은 AzureWebJobsStorage 연결 문자열에 지정된 Azure 저장소 계정의 *azure-webjobs-hosts*라는 컨테이너에 저장됩니다. Blob 수신 확인에는 다음 정보가 포함됩니다.
 
-* blob에 대해 호출된 함수("\*{WebJob 이름}\*.Functions.\*{Function 이름}\*", 예: "WebJob1.Functions.CopyBlob")
+* blob에 대해 호출된 함수("*{WebJob 이름}*.Functions.*{함수 이름}*", 예: "WebJob1.Functions.CopyBlob")
 * 컨테이너 이름
 * Blob 유형("BlockBlob" 또는 "PageBlob")
 * Blob 이름
 * ETag(Blob 버전 식별자, 예: "0x8D1DC6E70A277EF")
 
-Blob을 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해당 Blob에 대한 Blob 수신 확인을 수동으로 삭제하면 됩니다.
+Blob를 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해당 Blob에 대한 Blob 수신 확인을 수동으로 삭제하면 됩니다.
 
 ## <a id="queues"></a>큐 문서에서 다루는 관련 항목
 
@@ -239,4 +239,4 @@ Blob을 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해�
 이 가이드에서는 Azure Blob 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure WebJob 및 WebJob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

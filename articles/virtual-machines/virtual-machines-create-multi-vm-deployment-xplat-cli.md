@@ -24,7 +24,7 @@
 
 ![](./media/virtual-machines-create-multi-vm-deployment-xplat-cli/multi-vm-xplat-cli.png)
 
-이 스크립트는 클라우드 서비스 **servercs**에 데이터 디스크 2개가 연결된 VM 1개(**servervm**)를 만들고 클라우드 서비스 **workercs**에 VM 2개(**clientvm1, clientvm2**)를 만듭니다. 두 클라우드 서비스는 모두 VNET **samplevnet**에 배치됩니다. **servercs** 클라우드 서비스에는 외부 연결용 끝점도 구성되어 있습니다.
+이 스크립트는 클라우드 서비스 **servercs** 연결된 VM 1개(**servervm**)를 만들고 클라우드 서비스 **workercs**에 VM 2개(**clientvm1, clientvm2**)를 만듭니다. 두 클라우드 서비스는 모두 VNET **samplevnet**에 배치됩니다. **servercs** 클라우드 서비스에는 외부 연결용 끝점도 구성되어 있습니다.
 
 ## 작업 수행용 CLI 스크립트
 위에서 설명한 배포를 설정하는 코드는 비교적 단순합니다.
@@ -67,4 +67,4 @@
 * [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-linux-how-to-log-on.md)
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

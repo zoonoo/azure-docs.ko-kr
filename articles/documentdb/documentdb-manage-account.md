@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DocumentDB 계정 관리 | Azure" 
+	pageTitle="DocumentDB 계정 관리 | Microsoft Azure" 
 	description="DocumentDB 계정을 관리하는 방법을 알아봅니다." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/29/2015" 
+	ms.date="07/28/2015" 
 	ms.author="stbaro"/>
 
 #DocumentDB 계정을 관리하는 방법
@@ -112,4 +112,4 @@ DocumentDB에 대한 자세한 내용은 [azure.com](http://go.microsoft.com/fwl
  
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

@@ -13,7 +13,7 @@
       ms.topic="article"
       ms.tgt_pltfrm="na"
       ms.workload="identity"
-      ms.date="03/23/2015"
+      ms.date="07/30/2015"
       ms.author="shoatman"/>
 
 # 응용 프로그램을 Azure AD에 추가하는 방법 및 이유
@@ -65,7 +65,7 @@ Azure AD에서 제공하는 하나 이상의 서비스를 활용하기 위해 �
 ![응용 프로그램 개체와 서비스 주체가 Azure AD 인스턴스와 같이 존재하는 방법을 보여 주는 다이어그램입니다.][apps_service_principals_directory]
 
 위의 다이어그램에서 볼 수 있듯이 Microsoft는 두 개의 디렉터리를 내부적으로 유지하며(왼쪽 부분) 응용 프로그램을 게시하는 데 사용합니다.
- 
+
 * Microsoft 응용 프로그램용 디렉터리(Microsoft 서비스 디렉터리)
 * 사전 통합된 타사 응용 프로그램용 디렉터리(응용 프로그램 갤러리 디렉터리)
 
@@ -145,6 +145,5 @@ Azure AD와 통합하는 응용 프로그램 게시자/공급업체에는 게시
 <!--Image references-->
 [apps_service_principals_directory]: media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 [app_settings]: media/active-directory-how-applications-are-added/IntegratedAppSettings.jpg
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -96,4 +96,4 @@ Azure에는 현재 Azure 서비스 관리와 ARM(Azure 리소스 관리자)이�
 RRAS를 사용하여 VNet 연결을 구성하려는 경우 [Windows Server 2012 RRAS(라우팅 및 원격 액세스 서비스)를 사용하여 사이트 간 VPN 구성](https://msdn.microsoft.com/library/dn636917.aspx)을 참조하세요.
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

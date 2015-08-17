@@ -479,4 +479,4 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

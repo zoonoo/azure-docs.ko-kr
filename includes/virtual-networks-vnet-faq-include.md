@@ -124,7 +124,7 @@ VNet 내에서 PowerShell cmdlet 또는 NETCFG 파일을 사용하여 배포된 
 
 ### VNet에 대한 DNS 옵션은 무엇입니까?
 
-사용 가능한 모든 DNS 옵션을 안내하는 [VM 및 역할 인스턴스에 대한 이름 확인](https://msdn.microsoft.com/library/azure/jj156088.aspx) 페이지의 의사 결정 테이블을 사용하세요.
+사용 가능한 모든 DNS 옵션을 안내하는 [VM 및 역할 인스턴스에 대한 이름 확인](virtual-networks-name-resolution-for-vms-and-role-instances.md) 페이지의 의사 결정 테이블을 사용하세요.
 
 ### VNet에 대한 DNS 서버를 지정할 수 있습니까?
 
@@ -264,4 +264,4 @@ VNet은 다른 VNet 및 Azure 인프라에서 호스팅되는 다른 서비스�
 
 예. 다양한 플랫폼에 대해 PowerShell 및 명령줄 도구를 사용할 수 있습니다. 자세한 내용은 [여기](http://go.microsoft.com/fwlink/?LinkId=317721)를 참조하세요.
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

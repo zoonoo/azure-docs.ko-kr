@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure 서비스 패브릭 행위자 분산 계산 패턴"
-   description="Azure 서비스 패브릭은 병렬 비동기 메시징, 관리하기 쉬운 분산 상태 및 병렬 계산에 적합합니다."
+   pageTitle="신뢰할 수 있는 행위자 분산 계산"
+   description="서비스 패브릭 신뢰할 수 있는 행위자는 병렬 비동기 메시징, 관리하기 쉬운 분산 상태 및 병렬 계산에 적합합니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/01/2015"
+   ms.date="08/05/2015"
    ms.author="claudioc"/>
 
-# 서비스 패브릭 행위자 디자인 패턴: 분산 계산
-터무니없이 짧은 시간 안에 Azure 서비스 패브릭 행위자에서 재무 계산을 수행하는 실제 고객을 감시하려면 어느 정도는 위험한 계산을 정확하게 하는 Monte Carlo 시뮬레이션의 도움을 받아야 합니다.
+# 신뢰할 수 있는 행위자 디자인 패턴: 분산 계산
+터무니없이 짧은 시간 안에 서비스 패브릭 신뢰할 수 있는 행위자에서 재무 계산을 수행하는 실제 고객을 감시하려면 어느 정도는 위험한 계산을 정확하게 하는 Monte Carlo 시뮬레이션의 도움을 받아야 합니다.
 
 처음에는, 특히 도메인 관련 지식이 없는 사람들에게는, Azure 서비스 패브릭에서 제공하는 이런 종류의 작업 처리는, 말하자면 Map/Reduce 또는 MPI 등의 전통적인 방식과는 대조적인 이런 방식은 명확하지 않을 수 있습니다.
 
@@ -202,6 +202,5 @@ Azure 서비스 패브릭이 빅 데이터 프레임워크 또는 고성능 컴�
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
- 
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

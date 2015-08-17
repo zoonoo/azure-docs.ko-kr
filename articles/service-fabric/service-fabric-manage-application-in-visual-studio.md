@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/22/2015"
+   ms.date="08/05/2015"
    ms.author="jesseb"/>
 
 # Visual Studio에서 서비스 패브릭 응용 프로그램 관리
@@ -68,10 +68,10 @@ Visual Studio의 빌드 메뉴에서 솔루션 배포를 선택하여 응용 프
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 다음 단계
 
-- [서비스 패브릭 응용 프로그램 모델](../service-fabric-application-model)
-- [서비스 패브릭 응용 프로그램 배포](../service-fabric-deploy-remove-applications)
-- [서비스 패브릭 응용 프로그램 디버깅](../service-fabric-debugging-your-application)
-- [서비스 패브릭 탐색기를 사용하여 클러스터 시각화](../service-fabric-visualizing-your-cluster)
+- [서비스 패브릭 응용 프로그램 모델](service-fabric-application-model.md)
+- [서비스 패브릭 응용 프로그램 배포](service-fabric-deploy-remove-applications.md)
+- [서비스 패브릭 응용 프로그램 디버깅](service-fabric-debugging-your-application.md)
+- [서비스 패브릭 탐색기를 사용하여 클러스터 시각화](service-fabric-visualizing-your-cluster.md)
 
 <!--Image references-->
 [addserviceproject]: ./media/service-fabric-manage-application-in-visual-studio/addserviceproject.png
@@ -79,4 +79,4 @@ Visual Studio의 빌드 메뉴에서 솔루션 배포를 선택하여 응용 프
 [newservice]: ./media/service-fabric-manage-application-in-visual-studio/newservice.png
 [newserviceapplicationmanifest]: ./media/service-fabric-manage-application-in-visual-studio/newserviceapplicationmanifest.png
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

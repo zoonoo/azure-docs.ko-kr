@@ -410,7 +410,7 @@ ID 공급자를 등록하고 나면 공급자의 [MobileServiceAuthenticationPro
 
 Facebook 이외의 ID 공급자를 사용하는 경우 위의 `login` 메서드에 전달된 값을 `microsoftaccount`, `facebook`, `twitter`, `google` 또는 `windowsazureactivedirectory` 중 하나로 변경합니다.
 
-이 경우 모바일 서비스는 선택한 공급자의 로그인 페이지를 표시하고 ID 공급자 로그인 후 모바일 서비스 인증 토큰을 생성하여 OAuth 2.0 인증 흐름을 관리합니다. [login] 함수를 완료하면 사용자 ID와 모바일 서비스 인증 토큰을 각각 **userId** 및 **authenticationToken** 필드에 표시하는 JSON 개체(\*\*user\*\*)가 반환됩니다. 이 토큰을 캐시하여 만료될 때까지 다시 사용할 수 있습니다. 자세한 내용은 [인증 토큰 캐시]를 참조하십시오.
+이 경우 모바일 서비스는 선택한 공급자의 로그인 페이지를 표시하고 ID 공급자 로그인 후 모바일 서비스 인증 토큰을 생성하여 OAuth 2.0 인증 흐름을 관리합니다. [login] 함수를 완료하면 사용자 ID와 모바일 서비스 인증 토큰을 각각 **userId** 및 **authenticationToken** 필드에 표시하는 JSON 개체(**user**)가 반환됩니다. 이 토큰은 캐시했다가 만료될 때까지 다시 사용할 수 있습니다. 자세한 내용은 [인증 토큰 캐시]를 참조하십시오.
 
 > [AZURE.NOTE]**Windows 스토어 앱** Windows 스토어 앱 사용자를 인증하는 데 Microsoft 계정 로그인 공급자를 사용하는 경우 앱 패키지를 모바일 서비스에도 등록해야 합니다. 모바일 서비스에 Windows 스토어 앱 패키지 정보를 등록하는 경우 클라이언트에서 Single Sign-On 환경을 위해 Microsoft 계정 로그인 자격 증명을 다시 사용할 수 있습니다. 그렇지 않으면 로그인 메서드가 호출될 때마다 Microsoft 계정 로그인 사용자에게 로그인 프롬프트가 표시됩니다. Windows 스토어 앱 패키지를 등록하는 방법을 자세히 알아보려면 [Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank")을 참조하십시오. 패키지 정보가 모바일 서비스에 등록된 후에는 <em>useSingleSignOn</em> 매개 변수에서 자격 증명을 다시 사용하도록 **true** 값을 제공하여 [login](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") 메서드를 호출합니다.
 
@@ -608,4 +608,4 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 [클라이언트에서 사용자 지정 API 호출]: mobile-services-html-call-custom-api.md
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

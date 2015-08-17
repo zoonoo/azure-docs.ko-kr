@@ -250,4 +250,4 @@ WebMatrix를 사용하여 사이트를 수정하고 웹 앱 인스턴스에 다�
 [sendgridexample]: http://azure.microsoft.com/documentation/articles/sendgrid-dotnet-how-to-send-email/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

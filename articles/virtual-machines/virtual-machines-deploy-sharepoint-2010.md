@@ -285,4 +285,4 @@ Azure 가상 컴퓨터에서 SharePoint Server를 성공적으로 배포하려�
 
  
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

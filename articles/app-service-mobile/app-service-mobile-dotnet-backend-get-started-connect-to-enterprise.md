@@ -47,11 +47,11 @@ SharePoint를 호출하려면 모바일 앱이 연결할 끝점을 지정해야 
 
 3. 관리 포털의 모바일 앱 코드 섹션에서 구성 탭으로 이동한 다음 아래의 앱 설정으로 스크롤합니다. 여기에서는 필요한 자격 증명을 참조할 수 있도록 키-값 쌍을 제공할 수 있습니다.
 
-* SP_Authority를 AAD 테넌트에 대한 기관 끝점으로 설정합니다. 이 항목은 클라이언트 앱에 사용되는 기관 값과 동일해야 합니다. `https://login.windows.net/contoso.onmicrosoft.com` 형식이 됩니다.
+* SP\_Authority를 AAD 테넌트에 대한 기관 끝점으로 설정합니다. 이 항목은 클라이언트 앱에 사용되는 기관 값과 동일해야 합니다. `https://login.windows.net/contoso.onmicrosoft.com` 형식이 됩니다.
 
-* SP_ClientSecret를 이전에 얻은 클라이언트 암호 값으로 설정합니다.
+* SP\_ClientSecret를 이전에 얻은 클라이언트 암호 값으로 설정합니다.
 
-* SP_SharePointURL을 SharePoint 사이트에 대한 URL로 설정합니다. 형식은 `https://contoso-my.sharepoint.com`이어야 합니다.
+* SP\_SharePointURL을 SharePoint 사이트에 대한 URL로 설정합니다. 형식은 `https://contoso-my.sharepoint.com`이어야 합니다.
 
 이러한 값은 ApiServices.Settings를 사용하여 코드에서 다시 가져올 수 있습니다.
 
@@ -188,4 +188,4 @@ Word 문서를 만들려면 OpenXML NuGet 패키지를 사용합니다. NuGet �
 [모바일 앱 .NET 백 엔드 앱 서비스 확장]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

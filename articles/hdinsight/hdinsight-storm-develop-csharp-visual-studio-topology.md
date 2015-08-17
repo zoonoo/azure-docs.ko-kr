@@ -417,13 +417,13 @@ Visual Studio용 HDInsight 도구를 사용하여 일부 구성 요소는 C#이�
 
 예제 하이브리드 토폴로지의 경우 새 프로젝트를 만들고 **Storm 하이브리드 샘플**을 선택합니다. 다음을 설명하는 여러 토폴로지가 포함된 완전히 주석 처리된 샘플이 만들어집니다.
 
--	**Java spout** 및 **C# bolt**: **HybridTopology_javaSpout_csharpBolt**에서 정의됩니다.
+-	**Java spout** 및 **C# bolt**: **HybridTopology\_javaSpout\_csharpBolt**에서 정의됩니다.
 
-	-	트랜잭션 버전은 **HybridTopologyTx_javaSpout_csharpBolt**에서 정의됩니다.
+	-	트랜잭션 버전은 **HybridTopologyTx\_javaSpout\_csharpBolt**에서 정의됩니다.
 
--	**C# spout** 및 **Java bolt**: **HybridTopology_csharpSpout_javaBolt**에서 정의됩니다.
+-	**C# spout** 및 **Java bolt**: **HybridTopology\_csharpSpout\_javaBolt**에서 정의됩니다.
 
-	-	트랜잭션 버전은 **HybridTopologyTx_csharpSpout_javaBolt**에서 정의됩니다.
+	-	트랜잭션 버전은 **HybridTopologyTx\_csharpSpout\_javaBolt**에서 정의됩니다.
 
 		> [AZURE.NOTE]이 버전은 텍스트 파일에서 Clojure 코드를 Java 구성 요소로 사용하는 방법을 설명하기도 합니다.
 
@@ -595,7 +595,7 @@ SCP.NET의 최신 릴리스는 NuGet을 통해 패키지 업그레이드를 지�
 
 6.	변경 내용을 저장한 다음 **F5** 또는 **디버그** > **디버깅 시작**을 선택하여 프로젝트를 시작합니다. 콘솔 창이 나타나며 로그 상태가 테스트로 진행됩니다. **테스트 완료**가 나타나면 아무 키나 눌러 창을 닫습니다.
 
-7.	**Windows 탐색기**를 사용하여 프로젝트가 들어 있는 디렉터리(예: **C:\Users<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**)를 찾습니다. 이 디렉터리에서 **Bin**을 열고 **디버그**를 클릭합니다. 테스트가 실행될 때 생성된 텍스트 파일(sentences.txt, counter.txt 및 splitter.txt)이 표시됩니다. 각각의 텍스트 파일을 열고 데이터를 검사합니다.
+7.	**Windows 탐색기**를 사용하여 프로젝트가 들어 있는 디렉터리(예: **C:\\Users<your\_user\_name>\\Documents\\Visual Studio 2013\\Projects\\WordCount\\WordCount**)를 찾습니다. 이 디렉터리에서 **Bin**을 열고 **디버그**를 클릭합니다. 테스트가 실행될 때 생성된 텍스트 파일(sentences.txt, counter.txt 및 splitter.txt)이 표시됩니다. 각각의 텍스트 파일을 열고 데이터를 검사합니다.
 
 	> [AZURE.NOTE]문자열 데이터는 이러한 파일에서 10진수 값의 배열로 유지됩니다. 예를 들어, **splitter.txt** 파일에서 [[97,103,111]]은 'and'라는 단어입니다.
 
@@ -655,4 +655,4 @@ HDInsight 사용 방법 및 HDInsight의 Storm에 대한 추가 샘플은 다음
 
 -	[HDInsight에서 HBase 시작](../hdinsight-hbase-get-started.md)
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

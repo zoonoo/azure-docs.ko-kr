@@ -111,7 +111,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure의 인증서 개요](http:/
 - 미국 서부
 - 미국 동부
 
-뒤에 나오는 코드 예제에서는 위치가 문자열로 메서드에 전달됩니다. 그러나 <code>WindowsAzure\ServiceManagement\Models\Locations</code> 클래스를 사용하여 위치를 열거로 전달할 수도 있습니다. 예를 들어 위치를 수락하는 메서드에 "West US"를 전달하는 대신 <code>Locations::WEST_US</code>를 전달할 수 있습니다.
+뒤에 나오는 코드 예제에서는 위치가 문자열로 메서드에 전달됩니다. 그러나 <code>WindowsAzure\\ServiceManagement\\Models\\Locations</code> 클래스를 사용하여 위치를 열거로 전달할 수도 있습니다. 예를 들어 위치를 수락하는 메서드에 "West US"를 전달하는 대신 <code>Locations::WEST\_US</code>를 전달할 수 있습니다.
 
 ## 방법: 클라우드 서비스 만들기
 
@@ -288,7 +288,7 @@ Azure 인증서에 대한 자세한 내용은 [Azure의 인증서 개요](http:/
 		echo $code.": ".$error_message."<br />";
 	}
 
-위 예제에서 **changeDeploymentConfiguration** 작업 상태는 **changeDeploymentConfiguration**이 반환한 결과를 **get_operation_status** 메서드에 전달하여 검색할 수 있습니다.
+위 예제에서 **changeDeploymentConfiguration** 작업 상태는 **changeDeploymentConfiguration**이 반환한 결과를 **get\_operation\_status** 메서드에 전달하여 검색할 수 있습니다.
 
 **updateDeploymentStatus** 메서드를 통해 배포 상태를 RUNNING 또는 SUSPENDED로 설정할 수 있습니다. 다음 예제는 `myhostedservice`라는 호스티드 서비스의 프로덕션 슬롯에서 배포의 상태를 RUNNING으로 설정하는 방법을 보여 줍니다.
 
@@ -408,7 +408,7 @@ Azure에서는 스테이징 및 프로덕션이라는 두 가지 환경을 제�
 		echo $code.": ".$error_message."<br />";
 	}
 
-위 예제에서 **createStorageService** 작업 상태는 **createStorageService**가 반환한 결과를 **get_operation_status** 메서드에 전달하여 검색할 수 있습니다.
+위 예제에서 **createStorageService** 작업 상태는 **createStorageService**가 반환한 결과를 **get\_operation\_status** 메서드에 전달하여 검색할 수 있습니다.
 
 **listStorageServices** 메서드로 저장소 계정 및 해당 속성을 나열할 수 있습니다.
 
@@ -559,4 +559,4 @@ Azure에서는 스테이징 및 프로덕션이라는 두 가지 환경을 제�
 
 [Azure 서비스 구성 스키마(.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

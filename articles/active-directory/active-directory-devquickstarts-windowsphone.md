@@ -91,7 +91,7 @@ public MainPage()
 }
 ```
 
-- 이제 사용자가 앱의 UI에서 "검색" 단추를 클릭할 때 호출되는 `Search(...)` 메서드를 찾습니다. 이 메서드는 Azure AD Graph API에 해당 UPN이 지정된 검색어로 시작하는 사용자를 쿼리하라는 GET 요청을 만듭니다. 그렇지만 Graph API를 쿼리하려면 ADAL이 연결되는 요청의 `Authorization` 헤더에 access_token을 포함해야 합니다.
+- 이제 사용자가 앱의 UI에서 "검색" 단추를 클릭할 때 호출되는 `Search(...)` 메서드를 찾습니다. 이 메서드는 Azure AD Graph API에 해당 UPN이 지정된 검색어로 시작하는 사용자를 쿼리하라는 GET 요청을 만듭니다. 그렇지만 Graph API를 쿼리하려면 ADAL이 연결되는 요청의 `Authorization` 헤더에 access\_token을 포함해야 합니다.
 
 ```C#
 private async void Search(object sender, RoutedEventArgs e)
@@ -127,7 +127,7 @@ public async void ContinueWebAuthentication(WebAuthenticationBrokerContinuationE
 }
 ```
 
-- 이제 ADAL이 앱에 반환한 `AuthenticationResult`를 사용할 것입니다. `QueryGraph(...)` 콜백에서 획득한 access_token을 Authorization 헤더의 GET 요청에 연결합니다.
+- 이제 ADAL이 앱에 반환한 `AuthenticationResult`를 사용할 것입니다. `QueryGraph(...)` 콜백에서 획득한 access\_token을 Authorization 헤더의 GET 요청에 연결합니다.
 
 ```C#
 private async void QueryGraph(AuthenticationResult result)
@@ -173,4 +173,4 @@ ADAL은 응용 프로그램에 이러한 모든 일반적인 ID 기능을 쉽게
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

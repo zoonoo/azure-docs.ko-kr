@@ -199,4 +199,4 @@ Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
  
 
-<!-----HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

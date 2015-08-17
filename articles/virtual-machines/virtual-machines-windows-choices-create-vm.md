@@ -103,4 +103,4 @@ Azure PowerShell에 대해서는 [리소스 관리자 및 Azure PowerShell을 �
 
 [Azure 하이브리드 클라우드 테스트 환경]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

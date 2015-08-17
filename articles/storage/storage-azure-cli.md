@@ -80,9 +80,9 @@ Azure 구독에 대한 자세한 내용은 [계정, 구독 및 관리 역할 관
 
     - **<container_name>** 스크립트에 지정된 이름을 사용하거나 사용자 컨테이너에 대한 새 이름을 입력합니다.
 
-    - **<image_to_upload>** 로컬 컴퓨터의 그림 경로(예: "~/images/HelloWorld.png")를 입력합니다.
+    - **<image_to_upload>** 로컬 컴퓨터의 그림 경로(예: "\~/images/HelloWorld.png")를 입력합니다.
 
-    - **<destination_folder>** Azure 저장소에서 다운로드한 파일을 보관할 로컬 디렉터리의 경로(예: “~/downloadImages”)를 입력합니다.
+    - **<destination_folder>** Azure 저장소에서 다운로드한 파일을 보관할 로컬 디렉터리의 경로(예: “\~/downloadImages”)를 입력합니다.
 
 7. vim에서 필요한 변수를 업데이트 한 후 키 조합 "Esc,:, wq!"를 눌러 스크립트를 저장합니다.
 
@@ -189,7 +189,7 @@ Azure에서 Azure 파일 공유는 SMB 2.1 파일 공유입니다. 모든 디렉
 
 ### 디렉터리에 로컬 파일 업로드
 
-다음 예제에서는 **~/temp/samplefile.txt**에서 **myDir**로 파일을 업로드합니다. 로컬 컴퓨터의 유효한 파일을 가리키도록 파일 경로를 편집합니다.
+다음 예제에서는 **\~/temp/samplefile.txt**에서 **myDir**로 파일을 업로드합니다. 로컬 컴퓨터의 유효한 파일을 가리키도록 파일 경로를 편집합니다.
 
         azure storage file upload '~/temp/samplefile.txt' myshare myDir
 
@@ -214,4 +214,4 @@ Azure에서 Azure 파일 공유는 SMB 2.1 파일 공유입니다. 모든 디렉
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

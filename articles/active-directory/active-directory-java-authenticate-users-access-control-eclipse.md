@@ -114,7 +114,9 @@ Azure에서 네임스페이스를 만들고 활성화합니다. 계속하기 전
 3.  **신뢰 당사자 응용 프로그램 추가** 페이지에서 다음을 수행합니다.
     1.  **이름**에 RP의 이름을 입력합니다. 이 자습서에서는 **Azure Web App**을 입력합니다.
     2.  **모드**에서 **Enter settings manually**를 선택합니다.
-    3.  **영역**에 ACS가 발급한 보안 토큰이 적용되는 URI를 입력합니다. 이 작업의 경우 **http://localhost:8080/**을 입력합니다. ![계산 에뮬레이터에 사용할 신뢰 당사자 영역][relying_party_realm_emulator] 4.  **반환 URL**에 ACS가 보안 토큰을 반환하는 URL을 입력합니다. 이 작업의 경우 **http://localhost:8080/MyACSHelloWorld/index.jsp**를 입력합니다. ![계산 에뮬레이터에 사용할 신뢰 당사자 반환 URL][relying_party_return_url_emulator] 5.  나머지 필드는 기본값을 그대로 사용합니다.
+    3.  **영역**에 ACS가 발급한 보안 토큰이 적용되는 URI를 입력합니다. 이 작업의 경우 ****http://localhost:8080/**을 입력합니다. ![계산 에뮬레이터에 사용할 신뢰 당사자 영역][relying_party_realm_emulator]
+4.  **반환 URL**에 ACS가 보안 토큰을 반환하는 URL을 입력합니다. 이 작업의 경우 ****http://localhost:8080/MyACSHelloWorld/index.jsp**을 입력합니다. ![계산 에뮬레이터에 사용할 신뢰 당사자 반환 URL][relying_party_return_url_emulator]
+5.  나머지 필드는 기본값을 그대로 사용합니다.
 
 4.  **Save**를 클릭합니다.
 
@@ -250,7 +252,7 @@ ACS에 의해 응용 프로그램으로 반환되는 SAML(Security Assertion Mar
 
 또한 이 예제에서는 **Embed the certificate in the WAR file** 옵션을 사용했습니다. 이 옵션을 사용하면 인증서를 더 간단하게 배포할 수 있습니다. 대신 서명 인증서를 WAR 파일과 별도로 유지하려면 다음 방법을 사용하면 됩니다.
 
-1. **Azure Access Control Services Filter** 대화 상자의 **Security** 섹션 내에서 **${env.JAVA_HOME}/mycert.cer**을 입력하고 **Embed the certificate in the WAR file**을 선택 취소합니다. (인증서 파일 이름이 다른 경우 mycert.cer을 조정합니다.) **Finish**를 클릭하여 대화 상자를 닫습니다.
+1. **Azure Access Control Services Filter** 대화 상자의 **Security** 섹션 내에서 **${env.JAVA\_HOME}/mycert.cer**을 입력하고 **Embed the certificate in the WAR file**을 선택 취소합니다. (인증서 파일 이름이 다른 경우 mycert.cer을 조정합니다.) **Finish**를 클릭하여 대화 상자를 닫습니다.
 2. 인증서를 배포에 구성 요소로 복사합니다. Eclipse의 Project Explorer에서 **MyAzureACSProject**를 확장하고 **WorkerRole1**을 마우스 오른쪽 단추로 클릭한 후 **Properties**를 클릭하고 **Azure Role**을 확장한 후 **Components**를 클릭합니다.
 3. **추가**를 클릭합니다.
 4. **Add Component** 대화 상자 내에서 다음을 수행합니다.
@@ -260,7 +262,7 @@ ACS에 의해 응용 프로그램으로 반환되는 SAML(Security Assertion Mar
     2. **As Name**의 경우 텍스트 상자를 클릭하고 기본 이름을 그대로 사용합니다.
     3. **Deploy** 섹션에서 다음을 수행합니다.
         1. **Method**의 경우 **copy**를 선택합니다.
-        2. **To directory**의 경우 **%JAVA_HOME%**를 입력합니다.
+        2. **To directory**의 경우 **%JAVA\_HOME%**를 입력합니다.
     4. **Add Component** 대화 상자는 다음과 유사합니다.
 
         ![인증서 구성 요소 추가][add_cert_component]
@@ -307,4 +309,4 @@ ACS에 의해 응용 프로그램으로 반환되는 SAML(Security Assertion Mar
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

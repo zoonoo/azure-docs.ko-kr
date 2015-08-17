@@ -80,7 +80,7 @@ Azure 서비스 패브릭은 기존 응용 프로그램을 배포하는데 사�
 ## 응용 프로그램 패키지 파일 구조
 Powershell cmdlet 등을 사용하는 응용 프로그램을 배포하기 위해 응용 프로그램은 미리 정의된 디렉터리 구조를 따라야 합니다.
 
-\applicationmanifest.xml \MyServicePkg \servicemanifest.xml \code \config \data
+\\applicationmanifest.xml \\MyServicePkg \\servicemanifest.xml \\code \\config \\data
 
 루트는 응용 프로그램을 정의하는 applicationmanifest.xml 파일을 포함합니다. 응용 프로그램에 포함된 각 서비스에 대한 하위 디렉터리 서비스는 서비스가 필요한 모든 아티팩트를 포함하는데 사용됩니다. servicemanifest.xml 및 일반적으로 3개의 디렉터리를 포함합니다.
 
@@ -198,7 +198,7 @@ CodePackage는 서비스의 코드 위치(및 버전)을 지정합니다.
 				  \ ...
 			\config
 			\data
-			...
+			\...
 
 ```
 
@@ -311,4 +311,4 @@ CodePackage는 서비스의 코드 위치(및 버전)을 지정합니다.
 
 	
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

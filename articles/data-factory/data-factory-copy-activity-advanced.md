@@ -146,10 +146,10 @@
 			{
             	"type": "BlobSink"
 			},
-			"Translator": 
+			"translator": 
 			{
       			"type": "TabularTranslator",
-      			"ColumnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
+      			"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
     		}
 		}
 	}
@@ -170,16 +170,16 @@
 			"source":
 			{
 				"type": "SqlSource",
-				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \'{0:yyyyMMdd-HH}\'', SliceStart)"
+				"SqlReaderQuery": "$$Text.Format('SELECT * FROM MyTable WHERE StartDateTime = \\'{0:yyyyMMdd-HH}\\'', WindowStart)"
 			},
 			"sink":
 			{
             	"type": "BlobSink"
 			},
-			"Translator": 
+			"translator": 
 			{
       			"type": "TabularTranslator",
-      			"ColumnMappings": "UserId: MyUserId, Group: MyGroup,Name: MyName"
+      			"columnMappings": "UserId: MyUserId, Group: MyGroup,Name: MyName"
     		}
 		}
 	}
@@ -194,7 +194,7 @@
 | ----------- | ------------------------ |
 | SqlSource | 테이블 정의의 Structure 섹션에서 정의된 데이터 형식은 무시됩니다. 기본 SQL 데이터베이스에 정의된 데이터 형식은 복사 작업 중에 데이터 추출에 사용됩니다. |
 | SqlSink | 테이블 정의의 Structure 섹션에서 정의된 데이터 형식은 무시됩니다. 기본 원본 및 대상의 데이터 형식이 비교되며, 형식 불일치가 있는 경우 암시적 형식 변환이 수행됩니다. |
-| BlobSource | BlobSource에서 BlobSink로 전송하는 경우 형식 변환은 없으며 테이블 정의의 Structure 섹션에서 정의된 데이터 형식은 무시됩니다. BlobSink 이외의 다른 대상의 경우 테이블 정의의 Structure 섹션에서 정의된 데이터 형식이 적용됩니다. Structure가 테이블 정의에서 지정되지 않은 경우 BlobSource 테이블의 format 속성에 따라 형식 처리가 달라집니다. TextFormat: 모든 열 형식은 문자열로 처리되고 모든 열 이름은 "Prop_<0-N>"로 설정됩니다. AvroFormat: Avro 파일에 기본적으로 제공되는 열 형식 및 이름을 사용합니다.
+| BlobSource | BlobSource에서 BlobSink로 전송하는 경우 형식 변환은 없으며 테이블 정의의 Structure 섹션에서 정의된 데이터 형식은 무시됩니다. BlobSink 이외의 다른 대상의 경우 테이블 정의의 Structure 섹션에서 정의된 데이터 형식이 적용됩니다. Structure가 테이블 정의에서 지정되지 않은 경우 BlobSource 테이블의 format 속성에 따라 형식 처리가 달라집니다. TextFormat: 모든 열 형식은 문자열로 처리되고 모든 열 이름은 "Prop\_<0-N>"로 설정됩니다. AvroFormat: Avro 파일에 기본적으로 제공되는 열 형식 및 이름을 사용합니다.
 | BlobSink | 테이블 정의의 Structure 섹션에서 정의된 데이터 형식은 무시됩니다. 기본 입력 데이터 저장소에 정의된 데이터 형식이 사용됩니다. Avro 직렬화에 대해서는 열이 Null 허용으로 지정됩니다. |
 | AzureTableSource | 테이블 정의의 Structure 섹션에서 정의된 데이터 형식은 무시됩니다. 기본 Azure 테이블에 정의된 데이터 형식이 사용됩니다. |
 | AzureTableSink | 테이블 정의의 Structure 섹션에서 정의된 데이터 형식은 무시됩니다. 기본 입력 데이터 저장소에 정의된 데이터 형식이 사용됩니다. |
@@ -261,14 +261,14 @@ SQL Server 또는 Azure SQL 데이터베이스로 데이터를 복사할 때 사
 저장된 프로시저 기능은 [테이블 값 매개 변수][table-valued-parameters]을 이용합니다.
 
 ## 텍스트 파일의 인코딩을 지정합니다.
-UTF-8 인코딩을 많이 사용하지만, 기록 이유로 인해 Azure Blob의 시간 텍스트 파일은 다른 인코딩을 따릅니다. **encodingName** 속성을 사용하면 TextFormat 형식의 테이블에 대한 코드 페이지 이름으로 인코딩을 지정할 수 있습니다. 올바른 인코딩 이름 목록은 Encoding.EncodingName 속성을 참조하세요. 예: windows-1250 또는 shift_jis 기본값은 UTF-8입니다. 올바른 인코딩 이름은 [인코딩 클래스](https://msdn.microsoft.com/library/system.text.encoding.aspx)를 참조하세요.
+UTF-8 인코딩을 많이 사용하지만, 기록 이유로 인해 Azure Blob의 시간 텍스트 파일은 다른 인코딩을 따릅니다. **encodingName** 속성을 사용하면 TextFormat 형식의 테이블에 대한 코드 페이지 이름으로 인코딩을 지정할 수 있습니다. 올바른 인코딩 이름 목록은 Encoding.EncodingName 속성을 참조하세요. 예: windows-1250 또는 shift\_jis 기본값은 UTF-8입니다. 올바른 인코딩 이름은 [인코딩 클래스](https://msdn.microsoft.com/library/system.text.encoding.aspx)를 참조하세요.
 
 ## 참고 항목
 
 - [복사 작업을 사용하는 예][copy-activity-examples]
-- [Azure Data Factory를 사용하여 데이터 복사][adf-copyactivity]
+- [Azure 데이터 팩터리를 사용하여 데이터 복사][adf-copyactivity]
 - [복사 작업 - JSON 스크립팅 참조](https://msdn.microsoft.com/library/dn835035.aspx)
-- [비디오: Azure Data Factory 복사 작업 소개][copy-activity-video]
+- [비디오: Azure 데이터 팩터리 복사 작업 소개][copy-activity-video]
 
 
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
@@ -289,4 +289,4 @@ UTF-8 인코딩을 많이 사용하지만, 기록 이유로 인해 Azure Blob의
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity-advanced/ColumnMappingSample2.png
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

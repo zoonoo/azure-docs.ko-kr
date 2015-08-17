@@ -268,4 +268,4 @@ Twilio 서비스의 기본 사항을 배웠으며 자세한 내용을 보려면 
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 
-<!---HONumber=July15_HO5-->
+<!---HONumber=August15_HO6-->

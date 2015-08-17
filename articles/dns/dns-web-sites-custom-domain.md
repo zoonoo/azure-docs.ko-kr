@@ -165,4 +165,4 @@ Set-AzureDnsRecordSet cmdlet을 사용하여 변경 내용을 커밋합니다.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

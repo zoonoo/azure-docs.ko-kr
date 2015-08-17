@@ -41,7 +41,7 @@ Express 경로 프리미엄 추가 기능에 대한 자세한 내용은 [Express
 - Azure 구독
 - 최신 버전의 Azure PowerShell
 
-###  1. Express 경로에 대한 PowerShell 모듈 가져오기
+###  1\. Express 경로에 대한 PowerShell 모듈 가져오기
 
 Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자동화하기 위해 사용할 수 있는 강력한 스크립팅 환경입니다. 자세한 내용은 [MSDN](https://msdn.microsoft.com/library/windowsazure/jj156055.aspx)의 PowerShell 설명서를 참조하세요.
 
@@ -52,7 +52,7 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자�
 	    Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 
 
-### 2. 활성화된 프리미엄 추가 기능으로 새 Express 경로 회로 구성
+### 2\. 활성화된 프리미엄 추가 기능으로 새 Express 경로 회로 구성
 
 생성 시 활성화 프리미엄 추가 기능으로는 새 Express 경로 회로를 만들 수 있습니다. [NSPs](expressroute-configuring-nsps.md) 또는 [EXPs](expressroute-configuring-exps.md)로 Express 경로 회로를 만드는 방법은 지침을 따릅니다. SKU를 지정할 수 있는 새로운 AzureDedicatedCircuit cmdlet에 새로운 선택적 매개변수가 있습니다. SKU는 표준 또는 프리미엄일 수 있습니다. 기본값은 표준입니다. 프리미엄으로 SKU에서 전달하면 프리미엄 추가 기능으로 회로를 사용할 수 있습니다.
 
@@ -60,7 +60,7 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자�
 		New-AzureDedicatedCircuit -CircuitName $CircuitName -ServiceProviderName $ServiceProvider -Bandwidth $Bandwidth -Location $Location -Sku Premium
 
 
-### 3. Express 경로 프리미엄 추가 기능이 사용되는지 확인합니다.
+### 3\. Express 경로 프리미엄 추가 기능이 사용되는지 확인합니다.
 Express 경로 프리미엄 추가 기능을 회로에 사용할 수 있는지 확인할 수 있습니다. 아래 예제에서는 Express 경로 회로는 Express 경로 프리미엄 추가 기능을 사용 하지 않습니다. 추가 기능이 사용되는 경우 SKU는 ***프리미엄***으로 표시됩니다.
 
 		PS C:\> Get-AzureDedicatedCircuit -ServiceKey *********************************
@@ -177,4 +177,4 @@ Express 경로 프리미엄 추가 기능을 회로에 사용할 수 있는지 �
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

@@ -1,9 +1,7 @@
 <properties
 	pageTitle="Azure의 데이터 과학 가상 컴퓨터 | Microsoft Azure"
 	description="데이터 과학 가상 컴퓨터 설정"
-	metaKeywords=""
 	services="machine-learning"
-	solutions=""
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm" 
@@ -34,4 +32,4 @@ Azure VM 및 SQL 서비스 포함 Azure VM을 IPython Notebook 서버로 설정�
 > [AZURE.NOTE]Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴퓨터를 사용하지 않을 때 비용이 청구되지 않도록 하려면 [Azure 관리 포털](http://manage.windowsazure.com/)에서 **중지(할당 해제)** 상태에 있어야 합니다. 가상 컴퓨터를 할당 해제하는 방법 및 단계별 지침은 [사용하지 않을 때 가상 컴퓨터 종료 및 할당 해제](machine-learning-data-science-setup-virtual-machine.md#shutdown)를 참조하세요.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

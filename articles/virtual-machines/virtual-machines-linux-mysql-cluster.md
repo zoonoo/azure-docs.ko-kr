@@ -310,15 +310,15 @@ Pacemaker를 처음 설치할 때는 구성이 다음과 같이 단순합니다.
 
 다음 스크린샷에서는 하나의 노드가 중지된 `crm_mon`이 표시됩니다(끝내려면 Ctrl+C 사용).
 
-![crm_mon node stopped](media/virtual-machines-linux-mysql-cluster/image002.png)
+![crm\_mon node stopped](media/virtual-machines-linux-mysql-cluster/image002.png)
 
 또한 스크린샷에는 마스터 노드 하나와 슬레이브 노드 하나가 표시됩니다.
 
-![crm_mon operational master/slave](media/virtual-machines-linux-mysql-cluster/image003.png)
+![crm\_mon operational master/slave](media/virtual-machines-linux-mysql-cluster/image003.png)
 
 ## 테스트
 
-자동 장애 조치(Failover) 시뮬레이션 준비가 되었습니다. 이 작업을 수행하는 방법에는 소프트 방법과 하드 방법이 있습니다. 소프트 방법은 클러스터의 종료 함수인 ``crm_standby -U `uname -n` -v on``을 사용합니다. 을 사용하는 것입니다. 마스터에서 이 함수를 사용하면 슬레이브가 작업을 인계 받습니다. 이 설정은 반드시 다시 해제해야 합니다(crm_mon은 한 노드가 대기 상태임을 알려줌).
+자동 장애 조치(Failover) 시뮬레이션 준비가 되었습니다. 이 작업을 수행하는 방법에는 소프트 방법과 하드 방법이 있습니다. 소프트 방법은 클러스터의 종료 함수인 ``crm_standby -U `uname -n` -v on``을 사용합니다. 을 사용하는 것입니다. 마스터에서 이 함수를 사용하면 슬레이브가 작업을 인계 받습니다. 이 설정은 반드시 다시 해제해야 합니다(crm\_mon은 한 노드가 대기 상태임을 알려줌).
 
 하드 방법은 포털을 통해 기본 VM(hadb01)을 종료하거나 VM에서 실행 수준(즉, 중지, 종료)을 변경하는 것입니다. 그러면 우리가 마스터의 작동 중단을 신호로 알려 Corosync 및 Pacemaker를 지원합니다. 이것을 테스트할 수 있지만(유지 관리 기간에 유용) 단지 VM을 동결하여 이 시나리오를 강제로 실행할 수도 있습니다.
 
@@ -348,4 +348,4 @@ Pacemaker를 처음 설치할 때는 구성이 다음과 같이 단순합니다.
 - 쓰기 성능은 DRBD가 장치 복제에 사용하는 메커니즘인 가상 스위치의 VM 상호 연결에 따라 좌우됩니다.
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

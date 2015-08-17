@@ -1,4 +1,6 @@
-Resource| Default limit
----|---
-Profiles per subscription | 100
-Endpoints per profile| 200
+| 리소스 | 기본 제한
+--- | ---
+| 구독당 프로필 | 100
+| 프로필당 끝점| 200
+
+<!---HONumber=August15_HO6-->

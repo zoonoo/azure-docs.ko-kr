@@ -58,64 +58,19 @@ vContinuum 설정은 [다운로드 위치](http://go.microsoft.com/fwlink/?linki
 
 또한, [다운로드 위치](http://go.microsoft.com/fwlink/?LinkID=533813)에서 제공되는 vConinuum 패치를 설치합니다.
 
-1.  VContinuum의 설치를 시작하려면 설치 프로그램을 시작합니다. 시작 화면이 나타나면 Next(다음)를 클릭하여 설정의 구성을 시작합니다.
-
-![](./media/site-recovery-failback-azure-to-vmware/image2.png)
-
-2.  CX 서버 IP 주소 및 CX 서버 포트를 지정합니다. 확인란에서 HTTPs를 선택해야 합니다.
-
-![](./media/site-recovery-failback-azure-to-vmware/image3.png)
-
-    a.  To discover the CX IP go to the CS deployment on Azure and view
-        its dashboard. The public IP address will be displayed under
-        Public Virtual IP address.
-
-![](./media/site-recovery-failback-azure-to-vmware/image4.png)
-
-    b.  To discover the CX public port go to the endpoints tab in the VM
-        page and identify the HTTPs endpoints public port
-
-![](./media/site-recovery-failback-azure-to-vmware/image5.png)
-
-3.  CS 암호를 지정합니다. CS 등록 중에 암호를 기록해두어야 합니다. MT 및 PS 배포 중에도 암호를 사용했을 것입니다. 암호를 기억하지 못하는 경우 Azure에서 CS 서버로 이동하여 C:\Program Files (x86) \InMage Systems\private\connection.passphrase 아래에 저장된 암호를 찾을 수 있습니다.
-
-    ![](./media/site-recovery-failback-azure-to-vmware/image6.png)
-
-4.  vContinuum 서버를 설치할 위치를 지정하고 설치를 시작합니다.
-
-    ![](./media/site-recovery-failback-azure-to-vmware/image7.png)
-
-5.  설치가 완료되면 vContinuum를 시작하여 작동하는지 확인하십시오.
-
-    ![](./media/site-recovery-failback-azure-to-vmware/image8.png)
+1.  VContinuum의 설치를 시작하려면 설치 프로그램을 시작합니다. 시작 화면이 나타나면 Next(다음)를 클릭하여 설정의 구성을 시작합니다.![](./media/site-recovery-failback-azure-to-vmware/image2.png)
+2.  CX 서버 IP 주소 및 CX 서버 포트를 지정합니다. 확인란에서 HTTPs를 선택해야 합니다. ![](./media/site-recovery-failback-azure-to-vmware/image3.png) a. CX IP를 검색하려면 Azure의 CS 배포로 이동하고 대시보드를 봅니다. 공용 IP 주소는 공용 가상 IP 주소 아래 표시됩니다. ![](./media/site-recovery-failback-azure-to-vmware/image4.png) b. CX 공용 포트를 검색하려면 VM 페이지에서 끝점 탭으로 이동하고 HTTPs 끝점 공용 포트를 식별합니다.![](./media/site-recovery-failback-azure-to-vmware/image5.png)
+3.  CS 암호를 지정합니다. CS 등록 중에 암호를 기록해두어야 합니다. MT 및 PS 배포 중에도 암호를 사용했을 것입니다. 암호를 기억하지 못하는 경우 Azure에서 CS 서버로 이동하여 C:\\Program Files (x86) \\InMage Systems\\private\\connection.passphrase 아래에 저장된 암호를 찾을 수 있습니다. ![](./media/site-recovery-failback-azure-to-vmware/image6.png)
+4.  vContinuum 서버를 설치할 위치를 지정하고 설치를 시작합니다. ![](./media/site-recovery-failback-azure-to-vmware/image7.png)
+5.  설치가 완료되면 vContinuum를 시작하여 작동하는지 확인하십시오. ![](./media/site-recovery-failback-azure-to-vmware/image8.png)
 
 ## Azure에서 PS 서버를 설치합니다.
 
 프로세스 서버를 Azure에 설치해야 Azure 내의 VM이 데이터를 온-프레미스 MT에 다시 보낼 수 있습니다. 구성 서버와 동일한 네트워크에서 Azure에 PS를 배포해야 합니다.
 
 1.  Azure 내 구성 서버 페이지에서 선택하여 새 프로세스 서버를 추가합니다.![](./media/site-recovery-failback-azure-to-vmware/image9.png)
-
-2.  프로세스 서버에서 아래 설정을 구성하여 새로운 서버를 배포합니다.
-
-    a. 프로세스 서버에 이름을 지정합니다.
-
-    b. 관리자로 가상 컴퓨터에 연결하기 위한 사용자 이름을 입력합니다.
-
-    c. 로그인 암호를 입력합니다.
-
-    d. 프로세스 서버를 등록해야 하는 구성 서버를 선택합니다. 올바른 구성 서버를 선택했는지 확인합니다. 이것은 가상 컴퓨터를 보호 및 장애 조치할 때 사용한 동일한 서버입니다.
-
-    e. 프로세스 서버를 배포하고자 하는 Azure 네트워크를 지정합니다. 구성 서버의 네트워크와 동일한 네트워크를 선택해야 합니다.
-
-    f. 선택한 서브넷에서 고유한 IP 주소를 지정합니다.
-
-    g. 프로세스 서버의 배포를 시작합니다.
-
-![](./media/site-recovery-failback-azure-to-vmware/image10.png)
-
-1.  프로세스 서버를 배포하기 위한 작업이 트리거됩니다.
-
-![](./media/site-recovery-failback-azure-to-vmware/image11.png)
+2.  프로세스 서버에서 아래 설정을 구성하여 새로운 서버 a를 배포합니다. 프로세스 서버에 이름 b를 지정합니다. 관리자 c로 가상 컴퓨터에 연결하기 위한 사용자 이름을 입력합니다. d의 로그인 암호를 입력합니다. 프로세스 서버를 등록해야 하는 구성 서버를 선택합니다. 올바른 구성 서버를 선택했는지 확인합니다. 이것은 가상 컴퓨터를 보호 및 장애 조치할 때 사용한 동일한 서버입니다. e. 프로세스 서버를 배포하고자 하는 Azure 네트워크를 지정합니다. 구성 서버의 네트워크와 동일한 네트워크를 선택해야 합니다. f. 선택한 서브넷에서 고유한 IP 주소를 지정합니다. g. 프로세스 서버의 배포를 시작합니다. ![](./media/site-recovery-failback-azure-to-vmware/image10.png)
+3.  프로세스 서버를 배포하기 위한 작업이 트리거됩니다. ![](./media/site-recovery-failback-azure-to-vmware/image11.png)
 
 프로세스 서버가 Azure에 배포되면 지정한 자격 증명을 사용하여 서버에 로그인할 수 있습니다. 앞 방향의 보호 중에 사용한 단계를 사용하여 PS를 등록합니다.
 
@@ -197,35 +152,35 @@ f. 존재하지 않는 경우 **행 추가**를 클릭합니다.
 
 위 명령을 입력하면 CentOS 6.6 저장소에서 아래에 언급된 15개의 패키지를 다운로드하고 설치합니다.
 
-bc-1.06.95-1.el6.x86_64.rpm
+bc-1.06.95-1.el6.x86\_64.rpm
 
-busybox-1.15.1-20.el6.x86_64.rpm
+busybox-1.15.1-20.el6.x86\_64.rpm
 
-elfutils-libs-0.158-3.2.el6.x86_64.rpm
+elfutils-libs-0.158-3.2.el6.x86\_64.rpm
 
-kexec-tools-2.0.0-280.el6.x86_64.rpm
+kexec-tools-2.0.0-280.el6.x86\_64.rpm
 
-lsscsi-0.23-2.el6.x86_64.rpm
+lsscsi-0.23-2.el6.x86\_64.rpm
 
-lzo-2.03-3.1.el6_5.1.x86_64.rpm
+lzo-2.03-3.1.el6\_5.1.x86\_64.rpm
 
-perl-5.10.1-136.el6_6.1.x86_64.rpm
+perl-5.10.1-136.el6\_6.1.x86\_64.rpm
 
-perl-Module-Pluggable-3.90-136.el6_6.1.x86_64.rpm
+perl-Module-Pluggable-3.90-136.el6\_6.1.x86\_64.rpm
 
-perl-Pod-Escapes-1.04-136.el6_6.1.x86_64.rpm
+perl-Pod-Escapes-1.04-136.el6\_6.1.x86\_64.rpm
 
-perl-Pod-Simple-3.13-136.el6_6.1.x86_64.rpm
+perl-Pod-Simple-3.13-136.el6\_6.1.x86\_64.rpm
 
-perl-libs-5.10.1-136.el6_6.1.x86_64.rpm
+perl-libs-5.10.1-136.el6\_6.1.x86\_64.rpm
 
-perl-version-0.77-136.el6_6.1.x86_64.rpm
+perl-version-0.77-136.el6\_6.1.x86\_64.rpm
 
-rsync-3.0.6-12.el6.x86_64.rpm
+rsync-3.0.6-12.el6.x86\_64.rpm
 
-snappy-1.1.0-1.el6.x86_64.rpm
+snappy-1.1.0-1.el6.x86\_64.rpm
 
-wget-1.12-5.el6_6.1.x86_64.rpm
+wget-1.12-5.el6\_6.1.x86\_64.rpm
 
 참고: 원본 컴퓨터가 루트 또는 부팅 장치에 Reiser 또는 XFS 파일 시스템을 사용하는 경우 보호 전에 다음 패키지를 Linux 마스터 대상에 다운로드하고 설치해야 합니다.
 
@@ -235,11 +190,11 @@ wget-1.12-5.el6_6.1.x86_64.rpm
 
 # wget <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
 
-# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm
+# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
 # wget <http://mirror.centos.org/centos/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
 
-# rpm -ivh xfsprogs-3.1.1-16.el6.x86_64.rpm
+# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
 #### 사용자 지정 구성 변경 내용 적용
 
@@ -277,7 +232,7 @@ VPN 연결을 통해 Linux 마스터 대상 서버에 배포한 Azure 네트워�
 
 다음을 실행하여 gzip된 Linux 마스터 대상 서버 설치 프로그램 tar 압축 파일로부터 파일을 추출합니다.
 
-*“tar –xvzf Microsoft-ASR_UA_8.2.0.0_RHEL6-64*”*(Linux 마스터 대상 서버 설치 프로그램을 복사한 디렉터리에서)
+*“tar –xvzf Microsoft-ASR\_UA\_8.2.0.0\_RHEL6-64*”*(Linux 마스터 대상 서버 설치 프로그램을 복사한 디렉터리에서)
 
 ![](./media/site-recovery-failback-azure-to-vmware/image16.png)
 
@@ -349,11 +304,11 @@ Azure 포털에서 가상 컴퓨터의 상태를 확인하 고 장애 조치되�
 
 ![](./media/site-recovery-failback-azure-to-vmware/image8.png)
 
-1.  **응용프로그램 선택** 설정에서 **P2V**를 선택합니다.
+2.  **응용프로그램 선택** 설정에서 **P2V**를 선택합니다.
 
-2.  **새 보호** 옵션을 클릭하여 시작합니다.
+3.  **새 보호** 옵션을 클릭하여 시작합니다.
 
-3.  열리는 새 창에서 가상 컴퓨터를 다시 온-프레미스로 보호할 수 있습니다.
+4.  열리는 새 창에서 가상 컴퓨터를 다시 온-프레미스로 보호할 수 있습니다.
 
     a. 장애 조치하려는 VM에 따라 **OS 유형**과 **세부 정보**를 클릭합니다.
 
@@ -365,7 +320,7 @@ Azure 포털에서 가상 컴퓨터의 상태를 확인하 고 장애 조치되�
 
     e. 보호하려는 VM을 식별하면 하나씩 선택합니다.
 
-4.  가상 컴퓨터를 선택하여 보호하면(이미 Azure에 장애 조치된 경우) 가상 컴퓨터에 대한 두 가지 항목을 제공하는 팝업 창이 나타납니다. 이것은 CS가 등록된 가상 컴퓨터의 인스턴스 2개를 발견했기 때문입니다. 올바른 VM을 보호할 수 있도록 온-프레미스 VM에 대한 항목을 제거해야 합니다. 해당 컴퓨터의 호스트 이름에 의한 항목들이 표시됨을 유의하십시오. 여기에서 올바른 Azure VM 항목을 식별하려면 Azure VM에 로그인하여 C:\Program Files (x86)\Microsoft Azure Site Recovery\Application Data\etc로 이동합니다. 파일 drscout.conf에서 호스트 ID를 식별합니다. VContinuum 대화 상자에서 VM에서 hostID가 발견된 항목을 유지합니다. 다른 모든 항목을 삭제합니다.
+5.  가상 컴퓨터를 선택하여 보호하면(이미 Azure에 장애 조치된 경우) 가상 컴퓨터에 대한 두 가지 항목을 제공하는 팝업 창이 나타납니다. 이것은 CS가 등록된 가상 컴퓨터의 인스턴스 2개를 발견했기 때문입니다. 올바른 VM을 보호할 수 있도록 온-프레미스 VM에 대한 항목을 제거해야 합니다. 해당 컴퓨터의 호스트 이름에 의한 항목들이 표시됨을 유의하십시오. 여기에서 올바른 Azure VM 항목을 식별하려면 Azure VM에 로그인하여 C:\\Program Files (x86)\\Microsoft Azure Site Recovery\\Application Data\\etc로 이동합니다. 파일 drscout.conf에서 호스트 ID를 식별합니다. VContinuum 대화 상자에서 VM에서 hostID가 발견된 항목을 유지합니다. 다른 모든 항목을 삭제합니다.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image22.png)
 
@@ -380,7 +335,7 @@ Azure 포털에서 가상 컴퓨터의 상태를 확인하 고 장애 조치되�
 
     d.  Next you can also delete the virtual machines on-premises
 
-5.  그 다음에는 VM을 보호하고자 하는 온-프레미스 MT 서버를 지정해야 합니다.
+6.  그 다음에는 VM을 보호하고자 하는 온-프레미스 MT 서버를 지정해야 합니다.
 
     a. 장애 조치하려는 vCenter에 연결합니다.
 
@@ -390,7 +345,7 @@ a. 가상 컴퓨터를 복구하고자 하는 호스트를 기반으로 MT 서�
 
 ![](./media/site-recovery-failback-azure-to-vmware/image24.png)
 
-1.  그 다음 각 가상 컴퓨터에 대해 복제 옵션을 제공합니다.
+7.  그 다음 각 가상 컴퓨터에 대해 복제 옵션을 제공합니다.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image25.png)
 
@@ -398,32 +353,28 @@ a. 복구 쪽 **데이터 저장소**를 선택해야 합니다. 이것은 VM이
 
 VM별로 제공해야 하는 다양한 옵션은 다음과 같습니다.
 
-<table>
-<tr><td>옵션</td><td>옵션이 권장하는 값</td></tr>
-<tr><td>프로세스 서버 IP</td><td>Azure에 배포한 PS를 선택 합니다.</td></tr>
-<tr><td>보존 크기(MB)</td><td></td></tr>
-<tr><td>보존 값</td><td>1</td></tr>
-<tr><td>날짜/시간</td><td>일</td></tr>
-<tr><td>일관성 간격</td><td>1</td></tr>
-<tr><td>대상 데이터 저장소를 선택합니다.</td><td>복구 쪽에서 사용할 수 있는 데이터 저장소 이 데이터 저장소는 공간이 충분해야 하며 가상 컴퓨터를 실현시키고자 하는 ESX 호스트에서 제공되어야 합니다.</td></tr>
-</table>
+옵션|옵션이 권장하는 값
+---|---
+프로세스 서버 IP|Azure에 배포한 PS를 선택 합니다.
+보존 크기(MB)| 
+보존 값|1
+날짜/시간|일
+일관성 간격|1
+대상 데이터 저장소를 선택합니다.|복구 쪽에서 사용할 수 있는 데이터 저장소 이 데이터 저장소는 공간이 충분해야 하며 가상 컴퓨터를 실현시키고자 하는 ESX 호스트에서 제공되어야 합니다.
 
 
-1.  그런 다음 온-프레미스 사이트로 장애 조치 후 가상 컴퓨터가 입수하는 속성을 구성할 수 있습니다. 구성할 수 있는 다른 속성은 다음과 같습니다.
+8.  그런 다음 온-프레미스 사이트로 장애 조치 후 가상 컴퓨터가 입수하는 속성을 구성할 수 있습니다. 구성할 수 있는 다른 속성은 다음과 같습니다.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image26.png)
 
 
-  <table>
-<tr><td>속성</td><td>구성 방법</td></tr>
-<tr><td>네트워크 구성</td><td>감지된 각 NIC에 대해 가상 컴퓨터에 대해 장애 복구 IP 주소를 구성합니다. NIC를 선택하고 클릭 * * 변경 * *을 클릭하여 IP 주소 세부 정보를 지정합니다.
-
-</td></tr>
-<tr><td>하드웨어 구성</td><td>VM에 대한 CPU 및 메모리 값을 지정할 수 있습니다. 이 설정은 보호하고자 하는 모든 VM에 적용할 수 있습니다. CPU 및 메모리에 대해 올바른 값을 식별하려면 IAAS Vm 역할 크기를 참조하고 할당된 메모리 및 코어 수를 확인할 수 있습니다.
-</td></tr>
-<tr><td>표시 이름</td><td>온-프레미스에 다시 장애 조치 후, vCenter 재고에 표시되는 가상 컴퓨터의 이름을 변경하도록 선택할 수 있습니다. 여기에 표시되는 기본 값이 가상 컴퓨터 호스트 이름입니다. VM 이름을 식별하려면 보호 그룹 내 VM 목록을 참조할 수 있습니다.</td></tr>
-<tr><td>NAT 구성</td><td>아래에 자세히 설명합니다.</td></tr>
-</table>
+속성|구성 방법
+---|---
+네트워크 구성|감지된 각 NIC에 대해 가상 컴퓨터에 대해 장애 복구 IP 주소를 구성합니다. NIC를 선택하고 **변경**을 클릭하여 IP 주소 세부 정보를 지정합니다.
+하드웨어 구성|VM에 대한 CPU 및 메모리 값을 지정할 수 있습니다. 이 설정은 보호하고자 하는 모든 VM에 적용할 수 있습니다.
+표시 이름|CPU 및 메모리에 대해 올바른 값을 식별하려면 IAAS Vm 역할 크기를 참조하고 할당된 메모리 및 코어 수를 확인할 수 있습니다.
+표시 이름|온-프레미스에 다시 장애 조치 후, vCenter 재고에 표시되는 가상 컴퓨터의 이름을 변경하도록 선택할 수 있습니다. 여기에 표시되는 기본 값이 가상 컴퓨터 호스트 이름입니다. VM 이름을 식별하려면 보호 그룹 내 VM 목록을 참조할 수 있습니다.
+NAT 구성|아래에 자세히 설명합니다.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image27.png)
 
@@ -447,13 +398,13 @@ VM별로 제공해야 하는 다양한 옵션은 다음과 같습니다.
 >
 > ![](./media/site-recovery-failback-azure-to-vmware/image30.png)
 
-1.  5.d 단계에 지정한 대로 온-프레미스 가상 컴퓨터를 삭제하지 않았으며 7.a 단계에서 선택한 것처럼 장애 복구를 실행하는 데이터 저장소에 여전히 기존의 VMDK가 포함되어 있다면 장애 복구 VM이 역시 새로운 위치에 생성되도록 해야 합니다. 이를 위해 고급 설정을 선택하고 고급 설정의 **폴더 이름 설정** 섹션에서 복구할 대체 폴더를 지정할 수 있습니다.
+1.  5\.d 단계에 지정한 대로 온-프레미스 가상 컴퓨터를 삭제하지 않았으며 7.a 단계에서 선택한 것처럼 장애 복구를 실행하는 데이터 저장소에 여전히 기존의 VMDK가 포함되어 있다면 장애 복구 VM이 역시 새로운 위치에 생성되도록 해야 합니다. 이를 위해 고급 설정을 선택하고 고급 설정의 **폴더 이름 설정** 섹션에서 복구할 대체 폴더를 지정할 수 있습니다.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image31.png)
 
 고급 설정의 다른 옵션은 기본값으로 남겨둬도 됩니다. 모든 서버에 폴더 이름을 설정을 적용하도록 하십시오.
 
-1.  그 다음 보호의 최종 단계로 이동합니다. 여기서 가상 컴퓨터가 준비 검사를 실행하여 온-프레미스로 다시 보호될 준비가 되었는지 확인해야 합니다.
+2.  그 다음 보호의 최종 단계로 이동합니다. 여기서 가상 컴퓨터가 준비 검사를 실행하여 온-프레미스로 다시 보호될 준비가 되었는지 확인해야 합니다.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image32.png)
 
@@ -471,7 +422,7 @@ VM별로 제공해야 하는 다양한 옵션은 다음과 같습니다.
     below.
 
 
-1.  이제 보호가 시작됩니다.
+3.  이제 보호가 시작됩니다.
 
     a. vContinuum에서 보호의 진행률을 볼 수 있습니다.
 
@@ -498,15 +449,15 @@ VM별로 제공해야 하는 다양한 옵션은 다음과 같습니다.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image37.png)
 
-1.  가상 컴퓨터를 보호하는 데 사용된 모든 계획의 목록을 볼 수 있습니다. 이들은 복구에 사용할 수 있는 동일한 계획입니다.
+3.  가상 컴퓨터를 보호하는 데 사용된 모든 계획의 목록을 볼 수 있습니다. 이들은 복구에 사용할 수 있는 동일한 계획입니다.
 
-2.  보호 계획을 선택하고 그 안에서 복구하려는 모든 VM을 선택합니다.
+4.  보호 계획을 선택하고 그 안에서 복구하려는 모든 VM을 선택합니다.
 
     a. 각 VM 선택 시 원본 VM, VM이 복구될 대상 ESX 서버 및 원본 VM 디스크에 대한 자세한 정보를 볼 수 있습니다.
 
-3.  다음을 클릭하여 **복구 마법사**를 시작합니다.
+5.  다음을 클릭하여 **복구 마법사**를 시작합니다.
 
-4.  복구하려는 가상 컴퓨터를 선택합니다.
+6.  복구하려는 가상 컴퓨터를 선택합니다.
 
     a. 복구할 수 있는 모든 가상 컴퓨터의 목록을 참조 하십시오.
 
@@ -520,15 +471,15 @@ VM별로 제공해야 하는 다양한 옵션은 다음과 같습니다.
     chosen for all the virtual machines.
 
 
-1.  **준비 검사**를 실행합니다. 이것은 오른쪽 매개 변수가 가상 컴퓨터의 최신 태그 복구를 활성화하도록 구성되었는지 알려줍니다. 모든 검사가 성공적이면 다음을 클릭하고 그렇지 않으면 로그를 보고 오류를 해결합니다.
+7.  **준비 검사**를 실행합니다. 이것은 오른쪽 매개 변수가 가상 컴퓨터의 최신 태그 복구를 활성화하도록 구성되었는지 알려줍니다. 모든 검사가 성공적이면 다음을 클릭하고 그렇지 않으면 로그를 보고 오류를 해결합니다.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image39.png)
 
-2.  마법사의 VM 구성 단계에서 복구 설정이 올바르게 설정되었는지 확인합니다. VM 설정이 필요한 것과 다를 경우 변경을 선택할 수 있습니다. 보호하는 동안 이미 이 작업을 완료했으므로 이번에는 무시할 수도 있습니다.
+8.  마법사의 VM 구성 단계에서 복구 설정이 올바르게 설정되었는지 확인합니다. VM 설정이 필요한 것과 다를 경우 변경을 선택할 수 있습니다. 보호하는 동안 이미 이 작업을 완료했으므로 이번에는 무시할 수도 있습니다.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image40.png)
 
-1.  마지막으로 복구하는 가상 컴퓨터의 목록을 검토합니다.
+9.  마지막으로 복구하는 가상 컴퓨터의 목록을 검토합니다.
 
     a. 가상 컴퓨터에 복구 순서를 지정합니다.
 
@@ -536,7 +487,7 @@ VM별로 제공해야 하는 다양한 옵션은 다음과 같습니다.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image41.png)
 
-1.  **복구 계획 이름**을 지정하고 **복구 옵션**에서 **나중에 복구**를 선택합니다.
+10.  **복구 계획 이름**을 지정하고 **복구 옵션**에서 **나중에 복구**를 선택합니다.
 
     a. 지금 바로 복구하려는 경우에는 **복구 옵션**에서 **지금 복구**를 선택할 수 있습니다.
 
@@ -544,11 +495,11 @@ VM별로 제공해야 하는 다양한 옵션은 다음과 같습니다.
 
     c. 마지막으로 **복구** 단추를 클릭하여 계획을 저장하거나 **복구 옵션**을 기반으로 복구를 트리거합니다.
 
-2.  복구 상태를 볼 수 있으며 해당 계획이 성공적으로 저장되었는지 확인할 수 있습니다.
+11.  복구 상태를 볼 수 있으며 해당 계획이 성공적으로 저장되었는지 확인할 수 있습니다.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image42.png)
 
-1.  나중에 복구를 선택했다면 계획이 생성되었으며 나중에 복구할 수 있다는 알림이 표시됩니다.
+12.  나중에 복구를 선택했다면 계획이 생성되었으며 나중에 복구할 수 있다는 알림이 표시됩니다.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image43.png)
 
@@ -570,18 +521,18 @@ VM별로 제공해야 하는 다양한 옵션은 다음과 같습니다.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image45.png)
 
-1.  **복구** 노드를 선택하고 복구 하고자 하는 계획을 선택합니다.
+3.  **복구** 노드를 선택하고 복구 하고자 하는 계획을 선택합니다.
 
     a. 그러면 계획이 아직 시작되지 않았음을 알려줍니다.
 
-2.  **시작**을 클릭하여 복구를 시작합니다.
+4.  **시작**을 클릭하여 복구를 시작합니다.
 
-3.  가상 컴퓨터의 복구를 모니터링할 수 있습니다.
+5.  가상 컴퓨터의 복구를 모니터링할 수 있습니다.
 
 
 ![](./media/site-recovery-failback-azure-to-vmware/image46.png)
 
-4. VM의 전원이 켜지면 vCenter에 있는 가상 컴퓨터에 연결할 수 있습니다.
+6. VM의 전원이 켜지면 vCenter에 있는 가상 컴퓨터에 연결할 수 있습니다.
 
 ## 장애 복구 후 Azure로 다시 보호
 
@@ -604,4 +555,4 @@ VM별로 제공해야 하는 다양한 옵션은 다음과 같습니다.
 
  
 
-<!---HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->

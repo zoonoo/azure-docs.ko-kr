@@ -8,4 +8,4 @@
 [기존 앱에 모바일 서비스 추가]: ../articles/mobile-services-android-get-started-data.md
 -->
 
-<!-----HONumber=July15_HO4-->
+<!---HONumber=August15_HO6-->
