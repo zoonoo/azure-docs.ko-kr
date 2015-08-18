@@ -54,7 +54,7 @@ Azure Active Directory 연결 동기화 서비스 (Azure AD Connect Sync)는 For
 
 
 
-연산자는 왼쪽에서 오른쪽으로 계산됩니다. 2\*(5+3)은 2\*5+3과 같지 않습니다.<br> 
+연산자는 왼쪽에서 오른쪽으로 계산됩니다. 2*(5+3)은 2*5+3과 같지 않습니다.<br> 
 대괄호()는 평가 순서를 변경하는 데 사용됩니다.
 
 
@@ -137,4 +137,4 @@ ImportedValues 함수는 특성 이름을 대괄호 대신 따옴표에 묶어�
  
 <!--Image references-->
 
-<!-----HONumber=August15_HO6-->
+<!------HONumber=August15_HO6-->
