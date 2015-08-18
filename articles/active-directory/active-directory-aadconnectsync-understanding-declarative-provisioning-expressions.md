@@ -23,7 +23,7 @@ Azure Active Directory 연결 동기화 서비스 (Azure AD Connect Sync)는 For
 
 선언적 프로비전의 핵심적인 부분은 특성 흐름에 사용되는 표현 언어입니다. 사용 되는 언어는 VBA(Microsoft® Visual Basic® for Applications)의 하위 집합입니다. 이 언어는 Microsoft Office에서 사용되며, VBScript 경험이 있는 사용자 또한 이 언어를 인식합니다. 선언적 프로비저닝 표현 언어는 함수만 사용하며 구조적 언어는 아닙니다. 메서드 또는 문이 없습니다. 대신, 빠른 프로그램 흐름에 함수가 중첩됩니다.
 
-자세한 내용은 [Office 2013용 Visual basic for Applications 언어 참조 시작]을 참조하십시오(https://msdn.microsoft.com/library/gg264383(v=office.15).aspx).
+자세한 내용은 [Office 2013용 Visual basic for Applications 언어 참조 시작](https://msdn.microsoft.com/library/gg264383(v=office.15).aspx).
 
 특성은 강력한 형식입니다. 단일 값 문자열 특성을 예상하는 함수는 다중 값 또는 다른 유형의 특성을 허용하지 않습니다. 대/소문자를 구분하기도 합니다. 함수 이름과 특성 이름은 모두 적절한 대/소문자를 가지고 있어야 하며 그렇지 않으면 오류가 발생합니다.
 
@@ -54,7 +54,8 @@ Azure Active Directory 연결 동기화 서비스 (Azure AD Connect Sync)는 For
 
 
 
-연산자는 왼쪽에서 오른쪽으로 계산됩니다. 2*(5+3)은 2*5+3과 같지 않습니다.<br> 대괄호()는 평가 순서를 변경하는 데 사용됩니다.
+연산자는 왼쪽에서 오른쪽으로 계산됩니다. 2\*(5+3)은 2\*5+3과 같지 않습니다.<br> 
+대괄호()는 평가 순서를 변경하는 데 사용됩니다.
 
 
 
@@ -67,7 +68,8 @@ Azure Active Directory 연결 동기화 서비스 (Azure AD Connect Sync)는 For
 Active Directory Connector는 인바운드 동기화 규칙에 대해 다음 매개 변수를 제공합니다.
 
  
-| Domain.Netbios | Domain.FQDN | Domain.LDAP | | Forest.Netbios | Forest.FQDN | Forest.LDAP |
+| Domain.Netbios | Domain.FQDN | Domain.LDAP |
+| Forest.Netbios | Forest.FQDN | Forest.LDAP |
  
 
 시스템은 다음 매개 변수를 제공합니다.
@@ -135,4 +137,4 @@ ImportedValues 함수는 특성 이름을 대괄호 대신 따옴표에 묶어�
  
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->

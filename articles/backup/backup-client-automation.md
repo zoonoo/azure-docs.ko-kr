@@ -7,7 +7,14 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/17/2015" ms.author="aashishr"; "jimpark"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/17/2015"
+	ms.author="aashishr"; "jimpark"/>
 
 
 # Azure PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
@@ -54,7 +61,8 @@ PS C:\> MARSAgentInstaller.exe /?
 | /s:"location" | Azure 백업 에이전트에 대한 캐시 폴더 경로. | C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
 | /m | Opt-in to Microsoft Update | - |
 | /nu | 설치 완료 후 업데이트 확인 안 함 | - |
-| /d | Microsoft Azure 복구 서비스 에이전트 제거 | - | | /ph | 프록시 호스트 주소 | - |
+| /d | Microsoft Azure 복구 서비스 에이전트 제거 | - |
+| /ph | 프록시 호스트 주소 | - |
 | /po | 프록시 호스트 포트 번호 | - |
 | /pu | 프록시 호스트 사용자 이름 | - |
 | /pw | 프록시 암호 | - |
@@ -66,6 +74,7 @@ Azure 백업 서비스에 등록하려면 먼저 [필수 조건](backup-try-azur
 - 유효한 Azure 구독이 있어야 함
 - 백업 자격 증명 모음 만들기
 - 저장소 자격 증명을 다운로드하여 편리한 위치에 저장합니다(예: *C:\Downloads*). 저장소 자격 증명은 편의에 따라 이름을 바꿀 수 있습니다.
+
 [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) cmdlet을 사용하여 컴퓨터에 저장소를 등록합니다.
 
 ```
@@ -79,7 +88,7 @@ Region              : Australia East
 Machine registration succeeded.
 ```
 
-> [AZURE.IMPORTANT]저장소 자격 증명 파일을 지정할 때 상대 경로를 사용하지 마십시오. cmdlet 입력 내용은 반드시 절대 경로를 제공해야 합니다.
+> [AZURE.IMPORTANT] 저장소 자격 증명 파일을 지정할 때 상대 경로를 사용하지 마십시오. cmdlet 입력 내용은 반드시 절대 경로를 제공해야 합니다.
 
 ### 네트워킹
 Windows 컴퓨터의 인터넷 연결이 프록시 서버를 통하는 경우, 프록시 설정도 에이전트에 제공될 수 있습니다. 이 예제에서는 프록시 서버가 없으므로 프록시와 관련된 모든 정보를 명시적으로 지웁니다.
@@ -104,7 +113,7 @@ PS C:\> ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force 
 Server properties updated successfully
 ```
 
-> [AZURE.IMPORTANT]암호 정보를 설정한 후에는 안전하게 보관합니다. 이 암호 없이는 Azure에서 데이터를 복원할 수 없습니다.
+> [AZURE.IMPORTANT] 암호 정보를 설정한 후에는 안전하게 보관합니다. 이 암호 없이는 Azure에서 데이터를 복원할 수 없습니다.
 
 ## 파일 및 폴더 백업
 Windows 서버 및 클라이언트에서 Azure 백업으로의 모든 백업은 정책에 따라 제어됩니다. 정책은 세 부분으로 구성됩니다.
@@ -146,7 +155,7 @@ BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName :
 PS C:\> $retentionpolicy = New-OBRetentionPolicy -RetentionDays 7
 ```
 
-> [AZURE.NOTE]현재 PowerShell cmdlet은 장기 보존 정책 설정을 지원하지 않습니다. 장기 보존 정책을 설정하려면 Azure 백업 UI 콘솔을 사용합니다.
+> [AZURE.NOTE] 현재 PowerShell cmdlet은 장기 보존 정책 설정을 지원하지 않습니다. 장기 보존 정책을 설정하려면 Azure 백업 UI 콘솔을 사용합니다.
 
 보존 정책은 cmdlet [Set-OBRetentionPolicy](https://technet.microsoft.com/library/hh770405)를 사용하여 기본 정책과 연결되어야 합니다.
 
@@ -443,4 +452,4 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## 다음 단계
 Windows Server/Client용 Azure 백업에 대한 자세한 정보는 [Azure 백업 소개](backup-introduction-to-azure-backup.md)를 참조합니다.
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->

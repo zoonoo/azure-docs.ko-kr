@@ -45,7 +45,7 @@
 
 	![새 데이터 팩터리 블레이드](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
-	> [AZURE.IMPORTANT]Azure 데이터 팩터리 이름은 전역적으로 고유합니다. 팩터리를 성공적으로 만들려면 데이터 팩터리의 이름의 접두사를 사용자의 이름으로 해야 합니다. 
+	> [AZURE.IMPORTANT] Azure 데이터 팩터리 이름은 전역적으로 고유합니다. 팩터리를 성공적으로 만들려면 데이터 팩터리의 이름의 접두사를 사용자의 이름으로 해야 합니다. 
 3.	만들어 놓은 리소스 그룹이 없으면 리소스 그룹을 만들어야 합니다. 다음을 수행합니다.
 	1.	**리소스 그룹 이름**을 클릭합니다.
 	2.	**리소스 그룹** 블레이드에서 **새 리소스 그룹 만들기**를 선택합니다.
@@ -157,7 +157,7 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 	![새 파이프라인 단추](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 2. 아래 코드 조각을 복사하여 Draft-1 창에 붙여넣습니다.
 
-	> [AZURE.IMPORTANT]**storageaccountname**을 JSON의 저장소 계정 이름으로 변경합니다.
+	> [AZURE.IMPORTANT] **storageaccountname**을 JSON의 저장소 계정 이름으로 변경합니다.
 
 		{
 		  "name": "MyFirstPipeline",
@@ -230,4 +230,4 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 이 문서에서 파이프라인과 주문형 HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Azure Blob에서 Azure SQL로 데이터를 복사하는 방법은 [자습서: Azure Blob에서 Azure SQL로 데이터 복사](./data-factory-get-started.md)를 참조하십시오.
   
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->

@@ -6,8 +6,7 @@
    authors="SharS"
    manager="carolz"
    editor="" />
-
-<tags
+<tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
@@ -46,7 +45,7 @@
 
 **백업 카탈로그** 페이지를 사용하여 특정 백업에서 StorSimple 볼륨을 복원할 수 있습니다. 그러나 볼륨을 복원하면 백업이 수행된 시점의 상태로 볼륨이 되돌려진다는 점에 유의하세요. 백업 작업 후 추가된 모든 데이터가 손실됩니다.
 
-> [AZURE.WARNING]백업에서 복원되면 백업에서 기존 볼륨을 대체합니다. 백업이 수행된 후 작성된 모든 데이터가 손실될 수 있습니다.
+> [AZURE.WARNING] 백업에서 복원되면 백업에서 기존 볼륨을 대체합니다. 백업이 수행된 후 작성된 모든 데이터가 손실될 수 있습니다.
 
 
 ### 백업 세트에서 복원하려면

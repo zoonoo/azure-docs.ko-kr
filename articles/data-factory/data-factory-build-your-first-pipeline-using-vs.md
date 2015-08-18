@@ -68,12 +68,14 @@
 
 ### 필수 구성 요소
 
-컴퓨터에 Visual Studio 2013이 설치되어 있어야 합니다. Visual Studio 2013용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](http://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013 설치**를 클릭합니다.
+컴퓨터에 이 설치되어 있어야 합니다.
+- Visual Studio 2013
+- Visual Studio 2013용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](http://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013 설치**를 클릭합니다.
 
 
 ### Visual Studio 프로젝트 만들기 
 1. **Visual Studio 2013**을 실행합니다. **파일**을 클릭하고 **새로 만들기**를 가리킨 다음 **프로젝트**를 클릭합니다. **새 프로젝트** 대화 상자가 나타납니다.  
-2. **새 프로젝트** 대화 상자에서 **DataFactory** 템플릿을 선택하고 **빈 데이터 팩터리 프로젝트**를 클릭합니다. DataFactory 템플릿이 보이지 않으면 Visual Studio를 닫고 Visual Studio 2013용 Azure SDK를 설치한 다음 Visual Studio를 다시 엽니다.  
+2. **새 프로젝트** 대화 상자에서 **DataFactory** 템플릿을 선택하고 **Empty Data Factory Project**(빈 데이터 팩터리 프로젝트)를 클릭합니다. DataFactory 템플릿이 보이지 않으면 Visual Studio를 닫고 Visual Studio 2013용 Azure SDK를 설치한 다음 Visual Studio를 다시 엽니다.  
 
 	![새 프로젝트 대화 상자](./media/data-factory-build-your-first-pipeline-using-vs/new-project-dialog.png)
 
@@ -244,4 +246,4 @@ Azure Preview 포털을 사용하여 이 자습서에서 만든 파이프라인 
 이 문서에서 파이프라인과 주문형 HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Azure Blob에서 Azure SQL로 데이터를 복사하는 방법은 [자습서: Azure Blob에서 Azure SQL로 데이터 복사](data-factory-get-started.md)를 참조하십시오.
   
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->

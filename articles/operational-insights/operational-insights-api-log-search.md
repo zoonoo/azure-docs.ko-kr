@@ -205,7 +205,7 @@ Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/librar
 
 ```
 	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2014-10-10
-```
+  ```
 
 지원되는 메서드: GET PUT DELETE
 
@@ -221,7 +221,7 @@ Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/librar
 |properties.displayName|**필수입니다**. 쿼리의 사용자 정의된 표시 이름입니다. Azure 리소스로 모델링되는 경우 이것은 태그입니다.|
 |properties.category|**필수입니다**. 쿼리의 사용자 정의된 범주입니다. Azure 리소스로 모델링되는 경우 이것은 태그입니다.|
 
->[AZURE.NOTE]Operational Insights 검색 API는 작업 영역에서 저장된 검색에 대해 폴링될 때 사용자가 만든 저장된 검색을 현재 반환합니다. API는 현재 솔루션에서 제공되는 저장된 검색을 반환하지 않습니다. 이 기능은 나중에 추가됩니다.
+>[AZURE.NOTE] Operational Insights 검색 API는 작업 영역에서 저장된 검색에 대해 폴링될 때 사용자가 만든 저장된 검색을 현재 반환합니다. API는 현재 솔루션에서 제공되는 저장된 검색을 반환하지 않습니다. 이 기능은 나중에 추가됩니다.
 
 ### 저장된 검색 삭제
 
@@ -300,7 +300,8 @@ Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/librar
 
 “Highlight” 매개변수는 해당 응답의 표식 집합을 포함하는 검색 하위 시스템을 요청할 때 사용할 수도 있는 선택적 매개 변수입니다.
 
-이러한 표식은 검색 쿼리에 제공된 용어와 일치하는 시작 및 종료 강조 표시된 텍스트를 나타냅니다. 강조 표시된 용어를 래핑할 검색에서 사용되는 시작 및 종료 표식을 지정할 수 있습니다.
+이러한 표식은 검색 쿼리에 제공된 용어와 일치하는 시작 및 종료 강조 표시된 텍스트를 나타냅니다.
+강조 표시된 용어를 래핑할 검색에서 사용되는 시작 및 종료 표식을 지정할 수 있습니다.
 
 **예제 검색 쿼리**
 
@@ -345,4 +346,4 @@ Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/librar
 
 위의 결과 접두사가 있고 추가된 오류 메시지를 포함합니다.
 
-<!---HONumber=August15_HO6-->
+<!------HONumber=August15_HO6-->
