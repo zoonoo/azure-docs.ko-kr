@@ -39,7 +39,9 @@ Visual Studio에서 기본 ASP.NET MVC 템플릿을 사용하여 Azure 앱 서�
 -	활성 [Microsoft Azure 계정](/account/)
 -	[Azure SDK for .NET](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)을 설치한 Visual Studio 2013
 
-> [AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 있어야 합니다. + [Azure 계정을 무료로 개설](/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹앱)를 사용할 수 있습니다. + [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
+> [AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 있어야 합니다.
+> + [Azure 계정을 무료로 개설](/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹앱)를 사용할 수 있습니다.
+> + [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 >
 > Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
@@ -106,7 +108,7 @@ Visual Studio에서 기본 ASP.NET MVC 템플릿을 사용하여 Azure 앱 서�
 
 		http://cdnwebapp.azurewebsites.net/Content/bootstrap.css
 
-	**http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**로 이동하면 Azure의 웹앱에서 제공된 bootstrap.css를 다운로드하라는 메시지가 표시됩니다.
+     **http://*&lt;cdnName>*.vo.msecnd.net/Content/bootstrap.css**로 이동하면 Azure의 웹앱에서 제공된 bootstrap.css를 다운로드하라는 메시지가 표시됩니다.
 
 	![](media/cdn-websites-with-cdn/12-file-access.png)
 
@@ -132,9 +134,9 @@ Azure CDN을 통해 전체 Azure 웹앱을 제공하는 것이 일반적으로 �
 Azure 웹앱에서 Azure CDN 통합을 사용하면 CDN 끝점에서 정적 콘텐츠를 캐시하는 방법을 지정할 수 있습니다. 이렇게 하려면 ASP.NET 프로젝트(예: **cdnwebapp**)에서 *Web.config*를 열고 `<system.webServer>`에 `<staticContent>` 요소를 추가합니다. 아래 XML은 캐시가 3일 이내에 만료되도록 구성합니다.
 <pre class="prettyprint">
 &lt;system.webServer&gt;
-  <mark>&lt;staticContent&gt;
+  &lt;staticContent&gt;
     &lt;clientCache cacheControlMode=&quot;UseMaxAge&quot; cacheControlMaxAge=&quot;3.00:00:00&quot;/&gt;
-  &lt;/staticContent&gt;</mark>
+  &lt;/staticContent&gt;
   ...
 &lt;/system.webServer&gt;
 </pre>
@@ -587,4 +589,4 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->
