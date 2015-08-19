@@ -23,7 +23,8 @@
 
 이 자습서에서는 Visual Studio 2013 및 Azure SDK가 설치되어 있다고 가정합니다. Visual Studio 2013을 아직 설치하지 않은 경우 **www.visualstudio.com**에서 [무료로 시작하기](http://www.visualstudio.com) 링크를 선택하여 다운로드하세요. Azure SDK의 경우 [여기](http://go.microsoft.com/fwlink/?LinkId=239540)에서 설치할 수 있습니다.
 
-> [AZURE.NOTE]이 자습서를 완료하려면 Visual Studio Online 계정이 있어야 합니다. [Visual Studio Online 계정은 무료로 개설](http://go.microsoft.com/fwlink/p/?LinkId=512979)할 수 있습니다.
+> [AZURE.NOTE]이 자습서를 완료하려면 Visual Studio Online 계정이 있어야 합니다.
+> [Visual Studio Online 계정은 무료로 개설](http://go.microsoft.com/fwlink/p/?LinkId=512979)할 수 있습니다.
 
 Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하도록 클라우드 서비스를 설정하려면 다음 단계를 따르세요.
 
@@ -47,7 +48,11 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 
 ## <a name="step2"> </a>2단계: 소스 제어에 프로젝트 체크 인
 
-1. Visual Studio에서 배포할 솔루션을 열거나 새 솔루션을 만듭니다. 이 연습의 단계에 따라 웹앱 또는 클라우드 서비스(Azure 응용 프로그램)를 배포할 수 있습니다. 새 솔루션을 만들려는 경우 새 Azure 클라우드 서비스 프로젝트 또는 새 ASP.NET MVC 프로젝트를 만듭니다. 프로젝트의 대상을 .NET Framework 4 또는 4.5로 지정했는지 확인하고, 클라우드 서비스 프로젝트를 만드는 경우 ASP.NET MVC 웹 역할 및 작업자 역할을 추가하고 웹 역할을 위한 인터넷 응용 프로그램을 선택합니다. 메시지가 표시되면 **인터넷 응용 프로그램**을 선택합니다. 웹앱을 만들려는 경우 ASP.NET 웹 응용 프로그램 프로젝트 템플릿을 선택한 후 MVC를 선택합니다. [Azure 앱 서비스에서 ASP.NET 웹 응용 프로그램 만들기](../web-sites-dotnet-get-started.md)
+1. Visual Studio에서 배포할 솔루션을 열거나 새 솔루션을 만듭니다.
+이 연습의 단계에 따라 웹앱 또는 클라우드 서비스(Azure 응용 프로그램)를 배포할 수 있습니다. 새 솔루션을 만들려는 경우 새 Azure 클라우드 서비스 프로젝트 또는 새 ASP.NET MVC 프로젝트를 만듭니다.
+프로젝트의 대상을 .NET Framework 4 또는 4.5로 지정했는지 확인하고, 클라우드 서비스 프로젝트를 만드는 경우 ASP.NET MVC 웹 역할 및 작업자 역할을 추가하고 웹 역할을 위한 인터넷 응용 프로그램을 선택합니다.
+메시지가 표시되면 **인터넷 응용 프로그램**을 선택합니다.
+웹앱을 만들려는 경우 ASP.NET 웹 응용 프로그램 프로젝트 템플릿을 선택한 후 MVC를 선택합니다. [Azure 앱 서비스에서 ASP.NET 웹 응용 프로그램 만들기](../web-sites-dotnet-get-started.md)
 
 > [AZURE.NOTE]Visual Studio Online은 현재 Visual Studio 웹 응용 프로그램의 CI 배포만 지원합니다. 웹 사이트 프로젝트는 범위를 벗어납니다.
 
@@ -64,7 +69,8 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 5. 팀 탐색기의 보류 중인 변경 내용 영역에서 체크 인에 대한 설명을 입력하고 **체크 인** 단추를 선택합니다.<br/>
 ![][8]
 
-<br/> 체크 인할 때 특정 변경 내용을 포함하거나 제외하는 옵션을 선택할 수 있습니다. 원하는 변경 내용이 제외된 경우 **모두 포함** 링크를 선택합니다.<br/>
+<br/>
+체크 인할 때 특정 변경 내용을 포함하거나 제외하는 옵션을 선택할 수 있습니다. 원하는 변경 내용이 제외된 경우 **모두 포함** 링크를 선택합니다.<br/>
 ![][9]
 
 ## <a name="step3"> </a>3단계: Azure에 프로젝트 연결
@@ -125,11 +131,13 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 **프로세스** 탭에서 배포 환경이 사용 중인 클라우드 서비스 또는 웹앱의 이름으로 설정된 것을 확인할 수 있습니다. 웹앱에 대해 작업하고 있는 경우 표시되는 속성은 여기에서 표시된 속성과 다릅니다.<br/>
 ![][27]
 <br/>
-기본값 이외의 다른 값을 원하는 경우 속성 값을 지정합니다. Azure 게시의 속성은 배포 섹션에 있습니다. 다음 테이블에서는 배포 섹션에서 사용할 수 있는 속성을 보여 줍니다.
+기본값 이외의 다른 값을 원하는 경우 속성 값을 지정합니다. Azure 게시의 속성은 배포 섹션에 있습니다.
+다음 테이블에서는 배포 섹션에서 사용할 수 있는 속성을 보여 줍니다.
 	<table>
 <tr><td><b>속성</b></td><td><b>기본값</b></td></tr>
 ><tr><td>신뢰할 수 없는 인증서 허용</td><td>false인 경우 루트 인증 기관에서 SSL 인증서에 서명해야 합니다.</td></tr>
-<tr><td>업그레이드 허용</td><td>배포 환경에서 새 배포를 만드는 대신 기존 배포를 업데이트하도록 허용합니다. IP 주소를 유지합니다.</td></tr><tr><td>삭제 안 함</td><td>true인 경우 관련 없는 기존 배포를 덮어쓰지 않습니다(업그레이드가 허용됨).</td></tr>
+<tr><td>업그레이드 허용</td><td>배포 환경에서 새 배포를 만드는 대신 기존 배포를 업데이트하도록 허용합니다. IP 주소를 유지합니다.</td></tr>
+><tr><td>삭제 안 함</td><td>true인 경우 관련 없는 기존 배포를 덮어쓰지 않습니다(업그레이드가 허용됨).</td></tr>
 <tr><td>배포 설정의 경로</td><td>보고서의 루트 폴더를 기준으로 웹앱의 .pubxml 파일 경로입니다. 클라우드 서비스의 경우 무시됩니다.</td></tr>
 <tr><td>SharePoint 배포 환경</td><td>서비스 이름과 같음</td></tr>
 <tr><td>Azure 배포 환경</td><td>웹앱 또는 클라우드 서비스 이름</td></tr>
@@ -298,4 +306,4 @@ Visual Studio Online의 단위 테스트에 대한 자세한 내용은 [빌드�
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

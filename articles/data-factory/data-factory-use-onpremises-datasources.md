@@ -161,7 +161,9 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 데이터 �
 
 	![편집기 새 데이터 저장소 단추][image-editor-newdatastore-onpremsql-button]
     
-3.	오른쪽 창에 온-프레미스 SQL Server 연결된 서비스를 만들기 위한 JSON 템플릿이 표시됩니다. ![온-프레미스 SQL 연결된 서비스 - 설정][image-editor-newdatastore-onpremsql-settings]
+3.	오른쪽 창에 온-프레미스 SQL Server 연결된 서비스를 만들기 위한 JSON 템플릿이 표시됩니다. 
+
+	![온-프레미스 SQL 연결된 서비스 - 설정][image-editor-newdatastore-onpremsql-settings]
 
 4.	JSON 창에서 다음을 수행합니다.
 	1.	**gatewayName** 속성에 대해 **adftutorialgateway**를 입력하여 큰따옴표 안의 모든 텍스트를 바꿉니다.  
@@ -318,7 +320,7 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 데이터 �
 	- **linkedServiceName**을 **StorageLinkedService**(2단계에서 만든 연결된 서비스)로 설정합니다.
 	- **folderPath**를 **adftutorial/outfromonpremdf**로 설정합니다. 여기서 outfromonpremdf는 adftutorial 컨테이너의 폴더입니다. **adftutorial** 컨테이너만 만들면 됩니다.
 	- **가용성**은 **매시간** (\*\*빈도\*\*는 **시간**으로, **간격**은 **1**로 설정)로 설정됩니다. 데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다. 
-
+ 
 	**입력 테이블**의 **fileName**을 지정하지 않는 경우 입력 폴더(\*\*folderPath\*\*)의 모든 파일/Blob이 입력으로 간주됩니다. JSON에서 fileName을 지정하는 경우에는 지정한 파일/Blob만 입력으로 간주됩니다. 예제는 [자습서][adf-tutorial]의 샘플 파일을 참조하세요.
  
 	**출력 테이블**의 **fileName**을 지정하지 않는 경우, **folderPath**에 생성되는 파일의 이름은 다음과 같은 형식으로 지정됩니다. Data.<Guid>.txt (예: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
