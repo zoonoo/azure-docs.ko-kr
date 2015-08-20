@@ -423,7 +423,7 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 
 3. ASP.NET 응용 프로그램을 다시 게시하고 홈페이지에 액세스합니다.
  
-4. 페이지의 HTML 코드를 확인합니다. 변경 내용을 Azure 웹앱에 다시 게시할 때마다 고유한 버전 문자열과 함께 렌더링된 CDN URL이 표시됩니다. 예:
+4. 페이지의 HTML 코드를 확인합니다. 변경 내용을 Azure 웹앱에 다시 게시할 때마다 고유한 버전 문자열과 함께 렌더링된 CDN URL이 표시됩니다. 예:  
 	<pre class="prettyprint">
 	...
 
@@ -444,19 +444,19 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 6. 페이지의 HTML 코드를 확인합니다. 개별적으로 렌더링된 각 스크립트 파일을 살펴볼 수 있으므로 Visual Studio의 일관된 디버그 환경을 구현할 수 있습니다.
 	<pre class="prettyprint">
 	...
-
-	    &lt;link href="/Content/bootstrap.css" rel="stylesheet"/>
-	&lt;link href="/Content/site.css" rel="stylesheet"/>
-
-	    &lt;script src="/Scripts/modernizr-2.6.2.js">&lt;/script>
-
+	
+	    &lt;link href=&quot;/Content/bootstrap.css&quot; rel=&quot;stylesheet&quot;/&gt;
+	&lt;link href=&quot;/Content/site.css&quot; rel=&quot;stylesheet&quot;/&gt;
+	
+	    &lt;script src=&quot;/Scripts/modernizr-2.6.2.js&quot;&gt;&lt;/script&gt;
+	
 	...
-
-	    &lt;script src="/Scripts/jquery-1.10.2.js">&lt;/script>
-
-	    &lt;script src="/Scripts/bootstrap.js">&lt;/script>
-	&lt;script src="/Scripts/respond.js">&lt;/script>
-
+	
+	    &lt;script src=&quot;/Scripts/jquery-1.10.2.js&quot;&gt;&lt;/script&gt;
+	
+	    &lt;script src=&quot;/Scripts/bootstrap.js&quot;&gt;&lt;/script&gt;
+	&lt;script src=&quot;/Scripts/respond.js&quot;&gt;&lt;/script&gt;
+	
 	...    
 	</pre>
 
@@ -589,4 +589,4 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!----HONumber=August15_HO6-->
+<!------HONumber=August15_HO6-->

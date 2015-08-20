@@ -504,11 +504,11 @@ iOS에서 푸시 알림을 테스트하려면 장치에 앱을 배포해야 합�
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[알림 허브를 사용하여 사용자에게 알림 푸시]: notification-hubs-aspnet-backend-ios-notify-users.md
+[모바일 서비스에서 푸시 알림 시작]: ../mobile-services-javascript-backend-ios-get-started-push.md
+[알림 허브를 사용하여 사용자에게 푸시 알림 보내기]: notification-hubs-aspnet-backend-ios-notify-users.md
 [알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-ios-send-breaking-news.md
 
 [로컬 및 푸시 알림 프로그래밍 가이드]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

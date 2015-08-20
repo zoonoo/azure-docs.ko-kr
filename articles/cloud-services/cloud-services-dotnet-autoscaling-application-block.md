@@ -28,7 +28,15 @@
 
 ## 목차
 
-[자동 크기 조정 응용 프로그램 블록이란?][] [개념][] [대상 Azure 응용 프로그램에서 성능 카운터 데이터 수집][] [자동 크기 조정 응용 프로그램 블록의 호스트 응용 프로그램 설정][] [방법: 자동 크기 조정기 인스턴스화 및 실행][] [방법: 서비스 모델 정의][] [방법: 자동 크기 조정 규칙 정의][] [방법: 자동 크기 조정 응용 프로그램 블록 구성][] [다음 단계][]
+[자동 크기 조정 응용 프로그램 블록이란?][]   
+[개념][]   
+[대상 Azure 응용 프로그램에서 성능 카운터 데이터 수집][]   
+[자동 크기 조정 응용 프로그램 블록의 호스트 응용 프로그램 설정][]   
+[방법: 자동 크기 조정기 인스턴스화 및 실행][]   
+[방법: 서비스 모델 정의][]   
+[방법: 자동 크기 조정 규칙 정의][]   
+[방법: 자동 크기 조정 응용 프로그램 블록 구성][]   
+[다음 단계][]   
 
 ## <a id="WhatIs"> </a>자동 크기 조정 응용 프로그램 블록이란?
 
@@ -126,14 +134,31 @@ Visual Studio에서 서비스 모델 파일이 출력 폴더에 복사되었는�
 
 	다음 코드 샘플은 **services.xml** 파일의 예제 서비스 모델을 보여 줍니다.
 
-    <?xml version="1.0" encoding="utf-8" ?> <serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel"> <subscriptions> <subscription name="[subscriptionname]"
+    <?xml version="1.0" encoding="utf-8" ?>
+    <serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel">
+      <subscriptions>
+        <subscription name="[subscriptionname]"
                       certificateThumbprint="[managementcertificatethumbprint]"
                       subscriptionId="[subscriptionid]"
                       certificateStoreLocation="CurrentUser"
-                      certificateStoreName="My"> <services> <service dnsPrefix="[hostedservicednsprefix]" slot="Staging"> <roles> <role alias="AutoscalingApplicationRole"
+                      certificateStoreName="My">
+          <services>
+            <service dnsPrefix="[hostedservicednsprefix]" slot="Staging">
+              <roles>
+                <role alias="AutoscalingApplicationRole"
                       roleName="[targetrolename]"
-                      wadStorageAccountName="targetstorage"/> </roles> </service> </services> <storageAccounts> <storageAccount alias="targetstorage"
-              connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]"> </storageAccount> </storageAccounts> </subscription> </subscriptions> </serviceModel>
+                      wadStorageAccountName="targetstorage"/>
+              </roles>
+            </service>
+          </services>
+          <storageAccounts>
+            <storageAccount alias="targetstorage"
+              connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]">
+            </storageAccount>
+          </storageAccounts>
+        </subscription>
+      </subscriptions>
+    </serviceModel>
 
 대괄호 안의 값을 환경 및 대상 응용 프로그램 고유 값으로 바꿔야 합니다. 대부분의 이러한 값을 찾으려면 [Azure 관리 포털][]에 로그인해야 합니다.
 
@@ -262,23 +287,27 @@ Visual Studio에서 규칙 파일이 출력 폴더에 복사되었는지 확인�
 
 1.  솔루션 탐색기에서 **App.config** 파일을 마우스 오른쪽 단추로 클릭한 다음 **구성 파일 편집**을 클릭합니다.
 
-2.  **블록** 메뉴에서 **자동 크기 조정 설정 추가**를 클릭합니다. ![이미지](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling10.png)
+2.  **블록** 메뉴에서 **자동 크기 조정 설정 추가**를 클릭합니다.  
+	![이미지](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling10.png)
   
 3.  **자동 크기 조정 설정**을 확장한 다음 **데이터 요소 저장 저장소 계정** 옆의 줄임표(...)를 클릭하고, 블록이 수집하는 데이터 요소를 저장할 Azure 저장소 계정의 **계정 이름** 및 **계정 키**를 추가한 다음(이러한 값의 위치가 확실하지 않은 경우 [방법: 서비스 모델 정의][] 참조) **확인**을 클릭합니다.
 
 	![이미지](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling11.png)
 
-4.  **자동 크기 조정 설정** 섹션을 확장하여 **규칙 저장소** 및 **서비스 정보 저장소** 섹션을 표시합니다. 기본적으로 이러한 설정은 Azure Blob 저장소를 사용하도록 구성되어 있습니다. ![이미지](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling12.png)
+4.  **자동 크기 조정 설정** 섹션을 확장하여 **규칙 저장소** 및 **서비스 정보 저장소** 섹션을 표시합니다. 기본적으로 이러한 설정은 Azure Blob 저장소를 사용하도록 구성되어 있습니다.  
+	![이미지](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling12.png)
 
 
 5.  **규칙 저장소** 옆의 더하기 기호(+)를 클릭하고 **규칙 저장소 설정**을 가리킨 다음 **로컬 파일 규칙 저장소 사용**을 클릭하고 **예**를 클릭합니다.
 
-6.  **파일 이름** 상자에 **rules.xml**을 입력합니다. 자동 크기 조정 규칙이 포함된 파일의 이름입니다. ![이미지](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling13.png)
+6.  **파일 이름** 상자에 **rules.xml**을 입력합니다. 자동 크기 조정 규칙이 포함된 파일의 이름입니다.  
+	![이미지](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling13.png)
 
 
 7.  **서비스 정보 저장소** 옆의 더하기 기호(+)를 클릭하고 **서비스 정보 저장소 설정**을 가리킨 다음 **로컬 파일 서비스 정보 저장소 사용**을 클릭하고 **예**를 클릭합니다.
 
-8.  **파일 이름** 상자에 **services.xml**을 입력합니다. 자동 크기 조정 규칙이 포함된 파일의 이름입니다. ![이미지](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling14.png)
+8.  **파일 이름** 상자에 **services.xml**을 입력합니다. 자동 크기 조정 규칙이 포함된 파일의 이름입니다.  
+	![이미지](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling14.png)
 
 
 9.  엔터프라이즈 라이브러리 구성 창의 **파일** 메뉴에서 **저장**을 클릭하여 구성 변경 내용을 저장합니다. 그다음에 엔터프라이즈 라이브러리 구성 창의 **파일** 메뉴에서 **끝내기**를 클릭합니다.
@@ -380,4 +409,4 @@ Visual Studio에서 규칙 파일이 출력 폴더에 복사되었는지 확인�
   [TechNet 및 MSDN 호스팅 비용과 Azure에서 자동 크기 조정으로 인한 환경적 영향 줄이기]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!---HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->
