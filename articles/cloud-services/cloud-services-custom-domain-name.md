@@ -133,7 +133,7 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
 | @ | 137\.135.70.239 |
 
 
-이 예제에서는 루트 도메인에 대한 A 레코드를 만드는 방법을 보여 줍니다. 모든 하위 도메인을 포함할 와일드카드 항목을 만들려면 '\_\_*\_\_'를 하위 도메인으로 입력합니다.
+이 예제에서는 루트 도메인에 대한 A 레코드를 만드는 방법을 보여 줍니다. 모든 하위 도메인을 포함할 와일드카드 항목을 만들려면 '__*__'를 하위 도메인으로 입력합니다.
 
 >[AZURE.WARNING]Azure의 IP 주소는 기본적으로 동적입니다. 사용자의 IP 주소가 변경되지 않도록 [예약된 IP 주소](..\virtual-network\virtual-networks-reserved-public-ip.md)를 사용하려고 할 수 있습니다.
 
@@ -153,4 +153,4 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->
