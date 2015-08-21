@@ -1,12 +1,19 @@
 <properties
-   pageTitle="Azure 백업 - Azure 가져오기/내보내기 서비스를 사용한 오프라인 백업 또는 초기 시드 작업ㅣMicrosoft Azure"
-   description="Azure 백업이 Azure 가져오기/내보내기 서비스를 사용하여 네트워크를 통해 데이터를 보내는 방법에 대해 알아봅니다. 이 문서에서는 Azure 가져오기 내보내기 서비스를 사용한 초기 백업 데이터의 오프라인 시드 작업을 설명합니다."
+   pageTitle="Azure 백업 - Azure 가져오기/내보내기 서비스를 사용한 오프라인 백업 또는 초기 시드 작업 | Microsoft Azure"
+   description="Azure 백업이 Azure 가져오기/내보내기 서비스를 사용하여 네트워크를 통해 데이터를 보내는 방법에 대해 알아봅니다. 이 문서에서는 Azure 가져오기 내보내기 서비스를 사용한 초기 백업 데이터의 오프라인 시드 작업을 설명합니다"
    services="backup"
    documentationCenter=""
    authors="aashishr"
    manager="shreeshd"
    editor=""/>
-<tagsms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/14/2015" ms.author="aashishr"; "jimpark"/>
+<tags
+   ms.service="backup"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="storage-backup-recovery"
+   ms.date="07/14/2015"
+   ms.author="aashishr"; "jimpark"/>
 
 # Azure 백업의 오프라인 백업 워크플로
 
@@ -108,4 +115,4 @@ Azure 백업 및 Azure 가져오기/내보내기를 사용하면 디스크를 �
 - Azure 가져오기/내보내기 워크플로에 대한 질문이 있으면 이 [문서](../storage-import-export-service.md)를 참조하세요.
 - 워크플로에 대한 질문이 있으면 Azure 백업 [FAQ](backup-azure-backup-faq.md)의 오프라인 백업 섹션을 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!-------HONumber=August15_HO6-->
