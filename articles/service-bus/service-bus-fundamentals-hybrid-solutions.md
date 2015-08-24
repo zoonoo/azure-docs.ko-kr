@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 서비스 버스 - Azure 기본 사항" 
+	pageTitle="Azure 서비스 버스 | Microsoft Azure" 
 	description="서비스 버스를 사용하여 Azure 응용 프로그램을 다른 소프트웨어에 연결할 수 있는 여러 가지 방식을 소개합니다." 
 	services="service-bus" 
 	documentationCenter=".net" 
@@ -117,7 +117,7 @@
 - [서비스 버스 큐](service-bus-dotnet-how-to-use-queues.md)를 사용하는 방법입니다.
 - [서비스 버스 토픽](service-bus-dotnet-how-to-use-topics-subscriptions.md)을 사용하는 방법입니다.
 - [서비스 버스 릴레이](service-bus-dotnet-how-to-use-relay.md)를 사용하는 방법입니다.
-- 서비스 버스 샘플: [MSDN][]에서 개요를 참조하십시오. 
+- 서비스 버스 샘플: [MSDN][]에서 개요를 참조하세요. 
 
 [svc-bus]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_01_architecture.png
 [queues]: ./media/fundamentals-service-bus-hybrid-solutions/SvcBus_02_queues.png
@@ -130,4 +130,4 @@
 [3]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_03_topicsandsubscriptions.png
 [4]: ./media/service-bus-fundamentals-hybrid-solutions/SvcBus_04_relay.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

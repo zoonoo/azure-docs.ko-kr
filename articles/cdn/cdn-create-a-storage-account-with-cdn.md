@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="CDN 사용 방법 - Azure 기능 가이드" 
+	pageTitle="CDN을 사용하는 방법 | Microsoft Azure" 
 	description="Azure CDN(콘텐츠 배달 네트워크)을 사용하여 Blob 및 정적 콘텐츠를 캐시해 고대역폭 콘텐츠를 배달하는 방법을 알아봅니다." 
 	services="cdn" 
 	documentationCenter=".net" 
@@ -120,4 +120,4 @@ CDN에 이미 캐시된 개체는 개체의 TTL(Time-to-Live) 기간이 만료�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

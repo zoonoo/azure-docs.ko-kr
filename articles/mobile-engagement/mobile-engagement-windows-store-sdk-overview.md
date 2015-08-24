@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="08/10/2015" 
 	ms.author="piyushjo" />
 
 #Azure Mobile Engagement의 Windows 유니버설 SDK 개요
@@ -53,4 +53,4 @@
 
 [업그레이드 절차](mobile-engagement-windows-store-upgrade-procedure/)를 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

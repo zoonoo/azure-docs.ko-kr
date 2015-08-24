@@ -1,5 +1,5 @@
 <properties
-	pageTitle="저장소 계정을 만들거나, 관리하거나, 삭제하는 방법 | Azure"
+	pageTitle="저장소 계정을 만들거나, 관리하거나, 삭제하는 방법 | Microsoft Azure"
 	description="Azure 관리 포털에서 저장소 계정을 만들거나, 관리하거나, 삭제하는 방법에 대해 알아봅니다."
 	services="storage"
 	documentationCenter=""
@@ -167,4 +167,4 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문)를 방문하세요.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

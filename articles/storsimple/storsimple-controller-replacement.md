@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/05/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # StorSimple 장치의 컨트롤러 모듈 교체
@@ -252,7 +252,7 @@ StorSimple 장치에서 결함이 있는 모듈을 꺼낸 후 팩터리 제공 �
 
 이 LED가 깜박이면 컨트롤러가 활성 상태이며 다른 컨트롤러는 대기 모드에 있습니다. 다음 다이어그램과 표를 보조 도구로 사용합니다.
 
-![데이터 포트가 있는 장치 기본 엔클로저 백플레인](./media/storsimple-controller-replacement/IC741055.png)
+![데이터 포트가 있는 장치 기본 인클로저 백플레인](./media/storsimple-controller-replacement/IC741055.png)
 
 **그림 8** 데이터 포트와 모니터링 LED가 있는 기본 엔클로저 뒷면
 
@@ -266,4 +266,4 @@ StorSimple 장치에서 결함이 있는 모듈을 꺼낸 후 팩터리 제공 �
 
 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="SQL Azure 마이그레이션 마법사를 사용하기" 
+   pageTitle="SQL Azure 마이그레이션 마법사 사용 | Microsoft Azure" 
    description="Microsoft Azure SQL 데이터베이스, 데이터베이스 마이그레이션, 데이터베이스 가져오기, 데이터베이스 내보내기, 마이그레이션 마법사" 
    services="sql-database" 
    documentationCenter="" 
@@ -98,4 +98,4 @@ SQL Azure 마이그레이션 마법사는 CodePlex에서 다운로드할 수 있
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

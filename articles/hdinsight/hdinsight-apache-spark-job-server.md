@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="HDInsight에서 Apache Spark 작업 서버 | Azure" 
+	pageTitle="HDInsight에서 Apache Spark 작업 서버 | Microsoft Azure" 
 	description="Spark 작업 서버를 사용하여 원격으로 제출하고 Spark 클러스터에서 작업을 관리하는 방법을 알아봅니다." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -81,4 +81,4 @@ mypostdata.txt가 응용 프로그램을 정의합니다.
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

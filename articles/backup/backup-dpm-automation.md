@@ -1,41 +1,51 @@
 <properties
-	pageTitle="Azure 백업 - Azure PowerShell을 사용하여 DPM에 대한 백업 배포 및 관리 | Microsoft Azure"
-	description="Azure PowerShell을 사용하여 Data Protection Manager(DPM)에 대해 Azure 백업을 배포 및 관리하는 방법을 알아봅니다."
+	pageTitle="Azure 백업 - PowerShell을 사용하여 DPM에 대한 백업 배포 및 관리 | Microsoft Azure"
+	description="PowerShell을 사용하여 DPM(Data Protection Manager)에 대해 Azure 백업을 배포 및 관리하는 방법을 알아봅니다."
 	services="backup"
 	documentationCenter=""
 	authors="Jim-Parker"
 	manager="jwhit"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/23/2015"
-	ms.author="jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/11/2015" ms.author="jimpark"; "aashishr"/>
 
 
-# Azure PowerShell을 사용하여 Data Protection Manager(DPM) 서버용 Azure 백업 배포 및 관리
-이 문서에서는 Azure PowerShell을 사용하여 DPM 서버에서 Azure 백업을 설정하고 백업과 복원을 관리하는 방법을 보여줍니다.
+# PowerShell을 사용하여 DPM(Data Protection Manager) 서버용 Azure 백업 배포 및 관리
+이 문서에서는 PowerShell을 사용하여 DPM 서버에서 Azure 백업을 설정하고 백업과 복원을 관리하는 방법을 보여 줍니다.
 
-## Azure PowerShell 환경 설정
-Azure PowerShell을 사용하여 Data Protection Manager에서 Azure로의 백업을 관리하기 전에 Azure PowerShell에서 적합한 환경을 설정해야 합니다. Azure PowerShell 세션 시작 시 다음 명령을 실행하여 정확한 모듈을 가져오고 DPM cmdlet을 올바르게 참조할 수 있습니다.
+## PowerShell 환경 설정
+PowerShell을 사용하여 Data Protection Manager에서 Azure로의 백업을 관리하기 전에 PowerShell에서 적합한 환경을 설정해야 합니다. PowerShell 세션 시작 시 다음 명령을 실행하여 정확한 모듈을 가져오고 DPM cmdlet을 올바르게 참조할 수 있습니다.
 
 ```
 PS C:\> & "C:\Program Files\Microsoft System Center 2012 R2\DPM\DPM\bin\DpmCliInitScript.ps1"
 
 Welcome to the DPM Management Shell!
 
-Full list of cmdlets: Get-Command Only DPM cmdlets: Get-DPMCommand Get general help: help Get help for a cmdlet: help <cmdlet-name> or <cmdlet-name> -? Get definition of a cmdlet: Get-Command <cmdlet-name> -Syntax Sample DPM scripts: Get-DPMSampleScript
+Full list of cmdlets: Get-Command 
+Only DPM cmdlets: Get-DPMCommand 
+Get general help: help 
+Get help for a cmdlet: help <cmdlet-name> or <cmdlet-name> -? 
+Get definition of a cmdlet: Get-Command <cmdlet-name> -Syntax 
+Sample DPM scripts: Get-DPMSampleScript
 ```
 
 ## 설정 및 등록
-### DPM 서버에 Azure 백업 에이전트 설치
-Azure 백업 에이전트를 설치하기 전에 Windows Server에 설치 관리자를 다운로드해 두어야 합니다. 최신 버전의 설치 관리자는 [Microsoft 다운로드 센터](http://aka.ms/azurebackup_agent)에서 다운로드할 수 있습니다. 쉽게 액세스할 수 있는 위치(예: *C:\Downloads*)에 설치 관리자를 저장합니다.
 
-에이전트를 설치하려면 **DPM 서버**의 승격된 Azure PowerShell 콘솔에서 다음 명령을 실행합니다.
+### 백업 자격 증명 모음 만들기
+**New-AzureBackupVault** commandlet을 사용하여 새 백업 자격 증명 모음을 만들 수 있습니다. 백업 저장소는 ARM 리소스이므로 리소스 그룹 내에 배치해야 합니다. 승격된 Azure PowerShell 콘솔에서 다음 명령을 실행합니다.
+
+```
+PS C:\> New-AzureResourceGroup –Name “test-rg” –Region “West US”
+PS C:\> $backupvault = New-AzureBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+```
+
+**Get-AzureBackupVault** commandlet을 사용하여 지정된 구독의 모든 백업 자격 증명 모음 목록을 가져올 수 있습니다.
+
+
+### DPM 서버에 Azure 백업 에이전트 설치
+Azure 백업 에이전트를 설치하기 전에 Windows Server에 설치 관리자를 다운로드해 두어야 합니다. 최신 버전의 설치 관리자는 [Microsoft 다운로드 센터](http://aka.ms/azurebackup_agent) 또는 백업 자격 증명 모음 대시보드 페이지에서 다운로드할 수 있습니다. 쉽게 액세스할 수 있는 위치(예: *C:\\Downloads*)에 설치 관리자를 저장합니다.
+
+에이전트를 설치하려면 **DPM 서버**의 승격된 PowerShell 콘솔에서 다음 명령을 실행합니다.
 
 ```
 PS C:\> MARSAgentInstaller.exe /q
@@ -73,12 +83,22 @@ PS C:\> MARSAgentInstaller.exe /?
 Azure 백업 서비스에 등록하려면 먼저 [필수 조건](backup-azure-dpm-introduction.md)이 충족되어야 합니다. 다음이 필요합니다.
 
 - 유효한 Azure 구독이 있어야 함
-- 백업 자격 증명 모음 만들기
-- 저장소 자격 증명을 다운로드하여 편리한 위치에 저장합니다(예: *C:\Downloads*). 저장소 자격 증명은 편의에 따라 이름을 바꿀 수 있습니다.
+- 백업 자격 증명 모음
+
+자격 증명 모음을 다운로드하려면 Azure PowerShell 콘솔에서 **Get-AzureBackupVaultCredentials** commandlet을 실행하고 *C:\\Downloads*와 같은 편리한 위치에 저장합니다.
+
+```
+PS C:\> $credspath = "C:"
+PS C:\> $credsfilename = Get-AzureBackupVaultCredentials -Vault $backupvault -TargetLocation $credspath
+PS C:\> $credsfilename
+f5303a0b-fae4-4cdb-b44d-0e4c032dde26_backuprg_backuprn_2015-08-11--06-22-35.VaultCredentials
+```
+
 [Start-DPMCloudRegistration](https://technet.microsoft.com/library/jj612787) cmdlet을 사용하여 컴퓨터에 저장소를 등록합니다.
 
 ```
-PS C:\> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredentialsFilePath "C:\Downloads\REGISTER.VaultCredentials"
+PS C:\> $cred = $credspath + $credsfilename 
+PS C:\> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredentialsFilePath $cred
 ```
 
 그러면 지정된 저장소 자격 증명을 사용하여 “TestingServer”라는 DPM 서버에 Microsoft Azure 저장소가 등록됩니다.
@@ -92,7 +112,7 @@ DPM 서버를 Azure 백업 저장소에 등록하면 기본 구독 설정으로 
 $setting = Get-DPMCloudSubscriptionSetting -DPMServerName "TestingServer"
 ```
 
-[Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) cmdlet을 사용하여 이 로컬 Azure PowerShell 개체 ```$setting```에 대한 모든 수정을 수행한 다음 전체 개체를 DPM 및 Azure 백업에 커밋하여 저장합니다. ```–Commit``` 플래그를 사용하여 해당 변경 내용이 유지되도록 해야 합니다. 커밋하지 않으면 설정이 적용되지 않으며 Azure 백업에서 사용할 수 없습니다.
+[Set-DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612791) cmdlet을 사용하여 이 로컬 PowerShell 개체 ```$setting```에 대한 모든 수정을 수행한 다음 전체 개체를 DPM 및 Azure 백업에 커밋하여 저장합니다. ```–Commit``` 플래그를 사용하여 해당 변경 내용이 유지되도록 해야 합니다. 커밋하지 않으면 설정이 적용되지 않으며 Azure 백업에서 사용할 수 없습니다.
 
 ```
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -Commit
@@ -118,7 +138,7 @@ DPM 서버에서 실행 중인 Azure 백업 에이전트에는 클라우드로�
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -StagingAreaPath "C:\StagingArea"
 ```
 
-위의 예제에서 스테이징 영역은 Azure PowerShell 개체 ```$setting```에서 *C:\StagingArea*로 설정됩니다. 지정된 폴더가 이미 있어야 하며, 그렇지 않으면 구독 설정의 최종 커밋에 실패합니다.
+위의 예제에서 스테이징 영역은 PowerShell 개체 ```$setting```에서 *C:\\StagingArea*로 설정됩니다. 지정된 폴더가 이미 있어야 하며, 그렇지 않으면 구독 설정의 최종 커밋에 실패합니다.
 
 
 ### 암호화 설정
@@ -162,7 +182,7 @@ PS C:\> $MPG = Get-ModifiableProtectionGroup $PG
 ```
 
 ### 보호 그룹에 그룹 멤버 추가
-각 DPM 에이전트는 설치된 서버의 데이터 원본 목록을 알고 있습니다. 데이터 원본을 보호 그룹에 추가하려면 DPM 에이전트가 먼저 DPM 서버에 데이터 원본 목록이 다시 전송해야 합니다. 그런 다음 하나 이상의 데이터 원본을 선택하여 보호 그룹에 추가합니다. 이 작업을 수행하는 데 필요한 Azure PowerShell 단계는 다음과 같습니다.
+각 DPM 에이전트는 설치된 서버의 데이터 원본 목록을 알고 있습니다. 데이터 원본을 보호 그룹에 추가하려면 DPM 에이전트가 먼저 DPM 서버에 데이터 원본 목록이 다시 전송해야 합니다. 그런 다음 하나 이상의 데이터 원본을 선택하여 보호 그룹에 추가합니다. 이 작업을 수행하는 데 필요한 PowerShell 단계는 다음과 같습니다.
 
 1. DPM 에이전트를 통해 DPM에 의해 관리되는 모든 서버 목록을 가져옵니다.
 2. 특정 서버를 선택합니다.
@@ -189,7 +209,7 @@ PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS
 데이터 원본이 보호 그룹에 추가되고 나면 다음 단계는 [Set-DPMProtectionType](https://technet.microsoft.com/library/hh881725) cmdlet을 사용하여 보호 방법을 지정하는 것입니다. 이 예제에서는 보호 그룹이 로컬 디스크 및 클라우드 백업에 대한 설정됩니다.
 
 ```
-PS C:\> Set-DPMProtectionType -ProtectionGroup $PG -ShortTerm Disk –LongTerm Online
+PS C:\> Set-DPMProtectionType -ProtectionGroup $MPG -ShortTerm Disk –LongTerm Online
 ```
 
 ### 보존 범위 설정
@@ -216,7 +236,7 @@ PS C:\> Set-DPMPolicyObjective –ProtectionGroup $MPG -OnlineRetentionRangeList
 ```Set-DPMPolicyObjective``` cmdlet을 사용하여 보호 목표를 지정하면 DPM은 기본 백업 일정을 자동으로 설정합니다. 기본 일정을 변경하려면 [Get-DPMPolicySchedule](https://technet.microsoft.com/library/hh881749) cmdlet을 사용한 후 [Set-DPMPolicySchedule](https://technet.microsoft.com/library/hh881723) cmdlet을 사용합니다.
 
 ```
-PS C:\> $onlineSch = Get-DPMPolicySchedule -ProtectionGroup $mpg -LongTermOnline
+PS C:\> $onlineSch = Get-DPMPolicySchedule -ProtectionGroup $mpg -LongTerm Online
 PS C:\> Set-DPMPolicySchedule -ProtectionGroup $MPG -Schedule $onlineSch[0] -TimesOfDay 02:00
 PS C:\> Set-DPMPolicySchedule -ProtectionGroup $MPG -Schedule $onlineSch[1] -TimesOfDay 02:00 -DaysOfWeek Sa,Su –Interval 1
 PS C:\> Set-DPMPolicySchedule -ProtectionGroup $MPG -Schedule $onlineSch[2] -TimesOfDay 02:00 -RelativeIntervals First,Third –DaysOfWeek Sa
@@ -280,4 +300,4 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 ## 다음 단계
 DPM에 대한 Azure 백업에 대한 자세한 정보는 [Azure DPM 백업 소개](backup-azure-dpm-introduction.md)를 참조합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Windows에서 모바일 앱에 대한 인증 시작 | Azure 앱 서비스"
+	pageTitle="Windows에서 모바일 앱에 대한 인증 시작 | Microsoft Azure"
 	description="모바일 앱을 사용하여 AAD, Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 사용해서 Windows 앱 사용자를 인증하는 방법을 알아봅니다."
 	services="app-service\mobile"
 	documentationCenter="windows"
@@ -75,4 +75,4 @@
 [모바일 앱 시작]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="08/07/2015" 
 	ms.author="riande"/>
 
 
@@ -36,7 +36,7 @@ ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity 
 
 ![로그인 페이지][rxb]
 
->[AZURE.NOTE]이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 <a href="/ko-kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F" target="_blank">MSDN 구독자 혜택을 활성화</a>하거나 <a href="/ko-kr/pricing/free-trial/?WT.mc_id=A261C142F" target="_blank">무료 평가판을 등록</a>할 수 있습니다.
+>[AZURE.NOTE]이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](../ko-kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](../ko-kr/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
 
 >Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
@@ -64,71 +64,69 @@ ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity 
 
 1. 구성 마법사는 *ContactManager*를 기반으로 고유 이름을 제안합니다. 새 앱 서비스 계획 및 리소스 그룹을 만들지 여부를 결정해야 합니다. 새 계획 또는 리소스 그룹을 만들지 여부 결정에 대한 지침은 [Azure 앱 서비스에 대한 자세한 개요 계획](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)을 참조하세요. 이 자습서에서 하나 이상의 새 리소스 그룹을 만들 수 있습니다. 근처에 있는 지역을 선택합니다. [azurespeed.com](http://www.azurespeed.com/ "AzureSpeed.com")을 사용하여 대기 시간이 가장 짧은 데이터 센터를 찾을 수 있습니다. 다음 단계에서 데이터베이스를 설정하므로 **확인**을 클릭하지 마세요.
 
-   ![새 계획 및 리소스 그룹](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newplanandgroup.png)
+	![새 계획 및 리소스 그룹](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newplanandgroup.png)
  
 2. 기존에 만든 데이터베이스 서버가 없으면 **새 서버 만들기**를 선택하고 데이터베이스 이름, 사용자 이름 및 암호를 입력합니다.
 
-   ![새 데이터베이스 사용](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newdb.png)
+	![새 데이터베이스 사용](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/newdb.png)
 
 3. 데이터베이스 서버가 있는 경우 해당 서버를 사용하여 새 데이터베이스를 만듭니다. 데이터베이스 서버는 중요한 리소스이며, 일반적으로 데이터베이스별로 데이터베이스 서버를 만들기보다는 테스트 및 개발을 위해 같은 서버에서 여러 데이터베이스 만들려고 합니다. 웹 앱 및 데이터베이스가 동일한 지역에 있어야 합니다.
 
-    ![기존 데이터베이스 사용](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/useexistingdb.png)
+	![기존 데이터베이스 사용](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/useexistingdb.png)
 
 ### 페이지 머리글 및 바닥글 설정
 
 
-1. **Solution Explorer**에서 *Views\Shared* 폴더의 *Layout.cshtml* 파일을 엽니다.
+1. **Solution Explorer**에서 *Views\\Shared* 폴더의 *Layout.cshtml* 파일을 엽니다.
 
-	![솔루션 탐색기의 _Layout.cshtml][newapp004]
+	![솔루션 탐색기의 \_Layout.cshtml][newapp004]
 
 1. *Layout.cshtml* 파일의 태그를 다음 코드로 바꿉니다. 변경 내용이 아래에 강조 표시됩니다.
 
-```
-			&lt;!DOCTYPE html&gt;
-			&lt;html&gt;
-			&lt;head&gt;
-			    &lt;meta charset="utf-8" /&gt;
-			    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-			    &lt;title&gt;@ViewBag.Title - <mark>Contact Manager</mark>&lt;/title&gt;
-			    @Styles.Render("~/Content/css")
-			    @Scripts.Render("~/bundles/modernizr")
-			
-			&lt;/head&gt;
-			&lt;body&gt;
-			    &lt;div class="navbar navbar-inverse navbar-fixed-top"&gt;
-			        &lt;div class="container"&gt;
-			            &lt;div class="navbar-header"&gt;
-			                &lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"&gt;
-			                    &lt;span class="icon-bar"&gt;&lt;/span&gt;
-			                    &lt;span class="icon-bar"&gt;&lt;/span&gt;
-			                    &lt;span class="icon-bar"&gt;&lt;/span&gt;
-			                &lt;/button&gt;
-			                @Html.ActionLink("<mark>CM Demo</mark>", "Index", "<mark>Cm</mark>", new { area = "" }, new { @class = "navbar-brand" })
-			            &lt;/div&gt;
-			            &lt;div class="navbar-collapse collapse"&gt;
-			                &lt;ul class="nav navbar-nav"&gt;
-			                    &lt;li&gt;@Html.ActionLink("Home", "Index", "Home")&lt;/li&gt;
-			                    &lt;li&gt;@Html.ActionLink("About", "About", "Home")&lt;/li&gt;
-			                    &lt;li&gt;@Html.ActionLink("Contact", "Contact", "Home")&lt;/li&gt;
-			                &lt;/ul&gt;
-			                @Html.Partial("_LoginPartial")
-			            &lt;/div&gt;
-			        &lt;/div&gt;
-			    &lt;/div&gt;
-			    &lt;div class="container body-content"&gt;
-			        @RenderBody()
-			        &lt;hr /&gt;
-			        &lt;footer&gt;
-			            &lt;p&gt;&amp;copy; @DateTime.Now.Year - <mark>Contact Manager</mark>&lt;/p&gt;
-			        &lt;/footer&gt;
-			    &lt;/div&gt;
-			
-			    @Scripts.Render("~/bundles/jquery")
-			    @Scripts.Render("~/bundles/bootstrap")
-			    @RenderSection("scripts", required: false)
-			&lt;/body&gt;
-			&lt;/html&gt;
-```
+		<!DOCTYPE html>
+		<html>
+		<head>
+		    <meta charset="utf-8" />
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <title>@ViewBag.Title - Contact Manager</title>
+		    @Styles.Render("~/Content/css")
+		    @Scripts.Render("~/bundles/modernizr")
+		
+		</head>
+		<body>
+		    <div class="navbar navbar-inverse navbar-fixed-top">
+		        <div class="container">
+		            <div class="navbar-header">
+		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		                    <span class="icon-bar"></span>
+		                    <span class="icon-bar"></span>
+		                    <span class="icon-bar"></span>
+		                </button>
+		                @Html.ActionLink("CM Demo", "Index", "Cm", new { area = "" }, new { @class = "navbar-brand" })
+		            </div>
+		            <div class="navbar-collapse collapse">
+		                <ul class="nav navbar-nav">
+		                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+		                    <li>@Html.ActionLink("About", "About", "Home")</li>
+		                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+		                </ul>
+		                @Html.Partial("_LoginPartial")
+		            </div>
+		        </div>
+		    </div>
+		    <div class="container body-content">
+		        @RenderBody()
+		        <hr />
+		        <footer>
+		            <p>&copy; @DateTime.Now.Year - Contact Manager</p>
+		        </footer>
+		    </div>
+		
+		    @Scripts.Render("~/bundles/jquery")
+		    @Scripts.Render("~/bundles/bootstrap")
+		    @RenderSection("scripts", required: false)
+		</body>
+		</html>
 
 ### 로컬에서 응용 프로그램 실행
 
@@ -185,7 +183,7 @@ Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 �
 
 	![프로젝트 상황에 맞는 메뉴의 게시](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/GS13publish.png)
 	
-   **웹 게시** 마법사가 열립니다.
+	**웹 게시** 마법사가 열립니다.
 
 1. **웹 게시** 대화 상자에서 **게시**를 클릭합니다.
 
@@ -261,8 +259,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 다음 작업은 만든 데이터 모델에 따라 데이터베이스를 만들기 위해 [Code First 마이그레이션](http://msdn.microsoft.com/library/hh770484.aspx)(영문) 기능을 사용하도록 설정하는 것입니다.
 
-1. **도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 선택합니다. 
-	![도구 메뉴의 패키지 관리자 콘솔](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/SS6.png)
+1. **도구** 메뉴에서 **NuGet 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 선택합니다. ![도구 메뉴의 패키지 관리자 콘솔](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/SS6.png)
 
 2. **패키지 관리자 콘솔** 창에서 다음 명령을 입력합니다.
 
@@ -274,9 +271,8 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 		add-migration Initial
 
 
-	**add-migration Initial** 명령은 데이터베이스를 만든 *Migrations* 폴더에서 **&lt;date_stamp&gt;Initial** 파일을 생성합니다. 첫 번째 매개 변수(**Initial**)는 임의이며 파일 이름을 만드는 데 사용됩니다. **솔루션 탐색기**에서 새 클래스 파일을 볼 수 있습니다.
-	**Initial** 클래스의 **Up** 메서드는 Contacts 테이블을 만들고 이전 상태로 돌아가려는 경우 사용되는 **Down** 메서드는 테이블을 삭제합니다.
-3. *Migrations\Configuration.cs* 파일을 엽니다. 
+	**add-migration Initial** 명령은 데이터베이스를 만든 *Migrations* 폴더에서 **&lt;date\_stamp&gt;Initial** 파일을 생성합니다. 첫 번째 매개 변수(**Initial**)는 임의이며 파일 이름을 만드는 데 사용됩니다. **솔루션 탐색기**에서 새 클래스 파일을 볼 수 있습니다. **Initial** 클래스의 **Up** 메서드는 Contacts 테이블을 만들고 이전 상태로 돌아가려는 경우 사용되는 **Down** 메서드는 테이블을 삭제합니다.
+3. *Migrations\\Configuration.cs* 파일을 엽니다. 
 4. 다음 네임스페이스를 추가합니다. 
 
     	 using ContactManager.Models;
@@ -366,93 +362,92 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 ## 멤버 자격 API 사용
 이 섹션에서는 멤버 자격 데이터베이스에 로컬 사용자와 *canEdit* 역할을 추가합니다. *canEdit* 역할의 사용자만 데이터를 편집할 수 있습니다. 수행할 수 있는 작업으로 역할의 이름을 지정하는 것이 모범 사례이므로 *admin* 역할보다 *canEdit*를 사용하는 것이 좋습니다. 응용 프로그램이 발전함에 따라 설명이 부족한 *superAdmin*보다 *canDeleteMembers* 등의 새 역할을 추가할 수 있습니다.
 
-1. *migrations\configuration.cs* 파일을 열고 다음 `using` 문을 추가합니다.
+1. *migrations\\configuration.cs* 파일을 열고 다음 `using` 문을 추가합니다.
 
         using Microsoft.AspNet.Identity;
         using Microsoft.AspNet.Identity.EntityFramework;
 
 1. 클래스에 다음과 같은 **AddUserAndRole** 메서드를 추가합니다.
 
-    
-         bool AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
-         {
-            IdentityResult ir;
-            var rm = new RoleManager<IdentityRole>
-                (new RoleStore<IdentityRole>(context));
-            ir = rm.Create(new IdentityRole("canEdit"));
-            var um = new UserManager<ApplicationUser>(
-                new UserStore<ApplicationUser>(context));
-            var user = new ApplicationUser()
-            {
-               UserName = "user1@contoso.com",
-            };
-            ir = um.Create(user, "P_assw0rd1");
-            if (ir.Succeeded == false)
-               return ir.Succeeded;
-            ir = um.AddToRole(user.Id, "canEdit");
-            return ir.Succeeded;
-         }
+		 bool AddUserAndRole(ContactManager.Models.ApplicationDbContext context)
+		 {
+		    IdentityResult ir;
+		    var rm = new RoleManager
+		        (new RoleStore(context));
+		    ir = rm.Create(new IdentityRole("canEdit"));
+		    var um = new UserManager(
+		        new UserStore(context));
+		    var user = new ApplicationUser()
+		    {
+		       UserName = "user1@contoso.com",
+		    };
+		    ir = um.Create(user, "P_assw0rd1");
+		    if (ir.Succeeded == false)
+		       return ir.Succeeded;
+		    ir = um.AddToRole(user.Id, "canEdit");
+		    return ir.Succeeded;
+		 }
 
 1. **Seed** 메서드에서 새 메서드를 호출합니다.
-	<pre>
-    protected override void Seed(ContactManager.Models.ApplicationDbContext context)
-    {
-        <mark>AddUserAndRole(context);</mark>
-        context.Contacts.AddOrUpdate(p => p.Name,
-            // 간단한 표시를 위해 코드가 제거됨
-    }
-</pre>
-<span></span>다음 이미지에서는 *Seed* 메서드 변경을 보여 줍니다.
+
+		protected override void Seed(ContactManager.Models.ApplicationDbContext context)
+		{
+		    AddUserAndRole(context);
+		    context.Contacts.AddOrUpdate(p => p.Name,
+		        // Code removed for brevity
+		}
+
+	다음 이미지에서는 *Seed* 메서드 변경을 보여 줍니다.
 
 	![코드 이미지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss24.PNG)
 
-   이 코드는 *canEdit*라는 새 역할을 만들고, 새 로컬 사용자 *user1@contoso.com*을(를) 만든 다음 *canEdit* 역할에 *user1@contoso.com*을(를) 추가합니다. 자세한 내용은 내 [ASP.NET Identity 자습서](http://www.asp.net/identity/overview/features-api)를 참조하세요.
+	이 코드는 *canEdit*라는 새 역할을 만들고, 새 로컬 사용자 **user1@contoso.com*을 만든 다음 *canEdit* 역할에 **user1@contoso.com*을 추가합니다. 자세한 내용은 내 [ASP.NET ID 자습서](http://www.asp.net/identity/overview/features-api)를 참조하세요.
 
 ## 임시 코드를 사용하여 canEdit 역할에 새 소셜 로그인 사용자 추가  ##
 이 섹션에서는 Account 컨트롤러의 **ExternalLoginConfirmation** 메서드를 임시로 수정하여 OAuth 공급자로 등록하는 새 사용자를 *canEdit* 역할에 추가합니다. **ExternalLoginConfirmation** 메서드를 임시로 수정하여 관리 역할에 새 사용자를 자동으로 추가합니다. 역할을 추가하고 관리할 도구를 제공할 때까지 아래의 임시 자동 등록 코드를 사용하겠습니다. 앞으로 사용자 계정 및 역할을 만들고 편집할 수 있는 [WSAT](http://msdn.microsoft.com/library/ms228053.aspx)와 유사한 도구를 제공하려고 합니다.
 
-1. **Controllers\AccountController.cs** 파일을 열고 **ExternalLoginConfirmation** 메서드로 이동합니다.
+1. **Controllers\\AccountController.cs** 파일을 열고 **ExternalLoginConfirmation** 메서드로 이동합니다.
 1. **AddToRoleAsync**에서 **SignInAsync** 호출 바로 앞에 다음 호출을 추가합니다.
 
-                await UserManager.AddToRoleAsync(user.Id, "canEdit");
+		await UserManager.AddToRoleAsync(user.Id, "canEdit");
 
-   위의 코드는 새로 등록된 사용자를 "canEdit" 역할에 추가하여 데이터를 변경(편집)하는 작업 메서드에 액세스할 수 있도록 합니다. ```
-	      // POST: /Account/ExternalLoginConfirmation
-	      [HttpPost]
-	      [AllowAnonymous]
-	      [ValidateAntiForgeryToken]
-	      public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
-	      {
-	         if (User.Identity.IsAuthenticated)
-	         {
-	            return RedirectToAction("Index", "Manage");
-	         }
-	         if (ModelState.IsValid)
-	         {
-	            // Get the information about the user from the external login provider
-	            var info = await AuthenticationManager.GetExternalLoginInfoAsync();
-	            if (info == null)
-	            {
-	               return View("ExternalLoginFailure");
-	            }
-	            var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-	            var result = await UserManager.CreateAsync(user);
-	            if (result.Succeeded)
-	            {
-	               result = await UserManager.AddLoginAsync(user.Id, info.Login);
-	               if (result.Succeeded)
-	               {
-	                  <mark>await UserManager.AddToRoleAsync(user.Id, "canEdit");</mark>
-	                  await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-	                  return RedirectToLocal(returnUrl);
-	               }
-	            }
-	            AddErrors(result);
-	         }
-	         ViewBag.ReturnUrl = returnUrl;
-	         return View(model);
-	      }
-```
+   위의 코드는 새로 등록된 사용자를 "canEdit" 역할에 추가하여 데이터를 변경(편집)하는 작업 메서드에 액세스할 수 있도록 합니다.
+
+		  // POST: /Account/ExternalLoginConfirmation
+		  [HttpPost]
+		  [AllowAnonymous]
+		  [ValidateAntiForgeryToken]
+		  public async Task ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
+		  {
+		     if (User.Identity.IsAuthenticated)
+		     {
+		        return RedirectToAction("Index", "Manage");
+		     }
+		     if (ModelState.IsValid)
+		     {
+		        // Get the information about the user from the external login provider
+		        var info = await AuthenticationManager.GetExternalLoginInfoAsync();
+		        if (info == null)
+		        {
+		           return View("ExternalLoginFailure");
+		        }
+		        var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+		        var result = await UserManager.CreateAsync(user);
+		        if (result.Succeeded)
+		        {
+		           result = await UserManager.AddLoginAsync(user.Id, info.Login);
+		           if (result.Succeeded)
+		           {
+		              await UserManager.AddToRoleAsync(user.Id, "canEdit");
+		              await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+		              return RedirectToLocal(returnUrl);
+		           }
+		        }
+		        AddErrors(result);
+		     }
+		     ViewBag.ReturnUrl = returnUrl;
+		     return View(model);
+		  }
 
 자습서의 뒷부분에서 응용 프로그램을 Azure에 배포합니다. 여기서 Google 또는 다른 타사 인증 공급자를 사용하여 로그온합니다. 이렇게 하면 새로 등록된 계정이 *canEdit* 역할에 추가됩니다. Google ID가 있고 이 앱의 URL을 찾은 모든 사용자는 데이터베이스를 등록하고 업데이트할 수 있습니다. 다른 사용자가 등록 및 업데이트할 수 없게 하려면 사이트를 중지합니다. 데이터베이스를 검사하여 *canEdit* 역할에 있는 사용자를 확인할 수 있습니다.
 
@@ -460,87 +455,80 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 		Update-Database
 
-**Update-Database** 명령을 실행합니다. 이 명령은 **Seed** 메서드를 실행하고, 이 메서드가 방금 추가한 **AddUserAndRole**을 실행합니다. **AddUserAndRole**은 사용자 *user1@contoso.com*을(를) 만들고 *canEdit* 역할에 추가합니다.
+**Update-Database** 명령을 실행합니다. 이 명령은 **Seed** 메서드를 실행하고, 이 메서드가 방금 추가한 **AddUserAndRole**을 실행합니다. **AddUserAndRole**은 사용자 **user1@contoso.com*을만들고 *canEdit* 역할에 추가합니다.
 
 ## SSL 및 Authorize 특성을 사용하여 응용 프로그램 보호 ##
 
 이 섹션에서는 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 특성을 적용하여 작업 메서드에 대한 액세스를 제한합니다. 익명 사용자는 home 컨트롤러의 **인덱스** 작업 메서드만 볼 수 있습니다. 등록된 사용자는 연락처 데이터(Cm 컨트롤러의 **인덱스** 및 **세부 정보** 페이지), 정보 및 연락처 페이지를 볼 수 있습니다. *canEdit* 역할의 사용자만 데이터를 변경하는 작업 메서드에 액세스할 수 있습니다.
 
-1. 응용 프로그램에 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 필터와 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 필터를 추가합니다. 또 다른 방법은 각 컨트롤러에 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 특성과 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 특성을 추가하는 것이지만 전체 응용 프로그램에 적용하는 것이 보안상 더 좋은 모범 사례입니다. 전체적으로 추가하면 새로 추가된 모든 컨트롤러와 작업 메서드가 자동으로 보호되므로 따로 적용할 필요가 없습니다. 자세한 내용은 [ASP.NET MVC 앱 및 새 AllowAnonymous 특성 보안 유지](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)(영문)를 참조하십시오. *App_Start\FilterConfig.cs* 파일을 열고 *RegisterGlobalFilters* 메서드를 다음으로 바꿉니다(두 개의 필터를 추가함). 
+1. 응용 프로그램에 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 필터와 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 필터를 추가합니다. 또 다른 방법은 각 컨트롤러에 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 특성과 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 특성을 추가하는 것이지만 전체 응용 프로그램에 적용하는 것이 보안상 더 좋은 모범 사례입니다. 전체적으로 추가하면 새로 추가된 모든 컨트롤러와 작업 메서드가 자동으로 보호되므로 따로 적용할 필요가 없습니다. 자세한 내용은 [ASP.NET MVC 앱 및 새 AllowAnonymous 특성 보안 유지](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)(영문)를 참조하십시오. *App\_Start\\FilterConfig.cs* 파일을 열고 *RegisterGlobalFilters* 메서드를 다음 내용(두 개의 필터 추가)으로 바꿉니다.
 
-```
-        public static void
-        RegisterGlobalFilters(GlobalFilterCollection filters)
-        {
-            filters.Add(new HandleErrorAttribute());
-            <mark>filters.Add(new System.Web.Mvc.AuthorizeAttribute());
-            filters.Add(new RequireHttpsAttribute());</mark>
-        }
-```
-
-
-
-
+		public static void
+		RegisterGlobalFilters(GlobalFilterCollection filters)
+		{
+		    filters.Add(new HandleErrorAttribute());
+		    filters.Add(new System.Web.Mvc.AuthorizeAttribute());
+		    filters.Add(new RequireHttpsAttribute());
+		}
+		
 	위의 코드에 적용된 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 필터는 익명 사용자가 응용 프로그램의 메서드에 액세스할 수 없도록 합니다. [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 특성을 사용하여 몇 개 메서드의 권한 부여 요구 사항을 옵트아웃(opt out)하므로 익명 사용자가 로그인하고 홈 페이지를 볼 수 있습니다. [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx)는 웹앱에 대한 모든 액세스가 HTTPS를 통해 이루어져야 합니다.
 
-1. Home 컨트롤러의 [Index](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 메서드에 **AllowAnonymous** 특성을 추가합니다. [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 특성을 사용하여 권한 부여에서 옵트아웃(opt out)하려는 메서드를 허용 목록에 추가할 수 있습니다. 
+1. Home 컨트롤러의 [Index](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 메서드에 **AllowAnonymous** 특성을 추가합니다. [AllowAnonymous](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx) 특성을 사용하여 권한 부여에서 옵트아웃(opt out)하려는 메서드를 허용 목록에 추가할 수 있습니다.
 
-```
-	public class HomeController : Controller
-   {
-      <mark>[AllowAnonymous]</mark>
-      public ActionResult Index()
-      {
-         return View();
-      }
-```
+		public class HomeController : Controller
+		{
+		  [AllowAnonymous]
+		  public ActionResult Index()
+		  {
+		     return View();
+		  }
 
 2. *AllowAnonymous*에 대한 전체 검색을 수행합니다. Account 컨트롤러의 로그인 및 등록 메서드에서 사용되는 것을 확인할 수 있습니다.
-1. *CmController.cs*에서 *Cm* 컨트롤러의 데이터를 변경하는 HttpGet 및 HttpPost 메서드(만들기, 편집, 삭제 그리고 인덱스 및 세부 사항을 제외한 모든 작업 메서드)에 `[Authorize(Roles = "canEdit")]`를 추가합니다. 아래에는 완성된 코드의 일부가 표시되어 있습니다.```
-	// GET: Cm/Create
-       <mark>[Authorize(Roles = "canEdit")]</mark>
-        public ActionResult Create()
-        {
-           return View(new Contact { Address = "123 N 456 W",
-            City="Great Falls", Email = "ab@cd.com", Name="Joe Smith", State="MT",
-           Zip = "59405"});
-        }
-        // POST: Cm/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-         <mark>[Authorize(Roles = "canEdit")]</mark>
-        public ActionResult Create([Bind(Include = "ContactId,Name,Address,City,State,Zip,Email")] Contact contact)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Contacts.Add(contact);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(contact);
-        }
-        // GET: Cm/Edit/5
-       <mark>[Authorize(Roles = "canEdit")]</mark>
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Contact contact = db.Contacts.Find(id);
-            if (contact == null)
-            {
-                return HttpNotFound();
-            }
-            return View(contact);
-        }
-```
+1. *CmController.cs*에서 *Cm* 컨트롤러의 데이터를 변경하는 HttpGet 및 HttpPost 메서드(만들기, 편집, 삭제 그리고 인덱스 및 세부 사항을 제외한 모든 작업 메서드)에 `[Authorize(Roles = "canEdit")]`를 추가합니다. 아래에는 완성된 코드의 일부가 표시되어 있습니다. 
 
+		// GET: Cm/Create
+		[Authorize(Roles = "canEdit")]
+		public ActionResult Create()
+		{
+		   return View(new Contact { Address = "123 N 456 W",
+		    City="Great Falls", Email = "ab@cd.com", Name="Joe Smith", State="MT",
+		   Zip = "59405"});
+		}
+		// POST: Cm/Create
+		// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+		// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+		 [Authorize(Roles = "canEdit")]
+		public ActionResult Create([Bind(Include = "ContactId,Name,Address,City,State,Zip,Email")] Contact contact)
+		{
+		    if (ModelState.IsValid)
+		    {
+		        db.Contacts.Add(contact);
+		        db.SaveChanges();
+		        return RedirectToAction("Index");
+		    }
+		    return View(contact);
+		}
+		// GET: Cm/Edit/5
+		[Authorize(Roles = "canEdit")]
+		public ActionResult Edit(int? id)
+		{
+		    if (id == null)
+		    {
+		        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+		    }
+		    Contact contact = db.Contacts.Find(id);
+		    if (contact == null)
+		    {
+		        return HttpNotFound();
+		    }
+		    return View(contact);
+		}
+		
 1. 이전 세션에서 로그인되어 있는 경우 **로그아웃** 링크를 누릅니다.
 1. **정보** 또는 **연락처** 링크를 클릭합니다. 익명 사용자는 해당 페이지를 볼 수 없으므로 로그인 페이지로 리디렉션됩니다. 
-1. **새 사용자로 등록** 링크를 클릭하고 전자 메일 *joe@contoso.com*을(를) 사용하여 로컬 사용자를 추가합니다. *Joe*가 홈, 정보 및 연락처 페이지를 볼 수 있는지 확인합니다.
+1. **새 사용자로 등록** 링크를 클릭하고 전자 메일 **joe@contoso.com*을 사용하여 로컬 사용자를 추가합니다. *Joe*가 홈, 정보 및 연락처 페이지를 볼 수 있는지 확인합니다.
 
 	![로그인](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 
@@ -559,7 +547,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 	**웹 게시** 마법사가 열립니다.
 
-1. **웹 게시** 대화 상자 왼쪽에 있는 **설정** 탭을 클릭합니다. **v** 아이콘을 클릭하여 **ApplicationDbContext**에 대한 **원격 연결 문자열**을 선택한 다음 **ContactManagerNN_db**를 선택합니다.
+1. **웹 게시** 대화 상자 왼쪽에 있는 **설정** 탭을 클릭합니다. **v** 아이콘을 클릭하여 **ApplicationDbContext**에 대한 **원격 연결 문자열**을 선택한 다음 **ContactManagerNN\_db**를 선택합니다.
 
    
 	![설정](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc2.png)
@@ -630,9 +618,9 @@ Google 계정 정보의 이름과 성을 채우지 않은 경우 NullReferenceEx
  
 3. 이전에 이 데이터베이스에 연결하지 않은 경우, 사용자의 현재 IP 주소에 대한 액세스가 가능하도록 방화벽 규칙을 추가 하라는 메시지가 표시될 수 있습니다. IP 주소가 미리 채워집니다. **방화벽 규칙 추가**를 클릭만 하면 액세스할 수 있도록 합니다.
 
-  ![방화벽 규칙 추가](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/addfirewallrule.png)
+	![방화벽 규칙 추가](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/addfirewallrule.png)
         
-  그런 다음, 데이터베이스를 만들 때 지정한 사용자 이름 및 암호를 사용하여 데이터베이스에 로그인합니다.
+	그런 다음, 데이터베이스를 만들 때 지정한 사용자 이름 및 암호를 사용하여 데이터베이스에 로그인합니다.
  
 1. **AspNetUsers** 테이블을 마우스 오른쪽 단추로 클릭하고 **데이터 보기**를 선택합니다.
 
@@ -730,4 +718,4 @@ Tom Dykstra의 뛰어난 [EF 및 MVC 시작](http://www.asp.net/mvc/tutorials/ge
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

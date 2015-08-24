@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="모바일 서비스 및 Azure Active Directory의 역할 기반 액세스 제어(Windows 스토어) | 모바일 개발자 센터" 
+	pageTitle="모바일 서비스 및 Azure Active Directory의 역할 기반 액세스 제어(Windows 스토어) | Microsoft Azure" 
 	description="Windows 스토어 응용 프로그램에서 Azure Active Directory 역할을 기반으로 액세스를 제어하는 방법을 알아봅니다." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -285,4 +285,4 @@ Git를 사용하여 모바일 서비스에 스크립트를 배포하는 데 익�
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
 [Azure Active Directory 그래프 정보 액세스]: mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

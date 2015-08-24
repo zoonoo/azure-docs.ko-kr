@@ -1,38 +1,40 @@
 <properties 
-	pageTitle="Azure 저장소 시작" 
-	description="Visual Studio의 Azure WebJobs 프로젝트에서 Azure 큐 저장소를 사용하는 방법" 
-	services="storage" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+	pageTitle="Azure 큐 저장소 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)" 
+	description="WebJob 프로젝트에서 Visual Studio의 연결된 서비스 추가 대화 상자를 사용하여 만든 Azure 저장소 계정에서 큐 저장소를 사용하기 시작하는 방법입니다."
+	services="storage"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/13/2015"
 	ms.author="patshea123"/>
 
-# Azure 저장소 시작(Azure WebJob 프로젝트)
+# Azure 큐 저장소 및 Visual Studio 연결된 서비스 시작(WebJob 프로젝트)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-webjobs-getting-started-queues.md)
-> - [What Happened](vs-storage-webjobs-what-happened.md)
+> - [Getting started](vs-storage-webjobs-getting-started-queues.md)
+> - [What happened](vs-storage-webjobs-what-happened.md)
 
 > [AZURE.SELECTOR]
 > - [Blobs](vs-storage-webjobs-getting-started-blobs.md)
 > - [Queues](vs-storage-webjobs-getting-started-queues.md)
 > - [Tables](vs-storage-webjobs-getting-started-tables.md)
 
+## 개요
+
+이 문서에서는 Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 Azure 저장소 계정을 만들거나 참조한 후 Visual Studio Azure WebJob프로젝트에서 Azure 큐 저장소를 사용하는 방법을 설명합니다. Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 WebJob 프로젝트에 저장소 계정을 추가하는 경우 적절한 Azure 저장소 NuGet 패키지가 설치되고, 적절한 .NET 참조가 프로젝트에 추가되며, App.config 파일에서 저장소 계정에 대한 연결 문자열이 업데이트됩니다.
+
+이 문서에서는 Azure 큐 저장소 서비스에서 Azure WebJobs SDK 버전 1.x를 사용하는 방법을 보여 주는 C# 코드 샘플을 제공합니다.
 
 Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 단일 큐 메시지의 크기는 최대 64KB일 수 있으며, 하나의 큐에 저장소 계정의 총 용량 제한까지 수백만 개의 메시지가 포함될 수 있습니다. 자세한 내용은 [.NET에서 큐 저장소를 사용하는 방법](storage-dotnet-how-to-use-queues.md)(영문)을 참조하세요. ASP.NET에 대한 자세한 내용은 [ASP.NET(영문)](http://www.asp.net)을 참조하세요.
 
-Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 WebJob 프로젝트에 저장소 계정을 추가하는 경우 적절한 Azure 저장소 NuGet 패키지가 설치되고, 적절한 .NET 참조가 프로젝트에 추가되며, App.config 파일에서 저장소 계정에 대한 연결 문자열이 업데이트됩니다.
-
-이 문서에서는 Azure 큐 저장소 서비스에서 Azure WebJobs SDK 버전 1.x를 사용하는 방법을 보여 주는 C# 코드 샘플을 제공합니다. 이 문서에는 다음 항목이 포함되어 있습니다.
 
 
 ## 큐 메시지를 받을 때 함수를 트리거하는 방법
@@ -272,7 +274,7 @@ SDK에서 자동으로 개체를 JSON으로 serialize합니다. 개체가 null�
 
 문자열이 포함된 큐 메시지의 경우 `queueTrigger`는 메시지 내용이 포함된 `Blob` 특성의 `blobPath` 매개 변수에 사용할 수 있는 자리 표시자입니다.
 
-다음 예제에서는 `Stream` 개체를 사용하여 Blob을 읽고 씁니다. 큐 메시지는 textblobs 컨테이너에 있는 Blob의 이름입니다. 이름에 "-new"가 추가된 Blob 복사본이 동일한 컨테이너에 생성됩니다.
+다음 예제에서는 `Stream` 개체를 사용하여 Blob를 읽고 씁니다. 큐 메시지는 textblobs 컨테이너에 있는 Blob의 이름입니다. 이름에 "-new"가 추가된 Blob 복사본이 동일한 컨테이너에 생성됩니다.
 
 		public static void ProcessQueueMessage(
 		    [QueueTrigger("blobcopyqueue")] string blobName, 
@@ -286,7 +288,7 @@ SDK에서 자동으로 개체를 JSON으로 serialize합니다. 개체가 null�
 
 특성이 `Stream` 개체를 데코레이팅하는 경우 또 다른 생성자 매개 변수가 `FileAccess` 모드를 읽기, 쓰기 또는 읽기/쓰기로 지정합니다.
 
-다음 예제에서는 `CloudBlockBlob` 개체를 사용하여 Blob을 삭제합니다. 큐 메시지는 Blob의 이름입니다.
+다음 예제에서는 `CloudBlockBlob` 개체를 사용하여 Blob를 삭제합니다. 큐 메시지는 Blob의 이름입니다.
 
 		public static void DeleteBlob(
 		    [QueueTrigger("deleteblobqueue")] string blobName,
@@ -551,4 +553,4 @@ Azure Blob에서 응용 프로그램 로그는 다음과 같습니다. 2014-09-2
 이 문서에서는 Azure 큐 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure WebJob 및 WebJob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

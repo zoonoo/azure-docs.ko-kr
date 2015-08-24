@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="클라우드 서비스를 관리하는 방법 - Azure" 
+	pageTitle="클라우드 서비스를 관리하는 방법 | Microsoft Azure" 
 	description="Azure 포털에서 클라우드 서비스를 관리하는 방법에 대해 알아봅니다." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -158,4 +158,4 @@ Azure 포털 **클라우드 서비스** 영역에서 서비스 역할 또는 배
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

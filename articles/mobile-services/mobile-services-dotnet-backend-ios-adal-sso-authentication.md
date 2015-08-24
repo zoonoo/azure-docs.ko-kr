@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증(iOS) | 모바일 개발자 센터" 
+	pageTitle="Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증(iOS) | Microsoft Azure" 
 	description="iOS 응용 프로그램에서 ADAL을 사용하여 SSO(Single Sign-On) 사용자를 인증하는 방법에 대해 알아봅니다." 
 	documentationCenter="ios" 
 	authors="mattchenderson" 
@@ -121,4 +121,4 @@
 [iOS용 Active Directory 인증 라이브러리]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

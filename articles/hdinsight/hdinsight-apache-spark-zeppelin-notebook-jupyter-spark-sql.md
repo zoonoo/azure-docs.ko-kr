@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="HDInsight에서 Spark 클러스터 프로비전 및 Zeppelin과 Jupyter에서 Spark SQL을 사용하여 대화형 분석 | Azure" 
+	pageTitle="HDInsight에서 Spark 클러스터 프로비전 및 Zeppelin과 Jupyter에서 Spark SQL을 사용하여 대화형 분석 | Microsoft Azure" 
 	description="HDInsight에서 Apache Spark 클러스터를 신속하게 프로비전한 후 Zeppelin 및 Jupyter 노트북에서 Spark SQL을 사용하여 대화형 쿼리를 실행하는 방법에 대한 단계별 지침입니다." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -243,4 +243,4 @@ HDInsight에서 HDInsight 클러스터를 프로비전할 때 Azure 저장소 �
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

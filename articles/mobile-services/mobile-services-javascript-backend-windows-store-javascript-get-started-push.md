@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="모바일 서비스 앱에 푸시 알림 추가(Windows 스토어) | 모바일 개발자 센터" 
+	pageTitle="모바일 서비스 앱에 푸시 알림 추가(Windows 스토어) | Microsoft Azure" 
 	description="Azure 모바일 서비스와 알림 허브를 사용하여 Windows 스토어 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -129,4 +129,4 @@
 [Send template-based notifications to subscribers]: ../notification-hubs-windows-store-javascript-send-localized-breaking-news.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

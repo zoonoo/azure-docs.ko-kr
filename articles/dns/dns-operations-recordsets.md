@@ -13,10 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="05/01/2015"
+   ms.date="08/02/2015"
    ms.author="joaoma"/>
 
 # DNS 레코드를 관리하는 방법
+
 
 이 가이드에서는 DNS 영역에 대한 레코드 집합 및 레코드를 관리하는 방법을 보여 줍니다.
 
@@ -265,4 +266,4 @@ Remove-AzureDnsRecordSet cmdlet을 사용하여 레코드 집합을 삭제할 �
 [레코드 집합 및 레코드 만들기 시작](../dns-getstarted-create-recordset)<BR> [DNS 영역에 대한 작업 수행](../dns-operations-dnszones)<BR> [.NET SDK로 작업 자동화](../dns-sdk)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

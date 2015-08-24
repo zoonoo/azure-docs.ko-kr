@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="HDInsight에서 Apache Spark를 사용하여 기계 학습 응용 프로그램 빌드 | Azure" 
+	pageTitle="HDInsight에서 Apache Spark를 사용하여 기계 학습 응용 프로그램 빌드 | Microsoft Azure" 
 	description="기계 학습 응용 프로그램을 빌드하기 위해 Apache Spark와 함께 노트북을 사용하는 방법에 대한 단계별 지침" 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -240,4 +240,4 @@ HDInsight에서 Apache Spark 클러스터에는 Anaconda 라이브러리가 포�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

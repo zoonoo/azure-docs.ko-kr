@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="하이브리드 연결 만들기 및 관리 | Azure" 
+	pageTitle="하이브리드 연결 만들기 및 관리 | Microsoft Azure" 
 	description="하이브리드 연결을 만들고, 연결을 관리하며, 하이브리드 연결 관리자를 설치하는 방법에 대해 알아봅니다. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -146,4 +146,4 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [HCOnPremSetup]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

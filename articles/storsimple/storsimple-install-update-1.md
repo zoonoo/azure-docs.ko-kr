@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="StorSimple 장치에 업데이트 1을 설치합니다."
+   pageTitle="StorSimple 장치에 업데이트 1 설치 | Microsoft Azure"
    description="장치에서 StorSimple 8000 시리즈 업데이트 1을 설치하는 방법에 대해 설명합니다."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="06/18/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # StorSimple 장치에 업데이트 1을 설치합니다.
@@ -100,4 +100,4 @@ GA 버전을 실행하는 장치를 업데이트 하려면 Azure 관리 포털�
 
 [Microsoft Azure StorSimple](storsimple-overview.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="08/10/2015"
    ms.author="piyushjo"/>
 
 # 응용 프로그램에 대한 실시간 데이터를 모니터링하는 방법
@@ -144,4 +144,4 @@ UI의 모니터 섹션에서는 실시간 분석 정보를 제공하며, 이전�
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

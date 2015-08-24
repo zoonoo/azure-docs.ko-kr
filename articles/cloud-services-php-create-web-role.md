@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="06/09/2015"
 	ms.author="tomfitz"/>
 
@@ -212,4 +212,4 @@ Azure 계산 및 저장소 에뮬레이터는 클라우드에 배포하기 전�
 [방법: 게시 설정 가져오기]: /develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
 [방법: Azure에 클라우드 서비스 배포]: /develop/php/how-to-guides/powershell-cmdlets/#Deploy
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

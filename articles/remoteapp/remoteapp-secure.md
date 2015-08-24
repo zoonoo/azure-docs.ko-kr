@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/16/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
@@ -47,4 +47,4 @@ Azure RemoteApp은 사용자에게 중앙에서 관리되는 Windows 앱에 대�
 - [Office 2013 정책](https://technet.microsoft.com/library/cc178969.aspx)([Office 도구 모음을 사용자 지정하는 방법](https://technet.microsoft.com/library/cc179143.aspx) 포함).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 모바일 앱(Windows 스토어)을 사용하여 오프라인 데이터 사용 | 모바일 개발자 센터"
+	pageTitle="Azure 모바일 앱(Windows 스토어)을 사용하여 오프라인 데이터 사용 | Microsoft Azure"
 	description="Azure 모바일 앱을 사용하여 Windows 스토어 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법에 대해 알아봅니다."
 	documentationCenter="windows"
 	authors="christopheranderson"
@@ -278,4 +278,4 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
 [sqlite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.2
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 
@@ -804,4 +804,4 @@ Microsoft Media Platform: iOS용 플레이어 프레임워크에는 프레임워
 
 [비디오 플레이어 응용 프로그램 개발](media-services-develop-video-players.md) [iOS용 Azure 미디어 플레이어 프레임워크 소개](https://channel9.msdn.com/Series/Windows-Azure-Media-Services-Tutorials/An-introduction-to-Azure-Media-Player-Framework-for-IOS)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="05/07/2015"
+	ms.date="08/05/2015"
 	ms.author="raynew"/>
 
 #  온-프레미스 VMM 사이트와 Azure 간 보호 설정
@@ -321,4 +321,4 @@ Azure 대상 네트워크를 지정하지 않고 Azure로 보호되도록 설정
 <LI>궁금한 사항은 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 복구 서비스 포럼</a>을 참조하세요.</LI> </UL>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

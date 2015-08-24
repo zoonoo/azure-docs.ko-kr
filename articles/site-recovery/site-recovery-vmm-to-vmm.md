@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/07/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
 
 # 온-프레미스 VMM 사이트 간 보호 설정
@@ -370,4 +370,4 @@ VMM 서버의 공급자는 서비스에서 이벤트에 대한 알림을 받고 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

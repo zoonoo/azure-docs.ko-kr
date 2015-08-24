@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="HDInsight의 Apache Spark 개요 | Azure" 
+	pageTitle="HDInsight의 Apache Spark 개요 | Microsoft Azure" 
 	description="HDInsight에서 Apache Spark의 도입 및 응용 프로그램에서 HDInsight의 Spark를 사용하는 시나리오" 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -99,4 +99,4 @@ HDInsight에서 Spark에는 기본적으로 클러스터에서 사용할 수 있
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Socket.io를 사용하는 Node.js 응용 프로그램 - Azure 자습서" 
+	pageTitle="Socket.io를 사용하는 Node.js 응용 프로그램 | Microsoft Azure" 
 	description="Azure에 호스트된 node.js 응용 프로그램에서 socket.io를 사용하는 방법을 알아봅니다." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
@@ -158,4 +158,4 @@ server.js에 변경 내용을 저장한 후 다음 단계에 따라 필요한 �
   
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

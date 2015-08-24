@@ -19,7 +19,7 @@
 
 자동화된 백업에서는 SQL Server 2014 Standard 또는 Enterprise를 실행하는 Azure VM의 모든 기존 및 새 데이터베이스에 대해 [Microsoft Azure에 대한 관리되는 백업](https://msdn.microsoft.com/library/dn449496.aspx)을 자동으로 구성합니다. 이를 통해 지속형 Azure Blob 저장소를 활용하는 일반 데이터베이스 백업을 구성할 수 있습니다.
 
->[AZURE.IMPORTANT]자동화된 백업은 SQL Server IaaS 에이전트에 의존합니다. 에이전트를 설치하고 구성하려면 대상 가상 컴퓨터에서 실행 중인 Azure VM 에이전트가 있어야 합니다. 최신 가상 컴퓨터 갤러리 이미지는 기본적으로 이 옵션을 사용하도록 설정되어 있지만 Azure VM 에이전트가 기존 VM에서 누락될 수 있습니다. 사용자 고유의 VM 이미지를 사용하는 경우에는 SQL Server IaaS 에이전트를 설치해야 합니다. 자세한 내용은 [VM 에이전트 및 확장](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/)을 참조하세요.
+>[AZURE.NOTE]자동화된 백업은 SQL Server IaaS 에이전트에 의존합니다. 에이전트를 설치하고 구성하려면 대상 가상 컴퓨터에서 실행 중인 Azure VM 에이전트가 있어야 합니다. 최신 가상 컴퓨터 갤러리 이미지는 기본적으로 이 옵션을 사용하도록 설정되어 있지만 Azure VM 에이전트가 기존 VM에서 누락될 수 있습니다. 사용자 고유의 VM 이미지를 사용하는 경우에는 SQL Server IaaS 에이전트를 설치해야 합니다. 자세한 내용은 [VM 에이전트 및 확장](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/)을 참조하세요.
 
 ## 자동화된 백업 설정
 
@@ -109,4 +109,4 @@ Azure에서 SQL Server VM 관련 기능은 [Azure 가상 컴퓨터의 SQL Server
 
 그 밖에 [Azure 가상 컴퓨터에서 SQL Server 실행과 관련된 리소스](virtual-machines-sql-server-infrastructure-services.md)를 검토하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

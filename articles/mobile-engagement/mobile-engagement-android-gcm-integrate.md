@@ -3,7 +3,7 @@
 	description="Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 절차"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kpiteira" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 #GCM과 Mobile Engagement를 통합하는 방법
 
@@ -123,4 +123,4 @@ Engagement 푸시 서비스에 장치의 등록 ID를 전달하고 해당 알림
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

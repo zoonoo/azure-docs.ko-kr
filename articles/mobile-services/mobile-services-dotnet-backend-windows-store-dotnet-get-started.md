@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Windows 유니버설 앱을 위한 모바일 서비스 시작 | 모바일 개발자 센터"
+	pageTitle="Windows 유니버설 앱을 위한 모바일 서비스 시작 | Microsoft Azure"
 	description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 C#에서 유니버설 Windows 앱을 개발할 수 있습니다."
 	services="mobile-services"
 	documentationCenter="windows"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="05/03/2015"
+	ms.date="08/08/2015"
 	ms.author="glenga"/>
 
 
@@ -126,4 +126,4 @@
 [모바일 서비스 .NET 백 엔드 문제 해결]: mobile-services-dotnet-backend-how-to-troubleshoot.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

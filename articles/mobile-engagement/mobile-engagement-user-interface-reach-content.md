@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="08/10/2015"
    ms.author="piyushjo"/>
 
 # 다양한 푸시 알림 캠페인 유형의 고유한 콘텐츠를 관리하는 방법
@@ -230,4 +230,4 @@
 [Link 29]: mobile-engagement-user-interface-reach-content.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

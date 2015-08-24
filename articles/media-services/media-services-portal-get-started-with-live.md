@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ne"
 	ms.topic="get-started-article" 
-	ms.date="08/03/2015"
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -193,21 +193,9 @@ MPEG DASH 스트리밍 URL을 작성하려면 URL에 (format=mpd-time-csf)를 �
 
 
 
-##다음 단계
-
-[라이브 스트리밍 응용 프로그램 빌드](media-services-live-streaming-workflow.md)에서 라이브 스트리밍 응용 프로그램을 빌드하는 방법에 대해 자세히 알아보세요.
-
-###추가 리소스
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure 미디어 서비스 101 - 지금 온라인으로 비디오 받기!</a>
-- <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-102-Dynamic-Packaging-and-Mobile-Devices">Azure 미디어 서비스 102 - 동적 패키징 및 모바일 장치</a>
-
-
-<!-- Anchors. -->
-
-
 <!-- URLs. -->
 [Management Portal]: http://manage.windowsazure.com/
 
 <!-- Images -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

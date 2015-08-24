@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="08/12/2015" 
 	ms.author="awills"/>
 
 # Windows 데스크톱 앱 및 서비스의 Application Insights
@@ -44,13 +44,21 @@ Application Insights SDK은 Windows 데스크톱 앱 및 서비스에 대한 지
 
 1. Visual Studio에서 데스크톱 앱 프로젝트의 NuGet 패키지를 편집합니다. ![마우스 오른쪽 단추로 프로젝트 클릭 및 Nuget 패키지 관리 선택](./media/app-insights-windows-desktop/03-nuget.png)
 
-2. Application Insights API 패키지를 설치합니다.
+2. Application Insights 코어 API 패키지를 설치합니다.
 
     !["Application Insights" 검색](./media/app-insights-windows-desktop/04-core-nuget.png)
 
-3. `TelemetryConfiguration.Active`개체를 통해 코드 안의 InstrumentationKey를 설정합니다.
+3. 코드에 InstrumentationKey를 설정합니다(예: main()).
 
     `TelemetryConfiguration.Active.InstrumentationKey = "your key";`
+
+*ApplicationInsights.config가 없는 이유는?*
+
+* .config 파일은 원격 분석 수집기 구성에 사용되는 코어 API 패키지에 의해 설치되지 않습니다. 따라서 계측 키를 설정하고 원격 분석을 전송하는 사용자 고유의 코드를 작성합니다.
+
+*다른 NuGet 패키지를 사용할 수 있습니까?*
+
+* 예, 성능 카운터에 대한 수집기를 설치하는 웹 서버 패키지를 사용할 수 있습니다. [HTTP 요청 수집기를 사용하지 않도록 설정](app-insights-configuration-with-applicationinsights-config.md)해야 합니다. 그러면 계측 키를 넣는 .config 파일이 설치됩니다.
 
 ## <a name="telemetry"></a>원격 분석 호출 삽입
 
@@ -173,4 +181,4 @@ TrackMetric 또는 TrackEvent의 측정 매개 변수를 사용한 경우 [메�
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

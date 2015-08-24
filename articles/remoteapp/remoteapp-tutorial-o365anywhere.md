@@ -10,14 +10,14 @@
 <tags
    ms.service="remoteapp"
    ms.devlang="na"
-   ms.topic="article"
+   ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="07/07/2015"
+   ms.date="08/12/2015"
    ms.author="guscatal;elizapo"/>
 
 
-# 모든 장치에서 동일한 Office 365 환경 가져오기
+# Azure RemoteApp으로 모든 장치에서 동일한 Office 365 환경 즐기기
 
 이 문서에서는 회사의 모든 장치에서 Office 365를 배포하는 방법을 설명합니다. 사용자는 Android, Apple 및 Windows에서 동일한 기능과 UI 환경을 사용할 수 있습니다.
 
@@ -64,4 +64,4 @@
 ![powerpoint](https://raw.githubusercontent.com/guscatalano/azure-content/master/articles/media/remoteapp-tutorial-o365anywhere/11-pp.PNG)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

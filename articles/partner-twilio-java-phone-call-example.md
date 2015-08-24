@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Twilio에서 전화를 거는 방법(Java) - Azure" 
+	pageTitle="Twilio에서 전화를 거는 방법(Java) | Microsoft Azure" 
 	description="Azure의 Java 응용 프로그램에서 Twilio를 사용하여 웹 페이지에서 전화를 거는 방법에 대해 알아봅니다." 
 	services="" 
 	documentationCenter="java" 
@@ -209,4 +209,4 @@ Twilio에 대한 자세한 내용은 [https://www.twilio.com/docs][twilio_docs](
 [twilio_java]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaCallForm.jpg
 [twilio_java_response]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

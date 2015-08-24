@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="진단 사용 방법(.NET) - Azure 기능 가이드" 
+	pageTitle="진단 사용 방법(.NET) | Microsoft Azure" 
 	description="Azure에서 디버그, 성능 측정, 모니터링, 트래픽 분석 등에 진단 데이터를 사용하는 방법에 대해 알아봅니다." 
 	services="cloud-services" 
 	documentationCenter=".net" 
@@ -511,4 +511,4 @@ EventSource|아니요|테이블|.NET EventSource 클래스를 사용하여 코�
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #기존 Blob을 미디어 서비스 자산에 복사
@@ -286,4 +286,4 @@ Blob은 미디어 서비스 계정에 연결된 저장소 계정 또는 미디�
 		}
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

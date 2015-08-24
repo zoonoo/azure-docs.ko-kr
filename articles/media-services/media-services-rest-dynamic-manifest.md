@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #미디어 서비스 REST API로 필터 생성
@@ -363,4 +363,4 @@ PATCH, PUT 또는 MERGE를 사용하여 새 속성 값으로 필터를 업데이
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

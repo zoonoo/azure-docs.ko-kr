@@ -3,7 +3,7 @@
     pageTitle="Azure RemoteApp에서 Azure Active Directory 테넌트 변경"
     description="Azure RemoteApp과 연결된 Azure Active Directory 테넌트를 변경하는 방법에 대해 알아봅니다."
     services="remoteapp"
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap"
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/24/2015"
+    ms.date="08/12/2015"
     ms.author="elizapo" />
 
 
@@ -22,7 +22,7 @@
 
 Azure RemoteApp은 Azure AD(Azure Active Directory)를 사용하여 사용자 액세스를 허용합니다. 사용할 수 있는 Azure AD 테넌트는 Azure 구독과 연결된 것입니다. 포털의 설정 페이지에서 연결된 구독을 볼 수 있습니다. 구독 탭에서 디렉터리 열을 확인합니다.
 
-> [AZURE.NOTE]Azure Active Directory를 변경하려면 먼저 모든 Azure RemoteApp 컬렉션에서 기존 Azure Active Directory 테넌트의 사용자를 모두 제거해야 합니다. 이렇게 하려면 Azure 포털로 이동한 다음 Azure RemoteApp 탭으로 이동하여 모든 Azure RemoteApp 컬렉션을 엽니다. **사용자** 탭으로 이동하여 현재 Azure Active Directory 테넌트에 속하는 사용자를 제거합니다. 모든 기존 Azure RemoteApp 컬렉션에 대해 이 작업을 반복합니다. 이 작업을 수행하지 않으면 컬렉션을 만들거나 패치할 수 없습니다.
+> [AZURE.NOTE]성공적으로 변경하려면 먼저 모든 Azure RemoteApp 컬렉션에서 기존 Azure Active Directory 테넌트의 사용자를 모두 제거합니다. 이렇게 하려면 Azure 포털로 이동한 다음 Azure RemoteApp 탭으로 이동하여 모든 Azure RemoteApp 컬렉션을 엽니다. **사용자** 탭으로 이동하여 현재 Azure Active Directory 테넌트에 속하는 사용자를 제거합니다. 모든 기존 Azure RemoteApp 컬렉션에 대해 이 작업을 반복합니다. 이 작업을 수행하지 않으면 컬렉션을 만들거나 패치할 수 없습니다.
 
 다른 테넌트를 사용하려는 경우 다음 단계를 사용하여 구독과의 연결을 변경합니다.
 
@@ -48,4 +48,4 @@ Azure RemoteApp은 Azure AD(Azure Active Directory)를 사용하여 사용자 �
 
 이제 새 Azure AD 테넌트를 사용하여 Azure 구독에 대한 액세스를 제어하고 Azure RemoteApp에서 사용자 액세스를 구성할 수 있습니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

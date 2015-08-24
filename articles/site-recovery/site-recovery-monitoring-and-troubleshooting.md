@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="07/20/2015" 
+	ms.date="08/13/2015" 
 	ms.author="anbacker"/>
 	
 # VMware, VMM, Hyper-V 및 물리적 사이트를 위한 보호 모니터링 및 문제 해결
@@ -169,6 +169,7 @@ ASR에 대한 지원 티켓을 모으려면 <http://aka.ms/getazuresupport> URL�
 -   [Hyper-V 복구 관리자 자격 증명 모음에 연결할 수 없습니다. 프록시 설정을 확인하거나 나중에 다시 시도하십시오.](http://social.technet.microsoft.com/wiki/contents/articles/25571.a-connection-cant-be-established-to-the-hyper-v-recovery-manager-vault-verify-the-proxy-settings-or-try-again-later.aspx)
 
 ### 구성
+-   [보호 그룹을 만들 수 없습니다. 서버 목록을 검색하는 동안 오류가 발생했습니다.](http://blogs.technet.com/b/somaning/archive/2015/08/12/unable-to-create-the-protection-group-in-azure-site-recovery-portal.aspx)
 
 -   [Hyper-V 호스트 클러스터에는 하나 이상의 정적 네트워크 어댑터가 있습니다. 그렇지 않을 경우 연결된 어댑터 중 DHCP를 사용하도록 구성된 어댑터가 없는 것입니다.](http://social.technet.microsoft.com/wiki/contents/articles/25498.hyper-v-host-cluster-contains-at-least-one-static-network-adapter-or-no-connected-adapters-are-configured-to-use-dhcp.aspx)
 
@@ -190,7 +191,7 @@ ASR에 대한 지원 티켓을 모으려면 <http://aka.ms/getazuresupport> URL�
 
     -   [가상 컴퓨터에 대해 선택된 복제 지점으로 장애 조치(Failover): 일반 액세스 거부 오류.](http://social.technet.microsoft.com/wiki/contents/articles/25504.fail-over-to-the-selected-recovery-point-for-virtual-machine-general-access-denied-error.aspx)
 
-    -   [Hyper-V가 가상 컴퓨터에 대해 선택된 복제 지점으로 장애 조치(Failover)에 실패했습니다. 작업이 중단되었습니다. 더 최근인 복제 지점을 시도해 보십시오. (0x80004004)](http://social.technet.microsoft.com/wiki/contents/articles/25503.hyper-v-failed-to-fail-over-to-the-selected-recovery-point-for-virtual-machine-operation-aborted-try-a-more-recent-recovery-point-0x80004004.aspx)
+    -   [Hyper-V가 가상 컴퓨터에 대해 선택된 복구 지점으로 장애 조치(failover)하지 못했습니다. 작업이 중단되었습니다. 최근 복구 지점을 사용하세요. (0x80004004)](http://social.technet.microsoft.com/wiki/contents/articles/25503.hyper-v-failed-to-fail-over-to-the-selected-recovery-point-for-virtual-machine-operation-aborted-try-a-more-recent-recovery-point-0x80004004.aspx)
 
     -   서버와 연결할 수 없습니다.(0x00002EFD)
 
@@ -206,7 +207,7 @@ ASR에 대한 지원 티켓을 모으려면 <http://aka.ms/getazuresupport> URL�
 
 -   [가상 컴퓨터가 실행되고 있지 않으며 전원이 꺼져 있습니다.](http://social.technet.microsoft.com/wiki/contents/articles/25510.virtual-machine-is-not-running-and-is-not-powered-off.aspx)
 
--   [가상 컴퓨터에 대역 외 작업이 발생하고](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx) 장애 조치(Failover) 커밋이 실패했습니다.
+-   [가상 컴퓨터에 대역 외 작업이 발생하고](http://social.technet.microsoft.com/wiki/contents/articles/25507.the-virtual-machine-isn-t-ready-for-planned-failover.aspx) 장애 조치(failover)를 커밋하지 못했습니다.
 
 -   테스트 장애 조치(Failover)
 
@@ -222,4 +223,4 @@ CS(구성 서버), PS(프로세스 서버), MT(마스터 대상)
 ### 장애 조치(Failover) 후 원격 데스크톱 문제 해결
 많은 고객이 Azure에서 장애 조치(Failover)된 VM에 연결하는 데 문제에 직면합니다. 문제 해결 문서를 사용하여 VM에 RDP를 연결합니다. [문서 링크](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd" 
-   ms.date="05/21/2015"
+   ms.date="08/11/2015"
    ms.author="riande"/>
 
 # Azure Redis Cache를 사용하는 일반적인 캐시 패턴
@@ -37,4 +37,4 @@ Azure Redis Cache 사용에 대해 자세히 알아보려면 다음을 참조하
 - [15분 내에 Azure Redis Cache를 사용하여 MVC 동영상 앱 실행](http://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/)(영문): 이 블로그 게시물에서는 ASP.NET MVC 앱에서 빠르게 Azure Redis Cache를 사용하는 방법을 알려줍니다.
 - [Azure 웹 사이트에서 ASP.NET 세션 상태를 사용하는 방법](../app-service-web/web-sites-dotnet-session-state-caching.md)(영문): 이 항목에서는 세션 상태에 Azure Redis Cache 서비스를 사용하는 방법을 설명합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

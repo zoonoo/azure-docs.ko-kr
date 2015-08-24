@@ -23,22 +23,21 @@
 Azure HDInsight는 언제든 배포할 수 있는 여러 Hadoop 클러스터 버전을 지원합니다. 각 버전을 선택하면 특정 버전의 HDP(Hortonworks Data Platform) 배포 및 배포에 포함된 구성 요소 집합이 프로비전됩니다. HDInsight 클러스터 버전과 연결된 구성 요소 버전은 다음 표에 항목별로 구분되어 있습니다. Azure HDInsight에서 사용하는 기본 클러스터 버전은 현재 3.1이고, 2014년 11월 7일 기준 HDP 2.1.7을 기반으로 둡니다.
 
 
-<table border="1">
-<tr><th>구성 요소</th><th>HDInsight 버전 3.2</th><th>HDInsight 버전 3.1(기본값)</th><th>HDInsight 버전 3.0</th><th>HDInsight 버전 2.1</th></tr>
-<tr><td>Hortonworks Data Platform</td><td>2.2</td><td>2.1.7</td><td>2.0</td><td>1.3</td></tr>
-<tr><td>Apache Hadoop &amp; YARN</td><td>2.6.0</td><td>2.4.0</td><td>2.2.0</td><td>1.2.0</td></tr>
-<tr><td>Tez</td><td>0.5.2</td><td>0.4.0</td><td></td><td></td></tr>
-<tr><td>Apache Pig</td><td>0.14.0</td><td>0.12.1</td><td>0.12.0</td><td>0.11.0</td></tr>
-<tr><td>Apache Hive &amp; HCatalog</td><td>0.14.0</td><td>0.13.1</td><td>0.12.0</td><td>0.11.0</td></tr>
-<tr><td>HBase </td><td>0.98.4</td><td>0.98.0</td><td></td><td></td></tr>
-<tr><td>Apache Sqoop</td><td>1.4.5</td><td>1.4.4</td><td>1.4.4</td><td>1.4.3</td></tr>
-<tr><td>Apache Oozie</td><td>4.1.0</td><td>4.0.0</td><td>4.0.0</td><td>3.3.2</td></tr>
-<tr><td>Zookeeper</td><td>3.4.6</td><td>3.4.5</td><td>3.4.5</td><td></td></tr>
-<tr><td>Storm</td><td>0.9.3</td><td>0.9.1</td><td></td><td></td></tr>
-<tr><td>Mahout</td><td>0.9.0</td><td>0.9.0</td><td></td><td></td></tr>
-<tr><td>Phoenix</td><td>4.2.0</td><td>4.0.0.2.1.7.0-2162</td><td></td><td></td></tr>
-<tr><td>Spark)</td><td>1.3.1</td><td></td><td></td><td></td></tr>
-</table>
+구성 요소|HDInsight 버전 3.2|HDInsight 버전 3.1(기본값)|HDInsight 버전 3.0|HDInsight 버전 2.1
+---|---|---|---|---
+Hortonworks Data Platform|2\.2|2\.1.7|2\.0|1\.3
+Apache Hadoop & YARN|2\.6.0|2\.4.0|2\.2.0|1\.2.0
+Tez|0\.5.2|0\.4.0||
+Apache Pig|0\.14.0|0\.12.1|0\.12.0|0\.11.0
+Apache Hive & HCatalog|0\.14.0|0\.13.1|0\.12.0|0\.11.0
+HBase |0\.98.4|0\.98.0||
+Apache Sqoop|1\.4.5|1\.4.4|1\.4.4|1\.4.3
+Apache Oozie|4\.1.0|4\.0.0|4\.0.0|3\.3.2
+Zookeeper|3\.4.6|3\.4.5|3\.4.5|
+Storm|0\.9.3|0\.9.1||
+Mahout|0\.9.0|0\.9.0||
+Phoenix|4\.2.0|4\.0.0.2.1.7.0-2162||
+Spark)|1\.3.1|||
 
 
 **현재 구성 요소 버전 정보 가져오기**
@@ -59,7 +58,7 @@ HDInsight Windows PowerShell cmdlets 또는 HDInsight .NET SDK를 통해 클러�
 ##주요 기능
 HDInsight 플랫폼의 몇 가지 두드러진 기능은 다음과 같습니다.
 
-- **Spark**는 메모리 내 처리를 지원하여 빅 데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다. Spark는 메모리 내 계산 기능을 지원하여 기계 학습 및 그래프 계산의 반복 알고리즘에 적합합니다.
+- **Spark** - Apache Spark는 메모리 내 처리를 지원하여 빅 데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다. Spark는 메모리 내 계산 기능을 지원하여 기계 학습 및 그래프 계산의 반복 알고리즘에 적합합니다.
 
 	Spark를 사용하여 기존 디스크 기반 데이터 처리를 수행할 수도 있습니다. Spark는 중간 단계에서 디스크에 쓰기를 방지하여 기존 MapReduce 프레임워크를 향상시킵니다. 또한 Spark는 HDFS(Hadoop Distributed File System) 및 Azure Blob 저장소와 호환되므로 Spark를 통해 기존 데이터를 쉽게 처리할 수 있습니다.
 
@@ -76,7 +75,7 @@ HDInsight 플랫폼의 몇 가지 두드러진 기능은 다음과 같습니다.
 
 - **스크립트 작업** - 이 클러스터 사용자 지정 기능을 사용하면 사용자 지정 스크립트를 사용하여 임의의 방식으로 Hadoop 클러스터를 수정할 수 있습니다. 이 새로운 기능을 통해 사용자는 Apache Hadoop 에코시스템에서 사용할 수 있는 프로젝트를 실험하고 Azure HDInsight 클러스터에 배포할 수 있습니다. 이 사용자 지정 기능은 Hadoop, HBase, Storm을 비롯한 모든 HDInsight 유형에서 사용할 수 있습니다.
 
-- **HBase** - HBase는 빅 데이터를 온라인으로 트랜잭션 처리할 수 있게 하는 짧은 대기 시간의 NoSQL 데이터베이스입니다. HBase는 Azure 환경에 통합된 관리 클러스터로 제공합니다. 이 클러스터는 Azure Blob 저장소에 직접 데이터를 저장하도록 구성되며, 그러면 대기 시간이 짧고 성능/비용 선택 시 탄력성이 높습니다. 따라서 고객은 대규모 데이터 집합으로 작업하는 대화형 웹 사이트를 구축하고, 수백만 개의 끝점에서 발생하는 센서 및 원격 분석 데이터를 저장하는 서비스를 구축하고, Hadoop 작업을 사용해 이 데이터를 분석할 수 있습니다.
+- **HBase** - HBase는 빅데이터를 온라인으로 트랜잭션 처리할 수 있게 하는 짧은 대기 시간의 NoSQL 데이터베이스입니다. HBase는 Azure 환경에 통합된 관리 클러스터로 제공합니다. 이 클러스터는 Azure Blob 저장소에 직접 데이터를 저장하도록 구성되며, 그러면 대기 시간이 짧고 성능/비용 선택 시 탄력성이 높습니다. 따라서 고객은 대규모 데이터 집합으로 작업하는 대화형 웹 사이트를 구축하고, 수백만 개의 끝점에서 발생하는 센서 및 원격 분석 데이터를 저장하는 서비스를 구축하고, Hadoop 작업을 사용해 이 데이터를 분석할 수 있습니다.
 
 - **Apache Phoenix** - Apache Phoenix는 HBase를 기반으로 둔 SQL(Structured Query Language) 쿼리 계층입니다. 보조 인덱스 지원을 포함하여 SQL 쿼리 언어 사양의 제한된 하위 집합을 지원합니다. HBase 데이터에 대해 대기 시간이 짧은 쿼리를 목표로 하는 클라이언트에 JDBC(Java Database Connectivity) 드라이버로 제공됩니다. Apache Phoenix는 SQL 쿼리를 수신하고, 일련의 HBase 스캔 및 보조 프로세서 호출로 컴파일하고, 일반 JDBC 결과 집합을 생성합니다. Apache Phoenix는 HBase를 기반으로 둔 관계형 데이터베이스 계층입니다. HBase 데이터에 대해 대기 시간이 짧은 쿼리를 목표로 하는 클라이언트에 JDBC 드라이버로 제공됩니다. Apache Phoenix는 SQL 쿼리를 수신하고, 일련의 HBase 스캔으로 컴파일하고, 해당 스캔 실행을 오케스트레이션하여 일반 JDBC 결과 집합을 생성합니다.
 
@@ -105,7 +104,13 @@ HDInsight 플랫폼의 몇 가지 두드러진 기능은 다음과 같습니다.
 * 헤드 노드가 2개 있는 고가용성 클러스터는 기본적으로 HDInsight 2.1 이상에 대해 배포됩니다. HDInsight 1.6 클러스터에서는 사용할 수 없습니다.
 * 특정 버전에 대한 지원이 만료되면 Azure 포털을 통해 사용할 수 없게 됩니다. 다음 표에는 Azure 포털에서 사용할 수 있는 버전이 나와 있습니다. 클러스터 버전은 사용이 중단될 때까지 Windows PowerShell [New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) 명령의 `Version` 매개 변수 및 .NET SDK를 사용하여 계속 사용할 수 있습니다.
 
-<table border="1"> <tr><th>HDInsight 버전</th><th>HDP 버전</a><th>고가용성</th></th><th>릴리스 날짜</th><th>Azure Portal에서 사용 가능</th><th>지원 만료 날짜</th><th>사용 중단 날짜</th></tr> <tr><td>HDI 3.2</td><td>HDP 2.2</td><td>예</td><td>2015/2/18</td><td>예</td><td></td><td></td></tr> <tr><td>HDI 3.1</td><td>HDP 2.1</td><td>예</td><td>2014/6/24</td><td>예</td><td></td><td></td></tr> <tr><td>HDI 3.0</td><td>HDP 2.0</td><td></td><td>2014/02/11</td><td>예</td><td>2014/09/17</td><td>2015/06/30</td></tr> <tr><td>HDI 2.1</td><td>HDP 1.3</td><td>예</td><td>2013/10/28</td><td>아니요</td><td>2014/05/12</td><td>2015/05/31</td></tr> <tr><td>HDI 1.6</td><td>HDP 1.1</td><td>아니요</td><td>2013/10/28</td><td>아니요</td><td>2014/04/26</td><td>2015/05/31</td></tr> </table><br>
+HDInsight 버전|HDP 버전|고가용성|릴리스 날짜|Azure 포털에서 사용 가능 여부|지원 만료 날짜|사용 중단 날짜
+---|---|---|---|---|---|---
+HDI 3.2|HDP 2.2|예|2/18/2015|예||
+HDI 3.1|HDP 2.1|예|6/24/2014|예||
+HDI 3.0|HDP 2.0|예|2014/02/11|예|2014/09/17|2015/06/30
+HDI 2.1|HDP 1.3|예|2013/10/28|아니요|2014/05/12|2015/05/31
+HDI 1.6|HDP 1.1|아니요|2013/10/28|아니요|2014/04/26|2015/05/31
 
 **기본이 아닌 클러스터의 배포**
 
@@ -161,4 +166,4 @@ SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="풀 알림을 지원하는 사용자 지정 API 정의 - Azure 모바일 서비스" 
+	pageTitle="푸시 알림을 지원하는 사용자 지정 API 정의 | Microsoft Azure" 
 	description="Azure 모바일 서비스를 사용하는 Windows 스토어 앱에서 정기 알림을 지원하는 사용자 지정 API를 정의하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -13,14 +13,10 @@
 	ms.tgt_pltfrm="windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/14/2015" 
+	ms.date="08/08/2015" 
 	ms.author="glenga"/>
 
 # 정기 알림을 지원하는 사용자 지정 API 정의
-
-<div class="dev-center-tutorial-selector"> 
-	<a href="/documentation/articles/mobile-services-windows-store-dotnet-create-pull-notifications/" title="Windows 스토어 C#" class="current">Windows 스토어 C#</a><a href="/documentation/articles/mobile-services-windows-store-javascript-create-pull-notifications/" title="Windows 스토어 JavaScript">Windows 스토어 JavaScript</a>
-</div>
 
 이 항목에서는 Windows 스토어 앱에서 사용자 지정 API를 사용하여 정기 알림을 지원하는 방법을 보여 줍니다. 정기 알림을 사용하면 Windows에서 주기적으로 사용자 지정 API 끝점에 액세스하고 타일 특정 형식으로 반환된 XML을 사용하여 시작 메뉴의 앱 타일을 업데이트합니다. 자세한 내용은 [정기 알림]을 참조하세요.
 
@@ -167,4 +163,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

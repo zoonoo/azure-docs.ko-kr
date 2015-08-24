@@ -28,7 +28,6 @@
 - 삭제 시 ANSI 조인
 - 병합 문
 - 데이터베이스 간 조인
-- [pivot 및 unpivot 문][]
 - [커서][]
 - [SELECT..INTO][]
 - INSERT..EXEC
@@ -86,7 +85,7 @@ AND     request_id IN
 <!--Image references-->
 
 <!--Article references-->
-[pivot 및 unpivot 문]: sql-data-warehouse-develop-pivot-unpivot.md
+[pivot and unpivot statements]: sql-data-warehouse-develop-pivot-unpivot.md
 [커서]: sql-data-warehouse-develop-loops.md
 [SELECT..INTO]: sql-data-warehouse-develop-ctas.md
 [롤업 / 큐브 / 그룹화 집합 옵션을 사용하는 GROUP BY 절]: sql-data-warehouse-develop-group-by-options.md
@@ -100,4 +99,4 @@ AND     request_id IN
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

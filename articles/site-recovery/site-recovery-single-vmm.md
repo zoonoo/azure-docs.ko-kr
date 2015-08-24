@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="backup-recovery"
-	ms.date="05/04/2015"
+	ms.date="08/05/2015"
 	ms.author="raynew"/>
 
 #  단일 VMM 서버로 보호 설정
@@ -100,4 +100,4 @@ VMM을 항상 사용할 수 있도록 하려면 이를 indows 장애 조치 클�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

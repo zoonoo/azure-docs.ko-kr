@@ -1,30 +1,30 @@
-<properties 
-	pageTitle="VM의 계산 집약적인 Java 응용 프로그램 - Azure" 
-	description="다른 Java 응용 프로그램에 의해 모니터링될 수 있는 계산 집약적인 Java 응용 프로그램을 실행하는 가상 컴퓨터를 만드는 방법에 대해 알아봅니다." 
-	services="virtual-machines" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+<properties
+	pageTitle="VM의 계산 집약적인 Java 응용 프로그램 | Microsoft Azure"
+	description="다른 Java 응용 프로그램에 의해 모니터링될 수 있는 계산 집약적인 Java 응용 프로그램을 실행하는 가상 컴퓨터를 만드는 방법에 대해 알아봅니다."
+	services="virtual-machines"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="06/03/2015"
 	ms.author="robmcm"/>
 
 # 가상 컴퓨터에서 Java로 계산 집약적인 작업을 실행하는 방법
 
-Azure에서 가상 컴퓨터를 사용하여 계산 집약적인 작업을 처리할 수 있습니다. 예를 들어 가상 컴퓨터는 작업을 처리하고 그 결과를 클라이언트 컴퓨터 또는 모바일 응용 프로그램에 제공할 수 있습니다. 이 가이드를 완료하면 다른 Java 응용 프로그램에 의해 모니터링될 수 있는 계산 집약적인 Java 응용 프로그램을 실행하는 가상 컴퓨터를 만드는 방법을 이해할 수 있게 됩니다.
+Azure에서 가상 컴퓨터를 사용하여 계산 집약적인 작업을 처리할 수 있습니다. 예를 들어 가상 컴퓨터는 작업을 처리하고 그 결과를 클라이언트 컴퓨터 또는 모바일 응용 프로그램에 제공할 수 있습니다. 이 문서를 읽고 나면 다른 Java 응용 프로그램에 의해 모니터링될 수 있는 계산 집약적인 Java 응용 프로그램을 실행하는 가상 컴퓨터를 만드는 방법을 이해할 수 있게 됩니다.
 
-이 자습서에서는 Java 콘솔 응용 프로그램을 만드는 방법, 라이브러리를 Java 응용 프로그램으로 가져오는 방법 및 Java 아카이브(JAR)를 생성하는 방법을 알고 있는 것으로 가정합니다. Azure에 대한 지식은 없는 것으로 가정합니다.
+이 자습서에서는 사용자가 Java 콘솔 응용 프로그램을 만드는 방법을 알고 있으며 라이브러리를 Java 응용 프로그램으로 가져오고 Java 아카이브(JAR)를 생성할 수 있다고 가정합니다. Microsoft Azure에 대한 지식은 없는 것으로 가정합니다.
 
 다음 내용을 배웁니다.
 
-* JDK가 이미 설치된 가상 컴퓨터를 만드는 방법
+* Java 개발 키트(JDK)가 이미 설치된 가상 컴퓨터를 만드는 방법
 * 가상 컴퓨터에 원격으로 로그인하는 방법
 * 서비스 버스 네임스페이스를 만드는 방법
 * 계산 집약적인 작업을 수행하는 Java 응용 프로그램을 만드는 방법
@@ -48,13 +48,13 @@ Azure에서 가상 컴퓨터를 사용하여 계산 집약적인 작업을 처�
 2. **새로 만들기**를 클릭하고, **계산**, **가상 컴퓨터**, **갤러리에서**를 차례로 클릭합니다.
 3. **가상 컴퓨터 이미지 선택** 대화 상자에서 **JDK 7 Windows Server 2012**를 선택합니다. **JDK 6 Windows Server 2012**는 아직 JDK 7에서 실행할 준비가 되지 않은 레거시 응용 프로그램이 있는 경우에 사용 가능합니다.
 4. **다음**을 클릭합니다.
-4. **가상 컴퓨터 구성** 대화 상자에서 다음을 실행합니다.
+4. **가상 컴퓨터 구성** 대화 상자에서 다음을 수행합니다.
     1. 가상 컴퓨터의 이름을 지정합니다.
     2. 가상 컴퓨터에 사용할 크기를 지정합니다.
     3. **사용자 이름** 필드에 관리자의 이름을 입력합니다. 입력하는 이름 및 암호는 나중에 가상 컴퓨터에 원격으로 로그인할 때 사용합니다.
     4. **새 암호** 필드에 암호를 입력하고 **확인** 필드에 다시 입력합니다. 이 암호는 관리자 계정 암호입니다.
     5. **다음**을 클릭합니다.
-5. 다음 **가상 컴퓨터 구성** 대화 상자에서 다음을 수행합니다.
+5. 다음 **가상 컴퓨터 구성** 대화 상자에서 다음 작업을 수행합니다.
     1. **클라우드 서비스**의 경우 기본값인 **새 클라우드 서비스 만들기**를 사용합니다.
     2. **클라우드 서비스 DNS 이름** 값은 cloudapp.net에서 고유해야 합니다. 필요한 경우 Azure에서 고유한 이름이 되도록 수정합니다.
     2. 지역, 선호도 그룹 또는 가상 네트워크를 지정합니다. 이 자습서에서는 지역(예: **미국 서부**)을 지정합니다.
@@ -73,7 +73,7 @@ Azure에서 가상 컴퓨터를 사용하여 계산 집약적인 작업을 처�
 4. **연결**을 클릭합니다.
 5. 가상 컴퓨터에 연결해야 한다는 메시지에 응답합니다. 관리자 이름 및 암호를 묻는 메시지가 표시되면 가상 컴퓨터를 만들 때 제공한 값을 사용하십시오.
 
-Azure 서비스 버스 기능을 사용하려면 Baltimore CyberTrust 루트 인증서가 JRE의 **cacerts** 저장소의 일부로 설치되어야 합니다. 이 인증서는 본 자습서에서 사용하는 JRE에 자동으로 포함되어 있습니다. 이 인증서가 JRE **cacerts** 저장소에 없는 경우, [Java CA 인증서 저장소에 인증서 추가][add_ca_cert]에서 인증서 추가에 대한 내용 및 cacerts 저장소의 인증서 보기에 대한 정보를 참조하십시오.
+Azure 서비스 버스 기능을 사용하려면 Baltimore CyberTrust 루트 인증서가 JRE의 **cacerts** 저장소의 일부로 설치되어야 합니다. 이 인증서는 본 자습서에서 사용하는 JRE(Java Runtime Environment)에 자동으로 포함되어 있습니다. 이 인증서가 JRE **cacerts** 저장소에 없는 경우, [Java CA 인증서 저장소에 인증서 추가][add_ca_cert]에서 인증서 추가에 대한 내용 및 cacerts 저장소의 인증서 보기에 대한 정보를 참조하십시오.
 
 ## 서비스 버스 네임스페이스를 만드는 방법
 
@@ -83,10 +83,10 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
 1.  [Azure 관리 포털](https://manage.windowsazure.com)에 로그온합니다.
 2.  관리 포털의 왼쪽 아래 탐색 창에서 **서비스 버스, 액세스 제어 및 캐시**를 클릭합니다.
-3.  관리 포털의 왼쪽 위에 있는 창에서 **Service Bus** 노드를 클릭한 후, **새로 만들기** 단추를 클릭합니다. ![서비스 버스 노드 스크린샷][svc_bus_node]
+3.  관리 포털의 왼쪽 위에 있는 창에서 **서비스 버스** 노드를 클릭한 후, **새로 만들기** 단추를 클릭합니다. ![서비스 버스 노드 스크린샷][svc_bus_node]
 4.  **새 서비스 네임스페이스 만들기** 대화 상자에서 **네임스페이스**를 입력한 후, 네임스페이스가 중복되지 않는지 확인하기 위해 **중복 확인** 단추를 클릭합니다. ![새 네임스페이스 만들기 스크린샷][create_namespace]
 5.  네임스페이스 이름이 사용 가능한지 확인한 후 해당 네임스페이스를 호스트할 국가 또는 지역을 선택한 다음, **Create Namespace** 단추를 클릭합니다.  
-      
+
     만든 네임스페이스가 관리 포털에 표시되며, 활성화되는 데 약간의 시간이 걸립니다. 다음 단계를 계속하기 전에 **활성** 상태가 될 때까지 기다리십시오.
 
 ## 네임스페이스에 대한 기본 관리 자격 증명 얻기
@@ -97,18 +97,18 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 2.  표시된 목록에서 방금 만든 네임스페이스를 선택합니다. ![네임스페이스 목록 스크린샷][namespace_list]
 3.  오른쪽 **속성** 창에 새 네임스페이스의 속성이 나열됩니다. ![속성 창 스크린샷][properties_pane]
 4.  **기본 키**가 숨겨져 있습니다. **보기** 단추를 클릭하여 보안 자격 증명을 표시합니다. ![기본 키 스크린샷][default_key]
-5.  **기본 발급자** 및 **기본 키**를 기록해 둡니다. 이 정보는 아래에서 네임스페이스 관련 작업을 수행하는 데 사용됩니다. 
+5.  **기본 발급자** 및 **기본 키**를 기록해 둡니다. 이 정보는 아래에서 네임스페이스 관련 작업을 수행하는 데 사용됩니다.
 
 ## 계산 집약적인 작업을 수행하는 Java 응용 프로그램을 만드는 방법
 
 1. 개발 컴퓨터(직접 생성한 가상 컴퓨터일 필요는 없음)에서 [Java용 Azure SDK](http://azure.microsoft.com/develop/java/)를 다운로드합니다.
-2. 이 섹션의 끝부분에 있는 예제 코드를 사용하여 Java 콘솔 응용 프로그램을 만듭니다. 이 자습서의 목적에 맞춰 Java 파일 이름으로 **TSPSolver.java**를 사용합니다. **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** 및 **your\_service\_bus\_key** 자리 표시자를 각각 서비스 버스의 **네임스페이스**, **기본 발급자** 및 **기본 키** 값을 사용하도록 수정합니다.
-3. 코딩 후에 응용 프로그램을 실행 가능한 Java 아카이브(JAR)로 내보내고 필요한 라이브러리를 생성된 JAR 안에 패키징합니다. 이 자습서의 목적에 맞춰 생성된 JAR의 이름으로 **TSPSolver.jar**를 사용합니다.
+2. 이 섹션의 끝부분에 있는 예제 코드를 사용하여 Java 콘솔 응용 프로그램을 만듭니다. 이 자습서에서는 Java 파일 이름으로 **TSPSolver.java**를 사용합니다. **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** 및 **your\_service\_bus\_key** 자리 표시자를 각각 서비스 버스의 **네임스페이스**, **기본 발급자** 및 **기본 키** 값을 사용하도록 수정합니다.
+3. 코딩 후에 응용 프로그램을 실행 가능한 Java 아카이브(JAR)로 내보내고 필요한 라이브러리를 생성된 JAR 안에 패키징합니다. 이 자습서에서는 생성된 JAR의 이름으로 **TSPSolver.jar**를 사용합니다.
 
 <p/>
 
 	// TSPSolver.java
-	
+
 	import com.microsoft.windowsazure.services.core.Configuration;
 	import com.microsoft.windowsazure.services.core.ServiceException;
 	import com.microsoft.windowsazure.services.serviceBus.*;
@@ -119,20 +119,20 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 	import java.util.ArrayList;
 	import java.util.Date;
 	import java.util.List;
-	
+
 	public class TSPSolver {
-	
+
 	    //  Value specifying how often to provide an update to the console.
 	    private static long loopCheck = 100000000;  
-	
+
 	    private static long nTimes = 0, nLoops=0;
-	
+
 	    private static double[][] distances;
 	    private static String[] cityNames;
 	    private static int[] bestOrder;
 	    private static double minDistance;
 	    private static ServiceBusContract service;
-	
+
 	    private static void buildDistances(String fileLocation, int numCities) throws Exception{
 	        try{
 	            BufferedReader file = new BufferedReader(new InputStreamReader(new DataInputStream(new FileInputStream(new File(fileLocation)))));
@@ -141,7 +141,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 	                String[] line = file.readLine().split(", ");
 	                cityNames[i] = line[0];
 	                cityLocs[i][0] = Double.parseDouble(line[1]);
-	                cityLocs[i][1] = Double.parseDouble(line[2]);               
+	                cityLocs[i][1] = Double.parseDouble(line[2]);
 	            }
 	            for (int i = 0; i<numCities; i++){
 	                for (int j = i; j<numCities; j++){
@@ -153,9 +153,9 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 	            throw e;
 	        }
 	    }
-	
+
 	    private static void permutation(List<Integer> startCities, double distSoFar, List<Integer> restCities) throws Exception {
-	
+
 	        try
 	        {
 	            nTimes++;
@@ -168,7 +168,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 	                System.out.print("Current time is " + dateFormat.format(date) + ". ");
 	                System.out.println(  "Completed " + nLoops + " iterations of size of " + loopCheck + ".");
 	            }
-	    
+
 	            if ((restCities.size() == 1) && ((minDistance == -1) || (distSoFar + distances[restCities.get(0)][startCities.get(0)] + distances[restCities.get(0)][startCities.get(startCities.size()-1)] < minDistance))){
 	                startCities.add(restCities.get(0));
 	                newBestDistance(startCities, distSoFar + distances[restCities.get(0)][startCities.get(0)] + distances[restCities.get(0)][startCities.get(startCities.size()-2)]);
@@ -189,9 +189,9 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 	            throw e;
 	        }
 	    }
-	
+
 	    private static void newBestDistance(List<Integer> cities, double distance) throws ServiceException, Exception {
-	        try 
+	        try
 	        {
 		        minDistance = distance;
 		        String cityList = "Shortest distance is "+minDistance+", with route: ";
@@ -203,61 +203,61 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 		        }
 		        System.out.println(cityList);
 	            service.sendQueueMessage("TSPQueue", new BrokeredMessage(cityList));
-	        } 
-	        catch (ServiceException se) 
+	        }
+	        catch (ServiceException se)
 	        {
 	            throw se;
 	        }
-	        catch (Exception e) 
+	        catch (Exception e)
 	        {
 	            throw e;
 	        }
 	    }
-	
+
 	    public static void main(String args[]){
-	
+
 	        try {
-	
+
 	            Configuration config = ServiceBusConfiguration.configureWithWrapAuthentication(
 	                    "your_service_bus_namespace", "your_service_bus_owner",
                         "your_service_bus_key",
                         ".servicebus.windows.net",
                         "-sb.accesscontrol.windows.net/WRAPv0.9");
-	
+
 	            service = ServiceBusService.create(config);
-	
-	            int numCities = 10;  // Use as the default, if no value is specified at command line. 
-	            if (args.length != 0) 
+
+	            int numCities = 10;  // Use as the default, if no value is specified at command line.
+	            if (args.length != 0)
 	            {
 	                if (args[0].toLowerCase().compareTo("createqueue")==0)
 	                {
 	                    // No processing to occur other than creating the queue.
 	                    QueueInfo queueInfo = new QueueInfo("TSPQueue");
-	
+
 	                    service.createQueue(queueInfo);
-	
+
 	                    System.out.println("Queue named TSPQueue was created.");
-	
+
 	                    System.exit(0);
 	                }
-	
+
 	                if (args[0].toLowerCase().compareTo("deletequeue")==0)
 	                {
 	                    // No processing to occur other than deleting the queue.
 	                    service.deleteQueue("TSPQueue");
-	
+
 	                    System.out.println("Queue named TSPQueue was deleted.");
-	
+
 	                    System.exit(0);
 	                }
-	
+
 	                // Neither creating or deleting a queue.
 	                // Assume the value passed in is the number of cities to solve.
 	                numCities = Integer.valueOf(args[0]);  
 	            }
-	
+
 	            System.out.println("Running for " + numCities + " cities.");
-	
+
 	            List<Integer> startCities = new ArrayList<Integer>();
 	            List<Integer> restCities = new ArrayList<Integer>();
 	            startCities.add(0);
@@ -271,98 +271,98 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 	            permutation(startCities, 0, restCities);
 	            System.out.println("Final solution found!");
 	            service.sendQueueMessage("TSPQueue", new BrokeredMessage("Complete"));
-	        } 
-	        catch (ServiceException se) 
+	        }
+	        catch (ServiceException se)
 	        {
 	            System.out.println(se.getMessage());
 	            se.printStackTrace();
 	            System.exit(-1);
-	        }        
-	        catch (Exception e) 
+	        }
+	        catch (Exception e)
 	        {
 	            System.out.println(e.getMessage());
 	            e.printStackTrace();
 	            System.exit(-1);
 	        }
 	    }
-	
+
 	}
 
 
 
 ## 계산 집약적인 작업의 진행 상황을 모니터링하는 Java 응용 프로그램을 만드는 방법
 
-1. 개발 컴퓨터에서 이 섹션의 끝부분에 있는 예제 코드를 사용하여 Java 콘솔 응용 프로그램을 만듭니다. 이 자습서의 목적에 맞춰 Java 파일 이름으로 **TSPClient.java**를 사용합니다. 위와 같이 **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** 및 **your\_service\_bus\_key** 자리 표시자를 각각 서비스 버스의 **네임스페이스**, **기본 발급자** 및 **기본 키** 값을 사용하도록 수정합니다.
-2. 응용 프로그램을 실행 가능한 JAR로 내보내고 필요한 라이브러리를 생성된 JAR 안에 패키징합니다. 이 자습서의 목적에 맞춰 생성된 JAR의 이름으로 **TSPClient.jar**를 사용합니다.
+1. 개발 컴퓨터에서 이 섹션의 끝부분에 있는 예제 코드를 사용하여 Java 콘솔 응용 프로그램을 만듭니다. 이 자습서에서는 Java 파일 이름으로 **TSPClient.java**를 사용합니다. 앞에서 살펴본 것처럼 **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** 및 **your\_service\_bus\_key** 자리 표시자를 각각 서비스 버스의 **네임스페이스**, **기본 발급자** 및 **기본 키** 값을 사용하도록 수정합니다.
+2. 응용 프로그램을 실행 가능한 JAR로 내보내고 필요한 라이브러리를 생성된 JAR 안에 패키징합니다. 이 자습서에서는 생성된 JAR의 이름으로 **TSPClient.jar**를 사용합니다.
 
 <p/>
 
 	// TSPClient.java
-	
+
 	import java.util.Date;
 	import java.text.DateFormat;
 	import java.text.SimpleDateFormat;
 	import com.microsoft.windowsazure.services.serviceBus.*;
 	import com.microsoft.windowsazure.services.serviceBus.models.*;
 	import com.microsoft.windowsazure.services.core.*;
-	
-	public class TSPClient 
+
+	public class TSPClient
 	{
-	
-	    public static void main(String[] args) 
+
+	    public static void main(String[] args)
 	    {
 	            try
 	            {
-	
+
 	                DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
 	                Date date = new Date();
 	                System.out.println("Starting at " + dateFormat.format(date) + ".");
-	
+
 	                String namespace = "your_service_bus_namespace";
 	                String issuer = "your_service_bus_owner";
 	                String key = "your_service_bus_key";
-	
+
 	                Configuration config;
 	                config = ServiceBusConfiguration.configureWithWrapAuthentication(
 	                        namespace, issuer, key,
                             ".servicebus.windows.net",
                             "-sb.accesscontrol.windows.net/WRAPv0.9");
-	
+
 	                ServiceBusContract service = ServiceBusService.create(config);
-	
+
 	                BrokeredMessage message;
-	
-	                int waitMinutes = 3;  // Use as the default, if no value is specified at command line. 
-	                if (args.length != 0) 
+
+	                int waitMinutes = 3;  // Use as the default, if no value is specified at command line.
+	                if (args.length != 0)
 	                {
 	                    waitMinutes = Integer.valueOf(args[0]);  
 	                }
-	
+
 	                String waitString;
-	
-	                waitString = (waitMinutes == 1) ? "minute." : waitMinutes + " minutes."; 
-	
+
+	                waitString = (waitMinutes == 1) ? "minute." : waitMinutes + " minutes.";
+
 	                // This queue must have previously been created.
 	                service.getQueue("TSPQueue");
-	
+
 	                int numRead;
-	
+
 	                String s = null;
-	
+
 	                while (true)
 	                {
-	
+
 	                    ReceiveQueueMessageResult resultQM = service.receiveQueueMessage("TSPQueue");
 	                    message = resultQM.getValue();
-	
+
 	                    if (null != message && null != message.getMessageId())
-	                    {                        
-	
+	                    {
+
 	                        // Display the queue message.
 	                        byte[] b = new byte[200];
-	
+
 	                        System.out.print("From queue: ");
-	
+
 	                        s = null;
 	                        numRead = message.getBody().read(b);
 	                        while (-1 != numRead)
@@ -387,8 +387,8 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 	                        System.out.println("Queue is empty. Sleeping for another " + waitString);
 	                        Thread.sleep(60000 * waitMinutes);
 	                    }
-	                } 
-	
+	                }
+
 	        }
 	        catch (ServiceException se)
 	        {
@@ -402,20 +402,20 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 	            e.printStackTrace();
 	            System.exit(-1);
 	        }
-	
+
 	    }
-	    
+
 	}
- 
+
 ## Java 응용 프로그램을 실행하는 방법
 계산 집약적인 응용 프로그램을 실행하여 먼저 큐를 만든 후에 순회 외판원 문제를 해결합니다. 그러면 현 시점에서의 최상의 경로가 서비스 버스 큐에 추가됩니다. 계산 집약적인 응용 프로그램이 실행 중인 동안 또는 실행된 이후에 클라이언트를 실행하여 서비스 버스 큐에서 가져온 결과를 표시합니다.
 
-### 계산 집약적인 응용 프로그램을 실행하는 방법
+### 계산 집약적인 응용 프로그램을 실행하려면
 
 1. 가상 컴퓨터에 로그온합니다.
 2. 응용 프로그램을 실행할 폴더(예: **c:\\TSP**)를 만듭니다.
 3. **TSPSolver.jar**를 **c:\\TSP**에 복사합니다.
-4. 다음과 같은 정보를 포함하는 **c:\\TSP\\cities.txt**라는 파일을 만듭니다.
+4. 다음과 같은 콘텐츠가 포함된 **c:\\TSP\\cities.txt** 파일을 만듭니다.
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6
@@ -467,7 +467,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 		City_48, 363.68, 768.21
 		City_49, -120.3, -463.13
 		City_50, 588.51, 679.33
-	
+
 5. 명령 프롬프트에서 디렉터리를 c:\\TSP로 변경합니다.
 6. JRE의 bin 폴더가 PATH 환경 변수에 포함되어 있는지 확인합니다.
 7. TSP 해 찾기 순열을 실행하기 전에 서비스 버스 큐를 먼저 만들어야 합니다. 다음 명령을 실행하여 서비스 버스 큐를 만듭니다.
@@ -481,7 +481,7 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
  숫자를 지정하지 않으면 10개 도시에 대해 실행됩니다. 해 찾기에서 현재의 최단 경로를 찾으면 해당 경로가 큐에 추가됩니다.
 
 > [AZURE.NOTE]지정한 숫자가 클수록 해 찾기 실행 시간이 길어집니다. 예를 들어 14개 도시에 대해 실행하면 몇 분이 걸릴 수 있고, 15개 도시에 대해 실행하면 몇 시간이 소요될 수 있습니다. 도시를 16개 이상으로 늘리면 며칠 동안 더 나아가 수주, 수개월, 수년에 걸쳐 실행될 수도 있습니다. 이는 도시의 수가 증가함에 따라 해 찾기에 의해 평가되는 순열의 수가 급증하기 때문입니다.
- 
+
 ### 모니터링하는 클라이언트 응용 프로그램을 실행하는 방법
 1. 클라이언트 응용 프로그램을 실행할 컴퓨터에 로그온합니다. 이 컴퓨터가 **TSPSolver** 응용 프로그램을 실행하는 컴퓨터와 같을 수도 있지만 반드시 같아야 하는 것은 아닙니다.
 2. 응용 프로그램을 실행할 폴더(예: **c:\\TSP**)를 만듭니다.
@@ -492,11 +492,11 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
         java -jar TSPClient.jar
 
-    큐를 점검하는 시점 사이의 대기 시간(분)을 명령줄 인수로 전달하여 지정할 수도 있습니다. 큐 점검을 위한 기본 대기 기간은 3분이며, **TSPClient**로 명령줄 인수가 전달되지 않으면 이 값이 사용됩니다. 대기 간격으로 다른 값(예: 1분)을 사용하고 싶으면 다음을 실행합니다.
+    큐를 점검하는 시점 사이의 대기 시간(분)을 명령줄 인수로 전달하여 지정할 수도 있습니다. 큐 점검을 위한 기본 대기 기간은 3분이며, **TSPClient**로 명령줄 인수가 전달되지 않으면 이 값이 사용됩니다. 대기 간격으로 다른 값(예: 1분)을 사용하고 싶으면 다음 명령을 실행합니다.
 
 	    java -jar TSPClient.jar 1
 
-    클라이언트는 "완료"라는 큐 메시지가 확인될 때까지 실행됩니다. 클라이언트를 실행하지 않은 상태로 해 찾기를 여러 번 실행하는 경우, 큐를 완전히 비우기 위해 클라이언트를 여러 번 실행해야 할 수도 있습니다. 또는 큐를 삭제한 후 큐를 다시 만들 수도 있습니다. 큐를 삭제하려면 다음 **TSPSolver**(**TSPClient**가 아님) 명령을 실행합니다.
+    클라이언트는 "완료"라는 큐 메시지가 확인될 때까지 실행됩니다. 클라이언트를 실행하지 않은 상태로 해 찾기를 여러 번 실행하는 경우, 큐를 완전히 비우기 위해 클라이언트를 여러 번 실행해야 할 수도 있습니다. 또는 큐를 삭제한 후 큐를 다시 만들 수도 있습니다. 큐를 삭제하려면 다음 **TSPSolver**(**TSPClient** 아님) 명령을 실행합니다.
 
         java -jar TSPSolver.jar deletequeue
 
@@ -516,7 +516,4 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

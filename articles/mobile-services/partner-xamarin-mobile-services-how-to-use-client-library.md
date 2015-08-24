@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Xamarin Component 클라이언트를 사용하는 방법 - Azure 모바일 서비스 기능 가이드" 
+	pageTitle="Xamarin Component 클라이언트를 사용하는 방법 | Microsoft Azure" 
 	description="Azure 모바일 서비스에 Xamarin Component 클라이언트를 사용하는 방법에 대해 알아봅니다." 
 	authors="lindydonna" 
 	manager="dwrede" 
@@ -474,4 +474,4 @@ Xamarin Component 클라이언트는 강력한 형식의 시나리오에 맞게 
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/06/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
@@ -42,5 +42,6 @@ Azure RemoteApp과 사용하기 위해 업로드할 수 있는 이미지의 요�
 - 이미지에 **/oobe /generalize /shutdown** 매개 변수를 사용하여 sysprep을 실행해야 합니다. **/mode:vm** 매개 변수는 사용하지 마세요.
 - 스냅숏 체인으로부터의 VHD 업로드는 지원되지 않습니다.
  
+Azure RemoteApp에 대한 이미지 만들기에 대한 자세한 내용은 [Azure RemoteApp 이미지 만들기](remoteapp-imageoptions.md)를 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

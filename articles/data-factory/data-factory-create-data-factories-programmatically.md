@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="08/06/2015" 
 	ms.author="spelluru"/>
 
 # 데이터 팩터리 .NET SDK를 사용하여 Azure Data Factory 만들기, 모니터링 및 관리
@@ -42,7 +42,7 @@
 2. <b>도구</b>를 클릭하고 <b>NuGet 패키지 관리자</b>를 가리킨 다음 <b>패키지 관리자 콘솔</b>을 클릭합니다.
 3.	<b>패키지 관리자 콘솔</b>에서 다음 명령을 하나씩 실행합니다.</b> 
 
-		Install-Package Microsoft.Azure.Management.DataFactories –Pre
+		Install-Package Microsoft.Azure.Management.DataFactories
 		Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 6. 다음 **appSetttings** 섹션을 **App.config** 파일에 추가합니다. 이는 도우미 메서드 **GetAuthorizationHeader**에서 사용됩니다. 
 
@@ -393,4 +393,4 @@
 [azure-developer-center]: http://azure.microsoft.com/downloads/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

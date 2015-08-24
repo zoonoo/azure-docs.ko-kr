@@ -13,12 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/25/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 #방법: 작업 진행 상태 확인
 
-이 문서는 [미디어 서비스 주문형 비디오 워크플로](media-services-video-on-demand-workflow.md) 시리즈의 일부입니다.
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-check-job-progress.md)
+- [.NET](media-services-check-job-progress.md)
+- [REST](media-services-rest-check-job-progress.md)
 
 작업을 실행할 때 작업 진행 상태를 추적하는 방법이 종종 필요합니다. [StateChanged 이벤트 처리기를 정의](#statechange_event_handler)하거나 [Azure 큐 저장소를 사용해 미디어 서비스 작업 알림을 모니터링](#check_progress_with_queues)하여 진행률을 확인할 수 있습니다. 두 메서드는 이 항목에 설명 되어있습니다.
 
@@ -427,4 +430,4 @@ Azure 저장소 큐를 사용하는 미디어 서비스 응용 프로그램을 �
 	
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

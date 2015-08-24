@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure-services"
-   ms.date="08/05/2015"
+   ms.date="08/07/2015"
    ms.author="danlep"/>
 
 # Azure 가상 컴퓨터에서 Docker 및 Compose 시작
@@ -112,4 +112,4 @@ $ azure vm endpoint create <machine-name> 80 8080
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

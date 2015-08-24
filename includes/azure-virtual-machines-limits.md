@@ -1,5 +1,5 @@
 리소스|기본 제한|최대 제한
---|--|--
+---|---|---
 클라우드 서비스당 [가상 컴퓨터](../documentation/services/virtual-machines/)<sup>1</sup>|50|50
 클라우드 서비스당 입력 끝점<sup>2</sup>|150|150
 
@@ -7,4 +7,4 @@
 
 <sup>2</sup>입력 끝점을 사용하여 가상 컴퓨터의 클라우드 서비스 외부에서 가상 컴퓨터에 통신할 수 있습니다. 같은 클라우드 서비스나 가상 네트워크에 있는 가상 컴퓨터는 서로 간에 자동으로 통신할 수 있습니다. [가상 컴퓨터에 끝점을 설정하는 방법](../virtual-machines/virtual-machines-set-up-endpoints.md)을 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

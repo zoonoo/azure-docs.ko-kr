@@ -3,7 +3,7 @@
     pageTitle="RemoteApp 클라우드 컬렉션 - 만들기 문제 해결"
     description="RemoteApp 클라우드 컬렉션 만들기 오류 문제를 해결하는 방법을 알아봅니다." 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="vkbucha" 
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="vikbucha" />
 
 
@@ -38,4 +38,4 @@ Azure 관리 포털에 표시되는 일반적인 오류:
 이 오류가 발생한 경우, 일반적으로 유료 계정으로 업그레이드되었음을 의미하지만 서비스의 평가 모드 중에만 유효한 Microsoft 제공 이미지를 사용하려고 함을 의미합니다. 이 경우, 다시 클라우드 컬렉션을 만들어 보지만 올바른 이미지를 지정해야 합니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -67,7 +67,14 @@ SQL 데이터 웨어하우스는 Azure PowerShell cmdlet 또는 REST API를 사�
 
 ## Get-AzureSqlDatabaseRestorePoints
 
-이 cmdlet은 Azure SQL 데이터베이스에 대한 백업 복원 지점을 나열합니다. 복원 지점은 데이터베이스를 복원하는 데 사용됩니다. 반환된 개체에 대한 속성은 다음과 같습니다. <table> <tr> <td>속성</td> <td>설명</td> </tr> <tr> <td>RestorePointType</td> <td>불연속 / 연속 불연속 복원 지점은 Azure SQL 데이터베이스를 복원할 수 있는 가능한 지정 시간을 설명합니다. 연속 복원 지점은 Azure SQL 데이터베이스를 복원할 수 있는 가장 빠른 지정 시간을 설명합니다. 데이터베이스를 가장 빠른 지점 후 아무 지정 시간으로나 복원할 수 있습니다.</td> </tr> <tr> <td>EarliestRestoreDate</td> <td>가장 빠른 복원 시간(restorePointType = CONTINUOUS일 경우 생성)</td> </tr> <tr> <td>RestorePointCreationDate </td> <td>백업 스냅숏 시간(restorePointType = DISCRETE일 경우 생성)</td> </tr> </table>
+이 cmdlet은 Azure SQL 데이터베이스에 대한 백업 복원 지점을 나열합니다. 복원 지점은 데이터베이스를 복원하는 데 사용됩니다. 반환된 개체에 대한 속성은 다음과 같습니다.
+
+속성|설명
+---|---
+RestorePointType|DISCRETE / CONTINUOUS. 불연속 복원 지점은 Azure SQL 데이터베이스를 복원할 수 있는 가능한 지정 시간을 설명합니다. 연속 복원 지점은 Azure SQL 데이터베이스를 복원할 수 있는 가장 빠른 지정 시간을 설명합니다. 데이터베이스를 가장 빠른 지점 후 아무 지정 시간으로나 복원할 수 있습니다.
+EarliestRestoreDate|가장 빠른 복원 시간(restorePointType = CONTINUOUS인 경우 채워짐)
+RestorePointCreationDate |백업 스냅숏 시간(restorePointType = DISCRETE인 경우 채워짐)
+
 ### 예 1: 서버에서 이름으로 데이터베이스의 복원 지점 검색
 이 예에서는 "ResourceGroup1."이라는 리소스 그룹에 포함된 "Server01"이라는 서버에서 "Database02"라는 데이터베이스에 대한 복원 지점을 검색합니다.
 
@@ -99,4 +106,4 @@ SQL 데이터 웨어하우스는 Azure PowerShell cmdlet 또는 REST API를 사�
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

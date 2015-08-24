@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/05/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # StorSimple 장치의 EBOD 컨트롤러 교체
@@ -107,4 +107,4 @@ StorSimple 장치에서 오류가 발생한 EBOD 컨트롤러 모듈을 교체�
 
 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

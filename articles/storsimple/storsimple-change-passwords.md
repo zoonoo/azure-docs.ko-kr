@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="07/17/2015"
+   ms.date="08/11/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # StorSimple 관리자 서비스를 사용하여 StorSimple 암호 변경
@@ -26,7 +26,7 @@
 
 StorSimple 스냅숏 관리자 소프트웨어는 Windows 호스트에 상주하며 관리자가 로컬및 클라우드 스냅숏의 형태로 StorSimple 장치의 백업을 관리할 수 있습니다.
 
-StorSimple 스냅숏 관리자에서 장치를 구성하면, 장치 IP 주소 및 암호를 입력하여 저장소 장치를 인증하라는 메시지가 표시됩니다. 이 암호는 Windows PowerShell 인터페이스를 통해 처음 구성됩니다. 자세한 내용은 [온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough.md)에서 [3단계: StorSimple용 Windows PowerShell을 통해 장치 구성 및 등록](storsimple-deployment-walkthrough.md#to-configure-and-register-the-device)을 참조하세요.
+StorSimple 스냅숏 관리자에서 장치를 구성하면, 장치 IP 주소 및 암호를 입력하여 저장소 장치를 인증하라는 메시지가 표시됩니다. 이 암호는 Windows PowerShell 인터페이스를 통해 처음 구성됩니다. 자세한 내용은 [온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough.md)에서 [3단계: StorSimple용 Windows PowerShell을 통해 장치 구성 및 등록](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)을 참조하세요.
 
 등록하는 동안 먼저 Windows PowerShell 인터페이스를 통해 설정된 암호는 관리 포털을 통해 변경할 수 있습니다. 다음 단계에서 StorSimple 스냅숏 관리자 암호를 변경합니다.
 
@@ -44,7 +44,7 @@ StorSimple 스냅숏 관리자에서 장치를 구성하면, 장치 IP 주소 �
  
 ## 장치 관리자 암호 변경
 
-Windows PowerShell 인터페이스를 사용하여 StorSimple 장치에 액세스할 때 장치 관리자 암호를 입력해야 합니다. StorSimple 장치를 서비스에 처음으로 등록할 때 이 인터페이스의 기본 암호는 *Password1*입니다. 데이터 보안을 위해 등록 과정 마지막에 이 암호를 변경해야 합니다. 이 암호를 변경하지 않고 등록 과정을 종료할 수 없습니다. 자세한 내용은 [온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough.md)에서 [3단계: StorSimple용 Windows PowerShell을 통해 장치 구성 및 등록](storsimple-deployment-walkthrough.md#to-configure-and-register-the-device)을 참조하세요.
+Windows PowerShell 인터페이스를 사용하여 StorSimple 장치에 액세스할 때 장치 관리자 암호를 입력해야 합니다. StorSimple 장치를 서비스에 처음으로 등록할 때 이 인터페이스의 기본 암호는 *Password1*입니다. 데이터 보안을 위해 등록 과정 마지막에 이 암호를 변경해야 합니다. 이 암호를 변경하지 않고 등록 과정을 종료할 수 없습니다. 자세한 내용은 [온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough.md)에서 [3단계: StorSimple용 Windows PowerShell을 통해 장치 구성 및 등록](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)을 참조하세요.
 
 등록하는 동안 먼저 Windows PowerShell 인터페이스를 통해 설정된 암호는 관리 포털을 통해 변경할 수 있습니다. 장치 관리자 암호를 변경하려면 다음 단계를 수행합니다.
 
@@ -66,4 +66,4 @@ Windows PowerShell 인터페이스를 사용하여 StorSimple 장치에 액세�
 
 [장치 구성을 수정하는 방법에 대한 자세히 알아봅니다](storsimple-modify-device-config.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

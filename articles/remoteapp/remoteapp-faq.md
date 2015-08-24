@@ -12,8 +12,8 @@
 	ms.workload="compute" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.topic="get-started-article" 
+	ms.date="08/06/2015" 
 	ms.author="elizapo"/>
 
 # Azure RemoteApp FAQ
@@ -22,13 +22,13 @@ Azure RemoteApp과 관련된 질문은 다음과 같습니다. 다른 질문이 
 ## Azure RemoteApp이란? ##
 
 
-- **Azure RemoteApp이란?** RemoteApp은 Azure에서 원격 데스크톱 서비스로 지원되는 온-프레미스 Microsoft RemoteApp의 기능을 제공하는 Azure 서비스입니다. RemoteApp은 다양한 여러 사용자 장치에서 안전하게 원격으로 응용 프로그램에 액세스하는 데 도움이 됩니다. [Azure RemoteApp](remoteapp-whatis.md)에 대한 더 알아봅니다.
+- **Azure RemoteApp이란?** RemoteApp은 다양한 사용자 장치에서 응용 프로그램에 안전하게 원격으로 액세스할 수 있는 Azure 서비스입니다. [Azure RemoteApp](remoteapp-whatis.md)에 대한 더 알아봅니다.
 - **두 종류의 배포 옵션은 무엇인가요?** RemoteApp 배포(또는 컬렉션)의 두 가지 종류는 클라우드 및 하이브리드입니다. 사용자의 조직에 가장 적합하게 작동하는 [배포 옵션](remoteapp-whatis.md)을 알아봅니다.
 
 ## 지원되는 구성 ##
 
-- **서비스의 제한 사항은 무엇입니까?** [서비스 제한 사항과 기본값](remoteapp-servicelimits.md)의 모든 것을 다루는 새 항목을 추가했습니다. 추가 질문이 있으면 알려주십시오.
-- **얼마나 많은 사용자가 필요합니까?** 최소 20명의 사용자입니다. 분명히 알아두어야 합니다. 최소 20명입니다. 20명에 대한 비용이 청구됩니다. 다른 [사용자 제한 사항 및 기본값](remoteapp-servicelimits.md)에 대해 알아보십시오.
+- **서비스의 제한 사항은 무엇입니까?** [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](.\azure-subscription-service-limits.md)에서 Azure RemoteApp 서비스 제한 사항 및 기본값에 대해 자세히 알아볼 수 있습니다. 추가 질문이 있으면 알려주십시오.
+- **얼마나 많은 사용자가 필요합니까?** 최소 20명의 사용자입니다. 분명히 알아두어야 합니다. 최소 20명입니다. 20명에 대한 비용이 청구됩니다. 
 - **사용자 지정 LOB(기간 업무) 응용 프로그램이 지원되나요?** 예. Azure RemoteApp에서 사용자 지정 응용 프로그램을 사용하려면 [사용자 지정 템플릿 이미지](remoteapp-create-custom-image.md)를 만든 후 RemoteApp 컬렉션에 업로드하세요.
 - **Azure RemoteApp에서 사용자 지정 LOB 응용 프로그램이 동작하나요?** 이를 알아보는 가장 좋은 방법은 테스트하는 것입니다. [응용 프로그램 호환성 요구 사항](http://www.microsoft.com/download/details.aspx?id=18704)을 검토하고 [RD 호환성 센터](http://www.rdcompatibility.com/compatibility/default.aspx)를 확인하세요.
 - **어느 배포 메서드(클라우드 또는 하이브리드)가 내 조직에 가장 적합한가요?** 하이브리드 컬렉션은 SSO(Single Sign-On) 및 안전한 온-프레미스 네트워크 연결을 완벽하게 통합하려는 경우에 가장 완벽한 경험을 제공합니다. 클라우드 컬렉션은 여러 인증 방법을 사용하여 배포를 분리하는 민첩하고 쉬운 방법을 제공합니다. [배포 옵션](remoteapp-whatis.md)에 대해 자세히 알아봅니다.
@@ -82,4 +82,4 @@ Azure RemoteApp과 관련된 질문은 다음과 같습니다. 다른 질문이 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

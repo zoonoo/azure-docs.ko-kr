@@ -199,4 +199,4 @@ Windows PowerShell 인터페이스에서 도움말을 쉽게 업데이트할 수
 ## 다음 단계
 위의 워크플로 중 하나를 수행할 때 StorSimple 장치에서 문제가 발생하는 경우 [cmdlet 문제 해결](storsimple-troubleshoot-deployment.md#cmdlets-available-for-troubleshooting)을 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

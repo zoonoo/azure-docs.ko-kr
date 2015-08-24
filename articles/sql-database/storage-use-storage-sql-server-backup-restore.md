@@ -1,5 +1,5 @@
 <properties
-	pageTitle="SQL Server 백업 및 복원에 Azure 저장소를 사용하는 방법 | Azure"
+	pageTitle="SQL Server 백업 및 복원에 Azure 저장소를 사용하는 방법 | Microsoft Azure"
 	description="SQL Server 및 SQL 데이터베이스를 Azure 저장소에 백업합니다. SQL 데이터베이스를 Azure 저장소에 백업할 경우의 이점과 필요한 SQL Server 및 Azure 저장소 구성 요소를 설명합니다."
 	services="sql-database, virtual-machines"
 	documentationCenter=""
@@ -22,7 +22,7 @@
 
 ## 개요
 
-SQL Server 백업을 Azure Blob 저장소 서비스에 쓸 수 있는 기능은 SQL Server 2012 SP1 CU2에서 배포되었습니다. 이 기능을 사용하여 온-프레미스 SQL Server 데이터베이스 또는 Azure 가상 컴퓨터의 SQL Server 데이터베이스에서 Azure Blob 서비스로 백업하고 Azure Blob 서비스에서 복원할 수 있습니다. 클라우드로 백업하면 가용성, 무제한으로 지역에서 복제되는 오프사이트 저장소, 클라우드로/에서 쉬운 데이터 마이그레이션 등의 이점이 있습니다. 이 릴리스에서는 T-SQL 또는 SMO를 사용하여 BACKUP 또는 RESTORE 문을 사용할 수 있습니다.
+SQL Server 백업을 Azure Blob 저장소 서비스에 쓸 수 있는 기능은 SQL Server 2012 SP1 CU2에서 배포되었습니다. 이 기능을 사용하여 온-프레미스 SQL Server 데이터베이스 또는 Azure 가상 컴퓨터의 SQL Server 데이터베이스에서 Azure Blob 서비스로 백업하고 Azure Blob 서비스에서 복원할 수 있습니다. 클라우드로 백업하면 가용성, 무제한으로 지역에서 복제되는 오프사이트 저장소, 클라우드로/에서 쉬운 데이터 마이그레이션 등의 이점이 있습니다. 이 릴리스에서는 Transact-SQL 또는 SMO를 사용하여 BACKUP 또는 RESTORE 문을 실행할 수 있습니다.
 
 ## SQL Server 백업에 Azure Blob 서비스를 사용할 경우의 이점
 
@@ -35,7 +35,7 @@ SQL Server 백업을 Azure Blob 저장소 서비스에 쓸 수 있는 기능은 
 * 또한 Azure Blob 저장소 서비스에 저장된 백업 파일은 데이터베이스 연결/분리나 VHD 다운로드 및 연결 과정 없이도 온-프레미스 SQL Server 또는 Azure 가상 컴퓨터에서 실행되는 다른 SQL Server에서 직접 사용할 수 있습니다.
 * 비용 이점: 사용하는 서비스에 대해서만 결제합니다. 오프사이트 및 백업 보관 옵션으로 비용 효율성을 추구할 수 있습니다. 자세한 내용은[ Azure 가격 계산기](http://go.microsoft.com/fwlink/?LinkId=277060 "Azure 가격 계산기") 및 [Azure 가격 책정 문서](http://go.microsoft.com/fwlink/?LinkId=277059 "가격 책정 문서")를 참조하세요.
 
-자세한 내용은 [Azure Blob 저장소 서비스로 SQL Server 백업 및 복원](http://go.microsoft.com/fwlink/?LinkId=271617)을 참조하십시오.
+자세한 내용은 [Azure Blob 저장소 서비스로 SQL Server 백업 및 복원](http://go.microsoft.com/fwlink/?LinkId=271617)을 참조하세요.
 
 다음 두 섹션에서는 Azure Blob 저장소 서비스와 Azure Blob 저장소 서비스로 백업하거나 저장소 서비스에서 복원할 때 사용하는 SQL Server 구성 요소에 대해 소개합니다. Azure Blob 저장소 서비스로 백업하거나 서비스에서 복원하기 위해서는 구성 요소와 구성 요소 간 조작에 대해 이해하는 것이 중요합니다.
 
@@ -45,7 +45,7 @@ SQL Server 백업을 Azure Blob 저장소 서비스에 쓸 수 있는 기능은 
 
 ## Azure Blob 저장소 서비스 구성 요소
 
-* 저장소 계정: 저장소 계정은 모든 저장소 서비스를 사용하기 위한 출발점입니다. Azure Blob 저장소 서비스에 액세스하려면 먼저 Azure 저장소 계정을 만드세요. 저장소 계정 이름 및 해당 액세스 키 속성은 Azure Blob 저장소 서비스 및 해당 구성 요소에 인증하는 데 필요합니다. Azure Blob 저장소 서비스에 대한 자세한 내용은 [Azure Blob 저장소 서비스를 사용하는 방법](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/)(영문)을 참조하십시오.
+* 저장소 계정: 저장소 계정은 모든 저장소 서비스를 사용하기 위한 출발점입니다. Azure Blob 저장소 서비스에 액세스하려면 먼저 Azure 저장소 계정을 만드세요. 저장소 계정 이름 및 해당 액세스 키 속성은 Azure Blob 저장소 서비스 및 해당 구성 요소에 인증하는 데 필요합니다. Azure Blob 저장소 서비스에 대한 자세한 내용은 [Azure Blob 저장소 서비스를 사용하는 방법](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/)(영문)을 참조하세요.
 
 * 컨테이너: 컨테이너는 Blob 집합의 그룹화를 제공하며 Blob을 개수에 제한 없이 저장할 수 있습니다. SQL Server 백업을 Azure Blob 서비스에 쓰려면 최소한 루트 컨테이너를 만들어야 합니다.
 
@@ -57,7 +57,7 @@ SQL Server 백업을 Azure Blob 저장소 서비스에 쓸 수 있는 기능은 
 
 <b>참고:</b> HTTPS는 필수가 아니지만 사용하는 것이 좋습니다. <b>중요</b> Azure Blob 저장소 서비스로 백업 파일을 복사하고 업로드하도록 선택한 경우 이 파일을 복원 작업에 사용하려면 저장소 옵션으로 페이지 Blob 유형을 사용해야 합니다. 블록 Blob 유형에서 RESTORE를 사용하면 오류를 일으키며 실패합니다.
 
-* 자격 증명: Azure Blob 저장소 서비스에 연결하고 인증하는 데 필요한 정보는 자격 증명으로 저장됩니다. SQL Server가 백업을 Azure Blob에 쓰거나 Azure Blob에서 복원하려면 SQL Server 자격 증명을 만들어야 합니다. 자격 증명은 저장소 계정의 이름 및 저장소 계정 액세스 키를 저장합니다. 자격 증명을 만든 후에는 BACKUP/RESTORE 문을 사용할 때 WITH CREDENTIAL 옵션에서 해당 자격 증명을 지정해야 합니다. SQL Server 자격 증명을 만드는 방법에 대한 단계별 지침은 [Azure 저장소 서비스로 SQL Server 백업 및 복원 시작](http://go.microsoft.com/fwlink/?LinkId=271615)을 참조하십시오.
+* 자격 증명: Azure Blob 저장소 서비스에 연결하고 인증하는 데 필요한 정보는 자격 증명으로 저장됩니다. SQL Server가 백업을 Azure Blob에 쓰거나 Azure Blob에서 복원하려면 SQL Server 자격 증명을 만들어야 합니다. 자격 증명은 저장소 계정의 이름 및 저장소 계정 액세스 키를 저장합니다. 자격 증명을 만든 후에는 BACKUP/RESTORE 문을 사용할 때 WITH CREDENTIAL 옵션에서 해당 자격 증명을 지정해야 합니다. SQL Server 자격 증명을 만드는 방법에 대한 단계별 지침은 [Azure 저장소 서비스로 SQL Server 백업 및 복원 시작](http://go.microsoft.com/fwlink/?LinkId=271615)을 참조하세요.
 
 ## Azure Blob으로 SQL Server 데이터베이스 백업 및 복원 - 개념 및 작업:
 
@@ -73,4 +73,4 @@ SQL Server 백업을 Azure Blob 저장소 서비스에 쓸 수 있는 기능은 
 
 [백업 및 복원 모범 사례(Azure Blob 저장소 서비스)](http://go.microsoft.com/fwlink/?LinkId=272394)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

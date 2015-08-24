@@ -13,13 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 
 # .NET용 Media Services SDK을 사용하여 미디어 서비스 계정에 연결하기
 
-이 문서는 [미디어 서비스 주문형 비디오 워크플로](media-services-video-on-demand-workflow.md) 및 [미디어 서비스 라이브 스트리밍 워크플로](media-services-live-streaming-workflow.md) 시리즈의 일부입니다.
+> [AZURE.SELECTOR]
+- [REST](media-services-rest-connect_programmatically.md)
+- [.NET](media-services-dotnet-connect_programmatically.md)
+
 
 이 항목에서는.NET용 Media Services SDK를 프로그래밍할 때 Microsoft Azure Media Services에 프로그래밍 방식의 연결을 가져오는 방법을 설명합니다.
 
@@ -171,14 +174,14 @@ Media Services SDK 버전 3.0.0.0부터 ACS 토큰을 다시 사용할 수 있�
 다음 App.config 파일에는 필수 연결 값이 포함됩니다. <appSettings> 요소의 값은 Media Services 게정 설정 과정에서 가져온 필수 값입니다.
 
 
-```
-&lt;configuration&gt;
-    &lt;appSettings&gt;
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" /&gt;
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /&gt;
-    &lt;/appSettings&gt;
-&lt;/configuration&gt;
-```
+<pre>
+&lt;configuration>
+    &lt;appSettings>
+	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
+    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
+    &lt;/appSettings>
+&lt;/configuration>
+</pre>
 
 구성에서 연결 값을 검색하려면 **ConfigurationManager** 클래스를 사용한 다음 코드에서 필드에 값을 할당합니다.
 	
@@ -191,4 +194,4 @@ Media Services SDK 버전 3.0.0.0부터 ACS 토큰을 다시 사용할 수 있�
 
 <!-- URLs. -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

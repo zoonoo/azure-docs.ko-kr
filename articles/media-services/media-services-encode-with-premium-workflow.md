@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #미디어 인코더 Premium 워크플로를 사용한 고급 인코딩
@@ -32,9 +32,12 @@ Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플�
 
 이 항목에서는 .NET을 사용하여 **미디어 인코더 Premium 워크플로**로 인코딩하는 방법을 보여 줍니다.
 
+**미디어 인코더 Premium 워크플로**의 인코딩 태스크에는 워크플로 파일이라는 별도의 구성 파일이 필요합니다. 이러한 파일은 확장명이 .workflow이고 [Workflow Designer](media-services-workflow-designer.md) 도구를 사용하여 작성됩니다.
+
 ##인코딩
 
 **미디어 인코더 Premium 워크플로**의 인코딩 태스크에는 워크플로 파일이라는 별도의 구성 파일이 필요합니다. 이러한 파일은 확장명이 .workflow이고 [Workflow Designer](media-services-workflow-designer.md) 도구를 사용하여 작성됩니다.
+
 
 [여기](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)에서 기본 워크플로 파일을 가져올 수도 있습니다. 폴더에는 이러한 파일에 대한 설명도 포함되어 있습니다.
 
@@ -265,4 +268,4 @@ Microsoft Azure 미디어 서비스는 **미디어 인코더 Premium 워크플�
 
 입력된 비디오에 자막이 없는 경우, 출력 자산은 빈 TTML 파일을 포함합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

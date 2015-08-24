@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/20/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
@@ -76,4 +76,4 @@ Azure 미디어 서비스는 Windows 미디어 플랫폼: 플레이어 프레임
 [GitHub dash.js 리포지토리](https://github.com/Dash-Industry-Forum/dash.js)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="SendGrid 메일 서비스를 사용하는 방법(Java) - Azure" 
+	pageTitle="SendGrid 메일 서비스를 사용하는 방법(Java) | Microsoft Azure" 
 	description="Azure에서 SendGrid 메일 서비스를 사용하여 메일을 보내는 방법을 알아봅니다. 코드 샘플은 Java로 작성되었습니다." 
 	services="" 
 	documentationCenter="java" 
@@ -56,6 +56,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 
 1.  SMTP 서버를 포함한 SMTP 값을 지정합니다. SendGrid는 smtp.sendgrid.net입니다.
     
+```
         import java.util.Properties;
         import javax.activation.*;
         import javax.mail.*;
@@ -78,8 +79,9 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
            	  properties.put("mail.smtp.port", 587);
            	  properties.put("mail.smtp.auth", "true");
            	  // …
+```
 
-2.  <span class="auto-style1">javax.mail.Authenticator</span> 클래스를 확장하고 <span class="auto-style1">getPasswordAuthentication</span> 메서드 구현에서 SendGrid 사용자 이름 및 암호를 반환합니다.
+2.  *javax.mail.Authenticator* 클래스를 확장하고 *getPasswordAuthentication* 메서드 구현에서 SendGrid 사용자 이름 및 암호를 반환합니다.  
 
         private class SMTPAuthenticator extends javax.mail.Authenticator {
         public PasswordAuthentication getPasswordAuthentication() {
@@ -88,13 +90,13 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
            return new PasswordAuthentication(username, password);
         }
 
-3.  <span class="auto-style1">javax.mail.Session</span> 개체를 통해 인증된 전자 메일 세션을 만듭니다.
+3.  *javax.mail.Session* 개체를 통해 인증된 전자 메일 세션을 만듭니다.
 
         Authenticator auth = new SMTPAuthenticator();
         Session mailSession = Session.getDefaultInstance(properties, auth);
 
 4.  메시지를 만들고 **받는 사람**, **보낸 사람**, **제목** 및 내용 값을 할당합니다. [방법: 전자 메일 만들기](#bkmk_HowToCreateEmail) 섹션에 나와 있습니다.
-5.  <span class="auto-style1">javax.mail.Transport</span> 개체를 통해 메시지를 보냅니다. [방법: 전자 메일 보내기][How to: Send an Email] 섹션에 나와 있습니다.
+5.  *javax.mail.Transport* 개체를 통해 메시지를 보냅니다. [방법: 전자 메일 보내기][How to: Send an Email] 섹션에 나와 있습니다.
 
 ## <a name="bkmk_HowToCreateEmail"> </a>방법: 전자 메일 만들기
 
@@ -228,4 +230,4 @@ SendGrid 메일 서비스에 관한 기본적인 사항들을 익혔으며 자�
   [트랜잭션 전자 메일 배달]: https://sendgrid.com/email-solutions
   [클라우드 기반 전자 메일 서비스]: https://sendgrid.com/transactional-email
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

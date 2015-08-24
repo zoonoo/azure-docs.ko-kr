@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Twilio에서 전화를 거는 방법(.NET) - Azure" 
+	pageTitle="Twilio에서 전화를 거는 방법(.NET) | Microsoft Azure" 
 	description="Azure에서 Twilio API 서비스를 사용하여 전화를 걸고 SMS 메시지를 보내는 방법에 대해 알아봅니다. 코드 샘플은 .NET으로 작성되었습니다." 
 	services="" 
 	documentationCenter=".net" 
@@ -192,4 +192,4 @@ TwiML에 대한 자세한 내용은 [http://www.twilio.com/docs/api/twiml][twiml
 
 [azure_runtime_ref_dotnet]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

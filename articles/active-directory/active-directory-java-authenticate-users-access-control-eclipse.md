@@ -1,5 +1,5 @@
 <properties
-    pageTitle="액세스 제어 사용 방법(Java) - Azure 기능 가이드"
+    pageTitle="액세스 제어 사용 방법(Java) | Microsoft Azure"
     description="Azure에서 Java를 사용하여 액세스 제어를 개발하고 사용하는 방법에 대해 알아봅니다."
 	services="active-directory" 
     documentationCenter="java"
@@ -77,7 +77,7 @@ Azure ACS는 온-프레미스 또는 클라우드에서 실행되는 응용 프�
 - Java 기반 웹 서버 또는 응용 프로그램 서버의 배포(예: Apache Tomcat, GlassFish, JBoss Application Server 또는 Jetty)
 - Azure 구독. <http://www.microsoft.com/windowsazure/offers/>에서 구입할 수 있습니다.
 - Eclipse용 Azure 플러그 인(Java 포함)(Microsoft Open Technologies 제공), 2014년 4월 릴리스. 자세한 내용은 [Eclipse용 Azure 플러그 인(Java 포함)(Microsoft Open Technologies 제공) 설치](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx)(영문)를 참조하세요.
-- 응용 프로그램에 사용할 X.509 인증서. 이 인증서는 공용 인증서(.cer)와 개인 정보 교환(.PFX) 형식 둘 다로 필요합니다(이 인증서를 만들기 위한 옵션은 이 자습서의 뒷부분에 설명되어 있음).
+- 응용 프로그램에 사용할 X.509 인증서. 이 인증서는 공용 인증서(.cer)와 개인 정보 교환(.PFX) 형식 둘 다로 필요합니다. (이 인증서를 만들기 위한 옵션은 이 자습서의 뒷부분에 설명되어 있음)
 - Azure 계산 에뮬레이터 및 배포 기술의 기본적인 지식은 [Eclipse에서 Azure용 Hello World 응용 프로그램 만들기](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)(영문)에 설명되어 있습니다.
 
 ## ACS 네임스페이스 만들기
@@ -206,7 +206,7 @@ ACS 관리 포털의 응용 프로그램 통합 페이지에서 ACS를 사용하
 1. Eclipse의 Project Explorer에서 **MyACSHelloWorld**를 마우스 오른쪽 단추로 클릭하고 **Azure**를 클릭한 후 **Package for Azure**를 클릭합니다.
 2. **Project name**에 **MyAzureACSProject**를 입력하고 **Next**를 클릭합니다.
 3. JDK 및 응용 프로그램 서버를 선택합니다. (이러한 단계는 [Eclipse에서 Azure용 Hello World 응용 프로그램 만들기](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)(영문) 자습서에 자세히 설명되어 있습니다.)
-4. **Finish**를 클릭합니다.
+4. **마침**을 클릭합니다.
 5. **Run in Azure Emulator** 단추를 클릭합니다.
 6. Java 웹 응용 프로그램이 계산 에뮬레이터에서 시작되고 나면 현재 브라우저 세션이 ACS 로그인 테스트를 방해하지 않도록 모든 브라우저 인스턴스를 닫습니다.
 7. 브라우저에서 <http://localhost:8080/MyACSHelloWorld/>(또는 **Require HTTPS connections**를 선택한 경우 <https://localhost:8080/MyACSHelloWorld/>)를 열어 응용 프로그램을 실행합니다. Windows Live ID 로그인 메시지가 표시되어야 하며, 그런 다음 신뢰 당사자 응용 프로그램에 대해 지정된 반환 URL로 이동되어야 합니다.
@@ -309,4 +309,4 @@ ACS에 의해 응용 프로그램으로 반환되는 SAML(Security Assertion Mar
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

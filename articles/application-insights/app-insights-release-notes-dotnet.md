@@ -11,7 +11,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="08/06/2015" 
 	ms.author="sergkanz"/>
  
 # Application Insights SDK for .NET에 대한 릴리스 정보
@@ -36,7 +36,7 @@
 
 - ASP.NET 라이브러리에 종속성이 없는 원격 분석 이니셜라이저가 `Microsoft.ApplicationInsights.Web`에서 새 종속성 nuget`Microsoft.ApplicationInsights.WindowsServer`로 옮겨졌습니다.
 - `Microsoft.AI.Web.dll`에서 `Microsoft.ApplicationInsights.Web.dll`의 이름이 변경되었습니다.
-- `Microsoft.WindowsServer.TelemetryChannel`에서 `Microsoft.Web.TelemetryChannel` nuget의 이름이 변경되었습니다.`Microsoft.AI.ServerTelemetryChannel.dll`에서 `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` 어셈블리의 이름이 변경되었습니다.`Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`에서 `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` 클래스의 이름이 변경되었습니다.
+- `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel`에서 `Microsoft.ApplicationInsights.Web.TelemetryChannel` nuget의 이름이 변경되었습니다.`Microsoft.AI.ServerTelemetryChannel.dll`에서 `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` 어셈블리의 이름이 변경되었습니다.`Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`에서 `Microsoft.ApplicationInsights.Extensibility.Web.TelemetryChannel` 클래스의 이름이 변경되었습니다.
 - 웹 SDK의 일부인 모든 네임 스페이스가 `Extensibility`부분을 제외하도록 변경되었습니다. 이는 ApplicationInsights.config의 모든 원격 분석 이니셜라이저와 web.config의 `ApplicationInsightsWebTracking` 모듈을 포함합니다.
 - 런타임 계측 에이전트(상태 모니터 또는 Azure 웹사이트 확장을 통해 사용 가능)를 사용하여 수집된 종속성 은 스레드에 HttpContext.Current가 없는 경우 비동기로 표시되지 않습니다.
 - `DependencyTrackingTelemetryModule`의 속성 `SamplingRatio`은(는) 아무 작업도 수행하지 않고 사용되지 않음으로 표시됩니다.
@@ -86,4 +86,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

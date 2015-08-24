@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="기존 앱에 모바일 서비스 추가(WP8) | Azure 모바일 서비스" 
+	pageTitle="기존 앱에 모바일 서비스 추가(WP8) | Microsoft Azure" 
 	description="Azure 모바일 서비스 Windows Phone 8 앱에서 데이터를 사용하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -40,7 +40,7 @@
 
 1. [개발자 코드 샘플 사이트](영문)에서 GetStartedWithData 샘플 앱 프로젝트를 다운로드합니다. 
 
-	>[AZURE.NOTE] Windows Phone Silverlght 8.1 앱을 만들려면 다운로드한 Windows Phone Silverlight 8 앱 프로젝트의 대상 OS를 Windows Phone 8.1로 변경하기만 하면 됩니다. Windows Phone 스토어 앱을 만들려면 GetStartedWithData 샘플 앱 프로젝트의 [Windows Phone 스토어 앱 버전](http://go.microsoft.com/fwlink/p/?LinkId=397372)을 다운로드합니다.
+	>[AZURE.NOTE]Windows Phone Silverlght 8.1 앱을 만들려면 다운로드한 Windows Phone Silverlight 8 앱 프로젝트의 대상 OS를 Windows Phone 8.1로 변경하기만 하면 됩니다. Windows Phone 스토어 앱을 만들려면 GetStartedWithData 샘플 앱 프로젝트의 [Windows Phone 스토어 앱 버전](http://go.microsoft.com/fwlink/p/?LinkId=397372)을 다운로드합니다.
 
 2. Visual Studio에서 다운로드한 프로젝트를 열고 MainPage.xaml.cs 파일을 검사합니다.
 
@@ -193,4 +193,4 @@
 [개발자 코드 샘플 사이트]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

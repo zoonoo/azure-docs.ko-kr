@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/05/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # StorSimple 장치의 디스크 드라이브 교체
@@ -124,4 +124,4 @@ Microsoft Azure StorSimple 장치에서 드라이브 오류가 발생하고 드�
 
 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

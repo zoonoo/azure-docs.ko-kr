@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="기계 학습 스튜디오에서 샘플 데이터 집합 사용 | Microsoft Azure" 
-	description="기계 학습 스튜디오에 포함된 샘플 모델에 사용되는 데이터 집합에 대한 설명 실험에 대해 이 샘플 데이터 집합을 사용할 수 있습니다." 
+<properties
+	pageTitle="기계 학습 스튜디오에서 샘플 데이터 집합 사용 | Microsoft Azure"
+	description="기계 학습 스튜디오에 포함된 샘플 모델에 사용되는 데이터 집합에 대한 설명 실험에 대해 이 샘플 데이터 집합을 사용할 수 있습니다."
 	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/10/2015"
 	ms.author="garye"/>
 
 
@@ -315,6 +315,5 @@ For a list of sample experiments available in ML Studio, see [Machine Learning S
 
 <!-- Module References -->
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

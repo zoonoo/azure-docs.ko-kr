@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #미디어 서비스 PlayReady 라이선스 템플릿 개요
@@ -301,4 +301,4 @@ Silverlight에서 지원하는 보호 수준의 예는 [출력 보호를 위한 
 	  <xs:element name="ScmsRestriction" nillable="true" type="tns:ScmsRestriction" />
 	</xs:schema>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

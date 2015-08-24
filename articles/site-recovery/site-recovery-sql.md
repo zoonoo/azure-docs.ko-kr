@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
 
 
@@ -31,109 +31,35 @@
 
 사이트 복구는 Hyper-V 가상 컴퓨터, VMware 가상 컴퓨터 또는 물리적 서버로 실행하여 SQL Server를 보호할 수 있습니다.
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td colspan = "2"><b>Hyper-V</b></td>
-		<td colspan = "2"><b>VMware</b></td>
-		<td colspan = "2"><b>물리적 서버</b></td>
-    </tr>
-    <tr align="left" valign="top">
-		<td>온-프레미스 간</td>
-		<td>온-프레미스와 Azure 간</td>
-		<td>온-프레미스 간</td>
-		<td>온-프레미스와 Azure 간</td>
-		<td>온-프레미스 간</td>
-		<td>온-프레미스와 Azure 간</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>예</td>
-		<td>예</td>
-		<td>예</td>
-		<td>서비스 예정</td>
-		<td>예</td>
-		<td>서비스 예정</td>
-    </tr>
-    </tbody>
-    </table>
+ |**온-프레미스 간** | **온-프레미스와 Azure 간** 
+---|---|---
+**Hyper-V** | 예 | 예
+**VMware** | 예 | 예 
+**물리적 서버** | 예 | 예
+
 
 ## 지원 및 통합
 
 사이트 복구는 재해 복구 솔루션을 제공하기 위해 표에 요약된 네이티브 SQL Server BCDR 기술과 함께 통합할 수 있습니다.
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td><b>기능</b></td>
-		<td><b>세부 정보</b></td>
-		<td><b>SQL Server 버전</b></td>
-    </tr>
-    </tr><tr align="left" valign="top">
-		<td><b>AlwaysOn 가용성 그룹</b></td>
-		<td><p>SQL Server의 여러 독립 실행형 인스턴스는 여러 노드가 있는 장애 조치 클러스터에서 실행됩니다.</p> <p>SQL Server 인스턴스에서 복사(미러링)할 수 있는 장애 조치 그룹으로 데이터베이스를 그룹화하여 공유 저장소가 필요하지 않습니다.</p> <p>기본 사이트 및 하나 이상의 보조 사이트 간에 재해 복구를 제공합니다. 동기 복제 및 자동 장애 조치를 사용하여 가용성 그룹에서 구성된 SQL Server 데이터베이스로 공유되지 않은 클러스터에서 두 노드를 설정할 수 있습니다.</p></td>
-		<td>SQL Server 2014/2012 Enterprise 버전</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td><b>장애 조치 클러스터링(AlwaysOn FCI)</b></td>
-		<td><p>SQL Server는 온-프레미스 SQL Server 작업의 고가용성을 위해 Windows 장애 조치 클러스터링을 활용합니다.</p><p>공유 디스크를 사용하는 SQL Server 서버의 인스턴스를 실행하는 노드는 장애 조치 클러스터에서 구성됩니다. 인스턴스가 다운되는 경우 클러스터는 다른 것을 장애 조치합니다.</p> <p>클러스터는 공유 저장소의 오류 또는 중단을 보호하지 않습니다. 공유 디스크는 iSCSI, 파이버 채널 또는 VHDX와 함께 구현할 수 있습니다.</p></td>
-		<td><p>SQL Server Enterprise 버전</p> <p>SQL Server Standard 버전(두 노드로만 제한됨)</p></td>
-	<tr align="left" valign="top">
-		<td><b>높은 보안 모드에서 데이터베이스 미러링</b></td>
-		<td>하나의 보조 복사본으로 단일 데이터베이스를 보호합니다. 높은 보안(동기) 및 고성능(비동기) 복제 모드에서 모두 사용할 수 있습니다. 장애 조치 클러스터가 필요하지 않습니다.</td>
-		<td><p>SQL Server 2008 R2</p><p>SQL Server Enterprise 모든 버전</p></td>
-    </tr>
-    </tr>
-	<tr align="left" valign="top">
-		<td><b>독립 실행형 SQL Server</b></td>
-		<td>SQL Server 및 데이터베이스는 단일 서버(실제 또는 가상)에서 호스팅됩니다. 호스트 클러스터링은 가상 서버인 경우 고가용성을 위해 사용됩니다. 게스트 수준의 고가용성은 없습니다.</td>
-		<td>Enterprise 또는 Standard 에디션</td>
- 
-    </tbody>
-    </table>
+**기능** |**세부 정보** | **SQL Server 버전** 
+---|---|---
+**AlwaysOn 가용성 그룹** | <p>SQL Server의 여러 독립 실행형 인스턴스는 여러 노드가 있는 장애 조치(failover) 클러스터에서 실행됩니다.</p> <p>SQL Server 인스턴스에서 복사(미러링)할 수 있는 장애 조치(failover) 그룹으로 데이터베이스를 그룹화하여 공유 저장소가 필요하지 않습니다.</p> <p>주 사이트 및 하나 이상의 보조 사이트 간에 재해 복구를 제공합니다. 동기 복제 및 자동 장애 조치(failover)를 사용하여 가용성 그룹에서 구성된 SQL Server 데이터베이스로 공유되지 않은 클러스터에서 두 노드를 설정할 수 있습니다.</p> | SQL Server 2014/2012 Enterprise 버전
+**장애 조치 클러스터링(AlwaysOn FCI)** | <p>SQL Server는 온-프레미스 SQL Server 작업의 고가용성을 위해 Windows 장애 조치(failover) 클러스터링을 활용합니다.</p><p>공유 디스크를 사용하는 SQL Server의 인스턴스를 실행하는 노드는 장애 조치(failover) 클러스터에서 구성됩니다. 인스턴스가 다운되는 경우 클러스터는 다른 것을 장애 조치(failover)합니다.</p> <p>클러스터는 공유 저장소의 오류 또는 중단을 보호하지 않습니다. 공유 디스크는 iSCSI, 파이버 채널 또는 VHDX와 함께 구현할 수 있습니다.</p> | SQL Server Enterprise 버전</p><p>SQL Server Standard 버전(노드가 두 개로 제한됨)
+**데이터베이스 미러링(높은 보안 모드)** | 하나의 보조 복사본으로 단일 데이터베이스를 보호합니다. 높은 보안(동기) 및 고성능(비동기) 복제 모드에서 모두 사용할 수 있습니다. 장애 조치 클러스터가 필요하지 않습니다. | <p>SQL Server 2008 R2</p><p>SQL Server Enterprise 모든 버전</p>
+**독립 실행형 SQL Server** | SQL Server 및 데이터베이스는 단일 서버(실제 또는 가상)에서 호스팅됩니다. 호스트 클러스터링은 가상 서버인 경우 고가용성을 위해 사용됩니다. 게스트 수준의 고가용성은 없습니다. | Enterprise 또는 Standard 에디션
+
+
 
 다음 표에서는 사이트 복구 배포에 SQL Server BCDR 기술을 통합하기 위한 권장 사항을 요약합니다.
 
-<table border="1" cellspacing="4" cellpadding="4">
-    <tbody>
-    <tr align="left" valign="top">
-		<td><b>버전</b></td>
-		<td><b>에디션</b></td>
-		<td><b>개발</b></td>
-		<td><b>온-프레미스 간</b></td>
-		<td><b>온-프레미스와 Azure 간</b>&lt;/td
-    </tr>
-    <tr align="left" valign="top">
-		<td rowspan = "3">SQL Server 2014 또는 2012</td>
-		<td rowspan = "2">Enterprise</td>
-		<td>장애 조치 클러스터 인스턴스</td>
-		<td>AlwaysOn 가용성 그룹</td>
-		<td>AlwaysOn 가용성 그룹</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>고가용성을 위한 AlwaysOn 가용성 그룹</td>
-		<td>AlwaysOn 가용성 그룹</td>
-		<td>AlwaysOn 가용성 그룹</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>표준</td>
-		<td>장애 조치 클러스터 인스턴스</td>
-		<td>로컬 미러를 사용하는 사이트 복구 복제</td>
-		<td>로컬 미러를 사용하는 사이트 복구 복제</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>Enterprise 또는 Standard</td>
-		<td>독립 실행형</td>
-		<td>로컬 미러를 사용하는 사이트 복구 복제</td>
-		<td>로컬 미러를 사용하는 사이트 복구 복제</td>
-    </tr>
-	<tr align="left" valign="top">
-		<td>SQL Server 2008 R2</td><td>Enterprise 또는 Standard</td>
-		<td>독립 실행형</td>
-		<td>로컬 미러를 사용하는 사이트 복구 복제</td>
-		<td>로컬 미러를 사용하는 사이트 복구 복제</td>
-    </tr>
-    </tbody>
-    </table>
+**버전** |**에디션** | **배포**웹사이트를 | **온-프레미스에서 온-프레미스로** | **온-프레미스에서 Azure로** 
+---|---|---|---|
+SQL Server 2014 또는 2012 | Enterprise | 장애 조치 클러스터 인스턴스 | AlwaysOn 가용성 그룹 | AlwaysOn 가용성 그룹
+ | Enterprise | 고가용성을 위한 AlwaysOn 가용성 그룹 | AlwaysOn 가용성 그룹 | AlwaysOn 가용성 그룹
+ | 표준 | 장애 조치 클러스터 인스턴스 | 로컬 미러를 사용하는 사이트 복구 복제 | 로컬 미러를 사용하는 사이트 복구 복제
+ | Enterprise 또는 Standard | 독립 실행형 | 로컬 미러를 사용하는 사이트 복구 복제 | 로컬 미러를 사용하는 사이트 복구 복제
+SQL Server 2008 R2 | Enterprise 또는 Standard | 독립 실행형 | 로컬 미러를 사용하는 사이트 복구 복제 | 로컬 미러를 사용하는 사이트 복구 복제
 
 
 ## 배포 필수 조건
@@ -436,4 +362,4 @@ SQL 표준 클러스터의 경우, 계획되지 않은 장애 조치 후의 장�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

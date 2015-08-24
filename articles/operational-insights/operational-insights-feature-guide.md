@@ -12,8 +12,8 @@
 	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/24/2015"
+	ms.topic="get-started-article"
+	ms.date="08/06/2015"
 	ms.author="banders"/>
 
 # Operational Insights 기능 가이드
@@ -33,7 +33,7 @@ Operational Insights를 사용하면 다음 기능으로 컴퓨터 데이터를 
 |---|---|---|
 |![](./media/operational-insights-feature-guide/cap-plan.png) | [용량 계획](operational-insights-capacity.md) | Microsoft Azure Operational Insights의 용량 계획 솔루션을 사용하여 서버 인프라의 용량을 이해할 수 있습니다. |
 | ![](./media/operational-insights-feature-guide/update.png) | [시스템 업데이트 평가](operational-insights-updates.md) | 서버 인프라에 누락된 업데이트를 적용할 수 있도록 Microsoft Azure Operational Insights의 시스템 업데이트 솔루션을 사용할 수 있습니다. |
-| ![](./media/operational-insights-feature-guide/log-mgt.png) | [로그 관리](operational-insights-search.md) | Operational Insights 전체의 로그 검색에 대해 이벤트 및 IIS 로그를 수집하려면 로그 관리 솔루션을 사용합니다. |
+| ![](./media/operational-insights-feature-guide/log-search.png) | [로그 검색](operational-insights-search.md) | 로그 검색 기능을 사용하여 변환, 필터링 및 결과를 보고하는 쿼리를 만듭니다. 검색 기능은 Operational Insights 전체에서 로그 검색에 이벤트 데이터와 IIS 로그를 사용합니다. |
 | ![](./media/operational-insights-feature-guide/malware.png) | [맬웨어 평가](operational-insights-antimalware.md) | Microsoft Azure Operational Insights의 맬웨어 방지 솔루션을 사용하여 맬웨어로부터 인프라의 서버를 보호할 수 있습니다. |
 | ![](./media/operational-insights-feature-guide/sec-audit.png) | [보안 및 감사](operational-insights-security-audit.md) | 보안 및 감사 솔루션을 사용하여 주의가 필요한 주요 문제에 대한 기본 제공 검색 쿼리를 통해 조직의 IT 보안 상태에 대한 포괄적인 뷰를 가져올 수 있습니다. |
 | ![](./media/operational-insights-feature-guide/assessment.png) | [Active Directory 및 SQL 평가](operational-insights-assessment.md) | 평가 솔루션을 사용하여 일정한 간격으로 서버 환경의 위험 및 상태를 평가할 수 있습니다. |
@@ -72,4 +72,4 @@ Operational Insights 소프트웨어를 Operations Manager 서비스로 사용�
 ### Operational Insights는 어디에서 사용할 수 있나요?
 Microsoft Azure Operational Insights는 미국에서 호스트됩니다. Operational Insights 언어가 영어이기는 하지만 여러 다양한 시장에서 이 서비스를 사용할 수 있습니다. 자세한 내용은 [국가별 가용성](http://go.microsoft.com/fwlink/?LinkId=229842)을 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

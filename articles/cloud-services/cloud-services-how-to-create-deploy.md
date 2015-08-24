@@ -1,5 +1,5 @@
 <properties
-	pageTitle="클라우드 서비스를 만들고 배포하는 방법 - Azure"
+	pageTitle="클라우드 서비스를 만들고 배포하는 방법 | Microsoft Azure"
 	description="Azure에서 빨리 만들기 방법을 사용하여 클라우드 서비스를 만들고 배포하는 방법에 대해 알아봅니다."
 	services="cloud-services"
 	documentationCenter=""
@@ -66,7 +66,7 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 ## 방법: 빠른 생성을 사용하여 클라우드 서비스 만들기
 
-1. [관리 포털](http://manage.windowsazure.com/)에서 **새로 만들기**>**계산**>**클라우드 서비스**>**빨리 만들기**를 차례로 클릭합니다.
+1. [관리 포털](http://manage.windowsazure.com/)에서 **새로 만들기** > **계산** > **클라우드 서비스** > **빨리 만들기**를 차례로 클릭합니다.
 
 	![CloudServices_QuickCreate](./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png)
 
@@ -147,4 +147,4 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

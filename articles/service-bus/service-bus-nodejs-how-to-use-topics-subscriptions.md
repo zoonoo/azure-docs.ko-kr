@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="서비스 버스 토픽을 사용하는 방법(Node.js) - Azure" 
+	pageTitle="서비스 버스 토픽을 사용하는 방법(Node.js) | Microsoft Azure" 
 	description="Node.js app에서 Azure의 서비스 버스 토픽 및 구독을 사용하는 방법에 대해 알아봅니다." 
 	services="service-bus" 
 	documentationCenter="nodejs" 
@@ -19,7 +19,7 @@
 
 # 서비스 버스 토픽 및 구독을 사용하는 방법
 
-이 가이드에서는 Node.js 응용 프로그램에서 서비스 버스 토픽과 구독을 사용하는 방법을 설명합니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기, 구독 필터 만들기, 토픽에 메시지 보내기,** **구독에서 메시지 받기,** **토픽 및 구독 삭제** 등이 포함됩니다. 토픽 및 구독에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하십시오.
+이 가이드에서는 Node.js 응용 프로그램에서 서비스 버스 토픽과 구독을 사용하는 방법을 설명합니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기, 구독 필터 만들기, 토픽에 메시지 보내기,** **구독에서 메시지 받기,** **토픽 및 구독 삭제** 등이 포함됩니다. 토픽 및 구독에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
 
 [AZURE.INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
 
@@ -61,13 +61,13 @@
 
 Azure 모듈은 AZURE\_SERVICEBUS\_NAMESPACE 및 AZURE\_SERVICEBUS\_ACCESS\_KEY 환경 변수를 읽고 Azure 서비스 버스에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되지 않은 경우 **createServiceBusService**를 호출할 때 계정 정보를 지정해야 합니다.
 
-Azure 클라우드 서비스의 구성 파일에서 환경 변수를 설정하는 방법에 대한 예제는 [Node.js 클라우드 서비스 및 저장소]를 참조하십시오.
+Azure 클라우드 서비스의 구성 파일에서 환경 변수를 설정하는 방법에 대한 예제는 [Node.js 클라우드 서비스 및 저장소]를 참조하세요.
 
 Azure 웹 사이트의 관리 포털에서 환경 변수를 설정하는 방법에 대한 예는 [Node.js 웹 응용 프로그램 및 저장소]를 참조하세요.
 
 ## 토픽을 만드는 방법
 
-**ServiceBusService** 개체를 사용하면 토픽으로 작업할 수 있습니다. 다음 코드는 **ServiceBusService** 개체를 만듭니다. 이 코드를 **server.js** 파일의 위쪽, Azure 모듈을 가져오기 위한 문 뒤에 추가하십시오.
+**ServiceBusService** 개체를 사용하면 토픽으로 작업할 수 있습니다. 다음 코드는 **ServiceBusService** 개체를 만듭니다. 이 코드를 **server.js** 파일의 위쪽, Azure 모듈을 가져오기 위한 문 뒤에 추가하세요.
 
     var serviceBusService = azure.createServiceBusService();
 
@@ -130,7 +130,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 토픽으로 전송된 메시지 중 특정 토픽 구독 내에 표시되어야 하는 메시지의 범위를 지정하는 필터를 만들 수도 있습니다.
 
-구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 **SqlFilter**입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SQL 필터와 함께 사용할 수 있는 식에 대한 자세한 내용은 [SqlFilter.SqlExpression][SqlFilter.SqlExpression] 구문을 참조하십시오.
+구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 **SqlFilter**입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SQL 필터와 함께 사용할 수 있는 식에 대한 자세한 내용은 [SqlFilter.SqlExpression][SqlFilter.SqlExpression] 구문을 참조하세요.
 
 **ServiceBusService** 개체의 **createRule** 메서드를 사용하여 구독에 필터를 추가할 수 있습니다. 이 메서드를 사용하면 기존 구독에 새 필터를 추가할 수 있습니다.
 
@@ -235,7 +235,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 **ServiceBusService** 개체의 **receiveSubscriptionMessage** 메서드를 사용하여 구독에서 메시지를 받습니다. 기본적으로 읽은 메시지는 구독에서 삭제됩니다. 그러나 선택적 매개 변수 **isPeekLock**을 **true**로 설정하여, 구독에서 삭제되지 않도록 메시지를 읽은(peek) 후 잠글 수 있습니다.
 
-받기 작업의 일부로 메시지를 읽고 삭제하는 기본 동작은 가장 단순한 모델이며, 실패할 경우 응용 프로그램이 메시지를 처리하지 않아도 되는 시나리오에서 가장 효과적입니다. 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보십시오. 서비스 버스는 메시지가 소비된 것으로 표시할 것이며 응용 프로그램이 다시 시작되고 메시지 소비를 다시 시작하므로, 크래시 전에 소비된 메시지는 누락될 것입니다.
+받기 작업의 일부로 메시지를 읽고 삭제하는 기본 동작은 가장 단순한 모델이며, 실패할 경우 응용 프로그램이 메시지를 처리하지 않아도 되는 시나리오에서 가장 효과적입니다. 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보세요. 서비스 버스는 메시지가 소비된 것으로 표시할 것이며 응용 프로그램이 다시 시작되고 메시지 소비를 다시 시작하므로, 크래시 전에 소비된 메시지는 누락될 것입니다.
 
 **isPeekLock** 매개 변수를 **true**로 설정하면 수신은 2단계 작업이 되므로, 메시지 누락을 허용하지 않는 응용 프로그램을 지원할 수 있습니다. 서비스 버스는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 응용 프로그램에 반환합니다. 응용 프로그램은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후, **deleteMessage** 메서드를 호출하고 삭제될 메시지를 매개 변수로 제공하여 수신 프로세스의 두 번째 단계를 완료합니다. **deleteMessage** 메서드는 메시지를 소비 중인 것으로 표시하고 구독에서 제거합니다.
 
@@ -292,7 +292,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 -   MSDN 참조: [큐, 항목 및 구독][]을 참조하세요.
 -   [SqlFilter][]에 대한 API 참조
--   GitHub에서 [Azure SDK for Node] 리포지토리를 방문하십시오.
+-   GitHub에서 [Azure SDK for Node] 리포지토리를 방문하세요.
 
   [Azure SDK for Node]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Azure Management Portal]: http://manage.windowsazure.com
@@ -305,4 +305,4 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
   [Node.js 웹 응용 프로그램 및 저장소]: /develop/nodejs/tutorials/web-site-with-storage/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

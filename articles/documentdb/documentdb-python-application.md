@@ -12,7 +12,7 @@
     ms.workload="data-management"
     ms.tgt_pltfrm="na"
     ms.devlang="python"
-    ms.topic="hero-article" 
+    ms.topic="hero-article"
     ms.date="07/07/2015"
     ms.author="ryancraw"/>
 
@@ -38,11 +38,11 @@
 
 이 문서의 지침을 따르기 전에 다음이 설치되어 있는지 확인해야 합니다.
 
-- [Visual Studio 2013](http://www.visualstudio.com/) 이상 또는 [Visual Studio Express](무료 버전)
-- Python Tools for Visual Studio([여기서][] 사용 가능).
-- Azure SDK for Visual Studio 2013 버전 2.4 이상([여기서][1] 사용 가능).
-- Python 2.7([여기서][2] 사용 가능).
-- Microsoft Visual C++ Compiler for Python 2.7([여기서][3] 사용 가능).
+- [Visual Studio 2013](http://www.visualstudio.com/) 이상 또는 Visual Studio Express(무료 버전)
+- Python Tools for Visual Studio([여기서][] 사용 가능)
+- Azure SDK for Visual Studio 2013 버전 2.4 이상([여기서][1] 사용 가능)
+- Python 2.7([여기서][2] 사용 가능)
+- Microsoft Visual C++ Compiler for Python 2.7([여기서][3] 사용 가능)
 
 ## 1단계: DocumentDB 데이터베이스 계정 만들기
 
@@ -60,9 +60,9 @@
 
 	Flask를 처음 사용하는 경우 Flask는 Python에서 웹 응용 프로그램을 더 빨리 작성하는 데 도움이 되는 웹 프레임워크입니다. [Flask 자습서에 액세스하려면 여기를 클릭하세요][].
 
-	![왼쪽에서 강조 표시된 Python, 가운데에서 선택한 Flask 웹 프로젝트 및 이름 상자에서 이름 자습서를 사용하는 Vidual Studio에서 새 프로젝트 창의 스크린샷](./media/documentdb-python-application/image9.png)
+	![왼쪽에서 Python이 강조 표시되고, 가운데에서 Flask 웹 프로젝트가 선택되고, 이름 상자에 tutorial 이름이 포함된 Visual Studio 새 프로젝트 창의 스크린샷](./media/documentdb-python-application/image9.png)
 
-2. 외부 패키지를 설치할지 여부를 묻습니다. **가상 환경에 설치**를 클릭합니다. PyDocumentDB에서는 현재까지 Python 3.x가 지원되지 않으므로 Python 2.7을 기본 환경으로 사용해야 합니다. 프로젝트에 필요한 Python 가상 환경이 설정됩니다.
+2. 외부 패키지를 설치할지 여부를 묻습니다. **가상 환경에 설치**를 클릭합니다. PyDocumentDB에서는 현재 Python 3.x가 지원되지 않으므로 Python 2.7을 기본 환경으로 사용해야 합니다. 프로젝트에 필요한 Python 가상 환경이 설정됩니다.
 
 	![이 자습서의 스크린샷 - Visual Studio 창에 대한 Python 도구](./media/documentdb-python-application/image10.png)
 
@@ -71,7 +71,7 @@
 
 ### 프로젝트에 Flask 패키지 추가
 
-프로젝트가 설정된 후 DocumentDB용 python 패키지인 pydocumentdb를 포함해서 프로젝트에 필요한 특정 flask 패키지를 추가해야 합니다.
+프로젝트가 설정된 후 DocumentDB용 Python 패키지인 pydocumentdb를 포함해서 프로젝트에 필요한 특정 Flask 패키지를 추가해야 합니다.
 
 1. **requirements.txt** 파일을 열고 내용을 다음으로 바꿉니다.
 
@@ -91,22 +91,22 @@
 
 	![목록에서 강조 표시된 requirements.txt에서 설치를 사용하여 선택한 env(Python 2.7)를 보여주는 스크린샷](./media/documentdb-python-application/image11.png)
 
-> [AZURE.NOTE]출력 창에 실패가 표시되는 경우가 드물게 발생합니다. 그런 경우 오류가 정리와 관련이 있는지 확인하십시오. 때때로 정리는 실패하지만 설치는 성공하는 경우가 있습니다(이를 확인하려면 출력 창에서 위로 스크롤). <a name="verify-the-virtual-environment"></a>이 경우에는 계속해도 됩니다.
+> [AZURE.NOTE]출력 창에 실패가 표시되는 경우가 드물게 발생합니다. 그런 경우 오류가 정리와 관련이 있는지 확인하세요. 때때로 정리는 실패하지만 설치는 성공하는 경우가 있습니다(이를 확인하려면 출력 창에서 위로 스크롤). <a name="verify-the-virtual-environment"></a> 이 경우에는 계속해도 됩니다.
 
 
 ### 가상 환경 확인
 
-모두 올바르게 설치되었는지 확인해 봅시다.
+모두 올바르게 설치되었는지 확인해 보겠습니다.
 
-- **F5**를 눌러서 웹 사이트를 시작합니다. 그러면 flask 개발 서버가 실행되고 웹 브라우저가 시작됩니다. 다음 페이지를 참조해야 합니다.
+- **F5** 키를 눌러 웹 사이트를 시작합니다. 그러면 Flask 개발 서버가 실행되고 웹 브라우저가 시작됩니다. 다음 페이지를 참조해야 합니다.
 
-	![브라우저에 표시되는 빈 Flask 프로젝트](./media/documentdb-python-application/image12.png)
+	![브라우저에 표시된 빈 Flask 프로젝트](./media/documentdb-python-application/image12.png)
 
 ### 데이터베이스, 컬렉션 및 문서 정의 만들기
 
 이제 투표 응용 프로그램을 만들겠습니다.
 
-- 솔루션 탐색기의 **tutorial** 폴더에서 마우스 오른쪽 단추로 클릭하여 Python 파일을 추가합니다. 파일 이름을 **forms.py**로 지정합니다.  
+- 솔루션 탐색기에서 **tutorial** 폴더를 마우스 오른쪽 단추로 클릭하여 Python 파일을 추가합니다. 파일 이름을 **forms.py**로 지정합니다.  
 
     	from flask.ext.wtf import Form
     	from wtforms import RadioField
@@ -128,7 +128,7 @@
 
 ### 데이터베이스, 컬렉션 및 문서 만들기
 
-- **views.py**에 다음 코드를 추가합니다. 이 코드는 폼에서 사용되는 데이터베이스를 만듭니다. **views.py**의 기존 코드를 삭제하지 마십시오. 단순히 끝 부분에 추가합니다.
+- **views.py**에 다음 코드를 추가합니다. 이 코드는 폼에서 사용되는 데이터베이스를 만듭니다. **views.py**의 기존 코드를 삭제하지 마세요. 단순히 끝 부분에 추가합니다.
 
     	@app.route('/create')
     	def create():
@@ -160,11 +160,11 @@
             	year=datetime.now().year,
             	message='You just created a new database, collection, and document.  Your old votes have been deleted')
 
-> [AZURE.TIP]CreateCollection 메서드는 선택적 RequestOptionsas 세 번째 매개 변수를 사용합니다. 컬렉션에 대한 제품 형식을 지정하는데 사용할 수 있습니다. offerType 값을 제공하지 않으면 기본 제품 유형을 사용하여 컬렉션이 생성됩니다. DocumentDB 제공 유형에 대한 자세한 내용은 [DocumentDB 성능 수준](documentdb-performance-levels.md)을 참조하세요.
+> [AZURE.TIP]**CreateCollection** 메서드는 선택적 **RequestOptions**를 세 번째 매개 변수로 사용합니다. 컬렉션에 대한 제품 유형을 지정하는 데 사용할 수 있습니다. offerType 값을 제공하지 않으면 기본 제품 유형을 사용하여 컬렉션이 생성됩니다. DocumentDB 제품 유형에 대한 자세한 내용은 [DocumentDB 성능 수준](documentdb-performance-levels.md)을 참조하세요.
 >
 ### 데이터베이스, 컬렉션 및 문서를 읽고 폼 제출
 
-- **views.py**에 다음 코드를 추가합니다. 이 코드는 데이터베이스, 컬렉션 및 문서를 읽고 폼을 설정합니다. **views.py**의 기존 코드를 삭제하지 마십시오. 단순히 끝 부분에 추가합니다.
+- **views.py**에 다음 코드를 추가합니다. 이 코드는 데이터베이스, 컬렉션 및 문서를 읽고 폼을 설정합니다. **views.py**의 기존 코드를 삭제하지 마세요. 단순히 끝 부분에 추가합니다.
 
     	@app.route('/vote', methods=['GET', 'POST'])
     	def vote():
@@ -173,16 +173,16 @@
         	if form.validate_on_submit(): # is user submitted vote  
             	client = document_client.DocumentClient(config.DOCUMENTDB_HOST, {'masterKey': config.DOCUMENTDB_KEY})
 
-            	# Read databases and take first since id should not be duplicated.
+            	# Read databases and take the first since the id should not be duplicated.
             	db = next((data for data in client.ReadDatabases() if data['id'] == config.DOCUMENTDB_DATABASE))
 
-            	# Read collections and take first since id should not be duplicated.
+            	# Read collections and take the first since the id should not be duplicated.
             	coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config.DOCUMENTDB_COLLECTION))
 
-            	# Read documents and take first since id should not be duplicated.
+            	# Read documents and take the first since the id should not be duplicated.
             	doc = next((doc for doc in client.ReadDocuments(coll['_self']) if doc['id'] == config.DOCUMENTDB_DOCUMENT))
 
-            	# Take the data from the deploy_preference and increment our database
+            	# Take the data from the deploy_preference and increment your database
             	doc[form.deploy_preference.data] = doc[form.deploy_preference.data] + 1
             	replaced_document = client.ReplaceDocument(doc['_self'], doc)
 
@@ -212,7 +212,7 @@
                 	form = form)
 
 
-### html 파일 만들기
+### HTML 파일 만들기
 
 templates 폴더 아래에 다음 html 파일을 추가합니다. create.html, results.html, vote.html.
 
@@ -275,7 +275,7 @@ templates 폴더 아래에 다음 html 파일을 추가합니다. create.html, r
 
 ### 구성 파일 추가 및 \_\_init\_\_.py 변경
 
-1. 프로젝트 이름 tutorial을 마우스 오른쪽 단추로 클릭하고 **config.py** 파일을 추가합니다. 이 구성은 Flask의 폼에 필요합니다. 이 파일을 사용하여 비밀 키를 제공할 수도 있습니다. 하지만 이 자습서에서는 이 키가 필요하지 않습니다.
+1. 프로젝트 이름 tutorial을 마우스 오른쪽 단추로 클릭하고 **config.py** 파일을 추가합니다. 이 구성 파일은 Flask의 폼에 필요합니다. 이 파일을 사용하여 비밀 키를 제공할 수도 있습니다. 하지만 이 자습서에서는 이 키가 필요하지 않습니다.
 
 2. config.py에 다음 코드를 추가합니다. **DOCUMENTDB\_HOST** 및 **DOCUMENTDB\_KEY** 값을 수정합니다.
 
@@ -303,7 +303,7 @@ templates 폴더 아래에 다음 html 파일을 추가합니다. create.html, r
 
 ## 4단계: 로컬에서 응용 프로그램 실행
 
-1. Visual Studio에서 F5 키 또는 실행 단추를 누르면 화면에 다음이 표시됩니다.
+1. Visual Studio에서 F5 키를 누르거나 **실행** 단추를 클릭하면 화면에 다음이 표시됩니다.
 
 	![웹 브라우저에 표시된 Python + DocumentDB 투표 응용 프로그램의 스크린샷](./media/documentdb-python-application/image16.png)
 
@@ -324,7 +324,7 @@ templates 폴더 아래에 다음 html 파일을 추가합니다. create.html, r
 
 이제 완료된 응용 프로그램이 DocumentDB에 대해 올바르게 작동하므로 Azure 웹 사이트에 배포하겠습니다.
 
-1. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고(로컬에서 실행하고 있지 않은지 확인) 게시를 선택합니다. 그런 후 Microsoft Azure 웹 사이트를 선택합니다.
+1. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고(로컬에서 실행하고 있지 않은지 확인) **게시**를 선택합니다. 그런 후 **Microsoft Azure 웹 사이트**를 선택합니다.
 
  	![강조 표시된 게시 옵션을 사용하여 솔루션 탐색기에서 선택된 자습서의 스크린샷](./media/documentdb-python-application/image20.png)
 
@@ -338,7 +338,7 @@ templates 폴더 아래에 다음 html 파일을 추가합니다. create.html, r
 
 축하합니다. 지금까지 Azure DocumentDB를 사용하여 첫 Python 응용 프로그램을 빌드하고 Azure 웹 사이트에 게시했습니다.
 
-응용 프로그램에 다른 기능을 추가하려면 [DocumentDB Python SDK](https://pypi.python.org/pypi/pydocumentdb)에서 사용할 수 있는 API를 검토하십시오.
+응용 프로그램에 다른 기능을 추가하려면 [DocumentDB Python SDK](https://pypi.python.org/pypi/pydocumentdb)에서 사용할 수 있는 API를 검토하세요.
 
   [Flask 자습서에 액세스하려면 여기를 클릭하세요]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
   [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
@@ -347,7 +347,6 @@ templates 폴더 아래에 다음 html 파일을 추가합니다. create.html, r
   [2]: https://www.python.org/downloads/windows/
   [3]: http://aka.ms/vcpython27
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-  [Azure Management Portal]: http://portal.azure.com
- 
+  [Azure portal]: http://portal.azure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

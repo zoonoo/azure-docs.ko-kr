@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="05/08/2015"
+	ms.date="08/07/2015"
 	ms.author="rasquill"/>
 
 
@@ -114,7 +114,7 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
 
 ## 기본 사항
 
-1. [기본 사항: Azure 명령줄 인터페이스(Azure CLI) 설치](../xplat-cli.md)
+1. [기본 사항: Azure 명령줄 인터페이스(Azure CLI)](../xplat-cli.md)
 4. [기본 사항: 인증서 사용 및 관리](http://msdn.microsoft.com/library/azure/gg981929.aspx)
 5. [기본 사항: Linux 사용자 이름 선택](virtual-machines-linux-usernames.md)
 6. [기본 사항: Azure 포털을 사용하여 Linux VM에 로그온](virtual-machines-linux-how-to-log-on.md)
@@ -123,14 +123,14 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
 9. [기본 사항: 루트 사용](virtual-machines-linux-use-root-privileges.md)
 10. [기본 사항: Linux VM에 데이터 디스크 연결](virtual-machines-linux-how-to-attach-disk.md)
 11. [기본 사항: Linux VM에서 데이터 디스크 분리](virtual-machines-linux-how-to-detach-disk.md)
-12. [블로깅 기본 사항: Linux 및 Azure를 사용하여 저장소, 디스크 및 성능 최적화](http://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
+12. [기본 사항 블로그: Linux 및 Azure를 사용하여 저장소, 디스크 및 성능 최적화](http://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
 13. [기본 사항: RAID](virtual-machines-linux-configure-raid.md)
 14. [기본 사항: Linux VM을 캡처하여 템플릿 작성](virtual-machines-linux-capture-image.md)
 15. [기본 사항: Azure Linux 에이전트](virtual-machines-linux-agent-user-guide.md)
 16. [기본 사항: Azure VM 확장 및 기능](http://msdn.microsoft.com/library/azure/dn606311.aspx)
 17. [기본 사항: Cloud-init에서 사용할 VM에 사용자 지정 데이터 주입](virtual-machines-how-to-inject-custom-data.md)
-18. [블로깅 기본 사항: 12단계에서 Azure에서 고가용성 Linux 빌드](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
-19. [블로깅 기본 사항: Azure CLI, node.js, jhawk를 사용하여 Azure에서 Linux 프로비전 자동화](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
+18. [기본 사항 블로그: 12단계에서 Azure에서 고가용성 Linux 빌드](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
+19. [기본 사항 블로그: Azure CLI, node.js, jhawk를 사용하여 Azure에서 Linux 프로비전 자동화](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
 19. [Azure CLI를 사용하여 여러 VM 배포 만들기](virtual-machines-create-multi-vm-deployment-../xplat-cli.md)
 20. [기본 사항: Azure Docker VM 확장](virtual-machines-docker-vm-extension.md)
 23. [Azure 서비스 관리 REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx) 참조
@@ -240,6 +240,15 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
 8. [기본 사항: Linux에 대한 암호 또는 SSH 속성을 다시 설정하는 방법](virtual-machines-linux-use-vmaccess-reset-password-or-ssh.md)
 9. [기본 사항: 루트 사용](virtual-machines-linux-use-root-privileges.md)
 
+## Linux HPC(고성능 컴퓨팅)
+
+오픈 소스 도구나 Microsoft HPC Pack을 통해 Linux VM 클러스터에서 HPC 작업을 실행합니다.
+
+1.	[퀵스타트 템플릿: SLURM 클러스터 스핀업](http://azure.microsoft.com/documentation/templates/slurm/)(및 [블로그 게시물](http://blogs.technet.com/b/windowshpc/archive/2015/06/06/deploy-a-slurm-cluster-on-azure.aspx))
+2.	[빠른 시작 템플릿: 토크 클러스터 스핀업](http://azure.microsoft.com/documentation/templates/torque-cluster/)
+3.	[자습서: Azure에서 HPC Pack 클러스터의 Linux 컴퓨터 노드 시작](virtual-machines-linux-cluster-hpcpack.md)
+4.	[자습서: MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](virtual-machines-linux-cluster-rdma.md)
+
 ## 개발, 관리 및 최적화
 
 이 섹션에는 일련의 비디오를 포함하는 블로그 항목의 시작 [비디오: Azure 가상 컴퓨터: Chef를 사용하여, Puppet 및 Linux VM을 관리하기 위한 Docker](http://azure.microsoft.com/blog/2014/12/15/azure-virtual-machines-using-chef-puppet-and-docker-for-managing-linux-vms/). 그러나 개발, 관리 및 최적화 환경은 매우 광범위하고 빠르게 변화하므로 아래 목록을 출발점으로 고려해야 합니다.
@@ -294,6 +303,5 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
 <!--Link references--In actual articles, you only need a single period before the slash. -->
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

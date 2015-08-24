@@ -327,7 +327,7 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 - dn: 참조 특성 해석
 - ComponentNumber: 반환할 DN 내의 구성 요소
  
-**예:** <br> `DNComponent([dn],1)` <br> dn이 "cn Joe, ou = =..., 일 경우 Joe가 반환됩니다.
+**예:** <br> `DNComponent([dn],1)` <br> dn이 “cn Joe, ou = =..., 일 경우 Joe가 반환됩니다.
  
 
 
@@ -382,7 +382,7 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 - 값: 날짜/시간 형식의 값 <br>
 - 형식: 변환할 형식을 나타내는 문자열입니다.
  
-**주의:**<br> 형식에 대해 가능한 값은 여기에서 찾을 수 있습니다. [User-Defined Date/Time Formats (Format Function)](http://msdn2.microsoft.com/library/73ctwf33(VS.90).aspx)
+**주의:**<br> 형식에 대해 가능한 값은 여기에서 찾을 수 있습니다. [사용자 정의된 날짜/시간 서식 (서식 기능)](http://msdn2.microsoft.com/library/73ctwf33(VS.90).aspx)
  
 **예:** <br>
  
@@ -428,8 +428,8 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
  
 `num InStr(str stringcheck, str stringmatch)` <br> `num InStr(str stringcheck, str stringmatch, num start)` <br> `num InStr(str stringcheck, str stringmatch, num start , enum compare)`
 
-- stringcheck: 검색되는 문자열 <br>
-- stringmatch: 일치하는 문자열 <br>
+- stringcheck: 검색할 문자열 <br>
+- stringmatch: 찾을 문자열 <br>
 - start: 부분 문자열을 찾을 시작 위치 <br>
 - compare: vbTextCompare 또는 vbBinaryCompare
  
@@ -456,7 +456,7 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 
 **주의:** <br> 부분 문자열을 찾으면 위치가 반환되고, 찾지 못할 경우 0이 반환됩니다.
 
-**예:** <br> `InStrRev("abbcdbbbef","bb")` <br> 734를 반환합니다.
+**예:** <br> `InStrRev("abbcdbbbef","bb")` <br> 7을 반환합니다.
  
  
 
@@ -470,7 +470,7 @@ Azure Active Directory 동기화에서, 동기화 중에 특성 값을 조작하
 
 - 값: 숫자 값은 evaluated.flag: 숫자 값은 계산할 수 있는 숫자 값을 가집니다.
  
-**예:** <br> `IsBitSet(&HF,4)` <br> 비트”4”는 16진수 값 “F” 안에 설정되었기 때문에 True로 반환됩니다.
+**예:** <br> `IsBitSet(&HF,4)` <br> 비트 “4”는 16진수 값 “F” 안에 설정되었기 때문에 True로 반환됩니다.
  
 
 
@@ -629,7 +629,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
  
 **주의** <br> Join 및 Split 함수 사이에 패리티가 있습니다. Join 함수는 단일 문자열을 반환하기 위해 문자열의 배열을 채택하고 구분 기호 문자열을 사용하여 배열을 연결합니다. Split 함수는 문자열의 배열을 반환하기 위해 문자열을 채택하고 구분 기호로 구분합니다. 그러나 Join 함수는 모든 구분 기호 문자열을 사용하여 문자열을 연결할 수 있지만, Split 함수는 단일 문자 구분 기호를 사용하여 오직 문자열을 나눌 수만 있다는 것이 가장 중요한 차이점입니다.
  
-**예:** <br> `Join([proxyAddresses],”,”)` <br> "SMTP:를 반환할 수 있습니다.john.doe@contoso.com,smtp:jd@contoso.com”
+**예:** <br> `Join([proxyAddresses],”,”)` <br> “SMTP:를 반환할 수 있습니다.john.doe@contoso.com,smtp:jd@contoso.com”
  
  
 
@@ -653,7 +653,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
  
 **구문:** <br> `str Left(str string, num NumChars)`
 
-- string: 문자로 반환될 문자열입니다. <br>
+- string: <br>에서 문자를 반환할 문자열입니다.
 - NumChars: 문자열의 시작(왼쪽)에서 반환될 문자의 개수를 식별하는 번호입니다.
  
 **주의:** <br> 문자열의 첫 번째 numChars 문자를 포함하는 문자열입니다.
@@ -700,7 +700,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
  
 **구문:** <br> `str Mid(str string, num start, num NumChars)`
 
-- string: 문자로 반환될 문자열입니다. <br>
+- string: <br>에서 문자를 반환할 문자열입니다.
 - start : 문자열 내의 시작지점에서 반환할 문자를 식별하는 번호입니다.
 - NumChars: 문자열의 위치에서 반환될 문자의 수를 식별하는 번호입니다.
  
@@ -742,7 +742,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 **구문:** <br> `num NumFromDate(dt value)`
  
 
-**예:** <br> `NumFromDate(CDate("2012-01-01 23:00:00"))` <br> 129699324000000000을 반환합니다.
+**예:** <br> `NumFromDate(CDate("2012-01-01 23:00:00"))` <br> 129699324000000000를 반환합니다.
  
  
 
@@ -754,8 +754,8 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
  
 **구문:** <br> `str PadLeft(str string, num length, str padCharacter)`
 
-- string: 채울 문자열입니다. <br>
-- length: 원하는 문자열의 길이를 나타내는 정수입니다. <br>
+- 문자열: 문자열을 채웁니다.<br>
+- 길이: 원하는 문자열의 길이를 나타내는 정수입니다.<br>
 - padCharacter: 채움 문자를 사용하여 단일 문자로 문자열을 구성합니다.
  
 
@@ -764,7 +764,7 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
 ### 설명 
  
 - 문자열의 길이가 본래의 길이보다 짧을 경우, 길이가 같아질때가지 문자열의 시작 부분(왼쪽)에 padCharacter를 반복적으로 추가합니다.
-- PadCharacter는 공백문자가 될 수 있지만, null 값은 될 수 없습니다.
+- PadCharacter는 공백 문자가 될 수 있지만, null 값은 될 수 없습니다.
 - 문자열이 길이가 본래의 길이보다 같거나 클 경우, 문자열은 변함이 없습니다.
 - 문자열 길이가 크거나 같을 경우, 문자열과 동일한 문자열이 반환됩니다.
 - 문자열의 길이가 본래의 길이보다 작은 경우, 채움 문자로 채워진 문자열이 포함된 원하는 길이의 새 문자열이 반환됩니다.
@@ -1058,4 +1058,4 @@ CGuid() 성공적으로 수행될지 여부를 결정하는데 사용됩니다.
  
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

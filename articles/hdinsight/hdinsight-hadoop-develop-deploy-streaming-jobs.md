@@ -51,13 +51,13 @@ Hadoop은 MapReduce용 스트리밍 API를 제공합니다. 이 API를 사용하
 2. **파일**, **새로 만들기** 및 **프로젝트** 순으로 클릭합니다.
 3. 다음 값을 입력하거나 선택합니다.
 
-	<table border="1">
-<tr><td>필드</td><td>값</td></tr>
-<tr><td>템플릿</td><td>Visual C#/Windows/Console Application</td></tr>
-<tr><td>이름</td><td>WordCountMapper</td></tr>
-<tr><td>위치</td><td>C:\Tutorials</td></tr>
-<tr><td>솔루션 이름</td><td>WordCount</td></tr>
-</table>
+필드|값
+---|---
+템플릿|Visual C#/Windows/Console Application
+이름|WordCountMapper
+위치|C:\\Tutorials
+솔루션 이름|WordCount
+
 	
 4. **확인**을 클릭하여 프로젝트를 만듭니다.
 
@@ -100,12 +100,12 @@ Hadoop은 MapReduce용 스트리밍 API를 제공합니다. 이 API를 사용하
 1. Visual Studio 2013에서 **파일**, **추가**, **새 프로젝트**를 차례로 클릭합니다.
 2. 다음 값을 입력하거나 선택합니다.
 
-	<table border="1">
-<tr><td>필드</td><td>값</td></tr>
-<tr><td>템플릿</td><td>Visual C#/Windows/Console Application</td></tr>
-<tr><td>이름</td><td>WordCountReducer</td></tr>
-<tr><td>위치</td><td>C:\Tutorials\WordCount</td></tr>
-</table>
+필드|값
+---|---
+템플릿|Visual C#/Windows/Console Application
+이름|WordCountReducer
+위치|C:\\Tutorials\\WordCount
+	
 3. **솔루션용 디렉터리 만들기** 확인란 선택을 취소하고 **확인**을 클릭하여 프로젝트를 만듭니다.
 4. 솔루션 탐색기에서 **Program.cs**를 마우스 오른쪽 단추로 클릭한 후 **이름 바꾸기**를 클릭합니다.
 5. 파일의 이름을 **WordCountReducer.cs**로 바꾼 후 **Enter** 키를 누릅니다.
@@ -167,7 +167,14 @@ HDInsight Emulator에서 다음을 수행하여 프로그램을 테스트합니�
 
 이 자습서에서는 다음 폴더 구조를 사용합니다.
 
-<table border="1"> <tr><td>Folder</td><td>Note</td></tr> <tr><td>\\WordCount</td><td>단어 계산 프로젝트의 루트 폴더입니다.</td></tr> <tr><td>\\WordCount\\Apps</td><td>매퍼와 리듀서 실행 파일의 폴더입니다.</td></tr> <tr><td>\\WordCount\\Input</td><td>MapReduce 소스 파일 폴더입니다.</td></tr> <tr><td>\\WordCount\\Output</td><td>MapReduce 출력 파일 폴더입니다.</td></tr> <tr><td>\\WordCount\\MRStatusOutput</td><td>작업 출력 폴더입니다.</td></tr> </table></br>
+폴더|참고
+---|---
+\\WordCount|단어 계산 프로젝트의 루트 폴더 
+\\WordCount\\Apps|매퍼 및 리듀서 실행 파일 폴더
+\\WordCount\\Input|MapReduce 원본 파일 폴더
+\\WordCount\\Output|MapReduce 출력 파일 폴더
+\\WordCount\\MRStatusOutput|작업 출력 폴더
+
 
 이 자습서에서는 %hadoop\_home% 디렉터리에 있는 .txt 파일을 사용합니다.
 
@@ -552,4 +559,4 @@ Hadoop 스트리밍 작업 제출에 대한 HDInsight .NET SDK 샘플을 보려�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

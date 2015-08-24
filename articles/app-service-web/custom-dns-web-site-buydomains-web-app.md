@@ -19,11 +19,14 @@
 
 # Azure 앱 서비스에서 사용자 지정 도메인 이름 구입 및 구성
 
-<div class="dev-center-tutorial-selector sublanding">
-  <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="웹 앱" class="current">웹 앱 도메인 구입</a> <a href="/documentation/articles/web-sites-custom-domain-name" title="웹 앱">외부 도메인에서 웹 앱</a> <a href="/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="트래픽 관리자에서 웹 앱">트래픽 관리자에서 웹 앱</a> <a href="/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a>
+> [AZURE.SELECTOR]
+- [Buy Domain for Web Apps](custom-dns-web-site-buydomains-web-app.md)
+- [Web Apps with External Domains](web-sites-custom-domain-name.md)
+- [Web Apps with Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
+- [GoDaddy](web-sites-godaddy-custom-domain-name.md)
 
 
-</div>
+
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
@@ -95,4 +98,4 @@
 이때 브라우저에서 사용자 지정 도메인 이름을 입력해야 웹 앱으로 이동하는지 확인할 수 있습니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

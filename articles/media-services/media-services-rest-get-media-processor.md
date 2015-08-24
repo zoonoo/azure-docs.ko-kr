@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="미디어 프로세서를 만드는 방법 - Azure" 
+	pageTitle="미디어 프로세서를 만드는 방법 | Microsoft Azure" 
 	description="Azure 미디어 서비스용 미디어 콘텐츠를 인코딩하거나 형식을 변환하거나 암호화하거나 암호 해독하기 위한 미디어 프로세서 구성 요소를 만드는 방법에 대해 알아봅니다." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,14 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
 #방법: 미디어 프로세서 인스턴스 가져오기
 
-이 문서는 [미디어 서비스 주문형 비디오 워크플로](media-services-video-on-demand-workflow.md) 시리즈의 일부입니다.
 
+> [AZURE.SELECTOR]
+- [.NET](media-services-get-media-processor.md)
+- [REST](media-services-rest-get-media-processor.md)
 
 ##개요
 
@@ -30,13 +32,14 @@
 
 미디어 프로세서 이름|설명|추가 정보
 ---|---|---
-Azure 미디어 인코더|Azure 미디어 인코더를 사용하여 인코딩 작업을 실행할 수 있습니다.|[Azure Media Encoder용 태스크 기본 설정 문자열](http://msdn.microsoft.com/library/jj129582.aspx)
-미디어 인코더 Premium 워크플로|미디어 인코더 Premium 워크플로를 사용하여 인코딩 작업을 실행할 수 있습니다.|[미디어 인코더 Premium 워크플로를 사용하여 인코딩](media-services-encode-with-premium-workflow.md)
+Azure 미디어 인코더|Azure 미디어 인코더를 사용하여 인코딩 작업을 실행할 수 있습니다.|[Azure 미디어 인코더](media-services-encode-asset.md#azure_media_encoder)
+미디어 인코더 표준|미디어 인코더 표준을 사용하여 인코딩 작업을 실행할 수 있습니다.|[Azure 미디어 인코더](media-services-encode-asset.md#media_encoder_standard)
+미디어 인코더 Premium 워크플로|미디어 인코더 Premium 워크플로를 사용하여 인코딩 작업을 실행할 수 있습니다.|[미디어 인코더 Premium 워크플로](media-services-encode-asset.md#media_encoder_premium_wokrflow)
 Azure 미디어 인덱서| 미디어 파일과 콘텐츠를 검색 가능하도록 설정할 수 있으며 선택 캡션 트랙과 키워드를 생성할 수 있습니다.|[Azure 미디어 인덱서를 사용하여 미디어 파일 인덱싱](media-services-index-content.md).
- Microsoft Azure Media Packager| 미디어 자산을 .mp4에서 부드러운 스트리밍 형식으로 변환할 수 있습니다. 또한 미디어 자산을 부드러운 스트리밍에서 Apple HLS(HTTP 라이브 스트리밍) 형식으로 변환할 수 있습니다.|
- Windows Azure Media Encryptor|PlayReady Protection을 사용하여 미디어 자산을 암호화할 수 있습니다.|
- Azure 미디어 Hyperlapse(미리 보기)|비디오 안정화를 통해 비디오에서 "범프"를 부드럽게 할 수 있습니다. 사용 가능한 클립으로 만들어 콘텐츠 속도를 높일 수도 있습니다.|		[Azure 미디어 Hyperlapse](http://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)</a>
- 저장소 암호 해독| 저장소 암호 해독을 사용하여 암호화된 미디어 자산의 암호를 해독할 수 있습니다.|해당 없음
+Azure 미디어 Hyperlapse(미리 보기)|비디오 안정화를 통해 비디오에서 "범프"를 부드럽게 할 수 있습니다. 사용 가능한 클립으로 만들어 콘텐츠 속도를 높일 수도 있습니다.|		[Azure 미디어 Hyperlapse](http://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)</a>
+저장소 암호 해독| 저장소 암호 해독을 사용하여 암호화된 미디어 자산의 암호를 해독할 수 있습니다.|해당 없음
+Microsoft Azure Media Packager|미디어 자산을 .mp4에서 부드러운 스트리밍 형식으로 변환할 수 있습니다. 또한 미디어 자산을 부드러운 스트리밍에서 Apple HLS(HTTP 라이브 스트리밍) 형식으로 변환할 수 있습니다.|[Azure Media Packager용 작업 기본 설정 문자열](http://msdn.microsoft.com/library/hh973635.aspx)
+Windows Azure Media Encryptor|PlayReady Protection을 사용하여 미디어 자산을 암호화할 수 있습니다.|[Azure Media Packager용 작업 기본 설정 문자열](http://msdn.microsoft.com/library/hh973610.aspx)
 
 ##미디어 프로세서 가져오기
 
@@ -60,7 +63,7 @@ Azure 미디어 인덱서| 미디어 파일과 콘텐츠를 검색 가능하도�
 	Accept-Charset: UTF-8
 	User-Agent: Microsoft ADO.NET Data Services
 	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-e769-477b-2233-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423635565&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=6zwXEn7YJzVJbVCNpqDUjBLuE5iUwsdJbWvJNvpY3%2b8%3d
-	x-ms-version: 2.8
+	x-ms-version: 2.11
 	Host: media.windows.net
 	
 응답:
@@ -89,4 +92,4 @@ Azure 미디어 인덱서| 미디어 파일과 콘텐츠를 검색 가능하도�
 [Task Preset Strings for the Azure Media Encoder]: http://msdn.microsoft.com/library/jj129582.aspx
 [How to: Connect to Media Services Programmatically]: ../media-services-rest-connect_programmatically/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

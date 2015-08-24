@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Twilio에서 전화를 거는 방법(PHP) - Azure" 
+	pageTitle="Twilio에서 전화를 거는 방법(PHP) | Microsoft Azure" 
 	description="Azure에서 Twilio API 서비스를 사용하여 전화를 걸고 SMS 메시지를 보내는 방법에 대해 알아봅니다. 샘플은 PHP 응용 프로그램용입니다." 
 	documentationCenter="php" 
 	services="" 
@@ -143,4 +143,4 @@ Twilio에 대한 자세한 내용은 [https://www.twilio.com/docs][twilio_docs](
 [website-webmatrix]: https://www.windowsazure.com/develop/php/tutorials/website-w-mysql-and-webmatrix/
 [twilio_php_github]: https://github.com/twilio/twilio-php
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

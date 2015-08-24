@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 저장소 모니터링, 진단 및 문제 해결 | Azure" 
+	pageTitle="저장소 모니터링, 진단 및 문제 해결 | Microsoft Azure" 
 	description="저장소 분석, 클라이언트 쪽 로깅 등의 기능과 Azure 저장소 관련 문제를 파악, 진단 및 해결하는 기타 타사 도구를 사용하는 방법에 대해 알아봅니다." 
 	services="storage" 
 	documentationCenter="" 
@@ -516,7 +516,7 @@ de8b1c3c-...|Blob를 만드는 **UploadFromStream** 메서드를 호출합니다
 07b26a5d-...|https://domemaildist.blob.core.windows.net/azuremmblobcontainer에 대한 동기 요청을 시작하는 중입니다.
 07b26a5d-...|StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
 07b26a5d-...|응답을 기다리는 중입니다.
-07b26a5d-... | 응답을 받았습니다. 상태 코드 = 200, 요청 ID = eeead849-...Content-MD5 = , ETag = &quot;0x8D14D2DC63D059B&quot;.
+07b26a5d-... | 응답을 받았습니다. 상태 코드 = 200, 요청 ID = eeead849-...Content-MD5 = , ETag = ";0x8D14D2DC63D059B";.
 07b26a5d-... | 응답 헤더가 처리되었습니다. 나머지 작업을 진행합니다.
 07b26a5d-... | 응답 본문을 다운로드하는 중입니다.
 07b26a5d-... | 작업이 완료되었습니다.
@@ -914,4 +914,4 @@ Blob 저장소에서 다운로드한 저장소 로깅 데이터를 Excel로 가�
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

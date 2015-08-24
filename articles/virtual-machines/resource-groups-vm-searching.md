@@ -135,6 +135,13 @@
     
 이제 사용할 이미지를 정밀하게 선택할 수 있습니다. 방금 찾은 URN 정보를 사용하여 VM을 빠르게 만들거나 해당 URN 정보로 템플릿을 사용하려면 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](xplat-cli-azure-resource-manager.md)을 참조하세요.
 
+### 연습 동영상
+
+이 비디오는 CLI를 사용하는 위의 단계를 보여줍니다.
+
+[AZURE.VIDEO resource-groups-vm-searching-cli]
+
+
 ## PowerShell
 
 Azure 리소스 관리자를 사용하여 새 가상 컴퓨터를 만들 때 다음 이미지 속성을 조합하여 이미지를 지정해야 하는 경우도 있습니다.
@@ -214,6 +221,12 @@ PowerShell에서 이 작업을 수행하려면 먼저 Azure PowerShell의 리소
 
 이 목록에서 선택한 SKU 이름을 복사하면 이미지에 대한 게시자, 제안 및 SKU를 지정하는 데 필요한 **Set-AzureVMSourceImage** PowerShell cmdlet 또는 리소스 그룹 템플릿 파일에 대한 모든 정보가 제공됩니다.
 
+### 연습 동영상
+
+이 비디오는 PowerShell을 사용하는 위의 단계를 보여줍니다.
+
+[AZURE.VIDEO resource-groups-vm-searching-posh]
+
 
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
@@ -227,4 +240,4 @@ PowerShell에서 이 작업을 수행하려면 먼저 Azure PowerShell의 리소
 [msn]: http://search.msn.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

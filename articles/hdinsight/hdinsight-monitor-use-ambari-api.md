@@ -43,12 +43,11 @@ HDInsight는 현재 Ambari 모니터링 기능만 지원합니다. Ambari API 1.
 
 - **Azure HDInsight 클러스터**. 클러스터 프로비전에 대한 자세한 내용은 [HDInsight 사용 시작][hdinsight-get-started] 또는 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요. 자습서를 완료하려면 다음 데이터가 필요합니다.
 
-	<table border="1">
-	<tr><th>클러스터 속성</th><th>Azure PowerShell 변수 이름</th><th>값</th><th>설명</th></tr>
-	<tr><td>HDInsight 클러스터 이름</td><td>$clusterName</td><td></td><td>HDInsight 클러스터의 이름입니다.</td></tr>
-	<tr><td>클러스터 사용자 이름</td><td>$clusterUsername</td><td></td><td>프로비전 시 지정된 클러스터 사용자 이름입니다.</td></tr>
-	<tr><td>클러스터 암호</td><td>$clusterPassword</td><td></td><td>클러스터 사용자 암호입니다.</td></tr>
-	</table>
+클러스터 속성|Azure PowerShell 변수 이름|값|설명
+---|---|---|---
+HDInsight 클러스터 이름|$clusterName||HDInsight 클러스터의 이름입니다.
+클러스터 사용자 이름|$clusterUsername||프로비전 시 지정된 클러스터 사용자 이름입니다.
+클러스터 암호|$clusterPassword||클러스터 사용자 암호입니다.
 
 	> [AZURE.NOTE] 테이블의 채우기 값입니다. 이 자습서를 완료하는 데 유용합니다.
 
@@ -121,28 +120,26 @@ Ambari를 사용하여 HDInsight 클러스터를 모니터링하는 몇 가지 �
 
 **2014/10/8 릴리스**:
 
-Ambari 끝점 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}"을 사용할 때 *host_name* 필드에서 호스트 이름만이 아니라 노드의 FQDN(정규화된 도메인 이름)을 반환합니다. 2014/10/8 릴리스 이전 버전에서는 이 예제가 "**headnode0**"만 반환했습니다. 2014/10/8 릴리스부터는 위의 예제에 나와 있는 것처럼 FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**"이 반환됩니다. 이 변경은 HBase, Hadoop 등의 여러 클러스터 유형을 VNET(가상 네트워크) 하나에 배포할 수 있는 시나리오를 원활하게 수행하기 위해 필요한 작업이었습니다. 예를 들어 Hadoop의 백 엔드 플랫폼으로 HBase를 사용하는 등의 경우 이 변경이 적용됩니다.
+Ambari 끝점 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}"을 사용할 때 *host\_name* 필드에서 호스트 이름만이 아니라 노드의 FQDN(정규화된 도메인 이름)을 반환합니다. 10/8/2014 릴리스 이전 버전에서는 이 예가 "**headnode0**"만 반환했습니다. 10/8/2014 릴리스부터는 위의 예에 나와 있는 것처럼 FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**"이 반환됩니다. 이 변경은 HBase, Hadoop 등의 여러 클러스터 유형을 VNET(가상 네트워크) 하나에 배포할 수 있는 시나리오를 원활하게 수행하기 위해 필요한 작업이었습니다. 예를 들어 Hadoop의 백 엔드 플랫폼으로 HBase를 사용하는 등의 경우 이 변경이 적용됩니다.
 
 ##<a id="monitor"></a>Ambari 모니터링 API
 
 다음 테이블은 가장 일반적으로 사용되는 Ambari 모니터링 API 호출을 나열합니다. API에 대한 자세한 내용은 [Ambari API 참조][ambari-api-reference]를 참조하세요.
 
-<table border="1">
-<tr><th>모니터링 API 호출</th><th>URI</th><th>설명</th></tr>
-<tr><td>클러스터 가져오기</td><td><tt>/api/v1/clusters</tt></td><td></td></tr>
-<tr><td>클러스터 정보 가져오기</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net</tt></td><td>클러스터, 서비스, 호스트</td></tr>
-<tr><td>서비스 가져오기</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/services</tt></td><td>서비스에 포함: hdfs, mapreduce</td></tr>
-<tr><td>서비스 정보 가져오기</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/services/&lt;ServiceName></tt></td><td></td></tr>
-<tr><td>서비스 구성 요소 가져오기</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/services/&lt;ServiceName>/components</tt></td><td>HDFS: namenode, datanode<br/>MapReduce: jobtracker; tasktracker</td></tr>
-<tr><td>구성 요소 정보 가져오기</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/services/&lt;ServiceName>/components/&lt;ComponentName></tt></td><td>ServiceComponentInfo, host-components, 메트릭</td></tr>
-<tr><td>호스트 가져오기</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts</tt></td><td>headnode0, workernode0</td></tr>
-<tr><td>호스트 정보 가져오기</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts/&lt;HostName>
-</td><td></td></tr>
-<tr><td>호스트 구성 요소 가져오기</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts/&lt;HostName>/host_components </tt></td><td>namenode, resourcemanager</td></tr>
-<tr><td>호스트 구성 요소 정보 가져오기</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/hosts/&lt;HostName>/host_components/&lt;ComponentName> </tt></td><td>HostRoles, 구성 요소, 호스트, 메트릭</td></tr>
-<tr><td>구성 가져오기</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/configurations </tt></td><td>구성 유형: core-site, hdfs-site, mapred-site, hive-site</td></tr>
-<tr><td>구성 정보 가져오기</td><td><tt>/api/v1/clusters/&lt;ClusterName>.azurehdinsight.net/configurations?type=&lt;ConfigType>&amp;tag=&lt;VersionName> </tt></td><td>구성 유형: core-site, hdfs-site, mapred-site, hive-site</td></tr>
-</table>
+모니터링 API 호출|URI|설명
+---|---|---
+클러스터 가져오기|`/api/v1/clusters`|
+클러스터 정보 가져오기|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net`|클러스터, 서비스, 호스트
+서비스 가져오기|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services`|서비스에 포함: hdfs, mapreduce
+서비스 정보 가져오기|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;`|
+서비스 구성 요소 가져오기|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;/components`|HDFS: namenode, datanode<br/>MapReduce: jobtracker; tasktracker
+구성 요소 정보 가져오기|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/services/&lt;ServiceName&gt;/components/&lt;ComponentName&gt;`|ServiceComponentInfo, host-components, 메트릭
+호스트 가져오기|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts`|headnode0, workernode0
+호스트 정보 가져오기|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt;`|
+호스트 구성 요소 가져오기|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt;/host_components`|namenode, resourcemanager
+호스트 구성 요소 정보 가져오기|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/hosts/&lt;HostName&gt;/host_components/&lt;ComponentName&gt;`|HostRoles, 구성 요소, 호스트, 메트릭
+구성 가져오기|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/configurations`|구성 유형: core-site, hdfs-site, mapred-site, hive-site
+구성 정보 가져오기|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/configurations?type=&lt;ConfigType&gt;&tag=&lt;VersionName&gt;`|구성 유형: core-site, hdfs-site, mapred-site, hive-site
 
 
 ##<a id="nextsteps"></a>다음 단계
@@ -178,4 +175,4 @@ Ambari 모니터링 API 호출을 사용하는 방법을 알아보았습니다. 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

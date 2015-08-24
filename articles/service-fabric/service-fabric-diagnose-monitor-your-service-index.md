@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/21/2015"
+   ms.date="08/04/2015"
    ms.author="ryanwi"/>
 
 # 서비스 패브릭 서비스 진단 및 모니터링
@@ -40,4 +40,4 @@
 - [사용자 지정 서비스 패브릭 상태 보고서 추가](service-fabric-report-health.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

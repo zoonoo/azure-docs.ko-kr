@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.date="08/11/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 API, 작업 및 제품을 만드는 방법
@@ -62,4 +62,4 @@ API 관리에서 제품은 하나 이상의 API뿐만 아니라 사용 할당량
 [작업과 함께 API의 정의를 가져오는 방법]: api-management-howto-import-api.md
 [고급 제품 설정을 만들고 구성하는 방법]: api-management-howto-product-with-rules.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

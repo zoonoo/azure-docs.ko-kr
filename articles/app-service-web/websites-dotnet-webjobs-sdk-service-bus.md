@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/10/2015" 
 	ms.author="tdykstra"/>
 
 # WebJob SDK를 사용하여 Azure 서비스 버스로 작업하는 방법
@@ -81,6 +81,13 @@ SDK에서는 POCO([Plain Old CLR Object](http://en.wikipedia.org/wiki/Plain_Old_
 		}
 
 POCO 속성을 사용하여 동일한 함수의 Blob 및 테이블로 작업하는 방법을 보여 주는 코드 샘플은 [이 문서의 저장소 큐 버전](websites-dotnet-webjobs-sdk-storage-queues-how-to.md#pocoblobs)을 참조하세요.
+
+큐 메시지를 만든 코드가 WebJobs SDK를 사용하지 않을 경우 다음 예제와 유사한 코드를 사용합니다.
+
+		var client = QueueClient.CreateFromConnectionString(ConfigurationManager.ConnectionStrings["AzureWebJobsServiceBus"].ConnectionString, "blobadded");
+		BlobInformation blobInformation = new BlobInformation () ;
+		var message = new BrokeredMessage(blobInformation);
+		client.Send(message);
 
 ### ServiceBusTrigger가 작동하는 유형
 
@@ -159,4 +166,4 @@ POCO 유형 매개 변수의 경우 함수가 종료되면 큐 메시지가 항�
 이 가이드에서는 Azure 서비스 버스 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure WebJob 및 WebJob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

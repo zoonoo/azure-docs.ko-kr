@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Blob 저장소 및 Visual Studio 연결된 서비스 시작" 
-	description="Visual Studio의 클라우드 서비스 프로젝트에서 Azure Blob 저장소를 사용하는 방법" 
-	services="storage" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+	pageTitle="Azure Blob 저장소 및 Visual Studio 연결된 서비스 시작"
+	description="Visual Studio의 클라우드 서비스 프로젝트에서 Azure Blob 저장소를 사용하는 방법"
+	services="storage"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="patshea123"/>
 
 # Azure Blob 저장소 및 Visual Studio 연결된 서비스 시작
@@ -262,10 +262,10 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 `Delete` 메서�
             continuationToken = resultSegment.ContinuationToken;
         }
         while (continuationToken != null);
-    }ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+    }
 
 ## 다음 단계
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
                 ms.tgt_pltfrm="na" 
                 ms.devlang="na" 
                 ms.topic="article" 
-                ms.date="07/14/2015" 
+                ms.date="08/10/2015" 
                 ms.author="markusvi"/>
 
 
@@ -46,6 +46,8 @@ Office365, Azure 또는 Dynamics CRM Online 고객인 경우 이미 Azure AD를 
 
 Azure AD의 다중 테넌트, 지리적으로 분산된 고가용성 디자인은 가장 중요한 비즈니스 요구에 의존할 수 있음을 의미합니다. 자동 장애 조치로 전세계 28개 데이터 센터를 실행 중이므로 Azure AD가 안전성이 뛰어나고, 데이터 센터의 작동이 중단되더라도 디렉터리 데이터 복사본이 두 개 이상의 지역에 있는 데이터 센터에 분산되어 있으며 즉시 액세스할 수 있다는 점을 미루어 볼 때 안전성을 신뢰할 수 있습니다.
 
+자세한 내용은 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/)을 참조하세요.
+
 
 
 ## Azure AD의 장점은 무엇입니까?
@@ -67,11 +69,11 @@ Azure AD의 다중 테넌트, 지리적으로 분산된 고가용성 디자인�
 
 ## 어떻게 시작하나요?
 -	IT 관리자인 경우:
- - [사용해 보기](https://azure.microsoft.com/ko-kr/pricing/free-trial/) - 지금 무료 30일 평가판에 등록하면 이 링크를 사용하여 5분 내에 첫 번째 클라우드 솔루션을 배포할 수 있습니다.
+ - [사용해 보기](https://azure.microsoft.com/trial/get-started-active-directory/) - 지금 무료 30일 평가판에 등록하면 이 링크를 사용하여 5분 내에 첫 번째 클라우드 솔루션을 배포할 수 있습니다.
  - Azure AD 테넌트 시작 및 빠른 실행에 대한 팁과 요령에 대해서는 "Azure AD 시작"을 읽어 보세요.
 -	개발자인 경우:
- - Azure Active Directory<need link>에 대한 [개발자 가이드](https://msdn.microsoft.com/library/azure/ff800682.aspx)를 확인하세요.
- - [평가판 시작](https://azure.microsoft.com/ko-kr/pricing/free-trial/) – 지금 무료 30일 평가판을 등록하고 Azure AD와 앱 통합을 시작하세요. 
+ - Azure Active Directory <need link>에 대한 [개발자 가이드](https://msdn.microsoft.com/library/azure/ff800682.aspx)를 확인하세요.
+ - [평가판 시작](https://azure.microsoft.com/trial/get-started-active-directory/) – 지금 무료 30일 평가판을 등록하고 Azure AD와 앱 통합을 시작하세요. 
 
 
 
@@ -81,15 +83,25 @@ Azure AD에 대한 자세한 내용을 알아볼 수 있도록 수많은 리소�
 
 
 - [Azure AD Connect를 사용하여 하이브리드 관리에 디렉터리 사용](active-directory-aadconnect.md)
-- [연결된 적이 있는 세계에 대한 추가 보안](multi-factor-authentication.md)
-- [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](active-directory-saas-app-provisioning.md)
-- [암호 관리 배포 및 사용자 교육](active-directory-passwords-best-practices.md)
-- [모든 클라우드에서 수많은 SaaS 응용 프로그램에 대한 Single Sign-On 및 액세스 관리](https://msdn.microsoft.com/library/azure/dn308590.aspx) 
-- [온-프레미스 응용 프로그램에 대한 원격 액세스 보호](https://msdn.microsoft.com/library/azure/dn768219.aspx)
-- [셀프서비스 액세스 관리](https://msdn.microsoft.com/library/azure/dn641267.aspx) 
-- [클라우드 앱 검색](https://msdn.microsoft.com/library/azure/mt143581.aspx)
-- [장치 상태, 사용자 위치 및 ID에 따라 액세스 제어](https://msdn.microsoft.com/library/azure/dn906873.aspx)
-- [클라우드를 활용하여 온-프레미스 ID 시스템 향상 및 모니터링](https://msdn.microsoft.com/library/azure/dn906722.aspx)
-- [개발자를 위한 다양한 표준 기반 플랫폼](https://msdn.microsoft.com/library/azure/ff800682.aspx)
 
-<!---HONumber=August15_HO6-->
+- [연결된 적이 있는 세계에 대한 추가 보안](multi-factor-authentication.md)
+
+- [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](active-directory-saas-app-provisioning.md)
+
+- [Azure AD Reporting 시작](active-directory-reporting-getting-started.md)
+
+- [어디에서나 암호 관리](articles/active-directory-passwords.md)
+
+- [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
+
+- [Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](active-directory-saas-app-provisioning.md)
+
+- [온-프레미스 응용 프로그램에 보안된 원격 액세스를 제공하는 방법](active-directory-application-proxy-get-started.md)
+
+- [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](active-directory-manage-groups.md)
+
+- [Microsoft Azure Active Directory 라이선스란?](active-directory-licensing-what-is.md)
+
+- [조직 내에서 사용되고 있는 허용되지 않은 클라우드 앱을 검색하는 방법](active-directory-cloudappdiscovery-whatis.md)
+
+<!---HONumber=August15_HO7-->

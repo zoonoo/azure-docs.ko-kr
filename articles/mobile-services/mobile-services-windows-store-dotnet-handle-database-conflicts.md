@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="낙관적 동시성을 사용하여 데이터베이스 쓰기 충돌 처리(Windows 스토어) | 모바일 개발자 센터" 
+	pageTitle="낙관적 동시성을 사용하여 데이터베이스 쓰기 충돌 처리(Windows 스토어) | Microsoft Azure" 
 	description="서버와 Windows 스토어 응용 프로그램 둘 다에서 데이터베이스 쓰기 충돌을 처리하는 방법을 알아봅니다." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -367,4 +367,4 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 [시스템 속성]: http://go.microsoft.com/fwlink/?LinkId=331143
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

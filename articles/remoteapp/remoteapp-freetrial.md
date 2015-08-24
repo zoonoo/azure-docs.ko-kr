@@ -3,7 +3,7 @@
     pageTitle="Azure RemoteApp 30일 무료 평가판"
     description="Azure RemoteApp 30일 무료 평가판을 확인해보세요."
     services="remoteapp"
-	documentationCenter=""
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/23/2015"
+    ms.date="08/12/2015"
     ms.author="elizapo" />
 
 
 
-# RemoteApp의 무료 30일 평가판
+# Azure RemoteApp 30일 무료 평가판
 
 Azure를 구독하는 경우 [30일 동안 무료로 Azure RemoteApp](https://www.remoteapp.windowsazure.com/en/tour.aspx)을 사용해 볼 수 있습니다. 사용을 시작하려면 Azure 관리 포털에 로그인하여 Azure RemoteApp 노드로 이동한 다음 컬렉션을 만들기만 하면 됩니다. Azure RemoteApp의 유료 구독으로 변환하기 전에 전체적으로 관리해 볼 수 있는 좋은 테스트 방법입니다.
 
@@ -30,4 +30,4 @@ Azure를 구독하는 경우 [30일 동안 무료로 Azure RemoteApp](https://ww
 
 피드백이 있나요? [토론 포럼](http://feedback.azure.com/forums/247748-azure-remoteapp)에 질문을 게시하세요. [Azure 지원 계획](http://azure.microsoft.com/support/plans/)이 있는 경우 지원 사례를 제출할 수 있습니다. 누구나 [피드백 포럼](http://feedback.azure.com/forums/247748-azure-remoteapp)에 피드백을 제출할 수 있습니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

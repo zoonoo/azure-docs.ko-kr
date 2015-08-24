@@ -1,5 +1,5 @@
 <properties
-	pageTitle="가상 컴퓨터의 Tomcat - Azure 자습서"
+	pageTitle="가상 컴퓨터의 Tomcat | Microsoft Azure"
 	description="Windows 가상 컴퓨터를 만들고 Apache Tomcat 응용 프로그램 서버를 실행하도록 구성하는 방법에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter="java"
@@ -142,4 +142,4 @@ Java 응용 프로그램에 포함시킬만한 다른 서비스(예: Azure 저�
 [NewRuleName]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
 [NewRuleProfile]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="데이터 팩터리 - 데이터 팩터리 및 기계 학습을 사용하여 예측 파이프라인 만들기 | Azure" 
+	pageTitle="Data Factory - Data Factory 및 기계 학습을 사용하여 예측 파이프라인 만들기 | Microsoft Azure" 
 	description="Azure Data Factory 및 Azure 기계 학습을 사용하여 예측 파이프라인을 만드는 방법을 설명합니다." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -327,4 +327,4 @@ Azure 기계 학습 실험에서 판독기 모듈을 사용하는 경우 입력�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

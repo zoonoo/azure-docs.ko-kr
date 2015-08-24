@@ -1,6 +1,6 @@
 <properties
-   pageTitle="신뢰할 수 있는 행위자 분산 네트워크 및 그래프 디자인 패턴"
-   description="서비스 패브릭 신뢰할 수 있는 행위자를 사용하여 응용 프로그램을 분산 네트워크 및 그래프로 모델링하는 방법에 대한 패턴을 디자인합니다."
+   pageTitle="Azure 서비스 패브릭 행위자 분산 네트워크 및 그래프 디자인 패턴"
+   description="서비스 패브릭 행위자를 사용하여 응용 프로그램을 분산 네트워크 및 그래프로 모델링하는 방법에 대한 패턴을 디자인합니다."
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="08/11/2015"
    ms.author="claudioc"/>
 
 # 신뢰할 수 있는 행위자 디자인 패턴: 분산 네트워크 및 그래프
@@ -224,4 +224,4 @@ public Task PublishMessageAsync(long participantId, string message)
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-distributed-networks-and-graphs/distributedNetworks_arch2.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

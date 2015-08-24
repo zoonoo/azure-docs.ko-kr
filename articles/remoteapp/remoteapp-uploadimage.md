@@ -3,7 +3,7 @@
     pageTitle="Azure RemoteApp에 대한 사용자 지정 이미지 업로드"
     description="Azure RemoteApp에 대한 사용자 지정 이미지를 업로드하는 방법을 알아봅니다." 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="ericorman" 
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="ericor" />
 
 
@@ -35,7 +35,7 @@
 4.      이미지의 이름으로 친숙한 이름을 입력하고 저장소 계정 위치를 지정합니다. 위치는 RemoteApp 컬렉션과 동일한 위치 또는 컬렉션을 만들려는 위치인지 확인합니다. 
 5.      메시지가 표시되면 로컬 PC에 스크립트를 다운로드합니다.
 6.      텍스트 상자의 명령 매개 변수를 클립보드에 복사합니다.
-7.      관리자 권한 Windows PowerShell 창을 엽니다.  
+7.      관리자 권한 Windows PowerShell 창을 엽니다.
 8.      관리자 권한 Windows PowerShell 창에서 스크립트를 다운로드한 동일한 디렉터리로 이동합니다.
 9.      복사된 명령을 붙여놓고 **Enter**를 누릅니다.
 
@@ -52,4 +52,4 @@
 - 업로드 중 Vhd 파일이 잠기면, 파일을 복사하거나 새 위치로 이동하여 다시 업로드해봅니다. 업로드를 방지하는 일부 Windows 프로세스가 있을 수 있습니다.  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

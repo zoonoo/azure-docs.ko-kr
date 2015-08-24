@@ -1,21 +1,20 @@
 
-<properties 
-	pageTitle="그룹을 사용하여 SaaS 응용 프로그램에 대한 액세스 관리| Microsoft Azure" 
-	description="Azure AD Premium에서 그룹을 사용하여 Azure AD와 통합되는 SaaS 응용 프로그램에 대한 액세스 권한을 할당하는 방법에 대해 설명하는 항목입니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="femila" 
-	manager="swadhwa" 
-	editor=""
-	tags="azure-classic-portal"/>
+<properties
+	pageTitle="그룹을 사용하여 SaaS 응용 프로그램에 대한 액세스 관리| Microsoft Azure"
+	description="Azure AD Premium 또는 Basic에서 그룹을 사용하여 Azure AD와 통합되는 SaaS 응용 프로그램에 대한 액세스 권한을 할당하는 방법입니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="femila"
+	manager="swadhwa"
+	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
 	ms.devlang="na" identity
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.topic="article"
+	ms.date="08/10/2015"
 	ms.author="femila"/>
 
 
@@ -39,7 +38,7 @@ Azure AD Premium이 있는 경우 그룹을 사용하여 Azure AD와 통합되�
 4. 직접 또는 그룹의 멤버 자격을 통해 응용 프로그램에 할당된 사용자도 볼 수 있습니다. 이 작업을 수행하려면 **'그룹'에서 드롭다운 표시**를 **'모든 사용자**로 변경합니다. 목록은 디렉터리의 사용자와 각 사용자가 응용 프로그램에 할당되었는지 여부를 나타냅니다. 목록은 할당된 사용자가 응용 프로그램에 직접 할당되었는지(할당 형식이 '직접'으로 표시됨) 그룹 멤버 자격에 의해 할당되었는지(할당 형식이 '상속'으로 표시됨) 여부를 표시합니다.
 
 
-> [AZURE.NOTE]Azure AD Premium을 사용하도록 설정하면 사용자 및 그룹 탭만 표시됩니다.
+> [AZURE.NOTE]Azure AD Premium 또는 Azure AD Basic을 사용하도록 설정한 후에 사용자 및 그룹 탭이 표시됩니다.
 
 다음은 Azure Active Directory에 대한 추가 정보를 제공하는 몇 가지 항목입니다.
 
@@ -49,4 +48,4 @@ Azure AD Premium이 있는 경우 그룹을 사용하여 Azure AD와 통합되�
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

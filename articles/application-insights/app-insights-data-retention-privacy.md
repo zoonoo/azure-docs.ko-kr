@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.date="08/11/2015" 
 	ms.author="awills"/>
 
 # Application Insights 데이터 수집, 보존 및 저장소 
@@ -35,6 +35,12 @@ Application Insights는 미리 보기 상태의 Azure 서비스입니다. 미리
 #### 얼마나 많은 데이터를 캡처할 수 있나요? 
 
 **초당**: 현재 계측 키마다(즉, 응용 프로그램마다) 초당 최대 500개 데이터 요소입니다. 무료 [가격 책정 계층][pricing]의 경우, 100 dp/s로 제한됩니다.
+
+다음과 같이 따로 계산되는 3가지 버킷이 있습니다.
+
+* [TrackTrace 호출](app-insights-api-custom-events-metrics.md#track-trace) 및 [캡처한 로그](app-insights-asp-net-trace-logs.md)
+* [예외](app-insights-api-custom-events-metrics.md#track-exception)(하한 50/s)
+* 다른 모든 원격 분석(페이지 보기, 요청, 종속성, 메트릭, 사용자 지정 이벤트)
 
 **월별**: [계획 가격](http://azure.microsoft.com/pricing/details/application-insights/)에 따라 각 달력 월에서 5와 1500만 사이의 데이터 요소. 무료 [가격 책정 계층][pricing]을 제외하고, 제한에 도달한 경우 추가 용량을 구입할 수 있습니다.
 
@@ -236,4 +242,4 @@ SDK 진단 | 추적 메시지 또는 예외
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

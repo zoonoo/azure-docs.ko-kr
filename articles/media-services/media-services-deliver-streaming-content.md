@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -26,7 +26,9 @@
 
 ##개요
 
-적응 비트 전송률 MP4 집합은 주문형 스트리밍 로케이터를 만들고 스트리밍 URL을 작성하여 스트리밍할 수 있습니다. [자산 인코딩](media-services-encode-asset.md) 항목에서는 적응 비트 전송률 MP4 집합으로 인코딩하는 방법을 보여줍니다. 콘텐츠가 암호화되어 있는 경우는 자산 배달 정책을 구성([이 항목](media-services-dotnet-configure-asset-delivery-policy.md)에서 설명)한 후 로케이터를 만듭니다.
+적응 비트 전송률 MP4 집합은 주문형 스트리밍 로케이터를 만들고 스트리밍 URL을 작성하여 스트리밍할 수 있습니다. [자산 인코딩](media-services-encode-asset.md) 항목에서는 적응 비트 전송률 MP4 집합으로 인코딩하는 방법을 보여줍니다.
+
+>[AZURE.NOTE]콘텐츠가 암호화되어 있는 경우는 자산 배달 정책을 구성([이 항목](media-services-dotnet-configure-asset-delivery-policy.md)에서 설명)한 후 로케이터를 만듭니다.
 
 주문형 스트리밍 로케이터는 점진적으로 다운로드할 수 있는 MP4 파일을 가리키는 URL을 작성하는 데 사용할 수도 있습니다.
 
@@ -94,6 +96,8 @@
 	http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 	
 
+>[AZURE.NOTE]SSL 연결을 통해 콘텐츠를 스트리밍할 수도 있습니다. 이렇게 하려면 스트리밍 URL이 HTTPS로 시작해야 합니다.
+
 점진적 다운로드 URL 작성
 
 	private static void BuildProgressiveDownloadURLs(IAsset asset)
@@ -157,4 +161,4 @@
 
 [자산 다운로드](media-services-deliver-asset-download.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

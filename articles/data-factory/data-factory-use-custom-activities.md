@@ -90,7 +90,10 @@ Azure Data Factory는 파이프라인에서 데이터를 이동 및 처리하는
 
             Table inputTable = tables.Single(table => table.Name == activity.Inputs.Single().Name);
             inputLocation = inputTable.Properties.TypeProperties as CustomDataset;
-            inputLinkedService = linkedServices.Single(linkedService => linkedService.Name == inputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
+
+			// using First method instead of Single since we are using the same 
+			// Azure Storage linked service for input and output. 
+            inputLinkedService = linkedServices.First(linkedService => linkedService.Name == inputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
 
 
             string output = string.Empty;
@@ -158,7 +161,7 @@ Azure Data Factory는 파이프라인에서 데이터를 이동 및 처리하는
 
             Table outputTable = tables.Single(table => table.Name == activity.Outputs.Single().Name);
             outputLocation = outputTable.Properties.TypeProperties as AzureBlobDataset;
-            outputLinkedService = linkedServices.Single(linkedService => linkedService.Name == outputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
+            outputLinkedService = linkedServices.First(linkedService => linkedService.Name == outputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
 
             connectionString = GetConnectionString(outputLinkedService);
             folderPath = GetFolderPath(outputTable);
@@ -209,7 +212,7 @@ Azure Data Factory는 파이프라인에서 데이터를 이동 및 처리하는
 
 10. 프로젝트를 컴파일합니다. 메뉴에서 **빌드**를 클릭하고 **솔루션 빌드**를 클릭합니다.
 11. **Windows 탐색기**를 시작하고 빌드 유형에 따라 **bin\\debug** 또는 **bin\\release** 폴더로 이동합니다.
-12. <project folder>\\bin\\Debug 폴더의 이진을 모두 포함하는 zip 파일 **MyDotNetActivity.zip**을 만듭니다.
+12. <project folder>\\bin\\Debug 폴더의 이진을 모두 포함하는 zip 파일 **MyDotNetActivity.zip**을 만듭니다. 오류가 발생할 경우 문제를 발생시킨 소스 코드의 줄 번호 같은 추가 정보를 받을 수 있도록 MyDotNetActivity.pdb 파일을 포함할 수 있습니다. 
 13. **ADFTutorialDataFactory**의 연결된 서비스 **StorageLinkedService**가 사용하는 Azure Blob 저장소의 Blob 컨테이너 **customactvitycontainer**에 Blob으로 **MyDotNetActivity.zip**을 업로드합니다. Blob 컨테이너 **customactivitycontainer**가 아직 없는 경우 새로 만듭니다. 
 
 
@@ -361,11 +364,12 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 
 	(Blob 위치), (Blob의 이름), (Blob의 줄 수), (작업이 실행된 노드), (날짜 시간 스탬프)
 
-10.	[Azure 포털][azure-preview-portal] 또는 Azure PowerShell cmdlet을 사용하여 데이터 팩터리, 파이프라인 및 데이터 집합을 모니터링합니다. 포털을 통해서나 cmdlet을 사용하여 다운로드할 수 있는 로그에 있는 사용자 지정 작업의 코드에서 **ActivityLogger**의 메시지를 확인할 수 있습니다.
+10.	[Azure 포털][azure-preview-portal] 또는 Azure PowerShell cmdlet을 사용하여 데이터 팩터리, 파이프라인 및 데이터 집합을 모니터링합니다. 포털을 통해서나 cmdlet을 사용하여 다운로드할 수 있는 로그(특히 user-0.log)에 있는 사용자 지정 활동의 코드에서 **ActivityLogger**의 메시지를 확인할 수 있습니다.
 
 	![사용자 지정 작업의 로그 다운로드][image-data-factory-download-logs-from-custom-activity]
+	
    
-데이터 집합 및 파이프라인을 모니터링하는 자세한 단계는 [Azure 데이터 팩터리 시작][adfgetstarted]을 참조하세요.
+데이터 집합 및 파이프라인 모니터링에 대한 자세한 단계는 [파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md)를 참조하세요.
 
 ## 사용자 지정 작업 업데이트
 사용자 지정 작업의 코드를 업데이트하는 경우 코드를 작성하고 새 이진이 포함된 zip 파일을 Blob 저장소로 업로드합니다.
@@ -463,4 +467,4 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

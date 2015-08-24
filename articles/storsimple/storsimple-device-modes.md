@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="StorSimple 장치에서 장치 모드 변경"
+   pageTitle="StorSimple 장치에서 장치 모드 변경 | Microsoft Azure"
    description="다양한 StorSimple 장치 모드 및 장치 모드를 변경하는 방법에 대해 알아보세요."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/30/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # StorSimple 장치 모드
@@ -56,7 +56,7 @@ StorSimple용 Windows PowerShell을 통해서만 시스템을 유지 관리 모�
 
 장치 모드를 파악하려면 다음 단계를 수행하십시오.
 
-1. [장치 직렬 콘솔 연결에 PuTTY 사용](https://msdn.microsoft.com/library/azure/dn757808.aspx) 단계를 수행하여 장치 직렬 콘솔에 로그온합니다.
+1. [장치 직렬 콘솔 연결에 PuTTY 사용](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console) 단계를 수행하여 장치 직렬 콘솔에 로그온합니다.
 2. 장치의 직렬 콘솔 메뉴에 있는 배너 메시지를 살펴봅니다. 이 메시지는 장치가 유지 관리 또는 복구 모드에 있는지를 명시적으로 나타냅니다. 메시지에 시스템 모드에 대한 특정 정보가 없는 경우 장치가 표준 모드에 있습니다.
 
 ## StorSimple 장치 모드 변경 
@@ -67,17 +67,17 @@ StorSimple 장치를 유지 관리 모드(표준 모드에서)에 배치하여 �
 
 #### 유지 관리 모드로 전환하려면
 
-1. [PuTTY를 사용하여 장치 직렬 콘솔에 연결](https://msdn.microsoft.com/library/azure/dn757808.aspx) 단계를 수행하여 장치 직렬 콘솔에 로그온합니다.
+1. [장치 직렬 콘솔 연결에 PuTTY 사용](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console) 단계를 수행하여 장치 직렬 콘솔에 로그온합니다.
 
-1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다. 메시지가 표시되면 **장치 관리자 암호**를 제공합니다. 기본 암호는 `Password1`입니다.
+2. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다. 메시지가 표시되면 **장치 관리자 암호**를 제공합니다. 기본 암호는 `Password1`입니다.
 
-1. 명령 프롬프트에 다음을 입력합니다.
+3. 명령 프롬프트에 다음을 입력합니다.
 
 	`Enter-HcsMaintenanceMode`
 
-1. 유지 관리 모드에서는 모든 I/O 요청이 중단되며 관리 포털에 대한 연결이 끊어짐을 알리는 경고 메시지와 확인 요청 메시지가 표시됩니다. **Y**를 입력하여 유지 관리 모드로 전환합니다.
+4. 유지 관리 모드에서는 모든 I/O 요청이 중단되며 관리 포털에 대한 연결이 끊어짐을 알리는 경고 메시지와 확인 요청 메시지가 표시됩니다. **Y**를 입력하여 유지 관리 모드로 전환합니다.
 
-1. 두 컨트롤러가 모두 다시 시작됩니다. 다시 시작이 완료되면 장치가 유지 관리 모드임을 나타내는 다른 메시지가 표시됩니다.
+5. 두 컨트롤러가 모두 다시 시작됩니다. 다시 시작이 완료되면 장치가 유지 관리 모드임을 나타내는 다른 메시지가 표시됩니다.
 
 
 #### 유지 관리 모드를 종료하려면
@@ -88,13 +88,13 @@ StorSimple 장치를 유지 관리 모드(표준 모드에서)에 배치하여 �
 
 	`Exit-HcsMaintenanceMode`
 
-1. 경고 메시지와 확인 메시지가 표시됩니다. **Y**를 입력하여 유지 관리 모드를 종료합니다.
+3. 경고 메시지와 확인 메시지가 표시됩니다. **Y**를 입력하여 유지 관리 모드를 종료합니다.
 
-1. 두 컨트롤러가 모두 다시 시작됩니다. 다시 시작이 완료되면 장치가 표준 모드임을 나타내는 다른 메시지가 표시됩니다.
+4. 두 컨트롤러가 모두 다시 시작됩니다. 다시 시작이 완료되면 장치가 표준 모드임을 나타내는 다른 메시지가 표시됩니다.
 
 
 ## 다음 단계
 
 StorSimple 장치에서 [표준 및 유지 관리 모드 업데이트를 적용](storsimple-update-device.md)하는 방법을 알아봅니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

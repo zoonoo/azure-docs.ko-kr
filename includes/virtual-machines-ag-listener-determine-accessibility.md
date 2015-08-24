@@ -1,10 +1,12 @@
-It is important to realize that there are two ways to configure an Availability Group listener in Azure. These methods differ in the type of Azure load balancer you use when you create the listener. The following table describes the differences:
+Azure에서 가용성 그룹 수신기를 구성하려면 두 가지 방법을 실현하는 것이 중요합니다. 이러한 방법에서는 수신기를 만들 때 사용하는 Azure 부하 분산 장치 형식이 다릅니다. 다음 표에 차이점이 나와 있습니다.
 
-| Load Balancer | Implementation | Use When: |
+| 부하 분산 장치 | 구현 | 사용 시기: |
 | ------------- | -------------- | ----------- |
-| **External** | Uses the **public Virtual IP address** of the cloud service that hosts the Virtual Machines. | You need to access the listener from outside the virtual network, including from the internet. |
-| **Internal** | Uses **Internal Load Balancing (ILB)** with a private address for the listener. | You only access the listener from within the same virtual network. This includes site-to-site VPN in hybrid scenarios. |
+| **외부** | 가상 컴퓨터를 호스트하는 클라우드 서비스의 **공용 가상 IP 주소**를 사용합니다. | 인터넷을 포함하여 가상 네트워크의 외부에서 수신기에 액세스해야 합니다. |
+| **내부** | 이 수신기에 대한 개인 주소와 함께 **ILB(내부 부하 분산)**를 사용합니다. | 동일한 가상 네트워크 내에서만 수신기에 액세스합니다. 하이브리드 시나리오의 사이트 간 VPN을 포함합니다. |
 
->[AZURE.IMPORTANT] For a listener using the cloud service's public VIP (external load balancer), any data returned through the listener is considered egress and charged at normal data transfer rates in Azure. This is true even if the client is located in the same virtual network and datacenter as the listener and databases. This is not the case with a listener using ILB.
+>[AZURE.IMPORTANT]클라우드 서비스의 공용 VIP(외부 부하 분산 장치)를 사용하는 수신기의 경우 수신기를 통해 반환되는 모든 데이터는 발신용으로 간주되고 Azure의 일반 데이터 전송 요금이 부과됩니다. 클라이언트가 수신기 및 데이터베이스와 동일한 가상 네트워크 및 데이터 센터에 있는 경우에도 마찬가지입니다. ILB를 사용하는 수신기의 경우에는 적용되지 않습니다.
 
-ILB can only be configured on virtual networks with a regional scope. Existing virtual networks that have been configured for an affinity group cannot use ILB. For more information, see [Internal Load Balancer](../articles/load-balancer/load-balancer-internal-overview.md).
+ILB는 지역 범위의 가상 네트워크에만 구성할 수 있습니다. 선호도 그룹에 대해 구성된 기존 가상 네트워크는 ILB를 사용할 수 없습니다. 자세한 내용은 [내부 부하 분산 장치](../articles/load-balancer/load-balancer-internal-overview.md)를 참조하세요.
+
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="리소스 관리자를 사용하여 HDInsight에서 Apache Spark 클러스터에 리소스 할당 | Azure" 
+	pageTitle="리소스 관리자를 사용하여 HDInsight에서 Apache Spark 클러스터에 리소스 할당 | Microsoft Azure" 
 	description="성능 향상을 위해 HDInsight에서 Spark 클러스터에 리소스 관리자를 사용하는 방법을 알아봅니다." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -79,4 +79,4 @@ Thrift 서버 코어 개수 및 Thrift 서버 실행자 메모리를 0으로 지
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -202,7 +202,7 @@ ARM 템플릿을 사용하여 클래식 VNet에 대한 로컬 네트워크 및 �
 
 	>[AZURE.NOTE]이 작업에는 몇 분 정도 걸릴 수 있습니다.
 
-7. 필요한 경우 브라우저에서 https://ms.portal.azure.com/로 이동하여 자격 증명을 입력합니다.
+7. 필요한 경우 브라우저에서 https://portal.azure.com/으로 이동하여 자격 증명을 입력합니다.
 8. 다음과 같이 Azure 포털에서 **RG1** 리소스 그룹 타일을 클릭합니다.
 
 	![VNet 대시보드](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure06.png)
@@ -317,7 +317,7 @@ ARM VNet(vnet02)에 대해 만든 게이트웨이의 IP 주소를 사용하도�
 
 	![VNet 대시보드](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure11.png)
 
-5. 클래식 포털에서 클래식 VNet 및 해당 연결을 관리할 수 있지만 새 Azure 포털을 사용하는 것이 좋습니다. 새 포털을 열려면 https://ms.portal.azure.com으로 이동합니다.
+5. 클래식 포털에서 클래식 VNet 및 해당 연결을 관리할 수 있지만 새 Azure 포털을 사용하는 것이 좋습니다. 새 포털을 열려면 https://portal.azure.com으로 이동합니다.
 6. 새 포털에서 **모두 찾아보기**를 클릭한 다음 **가상 네트워크(클래식)**, **vnet01**을 차례로 클릭합니다. 아래와 같이 **VPN 연결** 창이 표시됩니다.
 
 	![VNet 대시보드](..\virtual-network\media\virtual-networks-arm-asm-s2s\figure12.png)
@@ -363,4 +363,4 @@ ARM VNet(vnet02)에 대해 만든 게이트웨이의 IP 주소를 사용하도�
 - [ARM에 대한 NRP(네트워크 리소스 공급자)](../resource-groups-networking.md)에 대해 자세히 알아봅니다.
 - [클래식 VNet과 ARM VNet 간의 S2S VPN 연결을 만드는](../virtual-networks-arm-asm-s2s-howto.md) 방법에 대한 일반적인 지침을 살펴봅니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

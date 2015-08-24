@@ -409,22 +409,7 @@
 
 데이터 팩터리 cmdlet에 대한 포괄적인 설명서는 [데이터 팩터리 Cmdlet 참조][cmdlet-reference](영문)를 참조하세요.
 
-## 다음 단계
 
-문서 | 설명
------- | ---------------
-[Azure 데이터 팩터리를 사용하여 데이터 복사 - 복사 작업][copy-activity] | 이 문서에서는 이 자습서에서 사용한 **복사 작업**에 대해 자세히 설명합니다. 
-[파이프라인에서 온-프레미스 데이터를 사용할 수 있도록 설정][use-onpremises-datasources] | 이 문서의 연습에서는 **온-프레미스 SQL Server 데이터베이스**에서 Azure Blob으로 데이터를 복사하는 방법을 보여 줍니다. 
-[데이터 팩터리에서 Pig 및 Hive 사용][use-pig-and-hive-with-data-factory] | 이 문서의 연습에서는 **HDInsight 작업**을 사용하여 **hive/pig** 스크립트로 입력 데이터를 처리하고 출력 데이터를 생성하는 방법을 보여 줍니다.
-[자습서: 데이터 팩터리를 사용하여 로그 파일 이동 및 처리][adf-tutorial] | 이 문서에서는 Azure 데이터 팩터리를 사용하는 **실제 시나리오**를 구현하여 로그 파일의 데이터에서 통찰력을 얻는 방법을 보여 주는 **완전한 연습**을 제공합니다.
-[데이터 팩터리에서 사용자 지정 작업 사용][use-custom-activities] | 이 문서에서는 **사용자 지정 작업**을 만들어 파이프라인에서 사용하는 방법에 대한 단계별 지침이 포함된 연습을 제공합니다. 
-[데이터 팩터리 문제 해결][troubleshoot] | 이 문서에서는 Azure 데이터 팩터리 **문제를 해결**하는 방법을 설명합니다. Azure SQL 데이터베이스의 테이블을 삭제하는 등 오류를 유발하여 이 문서의 연습을 ADFTutorialDataFactory에 대해 사용해 볼 수 있습니다. 
-[Azure 데이터 팩터리 Cmdlet 참조][cmdlet-reference] | 이 참조 콘텐츠에는 모든 **데이터 팩터리 cmdlet**에 대한 내용이 자세히 나와 있습니다.
-[Azure 데이터 팩터리 개발자 참조][developer-reference] | 개발자 참조에는 cmdlet, JSON 스크립트, 함수 등에 대한 포괄적인 참조 콘텐츠가 포함되어 있습니다. 
-
-[copy-activity]: data-factory-copy-activity.md
-[use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[use-pig-and-hive-with-data-factory]: data-factory-pig-hive-activities.md
 [adf-tutorial]: data-factory-tutorial.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
@@ -444,4 +429,4 @@
 [sql-management-studio]: ../sql-database-manage-azure-ssms.md#Step2
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

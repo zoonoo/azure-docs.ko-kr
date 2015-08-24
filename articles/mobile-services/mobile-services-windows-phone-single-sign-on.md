@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Live Connect로 앱 인증(Windows Phone) | 모바일 개발자 센터" 
+	pageTitle="Live Connect로 앱 인증(Windows Phone) | Microsoft Azure" 
 	description="Windows Phone 응용 프로그램에서 Azure 모바일 서비스의 Live Connect Single Sign-On을 사용하는 방법을 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -142,4 +142,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -3,7 +3,7 @@
 	description="Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 절차"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kpiteira" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 #Android에서 Engagement 도달률을 통합하는 방법
 
@@ -647,4 +647,4 @@ Reach SDK에서 제공하는 `Engagement*Activity` 클래스 중 하나를 확�
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

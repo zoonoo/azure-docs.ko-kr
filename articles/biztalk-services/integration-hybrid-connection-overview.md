@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="하이브리드 연결 개요 | Azure" 
+	pageTitle="하이브리드 연결 개요 | Microsoft Azure" 
 	description="보안, TCP 포트 및 지원되는 구성 등을 포함한 하이브리드 연결에 대해 알아봅니다. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -103,4 +103,4 @@
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

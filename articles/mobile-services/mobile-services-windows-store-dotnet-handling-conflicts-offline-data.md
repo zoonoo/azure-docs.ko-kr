@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="범용 Windows 앱에서 오프라인 데이터를 사용하여 충돌 처리 | Azure 모바일 서비스" 
+	pageTitle="범용 Windows 앱에서 오프라인 데이터를 사용하여 충돌 처리 | Microsoft Azure" 
 	description="범용 Windows 응용 프로그램에서 오프라인 데이터를 동기화할 때 Azure 모바일 서비스를 사용하여 충돌을 처리하는 방법에 대해 알아봅니다." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -164,4 +164,4 @@
 [Todo 오프라인 모바일 서비스 샘플]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

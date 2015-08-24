@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Xamarin iOS 앱용 모바일 서비스에서 인증 시작 - Azure 모바일 서비스" 
+	pageTitle="Xamarin iOS 앱용 모바일 서비스에서 인증 시작 | Microsoft Azure" 
 	description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Xamarin iOS 앱 사용자를 인증하는 방법을 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="xamarin" 
@@ -136,4 +136,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

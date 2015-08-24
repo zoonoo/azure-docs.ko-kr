@@ -1,5 +1,5 @@
 <properties
-	pageTitle="클라우드 서비스를 만들고 배포하는 방법 - Azure"
+	pageTitle="클라우드 서비스를 만들고 배포하는 방법 | Microsoft Azure"
 	description="Azure에서 빨리 만들기 방법을 사용하여 클라우드 서비스를 만들고 배포하는 방법에 대해 알아봅니다."
 	services="cloud-services"
 	documentationCenter=""
@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article"
+	ms.topic="article"
 	ms.date="06/30/2015"
 	ms.author="adegeo"/>
 
@@ -108,4 +108,4 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="범용 Windows 앱에서 오프라인 데이터 사용 | Azure 모바일 서비스" 
+	pageTitle="범용 Windows 앱에서 오프라인 데이터 사용 | Microsoft Azure" 
 	description="Azure 모바일 서비스를 사용하여 범용 Windows 앱에서 오프라인 데이터를 캐시 및 동기화하는 방법에 대해 알아봅니다." 
 	documentationCenter="mobile-services" 
 	authors="lindydonna" 
@@ -284,4 +284,4 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

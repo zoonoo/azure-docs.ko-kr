@@ -229,6 +229,7 @@ Azure AD Connect의 초기 설치 후, Azure AD Connect 시작 페이지 또는 
 ### 추가 설명서
 Azure AD Connect 작업에 대한 추가 설명서는 다음을 참조하세요.
 
+- [Azure AD Connect Sync: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md) 
 - [Azure AD Connect 기본 구성 변경](active-directory-aadconnect-whats-next-change-default-config.md)
 - [Azure AD Connect 동기화 규칙 편집기 사용](active-directory-aadconnect-whats-next-synch-rules-editor.md)
 - [선언적 프로비저닝 사용](active-directory-aadconnect-whats-next-declarative-prov.md)
@@ -257,4 +258,4 @@ Azure AD Sync용으로 만들어진 설명서 중 일부는 Azure AD Connect에�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

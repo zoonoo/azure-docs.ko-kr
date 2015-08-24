@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure 게스트 OS에 적용된 업데이트 목록 | Azure" 
+   pageTitle="Azure 게스트 OS에 적용된 업데이트 목록 | Microsoft Azure" 
    description="게스트 OS 릴리스에 적용된 업데이트 목록" 
    services="cloud-services" 
    documentationCenter="na" 
@@ -239,4 +239,4 @@
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

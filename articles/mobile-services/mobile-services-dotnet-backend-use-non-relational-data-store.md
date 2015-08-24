@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="비관계형 데이터 저장소를 사용하여 서비스 빌드 | Azure 모바일 서비스" 
+	pageTitle="비관계형 데이터 저장소를 사용하여 서비스 빌드 | Microsoft Azure" 
 	description=".NET 기반 모바일 서비스에서 MongoDB 나 Azure 테이블 저장소와 같은 비관계형 데이터 저장소를 사용하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.date="08/08/2015" 
 	ms.author="mahender"/>
 
 # 저장소로 SQL 데이터베이스 대신 MongoDB를 사용하는 .NET 백 엔드 모바일 서비스 빌드
@@ -121,4 +121,4 @@
 [MongoLab 추가 기능 페이지]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

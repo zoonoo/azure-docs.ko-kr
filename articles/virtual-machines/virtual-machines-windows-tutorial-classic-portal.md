@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Azure에서 Windows를 실행하는 가상 컴퓨터 만들기"
-	description="Azure 포털에서 Windows 가상 컴퓨터(VM) 만들기"
+	description="Azure 포털에서 Windows 가상 컴퓨터만들기"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="KBDAzure"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/05/2015"
+	ms.date="08/11/2015"
 	ms.author="kathydav"/>
 
 # Azure 포털에서 Windows를 실행하는 가상 컴퓨터 만들기
@@ -41,7 +42,7 @@
 
 이 섹션에서는 Azure 포털의 **갤러리에서** 옵션을 사용하여 가상 컴퓨터를 만드는 방법을 보여 줍니다. 이 옵션은 **빠른 생성** 옵션보다 많은 구성 선택 항목을 제공합니다. 예를 들어 가상 컴퓨터를 가상 네트워크에 가입하려는 경우 **갤러리에서** 옵션을 사용해야 합니다.
 
-> [AZURE.NOTE]또한 보다 다양하며 사용자 지정 가능한 [Azure 미리 보기 포털](https://portal.azure.com)에서 가상 컴퓨터를 만들고, 다중 VM 응용 프로그램 템플릿의 배포를 자동화하고, 고급 VM 모니터링 및 진단 기능을 사용해 볼 수 있습니다. 두 포털에서 사용 가능한 VM 구성 옵션은 상당히 중복되지만 동일하지는 않습니다.
+> [AZURE.NOTE]또한 보다 다양하며 사용자 지정 가능한 [Azure 미리 보기 포털](https://portal.azure.com)에서 가상 컴퓨터를 만들고, 향상된 모니터링 및 진단과 프리미언 저장소 등을 사용해 볼 수 있습니다. 두 포털에서의 가상 컴퓨터 구성에 사용 가능한 옵션은 상당 부분 중복되지만 동일하지는 않습니다. 예를 들어, 미리 보기 포털을 사용하여 프리미엄 저장소를 적용한 가상 컴퓨터를 구성합니다.
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
 
@@ -53,6 +54,6 @@
 
 ## 추가 리소스
 
-VM에 대해 구성할 수 있는 항목 및 이를 수행할 수 있는 경우에 대한 자세한 내용은 [Azure VM 구성 설정 정보](http://msdn.microsoft.com/library/azure/dn763935.aspx)를 참조하세요.
+가상 컴퓨터에 대해 구성할 수 있는 항목 및 이를 수행할 수 있는 경우에 대한 자세한 내용은 [Azure VM 구성 설정 정보](http://msdn.microsoft.com/library/azure/dn763935.aspx)를 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

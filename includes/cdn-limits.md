@@ -1,7 +1,9 @@
 
-| Resource	| Soft limit 
+| 리소스 | 소프트 제한 
 --- | ---
-| CDN endpoints | 50
-| Custom domains per one customer| 16
+| CDN 끝점 | 50
+| 한 고객당 사용자 지정 도메인| 16
 
-You can request to update soft limits by opening a support ticket.
+지원 티켓을 열어 소프트 제한 업데이트를 요청할 수 있습니다.
+
+<!---HONumber=August15_HO7-->

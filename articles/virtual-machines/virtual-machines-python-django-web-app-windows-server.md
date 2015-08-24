@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Django를 사용하는 Python 웹 앱 - Azure 자습서"
+	pageTitle="Django를 사용하는 Python 웹 앱 | Microsoft Azure"
 	description="Azure에서 Windows Server 2012 R2 Datacenter 가상 컴퓨터를 사용하여 Django 기반 웹사이트를 호스트하는 방법을 설명하는 자습서입니다."
 	services="virtual-machines"
 	documentationCenter="python"
@@ -8,13 +8,13 @@
 	editor=""/>
 
 
-<tags
-	ms.service="virtual-machines"
-	ms.workload="web"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="python"
-	ms.topic="article"
-	ms.date="05/20/2015"
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="08/04/2015" 
 	ms.author="huvalo"/>
 
 
@@ -41,7 +41,7 @@
 
 ## Django를 호스트하기 위해 Azure 가상 컴퓨터 만들기 및 구성
 
-1. [여기][portal-vm]에 나와 있는 지침에 따라 Windows Server 2012 R2 Datacenter 배포판의 Azure 가상 컴퓨터를 만듭니다.
+1. [여기](virtual-machines-windows-tutorial-classic-portal.md)에 나와 있는 지침에 따라 Windows Server 2012 R2 Datacenter 배포판의 Azure 가상 컴퓨터를 만듭니다.
 
 1. 웹을 통해 들어오는 포트 80 트래픽을 가상 컴퓨터의 포트 80으로 보내도록 Azure에 지시합니다.
  - Azure 포털에서 새로 만든 가상 컴퓨터로 이동하고 **끝점** 탭을 클릭합니다.
@@ -52,101 +52,30 @@
 
 **중요:** 아래에 설명된 모든 지침에서는 가상 컴퓨터에 올바로 로그인했고 로컬 컴퓨터가 아니라 가상 컴퓨터에서 명령을 실행하는 것으로 가정합니다.
 
-## <a id="setup"> </a>Python 및 Django 설정
+## <a id="setup"></a>Python, Django, WFastCGI 설치
 
 **참고:** Internet Explorer를 사용하여 다운로드하려면 IE ESC 설정을 구성해야 할 수도 있습니다(시작/관리 도구/서버 관리자/로컬 서버에서 **IE 보안 강화 구성**을 클릭하고 끄기로 설정).
 
-1. [웹 플랫폼 설치 관리자][]를 설치합니다.
-1. 웹 플랫폼 설치 관리자를 사용하여 Python 및 WFastCGI를 설치합니다. 그러면 Python 스크립트 폴더에 wfastcgi.py가 설치됩니다.
-	1. 웹 플랫폼 설치 관리자를 시작합니다.
-	1. 검색 창에 WFastCGI를 입력합니다.
-	1. 사용하려는 Python 버전(2.7 또는 3.4)에 해당하는 WFactCGI 항목을 선택합니다. 그러면 WFastCGI의 종속성으로 Python이 설치됩니다.
-1. pip를 사용하여 Django를 설치합니다.
+1. [python.org][]에서 최신 Python 2.7 또는3.4를 설치합니다.
+1. pip를 사용하여 wfastcgi 및 django 패키지를 설치합니다.
 
     Python 2.7의 경우 다음 명령을 사용합니다.
 
+        c:\python27\scripts\pip install wfastcgi
         c:\python27\scripts\pip install django
 
     Python 3.4의 경우 다음 명령을 사용합니다.
 
+        c:\python34\scripts\pip install wfastcgi
         c:\python34\scripts\pip install django
 
-
-## FastCGI를 포함하여 IIS 설정
+## FastCGI를 포함하여 IIS 설치
 
 1. FastCGI 지원을 포함하여 IIS를 설치합니다. 이 설치를 실행하려면 몇 분 정도 걸릴 수 있습니다.
 
-		start /wait %windir%\System32\\PkgMgr.exe /iu:IIS-WebServerRole;IIS-WebServer;IIS-CommonHttpFeatures;IIS-StaticContent;IIS-DefaultDocument;IIS-DirectoryBrowsing;IIS-HttpErrors;IIS-HealthAndDiagnostics;IIS-HttpLogging;IIS-LoggingLibraries;IIS-RequestMonitor;IIS-Security;IIS-RequestFiltering;IIS-HttpCompressionStatic;IIS-WebServerManagementTools;IIS-ManagementConsole;WAS-WindowsActivationService;WAS-ProcessModel;WAS-NetFxEnvironment;WAS-ConfigurationAPI;IIS-CGI
-
-
-### Python 2.7
-
-아래 명령은 Python 2.7을 실행하는 경우에만 실행합니다.
-
-1. Python Fast CGI 처리기를 설정합니다.
-
-		%windir%\system32\inetsrv\appcmd set config /section:system.webServer/fastCGI "/+[fullPath='c:\Python27\python.exe', arguments='C:\Python27\Scripts\wfastcgi.py']"
-
-
-1. 이 사이트에 처리기를 등록합니다.
-
-		%windir%\system32\inetsrv\appcmd set config /section:system.webServer/handlers "/+[name='Python_via_FastCGI',path='*',verb='*',modules='FastCgiModule',scriptProcessor='c:\Python27\python.exe|C:\Python27\Scripts\wfastcgi.py',resourceType='Unspecified']"
-
-
-1. Django 응용 프로그램을 실행하도록 처리기를 구성합니다.
-
-		%windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='C:\Python27\python.exe', arguments='C:\Python27\Scripts\wfastcgi.py'].environmentVariables.[name='DJANGO_SETTINGS_MODULE',value='helloworld.settings']" /commit:apphost
-
-
-1. Python 인터프리터가 Django 앱을 찾을 수 있도록 PYTHONPATH를 구성합니다.
-
-		%windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='C:\Python27\python.exe', arguments='C:\Python27\Scripts\wfastcgi.py'].environmentVariables.[name='PYTHONPATH',value='C:\inetpub\wwwroot\helloworld']" /commit:apphost
-
-
-1. FastCGI가 WSGI 게이트웨이에게 어떤 WSGI 처리기를 사용할지 알려 줍니다.
-
-		%windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='C:\Python27\python.exe', arguments='C:\Python27\Scripts\wfastcgi.py'].environmentVariables.[name='WSGI_HANDLER',value='django.core.handlers.wsgi.WSGIHandler()']" /commit:apphost
-
-
-1. 다음 스크린샷이 표시되어야 합니다.
-
-	![IIS config1](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-iis-27.png)
-
-### Python 3.4
-
-아래 명령은 Python 3.4을 실행하는 경우에만 실행합니다.
-
-1. Python Fast CGI 처리기를 설정합니다.
-
-		%windir%\system32\inetsrv\appcmd set config /section:system.webServer/fastCGI "/+[fullPath='c:\Python34\python.exe', arguments='C:\Python34\Scripts\wfastcgi.py']"
-
-
-1. 이 사이트에 처리기를 등록합니다.
-
-		%windir%\system32\inetsrv\appcmd set config /section:system.webServer/handlers "/+[name='Python_via_FastCGI',path='*',verb='*',modules='FastCgiModule',scriptProcessor='c:\Python34\python.exe|C:\Python34\Scripts\wfastcgi.py',resourceType='Unspecified']"
-
-
-1. Django 응용 프로그램을 실행하도록 처리기를 구성합니다.
-
-		%windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='C:\Python34\python.exe', arguments='C:\Python34\Scripts\wfastcgi.py'].environmentVariables.[name='DJANGO_SETTINGS_MODULE',value='helloworld.settings']" /commit:apphost
-
-
-1. Python 인터프리터가 Django 앱을 찾을 수 있도록 PYTHONPATH를 구성합니다.
-
-		%windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='C:\Python34\python.exe', arguments='C:\Python34\Scripts\wfastcgi.py'].environmentVariables.[name='PYTHONPATH',value='C:\inetpub\wwwroot\helloworld']" /commit:apphost
-
-
-1. FastCGI가 WSGI 게이트웨이에게 어떤 WSGI 처리기를 사용할지 알려 줍니다.
-
-		%windir%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='C:\Python34\python.exe', arguments='C:\Python34\Scripts\wfastcgi.py'].environmentVariables.[name='WSGI_HANDLER',value='django.core.handlers.wsgi.WSGIHandler()']" /commit:apphost
-
-1. 다음 스크린샷이 표시되어야 합니다.
-
-	![IIS config1](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-iis-34.png)
-
+		start /wait %windir%\System32\PkgMgr.exe /iu:IIS-WebServerRole;IIS-WebServer;IIS-CommonHttpFeatures;IIS-StaticContent;IIS-DefaultDocument;IIS-DirectoryBrowsing;IIS-HttpErrors;IIS-HealthAndDiagnostics;IIS-HttpLogging;IIS-LoggingLibraries;IIS-RequestMonitor;IIS-Security;IIS-RequestFiltering;IIS-HttpCompressionStatic;IIS-WebServerManagementTools;IIS-ManagementConsole;WAS-WindowsActivationService;WAS-ProcessModel;WAS-NetFxEnvironment;WAS-ConfigurationAPI;IIS-CGI
 
 ## 새 Django 응용 프로그램 만들기
-
 
 1.  *C:\\inetpub\\wwwroot*에서 다음 명령을 입력하여 새 Django 프로젝트를 만듭니다.
 
@@ -166,8 +95,6 @@
   -   **helloworld\\helloworld\\settings.py**에는 응용 프로그램에 대한 Django 설정이 포함되어 있습니다.
   -   **helloworld\\helloworld\\urls.py**에는 각 url과 뷰 사이의 매핑 코드가 들어 있습니다.
 
-
-
 1.  **views.py**라는 새 파일을 *C:\\inetpub\\wwwroot\\helloworld\\helloworld* 디렉터리에 만듭니다. 이 파일에는 "hello world" 페이지를 렌더링하는 뷰가 포함되어 있습니다. 편집기를 시작하고 다음을 입력합니다.
 
 		from django.http import HttpResponse
@@ -182,9 +109,62 @@
 			url(r'^$', 'helloworld.views.home', name='home'),
 		)
 
+## IIS 구성
+
+1. 전역 applicationhost.config에 있는 처리기 섹션의 잠금을 해제합니다. 이렇게 하면 web.config 파일에 python 처리기를 사용합니다.
+
+        %windir%\system32\inetsrv\appcmd unlock config -section:system.webServer/handlers
+
+1. WFastCGI를 사용하도록 설정합니다. 이렇게 하면 Python 인터프리터 실행 파일과 wfastcgi.py 스크립트를 참조하는 전역 applicationhost.config에 응용 프로그램이 추가됩니다.
+
+    Python 2.7:
+
+        c:\python27\scripts\wfastcgi-enable
+
+    Python 3.4:
+
+        c:\python34\scripts\wfastcgi-enable
+
+1. *C:\\inetpub\\wwwroot\\helloworld*에 web.config 파일을 만듭니다. `scriptProcessor` 특성의 값은 이전 단계에서의 출력과 일치해야 합니다. [wfastcgi][] 설정에 대한 자세한 내용은 pypi의 wfastcgi 페이지를 참조하십시오.
+
+    Python 2.7:
+
+        <configuration>
+          <appSettings>
+            <add key="WSGI_HANDLER" value="django.core.handlers.wsgi.WSGIHandler()" />
+            <add key="PYTHONPATH" value="C:\inetpub\wwwroot\helloworld" />
+            <add key="DJANGO_SETTINGS_MODULE" value="helloworld.settings" />
+          </appSettings>
+          <system.webServer>
+            <handlers>
+                <add name="Python FastCGI" path="*" verb="*" modules="FastCgiModule" scriptProcessor="C:\Python27\python.exe|C:\Python27\Lib\site-packages\wfastcgi.pyc" resourceType="Unspecified" />
+            </handlers>
+          </system.webServer>
+        </configuration>
+
+    Python 3.4:
+
+        <configuration>
+          <appSettings>
+            <add key="WSGI_HANDLER" value="django.core.handlers.wsgi.WSGIHandler()" />
+            <add key="PYTHONPATH" value="C:\inetpub\wwwroot\helloworld" />
+            <add key="DJANGO_SETTINGS_MODULE" value="helloworld.settings" />
+          </appSettings>
+          <system.webServer>
+            <handlers>
+                <add name="Python FastCGI" path="*" verb="*" modules="FastCgiModule" scriptProcessor="C:\Python34\python.exe|C:\Python34\Lib\site-packages\wfastcgi.py" resourceType="Unspecified" />
+            </handlers>
+          </system.webServer>
+        </configuration>
+
+1. django 프로젝트 폴더를 가리키도록 IIS 기본 웹 사이트의 위치를 업데이트 합니다.
+
+        %windir%\system32\inetsrv\appcmd set vdir "Default Web Site/" -physicalPath:"C:\inetpub\wwwroot\helloworld"
+
 1. 끝으로, 브라우저에서 웹 페이지를 로드합니다.
 
 ![Azure의 hello world 페이지를 표시하는 브라우저 창][1]
+
 
 ## Azure 가상 컴퓨터 종료
 
@@ -194,8 +174,8 @@
 
 [port80]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-port80.png
 
-[portal-vm]: /manage/windows/tutorials/virtual-machine-from-gallery/
+[Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
+[python.org]: https://www.python.org/downloads/
+[wfastcgi]: https://pypi.python.org/pypi/wfastcgi
 
-[웹 플랫폼 설치 관리자]: http://www.microsoft.com/web/downloads/platform.aspx
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

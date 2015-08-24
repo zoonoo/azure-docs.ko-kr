@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="Application Insights를 시작합니다." 
-	description="Application Insights를 사용하여 온-프레미스 또는 Microsoft Azure 웹 응용 프로그램의 사용량, 가용성 및 성능을 분석합니다." 
-	services="application-insights" 
+<properties
+	pageTitle="Visual Studio Application Insights 시작하기 | Microsoft Azure"
+	description="Visual Studio Application Insights를 사용하여 온-프레미스 또는 Microsoft Azure 웹 응용 프로그램의 사용량, 가용성 및 성능을 분석합니다."
+	services="application-insights"
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="hero-article" 
-	ms.date="08/04/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.date="08/04/2015"
 	ms.author="awills"/>
 
 # Visual Studio Application Insights 시작하기
@@ -27,7 +27,7 @@
 
 ## 시작
 
-이 맵 왼쪽에서 순서에 상관없이 어떤 조합의 진입점으로든 시작할 수 있습니다. 사용자에게 적합한 경로를 따릅니다.
+다음 다이어그램에 표시되는 진입점에서 순서에 상관없이 어떤 조합으로도 시작할 수 있습니다. 사용자에게 적합한 경로를 따릅니다.
 
 Application Insights는 앱에 SDK를 추가하여 작동하며, [Azure 포털](http://portal.azure.com)에 원격 분석을 보냅니다. 지원되는 플랫폼, 언어, IDE의 다양한 조합에 대한 여러 SDK가 있습니다.
 
@@ -48,7 +48,7 @@ Application Insights는 앱에 SDK를 추가하여 작동하며, [Azure 포털](
 
 * 질문 및 문제:
  * [문제 해결][qna]
- * [MSDN 포럼](https://social.msdn.microsoft.com/Forums/vstudio/ko-kr/home?forum=ApplicationInsights)
+ * [MSDN 포럼](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * 버그:
  * [연결](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -72,6 +72,4 @@ Application Insights는 앱에 SDK를 추가하여 작동하며, [Azure 포털](
 
 [qna]: app-insights-troubleshoot-faq.md
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

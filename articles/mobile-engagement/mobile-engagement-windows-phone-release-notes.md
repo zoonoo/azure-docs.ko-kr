@@ -12,8 +12,8 @@
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
-	ms.topic="article"
-	ms.date="04/07/2015" 
+	ms.topic="article" 
+	ms.date="08/10/2015" 
 	ms.author="piyushjo" />
 
 #Windows Phone Silverlight SDK 릴리스 정보
@@ -31,4 +31,4 @@
 -   보안이 개선되었습니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

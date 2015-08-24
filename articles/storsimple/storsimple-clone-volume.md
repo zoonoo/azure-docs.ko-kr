@@ -1,5 +1,5 @@
 <properties
-   pageTitle="StorSimple 볼륨 복제"
+   pageTitle="StorSimple 볼륨 복제 | Microsoft Azure"
    description="다른 복제 유형 및 이를 사용하는 경우에 대해 설명하며, 백업 세트를 개별 볼륨 복제에 사용하는 방법에 대해 설명합니다."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="05/27/2015"
+   ms.date="08/11/2015"
    ms.author="alkohli" />
 
 # StorSimple 볼륨 복제
@@ -91,4 +91,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

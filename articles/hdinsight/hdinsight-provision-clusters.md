@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="07/22/2015"
+   ms.date="08/10/2015"
    ms.author="jgao"/>
 
 #HDInsight에서 Hadoop 클러스터 프로비전
@@ -220,7 +220,7 @@ HDInsight 클러스터 프로비전에 대한 계획을 세우는 방법에 대�
 
 > [AZURE.NOTE]HDInsight 클러스터를 프로비전하기 전에 Azure 가상 네트워크를 만들어야 합니다. 자세한 내용은 [가상 네트워크 구성 작업](http://msdn.microsoft.com/library/azure/jj156206.aspx)을 참조하세요.
 >
->[AZURE.NOTE]Azure HDInsight는 위치 기반 가상 네트워크만 지원하며 현재 선호도 그룹 기반 가상 네트워크와는 연동되지 않습니다. Azure PowerShell cmdlet Get-AzureVNetConfig를 사용하여 기존 Azure 가상 네트워크가 위치 기반인지 여부를 확인합니다. 가상 네트워크가 위치 기반이 아니면 다음과 같은 옵션을 사용할 수 있습니다.
+> [AZURE.NOTE]Azure HDInsight는 위치 기반 가상 네트워크만 지원하며 현재 선호도 그룹 기반 가상 네트워크와는 연동되지 않습니다. Azure PowerShell cmdlet Get-AzureVNetConfig를 사용하여 기존 Azure 가상 네트워크가 위치 기반인지 여부를 확인합니다. 가상 네트워크가 위치 기반이 아니면 다음과 같은 옵션을 사용할 수 있습니다.
 >
 > - 기존 가상 네트워크 구성을 내보낸 다음 새 가상 네트워크를 만듭니다. 모든 새 가상 네트워크는 기본적으로 위치 기반입니다.
 > - 위치 기반 가상 네트워크로 마이그레이션합니다. [지역 범위로 기존 서비스 마이그레이션](http://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)을 참조하세요.
@@ -529,7 +529,8 @@ NPM 또는 Windows Installer를 사용하여 Azure CLI를 설치할 수 있습�
 
 **Windows Installer를 사용하여 Azure CLI를 설치하려면**
 
-1.	**http://azure.microsoft.com/downloads/**로 이동합니다.2.	**명령줄 도구** 섹션으로 스크롤하여 **Azure 명령줄 인터페이스**를 클릭하고 웹 플랫폼 설치 관리자 마법사를 따릅니다.
+1.	****http://azure.microsoft.com/downloads/**로 이동합니다.
+2.	**명령줄 도구** 섹션으로 스크롤하여 **Azure 명령줄 인터페이스**를 클릭하고 웹 플랫폼 설치 관리자 마법사를 따릅니다.
 
 **게시 설정을 다운로드하거나 가져오려면**
 
@@ -781,4 +782,4 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5**를 눌러 응�
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

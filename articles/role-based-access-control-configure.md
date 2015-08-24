@@ -55,7 +55,7 @@ Azure 리소스에 대한 적절한 역할을 Azure AD 사용자와 서비스에
 
 구독 관리자와 공동 관리자는 Azure 포털 및 관리 API에 대한 모든 권한을 계속 가집니다. RBAC 모델에서는 구독 수준에서 소유자 역할이 할당됩니다. 하지만 새 RBAC 모델은 Azure 포털 및 Azure 리소스 관리자 API에서만 지원합니다. 따라서 RBAC 역할이 할당된 사용자와 서비스는 Azure 관리 포털 및 서비스 관리 API에 액세스할 수 없습니다. Azure 포털에서 구독의 소유자 역할에 사용자를 추가해도 해당 사용자가 전체 Azure 포털의 구독 공동 관리자로 지정되지 않습니다.
 
-아직 Azure 포털을 통해 관리할 수 없는 Azure 리소스에 대한 액세스 권한을 사용자에게 부여하려면 Azure 관리 포털을 사용하여 해당 사용자를 구독 공동 관리자로 추가해야 합니다. 현재 RBAC를 사용하여 관리할 수 없는 리소스의 예로는 Service Bus, 클라우드 서비스 등이 있습니다.
+아직 Azure 포털을 통해 관리할 수 없는 Azure 리소스에 대한 액세스 권한을 사용자에게 부여하려면 Azure 관리 포털을 사용하여 해당 사용자를 구독 공동 관리자로 추가해야 합니다. 현재 RBAC를 사용하여 관리할 수 없는 리소스의 예로는 서비스 버스 및 StorSimple이 있습니다.
 
 ## 관리를 위한 권한 부여와 데이터 작업 비교
 
@@ -1293,4 +1293,4 @@ Azure RBAC를 사용해 보고 [의견](http://aka.ms/azurerbacfeedback)을 보�
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

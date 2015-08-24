@@ -10,7 +10,7 @@
 	ms.service="application-insights" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
+	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="08/04/2015" 
 	ms.author="awills"/>
@@ -329,19 +329,6 @@ TrackMetric을 사용하여 특정 이벤트에 연결되지 않은 메트릭을
 
     appInsights.trackPageView("tab1", "http://fabrikam.com/page1.htm");
 
-#### 시간 제한 페이지 보기
-
-trackPageView 대신 이 메서드 쌍을 호출하여 사용자가 페이지에 머문 시간을 분석할 수 있습니다.
-
-    // At the start of a page view:
-    appInsights.startTrackPage(myPage.name);
-
-    // At the completion of a page view:
-    appInsights.stopTrackPage(myPage.name, "http://fabrikam.com/page", properties, measurements);
-
-호출 시작 및 중지에서 동일한 문자열을 첫 번째 매개 변수로 사용합니다.
-
-[메트릭 탐색기][metrics]에서 페이지 기간 메트릭을 살펴봅니다.
 
 
 ## 요청 추적
@@ -781,4 +768,4 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

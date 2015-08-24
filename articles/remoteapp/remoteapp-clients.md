@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/23/2015"
+    ms.date="08/12/2015"
     ms.author="elizapo" />
 
 
 
 # Azure RemoteApp에서 앱에 액세스
 
-Azure RemoteApp의 장점 중 하나는 자신에게 게시된 앱을 모든 장치에서 액세스할 수 있다는 것입니다. 한 장치에서 작업을 시작한 다음 두 번째 장치로 매끄럽게 전환하고 중지한 위치에서 바로 시작할 수도 있습니다. 시작하려면 장치에 적절한 클라이언트를 다운로드하고 서비스에 로그인해야 합니다.
+Azure RemoteApp의 장점 중 하나는 앱을 모든 장치에서 액세스할 수 있다는 것입니다. 한 장치에서 작업을 시작한 다음 두 번째 장치로 매끄럽게 전환하고 중지한 위치에서 바로 시작할 수도 있습니다. 시작하려면 장치에 적절한 클라이언트를 다운로드하고 서비스에 로그인해야 합니다.
 
 이 항목에서는 각 클라이언트에서 RemoteApp에 로그인하는 방법에 앞서 현재 지원되는 클라이언트 및 다운로드 방법을 살펴보겠습니다.
 
@@ -207,4 +207,4 @@ Windows Phone 8.1 스토어에서 Microsoft 원격 데스크톱 앱을 설치하
 	![Azure RemoteApp에 대한 데모 피드](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

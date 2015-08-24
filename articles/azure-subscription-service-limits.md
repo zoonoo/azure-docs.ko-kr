@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="08/09/2015"
 	ms.author="jroth"/>
 
 # Azure 구독 및 서비스 제한, 할당량 및 제약 조건
@@ -23,7 +23,6 @@
 이 문서는 가장 일반적인 Microsoft Azure 제한을 지정합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간 경과에 따라 이 제한은 더 많은 플랫폼에 적용되도록 확장 및 업데이트됩니다.
 
 > [AZURE.NOTE]**기본 제한** 이상으로 제한을 높이려는 경우 [무료로 온라인 고객 지원 요청을 개설](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)할 수 있습니다. 다음 표에 나오는 **최대 제한** 값 이상으로 제한을 높일 수 없습니다. **최대 제한** 열이 없는 경우는 지정된 리소스에 조정 가능한 제한이 없습니다.
-
 
 ### 제한 및 Azure 리소스 관리자
 
@@ -143,6 +142,10 @@ SQL 데이터베이스 제한에 대한 자세한 내용은 다음 항목을 참
 
 [AZURE.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
+## CDN 제한
+
+[AZURE.INCLUDE [cdn-limits](../includes/cdn-limits.md)]
+
 ## 모바일 서비스 제한
 
 [AZURE.INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
@@ -207,4 +210,4 @@ SQL 데이터베이스 제한에 대한 자세한 내용은 다음 항목을 참
 
 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

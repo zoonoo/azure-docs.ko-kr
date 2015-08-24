@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="데이터 작업 시작(Android) | 모바일 개발자 센터" 
+	pageTitle="데이터 작업 시작(Android) | Microsoft Azure" 
 	description="모바일 서비스를 사용하여 Android 앱에서 데이터를 활용하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="05/06/2015" 
+	ms.date="08/08/2015" 
 	ms.author="ricksal"/>
 
 # 기존 앱에 모바일 서비스 추가
@@ -134,4 +134,4 @@
 [Developer Code Samples site]: http://go.microsoft.com/fwlink/p/?LinkId=328660
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

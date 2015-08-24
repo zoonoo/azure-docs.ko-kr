@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="08/10/2015"
    ms.author="piyushjo"/>
 
 # 기존 응용 프로그램 및 프로젝트를 관리하는 방법
@@ -153,4 +153,4 @@ UI의 홈 섹션에는 내 응용 프로그램의 모든 응용 프로그램 목
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

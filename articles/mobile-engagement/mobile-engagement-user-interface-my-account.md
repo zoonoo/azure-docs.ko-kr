@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="08/10/2015"
    ms.author="piyushjo"/>
 
 # 계정 프로필 및 테스트 장치를 관리하는 방법 
@@ -145,4 +145,4 @@ UI의 내 계정 섹션에서는 프로필 설정, 테스트 장치 ID 등 계�
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

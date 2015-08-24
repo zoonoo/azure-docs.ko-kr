@@ -1,5 +1,5 @@
 <properties
-	pageTitle="가상 컴퓨터에 디스크 연결 | Azure"
+	pageTitle="가상 컴퓨터에 디스크 연결 | Microsoft Azure"
 	description="데이터 디스크를 Azure 가상 컴퓨터에 연결하고 사용 가능하도록 초기화하는 방법에 대해 알아봅니다."
 	services="virtual-machines, storage"
 	documentationCenter=""
@@ -53,4 +53,4 @@
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

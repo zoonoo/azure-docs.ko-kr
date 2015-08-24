@@ -22,7 +22,7 @@
 
 Azure는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)을 디버그하는 데 도움이 되는 기본 제공 진단을 제공합니다. 이 문서에서는 진단 로그를 사용하도록 설정하는 방법, 응용 프로그램에 계측을 추가하는 방법 및 Azure에서 기록된 정보에 액세스하는 방법을 설명합니다.
 
-> [AZURE.NOTE]이 문서에서는 [Azure Preview 포털](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell 및 Azure 명령줄 인터페이스를 사용하여 진단 로그로 작업하는 방법을 사용합니다. Visual Studio를 사용하여 진단 로그로 작업하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 문제 해결](troubleshoot-web-sites-in-visual-studio.md)을 참조하세요.
+> [AZURE.NOTE]이 문서에서는 [Azure Preview 포털](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell 및 Azure 명령줄 인터페이스를 사용하여 진단 로그로 작업하는 방법을 사용합니다. Visual Studio를 사용하여 진단 로그로 작업하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 문제 해결](web-sites-dotnet-troubleshoot-visual-studio.md)을 참조하세요.
 
 ## <a name="whatisdiag"></a>웹 서버 진단 및 응용 프로그램 진단
 
@@ -38,11 +38,11 @@ Azure는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)�
 
 ### 응용 프로그램 진단
 
-응용 프로그램 진단을 통해 웹 응용 프로그램에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 응용 프로그램은 [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) 클래스를 사용하여 응용 프로그램 진단 로그에 정보를 로깅할 수 있습니다. 예:
+응용 프로그램 진단을 통해 웹 응용 프로그램에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 응용 프로그램은 [System.Diagnostics.Trace](http://msdn.microsoft.com/ko-kr/library/36hhw2t6.aspx) 클래스를 사용하여 응용 프로그램 진단 로그에 정보를 로깅할 수 있습니다. 예:
 
 	System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
-런타임에 문제 해결을 위해 이러한 로그를 검색할 수 있습니다. 자세한 내용은 [Visual Studio에서 Azure 웹앱 문제 해결](../troubleshoot-web-sites-in-visual-studio.md)을 참조하세요.
+런타임에 문제 해결을 위해 이러한 로그를 검색할 수 있습니다. 자세한 내용은 [Visual Studio에서 Azure 웹앱 문제 해결](web-sites-dotnet-troubleshoot-visual-studio.md)을 참조하세요.
 
 웹앱에 콘텐츠를 게시하는 경우 앱 서비스 웹앱은 배포 정보도 로깅합니다. 이는 자동으로 수행되며 배포 로깅에 대한 구성 설정은 없습니다. 배포 로깅을 사용하면 배포가 실패한 이유를 확인할 수 있습니다. 예를 들어 사용자 지정 배포 스크립트를 사용하는 경우 스크립트가 실패한 이유를 확인하는 데 배포 로깅을 사용할 수 있습니다.
 
@@ -263,4 +263,4 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

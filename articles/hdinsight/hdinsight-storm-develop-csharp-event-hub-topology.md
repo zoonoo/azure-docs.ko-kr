@@ -1,5 +1,5 @@
 <properties
-   pageTitle="HDInsight의 Storm으로 이벤트 허브에서 이벤트 처리 | Azure"
+   pageTitle="HDInsight의 Storm으로 이벤트 허브에서 이벤트 처리 | Microsoft Azure"
    description="Visual Studio용 HDInsight 도구를 사용하여 Visual Studio에서 만든 C# Storm 토폴로지로 이벤트 허브 데이터를 처리하는 방법에 대해 알아봅니다."
    services="hdinsight,notification hubs"
    documentationCenter=""
@@ -557,4 +557,4 @@ EventHubSpout는 해당 상태의 검사점을 큐에서 읽은 메시지의 현
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

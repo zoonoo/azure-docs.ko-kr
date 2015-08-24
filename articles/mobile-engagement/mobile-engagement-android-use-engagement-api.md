@@ -3,8 +3,8 @@
 	description="최신 Android SDK - Android에서 Engagement API를 사용하는 방법"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kpiteira" 
-	manager="dwrede"
+	authors="piyushjo" 
+	manager="dwrede" 
 	editor="" />
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="01/24/2015" 
-	ms.author="kapiteir" />
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 #Android에서 Engagement API를 사용하는 방법
 
@@ -298,4 +298,4 @@ Engagement API는 `EngagementAgent` 클래스를 통해 제공됩니다. 이 클
 			{"expiration":"2016-12-07","status":"premium"}
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

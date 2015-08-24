@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 #미디어 인코더 Premium 워크플로 형식 및 코덱
@@ -127,4 +127,4 @@
 
 입력된 비디오에 자막이 없는 경우, 출력 자산은 빈 TTML 파일을 포함합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

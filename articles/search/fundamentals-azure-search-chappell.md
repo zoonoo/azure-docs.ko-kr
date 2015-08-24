@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 검색 소개 | Azure" 
+	pageTitle="Azure 검색 소개 | Microsoft Azure" 
 	description="Azure 검색을 통해 다양한 기능을 제공하는 검색 응용 프로그램을 빌드하는 방법에 대해 알아봅니다." 
 	editor="monicar" 
 	manager="mblythe" 
@@ -42,4 +42,4 @@
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=522547" target="_blank">"Azure 검색 소개"(PDF)</a>
 * <a href="http://go.microsoft.com/fwlink/p/?LinkId=529011" target="_blank">"Azure 검색 소개"(Microsoft Word)</a> 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

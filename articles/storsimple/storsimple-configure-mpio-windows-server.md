@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="StorSimple 장치에 대한 MPIO 구성"
+   pageTitle="StorSimple 장치에 대한 MPIO 구성 | Microsoft Azure"
    description="Windows Server 2012 R2를 실행하는 호스트에 연결된 StorSimple 장치에 대한 MPIO 구성"
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/07/2015"
+   ms.date="08/11/2015"
    ms.author="alkohli" />
 
 # StorSimple 장치에 대한 MPIO 구성
@@ -36,11 +36,12 @@ StorSimple 장치에서 MPIO를 구성하려면 다음 단계를 수행해야 �
 - 4단계: 고가용성 및 부하 분산을 위해 MPIO 구성
 
 위의 각 단계는 다음 섹션에서 설명합니다.
+
 ## 1단계: Windows Server 호스트에 MPIO 설치
 
 Windows Server 호스트에 이 기능을 설치하려면 다음 절차를 완료합니다.
 
-### 호스트에 MPIO를 설치하려면
+#### 호스트에 MPIO를 설치하려면
 
 1. Windows Server 호스트에서 서버 관리자를 엽니다. 기본적으로 관리자 그룹의 구성원이 Windows Server 2012 R2 또는 Windows Server 2012를 실행하는 컴퓨터에 로그온하면 서버 관리자가 시작됩니다. 서버 관리자가 아직 열려있지 않으면 **시작 > 서버 관리자**를 클릭합니다. ![서버 관리자](./media/storsimple-configure-mpio-windows-server/IC740997.png)
 2. **서버 관리자 > 대시보드 > 역할 및 기능 추가**를 클릭합니다. 이렇게 하면 **역할 및 기능 추가** 마법사가 시작됩니다. ![역할 및 기능 추가 마법사 1](./media/storsimple-configure-mpio-windows-server/IC740998.png)
@@ -58,7 +59,7 @@ Windows Server 호스트에 이 기능을 설치하려면 다음 절차를 완�
 
 MPIO는 StorSimple 볼륨을 식별하도록 구성해야 합니다. StorSimple 볼륨을 인식하도록 MPIO를 구성하려면 다음 단계를 수행합니다.
 
-### StorSimple 볼륨에 대한 MPIO를 구성하려면
+#### StorSimple 볼륨에 대한 MPIO를 구성하려면
 
 1. **MPIO 구성**을 엽니다. **서버 관리자 > 대시보드 > 도구 > MPIO**를 클릭합니다.
 
@@ -75,7 +76,7 @@ MPIO는 StorSimple 볼륨을 식별하도록 구성해야 합니다. StorSimple 
 
 MPIO가 Windows Server에 구성된 후 StorSimple 장치에 생성된 볼륨이 탑재될 수 있으며 중복에 대해 MPIO를 활용할 수 있습니다. 볼륨을 탑재하려면 다음 단계를 수행합니다.
 
-### 호스트에 볼륨을 탑재 하려면
+#### 호스트에 볼륨을 탑재 하려면
 
 1. Windows Server 호스트에서 **iSCSI 초기자 속성** 창을 엽니다. **서버 관리자 > 대시보드 > 도구 > iSCSI 초기자**를 클릭합니다.
 2. **iSCSI 초기자 속성** 대화 상자에서 검색 탭을 클릭한 다음 **대상 포털 검색**을 클릭합니다.
@@ -83,9 +84,10 @@ MPIO가 Windows Server에 구성된 후 StorSimple 장치에 생성된 볼륨이
 	
 	- StorSimple 장치의 데이터 포트 IP 주소를 입력합니다(예: 데이터 0 입력).
 	- **확인**을 클릭하여 **iSCSI 초기자 속성** 대화 상자로 돌아갑니다.
+
 	>[AZURE.IMPORTANT]**iSCSI 연결에 개인 네트워크를 사용하는 경우 개인 네트워크에 연결된 데이터 포트의 IP 주소를 입력합니다.**
 
-4. 장치에서 두 번째 네트워크 인터페이스(예: 데이터 1)에 대해 2\~3단계를 반복합니다. ISCSI에 대해 이러한 인터페이스를 사용해야 합니다. 이에 대한 자세한 내용은 [네트워크 인터페이스 구성](https://msdn.microsoft.com/library/02f1412f-e196-4a88-8eda-2113247ea47c#sec05)으로 이동하세요.
+4. 장치에서 두 번째 네트워크 인터페이스(예: 데이터 1)에 대해 2\~3단계를 반복합니다. ISCSI에 대해 이러한 인터페이스를 사용해야 합니다. 이에 대한 자세한 내용은 [네트워크 인터페이스 수정](storsimple-modify-device-config.md#modify-network-interfaces)을 참조하세요.
 5. **iSCSI 초기자 속성** 대화 상자에서 **대상** 탭을 선택합니다. **검색된 대상** 아래에 StorSimple 장치 대상 IQN이 보입니다. ![iSCSI 초기자 속성 대상 탭](./media/storsimple-configure-mpio-windows-server/IC741007.png)
 6. **연결**을 클릭하여 StorSimple 장치에 iSCSI 세션을 설정합니다. **대상에 연결** 대화 상자가 표시됩니다.
 
@@ -166,6 +168,9 @@ MPIO가 Windows Server에 구성된 후 StorSimple 장치에 생성된 볼륨이
 
 12. 세션 내에 표시되는 장치를 보려면 **장치** 탭을 선택합니다. 선택한 장치에 대한 MPIO 정책을 구성하려면 **MPIO**를 클릭합니다. **장치 세부 정보** 대화 상자가 표시됩니다. **MPIO** 탭에서 적절한 **부하 분산 정책** 설정을 선택할 수 있습니다. **활성** 또는 **대기** 경로 유형도 볼 수 있습니다.
 
+## 다음 단계
+
+[StorSimple 관리자 서비스를 사용하여 StorSimple 장치 구성 수정](storsimple-modify-device-config.md)에 대해 자세히 알아봅니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

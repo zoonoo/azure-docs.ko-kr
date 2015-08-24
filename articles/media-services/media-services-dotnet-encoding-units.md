@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -21,8 +21,12 @@
 
 #.NET SDK를 사용하여 인코딩 크기를 조정하는 방법
 
-이 문서는 [미디어 서비스 주문형 비디오 워크플로](media-services-video-on-demand-workflow.md) 시리즈의 일부입니다.
-  
+
+> [AZURE.SELECTOR]
+- [Portal](media-services-portal-encoding-units.md)
+- [.NET](media-services-dotnet-encoding-units.md)
+- [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
+
 ##개요
 
 미디어 서비스 계정은 인코딩 작업을 처리하는 속도를 결정하는 예약 단위 유형에 연관됩니다. Basic, Standard 또는 Premium 예약 단위 유형 중에서 선택할 수 있습니다. 예를 들어 Standard 예약 단위 유형을 사용하는 경우 Basic 유형에 비해 동일한 인코딩 작업이 더 빠르게 실행됩니다. 자세한 내용은 [Milan Gada](http://azure.microsoft.com/blog/author/milanga/)가 작성한 블로그인 "인코딩 예약 단위 유형"을 참조하세요.
@@ -70,4 +74,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

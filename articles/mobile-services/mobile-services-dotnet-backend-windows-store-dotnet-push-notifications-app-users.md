@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="인증된 사용자에게 푸시 알림 보내기(유니버설 Windows 8.1) | Azure 모바일 서비스" 
+	pageTitle="인증된 사용자에게 푸시 알림 보내기(유니버설 Windows 8.1) | Microsoft Azure" 
 	description="Azure 모바일 서비스를 사용하여 유니버설 Windows 8.1 앱을 실행하는 특정 인증된 사용자에게 푸시 알림을 보내는 방법에 대해 알아봅니다." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -66,4 +66,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

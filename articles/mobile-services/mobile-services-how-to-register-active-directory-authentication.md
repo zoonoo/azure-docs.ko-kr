@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure Active Directory 인증 등록 | Azure 모바일 서비스" 
+	pageTitle="Azure Active Directory 인증 등록 | Microsoft Azure" 
 	description="모바일 서비스 응용 프로그램에서 Azure Active Directory 인증을 위해 등록하는 방법에 대해 알아봅니다." 
 	authors="wesmc7777" 
 	services="mobile-services" 
@@ -66,4 +66,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

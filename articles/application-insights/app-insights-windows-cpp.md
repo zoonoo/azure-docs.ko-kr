@@ -19,6 +19,7 @@ Visual Studio Application Insights를 사용하여 모바일 응용 프로그램
 
 * [Microsoft Azure](http://azure.com) 구독. Microsoft 계정으로 로그인합니다. Windows, XBox Live 또는 기타 Microsoft 클라우드 서비스의 계정을 사용할 수 있습니다.
 * Visual Studio 2015 이상.
+* Windows 10 유니버설 응용 프로그램
 
 ## Application Insights 리소스 만들기
 
@@ -139,4 +140,4 @@ http://portal.azure.com으로 돌아가서 Application Insights 리소스를 찾
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

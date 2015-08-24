@@ -1,24 +1,26 @@
-In this step, you manually create the availability group listener in Failover Cluster Manager and SQL Server Management Studio (SSMS).
+이 단계에서는 수동으로 장애 조치(Failover) 클러스터 관리자 및 SSMS(SQL Server Management Studio)에서 가용성 그룹 수신기를 만듭니다.
 
-1. Open Failover Cluster Manager from the node hosting the primary replica.
+1. 주 복제본을 호스트하는 노드에서 장애 조치(Failover) 클러스터 관리자를 엽니다.
 
-1. Select the **Networks** node, and note the cluster network name. This name will be used in the $ClusterNetworkName variable in the PowerShell script.
+1. **네트워크** 노드를 선택하고 클러스터 네트워크 이름을 확인합니다. 이 이름은 PowerShell 스크립트에서 $ClusterNetworkName 변수에 사용됩니다.
 
-1. Expand the cluster name, and then click **Roles**.
+1. 클러스터 이름을 확장한 다음 **역할**을 클릭합니다.
 
-1. In the **Roles** pane, right-click the availability group name and then select **Add Resource** > **Client Access Point**.
+1. **역할** 창에서 가용성 그룹 이름을 마우스 오른쪽 단추로 클릭한 다음 **리소스 추가** > **클라이언트 액세스 지점**을 선택합니다.
 
-	![Add Client Access Point for Availability Group](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678769.gif)
+	![가용성 그룹에 대한 클라이언트 액세스 지점 추가](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678769.gif)
 
-1. In the **Name** box, create a name for this new listener, then click **Next** twice, and then click **Finish**. Do not bring the listener or resource online at this point.
+1. **이름** 상자에 이 새 수신기에 대한 이름을 입력하고 **다음**을 두 번 클릭한 다음 **마침**을 클릭합니다. 현재 온라인 상태에서 수신기 또는 리소스를 가져오지 마세요.
 
-1. Click the **Resources** tab, then expand the Client Access Point you just created. You will see the **IP Address** resource for each of the cluster networks in your cluster. If this is an Azure-only solution, you will only see one IP address resource.
+1. **리소스** 탭을 클릭한 다음 방금 만든 클라이언트 액세스 지점을 확장합니다. 클러스터에 있는 각 클러스터 네트워크에 대한 **IP 주소** 리소스가 표시됩니다. Azure 전용 솔루션인 경우 하나의 IP 주소 리소스만 표시됩니다.
 
-1. If you are configuring a hybrid solution, continue with this step. If you are configuring an Azure only solution, skip to the next step. 
-	 - Right-click the IP Address resource that corresponds to your on-premises subnet, then select **Properties**. Note the IP Address Name and network name.
-	 - Select **Static IP Address**, assign an unused IP address and then click **OK**.
+1. 하이브리드 솔루션을 구성하는 경우 이 단계를 계속 진행합니다. Azure 전용 솔루션을 구성하는 경우 다음 단계로 건너뜁니다.
+	 - 온-프레미스 서브넷에 해당하는 IP 주소 리소스를 마우스 오른쪽 단추로 클릭한 다음 **속성**을 선택합니다. IP 주소 이름 및 네트워크 이름을 확인합니다.
+	 - **고정 IP 주소**를 선택하고 사용하지 않는 IP 주소를 할당한 다음 **확인**을 클릭합니다.
 
-1. Right-click the IP Address resource that corresponds to your Azure subnet and then select Properties.
-	>[AZURE.NOTE] If the listener later fails to come online due to a conflicting IP address selected by DHCP, you can configure a valid static IP Address in this properties window.
+1. Azure 서브넷에 해당하는 IP 주소 리소스를 마우스 오른쪽 단추로 클릭한 다음 속성을 선택합니다.
+	>[AZURE.NOTE]나중에 수신기가 DHCP에서 선택한 IP 주소가 충돌하여 온라인 상태로 전환되지 못하면 이 속성 창에서 유효한 고정 IP 주소를 구성할 수 있습니다.
 
-1. In the same **IP Address** properties window, change the **IP Address Name**. This IP address name will be used in the **$IPResourceName** variable of the PowerShell script. Repeat this step for each IP resource if your solution spans multiple Azure VNets.
+1. 동일한 **IP 주소** 속성 창에서 **IP 주소 이름**을 변경합니다. 이 IP 주소 이름은 PowerShell 스크립트의 **$IPResourceName** 변수에 사용됩니다. 솔루션이 여러 Azure Vnet에 걸쳐 있는 경우 각 IP 리소스에 대해 이 단계를 반복합니다.
+
+<!---HONumber=August15_HO7-->

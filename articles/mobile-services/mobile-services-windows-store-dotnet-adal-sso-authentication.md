@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증(Windows 스토어) | 모바일 개발자 센터" 
+	pageTitle="Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증(Windows 스토어) | Microsoft Azure" 
 	description="Windows 스토어 응용 프로그램에서 ADAL을 사용하여 SSO(Single Sign-On) 사용자를 인증하는 방법에 대해 알아봅니다." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -217,4 +217,4 @@ Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연
 [모바일 서비스 시작]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Windows 개발자 센터 대시보드]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

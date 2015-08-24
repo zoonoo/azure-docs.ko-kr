@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="StorSimple 구성 요소는 무엇인가요?" 
+   pageTitle="StorSimple 구성 요소는 무엇인가요? | Microsoft Azure" 
    description="StorSimple 장치, 서비스 및 관리 기술을 설명합니다." 
    services="storsimple" 
    documentationCenter="NA" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/03/2015"
+   ms.date="08/11/2015"
    ms.author="v-sharos"/>
 
 
@@ -110,7 +110,11 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 서비스 만들�
 
 직렬 콘솔(장치에 직접 연결되는 호스트 컴퓨터)에서 또는 Windows PowerShell 원격 기능을 사용하여 원격으로 StorSimple용 Windows PowerShell에 액세스할 수 있습니다. 초기 장치 등록과 같이 StorSimple용 일부 Windows PowerShell은 직렬 콘솔에서만 수행할 수 있습니다.
 
-자세한 내용은 [StorSimple용 Windows PowerShell](https://msdn.microsoft.com/library/azure/dn772425.aspx)을 참조하세요.
+자세한 내용은 [StorSimple용 Windows PowerShell을 사용하여 장치 관리](storsimple-windows-powershell-administration.md)를 참조하세요.
+
+## Azure PowerShell StorSimple cmdlet
+
+Azure PowerShell StorSimple cmdlet은 명령줄에서 서비스 수준 작업 및 마이그레이션 작업을 자동화할 수 있도록 하는 Windows PowerShell cmdlet 모음입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [cmdlet 참조](https://msdn.microsoft.com/library/dn920427.aspx)를 참조하세요.
 
 ## StorSimple 관리자 서비스
 
@@ -142,7 +146,7 @@ StorSimple 스냅숏 관리자는 로컬 및 클라우드 데이터의 일관된
 
 재해가 발생한 경우 또는 다른 이유로 데이터를 복원해야 하는 경우, StorSimple 스냅숏 관리자는 필요할 때 증분 방식으로 복원합니다. 파일을 복원하거나, 장비를 교체 하거나 다른 사이트로 이동하는 동안 시스템 전체를 종료하지 않아도 됩니다.
 
-자세한 내용은 [StorSimple 스냅숏 관리자 정의](storsimple-what-is-snapshot-manager.md)를 참조하세요.
+자세한 내용은 [StorSimple 스냅숏 관리자란?](storsimple-what-is-snapshot-manager.md)을 참조하세요.
 
 ## SharePoint용 StorSimple 어댑터
 
@@ -215,11 +219,11 @@ Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정
 
 ## 다음 단계
 
-[StorSimple 릴리스 정보](https://msdn.microsoft.com/library/azure/dn772367.aspx)를 검토하세요.
+[StorSimple 보안](storsimple-security.md)에 대해 알아봅니다.
 
 
 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

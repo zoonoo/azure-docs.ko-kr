@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="음성 및 SMS 기능에 Twilio 사용 | 모바일 개발자 센터" 
+	pageTitle="음성 및 SMS 기능을 위해 Twilio 사용 | Microsoft Azure" 
 	description="Azure 모바일 서비스와 함께 Twilio API를 사용하여 일반적인 작업을 수행하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -230,4 +230,4 @@ TwiML 응답을 제공하는 방법을 설정한 후에는 다음 코드 샘플�
 [azure_twilio_howto_php]: /develop/php/how-to-guides/twilio-voice-and-sms-service/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

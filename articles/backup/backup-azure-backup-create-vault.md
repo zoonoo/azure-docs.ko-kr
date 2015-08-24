@@ -7,7 +7,7 @@
    manager="shreeshd"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/28/2015" ms.author="prvijay"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/11/2015" ms.author="aashishr"; "jimpark"/>
 
 # 백업 자격 증명 모음 만들기
 Windows Server 또는 System Center Data Protection Manager(SCDPM)의 파일과 데이터를 Azure에 백업하거나 IaaS VM을 Azure에 백업하려면 데이터를 저장하려는 지역에 백업 자격 증명 모음을 만들어야 합니다.
@@ -60,7 +60,6 @@ LRS(로컬 중복 저장소)는 데이터의 복제본을 3개 유지 관리합�
 
 ## 참고
 
-- 2015년 3월부터 고객은 프로그래밍 방식(예: PowerShell)으로 백업 자격 증명 모음을 만들 수 없습니다.
 - 저장소 중복은 자격 증명 모음을 만든 후 자격 증명 모음에 컴퓨터를 등록하기 바로 직전에 선택해야 합니다. 항목이 자격 증명 모음에 등록되고 나면 저장소 중복 옵션 잠기고 수정할 수 없습니다.
 
 <!--Image references-->
@@ -70,4 +69,4 @@ LRS(로컬 중복 저장소)는 데이터의 복제본을 3개 유지 관리합�
 [4]: ./media/backup-azure-backup-create-vault/grs.png
 [5]: ./media/backup-azure-backup-create-vault/lrs.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

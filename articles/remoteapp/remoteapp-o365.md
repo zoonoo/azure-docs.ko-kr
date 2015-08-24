@@ -1,9 +1,9 @@
 
 <properties 
-    pageTitle="Azure RemoteApp과 함께 Office365 사용" 
-    description="Office 365 및 Azure RemoteApp 연동 방법을 알아봅니다." 
+    pageTitle="Azure RemoteApp과 함께 Office 사용" 
+    description="Office 및 Azure RemoteApp 연동 방법에 대해 알아봅니다." 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -13,12 +13,12 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
-# Azure RemoteApp과 함께 Office365 사용
+# Azure RemoteApp과 함께 Office 사용
 
-RemoteApp에 Office 응용 프로그램 호스팅을 위한 두 가지 옵션, Office 365 ProPlus 또는 Office 2013 Professional Plus 평가판이 있습니다.
+Azure RemoteApp에서 Office 응용 프로그램 호스팅을 위한 두 가지 옵션으로, Office 365 ProPlus 또는 Office 2013 Professional Plus 평가판이 있습니다.
 
 ## Office 365 ProPlus 
 Office 365 ProPlus 템플릿 이미지를 사용하여 RemoteApp 컬렉션을 만들 수 있습니다. 이 옵션을 사용하면 Office 365 서비스를 RemoteApp까지 확장할 수 있습니다. 기존 구독 계획이 있어야 하며, 독립 실행형이나 Office 365 서비스 계획을 통해 사용자에게 Office 365 ProPlus 서비스에 대한 라이선스가 있어야 합니다.
@@ -48,4 +48,4 @@ RemoteApp의 30일 평가 기간 동안 Office 2013 Professional Plus(평가판)
 평가판이 만료될 때까지 프로덕션 모드로 전환하지 않으면 RemoteApp 컬렉션을 사용할 수 없습니다. 걱정하지 마세요. 설정과 사용자 데이터는 90일 동안 저장되므로 데이터 손실 없이 서비스를 활성화하고 프로덕션 모드로 전환할 수 있습니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

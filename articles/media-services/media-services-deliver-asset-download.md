@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/23/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #방법: 다운로드를 통해 자산 제공
@@ -76,4 +76,4 @@
 
 [스트리밍 콘텐츠 제공](media-services-deliver-streaming-content.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

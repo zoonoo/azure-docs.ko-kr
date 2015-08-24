@@ -20,8 +20,6 @@ Azure의 IP 주소는 두 범주 즉, 동적 IP 및 예약된 IP로 나뉩니다
 
 IP 주소의 변경을 방지하기 위해 IP 주소를 예약할 수 있습니다. 예약된 IP는 VIP로만 사용할 수 있으므로 리소스가 종료 또는 할당 취소된 때에도 클라우드 서비스의 IP 주소가 동일하게 유지됩니다. 또한 VIP로 사용하는 기존의 동적 IP를 예약된 IP 주소로 변환할 수 있습니다.
 
->[AZURE.WARNING]예약된 IP만 VIP에 할당할 수 있습니다.
-
 ## 예약된 IP는 언제 필요한가요?
 - **IP가 구독에서 예약되어 있는지 확인하려고 합니다**. 어떤 상황에서도 구독에서 해제되지 않을 IP 주소를 예약하려는 경우 예약된 공용 IP를 사용해야 합니다.  
 - **중지 상태 또는 할당 취소 상태(VM)에서도 IP를 클라우드 서비스에서 유지하려고 합니다**. 클라우드 서비스의 VM이 중지 또는 할당 취소된 경우에도 변경되지 않는 IP 주소를 사용하여 서비스에 액세스할 수 있도록 설정하기를 원합니다.
@@ -117,10 +115,10 @@ IP를 예약하면 예약된 IP는 삭제될 때까지 계속 구독에 연결�
 
 ## 다음 단계
 
-[예약된 개인 IP](../virtual-networks-reserved-private-ip)
+- [예약된 개인 IP 주소](../virtual-networks-reserved-private-ip)에 대해 알아봅니다.
 
-[인스턴스 수준 공용 IP(ILPIP)](../virtual-networks-instance-level-public-ip)
+- [ILPIP(인스턴스 수준 공용 IP) 주소](../virtual-networks-instance-level-public-ip)에 대해 알아봅니다.
 
-[예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
+- [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 확인합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

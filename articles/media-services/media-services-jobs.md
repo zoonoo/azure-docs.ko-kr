@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #Azure 미디어 서비스 작업 사용
@@ -60,4 +60,4 @@
 [할당량 및 제한 사항](media-services-quotas-and-limitations.md) – 미디어 서비스 인코더의 제한 사항 및 사용된 할당량에 대해 설명합니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

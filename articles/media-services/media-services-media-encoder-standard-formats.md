@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #미디어 인코더 표준 형식 및 코덱
@@ -83,4 +83,4 @@ MPEG2-TS |H.264(High, Main 및 Baseline Profiles)|AAC-LC, HE-AAC v1, HE-AAC v2
 
 [Azure 미디어 서비스로 주문형 콘텐츠 인코딩](media-services-encode-asset.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

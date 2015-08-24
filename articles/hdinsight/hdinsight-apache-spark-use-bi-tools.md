@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="HDInsight에서 Apache Spark와 함께 BI 도구 사용 | Azure" 
+	pageTitle="HDInsight에서 Apache Spark와 함께 BI 도구 사용 | Microsoft Azure" 
 	description="Apache Spark에서 노트북을 사용하여 원시 데이터에 대한 스키마를 만들어 하이브 테이블로 저장한 후 하이브 테이블에서 데이터 분석을 위해 BI 도구를 사용하는 방법에 대한 단계별 지침입니다." 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -205,4 +205,4 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

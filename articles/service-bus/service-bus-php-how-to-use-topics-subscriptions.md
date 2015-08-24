@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="서비스 버스 토픽을 사용하는 방법(PHP) - Azure" 
+	pageTitle="서비스 버스 토픽을 사용하는 방법(PHP) | Microsoft Azure" 
 	description="Azure에서 PHP와 함께 서비스 버스 토픽을 사용하는 방법에 대해 알아봅니다." 
 	services="service-bus" 
 	documentationCenter="php" 
@@ -140,7 +140,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 
 ### 필터를 사용하여 구독 만들기
 
-항목으로 전송된 메시지 중 특정 토픽 구독 내에 표시되어야 하는 메시지의 범위를 지정하는 필터를 설정할 수도 있습니다. 구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 **SqlFilter**입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SqlFilter에 대한 자세한 내용은 [SqlFilter.SqlExpression 속성][sqlfilter](영문)을 참조하십시오.
+항목으로 전송된 메시지 중 특정 토픽 구독 내에 표시되어야 하는 메시지의 범위를 지정하는 필터를 설정할 수도 있습니다. 구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 **SqlFilter**입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SqlFilter에 대한 자세한 내용은 [SqlFilter.SqlExpression 속성][sqlfilter](영문)을 참조하세요.
 
 > [AZURE.NOTE]구독에 대한 각 규칙은 들어오는 메시지를 독립적으로 처리하여 해당 결과 메시지를 구독에 추가합니다. 또한 각 새 구독에는 토픽의 모든 메시지를 구독에 추가하는 필터가 포함된 기본 **규칙** 개체가 있습니다. 필터와 일치하는 메시지만 받으려면 기본 규칙을 제거해야 합니다. `ServiceBusRestProxy->deleteRule` 메서드를 사용하여 기본 규칙을 제거할 수 있습니다.
 
@@ -220,7 +220,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 
 구독에서 메시지를 받는 최선의 방법은 **ServiceBusRestProxy->receiveSubscriptionMessage** 메서드를 사용하는 것입니다. 받은 메시지는 **ReceiveAndDelete**(기본값) 및 **PeekLock**의 두 가지 모드로 작동할 수 있습니다.
 
-**ReceiveAndDelete** 모드를 사용하는 경우 수신은 1단계 작업입니다. 즉, 서비스 버스가 구독 메시지에 대한 읽기 요청을 받으면 메시지를 이용되는 것으로 표시하고 응용 프로그램에 반환합니다. **ReceiveAndDelete** 모드는 가장 단순한 모델이며, 응용 프로그램이 실패 이벤트 시 메시지를 처리하지 않아도 안전한 시나리오에서 효과적입니다. 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보십시오. 서비스 버스는 메시지를 이용되는 것으로 표시하기 때문에 응용 프로그램이 다시 시작되고 메시지 소비를 다시 시작할 경우 크래시 전에 소비된 메시지가 누락됩니다.
+**ReceiveAndDelete** 모드를 사용하는 경우 수신은 1단계 작업입니다. 즉, 서비스 버스가 구독 메시지에 대한 읽기 요청을 받으면 메시지를 이용되는 것으로 표시하고 응용 프로그램에 반환합니다. **ReceiveAndDelete** 모드는 가장 단순한 모델이며, 응용 프로그램이 실패 이벤트 시 메시지를 처리하지 않아도 안전한 시나리오에서 효과적입니다. 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보세요. 서비스 버스는 메시지를 이용되는 것으로 표시하기 때문에 응용 프로그램이 다시 시작되고 메시지 소비를 다시 시작할 경우 크래시 전에 소비된 메시지가 누락됩니다.
 
 **PeekLock** 모드에서는 메시지 수신이 2단계 작업이므로 메시지 누락이 허용되지 않는 응용 프로그램을 지원할 수 있습니다. 서비스 버스는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 응용 프로그램에 반환합니다. 응용 프로그램은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후 수신된 메시지를 **ServiceBusRestProxy->deleteMessage**에 전달하여 수신 프로세스의 두 번째 단계를 완료합니다. 서비스 버스는 **deleteMessage** 호출을 확인한 후 메시지를 이용되는 것으로 표시하고 큐에서 제거합니다.
 
@@ -306,7 +306,7 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 
 ## 다음 단계
 
-지금까지 서비스 버스 큐의 기본 사항에 대해 알아보았습니다. 자세한 내용은 MSDN 항목 [큐, 토픽 및 구독][]을 참조하십시오.
+지금까지 서비스 버스 큐의 기본 사항에 대해 알아보았습니다. 자세한 내용은 MSDN 항목 [큐, 토픽 및 구독][]을 참조하세요.
 
 [What are Service Bus Topics and Subscriptions?]: #bkmk_WhatAreSvcBusTopics
 [Create a Service Namespace]: #bkmk_CreateSvcNamespace
@@ -332,4 +332,4 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 [require-once]: http://php.net/require_once
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

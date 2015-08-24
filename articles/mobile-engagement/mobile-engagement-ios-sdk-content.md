@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="08/05/2015"
-	ms.author="kapiteir" />
+	ms.date="08/10/2015"
+	ms.author="piyushjo" />
 
 #SDK 콘텐츠
 
@@ -42,4 +42,4 @@
 
 > Engagement 클래스를 필요에 따라 조정하려는 고급 사용자를 위해 제공되는 Engagement 뷰 컨트롤러 및 도달률 SDK의 소스 코드입니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

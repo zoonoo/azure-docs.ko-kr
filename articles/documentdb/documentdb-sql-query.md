@@ -3,7 +3,7 @@
 	description="NoSQL 문서 데이터베이스 서비스인 DocumentDB는 명시적 스키마를 사용하거나 보조 인덱스를 만들지 않고도 계층 JSON 문서에 대해 SQL 스타일 문법을 사용하여 쿼리를 지원합니다." 
 	services="documentdb" 
 	documentationCenter="" 
-	authors="mimig1" 
+	authors="arramac" 
 	manager="jhubbard" 
 	editor="monicar"/>
 
@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="08/13/2015" 
 	ms.author="mimig"/>
 
-#DocumentDB 쿼리
+# DocumentDB 쿼리
 Microsoft Azure DocumentDB는 계층적 JSON 문서에 대해 SQL(구조적 쿼리 언어)을 사용한 문서 쿼리를 지원합니다. DocumentDB는 스키마가 없습니다. DocumentDB는 데이터베이스 엔진 내에 직접 JSON 데이터 모델을 커밋하므로 명시적 스키마나 보조 인덱스 생성을 요구하지 않고 JSON 문서의 자동 인덱싱을 제공합니다.
 
 DocumentDB용 쿼리 언어를 설계할 때 다음 두 가지 목표를 고려했습니다.
 
--	<strong>SQL 수용</strong> – 새 쿼리 언어를 고안하는 대신 SQL 언어를 수용하고자 했습니다. 어쨌든 SQL은 가장 익숙하고 많이 사용하는 쿼리 언어 중 하나입니다. DocumentDB SQL은 JSON 문서에 대한 풍부한 쿼리를 위한 공식 프로그래밍 모델을 제공합니다.
--	<strong>SQL 확장</strong> – 데이터베이스 엔진에서 직접 JavaScript를 실행할 수 있는 JSON 문서 데이터베이스로서, JavaScript의 프로그래밍 모델을 쿼리 언어의 기초로 사용하려고 했습니다. DocumentDB SQL은 JavaScript의 형식 시스템, 식 평가 및 함수 호출을 기반으로 합니다. 따라서 관계형 프로젝션, JSON 문서에 대한 계층적 탐색, 자체 조인, JavaScript로만 작성된 UDF(사용자 정의 함수) 호출 등을 위한 일반 프로그래밍 모델을 제공합니다. 
+-	**SQL 수용** – 새 쿼리 언어를 고안하는 대신 SQL 언어를 수용하려고 했습니다. 어쨌든 SQL은 가장 익숙하고 많이 사용하는 쿼리 언어 중 하나입니다. DocumentDB SQL은 JSON 문서에 대한 풍부한 쿼리를 위한 공식 프로그래밍 모델을 제공합니다.
+-	**SQL 확장** – 데이터베이스 엔진에서 직접 JavaScript를 실행할 수 있는 JSON 문서 데이터베이스로서, JavaScript의 프로그래밍 모델을 쿼리 언어의 기초로 사용하려고 했습니다. DocumentDB SQL은 JavaScript의 형식 시스템, 식 평가 및 함수 호출을 기반으로 합니다. 따라서 관계형 프로젝션, JSON 문서에 대한 계층적 탐색, 자체 조인, JavaScript로만 작성된 UDF(사용자 정의 함수) 호출 등을 위한 일반 프로그래밍 모델을 제공합니다. 
 
 이러한 기능은 응용 프로그램과 데이터베이스 간의 충돌을 줄이는 데 도움이 되며 개발자 생산성에 중요합니다.
 
@@ -32,7 +32,7 @@ DocumentDB용 쿼리 언어를 설계할 때 다음 두 가지 목표를 고려�
 
 그런 다음 이 문서로 돌아와 몇 가지 간단한 JSON 문서와 쿼리를 연습하세요.
 
-## 시작하기
+## 시작
 DocumentDB SQL 작동 방식을 살펴보기 위해 몇 개의 간단한 JSON 문서로 시작하고 몇 개의 단순한 쿼리를 연습하겠습니다. 두 가족에 대한 다음 두 개의 JSON 문서를 고려해 보세요. DocumentDB를 사용하면 스키마나 보조 인덱스를 명시적으로 만들 필요가 없습니다. DocumentDB 컬렉션에 JSON 문서를 삽입한 후 쿼리하면 됩니다. 다음은 Andersen 가족, 부모, 자녀(및 애완 동물), 주소 및 등록 정보에 대한 간단한 JSON 문서입니다. 이 문서에는 문자열, 숫자, 부울, 배열 및 중첩 속성이 있습니다.
 
 **문서**
@@ -161,7 +161,7 @@ DocumentDB SQL 작동 방식을 살펴보기 위해 몇 개의 간단한 JSON �
 -	DocumentDB는 엄격한 JSON 문서만 지원합니다. 즉, 형식 시스템과 식이 JSON 형식만 처리하도록 제한됩니다. 자세한 내용은 [JSON 사양](http://www.json.org/)을 참조하세요.  
 -	DocumentDB 컬렉션은 JSON 문서의 스키마 없는 컨테이너입니다. 컬렉션의 문서 내 및 문서 간 데이터 엔터티의 관계는 기본 키 및 외래 키 관계가 아니라 포함을 통해 암시적으로 캡처됩니다. 이것은 이 문서의 뒷부분에서 설명하는 문서 내 조인과 관련해서 주의할 중요한 측면입니다.
 
-##DocumentDB 인덱싱
+## DocumentDB 인덱싱
 
 DocumentDB SQL 문법을 시작하기 전에 DocumentDB의 인덱싱 설계를 살펴보는 것이 좋습니다.
 
@@ -182,7 +182,7 @@ DocumentDB SQL 문법을 시작하기 전에 DocumentDB의 인덱싱 설계를 �
 컬렉션에 대한 인덱싱 정책을 구성하는 방법을 보여 주는 샘플은 MSDN에서 [DocumentDB 샘플](https://github.com/Azure/azure-documentdb-net)을 참조하세요. 이제 DocumentDB SQL 문법의 세부 정보를 살펴보겠습니다.
 
 
-##DocumentDB 쿼리의 기본 사항
+## DocumentDB 쿼리의 기본 사항
 ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHERE 절로 구성됩니다. 일반적으로 각 쿼리에 대해 FROM 절의 소스가 열거됩니다. 그런 다음 WHERE 절의 필터를 소스에 적용하여 JSON 문서의 하위 집합을 검색합니다. 마지막으로, SELECT 절을 사용하여 선택 목록에서 요청된 JSON 값을 프로젝션합니다.
     
     SELECT <select_list> 
@@ -190,8 +190,8 @@ ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHER
     [WHERE <filter_condition>]    
 
 
-##FROM 절
-쿼리의 뒷부분에서 소스를 필터링/프로젝션하지 않을 경우 `FROM <from_specification>`절은 선택 사항입니다. 이 절의 목적은 쿼리가 작동해야 하는 데이터 원본을 지정하는 것입니다. 일반적으로 전체 컬렉션이 소스이지만 컬렉션의 하위 집합을 대신 지정할 수 있습니다.
+## FROM 절
+쿼리의 뒷부분에서 소스를 필터링/프로젝션하지 않을 경우 `FROM <from_specification>` 절은 선택 사항입니다. 이 절의 목적은 쿼리가 작동해야 하는 데이터 원본을 지정하는 것입니다. 일반적으로 전체 컬렉션이 소스이지만 컬렉션의 하위 집합을 대신 지정할 수 있습니다.
 
 `SELECT * FROM Families`와 유사한 쿼리는 전체 Families 컬렉션이 열거할 소스임을 나타냅니다. 컬렉션 이름을 사용하는 대신 특수 식별자 ROOT를 사용하여 컬렉션을 나타낼 수 있습니다. 다음 목록은 쿼리 단위로 적용되는 규칙입니다.
 
@@ -201,7 +201,7 @@ ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHER
 
 -	참조해야 하는 모든 속성을 정규화해야 합니다. 엄격한 스키마 준수가 없을 경우 모호한 바인딩을 방지하기 위해 적용됩니다. 따라서 `SELECT id FROM Families f`는 `id` 속성이 바인딩되지 않았으므로 구문이 잘못되었습니다.
 	
-###하위 문서
+### 하위 문서
 소스를 더 작은 하위 집합으로 줄일 수도 있습니다. 예를 들어 각 문서에서 하위 트리만을 열거하려는 경우 다음 예제에서처럼 하위 루트가 소스가 될 수 있습니다.
 
 **쿼리**
@@ -255,7 +255,7 @@ ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHER
 	]
 
 
-##WHERE 절
+## WHERE 절
 WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에서 제공하는 JSON 문서가 결과의 일부로 포함되기 위해 충족해야 하는 조건을 지정합니다. JSON 문서가 결과에 고려되려면 지정된 조건이 "true"여야 합니다. WHERE 절은 결과에 포함될 수 있는 소스 문서의 가장 작은 절대 하위 집합을 결정하기 위해 인덱스 계층에서 사용됩니다.
 
 다음 쿼리는 이름 속성을 포함하고 속성 값이 `AndersenFamily`인 문서를 요청합니다. 이름 속성이 없거나 값이 `AndersenFamily`와 일치하지 않는 다른 문서는 모두 제외됩니다.
@@ -279,7 +279,7 @@ WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에�
 
 앞의 예제는 단순한 같음 쿼리를 보여 주었습니다. DocumentDB SQL은 다양한 스칼라 식도 지원합니다. 가장 일반적으로 사용되는 식은 이항 및 단항 식입니다. 소스 JSON 개체의 속성 참조도 유효한 식입니다.
 
-현재 지원되며 다음 예제와 같이 쿼리에 사용할 수 있는 이항 연산자는 다음과 같습니다. <table> <tr> <td>산술</td> <td>+,-,*,/,%</td> </tr> <tr> <td>비트</td> <td>|, &, ^, <<, >>, >>>(0-채우기 오른쪽 시프트) </td> </tr> <tr> <td>논리</td> <td>AND, OR</td> </tr> <tr> <td>비교</td> <td>=, !=, >, >=, <, <=, <></td> </tr> <tr> <td>문자열</td> <td>||(연결)</td> </tr> </table>
+현재 지원되며 다음 예제와 같이 쿼리에 사용할 수 있는 이항 연산자는 다음과 같습니다. <table> <tr> <td>산술</td> <td>+,-,*,/,%</td> </tr> <tr> <td>비트</td> <td>|, &, ^, <<, >>, >>>(0-채우기 오른쪽 시프트) </td> </tr> <tr> <td>논리</td> <td>AND, OR, NOT</td> </tr> <tr> <td>비교</td> <td>=, !=, &lt;, &gt;, &lt;=, &gt;=, <></td> </tr> <tr> <td>문자열</td> <td>||(연결)</td> </tr> </table>
 
 이항 연산자를 사용한 몇 가지 쿼리를 살펴보겠습니다.
 
@@ -310,7 +310,7 @@ WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에�
 
 이항 및 단항 연산자뿐 아니라 속성 참조도 허용됩니다. 예를 들어 `SELECT * FROM Families f WHERE f.isRegistered`는 `isRegistered` 속성을 포함하고 속성 값이 JSON `true` 값과 같은 JSON 문서를 반환합니다. 다른 값(false, null, Undefined, `<number>`, `<string>`, `<object>`, `<array>` 등)이면 소스 문서가 결과에서 제외됩니다.
 
-###같음 및 비교 연산자
+### 같음 및 비교 연산자
 다음 표는 DocumentDB SQL에서 두 JSON 형식 간의 같음 비교 결과를 보여 줍니다. <table style = "width:300px"> <tbody> <tr> <td valign="top"> <strong>Op</strong> </td> <td valign="top"> <strong>정의되지 않음</strong> </td> <td valign="top"> <strong>Null</strong> </td> <td valign="top"> <strong>부울</strong> </td> <td valign="top"> <strong>숫자</strong> </td> <td valign="top"> <strong>문자열</strong> </td> <td valign="top"> <strong>개체</strong> </td> <td valign="top"> <strong>배열</strong> </td> </tr> <tr> <td valign="top"> <strong>정의되지 않음<strong> </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> </tr> <tr> <td valign="top"> <strong>Null<strong> </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> <strong>확인</strong> </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> </tr> <tr> <td valign="top"> <strong>부울<strong> </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> <strong>확인</strong> </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> </tr> <tr> <td valign="top"> <strong>숫자<strong> </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> <strong>확인</strong> </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> </tr> <tr> <td valign="top"> <strong>문자열<strong> </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> <strong>확인</strong> </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> </tr> <tr> <td valign="top"> <strong>개체<strong> </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> <strong>확인</strong> </td> <td valign="top"> 정의되지 않음 </td> </tr> <tr> <td valign="top"> <strong>배열<strong> </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> 정의되지 않음 </td> <td valign="top"> <strong>확인</strong> </td> </tr> </tbody> </table>
 
 다른 비교 연산자(예: >, >=, !=, < 및 <=)의 경우
@@ -320,7 +320,7 @@ WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에�
 
 필터의 스칼라 식 결과가 Undefined인 경우 Undefined는 논리적으로 "true"가 아니므로 해당 문서가 결과에 포함되지 않습니다.
 
-###BETWEEN 키워드
+### BETWEEN 키워드
 또한 ANSI SQL에서처럼 값의 범위에 대한 쿼리를 표현하는 BETWEEN 키워드를 사용할 수 있습니다. BETWEEN은 JSON Primitive 형식(숫자, 문자열, 부울 및 null)에 대해 사용할 수 있습니다.
 
 예를 들어 이 쿼리는 첫 번째 자식의 등급이 1-5(모두 포함)인 가족 문서를 모두 반환합니다.
@@ -338,249 +338,28 @@ ANSI-SQL과 달리, 다음 예제처럼 BETWEEN 절을 FROM 절에서 사용할 
 
 DocumentDB와 ANSI SQL에서 BETWEEN 사용의 주요 차이점은 혼합 형식의 속성에 대해 범위 쿼리를 실행할 수 있다는 점입니다. 예를 들어 일부 문서에서는 "등급"이 숫자(5)이고 다른 문서에서는 문자열("grade4")일 수 있습니다. 이러한 경우 JavaScript에서처럼 다른 두 형식 간 비교는 "undefined"가 되고 문서는 건너뜁니다.
 
-###논리(AND, OR 및 NOT) 연산자
+### 논리(AND, OR 및 NOT) 연산자
 논리 연산자는 부울 값에 작동합니다. 다음 표에는 이 연산자의 논리적 진위 표가 나와 있습니다.
 
-<table style = "width:300px">
-    <tbody>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>또는</strong>
-                </p>
-            </td>
-            <td width="45" valign="top">
-                <p>
-                    <strong>True</strong>
-                </p>
-            </td>
-            <td width="68" valign="top">
-                <p>
-                    <strong>False</strong>
-                </p>
-            </td>
-            <td width="87" valign="top">
-                <p>
-                    <strong>Undefined</strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>True</strong>
-                </p>
-            </td>
-            <td width="45" valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-            <td width="68" valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-            <td width="87" valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>False</strong>
-                </p>
-            </td>
-            <td width="45" valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-            <td width="68" valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-            <td width="87" valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>Undefined</strong>
-                </p>
-            </td>
-            <td width="45" valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-            <td width="68" valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-            <td width="87" valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
+또는|True|False|Undefined
+---|---|---|---
+True|True|True|True
+False|True|False|Undefined
+Undefined|True|Undefined|Undefined
 
-<table style = "width:300px">
-    <tbody>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>및</strong>
-                </p>
-            </td>
-            <td width="54" valign="top">
-                <p>
-                    <strong>True</strong>
-                </p>
-            </td>
-            <td width="58" valign="top">
-                <p>
-                    <strong>False</strong>
-                </p>
-            </td>
-            <td width="107" valign="top">
-                <p>
-                    <strong>Undefined</strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>True</strong>
-                </p>
-            </td>
-            <td width="54" valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-            <td width="58" valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-            <td width="107" valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>False</strong>
-                </p>
-            </td>
-            <td width="54" valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-            <td width="58" valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-            <td width="107" valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="55" valign="top">
-                <p>
-                    <strong>Undefined</strong>
-                </p>
-            </td>
-            <td width="54" valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-            <td width="58" valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-            <td width="107" valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
+AND|True|False|Undefined
+---|---|---|---
+True|True|False|Undefined
+False|False|False|False
+Undefined|Undefined|False|Undefined
 
-<table style = "width:300px">
-    <tbody>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>다음이 아님</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    <strong></strong>
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>True</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    False
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>False</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    True
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td valign="top">
-                <p>
-                    <strong>Undefined</strong>
-                </p>
-            </td>
-            <td valign="top">
-                <p>
-                    Undefined
-                </p>
-            </td>
-        </tr>
-    </tbody>
-</table>
+NOT| |
+---|---
+True|False
+False|True
+Undefined|Undefined
 
-###IN 키워드
+### IN 키워드
 IN 키워드는 지정된 값이 목록에 있는 값과 일치하는지를 확인하는 데 사용할 수 있습니다. 예를 들어 이 쿼리는 id가 "WakefieldFamily" 또는 "AndersenFamily" 중 하나인 가족 문서를 모두 반환합니다.
  
     SELECT *
@@ -595,7 +374,7 @@ IN 키워드는 지정된 값이 목록에 있는 값과 일치하는지를 확�
 
 IN은 여러 개의 OR 절을 연결한 것과 동일하지만 단일 인덱스를 사용하여 제공할 수 있기 때문에 DocumentDB는 IN 절 내에서 지정된 인수 개수에 대해 더 많은 [제한](documentdb-limits.md)을 지원합니다.
 
-###3항(?) 및 병합(??) 연산자:
+### 3항(?) 및 병합(??) 연산자
 3항 및 병합 연산자를 사용하여 널리 사용되는 프로그래밍 언어(예: C# 및 JavaScript)와 유사하게 조건 식을 작성할 수 있습니다.
 
 3항(?) 연산자는 새로운 JSON 속성을 즉시 생성할 때 매우 간편하게 사용할 수 있습니다. 예를 들어 쿼리를 작성하여 아래에 표시된 대로 Beginner/Intermediate/Advanced와 같이 사람이 읽을 수 있는 형식으로 클래스 수준을 분류할 수 있습니다.
@@ -615,7 +394,7 @@ IN은 여러 개의 OR 절을 연결한 것과 동일하지만 단일 인덱스�
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
-###따옴표 붙은 속성 접근자
+### 따옴표 붙은 속성 접근자
 따옴표 붙은 속성 연산자 `[]`를 사용하여 속성에 액세스할 수도 있습니다. 예를 들어 `SELECT c.grade`는 `SELECT c["grade"]`와 동일합니다. 이 구문은 공백, 특수 문자가 포함되어 있거나 SQL 키워드 또는 예약어와 동일한 이름을 공유하는 속성을 이스케이프해야 할 때 유용합니다.
 
     SELECT f["lastName"]
@@ -623,7 +402,7 @@ IN은 여러 개의 OR 절을 연결한 것과 동일하지만 단일 인덱스�
     WHERE f["id"] = "AndersenFamily"
 
 
-##SELECT 절
+## SELECT 절
 SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리에서 검색할 값을 지정합니다. 소스 문서에서 필터링된 하위 집합이 프로젝션 단계로 전달되며, 여기서 전달된 각 입력에 대해 지정한 JSON 값이 검색되고 새 JSON 개체가 생성됩니다.
 
 다음 예제에서는 일반적인 SELECT 쿼리를 보여 줍니다.
@@ -645,8 +424,8 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
 	}]
 
 
-###중첩 속성
-다음 예에서는 두 개의 중첩된 속성 `f.address.state`와 `f.address.city`를 프로젝션합니다.
+### 중첩 속성
+다음 예제에서는 두 개의 중첩된 속성 `f.address.state` 및 `f.address.city`를 프로젝션합니다.
 
 **쿼리**
 
@@ -703,7 +482,7 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
 	}]
 
 
-###별칭 지정
+### 별칭 지정
 이제 값의 별칭을 명시적으로 지정하여 위 예제를 확장하겠습니다. AS는 별칭 지정에 사용되는 키워드입니다. 두 번째 값을 `NameInfo`로 프로젝션하는 동안 표시되므로 선택 사항입니다.
 
 쿼리에 동일한 이름을 가진 두 개의 속성이 있을 경우 프로젝션된 결과에서 구분되도록 별칭 지정을 사용하여 속성 중 하나 또는 둘 다의 이름을 바꾸어야 합니다.
@@ -729,7 +508,7 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
 	}]
 
 
-###스칼라 식
+### 스칼라 식
 속성 참조뿐 아니라 SELECT 절은 상수, 산술 식, 논리 식 등의 스칼라 식도 지원합니다. 예를 들어 다음은 단순한 "Hello World" 쿼리입니다.
 
 **쿼리**
@@ -775,7 +554,7 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
 	]
 
 
-###개체 및 배열 만들기
+### 개체 및 배열 만들기
 DocumentDB SQL의 다른 주요 기능은 배열/개체 만들기입니다. 앞의 예제에서는 새 JSON 개체를 만들었습니다. 마찬가지로 아래 예제에 표시된 대로 배열을 생성할 수도 있습니다.
 
 **쿼리**
@@ -800,8 +579,8 @@ DocumentDB SQL의 다른 주요 기능은 배열/개체 만들기입니다. 앞�
 	  }
 	]
 
-###VALUE 키워드
-**VALUE** 키워드는 JSON 값을 반환하는 방법을 제공합니다. 예를 들어 아래 표시된 쿼리는 `{$1: "Hello World"}` 대신에 스칼라 `"Hello World"`를 반환합니다.
+### VALUE 키워드
+**VALUE** 키워드는 JSON 값을 반환하는 방법을 제공합니다. 예를 들어 아래 표시된 쿼리는 `{$1: "Hello World"}` 대신 스칼라 `"Hello World"`를 반환합니다.
 
 **쿼리**
 
@@ -880,8 +659,8 @@ DocumentDB SQL의 다른 주요 기능은 배열/개체 만들기입니다. 앞�
 	    "isRegistered": true
 	}]
 
-##ORDER BY 절
-ANSI-SQL에서와 마찬가지로 쿼리하는 동안 선택적 Order By 절을 포함할 수 있습니다. 절은 선택적 ASC/DESC 인수를 포함하여 결과를 검색해야 하는 순서를 지정할 수 있습니다. Order By를 더 자세히 살펴보려면 [DocumentDB Order By 연습](documentdb-orderby.md)을 참조하세요.
+## ORDER BY 절
+ANSI-SQL에서와 마찬가지로 쿼리하는 동안 선택적 Order By 절을 포함할 수 있습니다. 절은 선택적 ASC/DESC 인수를 포함하여 결과를 검색해야 하는 순서를 지정할 수 있습니다. Order By를 자세히 살펴보려면 [DocumentDB Order By 연습](documentdb-orderby.md)을 참조하세요.
 
 예를 들어 상주하는 도시의 이름 순으로 가족을 검색하는 쿼리는 다음과 같습니다.
 
@@ -925,8 +704,8 @@ ANSI-SQL에서와 마찬가지로 쿼리하는 동안 선택적 Order By 절을 
 	  }
 	]
 	
-##고급 개념
-###반복
+## 고급 개념
+### 반복
 JSON 배열 반복을 지원하기 위해 DocumentDB SQL의 **IN** 키워드를 통해 새 구문을 추가했습니다. FROM 소스에서 반복 지원을 제공합니다. 다음 예제로 시작하겠습니다.
 
 **쿼리**
@@ -961,7 +740,7 @@ JSON 배열 반복을 지원하기 위해 DocumentDB SQL의 **IN** 키워드를 
 	  ]
 	]
 
-이제 컬렉션의 자식을 반복하는 다른 쿼리를 살펴보겠습니다. 출력 배열의 차이점을 확인합니다. 이 예에서는 `children`을 분할하고 결과를 단일 배열로 평면화합니다.
+이제 컬렉션의 자식을 반복하는 다른 쿼리를 살펴보겠습니다. 출력 배열의 차이점을 확인합니다. 이 예제에서는 `children`을 분할하고 결과를 단일 배열로 평면화합니다.
 
 **쿼리**
 
@@ -1005,7 +784,7 @@ JSON 배열 반복을 지원하기 위해 DocumentDB SQL의 **IN** 키워드를 
 	  "givenName": "Lisa"
 	}]
 
-###조인
+### 조인
 관계형 데이터베이스에서는 테이블 간 조인 요구가 매우 중요합니다. 이는 정규화된 스키마 설계의 필연적인 논리적 결과입니다. 이와 반대로 DocumentDB는 스키마 없는 문서의 비정규화된 데이터 모델을 처리합니다. 이는 논리적으로 "자체 조인"과 동등합니다.
 
 언어에서 지원되는 구문은 <from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>입니다. 대체로 이 구문은 **N** 튜플(**N**개 값이 포함된 튜플) 집합을 반환합니다. 각 튜플은 해당 집합에 모든 컬렉션 별칭을 반복하여 생성된 값을 포함합니다. 즉, 조인에 참여하는 집합의 전체 교차곱입니다.
@@ -1024,7 +803,7 @@ JSON 배열 반복을 지원하기 위해 DocumentDB SQL의 **IN** 키워드를 
 	}]
 
 
-다음 예에서는 문서 루트와 `children` 하위 루트 간의 조인이 수행됩니다. 두 JSON 개체 간의 교차곱입니다. 자식 배열인 단일 루트를 다루기 때문에 자식이 배열이라는 사실은 JOIN에 적용되지 않습니다. 따라서 각 문서와 배열의 교차곱에서 정확히 한 개의 문서만 생성하므로 결과에 두 개의 결과만 포함됩니다.
+다음 예제에서는 문서 루트와 `children` 하위 루트 간의 조인이 수행됩니다. 두 JSON 개체 간의 교차곱입니다. 자식 배열인 단일 루트를 다루기 때문에 자식이 배열이라는 사실은 JOIN에 적용되지 않습니다. 따라서 각 문서와 배열의 교차곱에서 정확히 한 개의 문서만 생성하므로 결과에 두 개의 결과만 포함됩니다.
 
 **쿼리**
 
@@ -1072,7 +851,7 @@ JSON 배열 반복을 지원하기 위해 DocumentDB SQL의 **IN** 키워드를 
 
 -	배열의 각 자식 요소 **c**를 확장합니다.
 -	문서 루트 **f**와 첫 번째 단계에서 평면화된 각 자식 요소 **c**의 교차곱을 적용합니다.
--	마지막으로, 루트 개체 **f**의 이름 속성만 프로젝션합니다. 
+-	끝으로, 루트 개체 **f**의 이름 속성만 프로젝션합니다. 
 
 첫 번째 문서(`AndersenFamily`)에는 하나의 자식 요소만 포함되어 있으므로 이 문서에 해당하는 단일 개체만 결과 집합에 포함됩니다. 두 번째 문서(`WakefieldFamily`)에는 두 개의 자식이 포함되어 있습니다. 따라서 교차곱을 통해 각 자식에 대한 개별 개체가 생성되므로 이 문서에 해당하는 각 자식에 하나씩, 두 개의 개체가 생성됩니다. 교차곱에서 예상한 대로 두 문서의 루트 필드는 동일합니다.
 
@@ -1129,7 +908,7 @@ JOIN의 진정한 유용성은 다른 방식으로 프로젝션하기 어려운 
 
 `AndersenFamily`에는 애완 동물 한 마리를 키우는 자식 한 명이 있습니다. 따라서 이 가족의 교차곱은 하나의 행(1*1*1)을 생성합니다. 그러나 WakefieldFamily에는 자녀 두 명이 있지만 그중에 "Jesse"만 애완 동물을 두 마리 키우고 있습니다. 따라서 이 가족의 교차곱은 1*1*2 = 2개의 행을 생성합니다.
 
-다음 예에서는 `pet`에 대한 추가 필터가 있습니다. 이 필터는 애완 동물 이름이 "Shadow"가 아닌 튜플을 모두 제외합니다. 배열에서 튜플을 작성하고, 튜플 요소를 필터링한 다음 요소 조합을 프로젝션할 수 있습니다.
+다음 예제에서는 `pet`에 대한 추가 필터가 있습니다. 이 필터는 애완 동물 이름이 "Shadow"가 아닌 튜플을 모두 제외합니다. 배열에서 튜플을 작성하고, 튜플 요소를 필터링한 다음 요소 조합을 프로젝션할 수 있습니다.
 
 **쿼리**
 
@@ -1154,7 +933,7 @@ JOIN의 진정한 유용성은 다른 방식으로 프로젝션하기 어려운 
 	]
 
 
-##JavaScript 통합
+## JavaScript 통합
 DocumentDB는 저장 프로시저 및 트리거 측면에서 컬렉션에 대해 직접 JavaScript 기반 응용 프로그램 논리를 실행하기 위한 프로그래밍 모델을 제공합니다. 이 경우 다음 두 가지 기능을 모두 사용할 수 있습니다.
 
 -	데이터베이스 엔진 내에 직접 JavaScript 런타임이 전체 통합되므로 컬렉션의 문서에 대해 고성능 트랜잭션 CRUD 작업 및 쿼리를 수행할 수 있습니다. 
@@ -1180,7 +959,7 @@ DocumentDB는 저장 프로시저 및 트리거 측면에서 컬렉션에 대해
 	       collectionSelfLink/* link of the parent collection*/, 
 	       regexMatchUdf).Result;  
                                                                              
-위 예에서는 이름이 `REGEX_MATCH`인 UDF를 만듭니다. 두 JSON 문자열 값 `input` 및 `pattern`을 받아들이고 JavaScript의 string.match() 함수를 사용하여 첫 번째 값이 두 번째 값에 지정된 패턴과 일치하는지를 확인합니다.
+위 예제에서는 이름이 `REGEX_MATCH`인 UDF를 만듭니다. 두 JSON 문자열 값 `input` 및 `pattern`을 받아들이고 JavaScript의 string.match() 함수를 사용하여 첫 번째 값이 두 번째 값에 지정된 패턴과 일치하는지를 확인합니다.
 
 
 이제 이 UDF를 프로젝트의 쿼리에 사용할 수 있습니다. 쿼리 내에서 호출하는 경우 대/소문자를 구분하는 접두사 "udf."를 사용하여 UDF를 한정해야 합니다.
@@ -1269,14 +1048,14 @@ DocumentDB SQL은 현재 UDF 처리 단계(WHERE 절 또는 SELECT 절)에 있�
 
 요약하면 UDF는 쿼리의 일부로 복잡한 비즈니스 논리를 수행하는 유용한 도구입니다.
 
-###연산자 평가
+### 연산자 평가
 DocumentDB는 JSON 데이터베이스이므로 JavaScript 연산자 및 평가 의미 체계와 유사합니다. DocumentDB는 JSON 지원 측면에서 JavaScript 의미 체계를 유지하려고 하지만 연산 평가가 다른 경우도 있습니다.
 
 DocumentDB SQL에서는 기존 SQL과 달리 실제로 데이터베이스에서 값이 검색될 때까지 값의 형식을 알 수 없는 경우가 많습니다. 쿼리를 효율적으로 실행하기 위해 대부분의 연산자에 강력한 형식 요구 사항이 있습니다.
 
 DocumentDB SQL은 JavaScript와 달리 암시적 변환을 수행하지 않습니다. 예를 들어 `SELECT * FROM Person p WHERE p.Age = 21`과 같은 쿼리는 Age 속성을 포함하고 값이 21인 문서에 일치됩니다. Age 속성이 문자열 "21" 또는 "021", "21.0", "0021", "00021" 등의 다른 무한 변형과 일치하는 다른 문서는 일치되지 않습니다. 이는 문자열 값이 암시적으로 숫자로 캐스팅되는 JavaScript와 대조됩니다(연산자 기준, 예: ==) 이 선택 항목은 DocumentDB SQL의 효율적인 인덱스 매핑에 중요합니다.
 
-##매개 변수가 있는 SQL
+## 매개 변수가 있는 SQL
 DocumentDB는 익숙한 @ 표기법으로 표현된 매개 변수가 있는 쿼리를 지원합니다. 매개 변수가 있는 SQL은 사용자 입력의 강력한 처리 및 이스케이프를 제공하여 SQL 주입을 통해 데이터가 실수로 노출되는 것을 방지합니다.
 
 예를 들어 성 및 주소 상태를 매개 변수로 사용하는 쿼리를 작성한 다음 사용자 입력에 따라 다양한 성 및 주소 상태 값에 대해 실행할 수 있습니다.
@@ -1313,14 +1092,19 @@ DocumentDB는 일반적인 작업을 위해 많은 기본 제공 함수도 지�
 <td>문자열 함수</td>	
 <td>CONCAT, CONTAINS, ENDSWITH, INDEX_OF, LEFT, LENGTH, LOWER, LTRIM, REPLACE, REPLICATE, REVERSE, RIGHT, RTRIM, STARTSWITH, SUBSTRING, 및 UPPER</td>
 </tr>
+<tr>
 <td>배열 함수</td>	
 <td>ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH, 및 ARRAY_SLICE</td>
+</tr>
+<tr>
+<td>공간 함수</td>	
+<td>ST_DISTANCE, ST_WITHIN, ST_ISVALID 및 ST_ISVALIDDETAILED</td>
 </tr>
 </table>
 
 현재 기본 제공 함수가 제공되는 UDF(사용자 정의 함수)를 사용 중인 경우 더 빨리 실행되고 더 효율적이므로 해당하는 기본 제공 함수를 사용해야 합니다.
 
-###수치 연산 함수
+### 수치 연산 함수
 수치 연산 함수는 각각 인수로 제공된 입력 값에 따라 계산을 수행하고 숫자 값을 반환합니다. 다음은 지원되는 기본 제공 수치 연산 함수 표입니다.
 
 <table>
@@ -1436,7 +1220,7 @@ DocumentDB는 일반적인 작업을 위해 많은 기본 제공 함수도 지�
 
 DocumentDB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데이터 및 혼합된 스키마 데이터에서 잘 작동하도록 설계되었다는 것입니다. 예를 들어 Size 속성이 없거나 "unknown"과 같은 숫자가 아닌 값을 가진 문서가 있는 경우 오류를 반환하는 대신 문서를 건너뜁니다.
 
-###형식 검사 함수
+### 형식 검사 함수
 형식 검사 함수를 통해 SQL 쿼리 내에서 식의 형식을 검사할 수 있습니다. 형식 검사 함수를 사용하여 변수이거나 알 수 없는 경우 문서 내의 속성 형식을 즉시 확인할 수 있습니다. 다음은 지원되는 기본 제공 형식 검사 함수 표입니다.
 
 <table>
@@ -1489,79 +1273,27 @@ DocumentDB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데
 
     [true]
 
-###문자열 함수
+### 문자열 함수
 다음 스칼라 함수는 문자열 입력 값에 대해 작업을 수행하고 문자열, 숫자 또는 부울 값을 반환합니다. 기본 제공 문자열 함수의 테이블은 다음과 같습니다.
 
-<table>
-<tr>
-  <td><strong>사용 현황</strong></td>
-  <td><strong>설명</strong></td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length">LENGTH (str_expr)</a></td>
-  <td>지정한 문자열 식의 문자 수를 반환합니다.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat">CONCAT (str_expr, str_expr [, str_expr])</a></td>
-  <td>둘 이상의 문자열 값을 연결한 결과인 문자열을 반환합니다.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring">SUBSTRING (str_expr, num_expr, num_expr)</a></td>
-  <td>문자열 식의 일부를 반환합니다.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith">STARTSWITH (str_expr, str_expr)</a></td>
-  <td>첫 번째 문자열 식이 두 번째로 끝나지를 나타내는 부울을 반환합니다.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith">ENDSWITH (str_expr, str_expr)</a></td>
-  <td>첫 번째 문자열 식이 두 번째로 끝나지를 나타내는 부울을 반환합니다.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains">CONTAINS (str_expr, str_expr)</a></td>
-  <td>첫번째 문자열 식이 두 번째를 포함하는지를 나타내는 부울 값을 반환합니다.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of">INDEX_OF (str_expr, str_expr)</a></td>
-  <td>지정된 첫 번째 문자열 식 내의 두 번째 문자열 식에서 첫 번째로 나타나는 시작 위치를 반환하거나 문자열을 찾을 수 없는 경우 -1을 반환합니다.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left">LEFT (str_expr, num_expr)</a></td>
-  <td>지정된 수의 문자로 문자열의 왼쪽 부분을 반환합니다.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right">RIGHT (str_expr, num_expr)</a></td>
-  <td>지정된 수의 문자로 문자열의 오른쪽 부분을 반환합니다.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim">LTRIM (str_expr)</a></td>
-  <td>선행 공백을 제거한 후에 문자열 식을 반환합니다.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim">RTRIM (str_expr)</a></td>
-  <td>후행 공백을 잘라낸 후에 문자열 식을 반환합니다.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower">LOWER (str_expr)</a></td>
-  <td>대문자 데이터를 소문자로 변환한 후에 문자열 식을 반환합니다.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper">UPPER (str_expr)</a></td>
-  <td>소문자 데이터를 대문자로 변환한 후에 문자열 식을 반환합니다.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace">REPLACE (str_expr, str_expr, str_expr)</a></td>
-  <td>지정된 문자열 값의 모든 항목을 다른 문자열 값으로 바꿉니다.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replicate">REPLICATE (str_expr, num_expr)</a></td>
-  <td>문자열 값을 지정한 횟수 만큼 반복합니다.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse">REVERSE (str_expr)</a></td>
-  <td>문자열 값의 순서와 반대로 반환합니다.</td>
-</tr>
-</table>
+사용|설명
+---|---
+[LENGTH (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length)|지정한 문자열 식의 문자 수를 반환합니다.
+[CONCAT (str\_expr, str\_expr [, str\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat)|둘 이상의 문자열 값을 연결한 결과인 문자열을 반환합니다.
+[SUBSTRING (str\_expr, num\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring)|문자열 식의 일부를 반환합니다.
+[STARTSWITH (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith)|첫 번째 문자열 식이 두 번째로 끝나지를 나타내는 부울을 반환합니다.
+[ENDSWITH (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith)|첫 번째 문자열 식이 두 번째로 끝나지를 나타내는 부울을 반환합니다.
+[CONTAINS (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains)|첫번째 문자열 식이 두 번째를 포함하는지를 나타내는 부울 값을 반환합니다.
+[INDEX\_OF (str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of)|지정된 첫 번째 문자열 식 내의 두 번째 문자열 식에서 첫 번째로 나타나는 시작 위치를 반환하거나 문자열을 찾을 수 없는 경우 -1을 반환합니다.
+[LEFT (str\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left)|지정된 수의 문자로 문자열의 왼쪽 부분을 반환합니다.
+[RIGHT (str\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right)|지정된 수의 문자로 문자열의 오른쪽 부분을 반환합니다.
+[LTRIM (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim)|선행 공백을 제거한 후에 문자열 식을 반환합니다.
+[RTRIM (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim)|후행 공백을 잘라낸 후에 문자열 식을 반환합니다.
+[LOWER (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower)|대문자 데이터를 소문자로 변환한 후에 문자열 식을 반환합니다.
+[UPPER (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper)|소문자 데이터를 대문자로 변환한 후에 문자열 식을 반환합니다.
+[REPLACE (str\_expr, str\_expr, str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace)|지정된 문자열 값의 모든 항목을 다른 문자열 값으로 바꿉니다.
+[REPLICATE (str\_expr, num\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replicate)|문자열 값을 지정한 횟수 만큼 반복합니다.
+[REVERSE (str\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse)|문자열 값의 순서와 반대로 반환합니다.
 
 이제 이러한 함수를 사용하여 다음과 같은 쿼리를 실행할 수 있습니다. 예를 들어 다음과 같이 대문자로 제품군 이름을 반환할 수 있습니다.
 
@@ -1611,31 +1343,15 @@ DocumentDB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데
       "city": "NY"
     }]
 
-###배열 함수
+### 배열 함수
 다음 스칼라 함수는 배열 입력 값에 대해 작업을 수행하고 숫자, 부울, 또는 배열 값을 반환합니다. 기본 제공 배열 함수의 테이블은 다음과 같습니다.
 
-<table>
-<tr>
-  <td><strong>사용 현황</strong></td>
-  <td><strong>설명</strong></td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length">ARRAY_LENGTH (arr_expr)</a></td>
-  <td>지정된 배열 식의 요소 수를 반환합니다.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat">ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])</a></td>
-  <td>둘 이상의 배열 값을 연결한 결과인 배열을 반환합니다.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains">ARRAY_CONTAINS (arr_expr, expr)</a></td>
-  <td>지정된 값이 배열에 포함되는지를 나타내는 부울 값을 반환합니다.</td>
-</tr>
-<tr>
-  <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice">ARRAY_SLICE (arr_expr, num_expr [, num_expr])</a></td>
-  <td>배열 식의 일부를 반환합니다.</td>
-</tr>
-</table>
+사용|설명
+---|---
+[ARRAY\_LENGTH (arr\_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length)|지정된 배열 식의 요소 수를 반환합니다.
+[ARRAY\_CONCAT (arr\_expr, arr\_expr [, arr\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat)|둘 이상의 배열 값을 연결한 결과인 배열을 반환합니다.
+[ARRAY\_CONTAINS (arr\_expr, expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains)|지정된 값이 배열에 포함되는지를 나타내는 부울 값을 반환합니다.
+[ARRAY\_SLICE (arr\_expr, num\_expr [, num\_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice)|배열 식의 일부를 반환합니다.
 
 배열 함수는 JSON 내 배열을 조작하는 데 사용할 수 있습니다. 예를 들어 다음은 부모 중 한 사람이 "Robin Wakefield"인 모든 문서를 반환하는 쿼리입니다.
 
@@ -1671,8 +1387,102 @@ DocumentDB 함수와 ANSI SQL 간의 주요 차이점은 스키마가 없는 데
 
 기본 제공 함수 및 DocumentDB에 대한 SQL 문법을 래핑합니다. 이제 지금까지 나타난 LINQ 쿼리 작동 방법 및 문법과 상호작용 방법을 살펴봤습니다.
 
+### 공간 함수
 
-##LINQ to DocumentDB SQL
+DocumentDB는 지리 공간 쿼리를 위해 다음과 같은 OGC(Open Geospatial Consortium) 기본 제공 함수를 지원합니다. DocumentDB의 지리 공간 지원에 대한 자세한 내용은 [Azure DocumentDB에서 지리 공간 데이터 작업](documentdb-geospatial.md)을 참조하세요.
+
+<table>
+<tr>
+  <td><strong>사용 현황</strong></td>
+  <td><strong>설명</strong></td>
+</tr>
+<tr>
+  <td>ST_DISTANCE (point_expr, point_expr)</td>
+  <td>두 GeoJSON 점 식 사이의 거리를 반환합니다.</td>
+</tr>
+<tr>
+  <td>ST_WITHIN (point_expr, polygon_expr)</td>
+  <td>첫 번째 인수에 지정된 GeoJSON 점이 두 번째 인수의 GeoJSON 다각형 내에 있는지 여부를 나타내는 부울 식을 반환합니다.</td>
+</tr>
+<tr>
+  <td>ST_ISVALID</td>
+  <td>지정된 GeoJSON 점 또는 다각형 식이 유효한지 여부를 나타내는 부울 값을 반환합니다.</td>
+</tr>
+<tr>
+  <td>ST_ISVALIDDETAILED</td>
+  <td>지정된 GeoJSON 점 또는 다각형 식이 유효한 경우 부울 값을 포함하는 JSON 값을 반환하고, 잘못된 경우 추가로 그 이유를 문자열 값으로 반환합니다.</td>
+</tr>
+</table>
+
+공간 함수를 사용하여 공간 데이터에 대한 근접 쿼리를 수행할 수 있습니다. 예를 들어 ST\_DISTANCE 기본 제공 함수를 사용하여 지정된 위치에서 30km 이내에 있는 모든 제품군 문서를 반환하는 쿼리는 다음과 같습니다.
+
+**쿼리**
+
+    SELECT f.id 
+    FROM Families f 
+    WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000
+
+**결과**
+
+    [{
+      "id": "WakefieldFamily"
+    }]
+
+인덱싱 정책에 공간 인덱싱을 포함하면 "거리 쿼리"가 인덱스를 통해 효율적으로 처리됩니다. 공간 인덱싱에 대한 자세한 내용은 아래 섹션을 참조하세요. 지정된 경로에 대한 공간 인덱스가 없는 경우에도 값이 "true"로 설정된 `x-ms-documentdb-query-enable-scan` 요청 헤더를 지정하여 공간 쿼리를 수행할 수 있습니다. .NET에서는 [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery)가 true로 설정된 쿼리에 선택적 **FeedOptions** 인수를 전달하여 이 작업을 수행할 수 있습니다.
+
+ST\_WITHIN을 사용하여 점이 다각형 내에 있는지 여부를 확인할 수 있습니다. 일반적으로 다각형은 우편 번호, 시/도 경계 또는 자연스러운 대형과 같은 경계를 나타내는 데 사용됩니다. 인덱싱 정책에 공간 인덱싱을 포함하면 "이내" 쿼리가 인덱스를 통해 효율적으로 처리됩니다.
+
+ST\_WITHIN의 다각형 인수에는 단일 링만 포함될 수 있습니다. 즉, 다각형에 구멍이 포함되지 않아야 합니다. ST\_WITHIN 쿼리에서 다각형에 허용되는 최대 점 수에 대한 [DocumentDB 제한](documentdb-limits.md)을 확인합니다.
+
+**쿼리**
+
+    SELECT * 
+    FROM Families f 
+    WHERE ST_WITHIN(f.location, {
+    	'type':'Polygon', 
+    	'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
+    })
+
+**결과**
+
+    [{
+      "id": "WakefieldFamily",
+    }]
+    
+>[AZURE.NOTE]DocumentDB 쿼리에서 일치하지 않는 형식이 작동하는 방식과 비슷하게, 인수에 지정된 위치 값이 잘못되었거나 형식이 잘못된 경우 **정의되지 않음**으로 평가되고 평가된 문서는 쿼리 결과에서 생략됩니다. 쿼리에서 결과가 반환되지 않는 경우 ST\_ISVALIDDETAILED를 실행하여 공간 형식이 잘못된 이유를 디버그합니다.
+
+ST\_ISVALID 및 ST\_ISVALIDDETAILED를 사용하여 공간 개체가 유효한지 확인할 수 있습니다. 예를 들어 다음 쿼리는 위도 값(-132.8)이 범위를 벗어난 점의 유효성을 검사합니다. ST\_ISVALID는 부울 값만 반환하고 ST\_ISVALIDDETAILED는 부울 및 잘못된 것으로 간주된 이유를 포함하는 문자열을 반환합니다.
+
+**쿼리**
+
+    SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
+
+**결과**
+
+    [{
+      "$1": false
+    }]
+
+이러한 함수를 사용하여 다각형의 유효성을 검사할 수도 있습니다. 예를 들어 여기서는 ST\_ISVALIDDETAILED를 사용하여 닫혀 있지 않은 다각형의 유효성을 검사합니다.
+
+**쿼리**
+
+    SELECT ST_ISVALIDDETAILED({ "type": "Polygon", "coordinates": [[ 
+    	[ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] 
+    	]]})
+
+**결과**
+
+    [{
+       "$1": { 
+      	  "valid": false, 
+      	  "reason": "The Polygon input is not valid because the start and end points of the ring number 1 are not the same. Each ring of a polygon must have the same start and end points." 
+      	}
+    }]
+    
+기본 제공 함수 및 DocumentDB에 대한 SQL 문법을 래핑합니다. 이제 지금까지 나타난 LINQ 쿼리 작동 방법 및 문법과 상호작용 방법을 살펴봤습니다.
+
+## LINQ to DocumentDB SQL
 LINQ는 개체 스트림에 대한 쿼리로 계산을 표현하는 .NET 프로그래밍 모델입니다. DocumentDB는 JSON 및 .NET 개체 간의 변환과 LINQ 쿼리 하위 집합에서 DocumentDB 쿼리로의 매핑을 용이하게 하여 LINQ와 인터페이스할 클라이언트 쪽 라이브러리를 제공합니다.
 
 아래 그림은 DocumentDB를 사용한 LINQ 쿼리를 지원하는 아키텍처를 보여 줍니다. 개발자는 DocumentDB 클라이언트를 사용하여 쿼리를 DocumentDB 쿼리 공급자로 보내는 **IQueryable** 개체를 만들 수 있습니다. 쿼리 공급자가 LINQ 쿼리를 DocumentDB 쿼리로 변환합니다. 그런 다음 JSON 형식으로 결과 집합을 검색하기 위해 쿼리가 DocumentDB 서버로 전달됩니다. 반환된 결과는 클라이언트 쪽에서 .NET 개체 스트림으로 역직렬화됩니다.
@@ -1681,7 +1491,7 @@ LINQ는 개체 스트림에 대한 쿼리로 계산을 표현하는 .NET 프로�
  
 
 
-###.NET 및 JSON 매핑
+### .NET 및 JSON 매핑
 .NET 개체와 JSON 문서 간의 매핑은 기본적으로 수행됩니다. 각 데이터 멤버 필드가 JSON 개체에 매핑됩니다. 여기서 필드 이름은 개체의 "키" 부분에 매핑되고 "값" 부분은 개체의 값 부분에 재귀적으로 매핑됩니다. 아래 예제를 고려해 보세요. 만들어진 Family 개체는 아래와 같이 JSON 문서에 매핑됩니다. 반대로 JSON 문서는 다시 .NET 개체에 매핑됩니다.
 
 **C# 클래스**
@@ -1763,7 +1573,7 @@ LINQ는 개체 스트림에 대한 쿼리로 계산을 표현하는 .NET 프로�
 
 
 
-###LINQ to SQL 변환
+### LINQ to SQL 변환
 DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑하기 위해 최대한 노력합니다. 다음 설명에서는 사용자가 LINQ의 기본 사항을 알고 있다고 가정합니다.
 
 먼저 형식 시스템에 대해 모든 JSON 기본 형식(숫자 형식, 부울, 문자열 및 null)을 지원합니다. 이러한 JSON 형식만 지원됩니다. 다음 스칼라 식이 지원됩니다.
@@ -1793,10 +1603,10 @@ DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑
 		new { first = 1, second = 2 }; //an anonymous type with 2 fields              
 		new int[] { 3, child.grade, 5 };
 
-###쿼리 연산자
+### 쿼리 연산자
 다음은 표준 LINQ 쿼리 연산자 중 일부가 DocumentDB 쿼리로 변환되는 방법을 보여 주는 몇 가지 예제입니다.
 
-####Select 연산자
+#### Select 연산자
 구문은 `input.Select(x => f(x))`입니다. 여기서 `f`는 스칼라 식입니다.
 
 **LINQ 람다 식**
@@ -1839,7 +1649,7 @@ DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑
 
 
 
-####SelectMany 연산자
+#### SelectMany 연산자
 구문은 `input.SelectMany(x => f(x))`입니다. 여기서 `f`는 컬렉션 형식을 반환하는 스칼라 식입니다.
 
 **LINQ 람다 식**
@@ -1853,7 +1663,7 @@ DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑
 
 
 
-####Where 연산자
+#### Where 연산자
 구문은 `input.Where(x => f(x))`입니다. 여기서 `f`는 부울 값을 반환하는 스칼라 식입니다.
 
 **LINQ 람다 식**
@@ -1882,10 +1692,10 @@ DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑
 	AND f.children[0].grade < 3
 
 
-###복합 쿼리
+### 복합 쿼리
 위 연산자를 구성하여 보다 강력한 쿼리를 만들 수 있습니다. DocumentDB는 중첩 컬렉션을 지원하므로 해당 컴퍼지션을 연결하거나 중첩할 수 있습니다.
 
-####연결 
+#### 연결 
 
 구문은 `input(.|.SelectMany())(.Select()|.Where())*`입니다. 연결된 쿼리는 선택적 `SelectMany` 쿼리로 시작하며 그 뒤에 여러 `Select` 또는 `Where` 연산자가 올 수 있습니다.
 
@@ -1942,7 +1752,7 @@ DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑
 
 
 
-####중첩
+#### 중첩
 
 구문은 `input.SelectMany(x=>x.Q())`입니다. 여기서 Q는 `Select`, `SelectMany` 또는 `Where` 연산자입니다.
 
@@ -1987,11 +1797,12 @@ DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑
 	WHERE c.familyName = f.parents[0].familyName
 
 
-##쿼리 실행
+## 쿼리 실행
 DocumentDB는 HTTP/HTTPS 요청을 수행할 수 있는 임의의 언어로 호출할 수 있는 REST API를 통해 리소스를 노출합니다. 또한 DocumentDB는 .NET, Node.js, JavaScript, Python 등 많이 사용되는 몇 개의 언어를 위한 프로그래밍 라이브러리를 제공합니다. REST API 및 다양한 라이브러리가 모두 SQL을 통한 쿼리를 지원합니다. .NET SDK는 SQL뿐 아니라 LINQ 쿼리도 지원합니다.
 
 다음 예제에서는 쿼리를 만들고 DocumentDB 데이터베이스 계정에 대해 제출하는 방법을 보여 줍니다.
-###REST API
+
+### REST API
 DocumentDB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공합니다. Azure 구독을 사용하여 데이터베이스 계정을 프로비전할 수 있습니다. DocumentDB 리소스 모델은 단일 데이터베이스 계정 아래에 있고 각각 논리적이고 안정적인 URI를 사용하여 주소 지정할 수 있는 리소스 집합으로 구성됩니다. 이 문서에서는 리소스 집합을 피드라고 합니다. 데이터베이스 계정은 각각 여러 컬렉션을 포함하는 데이터베이스 집합으로 구성되고, 각 컬렉션에는 문서, UDF 및 기타 리소스 유형이 포함됩니다.
 
 이러한 리소스를 사용한 기본 조작 모델은 HTTP 동사인 GET, PUT, POST 및 DELETE와 표준 해석을 활용합니다. POST 동사는 새 리소스를 만들거나 저장 프로시저를 실행하거나 DocumentDB 쿼리를 실행하는 데 사용됩니다. 쿼리는 항상 파생 작업이 없는 읽기 전용 작업입니다.
@@ -2125,7 +1936,7 @@ DocumentDB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
 
 컬렉션에 구성된 인덱싱 정책이 지정된 쿼리를 지원할 수 없는 경우 DocumentDB 서버에서 400 "잘못된 요청"이 반환됩니다. 해시(같음) 조회에 구성된 경로 및 인덱싱에서 명시적으로 제외된 경로의 범위 쿼리에 대해 반환됩니다. 인덱스를 사용할 수 없는 경우 쿼리에서 스캔을 수행할 수 있도록 `x-ms-documentdb-query-enable-scan` 헤더를 지정할 수 있습니다.
 
-###C#(.NET) SDK
+### C#(.NET) SDK
 .NET SDK는 LINQ 및 SQL 쿼리를 둘 다 지원합니다. 다음 예제에서는 이 문서의 앞부분에서 소개한 단순한 필터 쿼리를 수행하는 방법을 보여 줍니다.
 
 
@@ -2219,7 +2030,7 @@ DocumentDB는 HTTP를 통해 개방형 RESTful 프로그래밍 모델을 제공�
 
 쿼리가 포함된 추가 샘플은 [DocumentDB .NET 샘플](https://github.com/Azure/azure-documentdb-net)을 참조하세요.
 
-###JavaScript 서버 쪽 API 
+### JavaScript 서버 쪽 API 
 DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대해 직접 JavaScript 기반 응용 프로그램 논리를 실행하기 위한 프로그래밍 모델을 제공합니다. 그런 다음 컬렉션 수준에서 등록된 JavaScript 논리가 지정된 컬렉션의 문서에 대해 데이터베이스 작업을 실행할 수 있습니다. 해당 작업은 앰비언트 ACID 트랜잭션에 래핑됩니다.
 
 다음 예제에서는 JavaScript 서버 API에서 queryDocuments를 사용하여 저장 프로시저와 트리거 내부에서 쿼리를 수행하는 방법을 보여 줍니다.
@@ -2265,7 +2076,7 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
 6.	JSON [http://json.org/](http://json.org/)
 7.	Javascript 사양 [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
-9.	대형 데이터베이스에 대한 쿼리 평가 기술 [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
+9.	대형 데이터베이스에 대한 쿼리 평가 기술 [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)(영문)
 10.	Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
 11.	Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
 12.	Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
@@ -2277,4 +2088,4 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="08/10/2015"
    ms.author="piyushjo"/>
 
 # 사용자의 세그먼트를 만들고 관리하여 사용 패턴을 식별하는 방법
@@ -188,4 +188,4 @@ UI의 세그먼트 섹션에서는 응용 프로그램에서 확인할 수 있�
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

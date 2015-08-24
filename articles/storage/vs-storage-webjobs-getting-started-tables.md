@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Azure 저장소 시작" 
-	description="Visual Studio의 Azure WebJobs 5 프로젝트에서 Azure 테이블 저장소를 사용하는 방법" 
-	services="storage" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+	pageTitle="Azure 저장소 및 Visual Studio 연결 서비스 시작(WebJob 프로젝트)" 
+	description="Visual Studio의 Azure WebJobs 5 프로젝트에서 Azure 테이블 저장소를 사용하는 방법"
+	services="storage"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor="tglee"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.service="storage"
+	ms.workload="web"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/13/2015"
 	ms.author="patshea123"/>
 
 # Azure 저장소 시작(Azure WebJob 프로젝트)
 
 > [AZURE.SELECTOR]
-> - [Getting Started](vs-storage-webjobs-getting-started-tables.md)
-> - [What Happened](vs-storage-webjobs-what-happened.md)
+> - [Getting started](vs-storage-webjobs-getting-started-tables.md)
+> - [What happened](vs-storage-webjobs-what-happened.md)
 
 > [AZURE.SELECTOR]
 > - [Blobs](vs-storage-webjobs-getting-started-blobs.md)
@@ -31,9 +31,9 @@
 
 ## 개요
 
-Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 데이터를 저장할 수 있습니다. 이 서비스는 Azure 클라우드 내부 및 외부에서 인증된 호출을 수락하는 NoSQL 데이터 저장소입니다. Azure 테이블은 구조화된 비관계형 데이터를 저장하는 데 적합합니다. 자세한 내용은 [.NET에서 테이블 저장소를 사용하는 방법(영문)](storage-dotnet-how-to-use-tables.md/#create-a-table ".NET에서 테이블 저장소를 사용하는 방법(영문)")을 참조하세요.
-
 이 문서에서는 Azure 테이블 저장소 서비스에서 Azure WebJobs SDK 버전 1.x를 사용하는 방법을 보여 주는 C# 코드 샘플을 제공합니다. 코드 샘플에서는 [WebJobs SDK](websites-dotnet-webjobs-sdk.md) 버전 1.x를 사용합니다.
+
+Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 데이터를 저장할 수 있습니다. 이 서비스는 Azure 클라우드 내부 및 외부에서 인증된 호출을 수락하는 NoSQL 데이터 저장소입니다. Azure 테이블은 구조화된 비관계형 데이터를 저장하는 데 적합합니다. 자세한 내용은 [.NET에서 테이블 저장소를 사용하는 방법(영문)](storage-dotnet-how-to-use-tables.md/#create-a-table ".NET에서 테이블 저장소를 사용하는 방법(영문)")을 참조하세요.
 
 		
 일부 코드 조각에서는 `Table` 특성이 [수동으로 호출](vs-storage-webjobs-getting-started-blobs.md#manual)된 함수, 즉 트리거 특성 중 하나를 사용하지 않고 호출된 함수에서 사용됩니다.
@@ -166,4 +166,4 @@ Azure 저장소 API로 직접 작업하려는 경우 메서드 서명에 `CloudS
 이 문서에서는 Azure 테이블 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure WebJob 및 WebJob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

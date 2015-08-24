@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="07/03/2015"
+   ms.date="08/05/2015"
    ms.author="ruturajd@microsoft.com"/>
 
   
@@ -134,9 +134,19 @@ ASR은 결정적 스크립트를 작성할 수 있도록 runbook에 컨텍스트
         }
 
 
-아래 표에는 이름과 컨텍스트에서 각 변수에 대한 설명이 포함됩니다.
-  
-<table border="1"> <tr><th>변수 이름</th><th>변수 설명</th></tr> <tr><td>RecoveryPlanName</td><td>실행될 복구 계획 이름입니다. <p> 이 변수는 동일한 스크립트를 사용하는 복구 계획 이름에 따라 다른 동작을 취하도록 도울 수 있습니다.</td></tr> <tr><td>FailoverType</td><td>실행이 **테스트**, **계획됨** 또는 **계획되지 않음**인지 지정합니다. <p> 이 변수는 장애 조치 유형에 따라 다른 동작을 취하도록 돕습니다. </td></tr> <tr><td>FailoverDirection</td><td>복구를 기본 쪽에서 복구로 또는 그 반대로 할지 지정합니다. <p>사용하는 두 값은 **PrimaryToSecondary** 및 **SecondaryToPrimary** </td></tr> <tr><td>GroupId</td><td>입니다. runbook이 실행되는 복구 계획 내에서 그룹 번호를 식별합니다. <p> 예를 들어 runbook이 post 그룹 2인 경우, GroupId는 2가 됩니다. </td></tr> <tr><td>VmMap</td><td> 해당 그룹에 있는 모든 가상 컴퓨터의 배열입니다. </td></tr> <tr><td>VmMap key</td><td>각 가상 컴퓨터에는 GUID를 통해 식별되는 고유한 키가 있습니다. 이 GUID는 가상 컴퓨터의 VMM ID와 동일합니다. <p> 작동하려는 가상 컴퓨터를 명확하게 지정하려면 이 GUID를 사용할 수 있습니다. </td></tr> <tr><td>RoleName</td><td>복구되는 Azure 가상 컴퓨터의 이름을 지정합니다.</td></tr> <tr><td>CloudServiceName</td><td> 만들어지는 가상 컴퓨터에 있는 Azure 클라우드 서비스를 지정합니다. </td></tr> </table><br />
+아래 표에는 컨텍스트의 각 변수에 대한 이름과 설명이 있습니다.
+
+**변수 이름** | **설명**
+---|---
+RecoveryPlanName | 실행되는 계획의 이름입니다. 동일한 스크립트를 사용하는 이름에 따라 필요한 조치를 취할 수 있습니다.
+FailoverType | 장애 조치(failover)가 테스트, 계획됨 또는 계획되지 않음인지 지정합니다. 
+FailoverDirection | 복구가 주 사이트 쪽으로 이루어지는지 보조 사이트 쪽으로 이루어지는지 지정합니다.
+GroupID | 계획이 실행 중일 때 복구 계획 내의 그룹 번호를 식별합니다.
+VmMap | 그룹에 있는 모든 가상 컴퓨터의 배열입니다.
+VMMap key | 각 VM에 대한 고유 키(GUID)입니다. 해당되는 경우 가상 컴퓨터의 VMM ID와 동일합니다. 
+RoleName | 복구 중인 Azure VM의 이름입니다.
+CloudServiceName | 가상 컴퓨터가 만들어지는 Azure 클라우드 서비스 이름입니다.
+
 
 컨텍스트에서 VmMap 키를 식별하려면 ASR에서 VM 속성 페이지로 이동하여 VM GUID 속성을 확인할 수도 있습니다.
 
@@ -303,4 +313,4 @@ Azure에 장애 조치(Failover)를 실행할 때 기본 측 스크립트를 실
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

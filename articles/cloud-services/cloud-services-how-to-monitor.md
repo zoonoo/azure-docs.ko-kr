@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="클라우드 서비스를 모니터링하는 방법 - Azure" 
+	pageTitle="클라우드 서비스를 모니터링하는 방법 | Microsoft Azure" 
 	description="Azure 관리 포털을 사용하여 클라우드 서비스를 모니터링하는 방법에 대해 알아봅니다." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -192,4 +192,4 @@ Azure 관리 포털에서 클라우드 서비스의 주요 성능 메트릭을 �
 	WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

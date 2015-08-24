@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="na"
    ms.topic="article"
    ms.workload="required" 
-   ms.date="05/27/2015"
+   ms.date="08/05/2015"
    ms.author="ruturajd@microsoft.com"/>
 
 # Azure에서 VMware로 장애 복구 단계
@@ -54,31 +54,54 @@ Azure에서 VMware 사이트로 장애 복구하는 경우 가상 컴퓨터로�
 
 ## 온-프레미스에 vContinuum 설치
 
-vContinuum 설정은 [다운로드 위치](http://go.microsoft.com/fwlink/?linkid=526305)에서 볼 수 있습니다.
+vContinuum 설정은 [다운로드 위치](http://go.microsoft.com/fwlink/?linkid=526305)에서 볼 수 있습니다. 또한 [다운로드 위치](http://go.microsoft.com/fwlink/?LinkID=533813)에서 제공되는 vConinuum 패치를 설치합니다.
 
-또한, [다운로드 위치](http://go.microsoft.com/fwlink/?LinkID=533813)에서 제공되는 vConinuum 패치를 설치합니다.
+1.  VContinuum의 설치를 시작하려면 설치 프로그램을 시작합니다. **다음**을 클릭합니다. ![](./media/site-recovery-failback-azure-to-vmware/image2.png)
+2.  CX 서버 IP 주소 및 CX 서버 포트를 지정합니다. HTTPS를 선택합니다.
 
-1.  VContinuum의 설치를 시작하려면 설치 프로그램을 시작합니다. 시작 화면이 나타나면 Next(다음)를 클릭하여 설정의 구성을 시작합니다.![](./media/site-recovery-failback-azure-to-vmware/image2.png)
-2.  CX 서버 IP 주소 및 CX 서버 포트를 지정합니다. 확인란에서 HTTPs를 선택해야 합니다. ![](./media/site-recovery-failback-azure-to-vmware/image3.png) a. CX IP를 검색하려면 Azure의 CS 배포로 이동하고 대시보드를 봅니다. 공용 IP 주소는 공용 가상 IP 주소 아래 표시됩니다. ![](./media/site-recovery-failback-azure-to-vmware/image4.png) b. CX 공용 포트를 검색하려면 VM 페이지에서 끝점 탭으로 이동하고 HTTPs 끝점 공용 포트를 식별합니다.![](./media/site-recovery-failback-azure-to-vmware/image5.png)
-3.  CS 암호를 지정합니다. CS 등록 중에 암호를 기록해두어야 합니다. MT 및 PS 배포 중에도 암호를 사용했을 것입니다. 암호를 기억하지 못하는 경우 Azure에서 CS 서버로 이동하여 C:\\Program Files (x86) \\InMage Systems\\private\\connection.passphrase 아래에 저장된 암호를 찾을 수 있습니다. ![](./media/site-recovery-failback-azure-to-vmware/image6.png)
-4.  vContinuum 서버를 설치할 위치를 지정하고 설치를 시작합니다. ![](./media/site-recovery-failback-azure-to-vmware/image7.png)
-5.  설치가 완료되면 vContinuum를 시작하여 작동하는지 확인하십시오. ![](./media/site-recovery-failback-azure-to-vmware/image8.png)
+	![](./media/site-recovery-failback-azure-to-vmware/image3.png)
+
+3.  CX IP 주소를 검색하려면 Azure의 CS 배포로 이동하고 해당 대시보드를 봅니다.
+
+	![](./media/site-recovery-failback-azure-to-vmware/image4.png)
+
+4.  CX 공용 포트를 검색하려면 VM 페이지에서 끝점 탭으로 이동하고 HTTPs 끝점 공용 포트를 식별합니다.
+
+	![](./media/site-recovery-failback-azure-to-vmware/image5.png)
+
+5.  CS 암호를 지정합니다. CS 등록 중에 암호를 기록해두어야 합니다. MT 및 PS 배포 중에도 암호를 사용했을 것입니다. 암호를 기억하지 못하는 경우 Azure에서 CS 서버로 이동하여 C:\\Program Files (x86) \\InMage Systems\\private\\connection.passphrase 아래에 저장된 암호를 찾을 수 있습니다.
+
+	![](./media/site-recovery-failback-azure-to-vmware/image6.png)
+
+6.  vContinuum 서버를 설치할 위치를 지정하고 설치를 시작합니다.
+
+	![](./media/site-recovery-failback-azure-to-vmware/image7.png)
+
+7.  설치가 완료되면 vContinuum을 시작하여 작동하는지 확인할 수 있습니다. ![](./media/site-recovery-failback-azure-to-vmware/image8.png)
+
 
 ## Azure에서 PS 서버를 설치합니다.
 
 프로세스 서버를 Azure에 설치해야 Azure 내의 VM이 데이터를 온-프레미스 MT에 다시 보낼 수 있습니다. 구성 서버와 동일한 네트워크에서 Azure에 PS를 배포해야 합니다.
 
-1.  Azure 내 구성 서버 페이지에서 선택하여 새 프로세스 서버를 추가합니다.![](./media/site-recovery-failback-azure-to-vmware/image9.png)
-2.  프로세스 서버에서 아래 설정을 구성하여 새로운 서버 a를 배포합니다. 프로세스 서버에 이름 b를 지정합니다. 관리자 c로 가상 컴퓨터에 연결하기 위한 사용자 이름을 입력합니다. d의 로그인 암호를 입력합니다. 프로세스 서버를 등록해야 하는 구성 서버를 선택합니다. 올바른 구성 서버를 선택했는지 확인합니다. 이것은 가상 컴퓨터를 보호 및 장애 조치할 때 사용한 동일한 서버입니다. e. 프로세스 서버를 배포하고자 하는 Azure 네트워크를 지정합니다. 구성 서버의 네트워크와 동일한 네트워크를 선택해야 합니다. f. 선택한 서브넷에서 고유한 IP 주소를 지정합니다. g. 프로세스 서버의 배포를 시작합니다. ![](./media/site-recovery-failback-azure-to-vmware/image10.png)
-3.  프로세스 서버를 배포하기 위한 작업이 트리거됩니다. ![](./media/site-recovery-failback-azure-to-vmware/image11.png)
+1.  Azure의 **구성 서버** 페이지에서 선택하여 새 프로세스 서버를 추가합니다.
+
+	![](./media/site-recovery-failback-azure-to-vmware/image9.png)
+
+2.  프로세스 서버 이름을 지정하고 이름 및 암호를 입력하여 관리자로 가상 컴퓨터에 연결합니다. 프로세스 서버를 등록하는 구성 서버를 선택합니다. 이 서버는 가상 컴퓨터를 보호하고 장애 조치(failover)하는 데 사용하는 서버와 동일해야 합니다. 프로세스 서버가 배포되어야 하는 Azure 네트워크를 지정합니다. 구성 서버와 동일한 네트워크여야 합니다. 선택한 서브넷에서 고유한 IP 주소를 지정하고 배포를 시작합니다.
+
+	![](./media/site-recovery-failback-azure-to-vmware/image10.png)
+
+
+프로세스 서버를 배포하기 위한 작업이 트리거됩니다.
+
+![](./media/site-recovery-failback-azure-to-vmware/image11.png)
 
 프로세스 서버가 Azure에 배포되면 지정한 자격 증명을 사용하여 서버에 로그인할 수 있습니다. 앞 방향의 보호 중에 사용한 단계를 사용하여 PS를 등록합니다.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image12.png)
 
-장애 복구 중에 등록된 서버는 VM 속성 아래에 표시되지 않습니다. 등록된 구성 서버 아래에 있는 서버 탭 아래에서만 표시됩니다.
-
-PS가 CS 아래에 나열될 때까지는 10-15분이 걸릴 수 있습니다.
+장애 복구(failback) 중에 등록된 서버는 VM 속성 아래에 표시되지 않습니다. 등록된 구성 서버 아래에 있는 서버 탭 아래에서만 표시됩니다. PS가 CS 아래에 나열될 때까지는 10-15분이 걸릴 수 있습니다.
 
 ## MT 서버 온-프레미스 설치
 
@@ -102,47 +125,28 @@ Windows MT는 이미 vContinuum 설정에 포함되어 있습니다. vContinuum�
 
 2.  VM에 최소 2개의 디스크가 연결되어 있는지 확인하십시오. 하나는 OS에, 두 번째는 보존 드라이브에 사용됩니다.
 
-3.  Linux 운영 체제를 설치합니다.
+3.  Linux 운영 체제를 설치합니다. Linux MT(마스터 대상) 시스템은 루트 또는 보존 저장소 공간에 LVM을 사용하지 않습니다. Linux MT는 기본적으로 LVM 파티션/디스크 검색을 방지하도록 구성됩니다.
+4.  만들 수 있는 파티션은 다음과 같습니다.
 
-    a. 참고: Linux 마스터 대상(MT) 시스템은 루트 또는 보존 저장소 공간에 LVM을 사용하지 않습니다. Linux MT는 기본적으로 LVM 파티션/디스크 검색을 방지하도록 구성됩니다.
+	![](./media/site-recovery-failback-azure-to-vmware/image13.png)
 
-    b. 생성할 수 있는 파티션: ![](./media/site-recovery-failback-azure-to-vmware/image13.png)
+5.  MT 설치를 시작하기 전에 아래 사후 설치 단계를 수행하십시오.
 
-4.  MT 설치를 시작하기 전에 아래 사후 설치 단계를 수행하십시오.
 
 #### 사후 OS 설치 단계
 
-Linux 가상 컴퓨터에서 각 SCSI 하드 디스크에 대해 SCSI ID를 가져오려면 “disk.EnableUUID = TRUE” 매개 변수를 활성화해야 합니다.
+Linux 가상 컴퓨터에서 각 SCSI 하드 디스크에 대해 SCSI ID를 가져오려면 “disk.EnableUUID = TRUE” 매개 변수를 활성화해야 합니다. 이 매개 변수를 사용하려면 아래 지정된 단계를 따르십시오.
 
-이 매개 변수를 사용하려면 아래 지정된 단계를 따르십시오.
+1. 가상 컴퓨터를 종료합니다.
+2. 왼쪽 패널에서 VM의 항목을 마우스 오른쪽 단추로 클릭하고 **설정 편집**을 선택합니다.
+3. **옵션** 탭을 클릭합니다. 왼쪽에서 **고급>일반 항목**을 선택하고 오른쪽에 표시되는 **구성 매개 변수**를 클릭합니다. “컴퓨터가 실행 중일 때 "구성 매개 변수" 옵션이 비활성화 상태가 됩니다." 이 탭을 활성화시키려면 컴퓨터를 종료합니다.
 
-a. 가상 컴퓨터를 종료합니다.
+	![](./media/site-recovery-failback-azure-to-vmware/image14.png)
 
-b. 왼쪽 패널에서 VM의 항목을 마우스 오른쪽 단추로 클릭하고 **설정 편집**을 선택합니다.
+4. **disk.EnableUUID**가 있는 행이 이미 존재하는지 확인합니다. 존재하며 값이 False로 설정되어 있는 경우 값을 True로 덮어씁니다(True와 False 값은 대소문자를 구분). 존재하며 True로 설정되어 있는 경우 취소를 클릭하고 부팅한 후 게스트 운영 체제 내에서SCSI 명령을 테스트합니다. 존재하지 않는 경우 **행 추가**를 클릭합니다.
+5. 이름 열에 disk.EnableUUID를 추가합니다. 해당 값을 TRUE로 설정합니다. 위의 값을 큰따옴표와 함께 추가하지 마세요.
 
-c. **옵션** 탭을 클릭합니다.
-
-d. 왼쪽에서 **고급>일반 항목**을 선택하고 오른쪽에 표시되는 **구성 매개 변수**를 클릭합니다.
-
-![](./media/site-recovery-failback-azure-to-vmware/image14.png)
-
-“컴퓨터가 실행 중일 때 "구성 매개 변수" 옵션이 비활성화 상태가 됩니다." 이 탭을 활성화시키려면 컴퓨터를 종료합니다.
-
-e. **disk.EnableUUID**가 있는 행이 이미 존재하는지 확인합니다.
-
-존재하며 값이 False로 설정되어 있는 경우 값을 True로 덮어씁니다(True와 False 값은 대소문자를 구분).
-
-존재하며 True로 설정되어 있는 경우 취소를 클릭하고 부팅한 후 게스트 운영 체제 내에서SCSI 명령을 테스트합니다.
-
-f. 존재하지 않는 경우 **행 추가**를 클릭합니다.
-
-이름 열에 disk.EnableUUID를 추가합니다.
-
-해당 값을 TRUE로 설정
-
-참고: 큰따옴표와 함께 위의 값을 추가하지 마십시오.
-
-![](./media/site-recovery-failback-azure-to-vmware/image15.png)
+	![](./media/site-recovery-failback-azure-to-vmware/image15.png)
 
 #### 추가 패키지 다운로드 및 설치
 
@@ -324,51 +328,44 @@ Azure 포털에서 가상 컴퓨터의 상태를 확인하 고 장애 조치되�
 
 ![](./media/site-recovery-failback-azure-to-vmware/image22.png)
 
-    a.  To select the correct VM – you can refer to its IP address. The
-        IP address range on-premises will be the on-premises VM.
-
-    b.  Click **Remove** to delete the entry
+6.  올바른 VM을 선택하기 위해 해당 IP 주소를 참조할 수 있습니다. IP 주소 범위 온-프레미스는 온-프레미스 VM이 됩니다.
+7.  **제거**를 클릭하여 항목을 삭제합니다.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image23.png)
 
-    c.  Go to the vCenter and stop the virtual machine on the vCenter
-
-    d.  Next you can also delete the virtual machines on-premises
-
-6.  그 다음에는 VM을 보호하고자 하는 온-프레미스 MT 서버를 지정해야 합니다.
-
-    a. 장애 조치하려는 vCenter에 연결합니다.
+8.  vCenter로 이동하고 vCenter의 가상 컴퓨터를 중지합니다.
+9.  그런 다음 가상 컴퓨터 온-프레미스도 삭제할 수 있습니다.
+10.  그 다음에는 VM을 보호하고자 하는 온-프레미스 MT 서버를 지정해야 합니다.
+11.  이를 위해 장애 복구(failback)하려는 vCenter에 연결합니다.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image24.png)
 
-a. 가상 컴퓨터를 복구하고자 하는 호스트를 기반으로 MT 서버를 선택합니다.
+12.  가상 컴퓨터를 복구하고자 하는 호스트를 기반으로 MT 서버를 선택합니다.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image24.png)
 
-7.  그 다음 각 가상 컴퓨터에 대해 복제 옵션을 제공합니다.
+13.  그 다음 각 가상 컴퓨터에 대해 복제 옵션을 제공합니다.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image25.png)
 
-a. 복구 쪽 **데이터 저장소**를 선택해야 합니다. 이것은 VM이 복구되는 데이터 저장소를 의미합니다.
+14.  이를 위해 복구 쪽 **데이터 저장소**를 선택해야 합니다. 이는 VM이 복구되는 데이터 저장소를 의미합니다.
 
 VM별로 제공해야 하는 다양한 옵션은 다음과 같습니다.
 
-옵션|옵션이 권장하는 값
+**옵션** | **옵션이 권장하는 값**
 ---|---
-프로세스 서버 IP|Azure에 배포한 PS를 선택 합니다.
+프로세스 서버 IP | Azure에 배포한 PS를 선택 합니다.
 보존 크기(MB)| 
-보존 값|1
-날짜/시간|일
-일관성 간격|1
-대상 데이터 저장소를 선택합니다.|복구 쪽에서 사용할 수 있는 데이터 저장소 이 데이터 저장소는 공간이 충분해야 하며 가상 컴퓨터를 실현시키고자 하는 ESX 호스트에서 제공되어야 합니다.
-
-
-8.  그런 다음 온-프레미스 사이트로 장애 조치 후 가상 컴퓨터가 입수하는 속성을 구성할 수 있습니다. 구성할 수 있는 다른 속성은 다음과 같습니다.
+보존 값 | 1
+날짜/시간 | 일
+일관성 간격 | 1
+대상 데이터 저장소를 선택합니다. | 복구 쪽에서 사용할 수 있는 데이터 저장소 이 데이터 저장소는 공간이 충분해야 하며 가상 컴퓨터를 실현시키고자 하는 ESX 호스트에서 제공되어야 합니다.
+15.  그런 다음 온-프레미스 사이트로 장애 조치 후 가상 컴퓨터가 입수하는 속성을 구성할 수 있습니다. 구성할 수 있는 다른 속성은 다음과 같습니다.
 
 ![](./media/site-recovery-failback-azure-to-vmware/image26.png)
 
 
-속성|구성 방법
+**속성** | **구성 방법**
 ---|---
 네트워크 구성|감지된 각 NIC에 대해 가상 컴퓨터에 대해 장애 복구 IP 주소를 구성합니다. NIC를 선택하고 **변경**을 클릭하여 IP 주소 세부 정보를 지정합니다.
 하드웨어 구성|VM에 대한 CPU 및 메모리 값을 지정할 수 있습니다. 이 설정은 보호하고자 하는 모든 VM에 적용할 수 있습니다.
@@ -555,4 +552,4 @@ NAT 구성|아래에 자세히 설명합니다.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

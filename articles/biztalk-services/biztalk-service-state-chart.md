@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="BizTalk 서비스의 여러 상태에서 허용되는 작업 | Azure" 
+	pageTitle="BizTalk 서비스의 여러 상태에서 허용되는 작업 | Microsoft Azure" 
 	description="중지, 시작, 다시 시작, 일시 중단, 계속, 삭제, 크기 조정, 업데이트 구성 및 백업 등 여러 MABS 상태에서 허용되는 작업" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -267,4 +267,4 @@ BizTalk 서비스를 프로비전하려면 [BizTalk 서비스: Azure 관리 포�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

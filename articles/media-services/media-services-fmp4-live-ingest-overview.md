@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #Azure 미디어 서비스 조각화된 MP4 라이브 수집 사양
@@ -206,4 +206,4 @@ Microsoft Azure 미디어 서비스용 라이브 수집에 기반한 ISO 조각�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

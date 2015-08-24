@@ -64,8 +64,7 @@ SciQuest Spend Director의 Azure AD 통합을 구성하려면 갤러리의 SciQu
 4. 페이지 맨 아래에 있는 **추가**를 클릭합니다.<br><br> ![응용 프로그램][3]
 5. **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.<br><br> ![응용 프로그램][4]
 6. 검색 상자에 **sciQuest spend director**를 입력합니다.<br>![응용 프로그램][5]
-7. 결과 창에서 **sciQuest Spend Director**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.<br>
-
+7. 결과 창에서 **sciQuest Spend Director**를 선택하고 **완료**를 클릭하여 응용 프로그램을 추가합니다.<br>![응용 프로그램][6]
 
 
 ##  Azure AD Single Sign-on 구성 및 테스트
@@ -75,21 +74,21 @@ Single Sign-on이 작동되려면 Azure AD는 Azure AD의 사용자에 해당하
  
 SciQuest Spend Director에서 Azure AD Single Sign-on을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
-1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-on 테스트하는 데 사용합니다.
+1. **[Azure AD Single Sign-On 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
 4. **[SciQuest Spend Director 테스트 사용자 만들기](#creating-a-halogen-software-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 SciQuest Spend Director에 만듭니다.
-5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Single Sign-on 테스트](#testing-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
+5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### Azure AD Single Sign-on 구성
 
-이 섹션은 Azure AD 포털에서 Azure AD Single Sign-on을 사용하도록 설정하고 SciQuest Spend Director에서 Single Sign-on을 구성하는 방법을 설명하기 위해 제공되었습니다.<br>
+이 섹션은 Azure AD 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 SciQuest Spend Director에서 Single Sign-On을 구성하는 방법을 설명하기 위해 제공되었습니다.<br>
 
 **SciQuest Spend Director에서 Azure AD Single Sign-on을 구성하려면 다음 단계를 수행합니다.**
 
-1. Azure AD 포털의 **SciQuest Spend Director** 응용 프로그램 통합 페이지에서 **Single Sign-on 구성**을 클릭하여 **Single Sign-on 구성** 대화 상자를 엽니다.<br><br>![Single Sign-On 구성][8]
+1. Azure AD 포털의 **SciQuest Spend Director** 응용 프로그램 통합 페이지에서 **Single Sign-On 구성**을 클릭하여 **Single Sign-On 구성** 대화 상자를 엽니다.<br><br>![Single Sign-On 구성][8]
 
-2. **SciQuest Spend Director에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Azure AD Single Sign-on**을 선택하고**다음**을 클릭합니다.<br><br>![Azure AD Single Sign-On][9]
+2. **SciQuest Spend Director에 대한 사용자 로그온 방법을 선택하십시오.** 페이지에서 **Azure AD Single Sign-On**을 선택하고**다음**을 클릭합니다.<br><br>![Azure AD Single Sign-On][9]
 
 3. **앱 설정 구성** 대화 상자 페이지에서 다음 단계를 수행합니다.<br><br>![앱 설정 구성][10]
  
@@ -103,8 +102,8 @@ SciQuest Spend Director에서 Azure AD Single Sign-on을 구성하고 테스트�
 
 5. 위에서 다운로드한 메타데이터를 사용하여 이 인증 방법을 설정하도록 SciQuest 지원 팀에 요청합니다.
 
-6. Azure AD 포털에서 Single Sign-on 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-on 구성** 대화 상자를 닫습니다.<br><br>![Azure AD Connect의 정의][15]
-10. **Single Sign-on 확인** 페이지에서 **완료**를 클릭합니다.<br><br>![Azure AD Connect의 정의][16]
+6. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-On 구성** 대화 상자를 닫습니다. <br><br>![Azure AD Connect의 정의][15]
+10. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다.<br><br>![Azure AD Connect의 정의][16]
 
 
 
@@ -114,9 +113,9 @@ SciQuest Spend Director에서 Azure AD Single Sign-on을 구성하고 테스트�
 
 **Azure AD에서 테스트 사용자를 만들려면 다음 단계를 수행하세요.**
 
-1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br>![Azure AD Connect의 정의][100] 
+1. **Azure 관리 포털**의 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다. <br><br> ![Azure AD Connect의 정의][100] 
 2. **디렉터리** 목록에서 디렉터리 통합을 사용하도록 설정할 디렉터리를 선택합니다.
-3. 사용자 목록을 표시하려면 위쪽의 메뉴에서 **사용자**를 클릭합니다.<br><br>![Azure AD Connect의 정의][101] 
+3. 사용자 목록을 표시하려면 위쪽의 메뉴에서 **사용자**를 클릭합니다. <br><br>![Azure AD Connect의 정의][101] 
 4. **사용자 추가** 대화 상자를 열려면 아래쪽의 도구 모음에서 **사용자 추가**를 클릭합니다.<br><br>![Azure AD Connect의 정의][102] 
 5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다.<br><br>![Azure AD Connect의 정의][103] 
   1. **사용자 유형**에서 **조직의 새 사용자**를 선택합니다.
@@ -140,7 +139,7 @@ SciQuest Spend Director에서 Azure AD Single Sign-on을 구성하고 테스트�
 
 테스트 계정을 만들려면 SciQuest Spend Director 지원 팀에 문의한 후 테스트 계정에 대한 세부 정보를 제공해야 합니다.
 
-또는 SciQuest Spend Director에서 지원되는 Single Sign-On 기능인 Just-in-Tme 프로비저닝을 활용할 수도 있습니다. <br> Just-in-Tme 프로비저닝을 사용하도록 설정한 경우 계정이 없는 사용자가 Single Sign-On 시도를 수행하는 동안 SciQuest Spend Director에서 사용자 계정이 자동으로 만들어집니다. 이 기능을 사용하여 Single Sign-On 해당 사용자를 수동으로 만들 필요가 없습니다.
+또는 SciQuest Spend Director에서 지원되는 Single Sign-On 기능인 Just-in-Tme 프로비저닝을 활용할 수도 있습니다. <br> Just-in-Tme 프로비전을 사용하도록 설정한 경우 계정이 없는 사용자가 Single Sign-On 시도를 수행하는 동안 SciQuest Spend Director에서 사용자 계정이 자동으로 만들어집니다. 이 기능을 사용하여 Single Sign-On 해당 사용자를 수동으로 만들 필요가 없습니다.
 
 Just-in-Tme 프로비저닝을 사용하도록 설정하려면 SciQuest Spend Director 지원 팀에 문의해야 합니다.
   
@@ -152,10 +151,10 @@ Just-in-Tme 프로비저닝을 사용하도록 설정하려면 SciQuest Spend Di
 **SciQuest Spend Director에 Britta Simon를 할당하려면 다음 단계를 수행합니다.**
 
 1. Azure 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.<br> <br><br>![Azure AD Connect의 정의][201]
-2. 응용 프로그램 목록에서 **SciQuest Spend Director**를 선택합니다. <br><br>
-1. 위쪽의 메뉴에서 **사용자**를 클릭합니다.<br> <br><br>![Azure AD Connect의 정의][202]
-1. 사용자 목록에서 **Britta Simon**을 선택합니다.<br><br>![Azure AD Connect의 정의][203]
-2. 아래쪽 도구 모음에서 **할당**을 클릭합니다.<br><br>![Azure AD Connect의 정의][204]
+2. 응용 프로그램 목록에서 **SciQuest Spend Director**를 선택합니다. <br><br>![Azure AD Connect의 정의][202]
+1. 위쪽의 메뉴에서 **사용자**를 클릭합니다.<br> <br><br>![Azure AD Connect의 정의][203]
+1. 사용자 목록에서 **Britta Simon**을 선택합니다.<br><br>![Azure AD Connect의 정의][204]
+2. 아래쪽 도구 모음에서 **할당**을 클릭합니다.<br><br>![Azure AD Connect의 정의][205]
 
 
 
@@ -175,6 +174,7 @@ Just-in-Tme 프로비저닝을 사용하도록 설정하려면 SciQuest Spend Di
 [3]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_03.png
 [4]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_04.png
 [5]: ./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_01.png
+[6]: ./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_05.png
 [8]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_06.png
 [9]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_07.png
 [10]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_08.png
@@ -190,8 +190,9 @@ Just-in-Tme 프로비저닝을 사용하도록 설정하려면 SciQuest Spend Di
 [106]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_15.png
 [200]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_16.png
 [201]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_17.png
-[202]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_18.png
-[203]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
-[204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
+[202]: ./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_06.png
+[203]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_18.png
+[204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
+[205]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

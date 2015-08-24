@@ -247,7 +247,6 @@ JSON 속성/태그에 대한 자세한 내용은 [JSON 스크립트 참조][json
          
 		New-AzureDataFactoryPipeline -ResourceGroupName ADF –DataFactoryName CopyFactory –File <Filepath>
 
-> [AZURE.NOTE]복사 활동을 사용하는 추가 예제는 [Azure 데이터 팩터리에서 복사 활동 사용 예][copy-activity-examples]를 참조하세요.
 
 ## 보안
 이 섹션에서는 복사 작업을 위해 데이터 저장소에 대한 보안 액세스를 설정하는 데 도움이 되는 전반적인 보안 지침 및 모범 사례를 제공합니다.
@@ -264,7 +263,6 @@ HTTPS 연결을 제공하는 데이터 저장소의 경우 복사 작업에 대�
 - **복사 작업에서 데이터 형식 처리**. 테이블 정의의 Structure 섹션에 지정된 데이터 형식이 적용/무시되는 경우를 설명합니다.
 - **SQL 싱크에 대한 저장 프로시저 호출**. SQL Server 또는 Azure SQL 데이터베이스로 데이터를 복사할 때 사용자 지정 저장 프로시저를 구성하고 호출할 수 있습니다.
 
-이러한 시나리오에 대한 자세한 내용은 [Azure 데이터 팩터리에서 복사 작업을 사용하는 고급 시나리오][copy-activity-advanced] 문서를 참조하세요.
 
 ## 연습
 복사 작업을 사용하여 Azure Blob 저장소에서 Azure SQL 데이터베이스로 데이터를 복사하는 방법을 보여 주는 자습서는 [Azure 데이터 팩터리 시작][adfgetstarted]을 참조하세요.
@@ -272,10 +270,8 @@ HTTPS 연결을 제공하는 데이터 저장소의 경우 복사 작업에 대�
 복사 작업을 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 방법을 보여 주는 연습은 [파이프라인에서 온-프레미스 데이터를 사용할 수 있도록 설정][use-onpremises-datasources]을 참조하세요.
 
 ## 참고 항목
-- [복사 작업 - 예제][copy-activity-examples]
 - [비디오: Azure 데이터 팩터리 복사 작업 소개][copy-activity-video]
 - [MSDN 라이브러리의 복사 작업 항목][msdn-copy-activity]
-- [Azure 데이터 팩터리에서 복사 작업을 사용하는 고급 시나리오][copy-activity-advanced]
 
 [msdn-copy-activity]: https://msdn.microsoft.com/library/dn835035.aspx
 [msdn-linkedservices]: https://msdn.microsoft.com/library/dn834986.aspx
@@ -288,9 +284,7 @@ HTTPS 연결을 제공하는 데이터 저장소의 경우 복사 작업에 대�
 
 [adfgetstarted]: data-factory-get-started.md
 [use-onpremises-datasources]: data-factory-use-onpremises-datasources.md
-[copy-activity-examples]: data-factory-copy-activity-examples.md
 
-[copy-activity-advanced]: data-factory-copy-activity-advanced.md
 [json-script-reference]: http://go.microsoft.com/fwlink/?LinkId=516971
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
@@ -299,4 +293,4 @@ HTTPS 연결을 제공하는 데이터 저장소의 경우 복사 작업에 대�
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

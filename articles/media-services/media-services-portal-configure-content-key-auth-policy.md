@@ -13,15 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
 
 #콘텐츠 키 인증 정책 구성 
 [AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
-
-이 문서는 [미디어 서비스 주문형 비디오 워크플로](media-services-video-on-demand-workflow.md) 및 [미디어 서비스 라이브 스트리밍 워크플로](media-services-live-streaming-workflow.md) 시리즈의 일부입니다.
 
 
 ##개요
@@ -62,7 +60,7 @@ Microsoft Azure 미디어 서비스를 사용하면 128 비트 암호화 키를 
 
 토큰 제한 정책을 선택하려면 **TOKEN** 단추를 누릅니다.
 
-**토큰** 제한 정책은 **보안 토큰 서비스**(STS)에 의해 발급된 토큰이 수반되어야 합니다. 미디어 서비스 지원 토큰에는 **간단한 웹 토큰**([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) 형식 및 **JSON 웹 토큰**(JWT) 형식의 토큰을 지원합니다. 자세한 내용은 [JWT 토큰 인증](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)(영문)을 참조하세요.
+**토큰** 제한 정책은 **보안 토큰 서비스**(STS)에 의해 발급된 토큰이 수반되어야 합니다. 미디어 서비스는 **간단한 웹 토큰**([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) 형식 및 **JSON 웹 토큰**(JWT) 형식의 토큰을 지원합니다. 자세한 내용은 [JWT 토큰 인증](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)(영문)을 참조하세요.
 
 미디어 서비스는 **보안 토큰 서비스**를 제공하지 않습니다. 사용자 지정 STS를 만들거나 Microsoft Azure ACS를 활용하여 토큰을 발급할 수 있습니다. 지정된 키로 서명된 토큰을 만들고 토큰 제한 구성에서 지정한 클레임을 발급하려면 반드시 STS를 구성해야 합니다. 토큰이 유효하고 해당 토큰의 클레임이 콘텐츠 키에 대해 구성된 클레임과 일치하는 경우 미디어 서비스 키 배달 서비스는 암호화 키를 클라이언트에게 반환합니다. 자세한 내용은 [Azure ACS를 사용하여 토큰 발급](http://mingfeiy.com/acs-with-key-services)(영문)을 참조하세요.
 
@@ -70,7 +68,7 @@ Microsoft Azure 미디어 서비스를 사용하면 128 비트 암호화 키를 
 
 ###PlayReady
 
-**PlayReady**로 콘텐츠를 보호하려는 경우 권한 부여 정책에서 지정해야 하는 항목 중 하나는 PlayReady 라이선스 템플릿을 정의하는 XML 문자열입니다. 기본적으로 설정되는 정책:
+PlayReady로 콘텐츠를 보호하려는 경우 권한 부여 정책에서 지정해야 하는 항목 중 하나는 **PlayReady 라이선스 템플릿**을 정의하는 XML 문자열입니다. 기본적으로 설정되는 정책:
 		
 	<PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1">
 	  <LicenseTemplates>
@@ -95,4 +93,4 @@ Microsoft Azure 미디어 서비스를 사용하면 128 비트 암호화 키를 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

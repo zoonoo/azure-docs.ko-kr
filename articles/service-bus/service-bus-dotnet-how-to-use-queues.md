@@ -1,5 +1,5 @@
 <properties
-    pageTitle="서비스 버스 큐를 사용하는 방법(.NET) - Azure"
+    pageTitle="서비스 버스 큐를 사용하는 방법(.NET) | Microsoft Azure"
     description="Azure에서 서비스 버스 큐를 사용하는 방법에 대해 알아봅니다. 코드 샘플은 .NET API를 사용하여 C#으로 작성되었습니다."
     services="service-bus"
     documentationCenter=".net"
@@ -18,7 +18,7 @@
 
 # 서비스 버스 큐를 사용하는 방법
 
-이 가이드에서는 서비스 버스 큐를 사용하는 방법을 설명합니다. 샘플은 C#으로 작성되었으며 .NET API를 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기** 및 **메시지 보내기 및 받기**가 포함됩니다. 큐에 대한 자세한 내용은 [다음 단계](#Next-steps) 섹션을 참조하십시오.
+이 가이드에서는 서비스 버스 큐를 사용하는 방법을 설명합니다. 샘플은 C#으로 작성되었으며 .NET API를 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기** 및 **메시지 보내기 및 받기**가 포함됩니다. 큐에 대한 자세한 내용은 [다음 단계](#Next-steps) 섹션을 참조하세요.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -172,7 +172,7 @@
 
 큐에서 메시지를 수신하려면 [`QueueClient`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx) 개체를 사용하는 것이 좋습니다. `QueueClient` 개체는 [`ReceiveAndDelete` 및 `PeekLock`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx)의 두 가지 모드에서 작동할 수 있습니다.
 
-**ReceiveAndDelete** 모드를 사용하는 경우 수신은 1단계 작업입니다. 즉, 서비스 버스가 큐의 메시지에 대한 읽기 요청을 받으면 메시지를 사용 중인 것으로 표시하고 응용 프로그램에 반환합니다. **ReceiveAndDelete**는 가장 단순한 모델이며, 응용 프로그램이 오류 이벤트 시 메시지를 처리하지 않아도 되는 안전한 시나리오에서 가장 적합합니다. 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보십시오. 서비스 버스가 메시지를 이용되는 것으로 표시했기 때문에 응용 프로그램이 다시 시작되고 메시지 이용을 다시 시작할 때 크래시 전에 이용된 메시지는 누락됩니다.
+**ReceiveAndDelete** 모드를 사용하는 경우 수신은 1단계 작업입니다. 즉, 서비스 버스가 큐의 메시지에 대한 읽기 요청을 받으면 메시지를 사용 중인 것으로 표시하고 응용 프로그램에 반환합니다. **ReceiveAndDelete**는 가장 단순한 모델이며, 응용 프로그램이 오류 이벤트 시 메시지를 처리하지 않아도 되는 안전한 시나리오에서 가장 적합합니다. 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보세요. 서비스 버스가 메시지를 이용되는 것으로 표시했기 때문에 응용 프로그램이 다시 시작되고 메시지 이용을 다시 시작할 때 크래시 전에 이용된 메시지는 누락됩니다.
 
 **PeekLock** 모드(기본 모드)에서는 수신이 2단계 작업이므로 메시지 누락이 허용되지 않는 응용 프로그램을 지원할 수 있습니다. 서비스 버스는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 응용 프로그램에 반환합니다. 응용 프로그램은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후 받은 메시지에 대해 [`Complete`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)를 호출하여 수신 프로세스의 두 번째 단계를 완료합니다. 서비스 버스는 `Complete` 호출을 확인한 후 메시지를 이용되는 것으로 표시하고 큐에서 제거합니다.
 
@@ -245,4 +245,4 @@
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

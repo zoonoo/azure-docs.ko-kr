@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="사용자 대신 SharePoint 액세스 | 모바일 개발자 센터" 
+	pageTitle="사용자 대신 SharePoint 액세스 | Microsoft Azure" 
 	description="사용자를 대신해 SharePoint를 호출하는 방법에 대해 알아봅니다." 
 	documentationCenter="" 
 	authors="mattchenderson" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="08/08/2015" 
 	ms.author="mahender"/>
 
 # 사용자 대신 SharePoint 액세스
@@ -219,4 +219,4 @@ Word 문서를 만들려면 OpenXML NuGet 패키지를 사용합니다. NuGet �
 [Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증]: http://azure.microsoft.com/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

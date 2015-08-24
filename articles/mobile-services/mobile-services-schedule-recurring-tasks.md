@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="스케줄러를 사용하여 백 엔드 작업 예약 - 모바일 서비스" 
+	pageTitle="스케줄러를 사용하여 백 엔드 작업 예약 | Microsoft Azure" 
 	description="Azure 모바일 서비스 스케줄러를 사용하여 모바일 앱에 대한 작업을 예약합니다." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -167,4 +167,4 @@
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

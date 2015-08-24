@@ -3,7 +3,7 @@
 	description="연속 내보내기 기능을 사용하여 Application Insights에서 원격 분석에 대한 자체 분석을 코딩합니다." 
 	services="application-insights" 
     documentationCenter=""
-	authors="alancameronwills" 
+	authors="noamben" 
 	manager="douge"/>
 
 <tags 
@@ -305,4 +305,4 @@ SQL 데이터베이스를 지정합니다.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

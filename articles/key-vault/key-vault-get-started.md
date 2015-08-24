@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 주요 자격 증명 모음 시작 | 개요"
+	pageTitle="Azure 주요 자격 증명 모음 시작 | Microsoft Azure"
 	description="이 자습서를 사용하면 Azure 키 자격 증명 모음으로 시작하여 확정된 컨테이너를 Azure에 만들고 Azure에서 암호화 키와 비밀을 저장하고 관리하는 데 도움이 됩니다."
 	services="key-vault"
 	documentationCenter=""
@@ -248,4 +248,4 @@ Azure 키 자격 증명 모음에 대한 Windows PowerShell cmdlet의 목록은 
 프로그래밍 참조의 경우 MSDN의 Microsoft Azure 문서에서 [키 자격 증명 모음](https://msdn.microsoft.com/library/azure/dn903625.aspx)을 참조하세요.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

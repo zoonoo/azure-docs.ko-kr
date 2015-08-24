@@ -13,7 +13,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="07/13/2015"
 	ms.author="rasquill"/>
 
@@ -26,6 +26,12 @@
 Linux를 실행하는 Azure 가상 컴퓨터(VM) 만들기는 명령줄 또는 포털에서 수행하는 것이 쉽습니다. 이 자습서는 Mac, Linux 및 Windows용 Azure 명령줄 인터페이스(Azure CLI)를 사용하여 Azure에서 실행하는 Ubuntu Server VM을 신속하게 만들고, **ssh**를 사용하여 새 디스크를 작성 및 탑재하여 연결합니다. (이 항목에서는 Ubuntu Server VM을 사용 하지만 [템플릿으로 사용자 고유의 이미지](virtual-machines-linux-create-upload-vhd.md)를 사용하여 Linux VM을 만들 수도 있습니다.)
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
+
+## 연습 동영상
+
+이 자습서의 연습은 다음과 같습니다.
+
+[AZURE.VIDEO building-a-linux-virtual-machine-tutorial]
 
 ## Azure CLI 설치
 
@@ -302,4 +308,4 @@ Azure의 Linux에 대한 자세한 내용은 다음 을 참조하세요.
 - [Azure의 Linux용 Docker 가상 컴퓨터 확장](virtual-machines-docker-vm-extension.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

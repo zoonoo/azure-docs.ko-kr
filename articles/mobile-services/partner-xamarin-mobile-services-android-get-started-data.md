@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="기존 앱에 모바일 서비스 추가(Xamarin.Android) | Azure 모바일 서비스" 
+	pageTitle="기존 앱에 모바일 서비스 추가(Xamarin.Android) | Microsoft Azure" 
 	description="Azure 모바일 서비스 Xamarin.Android 앱에서 데이터를 저장하고 액세스하는 방법에 대해 알아봅니다." 
 	documentationCenter="xamarin" 
 	authors="ggailey777" 
@@ -283,4 +283,4 @@
 [완성된 예제 프로젝트]: http://go.microsoft.com/fwlink/p/?LinkId=331302
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

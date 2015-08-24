@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="BizTalk 서비스의 대시보드, 모니터, 크기 조정, 구성 및 하이브리드 연결 | Azure" 
+	pageTitle="BizTalk 서비스의 대시보드, 모니터, 크기 조정, 구성 및 하이브리드 연결 | Microsoft Azure" 
 	description="대시보드, 모니터, 크기 조정, 구성, 하이브리드 연결 등 BizTalk 서비스에 대한 관리 포털 탭에서 성능을 제어하고 모니터링하는 방법을 알아봅니다. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -368,4 +368,4 @@ Azure BizTalk 서비스에서 하이브리드 연결을 만들거나 관리하�
 [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

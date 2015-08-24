@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="인증된 Windows Phone Silverlight 앱 사용자에게 푸시 알림 보내기 | Azure 모바일 서비스" 
+	pageTitle="인증된 Windows Phone Silverlight 앱 사용자에게 푸시 알림 보내기 | Microsoft Azure" 
 	description="Azure 모바일 서비스에서 Windows Phone Silverlight 앱의 특정 사용자에게 푸시 알림을 보내는 방법에 대해 알아봅니다." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -94,4 +94,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="compute"
-   ms.date="06/09/2015"
+   ms.date="08/12/2015"
    ms.author="elizapo"/>
 
 # Azure RemoteApp에서 컬렉션 업데이트
@@ -36,4 +36,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

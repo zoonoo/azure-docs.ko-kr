@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/23/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli" />
 
 # StorSimple 장치에 대한 장애 조치 및 재해 복구
@@ -77,7 +77,7 @@ DR(재해 복구) 시나리오에서 기본 장치가 작동을 중지합니다.
 
 1. 장치에서 모든 볼륨의 클라우드 스냅숏을 마련합니다.
 
-1. 장치를 공장 기본값으로 다시 설정합니다. [StorSimple 장치를 공장 기본 설정으로 다시 설정하는 방법](https://msdn.microsoft.com/library/dn772373.aspx)의 자세한 지침에 따릅니다.
+1. 장치를 공장 기본값으로 다시 설정합니다. [StorSimple 장치를 공장 기본 설정으로 다시 설정하는 방법](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings)의 자세한 지침에 따릅니다.
 
 1. 장치를 구성하고 StorSimple 관리자 서비스로 다시 등록 합니다.
 
@@ -142,10 +142,7 @@ DR(재해 복구) 시나리오에서 기본 장치가 작동을 중지합니다.
 - [StorSimple 장치 비활성화](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
 - [StorSimple 장치 삭제](storsimple-deactivate-and-delete-device.md#delete-a-device)
 
-StorSimple 관리자 서비스를 사용하여 장치를 관리하는 방법에 대한 내용은 다음을 참조하세요.
-
-- [관리자 가이드](https://msdn.microsoft.com/library/dn772401.aspx)
-
+StorSimple Manager 서비스를 사용하여 장치를 관리하는 방법에 대한 자세한 내용은 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md)로 이동하세요.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

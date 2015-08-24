@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure에서 New Relic 사용 - Azure 기능 가이드" 
+	pageTitle="Azure에서 New Relic 사용 | Microsoft Azure" 
 	description="New Relic 서비스를 사용하여 Azure 응용 프로그램을 관리 및 모니터링하는 방법에 대해 알아봅니다." 
 	services="" 
 	documentationCenter=".net" 
@@ -176,4 +176,4 @@ Applications Overview 대시보드에는 <a href="https://newrelic.com/docs/site
  * [실제 사용자 모니터링](https://newrelic.com/docs/features/real-user-monitoring): RUM에서 사용자의 브라우저가 웹 페이지를 로드하는 데 걸리는 시간, 사용자의 위치 및 사용하는 브라우저의 종류를 자세히 표시하는 방법에 대한 개요
  * [도움말 찾기](https://newrelic.com/docs/site/finding-help): New Relic의 온라인 도움말 센터를 통해 사용 가능한 리소스
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

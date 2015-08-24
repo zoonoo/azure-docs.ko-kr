@@ -13,16 +13,16 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
+	ms.date="08/11/2015"
 	ms.author="dkshir"/>
 
 # Linux 가상 컴퓨터에 데이터 디스크를 연결하는 방법
 
 빈 디스크와 데이터가 포함된 디스크를 모두 연결할 수 있습니다. 두 경우 모두, 디스크는 실제로 Azure 저장소 계정에 상주하는 .vhd 파일입니다. 또한 두 경우 모두 디스크를 연결한 후 초기화를 해야 사용 준비가 완료됩니다.
 
-> [AZURE.NOTE]모범 사례는 별도 디스크를 하나 이상 사용하여 가상 컴퓨터의 데이터를 저장하는 것입니다. Azure 가상 컴퓨터를 만들면 운영 체제 디스크와 임시 디스크가 있습니다. **임시 디스크를 데이터 저장에 사용하지 마세요.** 이름이 의미하는 것과 같이 D 드라이브는 임시 저장소만 제공합니다. Azure 저장소에 상주하지 않으므로 중복성이나 백업을 제공하지 않습니다. 임시 디스크는 일반적으로 Azure Linux 에이전트에 의해 관리되며 **/mnt/resource**(또는 Ubuntu 이미지의 **/mnt**)에 자동으로 탑재됩니다. 다른 한편, Linux에서 데이터 디스크 이름을 커널에서 `/dev/sdc`로 지정될 수 있습니다. 이 경우 해당 리소스를 파티셔닝, 형식 지정 및 마운트해야 합니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드][Agent]를 참조하십시오.
+> [AZURE.NOTE]모범 사례는 별도 디스크를 하나 이상 사용하여 가상 컴퓨터의 데이터를 저장하는 것입니다. Azure 가상 컴퓨터를 만들면 운영 체제 디스크와 임시 디스크가 있습니다. **임시 디스크를 데이터 저장에 사용하지 마세요.** 이름이 의미하는 것과 같이 D 드라이브는 임시 저장소만 제공합니다. Azure 저장소에 상주하지 않으므로 중복성이나 백업을 제공하지 않습니다. 임시 디스크는 일반적으로 Azure Linux 에이전트에 의해 관리되며 **/mnt/resource**(또는 Ubuntu 이미지의 **/mnt**)에 자동으로 탑재됩니다. 반면, 데이터 디스크 이름은 `/dev/sdc`처럼 Linux 커널로 지정할 수 있으며 사용자가 해당 리소스에 대한 파티셔닝, 포맷, 마운팅을 수행해야 합니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드][Agent]를 참조하십시오.
 
-[AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
+[AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-linux.md)]
 
 ## 방법: Linux에서 새 데이터 디스크 초기화
 
@@ -30,33 +30,59 @@
 
 
 
-2. SSH 창에서 다음 명령을 입력하고 가상 컴퓨터 관리를 위해 만든 계정의 암호를 입력합니다.
+2. 이제 초기화할 데이터 디스크의 장치 식별자를 찾아야 합니다. 이 작업을 수행하는 방법에는 다음 두 가지가 있습니다.
 
-		# sudo grep SCSI /var/log/messages
+	a) SSH 창에서 다음 명령을 입력하고 가상 컴퓨터 관리를 위해 만든 계정의 암호를 입력합니다.
 
-	>[AZURE.NOTE]최근 Ubuntu 배포의 경우 `/var/log/messages`에 대한 로깅이 기본적으로 사용하지 않도록 설정될 수 있으므로 `sudo grep SCSI /var/log/syslog`를 사용해야 할 수 있습니다.
+			$sudo grep SCSI /var/log/messages
+
+	최근 Ubuntu 배포의 경우 `/var/log/messages`에 대한 로깅이 기본적으로 사용하지 않도록 설정될 수 있으므로 `sudo grep SCSI /var/log/syslog`를 사용해야 할 수 있습니다.
 
 	표시되는 메시지에서 추가된 마지막 데이터 디스크의 식별자를 찾을 수 있습니다.
 
-
-
 	![디스크 메시지 가져오기](./media/virtual-machines-linux-how-to-attach-disk/DiskMessages.png)
 
+	또는
 
+	b) `lsscsi` 명령을 사용하여 장치 id를 확인합니다. `lsscsi`는 `yum install lsscsi`(Red Hat 기반 배포) 또는 `apt-get install lsscsi`(Debian 기반 배포)를 통해 설치할 수 있습니다. _lun_ 또는 **논리 단위 번호**를 사용하여 찾는 디스크를 확인할 수 있습니다. 예를 들어, 연결한 디스크에 대한 _lun_은 `azure vm disk list <virtual-machine>`에서 다음과 같이 쉽게 확인할 수 있습니다.
+
+			~$ azure vm disk list ubuntuVMasm
+			info:    Executing command vm disk list
+			+ Fetching disk images
+			+ Getting virtual machines
+			+ Getting VM disks
+			data:    Lun  Size(GB)  Blob-Name                         OS
+			data:    ---  --------  --------------------------------  -----
+			data:         30        ubuntuVMasm-2645b8030676c8f8.vhd  Linux
+			data:    1    10        test.VHD
+			data:    2    30        ubuntuVMasm-76f7ee1ef0f6dddc.vhd
+			info:    vm disk list command OK
+
+	이 내용을 동일한 샘플 가상 컴퓨터에 대한 `lsscsi` 출력과 비교합니다.
+
+			adminuser@ubuntuVMasm:~$ lsscsi
+			[1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
+			[2:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sda
+			[3:0:1:0]    disk    Msft     Virtual Disk     1.0   /dev/sdb
+			[5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc
+			[5:0:0:1]    disk    Msft     Virtual Disk     1.0   /dev/sdd
+			[5:0:0:2]    disk    Msft     Virtual Disk     1.0   /dev/sde
+
+	각 행의 튜플에 있는 마지막 숫자는 _lun_입니다. 자세한 내용은 `man lsscsi`를 참조하세요.
 
 3. SSH 창에서 다음 명령을 입력하여 새 장치를 만들고 계정 암호를 입력합니다.
 
-		# sudo fdisk /dev/sdc
+		$sudo fdisk /dev/sdc
 
 	>[AZURE.NOTE]이 예제에서는 일부 분산에서 `$PATH`에 /sbin 또는 /usr/sbin이 없는 경우 `sudo -i`를 사용해야 할 수도 있습니다.
 
 
-4. **n**을 입력하여 새 파티션을 만듭니다.
+4. 프롬프트가 표시되면 **n**을 입력하여 새 파티션을 만듭니다.
 
 
 	![새 장치 만들기](./media/virtual-machines-linux-how-to-attach-disk/DiskPartition.png)
 
-5. **p**를 입력하여 파티션을 주 파티션으로 설정하고, **1**을 입력하여 첫 번째 파티션으로 설정한 다음 enter를 입력하여 실린더에 대한 기본값을 적용합니다.
+5. 프롬프트가 표시되면 **p**를 입력하여 파티션을 주 파티션으로 설정하고, **1**을 입력하여 첫 번째 파티션으로 설정한 다음 enter를 입력하여 실린더에 대한 기본값을 적용합니다.
 
 
 	![파티션 만들기](./media/virtual-machines-linux-how-to-attach-disk/DiskCylinder.png)
@@ -136,9 +162,12 @@
 ## 추가 리소스
 [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법][Logon]
 
+[Linux 가상 컴퓨터에서 디스크를 분리하는 방법](virtual-machines-linux-how-to-detach-disk.md)
+
+[Azure 서비스 관리에서 Azure CLI 사용](virtual-machines-command-line-tools.md)
 
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

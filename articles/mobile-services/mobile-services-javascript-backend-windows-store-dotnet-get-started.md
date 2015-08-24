@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Windows 스토어 앱에 대한 모바일 서비스 시작 | 모바일 개발자 센터"
+	pageTitle="Windows 스토어 앱을 위한 모바일 서비스 시작 | Microsoft Azure"
 	description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 C# 또는 JavaScript로 Windows 스토어 개발을 시작할 수 있습니다."
 	services="mobile-services"
 	documentationCenter="windows"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article" 
-	ms.date="04/24/2015"
+	ms.date="08/08/2015"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>모바일 서비스 시작
@@ -103,4 +103,4 @@
 [Get started with data in Mobile Services using Visual Studio 2012]: ../mobile-services-windows-store-dotnet-get-started-data-vs2012.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

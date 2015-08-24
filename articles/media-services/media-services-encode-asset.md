@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 #Azure 미디어 서비스로 주문형 콘텐츠 인코딩
@@ -48,6 +48,8 @@
 
 **Azure 미디어 인코더**는 [여기](https://msdn.microsoft.com/library/azure/dn619392.aspx)에서 설명한 인코더 기본 설정 문자열 중 하나를 사용하여 구성됩니다. [여기](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/Azure%20Media%20Encoder)에서 실제 Azure 미디어 인코더 기본 설정 파일을 가져올 수도 있습니다.
 
+###예
+
 **Azure 관리 포털**, **.NET** 또는 **REST API**를 사용하여 **Azure 미디어 인코더**로 인코딩합니다.
  
 [AZURE.INCLUDE [media-services-selector-encode](../../includes/media-services-selector-encode.md)]
@@ -67,10 +69,13 @@
 
 [미디어 인코더 Premium 워크플로에서 지원하는 형식](media-services-premium-workflow-encoder-formats.md) – **미디어 인코더 Premium 워크플로**에서 지원하는 파일 형식 및 코덱에 대해 설명합니다.
 
+### Workflow Designer
+
 **미디어 인코더 Premium 워크플로**는 복잡한 워크플로를 사용하여 구성됩니다. 워크플로 파일은 [Workflow Designer](media-services-workflow-designer.md) 도구를 사용하여 만들 수 있습니다.
 
 [여기](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)에서 기본 워크플로 파일을 가져올 수 있습니다. 폴더에는 이러한 파일에 대한 설명도 포함되어 있습니다.
 
+###예
 **.NET**을 사용하는 **미디어 인코더 Premium 워크플로**로 인코딩합니다. 자세한 내용은 [미디어 인코더 Premium 워크플로를 사용한 고급 인코딩](media-services-encode-with-premium-workflow.md)을 참조하세요.
  
 
@@ -191,4 +196,4 @@ Windows Media 오디오|예|예|아니요
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

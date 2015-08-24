@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -186,4 +186,4 @@ Microsoft Azure 미디어 서비스는 작업(예: 채널 만들기, 시작, 중
 	Console.WriteLine(channelId);
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

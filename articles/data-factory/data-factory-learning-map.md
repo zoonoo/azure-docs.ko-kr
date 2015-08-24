@@ -1,5 +1,5 @@
 <properties
-	pageTitle="데이터 팩터리용 학습 맵 | Azure"
+	pageTitle="Data Factory용 학습 맵 | Microsoft Azure"
 	description="Azure 데이터 팩터리에서 0에서 60까지 진행하는 데 사용할 수 있는 리소스의 시각적 맵을 확인할 수 있습니다."
 	services="data-factory"
 	documentationCenter=""
@@ -24,4 +24,4 @@
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/adf-learning-map.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

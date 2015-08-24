@@ -3,7 +3,7 @@
 	description="Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 절차"
 	services="mobile-engagement" 
 	documentationCenter="mobile" 
-	authors="kpiteira" 
+	authors="piyushjo" 
 	manager="dwrede" 
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="02/12/2015" 
-	ms.author="kapiteir" />
+	ms.date="08/10/2015" 
+	ms.author="piyushjo" />
 
 #Android에서 Engagement를 통합하는 방법
 
@@ -311,4 +311,4 @@ Engagement는 이 설정을 관리하기 위한 기본 설정 파일 내에서 �
 [장치 API]: http://go.microsoft.com/?linkid=9876094
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

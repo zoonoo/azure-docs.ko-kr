@@ -12,7 +12,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/04/2015"
+   ms.date="08/06/2015"
    ms.author="cherylmc" />
 
 # Express 경로 파트너 및 피어링 위치
@@ -77,7 +77,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 아래 �
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** | 지원됨 | 지원되지 않음 | 싱가포르 |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | 지원됨 | 서비스 예정 | 암스테르담, 첸나이+, 홍콩, 런던, 뭄바이+, 싱가포르 |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | 지원됨 | 지원되지 않음 | 멜버른+, 시드니 |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | 지원됨 | 지원되지 않음 | 런던, 홍콩, 실리콘밸리, 워싱턴 DC, 미국령 아이오아, 미국령 버지니아 |
+| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | 지원됨 | 지원되지 않음 | 런던, 홍콩, 실리콘밸리, 워싱턴 DC |
 
  **+**는 서비스 예정을 나타냄
 
@@ -116,4 +116,4 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 아래 �
 - 동일한 가상 네트워크에 대해 사이트 간 VPN 연결과 Express 경로를 둘 다 구성하려면 [공존하는 Express 경로 및 사이트 간 VPN 구성](expressroute-coexist.md)을 참조하세요.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

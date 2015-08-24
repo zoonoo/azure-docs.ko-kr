@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="일반적인 DocumentDB 사용 사례 | Azure" 
+    pageTitle="일반적인 DocumentDB 사용 사례 | Microsoft Azure" 
     description="DocumentDB의 5가지 상위 사용 사례인 사용자 생성 콘텐츠, 이벤트 로깅, 카탈로그 데이터, 사용자 기본 설정 데이터 및 IoT(사물 인터넷)에 대해 알아봅니다." 
     services="documentdb" 
     authors="h0n" 
@@ -79,4 +79,4 @@ DocumentDB를 시작하기 위해 [계정](http://azure.microsoft.com/pricing/fr
 - [XOMNI](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18667). 미래 저장소가 빠른 검색 및 쉬운 데이터 흐름으로 실행됩니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

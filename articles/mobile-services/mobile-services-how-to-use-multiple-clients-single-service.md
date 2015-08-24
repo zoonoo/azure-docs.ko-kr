@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="단일 모바일 서비스 백 엔드에서 여러 클라이언트를 사용하는 방법 | Azure 모바일" 
+	pageTitle="단일 모바일 서비스 백 엔드에서 여러 클라이언트를 사용하는 방법 | Microsoft Azure" 
 	description="Windows 스토어 및 Windows Phone을 비롯한 다양한 모바일 플랫폼을 대상으로 하는 여러 클라이언트 앱에서 단일 모바일 서비스 백 엔드를 사용하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -210,4 +210,4 @@ Windows Phone 8.1에서는 이전 Silverlight 기반 XAML을 사용하여 앱을
 [MVVM을 사용하는 Azure 모바일 서비스의 범용 Windows 앱 프로젝트]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

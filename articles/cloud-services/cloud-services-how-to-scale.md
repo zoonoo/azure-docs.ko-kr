@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="클라우드 서비스 크기를 조정하는 방법 | Azure" 
+	pageTitle="클라우드 서비스를 크기 조정하는 방법 | Microsoft Azure" 
 	description="Azure에서 클라우드 서비스 및 연결된 리소스의 크기를 조정하는 방법에 대해 알아봅니다." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -227,4 +227,4 @@ Azure 관리 포털의 크기 조정 페이지에서 응용 프로그램의 크�
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

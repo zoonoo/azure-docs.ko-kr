@@ -1,23 +1,21 @@
 
-For more details about disks, see [About Disks and VHDs for Virtual Machines](../articles/virtual-machines-disks-vhds.md).
+디스크에 대한 자세한 내용은 [가상 컴퓨터용 디스크 및 VHD 정보](../articles/virtual-machines-disks-vhds.md)를 참조하세요.
 
 <a id="attachempty"></a>
-## How to: Attach an empty disk
-Attaching an empty disk is the simpler way to add a data disk, because Azure creates the .vhd file for you and stores it in the storage account.
+## 방법: 빈 디스크 연결
+Azure가 .vhd 파일을 자동으로 만들어 저장소 계정에 저장하므로, 빈 디스크를 연결하는 것이 데이터 디스크를 추가하는 더욱 간단한 방법입니다.
 
-1.  Open Azure CLI for Mac, Linux, and Windows and connect to your Azure subscription. See [Connect
-    to Azure from Azure CLI](../articles/xplat-cli-connect.md) for more details.
+1.  Mac, Linux 및 Windows용 Azure CLI를 열고 Azure 구독에 연결합니다. 자세한 내용은 [Azure CLI에서 Azure에 연결](../articles/xplat-cli-connect.md)을 참조하세요.
 
-2.  Make sure you are in Azure Service Management mode, which is the default by typing `azure config
- 	mode asm`.
+2.  `azure config
+ 	mode asm`을 입력하여 기본값인 Azure 서비스 관리 모드인지 확인합니다.
 
-3.  Use the command `azure vm disk attach-new` to create and attach a new disk as shown below. Note that the
-    _ubuntuVMasm_ will be replaced by the name of the Linux Virtual Machine that you have created in your subscription. The number 30 is the size of the disk in GB in this example.
+3.  `azure vm disk attach-new` 명령을 사용하여 아래와 같이 새 디스크를 만들고 연결합니다. _ubuntuVMasm_은 구독에서 만든 Linux 가상 컴퓨터의 이름으로 대체됩니다. 이 예에서 숫자 30은 디스크의 크기(GB)입니다.
 
         azure vm disk attach-new ubuntuVMasm 30
 
-4.	After the data disk is created and attached, it's listed in the output of `azure vm disk list
-    <virtual-machine-name>` like this:
+4.	데이터 디스크를 만들고 연결한 후 `azure vm disk list
+    <virtual-machine-name>` 출력에 다음과 같이 나열됩니다.
 
         $ azure vm disk list ubuntuVMasm
         info:    Executing command vm disk list
@@ -31,17 +29,15 @@ Attaching an empty disk is the simpler way to add a data disk, because Azure cre
         info:    vm disk list command OK
 
 <a id="attachexisting"></a>
-## How to: Attach an existing disk
+## 방법: 기존 디스크 연결
 
-Attaching an existing disk requires that you have a .vhd available in a storage account.
+기존 디스크를 연결하려면 저장소 계정에 사용 가능한 .vhd가 있어야 합니다.
 
-1. 	Open Azure CLI for Mac, Linux, and Windows and connect to your Azure subscription. See [Connect
-    to Azure from Azure CLI](../articles/xplat-cli-connect.md) for more details.
+1. 	Mac, Linux 및 Windows용 Azure CLI를 열고 Azure 구독에 연결합니다. 자세한 내용은 [Azure CLI에서 Azure에 연결](../articles/xplat-cli-connect.md)을 참조하세요.
 
-2.  Make sure you are in Azure Service Management mode, which is the default. If you have changed
-    mode to Resource Management, simply revert by typing `azure config mode asm`.
+2.  기본값인 Azure 서비스 관리 모드에 있는지 확인합니다. 리소스 관리로 모드를 변경한 경우 `azure config mode asm`을 입력하여 간단하게 되돌릴 수 있습니다.
 
-3.	Find out if the VHD you want to attach is already uploaded to your Azure subscription by using:
+3.	다음을 사용하여 연결하려는 VHD가 Azure 구독에 이미 업로드되었는지 확인합니다.
 
         $azure vm disk list
     	info:    Executing command vm disk list
@@ -53,8 +49,7 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
     	data:    ubuntuVMasm-ubuntuVMasm-0-201508060040530369
     	info:    vm disk list command OK
 
-4.  If you don't find the disk that you want to use, you may upload a local VHD to your subscription by using
-    `azure vm disk create` or `azure vm disk upload`. An example would be this:
+4.  사용하려는 디스크를 찾을 수 없으면 `azure vm disk create` 또는 `azure vm disk upload`를 사용하여 로컬 VHD를 구독에 업로드할 수 있습니다. 다음은 예입니다.
 
         $azure vm disk create myTestVhd2 .\TempDisk\test.VHD -l "East US" -o Linux
 		info:    Executing command vm disk create
@@ -67,9 +62,9 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
 		uploaded successfully
 		info:    vm disk create command OK
 
-	You may also use the `azure vm disk upload` command to upload a VHD to a specific storage account. Read more about the commands to manage your Azure virtual machine data disks [over here](../virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks).
+	또한 `azure vm disk upload` 명령을 사용하여 특정 저장소 계정에 VHD를 업로드할 수 있습니다. Azure 가상 컴퓨터의 데이터 디스크를 관리하는 명령에 대한 자세한 내용은 [여기](../virtual-machines-command-line-tools.md#commands-to-manage-your-azure-virtual-machine-data-disks)를 참조하세요.
 
-5.  Type the following command to attach the desired uploaded VHD to your virtual machine:
+5.  다음 명령을 입력하여 가상 컴퓨터에 원하는 업로드된 VHD를 연결합니다.
 
 		$azure vm disk attach ubuntuVMasm myTestVhd
 		info:    Executing command vm disk attach
@@ -77,10 +72,10 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
 		+ Adding Data-Disk
 		info:    vm disk attach command OK
 
-	Make sure to replace _ubuntuVMasm_ with the name of your virtual machine, and _myTestVhd_ with your desired VHD.
+	_ubuntuVMasm_을 가상 컴퓨터의 이름으로 바꾸고 _myTestVhd_를 원하는 VHD로 바꿔야 합니다.
 
-6.	You can verify if the disk is attached to the virtual machine with the command `azure vm disk list
- 	<virtual-machine-name>` as:
+6.	다음과 같이 `azure vm disk list
+ 	<virtual-machine-name>` 명령을 사용하여 디스크가 가상 컴퓨터에 연결되어 있는지 확인할 수 있습니다.
 
 		$azure vm disk list ubuntuVMasm
 		info:    Executing command vm disk list
@@ -95,5 +90,6 @@ Attaching an existing disk requires that you have a .vhd available in a storage 
 		info:    vm disk list command OK
 
 
-> [AZURE.NOTE]
-> After you add a data disk, you'll need to log on to the virtual machine and initialize the disk so the virtual machine can use the disk for storage.
+> [AZURE.NOTE]데이터 디스크를 추가한 후 가상 컴퓨터가 디스크를 저장소에 사용할 수 있도록 가상 컴퓨터에 로그온한 다음 디스크를 초기화해야 합니다.
+
+<!---HONumber=August15_HO7-->

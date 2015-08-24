@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Express를 사용하여 웹앱 빌드(Node.js) - Azure 자습서" 
+	pageTitle="Express를 사용하여 웹앱 빌드(Node.js) | Microsoft Azure" 
 	description="클라우드 서비스 자습서를 기반으로 웹앱을 빌드하고 Express 모듈 사용 방법을 보여 주는 자습서입니다." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
@@ -135,4 +135,4 @@ Azure PowerShell 창에서 **Publish-AzureServiceProject** cmdlet을 사용하�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

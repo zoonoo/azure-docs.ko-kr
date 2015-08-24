@@ -20,11 +20,11 @@
 
 이 문서에서는 Azure 리소스 관리자 템플릿 및 Powershell을 사용하여 Azure 가상 컴퓨터를 배포하고 관리하는 일반 작업을 자동화하는 방법을 보여 줍니다. 사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](http://azure.microsoft.com/documentation/templates/) 및 [앱 프레임 워크](virtual-machines-app-frameworks.md)를 참조하세요.
 
-- [Windows VM 배포](#windowsvm)
-- [사용자 지정 VM 이미지 만들기](#customvm)
-- [가상 네트워크 및 외부 부하 분산 장치를 사용하는 여러 VM 응용 프로그램 배포](#multivm)
+- [Windows 가상 컴퓨터 배포](#windowsvm)
+- [사용자 지정 가상 컴퓨터 이미지 만들기](#customvm)
+- [가상 네트워크 및 외부 부하 분산 장치를 사용하는 여러 가상 컴퓨터 응용 프로그램 배포](#multivm)
 - [리소스 그룹 제거](#removerg)
-- [가상 컴퓨터에 로그온](#logon)
+- [가상 컴퓨터에 로그인](#logon)
 - [가상 컴퓨터에 대한 정보 표시](#displayvm)
 - [가상 컴퓨터 시작](#start)
 - [가상 컴퓨터 중지](#stop)
@@ -37,30 +37,30 @@
 
 ## Azure 리소스 템플릿 및 리소스 그룹 이해
 
-Microsoft Azure에서 배포되고 실행되는 대부분의 응용 프로그램은 다양한 클라우드 리소스 유형(예: 하나 이상의 VM 및 저장소 계정, SQL 데이터베이스 또는 가상 네트워크)의 조합으로 구축됩니다. Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 구성 및 배포 매개 변수에 대한 JSON 설명을 사용하여 이러한 다양한 리소스를 함께 배포하고 관리할 수 있습니다.
+Microsoft Azure에서 배포되고 실행되는 대부분의 응용 프로그램은 다양한 클라우드 리소스 유형(예: 하나 이상의 가상 컴퓨터 및 저장소 계정, SQL 데이터베이스 또는 가상 네트워크)의 조합으로 구축됩니다. Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 구성 및 배포 매개 변수에 대한 JSON 설명을 사용하여 이러한 다양한 리소스를 함께 배포하고 관리할 수 있습니다.
 
-JSON 기반 리소스 템플릿을 정의한 경우 이 템플릿을 실행하고 템플릿 내에 정의된 리소스를 PowerShell 명령을 사용하여 Azure에서 배포할 수 있습니다. 이러한 명령을 PowerShell 명령 셸 내에서 독립 실행형으로 실행하거나 추가 자동화 논리를 포함하는 스크립트 내에 통합할 수 있습니다.
+JSON 기반 리소스 템플릿을 정의한 후에는 해당 템플릿을 실행하고 PowerShell 명령을 사용하여 Azure에서 정의된 리소스를 배포할 수 있습니다. 이러한 명령은 PowerShell 명령 셸 내에서 별도로 실행하거나, 추가 자동화 논리를 포함하는 스크립트 안에 통합할 수 있습니다.
 
 Azure 리소스 관리자 템플릿을 사용하여 만드는 리소스는 새 Azure 리소스 그룹이나 기존 Azure 리소스 그룹에 배포됩니다. *Azure 리소스 그룹*에서는 배포된 여러 리소스를 논리 그룹으로 함께 관리할 수 있습니다. 따라서 그룹/응용 프로그램의 전체 수명 주기를 관리하고 다음을 수행할 수 있는 관리 API를 제공할 수 있습니다.
 
 - 그룹 내의 모든 리소스를 한 번에 중지, 시작 또는 삭제합니다.
 - RBAC(역할 기반 액세스 제어) 규칙을 적용하여 리소스에 대한 보안 권한을 잠급니다.
 - 작업을 감사합니다.
-- 더 잘 추적할 수 있도록 추가 메타데이터를 사용하여 리소스에 태그를 지정합니다.
+- 추가 메타데이터로 리소스에 태그를 지정하여 추적을 개선합니다.
 
 Azure 리소스 관리자에 대한 자세한 내용은 [여기](virtual-machines-azurerm-versus-azuresm.md)를 참조하세요. 템플릿 작성에 관심이 있다면 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 
-## <a id="windowsvm"></a>작업: Windows VM 배포
+## <a id="windowsvm"></a>작업: Windows 가상 컴퓨터 배포
 
-리소스 관리자 템플릿 및 Azure PowerShell을 사용하여 새 Azure VM을 배포하려면 이 섹션의 지침을 사용하세요. 이 템플릿에서는 단일 서브넷을 사용하는 새 가상 네트워크에 단일 가상 컴퓨터를 만듭니다.
+리소스 관리자 템플릿 및 Azure PowerShell을 사용하여 새 Azure 가상 컴퓨터를 배포하려면 이 섹션의 지침을 사용하세요. 이 템플릿에서는 단일 서브넷을 사용하는 새 가상 네트워크에 단일 가상 컴퓨터를 만듭니다.
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/windowsvm.png)
 
-Azure PowerShell과 Github 템플릿 리포지토리의 리소스 관리자 템플릿을 사용하여 Windows VM을 만들려면 다음 단계를 수행하세요.
+Azure PowerShell과 GitHub 템플릿 리포지토리의 리소스 관리자 템플릿을 사용하여 Windows 가상 컴퓨터를 만들려면 다음 단계를 수행하세요.
 
 ### 1단계: JSON 파일에서 템플릿 검사
 
-다음은 템플릿에 대한 JSON 파일의 내용입니다.
+템플릿에 대한 JSON 파일의 내용은 다음과 같습니다.
 
 	{
     "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
@@ -69,25 +69,25 @@ Azure PowerShell과 Github 템플릿 리포지토리의 리소스 관리자 템�
         "newStorageAccountName": {
             "type": "string",
             "metadata": {
-                "Description": "Unique DNS Name for the Storage Account where the Virtual Machine's disks will be placed."
+                "Description": "Unique DNS name for the storage account where the virtual machine's disks will be placed."
             }
         },
         "adminUsername": {
             "type": "string",
             "metadata": {
-               "Description": "Username for the Virtual Machine."
+               "Description": "User name for the virtual machine."
             }
         },
         "adminPassword": {
             "type": "securestring",
             "metadata": {
-                "Description": "Password for the Virtual Machine."
+                "Description": "Password for the virtual machine."
             }
         },
         "dnsNameForPublicIP": {
             "type": "string",
             "metadata": {
-                  "Description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
+                  "Description": "Unique DNS name for the public IP used to access the virtual machine."
             }
         },
         "windowsOSVersion": {
@@ -100,7 +100,7 @@ Azure PowerShell과 Github 템플릿 리포지토리의 리소스 관리자 템�
                 "Windows-Server-Technical-Preview"
             ],
             "metadata": {
-                "Description": "The Windows version for the VM. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter, Windows-Server-Technical-Preview."
+                "Description": "The Windows version for the virtual machine. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter, Windows-Server-Technical-Preview."
             }
         }
     },
@@ -301,9 +301,9 @@ Azure 배포 이름, 리소스 그룹 이름 및 Azure 데이터 센터 위치�
 
 이제 새 리소스 그룹에 MyWindowsVM이라는 새 Windows 가상 컴퓨터가 생성되었습니다.
 
-## <a id="customvm"></a>작업: 사용자 지정 VM 이미지 만들기
+## <a id="customvm"></a>작업: 사용자 지정 가상 컴퓨터 이미지 만들기
 
-Azure PowerShell을 사용하여 리소스 관리자 템플릿으로 Azure에 사용자 지정 VM 이미지를 만들려면 이 섹션의 지침을 사용하세요. 이 템플릿은 지정된 VHD(가상 하드 디스크)에서 단일 가상 컴퓨터를 만듭니다.
+Azure PowerShell을 사용하여 리소스 관리자 템플릿으로 Azure에 사용자 지정 가상 컴퓨터 이미지를 만들려면 이 섹션의 지침을 사용하세요. 이 템플릿은 지정된 VHD(가상 하드 디스크)에서 단일 가상 컴퓨터를 만듭니다.
 
 ### 1단계: JSON 파일에서 템플릿 검사
 
@@ -426,13 +426,13 @@ JSON 파일의 "parameters" 섹션에 매개 변수 값을 제공하라는 메�
 	vmSize: Standard_A3
 	...
 
-## <a id="multivm"></a>작업: 가상 네트워크 및 외부 부하 분산 장치를 사용하는 여러 VM 응용 프로그램 배포
+## <a id="multivm"></a>작업: 가상 네트워크 및 외부 부하 분산 장치를 사용하는 여러 가상 컴퓨터 응용 프로그램 배포
 
-Azure PowerShell과 리소스 관리자 템플릿을 사용하여 가상 네트워크 및 부하 분산 장치를 사용하는 여러 VM 응용 프로그램을 배포하려면 이러한 섹션의 지침을 사용하세요. 이 템플릿에서는 새 클라우드 서비스에서 단일 서브넷을 사용하는 새 가상 네트워크에 두 개의 가상 컴퓨터를 만들고 TCP 포트 80으로 들어오는 트래픽에 대한 외부 부하 분산 집합에 추가합니다.
+Azure PowerShell과 리소스 관리자 템플릿을 사용하여 가상 네트워크 및 부하 분산 장치를 사용하는 여러 가상 컴퓨터 응용 프로그램을 배포하려면 이러한 섹션의 지침을 사용하세요. 이 템플릿에서는 새 클라우드 서비스에서 단일 서브넷을 사용하는 새 가상 네트워크에 두 개의 가상 컴퓨터를 만들고 TCP 포트 80으로 들어오는 트래픽에 대한 외부 부하 분산 집합에 추가합니다.
 
 ![](./media/virtual-machines-deploy-rmtemplates-powershell/multivmextlb.png)
 
-Azure PowerShell 명령과 Github 템플릿 리포지토리의 리소스 관리자 템플릿을 사용하여 가상 네트워크 및 부하 분산 장치를 사용하는 여러 VM 응용 프로그램을 배포하려면 다음 단계를 수행하세요.
+Azure PowerShell 명령과 GitHub 템플릿 리포지토리의 리소스 관리자 템플릿을 사용하여 가상 네트워크 및 부하 분산 장치를 사용하는 여러 가상 컴퓨터 응용 프로그램을 배포하려면 다음 단계를 수행하세요.
 
 ### 1단계: JSON 파일에서 템플릿 검사
 
@@ -760,7 +760,7 @@ Azure 배포 이름, 리소스 그룹 이름, Azure 위치를 입력하고 다�
 	New-AzureResourceGroup -Name $RGName -Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
-New-AzureResourceGroupDeployment 명령을 실행하면 JSON 파일의 매개 변수 값을 제공하라는 메시지가 표시됩니다. 모든 매개 변수 값을 지정하면 명령에서 리소스 그룹과 배포를 만듭니다.
+**New-AzureResourceGroupDeployment** 명령을 실행하면 JSON 파일의 매개 변수 값을 제공하라는 메시지가 표시됩니다. 모든 매개 변수 값을 지정하면 명령에서 리소스 그룹과 배포를 만듭니다.
 
 	$deployName="TestDeployment"
 	$RGName="TestRG"
@@ -794,13 +794,13 @@ New-AzureResourceGroupDeployment 명령을 실행하면 JSON 파일의 매개 �
 	Are you sure you want to remove resource group 'BuildRG'
 	[Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
 
-## <a id="logon"></a>작업: Windows 가상 컴퓨터에 로그온
+## <a id="logon"></a>작업: Windows 가상 컴퓨터에 로그인
 
 자세한 단계는 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-log-on-windows-server.md)을 참조하세요.
 
 ## <a id="displayvm"></a>작업: 가상 컴퓨터에 대한 정보 표시
 
-**Get-AzureVM** 명령을 사용하여 VM에 대한 정보를 표시할 수 있습니다. 이 명령은 VM의 상태를 업데이트하는 다양한 다른 cmdlet을 사용하여 조작할 수 있는 VM 개체를 반환합니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
+**Get-AzureVM** 명령을 사용하여 가상 컴퓨터에 대한 정보를 표시할 수 있습니다. 이 명령은 가상 컴퓨터의 상태를 업데이트하는 다양한 다른 cmdlet을 사용하여 조작할 수 있는 가상 컴퓨터 개체를 반환합니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
 
 	Get-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
 
@@ -868,7 +868,7 @@ New-AzureResourceGroupDeployment 명령을 실행하면 JSON 파일의 매개 �
 
 ## <a id="start"></a>작업: 가상 컴퓨터 시작
 
-**Start-AzureVM** 명령을 사용하여 VM을 시작할 수 있습니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
+**Start-AzureVM** 명령을 사용하여 가상 컴퓨터를 시작할 수 있습니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
 
 	Start-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
 
@@ -885,7 +885,7 @@ New-AzureResourceGroupDeployment 명령을 실행하면 JSON 파일의 매개 �
 
 ## <a id="stop"></a>작업: 가상 컴퓨터 중지
 
-**Stop-AzureVM** 명령을 사용하여 VM을 중지할 수 있습니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
+**Stop-AzureVM** 명령을 사용하여 가상 컴퓨터를 중지할 수 있습니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
 
 	Stop-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
 
@@ -905,9 +905,9 @@ New-AzureResourceGroupDeployment 명령을 실행하면 JSON 파일의 매개 �
 	RequestId           : 5cc9ddba-0643-4b5e-82b6-287b321394ee
 	StatusCode          : OK
 
-## <a id=restart"></a>작업: 가상 컴퓨터 다시 시작
+## <a id="restart"></a>작업: 가상 컴퓨터 다시 시작
 
-**Restart-AzureVM** 명령을 사용하여 VM을 다시 시작할 수 있습니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
+**Restart-AzureVM** 명령을 사용하여 가상 컴퓨터를 다시 시작할 수 있습니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
 
 	Restart-AzureVM -ResourceGroupName "<resource group name>" -Name "<VM name>"
 
@@ -922,9 +922,9 @@ New-AzureResourceGroupDeployment 명령을 실행하면 JSON 파일의 매개 �
 	RequestId           : 7dac33e3-0164-4a08-be33-96205284cb0b
 	StatusCode          : OK
 
-## <a id=delete"></a>작업: 가상 컴퓨터 삭제
+## <a id="delete"></a>작업: 가상 컴퓨터 삭제
 
-**Remove-AzureVM** 명령을 사용하여 VM을 삭제할 수 있습니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다. **–Force** 매개 변수를 사용하여 확인 프롬프트를 건너뜁니다.
+**Remove-AzureVM** 명령을 사용하여 가상 컴퓨터를 삭제할 수 있습니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다. **–Force** 매개 변수를 사용하여 확인 프롬프트를 건너뜁니다.
 
 	Remove-AzureVM -ResourceGroupName "<resource group name>" –Name "<VM name>"
 
@@ -956,4 +956,4 @@ New-AzureResourceGroupDeployment 명령을 실행하면 JSON 파일의 매개 �
 
 [Azure PowerShell을 설치 및 구성하는 방법](install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

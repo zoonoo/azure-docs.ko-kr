@@ -33,7 +33,9 @@
 
 Azure 데이터 팩터리에는 입력 및 출력 데이터, 처리 이벤트, 필요한 데이터 흐름을 실행하는데 필요한 일정과 리소스를 정의하기 위해 함께 작용하는 몇 가지 주요 엔터티가 있습니다.
 
-![주요 개념](./media/data-factory-introduction/key-concepts.png) **그림 2.** 데이터 집합, 활동, 파이프라인 및 연결된 서비스 간의 관계
+![주요 개념](./media/data-factory-introduction/key-concepts.png)
+
+**그림 2.** 데이터 집합, 활동, 파이프라인 및 연결된 서비스 간의 관계
 
 
 ### 활동
@@ -51,6 +53,6 @@ Azure 데이터 팩터리에는 입력 및 출력 데이터, 처리 이벤트, �
 - 온-프레미스 SQL Server, Oracle DB, 파일 공유 또는 Azure Blob 저장소 계정을 포함하(지만 여기에 국한되지 않)는 데이터 저장소를 나타내기 위해 사용됩니다. 위의 설명대로 데이터 집합은 연결된 서비스를 통해 데이터 팩터리에 연결된 데이터 저장소 내의 구조를 나타냅니다.
 - 활동의 실행을 호스팅할 수 있는 계산 리소스를 나타내기 위해 사용됩니다. 예를 들어, “HDInsightHive Activity”는 HDInsight Hadoop 클러스터에서 실행됩니다.
 
-데이터 집합, 활동, 파이프라인, 연결된 서비스라는 네 가지의 단순한 개념만으로 시작할 준비가 되었습니다. 처음부터 시작하여 [첫 번째 파이프라인을 빌드](data-factory-build-your-first-pipeline.md)하거나 [데이터 팩터리 샘플](data-factory-samples.md)에 있는 지침에 따라 즉시 사용 가능한 샘플을 배포할 수 있습니다.
+데이터 집합, 활동, 파이프라인, 연결된 서비스라는 네 가지의 단순한 개념만으로 시작할 준비가 되었습니다. 처음부터 시작하여 [첫 번째 파이프라인을 빌드](data-factory-build-your-first-pipeline.md)하거나 [Data Factory 샘플](data-factory-samples.md)에 있는 지침에 따라 즉시 사용 가능한 샘플을 배포할 수 있습니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

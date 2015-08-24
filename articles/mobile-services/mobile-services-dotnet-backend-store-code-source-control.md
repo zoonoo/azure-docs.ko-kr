@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="소스 제어에 프로젝트 코드 저장 - Azure 모바일 서비스" 
+	pageTitle="소스 제어에 프로젝트 코드 저장 | Microsoft Azure" 
 	description="컴퓨터의 로컬 Git 리포지토리에 .NET 백 엔드 프로젝트를 저장하고 게시하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -103,4 +103,4 @@
 [.NET 백 엔드 모바일 서비스에 대한 데이터 모델 변경 방법]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

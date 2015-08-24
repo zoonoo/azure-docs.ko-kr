@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Node.js 시작 가이드 - Azure 자습서"
+	pageTitle="Node.js 시작 가이드 | Microsoft Azure"
 	description="간단한 Node.js 웹 응용 프로그램을 만들고 Azure 클라우드 서비스에 배포하는 방법에 대해 알아봅니다."
 	services="cloud-services"
 	documentationCenter="nodejs"
@@ -12,7 +12,7 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs"
-	ms.topic="article"
+	ms.topic="hero-article"
 	ms.date="06/01/2015"
 	ms.author="mwasson"/>
 
@@ -192,4 +192,4 @@ Node.js 앱은 웹 역할에 대한 디렉터리에 있는 **server.js** 파일�
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

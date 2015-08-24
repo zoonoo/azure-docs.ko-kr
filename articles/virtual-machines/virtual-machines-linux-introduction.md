@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure의 Linux 소개 - Azure 자습서"
+	pageTitle="Azure의 Linux 소개 | Microsoft Azure"
 	description="Azure에서 Linux 가상 컴퓨터를 사용하는 방법에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter="python"
@@ -103,11 +103,11 @@ Azure는 기존 가상 컴퓨터의 상태를 이미지로 캡처하는 기능�
 Linux에서 리소스 디스크는 일반적으로 Azure Linux 에이전트에 의해 관리되며 **/mnt/resource**(또는 Ubuntu 이미지의 **/mnt**)에 자동으로 탑재됩니다.
 
 
-	>[AZURE.NOTE] 해당 리소스 디스크는 **임시** 디스크이며, 해당 VM을 재부팅할 경우 삭제 및 다시 포맷될 수 있음을 기억하십시오.
+	>[AZURE.NOTE] Note that the resource disk is a **temporary** disk, and might be deleted and reformatted when the VM is rebooted.
 
 Linux에서 데이터 디스크 이름은 커널에서 `/dev/sdc`로 지정될 수 있으며 사용자는 해당 리소스를 파티셔닝, 형식 지정 및 마운트해야 합니다. [데이터 디스크를 가상 컴퓨터에 연결하는 방법](virtual-machines-linux-how-to-attach-disk.md)에 대한 자습서의 단계를 다루었습니다.
 
  - **참고 항목**: [Linux에서 소프트웨어 RAID 구성](virtual-machines-linux-configure-raid.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

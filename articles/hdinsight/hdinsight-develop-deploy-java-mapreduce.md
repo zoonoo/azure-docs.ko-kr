@@ -220,14 +220,14 @@ HDInsight Emulator에서 MapReduce 작업을 테스트하는 과정에는 다음
 
 이 자습서에서는 다음 HDFS 폴더 구조를 사용합니다.
 
-<table border="1">
-<tr><td>폴더</td><td>참고</td></tr>
-<tr><td>/WordCount</td><td>단어 계산 프로젝트의 루트 폴더 </td></tr>
-<tr><td>/WordCount/Apps</td><td>매퍼 및 리듀서 실행 파일 폴더</td></tr>
-<tr><td>/WordCount/Input</td><td>MapReduce 원본 파일 폴더</td></tr>
-<tr><td>/WordCount/Output</td><td>MapReduce 출력 파일 폴더</td></tr>
-<tr><td>/WordCount/MRStatusOutput</td><td>작업 출력 폴더</td></tr>
-</table>
+폴더|참고
+---|---
+/WordCount|단어 계산 프로젝트의 루트 폴더 
+/WordCount/Apps|매퍼 및 리듀서 실행 파일 폴더
+/WordCount/Input|MapReduce 원본 파일 폴더
+/WordCount/Output|MapReduce 출력 파일 폴더
+/WordCount/MRStatusOutput|작업 출력 폴더
+
 
 이 자습서에서는 %hadoop\_home% 디렉터리에 있는 .txt 파일을 데이터 파일로 사용합니다.
 
@@ -610,4 +610,4 @@ Azure HDInsight는 데이터 저장소에 Azure Blob 저장소를 사용합니�
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

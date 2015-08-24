@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/07/2015" 
 	ms.author="awills"/>
  
 # Application Insights에서 진단 검색 사용
@@ -34,6 +34,8 @@
 
 
 진단 검색의 본문은 코딩한 서버 요청, 페이지 보기, 사용자 지정 이벤트 등의 원격 분석 항목의 목록입니다. 목록의 위쪽은 시간이 지남에 따른 이벤트의 수를 보여주는 요약 차트입니다.
+
+일반적으로 이벤트는 진단 검색에 표시된 후에 메트릭 탐색기에 나타납니다. 블레이드는 특정 간격으로 자체적으로 새로 고쳐지지만 특정 이벤트를 대기하는 동안 새로 고침을 클릭할 수 있습니다.
 
 
 ## 개별 항목 검사
@@ -198,4 +200,4 @@ Application Insights SDK에서 보낸 기본 원격 분석 외에도 다음을 �
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

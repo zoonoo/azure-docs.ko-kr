@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Javadocs - Azure 리소스" 
+	pageTitle="Javadocs | Microsoft Azure" 
 	description="Azure SDK for Java용 Javadoc API 참조입니다." 
 	services="" 
 	documentationCenter="java" 
@@ -20,4 +20,4 @@
 
 Java용 Azure 라이브러리의 Javadoc 콘텐츠는 <http://dl.windowsazure.com/javadoc>에서 볼 수 있습니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

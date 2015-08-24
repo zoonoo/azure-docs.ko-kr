@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.date="08/04/2015"
 	ms.author="raynew"/>
 
 # 온-프레미스 VMware 가상 컴퓨터 또는 물리적 서버와 Azure 간의 보호 설정
@@ -55,7 +55,7 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 **구성 요소** | **배포**웹사이트를 | **세부 정보**
 --- | --- | ---
 **구성 서버** | <p>Azure 표준 A3 가상 컴퓨터를 동일한 구독에서 Site Recovery로 배포합니다.</p> <p>Site Recovery 포털에서 설정</p> | 이 서버는 Azure에서 보호된 컴퓨터, 프로세스 서버 및 마스터 대상 서버 간의 통신을 조정합니다. 복제를 설정하고 장애 조치(Failover) 발생 시 Azure에서 복구를 조정합니다.
-**마스터 대상 서버** | <p>Azure 가상 컴퓨터로 배포 — Windows Server 2012 R2 갤러리 이미지에 따라 Windows 서버로(Windows 컴퓨터 보호) 배포하거나 OpenLogic CentOS 6.6 갤러리 이미지에 따라 Linux 서버로 배포합니다(Linux 컴퓨터 보호).</p> <p>두 가지 크기 조정 옵션, 표준 A4 및 표준 D14를 사용할 수 있습니다.<p><p>이 서버는 구성 서버와 동일한 Azure 네트워크에 연결됩니다.</p><p>사이트 복구 포털에서 설정</p> | <p>Azure 저장소 계정으로 Blob 저장소에 만든 연결된 VHD를 사용하여 보호된 컴퓨터의 복제된 데이터를 수신 및 유지합니다.</p>   
+**마스터 대상 서버** | <p>Azure 가상 컴퓨터로 배포 — Windows Server 2012 R2 갤러리 이미지에 따라 Windows 서버로(Windows 컴퓨터 보호) 배포하거나 OpenLogic CentOS 6.6 갤러리 이미지에 따라 Linux 서버로 배포합니다(Linux 컴퓨터 보호).</p> <p>세 가지 크기 조정 옵션인, 표준 A4, 표준 D14, 표준 DS4를 사용할 수 있습니다.<p><p>서버는 구성 서버와 동일한 Azure 네트워크에 연결됩니다.</p><p>Site Recovery 포털에서 설정합니다.</p> | <p>Azure 저장소 계정으로 Blob 저장소에 만든 연결된 VHD를 사용하여 보호된 컴퓨터의 복제된 데이터를 수신 및 유지합니다.</p> <p>특히, 프리미엄 저장소 계정을 사용하여 일관된 고성능과 짧은 대기 시간이 요구되는 워크로드에 대한 보호를 구성하는 경우 표준 DS4를 선택합니다.</p>
 **프로세스 서버** | <p>Windows Server 2012 R2를 실행하는 물리적 서버 또는 온-프레미스 가상 서버로 배포</p> <p>보호하려는 컴퓨터와 동일한 네트워크 및 LAN 세그먼트에 배치하는 것이 좋지만, 보호된 컴퓨터에 L3 네트워크 가시성이 있을 경우 다른 네트워크에서 실행할 수 있습니다.<p>Site Recovery 포털에서 설정하고 구성 서버로 등록합니다.</p> | <p>보호된 컴퓨터가 복제 데이터를 온-프레미스 프로세스 서버로 보냅니다. 프로세스 서버에는 수신한 복제 데이터를 캐시할 디스크 기반 캐시가 있습니다. 해당 데이터에 여러 작업을 수행합니다.</p><p>마스터 대상 서버로 데이터를 전송하기 전에 캐싱, 압축, 암호화로 데이터를 최적화합니다.</p><p>모바일 서비스의 푸시 설치를 처리합니다.</p><p>VMware 가상 컴퓨터의 자동 검색을 수행합니다.</p>
 **온-프레미스 컴퓨터** | VMware 하이퍼바이저에서 실행되는 온-프레미스 가상 컴퓨터나 Windows 또는 Linux를 실행하는 물리적 서버입니다. | 가상 컴퓨터와 서버에 적용되는 복제 설정을 지정합니다. 장애 조치(Failover)를 개별 컴퓨터에 대해 실행할 수 있지만, 보통은 함께 장애 조치(Failover)를 실행하는 복수 가상 컴퓨터가 포함된 복구 계획으로 실행합니다.
 **모바일 서비스** | <p>보호하려는 각각의 가상 컴퓨터 또는 물리적 서버에 설치</p><p>보호가 서버에 대해 사용하도록 설정된 경우 수동으로 설치하거나 프로세스 서버로 자동으로 푸시 및 설치할 수 있습니다. | 모바일 서비스는 초기 복제의 일부로 프로세스 서버로 데이터를 보냅니다(다시 동기화). 서버가 보호된 상태에 도달하면(재동기화가 완료된 후) 모바일 서비스는 디스크에 메모리 내 캡처의 쓰기를 수행하고 이를 프로세스 서버에 보냅니다. Windows 서버에 대한 응용 프로그램 일관성은 VSS 프레임워크를 사용하여 얻을 수 있습니다.
@@ -78,8 +78,8 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 - **마스터 대상 서버당 원본 수** - 단일 마스터 대상 서버로 여러 원본 컴퓨터를 보호할 수 있습니다. 하지만, 디스크 복제 시 디스크 크기를 미러링하는 VHD가 Azure Blob 저장소에 만들어지고 마스터 대상 서버에 데이터 디스크로 연결되기 때문에 여러 마스터 대상 서버에서 단일 컴퓨터를 보호할 수 없습니다.  
 - **원본당 일일 최대 변경률** - 원본당 권장 변경률을 고려할 때 세 가지 요소를 고려해야 합니다. 대상에서 고려할 사항은 원본의 각 작업용 대상 디스크에 2개의 IOPS가 필요하다는 점입니다. 그 이유는 오래된 데이터 읽기와 새 데이터 쓰기가 대상 디스크에서 발생하기 때문입니다. 
 	- **프로세스 서버에서 지원하는 일일 변경률** - 하나의 원본 컴퓨터를 여러 프로세스 서버로 확장할 수 없습니다. 단일 프로세스 서버는 최대 1TB의 일일 변경률을 지원합니다. 따라서 1TB는 원본 컴퓨터에 대해 지원되는 최대 일일 데이터 변경률입니다. 
-	- **대상 디스크에서 지원하는 최대 처리량** - 원본 디스크당 최대 변동은 1일 144GB를 초과할 수 없습니다(8K 쓰기 크기). 다양한 쓰기 크기에 대한 대상의 처리량 및 IOPS를 확인하려면 마스터 대상 섹션의 표를 참조하세요. 이각 원본 IOP는 대상 디스크에 2개의 IOPS를 생성하므로 이 숫자를 2로 나누어야 합니다. 
-	- **저장소 계정에서 지원하는 최대 처리량** - 하나의 원본을 복수 저장소 계정으로 확장할 수 없습니다. 저장소 계정이 초당 최대 2만 개의 요청을 수신하고 각 원본 IOP가 대상 서버에 2개의 IOPS를 생성할 경우 원본 전체의 IOPS 수를 1만으로 유지하는 것이 좋습니다. 
+	- **대상 디스크에서 지원하는 최대 처리량** - 원본 디스크당 최대 변동은 1일 144GB를 초과할 수 없습니다(8K 쓰기 크기). 다양한 쓰기 크기에 대한 대상의 처리량 및 IOPS를 확인하려면 마스터 대상 섹션의 표를 참조하세요. 이각 원본 IOP는 대상 디스크에 2개의 IOPS를 생성하므로 이 숫자를 2로 나누어야 합니다. 프리미엄 저장소 계정에 대한 목표를 구성하는 동안 [프리미엄 저장소를 사용하는 경우 확장성 및 성능 목표](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts)를 참조하세요.
+	- **저장소 계정에서 지원하는 최대 처리량** - 하나의 원본을 복수 저장소 계정으로 확장할 수 없습니다. 저장소 계정이 초당 최대 2만 개의 요청을 수신하고 각 원본 IOP가 대상 서버에 2개의 IOPS를 생성할 경우 원본 전체의 IOPS 수를 1만으로 유지하는 것이 좋습니다. 프리미엄 저장소 계정에 대한 원본을 구성하는 동안 [프리미엄 저장소를 사용하는 경우 확장성 및 성능 목표](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts)를 참조하세요.
 
 ### 구성 요소 서버 고려 사항
 
@@ -90,6 +90,7 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 구성 서버 | 표준 A3 | 4 | 7 GB | 8 | 1023GB
 마스터 대상 서버 | 표준 A4 | 8 | 14 GB | 16 | 1023GB
  | 표준 D14 | 16 | 112GB | 32 | 1023GB
+ | 표준 DS4 | 8 | 28GB | 16 | 1023GB
 
 **표 1**
 
@@ -132,6 +133,7 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
  | | **보존** | **데이터 디스크**
 표준 A4 | 1개 디스크(1 * 1023GB) | 1개 디스크(1 * 1023GB) | 15개 디스크(15 * 1023GB)
 표준 D14 | 1개 디스크(1 * 1023GB) | 1개 디스크(1 * 1023GB) | 31개 디스크(15 * 1023GB)
+표준 DS4 | 1개 디스크(1 * 1023GB) | 1개 디스크(1 * 1023GB) | 15개 디스크(15 * 1023GB)
 
 **표 3**
 
@@ -161,15 +163,15 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 **구성 요소** | **요구 사항** | **세부 정보**
 --- | --- | --- 
 **Azure 계정** | [Microsoft Azure](http://azure.microsoft.com/) 계정이 있어야 합니다. [무료 평가판](pricing/free-trial/)으로 시작할 수 있습니다.
-**Azure 저장소** | <p>복제 데이터를 저장하려면 Azure 저장소 계정이 필요합니다.</p><p>계정은 지리적 복제를 사용하도록 설정해야 합니다.</p><p>Azure Site Recovery 서비스와 동일한 지역에 있어야 하며 동일한 구독에 연결되어야 합니다.</p><p>자세히 알아보려면 [Microsoft Azure 저장소 소개](../storage/storage-introduction.md)를 참조하세요.</p>
+**Azure 저장소** | <p>복제 데이터를 저장하려면 Azure 저장소 계정이 필요합니다.</p><p>계정은 [표준 지역 중복 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage) 또는 [프리미엄 저장소 계정](../storage/storage-premium-storage-preview-portal.md)이어야 합니다.</p><p>Azure Site Recovery 서비스와 동일한 하위 지역에 있어야 하며 동일한 구독에 연결되어야 합니다.</p><p>자세히 알아보려면 [Microsoft Azure 저장소 소개](../storage/storage-introduction.md)를 참조하세요.</p>
 **Azure 가상 네트워크** | 구성 서버와 마스터 대상 서버를 배포할 Azure 가상 네트워크가 필요합니다. 이 네트워크는 Azure Site Recovery 자격 증명 모음과 동일한 구독 및 지역에 있어야 합니다. Express 경로 또는 VPN 연결을 통해 데이터를 복제하려는 경우 Azure 가상 네트워크가 Express 경로 연결 또는 사이트 간 VPN을 통해 온-프레미스 네트워크에 연결되어야 합니다.
-**Azure 리소스** | 모든 구성 요소를 배포하기에 충분한 Azure 리소스가 있는지 확인합니다. 자세한 내용은 [Azure 구독 제한](../azure-subscription-service-limits.md)을 참조하세요.
-**Azure 가상 컴퓨터** | <p>보호하려는 가상 컴퓨터가 [Azure 필수 구성 요소](site-recovery-best-practices.md)를 준수해야 합니다.</p><p>**디스크 수**—단일 보호 서버에서 최대 31개 디스크가 지원됩니다.</p><p>**디스크 크기**—개별 디스크 용량은 1023GB보다 클 수 없습니다.</p><p>**클러스터링**—클러스터링된 서버는 지원되지 않습니다.</p><p>**부팅**—UEFI(Unified Extensible Firmware Interface)/EFI(Extensible Firmware Interface) 부팅은 지원되지 않습니다.</p><p>**볼륨**—Bitlocker 암호화된 볼륨은 지원되지 않습니다.</p><p> **서버 이름**—이름은 1~63자(문자, 숫자, 하이픈)를 포함해야 합니다. 이름은 문자나 숫자로 시작하고 문자나 숫자로 끝나야 합니다. 컴퓨터가 보호된 후 Azure 이름을 수정할 수 있습니다.</p>
+**Azure 리소스** | 모든 구성 요소를 배포하기에 충분한 Azure 리소스가 있는지 확인합니다. [Azure 구독 제한](../azure-subscription-service-limits.md)을 참조하세요.
+**Azure 가상 컴퓨터** | <p>보호하려는 가상 컴퓨터가 [Azure 필수 구성 요소](site-recovery-best-practices.md)를 준수해야 합니다.</p><p>**디스크 수**—단일 보호 서버에서 최대 31개 디스크가 지원됩니다.</p><p>**디스크 크기**—개별 디스크 용량은 1023GB보다 클 수 없습니다.</p><p>**클러스터링**—클러스터링된 서버는 지원되지 않습니다.</p><p>**부팅**—UEFI(Unified Extensible Firmware Interface)/EFI(Extensible Firmware Interface) 부팅은 지원되지 않습니다.</p><p>**볼륨**—Bitlocker 암호화된 볼륨은 지원되지 않습니다.</p><p> **서버 이름**—이름은 1\~63자(문자, 숫자, 하이픈)를 포함해야 합니다. 이름은 문자나 숫자로 시작하고 문자나 숫자로 끝나야 합니다. 컴퓨터가 보호된 후 Azure 이름을 수정할 수 있습니다.</p>
 **구성 서버** | <p>Azure Site Recovery Windows Server 2012 R2 갤러리 이미지를 기반으로 하는 표준 A3 가상 컴퓨터가 구성 서버 구독에 만들어집니다. 새 클라우드 서비스에 첫 번째 인스턴스로 만들어집니다. 구성 서버에 대해 연결 유형으로 공용 인터넷을 선택하는 경우 클라우드 서비스는 예약된 공용 IP 주소를 사용하여 만들어집니다.</p><p>설치 경로는 영어 문자로만 이루어져야 합니다.</p>
-**마스터 대상 서버** | <p>Azure 가상 컴퓨터, 표준 A4 또는 D14.</p><p>설치 경로는 영어 문자로만 입력해야 합니다. 예를 들어 Linux를 실행하는 마스터 대상 서버의 경로는 **/usr/local/ASR**이어야 합니다.</p></p>
+**마스터 대상 서버** | <p>Azure 가상 컴퓨터, 표준 A4, D14 또는 DS4.</p><p>설치 경로는 영어 문자로만 입력해야 합니다. 예를 들어 Linux를 실행하는 마스터 대상 서버의 경로는 **/usr/local/ASR**이어야 합니다.</p></p>
 **프로세스 서버** | <p>최신 업데이트를 설치한 Windows Server 2012 R2를 실행하는 물리적 컴퓨터나 가상 컴퓨터에 프로세스 서버를 배포할 수 있습니다. C:/에 설치합니다.</p><p>보호할 컴퓨터와 동일한 네트워크 및 서브넷에 서버를 배치하는 것이 좋습니다.</p><p>프로세스 서버에 VMware vSphere CLI 5.5.0을 설치합니다. ESXi 호스트에서 실행되는 가상 컴퓨터 또는 vCenter 서버로 관리하는 가상 컴퓨터를 검색하려면 프로세스 서버에 VMware vSphere CLI 구성 요소가 필요합니다.</p><p>설치 경로는 영어 문자로만 입력해야 합니다.</p>
 **VMware** | <p>VMware vSphere 하이퍼바이저를 관리하는 VMWare vCenter 서버. 최신 업데이트를 설치한 vCenter 버전 5.1 또는 5.5를 실행해야 합니다.</p><p>보호하려는 VMware 가상 컴퓨터가 포함된 하나 이상의 vSphere 하이퍼바이저. 하이퍼바이저는 최신 업데이트를 설치한 ESX/ESXi 버전 5.1 또는 5.5를 실행해야 합니다.</p><p>VMware 가상 컴퓨터는 VMware 도구를 설치 및 실행해야 합니다.</p>
-**Windows 컴퓨터** | <p>Windows를 실행하는 VMware 가상 컴퓨터 또는 보호된 물리적 서버에는 여러 요구 사항이 있습니다.</p><p>지원되는 64비트 운영 체제:**Windows Server 2012 R2**, **Windows Server 2012** 또는 **Windows Server 2008 R2 SP1 이상**.</p><p>호스트 이름, 마운트 지점, 장치 이름, Windows 시스템 경로(예: C:\Windows)는 영어로만 입력해야 합니다.</p><p>운영 체제는 C:\드라이브에 설치해야 합니다.</p><p>기본 디스크만 지원됩니다. 동적 디스크는 지원되지 않습니다.</p><p><Firewall rules on protected machines should allow them to reach the configuration and master target servers in Azure.p><p>Windows 서버에 모바일 서비스를 푸시 방식으로 설치하려면 관리자 계정을 제공해야 합니다(Windows 컴퓨터의 로컬 관리자여야 함). 관리자 계정이 도메인 계정이 아닌 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정해야 합니다. 그러려면 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System에서 값이 1인 LocalAccountTokenFilterPolicy DWORD 레지스트리 항목을 추가합니다. CLI에서 레지스트리 항목을 추가하려면 cmd 또는 powershell을 열고 **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**을(를) 입력합니다. 액세스 제어에 대해 [자세히 알아보세요](https://msdn.microsoft.com/library/aa826699.aspx).</p><p>장애 조치(Failover) 후에 원격 데스크톱을 사용하여 Azure의 Windows 가상 컴퓨터에 연결하려는 경우 온-프레미스 컴퓨터에 대해 원격 데스크톱이 사용하도록 설정되었는지 확인합니다. VPN을 통해 연결하지 않는 경우 방화벽 규칙에서 인터넷을 통한 원격 데스크톱 연결을 허용해야 합니다.</p>
+**Windows 컴퓨터** | <p>Windows를 실행하는 VMware 가상 컴퓨터 또는 보호된 물리적 서버에는 여러 요구 사항이 있습니다.</p><p>지원되는 64비트 운영 체제:**Windows Server 2012 R2**, **Windows Server 2012** 또는 **Windows Server 2008 R2 SP1 이상**.</p><p>호스트 이름, 마운트 지점, 장치 이름, Windows 시스템 경로(예: C:\\Windows)는 영어로만 입력해야 합니다.</p><p>운영 체제는 C:\\드라이브에 설치해야 합니다.</p><p>기본 디스크만 지원됩니다. 동적 디스크는 지원되지 않습니다.</p><p><Firewall rules on protected machines should allow them to reach the configuration and master target servers in Azure.p><p>Windows 서버에 모바일 서비스를 푸시 방식으로 설치하려면 관리자 계정을 제공해야 합니다(Windows 컴퓨터의 로컬 관리자여야 함). 관리자 계정이 도메인 계정이 아닌 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정해야 합니다. 그러려면 HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System에서 값이 1인 LocalAccountTokenFilterPolicy DWORD 레지스트리 항목을 추가합니다. CLI에서 레지스트리 항목을 추가하려면 cmd 또는 powershell을 열고 **`REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`**을 입력합니다. 액세스 제어에 대해 [자세히 알아보세요](https://msdn.microsoft.com/library/aa826699.aspx).</p><p>장애 조치(Failover) 후에 원격 데스크톱을 사용하여 Azure의 Windows 가상 컴퓨터에 연결하려는 경우 온-프레미스 컴퓨터에 대해 원격 데스크톱이 사용하도록 설정되었는지 확인합니다. VPN을 통해 연결하지 않는 경우 방화벽 규칙에서 인터넷을 통한 원격 데스크톱 연결을 허용해야 합니다.</p>
 **Linux 컴퓨터** | <p> 지원되는 64비트 운영 체제: **Centos 6.4, 6.5, 6.6**, **Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3)를 실행하는 Oracle Enterprise Linux 6.4, 6.5**, **SUSE Linux Enterprise Server 11 SP3**.</p><p>보호된 컴퓨터의 방화벽 규칙은 Azure에서 구성 및 마스터 대상 서버에 연결할 수 있도록 허용해야 합니다.</p><p>보호된 컴퓨터의 /etc/hosts 파일은 로컬 호스트 이름을 모든 NIC와 연결된 IP 주소로 매핑하는 항목이 포함되어 있어야 합니다. </p><p>장애 조치(Failover) 후 SSH(Secure Shell) 클라이언트를 사용하여 Linux를 실행하는 Azure 가상 컴퓨터에 연결하려면 보호된 컴퓨터의 Secure Shell 서비스가 시스템 부팅 시 자동으로 시작하도록 설정되어 있고 방화벽 규칙에서 SSH 연결을 허용하지를 확인해야 합니다.</p><p>호스트 이름, 마운트 지점, 장치 이름, Linux 시스템 경로와 파일 이름(eg /etc/; /usr)은 영어로만 입력해야 합니다.</p><p>다음 스토리지를 사용하여 온-프레미스 시스템에 보호를 사용하도록 설정할 수 있습니다.<br>파일 시스템: EXT3, ETX4, ReiserFS, XFS<br>다중 경로 소프트웨어-장치 매퍼(다중 경로)<br>볼륨 관리자:LVM2<br>HP CCISS 컨트롤러 저장소를 사용하는 물리적 서버는 지원되지 않습니다.</p>
 **타사** | 이 시나리오의 일부 배포 구성 요소는 제대로 작동하기 위해 타사 소프트웨어를 사용합니다. 전체 목록은 [타사 소프트웨어 통지 및 정보](#third-party)를 참조하세요.
 
@@ -273,12 +275,12 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 	- **다음**을 클릭하면 프록시 연결을 확인하는 테스트가 실행됩니다.
 	- 사용자 지정 프록시를 사용하거나 기본 프록시에 인증이 필요한 경우 주소, 포트, 자격 증명을 포함한 프록시 정보를 입력해야 합니다.
 	- 다음 URL은 프록시를 통해 액세스할 수 있습니다.
-		- *.hypervrecoverymanager.windowsazure.com 
-		- *.accesscontrol.windows.net 
-		- *.backup.windowsazure.com 
-		- *.blob.core.windows.net 
-		- *.store.core.windows.net 
-	- IP 주소 기반 방화벽 규칙이 구성 서버에서 [Azure 데이터 센터 IP 주소](https://msdn.microsoft.com/ko-kr/library/azure/dn175718.aspx)에 설명된 IP 주소 및 확인하세요. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
+		- **.hypervrecoverymanager.windowsazure.com
+- **.accesscontrol.windows.net
+- **.backup.windowsazure.com
+- **.blob.core.windows.net
+- **.store.core.windows.net
+- IP 주소 기반 방화벽 규칙이 구성 서버에서 [Azure 데이터 센터 IP 주소](https://msdn.microsoft.com/ko-kr/library/azure/dn175718.aspx)에 설명된 IP 주소 및 HTTPS(443) 프로토콜로 연결하는 통신을 허용하는지 확인하세요. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
 
 	![프록시 등록](./media/site-recovery-vmware-to-azure/ASRVMWare_RegistrationProxy.png)
 
@@ -346,6 +348,9 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 
 내부 Azure 사용을 위해 모든 서브넷의 맨 앞 4개 IP 주소가 예약됩니다. 사용 가능한 다른 IP 주소를 사용하세요.
 
+>[AZURE.NOTE][프리미엄 저장소 계정](../storage/storage-premium-storage-preview-portal.md)을 사용하여 IO를 많이 사용하는 작업을 호스팅하기 위해 일관된 고성능과 짧은 대기 시간이 요구되는 워크로드에 대한 보호를 구성하는 경우 표준 DS4를 선택합니다.
+
+
 3. Windows 마스터 대상 서버 가상 컴퓨터는 이러한 끝점(배포 유형이 공용 인터넷인 경우에만 공용 끝점이 생성됩니다)을 사용하여 생성됩니다.
 
 	- 사용자 지정: 프로세스 서버에서 공용 포트를 사용하여 인터넷을 통해 복제 데이터를 보냅니다. 프로세스 서버가 개인 포트 9443을 사용하여 VPN을 통해 데이터를 마스터 대상 서버로 보냅니다.
@@ -378,11 +383,11 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 8. Linux를 실행하는 경우 다음을 수행합니다.
 	1. 마스터 대상 서버 소프트웨어를 설치하기 전에 최신 LIS(Linux Integration Services)를 설치했는지 확인하십시오. [여기](https://www.microsoft.com/ko-kr/download/details.aspx?id=46842)에서 설치 방법에 대한 지침과 함께 최신 버전의 LIS를 찾을 수 있습니다. LIS 설치 후 컴퓨터를 다시 시작합니다.
 	2. **대상(Azure) 리소스 준비**에서 **추가 소프트웨어 다운로드 및 설치(Linux 마스터 대상 서버 전용)**를 클릭하고 Linux 마스터 대상 서버 패키지를 다운로드합니다. 다운로드한 tar 파일을 sftp 클라이언트를 사용하여 가상 컴퓨터로 복사합니다. 또는 배포된 Linux 마스터 대상 서버에 로그인한 다음 *wget http://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409*을 사용하여 파일을 다운로드할 수 있습니다.
-	2. 보안 셸 클라이언트를 사용하여 서버에 로그온합니다. VPN을 통해 Azure 네트워크에 연결되어 있는 경우 내부 IP 주소를 사용합니다. 그렇지 않으면 외부 IP 주소와 SSH 공용 끝점을 사용합니다.
-	3. **tar –xvzf Microsoft-ASR_UA_8.4.0.0_RHEL6-64*** ![Linux 마스터 대상 서버](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)를 실행하여 GZip 압축된 설치 프로그램에서 파일을 추출합니다.
+2. 보안 셸 클라이언트를 사용하여 서버에 로그온합니다. VPN을 통해 Azure 네트워크에 연결되어 있는 경우 내부 IP 주소를 사용합니다. 그렇지 않으면 외부 IP 주소와 SSH 공용 끝점을 사용합니다.
+	3. **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64*** ![Linux 마스터 대상 서버](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)를 실행하여 GZip 압축된 설치 프로그램에서 파일을 추출합니다.
 	4. 현재 위치가 tar 파일의 내용을 추출한 디렉터리인지 확인합니다.
 	5. **echo *`<passphrase>`* >passphrase.txt** 명령을 사용하여 구성 서버 암호를 로컬 파일로 복사합니다.
-	6. “**sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt**” 명령을 실행합니다.
+	6. "**sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt**" 명령을 실행합니다.
 
 	![대상 서버 등록](./media/site-recovery-vmware-to-azure/Linux-MT-install.png)
 
@@ -620,7 +625,7 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 	- 인터넷을 통해 구성 서버에 연결하는 경우 `<IP address>` 및 `<port>`에서 구성 서버 가상 공용 IP 주소 및 공용 HTTPS 끝점을 지정합니다.
 	- VPN을 통해 연결하는 경우 내부 IP 주소와 포트 443을 지정합니다.
 
-**명령줄에서 실행하려면**:
+**명령줄에서 실행하려면:**
 
 1. CX의 암호를 서버의 "passphrase.txt" 파일로 복사한 다음 이 명령을 실행합니다. 이 예제에서 CX는 104.40.75.37이며 HTTPS 포트는 62519입니다.
 
@@ -659,19 +664,19 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 
 	![vCenter Server 추가](./media/site-recovery-vmware-to-azure/ASRVMWare_SelectVMs.png)
 
-4. **대상 리소스 지정**에서 복제에 사용할 마스터 대상 서버 및 저장소를 선택하고 설정을 모든 가상 컴퓨터에 사용해야 할지 여부를 선택합니다.
+4. **대상 리소스 지정**에서 복제에 사용할 마스터 대상 서버 및 저장소를 선택하고 설정을 모든 워크로드에 사용해야 할지 여부를 선택합니다. IO를 많이 사용하는 작업을 호스팅하기 위해 일관된 IO 고성능과 짧은 대기 시간이 요구되는 워크로드에 대한 보호를 구성하는 동안에는 [프리미엄 저장소 계정](../storage/storage-premium-storage-preview-portal.md)을 선택합니다. 워크로드 디스크에 프리미엄 저장소 계정을 사용하려는 경우 DS 시리즈의 마스터 대상을 사용해야 합니다. DS 시리즈가 아닌 마스터 대상의 경우 프리미엄 저장소 디스크를 사용할 수 없습니다.
 
 	![vCenter Server](./media/site-recovery-vmware-to-azure/ASRVMWare_MachinesResources.png)
 
-4. **계정 지정**에서 보호된 컴퓨터에 모바일 서비스를 설치하는 데 사용할 계정을 선택합니다. 모바일 서비스의 자동 설치에 계정 자격 증명이 필요합니다. 계정을 선택할 수 없을 경우 2단계의 설명에 따라 설정합니다. 이 계정은 Azure로 액세스할 수 없습니다. Windows 서버의 경우 원본 서버에서 계정에 관리자 권한이 있어야 합니다. Linux의 경우 계정은 반드시 루트여야 합니다.
+5. **계정 지정**에서 보호된 컴퓨터에 모바일 서비스를 설치하는 데 사용할 계정을 선택합니다. 모바일 서비스의 자동 설치에 계정 자격 증명이 필요합니다. 계정을 선택할 수 없을 경우 2단계의 설명에 따라 설정합니다. 이 계정은 Azure로 액세스할 수 없습니다. Windows 서버의 경우 원본 서버에서 계정에 관리자 권한이 있어야 합니다. Linux의 경우 계정은 반드시 루트여야 합니다.
 
 	![Linux 자격 증명](./media/site-recovery-vmware-to-azure/ASRVMWare_VMMobilityInstall.png)
 
-5. 확인 표시를 클릭하여 보호 그룹에 컴퓨터 추가를 완료하고 각 컴퓨터에 대해 초기 복제를 시작합니다. **작업** 페이지에서 상태를 모니터링할 수 있습니다.
+6. 확인 표시를 클릭하여 보호 그룹에 컴퓨터 추가를 완료하고 각 컴퓨터에 대해 초기 복제를 시작합니다. **작업** 페이지에서 상태를 모니터링할 수 있습니다.
 
 	![vCenter Server 추가](./media/site-recovery-vmware-to-azure/ASRVMWare_PGJobs2.png)
 
-5. 또한 **보호된 항목** > 보호 그룹 이름 > **가상 컴퓨터**를 클릭하여 보호 상태를 모니터링할 수 있습니다. 초기 복제가 완료되고 컴퓨터가 데이터를 동기화하면 **보호됨** 상태로 표시됩니다.
+7. 또한 **보호된 항목** > 보호 그룹 이름 > **가상 컴퓨터**를 클릭하여 보호 상태를 모니터링할 수 있습니다. 초기 복제가 완료되고 컴퓨터가 데이터를 동기화하면 **보호됨** 상태로 표시됩니다.
 
 	![가상 컴퓨터 작업](./media/site-recovery-vmware-to-azure/ASRVMWare_PGJobs.png)
 
@@ -768,4 +773,4 @@ Microsoft 제품이나 서비스에서 실행되는 소프트웨어와 펌웨어
 
 전체 파일은 [Microsoft 다운로드 센터](http://go.microsoft.com/fwlink/?LinkId=529428)에서 확인할 수 있습니다. Microsoft에서 명시적으로 부여하지 않은 모든 권한은 묵시적, 금반언적 또는 기타 어떠한 방식에 의해서든 Microsoft가 보유합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

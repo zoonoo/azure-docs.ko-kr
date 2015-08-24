@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/07/2015" 
+	ms.date="08/10/2015" 
 	ms.author="piyushjo" />
 
 #Windows Phone Silverlight SDK 업그레이드 절차
@@ -142,4 +142,4 @@ Engagement 구성은 프로젝트의 `Resources\EngagementConfiguration.xml` 파
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

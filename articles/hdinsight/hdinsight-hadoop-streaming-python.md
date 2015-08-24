@@ -1,5 +1,5 @@
 <properties
-   pageTitle="HDInsight에서 Python MapReduce 작업 개발 | Microsoft Aure"
+   pageTitle="HDInsight에서 Python MapReduce 작업 개발 | Microsoft Azure"
    description="Linux 기반 HDInsight 클러스터에서 Python MapReduce 작업을 만들고 실행하는 방법에 대해 알아봅니다."
    services="hdinsight"
    documentationCenter=""
@@ -202,4 +202,4 @@ HDInsight에서 스트리밍 MapRedcue 작업을 사용하는 방법을 배웠�
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

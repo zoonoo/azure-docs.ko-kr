@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="모바일 서비스에서 오프라인 데이터를 사용하여 충돌 처리(Windows Phone) | 모바일 개발자 센터" 
+	pageTitle="모바일 서비스에서 오프라인 데이터를 사용하여 충돌 처리(Windows Phone) | Microsoft Azure" 
 	description="Windows Phone 응용 프로그램에서 오프라인 데이터를 동기화할 때 Azure 모바일 서비스를 사용하여 충돌을 처리하는 방법에 대해 알아봅니다." 
 	documentationCenter="windows" 
 	authors="wesmc7777" 
@@ -240,4 +240,4 @@ JavaScript 백 엔드 모바일 서비스에 대해 **TodoWithDate**라는 새 �
 [Get started with data]: mobile-services-windows-phone-get-started-data.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

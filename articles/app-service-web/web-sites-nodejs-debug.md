@@ -4,7 +4,7 @@
 	tags="azure-portal"
 	services="app-service\web"
 	documentationCenter="nodejs"
-	authors="MikeWasson"
+	authors="TomArcher"
 	manager="wpickett"
 	editor="mollybos"/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/23/2015"
-	ms.author="mwasson"/>
+	ms.date="08/11/2015"
+	ms.author="tarcher"/>
 
 # Azure 앱 서비스에서 Node.js 웹 앱을 디버그하는 방법
 
@@ -125,4 +125,4 @@ Node.js 버전의 응용 프로그램 지정에 대한 자세한 내용은 [Azur
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

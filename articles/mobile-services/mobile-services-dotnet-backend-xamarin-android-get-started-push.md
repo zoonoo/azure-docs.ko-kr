@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Xamarin Android 앱용 모바일 서비스 시작 - Azure 모바일 서비스" 
+	pageTitle="Xamarin Android 앱용 모바일 서비스 시작 | Microsoft Azure" 
 	description="Azure 모바일 서비스와 알림 허브를 사용하여 Xamarin Android 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="xamarin" 
@@ -75,4 +75,4 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -21,6 +21,10 @@
 
 [Visual Studio Application Insights](app-insights-get-started.md) 사용 방법을 보여주는 코드 샘플의 컴파일입니다.
 
+## SDK 실습
+
+[SDK 실습](https://www.myget.org/gallery/applicationinsights-sdk-labs)은 Application Insights SDK에 대한 추가 기능으로 설치 및 제거할 수 있는 실험적인 NuGet 패키지 컬렉션입니다. 직접 사용해보고 의견을 보내주세요.
+
 ## 웹 서비스
 
 * [Azure 웹 및 작업자 역할에 원격 분석을 추가](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService)합니다.
@@ -49,4 +53,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

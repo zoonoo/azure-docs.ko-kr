@@ -13,36 +13,43 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/09/2015"
    ms.author="sameerch"/>
 
 
-# 논리 앱에서 Chatter Connector 사용 #
+# 논리 앱에서 Chatter Connector 사용
 
-논리 앱은 다양한 데이터 원본을 기반으로 트리거하고 흐름의 일부로 데이터를 가져오고 처리하기 위한 커넥터를 제공할 수 있습니다.
+Chatter 커넥터를 사용하여 Chatter에 연결하고 메시지 게시와 같은 일반적인 작업을 수행할 수 있습니다. 예를 들어 Chatter 피드를 검색할 수 있으며, 특별한 내용을 발견하면 Sales 그룹에 해당 Chatter 메시지를 게시할 수 있습니다.
 
-Chatter Connector를 사용하면 Chatter에 연결하고 메시지 게시와 같은 다양한 동작 및 새 메시지 검색을 위한 트리거를 수행할 수 있습니다.
+Chatter 커넥터를 비즈니스 워크플로에 추가하고 이 워크플로의 일부로 데이터를 처리할 수 있습니다.
 
-## 논리 앱용 Chatter Connector 만들기 ##
-Chatter Connector를 사용하려면 먼저 Chatter Connector API 앱의 인스턴스를 만들어야 합니다. 이 작업은 다음과 같이 수행할 수 있습니다.
+## 트리거 및 작업
 
-1.	Azure 포털의 왼쪽 아래에 있는 + 새로 만들기 옵션을 사용하여 Azure 마켓플레이스를 엽니다.
-2.	"웹 및 모바일 > API 앱"으로 이동하여 "Chatter Connector"를 검색합니다.
-3.	다음과 같이 Chatter Connector를 구성합니다.
+트리거는 새로운 Chatter 메시지 도착과 같은 특정 이벤트를 기반으로 새 인스턴스를 시작합니다. 동작은 그 결과입니다. 예를 들어 새로운 Chatter 메시지를 받은 후 해당 메시지를 또 다른 Chatter 그룹이나 Facebook 또는 Twitter 같은 다른 소셜 미디어 사이트에 게시합니다.
+
+Chatter 커넥터는 논리 앱에서 트리거나 동작으로 사용할 수 있으며 JSON 및 XML 형식의 데이터를 지원합니다. Chatter 커넥터에서 사용할 수 있는 트리거와 동작은 다음과 같습니다.
+
+트리거 | 작업
+--- | ---
+새 메시지 | <ul><li>메시지 게시</li><li>검색</li></ul>
+
+
+## 논리 앱용 Chatter 커넥터 만들기
+커넥터는 논리 앱 내에서 만들거나 Azure 마켓플레이스에서 직접 만들 수 있습니다. 마켓플레이스에서 커넥터를 만들려면
 
 	![][1]
 	- **위치** - 커넥터를 배포할 지리적 위치를 선택합니다.
-	- **구독** - 이 커넥터를 만들기 원하는 구독을 선택합니다.
+	- **구독** - 이 커넥터를 만들 구독을 선택합니다.
 	- **리소스 그룹** - 커넥터가 상주할 리소스 그룹을 선택하거나 만듭니다.
 	- **웹 호스팅 계획** - 웹 호스팅 계획을 선택하거나 만듭니다.
 	- **가격 책정 계층** - 커넥터에 대한 가격 책정 계층을 선택합니다.
-	- **이름** - Chatter Connector에 이름을 부여합니다.
+	- **이름** - Chatter 커넥터의 이름을 지정합니다.
 
-4.	만들기를 클릭합니다. 새 Chatter Connector가 만들어집니다.
-5.	API 앱 인스턴스가 생성되면 동일한 리소스 그룹에서 논리 앱을 만들어 Chatter Connector를 사용할 수 있습니다.
+4. **만들기**를 선택합니다.
 
-## 논리 앱에서 Chatter Connector 사용 ##
-API 앱을 만들고 나면 이제 Chatter Connector를 논리 앱에 대한 트리거/동작으로 사용할 수 있습니다. 이렇게 하려면 다음을 수행해야 합니다.
+
+## 논리 앱에서 Chatter Connector 사용
+API 앱을 만들고 나면 이제 Chatter 커넥터를 논리 앱에서 트리거 또는 동작으로 사용할 수 있습니다. 다음을 수행합니다.
 
 1.	새 논리 앱을 만들고 Chatter Connector가 있는 동일한 리소스 그룹을 선택합니다.
 
@@ -76,7 +83,7 @@ API 앱을 만들고 나면 이제 Chatter Connector를 논리 앱에 대한 트
 	![][10]
 	![][11]
 
-	<!--Image references-->
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-chatter/img1.PNG
 [2]: ./media/app-service-logic-connector-chatter/img2.PNG
 [3]: ./media/app-service-logic-connector-chatter/img3.png
@@ -89,4 +96,4 @@ API 앱을 만들고 나면 이제 Chatter Connector를 논리 앱에 대한 트
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

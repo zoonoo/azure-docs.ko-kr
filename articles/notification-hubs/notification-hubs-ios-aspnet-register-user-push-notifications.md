@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Web API를 사용하여 푸시 알림에 현재 사용자 등록 - 알림 허브" 
+	pageTitle="Web API를 사용하여 푸시 알림에 현재 사용자 등록 | Microsoft Azure" 
 	description="ASP.NET Web API에서 등록을 수행할 때 Azure 알림 허브를 사용하여 iOS 앱에서 푸시 알림 등록을 요청하는 방법에 대해 알아봅니다." 
 	services="notification-hubs" 
 	documentationCenter="ios" 
@@ -25,7 +25,7 @@
 
 ##개요
 
-이 항목에서는 ASP.NET Web API에서 등록을 수행할 때 Azure 알림 허브를 통해 푸시 알림 등록을 요청하는 방법을 보여 줍니다. 이 항목은 [알림 허브를 통해 사용자에게 알림] 자습서를 확장합니다. 이미 해당 자습서의 필수 단계를 완료하여 인증된 모바일 서비스를 만든 상태여야 합니다. 사용자 알림 시나리오에 대한 자세한 내용은 [알림 허브를 통해 사용자에게 알림]을 참조하십시오.
+이 항목에서는 ASP.NET Web API에서 등록을 수행할 때 Azure 알림 허브를 통해 푸시 알림 등록을 요청하는 방법을 보여 줍니다. 이 항목은 [알림 허브를 통해 사용자에게 알림] 자습서를 확장합니다. 이미 해당 자습서의 필수 단계를 완료하여 인증된 모바일 서비스를 만든 상태여야 합니다. 사용자 알림 시나리오에 대한 자세한 내용은 [알림 허브를 통해 사용자에게 알림]을 참조하세요.
 
 ##앱 업데이트  
 
@@ -238,4 +238,4 @@
 [알림 허브 시작]: /manage/services/notification-hubs/get-started-notification-hubs-ios
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

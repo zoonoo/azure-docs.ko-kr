@@ -1,5 +1,5 @@
 <properties
-	pageTitle="CLI를 사용하여 키 자격 증명 모음 관리 | 개요"
+	pageTitle="CLI를 사용하여 주요 자격 증명 모음 관리 | Microsoft Azure"
 	description="이 자습서에서는 CLI를 사용하여 키 자격 증명 모음의 일반 작업을 자동화하는 방법을 설명합니다."
 	services="key-vault"
 	documentationCenter=""
@@ -252,4 +252,4 @@ Azure 키 자격 증명 모음을 관리하는 데 유용할 수 있는 다른 �
 
 프로그래밍 참조의 경우, [Azure 키 자격 증명 모음 REST API 참조](https://msdn.microsoft.com/library/azure/dn903609.aspx) 및 [Azure 키 자격 증명 모음 C# 클라이언트 API 참조](https://msdn.microsoft.com/library/azure/dn903628.aspx)를 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

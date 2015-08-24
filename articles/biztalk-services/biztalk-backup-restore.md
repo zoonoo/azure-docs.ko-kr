@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="BizTalk 서비스에서 백업 만들기 및 복원 | Azure" 
+	pageTitle="BizTalk 서비스에서 백업 만들기 및 복원 | Microsoft Azure" 
 	description="BizTalk 서비스에는 백업 및 복원이 포함되어 있습니다. 백업을 만들고 복원하며 백업 대상을 결정하는 방법에 대해 알아봅니다. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -233,4 +233,4 @@ Azure 관리 포털에서 Azure BizTalk 서비스를 만들려면 [BizTalk 서�
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

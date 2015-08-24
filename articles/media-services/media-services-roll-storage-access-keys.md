@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #방법: 저장소 액세스 키 롤링 후 미디어 서비스 업데이트
@@ -43,7 +43,7 @@
 
 - 미디어 서비스 관리 REST API를 사용합니다.
 
-	다음 코드 예제에서는 미디어 서비스와 지정된 저장소 키를 동기화하기 위해 https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key 요청을 생성하는 방법을 보여 줍니다. 이 경우에는 보조 저장소 키 값이 사용됩니다. 자세한 내용은 [방법: 미디어 서비스 관리 REST API 사용](http://msdn.microsoft.com/library/azure/dn167656.aspx)을 참조하세요.
+	다음 코드 예제에서는 미디어 서비스와 지정된 저장소 키를 동기화하기 위해 https://endpoint/<subscriptionId>/services/mediaservices/Accounts/<accountName>/StorageAccounts/<storageAccountName>/Key 요청을 생성하는 방법을 보여 줍니다. 이 경우에는 보조 저장소 키 값이 사용됩니다. 자세한 내용은 [방법: 미디어 서비스 관리 REST API 사용](http://msdn.microsoft.com/ko-kr/library/azure/dn167656.aspx)을 참조하세요.
  
 		public void UpdateMediaServicesWithStorageAccountKey(string mediaServicesAccount, string storageAccountName, string storageAccountKey)
 		{
@@ -108,4 +108,4 @@
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

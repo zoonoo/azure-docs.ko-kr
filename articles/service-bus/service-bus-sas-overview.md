@@ -186,7 +186,7 @@ ContentType: application/atom+xml;type=entry;charset=utf-8
 
 서비스 버스에 데이터의 전송을 시작하기 전에 게시자는 AMQP 메시지 안에 있는 SAS 토큰을 **"$cbs"**(모든 SAS 토큰을 얻고 유효성을 검사하기 위해 서비스에서 사용하는 "특별" 큐)라는 이름의 정의된 AMQP 노드에 전송해야 합니다. 게시자는 MQP 메시지 내부에 있는 **"ReplyTo"** 필드를 지정해야 합니다. 이것은 서비스가 토큰 유효성 검사 결과와 함께 게시자에게 응답하는 노드입니다(게시자와 서비스 간의 간단한 요청/응답 패턴). 이 회신 노드는 "즉시" 생성되며 AMQP 1.0 사양에 설명된 것처럼 “원격 노드 동적 생성”에 대해 얘기합니다. SAS 토큰이 유효한지 확인한 후 게시자는 이제 데이터를 서비스에 보내기 시작할 수 있습니다.
 
-다음 단계는 C&#35;에서 개발 중인 공식 서비스 버스 SDK(예를 들어 WinRT, .Net Compact Framework, .Net Micro Framework 및 Mono에서)를 사용할 수 없는 경우에 유용한 [AMQP.Net Lite](http://amqpnetlite.codeplex.com) 라이브러리를 사용하여 AMQP 프로토콜과 함께 SAS토큰을 보내는 방법을 알려줍니다. 물론 이 라이브러리는 클레임 기반 보안이 HTTP 수준에서 작동하는 방식을 볼 때처럼 AMQP 수준에서 작동하는 방식을 이해하는 데 유용합니다(“권한 부여" 헤더 내에서 전송되는 HTTP POST 요청 및 SAS 토큰과 함께). 그러나 염려하지 마십시오. AMQP에 대한 깊은 지식이 없어도 모든 다른 플랫폼에 대해 [Azure SB Lite](http://azuresblite.codeplex.com) 라이브러리 또는 .Net Framework 응용 프로그램과 함께 공식 서비스 버스 SDK를 사용할 수 있습니다(위 참조).
+다음 단계는 C&#35;에서 개발 중인 공식 서비스 버스 SDK(예를 들어 WinRT, .Net Compact Framework, .Net Micro Framework 및 Mono에서)를 사용할 수 없는 경우에 유용한 [AMQP.Net Lite](http://amqpnetlite.codeplex.com) 라이브러리를 사용하여 AMQP 프로토콜과 함께 SAS토큰을 보내는 방법을 알려줍니다. 물론 이 라이브러리는 클레임 기반 보안이 HTTP 수준에서 작동하는 방식을 볼 때처럼 AMQP 수준에서 작동하는 방식을 이해하는 데 유용합니다(“권한 부여" 헤더 내에서 전송되는 HTTP POST 요청 및 SAS 토큰과 함께). 그러나 염려하지 마세요. AMQP에 대한 깊은 지식이 없어도 모든 다른 플랫폼에 대해 [Azure SB Lite](http://azuresblite.codeplex.com) 라이브러리 또는 .Net Framework 응용 프로그램과 함께 공식 서비스 버스 SDK를 사용할 수 있습니다(위 참조).
 
 ### C&#35;
 
@@ -251,6 +251,6 @@ AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많으므
 
 이러한 SAS 토큰으로 수행할 수 있는 작업에 대한 자세한 내용은 [서비스 버스 REST API 참조](https://msdn.microsoft.com/library/azure/hh780717.aspx)를 참조하세요.
 
-SAS에 대한 자세한 내용은 MSDN의 [서비스 버스 인증](https://msdn.microsoft.com/library/azure/dn155925.aspx) 노드를 참조하세요.
+SAS에 대한 자세한 내용은 MSDN의 [서비스 버스 인증](https://msdn.microsoft.com/library/azure/dn155925.aspx) 노드를 참조하세요. [Damir 블로그](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx)에서 C# 및 Java Script의 SAS에 대한 추가 예제
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

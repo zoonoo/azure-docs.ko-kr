@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Microsoft 인증 등록 - 모바일 서비스" 
+	pageTitle="Microsoft 인증 등록 | Microsoft Azure" 
 	description="Azure 모바일 서비스 응용 프로그램에서 Microsoft 인증을 위해 등록하는 방법을 알아봅니다." 
 	authors="ggailey777" 
 	services="mobile-services" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/14/2015" 
+	ms.date="08/08/2015" 
 	ms.author="glenga"/>
 
 # 앱을 등록하여 Microsoft 계정을 인증에 사용
@@ -54,13 +54,9 @@
 
 6. (선택 사항) 4\~5단계를 반복하여 유니버설 Windows 앱의 Windows Phone 스토어 프로젝트도 등록합니다.
 
-6. 새 앱의 Windows 개발자 센터 페이지로 돌아가서 **Services**를 클릭합니다.
+6. 새 앱의 Windows 개발자 센터 페이지로 돌아가서 **서비스** > **푸시 알림**을 클릭합니다.
 
-   	![](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-edit-app.png)
-
-7. Services 페이지에서 **Azure Mobile Services** 아래의 **Live Services site**를 클릭합니다.
-
-	![](./media/mobile-services-how-to-register-microsoft-authentication/mobile-services-win8-edit2-app.png)
+7. **푸시 알림** 페이지에서 **WNS(Windows 푸시 알림 서비스) 및 Microsoft Azure 모바일 서비스** 아래의 **Live 서비스 사이트**를 클릭합니다.
 
 이 응용 프로그램에 대한 Microsoft 계정 페이지를 표시합니다.
 
@@ -72,7 +68,7 @@
 
    	이는 Microsoft 계정으로 앱 이름을 예약하고 앱에 대한 Microsoft 계정 페이지를 표시합니다.
 
-2. 앱에 대한 Microsoft 계정 페이지에서 **API 설정**을 클릭하고 **모바일 또는 데스크톱 클라이언트 앱** 사용을 선택하여 모바일 서비스 URL을 **대상 도메인**으로 설정하고 **리디렉션 URL**에서 `https://<mobile_service>.azure-mobile.net/login/microsoftaccount/`의 값을 지정한 다음 **저장**을 클릭합니다.
+2. 앱에 대한 Microsoft 계정 페이지에서 **API 설정**을 클릭하고 **모바일 또는 데스크톱 클라이언트 앱** 사용을 선택하여 모바일 서비스 URL을 **대상 도메인**으로 설정하고 **리디렉션 URL**에서 `https://<mobile_service>.azure-mobile.net/`의 값을 지정한 다음 **저장**을 클릭합니다.
 
 	 >[AZURE.NOTE]Visual Studio를 사용하여 Azure에 게시된 .NET 백 엔드 모바일 서비스의 경우 리디렉션 URL은 모바일 서비스 URL에 모바일 서비스를 .NET 서비스로 사용한 _signin-microsoft_ 경로를 추가한 것입니다(예: `https://todolist.azure-mobile.net/signin-microsoft`).
 
@@ -107,4 +103,4 @@
 [Azure 관리 포털]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="소스 제어에 프로젝트 코드 저장 - Azure 모바일 서비스" 
+	pageTitle="소스 제어에 프로젝트 코드 저장 | Microsoft Azure" 
 	description="컴퓨터의 로컬 Git 리포지토리에 서버 스크립트 파일 및 모듈을 저장하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -163,4 +163,4 @@
 [node-uuid]: https://npmjs.org/package/node-uuid
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

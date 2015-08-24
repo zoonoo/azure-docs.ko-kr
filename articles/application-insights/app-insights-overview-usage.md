@@ -4,15 +4,15 @@
 	services="application-insights"
     documentationCenter=""
 	authors="alancameronwills"
-	manager="kamrani"/>
+	manager="douge"/>
 
 <tags
 	ms.service="application-insights"
 	ms.workload="tbd"
 	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
+	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="05/03/2015"
+	ms.date="08/06/2015"
 	ms.author="awills"/>
 
 # Application Insights를 사용하여 사용량 분석
@@ -21,13 +21,41 @@
 
 Application Insights는 사용자 경험을 개선하고 비즈니스 목표를 충족시키는 데 도움을 주는 응용 프로그램 활용데 대한 명확한 시각을 제공할 수 있습니다.
 
+Application Insights는 독립 실행형 앱(iOS, Android 및 Windows)과 웹앱(.NET 또는 J2EE에 호스트) 둘 다에 작동합니다.
+
+## 프로젝트에 Application Insights 추가
+
+작업을 시작하려면 [Microsoft Azure](https://azure.com)를 구독해야 합니다. 무료 평가판이 있으며 평가 기간 후에도 서비스의 무료 계층으로 계속 사용할 수 있습니다.
+
+[Azure 포털](https://portal.azure.com)에서 Application Insights 리소스를 만듭니다. 여기서 앱의 사용 현황 및 성능 데이터를 볼 수 있습니다.
+
+![Azure에서 새로 만들기, 개발자 서비스, Application Insights를 차례로 클릭](./media/app-insights-overview-usage/01-create.png)
+
+**앱이 장치 앱인 경우** 프로젝트에 Application Insights SDK를 추가합니다. 정확한 절차는 사용하는 [IDE 및 플랫폼](app-insights-platforms.md)에 따라 다릅니다. Windows 앱의 경우 Visual Studio에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 “Application Insights 추가”를 선택하면 됩니다.
+
+**웹앱인 경우** 빠른 시작 블레이드를 열고 웹 페이지에 추가할 코드 조각을 가져옵니다. 이 조각을 사용하여 다시 게시합니다.
+
+![빠른 시작을 열고 내 웹 페이지를 모니터링하는 코드를 얻기를 클릭합니다. 마스터 웹 페이지의 머리글에 스크립트를 복사합니다.](./media/app-insights-overview-usage/02-monitor-web-page.png)
+
+클라이언트와 서버 둘 다의 원격 분석을 결합하기 위해 Application Insights를 [ASP.NET](app-insights-start-monitoring-app-health-usage.md) 또는 [J2EE](app-insights-java-get-started.md) 서버 코드에 추가할 수도 있습니다.
+
+
+### 프로젝트 실행 및 첫 번째 결과 보기
+
+잠시 후에 디버그 모드에서 프로젝트를 실행하고 [Azure 포털](http://portal.azure.com)로 이동한 다음 Application Insights에서 프로젝트 리소스를 찾습니다.
+
+![Azure에서 찾아보기, Application Insights를 클릭한 후 프로젝트 선택](./media/app-insights-overview-usage/00-start.png)
+
+앱을 게시하면 더 많은 원격 분석을 얻고 사용자가 앱으로 수행하는 작업을 확인할 수 있습니다.
+
+
 ## 즉시 분석
 
-프로젝트에 [Application Insights][start]를 추가하면 부수적인 노력 없이 사용자 수를 보여주는 차트를 가져올 수 있습니다.
+사용 현황 세부 정보를 보려면 페이지 보기 타일을 클릭합니다.
 
-![Azure에서 찾아보기 > Application Insights > 프로젝트를 찾아 아래로 스크롤](./media/app-insights-overview-usage/01-overview.png)
+![Azure에서 찾아보기 > Application Insights > 프로젝트로 이동한 후 페이지 보기 타일로 스크롤](./media/app-insights-overview-usage/01-overview.png)
 
-특정 지점에서 수를 보려면 그래프 위의 빈 부분 위를 가리킵니다. 그 밖에도 숫자는 기간에 걸친 평균, 총계 또는 고유한 사용자의 수와 같이 기간에 걸쳐 집계된 값을 보여줍니다.
+특정 지점에서 수를 보려면 그래프 위의 빈 부분 위를 가리킵니다. 그 밖에도 수치는 기간에 걸친 평균, 총계 또는 고유한 사용자의 수와 같이 기간에 걸쳐 집계된 값을 보여 줍니다.
 
 웹 응용 프로그램에서 사용자는 쿠키를 사용하여 계산됩니다. 여러 브라우저를 사용하거나, 쿠키를 지우거나, 개인정보 보호 기능을 사용하는 사람은 여러 번 계산됩니다.
 
@@ -54,7 +82,7 @@ Application Insights는 사용자 경험을 개선하고 비즈니스 목표를 
 
 ## 페이지 사용
 
-가장 인기 있는 페이지의 분석과 함께 보다 확대된 버전을 가져오려면 페이지 보기 차트를 클릭합니다.
+페이지 보기 타일을 클릭하여 가장 인기 있는 페이지에 대한 분석 결과를 확인합니다.
 
 
 ![개요 블레이드에서 페이지 보기 차트 클릭](./media/app-insights-overview-usage/05-games.png)
@@ -248,6 +276,11 @@ Global.asax.cs 같은 앱 이니셜라이저에서:
 * 카나리아 테스트입니다. 새로운 기능을 일부 사용자에게만 표시할 수 있는 기능 스위치를 설정합니다. Application Insights를 사용하여 새로운 기능이 예상하는 방식으로 사용되고 있는지 확인합니다. 조정한 다음 더 광범위한 대상에게 이를 릴리스합니다.
 * 사용자에게 이야기하세요! 분석은 자체적으로 충분하지 않지만 좋은 고객 관계 유지를 보완합니다.
 
+## 자세한 정보
+
+* [앱의 충돌과 성능 문제를 감지, 분류 및 진단](app-insights-detect-triage-diagnose.md)
+* [많은 플랫폼에서 Application Insights 시작](app-insights-detect-triage-diagnose.md)
+
 
 ## 비디오
 
@@ -259,4 +292,4 @@ Global.asax.cs 같은 앱 이니셜라이저에서:
 [start]: app-insights-get-started.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

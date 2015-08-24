@@ -1,81 +1,76 @@
-<properties 
-	pageTitle="기계 학습 알고리즘 치트 시트 | Microsoft Azure" 
+<properties
+	pageTitle="기계 학습 알고리즘 치트 시트 | Microsoft Azure"
 	description="인쇄 가능한 기계 학습 알고리즘 치트 시트를 사용하면 Azure 기계 학습 스튜디오에서 예측 모델에 적합한 알고리즘을 선택합니다."
 	services="machine-learning"
-	documentationCenter="" 
-	authors="brohrer" 
-	manager="paulettm" 
+	documentationCenter=""
+	authors="brohrer"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/18/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/10/2015"
 	ms.author="brohrer;garye" />
 
 
 # Microsoft Azure 기계 학습 스튜디오용 기계 학습 알고리즘 치트 시트
 
-**Microsoft Azure 기계 학습 알고리즘 치트 시트**를 사용하면 알고리즘의 Microsoft Azure 기계 학습 라이브러리에서 예측 분석 솔루션에 대해 올바른 기계 학습 알고리즘을 선택할 수 있습니다. 참고 자료에서는 데이터 특성 및 해결하려는 문제와 관련된 질문을 하고 적절한 알고리즘을 제안합니다.
+**Microsoft Azure 기계 학습 알고리즘 치트 시트**를 사용하면 알고리즘의 Microsoft Azure 기계 학습 라이브러리에서 예측 분석 솔루션에 대해 올바른 기계 학습 알고리즘을 선택할 수 있습니다.
 
 [Azure 기계 학습 스튜디오](https://studio.azureml.net/)는 예측 분석 솔루션에 대해 많은 수의 기계 학습 알고리즘와 함께 제공됩니다. 이러한 알고리즘은 ***회귀***, ***분류***, ***클러스터링*** 및 ***이상 탐지***의 일반적인 기계 학습 범주에 해당하며, 각각 다른 유형의 기계 학습 문제를 해결합니다.
 
-
+> [AZURE.NOTE]이 치트 시트를 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 기계 학습을 위한 알고리즘 선택 방법](machine-learning-algorithm-choice.md) 문서를 참조하세요.
 
 ## 기계 학습 알고리즘 치트 시트 다운로드
 
 기계 학습 알고리즘 치트 시트를 다운로드하고 솔루션에 대한 기계 학습 알고리즘을 선택하는 방법을 찾는 데 도움이 됩니다. 근처에서 유지하려면, tabloid 크기(11 x 17인치)로 치트 시트를 인쇄할 수 있습니다.
 
-**[Microsoft Azure 기계 학습 알고리즘 참고 자료](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v2.pdf)에서 참고 자료를 다운로드하세요.**
+**[Microsoft Azure 기계 학습 알고리즘 참고 자료](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v6.pdf)에서 참고 자료를 다운로드하세요.**
 
 ![기계 학습 알고리즘 치트 시트: 기계 학습 알고리즘을 선택하는 방법에 대해 알아봅니다.][cheat-sheet]
 
-[cheat-sheet]: ./media/machine-learning-algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-microsoft-azure.png
+[cheat-sheet]: ./media/machine-learning-algorithm-cheat-sheet/cheat-sheet-small_v_0_6-01.png
 
 
+## 알고리즘에 대한 자세한 도움말
 
-<!-- This is now covered in the first footnote below
-[Azure Machine Learning Studio](https://studio.azureml.net/) gives you the flexibility to experiment - 
-try one algorithm, and if you're not satisfied with the results, try another.
-Here's an example from the [Azure Machine Learning Gallery](http://gallery.azureml.net) of an experiment that tries several algorithms against the same data and compares the results:
-[Compare Multi-class Classifiers: Letter recognition](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
--->
-
-## 알고리즘에 대한 자세한 도움말 
-
-* 다양한 유형의 기계 학습 알고리즘 및 사용 방법에 대한 자세한 논의는 [Azure 기계 학습에서 알고리즘을 선택하는 방법](machine-learning-algorithm-choice.md)을 참조하세요.
+* 다양한 유형의 기계 학습 알고리즘, 사용 방법 및 적합한 알고리즘을 선택하기 위해 이 치트 시트 사용 방법에 대한 자세한 논의는 [Microsoft Azure 기계 학습에서 알고리즘을 선택하는 방법](machine-learning-algorithm-choice.md)을 참조하세요.
 * 기계 학습 스튜디오에서 사용할 수 있는 모든 기계 학습 알고리즘의 범주별 목록은 기계 학습 스튜디오 Algorithm 및 모듈 도움말에서 [초기화 모델][initialize-model]을 참조하세요.
-* 기계 학습 스튜디오의 전체 알고리즘 및 모듈 목록은 기계 학습 스튜디오 알고리즘 및 모듈 도움말에서 [기계 학습 스튜디오 모듈의 A-Z 목록](https://msdn.microsoft.com/library/azure/dn906033.aspx)을 참조하세요.
+* 기계 학습 스튜디오의 전체 알고리즘 및 모듈 목록은 기계 학습 스튜디오 알고리즘 및 모듈 도움말에서 [기계 학습 스튜디오 모듈의 A-Z 목록][a-z-list]을 참조하세요.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## 기계 학습 알고리즘 치크 시트에 대한 메모 및 용어 정의
+<!-- This needs to be updated based on the new Choosing and Algorithm article
 
-* 알고리즘 치트 시트에서 제공된 제안 사항은 대략적인위치 조정 규칙입니다. 제안을 변형하거나 명백하게 위반할 수 있습니다. 시작점을 제안하기 위한 용도로만 제공됩니다. 데이터에 대해 여러 알고리즘을 실행하고 비교해 보세요. 각 알고리즘의 원칙과 데이터를 생성한 시스템에 대한 이해가 필요합니다. 
+## Notes and terminology definitions for the machine learning algorithm cheat sheet
 
-* 모든 기계 학습 알고리즘에는 자체 스타일이나 *귀납적 바이어스*가 있습니다. 특정 문제의 경우 여러 알고리즘이 적절할 수 있으며, 한 알고리즘이 다른 알고리즘보다 더 적합할 수 있습니다. 그러나 항상 최적 알고리즘을 미리 알 수 있는 것은 아닙니다. 이러한 경우 여러 알고리즘이 참고 자료에 함께 나열됩니다. 적절한 전략은 한 알고리즘을 시도하고, 결과가 만족스럽지 않을 경우 다른 알고리즘을 시도하는 것입니다. 다음은 동일한 데이터에 대해 여러 알고리즘을 시도하고 그 결과를 비교하는 실험에 대한 [Azure 기계 학습 갤러리](http://gallery.azureml.net/)의 예제입니다. [다중 클래스 분류자 비교: 문자 인식](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
+* The suggestions offered in this algorithm cheat sheet are approximate rules-of-thumb. Some can be bent, and some can be flagrantly violated. This is intended to suggest a starting point. Don’t be afraid run a head-to-head competition between several algorithms on your data. There is simply no substitute for understanding the principles of each algorithm and understanding the system that generated your data.
 
-* 기계 학습의 세 가지 주요 범주는 **감독 학습**, **자율 학습** 및 **보충 학습**입니다.
+* Every machine learning algorithm has its own style or *inductive bias*. For a specific problem, several algorithms may be appropriate and one algorithm may be a better fit than others. But knowing which will be the best fit beforehand is not always possible. In cases like these, several algorithms are listed together in the cheat sheet. An appropriate strategy would be to try one algorithm, and if the results are not yet satisfactory, try the others. Here’s an example from the [Azure Machine Learning Gallery](http://gallery.azureml.net/) of an experiment that tries several algorithms against the same data and compares the results: [Compare Multi-class Classifiers: Letter recognition](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
 
-  * **감독 학습**에서는 각 데이터 요소가 관심 범주 또는 값과 연결되거나 해당 레이블이 지정됩니다. 범주 레이블의 예는 이미지를 'cat' 또는 'dog'로 할당하는 것입니다. 값 레이블의 예는 중고차와 연결된 판매 가격입니다. 감독 학습의 목표는 레이블이 지정된 이러한 많은 예제를 조사하여 향후 데이터 요소를 예측할 수 있는 것입니다. 예를 들어 올바른 동물로 새 사진을 식별하거나 다른 중고차에 정확한 판매 가격을 할당합니다. 이는 널리 사용되고 유용한 기계 학습 유형입니다. [K-Means 클러스터링][k-means-clustering]을 제외한 Azure 기계 학습의 모든 모듈은 감독 학습 알고리즘입니다.
+* There are three main categories of machine learning: **supervised learning**, **unsupervised learning**, and **reinforcement learning**.
 
-  * **자율 학습**에서는 데이터 요소에 연결된 레이블이 없습니다. 대신, 자율 학습 알고리즘의 목표는 어떤 방식으로든 데이터를 구성하거나 해당 구조를 설명하는 것입니다. 이는 K-Means처럼 클러스터로 그룹화하거나 더 간단하게 표시되도록 복잡한 데이터를 보는 다양한 방법을 찾는 것을 의미할 수 있습니다.
+  * In **supervised learning**, each data point is labeled or associated with a category or value of interest.  An example of a categorical label is assigning an image as either a ‘cat’ or a ‘dog’.  An example of a value label is the sale price associated with a used car. The goal of supervised learning is to study many labeled examples like these, and then to be able to make predictions about future data points - for example, to identify new photos with the correct animal or to assign accurate sale prices to other used cars. This is a popular and useful type of machine learning. All of the modules in Azure Machine Learning are supervised learning algorithms except for [K-Means Clustering][k-means-clustering].
 
-  * **보충 학습**에서는 알고리즘이 각 데이터 요소에 대한 응답으로 작업을 선택합니다. 이는 지정 시간 센서 판독값 집합이 한 데이터 요소이며 알고리즘으로 로봇의 다음 동작을 선택해야 하는 로봇 공학의 일반적인 접근 방식입니다. 사물 인터넷의 응용 프로그램에 적합한 학습이기도 합니다. 또한 학습 알고리즘은 짧은 시간 후에 결정이 얼마나 효율적이었는지를 나타내는 보상 신호를 받습니다. 이 신호에 따라 알고리즘은 가장 높은 보상을 달성하기 위해 해당 전략을 수정합니다. 현재 Azure 기계 학습에는 보충 학습 알고리즘 모듈이 없습니다.
+  * In **unsupervised learning**, data points have no labels associated with them. Instead, the goal of an unsupervised learning algorithm is to organize the data in some way or to describe its structure. This can mean grouping it into clusters, as K-means does, or finding different ways of looking at complex data so that it appears simpler.
 
-* **베이지안 분석법**은 통계적으로 독립적인 데이터 요소를 가정합니다. 즉, 한 데이터 요소의 모델링되지 않은 가변성이 다른 데이터 요소와 상호 관련이 없어 예측할 수 없음을 의미합니다. 예를 들어 기록되는 데이터가 다음 지하철이 도착할 때까지 남은 시간(분)인 경우 하루 간격으로 수행된 두 측정값은 통계적으로 독립적입니다. 그러나 1분 간격으로 측정한 두 값은 통계적으로 독립적이지 않습니다. 한 측정값을 보면 다른 측정값을 쉽게 예측할 수 있습니다.
+  * In **reinforcement learning**, the algorithm gets to choose an action in response to each data point. It is a common approach in robotics, where the set of sensor readings at one point in time is a data point, and the algorithm must choose the robot’s next action. It's also a natural fit for Internet of Things applications. The learning algorithm also receives a reward signal a short time later, indicating how good the decision was. Based on this, the algorithm modifies its strategy in order to achieve the highest reward. Currently there are no reinforcement learning algorithm modules in Azure ML.
 
-* **승격된 의사 결정 트리 회귀 모델**은 기능 겹침 또는 기능 간의 상호 작용을 활용합니다. 즉, 지정된 데이터 요소에서 한 기능의 값은 다른 기능의 값을 다소 예측합니다. 예를 들어 일일 최고/최저 온도 데이터에서 최저 온도를 알면 최고 온도를 적절하게 추측할 수 있습니다. 두 기능에 포함된 정보는 다소 중복됩니다.
+* **Bayesian methods** make the assumption of statistically independent data points. This means that the unmodeled variability in one data point is uncorrelated with others, that is, it can’t be predicted. For example, if the data being recorded is the number of minutes until the next subway train arrives, two measurements taken a day apart are statistically independent. However, two measurements taken a minute apart are not statistically independent - the value of one is highly predictive of the value of the other.
 
-* 본질적으로 다중 클래스 분류자를 사용하거나 두 클래스 분류자 집합을 하나의 **앙상블**로 결합하면 데이터를 세 개 이상의 범주로 분류할 수 있습니다. 앙상블 접근 방식에서는 각 클래스에 대해 별도의 두 클래스 분류자가 있습니다. 각 분류자는 데이터를 두 개의 범주, 즉 "이 클래스" 및 "이 클래스 아님"으로 구분합니다. 그런 다음 이러한 분류자는 데이터 요소의 올바른 할당에 투표합니다. 이는 [One-vs-All Multiclass][one-vs-all-multiclass]의 작동 원리입니다.
+* **Boosted decision tree regression** takes advantage of feature overlap or interaction among features. That means that, in any given data point, the value of one feature is somewhat predictive of the value of another. For example, in daily high/low temperature data, knowing the low temperature for the day allows you to make a reasonable guess at the high. The information contained in the two features is somewhat redundant.
 
-* 로지스틱 회귀 분석 및 Bayes 지점 컴퓨터를 비롯한 여러 방법에서는 **선형 클래스 경계**, 즉 클래스 간의 경계가 대략 직선(또는 보다 일반적인 경우 초평면)이라고 가정합니다. 대체는 이는 구분하려고 시도할 때까지 알 수 없는 데이터 특성이지만, 일반적으로 미리 시각화하여 학습할 수 있는 것입니다. 클래스 경계가 매우 불규칙한 경우 의사 결정 트리, 의사 결정 정글, 지원 벡터 컴퓨터 또는 신경망 방법을 유지합니다.
+* Classifying data into more than two categories can be done by either using an inherently multi-class classifier, or by combining a set of two-class classifiers into an **ensemble**. In the ensemble approach, there is a separate two-class classifier for each class - each one separates the data into two categories:  “this class” and “not this class.” Then these classifiers vote on the correct assignment of the data point. This is the operational principle behind [One-vs-All Multiclass][one-vs-all-multiclass].
 
-* 각 범주에 대한 **더미 변수**를 만든 다음 범주가 적용되는 경우 1로, 적용되지 않는 경우 0으로 설정하여 신경망을 범주 변수와 함께 사용할 수 있습니다.
+* Several methods, including logistic regression and the Bayes point machine, assume **linear class boundaries**, that is, that the boundaries between classes are approximately straight lines (or hyperplanes in the more general case). Often this is a characteristic of the data that you don’t know until after you’ve tried to separate it, but it’s something that typically can be learned by visualizing beforehand. If the class boundaries look very irregular, stick with decision trees, decision jungles, support vector machines, or neural networks.
 
+* Neural networks can be used with categorical variables by creating a **dummy variable** for each category and setting it to 1 in cases where the category applies, 0 where it doesn’t.
+
+-->
 
 <!-- This is how you can add a link to the image in HTML. Don't know how to do this in markdown.
 <a href="http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet.pdf">
@@ -84,9 +79,9 @@ Here's an example from the [Azure Machine Learning Gallery](http://gallery.azure
 -->
 
 <!-- Module References -->
+[a-z-list]: https://msdn.microsoft.com/library/azure/dn906033.aspx
 [initialize-model]: https://msdn.microsoft.com/library/azure/0c67013c-bfbc-428b-87f3-f552d8dd41f6/
 [k-means-clustering]: https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/
 [one-vs-all-multiclass]: https://msdn.microsoft.com/library/azure/7191efae-b4b1-4d03-a6f8-7205f87be664/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

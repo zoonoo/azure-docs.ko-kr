@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="데이터 팩터리 - 릴리스 정보 | Azure" 
+	pageTitle="Data Factory - 릴리스 정보 | Microsoft Azure" 
 	description="데이터 팩터리 릴리스 정보" 
 	services="data-factory" 
 	documentationCenter="" 
@@ -284,7 +284,7 @@ HDInsight 작업(Hive, Pig, MapReduce, Hadoop 스트리밍)은 새 속성인 **g
 	-  [테이블 JSON의 OnPremisesOracleTableLocation 속성](https://msdn.microsoft.com/library/dn894089.aspx#Oracle) 
 	-  [지원되는 원본 및 싱크](https://msdn.microsoft.com/library/dn894007.aspx) 업데이트된 복사 매트릭스 및 **OracleSource** 속성을 참조하십시오.
 -  Azure Blob에서 텍스트 파일의 인코딩을 지정할 수 있습니다. 새 [encodingName 속성](https://msdn.microsoft.com/library/dn894089.aspx#AzureBlob)을 참조하십시오. 
-- SQL 싱크로 복사하는 경우 추가 매개 변수가 있는 저장 프로시저를 호출할 수 있습니다. 자세한 내용은 [SQL 싱크에 대한 저장 프로시저 호출][adf-copy-advanced]을 참조하십시오.   
+- SQL 싱크로 복사하는 경우 추가 매개 변수가 있는 저장 프로시저를 호출할 수 있습니다.    
 
 예제를 포함하여 자세한 내용은 Blob 게시물: [Azure 데이터 팩터리 업데이트 - 새 데이터 저장소](http://azure.microsoft.com/blog/2015/03/30/azure-data-factory-update-new-data-stores/)를 참조하십시오.
 
@@ -299,7 +299,7 @@ HDInsight 작업(Hive, Pig, MapReduce, Hadoop 스트리밍)은 새 속성인 **g
 
 ### 변경 내용
 - 업데이트된 **데이터 관리 게이트웨이** 설치 패키지가 [Microsoft 다운로드 센터][adf-gateway-download]에 게시되었습니다. 이 릴리스부터, 이 다운로드 위치에서 Azure Data Factory에 사용할 최신 데이터 관리 게이트웨이를 찾을 수 있습니다. 이 설치 패키지는 Azure Data Factory와 Office 365용 Power BI 서비스 둘 다를 제공합니다. 두 서비스를 모두 사용하는 경우 데이터 팩터리 및 Power BI의 게이트웨이를 서로 다른 컴퓨터에 설치하고, 데이터 팩터리 또는 Power BI 설명서의 지침에 따라 다르게 구성해야 합니다.
-- 이제 **복사 작업**이 온-프레미스 SQL Server 데이터베이스와 Azure SQL 데이터베이스 간의 데이터 복사를 지원합니다. 자세한 내용은 [복사 작업][adf-copy-activity]을 참조하고, JSON 샘플은 [GitHub][adf-github-samples]를 참조하십시오.
+- 이제 **복사 작업**이 온-프레미스 SQL Server 데이터베이스와 Azure SQL 데이터베이스 간의 데이터 복사를 지원합니다. 
 - **SqlSink**가 새 속성 **WriteBatchTimeout**을 지원합니다. 이 속성은 작업이 시간 초과되기 전에 배치 삽입 작업이 완료되기를 기다리는 기간을 구성할 수 있는 유연성을 제공합니다. 하이브리드 복사(온-프레미스 데이터 원본과 클라우드 데이터 원본을 사용하는 복사 작업)의 경우 이 속성을 사용하려면 버전 1.4 이상의 게이트웨이가 있어야 합니다. 
 - 이제 **SQL Server 연결된 서비스**가 **Windows 인증**을 지원합니다. 
 	- 포털을 사용하여 SQL Server 연결된 서비스를 만드는 경우 이제 Windows 인증을 사용하도록 선택하고 적절한 자격 증명을 설정할 수 있습니다. 이 경우 버전 1.4 이상의 게이트웨이가 있어야 합니다. 
@@ -339,9 +339,7 @@ HDInsight 작업(Hive, Pig, MapReduce, Hadoop 스트리밍)은 새 속성인 **g
 
 [adf-azure-ml]: data-factory-create-predictive-pipelines.md
 [adf-custom-activities]: data-factory-use-custom-activities.md
-[adf-copy-activity]: data-factory-copy-activity.md
 [adf-editor]: data-factory-editor.md
-[adf-copy-advanced]: data-factory-copy-activity-advanced.md
 
 [adf-editor-video]: http://channel9.msdn.com/Blogs/Windows-Azure/New-Azure-Data-Factory-Editor-UI
 [adf-editor-blog]: http://azure.microsoft.com/blog/2015/03/02/azure-data-factory-editor-a-light-weight-web-editor/
@@ -355,4 +353,4 @@ HDInsight 작업(Hive, Pig, MapReduce, Hadoop 스트리밍)은 새 속성인 **g
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

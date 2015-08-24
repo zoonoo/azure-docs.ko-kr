@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Google 인증 등록 - 모바일 서비스" 
+	pageTitle="Google 인증 등록 | Microsoft Azure" 
 	description="Google을 사용하여 Azure 모바일 서비스에서 인증을 받도록 앱을 등록하는 방법을 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -62,4 +62,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

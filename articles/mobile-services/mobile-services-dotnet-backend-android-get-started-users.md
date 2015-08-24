@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="인증 시작(Android) | 모바일 개발자 센터" 
+	pageTitle="인증 시작(Android) | Microsoft Azure" 
 	description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Windows 스토어 앱 사용자를 인증하는 방법을 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -86,4 +86,4 @@
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

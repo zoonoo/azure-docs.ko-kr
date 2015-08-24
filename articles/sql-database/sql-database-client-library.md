@@ -1,6 +1,6 @@
 <properties 
-   pageTitle=".NET용 Azure SQL 데이터베이스 라이브러리로 SQL 데이터베이스 생성 및 관리" 
-   description="이 문서는 .NET용 Azure SQL 데이터베이스 라이브러리를 사용하여 Azure SQL 데이터베이스를 생성 및 관리하는 방법을 보여줍니다." 
+   pageTitle="C#을 사용하여 Azure SQL 데이터베이스 만들기 및 관리" 
+   description="이 문서에서는 .NET용 Azure SQL 데이터베이스 라이브러리를 사용하여 C#으로 Azure SQL 데이터베이스를 만들고 관리하는 방법을 보여 줍니다." 
    services="sql-database" 
    documentationCenter="" 
    authors="stevestein" 
@@ -13,25 +13,24 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="data-management" 
-   ms.date="08/04/2015"
+   ms.date="08/07/2015"
    ms.author="sstein"/>
 
-# .NET용 Azure SQL 데이터베이스 라이브러리로 SQL 데이터베이스 생성 및 관리
+# C&#x23;을 사용하여 SQL 데이터베이스 만들기 및 관리
 
 > [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-portal.md)
+- [Azure Preview Portal](sql-database-elastic-pool-portal.md)
 - [C#](sql-database-client-library.md)
 - [PowerShell](sql-database-elastic-pool-powershell.md)
 
 
 ## 개요
 
-이 문서는 C#를 사용하여 많은 Azure SQL 데이터베이스 관리 작업을 수행하는 명령을 제공합니다. 개별 코드 조각은 명확성을 위해 세분화되었으며 샘플 콘솔 응용 프로그램은 이 문서의 하단에 있는 섹션에서 모든 명령을 합칩니다.
+이 문서에서는 [.NET용 Azure SQL 데이터베이스 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)를 사용하여 C#으로 많은 Azure SQL 데이터베이스 관리 작업을 수행하는 명령을 제공합니다.
 
-NET용 Azure SQL 데이터베이스 라이브러리는 [리소스 관리자 기반 SQL 데이터베이스 REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx)를 래핑하는 [Azure 리소스 관리자](resource-group-overview.md) 기반 API를 제공합니다. 이 클라이언트 라이브러리는 리소스 관리자 기반 클라이언트 라이브러리의 일반적인 패턴을 따릅니다.
+개별 코드 조각은 명확성을 위해 세분화되었으며 샘플 콘솔 응용 프로그램은 이 문서의 하단에 있는 섹션에서 모든 명령을 합칩니다.
 
-
-리소스 관리자는 리소스 그룹을 필요로 하며 [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (AAD)로 인증합니다.
+.NET용 Azure SQL 데이터베이스 라이브러리는 [리소스 관리자 기반 SQL 데이터베이스 REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx)를 래핑하는 [Azure 리소스 관리자](resource-group-overview.md) 기반 API를 제공합니다. 이 클라이언트 라이브러리는 리소스 관리자 기반 클라이언트 라이브러리의 일반적인 패턴을 따릅니다. 리소스 관리자는 리소스 그룹을 필요로 하며 AAD([Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx))로 인증합니다.
 
 <br>
 
@@ -39,7 +38,7 @@ NET용 Azure SQL 데이터베이스 라이브러리는 [리소스 관리자 기�
 
 <br>
 
-Azure 구독이 없는 경우 이 페이지 위쪽에서 **무료 평가판**을 클릭하고 이 문서로 돌아오면 됩니다. Visual Studio의 무료 버전은 [Visual Studio 다운로드](https://www.visualstudio.com/downloads/download-visual-studio-vs) 페이지를 참조하세요.
+Azure 구독이 없는 경우 이 페이지의 맨 위에서 **무료 평가판**을 클릭하고 이 문서로 돌아오면 됩니다. Visual Studio의 무료 버전은 [Visual Studio 다운로드](https://www.visualstudio.com/downloads/download-visual-studio-vs) 페이지를 참조하세요.
 
 ## 필요한 라이브러리 설치
 
@@ -54,7 +53,7 @@ Azure 구독이 없는 경우 이 페이지 위쪽에서 **무료 평가판**을
 
 먼저 필요한 인증을 설정하여 REST API에 액세스할 응용 프로그램을 사용해야 합니다.
 
-[Azure 리소스 관리자 REST APIs](https://msdn.microsoft.com/library/azure/dn948464.aspx)는 이전의 Azure 서비스 관리 REST API에서 사용된 인증서가 아닌 Azure Active Directory를 사용하여 인증합니다.
+[Azure 리소스 관리자 REST API](https://msdn.microsoft.com/library/azure/dn948464.aspx)는 이전의 Azure 서비스 관리 REST API에서 사용된 인증서가 아닌 Azure Active Directory를 사용하여 인증합니다.
 
 현재 사용자에 기반을 두고 클라이언트 응용 프로그램을 인증하려면 먼저 Azure 리소스가 생성한 구독과 관련된 AAD 도메인에 응용 프로그램을 등록해야 합니다. 회사 또는 학교 계정이 아닌 Microsoft 계정으로 Azure 구독을 생성한 경우 이미 기본 AAD 도메인을 가지고 있습니다. 응용 프로그램은 [관리 포털](https://manage.windowsazure.com/)에서 등록할 수 있습니다.
 
@@ -78,7 +77,7 @@ Azure 구독이 없는 경우 이 페이지 위쪽에서 **무료 평가판**을
 
 5. **내 조직에서 개발 중인 응용 프로그램 추가**를 선택합니다.
 
-5. 엡에 **이름**을 입력하고 **네이티브 클라이언트 응용 프로그램**을 선택합니다.
+5. 앱의 **이름**을 입력하고 **네이티브 클라이언트 응용 프로그램**을 선택합니다.
 
     ![응용 프로그램 추가][7]
 
@@ -86,15 +85,15 @@ Azure 구독이 없는 경우 이 페이지 위쪽에서 **무료 평가판**을
 
     ![응용 프로그램 추가][8]
 
-7. 앱 만들기를 종료하고 **구성**을 클릭 후 **클라이언트 ID**를 복사합니다 (코드에 클라이언트 ID가 필요할 수 있습니다).
+7. 앱 만들기를 완료하고 **구성**을 클릭한 후 **클라이언트 ID**를 복사합니다(코드에 클라이언트 ID가 필요함).
 
     ![클라이언트 ID 가져오기][9]
 
 
-1. 페이지 하단에서 **응용 프로그램 추가**를 클릭합니다.
+1. 페이지 맨 아래에서 **응용 프로그램 추가**를 클릭합니다.
 1. **Microsoft 앱**을 선택합니다.
-1. **Azure 서비스 관리 API**를 선택한 후 마법사를 완료합니다.
-2. API를 선택하면 **Azure 서비스 관리에 액세스 (미리 보기)**를 선택하여 이 API에 액세스하기 위해 필요한 특정 권한을 부여해야 합니다.
+1. **Azure 서비스 관리 API**를 선택하고 마법사를 완료합니다.
+2. API를 선택한 후 **Azure 서비스 관리(미리 보기) 액세스**를 선택하여 이 API에 액세스하는 데 필요한 특정 권한을 부여해야 합니다.
 
     ![권한][2]
 
@@ -199,7 +198,7 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
 
 ## 서버에 대한 액세스를 허용할 수 있도록 서버 방화벽 규칙 생성
 
-기본적으로 모든 위치에서 서버로 연결할 수는 없습니다. TDS를 사용해 서버에 연결하고 T-SQL을 서버 또는 서버의 데이터베이스에 제출하려면 클라이언트 IP 주소에서 액세스를 허용하는 [방화벽 규칙](https://msdn.microsoft.com/library/azure/ee621782.aspx)이 정의되어야 합니다.
+기본적으로 모든 위치에서 서버로 연결할 수는 없습니다. TDS를 사용해 서버에 연결하고 T-SQL을 서버 또는 서버의 데이터베이스에 제출하려면 클라이언트 IP 주소에서 액세스를 허용하는 [방화벽 규칙](https://msdn.microsoft.com/library/azure/ee621782.aspx)을 정의해야 합니다.
 
 다음의 예제는 모든 IP 주소에서 서버에 대한 액세스를 여는 규칙을 만듭니다. 데이터베이스의 보안을 위해 적절한 SQL 로그인 및 암호를 만들고 지침에 대한 기본 보호로서 방화벽 규칙을 사용하지 않을 것을 권장합니다.
 
@@ -250,7 +249,7 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
 
 ## 데이터베이스 업데이트 
 
-데이터베이스를 업데이트하려면 (예: 서비스 계층 및 성능 수준 변경) 위의 데이터베이스 생성 또는 업데이트와 같이 **Databases.CreateOrUpdate** 메서드를 호출합니다. **버전** 및 **RequestedServiceObjectiveName** 속성을 원하는 서비스 계층 및 성능 수준으로 설정합니다. 버전을 **프리미엄**으로 또는 프리미엄에서 변경하는 경우 데이터베이스의 크기에 따라 업데이트 시간이 걸릴 수 있습니다.
+데이터베이스를 업데이트하려면(예: 서비스 계층 및 성능 수준 변경) 위의 데이터베이스 생성 또는 업데이트와 같이 **Databases.CreateOrUpdate** 메서드를 호출합니다. **Edition** 및 **RequestedServiceObjectiveName** 속성을 원하는 서비스 계층 및 성능 수준으로 설정합니다. Edition을 **Premium**으로 변경하거나 Premium에서 변경하는 경우 데이터베이스 크기에 따라 업데이트하는 데 시간이 걸릴 수 있습니다.
 
 다음은 SQL 데이터베이스를 표준 (S0) 수준으로 업데이트합니다.
 
@@ -795,4 +794,4 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

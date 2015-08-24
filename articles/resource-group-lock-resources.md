@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/15/2015" 
+	ms.date="08/10/2015" 
 	ms.author="tomfitz"/>
 
 # Azure 리소스 관리자를 사용하여 리소스 잠그기
@@ -83,7 +83,7 @@ lock-level로 **CanNotDelete** 또는 **ReadOnly**를 지정합니다.
 
 ## Azure PowerShell을 사용하여 잠금 만들기
 
-아래와 같이 **New-AzureResourceLock**을 사용하여 Azure PowerShell을 통해 배포된 리소스를 잠글 수 있습니다.
+아래와 같이 **New-AzureResourceLock**을 사용하여 Azure PowerShell을 통해 배포된 리소스를 잠글 수 있습니다. PowerShell을 통해 **LockLevel**을 **CanNotDelete**로만 설정할 수 있습니다.
 
     PS C:\> New-AzureResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName ExampleGroup
 
@@ -91,7 +91,8 @@ PowerShell은 잠금을 업데이트하기 위한 **Set-AzureResourceLock**, 잠
 
 ## 다음 단계
 
-- [태그를 사용하여 리소스 구성](resource-group-using-tags.md)
-- [새 리소스 그룹으로 리소스 이동](resource-group-move-resources.md)
+- 리소스 잠금 작업에 대한 자세한 내용은 [Azure 리소스 잠금](http://blogs.msdn.com/b/cloud_solution_architect/archive/2015/06/18/lock-down-your-azure-resources.aspx)을 참조하세요.
+- 리소스를 논리적으로 구성하는 방법에 대한 자세한 내용은 [태그를 사용하여 리소스 구성](resource-group-using-tags.md)을 참조하세요.
+- 리소스가 존재하는 리소스 그룹을 변경하려면 [새 리소스 그룹으로 리소스 이동](resource-group-move-resources.md)을 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

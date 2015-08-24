@@ -1,5 +1,5 @@
 <properties
-	pageTitle="BizTalk 서비스 버전의 기능 알아보기 | Azure"
+	pageTitle="BizTalk 서비스 버전의 기능 알아보기 | Microsoft Azure"
 	description="BizTalk 서비스 버전(Developer, Basic, Standard 및 Premium)의 기능을 비교합니다. MABS, WABS"
 	services="biztalk-services"
 	documentationCenter=""
@@ -257,4 +257,4 @@ Azure 관리 포털에서 Azure BizTalk 서비스를 만들려면 [BizTalk 서�
 - [Azure BizTalk 서비스 SDK로 시작하는 방법](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

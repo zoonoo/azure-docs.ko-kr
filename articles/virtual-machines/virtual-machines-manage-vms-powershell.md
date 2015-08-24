@@ -5,7 +5,8 @@
    documentationCenter="windows"
    authors="singhkay"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-service-management"/>
 
    <tags
    ms.service="virtual-machines"
@@ -93,4 +94,4 @@ Azure에서 새 Windows 기반 가상 컴퓨터를 만들려면 [Azure PowerShel
 - 기존 부하 분산 집합의 구성원으로 만들기
 - 고정 IP 주소로 만들기
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

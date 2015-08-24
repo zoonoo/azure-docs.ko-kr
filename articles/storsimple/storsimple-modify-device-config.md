@@ -131,4 +131,4 @@ StorSimple 8000 시리즈 업데이트 1에서 DATA 0의 라우팅 메트릭은 
  
      
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

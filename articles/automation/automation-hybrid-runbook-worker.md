@@ -42,10 +42,10 @@ Hybrid Runbook Worker에서 Runbook을 시작할 경우 이를 실행할 그룹�
 Hybrid Runbook Worker를 위한 Azure 자동화 환경을 준비하려면 다음 단계를 완료합니다.
 
 #### 1\. Azure Operational Insights 작업 영역 만들기
-Azure 계정에 Operational Insights 작업 영역이 아직 없는 경우 [Operational Insights 작업 영역 설정](../operational-insights-setup-workspace)의 지침에 따라 작업 영역을 만듭니다. 이미 있는 경우에는 기존 작업 영역을 사용할 수 있습니다.
+Azure 계정에 Operational Insights 작업 영역이 아직 없는 경우 [Operational Insights 작업 영역 설정](../operational-insights/operational-insights-setup-workspace.md)의 지침에 따라 작업 영역을 만듭니다. 이미 있는 경우에는 기존 작업 영역을 사용할 수 있습니다.
 
 #### 2\. 자동화 솔루션 배포
-Operational Insights의 자동화 솔루션은 Runbook 환경을 구성하고 지원하는 데 필요한 구성 요소를 밀어넣습니다. [Operational Insights 솔루션](../operational-insights-add-solution)의 지침에 따라 **Azure 자동화** 팩을 설치합니다.
+Operational Insights의 자동화 솔루션은 Runbook 환경을 구성하고 지원하는 데 필요한 구성 요소를 밀어넣습니다. [Operational Insights 솔루션](../operational-insights/operational-insights-setup-workspace.md#1-add-solutions)의 지침에 따라 **Azure 자동화** 팩을 설치합니다.
 
 ### 온-프레미스 컴퓨터 구성
 Hybrid Runbook Worker 역할을 할 각 온-프레미스 컴퓨터에 대해 다음 단계를 완료합니다.
@@ -136,4 +136,4 @@ Azure 자동화에서 Hybrid Runbook Worker용 Runbook을 편집할 수 있지�
 - [Azure 자동화에서 Runbook 편집](https://msdn.microsoft.com/library/dn879137.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

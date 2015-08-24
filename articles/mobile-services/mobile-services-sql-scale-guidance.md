@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure SQL 데이터베이스에서 지원되는 모바일 서비스 크기 조정 - Azure 모바일 서비스" 
+	pageTitle="Azure SQL 데이터베이스에서 지원되는 모바일 서비스 크기 조정 | Microsoft Azure" 
 	description="SQL 데이터베이스에서 지원하는 모바일 서비스에서 확장성 문제를 진단 및 해결하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="04/20/2015" 
+	ms.date="08/08/2015" 
 	ms.author="donnam;ricksal"/>
 
 # Azure SQL 데이터베이스에서 지원되는 모바일 서비스 크기 조정
@@ -41,18 +41,18 @@ Azure 모바일 서비스를 사용하면 작업을 매우 쉽게 시작하고 S
 
 ### 올바른 SQL 데이터베이스 계층 선택 
 
-현재 앱 요구 사항에 맞게 올바른 계층을 선택했는지 확인하기 위해서는 사용자가 선택한 여러 데이터베이스 계층에 대한 이해가 중요합니다. Azure SQL 데이터베이스는 여러 계층에서 다음 두 가지 데이터베이스 버전을 제공합니다.
+현재 앱 요구 사항에 맞게 올바른 계층을 선택했는지 확인하기 위해서는 사용자가 선택한 여러 데이터베이스 계층에 대한 이해가 중요합니다. Azure SQL 데이터베이스는 두 가지 서로 다른 데이터베이스 버전과 3가지 서로 다른 서비스 계층을 제공합니다.
 
-- Web 및 Business 버전(사용 중지됨)
-- Basic, Standard 및 Premium 버전 
+- Web 및 Business Edition(사용 중지됨)
+- Basic, Standard 및 Premium 서비스 계층
 
-Web 및 Business 버전은 현재 완전히 지원되지만 [Web 및 Business 버전 지원 종료 FAQ](http://msdn.microsoft.com/library/azure/dn741330.aspx)에 설명한 대로 2015년 4월 24일에 지원이 종료됩니다. 새 고객에게 이러한 변화를 준비하면서 Basic, Standard 및 Premium Edition을 사용할 것을 권장합니다. 이 새로운 버전에서는 데이터베이스 성능 문제를 이해하고 더 쉽게 해결할 수 있게 해주는 다양한 새로운 계층 및 모니터링 기능이 제공됩니다. 모든 새 모바일 서비스는 새 Edition을 사용하여 생성됩니다.
+Web 및 Business Edition은 현재 완전히 지원되지만 [Web 및 Business Edition 지원 종료 FAQ](http://msdn.microsoft.com/library/azure/dn741330.aspx)에 설명한 대로 2015년 9월 12일에 지원이 종료됩니다. 새 고객에게 이러한 변화를 준비하면서 Basic, Standard 및 Premium 서비스 계층을 사용할 것을 권장합니다. 이 버전에서는 데이터베이스 성능 문제를 이해하고 더 쉽게 해결할 수 있게 해주는 다양한 모니터링 기능이 제공됩니다. 모든 새 모바일 서비스는 새 서비스 계층 중 하나를 사용하여 생성됩니다.
 
-Web 및 Business Edition부터 Basic, Standard 및 Premium Edition을 사용하여 모바일 서비스를 변환하려면 다음 단계를 따르세요.
+Web 및 Business Edition부터 Basic, Standard 및 Premium 서비스 계층을 사용하여 모바일 서비스를 변환하려면 다음 단계를 따르세요.
 
 1. [Azure 관리 포털][]을 실행합니다.
 2. 도구 모음에서 **+NEW**를 선택한 후 **데이터 서비스**, **SQL 데이터베이스**, **빠른 생성**을 선택합니다.
-3. 데이터베이스 이름을 입력한 후 **서버** 필드에서 **새 SQL 데이터베이스 서버**를 선택합니다. 그러면 새로운 Basic, Standard 및 Premium 버전을 사용하는 서버가 생성됩니다. 
+3. 데이터베이스 이름을 입력한 후 **서버** 필드에서 **새 SQL 데이터베이스 서버**를 선택합니다. 그러면 새로운 Basic, Standard 또는 Premium 서비스 계층을 사용하는 서버가 생성됩니다. 
 4. 나머지 필드를 채우고 **Create SQL Database(SQL 데이터베이스 만들기)**를 선택합니다. 그러면 Basic 계층을 사용하여 100MB 데이터베이스가 생성됩니다.
 5. 바로 전에 만든 데이터베이스를 사용하도록 모바일 서비스를 구성합니다. 해당 서비스에 대한 **구성** 탭으로 이동한 후 도구 모음에서 **데이터베이스 변경**을 선택합니다. 다음 화면의 **SQL Database(SQL 데이터베이스)** 필드에서 **Use an existing SQL database(기존 SQL 데이터베이스 사용)**을 선택한 후 **Next(다음)**을 선택합니다. 다음 화면에서 5단계에서 만든 데이터베이스를 선택했는지 확인한 후 **확인**을 선택합니다.
 
@@ -476,4 +476,4 @@ JavaScript 백 엔드의 경우, SQL Server Management Studio 또는 Azure SQL �
 [키 비용 확인]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

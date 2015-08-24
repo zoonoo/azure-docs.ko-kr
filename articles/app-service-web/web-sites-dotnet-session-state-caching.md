@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="08/06/2015" 
 	ms.author="riande"/>
 
 
@@ -41,42 +41,38 @@ NuGet 패키지는 캐시에 대한 어셈블리 참조를 만들 뿐 아니라 
 
 1. *web.config*를 열고 **sessionState** 요소를 찾습니다.
 
-1. `host`, `accessKey`, `port`(SSL 포트는 6380이어야 함) 값을 입력하고 `SSL`를 `true`로 설정합니다. 이러한 값은 캐시 인스턴스에 대한 [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715) 블레이드에서 가져올 수 있습니다. 자세한 내용은 [캐시에 연결](../cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache)을 참조하세요. 비 SSL 포트는 기본적으로 새 캐시에 대해 사용하지 않도록 설정됩니다. 비 SSL 포트를 사용하도록 설정하기에 대한 자세한 내용은 [Azure Redis 캐시에서 캐시 구성](https://msdn.microsoft.com/library/azure/dn793612.aspx) 항목의 [액세스 포트](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) 섹션을 참조하세요. 다음 태그는 *web.config* 파일에 변경 내용을 표시합니다.
+1. `host`, `accessKey`, `port`(SSL 포트는 6380이어야 함) 값을 입력하고 `SSL`를 `true`로 설정합니다. 이러한 값은 캐시 인스턴스에 대한 [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715) 블레이드에서 가져올 수 있습니다. 자세한 내용은 [캐시에 연결](../cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache)을 참조하세요. 비 SSL 포트는 기본적으로 새 캐시에 대해 사용하지 않도록 설정됩니다. 비 SSL 포트를 사용하도록 설정하기에 대한 자세한 내용은 [Azure Redis 캐시에서 캐시 구성](https://msdn.microsoft.com/library/azure/dn793612.aspx) 항목의 [액세스 포트](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) 섹션을 참조하세요. 다음 표시에서는 *web.config* 파일, 특히 *port*, *host*, accessKey* 및 *ssl*에 대한 변경 사항을 나타냅니다.
+
+		  <system.web>;
+		    <customErrors mode="Off" />;
+		    <authentication mode="None" />;
+		    <compilation debug="true" targetFramework="4.5" />;
+		    <httpRuntime targetFramework="4.5" />;
+		    <sessionState mode="Custom" customProvider="RedisSessionProvider">;
+		      <providers>;  
+		          <!--<add name="RedisSessionProvider" 
+		            host = "127.0.0.1" [String]
+		            port = "" [number]
+		            accessKey = "" [String]
+		            ssl = "false" [true|false]
+		            throwOnError = "true" [true|false]
+		            retryTimeoutInMilliseconds = "0" [number]
+		            databaseId = "0" [number]
+		            applicationName = "" [String]
+		          />;-->;
+		         <add name="RedisSessionProvider" 
+		              type="Microsoft.Web.Redis.RedisSessionStateProvider" 
+		              port="6380"
+		              host="movie2.redis.cache.windows.net" 
+		              accessKey="m7PNV60CrvKpLqMUxosC3dSe6kx9nQ6jP5del8TmADk=" 
+		              ssl="true" />;
+		      <!--<add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" />;-->;
+		      </providers>;
+		    </sessionState>;
+		  </system.web>;
 
 
-```  
-    &lt;system.web&gt;
-    &lt;customErrors mode="Off" /&gt;
-    &lt;authentication mode="None" /&gt;
-    &lt;compilation debug="true" targetFramework="4.5" /&gt;
-    &lt;httpRuntime targetFramework="4.5" /&gt;
-  &lt;sessionState mode="Custom" customProvider="RedisSessionProvider"&gt;
-      &lt;providers&gt;  
-          &lt;!--&lt;add name="RedisSessionProvider" 
-            host = "127.0.0.1" [String]
-            port = "" [number]
-            accessKey = "" [String]
-            ssl = "false" [true|false]
-            throwOnError = "true" [true|false]
-            retryTimeoutInMilliseconds = "0" [number]
-            databaseId = "0" [number]
-            applicationName = "" [String]
-          /&gt;--&gt;
-         &lt;add name="RedisSessionProvider" 
-              type="Microsoft.Web.Redis.RedisSessionStateProvider" 
-              <mark>port="6380"
-              host="movie2.redis.cache.windows.net" 
-              accessKey="m7PNV60CrvKpLqMUxosC3dSe6kx9nQ6jP5del8TmADk=" 
-              ssl="true"</mark> /&gt;
-      &lt;!--&lt;add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false" /&gt;--&gt;
-      &lt;/providers&gt;
-    &lt;/sessionState&gt;
-  &lt;/system.web&gt;
-```
-
-
-
-##<a id="usesessionobject"></a> 코드에 Session 개체 사용
+##<a id="usesessionobject"></a> 코드에서 Session 개체 사용
 마지막 단계는 ASP.NET 코드에서 Session 개체 사용을 시작하는 것입니다. **Session.Add** 메서드를 사용하여 세션 상태에 개체를 추가합니다. 이 메서드는 키-값 쌍을 사용하여 세션 상태 캐시에 항목을 저장합니다.
 
     string strValue = "yourvalue";
@@ -111,4 +107,4 @@ Redis 캐시를 사용하여 웹 앱에서 개체를 캐시할 수도 있습니�
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="모바일 서비스에서 오프라인 데이터 사용(Xamarin iOS) | 모바일 개발자 센터" 
+	pageTitle="모바일 서비스에서 오프라인 데이터 사용(Xamarin iOS) | Microsoft Azure" 
 	description="Azure 모바일 서비스를 사용하여 Xamarin iOS 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법에 대해 알아봅니다." 
 	documentationCenter="xamarin" 
 	authors="lindydonna" 
@@ -184,4 +184,4 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 [Xamarin 확장]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

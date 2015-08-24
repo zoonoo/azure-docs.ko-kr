@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="클라우드 플랫폼 통합 프레임워크 - Azure 아키텍처 패턴" 
+   pageTitle="클라우드 플랫폼 통합 프레임워크 | Microsoft Azure" 
    description="클라우드 플랫폼 통합 프레임워크는 Microsoft Azure에 대한 아키텍처 패턴을 구성하는 Microsoft 클라우드 솔루션으로 온보딩 응용 프로그램을 통합하는 작업 통합 가이드를 제공합니다." 
    services="" 
    documentationCenter="" 
@@ -59,4 +59,4 @@ Azure 내 솔루션 아키텍처 개발을 지원하려면 일련의 일반적�
 
 [Azure 검색](https://gallery.technet.microsoft.com/Cloud-Platform-Integration-e581d65d)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

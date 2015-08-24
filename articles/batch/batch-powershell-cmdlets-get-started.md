@@ -13,17 +13,17 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="powershell"
    ms.workload="big-compute"
-   ms.date="07/08/2015"
+   ms.date="08/07/2015"
    ms.author="danlep"/>
 
 # Azure 배치 PowerShell Cmdlet 시작
 이 문서에서는 Batch 계정을 관리하고 배치 작업, 작업 및 기타 세부 정보에 대한 정보를 얻는 데 사용할 수 있는 Azure PowerShell cmdlet에 대해 간략히 소개합니다.
 
-자세한 cmdlet 구문은 `get-help <Cmdlet_name>`을 입력하거나 [Azure 배치 cmdlet 참조](https://msdn.microsoft.com/library/azure/mt125957.aspx)을 참조하세요. a
+자세한 cmdlet 구문은 `get-help <Cmdlet_name>`을 입력하거나 [Azure 배치 cmdlet 참조](https://msdn.microsoft.com/library/azure/mt125957.aspx)을 참조하세요.
 
 ## 필수 조건
 
-* **Azure PowerShell** - 필수 조건과 다운로드 및 설치 지침에 대해서는 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요. 배치 cmdlet은 버전 0.8.10 이후 버전에서 도입되었습니다.
+* **Azure PowerShell** - 필수 조건과 다운로드 및 설치 지침에 대해서는 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md)을 참조하세요. 배치 cmdlet은 버전 0.8.10 이후 버전에서 도입되었습니다. 일괄 처리 cmdlet이 버전 0.9.6에서 일반 가용성 API를 사용하도록 업데이트되었습니다.
 
 ## 배치 cmdlet 사용
 
@@ -112,24 +112,24 @@ Get-AzureBatchPool -BatchContext $context
 ```
 ### OData 필터 사용
 
-**Filter** 매개 변수를 사용하여 OData 필터를 제공하면 사용자와 관계가 있는 개체만 찾을 수 있습니다. 예를 들어, "myPool"로 시작하는 이름을 가진 모든 풀을 찾을 수 있습니다.
+**Filter** 매개 변수를 사용하여 OData 필터를 제공하면 사용자와 관계가 있는 개체만 찾을 수 있습니다. 예를 들어, "myPool"로 시작하는 ID를 갖는 모든 풀을 찾을 수 있습니다.
 
 ```
-$filter = "startswith(name,'myPool')"
+$filter = "startswith(id,'myPool')"
 Get-AzureBatchPool -Filter $filter -BatchContext $context
 ```
 
 이 방법은 로컬 파이프라인에서 "Where-Object"를 사용하는 것만큼 유연하지는 않습니다. 그러나 쿼리가 배치 서비스에 직접 전송되므로 서버에서 모든 필터링이 수행되어 인터넷 대역폭이 절약됩니다.
 
-### Name 매개 변수 사용
+### ID 매개 변수 사용
 
-OData 필터의 대안으로 **Name** 매개 변수를 사용합니다. "MyPool" 이라는 특정 풀에 대해 쿼리하려면
-
-```
-Get-AzureBatchPool -Name "myPool" -BatchContext $context
+OData 필터의 대안은 **ID** 매개 변수를 사용하는 것입니다. ID가 "myPool"인 특정 풀을 쿼리하려면
 
 ```
-**Name** 매개 변수는 전체 이름 검색만 지원하며 와일드 카드 또는 OData 스타일 필터는 지원하지 않습니다.
+Get-AzureBatchPool -Id "myPool" -BatchContext $context
+
+```
+**ID** 매개 변수는 전체 ID 검색만 지원하며 와일드카드 또는 OData 스타일 필터는 지원하지 않습니다.
 
 ### 파이프라인 사용
 
@@ -156,4 +156,4 @@ Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 * [Azure 배치 cmdlet 참조](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [효율적인 목록 쿼리](batch-efficient-list-queries.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

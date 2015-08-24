@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="08/13/2015" 
 	ms.author="mimig"/>
 
 
@@ -48,7 +48,7 @@ DocumentDB는 스키마 제약이 없는 데이터에 대한 크기 조정, 성�
 자세한 내용은 [DocumentDB 가격 세부 정보](http://go.microsoft.com/fwlink/p/?LinkID=402317) 페이지를 참조하세요. DocumentDB 사용 요금은 사용 중인 컬렉션 수, 컬렉션이 온라인이었던 시간, 각 컬렉션의 [성능 수준](documentdb-performance-levels.md)으로 결정됩니다.
 
 ### 무료 평가판이 있나요?
-Azure를 처음 사용하는 경우 [Azure 무료 평가판](https://azure.microsoft.com/ko-kr/pricing/free-trial/)에 등록하면 30일간 제공된 ₩240,000으로 모든 Azure 서비스를 사용해 볼 수 있습니다. MSDN 구독이 있다면 모든 Azure 서비스에 사용할 수 있는 [월별 ₩180,000의 무료 Azure 크레딧](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?WT.mc_id=azurebg_US_sem_bing_BR_BRMSDN_Nontest_MSDN_msdnazure&WT.srch=1)에 대한 자격이 주어집니다. DocumentDB를 30일간 무료로 사용하려는 경우 신용 카드가 필요하지 않으며 전자 메일 제목 줄에 Documentation FAQ, Azure Trial을 넣어 askdocdb@microsoft.com에 전자 메일을 보내면 공급이 지속되는 동안은 프로모션 코드를 포함하는 회신을 보내드립니다.
+Azure를 처음 사용하는 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록하면 30일간 제공된 ₩240,000로 모든 Azure 서비스를 사용해 볼 수 있습니다. MSDN 구독이 있다면 모든 Azure 서비스에 사용할 수 있는 [월별 ₩180,000의 무료 Azure 크레딧](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)에 대한 자격이 주어집니다. DocumentDB를 30일간 무료로 사용하려는 경우 신용 카드가 필요하지 않으며 메일 제목 줄에 Documentation FAQ, Azure Trial을 넣어 askdocdb@microsoft.com에 메일을 보내면 공급이 지속되는 동안은 프로모션 코드를 포함하는 회신을 보내드립니다.
 
 ### DocumentDB 추가 도움말은 어떻게 구할 수 있나요?
 도움이 필요한 경우 [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), [Azure DocumentDB MSDN 개발자 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)을 통해 문의하거나 [DocumentDB 엔지니어링 팀과의 1:1 채팅](http://www.askdocdb.com/)을 예약하세요. 최신 DocumentDB 소식과 기능에 대한 최신 동향을 파악하려면 [Twitter](https://twitter.com/DocumentDB)에서 Azure DocumentDB를 팔로우하세요.
@@ -67,7 +67,7 @@ Microsoft Azure DocumentDB는 [Azure Preview 포털][azure-portal]에 있습니�
 ### 컬렉션이란 무엇인가요?
 컬렉션은 JSON 문서 및 관련 JavaScript 응용 프로그램 논리의 컨테이너입니다. 쿼리와 트랜잭션의 범위는 컬렉션으로 지정됩니다. 단일 컬렉션 내에서 다른 유형의 JSON 문서 집합을 저장할 수 있으며, 모든 문서는 자동으로 인덱싱됩니다.
 
-컬렉션은 DocumentDB에 대한 청구 엔터티입니다. 사용자의 월별 DocumentDB 사용 요금은 사용 중인 컬렉션 수, 컬렉션이 온라인이었던 시간, 각 컬렉션의 [성능 수준](documentdb-performance-levels.md)으로 결정됩니다. 자세한 내용은 [DocumentDB 가격](https://azure.microsoft.com/ko-kr/pricing/details/documentdb/)을 참조하세요.
+컬렉션은 DocumentDB에 대한 청구 엔터티입니다. 사용자의 월별 DocumentDB 사용 요금은 사용 중인 컬렉션 수, 컬렉션이 온라인이었던 시간, 각 컬렉션의 [성능 수준](documentdb-performance-levels.md)으로 결정됩니다. 자세한 내용은 [DocumentDB 가격](https://azure.microsoft.com/pricing/details/documentdb/)을 참조하세요.
 
 ### 데이터베이스 및 컬렉션에는 어떤 제한이 있나요?
 각 컬렉션은 데이터베이스 저장소가 할당되어 제공되며 지원되는 [성능 수준](documentdb-performance-levels.md) 중 하나에서 처리량을 프로비전합니다. 또한 할당량은 서비스에서 관리하는 각 리소스에 적합합니다. 모든 제한 목록은 [DocumentDB 제한](documentdb-limits.md)을 참조하세요. 사용자의 계정 제한에 대해 변경을 요청하려면 [DocumentDB 계정 제한 증가 요청](documentdb-increase-limits.md)을 참조하세요.
@@ -111,4 +111,4 @@ DocumentDB에 문서를 일괄 삽입하는 세 가지 방법이 있습니다.
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/23/2015"
+	ms.date="08/10/2015"
 	ms.author="stepsic"/>
 
-#새 논리 앱 만들기
+# 새 논리 앱 만들기
 이 항목에서는 단 몇 분 안에 [앱 서비스 논리 앱](app-service-logic-what-are-logic-apps.md)을 시작할 수 있는 방법을 보여줍니다. 관심이 있는 일련의 트윗을 Dropbox 폴더로 전달할 수 있는 워크플로 단계별로 안내합니다.
 
 이 시나리오를 사용하려면 다음이 필요합니다.
@@ -27,7 +27,7 @@
 
 <!--- TODO: Add try it now information here -->
 
-##커넥터 가져오기
+## 커넥터 가져오기
 
 먼저, 사용할 두 개의 커넥터인 [**Dropbox 커넥터**](app-service-logic-connector-dropbox.md)와 [**Twitter 커넥터**](app-service-logic-connector-twitter.md)를 만듭니다. 해당 커넥터를 만들려면:
 
@@ -59,7 +59,7 @@
 
 9. 이제 [Dropbox](https://portal.azure.com/#create/microsoft_com.DropboxConnector.0.2.2)를 사용하여 프로세스를 반복합니다.
 
-##논리 앱 시작
+## 논리 앱 시작
 
 이제 새 논리 앱을 만들어야 합니다.
 
@@ -106,6 +106,8 @@
 	그러면 Twitter 계정에 대한 커넥터 액세스 권한이 부여됩니다. Twitter 커넥터에서 제공하는 가능한 작업의 목록이 표시됩니다.
 
 	![동작](./media/app-service-logic-create-a-logic-app/actions.png)
+
+	> [AZURE.NOTE]**인증** 단추는 OAUTH 보안을 사용하여 Twitter 같은 SaaS 서비스에 연결합니다. OAUTH에 대한 자세한 내용은 [OAUTH 보안](app-service-logic-oauth-security.md)을 참조하세요.
 
 3. **트윗 검색**을 클릭한 다음, **쿼리 지정**에서 `#MicrosoftAzure`와 같은 내용을 입력하고 녹색 확인 표시를 클릭합니다.
 
@@ -172,4 +174,4 @@ Twitter 커넥터는 이제 워크플로의 일부입니다.
 [논리 앱 기능 사용]: app-service-logic-use-logic-app-features.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

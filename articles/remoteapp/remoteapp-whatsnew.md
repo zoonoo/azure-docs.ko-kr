@@ -3,7 +3,7 @@
     pageTitle="Azure RemoteApp의 새로운 기능"
     description="Azure RemoteApp에 작성된 변경 및 개선 사항을 알아봅니다." 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="06/30/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
@@ -22,6 +22,16 @@
 
 RemoteApp의 이점 중 하나는 항상 개선하기 위해 노력한다는 것입니다. 개선 시, 여기에서 해당 변경 내용을 발표합니다.
 
+## 2015년 7월
+
+7월에는 8월에 예정된 변경을 준비하므로 현재 다룰 내용은 많지 않고 대부분 문서 업데이트입니다. 다음은 최근 변경 내용입니다.
+
+- 포털에 **지원** 탭이 추가되어 포럼과 같은 지원 리소스에 더욱 쉽게 액세스할 수 있습니다.
+- 하이브리드 컬렉션에 대한 문제 해결 정보가 수정되었습니다. VNET 구성을 위한 정확한 포트 식별 방법 등과 같은 문제 해결 팁에 관한 [최신의 가장 강력한](remoteapp-hybridtrouble.md) 기능을 확인하세요.
+- [사용자 데이터](remoteapp-upd.md)를 만들고 Azure RemoteApp에 저장하는 방법이 문서화되었습니다.
+- [앱 잠금](remoteapp-secure.md) 방법이 문서화되었습니다.
+- [Azure RemoteApp cmdlet](https://msdn.microsoft.com/library/mt428031.aspx)이 게시되었습니다.
+- 마지막으로 일부 Azure RemoteApp 사용자와 용어에 대한 대화를 시작했습니다. 다양한 컬렉션 옵션을 참조하는 방법이 어떻게 변경되었는지 확인합니다.
 
 ## 2015년 6월
 
@@ -51,4 +61,4 @@ Azure RemoteApp에 대해 더 알아보고 싶으세요? RemoteApp 팀은 몇 �
 
 우리와 함께해 주셔서 감사하며 자세한 업데이트로 다음 달에 돌아오겠습니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

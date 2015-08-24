@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="KBDAzure"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -20,7 +21,7 @@
 
 > [AZURE.SELECTOR]
 - [Azure Preview Portal](virtual-machines-windows-tutorial.md)
-- [Azure Management Portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [Azure Portal](virtual-machines-windows-tutorial-classic-portal.md)
 - [PowerShell](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 다음 단계에서는 구성 요소 접근 방식을 사용하여 Windows 기반 Azure 가상 컴퓨터를 만들고 미리 구성하는 Azure PowerShell 명령 집합을 사용자 지정하는 방법을 보여 줍니다. 이 프로세스를 사용하여 새 Windows 기반 가상 컴퓨터에 대한 명령 집합을 신속하게 만들고 기존 배포를 확장하거나, 사용자 지정 개발/테스트 또는 IT 전문가 환경을 신속하게 빌드하는 여러 명령 집합을 만들 수 있습니다.
@@ -141,7 +142,7 @@ Active Directory 도메인 컨트롤러에 대해 $hcaching을 "None"으로 설�
 
 선택적으로 외부 트래픽에 대한 기존 부하 분산된 집합에 가상 컴퓨터를 추가합니다.
 
-	$prot="<Specify one: tcp, udp>"
+	$port="<Specify one: tcp, udp>"
 	$localport=<port number of the internal port>
 	$pubport=<port number of the external port>
 	$endpointname="<name of the endpoint>"
@@ -151,7 +152,7 @@ Active Directory 도메인 컨트롤러에 대해 $hcaching을 "None"으로 설�
 	$probepath="<URL path for probe traffic>"
 	$vm1 | Add-AzureEndpoint -Name $endpointname -Protocol $prot -LocalPort $localport -PublicPort $pubport -LBSetName $lbsetname -ProbeProtocol $probeprotocol -ProbePort $probeport -ProbePath $probepath
 
-마지막으로 다음 명령 블록 중 하나를 선택하여 가상 컴퓨터 만들기 프로세스를 시작합니다(필수).
+마지막으로, 가상 컴퓨터를 만들기 위해 이러한 필수 명령 블록 중 하나를 선택합니다.
 
 옵션 1: 기존 클라우드 서비스에서 가상 컴퓨터를 만듭니다.
 
@@ -256,7 +257,7 @@ Active Directory 도메인 컨트롤러에 대해 $hcaching을 "None"으로 설�
 
 
 ## 추가 리소스
-<!-- For section headings, use sentence-case caps -->
+
 [가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
 [Azure 가상 컴퓨터 FAQ](http://msdn.microsoft.com/library/azure/dn683781.aspx)
@@ -269,4 +270,4 @@ Active Directory 도메인 컨트롤러에 대해 $hcaching을 "None"으로 설�
 
 [리소스 관리자 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

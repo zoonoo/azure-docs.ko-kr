@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/06/2015" 
+	ms.date="08/10/2015" 
 	ms.author="piyushjo" />
 
 #Windows 유니버설 앱 SDK 콘텐츠
@@ -55,4 +55,4 @@
 - `EngagementPageOverlay.cs` : `Overlay` 공지 및 알림 표시 코드.
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

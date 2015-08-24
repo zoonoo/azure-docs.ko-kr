@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="클라우드로 저장된 데이터를 전송하기 위한 옵션 | Azure" 
+	pageTitle="클라우드로 저장된 데이터를 전송하기 위한 옵션 | Microsoft Azure" 
 	description="고급 분석을 위해 온-프레미스 기타 클라우드 원본에서 Microsoft Azure로 데이터를 전송하는 최상의 옵션을 선택하기 위한 지침." 
 	services="data-factory, hdinsight, machine-learning, storage, sql-database" 
 	documentationCenter="" 
@@ -65,7 +65,6 @@ Azure 데이터 팩터리는 데이터 저장소, 처리 및 이동 서비스를
 
 개발자는 해당 온-프레미스(데이터 관리 게이트웨이를 통해), 클라우드 기반 및 인터넷 서비스에서 제공된 반 구조화된 데이터, 구조화되지 않은 데이터와 구조화된 데이터를 조인, 집계 및 변환하고, 간단한 JSON 스크립팅을 통해 복잡한 데이터 처리를 설정하는 데이터 기반 워크플로를 구축할 수 있습니다. 고급 분석을 위해 Azure 저장소 또는 Azure SQL 데이터베이스에 결과 데이터를 저장할 수 있습니다.
 
-구체적으로 개발자는 다양한 유형의 데이터 저장소, 열 매핑, 직렬화 형식 및 유형 처리에 대한 속성도 포함하고 있는 [의 "[지원되는 원본 및 싱크](data-factory-copy-activity.md#SupportedSourcesAndSinks)" 섹션](data-factory-copy-activity.md)에 표시된 다양한 원본과 대상 사이에서 일반적인 복사 작업을 오케스트레이션할 수 있습니다.
 
 서비스는 자동 다시 시작으로 오류를 처리할 수 있으며 데이터를 다른 형식으로 이동할 때 형식 변환을 허용할 수 있습니다. 복사 작업을 정의하려면 [데이터 팩터리 시작][start]을 참조하세요. 데이터 저장소 등록 및 게이트웨이 설치 경험은 [온-프레미스 데이터로 작업하여 파이프라인을 사용하도록 설정][pipelines]에서 설명됩니다.
 
@@ -254,7 +253,6 @@ Microsoft Azure 이벤트 허브는 짧은 대기 시간 및 높은 안정성으
 [install]: ../install-configure-powershell.md
 [start]: data-factory-get-started.md
 [pipelines]: data-factory-use-onpremises-datasources.md
-[copy]: data-factory-copy-activity.md
 [intro]: data-factory-introduction.md
 [sql-import]: http://msdn.microsoft.com/library/azure/hh335292.aspx
 [sql-copy]: http://msdn.microsoft.com/library/azure/ff951624.aspx
@@ -270,4 +268,4 @@ Microsoft Azure 이벤트 허브는 짧은 대기 시간 및 높은 안정성으
 [hybrid]: ../integration-hybrid-connection-overview.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

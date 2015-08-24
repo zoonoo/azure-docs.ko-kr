@@ -1,6 +1,6 @@
 <properties 
     pageTitle="Azure VM을 기반으로 Azure RemoteApp 이미지 만들기"
-    description="Azure 가상 컴퓨터를 시작하는 RemoteApp에 대한 이미지를 만드는 방법에 대해 알아봅니다." 
+    description="Azure 가상 컴퓨터를 시작하여 Azure RemoteApp에 대한 이미지를 만드는 방법에 대해 알아봅니다." 
     services="remoteapp" 
     documentationCenter="" 
     authors="lizap" 
@@ -12,16 +12,16 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
 
 # Azure 가상 컴퓨터를 기반으로 Azure RemoteApp 이미지 만들기
 
-Azure 가상 컴퓨터에서 RemoteApp 이미지(컬렉션에 공유하는 앱을 포함)를 만들 수 있습니다. RemoteApp 이미지 요구 사항을 모두 충족하는 가상 컴퓨터 이미지를 Azure VM 이미지 갤러리에 추가 했습니다. 원하는 경우 해당 VM 이미지를 사용하여 자신만의 VM을 만들 수 있습니다. "Windows Server 원격 데스크톱 세션 호스트" 이미지를 라이브러리에서 찾으면 됩니다.
+Azure 가상 컴퓨터에서 Azure RemoteApp 이미지(컬렉션에서 공유하는 앱을 포함)를 만들 수 있습니다. Azure RemoteApp 이미지 요구 사항을 모두 충족하는 Azure VM 이미지 갤러리에 추가한 가상 컴퓨터 이미지를 사용하도록 선택할 수도 있습니다. 원하는 경우 해당 VM 이미지를 자신만의 VM을 위한 시작점으로 사용할 수 있습니다. "Windows Server 원격 데스크톱 세션 호스트" 이미지를 라이브러리에서 찾으면 됩니다.
 
-단계는 두 가지입니다. 이미지를 만든 다음 Azure VM 라이브러리에서 RemoteApp으로 업로드하는 것입니다.
+Azure VM을 기반으로 자신만의 이미지를 만드는 단계는 두 가지입니다. 이미지를 만든 다음 Azure VM 라이브러리에서 Azure RemoteApp으로 업로드하는 것입니다.
 
 ## Azure VM을 기반으로 사용자 지정 이미지 만들기
 
@@ -41,9 +41,9 @@ Azure VM을 기반으로 이미지를 만들려면 이 단계를 사용합니다
 
  
 
-## RemoteApp 이미지 라이브러리로 이미지 가져오기
+## Azure RemoteApp 이미지 라이브러리로 이미지 가져오기
 
-다음 단계를 사용하여 새 이미지를 RemoteApp으로 가져옵니다.
+다음 단계를 사용하여 새 이미지를 Azure RemoteApp으로 가져옵니다.
 
 1. **템플릿 이미지** 탭에서 다음을 수행합니다.
 	- 기존 이미지가 없는 경우 **템플릿 이미지를 업로드하거나 가져오기**를 클릭합니다. 
@@ -59,4 +59,4 @@ Azure VM을 기반으로 이미지를 만들려면 이 단계를 사용합니다
 이제 필요에 따라 [클라우드](remoteapp-create-cloud-deployment.md) 컬렉션 또는 [하이브리드](remoteapp-create-hybrid-deployment.md) 컬렉션을 새로 만들 준비가 되었습니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

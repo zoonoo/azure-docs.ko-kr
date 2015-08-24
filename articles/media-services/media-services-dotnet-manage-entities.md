@@ -14,11 +14,17 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/29/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
 #미디어 서비스.NET SDK를 사용하여 자산 및 관련 엔터티 관리
+
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-manage-entities.md)
+- [REST](media-services-rest-manage-entities.md)
+
 
 이 항목에서는 다음 미디어 서비스 관리 작업을 수행하는 방법을 보여 줍니다.
 
@@ -324,4 +330,4 @@
 	}
 	
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

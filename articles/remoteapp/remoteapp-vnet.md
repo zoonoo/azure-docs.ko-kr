@@ -3,7 +3,7 @@
     pageTitle="Azure RemoteApp과 함께 사용하기 위해 Azure VNET의 유효성을 검사"
     description="Azure VNET이 Azure RemoteApp과 함께 사용할 준비가 되었는지 확인하는 방법을 알아봅니다."
     services="remoteapp"
-	documentationCenter=""
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -13,14 +13,14 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="06/02/2015"
+    ms.date="08/12/2015"
     ms.author="elizapo" />
 
 
 
 # Azure RemoteApp과 함께 사용하기 위해 Azure VNET의 유효성을 검사
 
-Azure RemoteApp과 함께 Azure VNET을 사용하기 전에 VNET의 유효성을 검사하는 것이 좋습니다. 이렇게 하면 Azure RemoteApp의 연결 문제를 방지할 수 있습니다.
+Azure RemoteApp과 함께 Azure VNET을 사용하기 전에 VNET의 유효성을 검사하는 것이 좋습니다. 이렇게 하면 연결 문제를 방지할 수 있습니다.
 
 Azure VNET의 유효성을 검사하려면 다음을 수행합니다.
 
@@ -37,4 +37,4 @@ Azure VNET의 유효성을 검사하려면 다음을 수행합니다.
 - [Azure RemoteApp 컬렉션을 Azure 가상 네트워크에 배포(ExpressRoute 지원 포함)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

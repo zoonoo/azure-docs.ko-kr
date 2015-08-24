@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="범용 Windows 앱에서 Azure Blob 저장소에 이미지 업로드 | Azure 모바일 서비스" 
+	pageTitle="범용 Windows 앱에서 Azure Blob 저장소에 이미지 업로드 | Microsoft Azure" 
 	description=".NET 백엔드 모바일 서비스를 사용하여 Azure Blob 저장소에 이미지를 업로드하고 범용 Windows 앱에서 이미지에 액세스하는 방법 알아보기" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -71,4 +71,4 @@
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

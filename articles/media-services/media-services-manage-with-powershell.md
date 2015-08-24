@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
@@ -110,4 +110,4 @@ Azure 미디어 계정을 삭제할 준비가 되면 [Remove-AzureMediaServicesA
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

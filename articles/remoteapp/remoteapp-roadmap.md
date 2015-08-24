@@ -1,8 +1,8 @@
 <properties
-    pageTitle="RemoteApp의 예정된 기능"
-    description="RemoteApp의 새로운 기능에 대해 알아봅니다."
+    pageTitle="Azure RemoteApp의 예정된 기능"
+    description="Azure RemoteApp에 대한 새로운 기능이 제공되는 시기에 대해 알아봅니다."
     services="remoteapp"
-	documentationCenter=""
+    documentationCenter=""
     authors="lizap"
     manager="mbaldwin" />
 
@@ -12,12 +12,12 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="06/10/2015"
+    ms.date="08/12/2015"
     ms.author="elizapo" />
 
-# RemoteApp의 예정된 기능
+# Azure RemoteApp의 예정된 기능
 
-Microsoft는 고객의 의견에 따라 RemoteApp를 개선하기 위해 항상 노력하고 있습니다. 기능이 제공될 대략적인 일정은 다음과 같습니다.
+Microsoft는 고객의 의견에 따라 Azure RemoteApp을 개선하기 위해 항상 노력하고 있습니다. 기능이 제공될 대략적인 일정은 다음과 같습니다.
 
 |기능|2015년 1-3월|2015년 4-6월|2015년 7-9월|2015년 10-12월|
 |-----------|-------|-------|-------|-------|
@@ -39,4 +39,4 @@ Microsoft는 고객의 의견에 따라 RemoteApp를 개선하기 위해 항상 
 - 오스트레일리아 데이터 센터의 가용성
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="액세스 제어 사용 방법(.NET) - Azure 기능 가이드" 
+	pageTitle="액세스 제어 사용 방법(.NET) | Microsoft Azure" 
 	description="웹앱에 대한 액세스 권한을 받으려고 하는 경우 Azure 응용 프로그램에서 ACS(액세스 제어 서비스)를 사용해 사용자를 인증하는 방법에 대해 알아봅니다." 
 	services="active-directory" 
 	documentationCenter=".net" 
@@ -402,4 +402,4 @@ ACS 기능을 자세히 살펴보고 추가 시나리오를 실험하려면 [액
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

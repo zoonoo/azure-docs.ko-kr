@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="In-Role Cache 사용 방법(.NET) - Azure 기능 가이드" 
+	pageTitle="In-Role Cache 사용 방법(.NET) | Microsoft Azure" 
 	description="Azure In-Role Cache를 사용하는 방법을 알아봅니다. 샘플은 C# 코드로 작성되었고 .NET API를 사용합니다." 
 	services="cache" 
 	documentationCenter=".net" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.date="08/11/2015" 
 	ms.author="sdanie"/>
 
 
@@ -413,4 +413,4 @@ In-Role Cache에 출력 캐시 공급자를 사용하는 방법에 대한 자세
 [나에게 적합한 Azure 캐시 서비스]: http://msdn.microsoft.com/library/azure/dn766201.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

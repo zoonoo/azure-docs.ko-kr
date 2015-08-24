@@ -36,7 +36,7 @@
 - Python 2.7 또는 3.4
 - setuptools, pip, virtualenv(Python 2.7 전용)
 - Git
-- [Python Tools 2.1 for Visual Studio](optional)
+- [Visual Studio용 Python Tools 2.1] - 선택 사항
 
 **참고**: 현재 Python 프로젝트에서는 TFS 게시를 사용할 수 없습니다.
 
@@ -509,10 +509,11 @@ SQL 데이터베이스 및 MySQL 사용에 대한 자세한 정보:
 [Windows용 GitHub]: https://windows.github.com/
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Visual Studio용 Python Tools 2.1]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Visual Studio]: http://www.visualstudio.com/
 [PTVS 설명서]: http://pytools.codeplex.com/documentation
 [Python Tools for Visual Studio 설명서]: http://pytools.codeplex.com/documentation
 [Django 설명서]: https://www.djangoproject.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

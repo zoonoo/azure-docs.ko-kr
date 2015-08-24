@@ -1,6 +1,6 @@
 
 <properties
-	pageTitle="Azure 백업 - 가상 컴퓨터 복원"
+	pageTitle="Azure 백업 - 가상 컴퓨터 복원 | Microsoft Azure"
 	description="Azure 가상 컴퓨터 복원 방법 알아보기"
 	services="backup"
 	documentationCenter=""
@@ -8,7 +8,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/17/2015" ms.author="trinadhk"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/11/2015" ms.author="trinadhk"; "jimpark"/>
 
 # 가상 컴퓨터 복원
 복원 동작을 사용하여 Azure 백업 자격 증명에 저장된 백업을 통해 새 VM에 가상 컴퓨터를 복원할 수 있습니다.
@@ -93,6 +93,6 @@
 | 복원 | 클라우드 내부 오류로 인해 복원 실패 | <ol><li>복원하려는 클라우드 서비스가 DNS 설정을 사용하여 구성되었습니다. <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production" Get-AzureDns -DnsSettings $deployment.DnsSettings<br>를 확인하면 알 수 있습니다. 구성된 주소가 있으면 DNS 설정이 구성 되었다는 의미입니다.<br> <li>복원하려는 클라우드 서비스가 ReservedIP를 사용하여 구성되어 있고 클라우드 서비스의 기존 VM이 중지된 상태입니다.<br>다음 powershell cmdlet을 사용하여 클라우드 서비스에 IP 예약어가 있는지 확인할 수 있습니다.<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName</ol> |
 
 ## 다음 단계
-- [가상 컴퓨터 관리](backup-azure-manage-vms)
+- [가상 컴퓨터 관리](backup-azure-manage-vms.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

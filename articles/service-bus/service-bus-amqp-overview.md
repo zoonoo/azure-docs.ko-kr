@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="서비스 버스 AMQP 개요 - Azure" 
+	pageTitle="서비스 버스 AMQP 개요 | Microsoft Azure" 
 	description="Azure에서 AMQP(Advanced Message Queuing Protocol) 1.0을 사용하는 방법에 대해 알아봅니다." 
 	services="service-bus" 
 	documentationCenter=".net" 
@@ -81,7 +81,7 @@ AMQP 1.0은 2008년 이래로 기술 공급업체와 최종 사용자 업체를 
 
 **그림 2: AMQP 1.0 클라이언트 라이브러리 표**
 
-서비스 버스로 이러한 라이브러리를 가져오고 사용하는 방법에 대한 자세한 내용은 [서비스 버스 AMQP 개발자 가이드][]를 참조하세요. 자세한 내용은 아래 "참조" 섹션을 참조하십시오.
+서비스 버스로 이러한 라이브러리를 가져오고 사용하는 방법에 대한 자세한 내용은 [서비스 버스 AMQP 개발자 가이드][]를 참조하세요. 자세한 내용은 아래 "참조" 섹션을 참조하세요.
 
 ## 요약
 
@@ -98,4 +98,4 @@ AMQP 1.0은 2008년 이래로 기술 공급업체와 최종 사용자 업체를 
 [0]: ./media/service-bus-amqp-overview/Example1.png
 [서비스 버스 AMQP 개발자 가이드]: http://msdn.microsoft.com/library/jj841071.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

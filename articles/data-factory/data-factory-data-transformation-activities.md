@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="데이터 변환 작업 | Azure 데이터 팩터리" 
+	pageTitle="데이터 변환 작업 | Microsoft Azure" 
 	description="Azure 데이터 팩터리 서비스를 사용하여 데이터를 변환하고 분석하는 방법을 알아봅니다." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -33,4 +33,4 @@ Azure 데이터 팩터리의 변환 작업을 통해 원시 데이터를 변환 
 
 데이터 팩터리에서 지원하는 컴퓨팅 연결 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](data-factory-compute-linked-services.md) 문서를 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

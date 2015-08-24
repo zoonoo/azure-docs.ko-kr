@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="08/08/2015" 
 	ms.author="glenga"/>
 
 # Microsoft 계정을 사용하여 클라이언트 관리 인증으로 Windows 스토어 앱 인증
@@ -163,4 +163,4 @@
 [Live SDK]: http://go.microsoft.com/fwlink/p/?LinkId=262253
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

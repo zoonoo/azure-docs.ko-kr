@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/23/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -257,7 +257,6 @@
 	. . . 
 
 
-
 ##다음 단계
 자산을 인코드하는 작업을 만드는 방법을 알아보았습니다. 이제 [미디어 서비스 작업 진행 상태를 확인하는 방법](media-services-rest-check-job-progress.md) 항목으로 이동하세요.
 
@@ -266,4 +265,4 @@
 
 [미디어 프로세서 가져오기](media-services-rest-get-media-processor.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

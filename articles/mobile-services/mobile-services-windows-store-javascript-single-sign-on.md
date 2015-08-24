@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="04/08/2015" 
+	ms.date="08/08/2015" 
 	ms.author="glenga"/>
 
 # Microsoft 계정을 사용하여 클라이언트 관리 인증으로 Windows 스토어 앱 인증
@@ -114,7 +114,7 @@
 
     이 코드는 Live Connect 클라이언트를 초기화하고, Microsoft 계정에 새 로그인 요청을 보내고, 반환된 인증 토큰을 모바일 서비스로 보낸 다음 로그인한 사용자에 대한 정보를 표시합니다.
 
-	>[AZURE.NOTE]이상적으로는 앱이 실행될 때마다 Live Connection 인증 토큰 또는 모바일 서비스 권한 부여 토큰을 요청해야 하는 것은 아닙니다. 이 방법은 비효율적일 뿐 아니라 많은 고객이 동시에 앱을 시작하려고 할 경우 사용 관련 문제가 발생할 수도 있습니다. 보다 나은 접근 방법은 토큰을 캐시하고 **LoginWithMicrosoftAccountAsync**를 호출하기 전에 캐시된 모바일 서비스의 사용을 시도하는 것입니다. 이 토큰을 캐시하는 방법을 예를 보려면 [인증 시작](mobile-services-windows-store-javascript-get-started-users.md#tokens)을 참조하십시오.
+	>[AZURE.NOTE]이상적으로는 앱이 실행될 때마다 Live Connection 인증 토큰 또는 모바일 서비스 권한 부여 토큰을 요청해야 하는 것은 아닙니다. 이 방법은 비효율적일 뿐 아니라 많은 고객이 동시에 앱을 시작하려고 할 경우 사용 관련 문제가 발생할 수도 있습니다. 보다 나은 접근 방법은 토큰을 캐시하고 **LoginWithMicrosoftAccountAsync**를 호출하기 전에 캐시된 모바일 서비스의 사용을 시도하는 것입니다. 이 토큰을 캐시하는 방법을 예를 보려면 [인증 시작](mobile-services-windows-store-javascript-get-started-users.md#tokens)을 참조하세요.
 	
 7. 프로젝트를 모바일 서비스에 연결했을 대 추가된 .js 파일에서 정의된 변수와 위의 코드 첫 번째 줄에서 `<yourClient>` 값을 바꿉니다.
 		
@@ -145,4 +145,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="StorSimple 8100 장치 설치"
+   pageTitle="StorSimple 8100 장치 설치 | Microsoft Azure"
    description="StorSimple 8100 장치의 개봉, 랙 탑재, 케이블 연결 방법을 설명합니다."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/20/2015"
+   ms.date="08/06/2015"
    ms.author="alkohli" />
 
 # StorSimple 8100 장치 설치
@@ -47,7 +47,7 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 
      ![저장소 장치 개봉하기](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
 
-    **그림 1: 저장소 장치가 개봉된 상태**
+    **저장소 장치가 개봉된 상태**
 
      레이블 | 설명 
      ----- | -------------
@@ -115,7 +115,7 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 
     ![인클로저 섀시에 레일 슬라이드 장착](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
 
-   **그림 2: 레일 슬라이드를 인클로저의 측면에 연결**
+   **레일 슬라이드를 인클로저의 측면에 연결**
 
     Label | Description
     ----- | -----------
@@ -132,7 +132,7 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 
      ![랙 캐비닛에 레일 슬라이드 장착](./media/storsimple-8100-hardware-installation/HCSAttachingRailSlidestoRackCabinet.png)
 
-    **그림 3: 레일 어셈블리를 랙에 연결**
+    **레일 어셈블리를 랙에 연결**
 
      레이블 | 설명
      ----- | -----------
@@ -154,7 +154,7 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 
     ![랙에 장치 삽입](./media/storsimple-8100-hardware-installation/HCSInsertingDeviceintheRack.png)
 
-    **그림 4: 랙에 장치 탑재**
+    **랙에 장치를 탑재합니다.**
 
 3. 왼쪽 및 오른쪽 각 플랜지를 통해 제공된 십자 머리 나사 하나를 설치하여 인클로저를 랙에 고정합니다.
 
@@ -162,7 +162,7 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 
      ![플랜지 캡 설치](./media/storsimple-8100-hardware-installation/HCSInstallingFlangeCaps.png)
  
-    **그림 5: 플랜지 캡 설치**
+    **플랜지 캡 설치**
 
      레이블 | 설명
      ----- | -----------
@@ -192,7 +192,7 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 
 - 10GbE 네트워크 인터페이스와 함께 사용하기 위한 단일 QSFP-대-SFP+ 어댑터
 
-- [10GbE 네트워크 인터페이스를 위한 지원되는 트랜시버, 케이블 및 스위치](https://msdn.microsoft.com/library/azure/dn891474.aspx)
+- [StorSimple 장치의 10GbE 네트워크 인터페이스에 대해 지원되는 하드웨어](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
 
 ### 전원 케이블 연결
@@ -201,29 +201,7 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 
 다음 단계를 수행하여 케이블로 장치를 전원에 연결하십시오.
 
-#### 전원을 케이블로 연결하려면
-
-1. 각 PCM상의 전원 스위치가 OFF 위치에 있는지 확인합니다.
-
-2. 기본 인클로저에서 양쪽 PCM 모두에 전원 코드를 연결합니다.
-
-3. 다음 그림에서와 같이 전원 코드를 랙 전원 분배 장치(PDU)에 연결합니다. 두 개의 PCM이 개별 전원 공급 장치를 사용하는지 확인합니다.
-
-4. 양쪽 PCM 상의 전원 스위치를 ON 위치로 밀어 시스템의 전원을 켭니다.
-
-    >[AZURE.NOTE]시스템의 고가용성을 보장하려면 다음 다이어그램에서 설명하는 전원 케이블 연결 방식을 엄격히 준수해야 합니다.
-
-    ![전원에 2U 장치를 케이블로 연결](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforPower.png)
-
-    **그림 6: 장치에 전원 케이블 연결**
-
-     레이블 | 설명
-     ----- | -----------
-     1 | PCM 0
-     2 | 컨트롤러 1
-     3 | 컨트롤러 0
-     4 | PCM 1
-     5 | PDU
+[AZURE.INCLUDE [storsimple-cable-8100-for-power](../../includes/storsimple-cable-8100-for-power.md)]
 
 ### 네트워크 케이블 연결
 
@@ -237,7 +215,7 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 
     ![8100 장치의 백플레인](./media/storsimple-8100-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
 
-    **그림 7: 데이터 포트를 표시하는 장치의 뒷면**
+    **데이터 포트를 표시하는 장치의 뒷면**
  
      레이블 | 설명
      ------- | -----------
@@ -258,7 +236,7 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 
     ![네트워크에 2U 장치를 케이블로 연결](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
-    **그림 8: 장치에 네트워크 케이블 연결**
+    **장치에 네트워크 케이블 연결**
 
     레이블 | 설명
     ----- | -----------
@@ -276,7 +254,7 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 
 #### 케이블로 직렬 연결을 하려면
 
-1. 장치에는 각 컨트롤러에 렌치 아이콘으로 식별되는 직렬 포트가 있습니다. 그림 7을 참조하여 장치의 백플레인에서 직렬 포트를 찾으십시오. 
+1. 장치에는 각 컨트롤러에 렌치 아이콘으로 식별되는 직렬 포트가 있습니다. [네트워크 케이블 연결](#network-cabling) 섹션의 그림을 참조하여 장치의 백플레인에서 직렬 포트를 찾으십시오. 
 
 2. 장치 백플레인에서 활성 컨트롤러를 찾으십시오. 파란색 LED가 깜빡이면 컨트롤러가 활성 상태인 것입니다.
 
@@ -297,4 +275,4 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 이제 [온-프레미스 StorSimple 장치를 배포 및 구성](storsimple-deployment-walkthrough.md)할 준비가 되었습니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

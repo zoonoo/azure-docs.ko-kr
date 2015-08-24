@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="모바일 서비스를 사용하여 Blob 저장소에 이미지 업로드(Windows 스토어) | 모바일 서비스" 
+	pageTitle="모바일 서비스를 사용하여 Blob 저장소에 이미지 업로드(Windows Store) | Microsoft Azure" 
 	description="모바일 서비스를 사용하여 Azure Blob 저장소에 이미지를 업로드하는 방법에 대해 알아봅니다." 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -81,4 +81,4 @@ SAS를 사용하여 앱에서 Blob 저장소에 이미지를 업로드하려면 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

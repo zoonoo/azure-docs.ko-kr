@@ -13,16 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
 
-
-
 #<a id="monitormediaservicesaccount"></a>미디어 서비스 계정을 모니터링하는 방법
-
-이 문서는 [미디어 서비스 주문형 비디오 워크플로](media-services-video-on-demand-workflow.md) 및 [미디어 서비스 라이브 스트리밍 워크플로](media-services-live-streaming-workflow.md) 시리즈의 일부입니다.
 
 Azure 미디어 서비스 대시보드는 사용량 메트릭 및 미디어 서비스 계정을 관리하는 데 사용할 수 있는 계정 정보를 보여 줍니다.
 
@@ -67,4 +63,4 @@ Azure 미디어 서비스 대시보드는 사용량 메트릭 및 미디어 서�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="get-started-article" 
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
@@ -173,4 +173,4 @@ Hive 스크립트 실행 후에는 결과가 Azure Blob 저장소 컨테이너 *
 - 맨 위의 [PowerShell 사용](data-factory-build-your-first-pipeline-using-powershell.md) 링크를 클릭하여 Azure PowerShell을 통해 자습서를 수행합니다.
 - 맨 위의 [Visual Studio 사용](data-factory-build-your-first-pipeline-using-vs.md) 링크를 클릭하여 Visual Studio를 사용하여 자습서를 수행합니다. 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

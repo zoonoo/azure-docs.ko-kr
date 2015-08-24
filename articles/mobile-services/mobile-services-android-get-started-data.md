@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="데이터 작업 시작(Android) | 모바일 개발자 센터" 
+	pageTitle="데이터 작업 시작(Android) | Microsoft Azure" 
 	description="모바일 서비스를 사용하여 Android 앱에서 데이터를 활용하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="android" 
@@ -156,4 +156,4 @@ Azure 모바일 서비스 Android SDK의 이전 버전에서 사용되는 샘플
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

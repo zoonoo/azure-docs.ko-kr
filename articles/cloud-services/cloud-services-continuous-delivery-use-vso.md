@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure에서 Visual Studio Online을 사용한 연속 배달" 
-	description="자동으로 빌드되어 Azure 앱 서비스 또는 클라우드 서비스에 배포되도록 Visual Studio Online 팀 프로젝트를 구성하는 방법을 알아봅니다." 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="kempb" 
-	manager="douge" 
+<properties
+	pageTitle="Azure에서 Visual Studio Online을 사용한 연속 배달"
+	description="자동으로 빌드되어 Azure 앱 서비스 또는 클라우드 서비스에 배포되도록 Visual Studio Online 팀 프로젝트를 구성하는 방법을 알아봅니다."
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="kempb"
+	manager="douge"
 	editor="tglee"/>
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/08/2015" 
+<tags
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/07/2015" 
 	ms.author="kempb"/>
 
 
@@ -189,7 +189,7 @@ Visual Studio Online을 사용하여 Azure에 자동으로 빌드 및 배포하�
 
 		using System;
 		using Microsoft.VisualStudio.TestTools.UnitTesting;
-		
+
 		namespace UnitTestProject1
 		{
 		    [TestClass]
@@ -304,6 +304,5 @@ Visual Studio Online의 단위 테스트에 대한 자세한 내용은 [빌드�
 [48]: ./media/cloud-services-continuous-delivery-use-vso/CheckInChangeToMakeTestsFail.PNG
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
- 
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

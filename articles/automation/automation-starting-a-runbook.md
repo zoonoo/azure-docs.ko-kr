@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/19/2015"
+   ms.date="08/11/2015"
    ms.author="bwren" />
 
 # Azure 자동화에서 Runbook 시작
@@ -232,4 +232,4 @@ user 매개 변수에 다음 텍스트를 사용할 수 있습니다.
 
 - [다른 Runbook에서 Runbook 시작](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

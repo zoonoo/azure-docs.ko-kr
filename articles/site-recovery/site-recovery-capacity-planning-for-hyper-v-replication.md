@@ -12,7 +12,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="06/01/2015"
+	ms.date="08/05/2015"
 	ms.author="lauraa" />
 
 # Hyper-V 복제를 위한 용량 계획
@@ -239,4 +239,4 @@ ASR의 배포를 시작하려면:
 - [단일 VMM 서버로 보호 설정](site-recovery-single-vmm)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

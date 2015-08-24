@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="음성 및 SMS에 Twilio 사용(Java) - Azure" 
+	pageTitle="음성 및 SMS에 Twilio를 사용하는 방법(Java) | Microsoft Azure" 
 	description="Azure에서 Twilio API 서비스를 사용하여 전화를 걸고 SMS 메시지를 보내는 방법에 대해 알아봅니다. 코드 샘플은 Java로 작성되었습니다." 
 	services="" 
 	documentationCenter="java" 
@@ -232,4 +232,4 @@ Twilio 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내�
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

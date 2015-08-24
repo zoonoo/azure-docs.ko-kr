@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="BizTalk 서비스의 발급자 이름 및 발급자 키 | Azure" 
+	pageTitle="BizTalk 서비스의 발급자 이름 및 발급자 키 | Microsoft Azure" 
 	description="BizTalk 서비스에서 서비스 버스 또는 액세스 제어(ACS)에 대한 발급자 이름 및 발급자 키를 검색하는 방법에 대해 알아봅니다. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -86,4 +86,4 @@ Visual Studio에서 BizTalk 어댑터 서비스로 LOB 릴레이 만들기 | 서
 - [BizTalk 서비스: 제한](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

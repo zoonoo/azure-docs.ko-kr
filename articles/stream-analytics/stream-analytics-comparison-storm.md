@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/04/2015"
+	ms.date="08/13/2015"
 	ms.author="jeffstok"/>
 
 # Apache Storm 및 Azure 스트림 분석 비교 #
@@ -123,7 +123,7 @@
                     스트림 분석은 처리되는 데이터 볼륨 및 스트리밍 단위(작업이 실행되는 시간 당)의 수에 따라 가격이 책정됩니다.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/pricing/details/stream-analytics/">자세한 가격 정보는 여기를 참조하세요.</a>
+                    <a href="http://azure.microsoft.com/ko-kr/pricing/details/stream-analytics/">자세한 가격 정보는 여기를 참조하세요.</a>
                 </p>
             </td>
             <td width="246" valign="top">
@@ -131,7 +131,7 @@
                     HDInsight의 Apache Storm의 경우 구매 단위는 클러스터 기반이며 클러스터 실행 되는 시간, 독립적으로 배포 하는 작업을 기준으로 요금이 청구 됩니다.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/pricing/details/hdinsight/">자세한 가격 정보는 여기를 참조하세요.</a>
+                    <a href="http://azure.microsoft.com/ko-kr/pricing/details/hdinsight/">자세한 가격 정보는 여기를 참조하세요.</a>
                 </p>
             </td>
         </tr>
@@ -589,4 +589,4 @@
     </tbody>
 </table>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

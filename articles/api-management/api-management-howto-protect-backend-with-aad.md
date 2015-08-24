@@ -13,18 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.date="08/06/2015"
 	ms.author="sdanie"/>
 
 # Azure Active Directory 및 API 관리로 Web API 백 엔드를 보호하는 방법
 
 다음 비디오에서는 Web API 백 엔드 빌드 및 Azure Active Directory 및 API 관리로 OAuth 2.0 프로토콜을 사용하여 보호하는 방법을 보여줍니다. 이 문서에서는 비디오로 해당 단계에 대한 개요 및 추가 정보를 제공합니다. 이 24분 비디오에서는 다음을 수행할 수 있는 방법을 보여줍니다.
 
--	Web API 백 엔드 빌드 및 AAD로 보안
--	API를 API 관리로 가져오기
--	API를 호출하도록 개발자 포털 구성
--	API를 호출하도록 데스크톱 응용 프로그램 구성
--	미리 요청 권한을 부여하도록 JWT 유효성 검사 정책 구성
+-	Web API 백 엔드 빌드 및 AAD로 보안 유지 - 1시 30분에 시작
+-	API를 API 관리로 가져오기 - 7시 10분에 시작
+-	API를 호출하도록 개발자 포털 구성 - 9시 9분에 시작
+-	API를 호출하도록 데스크톱 응용 프로그램 구성 - 18시 8분에 시작
+-	미리 요청 권한을 부여하도록 JWT 유효성 검사 정책 구성 - 20시 47분에 시작
 
 >[AZURE.VIDEO protecting-web-api-backend-with-azure-active-directory-and-api-management]
 
@@ -547,4 +547,4 @@ API를 가져오면 API에 대한 요약 페이지가 게시자 포털에 표시
 [API 관리 서비스 인스턴스 만들기]: api-management-get-started.md#create-service-instance
 [첫 번째 API 관리]: api-management-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

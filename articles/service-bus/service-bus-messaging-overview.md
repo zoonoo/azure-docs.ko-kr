@@ -1,5 +1,5 @@
 <properties
-	pageTitle="서비스 버스 메시징 개요 - Azure"
+	pageTitle="서비스 버스 메시징 개요 | Microsoft Azure"
 	description="서비스 버스 메시징: 클라우드에서 유연한 데이터 배달"
 	services="service-bus"
 	documentationCenter=".net"
@@ -38,4 +38,4 @@ Microsoft Azure 서비스 버스 메시징은 안정적인 정보 배달 서비�
 - [서비스 버스 토픽을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

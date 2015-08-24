@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="05/14/2015"
+	ms.date="08/05/2015"
 	ms.author="lauraa"/>
 
 # 성능 및 확장성 테스트: 온-프레미스 간
@@ -208,4 +208,4 @@ ASR의 배포를 시작하려면:
 - [단일 VMM 서버로 보호 설정](site-recovery-single-vmm.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

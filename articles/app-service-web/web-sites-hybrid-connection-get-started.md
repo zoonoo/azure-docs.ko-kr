@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="08/11/2015" 
 	ms.author="cephalin"/>
 
 #Azure 앱 서비스에서 하이브리드 연결을 사용하여 온-프레미스 리소스에 액세스
@@ -207,4 +207,4 @@ The error indicates it couldn't find the type, not the instance.
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

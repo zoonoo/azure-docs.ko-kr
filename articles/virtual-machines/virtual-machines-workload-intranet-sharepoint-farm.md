@@ -1,30 +1,30 @@
-<properties 
-	pageTitle="Azure 인프라 서비스 작업: 인트라넷 SharePoint 팜" 
-	description="Azure에 배포된 인트라넷 SharePoint 팜의 가치, 개발/테스트 환경을 설정하는 방법 및 고가용성 프로덕션 구성을 배포하는 방법을 알아봅니다." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+<properties
+	pageTitle="Azure 인프라 서비스 워크로드: 인트라넷 SharePoint 팜 "
+	description="Azure에 배포된 인트라넷 SharePoint 팜의 가치, 개발/테스트 환경을 설정하는 방법 및 고가용성 프로덕션 구성을 배포하는 방법을 알아봅니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-windows-sharepoint" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/21/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
-# Azure 인프라 서비스 작업: 인트라넷 SharePoint 팜
+# Azure 인프라 서비스 워크로드: 인트라넷 SharePoint 팜
 
 Microsoft Azure에서 첫 번째 또는 다음 SharePoint 팜을 설정하고, 간편한 구성과 새 용량 또는 주요 기능의 최적화를 포함하도록 팜을 신속하게 확장할 수 있는 기능을 활용하세요. 많은 SharePoint 팜은 가용성이 뛰어난 표준 3계층 구성에서 성능 또는 별도 역할(예: 분산 캐싱 또는 검색)에 최적화된 수십 가지 이상의 서버가 포함된 팜으로 확장됩니다.
- 
-Azure 인프라 서비스의 가상 컴퓨터 및 가상 네트워크 기능을 사용하면 온-프레미스 네트워크에 투명하게 연결된 SharePoint 팜에 빠르게 배포하고 실행할 수 있습니다. 예를 들어 이를 설정할 수 있습니다.
+
+Azure 인프라 서비스의 가상 컴퓨터 및 가상 네트워크 기능을 사용하면 온-프레미스 네트워크에 투명하게 연결된 SharePoint 팜에 빠르게 배포하고 실행할 수 있습니다. 예를 들어, 다음 네트워크를 설정할 수 있습니다.
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-farm/workload-spsqlao.png)
- 
+
 Azure 가상 네트워크는 모두 올바른 이름 지정 및 적절한 트래픽 라우팅을 사용하는 온-프레미스 네트워크의 확장이기 때문에 사용자는 온-프레미스 데이터 센터에 있는 경우와 동일한 방식으로 액세스할 수 있습니다.
 
 이 구성을 통해 새 Azure 가상 컴퓨터를 추가하여 SharePoint 팜을 쉽게 확장할 수 있으며, 하드웨어와 유지 관리의 지속적인 비용 면에서 SharePoint 팜을 확장하는 것이 데이터 센터에서 해당 팜을 실행하는 것보다 낮습니다.
@@ -35,7 +35,7 @@ Azure 인프라 서비스에서 인트라넷 SharePoint 팜을 호스트하는 �
 
 ## Azure에서 호스트되는 개발/테스트 인트라넷 SharePoint 팜 만들기
 
-Azure에서 호스트되는 SharePoint 팜에 대한 개발/테스트 환경을 만들 수 있는 몇 가지 옵션이 있습니다.
+Azure에서 호스트되는 SharePoint 팜에 대한 개발/테스트 환경을 만들 수 있는 두 가지 옵션이 있습니다.
 
 - 클라우드 전용 가상 네트워크
 - 프레미스 간 가상 네트워크
@@ -44,29 +44,29 @@ Azure에서 호스트되는 SharePoint 팜에 대한 개발/테스트 환경을 
 
 ### 클라우드 전용 가상 네트워크
 
-클라우드 전용 가상 네트워크는 온-프레미스 네트워크에 연결되지 않습니다. 기본 또는 고가용성 SharePoint 팜을 빠르게 만들려면 [SharePoint 서버 팜](virtual-machines-sharepoint-farm-azure-preview.md)을 참조하세요. 기본 SharePoint 팜 구성은 다음과 같습니다.
+클라우드 전용 가상 네트워크는 온-프레미스 네트워크에 연결되지 않습니다. 기본 또는 고가용성 SharePoint 팜을 빠르게 만들려면 [SharePoint 서버 팜](virtual-machines-sharepoint-farm-azure-preview.md)을 참조하세요. 기본 SharePoint 팜 구성 예는 다음과 같습니다.
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-farm/SPFarm_Basic.png)
- 
+
 ### 프레미스 간 가상 네트워크
 
 프레미스 간 가상 네트워크는 사이트 간 VPN 또는 Express 경로 연결을 사용하여 온-프레미스 네트워크에 연결됩니다. SharePoint 서버에 액세스하고 VPN 연결을 통해 원격 관리를 수행하여 최종 구성을 모방하는 개발/테스트 환경을 만들려는 경우 [하이브리드 클라우드에서 테스트를 위한 SharePoint 인트라넷 팜 설정](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)을 참조하세요.
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-farm/CreateSPFarmHybridCloud.png)
- 
+
 다음 단계는 Azure에서 고가용성 인트라넷 SharePoint 팜을 만드는 것입니다.
 
 ## Azure에서 호스트되는 인트라넷 SharePoint 팜 배포
 
-Azure의 기능적인 고가용성 인트라넷 SharePoint 팜에 대한 기본적인 대표 구성은 다음과 같습니다.
+기능적인 고가용성 인트라넷 SharePoint 팜에 대한 기본적인 대표 구성은 다음과 같습니다.
 
 ![](./media/virtual-machines-workload-intranet-sharepoint-farm/workload-spsqlao.png)
- 
+
 이 구성은 다음으로 이루어집니다.
 
 - 웹, 응용 프로그램 및 데이터베이스 계층에 두 서버가 있는 인트라넷 SharePoint 팜
 - 클러스터에 두 SQL 서버 및 과반수 노드 컴퓨터가 있는 SQL Server AlwaysOn 가용성 그룹 구성
-- 두 복제본 도메인 컨트롤러를 사용하는 가상 네트워크의 Active Directory
+- 두 복제본 도메인 컨트롤러를 사용하는 가상 네트워크의 Azure Active Directory
 
 이 구성을 인포그래픽으로 보려면 [SQL Server AlwaysOn을 지원하는 SharePoint](http://go.microsoft.com/fwlink/?LinkId=394788)를 참조하세요.
 
@@ -75,7 +75,7 @@ Azure의 기능적인 고가용성 인트라넷 SharePoint 팜에 대한 기본�
 이 기본 구성을 사용하려면 다음과 같은 Azure 서비스 및 구성 요소 집합이 필요합니다.
 
 - 가상 컴퓨터 9대
-- 도메인 컨트롤러 및 SQL 서버용 추가 데이터 디스크 4개
+- 도메인 컨트롤러 및 SQL Server용 추가 데이터 디스크 4개
 - 클라우드 서비스 3개
 - 가용성 집합 4개
 - 프레미스 간 가상 네트워크 1개
@@ -86,13 +86,13 @@ Azure의 기능적인 고가용성 인트라넷 SharePoint 팜에 대한 기본�
 
 이 구성을 배포하려면 다음 프로세스를 사용합니다.
 
-- 1단계: Azure 구성 
+- 1단계: Azure 구성
 
-	Azure 관리 포털 및 Azure PowerShell을 사용하여 저장소 계정, 클라우드 서비스 및 프레미스 간 가상 네트워크를 만듭니다. 자세한 구성 단계는 [1단계](virtual-machines-workload-intranet-sharepoint-phase1.md)를 참조하세요.
+	Azure 포털 및 Azure PowerShell을 사용하여 저장소 계정, 클라우드 서비스 및 프레미스 간 가상 네트워크를 만듭니다. 자세한 구성 단계는 [1단계](virtual-machines-workload-intranet-sharepoint-phase1.md)를 참조하세요.
 
 - 2단계: 도메인 컨트롤러 구성
 
-	Active Directory 복제본 도메인 컨트롤러 2개 및 가상 네트워크에 대한 DNS 설정을 구성합니다. 자세한 구성 단계는 [2단계](virtual-machines-workload-intranet-sharepoint-phase2.md)를 참조하세요.
+	Azure Active Directory 복제본 도메인 컨트롤러 2개 및 가상 네트워크에 대한 DNS 설정을 구성합니다. 자세한 구성 단계는 [2단계](virtual-machines-workload-intranet-sharepoint-phase2.md)를 참조하세요.
 
 - 3단계: SQL Server 인프라 구성
 
@@ -106,11 +106,11 @@ Azure의 기능적인 고가용성 인트라넷 SharePoint 팜에 대한 기본�
 
 	SharePoint 데이터베이스를 준비하고, AlwaysOn 가용성 그룹을 만든 다음, 해당 그룹에 SharePoint 데이터베이스를 추가합니다. 자세한 구성 단계는 [단계 5](virtual-machines-workload-intranet-sharepoint-phase5.md)를 참조하세요.
 
-구성된 SharePoint 팜은 [SharePoint 2013 용 Microsoft Azure 아키텍처](http://technet.microsoft.com/library/dn635309.aspx)의 지침을 사용하여 확장할 수 있습니다.
+구성된 SharePoint 팜은 [SharePoint 2013용 Microsoft Azure 아키텍처](http://technet.microsoft.com/library/dn635309.aspx)의 지침을 사용하여 확장할 수 있습니다.
 
 ## 추가 리소스
 
-[Azure에서 SQL Server AlwaysOn 가용성 그룹을 사용하여 SharePoint 배포](../virtual-machines-workload-deploy-spsqlao-overview.md)
+[Azure에서 SQL Server AlwaysOn 가용성 그룹을 사용하여 SharePoint 배포](virtual-machines-workload-deploy-spsqlao-overview.md)
 
 [테스트용 하이브리드 클라우드에 SharePoint 인트라넷 팜 설치](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
@@ -122,4 +122,4 @@ Azure의 기능적인 고가용성 인트라넷 SharePoint 팜에 대한 기본�
 
 [Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

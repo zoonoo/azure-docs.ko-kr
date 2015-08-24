@@ -1,5 +1,5 @@
 <properties
-	pageTitle="기존 앱에 모바일 서비스 추가(iOS) | 모바일 개발자 센터"
+	pageTitle="기존 앱에 모바일 서비스 추가(iOS) | Microsoft Azure"
 	description="모바일 서비스를 사용하여 iOS 앱에서 데이터를 활용하는 방법에 대해 알아봅니다."
 	services="mobile-services"
 	documentationCenter="ios"
@@ -80,4 +80,4 @@
 [퀵 스타트]: ../mobile-services-javascript-backend-ios-get-started.md
 [GetStartedWithData iOS 앱]: http://go.microsoft.com/fwlink/p/?LinkId=268622
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

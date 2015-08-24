@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="감사 및 동적 데이터 마스킹에 대한 SQL 데이터베이스 하위 수준 클라이언트 지원 | Azure" 
+	pageTitle="감사 및 동적 데이터 마스킹에 대한 SQL 데이터베이스 하위 수준 클라이언트 지원 | Microsoft Azure" 
 	description="감사 및 동적 데이터 마스킹에 대한 SQL 데이터베이스 하위 수준 클라이언트 지원" 
 	services="sql-database" 
 	documentationCenter="" 
@@ -40,4 +40,4 @@ TDS 버전 7.3 이하를 지원하는 "하위 클라이언트"의 경우, 연결
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 주요 자격 증명 모음 | Microsoft Azure에 대해 HSM 보호된 키를 생성하고 전송하는 방법"
+	pageTitle="Azure 주요 자격 증명 모음에 대해 HSM 보호된 키를 생성하고 전송하는 방법 | Microsoft Azure"
 	description="이 문서를 통해 Azure 주요 자격 증명 모음에서 사용할 고유의 HSM 보호 키를 생성하고 전송하는 데 필요한 계획을 세울 수 있습니다."
 	services="key-vault"
 	documentationCenter=""
@@ -306,4 +306,4 @@ USB 드라이브 또는 기타 휴대용 저장소를 사용하여 인터넷에 
 
 이제 주요 자격 증명 모음에서 이 HSM 보호된 키를 사용할 수 있습니다. 자세한 내용은 [Azure 주요 자격 증명 모음 시작](key-vault-get-started.md) 자습서에서 **HSM(하드웨어 보안 모듈)을 사용하려는 경우**를 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

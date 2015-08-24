@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="모바일 서비스 .NET 백 엔드 문제 해결 - Azure 모바일 서비스" 
+	pageTitle="모바일 서비스 .NET 백 엔드 문제 해결 | Microsoft Azure" 
 	description=".NET 백 엔드를 사용하여 모바일 서비스와 관련된 문제를 진단 및 해결하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -154,4 +154,4 @@ SQL 데이터베이스와 함께 모바일 서비스 .NET 백 엔드를 사용�
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="유니버설 Windows 8.1 앱에 인증 추가 | Azure 모바일 서비스" 
+	pageTitle="유니버설 Windows 8.1 앱에 인증 추가 | Microsoft Azure" 
 	description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 유니버설 Windows 8.1 앱 사용자를 인증하는 방법을 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -97,4 +97,4 @@
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

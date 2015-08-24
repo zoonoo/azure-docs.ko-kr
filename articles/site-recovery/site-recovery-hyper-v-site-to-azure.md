@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="06/08/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
 
 
@@ -67,7 +67,7 @@ Azure Site Recovery 배포의 일환으로 보호하려는 가상 컴퓨터를 �
 - **.blob.core.windows.net
 - **.store.core.windows.net
 
-- 사용자 지정 프록시를 사용하려면 공급자 설치 전에 프록시 서버를 설정합니다. 공급자를 설치하는 동안 프록시 서버 주소 및 포트와 액세스를 위해 사용할 수 있는 자격 증명을 지정해야 합니다.
+- 사용자 지정 프록시를 사용하려면 공급자 설치 전에 프록시 서버를 설정합니다. 공급자를 설치하는 동안 프록시 서버 주소 및 포트와 액세스를 위해 사용할 수 있는 자격 증명을 지정해야 합니다. HTTPS 기반 프록시는 지원되지 않습니다.
 
 아래 그림에서는 조정 및 복제를 위해 Azure Site Recovery에서 사용되는 다양한 통신 채널을 보여줍니다.
 
@@ -306,4 +306,4 @@ Azure 대상 네트워크를 지정하지 않고 Azure로 보호되도록 설정
 
 배포가 설정되고 실행된 후 장애 조치에 대해 [알아봅니다](site-recovery-failover.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="기존 앱에 모바일 서비스 추가(Windows Phone) | 모바일 개발자 센터" 
+	pageTitle="기존 앱에 모바일 서비스 추가(Windows Phone) | Microsoft Azure" 
 	description="모바일 서비스를 사용하여 Windows Phone 앱에서 데이터를 활용하는 방법을 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -272,4 +272,4 @@
 [How to add a new Windows Firewall port rule]: http://go.microsoft.com/fwlink/?LinkId=392240
    
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

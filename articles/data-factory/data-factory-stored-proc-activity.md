@@ -29,8 +29,8 @@
     	"outputs":  [ { "name": "outputtable" } ],
     	"typeProperties":
     	{
-        	"storedProcedureName": “”,
-        	"storedProcedureParameters": “” 
+        	"storedProcedureName": "<name of the stored procedure>",
+        	"storedProcedureParameters":  
         	{
 				"param1": "param1Value"
 				…
@@ -72,12 +72,14 @@ Datetime | 해당 ID가 생성된 날짜 및 시간
 	    VALUES (newid(), @DateTime)
 	END
 
+> [AZURE.NOTE]매개 변수(이 예에서는 DateTime)의 **이름** 및 **대/소문자**는 아래의 활동 JSON에서 지정된 매개 변수의 이름 및 대/소문자와 일치해야 합니다. 저장 프로시저 정의에서 **@**는 매개 변수에 대한 접두사로 사용되어야 합니다.
+
 데이터 팩터리 파이프라인에서 이 저장 프로시저를 실행하려면 다음을 수행해야 합니다.
 
-1.	저장 프로시저를 실행할 Azure SQL 데이터베이스의 연결 문자열에 등록할 [연결된 서비스](data-factory-azure-sql-connector.md/#azure-sql-linked-service-properties)를 만듭니다.
-2.	Azure SQL 데이터베이스에서 출력 테이블을 가리키는 [데이터 집합](data-factory-azure-sql-connector.md/#azure-sql-dataset-type-properties)을 만듭니다. 이 sprocsampleout 데이터 집합을 호출해보겠습니다 이 데이터 집합은 1단계의 연결된 서비스를 참조해야 합니다. 
+1.	저장 프로시저를 실행해야 하는 Azure SQL 데이터베이스의 연결 문자열에 등록할 [연결된 서비스](data-factory-azure-sql-connector.md/#azure-sql-linked-service-properties)를 만듭니다.
+2.	Azure SQL 데이터베이스의 출력 테이블을 가리키는 [데이터 집합](data-factory-azure-sql-connector.md/#azure-sql-dataset-type-properties)을 만듭니다. 이 sprocsampleout 데이터 집합을 호출해보겠습니다 이 데이터 집합은 1단계의 연결된 서비스를 참조해야 합니다. 
 3.	Azure SQL 데이터베이스에서 저장 프로시저를 만듭니다.
-4.	아래 [파이프라인](data-factory-azure-sql-connector.md/#azure-sql-copy-activity-type-properties)을 SqlServerStoredProcedure 작업과 함께 만들어 Azure SQL 데이터베이스에서 저장 프로시저를 호출합니다.
+4.	아래 [파이프라인](data-factory-azure-sql-connector.md/#azure-sql-copy-activity-type-properties)을 SqlServerStoredProcedure 활동과 함께 만들어 Azure SQL 데이터베이스에서 저장 프로시저를 호출합니다.
 
 		{
 		    "name": "SprocActivitySamplePipeline",
@@ -86,23 +88,23 @@ Datetime | 해당 ID가 생성된 날짜 및 시간
 		        "activities":
 		        [
 		            {
-		             "name": "SprocActivitySample",
-		             "type": " SqlServerStoredProcedure ",
-		             "outputs": [ {"name": "sprocsampleout"} ],
-		             "typeproperties":
-		              {
-		                "storedProcedureName": "sp_sample",
-		        		"storedProcedureParameters": 
-		        		{
-		            	"DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
-		        		}
-				}
-		            }
-		          ]
+		            	"name": "SprocActivitySample",
+		             	"type": " SqlServerStoredProcedure",
+		             	"outputs": [ {"name": "sprocsampleout"} ],
+		             	"typeProperties":
+		              	{
+		                	"storedProcedureName": "sp_sample",
+			        		"storedProcedureParameters": 
+		        			{
+		            			"DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
+		        			}
+						}
+	            	}
+		        ]
 		     }
 		}
 5.	[파이프라인](data-factory-create-pipelines.md)을 배포합니다.
-6.	데이터 팩터리 모니터링 및 관리 뷰를 사용하는 [파이프라인을 모니터링](data-factory-monitor-manage-pipelines.md)합니다.
+6.	Data Factory 모니터링 및 관리 보기를 사용하여 [파이프라인을 모니터링](data-factory-monitor-manage-pipelines.md)합니다.
 
 > [AZURE.NOTE]위의 예에서 SprocActivitySample에는 입력이 없습니다. 작업 업스트림과 연결하려면 업스트림 작업의 출력을 이 작업의 입력으로 사용할 수 있습니다. 이 경우 업스트림 작업이 완료되어 출력이 제공될 때까지(Ready 상태) 이 작업은 실행되지 않습니다. 입력은 저장 프로시저 작업에 대한 매개 변수로 직접 사용할 수 없습니다.
 > 
@@ -123,7 +125,7 @@ Datetime | 해당 ID가 생성된 날짜 및 시간
 
 이 작업을 수행하기 위해 Scenario 매개 변수와 저장 프로시저 작업의 값을 전달합니다. 위 샘플에서 typeproperties 섹션은 다음과 같습니다.
 
-	"typeproperties":
+	"typeProperties":
 	{
 		"storedProcedureName": "sp_sample",
 	    "storedProcedureParameters": 
@@ -133,4 +135,4 @@ Datetime | 해당 ID가 생성된 날짜 및 시간
 		}
 	}
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

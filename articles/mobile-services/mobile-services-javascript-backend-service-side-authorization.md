@@ -1,5 +1,5 @@
 <properties
-	pageTitle="JavaScript 백엔드 모바일 서비스에서 사용자의 서비스 쪽 권한 부여 | Azure 모바일 서비스"
+	pageTitle="JavaScript 백 엔드 모바일 서비스에서 사용자의 서비스 쪽 권한 부여 | Microsoft Azure"
 	description="Azure 모바일 서비스의 JavaScript 백 엔드에서 사용자에게 권한을 부여하는 방법에 대해 알아봅니다."
 	services="mobile-services"
 	documentationCenter=""
@@ -70,4 +70,4 @@
 [Azure 관리 포털]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

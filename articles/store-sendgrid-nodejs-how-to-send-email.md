@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="SendGrid 메일 서비스를 사용하는 방법(Node.js) - Azure" 
+	pageTitle="SendGrid 메일 서비스를 사용하는 방법(Node.js) | Microsoft Azure" 
 	description="Azure에서 SendGrid 메일 서비스를 사용하여 메일을 보내는 방법을 알아봅니다. 코드 샘플은 Node.js API를 사용하여 작성되었습니다." 
 	services="" 
 	documentationCenter="nodejs" 
@@ -224,4 +224,4 @@ SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으�
   [트랜잭션 전자 메일 배달]: https://sendgrid.com/email-solutions
   [클라우드 기반 전자 메일 서비스]: https://sendgrid.com/transactional-email
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

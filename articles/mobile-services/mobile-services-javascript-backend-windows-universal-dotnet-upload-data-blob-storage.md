@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="범용 Windows 앱에서 Azure Blob 저장소에 이미지 업로드 | Azure 모바일 서비스" 
+	pageTitle="범용 Windows 앱에서 Azure Blob 저장소에 이미지 업로드 | Microsoft Azure" 
 	description="JavaScript 백엔드 모바일 서비스를 사용하여 Azure Blob 저장소에 이미지를 업로드하고 범용 Windows 앱에서 이미지에 액세스하는 방법에 대해 알아보기" 
 	services="mobile-services,storage" 
 	documentationCenter="windows" 
@@ -87,4 +87,4 @@
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

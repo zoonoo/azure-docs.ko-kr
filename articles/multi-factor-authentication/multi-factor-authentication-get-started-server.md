@@ -4,8 +4,8 @@
 	services="multi-factor-authentication" 
 	documentationCenter="" 
 	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	manager="stevenpo" 
+	editor="curtand"/>
 
 <tags 
 	ms.service="multi-factor-authentication" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="06/02/2015" 
+	ms.date="08/10/2015" 
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication 서버로 시작하기
@@ -29,7 +29,9 @@
 
 ## Azure Multi-Factor Authentication 서버 다운로드
 
-Azure Multi-factor Authentication 서버를 다운로드할 수 있는 두 가지 다른 방식이 있습니다. 첫 번째 방법은 Azure 포털에 로그인하는 방법이며 두 번째 방법은 [https://pfweb.phonefactor.net](https://pfweb.phonefactor.net)에서 직접 다운로드하는 방법입니다.
+
+
+Azure Multi-factor Authentication 서버를 다운로드할 수 있는 두 가지 다른 방식이 있습니다. 두 방식 모두 Azure 포털을 통해 수행할 수 있습니다. 첫 번째는 Multi-Factor Auth 공급자를 직접 관리하여 수행합니다. 두 번째는 서비스 설정을 통해 수행합니다. 두 번째 옵션은 Multi-Factor Auth 공급자 또는 Azure AD Premium 라이선스가 필요합니다.
 
 
 ### Azure 포털에서 Azure Multi-Factor Authentication 서버를 다운로드하려면
@@ -37,20 +39,27 @@ Azure Multi-factor Authentication 서버를 다운로드할 수 있는 두 가�
 
 1. 관리자 권한으로 Azure 포털에 로그인합니다.
 2. 왼쪽에서 Active Directory를 선택합니다.
-3. Active Directory 페이지의 위쪽에서 **Multi-Factor Auth Providers**를 클릭합니다.
+3. Active Directory 페이지의 위쪽에서 **Multi-Factor Auth 공급자**를 클릭합니다.
 4. 아래쪽에서 **관리**를 클릭합니다.
-5. **다운로드**를 클릭합니다.
-6. **정품 인증 자격 증명 생성** 위의 **다운로드**를 클릭합니다.
+5. 그러면 새 페이지가 열립니다. **다운로드**를 클릭합니다. ![다운로드](./media/multi-factor-authentication-sdk/download.png)
+6. **정품 인증 자격 증명 생성** 위의 **다운로드**를 클릭합니다. ![다운로드](./media/multi-factor-authentication-get-started-server/download4.png)
 7. 다운로드 파일을 저장합니다.
 
-### Azure Multi-Factor Authentication 서버를 직접 다운로드하려면
---------------------------------------------------------------------------------
 
-1. [https://pfweb.phonefactor.net](https://pfweb.phonefactor.net)에 로그인합니다.
-2. **다운로드**를 클릭합니다.
-<center>![Cloud](./media/multi-factor-authentication-get-started-server/download2.png)</center>
-3. **정품 인증 자격 증명 생성** 위의 **다운로드**를 클릭합니다. 이 페이지로 다시 돌아와야 하므로 페이지를 그대로 둡니다.
-4. 다운로드 파일을 저장합니다.
+
+### 서비스 설정을 통해 Azure Multi-Factor Authentication 서버를 다운로드하려면
+
+
+1. 관리자 권한으로 Azure 포털에 로그인합니다.
+2. 왼쪽에서 Active Directory를 선택합니다.
+3. Azure AD 인스턴스를 두 번 클릭합니다.
+4. 위쪽에서 **구성**을 클릭합니다. ![다운로드](./media/multi-factor-authentication-sdk/download2.png)
+5. Multi-Factor Authentication 아래에서 **서비스 설정 관리**를 선택합니다.
+6. 서비스 설정 페이지의 화면 아래쪽에서 **포털로 이동**을 클릭합니다. ![다운로드](./media/multi-factor-authentication-sdk/download3.png)
+7. 그러면 새 페이지가 열립니다. **다운로드**를 클릭합니다.
+8. **정품 인증 자격 증명 생성** 위의 **다운로드**를 클릭합니다.
+9. 다운로드 파일을 저장합니다.
+
 
 
 
@@ -97,8 +106,7 @@ IP 서브넷|네트워크 마스크|IP 범위
 1. 실행 파일을 두 번 클릭합니다. 설치가 시작됩니다.
 2. 설치 폴더 선택 화면에서 해당 폴더가 정확한지 확인하고 다음을 클릭합니다.
 3. 설치가 완료되면 마침을 클릭합니다. 그러면 구성 마법사가 시작됩니다.
-4. 구성 마법사 시작 화면에서 **인증 구성 마법사를 사용하여 건너뛰기**에 체크 표시하고 **다음**을 클릭합니다. 마법사가 닫히고 서버가 시작됩니다.
-<center>![Cloud](./media/multi-factor-authentication-get-started-server/skip2.png)</center>
+4. 구성 마법사 시작 화면에서 **인증 구성 마법사를 사용하여 건너뛰기**를 선택한 후 **다음**을 클릭합니다. 마법사가 닫히고 서버가 시작됩니다. ![클라우드](./media/multi-factor-authentication-get-started-server/skip2.png)
 
 5. 서버를 다운로드한 페이지로 돌아가서 **정품 인증 자격 증명 생성** 버튼을 클릭합니다. 이 정보를 제공된 상자의 Azure MFA 서버에 복사하고 **활성화**를 클릭합니다.
 
@@ -120,7 +128,7 @@ IP 서브넷|네트워크 마스크|IP 범위
 3. 이제 개별 사용자를 검색하거나 해당 사용자로 OU에 대한 AD 디렉터리를 검색할 수 있습니다. 이 경우 사용자 OU를 지정합니다.
 4. 오른쪽의 모든 사용자를 강조 표시하고 **가져오기**를 클릭합니다. 성공했음을 알려주는 팝업 메시지가 나타납니다. 가져오기 창을 닫습니다.
 
-<center>![Cloud](./media/multi-factor-authentication-get-started-server/import2.png)</center>
+![클라우드](./media/multi-factor-authentication-get-started-server/import2.png)
 
 ## 사용자에게 전자 메일 보내기
 사용자를 Azure Multi-factor Authentication 서버로 가져오므로 사용자에게 multi-factor authentication에 등록되었음을 알리는 전자 메일을 보내는 것이 좋습니다.
@@ -157,4 +165,4 @@ Azure Multi-factor Authentication 서버와 함께 다양한 방법으로 다중
 [Windows Server Active Directory와 동기화](multi-factor-authentication-get-started-server-dirint.md)|Active Directory와 Azure MFA 서버 간의 동기화 설정 및 구성에 대한 정보입니다.
 [Azure Multi-Factor Authentication 서버 모바일 앱 웹 서비스](multi-factor-authentication-get-started-server-webservice.md)|Azure MFA 서버 웹 서비스 구성 및 설치에 대한 정보입니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="SendGrid 메일 서비스를 사용하는 방법(PHP) - Azure" 
+	pageTitle="SendGrid 메일 서비스를 사용하는 방법(PHP) | Microsoft Azure" 
 	description="Azure에서 SendGrid 메일 서비스를 사용하여 메일을 보내는 방법을 알아봅니다. 코드 샘플은 PHP로 작성되었습니다." 
 	documentationCenter="php" 
 	services="" 
@@ -420,4 +420,4 @@ SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으�
   [sendgrid-php 라이브러리]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Composer]: https://getcomposer.org/download/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

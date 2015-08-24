@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="기존 앱에 모바일 서비스 추가(HTML 5) | 모바일 개발자 센터" 
+	pageTitle="기존 앱에 모바일 서비스 추가(HTML 5) | Microsoft Azure" 
 	description="기존 HTML 앱에서 모바일 서비스를 사용하여 시작하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -257,4 +257,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/04/2015"
+   ms.date="08/09/2015"
    ms.author="juliako"/>
 
 
@@ -112,4 +112,6 @@ Visual Studio용 **Azure Data Factory 도구**를 소개합니다. 사용할 수
 
 [Azure SDK 2.7 발표 게시물](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)
 
-<!---HONumber=August15_HO6-->
+[.NET 및 API용 Azure SDK에 대한 지원 및 사용 중지 정보](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
+
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="05/08/2015"
+	ms.date="08/05/2015"
 	ms.author="raynew"/>
 
 # 사이트 복구 배포에 대한 모범 사례
@@ -194,4 +194,4 @@ System Center 2012 R2에서 VMM(권장) (클러스터 또는 독립 실행형) |
 - [단일 VMM 서버로 보호 설정](site-recovery-single-vmm.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

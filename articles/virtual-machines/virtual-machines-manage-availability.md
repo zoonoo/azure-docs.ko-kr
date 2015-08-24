@@ -1,5 +1,5 @@
 <properties
-	pageTitle="가상 컴퓨터의 가용성 관리 - Azure"
+	pageTitle="가상 컴퓨터의 가용성 관리 | Microsoft Azure"
 	description="여러 가상 컴퓨터를 사용하여 Azure 응용 프로그램의 고가용성을 유지하는 방법에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
@@ -69,4 +69,4 @@ Azure 부하 분산 장치를 가용성 집합과 결합하여 응용 프로그�
 [가용성 집합에서 단일 인스턴스 가상 컴퓨터 방지]: #avoid-single-instance-virtual-machines-in-availability-sets
 [가상 컴퓨터의 가용성 집합을 구성하는 방법]: virtual-machines-how-to-configure-availability.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

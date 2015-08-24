@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 클라우드 서비스 및 ASP.NET 시작"
-	description="ASP.NET MVC 및 Azure를 사용하여 다중 계층 앱을 만드는 방법에 대해 알아봅니다. 이 앱은 웹 역할 및 작업자 역할을 사용하여 클라우드 서비스에서 실행되며 Entity Framework, SQL 데이터베이스 및 Azure 저장소 큐와 Blob를 사용합니다."
+	pageTitle="Azure 클라우드 서비스 및 ASP.NET 시작 | Microsoft Azure"
+	description="ASP.NET MVC 및 Azure를 사용하여 다중 계층 앱을 만드는 방법을 알아보세요. 이 앱은 웹 역할 및 작업자 역할을 사용하여 클라우드 서비스에서 실행되며 Entity Framework, SQL 데이터베이스 및 Azure 저장소 큐와 Blob를 사용합니다."
 	services="cloud-services, storage"
 	documentationCenter=".net"
 	authors="tdykstra"
@@ -30,7 +30,7 @@
 
 ## Contoso Ads 응용 프로그램
 
-응용 프로그램은 광고 게시판입니다. 사용자는 텍스트를 입력하고 이미지를 업로드하여 광고를 만듭니다. 사용자는 미리 보기 이미지가 있는 광고 목록을 볼 수 있으며 광고를 선택하여 자세한 내용을 확인할 때 전체 크기 이미지를 볼 수 있습니다. 다음 스크린샷을 참조하세요.
+응용 프로그램은 광고 게시판입니다. 사용자는 텍스트를 입력하고 이미지를 업로드하여 광고를 만듭니다. 사용자는 미리 보기 이미지가 있는 광고 목록을 볼 수 있으며 광고를 선택하여 자세한 내용을 확인할 때 전체 크기 이미지를 볼 수 있습니다.
 
 ![광고 목록](./media/cloud-services-dotnet-get-started/list.png)
 
@@ -120,20 +120,20 @@ Azure 구독 없이도 로컬에서 앱을 실행할 수 있지만 응용 프로
 
 클라우드에서 응용 프로그램을 실행하려면 다음 단계를 수행합니다.
 
-* Azure 클라우드 서비스 만들기
-* Azure SQL 데이터베이스 만들기
-* Azure 저장소 계정 만들기
-* Azure에서 실행될 때 Azure SQL 데이터베이스를 사용하도록 솔루션 구성
-* Azure에서 실행될 때 Azure 저장소 계정을 사용하도록 솔루션 구성
-* Azure 클라우드 서비스에 프로젝트 배포
+* Azure 클라우드 서비스를 만듭니다.
+* Azure SQL 데이터베이스를 만듭니다.
+* Azure 저장소 계정을 만듭니다.
+* Azure에서 실행될 때 Azure SQL 데이터베이스를 사용하도록 솔루션을 구성합니다.
+* Azure에서 실행될 때 Azure 저장소 계정을 사용하도록 솔루션을 구성합니다.
+* Azure 클라우드 서비스에 프로젝트를 배포합니다.
 
 ### Azure 클라우드 서비스 만들기
 
 Azure 클라우드 서비스는 응용 프로그램이 실행되는 환경입니다.
 
-1. 브라우저에서 [Azure 관리 포털](http://manage.windowsazure.com)을 엽니다.
+1. 브라우저에서 [Azure 포털](http://manage.windowsazure.com)을 엽니다.
 
-2. **새로 만들기** - **계산** - **클라우드 서비스** - **빠른 생성**을 클릭합니다.
+2. **새로 만들기 > 계산 > 클라우드 서비스 > 빠른 생성**을 클릭합니다.
 
 4. URL 입력 상자에 URL 접두사를 입력합니다.
 
@@ -153,7 +153,7 @@ Azure 클라우드 서비스는 응용 프로그램이 실행되는 환경입니
 
 앱이 클라우드에서 실행될 때는 클라우드 기반 데이터베이스를 사용합니다.
 
-1. [Azure 관리 포털](http://manage.windowsazure.com)에서 **새로 만들기** - **데이터 서비스** - **SQL 데이터베이스** - **빠른 생성**을 클릭합니다.
+1. [Azure 포털](http://manage.windowsazure.com)에서 **새로 만들기 > 데이터 서비스 > SQL 데이터베이스 > 빠른 생성**을 클릭합니다.
 
 1. **데이터베이스 이름** 상자에 *contosoads*를 입력합니다.
 
@@ -189,7 +189,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 실제 응용 프로그램에서는 일반적으로 응용 프로그램 데이터와 로깅 데이터를 위한 별도의 계정 및 테스트 데이터와 프로덕션 데이터를 위한 별도의 계정을 만듭니다. 이 자습서에서는 한 계정만 사용합니다.
 
-1. [Azure 관리 포털](http://manage.windowsazure.com)에서 **새로 만들기** - **데이터 서비스** - **저장소** - **빠른 생성**을 클릭합니다.
+1. [Azure 포털](http://manage.windowsazure.com)에서 **새로 만들기 > 데이터 서비스 > 저장소 > 빠른 생성**을 클릭합니다.
 
 4. **URL** 상자에 URL 접두사를 입력합니다.
 
@@ -228,7 +228,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	편집용으로 파일을 열어 둡니다.
 
-2. [Azure 관리 포털](http://manage.windowsazure.com)에서 왼쪽 창의 **SQL 데이터베이스**를 클릭하고 이 자습서에 대해 만든 데이터베이스를 클릭한 후 **대시보드** 탭을 클릭한 다음 **연결 문자열 표시**를 클릭합니다.
+2. [Azure 포털](http://manage.windowsazure.com)에서 왼쪽 창의 **SQL 데이터베이스**를 클릭하고 이 자습서에 대해 만든 데이터베이스를 클릭한 후 **대시보드** 탭을 클릭한 다음 **연결 문자열 표시**를 클릭합니다.
 
 	![연결 문자열 표시](./media/cloud-services-dotnet-get-started/showcs.png)
 
@@ -236,7 +236,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	![연결 문자열](./media/cloud-services-dotnet-get-started/connstrings.png)
 
-4. *Web.Release.config* 변환 파일에서 `{connectionstring}`을(를) 삭제 후 그 자리에 관리 포털에서 가져온 ADO.NET 연결 문자열을 붙여 넣습니다.
+4. *Web.Release.config* 변환 파일에서 `{connectionstring}`을(를) 삭제 후 그 자리에 Azure 포털에서 가져온 ADO.NET 연결 문자열을 붙여 넣습니다.
 
 5. *Web.Release.config* 변환 파일에 붙여 넣은 연결 문자열에서 `{your_password_here}` 대신 새 SQL 데이터베이스에 대해 만든 암호로 바꿉니다.
 
@@ -274,7 +274,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
 	![열린 연결 문자열 만들기 상자](./media/cloud-services-dotnet-get-started/opencscreate.png)
 
-1. **저장소 연결 문자열 만들기** 대화 상자에서 **구독을 사용하여 연결**을 클릭하고 이전에 만든 저장소 계정을 선택한 다음 **확인**을 클릭합니다. 아직 로그인하지 않은 경우 Azure 계정 자격 증명을 요구하는 메시지가 나타납니다.
+1. **저장소 연결 문자열 만들기** 대화 상자에서 **구독**을 클릭하고 이전에 만든 저장소 계정을 선택한 다음 **확인**을 클릭합니다. 아직 로그인하지 않은 경우 Azure 계정 자격 증명을 요구하는 메시지가 나타납니다.
 
 	![저장소 연결 문자열 만들기](./media/cloud-services-dotnet-get-started/createstoragecs.png)
 
@@ -345,7 +345,7 @@ Visual Studio UI를 사용하여 구성한 역할 환경 설정은 ContosoAdsClo
 
 9. 이제 응용 프로그램을 로컬에서 실행할 때처럼 일부 광고를 만들고, 보고, 편집하는 방법으로 앱을 테스트할 수 있습니다.
 
->[AZURE.NOTE]테스트를 완료하면 클라우드 서비스를 삭제하거나 중지하세요. 클라우드 서비스를 사용하지 않더라도 가상 컴퓨터 리소스가 예약되어 있기 때문에 요금이 발생합니다. 또한 실행 중인 채로 두는 경우에는 누군가가 URL을 발견하면 광고를 만들고 볼 수 있습니다. [Azure 관리 포털](http://manage.windowsazure.com)에서 클라우드 서비스에 대한 **대시보드** 탭으로 이동한 후 페이지 아래에서 **삭제** 단추를 클릭합니다. 임시로 다른 사람이 사이트에 액세스하지 못하도록 만들려면 대신 **중지**를 클릭합니다. 이 경우에는 요금이 계속해서 발생합니다. 더 이상 필요 없는 경우 비슷한 절차에 따라 SQL 데이터베이스 및 저장소 계정을 삭제할 수 있습니다.
+>[AZURE.NOTE]테스트를 완료하면 클라우드 서비스를 삭제하거나 중지하세요. 클라우드 서비스를 사용하지 않더라도 가상 컴퓨터 리소스가 예약되어 있기 때문에 요금이 발생합니다. 또한 실행 중인 채로 두는 경우에는 누군가가 URL을 발견하면 광고를 만들고 볼 수 있습니다. [Azure 포털](http://manage.windowsazure.com)에서 클라우드 서비스에 대한 **대시보드** 탭으로 이동한 후 페이지 아래에서 **삭제** 단추를 클릭합니다. 임시로 다른 사람이 사이트에 액세스하지 못하도록 만들려면 대신 **중지**를 클릭합니다. 이 경우에는 요금이 계속해서 발생합니다. 더 이상 필요 없는 경우 비슷한 절차에 따라 SQL 데이터베이스 및 저장소 계정을 삭제할 수 있습니다.
 
 ## 처음부터 응용 프로그램 만들기
 
@@ -353,11 +353,11 @@ Visual Studio UI를 사용하여 구성한 역할 환경 설정은 ContosoAdsClo
 
 Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합니다.
 
-* 클라우드 서비스 Visual Studio 솔루션 만들기
-* NuGet 패키지 업데이트 및 추가
-* 프로젝트 참조 설정
-* 연결 문자열 구성
-* 코드 파일 추가
+* 클라우드 서비스 Visual Studio 솔루션을 만듭니다.
+* NuGet 패키지를 업데이트 및 추가합니다.
+* 프로젝트 참조를 설정합니다.
+* 연결 문자열을 구성합니다.
+* 코드 파일을 추가합니다.
 
 솔루션이 만들어진 후에는 클라우드 서비스 프로젝트에 고유한 코드와 Azure Blob 및 큐를 검토합니다.
 
@@ -379,7 +379,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
 	![인증 변경](./media/cloud-services-dotnet-get-started/chgauth.png)
 
-7. 인증 변경 대화 상자에서 **인증 없음**을 선택한 다음 **확인**을 클릭합니다.
+7. **인증 변경** 대화 상자에서 **인증 없음**을 선택한 다음 **확인**을 클릭합니다.
 
 	![인증 없음](./media/cloud-services-dotnet-get-started/noauth.png)
 
@@ -391,7 +391,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
 10. 프로젝트의 이름을 *ContosoAdsCommon*으로 지정한 다음 **확인**을 클릭합니다.
 
-	Entity Framework 컨텍스트 및 웹 역할 프로젝트와 작업자 역할 프로젝트의 데이터 모델을 참조해야 합니다. 또는 웹 역할 프로젝트에서 EF 관련 클래스를 정의하고 작업자 역할 프로젝트에서 이 프로젝트를 참조할 수 있습니다. 하지만 이 경우 작업자 역할 프로젝트에는 필요 없는 웹 어셈블리 참조가 포함됩니다.
+	Entity Framework 컨텍스트 및 웹 역할 프로젝트와 작업자 역할 프로젝트의 데이터 모델을 참조해야 합니다. 또는 웹 역할 프로젝트에서 EF 관련 클래스를 정의하고 작업자 역할 프로젝트에서 이 프로젝트를 참조할 수 있습니다. 하지만 대안에서는 작업자 역할 프로젝트에는 필요 없는 웹 어셈블리 참조가 포함됩니다.
 
 ### NuGet 패키지 업데이트 및 추가
 
@@ -411,7 +411,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
 ### 프로젝트 참조 설정
 
-10. ContosoAdsWeb 프로젝트에서 ContosoAdsCommon 프로젝트에 대한 참조를 설정합니다. ContosoAdsWeb 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **참조** - **참조 추가**를 클릭합니다. **참조 관리자** 대화 상자의 왼쪽 창에서 **솔루션 – 프로젝트**를 선택하고 ContosoAdsCommon을 선택한 다음 **확인**을 클릭합니다.
+10. ContosoAdsWeb 프로젝트에서 ContosoAdsCommon 프로젝트에 대한 참조를 설정합니다. ContosoAdsWeb 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **참조** - **참조 추가**를 클릭합니다. **참조 관리자** 대화 상자의 왼쪽 창에서 **솔루션 – 프로젝트**를 선택하고 **ContosoAdsCommon**을 선택한 다음 **확인**을 클릭합니다.
 
 11. ContosoAdsWorker 프로젝트에서 ContosAdsCommon 프로젝트에 대한 참조를 설정합니다.
 
@@ -465,7 +465,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
 3. ContosoAdsCommon 프로젝트에서 *Class1.cs* 파일을 삭제하고 그 자리에 다운로드한 프로젝트에서 가져온 *Ad.cs* 및 *ContosoAdscontext.cs* 파일을 추가합니다.
 
-3. ContosoAdsWeb 프로젝트에 다운로드한 프로젝트에서 가져온 다음 파일을 추가합니다.
+3. ContosoAdsWeb 프로젝트에서 다운로드한 프로젝트에서 가져온 다음 파일을 추가합니다.
 	- *Global.asax.cs*  
 	- *Views\\Shared* 폴더: <em>\_Layout.cshtml</em>
 	- *Views\\Home* 폴더: *Index.cshtml*.
@@ -476,7 +476,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
 이제 자습서 앞부분의 지침에 따라 응용 프로그램을 구축하고 실행할 수 있습니다. 앱은 로컬 데이터베이스 및 저장소 에뮬레이터 리소스를 사용합니다.
 
-다음 섹션에서는 Azure 환경, Blob 및 큐 작업과 관련된 코드에 대해 설명합니다. 이 자습서에서는 스캐폴딩을 사용하여 MVC 컨트롤러 및 보기를 만드는 방법, SQL Server 데이터베이스 작업을 하는 Entity Framework 코드를 작성하는 방법 또는 ASP.NET 4.5의 비동기 프로그래밍에 대한 기본 사항을 설명합니다. 이 항목에 대한 자세한 내용은 다음 리소스를 참조하세요.
+다음 섹션에서는 Azure 환경, Blob 및 큐 작업과 관련된 코드에 대해 설명합니다. 이 자습서에 스캐폴딩을 사용하여 MVC 컨트롤러 및 보기를 만드는 방법(영문), SQL Server 데이터베이스를 사용하는 Entity Framework 코드를 작성하는 방법(영문) 또는 ASP.NET 4.5의 비동기 프로그래밍에 대한 기본 사항(영문)은 나와 있지 않습니다. 이러한 항목에 대한 내용은 다음 리소스를 참조하세요.
 
 * [MVC 5 시작](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 * [EF 6 및 MVC 5 시작](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
@@ -644,7 +644,7 @@ HttpPost `Edit` 메서드의 코드도 비슷하지만, 사용자가 새 이미�
 		    ad.ImageURL = imageBlob.Uri.ToString();
 		}
 
-다음은 광고를 삭제하면 Blob를 삭제하는 코드입니다.
+다음 예에서는 광고를 삭제하면 Blob을 삭제하는 코드를 보여줍니다.
 
 		private async Task DeleteAdBlobsAsync(Ad ad)
 		{
@@ -810,6 +810,5 @@ Azure 저장소 모범 사례 및 패턴에 대한 비디오 소개는 [Microsof
 * [Azure 클라우드 서비스 1 부:](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [클라우드 서비스를 관리하는 방법](cloud-services-how-to-manage.md)
 * [Azure 저장소](/documentation/services/storage/)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

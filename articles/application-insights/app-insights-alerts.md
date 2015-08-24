@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="08/12/2015" 
 	ms.author="awills"/>
  
 # Application Insights에서 경고 설정
@@ -44,9 +44,11 @@ Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 
 
 ## 경고 보기
 
-경고는 전자 메일을 통해 제공됩니다.
+알림 상태가 비활성 및 활성 간에 변경될 때 전자 메일이 제공됩니다.
 
-또한 작업 이벤트 로그에도 표시됩니다.
+각 알림의 현재 상태는 알림 규칙 블레이드에 표시됩니다.
+
+상태 변경 내역은 작업 이벤트 로그에 있습니다.
 
 ![하단 근처의 개요 블레이드에서 '지난 주의 이벤트'를 클릭합니다.](./media/app-insights-alerts/09-alerts.png)
 
@@ -80,4 +82,4 @@ Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

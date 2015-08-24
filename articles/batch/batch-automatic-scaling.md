@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="multiple"
-	ms.date="07/21/2015"
+	ms.date="08/05/2015"
 	ms.author="davidmu"/>
 
 # Azure Batch 풀에서 자동으로 계산 노드 크기 조정
@@ -23,7 +23,7 @@ Azure Batch 풀에서 자동으로 계산 노드 크기를 조정하는 것은 �
 
 자동 크기 조정은 이 기능이 풀에서 사용하도록 설정되어 있고 수식이 풀에 연결되어 있는 경우 발생합니다. 수식은 응용 프로그램 처리에 필요한 계산 노드 수를 결정하는 데 사용됩니다. 자동 크기 조정은 풀이 만들어질 때 설정할 수도 있고 나중에 기존 풀에서 설정할 수도 있습니다. 자동 크기 조정을 사용하도록 설정한 풀에서는 수식도 업데이트할 수 있습니다.
 
-자동 크기 조정을 사용하도록 설정하면 수식에 따라 15분마다 사용할 수 있는 계산 노드 수가 조정됩니다. 수식은 5초마다 수집되는 샘플에서 작동하지만 샘플이 수집 되는 시기와 샘플을 수식에 사용할 수 있는 시기 사이에는 75초의 지연이 존재합니다. 아래 설명된 GetSample 메서드를 사용하는 경우 이러한 시간 요소를 고려해야 합니다.
+자동 크기 조정을 사용하도록 설정하면 수식에 따라 15분마다 사용할 수 있는 계산 노드 수가 조정됩니다. 수식은 주기적으로 수집되는 샘플에서 작동하지만 샘플이 수집 되는 시기와 샘플을 수식에 사용할 수 있는 시기 사이에는 지연이 발생합니다. 아래 설명된 GetSample 메서드를 사용하는 경우 이러한 문제를 고려해야 합니다.
 
 항상 수식을 풀에 할당하기 전에 평가하는 것이 좋으며 자동 크기 조정 실행 상태를 모니터링하는 것이 중요합니다.
 
@@ -56,7 +56,7 @@ Azure Batch 풀에서 자동으로 계산 노드 크기를 조정하는 것은 �
     <td>해당 풀의 전용 계산 노드 대상 수입니다. 값은 태스크의 실제 사용에 따라 변경될 수 있습니다.</td>
   </tr>
   <tr>
-    <td>$TVMDeallocationOption</td>
+    <td>$NodeDeallocationOption</td>
     <td>풀에서 계산 노드가 제거되는 경우 발생하는 작업입니다. 가능한 값은 다음과 같습니다.
       <br/>
       <ul>
@@ -115,7 +115,7 @@ Azure Batch 풀에서 자동으로 계산 노드 크기를 조정하는 것은 �
     <td>아웃바운드 바이트 수</td>
   </tr>
   <tr>
-    <td>$SampleTVMCount</td>
+    <td>$SampleNodeCount</td>
     <td>계산 노드 수</td>
   </tr>
   <tr>
@@ -323,10 +323,6 @@ Azure Batch 풀에서 자동으로 계산 노드 크기를 조정하는 것은 �
     <td>double val(doubleVec v, double i)</td>
     <td>시작 인덱스가 0인 벡터 v의 위치 i 요소 값입니다.</td>
   </tr>
-  <tr>
-    <td>doubleVec vec(doubleVecList)</td>
-    <td>doubleVecList에서 단일 doubleVec를 명시적으로 만듭니다.</td>
-  </tr>
 </table>
 
 표에 설명된 함수 중 일부는 목록을 인수로 사용할 수 있습니다. 쉼표로 구분된 목록은 double 및 doubleVec의 조합입니다. 예:
@@ -392,7 +388,7 @@ doubleVecList 값은 평가 전 단일 doubleVec로 변환됩니다. 예를 들�
     <td><p>CPU 사용량, 대역폭 사용량, 메모리 사용량 및 계산 노드 수를 기반으로 합니다. 위에 설명된 이러한 시스템 변수는 수식에 사용되어 풀의 계산 노드를 관리합니다.</p>
     <p><ul>
       <li>$TargetDedicated</li>
-      <li>$TVMDeallocationOption</li>
+      <li>$NodeDeallocationOption</li>
     </ul></p>
     <p>이러한 시스템 변수는 노드 메트릭 기반 조정에 사용됩니다.</p>
     <p><ul>
@@ -424,7 +420,7 @@ doubleVecList 값은 평가 전 단일 doubleVec로 변환됩니다. 예를 들�
       <li>$FailedTasks</li>
       <li>$CurrentDedicated</li></ul></p>
     <p>이 예에서는 샘플의 70%가 지난 15분 동안 기록되었는지 여부를 검색하는 수식을 보여줍니다. 지난 15분 동안 기록된 것이 아닌 경우 마지막 샘플을 사용합니다. 활성 태스크 수와 일치하도록 계산 노드 수를 증가시키려고 하며 최대값은 3입니다. 풀의 MaxTasksPerVM 속성이 4로 설정되어 있기 때문에 활성 태스크 수의 1/4로 노드 수를 설정합니다. 또한 Deallocation 옵션을 "taskcompletion"으로 설정하여 작업이 완료될 때까지 컴퓨터를 유지합니다.</p>
-    <p><b>$Samples = $ActiveTasks.GetSamplePercent(TimeInterval\_Minute * 15); $Tasks = $Samples &lt; 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval\_Minute * 15))); $Cores = $TargetDedicated * 4; $ExtraVMs = ($Tasks - $Cores) / 4; $TargetVMs = ($TargetDedicated+$ExtraVMs);$TargetDedicated = max(0,min($TargetVMs,3)); $TVMDeallocationOption = taskcompletion;</b></p></td>
+    <p><b>$Samples = $ActiveTasks.GetSamplePercent(TimeInterval\_Minute * 15); $Tasks = $Samples &lt; 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval\_Minute * 15))); $Cores = $TargetDedicated * 4; $ExtraVMs = ($Tasks - $Cores) / 4; $TargetVMs = ($TargetDedicated+$ExtraVMs);$TargetDedicated = max(0,min($TargetVMs,3)); $NodeDeallocationOption = taskcompletion;</b></p></td>
   </tr>
 </table>
 
@@ -476,4 +472,4 @@ doubleVecList 값은 평가 전 단일 doubleVec로 변환됩니다. 예를 들�
 	- [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx) – 이 cmdlet은 지정된 계산 노드에서 RDP 파일을 가져와 지정된 파일 위치 또는 스트림에 저장합니다.
 2.	일부 응용 프로그램은 많은 양의 데이터를 생성하여 처리하기가 어려울 수 있습니다. 이 문제를 해결하는 한 가지 방법은 [효율적인 목록 쿼리](batch-efficient-list-queries.md)를 사용하는 것입니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

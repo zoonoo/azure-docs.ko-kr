@@ -1,5 +1,5 @@
 <properties
-	pageTitle="음성 및 SMS를 위해 Twilio를 사용하는 방법(PHP) - Azure"
+	pageTitle="음성 및 SMS에 Twilio를 사용하는 방법(PHP) | Microsoft Azure"
 	description="Azure에서 Twilio API 서비스를 사용하여 전화를 걸고 SMS 메시지를 보내는 방법에 대해 알아봅니다. 코드 샘플은 PHP로 작성되었습니다."
 	services=""
 	documentationCenter="python"
@@ -268,4 +268,4 @@ Twilio 서비스의 기본 사항을 배웠으며 자세한 내용을 보려면 
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

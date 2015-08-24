@@ -2,17 +2,17 @@
     pageTitle="Azure RemoteApp에서 리디렉션 사용" 
     description="RemoteApp에서 리디렉션을 구성 및 사용하는 방법을 알아봅니다." 
     services="remoteapp" 
-	documentationCenter="" 
+    documentationCenter="" 
     authors="lizap" 
     manager="mbaldwin" />
 
 <tags 
     ms.service="remoteapp" 
-    ms.workload="tbd" 
+    ms.workload="compute" 
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/29/2015" 
+    ms.date="08/10/2015" 
     ms.author="elizapo" />
 
 # Azure RemoteApp에서 리디렉션 사용
@@ -76,7 +76,9 @@ RemoteApp에 연결하는 컴퓨터에서 USB 리디렉션을 사용하려는 �
 > [AZURE.NOTE]Azure RemoteApp을 사용한 USB 리디렉션은 Windows 컴퓨터에서만 지원됩니다.
 
 ### RemoteApp 컬렉션에 대해 USB 리디렉션 사용
-컬렉션 수준에서 USB 리디렉션을 사용하도록 설정하려면 다음 cmdlet을 사용합니다. Set-AzureRemoteAppCollection -CollectionName <collection_name> -CustomRdpProperty "nusbdevicestoredirect:s:*"
+컬렉션 수준에서 USB 리디렉션을 사용하도록 설정하려면 다음 cmdlet을 사용합니다.
+
+    Set-AzureRemoteAppCollection -CollectionName <collection_name> -CustomRdpProperty "nusbdevicestoredirect:s:*"
 
 ### 클라이언트 컴퓨터에 대해 USB 리디렉션 사용
 
@@ -88,7 +90,7 @@ RemoteApp에 연결하는 컴퓨터에서 USB 리디렉션을 사용하려는 �
 4. **사용**을 선택한 다음 **RemoteFX USB 리디렉션 액세스 권한의 관리자 및 사용자**를 선택합니다.
 5. 관리자 권한으로는 명령 프롬프트를 열고 다음 명령을 실행합니다. 
 
-    gpupdate /force
+		gpupdate /force
 6. 컴퓨터를 다시 시작합니다.
 
 그룹 정책 관리 도구를 사용하여 도메인의 모든 컴퓨터에 대한 USB 리디렉션 정책을 만들고 적용할 수도 있습니다.
@@ -102,4 +104,4 @@ RemoteApp에 연결하는 컴퓨터에서 USB 리디렉션을 사용하려는 �
 7. **사용**을 선택한 다음 **RemoteFX USB 리디렉션 액세스 권한의 관리자 및 사용자**를 선택합니다.
 8. **확인**을 클릭합니다.  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

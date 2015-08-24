@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
@@ -139,4 +139,4 @@ CDN 통합은 모든 Azure 데이터 센터, 미국 서부, 미국 동부, 북�
 [configure-origin-configure-custom-host-names]: ./media/media-services-manage-origins/media-services-configure-custom-host-names.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="작업 로그를 사용한 BizTalk 서비스 문제 해결 | Azure" 
+	pageTitle="작업 로그를 사용하여 BizTalk 서비스 문제 해결 | Microsoft Azure" 
 	description="작업 로그를 사용하여 BizTalk 서비스의 문제를 해결합니다. MABS, WABS" 
 	services="biztalk-services" 
 	documentationCenter="" 
@@ -67,4 +67,4 @@ PurgeBackupBizTalkService | 보존 기간이 지난 BizTalk 서비스의 백업�
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

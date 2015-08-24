@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="CDN 사용 방법 - Azure 기능 가이드" 
+	pageTitle="CDN을 사용하는 방법 | Microsoft Azure" 
 	description="Azure CDN(콘텐츠 배달 네트워크)을 사용하여 Blob 및 정적 콘텐츠를 캐시해 고대역폭 콘텐츠를 배달하는 방법을 알아봅니다." 
 	services="cdn" 
 	documentationCenter=".net" 
@@ -54,4 +54,4 @@ CDN에 캐시된 콘텐츠에 액세스하려면 포털에 제공된 CDN URL을 
 [Azure CDN(콘텐츠 배달 네트워크) 개요](cdn-overview.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

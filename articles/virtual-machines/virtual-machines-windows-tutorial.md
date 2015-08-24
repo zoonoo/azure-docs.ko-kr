@@ -12,7 +12,7 @@
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
-	ms.topic="get-started-article"
+	ms.topic="hero-article"
 	ms.date="07/13/2015"
 	ms.author="kathydav"/>
 
@@ -99,6 +99,6 @@ VM을 만든 후에, 해당 VM에 로그인을 하여, 자체 설정 및 실행�
 ## 다음 단계
 
 * Azure PowerShell 및 Azure CLI를 사용하여 [VM 이미지를 찾아서 선택](resource-groups-vm-searching.md)합니다.
-* [Azure 리소스 관리자](virtual-machines-how-to-automate-azure-resource-manager.md) 및 [Azure 리소스 관리자 템플릿](http://azure.microsoft.com/documentation/templates/)을 사용하여 VM 및 작업 배포 및 관리를 자동화합니다.
+* [Azure 리소스 관리자](virtual-machines-how-to-automate-azure-resource-manager.md) 및 [Azure 리소스 관리자 템플릿](http://azure.microsoft.com/ko-kr/documentation/templates/)을 사용하여 VM 및 작업 배포 및 관리를 자동화합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

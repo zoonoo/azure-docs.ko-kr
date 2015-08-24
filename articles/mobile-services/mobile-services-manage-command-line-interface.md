@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="명령줄에서 모바일 서비스 관리 | Azure 모바일 서비스" 
+	pageTitle="명령줄에서 모바일 서비스 관리 | Microsoft Azure" 
 	description="명령줄 도구를 사용하여 Azure 모바일 서비스를 만들고, 배포하고, 관리하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="Mobile" 
@@ -184,4 +184,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

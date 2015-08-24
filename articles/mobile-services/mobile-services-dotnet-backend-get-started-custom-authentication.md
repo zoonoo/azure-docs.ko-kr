@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="사용자 지정 인증 시작(Android) | 모바일 개발자 센터" 
+	pageTitle="사용자 지정 인증 시작 | Microsoft Azure" 
 	description="사용자 이름 및 암호를 사용하여 사용자를 인증하는 방법에 대해 알아봅니다." 
 	documentationCenter="Mobile" 
 	authors="mattchenderson" 
@@ -420,4 +420,4 @@
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

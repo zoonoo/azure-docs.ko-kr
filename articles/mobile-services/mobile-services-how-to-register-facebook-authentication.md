@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Facebook 인증 등록 - 모바일 서비스" 
+	pageTitle="Facebook 인증 등록 | Microsoft Azure" 
 	description="Azure 모바일 서비스 앱에서 Facebook 인증을 사용하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -73,4 +73,4 @@
 [Azure 모바일 서비스]: http://azure.microsoft.com/services/mobile-services/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

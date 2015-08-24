@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 
@@ -97,4 +97,4 @@ Microsoft Azure 미디어 서비스를 사용하여 많은 미디어 소스 파�
 - Dolby Digital Plus mp4 파일
 - Dolby Digital Plus 부드러운 파일. 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

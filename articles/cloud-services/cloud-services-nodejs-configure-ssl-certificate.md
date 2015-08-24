@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="클라우드 서비스에 대해 SSL 구성(Node.js) - Azure" 
+	pageTitle="클라우드 서비스에 대해 SSL 구성(Node.js) | Microsoft Azure" 
 	description="Node.js 웹 역할에 대해 HTTPS 끝점을 설정하고 응용 프로그램 보안을 위해 SSL 인증서를 업로드합니다." 
 	services="cloud-services" 
 	documentationCenter="nodejs" 
@@ -192,4 +192,4 @@ SSL 인증서를 가져오려면 다음 단계를 따르세요.
   [Azure 작업자 역할에서 Node.js 응용 프로그램에 대한 SSL 구성]: /develop/nodejs/common-tasks/enable-ssl-worker-role/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

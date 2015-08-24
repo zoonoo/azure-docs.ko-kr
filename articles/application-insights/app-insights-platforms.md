@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="07/22/2015" 
+	ms.date="08/05/2015" 
 	ms.author="awills"/>
  
 # Application Insights: 플랫폼
@@ -25,8 +25,9 @@
 + [C#|VB (.NET)](app-insights-start-monitoring-app-health-usage.md)
 + [C#|VB (Windows 스토어)](app-insights-windows-get-started.md)
 + [C++ (Windows 스토어)](app-insights-windows-cpp.md)
-+ [Java](../app-insights-java-get-started.md)
++ [Java](app-insights-java-get-started.md)
 + [JavaScript 웹 페이지](app-insights-web-track-usage.md)
++ [Objective-C](app-insights-ios.md)
 + [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 + [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 + [Ruby](https://rubygems.org/gems/application_insights) 
@@ -34,22 +35,25 @@
 
 ## 플랫폼
 
++ [Angular](https://www.npmjs.com/package/angular-applicationinsights)
 + [ASP.NET](app-insights-start-monitoring-app-health-usage.md)
++ [ASP.NET - 이미 라이브 상태](app-insights-monitor-performance-live-website-now.md)
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [Azure 웹 앱 및 VM](../insights-perf-analytics.md)
 + 웹 및 작업자 역할 모두를 포함하는 [Azure 클라우드 서비스](app-insights-cloudservices.md)
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
-+ [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
-+ [Angular](https://www.npmjs.com/package/angular-applicationinsights)
++ [J2EE](app-insights-java-get-started.md)
++ [J2EE - 이미 라이브 상태](app-insights-java-live.md)
++ [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
 + [Microsoft CRM](app-insights-sample-mscrm.md)
 + [Node.JS](https://www.npmjs.com/package/applicationinsights)
-+ [Joomla](https://github.com/fidmor89/AppInsights-Joomla)
++ [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 + [SharePoint](app-insights-sharepoint.md)
-+ [WordPress](https://wordpress.org/plugins/application-insights/)
 + [Windows 스토어 C#|VB](app-insights-windows-get-started.md)
 + [Windows 스토어 C++](app-insights-windows-cpp.md)
 + [응용 프로그램 및 서비스 보기](app-insights-windows-desktop.md)
++ [WordPress](https://wordpress.org/plugins/application-insights/)
 + [다른 항목](#projects)
 
 
@@ -73,4 +77,4 @@
 
 <!--Link references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

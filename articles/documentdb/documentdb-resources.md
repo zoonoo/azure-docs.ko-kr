@@ -32,7 +32,7 @@ DocumentDB에서 관리하는 데이터베이스 엔터티를 **리소스**라�
 ##계층적 리소스 모델
 다음 다이어그램에 표시된 대로, DocumentDB의 **리소스 모델**은 단일 데이터베이스 계정 아래에 있고 각각 논리적이고 안정적인 URI를 통해 주소 지정이 가능한 리소스 집합으로 구성됩니다. 이 문서에서는 리소스 집합을 **피드**라고 합니다.
 
->[AZURE.NOTE] DocumentDB는 통신 모델이 RESTful이며 [.NET 클라이언트 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)를 통해 사용할 수 있는 효율성 높은 TCP 프로토콜을 제공합니다.
+>[AZURE.NOTE]DocumentDB는 통신 모델이 RESTful이며 [.NET 클라이언트 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)를 통해 사용할 수 있는 효율성 높은 TCP 프로토콜을 제공합니다.
 
 ![][1]  
 **단일 데이터베이스 계정 아래의 계층적 리소스 모델**
@@ -59,46 +59,9 @@ DocumentDB에서 관리하는 데이터베이스 엔터티를 **리소스**라�
 >[AZURE.NOTE] JSON 표현에서는 리소스의 모든 시스템 생성 속성 앞에 밑줄(_)이 추가됩니다.
 
 
-<table width="500"> 
-<tbody>
-<tr>
-<td valign="top" ><p><b>속성</b></p></td>
-<td valign="top" ><p><b>사용자 설정 가능 또는 시스템 생성?</b></p></td>
-<td valign="top" ><p><b>용도</b></p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_rid</p></td>
-<td valign="top" ><p>시스템 생성</p></td>
-<td valign="top" ><p>시스템에서 생성된 고유 및 계층적 리소스 식별자</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_etag</p></td>
-<td valign="top" ><p>시스템 생성</p></td>
-<td valign="top" ><p>낙관적 동시성 제어에 필요한 리소스의 etag</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_ts</p></td>
-<td valign="top" ><p>시스템 생성</p></td>
-<td valign="top" ><p>리소스의 마지막 업데이트 타임스탬프</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>_self</p></td>
-<td valign="top" ><p>시스템 생성</p></td>
-<td valign="top" ><p>리소스의 고유한 주소 지정 가능 URI</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>id</p></td>
-<td valign="top" ><p>사용자 설정 가능</p></td>
-<td valign="top" ><p>리소스의 고유한 사용자 정의 이름</p></td>
-</tr>
-
-</tbody>
-</table>
+속성 |사용자 설정 가능 또는 시스템 생성?|목적
+---|---|---
+_\_rid|시스템 생성|시스템에서 생성된 고유 및 계층적 리소스 식별자. \_etag|시스템 생성|낙관적 동시성 제어에 필요한 리소스의 etag. \_ts|시스템 생성|리소스의 마지막으로 업데이트한 날짜 타임스탬프. \_self|시스템 생성|리소스의 주소 지정 가능한 고유 URI. id|사용자 설정 가능|리소스의 고유한 사용자 정의 이름.
 
 ###리소스의 네트워크 표현
 DocumentDB는 JSON 표준 또는 특수 인코딩에 대한 소유 확장을 위임하지 않습니다. 표준 규격 JSON 문서로 작동합니다.
@@ -131,37 +94,12 @@ Azure 포털([http://portal.azure.com/](http://portal.azure.com/))을 통해 [Do
 ###데이터베이스 계정 속성
 데이터베이스 계정 프로비전 및 관리의 일부로 다음 속성을 구성하고 읽을 수 있습니다.
 
-<table border="1" cellspacing="0" cellpadding="0" > 
-<tbody>
-<tr>
-<td valign="top" ><p><b>속성 이름</b></p></td>
-<td valign="top" ><p><b>설명</b></p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>일관성 정책</p></td>
-<td valign="top" ><p>데이터베이스 계정 아래의 모든 컬렉션에 대한 기본 일관성 수준을 구성하려면 이 속성을 설정합니다. [[x-ms-consistency-level] 요청 헤더를 사용하여 요청 단위로 일관성 수준을 재정의할 수 있습니다. 앞으로 컬렉션 단위의 일관성 수준 재정의를 지원할 수도 있습니다. </p>
-
-<p>이 속성은 <i>사용자 정의 리소스</i>에만 적용됩니다. 모든 시스템 정의 리소스는 강력한 일관성으로 읽기/쿼리를 지원하도록 구성됩니다.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>기본 키 및 보조 키</p></td>
-<td valign="top" ><p>이러한 키는 데이터베이스 계정 아래의 모든 리소스에 대한 관리 액세스 권한을 제공하는 기본 키 및 보조 키입니다.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>MaxMediaStorageUsageInMB(READ)</p></td>
-<td valign="top" ><p>데이터베이스 계정에 사용할 수 있는 최대 미디어 저장소 크기입니다.</p></td>
-</tr>
-
-<tr>
-<td valign="top" ><p>MediaStorageUsageInMB(READ)</p></td>
-<td valign="top" ><p>데이터베이스 계정에 대한 현재 미디어 저장소 사용입니다.</p></td>
-</tr>
-
-</tbody>
-</table>
+속성 이름|설명
+---|---
+일관성 정책|데이터베이스 계정 아래의 모든 컬렉션에 대한 기본 일관성 수준을 구성하려면 이 속성을 설정합니다. [[x-ms-consistency-level] 요청 헤더를 사용하여 요청 단위로 일관성 수준을 재정의할 수 있습니다. 앞으로 컬렉션 단위의 일관성 수준 재정의를 지원할 수도 있습니다. <p><p>이 속성은 <i>사용자 정의 리소스</i>에만 적용됩니다. 모든 시스템 정의 리소스는 강력한 일관성으로 읽기/쿼리를 지원하도록 구성됩니다.
+기본 키 및 보조 키|이러한 키는 데이터베이스 계정 아래의 모든 리소스에 대한 관리 액세스 권한을 제공하는 기본 키 및 보조 키입니다.
+MaxMediaStorageUsageInMB(READ)|데이터베이스 계정에 사용할 수 있는 최대 미디어 저장소 크기입니다.
+MediaStorageUsageInMB(READ)|데이터베이스 계정에 대한 현재 미디어 저장소 사용입니다.
 
 Azure 포털에서 데이터베이스 계정을 프로비전, 구성 및 관리하는 것뿐 아니라 [Azure DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 및 [클라이언트 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)를 통해 프로그래밍 방식으로 DocumentDB 데이터베이스 계정을 만들고 관리할 수도 있습니다.
 
@@ -471,4 +409,4 @@ DocumentDB 사용자는 사용 권한 그룹화를 위한 논리적 네임스페
 [3]: media/documentdb-resources/resources3.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

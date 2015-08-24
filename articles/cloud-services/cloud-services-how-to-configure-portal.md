@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="클라우드 서비스를 구성하는 방법 - Azure" 
+	pageTitle="클라우드 서비스를 구성하는 방법 | Microsoft Azure" 
 	description="Azure에서 클라우드 서비스를 구성하는 방법에 대해 알아봅니다. 또한 클라우드 서비스 구성을 업데이트하고 역할 인스턴스에 대한 원격 액세스를 구성하는 방법도 알아봅니다." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -89,4 +89,4 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 			
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,62 +1,48 @@
-<properties 
-   pageTitle="Storsimple SAS cabling for 8600 | Microsoft Azure"
-   description="Explains how to turn on attach the SAS cables to the StorSimple 8600 device."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/06/2015"
-   ms.author="alkohli" />
 
-#### To attach the SAS cables
+#### SAS 케이블을 연결하려면
 
-1. Identify the primary and the EBOD enclosures. The two enclosures can be identified by looking at their respective back planes. See the following image for guidance. 
+1. 기본 인클로저와 EBOD 인클로저를 찾아냅니다. 두 엔클로저는 해당 백플레인을 보고 식별할 수 있습니다. 지침은 다음 이미지를 참조하세요. 
 
-    ![Back plane of primary and EBOD enclosures](./media/storsimple-sas-cable-8600/HCSBackplaneofprimaryandEBODenclosure.png)
+    ![기본 엔클로저 및 EBOD 엔클로저 백플레인](./media/storsimple-sas-cable-8600/HCSBackplaneofprimaryandEBODenclosure.png)
 
-    **Back view of primary and EBOD enclosures**
+    **기본 엔클로저 및 EBOD 엔클로저의 뒷면 보기**
 
-    |Label|Description|
+    |레이블|설명|
     |:----|:----------|
-    |1|Primary enclosure|
-    |2|EBOD enclosure|
+    |1|기본 인클로저|
+    |2|EBOD 인클로저|
 
-2. Locate the serial numbers on the primary and the EBOD enclosures. The serial number sticker is affixed to the back ear of each enclosure. The serial numbers must be identical on both enclosures. [Contact Microsoft Support](storsimple-contact-microsoft-support.md) immediately if the serial numbers do not match. See the following illustration to locate the serial numbers.
+2. 기본 엔클로저 및 EBOD 엔클로저에서 일련번호를 찾습니다. 일련 번호 스티커는 각 엔클로저의 뒷면 귀에 붙어 있습니다. 일련 번호는 두 인클로저 모두에서 동일해야 합니다. 일련 번호가 일치하지 않으면 즉시 [ Microsoft 지원팀에 문의](storsimple-contact-microsoft-support.md)하세요. 다음 그림을 참조하여 일련 번호를 찾습니다.
 
-    ![Rear view of enclosure showing serial number](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
+    ![일련 번호가 표시된 엔클로저의 뒷면 보기](./media/storsimple-sas-cable-8600/HCSRearviewofenclosureindicatinglocationofserialnumbersticker.png)
 
-    **Location of serial number sticker**
+    **일련 번호 스티커의 위치**
 
-    |Label|Description|
+    |레이블|설명|
     |:----|:----------|
-    |1|Ear of the enclosure|
+    |1|인클로저의 귀|
 
-3. Use the provided SAS cables to connect the EBOD enclosure to the primary enclosure as follows:
+3. 제공된 SAS 케이블을 사용하여 다음과 같이 EBOD 엔클로저를 기본 엔클로저에 연결합니다.
 
-    1. Identify the four SAS ports on the primary enclosure and the EBOD enclosure. The SAS ports are labeled as EBOD on the primary enclosure and CTRL on the EBOD enclosure, as shown in the SAS cabling illustration, below.
+    1. 기본 엔클로저 및 EBOD 엔클로저에서 4개의 SAS 포트를 식별합니다. SAS 포트는 아래 SAS 케이블 연결 그림에 표시된 것처럼 기본 엔클로저에서는 EBOD로, EBOD 엔클로저에서는 CTRL로 레이블이 지정되어 있습니다.
 
-    2. Use the provided SAS cables to connect the EBOD ports to the CTRL ports.
+    2. 제공된 SAS 케이블을 사용하여 EBOD 포트를 CTRL 포트에 연결합니다.
 
-    3. The EBOD port on controller 0 should be connected to the CTRL port on EBOD controller 0. The EBOD port on controller 1 should be connected to the CTRL port on EBOD controller 1. See the following illustration for guidance. 
+    3. 컨트롤러 0 위의 EBOD 포트를 EBOD 컨트롤러 0 위의 CTRL 포트에 연결해야 합니다. 컨트롤러 1 위의 EBOD 포트를 EBOD 컨트롤러 1 위의 CTRL 포트에 연결해야 합니다. 지침은 다음 그림을 참조하세요.
 																	
-     ![SAS cabling for your device](./media/storsimple-sas-cable-8600/HCSSAScablingforyourdevice.png)
+     ![장치에 대한 SAS 케이블 연결](./media/storsimple-sas-cable-8600/HCSSAScablingforyourdevice.png)
 
-     **SAS cabling**
+     **SAS 케이블 연결**
 
-    |Label|Description|
+    |레이블|설명|
     |:----|:----------|
-    |A|Primary enclosure|
-    |B|EBOD enclosure|
-    |1|Controller 0|
-    |2|Controller 1|
-    |3|EBOD Controller 0|
-    |4|EBOD Controller 1|
-    |5, 6|SAS ports on primary enclosure (labeled EBOD)|
-    |7, 8|SAS ports on EBOD enclosure (labeled CTRL)|
+    |문자열(UTF-8 형식) 또는|기본 인클로저|
+    |B|EBOD 인클로저|
+    |1|컨트롤러 0|
+    |2|컨트롤러 1|
+    |3|EBOD 컨트롤러 0|
+    |4|EBOD 컨트롤러 1|
+    |5, 6|기본 인클로저(EBOD 레이블)에서 SAS 포트|
+    |7, 8|EBOD 인클로저(CTRL 레이블)에서 SAS 포트|
+
+<!---HONumber=August15_HO7-->

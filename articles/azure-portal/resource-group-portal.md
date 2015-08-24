@@ -3,7 +3,7 @@
 	description="여러 리소스를 포함된 리소스에 대한 수명 주기 경계 역할을 하는 논리 그룹으로 그룹화합니다." 
 	services="azure-portal" 
 	documentationCenter="" 
-	authors="" 
+	authors="tfitzmac" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -75,4 +75,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

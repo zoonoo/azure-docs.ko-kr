@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -23,7 +23,7 @@
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
-- 
+
 ##개요
 
 이 자습서에서는 단일 비트 전송률 라이브 스트림을 받아서 다중 비트 전송률 스트림으로 인코딩하는 **채널**을 만드는 단계를 안내합니다.
@@ -79,6 +79,8 @@
 1. 슬레이트를 표시하고 숨깁니다. 광고를 시작하고 중지합니다. 오래 실행되는 API가 사용됩니다.
 1. 채널과 모든 연결된 리소스를 정리합니다.
 
+>[AZURE.NOTE]이 기능은 미리 보기로 제공되지만 라이브 이벤트의 최대 권장 기간은 8시간입니다.
+>
 ##필수 조건
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
@@ -501,4 +503,4 @@ app.config 파일에 appSettings 섹션을 추가하고 미디어 서비스 계�
 [단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 작업](media-services-manage-live-encoder-enabled-channels.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

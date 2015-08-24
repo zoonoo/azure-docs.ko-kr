@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="07/16/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
@@ -123,4 +123,4 @@ Outlook에서 "캐시" 모드를 사용하고 검색을 위해 "서버/온라인
 
 아니요, Azure RemoteApp에서 지원되지 않습니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 #Azure 미디어 서비스를 사용하여 라이브 인코딩을 수행할 수 있는 채널 작업(미리 보기)
@@ -505,4 +505,4 @@ Azure 미디어 서비스에 프로그래밍 방식으로 연결할 **.NET** 또
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

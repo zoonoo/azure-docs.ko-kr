@@ -11,7 +11,7 @@
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
-	ms.topic="hero-article" 
+	ms.topic="article" 
 	ms.date="08/04/2015" 
 	ms.author="awills"/>
 
@@ -48,7 +48,7 @@ Application Insights는 앱에 SDK를 추가하여 작동하며, [Azure 포털](
 
 * 질문 및 문제:
  * [문제 해결][qna]
- * [MSDN 포럼](https://social.msdn.microsoft.com/Forums/vstudio/ko-kr/home?forum=ApplicationInsights)
+ * [MSDN 포럼](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * 버그:
  * [연결](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -74,4 +74,4 @@ Application Insights는 앱에 SDK를 추가하여 작동하며, [Azure 포털](
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -6,8 +6,7 @@
    authors="Jim-Parker"
    manager="shreeshd"
    editor=""/>
-<tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>  
-
+<tags ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="08/11/2015" ms.author="jimpark"; "aashishr"/>
 
 # 자격 증명 모음 자격 증명을 사용하여 Azure 백업 서비스 인증
 온-프레미스 서버(Windows 클라이언트 또는 Windows Server 또는 SCDPM 서버)는 백업 자격 증명 모음을 인증해야 Azure에 데이터를 백업할 수 있습니다. 인증은 "자격 증명 모음 자격 증명"을 사용하여 수행됩니다. 자격 증명 모음 자격 증명의 개념은 Azure PowerShell에서 사용되는 "게시 설정" 파일의 개념과 비슷합니다.
@@ -33,7 +32,6 @@
 5.  포털에서는 저장소 이름과 현재 날짜를 조합하여 저자격 증명 모음 자격 증명을 생성합니다. **저장**을 클릭하여 자격 증명 모음 자격 증명을 로컬 계정의 다운로드 폴더로 다운로드하거나, 저장 메뉴에서 다른 이름으로 저장을 선택하여 자격 증명 모음 자격 증명을 저장할 위치를 지정합니다.
 
 ## 참고 사항
-- 2015년 3월부터 사용자는 프로그래밍 방식(예: PowerShell)으로 자격 증명 모음 자격 증명을 다운로드할 수 없습니다.
 - 자격 증명 모음 자격 증명이 컴퓨터에서 액세스할 수 있는 위치에 저장되었는지 확인하세요. 파일 공유/SMB에 저장된 경우 액세스 권한을 확인합니다.
 - 자격 증명 모음 자격 증명 파일은 등록 워크플로 중에만 사용됩니다.
 - 자격 증명 모음 자격 증명 파일은 48시간 후에 만료되고, 만료된 후에는 포털에서 다운로드할 수 있습니다.
@@ -42,4 +40,4 @@
 ## 다음 단계
 [Azure 백업 에이전트 다운로드, 등록 및 설치](backup-azure-backup-download-register)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

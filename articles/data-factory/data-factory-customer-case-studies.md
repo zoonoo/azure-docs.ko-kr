@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="고객 사례 연구 | Azure 데이터 팩터리" 
+	pageTitle="고객 사례 연구 | Microsoft Azure" 
 	description="고객들이 Azure 데이터 팩터리를 어떻게 사용하고 있는지 알아봅니다." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -48,4 +48,4 @@
 
 [클라우드 기계 학습을 통한 고객 파악으로 관계 개선](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -19,7 +19,7 @@
 
 # 리소스 관리자 템플릿을 사용하여 Windows 가상 컴퓨터 만들기
 
-Azure PowerShell 또는 Azure CLI와 함께 리소스 관리자 템플릿을 사용하여 새 Windows 기반 Azure VM(가상 컴퓨터)을 쉽게 만들 수 있습니다. 이 템플릿은 새 리소스 그룹에 단일 서브넷이 있는 새 가상 네트워크에서 Windows를 실행하는 단일 가상 컴퓨터를 만듭니다.
+Azure PowerShell 또는 Azure CLI와 함께 리소스 관리자 템플릿을 사용하여 새 Windows 기반 Azure 가상 컴퓨터를 쉽게 만들 수 있습니다. 이 템플릿은 새 리소스 그룹에 단일 서브넷이 있는 새 가상 네트워크에서 Windows를 실행하는 단일 가상 컴퓨터를 만듭니다.
 
 ![](./media/virtual-machines-create-windows-powershell-resource-manager-template/windowsvm.png)
 
@@ -29,9 +29,9 @@ Azure PowerShell 또는 Azure CLI와 함께 리소스 관리자 템플릿을 사
 
 [AZURE.INCLUDE [xplat-getting-set-up-arm](../../includes/xplat-getting-set-up-arm.md)]
 
-## Azure PowerShell을 사용하여 리소스 관리자 템플릿으로 Windows VM 만들기
+## 리소스 관리자 템플릿 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기
 
-Azure PowerShell과 Github 템플릿 리포지토리의 리소스 관리자 템플릿을 사용하여 Windows VM을 만들려면 다음 단계를 수행하세요.
+Azure PowerShell과 Github 템플릿 리포지토리의 리소스 관리자 템플릿을 사용하여 Windows 가상 컴퓨터를 만들려면 다음 단계를 수행하세요.
 
 ### 1단계: JSON 파일에서 템플릿 검사
 
@@ -75,7 +75,7 @@ Azure PowerShell과 Github 템플릿 리포지토리의 리소스 관리자 템�
                 "Windows-Server-Technical-Preview"
             ],
             "metadata": {
-                "Description": "The Windows version for the VM. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter, Windows-Server-Technical-Preview."
+                "Description": "The Windows version for the virtual machine. This will pick a fully patched image of this given Windows version. Allowed values: 2008-R2-SP1, 2012-Datacenter, 2012-R2-Datacenter, Windows-Server-Technical-Preview."
             }
         }
     },
@@ -276,9 +276,9 @@ Azure 배포 이름, 리소스 그룹 이름 및 Azure 데이터 센터 위치�
 
 이제 새 리소스 그룹에 MyWindowsVM이라는 새 Windows 가상 컴퓨터가 생성되었습니다.
 
-## Azure CLI를 사용하여 리소스 관리자 템플릿으로 Windows VM 만들기
+## 리소스 관리자 템플릿 및 Azure CLI를 사용하여 Windows 가상 컴퓨터 만들기
 
-Azure CLI 명령과 Github 템플릿 리포지토리의 리소스 관리자 템플릿을 사용하여 Windows VM을 만들려면 다음 단계를 수행하세요.
+Azure CLI 명령과 Github 템플릿 리포지토리의 리소스 관리자 템플릿을 사용하여 Windows 가상 컴퓨터를 만들려면 다음 단계를 수행하세요.
 
 리소스 그룹 이름 및 Azure 위치(예: 미국 서부의 경우 westus)를 입력하고 괄호를 제거한 후 다음 명령을 실행합니다.
 
@@ -321,7 +321,7 @@ Azure CLI 명령과 Github 템플릿 리포지토리의 리소스 관리자 템�
 
 ## 추가 리소스
 
-[Azure 리소스 관리자의 Azure 계산, 네트워크 및 저장소 공급자](virtual-machines-azurerm-versus-azuresm.md)
+[Azure 리소스 관리자에 통합된 Azure 계산, 네트워크 및 저장소 공급자](virtual-machines-azurerm-versus-azuresm.md)
 
 [Azure 리소스 관리자 개요](resource-group-overview.md)
 
@@ -333,4 +333,4 @@ Azure CLI 명령과 Github 템플릿 리포지토리의 리소스 관리자 템�
 
 [Azure PowerShell을 설치 및 구성하는 방법](install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

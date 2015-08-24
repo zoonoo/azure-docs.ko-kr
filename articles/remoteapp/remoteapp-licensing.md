@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="05/28/2015" 
+    ms.date="08/12/2015" 
     ms.author="elizapo" />
 
 
@@ -22,6 +22,8 @@
 이제 Azure RemoteApp 서비스를 설정하고 템플릿을 만들었으며 사용자에게 앱을 게시할 준비가 되었습니다. 하지만 마지막으로 확인해야 할 사항이 있습니다. 바로 라이선스입니다. RemoteApp 및 RemoteApp을 통해 공유하는 앱에 대해 라이선스는 어떻게 작동하나요?
 
 RemoteApp에는 Windows 라이선스 또는 원격 데스크톱 CAL이 필요하지 않습니다. 구독은 RemoteApp 쪽 자체를 담당합니다. ([가격 계획](../../../pricing/details/remoteapp/)의 세부 정보를 확인하세요.)
+
+구독에 포함된 이미지 중 하나를 사용하는 경우 별도의 라이선스 없이 해당 이미지에 설치된 모든 앱을 공유할 수 있습니다. 예를 들어 Windows Server 2012 R2 템플릿 이미지를 사용하여 컬렉션을 빌드하는 경우 System Center Endpoint Protection을 사용자와 공유할 수 있습니다. 이 규칙에 대한 유일한 예외는 Office 365 ProPlus의 경우 별도 구독이 필요하고 Office 2013의 경우 프로덕션 컬렉션에서 공유할 수 없다는 점입니다.
 
 Azure RemoteApp과 함께 제공된 Office 365 템플릿 이미지를 사용하려면 *기존* Office 365 ProPlus 계획이 있어야 합니다. 사용자 지정 템플릿을 사용하여 게시하는 Office 365 앱의 경우도 마찬가지입니다. 소유한 구독으로 앱을 활성화해야 합니다. 이 내용은 평가판 및 유료 구독 둘 다에 적용됩니다. 평가판 사용 중 Office 365 템플릿 이미지를 사용하려는 경우 *구독이 아직 없으면* Office 365 페이지로 이동하여 평가판 구독을 [등록](https://go.microsoft.com/fwlink/p/?LinkID=403802)하세요. 자세한 내용은 [RemoteApp과 Office가 함께 작동하는 방식](remoteapp-o365.md)을 참조하세요.
 
@@ -34,4 +36,4 @@ Azure RemoteApp과 함께 제공된 Office 365 템플릿 이미지를 사용하�
 클라우드 컬렉션의 CAL 또는 볼륨 라이선스 계약은 사용할 수 없습니다. 볼륨 라이선스 계약을 사용하여 하이브리드 컬렉션의 응용 프로그램을 활성화할 *수 있습니다*(Office 제외). 볼륨 라이선스 미디어에서 해당 템플릿 이미지에 설치하면 됩니다. 응용 프로그램 공급업체의 정보에 따라 원격 데스크톱 환경에 라이선스를 설치하세요.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Android 모바일 서비스 앱에 오프라인 데이터 동기화 추가 | 모바일 개발자 센터"
+	pageTitle="Android 모바일 서비스 앱에 오프라인 데이터 동기화 추가 | Microsoft Azure"
 	description="Azure 모바일 서비스를 사용하여 Android 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법에 대해 알아봅니다."
 	documentationCenter="android"
 	authors="RickSaling"
@@ -221,4 +221,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [모바일 서비스 빠른 시작 자습서]: mobile-services-android-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="연결된 서비스 계산 | Azure 데이터 팩터리" 
+	pageTitle="연결된 서비스 계산 | Microsoft Azure" 
 	description="데이터의 변환/처리를 위해 Azure 데이터 팩터리 파이프라인에서 사용할 수 있는 계산 환경을 알아봅니다." 
 	services="data-factory" 
 	documentationCenter="" 
@@ -208,7 +208,7 @@ poolName | 가상 컴퓨터의 풀 이름입니다. | 예
 linkedServiceName | Azure 일괄 처리 연결된 서비스와 관련된 Azure 저장소 연결된 서비스의 이름입니다. 이 연결된 서비스는 활동을 실행하는 데 필요한 파일을 스테이징하고 활동 실행 로그를 저장하는 데 사용됩니다. | 예
 
 
-## Azure 일괄 처리 연결된 서비스
+## Azure 기계 학습 연결된 서비스
 
 Azure 컴퓨터 학습 연결된 서비스를 만들어 데이터 팩토리에 끝점을 매기는 기계 학습 일괄 처리를 등록합니다.
 
@@ -234,7 +234,9 @@ mlEndpoint | 일괄 처리 점수 매기기 URL입니다. | 예
 apiKey | 게시된 작업 영역 모델의 API입니다. | 예
 
 
+## Azure SQL 연결된 서비스
 
+Azure SQL 연결된 서비스를 만들고 [저장 프로시저 활동](data-factory-stored-proc-activity.md)에서 사용하여 Data Factory 파이프라인에서 저장 프로시저를 호출합니다. 이 연결된 서비스에 대한 자세한 내용은 [Azure SQL 커넥터](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) 문서를 참조하세요.
 
 
   
@@ -245,4 +247,4 @@ apiKey | 게시된 작업 영역 모델의 API입니다. | 예
  
    
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure 미디어 서비스 REST API 개요" 
+	pageTitle="미디어 서비스 REST API 개요 | Microsoft Azure" 
 	description="미디어 서비스 REST API 개요" 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,11 +13,13 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
 # 미디어 서비스 REST API 개요 
+
+[AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 Microsoft Azure 미디어 서비스는 OData 기반의 HTTP 요청을 허용하는 서비스이며 verbose JSON 또는 atom + pub 형식으로 다시 응답할 수 있습니다. 미디어 서비스는 Azure의 설계 지침을 따르기 때문에 미디어 서비스에 연결할 때 각 클라이언트가 사용해야 하는 필수 HTTP 헤더 집합뿐만 아니라 선택적 헤더로 사용할 수 있는 집합도 있습니다. 다음 섹션에서는 요청을 작성하고 미디어 서비스에서 응답을 수신할 때 사용할 수는 헤더 및 HTTP 동사를 설명합니다.
 
@@ -97,4 +99,4 @@ HEAD|GET 응답에 대한 개체의 메타데이터를 반환합니다.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

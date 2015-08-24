@@ -1,5 +1,5 @@
 <properties
-	pageTitle="커넥터 및 API 앱의 목록 | Azure"
+	pageTitle="커넥터 및 API 앱의 목록 | Microsoft Azure"
 	description="Azure 앱 서비스의 커넥터 및 API 앱 알아보기, 마이크로 서비스 아키텍처"
 	services="app-service\logic"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="08/09/2015"
 	ms.author="mandia"/>
 
 
@@ -86,11 +86,11 @@ MQ | Windows 운영 체제를 실행하는 IBM WebSphere MQ Server 버전 8, 온
 커넥터를 논리 앱의 내부에서 작업으로 사용할 수도 있습니다. 작업은 다음 실행에 사용되는 논리 앱 내에서 데이터를 조회하는 데 유용합니다. 예를 들어 주문을 처리할 때 고객에 대한 추가적인 내용은 SQL 데이터베이스에서 데이터를 조회할 필요가 있을 수 있습니다. 또는 대상 위치에서 데이터를 작성, 업데이트 또는 삭제해야 할 수 있습니다. 커넥터가 제공하는 작업을 사용하여 이를 수행할 수 있습니다. 작업은 해당 Swagger 메타데이터에 정의된 대로 API 앱의 작업에 매핑됩니다.
 
 ## 고유한 커넥터 및 API 앱 만들기
-[커넥터 및 API 앱 참조](http://aka.ms/appservicesconnectorreference)<br/> [Azure 앱 서비스 API 앱 트리거](../app-service-api/app-service-api-dotnet-triggers.md)<br/> [논리 앱 참조](https://msdn.microsoft.com/library/azure/dn948510.aspx)
+[커넥터 및 API 앱 참조](http://aka.ms/appservicesconnectorreference) [Azure 앱 서비스 API 앱 트리거](../app-service-api/app-service-api-dotnet-triggers.md) [논리 앱 참조](https://msdn.microsoft.com/library/azure/dn948510.aspx)
 
 
 ## 커넥터 및 API 앱에 대한 자세한 내용
 
-[커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)<br/> [Azure 앱 서비스에서 하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md)<br/> [기본 제공 API 앱 및 커넥터 관리 및 모니터링](app-service-logic-monitor-your-connectors.md)
+[커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md) [Azure 앱 서비스에서 하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md) [기본 제공 API 앱 및 커넥터 관리 및 모니터링](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

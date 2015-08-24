@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="유니버설 Windows 8.1 앱에 푸시 알림 보내기 | Azure 모바일 서비스" 
+	pageTitle="유니버설 Windows 8.1 앱에 푸시 알림 보내기 | Microsoft Azure" 
 	description="Azure 알림 허브를 사용하여 JavaScript 백 엔드 모바일 서비스에서 유니버설 Windows 8.1 앱에 푸시 알림을 보내는 방법을 알아봅니다." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -101,4 +101,4 @@
 [MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

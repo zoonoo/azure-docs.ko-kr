@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 
@@ -113,4 +113,4 @@ Chrome에서 castLabs 플레이어를 사용하여 HTML5 형식의 보호된 비
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

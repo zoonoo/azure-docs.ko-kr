@@ -24,12 +24,12 @@
 
 | **원본** | **싱크** |
 | ------ | ---- |
-| [Azure Blob](data-factory-azure-blob-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, 온-프레미스 SQL Server, IaaS의 SQL Server, Azure DocumentDB |
+| [Azure Blob](data-factory-azure-blob-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, 온-프레미스 SQL Server, IaaS의 SQL Server, Azure DocumentDB, 온-프레미스 파일 시스템 |
 | [Azure 테이블](data-factory-azure-table-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, 온-프레미스 SQL Server, IaaS의 SQL Server, Azure DocumentDB |
 | [Azure SQL 데이터베이스](data-factory-azure-sql-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, 온-프레미스 SQL Server, IaaS의 SQL Server, Azure DocumentDB |
 | [Azure DocumentDB](data-factory-azure-documentdb-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스 |
 | [IaaS의 SQL Server](data-factory-sqlserver-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, 온-프레미스 SQL Server, IaaS의 SQL Server |
-| [온-프레미스 파일 시스템](data-factory-onprem-file-system-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, 온-프레미스 SQL Server, IaaS의 SQL Server |
+| [온-프레미스 파일 시스템](data-factory-onprem-file-system-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, 온-프레미스 SQL Server, IaaS의 SQL Server, 온-프레미스 파일 시스템 |
 | [온-프레미스 SQL Server](data-factory-sqlserver-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, 온-프레미스 SQL Server, IaaS의 SQL Server |
 | [온-프레미스 Oracle 데이터베이스](data-factory-onprem-oracle-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, 온-프레미스 SQL Server, IaaS의 SQL Server |
 | [온-프레미스 MySQL 데이터베이스](data-factory-onprem-mysql-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, 온-프레미스 SQL Server, IaaS의 SQL Server |
@@ -93,4 +93,4 @@
 
 복사 작업의 경우 **typeProperties** 섹션은 원본 및 싱크의 형식에 따라 달라집니다. 각 페이지에 특정 데이터 저장소의 위에 나열 된 문서 이러한 속성을 데이터 저장소 형식에 따라 다릅니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

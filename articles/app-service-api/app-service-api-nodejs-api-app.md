@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="get-started-article"
-	ms.date="04/21/2015"
+	ms.date="08/11/2015"
 	ms.author="pakefali"/>
 
 # Azure 앱 서비스에서 Node.js API 앱 빌드 및 배포
@@ -245,4 +245,4 @@ API 앱 백 엔드를 사용하는 Node.js 웹 응용 프로그램을 Azure에 �
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="기존 앱에 모바일 서비스 추가(Xamarin.iOS) | Azure 모바일 서비스"
+	pageTitle="기존 앱에 모바일 서비스 추가(Xamarin.iOS) | Microsoft Azure"
 	description="Azure 모바일 서비스 Xamarin.iOS 앱에서 데이터를 저장하고 액세스하는 방법에 대해 알아봅니다."
 	documentationCenter="xamarin"
 	authors="ggailey777"
@@ -242,4 +242,4 @@
 [Xamarin.iOS]: http://xamarin.com/download
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

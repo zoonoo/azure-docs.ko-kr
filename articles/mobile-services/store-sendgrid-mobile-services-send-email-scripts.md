@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="SendGrid를 사용하여 메일 보내기 - Azure 모바일 서비스" 
+	pageTitle="SendGrid를 사용하여 전자 메일 보내기| Microsoft Azure" 
 	description="SendGrid 서비스를 사용하여 Azure 모바일 서비스 앱에서 전자 메일을 보내는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -136,4 +136,4 @@ SendGrid 전자 메일 서비스를 모바일 서비스와 함께 쉽게 사용�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,13 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/13/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
 # 미디어 서비스 REST API를 사용하여 미디어 서비스 계정에 연결
 
-이 문서는 [미디어 서비스 주문형 비디오 워크플로](media-services-video-on-demand-workflow.md) 및 [미디어 서비스 라이브 스트리밍 워크플로](media-services-live-streaming-workflow.md) 시리즈의 일부입니다.
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-connect_programmatically.md)
+- [REST](media-services-rest-connect_programmatically.md)
 
 이 항목에서는 미디어 서비스 REST API로 프로그래밍할 때 Microsoft Azure 미디어 서비스에 대 한 프로그래밍 방식의 연결을 가져오는 방법을 설명 합니다.
 
@@ -167,4 +169,4 @@ REST API를 통해 바로 미디어 서비스에 액세스하려면 ACS에서 �
 
 <!-- URLs. -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

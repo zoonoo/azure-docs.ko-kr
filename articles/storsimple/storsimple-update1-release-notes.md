@@ -3,7 +3,7 @@
     description="StorSimple 8000 시리즈 업데이트 1에 대한 새로운 기능, 문제 및 해결 방법을 설명합니다."
     services="storsimple"
     documentationCenter="NA"
-    authors="SharS"
+    authors="alkohli"
     manager="adinah"
     editor="tysonn" />
  <tags 
@@ -12,8 +12,8 @@
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="07/15/2015"
-    ms.author="v-sharos" />
+    ms.date="08/12/2015"
+    ms.author="alkohli" />
 
 # StorSimple 8000 시리즈 업데이트 1 릴리스 정보  
 
@@ -115,4 +115,4 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 - [장치에 업데이트 1 설치](storsimple-install-update-1.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

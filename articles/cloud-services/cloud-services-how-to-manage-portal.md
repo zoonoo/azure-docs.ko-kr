@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="클라우드 서비스를 관리하는 방법 - Azure" 
+	pageTitle="클라우드 서비스를 관리하는 방법 | Microsoft Azure" 
 	description="Azure Preview 포털에서 클라우드 서비스를 관리하는 방법에 대해 알아봅니다." 
 	services="cloud-services" 
 	documentationCenter="" 
@@ -106,4 +106,4 @@ Azure Preview 포털에서는 현재 Azure 포털에서와 같이 리소스를 �
 
 [Azure Preview 포털]: https://portal.azure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

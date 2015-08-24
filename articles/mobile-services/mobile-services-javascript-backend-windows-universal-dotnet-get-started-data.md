@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="기존 범용 Windows 앱에 모바일 서비스 추가 | Azure 모바일 서비스" 
+	pageTitle="기존 범용 Windows 앱에 모바일 서비스 추가 | Microsoft Azure" 
 	description="기존 범용 Windows 앱을 Azure 모바일 서비스에 연결하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -114,4 +114,4 @@
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

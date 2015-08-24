@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="모바일 서비스에서 오프라인 데이터 사용(Windows Phone) | 모바일 개발자 센터" 
+	pageTitle="모바일 서비스에서 오프라인 데이터 사용(Windows Phone) | Microsoft Azure" 
 	description="Azure 모바일 서비스를 사용하여 Windows Phone 응용 프로그램에서 오프라인 데이터를 동기화하는 방법에 대해 알아봅니다." 
 	documentationCenter="mobile-services" 
 	authors="lindydonna" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.date="08/08/2015" 
 	ms.author="wesmc;donnam"/>
 
 # 모바일 서비스에서 오프라인 데이터 사용
@@ -245,8 +245,6 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 
 ##요약
 
-##요약
-
 [AZURE.INCLUDE [mobile-services-offline-summary-csharp](../../includes/mobile-services-offline-summary-csharp.md)]
 
 ## 다음 단계
@@ -291,4 +289,4 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

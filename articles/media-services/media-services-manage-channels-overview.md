@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="05/23/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널 작업
@@ -330,4 +330,4 @@ Azure 미디어 서비스에 프로그래밍 방식으로 연결할 **.NET** 또
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

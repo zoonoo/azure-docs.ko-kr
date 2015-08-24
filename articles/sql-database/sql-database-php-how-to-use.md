@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="SQL 데이터베이스(PHP)를 사용하는 방법 -Azure 기능 가이드" 
+	pageTitle="SQL 데이터베이스를 사용하는 방법(PHP) | Microsoft Azure" 
 	description="PHP에서 Azure SQL 데이터베이스를 만들고 연결하는 방법에 대해 알아봅니다." 
 	services="sql-database" 
 	documentationCenter="php" 
@@ -20,14 +20,14 @@
 
 ## 개요
 
-이 가이드에서는 PHP에서 SQL 데이터베이스를 사용하는 방법의 기본 사항을 보여 줍니다. 샘플은 PHP로 작성되었습니다. **SQL 데이터베이스 만들기** 및 **SQL 데이터베이스에 연결** 시나리오를 다룹니다. 이 가이드에서는 [관리 포털][management-portal]에서 SQL 데이터베이스를 만듭니다. 프로덕션 포털에서 이러한 작업을 수행하는 방법에 대한 자세한 내용은 [PHP 및 SQL 데이터베이스 시작][prod-portal-instructions](영문)을 참조하십시오. 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하십시오.
+이 가이드에서는 PHP에서 SQL 데이터베이스를 사용하는 방법의 기본 사항을 보여 줍니다. 샘플은 PHP로 작성되었습니다. **SQL 데이터베이스 만들기** 및 **SQL 데이터베이스에 연결** 시나리오를 다룹니다. 이 가이드에서는 [관리 포털][management-portal]에서 SQL 데이터베이스를 만듭니다. 프로덕션 포털에서 이러한 작업을 수행하는 방법에 대한 자세한 내용은 [PHP 및 SQL 데이터베이스 시작][prod-portal-instructions](영문)을 참조하세요. 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하세요.
 
 ##SQL 데이터베이스 정의
 
 SQL 데이터베이스는 Azure에 관계형 데이터베이스 관리 시스템을 제공하며 SQL Server 기술을 기반으로 합니다. SQL 데이터베이스를 사용하여 쉽게 클라우드에 관계형 데이터베이스 솔루션을 프로비전하고 배포할 수 있으며 데이터 보호와 자동 복구가 기본 제공되는 혜택을 갖춘 엔터프라이즈급 가용성, 확장성, 보안을 제공하는 분산 데이터 센터를 활용할 수 있습니다.
 
 ##<a id="Concepts"></a>개념
-SQL 데이터베이스는 SQL Server 기술을 기반으로 하므로 PHP에서 SQL 데이터베이스에 액세스하는 것은 PHP에서 SQL Server에 액세스하는 것과 매우 유사합니다. 로컬에서 SQL Server를 사용하여 응용 프로그램을 개발한 후 연결 문자열만 변경하여 SQL 데이터베이스에 연결할 수 있습니다. 그러나 응용 프로그램에 영향을 줄 수 있는 SQL 데이터베이스와 SQL Server 간의 몇 가지 차이점이 있습니다. 자세한 내용은 [지침 및 제한 사항(SQL 데이터베이스)][limitations]을 참조하십시오.
+SQL 데이터베이스는 SQL Server 기술을 기반으로 하므로 PHP에서 SQL 데이터베이스에 액세스하는 것은 PHP에서 SQL Server에 액세스하는 것과 매우 유사합니다. 로컬에서 SQL Server를 사용하여 응용 프로그램을 개발한 후 연결 문자열만 변경하여 SQL 데이터베이스에 연결할 수 있습니다. 그러나 응용 프로그램에 영향을 줄 수 있는 SQL 데이터베이스와 SQL Server 간의 몇 가지 차이점이 있습니다. 자세한 내용은 [지침 및 제한 사항(SQL 데이터베이스)][limitations]을 참조하세요.
 
 PHP에서 SQL 데이터베이스에 액세스하는 권장 방법은 [Microsoft Drivers for PHP for SQL Server][download-drivers](영문)를 사용하는 것입니다. (이 문서의 예제에서는 이러한 드라이버를 사용합니다.) Microsoft Drivers for PHP for SQL Server는 Windows에서만 작동합니다.
 
@@ -73,7 +73,7 @@ SQL 데이터베이스 연결 정보를 가져오려면 포털에서 **SQL 데�
 
 ##<a id="Connect"></a>방법: SQL 데이터베이스 인스턴스에 연결
 
-다음 예에서는 **SQLSRV** 및 **PDO\_SQLSRV** 확장을 사용하여 `testdb`(이)라는 SQL 데이터베이스에 연결하는 방법을 보여 줍니다. **SQLSRV** 및 **PDO\_SQLSRV** API에 대한 자세한 내용은 [Microsoft Drivers for PHP for SQL Server 설명서][driver-docs]를 참조하십시오. 앞의 섹션에서 얻은 정보가 필요합니다. `SERVER_ID`을(를) 10자로 된 서버 ID(앞의 섹션에서 얻은 서버 값의 처음 10자)로 바꾸고, 올바른 값(사용자 이름 및 암호)을 `$user` 및 `$pwd` 변수에 할당합니다.
+다음 예에서는 **SQLSRV** 및 **PDO\_SQLSRV** 확장을 사용하여 `testdb`(이)라는 SQL 데이터베이스에 연결하는 방법을 보여 줍니다. **SQLSRV** 및 **PDO\_SQLSRV** API에 대한 자세한 내용은 [Microsoft Drivers for PHP for SQL Server 설명서][driver-docs]를 참조하세요. 앞의 섹션에서 얻은 정보가 필요합니다. `SERVER_ID`을(를) 10자로 된 서버 ID(앞의 섹션에서 얻은 서버 값의 처음 10자)로 바꾸고, 올바른 값(사용자 이름 및 암호)을 `$user` 및 `$pwd` 변수에 할당합니다.
 
 #####SQLSRV
 
@@ -105,7 +105,7 @@ SQL 데이터베이스 연결 정보를 가져오려면 포털에서 **SQL 데�
 
 
 ##<a id="NextSteps"></a>다음 단계
-앞에서 언급했듯이 SQL 데이터베이스 사용은 SQL Server 사용과 매우 유사합니다. 앞에 표시된 것처럼 SQL 데이터베이스에 대한 연결을 설정하고 나면 **SQLSRV** 또는 **PDO\_SQLSRV** API를 사용하여 데이터를 삽입, 검색, 업데이트 및 삭제할 수 있습니다. 그러나 응용 프로그램에 영향을 줄 수 있는 SQL 데이터베이스와 SQL Server 간의 몇 가지 차이점이 있습니다. 자세한 내용은 [지침 및 제한 사항(SQL 데이터베이스)][limitations]을 참조하십시오.
+앞에서 언급했듯이 SQL 데이터베이스 사용은 SQL Server 사용과 매우 유사합니다. 앞에 표시된 것처럼 SQL 데이터베이스에 대한 연결을 설정하고 나면 **SQLSRV** 또는 **PDO\_SQLSRV** API를 사용하여 데이터를 삽입, 검색, 업데이트 및 삭제할 수 있습니다. 그러나 응용 프로그램에 영향을 줄 수 있는 SQL 데이터베이스와 SQL Server 간의 몇 가지 차이점이 있습니다. 자세한 내용은 [지침 및 제한 사항(SQL 데이터베이스)][limitations]을 참조하세요.
 
 Azure에서 PHP로 SQL 데이터베이스를 사용하는 방법을 보여 주는 샘플은 <https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-sqlazure>에서 제공합니다.
 
@@ -130,4 +130,4 @@ Azure에서 PHP로 SQL 데이터베이스를 사용하는 방법을 보여 주�
 [quick-create]: ./media/sql-database-php-how-to-use/create-new-sql.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

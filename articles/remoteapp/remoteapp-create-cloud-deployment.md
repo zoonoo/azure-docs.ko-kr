@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="RemoteApp의 클라우드 컬렉션을 만드는 방법" 
-	description="Azure 클라우드에 데이터를 저장하는 RemoteApp 배포를 만드는 방법에 대해 알아봅니다." 
+	pageTitle="Azure RemoteApp의 클라우드 컬렉션을 만드는 방법" 
+	description="Azure 클라우드에 데이터를 저장하는 Azure RemoteApp 배포를 만드는 방법에 대해 알아봅니다." 
 	services="remoteapp" 
 	documentationCenter="" 
 	authors="lizap" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/26/2015" 
+	ms.date="08/12/2015" 
 	ms.author="elizapo"/>
 
 # Azure RemoteApp의 클라우드 컬렉션을 만드는 방법
@@ -34,12 +34,12 @@
 
 컬렉션을 만들기 전에 다음을 수행해야 합니다.
 
-- RemoteApp에 [등록](http://azure.microsoft.com/services/remoteapp/)합니다. 
+- Azure RemoteApp에 [등록](http://azure.microsoft.com/services/remoteapp/)합니다. 
 - 액세스 권한을 부여할 사용자에 대한 정보를 수집합니다. 이 정보는 사용자의 Microsoft 계정 정보나 Active Directory 작업 계정 정보가 될 수 있습니다.
 - 이 프로세스에서는 구독의 일부로 제공된 템플릿 이미지 중 하나를 사용할 예정이거나 사용할 템플릿 이미지를 이미 업로드했다고 가정합니다. 다른 템플릿 이미지를 업로드해야 하는 경우 템플릿 이미지 페이지에서 그렇게 할 수 있습니다. 단지 **템플릿 이미지 업로드**를 클릭하고 마법사의 단계를 따르면 됩니다. 
 - 사용자 지정 앱이나 LOB 프로그램을 제공하려는 경우 새로운 [이미지](remoteapp-imageoptions.md)를 만든 다음 클라우드 컬렉션에서 사용합니다.
 
-## 1단계: RemoteApp 컬렉션을 만듭니다. ##
+## 1단계: 컬렉션 만들기 ##
 
 
 
@@ -56,7 +56,7 @@
 	
 	**중요:** 컬렉션을 프로비전하는 데 최대 30분 정도 걸릴 수 있습니다.
 
-RemoteApp 컬렉션을 만든 후 RemoteApp **퀵 스타트** 페이지로 이동하여 설정 단계를 계속 진행합니다.
+RemoteApp 컬렉션을 만든 후에는 컬렉션의 이름을 두 번 클릭합니다. 그러면 **빠른 시작** 페이지가 나타나며 여기에서 컬렉션 구성을 완료합니다.
 
 
 ## 2단계: Active Directory 디렉터리 동기화 구성(선택 사항) ##
@@ -93,4 +93,4 @@ RemoteApp 클라우드 컬렉션을 만들고 배포했습니다. 다음 단계�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

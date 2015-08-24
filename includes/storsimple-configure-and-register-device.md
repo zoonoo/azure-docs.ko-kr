@@ -1,6 +1,4 @@
 
-
-
 #### 장치를 구성 및 등록하려면
 
 1. StorSimple 장치 직렬 콘솔에서 Windows PowerShell 인터페이스에 액세스합니다. 지침은 [장치 직렬 콘솔 연결에 PuTTY 사용](#use-putty-to-connect-to-the-device-serial-console)을 참조하세요. **과정을 정확하게 따르지 않으면 콘솔에 액세스할 수 없습니다.**
@@ -32,7 +30,7 @@
    
       >[AZURE.NOTE]서브넷 마스크 및 DNS 설정을 적용하려면 몇 분간 대기할 수 있습니다. "장치가 준비되지 않았습니다." 오류 메시지를 받게되면 활성 컨트롤러의 데이터 0 네트워크 인터페이스에서 실제 네트워크 연결을 확인합니다.
 
-8. (선택 사항) 웹 프록시 서버를 구성합니다. 웹 프록시 구성은 선택 사항이지만 **웹 프록시를 사용하면 여기서만 구성할 수 있습니다**. 자세한 내용은 [장치에 웹 프록시 구성](https://msdn.microsoft.com/library/azure/dn764937.aspx)으로 이동합니다.
+8. (선택 사항) 웹 프록시 서버를 구성합니다. 웹 프록시 구성은 선택 사항이지만 **웹 프록시를 사용하면 여기서만 구성할 수 있습니다**. 자세한 내용은 [장치에 웹 프록시 구성](https://msdn.microsoft.com/library/azure/dn764937.aspx)으로 이동합니다. 이 단계에서 문제가 발생하면 [웹 프록시 구성 중 오류](storsimple-troubleshoot-deployment.md#errors-during-the-optional-web-proxy-settings)에 대한 문제 해결 지침을 참조하세요.
  
 
       >[AZURE.NOTE]Ctrl + C를 눌러 언제든지 설치 마법사를 종료할 수 있습니다. 이 명령을 실행하기 전에 적용된 모든 설정은 유지됩니다.
@@ -43,11 +41,17 @@
 
     ![StorSimple 등록 장치 4](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice4-include.png)
 
-    StorSimple 관리자 서비스 인터페이스에서 StorSimple 스냅숏 관리자 암호를 재설정할 수 있습니다.
+    StorSimple 관리자 서비스 인터페이스에서 StorSimple 스냅숏 관리자 암호를 재설정할 수 있습니다. 자세한 단계를 보려면 [StorSimple 관리자 서비스를 사용하여 StorSimple 암호 변경](storsimple-change-passwords.md)으로 이동하세요.
+
+	이 단계 중의 모든 문제를 해결하려면 [암호와 관련된 오류](storsimple-troubleshoot-deployment.md#errors-related-to-device-administrator-and-storsimple-snapshot-manager-passwords)에 대한 문제 해결 지침을 참조하세요.
 
 11. 설치 마법사의 마지막 단계에서는 StorSimple 관리자 서비스에 장치를 등록합니다. 이 경우 2단계에서 얻은 서비스 등록 키가 필요합니다. 등록 키를 입력한 후 장치가 등록되려면 2\~3분 정도 기다려야 할 수 있습니다.
 
-12. 장치를 등록한 후 서비스 데이터 암호화 키가 표시됩니다. 이 키를 복사하고 안전한 위치에 저장합니다. **이 키는 StorSimple 관리자 서비스로 추가 장치를 등록하기 위한 서비스 등록 키에 필요합니다.** 이 키에 대한 자세한 내용은 [StorSimple 보안](../articles/storsimple/storsimple-security.md)을 참조하세요.
+	모든 가능한 장치 등록 오류를 해결하려면 [장치 등록 중 오류](storsimple-troubleshoot-deployment.md#errors-during-device-registration)를 참조하세요. 자세한 문제 해결에 대해서는 [단계별 문제 해결 예제](storsimple-troubleshoot-deployment.md#step-by-step-storsimple-troubleshooting-example)를 참조할 수도 있습니다.
+
+12. 장치를 등록한 후 서비스 데이터 암호화 키가 표시됩니다. 이 키를 복사하고 안전한 위치에 저장합니다.
+	
+	> [AZURE.WARNING]이 키는 StorSimple 관리자 서비스로 추가 장치를 등록하기 위한 서비스 등록 키에 필요합니다. 이 키에 대한 자세한 내용은 [StorSimple 보안](../articles/storsimple/storsimple-security.md)을 참조하세요.
 
      ![StorSimple 등록 장치 6](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice6-include.png)
 
@@ -58,10 +62,12 @@
 14. 관리 포털로 돌아가 다음 단계를 완료합니다.
   1. StorSimple 관리자 서비스를 두 번 클릭하여 **퀵 스타트** 페이지에 액세스합니다.
   2. **연결된 장치 보기**를 클릭합니다.
-  3. **장치** 페이지에서 상태를 조회하여 장치가 서비스에 성공적으로 연결되었는지 확인합니다. 장치 상태는 **온라인**이어야 합니다.
+  3. **장치** 페이지에서 상태를 조회하여 장치가 서비스에 성공적으로 연결되었는지 확인합니다. 장치 상태는 **온라인**이어야 합니다. 장치 상태가 **오프라인**이면 장치가 온라인 상태가 될 때까지 몇 분 정도 기다립니다.
    
     ![StorSimple 장치 페이지](./media/storsimple-configure-and-register-device/HCS_DevicesPageM-include.png)
   
-      >[AZURE.NOTE]장치 상태가 **오프라인**이면 장치가 온라인 상태가 될 때까지 몇 분 정도 기다립니다.
+      >[AZURE.IMPORTANT]장치가 온라인 상태로 전환되면 이 단계의 시작 부분에서 분리한 네트워크 케이블을 연결합니다.
 
-<!---HONumber=August15_HO6-->
+장치가 성공적으로 등록되고 온라인 상태로 전환되지 않으면 `Test-HcsmConnection -Verbose`를 실행하여 네트워크 연결이 정상인지 확인합니다. 이 cmdlet의 자세한 사용법을 보려면 [Test-hcsmconnection에 대한 cmdlet 참조](https://technet.microsoft.com/library/dn715782.aspx)로 이동하세요.
+
+<!---HONumber=August15_HO7-->

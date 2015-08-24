@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="푸시 시작(Android) | 모바일 개발자 센터" 
+	pageTitle="푸시 시작(Android) | Microsoft Azure" 
 	description="Azure 모바일 서비스를 사용하여 Android .Net 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." 
 	services="mobile-services, notification-hubs" 
 	documentationCenter="android" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="08/08/2015" 
 	ms.author="ricksal"/>
 
 # 모바일 서비스 앱에 푸시 알림 추가
@@ -237,4 +237,4 @@ Google API를 지원하는 AVD(Android Virtual Device)를 사용해야 합니다
 [Azure 관리 포털]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

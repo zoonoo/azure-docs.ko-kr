@@ -13,13 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 
 #인코딩 크기를 조정하는 방법
 
-이 문서는 [미디어 서비스 주문형 비디오 워크플로](media-services-video-on-demand-workflow.md) 시리즈의 일부입니다.
+> [AZURE.SELECTOR]
+- [.NET](media-services-dotnet-encoding-units.md)
+- [Portal](media-services-portal-encoding-units.md)
+- [REST](https://msdn.microsoft.com/library/azure/dn859236.aspx)
 
 ##개요
 
@@ -58,4 +61,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

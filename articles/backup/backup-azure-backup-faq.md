@@ -7,7 +7,7 @@
    manager="shreeshd"
    editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/31/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/07/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
 
 # Azure 백업 - FAQ
 다음은 Azure 백업에 대한 질문과 대답 목록입니다. Azure 백업에 대한 추가 질문이 있으면 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)으로 이동하여 질문을 게시하세요. 커뮤니티의 구성원이 답변을 얻는 데 도움을 줄 것입니다. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
@@ -141,4 +141,29 @@
 
 **Q4. 암호화 키를 잃어버리면 어떻게 되나요? 제가 데이터를 복구할 수 있나요? 아니면 Microsoft가 데이터를 복구할 수 있나요?** <br/> A4. 백업 데이터를 암호화하는 데 사용되는 키는 고객 사업장에만 존재합니다. Microsoft는 Azure에 복사본을 유지하지 않으며 키에 대한 어떠한 액세스 권한도 없습니다. 고객이 키를 잃어버릴 경우 Microsoft는 백업 데이터를 복구할 수 없습니다.
 
-<!---HONumber=August15_HO6-->
+## 백업 캐시
+
+**Q1. Azure 백업 에이전트에 대해 지정된 캐시 위치를 변경하려면 어떻게 해야 하나요?**
+
++ 관리자 권한 명령 프롬프트에서 아래 명령을 실행하여 OBEngine을 중지합니다.
+
+  ```PS C:\> Net stop obengine```
+
++ 캐시 공간 폴더를 충분한 공간이 있는 다른 드라이브로 복사합니다. 캐시 공간 폴더에서 파일을 이동하지 않고 복사하는 것이 좋습니다. 백업이 새 캐시 공간에서 수행되는지 확인한 후 원래 캐시 공간을 제거할 수 있습니다.
+
++ 다음 레지스트리 항목을 새 캐시 공간 폴더의 경로로 업데이트합니다.
+
+
+	| 레지스트리 경로 | 레지스트리 키 | 값 |
+	| ------ | ------- | ------ |
+	| HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\Config | ScratchLocation | <i>새 캐시 폴더 위치</i> |
+	| HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\Config\\CloudBackupProvider | ScratchLocation | <i>새 캐시 폴더 위치</i> |
+
+
++ 관리자 권한 명령 프롬프트에서 아래 명령을 실행하여 OBEngine을 시작합니다.
+
+  ```PS C:\> Net start obengine```
+
+새 캐시 위치로 성공적으로 백업되면 원래 캐시 폴더를 제거할 수 있습니다.
+
+<!---HONumber=August15_HO7-->

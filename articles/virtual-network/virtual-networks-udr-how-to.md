@@ -4,7 +4,7 @@
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
+   ms.date="08/10/2015"
    ms.author="telmos" />
 
 # Azure에서 경로를 만들고 IP 전달을 사용하도록 설정하는 방법
 Azure의 가상 어플라이언스를 사용하여 Azure 가상 네트워크에서 트래픽을 처리할 수 있습니다. 그러나 가상 네트워크의 VM 및 클라우드 서비스에서 원하는 패킷 대상 대신 사용자의 가상 어플라이언스로 패킷을 보내도록 허용하는 경로를 만들어야 합니다. 또한 실제 가상 어플라이언스 VM으로 주소가 지정되지 않은 패킷을 받고 전달할 수 있도록 가상 어플라이언스 VM에서 IP 전달을 사용하도록 설정해야 합니다.
 
-##경로를 관리하는 방법
+## 경로를 관리하는 방법
 PowerShell을 사용하여 Azure에서 경로를 추가, 제거 및 변경할 수 있습니다. 경로를 만들려면 먼저 경로를 호스트할 경로 테이블을 만들어야 합니다.
 
 ### 경로 테이블을 만드는 방법
@@ -144,10 +144,6 @@ Set-AzureIPForwarding -ServiceName DMZService `
 ```powershell
 Get-AzureVM -Name FWAppliance1 -ServiceName ProductionVMs `
 	| Get-AzureIPForwarding
-```
+``` 
 
-## 참고 항목
-
-[사용자 정의 경로 및 IP 전달 개요](../virtual-networks-udr-overview)
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

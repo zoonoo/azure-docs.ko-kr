@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="푸시 시작(Android) | 모바일 개발자 센터" 
+	pageTitle="푸시 시작(Android) | Microsoft Azure" 
 	description="Azure 모바일 서비스를 사용하여 Android .Net 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." 
 	services="mobile-services, notification-hubs" 
 	documentationCenter="android" 
@@ -122,4 +122,4 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

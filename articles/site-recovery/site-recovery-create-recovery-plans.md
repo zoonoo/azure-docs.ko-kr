@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="05/14/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
 
 # 복구 계획 만들기
@@ -124,4 +124,4 @@ Azure 자동화 Runbook을 계획의 일환으로 실행하여 복구 계획을 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

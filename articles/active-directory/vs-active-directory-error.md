@@ -56,45 +56,45 @@ MVC 프로젝트에서 이 마법사는 이전에 마법사를 사용한 결과�
 
 MVC 프로젝트에서 Windows 인증을 감지하기 위해 마법사는 사용자의 **web.config** 파일에서 `authentication` 요소를 찾습니다.
 
-```
-	&lt;configuration&gt;
-	    &lt;system.web&gt;
-	        <span style="background-color: yellow">&lt;authentication mode="Windows" /&gt;</span>
-	    &lt;/system.web&gt;
-	&lt;/configuration&gt;
-```
+<pre>
+	&lt;configuration>
+	    &lt;system.web>
+	        <span style="background-color: yellow">&lt;authentication mode="Windows" /></span>
+	    &lt;/system.web>
+	&lt;/configuration>
+</pre>
 
 Web API 프로젝트에서 Windows 인증을 감지하기 위해 마법사는 사용자 프로젝트의 **.csproj** 파일에서 `IISExpressWindowsAuthentication` 요소를 찾습니다.
 
-```
-	&lt;Project&gt;
-	    &lt;PropertyGroup&gt;
-	        <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication&gt;enabled&lt;/IISExpressWindowsAuthentication&gt;</span>
+<pre>
+	&lt;Project>
+	    &lt;PropertyGroup>
+	        <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication>enabled&lt;/IISExpressWindowsAuthentication></span>
 	    &lt;/PropertyGroup>
-	&lt;/Project&gt;
-```
+	&lt;/Project>
+</pre>
 
 개별 사용자 계정 인증을 감지하기 위해 마법사는 사용자의 **Packages.config** 파일에서 패키지 요소를 찾습니다.
 
-```
-	&lt;packages&gt;
-	    <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /&gt;</span>
-	&lt;/packages&gt;
-```
+<pre>
+	&lt;packages>
+	    <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /></span>
+	&lt;/packages>
+</pre>
 
 조직 계정 인증의 이전 양식을 감지하기 위해 마법사는 **web.config**에서 다음 요소를 찾습니다.
 
-```
-	&lt;configuration&gt;
-	    &lt;appSettings&gt;
-	        <span style="background-color: yellow">&lt;add key="ida:Realm" value="***" /&gt;</span>
-	    &lt;/appSettings&gt;
-	&lt;/configuration&gt;
-```
+<pre>
+	&lt;configuration>
+	    &lt;appSettings>
+	        <span style="background-color: yellow">&lt;add key="ida:Realm" value="***" /></span>
+	    &lt;/appSettings>
+	&lt;/configuration>
+</pre>
 
 인증 유형을 변경하려면 호환되지 않는 인증 유형을 제거하고 마법사를 다시 실행하세요.
 
 자세한 내용은 [Azure AD의 인증 시나리오](active-directory-authentication-scenarios.md)를 참조하세요.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

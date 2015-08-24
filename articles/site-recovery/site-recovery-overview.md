@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="05/10/2015" 
+	ms.date="08/05/2015" 
 	ms.author="raynew"/>
 
 #  사이트 복구 개요
@@ -77,4 +77,4 @@ Azure 복구 서비스 에이전트</p><p>HTTPS를 통해 사이트 복구에 �
 이 개요를 마친 후 [모범 사례를 읽어보고](site-recovery-best-practices.md) 배포 계획을 시작합니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

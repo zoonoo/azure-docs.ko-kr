@@ -1,5 +1,5 @@
 <properties
-	pageTitle="재해가 발생한 경우 모바일 서비스 복구 - Azure 모바일 서비스"
+	pageTitle="재해가 발생한 경우 모바일 서비스 복구 | Microsoft Azure"
 	description="재해가 발생한 경우 모바일 서비스를 복구하는 방법에 대해 알아봅니다."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="04/24/2015"
+	ms.date="08/08/2015"
 	ms.author="christopheranderson"/>
 
 # 재해가 발생한 경우 모바일 서비스 복구
@@ -104,4 +104,4 @@ Azure 모바일 서비스를 사용하여 앱을 배포하는 경우 서버 오�
 [Azure CLI를 사용하여 모바일 서비스 자동화]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="인증 시작(Windows Phone) | 모바일 개발자 센터" 
+	pageTitle="인증 시작(Windows Phone) | Microsoft Azure" 
 	description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Windows Phone 앱 사용자를 인증하는 방법을 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -80,4 +80,4 @@
 [Live Connect를 사용한 Windows Phone 앱의 Single Sign-On]: mobile-services-windows-phone-single-sign-on.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

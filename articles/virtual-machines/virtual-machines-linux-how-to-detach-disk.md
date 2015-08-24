@@ -13,16 +13,18 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2015"
+	ms.date="08/11/2015"
 	ms.author="dkshir"/>
 
 # Linux 가상 컴퓨터에서 디스크를 분리하는 방법
 
 
-[AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
+[AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-linux.md)]
 
 ## 추가 리소스
 
 [Linux 가상 컴퓨터에 데이터 디스크를 연결하는 방법](virtual-machines-linux-how-to-attach-disk.md)
 
-<!---HONumber=August15_HO6-->
+[Azure 서비스 관리에서 Azure CLI 사용](virtual-machines-command-line-tools.md)
+
+<!---HONumber=August15_HO7-->

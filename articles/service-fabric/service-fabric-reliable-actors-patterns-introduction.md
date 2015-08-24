@@ -1,6 +1,6 @@
 <properties
-   pageTitle="서비스 패브릭 신뢰할 수 있는 행위자의 패턴 및 안티패턴 도입"
-   description="서비스 패브릭의 신뢰할 수 있는 행위자 프로그래밍 모델 및 행위자와 잘 작동하는 디자인 패턴에 알아 봅니다."
+   pageTitle="Azure 서비스 패브릭 행위자의 패턴 및 안티패턴 도입"
+   description="서비스 패브릭 행위자에서 잘 작동되는 패턴 디자인"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="08/11/2015"
    ms.author="claudioc"/>
 
 # 신뢰할 수 있는 행위자 디자인 패턴 소개
@@ -70,4 +70,4 @@ Azure 패브릭 행위자의 주요 이점은 1) **개발자의 생산성**(비�
 
 * *명시적 비동기.* Azure 패브릭 행위자 프로그래밍 모델은 분산 응용 프로그램의 비동기 특성을 명시적으로 만들고 비차단 비동기 코드를 작성할 수 있도록 프로그래머를 지원합니다. 따라서 명시적으로 다중 스레드를 사용하지 않고도 크게 분산 병렬 처리 및 전체 처리가 가능합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

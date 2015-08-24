@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="hero-article"
-    ms.date="07/09/2015"
+    ms.date="08/06/2015"
     ms.author="banders"/>
 
 # 단 몇 분 만에 Operational Insights에 등록
@@ -97,4 +97,4 @@ Microsoft 작업 관리 도구 모음 웹 사이트를 사용하여 Microsoft �
 - [검색](operational-insights-search.md) 익히기
 - [대시보드](operational-insights-use-dashboards.md)를 사용하여 사용자 지정 검색 저장 및 검색
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

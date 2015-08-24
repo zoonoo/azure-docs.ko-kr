@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure CLI를 사용하여 여러 VM 배포 만들기 | Azure"
+   pageTitle="Azure CLI를 사용하여 여러 VM 배포 만들기 | Microsoft Azure"
    description="Azure CLI를 사용하여 여러 VM 배포를 만드는 방법에 대해 알아봅니다."
    services="virtual-machines"
    documentationCenter="nodejs"
@@ -67,4 +67,4 @@
 * [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-linux-how-to-log-on.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

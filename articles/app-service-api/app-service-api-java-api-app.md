@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="java"
 	ms.topic="get-started-article"
-	ms.date="04/21/2015"
+	ms.date="08/11/2015"
 	ms.author="pakefali"/>
 
 # Azure 앱 서비스에서 Java API 앱 빌드 및 배포
@@ -270,4 +270,4 @@ API 앱 백 엔드를 사용하는 Java 웹 응용 프로그램을 Azure에 배�
 [api-definition-blade]: ./media/app-service-api-java-api-app/apidefblade.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

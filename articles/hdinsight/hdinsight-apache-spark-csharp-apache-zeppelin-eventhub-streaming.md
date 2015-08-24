@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="HDInsight에서 Apache Spark로 Azure 이벤트 허브를 사용하여 스트리밍 데이터 처리 | Azure" 
+	pageTitle="HDInsight에서 Apache Spark로 Azure 이벤트 허브를 사용하여 스트리밍 데이터 처리 | Microsoft Azure" 
 	description="Azure 이벤트 허브에 데이터를 보내는 방법에 대한 단계별 지침 및 Zeppelin Notebook을 사용하여 Spark에서 해당 이벤트 수신" 
 	services="hdinsight" 
 	documentationCenter="" 
@@ -164,4 +164,4 @@ HDInsight에서 Spark 클러스터로 스트리밍 데이터를 받으려면 Zep
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

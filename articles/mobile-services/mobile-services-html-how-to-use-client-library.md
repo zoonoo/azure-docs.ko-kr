@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="HTML 클라이언트를 사용하는 방법 - Azure 모바일 서비스" 
+	pageTitle="HTML 클라이언트를 사용하는 방법 | Microsoft Azure" 
 	description="Azure 모바일 서비스에 HTML 클라이언트를 사용하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -608,4 +608,4 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 [클라이언트에서 사용자 지정 API 호출]: mobile-services-html-call-custom-api.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

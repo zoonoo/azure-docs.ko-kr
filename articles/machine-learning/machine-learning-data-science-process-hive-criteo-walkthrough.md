@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="고급 분석 처리 및 기술: 1TB Criteo 데이터 집합에서 HDInsight Hadoop 클러스터 사용 | Azure" 
+	pageTitle="활성 중인 고급 분석 프로세스 및 기술: 1TB Criteo 데이터 집합에서 HDInsight Hadoop 클러스터 사용 | Microsoft Azure" 
 	description="HDInsight Hadoop 클러스터를 사용하는 종단 간 시나리오에 ADAPT(고급 분석 처리 및 기술)를 사용하여 공개적으로 사용 가능한 1TB 데이터 집합으로 모델을 빌드 및 배포합니다." 
 	services="machine-learning,hdinsight" 
 	documentationCenter="" 
@@ -656,4 +656,4 @@ count 테이블이 크기 때문에 먼저 테스트 데이터의 몇 줄을 가
 
 Azure 기계 학습을 사용하여 대규모 데이터 집합을 처리하는 방법을 보여 주는 전체 연습이 끝났습니다. 테라바이트의 데이터로 시작해서 예측 모델을 구성하고 클라우드의 웹 서비스로 배포했습니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

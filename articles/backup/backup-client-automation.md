@@ -1,20 +1,13 @@
 <properties
-	pageTitle="Azure PowerShell을 사용하여 Windows Server/Client용 백업 배포 및 관리 | Microsoft Azure"
-	description="Azure PowerShell을 사용하여 Azure 백업을 배포 및 관리하는 방법을 알아봅니다."
+	pageTitle="PowerShell을 사용하여 Windows Server/Client용 백업 배포 및 관리 | Microsoft Azure"
+	description="PowerShell을 사용하여 Azure 백업을 배포 및 관리하는 방법을 알아봅니다."
 	services="backup"
 	documentationCenter=""
 	authors="aashishr"
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/17/2015"
-	ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/11/2015" ms.author="aashishr"; "jimpark"/>
 
 
 # Azure PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
@@ -25,12 +18,25 @@
 ## 설정 및 등록
 다음과 같은 설정 및 등록 작업을 Azure PowerShell로 자동화할 수 있습니다.
 
+- 백업 자격 증명 모음 만들기
 - Azure 백업 에이전트 설치
 - Azure 백업 서비스 등록
-- 네트워킹
+- 네트워킹 서비스
+- 암호화 설정
+
+### 백업 자격 증명 모음 만들기
+**New-AzureBackupVault** commandlet을 사용하여 새 백업 자격 증명 모음을 만들 수 있습니다. 백업 저장소는 ARM 리소스이므로 리소스 그룹 내에 배치해야 합니다. 승격된 Azure PowerShell 콘솔에서 다음 명령을 실행합니다.
+
+```
+PS C:\> Neroup –Name “test-rg” –Region “West US”
+PS C:\> $backupvault = New-AzureBackupVault –ResourceGroupName “test-rg” –Name “test-vault” –Region “West US” –Storage GRS
+```
+
+**Get AzureBackupVault** commandlet을 사용하여 지정된 구독의 모든 백업 자격 증명 모음 목록을 가져올 수 있습니다.
+
 
 ### Azure 백업 에이전트 설치
-Azure 백업 에이전트를 설치하기 전에 Windows Server에 설치 관리자를 다운로드해 두어야 합니다. 최신 버전의 설치 관리자는 [Microsoft 다운로드 센터](http://aka.ms/azurebackup_agent)에서 다운로드할 수 있습니다. 쉽게 액세스할 수 있는 위치(예: *C:\Downloads*)에 설치 관리자를 저장합니다.
+Azure 백업 에이전트를 설치하기 전에 Windows Server에 설치 관리자를 다운로드해 두어야 합니다. 최신 버전의 설치 관리자는 [Microsoft 다운로드 센터](http://aka.ms/azurebackup_agent) 또는 백업 자격 증명 모음 대시보드 페이지에서 다운로드할 수 있습니다. 쉽게 액세스할 수 있는 위치(예: *C:\\Downloads*)에 설치 관리자를 저장합니다.
 
 에이전트를 설치하려면 승격된 Azure PowerShell 콘솔에서 다음 명령을 실행합니다.
 
@@ -72,25 +78,34 @@ PS C:\> MARSAgentInstaller.exe /?
 Azure 백업 서비스에 등록하려면 먼저 [필수 조건](backup-try-azure-backup-in-10-mins.md)이 충족되어야 합니다. 다음이 필요합니다.
 
 - 유효한 Azure 구독이 있어야 함
-- 백업 자격 증명 모음 만들기
-- 저장소 자격 증명을 다운로드하여 편리한 위치에 저장합니다(예: *C:\Downloads*). 저장소 자격 증명은 편의에 따라 이름을 바꿀 수 있습니다.
+- 백업 자격 증명 모음
+
+자격 증명 모음을 다운로드하려면 Azure PowerShell 콘솔에서 **Get-AzureBackupVaultCredentials** commandlet을 실행하고 *C:\\Downloads*와 같은 편리한 위치에 저장합니다.
+
+```
+PS C:\> $credspath = "C:"
+PS C:\> $credsfilename = Get-AzureBackupVaultCredentials -Vault $backupvault -TargetLocation $credspath
+PS C:\> $credsfilename
+f5303a0b-fae4-4cdb-b44d-0e4c032dde26_backuprg_backuprn_2015-08-11--06-22-35.VaultCredentials
+```
 
 [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) cmdlet을 사용하여 컴퓨터에 저장소를 등록합니다.
 
 ```
-PS C:\> Start-OBRegistration -VaultCredentials "C:\Downloads\register.vaultcredentials" -Confirm:$false
+PS C:\> $cred = $credspath + $credsfilename 
+PS C:\> Start-OBRegistration -VaultCredentials $cred -Confirm:$false
 
 CertThumbprint      : 7a2ef2caa2e74b6ed1222a5e89288ddad438df2
 SubscriptionID      : ef4ab577-c2c0-43e4-af80-af49f485f3d1
 ServiceResourceName : test-vault
-Region              : Australia East
+Region              : West US
 
 Machine registration succeeded.
 ```
 
-> [AZURE.IMPORTANT] 저장소 자격 증명 파일을 지정할 때 상대 경로를 사용하지 마십시오. cmdlet 입력 내용은 반드시 절대 경로를 제공해야 합니다.
+> [AZURE.IMPORTANT]저장소 자격 증명 파일을 지정할 때 상대 경로를 사용하지 마십시오. cmdlet 입력 내용은 반드시 절대 경로를 제공해야 합니다.
 
-### 네트워킹
+### 네트워킹 서비스
 Windows 컴퓨터의 인터넷 연결이 프록시 서버를 통하는 경우, 프록시 설정도 에이전트에 제공될 수 있습니다. 이 예제에서는 프록시 서버가 없으므로 프록시와 관련된 모든 정보를 명시적으로 지웁니다.
 
 대역폭 사용 역시 주의 정해진 요일에 대해 ```work hour bandwidth``` 및 ```non-work hour bandwidth``` 옵션으로 제어할 수 있습니다.
@@ -113,7 +128,7 @@ PS C:\> ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force 
 Server properties updated successfully
 ```
 
-> [AZURE.IMPORTANT] 암호 정보를 설정한 후에는 안전하게 보관합니다. 이 암호 없이는 Azure에서 데이터를 복원할 수 없습니다.
+> [AZURE.IMPORTANT]암호 정보를 설정한 후에는 안전하게 보관합니다. 이 암호 없이는 Azure에서 데이터를 복원할 수 없습니다.
 
 ## 파일 및 폴더 백업
 Windows 서버 및 클라이언트에서 Azure 백업으로의 모든 백업은 정책에 따라 제어됩니다. 정책은 세 부분으로 구성됩니다.
@@ -155,7 +170,7 @@ BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName :
 PS C:\> $retentionpolicy = New-OBRetentionPolicy -RetentionDays 7
 ```
 
-> [AZURE.NOTE] 현재 PowerShell cmdlet은 장기 보존 정책 설정을 지원하지 않습니다. 장기 보존 정책을 설정하려면 Azure 백업 UI 콘솔을 사용합니다.
+> [AZURE.NOTE]현재 PowerShell cmdlet은 장기 보존 정책 설정을 지원하지 않습니다. 장기 보존 정책을 설정하려면 Azure 백업 UI 콘솔을 사용합니다.
 
 보존 정책은 cmdlet [Set-OBRetentionPolicy](https://technet.microsoft.com/library/hh770405)를 사용하여 기본 정책과 연결되어야 합니다.
 
@@ -294,17 +309,35 @@ Microsoft Azure Backup Are you sure you want to remove this backup policy? This 
 ```
 PS C:\> Set-OBPolicy -Policy $newpolicy
 Microsoft Azure Backup Do you want to save this backup policy ? [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
-BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : {DataSource DatasourceId:4508156004108672185 Name:C:\ FileSpec:FileSpec FileSpec:C:\ IsExclude:False IsRecursive:True ,FileSpec FileSpec:C:\windows IsExclude:True IsRecursive:True ,FileSpec FileSpec:C:\temp IsExclude:True IsRecursive:True
-              , DataSource
-              DatasourceId:4508156005178868542
-              Name:D:\
-              FileSpec:FileSpec
-              FileSpec:D:\
-              IsExclude:False
-              IsRecursive:True
-
-              }
-PolicyName : c2eb6568-8a06-49f4-a20e-3019ae411bac RetentionPolicy : Retention Days : 7
+BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) 
+DsList : {DataSource
+         DatasourceId:4508156004108672185 
+         Name:C:\ 
+         FileSpec:FileSpec 
+         FileSpec:C:\ 
+         IsExclude:False
+         IsRecursive:True,
+         
+         FileSpec 
+         FileSpec:C:\windows 
+         IsExclude:True 
+         IsRecursive:True,
+         
+         FileSpec 
+         FileSpec:C:\temp 
+         IsExclude:True 
+         IsRecursive:True,
+         
+         DataSource
+         DatasourceId:4508156005178868542
+         Name:D:\
+         FileSpec:FileSpec
+         FileSpec:D:\
+         IsExclude:False
+         IsRecursive:True
+	}
+PolicyName : c2eb6568-8a06-49f4-a20e-3019ae411bac 
+RetentionPolicy : Retention Days : 7
               WeeklyLTRSchedule :
               Weekly schedule is not set
 
@@ -320,14 +353,40 @@ State : Existing PolicyState : Valid
 
 ```
 PS C:\> Get-OBPolicy | Get-OBSchedule
-SchedulePolicyName : 71944081-9950-4f7e-841d-32f0a0a1359a ScheduleRunDays : {Saturday, Sunday} ScheduleRunTimes : {16:00:00} State : Existing
+SchedulePolicyName : 71944081-9950-4f7e-841d-32f0a0a1359a 
+ScheduleRunDays : {Saturday, Sunday} 
+ScheduleRunTimes : {16:00:00} 
+State : Existing
+
 PS C:\> Get-OBPolicy | Get-OBRetentionPolicy
-RetentionDays : 7 RetentionPolicyName : ca3574ec-8331-46fd-a605-c01743a5265e State : Existing
+RetentionDays : 7 
+RetentionPolicyName : ca3574ec-8331-46fd-a605-c01743a5265e 
+State : Existing
+
 PS C:\> Get-OBPolicy | Get-OBFileSpec
-FileName : * FilePath : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\ FileSpec : D:\ IsExclude : False IsRecursive : True
-FileName : * FilePath : \?\Volume{cdd41007-a22f-11e2-be6c-806e6f6e6963}\ FileSpec : C:\ IsExclude : False IsRecursive : True
-FileName : * FilePath : \?\Volume{cdd41007-a22f-11e2-be6c-806e6f6e6963}\windows FileSpec : C:\windows IsExclude : True IsRecursive : True
-FileName : * FilePath : \?\Volume{cdd41007-a22f-11e2-be6c-806e6f6e6963}\temp FileSpec : C:\temp IsExclude : True IsRecursive : True
+FileName : * 
+FilePath : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\ 
+FileSpec : D:\ 
+IsExclude : False 
+IsRecursive : True
+
+FileName : * 
+FilePath : \?\Volume{cdd41007-a22f-11e2-be6c-806e6f6e6963}\ 
+FileSpec : C:\ 
+IsExclude : False 
+IsRecursive : True
+
+FileName : * 
+FilePath : \?\Volume{cdd41007-a22f-11e2-be6c-806e6f6e6963}\windows 
+FileSpec : C:\windows 
+IsExclude : True 
+IsRecursive : True
+
+FileName : * 
+FilePath : \?\Volume{cdd41007-a22f-11e2-be6c-806e6f6e6963}\temp 
+FileSpec : C:\temp 
+IsExclude : True 
+IsRecursive : True
 ```
 
 ### 임시 백업 수행
@@ -335,7 +394,14 @@ FileName : * FilePath : \?\Volume{cdd41007-a22f-11e2-be6c-806e6f6e6963}\temp Fil
 
 ```
 PS C:\> Get-OBPolicy | Start-OBBackup
-Taking snapshot of volumes... Preparing storage... Estimating size of backup items... Estimating size of backup items... Transferring data... Verifying backup... Job completed. The backup operation completed successfully.
+Taking snapshot of volumes... 
+Preparing storage... 
+Estimating size of backup items... 
+Estimating size of backup items... 
+Transferring data... 
+Verifying backup... 
+Job completed. 
+The backup operation completed successfully.
 ```
 
 ## Azure 백업에서 데이터 복원
@@ -351,8 +417,14 @@ Azure 백업에서 항목을 복원하려면 먼저 항목의 원본을 식별�
 
 ```
 PS C:\> $source = Get-OBRecoverableSource
-PS C:\> $source FriendlyName : C:\ RecoverySourceName : C:\ ServerName : myserver.microsoft.com
-FriendlyName : D:\ RecoverySourceName : D:\ ServerName : myserver.microsoft.com
+PS C:\> $source 
+FriendlyName : C:\ 
+RecoverySourceName : C:\ 
+ServerName : myserver.microsoft.com
+
+FriendlyName : D:\ 
+RecoverySourceName : D:\ 
+ServerName : myserver.microsoft.com
 ```
 
 ### 복원할 백업 시점 선택
@@ -360,8 +432,27 @@ FriendlyName : D:\ RecoverySourceName : D:\ ServerName : myserver.microsoft.com
 
 ```
 PS C:\> $rps = Get-OBRecoverableItem -Source $source[1]
-IsDir : False ItemNameFriendly : D:\ ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\ LocalMountPoint : D:\ MountPointName : D:\ Name : D:\ PointInTime : 18-Jun-15 6:41:52 AM ServerName : myserver.microsoft.com ItemSize : ItemLastModifiedTime :
-IsDir : False ItemNameFriendly : D:\ ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\ LocalMountPoint : D:\ MountPointName : D:\ Name : D:\ PointInTime : 17-Jun-15 6:31:31 AM ServerName : myserver.microsoft.com ItemSize : ItemLastModifiedTime :
+IsDir : False 
+ItemNameFriendly : D:\ 
+ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\ 
+LocalMountPoint : D:\ 
+MountPointName : D:\ 
+Name : D:\ 
+PointInTime : 18-Jun-15 6:41:52 AM 
+ServerName : myserver.microsoft.com 
+ItemSize : 
+ItemLastModifiedTime :
+
+IsDir : False 
+ItemNameFriendly : D:\ 
+ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\ 
+LocalMountPoint : D:\ 
+MountPointName : D:\ 
+Name : D:\ 
+PointInTime : 17-Jun-15 6:31:31 AM 
+ServerName : myserver.microsoft.com 
+ItemSize : 
+ItemLastModifiedTime :
 ```
 개체 ```$rps```는 백업 시점의 배열입니다. 첫 번째 요소는 가장 최근 시점이고 n 번째 요소는 가장 오래된 시점입니다. 최근 시점을 선택하려면 ```$rps[0]```을 사용합니다.
 
@@ -372,10 +463,41 @@ IsDir : False ItemNameFriendly : D:\ ItemNameGuid : \?\Volume{b835d359-a1dd-11e2
 
 ```
 PS C:\> $filesFolders = Get-OBRecoverableItem $rps[0]
-PS C:\> $filesFolders IsDir : True ItemNameFriendly : D:\MyData\ ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\ LocalMountPoint : D:\ MountPointName : D:\ Name : MyData PointInTime : 18-Jun-15 6:41:52 AM ServerName : myserver.microsoft.com ItemSize : ItemLastModifiedTime : 15-Jun-15 8:49:29 AM
+PS C:\> $filesFolders 
+IsDir : True 
+ItemNameFriendly : D:\MyData\ 
+ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\ 
+LocalMountPoint : D:\ 
+MountPointName : D:\ 
+Name : MyData 
+PointInTime : 18-Jun-15 6:41:52 AM 
+ServerName : myserver.microsoft.com 
+ItemSize : 
+ItemLastModifiedTime : 15-Jun-15 8:49:29 AM
+
 PS C:\> $filesFolders = Get-OBRecoverableItem $filesFolders[0]
-PS C:\> $filesFolders IsDir : False ItemNameFriendly : D:\MyData\screenshot.oxps ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\screenshot.oxps LocalMountPoint : D:\ MountPointName : D:\ Name : screenshot.oxps PointInTime : 18-Jun-15 6:41:52 AM ServerName : myserver.microsoft.com ItemSize : 228313 ItemLastModifiedTime : 21-Jun-14 6:45:09 AM
-IsDir : False ItemNameFriendly : D:\MyData\finances.xls ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\finances.xls LocalMountPoint : D:\ MountPointName : D:\ Name : finances.xls PointInTime : 18-Jun-15 6:41:52 AM ServerName : myserver.microsoft.com ItemSize : 96256 ItemLastModifiedTime : 21-Jun-14 6:43:02 AM
+PS C:\> $filesFolders 
+IsDir : False 
+ItemNameFriendly : D:\MyData\screenshot.oxps 
+ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\screenshot.oxps 
+LocalMountPoint : D:\ 
+MountPointName : D:\ 
+Name : screenshot.oxps 
+PointInTime : 18-Jun-15 6:41:52 AM 
+ServerName : myserver.microsoft.com 
+ItemSize : 228313 
+ItemLastModifiedTime : 21-Jun-14 6:45:09 AM
+
+IsDir : False 
+ItemNameFriendly : D:\MyData\finances.xls 
+ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\finances.xls 
+LocalMountPoint : D:\ 
+MountPointName : D:\ 
+Name : finances.xls 
+PointInTime : 18-Jun-15 6:41:52 AM 
+ServerName : myserver.microsoft.com 
+ItemSize : 96256 
+ItemLastModifiedTime : 21-Jun-14 6:43:02 AM
 ```
 
 ```Get-OBRecoverableItem``` cmdlet을 사용하여 복원할 항목을 검색할 수도 있습니다. 이 예제에서 *finances.xls*를 검색하려면 다음 명령을 실행하여 파일에 대한 핸들을 가져올 수 있습니다.
@@ -385,7 +507,7 @@ PS C:\> $item = Get-OBRecoverableItem -RecoveryPoint $rps[0] -Location "D:\MyDat
 ```
 
 ### 복원 프로세스 트리거
-복원 프로세스를 트리거하려면 먼저 복구 옵션을 지정해야 합니다. 이 작업은 [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx) cmdlet을 사용하여 수행할 수 있습니다. 이 예에서는 파일을 *C:\temp*로 복원한다고 가정해 보겠습니다. 또한 대상 폴더 *C:\temp*에 이미 존재하는 파일은 건너뛴다고 가정해 보겠습니다. 해당 복구 옵션을 만들려면 다음 명령을 사용합니다.
+복원 프로세스를 트리거하려면 먼저 복구 옵션을 지정해야 합니다. 이 작업은 [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx) cmdlet을 사용하여 수행할 수 있습니다. 이 예에서는 파일을 *C:\\temp*로 복원한다고 가정해 보겠습니다. 또한 대상 폴더 *C:\\temp*에 이미 존재하는 파일은 건너뛴다고 가정해 보겠습니다. 해당 복구 옵션을 만들려면 다음 명령을 사용합니다.
 
 ```
 PS C:\> $recovery_option = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
@@ -394,7 +516,13 @@ PS C:\> $recovery_option = New-OBRecoveryOption -DestinationPath "C:\temp" -Over
 이제 ```Get-OBRecoverableItem``` cmdlet의 출력에서 선택한 ```$item```에 대해 [Start-OBRecovery](https://technet.microsoft.com/library/hh770402.aspx) 명령을 사용하여 복원을 트리거합니다.
 
 ```
-PS C:\> Start-OBRecovery -RecoverableItem $item -RecoveryOption $recover_option Estimating size of backup items... Estimating size of backup items... Estimating size of backup items... Estimating size of backup items... Job completed. The recovery operation completed successfully.
+PS C:\> Start-OBRecovery -RecoverableItem $item -RecoveryOption $recover_option 
+Estimating size of backup items... 
+Estimating size of backup items... 
+Estimating size of backup items... 
+Estimating size of backup items... 
+Job completed. 
+The recovery operation completed successfully.
 ```
 
 
@@ -414,7 +542,7 @@ PS C:\> .\MARSAgentInstaller.exe /d /q
 하지만 Azure에 저장된 데이터는 그대로 유지되며 사용자가 설정한 보존 정책에 따라 보존됩니다. 이전 지점은 시간이 경과하면 자동으로 삭제됩니다.
 
 ## 원격 관리
-Azure 백업 에이전트, 정책, 데이터 원본와 관련된 모든 관리는 Azure PowerShell을 통해 원격으로 수행될 수 있습니다. 원격으로 관리될 컴퓨터는 올바르게 준비되어야 합니다.
+Azure 백업 에이전트, 정책, 데이터 원본와 관련된 모든 관리는 PowerShell을 통해 원격으로 수행될 수 있습니다. 원격으로 관리될 컴퓨터는 올바르게 준비되어야 합니다.
 
 기본적으로 WinRM 서비스는 수동 시작으로 구성됩니다. 시작 유형은 반드시 *자동*으로 설정되어야 하며 서비스가 시작되어야 합니다. WinRM 서비스가 실행되는지 확인하도록 Status 속성의 값은 *Running*이어야 합니다.
 
@@ -426,7 +554,7 @@ Status   Name               DisplayName
 Running  winrm              Windows Remote Management (WS-Manag...
 ```
 
-Azure PowerShell이 원격 작업용으로 구성되어야 합니다.
+PowerShell을 원격 작업용으로 구성해야 합니다.
 
 ```
 PS C:\> Enable-PSRemoting -force
@@ -440,8 +568,8 @@ PS C:\> Set-ExecutionPolicy unrestricted -force
 이제 에이전트 설치부터 시작하여 컴퓨터를 원격으로 관리할 수 있습니다. 예를 들어, 다음 스크립트는 에이전트를 원격 컴퓨터로 복사하고 설치합니다.
 
 ```
-PS C:\> $dloc = "\REMOTESERVER01\c$\Windows\Temp"
-PS C:\> $agent = "\REMOTESERVER01\c$\Windows\Temp\MARSAgentInstaller.exe"
+PS C:\> $dloc = "\\REMOTESERVER01\c$\Windows\Temp"
+PS C:\> $agent = "\\REMOTESERVER01\c$\Windows\Temp\MARSAgentInstaller.exe"
 PS C:\> $args = "/q"
 PS C:\> Copy-Item "C:\Downloads\MARSAgentInstaller.exe" -Destination $dloc - force
 
@@ -452,4 +580,4 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## 다음 단계
 Windows Server/Client용 Azure 백업에 대한 자세한 정보는 [Azure 백업 소개](backup-introduction-to-azure-backup.md)를 참조합니다.
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

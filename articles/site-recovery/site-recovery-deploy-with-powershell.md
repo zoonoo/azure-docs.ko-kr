@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2015"
+	ms.date="08/05/2015"
 	ms.author="lauraa"/>
 
 #  PowerShell을 사용하여 Azure Site Recovery 배포
@@ -461,4 +461,4 @@ if($isJobLeftForProcessing)
 
 <LI>궁금한 사항은 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 복구 서비스 포럼</a>을 참조하세요.</LI> </UL>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

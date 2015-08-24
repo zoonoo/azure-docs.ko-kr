@@ -13,16 +13,18 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="08/03/2015"
+   ms.date="08/10/2015"
    ms.author="elizapo"/>
 
-# RemoteApp을 사용하여 모든 장치에서 Windows 앱 실행
+# Azure RemoteApp을 사용하여 모든 장치에서 Windows 앱 실행
 
 이 자습서에서는 필요 시 언제 어디서든 모든 장치에서 Windows 응용 프로그램을 실행하는 방법을 보여 줍니다. 사용 중인 응용 프로그램이 Internet Explorer 6이거나 10년 전에 작성된 사용자 지정 응용 프로그램 또는 Office 앱이든지 상관없이 더 이상 일부 응용 프로그램을 사용하기 위해 특정 운영 체제(예: Windows XP)에 묶일 필요가 없습니다.
 
 또한 Azure RemoteApp을 사용하면 사용자의 Android 또는 Apple 장치를 사용하여 Windows 또는 Windows Phone에서와 동일한 환경을 운영할 수 있습니다. 이렇게 하려면 인터넷이 연결된 어디에서나 액세스 가능한 Azure 기반 Windows 가상 컴퓨터 컬렉션에서 Windows 응용 프로그램을 호스트합니다.
 
-이 자습서에서는 모든 사용자와 Access를 공유합니다. Access는 데이터베이스이므로 모든 사용자가 Access 데이터 공유에 액세스하여 데이터베이스를 유용하게 활용할 수 있도록 몇 가지 추가 단계를 수행해 보겠습니다.
+이 자습서에서는 모든 사용자와 Access를 공유합니다. 그러나 모든 응용 프로그램을 사용할 수 있습니다. Windows Server 2012 R2 컴퓨터에 응용 프로그램을 설치할 수 있는 경우 다음 단계를 사용하여 공유할 수 있습니다. [응용 프로그램 요구 사항](remoteapp-appreqs)을 검토하여 응용 프로그램이 작동하는지 확인할 수 있습니다.
+
+Access는 데이터베이스이므로 모든 사용자가 Access 데이터 공유에 액세스하여 데이터베이스를 유용하게 활용할 수 있도록 몇 가지 추가 단계를 수행해 보겠습니다. 응용 프로그램이 데이터베이스가 아니거나 사용자의 파일 공유 액세스가 필요하지 않은 경우 이 자습서에서 해당 단계를 건너뛸 수 있습니다.
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
 
@@ -115,4 +117,4 @@
 
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

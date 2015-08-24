@@ -5,7 +5,7 @@
 	documentationCenter=".net"
 	authors="tdykstra"
 	manager="wpickett"
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags
 	ms.service="app-service-web"
@@ -13,60 +13,72 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article" 
-	ms.date="06/26/2015"
+	ms.date="08/10/2015"
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스에서 ASP.NET 웹 응용 프로그램 만들기
 
 ## 개요
 
-이 자습서에서는 Visual Studio 2013 또는 Web Express용 Visual Studio 2013을 사용하여 ASP.NET 웹 응용 프로그램을 만들고 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)에 배포하는 방법을 보여 줍니다. 이 자습서에서는 이전에 Azure 또는 ASP.NET을 사용한 경험이 없다고 가정합니다. 이 자습서를 완료하면 클라우드에서 간단한 웹 응용 프로그램을 실행할 수 있습니다.
+이 자습서에서는 Visual Studio 2015 또는 Visual Studio 2013을 사용하여 ASP.NET 웹 응용 프로그램을 만들고 [앱 서비스 웹앱](app-service-web-overview.md)에 배포하는 방법을 보여 줍니다. 이 자습서에서는 이전에 Azure 또는 ASP.NET을 사용한 경험이 없다고 가정합니다. 이 자습서를 완료하면 클라우드에서 간단한 웹 응용 프로그램을 실행할 수 있습니다.
+
+다음 그림에서는 완료된 응용 프로그램을 보여 줍니다.
+
+![웹앱 홈 페이지](./media/web-sites-dotnet-get-started/deployedandazure.png)
 
 다음 내용을 배웁니다.
 
 * Azure SDK를 설치하여 사용자 컴퓨터에서 Azure를 개발할 수 있도록 하는 방법
 * Visual Studio ASP.NET 웹 프로젝트를 만들고 Azure 웹 응용 프로그램에 배포하는 방법
 * 웹 프로젝트를 변경하고 응용 프로그램을 다시 배포하는 방법
-* [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)을 사용하여 웹앱을 모니터링 및 관리하는 방법
+* [Azure 미리 보기 포털](/overview/preview-portal/)을 사용하여 웹 앱을 모니터링 및 관리하는 방법
+
+##<a name="video"></a>Microsoft Azure 등록
 
 이 자습서를 완료하려면 Azure 계정이 있어야 합니다.
 
 * [Azure 계정을 무료로 개설](/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있음 - 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 되며 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스(예: 웹 서비스 웹앱)를 사용할 수 있습니다.
-* [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.</li>
+* [MSDN 구독자 혜택을 활성화](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있음 - MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 
-다음 그림에서는 완료된 응용 프로그램을 보여 줍니다.
-
-![웹앱 홈 페이지](./media/web-sites-dotnet-get-started/deployedandazure.png)
-
-##<a name="video"></a>Microsoft Azure 등록(비디오)
+> [AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 이 비디오에서 Scott Hanselman은 Microsoft Azure의 무료 평가판 등록이 얼마나 쉬운지 보여 줍니다. (소요 시간: 1분 58초)
 
 > [AZURE.VIDEO sign-up-for-microsoft-azure]
 
-[AZURE.INCLUDE [install-sdk-2013-only](../../includes/install-sdk-2013-only.md)]
+[AZURE.INCLUDE [install-sdk-2015-2013](../../includes/install-sdk-2015-2013.md)]
 
 ## ASP.NET 웹 응용 프로그램 만들기
 
-첫 번째 단계에서는 웹 응용 프로그램 프로젝트를 만듭니다. Visual Studio에서 나중에 프로젝트를 배포할 Azure 웹 응용 프로그램을 자동으로 만듭니다.
+첫 번째 단계는 Visual Studio의 웹 프로젝트와 Azure App Service의 웹앱을 만드는 것입니다. 이 작업을 마치면 프로젝트를 인터넷에서 사용할 수 있게 웹앱에 배포합니다.
 
-1. Visual Studio 2013 또는 Visual Studio 2013 Express for Web을 엽니다.
+이 표에서는 만들기 및 배포 단계에서의 수행 작업을 설명합니다.
 
-2. **파일** 메뉴에서 **새 프로젝트**를 클릭합니다.
+![생성](./media/web-sites-dotnet-get-started/Create_App.png)
+
+![배포](./media/web-sites-dotnet-get-started/Deploy_App.png)
+
+1. Visual Studio 2015 또는 Visual Studio 2013을 엽니다. 
+
+	Visual Studio 2013을 사용할 경우 화면이 스크린샷과 약간 다르지만 기본적으로 절차는 동일합니다.
+
+2. **파일** 메뉴에서 **새로 만들기 > 프로젝트**를 클릭합니다.
 
 3. **새 프로젝트** 대화 상자에서 **C#** > **웹** > **ASP.NET 웹 응용 프로그램**을 클릭합니다. 원하는 경우 **Visual Basic**을 선택할 수 있습니다.
 
-3. **.NET Framework 4.5**가 대상 프레임워크로 선택되었는지 확인합니다.
+3. **.NET Framework 4.5.2**가 대상 프레임워크로 선택되었는지 확인합니다.
 
 4.  [Application Insights](app-insights-overview.md)는 웹앱의 가용성, 성능 및 사용량을 모니터링합니다. 시도하지 않으려면 **프로젝트에 Application Insights 추가** 확인란의 선택을 취소합니다.
 
-4. 응용 프로그램 이름을 **MyExample**로 지정하고 **확인**을 클릭합니다.
+4. 응용 프로그램 이름을 **MyExample**로 지정합니다.
+
+5. **확인**을 클릭합니다.
 
 	![새 프로젝트 대화 상자](./media/web-sites-dotnet-get-started/GS13newprojdb.png)
 
-5. **새 ASP.NET 프로젝트** 대화 상자에서 **MVC** 템플릿을 선택합니다. ASP.NET Web Forms에서 작업하려는 경우 **Web Forms** 템플릿을 선택할 수 있습니다.
+5. **새 ASP.NET 프로젝트** 대화 상자에서 **MVC** 템플릿을 선택합니다.
 
-	[MVC 및 Web Forms](http://www.asp.net/get-started/websites)는 웹앱을 개발하기 위한 ASP.NET 프레임워크입니다. 이 자습서에서는 둘 중 아무것이든 선택할 수 있지만 Web Forms를 선택하는 경우 나중에 자습서에서 *Index.cshtml*을 편집하라는 내용이 나올 때 *Default.aspx*를 편집해야 합니다.
+	[MVC](http://www.asp.net/mvc)는 웹앱을 위한 ASP.NET 프레임워크입니다.
 
 7. **인증 변경**을 클릭합니다.
 
@@ -90,11 +102,11 @@
 
 	![Azure에 로그인함](./media/web-sites-dotnet-get-started/configuresitesettings.png)
 
-3. **Microsoft Azure 웹앱 설정 구성** 대화 상자에서 기본값을 그대로 둡니다.
+3. **Microsoft Azure Web App 설정 구성** 대화 상자에 *azurewebsites.net*에서 고유한 **웹앱 이름**을 입력합니다. 예를 들어, MyExample810처럼 MyExample 오른쪽에 숫자를 더하여 고유의 이름을 지정할 수 있습니다. 기본 웹 이름이 만들어진 경우 해당 이름은 고유하므로 사용할 수 있습니다.
 
-	필요한 경우 다른 **웹앱 이름**을 입력할 수 있지만 이름은 *azurewebsites.net* 도메인에서 고유해야 합니다. Visual Studio에서 제공하는 기본 이름을 고유합니다.
+	입력한 이름을 다른 사용자가 이미 사용한 경우 녹색 확인 표시 대신 오른쪽에 빨간색 느낌표가 표시되며, 다른 이름을 입력해야 합니다.
 
-	Azure에서는 응용 프로그램의 URL에 대한 접두사로 이 이름을 사용합니다. 전체 URL은 이 이름과 *.azurewebsites.net*(**웹앱 이름** 텍스트 상자 옆에 표시)으로 구성됩니다. 예를 들어 이름이 `MyExample6442`이면 URL은 `MyExample6442.azurewebsites.net`이 됩니다. URL은 고유해야 합니다. 입력한 URL을 다른 사용자가 이미 사용한 경우 녹색 확인 표시 대신 오른쪽에 빨간색 느낌표가 표시되며, 다른 이름을 입력해야 합니다.
+	Azure에서는 응용 프로그램의 URL에 대한 접두사로 이 이름을 사용합니다. 전체 URL은 이 이름과 *.azurewebsites.net*(**웹앱 이름** 텍스트 상자 옆에 표시)으로 구성됩니다. 예를 들어 이름이 `MyExample810`이면 URL은 `MyExample810.azurewebsites.net`이 됩니다. URL은 고유해야 합니다.
 
 4. **앱 서비스 계획** 드롭다운에서 **새 앱 서비스 계획 만들기**를 선택합니다.
 
@@ -106,7 +118,7 @@
 
 	[다음 단계](#next-steps) 섹션에 리소스 그룹에 대한 정보의 링크가 있습니다.
 
-5. 리소스 그룹 이름에 *MyExampleResourceGroup* 또는 원하는 다른 이름을 입력합니다.
+5. 리소스 그룹 이름에 *MyExampleGroup* 또는 원하는 다른 이름을 입력합니다.
 
 5. **지역** 드롭다운 목록에서 가장 가까운 위치를 선택합니다.
 
@@ -114,11 +126,11 @@
 
 5. 데이터베이스 필드를 변경하지 않고 그대로 둡니다.
 
-	이 자습서에서는 데이터베이스를 사용하지 않습니다. 자습서 끝에 있는 [다음 단계](#next-steps) 섹션에 데이터베이스 사용 방법을 보여 주는 자습서 링크가 있습니다.
+	이 자습서에서는 데이터베이스를 사용하지 않습니다. [다음 단계](#next-steps) 섹션은 데이터베이스 사용 방법을 보여주는 자습서로 연결됩니다.
 
 6. **확인**을 클릭합니다.
 
-	![Azure에 로그인함](./media/web-sites-dotnet-get-started/configuresitesettings2.png)
+	![](./media/web-sites-dotnet-get-started/configuresitesettings2.png)
 
 	몇 초 후 Visual Studio에서 지정된 폴더에 웹 프로젝트를 만들고 지정된 Azure 지역에 웹 응용 프로그램을 만듭니다.
 
@@ -130,7 +142,7 @@
 
 	![웹앱이 생성됨](./media/web-sites-dotnet-get-started/GS13sitecreated1.png)
 
-	이제 서버 탐색기에서 웹 응용 프로그램을 볼 수 있습니다.
+	이제 **서버 탐색기**에서 웹앱을 볼 수 있습니다.
 
 	![웹앱이 생성됨](./media/web-sites-dotnet-get-started/siteinse.png)
 
@@ -144,55 +156,33 @@
 
 	Azure에 프로젝트를 배포하는 데 필요한 Visual Studio의 설정이 *게시 프로필*에 저장되었습니다. 이 마법사에서 해당 설정을 확인하고 변경할 수 있습니다.
 
-8. **웹 게시** 마법사의 **연결** 탭에서 **연결 유효성 검사**를 클릭하여 Visual Studio에서 웹 프로젝트를 배포하기 위해 Azure에 연결할 수 있는지 확인합니다.
+8. **웹 게시** 마법사의 **연결** 탭에서 **다음**을 클릭합니다.
 
-	![연결 유효성 검사](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
+	Visual Studio는 Azure 웹앱 배포에 필요한 모든 설정을 제공합니다.
 
-	연결 유효성이 검사되면 **연결 유효성 검사** 단추 옆에 녹색 확인 표시가 나타납니다.
-
-9. **다음**을 클릭합니다.
-
-	![유효성이 검사된 연결](./media/web-sites-dotnet-get-started/GS13ValidateConnectionSuccess.png)
+	![유효성이 검사된 연결](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
 
 10. **설정** 탭에서 **다음**을 클릭합니다.
-
-	![설정 탭](./media/web-sites-dotnet-get-started/GS13SettingsTab.png)
 
 	**구성** 및 **파일 게시 옵션**의 기본값을 그대로 사용합니다.
 
 	**구성** 드롭다운에서 원격 디버깅을 위한 디버그 빌드를 배포할 수 있습니다. [다음 단계](#next-steps) 섹션은 Visual Studio를 원격에서 디버그 모드로 실행하는 방법을 보여 주는 자습서로 연결됩니다.
 
-	**파일 게시 옵션**을 확장하면 이 자습서에는 적용되지 않는 다음과 같은 상황을 처리할 수 있는 몇 가지 설정이 표시됩니다.
+	![설정 탭](./media/web-sites-dotnet-get-started/GS13SettingsTab.png)
 
-	* 대상에 있는 추가적인 파일을 제거합니다.
+11. **미리 보기** 탭에서 **게시**를 클릭합니다.
 
-		서버에서 프로젝트에 포함되지 않은 파일을 모두 삭제합니다. 앞서 다른 프로젝트를 배포한 웹 응용 프로그램에 프로젝트를 배포하는 경우 이 작업을 수행해야 할 수 있습니다.
+	Azure에 복사할 파일을 확인하려면 **게시**를 클릭하기 전에 **미리 보기 시작**을 클릭하면 됩니다.
 
-	* 게시 중 미리 컴파일합니다.
-
-		대형 응용 프로그램에 대한 최초 요청 준비 시간을 줄일 수 있습니다.
-
-	* App\_Data 폴더에서 파일을 실행합니다.
-
-		테스팅을 위해 프로덕션에 배포하지 않을 SQL Server 데이터베이스 파일을 App\_Data에 포함하는 경우가 가끔 있습니다.
-
-11. **미리 보기** 탭에서 **미리 보기 시작**을 클릭합니다.
-
-	![미리 보기 탭의 미리 보기 시작 단추](./media/web-sites-dotnet-get-started/GS13Preview.png)
-
-	이 탭에는 서버로 복사될 파일 목록이 표시됩니다. 미리 보기 표시는 응용 프로그램을 게시하는 데 필요하지 않지만 알아 두면 유용한 기능입니다.
-
-12. **게시**를 클릭합니다.
-
-	![StartPreview 파일 출력](./media/web-sites-dotnet-get-started/GS13previewoutput.png)
+	![](./media/web-sites-dotnet-get-started/GS13previewoutput.png)
 
 	Visual Studio에서 Azure 서버로 파일을 복사하는 프로세스를 시작합니다.
 
-	**출력** 및 **Web Publish Activity** 창에 수행된 배포 작업이 표시되고 성공적인 배포 완료가 보고됩니다.
+	**출력** 및 **Azure App Service Activity** 창에 수행된 배포 작업이 표시되고 성공적인 배포 완료가 보고됩니다.
 
 	![성공적인 배포를 보고하는 출력 창](./media/web-sites-dotnet-get-started/PublishOutput.png)
 
-	배포에 성공하면 기본 브라우저에서 배포된 웹 응용 프로그램의 URL이 자동으로 열리며, 만든 응용 프로그램이 이제 클라우드에서 실행되고 있습니다. 브라우저 주소 표시줄의 URL은 웹 응용 프로그램이 인터넷에서 로드되고 있음을 보여 줍니다.
+	배포에 성공하면 기본 브라우저에서 배포된 웹 응용 프로그램의 URL이 자동으로 열리며, 만든 응용 프로그램이 이제 클라우드에서 실행되고 있습니다. 브라우저 주소 표시줄의 URL은 웹앱이 인터넷에서 로드됨을 보여 줍니다.
 
 	![Azure에서 실행되는 웹앱](./media/web-sites-dotnet-get-started/GS13deployedsite.png)
 
@@ -200,7 +190,7 @@
 
 ## 변경 및 다시 배포
 
-자습서의 이 섹션에서는 홈페이지의 **h1** 제목을 변경하고 개발 컴퓨터에서 로컬로 프로젝트를 실행하여 변경 내용을 확인한 다음 Azure에 변경 내용을 배포합니다.
+자습서의 이 섹션은 선택 사항입니다. 여기서는 홈 페이지의 **h1** 제목을 변경하고 개발 컴퓨터에서 로컬로 프로젝트를 실행하여 변경 내용을 확인한 다음 Azure에 변경 내용을 배포합니다.
 
 2. *솔루션 탐색기*에서 *Views/Home/Index.cshtml* 또는 **.vbhtml** 파일을 열고 **h1** 제목을 "ASP.NET"에서 "ASP.NET and Azure"로 변경한 다음 파일을 저장합니다.
 
@@ -212,7 +202,7 @@
 
 	![로컬 실행되는 웹앱](./media/web-sites-dotnet-get-started/localandazure.png)
 
-	`http://localhost` URL은 해당 사이트가 로컬 컴퓨터에서 실행되고 있음을 보여 줍니다. 기본적으로 웹 응용 프로그램 개발 중 사용하도록 설계된 IIS 경량 버전인 IIS Express에서 실행됩니다.
+	`localhost` URL은 해당 사이트가 로컬 컴퓨터에서 실행되고 있음을 보여 줍니다. 기본적으로 웹 응용 프로그램 개발 중 사용하도록 설계된 IIS 경량 버전인 IIS Express에서 실행됩니다.
 
 1. 브라우저를 닫습니다.
 
@@ -220,39 +210,39 @@
 
 	![게시 선택](./media/web-sites-dotnet-get-started/choosepublish.png)
 
-	**웹 게시** 마법사의 미리 보기 탭이 나타납니다. 게시 설정을 변경해야 하는 경우 다른 탭을 선택할 수 있지만 이제 같은 설정으로 다시 배포하면 됩니다.
+	**웹 게시** 마법사의 **미리 보기** 탭이 나타납니다. 게시 설정을 변경해야 하는 경우 다른 탭을 선택할 수 있지만 이제 같은 설정으로 다시 배포하면 됩니다.
 
 2. **웹 게시** 마법사에서 **게시**를 클릭합니다.
 
-	![게시 클릭](./media/web-sites-dotnet-get-started/clickpublish.png)
+	![게시 클릭](./media/web-sites-dotnet-get-started/GS13previewoutput.png)
 
 	Visual Studio에서 Azure에 프로젝트를 배포하고 기본 브라우저에서 웹 응용 프로그램을 엽니다.
 
 	![변경된 웹앱 배포](./media/web-sites-dotnet-get-started/deployedandazure.png)
 
-**팁:** 보다 빠른 배포를 위해 **한 번 클릭으로 웹 게시** 도구 모음을 사용할 수 있습니다. **보기** > **도구 모음**을 클릭한 다음 **한 번 클릭으로 웹 게시**를 선택합니다. 이 도구 모음을 사용하여 프로필을 선택하거나, 단추를 클릭하여 게시하거나, 단추를 클릭하여 **웹 게시** 마법사를 열 수 있습니다.
+**팁:** 보다 빠른 배포를 위해 **한 번 클릭으로 웹 게시** 도구 모음을 사용할 수 있습니다. **보기 > 도구 모음**을 클릭한 다음 **한 번 클릭으로 웹 게시**를 선택합니다. 이 도구 모음을 사용하여 프로필을 선택하거나, 단추를 클릭하여 게시하거나, 단추를 클릭하여 **웹 게시** 마법사를 열 수 있습니다.
 
 ![한 번 클릭으로 웹 게시 도구 모음](./media/web-sites-dotnet-get-started/weboneclickpublish.png)
 
 ## 관리 포털에서 웹 응용 프로그램 모니터링 및 관리
 
-[Azure 관리 포털](/services/management-portal/)은 Azure 서비스(예: 방금 만든 웹 응용 프로그램)를 관리하고 모니터링하는 데 사용할 수 있는 웹 인터페이스입니다. 자습서의 이 섹션에서는 포털에서 수행할 수 있는 작업 중 일부를 살펴봅니다.
+[Azure 미리 보기 포털](/services/management-portal/)은 Azure 서비스(예: 방금 만든 웹 응용 프로그램)를 관리하고 모니터링하는 데 사용할 수 있는 웹 인터페이스입니다. 자습서의 이 섹션에서는 포털에서 수행할 수 있는 작업 중 일부를 살펴봅니다.
 
 1. 브라우저에서 [https://portal.azure.com]()으로 이동하여 Azure 자격 증명으로 로그인합니다.
 
-2. **찾아보기 > 웹앱**을 클릭한 다음 웹 응용 프로그램의 이름을 클릭합니다.
+2. **모두 찾아보기 > 웹앱**을 클릭한 다음 웹 응용 프로그램의 이름을 클릭합니다.
 
-	웹앱에 대한 **웹앱** 블레이드에 자주 사용되는 웹앱 관리 기능에 대한 링크 및 사용량 통계가 표시됩니다.
+	**웹 앱** 블레이드에 웹앱의 설정 개요와 사용량 통계가 표시됩니다.
 
-	![웹앱 블레이드](./media/web-sites-dotnet-get-started/portaldashboard.png)-->
+	![웹앱 블레이드](./media/web-sites-dotnet-get-started/portaldashboard.png)
 
 	지금은 웹 응용 프로그램의 트래픽이 그다지 많지 않아서 그래픽에 아무것도 표시되지 않을 수 있습니다. 응용 프로그램을 탐색하고, 페이지를 몇 번 새로 고친 다음 포털 페이지를 새로 고치면 몇 가지 통계가 표시됩니다.
 
-3. 더 많은 웹앱 구성 옵션을 보려면 **모든 설정**을 클릭합니다.
+3. 더 많은 웹앱 구성 옵션을 보려면 **설정**을 클릭합니다.
 
 	설정 유형 목록이 표시됩니다.
 
-	![](./media/web-sites-dotnet-get-started/portalconfigure1.png)-->
+	![](./media/web-sites-dotnet-get-started/portalconfigure1.png)
 
 4. **응용 프로그램 설정**을 클릭하여 포털에서 구성할 수 설정 유형의 예를 볼 수 있습니다.
 
@@ -262,11 +252,9 @@
 
 이러한 기능은 관리 포털의 일부에 지나지 않습니다. 또한 새 웹 응용 프로그램을 만들고, 기존 응용 프로그램을 삭제하고, 웹 응용 프로그램을 중지 및 다시 시작하고, 다른 Azure 서비스(예: 데이터베이스 및 가상 컴퓨터)를 관리할 수도 있습니다.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
-
 ## 다음 단계
 
-이 자습서에서는 간단한 웹 응용 프로그램을 만들고 Azure 웹 응용 프로그램에 배포하는 방법을 확인했습니다. 다음은 자세한 내용을 확인할 수 있는 몇 가지 관련 항목 및 리소스입니다.
+이 자습서에서는 간단한 웹 응용 프로그램을 만들고 Azure 웹 응용 프로그램에 배포하는 방법을 확인했습니다. 다음은 Azure App Service의 웹앱과 관련한 자세한 내용을 확인할 수 있는 몇 가지 관련 항목 및 리소스입니다.
 
 * 웹 프로젝트를 배포하는 다른 방법
 
@@ -295,7 +283,7 @@
 
 * 유휴 시간 제한 후 절전 모드 해제 대기 시간을 방지하는 방법
 
-	기본적으로 웹 응용 프로그램은 일정 기간 동안 유휴 상태인 경우 언로드됩니다. 언로드된 후 첫 번째 요청은 웹 응용 프로그램이 다시 로드될 때까지 대기해야 합니다. 대기 시간을 방지하기 위해 AlwaysOn 기능을 사용할 수 있습니다. 자세한 내용은 [웹앱을 구성하는 방법](web-sites-configure.md)의 구성 옵션을 참조하세요.
+	기본적으로 웹 응용 프로그램은 일정 기간 동안 유휴 상태인 경우 언로드됩니다. 웹앱 언로드 후의 첫 번째 요청은 해당 웹앱이 다시 로드될 때까지 대기해야 합니다. 대기 시간을 방지하기 위해 AlwaysOn 기능을 사용할 수 있습니다. 자세한 내용은 [웹앱을 구성하는 방법](web-sites-configure.md)의 구성 옵션을 참조하세요.
 
 * 채팅과 같은 실시간 기능을 추가하는 방법
 
@@ -303,17 +291,16 @@
 
 * 웹 응용 프로그램용 앱 서비스, 클라우드 서비스 및 VM을 선택하는 방법
 
-	Azure에서는 앱 서비스 웹 응용 프로그램을 웹 사이트(이 자습서에 설명됨), 클라우드 서비스 또는 가상 컴퓨터에서 실행할 수 있습니다. 자세한 내용은 [Azure 실행 모델](/develop/net/fundamentals/compute/) 및 [Azure 웹앱, 클라우드 서비스 및 VM을 사용하는 경우](/manage/services/web-sites/choose-web-app-service/)를 참조하세요.
+	Azure에서는 앱 서비스 웹 응용 프로그램을 웹 사이트(이 자습서에 설명됨), 클라우드 서비스 또는 가상 컴퓨터에서 실행할 수 있습니다. 자세한 내용은 [Azure 웹앱, 클라우드 서비스 및 VM을 사용하는 경우](/manage/services/web-sites/choose-web-app-service/) 를 참조하세요.
 
 * [앱 서비스 계획을 선택하거나 만드는 방법](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
 * [리소스 그룹을 선택하거나 만드는 방법](../azure-preview-portal-using-resource-groups.md)
 
-
-
 ## 변경된 내용
+
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

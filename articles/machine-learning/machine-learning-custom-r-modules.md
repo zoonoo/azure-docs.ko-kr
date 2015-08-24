@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="tbd" 
-	ms.date="05/07/2015" 
+	ms.date="07/29/2015" 
 	ms.author="bradsev;ankarloff" />
 
 
@@ -363,4 +363,4 @@ R 스크립트의 실행 환경에서는 **R 스크립트 실행** 모듈과 동
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="음성 및 SMS에 Twilio를 사용하는 방법(.NET) - Azure" 
+	pageTitle="음성 및 SMS에 Twilio를 사용하는 방법(.NET) | Microsoft Azure" 
 	description="Azure에서 Twilio API 서비스를 사용하여 전화를 걸고 SMS 메시지를 보내는 방법에 대해 알아봅니다. 코드 샘플은 .NET으로 작성되었습니다." 
 	services="" 
 	documentationCenter=".net" 
@@ -80,7 +80,7 @@ Twilio 사용 응용 프로그램을 호스트하는 Azure 응용 프로그램�
 ## <a id="configure_app"></a>Twilio 라이브러리를 사용하도록 응용 프로그램 구성
 Twilio는 .NET 도우미 라이브러리 집합을 제공하며, 이 라이브러리 집합은 Twilio의 여러 가지 요소를 래핑함으로써 Twilio REST API 및 Twilio 클라이언트를 간단하고 쉽게 조작해서 TwiML 응답을 생성하는 방법을 제공합니다.
 
-Twilio는 .NET 개발자를 위한 다음 5개의 라이브러리를 제공합니다. <table border="1"> <tr> <th>라이브러리</th> <th>설명</th> </tr> <tr> <td>Twilio.API</td> <td>친숙한 .NET 라이브러리에서 Twilio REST API를 래핑하는 핵심 Twilio 라이브러리입니다. 이 라이브러리는 .NET, Silverlight 및 Windows Phone 7에 사용할 수 있습니다.</td> </tr> <tr> <td>Twilio.TwiML</td> <td>은 TwiML 태그를 생성하는 친숙한 .NET 방법을 제공합니다.</td> </tr> <tr> <td>Twilio.MVC</td> <td>ASP.NET MVC를 사용하는 개발자를 위해 이 라이브러리는 TwilioController, TwiML ActionResult 및 요청 유효성 검사 특성을 포함합니다.</td> </tr> <tr> <td>Twilio.WebMatrix</td> <td>Microsoft의 무료 WebMatrix 개발 도구를 사용하는 개발자를 위해 이 라이브러리는 다양한 Twilio 작업에 사용할 수 있는 Razor 구문을 포함합니다.</td> </tr> <tr> <td>Twilio.Client.Capability</td> <td>Twilio 클라이언트 JavaScript SDK와 함께 사용할 수 있는 기능 토큰 생성기를 포함합니다.</td> </tr> </table>
+Twilio는 .NET 개발자를 위한 다음 5개의 라이브러리를 제공합니다. 라이브러리|설명 ---|---Twilio.API|친숙한 .NET 라이브러리에서 Twilio REST API를 래핑하는 핵심 Twilio 라이브러리입니다. 이 라이브러리는 .NET, Silverlight 및 Windows Phone 7에 사용할 수 있습니다. Twilio.TwiML| TwiML 태그를 생성하는 친숙한 .NET 방법을 제공합니다. Twilio.MVC|ASP.NET MVC를 사용하는 개발자를 위해 이 라이브러리는 TwilioController, TwiML ActionResult 및 요청 유효성 검사 특성을 포함합니다. Twilio.WebMatrix|Microsoft의 무료 WebMatrix 개발 도구를 사용하는 개발자를 위해 이 라이브러리는 다양한 Twilio 작업에 사용할 수 있는 Razor 구문을 포함합니다. Twilio.Client.Capability|Twilio 클라이언트 JavaScript SDK와 함께 사용할 수 있는 기능 토큰 생성기를 포함합니다.
 
 모든 라이브러리를 사용하려면 .NET 3.5, Silverlight 4 또는 Windows Phone 7 이상이 필요합니다.
 
@@ -279,4 +279,4 @@ Azure에서 ASP.NET과 함께 Twilio 사용에 대한 자세한 내용은 [Azure
 [twilio_account]: https://www.twilio.com/user/account
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

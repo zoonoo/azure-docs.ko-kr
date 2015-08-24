@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Xamarin iOS 앱용 모바일 서비스 시작 - Azure 모바일 서비스"
+	pageTitle="Xamarin iOS 앱용 모바일 서비스 시작 | Microsoft Azure"
 	description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 Xamarin iOS 개발을 시작할 수 있습니다."
 	services="mobile-services"
 	documentationCenter="xamarin"
@@ -136,4 +136,4 @@
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

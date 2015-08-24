@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="mazharmicrosoft" 
-	manager="klin"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -531,4 +531,4 @@ PageView에 대해 생성되는 테이블의 스키마입니다.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

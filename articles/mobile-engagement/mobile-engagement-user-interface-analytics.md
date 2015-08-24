@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="mobile-multiple"
    ms.workload="mobile" 
-   ms.date="02/17/2015"
+   ms.date="08/10/2015"
    ms.author="piyushjo"/>
 
 # 응용 프로그램에 대한 기록 데이터를 분석하는 방법
@@ -174,4 +174,4 @@ Azure Mobile Engagement에서는 앱을 SDK와 통합하는 즉시 그래프로 
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

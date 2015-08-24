@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure의 SQL Server로 데이터 이동| Microsoft Azure" 
-	description="Azure의 SQL Server로 데이터 이동" 
+	pageTitle="Azure 가상 컴퓨터에서 SQL Server로 데이터 이동 | Azure" 
+	description="플랫 파일 또는 온-프레미스 SQL Server에서 Azure VM의 SQL Server로 데이터 이동" 
 	services="machine-learning" 
 	documentationCenter="" 
 	authors="msolhab" 
@@ -13,24 +13,20 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/04/2015" 
-	ms.author="fashah;garye;mohabib;bradsev" />
+	ms.date="08/10/2015" 
+	ms.author="fashah;mohabib;bradsev" />
 
-#Azure의 SQL Server로 데이터 이동
+# Azure 가상 컴퓨터에서 SQL Server로 데이터 이동
 
-이 문서에서는 Azure를 기반으로 플랫 파일(csv/tsv) 또는 온-프레미스 SQL Server에서 SQL Server로 데이터를 이동하는 방법을 다룹니다. 이 작업은 Azure 기계 학습에서 제공하는 ADAPT(고급 분석 프로세스 및 기술)의 일부입니다.
+이 문서에서는 플랫 파일(CSV 또는 TSV 형식) 또는 온-프레미스 SQL Server에서 Azure 가상 컴퓨터의 SQL Server로 데이터를 이동하기 위한 옵션에 대해 간략히 설명합니다. 클라우드로 데이터를 이동하는 이 작업은 Azure 기계 학습에서 제공하는 ADAPT(고급 분석 프로세스 및 기술)의 일부입니다.
 
+기계 학습을 위해 Azure SQL 데이터베이스로 데이터를 이동하기 위한 옵션을 설명하는 항목은 [Azure 기계 학습을 위해 Azure SQL 데이터베이스로 데이터 이동](machine-learning-data-science-move-sql-azure.md)을 참조하세요.
 
-<table>
+다음 표에서는 Azure 가상 컴퓨터에서 SQL Server로 데이터를 이동하는 옵션을 요약합니다. <table>
 
 <tr>
 <td><b>원본</b></td>
-<td colspan="2" align="center"><b>대상</b></td>
-</tr>
-
-<tr>
-  <td></td>
-  <td><b>Azure의 SQL Server VM</b></td>
+<td colspan="2" align="center"><b>대상: Azure VM의 SQL Server</b></td>
 </tr>
 
 <tr>
@@ -56,17 +52,16 @@
 > [AZURE.TIP]하나의 대안으로, [Azure 데이터 팩터리](https://azure.microsoft.com/ko-kr/services/data-factory/)를 사용하여 Azure의 SQL Server VM으로 데이터를 이동하는 파이프라인을 만들고 예약할 수 있습니다. 자세한 내용은 [Azure 데이터 팩터리를 사용하여 데이터 복사(복사 작업)](../data-factory/data-factory-copy-activity.md)를 참조하세요.
 
 
-## <a name="sqlonazurevm"></a>Azure 기반의 SQL Server VM으로 데이터 이동
+## <a name="prereqs"></a>필수 조건
+이 자습서에서는 사용자가 다음을 보유하고 있다고 가정합니다.
 
-이 섹션에서는 Azure 기반의 SQL Server VM으로 데이터를 이동하는 절차에 대해 설명합니다. SQL Server VM을 설정하지 않은 경우 [고급 분석을 위해 Azure SQL Server 가상 컴퓨터를 IPython Notebook으로 설정](machine-learning-data-science-setup-sql-server-virtual-machine.md)에 설명된 대로 고급 분석용 새 SQL Server 가상 컴퓨터를 프로비전합니다.
-
-이 문서에서는 다음 데이터 원본의 데이터를 이동하는 방법에 대해 설명합니다.
-  
-1. [플랫 파일](#filesource_to_sqlonazurevm) 
-2. [온-프레미스 SQL Server에서](#sqlonprem_to_sqlonazurevm)
+* **Azure 구독**. 구독이 없는 경우 [무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
+* **Azure 저장소 계정**. 이 자습서에서는 데이터 저장을 위해 Azure 저장소 계정을 사용합니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요. 저장소 계정을 만든 후에는 저장소 액세스에 사용되는 계정 키를 확보해야 합니다. [저장소 액세스 키 보기, 복사 및 다시 생성](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
+* 프로비전된 **Azure VM의 SQL Server**. 자세한 내용은 [고급 분석을 위해 Azure SQL Server 가상 컴퓨터를 IPython Notebook 서버로 설정](machine-learning-data-science-setup-sql-server-virtual-machine.md)을 참조하세요.
+* 로컬로 설치 및 구성된 **Azure PowerShell**. 자세한 내용은 [Azure PowerShell 설치 및 구성법](powershell-install-configure.md)을 참조하세요.
 
 
-### <a name="filesource_to_sqlonazurevm"></a>파일 원본
+## <a name="filesource_to_sqlonazurevm"></a>플랫 파일 원본에서 Azure VM의 SQL Server로 데이터 이동
 
 데이터가 플랫 파일에 있는 경우(행/열 형식으로 정렬됨) 다음 방법을 통해 Azure 기반의 SQL Server VM으로 데이터를 이동할 수 있습니다.
 
@@ -102,7 +97,7 @@ BCP는 SQL Server와 함께 설치되는 명령줄 유틸리티로, 데이터를
 
 > **BCP 삽입 최적화 삽입** 작업을 최적화하는 방법은 ['대량 가져오기를 최적화하기 위한 지침'](https://technet.microsoft.com/library/ms177445%28v=sql.105%29.aspx) 문서를 참조하세요.
 
-#### <a name="insert-tables-bulkquery-parallel"></a>더 빠른 데이터 이동을 위한 병렬 처리
+### <a name="insert-tables-bulkquery-parallel"></a>더 빠른 데이터 이동을 위한 병렬 처리
 
 이동하려는 데이터가 큰 경우 PowerShell 스크립트에서 동시에 여러 BCP 명령을 병렬로 수행하면 작업 속도를 높일 수 있습니다.
 
@@ -176,7 +171,7 @@ SSIS(SQL Server Integrations Services)를 사용하여 플랫 파일의 데이�
 - SQL Server 데이터 도구에 대한 자세한 내용은 [Microsoft SQL Server 데이터 도구](https://msdn.microsoft.com/data/tools.aspx) 참조  
 - 가져오기/내보내기 마법사에 대한 자세한 내용은 [SQL Server 가져오기 및 내보내기 마법사](https://msdn.microsoft.com/library/ms141209.aspx) 참조
 
-### <a name="sqlonprem_to_sqlonazurevm"></a>온-프레미스 SQL Server에서 데이터 이동
+## <a name="sqlonprem_to_sqlonazurevm"></a>온-프레미스 SQL Server에서 Azure VM의 SQL Server로 데이터 이동
 
 다음과 같은 방법으로 온-프레미스 SQL Server의 데이터를 이동할 수 있습니다.
 
@@ -186,7 +181,7 @@ SSIS(SQL Server Integrations Services)를 사용하여 플랫 파일의 데이�
 
 아래는 각 방법에 대한 설명입니다.
 
-#### <a name="export-flat-file"></a>플랫 파일로 내보내기
+### <a name="export-flat-file"></a>플랫 파일로 내보내기
 
 [여기](https://msdn.microsoft.com/library/ms175937.aspx)에 설명된 것처럼 다양한 방법을 사용하여 온-프레미스 SQL Server의 데이터를 대량으로 내보낼 수 있습니다. 이 문서에서는 그 방법 중 하나로 BCP(대량 복사 프로그램)에 대해 설명합니다. 데이터를 플랫 파일로 내보낸 후에는 대량 삽입을 사용하여 다른 SQL Server로 데이터를 가져올 수 있습니다.
 
@@ -209,13 +204,13 @@ SSIS(SQL Server Integrations Services)를 사용하여 플랫 파일의 데이�
 	
 4. [파일 원본에서 데이터 이동](#filesource_to_sqlonazurevm) 섹션에 설명된 아무 방법을 사용하여 플랫 파일에서 SQL Server로 데이터를 이동합니다.
 
-#### <a name="sql-migration"></a>SQL 데이터베이스 마이그레이션 마법사
+### <a name="sql-migration"></a>SQL 데이터베이스 마이그레이션 마법사
 
 [SQL Server 데이터베이스 마이그레이션 마법사](http://sqlazuremw.codeplex.com/)는 두 SQL Server 인스턴스 간에 데이터를 이동할 수 있는 사용자에게 편리한 방법을 제공합니다. 사용자가 원본과 대상 테이블 사이에 데이터 스키마를 매핑하고, 열 유형 및 다양한 기타 기능을 선택할 수 있습니다. 사용자에게는 보이지 않지만 SQL Server 데이터베이스 마이그레이션 마법사는 BCP(대량 복사)를 사용합니다. 아래는 SQL 데이터베이스 마이그레이션 마법사의 시작 화면 스크린샷입니다.
 
 ![SQL Server 마이그레이션 마법사][2]
 
-#### <a name="sql-backup"></a>데이터베이스 백업 및 복원
+### <a name="sql-backup"></a>데이터베이스 백업 및 복원
 
 SQL Server는 다음을 지원합니다.
 
@@ -232,4 +227,4 @@ SQL Server는 다음을 지원합니다.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

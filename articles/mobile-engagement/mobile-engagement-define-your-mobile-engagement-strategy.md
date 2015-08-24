@@ -3,7 +3,7 @@
 	description="분석 및 푸시 알림에 Mobile Engagement를 사용, 등록 및 최적화하는 방법에 관해 알아봅니다."
 	services="mobile-engagement"
 	documentationCenter="Mobile"
-	authors="kpiteira"
+	authors="piyushjo"
 	manager="dwrede"
 	editor="" />
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="02/10/2015"
-	ms.author="kapiteir" />
+	ms.date="08/10/2015"
+	ms.author="piyushjo" />
 
 #Mobile Engagement 전략 정의
 
@@ -128,4 +128,4 @@
 [자습서]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

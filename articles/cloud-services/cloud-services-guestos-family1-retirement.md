@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="게스트 OS 제품군 1 사용 중지 알림 | Azure" 
+   pageTitle="게스트 OS 제품군 1 사용 중지 알림 | Microsoft Azure" 
    description="Azure 게스트 OS 제품군 1 사용 중지가 발생한 시기 및 적용되는 지를 확인하는 방법에 대한 정보를 제공합니다." 
    services="cloud-services" 
    documentationCenter="na" 
@@ -78,4 +78,4 @@ foreach($subscription in Get-AzureSubscription) {
 ## 게스트 OS 제품군 1에 대한 연장된 지원이 2014년 11월 3일에 종료되었습니다.
 게스트 OS 제품군 1에서 클라우드 서비스는 더 이상 지원 되지 않습니다. 서비스 중단을 방지하려면 가능한 빨리 제품군 1을 마이그레이션 해제하십시오.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

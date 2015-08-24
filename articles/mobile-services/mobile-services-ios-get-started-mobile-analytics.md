@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="모바일 분석 시작 | 모바일 개발자 센터" 
+	pageTitle="모바일 분석 시작 | Microsoft Azure" 
 	description="모바일 분석을 시작하는 방법에 대해 알아봅니다." 
 	documentationCenter="ios" 
 	authors="mattchenderson" 
@@ -98,4 +98,4 @@
 [모바일 서비스 표준 계층]: /pricing/details/mobile-services/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,6 +1,6 @@
 <properties
-   pageTitle="신뢰할 수 있는 행위자 리소스 관리 디자인 패턴"
-   description="신뢰할 수 있는 행위자를 사용하여 규모를 확장해야 하지만 제한된 리소스를 사용해야 하는 응용 프로그램을 모델링할 수 있는 방법에 대한 패턴 디자인"
+   pageTitle="Azure 서비스 패브릭 행위자 리소스 관리 디자인 패턴"
+   description="서비스 패브릭 행위자를 사용하여 규모를 확장해야 하지만 제한된 리소스를 사용해야 하는 응용 프로그램을 모델링할 수 있는 방법에 대한 패턴 디자인"
    services="service-fabric"
    documentationCenter=".net"
    authors="jessebenson"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/05/2015"
+   ms.date="08/11/2015"
    ms.author="claudioc"/>
 
 # 신뢰할 수 있는 행위자 디자인 패턴: 리소스 관리
@@ -417,4 +417,4 @@ public class EventWriter : Actor<EventWriterState>, IEventWriter
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

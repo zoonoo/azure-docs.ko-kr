@@ -1,5 +1,5 @@
 <properties
-	pageTitle=".NET 백엔드 모바일 서비스에서 사용자의 서비스 쪽 권한 부여 | Azure 모바일 서비스"
+	pageTitle=".NET 백 엔드 모바일 서비스에서 사용자의 서비스 쪽 권한 부여 | Microsoft Azure"
 	description=".NET 백엔드 모바일 서비스에서 사용자 권한 부여 액세스 권한을 제한하는 방법에 대해 알아보기"
 	services="mobile-services"
 	documentationCenter="windows"
@@ -80,4 +80,4 @@
 [기존 모바일 서비스 앱에 인증 추가]: mobile-services-dotnet-backend-ios-get-started-users.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

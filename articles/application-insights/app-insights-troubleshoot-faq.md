@@ -133,7 +133,7 @@ Application Insights를 설치하는 동안 문제가 발생했거나 로깅 어
 #### <a name="q03"></a>Application Insights를 추가하고 앱을 실행했는데 포털에 데이터가 표시되지 않습니다.
 
 + 개요 페이지에서 진단 검색을 열려면 검색 타일을 클릭합니다. 데이터가 여기에 먼저 나타납니다.
-+ 새로고침 단추를 클릭합니다. 현재 버전에서는 블레이드의 콘텐츠에 대한 새로 고침이 자동으로 수행되지 않습니다.
++ 새로고침 단추를 클릭합니다. 블레이드 자체는 주기적으로 새로 고쳐지지만 수동으로 새로 고칠 수도 있습니다. 시간 범위가 커지면 새로 고침 간격이 길어집니다.
 + Microsoft Azure 시작 보드에서 서비스 상태 맵을 살펴보세요. 어떤 경고 표시가 있는 경우 정상으로 돌아갈 때까지 기다린 후 Application Insights 응용 프로그램 블레이드를 닫고 다시 엽니다.
 + 또한 [상태 블로그](http://blogs.msdn.com/b/applicationinsights-status/)를 확인합니다.
 + 방화벽에서 dc.services.visualstudio.com 및 f5.services.visualstudio.com으로 나가는 트래픽에 대해 TCP 포트 80 및 443을 열어야 할 수 있습니다.
@@ -239,4 +239,4 @@ Application Insights 리소스를 만드는 [PowerShell script 스크립트를 �
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

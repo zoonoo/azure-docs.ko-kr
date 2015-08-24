@@ -1,28 +1,28 @@
-<properties 
-	pageTitle="저장소 계정을 모니터링하는 방법 | Microsoft Azure" 
-	description="관리 포털을 사용하여 Azure에서 저장소 계정을 모니터링하는 방법에 대해 알아봅니다." 
-	services="storage" 
-	documentationCenter="" 
-	authors="tamram" 
-	manager="adinah" 
+<properties
+	pageTitle="저장소 계정을 모니터링하는 방법 | Microsoft Azure"
+	description="Azure 포털을 사용하여 Azure에서 저장소 계정을 모니터링하는 방법에 대해 알아봅니다."
+	services="storage"
+	documentationCenter=""
+	authors="tamram"
+	manager="adinah"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/22/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/22/2015"
 	ms.author="tamram"/>
 
-# Azure 관리 포털에서 저장소 계정 모니터링
+# Azure 포털에서 저장소 계정 모니터링
 
 ## 개요
 
-Azure 관리 포털에서 저장소 계정을 모니터링할 수 있습니다. 포털을 통해 모니터링할 저장소 계정을 구성하면 Azure 저장소에서 [저장소 분석](http://msdn.microsoft.com/library/azure/hh343270.aspx)을 사용하여 사용자의 계정에 대한 메트릭을 추적하고 요청 데이터를 기록합니다.
+Azure 포털에서 저장소 계정을 모니터링할 수 있습니다. 포털을 통해 모니터링할 저장소 계정을 구성하면 Azure 저장소에서 [저장소 분석](http://msdn.microsoft.com/library/azure/hh343270.aspx)을 사용하여 사용자의 계정에 대한 메트릭을 추적하고 요청 데이터를 기록합니다.
 
-> [AZURE.NOTE]관리 포털에서 모니터링 데이터를 검사하면 추가 비용이 발생할 수 있습니다. 자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">저장소 분석 및 청구</a>를 참조하십시오.<br />
+> [AZURE.NOTE]Azure 포털에서 모니터링 데이터를 검사하면 추가 비용이 발생할 수 있습니다. 자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">저장소 분석 및 청구</a>를 참조하십시오.<br />
 
 > Azure 파일 서비스는 현재 저장소 분석을 지원하지 않습니다.
 
@@ -31,15 +31,15 @@ Azure 관리 포털에서 저장소 계정을 모니터링할 수 있습니다. 
 
 ## 방법: 저장소 계정에 대한 모니터링 구성
 
-1. [관리 포털](https://manage.windowsazure.com/)에서 **저장소**를 클릭한 후 대시보드를 열 저장소 계정 이름을 클릭합니다.
+1. [Azure 포털](https://manage.windowsazure.com/)에서 **저장소**를 클릭한 후 대시보드를 열 저장소 계정 이름을 클릭합니다.
 
-2. **구성**을 클릭하고 아래와 같이 Blob, 테이블 및 큐 서비스의 **모니터링** 설정까지 아래로 스크롤합니다.
+2. **구성**을 클릭하고 Blob, 테이블 및 큐 서비스의 **모니터링** 설정까지 아래로 스크롤합니다.
 
 	![모니터링 옵션](./media/storage-monitor-storage-account/Storage_MonitoringOptions.png)
 
 3. **모니터링**에서 다음과 같이 각 서비스의 모니터링 수준 및 데이터 보존 정책을 설정합니다.
 
--  모니터링 수준을 설정하려면 다음 중 하나를 선택합니다.
+	-  모니터링 수준을 설정하려면 다음 중 하나를 선택합니다.
 
       **최소** - 수신/송신, 가용성, 대기 시간, 성공 비율 등 Blob, 테이블 및 큐 서비스에 대해 집계되는 메트릭을 수집합니다.
 
@@ -55,7 +55,7 @@ Azure 관리 포털에서 저장소 계정을 모니터링할 수 있습니다. 
 
 저장소 계정에 대한 모니터링을 구성할 때까지 모니터링 데이터가 수집되지 않으며 대시보드의 메트릭 차트 및 **모니터** 페이지는 비어 있습니다.
 
-모니터링 수준 및 보존 정책을 설정한 후 관리 포털에서 모니터링에 사용할 수 있는 메트릭과 메트릭 차트에 넣을 메트릭을 선택할 수 있습니다. 기본 메트릭 집합이 각 모니터링 수준에서 표시됩니다. **메트릭 추가**를 사용하여 메트릭 목록에 메트릭을 추가하거나 제거할 수 있습니다.
+모니터링 수준 및 보존 정책을 설정한 후 Azure 포털에서 모니터링에 사용할 수 있는 메트릭과 메트릭 차트에 넣을 메트릭을 선택할 수 있습니다. 기본 메트릭 집합이 각 모니터링 수준에서 표시됩니다. **메트릭 추가**를 사용하여 메트릭 목록에 메트릭을 추가하거나 제거할 수 있습니다.
 
 메트릭은 저장소 계정에서 이름이 $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue 및 $MetricsCapacityBlob인 네 가지 테이블에 저장됩니다. 자세한 내용은 [저장소 분석 메트릭 정보](http://msdn.microsoft.com/library/azure/hh343258.aspx)(영문)를 참조하십시오.
 
@@ -64,20 +64,20 @@ Azure 관리 포털에서 저장소 계정을 모니터링할 수 있습니다. 
 
 대시보드에서 사용 가능한 9개의 메트릭 중 메트릭 차트에 넣을 메트릭을 6개까지 선택할 수 있습니다. 각 서비스(Blob, 테이블 및 큐)에 대해 가용성, 성공 비율 및 총 요청 메트릭을 사용할 수 있습니다. 대시보드에서 최소 또는 세부 정보 표시 모니터링에 대해 사용할 수 있는 메트릭은 동일합니다.
 
-1. [관리 포털](https://manage.windowsazure.com/)에서 **저장소**를 클릭한 후 대시보드를 열 저장소 계정 이름을 클릭합니다.
+1. [Azure 포털](https://manage.windowsazure.com/)에서 **저장소**를 클릭한 후 대시보드를 열 저장소 계정 이름을 클릭합니다.
 
 2. 차트에 넣을 메트릭을 변경하려면 다음 작업 중 하나를 수행합니다.
 
 	- 차트에 새 메트릭을 추가하려면 차트 아래 테이블의 메트릭 헤더 옆에 있는 색이 지정된 확인란을 클릭합니다.
-	
+
 	- 차트에 그려진 메트릭을 숨기려면 메트릭 헤더 옆에 있는 색이 지정된 확인란의 선택을 취소합니다.
-	
+
 		![모니터링\_n자세히](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
-  
+
 3. 기본적으로 차트는 추세를 보여 주며, 각 메트릭의 현재 값(차트 맨 위의 **상대값** 옵션)만 표시합니다. 절대값을 볼 수 있도록 Y축을 표시하려면 **절대값**을 선택합니다.
 
 4. 메트릭 차트가 표시되는 시간 범위를 변경하려면 차트 맨 위에서 6시간, 24시간 또는 7일을 선택합니다.
-     
+
 
 ## 방법: 모니터 페이지 사용자 지정
 
@@ -92,12 +92,11 @@ Azure 관리 포털에서 저장소 계정을 모니터링할 수 있습니다. 
 ## 방법: 메트릭 테이블에 메트릭 추가
 
 
-1. [관리 포털](https://manage.windowsazure.com/)에서 **저장소**를 클릭한 후 대시보드를 열 저장소 계정 이름을 클릭합니다.
+1. [Azure 포털](https://manage.windowsazure.com/)에서 **저장소**를 클릭한 후 대시보드를 열 저장소 계정 이름을 클릭합니다.
 
 2. **모니터**를 클릭합니다.
 
 	**모니터** 페이지가 열립니다. 기본적으로 메트릭 테이블에는 모니터링에 사용할 수 있는 메트릭의 하위 집합이 표시됩니다. 다음 그림은 세 가지 서비스 모두에 대해 세부 정보 표시 모니터링을 구성한 저장소 계정의 기본 모니터 화면을 보여 줍니다. 사용 가능한 모든 메트릭에서 모니터링할 메트릭을 선택하려면 **메트릭 추가**를 사용합니다.
-
 
 	![모니터링\_세부 정보 표시 화면](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
 
@@ -108,13 +107,13 @@ Azure 관리 포털에서 저장소 계정을 모니터링할 수 있습니다. 
 	최소 모니터링에서 사용할 수 있는 집계 메트릭은 목록의 맨 위에 있습니다. 확인란을 선택하면 해당 메트릭이 메트릭 목록에 표시됩니다.
 
 	![메트릭 추가 초기 화면](./media/storage-monitor-storage-account/Storage_AddMetrics_InitialDisplay.png)
- 
+
 4. 대화 상자의 오른쪽을 마우스로 가리키면 스크롤 막대가 표시됩니다. 이 스크롤 막대를 끌어서 스크롤하면 추가 메트릭을 볼 수 있습니다.
 
 	![메트릭 추가 스크롤 막대](./media/storage-monitor-storage-account/Storage_AddMetrics_Scrollbar.png)
 
 
-5. 메트릭 옆에 있는 아래쪽 화살표를 클릭하여 작업 목록을 확장해 메트릭을 자세히 살펴봅니다. 관리 포털의 메트릭 테이블에서 검토하려는 각 작업을 선택합니다.
+5. 메트릭 옆에 있는 아래쪽 화살표를 클릭하여 작업 목록을 확장해 메트릭을 자세히 살펴봅니다. Azure 포털의 메트릭 테이블에서 검토하려는 각 작업을 선택합니다.
 
 	다음 그림은 AUTHORIZATION ERROR PERCENTAGE 메트릭이 확장된 예입니다.
 
@@ -123,7 +122,7 @@ Azure 관리 포털에서 저장소 계정을 모니터링할 수 있습니다. 
 
 6. 모든 서비스에 대해 메트릭을 선택한 후 예(확인 표시)를 클릭하여 모니터링 구성을 업데이트합니다. 선택한 메트릭이 메트릭 테이블에 추가됩니다.
 
-7. 테이블에서 메트릭을 삭제하려면 아래와 같이 메트릭을 클릭하여 선택한 후 **메트릭 삭제**를 클릭합니다.
+7. 테이블에서 메트릭을 삭제하려면 메트릭을 클릭하여 선택한 다음 **메트릭 삭제**를 클릭합니다.
 
 	![메트릭 삭제](./media/storage-monitor-storage-account/Storage_DeleteMetric.png)
 
@@ -141,13 +140,13 @@ Azure 관리 포털에서 저장소 계정을 모니터링할 수 있습니다. 
 
 저장소 계정(Blob, 테이블 및 큐)에서 사용 가능한 각 저장소 서비스에 대해 읽기 요청, 쓰기 요청 및/또는 삭제 요청의 진단 로그를 저장할 수 있으며 각 서비스의 데이터 보존 정책을 설정할 수 있습니다.
 
-1. [관리 포털](https://manage.windowsazure.com/)에서 **저장소**를 클릭한 후 대시보드를 열 저장소 계정 이름을 클릭합니다.
+1. [Azure 포털](https://manage.windowsazure.com/)에서 **저장소**를 클릭한 후 대시보드를 열 저장소 계정 이름을 클릭합니다.
 
-2. **구성**을 클릭하고 키보드의 아래쪽 화살표를 사용하여 **기록**까지 아래로 스크롤합니다(아래와 같이).
+2. **구성**을 클릭하고 키보드의 아래쪽 화살표를 사용하여 **기록**까지 아래로 스크롤합니다.
 
 	![저장소 로깅](./media/storage-monitor-storage-account/Storage_LoggingOptions.png)
 
- 
+
 3. 각 서비스(Blob, 테이블 및 큐)에 대해 다음을 구성합니다.
 
 	- 기록할 요청 유형: 읽기 요청, 쓰기 요청 및 삭제 요청
@@ -157,6 +156,5 @@ Azure 관리 포털에서 저장소 계정을 모니터링할 수 있습니다. 
 4. **저장**을 클릭합니다.
 
 진단 로그는 저장소 계정의 이름이 $logs인 Blob 컨테이너에 저장됩니다. $logs 컨테이너 액세스에 대한 자세한 내용은 [저장소 분석 로깅 정보](http://msdn.microsoft.com/library/azure/hh343262.aspx)를 참조하십시오.
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

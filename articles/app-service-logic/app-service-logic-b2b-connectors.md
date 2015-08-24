@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Microsoft Azure 앱 서비스의 B2B 커넥터 및 API 앱 | Azure" 
+	pageTitle="Microsoft Azure 앱 서비스의 B2B 커넥터 및 API 앱 | Microsoft Azure" 
 	description="EDI, EDIFACT, AS2 및 TPM 커넥터(마이크로 서비스 아키텍처)를 만들고 구성하는 방법을 알아봅니다." 
 	services="app-service\logic" 
 	documentationCenter="" 
@@ -205,4 +205,4 @@ Microsoft Azure 앱 서비스는 이러한 B2B API 앱에서 사용할 수 있�
 
 [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/><br/> [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

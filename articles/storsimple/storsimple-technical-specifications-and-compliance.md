@@ -1,19 +1,19 @@
 <properties 
-    pageTitle="StorSimple 장치에 대한 기술 사양 및 규정 준수"
-    description="StorSimple 장치에 대한 기술 사양 및 규제 표준 준수 정보를 설명합니다."
-    services="storsimple"
-    documentationCenter="NA"
-    authors="alkohli"
-    manager="adinah"
-    editor="tysonn" />
+   pageTitle="StorSimple 장치에 대한 기술 사양 및 규정 준수 | Microsoft Azure"
+   description="StorSimple 장치에 대한 기술 사양 및 규제 표준 준수 정보를 설명합니다."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="adinah"
+   editor="" />
  <tags 
-    ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="06/15/2015"
-    ms.author="alkohli" />
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/12/2015"
+   ms.author="alkohli" />
 
 # StorSimple 장치에 대한 기술 사양 및 규정 준수
 
@@ -166,10 +166,10 @@ Microsoft Azure StorSimple 장치는 다음 EMC 등급을 만족합니다.
 | 코드 형식 | 고주파, H05-VVF-3G1.0 |
 | 소켓 | IEC 320 C-13, 250V, 10A |
 
-## 지원 되는 네트워크 케이블  
+## 지원되는 네트워크 케이블  
 
-10 GbE 네트워크 인터페이스에 대한 데이터 2와 데이터 3은 [지원 되는 네트워크 케이블 및 모듈의 목록을](https://msdn.microsoft.com/library/dn891474.aspx) 을 참조하세요.
+10GbE 네트워크 인터페이스에 대한 데이터 2와 데이터 3은 [지원되는 네트워크 케이블 및 모듈의 목록](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)을 참조하세요.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

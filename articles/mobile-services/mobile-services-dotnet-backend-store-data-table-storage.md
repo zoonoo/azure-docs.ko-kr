@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="SQL 데이터베이스 대신 테이블 저장소를 사용하는 서비스 빌드 | Azure 모바일 서비스" 
+	pageTitle="SQL 데이터베이스 대신 테이블 저장소를 사용하는 서비스 빌드 | Microsoft Azure" 
 	description=".NET 백 엔드 모바일 서비스에서 Azure 테이블 저장소를 사용하는 방법을 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -158,4 +158,4 @@ TodoList 빠른 시작 프로젝트는 Entity Framework를 사용하여 SQL 데�
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

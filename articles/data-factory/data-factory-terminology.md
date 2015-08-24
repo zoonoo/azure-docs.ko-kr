@@ -46,7 +46,7 @@ Azure 데이터 팩터리 인스턴스를 만드는 단계는 일반적으로 �
 
 Azure 데이터 팩터리 서비스는 파이프라인에서 다음 작업을 지원합니다.
 
-- **복사 작업**은 데이터 저장소의 데이터를 다른 데이터 저장소로 복사합니다. 복사 작업이 지원하는 데이터 저장소에 대한 자세한 내용은 [Azure 데이터 팩터리를 사용하여 데이터 복사][copy-data-with-adf]를 참조하십시오. 
+- **복사 작업**은 데이터 저장소의 데이터를 다른 데이터 저장소로 복사합니다.  
 - **HDInsight 작업**은 HDInsight 클러스터에 대해 Hive/Pig 스크립트 또는 MapReduce 프로그램을 실행하여 데이터를 처리합니다. 자세한 내용은 [데이터 팩터리와 함께 Pig 및 Hive 사용][use-pig-hive] 및 [데이터 팩터리에서 MapReduce 프로그램 호출][run-map-reduce]을 참조하십시오. 
 - **Azure 기계 학습 배치 평가 작업**은 Azure 기계 학습 배치 평가 API를 호출합니다. 자세한 내용은 [Azure 데이터 팩터리 및 Azure 기계 학습을 사용하여 예측 파이프라인 만들기][azure-ml-adf]를 참조하십시오. 
 - **저장 프로시저 작업**은 Azure SQL 데이터베이스의 저장 프로시저를 호출합니다. 자세한 내용은 MSDN 라이브러리의 [저장 프로시저 작업][msdn-stored-procedure-activity]을 참조하십시오.   
@@ -82,7 +82,6 @@ Microsoft **데이터 관리 게이트웨이**는 온-프레미스 데이터 원
 
 [adf-faq]: data-factory-faq.md
 [adf-intro]: data-factory-introduction.md
-[copy-data-with-adf]: data-factory-copy-activity.md
 [use-pig-hive]: data-factory-pig-hive-activities.md
 [run-map-reduce]: data-factory-map-reduce.md
 [azure-ml-adf]: data-factory-create-predictive-pipelines.md
@@ -113,4 +112,4 @@ Microsoft **데이터 관리 게이트웨이**는 온-프레미스 데이터 원
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

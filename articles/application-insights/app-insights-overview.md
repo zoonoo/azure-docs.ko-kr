@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="08/12/2015" 
 	ms.author="awills"/>
  
 # Application Insights란?
@@ -103,17 +103,19 @@ ASP.NET 서버 및 Azure 웹 앱의 경우 두 가지 용도로 사용되는 [�
 
 자세한 내용은 페이지의 왼쪽 탐색 모음에서 시작하기의 앱 유형을 선택 합니다.
 
-## 샘플
+## 코드
 
 
 [샘플 및 연습](app-insights-code-samples.md)
+
+[SDK 실습](https://www.myget.org/gallery/applicationinsights-sdk-labs) - Application Insights SDK 외에 설치(및 제거)할 수 있는 NuGet 패키지입니다. 직접 사용해보고 의견을 보내주세요.
 
 
 ## 지원 및 피드백
 
 * 질문 및 문제:
  * [문제 해결][qna]
- * [MSDN 포럼](https://social.msdn.microsoft.com/Forums/vstudio/ko-kr/home?forum=ApplicationInsights)
+ * [MSDN 포럼](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * 버그:
  * [연결](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
@@ -150,4 +152,4 @@ ASP.NET 서버 및 Azure 웹 앱의 경우 두 가지 용도로 사용되는 [�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

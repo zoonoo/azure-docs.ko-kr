@@ -1,40 +1,26 @@
-<properties 
-   pageTitle="Cable your StorSimple 8100 for power | Microsoft Azure"
-   description="Explains how to attach the power cables and then turn on a StorSimple 8100 device for the first time."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/06/2015"
-   ms.author="alkohli" />
 
-#### To cable for power
+#### 전원을 케이블로 연결하려면
 
-1. Make sure that the power switches on each of the Power and Cooling Modules (PCMs) are in the OFF position.
+1. 각 PCM(전원 및 냉각 모듈)의 전원 스위치가 OFF 위치에 있는지 확인합니다.
 
-2. Connect the power cords to each of the PCMs in the primary enclosure.
+2. 기본 엔클로저에서 각 PCM에 전원 코드를 연결합니다.
 
-3. Attach the power cords to the rack power distribution units (PDUs) as shown in the following image. Make sure that the two PCMs use separate power sources.
+3. 다음 그림과 같이 전원 코드를 랙 PDU(전원 분배 장치)에 연결합니다. 두 개의 PCM이 개별 전원을 사용하는지 확인합니다.
 
-    >[AZURE.IMPORTANT] To ensure high availability for your system, we recommend that you strictly adhere to the power cabling scheme shown in the following diagram. 
+    >[AZURE.IMPORTANT]시스템의 고가용성을 보장하려면 다음 다이어그램에 표시된 것처럼 전원 케이블 연결 방식을 엄격히 준수하는 것이 좋습니다.
 
-    ![Cable your 2U device for power](./media/storsimple-cable-8100-for-power/HCSCableYour2UDeviceforPower.png)
+    ![전원에 2U 장치를 케이블로 연결](./media/storsimple-cable-8100-for-power/HCSCableYour2UDeviceforPower.png)
 
-    **Power cabling on an 8100 device**
+    **8100 장치에서 전원 케이블 연결**
 
-    |Label|Description|
+    |레이블|설명|
     |:----|:----------|
     |1|PCM 0|
-    |2|Controller 1|
-    |3|Controller 0|
+    |2|컨트롤러 1|
+    |3|컨트롤러 0|
     |4|PCM 1|
-    |5|PDUs|
+    |5|PDU|
 
-4. To turn on the system, flip the power switches on both PCMs to the ON position.
+4. 시스템의 전원을 켜려면 양쪽 PCM의 전원 스위치를 ON 위치로 누릅니다.
+
+<!---HONumber=August15_HO7-->

@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/05/2015" 
+	ms.date="08/10/2015" 
 	ms.author="genemi"/>
 
 
 # SQL 데이터베이스 V12의 새로운 기능
 
 
-이 항목에서는 Azure SQL 데이터베이스의 새 V12 버전이 V11 버전에 비해 더 많은 이점을 설명합니다.
+이 항목에서는 Azure SQL 데이터베이스의 새 V12 버전에서 버전 V11보다 향상된 많은 이점에 대해 설명합니다.
 
 
 V12에 기능은 추가 계속됩니다. Azure에 대한 서비스 업데이트 웹 페이지를 방문하고 해당 필터를 사용해 보세요.
@@ -29,6 +29,9 @@ V12에 기능은 추가 계속됩니다. Azure에 대한 서비스 업데이트 
 
 - [SQL 데이터베이스 서비스](http://azure.microsoft.com/updates/?service=sql-database)에 대해 필터링되었습니다.
 - SQL 데이터베이스 기능의 [GA(General Availability) 공지](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability)에 대해 필터링되었습니다.
+
+
+SQL 데이터베이스의 리소스 제한에 대한 최신 정보는 <br/>[Azure SQL 데이터베이스 리소스 제한](sql-database-resource-limits.md)에 문서화되어 있습니다.
 
 
 ## 향상된 SQL Server와의 응용 프로그램 호환성
@@ -109,17 +112,6 @@ V12는 대폭 개선된 복구 지점 목표(RPO) 및 예상된 복구 시간 (E
 - Microsoft SQL Server용으로 릴리스되기 전에 SQL 데이터베이스 V12에서 대부분의 새로운 기능리 릴리스됩니다.
 
 
-## 게이트웨이는 V12에서 재시도 논리를 더 이상 제공하지 않습니다.
-
-
-V12 버전 이전의 Azure SQL 데이터베이스에는 데이터베이스와 사용자의 클라이언트 프로그램 사이의 모든 상호 작용을 버퍼하기 위해 프록시로 동작하는 게이트웨이가 있었습니다. 이 게이트웨이는 일부 *일시적인 오류*에 자동화된 *다시 시도 논리*를 제공했습니다.
-
- V12에서는 이 게이트웨이를 제거했습니다. 이제 사용자의 프로그램은 일시적인 오류를 더욱 완벽하게 처리해야 합니다. 자세한 내용은 다음을 참조하세요.
-
-
-- [SQL 데이터베이스 연결: 링크, 모범 사례, 설계 지침](sql-database-connect-central-recommendations.md#gatewaynoretry)
-
-
 ## V12를 이미 사용 중입니까?
 
 
@@ -147,17 +139,12 @@ V12 논리 서버에만 V12 데이터베이스를 호스팅할 수 있습니다.
 아직 V12에서 실행하지 않는 경우, [SQL 데이터베이스 V12로 업그레이드](sql-database-v12-upgrade.md)의 단계에 따라 논리 서버를 업그레이드할 수 있습니다.
 
 
-## <a name="V12AzureSqlDbPreviewGaTable"></a>미리 보기 영역
+## <a name="V12AzureSqlDbPreviewGaTable"></a> 일반 공급 지역
 
 
-V12는 2014년 12월에 릴리스되지만 미리 보기 상태에서만 릴리스됩니다.
+- 2015년 7월 31일까지 모든 지역이 GA(일반 공급)로 승격되었습니다.
+- V12는 2014년 12월에 릴리스되지만 미리 보기 상태에서만 릴리스됩니다.
 
+[Microsoft Azure 미리 보기에 대한 보충 사용 약관](http://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-- [Microsoft Azure 미리 보기에 대한 보충 사용 약관](http://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
-2015년 7월 31일까지 모든 지역이 GA(일반 공급)로 승격되었습니다.
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

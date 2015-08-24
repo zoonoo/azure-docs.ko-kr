@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="compute"
-   ms.date="07/07/2015"
+   ms.date="08/12/2015"
    ms.author="guscatal;spatnaik;elizapo"/>
 
 
@@ -25,6 +25,8 @@
 ## cmdlet 받기 
 -------------
 먼저 [여기](http://go.microsoft.com/?linkid=9811175)에서 Azure Powershell cmdlet을 받아야 합니다. RemoteApp도 여기에 포함되어 있습니다.
+
+Azure RemoteApp cmdlet 도움말을 [여기](https://msdn.microsoft.com/library/mt428031.aspx)에서 확인하세요.
 
 ## 구독을 사용하도록 Azure cmdlet 구성
 ------------------
@@ -99,4 +101,4 @@ RemoteApp 템플릿 이미지 cmdlet:
 - Get-AzureRemoteAppOperationResult
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/30/2015"
+   ms.date="08/11/2015"
    ms.author="v-sharos" />
 
 # SharePoint용 StorSimple 어댑터
@@ -240,4 +240,4 @@ RBS를 사용하도록 설정하면 이 유지 관리 프로그램(Microsoft.Dat
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/ko-kr/library/ff943565.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

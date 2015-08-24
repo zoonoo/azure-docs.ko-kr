@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="08/11/2015" 
 	ms.author="cephalin"/>
 
 
@@ -92,7 +92,7 @@ MongoDB C# 드라이버를 설치하려면
 
 	![NuGet 패키지 관리][VS2013ManageNuGetPackages]
 
-2. **Manage NuGet 패키지 관리** 창에서 왼쪽 창에 있는 **온라인**을 클릭합니다. 오른쪽의 **온라인 검색** 상자에서 "mongocsharpdriver"를 입력합니다. **설치**를 클릭하여 드라이버를 설치합니다.
+2. **Manage NuGet 패키지 관리** 창에서 왼쪽 창에 있는 **온라인**을 클릭합니다. 오른쪽의 **온라인 검색** 상자에서 "mongodb.driver"를 입력합니다. **설치**를 클릭하여 드라이버를 설치합니다.
 
 	![MongoDB C# 드라이버 검색][SearchforMongoDBCSharpDriver]
 
@@ -101,7 +101,7 @@ MongoDB C# 드라이버를 설치하려면
 4. 드라이버가 설치된 후 **닫기**를 클릭합니다. ![MongoDB C# 드라이버 설치][MongoDBCsharpDriverInstalled]
 
 
-이제 MongoDB C# 드라이버가 설치되었습니다. **MongoDB.Driver.dll** 및 **MongoDB.Bson.dll** 라이브러리에 대한 참조가 프로젝트에 추가되었습니다.
+이제 MongoDB C# 드라이버가 설치되었습니다. **MongoDB.Bson**, **MongoDB.Driver** 및 **MongoDB.Driver.Core** 라이브러리에 대한 참조가 프로젝트에 추가되었습니다.
 
 ![MongoDB C# 드라이버 참조][MongoDBCSharpDriverReferences]
 
@@ -499,4 +499,4 @@ MongoDB에 대한 C# 응용 프로그램 개발에 대한 자세한 내용은 [C
 [Deploy the ASP.NET application to the web site using Git]: #deployapp
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="StorSimple 시스템 요구 사항" 
+   pageTitle="StorSimple 시스템 요구 사항 | Microsoft Azure" 
    description="소프트웨어, 고가용성 및 Azure StorSimple 솔루션을 위한 네트워킹에 대한 시스템 요구 사항 및 모범 사례를 설명합니다." 
    services="storsimple" 
    documentationCenter="NA" 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="06/03/2015"
+   ms.date="08/12/2015"
    ms.author="alkohli"/>
 
 # StorSimple 시스템 요구 사항
@@ -96,7 +96,7 @@ StorSimple 장치 컨트롤러 모듈마다 1기가비트 4개 및 10기가비�
 
 - 가능한 경우 서버가 링크, 네트워크 또는 인터페이스 오류를 허용할 수 있도록 서버에서 MPIO를 사용합니다.
 
-고가용성 및 성능을 위한 장치 네트워킹 관련 정보는 [8100 장치 케이블 연결](https://msdn.microsoft.com/library/azure/dn757738.aspx) 또는 [8600 장치 케이블 연결](https://msdn.microsoft.com/library/azure/dn757762.aspx)로 이동합니다.
+고가용성 및 성능을 위한 장치 네트워킹 관련 정보는 [StorSimple 8100 장치 설치](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) 또는 [StorSimple 8600 장치 설치](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device)로 이동합니다.
 
 #### SSD 및 HDD
 
@@ -138,7 +138,7 @@ StorSimple 장치 모델 8600에는 기본 인클로저 외에도 확장 EBOD(Ex
 
 StorSimple 장치에 연결된 호스트의 고가용성을 위해 이러한 요구 사항 및 모범 사례를 신중하게 검토해야 합니다.
 
-- [2-노드 파일 서버 클러스터 구성]으로 StorSimple을 구성합니다(https://technet.microsoft.com/library/cc731844(v=WS.10).aspx). 호스트 쪽의 중복에서 오류 및 구축의 단일 지점을 제거하여 전체 솔루션 가용성이 높아집니다.
+- [2-노드 파일 서버 클러스터 구성][1]으로 StorSimple을 구성합니다. 호스트 쪽의 중복에서 오류 및 구축의 단일 지점을 제거하여 전체 솔루션 가용성이 높아집니다.
 
 - 저장소 컨트롤러를 장애 조치하는 동안 고가용성을 위해 Windows Server 2012(SMB 3.0)와 함께 사용할 수 있는 CA(Continuously Available) 공유를 사용합니다. Windows Server 2012를 사용하여 파일 서버 클러스터 및 CA 공유 구성을 위한 추가 정보는 이 [비디오 데모](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares)를 참조하세요.
 
@@ -184,12 +184,14 @@ StorSimple 솔루션의 최적의 성능을 위해 위의 네트워킹 요구 �
 
 - 항상 인터넷에 네트워크 연결이 되어야 합니다. 인터넷 연결이 전혀 안되는 것을 비롯하여 산발적이거나 안정적이지 않은 인터넷 연결은 지원되지 않은 구성을 야기합니다.
 
-- iSCSI 및 클라우드 액세스를 위해 장치에서 전용 네트워크 인터페이스를 갖추어 iSCSI 및 클라우드 트래픽을 분리합니다. 자세한 내용은 StorSimple 장치에서 [네트워크 인터페이스를 구성](https://msdn.microsoft.com/library/dn772371.aspx)하는 방법을 참조하세요.
+- iSCSI 및 클라우드 액세스를 위해 장치에서 전용 네트워크 인터페이스를 갖추어 iSCSI 및 클라우드 트래픽을 분리합니다. 자세한 내용은 StorSimple 장치에서 [네트워크 인터페이스를 수정](storsimple-modify-device-config.md#modify-network-interfaces)하는 방법을 참조하세요.
 
 ## 다음 단계
 
-- [StorSimple 제한](storsimple-limits.md)
-- [StorSimple 솔루션 배포](storsimple-deployment-walkthrough.md)
+- [StorSimple 제한](storsimple-limits.md)에 대해 자세히 알아봅니다.
+- [StorSimple 솔루션을 배포합니다](storsimple-deployment-walkthrough.md).
  
+<!--Reference links-->
+[1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

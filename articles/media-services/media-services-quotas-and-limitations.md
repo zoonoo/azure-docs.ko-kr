@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="08/11/2015"  
 	ms.author="juliako"/>
 
 
@@ -66,4 +66,4 @@
 1. 제출을 클릭하여 티켓을 엽니다.
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

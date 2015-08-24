@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="08/11/2015" 
 	ms.author="juliako"/>
 
 
@@ -220,4 +220,4 @@ Azure 미디어 서비스에 프로그래밍 방식으로 연결할 **.NET** 또
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

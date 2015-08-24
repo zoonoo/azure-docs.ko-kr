@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="04/29/2015"
+	ms.date="08/10/2015"
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스, 클라우드 서비스 및 가상 컴퓨터 비교
@@ -50,7 +50,7 @@ Azure 앱 서비스 또는 Azure 클라우드 서비스에서 실행하려면 �
 
 ### <a id="onprem"></a> 온-프레미스 자산과 통합된 비즈니스 응용 프로그램을 실행하기 위한 데이터베이스 백 엔드 및 백그라운드 처리 기능이 있는 웹 프런트 엔드가 필요한 경우
 
-복잡한 비즈니스 응용 프로그램에 적합한 솔루션인 Azure 앱 서비스에서는 부하 분산된 플랫폼에서 자동으로 확장되고 Active Directory를 통해 보호되며 온-프레미스 리소스에 연결되는 앱을 개발할 수 있습니다. 또한 최고의 기능을 제공하는 관리 포털과 API를 통해 이러한 앱을 쉽게 관리할 수 있으며 앱 정보 도구를 사용하여 고객이 앱을 사용하는 방법을 파악할 수 있습니다. 새로운 [Webjobs][] 기능을 사용하면 웹 계층의 일부분으로 백그라운드 프로세스와 작업을 실행할 수 있으며 하이브리드 연결 및 [VNET 기능](../fundamentals-introduction-to-azure.md#networking/)을 사용하면 온-프레미스 리소스에 쉽게 다시 연결할 수 있습니다. Azure 앱 서비스는 웹앱에 대해 999의 SLA를 제공하며 다음 작업을 수행할 수 있게 해줍니다.
+복잡한 비즈니스 응용 프로그램에 적합한 솔루션인 Azure 앱 서비스에서는 부하 분산된 플랫폼에서 자동으로 확장되고 Active Directory를 통해 보호되며 온-프레미스 리소스에 연결되는 앱을 개발할 수 있습니다. 또한 최고의 기능을 제공하는 관리 포털과 API를 통해 이러한 앱을 쉽게 관리할 수 있으며 앱 정보 도구를 사용하여 고객이 앱을 사용하는 방법을 파악할 수 있습니다. [Webjobs][] 기능을 사용하면 웹 계층의 일부분으로 백그라운드 프로세스와 작업을 실행할 수 있으며 하이브리드 연결 및 [VNET 기능](../fundamentals-introduction-to-azure.md#networking/)을 사용하면 온-프레미스 리소스에 쉽게 다시 연결할 수 있습니다. Azure 앱 서비스는 웹앱에 대해 999의 SLA를 제공하며 다음 작업을 수행할 수 있게 해줍니다.
 
 * 자동 복구 및 패치되는 클라우드 플랫폼에서 응용 프로그램을 안정적으로 실행할 수 있습니다.
 * 전 세계 데이터 센터 네트워크로 자동 확장할 수 있습니다.
@@ -182,7 +182,7 @@ ETW 이벤트 수신 가능||X|X|
 
 응용 프로그램에 대해 선택한 옵션 사용을 시작하려면 다음 리소스를 참조하세요.
 
-* [Azure 웹사이트](/documentation/services/app-service/)
+* [Azure 앱 서비스](/documentation/services/app-service/)
 * [Azure 클라우드 서비스](/documentation/services/cloud-services/)
 * [Azure 가상 컴퓨터](/documentation/services/virtual-machines/)
 
@@ -204,4 +204,4 @@ ETW 이벤트 수신 가능||X|X|
   [저장소]: http://www.windowsazure.com/documentation/services/storage/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

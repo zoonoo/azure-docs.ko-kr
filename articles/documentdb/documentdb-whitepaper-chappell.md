@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="DocumentDB 소개 - Microsoft Azure용 NoSQL 데이터베이스 | Azure" 
+	pageTitle="DocumentDB 소개 - Microsoft Azure용 NoSQL 데이터베이스 | Microsoft Azure" 
 	description="David Chappell이 Azure에서 관리되는 NoSQL 데이터베이스인 DocumentDB에 대해 설명하는 백서를 다운로드합니다." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -31,4 +31,4 @@ DocumentDB가 응용 프로그램 또는 데이터에 적합한지 잘 모르십
 **PDF다운로드:** [ DocumentDB 소개 - Microsoft Azure용 NoSQL 데이터베이스](http://go.microsoft.com/fwlink/?LinkId=511318)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="07/08/2015"
+   ms.date="08/08/2015"
    ms.author="juliako"/>
 
 
@@ -102,5 +102,8 @@ Azure SDK 2.6에서는 Azure 계산 에뮬레이터의 진단 로그를 수집�
 
 	여전히 위의 문제가 발생한다면 Azure 2.6 SDK for [VS 2012](http://go.microsoft.com/fwlink/p/?linkid=323511&clcid=0x409), [VS 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409), [VS 2015](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409)의 최신 버전을 설치하십시오.
  
+##참고 항목
 
-<!---HONumber=August15_HO6-->
+[.NET 및 API용 Azure SDK에 대한 지원 및 사용 중지 정보](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
+
+<!---HONumber=August15_HO7-->

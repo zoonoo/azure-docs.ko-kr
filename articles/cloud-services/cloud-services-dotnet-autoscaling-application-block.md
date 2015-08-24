@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="자동 크기 조정 응용 프로그램 블록 사용(.NET) - Azure" 
+	pageTitle="자동 크기 조정 응용 프로그램 블록 사용(.NET) | Microsoft Azure" 
 	description="Azure용 자동 크기 조정 응용 프로그램 사용 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 .NET API를 사용합니다." 
 	services="cloud-services" 
 	documentationCenter=".net" 
@@ -310,13 +310,13 @@ Visual Studio에서 규칙 파일이 출력 폴더에 복사되었는지 확인�
 	![이미지](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling14.png)
 
 
-9.  엔터프라이즈 라이브러리 구성 창의 **파일** 메뉴에서 **저장**을 클릭하여 구성 변경 내용을 저장합니다. 그다음에 엔터프라이즈 라이브러리 구성 창의 **파일** 메뉴에서 **끝내기**를 클릭합니다.
+9.  엔터프라이즈 라이브러리 구성 창의 **파일** 메뉴에서 **저장**을 클릭하여 구성 변경 내용을 저장합니다. 그 다음에 엔터프라이즈 라이브러리 구성 창의 **파일** 메뉴에서 **끝내기**를 클릭합니다.
 
 자동 크기 조정 응용 프로그램 블록이 수행하는 동작에 대한 자세한 정보를 가져오려면 작성되는 로그 메시지를 캡처해야 합니다. 예를 들어 콘솔 응용 프로그램의 블록을 호스트하는 중이면 Visual Studio의 출력 창에서 로그 메시지를 볼 수 있습니다. 다음 섹션에서는 이 동작을 구성하는 방법을 보여 줍니다.
 
 ### 자동 크기 조정 응용 프로그램 블록 호스트 응용 프로그램 로그인 구성
 
-1.  Visual Studio의 솔루션 탐색기에서 **App.config** 파일을 두 번 클릭하여 편집기에서 엽니다. 그후에 다음 샘플처럼 **system.diagnostics** 섹션을 추가합니다.
+1.  Visual Studio의 솔루션 탐색기에서 **App.config** 파일을 두 번 클릭하여 편집기에서 엽니다. 그 후에 다음 샘플처럼 **system.diagnostics** 섹션을 추가합니다.
 
         <?xml version="1.0" encoding="utf-8" ?>
         <configuration>
@@ -409,4 +409,4 @@ Visual Studio에서 규칙 파일이 출력 폴더에 복사되었는지 확인�
   [TechNet 및 MSDN 호스팅 비용과 Azure에서 자동 크기 조정으로 인한 환경적 영향 줄이기]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

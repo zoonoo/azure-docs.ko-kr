@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="인스턴스 수준 공용 IP(ILPIP)"
+   pageTitle="ILPIP(인스턴스 수준 공용 IP)"
    description="ILPIP(PIP) 및 관리 방법 이해"
    services="virtual-network"
    documentationCenter="na"
    authors="telmosampaio"
-   manager="adinah"
+   manager="carolz"
    editor="tysonn" />
 <tags 
    ms.service="virtual-network"
@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/03/2015"
+   ms.date="08/10/2015"
    ms.author="telmos" />
 
-# 인스턴스 수준 공용 IP(ILPIP) 개요
-인스턴스 수준 공용 IP(ILPIP)는 해당 VM 또는 역할 인스턴스가 상주하는 클라우드 서비스가 아닌 VM 또는 역할 인스턴스에 직접 할당할 수 있는 IP 주소입니다. 클라우드 서비스에 할당된 VIP(가상 IP)의 위치를 차지하지 않습니다. VM 또는 역할 인스턴스에 직접 연결을 사용할 수 있는 추가 IP 주소입니다.
+# 인스턴스 수준 공용 IP 개요
+ILPIP(인스턴스 수준 공용 IP)는 해당 VM 또는 역할 인스턴스가 상주하는 클라우드 서비스가 아닌 VM 또는 역할 인스턴스에 직접 할당할 수 있는 IP 주소입니다. 클라우드 서비스에 할당된 VIP(가상 IP)의 위치를 차지하지 않습니다. VM 또는 역할 인스턴스에 직접 연결을 사용할 수 있는 추가 IP 주소입니다.
 
 >[AZURE.NOTE]과거에는 ILPIP를 PIP라고 했으며, 공용 IP를 나타냅니다.
 
@@ -125,4 +125,4 @@ Azure에서 클라우드 서비스를 만들면 해당 DNS A 레코드가 자동
 [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

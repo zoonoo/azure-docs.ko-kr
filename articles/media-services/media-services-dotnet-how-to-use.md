@@ -13,10 +13,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/24/2015" 
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 #.NET을 사용한 미디어 서비스 개발 
+
+[AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 이 항목에서는.NET을 사용하여 미디어 서비스 응용 프로그램 개발을 시작하는 방법을 설명합니다.
 
@@ -56,7 +58,7 @@
 
 	4. 클리너 개발 환경의 수준을 올릴 NuGet 패키지 복원을 사용하도록 설정하는 것이 좋습니다. 자세한 내용은 [NuGet 패키지 복원"](http://docs.nuget.org/consume/package-restore)을 참조하세요.
 
-3. **System.Configuration** 어셈블리에 참조를 추가합니다. 이 어셈블리는 구성 파일(예: App.config)에 액세스하는 데 사용되는 시스템 구성.**ConfigurationManager** 클래스를 포함합니다.
+3. **System.Configuration** 어셈블리에 참조를 추가합니다. 이 어셈블리는 구성 파일(예: App.config)에 액세스하는 데 사용되는 System.Configuration.**ConfigurationManager** 클래스를 포함합니다.
 
 	참조 관리 대화 상자를 사용하여 참조를 추가하려면 다음과 같이 합니다.
 
@@ -98,4 +100,4 @@
 이제 미디어 서비스 응용 프로그램 개발을 시작할 준비가 되었습니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

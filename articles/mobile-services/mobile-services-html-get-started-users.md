@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="HTML/JavaScript 앱에 인증 추가 | Azure 모바일 서비스" 
+	pageTitle="HTML/JavaScript 앱에 인증 추가 | Microsoft Azure" 
 	description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 계정 등의 다양한 ID 공급자를 통해 HTML 앱 사용자를 인증하는 방법을 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -138,4 +138,4 @@
 [모바일 서비스 HTML/JavaScript 방법 개념 참조]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

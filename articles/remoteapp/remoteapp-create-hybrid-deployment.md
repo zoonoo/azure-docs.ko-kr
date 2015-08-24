@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="08/12/2015" 
 	ms.author="elizapo"/>
 
 # Azure RemoteApp용 하이브리드 컬렉션을 만드는 방법
@@ -78,7 +78,7 @@ Azure 가상 컴퓨터 만들기 및 원격 데스크톱을 사용하여 연결�
 4. 사용할 계획(표준 또는 기본)을 선택합니다.
 5. **RemoteApp 컬렉션 만들기**를 클릭합니다.
 
-RemoteApp 컬렉션을 만든 후 RemoteApp **퀵 스타트** 페이지로 이동하여 설정 단계를 계속 진행합니다.
+RemoteApp 컬렉션을 만든 후에는 컬렉션의 이름을 두 번 클릭합니다. 그러면 **빠른 시작** 페이지가 나타나며 여기에서 컬렉션 구성을 완료합니다.
 
 ## 3단계: 컬렉션을 가상 네트워크에 연결합니다. ##
 
@@ -136,4 +136,4 @@ RemoteApp 하이브리드 컬렉션을 성공적으로 만들고 배포했습니
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

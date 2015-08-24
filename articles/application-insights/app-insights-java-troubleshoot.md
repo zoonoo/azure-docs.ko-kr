@@ -30,7 +30,7 @@
 
 *Application Insights를 추가하고 내 앱을 실행했는데 포털에 데이터가 표시되지 않습니다.*
 
-* 잠시 기다린 후 새로 고침을 클릭합니다. 현재 새로 고침이 자동으로 수행되지 않습니다.
+* 잠시 기다린 후 새로 고침을 클릭합니다. 차트는 주기적으로 새로 고쳐지지만 수동으로 새로 고칠 수도 있습니다. 새로 고침 간격은 차트의 시간 범위에 따라 달라집니다.
 * ApplicationInsights.xml 파일(프로젝트의 리소스 폴더에 있음)에 계측 키가 정의되어 있는지 확인합니다.
 * xml 파일에 `<DisableTelemetry>true</DisableTelemetry>` 노드가 없는지 확인합니다.
 * 방화벽에서 dc.services.visualstudio.com 및 f5.services.visualstudio.com으로 나가는 트래픽에 대해 TCP 포트 80 및 443을 열어야 할 수 있습니다.
@@ -138,4 +138,4 @@ XML 메서드를 사용하여 값 변경 시 응용 프로그램을 다시 시�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

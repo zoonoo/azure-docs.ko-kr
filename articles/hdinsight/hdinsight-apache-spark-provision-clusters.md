@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="HDInsight의Apache Spark 클러스터 프로비전 | Azure" 
+   pageTitle="HDInsight의Apache Spark 클러스터 프로비전 | Microsoft Azure" 
    description="Azure 포털, Azure PowerShell, 명령줄 또는 HDInsight .NET SDK를 사용하여 Azure HDInsight용 Spark 클러스터를 프로비전하는 방법에 대해 알아봅니다." 
    services="hdinsight" 
    documentationCenter="" 
@@ -33,7 +33,7 @@
 
 구성 중에는 Azure Blob 저장소 계정과 기본 컨테이너를 지정해야 합니다. 이 컨테이너는 클러스터에서 기본 저장소 위치로 사용됩니다. 필요한 경우 역시 클러스터에 연결되는 추가 Azure 저장소 계정도 지정할 수 있습니다.
 
->[AZURE.NOTE] 여러 클러스터에서 하나의 Blob 저장소 컨테이너를 공유하지 마세요. 이 기능은 지원되지 않습니다.
+>[AZURE.NOTE]여러 클러스터에서 하나의 Blob 저장소 컨테이너를 공유하지 마세요. 이 기능은 지원되지 않습니다.
 
 보조 Blob 저장소 사용에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-use-blob-storage.md)을 참조하세요.
 
@@ -66,7 +66,7 @@ Spark는 스키마를 원시 데이터에 대해 Hive 테이블 정의할 수 �
 
 가상 네트워크의 기능과 이점에 대한 자세한 내용은 [Azure 가상 네트워크 개요](http://msdn.microsoft.com/library/azure/jj156007.aspx)를 참조하세요.
 
-> [AZURE.NOTE] 클러스터를 프로비전하기 전에 Azure 가상 네트워크를 만들어야 합니다. 자세한 내용은 [가상 네트워크 구성 작업](http://msdn.microsoft.com/library/azure/jj156206.aspx)을 참조하세요.
+> [AZURE.NOTE]클러스터를 프로비전하기 전에 Azure 가상 네트워크를 만들어야 합니다. 자세한 내용은 [가상 네트워크 구성 작업](http://msdn.microsoft.com/library/azure/jj156206.aspx)을 참조하세요.
 >
 > Azure HDInsight는 위치 기반 가상 네트워크만 지원하며 현재 선호도 그룹 기반 가상 네트워크와는 연동되지 않습니다.
 >
@@ -141,7 +141,7 @@ HDInsight에서 Spark 클러스터는 Azure Blob 저장소 컨테이너를 기�
 
 	Hive/Oozie Metastore로 사용할 Azure SQL 데이터베이스를 지정합니다. Hive Metastore와 Oozie Metastore 둘 다에 대해 동일한 데이터베이스를 지정할 수 있습니다. 이 SQL 데이터베이스는 HDInsight 클러스터와 동일한 데이터 센터에 있어야 합니다. 목록 상자에는 <strong>클러스터 세부 정보</strong> 페이지에서 지정한 것과 동일한 데이터 센터에 있는 SQL 데이터베이스만 나열됩니다. 선택한 Azure SQL 데이터베이스에 연결할 사용자 이름 및 암호도 지정합니다.
 
-    >[AZURE.NOTE] 메타스토어에 사용되는 Azure SQL 데이터베이스는 Azure HDInsight를 비롯한 다른 Azure 서비스로의 연결을 허용해야 합니다. Azure SQL 데이터베이스 대시보드의 오른쪽에서 서버 이름을 클릭합니다. 이 서버는 SQL 데이터베이스 인스턴스가 실행되는 서버입니다. 서버 보기에서 **구성**을 클릭하고 **Azure 서비스**에 대해 **예**를 클릭한 다음 **저장**을 클릭합니다.
+    >[AZURE.NOTE]메타스토어에 사용되는 Azure SQL 데이터베이스는 Azure HDInsight를 비롯한 다른 Azure 서비스로의 연결을 허용해야 합니다. Azure SQL 데이터베이스 대시보드의 오른쪽에서 서버 이름을 클릭합니다. 이 서버는 SQL 데이터베이스 인스턴스가 실행되는 서버입니다. 서버 보기에서 **구성**을 클릭하고 **Azure 서비스**에 대해 **예**를 클릭한 다음 **저장**을 클릭합니다.
 
     오른쪽 화살표를 클릭합니다.
 
@@ -181,7 +181,7 @@ HDInsight에서 Spark 클러스터는 Azure Blob 저장소 컨테이너를 기�
 
     여기서 다시 기존 저장소에서 선택하거나, 새 저장소를 만들거나, 다른 Azure 구독의 저장소를 사용하기 위한 옵션이 제공됩니다. 값을 제공하는 절차는 이전 단계와 비슷합니다.
 
-    > [AZURE.NOTE] HDInsight 클러스터의 Azure 저장소 계정을 선택하고 나면 계정을 삭제할 수 없으며 다른 계정으로 변경할 수도 없습니다.
+    > [AZURE.NOTE]HDInsight 클러스터의 Azure 저장소 계정을 선택하고 나면 계정을 삭제할 수 없으며 다른 계정으로 변경할 수도 없습니다.
 
 8. **스크립트 작업** 페이지에서 **스크립트 작업 추가**를 클릭하고 클러스터가 생성될 때 클러스터를 사용자 지정하기 위해 실행할 사용자 지정 스크립트에 대한 세부 정보를 제공합니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-customize-cluster]을 참조하세요.
 
@@ -206,7 +206,7 @@ HDInsight에서 Spark 클러스터는 Azure Blob 저장소 컨테이너를 기�
 
 이 섹션에서는 Azure PowerShell을 사용하여 Azure HDInsight에서 Apache Spark 클러스터를 프로비전하는 방법에 대한 지침을 제공합니다. HDInsight Windows PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요. HDInsight에서 Azure PowerShell을 사용하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 HDInsight 관리][hdinsight-admin-powershell]를 참조하세요. HDInsight Windows PowerShell cmdlet의 목록은 [HDInsight cmdlet 참조][hdinsight-powershell-reference]를 참조하세요.
 
-> [AZURE.NOTE] 이 섹션의 스크립트는 Azure 가상 네트워크에서 HDInsight 클러스터를 구성하는 데 사용할 수는 있지만 Azure 가상 네트워크를 만들지는 않습니다. Azure 가상 네트워크 만들기에 대한 자세한 내용은 [가상 네트워크 구성 작업](http://msdn.microsoft.com/library/azure/jj156206.aspx)을 참조하세요.
+> [AZURE.NOTE]이 섹션의 스크립트는 Azure 가상 네트워크에서 HDInsight 클러스터를 구성하는 데 사용할 수는 있지만 Azure 가상 네트워크를 만들지는 않습니다. Azure 가상 네트워크 만들기에 대한 자세한 내용은 [가상 네트워크 구성 작업](http://msdn.microsoft.com/library/azure/jj156206.aspx)을 참조하세요.
 
 Azure PowerShell을 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절차가 필요합니다.
 
@@ -278,7 +278,7 @@ Azure 계정 자격 증명을 입력하라는 메시지가 표시됩니다.
 		# Create a new HDInsight cluster
 		New-AzureHDInsightCluster -Name $clusterName -Credential $credentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName -ClusterSizeInNodes $clusterNodes -Version "3.2" -ClusterType Spark
 
-	>[AZURE.NOTE] 지정한 자격 증명은 클러스터의 Hadoop 사용자 계정을 만드는 데 사용됩니다. 이 계정을 사용하여 클러스터에 연결하고 작업을 실행합니다. Azure 포털에서 빠른 생성 옵션을 사용하여 클러스터를 프로비전하는 경우 기본 Hadoop 사용자 이름은 "admin"입니다. 이 계정을 RDP(원격 데스크톱 프로토콜) 사용자 계정과 혼동하지 마세요. RDP 사용자 계정은 Hadoop 사용자 계정과 달라야 합니다. 자세한 내용은 [Azure 관리 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리][hdinsight-admin-portal]를 참조하세요.
+	>[AZURE.NOTE]지정한 자격 증명은 클러스터의 Hadoop 사용자 계정을 만드는 데 사용됩니다. 이 계정을 사용하여 클러스터에 연결하고 작업을 실행합니다. Azure 포털에서 빠른 생성 옵션을 사용하여 클러스터를 프로비전하는 경우 기본 Hadoop 사용자 이름은 "admin"입니다. 이 계정을 RDP(원격 데스크톱 프로토콜) 사용자 계정과 혼동하지 마세요. RDP 사용자 계정은 Hadoop 사용자 계정과 달라야 합니다. 자세한 내용은 [Azure 관리 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리][hdinsight-admin-portal]를 참조하세요.
 
 	클러스터 프로비전을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
@@ -289,7 +289,7 @@ Azure 계정 자격 증명을 입력하라는 메시지가 표시됩니다.
 
 클러스터를 프로비전할 때 둘 이상의 Azure Blob 저장소 컨테이너에 연결하거나 Hive 및 Oozie Metastore에 대해 Azure SQL 데이터베이스를 사용하는 것과 같은 기타 구성 옵션을 사용할 수 있습니다. 이 기능을 사용하면 데이터 및 메타데이터의 수명을 클러스터의 수명과 분리할 수 있습니다.
 
-> [AZURE.NOTE] HDInsight 클러스터에서 구성 변수를 변경할 때는 Windows PowerShell cmdlet만 사용하는 것이 좋습니다. 원격 데스크톱을 통해 클러스터에 연결된 상태로 Hadoop 구성 파일을 변경하면 클러스터 패치 시 해당 변경 내용을 덮어쓸 수 있습니다. 반면 Azure PowerShell을 통해 설정된 구성 값은 클러스터를 패치해도 보존됩니다.
+> [AZURE.NOTE]HDInsight 클러스터에서 구성 변수를 변경할 때는 Windows PowerShell cmdlet만 사용하는 것이 좋습니다. 원격 데스크톱을 통해 클러스터에 연결된 상태로 Hadoop 구성 파일을 변경하면 클러스터 패치 시 해당 변경 내용을 덮어쓸 수 있습니다. 반면 Azure PowerShell을 통해 설정된 구성 값은 클러스터를 패치해도 보존됩니다.
 
 - Windows PowerShell 창에서 다음 명령을 실행합니다.
 
@@ -329,7 +329,7 @@ Azure 계정 자격 증명을 입력하라는 메시지가 표시됩니다.
 		# Provision the cluster with custom configuration                
 		New-AzureHDInsightCluster -Name $clusterName -Config $config -Credential $clusterCredentials -Location $location -Version "3.2"
 
-	>[AZURE.NOTE] 메타스토어에 사용되는 Azure SQL 데이터베이스는 Azure HDInsight를 비롯한 다른 Azure 서비스로의 연결을 허용해야 합니다. Azure SQL 데이터베이스 대시보드의 오른쪽에서 서버 이름을 클릭합니다. 이 서버는 SQL 데이터베이스 인스턴스가 실행되는 서버입니다. 서버 보기에서 **구성**을 클릭하고 **Windows** **Azure 서비스**에 대해 **예**를 클릭한 다음 **저장**을 클릭합니다.
+	>[AZURE.NOTE]메타스토어에 사용되는 Azure SQL 데이터베이스는 Azure HDInsight를 비롯한 다른 Azure 서비스로의 연결을 허용해야 합니다. Azure SQL 데이터베이스 대시보드의 오른쪽에서 서버 이름을 클릭합니다. 이 서버는 SQL 데이터베이스 인스턴스가 실행되는 서버입니다. 서버 보기에서 **구성**을 클릭하고 **Windows** **Azure 서비스**에 대해 **예**를 클릭한 다음 **저장**을 클릭합니다.
 
 	클러스터 프로비전을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
@@ -502,4 +502,4 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5**를 눌러 응�
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "HDInsight에서 Sqoop 사용"
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

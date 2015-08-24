@@ -35,7 +35,7 @@ Visual Studio Application Insights를 사용하여 모바일 응용 프로그램
 
 열리는 블레이드에서 앱의 성능 및 사용 데이터를 볼 수 있습니다. 다음에 Azure에 로그인할 때 다시 이 블레이드로 돌아가려면 시작 화면에서 해당 타일을 찾아야 합니다. 또는 찾아보기를 클릭하여 찾아야 합니다.
 
-## Mac용 Application Insights 다운로드
+## iOS용 Application Insights 다운로드
 
 (아직 설치하지 않은 경우)
 
@@ -141,4 +141,4 @@ http://portal.azure.com으로 돌아가서 Application Insights 리소스를 찾
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

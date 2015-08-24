@@ -1,5 +1,5 @@
 <properties
-	pageTitle="다중 테넌트 웹 응용 프로그램 패턴 - Azure 아키텍처"
+	pageTitle="다중 테넌트 웹 응용 프로그램 패턴 | Microsoft Azure"
 	description="Azure에서 다중 테넌트 웹 응용 프로그램을 구현하는 방법에 대해 설명하는 아키텍처 개요 및 디자인 패턴을 찾습니다."
 	services=""
 	documentationCenter=".net"
@@ -95,4 +95,4 @@ Azure에는 응용 프로그램의 새 테넌트를 프로비전하는 방법이
 [Azure에서 다중 테넌트 응용 프로그램 호스트]: http://msdn.microsoft.com/library/hh534480.aspx
 [Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

@@ -183,7 +183,9 @@ Sqlcmd 대한 추가 정보는 [sqlcmd 설명서](https://msdn.microsoft.com/lib
 	쿼리를 실행하려면, 아래 녹색 화살표를 클릭하거나 다음 바로 가기를 사용합니다. `CTRL`+`SHIFT`+`F5`:
 
 ## 다음 단계 ##
-[Load sample data.]: ./sql-data-warehouse-get-started-load-samples.md
-[Start developing code]: ./articles/sql-data-warehouse-overview-develop/
+이제 연결 및 쿼리할 수 있으므로 [샘플 데이터를 로드][]하거나 [코드를 개발][]해 보세요.
 
-<!---HONumber=August15_HO6-->
+[샘플 데이터를 로드]: ./sql-data-warehouse-get-started-load-samples.md
+[코드를 개발]: ./articles/sql-data-warehouse-overview-develop/
+
+<!---HONumber=August15_HO7-->

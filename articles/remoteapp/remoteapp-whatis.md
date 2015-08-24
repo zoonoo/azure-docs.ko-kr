@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="RemoteApp이란?" 
+	pageTitle="Azure RemoteApp이란?" 
 	description="Azure RemoteApp에 대해 알아봅니다." 
 	services="remoteapp" 
 	documentationCenter="" 
@@ -12,8 +12,8 @@
 	ms.workload="compute" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.topic="get-started-article" 
+	ms.date="08/05/2015" 
 	ms.author="elizapo"/>
 
 # Azure RemoteApp이란?
@@ -94,4 +94,4 @@ Azure RemoteApp은 Windows 및 Windows RT용 RemoteApp 클라이언트 앱과 Ma
 - [Azure RemoteApp FAQ](remoteapp-faq.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

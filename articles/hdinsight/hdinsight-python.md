@@ -308,15 +308,10 @@ SSH 사용에 대한 자세한 내용은 <a href="../hdinsight-hadoop-linux-use-
 
 오류 정보(STDERR) 및 작업의 결과(STDOUT)도 다음 위치의 클러스터용 기본 Blob 컨테이너에 로깅됩니다.
 
-<table>
-<tr>
-<td>이 작업의 경우</td><td>Blob 컨테이너에서 이러한 파일을 찾습니다.</td>
-</tr>
-<td>Hive</td><td>/HivePython/stderr</br>/HivePython/stdout</td>
-</tr>
-<td>Pig</td><td>/PigPython/stderr</br>/PigPython/stdout</td>
-</tr>
-</table>
+이 작업의 경우|Blob 컨테이너에서 이러한 파일을 찾습니다.
+---|---
+Hive|/HivePython/stderr<p>/HivePython/stdout
+Pig|/PigPython/stderr<p>/PigPython/stdout
 
 ##<a name="next"></a>다음 단계
 
@@ -330,4 +325,4 @@ Pig 및 Hive를 사용하고 MapReduce 사용에 대해 배우는 다른 방법�
 
 * [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->

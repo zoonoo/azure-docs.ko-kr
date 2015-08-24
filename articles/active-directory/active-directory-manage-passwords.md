@@ -1,12 +1,11 @@
 <properties
 	pageTitle="Azure AD | Microsoft Azure에서 암호 관리"
-	description="Azure AD에서 암호를 관리하는 방법을 설명하는 항목입니다."
+	description="Azure AD에서 암호 관리 방법"
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="swadwha"
-	editor=""
-	tags="azure-classic-portal"/>
+	manager="stevenpo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -14,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="08/10/2015"
 	ms.author="curtand"/>
 
 # Azure AD에서 암호 관리하기
@@ -33,13 +32,15 @@
 
 다음 링크를 사용하여 가장 관심 있는 설명서로 이동하세요.
 
-- [개요: Azure AD에서 암호 관리](https://msdn.microsoft.com/library/azure/dn683880.aspx)
-- [Azure AD의 셀프 서비스 암호 재설정: 셀프 서비스 암호 재설정을 사용하도록 설정, 구성 및 테스트하는 방법](https://msdn.microsoft.com/library/azure/dn683881.aspx)
-- [Azure AD의 셀프 서비스 암호 재설정: 필요에 맞는 암호 재설정을 사용자 지정하는 방법](https://msdn.microsoft.com/library/azure/dn688249.aspx)
-- [Azure AD에서 셀프 서비스 암호 재설정: 배포 및 관리 모범 사례](https://msdn.microsoft.com/library/azure/dn903643.aspx)
-- [Azure AD에서 암호 관리 보고서: 테넌트의 암호 관리 작업을 확인하는 방법](https://msdn.microsoft.com/library/azure/dn903641.aspx)
-- [암호 쓰기 저장: 온-프레미스 암호를 관리하도록 Azure AD를 구성하는 방법](https://msdn.microsoft.com/library/azure/dn903642.aspx)
-- [Azure AD 암호 관리에 대한 FAQ/문제 해결](https://msdn.microsoft.com/library/azure/dn683878.aspx)
+- [개요: Azure AD에서 암호 관리](active-directory-passwords-how-it-works.md)
+- [Azure AD의 셀프 서비스 암호 재설정: 셀프 서비스 암호 재설정을 사용하도록 설정, 구성 및 테스트하는 방법](active-directory-passwords-getting-started.md#enable-users-to-reset-their-azure-ad-passwords)
+- [Azure AD의 셀프 서비스 암호 재설정: 필요에 맞는 암호 재설정을 사용자 지정하는 방법](active-directory-passwords-customize.md)
+- [Azure AD에서 셀프 서비스 암호 재설정: 배포 및 관리 모범 사례](active-directory-passwords-best-practices.md)
+- [Azure AD에서 암호 관리 보고서: 테넌트의 암호 관리 작업을 확인하는 방법](active-directory-passwords-get-insights.md)
+- [암호 쓰기 저장: 온-프레미스 암호를 관리하도록 Azure AD를 구성하는 방법](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords)
+- [Azure AD 암호 관리 문제 해결](active-directory-passwords-troubleshoot.md)
+- [Azure AD 암호 관리에 대한 FAQ](active-directory-passwords-faq.md)
+
 
 ## 다음 단계
 
@@ -47,4 +48,4 @@
 - [Azure AD에서 사용자 만들기 또는 편집](active-directory-create-users.md)
 - [Azure AD에서 그룹 관리](active-directory-manage-groups.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO7-->
