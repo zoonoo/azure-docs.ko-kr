@@ -56,8 +56,6 @@
 
 ![생성](./media/web-sites-dotnet-get-started/Create_App.png)
 
-![배포](./media/web-sites-dotnet-get-started/Deploy_App.png)
-
 1. Visual Studio 2015 또는 Visual Studio 2013을 엽니다. 
 
 	Visual Studio 2013을 사용할 경우 화면이 스크린샷과 약간 다르지만 기본적으로 절차는 동일합니다.
