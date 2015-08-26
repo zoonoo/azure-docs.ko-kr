@@ -152,4 +152,4 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
   [3]: ./media/cloud-services-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-configure-ssl-certificate/AddCertificateComplete.png
 
-<!----HONumber=August15_HO7-->
+<!------HONumber=August15_HO7-->
