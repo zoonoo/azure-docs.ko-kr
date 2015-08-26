@@ -155,4 +155,4 @@ SSL(Secure Socket Layer) 암호화는 인터넷을 통해 전송되는 데이터
 
 [Azure Portal]: http://portal.azure.com/
 
-<!-----HONumber=August15_HO7-->
+<!------HONumber=August15_HO7-->
