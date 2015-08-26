@@ -89,7 +89,7 @@
     ![SAML Single Sign-On](./media/active-directory-saas-bamboo-hr-tutorial/IC796692.png "SAML Single Sign-On")
 
     1.  Azure 포털의 **BambooHR에 대한 Single Sign-on 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **SSO 로그인 URL ** 텍스트 상자에 붙여넣습니다.
-2.  다운로드한 인증서에서 **base-64로 인코딩된** 파일을 만듭니다.  
+    2.  다운로드한 인증서에서 **base-64로 인코딩된** 파일을 만듭니다.  
 
         >[AZURE.TIP]자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
@@ -140,4 +140,4 @@ BambooHR의 경우 프로비전은 수동 작업입니다.
 
 Single Sign-on 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!----HONumber=August15_HO7-->
+<!--------HONumber=August15_HO7-->
