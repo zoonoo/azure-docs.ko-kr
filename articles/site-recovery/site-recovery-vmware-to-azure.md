@@ -140,9 +140,7 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 마스터 대상 서버의 용량 계획은 다음에 따라 달라집니다.
 
 - Azure 저장소의 성능 및 제한 사항
-	- 디스크당 500 IOPS
-	- 저장소 계정당 2만 개 요청
-	- 이러한 수치를 기준으로, 각 디스크가 500 IOPS를 처리할 경우 저장소 계정에서 40개 디스크를 지원하는 것이 적합합니다. 
+	- 표준 계층 VM에 대해 자주 활용되는 디스크의 최대 수는 단일 저장소 계정에서 약 40(디스크당 20,000/500 IOPS)입니다. 자세한 내용은 [標準的なストレージ アカウントのスケーラビリティ ターゲット](../storage/storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts) 자세한 내용은. 마찬가지로 프리미엄 저장소 계정에 대한 자세한 내용은 [프리미엄 저장소 계정의 확장성 목표](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts)를 참조하세요
 -	일일 데이터 변경률 
 -	보존 볼륨 저장소.
 
@@ -364,7 +362,7 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 	- 사용자 지정 1: 프로세스 서버에서 공용 포트를 사용하여 인터넷을 통해 메타 데이터를 보냅니다. 프로세스 서버가 개인 포트 9080을 사용하여 VPN을 통해 제어 데이터를 마스터 대상 서버로 보냅니다.
 	- SSH: 개인 포트 22
 
-    >[AZURE.WARNING]마스터 대상 서버 배포 중 생성된 끝점의 공용 또는 개인 포트 번호를 삭제 또는 변경하지 마세요.
+    >[AZURE.WARNING] 마스터 대상 서버 배포 중 생성된 끝점의 공용 또는 개인 포트 번호를 삭제 또는 변경하지 마세요.
 
 5. **가상 컴퓨터**에서 가상 컴퓨터가 시작될 때까지 기다립니다.
 
@@ -383,8 +381,9 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 8. Linux를 실행하는 경우 다음을 수행합니다.
 	1. 마스터 대상 서버 소프트웨어를 설치하기 전에 최신 LIS(Linux Integration Services)를 설치했는지 확인하십시오. [여기](https://www.microsoft.com/ko-kr/download/details.aspx?id=46842)에서 설치 방법에 대한 지침과 함께 최신 버전의 LIS를 찾을 수 있습니다. LIS 설치 후 컴퓨터를 다시 시작합니다.
 	2. **대상(Azure) 리소스 준비**에서 **추가 소프트웨어 다운로드 및 설치(Linux 마스터 대상 서버 전용)**를 클릭하고 Linux 마스터 대상 서버 패키지를 다운로드합니다. 다운로드한 tar 파일을 sftp 클라이언트를 사용하여 가상 컴퓨터로 복사합니다. 또는 배포된 Linux 마스터 대상 서버에 로그인한 다음 *wget http://go.microsoft.com/fwlink/?LinkID=529757&clcid=0x409*을 사용하여 파일을 다운로드할 수 있습니다.
-2. 보안 셸 클라이언트를 사용하여 서버에 로그온합니다. VPN을 통해 Azure 네트워크에 연결되어 있는 경우 내부 IP 주소를 사용합니다. 그렇지 않으면 외부 IP 주소와 SSH 공용 끝점을 사용합니다.
-	3. **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64*** ![Linux 마스터 대상 서버](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)를 실행하여 GZip 압축된 설치 프로그램에서 파일을 추출합니다.
+	2. 보안 셸 클라이언트를 사용하여 서버에 로그온합니다. VPN을 통해 Azure 네트워크에 연결되어 있는 경우 내부 IP 주소를 사용합니다. 그렇지 않으면 외부 IP 주소와 SSH 공용 끝점을 사용합니다.
+	3. **tar –xvzf Microsoft-ASR\_UA\_8.4.0.0\_RHEL6-64***,를 실행하여 GZip 압축된 설치 프로그램에서 파일을 추출합니다. 
+	![Linux 마스터 대상 서버](./media/site-recovery-vmware-to-azure/ASRVMWare_TSLinuxTar.png)
 	4. 현재 위치가 tar 파일의 내용을 추출한 디렉터리인지 확인합니다.
 	5. **echo *`<passphrase>`* >passphrase.txt** 명령을 사용하여 구성 서버 암호를 로컬 파일로 복사합니다.
 	6. "**sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt**" 명령을 실행합니다.
@@ -395,11 +394,11 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 
 	![대상 서버 확인](./media/site-recovery-vmware-to-azure/ASRVMWare_TSList.png)
 
->[AZURE.NOTE]등록을 마친 후 마스터 대상 서버가 구성 서버에 나열될 때까지 최대 15분이 소요될 수 있습니다. 즉시 업데이트하려면 구성 서버 페이지 하단에 있는 새로 고침 단추를 클릭하여 구성 서버를 새로 고칩니다.
+>[AZURE.NOTE] 등록을 마친 후 마스터 대상 서버가 구성 서버에 나열될 때까지 최대 15분이 소요될 수 있습니다. 즉시 업데이트하려면 구성 서버 페이지 하단에 있는 새로 고침 단추를 클릭하여 구성 서버를 새로 고칩니다.
 
 ## 4단계: 온-프레미스 프로세스 서버 배포
 
->[AZURE.NOTE]재부팅 시에도 유지되도록 프로세스 서버에서 정적 IP 주소를 구성하는 것이 좋습니다.
+>[AZURE.NOTE] 재부팅 시에도 유지되도록 프로세스 서버에서 정적 IP 주소를 구성하는 것이 좋습니다.
 
 1. 빠른 시작 > **프로세스 서버 온-프레미스 설치** > **프로세스 서버 다운로드 및 설치**를 클릭합니다.
 
@@ -451,7 +450,7 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 
 12. 설치를 완료하려면 서버를 다시 시작해야 할 수 있습니다. **구성 서버** > **서버 정보**에서 프로세스 서버가 성공적으로 등록되었는지 확인합니다.
 
->[AZURE.NOTE]등록을 마친 후 프로세스 서버가 구성 서버에 나열될 때까지 최대 15분이 소요될 수 있습니다. 즉시 업데이트하려면 구성 서버 페이지 하단에 있는 새로 고침 단추를 클릭하여 구성 서버를 새로 고칩니다.
+>[AZURE.NOTE] 등록을 마친 후 프로세스 서버가 구성 서버에 나열될 때까지 최대 15분이 소요될 수 있습니다. 즉시 업데이트하려면 구성 서버 페이지 하단에 있는 새로 고침 단추를 클릭하여 구성 서버를 새로 고칩니다.
  
 ![프로세스 서버 유효성 검사](./media/site-recovery-vmware-to-azure/ASRVMWare_ProcessServerRegister.png)
 
@@ -638,7 +637,7 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 
     ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i 104.40.75.37 -p 62519 -s y -c https -P passphrase.txt
 
->[AZURE.NOTE]이미 적절한 버전의 모바일 서비스를 실행 중인 보호 그룹에 컴퓨터를 추가하면 푸시 설치가 생략됩니다.
+>[AZURE.NOTE] 이미 적절한 버전의 모바일 서비스를 실행 중인 보호 그룹에 컴퓨터를 추가하면 푸시 설치가 생략됩니다.
 
 
 ## 단계 9: 보호 사용
@@ -773,4 +772,4 @@ Microsoft 제품이나 서비스에서 실행되는 소프트웨어와 펌웨어
 
 전체 파일은 [Microsoft 다운로드 센터](http://go.microsoft.com/fwlink/?LinkId=529428)에서 확인할 수 있습니다. Microsoft에서 명시적으로 부여하지 않은 모든 권한은 묵시적, 금반언적 또는 기타 어떠한 방식에 의해서든 Microsoft가 보유합니다.
 
-<!-----HONumber=August15_HO7-->
+<!------HONumber=August15_HO7-->

@@ -88,10 +88,10 @@
 
     ![SAML Single Sign-On](./media/active-directory-saas-bamboo-hr-tutorial/IC796692.png "SAML Single Sign-On")
 
-    1.  Azure 포털의 **BambooHR에 대한 Single Sign-on 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **SSO 로그인 URL ** 텍스트 상자에 붙여넣습니다.
+    1.  Azure 포털의 **BambooHR에 대한 Single Sign-on 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **SSO 로그인 URL** 텍스트 상자에 붙여넣습니다.
     2.  다운로드한 인증서에서 **base-64로 인코딩된** 파일을 만듭니다.  
 
-        >[AZURE.TIP]자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
+        >[AZURE.TIP] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
     3.  Base 64로 인코딩된 인증서를 메모장에서 열고, 내용을 클립보드에 복사한 다음 전체 인증서를 **X.509 인증서** 텍스트 상자에 붙여넣습니다.
     4.  **Save**를 클릭합니다.
@@ -120,7 +120,7 @@ BambooHR의 경우 프로비전은 수동 작업입니다.
 
 6.  **저장**을 클릭합니다.
 
->[AZURE.NOTE]다른 BambooHR 사용자 계정 생성 도구 또는 BambooHR이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>[AZURE.NOTE] 다른 BambooHR 사용자 계정 생성 도구 또는 BambooHR이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
 
 ##사용자 할당
 
@@ -130,7 +130,7 @@ BambooHR의 경우 프로비전은 수동 작업입니다.
 
 1.  Azure AD 포털에서 테스트 계정을 만듭니다.
 
-2.  **BambooHR ** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
+2.  **BambooHR** 응용 프로그램 통합 페이지에서 **사용자 할당**을 클릭합니다.
 
     ![사용자 할당](./media/active-directory-saas-bamboo-hr-tutorial/IC796695.png "사용자 할당")
 
@@ -140,4 +140,4 @@ BambooHR의 경우 프로비전은 수동 작업입니다.
 
 Single Sign-on 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!--------HONumber=August15_HO7-->
+<!---------HONumber=August15_HO7-->

@@ -110,9 +110,12 @@
 
     1.  ID 공급자 이름 텍스트 상자에서 공급자 이름을 입력합니다 (예:*SPInitiatedSSO*).
     2.  Azure 포털의 **Workday에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **ID 공급자 ID** 값을 복사한 다음 **발급자** 텍스트 상자에 붙여넣습니다.
-    3.  **ID 공급자 공개 키 인증서**를 클릭한 후 **만들기**를 클릭합니다.![생성](./media/active-directory-saas-workday-tutorial/IC782928.png "생성")
-    4.  **x509 공개 키 만들기**를 클릭합니다.![생성](./media/active-directory-saas-workday-tutorial/IC782929.png "생성")
-    5.  **x509 공개 키 보기** 섹션에서 다음 단계를 수행합니다. ![x509 공개 키 보기](./media/active-directory-saas-workday-tutorial/IC782930.png "x509 공개 키 보기")
+    3.  **ID 공급자 공개 키 인증서**를 클릭한 후 **만들기**를 클릭합니다.
+        ![생성](./media/active-directory-saas-workday-tutorial/IC782928.png "생성")
+    4.  **x509 공개 키 만들기**를 클릭합니다.
+        ![생성](./media/active-directory-saas-workday-tutorial/IC782929.png "생성")
+    5.  **x509 공개 키 보기** 섹션에서 다음 단계를 수행합니다.
+        ![x509 공개 키 보기](./media/active-directory-saas-workday-tutorial/IC782930.png "x509 공개 키 보기")
         1.  **이름** 텍스트 상자에서 인증서(예: *PPE\_SP*)를 입력합니다.
         2.  **유효 시작** 텍스트 상자에 인증서의 유효 시작 특성 값을 입력합니다.
         3.  **유효 만료** 텍스트 상자에 인증서의 유효 만료 특성 값을 입력합니다.
@@ -127,16 +130,19 @@
         6.  **인증서** 텍스트 상자에서 클립보드의 내용을 붙여 넣습니다.
         7.  **확인**을 클릭합니다.
 
-    6.  다음 단계를 수행합니다. ![SSO 구성](./media/active-directory-saas-workday-tutorial/IC792131.png "SSO 구성")
-        1.  **서비스 공급자 ID** 텍스트 상자에서 ****http://www.workday.com**를 입력합니다.
-2.  **SP가 시작한 SAML 인증 사용**을 선택합니다.
+    6.  다음 단계를 수행합니다.
+        ![SSO 구성](./media/active-directory-saas-workday-tutorial/IC792131.png "SSO 구성")
+        1.  **서비스 공급자 ID** 텍스트 상자에서 **http://www.workday.com**를 입력합니다.
+        2.  **SP가 시작한 SAML 인증 사용**을 선택합니다.
         3.  Azure 포털의 **Workday에 대한 Single Sign-On 구성** 대화 상자 페이지에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **Single Sign-On 서비스 URL** 텍스트 상자에 붙여넣습니다.
         4.  **SP에서 시작한 인증 요청을 Deflate하지 않음**을 선택합니다.
 
-    7.  다음 단계를 수행합니다. ![인증 요청 서명 메서드](./media/active-directory-saas-workday-tutorial/IC782932.png "인증 요청 서명 메서드")
+    7.  다음 단계를 수행합니다.
+        ![인증 요청 서명 메서드](./media/active-directory-saas-workday-tutorial/IC782932.png "인증 요청 서명 메서드")
         1.  **인증 요청 서명 메서드**로 **SHA256**를 선택합니다.
 
-    8.  **확인**을 클릭합니다. ![확인](./media/active-directory-saas-workday-tutorial/IC782933.png "확인")
+    8.  **확인**을 클릭합니다.
+        ![확인](./media/active-directory-saas-workday-tutorial/IC782933.png "확인")
 
 12. Azure AD 포털에서에 **Workday에서 Single Sign-On 구성** 페이지를 클릭하고 **Complete** 대화 상자를 닫습니다.
 
@@ -164,4 +170,4 @@ Workday에 테스트 사용자를 프로비전하려면 Workday 지원팀에 문
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

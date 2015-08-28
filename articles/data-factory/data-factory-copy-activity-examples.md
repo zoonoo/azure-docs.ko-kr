@@ -203,7 +203,7 @@ Data Factory 파이프라인을 정의하는 JSON 요소에 대한 자세한 내
 	  }
 	}
 
-> [AZURE.NOTE]JSON 파일의 호스트 및 폴더 이름에는 이스케이프 문자 ''를 사용해야 합니다. **\\Contoso**의 경우 **\\\\Contoso**를 사용합니다.
+> [AZURE.NOTE] JSON 파일의 호스트 및 폴더 이름에는 이스케이프 문자 ''를 사용해야 합니다. **\\Contoso**의 경우 **\\\\Contoso**를 사용합니다.
 
 온-프레미스 파일 시스템 연결된 서비스를 정의하는 JSON 요소에 대한 자세한 내용은 [온-프레미스 파일 시스템 연결된 서비스](https://msdn.microsoft.com/library/dn930836.aspx)를 참조하세요.
 
@@ -320,7 +320,7 @@ Azure Blob을 참조하는 Data Factory 테이블을 정의하는 JSON 요소에
 
 이 예제의 파이프라인은 구문 분석이나 변환을 수행하지 않고 콘텐츠를 이진으로 복사합니다. **동시성**을 활용하여 파일 조각을 병렬로 복사할 수 있습니다. 이 기능은 과거에 이미 발생한 조각을 이동하려는 경우에 유용합니다.
 
-> [AZURE.NOTE]다른 사용자 계정으로 UNC 경로를 통해 동일한 호스트에서 동시 복사 작업을 수행하면 "동일한 사용자가 둘 이상의 사용자 이름으로 서버 또는 공유 리소스에 다중 연결할 수 없습니다."와 같은 오류가 발생할 수 있습니다. 이것은 보안상 적용되는 운영 체제의 제한 사항입니다. 다른 게이트웨이를 사용하여 복사 작업을 예약하거나 호스트 내에 게이트웨이를 설치하고 UNC 경로 대신 "localhost" 또는 "local"을 사용합니다.
+> [AZURE.NOTE] 다른 사용자 계정으로 UNC 경로를 통해 동일한 호스트에서 동시 복사 작업을 수행하면 "동일한 사용자가 둘 이상의 사용자 이름으로 서버 또는 공유 리소스에 다중 연결할 수 없습니다."와 같은 오류가 발생할 수 있습니다. 이것은 보안상 적용되는 운영 체제의 제한 사항입니다. 다른 게이트웨이를 사용하여 복사 작업을 예약하거나 호스트 내에 게이트웨이를 설치하고 UNC 경로 대신 "localhost" 또는 "local"을 사용합니다.
 
 데이터 팩터리 파이프라인을 정의하는 JSON 요소에 대한 자세한 내용은 [파이프라인 JSON 참조](https://msdn.microsoft.com/library/dn834988.aspx)를 참조하고, FileSystemSource의 속성 및 BlobSink에 대해서는 [지원되는 원본 및 싱크](https://msdn.microsoft.com/library/dn894007.aspx)를 참조하세요.
 
@@ -488,4 +488,4 @@ Azure Blob을 참조하는 Data Factory 테이블을 정의하는 JSON 요소에
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

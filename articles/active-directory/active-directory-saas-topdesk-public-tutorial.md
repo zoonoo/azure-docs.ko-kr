@@ -96,9 +96,9 @@
 
     ![앱 URL 구성](./media/active-directory-saas-topdesk-public-tutorial/IC790622.png "앱 URL 구성")
 
-    1.  **TOPdesk - Public Sign On URL** 텍스트 상자에서 TOPdesk - 사용자가 Public 응용 프로그램 로그인에 사용한 URL을 입력합니다 (예: "**https://qssolutions.topdesk.net*").
-2.  **TOPdesk – Public Reply URL** 텍스트 상자에서 **TOPdesk - Public AssertionConsumerService URL**을 붙여넣기합니다 (예: "**https://qssolutions.topdesk.net/tas/public/login/saml*")
-3.  **다음**을 클릭합니다.
+    1.  **TOPdesk - Public Sign On URL** 텍스트 상자에서 TOPdesk - 사용자가 Public 응용 프로그램 로그인에 사용한 URL을 입력합니다 (예: "*https://qssolutions.topdesk.net*").
+    2.  **TOPdesk – Public Reply URL** 텍스트 상자에서 **TOPdesk - Public AssertionConsumerService URL**을 붙여넣기합니다 (예: "*https://qssolutions.topdesk.net/tas/public/login/saml*")
+    3.  **다음**을 클릭합니다.
 
 10. **TOPdesk - Public에서 Single Sign-On 구성** 페이지에서 메타데이터를 다운로드 하려면 **메타데이터 다운로드**를 클릭한 다음 컴퓨터에 로컬 저장합니다.
 
@@ -185,4 +185,4 @@ Azure AD 사용자가 TOPdesk - Public에 로그인할 수 있도록 하려면 �
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

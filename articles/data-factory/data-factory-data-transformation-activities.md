@@ -22,7 +22,11 @@ Azure 데이터 팩터리의 변환 작업을 통해 원시 데이터를 변환 
 
 변환 작업 | 컴퓨팅 환경 
 ----------------------- | --------------------
-[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] [Pig](data-factory-pig-activity.md) | HDInsight [Hadoop] [MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop] [Hadoop 스트리밍](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop] [기계 학습 일괄 점수 매기기](data-factory-create-predictive-pipelines.md) | Azure VM 
+[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] 
+[Pig](data-factory-pig-activity.md) | HDInsight [Hadoop]  
+[MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop]  
+[Hadoop 스트리밍](https://msdn.microsoft.com/library/mt185698.aspx) | HDInsight [Hadoop]
+[기계 학습 일괄 점수 매기기](data-factory-create-predictive-pipelines.md) | Azure VM 
 [저장 프로시저](data-factory-stored-proc-activity.md) | Azure SQL | 
 [DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] 또는 Azure Batch    
 
@@ -33,4 +37,4 @@ Azure 데이터 팩터리의 변환 작업을 통해 원시 데이터를 변환 
 
 데이터 팩터리에서 지원하는 컴퓨팅 연결 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](data-factory-compute-linked-services.md) 문서를 참조하세요.
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

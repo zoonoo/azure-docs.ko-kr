@@ -144,11 +144,11 @@ Azure Site Recovery 배포의 일환으로 보호하려는 가상 컴퓨터를 �
 	- Hyper-V 서버에서 기본 프록시에 인증이 필요한 경우 사용자 지정 프록시 서버를 사용하도록 선택해야 합니다. 기본 프록시 세부 정보에서 입력하고 자격 증명을 지정합니다.
 	- 사용자 지정 프록시 서버를 사용하려는 경우 공급자를 설치하기 전에 설정해야 합니다. 
 	- 다음 url은 Hyper-v 호스트에서 액세스할 수 있어야 합니다.
-		- **.hypervrecoverymanager.windowsazure.com
-- **.accesscontrol.windows.net
-- **.backup.windowsazure.com
-- **.blob.core.windows.net
-- **.store.core.windows.net
+		- *.hypervrecoverymanager.windowsazure.com
+		- *.accesscontrol.windows.net
+		- *.backup.windowsazure.com
+		- *.blob.core.windows.net
+		- *.store.core.windows.net
 
 	- [Azure 데이터센터 IP 범위](http://go.microsoft.com/fwlink/?LinkId=511094) 및 HTTPS(443) 프로토콜에 설명된 IP 주소를 허용합니다. 사용하려는 Azure 지역 및 미국 서부의 IP 범위를 허용해야 합니다.
 
@@ -306,4 +306,4 @@ Azure 대상 네트워크를 지정하지 않고 Azure로 보호되도록 설정
 
 배포가 설정되고 실행된 후 장애 조치에 대해 [알아봅니다](site-recovery-failover.md).
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->
