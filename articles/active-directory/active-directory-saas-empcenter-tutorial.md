@@ -68,7 +68,7 @@
     ![앱 설정 구성](./media/active-directory-saas-empcenter-tutorial/IC802921.png "앱 설정 구성")
 
     1.  **로그온 URL** 텍스트 상자에 사용자가 EmpCenter 응용 프로그램에 로그인하는 데 사용하는 URL을 입력합니다.(예: **https://partner-authenticati.empcenter.com/workforce/SSO.do*))
-2.  **다음**를 클릭합니다.
+    2.  **다음**를 클릭합니다.
 
 4.  **EmpCenter에서 Single Sign-On 구성** 페이지에서 메타데이터를 다운로드 하려면 **메타데이터 다운로드**를 클릭한 다음 메타데이터 파일을 컴퓨터에 저장합니다.
 
@@ -105,4 +105,4 @@ Azure AD 사용자가 EmpCenter에 로그인할 수 있도록 하려면 EmpCente
   
 Single sign-on 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!---HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->

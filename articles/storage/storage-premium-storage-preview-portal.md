@@ -130,7 +130,7 @@ Azure는 저장소 계정을 운영 체제(OS) 및 데이터 디스크의 컨테
 </tbody>
 </table>
 
-	For the most up-to-date information, see [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). To learn about the Premium storage disks and their IOPs and throughput limits, see the table in the [Scalability and Performance Targets when using Premium Storage](#scalability-and-performance-targets-whko-kring-premium-storage) section in this article.
+	최신 정보를 보시려면 [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)를 참고하십시오. 프리미엄 저장소 디스크, IOP 및 처리량 한계에 대해 알아 보려면 [Scalability and Performance Targets when using Premium Storage](#scalability-and-performance-targets-when-using-premium-storage) 섹션에서 관련 표를 참고하십시오.
 
 > [AZURE.NOTE]캐시 적중 수는 디스크의 할당된 IOPS/처리량으로 제한되지 않습니다. 즉, DS 시리즈 VM에서 읽기 전용 캐시 설정된 데이터 디스크를 사용하는 경우 캐시에서 제공 하는 읽기는 프리미엄 저장소 디스크의 대상이 아닙니다. 따라서 워크로드가 대부분 읽기인 경우 디스크에서 상당히 높은 처리량을 얻을 수 있습니다. 캐시는 VM 크기에 기반한 VM 단계에서 별도의 IOPS/처리량으로 제한됩니다. DS 시리즈 VM은 대략 캐시 및 로컬 SSD IO에 대해 코어당 4000 IOPS 및 33MB/초여야 합니다.
 
@@ -401,4 +401,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->
