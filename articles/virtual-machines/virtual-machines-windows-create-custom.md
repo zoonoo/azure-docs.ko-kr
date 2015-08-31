@@ -32,6 +32,6 @@
 
 ##가상 컴퓨터를 만들려면
 
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-windowsvm](../../includes/virtual-machines-create-windowswm.md)]
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

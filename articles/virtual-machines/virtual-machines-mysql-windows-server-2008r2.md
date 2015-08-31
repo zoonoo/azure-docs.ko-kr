@@ -34,7 +34,7 @@ Linux에서 MySQL을 설치하는 방법에 대한 지침은 [Azure에 MySQL을 
 
 ## Windows Server를 실행하는 가상 컴퓨터 만들기
 
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
 ## 데이터 디스크 연결
 
@@ -128,4 +128,4 @@ Azure 가상 컴퓨터에서 실행되는 MySQL Server 서비스에 대한 원�
 
 MySQL에 대한 자세한 내용은 [MySQL 설명서](http://dev.mysql.com/doc/)를 참조하세요.
 
-<!---HONumber=August15_HO7-->
+<!----HONumber=August15_HO7-->

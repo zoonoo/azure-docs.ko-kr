@@ -39,7 +39,7 @@
 
 ##Google Cloud Messaging을 지원하는 프로젝트 만들기
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 
 ##새 알림 허브 만들기
@@ -511,4 +511,4 @@
 [알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-aspnet-backend-android-breaking-news.md
  
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->
