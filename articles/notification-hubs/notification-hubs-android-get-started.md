@@ -62,7 +62,7 @@
 
 ###프로젝트에 Google Play Services 추가
 
-[AZURE.INCLUDE [Play 서비스 추가](../../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [Play 서비스 추가](../../includes/mobile-services-add-google-play-services.md)]
 
 ###코드 추가
 
@@ -511,4 +511,4 @@
 [알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-aspnet-backend-android-breaking-news.md
  
 
-<!----HONumber=August15_HO6-->
+<!-----HONumber=August15_HO6-->

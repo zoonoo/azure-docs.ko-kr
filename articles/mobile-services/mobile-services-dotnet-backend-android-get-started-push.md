@@ -51,7 +51,7 @@
 
 ###프로젝트에 Google Play Services 추가
 
-[AZURE.INCLUDE [Play 서비스 추가](../../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [Play 서비스 추가](../../includes/mobile-services-add-google-play-services.md)]
 
 ###코드 추가
 
@@ -122,4 +122,4 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!----HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->
