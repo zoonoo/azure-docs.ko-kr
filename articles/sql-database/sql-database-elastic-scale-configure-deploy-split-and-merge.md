@@ -1,8 +1,7 @@
 <properties
 	pageTitle="탄력적 데이터베이스 분할/병합 도구 자습서 | Microsoft Azure"
 	description="탄력적 데이터베이스 도구를 사용하는 분할 및 병합"
-	services="sql-database" 
-	documentationCenter=""  
+	services="sql-database" documentationCenter=""  
 	manager="jeffreyg"
 	authors="sidneyh"/>
 
@@ -12,7 +11,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/14/2015"
+	ms.date="08/14/2015"
 	ms.author="sidneyh" />
 
 # 탄력적 데이터베이스 분할/병합 도구 자습서
@@ -45,7 +44,11 @@
 
 2. 원하는 텍스트 편집기에서 ServiceConfiguration.cscfg를 엽니다. Visual Studio를 사용하여 인증서 지문의 형식과 같은 입력의 유효성을 검사하는 것이 좋습니다.
 
-3. 새 데이터베이스를 만들거나 분할/병합 작업에 대한 상태 데이터베이스로 사용할 기존 데이터베이스를 선택하고 해당 데이터베이스의 연결 문자열을 검색합니다. Azure SQL DB를 사용할 경우 연결 문자열의 형식은 일반적으로 다음과 같습니다.
+3. 새 데이터베이스를 만들거나 분할/병합 작업에 대한 상태 데이터베이스로 사용할 기존 데이터베이스를 선택하고 해당 데이터베이스의 연결 문자열을 검색합니다.
+
+	**중요** 지금은 상태 데이터베이스에서 라틴어 데이터 정렬 (SQL\_Latin1\_General\_CP1\_CI\_AS)을 사용해야 합니다. 자세한 내용은 [Windows 데이터 정렬 이름(TRANSACT-SQL)](https://msdn.microsoft.com/library/ms188046.aspx)을 참조하세요.
+
+	Azure SQL DB를 사용할 경우 연결 문자열의 형식은 일반적으로 다음과 같습니다.
 
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 4.    ElasticScaleMetadata 설정의 **SplitMergeWeb** 및 **SplitMergeWorker** 역할 섹션에서 cscfg 파일에 이 연결 문자열을 입력합니다.
@@ -329,4 +332,4 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

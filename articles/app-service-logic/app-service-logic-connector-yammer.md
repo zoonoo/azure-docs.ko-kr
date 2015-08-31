@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
 
 
@@ -89,7 +89,14 @@ API 앱을 만들고 나면 이제 Yammer 커넥터를 논리 앱에 대한 트�
 
 	![][11]
 
-	<!--Image references-->
+## 커넥터의 추가 기능
+이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
+
+[커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
+
+커넥터의 성능 통계를 검토하고 보안을 제어할 수 있습니다. [기본 제공 API 앱 및 커넥터 관리 및 모니터링](app-service-logic-monitor-your-connectors.md)을 참조하세요.
+
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-yammer/img1.PNG
 [2]: ./media/app-service-logic-connector-yammer/img2.PNG
 [3]: ./media/app-service-logic-connector-yammer/img3.png
@@ -102,4 +109,4 @@ API 앱을 만들고 나면 이제 Yammer 커넥터를 논리 앱에 대한 트�
 [10]: ./media/app-service-logic-connector-yammer/img10.PNG
 [11]: ./media/app-service-logic-connector-yammer/img11.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

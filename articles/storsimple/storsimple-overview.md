@@ -4,7 +4,7 @@
    services="storsimple" 
    documentationCenter="NA" 
    authors="SharS" 
-   manager="AdinaH" 
+   manager="carolz" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/03/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos@microsoft.com"/>
 
 # StorSimple이란? 
@@ -34,7 +34,7 @@ StorSimple은 저장소 계층화를 사용하여 다양한 저장소 미디어�
 
 저장소 관리 외에도 StorSimple 데이터 보호 기능을 통해 주문형 백업 및 예약된 백업을 만들고 로컬로 또는 클라우드에 저장할 수 있습니다. 백업은 증분 스냅숏 형태로 생성되므로 빠르게 만들고 복원할 수 있습니다. 클라우드 스냅숏은 보조 저장소 시스템(예: 테이프 백업)을 대체하기 때문에 재해 복구 시나리오에서 매우 중요할 수 있으며, 필요한 경우 데이터 센터 또는 대체 사이트에 데이터를 복원할 수 있게 해줍니다.
 
->[AZURE.NOTE]소프트웨어 업데이트 1 이상이 설치된 StorSimple 8000 시리즈는 RRS, HP 및 OpenStack 클라우드 서비스와 Microsoft Azure에서 Amazon S3를 지원합니다. 장치 관리를 위해 여전히 Microsoft Azure 저장소 계정이 필요합니다. 자세한 내용은 [온-프레미스 StorSimple 장치 배포](storsimple-deployment-walkthrough-u1.md)에서 [새 저장소 계정 구성](storsimple-deployment-walkthrough.md#configure-a-new-storage-account)을 참조하세요.
+>[AZURE.NOTE]소프트웨어 업데이트 1 이상이 설치된 StorSimple 8000 시리즈는 RRS, HP 및 OpenStack 클라우드 서비스와 Microsoft Azure에서 Amazon S3를 지원합니다. 장치 관리를 위해 여전히 Microsoft Azure 저장소 계정이 필요합니다. 자세한 내용은 [서비스에 대한 새 저장소 계정 구성](storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service)을 참조하세요.
 
 ## StorSimple을 사용하는 이유
 
@@ -66,11 +66,11 @@ Microsoft Azure StorSimple 솔루션에는 다음 구성 요소가 포함됩니�
 
 ## 다음 단계
 
-[StorSimple 솔루션 개요](http://www.microsoft.com/ko-kr/server-cloud/products/storsimple/resources.aspx)를 읽고 [StorSimple 강의](http://www.microsoft.com/ko-kr/server-cloud/products/storsimple/Features.aspx)를 봅니다.
+[StorSimple 8000 시리즈 솔루션 개요](http://www.microsoft.com/server-cloud/products/storsimple/resources.aspx)를 읽고 [StorSimple 강의](http://www.microsoft.com/server-cloud/products/storsimple/Features.aspx)를 봅니다.
 
 [StorSimple 구성 요소 및 용어](storsimple-components.md)에 대해 자세히 알아봅니다.
 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

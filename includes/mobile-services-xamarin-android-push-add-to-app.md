@@ -26,7 +26,7 @@
 	        Categories = new string[] { "@PACKAGE_NAME@" })]
 	    [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, 
         Categories = new string[] { "@PACKAGE_NAME@" })]
-        public class ToDoBroadcastReceiver : GcmBroadcastReceiverBase<GcmService>
+        public class ToDoBroadcastReceiver : GcmBroadcastReceiverBase<PushHandlerService>
         {
 	        // Set the Google app ID.
 	        public static string[] senderIDs = new string[] { "<PROJECT_NUMBER>" };
@@ -49,7 +49,7 @@
 
 	>[AZURE.NOTE]**GcmServiceBase** 클래스는 **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** 및 **OnError()** 메서드를 구현합니다. **PushHandlerService** 클래스에서 이러한 메서드를 재정의해야 합니다.
 
-5. **OnRegistered** 이벤트 처리기를 재정의하는 **ToDoBroadcastReceiver** 클래스에 다음 코드를 추가합니다.
+5. **OnRegistered** 이벤트 처리기를 재정의하는 **PushHandlerService** 클래스에 다음 코드를 추가합니다.
 
         protected override void OnRegistered(Context context, string registrationId)
         {
@@ -116,7 +116,7 @@
             }
         }
 
-12. 컴파일할 프로젝트에 필요한 **OnUnRegistered()** 및 **OnError()**에 대해 재정의하는 다음 메서드를 추가합니다.
+12. 다음 코드를 사용하여 **OnUnRegistered()** 및 **OnError()** 메서드를 재정의합니다.
 
         protected override void OnUnRegistered(Context context, string registrationId)
         {
@@ -129,4 +129,4 @@
                 string.Format("Error occurred in the notification: {0}.", errorId));
         }
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -12,8 +12,8 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-sencha"
 	ms.devlang="multiple"
-	ms.topic="article" 
-	ms.date="04/24/2015"
+	ms.topic="article"
+	ms.date="08/18/2015"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>모바일 서비스 및 Sencha Touch 시작
@@ -35,9 +35,9 @@
 
 ##요구 사항
 
-- [Sencha Touch](http://wwww.sencha.com/products/touch/download" target="_blank") 를 다운로드하여 설치합니다.
+- [Sencha Touch]를 다운로드하여 설치합니다(http://wwww.sencha.com/products/touch/download" target="\_blank").
 
-- [Sencha Cmd Tool](http://www.sencha.com/products/touch/download" target="_blank")을 다운로드하여 설치합니다.
+- [Sencha Cmd Tool]을 다운로드하여 설치합니다(http://www.sencha.com/products/sencha-cmd/download" target="\_blank").
 
 - JRE(Java Runtime Environment) 또는 Java Development Kit(Android 앱을 만드는 경우)
 
@@ -710,6 +710,5 @@ Sencha Touch 시작에 대한 자세한 내용을 보려면 전체 [가이드](h
 
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

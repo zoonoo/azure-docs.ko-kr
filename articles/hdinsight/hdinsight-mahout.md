@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
-	editor=""/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -92,7 +93,7 @@ Mahout에서 제공하는 기능 중 하나가 추천 엔진입니다. 이 엔�
 	# NOTE: The version number portion of the file path
 	# may change in future versions of HDInsight.
 	# So dynamically grab it using Hive.
-	$mahoutPath = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target\*-job.jar' | where {$_.startswith("C:\apps\dist")}
+	$mahoutPath = Invoke-Hive -Query '!${env:COMSPEC} /c dir /b /s ${env:MAHOUT_HOME}\examples\target*-job.jar' | where {$_.startswith("C:\apps\dist")}
 	$noCRLF = $mahoutPath -replace "`r`n", ""
 	$cleanedPath = $noCRLF -replace "\", "/"
 	$jarFile = "file:///$cleanedPath"
@@ -291,7 +292,7 @@ Mahout에서 사용 가능한 분류 방법 중 하나는 [랜덤 포리스트][
 
 	![hadoop cli][hadoopcli]
 
-3. 다음 명령으로 Mahout을 사용하는 파일 설명자(\_\_KDDTrain+.info\_\_)를 생성합니다.
+3. 다음 명령으로 Mahout을 사용하는 파일 설명자(__KDDTrain+.info__)를 생성합니다.
 
 		hadoop jar "c:/apps/dist/mahout-0.9.0.2.1.3.0-1887/examples/target/mahout-examples-0.9.0.2.1.3.0-1887-job.jar" org.apache.mahout.classifier.df.tools.Describe -p "wasb:///example/data/KDDTrain+.arff" -f "wasb:///example/data/KDDTrain+.info" -d N 3 C 2 N C 4 N C 8 N 2 C 19 N L
 
@@ -421,4 +422,4 @@ Windows PowerShell에서 사용하는 경우 다음 클래스를 사용하는 Ma
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

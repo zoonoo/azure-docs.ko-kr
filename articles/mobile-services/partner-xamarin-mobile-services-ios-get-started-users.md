@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="05/14/2015"
+	ms.date="08/18/2015"
 	ms.author="donnam"/>
 
 # 모바일 서비스 앱에 인증 추가
@@ -149,6 +149,5 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
 [완성된 예제 프로젝트]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 [Xamarin.iOS]: http://xamarin.com/download
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

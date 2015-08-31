@@ -205,7 +205,7 @@ Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/librar
 
 ```
 	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2014-10-10
-  ```
+```
 
 지원되는 메서드: GET PUT DELETE
 
@@ -346,4 +346,4 @@ Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/librar
 
 위의 결과 접두사가 있고 추가된 오류 메시지를 포함합니다.
 
-<!------HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

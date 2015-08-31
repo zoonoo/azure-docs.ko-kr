@@ -38,18 +38,26 @@ Application Insights는 미리 보기 상태의 Azure 서비스입니다. 미리
 
 다음과 같이 따로 계산되는 3가지 버킷이 있습니다.
 
-* [TrackTrace 호출](app-insights-api-custom-events-metrics.md#track-trace) 및 [캡처한 로그](app-insights-asp-net-trace-logs.md)
+* [TrackTrace 호출](app-insights-api-custom-events-metrics.md#track-trace) 및 [캡처된 로그](app-insights-asp-net-trace-logs.md)
 * [예외](app-insights-api-custom-events-metrics.md#track-exception)(하한 50/s)
-* 다른 모든 원격 분석(페이지 보기, 요청, 종속성, 메트릭, 사용자 지정 이벤트)
+* 다른 모든 원격 분석(페이지 보기, 요청, 종속성, 메트릭, 사용자 지정 이벤트, 및 웹 테스트 결과)
 
 **월별**: [계획 가격](http://azure.microsoft.com/pricing/details/application-insights/)에 따라 각 달력 월에서 5와 1500만 사이의 데이터 요소. 무료 [가격 책정 계층][pricing]을 제외하고, 제한에 도달한 경우 추가 용량을 구입할 수 있습니다.
 
 
-*데이터 요소*는 다음과 같은 원격 분석 항목입니다.
+*데이터 요소*는 앱에 대한 Azure 포털에 전송된 원격 분석의 항목입니다. 다음에서 전송할 수 있습니다.
 
-* API `Track...` 호출(예: `TrackEvent` 또는 `trackPageView`).
-* 예를 들어 요청 또는 충돌을 보고하기 위해 SDK 모듈에서 보내는 원격 분석 항목입니다.
-* 성능 카운터 데이터 - 각 측정마다 요소 1개
+* 예를 들어 요청 또는 충돌을 보고하거나 성능을 측정하는 데이터를 자동으로 수집하는 [SDK 모듈](app-insights-configuration-with-applicationinsights-config.md)입니다.
+* [API](app-insights-api-custom-events-metrics.md) `Track...`는 `TrackEvent` 또는 `trackPageView`와 같은 기록을 호출합니다.
+* 설정한 [가용성 웹 테스트](app-insights-monitor-web-app-availability.md)입니다.
+
+원격 분석 데이터는 다음을 포함합니다.
+
+* [진단 검색](app-insights-diagnostic-search.md)의 각 행입니다.
+* [메트릭 탐색기](app-insights-metrics-explorer.md)에서 차트가 집계된 원시 데이터입니다. 성능 카운터 데이터와 같은 메트릭 데이터는 일반적으로 메트릭 탐색기에 있는 개별 요소로 표시되지 않습니다.
+* [가용성](app-insights-monitor-web-app-availability.md) 보고서의 각 웹 테스트 결과입니다.
+
+사용자 및 세션 수는 가격 책정 목적으로 할당량에 포함되지 않습니다.
 
 *내 앱이 보내는 데이터 요소 수를 어떻게 알 수 있나요?*
 
@@ -202,7 +210,7 @@ PageViews | URL 및 페이지 이름이나 화면 이름
 충돌 | 프로세스 ID, 부모 프로세스 ID, 충돌 스레드 ID; 응용 프로그램 패치, ID, 빌드; 예외 유형, 주소, 이유; 난독 처리된 기호 및 레지스터, 이진 시작 및 끝 주소, 이진 이름 및 경로, CPU 종류
 추적 | **메시지** 및 심각도 수준
 성능 카운터 | 프로세서 시간, 사용 가능한 메모리, 요청 속도, 예외 속도, 프로세스 전용 바이트, IO 속도, 요청 기간, 요청 큐 길이
-Availability | 웹 테스트 응답 코드, 각 테스트 단계의 기간
+Availability | 웹 테스트 응답 코드, 각 테스트 단계, 테스트 이름, 타임 스탬프, 성공, 응답 시간, 테스트 위치의 기간
 SDK 진단 | 추적 메시지 또는 예외 
 
 [ApplicationInsights.config를 편집하여 일부 데이터를 해제][config]할 수 있습니다.
@@ -242,4 +250,4 @@ SDK 진단 | 추적 메시지 또는 예외
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

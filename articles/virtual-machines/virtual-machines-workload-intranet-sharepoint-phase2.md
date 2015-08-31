@@ -113,7 +113,7 @@ Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤
 5.	manage.windowsazure.com에서 ComputerName.rdp를 열거나 저장할지를 묻는 브라우저 대화 상자가 나타납니다. **열기**를 클릭합니다.
 6.	**원격 데스크톱 연결** 대화 상자에서 **연결**을 클릭합니다.
 7.	**Windows 보안** 대화 상자에서 **다른 계정 사용**을 클릭합니다.
-8.	**사용자 이름**에 VM의 이름 및 VM과 함께 만든 로컬 관리자 계정(로컬 컴퓨터 계정)의 사용자 이름을 입력합니다. *ComputerName*\*LocalAdministratorAccountName* 형식을 사용합니다.
+8.	**사용자 이름**에 VM의 이름 및 VM과 함께 만든 로컬 관리자 계정(로컬 컴퓨터 계정)의 사용자 이름을 입력합니다. *ComputerName**LocalAdministratorAccountName* 형식을 사용합니다.
 9.	**암호**에는 로컬 관리자 계정의 암호를 입력합니다.
 10.	**확인**을 클릭합니다.
 11.	**원격 데스크톱 연결** 대화 상자에서 **예**를 클릭합니다. 새 컴퓨터의 바탕 화면이 원격 데스크톱 세션 창에 표시됩니다.
@@ -244,4 +244,6 @@ SharePoint 팜에는 다음 사용자 계정이 필요합니다.
 
 [Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO6-->
+[Azure 인프라 서비스 작업: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
+
+<!---HONumber=August15_HO8-->

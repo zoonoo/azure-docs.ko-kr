@@ -6,7 +6,7 @@ Blob 데이터 집합이 CSV 형식이며 3개의 열을 포함하고 있다고 
 열에 대한 유형 정의가 다음과 같으면 Blob 원본 데이터 집합을 정의합니다.
 
 	{
-	    "name": " AzureBlobTypeSystemInput",
+	    "name": "AzureBlobTypeSystemInput",
 	    "properties":
 	    {
 	         "structure": 
@@ -30,7 +30,7 @@ Blob 데이터 집합이 CSV 형식이며 3개의 열을 포함하고 있다고 
 	        "availability":
 	        {
 	            "frequency": "Hour",
-	            "interval": 1,
+	            "interval": 1
 	        },
 			"policy": {
 	            "externalData": {
@@ -69,4 +69,4 @@ Blob 데이터 집합이 CSV 형식이며 3개의 열을 포함하고 있다고 
 
 이 경우 Blob에서 Azure SQL로 데이터를 이동하면 데이터 팩터리는 fr-fr 문화권을 사용하여 사용자 지정 datetime 서식으로 Datetime 필드를 포함하는 형식 변환을 자동으로 수행합니다
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

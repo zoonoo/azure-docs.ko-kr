@@ -5,6 +5,7 @@
 	manager="paulettm"
 	services="hdinsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"/>
 
 <tags
@@ -474,4 +475,4 @@ HDInsight를 사용하여 MapReduce 작업을 실행하는 데 도움이 될 수
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

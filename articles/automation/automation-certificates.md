@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure 자동화의 인증서 자산"
+   pageTitle="Azure 자동화의 인증서 자산 | Microsoft Azure"
    description="Runbook에서 액세스하여 Azure 및 타사 리소스를 인증할 수 있도록 Azure 자동화에 인증서를 안전하게 저장할 수 있습니다. 이 문서에서는 인증서에 대해 자세히 알아보고 텍스트 작성과 그래픽 작성 모두에서 인증서를 사용하는 방법을 설명합니다."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/14/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Azure 자동화의 인증서 자산
@@ -107,4 +107,4 @@ Runbook에서 인증서를 사용하려면 **Get-AutomationCertificate** 활동�
 
 - [그래픽 작성의 링크](automation-graphical-authoring-intro.md#links-and-workflow) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -3,6 +3,7 @@
 	description="HDInsight용 Visual Studio Hadoop 도구를 설치하고 이를 사용하여 Hadoop 클러스터에 연결한 후 Hive 쿼리를 실행하는 방법에 대해 알아봅니다."
 	services="HDInsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
@@ -13,12 +14,12 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/21/2015"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 # HDInsight용 Visual Studio Hadoop 도구를 사용하여 Hive 쿼리 실행 시작
 
-Visual Studio용 HDInsight 도구를 사용하여 HDInsight 클러스터에 연결하고 Hive 쿼리를 제출하는 방법에 대해 알아봅니다. HDInsight 사용에 대한 자세한 내용은 [HDInsight 소개][hdinsight.introduction] 및 [HDInsight 시작][hdinsight.get.started]을 참조하세요. Storm 클러스터에 연결하는 방법에 대한 자세한 내용은 Visual Studio를 사용하여 [HDInsight에서 Apache Storm용 C# 토폴로지 개발][hdinsight.storm.visual.studio.tools]을 참조하세요.
+Visual Studio용 HDInsight 도구를 사용하여 HDInsight 클러스터에 연결하고 Hive 쿼리를 제출하는 방법에 대해 알아봅니다. HDInsight 사용에 대한 자세한 내용은 [HDInsight 소개][hdinsight.introduction] 및 [HDInsight 시작][hdinsight.get.started]을 참조하세요. Storm 클러스터에 연결하는 방법에 대한 자세한 내용은 Visual Studio를 사용하여 [HDInsight에서 Apache Storm용 C#토폴로지 개발][hdinsight.storm.visual.studio.tools]을 참조하세요.
 
 >[AZURE.NOTE]최신 릴리스에는 Hive 편집기 지원, Hive 스크립트 로컬 유효성 검사 및 YARN 로그 액세스와 같은 몇 가지 새로운 기능이 도입되었습니다.
 
@@ -68,7 +69,7 @@ Visual Studio용 HDInsight 도구를 사용하면 HDInsight 클러스터에 연�
 
 	>[AZURE.NOTE]**HDInsight 작업 목록** 창이 열립니다. 이 창이 표시되지 않는 경우 **보기** 메뉴에서 **다른 창**을 클릭한 후 **HDInsight 작업 목록 창**를 클릭하여 열 수 있습니다.  
 4.	Azure 구독 자격 증명을 입력한 후 **로그인**을 클릭합니다. 이 과정은 이 워크스테이션에서 Visual Studio를 통해 Azure 구독에 연결한 적이 없는 경우에만 필요합니다.
-5.	서버 탐색기에서 기존 HDInsight 클러스터 목록이 표시됩니다. 클러스터가 없는 경우 Azure 포털, Azure PowerShell 또는 HDInsight SDK를 사용하여 클러스터를 프로비전할 수 있습니다. 자세한 내용은 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요.
+5.	서버 탐색기에서 기존 HDInsight 클러스터 목록이 표시됩니다. 클러스터가 없는 경우 Azure Preview 포털, Azure PowerShell 또는 HDInsight SDK를 사용하여 클러스터를 프로비전할 수 있습니다. 자세한 내용은 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요.
 
 	![Hadoop 도구: Visual Studio용 HDInsight 도구 서버 탐색기 클러스터 목록][5]
 6.	HDInsight 클러스터를 확장합니다. **Hive 데이터베이스**, 기본 저장소 계정, 연결된 저장소 계정 및 **Hadoop 서비스 로그**를 볼 수 있습니다. 엔터티를 더 확장할 수 있습니다.
@@ -134,7 +135,7 @@ GUI를 사용하여 Hive 테이블을 만들거나 Hive 쿼리를 사용할 수 
 
 1. **서비스 탐색기**에서 **Azure**를 확장한 후 **HDInsight 클러스터**를 확장합니다.
 2. 쿼리를 실행할 클러스터를 마우스 오른쪽 단추로 클릭하고 **Hive 쿼리 작성**을 클릭합니다.
-3. Hive 쿼리를 입력합니다. Hive 편집기는 IntelliSense를 지원합니다. Visual Studio용 HDInsight 도구는 Hive 스크립트를 편집할 때 원격 메타데이터 로드를 지원합니다. 예를 들어 "SELECT * FROM"을 입력하면 IntelliSense가 제안된 테이블 이름을 모두 나열합니다. 테이블 이름을 지정하면 IntelliSense가 열 이름을 나열합니다. 이 도구는 거의 모든 Hive DML 문, 하위 쿼리 및 기본 제공 UDF를 지원합니다. 
+3. Hive 쿼리를 입력합니다. Hive 편집기는 IntelliSense를 지원합니다. Visual Studio용 HDInsight 도구는 Hive 스크립트를 편집할 때 원격 메타데이터 로드를 지원합니다. 예를 들어 "SELECT * FROM"을 입력하면 IntelliSense가 제안된 테이블 이름을 모두 나열합니다. 테이블 이름을 지정하면 IntelliSense가 열 이름을 나열합니다. 이 도구는 거의 모든 Hive DML 문, 하위 쿼리 및 기본 제공 UDF를 지원합니다.
 
 	![Hadoop 도구: HDInsight Visual Studio Tools Intellisense][13]
 
@@ -235,4 +236,4 @@ Visual Studio용 HDInsight 도구는 Pig 스크립트를 만들어 HDInsight 클
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Azure Active Directory Premium 시작하기" 
-	description="Azure Active Directory Premium 버전을 등록하는 방법을 설명하는 항목입니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="Azure Active Directory Premium 시작하기"
+	description="Azure Active Directory Premium 버전을 등록하는 방법을 설명하는 항목입니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="MarkusVi"
+	manager="stevenpo" 
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/14/2015"
+	ms.author="markvi"/>
 
 # Azure Active Directory Premium 시작하기
 
@@ -121,7 +121,4 @@ Microsoft 클라우드 서비스의 서비스 및 기능에 대한 가용성은 
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
 
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

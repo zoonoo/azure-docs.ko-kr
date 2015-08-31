@@ -5,7 +5,8 @@
  documentationCenter=""
  authors="Blackmist"
  manager="paulettm"
- editor="cgronlun"/>
+ editor="cgronlun"
+ tags="azure-portal"/>
 
 <tags
  ms.service="hdinsight"
@@ -85,4 +86,4 @@ WebHCat(이전의 Templeton)을 사용하여 HDInsight를 사용하는 경우 �
 [max-age-ms]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.6.0/ds_Hadoop/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

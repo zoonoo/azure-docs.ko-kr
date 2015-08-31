@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="07/09/2015"
 	ms.author="garye"/>
 
@@ -22,9 +22,9 @@
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-컴퓨터 학습 Studio 실험은 *모델을 만들고*, *모델을 학습하고*, *모델의 점수를 매기고 테스트하기* 위해 캔버스에 구성 요소 끌어서 놓기 및 연결하기로 구성됩니다.. 실험은 데이터를 수집하고 모델의 성향을 습득하고 새 데이터에 모델을 적용하는 기계 학습 스튜디오 모듈의 형태로 예측 모델링 기술을 사용합니다. 데이터 전처리 모듈을 추가하고, 기능을 선택하고, 학습 및 테스트 집합으로 데이터를 분리하고, 모델 품질을 평가하거나 교차 검사할 수도 있습니다.
+기계 학습 스튜디오 실험은 *모델을 만들고*, *모델을 학습하고*, *모델의 점수를 매기고 테스트*하기 위해 캔버스에 구성 요소를 끌어서 놓기와 연결하기로 구성됩니다. 실험은 데이터를 수집하고 모델의 성향을 습득하고 새 데이터에 모델을 적용하는 기계 학습 스튜디오 모듈의 형태로 예측 모델링 기술을 사용합니다. 데이터 전처리 모듈을 추가하고, 기능을 선택하고, 학습 및 테스트 집합으로 데이터를 분리하고, 모델 품질을 평가하거나 교차 검사할 수도 있습니다.
 
-컴퓨터 학습 Studio: [https://studio.azureml.net](https://studio.azureml.net)으로 들어가서 “시작하기" 단추를 클릭합니다. 게스트 액세스를 선택하거나 Microsoft 계정을 사용하여 로그인할 수 있습니다.
+기계 학습 스튜디오 [https://studio.azureml.net](https://studio.azureml.net)으로 들어가서 **Get started** 단추를 클릭합니다. 게스트 액세스를 선택하거나 Microsoft 계정을 사용하여 로그인할 수 있습니다.
 
 기계 학습 스튜디오에 대한 일반적인 정보는 [기계 학습 스튜디오란 무엇인가요?](machine-learning-what-is-ml-studio.md)를 참조하세요.
 
@@ -51,11 +51,11 @@
 
 ## 1단계: 데이터 가져오기
 
-여러 샘플 데이터 집합이 기계 학습 스튜디오에 포함되어 있으며, 다양한 원본에서 데이터를 가져올 수 있습니다. 이 예제에서는 포함된 샘플 데이터 집합 **Automobile price data (Raw)**를 사용합니다. 이 데이터 집합에는 제조업체, 모델, 기술 사양 및 가격과 같은 정보를 포함하여 여러 개별 자동차에 대한 항목이 포함되어 있습니다.
+선택할 수 있는 여러 샘플 데이터 집합이 기계 학습 스튜디오에 포함되어 있으며, 다양한 원본에서 데이터를 가져올 수 있습니다. 이 예제에서는 포함된 샘플 데이터 집합 **Automobile price data (Raw)**를 사용합니다. 이 데이터 집합에는 제조업체, 모델, 기술 사양 및 가격과 같은 정보를 포함하여 여러 개별 자동차에 대한 항목이 포함되어 있습니다.
 
-1. 먼저 기계 학습 창의 아래쪽에서 **+NEW**를 클릭하여 새 실험을 시작한 다음 **EXPERIMENT**, "Blank Experiment"를 차례로 선택합니다. 캔버스 위쪽에서 기본 실험 이름을 선택하고 이를 의미 있는 이름(예: **Automobile price prediction**)으로 바꿉니다.
+1. 기계 학습 스튜디오 창의 아래쪽에서 **+NEW**를 클릭하여 새 실험을 시작한 다음 **EXPERIMENT**, **Blank Experiment**를 차례로 선택합니다. 캔버스 위쪽에서 기본 실험 이름을 선택하고 이를 의미 있는 이름(예: **Automobile price prediction**)으로 바꿉니다.
 
-2. 실험 캔버스 왼쪽에는 데이터 집합과 모듈의 팔레트가 있습니다. 이 팔레트 맨 위에 있는 검색 상자에 **automobile을** 입력하여 레이블이 **Automobile price data (Raw)**인 데이터 집합을 찾습니다.
+2. 실험 캔버스 왼쪽에는 데이터 집합과 모듈의 팔레트가 있습니다. 이 팔레트 맨 위에 있는 검색 상자에 **automobile**을 입력하여 레이블이 **Automobile price data (Raw)**인 데이터 집합을 찾습니다.
 
 	![팔레트 검색][screen1a]
 
@@ -63,7 +63,7 @@
 
 	![데이터 집합][screen1]
 
-이 데이터의 모양을 확인하려면 자동차 데이터 집합 아래에서 출력 포트를 두 번 클릭하고 **Visualize**를 선택합니다. 데이터 집합에서 변수는 열로 나타나고, 각 자동차 인스턴스는 행으로 나타납니다. 맨 오른쪽 열인 "price"(26열)가 예측할 대상 변수입니다.
+이 데이터의 모양을 확인하려면 자동차 데이터 집합 아래에서 출력 포트를 두 번 클릭한 다음 **Visualize**를 선택합니다. 데이터 집합에서 변수는 열로 나타나고, 각 자동차 인스턴스는 행으로 나타납니다. 맨 오른쪽 열인 "price"(26열)가 예측할 대상 변수입니다.
 
 ![데이터 집합 시각화][screen1b]
 
@@ -71,7 +71,7 @@
 
 ## 2단계: 데이터 전처리
 
-데이터 집합은 일반적으로 전처리를 거쳐야 분석할 수 있습니다. 여러 행의 열에 누락된 값이 있는 것을 볼 수 있습니다. 모델에서 데이터를 제대로 분석할 수 있도록 이러한 누락된 값을 정리해야 합니다. 지금은 누락된 값이 있는 행을 모두 제거하겠습니다. 또한 **normalized-losses** 열에 값이 누락된 비율이 크므로 여기서는 해당 열을 모델에서 완전히 제외하겠습니다.
+데이터 집합은 일반적으로 전처리를 거쳐야 분석할 수 있습니다. 여러 행의 열에 누락된 값이 있는 것을 볼 수 있습니다. 모델에서 데이터를 올바르게 분석할 수 있도록 이러한 누락된 값을 정리해야 합니다. 지금은 누락된 값이 있는 행을 모두 제거하겠습니다. 또한 **normalized-losses** 열에 값이 누락된 비율이 크므로 여기서는 해당 열을 모델에서 완전히 제외하겠습니다.
 
 > [AZURE.TIP]입력 데이터에서 누락 값을 정리하는 것은 대부분의 모듈을 사용하기 위한 필수 조건입니다.
 
@@ -79,10 +79,10 @@
 
 1. 모듈 팔레트의 맨 위에 있는 검색 상자에 **project columns**를 입력하여 [Project Columns][project-columns] 모듈을 찾은 다음 이를 실험 캔버스로 끌어와 **Automobile price data (Raw)** 데이터 집합의 출력 포트에 연결합니다. 이 모듈을 사용하면 모델에서 포함하거나 제외할 데이터 열을 선택할 수 있습니다.
 
-2. [프로젝트 열][project-columns] 모듈을 선택하고 속성 창에서 **열 선택기 시작**을 클릭합니다.
+2. [Project Columns][project-columns] 모듈을 선택하고 **Properties** 창에서 **Launch column selector**을 클릭합니다.
 
 	- 필터 드롭다운 **Begin With** 목록에서 **All columns**를 선택합니다. 그러면 모든 열을 전달하는 [Project Columns][project-columns]로 리디렉션됩니다(제외할 열은 예외임).
-	- 다음 행에서 **제외** 및 **열 이름**을 선택한 후 텍스트 상자 내부를 클릭합니다. 열 목록이 표시됩니다. **normalized-losses**를 선택하여 텍스트 상자에 추가합니다.
+	- 다음 행에서 **제외** 및 **열 이름**을 선택한 후 텍스트 상자 내부를 클릭합니다. 열 목록이 표시됩니다. **normalized-losses**를 선택하면 텍스트 상자에 추가됩니다.
 	- 확인 표시(확인) 단추를 클릭하여 열 선택기를 닫습니다.
 
     ![열 선택][screen3]
@@ -147,9 +147,9 @@
 
 	이 예제 학습에서는 **Regression** 범주 아래에 있는 [Linear Regression][linear-regression] 모듈을 선택하여(팔레트 검색 상자에 "linear regression"을 입력하여 모듈을 찾을 수도 있음) 실험 캔버스로 끌어 놓습니다.
 
-4. [모델 학습][train-model] 모듈을 찾아 실험으로 끌어 놓습니다. 왼쪽 입력 포트를 [Linear Regression][linear-regression] 모듈의 출력에 연결합니다. 오른쪽 입력 포트를 [Split][split] 모듈의 학습 데이터 출력(왼쪽 포트)에 연결합니다.
+4. [Train Model][train-model] 모듈을 찾아 실험 캔버스로 끌어 놓습니다. 왼쪽 입력 포트를 [Linear Regression][linear-regression] 모듈의 출력에 연결합니다. 오른쪽 입력 포트를 [Split][split] 모듈의 학습 데이터 출력(왼쪽 포트)에 연결합니다.
 
-5. [Train Model][train-model] 모듈을 선택하고 **Properties** 창에서 **Launch column selector**를 클릭한 후 **price** 열을 선택합니다. 모델이 예측할 값입니다.
+5. [Train Model][train-model] 모듈을 선택하고 **Properties** 창에서 **Launch column selector**를 클릭한 다음 **price** 열을 선택합니다. 모델이 예측할 값입니다.
 
 	!["price" 열 선택][screen7]
 
@@ -167,13 +167,13 @@
 
 	![모델 점수 매기기 모듈][screen8a]
 
-2. 실험을 실행하고 [Score Model][score-model] 모듈의 출력을 보려면 출력 포트를 클릭하고 **Visualize**를 선택합니다. 출력에 테스트 데이터에서 가져온 알려진 값과 함께 가격 예측 값이 표시됩니다.
+2. 실험을 실행하고 [Score Model][score-model] 모듈의 출력을 보려면 출력 포트를 클릭한 다음 **Visualize**를 선택합니다. 출력에 테스트 데이터에서 가져온 알려진 값과 함께 가격 예측 값이 표시됩니다.
 
 3. 마지막으로 결과의 품질을 테스트하기 위해 [Evaluate Model][evaluate-model] 모듈을 선택하고 실험 캔버스로 끌어온 후 왼쪽 입력 포트를 [Score Model][score-model] 모듈의 출력에 연결합니다. [Evaluate Model][evaluate-model] 모듈은 두 개의 모델을 비교하는 데 사용될 수 있으므로 두 개의 입력 포트가 있습니다.
 
 4. 실험을 실행합니다.
 
-[Evaluate Model][evaluate-model] 모듈의 출력을 보려면 출력 포트를 클릭하고 **Visualize**를 선택합니다. 모델에 대한 다음 통계가 표시됩니다.
+[Evaluate Model][evaluate-model] 모듈의 출력을 보려면 출력 포트를 클릭한 다음 **Visualize**를 선택합니다. 모델에 대한 다음 통계가 표시됩니다.
 
 - MAE(**Mean Absolute Error**): 절대 평균 오차입니다(*error*는 예측 값과 실제 값 사이의 차이).
 - RMSE(**Root Mean Squared Error**): 테스트 데이터 집합에 대해 예측한 평균 제곱 오차의 제곱근입니다.
@@ -189,7 +189,7 @@
 
 ![기계 학습 자습서: 예측 모델링 기술을 사용하는 선형 회귀 실험을 완료합니다.][screen10]
 
-## 다음 작업
+## 다음 단계
 
 이제 첫번째 기계 학습 자습서를 완료하고 실험을 설정했으므로 반복하여 모델을 향상시킬 수 있습니다. 예를 들어 예측에 사용하는 특성을 변경할 수 있습니다. 또는 [선형 회귀][linear-regression] 알고리즘의 속성을 수정하거나 다른 알고리즘을 시도해 볼 수 있습니다. 한 번에 여러 기계 학습 알고리즘을 실험에 추가하고 [Evaluate Model][evaluate-model] 모듈을 사용하여 둘을 비교할 수도 있습니다.
 
@@ -230,6 +230,5 @@
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

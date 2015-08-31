@@ -1,8 +1,7 @@
 
-
 #### StorSimple용 Windows PowerShell을 통해 정기적인 핫픽스를 설치하려면
 
-1. 장치 직렬 콘솔에 연결합니다. 자세한 내용은 [직렬 콘솔에 연결](#connect-to-the-serial-console)을 참조하세요.
+1. 장치 직렬 콘솔에 연결합니다. 자세한 내용은 [1단계: 직렬 콘솔에 연결](storsimple-update-device.md#step1)을 참조하세요.
 
 2. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다. 암호를 입력합니다. 기본 암호는 **Password1**입니다.
 
@@ -16,4 +15,4 @@
 
 5. 확인하라는 메시지가 표시됩니다. **Y**를 입력하여 핫픽스 설치를 진행합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

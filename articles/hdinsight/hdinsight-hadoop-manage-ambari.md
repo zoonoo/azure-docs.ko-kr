@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -250,4 +251,4 @@ Ambari 웹은 관리 및 모니터링 도구를 만드는데 활용할 수 있�
 
 REST API의 모든 참조 문서를 보려면 [Ambari API 참조 V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)을 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

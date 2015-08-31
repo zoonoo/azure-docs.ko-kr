@@ -1,4 +1,5 @@
 1. [Azure CLI에서 Azure에 연결](../articles/xplat-cli-connect.md)에 나열된 단계를 사용하여 Azure 구독에 로그인 합니다.
+
 2. 다음을 사용하여 서비스 관리 모드에 있는지 확인합니다.
 
         azure config mode asm
@@ -37,6 +38,6 @@
 
 7. 새로 만든 가상 컴퓨터는 `azure vm start` 명령을 사용하여 시작하도록 준비되었습니다.
 
-모든 CLI Azure 가상 컴퓨터 명령에 대한 자세한 설명은 [Azure 서비스 관리를 포함한 Azure CLI 사용](../articles/virtual-machines/virtual-machines-command-line-tools.md)을 참조하세요.
+모든 Azure CLI 가상 컴퓨터 명령에 대한 자세한 설명은 [서비스 관리 API를 포함한 Azure CLI 사용](../articles/virtual-machines/virtual-machines-command-line-tools.md)을 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

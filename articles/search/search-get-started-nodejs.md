@@ -1,22 +1,22 @@
 <properties
-	pageTitle="NodeJS에서 Azure 검색 시작"
+	pageTitle="NodeJS에서 Azure 검색 시작 | Microsoft Azure"
 	description="NodeJS를 프로그래밍 언어로 사용하여 사용자 지정 Azure 검색 응용 프로그램을 빌드하는 과정을 안내합니다."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
 	manager="mblythe"
-	editor=""/>
+	editor="v-lincan"/>
 
 <tags
 	ms.service="search"
 	ms.devlang="na"
 	ms.workload="search"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="08/18/2015"
 	ms.author="heidist"/>
 
-#NodeJS에서 Azure 검색 시작#
+# NodeJS에서 Azure 검색 시작
 
 검색 환경에 Azure 검색을 사용하는 사용자 지정 NodeJS 검색 응용 프로그램을 빌드하는 방법에 대해 알아봅니다. 이 자습서에서는 [Azure 검색 서비스 REST API](https://msdn.microsoft.com/library/dn798935.aspx)를 사용하여 이 연습에서 사용되는 개체 및 작업을 생성합니다.
 
@@ -26,7 +26,7 @@
 
 > [AZURE.TIP][AzureSearchNodeJSIndexerDemo](http://go.microsoft.com/fwlink/p/?LinkId=530198)에서 이 자습서의 원본 코드를 다운로드하세요.
 
-##데이터 정보##
+## 데이터 정보
 
 이 샘플 응용 프로그램에서는 데이터 집합 크기를 줄이기 위해 Rhode Island 주에 대해 필터링된 [USGS(United States Geological Services)](http://geonames.usgs.gov/domestic/download_data.htm)의 데이터를 사용합니다. 이 데이터를 사용하여 병원 및 학교와 같은 랜드마크 빌딩뿐만 아니라 강, 호수, 산 등의 지질학적 특징을 반환하는 검색 응용 프로그램을 빌드합니다.
 
@@ -34,11 +34,11 @@
 
 > [AZURE.NOTE]무료 가격 책정 계층의 문서 제한(10,000개) 미만으로 유지하기 위해 이 데이터 집합에 필터를 적용했습니다. 표준 계층을 사용하는 경우에는 이 제한이 적용되지 않습니다. 각 가격 책정 계층의 용량에 대한 자세한 내용은 [제한 및 제약 조건](https://msdn.microsoft.com/library/azure/dn798934.aspx)을 참조하세요.
 
-##서비스 만들기##
+## 서비스 만들기
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
-2. 표시줄에서 **새로 만들기** | **데이터 + 저장소** | **검색**을 클릭합니다.
+2. 표시줄에서 **새로 만들기** > **데이터 + 저장소** > **검색**을 클릭합니다.
 
      ![][1]
 
@@ -64,9 +64,9 @@
 표시줄의 알림을 확인합니다. 서비스를 사용할 준비가 되면 알림이 표시됩니다.
 
 <a id="sub-2"></a>
-##Azure 검색 서비스의 서비스 이름 및 api-key 찾기
+## Azure 검색 서비스의 서비스 이름 및 api-key 찾기
 
-서비스를 만든 후 포털로 돌아가 URL 또는 `api-key`를 가져올 수 있습니다. 검색 서비스에 연결하려면 URL과 호출을 인증할 `api-key`가 둘 다 있어야 합니다.
+서비스를 만든 후 포털로 돌아가 URL 또는 `api-key`를 가져옵니다. 검색 서비스에 연결하려면 URL과 호출을 인증할 `api-key`가 둘 다 있어야 합니다.
 
 1. 표시줄에서 **홈**을 클릭한 다음 검색 서비스를 클릭하여 서비스 대시보드를 엽니다.
 
@@ -76,7 +76,7 @@
 
 3. 서비스 URL, 관리 키 및 쿼리 키를 복사합니다. 세 항목 모두 나중에 config.js 파일에 추가할 때 필요합니다.
 
-##샘플 파일 다운로드
+## 샘플 파일 다운로드
 
 다음 방법 중 하나를 사용하여 샘플을 다운로드합니다.
 
@@ -87,7 +87,7 @@
 
 또는 경로 문에 GIT가 있는 경우 PowerShell 창을 열고 `git clone https://github.com/EvanBoyle/AzureSearchNodeJSIndexerDemo.git`를 입력합니다.
 
-##검색 서비스 URL 및 api-key로 config.js를 업데이트합니다.
+## 검색 서비스 URL 및 api-key로 config.js를 업데이트합니다.
 
 앞에서 복사한 URL 및 api-key를 사용하여 구성 파일에서 URL, admin-key 및 query-key를 지정합니다.
 
@@ -100,7 +100,7 @@
 ![][5]
 
 
-##샘플에 대한 런타임 환경 호스트
+## 샘플에 대한 런타임 환경 호스트
 
 이 샘플에는 npm을 사용하여 전역적으로 설치할 수 있는 HTTP 서버가 필요합니다.
 
@@ -110,14 +110,14 @@ PowerShell 창에서 다음 명령을 실행합니다.
 2. `npm install`을 입력합니다.
 2. `npm install -g http-server`를 입력합니다.
 
-##인덱스 빌드 및 응용 프로그램 실행
+## 인덱스 빌드 및 응용 프로그램 실행
 
 1. `npm run indexDocuments`를 입력합니다.
 2. `npm run build`를 입력합니다.
 3. `npm run start_server`를 입력합니다.
 4. 브라우저에서 `http://localhost:8080/index.html`로 이동합니다.
 
-##USGS 데이터 검색##
+## USGS 데이터 검색
 
 USGS 데이터 집합에는 Rhode Island 주와 관련된 레코드가 포함되어 있습니다. 빈 검색 상자에서 **검색**을 클릭하면 기본적으로 상위 50개 항목을 가져옵니다.
 
@@ -132,9 +132,9 @@ USGS 데이터 집합에는 Rhode Island 주와 관련된 레코드가 포함되
 - goose +cape
 
 
-##다음 단계##
+## 다음 단계
 
-이것은 NodeJS 및 USGS 데이터 집합을 기반으로 하는 첫 번째 Azure 검색 자습서입니다. 앞으로 이 자습서를 확장하여 사용자 지정 솔루션에서 사용할 수 있는 추가 검색 기능을 보여 드릴 예정입니다.
+이것은 NodeJS 및 USGS 데이터 집합을 기반으로 하는 첫 번째 Azure 검색 자습서입니다. 앞으로 이 자습서를 확장하여 사용자 지정 솔루션에서 사용할 수 있는 추가 검색 기능을 보여 드립니다.
 
 Azure 검색에 대한 약간의 배경 지식이 이미 있는 경우 이 샘플을 기반으로 suggesters(사전 입력 또는 자동 완성 쿼리), 필터 및 패싯 탐색을 시작할 수 있습니다. 또한 사용자가 결과 페이지를 차례로 탐색할 수 있도록 개수를 추가하고 문서를 일괄 처리하여 검색 결과 페이지를 개선할 수 있습니다.
 
@@ -146,6 +146,5 @@ Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 �
 [3]: ./media/search-get-started-nodejs/create-search-portal-3.PNG
 [5]: ./media/search-get-started-nodejs/AzSearch-NodeJS-configjs.png
 [9]: ./media/search-get-started-nodejs/rogerwilliamsschool.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

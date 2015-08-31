@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="06/16/2015"
+   ms.date="08/18/2015"
    ms.author="adegeo"/>
 
 
@@ -78,4 +78,7 @@ foreach($subscription in Get-AzureSubscription) {
 ## 게스트 OS 제품군 1에 대한 연장된 지원이 2014년 11월 3일에 종료되었습니다.
 게스트 OS 제품군 1에서 클라우드 서비스는 더 이상 지원 되지 않습니다. 서비스 중단을 방지하려면 가능한 빨리 제품군 1을 마이그레이션 해제하십시오.
 
-<!---HONumber=August15_HO7-->
+## 다음 단계
+최신 [게스트 OS 릴리스](cloud-services-guestos-update-matrix.md)를 검토합니다.
+
+<!---HONumber=August15_HO8-->

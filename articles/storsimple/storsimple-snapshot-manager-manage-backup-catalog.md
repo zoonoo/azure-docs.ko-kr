@@ -1,6 +1,6 @@
 <properties 
    pageTitle="StorSimple 스냅숏 관리자를 사용하여 백업 카탈로그 관리 | Microsoft Azure"
-   description="StorSimple 스냅숏 관리자 MMC 스냅인을 사용하여 예약된 백업을 제어하는 백업 정책을 만들고 관리하는 방법을 설명합니다."
+   description="StorSimple 스냅숏 관리자 MMC 스냅인을 사용하여 백업 카탈로그를 보고 관리하는 방법을 설명합니다."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자를 사용하여 백업 카탈로그 관리
@@ -205,6 +205,6 @@ StorSimple 스냅숏 관리자는 예비 백업이 생성되는 동안 다음 �
 
 ## 다음 단계
 
-사용 가능한 [StorSimple 스냅숏 관리자 작업 및 워크플로](storsimple-what-is-snapshot-manager.md#storsimple-snapshot-manager-tasks-and-workflows)를 참조하세요.
+[StorSimple 스냅숏 관리자 작업 및 워크플로](storsimple-snapshot-manager-admin.md#storsimple-snapshot-manager-tasks-and-workflows)에 대한 자세한 내용
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

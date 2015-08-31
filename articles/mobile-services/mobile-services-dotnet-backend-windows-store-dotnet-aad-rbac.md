@@ -393,4 +393,4 @@ RBAC(역할 기반 액세스 제어)는 사용자가 저장할 수 있는 역할
 [Azure Active Directory 그래프 정보 액세스]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [.NET용 ADAL]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

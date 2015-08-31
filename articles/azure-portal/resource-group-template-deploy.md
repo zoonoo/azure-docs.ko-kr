@@ -122,6 +122,13 @@ Azure 리소스 관리자와 포털 사용에 대한 자세한 내용은 [Azure 
 7. 배포 오류에 대한 자세한 정보를 가져오려면 다음을 실행합니다.
 
         PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleResourceGroup -Status Failed -DetailedOutput
+        
+### 비디오
+
+다음은 PowerShell에서 리소스 관리자 템플릿으로 작업을 보여주는 비디오입니다.
+
+[AZURE.VIDEO deploy-an-application-with-azure-resource-manager-template]
+
 
 ## Mac, Linux 및 Windows용 Azure CLI로 배포
 
@@ -257,4 +264,4 @@ Azure 리소스 관리자와 포털 사용에 대한 자세한 내용은 [Azure 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

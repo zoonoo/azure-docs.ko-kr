@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="05/06/2015"
+   ms.date="08/17/2015"
    ms.author="ryanwi"/>
 
 # REST 기반 응용 프로그램 수명 주기 샘플
@@ -49,7 +49,7 @@
 
 응용 프로그램 패키지를 만들고 ImageStore에 복사하려면 다음 단계를 따릅니다.
 
-1. C:\\Samples\\Services\\VS2015\\WordCountUpgrade\\WordCount\\pkg\\Debug를 C:\\Temp\\WordCount에 복사합니다. 그러면 WordCount 응용 프로그램이 생성됩니다. 
+1. C:\\Samples\\Services\\VS2015\\WordCountUpgrade\\WordCount\\pkg\\Debug를 C:\\Temp\\WordCount에 복사합니다. 그러면 WordCount 응용 프로그램이 생성됩니다.
 2. C:\\Temp\\WordCount를 C:\\Temp\\WordCountUpgrade에 복사합니다. 그러면 WordCountUpgrade 응용 프로그램 패키지가 생성됩니다.
 3. 텍스트 편집기에서 C:\\Temp\\WordCountUpgrade\\ApplicationManifest.xml을 엽니다.
 4. ApplicationManifest 요소에서 ApplicationTypeVersion 특성을 "1.1.0.0"으로 변경합니다. 그러면 응용 프로그램의 버전 번호가 업데이트됩니다.
@@ -710,6 +710,4 @@ namespace ServiceFabricRestCaller
 
 [서비스 패브릭 응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

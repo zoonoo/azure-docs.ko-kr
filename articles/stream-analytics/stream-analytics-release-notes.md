@@ -13,10 +13,20 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="08/10/2015" 
+	ms.date="08/20/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft 스트림 분석 릴리스 정보
+
+## 스트림 분석의 2015/08/20 릴리스에 대한 정보 ##
+
+이 릴리스에는 다음 업데이트가 포함되어 있습니다.
+
+제목|설명
+---|---
+추가된 LAST 함수 |이제 [LAST](http://msdn.microsoft.com/library/mt421186.aspx) 함수를 스트림 분석에서 사용할 수 있으며 특정 기간 내의 이벤트 스트림에서 최신 이벤트를 검색할 수 있습니다.
+새 배열 함수|이제 배열 함수 [GetArrayElement](http://msdn.microsoft.com/library/mt270218.aspx), [GetArrayElements](http://msdn.microsoft.com/library/mt298451.aspx) 및 [GetArrayLength](http://msdn.microsoft.com/library/mt270226.aspx)를 사용할 수 있습니다.
+새 레코드 함수|이제 레코드 함수 [GetRecordProperties](http://msdn.microsoft.com/library/mt270221.aspx) 및 [GetRecordPropertyValue](http://msdn.microsoft.com/library/mt270220.aspx)를 사용할 수 있습니다.
 
 ## 스트림 분석의 2015/07/30 릴리스에 대한 정보 ##
 
@@ -63,7 +73,7 @@ SQL 데이터베이스 이벤트 볼륨 제한|SQL 데이터베이스를 출력 
 PowerBI 데이터 집합은 하나의 테이블만 포함할 수 있습니다.|PowerBI는 지정된 데이터 집합에서 둘 이상의 테이블을 지원하지 않습니다.
 
 ## 도움말 보기
-추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-kr/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## 다음 단계
 
@@ -74,4 +84,4 @@ PowerBI 데이터 집합은 하나의 테이블만 포함할 수 있습니다.|P
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -126,4 +126,4 @@
 [모바일 서비스 .NET 백 엔드 문제 해결]: mobile-services-dotnet-backend-how-to-troubleshoot.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

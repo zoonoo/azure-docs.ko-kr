@@ -3,7 +3,7 @@
 	description="Azure 모바일 서비스를 사용하여 Android JavaScript 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." 
 	services="mobile-services, notification-hubs" 
 	documentationCenter="android" 
-	authors="RickSaling" 
+	authors="RickSaling"  
 	manager="dwrede" 
 	editor=""/>
 
@@ -18,7 +18,7 @@
 
 # 모바일 서비스 앱에 푸시 알림 추가
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push-EC.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push-ec.md)]
 
 이 항목에서는 GCM(Google Cloud Messaging)을 사용하는 Android 앱에 Azure 모바일 서비스를 사용하여 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 빠른 시작 프로젝트에 대한 Azure 알림 허브를 사용하여 푸시 알림을 사용하도록 설정합니다. 이 작업을 완료하면 레코드가 삽입될 때마다 모바일 서비스에서 푸시 알림을 전송합니다.
 
@@ -35,11 +35,11 @@
 
 ##필수 조건
 
-[AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites-EC.md)]
+[AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites-ec.md)]
 
 ##<a id="register"></a>Google Cloud Messaging 사용
 
-[AZURE.INCLUDE [GCM 사용](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [GCM 사용](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a id="configure"></a>푸시 요청을 전송하도록 모바일 서비스 구성
 
@@ -49,7 +49,7 @@
 
 ###Android SDK 버전 확인
 
-[AZURE.INCLUDE [SDK 확인](../../includes/mobile-services-verify-android-sdk-version-EC.md)]
+[AZURE.INCLUDE [SDK 확인](../../includes/mobile-services-verify-android-sdk-version-ec.md)]
 
 다음 단계에서는 Google Play Services를 설치합니다. Google Cloud Messaging에는 매니페스트의 **minSdkVersion** 속성이 준수해야 하는 개발 및 테스트에 대한 최소 API 수준 요구 사항이 있습니다.
 
@@ -57,11 +57,11 @@
 
 ###프로젝트에 Google Play Services 추가
 
-[AZURE.INCLUDE [Play 서비스 추가](../../includes/mobile-services-add-Google-play-services-EC.md)]
+[AZURE.INCLUDE [Play 서비스 추가](../../includes/mobile-services-add-google-play-services-ec.md)]
 
 ###코드 추가
 
-[AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push-EC.md)]
+[AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push-ec.md)]
 
 
 ##<a id="update-scripts"></a>관리 포털에서 등록된 삽입 스크립트 업데이트
@@ -212,4 +212,4 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

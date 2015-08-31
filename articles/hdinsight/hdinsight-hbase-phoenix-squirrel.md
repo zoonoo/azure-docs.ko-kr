@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data" 
-   ms.date="05/05/2015"
+   ms.date="07/29/2015"
    ms.author="jgao"/>
 
 # HDinsight에서 HBase 클러스터와 함께 Apache Phoenix 및 SQuirreL 사용  
@@ -285,7 +285,7 @@ Phoenix 드라이버 jar 파일은 HBase 클러스터에 있습니다. 경로는
 - [HDInsight에서 HBase 복제 구성](hdinsight-hbase-geo-replication.md): 두 Azure 데이터 센터에서 HBase 복제를 구성하는 방법에 대해 알아봅니다. 
 - [HDInsight에서 HBase를 사용하여 Twitter 데이터 분석][hbase-twitter-sentiment]\: HDInsight의 Hadoop 클러스터에서 HBase를 사용하여 빅데이터에 대한 실시간 [데이터 분석](http://en.wikipedia.org/wiki/Sentiment_analysis)을 수행하는 방법에 대해 알아봅니다.
 
-[azure-portal]: https://manage.windowsazure.com
+[azure-portal]: https://portal.azure.com
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
 
 [hdinsight-versions]: hdinsight-component-versioning.md
@@ -306,4 +306,4 @@ Phoenix 드라이버 jar 파일은 HBase 클러스터에 있습니다. 경로는
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="회사 인터넷 도메인이 트래픽 관리자 도메인을 가리키도록 설정"
+   pageTitle="회사 인터넷 도메인이 트래픽 관리자 도메인을 가리키도록 설정 | Microsoft Azure"
    description="이 문서에서는 사용자의 회사 도메인 이름이 트래픽 관리자 도메인 이름을 가리킵니다."
    services="traffic-manager"
    documentationCenter=""
@@ -12,8 +12,8 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # 회사 인터넷 도메인이 트래픽 관리자 도메인을 가리키도록 설정
 
@@ -27,13 +27,15 @@
 
 >[AZURE.IMPORTANT]*contoso.com*과 같은 두 번째 수준의 도메인이 트래픽 관리자 도메인을 가리킬 수 없습니다. DNS 프로토콜의 제한사항이며, CNAME 레코드를 두 번째 수준 도메인 이름으로 허용하지 않습니다.
 
-## 참고 항목
+## 다음 단계
 
-[트래픽 관리자 부하 분산 방법 정보](traffic-manager-load-balancing-methods.md)
+[트래픽 관리자 트래픽 라우팅 방법 정보](traffic-manager-load-balancing-methods.md)
 
-[트래픽 관리자 구성 작업](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[트래픽 관리자 - 프로필 사용 안 함, 사용 또는 삭제](disable-enable-or-delete-a-profile.md)
 
-[트래픽 관리자 개요](traffic-manager-overview.md)
+[트래픽 관리자 - 끝점 사용 안 함 또는 사용](disable-or-enable-an-endpoint.md)
+
+[트래픽 관리자란?](traffic-manager-overview.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

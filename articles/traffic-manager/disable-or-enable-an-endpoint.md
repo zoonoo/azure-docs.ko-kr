@@ -1,5 +1,5 @@
 <properties
-   pageTitle="트래픽 관리자 끝점 사용 안 함 또는 사용"
+   pageTitle="트래픽 관리자 끝점 사용 안 함 또는 사용 | Microsoft Azure"
    description="이 문서는 트래픽 관리자 프로필 끝점을 사용하거나 사용하지 않도록 설정하는 데 도움이 됩니다."
    services="traffic-manager"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 # 트래픽 관리자 끝점 사용 안 함 또는 사용
@@ -38,9 +38,9 @@
 
 ## 다음 단계
 
-[트래픽 관리자 구성 작업](https://msdn.microsoft.com/library/azure/hh744830.aspx)
+[트래픽 관리자 - 프로필 사용 안 함, 사용 또는 삭제](disable-enable-or-delete-a-profile.md)
 
-[트래픽 관리자 개요](../traffic-manager.md)
+[트래픽 관리자란?](../traffic-manager.md)
 
 [클라우드 서비스](http://go.microsoft.com/fwlink/?LinkId=314074)
 
@@ -50,4 +50,4 @@
 [트래픽 관리자 작업(REST API 참조)](http://go.microsoft.com/fwlink/?LinkId=313584)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

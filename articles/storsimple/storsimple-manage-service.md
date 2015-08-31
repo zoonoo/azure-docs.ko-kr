@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="StorSimple 관리자 서비스 배포"
+   pageTitle="StorSimple Manager 서비스 배포 | Microsoft Azure"
    description="관리 포털에서 StorSimple 관리자 서비스를 만들고 삭제하는 방법 및 서비스 등록 키를 관리하는 방법에 대해 설명합니다."
    services="storsimple"
    documentationCenter=""
    authors="SharS"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/12/2015"
+   ms.date="08/18/2015"
    ms.author="v-sharos" />
 
 # StorSimple 관리자 서비스 배포
@@ -82,7 +82,7 @@ StorSimple 장치를 배포하려는 경우 **빠른 생성** 옵션을 사용�
 
 서비스 등록 키를 안전한 장소에 보관합니다. 이 키와 서비스 데이터 암호화 키는 이 서비스에 추가 장치를 등록할 때 필요합니다. 서비스 등록 키를 가져온 후 StorSimple 인터페이스용 Windows PowerShell을 통해 장치를 구성해야 합니다.
 
-이 등록 키 사용 방법에 대한 세부 정보는 [3단계: StorSimple용 Windows PowerShell을 통해 장치 구성 및 등록](storsimple-deployment-walkthrough.md/#step-2:-configure-and-register-the-device-through-windows-powershell-for-storsimple)을 참조하세요.
+이 등록 키 사용 방법에 대한 세부 정보는 [3단계: StorSimple용 Windows PowerShell을 통해 장치 구성 및 등록](storsimple-deployment-walkthrough.md#step-2-configure-and-register-the-device-through-windows-powershell-for-storsimple)을 참조하세요.
 
 ## 서비스 등록 키 생성
 
@@ -107,10 +107,10 @@ StorSimple 장치를 배포하려는 경우 **빠른 생성** 옵션을 사용�
 
 ## 다음 단계
 
-[StorSimple 배포 프로세스](storsimple-deployment-walkthrough.md)에 대해 자세히 배우기
+[StorSimple 배포 프로세스에 대해 자세히 알아보기](storsimple-deployment-walkthrough.md)
 
-[StorSimple 저장소 계정 관리](../storsimple-manage-storage-account.md)에 대해 자세히 배우
+[StorSimple 저장소 계정 관리에 대해 자세히 알아보기](storsimple-manage-storage-accounts.md)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

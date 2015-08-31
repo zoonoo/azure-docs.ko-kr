@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Xamarin Android 앱용 모바일 서비스 시작 | Microsoft Azure" 
-	description="Azure 모바일 서비스와 알림 허브를 사용하여 Xamarin Android 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." 
-	services="mobile-services" 
-	documentationCenter="xamarin" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Xamarin Android 앱용 모바일 서비스 시작 | Microsoft Azure"
+	description="Azure 모바일 서비스와 알림 허브를 사용하여 Xamarin Android 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다."
+	services="mobile-services"
+	documentationCenter="xamarin"
+	authors="ggailey777"
+	manager="dwrede"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/09/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="glenga"/>
 
 # 모바일 서비스 앱에 푸시 알림 추가
@@ -39,7 +39,7 @@
 
 ##<a id="register"></a>Google Cloud Messaging 사용
 
-[AZURE.INCLUDE [GCM 사용](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [GCM 사용](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a id="configure"></a>푸시 요청을 전송하도록 모바일 서비스 구성
 
@@ -75,4 +75,4 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [Xamarin.Android]: http://xamarin.com/download/
 [Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

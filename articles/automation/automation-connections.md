@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure 자동화의 연결 자산"
+   pageTitle="Azure 자동화의 연결 자산 | Microsoft Azure"
    description="Azure 자동화의 연결 자산에는 Runbook에서 외부 서비스 또는 응용 프로그램에 연결하는 데 필요한 정보가 들어 있습니다. 이 문서에서는 연결에 대해 자세히 알아보고 텍스트 작성과 그래픽 작성 모두에서 연결을 사용하는 방법을 설명합니다."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Azure 자동화의 연결 자산
@@ -120,4 +120,4 @@ Windows PowerShell에서 [New-AzureAutomationConnection](http://msdn.microsoft.c
 - [그래픽 작성의 링크](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

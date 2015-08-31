@@ -169,4 +169,6 @@ Azure 가상 네트워크를 만들고 나면 Azure 관리 포털에서 다음 �
 
 [Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO6-->
+[Azure 인프라 서비스 작업: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
+
+<!---HONumber=August15_HO8-->

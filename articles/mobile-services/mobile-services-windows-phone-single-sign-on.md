@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Live Connect로 앱 인증(Windows Phone) | Microsoft Azure" 
-	description="Windows Phone 응용 프로그램에서 Azure 모바일 서비스의 Live Connect Single Sign-On을 사용하는 방법을 알아봅니다." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Live Connect로 앱 인증(Windows Phone) | Microsoft Azure"
+	description="Windows Phone 응용 프로그램에서 Azure 모바일 서비스의 Live Connect Single Sign-On을 사용하는 방법을 알아봅니다."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/09/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="glenga"/>
 
 # Microsoft 계정을 사용하여 클라이언트 관리 인증으로 Windows Phone 앱 인증
@@ -30,11 +30,11 @@
 + Microsoft Visual Studio 2013 Update 3 이상 버전
 + 먼저 [기존 앱에 모바일 서비스 추가] 자습서도 완료해야 합니다.
 
-##앱을 등록하여 Microsoft 계정 사용 
+##앱을 등록하여 Microsoft 계정 사용
 
 사용자를 인증하려면 먼저 Microsoft 계정 개발자 센터에서 앱을 등록해야 합니다. 그런 다음 모바일 서비스와 이 등록을 연결해야 합니다. Microsoft 계정 등록을 만들고 모바일 서비스에 연결하려면 다음 항목의 단계를 완료하세요.
 
-+ [Microsoft 계정 로그인을 사용하도록 앱 등록](mobile-services-how-to-register-microsoft-authentication.md) 
++ [Microsoft 계정 로그인을 사용하도록 앱 등록](mobile-services-how-to-register-microsoft-authentication.md)
 
 ##<a name="permissions"></a>사용 권한을 인증된 사용자로 제한
 
@@ -54,10 +54,10 @@
 
 5. 프로젝트 파일 mainpage.xaml.cs를 열고 다음 using 문을 추가합니다.
 
-        using Microsoft.Live;      
+        using Microsoft.Live;
 
 6. MainPage 클래스에 다음 코드 조각을 추가합니다.
-	
+
         private LiveConnectSession session;
         private static string clientId = "<microsoft-account-client-id>";
         private async System.Threading.Tasks.Task AuthenticateAsync()
@@ -107,12 +107,12 @@
             this.ButtonLogin.Visibility = System.Windows.Visibility.Collapsed;
             RefreshTodoItems();
         }
-		
+
 7. 앱 프로젝트에서 MainPage.xaml 프로젝트 파일을 열고 **TitlePanel**의 다음 **Button** 요소를 **TextBlock** 요소 다음에 추가합니다.
 
-		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
+		<Button Name="ButtonLogin" Click="ButtonLogin_Click"
                         Visibility="Visible">Sign in</Button>
-		
+
 9. F5 키를 눌러 앱을 실행하고 Microsoft 계정으로 로그인합니다.
 
    로그인하고 나면 앱이 오류 없이 실행되며 모바일 서비스를 쿼리하고 데이터를 업데이트할 수 있게 됩니다.
@@ -140,6 +140,5 @@
 [스크립트를 통해 사용자 권한 부여]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

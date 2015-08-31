@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="StorSimple 대역폭 템플릿 관리"
+   pageTitle="StorSimple 대역폭 템플릿 관리 | Microsoft Azure"
    description="대역폭 소비를 제어할 수 있도록 StorSimple 대역폭 템플릿을 관리하는 방법을 설명합니다."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/10/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
 
 # StorSimple 대역폭 템플릿 관리
@@ -176,4 +176,4 @@ StorSimple 장치에 대해 이 모범 사례를 따릅니다.
 
 [StorSimple 구성 요소](storsimple-components.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

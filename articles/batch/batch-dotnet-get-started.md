@@ -1,5 +1,5 @@
 <properties
-	pageTitle="자습서 - Azure Batch .NET 라이브러리 시작"
+	pageTitle="자습서 - Azure 배치 .NET 라이브러리 시작 | Microsoft Azure"
 	description="Azure 배치의 기본 개념과 간단한 시나리오를 통해 배치 서비스를 개발하는 방법을 알아봅니다."
 	services="batch"
 	documentationCenter=".net"
@@ -16,9 +16,9 @@
 	ms.date="07/21/2015"
 	ms.author="yidingz"/>
 
-# .NET용 Azure 배치 라이브러리 시작  
+# .NET용 Azure 배치 라이브러리 시작(영문)  
 
-이 자습서는 Azure Batch 풀의 여러 계산 노드에서 실행되는 프로그램 및 지원 파일을 설정하는 콘솔 응용 프로그램을 만드는 방법을 보여줍니다. 이 자습서에서 만들어진 태스크는 Azure 저장소의 파일 텍스트를 평가하고 가장 일반적으로 사용되는 단어를 반환합니다. 샘플은 C# 코드로 작성되었으며 Azure Batch .NET 라이브러리를 사용합니다.
+Azure 배치 풀의 여러 계산 노드에서 실행되는 지원 파일 및 프로그램을 설정하는 콘솔 응용 프로그램을 만들어 Azure 배치 .NET 라이브러리로 작업을 시작합니다. 이 자습서에서 만들어진 태스크는 Azure 저장소에 업로드된 파일의 텍스트를 평가하고 해당 파일에서 가장 일반적으로 나타나는 단어를 반환합니다. 샘플은 C#로 작성되었으며 [Azure 배치 .NET 라이브러리](https://msdn.microsoft.com/library/azure/mt348682.aspx)를 사용합니다.
 
 ## 필수 조건
 
@@ -26,7 +26,7 @@
 
 	- **Azure 계정** - 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-	- **Batch 계정** - [Azure Batch 기술 개요](batch-technical-overview.md)의 **Batch 계정** 섹션을 참조하세요.
+	- **배치 계정** - [Azure 배치 기술 개요](batch-technical-overview.md)의 **배치 계정** 섹션을 참조하세요.
 
 	- **저장소 계정** - [Azure 저장소 계정 정보](../storage-create-storage-account.md)의 **저장소 계정 만들기** 섹션을 참조하세요. 이 자습서에서는 **testcon1**이라는 컨테이너를 이 계정에 만듭니다.
 
@@ -38,9 +38,11 @@
 
 - NuGet 어셈블리:
 
-	1. Visual Studio에서 프로젝트를 만든 후에 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. 온라인에서 **Azure.Batch**를 검색하고 **설치**를 클릭하여 Microsoft Azure Batch 패키지와 종속성을 설치합니다.
+	1. Visual Studio에서 프로젝트를 만든 후에 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. 온라인에서 **Azure.Batch**를 검색하고 **설치**를 클릭하여 Microsoft Azure 배치 패키지와 종속성을 설치합니다.
 
 	2. 온라인에서 **WindowsAzure.Storage**를 검색하고 **설치**를 클릭하여 Azure 저장소 패키지와 종속성을 설치합니다.
+
+> [AZURE.TIP]이 자습서에서는 [Azure 배치에 대한 API 기본 사항](batch-api-basics.md)에 설명된 배치 핵심 개념 중 일부를 활용하여 배치에 새로운 점을 읽어보도록 적극적으로 권장합니다.
 
 ## 1단계: 지원 파일 만들기 및 업로드
 
@@ -48,7 +50,7 @@
 
 ### 저장소 연결 문자열 설정
 
-1. GettingStarted 프로젝트의 App.config 파일을 열고 &lt;appSettings&gt; 요소를 &lt;configuration&gt;에 추가합니다.
+1. GettingStarted 프로젝트의 App.config 파일을 열고 *&lt;appSettings&gt;* 요소를 *&lt;configuration&gt;*에 추가합니다.
 
 		<?xml version="1.0" encoding="utf-8" ?>
 		<configuration>
@@ -61,21 +63,24 @@
 
 	- **[account-name]** - 이전에 만든 저장소 계정의 이름으로 바꿉니다.
 
-	- **[account-key]** - 저장소 계정의 기본 키로 바꿉니다. 기본 키는 관리 포털의 저장소 페이지에서 찾을 수 있습니다.
+	- **[account-key]** - 저장소 계정의 기본 키로 바꿉니다. 기본 키는 Azure 포털의 저장소 페이지에서 찾을 수 있습니다.
 
 2. App.config 파일을 저장합니다.
 
-자세한 내용은 [연결 문자열 구성](http://msdn.microsoft.com/library/windowsazure/ee758697.aspx)을 참조하세요.
+Azure 저장소 연결 문자열에 대해 자세히 알아보려면 [Azure 저장소 연결 문자열 구성](../storage/storage-configure-connection-string.md)을 참조하세요.
 
 ### 저장소 컨테이너 만들기
 
-1. GettingStarted 프로젝트의 Program.cs 맨 위에 다음 네임 스페이스 선언을 추가합니다.
+1. GettingStarted 프로젝트의 Program.cs 맨 위에 다음 using 지시문을 추가합니다.
 
 		using System.Configuration;
+		using System.IO;
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
 
-2. 저장소 연결 문자열을 가져오고, 컨테이너를 만들고, 사용 권한을 설정하는 Program 클래스에 다음 메서드를 추가합니다.
+2. *System.Configuration*를 GettingStarted 프로젝트에 대한 **솔루션 탐색기**의 **참조**에 추가합니다.
+
+3. 저장소 연결 문자열을 가져오고, 컨테이너를 만들고, 사용 권한을 설정하는 Program 클래스에 다음 메서드를 추가합니다.
 
 		static void CreateStorage()
 		{
@@ -96,21 +101,27 @@
 			Console.ReadLine();
 		}
 
-3. 방금 추가한 메서드를 호출하는 Main에 다음 코드를 추가합니다.
+4. 방금 추가한 메서드를 호출하는 Main에 다음 코드를 추가합니다.
 
 		CreateStorage();
 
-4. Program.cs 파일을 저장합니다.
+5. Program.cs 파일을 저장합니다.
 
-	> [AZURE.NOTE]프로덕션 환경에서는 공유 액세스 서명을 사용하는 것이 좋습니다.
+	> [AZURE.NOTE]프로덕션 환경에서는 [공유 액세스 서명](https://msdn.microsoft.com/library/azure/ee395415.aspx)을 사용하는 것이 좋습니다.
 
-자세한 내용은 [.NET에서 Blob 저장소를 사용하는 방법](../storage-dotnet-how-to-use-blobs.md)을 참조하세요.
+Blob 저장소에 대한 자세한 내용은 [.NET에서 Blob 저장소를 사용하는 방법](../storage/storage-dotnet-how-to-use-blobs.md)을 참조하세요.
 
 ### 처리 프로그램 만들기
 
-1. 솔루션 탐색기에서 **ProcessTaskData**라는 새 콘솔 응용 프로그램 프로젝트를 만듭니다.
+1. **솔루션 탐색기**에서 **ProcessTaskData**라는 새 콘솔 응용 프로그램 프로젝트를 만듭니다.
 
-2. 파일에서 텍스트를 처리하는 Main에 다음 코드를 추가합니다.
+2. Visual Studio에서 프로젝트를 만든 후에 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다. 온라인에서 **WindowsAzure.Storage**를 검색하고 **설치**를 클릭하여 Azure 저장소 패키지와 종속성을 설치합니다.
+
+3. Program.cs의 맨 위에 다음 using 지시문을 추가합니다.
+
+		using Microsoft.WindowsAzure.Storage.Blob;
+
+4. 파일에서 텍스트를 처리하는 Main에 다음 코드를 추가합니다.
 
 		string blobName = args[0];
 		Uri blobUri = new Uri(blobName);
@@ -132,54 +143,61 @@
 			Console.WriteLine("{0} {1}", pair.Key, pair.Value);
 		}
 
-3. ProcessTaskData 프로젝트를 저장하고 빌드합니다.
+5. ProcessTaskData 프로젝트를 저장하고 빌드합니다.
 
 ### 데이터 파일 만들기
 
-1. GettingStarted 프로젝트에서 **taskdata1**이라는 새 텍스트 파일을 만들고 이 파일에 다음 텍스트를 복사한 다음 파일을 저장합니다.
+1. GettingStarted 프로젝트에서 **taskdata1.txt**이라는 새 텍스트 파일을 만들고 이 파일에 다음 텍스트를 복사한 다음 파일을 저장합니다.
 
 	비즈니스 요구 사항 때문에 유연한 리소스가 필요한 경우 Azure 가상 컴퓨터를 사용하여 확장 가능한 주문형 계산 인프라를 프로비전할 수 있습니다. 갤러리에서 Windows, Linux 및 엔터프라이즈 응용 프로그램(예: SharePoint 및 SQL Server)을 실행하는 가상 컴퓨터를 만들 수 있습니다. 또는 고유한 이미지를 캡처 및 사용하여 사용자 지정 가상 컴퓨터를 만들 수도 있습니다.
 
-2. **taskdata2**라는 새 텍스트 파일을 만들고 이 파일에 다음 텍스트를 복사한 다음 파일을 저장합니다.
+2. **taskdata2.txt**라는 새 텍스트 파일을 만들고 이 파일에 다음 텍스트를 복사한 다음 파일을 저장합니다.
 
 	Azure 클라우드 서비스를 통해 강력한 응용 프로그램과 서비스를 신속하게 배포하고 관리할 수 있습니다. 응용 프로그램을 업로드하기만 하면 Azure가 프로비전 및 부하 분산부터 지속적인 가용성을 위한 상태 모니터링에 이르기까지 모든 배포 세부 작업을 처리합니다. 응용 프로그램은 업계 선두의 99.95% 월간 SLA로 지원됩니다. 인프라가 아닌 응용 프로그램에만 집중하세요.
 
-3. **taskdata3**라는 새 텍스트 파일을 만들고 이 파일에 다음 텍스트를 복사한 다음 파일을 저장합니다.
+3. **taskdata3.txt**라는 새 텍스트 파일을 만들고 이 파일에 다음 텍스트를 복사한 다음 파일을 저장합니다.
 
 	Azure 웹 사이트는 웹 응용 프로그램을 호스트할 수 있는 확장 가능하며 안정적이고 사용하기 쉬운 환경을 제공합니다. 다양한 프레임워크 및 템플릿 중에서 선택하여 몇 초만에 웹 사이트를 만들 수 있습니다. 원하는 도구 또는 OS에서 .NET, PHP, Node.js 또는 Python을 사용하여 사이트를 개발할 수 있습니다. TFS, GitHub 및 BitBucket을 비롯한 다양한 소스 제어 옵션 중에서 선택하여 연속 통합을 설정하고 팀으로 개발할 수 있습니다. 저장소, CDN 및 SQL 데이터베이스와 같은 추가 Azure 관리되는 서비스를 활용하여 시간 경과에 따라 사이트 기능을 확장할 수 있습니다.
 
-### 컨테이너에 파일 업로드
+### 저장소 컨테이너에 파일 업로드
 
-1. GettingStarted 프로젝트의 Program.cs 파일을 열고 파일을 업로드 하는 다음 메서드를 추가합니다.
+1. **GettingStarted** 프로젝트의 Program.cs 파일을 열고 파일을 업로드 하는 다음 메서드를 추가합니다.
 
 		static void CreateFiles()
 		{
-		  privateCloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-			ConfigurationManager.AppSettings["StorageConnectionString"]);
-		  CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-		  CloudBlobContainer container = blobClient.GetContainerReference("testcon1");
-		  CloudBlockBlob taskData1 = container.GetBlockBlobReference("taskdata1");
-		  CloudBlockBlob taskData2 = container.GetBlockBlobReference("taskdata2");
-		  CloudBlockBlob taskData3 = container.GetBlockBlobReference("taskdata3");
-	  	CloudBlockBlob dataprocessor = container.GetBlockBlobReference("ProcessTaskData.exe");
-	  	CloudBlockBlob storageassembly =
-			container.GetBlockBlobReference("Microsoft.WindowsAzure.Storage.dll");
-		  taskData1.UploadFromFile("..\\..\\taskdata1.txt", FileMode.Open);
-		  taskData2.UploadFromFile("..\\..\\taskdata2.txt", FileMode.Open);
-	  	taskData3.UploadFromFile("..\\..\\taskdata3.txt", FileMode.Open);
-		  dataprocessor.UploadFromFile("..\\..\\..\\ProcessTaskData\\bin\\debug\\ProcessTaskData.exe", FileMode.Open);
-		  storageassembly.UploadFromFile("Microsoft.WindowsAzure.Storage.dll", FileMode.Open);
-		  Console.WriteLine("Uploaded the files. Press Enter to continue.");
-		  Console.ReadLine();
+			CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+				ConfigurationManager.AppSettings["StorageConnectionString"]);
+			CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+			CloudBlobContainer container = blobClient.GetContainerReference("testcon1");
+
+			CloudBlockBlob taskData1 = container.GetBlockBlobReference("taskdata1");
+			CloudBlockBlob taskData2 = container.GetBlockBlobReference("taskdata2");
+			CloudBlockBlob taskData3 = container.GetBlockBlobReference("taskdata3");
+			taskData1.UploadFromFile("..\\..\\taskdata1.txt", FileMode.Open);
+			taskData2.UploadFromFile("..\\..\\taskdata2.txt", FileMode.Open);
+			taskData3.UploadFromFile("..\\..\\taskdata3.txt", FileMode.Open);
+
+			CloudBlockBlob storageassembly = container.GetBlockBlobReference("Microsoft.WindowsAzure.Storage.dll");
+			storageassembly.UploadFromFile("Microsoft.WindowsAzure.Storage.dll", FileMode.Open);
+
+			CloudBlockBlob dataprocessor = container.GetBlockBlobReference("ProcessTaskData.exe");
+			dataprocessor.UploadFromFile("..\\..\\..\\ProcessTaskData\\bin\\debug\\ProcessTaskData.exe", FileMode.Open);
+
+			Console.WriteLine("Uploaded the files. Press Enter to continue.");
+			Console.ReadLine();
 		}
 
-2. Program.cs 파일을 저장합니다.
+2. 방금 추가한 메서드를 호출하는 Main에 다음 코드를 추가합니다.
 
-## 2단계. 계정에 풀 추가
+		CreateFiles();
+
+3. Program.cs 파일을 저장합니다.
+
+## 2단계. 배치 계정에 풀 추가
 
 계산 노드 풀은 태스크를 실행하려고 할 때 만들어야 하는 첫 번째 리소스 집합입니다.
 
-1.	GettingStarted 프로젝트의 Program.cs 맨 위에 다음 네임 스페이스 선언을 추가합니다.
+1.	GettingStarted 프로젝트의 Program.cs 맨 위에 다음 using 지시문을 추가합니다.
 
 			using Microsoft.Azure.Batch;
 			using Microsoft.Azure.Batch.Auth;
@@ -192,9 +210,9 @@
 
 	다음 값을 바꿉니다.
 
-	- **[account-name]** - 이전에 만든 Batch 계정의 이름으로 바꿉니다.
+	- **[account-name]** - 이전에 만든 배치 계정의 이름으로 바꿉니다.
 	- **[region]** - 계정이 있는 지역으로 바꿉니다. 사용 가능한 지역을 찾으려면 [Azure 지역](http://azure.microsoft.com/regions/)을 참조하세요.
-	- **[account-key]** - Batch 계정의 기본 키로 바꿉니다.
+	- **[account-key]** - 배치 계정의 기본 키로 바꿉니다.
 
 3.	풀을 만드는 Program 클래스에 다음 메서드를 추가합니다.
 
@@ -234,7 +252,7 @@
 
 7. Program.cs 파일을 저장합니다.
 
-## 2단계: 계정에 작업 추가
+## 3단계: 계정에 작업 추가
 
 풀에서 실행되는 태스크를 관리하는 데 사용되는 작업을 만듭니다. 모든 태스크는 이 작업에 연결되어야 합니다.
 
@@ -276,7 +294,7 @@
 
 5. Program.cs 파일을 저장합니다.
 
-## 3단계: 작업에 태스크 추가
+## 4단계: 작업에 태스크 추가
 
 작업을 만든 후에는 태스크를 작업에 추가할 수 있습니다. 각 태스크는 계산 노드에서 실행되며 텍스트 파일을 처리합니다. 이 자습서에서는 세 개의 태스크를 작업에 추가합니다.
 
@@ -286,7 +304,7 @@
 		{
 			CloudJob job = client.JobOperations.GetJob("testjob1");
 			ResourceFile programFile = new ResourceFile(
-				"https://[account-name].blob.azure.com/[]/ProcessTaskData.exe",
+				"https://[account-name].blob.core.windows.net/testcon1/ProcessTaskData.exe",
 				"ProcessTaskData.exe");
       	  ResourceFile assemblyFile = new ResourceFile(
 				"https://[account-name].blob.core.windows.net/testcon1/Microsoft.WindowsAzure.Storage.dll",
@@ -320,7 +338,9 @@
 			Console.ReadLine();
 		}
 
-	**[account-name]** - 이전에 만든 저장소 계정의 이름으로 바꿔야 합니다. 네 자리가 모두 채워졌는지 확인합니다.
+
+	**[account-name]** - 이전에 만든 저장소 계정의 이름으로 바꿔야 합니다. 이전 예제에서 **[account-name]**의 네 인스턴스 모두를 업데이트합니다.
+
 
 2. 방금 추가한 메서드를 호출하는 Main에 다음 코드를 추가합니다.
 
@@ -346,9 +366,9 @@
 
 5. Program.cs 파일을 저장합니다.
 
-## 4단계: 리소스 삭제
+## 5단계: 리소스 삭제
 
-Azure에서는 리소스에 대한 요금이 부과되므로 리소스가 더 이상 필요하지 않은 경우 항상 리소스를 삭제하는 것이 좋습니다.
+Azure에서 리소스에 대한 요금이 부과되므로 리소스가 더 이상 필요하지 않은 경우 항상 리소스를 삭제하는 것이 좋습니다.
 
 ### 태스크 삭제
 
@@ -382,7 +402,7 @@ Azure에서는 리소스에 대한 요금이 부과되므로 리소스가 더 �
 				Console.ReadLine();
 			}
 
-2. 방금 추가한 메서드를 실행하는 Main에 다음 코드를 추가합니다.
+2. 방금 추가한 메서드를 호출하는 Main에 다음 코드를 추가합니다.
 
 		DeleteJob(client);
 
@@ -399,13 +419,13 @@ Azure에서는 리소스에 대한 요금이 부과되므로 리소스가 더 �
 			Console.ReadLine();
 		}
 
-2. 방금 추가한 메서드를 실행하는 Main에 다음 코드를 추가합니다.
+2. 방금 추가한 메서드를 호출하는 Main에 다음 코드를 추가합니다.
 
 		DeletePool(client);
 
 3. Program.cs 파일을 저장합니다.
 
-## 5단계: 응용 프로그램 실행
+## 6단계: 응용 프로그램 실행
 
 1. GettingStarted 프로젝트를 시작하고 컨테이너를 만들면 콘솔 창에 다음 내용이 표시됩니다.
 
@@ -471,8 +491,8 @@ Azure에서는 리소스에 대한 요금이 부과되므로 리소스가 더 �
 
 ## 다음 단계
 
-1. 실행 중인 태스크의 기본 사항에 대해 알아보았으므로 응용 프로그램 요구 사항이 변경되는 경우 자동으로 계산 노드 크기를 조정하는 방법에 대해 알아봅니다. 이 작업을 수행하려면 [Azure Batch 풀에서 자동으로 계산 노드 크기 조정](batch-automatic-scaling.md)을 참조하세요.
+1. 실행 중인 태스크의 기본 사항에 대해 알아보았으므로 응용 프로그램 요구 사항이 변경되는 경우 자동으로 계산 노드 크기를 조정하는 방법에 대해 알아봅니다. 이 작업을 수행하려면 [Azure 배치 풀에서 자동으로 계산 노드 크기 조정](batch-automatic-scaling.md)을 참조하세요.
 
 2. 일부 응용 프로그램은 많은 양의 데이터를 생성하여 처리하기가 어려울 수 있습니다. 이 문제를 해결하는 한 가지 방법은 [효율적인 목록 쿼리](batch-efficient-list-queries.md)를 사용하는 것입니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

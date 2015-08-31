@@ -138,4 +138,4 @@
 [모바일 서비스 HTML/JavaScript 방법 개념 참조]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

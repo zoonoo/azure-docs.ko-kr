@@ -164,4 +164,4 @@
 [Todo 오프라인 모바일 서비스 샘플]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -18,7 +18,7 @@
 
 # 기존 앱에 모바일 서비스 추가
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data-EC.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data-ec.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -29,7 +29,7 @@
 <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="label">자습서 보기</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-data-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">동영상 재생</span></a><span class="time">오후 3:32:00</span></div>
 </div>
 
-> [AZURE.NOTE]이 자습서는 Android 앱에서 모바일 서비스를 통해 Azure를 사용하여 데이터를 저장하고 검색할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 이 항목에서는 모바일 서비스 빠른 시작에서 완료한 다수의 단계를 순서대로 안내합니다. 모바일 서비스를 처음 사용하는 경우 먼저 [모바일 서비스 시작](../get-started-android-EC.md) 자습서를 완료하는 것이 좋습니다.
+> [AZURE.NOTE]이 자습서는 Android 앱에서 모바일 서비스를 통해 Azure를 사용하여 데이터를 저장하고 검색할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 이 항목에서는 모바일 서비스 빠른 시작에서 완료한 다수의 단계를 순서대로 안내합니다. 모바일 서비스를 처음 사용하는 경우 먼저 [모바일 서비스 시작](../get-started-android-ec.md) 자습서를 완료하는 것이 좋습니다.
 > 
 > 완성된 앱의 소스 코드를 참조하려면 [여기](https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStartedWithData/Android/GetStartedWithData)로 이동하세요.
 
@@ -49,16 +49,16 @@
 
 ###샘플 코드 가져오기
 
-[AZURE.INCLUDE [download-android-sample-code](../../includes/download-android-sample-code-EC.md)]
+[AZURE.INCLUDE [download-android-sample-code](../../includes/download-android-sample-code-ec.md)]
 
 ###Android SDK 버전 확인
 
-[AZURE.INCLUDE [SDK 확인](../../includes/mobile-services-verify-android-sdk-version-EC.md)]
+[AZURE.INCLUDE [SDK 확인](../../includes/mobile-services-verify-android-sdk-version-ec.md)]
 
 
 ###샘플 코드 검사 및 실행
 
-[AZURE.INCLUDE [mobile-services-android-run-sample-code](../../includes/mobile-services-android-run-sample-code-EC.md)]
+[AZURE.INCLUDE [mobile-services-android-run-sample-code](../../includes/mobile-services-android-run-sample-code-ec.md)]
 
 ##<a name="create-service"></a>관리 포털에서 새 모바일 서비스 만들기
 
@@ -70,7 +70,7 @@
 
 ##<a name="update-app"></a>데이터 액세스에 모바일 서비스를 사용하도록 앱 업데이트
 
-[AZURE.INCLUDE [mobile-services-android-getting-started-with-data](../../includes/mobile-services-android-getting-started-with-data-EC.md)]
+[AZURE.INCLUDE [mobile-services-android-getting-started-with-data](../../includes/mobile-services-android-getting-started-with-data-ec.md)]
 
 ##<a name="test-app"></a>새 모바일 서비스에 대해 앱 테스트
 
@@ -123,7 +123,7 @@
 
 <!-- URLs. -->
 [인증 시작]: mobile-services-android-get-started-users.md
-[푸시 알림 시작]: mobile-services-javascript-backend-android-get-started-push-EC.md
+[푸시 알림 시작]: mobile-services-javascript-backend-android-get-started-push-ec.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [관리 포털]: https://manage.windowsazure.com/
@@ -132,4 +132,4 @@
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

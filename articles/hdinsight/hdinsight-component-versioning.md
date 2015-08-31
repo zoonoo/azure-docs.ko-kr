@@ -5,6 +5,7 @@
 	editor="cgronlun"
 	manager="paulettm"
 	authors="mumian"
+	tags="azure-portal"
 	documentationCenter=""/>
 
 <tags
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 
@@ -27,17 +28,17 @@ Azure HDInsight는 언제든 배포할 수 있는 여러 Hadoop 클러스터 버
 ---|---|---|---|---
 Hortonworks Data Platform|2\.2|2\.1.7|2\.0|1\.3
 Apache Hadoop & YARN|2\.6.0|2\.4.0|2\.2.0|1\.2.0
-Tez|0\.5.2|0\.4.0||
+Apache Tez|0\.5.2|0\.4.0||
 Apache Pig|0\.14.0|0\.12.1|0\.12.0|0\.11.0
 Apache Hive & HCatalog|0\.14.0|0\.13.1|0\.12.0|0\.11.0
-HBase |0\.98.4|0\.98.0||
+Apache HBase |0\.98.4|0\.98.0||
 Apache Sqoop|1\.4.5|1\.4.4|1\.4.4|1\.4.3
 Apache Oozie|4\.1.0|4\.0.0|4\.0.0|3\.3.2
-Zookeeper|3\.4.6|3\.4.5|3\.4.5|
-Storm|0\.9.3|0\.9.1||
-Mahout|0\.9.0|0\.9.0||
-Phoenix|4\.2.0|4\.0.0.2.1.7.0-2162||
-Spark)|1\.3.1|||
+Apache Zookeeper|3\.4.6|3\.4.5|3\.4.5|
+Apache Storm|0\.9.3|0\.9.1||
+Apache Mahout|0\.9.0|0\.9.0||
+Apache Phoenix|4\.2.0|4\.0.0.2.1.7.0-2162||
+Apache Spark|1\.3.1|||
 
 
 **현재 구성 요소 버전 정보 가져오기**
@@ -51,9 +52,7 @@ HDInsight 클러스터 버전과 연결된 구성 요소 버전은 HDInsight에 
 
 ### HDInsight 클러스터를 프로비전할 경우 버전 선택
 
-HDInsight Windows PowerShell cmdlets 또는 HDInsight .NET SDK를 통해 클러스터를 만들 경우 "Version" 매개 변수를 사용하여 HDInsight Hadoop 클러스터의 버전을 선택할 수 있습니다.
-
-**빠른 생성** 옵션을 사용하는 경우 기본적으로 Hadoop 클러스터를 만드는 HDInsight 버전 3.1이 제공됩니다. Azure 포털에서**사용자 지정 만들기** 옵션을 사용하는 경우 **클러스터 세부 정보** 페이지의 **HDInsight 버전** 드롭다운에서 배포할 클러스터의 버전을 선택할 수 있습니다.
+HDInsight Windows PowerShell cmdlet 또는 HDInsight .NET SDK를 통해 클러스터를 만들 경우Azure Preview 포털에서 **선택적 구성** 블레이드의 **HDInsight 버전** 드롭다운을 사용하여 HDInsight Hadoop 클러스터에 대한 버전을 선택할 수 있습니다.
 
 ##주요 기능
 HDInsight 플랫폼의 몇 가지 두드러진 기능은 다음과 같습니다.
@@ -64,10 +63,10 @@ HDInsight 플랫폼의 몇 가지 두드러진 기능은 다음과 같습니다.
 
 	Spark는 스크립트 작업을 사용하여 추가할 수 있습니다. 스크립트 작업은 Spark 1.2.0을 HDInsight 3.2 클러스터에 추가하거나 Spark 1.0.2를 HDInsight 3.1 클러스터에 추가합니다. 자세한 내용은 [HDInsight Hadoop 클러스터에서 Spark 설치 및 사용](hdinsight-hadoop-spark-install.md)을 참조하세요.
 
- 
+
 - **Storm** - 이제 Azure HDInsight용 Storm은 일반적으로 사용 가능하며, 몇 분 안에 몇 번의 클릭만으로 빠르고 쉽게 실시간 분석을 배포할 수 있습니다. Azure HDInsight용 Apache Storm은 수백만 개의 이벤트를 안정적으로 처리할 수 있는 분석 플랫폼에 액세스할 수 있게 하는 Apache Hadoop 에코 시스템의 오픈 소스 프로젝트입니다. 이제 Hadoop 사용자는 과거 이벤트에 대한 통찰력과 함께 이벤트 발생에 따른 통찰력을 얻을 수 있습니다. Microsoft는 기본적으로 Visual Studio와 통합되어 있으므로, 개발자가 Storm을 쉽게 조작할 수 있습니다. 이제 Visual Studio에서 Storm 토폴로지를 개발, 배포 및 디버깅할 수 있습니다.
 
-- **Linux용 HDInsight(미리 보기)** - Azure HDInsight에서는 Linux(Ubuntu) 가상 컴퓨터(VM)에서 실행되는 Hadoop 클러스터를 프로비저닝하는 옵션을 제공합니다. Linux 또는 Unix에 익숙하거나, 기존 Linux 기반 Hadoop 솔루션에서 마이그레이션하거나, Linux 기반으로 작성된 Hadoop 에코 시스템 구성 요소와 쉽게 통합하려는 경우에 이 옵션을 사용할 수 있습니다. Azure 포털, Azure CLI 또는 HDInsight .NET SDK(Windows만 해당)를 사용하여 Windows 또는 Linux가 실행 중인 클라이언트 컴퓨터에서 Linux용 HDInsight 클러스터를 프로비전할 수 있습니다.
+- **Linux용 HDInsight(미리 보기)** - Azure HDInsight에서는 Linux(Ubuntu) 가상 컴퓨터(VM)에서 실행되는 Hadoop 클러스터를 프로비저닝하는 옵션을 제공합니다. Linux 또는 Unix에 익숙하거나, 기존 Linux 기반 Hadoop 솔루션에서 마이그레이션하거나, Linux 기반으로 작성된 Hadoop 에코 시스템 구성 요소와 쉽게 통합하려는 경우에 이 옵션을 사용할 수 있습니다. Azure Preview 포털, Azure CLI 또는 HDInsight .NET SDK(Windows만 해당)를 사용하여 Windows 또는 Linux가 실행 중인 클라이언트 컴퓨터에서 Linux용 HDInsight 클러스터를 프로비전할 수 있습니다.
 
 - **추가 VM 크기** - 이제 HDInsight 클러스터는 더 많은 VM 유형과 크기로 사용할 수 있습니다. 이제 HDInsight 클러스터는 일반적인 용도로 빌드된 A2 \~ A7 크기(반도체 드라이브(SSD) 기능을 제공하는 D-Series 노드와 60% 더 빠른 프로세서) 및 빠른 네트워킹을 위해 InfiniBand를 지원하는 A8 및 A9 크기를 활용할 수 있습니다. Azure HDInsight용 Apache HBase 고객은 D-Series의 더 큰 메모리 구성을 이용하여 성능을 향상시킬 수 있습니다. Azure HDInsight용 Apache Storm 고객은 더 큰 참조 데이터 세트를 로드하기 위한 추가 메모리와 처리량 향상을 위한 더 빠른 CPU도 이용할 수 있습니다.
 
@@ -102,7 +101,7 @@ HDInsight 플랫폼의 몇 가지 두드러진 기능은 다음과 같습니다.
 다음 표는 현재 사용 가능한 HDInsight 버전, 버전에서 사용하는 해당 Hortonworks Data Platform 버전 및 릴리스 날짜를 나열합니다. 알려진 경우 지원 만료 날짜와 사용이 중단된 날짜도 나와 있습니다. 다음 사항에 유의하세요.
 
 * 헤드 노드가 2개 있는 고가용성 클러스터는 기본적으로 HDInsight 2.1 이상에 대해 배포됩니다. HDInsight 1.6 클러스터에서는 사용할 수 없습니다.
-* 특정 버전에 대한 지원이 만료되면 Azure 포털을 통해 사용할 수 없게 됩니다. 다음 표에는 Azure 포털에서 사용할 수 있는 버전이 나와 있습니다. 클러스터 버전은 사용이 중단될 때까지 Windows PowerShell [New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) 명령의 `Version` 매개 변수 및 .NET SDK를 사용하여 계속 사용할 수 있습니다.
+* 특정 버전에 대한 지원이 만료되면 Azure Preview 포털을 통해 사용할 수 없게 됩니다. 다음 표에는 Azure 포털에서 사용할 수 있는 버전이 나와 있습니다. 클러스터 버전은 사용이 중단될 때까지 Windows PowerShell [New-AzureHDInsightCluster](http://msdn.microsoft.com/library/dn593744.aspx) 명령의 `Version` 매개 변수 및 .NET SDK를 사용하여 계속 사용할 수 있습니다.
 
 HDInsight 버전|HDP 버전|고가용성|릴리스 날짜|Azure 포털에서 사용 가능 여부|지원 만료 날짜|사용 중단 날짜
 ---|---|---|---|---|---|---
@@ -114,14 +113,12 @@ HDI 1.6|HDP 1.1|아니요|2013/10/28|아니요|2014/04/26|2015/05/31
 
 **기본이 아닌 클러스터의 배포**
 
-HDInsight 3.1 클러스터는 기본적으로 Hadoop 2.4에서 만들어지므로 추가 클러스터를 만들어야 하는 경우 포털의 **사용자 지정 만들기** 옵션을 사용하여 다른 HDInsight 클러스터 버전을 지정해야 합니다.
-
 ### HDInsight 클러스터 버전의 서비스 수준 계약
 
 SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고객 지원에서 HDInsight 클러스터 버전을 지원하는 기간을 나타냅니다. HDInsight 클러스터는 해당 버전의 **지원 만료 날짜**가 현재 날짜를 지난 경우 지원 기간을 넘긴 것입니다. 지원되는 HDInsight 클러스터 버전 목록은 위의 표에서 찾아볼 수 있습니다. 새로운 X+1 버전이 사용 가능해질 경우 지정된 HDInsight 버전의 지원 만료 날짜는 다음 수식 중 후자로 계산됩니다.
 
 - 수식 1: HDInsight 클러스터 버전 X가 릴리스된 날짜에 180일을 추가합니다.
-- 수식 2: HDInsight 클러스터 버전 X+1(X 이후의 후속 버전)을 Azure 포털에서 사용할 수 있는 날짜에 90일을 추가합니다.
+- 수식 2: HDInsight 클러스터 버전 X+1(X 이후의 후속 버전)을 Azure Preview 포털에서 사용할 수 있는 날짜에 90일을 추가합니다.
 
 **사용 중단 날짜**는 HDInsight에서 해당 클러스터 버전을 만들 수 없게 되는 날짜입니다.
 
@@ -134,7 +131,7 @@ SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고
 	* Release notes for specific Apache components - [Hive 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450), [Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954), [HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810), [Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581), [M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180), [HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181), [YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197), [Common](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179), [Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742), [Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486), [Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112), [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620).
 
 
-* HDInsight 클러스터 버전 3.1에서는 [Hortonworks Data Platform 2.1.7][hdp-2-1-7](영문)를 기반으로 하는 Hadoop 배포를 사용합니다. 이는 2014/11/7 후에 Azure HDInsight 포털을 사용할 때 만든 **기본** Hadoop 클러스터입니다. 2014년 11월 7일 전에 만들어진 HDInsight 3.1 클러스터는 [Hortonworks Data Platform 2.1.1][hdp-2-1-1]을 기반으로 둡니다.
+* HDInsight 클러스터 버전 3.1에서는 [Hortonworks Data Platform 2.1.7][hdp-2-1-7](영문)를 기반으로 하는 Hadoop 배포를 사용합니다. 이는 2014년 11월 7일 이후에 포털을 사용할 때 만든 **기본** Hadoop 클러스터입니다. 2014년 11월 7일 전에 만들어진 HDInsight 3.1 클러스터는 [Hortonworks Data Platform 2.1.1][hdp-2-1-1]을 기반으로 둡니다.
 
 * HDInsight 클러스터 버전 3.0에서는 [Hortonworks Data Platform 2.0][hdp-2-0-8](영문)를 기반으로 하는 Hadoop 배포를 사용합니다.
 
@@ -164,6 +161,5 @@ SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고
 [ambari-docs]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
 [zookeeper]: http://zookeeper.apache.org/
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

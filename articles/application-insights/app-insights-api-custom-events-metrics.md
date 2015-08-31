@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="08/18/2015" 
 	ms.author="awills"/>
 
 # 사용자 지정 이벤트 및 메트릭용 Application Insights API 
@@ -728,12 +728,25 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 * [ASP.NET 참조](https://msdn.microsoft.com/library/dn817570.aspx)
 * [Java 참조](http://dl.windowsazure.com/applicationinsights/javadoc/)
 * [JavaScript 참조](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
+* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
+* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
+
+
+## SDK 코드
+
+* [ASP.NET 핵심 SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
+* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
+* [Android SDK](https://github.com/Microsoft/ApplicationInsights-Android)
+* [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
+* [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
+* [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
+* [모든 플랫폼](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
 ## 질문
 
-* *Track * 호출에서 throw할 수 있는 예외는 무엇인가요?*
+* *Track\_() 호출에서 발생할 수 있는 예외는 무엇인가요?*
     
-    없음 catch 절에 래핑할 필요가 없습니다.
+    없음 try-catch 절에 래핑할 필요가 없습니다. SDK에 문제가 발생하는 경우 디버그 콘솔 출력에서 볼 수 있는 메시지를 작성하고 메시지가 완료되는 경우 진단 검색에 표시됩니다.
 
 
 
@@ -768,4 +781,4 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

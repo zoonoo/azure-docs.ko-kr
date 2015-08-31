@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="HDInsight의 Hadoop 클러스터 가용성 | Microsoft Azure" 
-	description="HDInsight는 추가 헤드 노드와 함께 항상 사용 가능하고 안정적인 클러스터를 배포합니다." 
-	services="hdinsight" 
-	editor="cgronlun" 
-	manager="paulettm" 
-	authors="mumian" 
+<properties
+	pageTitle="HDInsight의 Hadoop 클러스터 가용성 | Microsoft Azure"
+	description="HDInsight는 추가 헤드 노드와 함께 항상 사용 가능하고 안정적인 클러스터를 배포합니다."
+	services="hdinsight"
+	tags="azure-portal"
+	editor="cgronlun"
+	manager="paulettm"
+	authors="mumian"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 
@@ -37,7 +38,7 @@ HDInsight를 사용하면 고객이 서로 다른 데이터 분석 작업을 위
 	- Nimbus 노드(노드 2개)
 	- 감독자 서버(노드 1개 이상)
 	- Zookeeper 노드(노드 3개)
- 
+
 일반적으로 표준 방식으로 구현된 Hadoop 클러스터에는 헤드 노드가 1개뿐입니다. HDInsight는 보조 헤드 노드/헤드 서버/Nimbus 노드를 추가하여 단일 실패 지점을 제거하며 작업 관리에 필요한 서비스의 가용성 및 안정성을 향상합니다. 이러한 헤드 노드/헤드 서버/Nimbus 노드는 작업자 노드의 실패를 원활하게 관리하도록 디자인되었지만 헤드 노드에서 실행되는 마스터 서비스가 작동 중단되면 클러스터 작동이 중단될 수 있습니다.
 
 
@@ -49,7 +50,7 @@ ZK([ZooKeeper](http://zookeeper.apache.org/)) 노드가 추가되었으며 헤�
 
 
 ## 활성 헤드 노드의 서비스 상태 확인
-활성 상태인 헤드 노드를 확인하고 해당 헤드 노드에서 실행되는 서비스의 상태를 확인하기 위해서는 RDP(원격 데스크톱 프로토콜)를 사용하여 Hadoop 클러스터에 연결해야 합니다. RDP 지침의 경우 [Azure 포털을 사용하여 HDInsight에서 Hadoop 클러스터 관리](hdinsight-administer-use-management-portal.md/#connect-to-hdinsight-clusters-by-using-rdp)를 참조하세요. 클러스터에 원격으로 연결한 경우 바탕 화면에 있는 **Hadoop 서비스 사용 가능** 아이콘을 두 번 클릭하여 Namenode, Jobtracker, Templeton, Oozieservice, Metastore 및 Hiveserver2 서비스가 실행 중인 헤드 노드에 대한 상태를 표시하고, HDI 3.0의 경우에는 Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore 및 Hiveserver2 서비스가 실행 중인 헤드 노드에 대한 상태를 표시합니다.
+활성 상태인 헤드 노드를 확인하고 해당 헤드 노드에서 실행되는 서비스의 상태를 확인하기 위해서는 RDP(원격 데스크톱 프로토콜)를 사용하여 Hadoop 클러스터에 연결해야 합니다. RDP 지침의 경우 [Azure Preview 포털을 사용하여 HDInsight에서 Hadoop 클러스터 관리](hdinsight-administer-use-management-portal.md#connect-to-hdinsight-clusters-by-using-rdp)를 참조하세요. 클러스터에 원격으로 연결한 경우 바탕 화면에 있는 **Hadoop 서비스 사용 가능** 아이콘을 두 번 클릭하여 Namenode, Jobtracker, Templeton, Oozieservice, Metastore 및 Hiveserver2 서비스가 실행 중인 헤드 노드에 대한 상태를 표시하고, HDI 3.0의 경우에는 Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore 및 Hiveserver2 서비스가 실행 중인 헤드 노드에 대한 상태를 표시합니다.
 
 ![](./media/hdinsight-high-availability/Hadoop.Service.Availability.Status.png)
 
@@ -95,14 +96,6 @@ SDK의 경우에도 상황은 비슷합니다. SDK를 사용하는 클러스터�
 
 - [ZooKeeper](http://zookeeper.apache.org/)
 - [RDP를 사용하여 HDInsight 클러스터에 연결](hdinsight-administer-use-management-portal.md#rdp)
-- [HDInsight .NET SDK 사용](hdinsight-provision-clusters.md#sdk) 
+- [HDInsight .NET SDK 사용](hdinsight-provision-clusters.md#sdk)
 
-
-
-
-
-
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

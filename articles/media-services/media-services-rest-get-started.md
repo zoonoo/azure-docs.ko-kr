@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="08/14/2015" 
 	ms.author="juliako"/>
 
 #REST API를 사용한 주문형 비디오(VoD) 제공 시작 
@@ -21,7 +21,7 @@
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
->[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+>[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
 이 자습서에서는 AMS(Azure 미디어 서비스) REST API를 사용하여 주문형 비디오(VoD) 콘텐츠 제공 응용 프로그램을 구현하는 단계를 안내합니다.
 
@@ -908,7 +908,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 
 ### 출력 자산 가져오기 
 
-다음 섹션에서는 작업의 출력 자산(인코딩된 자산)에 대한 전달 정책을 구성해보겠습니다. 다음 코드에서는 출력 자산 id를 요청하는 방법을 보여줍니다.
+다음 코드에서는 출력 자산 id를 요청하는 방법을 보여줍니다.
 
 
 **HTTP 요청**
@@ -956,85 +956,6 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 	   ]
 	}
 
-
-## <a id="configure_delivery_method"></a>인코딩된 자산에 대한 배달 정책 구성
-
-미디어 서비스 콘텐츠 배달 워크플로의 단계 중 하나는 자산 배달 정책 구성입니다. 자산 배달 정책 구성에 포함되는 사항으로는 자산 배달에 사용할 수 있는 프로토콜(예: MPEG DASH, HLS, HDS, 부드러운 스트리밍 또는 모두), 동적 자산 암호화를 사용할지 여부 및 방법(봉투(Envelope) 또는 일반 암호화) 등이 있습니다.
-
-다음 **AssetDeliveryPolicies** HTTP 요청은 동적 암호화를 적용하지 않고(AssetDeliveryPolicyType은 다음 값 중 하나 일 수 있음: None = 0, Blocked = 1, NoDynamicEncryption = 2, DynamicEnvelopeEncryption = 3, DynamicCommonEncryption = 4) MPEG DASH, HLS 및 부드러운 스트리밍 프로토콜 중 하나로 스트림을 전달하도록 지정합니다(AssetDeliveryProtocol은 다음 값의 조합일 수 있음: None = 0, SmoothStreaming = 1, Dash = 2, HLS = 4, Hds = 8, All = 65535).
-
-
-### AssetDeliveryPolicies 만들기
-
-
-**HTTP 요청**
-		
-	POST https://wamsbayclus001rest-hs.cloudapp.net/api/AssetDeliveryPolicies HTTP/1.1
-	Content-Type: application/json
-	DataServiceVersion: 1.0;NetFx
-	MaxDataServiceVersion: 3.0;NetFx
-	Accept: application/json
-	Accept-Charset: UTF-8
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=f7f09258-6753-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421679198&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=aUvBcDwRAFk1JLxceWu%2bf9dVrCZM7PrTRbZd0TtoKvU%3d
-	x-ms-version: 2.11
-	Host: wamsbayclus001rest-hs.cloudapp.net
-	Content-Length: 83
-	
-	{"Name":"Clear Policy", "AssetDeliveryPolicyType":"2","AssetDeliveryProtocol":"7"} 
-
-
-**HTTP 응답**
-	
-	HTTP/1.1 201 Created
-	Cache-Control: no-cache
-	Content-Length: 361
-	Content-Type: application/json;odata=minimalmetadata;streaming=true;charset=utf-8
-	Location: https://wamsbayclus001rest-hs.cloudapp.net/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3Aef97ae36-b898-4b8a-b427-7819ee726276')
-	Server: Microsoft-IIS/8.5
-	request-id: 7391a4b2-995d-4fc5-aca5-a398786ea38e
-	x-ms-request-id: 7391a4b2-995d-4fc5-aca5-a398786ea38e
-	X-Content-Type-Options: nosniff
-	DataServiceVersion: 3.0;
-	X-Powered-By: ASP.NET
-	Strict-Transport-Security: max-age=31536000; includeSubDomains
-	Date: Mon, 19 Jan 2015 09:13:18 GMT
-
-	{  
-	   "odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#AssetDeliveryPolicies/@Element",
-	   "Id":"nb:adpid:UUID:ef97ae36-b898-4b8a-b427-7819ee726276",
-	   "Name":"Clear Policy",
-	   "AssetDeliveryProtocol":7,
-	   "AssetDeliveryPolicyType":2,
-	   "AssetDeliveryConfiguration":null,
-	   "Created":"2015-01-19T09:13:18.911615Z",
-	   "LastModified":"2015-01-19T09:13:18.911615Z"
-	}
-    
-
-### 자산 배달 정책을 자산으로 연결
-
-다음 HTTP 요청은 지정된 배달 정책을 지정된 자산에 연결합니다.
-
-**HTTP 요청**
-
-	POST https://wamsbayclus001rest-hs.cloudapp.net/api/Assets('nb%3Acid%3AUUID%3A71d2dd33-efdf-ec43-8ea1-136a110bd42c')/$links/DeliveryPolicies HTTP/1.1
-	DataServiceVersion: 1.0;NetFx
-	MaxDataServiceVersion: 3.0;NetFx
-	Accept: application/json
-	Accept-Charset: UTF-8
-	Content-Type: application/json
-	Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421679198&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=aUvBcDwRAFk1JLxceWu%2bf9dVrCZM7PrTRbZd0TtoKvU%3d
-	x-ms-version: 2.11
-	Host: wamsbayclus001rest-hs.cloudapp.net
-	Content-Length: 140
-	
-	{ "uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/AssetDeliveryPolicies('nb%3Aadpid%3AUUID%3Aef97ae36-b898-4b8a-b427-7819ee726276')" }
-
-
-**HTTP 응답**
-
-	HTTP/1.1 204 No Content
-    . . . 
 
 
 ## <a id="publish_get_urls"></a>REST API를 통해 자산을 게시하고 스트리밍 기능 및 URL 점진적 다운로드를 사용
@@ -1088,8 +1009,7 @@ MPEG DASH에 대한 스트리밍 URL의 형식은 다음과 같습니다.
 
 성공하면 사용자가 만든 AccessPolicy 엔터티를 설명하는 201 성공 코드가 반환됩니다. 이제 AccessPolicy Id를 로케이터 엔터티를 만들기 위해 배달하려는 파일이 포함된 자산(예: 출력 자산)의 자산 Id와 함께 사용하게 됩니다.
 
->[AZURE.NOTE]
->이 기본 워크플로는 자산을 통합할 때 파일을 업로드하는 것과 같습니다(이 항목의 앞부분에서 설명함). 또한 파일을 업로드하는 것과 마찬가지로 사용자(또는 클라이언트)가 파일에 즉시 액세스해야 하는 경우 StartTime 값을 현재 시간에서 5분 전으로 설정해야 합니다. 이 동작은 클라이언트와 미디어 서비스 사이에 시간차가 있을 수 있기 때문에 필요합니다. StartTime 값은 YYYY-MM-DDTHH:mm:ssZ(예: 2014-05-23T17:53:50Z) 형식의 DateTime이어야 합니다.
+>[AZURE.NOTE]이 기본 워크플로는 자산을 통합할 때 파일을 업로드하는 것과 같습니다(이 항목의 앞부분에서 설명함). 또한 파일을 업로드하는 것과 마찬가지로 사용자(또는 클라이언트)가 파일에 즉시 액세스해야 하는 경우 StartTime 값을 현재 시간에서 5분 전으로 설정해야 합니다. 이 동작은 클라이언트와 미디어 서비스 사이에 시간차가 있을 수 있기 때문에 필요합니다. StartTime 값은 YYYY-MM-DDTHH:mm:ssZ(예: 2014-05-23T17:53:50Z) 형식의 DateTime이어야 합니다.
 
 
 ###콘텐츠를 다운로드할 SAS URL 만들기 
@@ -1155,8 +1075,7 @@ MPEG DASH에 대한 스트리밍 URL의 형식은 다음과 같습니다.
 
 반환된 **경로** 속성은 SAS URL을 포함합니다.
 
->[AZURE.NOTE]
->저장소가 암호화된 콘텐츠를 다운로드하는 경우 렌더링하기 전에 수동으로 암호를 해독하거나 처리 작업에서 저장소 암호 해독 미디어 프로세서를 사용하여 암호화되지 않은 상태로 처리된 파일을 OutputAsset으로 출력한 다음 해당 자산에서 다운로드해야 있습니다. 처리에 대한 자세한 내용은 미디어 서비스 REST API를 사용하여 인코딩 작업 만들기를 참조하세요. 또한 SAS URL 로케이터를 만들고 나면 업데이트할 수 없습니다. 예를 들어, 업데이트된 StartTime 값으로 동일한 로케이터를 다시 사용할 수 없습니다. SAS URL을 만드는 방식 때문입니다. 로케이터가 만료된 후 다운로드할 자산에 액세스하려면 새 StartTime으로 새 로케이터를 만들어야 합니다.
+>[AZURE.NOTE]저장소가 암호화된 콘텐츠를 다운로드하는 경우 렌더링하기 전에 수동으로 암호를 해독하거나 처리 작업에서 저장소 암호 해독 미디어 프로세서를 사용하여 암호화되지 않은 상태로 처리된 파일을 OutputAsset으로 출력한 다음 해당 자산에서 다운로드해야 있습니다. 처리에 대한 자세한 내용은 미디어 서비스 REST API를 사용하여 인코딩 작업 만들기를 참조하세요. 또한 SAS URL 로케이터를 만들고 나면 업데이트할 수 없습니다. 예를 들어, 업데이트된 StartTime 값으로 동일한 로케이터를 다시 사용할 수 없습니다. SAS URL을 만드는 방식 때문입니다. 로케이터가 만료된 후 다운로드할 자산에 액세스하려면 새 StartTime으로 새 로케이터를 만들어야 합니다.
 
 ###파일 다운로드
 
@@ -1236,12 +1155,12 @@ Azure 저장소 Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST A
 	         }
 	      },
 	      "Id":"nb:lid:UUID:52034bf6-dfae-4d83-aad3-3bd87dcb1a5d",
-	      "ExpirationDateTime":"/Date(1337049395000)/",
+	      "ExpirationDateTime":"\/Date(1337049395000)\/",
 	      "Type":2,
 	      "Path":"http://wamsbayclus001rest-hs.net/52034bf6-dfae-4d83-aad3-3bd87dcb1a5d/",
 	      "AccessPolicyId":"nb:pid:UUID:38c71dd0-44c5-4c5f-8418-08bb6fbf7bf8",
 	      "AssetId":"nb:cid:UUID:eb5540a2-116e-4d36-b084-7e9958f7f3c3",
-	      "StartTime":"/Date(1337031395000)/"
+	      "StartTime":"\/Date(1337031395000)\/"
 	   }
 	}
 
@@ -1277,4 +1196,4 @@ MPEG DASH를 스트리밍하려면 "/매니페스트" 뒤에 추가(format=mpd-t
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

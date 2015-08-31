@@ -5,14 +5,14 @@
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/30/2015"
+   ms.date="08/14/2015"
    ms.author="alkohli" />
 
 # StorSimple 장치에서 DATA 0 네트워크 인터페이스 설정 수정
@@ -40,7 +40,7 @@ StorSimple 장치의 Windows PowerShell 인터페이스에 연결하고 설치 �
 
 1. 장치의 DATA 0 인터페이스 구성을 도와주는 설치 마법사가 나타납니다. IP 주소, 게이트웨이 및 네트워크 마스크에 대한 새 값을 제공합니다.
 
-> [AZURE.NOTE]Azure 관리 포털에서 StorSimple 장치 구성 페이지를 통해 고정된 IP를 다시 구성해야 합니다. 자세한 내용은 [구성(장치) 페이지를 통한 네트워크 인터페이스 수정](storsimple-modify-device-config.md#modify-network-interfaces)으로 이동합니다.
+> [AZURE.NOTE]Azure 관리 포털에서 StorSimple 장치 **구성** 페이지를 통해 고정된 컨트롤러 IP를 다시 구성해야 합니다. 자세한 내용은 [네트워크 인터페이스 수정](storsimple-modify-device-config.md#modify-network-interfaces)을 참조하세요.
 
 
 ## Set-HcsNetInterface cmdlet을 통해 DATA 0 네트워크 설정 수정
@@ -48,14 +48,13 @@ StorSimple 장치의 Windows PowerShell 인터페이스에 연결하고 설치 �
 
 #### Set-HcsNetInterface cmdlet을 통해 DATA 0 네트워크 설정을 수정하려면
 
-1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다. 메시지가 표시되면 **장치 관리자 암호**를 제공합니다. 기본 암호는 `Password1`입니다.
+1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다. 메시지가 표시되면 장치 관리자 암호를 제공합니다. 기본 암호는 `Password1`입니다.
 
-1. 명령 프롬프트에 다음을 입력합니다.
+2. 명령 프롬프트에 다음을 입력합니다.
 
 	`Set-HCSNetInterface -InterfaceAlias Data0 -IPv4Address <> -IPv4Netmask <> -IPv4Gateway <> -Controller0IPv4Address <> -Controller1IPv4Address <> -IsiScsiEnabled 1 -IsCloudEnabled 1`
-
 	
-1. 다음에 대한 DATA 0의 값을 꺾쇠 괄호(<>)로 입력합니다.
+    각괄호에 DATA 0에 대해 다음 값을 입력합니다.
 											
 	- IPv4 주소
 	
@@ -68,6 +67,7 @@ StorSimple 장치의 Windows PowerShell 인터페이스에 연결하고 설치 �
 	- 컨트롤러 1에 대한 고정 IPv4 주소
 
 ## 다음 단계
+
 DATA 0 이외의 네트워크 인터페이스를 구성하려면 [관리 포털에서 페이지 구성](storsimple-modify-device-config.md)을 사용할 수 있습니다. 네트워크 인터페이스를 구성할 때 문제가 발생하는 경우 [배포 문제 해결](storsimple-troubleshoot-deployment.md)을 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

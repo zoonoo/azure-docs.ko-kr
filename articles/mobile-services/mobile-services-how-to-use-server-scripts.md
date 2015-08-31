@@ -13,16 +13,12 @@
 	ms.tgt_pltfrm="javascript" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/05/2015" 
+	ms.date="08/17/2015" 
 	ms.author="ricksal"/>
 
 
 # JavaScript 백 엔드 모바일 서비스 작업
 
-> [AZURE.SELECTOR]
-[.NET backend](mobile-services-dotnet-backend-how-to-use.md)
-[JavaScript backend](mobile-services-how-to-use-server-scripts.md)
- 
 이 문서에서는 Azure 모바일 서비스에서 JavaScript 백 엔드 작업을 수행하는 방법에 대한 자세한 정보와 예를 제공합니다.
 
 ##<a name="intro"></a>소개
@@ -1061,4 +1057,4 @@ Stream|지원되지 않음
 [Azure 모바일 서비스에서 package.json 지원]: http://go.microsoft.com/fwlink/p/?LinkId=391036
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

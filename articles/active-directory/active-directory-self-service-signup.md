@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Azure의 셀프 서비스 등록이란?" 
-	description="Azure의 셀프 서비스 등록, 등록 프로세스 관리 방법 및 등록 방법에 대한 개요입니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="Azure의 셀프 서비스 등록이란?"
+	description="Azure의 셀프 서비스 등록, 등록 프로세스 관리 방법 및 등록 방법에 대한 개요입니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="identity" 
-	ms.date="05/13/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/14/2015" 
+	ms.author="stevenpo"/>
 
 
 # Azure의 셀프 서비스 등록이란?
@@ -26,12 +26,12 @@
 - 고객이 원하는 서비스를 더욱 빠르게 제공합니다.
 - 서비스에 대한 메일 기반(바이럴) 제공 사항을 만듭니다.
 - 사용자가 기억하기 쉬운 업무용 메일 별칭을 사용하여 신속하게 ID를 만들 수 있도록 하는 메일 기반 등록 플로를 만듭니다.
-- 관리되지 않는 Azure 테넌트는 커져서 나중에 관리되는 테넌트가 될 수 있으며 다른 서비스에서 다시 사용할 수 있습니다. 
+- 관리되지 않는 Azure 테넌트는 커져서 나중에 관리되는 테넌트가 될 수 있으며 다른 서비스에서 다시 사용할 수 있습니다.
 
 ## 용어 및 정의
 
-+ **셀프 서비스 등록**: 사용자가 클라우드 서비스에 등록하고 자신의 메일 도메인을 기반으로 Azure Active Directory에 ID를 자동 생성하는 방법입니다. 
-+ **관리되지 않는 Azure 테넌트**: ID가 생성되는 디렉터리입니다. 관리되지 않는 테넌트는 전역 관리자가 없는 디렉터리입니다. 
++ **셀프 서비스 등록**: 사용자가 클라우드 서비스에 등록하고 자신의 메일 도메인을 기반으로 Azure Active Directory에 ID를 자동 생성하는 방법입니다.
++ **관리되지 않는 Azure 테넌트**: ID가 생성되는 디렉터리입니다. 관리되지 않는 테넌트는 전역 관리자가 없는 디렉터리입니다.
 + **메일로 확인된 사용자**: Azure AD의 사용자 계정의 한 유형입니다. 셀프 서비스 제공 사항에 등록한 후 자동으로 생성된 ID를 갖는 사용자를 메일로 확인된 사용자라고 합니다. 메일로 확인된 사용자는 creationmethod=EmailVerified로 태그가 지정된 디렉터리의 일반 멤버입니다.
 
 ## 고객 환경
@@ -46,8 +46,8 @@ Dan이 이 셀프 서비스 제공 사항에 등록하는 BellowsCollege.com 메
 
 관리되지 않는 Azure 테넌트의 DNS 도메인 이름을 소유한 관리자는 소유권을 증명한 후 테넌트를 인수하거나 병합할 수 있습니다. 다음 섹션에서 관리자 환경을 보다 자세히 설명하지만 요약 내용은 다음과 같습니다.
 
-- 관리되지 않는 Azure 테넌트를 인수하면 관리되지 않는 테넌트의 전역 관리자가 됩니다. 이를 내부 인수라고도 합니다. 
-- 관리되지 않는 Azure 테넌트를 병합하고 관리되지 않는 테넌트의 DNS 도메인 이름을 관리되는 Azure 테넌트에 추가하여 사용자에서 리소스로 매핑되면 사용자가 중단 없이 서비스에 계속 액세스할 수 있습니다. 이를 외부 인수라고도 합니다. 
+- 관리되지 않는 Azure 테넌트를 인수하면 관리되지 않는 테넌트의 전역 관리자가 됩니다. 이를 내부 인수라고도 합니다.
+- 관리되지 않는 Azure 테넌트를 병합하고 관리되지 않는 테넌트의 DNS 도메인 이름을 관리되는 Azure 테넌트에 추가하여 사용자에서 리소스로 매핑되면 사용자가 중단 없이 서비스에 계속 액세스할 수 있습니다. 이를 외부 인수라고도 합니다.
 
 ### Microsoft Azure 디렉터리에서 만들어지는 것이 무엇입니까?
 
@@ -103,13 +103,13 @@ Bellows College의 IT 관리자가 셀프 서비스 제공 사항에 등록한 �
 외부 인수의 경우 이미 관리되는 테넌트가 있으며 두 개의 별도의 테넌트를 소유하는 대신 관리되지 않는 테넌트의 모든 사용자 및 그룹을 관리되는 테넌트에 결합시키려고 합니다.
 
 관리되는 테넌트의 관리자는 도메인을 추가하며 이 도메인은 연결된 관리되지 않는 테넌트를 가지게 됩니다.
-	
+
 예를 들어 IT 관리자이며 조직에 등록된 도메인 이름인 Contoso.com의 관리되는 테넌트를 가지고 있다고 가정해 보겠습니다. 조직이 소유한 다른 도메인 이름인 user@contoso.co.uk라는 메일 도메인 이름을 사용하여 셀프 서비스 제공 사항에 등록한 조직 사용자를 발견합니다. 이 사용자는 현재 contoso.co.uk의 관리되지 않는 테넌트에 계정이 있습니다.
 
 두 개의 테넌트를 별도로 관리하고 싶지 않으므로 contoso.co.uk의 관리되지 않는 테넌트를 contoso.com의 IT 관리되는 기존 테넌트에 병합합니다.
-	
+
 외부 인수는 내부 인수와 동일한 DNS 유효성 검사 프로세스를 따릅니다. 차이: 사용자와 서비스는 IT 관리되는 테넌트에 다시 매핑됩니다.
-	
+
 #### 외부 인수 수행 효과는 무엇인가요?
 
 외부 인수를 통해 사용자에서 리소스로 매핑되어 사용자가 중단 없이 서비스에 계속 액세스할 수 있습니다. 개인용 RMS를 포함한 많은 응용 프로그램이 사용자에서 리소스로의 매핑을 잘 처리하므로 사용자가 변경하지 않고 이러한 서비스에 계속 액세스할 수 있습니다. 응용 프로그램이 사용자에서 리소스로의 매핑을 효과적으로 처리하지 않을 경우 외부 인수는 사용자에게 만족스러운 환경을 제공할 수 없습니다.
@@ -160,7 +160,7 @@ Bellows College의 IT 관리자가 셀프 서비스 제공 사항에 등록한 �
 예:
 
 1. 셀프 서비스 제공 사항에 응답하는 데 사용된 자격 증명을 사용하여 Azure AD에 연결합니다: import-module MSOnline $msolcred = get-credential connect-msolservice -credential $msolcred
-		
+
 2. 도메인 목록을 가져옵니다.
 
 	Get-MsolDomain
@@ -205,8 +205,8 @@ Bellows College의 IT 관리자가 셀프 서비스 제공 사항에 등록한 �
 
 관리자는 Azure AD cmdlet인 Set-MsolCompanySettings 매개 변수를 사용하여 이러한 기능을 구성할 수 있습니다.
 
-+ **AllowEmailVerifiedUsers**는 관리되지 않는 테넌트를 만들거나 결합시킬 수 있는지 여부를 제어합니다. 이 매개 변수를 $false로 설정하면 메일로 확인된 사용자가 테넌트를 결합시킬 수 없습니다. 
-+ **AllowAdHocSubscriptions**는 사용자의 셀프 서비스 등록 수행을 제어합니다. 이 매개 변수를 $false로 설정하면 사용자가 셀프 서비스 등록을 수행할 수 없습니다. 
++ **AllowEmailVerifiedUsers**는 관리되지 않는 테넌트를 만들거나 결합시킬 수 있는지 여부를 제어합니다. 이 매개 변수를 $false로 설정하면 메일로 확인된 사용자가 테넌트를 결합시킬 수 없습니다.
++ **AllowAdHocSubscriptions**는 사용자의 셀프 서비스 등록 수행을 제어합니다. 이 매개 변수를 $false로 설정하면 사용자가 셀프 서비스 등록을 수행할 수 없습니다.
 
 
 ### 컨트롤이 어떻게 작동하나요?
@@ -234,6 +234,4 @@ Bellows College의 IT 관리자가 셀프 서비스 제공 사항에 등록한 �
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

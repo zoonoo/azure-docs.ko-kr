@@ -21,7 +21,7 @@
 
 ## 개요
 
-보다 빠른 가상 컴퓨터를 위한 **Azure 프리미엄 저장소 디스크** 사용을 환영합니다!
+보다 빠른 Azure 가상 컴퓨터를 위한 **Azure 프리미엄 저장소 디스크**입니다.
 
 프리미엄 저장소가 도입되면서 이제 Microsoft Azure는 **프리미엄 저장소** 및 **표준 저장소**라는 두 가지 유형의 지속형 저장소를 제공합니다. 프리미엄 저장소는 최신 기술인 SSD(Solid State Drive)에 데이터를 저장하는 반면, 표준 저장소는 HDD(하드 디스크 드라이브)에 데이터를 저장합니다.
 
@@ -51,7 +51,7 @@ Azure 프리미엄 저장소를 시작하려면 방문 [무료로 시작 하기]
 
 - 프리미엄 저장소 계정은 사용자 지정 도메인 이름에 매핑할 수 없습니다.
 
-- 프리미엄 저장소에 대한 저장소 분석은 현재 지원되지 않습니다. 프리미엄 저장소 계정에 디스크를 사용하여 VM의 성능 메트릭을 분석하려면 Windows VM용 [Windows 성능 모니터](https://technet.microsoft.com/library/cc749249.aspx) 및 Linux VM용 [IOSTAT](http://linux.die.net/man/1/iostat)와 같은 운영 체제 기반 도구를 사용합니다.
+- 프리미엄 저장소에 대한 저장소 분석은 현재 지원되지 않습니다. 프리미엄 저장소 계정에 디스크를 사용하여 VM의 성능 메트릭을 분석하려면 Windows VM용 [Windows 성능 모니터](https://technet.microsoft.com/library/cc749249.aspx) 및 Linux VM용 [IOSTAT](http://linux.die.net/man/1/iostat)와 같은 운영 체제 기반 도구를 사용합니다. 또한 Azure Preview 포털에서 Azure VM 진단을 사용하도록 설정할 수 있습니다. 자세한 내용은 [Azure 진단 확장을 사용한 Microsoft Azure 가상 컴퓨터 모니터링](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)(영문)을 참조하세요.
 
 ## 디스크용 프리미엄 저장소 사용
 다음 두 가지 방법 중 하나로 디스크용 프리미엄 저장소를 사용할 수 있습니다.
@@ -130,7 +130,7 @@ Azure는 저장소 계정을 운영 체제(OS) 및 데이터 디스크의 컨테
 </tbody>
 </table>
 
-	최신 정보를 보시려면 [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx)를 참고하십시오. 프리미엄 저장소 디스크, IOP 및 처리량 한계에 대해 알아 보려면 [Scalability and Performance Targets when using Premium Storage](#scalability-and-performance-targets-when-using-premium-storage) 섹션에서 관련 표를 참고하십시오.
+	최신 정보는 [Azure를 위한 가상 컴퓨터 및 클라우드서비스 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx) 를 참조하세요. 프리미엄 저장소 디스크와 해당 IOPS 및 처리량 한도에 대한 자세한 내용은 이 문서에서 [프리미엄 저장소 사용 시 확장성 및 성능 목표](#scalability-and-performance-targets-whko-kring-premium-storage) 섹션의 테이블을 참조하세요.
 
 > [AZURE.NOTE]캐시 적중 수는 디스크의 할당된 IOPS/처리량으로 제한되지 않습니다. 즉, DS 시리즈 VM에서 읽기 전용 캐시 설정된 데이터 디스크를 사용하는 경우 캐시에서 제공 하는 읽기는 프리미엄 저장소 디스크의 대상이 아닙니다. 따라서 워크로드가 대부분 읽기인 경우 디스크에서 상당히 높은 처리량을 얻을 수 있습니다. 캐시는 VM 크기에 기반한 VM 단계에서 별도의 IOPS/처리량으로 제한됩니다. DS 시리즈 VM은 대략 캐시 및 로컬 SSD IO에 대해 코어당 4000 IOPS 및 33MB/초여야 합니다.
 
@@ -246,10 +246,9 @@ Azure에서 디스크를 생성하는 경우 용량, 성능, 확장성 및 최�
 
 ### 중요:
 
-- 프리미엄 저장소의 Blob 복사 작업이 대상의 기존 Blob을 덮어쓰는 경우 덮어쓸 Blob에 스냅숏이 없어야 합니다. 프리미엄 저장소 계정 간이나 내에서 복사하는 경우 복사를 시작할 때 대상 Blob에 스냅숏이 없어야 합니다.
 - 단일 Blob의 스냅숏 수는 100개로 제한됩니다. 최대 10분마다 스냅숏을 생성할 수 있습니다.
-- 10TB는 프리미엄 저장소 계정당 최대 스냅숏 용량입니다. 스냅숏 용량은 스냅숏에 있는 고유 데이터입니다. 즉, 스냅숏 범주에 기본 Blob 크기가 포함되지 않습니다.
-- 프리미엄 저장소 계정에서 다른 계정에 스냅숏을 복사하려면 먼저 동일한 프리미엄 저장소 계정에서 새 Blob을 만들도록 스냅숏의 CopyBlob을 수행해야 합니다. 그런 다음 다른 저장소 계정에 새 Blob을 복사할 수 있습니다. 복사가 완료 된 후 중간 Blob을 삭제할 수 있습니다. 이 과정을 따라 AzCopy 또는 Blob 복사를 사용하여 프리미엄 저장소 계정에서 지역 중복 표준 저장소 계정으로 스냅숏을 복사할 수 있습니다. 자세한 내용은 [Microsoft Azure 저장소와 함께 AzCopy를 사용하는 방법](storage-use-azcopy.md) 및 [Blob 복사](http://msdn.microsoft.com/library/azure/dd894037.aspx)를 참조하세요.
+- 프리미엄 저장소 계정당 최대 스냅숏 용량은 10TB입니다. 스냅숏 용량은 스냅숏의 총 데이터 양을 나타낼 뿐이며 기본 Blob의 데이터는 포함하지 않습니다.
+- 스냅숏의 지역 중복 복사본을 유지하려면 AzCopy 또는 Blob 복사를 사용하여 프리미엄 저장소 계정에서 지역 중복 표준 저장소 계정으로 스냅숏을 복사할 수 있습니다. 자세한 내용은 [Microsoft Azure 저장소와 함께 AzCopy를 사용하는 방법](storage-use-azcopy.md) 및 [Blob 복사](http://msdn.microsoft.com/library/azure/dd894037.aspx)를 참조하세요.
 - 프리미엄 저장소 계정에서 페이지 Blob에 대한 REST 작업을 수행하는 방법에 대한 자세한 내용은 MSDN 라이브러리에서 [Azure 프리미엄 저장소와 함께 Blob 서비스 작업 사용](http://go.microsoft.com/fwlink/?LinkId=521969)을 참조하세요.
 
 ## 프리미엄 저장소와 Linux VM 사용
@@ -262,10 +261,55 @@ Azure에서 디스크를 생성하는 경우 용량, 성능, 확장성 및 최�
 
 - “ReadWrite”으로 캐시가 설정된 프리미엄 저장소 디스크의 경우 쓰기 내구성을 위해 장벽이 설정되어야 합니다.
 
-다음은 프리미엄 저장소로 유효성을 검사한 Linux 배포판입니다. 프리미엄 저장소 사용 시 더 나은 성능 및 확장성을 위해 이러한 버전 이상으로 VM을 업그레이드하는 것이 좋습니다. 또한 버전 중 일부는 최신 LIS(Microsoft Azure 용 Linux Integration Services v4.0)가 필요합니다. 다운로드 및 설치를 위해 아래 제공된 링크를 따르십시오. 추가 유효성 검사가 완료되면 목록에 대한 자세한 이미지 추가가 계속됩니다. 유효성 검사는 이러한 이미지에 따라 다른 성능을 보여주었으며 해당 이미지의 워크로드 특성 및 설정에 따라서도 달라집니다. 다른 종류의 워크로드에 대해 서로 다른 이미지가 조정됩니다. <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;"> <tbody> <tr> <td><strong>배포</strong></td> <td><strong>버전</strong></td> <td><strong>지원 커널</strong></td> <td><strong>지원 이미지</strong></td> </tr> <tr> <td rowspan="4"><strong>Ubuntu</strong></td> <td>12.04</td> <td>3.2.0-75.110</td> <td>Ubuntu-12\_04\_5-LTS-amd64-server-20150119-ko-kr-30GB</td> </tr> <tr> <td>14.04</td> <td>3.13.0-44.73</td> <td>Ubuntu-14\_04\_1-LTS-amd64-server-20150123-ko-kr-30GB</td> </tr> <tr> <td>14.10</td> <td>3.16.0-29.39</td> <td>Ubuntu-14\_10-amd64-server-20150202-ko-kr-30GB</td> </tr> <tr> <td>15.04</td> <td>3.19.0-15</td> <td>Ubuntu-15\_04-amd64-server-20150422-ko-kr-30GB</td> </tr> <tr> <td><strong>SUSE</strong></td> <td>SLES 12</td> <td>3.12.36-38.1</td> <td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td> </tr> <tr> <td><strong>CoreOS</strong></td> <td>584.0.0</td> <td>3.18.4</td> <td>CoreOS 584.0.0</td> </tr> <tr> <td rowspan="2"><strong>CentOS</strong></td> <td>6.5, 6.6, 7.0</td> <td></td> <td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 필수 </a></br> *아래 참고 참조 </td> </tr> <tr> <td>7.1</td> <td>3.10.0-229.1.2.el7</td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 권장 </a> <br/> *아래 참고 참조 </td> </tr>
+다음은 프리미엄 저장소로 유효성을 검사한 Linux 배포판입니다. 프리미엄 저장소 사용 시 더 나은 성능 및 확장성을 위해 이러한 버전 이상으로 VM을 업그레이드하는 것이 좋습니다. 또한 버전 중 일부는 최신 LIS(Microsoft Azure 용 Linux Integration Services v4.0)가 필요합니다. 다운로드 및 설치를 위해 아래 제공된 링크를 따르십시오. 추가 유효성 검사가 완료되면 목록에 대한 자세한 이미지 추가가 계속됩니다. 유효성 검사는 이러한 이미지에 따라 다른 성능을 보여주었으며 해당 이미지의 워크로드 특성 및 설정에 따라서도 달라집니다. 다른 종류의 워크로드에 대해 서로 다른 이미지가 조정됩니다. 
+<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
+<tbody>
+<tr>
+	<td><strong>배포</strong></td>
+	<td><strong>버전</strong></td>
+	<td><strong>지원 커널</strong></td>
+	<td><strong>지원 이미지</strong></td>
+</tr>
+<tr>
+	<td rowspan="4"><strong>Ubuntu</strong></td>
+	<td>12.04</td>
+	<td>3.2.0-75.110</td>
+	<td>Ubuntu-12_04_5-LTS-amd64-server-20150119-ko-kr-30GB</td>
+</tr>
+<tr>
+	<td>14.04</td>
+	<td>3.13.0-44.73</td>
+	<td>Ubuntu-14_04_1-LTS-amd64-server-20150123-ko-kr-30GB</td>
+</tr>
+<tr>
+	<td>14.10</td>
+	<td>3.16.0-29.39</td>
+	<td>Ubuntu-14_10-amd64-server-20150202-ko-kr-30GB</td>
+</tr>
+<tr>
+	<td>15.04</td>
+	<td>3.19.0-15</td>
+	<td>Ubuntu-15_04-amd64-server-20150422-ko-kr-30GB</td>
+</tr>
+<tr>
+	<td><strong>SUSE</strong></td>
+	<td>SLES 12</td>
+	<td>3.12.36-38.1</td>
+	<td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td>
+</tr>
+<tr>
+	<td><strong>CoreOS</strong></td>
+	<td>584.0.0</td>
+	<td>3.18.4</td>
+	<td>CoreOS 584.0.0</td>
+</tr>
+<tr>
+	<td rowspan="2"><strong>CentOS</strong></td>
+	<td>6.5, 6.6, 7.0</td>
+	<td></td> <td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 필수 </a></td> </tr> <tr> <td>7.1</td> <td>3.10.0-229.1.2.el7</td> <td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 권장 </a></td> </tr>
 
 <tr>
-	<td rowspan="2"><strong>Oracle</strong></td>
+	<td rowspan="2"><link id="138" refid="139" url="virtual-machines-oracle-azure-virtual-machines.md">Oracle</link></td>
 	<td>6.4</td>
 	<td></td>
 	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 필수 </a></td>
@@ -331,7 +375,7 @@ Azure 환경 내의 전체 연습은 [Azure Preview 포털에서 Windows를 실�
 이 PowerShell 예제에서는 새 Premium 저장소 계정을 만들고 새 Azure 가상 컴퓨터에 해당 계정을 사용하는 데이터 디스크를 연결하는 방법을 보여줍니다.
 
 1. [Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)에 제공된 단계에 따라 PowerShell 환경을 설정합니다.
-2. PowerShell 콘솔을 시작하고, 구독에 연결한 후 콘솔 창에서 다음 PowerShell cmdlet을 실행합니다. 이 PowerShell 문에 표시된 대로 프리미엄 저장소 계정을 만드는 경우 **Type** 매개 변수를 **Premium\_LRS**로 지정해야 합니다.
+2. PowerShell 콘솔을 시작하고, 구독에 연결한 후 콘솔 창에서 다음 PowerShell cmdlet을 실행합니다. 이 PowerShell 문에 표시된 대로 프리미엄 저장소 계정을 만드는 경우 **Type** 매개 변수를 **Premium_LRS**로 지정해야 합니다.
 
 		New-AzureStorageAccount -StorageAccountName "yourpremiumaccount" -Location "West US" -Type "Premium_LRS"
 
@@ -401,4 +445,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

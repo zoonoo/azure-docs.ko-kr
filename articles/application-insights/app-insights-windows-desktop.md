@@ -12,10 +12,10 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="08/19/2015" 
 	ms.author="awills"/>
 
-# Windows 데스크톱 앱 및 서비스의 Application Insights
+# Windows 데스크톱 앱, 서비스 및 작업자 역할의 Application Insights
 
 *Application Insights는 미리 보기 상태입니다.*
 
@@ -23,7 +23,7 @@
 
 Application Insights를 사용하면 사용량 및 성능을 위해 배포된 응용 프로그램을 모니터링할 수 있습니다.
 
-Application Insights SDK은 Windows 데스크톱 앱 및 서비스에 대한 지원을 제공합니다. 이 SDK는 모든 원격 분석 데이터에 대해 전체 API 지원을 제공하지만 원격 분석 자동 컬렉션을 제공하지는 않습니다.
+데스크톱 앱, 백그라운드 서비스 및 작업자 역할을 포함하는 모든 Windows 응용 프로그램은 Application Insights 코어 SDK를 사용하여 원격 분석을 Application Insights에 보낼 수 있습니다. 코어 SDK는 웹 또는 장치 SDK와 달리 API만을 제공합니다. 데이터를 자동으로 수집하는 모듈이 포함되지 않으므로 코드를 작성하여 사용자 고유의 원격 분석을 보내야 합니다.
 
 
 ## <a name="add"></a> Application Insights 리소스 만들기
@@ -42,11 +42,15 @@ Application Insights SDK은 Windows 데스크톱 앱 및 서비스에 대한 지
 ## <a name="sdk"></a>응용 프로그램에 SDK를 설치합니다.
 
 
-1. Visual Studio에서 데스크톱 앱 프로젝트의 NuGet 패키지를 편집합니다. ![마우스 오른쪽 단추로 프로젝트 클릭 및 Nuget 패키지 관리 선택](./media/app-insights-windows-desktop/03-nuget.png)
+1. Visual Studio에서 데스크톱 앱 프로젝트의 NuGet 패키지를 편집합니다.
+
+    ![마우스 오른쪽 단추로 프로젝트 클릭 및 Nuget 패키지 관리 선택](./media/app-insights-windows-desktop/03-nuget.png)
 
 2. Application Insights 코어 API 패키지를 설치합니다.
 
     !["Application Insights" 검색](./media/app-insights-windows-desktop/04-core-nuget.png)
+
+    해당 기능을 사용하려는 경우 성능 카운터 및 로그 캡처 패키지와 같은 다른 패키지를 설치할 수 있습니다.
 
 3. 코드에 InstrumentationKey를 설정합니다(예: main()).
 
@@ -55,16 +59,17 @@ Application Insights SDK은 Windows 데스크톱 앱 및 서비스에 대한 지
 *ApplicationInsights.config가 없는 이유는?*
 
 * .config 파일은 원격 분석 수집기 구성에 사용되는 코어 API 패키지에 의해 설치되지 않습니다. 따라서 계측 키를 설정하고 원격 분석을 전송하는 사용자 고유의 코드를 작성합니다.
+* 다른 패키지 중 하나를 설치한 경우 .config 파일이 있습니다. 코드에서 설정하는 대신 계측 키를 삽입할 수 있습니다.
 
 *다른 NuGet 패키지를 사용할 수 있습니까?*
 
-* 예, 성능 카운터에 대한 수집기를 설치하는 웹 서버 패키지를 사용할 수 있습니다. [HTTP 요청 수집기를 사용하지 않도록 설정](app-insights-configuration-with-applicationinsights-config.md)해야 합니다. 그러면 계측 키를 넣는 .config 파일이 설치됩니다.
+* 예, 성능 카운터와 같은 다양한 컬렉션 모듈에 수집기를 설치하는 웹 서버 패키지 (Microsoft.ApplicationInsights.Web)를 사용할 수 있습니다. 그러면 계측 키를 넣는 .config 파일이 설치됩니다. HTTP 요청 수집기와 같이 [원하지 않는 모듈을 사용하지 않도록 설정하는 ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)를 사용합니다. 
+* [로그 또는 추적 수집기 패키지](app-insights-asp-net-trace-logs.md)를 사용하려는 경우 웹 서버 패키지를 시작합니다. 
 
 ## <a name="telemetry"></a>원격 분석 호출 삽입
 
 `TelemetryClient` 인스턴스를 만들고 [이를 사용하여 원격 분석을 전송][api]합니다.
 
-`TelemetryClient.Flush()`을(를) 사용하여 앱을 닫기 전에 메시지를 보냅니다. 코어 SDK는 메모리 내 버퍼를 사용합니다. 플러시 메서드는 프로세스 종료 시 데이터 손실이 없는지 확인하기 위해 이 버퍼가 비었는지 확인합니다 (다른 종류의 앱에는 사용하지 않는 것이 좋습니다. 플랫폼 SDK는 이 동작을 자동으로 구현합니다.)
 
 예를들어, Windows Forms 응용 프로그램에서는 다음을 작성할 수 있습니다.
 
@@ -108,6 +113,10 @@ Application Insights SDK은 Windows 데스크톱 앱 및 서비스에 대한 지
 * 특정 이벤트에 연결되지 않은 메트릭의 정기적인 보고서를 보내기 위한 배경 작업에서는 TrackMetric(name, value)
 * [진단 로깅][diagnostic]에 대해서는 TrackTrace(logEvent)
 * Catch 절에서는 TrackException(exception)
+
+
+앱을 닫기 전에 모든 원격 분석이 전송되었는지 확인하려면 `TelemetryClient.Flush()`을 사용합니다. 일반적으로 원격 분석은 일괄 처리되고 정기적으로 전송됩니다. (플러시는 코어 API를 사용하는 경우에만 사용하는 것이 좋습니다. 웹 및 장치 SDK는 이 동작을 자동으로 구현합니다.)
+
 
 #### 컨텍스트 이니셜라이저
 
@@ -181,4 +190,4 @@ TrackMetric 또는 TrackEvent의 측정 매개 변수를 사용한 경우 [메�
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

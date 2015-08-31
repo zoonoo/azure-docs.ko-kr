@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/28/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
 
 
@@ -37,18 +37,26 @@ Twitter 커넥터에서 사용할 수 있는 트리거와 동작은 다음과 �
 --- | ---
 New Tweet From Search(새 트윗 검색) | <ul><li>사용자 타임라인 가져오기</li><li>트윗 검색</li><li>트윗</li><li>멘션 타임라인 가져오기</li><li>홈 타임라인 가져오기</li><li>팔로워 가져오기</li><li>친구 가져오기</li><li>사용자 세부 정보 가져오기</li><li>사용자에 트윗</li><li>직접 메시지 보내기</li></ul>
 
-> [AZURE.IMPORTANT]**새 트윗** 트리거는 보관되었습니다. 현재, 계속 고급 작업으로 사용할 수 있습니다. **리트윗** 동작은 제거되었으며 더 이상 지원되지 않습니다. 리트윗 동작을 사용하면 런타임에 실패합니다. 따라서 논리 앱에서 리트윗 동작을 제거하세요.
+**새 트윗** 트리거는 보관되었습니다. 현재, 계속 고급 작업으로 사용할 수 있습니다. **리트윗** 동작은 제거되었으며 더 이상 지원되지 않습니다. 리트윗 동작을 사용하면 런타임에 실패합니다. 따라서 논리 앱에서 리트윗 동작을 제거하세요.
 
 
 ## Twitter 커넥터 만들기
+
+> [AZURE.IMPORTANT]현재 Twitter 커넥터 만들기에는 Twitter와 API 앱의 등록이 필요합니다. [http://apps.twitter.com](http://apps.twitter.com)에서 응용 프로그램을 무료로 등록할 수 있습니다. 커넥터를 만들기 위해서는 Twitter API 키 및 암호가 필요합니다.
+
 커넥터는 논리 앱 내에서 만들거나 Azure 마켓플레이스에서 직접 만들 수 있습니다. 마켓플레이스에서 커넥터를 만들려면
 
-1. Azure 시작 보드에서 **마켓플레이스**를 선택합니다.
+1. [http://apps.twitter.com](http://apps.twitter.com)에서 Twitter에 대한 무료 응용 프로그램 만들기
+    * 앱을 등록하는 경우에는 웹사이트에 대한 모든 URL을 입력할 수 있으며 콜백 URL을 비워둘 수 있습니다.
+2. Azure 시작 보드에서 **마켓플레이스**를 선택합니다.
 2. "Twitter 커넥터"를 검색합니다.
-3. 이름, 앱 서비스 계획 및 기타 속성을 입력합니다.
-
+3. “Twitter 커넥터”를 선택하고 ‘만들기’ 를 클릭합니다. 이렇게 하면 만들기 블레이드가 열립니다.
+3. '패키지 설정'을 클릭하고 Twitter 앱에서 '소비자 키'를 'clientId' 필드에 붙여넣습니다. Twitter 앱에서 '소비자 키'를 'clientId' 필드에 붙여넣습니다.![][10]
+4. 커넥터 이름, 앱 서비스 및 리소스 그룹 주위에 필요한 다른 설정을 입력합니다.
 	![][1]
-4.	**만들기**를 클릭합니다.
+5.	**만들기**를 클릭합니다.
+
+> [AZURE.NOTE]리디렉션 URL에 Twitter API의 보안을 강화 하려는 경우 [여기](app-service-logic-oauth-security.md)에서 수행 하는 방법에 대한 세부 정보를 볼 수 있습니다
 
 
 ## 논리 앱에서 Twitter 커넥터 사용
@@ -79,11 +87,11 @@ API 앱이 생성되면 이제 논리 앱에 대한 트리거 또는 동작으�
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
-REST API를 사용하여 API 앱을 만듭니다. [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)를 참조하세요.
+[커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
 커넥터의 성능 통계를 검토하고 보안을 제어할 수 있습니다. [기본 제공 API 앱 및 커넥터 관리 및 모니터링](app-service-logic-monitor-your-connectors.md)을 참조하세요.
 
-	<!--Image references-->
+<!--Image references-->
 [1]: ./media/app-service-logic-connector-twitter/img1.png
 [2]: ./media/app-service-logic-connector-twitter/img2.png
 [3]: ./media/app-service-logic-connector-twitter/img3.png
@@ -92,5 +100,7 @@ REST API를 사용하여 API 앱을 만듭니다. [커넥터 및 API 앱 참조]
 [6]: ./media/app-service-logic-connector-twitter/triggers.png
 [7]: ./media/app-service-logic-connector-twitter/img7.png
 [8]: ./media/app-service-logic-connector-twitter/actions.png
+[9]: ./media/app-service-logic-connector-twitter/settings.PNG
+[10]: ./media/app-service-logic-connector-twitter/TwitterAPISettings.png
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

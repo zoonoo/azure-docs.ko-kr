@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure Redis Cache를 Java와 함께 사용하는 방법"
-   description="Java를 사용하여 Azure Redis Cache를 시작합니다."
-   services="redis-cache"
-   documentationCenter=""
-   authors="MikeWasson"
-   manager="wpickett"
-   editor=""/>
+	description="Java를 사용하여 Azure Redis Cache를 시작합니다."
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
+	editor=""/>
 
 <tags
-   ms.service="cache"
-   ms.devlang="java"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="required"
-   ms.date="08/04/2015"
-   ms.author="mwasson"/>
+	ms.service="cache"
+	ms.devlang="java"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="08/17/2015"
+	ms.author="sdanie"/>
 
 # Azure Redis Cache를 Java와 함께 사용하는 방법
 
@@ -87,4 +87,4 @@ DNS 호스트 이름을 입력합니다. 양식은 `<name>.redis.cache.windows.n
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

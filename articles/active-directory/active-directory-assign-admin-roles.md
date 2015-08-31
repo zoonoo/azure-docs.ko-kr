@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Azure AD에서 관리자 역할 할당" 
-	description="Azure AD에서 사용할 수 있는 관리자 역할 및 이 역할을 할당하는 방법을 설명하는 항목입니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="Azure AD에서 관리자 역할 할당"
+	description="Azure AD에서 사용할 수 있는 관리자 역할 및 이 역할을 할당하는 방법을 설명하는 항목입니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand" 
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/14/2015"
+	ms.author="curtand"/>
 
 # Azure AD에서 관리자 역할 할당
 
@@ -85,7 +85,4 @@
 - [암호 관리](active-directory-manage-passwords.md)
 - [그룹 관리](active-directory-manage-groups.md)
 
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

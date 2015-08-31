@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="StorSimple용 Windows PowerShell을 사용하여 장치 관리"
+   pageTitle="StorSimple용 Windows PowerShell을 사용하 여 StorSimple 장치 관리 | Microsoft Azure"
    description="StorSimple용 Windows PowerShell을 사용하여 장치를 관리하는 방법을 알아봅니다."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/04/2015"
+   ms.date="08/19/2015"
    ms.author="alkohli@microsoft.com" />
 
 # StorSimple용 Windows PowerShell을 사용하여 장치 관리
@@ -37,11 +37,9 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 장치를 관리�
 
 >- Azure PowerShell StorSimple cmdlet은 명령줄에서 StorSimple 서비스 수준 및 마이그레이션 작업을 자동화할 수 있게 해주는 다른 cmdlet 컬렉션입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [Azure StorSimplecmdlet 참조](https://msdn.microsoft.com/library/azure/dn920427.aspx)를 참조하세요.
 
-
-
 다음 방법 중 하나를 사용하여 StorSimple용 Windows PowerShell에 액세스할 수 있습니다.
 
-- [StorSimple 장치 직렬 콘솔에 연결](#connect-to-windows-powershell-for-storsimple-via-device-serial-console)
+- [StorSimple 장치 직렬 콘솔에 연결](#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console)
 - [Windows PowerShell을 사용하여 StorSimple에 원격으로 연결](#connect-remotely-to-storsimple-using-windows-powershell-for-storsimple)
 	
 
@@ -194,9 +192,9 @@ Windows PowerShell 인터페이스에서 도움말을 쉽게 업데이트할 수
 1. 도움말 파일이 설치된 후 다음을 입력합니다. `Get-Help Get-Command`. 도움말을 사용할 수 있는 cmdlet 목록이 표시됩니다.
 
 
->[AZURE.NOTE]**Runspace에서 사용 가능한 모든 cmdlet의 목록을 가져오려면 해당 메뉴 옵션에 로그인한 다음 `Get-Command` cmdlet**을 실행합니다.
+>[AZURE.NOTE]Runspace에서 사용 가능한 모든 cmdlet의 목록을 가져오려면 해당 메뉴 옵션에 로그인한 다음 `Get-Command` cmdlet을 실행합니다.
 
 ## 다음 단계
-위의 워크플로 중 하나를 수행할 때 StorSimple 장치에서 문제가 발생하는 경우 [cmdlet 문제 해결](storsimple-troubleshoot-deployment.md#cmdlets-available-for-troubleshooting)을 참조하세요.
+위의 워크플로 중 하나를 수행할 때 StorSimple 장치에서 문제가 발생하는 경우 [StorSimple 배포 문제를 해결하는 도구](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments)를 참조하세요.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

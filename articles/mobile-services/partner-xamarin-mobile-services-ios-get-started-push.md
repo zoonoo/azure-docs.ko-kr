@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="05/13/2015"
+	ms.date="08/18/2015"
 	ms.author="yuaxu"/>
 
 # 모바일 서비스 앱에 푸시 알림 추가
@@ -397,6 +397,5 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
 [Azure 모바일 서비스 구성 요소]: http://components.xamarin.com/view/azure-mobile-services/
 [completed example project]: http://go.microsoft.com/fwlink/p/?LinkId=331303
 [Xamarin.iOS]: http://xamarin.com/download
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

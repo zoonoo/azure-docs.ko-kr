@@ -3,8 +3,8 @@
 	description="Azure 명령줄 인터페이스를 사용하여 역할 기반 액세스 제어 관리"
 	services="azure-portal"
 	documentationCenter="na"
-	authors="Justinha"
-	manager="terrylan"
+	authors="IHenkel"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="command-line-interface"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
-	ms.author="justinha"/>
+	ms.date="08/14/2015"
+	ms.author="inhenk"/>
 
 # Azure CLI(명령줄 인터페이스)를 사용하여 역할 기반 액세스 제어 관리 #
 
@@ -94,13 +94,15 @@ Azure 구독에 연결하려면 다음을 입력합니다.
 
 - 역할을 할당할 사람: 다음 Azure Active Directory cmdlet을 사용하여 디렉터리에 포함된 사용자, 그룹 및 서비스 사용자를 확인할 수 있습니다.
 
-    `azure ad user list
-    azure ad user show
-    azure ad group list
-    azure ad group show
-    azure ad group member list
-    azure ad sp list
-    azure ad sp show`
+    ```
+    azure ad user list  
+    azure ad user show  
+    azure ad group list  
+    azure ad group show  
+    azure ad group member list  
+    azure ad sp list  
+    azure ad sp show  
+    ```
 
 - 할당할 역할: 다음 cmdlet을 사용하여 지원되는 역할 정의를 확인할 수 있습니다.
 
@@ -148,6 +150,5 @@ Azure CLI를 사용하여 역할 기반 액세스 제어를 관리하는 방법�
 - [Azure 블로그](http://blogs.msdn.com/windowsazure): Azure의 새로운 기능에 대해 알아봅니다.
 - [Windows PowerShell을 사용하여 역할 기반 액세스 제어 구성](role-based-access-control-powershell.md)
 - [역할 기반 액세스 제어 문제 해결](role-based-access-control-troubleshooting.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

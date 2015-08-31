@@ -4,7 +4,7 @@
  services="traffic-manager, automation" 
  documentationCenter="" 
  authors="eamonoreilly" 
- manager="jwinter" 
+ manager="adinah" 
  editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
  ms.tgt_pltfrm="na" 
  ms.devlang="na" 
  ms.topic="article" 
- ms.date="04/13/2015" 
- ms.author="eamono"/>
+ ms.date="08/12/2015" 
+ ms.author="joaoma"/>
 
 
 #Azure 자동화를 사용하여 Azure 트래픽 관리자 관리
@@ -42,4 +42,4 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure 트래
 * Azure 자동화 [시작 자습서](http://go.microsoft.com/fwlink/?LinkId=390560)를 참조하세요.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

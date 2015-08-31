@@ -4,7 +4,7 @@ Java용 Azure 라이브러리는 [Apache 라이선스 버전 2.0][license](영�
 
 ## Java용 Azure 라이브러리 - Maven
 
-프로젝트가 빌드에 Maven을 사용하도록 이미 설정된 경우 pom.xml 파일에 다음 종속성을 추가합니다.
+프로젝트가 빌드에 Maven을 사용하도록 이미 설정된 경우 pom.xml 파일에 다음 종속성을 추가합니다. 참고: Java용 Azure 라이브러리를 사용하는 Eclipse에서 Maven 프로젝트를 만드는 방법에 대한 자세한 내용은 [http://go.microsoft.com/fwlink/?LinkId=622998]()을 참조하세요.
 
 	<dependency>
 	    <groupId>com.microsoft.azure</groupId>
@@ -58,4 +58,4 @@ Java용 Azure 라이브러리는 [Apache 라이선스 버전 2.0][license](영�
 [license]: http://www.apache.org/licenses/LICENSE-2.0.html
 [zip-download]: http://go.microsoft.com/fwlink/?LinkId=253887
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

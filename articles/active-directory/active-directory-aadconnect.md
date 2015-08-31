@@ -103,8 +103,23 @@ Azure Active Directory Connect는 기본 세 부분으로 구성됩니다. 이�
 - Azure AD Connect는 반드시 Windows Server 2008 이상의 버전에 설치되어야 합니다. 이 서버는 도메인 컨트롤러 또는 멤버 서버일 수 있습니다.
 - AD 스키마의 버전 및 포리스트 수준은 Windows Server 2003 이상이어야 합니다. 도메인 컨트롤러는 스키마와 포레스트의 수준 요구 사항이 맞으면 어떤 버전도 실행할 수 있습니다.
 - Active Directory Federation Services를 배포하는 경우 AD FS가 설치될 서버는 Windows Server 2012 이상이어야 합니다.
+- Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. 기본적으로 SQL Server 2012 Express LocalDB(SQL Server Express의 라이트 버전)가 설치되고 서비스에 대한 서비스 계정을 로컬 컴퓨터에 생성합니다. SQL Server Express는 약 100,000 개체를 관리할 수 있는 10GB의 용량을 제공합니다.
+- 더 큰 볼륨의 디렉터리 개체 관리가 필요한 경우 설치 프로세스가 SQL Server의 다른 버전을 가리키도록 해야 합니다. Azure AD Connect는 SQL Server 2008(SP4)에서 SQL Server 2014까지 Microsoft SQL Server의 모든 버전을 지원합니다.
 - 로컬 Active Directory에 대한 엔터프라이즈 관리자 계정
-- 선택 사항: 동기화를 확인할 테스트 사용자 계정 
+- 아웃 바운드 프록시를 사용하는 경우, 설치를 완료하려면 다음 **C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\Config\\machine.config** 파일의 설정을 추가해야 합니다. <code>
+		
+		<system.net>
+    		<defaultProxy>
+      		<proxy
+        	usesystemdefault="true"
+        	proxyaddress=http://<PROXYIP>:80"
+        	bypassonlocal="true"
+     		 />
+    		</defaultProxy>
+  		</system.net>
+</code> 이 텍스트는 파일의 맨 아래에 입력해야 합니다. 이 코드에서 &lt;PROXYIP&gt;는 실제 프록시 IP 주소를 나타냅니다.
+
+- 선택 사항: 동기화를 확인할 테스트 사용자 계정
 
 #### Azure AD Connect의 하드웨어 요구 사항
 아래 표는 Azure AD Connect 컴퓨터의 최소 요구 사항을 보여 줍니다.
@@ -249,7 +264,7 @@ Azure AD Sync용으로 만들어진 설명서 중 일부는 Azure AD Connect에�
 
 [Azure AD Connect Health](active-directory-aadconnect-health.md) - 온-프레미스 AD FS 인프라의 상태를 모니터링합니다.
 
-[Azure D Connect FAQ](active-directory-aadconnect-faq.md) - Azure AD Connect와 관련된 질문과 대답입니다.
+[Azure D Connect FAQ](active-directory-aadconnect-faq.md) - Azure AD Connect와 관련된 질문과 답변입니다.
 
 
 
@@ -258,4 +273,4 @@ Azure AD Sync용으로 만들어진 설명서 중 일부는 Azure AD Connect에�
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

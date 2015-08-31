@@ -3,8 +3,8 @@
 	description="비정상적인 로그인 활동이 식별된 모든 사용자 계정을 나타내는 보고서입니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
-	manager="ilanas"
+	authors="SSalahAhmed"
+	manager="gchander"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
-	ms.author="kenhoff"/>
+	ms.date="08/17/2015"
+	ms.author="saah;kenhoff"/>
 
 # 비정상적인 로그인 활동을 포함하는 사용자 보고서
 
@@ -24,4 +24,4 @@
 
 ![비정상적인 로그인 활동을 포함하는 사용자 보고서](./media/active-directory-reporting-users-with-anomalous-sign-in-activity/usersWithAnomalousSignInActivity.PNG)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

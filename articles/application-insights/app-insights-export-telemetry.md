@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="08/13/2015" 
 	ms.author="awills"/>
  
 # Application Insights에서 원격 분석 내보내기
@@ -55,12 +55,9 @@ Application Insights 포털의 응용 프로그램 개요 블레이드에서 연
 
 ## <a name="analyze"></a> 어떤 이벤트를 얻나요?
 
-내보낸 데이터는 다음을 제외하고 응용 프로그램에서 받은 원시 원격 분석입니다.
+클라이언트 IP 주소에서 계산하는 위치 데이터를 추가한다는 점을 제외하고 내보낸 데이터는 응용 프로그램에서 수신하는 원시 원격 분석입니다.
 
-* 웹 테스트 결과는 현재 포함되지 않습니다. 
-* 클라이언트 IP 주소에서 계산한 위치 데이터를 추가합니다.  
-
-계산된 메트릭은 포함되지 않습니다. 예를들어 평균 CPU 사용률을 내보내지 않지만 평균이 계산된 곳에서 원시 원격 분석을 내보냅니다.
+계산된 다른 메트릭은 포함되지 않습니다. 예를들어 평균 CPU 사용률을 내보내지 않지만 평균이 계산된 곳에서 원시 원격 분석을 내보냅니다.
 
 ## <a name="get"></a> 데이터 검사
 
@@ -85,7 +82,7 @@ Application Insights 포털의 응용 프로그램 개요 블레이드에서 연
 	"receiveRequest": {"value": 30000.0},
 	"clientProcess": {"value": 17970000.0}
 
-
+[속성 형식 및 값에 대한 자세한 데이터 모델 참조입니다.](app-insights-export-data-model.md)
 
 ## 데이터 처리
 
@@ -185,6 +182,13 @@ Application Insights 포털의 응용 프로그램 개요 블레이드에서 연
 
     예. 사용 안함을 클릭합니다.
 
+## 코드 샘플
+
+* [Power BI에 Application Insights를 스트림](app-insights-export-power-bi.md)
+* [작업자 역할을 사용하여 내보낸 JSON 구문 분석][exportcode]
+* [스트림 분석을 사용하여 SQL로 내보내기][exportasa]
+
+* [속성 형식 및 값에 대한 자세한 데이터 모델 참조입니다.](app-insights-export-data-model.md)
 
 <!--Link references-->
 
@@ -194,4 +198,4 @@ Application Insights 포털의 응용 프로그램 개요 블레이드에서 연
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

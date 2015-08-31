@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="05/21/2015"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 
@@ -22,9 +22,11 @@
 
 HDInsight에서 HBase 클러스터를 프로비전하고, HBase 테이블을 만들고 Hive를 사용하여 테이블을 쿼리하는 방법에 대해 알아봅니다. 일반 HBase 정보는 [HDInsight HBase 개요][hdinsight-hbase-overview]를 참조하세요.
 
-> [AZURE.NOTE]HBase(버전 0.98.0)는 HDInsight의 HDInsight 3.1 클러스터에서만 사용할 수 있습니다(Apache Hadoop 및 YARN 2.4.0 기준). 버전 정보는 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능][hdinsight-versions](영문)을 참조하세요.
+[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
 
-> [AZURE.VIDEO get-started-with-hbase-in-hdinsight]
+* [HBase 자습서: HDInsight에서 Hadoop을 통해 HBase 사용 시작을 참조하세요.](hdinsight-hbase-tutorial-get-started-v1.md)
+
+> [AZURE.NOTE]HBase(버전 0.98.0)는 HDInsight의 HDInsight 3.1 클러스터에서만 사용할 수 있습니다(Apache Hadoop 및 YARN 2.4.0 기준). 버전 정보는 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능][hdinsight-versions](영문)을 참조하세요.
 
 **필수 구성 요소**
 
@@ -41,22 +43,25 @@ HDInsight에서 HBase 클러스터를 프로비전하고, HBase 테이블을 만
 
 
 1. [Azure 포털][azure-management-portal]에 로그인합니다.
-2. 왼쪽 아래에서 **새로 만들기**를 클릭한 후 **데이터 서비스** > **HDInsight** > **HBase**를 클릭합니다.
+2. 왼쪽 위 모서리에서 **새로 만들기**를 클릭한 다음 **데이터 + 분석**, **HDInsight**를 차례로 클릭합니다.
+3. 다음 값을 입력합니다.
 
-	>[AZURE.NOTE]**사용자 지정 만들기** 옵션을 사용할 수도 있습니다.
-3. **클러스터 이름**, **클러스터 크기**, HTTP 사용자 암호 및 **저장소 계정**을 입력합니다.
+	- **클러스터 이름**: 이 클러스터를 식별하기 위한 이름을 입력합니다.
+	- **클러스터 유형**: HBase
+	- **클러스터 운영 체제**: 현재 HDInsight HBase 클러스터는 Windows 운영 체제에서만 사용할 수 있습니다.
+	- **구독**: 이 클러스터를 프로비전하는 데 사용할 Azure 구독을 선택합니다.
+	- **리소스 그룹**: Azure 리소스 그룹을 추가하거나 선택합니다. 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
+	- **자격 증명 구성**: Windows 기반 클러스터의 경우 클러스터 사용자(HTTP 사용자, HTTP 웹 서비스 사용자라고도 함) 및 원격 데스크톱 사용자를 만들 수 있습니다.
+	- **데이터 원본**: 클러스터의 기본 파일 시스템으로 사용할 기존 Azure 저장소 계정을 선택하거나 새 Azure 저장소 계정을 만듭니다. 이 Azure 저장소 계정은 HDInsight HBase 클러스터와 같은 위치에 있어야 합니다.
+	- **노드 가격 책정 계층:** HBase 클러스터에 사용할 지역 서버 수를 선택합니다.
 
-	![HDInsight에서 HBase 클러스터 프로비전][img-hdinsight-hbase-cluster-quick-create]
+		> [AZURE.WARNING]HBase 서비스의 고가용성을 위해 **3개** 이상의 노드가 포함된 클러스터를 프로비전해야 합니다. 이렇게 하면 하나의 노드가 작동이 중지된 경우 다른 노드에서 HBase 데이터 영역을 사용할 수 있습니다.
 
-	기본 HTTP 사용자 이름은 admin입니다. 사용자 지정 만들기 옵션을 사용하여 이름을 사용자 지정할 수 있습니다.
+		> HBase를 학습하는 경우 항상 클러스터 크기로 1을 선택하고 각 사용 후에는 클러스터를 삭제하여 비용을 줄입니다.
 
-	Azure 저장소 계정은 기본 HBase 프로비전 프로세스 사용에 필요합니다. 계정을 하나 만들려면 [Azure 저장소 계정 만들기][azure-create-storageaccount]를 참조하세요. 사용자 지정 만들기 옵션은 클러스터 프로비전 프로세스에서 저장소 계정을 만드는 옵션을 제공합니다.
+	- **옵션 구성**: 클러스터 버전을 선택하고, Azure 가상 네트워크를 구성하고, Hive/Oozie Metastore를 구성하고, 스크립트 동작을 구성하고, 저장소 계정을 더 추가합니다.
 
-	> [AZURE.WARNING]HBase 서비스의 고가용성을 위해 **3개** 이상의 노드가 포함된 클러스터를 프로비전해야 합니다. 이렇게 하면 하나의 노드가 작동이 중지된 경우 다른 노드에서 HBase 데이터 영역을 사용할 수 있습니다.
-
-	> HBase를 학습하는 경우 항상 클러스터 크기로 1을 선택하고 각 사용 후에는 클러스터를 삭제하여 비용을 줄입니다.
-
-4. 오른쪽 아래에서 **HDInsight 클러스터 만들기**를 클릭하여 HBase 클러스터를 만듭니다.
+4. **만들기**를 클릭합니다.
 
 >[AZURE.NOTE]HBase 클러스터를 삭제한 후에는 동일한 기본 Blob 컨테이너를 사용하여 다른 HBase 클러스터를 만들 수 있습니다. 새 클러스터에서는 원래 클러스터에서 만든 HBase 테이블을 선택합니다.
 
@@ -165,10 +170,7 @@ Hive를 사용하여 HBase 테이블의 데이터를 쿼리할 수 있습니다.
 
 **클러스터 대시보드를 열려면**
 
-1. [Azure 포털][azure-management-portal]에 로그인합니다.
-2. 왼쪽 창에서 **HDINSIGHT**를 클릭합니다. 이 자습서에서 이전에 만든 클러스터를 포함하여 클러스터 목록이 표시됩니다.
-3. Hive 작업을 실행할 클러스터의 이름을 클릭합니다.
-4. 페이지 아래쪽에서 **쿼리 콘솔**을 클릭하여 클러스터 대시보드를 엽니다. 웹 페이지가 다른 브라우저 탭에서 열립니다.
+1. **https://<HDInsightClusterName>.azurehdinsight.net/**로 이동합니다.
 5. Hadoop 사용자 계정의 사용자 이름 및 암호를 입력합니다. 기본 사용자 이름은 **admin**이고 암호는 프로비전 프로세스에서 입력한 암호입니다. 새 브라우저 탭이 열립니다.
 6. 페이지 위쪽에서 **Hive 편집기**를 클릭합니다. Hive 편집기는 다음과 같습니다.
 
@@ -345,7 +347,7 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 프로비
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://manage.windowsazure.com/
+[azure-management-portal]: https://portal.azure.com/
 [azure-create-storageaccount]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
 
 [img-hdinsight-hbase-cluster-quick-create]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-quick-create.png
@@ -354,6 +356,5 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 프로비
 [img-hbase-shell]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-shell.png
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

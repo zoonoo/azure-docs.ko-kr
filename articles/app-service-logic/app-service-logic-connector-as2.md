@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="08/09/2015"
+   ms.date="08/19/2015"
    ms.author="rajram"/>
 
 # Microsoft AS2 커넥터
@@ -97,7 +97,7 @@ Enable Archiving | boolean | 아웃바운드 메시지를 보관해야 하는지
 ## 커넥터의 추가 기능
 논리 앱에 대한 자세한 내용은 [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
-REST API를 사용하여 API 앱을 만듭니다. [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)를 참조하세요.
+[커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
 커넥터의 성능 통계를 검토하고 보안을 제어할 수 있습니다. [기본 제공 API 앱 및 커넥터 관리 및 모니터링](app-service-logic-monitor-your-connectors.md)을 참조하세요.
 
@@ -113,4 +113,4 @@ REST API를 사용하여 API 앱을 만듭니다. [커넥터 및 API 앱 참조]
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

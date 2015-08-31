@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/21/2015"
+	ms.date="08/14/2015"
 	ms.author="tdykstra"/>
 
 #Azure 앱 서비스에서 웹 앱 배포
@@ -135,7 +135,6 @@ WebMatrix에서 웹 앱에 배포하는 방법에 대한 자세한 내용은 다
 자세한 내용은 다음 리소스를 참조하세요.
 
 * [PHP-MySQL 웹 앱을 만들고 FTP를 사용하여 배포합니다.](web-sites-php-mysql-deploy-use-ftp.md)
-* [웹 앱을 관리 하는 방법.](web-sites-manage.md#ftp-credentials) FTP 자격 증명 설정 방법을 설명하는 PHP 자습서에 포함되지 않은 추가 정보가 있습니다.
 
 ##<a name="tfs"></a>TFS(Team Foundation Server)
 
@@ -178,8 +177,11 @@ MSBuild를 사용한 명령줄 배포에 대한 자세한 내용은 다음 리�
 
 [Windows PowerShell](http://msdn.microsoft.com/library/dd835506.aspx)(영문)에서 MSBuild 또는 FTP 배포 기능을 수행할 수 있습니다. 이 기능을 수행하는 경우 Azure REST 관리 API를 쉽게 호출할 수 있는 Windows PowerShell cmdlet 컬렉션을 사용할 수도 있습니다.
 
-자세한 내용은 다음 리소스를 참조하십시오.
+자세한 내용은 다음 리소스를 참조하세요.
 
+* [GitHub 리포지토리에 연결된 웹앱 배포](app-service-web-arm-from-github-provision.md)
+* [SQL 데이터베이스를 사용하는 웹앱을 프로비전](app-service-web-arm-with-sql-database-provision.md)
+* [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](app-service-deploy-complex-application-predictably.md)
 * [Azure에서 실제 클라우드 앱 빌드 - 자동화](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything)(영문). 전자책에 나온 샘플 응용 프로그램이 Windows PowerShell 스크립트를 사용하여 Azure 테스트 환경을 만들고 이 환경에 배포하는 방법을 설명하는 전자책 장입니다. 추가 Azure PowerShell 설명서 링크를 보려면 [리소스](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources)(영문) 섹션을 참조하십시오.
 * [Windows PowerShell 스크립트를 사용하여 개발 및 테스트 환경에 게시합니다.](http://msdn.microsoft.com/library/dn642480.aspx) Visual Studio에서 생성된 Windows PowerShell 배포 스크립트를 사용하는 방법.
 
@@ -226,4 +228,4 @@ Azure의 역할 기반 액세스 제어를 사용하여 웹 앱 배포에 대한
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

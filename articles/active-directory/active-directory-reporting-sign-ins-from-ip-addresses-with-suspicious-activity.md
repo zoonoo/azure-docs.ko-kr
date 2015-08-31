@@ -3,8 +3,8 @@
 	description="의심스러운 활동이 확인된 IP 주소에서의 로그인 시도가 포함된 보고서입니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
-	manager="ilanas"
+	authors="SSalahAhmed"
+	manager="gchander"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
-	ms.author="kenhoff"/>
+	ms.date="08/17/2015"
+	ms.author="saah; kenhoff"/>
 
 # 의심스러운 활동을 포함하는 IP 주소의 로그인
 
@@ -24,4 +24,4 @@
 
 ![의심스러운 활동을 포함하는 IP 주소의 로그인](./media/active-directory-reporting-sign-ins-from-ip-addresses-with-suspicious-activity/signInsFromIPAddressesWithSuspiciousActivity.PNG)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

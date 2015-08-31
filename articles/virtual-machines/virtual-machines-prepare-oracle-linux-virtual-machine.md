@@ -1,4 +1,4 @@
-<properties title="Prepare an Oracle Linux Virtual Machine for Azure" pageTitle="Azure용 Oracle Linux 가상 컴퓨터 준비" description="Microsoft Azure에서 Linux를 실행하는 Oracle 가상 컴퓨터의 구성을 단계별로 설명합니다." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<properties pageTitle="Azure용 Oracle Linux 가상 컴퓨터 준비" description="Microsoft Azure에서 Linux를 실행하는 Oracle 가상 컴퓨터의 구성을 단계별로 설명합니다." services="virtual-machines" authors="bbenz" documentationCenter=""/>
 <tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Azure용 Oracle Linux 가상 컴퓨터 준비
 -   [Azure용 Oracle Linux 6.4 이상 가상 컴퓨터 준비](virtual-machines-linux-create-upload-vhd-oracle.md)
@@ -6,7 +6,7 @@
 -   [Azure용 Oracle Linux 7.0 이상 가상 컴퓨터 준비](virtual-machines-linux-create-upload-vhd-oracle.md)
 
 ##필수 조건
-이 문서에서는 가상 하드 디스크에 Oracle Linux 운영 체제를 이미 설치했다고 가정합니다. .vhd 파일을 만드는 여러 도구가 있습니다(예: Hyper-V와 같은 가상화 솔루션). 자세한 내용은 [Hyper-V 역할 설치 및 가상 시스템 구성](http://technet.microsoft.com/library/hh846766.aspx)을 참조하십시오.
+이 문서에서는 가상 하드 디스크에 Oracle Linux 운영 체제를 이미 설치했다고 가정합니다. .vhd 파일을 만드는 여러 도구가 있습니다(예: Hyper-V와 같은 가상화 솔루션). 자세한 내용은 [Hyper-V 설치 및 가상 컴퓨터 만들기](http://technet.microsoft.com/library/hh846766.aspx)를 참조하세요.
 
 **Oracle Linux 설치 참고 사항**
 
@@ -16,7 +16,7 @@
 
 - 새 VHDX 형식은 Azure에서 지원되지 않습니다. Hyper-V 관리자 또는 convert-vhd cmdlet을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다.
 
-- Linux 시스템 설치 시에는 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다. 원하는 경우에는 데이터 디스크에서 LVM 또는 [RAID](virtual-machines-linux-configure-raid.md)를 사용할 수 있습니다.
+- Linux 시스템 설치 시 LVM(설치 기본값인 경우가 많음)이 아닌 표준 파티션을 사용하는 것이 좋습니다. 이렇게 하면 특히 문제 해결을 위해 OS 디스크를 다른 VM에 연결해야 하는 경우 복제된 VM과 LVM 이름이 충돌하지 않도록 방지합니다. 원하는 경우에는 데이터 디스크에서 LVM 또는 [RAID](virtual-machines-linux-configure-raid.md)를 사용할 수 있습니다.
 
 - 2\.6.37보다 낮은 Linux 커널 버전의 버그 때문에 더 큰 VM 크기에서는 NUMA가 지원되지 않습니다. 이 문제는 주로 업스트림 Red Hat 2.6.32 커널을 사용하는 분산에 영향을 줍니다. Azure Linux 에이전트(waagent)를 수동으로 설치하면 Linux 커널의 GRUB 구성에서 NUMA가 자동으로 사용하지 않도록 설정됩니다. 여기에 대한 자세한 내용은 아래 단계에서 확인할 수 있습니다.
 
@@ -71,7 +71,7 @@
 
 	이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데에도 도움이 될 수 있습니다. 이 경우 Oracle Red Hat 호환 커널의 버그로 인해 NUMA가 사용하지 않도록 설정됩니다.
 
-	위의 작업을 수행하는 동시에 다음 매개 변수도 *제거*하는 것이 좋습니다.
+	위의 작업을 수행하는 동시에 다음 매개 변수를 *제거*하는 것이 좋습니다.
 
 		rhgb quiet crashkernel=auto
 
@@ -92,13 +92,13 @@
 	Azure Linux 에이전트는 Azure에서 프로비전한 후 VM에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 *임시* 디스크이며 VM의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후(이전 단계 참조) /etc/waagent.conf에서 다음 매개 변수를 적절하게 수정합니다.
 
 		ResourceDisk.Format=y
-		
+
 		ResourceDisk.Filesystem=ext4
-		
+
 		ResourceDisk.MountPoint=/mnt/resource
-		
+
 		ResourceDisk.EnableSwap=y
-		
+
 		ResourceDisk.SwapSizeMB=2048 ## NOTE: set this to whatever you need it to be.
 
 13.  다음 명령을 실행하여 가상 컴퓨터의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
@@ -112,7 +112,7 @@
 ##Oracle Linux 7.0
 **Oracle Linux 7의 변경 내용**
 
-Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle Linux 6과 매우 비슷하지만 다음과 같은 몇 가지 중요한 차이점이 있습니다.
+Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle Linux 6에 대한 프로세스와 매우 비슷하지만 다음과 같은 몇 가지 중요한 차이점이 있습니다.
 
 -   Red Hat 호환 커널과 Oracle의 UEK3은 모두 Azure에서 지원됩니다. UEK3 커널을 사용하는 것이 좋습니다.
 
@@ -162,11 +162,11 @@ Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle 
 		# sudo yum clean all
 		# sudo yum -y update
 
-9.  Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 하려면 텍스트 편집기에서 "/etc/default/grub"를 열고 `GRUB\_CMDLINE\_LINUX` 매개 변수를 편집합니다. 예를 들면 다음과 같습니다.
+9.  Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 하려면 텍스트 편집기에서 "/etc/default/grub"를 열고 GRUB\_CMDLINE\_LINUX 매개 변수를 편집합니다. 예를 들면 다음과 같습니다.
 
 		GRUB\_CMDLINE\_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0"
 
-	이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데에도 도움이 될 수 있습니다. 위의 작업을 수행하는 동시에 다음 매개 변수도 *제거*하는 것이 좋습니다.
+	이렇게 하면 모든 콘솔 메시지가 첫 번째 직렬 포트로 전송되므로 Azure 지원에서 문제를 디버깅하는 데에도 도움이 될 수 있습니다. 위의 작업을 수행하는 동시에 다음 매개 변수를 *제거*하는 것이 좋습니다.
 
 		rhgb quiet crashkernel=auto
 
@@ -174,7 +174,7 @@ Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle 
 
 	원하는 경우에는 `crashkernel` 옵션을 구성한 상태로 유지할 수도 있지만 이 매개 변수를 사용하는 경우 VM에서 사용 가능한 메모리의 양이 128MB 이상 감소하므로 VM 크기가 작은 경우 문제가 될 수 있습니다.
 
-10.  위의 설명에 따라 "/etc/default/grub" 편집을 완료한 후에는 다음 명령을 실행하여 grub 구성을 다시 빌드합니다.
+10.  "/etc/default/grub" 편집을 완료한 후에는 다음 명령을 실행하여 grub 구성을 다시 빌드합니다.
 
 		# sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
@@ -192,7 +192,7 @@ Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle 
 		ResourceDisk.Filesystem=ext4
 		ResourceDisk.MountPoint=/mnt/resource
 		ResourceDisk.EnableSwap=y
-		ResourceDisk.SwapSizeMB=2048 ## NOTE: set this to whatever you need it to be.
+		ResourceDisk.SwapSizeMB=2048 ## NOTE: Set this to whatever you need it to be.
 
 14.  다음 명령을 실행하여 가상 컴퓨터의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
@@ -202,4 +202,4 @@ Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle 
 
 15.  Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

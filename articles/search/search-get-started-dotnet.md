@@ -5,26 +5,26 @@
 	documentationCenter=""
 	authors="HeidiSteen"
 	manager="mblythe"
-	editor=""/>
+	editor="v-lincan"/>
 
 <tags
 	ms.service="search"
 	ms.devlang="rest-api"
 	ms.workload="search"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="08/18/2015"
 	ms.author="heidist"/>
 
-#.NET에서 첫 Azure 검색 응용 프로그램 시작#
+# .NET에서 첫 Azure 검색 응용 프로그램 시작
 
 Visual Studio 2013 이상에서 검색 환경에 Azure 검색을 사용하는 사용자 지정 .NET 검색 응용 프로그램을 빌드하는 방법에 대해 알아봅니다. 이 자습서에서는 Azure 검색 서비스 REST API뿐만 아니라 [Azure 검색 .NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)를 사용하여 이 연습에서 사용되는 개체 및 작업에 대한 클래스를 만듭니다.
 
 이 샘플을 실행하려면 Azure 검색 서비스가 있어야 합니다. 이 서비스는 [Azure 포털](https://portal.azure.com)에서 등록할 수 있습니다.
 
-> [AZURE.TIP][Azure 검색 .NET 샘플](http://go.microsoft.com/fwlink/p/?LinkId=530196)에서 이 자습서의 원본 코드를 다운로드하세요.
+> [AZURE.TIP][Azure 검색 .NET 샘플](http://go.microsoft.com/fwlink/p/?LinkId=530196)에서 이 자습서의 원본 코드를 다운로드하세요. [.NET 응용 프로그램에서 Azure 검색을 사용하는 방법](search-howto-dotnet-sdk.md)에서 연결을 설정하고 요청을 보내는 방법을 알아봅니다.
 
-##데이터 정보##
+## 데이터 정보
 
 이 샘플 응용 프로그램에서는 데이터 집합 크기를 줄이기 위해 Rhode Island 주에 대해 필터링된 [USGS(United States Geological Services)](http://geonames.usgs.gov/domestic/download_data.htm)의 데이터를 사용합니다. 이 데이터를 사용하여 병원 및 학교와 같은 랜드마크 빌딩뿐만 아니라 강, 호수, 산 등의 지질학적 특징을 반환하는 검색 응용 프로그램을 빌드합니다.
 
@@ -32,11 +32,11 @@ Visual Studio 2013 이상에서 검색 환경에 Azure 검색을 사용하는 �
 
 > [AZURE.NOTE]무료 가격 책정 계층의 문서 제한(10,000개) 미만으로 유지하기 위해 이 데이터 집합에 필터를 적용했습니다. 표준 계층을 사용하는 경우에는 이 제한이 적용되지 않습니다. 각 가격 책정 계층의 용량에 대한 자세한 내용은 [제한 및 제약 조건](https://msdn.microsoft.com/library/azure/dn798934.aspx)을 참조하세요.
 
-##서비스 만들기##
+## Azure 검색 서비스 만들기
 
 1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
-2. 표시줄에서 **새로 만들기** | **데이터 + 저장소** | **검색**을 클릭합니다.
+2. 이동 표시줄에서 **새로 만들기** > **데이터 + 저장소** > **검색**을 클릭합니다.
 
      ![][1]
 
@@ -62,9 +62,9 @@ Visual Studio 2013 이상에서 검색 환경에 Azure 검색을 사용하는 �
 표시줄의 알림을 확인합니다. 서비스를 사용할 준비가 되면 알림이 표시됩니다.
 
 <a id="sub-2"></a>
-##Azure 검색 서비스의 서비스 이름 및 api-key 찾기
+## Azure 검색 서비스의 서비스 이름 및 api-key 찾기 ##
 
-서비스를 만든 후 포털로 돌아가 URL 또는 `api-key`를 가져올 수 있습니다. 검색 서비스에 연결하려면 URL과 호출을 인증할 `api-key`가 둘 다 있어야 합니다.
+서비스를 만든 후 포털로 돌아가서 URL 또는 `api-key`를 가져옵니다. 검색 서비스에 연결하려면 URL과 호출을 인증할 `api-key`가 둘 다 있어야 합니다.
 
 1. 표시줄에서 **홈**을 클릭한 다음 검색 서비스를 클릭하여 서비스 대시보드를 엽니다.
 
@@ -72,20 +72,20 @@ Visual Studio 2013 이상에서 검색 환경에 Azure 검색을 사용하는 �
 
   	![][3]
 
-3. 서비스 URL 및 관리 키를 복사합니다. 나중에 Visual Studio 프로젝트에서 app.config 및 web.config 파일에 추가할 때 필요합니다.
+3. 서비스 URL 및 관리 키를 복사합니다. 이는 나중에 Visual Studio 프로젝트에서 app.config 및 web.config 파일에 추가할 때 필요합니다.
 
-##새 프로젝트 및 솔루션 시작##
+## 새 프로젝트 및 솔루션 시작
 
-이 솔루션에는 다음 두 개의 프로젝트가 포함되어 있습니다.
+이 솔루션에는 다음과 같은 두 가지 프로젝트가 포함되어 있습니다.
 
 - **DataIndexer** - 데이터를 로드하는 데 사용되는 Visual C# 콘솔 응용 프로그램
 - **SimpleSearchMVCApp** - 쿼리하고 검색 결과를 반환하는 데 사용되는 Visual C# ASP.NET MVC 웹 응용 프로그램
 
 이 단계에서는 두 프로젝트를 모두 만듭니다.
 
-1. **Visual Studio** | **새 프로젝트** | **Visual C#** | **콘솔 응용 프로그램**을 시작합니다.
+1. **Visual Studio** > **새 프로젝트** > **Visual C#** > **콘솔 응용 프로그램**을 시작합니다.
 2. 프로젝트 이름을 **DataIndexer**로 지정하고 솔루션 이름을 **AzureSearchDotNetDemo**로 지정합니다.
-3. 솔루션 탐색기의 솔루션에서 **추가** | **새 프로젝트** | **Visual C#** | **ASP.NET 웹 응용 프로그램**을 마우스 오른쪽 단추로 클릭합니다.
+3. 솔루션 탐색기의 솔루션에서 **추가** > **새 프로젝트** > **Visual C#** > **ASP.NET 웹 응용 프로그램**을 마우스 오른쪽 단추로 클릭합니다.
 4. 프로젝트 이름을 **SimpleSearchMVCApp**으로 지정합니다.
 5. 새 ASP.NET 프로젝트에서 MVC 템플릿을 선택하고, 이 자습서에서 사용하지 않으려는 프로그램 아티팩트가 만들어 지지 않도록 옵션의 선택을 취소합니다.
 
@@ -97,10 +97,10 @@ Visual Studio 2013 이상에서 검색 환경에 Azure 검색을 사용하는 �
 
    ![][4]
 
-##.NET 클라이언트 라이브러리 설치 및 다른 패키지 업데이트
+## .NET 클라이언트 라이브러리 설치 및 다른 패키지 업데이트
 
 1. 솔루션 탐색기의 솔루션에서 **NuGet 패키지 관리**를 마우스 오른쪽 단추로 클릭합니다.
-2. **업데이트** | **안정화 버전** | **모두 업데이트**를 지정합니다.
+2. **업데이트** > **안정화 버전** > **모두 업데이트**를 지정합니다.
 
    ![][11]
 
@@ -108,7 +108,7 @@ Visual Studio 2013 이상에서 검색 환경에 Azure 검색을 사용하는 �
 
 4. 다음으로, Azure 검색 .NET 클라이언트 라이브러리를 설치합니다. 검색을 올바르게 지정해야 합니다. 그러지 않으면 패키지를 쉽게 찾을 수 없습니다. **NuGet 패키지 관리**를 다시 마우스 오른쪽 단추로 클릭합니다.
 
-5. **온라인** | **nuget.org** | **시험판 포함**을 지정하고 *azure.search*를 검색한 다음 라이브러리를 설치합니다.
+5. **온라인** > **nuget.org** > **시험판 포함**을 지정한 다음 *azure.search*를 검색합니다. **설치**를 클릭하여 라이브러리를 설치합니다.
 
    ![][12]
 
@@ -116,20 +116,18 @@ Visual Studio 2013 이상에서 검색 환경에 Azure 검색을 사용하는 �
 
    ![][5]
 
-##System.Configuration에 대한 어셈블리 참조 추가
+## System.Configuration에 대한 어셈블리 참조 추가
 
 **DataIndexer**에서는 **System.Configuration**을 사용하여 app.config에서 구성 설정을 읽습니다.
 
-1. **DataIndexer** | **추가** | **참조** | **프레임워크** | **System.Configuration**을 마우스 오른쪽 단추로 클릭합니다. 확인란을 선택합니다.
+1. **DataIndexer** > **추가** > **참조** > **프레임워크** > **System.Configuration**을 마우스 오른쪽 단추로 클릭합니다. 확인란을 선택합니다.
 2. **확인**을 클릭합니다.
 
-##구성 파일 업데이트
+## 구성 파일 업데이트
 
 각 프로젝트에는 서비스 이름 및 api-key를 지정하는 구성 파일이 포함되어 있습니다.
 
-1. **DataIndexer**에서 서비스 이름 및 서비스 키를 서비스에 유효한 값으로 업데이트하여 App.config를 다음 예제로 바꿉니다.
-
-   서비스 이름은 전체 URL이 아닙니다. 예를 들어 검색 서비스 끝점이 **https://mysearchsrv.search.microsoft.net*인 경우 App.config에 입력할 서비스 이름은 *mysearchsrv*입니다.
+1. **DataIndexer**에서 [SERVICE NAME] 및 [SERVICE KEY]를 서비스에 유효한 값으로 업데이트하여 App.config를 다음 예제로 바꿉니다. 서비스 이름은 전체 URL이 아닙니다. 예를 들어 검색 서비스 끝점이 **https://mysearchsrv.search.microsoft.net*인 경우 App.config에 입력할 서비스 이름은 *mysearchsrv*입니다.
 
 	    <?xml version="1.0" encoding="utf-8"?>
 	    <configuration>
@@ -146,7 +144,7 @@ Visual Studio 2013 이상에서 검색 환경에 Azure 검색을 사용하는 �
 
 		<?xml version="1.0" encoding="utf-8"?>
 		<!--
-		  For more information on how to configure your ASP.NET application, please visit
+		  For more information on how to configure your ASP.NET application, visit
 		  http://go.microsoft.com/fwlink/?LinkId=152368
 		  -->
 		<configuration>
@@ -203,7 +201,7 @@ Visual Studio 2013 이상에서 검색 환경에 Azure 검색을 사용하는 �
 		            If you are deploying to a cloud environment that has multiple web server instances,
 		            you should change session state mode from "InProc" to "Custom". In addition,
 		            change the connection string named "DefaultConnection" to connect to an instance
-		            of SQL Server (including SQL Azure and SQL  Compact) instead of to SQL Server Express.
+		            of SQL Server (including SQL Azure and SQL Compact) instead of to SQL Server Express.
 		      -->
 		    <sessionState mode="InProc" customProvider="DefaultSessionProvider">
 		      <providers>
@@ -266,9 +264,9 @@ Visual Studio 2013 이상에서 검색 환경에 Azure 검색을 사용하는 �
 		</configuration>
 
 
-##DataIndexer 수정
+## DataIndexer 수정
 
-이 프로그램은 app.config에 지정된 대로 검색 서비스에 연결하여 인덱스를 만든 후 Azure SQL 데이터베이스에 저장된 USG 데이터 집합과 함께 로드하는 콘솔 앱입니다.
+이 프로그램은 app.config에 지정된 대로 검색 서비스에 연결하여 인덱스를 만든 후 Azure SQL 데이터베이스에 저장된 USGS 데이터 집합과 함께 로드하는 콘솔 앱입니다.
 
 현재 클라이언트 라이브러리의 시험판 버전에서는 인덱서를 지원하지 않으므로 REST API를 사용하여 이 자습서의 이 부분에 대한 인덱서를 만들고 사용합니다.
 
@@ -278,11 +276,11 @@ Visual Studio 2013 이상에서 검색 환경에 Azure 검색을 사용하는 �
 
 - 인덱스를 만들고 인덱서를 실행하며 데이터를 로드하고 메시지를 작성하는 데 사용되는 **Program.cs**를 바꿉니다.
 
-###AzureSearchHelper.cs 만들기
+### AzureSearchHelper.cs 만들기
 
 REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serialization/deserialization을 처리하는 클래스를 포함해야 합니다. Azure 검색과 함께 제공된 샘플에서는 이 클래스를 일반적으로 **AzureSearchHelper.cs**라고 합니다. 이 클래스를 만들고 다음 코드를 사용하여 **DataIndexer**에 추가할 수 있습니다.
 
-1. 솔루션 탐색기에서 **DataIndexer** | **추가** | **새 항목** | **코드** | **클래스**를 마우스 오른쪽 단추로 클릭합니다.
+1. 솔루션 탐색기에서 **DataIndexer** > **추가** > **새 항목** > **코드** > **클래스**를 마우스 오른쪽 단추로 클릭합니다.
 2. 클래스의 이름을 **AzureSearchHelper**로 지정합니다.
 3. 기본 코드를 다음 코드로 바꿉니다.
 
@@ -366,9 +364,9 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 
 
 
-###Program.cs 업데이트
+### Program.cs 업데이트
 
-1. 솔루션 탐색기에서 **DataIndexer** | **Program.cs**를 엽니다.
+1. 솔루션 탐색기에서 **DataIndexer** > **Program.cs**를 엽니다.
 2. Program.cs 내용을 다음 코드로 바꿉니다.
 
 		using Microsoft.Azure;
@@ -394,7 +392,7 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 		        private static SearchServiceClient _searchClient;
 		        private static SearchIndexClient _indexClient;
 
-		        // This Sample shows how to delete, create, upload documents and query an index
+		        // This sample shows how to delete, create, upload documents and query an index
 		        static void Main(string[] args)
 		        {
 		            string searchServiceName = ConfigurationManager.AppSettings["SearchServiceName"];
@@ -435,8 +433,7 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 
 		        private static void CreateIndex()
 		        {
-		            // Create the Azure Search index based on the included schema
-		            try
+		            // Create the Azure Search index based on the included schema            try
 		            {
 		                var definition = new Index()
 		                {
@@ -545,7 +542,7 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 
 
 
-##DataIndexer 빌드 및 실행
+## DataIndexer 빌드 및 실행
 
 1. **DataIndexer** 프로젝트를 마우스 오른쪽 단추로 클릭합니다.
 2. 프로젝트를 빌드합니다.
@@ -559,7 +556,7 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 
 ![][7]
 
-##SimpleSearchMVCApp 수정
+## SimpleSearchMVCApp 수정
 
 **SimpleSearchMVC**는 IIS Express에서 로컬로 실행되는 웹앱으로, 검색 상자를 제공하고 테이블에 검색 결과를 표시합니다.
 
@@ -571,7 +568,7 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 
 - 검색 클라이언트를 만들고 검색을 실행하는 클래스인 **FeatureSearch.cs**를 추가합니다.
 
-###HomeController.cs 업데이트
+### HomeController.cs 업데이트
 
 기본 코드를 다음 코드로 바꿉니다.
 
@@ -613,7 +610,7 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 	}
 
 
-###Index.cshtml 업데이트
+### Index.cshtml 업데이트
 
 기본 코드를 다음 코드로 바꿉니다.
 
@@ -688,11 +685,11 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 	</div>
 
 
-###FeaturesSearch.cs 추가
+### FeaturesSearch.cs 추가
 
 응용 프로그램에 검색 기능을 제공하는 클래스를 추가합니다.
 
-1. 솔루션 탐색기에서 **SimpleSearchMVCApp** | **추가** | **새 항목** | **코드** | **클래스**를 마우스 오른쪽 단추로 클릭합니다.
+1. 솔루션 탐색기에서 **SimpleSearchMVCApp** > **추가** > **새 항목** > **코드** > **클래스**를 마우스 오른쪽 단추로 클릭합니다.
 2. 클래스 이름을 **FeaturesSearch**로 지정합니다.
 3. 기본 코드를 다음 코드로 바꿉니다.
 
@@ -748,17 +745,17 @@ REST API를 호출하는 코드는 연결과 JSON 요청 및 응답의 serializa
 		    }
 		}
 
-###SimpleSearchMVCApp을 시작 프로젝트로 설정
+### SimpleSearchMVCApp을 시작 프로젝트로 설정
 
 **SimpleSearchMVCApp** 프로젝트를 마우스 오른쪽 단추로 클릭하여 시작 프로젝트로 설정합니다.
 
-##SimpleSearchMVCApp 빌드 및 실행
+## SimpleSearchMVCApp 빌드 및 실행
 
 이 프로그램을 빌드하고 실행하면 Azure 검색 서비스의 인덱스에 저장된 USG 데이터에 액세스할 수 있는 검색 상자를 제공하는 웹 페이지가 기본 브라우저에 표시됩니다.
 
 ![][8]
 
-###USGS 데이터 검색
+### USGS 데이터 검색
 
 USGS 데이터 집합에는 Rhode Island 주와 관련된 레코드가 포함되어 있습니다. 빈 검색 상자에서 **검색**을 클릭하면 기본적으로 상위 50개 항목을 가져옵니다.
 
@@ -772,7 +769,7 @@ USGS 데이터 집합에는 Rhode Island 주와 관련된 레코드가 포함되
 - goose +cape -neck
 
 
-##다음 단계##
+## 다음 단계
 
 이것은 .NET 및 USGS 데이터 집합을 기반으로 하는 첫 번째 Azure 검색 자습서입니다. 앞으로 이 자습서를 확장하여 사용자 지정 솔루션에서 사용할 수 있는 추가 검색 기능을 보여 드릴 예정입니다.
 
@@ -796,6 +793,5 @@ Azure 검색을 처음 사용하세요? 다른 자습서를 통해 만들 수 �
 [10]: ./media/search-get-started-dotnet/AzSearch-DotNet-MVCOptions.PNG
 [11]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-1.PNG
 [12]: ./media/search-get-started-dotnet/AzSearch-DotNet-NuGet-2.PNG
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -5,6 +5,7 @@
 	manager="paulettm"
 	services="hdinsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"/>
 
 <tags
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/11/2015"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 #HDInsight에서 Hadoop과 Sqoop 사용(Windows)
@@ -223,7 +224,7 @@ Azure SQL 데이터베이스 또는 SQL Server에 테이블 두 개를 만듭니
 		Write-Host "Done" -ForegroundColor Green
 
 5. **스크립트 실행**을 클릭하거나 **F5** 키를 눌러 스크립트를 실행합니다.
-6. [Azure 포털][azure-management-portal]을 사용하여 테이블 및 클러스터형 인덱스를 검사합니다.
+6. [Azure Preview 포털][azure-management-portal]을 사용하여 테이블 및 클러스터형 인덱스를 검사합니다.
 
 **SQL Server의 경우**
 
@@ -346,7 +347,7 @@ Azure SQL 데이터베이스 또는 SQL Server에 테이블 두 개를 만듭니
 		$destBlob.UploadFromStream($memStream)
 
 5. **스크립트 실행**을 클릭하거나 **F5** 키를 눌러 스크립트를 실행합니다.
-6. 수정한 데이터 파일을 검사하려면 Azure 포털, Azure 저장소 탐색기 도구 또는 Azure PowerShell을 사용할 수 있습니다. [HDInsight 시작][hdinsight-get-started]에는 파일을 다운로드하고 그 파일의 내용을 표시하는 Azure PowerShell 사용에 관한 코드 샘플이 있습니다.
+6. 수정한 데이터 파일을 검사하려면 Azure Preview 포털, Azure 저장소 탐색기 도구 또는 Azure PowerShell을 사용할 수 있습니다. [HDInsight 시작][hdinsight-get-started]에는 파일을 다운로드하고 그 파일의 내용을 표시하는 Azure PowerShell 사용에 관한 코드 샘플이 있습니다.
 
 
 ##PowerShell을 사용하여 Sqoop 내보내기 실행
@@ -411,7 +412,7 @@ Azure SQL 데이터베이스 또는 SQL Server에 테이블 두 개를 만듭니
 	필드 구분 기호는 **\0x20**이며 공백입니다. 구분 기호는 sample.log 파일 Azure PowerShell 스크립트에 정의되어 있습니다. **-m 1**에 대해 자세히 알아보려면 [Sqoop 사용자 가이드][sqoop-user-guide-1.4.4]를 참조하세요.
 
 5. **스크립트 실행**을 클릭하거나 **F5** 키를 눌러 스크립트를 실행합니다.
-6. [Azure 포털][azure-management-portal]을 사용하여 내보낸 데이터를 검사합니다.
+6. [Azure Preview 포털][azure-management-portal]을 사용하여 내보낸 데이터를 검사합니다.
 
 **hivesampletable Hive 테이블을 내보내려면**
 
@@ -462,7 +463,7 @@ Azure SQL 데이터베이스 또는 SQL Server에 테이블 두 개를 만듭니
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
 5. **스크립트 실행**을 클릭하거나 **F5** 키를 눌러 스크립트를 실행합니다.
-6. [Azure 포털][azure-management-portal]을 사용하여 내보낸 데이터를 검사합니다.
+6. [Azure Preview 포털][azure-management-portal]을 사용하여 내보낸 데이터를 검사합니다.
 
 
 
@@ -614,7 +615,7 @@ Azure SQL 데이터베이스 또는 SQL Server에 테이블 두 개를 만듭니
 		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $sqoopJob.JobId -StandardOutput
 
 5. **스크립트 실행**을 클릭하거나 **F5** 키를 눌러 스크립트를 실행합니다.
-6. 수정한 데이터 파일을 검사하려면 Azure 포털, Azure 저장소 탐색기 도구 또는 Azure PowerShell을 사용할 수 있습니다. [HDInsight 시작][hdinsight-get-started]에는 파일을 다운로드하고 그 파일의 내용을 표시하는 Azure PowerShell 사용에 관한 코드 샘플이 있습니다.
+6. 수정한 데이터 파일을 검사하려면 Azure Preview 포털, Azure 저장소 탐색기 도구 또는 Azure PowerShell을 사용할 수 있습니다. [HDInsight 시작][hdinsight-get-started]에는 파일을 다운로드하고 그 파일의 내용을 표시하는 Azure PowerShell 사용에 관한 코드 샘플이 있습니다.
 
 ##다음 단계
 
@@ -627,7 +628,7 @@ Azure SQL 데이터베이스 또는 SQL Server에 테이블 두 개를 만듭니
 
 
 
-[azure-management-portal]: https://manage.windowsazure.com/
+[azure-management-portal]: https://portal.azure.com/
 
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
@@ -646,6 +647,5 @@ Azure SQL 데이터베이스 또는 SQL Server에 테이블 두 개를 만듭니
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

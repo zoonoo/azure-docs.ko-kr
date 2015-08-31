@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/11/2015"
+   ms.date="08/13/2015"
    ms.author="v-sharos"/>
 
 
@@ -226,4 +226,4 @@ Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

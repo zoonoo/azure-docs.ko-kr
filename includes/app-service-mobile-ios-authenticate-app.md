@@ -1,7 +1,4 @@
-
-
-1. **QSTodoListViewController.m**을 열고 다음 메서드를 추가합니다.
-
+1. Mac에서 Xcode를 사용하여 **QSTodoListViewController.m**을 열고 다음 메서드를 추가합니다. Facebook을 ID 공급자로 사용하지 않는 경우 _facebook_을 _microsoftaccount_, _twitter_, _google_ 또는 _windowsazureactivedirectory_로 변경합니다.
 
         - (void) loginAndGetData
         {
@@ -15,14 +12,10 @@
             }];
         }
 
-
-    > [AZURE.NOTE]Facebook 이외의 ID 공급자를 사용하는 경우 **loginWithProvider**에 전달된 값을 변경합니다. 지원되는 값은 다음과 같습니다. _microsoftaccount_, _facebook_, _twitter_, _google_ 또는 _windowsazureactivedirectory_.
-
-
-2. 끝에 있는 `[self refresh]`을(를) 다음으로 바꿔 `viewDidLoad`을(를) 수정합니다.
+2. `viewDidLoad`의 `[self refresh]`를 다음으로 바꿉니다.
 
         [self loginAndGetData];
 
-3. **Run**을 눌러 앱을 시작한 다음 선택한 ID 공급자를 사용하여 로그인합니다. 로그인할 때 할 일 목록을 보고 업데이트할 수 있어야 합니다.
+3. **Run**을 눌러 앱을 시작한 다음 로그인합니다. 로그인할 때 할 일 목록을 보고 업데이트할 수 있어야 합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

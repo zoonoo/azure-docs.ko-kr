@@ -12,9 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
-
 
 
 
@@ -207,9 +206,9 @@ Add-AzureTrafficManagerEndpointConfig에 대한 매개 변수는 다음과 같�
 
 ## 참고 항목
 
-[트래픽 관리자 개요](traffic-manager-overview.md)
+[트래픽 관리자란?](traffic-manager-overview.md)
 
 [Azure cmdlet 시작](https://msdn.microsoft.com/library/jj554332.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

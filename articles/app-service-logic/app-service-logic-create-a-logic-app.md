@@ -29,13 +29,19 @@
 
 ## 커넥터 가져오기
 
-먼저, 사용할 두 개의 커넥터인 [**Dropbox 커넥터**](app-service-logic-connector-dropbox.md)와 [**Twitter 커넥터**](app-service-logic-connector-twitter.md)를 만듭니다. 해당 커넥터를 만들려면:
+먼저, 사용할 두 개의 커넥터인 [**Dropbox 커넥터**](app-service-logic-connector-dropbox.md)와 [**Twitter 커넥터**](app-service-logic-connector-twitter.md)를 만듭니다. Twitter API에 대한 제한 사항으로 인해 우리가 Twitter와 무료 응용 프로그램을 등록하도록 해야 합니다. 해당 커넥터를 만들려면:
 
 0. Azure 포털에 로그인합니다.
 
 1. 홈 화면에서 [**마켓플레이스**](https://portal.azure.com/#blade/HubsExtension/GalleryFeaturedMenuItemBlade/selectedMenuItemId/apiapps)를 클릭하고 **Twitter**를 검색합니다.(또는 [여기를 클릭](https://portal.azure.com/#create/microsoft_com.TwitterConnector.0.2.2)합니다)
 
 2. Twitter 커넥터를 선택하고 만들기 단추를 클릭합니다. 모든 설정에 대한 뷰를 가져올 수 있습니다. 이름을 **Twitter 커넥터**로 그대로 둡니다.
+3. '패키지 설정'을 선택합니다.--여기에 Twitter 응용 프로그램의 정보를 입력해야 합니다. 이러한 단계는 무료 응용 프로그램을 설정할 수 있습니다.
+	1. [Twitter 앱 등록 페이지](http://apps.twitter.com)로 이동합니다.
+	2. 새 앱 만들기
+	3. 이름 및 설명을 지정합니다. 웹사이트에 대한 모든 URL을 입력 할 수 있으며 콜백 URL을 비워둘 수 있습니다.
+	4. 등록되면, Twitter에서 ‘Consumer Key’를 Azure의 'clientId' 필드에 복사하고 Twitter에서 ‘Consumer Secret'를 'clientSecret로 복사합니다.
+	5. 다른 API 설정으로 되돌리려면 Azure 창에서 ' 확인'을 클릭합니다.
 
 3. **새 앱 서비스 계획 만들기**에 계획 이름을 입력합니다.
 
@@ -174,4 +180,4 @@ Twitter 커넥터는 이제 워크플로의 일부입니다.
 [논리 앱 기능 사용]: app-service-logic-use-logic-app-features.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

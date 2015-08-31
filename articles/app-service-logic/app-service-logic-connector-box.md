@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/10/2015"
+   ms.date="08/19/2015"
    ms.author="andalmia"/>
 
 # Box 커넥터
@@ -68,7 +68,6 @@ File Path(파일 경로) | 폴더를 포함하는 파일 경로를 완료합니�
 3. 이름, 앱 서비스 계획 및 기타 속성을 입력합니다. ![][1]
 4. **만들기**를 선택합니다.
 
-	![][1]
 
 ## 논리 앱에 Box Connector 사용
 
@@ -78,24 +77,22 @@ API 앱을 만들고 나면 이제 Box 커넥터를 논리 앱의 동작으로 �
 
 	> [AZURE.NOTE]논리 앱의 시작 부분에 Box 커넥터를 선택하면 트리거처럼 작동합니다. 그렇지 않은 경우 커넥터를 사용하는 Box 계정에서 작업을 수행할 수 있습니다. 이 문서의 작성 시점에 Box 커넥터에는 트리거가 없습니다.
 
-2. 사용자를 대신하여 작업을 수행하도록 논리 앱을 인증하고 논리 앱에 권한을 부여하세요. Box 커넥터에서 **인증**을 선택합니다. ![][2]
-
+2. 사용자를 대신하여 작업을 수행하도록 논리 앱을 인증하고 논리 앱에 권한을 부여하세요. Box 커넥터에서 **인증**을 선택합니다.
 	![][2]
 
-5. 권한 부여를 클릭하면 Box의 인증 대화가 열립니다. 작업을 수행하려는 Box 계정의 로그인 세부 정보를 입력합니다.
-
+3. 작업을 수행하려는 Box 계정의 로그인 세부 정보를 입력합니다.
 	![][3]
 
-6. 논리 앱에 계정에 대한 액세스 권한을 부여하여 사용자를 대신하여 작업을 수행하도록 합니다.
-
+4. 논리 앱에 계정에 대한 액세스 권한을 부여하여 사용자를 대신하여 작업을 수행하도록 합니다.
 	![][4]
 
-7. 동작 목록이 표시되며 수행하려는 적절한 작업을 선택할 수 있습니다.
+5. 동작 목록이 표시되며 수행하려는 적절한 작업을 선택할 수 있습니다.
+	![][5]
 
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
-	![][5]
-REST API를 사용하여 API 앱을 만듭니다. [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)를 참조하세요.
+
+[커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
 커넥터의 성능 통계를 검토하고 보안을 제어할 수 있습니다. [기본 제공 API 앱 및 커넥터 관리 및 모니터링](app-service-logic-monitor-your-connectors.md)을 참조하세요.
 
@@ -106,4 +103,4 @@ REST API를 사용하여 API 앱을 만듭니다. [커넥터 및 API 앱 참조]
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

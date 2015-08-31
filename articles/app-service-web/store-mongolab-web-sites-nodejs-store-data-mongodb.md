@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="08/10/2014"
-	ms.author="mwasson"/>
+	ms.date="08/18/2015"
+	ms.author="tdykstra"/>
 
 
 
@@ -25,7 +25,7 @@
 # Azure에서 MongoLab 추가 기능을 사용하는 MongoDB로 Node.js 웹 앱 만들기
 
 
-<p><em>작성자: Eric Sedor, MongoLab</em></p>
+*작성자: Eric Sedor, MongoLab*
 
 모험심이 많은 사용자 여러분, 반갑습니다! MongoDB-as-a-Service에 오신 것을 환영합니다. 이 자습서에서는 다음 작업을 수행합니다.
 
@@ -575,4 +575,4 @@ Azure 앱 서비스에서 웹 앱을 작성하는 것은 매우 쉽습니다. �
 [mongolab-view]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/mongolab-view.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

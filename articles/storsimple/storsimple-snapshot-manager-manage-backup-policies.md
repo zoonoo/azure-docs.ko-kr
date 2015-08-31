@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자를 사용하여 백업 정책 만들기 및 관리
@@ -118,4 +118,4 @@
 
 [StorSimple 스냅숏 관리자를 사용하여 백업 작업 보기 및 관리](storsimple-snapshot-manager-manage-backup-jobs.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

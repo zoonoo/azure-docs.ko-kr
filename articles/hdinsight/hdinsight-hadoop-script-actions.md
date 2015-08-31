@@ -1,22 +1,23 @@
-<properties 
-	pageTitle="HDInsight를 사용하여 스크립트 작업 개발 | Microsoft Azure" 
-	description="스크립트 작업을 사용하여 Hadoop 클러스터를 사용자 지정하는 방법을 알아봅니다." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="mumian" 
-	manager="paulettm" 
+<properties
+	pageTitle="HDInsight를 사용하여 스크립트 작업 개발 | Microsoft Azure"
+	description="스크립트 작업을 사용하여 Hadoop 클러스터를 사용자 지정하는 방법을 알아봅니다."
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
+	authors="mumian"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/16/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
-# HDInsight용 스크립트 작업 스크립트 개발 
+# HDInsight용 스크립트 작업 스크립트 개발
 
 스크립트 작업은 Hadoop 클러스터에서 실행되는 추가 소프트웨어를 설치하거나 클러스터에 설치된 응용 프로그램의 구성을 변경하기 위해 사용할 수 있습니다. 스크립트 작업은 HDInsight 클러스터를 배포할 때 클러스터 노드에서 실행되는 스크립트이며 클러스터의 노드에서 HDInsight 구성이 완료되면 실행됩니다. 스크립트 작업은 시스템 관리자 계정 권한으로 실행되며 클러스터 노드에 대한 모든 액세스 권한을 제공합니다. 각 클러스터에는 지정된 순서로 실행되는 스크립트 작업 목록이 제공될 수 있습니다.
 
@@ -34,7 +35,7 @@ HDInsight는 HDInsight 클러스터에 추가 구성 요소를 설치하는 여�
 **Solr 설치** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. [HDInsight 클러스터에서 Solr 설치 및 사용](hdinsight-hadoop-solr-install.md)을 참조하세요.
 \- **Giraph 설치** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. [HDInsight 클러스터에서 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install.md)을 참조하세요.
 
-스크립트 작업은 Azure 포털, Azure PowerShell에서 배포하거나 HDInsight .NET SDK를 사용하여 배포할 수 있습니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]을 참조하세요.
+스크립트 작업은 Azure Preview 포털, Azure PowerShell에서 배포하거나 HDInsight .NET SDK를 사용하여 배포할 수 있습니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]을 참조하세요.
 
 > [AZURE.NOTE]샘플 스크립트는 HDInsight 클러스터 버전 3.1 이상에서만 작동합니다. HDInsight 클러스터 버전에 대한 자세한 내용은 [HDInsight 클러스터 버전](../hdinsight-component-versioning/)을 참조하세요.
 
@@ -48,11 +49,11 @@ HDInsight는 HDInsight 클러스터에 추가 구성 요소를 설치하는 여�
 	    [parameter(Mandatory)][string] $Value,
 	    [parameter()][string] $Description
 	)
-	
+
 	if (!$Description) {
 	    $Description = ""
 	}
-	
+
 	$hdiConfigFiles = @{
 	    "hive-site.xml" = "$env:HIVE_HOME\conf\hive-site.xml";
 	    "core-site.xml" = "$env:HADOOP_HOME\etc\hadoop\core-site.xml";
@@ -60,16 +61,16 @@ HDInsight는 HDInsight 클러스터에 추가 구성 요소를 설치하는 여�
 	    "mapred-site.xml" = "$env:HADOOP_HOME\etc\hadoop\mapred-site.xml";
 	    "yarn-site.xml" = "$env:HADOOP_HOME\etc\hadoop\yarn-site.xml"
 	}
-	
+
 	if (!($hdiConfigFiles[$ConfigFileName])) {
 	    Write-HDILog "Unable to configure $ConfigFileName because it is not part of the HDI configuration files."
 	    return
 	}
-	
+
 	[xml]$configFile = Get-Content $hdiConfigFiles[$ConfigFileName]
-	
+
 	$existingproperty = $configFile.configuration.property | where {$_.Name -eq $Name}
-	    
+
 	if ($existingproperty) {
 	    $existingproperty.Value = $Value
 	    $existingproperty.Description = $Description
@@ -80,12 +81,12 @@ HDInsight는 HDInsight 클러스터에 추가 구성 요소를 설치하는 여�
 	    $newproperty.Description = $Description
 	    $configFile.configuration.AppendChild($newproperty)
 	}
-	
+
 	$configFile.Save($hdiConfigFiles[$ConfigFileName])
-	
+
 	Write-HDILog "$configFileName has been configured."
 
-스크립트 파일의 복사본은 [https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1](https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1)에 있습니다. Azure 포털에서 스크립트를 호출할 때 다음 매개 변수를 사용할 수 있습니다.
+스크립트 파일의 복사본은 [https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1](https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1)에 있습니다. Azure Preview 포털에서 스크립트를 호출할 때 다음 매개 변수를 사용할 수 있습니다.
 
 	hive-site.xml hive.metastore.client.socket.timeout 90
 
@@ -126,7 +127,7 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
 
 	클러스터 노드에 설치하는 사용자 지정 구성 요소에는 HDFS(Hadoop Distributed File System) 저장소를 사용하기 위한 기본 구성이 있을 수 있습니다. Azure Blob 저장소를 사용하도록 구성을 변경해야 합니다. 클러스터 재이미지 시 HDFS 파일 시스템은 포맷되고 거기에 저장된 데이터를 잃게 됩니다. 대신 Azure Blob 저장소를 사용하면 데이터가 유지됩니다.
 
-## 사용자 지정 스크립트에 대한 도우미 메서드 
+## 사용자 지정 스크립트에 대한 도우미 메서드
 
 스크립트 작업은 사용자 지정 스크립트를 쓰는 동안 사용할 수 있는 다음과 같은 도우미 메서드를 제공합니다.
 
@@ -215,7 +216,7 @@ HDInsight 스크립트 작업 명령에서 사용하기 전에 사용자 지정 
 **HDInsight Emulator 설치** - 로컬에서 스크립트 작업을 실행하려면 HDInsight Emulator가 설치되어 있어야 합니다. HDInsight Emulator를 설치하는 방법에 대한 지침은 [HDInsight Emulator 시작](../hdinsight-get-started-emulator/)을 참조하세요.
 
 **Azure PowerShell에 대한 실행 정책 설정** - Azure PowerShell을 열고 다음 명령을 관리자 권한으로 실행하여 실행 정책을 *LocalMachine*으로 설정하고 *Unrestricted*가 되도록 설정합니다.
- 
+
 	Set-ExecutionPolicy Unrestricted –Scope LocalMachine
 
 스크립트가 서명되지 않았기 때문에 이 정책을 제한 없음으로 설정해야 합니다.
@@ -243,44 +244,44 @@ HDInsight 스크립트 작업 명령에서 사용하기 전에 사용자 지정 
 
 또한 클러스터 노드에 원격 액세스하여 사용자 지정 스크립트의 STDOUT 및 STDERR을 확인할 수 있습니다. 각 노드의 로그는 해당 노드 전용이며 **C:\\HDInsightLogs\\DeploymentAgent.log**에 로깅됩니다. 이러한 로그 파일은 사용자 지정 스크립트의 모든 출력을 기록합니다. Spark 스크립트 작업에 대한 예제 로그 조각은 다음과 같습니다.
 
-	Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand; Details : BEGIN: Invoking powershell script https://configactions.blob.core.windows.net/sparkconfigactions/spark-installer.ps1.; 
-	Version : 2.1.0.0; 
-	ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692; 
-	AzureVMName : HEADNODE0; 
-	IsException : False; 
-	ExceptionType : ; 
-	ExceptionMessage : ; 
-	InnerExceptionType : ; 
-	InnerExceptionMessage : ; 
+	Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand; Details : BEGIN: Invoking powershell script https://configactions.blob.core.windows.net/sparkconfigactions/spark-installer.ps1.;
+	Version : 2.1.0.0;
+	ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692;
+	AzureVMName : HEADNODE0;
+	IsException : False;
+	ExceptionType : ;
+	ExceptionMessage : ;
+	InnerExceptionType : ;
+	InnerExceptionMessage : ;
 	Exception : ;
 	...
 
 	Starting Spark installation at: 09/04/2014 21:46:02 Done with Spark installation at: 09/04/2014 21:46:38;
-	
-	Version : 2.1.0.0; 
-	ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692; 
-	AzureVMName : HEADNODE0; 
-	IsException : False; 
-	ExceptionType : ; 
-	ExceptionMessage : ; 
-	InnerExceptionType : ; 
-	InnerExceptionMessage : ; 
+
+	Version : 2.1.0.0;
+	ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692;
+	AzureVMName : HEADNODE0;
+	IsException : False;
+	ExceptionType : ;
+	ExceptionMessage : ;
+	InnerExceptionType : ;
+	InnerExceptionMessage : ;
 	Exception : ;
 	...
-	
-	Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand; 
-	Details : END: Invoking powershell script https://configactions.blob.core.windows.net/sparkconfigactions/spark-installer.ps1.; 
-	Version : 2.1.0.0; 
-	ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692; 
-	AzureVMName : HEADNODE0; 
-	IsException : False; 
-	ExceptionType : ; 
-	ExceptionMessage : ; 
-	InnerExceptionType : ; 
-	InnerExceptionMessage : ; 
+
+	Microsoft.Hadoop.Deployment.Engine.CustomPowershellScriptCommand;
+	Details : END: Invoking powershell script https://configactions.blob.core.windows.net/sparkconfigactions/spark-installer.ps1.;
+	Version : 2.1.0.0;
+	ActivityId : 739e61f5-aa22-4254-aafc-9faf56fc2692;
+	AzureVMName : HEADNODE0;
+	IsException : False;
+	ExceptionType : ;
+	ExceptionMessage : ;
+	InnerExceptionType : ;
+	InnerExceptionMessage : ;
 	Exception : ;
 
- 
+
 이 로그에서는 Spark 스크립트 작업이 HEADNODE0이라는 VM에서 실행되었고 실행 중 예외가 throw되지 않았음을 알 수 있습니다.
 
 실행 오류가 발생하는 경우 오류를 설명하는 출력도 이 로그 파일에 포함됩니다. 이러한 로그에 제공되는 정보는 발생할 수 있는 스크립트 문제를 디버그할 때 유용합니다.
@@ -288,7 +289,7 @@ HDInsight 스크립트 작업 명령에서 사용하기 전에 사용자 지정 
 
 ## 참고 항목
 
-- [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize] 
+- [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]
 - [HDInsight 클러스터에서 Spark 설치 및 사용][hdinsight-install-spark]
 - [HDInsight 클러스터에서 R 설치 및 사용][hdinsight-r-scripts]
 - [HDInsight 클러스터에서 Solr 설치 및 사용](hdinsight-hadoop-solr-install.md)
@@ -302,6 +303,5 @@ HDInsight 스크립트 작업 명령에서 사용하기 전에 사용자 지정 
 
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

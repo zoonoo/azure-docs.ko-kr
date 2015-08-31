@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="응용 프로그램 프록시를 사용하여 보안 원격 액세스를 위한 응용 프로그램 게시" 
-	description="SharePoint 사이트, Outlook Web Access, IIS 기반 응용 프로그램과 같은 응용 프로그램을 개인 네트워크 내에 게시할 수 있으며 네트워크 외부 사용자가 안전하게 액세스할 수 있게 만드는 방법을 설명하는 항목입니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="응용 프로그램 프록시를 사용하여 보안 원격 액세스를 위한 응용 프로그램 게시"
+	description="SharePoint 사이트, Outlook Web Access, IIS 기반 응용 프로그램과 같은 응용 프로그램을 개인 네트워크 내에 게시할 수 있으며 네트워크 외부 사용자가 안전하게 액세스할 수 있게 만드는 방법을 설명하는 항목입니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="rkarlin"
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/04/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/14/2015" 
+	ms.author="rkarlin"/>
 
 
 # 응용 프로그램 프록시를 사용하여 보안 원격 액세스를 위한 응용 프로그램 게시
@@ -30,6 +30,5 @@ Azure AD Application Proxy는 Premium 또는 Basic 버전의 Azure Active Direct
 ## 다음 단계
 
 [Microsoft Azure 블로그](http://azure.microsoft.com/blog/) [응용 프로그램 프록시 서비스 사용](https://msdn.microsoft.com/library/azure/dn768214.aspx) [응용 프로그램 프록시를 사용하여 응용 프로그램 게시](https://msdn.microsoft.com/library/azure/dn768220.aspx) [응용 프로그램 프록시 문제 해결](https://msdn.microsoft.com/library/azure/dn768218.aspx)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

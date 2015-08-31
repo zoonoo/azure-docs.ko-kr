@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="SSalahAhmed"
-	manager="TerryLan"
+	manager="gchander"
 	editor="LisaToft"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
-	ms.author="kenhoff"/>
+	ms.date="08/17/2015"
+	ms.author="saah;kenhoff"/>
 
 # Azure Active Directory Reporting 알림
 
@@ -67,4 +67,4 @@ Active Directory Premium 라이선스가 할당된 모든 전역 관리자에게
 - [Azure Active Directory Premium 시작](active-directory-get-started-premium.md)
 - [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가](active-directory-add-company-branding.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

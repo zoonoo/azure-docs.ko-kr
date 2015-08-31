@@ -367,4 +367,4 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 [시스템 속성]: http://go.microsoft.com/fwlink/?LinkId=331143
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

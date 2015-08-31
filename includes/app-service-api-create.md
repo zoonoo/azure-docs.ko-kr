@@ -1,6 +1,6 @@
-1. Visual Studio 2013을 엽니다.
+1. Visual Studio 2015 또는 Visual Studio 2013을 엽니다.
 
-2. **파일 > 새 프로젝트**를 선택합니다.
+2. **파일 > 새로 만들기 > 프로젝트**를 선택합니다.
 
 3. **ASP.NET 웹 응용 프로그램** 템플릿을 선택합니다.
 
@@ -20,4 +20,4 @@
 
 Visual Studio에서 API 앱으로 배포하기 위해 구성된 Web API 프로젝트를 만듭니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

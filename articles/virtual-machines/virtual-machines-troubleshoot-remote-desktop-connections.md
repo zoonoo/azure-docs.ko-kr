@@ -171,7 +171,7 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 기반 계정 자격 
 
 ### 발생지 3: 클라우드 서비스 끝점 및 ACL
 
-서비스 관리에서 만든 가상 컴퓨터에 대한 문제 또는 잘못된 구성의 발생지인 클라우드 서비스 끝점 및 ACL을 제거하려면 동일한 클라우드 서비스 또는 가상 컴퓨터인 다른 Azure 가상 컴퓨터가 사용자의 Azure 가상 컴퓨터에 원격 데스크톱 연결을 설정할 수 있는지 확인합니다.
+서비스 관리 API를 사용하여 만든 가상 컴퓨터에 대한 문제 또는 잘못된 구성의 원인이 되는 클라우드 서비스 끝점 및 ACL을 제거하려면 동일한 클라우드 서비스 또는 가상 네트워크에 있는 다른 Azure 가상 컴퓨터가 사용자의 Azure 가상 컴퓨터로 원격 데스크톱 연결이 가능한지 확인합니다.
 
 ![](./media/virtual-machines-troubleshoot-remote-desktop-connections/tshootrdp_3.png)
 
@@ -210,7 +210,7 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 기반 계정 자격 
 - Windows 방화벽 또는 다른 로컬 방화벽에 원격 데스크톱 트래픽을 방지하는 아웃바운드 규칙이 있습니다.
 - Azure 가상 컴퓨터에서 실행 중인 침입 탐지 또는 네트워크 모니터링 소프트웨어가 원격 데스크톱 연결을 방지하고 있습니다.
 
-서비스 관리자에서 만든 가상 컴퓨터에 대한 이러한 잠재적 문제를 해결하기 위해 Azure 가상 컴퓨터에 대한 원격 Azure PowerShell 세션을 사용할 수 있습니다. 먼저 가상 컴퓨터의 호스팅 클라우드 서비스에 대 인증서를 설치해야 합니다. [Azure 가상 컴퓨터에 대한 보안 원격 PowerShell 액세스 구성](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe)으로 이동하고 **InstallWinRMCertAzureVM.ps1** 스크립트 파일을 로컬 컴퓨터의 폴더에 다운로드합니다.
+서비스 관리자 API를 사용하여 만든 가상 컴퓨터에 대한 이러한 잠재적 문제를 해결하기 위해 Azure 가상 컴퓨터에 대한 원격 Azure PowerShell 세션을 사용할 수 있습니다. 먼저 가상 컴퓨터의 호스팅 클라우드 서비스에 대 인증서를 설치해야 합니다. [Azure 가상 컴퓨터에 대한 보안 원격 PowerShell 액세스 구성](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe)으로 이동하고 **InstallWinRMCertAzureVM.ps1** 스크립트 파일을 로컬 컴퓨터의 폴더에 다운로드합니다.
 
 다음으로, 아직 없는 경우 Azure PowerShell을 설치합니다. [Azure PowerShell 설치 및 구성 방법](../install-configure-powershell.md)을 참조하세요.
 
@@ -287,4 +287,4 @@ Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azu
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

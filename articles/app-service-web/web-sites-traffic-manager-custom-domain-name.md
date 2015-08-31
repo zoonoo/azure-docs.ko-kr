@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/12/2015" 
+	ms.date="08/18/2015" 
 	ms.author="mwasson"/>
 
 #트래픽 관리자를 사용하는 Azure 앱 서비스의 웹 앱에 대한 사용자 지정 도메인 이름 구성
@@ -70,4 +70,4 @@
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

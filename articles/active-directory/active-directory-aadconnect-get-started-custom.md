@@ -21,7 +21,7 @@
 
 다음 설명서는 Azure AD Connect에 대한 사용자 지정 설치 옵션을 사용하여 정보를 제공합니다. 추가 구성 옵션이 있거나 빠른 설치에서 해결되지 않은 선택적 기능이 필요한 경우 이 옵션을 사용할 수 있습니다.
 
-빠른 설치에 대한 자세한 내용은 [빠른 설치](active-directory-aadconnect/#getting-started-with-azure-ad-connect)를 참조하세요. 디렉터리 동기화에서 Azure AD Connect로 업그레이드에 대한 내용은 [디렉터리 동기화를 Azure Active Directory 연결로 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md)를 참조하세요.
+빠른 설치에 대한 자세한 내용은 [빠른 설치](active-directory-aadconnect.md#getting-started-with-azure-ad-connect)를 참조하세요. 디렉터리 동기화에서 Azure AD Connect로 업그레이드에 대한 내용은 [디렉터리 동기화를 Azure Active Directory 연결로 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md)를 참조하세요.
 
 
 
@@ -290,4 +290,4 @@ AD FS에 로그인하고 PSH를 사용하여 이렇게 구성하여 AD FS 로그
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

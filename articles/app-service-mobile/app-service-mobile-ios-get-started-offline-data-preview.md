@@ -1,8 +1,8 @@
 <properties
-	pageTitle="모바일 앱(iOS)에 대해 오프라인 동기화 사용"
+	pageTitle="Azure 모바일 앱(iOS)용 오프라인 동기화 사용"
 	description="앱 서비스 모바일 앱을 사용하여 iOS 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법을 알아봅니다."
 	documentationCenter="ios"
-	authors="lindydonna"
+	authors="krisragh"
 	manager="dwrede"
 	editor=""
 	services="app-service\mobile"/>
@@ -13,40 +13,30 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/01/2015"
-	ms.author="donnam"/>
+	ms.date="08/11/2015"
+	ms.author="krisragh"/>
 
 # iOS 모바일 앱에 대해 오프라인 동기화 사용
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-이 자습서에서는 iOS용 모바일 앱의 오프라인 동기화 기능을 설명합니다. 오프라인 동기화를 사용하면 최종 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱과 데이터 보기, 추가 또는 수정과 같은 상호 작용을 수행할 수 있습니다. 변경 내용은 로컬 데이터베이스에 저장됩니다. 장치가 다시 온라인 상태가 되면 이러한 변경 내용이 원격 백 엔드와 동기화됩니다.
+## 개요
 
-오프라인 동기화의 몇 가지 잠재적인 용도는 다음과 같습니다.
+이 자습서에서는 iOS용 Azure 모바일 앱의 오프라인 동기화 기능을 설명합니다. 오프라인 동기화를 사용하면 최종 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱과 데이터 보기, 추가 또는 수정과 같은 상호 작용을 수행할 수 있습니다. 변경 내용은 로컬 데이터베이스에 저장됩니다. 장치가 다시 온라인 상태가 되면 이러한 변경 내용이 원격 백 엔드와 동기화됩니다.
 
-* 서버 데이터를 장치에 로컬로 캐시하여 앱 응답성 향상
-* 일시적인 네트워크 연결 중단에도 앱 복원력 제공
-* 최종 사용자가 네트워크에 액세스할 수 없는 경우에도 데이터를 만들고 수정할 수 있도록 허용하여 네트워크에 연결되지 않은 시나리오까지 지원
-* 여러 장치 간에 데이터를 동기화하고 동일한 레코드를 두 개의 장치에서 수정할 때 충돌 감지
+Azure 모바일 앱을 처음 사용하는 경우, 먼저 [iOS 앱 만들기] 자습서를 완료해야 합니다.
 
-모바일 앱을 처음 사용하는 경우 먼저 [iOS 앱 만들기] 자습서를 완료합니다.
+오프라인 동기화 기능에 대한 자세한 내용은 [Azure 모바일 앱에서 오프라인 데이터 동기화] 항목을 참조하세요.
 
 ##<a name="review"></a>서버 프로젝트 구성 검토(옵션)
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
 
-## <a name="get-app"></a>오프라인 ToDo 샘플 앱 가져오기
+## <a name="review-sync"></a>클라이언트 동기화 코드 검토 
 
-[GitHub의 모바일 앱 샘플 리포지토리]에서 리포지토리를 복제하고 Xcode에서 [오프라인 iOS 샘플] 프로젝트를 엽니다.
+자습서 [iOS 앱 만들기]에 대해 다운로드한 클라이언트 프로젝트는 로컬 핵심 데이터 기반 데이터베이스를 사용하여 오프라인 동기화를 지원하는 코드를 포함합니다. 이 섹션은 이미 자습서 코드에 포함된 내용에 대한 요약입니다. 기능의 개념적 개요는 [Azure 모바일 앱에서 오프라인 데이터 동기화]를 참조하세요.
 
-### 베타 SDK
-기존 앱에 오프라인 지원을 추가하려면 최신 [베타 iOS SDK](http://aka.ms/gc6fex)를 가져오세요.
-
-## <a name="review-sync"></a>모바일 앱 동기화 코드 검토
-
-모바일 앱 오프라인 동기화를 사용하면 네트워크에 액세스할 수 없는 경우에도 최종 사용자가 로컬 데이터베이스를 조작할 수 있습니다. 앱에서 이러한 기능을 사용하려면 `MSClient`의 동기화 컨텍스트를 초기화하고 로컬 저장소를 참조합니다. 그런 다음 `MSSyncTable` 인터페이스를 통해 테이블을 참조합니다.
-
-이 섹션에서는 샘플의 오프라인 동기화 관련 코드를 살펴봅니다.
+Azure 모바일 앱의 오프라인 데이터 동기화 기능을 사용하면 최종 사용자가 네트워크에 액세스할 수 없을 때 로컬 데이터베이스를 조작할 수 있습니다. 앱에서 이러한 기능을 사용하려면 `MSClient`의 동기화 컨텍스트를 초기화하고 로컬 저장소를 참조합니다. 그런 다음 `MSSyncTable` 인터페이스를 통해 테이블을 참조합니다.
 
 1. **QSTodoService.m**에서 `syncTable` 멤버의 형식은 `MSSyncTable`입니다. 오프라인 동기화에서는 `MSTable` 대신 이 동기화 테이블 인터페이스를 사용합니다. 동기화 테이블을 사용하면 모든 작업이 로컬 저장소로 이동하고 명시적 푸시 및 끌어오기 작업이 있는 원격 백 엔드와만 동기화됩니다.
 
@@ -119,7 +109,7 @@
       * MS\_TableConfig: 모든 끌어오기 작업에 대한 마지막 동기화 작업의 마지막 업데이트 시간 추적
       * TodoItem: 할 일 항목 저장 시스템 열 **ms\_createdAt**, **ms\_updatedAt** 및 **ms\_version**은 선택적 시스템 속성입니다.
 
->[AZURE.NOTE]모바일 앱 SDK는 "**`ms_`**"로 시작하는 열 이름을 예약합니다. 시스템 열 이외의 항목에는 이 접두사를 사용하지 않아야 합니다. 그렇지 않으면 원격 백 엔드를 사용할 때 열 이름이 수정됩니다.
+>[AZURE.NOTE]Azure 모바일 앱 SDK는 '**`ms_`**'로 시작하는 열 이름을 예약합니다. 시스템 열 이외의 항목에는 이 접두사를 사용하지 않아야 합니다. 그렇지 않으면 원격 백 엔드를 사용할 때 열 이름이 수정됩니다.
 
 - 오프라인 동기화 기능을 사용할 경우 아래와 같이 시스템 테이블을 정의해야 합니다.
 
@@ -169,7 +159,7 @@
 
     | 특성 | 형식 | 참고 |
     |-----------   |  ------ | -------------------------------------------------------|
-    | id | String | 원격 저장소의 기본 키 |
+    | id | 문자열, 필수로 표시 | 원격 저장소의 기본 키 |
     | complete | Boolean | todo 항목 필드 |
     | 텍스트 | String | todo 항목 필드 |
     | ms\_createdAt | Date | (선택 사항) \_\_createdAt 시스템 속성에 매핑됩니다. | | ms\_updatedAt | Date | (선택 사항) \_\_updatedAt 시스템 속성에 매핑됩니다. | | ms\_version | String | (선택 사항) 충돌을 감지하는 데 사용되며 \_\_version에 매핑됩니다. |
@@ -218,7 +208,7 @@
 
 핵심 데이터 로컬 저장소를 사용할 경우 [올바른 시스템 속성](#review-core-data)을 사용하여 여러 테이블을 정의해야 합니다.
 
-모바일 앱에 대한 일반적인 CRUD 작업은 앱이 계속 연결되어 있는 것처럼 작동하지만 모든 작업은 로컬 저장소에 대해 수행됩니다.
+Azure 모바일 앱에 대한 일반적인 CRUD 작업은 앱이 계속 연결되어 있는 것처럼 작동하지만 모든 작업이 로컬 저장소에 대해 수행됩니다.
 
 서버와 로컬 저장소를 동기화하려는 경우 `MSSyncTable.pullWithQuery` 및 `MSClient.syncContext.pushWithCompletion` 메서드를 사용했습니다.
 
@@ -241,45 +231,23 @@
 
 ## 추가 리소스
 
-* [클라우드 커버: Azure 모바일 서비스의 오프라인 동기화]
+* [Azure 모바일 앱에서 오프라인 데이터 동기화]
 
-* [Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱](참고: 데모는 Windows용이지만 기능 설명은 모든 플랫폼에 적용)
+* [클라우드 표지: Azure 모바일 서비스에서 오프라인 동기화] (참고: 비디오는 모바일 서비스에 있지만 Azure 모바일 앱에서 비슷한 방식으로 오프라인 동기화가 작동합니다.)
 
 <!-- URLs. -->
 
-[iOS 앱 만들기]: ../app-service-mobile-dotnet-backend-ios-get-started.md
 
-[core-data-1]: ./media/mobile-services-ios-get-started-offline-data/core-data-1.png
-[core-data-2]: ./media/mobile-services-ios-get-started-offline-data/core-data-2.png
-[core-data-3]: ./media/mobile-services-ios-get-started-offline-data/core-data-3.png
-[defining-core-data-main-screen]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-main-screen.png
-[defining-core-data-model-editor]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-model-editor.png
+[iOS 앱 만들기]: ../app-service-mobile-dotnet-backend-ios-get-started-preview.md
+[Azure 모바일 앱에서 오프라인 데이터 동기화]: ../app-service-mobile-offline-data-sync-preview.md
+
 [defining-core-data-tableoperationerrors-entity]: ./media/app-service-mobile-ios-get-started-offline-data-preview/defining-core-data-tableoperationerrors-entity.png
 [defining-core-data-tableoperations-entity]: ./media/app-service-mobile-ios-get-started-offline-data-preview/defining-core-data-tableoperations-entity.png
 [defining-core-data-tableconfig-entity]: ./media/app-service-mobile-ios-get-started-offline-data-preview/defining-core-data-tableconfig-entity.png
 [defining-core-data-todoitem-entity]: ./media/app-service-mobile-ios-get-started-offline-data-preview/defining-core-data-todoitem-entity.png
-[update-framework-1]: ./media/mobile-services-ios-get-started-offline-data/update-framework-1.png
-[update-framework-2]: ./media/mobile-services-ios-get-started-offline-data/update-framework-2.png
 
-[Core Data Model Editor Help]: https://developer.apple.com/library/mac/recipes/xcode_help-core_data_modeling_tool/Articles/about_cd_modeling_tool.html
-[Creating an Outlet Connection]: https://developer.apple.com/library/mac/recipes/xcode_help-interface_builder/articles-connections_bindings/CreatingOutlet.html
-[Build a User Interface]: https://developer.apple.com/library/mac/documentation/ToolsLanguages/Conceptual/Xcode_Overview/Edit_User_Interfaces/edit_user_interface.html
-[Adding a Segue Between Scenes in a Storyboard]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html#//apple_ref/doc/uid/TP40014225-CH25-SW1
-[Adding a Scene to a Storyboard]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardScene.html
-
-[Core Data]: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html
-[Download the preview SDK here]: http://aka.ms/Gc6fex
-[How to use the Mobile Services client library for iOS]: ../mobile-services-ios-how-to-use-client-library.md
-[오프라인 iOS 샘플]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
-[GitHub의 모바일 앱 샘플 리포지토리]: https://github.com/Azure/mobile-services-samples
-
-[Get started with Mobile Services]: ../mobile-services-ios-get-started.md
-[Get started with data]: ../mobile-services-ios-get-started-data.md
-[Handling conflicts with offline support for Mobile Services]: ../mobile-services-ios-handling-conflicts-offline-data.md
-[Soft Delete]: ../mobile-services-using-soft-delete.md
-
-[클라우드 커버: Azure 모바일 서비스의 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[클라우드 표지: Azure 모바일 서비스에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -32,7 +32,7 @@
 
 ##<a id="register"></a>Google Cloud Messaging 사용
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a id="configure"></a>푸시 요청을 전송하도록 모바일 서비스 구성
 
@@ -86,4 +86,4 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [Azure 모바일 서비스]: http://components.xamarin.com/view/azure-mobile-services/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

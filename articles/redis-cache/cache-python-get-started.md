@@ -1,20 +1,20 @@
 <properties
-   pageTitle="Azure Redis Cache를 Python과 함께 사용하는 방법"
-   description="Python을 사용하여 Azure Redis Cache를 시작합니다."
-   services="redis-cache"
-   documentationCenter=""
-   authors="MikeWasson"
-   manager="wpickett"
-   editor=""/>
+	pageTitle="Azure Redis Cache를 Python과 함께 사용하는 방법 | Microsoft Azure"
+	description="Python을 사용하여 Azure Redis Cache를 시작합니다."
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
+	editor="v-lincan"/>
 
 <tags
-   ms.service="cache"
-   ms.devlang="python"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="required"
-   ms.date="08/04/2015"
-   ms.author="mwasson"/>
+	ms.service="cache"
+	ms.devlang="python"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="08/17/2015"
+	ms.author="sdanie"/>
 
 # Azure Redis Cache를 Python과 함께 사용하는 방법
 
@@ -36,9 +36,9 @@ DNS 호스트 이름을 입력합니다. 양식은 `<name>.redis.cache.windows.n
 
   ![][2]
 
-캐시가 만들어졌으면 포털에서 캐시를 클릭하여 캐시 설정을 확인합니다. 다음 정보가 필요합니다.
+캐시를 만들었으면 Azure 포털에서 캐시를 클릭하여 캐시 설정을 봅니다. 다음 정보가 필요합니다.
 
-- **호스트 이름.** 캐시를 만들 때 입력한 이름입니다.
+- **호스트 이름.** 캐시를 만들 때 이 이름을 입력했습니다.
 - **포트.** 포트를 보려면 **포트** 아래 링크를 클릭합니다. SSL 포트를 사용합니다.
 - **액세스 키.** **키** 아래 링크를 클릭하고 기본 키를 복사합니다.
 
@@ -59,4 +59,4 @@ DNS 호스트 이름을 입력합니다. 양식은 `<name>.redis.cache.windows.n
 [1]: ./media/cache-python-get-started/cache01.png
 [2]: ./media/cache-python-get-started/cache02.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

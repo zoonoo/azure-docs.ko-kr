@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 앱 서비스를 사용하여 iOS 앱에 푸시 알림 추가"
-	description="Azure 앱 서비스를 사용하여 iOS 앱에 푸시 알림을 전송하는 방법을 알아봅니다."
+	pageTitle="Azure 모바일 앱을 사용하여 iOS 앱에 푸시 알림 추가"
+	description="Azure 모바일 앱을 사용하여 iOS 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다."
 	services="app-service\mobile"
 	documentationCenter="ios"
 	manager="dwrede"
@@ -13,21 +13,17 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/01/2015"
+	ms.date="07/29/2015"
 	ms.author="krisragh"/>
 
 
 # iOS 앱에 푸시 알림 추가
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-이 항목에서는 [빠른 시작 프로젝트](app-service-mobile-dotnet-backend-ios-get-started-preview.md)에 푸시 알림을 추가하는 방법을 보여주어 레코드를 삽입할 때마다 모바일 서비스가 푸시 알림을 보냅니다. [모바일 앱 시작]을 우선 완료해야 합니다.
+이 자습서에서는 푸시 알림을 [iOS 빠른 시작] 프로젝트에 추가하여 레코드가 삽입될 때마다 푸시 알림이 전송됩니다. 이 자습서는 먼저 완료해야 하는 [iOS 빠른 시작 안내서]를 기반으로 합니다. [iOS 시뮬레이터는 푸시 알림을 지원하지 않으므로](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), 이 자습서에 대해 실제 iOS 장치 및 [Apple 개발자 프로그램 멤버 자격](https://developer.apple.com/programs/ios/)이 필요합니다.
 
-> [AZURE.NOTE][iOS 시뮬레이터는 푸시 알림을 지원하지 않으므로](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html) 실제 iOS 장치를 사용해야 합니다. [Apple 개발자 프로그램 멤버 자격](https://developer.apple.com/programs/ios/)에 유료 등록해야 합니다.
-
-##<a name="review"></a>서버 프로젝트 구성 검토(옵션)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
+## <a id="register"></a>푸시 알림을 위한 앱 등록
 
 [AZURE.INCLUDE [Apple 푸시 알림 사용](../../includes/enable-apple-push-notifications.md)]
 
@@ -35,36 +31,23 @@
 
 [AZURE.INCLUDE [app-service-mobile-apns-configure-push-preview](../../includes/app-service-mobile-apns-configure-push-preview.md)]
 
-##<a id="update-server"></a>푸시 알림을 전송하도록 백 엔드 코드 업데이트
+##<a name="review"></a>서버 프로젝트 구성 검토(옵션)
 
-* 백엔드 코드용 Visual Studio 프로젝트를 다운로드합니다. 포털에서 **찾아보기** > 앱 이름 > **클라이언트 추가** > **iOS**(개체-C 또는 Swift) > **서버 프로젝트 다운로드 및 실행**을 클릭합니다. **Controllers** > TodoItemController.cs를 열고 다음 using 문을 추가합니다.
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
 
-```
-			using Microsoft.Azure.Mobile.Server.Config;
-			using Microsoft.Azure.NotificationHubs;
-```
+##<a id="update-server"></a> 푸시 알림을 전송하도록 서버 프로젝트 업데이트
 
-* `InsertAsync`을(를) 호출한 다음 `PostTodoItem` 뒤에 다음을 추가합니다. todo 항목을 삽입하면 이 코드가 항목의 텍스트와 함께 푸시 알림을 보냅니다.
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-configure-push-apns](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
 
-```
-        // get Notification Hubs credentials associated with this Mobile App
-        string notificationHubName = this.Services.Settings.NotificationHubName;
-        string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
-
-        // connect to notification hub
-        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
-
-        // iOS payload
-        var appleNotificationPayload = "{"aps":{"alert":"" + item.Text + ""}}";
-
-        await Hub.SendAppleNativeNotificationAsync(appleNotificationPayload);
-```
-
-## <a name="publish-the-service"></a>Azure에 모바일 서비스 게시
+## <a name="publish-the-service"></a>서버 프로젝트를 Azure에 배포
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-publish-service-preview](../../includes/app-service-mobile-dotnet-backend-publish-service-preview.md)]
 
+## <a id="add-push"></a>앱에 푸시 알림 추가
+
 [AZURE.INCLUDE [앱에 푸시 알림 추가](../../includes/app-service-add-push-notifications-to-app.md)]
+
+## <a id="test"></a>앱에서 푸시 알림 테스트
 
 [AZURE.INCLUDE [앱에서 푸시 알림 테스트](../../includes/test-push-notifications-in-app.md)]
 
@@ -116,15 +99,17 @@
 [117]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-17.png
 
 <!-- URLs. -->
+[iOS 빠른 시작]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+[iOS 빠른 시작 안내서]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Azure Mobile App iOS SDK]: https://go.microsoft.com/fwLink/?LinkID=529823
 [Azure Notification Hubs Nuget]: https://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [Get started with Mobile Services]: ../mobile-services-dotnet-backend-ios-get-started.md
-[모바일 앱 시작]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+[Get Started with Mobile Apps]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="인증 시작(Xamarin.Android) - 모바일 서비스" 
-	description="Xamarin.Android용 Azure 모바일 서비스에서 인증을 사용하는 방법을 알아봅니다." 
-	services="mobile-services" 
-	documentationCenter="xamarin" 
-	manager="dwrede" 
-	authors="lindydonna" 
+<properties
+	pageTitle="인증 시작(Xamarin.Android) - 모바일 서비스"
+	description="Xamarin.Android용 Azure 모바일 서비스에서 인증을 사용하는 방법을 알아봅니다."
+	services="mobile-services"
+	documentationCenter="xamarin"
+	manager="dwrede"
+	authors="lindydonna"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/14/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="donnam"/>
 
 # 모바일 서비스 앱에 인증 추가
@@ -42,7 +42,7 @@
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 
-3. Eclipse에서 [모바일 서비스 시작] 자습서를 완료했을 때 생성된 프로젝트를 엽니다. 
+3. Eclipse에서 [모바일 서비스 시작] 자습서를 완료했을 때 생성된 프로젝트를 엽니다.
 
 4. **Run** 메뉴에서 **Run**을 클릭하여 앱을 시작하고 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다.
 
@@ -85,7 +85,7 @@
 
         private async Task CreateTable()
         {
-            
+
             await InitLocalStoreAsync();
 
             // Get the Mobile Service Table instance to use
@@ -136,6 +136,5 @@
 [스크립트를 통해 사용자 권한 부여]: mobile-services-javascript-backend-service-side-authorization.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [완성된 예제 프로젝트]: http://go.microsoft.com/fwlink/p/?LinkId=331328
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

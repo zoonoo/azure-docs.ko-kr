@@ -19,14 +19,14 @@
 
 #Windows Server를 실행하는 가상 컴퓨터에 MongoDB 설치
 
-[MongoDB][MongoDB]는 대중적인 오픈 소스의 고성능 NoSQL 데이터베이스입니다. [Azure 포털][AzureManagementPortal]을 사용하면 이미지 갤러리에서 Windows Server를 실행하는 가상 컴퓨터를 만들 수 있습니다. 그런 다음, MongoDB 데이터베이스를 가상 컴퓨터에 설치하고 구성할 수 있습니다.
+[MongoDB][MongoDB]는 대중적인 오픈 소스의 고성능 NoSQL 데이터베이스입니다. [Azure 포털][AzureManagementPortal]을 사용하면 이미지 갤러리에서 클래식 배포 모델을 사용하여 Windows Server를 실행하는 가상 컴퓨터를 만들 수 있습니다. 그런 다음, MongoDB 데이터베이스를 가상 컴퓨터에 설치하고 구성할 수 있습니다.
 
 
 ## Windows Server를 실행하는 가상 컴퓨터 만들기
 
 가상 컴퓨터를 만들려면 다음 지침을 따르십시오.
 
-[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-WindowsVM.md)]
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
 > [AZURE.NOTE]가상 컴퓨터를 만드는 동안 MongoDB에 대한 끝점을 추가하고 다음과 같이 구성할 수 있습니다. **Mongo**로 이름을 지정하고 **TCP**를 프로토콜로 사용하고 공용 및 개인 포트를 모두 **27017**로 설정합니다.
 
@@ -48,4 +48,4 @@
 [MongoDB]: http://www.mongodb.org/
 [AzureManagementPortal]: http://manage.windowsazure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

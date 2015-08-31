@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
+   ms.date="08/17/2015"
    ms.author="telmos" />
 
 # 예약된 IP 개요
@@ -32,8 +32,6 @@ IP 주소의 변경을 방지하기 위해 IP 주소를 예약할 수 있습니�
   - 현재 모든 Azure 구독은 20개의 예약된 IP를 사용할 권한이 있습니다. 그러나 예약된 IP를 추가로 요청할 수 있습니다. 자세한 내용은 [구독 및 서비스 제한](../azure-subscription-service-limits/) 페이지를 참조하세요.
 1. 예약된 IP는 사용 요금이 있나요? 
   - 가격 정보는 [예약된 IP 주소 가격 정보](http://go.microsoft.com/fwlink/?LinkID=398482)를 참조하세요.
-1. 클라우드 서비스에 예약된 IP를 몇 개까지 할당할 수 있나요? 
-  - IP 주소의 예약 여부에 상관없이 클라우드 서비스의 끝점마다 하나의 IP 주소만 허용됩니다. IP 주소를 예약해도 클라우드 서비스에 더 많은 IP 주소를 추가할 수는 없습니다.
 1. IP 주소를 어떻게 예약하나요? 
   - PowerShell 또는 [Azure 관리 REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 사용하여 특정 지역에서 예약된 IP를 요청할 수 있습니다. Azure에서는 해당 지역의 IP 주소를 예약하고 구독에 대한 상관관계를 지정합니다. 그러면 해당 지역에서 예약된 IP를 사용할 수 있습니다. 관리 포털을 사용하여 IP 주소를 예약할 수는 없습니다.
 1. 선호도 그룹 기반 VNet에서 예약된 IP를 사용할 수 있나요? 
@@ -121,4 +119,4 @@ IP를 예약하면 예약된 IP는 삭제될 때까지 계속 구독에 연결�
 
 - [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 확인합니다.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

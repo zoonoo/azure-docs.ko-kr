@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="Microsoft Avro Library로 데이터 직렬화 | Microsoft Azure" 
-	description="Azure HDInsight에서 Avro를 사용하여 빅 데이터를 직렬화하는 방법에 대해 알아봅니다." 
-	services="hdinsight" 
-	documentationCenter="" 
+<properties
+	pageTitle="Microsoft Avro Library로 데이터 직렬화 | Microsoft Azure"
+	description="Azure HDInsight에서 Avro를 사용하여 빅 데이터를 직렬화하는 방법에 대해 알아봅니다."
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian" 
-	manager="paulettm" 
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/09/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/09/2015"
 	ms.author="jgao"/>
 
 
@@ -27,14 +28,14 @@
 
 Avro 시스템에서 직렬화된 개체의 표현은 스키마 및 실제 값 부분으로 구성됩니다. Avro 스키마는 JSON을 사용하여 직렬화된 데이터의 언어 독립적 데이터 모델을 설명합니다. 이 스키마는 데이터의 이진 표현 옆에 나란히 표시됩니다. 스키마를 이진 표현과 구분하면 값별로 오버헤드가 발생하지 않고 각 개체를 쓸 수 있으므로 직렬화는 빨라지고 표현이 차지하는 공간은 줄어듭니다.
 
-##<a name="hadoopScenario"></a>The Hadoop 시나리오 
+##<a name="hadoopScenario"></a>The Hadoop 시나리오
 Apache Avro 직렬화 형식은 Azure HDInsight 및 기타 Apache Hadoop 환경에서 널리 사용됩니다. Avro는 Hadoop MapReduce 작업 내에서 복잡한 데이터 구조를 나타내는 편리한 방법을 제공합니다. Avro 파일(Avro 개체 컨테이너 파일)의 형식은 분산 MapReduce 프로그래밍 모델을 지원하도록 디자인되었습니다. 이러한 분산을 가능하게 하는 핵심 기능은 파일이 “분할 가능"하여 파일의 임의 지점을 찾고 특정 블록부터 읽기 시작할 수 있다는 데 있습니다.
- 
+
 ##<a name="serializationMAL"></a>Microsoft Avro 라이브러리의 직렬화
 .NET Library for Avro는 다음과 같은 두 가지 방식으로 개체를 직렬화할 수 있도록 지원합니다.
 
-- **리플렉션** - 해당 형식에 대한 JSON 스키마는 직렬화될 수 있게 .NET 형식의 데이터 계약 특성에서 자동으로 빌드됩니다. 
-- **제네릭 레코드**:JSON 스키마는 직렬화할 데이터의 스키마를 설명하는 .NET 형식이 존재하지 않을 때 [**AvroRecord**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx)(영문) 클래스로 표현되는 레코드에 명시적으로 지정됩니다. 
+- **리플렉션** - 해당 형식에 대한 JSON 스키마는 직렬화될 수 있게 .NET 형식의 데이터 계약 특성에서 자동으로 빌드됩니다.
+- **제네릭 레코드**:JSON 스키마는 직렬화할 데이터의 스키마를 설명하는 .NET 형식이 존재하지 않을 때 [**AvroRecord**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx)(영문) 클래스로 표현되는 레코드에 명시적으로 지정됩니다.
 
 데이터 스키마가 스트림의 기록기 및 판독기 둘 다로 알려져 있으면 데이터를 스키마 없이 전송할 수 있습니다. Avro 개체 컨테이너 파일이 사용되는 경우 스키마는 파일 내에 저장됩니다. 데이터 압축에 사용되는 코덱과 같은 기타 매개 변수를 지정할 수 있습니다. 이러한 시나리오는 아래 코드 예에 좀 더 자세히 설명되어 있습니다.
 
@@ -42,7 +43,7 @@ Apache Avro 직렬화 형식은 Azure HDInsight 및 기타 Apache Hadoop 환경�
 ##<a name="prerequisites"></a> Microsoft Avro 라이브러리 필수 조건
 
 - <a href="http://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework 4</a>
-- <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a>(6.0.4 이상) 
+- <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a>(6.0.4 이상)
 
 Newtonsoft.Json.dll 종속성은 Microsoft Avro 라이브러리의 설치와 함께 자동으로 다운로드됩니다. 이 절차는 다음 섹션에 제공됩니다.
 
@@ -51,17 +52,17 @@ Microsoft Avro 라이브러리는 다음 절차를 사용하여 Visual Studio에
 
 1. **프로젝트** 탭 -> **NuGet 패키지 관리...**를 선택합니다.
 2. **온라인 검색** 상자에서 "Microsoft.Hadoop.Avro"를 검색합니다.
-3. **Microsoft Azure HDInsight Avro Library** 옆의 **설치** 단추를 클릭합니다. 
+3. **Microsoft Azure HDInsight Avro Library** 옆의 **설치** 단추를 클릭합니다.
 
 Newtonsoft.Json.dll(>= 6.0.4) 종속성은 Microsoft Avro 라이브러리와 함께 자동으로 다운로드됩니다.
 
 <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro 라이브러리 홈 페이지</a>를 방문하여 현재 릴리스 정보를 확인할 수 있습니다.
- 
+
 ##<a name="sourceCode"></a>Microsoft Avro 라이브러리 소스 코드
 
 Microsoft Avro 라이브러리 소스 코드는 <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro 라이브러리 홈 페이지</a>에 있습니다.
 
-##<a name="compiling"></a>Microsoft Avro 라이브러리를 사용하여 스키마 컴파일 
+##<a name="compiling"></a>Microsoft Avro 라이브러리를 사용하여 스키마 컴파일
 
 Microsoft Avro 라이브러리에는 이전에 정의된 JSON 스키마에 따라 자동으로 C# 형식을 만들 수 있는 코드 생성 유틸리티가 있습니다. 코드 생성 유틸리티는 이진 실행 파일로 배포되지 않지만, 다음 절차에 따라 쉽게 빌드할 수 있습니다.
 
@@ -111,7 +112,7 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
  * <a href="#Scenario6">**Avro를 사용하여 Microsoft Azure HDInsight 서비스용 데이터 업로드**</a> - 이 예에서는 Avro 직렬화가 HDInsight 서비스와 상호 작용하는 방법을 보여줍니다. 이 예를 실행하려면 활성 Azure 구독 및 Azure HDInsight 클러스터에 대한 액세스 권한이 필요합니다.
 
 ###<a name="Scenario1"></a>샘플 1: 리플렉션을 사용한 직렬화
- 
+
 해당 형식에 대한 JSON 스키마는 직렬화될 수 있게 C# 개체의 데이터 계약 특성을 통한 리플렉션을 사용하여 Microsoft Avro 라이브러리에서 자동으로 빌드될 수 있습니다. Microsoft Avro 라이브러리에서는 [**IAvroSeralizer<T>**](http://msdn.microsoft.com/library/dn627341.aspx)를 만들어 직렬화할 필드를 식별합니다.
 
 이 예에서 개체(멤버 **Location** 구조체를 갖는**SensorData** 클래스)가 메모리 스트림으로 직렬화된 후 이 스트림이 역직렬화됩니다. 그런 다음 초기 인스턴스와 결과를 비교하여 복구된 **SensorData** 개체가 원본과 동일한지 확인합니다.
@@ -170,7 +171,7 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
                 //Create a memory stream buffer
                 using (var buffer = new MemoryStream())
                 {
-                    //Create a data set by using sample class and struct 
+                    //Create a data set by using sample class and struct
                     var expected = new SensorData { Value = new byte[] { 1, 2, 3, 4, 5 }, Position = new Location { Room = 243, Floor = 1 } };
 
                     //Serialize the data to the specified stream
@@ -225,7 +226,7 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
             }
         }
     }
-    // The example is expected to display the following output: 
+    // The example is expected to display the following output:
     // SERIALIZATION USING REFLECTION
     //
     // Serializing Sample Data Set...
@@ -276,8 +277,8 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
                                 ""name"":""Microsoft.Hadoop.Avro.Specifications.SensorData"",
                                 ""fields"":
                                     [
-                                        { 
-                                            ""name"":""Location"", 
+                                        {
+                                            ""name"":""Location"",
                                             ""type"":
                                                 {
                                                     ""type"":""record"",
@@ -349,7 +350,7 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
         }
     }
 	}
-    // The example is expected to display the following output: 
+    // The example is expected to display the following output:
     // SERIALIZATION USING GENERIC RECORD
     //
     // Defining the Schema and creating Sample Data Set...
@@ -600,7 +601,7 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
     // For Pair 2 result of Data Set Identity Comparison is True
     // ----------------------------------------
     // Press any key to exit.
-  
+
 
 ###<a name="Scenario4"></a>샘플 4: 컨테이너 파일을 사용한 직렬화 및 일반 레코드를 사용한 직렬화
 
@@ -644,8 +645,8 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
                                 ""name"":""Microsoft.Hadoop.Avro.Specifications.SensorData"",
                                 ""fields"":
                                     [
-                                        { 
-                                            ""name"":""Location"", 
+                                        {
+                                            ""name"":""Location"",
                                             ""type"":
                                                 {
                                                     ""type"":""record"",
@@ -873,7 +874,7 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
 [Avro 사양](http://avro.apache.org/docs/current/spec.html#Required+Codecs)에서는 기본값인 **Null** 및 **Deflate** 외에도 선택적 압축 코덱을 사용할 수 있게 허용합니다. 이 예는 Snappy([Avro 사양](http://avro.apache.org/docs/current/spec.html#snappy)에 지원되는 선택적 코덱으로 명시) 같은 완전히 새로운 코덱을 구현하지 않습니다. 여기서는 기본 .NET Framework 4 버전보다 더 나은 [zlib](http://zlib.net/) 압축 라이브러리 기반의 압축 알고리즘을 제공하는 .NET Framework 4.5에서 구현된 [**Deflate**][deflate-110] 코덱 사용 방법을 보여줍니다.
 
 
-    // 
+    //
     // This code needs to be compiled with the parameter Target Framework set as ".NET Framework 4.5"
     // to ensure the desired implementation of the Deflate compression algorithm is used.
     // Ensure your C# project is set up accordingly.
@@ -916,7 +917,7 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
         #endregion
 
         #region Defining custom codec based on .NET Framework V.4.5 Deflate
-        //Avro.NET codec class contains two methods, 
+        //Avro.NET codec class contains two methods,
         //GetCompressedStreamOver(Stream uncompressed) and GetDecompressedStreamOver(Stream compressed),
         //which are the key ones for data compression.
         //To enable a custom codec, one needs to implement these methods for the required codec.
@@ -926,7 +927,7 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
         //cannot be directly used for Avro because it does not support vital operations like Seek.
         //Thus one needs to implement two classes inherited from stream
         //(one for compressed and one for decompressed stream)
-        //that use Deflate compression and implement all required features. 
+        //that use Deflate compression and implement all required features.
         internal sealed class CompressionStreamDeflate45 : Stream
         {
             private readonly Stream buffer;
@@ -1128,7 +1129,7 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
 
         #region Define modified Codec Factory
         //Define modified codec factory to be used in the reader.
-        //It will catch the attempt to use "Deflate" and provide  a custom codec. 
+        //It will catch the attempt to use "Deflate" and provide  a custom codec.
         //For all other cases, it will rely on the base class (CodecFactory).
         internal sealed class CodecFactoryDeflate45 : CodecFactory
         {
@@ -1386,8 +1387,8 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
 
 샘플을 실행하기 전에 샘플 구성 파일에 필수 조건의 모든 정보를 입력해야 합니다. 입력하는 방법에는 다음 두 가지가 있습니다.
 
-* 샘플 루트 디렉터리에서 app.config 파일을 편집하고 샘플 빌드 
-* 먼저 샘플을 빌드하고 빌드 디렉터리에서 AvroHDISample.exe.config 편집 
+* 샘플 루트 디렉터리에서 app.config 파일을 편집하고 샘플 빌드
+* 먼저 샘플을 빌드하고 빌드 디렉터리에서 AvroHDISample.exe.config 편집
 
 두 경우 모두, 모든 편집을 **<appSettings>** 설정 섹션에서 수행해야 합니다. 파일의 주석을 따르세요. 샘플을 실행하려면 명령줄에서 다음 명령을 실행합니다. 여기서는 샘플이 포함된 ZIP 파일은 C:\\AvroHDISample로 추출된다고 간주했고, 이외의 경우에는 상대 파일 경로를 사용합니다.
 
@@ -1403,7 +1404,4 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

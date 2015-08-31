@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="nitinme" 
 	manager="paulettm" 
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/10/2015" 
+	ms.date="07/31/2015" 
 	ms.author="nitinme"/>
 
 
@@ -23,14 +24,16 @@ Spark 스트리밍는 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
 
 이 자습서에서는 Azure 이벤트 허브를 만드는 방법, C#의 콘솔 응용 프로그램을 사용하여 이벤트 허브로 메시지를 수집하고 HDInsight에서 Apache Spark를 구성하는 Zeppelin Notebook을 사용하여 메시지를 병렬로 검색하는 방법을 알아봅니다.
 
+> [AZURE.NOTE]이 문서의 지침을 따르려면 Azure 포털의 두 가지 버전을 모두 사용해야 합니다. 이벤트 허브를 만드는 데는 [Azure 포털](https://manage.windowsazure.com)을 사용합니다. HDInsight Spark 클러스터 작업을 하는 데는 [Azure Preview 포털](https://ms.portal.azure.com/)을 사용합니다.
+
 **필수 조건:**
 
 다음이 있어야 합니다.
 
 - Azure 구독. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-- Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 프로비전](hdinsight-apache-spark-provision-clusters.md)을 참조하십시오.
-- [Azure 이벤트 허브](service-bus-event-hubs-csharp-ephcs-getstarted.md)입니다.
-- Microsoft Visual Studio 2013이 설치된 워크스테이션입니다. 관련 지침은 [Visual Studio 설치](https://msdn.microsoft.com/library/e2h7fzkw.aspx)를 참조하십시오.
+- Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight의 Apache Spark 클러스터 프로비전](hdinsight-apache-spark-provision-clusters.md)을 참조하세요.
+- [Azure 이벤트 허브](service-bus-event-hubs-csharp-ephcs-getstarted.md).
+- Microsoft Visual Studio 2013이 설치된 워크스테이션입니다. 자세한 내용은 [Visual Studio 설치](https://msdn.microsoft.com/library/e2h7fzkw.aspx)를 참조하세요.
 
 ##<a name="createeventhub"></a>Azure 이벤트 허브 만들기
 
@@ -42,11 +45,11 @@ Spark 스트리밍는 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
 
 	> [AZURE.NOTE]대기 시간 및 비용을 줄이려면 HDInsight의 Apache Spark 클러스터와 동일한 **위치**를 선택해야 합니다.
 
-3. **이벤트 허브 구성** 화면에서 **파티션 개수** 및 **메시지 보존** 값을 입력한 다음 확인 표시를 클릭합니다. 이 예에서는 파티션 개수로 10을, 메시지 보존으로는 1을 사용합니다. 파티션 개수 값은 나중에 필요하므로 기록해 둡니다.
+3. **이벤트 허브 구성** 화면에서 **파티션 수** 및 **메시지 보존** 값을 입력한 다음 확인 표시를 클릭합니다. 이 예에서는 파티션 개수로 10을, 메시지 보존으로는 1을 사용합니다. 파티션 개수 값은 나중에 필요하므로 기록해 둡니다.
 
 	![마법사 페이지 2](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Create.Event.Hub2.png "이벤트 허브에 대한 파티션 크기 및 보존 일 지정")
 
-4. 사용자가 만든 이벤트 허브를 클릭하고 **구성**을 클릭한 다음 이벤트 허브에 대 한 두 액세스 정책을 만듭니다.
+4. 사용자가 만든 이벤트 허브를 클릭하고 **구성**을 클릭한 다음 이벤트 허브에 대한 두 가지 액세스 정책을 만듭니다.
 
 	<table>
 <tr><th>이름</th><th>권한</th></tr>
@@ -69,11 +72,13 @@ Spark 스트리밍는 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
 
 ##<a name="receivezeppelin"></a>Zeppelin을 사용하여 HDInsight의 Spark에서 메시지 수신
 
-이 섹션에서는 [Zeppelin](https://zeppelin.incubator.apache.org) Notebook을 만들어 HDInsight의 이벤트 허브에서 Spark 클러스터로 메시지를 수신합니다.
+이 섹션에서는 [Zeppelin](https://zeppelin.incubator.apache.org) 노트북을 만들어 HDInsight의 이벤트 허브에서 Spark 클러스터로 메시지를 수신합니다.
 
-1. Zeppelin Notebook을 시작합니다. Azure 포털에서 Spark 클러스터를 선택하고 맨 아래의 포털 작업 표시줄에서 **Zeppelin Notebook**을 클릭합니다. 메시지가 표시되면 Spark 클러스터에 대한 관리자 자격 증명을 입력합니다. 열리는 페이지의 지시에 따라 Notebook을 시작합니다.
+1. [Azure Preview 포털](https://ms.portal.azure.com/)의 시작 보드에서 Spark 클러스터 타일을 클릭합니다(Spark 클러스터를 시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
 
-2. 새 Notebook을 만듭니다. 헤더 창에서 **Notebook**을 클릭하고 드롭다운에서 **새 메모 만들기**를 클릭합니다.
+2. Zeppelin 노트북을 시작합니다. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Zeppelin 노트북**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다. 열리는 페이지의 지시에 따라 노트북을 시작합니다.
+
+2. 새 Notebook을 만듭니다. 헤더 창에서 **노트북**을 클릭하고 드롭다운에서 **새 메모 만들기**를 클릭합니다.
 
 	![새 Zeppelin Notebook 만들기](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.CreateNewNote.png "새 Zeppelin 노트북 만들기")
 
@@ -112,19 +117,20 @@ Spark 스트리밍는 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
 
 ##<a name="runapps"></a>응용 프로그램 실행
 
-1. Zeppelin Notebook에서 조각을 사용하여 단락을 실행합니다. **SHIFT + ENTER** 또는 오른쪽 위 모퉁이에 있는 **재생** 단추를 누릅니다.
+1. Zeppelin Notebook에서 조각을 사용하여 단락을 실행합니다. **Shift + Enter** 또는 오른쪽 위 모서리에 있는 **재생** 단추를 누릅니다.
 
 	단락의 오른쪽 모서리 상태가 준비, 보류 중, 실행 중, 완료 순서로 진행됩니다. 출력은 같은 단락 하단에 표시됩니다. 스크린샷은 다음과 같습니다.
 
 	![조각의 출력](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Zeppelin.Code.Output.png "snipet의 출력")
 
-2. **보낸 사람** 프로젝트를 실행하고 콘솔 창에서 **Enter**를 눌러 이벤트 허브로 메시지를 보내기 시작합니다.
+2. **보낸 사람** 프로젝트를 실행하고 콘솔 창에서 **Enter** 키를 눌러 이벤트 허브로 메시지를 보내기 시작합니다.
 
 3. Zeppelin Notebook의 새 단락에서 다음 코드 조각을 입력하여 Spark에서 받은 메시지를 읽습니다.
 
-		%sql select * from mytemptable limit 10
+		%sql 
+		select * from mytemptable limit 10
 
-	다음 화면 캡처는 **mytemptable**에서 받은 메시지를 표시합니다.
+	다음 화면 캡처는 **mytemptable**에서 받은 메시지를 보여 줍니다.
 
 	![Zeppelin에 메시지 수신](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.Streaming.Event.Hub.Zeppelin.Output.png "Zeppelin Notebook에 메시지 수신")
 
@@ -141,7 +147,7 @@ HDInsight에서 Spark 클러스터로 스트리밍 데이터를 받으려면 Zep
 3. 클러스터로 RDP를 연결하고 응용 프로그램 jar를 헤드 노드로 복사합니다.
 3. 클러스터로 RDP를 연결하고 클러스터 노드에서 실행 응용 프로그램을 실행합니다.
 
-이 단계 및 샘플 스트리밍 응용 프로그램을 수행하는 방법에 대한 지침을 GitHub의 [https://github.com/hdinsight/hdinsight-spark-examples](https://github.com/hdinsight/hdinsight-spark-examples)에서 다운로드할 수 있습니다.
+이러한 단계를 수행하는 방법에 대한 지침 및 샘플 스트리밍 응용 프로그램을 GitHub의 [https://github.com/hdinsight/hdinsight-spark-examples](https://github.com/hdinsight/hdinsight-spark-examples)에서 다운로드할 수 있습니다.
 
 
 ##<a name="seealso"></a>참고 항목
@@ -164,4 +170,4 @@ HDInsight에서 Spark 클러스터로 스트리밍 데이터를 받으려면 Zep
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

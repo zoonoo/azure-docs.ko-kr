@@ -12,7 +12,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-windows"
  ms.workload="big-compute"
- ms.date="07/27/2015"
+ ms.date="08/18/2015"
  ms.author="danlep"/>
 
 # Azure에서 Excel 및 SOA 작업을 실행할 HPC Pack 클러스터 시작
@@ -26,7 +26,6 @@ ms.service="virtual-machines"
 ## 필수 조건
 
 * **클라이언트 컴퓨터** - Azure PowerShell 클러스터 배포 스크립트를 실행하고(해당 배포 방법을 선택하는 경우) 클러스터에 샘플 Excel 및 SOA 작업을 제출하려면 Windows 기반 클라이언트 컴퓨터가 필요합니다.
-
 
 * **Azure 구독** - 계정이 없는 경우에는 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
@@ -61,7 +60,7 @@ Azure 빠른 시작 템플릿을 사용하여 빠르고 쉽게 Azure Preview 포
     >
     >컴퓨터 노드 VM은 선택한 컴퓨터 노드 제품군의 최신 이미지에서 생성됩니다. 범용 최신 HPC Pack 2012 R2 업데이트 2 컴퓨터 이미지에 대해 **ComputeNode** 옵션을 선택합니다. Microsoft Excel Professional Plus 2013 평가 버전을 포함하는 최신 HPC Pack 컴퓨터 노드 이미지에 대해 **ComputeNodeWithExcel** 옵션을 선택합니다. 일반 SOA 세션 또는 Excel UDF 오프로딩에 대해 클러스터를 배포하려는 경우 **ComputeNode** 옵션을 선택합니다(Excel이 설치되어 있지 않음).
     >
-    >프로덕션 작업에 대해 **ComputeNodeWithExcel**을 사용하는 경우 컴퓨터 노드에서 Excel을 활성화하려면 유효한 Excel 라이선스를 제공해야 합니다. 그렇지 않으면 60일 후에 Excel 평가 버전이 만료되고 해당 시간에 Excel 작업이 실행되지 않습니다.
+    >프로덕션 작업에 대해 **ComputeNodeWithExcel**을 사용하는 경우 컴퓨터 노드에서 Excel을 활성화하려면 유효한 Excel 라이선스를 제공해야 합니다. 그렇지 않으면 30일 후에 Excel 평가 버전이 만료되고 해당 시간에 Excel 작업이 실행되지 않습니다.
 
     c. 구독을 선택합니다.
 
@@ -377,4 +376,4 @@ NetTcp 바인딩을 사용하려면 구성이 온-프레미스 클러스터에 �
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,12 +1,12 @@
 
-4. Create a new class in the project called `ToDoBroadcastReceiver`.
+4. `ToDoBroadcastReceiver`(이)라는 프로젝트에서 새 클래스를 만듭니다.
 
-5. Add the following using statements to **ToDoBroadcastReceiver** class:
+5. **ToDoBroadcastReceiver** 클래스에 다음 using 문을 추가합니다.
 
 		using Gcm.Client;
 		using Microsoft.WindowsAzure.MobileServices;
 
-6. Add the following permission requests between the **using** statements and the **namespace** declaration:
+6. **using** 문과 **namespace** 선언 사이에 다음 사용 권한 요청을 추가합니다.
 
 		[assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
 		[assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
@@ -17,7 +17,7 @@
 		[assembly: UsesPermission(Name = "android.permission.INTERNET")]
 		[assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
 
-7. Replace the existing **ToDoBroadcastReceiver** class definition with the following:
+7. 기존 **ToDoBroadcastReceiver** 클래스 정의를 다음으로 바꿉니다.
  
 	    [BroadcastReceiver(Permission = Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
 	    [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, 
@@ -32,9 +32,9 @@
 	        public static string[] senderIDs = new string[] { "<PROJECT_NUMBER>" };
         }
 
-	In the above code, you must replace _`<PROJECT_NUMBER>`_ with the project number assigned by Google when you provisioned your app in the Google developer portal. 
+	위의 코드에서 Google 개발자 포털에서 앱을 프로비전할 때 Google에서 할당한 프로젝트 번호로 _`<PROJECT_NUMBER>`_을(를) 바꿉니다.
 
-8. In the ToDoBroadcastReceiver.cs project file, add the following code that defines the **PushHandlerService** class:
+8. ToDoBroadcastReceiver.cs 프로젝트 파일에서 **PushHandlerService** 클래스를 정의하는 다음 코드를 추가합니다.
  
 		// The ServiceAttribute must be applied to the class.
     	[Service] 
@@ -45,11 +45,11 @@
         	public PushHandlerService() : base(ToDoBroadcastReceiver.senderIDs) { }
     	}
 
-	Note that this class derives from **GcmServiceBase** and that the **Service** attribute must be applied to this class.
+	이 클래스는 **GcmServiceBase**에서 파생되며 **서비스** 특성이 이 클래스에 적용되어야 합니다.
 
-	>[AZURE.NOTE]The **GcmServiceBase** class implements the **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** and **OnError()** methods. You must override these methods in the **PushHandlerService** class.
+	>[AZURE.NOTE]**GcmServiceBase** 클래스는 **OnRegistered()**, **OnUnRegistered()**, **OnMessage()** 및 **OnError()** 메서드를 구현합니다. **PushHandlerService** 클래스에서 이러한 메서드를 재정의해야 합니다.
 
-5. Add the following code to the **ToDoBroadcastReceiver** class that overrides the **OnRegistered** event handler. 
+5. **OnRegistered** 이벤트 처리기를 재정의하는 **ToDoBroadcastReceiver** 클래스에 다음 코드를 추가합니다.
 
         protected override void OnRegistered(Context context, string registrationId)
         {
@@ -78,9 +78,9 @@
             }
         }
 
-	This method uses the returned GCM registration ID to register with Azure for push notifications.
+	이 메서드는 반환된 GCM 등록 ID를 사용하여 푸시 알림을 위해 Azure에 등록합니다.
 
-10. Override the **OnMessage** method in **PushHandlerService** with the following code:
+10. **PushHandlerService**의 **OnMessage** 메서드를 다음 코드로 재정의합니다.
 
         protected override void OnMessage(Context context, Intent intent)
         {          
@@ -116,7 +116,7 @@
             }
         }
 
-12. Add the following method overrides for **OnUnRegistered()** and **OnError()**, which are required for the project to compile.
+12. 컴파일할 프로젝트에 필요한 **OnUnRegistered()** 및 **OnError()**에 대해 재정의하는 다음 메서드를 추가합니다.
 
         protected override void OnUnRegistered(Context context, string registrationId)
         {
@@ -128,3 +128,5 @@
             System.Diagnostics.Debug.WriteLine(
                 string.Format("Error occurred in the notification: {0}.", errorId));
         }
+
+<!---HONumber=August15_HO8-->

@@ -1,18 +1,18 @@
 <properties
-   pageTitle="StorSimple 장치 업데이트"
+   pageTitle="StorSimple 장치 업데이트 | Microsoft Azure"
    description="StorSimple 업데이트 기능을 사용하여 일반 및 유지 관리 모드 업데이트 및 핫픽스를 설치하는 방법을 설명합니다."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
    manager="adinah"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/30/2015"
+   ms.date="08/19/2015"
    ms.author="v-sharos" />
 
 # StorSimple 장치 업데이트
@@ -42,7 +42,7 @@ StorSimple 업데이트 기능을 사용하면 쉽게 StorSimple 장치를 최�
 
 ### 유지 관리 모드 업데이트
 
-유지 관리 모드 업데이트는 디스크 펌웨어 업그레이드 또는 USM 펌웨어 업그레이드 등의 강제 업데이트입니다. 이 업데이트를 사용하려면 장치가 유지 관리 모드여야 합니다. 자세한 내용은 [2 단계: 입력 유지 관리 모드](#to-enter-maintenance-mode)를 참조하세요. 관리 포털을 사용하여 유지 관리 모드 업데이트를 설치할 수 없습니다. 대신 StorSimple용 Windows PowerShell을 사용해야 합니다.
+유지 관리 모드 업데이트는 디스크 펌웨어 업그레이드 또는 USM 펌웨어 업그레이드 등의 강제 업데이트입니다. 이 업데이트를 사용하려면 장치가 유지 관리 모드여야 합니다. 자세한 내용은 [2단계: 입력 유지 관리 모드](#step2)를 참조하세요. 관리 포털을 사용하여 유지 관리 모드 업데이트를 설치할 수 없습니다. 대신 StorSimple용 Windows PowerShell을 사용해야 합니다.
 
 유지 관리 모드 업데이트를 설치하는 방법에 대한 세부 정보는 [StorSimple용 Windows PowerShell을 통해 유지 관리 모드 업데이트 설치](#install-maintenance-mode-updates-via-windows-powershell-for-storsimple)를 참조하세요.
 
@@ -66,32 +66,32 @@ StorSimple 업데이트 기능을 사용하면 쉽게 StorSimple 장치를 최�
 
 StorSimple용 Windows PowerShell을 사용하여 유지 관리 모드 업데이트를 StorSimple 장치에 적용합니다. 모든 I/O 요청은 이 모드에서 일시 중지됩니다. 비휘발성 임의 액세스 메모리 (NVRAM) 등의 서비스 또는 클러스터링 서비스도 중지됩니다. 이 모드를 종료하거나 입력하면 두 컨트롤러 모두 다시 부팅됩니다. 이 모드를 종료하면 모든 서비스가 다시 시작되고 정상 상태여야 합니다. (몇 분이 걸릴 수 있습니다.)
 
-유지 관리 모드 업데이트를 적용해야 하는 경우, 설치해야 하는 업데이트가 있다는 경고를 관리 포털을 통해 수신합니다. 이 경고는 StorSimple용 Windows PowerShell을 사용하여 업데이트를 설치하기 위한 지침을 포함합니다. 장치를 업데이트한 후, 동일한 절차에 따라 장치를 일반 모드로 변경합니다. 단계별 지침은 [4 단계: 유지 관리 모드를 종료](#to-exit-maintenance-mode)를 참조하세요.
+유지 관리 모드 업데이트를 적용해야 하는 경우, 설치해야 하는 업데이트가 있다는 경고를 관리 포털을 통해 수신합니다. 이 경고는 StorSimple용 Windows PowerShell을 사용하여 업데이트를 설치하기 위한 지침을 포함합니다. 장치를 업데이트한 후, 동일한 절차에 따라 장치를 일반 모드로 변경합니다. 단계별 지침은 [4단계: 유지 관리 모드를 종료](#step4)를 참조하세요.
 
 > [AZURE.IMPORTANT]
 > 
 > - 유지 관리 모드에 들어가기 전에 관리 포털의 **유지 관리** 페이지에서 **하드웨어 상태**를 확인하여 두 장치 컨트롤러 모두가 정상 상태인지 확인합니다. 컨트롤러가 정상 상태가 아니면 다음 단계는 Microsoft 지원에 문의하세요. 자세한 내용은 Microsoft 지원에 문의로 이동합니다. 
 > - 유지 관리 모드에 있는 경우, 업데이트를 먼저 하나의 컨트롤러에 적용한 다음 다른 컨트롤러에 적용해야 합니다.
 
-### 1 단계: 직렬 콘솔에 연결
+### 1단계: 직렬 콘솔에 연결 <a name="step1">
 
 먼저, PuTTY와 같은 응용 프로그램을 사용하여 직렬 콘솔에 액세스합니다. 다음 절차는 PuTTY를 사용하여 직렬 콘솔에 연결하는 방법을 설명합니다.
 
 [AZURE.INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 
-### 2 단계: 유지 관리 모드 입력
+### 2단계: 유지 관리 모드 시작 <a name="step2">
 
 콘솔에 연결한 후, 설치할 업데이트가 있는지 여부를 결정하고 유지 관리 모드로 전환하여 설치합니다.
 
 [AZURE.INCLUDE [storsimple-enter-maintenance-mode](../../includes/storsimple-enter-maintenance-mode.md)]
 
-### 3 단계: 프로그램 업데이트 설치
+### 3단계: 프로그램 업데이트 설치 <a name="step3">
 
 다음으로 업데이트를 설치합니다.
 
 [AZURE.INCLUDE [storsimple-install-maintenance-mode-updates](../../includes/storsimple-install-maintenance-mode-updates.md)]
  
-### 4 단계: 유지 관리 모드 종료
+### 4단계: 유지 관리 모드 종료 <a name="step4">
 
 마지막으로, 유지 관리 모드를 종료합니다.
 
@@ -112,11 +112,11 @@ Microsoft Azure StorSimple에 대한 업데이트와 달리 핫픽스는 공유 
 
 ## 장치를 공장 재설정하는 경우 업데이트에 미치는 영향
 
-장치를 공장 기본 설정으로 다시 설정하는 경우 업데이트가 모두 손실됩니다. 공장 재설정 장치를 등록하고 구성한 후, StorSimple용 Windows PowerShell 및/또는 유지 관리 포털을 통해 수동으로 업데이트를 설치해야 합니다. 공장 재설정에 대한 자세한 내용은 [장치를 공장 기본 설정으로 재설정](https://msdn.microsoft.com/library/azure/dn772373.aspx)을 참조하세요.
+장치를 공장 기본 설정으로 다시 설정하는 경우 업데이트가 모두 손실됩니다. 공장 재설정 장치를 등록하고 구성한 후, StorSimple용 Windows PowerShell 및/또는 유지 관리 포털을 통해 수동으로 업데이트를 설치해야 합니다. 공장 재설정에 대한 자세한 내용은 [장치를 공장 기본 설정으로 재설정](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings)을 참조하세요.
 
 ## 다음 단계
 
-[StorSimple용 Windows PowerShell](https://msdn.microsoft.com/library/azure/dn772425.aspx)에 대해 배웁니다.
+[StorSimple용 Windows PowerShell을 사용하여 StorSimple 장치를 관리하는 방법 알아보기](storsimple-windows-powershell-administration.md).
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="StorSimple 장치 배포 문제 해결"
+   pageTitle="StorSimple 장치 배포 문제 해결 | Microsoft Azure"
    description="StorSimple을 처음 배포할 때 발생하는 오류를 진단하고 해결하는 방법을 설명합니다."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="NA"
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/17/2015"
+   ms.date="08/18/2015"
    ms.author="alkohli" />
 
 # StorSimple 장치 배포 문제 해결
@@ -29,11 +29,11 @@
 
 처음으로 장치를 배포할 때 문제가 발생하는 경우 다음 사항을 고려합니다.
 
-- 물리적 장치 문제를 해결하는 경우 [장치의 하드웨어 설치](https://msdn.microsoft.com/library/azure/dn772375.aspx)에서 설명한 대로 하드웨어가 설치 및 구성되어 있는지 확인합니다.
-- 배포를 위한 필수 구성 요소를 확인합니다. [배포 검사 목록](storsimple-deployment-walkthrough.md#pre-installation-checklist)에 모든 정보가 설명되어 있는지 확인합니다.
-- StorSimple 릴리스 정보를 검토하여 해당 문제가 설명되어 있는지 확인합니다. 릴리스 정보는 알려진 설치 문제에 대 한 해결 방법을 포함합니다. 
+- 물리적 장치의 문제를 해결하는 경우 하드웨어가 [StorSimple 8100 장치 설치](storsimple-8100-hardware-installation.md) 또는 [StorSimple 8600 장치 설치](storsimple-8600-hardware-installation.md)에 설명된 대로 설치 및 구성되었는지 확인합니다.
+- 배포를 위한 필수 구성 요소를 확인합니다. [배포 구성 검사 목록](storsimple-deployment-walkthrough.md#deployment-configuration-checklist)에 모든 정보가 설명되어 있는지 확인합니다.
+- StorSimple 릴리스 정보를 검토하여 해당 문제가 설명되어 있는지 확인합니다. 릴리스 정보는 알려진 설치 문제에 대한 해결 방법을 포함합니다. 
 
-장치 배포 중 사용자가 접하는 가장 일반적인 문제는 해당 설치 마법사를 실행하는 경우 및 StorSimple용 Windows PowerShell을 통해 장치를 등록하는 경우에 발생합니다. (StorSimple에 대해 Windows PowerShell을 사용하여 StorSimple 장치를 등록하고 구성합니다. 장치 등록에 대한 자세한 내용은 [장치 등록](https://msdn.microsoft.com/library/azure/dn757742.aspx)을 참조하세요.)
+장치 배포 중 사용자가 접하는 가장 일반적인 문제는 해당 설치 마법사를 실행하는 경우 및 StorSimple용 Windows PowerShell을 통해 장치를 등록하는 경우에 발생합니다. (StorSimple에 대해 Windows PowerShell을 사용하여 StorSimple 장치를 등록하고 구성합니다. 장치 등록에 대한 자세한 내용은 [3단계: StorSimple 용 Windows PowerShell을 통해 장치 구성 및 등록](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple)을 참조하세요.)
 
 다음 섹션에서는 StorSimple 장치를 처음 구성할 때 발생하는 문제를 해결할 수 있습니다.
 
@@ -53,7 +53,7 @@
  
     > [AZURE.IMPORTANT]등록 하기 전에 암호가 수집되지만 장치를 성공적으로 등록한 후에만 적용됩니다. 암호를 적용하지 못한 경우 필요한 암호(복잡성 요구 사항에 맞는)가 수집될 때까지 다시 암호를 입력하라는 메시지가 표시됩니다.
 
-4. 장치 등록: Microsoft Azure에서 실행되는 StorSimple 관리자 서비스를 사용하여 장치를 등록하는 최종 단계입니다. 등록하려면 Azure 관리 포털에서 [서비스 등록 키를 받고](https://msdn.microsoft.com/library/azure/cd4dee49-6ae8-4ff0-b79b-74b2027cb694#sec03) 설치 마법사에 키를 입력해야 합니다. 장치가 성공적으로 등록되면 서비스 데이터 암호화 키가 제공됩니다. 해당 서비스로 모든 후속 장치 서비스를 등록할 때 필요하기 때문에 이 암호화 키를 안전한 위치에 보관해야 합니다.
+4. 장치 등록: Microsoft Azure에서 실행되는 StorSimple 관리자 서비스를 사용하여 장치를 등록하는 최종 단계입니다. 등록하려면 Azure 관리 포털에서 [서비스 등록 키를 받고](storsimple-manage-service.md#get-the-service-registration-key) 설치 마법사에 키를 입력해야 합니다. 장치가 성공적으로 등록되면 서비스 데이터 암호화 키가 제공됩니다. 해당 서비스로 모든 후속 장치 서비스를 등록할 때 필요하기 때문에 이 암호화 키를 안전한 위치에 보관해야 합니다.
 
 ## 장치 배포 중 일반 오류
 
@@ -68,23 +68,23 @@
 
 | 번호| 오류 메시지 | 가능한 원인 | 권장 작업 |
 | ---| ------------- | --------------- | ------------------ |
-| 1 | Invoke-HcsSetupWizard:이 명령은 활성 컨트롤러에서만 실행할 수 있습니다. | 수동 컨트롤러에서 구성을 수행합니다.| 활성 컨트롤러에서 이 명령을 실행합니다. 자세한 내용은 [장치에서 활성 컨트롤러 식별](https://msdn.microsoft.com/library/azure/dn790262.aspx)을 참조하세요.|
+| 1 | Invoke-HcsSetupWizard:이 명령은 활성 컨트롤러에서만 실행할 수 있습니다. | 수동 컨트롤러에서 구성을 수행합니다.| 활성 컨트롤러에서 이 명령을 실행합니다. 자세한 내용은 [장치에서 활성 컨트롤러 식별](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device)을 참조하세요.|
 | 2 | Invoke-HcsSetupWizard: 장치가 준비되지 않았습니다. | 데이터 0에 대한 네트워크 연결 문제가 있습니다.| 데이터 0에 대한 실제 네트워크 연결을 확인합니다.|
 | 3 | Invoke-HcsSetupWizard: 네트워크에서 다른 시스템과 IP 충돌이 있습니다(HRESULT: 0x80070263에서 예외 발생). | 데이터 0에 대해 제공된 IP가 이미 다른 시스템에서 사용 중입니다. | 사용되지 않는 새 IP를 제공합니다.|
 | 4 | Invoke-HcsSetupWizard: 클러스터 리소스가 실패했습니다. (HRESULT:0x800713AE에서 예외 발생). | VIP가 중복되었습니다. 제공된 IP가 이미 사용 중입니다.| 사용되지 않는 새 IP를 제공합니다.|
 | 5 | Invoke-HcsSetupWizard: 잘못된 IPv4 주소입니다. | IP 주소는 잘못된 형식으로 제공됩니다.| 형식을 확인하고 다시 사용자의 IP 주소를 제공합니다. 자세한 내용은 [Ipv4 주소 지정][1]을 참조하세요. |
 | 6 | Invoke-HcsSetupWizard: 잘못된 IPv6 주소입니다. | IP 주소는 잘못된 형식으로 제공됩니다.| 형식을 확인하고 다시 사용자의 IP 주소를 제공합니다. 자세한 내용은 [Ipv6 주소 지정][2]을 참조하세요.|
-| 7 | Invoke-HcsSetupWizard: 종단점 맵 편집기에서 사용 가능한 종단점이 더 이상 없습니다(HRESULT: 0x800706D9에서 예외 발생) | 클러스터 기능이 작동하지 않습니다. | 다음 단계는 [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하세요.
+| 7 | Invoke-HcsSetupWizard: 끝점 매퍼에서 사용 가능한 끝점이 더 이상 없습니다. ((HRESULT: 0x800706D9에서 예외 발생). | 클러스터 기능이 작동하지 않습니다. | 다음 단계는 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
 
 ## 선택적 웹 프록시 설정 중 오류
 
 | 번호| 오류 메시지 | 가능한 원인 | 권장 작업 |
 | ---| ------------- | --------------- | ------------------ |
-| 1 | Invoke-HcsSetupWizard: 잘못된 매개 변수(HRESULT: 0x80070057에서 예외 발생) | 프록시 설정에 대해 제공된 매개 변수 중 하나가 잘못되었습니다.| URI는 올바른 형식으로 제공되지 않습니다. 다음 형식을 사용하세요. http://*<IP address or FQDN of the web proxy server>*:*<TCP port number>* |
-| 2 | Invoke-HcsSetupWizard: RPC 서버 사용 불가능(HRESULT: 0x800706ba에서 예외 발생) | 근본 원인은 다음 중 하나입니다. <ol><li>클러스터가 작동하지 않습니다.</li><li>수동 컨트롤러는 활성 컨트롤러와 통신할 수 없으며 수동 컨트롤러에서 명령을 실행합니다.</li></ol> | 근본 원인에 따라:<ol><li>[Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하여 클러스터가 작동하는지 확인합니다.</li><li>활성 컨트롤러에서 명령을 실행합니다. 수동 컨트롤러에서 명령을 실행하려는 경우 수동 컨트롤러가 활성 컨트롤러와 통신할 수 있는지 확인해야 합니다. 이 연결이 끊어진 경우, [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)해야 합니다.</li></ol> |
-| 3 | Invoke-HcsSetupWizard: RPC 호출 실패함(HRESULT: 0x800706be에서 예외 발생) | 클러스터의 작동이 중단되었습니다. | [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하여 클러스터가 작동하는지 확인합니다.|
-| 4 | Invoke-HcsSetupWizard: 클러스터 리소스를 찾을 수 없음(HRESULT: 0x8007138f에서 예외 발생) | 클러스터 리소스를 찾을 수 없습니다. 설치가 올바르지 않은 경우 발생할 수 있습니다. | 장치를 공장 기본 설정으로 다시 설정해야 합니다. [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하여 클러스터 리소스를 만듭니다.|
-| 5 | Invoke-HcsSetupWizard: 클러스터 리소스가 온라인 상태가 아님(HRESULT: 0x8007138c에서 예외 발생)| 클러스터 리소스가 온라인 상태가 아닙니다. | 다음 단계는 [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하세요.|
+| 1 | Invoke-HcsSetupWizard: 잘못된 매개 변수(HRESULT: 0x80070057에서 예외 발생) | 프록시 설정에 대해 제공된 매개 변수 중 하나가 잘못되었습니다.| URI는 올바른 형식으로 제공되지 않습니다. 이때 다음 형식을 사용합니다. http://*<IP address or FQDN of the web proxy server>*:*<TCP port number>* |
+| 2 | Invoke-HcsSetupWizard: RPC 서버 사용 불가능(HRESULT: 0x800706ba에서 예외 발생) | 근본 원인은 다음 중 하나입니다. <ol><li>클러스터가 작동하지 않습니다.</li><li>수동 컨트롤러는 활성 컨트롤러와 통신할 수 없으며 수동 컨트롤러에서 명령을 실행합니다.</li></ol> | 근본 원인에 따라:<ol><li>[Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하여 클러스터가 작동하는지 확인합니다.</li><li>활성 컨트롤러에서 명령을 실행합니다. 수동 컨트롤러에서 명령을 실행하려는 경우 수동 컨트롤러가 활성 컨트롤러와 통신할 수 있는지 확인해야 합니다. 이 연결이 끊어진 경우, [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)해야 합니다.</li></ol> |
+| 3 | Invoke-HcsSetupWizard: RPC 호출 실패함(HRESULT: 0x800706be에서 예외 발생) | 클러스터의 작동이 중단되었습니다. | [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하여 클러스터가 작동하는지 확인합니다.|
+| 4 | Invoke-HcsSetupWizard: 클러스터 리소스를 찾을 수 없음(HRESULT: 0x8007138f에서 예외 발생) | 클러스터 리소스를 찾을 수 없습니다. 설치가 올바르지 않은 경우 발생할 수 있습니다. | 장치를 공장 기본 설정으로 다시 설정해야 합니다. [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하여 클러스터 리소스를 만듭니다.|
+| 5 | Invoke-HcsSetupWizard: 클러스터 리소스가 온라인 상태가 아님(HRESULT: 0x8007138c에서 예외 발생)| 클러스터 리소스가 온라인 상태가 아닙니다. | 다음 단계는 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.|
 
 ## 장치 관리자 및 StorSimple 스냅숏 관리자 암호 관련 오류
 
@@ -99,7 +99,7 @@
 - 암호는 대문자, 소문자, 숫자 및 특수 문자의 4가지 문자 유형 중 3가지 문자 유형을 포함해야 합니다. 
 - 암호는 마지막 24개의 암호와 동일할 수 없습니다.
 
-또한 암호가 만료되는 해를 염두하고 장치를 성공적으로 등록한 후에만 변경할 수 있습니다. 어떤 이유로든 등록이 실패하면, 암호가 변경되지 않습니다. 장치 관리자 및 StorSimple 스냅숏 관리자 암호에 대한 자세한 내용은 [암호](https://msdn.microsoft.com/library/azure/00fb2b46-e29e-4c4d-90a8-1dbb7db3672e#sec_02)로 이동하세요.
+또한 암호가 만료되는 해를 염두하고 장치를 성공적으로 등록한 후에만 변경할 수 있습니다. 어떤 이유로든 등록이 실패하면, 암호가 변경되지 않습니다. 장치 관리자 및 StorSimple 스냅숏 관리자 암호에 대한 자세한 내용을 보려면 [StorSimple Manager 서비스를 사용하여 StorSimple 암호 변경](storsimple-change-passwords.md)으로 이동합니다.
 
 장치 관리자 및 StorSimple 스냅숏 관리자 암호를 설정할 때 다음 오류 중 하나 이상이 발생할 수 있습니다.
 
@@ -121,8 +121,8 @@
 
 StorSimple Manager 서비스의 관리 포털에서 암호를 재설정할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
-- [장치 관리자 암호 구성](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec09)
-- [StorSimple 스냅숏 관리자 암호 구성](https://msdn.microsoft.com/library/azure/02f1412f-e196-4a88-8eda-2113247ea47c#sec08)
+- [장치 관리자 암호 변경](storsimple-change-passwords.md#change-the-device-administrator-password).
+- [StorSimple 스냅숏 관리자 암호 변경](storsimple-change-passwords.md#change-the-storsimple-snapshot-manager-password)
 
 ## 장치 등록 중 오류
 
@@ -130,14 +130,14 @@ Microsoft Azure에서 실행되는 StorSimple 관리자 서비스를 사용하�
 
 | 번호| 오류 메시지 | 가능한 원인 | 권장 작업 |
 | ---| ------------- | --------------- | ------------------ |
-| 1 | 오류 350027: StorSimple 관리자를 사용하여 장치를 등록하지 못했습니다. | | 몇 분간 기다린 다음 작업을 다시 시도하세요. 문제가 지속되면, [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하세요.|
-| 2 | 오류 350013: 장치를 등록 하는 중에 오류가 발생했습니다. 잘못된 서비스 등록 키 때문일 수 있습니다. | | 올바른 서비스 등록 키로 장치를 다시 등록하십시오. 자세한 내용은 [서비스 등록 키 받기](https://msdn.microsoft.com/library/azure/cd4dee49-6ae8-4ff0-b79b-74b2027cb694#sec03)를 참조하세요. |
-| 3 | 오류 350063: StorSimple Manager 서비스에 대한 인증은 통과했지만 등록에 실패했습니다. 잠시 후 작업을 다시 시도하세요. | 이 오류는 ACS로 인증이 통과했지만 서비스에 대한 레지스터 호출이 실패했음을 나타냅니다. 간헐적인 네트워크 결함의 결과일 수 있습니다. | 문제가 지속되면 [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하세요. |
-| 4 | 350049 오류: 등록하는 동안 서비스에 연결할 수 없습니다. | 서비스에 호출되면 웹 예외가 수신됩니다. 경우에 따라 작업을 나중에 다시 시도하여 수정될 수 있습니다. | IP 주소 및 DNS 이름을 확인한 다음 작업을 다시 시도합니다. 문제가 지속되면, [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하세요. | 
+| 1 | 오류 350027: StorSimple 관리자를 사용하여 장치를 등록하지 못했습니다. | | 몇 분간 기다린 다음 작업을 다시 시도하세요. 문제가 지속되면, [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.|
+| 2 | 오류 350013: 장치를 등록 하는 중에 오류가 발생했습니다. 잘못된 서비스 등록 키 때문일 수 있습니다. | | 올바른 서비스 등록 키로 장치를 다시 등록하십시오. 자세한 내용은 [서비스 등록 키 받기](storsimple-manage-service.md#get-the-service-registration-key)를 참조하세요. |
+| 3 | 오류 350063: StorSimple Manager 서비스에 대한 인증은 통과했지만 등록에 실패했습니다. 잠시 후 작업을 다시 시도하세요. | 이 오류는 ACS로 인증이 통과했지만 서비스에 대한 레지스터 호출이 실패했음을 나타냅니다. 간헐적인 네트워크 결함의 결과일 수 있습니다. | 문제가 지속되면 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요. |
+| 4 | 350049 오류: 등록하는 동안 서비스에 연결할 수 없습니다. | 서비스에 호출되면 웹 예외가 수신됩니다. 경우에 따라 작업을 나중에 다시 시도하여 수정될 수 있습니다. | IP 주소 및 DNS 이름을 확인한 다음 작업을 다시 시도합니다. 문제가 지속되면, [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요. | 
 | 5 | 오류 350031: 장치가 이미 등록되었습니다. | | 필요한 작업이 없습니다. |
 | 6 | 오류 350016: 장치 등록에 실패했습니다. | |등록 키가 올바른지 확인하세요. |
-| 7 | Invoke-HcsSetupWizard: 장치를 등록하는 동안 오류가 발생했습니다. 잘못된 IP 주소 또는 DNS 이름때문일 수 있습니다. 네트워크 설정을 확인하고 다시 시도하세요. 문제가 지속되면, [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하세요.(오류 350050) | 장치에 외부 네트워크를 ping할 수 있는지 확인합니다. 외부 네트워크에 연결되지 않은 경우 이 오류와 함께 등록이 실패할 수 있습니다. 이 오류는 다음 중 하나 이상의 조합일 수 있습니다:<ul><li>잘못된 IP</li><li>잘못된 서브넷</li><li>잘못된 게이트웨이</li><li>잘못된 DNS 설정</li></ul> | [단계별 문제 해결 예제](#step-by-step-storsimple-troubleshooting-example)의 단계를 참조하세요. |
-| 8 | Invoke-HcsSetupWizard: 내부 서비스 오류 [0x1FBE2]때문에 현재 작업이 실패했습니다. 잠시 후 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. | 모든 사용자가 서비스 또는 에이전트에서 볼 수 없는 오류에 대해 발생한 일반 오류입니다. 가장 일반적인 이유가 ACS 인증 실패일 수 있습니다. 실패에 대한 가능한 원인은 NTP 서버 구성에 문제가 있고 장치의 시간이 올바르게 설정되지 않았기 때문일 수 있습니다. | 시간을 수정하고(문제가 있는 경우) 등록 작업을 다시 시도하세요. 이 문제가 지속되면 다음 단계는 [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하세요. |
+| 7 | Invoke-HcsSetupWizard: 장치를 등록하는 동안 오류가 발생했습니다. 잘못된 IP 주소 또는 DNS 이름때문일 수 있습니다. 네트워크 설정을 확인하고 다시 시도하세요. 문제가 지속되면, [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요. (오류 350050) | 장치에 외부 네트워크를 ping할 수 있는지 확인합니다. 외부 네트워크에 연결되지 않은 경우 이 오류와 함께 등록이 실패할 수 있습니다. 이 오류는 다음 중 하나 이상의 조합일 수 있습니다:<ul><li>잘못된 IP</li><li>잘못된 서브넷</li><li>잘못된 게이트웨이</li><li>잘못된 DNS 설정</li></ul> | [단계별 문제 해결 예제](#step-by-step-storsimple-troubleshooting-example)의 단계를 참조하세요. |
+| 8 | Invoke-HcsSetupWizard: 내부 서비스 오류 [0x1FBE2]때문에 현재 작업이 실패했습니다. 잠시 후 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요. | 모든 사용자가 서비스 또는 에이전트에서 볼 수 없는 오류에 대해 발생한 일반 오류입니다. 가장 일반적인 이유가 ACS 인증 실패일 수 있습니다. 실패에 대한 가능한 원인은 NTP 서버 구성에 문제가 있고 장치의 시간이 올바르게 설정되지 않았기 때문일 수 있습니다. | 시간을 수정하고(문제가 있는 경우) 등록 작업을 다시 시도하세요. 이 문제가 지속되면 다음 단계는 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요. |
 | 9 | 경고: 장치를 활성화할 수 없습니다. 장치 관리자 및 StorSimple 스냅숏 관리자 암호가 변경되지 않습니다. | 등록이 실패하면, 장치 관리자 및 StorSimple 스냅숏 관리자 암호가 변경되지 않습니다. |
 
 ## StorSimple 배포 문제 해결을 위한 팁
@@ -153,11 +153,11 @@ StorSimple은 StorSimple 솔루션 문제를 해결하는데 사용할 수 있�
 
 ### 지원 패키지의 로그 또는 내용을 보려면
 
-1. [지원 패키지 생성](https://msdn.microsoft.com/library/azure/dn772348.aspx)에서 설명한 대로 지원 패키지를 생성하려면 StorSimple용 Windows PowerShell을 사용합니다.
+1. [지원 패키지 만들기 및 관리](storsimple-create-manage-support-package.md)에서 설명한 대로 지원 패키지를 생성하려면 StorSimple용 Windows PowerShell을 사용합니다.
 
 2. [암호 해독 스크립트](https://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65)를 로컬로 클라이언트 컴퓨터에 다운로드합니다.
 
-3. 이 [단계별 절차](https://msdn.microsoft.com/library/azure/dn762117.aspx)를 사용하여 지원 패키지를 열고 암호를 해독합니다.
+3. 이 [단계별 절차](storsimple-create-manage-support-package.md#edit-a-support-package)를 사용하여 지원 패키지를 열고 암호를 해독합니다.
 
 4. 암호 해독된 지원 패키지 로그는 etw/etvx 형식입니다. 다음 단계를 수행하여 Windows 이벤트 뷰어에서 이 파일을 볼 수 있습니다.
   1. Windows 클라이언트에서 **eventvwr** 명령을 실행합니다. 이벤트 뷰어를 시작합니다.
@@ -172,37 +172,37 @@ StorSimple은 StorSimple 솔루션 문제를 해결하는데 사용할 수 있�
 
 6. 로그 파일에서, 설치 마법사에서 호출한 cmdlet와 관련된 문자열을 검색합니다. 이 cmdlet의 목록은 [처음 설치 마법사 프로세스](#first-time-setup-wizard-process)를 참조하세요. 
 
-7. 문제의 원인을 알아낼 수 없는 경우, 다음 단계는 [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)할 수 있습니다. Microsoft 지원에 문의하는 경우 [지원 세션 시작](https://msdn.microsoft.com/library/azure/dn757804.aspx)의 단계를 사용합니다.
+7. 문제의 원인을 알아낼 수 없는 경우, 다음 단계는 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)할 수 있습니다. Microsoft 지원에 문의하는 경우 [지원 요청 만들기](storsimple-contact-microsoft-support.md#create-a-support-request)의 단계를 사용합니다.
 
 ## 문제 해결에 사용할 수 있는 Cmdlet
 
 다음 Windows PowerShell cmdlet을 사용하여 연결 오류를 검색합니다.
 
-- Get-NetAdapter: 이 cmdlet를 사용하여 네트워크 인터페이스의 상태를 감지합니다. 
+- `Get-NetAdapter`: 이 cmdlet을 사용하여 네트워크 인터페이스의 상태를 감지합니다. 
 
-- Test-Connection: 네트워크의 내부 및 외부에서 네트워크 연결을 확인하려면 이 cmdlet을 사용합니다.
+- `Test-Connection`: 네트워크의 내부 및 외부에서 네트워크 연결을 확인하려면 이 cmdlet을 사용합니다.
 
-- Test-HcsmConnection: 이 cmdlet을 사용하여 성공적으로 등록된 장치의 연결을 확인합니다.
+- `Test-HcsmConnection`: 이 cmdlet을 사용하여 성공적으로 등록된 장치의 연결을 확인합니다.
 
 StorSimple 장치에 업데이트 1을 실행 하는 경우 다음 진단 cmdlet을 사용할 수도 있습니다.
 
-- 동기화-HcsTime: 이 cmdlet을 사용하여 장치 시간을 표시하고 NTP 서버와 강제로 시간을 동기화합니다.
+- `Sync-HcsTime`: 이 cmdlet을 사용하여 장치 시간을 표시하고 NTP 서버와 강제로 시간을 동기화합니다.
 
-- HcsPing 활성화 및 HcsPing 비활성화: 이 cmdlet을 사용하여 호스트가 StorSimple 장치에서 네트워크 인터페이스에 ping 하도록 합니다. 기본적으로 StorSimple 네트워크 인터페이스는 ping 요청에 응답하지 않습니다.
+- `Enable-HcsPing` 및 `Disable-HcsPing`: 이 cmdlet을 사용하여 호스트가 StorSimple 장치에서 네트워크 인터페이스에 ping 하도록 합니다. 기본적으로 StorSimple 네트워크 인터페이스는 ping 요청에 응답하지 않습니다.
 
-- Trace-HcsRoute: 경로 추적 도구로 이 cmdlet를 사용합니다. 일정 기간 동안 최종 대상으로 각 라우터에 패킷이 전송을 전송하고 각 홉에서 반환되는 패킷에 기준으로 결과를 계산 합니다. Trace-HcsRoute가 특정 라우터의 패킷 손실의 정도를 표시하기 때문에 어떤 라우터 또는 링크가 네트워크 문제를 초래할 수 있는지 파악할 수 있습니다.
+- `Trace-HcsRoute`: 경로 추적 도구로 이 cmdlet을 사용합니다. 일정 기간 동안 최종 대상으로 각 라우터에 패킷이 전송을 전송하고 각 홉에서 반환되는 패킷에 기준으로 결과를 계산 합니다. `Trace-HcsRoute`가 특정 라우터의 패킷 손실의 정도를 표시하기 때문에 어떤 라우터 또는 링크가 네트워크 문제를 초래할 수 있는지 파악할 수 있습니다.
 
-- Get-HcsRoutingTable: 로컬 IP 라우팅 테이블을 표시하려면 cmdlet을 사용합니다.
+- `Get-HcsRoutingTable`: 로컬 IP 라우팅 테이블을 표시하려면 cmdlet을 사용합니다.
 
 ## Get NetAdapter cmdlet 문제 해결
 
-처음 장치 배포에 대한 네트워크 인터페이스를 구성할 때 해당 장치가 서비스에 아직 등록되지 않아 하드웨어 상태가 StorSimple 관리자 서비스 UI에 표시되지 않습니다. 또한 서비스 동기화에 영향을 주는 문제가 있는 경우 특히, 하드웨어 상태 페이지는 항상 장치의 상태를 올바르게 반영하지 않을 수 있습니다. 이 상황에서는 네트워크 인터페이스의 상태를 확인하려면 Get-NetAdapter cmdlet을 사용할 수 있습니다.
+처음 장치 배포에 대한 네트워크 인터페이스를 구성할 때 해당 장치가 서비스에 아직 등록되지 않아 하드웨어 상태가 StorSimple 관리자 서비스 UI에 표시되지 않습니다. 또한 서비스 동기화에 영향을 주는 문제가 있는 경우 특히, 하드웨어 상태 페이지는 항상 장치의 상태를 올바르게 반영하지 않을 수 있습니다. 이 상황에서는 `Get-NetAdapter` cmdlet을 사용하여 네트워크 인터페이스의 상태를 확인할 수 있습니다.
 
 ### 장치에서 모든 네트워크 어댑터의 목록을 보려면
 
-1. StorSimple용 Windows PowerShell을 시작한 다음 **Get-NetAdapter**를 입력합니다. 
+1. StorSimple용 Windows PowerShell을 시작한 다음 `Get-NetAdapter`를 입력합니다. 
 
-2. Get-NetAdapter cmdlet의 출력 및 다음 지침을 사용하여 네트워크 인터페이스의 상태를 이해합니다.
+2. `Get-NetAdapter` cmdlet의 출력 및 다음 지침을 사용하여 네트워크 인터페이스의 상태를 이해합니다.
   - 인터페이스가 정상 상태이고 사용 가능한 경우 **ifIndex** 상태가 **작동**으로 표시됩니다.
   - 인터페이스가 정상 상태이지만 물리적으로 연결되어 있지 않은 경우(네트워크 케이블로), **ifIndex**는 **사용 안함**으로 표시됩니다.
   - 인터페이스가 정상 상태이지만 사용 불가능한 경우 **ifIndex** 상태가 **표시되지 않음**으로 나타납니다.
@@ -210,7 +210,7 @@ StorSimple 장치에 업데이트 1을 실행 하는 경우 다음 진단 cmdlet
 
 이 cmdlet을 사용하는 방법에 대한 자세한 내용은 Windows PowerShell cmdlet 참조의 [GetNetAdapter](https://technet.microsoft.com/library/jj130867.aspx)로 이동합니다.
 
-다음 섹션에서는 샘플 Get-NetAdapter cmdlet의 출력 샘플을 표시합니다.
+다음 섹션에서는 샘플 `Get-NetAdapter` cmdlet의 출력 샘플을 표시합니다.
 
  이 예제에서는 컨트롤러 0은 수동 컨트롤러이었으며 다음과 같이 구성되었습니다.
 
@@ -255,9 +255,9 @@ StorSimple 장치에 업데이트 1을 실행 하는 경우 다음 진단 cmdlet
  
 ## Test-Connection cmdlet 문제 해결
 
-StorSimple 장치를 외부 네트워크에 연결할 수 있는지 여부를 확인하려면 Test-Connection cmdlet을 사용할 수 있습니다. DNS를 포함한 모든 네트워킹 매개 변수가 설치 마법사에서 올바르게 구성된 경우, Test-Connection cmdlet을 사용하여 outlook.com과 같은 네트워크 외부에 알려진 주소를 ping할 수 있습니다.
+`Test-Connection` cmdlet을 사용하여 StorSimple 장치를 외부 네트워크에 연결할 수 있는지 여부를 확인할 수 있습니다. DNS를 포함한 모든 네트워킹 매개 변수가 설치 마법사에서 올바르게 구성된 경우, `Test-Connection` cmdlet을 사용하여 outlook.com과 같은 네트워크 외부에 알려진 주소를 ping할 수 있습니다.
 
-Test-Connection cmdlet 출력의 다음 샘플을 참조하세요.
+`Test-Connection` cmdlet에서 다음과 같은 출력 샘플을 확인하세요.
 
 > [AZURE.NOTE]첫 번째 샘플에서 장치는 잘못된 DNS로 구성됩니다. 두 번째 샘플에서 DNS가 올바릅니다.
  
@@ -285,7 +285,7 @@ Test-Connection cmdlet 출력의 다음 샘플을 참조하세요.
 
 ## Test-HcsmConnection cmdlet 문제 해결
 
-이미 연결되고 StorSimple 관리자 서비스에서 등록된 장치에 대해 Test-HcsmConnection cmdlet을 사용합니다. 이 cmdlet를 사용하면 등록된 장치 및 해당 StorSimple 관리자 서비스 간의 연결을 확인합니다. StorSimple 용 Windows PowerShell에서 이 명령을 실행할 수 있습니다.
+이미 연결되고 StorSimple Manager 서비스에 등록된 장치에는 `Test-HcsmConnection` cmdlet을 사용합니다. 이 cmdlet를 사용하면 등록된 장치 및 해당 StorSimple 관리자 서비스 간의 연결을 확인합니다. StorSimple 용 Windows PowerShell에서 이 명령을 실행할 수 있습니다.
 
 ### Test-HcsmConnection cmdlet을 실행하려면
 
@@ -324,11 +324,11 @@ Test-Connection cmdlet 출력의 다음 샘플을 참조하세요.
  
 로그 파일 CiSCommandletLog0Curr.errlog 및 CiSAgentsvc0Curr.errlog에는 예외 세부 정보와 같은 추가 정보가 있습니다.
 
-Cmdlet을 사용하는 방법에 대한 자세한 내용은 Windows PowerShell 설명서의 [Test-HcsmConnection](https://technet.microsoft.com/library/dn715782.aspx)으로 이동합니다.
+Cmdlet을 사용하는 방법에 대한 자세한 내용을 보려면 Windows PowerShell 참조 설명서의 [HcsmConnection 테스트](https://technet.microsoft.com/library/dn715782.aspx)로 이동합니다.
 
 > [AZURE.IMPORTANT]활성 및 수동 컨트롤러 모두에 대해 이 cmdlet을 실행할 수 있습니다.
  
-Test-HcsmConnection cmdlet 출력의 다음 샘플을 참조하세요.
+`Test-HcsmConnection` cmdlet에서 다음과 같은 출력 샘플을 확인하세요.
 
 **예제 출력 – StorSimple 릴리스를 실행하는 성공적으로 등록된 장치 (2014년 7월)**
 
@@ -344,7 +344,7 @@ Test-HcsmConnection cmdlet 출력의 다음 샘플을 참조하세요.
      Checking connectivity from StorSimple Manager service to StorSimple device. .... Success.
      Controller1>
 
-**예제 출력 – StorSimple 업데이트 1을 실행하는 성공적으로 등록된 장치 (2015년 5월)**
+**샘플 출력 – StorSimple 업데이트 1을 실행하는 성공적으로 등록된 장치**
 
 StorSimple 장치에 업데이트 1을 실행하는 경우 자세한 정보 표시 스위치와 함께 업데이트 1을 실행할 필요는 없습니다.
 
@@ -447,7 +447,7 @@ StorSimple 장치에 대한 라우팅 테이블을 보려면 이 cmdlet을 사�
 
 StorSimple 장치에 업데이트 1을 실행하는 경우 데이터 0 네트워크 인터페이스에는 클라우드 트래픽에 대한 가장 높은 기본 설정을 합니다. 이는 다른 클라우드 가능 인터페이스가 있는 경우에도 클라우드 트래픽이 DATA 0 통해 라우팅되는 것을 의미합니다.
 
-(다음 예와 같이) 매개 변수를 지정하지 않고 Get HcsRoutingTable cmdlet을 실행하면 cmdlet는 IPv4 및 IPv6 라우팅 테이블을 모두 출력 합니다. 아니면 `Get-HcsRoutingTable -IPv4` 또는 `Get-HcsRoutingTable -IPv6`을 지정하여 관련 라우팅 테이블을 가져올 수 있습니다.
+(다음 예와 같이) 매개 변수를 지정하지 않고 `Get-HcsRoutingTable` cmdlet을 실행하면 cmdlet에서 IPv4 및 IPv6 라우팅 테이블을 모두 출력합니다. 아니면 `Get-HcsRoutingTable -IPv4` 또는 `Get-HcsRoutingTable -IPv6`를 지정하여 관련 라우팅 테이블을 가져올 수 있습니다.
 
       Controller0>
       Controller0>Get-HcsRoutingTable
@@ -533,11 +533,11 @@ StorSimple 장치에 업데이트 1을 실행하는 경우 데이터 0 네트워
 
 ### 장치 등록 문제를 찾아 해결하려면
 
-1. 장치 구성을 확인합니다. 활성 컨트롤러에서 **Invoke-HcsSetupWizard**를 실행합니다.
+1. 장치 구성을 확인합니다. 활성 컨트롤러에서 `Invoke-HcsSetupWizard`를 실행합니다.
 
-     >[AZURE.NOTE]설치 마법사는 활성 컨트롤러에서 실행해야 합니다. 활성 컨트롤러에 연결되어 있는지를 확인 하려면 직렬 콘솔에 표시된 배너를 찾습니다. 배너는 컨트롤러 0 또는 컨트롤러 1에 연결 되어있는지 여부 및 컨트롤러 활성 또는 수동인지를 나타냅니다. 자세한 내용은 [장치에서 활성 컨트롤러 식별](https://msdn.microsoft.com/library/azure/dn790262.aspx)로 이동합니다.
+     >[AZURE.NOTE]설치 마법사는 활성 컨트롤러에서 실행해야 합니다. 활성 컨트롤러에 연결되어 있는지를 확인 하려면 직렬 콘솔에 표시된 배너를 찾습니다. 배너는 컨트롤러 0 또는 컨트롤러 1에 연결 되어있는지 여부 및 컨트롤러 활성 또는 수동인지를 나타냅니다. 자세한 내용은 [장치에서 활성 컨트롤러 식별](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device)로 이동합니다.
  
-2. 장치가 올바르게 연결되었는지 확인합니다. 장치 백플레인에서 네트워크 케이블을 확인합니다. 케이블은 장치 모델에 해당됩니다. 자세한 내용은 [8100 장치 케이블 연결](https://msdn.microsoft.com/library/azure/dn757738.aspx) 또는 [8600 장치 케이블 연결](https://msdn.microsoft.com/library/azure/dn757762.aspx)로 이동합니다.
+2. 장치가 올바르게 연결되었는지 확인합니다. 장치 백플레인에서 네트워크 케이블을 확인합니다. 케이블은 장치 모델에 해당됩니다. 자세한 내용을 보려면 [StorSimple 8100 장치 설치](storsimple-8100-hardware-installation.md) 또는 [8600 StorSimple 장치 설치](storsimple-8600-hardware-installation.md)로 이동합니다.
 
      >[AZURE.NOTE]10 GbE 네트워크 포트를 사용하는 경우제공된 QSFP-SFP 어댑터 및 SFP 케이블을 사용해야 합니다. 자세한 내용은 [Mellanox 포트에 대한 OEM 공급 업체에서 권장한 케이블, 스위치 및 트랜시버 목록](http://www.mellanox.com/page/cables?mtag=cable_overview)을 참조하세요.
  
@@ -545,7 +545,7 @@ StorSimple 장치에 업데이트 1을 실행하는 경우 데이터 0 네트워
 
    - Get-NetAdapter cmdlet를 사용하여 데이터 0에 대한 네트워크 인터페이스의 상태를 감지합니다. 
    - 링크 작동하지 않은 경우 **ifindex** 상태는 인터페이스가 작동 중단되었음을 나타냅니다. 그런 다음 기기 및 스위치에 대한 네트워크 연결을 확인해야 합니다. 잘못된 케이블을 제거해야 합니다. 
-   - 활성 컨트롤러의 데이터 0 포트가 의심되는 경우, 컨트롤러 1의 데이터 0 포트에 연결하여 확인할 수 있습니다. 이를 확인 하려면, 컨트롤러 0의 장치 뒷면에서 네트워크 케이블을 분리하고 컨트롤러 1에 케이블을 연결한 다음 Get-NetAdapter cmdlet을 다시 실행합니다. 컨트롤러의 데이터 0 포트가 실패하면 다음 단계는 [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하세요. 시스템에서 컨트롤러를 교체해야할 수 있습니다.
+   - 활성 컨트롤러의 데이터 0 포트가 의심되는 경우, 컨트롤러 1의 데이터 0 포트에 연결하여 확인할 수 있습니다. 이를 확인 하려면, 컨트롤러 0의 장치 뒷면에서 네트워크 케이블을 분리하고 컨트롤러 1에 케이블을 연결한 다음 Get-NetAdapter cmdlet을 다시 실행합니다. 컨트롤러의 데이터 0 포트가 실패하면 다음 단계는 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요. 시스템에서 컨트롤러를 교체해야할 수 있습니다.
  
 4. 스위치에 연결을 확인합니다.
    - 기본 인클로저에서 컨트롤러 0과 컨트롤러 1의 데이터 0 네트워크 인터페이스가 동일한 서브넷에 있는지 확인합니다. 
@@ -555,24 +555,24 @@ StorSimple 장치에 업데이트 1을 실행하는 경우 데이터 0 네트워
 5. 모든 사용자 오류를 제거합니다.
 
   - 설치 마법사를 다시 실행하고(**Invoke-HcsSetupWizard** 실행), 값을 다시 입력하여 오류가 없는지 확인합니다. 
-  - 사용된 등록 확인 키를 확인합니다. 동일한 등록 키를 여러 장치에서 StorSimple Manager 서비스에 연결하는데 사용할 수 있습니다. [서비스 등록 키 받기](https://msdn.microsoft.com/library/azure/cd4dee49-6ae8-4ff0-b79b-74b2027cb694#sec03)의 절차를 사용하여 올바른 등록 키를 사용하고 있는지 확인합니다.
+  - 사용된 등록 확인 키를 확인합니다. 동일한 등록 키를 여러 장치에서 StorSimple Manager 서비스에 연결하는데 사용할 수 있습니다. [서비스 등록 키 받기](storsimple-manage-service.md#get-the-service-registration-key)의 절차를 사용하여 올바른 등록 키를 사용하고 있는지 확인합니다.
 
-    > [AZURE.IMPORTANT]여러 서비스를 실행하는 경우 적절한 서비스를 위한 등록 키가 장치를 등록하는데 사용되는지 확인해야 합니다. 잘못된 StorSimple 관리자 서비스로 장치를 등록한 경우 다음 단계는 [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하세요. 장치의 공장 기본 설정(데이터가 손실될 수 있음)을 수행하여 원하는 서비스에 연결해야 합니다.
+    > [AZURE.IMPORTANT]여러 서비스를 실행하는 경우 적절한 서비스를 위한 등록 키가 장치를 등록하는데 사용되는지 확인해야 합니다. 잘못된 StorSimple 관리자 서비스로 장치를 등록한 경우 다음 단계는 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요. 장치의 공장 기본 설정(데이터가 손실될 수 있음)을 수행하여 원하는 서비스에 연결해야 합니다.
 
 6. Test-Connection cmdlet을 사용하여 외부 네트워크에 연결했는지 확인합니다. 자세한 내용은 [Test-Connection cmdlet 문제 해결](#troubleshoot-with-the-test-connection-cmdlet)로 이동합니다.
 
-7. 방화벽 간섭을 확인합니다. 가상 IP(VIP), 서브넷, 게이트웨이 및 DNS 설정이 모두 올바른지 확인하고 연결 문제가 계속 나타나면, 방화벽이 장치와 외부 네트워크 간의 통신을 차단하고 있을 수 있습니다. 80 및 443 포트가 아웃바운드 통신을 위한 StorSimple 장치에서 사용할 수 있는지 확인해야 합니다. 자세한 내용은 [StorSimple 장치에 대한 네트워킹 요구 사항](https://msdn.microsoft.com/library/azure/dn772371.aspx)을 참조하세요.
+7. 방화벽 간섭을 확인합니다. 가상 IP(VIP), 서브넷, 게이트웨이 및 DNS 설정이 모두 올바른지 확인하고 연결 문제가 계속 나타나면, 방화벽이 장치와 외부 네트워크 간의 통신을 차단하고 있을 수 있습니다. 80 및 443 포트가 아웃바운드 통신을 위한 StorSimple 장치에서 사용할 수 있는지 확인해야 합니다. 자세한 내용은 [StorSimple 장치에 대한 네트워킹 요구 사항](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device)을 참조하세요.
 
 8. 로그를 살펴봅니다. [문제 해결에 사용 가능한 지원 패키지 및 장치 로그](#support-packages-and-device-logs-available-for-troubleshooting)로 이동합니다.
 
-9. 앞의 단계로 문제가 해결되지 않으면 [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하세요.
+9. 앞의 단계로 문제가 해결되지 않으면 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
 
 ## 다음 단계
-[작동 가능 장치 문제 해결](storsimple-troubleshoot-operational-device.md)
+[작동 가능 장치의 문제 해결 방법을 알아봅니다](storsimple-troubleshoot-operational-device.md).
 
 <!--Link references-->
 
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

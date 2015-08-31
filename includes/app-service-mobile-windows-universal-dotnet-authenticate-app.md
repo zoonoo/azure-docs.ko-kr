@@ -1,9 +1,5 @@
 
-1. 공유 프로젝트 파일 MainPage.cs를 열고 다음 using 문을 추가합니다.
-
-        using Windows.UI.Popups;
-
-2. MainPage 클래스에 다음 코드 조각을 추가합니다.
+1. 공유 프로젝트 파일 MainPage.cs를 열고 MainPage 클래스에 다음 코드 조각을 추가합니다.
 	
 		// Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -35,13 +31,11 @@
             }
         }
 
-    사용자는 Facebook 로그인을 사용하여 인증됩니다. Facebook 이외의 ID 공급자를 사용하는 경우 위의 **MobileServiceAuthenticationProvider** 값을 공급자에 대한 값으로 변경합니다.
+    이 코드는 Facebook 로그인으로 사용자를 인증합니다. Facebook 이외의 ID 공급자를 사용하는 경우 위의 **MobileServiceAuthenticationProvider** 값을 공급자에 대한 값으로 변경합니다.
 
 3. 기존 **OnNavigatedTo** 메서드 재정의에서 **RefreshTodoItems** 메서드 호출을 주석 처리하거나 삭제합니다.
 
-	그러면 사용자가 인증되기 전에 데이터가 로드되지 않습니다.
-
-	>[AZURE.NOTE]Windows Phone 스토어 8.1 앱에서 정상적으로 인증하려면 **OnNavigated** 메서드가 호출되고 페이지의 **Loaded** 이벤트가 발생한 후에 LoginAsync를 호출해야 합니다. 이 자습서에서는 앱에 **로그인** 단추를 추가하여 이 작업을 수행합니다.
+	그러면 사용자가 인증되기 전에 데이터가 로드되지 않습니다. 다음으로, 인증을 트리거하는 앱에 **로그인** 단추를 추가합니다.
 
 4. MainPage 클래스에 다음 코드 조각을 추가합니다.
 
@@ -60,16 +54,12 @@
 		<Button Name="ButtonLogin" Click="ButtonLogin_Click" 
                         Visibility="Visible">Sign in</Button>
 
-6. Windows Phone 스토어 앱 프로젝트에서 **TextBlock** 요소 이후 **ContentPanel**에 다음의 **단추** 요소를 추가합니다.
+6. Windows Phone 스토어 앱 프로젝트에서 **TextBox** 요소 이후 **ContentPanel**에 다음 **Button** 요소를 추가합니다.
 
         <Button Grid.Row ="1" Grid.Column="1" Name="ButtonLogin" Click="ButtonLogin_Click" 
         	Margin="10, 0, 0, 0" Visibility="Visible">Sign in</Button>
 
-7. 공유 App.xaml.cs 프로젝트 파일을 열고 다음 using 문이 없으면 추가합니다.
-
-        using Microsoft.WindowsAzure.MobileServices;  
- 
-8. App.xaml.cs 프로젝트 파일에서 다음 코드를 추가합니다.
+8. 공유 App.xaml.cs 프로젝트 파일을 열고 다음 코드를 추가합니다.
 
         protected override void OnActivated(IActivatedEventArgs args)
         {
@@ -94,4 +84,4 @@
 
 10. Windows Phone 스토어 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고 **시작 프로젝트로 설정**을 클릭한 다음 위의 단계를 반복하여 Windows Phone 스토어 앱도 올바르게 실행되는지 확인합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

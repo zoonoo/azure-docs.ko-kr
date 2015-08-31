@@ -5,15 +5,16 @@
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
-ms.service="virtual-machines"
+	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="07/20/2015"
+	ms.date="08/12/2015"
 	ms.author="dkshir"/>
 
 # Linux 가상 컴퓨터를 만드는 다양한 방법
@@ -26,7 +27,7 @@ Azure 리소스 관리자 템플릿은 하나의 논리적 배포 단위로 다�
 
 ### GUI: Azure 포털 또는 미리 보기 포털
 
-Azure 포털의 그래픽 사용자 인터페이스는 특히 Azure로 시작한 경우 쉽게 가상 컴퓨터를 사용해 볼 수 있는 방법입니다. Azure 포털 또는 Azure 미리 보기 포털을 사용하여 VM을 만듭니다. 일반적인 지침은 [사용자 지정 가상 컴퓨터 만들기][]를 참조하고 **갤러리**에서 Linux 이미지를 선택합니다.
+Azure 포털의 그래픽 사용자 인터페이스는 특히 Azure로 시작한 경우 쉽게 가상 컴퓨터를 사용해 볼 수 있는 방법입니다. [Azure 포털](http://manage.windowsazure.com) 또는 [Azure Preview 포털](http://portal.azure.com)을 사용하여 VM을 만듭니다. 일반적인 지침은 [사용자 지정 가상 컴퓨터 만들기][]를 참조하고 **갤러리**에서 Linux 이미지를 선택합니다. [Azure 포털](http://manage.windowsazure.com)에서는 클래식 배포 모델만 사용하여 가상 컴퓨터를 만듭니다.
 
 ### 명령 셸: Azure CLI 또는 Azure PowerShell
 
@@ -102,4 +103,4 @@ Azure PowerShell의 경우, [Azure PowerShell을 사용하여 Linux 기반 가�
 [Linux를 실행하는 가상 컴퓨터 만들기]: virtual-machines-linux-tutorial.md
 [사용자 지정 가상 컴퓨터 만들기]: virtual-machines-create-custom.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

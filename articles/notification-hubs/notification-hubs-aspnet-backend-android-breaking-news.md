@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="알림 허브 속보 자습서 - Android" 
-	description="Azure 서비스 버스 알림 허브를 사용하여 Android 장치에 최신 뉴스 알림을 보내는 방법에 대해 알아봅니다." 
-	services="notification-hubs" 
-	documentationCenter="android" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="알림 허브 속보 자습서 - Android"
+	description="Azure 서비스 버스 알림 허브를 사용하여 Android 장치에 최신 뉴스 알림을 보내는 방법에 대해 알아봅니다."
+	services="notification-hubs"
+	documentationCenter="android"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 
@@ -37,7 +37,7 @@
 첫 번째 단계는 기존의 기본 활동에 사용자가 등록할 범주를 선택할 수 있도록 하는 UI 요소를 추가하는 것입니다. 사용자가 선택한 범주는 장치에 저장됩니다. 앱을 시작하면 장치 등록이 선택한 범주와 함께 태그로서 알림 허브에 생성됩니다.
 
 1. res/layout/activity\_main.xml 파일을 열고 콘텐츠를 다음으로 대체합니다.
-			
+
 		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		    xmlns:tools="http://schemas.android.com/tools"
 		    android:layout_width="match_parent"
@@ -48,7 +48,7 @@
 		    android:paddingTop="@dimen/activity_vertical_margin"
 		    tools:context="com.example.breakingnews.MainActivity"
 		    android:orientation="vertical">
-		
+
 		        <CheckBox
 		            android:id="@+id/worldBox"
 		            android:layout_width="wrap_content"
@@ -104,38 +104,38 @@
 
 		import java.util.HashSet;
 		import java.util.Set;
-		
+
 		import android.content.Context;
 		import android.content.SharedPreferences;
 		import android.os.AsyncTask;
 		import android.util.Log;
 		import android.widget.Toast;
-		
+
 		import com.google.android.gms.gcm.GoogleCloudMessaging;
-		import com.microsoft.windowsazure.messaging.NotificationHub;		
-		
+		import com.microsoft.windowsazure.messaging.NotificationHub;
+
 		public class Notifications {
 			private static final String PREFS_NAME = "BreakingNewsCategories";
 			private GoogleCloudMessaging gcm;
 			private NotificationHub hub;
 			private Context context;
 			private String senderId;
-			
+
 			public Notifications(Context context, String senderId) {
 				this.context = context;
 				this.senderId = senderId;
-				
+
 				gcm = GoogleCloudMessaging.getInstance(context);
 		        hub = new NotificationHub(<hub name>, <connection string with listen access>, context);
 			}
-			
+
 			public void storeCategoriesAndSubscribe(Set<String> categories)
 			{
 				SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
 			    settings.edit().putStringSet("categories", categories).commit();
 			    subscribeToCategories(categories);
 			}
-			
+
 			public void subscribeToCategories(final Set<String> categories) {
 				new AsyncTask<Object, Object, Object>() {
 					@Override
@@ -149,7 +149,7 @@
 						}
 						return null;
 					}
-		
+
 					protected void onPostExecute(Object result) {
 						String message = "Subscribed for categories: "
 								+ categories.toString();
@@ -158,7 +158,7 @@
 					}
 				}.execute(null, null, null);
 			}
-			
+
 		}
 
 	이 클래스는 로컬 저장소를 사용하여, 이 장치에서 받아야 할 뉴스의 범주를 저장합니다. 이러한 범주를 등록하기 위한 메서드도 이 클래스에 포함됩니다.
@@ -172,25 +172,25 @@
 		// private GoogleCloudMessaging gcm;
 		// private NotificationHub hub;
 		private Notifications notifications;
- 
+
 5. **onCreate** 메서드에서 **hub** 필드 및 **registerWithNotificationHubs** 메서드의 초기화를 제거합니다. **Notifications** 클래스 인스턴스를 초기화하는 다음 줄을 추가합니다. 메서드에는 다음 줄이 포함되어야 합니다.
 
 		@Override
 		protected void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
 			setContentView(R.layout.activity_main);
-	
+
 			NotificationsManager.handleNotifications(this, SENDER_ID,
 					MyHandler.class);
-	
+
 			notifications = new Notifications(this, SENDER_ID);
 		}
 
 6. 그 후에 다음 메서드를 추가합니다.
-	
+
 	    public void subscribe(View sender) {
 			final Set<String> categories = new HashSet<String>();
-	
+
 			CheckBox world = (CheckBox) findViewById(R.id.worldBox);
 			if (world.isChecked())
 				categories.add("world");
@@ -209,10 +209,10 @@
 			CheckBox sports = (CheckBox) findViewById(R.id.sportsBox);
 			if (sports.isChecked())
 				categories.add("sports");
-	
+
 			notifications.storeCategoriesAndSubscribe(categories);
 	    }
-	
+
 	이 메서드는 범주 목록을 만들고 **Notifications** 클래스를 사용하여, 로컬 저장소에 목록을 저장하고 알림 허브에 해당 태그를 등록합니다. 범주가 변경되면 새 범주로 등록이 다시 생성됩니다.
 
 이제 사용자가 범주 선택을 변경할 때마다 앱은 범주 집합을 장치의 로컬 저장소에 저장하고 알림 허브에 등록할 수 있습니다.
@@ -243,9 +243,9 @@
 		@Override
 		protected void onStart() {
 			super.onStart();
-			
+
 			Set<String> categories = notifications.retrieveCategories();
-			
+
 			CheckBox world = (CheckBox) findViewById(R.id.worldBox);
 			world.setChecked(categories.contains("world"));
 			CheckBox politics = (CheckBox) findViewById(R.id.politicsBox);
@@ -271,7 +271,7 @@
 ##앱 실행 및 알림 생성
 
 1. Eclipse에서는 앱을 빌드하고 장치나 에뮬레이터에서 시작합니다.
-	
+
 	앱 UI는 구독할 범주를 선택하도록 하는 토글 집합을 제공합니다.
 
 2. 하나 이상의 범주 토글을 사용하도록 설정한 후 **구독**을 클릭합니다.
@@ -317,6 +317,5 @@
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

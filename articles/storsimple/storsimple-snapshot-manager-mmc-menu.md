@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자에서 MMC 메뉴 작업 사용
@@ -125,6 +125,6 @@ StorSimple 스냅숏 관리자에서 모든 작업 메뉴에 나열된 다음과
 
 ## 다음 단계
 
-[StorSimple 스냅숏 관리자 사용자 인터페이스에 대해 자세히 알아봅니다.](storsimple-use-snapshot-manager.md)
+[StorSimple 스냅숏 관리자 사용자 인터페이스에 대해 자세히 알아보기](storsimple-use-snapshot-manager.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

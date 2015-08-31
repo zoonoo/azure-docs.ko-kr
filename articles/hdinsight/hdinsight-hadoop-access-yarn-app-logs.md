@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="프로그래밍 방식으로 Hadoop YARN 응용 프로그램 로그에 액세스 | Microsoft Azure" 
-	description="HDInsight의 Hadoop 클러스터에서 프로그래밍 방식으로 응용 프로그램 로그에 액세스합니다." 
-	services="hdinsight" 
-	documentationCenter="" 
+<properties
+	pageTitle="프로그래밍 방식으로 Hadoop YARN 응용 프로그램 로그에 액세스 | Microsoft Azure"
+	description="HDInsight의 Hadoop 클러스터에서 프로그래밍 방식으로 응용 프로그램 로그에 액세스합니다."
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian" 
-	manager="paulettm" 
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/09/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/09/2015"
 	ms.author="jgao"/>
 
 # 프로그래밍 방식으로 HDInsight의 Hadoop에서 YARN 응용 프로그램 로그에 액세스
@@ -39,16 +40,16 @@ Visual Studio 응용 프로그램에서 HDInsight SDK를 설치하려면 **도�
 
 <a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">YARN Timeline Server</a>(영문)는 두 가지 다른 인터페이스를 통해 완료된 응용 프로그램에 대한 제네릭 정보 및 프레임워크별 응용 프로그램 정보를 제공합니다. 구체적으로 살펴보면 다음과 같습니다.
 
-* 3\.1.1.374 이상 버전에서는 HDInsight 클러스터에서 제네릭 응용 프로그램 정보를 저장하고 검색할 수 있습니다. 
+* 3\.1.1.374 이상 버전에서는 HDInsight 클러스터에서 제네릭 응용 프로그램 정보를 저장하고 검색할 수 있습니다.
 * Timeline Server의 프레임워크별 응용 프로그램 정보 구성 요소는 HDInsight 클러스터에서 현재 사용할 수 없습니다.
 
 
 응용 프로그램에 대한 제네릭 정보에는 다음과 같은 데이터가 포함됩니다.
 
-* 응용 프로그램의 고유한 식별자인 응용 프로그램 ID 
-* 응용 프로그램을 시작한 사용자 
-* 응용 프로그램을 완료하려고 시도한 횟수 
-* 지정된 응용 프로그램 시도에 사용된 컨테이너 
+* 응용 프로그램의 고유한 식별자인 응용 프로그램 ID
+* 응용 프로그램을 시작한 사용자
+* 응용 프로그램을 완료하려고 시도한 횟수
+* 지정된 응용 프로그램 시도에 사용된 컨테이너
 
 HDInsight 클러스터에서 이 정보는 Azure 리소스 관리자가 기본 Azure 저장소 계정의 기본 컨테이너에 있는 기록 저장소에 저장합니다. 완료된 응용 프로그램에 대한 이 제네릭 데이터는 REST API를 통해 검색할 수 있습니다.
 
@@ -71,7 +72,7 @@ YARN은 여러 프로그래밍 모델(예: MapReduce)을 지원하여 리소스 
 집계된 로그는 컨테이너별로 인덱싱된 [이진 형식][binary-format]인 [TFile][T-file]로 작성되므로 직접 읽을 수 없습니다. YARN에서는 관심 있는 응용 프로그램 또는 컨테이너에 대한 이러한 로그를 일반 텍스트로 덤프하는 CLI 도구를 제공합니다. RDP를 통해 연결한 후 클러스터 노드에서 직접 다음 YARN 명령 중 하나를 실행하여 이러한 로그를 일반 텍스트로 볼 수 있습니다.
 
 	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
-	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address> 
+	yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 
 다음 섹션에서는 RDP를 사용하여 HDInsight 클러스터에 연결하지 않고도 응용 프로그램별 또는 컨테이너별 로그에 프로그래밍 방식으로 액세스하는 방법에 대해 설명합니다.
 
@@ -91,24 +92,24 @@ YARN은 여러 프로그래밍 모델(예: MapReduce)을 지원하여 리소스 
 	string subscriptionId = "<your-subscription-id>";
 	string clusterName = "<your-cluster-name>";
 	string certName = "<your-subscription-management-cert-name>";
-	
+
 	// Create an HDInsight client
 	X509Store store = new X509Store(StoreName.My, StoreLocation.LocalMachine);
 	store.Open(OpenFlags.ReadOnly);
 	X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>()
 	                            .Single(x => x.FriendlyName == certName);
-	
-	HDInsightCertificateCredential creds = 
+
+	HDInsightCertificateCredential creds =
 				new HDInsightCertificateCredential(new Guid(subscriptionId), cert);
-	
+
 	IHDInsightClient client = HDInsightClient.Connect(creds);
-	
+
 	// Get the cluster on which your applications were run
 	// The cluster needs to be in the "Running" state
 	ClusterDetails cluster = client.GetCluster(clusterName);
-	
+
 	// Create an Application History client against your cluster
-	IHDInsightApplicationHistoryClient appHistoryClient = 
+	IHDInsightApplicationHistoryClient appHistoryClient =
 				cluster.CreateHDInsightApplicationHistoryClient(TimeSpan.FromMinutes(5));
 
 
@@ -116,7 +117,7 @@ YARN은 여러 프로그래밍 모델(예: MapReduce)을 지원하여 리소스 
 
 	// Local download folder location where the logs will be placed
 	string downloadLocation = "E:\\YarnApplicationLogs";
-	
+
 	// List completed applications on your cluster that were submitted in the last 24 hours but failed
 	// Search for applications based on application name
 	string appNamePrefix = "your-app-name-prefix";
@@ -124,10 +125,10 @@ YARN은 여러 프로그래밍 모델(예: MapReduce)을 지원하여 리소스 
 	DateTime startTime = endTime.AddHours(-24);
 	IEnumerable<ApplicationDetails> applications = appHistoryClient
 	                .ListCompletedApplications(startTime, endTime)
-	                .Where(app => 
-	                    app.GetApplicationFinalStatusAsEnum() == ApplicationFinalStatus.Failed 
+	                .Where(app =>
+	                    app.GetApplicationFinalStatusAsEnum() == ApplicationFinalStatus.Failed
 	                    && app.Name.StartsWith(appNamePrefix));
-	
+
 	// Download logs for failed or killed applications
 	// This will generate one log file for each application
 	foreach (ApplicationDetails application in applications)
@@ -147,18 +148,18 @@ YARN은 여러 프로그래밍 모델(예: MapReduce)을 지원하여 리소스 
 필요한 경우 아래 표시된 응용 프로그램에서 사용하는 각 컨테이너(또는 특정 컨테이너)의 로그를 다운로드할 수도 있습니다.
 
 	ApplicationDetails someApplication = appHistoryClient.GetApplicationDetails(applicationId);
-	
+
 	// Download logs separately for each container of application(s) of interest
 	// This will generate one log file per container
 	IEnumerable<ApplicationAttemptDetails> applicationAttempts =
 				appHistoryClient.ListApplicationAttempts(someApplication);
-	
+
 	ApplicationAttemptDetails finalAttempt = applicationAttempts
 	    		.Single(x => x.ApplicationAttemptId == someApplication.LatestApplicationAttemptId);
-	
+
 	IEnumerable<ApplicationContainerDetails> containers =
 				appHistoryClient.ListApplicationContainers(finalAttempt);
-	
+
 	foreach (ApplicationContainerDetails container in containers)
 	{
 	    appHistoryClient.DownloadApplicationLogs(container, downloadLocation);
@@ -171,6 +172,5 @@ YARN은 여러 프로그래밍 모델(예: MapReduce)을 지원하여 리소스 
 [T-file]: https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

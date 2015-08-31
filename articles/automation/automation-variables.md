@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure 자동화의 변수 자산"
+   pageTitle="Azure 자동화의 변수 자산 | Microsoft Azure"
    description="변수 자산은 Azure 자동화의 모든 Runbook에 사용할 수 있는 값입니다. 이 문서에서는 변수에 대해 자세히 알아보고 텍스트 작성과 그래픽 작성 모두에서 변수를 사용하는 방법을 설명합니다."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Azure 자동화의 변수 자산
@@ -188,4 +188,4 @@ Azure 포털에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 - [그래픽 작성의 링크](automation-graphical-authoring-intro.md#links-and-workflow)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,12 +1,20 @@
-<properties pageTitle="셀프 서비스 응용 프로그램 액세스 관리를 위해 Azure AD 설정| Microsoft Azure" description="Azure AD에서 그룹을 관리하는 방법을 설명하는 항목입니다." services="active-directory" documentationCenter="" authors="femila" manager="swadhwa"" editor="" tags="azure-classic-portal"/>
+<properties
+	pageTitle="셀프 서비스 응용 프로그램 액세스 관리를 위한 Azure AD 설정| Microsoft Azure"
+	description="Azure AD에서 그룹을 관리하는 방법을 설명하는 항목입니다."
+	services="active-directory"
+	documentationCenter=""
+    authors="femila"
+	manager="swadhwa" 
+	editor=""
+	tags="azure-classic-portal"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/13/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/13/2015"
 	ms.author="femila"/>
 
 #셀프 서비스 응용 프로그램 액세스 관리를 위해 Azure AD 설정
@@ -19,7 +27,7 @@
 - **위임된 그룹 관리** - 회사에서 사용하고 있는 SaaS 응용 프로그램에 대한 액세스를 관리하는 관리자의 경우를 예로 들겠습니다. 이러한 액세스 권한 관리가 번거로워지자 관리자는 비즈니스 소유자에게 요청하여 새 그룹을 만듭니다. 이제 관리자는 비즈니스 소유자가 방금 만든 새 그룹에 응용 프로그램에 대한 액세스 권한을 할당하고 현재 이 응용 프로그램에 대한 액세스 권한이 있는 모든 사용자를 이 그룹에 지정합니다. 그러면 비즈니스 소유자가 더 많은 사용자를 추가할 수 있으며 해당 사용자는 잠시 후 이 응용 프로그램에 대해 자동으로 프로비전됩니다. 비즈니스 소유자는 관리자의 작업 수행을 대기하지 않아도 되며 자체적으로 자신의 사용자에 대해 액세스 권한을 관리할 수 있습니다. 관리자는 다른 비즈니스 그룹의 관리 도우미에 대해 동일한 작업을 수행할 수 있으며 이제 비즈니스 소유자 및 관리 도우미 모두 상대방의 사용자를 접촉하거나 보지 않으면서 자신의 사용자에 대해 액세스 권한을 관리할 수 있습니다. 관리자는 계속 해당 응용 프로그램에 액세스할 수 있는 모든 사용자를 보고 필요한 경우 액세스 권한을 차단할 수 있습니다.
 
 
-- **셀프 서비스 그룹 관리** - 독립적으로 설정한 SharePoint Online 사이트가 있으며 서로 상대방 팀이 쉽게 사이트에 액세스할 수 있도록 하려는 두 사용자의 경우를 예로 들겠습니다. 이들 사용자는 Azure AD에 하나의 그룹을 만들고 SharePoint Online에서 각각 동일한 그룹에 해당 사이트에 대한 액세스 권한을 제공하도록 선택했습니다. 사용자가 액세스 권한이 필요하면 액세스 패널에서 요청하고 승인을 받으면 자동으로 두 SharePoint Online 사이트에 대한 액세스 권한을 얻습니다. 이후 둘 중 하나가 자신의 사이트에 액세스하는 모든 사용자는 특정 SaaS 응용 프로그램에 대한 액세스 권한도 얻어야 한다고 결정할 수 있습니다. 이 사용자는 해당 SaaS 응용 프로그램 관리자에게 해당 응용 프로그램에 대해 자신의 사이트에 대한 액세스 권한을 추가하도록 요청할 수 있습니다. 이후로는 이 사용자가 승인하는 모든 요청에 두 SharePoint Online 사이트 및 해당 SaaS 응용 프로그램에 대한 액세스 권한이 부여됩니다.
+- **셀프 서비스 그룹 관리** - 독립적으로 설정한 SharePoint Online 사이트가 있지만 서로 상대방 팀이 쉽게 사이트에 액세스할 수 있도록 하려는 두 사용자의 경우를 예로 들겠습니다. 이들 사용자는 Azure AD에 하나의 그룹을 만들고 SharePoint Online에서 각각 동일한 그룹에 해당 사이트에 대한 액세스 권한을 제공하도록 선택했습니다. 사용자가 액세스 권한이 필요하면 액세스 패널에서 요청하고 승인을 받으면 자동으로 두 SharePoint Online 사이트에 대한 액세스 권한을 얻습니다. 이후 둘 중 하나가 자신의 사이트에 액세스하는 모든 사용자는 특정 SaaS 응용 프로그램에 대한 액세스 권한도 얻어야 한다고 결정할 수 있습니다. 이 사용자는 해당 SaaS 응용 프로그램 관리자에게 해당 응용 프로그램에 대해 자신의 사이트에 대한 액세스 권한을 추가하도록 요청할 수 있습니다. 이후로는 이 사용자가 승인하는 모든 요청에 두 SharePoint Online 사이트 및 해당 SaaS 응용 프로그램에 대한 액세스 권한이 부여됩니다.
 
 
 
@@ -41,4 +49,4 @@ Azure 관리 포털의 구성 탭에서 위임된 그룹 관리 스위치를 사
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

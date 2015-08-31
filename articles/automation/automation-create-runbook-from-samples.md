@@ -30,6 +30,12 @@ Microsoft Azure 자동화를 통해 사용자는 일반적으로 클라우드 �
 
 [AZURE.INCLUDE [automation-note-authentication](../../includes/automation-note-authentication.md)]
 
+## 연습 동영상
+
+이 자습서의 연습은 다음과 같습니다.
+
+[AZURE.VIDEO get-started-with-azure-automation]
+
 ## <a name="automationaccount"></a>자동화 계정 만들기
 
 자동화 계정은 Azure 자동화 리소스의 컨테이너로서, 사용자 환경을 구분하거나 워크플로를 추가로 구성할 수 있는 방법을 제공합니다. 자세한 내용은 자동화 라이브러리에서 [자동화 계정](http://aka.ms/runbookauthor/azure/automationaccounts)을 참조하세요. 자동화 계정을 이미 만든 경우 이 단계를 건너뛸 수 있습니다.
@@ -141,4 +147,4 @@ Microsoft 및 Azure 자동화 커뮤니티에서는 사용자 고유의 솔루�
 **피드백 보내기** Azure 자동화 Runbook 솔루션 또는 통합 모듈을 찾고 있는 경우 스크립트 센터에 스크립트 요청을 게시하세요. Azure 자동화에 대한 의견이나 기능 요청이 있는 경우 [사용자 음성](http://feedback.windowsazure.com/forums/34192--general-feedback)에 게시하세요. 감사합니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -83,6 +83,8 @@ SDK는 표준 모듈을 포함하고 있기 때문에 원격 분석을 전송할
 리소스를 자동으로 만드는 [PowerShell 스크립트](app-insights-powershell-script-create-resource.md)를 작성할 수 있습니다.
 
 
+
+
 <!--Link references-->
 
 [api]: app-insights-api-custom-events-metrics.md
@@ -92,4 +94,4 @@ SDK는 표준 모듈을 포함하고 있기 때문에 원격 분석을 전송할
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

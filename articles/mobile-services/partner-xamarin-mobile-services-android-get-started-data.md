@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="기존 앱에 모바일 서비스 추가(Xamarin.Android) | Microsoft Azure" 
-	description="Azure 모바일 서비스 Xamarin.Android 앱에서 데이터를 저장하고 액세스하는 방법에 대해 알아봅니다." 
-	documentationCenter="xamarin" 
-	authors="ggailey777" 
-	manager="dwrede" 
-	services="mobile-services" 
+<properties
+	pageTitle="기존 앱에 모바일 서비스 추가(Xamarin.Android) | Microsoft Azure"
+	description="Azure 모바일 서비스 Xamarin.Android 앱에서 데이터를 저장하고 액세스하는 방법에 대해 알아봅니다."
+	documentationCenter="xamarin"
+	authors="ggailey777"
+	manager="dwrede"
+	services="mobile-services"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin-android"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="ggailey777"/>
 
 # 기존 앱에 모바일 서비스 추가
@@ -26,7 +26,7 @@
 
 이 자습서에서는 다음 기본 단계를 단계별로 안내합니다.
 
-1. [Xamarin.Android 앱 프로젝트 다운로드][GitHub] 
+1. [Xamarin.Android 앱 프로젝트 다운로드][GitHub]
 2. [모바일 서비스 만들기]
 3. [저장소로 사용할 데이터 테이블 추가]
 4. [모바일 서비스를 사용하도록 앱 업데이트]
@@ -42,7 +42,7 @@
 
 이 자습서는 Xamarin.Android 앱인 [GetStartedWithData 앱][GitHub]을 기반으로 합니다. 이 앱의 UI는 모바일 서비스 Android 빠른 시작에서 생성된 앱과 동일합니다. 단, 추가된 항목이 로컬에서 메모리에 저장된다는 점은 예외입니다.
 
-1. `GetStartedWithData` 샘플 앱을 다운로드하여 컴퓨터에서 파일을 추출합니다. 
+1. `GetStartedWithData` 샘플 앱을 다운로드하여 컴퓨터에서 파일을 추출합니다.
 
 2. Xamarin Studio에서 **파일**, **열기**를 차례로 클릭하고 GetStartedWithData 샘플 프로젝트의 압축을 푼 위치로 이동한 후 **XamarinTodoQuickStart.Android.sln**을 선택하여 엽니다.
 
@@ -53,7 +53,7 @@
 5. **실행** 메뉴에서 **Start Without Debugging**을 클릭합니다. 에뮬레이터 또는 연결된 USB Android 장치를 선택하라는 메시지가 표시됩니다.
 
 	> [AZURE.IMPORTANT]Android 휴대폰이나 Android 에뮬레이터를 사용하여 이 프로젝트를 실행할 수 있습니다. Android 휴대폰으로 실행하려면 휴대폰 전용 USB 드라이버를 다운로드해야 합니다.
-	> 
+	>
 	> Android 에뮬레이터에서 프로젝트를 실행하려면 AVD(Android Virtual Device)를 하나 이상 정의해야 합니다. AVD Manager를 사용하여 이러한 장치를 만들고 관리합니다.
 
 6. 앱에서 _Complete the tutorial_ 등의 의미 있는 텍스트를 입력하고 **Add**를 클릭합니다.
@@ -113,7 +113,7 @@
 3. **솔루션** 창에서 **TodoActivity** 클래스를 열고 다음 코드 줄의 주석 처리를 제거합니다.
 
 		using Microsoft.WindowsAzure.MobileServices;
- 
+
 4. 모바일 서비스와 바꿀 수 있도록 앱에서 현재 사용되고 있는 메모리 내 목록을 제거합니다. **TodoActivity** 클래스에서 기존 **todoItemList** 목록을 정의하는 다음 코드 줄을 주석으로 처리합니다.
 
 		public List<TodoItem> todoItemList = new ArrayList<TodoItem>();
@@ -123,7 +123,7 @@
 6. 이제 모바일 서비스를 추가합니다. 다음 코드 줄의 주석 처리를 제거합니다.
 
         private MobileServiceClient client; // Mobile Service Client references
-        private IMobileServiceTable<TodoItem> todoTable; // Mobile Service Table used to access data   
+        private IMobileServiceTable<TodoItem> todoTable; // Mobile Service Table used to access data
 
 7. 관리 포털에서 **모바일 서비스**를 클릭한 후 방금 만든 모바일 서비스를 클릭합니다.
 
@@ -137,7 +137,7 @@
 
         public const string ApplicationURL = @"AppUrl";
         public const string ApplicationKey = @"AppKey";
-        
+
 10. 위 변수의 **AppUrl** 및 **AppKey**를 위 관리 포털에서 검색된 값으로 바꿉니다.
 
 11. **OnCreate** 메서드에서 **MobileServiceClient** 변수를 정의하는 다음 코드 줄의 주석 처리를 제거합니다.
@@ -149,7 +149,7 @@
 			Constants.ApplicationKey).WithFilter(filter);
 
 		// Get the Mobile Service Table instance to use
-		todoTable = client.GetTable<TodoItem>();    
+		todoTable = client.GetTable<TodoItem>();
 
   	모바일 서비스에 액세스하는 데 사용되는 새 MobileServiceClient 인스턴스가 만들어집니다. 모바일 서비스에서 데이터 저장소에 프록시를 설정하는 데 사용되는 MobileServiceTable 인스턴스도 만들어집니다.
 
@@ -166,21 +166,21 @@
 		}
 
    	그러면 항목 업데이트가 모바일 서비스에 전송되고 선택한 항목이 어댑터에서 제거됩니다.
-    
+
 14. **AddItem** 메서드에서 다음 줄의 주석 처리를 제거합니다.
-	
-		try 
+
+		try
 		{
 			// Insert the new item
 			await todoTable.InsertAsync(item);
 
-			if (!item.Complete) 
-				adapter.Add(item);			
-		} 
-		catch (Exception e) 
+			if (!item.Complete)
+				adapter.Add(item);
+		}
+		catch (Exception e)
 		{
 			CreateAndShowDialog(e, "Error");
-		}   		
+		}
 
   	이 코드는 새 항목을 만들어 원격 모바일 서비스의 테이블에 삽입합니다.
 
@@ -194,14 +194,14 @@
 
 			foreach (TodoItem current in list)
 				adapter.Add(current);
-		} 
-        catch (Exception e) 
+		}
+        catch (Exception e)
         {
 			CreateAndShowDialog(e, "Error");
 		}
 
 	그러면 모바일 서비스를 쿼리하여 완료로 표시되지 않은 모든 항목을 반환합니다. 바인딩을 위해 항목이 어댑터에 추가됩니다.
-		
+
 
 이제 앱이 백 엔드 저장소에 모바일 서비스를 사용하도록 업데이트되었으므로 모바일 서비스에 대해 앱을 테스트해야 합니다.
 
@@ -220,7 +220,7 @@
 4. **데이터** 탭을 클릭한 후 **찾아보기**를 클릭합니다.
 
    	![][9]
-  
+
    	이제 **TodoItem** 테이블에 모바일 서비스에서 생성된 id 값을 가진 데이터가 포함되었으며 해당 열이 앱의 TodoItem 클래스와 일치하도록 테이블에 자동으로 추가되었습니다.
 
 이제 Xamarin.Android용 **데이터 시작** 자습서를 마쳤습니다.
@@ -281,6 +281,5 @@
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
 [완성된 예제 프로젝트]: http://go.microsoft.com/fwlink/p/?LinkId=331302
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

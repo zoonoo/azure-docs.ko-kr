@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Xamarin Component 클라이언트를 사용하는 방법 | Microsoft Azure" 
-	description="Azure 모바일 서비스에 Xamarin Component 클라이언트를 사용하는 방법에 대해 알아봅니다." 
-	authors="lindydonna" 
-	manager="dwrede" 
-	editor="" 
-	services="mobile-services" 
+<properties
+	pageTitle="Xamarin Component 클라이언트를 사용하는 방법 | Microsoft Azure"
+	description="Azure 모바일 서비스에 Xamarin Component 클라이언트를 사용하는 방법에 대해 알아봅니다."
+	authors="lindydonna"
+	manager="dwrede"
+	editor=""
+	services="mobile-services"
 	documentationCenter="xamarin"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-xamarin"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="lindydonna"/>
 
 # Azure 모바일 서비스용 Xamarin Component 클라이언트를 사용하는 방법
@@ -40,17 +40,17 @@
 		[JsonProperty(PropertyName = "complete")]
 		public bool Complete { get; set; }
 	}
-	
+
 동적 스키마가 사용하도록 설정된 경우 Azure 모바일 서비스에서 삽입 또는 업데이트 요청의 개체를 기준으로 새 열을 자동으로 생성합니다. 자세한 내용은 [동적 스키마](http://go.microsoft.com/fwlink/?LinkId=296271)를 참조하십시오.
 
 ## <a name="create-client"></a>방법: 모바일 서비스 클라이언트 만들기
 
 다음 코드는 모바일 서비스에 액세스하는 데 사용되는 `MobileServiceClient` 개체를 만듭니다.
-			
-	MobileServiceClient client = new MobileServiceClient( 
-		"AppUrl", 
-		"AppKey" 
-	); 
+
+	MobileServiceClient client = new MobileServiceClient(
+		"AppUrl",
+		"AppKey"
+	);
 
 위 코드에서 `AppUrl` 및 `AppKey`을(를) 모바일 서비스 URL 및 응용 프로그램 키로 바꿉니다(두 항목 순서 유지). 이 두 항목은 모두 Azure 관리 포털에서 사용할 수 있습니다. 모바일 서비스를 선택한 후 "대시보드"를 클릭하면 됩니다.
 
@@ -58,35 +58,35 @@
 
 모바일 서비스 테이블의 데이터에 액세스하거나 데이터를 수정하는 모든 코드는 `MobileServiceTable` 개체에 대한 함수를 호출합니다. `MobileServiceClient` 인스턴스에 대해 [GetTable](http://msdn.microsoft.com/library/windowsazure/jj554275.aspx) 함수를 호출하여 테이블에 대한 참조를 구합니다.
 
-    IMobileServiceTable<TodoItem> todoTable = 
+    IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
 
 형식화된 serialization 모델입니다. 아래의 <a href="#untyped">형식화되지 않은 serialization 모델</a>을 참조하십시오.
-			
-## <a name="querying"></a>방법: 모바일 서비스에서 데이터 쿼리 
+
+## <a name="querying"></a>방법: 모바일 서비스에서 데이터 쿼리
 
 이 섹션에서는 모바일 서비스에 대한 쿼리를 실행하는 방법을 설명합니다. 하위 섹션에서는 정렬, 필터링, 페이징과 같은 다양한 측면에 대해 설명합니다.
-			
+
 ### <a name="filtering"></a>방법: 반환된 데이터 필터링
 
 다음 코드는 쿼리에 `Where` 절을 포함하여 데이터를 필터링하는 방법을 보여줍니다. 이 코드에서는 `todoTable`에서 해당 `Complete` 속성이 `false`인 모든 항목을 반환합니다. `Where` 함수는 테이블에 대한 쿼리에 행 필터링 조건자를 적용합니다.
-	
 
-	// This query filters out completed TodoItems and 
-	// items without a timestamp. 
+
+	// This query filters out completed TodoItems and
+	// items without a timestamp.
 	List<TodoItem> items = await todoTable
 	   .Where(todoItem => todoItem.Complete == false)
 	   .ToListAsync();
 
 브라우저 개발 도구 또는 Fiddler와 같은 메시지 검사 소프트웨어를 사용하여 모바일 서비스에 전송된 요청의 URI를 볼 수 있습니다. 다음 요청 URI에서 알 수 있듯이 쿼리 문자열 자체를 수정합니다.
 
-	GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1				   
+	GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1
 이 요청은 일반적으로 다음과 같은 서버 쪽 SQL 쿼리로 변환됩니다.
-			
-	SELECT * 
-	FROM TodoItem 			
+
+	SELECT *
+	FROM TodoItem
 	WHERE ISNULL(complete, 0) = 0
-			
+
 `Where` 메서드에 전달되는 함수는 임의의 수의 조건을 가질 수 있습니다. 다음 줄을 예로 들겠습니다.
 
 	// This query filters out completed TodoItems where Text isn't null
@@ -96,9 +96,9 @@
 	   .ToListAsync();
 
 이 줄은 다음으로 변환됩니다(앞에서 나온 것과 동일한 요청에 대해).
-			
-	SELECT * 
-	FROM TodoItem 
+
+	SELECT *
+	FROM TodoItem
 	WHERE ISNULL(complete, 0) = 0
 	      AND ISNULL(text, 0) = 0
 
@@ -125,13 +125,13 @@
 
 	// Sort items in ascending order by Text field
 	MobileServiceTableQuery<TodoItem> query = todoTable
-					.OrderBy(todoItem => todoItem.Text)       
+					.OrderBy(todoItem => todoItem.Text)
  	List<TodoItem> items = await query.ToListAsync();
 
 	// Sort items in descending order by Text field
 	MobileServiceTableQuery<TodoItem> query = todoTable
-					.OrderByDescending(todoItem => todoItem.Text)       
- 	List<TodoItem> items = await query.ToListAsync();			
+					.OrderByDescending(todoItem => todoItem.Text)
+ 	List<TodoItem> items = await query.ToListAsync();
 
 ### <a name="paging"></a>방법: 페이지에서 데이터 반환
 
@@ -139,7 +139,7 @@
 
 	// Define a filtered query that returns the top 3 items.
 	MobileServiceTableQuery<TodoItem> query = todoTable
-					.Take(3);                              
+					.Take(3);
 	List<TodoItem> items = await query.ToListAsync();
 
 수정된 다음 쿼리는 처음 세 개의 결과를 건너뛰고 그다음 세 개의 결과를 반환합니다. 그러면 페이지 크기가 세 개의 항목인 경우 실질적으로 두 번째 데이터 "페이지"가 됩니다.
@@ -147,9 +147,9 @@
 	// Define a filtered query that skips the top 3 items and returns the next 3 items.
 	MobileServiceTableQuery<TodoItem> query = todoTable
 					.Skip(3)
-					.Take(3);                              
+					.Take(3);
 	List<TodoItem> items = await query.ToListAsync();
-			
+
 [IncludeTotalCount](http://msdn.microsoft.com/library/windowsazure/jj730933.aspx) 메서드를 사용하여 쿼리가 지정된 take 페이징/제한 절을 무시하고 반환되었을 <i>모든</i> 레코드의 총 개수를 가져오도록 할 수도 있습니다.
 
 	query = query.IncludeTotalCount();
@@ -164,12 +164,12 @@
 	MobileServiceTableQuery<TodoItem> query = todoTable
 					.Select(todoItem => todoItem.Text);
 	List<string> items = await query.ToListAsync();
-	
+
 	// Select multiple fields -- both Complete and Text info
 	MobileServiceTableQuery<TodoItem> query = todoTable
 					.Select(todoItem => string.Format("{0} -- {1}", todoItem.Text.PadRight(30), todoItem.Complete ? "Now complete!" : "Incomplete!"));
 	List<string> items = await query.ToListAsync();
-			
+
 지금까지 설명한 모든 함수는 가산적이므로 계속해서 호출할 수 있으며, 호출할 때마다 쿼리에 더 많은 영향이 있습니다. 한 가지 예를 더 들면 다음과 같습니다.
 
 	MobileServiceTableQuery<TodoItem> query = todoTable
@@ -178,7 +178,7 @@
 					.Skip(3).
 					.Take(3);
 	List<string> items = await query.ToListAsync();
-	
+
 ### <a name="lookingup"></a>방법: ID를 기준으로 데이터 조회
 
 `LookupAsync` 함수를 사용하여 데이터베이스에서 특정 ID를 가진 개체를 조회할 수 있습니다.
@@ -198,8 +198,8 @@ await `todoTable.InsertAsync` 호출이 반환된 후 서버의 개체 ID가 클
 
 형식화되지 않은 데이터를 삽입하려면 아래와 같이 JSON.NET을 이용할 수 있습니다. 개체를 삽입할 때는 ID를 지정하면 안 됩니다.
 
-	JObject jo = new JObject(); 
-	jo.Add("Text", "Hello World"); 
+	JObject jo = new JObject();
+	jo.Add("Text", "Hello World");
 	jo.Add("Complete", false);
 	var inserted = await table.InsertAsync(jo);
 
@@ -214,15 +214,15 @@ await `todoTable.InsertAsync` 호출이 반환된 후 서버의 개체 ID가 클
 
 형식화되지 않은 데이터를 삽입하려면 다음과 같이 JSON.NET을 이용할 수 있습니다. 업데이트할 때는 ID를 지정해야 합니다. 모바일 서비스가 업데이트할 인스턴스를 식별하는 방법이 ID이기 때문입니다. ID는 `InsertAsync` 호출의 결과에서 가져올 수 있습니다.
 
-	JObject jo = new JObject(); 
+	JObject jo = new JObject();
 	jo.Add("Id", 52);
-	jo.Add("Text", "Hello World"); 
+	jo.Add("Text", "Hello World");
 	jo.Add("Complete", false);
 	var inserted = await table.UpdateAsync(jo);
-			
+
 "Id" 필드가 설정되지 않은 항목을 업데이트하려고 하면 서비스가 업데이트할 인스턴스를 구분할 수 없으므로 서비스에서 `MobileServiceInvalidOperationException`이(가) 반환됩니다. 마찬가지로, "Id" 필드가 설정되지 않은 형식화되지 않은 항목을 업데이트하려는 경우에도 서비스에서 `MobileServiceInvalidOperationException`이(가) 반환됩니다.
-			
-			
+
+
 ## <a name="deleting"></a>방법: 모바일 서비스의 데이터 삭제
 
 다음 코드는 기존 인스턴스를 삭제하는 방법을 보여 줍니다. 인스턴스는 `todoItem`에 설정된 "Id" 필드로 식별됩니다.
@@ -231,12 +231,12 @@ await `todoTable.InsertAsync` 호출이 반환된 후 서버의 개체 ID가 클
 
 형식화되지 않은 데이터를 삭제하려면 다음과 같이 JSON.NET을 이용할 수 있습니다. 삭제 요청을 할 때는 ID를 지정해야 합니다. 모바일 서비스가 삭제할 인스턴스를 식별하는 방법이 ID이기 때문입니다. 삭제 요청에는 ID만 필요하며, 다른 속성은 서비스에 전달되지 않습니다. 다른 속성이 전달되는 경우에도 서비스에서 무시됩니다. `DeleteAsync` 호출의 결과도 일반적으로 `null`입니다. 전달할 ID는 `InsertAsync` 호출의 결과에서 가져올 수 있습니다.
 
-	JObject jo = new JObject(); 
+	JObject jo = new JObject();
 	jo.Add("Id", 52);
 	await table.DeleteAsync(jo);
-			
+
 "Id" 필드가 설정되지 않은 항목을 삭제하려고 하면 서비스가 삭제할 인스턴스를 구분할 수 없으므로 서비스에서 `MobileServiceInvalidOperationException`이(가) 반환됩니다. 마찬가지로, "Id" 필드가 설정되지 않은 형식화되지 않은 항목을 삭제하려는 경우에도 서비스에서 `MobileServiceInvalidOperationException`이(가) 반환됩니다.
-		
+
 
 
 ## <a name="authentication"></a>방법: 사용자 인증
@@ -260,7 +260,7 @@ ID 공급자를 등록하고 나면 공급자의 [MobileServiceAuthenticationPro
 			{
 				user = await client
 					.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
-				message = 
+				message =
 					string.Format("You are now logged in - {0}", user.UserId);
 			}
 			catch (InvalidOperationException)
@@ -285,10 +285,10 @@ Facebook 이외의 ID 공급자를 사용하는 경우 위의 [MobileServiceAuth
 가장 간소화된 형태로, 다음과 같은 Facebook 또는 Google용 코드 조각에 나온 대로 클라이언트 흐름을 사용할 수 있습니다.
 
 	var token = new JObject();
-	// Replace access_token_value with actual value of your access token obtained 
+	// Replace access_token_value with actual value of your access token obtained
 	// using the Facebook or Google SDK.
 	token.Add("access_token", "access_token_value");
-			
+
 	private MobileServiceUser user;
 	private async System.Threading.Tasks.Task Authenticate()
 	{
@@ -297,11 +297,11 @@ Facebook 이외의 ID 공급자를 사용하는 경우 위의 [MobileServiceAuth
 			string message;
 			try
 			{
-				// Change MobileServiceAuthenticationProvider.Facebook 
+				// Change MobileServiceAuthenticationProvider.Facebook
 				// to MobileServiceAuthenticationProvider.Google if using Google auth.
 				user = await client
 					.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
-				message = 
+				message =
 					string.Format("You are now logged in - {0}", user.UserId);
 			}
 			catch (InvalidOperationException)
@@ -326,7 +326,7 @@ Facebook 이외의 ID 공급자를 사용하는 경우 위의 [MobileServiceAuth
 	var account = new Account (user.UserId, new Dictionary<string,string> {{"token",user.MobileServiceAuthenticationToken}});
 	accountStore.Save(account, "Facebook");
 
-	// Log in 
+	// Log in
 	var accounts = accountStore.FindAccountsForService ("Facebook").ToArray();
 	if (accounts.Count != 0)
 	{
@@ -342,7 +342,7 @@ Facebook 이외의 ID 공급자를 사용하는 경우 위의 [MobileServiceAuth
 		// Replace access_token_value with actual value of your access token
 		token.Add("access_token", "access_token_value");
 	}
-			
+
 	 // Log out
 	client.Logout();
 	accountStore.Delete(account, "Facebook");
@@ -354,7 +354,7 @@ Facebook 이외의 ID 공급자를 사용하는 경우 위의 [MobileServiceAuth
 
 예를 들어 서버 스크립트를 모바일 서비스에 등록하여 삽입 및 업데이트할 데이터에 대해 유효성 확인 및 데이터 수정 등 다양한 작업을 수행하는 데 사용할 수 있습니다. 데이터 유효성 검사 및 수정을 수행하는 서버 스크립트를 다음과 같이 정의하고 등록합니다.
 
-	function insert(item, user, request) 
+	function insert(item, user, request)
 	{
 	   if (item.text.length > 10) {
 		  request.respond(statusCodes.BAD_REQUEST, { error: "Text cannot exceed 10 characters" });
@@ -387,7 +387,7 @@ Facebook 이외의 ID 공급자를 사용하는 경우 위의 [MobileServiceAuth
 Xamarin Component 클라이언트는 강력한 형식의 시나리오에 맞게 설계되었습니다. 하지만 예를 들어 개방형 스키마로 개체를 처리하는 경우처럼 보다 느슨한 형식의 환경이 편리한 경우도 있습니다. 이 시나리오는 다음과 같이 실행됩니다. 쿼리에서 LINQ를 사용하지 않고 통신 형식을 사용합니다.
 
 	// Get an untyped table reference
-	IMobileServiceTable untypedTodoTable = client.GetTable("TodoItem");			
+	IMobileServiceTable untypedTodoTable = client.GetTable("TodoItem");
 
 	// Lookup untyped data using OData
 	JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$orderby=text");
@@ -472,6 +472,5 @@ Xamarin Component 클라이언트는 강력한 형식의 시나리오에 맞게 
 [MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

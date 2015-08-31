@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2015"
+	ms.date="08/19/2015"
 	ms.author="stepsic"/>
 	
 # 논리 앱 기능 사용
@@ -26,6 +26,15 @@
 - 워크플로 시작 옵션.
 
 이 항목을 완료하기 전에 [새 논리 앱 만들기]의 단계를 완료해야 합니다. [Azure 포털]에서 논리 앱을 찾은 다음 요약에서 **트리거 및 동작**을 클릭하여 논리 앱 정의를 편집합니다.
+
+## 참조 자료
+
+유용한 다음 문서를 볼 수 있습니다.
+
+- [관리와 런타임 REST API](https://msdn.microsoft.com/library/azure/dn948513.aspx) - 논리 앱을 직접 호출 하는 방법 포함
+- [언어 참조](https://msdn.microsoft.com/library/azure/dn948512.aspx) - 모든 지원 되는 함수/식의 포괄적인 목록
+- [트리거 및 작업 형식](https://msdn.microsoft.com/library/azure/dn948511.aspx) - 다양한 유형의 동작 및 동작에 필요한 입력
+- [앱 서비스의 개요](app-service-value-prop-what-is.md) - 솔루션을 구축하는 시점을 선택하는 구성 요소의 설명
 
 ## 조건부 논리 및 반복 추가
 
@@ -112,8 +121,9 @@
 
 이 콜백을 사용하여 사용자 지정 응용 프로그램 내에서 논리 앱을 호출할 수 있습니다. **기본** 인증을 사용해야 합니다. 사용자 이름 `default`가 자동으로 만들어지며, 암호는 **속성** 블레이드의 **기본 액세스 키**입니다. 예:
 
-        POST https://default:<<your primary access key>>@<< your endpoint>>/run?api-version=2015-02-01-preview
+        POST https://<< your endpoint >>/run?api-version=2015-02-01-preview
         Content-type: application/json
+        Authorization: Basic << base-64 encoded string of default:<access key> >>
         {
             "name" : "nameOfTrigger",
             "outputs" : { "property" : "value" }
@@ -133,4 +143,4 @@
 [새 논리 앱 만들기]: app-service-logic-create-a-logic-app.md
 [Azure 포털]: https://portal.azure.com
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

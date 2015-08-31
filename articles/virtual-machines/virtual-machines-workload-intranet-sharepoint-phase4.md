@@ -191,4 +191,6 @@ SharePoint 팜으로의 클라이언트 트래픽이 두 프런트 엔드 웹 �
 
 [Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO6-->
+[Azure 인프라 서비스 작업: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
+
+<!---HONumber=August15_HO8-->

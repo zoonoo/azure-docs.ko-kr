@@ -5,15 +5,16 @@
 	manager="paulettm"
 	services="hdinsight"
 	authors="nitinme"
-	documentationCenter=""/>
+	documentationCenter=""
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="05/07/2015"
+	ms.topic="article" 
+	ms.date="08/07/2015"
 	ms.author="nitinme"/>
 
 # HDInsight Emulator와 Hadoop 샌드박스를 사용하여 Hadoop 에코 시스템에서 시작
@@ -195,7 +196,7 @@ HDInsight Emulator를 설치하면 사용자가 Windows에서 Apache Hadoop 기�
 
 ###<a name="scenarios"></a>IIS W3C 로그 데이터 시나리오
 
-W3C 시나리오에서는 IIS W3C 로그 데이터를 세 가지 크기(1MB(소형), 500MB(중형) 및 2GB(대형))로 생성하여 HDFS 또는 Azure Blob 저장소에 가져옵니다. 이 시나리오는 세 가지 작업 유형을 제공하는 데 각각 C#, Java, Pig 및 Hive로 구현합니다.
+W3C 시나리오에서는 IIS W3C 로그 데이터를 세 가지 크기(1MB(소형), 500MB(중형) 및 2GB(대형))로 생성하여 HDFS 또는 Azure Blob 저장소에 가져옵니다. 이 시나리오는 세 가지 작업 유형을 제공하는 데 각각 C\#, Java, Pig 및 Hive로 구현합니다.
 
 - **totalhits** - 지정한 페이지의 총 요청 수를 계산합니다.
 - **avgtime** - 페이지당 요청에 걸린 평균 시간(초)을 계산합니다.
@@ -240,7 +241,7 @@ HDFS로 데이터를 생성하고 가져오는 작업은 Azure PowerShell 스크
 
 ###<a name="javamapreduce"></a> Java MapReduce 작업 실행
 
-MapReduce는 Hadoop의 기본 계산 엔진입니다. 기본적으로 Java로 구현되지만 C#을 사용하는 Hadoop 스트리밍 및 .NET을 활용하는 예도 있습니다. MapReduce 작업을 실행하는 구문은 다음과 같습니다.
+MapReduce는 Hadoop의 기본 계산 엔진입니다. 기본적으로 Java로 구현되지만 C\#을 사용하는 Hadoop 스트리밍 및 .NET을 활용하는 예도 있습니다. MapReduce 작업을 실행하는 구문은 다음과 같습니다.
 
 	hadoop jar <jarFileName>.jar <className> <inputFiles> <outputFolder>
 
@@ -395,13 +396,17 @@ HDInsight Emulator는 HDFS를 기본 파일 시스템으로 사용합니다. 그
 
 **컨테이너 만들기**
 
-1. [Azure 포털][azure-management-portal]에 로그인합니다.
-2. 왼쪽에서 **저장소**를 클릭합니다. 구독 아래에 저장소 계정 목록이 표시됩니다.
-3. 목록에서 컨테이너를 만들 위치의 저장소 계정을 클릭합니다.
-4. 페이지 위쪽에서 **컨테이너**를 클릭합니다.
-5. 페이지 아래쪽에서 **추가**를 클릭합니다.
-6. **이름**을 입력하고 **액세스**를 선택합니다. 세 개의 액세스 수준 중 아무거나 사용할 수 있습니다. 기본값은 **개인**입니다.
-7. **확인**을 클릭하여 변경 내용을 저장합니다. 이제 새 컨테이너가 포털에 나열됩니다.
+1. [Azure 미리 보기 포털](https://ms.portal.azure.com/)에 로그인합니다.
+2. 왼쪽의 **새로 만들기**를 클릭하고 **데이터 + 저장소**를 클릭한 다음 **저장소**를 클릭합니다.
+3. 저장소 계정 블레이드에서 아래 화면 캡처에 표시된 대로 속성을 구성합니다.
+	
+	![저장소 계정 만들기](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.create.storage.png)
+
+	**시작 보드에 고정**을 선택하고 **만들기**를 클릭합니다.
+4. 저장소 계정이 만들어지면 새 저장소 계정 블레이드에서 **컨테이너**를 클릭하여 컨테이너 블레이드를 열고 **추가**를 클릭합니다.
+5. 컨테이너의 이름을 입력한 다음 **선택**을 클릭합니다.
+
+	![컨테이너 만들기](./media/hdinsight-hadoop-emulator-get-started/hdi.emulator.create.container.png)
 
 구성 파일에 계정 이름과 계정 키를 추가해야 Azure 저장소 계정에 액세스할 수 있습니다.
 
@@ -448,7 +453,7 @@ HDInsight Emulator에서는 일부 Azure PowerShell cmdlet도 지원됩니다. �
 	$hdinsightJob = <JobDefinition>
 	Start-AzureHDInsightJob -Cluster http://localhost:50111 -Credential $creds -JobDefinition $hdinsightJob
 
-Get-Credential을 호출하면 프롬프트가 나타납니다. 사용자 이름으로 **hadoop**을 사용해야 합니다. 암호는 아무 문자열이나 사용할 수 있습니다. 클러스터 이름은 항상 ****http://localhost:50111**이어야 합니다.
+Get-Credential을 호출하면 프롬프트가 나타납니다. 사용자 이름으로 **hadoop**을 사용해야 합니다. 암호는 아무 문자열이나 사용할 수 있습니다. 클러스터 이름은 항상 ****http://localhost:50111**입니다.
 
 Hadoop 작업 제출에 대한 자세한 내용은 [Hadoop 작업을 프로그래밍 방식으로 제출](hdinsight-submit-hadoop-jobs-programmatically.md)을 참조하세요. HDInsight의 Azure PowerShell cmdlet에 대한 자세한 내용은 [HDInsight cmdlet 참조][hdinsight-powershell-reference]를 참조하세요.
 
@@ -462,7 +467,7 @@ Emulator를 설치한 컴퓨터에서 제어판을 열고 **프로그램**에서
 
 - [Azure HDInsight 사용 시작](../hdinsight-get-started.md)
 - [HDInsight용 Java MapReduce 프로그램 개발](hdinsight-develop-deploy-java-mapreduce.md)
-- [HDInsight용 C# Hadoop 스트리밍 MapReduce 프로그램 개발](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
+- [HDInsight용 C#Hadoop 스트리밍 MapReduce 프로그램 개발](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 - [HDInsight Emulator 릴리스 정보](hdinsight-emulator-release-notes.md)
 - [HDInsight 토론을 위한 MSDN 포럼](http://social.msdn.microsoft.com/Forums/hdinsight)
 
@@ -492,4 +497,4 @@ Emulator를 설치한 컴퓨터에서 제어판을 열고 **프로그램**에서
 [image-hdi-emulator-services]: ./media/hdinsight-hadoop-emulator-get-started/HDI.Emulator.Services.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

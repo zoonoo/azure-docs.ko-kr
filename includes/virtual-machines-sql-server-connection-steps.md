@@ -1,186 +1,186 @@
-The following steps demonstrate how to connect to the SQL Server instance over the internet using SQL Server Management Studio (SSMS). However, the same steps apply to making your SQL Server virtual machine accessible for your applications, running both on-premises and in Azure.
+다음 단계는 SQL Server Management Studio (SSMS)를 사용하여 인터넷을 통해 SQL Server 인스턴스에 연결하는 방법을 보여줍니다. 그러나 동일한 단계는 온 프레미스 및 Azure에서 실행중인 응용 프로그램에 대해 SQL Server 가상 컴퓨터를 액세스할 수 있게 만들도록 적용합니다.
 
-Before you can connect to the instance of SQL Server from another VM or the internet, you must complete the following tasks as described in the sections that follow:
+인터넷 또는 다른 VM에서 SQL Server의 인스턴스에 연결하기 전에 먼저 아래의 섹션에 설명된 대로 다음 작업을 완료해야 합니다.
 
-- [Create a TCP endpoint for the virtual machine](#create-a-tcp-endpoint-for-the-virtual-machine)
-- [Open TCP ports in the Windows firewall](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
-- [Configure SQL Server to listen on the TCP protocol](#configure-sql-server-to-listen-on-the-tcp-protocol)
-- [Configure SQL Server for mixed mode authentication](#configure-sql-server-for-mixed-mode-authentication)
-- [Create SQL Server authentication logins](#create-sql-server-authentication-logins)
-- [Determine the DNS name of the virtual machine](#determine-the-dns-name-of-the-virtual-machine)
-- [Connect to the Database Engine from another computer](#connect-to-the-database-engine-from-another-computer)
+- [가상 컴퓨터에 대한 TCP 끝점 만들기](#create-a-tcp-endpoint-for-the-virtual-machine)
+- [Windows 방화벽에서 TCP 포트 열기](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
+- [TCP 프로토콜에서 수신하도록 SQL Server 구성](#configure-sql-server-to-listen-on-the-tcp-protocol)
+- [혼합된 모드 인증에 대한 SQL Server 구성](#configure-sql-server-for-mixed-mode-authentication)
+- [SQL Server 인증 로그인 만들기](#create-sql-server-authentication-logins)
+- [가상 컴퓨터의 DNS 이름 확인](#determine-the-dns-name-of-the-virtual-machine)
+- [다른 컴퓨터에서 데이터베이스 엔진에 연결](#connect-to-the-database-engine-from-another-computer)
 
-The connection path is summarized by the following diagram:
+연결 경로는 다음 다이어그램에 요약되어 있습니다.
 
-![Connecting to a SQL Server virtual machine](./media/virtual-machines-sql-server-connection-steps/SQLServerinVMConnectionMap.png)
+![SQL Server 가상 컴퓨터에 연결](./media/virtual-machines-sql-server-connection-steps/SQLServerinVMConnectionMap.png)
 
-### Create a TCP endpoint for the virtual machine
+### 가상 컴퓨터용 TCP 끝점 만들기
 
-In order to access SQL Server from the internet, the virtual machine must have an endpoint to listen for incoming TCP communication. This Azure configuration step, directs incoming TCP port traffic to a TCP port that is accessible to the virtual machine.
+인터넷에서 SQL 서버에 연결하려면, 가상 컴퓨터에 들어오는 TCP 통신을 수신하는 끝점이 있어야 합니다. 이 Azure 구성 단계에서는 들어오는 TCP 포트 트래픽을 가상 컴퓨터에 액세스 가능한 TCP 포트로 보냅니다.
 
->[AZURE.NOTE] If you are connecting within the same cloud service or virtual network, you do not have to create a publically accessible endpoint. In that case, you could continue to the next step. For more information, see [Connectivity Considerations for SQL Server in Azure Virtual Machines](https://msdn.microsoft.com/library/azure/dn133152.aspx).
+>[AZURE.NOTE]동일한 클라우드 서버 또는 가상 네트워크 내에서 연결하는 경우, 공개적으로 엑세스 할 수 있는 끝점을 만들 필요가 없습니다. 이 경우, 다음 단계를 계속 할 수 있습니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 연결 고려 사항](https://msdn.microsoft.com/library/azure/dn133152.aspx)을 참조하세요.
 
-1. On the Azure Management Portal, click on **VIRTUAL MACHINES**.
+1. Azure 관리 포털에서 **가상 컴퓨터**를 클릭합니다.
 	
-2. Click on your newly created virtual machine. Information about your virtual machine is presented.
+2. 새로 만든 가상 컴퓨터를 클릭합니다. 가상 컴퓨터에 대한 정보가 표시됩니다.
 	
-3. Near the top of the page, select the **ENDPOINTS** page, and then at the bottom of the page, click **ADD**.
+3. 페이지 맨 위 근처에서 **끝점** 페이지를 선택한 후 페이지 맨 아래에서 **추가**를 클릭합니다.
 	
-4. On the **Add an Endpoint to a Virtual Machine** page, click **Add a Stand-alone Endpoint**, and then click the Next arrow to continue.
+4. **가상 컴퓨터에 끝점 추가** 페이지에서 **독립 실행형 끝점 추가**를 클릭한 후 다음 화살표를 클릭하여 계속합니다.
 	
-5. On the **Specify the details of the endpoint** page, provide the following information.
+5. **끝점의 세부 정보를 지정하십시오.** 페이지에서 다음 정보를 제공합니다.
 
-	- In the **NAME** box, provide a name for the endpoint.
-	- In the **PROTOCOL** box, select **TCP**. You may type **57500** in the **PUBLIC PORT** box. Similarly, you may type SQL Server's default listening port **1433** in the **Private Port** box. Note that many organizations select different port numbers to avoid malicious security attacks. 
+	- **이름** 상자에 끝점의 이름을 입력합니다.
+	- **프로토콜** 상자에서 **TCP**를 선택합니다. **공용 포트** 상자에 **57500**을 입력할 수 있습니다. 마찬가지로, SQL Server의 기본 수신 대기 포트 **1433**를 **개인 포트** 상자에 입력할 수 있습니다. 많은 조직이 악의적인 보안 공격을 방지하기 위해 다른 포트 번호를 선택합니다. 
 
-6. Click the check mark to continue. The endpoint is created.
+6. 확인 표시를 클릭하여 계속합니다. 끝점이 만들어집니다.
 
-### Open TCP ports in the Windows firewall for the default instance of the Database Engine
+### Windows 방화벽에서 데이터베이스 엔진의 기본 인스턴스용 TCP 포트 열기
 
-1. Connect to the virtual machine via Windows Remote Desktop. Once logged in, at the Start screen, type **WF.msc**, and then hit ENTER. 
+1. Windows 원격 데스크톱을 통해 가상 컴퓨터에 연결합니다. 시작 화면에서 로그인한 후 **WF.msc**를 입력하고 ENTER를 누릅니다. 
 
-	![Start the Firewall Program](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
-2. In the **Windows Firewall with Advanced Security**, in the left pane, right-click **Inbound Rules**, and then click **New Rule** in the action pane.
+	![방화벽 프로그램 시작](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
+2. **고급 보안이 포함된 Windows 방화벽**의 왼쪽 창에 있는 작업 창에서 **인바운드 규칙**을 마우스 오른쪽 단추로 클릭한 후 **새 규칙**을 클릭합니다.
 
-	![New Rule](./media/virtual-machines-sql-server-connection-steps/13New-FW-Rule.png)
+	![새 규칙](./media/virtual-machines-sql-server-connection-steps/13New-FW-Rule.png)
 
-3. In the **New Inbount Rule Wizard** dialog box, under **Rule Type**, select **Port**, and then click **Next**.
+3. **새 Inbount 규칙 마법사** 대화 상자의 **규칙 유형**에서 **포트**를 선택하고 **다음**을 클릭합니다.
 
-4. In the **Protocol and Ports** dialog, use the default **TCP**. In the **Specific local ports** box, then type the port number of the instance of the Database Engine (**1433** for the default instance or your choice for the private port in the endpoint step). 
+4. **프로토콜 및 포트** 대화 상자에서 기본 **TCP**를 사용합니다. **특정 로컬 포트** 상자에 데이터베이스 엔진의 인스턴스 포트 번호(기본 인스턴스의 경우 **1433** 또는 끝점 단계에서 개인 포트에 대해 선택한 포트)를 입력합니다.
 
-	![TCP Port 1433](./media/virtual-machines-sql-server-connection-steps/14Port-1433.png)
+	![TCP 포트 1433](./media/virtual-machines-sql-server-connection-steps/14Port-1433.png)
 
-5. Click **Next**.
+5. **다음**을 클릭합니다.
 
-6. In the **Action** dialog box, select **Allow the connection**, and then click **Next**.
+6. **작업** 대화 상자에서 **연결 허용**을 선택한 후 **다음**을 클릭합니다.
 
-	**Security Note:** Selecting **Allow the connection if it is secure** can provide additional security. Select this option if you want to configure additional security options in your environment.
+	**보안 정보:** **안전한 경우 연결 허용**을 선택하면 추가 보안을 제공할 수 있습니다. 사용자 환경에서 추가 보안을 구성하려는 경우 이 옵션을 선택하세요.
 
-	![Allow Connections](./media/virtual-machines-sql-server-connection-steps/15Allow-Connection.png)
+	![연결 허용](./media/virtual-machines-sql-server-connection-steps/15Allow-Connection.png)
 
-7. In the **Profile** dialog box, select **Public**, **Private**, and **Domain**. Then click **Next**. 
+7. **프로필** 대화 상자에서 **공용**, **개인** 및 **도메인**을 선택합니다. 그런 후 **Next**를 클릭합니다.
 
-    **Security Note:**  Selecting **Public** allows access over the internet. Whenever possible, select a more restrictive profile.
+    **보안 정보:** **공개**를 선택하면 인터넷을 통한 액세스가 허용됩니다. 가능하면 더 제한적인 프로필을 선택하세요.
 
-	![Public Profile](./media/virtual-machines-sql-server-connection-steps/16Public-Private-Domain-Profile.png)
+	![공개 프로필](./media/virtual-machines-sql-server-connection-steps/16Public-Private-Domain-Profile.png)
 
-8. In the **Name** dialog box, type a name and description for this rule, and then click **Finish**.
+8. **이름** 대화 상자에서 이 규칙의 이름 및 설명을 입력한 후 **마침**을 클릭합니다.
 
-	![Rule Name](./media/virtual-machines-sql-server-connection-steps/17Rule-Name.png)
+	![규칙 이름](./media/virtual-machines-sql-server-connection-steps/17Rule-Name.png)
 
-Open additional ports for other components as needed. For more information, see [Configuring the Windows Firewall to Allow SQL Server Access](http://msdn.microsoft.com/library/cc646023.aspx).
+필요한 경우 다른 구성 요소의 추가 포트를 엽니다. 자세한 내용은 [SQL Server 액세스를 허용하도록 Windows 방화벽 구성](http://msdn.microsoft.com/library/cc646023.aspx)을 참조하십시오.
 
 
-### Configure SQL Server to listen on the TCP protocol
+### TCP 프로토콜을 수신 대기하도록 SQL Server 구성
 
-1. While connected to the virtual machine, on the Start page, type **SQL Server Configuration Manager** and hit ENTER.
+1. 가상 컴퓨터에 연결되어 있는 동안 시작 페이지에서 **SQL Server 구성 관리자**를 입력하고 ENTER 키를 누릅니다.
 	
-	![Open SSCM](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
+	![SSCM 열기](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
 
-2. In SQL Server Configuration Manager, in the console pane, expand **SQL Server Network Configuration**.
+2. SQL Server 구성 관리자의 콘솔 창에서 **SQL Server 네트워크 구성**을 확장합니다.
 
-3. In the console pane, click **Protocols for MSSQLSERVER** (he default instance name.) In the details pane, right-click TCP, it should be Enabled for the gallery images by default. For your custom images, click **Enable** (if its status is Disabled.)
+3. 콘솔 창에서 **MSSQLSERVER용 프로토콜**(기본 인스턴스 이름)을 클릭합니다. 세부 정보 창에서 TCP를 마우스 오른쪽 단추로 클릭하면 기본적으로 갤러리 이미지에 대해 사용으로 설정되어 있어야 합니다. 사용자 지정 이미지에 대해 **사용**(상태가 사용 안 함인 경우)을 클릭합니다.
 
-	![Enable TCP](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
+	![TCP 사용](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
 
-5. In the console pane, click **SQL Server Services**. In the details pane, right-click **SQL Server (_instance name_)** (the default instance is **SQL Server (MSSQLSERVER)**), and then click **Restart**, to stop and restart the instance of SQL Server. 
+5. 콘솔 창에서 **SQL Server 서비스**를 클릭합니다. 세부 정보 창에서 **SQL Server(_인스턴스 이름_)**(기본 인스턴스는 **SQL Server (MSSQLSERVER)**)를 마우스 오른쪽 단추로 클릭한 후 **다시 시작**을 클릭하여 SQL Server의 인스턴스를 중지했다가 다시 시작합니다.
 
-	![Restart Database Engine](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
+	![데이터베이스 엔진 다시 시작](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
 
-7. Close SQL Server Configuration Manager.
+7. SQL Server 구성 관리자를 닫습니다.
 
-For more information about enabling protocols for the SQL Server Database Engine, see [Enable or Disable a Server Network Protocol](http://msdn.microsoft.com/library/ms191294.aspx).
+SQL Server 데이터베이스 엔진용 프로토콜 사용 설정에 대한 자세한 내용은 [서버 네트워크 프로토콜 설정 또는 해제](http://msdn.microsoft.com/library/ms191294.aspx)를 참조하십시오.
 
-### Configure SQL Server for mixed mode authentication
+### 혼합 모드 인증을 위해 SQL Server 구성
 
-The SQL Server Database Engine cannot use Windows Authentication without domain environment. To connect to the Database Engine from another computer, configure SQL Server for mixed mode authentication. Mixed mode authentication allows both SQL Server Authentication and Windows Authentication.
+SQL Server 데이터베이스 엔진은 도메인 환경에서만 Windows 인증을 사용할 수 있습니다. 다른 컴퓨터에서 데이터베이스 엔진에 연결하려면 혼합 모드 인증을 위해 SQL Server를 구성하십시오. 혼합 모드 인증은 SQL Server 인증과 Windows 인증을 모두 허용합니다.
 
->[AZURE.NOTE] Configuring mixed mode authentication might not be necessary if you have configured an Azure Virtual Network with a configured domain environment.
+>[AZURE.NOTE]Azure 가상 네트워크를, 구성된 도메인 환경으로 구성한 경우, 혼합 모드 인증은 구성할 필요가 없습니다.
 
-1. While connected to the virtual machine, on the Start page, type **SQL Server 2014 Management Studio** and click the selected icon.
+1. 가상 컴퓨터에 연결되어 있는 동안 시작 페이지에서 **SQL Server 2014 Management Studio**를 입력하고 선택한 아이콘을 클릭합니다.
 
-	![Start SSMS](./media/virtual-machines-sql-server-connection-steps/18Start-SSMS.png)
+	![SSMS 시작](./media/virtual-machines-sql-server-connection-steps/18Start-SSMS.png)
 
-	The first time you open Management Studio it must create the users Management Studio environment. This may take a few moments.
+	처음으로 Management Studio를 열 때 사용자 Management Studio 환경이 만들어져야 합니다. 어느 정도 시간이 걸릴 수 있습니다.
 
-2. Management Studio presents the **Connect to Server** dialog box. In the **Server name** box, type the name of the virtual machine to connect to the Database Engine  with the Object Explorer. (Instead of the virtual machine name you can also use **(local)** or a single period as the **Server name**. Select **Windows Authentication**, and leave **_your_VM_name_\your_local_administrator** in the **User name** box. Click **Connect**.
+2. Management Studio에서 **서버에 연결** 대화 상자가 표시됩니다. **서버 이름** 상자에, 개체 탐색기를 사용하여 데이터베이스 엔진에 연결할 가상 컴퓨터의 이름을 입력합니다. 가상 컴퓨터 이름 대신 **(로컬)** 또는 단일 기간을 **서버 이름**으로 사용할 수도 있습니다. **Windows 인증**을 선택하고, **사용자 이름** 상자의 _**VM\_이름**\\로컬\_관리자_를 그대로 둡니다. **Connect**를 클릭합니다.
 
-	![Connect to Server](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
+	![서버에 연결](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 
-3. In SQL Server Management Studio Object Explorer, right-click the name of the instance of SQL Server (the virtual machine name), and then click **Properties**.
+3. SQL Server Management Studio 개체 탐색기에서 SQL Server 인스턴스의 이름(가상 컴퓨터 이름)을 마우스 오른쪽 단추로 클릭한 후 **속성**을 클릭합니다.
 
-	![Server Properties](./media/virtual-machines-sql-server-connection-steps/20Server-Properties.png)
+	![서버 속성](./media/virtual-machines-sql-server-connection-steps/20Server-Properties.png)
 
-4. On the **Security** page, under **Server authentication**, select **SQL Server and Windows Authentication mode**, and then click **OK**.
+4. **보안** 페이지의 **서버 인증**에서 **SQL Server 및 Windows 인증 모드**를 선택한 후 **확인**을 클릭합니다.
 
-	![Select Authentication Mode](./media/virtual-machines-sql-server-connection-steps/21Mixed-Mode.png)
+	![인증 모드 선택](./media/virtual-machines-sql-server-connection-steps/21Mixed-Mode.png)
 
-5. In the SQL Server Management Studio dialog box, click **OK** to acknowledge the requirement to restart SQL Server.
+5. SQL Server Management Studio 대화 상자에서 **확인**을 클릭하여 SQL Server를 다시 시작해야 하는 요구 사항을 확인합니다.
 
-6. In Object Explorer, right-click your server, and then click **Restart**. (If SQL Server Agent is running, it must also be restarted.)
+6. 개체 탐색기에서 서버를 마우스 오른쪽 단추로 클릭한 후 **다시 시작**을 클릭합니다. SQL Server 에이전트가 실행 중인 경우 에이전트도 다시 시작해야 합니다.
 
-	![Restart](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
+	![다시 시작](./media/virtual-machines-sql-server-connection-steps/22Restart2.png)
 
-7. In the SQL Server Management Studio dialog box, click **Yes** to agree that you want to restart SQL Server.
+7. SQL Server Management Studio 대화 상자에서 **예**를 클릭하여 SQL Server를 다시 시작한다는 데 동의합니다.
 
-### Create SQL Server authentication logins
+### SQL Server 인증 로그인 만들기
 
-To connect to the Database Engine from another computer, you must create at least one SQL Server authentication login.
+다른 컴퓨터에서 데이터베이스 엔진에 연결하려면 SQL Server 인증 로그인을 하나 이상 만들어야 합니다.
 
-1. In SQL Server Management Studio Object Explorer, expand the folder of the server instance in which you want to create the new login.
+1. SQL Server Management Studio 개체 탐색기에서 새 로그인을 만들 서버 인스턴스의 폴더를 확장합니다.
 
-2. Right-click the **Security** folder, point to **New**, and select **Login...**.
+2. **보안** 폴더를 마우스 오른쪽 단추로 클릭하고, **새로 만들기**를 가리키고 **로그인...**을 선택합니다.
 
-	![New Login](./media/virtual-machines-sql-server-connection-steps/23New-Login.png)
+	![새 로그인](./media/virtual-machines-sql-server-connection-steps/23New-Login.png)
 
-3. In the **Login - New** dialog box, on the **General** page, enter the name of the new user in the **Login name** box.
+3. **로그인 - 신규** 대화 상자의 **일반** 페이지에 있는 **로그인 이름** 상자에 새 사용자의 이름을 입력합니다.
 
-4. Select **SQL Server authentication**.
+4. **SQL Server 인증**을 선택합니다.
 
-5. In the **Password** box, enter a password for the new user. Enter that password again into the **Confirm Password** box.
+5. **암호** 상자에 새 사용자의 암호를 입력합니다. **암호 확인** 상자에 암호를 다시 입력합니다.
 
-6. To enforce password policy options for complexity and enforcement, select **Enforce password policy** (recommended). This is a default option when SQL Server authentication is selected.
+6. 복잡성 및 강제성에 대한 암호 정책 옵션을 적용하려면 **암호 정책 강제 적용**(권장)을 선택합니다. SQL Server 인증을 선택할 경우 이 항목은 기본 옵션입니다.
 
-7. To enforce password policy options for expiration, select **Enforce password expiration** (recommended). Enforce password policy must be selected to enable this checkbox. This is a default option when SQL Server authentication is selected.
+7. 만료에 대한 암호 정책 옵션을 적용하려면 **암호 만료 강제 적용**(권장)을 선택합니다. 이 확인란을 사용하려면 먼저 암호 정책 강제 적용을 선택해야 합니다. SQL Server 인증을 선택할 경우 이 항목은 기본 옵션입니다.
 
-8. To force the user to create a new password after the first time the login is used, select **User must change password at next login** (Recommended if this login is for someone else to use. If the login is for your own use, do not select this option.) Enforce password expiration must be selected to enable this checkbox. This is a default option when SQL Server authentication is selected. 
+8. 처음으로 로그인을 사용한 후 사용자가 새 암호를 만들도록 강제하려면 **다음 로그인할 때 반드시 암호 변경**을 선택합니다. 다른 사용자가 이 로그인을 사용할 경우에 이 옵션을 선택하는 것이 좋습니다. 사용자만 이 로그인을 사용하는 경우에는 이 옵션을 선택하지 마십시오. 이 확인란을 사용하려면 먼저 암호 만료 강제 적용을 선택해야 합니다. SQL Server 인증을 선택할 경우 이 항목은 기본 옵션입니다.
 
-9. From the **Default database** list, select a default database for the login. **master** is the default for this option. If you have not yet created a user database, leave this set to **master**.
+9. **기본 데이터베이스** 목록에서 로그인의 기본 데이터베이스를 선택합니다. **master**가 이 옵션의 기본값입니다. 사용자 데이터베이스를 아직 만들지 않은 경우 **master**로 설정된 상태로 둡니다.
 
-10. In the **Default language** list, leave **default** as the value.
+10. **기본 언어** 목록에서 **기본값**을 선택 값으로 둡니다.
     
-	![Login Properties](./media/virtual-machines-sql-server-connection-steps/24Test-Login.png)
+	![로그인 속성](./media/virtual-machines-sql-server-connection-steps/24Test-Login.png)
 
-11. If this is the first login you are creating, you may want to designate this login as a SQL Server administrator. If so, on the **Server Roles** page, check **sysadmin**. 
+11. 처음 로그인을 만드는 경우 이 로그인을 SQL Server 관리자로 지정할 수 있습니다. 그렇게 하는 경우 **서버 역할** 페이지에서 **sysadmin**을 선택합니다.
 
-	**Security Note:** Members of the sysadmin fixed server role have complete control of the Database Engine. You should carefully restrict membership in this role.
+	**보안 정보:** sysadmin 고정 서버 역할의 구성원은 데이터베이스 엔진을 완전히 제어할 수 있습니다. 따라서 이 역할의 구성원은 신중하게 제한해야 합니다.
 
 	![sysadmin](./media/virtual-machines-sql-server-connection-steps/25sysadmin.png)
 
-12. Click OK.
+12. 확인을 클릭합니다.
 
-For more information about SQL Server logins, see [Create a Login](http://msdn.microsoft.com/library/aa337562.aspx).
+SQL Server 로그인에 대한 자세한 내용은 [로그인 만들기](http://msdn.microsoft.com/library/aa337562.aspx)를 참조하십시오.
 
-### Determine the DNS name of the virtual machine
+### 가상 컴퓨터의 DNS 이름 확인
 
-To connect to the SQL Server Database Engine from another computer, you must know the Domain Name System (DNS) name of the virtual machine. (This is the name the internet uses to identify the virtual machine. You can use the IP address, but the IP address might change when Azure moves resources for redundancy or maintenance. The DNS name will be stable because it can be redirected to a new IP address.)  
+다른 컴퓨터에서 SQL Server 데이터베이스 엔진에 연결하려면 가상 컴퓨터의 DNS(Domain Name System) 이름을 알아야 합니다. 이 이름은 인터넷에서 가상 컴퓨터를 식별하는 이름입니다. IP 주소를 사용할 수 있지만 Azure가 중복 또는 유지 관리를 위해 리소스를 이동할 경우 IP 주소가 변경될 수 있습니다. DNS 이름은 새 IP 주소로 리디렉션할 수 있으므로 안정적입니다.
 
-1. In the Azure Management Portal (or from the previous step), select **VIRTUAL MACHINES**. 
+1. Azure 관리 포털(또는 이전 단계)에서 **가상 컴퓨터**를 선택합니다. 
 
-2. On the **VIRTUAL MACHINE INSTANCES** page, under the **Quick Glance** column, find and copy the DNS name for the virtual machine.
+2. **가상 컴퓨터 인스턴스** 페이지의 **빠른 보기** 열에서 http://로 시작하는 가상 컴퓨터의 DNS 이름을 찾아서 복사합니다.
 
-	![DNS name](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
+	![DNS 이름](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
 	
 
-### Connect to the Database Engine from another computer
+### 다른 컴퓨터에서 데이터베이스 엔진에 연결
  
-1. On a computer connected to the internet, open SQL Server Management Studio.
-2. In the **Connect to Server** or **Connect to Database Engine** dialog box, in the**Server name** box, enter the DNS name of the virtual machine (determined in the previous task) and a public endpoint port number in the format of *DNSName,portnumber* such as **tutorialtestVM.cloudapp.net,57500**.
-To get the port number, log in to the Azure Management Portal and find the Virtual Machine. On the Dashboard, click **ENDPOINTS** and use the **PUBLIC PORT** assigned to **MSSQL**.
-	![Public Port](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
-3. In the **Authentication** box, select **SQL Server Authentication**.
-5. In the **Login** box, type the name of a login that you created in an earlier task.
-6. In the **Password** box, type the password of the login that you create in an earlier task.
-7. Click **Connect**.
+1. 인터넷에 연결된 컴퓨터에서 SQL Server Management Studio를 엽니다.
+2. **서버에 연결** 또는 **데이터베이스 엔진에 연결** 대화 상자의 **서버 이름** 상자에 가상 컴퓨터의 DNS 이름(이전 작업에서 확인된 이름) 및 공개 끝점 포트 번호를 *DNS이름,포트 번호* 형식(예: **tutorialtestVM.cloudapp.net,57500**)으로 입력합니다. 포트 번호를 가져오려면 Azure 관리 포털에 로그인하여 가상 컴퓨터를 찾습니다. 대시보드에서 **끝점**을 클릭하고 **MSSQL**에 할당된 **공용 포트**를 사용합니다. ![공용 포트](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
+3. **인증** 상자에 **SQL Server 인증**을 선택합니다.
+5. **로그인** 상자에, 이전 작업에서 만든 로그인 이름을 입력합니다.
+6. **암호** 상자에, 이전 작업에서 만든 로그인의 암호를 입력합니다.
+7. **Connect**를 클릭합니다.
 
-	![Connect using SSMS](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
+	![SSMS를 사용하여 연결](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
+
+<!---HONumber=August15_HO8-->

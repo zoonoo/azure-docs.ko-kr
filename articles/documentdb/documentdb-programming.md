@@ -3,7 +3,7 @@
 	description="Microsoft Azure DocumentDB를 사용하여 JavaScript에서 기본적으로 저장 프로시저, 트리거 및 UDF(사용자 정의 함수)를 작성하는 방법을 알아봅니다." 
 	services="documentdb" 
 	documentationCenter="" 
-	authors="mimig1" 
+	authors="aliuy" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/10/2015" 
-	ms.author="mimig"/>
+	ms.date="08/18/2015" 
+	ms.author="andrl"/>
 
 # DocumentDB 서버 쪽 프로그래밍: 저장된 프로시저, 트리거 및 UDF
 
@@ -49,7 +49,7 @@ DocumentDB의 JavaScript 언어 통합 트랜잭션 실행을 사용해서 개�
 	-	원시 데이터 위에 추상 계층이 추가되므로 데이터 설계자가 데이터와 독립적으로 응용 프로그램을 개발할 수 있습니다. 데이터를 직접 처리해야 할 경우 응용 프로그램에 포함되어야 할 수 있는 가정으로 인해 데이터에 스키마가 사용되지 않을 경우 이러한 장점은 특히 유용할 수 있습니다.  
 	-	이 추상화는 스크립트에서의 액세스를 간소화하여 기업이 데이터 보안을 유지할 수 있게 합니다.  
 
-트리거, 저장 프로시저 및 사용자 지정 쿼리 연산자의 생성 및 실행은 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 및 .NET, Node.js 및 JavaScript를 비롯한 많은 플랫폼에서의 [클라이언트 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)를 통해 지원됩니다. **이 자습서에서는** **[Node.js SDK](http://dl.windowsazure.com/documentDB/nodedocs/)** 를 사용하여 저장 프로시저, 트리거 및 UDF의 구문 및 사용법을 설명합니다.
+트리거, 저장 프로시저 및 사용자 지정 쿼리 연산자의 생성 및 실행은 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 및 .NET, Node.js 및 JavaScript를 비롯한 많은 플랫폼에서의 [클라이언트 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)를 통해 지원됩니다. **이 자습서에서는 [Node.js SDK](http://dl.windowsazure.com/documentDB/nodedocs/)**를 사용하여 저장 프로시저, 트리거 및 UDF의 구문 및 사용법을 설명합니다.
 
 ## 저장 프로시저
 
@@ -471,6 +471,90 @@ UDF(사용자 정의 함수)는 DocumentDB SQL 쿼리 언어 문법을 확장하
 	    console.log("Error" , error);
 	});
 
+## JavaScript 언어 통합 쿼리 API
+DocumentDB의 SQL 문법을 사용하여 쿼리를 발급하는 것 외에도 서버 쪽 SDK를 사용하면 SQL의 지식 없이도 흐름 JavaScript 인터페이스를 사용하여 최적화된 쿼리를 수행할 수 있습니다. JavaScript 쿼리 API를 사용하면 조건자 함수를 ECMAScript5의 배열 기본 제공 항목과 익숙한 구문 및 lodash와 같은 인기 있는 JavaScript 라이브러리가 포함된 연결 가능한 함수 호출에 전달하여 쿼리를 프로그래밍 방식으로 작성할 수 있습니다. 쿼리는 DocumentDB의 인덱스를 사용하여 효율적으로 실행되도록 JavaScript 런타임으로 구문 분석됩니다.
+
+> [AZURE.NOTE]`__`(이중 밑줄)은(는) `getContext().getCollection()`에 대한 별칭입니다. <br/> 즉 `__` 또는 `getContext().getCollection()`을(를) 사용하여 JavaScript 쿼리 API에 액세스할 수 있습니다.
+
+지원되는 함수는 다음을 포함합니다: <ul> <li> <b>chain().... 값([콜백] [, 옵션])</b> <ul> <li> 값()으로 끝나야 하는 연결된 호출을 시작합니다. </li> </ul> </li> <li> <b>필터(predicateFunction [, 옵션] [, 콜백])</b> <ul> <li> 결과 집합으로 in/out 입력된 문서를 필터링하기 위해 true/false를 반환하는 조건자 함수를 사용하여 입력을 필터링합니다. SQL의 WHERE 절과 비슷하게 동작합니다. </li> </ul> </li> <li> <b>맵(transformationFunction [, 옵션] [, 콜백])</b> <ul> <li> 입력된 각 항목을 매핑하는 변환 함수가 지정된 프로젝션을JavaScript 개체 또는 값에 적용합니다. SQL의 SELECT 절과 비슷하게 동작 합니다. </li> </ul> </li> <li> <b>pluck([propertyName] [, 옵션] [, 콜백])</b> <ul> <li> 입력된 각 항목에서 단일 속성의 값을 추출하는 맵에 대 한 바로 가기입니다. </li> </ul> </li> <li> <b>평면화([isShallow] [, 옵션] [, 콜백])</b> <ul> <li> 배열을 입력된 각 항목에서 단일 배열로 결합하고 평면화합니다. LINQ의 SelectMany와 비슷하게 동작합니다. </li> </ul> </li> <li> <b>sortBy([조건부] [, 옵션] [, 콜백])</b> <ul> <li> 입력된 문서 스트림에서 문서를 지정된 조건자를 사용하여 오름차순으로 정렬하여 새 문서 집합을 생성합니다. SQL의 ORDER BY 절과 비슷하게 동작합니다. </li> </ul> </li> <li> <b>sortByDescending([조건부] [, 옵션] [, 콜백])</b> <ul> <li> 입력된 문서 스트림에서 문서를 지정된 조건자를 사용하여 내림차순으로 정렬하여 새 문서 집합을 생성합니다. SQL의 ORDER BY x DESC 절과 비슷하게 동작합니다. </li> </ul> </li> </ul>
+
+
+조건자 및/또는 선택기 함수 안에 포함된 경우 다음과 같은 JavaScript 구문이 DocumentDB 인덱스에서 직접 실행하도록 자동으로 최적화됩니다.
+
+* 간단한 연산자: = + - * / % | ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! \~
+* 개체 리터럴을 포함하는 리터럴: {}
+* var, 반환
+
+다음 JavaScript 구문은 DocumentDB 인덱스에 대해 최적화되지 않습니다.
+
+* 흐름 제어(예: if, for, while)
+* 함수 호출
+
+자세한 내용은 [서버 쪽 JSDocs](http://dl.windowsazure.com/documentDB/jsserverdocs/)를 참조하세요.
+
+### 예: JavaScript 쿼리 API를 사용하여 저장된 프로시저 작성
+
+다음 코드 샘플은 저장된 프로시저의 컨텍스트에서 JavaScript 쿼리 API를 사용할 수 있는 방법의 예입니다. 저장된 프로시저는 입력된 매개 변수로 지정된 문서를 삽입하고 입력된 문서의 크기 속성을 기반으로 하는 minSize, maxSize 및 totalSize가 있는 `__.filter()` 메서드를 사용하여 메타데이터 문서를 업데이트합니다.
+
+    /**
+     * Insert actual doc and update metadata doc: minSize, maxSize, totalSize based on doc.size.
+     */
+    function insertDocumentAndUpdateMetadata(doc) {
+      // HTTP error codes sent to our callback funciton by DocDB server.
+      var ErrorCode = {
+        RETRY_WITH: 449,
+      }
+
+      var isAccepted = __.createDocument(__.getSelfLink(), doc, {}, function(err, doc, options) {
+        if (err) throw err;
+
+        // Check the doc (ignore docs with invalid/zero size and metaDoc itself) and call updateMetadata.
+        if (!doc.isMetadata && doc.size > 0) {
+          // Get the meta document. We keep it in the same collection. it's the only doc that has .isMetadata = true.
+          var result = __.filter(function(x) {
+            return x.isMetadata === true
+          }, function(err, feed, options) {
+            if (err) throw err;
+
+            // We assume that metadata doc was pre-created and must exist when this script is called.
+            if (!feed || !feed.length) throw new Error("Failed to find the metadata document.");
+
+            // The metadata document.
+            var metaDoc = feed[0];
+
+            // Update metaDoc.minSize:
+            // for 1st document use doc.Size, for all the rest see if it's less than last min.
+            if (metaDoc.minSize == 0) metaDoc.minSize = doc.size;
+            else metaDoc.minSize = Math.min(metaDoc.minSize, doc.size);
+
+            // Update metaDoc.maxSize.
+            metaDoc.maxSize = Math.max(metaDoc.maxSize, doc.size);
+
+            // Update metaDoc.totalSize.
+            metaDoc.totalSize += doc.size;
+
+            // Update/replace the metadata document in the store.
+            var isAccepted = __.replaceDocument(metaDoc._self, metaDoc, function(err) {
+              if (err) throw err;
+              // Note: in case concurrent updates causes conflict with ErrorCode.RETRY_WITH, we can't read the meta again 
+              //       and update again because due to Snapshot isolation we will read same exact version (we are in same transaction).
+              //       We have to take care of that on the client side.
+            });
+            if (!isAccepted) throw new Error("replaceDocument(metaDoc) returned false.");
+          });
+          if (!result.isAccepted) throw new Error("filter for metaDoc returned false.");
+        }
+      });
+      if (!isAccepted) throw new Error("createDocument(actual doc) returned false.");
+    }
+
+## SQL-Javascript 치트 시트
+다음 표에서 다양한 SQL 쿼리 및 해당 JavaScript 쿼리를 표시합니다.
+
+SQL 쿼리를 사용하는 것과 같이 문서 속성 키(예: `doc.id`)는 소문자를 구분합니다.
+
+<br/> <table border="1" width="100%"> <colgroup> <col span="1" style="width: 40%;"> <col span="1" style="width: 40%;"> <col span="1" style="width: 20%;"> </colgroup> <tbody> <tr> <th>SQL</th> <th>JavaScript 쿼리 API</th> <th>세부 정보</th> </tr> <tr> <td> <pre> SELECT * FROM docs </pre> </td> <td> <pre> \_\_.map(function(doc) {return doc;}); </pre> </td> <td>모든 문서(연속 토큰과 함께 페이지가 매겨진)의 결과는 있는 그대로입니다.</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg, docs.actions FROM docs </pre> </td> <td> <pre> \_\_.map(function(doc) { return { id: doc.id, msg: doc.message, actions: doc.actions }; }); </pre> </td> <td>모든 문서에서 id, message(msg로 지정됨) 및 action을 프로젝션합니다.</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.filter(function(doc) { return doc.id === "X998\_Y998"; }); </pre> </td> <td>조건자: id = "X998\_Y998"을 사용한 문서에 대해 쿼리합니다.</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE ARRAY\_CONTAINS(docs.Tags, 123) </pre> </td> <td> <pre> \_\_.filter(function(x) { return x.Tags && x.Tags.indexOf(123) > -1; }); </pre> </td> <td>Tags 속성이 있는 문서에 대해 쿼리하고 Tags는 123 값을 포함하는 배열입니다.</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.id === "X998\_Y998"; }) .map(function(doc) { return { id: doc.id, msg: doc.message }; }) .value(); </pre> </td> <td>조건자 id = "X998\_Y998"을 사용한 문서에 대해 쿼리한 다음 id, message(msg로 지정됨)를 프로젝션합니다.</td> </tr> <tr> <td> <pre> SELECT VALUE tag FROM docs JOIN tag IN docs.Tags ORDER BY docs.\_ts </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.Tags && Array.isArray(doc.Tags); }) .sortBy(function(doc) { return doc.\_ts; }) .pluck("Tags") .flatten() .value() </pre> </td> <td>array 속성, Tags가 있는 문서에 대해 필터링하고 \_ts timestamp system 속성으로 결과 문서를 정렬한 다음 Tags 배열을 프로젝션 + 평면화합니다.</td> </tr> </tbody> </table>
+
 ## 런타임 지원
 [DocumentDB JavaScript 서버 쪽 SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/)는 [ECMA-262](documentdb-interactions-with-resources.md)에서 표준화된 일반 JavaScript 언어 기능을 대부분 지원합니다
 
@@ -629,7 +713,7 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 
 ## 다음 단계
 
-하나 이상의 저장된 프로시저, 트리거 및 생성된 사용자 정의 함수가 있다면 스크립트 탐색기를 사용하여 Azure Preview 포털에서 해당 함수를 로드하고 볼 수 있습니다. 자세한 내용은 [저장된 프로시저, 트리거 및 DocumentDB 스크립트 탐색기를 사용한 사용자 정의 함수](documentdb-view-scripts.md)를 참조하십시오.
+하나 이상의 저장된 프로시저, 트리거 및 생성된 사용자 정의 함수가 있다면 스크립트 탐색기를 사용하여 Azure Preview 포털에서 해당 함수를 로드하고 볼 수 있습니다. 자세한 내용은 [저장된 프로시저, 트리거 및 DocumentDB 스크립트 탐색기를 사용한 사용자 정의 함수](documentdb-view-scripts.md)를 참조하세요.
 
 또한 DocumentDB 서버 쪽 프로그래밍에 대한 자세한 내용을 보려면 경로에서 다음의 참조 자료 및 리소스가 유용합니다.
 
@@ -641,4 +725,4 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 -	[서비스 지향 데이터베이스 아키텍처](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Microsoft SQL server에서 .NET 런타임 호스팅](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!-------HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

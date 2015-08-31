@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -13,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="08/05/2015"
    ms.author="larryfr"/>
 
 
@@ -21,53 +22,73 @@
 
 Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시간 계산 시스템입니다. Azure HDInsight의 Storm을 사용하여 실시간 데이터 분석을 수행하는 클라우드 기반 Storm 클러스터를 만들 수 있습니다.
 
+[AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal-nolink.md)]
+
 ## 시작하기 전에
 
 이 Apache Storm 자습서를 성공적으로 완료하려면 다음 항목이 필요합니다.
 
 - **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
-## Azure 저장소 계정 만들기
+## Storm 클러스터 만들기
 
 HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에 제출된 토폴로지 및 로그 파일을 저장합니다. 다음 단계를 사용하여 클러스터에서 사용할 Azure 저장소 계정을 만들 수 있습니다.
 
-1. [Azure 포털](http://manage.windowsazure.com/)에 로그인합니다.
+1. [Azure 미리 보기 포털][preview-portal]에 로그인합니다.
 
-2. 왼쪽 아래에서 **새로 만들기**를 클릭하고 **데이터 서비스**, **저장소**를 차례로 가리킨 후 **빠른 생성**을 클릭합니다.
+2. **새로 만들기**를 선택하고 __데이터 분석__, __HDInsight__를 차례로 선택합니다.
 
-	![빠른 생성을 사용하여 새 저장소 계정을 설정할 수 있는 Azure 포털](./media/hdinsight-apache-storm-tutorial-get-started/HDI.StorageAccount.QuickCreate.png)
+	![Azure Preview 포털에서 새 클러스터 만들기](./media/hdinsight-apache-storm-tutorial-get-started/new-cluster.png)
 
-3. **URL**, **위치** 및 **복제** 정보를 입력하고 **저장소 계정 만들기**를 클릭합니다. HDInsight용 저장소를 만들 때는 선호도 그룹을 선택하지 마세요. 저장소 목록에 새 저장소 계정이 표시됩니다.
+3. __클러스터 이름__을 입력한 후 __클러스터 유형__에 대해 __Storm__을 선택합니다. 클러스터 이름을 사용할 수 있는 경우 __클러스터 이름__ 옆에 녹색 확인 표시가 나타납니다.
 
-	>[AZURE.NOTE]이 자습서에서 사용하게 되는 것과 같은 HDInsight 클러스터를 프로비전하기 위한 빠른 생성 옵션은 클러스터를 프로비전할 때 위치를 묻지 않습니다. 대신 기본적으로 저장소 계정이 있는 동일한 데이터 센터에 클러스터를 배치합니다. 따라서 클러스터에 지원되는 위치에서 저장소 계정을 만들어야 합니다. 지원되는 위치는 **동아시아**, **동남 아시아**, **북유럽**, **서유럽**, **미국 동부**, **미국 서부**, **미국 중북부**, **미국 중남부**입니다.
+	![클러스터 이름, 클러스터 유형 및 OS 유형](./media/hdinsight-apache-storm-tutorial-get-started/clustername.png)
 
-4. 새 저장소 계정의 **상태**가 **온라인**으로 변경될 때까지 기다립니다.
+4. 둘 이상의 구독이 있는 경우 __구독__ 항목을 선택하여 클러스터에 사용할 Azure 구독을 선택합니다.
 
-새 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만드는 방법](../storage/storage-create-storage-account.md)을 참조하세요.
+5. __리소스 그룹__의 경우 기존 리소스 그룹 목록을 표시할 항목을 선택한 다음 클러스터를 만들 리소스 그룹을 선택할 수 있습니다. 또는 __새로 만들기__를 선택한 다음 새 리소스 그룹의 이름을 입력할 수 있습니다. 새 그룹 이름을 사용할 수 있는지 여부를 나타내는 녹색 확인 표시가 나타납니다.
 
-##Azure 포털에서 Storm 클러스터 프로비전
+	> [AZURE.NOTE]사용할 수 있는 경우 이 항목은 기존 리소스 그룹 중 하나로 기본 설정됩니다.
 
-HDInsight 클러스터를 프로비전할 때는 Apache Storm과 관련 응용 프로그램을 포함하는 Azure 계산 리소스를 프로비전합니다. Azure 포털, HDInsight용 Azure PowerShell cmdlet 또는 HDInsight .NET SDK를 사용하여 다른 버전용 Hadoop 클러스터를 만들 수도 있습니다. 지침에 대해서는 [사용자 지정 옵션을 사용하여 HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요. 여러 다른 HDInsight 버전 및 해당 SLA(서비스 수준 계약)에 대한 자세한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md) 페이지를 참조하세요.
+6. __자격 증명__을 선택한 다음 __클러스터 로그인 사용자 이름__ 및 __클러스터 로그인 암호__를 입력합니다. 마지막으로 __선택__ 단추를 사용하여 자격 증명을 설정합니다. 이 문서에서는 원격 데스크톱을 사용하지 않으므로 사용 안 함으로 둡니다.
 
-[AZURE.INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
+	![클러스터 자격 증명 블레이드](./media/hdinsight-apache-storm-tutorial-get-started/clustercredentials.png)
 
-1. [Azure 포털][azureportal]에 로그인합니다.
+6. __데이터 원본__의 경우 항목을 선택하여 기존 데이터 원본을 선택하거나 새로 만듭니다.
 
-2. 왼쪽에서 **HDInsight**를 클릭하고 페이지 왼쪽 아래에서 **+새로 만들기**를 클릭합니다.
+	![데이터 원본 블레이드](./media/hdinsight-apache-storm-tutorial-get-started/datasource.png)
+	
+	현재 HDInsight 클러스터의 데이터 원본으로 Azure 저장소 계정을 선택할 수 있습니다. 다음을 사용하여 __데이터 원본__ 블레이드의 항목을 이해합니다.
+	
+	- __선택 방법__: 구독에서 저장소 계정을 찾을 수 있도록 하려면 이 항목을 __From all subscriptions(모든 구독에서)__로 설정합니다. 기존 저장소 계정의 __저장소 이름__ 및 __선택키__를 입력하려면 __선택키__로 설정합니다.
+	
+	- __새로 만들기__: 새 저장소 계정을 만들려면 사용합니다. 저장소 계정의 이름을 입력할 때 나타나는 필드를 사용합니다. 이름을 사용할 수 있는 경우 녹색 확인 표시가 나타납니다.
+	
+	- __기본 컨테이너 선택__: 클러스터에 사용할 기본 컨테이너의 이름을 입력하려면 이 항목을 사용합니다. 여기에 아무 이름이나 입력할 수 있지만, 컨테이너가 이 특정 클러스터에 사용됨을 쉽게 인식할 수 있도록 클러스터와 같은 이름을 사용하는 것이 좋습니다.
+	
+	- __위치__: 저장소 계정이 있거나 저장소 계정을 만들 지리적 지역입니다.
+	
+		> [AZURE.IMPORTANT]기본 데이터 원본의 위치를 선택하면 HDInsight 클러스터의 위치도 설정됩니다. 클러스터와 기본 데이터 원본은 같은 지역에 있어야 합니다.
+		
+	- __선택__: 데이터 원본 구성을 저장하려면 이 항목을 사용합니다.
+	
+7. __노드 가격 책정 계층__을 선택하여 이 클러스터에 대해 만들어질 노드에 대한 정보를 표시합니다. 기본적으로 작업자 노드 수는 __4__로 설정됩니다. 이 자습서에서는 충분하고 클러스터의 비용이 감소하므로 이 항목을 __1__로 설정합니다. 클러스터의 예상 비용이 이 블레이드의 맨 아래에 표시됩니다.
 
-3. 두 번째 열에서 HDInsight 아이콘을 클릭하고 **STORM**을 선택합니다.
+	![노드 가격 책정 계층 블레이드](./media/hdinsight-apache-storm-tutorial-get-started/nodepricingtiers.png)
+	
+	__선택__ 단추를 사용하여 __노드 가격 책정 계층__ 정보를 저장합니다.
 
-	![빠른 생성](./media/hdinsight-apache-storm-tutorial-get-started/quickcreate.png)
+8. __선택적 구성__을 선택합니다. 이 블레이드를 사용하여 클러스터 버전을 선택하고 __가상 네트워크__에 가입, Hive 및 Oozie의 데이터를 유지하기 위한 __외부 Metastore__ 설정 등 기타 선택적 설정을 구성할 수 있습니다.
 
-4. 고유한 클러스터 이름을 입력하고 관리 계정의 고유한 암호를 입력합니다. **저장소 계정**에서 이전에 만든 저장소 계정을 선택합니다.
+	![선택적 구성 블레이드](./media/hdinsight-apache-storm-tutorial-get-started/optionalconfiguration.png)
 
-	**클러스터 크기**에서 **1 데이터 노드**를 이 클러스터에 사용하도록 선택합니다. 이 옵션은 클러스터와 관련된 비용을 최소화합니다. 프로덕션용의 경우 더 큰 클러스터를 만듭니다.
+9. __시작 보드에 고정__이 선택되어 있는지 확인한 다음 __만들기__를 선택합니다. 그러면 클러스터가 만들어지고 Azure 포털의 시작 보드에 클러스터 타일이 추가됩니다. 아이콘이 클러스터를 프로비전 중임을 나타내고 프로비전이 완료되면 변경되어 HDInsight 아이콘을 표시합니다.
 
-	> [AZURE.NOTE]클러스터의 관리자 계정 이름은 **admin**으로 지정됩니다. 입력한 암호는 이 계정의 암호입니다. Storm 토폴로지를 제출하거나 관리하는 등 클러스터에 대한 작업을 수행하려면 이 정보가 필요합니다.
+	| 프로비전 중 | 프로비전 완료 |
+	| ------------------ | --------------------- |
+	| ![시작 보드에 표시기 프로비전](./media/hdinsight-apache-storm-tutorial-get-started/provisioning.png) | ![프로비전된 클러스터 타일](./media/hdinsight-apache-storm-tutorial-get-started/provisioned.png) |
 
-5. 마지막으로 **HDINSIGHT 클러스터 만들기** 옆에 있는 확인 표시를 선택하여 클러스터를 만듭니다.
-
-> [AZURE.NOTE]클러스터 프로비저닝에서 클러스터를 만들고, 소프트웨어를 구성하고, 샘플 데이터 및 토폴로지를 설치하는 데 약간의 시간(일반적으로 15분 미만)이 걸립니다.
+	> [AZURE.NOTE]클러스터를 만드는 데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 __알림__ 항목을 사용하여 프로비전 프로세스를 확인하세요.
 
 ##HDInsight에서 Storm Starter 샘플 실행
 
@@ -77,9 +98,9 @@ HDInsight 클러스터를 프로비전할 때는 Apache Storm과 관련 응용 �
 
 ###<a id="connect"></a>대시보드에 연결
 
-대시보드는 **https://&lt;clustername>.azurehdinsight.net//**(여기서 **clustername**은 클러스터의 이름)에 있습니다. 대시보드 링크는 클러스터에 대한 Azure 포털 페이지의 아래쪽에서 찾을 수 있습니다.
+대시보드는 **https://&lt;clustername>.azurehdinsight.net//**(여기서 **clustername**은 클러스터의 이름)에 있습니다. 또한 시작 보드에서 클러스터를 선택하고 블레이드 맨 위에서 __대시보드__ 링크를 선택하여 대시보드에 대한 링크를 찾을 수 있습니다.
 
-![Storm 대시보드 링크가 있는 Azure 포털](./media/hdinsight-apache-storm-tutorial-get-started/dashboard-link.png)
+![Storm 대시보드 링크가 있는 Azure 포털](./media/hdinsight-apache-storm-tutorial-get-started/dashboard.png)
 
 > [AZURE.NOTE]대시보드를 연결할 때 사용자 이름 및 암호를 입력하라는 메시지가 표시됩니다. 이는 관리자 이름(**admin**) 및 클러스터를 만들 때 사용한 암호입니다.
 
@@ -215,5 +236,6 @@ Storm UI를 사용하여 토폴로지를 모니터링할 수 있습니다.
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [azureportal]: https://manage.windowsazure.com/
 [hdinsight-provision]: hdinsight-provision-clusters.md
+[preview-portal]: https://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

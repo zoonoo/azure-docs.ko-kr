@@ -3,8 +3,8 @@
 	description="Windows PowerShell을 사용하여 역할 기반 액세스 제어 관리"
 	services="azure-portal"
 	documentationCenter="na"
-	authors="Justinha"
-	manager="terrylan"
+	authors="IHenkel"
+	manager="stevenpo"
 	editor="mollybos"/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="powershell"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/11/2015"
-	ms.author="justinha"/>
+	ms.date="08/14/2015"
+	ms.author="inhenk"/>
 
 # Windows PowerShell을 사용하여 역할 기반 액세스 제어 관리 #
 
@@ -163,6 +163,5 @@ Windows PowerShell을 사용하여 역할 기반 액세스 제어를 관리하�
 - ["Hey, Scripting Guy!" 블로그](http://blogs.technet.com/b/heyscriptingguy/): Windows PowerShell 커뮤니티에서 실제 팁과 요령을 확인합니다.
 - [Azure CLI를 사용하여 역할 기반 액세스 제어 구성](role-based-access-control-xplat-cli.md)
 - [역할 기반 액세스 제어 문제 해결](role-based-access-control-troubleshooting.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

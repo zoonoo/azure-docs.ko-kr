@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/06/2015"
+   ms.date="08/19/2015"
    ms.author="alkohli" />
 
 # StorSimple 장치 켜기 또는 끄기 
@@ -28,7 +28,7 @@ Microsoft Azure StorSimple 장치 종료는 정상적인 시스템 작업의 일
 |새 장치 켜기|[새 장치 켜기](#turn-on-a-new-device)<ul><li>[기본 인클로저만 있는 새 장치](#new-device-with-primary-enclosure-only)</li><li>[EBOD 인클로저가 있는 새 장치](#new-device-with-ebod-enclosure)</li></ul>|
 |종료 후 장치 켜기|[종료 후 장치 켜기](#turn-on-a-device-after-shutdown)<ul><li>[기본 인클로저만 있는 장치](#device-with-primary-enclosure-only)</li><li>[EBOD 인클로저가 있는 장치](#device-with-ebod-enclosure)</li></ul>|
 |전원 손실 후 장치 켜기|[전원 손실 후 장치 켜기](#turn-on-a-device-after-a-power-loss)<ul><li>[기본 인클로저만 있는 장치](#8100)</li><li>[EBOD 인클로저가 있는 장치](#8600)</li></ul>|
-|기본 인클로저 및 EBOD 연결 손실 후 장치 켜기|[기본 및 EBOD 인클로저 연결 손실 후 장치 켜기](turn-on-a-device-after-the-primary-and-EBOD-enclosure-connection-is-lost)|
+|기본 인클로저 및 EBOD 연결 손실 후 장치 켜기|[기본 및 EBOD 인클로저 연결 손실 후 장치 켜기](#turn-on-a-device-after-the-primary-and-EBOD-enclosure-connection-is-lost)|
 |실행 중인 장치 종료|[실행 중인 장치 끄기](#turn-off-a-running-device)<ul><li>[기본 인클로저만 있는 장치](#8100a)</li><li>[EBOD 인클로저가 있는 장치](#8600a)</li></ul>|
 
 ## 새 장치 켜기
@@ -37,7 +37,7 @@ Microsoft Azure StorSimple 장치 종료는 정상적인 시스템 작업의 일
 
 - [기본 인클로저만 있는 새 장치](#new-device-with-primary-enclosure-only)
 
-- [EBOD 인클로저가 있는 새 장치](#new-device-with-EBOD-enclosure)
+- [EBOD 인클로저가 있는 새 장치](#new-device-with-ebod-enclosure)
 
 ### 기본 인클로저만 있는 새 장치
 
@@ -241,4 +241,4 @@ EBOD 인클로저의 두 전원 공급 장치가 실패한 경우 시스템이 �
 
 StorSimple 장치의 전원을 켜거나 종료할 때 문제가 발생하는 경우 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하십시오.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -15,7 +15,7 @@
    ms.date="07/22/2015"
    ms.author="joaoma" />
 
-# Azure 리소스 관리자를 사용하여 부하 분산 장치를 만드는 방법
+# Azure 리소스 관리자를 사용하여 내부 부하 분산 장치 구성 시작
 
 
 > [AZURE.SELECTOR]
@@ -245,4 +245,4 @@ Add-AzureVMNetworkInterface 명령을 사용하여 가상 컴퓨터에 NIC를 �
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

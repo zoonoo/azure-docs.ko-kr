@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/27/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
 
 # StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리
@@ -71,8 +71,8 @@ StorSimple Manager 서비스 UI에 대한 탐색 기록이 다음 테이블에 �
 |수행하려는 작업 ...|이 UI 페이지로 이동 ...|이 절차를 사용합니다.|
 |---|---|---|
 |서비스 만들기</br>서비스 삭제</br>서비스 등록 키 얻기</br>서비스 등록 키 다시 생성|StorSimple 관리자 서비스|[StorSimple Manager 서비스 배포](storsimple-manage-service.md)
-|서비스 데이터 암호화 키 변경</br>작업 로그 보기|StorSimple Manager 서비스 → 대시보드|[StorSimple Manager 서비스 대시보드 사용](storsimple-service-dashboard.md)|
-|장치 비활성화</br>장치 삭제|StorSimple Manager 서비스 → 장치|[장치 비활성화 또는 장치 삭제]()|
+|서비스 데이터 암호화 키 변경</br>작업 로그 보기|StorSimple Manager 서비스 → 대시보드|[StorSimple 관리자 서비스 대시보드 사용](storsimple-service-dashboard.md)|
+|장치 비활성화</br>장치 삭제|StorSimple Manager 서비스 → 장치|[장치 비활성화 또는 장치 삭제](storsimple-deactivate-and-delete-device.md)|
 |재해 복구 및 장치 장애 조치(Failover)</br>물리적 장치에 장애 조치(Failover)</br>가상 장치에 장애 조치(Failover)</br>비즈니스 연속성 재해 복구(BCDR)에 대해 알아봅니다.|StorSimple Manager 서비스 → 장치|[StorSimple 장치에 대한 장애 조치 및 재해 복구](storsimple-device-failover-disaster-recovery.md)|
 |볼륨에 대한 백업 목록</br>백업 세트 선택</br>백업 세트 삭제|StorSimple Manager 서비스 → 백업 카탈로그|[백업 관리](storsimple-manage-backup-catalog.md)|
 |볼륨 복제|StorSimple Manager 서비스 → 백업 카탈로그|[볼륨 복제](storsimple-clone-volume.md)|
@@ -83,7 +83,7 @@ StorSimple Manager 서비스 UI에 대한 탐색 기록이 다음 테이블에 �
 |작업 세부 정보 보기</br>작업 취소|StorSimple Manager 서비스 → 작업|[작업 관리](storsimple-manage-jobs.md)
 |경고 알림 받기</br>경고 관리</br>경고 검토|StorSimple Manager 서비스 → 경고|[StorSimple 경고 보기 및 관리](storsimple-manage-alerts.md)
 |연결된 시작자 보기</br>장치 일련번호 찾기</br>대상 IQN 찾기|StorSimple Manager 서비스 → 장치 → 대시보드|[StorSimple 장치 대시보드 사용](storsimple-device-dashboard.md)|
-|모니터링 차트 만들기|StorSimple Manager 서비스 → 장치 → 모니터링|[StorSimple 장치 모니터링](https://msdn.microsoft.com/library/azure/dn757759.aspx)|
+|모니터링 차트 만들기|StorSimple Manager 서비스 → 장치 → 모니터링|[StorSimple 장치 모니터링](storsimple-monitor-device.md)|
 |볼륨 컨테이너 추가</br>볼륨 컨테이너 수정</br>볼륨 컨테이너 삭제|StorSimple Manager 서비스 → 장치 → 볼륨 컨테이너|[볼륨 컨테이너 관리](storsimple-manage-volume-containers.md)|
 |볼륨 추가</br>볼륨 수정</br>볼륨을 오프라인으로 전환</br>볼륨 삭제</br>볼륨 모니터링|StorSimple Manager 서비스 → 장치 → 볼륨 컨테이너 → 볼륨|[볼륨 관리](storsimple-manage-volumes.md)|
 |장치 설정 수정</br>시간 설정 수정</br>DNS.md 설정 수정</br>네트워크 인터페이스 구성|StorSimple Manager 서비스 → 장치 → 구성|[StorSimple 장치에 대한 장치 구성 수정](storsimple-modify-device-config.md)|
@@ -107,6 +107,6 @@ StorSimple 장치의 일상적인 작업 또는 해당 하드웨어 구성 요�
 
 문제를 해결할 수 없고 서비스 요청을 만드는 데 필요한 경우 다음을 참조하세요.
 
--  [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)
+-  [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

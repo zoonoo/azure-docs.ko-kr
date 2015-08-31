@@ -1,6 +1,6 @@
-<properties pageTitle="Azure Backup - backup and restore from a Windows Server or Windows Client" | Microsoft Azure description="백업 및 Windows Server 또는 Windows 클라이언트에서 복원하는 방법을 알아봅니다.” The article also covers alternate server recovery" services="backup" documentationCenter="" authors="Jim-Parker" manager="jwhit" editor=""/>
+<properties pageTitle="Azure Backup - backup and restore from a Windows Server or Windows Client" | Microsoft Azure description="백업 및 Windows Server 또는 Windows 클라이언트에서 복원하는 방법을 알아봅니다.” 문서는 대체 서버 복구에 대해서도 설명합니다" services="backup" documentationCenter="" authors="Jim-Parker" manager="jwhit" editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/01/2015" ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/18/2015" ms.author="jimpark"; "aashishr"/>
 
 # Windows 서버 또는 Windows 클라이언트 컴퓨터에서 백업 및 복원
 이 문서는 Windows 서버 또는 Windows 클라이언트 컴퓨터에서 백업하는 데 필요한 단계를 설명합니다. 또한 동일한 컴퓨터에 백업된 파일을 복원하는 데 필요한 단계와 다른 컴퓨터에 백업된 파일을 복원하는 데 필요한 단계를 다룹니다.
@@ -111,7 +111,13 @@
 
 11. 입력을 제공했으면 제공된 대상에 백업된 파일을 복원하는 작업을 트리거하는 **복구** 단추를 트리거합니다.
 
+## 연습 동영상
+
+이 자습서의 비디오 연습은 다음과 같습니다.
+
+[AZURE.VIDEO azurebackuprestoreserverandclient]
+
 ## 다음 단계
 - [Azure 백업 - FAQ](backup-azure-backup-faq.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

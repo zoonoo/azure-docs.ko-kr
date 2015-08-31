@@ -103,4 +103,4 @@
 [.NET 백 엔드 모바일 서비스에 대한 데이터 모델 변경 방법]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

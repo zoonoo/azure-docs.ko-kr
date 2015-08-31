@@ -12,14 +12,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/14/2015"
+   ms.date="08/14/2015"
    ms.author="alkohli" />
 
 # 장치의 안전성
 
 ![경고 아이콘](./media/storsimple-safety/IC740879.png) ![안전성 고지 읽기 아이콘](./media/storsimple-safety/IC740885.png) **안전성 및 상태 정보 읽기**
 
-이 문서에서 Microsoft Azure StorSimple 장치에 적용되는 모든 안전성 및 상태 정보를 읽으십시오 나중에 참조할 수 있도록 StorSimple 장치와 함께 제공되는 모든 인쇄된 가이드를 보관하십시오. 지침을 따르지 않고 이 제품을 적절하게 설정, 사용 및 관리하지 않으면 심각한 부상 또는 사망 위험이 증가하거나 장치가 손상될 수 있습니다. [이 가이드의 다운로드 가능한 버전](http://www.microsoft.com/ko-kr/download/details.aspx?id=44233)도 제공됩니다.
+이 문서에서 Microsoft Azure StorSimple 장치에 적용되는 모든 안전성 및 상태 정보를 읽으십시오 나중에 참조할 수 있도록 StorSimple 장치와 함께 제공되는 모든 인쇄된 가이드를 보관하십시오. 지침을 따르지 않고 이 제품을 적절하게 설정, 사용 및 관리하지 않으면 심각한 부상 또는 사망 위험이 증가하거나 장치가 손상될 수 있습니다. [이 가이드의 다운로드할 수 있는 버전](http://www.microsoft.com/download/details.aspx?id=44233)도 제공됩니다.
 
 ## 안전성 아이콘 표시 규칙
 
@@ -129,7 +129,7 @@
 
 부상, 감전 또는 사망 가능성을 줄이려면:
 
-- PCM에서 커버를 제거하지 마십시오. 내부 감전 위험이 있습니다. PCM을 반환하고 교체하려면 [Contact Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하십시오.
+- PCM에서 커버를 제거하지 마십시오. 내부 감전 위험이 있습니다. PCM을 반환하고 교체하려면 [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하세요.
 
 ![참고 아이콘](./media/storsimple-safety/IC740881.png) **고지:**
 
@@ -175,8 +175,8 @@
 
 ## 다음 단계
 
-- 8100 장치의 경우 [8100 장치 개봉, 랙 및 케이블 연결](storsimple-8600-hardware-installation)로 이동합니다.
+- 8100 장치의 경우 [StorSimple 8100 장치 설치](storsimple-8100-hardware-installation.md)로 이동합니다.
 
-- 8600 장치의 경우 [8600 장치 개봉, 랙 및 케이블 연결](storsimple-8600-hardware-installation)로 이동합니다.
+- 8600 장치의 경우 [StorSimple 8600 장치 설치](storsimple-8600-hardware-installation.md)로 이동합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

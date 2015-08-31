@@ -1,20 +1,20 @@
-<properties 
-   pageTitle="HDInsight의Apache Spark 클러스터 프로비전 | Microsoft Azure" 
-   description="Azure 포털, Azure PowerShell, 명령줄 또는 HDInsight .NET SDK를 사용하여 Azure HDInsight용 Spark 클러스터를 프로비전하는 방법에 대해 알아봅니다." 
-   services="hdinsight" 
-   documentationCenter="" 
-   authors="nitinme" 
-   manager="paulettm" 
-   editor="cgronlun"/>
-
+<properties
+   pageTitle="HDInsight의Apache Spark 클러스터 프로비전 | Microsoft Azure"
+   description="Azure 포털, Azure PowerShell, 명령줄 또는 HDInsight .NET SDK를 사용하여 Azure HDInsight용 Spark 클러스터를 프로비전하는 방법에 대해 알아봅니다."
+   services="hdinsight"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
+   editor="cgronlun"
+   tags="azure-portal"/>
 <tags
-   ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
-   ms.date="07/10/2015"
-   ms.author="nitinme"/>
+    ms.service="hdinsight"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="big-data"
+    ms.date="08/17/2015"
+    ms.author="nitinme"/>
 
 # 사용자 지정 옵션을 사용하여 HDInsight의Apache Spark 클러스터 프로비전
 
@@ -41,6 +41,8 @@
 
 Spark는 스키마를 원시 데이터에 대해 Hive 테이블 정의할 수 있습니다. 외부 메타 스토어에 이러한 스키마와 테이블 메타데이터를 저장할 수 있습니다. Metastore를 사용하면 Hive 메타데이터를 보존할 수 있으므로 새 클러스터를 프로비전할 때 Hive 테이블을 다시 만들 필요가 없습니다. Hive는 기본적으로 포함된 데이터베이스를 사용하여 이 정보를 저장합니다. 포함된 데이터베이스에서는 클러스터가 삭제된 경우 메타데이터를 유지할 수 없습니다.
 
+Azure에서 SQL 데이터베이스를 만드는 방법에 대한 자세한 내용은 [첫 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하세요.
+
 ### 클러스터 사용자 지정
 
 프로비전하는 동안 스크립트를 사용하여 추가 구성 요소를 설치하거나 클러스터 구성을 사용자 지정할 수 있습니다. 해당 스크립트는 **스크립트 작업**을 통해 호출됩니다. 스크립트 작업은 Azure 포털, HDInsight Windows PowerShell cmdlet 또는 HDInsight .NET SDK에서 사용할 수 있는 구성 옵션입니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-customize-cluster]을 참조하세요.
@@ -66,298 +68,196 @@ Spark는 스키마를 원시 데이터에 대해 Hive 테이블 정의할 수 �
 
 가상 네트워크의 기능과 이점에 대한 자세한 내용은 [Azure 가상 네트워크 개요](http://msdn.microsoft.com/library/azure/jj156007.aspx)를 참조하세요.
 
-> [AZURE.NOTE]클러스터를 프로비전하기 전에 Azure 가상 네트워크를 만들어야 합니다. 자세한 내용은 [가상 네트워크 구성 작업](http://msdn.microsoft.com/library/azure/jj156206.aspx)을 참조하세요.
+> [AZURE.NOTE]클러스터를 프로비전하기 전에 Azure 가상 네트워크를 만들어야 합니다. 자세한 내용은 [가상 네트워크를 만드는 방법](virtual-networks-create-vnet.md)을 참조하세요.
 >
 > Azure HDInsight는 위치 기반 가상 네트워크만 지원하며 현재 선호도 그룹 기반 가상 네트워크와는 연동되지 않습니다.
 >
 > 각 클러스터에 단일 서브넷을 지정하는 것이 좋습니다.
 
-##<a id="portal"></a> Azure 포털 사용
+##<a id="portal"></a> Azure 미리 보기 포털 사용
 
-HDInsight에서 Spark 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시스템으로 사용합니다. HDInsight 클러스터를 만들려면 먼저 동일한 데이터 센터에 위치한 Azure 저장소 계정이 필요합니다. 자세한 내용은 [HDInsight와 함께 Azure Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하십시오. Azure 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만드는 방법][azure-create-storageaccount]을 참조하세요.
+HDInsight에서 Spark 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시스템으로 사용합니다. HDInsight 클러스터를 만들려면 먼저 동일한 데이터 센터에 위치한 Azure 저장소 계정이 필요합니다. 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요. Azure 저장소 계정 만들기에 대한 자세한 내용은 [저장소 계정을 만드는 방법][azure-create-storageaccount]을 참조하세요.
 
 **사용자 지정 만들기 옵션을 사용하여 HDInsight 클러스터를 만들려면**
 
-1. [Azure 포털][azure-management-portal]에 로그인합니다.
-2. 페이지 아래에서 **+ 새로 만들기**를 클릭한 후 **데이터 서비스**, **HDInsight**, **사용자 지정 만들기**를 차례로 클릭합니다.
-3. **클러스터 세부 정보** 페이지에서 다음 값을 입력하거나 선택합니다.
+1. [Azure 미리 보기 포털](https://portal.azure.com)에 로그인합니다.
+2. **새로 만들기**, **데이터 분석** 및 **HDInsight**를 차례로 클릭합니다.
 
-	![HDInsight 클러스터 세부 정보에 대해 Spark 제공](./media/hdinsight-apache-spark-provision-clusters/HDI.CustomProvision.Page1.png "HDInsight 클러스터 세부 정보에 대해 Spark 제공")
+    ![Azure 미리 보기 포털에서 새 클러스터 만들기](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.1.png "Azure 미리 보기 포털에서 새 클러스터 만들기")
 
-    <table border='1'>
-	<tr><th>속성</th><th>값</th></tr>
-	<tr><td>클러스터 이름</td>
-		<td><p>클러스터의 이름 </p>
-			<ul>
-			<li>DNS(Domain Name System) 이름은 영숫자 문자로 시작 및 끝나야 하고 대시를 포함할 수 있습니다.</li>
-			<li>필드는 3자에서 63자 사이의 문자열이어야 합니다.</li>
-			</ul></td></tr>
-	<tr><td>클러스터 유형</td>
-		<td>클러스터 유형으로 <strong>Spark</strong> 선택</td></tr>
-	<tr><td>운영 체제</td>
-		<td><b>Windows Server 2012 R2 데이터 센터</b>를 선택하여 Windows에서 실행되는 Spark 클러스터를 프로비전합니다. </td></tr>
-	<tr><td>HDInsight 버전</td>
-		<td>버전 선택. Spark의 경우 사용할 수 있는 버전 옵션은 <b>HDInsight 3.2</b>으로 Spark 1.3.1를 사용합니다.</td></tr>
-	</table>
-	테이블에 표시되는 대로 값을 입력하거나 선택하고 오른쪽 화살표를 클릭합니다.
+3. **클러스터 이름**을 입력하고 **클러스터 유형**으로 **Hadoop**을 선택하고 **클러스터 운영 체제** 드롭다운에서 **Windows Server 2012 R2 Datacenter**를 선택합니다. 클러스터 이름을 사용할 수 있는 경우 클러스터 이름 옆에 녹색 확인 표시가 나타납니다.
 
-4. **클러스터 구성** 페이지에서 다음 값을 입력하거나 선택합니다.
+	![클러스터 이름 및 유형 입력](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.2.png "클러스터 이름 및 유형 입력")
 
-	![클러스터용 노드 수 및 노드 유형 제공](./media/hdinsight-apache-spark-provision-clusters/HDI.CustomProvision.Page2.png "클러스터용 노드 수 및 노드 유형 제공")
+4. 둘 이상의 구독이 있는 경우 **구독** 항목을 클릭하여 클러스터에 사용할 Azure 구독을 선택합니다.
 
-	<table border="1">
-<tr><th>이름</th><th>값</th></tr>
-<tr><td>데이터 노드</td><td>배포하려는 데이터 노드 수입니다. 테스트 목적으로 단일 노드 클러스터를 만듭니다. <br />클러스터 크기 제한은 Azure 구독에 따라 다릅니다. 제한을 늘리려면 Azure 청구 지원 팀에 문의하세요.</td></tr>
-<tr><td>지역/가상 네트워크</td><td><p>마지막 절차에서 만든 저장소 계정과 동일한 지역을 선택합니다. HDInsight를 사용하려면 저장소 계정이 동일한 지역에 있어야 합니다. 구성의 뒷부분에서 여기서 지정한 지역과 동일한 지역에 있는 저장소 계정만 선택할 수 있습니다.</p>.<br/>Azure 가상 네트워크를 만들었으면 HDInsight 클러스터에서 사용하도록 구성할 네트워크를 선택할 수 있습니다.</p><p>Azure 가상 네트워크 만들기에 대한 자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/jj156206.aspx">가상 네트워크 구성 작업</a>을 참조하세요.</p></td></tr>
-<tr><td>헤드 노드 크기</td><td><p>헤드 노드에 대한 VM(가상 컴퓨터) 크기를 선택합니다.</p></td></tr>
-<tr><td>데이터 노드 크기</td><td><p>데이터 노드에 대한 VM 크기를 선택합니다.</p></td></tr>
-</table>
-	>[AZURE.NOTE] 선택한 VM에 따라 비용이 달라질 수 있습니다. HDInsight에서는 클러스터 노드에 모든 표준 계층 VM을 사용합니다. VM 크기가 가격에 미치는 영향에 대한 자세한 내용은 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 가격</a>을 참조하세요.
+5. **리소스 그룹**을 클릭하여 기존 리소스 그룹 목록을 표시한 다음 클러스터를 만들 리소스 그룹을 선택합니다. 또는 **새로 만들기**를 클릭한 다음 새 리소스 그룹의 이름을 입력할 수 있습니다. 새 그룹 이름을 사용할 수 있는지 여부를 나타내는 녹색 확인 표시가 나타납니다.
 
+	> [AZURE.NOTE]사용할 수 있는 경우 이 항목은 기존 리소스 그룹 중 하나로 기본 설정됩니다.
 
-5. **클러스터 사용자 구성** 페이지에서 다음 값을 제공합니다.
+6. **자격 증명**을 클릭한 다음 **클러스터 로그인 사용자 이름** 및 **클러스터 로그인 암호**를 입력합니다. 클러스터 노드에 대해 원격 데스크톱을 사용하도록 설정하려면 **원격 데스크톱 사용**에 대해 **예**를 클릭합니다. 클러스터에 대한 원격 데스크톱 액세스가 만료되는 경우 날짜를 선택하고 원격 데스크톱 사용자에 대한 사용자 이름/암호를 제공합니다. 아래쪽의 **선택**을 클릭하여 자격 증명 구성을 저장합니다.
 
-    ![관리 사용자 및 RDP 사용자 세부 정보 제공](./media/hdinsight-apache-spark-provision-clusters/HDI.CustomProvision.Page3.png "관리 사용자 및 RDP 사용자 세부 정보 제공")
+	![클러스터 자격 증명 제공](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.3.png "클러스터 자격 증명 제공")
 
-    <table border='1'>
-	<tr><th>속성</th><th>값</th></tr>
-	<tr><td>HTTP 사용자 이름</td>
-		<td>HDInsight 클러스터 사용자 이름 지정</td></tr>
-	<tr><td>HTTP 암호/암호 확인</td>
-		<td>HDInsight 클러스터 사용자 암호 지정</td></tr>
-	<tr><td>클러스터에 대한 원격 데스크톱 활성화</td>
-		<td>클러스터가 프로비전된 후 원격 데스크톱 사용자가 클러스터 노드에 원격으로 연결할 수 있는 사용자 이름, 암호 및 만료 날짜를 지정하려면 이 확인란을 선택합니다. 클러스터가 프로비전된 후 나중에 원격 데스크톱을 사용하도록 설정할 수도 있습니다. 지침은 <a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">RDP를 사용하여 HDInsight 클러스터에 연결</a>을 참조하세요.</td></tr>
-	<tr><td>Hive/Oozie Metastore 입력</td>
-		<td>클러스터와 동일한 데이터 센터에서 Hive/Oozie Metastore로 사용할 SQL 데이터베이스를 지정하려면 이 확인란을 선택합니다. 이 확인란을 선택한 경우 마법사의 후속 페이지에서 Azure SQL 데이터베이스에 대한 세부 정보를 지정해야 합니다. 이 확인란은 클러스터가 삭제된 후에도 Hive/Oozie 작업에 대한 메타데이터를 유지하려는 경우에 유용합니다. 메타스토어를 만드는 방법에 대한 지침은 <a href="https://azure.microsoft.com/ko-kr/documentation/articles/sql-database-get-started/" target="_blank">첫 번째 Azure SQL 데이터베이스 만들기</a>를 참조하십시오..</td></tr>
-	</td></tr>
-</table>
-	>[AZURE.NOTE] 메타스토어에 사용되는 Azure SQL 데이터베이스는 Azure HDInsight를 비롯한 다른 Azure 서비스로의 연결을 허용해야 합니다. Azure SQL 데이터베이스 대시보드의 오른쪽에서 서버 이름을 클릭합니다. 이 서버는 SQL 데이터베이스 인스턴스가 실행되는 서버입니다. 서버 보기에서 **구성**을 클릭하고 **Windows** **Azure 서비스**에 대해 **예**를 클릭한 다음 **저장**을 클릭합니다.
+7. **데이터 원본**을 클릭하여 클러스터의 기존 데이터 원본을 선택하거나 새로 만듭니다.
 
-    오른쪽 화살표를 클릭합니다.
+	![데이터 원본 블레이드](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.4.png "데이터 원본 구성 제공")
 
-6. **Hive/Oozie Metastore 구성** 페이지에서 다음 값을 제공합니다.
+	현재 HDInsight 클러스터의 데이터 원본으로 Azure 저장소 계정을 선택할 수 있습니다. 다음을 사용하여 **데이터 원본** 블레이드의 항목을 이해합니다.
 
-    ![Hive/Oozie 메타스토어 데이터베이스 세부 정보 제공](./media/hdinsight-apache-spark-provision-clusters/HDI.CustomProvision.Page4.png "Hive/Oozie 메타스토어 데이터베이스 세부 정보 제공")
+	- **선택 방법**: 모든 구독에서 저장소 계정을 찾을 수 있도록 하려면 이 항목을 **From all subscriptions(모든 구독에서)**로 설정합니다. 기존 저장소 계정의 **저장소 이름** 및 **액세스 키**를 입력하려면 이 항목을 **액세스 키**로 설정합니다.
 
-	Hive/Oozie Metastore로 사용할 Azure SQL 데이터베이스를 지정합니다. Hive Metastore와 Oozie Metastore 둘 다에 대해 동일한 데이터베이스를 지정할 수 있습니다. 이 SQL 데이터베이스는 HDInsight 클러스터와 동일한 데이터 센터에 있어야 합니다. 목록 상자에는 <strong>클러스터 세부 정보</strong> 페이지에서 지정한 것과 동일한 데이터 센터에 있는 SQL 데이터베이스만 나열됩니다. 선택한 Azure SQL 데이터베이스에 연결할 사용자 이름 및 암호도 지정합니다.
+	- **저장소 계정 선택/새로 만들기**: 클러스터와 연결할 기존 저장소 계정을 찾아 선택하려면 **저장소 계정 선택**을 클릭합니다. 또는 새 저장소 계정을 만들려면 **새로 만들기**를 클릭합니다. 저장소 계정의 이름을 입력할 때 나타나는 필드를 사용합니다. 이름을 사용할 수 있는 경우 녹색 확인 표시가 나타납니다.
 
-    >[AZURE.NOTE]메타스토어에 사용되는 Azure SQL 데이터베이스는 Azure HDInsight를 비롯한 다른 Azure 서비스로의 연결을 허용해야 합니다. Azure SQL 데이터베이스 대시보드의 오른쪽에서 서버 이름을 클릭합니다. 이 서버는 SQL 데이터베이스 인스턴스가 실행되는 서버입니다. 서버 보기에서 **구성**을 클릭하고 **Azure 서비스**에 대해 **예**를 클릭한 다음 **저장**을 클릭합니다.
+	- **기본 컨테이너 선택**: 클러스터에 사용할 기본 컨테이너의 이름을 입력하려면 이 항목을 사용합니다. 여기에 아무 이름이나 입력할 수 있지만, 컨테이너가 이 특정 클러스터에 사용됨을 쉽게 인식할 수 있도록 클러스터와 같은 이름을 사용하는 것이 좋습니다.
 
-    오른쪽 화살표를 클릭합니다.
+	- **위치**: 저장소 계정이 있거나 저장소 계정을 만들 지역입니다.
 
-7. **저장소 계정** 페이지에서 다음 값을 제공합니다.
+		> [AZURE.IMPORTANT]기본 데이터 원본의 위치를 선택하면 HDInsight 클러스터의 위치도 설정됩니다. 클러스터와 기본 데이터 원본은 같은 지역에 있어야 합니다.
 
-    ![저장소 계정 세부 정보 제공](./media/hdinsight-apache-spark-provision-clusters/HDI.CustomProvision.Page5.png "저장소 계정 세부 정보 제공")
+	**선택**을 클릭하여 데이터 원본 구성을 저장합니다.
 
-	<table border='1'>
-	<tr><th>속성</th><th>값</th></tr>
-	<tr><td>저장소 계정</td>
-		<td>HDInsight 클러스터의 기본 파일 시스템으로 사용할 Azure 저장소 계정 지정. 세 가지 옵션 중 하나를 선택할 수 있습니다.
-		<ul>
-			<li><strong>기존 저장소 사용</strong></li>
-			<li><strong>새 저장소 만들기</strong></li>
-			<li><strong>다른 구독의 저장소 사용</strong></li>
-		</ul>
-		</td></tr>
-	<tr><td>계정 이름</td>
-		<td><ul>
-			<li>기존 저장소를 사용하도록 선택한 경우 <strong>계정 이름</strong>에서 기존 저장소 계정을 선택합니다. 드롭다운에는 클러스터를 프로비전하도록 선택한 것과 동일한 데이터 센터에 있는 저장소 계정만 표시됩니다.</li>
-			<li><strong>새 저장소 만들기</strong> 또는 <strong>다른 구독의 저장소 사용</strong> 옵션을 선택한 경우에는 저장소 계정 이름을 제공해야 합니다.</li>
-		</ul></td></tr>
-	<tr><td>계정 키</td>
-		<td><strong>다른 구독의 저장소 사용</strong> 옵션을 선택한 경우 해당 저장소 계정의 계정 키를 지정합니다.</td></tr>
-	<tr><td>기본 컨테이너</td>
-		<td><p>HDInsight 클러스터의 기본 파일 시스템으로 사용할 저장소 계정의 기본 컨테이너를 지정합니다. <strong>저장소 계정</strong> 필드에 대해 <strong>기존 저장소 사용</strong>을 선택한 경우, 해당 계정에 기존 컨테이너가 없으면 기본적으로 클러스터 이름과 동일한 이름으로 컨테이너가 생성됩니다. 클러스터의 이름을 가진 컨테이너가 이미 있는 경우에는 컨테이너 이름에 시퀀스 번호가 추가됩니다. 예를 들어 mycontainer1, mycontainer2 등과 같습니다. 그렇지만 기존 저장소 계정에 지정한 클러스터 이름과는 다른 이름의 컨테이너가 들어 있으면 해당 컨테이너도 사용할 수 있습니다.</p>
-        <p>새 저장소를 만들거나 다른 Azure 구독의 저장소를 사용하도록 선택한 경우 기본 컨테이너 이름을 지정해야 합니다.</p>
-    </td></tr>
-	<tr><td>추가 저장소 계정</td>
-		<td>HDInsight는 여러 저장소 계정을 지원합니다. 클러스터에서 사용할 수 있는 추가 저장소 계정에는 한도가 없습니다. 하지만 Azure 포털을 사용하여 클러스터를 만드는 경우에는 UI 제약으로 인해 7개로 제한됩니다. 지정하는 각 추가 저장소 계정은 마법사에 계정 정보를 지정할 수 있는 **저장소 계정** 페이지를 더합니다. 예를 들어 위의 스크린샷에서는 하나의 추가 저장소 계정이 선택되었으므로 5페이지가 대화 상자에 추가되었습니다.</td></tr>
-</table>
-	오른쪽 화살표를 클릭합니다.
+8. **노드 가격 책정 계층**을 클릭하여 이 클러스터에 대해 만들어질 노드에 대한 정보를 표시합니다. 클러스터에 필요한 작업자 노드 수를 설정합니다. 클러스터의 예상 비용이 블레이드 내에 표시됩니다.
 
-8. 클러스터에 대한 추가 저장소를 구성하도록 선택한 경우 **저장소 계정** 페이지에서 추가 저장소 계정에 대한 계정 정보를 입력합니다.
+	![노드 가격 책정 계층 블레이드](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.5.png "클러스터 노드 수 지정")
 
-	![추가 저장소 계정 세부 정보 제공](./media/hdinsight-apache-spark-provision-clusters/HDI.CustomProvision.Page6.png "추가 저장소 계정 세부 정보 제공")
+	**선택**을 클릭하여 노드 가격 책정 구성을 저장합니다.
 
-    여기서 다시 기존 저장소에서 선택하거나, 새 저장소를 만들거나, 다른 Azure 구독의 저장소를 사용하기 위한 옵션이 제공됩니다. 값을 제공하는 절차는 이전 단계와 비슷합니다.
+9. **옵션 구성**을 클릭하여 클러스터 버전을 선택하고 **가상 네트워크**에 가입, Hive 및 Oozie의 데이터를 유지하기 위한 **외부 Metastore** 설정 등 기타 선택적 설정을 구성하고 스크립트 동작을 사용하여 사용자 지정 구성 요소를 설치하기 위해 클러스터를 사용자 지정하거나 클러스터에 추가 저장소 계정을 사용합니다.
 
-    > [AZURE.NOTE]HDInsight 클러스터의 Azure 저장소 계정을 선택하고 나면 계정을 삭제할 수 없으며 다른 계정으로 변경할 수도 없습니다.
+	* **HDInsight 버전** 드롭다운을 클릭하고 클러스터에 사용할 버전을 선택합니다. 자세한 내용은 [HDInsight 클러스터 버전](hdinsight-component-versioning.md)을 참조하세요.
 
-8. **스크립트 작업** 페이지에서 **스크립트 작업 추가**를 클릭하고 클러스터가 생성될 때 클러스터를 사용자 지정하기 위해 실행할 사용자 지정 스크립트에 대한 세부 정보를 제공합니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-customize-cluster]을 참조하세요.
+	* **가상 네트워크**를 클릭하여 가상 네트워크의 일환으로 클러스터를 구성하려면 구성 세부 정보를 제공합니다. **가상 네트워크** 블레이드에서 **가상 네트워크**를 클릭한 다음 사용하려는 네트워크를 클릭합니다. 마찬가지로 네트워크에 대한 **서브넷**을 선택한 다음 **선택**을 클릭하여 가상 네트워크 구성을 저장합니다.
 
-	스크립트 작업을 사용하는 경우 다음과 같은 입력을 제공해야 합니다.
-	
-	<table border='1'>
-	<tr><th>속성</th><th>값</th></tr>
-	<tr><td>이름</td>
-		<td>스크립트 작업의 이름을 지정합니다.</td></tr>
-	<tr><td>스크립트 URI</td>
-		<td>클러스터를 사용자 지정하기 위해 호출되는 스크립트에 URI(Uniform Resource Identifier)를 지정합니다.</td></tr>
-	<tr><td>노드 유형</td>
-		<td>사용자 지정 스크립트가 실행되는 노드를 지정합니다. <b>모든 노드</b>, <b>헤드 노드만</b> 또는 <b>작업자 노드만</b>을 선택할 수 있습니다.
-	<tr><td>매개 변수</td>
-		<td>스크립트에 필요한 경우 매개 변수를 지정합니다.</td></tr>
-</table>
-	두 개 이상의 스크립트 작업을 추가하여 클러스터에 여러 구성 요소를 설치할 수 있습니다. 스크립트를 추가한 후 확인 표시를 클릭하여 클러스터 프로비저닝을 시작합니다.
+		![가상 네트워크 블레이드](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.6.png "가상 네트워크 세부 정보 지정")
 
+	* **외부 Metastore**를 클릭하여 클러스터와 연결된 Hive 및 Oozie 메타데이터를 저장하는데 사용할 SQL 데이터베이스를 지정합니다.
+
+		![사용자 지정 Metastore 블레이드](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.7.png "외부 Metastore 지정")
+
+		**Use an existing SQL DB for Hive metadata(Hive 메타데이터에 기존 SQL DB 사용)**에 대해 **예**를 클릭하고 SQL 데이터베이스를 선택한 다음 데이터베이스의 사용자 이름/암호를 입력합니다. **Use an existing SQL DB for Oozie metadata(Oozie 메타데이터에 기존 SQL DB 사용)**를 원하는 경우 이러한 단계를 반복합니다. **옵션 구성** 블레이드로 돌아갈 때까지 **선택**을 클릭합니다.
+
+		>[AZURE.NOTE]메타스토어에 사용되는 Azure SQL 데이터베이스는 Azure HDInsight를 비롯한 다른 Azure 서비스로의 연결을 허용해야 합니다. Azure SQL 데이터베이스 대시보드의 오른쪽에서 서버 이름을 클릭합니다. 이 서버는 SQL 데이터베이스 인스턴스가 실행되는 서버입니다. 서버 보기에서 **구성**을 클릭하고 **Azure 서비스**에 대해 **예**를 클릭한 다음 **저장**을 클릭합니다.
+
+	* 클러스터를 만들 때 사용자 지정 스크립트를 사용하여 클러스터를 사용자 지정하려는 경우 **스크립트 동작**을 클릭합니다. 스크립트 동작에 대한 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md)을 참조하세요. 스크립트 동작 블레이드에서는 화면 캡처에 표시된 것과 같은 세부 정보를 제공합니다.
+
+		![스크립트 동작 블레이드](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.8.png "스크립트 동작 지정")
+
+		**선택**을 클릭하여 스크립트 동작 구성 변경 내용을 저장합니다.
+
+	* **Azure 저장소 키**를 클릭하여 클러스터와 연결할 추가 저장소 계정을 지정합니다. **Azure 저장소 키** 블레이드에서 **저장소 키 추가**를 클릭한 다음 기존 저장소 계정을 선택하거나 새 계정을 만듭니다.
+
+		![추가 저장소 블레이드](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.9.png "추가 저장소 계정 지정")
+
+		**새 HDInsight 클러스터** 블레이드로 돌아갈 때까지 **선택**을 클릭합니다.
+
+10. **새 HDInsight 클러스터** 블레이드에서 **시작 보드에 고정**이 선택되어 있는지 확인한 다음 **만들기**를 클릭합니다. 그러면 클러스터가 만들어지고 Azure 포털의 시작 보드에 클러스터 타일이 추가됩니다. 아이콘이 클러스터를 프로비전 중임을 나타내고 프로비전이 완료되면 변경되어 HDInsight 아이콘을 표시합니다.
+
+	| 프로비전 중 | 프로비전 완료 |
+	| ------------------ | --------------------- |
+	| ![시작 보드에 표시기 프로비전](./media/hdinsight-apache-spark-provision-clusters/provisioning.png) | ![프로비전된 클러스터 타일](./media/hdinsight-apache-spark-provision-clusters/provisioned.png) |
+
+	> [AZURE.NOTE]클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 **알림** 항목을 사용하여 프로비전 프로세스를 확인하세요.
+
+11. 프로비전이 완료되면 시작 보드에서 클러스터 타일을 클릭하여 클러스터 블레이드를 시작합니다. 클러스터 블레이드는 이름, 속한 리소스 그룹, 위치, 운영 체제, 클러스터 대시보드의 URL 등 클러스터에 대한 중요한 정보를 제공합니다.
+
+	![클러스터 블레이드](./media/hdinsight-apache-spark-provision-clusters/HDI.Cluster.Blade.png "클러스터 속성")
+
+	다음을 사용하여 이 블레이드의 위쪽과 **필수** 및 **빠른 링크** 섹션에 있는 아이콘을 이해합니다.
+
+	* **설정** 및 **모든 설정**: 클러스터의 자세한 구성 정보에 액세스할 수 있는 클러스터의 **설정** 블레이드를 표시합니다.
+
+	* **대시보드** 및 **URL**: 이러한 항목을 통해 클러스터에서 작업을 실행하기 위한 웹 포털인 클러스터 대시보드에 액세스할 수 있습니다.
+
+	* **원격 데스크톱**: 클러스터 노드에 대해 원격 데스크톱을 사용하거나 사용하지 않도록 설정할 수 있습니다.
+
+	* **클러스터 크기 조정**: 이 클러스터의 작업자 노드 수를 변경할 수 있습니다.
+
+	* **삭제**: HDInsight 클러스터를 삭제합니다.
+
+	* **빠른 시작**(![구름과 벼락 아이콘 = 빠른 시작](./media/hdinsight-apache-spark-provision-clusters/quickstart.png)): HDInsight를 사용하여 시작하는데 도움이 되는 정보를 표시합니다.
+
+	* **사용자**(![사용자 아이콘](./media/hdinsight-apache-spark-provision-clusters/users.png)): Azure 구독의 다른 사용자에 대해 이 클러스터의 _포털 관리_ 권한을 설정할 수 있습니다.
+
+		> [AZURE.IMPORTANT]이는 _오직_ Azure Preview 포털에서 이 클러스터에 대한 액세스 및 권한에만 영향을 미치며, HDInsight 클러스터에 연결하거나 작업을 제출할 수 있는 사용자에게는 영향을 미치지 않습니다.
+
+	* **태그**(![태그 아이콘](./media/hdinsight-apache-spark-provision-clusters/tags.png)): 태그를 사용하면 클라우드 서비스의 사용자 지정 분류를 정의하기 위한 키/값 쌍을 설정할 수 있습니다. 예를 들어 __project__라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.
+
+	* **클러스터 대시보드**: 클러스터 대시보드를 자체적으로 시작하거나 Zeppelin 및 Jupyter 노트북을 시작할 수 있는 클러스터 대시보드 블레이드를 시작합니다.
 
 
 ##<a id="powershell"></a> Azure PowerShell 사용
 
-이 섹션에서는 Azure PowerShell을 사용하여 Azure HDInsight에서 Apache Spark 클러스터를 프로비전하는 방법에 대한 지침을 제공합니다. HDInsight Windows PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요. HDInsight에서 Azure PowerShell을 사용하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 HDInsight 관리][hdinsight-admin-powershell]를 참조하세요. HDInsight Windows PowerShell cmdlet의 목록은 [HDInsight cmdlet 참조][hdinsight-powershell-reference]를 참조하세요.
+Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있는 강력한 스크립팅 환경입니다. 이 섹션에서는 Azure PowerShell을 사용하여 HDInsight 클러스터를 프로비전하는 방법에 대한 지침을 제공합니다. HDInsight Windows PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](../install-configure-powershell.md)을 참조하세요. HDInsight에서 Azure PowerShell을 사용하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 HDInsight 관리](hdinsight-administer-use-powershell.md)를 참조하세요. HDInsight Windows PowerShell cmdlet의 목록은 [HDInsight cmdlet 참조](https://msdn.microsoft.com/library/azure/dn858087.aspx)를 참조하세요.
 
-> [AZURE.NOTE]이 섹션의 스크립트는 Azure 가상 네트워크에서 HDInsight 클러스터를 구성하는 데 사용할 수는 있지만 Azure 가상 네트워크를 만들지는 않습니다. Azure 가상 네트워크 만들기에 대한 자세한 내용은 [가상 네트워크 구성 작업](http://msdn.microsoft.com/library/azure/jj156206.aspx)을 참조하세요.
 
 Azure PowerShell을 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절차가 필요합니다.
 
+- Azure 리소스 그룹 만들기
 - Azure 저장소 계정 만들기
 - Azure Blob 컨테이너 만들기
 - HDInsight 클러스터 만들기
 
-Windows PowerShell 콘솔 또는 Windows PowerShell ISE(통합 스크립팅 환경)를 사용하여 스크립트를 실행할 수 있습니다.
- 
-HDInsight는 Azure Blob 저장소 컨테이너를 기본 파일 시스템으로 사용합니다. HDInsight 클러스터를 만들려면 먼저 Azure 저장소 계정 및 저장소 컨테이너가 필요합니다. 저장소 계정은 HDInsight 클러스터와 동일한 데이터 센터에 있어야 합니다.
 
-**Azure 계정에 연결하려면**
+		# Use the new Azure Resource Manager mode
+		Switch-AzureMode AzureResourceManager
 
-		Add-AzureAccount 
+		###########################################
+		# Create required items, if none exist
+		###########################################
 
-Azure 계정 자격 증명을 입력하라는 메시지가 표시됩니다.
+		# Sign in
+		Add-AzureAccount
 
-**Azure 저장소 계정을 만들려면**
+		# Select the subscription to use
+		$subscriptionName = "<SubscriptionName>"        # Provide your Subscription Name
+		Select-AzureSubscription -SubscriptionName $subscriptionName
 
-		$storageAccountName = "<StorageAcccountName>"	# Provide a Storage account name
-		$location = "<MicrosoftDataCenter>"				# For example, "West US"
+		# Register your subscription to use HDInsight
+		Register-AzureProvider -ProviderNamespace "Microsoft.HDInsight" -Force
+
+		# Create an Azure Resource Group
+		$resourceGroupName = "<ResourceGroupName>"      # Provide a Resource Group name
+		$location = "<Location>"                        # For example, "West US"
+		New-AzureResourceGroup -Name $resourceGroupName -Location $location
 
 		# Create an Azure Storage account
-		New-AzureStorageAccount -StorageAccountName $storageAccountName -Location $location
+		$storageAccountName = "<StorageAcccountName>"   # Provide a Storage account name
+		New-AzureStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
 
-저장소 계정이 이미 있지만 계정 이름과 계정 키를 모르는 경우 다음 Windows PowerShell 명령을 사용하여 정보를 검색할 수 있습니다.
-
-		# List Storage accounts for the current subscription
-		Get-AzureStorageAccount
-
-		# List the keys for a Storage account
-		Get-AzureStorageKey "<StorageAccountName>"
-
-**Azure Blob 저장소 컨테이너를 만들려면**
-
-		$storageAccountName = "<StorageAccountName>"	# Provide the Storage account name
-		$containerName="<ContainerName>"				# Provide a container name
-
-		# Create a storage context object
-		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName
-		                                       -StorageAccountKey $storageAccountKey  
-
-		# Create a Blob storage container
+		# Create an Azure Blob Storage container
+		$containerName = "<ContainerName>"              # Provide a container name
+		$storageAccountKey = Get-AzureStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
+		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 		New-AzureStorageContainer -Name $containerName -Context $destContext
 
-저장소 계정 및 Blob 컨테이너가 준비되면 클러스터를 만들 준비가 되었습니다.
+		###########################################
+		# Create an HDInsight Cluster
+		###########################################
 
-**HDInsight 클러스터를 프로비전하려면**
+		# Skip these variables if you just created them
+		$resourceGroupName = "<ResourceGroupName>"      # Provide the Resource Group name
+		$storageAccountName = "<StorageAcccountName>"   # Provide the Storage account name
+		$containerName = "<ContainerName>"              # Provide the container name
+		$storageAccountKey = Get-AzureStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
 
-- Azure PowerShell 콘솔 창에서 다음 명령을 실행합니다.
+		# Set these variables
+		$clusterName = $containerName           		# As a best practice, have the same name for the cluster and container
+		$clusterNodes = <ClusterSizeInNodes>    		# The number of nodes in the HDInsight cluster
+		$credentials = Get-Credential
 
-		$subscriptionName = "<AzureSubscriptionName>"	  # The Azure subscription used for the HDInsight cluster to be created
-
-		$storageAccountName = "<AzureStorageAccountName>" # HDInsight cluster requires an existing Azure Storage account to be used as the default file system
-
-		$clusterName = "<HDInsightClusterName>"			  # The name for the HDInsight cluster to be created
-		$clusterNodes = <ClusterSizeInNodes>              # The number of nodes in the HDInsight cluster
-        $credentials = Get-Credential		              # User name and password for the Hadoop account. You will use this account to connect to the cluster and run jobs.
-           
-        # Get the storage primary key based on the account name
-		Select-AzureSubscription $subscriptionName
-		$storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
-		$containerName = $clusterName				# Azure Blob container that is used as the default file system for the HDInsight cluster
-
-        # The location of the HDInsight cluster. It must be in the same data center as the Storage account.
-        $location = Get-AzureStorageAccount -StorageAccountName $storageAccountName | %{$_.Location} 
+		# The location of the HDInsight cluster. It must be in the same data center as the Storage account.
+		$location = Get-AzureStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName | %{$_.Location}
 
 		# Create a new HDInsight cluster
-		New-AzureHDInsightCluster -Name $clusterName -Credential $credentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName -ClusterSizeInNodes $clusterNodes -Version "3.2" -ClusterType Spark
-
-	>[AZURE.NOTE]지정한 자격 증명은 클러스터의 Hadoop 사용자 계정을 만드는 데 사용됩니다. 이 계정을 사용하여 클러스터에 연결하고 작업을 실행합니다. Azure 포털에서 빠른 생성 옵션을 사용하여 클러스터를 프로비전하는 경우 기본 Hadoop 사용자 이름은 "admin"입니다. 이 계정을 RDP(원격 데스크톱 프로토콜) 사용자 계정과 혼동하지 마세요. RDP 사용자 계정은 Hadoop 사용자 계정과 달라야 합니다. 자세한 내용은 [Azure 관리 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리][hdinsight-admin-portal]를 참조하세요.
-
-	클러스터 프로비전을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
-
-	![HDI.PS.Provision](./media/hdinsight-apache-spark-provision-clusters/hdi-spark-ps-provisioning.png "PowerShell에서 기본 구성을 사용하는 Spark 클러스터 프로비전")
+		New-AzureHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $credentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Spark
 
 
-**사용자 지정 구성 옵션을 사용하여 HDInsight 클러스터를 프로비전하려면**
-
-클러스터를 프로비전할 때 둘 이상의 Azure Blob 저장소 컨테이너에 연결하거나 Hive 및 Oozie Metastore에 대해 Azure SQL 데이터베이스를 사용하는 것과 같은 기타 구성 옵션을 사용할 수 있습니다. 이 기능을 사용하면 데이터 및 메타데이터의 수명을 클러스터의 수명과 분리할 수 있습니다.
-
-> [AZURE.NOTE]HDInsight 클러스터에서 구성 변수를 변경할 때는 Windows PowerShell cmdlet만 사용하는 것이 좋습니다. 원격 데스크톱을 통해 클러스터에 연결된 상태로 Hadoop 구성 파일을 변경하면 클러스터 패치 시 해당 변경 내용을 덮어쓸 수 있습니다. 반면 Azure PowerShell을 통해 설정된 구성 값은 클러스터를 패치해도 보존됩니다.
-
-- Windows PowerShell 창에서 다음 명령을 실행합니다.
-
-		$subscriptionName = "<Azure subscription>"
-		$clusterName = "<cluster name>"
-		$clusterNodes = <cluster size in nodes>
-		                
-		# Get credentials for Hadoop user and Hive/Oozie metastores
-		$clusterCredentials = Get-Credential
-		$oozieCreds = Get-Credential -Message "Oozie metastore"
-		$hiveCreds = Get-Credential -Message "Hive metastore"
-		
-		# Get default storage account, storage container, and add-on storage account
-		$storageAccountName_Default = "<Default storage account name>"
-		$containerName_Default = $clusterName
-		$storageAccountName_Add1 = "<Add-on storage account name>"
-		
-		# Get information about Hive and Oozie metastores
-		$hiveSQLDatabaseServerName = "<SQLDatabaseServerNameForHiveMetastore>"
-		$hiveSQLDatabaseName = "<SQLDatabaseNameForHiveMetastore>"
-		$oozieSQLDatabaseServerName = "<SQLDatabaseServerNameForOozieMetastore>""
-		$oozieSQLDatabaseName = "<SQLDatabaseNameForOozieMetastore>"
-
-		# Get the virtual network ID and subnet name
-		$vnetID = "<AzureVirtualNetworkID>"
-		$subNetName = "<AzureVirtualNetworkSubNetName>"
-
-		# Retrieve storage account keys and storage account location
-		Select-AzureSubscription $subscriptionName
-		$storageAccountKey_Default = Get-AzureStorageKey $storageAccountName_Default | %{ $_.Primary }
-		$storageAccountKey_Add1 = Get-AzureStorageKey $storageAccountName_Add1 | %{ $_.Primary }
-		$location = Get-AzureStorageAccount -StorageAccountName $storageAccountName_Default | %{$_.Location}
-		
-		# Specify custom configuration and cluster type
-		$config = New-AzureHDInsightClusterConfig -ClusterSizeInNodes $clusterNodes -ClusterType Spark -VirtualNetworkId $vnetID -SubnetName $subNetName | Set-AzureHDInsightDefaultStorage -StorageAccountName "$storageAccountName_Default.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Default -StorageContainerName $containerName_Default | Add-AzureHDInsightStorage -StorageAccountName "$storageAccountName_Add1.blob.core.windows.net" -StorageAccountKey $storageAccountKey_Add1 | Add-AzureHDInsightMetastore -SqlAzureServerName "$hiveSQLDatabaseServerName.database.windows.net" -DatabaseName $hiveSQLDatabaseName -Credential $hiveCreds -MetastoreType HiveMetastore | Add-AzureHDInsightMetastore -SqlAzureServerName "$oozieSQLDatabaseServerName.database.windows.net" -DatabaseName $oozieSQLDatabaseName -Credential $oozieCreds -MetastoreType OozieMetastore
-		
-		# Provision the cluster with custom configuration                
-		New-AzureHDInsightCluster -Name $clusterName -Config $config -Credential $clusterCredentials -Location $location -Version "3.2"
-
-	>[AZURE.NOTE]메타스토어에 사용되는 Azure SQL 데이터베이스는 Azure HDInsight를 비롯한 다른 Azure 서비스로의 연결을 허용해야 합니다. Azure SQL 데이터베이스 대시보드의 오른쪽에서 서버 이름을 클릭합니다. 이 서버는 SQL 데이터베이스 인스턴스가 실행되는 서버입니다. 서버 보기에서 **구성**을 클릭하고 **Windows** **Azure 서비스**에 대해 **예**를 클릭한 다음 **저장**을 클릭합니다.
-
-	클러스터 프로비전을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
-
-**HDInsight 클러스터를 나열하려면**
-
-- Azure PowerShell 콘솔 창에서 다음 명령을 실행하여 HDInsight 클러스터를 나열한 후 해당 클러스터가 성공적으로 프로비전되었는지 확인합니다.
-
-		Get-AzureHDInsightCluster -Name <ClusterName>
-
-##<a id="sdk"></a> HDInsight .NET SDK 사용
-HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다.
-
-SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절차를 수행해야 합니다.
-
-- HDInsight .NET SDK 설치
-- 자체 서명된 인증서 만들기
-- 콘솔 응용 프로그램 만들기
-- 응용 프로그램 실행
+	![HDI.CLI.Provision](./media/hdinsight-apache-spark-provision-clusters/HDI.ps.provision.png)
 
 
-**HDInsight .NET SDK를 설치하려면**
-
-[NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started)에서 최근에 게시된 SDK 빌드를 설치할 수 있습니다. 지침은 다음 절차에서 설명합니다.
-
-**자체 서명된 인증서를 만들려면**
-
-자체 서명 인증서를 만들어 워크스테이션에 설치한 다음 Azure 구독에 업로드합니다. 관련 지침은 [자체 서명된 인증서 만들기](http://go.microsoft.com/fwlink/?LinkId=511138)를 참조하세요.
-
+## ARM 기반 HDInsight .NET SDK 사용
+HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다. 아래 지침에 따라 Visual Studio 콘솔 응용 프로그램을 만들고 클러스터를 만들기 위한 코드를 붙여 넣으세요.
 
 **Visual Studio 콘솔 응용 프로그램을 만들려면**
 
@@ -378,92 +278,127 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
 <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Template</td>
 <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Console Application</td></tr>
 <tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">이름</td>
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Name</td>
 <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateHDICluster</td></tr>
 </table>
 
 4. **확인**을 클릭하여 프로젝트를 만듭니다.
 
-5. **도구** 메뉴에서 **Nuget 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다.
+5. **도구** 메뉴에서 **Nuget 패키지 관리자**를 클릭한 다음 **솔루션의 Nuget 패키지 관리**를 클릭합니다. 대화 상자 내의 검색 텍스트 상자에서 **HDInsight**를 검색합니다. 표시되는 결과에서 다음을 설치합니다.
 
-6. 콘솔에서 다음 명령을 실행하여 패키지를 설치합니다.
+	 * Microsoft.Azure.Management.HDInsight
+	 * Microsoft.Azure.Management.HDInsight.Job
 
-		Install-Package Microsoft.WindowsAzure.Management.HDInsight
+	Azure 인증을 검색하고 표시되는 결과에서 **Microsoft.Azure.Common.Authentication**을 설치합니다.
 
-	.NET 라이브러리 및 이에 대한 참조가 현재의 Visual Studio 프로젝트에 추가됩니다.
-
-7. 솔루션 탐색기에서 **Program.cs**를 두 번 클릭하여 엽니다.
-
-8. 파일 맨 위에 다음 using 문을 추가합니다.
-
-		using System.Security.Cryptography.X509Certificates;
-		using Microsoft.WindowsAzure.Management.HDInsight;
-		using Microsoft.WindowsAzure.Management.HDInsight.ClusterProvisioning;
-		using Microsoft.WindowsAzure.Management.HDInsight.ClusterProvisioning.Data;
+6. 솔루션 탐색기에서 **Program.cs**를 두 번 클릭하여 열고 다음 코드를 붙여 넣은 후 변수의 값을 제공합니다.
 
 
-9. Main() 함수에서 다음 코드를 복사하여 붙여넣습니다.
+        using System;
+		using System.Collections.Generic;
+		using System.Diagnostics;
+		using System.Linq;
+		using System.Security;
+		using System.Text;
+		using System.Threading.Tasks;
+		using Hyak.Common;
+		using Microsoft.Azure;
+		using Microsoft.Azure.Common.Authentication;
+		using Microsoft.Azure.Common.Authentication.Models;
+		using Microsoft.Azure.Management.HDInsight;
+		using Microsoft.Azure.Management.HDInsight.Job;
+		using Microsoft.Azure.Management.HDInsight.Job.Models;
+		using Microsoft.Azure.Management.HDInsight.Models;
+		using Newtonsoft.Json;
 
-        string thumbprint = "<CertificateFriendlyName>";  
-        string subscriptionid = "<AzureSubscriptionID>";
-        string clustername = "<HDInsightClusterName>";
-        string location = "<MicrosoftDataCenter>";
-        string storageaccountname = "<AzureStorageAccountName>.blob.core.windows.net";
-        string storageaccountkey = "<AzureStorageAccountKey>";
-        string containername = "<HDInsightDefaultContainerName>";
-        string username = "<HDInsightUsername>";
-        string password = "<HDInsightUserPassword>";
-        int clustersize = <NumberOfNodesInTheCluster>;
 
-        // Get the certificate object from certificate store by using the friendly name to identify it
-        X509Store store = new X509Store();
-        store.Open(OpenFlags.ReadOnly);
-        X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.Thumbprint == thumbprint);
-
-        // Create the Storage account if it doesn't exist
-
-        // Create the container if it doesn't exist.
-
-		// Create an HDInsightClient object
-        HDInsightCertificateCredential creds = new HDInsightCertificateCredential(new Guid(subscriptionid), cert);
-        var client = HDInsightClient.Connect(creds);
-
-		// Supply the cluster information
-        ClusterCreateParametersV2 clusterInfo = new ClusterCreateParametersV2()
+		namespace CreateHDICluster
 		{
-		    Name = clustername,
-		    Location = location,
-		    DefaultStorageAccountName = storageaccountname,
-		    DefaultStorageAccountKey = storageaccountkey,
-		    DefaultStorageContainer = containername,
-		    UserName = username,
-		    Password = password,
-		    ClusterSizeInNodes = clustersize,
-		    Version = "3.2",
-		    OSType = OSType.Windows,
-			ClusterType = ClusterType.Spark		    
-		};
+		    internal class Program
+		    {
+		        private static ProfileClient _profileClient;
+		        private static SubscriptionCloudCredentials _cloudCredentials;
+		        private static HDInsightManagementClient _hdiManagementClient;
 
+		        private static Guid SubscriptionId = new Guid("<SubscriptionID>");
+		        private const string ResourceGroupName = "<ResourceGroupName>";
+		        private const string ExistingStorageName = "<storageaccountname>.blob.core.windows.net";
+		        private const string ExistingStorageKey = "<account key>";
+		        private const string ExistingContainer = "<container name>";
+		        private const string NewClusterName = "<cluster name>";
+		        private const int NewClusterNumNodes = <number of nodes>;
+		        private const string NewClusterLocation = "<location>";		//should be same as the storage account
+		        private const OSType NewClusterOsType = OSType.Windows;
+		        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Spark;
+		        private const string NewClusterVersion = "3.2";
+		        private const string NewClusterUsername = "admin";
+		        private const string NewClusterPassword = "<password>";
 
-		// Create the cluster
-        Console.WriteLine("Creating the HDInsight cluster ...");
+		        private static void Main(string[] args)
+		        {
+		            System.Console.WriteLine("Start cluster provisioning");
 
-        ClusterDetails cluster = client.CreateCluster(clusterInfo);
+		            _profileClient = GetProfile();
+		            _cloudCredentials = GetCloudCredentials();
+		            _hdiManagementClient = new HDInsightManagementClient(_cloudCredentials);
 
-        Console.WriteLine("Created cluster: {0}.", cluster.ConnectionUrl);
-        Console.WriteLine("Press ENTER to continue ...");
-        Console.ReadKey();
+		            System.Console.WriteLine(String.Format("Creating the cluster {0}...", NewClusterName));
+		            CreateCluster();
+		            System.Console.WriteLine("Done. Press any key to continue.");
+		            System.Console.ReadKey(true);
+		        }
 
-10. main() 함수 시작 부분의 변수를 바꿉니다.
+		        private static void CreateCluster()
+		        {
+		            var parameters = new ClusterCreateParameters
+		            {
+		                ClusterSizeInNodes = NewClusterNumNodes,
+		                UserName = NewClusterUsername,
+		                Password = NewClusterPassword,
+		                Location = NewClusterLocation,
+		                DefaultStorageAccountName = ExistingStorageName,
+		                DefaultStorageAccountKey = ExistingStorageKey,
+		                DefaultStorageContainer = ExistingContainer,
+		                ClusterType = NewClusterType,
+		                OSType = NewClusterOsType
+		            };
 
-**응용 프로그램을 실행하려면**
+		            _hdiManagementClient.Clusters.Create(ResourceGroupName, NewClusterName, parameters);
+		        }
 
-Visual Studio에 응용 프로그램이 열려 있을 때 **F5**를 눌러 응용 프로그램을 실행합니다. 콘솔 창이 열리고 응용 프로그램의 상태가 표시되며 HDInsight 클러스터를 만들려면 몇 분정도 걸릴 수 있습니다.
+		        private static ProfileClient GetProfile(string username = null, SecureString password = null)
+		        {
+		            var profileClient = new ProfileClient(new AzureProfile());
+		            var env = profileClient.GetEnvironmentOrDefault(EnvironmentName.AzureCloud);
+		            var acct = new AzureAccount { Type = AzureAccount.AccountType.User };
+
+		            if (username != null && password != null)
+		                acct.Id = username;
+
+		            profileClient.AddAccountAndLoadSubscriptions(acct, env, password);
+
+		            return profileClient;
+		        }
+
+		        private static SubscriptionCloudCredentials GetCloudCredentials()
+		        {
+		            var sub = _profileClient.Profile.Subscriptions.Values.FirstOrDefault(s => s.Id.Equals(SubscriptionId));
+
+		            Debug.Assert(sub != null, "subscription != null");
+		            _profileClient.SetSubscriptionAsDefault(sub.Id, sub.Account);
+
+		            return AzureSession.AuthenticationFactory.GetSubscriptionCloudCredentials(_profileClient.Profile.Context);
+		        }
+
+		    }
+		}
+
+7. **F5** 키를 눌러 응용 프로그램을 실행합니다. 콘솔 창이 열리고 응용 프로그램의 상태가 표시되며 또한 Azure 계정 자격 증명을 입력하라는 메시지가 표시됩니다. HDInsight 클러스터를 만들려면 몇 분 정도 걸릴 수 있습니다.
 
 
 ##<a id="nextsteps"></a> 다음 단계
 
-* [HDInsight에서 Spark를 사용하여 BI 도구로 대화형 데이터 분석 수행](hdinsight-apache-spark-use-bi-tools.md)을 참조하여 Power BI 및 Tableau와 같은 BI 도구로 HDInsight에서 Apache Spark를 사용하는 방법을 배울 수 있습니다. 
+* [HDInsight에서 Spark를 사용하여 BI 도구로 대화형 데이터 분석 수행](hdinsight-apache-spark-use-bi-tools.md)을 참조하여 Power BI 및 Tableau와 같은 BI 도구로 HDInsight에서 Apache Spark를 사용하는 방법을 배울 수 있습니다.
 * [기계 학습 응용 프로그램을 구축하기 위해 HDInsight에서 Spark 사용](hdinsight-apache-spark-ipython-notebook-machine-learning.md)을 참조하여 HDInsight에서 Apache Spark를 사용하여 컴퓨터 학습 응용 프로그램을 작성하는 방법을 배울 수 있습니다.
 * [실시간 스트리밍 응용 프로그램을 구축하기 위해 HDInsight에서 Spark 사용](hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming.md)을 참조하여 HDInsight에서 Apache Spark를 사용하여 스트리밍 응용 프로그램을 작성하는 방법을 배울 수 있습니다.
 * [Azure HDInsight에서 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)를 참조하여 스파크 클러스터에 할당된 리소스를 관리하도록 리소스 관리자를 사용하는 방법을 배울 수 있습니다.
@@ -502,4 +437,4 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5**를 눌러 응�
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "HDInsight에서 Sqoop 사용"
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

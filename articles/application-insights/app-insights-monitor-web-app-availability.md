@@ -30,8 +30,6 @@
 * [URL ping 테스트](#set-up-a-url-ping-test): Azure 포털에서 만들 수 있는 간단한 테스트입니다.
 * [다단계 웹 테스트](#multi-step-web-tests): Visual Studio Ultimate 또는 Visual Studio Enterprise에서 만들고 포털에 업로드합니다.
 
-*Azure 웹 앱입니까? [웹 앱 블레이드에서 웹 테스트를 만들기][azure-availability]만 하면 됩니다.*
-
 
 
 ## URL ping 테스트를 설정
@@ -239,4 +237,4 @@ Visual Studio Ultimate를 사용하여 웹 세션을 기록합니다.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

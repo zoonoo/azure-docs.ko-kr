@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/19/2015"
+	ms.date="08/14/2015"
 	ms.author="garye" />
 
 
-#다양한 데이터 원본에서 Azure 기계 학습 스튜디오로 학습 데이터를 가져오기
+# 다양한 데이터 원본에서 Azure 기계 학습 스튜디오로 학습 데이터를 가져오기
 
 Azure 기계 학습 스튜디오에서 예측 분석 솔루션을 개발할 때 문제 공간의 대표 데이터를 사용하여 모델을 학습시킬 수 있습니다. 이 자습서에서는 기계 학습 스튜디오에서 모델을 학습하기 위해 다양한 데이터 원본에서 데이터를 가져오는 방법을 보여 줍니다. 또한 지원되는 데이터 형식에 대해 알아봅니다.
 
@@ -141,6 +141,5 @@ OData URL을 지정하여 데이터 피드 공급자로부터 직접 데이터�
 [convert-to-dataset]: https://msdn.microsoft.com/library/azure/72bf58e0-fc87-4bb1-9704-f1805003b975/
 [metadata-editor]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

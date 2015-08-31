@@ -116,9 +116,13 @@ Apple 푸시 알림을 받도록 응용 프로그램을 준비하는 방법 가�
 		[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler];
 	}
 
-> [AZURE.NOTE]위의 메서드는 iOS 7에서에서 도입되었습니다. IOS <7 대상으로 하는 경우 응용 프로그램 대리자에서 메서드 `application:applicationDidReceiveRemoteNotification:`를 구현하고 `handler` 인수 대신에 nil을 전달하여EngagementAgent에서 `applicationDidReceiveRemoteNotification`를 호출해야 합니다.
+> [AZURE.NOTE]위의 메서드는 iOS 7에서에서 도입되었습니다. iOS 7 이전 버전을 대상으로 하는 경우 응용 프로그램 대리자에서 메서드 `application:didReceiveRemoteNotification:`를 구현하고 `handler` 인수 대신에 nil을 전달하여 EngagementAgent에서 `applicationDidReceiveRemoteNotification`를 호출해야 합니다.
 
-	[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
+	- (void)application:(UIApplication*)application
+	didReceiveRemoteNotification:(NSDictionary*)userInfo
+	{
+		[[EngagementAgent shared] applicationDidReceiveRemoteNotification:userInfo fetchCompletionHandler:nil];
+	}
 
 > [AZURE.IMPORTANT]기본적으로 Engagement 도달률이 completionHandler를 제어합니다. 코드의 `handler` 블록에 수동으로 응답하려는 경우 `handler` 인수에 대한 nil을 전달하고 완료 블록을 제어할 수 있습니다. 가능한 값의 목록에 대한 `UIBackgroundFetchResult` 형식을 참조하세요.
 
@@ -412,4 +416,4 @@ Apple 푸시 알림을 받도록 응용 프로그램을 준비하는 방법 가�
 
 	@end
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

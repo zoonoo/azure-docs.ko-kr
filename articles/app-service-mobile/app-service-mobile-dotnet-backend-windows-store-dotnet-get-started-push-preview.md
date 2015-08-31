@@ -1,9 +1,9 @@
 <properties 
-	pageTitle="Azure 앱 서비스를 사용하여 Windows 범용 앱에 푸시 알림 추가" 
-	description="Azure 앱 서비스를 사용하여 Windows 범용 앱에 푸시 알림을 전송하는 방법을 알아봅니다." 
-	services="app-service\mobile" 
+	pageTitle="Windows 런타임 8.1 범용 앱에 푸시 알림 추가 | Azure 모바일 앱" 
+	description="Azure 앱 서비스 모바일 앱 및 Azure 알림 허브를 사용하여 Windows 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." 
+	services="app-service\mobile,notification-hubs" 
 	documentationCenter="windows" 
-	authors="ysxu" 
+	authors="ggailey777" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,118 +13,122 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
-	ms.author="yuaxu"/>
+	ms.date="08/14/2015" 
+	ms.author="glenga"/>
 
-# Windows 범용 앱에 푸시 알림 추가
+# Windows 런타임 8.1 범용 앱에 푸시 알림 추가
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-push-preview](../../includes/app-service-mobile-selector-get-started-push-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-이 항목에서는 Azure 앱 서비스를 사용하여 .NET 백 엔드에서 Windows 범용 앱에 푸시 알림을 전송하는 방법을 보여 줍니다. 완료하면 레코드 삽입 시 .NET 백 엔드에서 등록된 모든 Windows 범용 앱에 푸시 알림을 전송하게 됩니다.
+##개요
 
-이 자습서에서는 푸시 알림을 사용하도록 설정하는 다음 기본 단계를 단계별로 안내합니다.
+이 항목은 Azure 앱 서비스 모바일 앱 및 Azure 알림 허브를 사용하여 Windows 런타임 8.1 범용 앱에 푸시 알림을 보내는 방법을 보여줍니다. 이 시나리오에서는 새 항목이 추가되는 경우 모바일 앱 백 엔드가 Windows 알림 서비스(WNS)와 함께 등록된 모든 Windows 앱에 푸시 알림을 보냅니다.
 
-1. [푸시 알림에 대해 앱 등록](#register)
-2. [구성](#configure)
-3. [푸시 알림을 전송하도록 서비스 업데이트](#update-service)
-4. [앱에 푸시 알림 추가](#add-push)
-5. [앱에서 푸시 알림 테스트](#test)
+이 자습서는 앱 서비스 모바일 앱 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 빠른 시작 자습서 [Windows 앱 만들기](../app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md)를 완료해야 합니다.
 
-이 자습서는 앱 서비스 모바일 앱 퀵 스타트를 기반으로 합니다. 이 자습서를 시작하기 전에 먼저 [앱 서비스 모바일 앱 시작]을 완료해야 합니다.
+##필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * 활성 [Microsoft 스토어 계정](http://go.microsoft.com/fwlink/p/?LinkId=280045)
-* <a href="https://go.microsoft.com/fwLink/p/?LinkID=391934" target="_blank">Visual Studio Community 2013</a>.
+* [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934)
+* [빠른 시작 자습서](../app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md)를 완료합니다.
 
 ##<a name="review"></a>서버 프로젝트 구성 검토(옵션)
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-push-preview](../../includes/app-service-mobile-dotnet-backend-enable-push-preview.md)]
 
-##<a id="register"></a>푸시 알림에 대해 앱 등록
+##<a name="create-gateway"></a>알림 허브 만들기
 
-Azure 앱 서비스를 사용하여 Windows 범용 앱에 푸시 알림을 전송하려면 앱을 Windows 스토어에 제출해야 합니다. 그런 다음 WNS와 통합되도록 모바일 앱 푸시 알림 서비스 자격 증명을 구성해야 합니다.
+푸시 알림을 처리하는 새 알림 허브를 만들려면 다음 단계를 수행합니다. 동일한 리소스 그룹에 이미 허브가 있는 경우 이 섹션을 완료할 필요가 없습니다.
 
-1. 앱을 아직 등록하지 않은 경우 Windows 스토어 앱용 개발자 센터의 <a href="http://go.microsoft.com/fwlink/p/?LinkID=266582" target="_blank">앱 제출 페이지</a>로 이동하여 Microsoft 계정으로 로그온한 후 **앱 이름**을 클릭합니다.
+1. [Azure 포털]을 방문합니다. **모두 찾아보기** > **모바일 앱** > 방금 만든 백 엔드를 클릭합니다. **설정** > **모바일** > **푸시**를 클릭합니다. 
 
-    ![][0]
+2. 알림 허브를 만들려면 워크플로를 따릅니다. 현재 리소스 그룹에 해당 사항이 없으면 새 네임스페이스를 만들어야 합니다. 설정을 모두 구성하면 **만들기**를 클릭합니다.
 
-2. **앱 이름**에 앱의 이름을 입력하고 **앱 이름 예약**을 클릭한 후 **저장**을 클릭합니다.
+다음으로, 앱을 푸시할 수 있도록 이 알림 허브를 사용합니다.
 
-    ![][1]
+##푸시 알림에 대해 앱 등록
 
-    이렇게 하면 앱을 새로 Windows 스토어에 등록하게 됩니다.
+Azure에서 Windows 앱으로 푸시 알림을 보내기 전에 앱을 Windows 스토어에 제출해야 합니다. 그런 다음 서버 프로젝트를 구성하여 WNS와 통합할 수 있습니다.
 
-4. 솔루션 탐색기에서 Windows 스토어 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고 **스토어**를 클릭한 후 **응용 프로그램을 스토어에 연결...**을 클릭합니다.
+1. Visual Studio 솔루션 탐색기에서 Windows 스토어 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고 **스토어** > **앱을 스토어에 연결...**을 클릭합니다. 
 
     ![][3]
+    
+2. 마법사에서 **다음**을 클릭하고 Microsoft 계정으로 로그인하며 **새로운 앱 이름 예약**에서 앱 이름을 입력한 다음 **예약**을 클릭합니다.
 
-    **응용 프로그램을 Windows 스토어에 연결** 마법사가 나타납니다.
+3. 앱 등록을 성공적으로 만든 후에 새로운 앱 이름 선택하고 **다음**과 **연결**을 차례로 클릭합니다. 이렇게 하면 필요한 Windows 스토어 등록 정보가 응용 프로그램 매니페스트에 추가됩니다.
 
-5. 마법사에서 **로그인**을 클릭한 후 Microsoft 계정으로 로그인합니다.
+7. Windows 스토어 앱에서 이전에 만든 동일한 등록을 사용하여 Windows Phone 스토어 앱 프로젝트에서 1 및 3단계를 반복합니다.
 
-6. 2단계에서 등록한 앱을 클릭하고 **다음**을 클릭한 후 **연결**을 클릭합니다.
+7. [Windows 개발자 센터](https://dev.windows.com/ko-kr/overview)로 이동하고 Microsoft 계정을 사용하여 로그인합니다. **내 앱**에서 새 앱 등록을 클릭한 다음 **서비스** > **푸시 알림**을 확장합니다.
 
-    ![][4]
+8. **푸시 알림** 페이지에서 **Microsoft Azure 모바일 서비스** 아래의 **Live 서비스 사이트**를 클릭합니다.
 
-    이렇게 하면 필요한 Windows 스토어 등록 정보가 응용 프로그램 매니페스트에 추가됩니다.
-
-7. (옵션) Windows Phone 스토어 앱 프로젝트에 대해 4\~6단계를 반복합니다.
-
-7. 새 앱의 Windows 개발자 센터 페이지로 돌아가서 **Services**를 클릭합니다.
-
-    ![][5]
-
-8. **서비스** 페이지에서 **Microsoft Azure 모바일 서비스** 아래의 **Live 서비스 사이트**를 클릭합니다.
-
-    ![][17]
-
-9. **앱 설정** 탭에서 **클라이언트 암호** 및 **패키지 SID(보안 식별자)**를 적어둡니다.
+9. **앱 설정** 탭에서 **클라이언트 암호** 및 **패키지 SID**를 적어둡니다.
 
     ![][6]
 
-    > [AZURE.NOTE]**보안 정보** 클라이언트 암호와 패키지 SID는 중요한 보안 자격 증명입니다. 다른 사람과 공유하지 말고 앱과 함께 분산하지 마세요.
+    > [AZURE.IMPORTANT]클라이언트 암호와 패키지 SID는 중요한 보안 자격 증명입니다. 다른 사람과 공유하지 말고 앱과 함께 분산하지 마세요.
 
-##<a id="configure"></a>푸시 요청을 전송하도록 모바일 앱 구성
+##푸시 요청을 전송하도록 모바일 앱 구성
 
-1. [Azure Preview 포털]에 로그온하고 **찾아보기**, **모바일 앱**을 선택한 다음 앱을 클릭합니다. 푸시 알림 서비스를 클릭합니다.
+1. [Azure 포털]에 로그온하고 **찾아보기** > **모바일 앱**> 사용자 앱 > **푸시 알림 서비스**를 선택합니다.
 
-2. Windows 알림 서비스에서 **클라이언트 암호** 및 **패키지 SID(보안 식별자)**를 입력하고 저장합니다.
+2. **Windows 알림 서비스**에서 라이브 서비스 사이트에서 가져온 **보안 키**(클라이언트 암호) 및 **패키지 SID**를 입력한 다음 **저장**을 클릭합니다.
 
-이제 앱 서비스 모바일 앱이 WNS와 작동하도록 구성되었습니다.
+이제 모바일 앱 백 엔드가 WNS와 작동하도록 구성되었습니다.
 
-<!-- URLs. -->
-[Azure Preview 포털]: https://portal.azure.com/
-
-##<a id="update-service"></a>푸시 알림을 전송하도록 서비스 업데이트
+##<a id="update-service"></a>푸시 알림을 전송하도록 서버 업데이트
 
 이제 앱에서 푸시 알림을 사용하도록 설정했으므로 푸시 알림을 전송하도록 앱 백 엔드를 업데이트해야 합니다.
 
-1. Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
+1. Visual Studio에서 서버 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 클릭합니다. `Microsoft.Azure.NotificationHubs`를 검색한 다음 **설치**를 클릭합니다. 알림 허브 클라이언트 라이브러리를 설치합니다.
 
-2. **Microsoft.Azure.NotificationHubs**를 검색하고 솔루션에 포함된 모든 프로젝트에 대해 **설치**를 클릭합니다.
+3. 서버 프로젝트에서 **컨트롤러** > **TodoItemController.cs**를 열고 다음 using 문을 추가합니다.
 
-3. Visual Studio 솔루션 탐색기에서 모바일 백 엔드 프로젝트의 **컨트롤러** 폴더를 확장합니다. TodoItemController.cs를 엽니다. 파일 맨 위에 다음 `using` 문을 추가합니다.
+		using System.Collections.Generic;
+		using Microsoft.Azure.NotificationHubs;
+		using Microsoft.Azure.Mobile.Server.Config;
+	
 
-        using System.Collections.Generic;
-        using Microsoft.Azure.NotificationHubs;
-        using Microsoft.Azure.Mobile.Server.Config;
+2. **PostTodoItem** 메서드에서 **InsertAsync**를 호출한 후에 다음 코드를 추가합니다.
 
-4. `PostTodoItem` 메서드의 **InsertAsync** 호출 뒤에 다음 조각을 추가합니다.
+        // Get the settings for the server project.
+        HttpConfiguration config = this.Configuration;
+        MobileAppSettingsDictionary settings = 
+			this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
+        
+        // Get the Notification Hubs credentials for the Mobile App.
+        string notificationHubName = settings.NotificationHubName;
+        string notificationHubConnection = settings
+            .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
 
-        // get Notification Hubs credentials associated with this Mobile App
-        string notificationHubName = this.Services.Settings.NotificationHubName;
-        string notificationHubConnection = this.Services.Settings.Connections[ServiceSettingsKeys.NotificationHubConnectionString].ConnectionString;
+        // Create a new Notification Hub client.
+        NotificationHubClient hub = NotificationHubClient
+        .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-        // connect to notification hub
-        NotificationHubClient Hub = NotificationHubClient.CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
+		// Define a WNS payload
+		var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" 
+                                + item.Text + @"</text></binding></visual></toast>";
 
-        // windows payload
-        var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">" + item.Text + @"</text></binding></visual></toast>";
+        try
+        {
+			// Send the push notification and log the results.
+            var result = await hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
 
-        await Hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
+            // Write the success result to the logs.
+            config.Services.GetTraceWriter().Info(result.State.ToString());
+        }
+        catch (System.Exception ex)
+        {
+            // Write the failure result to the logs.
+            config.Services.GetTraceWriter()
+                .Error(ex.Message, null, "Push.SendAsync Error");
+        }
 
-    이 코드는 이 모바일 앱과 연결된 알림 허브에 todo 항목 삽입 후 푸시 알림을 전송하도록 지시합니다.
+    이 코드는 새 항목을 삽입한 후에 알림 허브에 푸시 알림을 전송하도록 지시합니다.
 
 
 ## <a name="publish-the-service"></a>Azure에 모바일 백 엔드 게시
@@ -137,31 +141,35 @@ Azure 앱 서비스를 사용하여 Windows 범용 앱에 푸시 알림을 전�
 
     그러면 NuGet 패키지 관리 대화 상자가 표시됩니다.
 
-2. 관리된 항목용 앱 서비스 모바일 앱 클라이언트 SDK를 검색하고 **설치**를 클릭한 다음 솔루션에 포함된 모든 프로젝트를 선택하고 사용 약관에 동의합니다.
+2. 관리된 항목용 앱 서비스 모바일 앱 클라이언트 SDK를 검색하고 **설치**를 클릭한 다음 솔루션에 포함된 모든 클라이언트 프로젝트를 선택하고 사용 약관에 동의합니다.
 
-    그러면 Windows용 Azure 모바일 푸시 라이브러리가 다운로드 및 설치되고 해당 참조가 모든 프로젝트에 추가됩니다.
+    그러면 Windows용 Azure 모바일 푸시 라이브러리가 다운로드 및 설치되고 해당 참조가 모든 클라이언트 프로젝트에 추가됩니다.
 
-3. **App.xaml.cs** 프로젝트 파일을 열고 다음 `using` 문을 추가합니다.
+3. 공유 **App.xaml.cs** 프로젝트 파일을 열고 다음 `using` 문을 추가합니다.
 
-        using Windows.Networking.PushNotifications;
-        using Microsoft.WindowsAzure.MobileServices;
-
-    범용 프로젝트에서는 이 파일이 `<project_name>.Shared` 폴더에 위치해 있습니다.
+		using System.Threading.Tasks;  
+        using Windows.Networking.PushNotifications;       
 
 4. 동일한 파일에서 다음 **InitNotificationsAsync** 메서드 정의를 **App** 클래스에 추가합니다.
     
-        private async void InitNotificationsAsync()
+        private async Task InitNotificationsAsync()
         {
-            var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-            
-            await MobileService.GetPush().RegisterAsync(channel.Uri);
+            var channel = await PushNotificationChannelManager
+                .CreatePushNotificationChannelForApplicationAsync();
+
+            await App.MobileService.GetPush().RegisterAsync(channel.Uri);
         }
     
     이 코드는 WNS에서 앱의 ChannelURI를 검색한 후 해당 ChannelURI를 앱 서비스 모바일 앱에 등록합니다.
     
-5. **App.xaml.cs**에서 **OnLaunched** 이벤트 처리기의 맨 위에 다음과 같은 새 **InitNotificationsAsync** 메서드 호출을 추가합니다.
+5. **App.xaml.cs**의 **OnLaunched** 이벤트 처리기 맨 위에서 다음 예와 같이 메서드 정의에 **async** 한정자를 추가하고 새 **InitNotificationsAsync** 메서드에 다음 호출을 추가합니다.
 
-        InitNotificationsAsync();
+        protected async override void OnLaunched(LaunchActivatedEventArgs e)
+        {
+            await InitNotificationsAsync();
+
+			// ...
+		}
 
     이제 응용 프로그램을 시작할 때마다 단기 ChannelURI가 등록됩니다.
 
@@ -169,18 +177,17 @@ Azure 앱 서비스를 사용하여 Windows 범용 앱에 푸시 알림을 전�
 
     **파일** 메뉴에서 **모두 저장**을 클릭합니다.
 
-7. (옵션) Windows Phone 스토어 앱 프로젝트에서 이전 단계를 반복합니다.
-
-8. **F5** 키를 눌러 앱을 실행합니다.
+7. Windows Phone 스토어 앱 프로젝트에서 이전 단계를 반복합니다.
 
 이제 앱에서 알림을 받을 수 있습니다.
 
 ##<a id="test"></a>앱에서 푸시 알림 테스트
 
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-windows-universal-test-push-preview](../../includes/app-service-mobile-dotnet-backend-windows-universal-test-push-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-windows-universal-test-push-preview](../../includes/app-service-mobile-windows-universal-test-push-preview.md)]
 
 <!-- Anchors. -->
-
+<!-- URLs. -->
+[Azure 포털]: https://portal.azure.com/
 <!-- Images. -->
 [0]: ./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/mobile-services-submit-win8-app.png
 [1]: ./media/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/mobile-services-win8-app-name.png
@@ -195,4 +202,4 @@ Azure 앱 서비스를 사용하여 Windows 범용 앱에 푸시 알림을 전�
 <!-- URLs. -->
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

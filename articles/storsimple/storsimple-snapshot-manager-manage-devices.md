@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/09/2015"
+   ms.date="08/18/2015"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자를 사용하여 StorSimple 장치 연결 및 관리
@@ -252,7 +252,7 @@ StorSimple 장치에서 오류가 발생하여 대기(장애 조치(failover)) �
 
 5. StorSimple 스냅숏 관리자를 시작합니다.
 
-6. 새 StorSimple 장치를 구성하려면 [StorSimple 스냅숏 관리자 배포](storsimple-snapshot-manager-deployment.md)에서 [2단계: StorSimple 장치 연결](storsimple-snapshot-manager-deployment.md#step-2:-connect-a-storsimple-device)의 단계를 완료합니다.
+6. 새 StorSimple 장치를 구성하려면 [StorSimple 스냅숏 관리자 배포](storsimple-snapshot-manager-deployment.md)에서 2단계: StorSimple 장치 연결의 단계를 완료합니다.
 
 7. **범위** 창에서 최상위 노드(예제의 StorSimple 스냅숏 관리자)를 마우스 오른쪽 단추로 클릭한 다음 **가져오기 표시 토글**을 클릭합니다.
 
@@ -260,6 +260,6 @@ StorSimple 장치에서 오류가 발생하여 대기(장애 조치(failover)) �
 
 ## 다음 단계
 
-[StorSimple 스냅숏 관리자를 사용하여 볼륨을 보고 관리합니다](storsimple-snapshot-manager-manage-volumes.md).
+[StorSimple 스냅숏 관리자를 사용하여 볼륨 보기 및 관리](storsimple-snapshot-manager-manage-volumes.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

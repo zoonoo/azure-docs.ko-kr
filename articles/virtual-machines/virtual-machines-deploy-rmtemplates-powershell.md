@@ -18,6 +18,12 @@
 
 # Azure 리소스 관리자 템플릿 및 PowerShell을 사용하여 가상 컴퓨터 배포 및 관리
 
+> [AZURE.SELECTOR]
+- [Azure preview portal](virtual-machines-windows-tutorial.md)
+- [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
+- [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
+- [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
+
 이 문서에서는 Azure 리소스 관리자 템플릿 및 Powershell을 사용하여 Azure 가상 컴퓨터를 배포하고 관리하는 일반 작업을 자동화하는 방법을 보여 줍니다. 사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](http://azure.microsoft.com/documentation/templates/) 및 [앱 프레임 워크](virtual-machines-app-frameworks.md)를 참조하세요.
 
 - [Windows 가상 컴퓨터 배포](#windowsvm)
@@ -956,4 +962,4 @@ Azure 배포 이름, 리소스 그룹 이름, Azure 위치를 입력하고 다�
 
 [Azure PowerShell을 설치 및 구성하는 방법](install-configure-powershell.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

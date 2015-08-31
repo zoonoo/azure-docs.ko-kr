@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Orchestrator에서 Runbook 및 통합 팩 마이그레이션"
+   pageTitle="Orchestrator에서 Azure 자동화로 마이그레이션 | Microsoft Azure"
    description="System Center Orchestrator에서 Azure 자동화로 Runbook 및 통합 팩을 마이그레이션하는 방법에 대해 설명합니다."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/22/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 
@@ -81,4 +81,4 @@ Microsoft에서는 System Center 구성 요소 및 기타 제품을 자동화하
 - [Orchestrator Standard Activities](http://technet.microsoft.com/library/hh403832.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,5 +1,3 @@
-
-
 #### 사용자 지정 백업 정책을 만들려면
 
 1. **장치** 페이지에서 **백업 정책**을 클릭하고 **추가**를 클릭합니다.
@@ -40,4 +38,4 @@
 
     ![사용자 지정 백업 정책](./media/storsimple-create-custom-backup-policy/HCS_CustomBackupPolicyM-include.png).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

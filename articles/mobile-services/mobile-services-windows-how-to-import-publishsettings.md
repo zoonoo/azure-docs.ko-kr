@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Visual Studio 2013에서 게시 설정 파일 가져오기 | Microsoft Azure" 
-	description="Visual Studio 2013에서 Azure 모바일 서비스 응용 프로그램에 대한 구독 게시 설정 파일을 가져오는 방법에 대해 알아봅니다." 
-	documentationCenter="" 
-	services="mobile-services" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Visual Studio 2013에서 게시 설정 파일 가져오기 | Microsoft Azure"
+	description="Visual Studio 2013에서 Azure 모바일 서비스 응용 프로그램에 대한 구독 게시 설정 파일을 가져오는 방법에 대해 알아봅니다."
+	documentationCenter=""
+	services="mobile-services"
+	manager="dwrede"
+	editor=""
 	authors="ggailey777"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="04/13/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="glenga"/>
 
 # Visual Studio 2013에서 구독 게시 설정 파일 가져오기
@@ -22,7 +22,7 @@
 
 >[AZURE.NOTE]Visual Studio 2013 업데이트 2부터는 더 이상 게시 설정 파일을 사용할 필요가 없습니다. Visual Studio에서 사용자가 제공하는 자격 증명을 사용하여 Azure에 직접 연결할 수 있습니다.
 
-1. Visual Studio 2013에서 솔루션 탐색기를 열어 마우스 오른쪽 단추로 프로젝트를 클릭한 후 **추가**를 클릭하고 **연결된 서비스...**를 클릭합니다. 
+1. Visual Studio 2013에서 솔루션 탐색기를 열어 마우스 오른쪽 단추로 프로젝트를 클릭한 후 **추가**를 클릭하고 **연결된 서비스...**를 클릭합니다.
 
 	![연결된 서비스 추가](./media/mobile-services-windows-how-to-import-publishsettings/mobile-add-connected-service.png)
 
@@ -60,6 +60,5 @@
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-users-js/
 
 [Azure Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

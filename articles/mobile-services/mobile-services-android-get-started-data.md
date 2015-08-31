@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="05/15/2015" 
+	ms.date="08/18/2015" 
 	ms.author="ricksal"/>
 
 # 기존 Android 앱에 모바일 서비스 추가
@@ -101,7 +101,7 @@
 
 ## 이전 코드 버전
 
-이 자습서의 Eclipse 버전을 참조하려면 [Eclipse를 사용하여 데이터 시작](mobile-services-android-get-started-data-EC.md)으로 이동하세요.
+이 자습서의 Eclipse 버전을 참조하려면 [Eclipse를 사용하여 데이터 시작](mobile-services-android-get-started-data-ec.md)으로 이동하세요.
 
 Eclipse 프로젝트의 완료된 소스 코드 버전을 보려면 <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/Android">여기</a>로 이동합니다.
 
@@ -156,4 +156,4 @@ Azure 모바일 서비스 Android SDK의 이전 버전에서 사용되는 샘플
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

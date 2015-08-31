@@ -13,11 +13,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
 
 
-#논리 앱에서 SugarCRM 커넥터 사용#
+# 논리 앱에서 SugarCRM 커넥터 사용
 
 논리 앱은 다양한 데이터 원본을 기반으로 트리거하고 흐름의 일부로 데이터를 가져오고 처리하기 위한 커넥터를 제공할 수 있습니다. SugarCRM 커넥터를 사용하여 계정, 잠재 고객, 연락처와 같은 다양한 엔터티를 만들고 수정할 수 있습니다. 다음은 SugarCRM과 관련된 일반적인 통합 시나리오입니다.
 
@@ -30,7 +30,7 @@
 
 커넥터 패키지 설정의 일부로, 사용자가 커넥터에서 관리할 수 있는 엔터티를 지정할 수 있으며, 작업, 입력 및 출력 매개 변수가 동적으로 채워집니다.
 
-##SugarCRM 커넥터 작업##
+## SugarCRM 커넥터 작업
 다음은 SugarCRM 커넥터에서 사용할 수 있는 다양한 작업입니다.
 
 - 모듈 만들기- 계정, 잠재 고객, 연락처와 같은 SugarCRM 모듈용 새 레코드를 만들려면 이 작업을 사용합니다.
@@ -47,55 +47,28 @@
 
 - 모듈 중복 검사 - 한 모듈 내에서 중복된 레코드를 검사하려면 이 작업을 사용합니다.
 
-*참조*: 쿼리에서 지원되는 인수에 대한 자세한 내용은 SugarCRM REST API 설명서를 참조하세요.
+*참고*: 쿼리에서 지원되는 인수에 대한 자세한 내용은 [SugarCRM REST API](https://msdn.microsoft.com/library/dn705870) 설명서를 참조합니다.
 
-##SugarCRM 커넥터 API 앱 만들기##
+## SugarCRM 커넥터 API 앱 만들기
 1.	portal.azure.com으로 이동합니다. Azure 포털의 왼쪽 모서리에 있는 + 새로 만들기 옵션을 사용하여 Azure 마켓플레이스를 엽니다.
 2.	"마켓플레이스 > 모든 항목"으로 이동하여 "SugarCRM"을 검색합니다.
 3.	앱 서비스 계획, 리소스 그룹에 대한 세부 정보를 제공하고 API 앱의 이름을 입력하여 SugarCRM 커넥터를 구성합니다.
 4. SugarCRM 커넥터 패키지 설정을 구성합니다. 다음은 커넥터를 만드는 데 제공해야 하는 패키지 설정입니다.
 
-	<table>
-  <tr>
-    <td><b>이름</b></td>
-    <td><b>필수</b></td>
-    <td><b>설명</b></td>
-  </tr>
-  <tr>
-    <td>사이트 URL</td>
-    <td>예</td>
-    <td>SugarCRM 인스턴스 Ex의 URL 지정. 예: https://abcde1234.sugarcrm.com</td>
-  </tr>
-  <tr>
-    <td>클라이언트 ID</td>
-    <td>예</td>
-    <td>SugarCRM에서 OAuth 2.0 키의 소비자 키 지정 </td>
-  </tr>
-  <tr>
-    <td>클라이언트 암호</td>
-    <td>예</td>
-    <td>SugarCRM에서 OAuth 2.0 키의 소비자 암호 지정 </td>
-  </tr>
-<tr>
-    <td>사용자 이름</td>
-    <td>예</td>
-    <td>SugarCRM 사용자의 사용자 이름 지정</td>
-  </tr>
-	<tr>
-    <td>암호</td>
-    <td>예</td>
-    <td>SugarCRM 사용자의 암호 지정</td>
-  </tr>
-  <tr>
-    <td>모듈 이름</td>
-    <td>예</td>
-    <td>작업을 수행하려는 항목에 계정, 연락처, 제품 등과 같은 SugarCRM 모듈 지정<br><br>예: 계정, 잠재 고객, 연락처</td>
-  </tr>
-</table>![][9]
+	이름 | 필수 | 설명
+--- | --- | ---
+사이트 URL | 예 | SugarCRM 인스턴스의 URL을 입력합니다. 예를 들어 https://abcde1234.sugarcrm.com을 입력합니다.
+클라이언트 ID | 예 | SugarCRM에서 OAUTH 2.0 키의 소비자 키를 입력합니다. 
+클라이언트 암호 | 예 | OAUTH의 소비자 암호를 입력합니다.
+사용자 이름 | 예 | SugarCRM 사용자의 사용자 이름을 입력합니다.
+암호 | 예 | SugarCRM 사용자의 암호를 입력합니다.
+모듈 이름 | 예 | 작업을 수행하려는 SugarCRM 모듈(예: 계정, 연락처, 제품)을 입력합니다. <br><br>예: 계정, 잠재 고객, 연락처  
+  
+![][9]
 
 
 
-##논리 앱 만들기##
+## 논리 앱 만들기
 SugarCRM에서 계정을 만들고 동일한 계정의 청구 주소 정보를 업데이트하는 간단한 논리 앱을 만들겠습니다.
 
 1.	Azure 포털에 로그인하고 '새로 만들기 -> 웹 + 모바일 -> 논리 앱'을 클릭합니다.
@@ -142,6 +115,13 @@ SugarCRM에서 계정을 만들고 동일한 계정의 청구 주소 정보를 �
 
 19. ‘Microsoft 계정’이라는 이름으로 새 계정이 SugarCRM 계정에서 만들어지고 동일한 계정이 청구 주소 정보로 업데이트됨도 확인할 수 있습니다.
 
+## 커넥터의 추가 기능
+이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
+
+[커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
+
+커넥터의 성능 통계를 검토하고 보안을 제어할 수 있습니다. [기본 제공 API 앱 및 커넥터 관리 및 모니터링](app-service-logic-monitor-your-connectors.md)을 참조하세요.
+
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-sugarcrm/1_New_Logic_App.png
 [2]: ./media/app-service-logic-connector-sugarcrm/2_Logic_App_Settings.png
@@ -153,4 +133,4 @@ SugarCRM에서 계정을 만들고 동일한 계정의 청구 주소 정보를 �
 [8]: ./media/app-service-logic-connector-sugarcrm/8_Update_Account_Address.png
 [9]: ./media/app-service-logic-connector-sugarcrm/9_Create_new_SugarCRM_connector.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -3,8 +3,8 @@
 	description="익명 프록시 IP 주소에서 사용자의 디렉터리에 로그인한 사용자를 나타내는 보고서입니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
-	manager="ilanas"
+	authors="SSalahAhmed"
+	manager="gchander"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
-	ms.author="kenhoff"/>
+	ms.date="08/17/2015"
+	ms.author="saah;kenhoff"/>
 
 # 알 수 없는 원본에서 로그인
 
@@ -24,4 +24,4 @@
 
 ![알 수 없는 원본에서 로그인](./media/active-directory-reporting-sign-ins-from-unknown-sources/signInsFromUnknownSources.PNG)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="05/11/2015"
+   ms.date="07/27/2015"
    ms.author="cgronlun"/>
 
 
@@ -52,7 +52,7 @@ Azure HDInsight에서는 **Linux** 또는 **Windows**를 기본 OS로 사용하�
 ---------| -------------------| --------------------
 **클러스터 OS** | Ubuntu 12.04 장기 지원(LTS) | Windows Server 2012 R2
 **클러스터 유형** | Hadoop은 | Hadoop, HBase, Storm
-**배포**웹사이트를 | Azure 관리 포털, Azure CLI, Azure PowerShell | Azure 관리 포털, Azure CLI, Azure PowerShell, HDInsight .NET SDK
+**배포**웹사이트를 | Azure 포털, Azure CLI, Azure PowerShell | Azure 포털, Azure CLI, Azure PowerShell, HDInsight .NET SDK
 **클러스터 UI** | Ambari | 클러스터 대시보드
 **원격 액세스** | SSH(secure Shell) | 원격 데스크톱 프로토콜(RDP)
 
@@ -60,7 +60,7 @@ Azure HDInsight에서는 **Linux** 또는 **Windows**를 기본 OS로 사용하�
 
 ### Hadoop, HBase, Storm 및 사용자 지정된 클러스터
 
-HDInsight는 특정 작업에 대한 클러스터 구성, Hadoop, HBase, 또는 스톰을 제공합니다. 또는 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">스크립트 작업으로 클러스터를 사용자 지정</a>할 수 있습니다.
+HDInsight는 Hadoop, HBase 또는 Storm에 대한 클러스터 구성을 제공합니다. 또는 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">스크립트 작업으로 클러스터를 사용자 지정</a>할 수 있습니다.
 
 * **Hadoop**("쿼리" 워크로드): 데이터를 병렬로 처리하고 분석하도록 [HDFS](#HDFS)를 통해 신뢰할 수 있는 데이터 저장소와 간단한 [MapReduce](#mapreduce) 프로그래밍 모델을 제공합니다.
 
@@ -177,7 +177,7 @@ HDInsight의 Hadoop이 제공하는 이점에 대한 자세한 내용은 [HDInsi
 
 * [Linux에서 HDInsight 시작](hdinsight-hadoop-linux-tutorial-get-started.md): Linux에 HDInsight Hadoop 클러스터를 프로비전하고 샘플 Hive 쿼리를 실행하는 데 관한 빠른 시작 자습서입니다.
 
-* [사용자 지정 옵션을 사용하여 Linux에 HDInsight 프로비전](hdinsight-hadoop-provision-linux-clusters.md): Azure 관리 포털, Azure CLI 또는 Azure PowerShell을 통해 사용자 지정 옵션을 사용하여 Linux에서 HDInsight Hadoop 클러스터를 프로비전하는 방법에 대해 알아봅니다.
+* [사용자 지정 옵션을 사용하여 Linux에 HDInsight 프로비전](hdinsight-hadoop-provision-linux-clusters.md): Azure 포털, Azure CLI 또는 Azure PowerShell을 통해 사용자 지정 옵션을 사용하여 Linux에서 HDInsight Hadoop 클러스터를 프로비전하는 방법에 대해 알아봅니다.
 
 * [Linux에서 HDInsight 작업](hdinsight-hadoop-linux-information.md): Azure에 프로비전된 Hadoop Linux 클러스터 작업에 대한 간단한 팁을 얻습니다.
 
@@ -246,4 +246,4 @@ HDInsight의 Hadoop이 제공하는 이점에 대한 자세한 내용은 [HDInsi
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

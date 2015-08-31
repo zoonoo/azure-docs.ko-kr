@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/31/2015" 
-	ms.author="bradyg"/>
+	ms.date="08/14/2015" 
+	ms.author="tdykstra"/>
 
 # Azure 앱 서비스에서 API 앱 배포 
 
@@ -34,17 +34,33 @@ API 앱이 웹앱을 기반으로 한다는 사실은 ASP.NET 이외의 플랫�
 
 [AZURE.INCLUDE [app-service-api-pub-web-create](../../includes/app-service-api-pub-web-create.md)]
 
-## <a id="deploy"></a>새 API 앱에 코드 배포
+## <a id="deploy"></a>새 Azure API 앱에 코드를 배포합니다.
 
 동일한 **웹 게시** 마법사를 사용하여 새 API 앱에 코드를 배포합니다.
 
 [AZURE.INCLUDE [app-service-api-pub-web-deploy](../../includes/app-service-api-pub-web-deploy.md)]
 
-## Azure Preview 포털에서 앱 보기
+## Azure API 앱 호출 
 
-이 섹션에서는 포털에서 API 앱에 사용할 수 있는 기본 설정을 보고 API 앱에 대해 반복적인 변경을 수행합니다. 배포할 때마다 포털에 API 앱에 대해 수행하는 변경 내용이 반영됩니다.
+이전 자습서에서 Swagger UI를 사용할 수 있도록 했기 때문에 API 앱이 Azure에서 실행되고 있는지 확인하는 데 Swagger UI를 사용할 수 있습니다.
 
 1. [Azure Preview 포털](https://portal.azure.com)에서 배포한 API 앱에 대한 **API 앱** 블레이드로 이동합니다.
+
+2. API 앱의 URL을 클릭합니다.
+
+	![URL을 클릭합니다.](./media/app-service-dotnet-deploy-api-app/clickurl.png)
+
+	"API app을 성공적으로 만들었습니다." 페이지가 나타납니다.
+
+3. 브라우저 주소 표시줄에서 URL의 끝에 "swagger/"를 추가합니다.
+
+4. 표시되는 Swagger 페이지에서 **연락처 > 가져오기 > 사용해보십시오**를 클릭합니다.
+
+	![사용해보기](./media/app-service-dotnet-deploy-api-app/swaggerui.png)
+
+## 포털에서 API 정의 보기
+
+1. [Azure Preview 포털](https://portal.azure.com)에서 배포한 API 앱에 대한 **API 앱** 블레이드로 다시 돌아갑니다.
 
 4. **API 정의**를 클릭합니다.
  
@@ -52,7 +68,9 @@ API 앱이 웹앱을 기반으로 한다는 사실은 ASP.NET 이외의 플랫�
 
 	![API 정의](./media/app-service-dotnet-deploy-api-app/29-api-definition-v3.png)
 
-5. 이제 Visual Studio의 프로젝트로 돌아가서 다음 코드를 **ContactsController.cs** 파일에 추가합니다.
+다음으로 API 정의를 변경하고 포털에 반영된 변경 내용을 확인합니다.
+
+5. Visual Studio의 프로젝트로 돌아가서 다음 코드를 **ContactsController.cs** 파일에 추가합니다.   
 
 		[HttpPost]
 		public HttpResponseMessage Post([FromBody] Contact contact)
@@ -65,23 +83,39 @@ API 앱이 웹앱을 기반으로 한다는 사실은 ASP.NET 이외의 플랫�
 
 	이 코드는 새 `Contact` 인스턴스를 API에 게시하는 데 사용할 수 있는 **Post** 메서드를 추가합니다.
 
-6. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
+	이제 연락처 클래스의 코드는 다음 예제와 같습니다.
 
-	![프로젝트 게시 상황에 맞는 메뉴](./media/app-service-dotnet-deploy-api-app/31-publish-gesture-v3.png)
+		public class ContactsController : ApiController
+		{
+		    [HttpGet]
+		    public IEnumerable<Contact> Get()
+		    {
+		        return new Contact[]{
+		                    new Contact { Id = 1, EmailAddress = "barney@contoso.com", Name = "Barney Poland"},
+		                    new Contact { Id = 2, EmailAddress = "lacy@contoso.com", Name = "Lacy Barrera"},
+		                    new Contact { Id = 3, EmailAddress = "lora@microsoft.com", Name = "Lora Riggs"}
+		                };
+		    }
+		
+		    [HttpPost]
+		    public HttpResponseMessage Post([FromBody] Contact contact)
+		    {
+		        // todo: save the contact somewhere
+		        return Request.CreateResponse(HttpStatusCode.Created);
+		    }
+		}
 
-7. **설정** 탭을 클릭합니다.
-
-8. **구성** 드롭다운에서 **디버그**를 선택합니다.
-
-	![웹 게시 설정](./media/app-service-dotnet-deploy-api-app/36.5-select-debug-option-v3.png)
+7. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
 9. **미리 보기** 탭을 클릭합니다.
 
-10. **미리 보기 시작**을 클릭하여 적용될 변경 내용을 확인합니다.
+10. **미리 보기 시작**을 클릭하여 Azure에 복사 될 파일을 볼 수 있습니다.
 
 	![웹 게시 대화 상자](./media/app-service-dotnet-deploy-api-app/39-re-publish-preview-step-v2.png)
 
 11. **게시**를 클릭합니다.
+
+6. 처음으로 게시를 수행한 것 처럼 게이트웨이를 다시 시작합니다.
 
 12. 게시 프로세스가 완료되면 포털로 돌아가서 **API 정의** 블레이드를 닫았다가 다시 엽니다. 방금 만들어 Azure 구독에 직접 배포한 새 API 끝점을 볼 수 있습니다.
 
@@ -92,4 +126,4 @@ API 앱이 웹앱을 기반으로 한다는 사실은 ASP.NET 이외의 플랫�
 Visual Studio의 직접 배포 기능을 통해 API를 빠르게 반복하고 배포하며 API가 올바르게 작동하는지 테스트하는 작업을 얼마나 쉽게 수행할 수 있는지 살펴봤습니다. [다음 자습서](../app-service-dotnet-remotely-debug-api-app.md)에서는 Azure에서 API 앱이 실행되는 동안 API 앱을 디버그하는 방법을 확인할 수 있습니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

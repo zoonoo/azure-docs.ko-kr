@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
-	editor=""/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -591,4 +592,4 @@ __hdinsightclustername__을 HDInsight 클러스터의 이름으로 바꿉니다.
 
 `-showErr` 매개 변수를 사용하여 작업을 실행하는 동안 생성된 표준 오류(STDERR)을 확인합니다.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

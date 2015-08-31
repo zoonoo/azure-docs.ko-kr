@@ -3,7 +3,7 @@
 	description="Visual Studio 2013을 사용하여 Web API 프로젝트를 API 앱으로 구성하는 방법을 알아봅니다." 
 	services="app-service\api" 
 	documentationCenter=".net" 
-	authors="tdykstra" 
+	authors="bradygaster" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/19/2015" 
-	ms.author="bradyg;tarcher"/>
+	ms.date="08/14/2015" 
+	ms.author="tdykstra"/>
 
 # Web API 프로젝트를 API 앱으로 구성
 
@@ -24,17 +24,17 @@
 
 API 앱에 대한 자세한 내용은 [API 앱 정의](app-service-api-apps-why-best-platform.md)를 참조하세요.
 
-[AZURE.INCLUDE [install-sdk-2013-only](../../includes/install-sdk-2013-only.md)]
+[AZURE.INCLUDE [install-sdk-2015-2013](../../includes/install-sdk-2015-2013.md)]
 
-이 자습서에는 Azure SDK for .NET 버전 2.5.1 이상이 필요합니다.
+이 자습서에는 Azure SDK for .NET 버전 2.6 이상이 필요합니다.
 
 ## Web API 프로젝트 구성 
 
 이 섹션에서는 기존 Web API 프로젝트를 API 앱으로 구성하는 방법을 보여 줍니다. 먼저 Web API 프로젝트 템플릿을 사용하여 Web API 프로젝트를 만든 후 API 앱으로 구성합니다.
 
-1. Visual Studio 2013을 엽니다.
+1. Visual Studio 2015 또는 Visual Studio 2013을 엽니다.
 
-2. **파일 > 새 프로젝트**를 선택합니다.
+2. **파일 > 새 프로젝트**를 클릭합니다.
 
 3. **ASP.NET 웹 응용 프로그램** 템플릿을 선택합니다.
 
@@ -83,4 +83,4 @@ API 앱에 대한 자세한 내용은 [API 앱 정의](app-service-api-apps-why-
 이제 API 앱을 배포할 준비가 되었으며 [API 앱 배포](app-service-dotnet-deploy-api-app.md) 자습서에 따라 API 앱을 배포할 수 있습니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

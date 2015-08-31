@@ -30,7 +30,7 @@ Azure 인증 Linux 배포판에서는 Azure Linux 에이전트 패키지를 해�
 
 Ubuntu의 경우 다음을 입력하면 됩니다.
      
-    #sudo apt-get install waagent
+    #sudo apt-get install walinuxagent
 
 그리고 CentOS에서, 다음을 입력합니다.
 
@@ -52,26 +52,52 @@ SSH를 사용하여 VM에 로그인합니다.
 
 ## 최신 버전 다운로드
 
-웹 페이지에서 [Github의 Azure Linux 에이전트 릴리스](https://github.com/Azure/WALinuxAgent/releases)를 열고 최신 버전 번호(예: 2.0.12)를 확인합니다. `#waagent --version`을 입력하면 현재 버전을 찾을 수 있습니다.
+웹 페이지에서 [Github의 Azure Linux 에이전트 릴리스](https://github.com/Azure/WALinuxAgent/releases)를 열고 최신 버전 번호를 확인합니다. `#waagent --version`을 입력하면 현재 버전을 찾을 수 있습니다.
+
+###버전 2.0.x의 경우 다음을 입력합니다.
 
     #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-[version]/waagent  
 
-예를 들어 다음 줄에서는 버전 2.0.12를 사용합니다.
+   예를 들어 다음 줄에서는 버전 2.0.14를 사용합니다.
 
-    #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.12/waagent  
+    #wget https://raw.githubusercontent.com/Azure/WALinuxAgent/WALinuxAgent-2.0.14/waagent  
 
-## waagent 실행 파일 만들기
+###2\.1.x 이상의 경우 다음을 입력합니다.
+  
+    #wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-[version].zip 
+    #unzip WALinuxAgent-[version].zip
+    #cd WALinuxAgent-[version]
+
+   예를 들어 다음 줄에서는 버전 2.1.0을 사용합니다.
+
+    #wget https://github.com/Azure/WALinuxAgent/archive/WALinuxAgent-2.1.0.zip
+    #unzip WALinuxAgent-2.1.0.zip  
+    #cd WALinuxAgent-2.1.0
+
+##Linux 에이전트 설치
+
+###버전 2.0.x의 경우 다음을 사용합니다.
+
+ waagent 실행 파일 만들기
 
     #chmod +x waagent
 
-## /usr/sbin/에 새 실행 파일 복사
-    
-    #sudo cp waagent /usr/sbin
+ /usr/sbin/에 새 실행 파일 복사
+   
+  대부분의 Linux에서는 다음을 사용합니다.
+         
+      #sudo cp waagent /usr/sbin
 
-CoreOS의 경우 다음을 사용합니다.
+  CoreOS의 경우 다음을 사용합니다.
 
     #sudo cp waagent /usr/share/oem/bin/
  
+###버전 2.1.x의 경우 다음을 사용합니다.
+
+`setuptools` 패키지를 먼저 설치해야 할 수 있습니다. [여기](https://pypi.python.org/pypi/setuptools)를 참조하세요. 그런 다음 아래를 실행합니다.
+
+    #sudo python setup.py install
+
 ## waagent 서비스 다시 시작
 
 대부분의 linux 배포판:
@@ -100,4 +126,4 @@ Azure Linux 에이전트에 대한 자세한 내용은 [Azure Linux 에이전트
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

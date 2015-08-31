@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="06/25/2015"
+   ms.date="08/17/2015"
    ms.author="v-sharos" />
 
 # StorSimple 관리자 서비스 대시보드 사용
@@ -76,4 +76,4 @@ StorSimple 관리자 서비스 대시보드에 다음 정보가 표시됩니다.
 
 [StorSimple 장치 문제 해결](storsimple-troubleshoot-operational-device.md) 방법을 알아봅니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

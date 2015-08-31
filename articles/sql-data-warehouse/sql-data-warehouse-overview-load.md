@@ -5,7 +5,7 @@
    documentationCenter="NA"
    authors="lodipalm"
    manager="barbkess"
-   editor=""/>
+   editor="jrowlandjones"/>
 
 <tags
    ms.service="sql-data-warehouse"
@@ -43,16 +43,19 @@ SQL 데이터 웨어하우스는 다음을 포함한 데이터 로드의 다양�
 
 Azure로 파일 이동을 준비하기 위해, 플랫 파일로 내보내야 합니다. BCP 명령줄 유틸리티를 사용하는 것이 가장 좋은 방법입니다. 아직 유틸리티가 없다면, [SQL Server 용 Microsoft 명령줄 유틸리티][]와 함께 다운로드할 수 있습니다. 샘플 BCP 명령은 다음과 같을 수 있습니다.
 
-	bcp "<Directory><File>" -c -T -S <Server Name> -d <Database Name>
+```
+bcp "<Directory><File>" -c -T -S <Server Name> -d <Database Name>
+```
 
 이 명령은 쿼리로 결과가 나오고, 이쿼리를 선택한 디렉터리 안에 있는 파일로 내보냅니다. 개별 테이블에 대해 여러 BCP 명령을 실행하여 프로세스를 병렬화할 수 있습니다. 이 방법은 서버의 코어 당 BCP 프로세스를 증가시킬 수 있고, 이 정보는 사용자 환경에서 어떤 작업이 제일 적합한지 다른 구성에서 작은 작업을 시도함으로써 확인할 수 있습니다.
 
 PolyBase는 아직 UTF-16을 지원하지 않고, PolyBase를 사용하여 로드하기 때문에, 모든 파일은 UTF-8에 있어야합니다. BCP 명령에 있는 ‘-c’ 플래그를 포함한 다음 코드를 사용하여 간단하게 수행하거나, 다음 코드를 사용하여 플랫 파일을 UTF-16에서 UTF-8로 변환시킬 수 있습니다.
 
-		Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
+```
+Get-Content <input_file_name> -Encoding Unicode | Set-Content <output_file_name> -Encoding utf8
+```
  
 성공적으로 파일에 데이터를 내보냈다면, Azure로 이동시킬 차례입니다. 다음 섹션에서 설명하는 AZCopy 또는 가져오기/내보내기를 사용하여 수행할 수 있습니다.
-
 
 ## AZCopy 또는 가져오기/내보내기를 사용하여 Azure에 로드
 5\~10 테라바이트 또는 그 이상의 데이터를 옮길 경우, 이 작업을 수행하기 위해 디스크 전달 서비스인 [가져오기/내보내기][]를 사용을 권장합니다. 그러나, 단일 숫자 TB 범위 데이터를 이동하려면 AZCopy를 포함한 공용 인터넷을 사용하는 편이 더욱 편리합니다. Express Route를 사용하여 이 프로세스의 속도를 올리거나 확장할 수 있습니다.
@@ -63,7 +66,9 @@ PolyBase는 아직 UTF-16을 지원하지 않고, PolyBase를 사용하여 로�
 
 이제 BCP를 사용하여 생성한 파일 집합을 사용하여, AZCopy를 Azure Powershell에서 또는 powershell 스크립트를 실행하여 간단하게 실행할 수 있습니다. 더 높은 수준에서, AZCopy 실행을 요구하는 프롬프트는 다음 형식을 따릅니다.
 
-	 AZCopy /Source:<File Location> /Dest:<Storage Container Location> /destkey:<Storage Key> /Pattern:<File Name> /NC:256
+```
+AZCopy /Source:<File Location> /Dest:<Storage Container Location> /destkey:<Storage Key> /Pattern:<File Name> /NC:256
+```
 
 기본 사항에 추가하여, AZCopy를 사용한 로드에 대해 다음의 가장 적합한 실습을 권장합니다.
 
@@ -87,31 +92,38 @@ PolyBase는 아직 UTF-16을 지원하지 않고, PolyBase를 사용하여 로�
 
 4. **외부 데이터 원본 생성** 저장소 계정을 가리킬 때, 외부 데이터 원본은 동일 컨테이너에서 로드할 때 사용됩니다. ‘LOCATION’ 매개 변수에 대하여, 서식의 위치를 사용합니다: 'wasbs://mycontainer@ test.blob.core.windows.net/path’.
 
-		-- Creating master key
-		CREATE MASTER KEY;
+```
+-- Creating master key
+CREATE MASTER KEY;
 
-		-- Creating a database scoped credential
-		CREATE DATABASE SCOPED CREDENTIAL <Credential Name> WITH IDENTITY = '<User Name>', 
-    	Secret = '<Azure Storage Key>';
+-- Creating a database scoped credential
+CREATE DATABASE SCOPED CREDENTIAL <Credential Name> 
+WITH 
+    IDENTITY = '<User Name>'
+,   Secret = '<Azure Storage Key>'
+;
 
-		-- Creating external file format (delimited text file)
-		CREATE EXTERNAL FILE FORMAT text_file_format 
-		WITH (
-		    FORMAT_TYPE = DELIMITEDTEXT, 
-		    FORMAT_OPTIONS (
-		        FIELD_TERMINATOR ='|', 
-		        USE_TYPE_DEFAULT = TRUE
-		    )
-		);
+-- Creating external file format (delimited text file)
+CREATE EXTERNAL FILE FORMAT text_file_format 
+WITH 
+(
+    FORMAT_TYPE = DELIMITEDTEXT 
+,   FORMAT_OPTIONS  (
+                        FIELD_TERMINATOR ='|' 
+                    ,   USE_TYPE_DEFAULT = TRUE
+                    )
+);
 
-		--Creating an external data source
-		CREATE EXTERNAL DATA SOURCE azure_storage 
-		WITH (
-	    	TYPE = HADOOP, 
-	        LOCATION ='wasbs://<Container>@<Blob Path>’,
-	        CREDENTIAL = <Credential Name>
-		;
-
+--Creating an external data source
+CREATE EXTERNAL DATA SOURCE azure_storage 
+WITH 
+(
+    TYPE = HADOOP 
+,   LOCATION ='wasbs://<Container>@<Blob Path>'
+,   CREDENTIAL = <Credential Name>
+)
+;
+```
 
 이제 저장소 계정이 제대로 구성되었으므로, 데이터를 SQL 데이터 웨어하우스로 로드할 수 있습니다.
 
@@ -120,26 +132,36 @@ PolyBase 구성 후, 저장소에 있는 데이터를 가리키는 외부 테이
 
 1. ‘CREATE EXTERNAL TABLE’ 명령을 사용하여 데이터의 구조를 정의합니다. 데이터의 상태를 빠르고 효율적으로 캡쳐할 수 있는지 확인하기 위해, SSMS에서 SQL Server 테이블을 스크립팅하고, 그 후에 외부 테이블의 차이점의 원인을 직접 조정하는 것을 권장합니다. Azure에서 외부 테이블을 생성하면, 데이터를 업데이트하거나 추가 데이터를 추가할 경우에도 계속 같은 위치를 가리킵니다.  
 
-		-- Creating external table pointing to file stored in Azure Storage
-		CREATE EXTERNAL TABLE <External Table Name> (
-		    <Column name>, <Column type>, <NULL/NOT NULL>
-		)
-		WITH (LOCATION='<Folder Path>',
-		      DATA_SOURCE = <Data Source>,
-		      FILE_FORMAT = <File Format>,      
-		);
+```
+-- Creating external table pointing to file stored in Azure Storage
+CREATE EXTERNAL TABLE <External Table Name> 
+(
+    <Column name>, <Column type>, <NULL/NOT NULL>
+)
+WITH 
+(   LOCATION='<Folder Path>'
+,   DATA_SOURCE = <Data Source>
+,   FILE_FORMAT = <File Format>      
+);
+```
 
-2. ‘CREATE TABE...AS SELECT’ 문을 사용하여 데이터를 로드합니다.
+2. ‘CREATE TABE...AS SELECT’ 문을 사용하여 데이터를 로드합니다. 
 
-		CREATE TABLE <Table Name> 
-		WITH (
-    		CLUSTERED COLUMNSTORE INDEX
-    		)
-		AS SELECT * from <External Table Name>;
+```
+CREATE TABLE <Table Name> 
+WITH 
+(
+	CLUSTERED COLUMNSTORE INDEX
+)
+AS 
+SELECT  * 
+FROM    <External Table Name>
+;
+```
 
-	더욱 세부적인 SELECT 문을 사용하면 테이블의 행 하위 섹션을 로드할 수 있습니다. 그러나 이번에 PolyBase가 저장소 계정에 추가적인 계산을 푸시하지 않는 것처럼, SELECT 문을 사용하여 하위 섹션을 로드하는 경우는 전체 데이터 집합을 로드하는 것보다 빠르지 않습니다.
+더욱 세부적인 SELECT 문을 사용하면 테이블의 행 하위 섹션을 로드할 수 있습니다. 그러나 이번에 PolyBase가 저장소 계정에 추가적인 계산을 푸시하지 않는 것처럼, SELECT 문을 사용하여 하위 섹션을 로드하는 경우는 전체 데이터 집합을 로드하는 것보다 빠르지 않습니다.
 
-‘CREATE TABLE...AS SELECT’ 문 이외에도, ‘INSERT...INTO’ 문을 사용하여 데이터를 외부 테이블에서 기존 테이블로 로드할 수 있습니다.
+`CREATE TABLE...AS SELECT` 문 이외에도, ‘INSERT...INTO’ 문을 사용하여 데이터를 외부 테이블에서 기존 테이블로 로드할 수 있습니다.
 
 ## 다음 단계
 더 많은 개발 팁은 [개발 개요][]를 참조하세요.
@@ -167,4 +189,4 @@ PolyBase 구성 후, 저장소에 있는 데이터를 가리키는 외부 테이
 [Azure 저장소 설명서]: https://azure.microsoft.com/ko-kr/documentation/articles/storage-create-storage-account/
 [Express경로 설명서]: http://azure.microsoft.com/documentation/services/expressroute/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

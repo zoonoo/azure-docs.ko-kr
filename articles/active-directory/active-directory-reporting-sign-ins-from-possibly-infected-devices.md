@@ -3,8 +3,8 @@
 	description="일부 맬웨어(악성 소프트웨어)를 실행 중일 수 있는 장치에서 실행된 로그인 시도를 포함하는 보고서입니다."
 	services="active-directory"
 	documentationCenter=""
-	authors="kenhoff"
-	manager="ilanas"
+	authors="SSalahAhmed"
+	manager="gchander"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
-	ms.author="kenhoff"/>
+	ms.date="08/17/2015"
+	ms.author="saah;kenhoff"/>
 
 # 감염 가능성이 있는 장치에서의 로그인
 
@@ -24,4 +24,4 @@
 
 ![감염 가능성이 있는 장치에서의 로그인](./media/active-directory-reporting-sign-ins-from-possibly-infected-devices/signInsFromPossiblyInfectedDevices.PNG)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

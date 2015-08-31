@@ -1,18 +1,18 @@
 <properties 
-   pageTitle="StorSimple 하드웨어 구성 요소 및 상태"
+   pageTitle="StorSimple 하드웨어 구성 요소 및 상태 | Microsoft Azure"
    description="StorSimple Manager 서비스를 통해 StorSimple 장치의 하드웨어 구성 요소를 모니터링하는 방법에 대해 알아봅니다."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/31/2015"
+   ms.date="08/14/2015"
    ms.author="alkohli" />
 
 # StorSimple 하드웨어 구성 요소 및 상태
@@ -45,14 +45,14 @@
 장치 구성 요소의 하드웨어 상태를 보려면 다음 단계를 수행합니다.
 
 1. **장치**로 이동하여 특정 StorSimple 장치를 선택합니다. 클릭하여 장치 수준 메뉴로 이동한 다음 **유지 관리** 탭을 클릭합니다. 
-2. **하드웨어 상태** 섹션을 찾고 사용 가능한 구성 요소(위에서 설명한)를 선택합니다. 구성 요소 레이블 목록 앞의 화살표를 클릭하여 목록을 확장하고 다양한 장치 구성 요소의 상태를 봅니다. [기본 인클로저에 대한 자세한 구성 요소 목록](Component-list-for-primary-enclosure) 및 [EBOD 인클로저에 대한 자세한 구성 요소](Component-list-for-EBOD-enclosure)를 참조하세요.
+2. **하드웨어 상태** 섹션을 찾고 사용 가능한 구성 요소(위에서 설명한)를 선택합니다. 구성 요소 레이블 목록 앞의 화살표를 클릭하여 목록을 확장하고 다양한 장치 구성 요소의 상태를 봅니다. [기본 인클로저에 대한 자세한 구성 요소 목록](#component-list-for-primary-enclosure-of-storsimple-device) 및 [EBOD 인클로저에 대한 자세한 구성 요소](#component-list-for-ebod-enclosure-of-storsimple-device)를 참조하세요.
 2. 다음 색 코딩 구성표를 사용하여 구성 요소 상태를 해석합니다.
 	-  **녹색 확인 표시** – **정상** 또는 **확인** 구성 요소를 표시합니다.
 	-  **노란색** – **경고** 상태의 구성 요소를 표시합니다.
 	-  **빨간색 느낌표** – **실패** 또는 **주의 필요** 상태인 구성 요소를 표시합니다.
 	-  **검정 텍스트에 흰색** – 존재하지 않는 구성 요소를 표시합니다.
 
-3. **정상** 상태가 아닌 구성 요소가 있는 경우 Microsoft 지원에 문의하세요. 장치에서 경고를 설정한 경우, 전자 메일 경고를 받게 됩니다. 실패한 하드웨어 구성 요소를 교체해야하는 경우 [하드웨어 구성 요소 교체 가이드](https://msdn.microsoft.com/library/azure/dn757736.aspx)를 참조하세요.
+3. **정상** 상태가 아닌 구성 요소가 있는 경우 Microsoft 지원에 문의하세요. 장치에서 경고를 설정한 경우, 전자 메일 경고를 받게 됩니다. 실패한 하드웨어 구성 요소를 교체해야 하는 경우 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)를 참조하세요.
 
 
 ## StorSimple 장치의 기본 인클로저에 대한 구성 요소 목록
@@ -125,10 +125,10 @@
 |장치 컨트롤러에 연결|I/O|물리적|Controller|아니요|EBOD I/O 모듈 및 장치 컨트롤러 간의 연결 상태를 나타냅니다.|
 
 ## 다음 단계
-성능 저하 또는 실패 상태의 장치 구성 요소 문제를 해결해야 하는 경우 [모니터링 표시기 문제 해결](storsimple-monitoring-indicators)을 참조하세요.
+성능 저하 또는 실패 상태의 장치 구성 요소 문제를 해결해야 하는 경우 [StorSimple 모니터링 표시기](storsimple-monitoring-indicators.md)를 참조하세요.
 
-오류가 발생한 하드웨어 구성 요소를 교체하려면 [하드웨어 구성 요소 교체 가이드](https://msdn.microsoft.com/library/azure/dn757736.aspx)를 참조하세요.
+오류가 발생한 하드웨어 구성 요소를 교체하려면 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)를 참조하세요.
 
 장치 문제가 계속되면 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

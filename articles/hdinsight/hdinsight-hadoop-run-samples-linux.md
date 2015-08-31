@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun"
+    tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -242,4 +243,4 @@ GraySort는 메트릭이 대량의 데이터를 정렬하는 동안 도달하는
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -3,6 +3,7 @@
 	description="Azure CLI, Azure 저장소 탐색기, Azure PowerShell, Hadoop 명령줄 또는 Sqoop을 사용하여 HDInsight에서 Hadoop 작업 데이터를 업로드 및 액세스하는 방법에 대해 알아봅니다."
 	services="hdinsight,storage"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/10/2015"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 
@@ -22,7 +23,7 @@
 
 Azure HDInsight는 Azure Blob 저장소를 통해 모든 기능을 갖춘 HDFS(Hadoop Distributed File System)를 제공합니다. 고객에게 원활한 환경을 제공하기 위해 HDFS를 확장하여 설계되었습니다. 이를 통해 Hadoop 에코 시스템에서 구성 요소의 전체 집합이 관리하는 데이터에서 직접 작동하도록 합니다. Azure Blob 저장소와 HDFS는 데이터의 저장소 및 해당 데이터의 계산을 최적화하는 별개의 파일 시스템입니다. Azure Blob 저장소 사용의 이점에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요.
 
-##필수 조건
+**필수 구성 요소**
 
 시작하기 전에 다음 요구 사항을 확인하세요:
 
@@ -109,15 +110,20 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동�
 2. 다음 스크립트에서 처음 5개의 변수 값을 설정합니다.
 
 		$subscriptionName = "<AzureSubscriptionName>"
+		$resourceGroupName = "<AzureResourceGroupName>"
 		$storageAccountName = "<StorageAccountName>"
 		$containerName = "<ContainerName>"
 
 		$fileName ="<LocalFileName>"
 		$blobName = "<BlobName>"
 
-		# Get the storage account key
+		Switch-AzureMode -Name AzureResourceManager
+
+		Add-AzureAccount
 		Select-AzureSubscription $subscriptionName
-		$storageaccountkey = get-azurestoragekey $storageAccountName | %{$_.Primary}
+
+		# Get the storage account key
+		$storageaccountkey = get-azurestoragekey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{$_.Primary}
 
 		# Create the storage context object
 		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
@@ -205,6 +211,9 @@ Azure 저장소를 사용하기 위한 그래픽 인터페이스를 제공하는
 
 7. 업로드할 파일을 지정한 다음 **열기**를 클릭합니다.
 
+##Azure Blob 저장소를 로컬 드라이브로 탑재
+
+[Azure Blob 저장소를 로컬 드라이브로 탑재](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx)를 참조하세요.
 
 ##서비스
 
@@ -247,7 +256,7 @@ Azure SDK 설치에 대한 자세한 내용은 [Azure 다운로드](http://azure
 
 
 
-[azure-management-portal]: https://manage.windowsazure.com
+[azure-management-portal]: https://porta.azure.com
 [azure-powershell]: http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 
 [azure-storage-client-library]: /develop/net/how-to-guides/blob-storage/
@@ -277,6 +286,5 @@ Azure SDK 설치에 대한 자세한 내용은 [Azure 다운로드](http://azure
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

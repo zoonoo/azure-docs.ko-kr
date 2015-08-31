@@ -5,6 +5,7 @@
 	manager="paulettm"
 	services="hdinsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"/>
 
 <tags
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015" 
+	ms.date="07/09/2015"
 	ms.author="jgao"/>
 
 #HDInsight에서 Java로 작성된 Hadoop 클러스터에서 MapReduce 단어 개수 예제를 실행합니다.
@@ -216,6 +217,5 @@ MapReduce 작업의 출력 파일은 변경할 수 없습니다. 따라서 이 �
 [powershell-install-configure]: ../install-configure-powershell.md
 
 [image-hdi-sample-wordcount-output]: ./media/hdinsight-sample-wordcount/HDI.Sample.WordCount.Output.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

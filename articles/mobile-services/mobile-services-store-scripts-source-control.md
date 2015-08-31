@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="소스 제어에 프로젝트 코드 저장 | Microsoft Azure" 
-	description="컴퓨터의 로컬 Git 리포지토리에 서버 스크립트 파일 및 모듈을 저장하는 방법에 대해 알아봅니다." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="소스 제어에 프로젝트 코드 저장 | Microsoft Azure"
+	description="컴퓨터의 로컬 Git 리포지토리에 서버 스크립트 파일 및 모듈을 저장하는 방법에 대해 알아봅니다."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="ggailey777"/>
 
 # 소스 제어에 프로젝트 코드 저장
@@ -32,7 +32,7 @@
 
 ##<a name="clone-repo"></a>Git을 설치하고 로컬 리포지토리 만들기
 
-1. 로컬 컴퓨터에 Git을 설치합니다. 
+1. 로컬 컴퓨터에 Git을 설치합니다.
 
 	Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. 운영 체제 특정 배포 및 설치 지침은 [Git 설치]를 참조하세요.
 
@@ -76,13 +76,13 @@
 		    request.execute();
 		    console.log(JSON.stringify(item, null, 4));
 		}
-	
+
 	이 코드는 삽입된 항목을 로그에 씁니다. 이 파일에 아직 코드가 포함되어 있지 않은 경우 `console.log()` 호출과 같은 유효한 JavaScript 코드를 이 파일에 추가한 후 변경 내용을 저장하면 됩니다.
 
 3. Git 명령 프롬프트에서 새 스크립트 파일 추적을 시작하는 다음 명령을 입력합니다.
 
 		$ git add .
-	
+
 
 4. 변경 내용을 커밋하는 다음 명령을 입력합니다.
 
@@ -91,7 +91,7 @@
 5. 원격 리포지토리에 변경 내용을 업로드하는 다음 명령을 입력합니다.
 
 		$ git push origin master
-	
+
 	커밋이 모바일 서비스에 배포됨을 나타내는 일련의 명령이 표시됩니다.
 
 6. 관리 포털로 돌아가서 **데이터** 탭, **TodoItem** 테이블을 차례로 클릭하고 **스크립트**를 클릭하고 나서 **삽입**을 선택합니다.
@@ -126,7 +126,7 @@
 		$ git add .
 		$ git commit -m "added node-uuid module"
 		$ git push origin master
-		
+
 	새 파일을 추가하고, 변경 내용을 커밋하며, 새로운 node-uuid 모듈 및 todoitem.insert.js 스크립트 변경 내용을 모바일 서비스에 밀어 넣습니다.
 
 ## <a name="next-steps"> </a>다음 단계
@@ -161,6 +161,5 @@
 [클라이언트에서 사용자 지정 API 호출]: mobile-services-ios-call-custom-api.md
 [모듈]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

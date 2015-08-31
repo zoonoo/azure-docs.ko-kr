@@ -1,7 +1,6 @@
 <properties
 	pageTitle="앱 모델 v2.0 | Microsoft Azure"
-	description="개인 Microsoft 계정과 회사 또는 학교 계정 둘 다의 토큰을 허용하는 .NET MVC 웹앱을 빌드하는 방법입니다."
-	that signs users in with both personal Microsoft Account and work or school accounts.
+	description="개인 Microsoft 계정과 회사 또는 학교 계정 둘 다로 사용자를 로그인하는 .NET MVC Web 웹앱을 빌드하는 방법입니다."
 	services="active-directory"
 	documentationCenter=".net"
 	authors="dstrockis"
@@ -202,4 +201,4 @@ public ActionResult About()
 
 추가 리소스는 다음을 확인해보세요. - [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md) - [스택 오버플로 "azure-active-directory" 태그 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

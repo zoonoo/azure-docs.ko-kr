@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -52,13 +53,16 @@ Linux 기반 Azure HDInsight 클러스터는 Azure 클라우드에서 실행되�
 	>
 	> 인증은 일반 텍스트입니다. 항상 HTTPS를 사용하여 연결의 보안을 유지합니다.
 
-* **SSH** - &lt;clustername>-ssh.azurehdinsight.net(포트 22)
+* **SSH** - &lt;clustername>-ssh.azurehdinsight.net(포트 22 또는 23) 포트 22는 headnode0에 연결하는 데 사용되고 포트 23은 headnode1에 연결하는 데 사용됩니다. 헤드 노드에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability-linux.md)을 참조하세요.
 
 	> [AZURE.NOTE]클라이언트 컴퓨터에서 SSH를 통해 클러스터 헤드 노드에 액세스할 수 있습니다. 연결한 후 헤드 노드에서 SSH를 사용하여 작업자 노드를 액세스할 수 있습니다.
 
 ## 파일 위치
 
-Hadoop 관련 파일은 `/usr/hdp/current`의 클러스터 노드에서 찾을 수 있습니다.
+Hadoop 관련 파일은 `/usr/hdp`의 클러스터 노드에서 찾을 수 있습니다. 이 디렉터리에는 다음과 같은 하위 디렉터리가 포함됩니다.
+
+* __2.2.4.9-1__:이 디렉터리 이름은 HDInsight에서 사용되는 Hortonworks Data Platform 버전에 따라 지정되므로 사용 중인 클러스터의 번호가 여기 나열된 번호와 다를 수 있습니다.
+* __current__: 이 디렉터리는 __2.2.4.9-1__ 디렉터리 아래의 디렉터리에 대한 링크를 포함하며 파일에 액세스할 때마다 버전 번호(변경될 수 있음)를 입력하지 않아도 됩니다.
 
 예제 데이터 및 JAR 파일은 HDFS(Hadoop Distributed File System) 또는 Azure Blob 저장소('/example' 또는 'wasb:///example')에서 찾을 수 있습니다.
 
@@ -139,4 +143,4 @@ HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 �
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

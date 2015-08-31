@@ -104,4 +104,4 @@ Azure 모바일 서비스를 사용하여 앱을 배포하는 경우 서버 오�
 [Azure CLI를 사용하여 모바일 서비스 자동화]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

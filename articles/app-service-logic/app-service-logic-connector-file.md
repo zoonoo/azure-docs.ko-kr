@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="08/19/2015"
 	ms.author="andalmia"/>
 
 # 논리 앱에서 파일 커넥터 사용 #
@@ -27,9 +27,7 @@
 
 1.	Azure 포털 왼쪽에 있는 + 새로 만들기 옵션을 사용하여 Azure Marketplace를 엽니다.
 2.	“Marketplace > API 앱”으로 이동하여 “파일 커넥터”를 검색합니다.
-3.	다음과 같이 파일 커넥터를 구성합니다.
-
-	![][1]
+3.	다음과 같이 파일 커넥터를 구성합니다.![][1]
 
 	- **이름** - 파일 커넥터의 이름을 지정합니다.
 	- **패키지 설정**
@@ -55,24 +53,25 @@ API 앱을 만들고 나면 이제 파일 커넥터를 논리 앱에 대한 동�
 
 3.	파일 커넥터가 오른쪽의 갤러리에 있는 “이 리소스 그룹의 API 앱” 섹션에 나타납니다.
 
-4.	“파일 커넥터”를 클릭하여 파일 커넥터 API 앱을 편집기에 놓을 수 있습니다. 파일 커넥터는 트리거1개 및 동작 4개를 노출합니다.
+4.	“파일 커넥터”를 클릭하여 파일 커넥터 API 앱을 편집기에 놓을 수 있습니다. 파일 커넥터는 트리거1개 및 동작 4개를 노출합니다.![][5]
 
-	![][5]
-
-6.	각각은 특정 속성을 노출합니다. 아래 이미지는 트리거 및 파일 가져오기 동작에 대한 속성을 나열합니다.
-
-	![][6]
+6.	각각은 특정 속성을 노출합니다. 아래 이미지는 트리거 및 파일 가져오기 동작에 대한 속성을 나열합니다.![][6]
 
 7. 이러한 속성이 구성되면 흐름에서 트리거 및 동작을 사용할 수 있습니다. 마찬가지로 다른 동작도 구성할 수 있습니다.
 
 > [AZURE.NOTE]파일 트리거는 파일을 폴더에서 성공적으로 읽은 후 해당 파일을 삭제합니다.
 
 ## 파일 커넥터 REST API ##
-논리 앱 외부에서 커넥터를 사용하려면 커넥터를 통해 노출되는 REST API를 활용할 수 있습니다. 탐색->Api 앱->파일 커넥터를 사용하여 이 API 정의를 볼 수 있습니다. 이제 통계 섹션 아래의 API 정의 렌즈를 클릭하여 이 커넥터를 통해 노출되는 모든 API를 볼 수 있습니다.
-
-  ![][7]
+논리 앱 외부에서 커넥터를 사용하려면 커넥터를 통해 노출되는 REST API를 활용할 수 있습니다. 탐색->Api 앱->파일 커넥터를 사용하여 이 API 정의를 볼 수 있습니다. 이제 통계 섹션 아래의 API 정의 렌즈를 클릭하여 이 커넥터를 통해 노출되는 모든 API를 볼 수 있습니다.![][7]
 
 API의 세부 정보는 [파일 커넥터 API 정의]에서 찾을 수 있습니다.
+
+## 커넥터의 추가 기능
+이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
+
+[커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
+
+커넥터의 성능 통계를 검토하고 보안을 제어할 수 있습니다. [기본 제공 API 앱 및 커넥터 관리 및 모니터링](app-service-logic-monitor-your-connectors.md)을 참조하세요.
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-file/img1.PNG
@@ -82,7 +81,7 @@ API의 세부 정보는 [파일 커넥터 API 정의]에서 찾을 수 있습니
 
 <!-- Links -->
 [새 논리 앱을 만듭니다]: app-service-logic-create-a-logic-app.md
-[파일 커넥터 API 정의]: https://msdn.microsoft.com/en-US/library/dn936296.aspx
+[파일 커넥터 API 정의]: https://msdn.microsoft.com/library/dn936296.aspx
 [하이브리드 연결 관리자 사용]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

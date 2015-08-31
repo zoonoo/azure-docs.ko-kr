@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="08/13/2015"
 	ms.author="mmercuri"/>
 
 # 템플릿 구현 모범 사례의 상황별 예제
 
 이 항목은 Azure 리소스 관리자 템플릿을 구현하는 방법에 대한 7가지 상황별 예제를 제공합니다. 이 예제에 나와 있는 원칙에 대한 개요를 보려면 [Azure 리소스 관리자 템플릿 설계의 모범 사례](best-practices-resource-manager-design-templates.md)를 참조하세요.
+
+이 항목은 더 큰 백서의 일부입니다. 전체 문서를 읽으려면 [세계 클래스 ARM 템플릿 고려 사항 및 입증된 사례](http://download.microsoft.com/download/8/E/1/8E1DBEFA-CECE-4DC9-A813-93520A5D7CFE/World 클래스 ARM 템플릿 - 고려 사항 및 입증된 사례.pdf)를 다운로드합니다.
 
 ## 기능 범위 템플릿을 종단간 솔루션 범위 템플으로 이동
 
@@ -212,7 +214,7 @@ ARM과 함께 Azure 키 자격 증명 모음을 사용하여 VM 암호 및 인�
 
 #### Azure 리소스 관리자를 사용하여 구현하기
 
-구현에 대한 자세한 내용은 [여기](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)로 이동하여 “Developers Guide to Auth with the Azure Resource Manager API”(Azure 리소스 관리자 API를 사용한 권한 부여 개발자 가이드) 페이지에서 상세히 알아볼 수 있습니다. 이 문서는 단계 별 구현 지침은 물론 샘플 코드도 제공합니다.
+구현에 대한 자세한 내용은 [여기](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)로 이동하여 ‘Developers Guide to Auth with the Azure Resource Manager API’(Azure 리소스 관리자 API를 사용한 권한 부여 개발자 가이드) 페이지에서 상세히 알아볼 수 있습니다. 이 문서는 단계 별 구현 지침은 물론 샘플 코드도 제공합니다.
 
 ### 소프트웨어 일회성 배포를 위한 타사 액세스 허용
 
@@ -252,4 +254,4 @@ ARM과 함께 Azure 키 자격 증명 모음을 사용하여 VM 암호 및 인�
 - Azure 리소스 관리자에서 보안을 처리하는 방법에 대한 권장 사항을 보려면 [Azure 리소스 관리자에 대한 보안 고려 사항](best-practices-resource-manager-security.md)을 참조하세요.
 - 템플릿 내부 및 외부로 상태를 공유하는 방법을 알아보려면 [Azure 리소스 관리자 템플릿에서 상태 공유](best-practices-resource-manager-state.md)를 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

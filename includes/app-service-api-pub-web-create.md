@@ -25,12 +25,10 @@
 
 	이 프로세스는 몇 분 정도 걸릴 수 있으므로 Visual Studio에서 확인 대화 상자를 표시합니다.
 
-	![API 서비스 만들기 시작 확인 메시지](./media/app-service-api-pub-web-create/25-api-provisioning-started-v3.png)
-
 6. 확인 대화 상자에서 **확인**을 클릭합니다.
  
 	프로비전 프로세스에서는 Azure 구독에 리소스 그룹 및 API 앱을 만듭니다. Visual Studio의 **Azure App Service Activity(Azure 앱 서비스 활동)** 창에 진행률이 표시됩니다.
 
 	![Azure 앱 서비스 활동 창을 통한 상태 알림](./media/app-service-api-pub-web-create/26-provisioning-success-v3.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="로그인 및 액세스 패널 페이지에 회사 브랜딩 추가" 
-	description="최종 사용자가 해당 사이트를 사용할 때마다 혼동되지 않도록 회사에서 관리하는 모든 웹 사이트 및 서비스 전체에 일관된 모양과 느낌을 적용하는 방법을 설명하는 항목입니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="로그인 및 액세스 패널 페이지에 회사 브랜딩 추가"
+	description="최종 사용자가 해당 사이트를 사용할 때마다 혼동되지 않도록 회사에서 관리하는 모든 웹 사이트 및 서비스 전체에 일관된 모양과 느낌을 적용하는 방법을 설명하는 항목입니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="MarkusVi"
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/11/2015" 
+	ms.author="MarkVi"/>
 
 # 로그인 및 액세스 패널 페이지에 회사 브랜딩 추가
 
 > [AZURE.NOTE]
-> 
+>
 - 회사 브랜딩은 Azure Active Directory Premium 또는 Basic 버전으로 업그레이드한 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요.
 - Azure Active Directory Premium 및 Basic 버전은 Azure Active Directory 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. Azure Active Directory Premium 및 Basic 버전은 현재 중국 21Vianet이 운영하는 Microsoft Azure에서 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](http://feedback.azure.com/forums/169401-azure-active-directory)을 통해 문의하세요.
 
@@ -44,7 +44,7 @@
 테넌트 특정 URL이 아닌 다른 URL(예: https://mail.office365.com)을 통해 서비스를 방문하는 경우에는 브랜드가 지정되지 않은 로그인 페이지가 표시됩니다. 사용자가 사용자 ID를 입력하거나 사용자 타일을 선택하면 로그인 페이지가 새로 고쳐져 브랜딩을 표시합니다.
 
 > [AZURE.NOTE]
-> 
+>
 - 도메인 이름은 브랜딩을 구성한 Azure 관리 포털의 **Active Directory** > **디렉터리** > **도메인** 섹션에 “활성"으로 나타나야 합니다.
 - Microsoft의 소비자 로그인 페이지에는 로그인 페이지 브랜딩이 적용되지 않습니다. 즉, 개인 Microsoft 계정(이전의 Windows Live ID)을 사용하여 로그인한 사용자는 Azure AD에서 렌더링하는 브랜드가 지정된 사용자 타일 목록을 볼 수 있지만 조직의 브랜딩이 Microsoft 계정 로그인 페이지에 적용되지는 않습니다.
 
@@ -185,6 +185,4 @@ Azure AD의 일부 사용자 지정 가능한 요소에는 여러 가지 사용 
 [7]: ./media/active-directory-add-company-branding/SignInPage_aftercustomization_croppedtop.png
 [8]: ./media/active-directory-add-company-branding/APBranding.png
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

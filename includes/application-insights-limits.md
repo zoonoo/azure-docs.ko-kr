@@ -1,22 +1,24 @@
- Limits depend on the [pricing tier](http://azure.microsoft.com/pricing/details/application-insights/) that you choose.
+ 선택하는 [가격 책정 계층](http://azure.microsoft.com/pricing/details/application-insights/)에 따라 제한됩니다.
 
-**Resource** | **Default Limit** | **Maximum Limit**
+**리소스** | **기본 제한** | **최대 제한**
 -------- | ------------- | -------------
-Session data points<sup>1</sup> per month | unlimited | unlimited
-Other data points per month | 5 million | 50 million<sup>2</sup>
-Trace or Log data rate | 200 dp/s | 500 dp/s
-Exception data rate | 50 dp/s | 50 dp/s
-Other telemetry data rate | 200 dp/s | 500 dp/s
-Raw  data retention |7 days| 30 days
-Aggregated data retention | 13 months | unlimited
-Property name count across the app | 100 | 100
-Property name length | 100 | 100
-Property value length | 1000 | 1000
-Trace and Exception message length | 10000 | 10000
-Metric name length |  100 | 100
+월별 세션 데이터 요소<sup>1</sup> | 무제한 | 무제한
+월별 기타 데이터 요소 | 500만 | 5,000만<sup>2</sup>
+추적 또는 로그 데이터 속도 | 200dp/s | 500dp/s
+예외 데이터 속도 | 50dp/s | 50dp/s
+기타 원격 분석 데이터 속도 | 200dp/s | 500dp/s
+원시 데이터 보존 |7 일| 30일
+집계된 데이터 보존 | 13개월 | 무제한
+앱에서 속성 이름 수 | 100 | 100
+속성 이름 길이 | 100 | 100
+속성 값 길이 | 1000 | 1000
+추적 및 예외 메시지 길이 | 10000 | 10000
+메트릭 이름 길이 | 100 | 100
 
-<sup>1</sup> A data point is an individual metric value or event, with attached properties and measurements.
+<sup>1</sup> 데이터 요소는 개별 메트릭 값 또는 이벤트로, 연결된 속성 및 측정 값이 있습니다.
 
-<sup>2</sup> You can purchase additional capacity beyond 50 million.
+<sup>2</sup> 5,000만 이상의 추가 용량을 구매할 수 있습니다.
  
-[About pricing and quotas in Application Insights](app-insights-pricing.md)
+[Application Insights의 가격 책정 및 할당량 정보](app-insights-pricing.md)
+
+<!---HONumber=August15_HO8-->

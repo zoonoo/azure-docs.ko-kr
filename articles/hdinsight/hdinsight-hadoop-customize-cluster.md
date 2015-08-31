@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="nitinme" 
 	manager="paulettm" 
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -13,10 +14,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/16/2015" 
+	ms.date="08/07/2015" 
 	ms.author="nitinme"/>
 
 # 스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정
+
+[AZURE.INCLUDE [hdinsight-azure-preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
+
+* [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-v1.md)
 
 HDInsight는 사용자 지정 스크립트(프로비전 프로세스 중 클러스터에서 수행할 사용자 지정 정의)를 호출하는 **스크립트 작업**이라는 구성 옵션을 제공합니다. 이 스크립트를 사용하여 클러스터에 추가 소프트웨어를 설치하거나 클러스터에서 응용 프로그램의 구성을 변경할 수 있습니다.
 
@@ -25,7 +30,7 @@ HDInsight는 사용자 지정 스크립트(프로비전 프로세스 중 클러�
 > 
 > 스크립트 작업은 표준 Azure HDInsight 구독의 일부로 추가 요금 없이 제공됩니다.
 
-HDInsight 클러스터를 사용자 지정하는 방법은 추가 Azure 저장소 계정 포함, hadoop 구성 파일(core-site.xml, hive-site.xml 등) 변경, 클러스터의 공통 위치에 공유 라이브러리(예: Hive, Oozie) 추가 등을 비롯해 다양합니다. 이러한 사용자 지정은 Azure PowerShell, Azure HDInsight .NET SDK 또는 Azure 포털을 통해 수행할 수 있습니다. 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight에서 Hadoop 클러스터 프로비전][hdinsight-provision-cluster](영문)을 참조하세요.
+HDInsight 클러스터를 사용자 지정하는 방법은 추가 Azure 저장소 계정 포함, hadoop 구성 파일(core-site.xml, hive-site.xml 등) 변경, 클러스터의 공통 위치에 공유 라이브러리(예: Hive, Oozie) 추가 등을 비롯해 다양합니다. 이러한 사용자 지정은 Azure PowerShell, Azure HDInsight .NET SDK 또는 Azure Preview 포털을 통해 수행할 수 있습니다. 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight에서 Hadoop 클러스터 프로비전][hdinsight-provision-cluster](영문)을 참조하세요.
 
 ## 클러스터 프로비전 프로세스의 스크립트 작업
 
@@ -44,7 +49,7 @@ HDInsight 클러스터를 사용자 지정하는 방법은 추가 Azure 저장�
 
 ## 스크립트 작업 스크립트 호출
 
-스크립트 작업 스크립트는 Azure 포털, Azure PowerShell 또는 HDInsight.NET SDK에서 사용할 수 있습니다.
+스크립트 작업 스크립트는 Azure Preview 포털, Azure PowerShell 또는 HDInsight.NET SDK에서 사용할 수 있습니다. 이 문서에서는 포털에서 스크립트 작업을 사용하는 방법을 보여줍니다. PowerShell 및 .NET SDK로 스크립트 작업을 사용하는 방법을 알아보려면 아래 표에 나열된 샘플을 살펴봅니다.
 
 HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 여러 스크립트를 제공합니다.
 
@@ -57,12 +62,12 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 
 
-**Azure 포털**
+**Azure Preview 포털에서**
 
-1. [사용자 지정 옵션을 사용하여 클러스터를 프로비저닝](hdinsight-provision-clusters.md#portal)에 설명된 대로 **사용자 지정 만들기** 옵션을 사용하여 클러스터 프로비저닝을 시작합니다. 
-2. 아래와 같이 마법사의 **스크립트 작업** 페이지에서 **스크립트 작업 추가**를 클릭하여 스크립트 작업에 대한 세부 정보를 제공합니다.
+1. [사용자 지정 옵션을 사용하여 클러스터를 프로비전](hdinsight-provision-clusters.md#portal)에서 설명된 대로 클러스터 프로비전을 시작합니다. 
+2. 아래와 같이, 선택적 구성 아래에서 **스크립트 작업** 블레이드에 대해 **스크립트 작업 추가**를 클릭하여 스크립트 작업에 대한 세부 정보를 제공합니다.
 
-	![스크립트 작업을 사용하여 클러스터 사용자 지정](./media/hdinsight-hadoop-customize-cluster/HDI.CustomProvision.Page6.png "스크립트 작업을 사용하여 클러스터 사용자 지정")
+	![스크립트 작업을 사용하여 클러스터 사용자 지정](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "스크립트 작업을 사용하여 클러스터 사용자 지정")
 	
 	<table border='1'>
 	<tr><th>속성</th><th>값</th></tr>
@@ -70,65 +75,14 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 		<td>스크립트 작업의 이름을 지정합니다.</td></tr>
 	<tr><td>스크립트 URI</td>
 		<td>클러스터를 사용자 지정하기 위해 호출되는 스크립트에 URI를 지정합니다.</td></tr>
-	<tr><td>노드 유형</td>
-		<td>사용자 지정 스크립트가 실행되는 노드를 지정합니다. <b>모든 노드</b>, <b>헤드 노드만</b> 또는 <b>작업자 노드만</b>을 선택할 수 있습니다.
+	<tr><td>헤드/작업자</td>
+		<td>사용자 지정 스크립트가 실행되는 노드(**헤드** 또는 **작업자**)를 지정합니다.</b>
 	<tr><td>매개 변수</td>
 		<td>스크립트에 필요한 경우 매개 변수를 지정합니다.</td></tr>
-</table>두 개 이상의 스크립트 작업을 추가하여 클러스터에 여러 구성 요소를 설치할 수 있습니다.
+</table>ENTER 키를 누르고 두 개 이상의 스크립트 작업을 추가하여 클러스터에 여러 구성 요소를 설치할 수 있습니다.
 
-3. 확인 표시를 클릭하여 클러스터 프로비전을 시작합니다.
+3. **선택**을 클릭하여 스크립트 작업 구성을 저장하고 클러스터 프로비전을 계속합니다.
   
-**Azure PowerShell cmdlet**
-
-HDInsight용 Azure PowerShell 명령을 사용하여 단일 스크립트 작업 또는 여러 스크립트 작업을 실행합니다. **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet을 사용하여 사용자 지정 스크립트를 호출할 수 있습니다. 이 cmdlet을 사용하려면 Azure PowerShell이 설치 및 구성되어 있어야 합니다. HDInsight용 Azure PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
-
-HDInsight 클러스터를 배포할 때 단일 스크립트 작업을 실행하려면 다음 Azure PowerShell 명령을 사용합니다.
-
-	$config = New-AzureHDInsightClusterConfig –ClusterSizeInNodes 4
-
-	$config = Add-AzureHDInsightScriptAction -Config $config –Name MyScriptActionName –Uri http://uri.to/scriptaction.ps1 –Parameters MyScriptActionParameter -ClusterRoleCollection HeadNode,DataNode
-
-	New-AzureHDInsightCluster -Config $config
-
-HDInsight 클러스터를 배포할 때 여러 스크립트 작업을 실행하려면 다음 Azure PowerShell 명령을 사용합니다.
-
-	$config = New-AzureHDInsightClusterConfig –ClusterSizeInNodes 4
-
-	$config = Add-AzureHDInsightScriptAction -Config $config –Name MyScriptActionName1 –Uri http://uri.to/scriptaction1.ps1 –Parameters MyScriptAction1Parameters -ClusterRoleCollection HeadNode,DataNode | Add-AzureHDInsightScriptAction -Config $config –Name MyScriptActionName2 –Uri http://uri.to/scriptaction2.ps1 -Parameters MyScriptAction2Parameters -ClusterRoleCollection HeadNode
-
-	New-AzureHDInsightCluster -Config $config
-
-**HDInsight .NET SDK**
-
-HDInsight .NET SDK에서는 사용자 지정 스크립트를 호출하는 <a href="http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx" target="_blank">ScriptAction</a> 클래스를 제공합니다. HDInsight .NET SDK를 사용하려면
-
-1. Visual Studio 응용 프로그램을 만들고 Nuget에서 SDK를 설치합니다. **도구** 메뉴에서 **Nuget 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다. 콘솔에서 다음 명령을 실행하여 패키지를 설치합니다.
-
-		Install-Package Microsoft.WindowsAzure.Management.HDInsight
-
-2. SDK를 사용하여 클러스터를 만듭니다. 자세한 내용은 [.NET SDK를 사용하여 HDInsight 클러스터 프로비전](hdinsight-provision-clusters.md#sdk)을 참조하세요.
-
-3. **ScriptAction** 클래스를 사용하여 아래와 같이 사용자 지정 스크립트를 호출합니다.
-
-		
-		var clusterInfo = new ClusterCreateParameters()
-		{
-			// Provide the cluster information, like
-			// name, Storage account, credentials,
-			// cluster size, and version		    
-			...
-			...
-		};
-
-		// Add the script action to install Spark
-		clusterInfo.ConfigActions.Add(new ScriptAction(
-	  		"MyScriptActionName", // Name of the config action
-	  		new ClusterNodeType[] { ClusterNodeType.HeadNode }, // List of nodes to install the component on
-	  		new Uri("http://uri.to/scriptaction.ps1"), // Location of the script to install the component
-	  		"MyScriptActionParameter" //Parameters, if any, required by the script
-		));
-
-
 
 ## HDInsight 클러스터에서 사용하는 오픈 소스 소프트웨어 지원
 Microsoft Azure HDInsight 서비스는 Hadoop에 형성된 오픈 소스 기술의 에코시스템을 사용하여 클라우드에 빅 데이터 응용 프로그램을 빌드할 수 있는 유연한 플랫폼입니다. Microsoft Azure에서는 <a href="http://azure.microsoft.com/support/faq/" target="_blank">Azure 지원 FAQ 웹 사이트</a>의 **지원 범위** 섹션에 설명된 대로 일반적인 수준의 오픈 소스 기술을 제공합니다. HDInsight 서비스는 아래에 설명된 일부 구성 요소에 대해 추가 수준의 지원을 제공합니다.
@@ -172,4 +126,4 @@ HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "클러스터 프로 비전 중의 단계"
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

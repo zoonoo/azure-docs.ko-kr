@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 백업 소개"
+	pageTitle="Azure 백업 소개 | Microsoft Azure"
 	description="이 문서에서는 고객이 Azure로 그리고 Azure에서 데이터를 백업할 수 있게 해주는 Azure 백업 서비스를 간략하게 설명합니다."
 	services="backup"
 	documentationCenter=""
@@ -7,14 +7,7 @@
 	manager="shreeshd"
 	editor="tysonn"/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/13/2015"
-	ms.author="trinadhk"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/18/2015" ms.author="trinadhk"; "jimpark"/>
 
 # Azure 백업 소개
 이 문서에서는 고객이 온-프레미스 또는 Azure에 있는 데이터를 백업할 수 있는 Microsoft 클라우드 통합 백업 솔루션에 대해 간략히 소개합니다.
@@ -25,15 +18,13 @@ Azure 백업은 데이터가 온-프레미스에 있든 Azure에 있든 백업�
 > [AZURE.VIDEO what-is-azure-backup]
 
 ## 클라우드 디자인 요점
-기존의 백업 솔루션은 디스크 또는 테이프와 유사한 끝점으로 클라우드를 처리하도록 발전했습니다. 이 방법은 간단하고 쉽게 배포할 수 있으며 일관된 경험을 제공하지만, 사용이 제한되고 기본 플랫폼을 충분히 활용하지 않습니다. 이는 최종 고객에게 비효율적이고, 비용이 많이 드는 솔루션을 의미합니다. 백업 솔루션은 Azure를 "저장소 끝점처럼" 처리하여 공용 클라우드 플랫폼의 풍부하고 강력한 기능을 활용할 수 없습니다. 반면, Azure 백업은 클라우드 구조를 사용하여 강력하고 경제적인 백업 솔루션을 제공하는 진정한 서비스를 제공합니다. 온-프레미스 백업 솔루션(SCDPM)과 통합되어 종단 간 하이브리드 솔루션을 제공합니다.
+기존의 백업 솔루션은 디스크 또는 테이프와 유사한 끝점으로 클라우드를 처리하도록 발전했습니다. 이 방법은 간단하고 쉽게 배포할 수 있으며 일관된 경험을 제공하지만, 사용이 제한되고 기본 플랫폼을 충분히 활용하지 않습니다. 이는 최종 고객에게 비효율적이고, 비용이 많이 드는 솔루션을 의미합니다. 백업 솔루션은 Azure를 "저장소 끝점처럼" 처리하여 공용 클라우드 플랫폼의 풍부하고 강력한 기능을 활용할 수 없습니다. 반면, Azure 백업은 클라우드를 사용하여 강력하고 경제적인 백업 솔루션을 제공하는 진정한 서비스를 제공합니다. 온-프레미스 백업 솔루션(SCDPM)과 통합되어 종단 간 하이브리드 솔루션을 제공합니다.
 
 이 접근 방식의 이점은 다음과 같습니다.
 
-+ 저렴한 비용, 복원력 있는 데이터 저장소를 제공하는 효율적인 클라우드 저장소 아키텍처
-
-+ 고가용성을 보장하는 비침입적인 서비스 자동 크기 조정
-
-+ 일관된 방식의 온 프레미스, 하이브리드 및 IaaS 배포 백업
+- 저렴한 비용, 복원력 있는 데이터 저장소를 제공하는 효율적인 클라우드 저장소 아키텍처
+- 고가용성을 보장하는 비침입적인 서비스 자동 크기 조정
+- 일관된 방식의 온 프레미스, 하이브리드 및 IaaS 배포 백업
 
 이 솔루션의 주요 기능은 다음과 같습니다.
 
@@ -66,7 +57,8 @@ Azure 백업은 데이터가 온-프레미스에 있든 Azure에 있든 백업�
 | Azure IaaS VM(Windows)| - | Azure 백업 | | Azure IaaS VM(Linux) | - | Azure 백업 |
 
 ## 다음 단계
-+ Azure 백업 서비스에 대한 질문과 대답은 [여기](backup-azure-backup-faq.md)에 나열되어 있습니다.
-+ [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하세요.
+- [Azure 백업 시도](backup-try-azure-backup-in-10-mins.md)
+- Azure 백업 서비스에 대한 질문과 대답은 [여기](backup-azure-backup-faq.md)에 나열되어 있습니다.
+- [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

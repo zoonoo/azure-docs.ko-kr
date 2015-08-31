@@ -22,20 +22,20 @@
 
 ## Transact-SQL 코드 변경 내용
 
-다음 목록에서는 Azure SQL 데이터 웨어하우스에서 지원하지 않는 주요 기능을 간략하게 설명합니다.
+다음 목록에서는 Azure SQL 데이터 웨어하우스에서 지원하지 않는 주요 기능을 간략하게 설명합니다. 제공된 링크를 따라 이동하면 지원되지 않는 기능에 대한 대안을 확인할 수 있습니다.
 
-- 업데이트 시 ANSI 조인
-- 삭제 시 ANSI 조인
-- 병합 문
+- [업데이트 시 ANSI 조인][]
+- [삭제 시 ANSI 조인][]
+- [병합 문][]
 - 데이터베이스 간 조인
 - [커서][]
 - [SELECT..INTO][]
-- INSERT..EXEC
+- [INSERT..EXEC][]
 - output 절
 - 인라인 사용자 정의 함수
 - 다중 문 함수
-- 재귀 공통 테이블 식(CTE)
-- CTE를 통한 업데이트
+- [재귀 공통 테이블 식(CTE)](#Recursive-common-table-expressions-(CTE)
+- [CTE를 통한 업데이트](#Updates-through-CTEs)
 - CLR 함수 및 프로시저
 - $partition 함수
 - 테이블 변수
@@ -51,6 +51,16 @@
 - [동적 SQL 문자열에 대한 최대 데이터 형식][]
 
 다행히 대부분의 이러한 제한을 해결할 수 있습니다. 위에서 언급한 개발 관련 문서에 대한 설명이 포함되어 있습니다.
+
+### 재귀 공통 테이블 식(CTE)
+
+빠르게 수정할 방법이 없는 복잡한 시나리오입니다. CTE를 세분화하고 단계별로 처리해야 합니다. 일반적으로 복잡한 루프를 사용할 수 있습니다. 재귀 중간 쿼리를 반복할 때 임시 테이블을 채웁니다. 임시 테이블을 채우고 나면 데이터를 단일 결과 집합으로 반환할 수 있습니다. [롤업/큐브/그룹화 집합 옵션을 사용하여 절에 따라 그룹화][] 문서에서 `GROUP BY WITH CUBE` 해결에 사용한 것과 비슷한 방법입니다.
+
+### CTE를 통한 업데이트
+
+CTE가 비재귀적 경우 하위 쿼리를 사용하도록 쿼리를 다시 작성할 수 있습니다. 재귀 CTE에 대해 결과 집합을 먼저 위 설명과 같이 작성한 다음 최종 결과 집합을 대상 테이블에 결합하고 업데이트를 수행해야 합니다.
+
+### 시스템 함수
 
 지원하지 않는 일부 시스템 함수도 있습니다. 일반적으로 데이터 웨어하우징에서 사용될 수 있는 일부 기본 함수는 다음과 같습니다.
 
@@ -85,10 +95,15 @@ AND     request_id IN
 <!--Image references-->
 
 <!--Article references-->
-[pivot and unpivot statements]: sql-data-warehouse-develop-pivot-unpivot.md
+[업데이트 시 ANSI 조인]: sql-data-warehouse-develop-ctas.md
+[삭제 시 ANSI 조인]: sql-data-warehouse-develop-ctas.md
+[병합 문]: sql-data-warehouse-develop-ctas.md
+[INSERT..EXEC]: sql-data-warehouse-develop-temporary-tables.md
+
 [커서]: sql-data-warehouse-develop-loops.md
 [SELECT..INTO]: sql-data-warehouse-develop-ctas.md
 [롤업 / 큐브 / 그룹화 집합 옵션을 사용하는 GROUP BY 절]: sql-data-warehouse-develop-group-by-options.md
+[롤업/큐브/그룹화 집합 옵션을 사용하여 절에 따라 그룹화]: sql-data-warehouse-develop-group-by-options.md
 [8를 초과한 중첩 수준]: sql-data-warehouse-develop-transactions.md
 [뷰를 통한 업데이트]: sql-data-warehouse-develop-views.md
 [변수 할당을 위한 select 사용]: sql-data-warehouse-develop-variable-assignment.md
@@ -99,4 +114,4 @@ AND     request_id IN
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

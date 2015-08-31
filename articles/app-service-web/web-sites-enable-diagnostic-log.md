@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 앱 서비스에서 웹 앱에 대한 진단 로깅 설정"
+	pageTitle="Azure 앱 서비스에서 웹앱에 대한 진단 로깅 설정"
 	description="진단 로그를 사용하도록 설정하는 방법, 응용 프로그램에 계측을 추가하는 방법 및 Azure에서 기록된 정보에 액세스하는 방법에 대해 알아봅니다."
 	services="app-service\web"
 	documentationCenter=".net"
@@ -38,7 +38,7 @@ Azure는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)�
 
 ### 응용 프로그램 진단
 
-응용 프로그램 진단을 통해 웹 응용 프로그램에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 응용 프로그램은 [System.Diagnostics.Trace](http://msdn.microsoft.com/ko-kr/library/36hhw2t6.aspx) 클래스를 사용하여 응용 프로그램 진단 로그에 정보를 로깅할 수 있습니다. 예:
+응용 프로그램 진단을 통해 웹 응용 프로그램에서 생성된 정보를 캡처할 수 있습니다. ASP.NET 응용 프로그램은 [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) 클래스를 사용하여 응용 프로그램 진단 로그에 정보를 로깅할 수 있습니다. 예:
 
 	System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -206,7 +206,7 @@ EventTickCount|이벤트가 발생한 날짜 및 시간(눈금 형식, 더 높�
 ApplicationName|웹 앱 이름
 수준|이벤트 수준(예: 오류, 경고, 정보)
 EventId|이 이벤트의 이벤트 ID<p><p>지정된 값이 없으면 0으로 기본 설정됨
-InstanceId|이벤트가 발생한 웹 앱의 인스턴스
+InstanceId|이벤트가 발생한 웹앱의 인스턴스
 Pid|프로세스 ID
 Tid|이벤트가 생성된 스레드의 스레드 ID
 Message|이벤트 세부 정보 메시지
@@ -219,8 +219,8 @@ Blob 저장소에 로깅하는 경우 데이터는 쉼표로 구분된 값(CSV) 
 ---|---
 Date|이벤트가 발생한 날짜 및 시간
 Level|이벤트 수준(예: 오류, 경고, 정보)
-ApplicationName|웹 앱 이름
-InstanceId|이벤트가 발생한 웹 앱의 인스턴스
+ApplicationName|웹앱 이름
+InstanceId|이벤트가 발생한 웹앱의 인스턴스
 EventTickCount|이벤트가 발생한 날짜 및 시간(눈금 형식, 더 높은 정밀도)
 EventId|이 이벤트의 이벤트 ID<p><p>지정된 값이 없으면 0으로 기본 설정됨
 Pid|프로세스 ID
@@ -248,19 +248,19 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 
 웹 서버 로그는 [W3C 확장 로그 파일 형식](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)을 사용하여 서식이 지정됩니다. 이 정보는 텍스트 편집기를 사용하여 읽거나 [Log Parser](http://go.microsoft.com/fwlink/?LinkId=246619)와 같은 유틸리티를 사용하여 구문 분석할 수 있습니다.
 
-> [AZURE.NOTE]Azure 웹 앱에서 생성된 로그는 __s-computername__, __s-ip__ 또는 __cs-버전__ 필드를 지원하지 않습니다.
+> [AZURE.NOTE]Azure 웹앱에서 생성된 로그는 __s-computername__, __s-ip__ 또는 __cs-버전__ 필드를 지원하지 않습니다.
 
 ##<a name="nextsteps"></a> 다음 단계
 
-- [웹 앱을 모니터링하는 방법](/ko-kr/manage/services/web-sites/how-to-monitor-websites/)
-- [Visual Studio에서 Azure 웹 앱 문제 해결](/ko-kr/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)
-- [HDInsight에서 웹 앱 로그 분석](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+- [웹앱을 모니터링하는 방법](/ko-kr/manage/services/web-sites/how-to-monitor-websites/)
+- [Visual Studio에서 Azure 웹앱 문제 해결](web-sites-dotnet-troubleshoot-visual-studio.md)
+- [HDInsight에서 웹앱 로그 분석](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
-> [AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> [AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

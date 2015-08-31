@@ -105,6 +105,8 @@
 
 이제 내보낸 Blob에서 JSON을 구문 분석하고 데이터베이스에서 레코드를 만드는 [코드](https://sesitai.codeplex.com/)를 작성할 수 있습니다. 저장소 내보내기와 데이터베이스는 모두 Azure에 있으므로 Azure 작업자 역할에서 코드를 실행할 것입니다.
 
+이 코드는 JSON에 표시되는 어떤 속성도 자동으로 추출합니다. 속성의 설명은 [데이터 모델 내보내기](app-insights-export-data-model.md)를 참조하세요.
+
 
 #### 작업자 역할 프로젝트 만들기
 
@@ -356,6 +358,8 @@ Visual Studio에서는 저장소 계정 연결 문자열로 작업자 역할 설
 
 #### JSON 문서에서 생성된 PageViewPerformance 클래스 파일
 
+
+
     public class PageViewPerformance
     {
     	[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -519,6 +523,7 @@ PageView에 대해 생성되는 테이블의 스키마입니다.
 * [작업자 역할을 사용하여 SQL로 내보내기](app-insights-code-sample-export-telemetry-sql-database.md)
 * [Application Insights에서 연속 내보내기](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
+* [데이터 모델 내보내기](app-insights-export-data-model.md)
 * [추가 샘플 및 연습](app-insights-code-samples.md)
 
 <!--Link references-->
@@ -531,4 +536,4 @@ PageView에 대해 생성되는 테이블의 스키마입니다.
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

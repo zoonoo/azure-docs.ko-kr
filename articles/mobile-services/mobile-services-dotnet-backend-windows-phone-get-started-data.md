@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="기존 앱에 모바일 서비스 추가(Windows Phone) | Microsoft Azure" 
-	description="모바일 서비스를 사용하여 Windows Phone 앱에서 데이터를 활용하는 방법을 알아봅니다." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="기존 앱에 모바일 서비스 추가(Windows Phone) | Microsoft Azure"
+	description="모바일 서비스를 사용하여 Windows Phone 앱에서 데이터를 활용하는 방법을 알아봅니다."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/12/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 # 기존 앱에 모바일 서비스 추가
@@ -32,13 +32,13 @@
 이 자습서를 사용하려면 다음이 필요합니다.
 
 + Visual Studio 2013 업데이트 2 이상 버전
-+ Microsoft Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요. 
++ Microsoft Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
 ##GetStartedWithData 프로젝트 다운로드
 
 이 자습서는 Visual Studio 2013용 Windows Phone Silverlight 8.1 앱 프로젝트인 [GetStartedWithMobileServices 앱](https://code.msdn.microsoft.com/Add-Azure-Mobile-to-a-8b906f72)을 기반으로 합니다.
 
-1. [개발자 코드 샘플 사이트](https://code.msdn.microsoft.com/Add-Azure-Mobile-to-a-8b906f72)(영문)에서 GetStartedWithMobileServices 샘플 앱의 C# 버전을 다운로드합니다. 
+1. [개발자 코드 샘플 사이트](https://code.msdn.microsoft.com/Add-Azure-Mobile-to-a-8b906f72)(영문)에서 GetStartedWithMobileServices 샘플 앱의 C# 버전을 다운로드합니다.
 
 	>[AZURE.NOTE]Windows Phone Silverlght 8.1 앱을 만들려면 다운로드한 Windows Phone Silverlight 8 앱 프로젝트의 대상 OS를 Windows Phone 8.1로 변경하기만 하면 됩니다. Windows Phone 스토어 앱을 만들려면 GetStartedWithData 샘플 앱 프로젝트의 [Windows Phone 스토어 앱 버전](http://go.microsoft.com/fwlink/p/?LinkId=397372)을 다운로드합니다.
 
@@ -66,7 +66,7 @@
 ##모바일 서비스 프로젝트 다운로드 및 솔루션에 추가
 
 1. 아직 하지 않은 경우 [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) 이상 버전을 다운로드하여 설치합니다.
- 
+
 2. [Azure 관리 포털](https://manage.windowsazure.com/)에서 새 모바일 서비스를 클릭하고 빠른 시작 페이지에서 **Windows** 플랫폼을 클릭하고 나서 **시작** 아래에서 **기존 Windows 또는 Windows Phone 앱 연결**을 확장합니다.
 
     ![모바일 서비스 프로젝트 다운로드](./media/mobile-services-dotnet-backend-windows-phone-get-started-data/download-service-project.png)
@@ -122,26 +122,26 @@
         public sealed partial class MainPage : PhoneApplicationPage
         {
             private MobileServiceCollection<TodoItem, TodoItem> items;
-            private IMobileServiceTable<TodoItem> todoTable = 
-                App.MobileService.GetTable<TodoItem>();            
+            private IMobileServiceTable<TodoItem> todoTable =
+                App.MobileService.GetTable<TodoItem>();
             public MainPage()
             {
                 this.InitializeComponent();
             }
             private async void InsertTodoItem(TodoItem todoItem)
             {
-                await todoTable.InsertAsync(todoItem); 
+                await todoTable.InsertAsync(todoItem);
                 items.Add(todoItem);
             }
             private async void RefreshTodoItems()
             {
-                items = await todoTable 
-                    .ToCollectionAsync(); 
+                items = await todoTable
+                    .ToCollectionAsync();
                 ListItems.ItemsSource = items;
             }
             private async void UpdateCheckedTodoItem(TodoItem item)
             {
-                await todoTable.UpdateAsync(item);      
+                await todoTable.UpdateAsync(item);
             }
             private void ButtonRefresh_Click(object sender, RoutedEventArgs e)
             {
@@ -184,7 +184,7 @@
         //public static MobileServiceClient MobileService = new MobileServiceClient(
         //    "https://todolist.azure-mobile.net/",
         //    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-        //);        
+        //);
 
 
 7. Visual Studio에서 F7 키를 누르거나 빌드 메뉴에서 **솔루션 빌드**를 클릭하여 Windows Phone 앱과 모바일 서비스를 모두 빌드합니다. Visual Studio의 출력 창에서 두 프로젝트가 오류 없이 빌드되는지 확인합니다.
@@ -220,7 +220,7 @@
             public static MobileServiceClient MobileService = new MobileServiceClient(
                  "https://todolist.azure-mobile.net/",
                  "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-            );        
+            );
             ....
 
 2. Visual Studio에서 F5 키를 누르거나 디버그 메뉴에서 **디버깅 시작**을 클릭합니다. Azure에서 원격으로 호스트한 모바일 서비스에 연결하기 위해 앱을 실행하기 전에, 이전 변경 사항으로 앱이 다시 빌드됩니다.
@@ -251,7 +251,7 @@
 * [앱에 푸시 알림 추가]() <br/>기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
 * [모바일 서비스 .NET 방법 개념 참조] <br/>.NET과 함께 모바일 서비스를 사용하는 방법을 자세히 알아봅니다.
-  
+
 
 
 <!-- Images. -->
@@ -270,6 +270,5 @@
 [모바일 서비스 .NET 방법 개념 참조]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 [How to add a new Windows Firewall port rule]: http://go.microsoft.com/fwlink/?LinkId=392240
-   
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

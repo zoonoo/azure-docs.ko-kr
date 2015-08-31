@@ -4,7 +4,7 @@
    services="storsimple" 
    documentationCenter="NA" 
    authors="alkohli" 
-   manager="AdinaH" 
+   manager="carolz" 
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD" 
-   ms.date="08/12/2015"
+   ms.date="08/17/2015"
    ms.author="alkohli"/>
 
 # StorSimple 시스템 요구 사항
@@ -188,10 +188,10 @@ StorSimple 솔루션의 최적의 성능을 위해 위의 네트워킹 요구 �
 
 ## 다음 단계
 
-- [StorSimple 제한](storsimple-limits.md)에 대해 자세히 알아봅니다.
-- [StorSimple 솔루션을 배포합니다](storsimple-deployment-walkthrough.md).
+- [StorSimple 시스템 제한에 대해 자세히 알아보기](storsimple-limits.md)
+- [StorSimple 솔루션 배포 방법 알아보기](storsimple-deployment-walkthrough.md)
  
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

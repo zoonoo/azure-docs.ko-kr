@@ -1,18 +1,18 @@
 <properties 
-    pageTitle="StorSimple 모니터링 표시기"
+    pageTitle="StorSimple 모니터링 표시기 | Microsoft Azure" 
     description="StorSimple 장치의 상태를 모니터링하는 데 사용되는 LED 및 경보에 대해 설명합니다."
     services="storsimple"
     documentationCenter="NA"
     authors="SharS"
     manager="adinah"
-    editor="tysonn" />
+    editor="" />
  <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="06/11/2015"
+    ms.date="08/14/2015"
     ms.author="v-sharos" />
 
 # StorSimple 모니터링 표시기   
@@ -45,7 +45,7 @@ StorSimple 장치에는 모듈 및 StorSimple 장치의 모듈 및 전반적인 
 4. 논리 결함 표시기 LED(켜기 빨간색-주황색/끄기)
 5. 장치 ID 디스플레이  
 
-장치 및 EBOD 인클로저의 전면 패널 LED 사이의 주요한 차이점은 LED 디스플레이에서 표시되는 **시스템 장치 ID 번호**입니다. 장치에 표시되는 기본 장치 ID는 **00**이며, EBOD 인클로저에 표시되는 기본 장치 ID는 **01**입니다. 이를 통해 장치가 켜졌을 때 장치와 EBOD 인클로저 사이를 빠르게 구분할 수 있습니다. 장치가 꺼져 있는 경우 [새 장치 켜기](https://msdn.microsoft.com/library/azure/dn772378.aspx)에 제공된 정보를 사용하여 EBOD 인클로저에서 장치를 구분할 수 있습니다.
+장치 및 EBOD 인클로저의 전면 패널 LED 사이의 주요한 차이점은 LED 디스플레이에서 표시되는 **시스템 장치 ID 번호**입니다. 장치에 표시되는 기본 장치 ID는 **00**이며, EBOD 인클로저에 표시되는 기본 장치 ID는 **01**입니다. 이를 통해 장치가 켜졌을 때 장치와 EBOD 인클로저 사이를 빠르게 구분할 수 있습니다. 장치가 꺼져 있는 경우 [새 장치 켜기](storsimple-turn-device-on-or-off.md#turn-on-a-new-device)에 제공된 정보를 사용하여 EBOD 인클로저에서 장치를 구분할 수 있습니다.
 
 ## 전면 패널 LED 상태  
 
@@ -148,7 +148,7 @@ StorSimple 장치에는 기본 컨트롤러 및 EBOD 컨트롤러 모듈에 대 
 
 | LED | 설명                                                                            
 |---- | ----------- |
-| ID LED(파란색) | 모듈이 식별되는지 나타냅니다. 실행 중인 컨트롤러에 파란색 LED가 깜박이면 해당 컨트롤러는 활성 컨트롤러이며 다른 하나는 대기 컨트롤러입니다. 자세한 내용은 [장치에서 활성 컨트롤러 식별](https://msdn.microsoft.com/library/azure/dn790262.aspx)을 참조하세요. |
+| ID LED(파란색) | 모듈이 식별되는지 나타냅니다. 실행 중인 컨트롤러에 파란색 LED가 깜박이면 해당 컨트롤러는 활성 컨트롤러이며 다른 하나는 대기 컨트롤러입니다. 자세한 내용은 [장치에서 활성 컨트롤러 식별](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device)을 참조하세요. |
 | 오류 LED(주황색) | 컨트롤러의 오류를 나타냅니다.        
 | 정상 LED(녹색) | 녹색은 컨트롤러가 정상임을 나타냅니다. 깜박이는 녹색은 컨트롤러 VPD 구성 오류를 나타냅니다. |
 | SAS 활동 LED(녹색) | 녹색은 현재 활동이 없는 연결을 나타냅니다. 깜박이는 녹색은 활동 중인 연결을 나타냅니다. |
@@ -255,6 +255,10 @@ ops 패널에 있는 음소거 단추를 눌러 청각적 경보를 음소거할
 | 드라이브 제거됨 | 경고 | 없음 | 모듈 결함 |
 | 전원 부족 | 경고 | 없음 | 모듈 결함 |
 
+## 다음 단계
+
+[StorSimple 하드웨어 구성 요소](storsimple-monitor-hardware-status.md)에 대해 알아봅니다.
+
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png
 [3]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE03.png
@@ -264,4 +268,4 @@ ops 패널에 있는 음소거 단추를 눌러 청각적 경보를 음소거할
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

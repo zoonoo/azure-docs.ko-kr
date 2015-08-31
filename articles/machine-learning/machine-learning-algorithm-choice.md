@@ -3,7 +3,7 @@
 	description="클러스터링, 분류 또는 회귀 실험에서 감독 및 자율 학습에 대한 Azure 기계 학습 알고리즘을 선택하는 방법입니다."
 	services="machine-learning"
 	documentationCenter=""
-	authors="garyericson"
+	authors="brohrer"
 	manager="paulettm"
 	editor="cgronlun"
     tags=""/>
@@ -222,4 +222,4 @@ Azure 기계 학습에는 [Vowpal Wabbit](https://msdn.microsoft.com/library/azu
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

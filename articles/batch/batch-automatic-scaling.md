@@ -147,7 +147,14 @@ Azure Batch 풀에서 자동으로 계산 노드 크기를 조정하는 것은 �
 - double
 - doubleVec
 - string
-- timestamp
+- timestamp. 타임스탬프는 다음의 멤버를 포함하는 복합 구조입니다.
+	- year
+	- month (1-12)
+	- day (1-31)
+	- weekday (숫자의 형태로. 예: 월요일이 1임)
+	- hour (24시간 숫자 형태로. 예: 13은 오후1시를 의미함)
+	- minute (00-59)
+	- second (00-59)
 - timeinterval
 	- TimeInterval\_Zero
 	- TimeInterval\_100ns
@@ -457,6 +464,36 @@ doubleVecList 값은 평가 전 단일 doubleVec로 변환됩니다. 예를 들�
 - [ICloudPool.AutoScaleRun 속성](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.icloudpool.autoscalerun.aspx) – .NET 라이브러리를 사용하는 경우 풀의 이 속성이 [AutoScaleRun 클래스](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.aspx) 인스턴스를 제공하며, 이 클래스는 [AutoScaleRun.Error 속성](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.error.aspx), [AutoScaleRun.Results 속성](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.results.aspx) 및 [AutoScaleRun.Timestamp 속성](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.timestamp.aspx)을 제공합니다.
 - [풀에 대한 정보 가져오기](https://msdn.microsoft.com/library/dn820165.aspx) – 이 REST API는 풀에 대한 정보를 반환하며 이 정보에는 최신 자동 크기 조정 실행이 포함되어 있습니다.
 
+## 예
+
+### 예제 1입니다.
+
+주 시간으로 풀 크기를 조정하려고 합니다.
+
+    curTime=time();
+    workhours=curTime.hour>=8 && curTime.hour <18;
+    isweekday=curTime.weekday>=1 && curTime.weekday<=5;
+    isworkingweekdayhour = workhours && isweekday;
+    $TargetDedicated=workhours?20:10;
+    
+이 수식은 현재 시간을 검색합니다. 주중(1..5)이고 작업 시간(오전 8시.. 오후 6시)인 경우 대상 풀 크기를 20으로 설정합니다. 그렇지 않은 경우 풀 크기는 10을 목표로 합니다.
+
+### 예제 2입니다.
+
+큐의 작업에 따라 풀 크기를 조정하는 경우 다른 샘플입니다.
+
+    // Get pending tasks for the past 15 minutes
+    $Samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15); 
+    // If we have less than 70% data points, we use the last sample point, otherwise we use the maximum of last sample point and the history average
+    $Tasks = $Samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1), avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
+    // If number of pending task is not 0, set targetVM to pending tasks, otherwise half of current dedicated
+    $TargetVMs = $Tasks > 0? $Tasks:max(0, $TargetDedicated/2);
+    // The pool size is capped at 20, if target vm value is more than that, set it to 20. This value should be adjusted according to your case.
+    $TargetDedicated = max(0,min($TargetVMs,20));
+    // optionally, set vm Deallocation mode - shrink VM after task is done.
+    $TVMDeallocationOption = taskcompletion;
+    
+
 ## 다음 단계
 
 1.	응용 프로그램의 효율성을 완전하게 평가하려면 계산 노드에 액세스해야 할 수 있습니다. 원격 액세스를 활용하려면 액세스하려는 계산 노드에 사용자 계정이 추가되어야 하며 해당 노드에서 RDP 파일이 검색되어야 합니다. 사용자 계정은 다음 방법 중 하나를 사용하여 추가합니다.
@@ -472,4 +509,4 @@ doubleVecList 값은 평가 전 단일 doubleVec로 변환됩니다. 예를 들�
 	- [Get-AzureBatchRDPFile](https://msdn.microsoft.com/library/mt149851.aspx) – 이 cmdlet은 지정된 계산 노드에서 RDP 파일을 가져와 지정된 파일 위치 또는 스트림에 저장합니다.
 2.	일부 응용 프로그램은 많은 양의 데이터를 생성하여 처리하기가 어려울 수 있습니다. 이 문제를 해결하는 한 가지 방법은 [효율적인 목록 쿼리](batch-efficient-list-queries.md)를 사용하는 것입니다.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

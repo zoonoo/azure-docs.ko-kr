@@ -62,12 +62,11 @@ Azure SQL 데이터베이스에 탄력적 데이터베이스 쿼리 (미리 보�
 
 		CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>';
 
-		CREATE CREDENTIAL ElasticDBQueryCred ON DATABASE
+		CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
 		WITH IDENTITY = '<username>',
 		SECRET = '<password>';
 
 	"username" 및 "password"는 [탄력적 데이터베이스 도구 시작](sql-database-elastic-scale-get-started.md)의 [샘플 응용 프로그램 다운로드 및 실행](sql-database-elastic-scale-get-started.md#Getting-started-with-elastic-database-tools)내의 6단계에서 사용한 로그인 정보와 같아야 합니다.
-
 
 ### 외부 데이터 원본
 
@@ -143,4 +142,4 @@ ElasticDBQuery 데이터베이스에서 다음쿼리를 실행 합니다.
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

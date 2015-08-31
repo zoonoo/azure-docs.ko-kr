@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="nitinme" 
 	manager="paulettm" 
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/11/2015" 
+	ms.date="08/07/2015" 
 	ms.author="nitinme"/>
 
 # HDInsight와 함께 Hive를 사용하여 웹 사이트의 로그 분석
@@ -38,7 +39,9 @@ HDInsight와 함께 HiveQL을 사용하여 웹 사이트의 로그를 분석하�
 
 ##샘플을 실행하려면
 
-1. Azure 포털에서 샘플을 실행할 클러스터를 클릭한 다음 아래쪽에서 **쿼리 콘솔**을 클릭합니다. 다음 URL을 사용하여 쿼리 콘솔을 직접 열 수도 있습니다.
+1. [Azure Preview 포털](https://ms.portal.azure.com/)의 시작 보드(클러스터를 여기에 고정한 경우)에서 샘플을 실행할 클러스터 타일을 클릭합니다.
+
+2. 클러스터 블레이드의 **빠른 링크** 아래에서 **클러스터 대시보드**를 클릭한 다음 **클러스터 대시보드** 블레이드에서 **HDInsight 클러스터 대시보드**를 클릭합니다. 다음 URL을 사용하여 대시보드를 직접 열 수도 있습니다.
 
 	 	https://<clustername>.azurehdinsight.net
 	
@@ -58,4 +61,4 @@ HDInsight와 함께 HiveQL을 사용하여 웹 사이트의 로그를 분석하�
 [img-hdi-weblogs-sample]: ./media/hdinsight-hive-analyze-website-log/hdinsight-weblogs-sample.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

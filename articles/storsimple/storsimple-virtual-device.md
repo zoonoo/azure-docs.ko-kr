@@ -1,6 +1,6 @@
 <properties
    pageTitle="StorSimple 가상 장치 | Microsoft Azure"
-   description="StorSimple 가상 장치를 만들고 구성, 관리하는 방법을 설명합니다."
+   description="StorSimple 가상 장치를 만들고 구성, 배포 및 관리하는 방법을 설명합니다."
    services="storsimple"
    documentationCenter=""
    authors="alkohli"
@@ -19,8 +19,9 @@
 
 [AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
 
-##개요
-StorSimple 가상 장치는 Microsoft Azure StorSimple 솔루션과 함께 제공되는 추가 기능입니다. StorSimple 가상 장치는 Microsoft Azure 가상 네트워크의 가상 컴퓨터에서 실행되며, 이 장치를 사용하여 호스트에서 데이터를 백업하고 복제할 수 있습니다. 이 문서에서 다음 항목은 StorSimple 가상 장치에 대해 배우고 구성하고 사용하는 데 도움이 됩니다.
+## 개요
+
+StorSimple 가상 장치는 Microsoft Azure StorSimple 솔루션와 함께 제공되는 추가 기능입니다. StorSimple 가상 장치는 Microsoft Azure 가상 네트워크의 가상 컴퓨터에서 실행되며, 이 장치를 사용하여 호스트에서 데이터를 백업하고 복제할 수 있습니다. 이 문서에서 다음 항목은 StorSimple 가상 장치에 대해 배우고 구성하고 사용하는 데 도움이 됩니다.
 
 
 
@@ -48,7 +49,7 @@ StorSimple 가상 장치는 Microsoft Azure 가상 컴퓨터의 단일 노드에
 - 가상 장치에는 하나의 네트워크 인터페이스, 데이터 0만 있습니다. 물리적 장치에는 DATA 0에서 DATA 5까지의 6개의 네트워크 인터페이스가 있습니다.
 - 가상 장치는 별도 작업이 아니라 구성 단계 중 등록됩니다.
 - 가상 장치에서 서비스 데이터 암호화 키를 다시 생성할 수 없습니다. 키 롤오버 중 물리적 장치에서 키를 다시 생성한 다음 새 키로 가상 장치를 업데이트합니다.
-- 업데이트를 가상 장치에 적용해야 하는 경우 일부 작동 중단 시간이 있지만 물리적 장치에는 없습니다.
+- 업데이트를 가상 장치에 적용해야하는 경우 일부 작동 중단 시간이 있지만 물리적 장치에는 없습니다.
 
 ## 가상 장치를 사용하기 위한 보안 고려 사항
 
@@ -56,7 +57,7 @@ StorSimple 가상 장치를 사용하는 경우 다음 보안 고려 사항을 �
 
 - 가상 장치는 Microsoft Azure 구독을 통해 보안이 설정됩니다. 가상 장치를 사용하고 Azure 구독이 손상되는 경우, 가상 장치에 저장된 데이터도 노출되기 쉬움을 의미합니다.
 
-- Azure StorSimple에 저장된 데이터를 암호화하는데 사용되는 인증서의 공개키는 Microsoft Azure 관리 포털에서 안전하게 사용할 수 있으며 개인 키는 StorSimple 장치에 유지됩니다. StorSimple 가상 장치에서 공개 및 개인 키는 모두 Azure에 저장됩니다.
+- Azure StorSimple에 저장된 데이터를 암호화하는 데 사용되는 인증서의 공개키는 Azure 포털에서 안전하게 사용할 수 있으며 개인 키는 StorSimple 장치에 유지됩니다. StorSimple 가상 장치에서 공개 및 개인 키는 모두 Azure에 저장됩니다.
 
 - 가상 장치는 Microsoft Azure 데이터 센터에서 호스팅됩니다.
 
@@ -95,7 +96,6 @@ StorSimple 가상 장치를 사용하는 경우 다음 보안 고려 사항을 �
 
 시작하기 전에 다음 정보가 있는지 확인합니다.
 
-
 - 액세스 자격 증명이 있는 Azure 포털 계정이 필요합니다.
 
 - 액세스 자격 증명이 있는 Azure 저장소 계정이 필요합니다.
@@ -119,11 +119,11 @@ StorSimple 가상 장치를 사용하는 경우 다음 보안 고려 사항을 �
 
 
 
-1.  Azure 포털에서 **StorSimple 관리자** 서비스로 이동합니다.
+1.  Azure 포털에서 **StorSimple Manager** 서비스로 이동합니다.
 
 - **장치** 페이지로 이동합니다.
 
-- **가상 장치 만들기 대화 상자**에서 다음을 지정합니다.
+- **가상 장치 만들기** 대화 상자에서 다음 정보를 지정합니다.
 
 	![StorSimple 가상 장치 만들기](./media/storsimple-virtual-device/StorSimple_CreateVirtualDevice1.png)
 
@@ -147,8 +147,9 @@ StorSimple 가상 장치를 사용하는 경우 다음 보안 고려 사항을 �
 
 
 1. **장치** 페이지에서 방금 만든 **StorSimple 가상 장치**를 선택합니다.
+
 2. **장치 구성 완료**를 클릭합니다. 그러면 장치 구성 마법사가 시작됩니다.
- 
+
 	![장치 페이지에서 StorSimple 장치 설치 완료](./media/storsimple-virtual-device/StorSimple_CompleteDeviceSetupSVA1M.png)
 
 1. 장치 구성 마법사:
@@ -156,15 +157,15 @@ StorSimple 가상 장치를 사용하는 경우 다음 보안 고려 사항을 �
 	1. **서비스 데이터 암호화 키**를 제공한 공간에 입력합니다.
 	2. **스냅숏 관리자 암호**를 입력합니다. **스냅숏 관리자 암호**는 14 또는 15자여야 하며 대문자, 소문자, 숫자 및 특수 문자의 조합이 포함되어야 합니다.
 	3. **장치 관리자 암호**를 입력합니다. **장치 관리자 암호**는 8\~15자여야 하며 대문자, 소문자, 숫자 및 특수 문자의 조합이 포함되어야 합니다.
-	4. 가상 장치의 초기 구성 및 등록을 완료하려면 확인 아이콘을 클릭합니다. 
-	
+	4. 가상 장치의 초기 구성 및 등록을 완료하려면 확인 아이콘을 클릭합니다.
+
 		![StorSimple 가상 장치 설정](./media/storsimple-virtual-device/StorSimple_VirtualDeviceSettings1.png)
 
 구성 및 등록이 완료된 후에 장치가 온라인 상태가 됩니다. 장치가 온라인 상태가 되는데 몇 분 정도 걸릴 수 있습니다.
 
 ![StorSimple 가상 장치 온라인 단계](./media/storsimple-virtual-device/StorSimple_VirtualDeviceOnline1M.png)
 
-### 장치 구성 설정 수정 
+### 장치 구성 설정 수정
 
 다음 섹션에서는 StorSimple 가상 장치에 대한 구성에 필요한 장치 구성 설정을 설명합니다. 이러한 설정은 CHAP, StorSimple 스냅숏 관리자 암호 또는 장치 관리자 암호를 포함합니다.
 
@@ -178,9 +179,9 @@ StorSimple 가상 장치를 사용하는 경우 다음 보안 고려 사항을 �
 
 #### StorSimple 스냅숏 관리자 구성(선택 사항)
 
-StorSimple 스냅숏 관리자 소프트웨어는 Windows 호스트에 상주하며 관리자가 로컬 및 클라우드 스냅숏의 형태로 StorSimple 장치의 백업을 관리할 수 있습니다.
+StorSimple 스냅숏 관리자 소프트웨어는 Windows 호스트에 상주하며 관리자가 로컬및 클라우드 스냅숏의 형태로 StorSimple 장치의 백업을 관리할 수 있습니다.
 
->[AZURE.NOTE]**가상 장치의 경우, Windows 호스트는 Azure VM입니다.**
+>[AZURE.NOTE]가상 장치의 경우, Windows 호스트는 Azure VM입니다.
 
 StorSimple 스냅숏 관리자에서 장치를 구성하면, StorSimple 장치 IP 주소 및 암호를 입력하여 저장소 장치를 인증하라는 메시지가 표시됩니다. 이 암호는 Windows PowerShell 인터페이스를 통해 처음 구성됩니다.
 
@@ -276,9 +277,9 @@ StorSimple 가상 장치를 만들고 구성했으므로 작업을 시작할 준
 
 ### StorSimple 가상 장치에 원격으로 연결
 
-StorSimple 장치 구성 페이지에서 활성화한 후, Windows PowerShell 원격을 사용하여 동일한 가상 네트워크 내 다른 가상 컴퓨터에서 가상 장치에 연결할 수 있습니다. 예를 들어, iSCSI에 연결하도록 구성되고 사용된 호스트 VM에서 연결할 수 있습니다. 대부분의 배포에서는 가상 장치에 액세스하기 위해 사용할 수 있는 호스트 VM에 액세스하기 위해 이미 공용 끝점이 열려 있습니다.
+StorSimple 장치 구성 페이지에서 활성화한 후, Windows PowerShell 원격을 사용하여 동일한 가상 네트워크 내 다른 가상 컴퓨터에서 가상 장치에 연결할 수 있습니다. 예를 들어, iSCSI에 연결하도록 구성되고 사용된 호스트 VM에서 연결할 수 있습니다. 대부분의 배포에서는 가상 장치에 엑세스하기 위해 사용할 수 있는 호스트 VM에 액세스하기 위해 이미 공용 끝점이 열려 있습니다.
 
->[AZURE.WARNING]**보안 강화를 위해 끝점에 연결할 때 HTTPS를 사용하고 PowerShell 원격 세션을 완료한 후 끝점을 삭제하는 것이 좋습니다.**
+>[AZURE.WARNING]보안 강화를 위해 끝점에 연결할 때 HTTPS를 사용하고 PowerShell 원격 세션을 완료한 후 끝점을 삭제하는 것이 좋습니다.
 
 [Windows PowerShell을 사용하여 원격으로 연결](storsimple-remote-connect.md)의 절차에 따라 가상 장치에 대한 원격 서비스를 설정해야 합니다.
 
@@ -356,7 +357,7 @@ DR(재해 복구)는 StorSimple 가상 장치가 설계된 주요 시나리오 �
 
 장애 조치 프로세스가 시작됩니다. 장애 조치가 완료되면 장치 페이지로 이동하고 장애 조치 프로세스에 대한 대상으로 사용된 가상 장치를 선택합니다. 볼륨 컨테이너 페이지로 이동합니다. 이전 장치의 볼륨과 함께 모든 볼륨 컨테이너에서 표시되어야 합니다.
 
->[AZURE.NOTE]**가상 장치에서 지원하는 저장소 용량은 30TB입니다.**
+>[AZURE.NOTE]가상 장치에서 지원하는 저장소 용량은 30TB입니다.
 
 ## 가상 장치를 종료하거나 삭제합니다.
 
@@ -374,7 +375,7 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
 
 ### StorSimple 가상 장치를 삭제하려면
 
-1. 관리 포털에 로그인합니다.
+1. Azure 포털에 로그인합니다.
 
 - **가상 컴퓨터**를 클릭한 다음 가상 장치를 선택합니다.
 
@@ -385,8 +386,4 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
 
 가상 장치를 관리하려면 [StorSimple 장치 관리](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service)에서 워크플로의 자세한 목록을 참조하세요.
 
-
-
- 
-
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

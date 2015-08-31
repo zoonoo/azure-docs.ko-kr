@@ -20,7 +20,7 @@ VNet을 다음에 사용합니다.
 
 ### 가상 네트워크가 필요한 경우를 어떻게 알 수 있을까요?
 
-[가상 네트워크 개요](http://go.microsoft.com/fwlink/?LinkId=296649)를 방문하여 최상의 네트워크 디자인 옵션을 결정하는데 도움이 되는 의사 결정 테이블을 참조하세요.
+[가상 네트워크 개요](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/)를 방문하여 최상의 네트워크 디자인 옵션을 결정하는 데 도움이 되는 의사 결정 테이블을 참조하세요.
 
 ### 어떻게 시작하나요?
 
@@ -264,4 +264,4 @@ VNet은 다른 VNet 및 Azure 인프라에서 호스팅되는 다른 서비스�
 
 예. 다양한 플랫폼에 대해 PowerShell 및 명령줄 도구를 사용할 수 있습니다. 자세한 내용은 [여기](http://go.microsoft.com/fwlink/?LinkId=317721)를 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

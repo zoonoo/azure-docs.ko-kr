@@ -60,14 +60,14 @@ ARM cmdlet을 사용하려면 PowerShell 모드를 전환해야 합니다. 자�
 
 ### 1단계
 
-    PS C:\> Switch-AzureMode -Name AzureResourceManager
+    Switch-AzureMode -Name AzureResourceManager
 
 ### 2단계
 
 Azure 계정에 로그인
 
 
-    PS C:\> Add-AzureAccount
+    Add-AzureAccount
 
 자격 증명을 사용하여 인증하라는 메시지가 표시됩니다.
 
@@ -76,7 +76,7 @@ Azure 계정에 로그인
 
 사용할 Azure 구독을 선택합니다.
 
-    PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
+    Select-AzureSubscription -SubscriptionName "MySubscription"
 
 사용 가능한 구독 목록을 보려면 ‘Get-AzureSubscription’ cmdlet을 사용합니다.
 
@@ -85,7 +85,7 @@ Azure 계정에 로그인
 
 새 리소스 그룹을 만듭니다. 기존 리소스 그룹을 사용하는 경우에는 이 단계를 건너뛰세요.
 
-    PS C:\> New-AzureResourceGroup -Name appgw-rg -location "West US"
+    New-AzureResourceGroup -Name appgw-rg -location "West US"
 
 Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치를 지정해야 합니다. 이 위치는 해당 리소스 그룹에서 리소스의 기본 위치로 사용됩니다. 응용 프로그램 게이트웨이를 만들기 위한 모든 명령이 동일한 리소스 그룹을 사용하는지 확인합니다.
 
@@ -114,17 +114,17 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 	$gipconfig = New-AzureApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
-"GatewayIP01"이라는 응용 프로그램 게이트웨이 IP 구성을 만듭니다. 응용 프로그램 게이트웨이는 시작되면 구성된 서브넷에서 IP 주소를 선택하고 백 엔드 IP 풀의 IP 주소로 네트워크 트래픽을 라우팅합니다. 인스턴스마다 하나의 IP 주소를 사용합니다.
+"gatewayIP01"이라는 응용 프로그램 게이트웨이 IP 구성을 만듭니다. 응용 프로그램 게이트웨이는 시작되면 구성된 서브넷에서 IP 주소를 선택하고 백 엔드 IP 풀의 IP 주소로 네트워크 트래픽을 라우팅합니다. 인스턴스마다 하나의 IP 주소를 사용합니다.
  
 ### 2단계
 
-	$pool = New-AzureApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
+	$pool = New-AzureApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.0.0.10,10.0.0.11,10.0.0.12
 
-이 단계에서는 IP 주소가 "134.170.185.46, 134.170.188.221,134.170.185.50"인 "pool01"이라는 백 엔드 IP 주소 풀을 구성합니다. 이러한 IP 주소는 프런트 엔드 IP 끝점에서 들어오는 네트워크 트래픽을 수신합니다. 사용자 고유의 응용 프로그램 IP 주소 끝점을 추가하려면 위의 IP 주소를 바꿉니다.
+이 단계에서는 IP 주소가 "10.0.0.10,10.0.0.11, 10.0.0.12"이라는 "pool01"라는 백엔드 IP 주소 풀을 구성합니다. 이러한 IP 주소는 프런트 엔드 IP 끝점에서 들어오는 네트워크 트래픽을 수신합니다. 사용자 고유의 응용 프로그램 IP 주소 끝점을 추가하려면 위의 IP 주소를 바꿉니다.
 
 ### 3단계
 
-	$poolSetting = New-AzureApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol HTTP -CookieBasedAffinity Disabled
+	$poolSetting = New-AzureApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 
 백 엔드 풀에서 부하가 분산된 네트워크 트래픽에 대해 응용 프로그램 게이트웨이 설정 "poolsetting01"을 구성합니다.
 
@@ -136,21 +136,21 @@ ILB에 대해 "frontendport01"이라는 프런트 엔드 IP 포트를 구성합�
 
 ### 5단계
 
-	$fipconfig = New-AzureApplicationGatewayFrontendIPConfig -Name $fipconfigName -Subnet $subnet
+	$fipconfig = New-AzureApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
 
-현재 가상 네트워크 서브넷의 개인 IP를 연결하는 프런트 엔드 IP 구성을 만듭니다.
+"fipconfig01"라는 프런트 엔드 IP 구성을 만들고 현재 가상 네트워크 서브넷의 개인 IP와 연결합니다.
 
 ### 6단계
 
-	$listener = New-AzureApplicationGatewayHttpListener -Name $listenerName  -Protocol http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
+	$listener = New-AzureApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 
-프런트 엔드 IP 구성에 프런트 엔드 포트를 연결하는 수신기를 만듭니다.
+"listener01"라는 수신기를 만들고 프런트 엔드 IP 구성에 프런트 엔드 포트를 연결합니다.
 
 ### 7단계 
 
-	$rule = New-AzureApplicationGatewayRequestRoutingRule -Name $ruleName -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
+	$rule = New-AzureApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 
-부하 분산 장치 라우팅 규칙을 만들고 부하 분산 장치 동작을 구성합니다.
+"rule01"라는 부하 분산 장치 라우팅 규칙을 만들고 부하 분산 장치 동작을 구성합니다.
 
 ### 8단계
 
@@ -158,11 +158,11 @@ ILB에 대해 "frontendport01"이라는 프런트 엔드 IP 포트를 구성합�
 
 응용 프로그램 게이트웨이의 인스턴스 크기를 구성합니다.
 
->[AZURE.NOTE]*InstanceCount*의 기본값은 2이고, 최대값은 10입니다. *GatewaySize*의 기본값은 보통입니다. 작게, 보통 및 크게를 선택할 수 있습니다.
+>[AZURE.NOTE]*InstanceCount*의 기본값은 2이고, 최대값은 10입니다. *GatewaySize*의 기본값은 보통입니다. Standard\_Small, Standard\_Medium 및 Standard\_Large 간에 선택할 수 있습니다.
 
 ## New-AzureApplicationGateway를 사용하여 응용 프로그램 게이트웨이 만들기
 
-	$appgw = New-AzureApplicationGateway -Name appgwtest -ResourceGroupName $rgname -Location $location -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
+	$appgw = New-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 
 위 단계의 모든 구성 항목으로 응용 프로그램 게이트웨이를 만듭니다. 이 예제에서는 응용 프로그램 게이트웨이를 "appgwtest"라고 합니다.
 
@@ -176,14 +176,14 @@ ILB에 대해 "frontendport01"이라는 프런트 엔드 IP 포트를 구성합�
 
 **참고:** `Start-AzureApplicationGateway` cmdlet을 완료하려면 최대 15-20분까지 걸릴 수 있습니다.
 
-아래 예제에서는 응용 프로그램 게이트웨이를 "appgwtest"라고 하고 리소스 그룹을 "app-rg"라고 합니다.
+아래 예제에서는 응용 프로그램 게이트웨이를 "appgwtest"라고 하고 리소스 그룹을 "appgw-rg"라고 합니다.
 
 
 ### 1단계
 
 게이트웨이 응용 프로그램 개체를 가져오고 "$getgw" 변수에 연결합니다.
  
-	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName app-rg
+	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 ### 2단계
 	 
@@ -248,7 +248,7 @@ ILB에 대해 "frontendport01"이라는 프런트 엔드 IP 포트를 구성합�
 	----       ----------------     ------------                             ----
 	Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 
-응용 프로그램 게이트웨이가 중지됨 상태가 되면 `Remove-AzureApplicationGateway` cmdlet을 사용하여 서비스를 제거합니다.
+응용 프로그램 게이트웨이가 중지 상태가 되면 `Remove-AzureApplicationGateway` cmdlet을 사용하여 서비스를 제거합니다.
 
 
 	PS C:\> Remove-AzureApplicationGateway -Name $appgwName -ResourceGroupName $rgname -Force
@@ -283,4 +283,4 @@ ILB에서 사용되도록 응용 프로그램 게이트웨이를 구성하려면
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -25,9 +25,9 @@ SDK의 각 새 버전에 대해 먼저 EngagementSDK 및 EngagementReach 폴더�
 ##2\.0.0에서 3.0.0으로
 응용 프로그램에서 Reach를 사용하는 경우 원격 알림을 받기 위해 `remote-notification` 값을 Info.plist 파일의 `UIBackgroundModes` 배열에 추가해야 합니다.
 
-메서드 `application:applicationDidReceiveRemoteNotification:`은(는) 응용 프로그램 대리자의 `application:applicationDidReceiveRemoteNotification:fetchCompletionHandler:`(으)로 대체해야 합니다.
+메서드 `application:didReceiveRemoteNotification:`은 응용 프로그램 대리자의 `application:didReceiveRemoteNotification:fetchCompletionHandler:`로 대체해야 합니다.
 
-다음 대리자 메서드는 더 이상 사용되지 않으며 응용 프로그램 대리인에서 제거해야 합니다.
+"AEPushDelegate.h"는 더 이상 사용되지 않는 인터페이스이므로 모든 참조를 제거해야 합니다. 여기에는 응용 프로그램 대리자에서 `[[EngagementAgent shared] setPushDelegate:self]` 및 대리자 메서드를 제거하는 일도 포함됩니다.
 
 	-(void)willRetrieveLaunchMessage;
 	-(void)didFailToRetrieveLaunchMessage;
@@ -70,4 +70,4 @@ SmartAd 추적이 SDK에서 제거되었으므로 `AETrackModule` 클래스의 �
 -   클래스 `CapptainUtils`의 이름은 `EngagementUtils`(으)로 바뀌었습니다.
 -   클래스 `CapptainViewController`의 이름은 `EngagementViewController`(으)로 바뀌었습니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

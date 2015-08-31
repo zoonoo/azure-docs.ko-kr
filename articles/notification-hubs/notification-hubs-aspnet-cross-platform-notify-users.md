@@ -1,18 +1,18 @@
-<properties 
-	pageTitle="알림 허브를 통해 사용자에게 크로스 플랫폼 알림 보내기(ASP.NET)" description="알림 허브 템플릿을 사용하여 모든 플랫폼을 대상으로 하는 플랫폼 중립적인 알림을 단일 요청으로 보내는 방법을 보여 줍니다." 
-	services="notification-hubs" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="알림 허브를 통해 사용자에게 크로스 플랫폼 알림 보내기(ASP.NET)" description="알림 허브 템플릿을 사용하여 모든 플랫폼을 대상으로 하는 플랫폼 중립적인 알림을 단일 요청으로 보내는 방법을 보여 줍니다."
+	services="notification-hubs"
+	documentationCenter=""
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 # 알림 허브를 통해 사용자에게 크로스 플랫폼 알림 보내기
@@ -24,7 +24,7 @@
 
 템플릿을 사용하여 크로스 플랫폼 알림을 보내려면 다음 단계를 따르십시오.
 
-1. Visual Studio의 솔루션 탐색기에서 **컨트롤러** 폴더를 확장한 다음 RegisterController.cs 파일을 엽니다. 
+1. Visual Studio의 솔루션 탐색기에서 **컨트롤러** 폴더를 확장한 다음 RegisterController.cs 파일을 엽니다.
 
 2. **Post** 메서드에서 새 등록을 만드는 코드 블록을 찾아서 `switch`의 내용을 다음 코드로 바꿉니다.
 
@@ -54,7 +54,7 @@
             default:
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
         }
-	
+
 	이 코드는 플랫폼 특정 메서드를 호출하여 기본 등록이 아니라 템플릿 등록을 만듭니다. 템플릿 등록은 기본 등록에서 파생되므로 기존 등록을 수정할 필요는 없습니다.
 
 3. **알림** 컨트롤러에서 **sendNotification** 메서드를 다음 코드로 바꿉니다.
@@ -65,7 +65,7 @@
             var userTag = "username:" + user;
 
             var notification = new Dictionary<string, string> { { "message", "Hello, " + user } };
-            await Notifications.Instance.Hub.SendTemplateNotificationAsync(notification, userTag);   
+            await Notifications.Instance.Hub.SendTemplateNotificationAsync(notification, userTag);
 
             return Request.CreateResponse(HttpStatusCode.OK);
         }
@@ -84,7 +84,7 @@
 
 이 자습서를 마쳤습니다. 이제 다음 항목에서 알림 허브 및 템플릿에 대해 자세히 알아보세요.
 
-+ **[알림 허브를 사용하여 속보 보내기]** <br/>다른 템플릿 사용 시나리오를 보여 줍니다. 
++ **[알림 허브를 사용하여 속보 보내기]** <br/>다른 템플릿 사용 시나리오를 보여 줍니다.
 
 +  **[Azure 알림 허브 개요][Templates]**<br/>개요 항목에는 템플릿에 대한 세부 정보가 포함되어 있습니다.
 
@@ -110,6 +110,5 @@
 [알림 허브를 통해 사용자에게 알림]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Templates]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Windows 스토어에 대한 알림 허브 방법]: http://msdn.microsoft.com/library/windowsazure/jj927172.aspx
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

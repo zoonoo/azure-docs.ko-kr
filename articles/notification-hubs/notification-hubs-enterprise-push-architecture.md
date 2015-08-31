@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="알림 허브 - 엔터프라이즈 푸시 아키텍처" 
-	description="엔터프라이즈 환경에서 Azure 알림 허브 사용에 대한 지침" 
-	services="notification-hubs" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="알림 허브 - 엔터프라이즈 푸시 아키텍처"
+	description="엔터프라이즈 환경에서 Azure 알림 허브 사용에 대한 지침"
+	services="notification-hubs"
+	documentationCenter=""
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 # 엔터프라이즈 푸시 아키텍처 지침
@@ -21,7 +21,7 @@
 오늘날 기업에서는 최종 사용자(외부)를 위해 또는 직원(내부)을 위해 모바일 응용 프로그램을 만드는 일이 점점 많아지고 있습니다. 기업은 가동 중인 기존 백엔드 시스템이 모바일 응용 프로그램 아키텍처에 통합되어야 하는 메인프레임 또는 일부 LoB 응용 프로그램이 되도록 합니다. 이 가이드에서는 일반적인 시나리오에 사용 가능한 솔루션을 권장하는 이 통합을 가장 잘 수행할 수 있는 방법에 대해 설명합니다.
 
 백엔드 시스템에서 관심 이벤트가 발생하는 경우 해당 모바일 응용 프로그램을 통해 사용자에게 푸시 알림을 보내기 위한 일반적인 요구 사항입니다. 예를 들어, 자신의 iPhone에 해당 은행의 뱅킹 앱을 가지고 있는 은행 고객은 자신의 계정에서 일정 금액 이상이 인출되었을 때 알림을 받고 싶어합니다. 또한 재무부서에서 일하며 자신의 Windows Phone에 예산 승인 앱을 가지고 있는 직원은 요청이 승인되었을 때 알림을 받고 싶어하는 인트라넷 시나리오입니다.
- 
+
 은행 계좌 또는 승인 처리는 사용자에 게 푸시를 초기화해야 하는 일부 백엔드 시스템에서 수행될 수 있습니다. 이벤트가 알림을 트리거할 때 같은 종류의 논리를 모두 동일하게 빌드하여 푸시를 구현해야 하는 여러 백엔드 시스템 있을 수 있습니다. 여기에서는 여러 백엔드를 단일 푸시 시스템에 함께 통합할 때의 복잡성을 설명합니다. 최종 사용자는 다양한 알림을 구독했을 수 있고 여기에는 여러 모바일 응용 프로그램이 있을 수도 있습니다. 예를 들어, 인트라넷 모바일 앱의 경우 특정 모바일 응용 프로그램이 그러한 여러 백엔드 시스템에서 알림을 받기를 원할 수 있습니다. 백엔드 시스템은 푸시 의미론/기술을 모르거나 알고 있어야 합니다. 그래서 일반적인 솔루션은 전통적으로 모든 관심 이벤트의 백엔드 시스템을 폴링한 구성 요소를 소개했으며 클라이언트에 푸시 메시지를 전송하는 역할을 담당합니다. 여기에서는 Azure 서비스 버스(복잡성을 줄이는 동시에 확장 가능한 솔루션을 만드는 항목/구독 모델)를 사용하는 훨씬 더 뛰어난 솔루션에 대해 대해 설명합니다.
 
 이는 일반 솔루션 아키텍처입니다(여러 모바일 앱으로 일반화되었지만 모바일 앱이 하나뿐일 경우 동일하게 적용할 수 있음).
@@ -41,7 +41,7 @@
 	- 클라이언트에 알림 보내기(Azure 알림 허브를 통해)
 3. 모바일 응용 프로그램
 	- 알림 수신 및 표시
-		
+
 ###이점:
 
 1. 수신자(알림 허브를 통한 모바일 앱/서비스)와 발신자(백엔드 시스템) 사이를 분리하면 최소한의 변경 내용을 가진 추가 백엔드 시스템을 통합할 수 있습니다.
@@ -52,19 +52,19 @@
 ###필수 조건
 개념뿐만 아니라 일반적인 만들기 및 구성 단계에 익숙해지려면 다음 자습서를 완료해야 합니다.
 
-1. [서비스 버스 Pub/Sub 프로그래밍] - 서비스 버스 항목/구독 작업에 대한 세부 정보, 네임 스페이스를 만들어 항목/구독을 포함하는 방법 및 이러한 메시지를 주고 받는 방법에 대해 설명합니다. 
-2. [알림 허브 - Windows 범용 자습서] - Windows 스토어 앱을 설정하고 알림 허브를 사용하여 등록한 다음 알림을 수신하는 방법에 대해 설명합니다. 
+1. [서비스 버스 Pub/Sub 프로그래밍] - 서비스 버스 항목/구독 작업에 대한 세부 정보, 네임 스페이스를 만들어 항목/구독을 포함하는 방법 및 이러한 메시지를 주고 받는 방법에 대해 설명합니다.
+2. [알림 허브 - Windows 범용 자습서] - Windows 스토어 앱을 설정하고 알림 허브를 사용하여 등록한 다음 알림을 수신하는 방법에 대해 설명합니다.
 
 ###샘플 코드
 
 전체 샘플 코드는 [알림 허브 샘플]에서 사용 가능합니다. 세 가지 구성 요소로 구성되어 있습니다.
 
 1. **EnterprisePushBackendSystem**
-	
+
 	a. 이 프로젝트는 *WindowsAzure.ServiceBus* Nuget 패키지를 사용하며 [서비스 버스 Pub/Sub 프로그래밍]을 기반으로 합니다.
 
 	b. 모바일 앱으로 메시지를 전달하기 시작하는 LoB 시스템을 시뮬레이션하기 위한 간단한 C# 콘솔 앱입니다.
-	
+
 		static void Main(string[] args)
         {
             string connectionString =
@@ -76,7 +76,7 @@
             // Send message
             SendMessage(connectionString);
         }
-	
+
 	c. `CreateTopic`은 메시지를 보낼 서비스 버스 항목을 만드는 데 사용됩니다.
 
         public static void CreateTopic(string connectionString)
@@ -100,7 +100,7 @@
                 TopicClient.CreateFromConnectionString(connectionString, sampleTopic);
 
             // Sends random messages every 10 seconds to the topic
-            string[] messages = 
+            string[] messages =
             {
                 "Employee Id '{0}' has joined.",
                 "Employee Id '{0}' has left.",
@@ -133,10 +133,10 @@
 	    {
 	        string connectionString =
 	                 CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-	
+
 	        // Create the subscription which will receive messages
-	        CreateSubscription(connectionString);   
-	
+	        CreateSubscription(connectionString);
+
 	        // Receive message
 	        ReceiveMessageAndSendNotification(connectionString);
 	    }
@@ -164,14 +164,14 @@
                     ("Microsoft.NotificationHub.ConnectionString");
             hub = NotificationHubClient.CreateClientFromConnectionString
                     (hubConnectionString, "enterprisepushservicehub");
-            
+
             SubscriptionClient Client =
                 SubscriptionClient.CreateFromConnectionString
                         (connectionString, sampleTopic, sampleSubscription);
 
             Client.Receive();
 
-            // Continuously process messages received from the subscription 
+            // Continuously process messages received from the subscription
             while (true)
             {
                 BrokeredMessage message = Client.Receive();
@@ -198,7 +198,7 @@
                         message.Abandon();
                     }
                 }
-            } 
+            }
         }
         static async void SendNotificationAsync(string message)
         {
@@ -210,7 +210,7 @@
 	![][2]
 
 	f. 게시 프로필을 선택한 후 Azure 웹 사이트가 없는 경우 이 WebJob을 호스트할 새 Azure 웹 사이트를 만들고, 웹 사이트가 있는 경우 **게시**합니다.
-	
+
 	![][3]
 
 	g. Azure 관리 포털에 로그인할 때 다음과 같은 단계를 거쳐야 하기 때문에 작업이 "계속 실행"되도록 구성합니다.
@@ -221,7 +221,7 @@
 3. **EnterprisePushMobileApp**
 
 	a. 모바일 백엔드의 일부로 실행 중인 WebJob에서 토스트 알림을 수신하여 이를 표시하는 Windows 스토어 응용 프로그램입니다. [알림 허브 - Windows 유니버설 자습서]를 기반으로 합니다.
-	
+
 	b. 응용 프로그램이 토스트 알림을 받을 수 있는지 확인합니다.
 
 	c. 앱 시작 시 다음 알림 허브 등록 코드가 호출되었는지 확인합니다(*HubName* 및 *DefaultListenSharedAccessSignature* 교체 후).
@@ -244,9 +244,9 @@
 
 ### 샘플 실행:
 
-1. WebJob이 성공적으로 실행 중이고 "계속 실행"되도록 예약되었는지 확인합니다. 
-2. **EnterprisePushMobileApp**을 실행하면 Windows 스토어 앱을 시작합니다. 
-3. **EnterprisePushBackendSystem** 콘솔 응용 프로그램을 실행하면 LoB 백엔드를 시뮬레이션 하고 메시지를 보내기 시작하기 때문에 다음과 같이 나타나는 토스트 알림이 보여야 합니다. 
+1. WebJob이 성공적으로 실행 중이고 "계속 실행"되도록 예약되었는지 확인합니다.
+2. **EnterprisePushMobileApp**을 실행하면 Windows 스토어 앱을 시작합니다.
+3. **EnterprisePushBackendSystem** 콘솔 응용 프로그램을 실행하면 LoB 백엔드를 시뮬레이션 하고 메시지를 보내기 시작하기 때문에 다음과 같이 나타나는 토스트 알림이 보여야 합니다.
 
 	![][5]
 
@@ -270,6 +270,5 @@
 [Azure WebJob]: http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/
 [알림 허브 - Windows 범용 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [알림 허브 - Windows 유니버설 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

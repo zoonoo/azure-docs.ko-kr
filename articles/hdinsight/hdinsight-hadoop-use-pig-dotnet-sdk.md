@@ -5,7 +5,8 @@
    documentationCenter=".net"
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+   tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 #HDInsight에서 Hadoop용 .NET SDK를 사용하여 Pig 작업 실행
@@ -22,7 +23,11 @@
 
 이 문서는 HDInsight 클러스터의 Hadoop에 Pig 작업을 제출하기 위해 Hadoop용 .NET SDK를 사용하는 예시를 보여 줍니다.
 
-HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다. Pig를 사용하면 일련의 데이터 변환을 모델링하여 MapReduce 작업을 만들 수 있습니다. HDInsight 클러스터에는 Pig 작업을 제출하는 기본 C# 응용 프로그램을 사용하는 방법에 대해 배웁니다.
+HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다. Pig를 사용하면 일련의 데이터 변환을 모델링하여 MapReduce 작업을 만들 수 있습니다. HDInsight 클러스터에는 Pig 작업을 제출하는 기본 C#응용 프로그램을 사용하는 방법에 대해 배웁니다.
+
+[AZURE.INCLUDE [azure-portal](../../includes/hdinsight-azure-portal.md)]
+
+* [HDInsight에서 Hadoop용 .NET SDK를 사용하여 Pig 작업 실행](hdinsight-hadoop-use-pig-dotnet-sdk-v1.md)
 
 ##<a id="prereq"></a>필수 조건
 
@@ -44,11 +49,11 @@ Azure HDInsight에 응용 프로그램을 인증하려면 자체 서명된 인�
 
 각각의 Azure 구독은 구독 ID라는 GUID 값으로 식별됩니다. 이 값을 찾으려면 다음 단계를 이용합니다.
 
-1. [Azure 관리 콘솔](https://manage.windowsazure.com/)을 방문합니다.
+1. [Azure Preview 포털][preview-portal]을 방문합니다.
 
-2. 포털 왼쪽에 있는 막대에서 **설정**을 선택합니다.
+2. 포털 왼쪽의 명령 모음에서 __모두 찾아보기__를 선택한 다음 __찾아보기__ 블레이드에서 __구독__을 선택합니다.
 
-3. 페이지 오른쪽에 있는 정보에서 사용할 구독을 찾아 **구독 ID** 열에서 해당 값을 기록해 둡니다.
+3. __구독 ID__ 블레이드에 표시되는 정보에서 사용할 구독을 찾고 **구독 ID** 열의 값을 기록해 둡니다.
 
 나중에 사용할 것이므로 구독 ID를 저장합니다.
 
@@ -227,6 +232,6 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 내용입니�
 
 * [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
 
-* [HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
+* [SSH를 사용하여 HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md) [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

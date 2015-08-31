@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
-	editor=""/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -255,4 +256,4 @@ Mahout 작업은 작업을 처리하는 동안 생성된 임시 데이터를 제
 [tools]: https://github.com/Blackmist/hdinsight-tools
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

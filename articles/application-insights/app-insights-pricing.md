@@ -53,7 +53,10 @@
 * 할당량은 택하고자 하는 가격 책정 계층에 따라 달라집니다.
 * 할당량은 매월 첫 날에 자정 UTC부터 계산 됩니다.
 * 데이터 요소 차트는 이번달 모두 사용된 할당량이 어느 정도인지를 보여줍니다.
-* 할당량은 *데이터 요소*로 측정됩니다. 단일 데이터 요소는 코드에서 또는 표준 원격 분석 모듈 중 하나가 명시적으로 호출하든지, 추적 방법 중 하나를 호출합니다. 진단 검색에서 보이는 각 행은 데이터 요소입니다. 성능 카운터와 같은 각 메트릭의 측정은 데이터 요소입니다. 
+* 할당량은 *데이터 요소*로 측정됩니다. 단일 데이터 요소는 코드에서 또는 표준 원격 분석 모듈 중 하나가 명시적으로 호출하든지, 추적 방법 중 하나를 호출합니다. 데이터 요소는 다음을 포함합니다.
+ * [진단 검색](app-insights-diagnostic-search.md)에서 보이는 각 행입니다. 
+ * 성능 카운터와 같은 각 [메트릭](app-insights-metrics-explorer.md)의 원시 측정입니다. (차트에서 보는 요소는 일반적으로 여러 원시 데이터 요소의 집계입니다.)
+ * [웹 테스트(가용성)](app-insights-monitor-web-app-availability.md) 차트의 각 요소입니다. 
 * *세션 데이터*는 할당량 계산에서 제외됩니다. 여기에 사용자, 세션, 환경 및 장치 데이터의 수가 포함됩니다.
 
 
@@ -72,7 +75,7 @@
 
 ![가격 책정 블레이드의 맨 아래](./media/app-insights-pricing/03-allocation.png)
 
-자세한 내용을 보려면 차트를 클릭하거나 자세한 시간 범위는 차트를 가로질러 끕니다.
+자세한 내용을 보려면 차트를 클릭하거나 자세한 시간 범위는 차트를 가로질러 끌고 (+)를 클릭합니다.
 
 
 ## 데이터 속도
@@ -81,9 +84,9 @@
 
 다음과 같이 따로 계산되는 3가지 버킷이 있습니다.
 
-* [TrackTrace 호출](app-insights-api-custom-events-metrics.md#track-trace) 및 [캡처한 로그](app-insights-asp-net-trace-logs.md)
-* [예외](app-insights-api-custom-events-metrics.md#track-exception)(초당 50개 지점으로 제한됩니다.)
-* 다른 모든 원격 분석(페이지 보기, 세션, 요청, 종속성, 메트릭, 사용자 지정 이벤트)
+* [TrackTrace 호출](app-insights-api-custom-events-metrics.md#track-trace) 및 [캡처된 로그](app-insights-asp-net-trace-logs.md)
+* [예외](app-insights-api-custom-events-metrics.md#track-exception)는 초당 50개 지점으로 제한됩니다.
+* 다른 모든 원격 분석(페이지 보기, 세션, 요청, 종속성, 메트릭, 사용자 지정 이벤트, 웹 테스트 결과)
 
 앱이 제한보다 더 많은 데이터를 보내는 경우 일부 데이터가 삭제됩니다. 이러한 상황이 발생했음을 경고하는 알림이 표시됩니다.
 
@@ -118,7 +121,9 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 
 ![측면 메뉴에서 대금 청구를 선택합니다.](./media/app-insights-pricing/02-billing.png)
 
+## 제한 요약
 
+[AZURE.INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
 
 <!--Link references-->
@@ -130,4 +135,4 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -107,11 +107,11 @@ Azure 관리 포털에서 보고서는 다음과 같은 방식으로 분류되�
 
 ### 여러 번의 실패 후 로그인
 
-이 보고서에 대한 세부 정보를 보려면 [여러 번의 실패 후 로그인](active-directory-sign-ins-after-multiple-failures.md)을 확인하세요.
+이 보고서에 대한 세부 정보를 보려면 [여러 번의 실패 후 로그인](active-directory-reporting-sign-ins-after-multiple-failures.md)을 확인하세요.
 
 ### 여러 지역에서의 로그인
 
-이 보고서에 대한 세부 정보를 보려면 [여러 지역에서의 로그인](active-directory-sign-ins-from-multiple-geographies.md)을 확인하세요.
+이 보고서에 대한 세부 정보를 보려면 [여러 지역에서의 로그인](active-directory-reporting-sign-ins-from-multiple-geographies.md)을 확인하세요.
 
 ### 의심스러운 활동을 포함하는 IP 주소의 로그인
 
@@ -302,4 +302,4 @@ Azure AD의 보고 알림에 대한 자세한 내용은 [Azure Active Directory 
 - [Azure Active Directory Premium 시작](active-directory-get-started-premium.md)
 - [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가](active-directory-add-company-branding.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

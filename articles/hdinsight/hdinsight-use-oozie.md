@@ -3,6 +3,7 @@
 	description="빅데이터 서비스인 HDInsight에서 Hadoop Oozie를 사용하는 방법을 알아봅니다. 또한 Oozie 워크플로를 정의하고 Oozie 작업을 제출하는 방법에 대해서도 살펴봅니다."
 	services="hdinsight"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 
@@ -349,7 +350,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 
 **Oozie 작업을 제출하려면**
 
-1. Windows PowerShell ISE를 엽니다. (Windows 8 시작 화면에서 **PowerShell_ISE**를 입력한 후 **Windows PowerShell ISE**를 클릭하면 됩니다. 자세한 내용은 [Windows 8 및 Windows에서 Windows PowerShell 시작][powershell-start]을 참조하세요.)
+1. Windows PowerShell ISE를 엽니다. (Windows 8 시작 화면에서 **PowerShell\_ISE**를 입력한 후 **Windows PowerShell ISE**를 클릭하면 됩니다. 자세한 내용은 [Windows 8 및 Windows에서 Windows PowerShell 시작][powershell-start]을 참조하세요.)
 
 3. 다음 스크립트를 스크립트 창에 복사한 다음 처음 10개의 변수를 설정합니다($storageUri 변수는 건너뜀).
 
@@ -569,7 +570,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 - [HDInsight에서 Hadoop과 Sqoop 사용][hdinsight-use-sqoop]
 - [HDInsight에서 Hadoop과 Hive 사용][hdinsight-use-hive]
 - [HDInsight에서 Hadoop과 Pig 사용][hdinsight-use-pig]
-- [HDInsight용 C# Hadoop 스트리밍 작업 개발][hdinsight-develop-streaming-jobs]
+- [HDInsight용 C#Hadoop 스트리밍 작업 개발][hdinsight-develop-streaming-jobs]
 - [HDInsight용 Java MapReduce 프로그램 개발][hdinsight-develop-mapreduce]
 
 
@@ -601,7 +602,7 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 [sqldatabase-create-configue]: ../sql-database-create-configure.md
 [sqldatabase-get-started]: ../sql-database-get-started.md
 
-[azure-management-portal]: https://manage.windowsazure.com/
+[azure-management-portal]: https://portal.azure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
@@ -622,4 +623,4 @@ Azure PowerShell은 Oozie 작업을 정의하는 데 현재 어떤 cmdlet도 제
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -108,7 +108,7 @@ SSH 클라이언트가 Azure 가상 컴퓨터의 SSH 서비스에 연결할 수 
 
 ### 발생지 3: 클라우드 서비스 끝점 및 ACL
 
-서비스 관리자에서 만들어진 가상 컴퓨터에 대한 문제 또는 잘못된 구성의 발생지인 클라우드 서비스 끝점 및 ACL을 제거하려면 동일한 가상 네트워크에 있는 다른 Azure 가상 컴퓨터가 Azure 가상 컴퓨터에 대한 SSH 연결을 설정할 수 있는지 확인합니다.
+서비스 관리 API를 사용하여 만든 가상 컴퓨터에 대한 문제 또는 잘못된 구성의 원인이 되는 클라우드 서비스 끝점 및 ACL을 제거하려면 동일한 가상 네트워크에 있는 다른 Azure 가상 컴퓨터가 사용자의 Azure 가상 컴퓨터로 SSH 연결이 가능한지 확인합니다.
 
 ![](./media/virtual-machines-troubleshoot-ssh-connections/ssh-tshoot4.png)
 
@@ -165,4 +165,4 @@ Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azu
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

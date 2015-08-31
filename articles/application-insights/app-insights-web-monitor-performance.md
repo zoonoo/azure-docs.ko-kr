@@ -102,11 +102,16 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 
 메트릭을 선택하면 같은 차트에 표시할 수 없는 다른 메트릭은 사용하지 않도록 설정됩니다.
 
-## 더 많은 성능 카운터 수집
+## 시스템 성능 카운터
 
 선택할 수 있는 메트릭 중 일부는 [성능 카운터](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters)입니다. Windows는 광범위하고 다양한 것들을 제공하며 사용자가 정의할 수 있습니다.
 
-원하는 카운터가 목록에 없으면 SDK가 수집하는 집합에 추가할 수 있습니다. ApplicationInsights.config를 열고 성능 수집기 지시문을 편집합니다:
+이 예제는 기본적으로 사용할 수 있는 성능 카운터를 보여줍니다. 각 카운터에 대한 [별도 차트를 추가](app-insights-metrics-explorer.md#editing-charts-and-grids)하고 차트를 [즐겨찾기로 저장](app-insights-metrics-explorer.md#editing-charts-and-grids)하여 명명했습니다.
+
+![](./media/app-insights-web-monitor-performance/sys-perf.png)
+
+
+원하는 카운터가 속성 목록에 없으면 SDK가 수집하는 집합에 추가할 수 있습니다. ApplicationInsights.config를 열고 성능 수집기 지시문을 편집합니다:
 
     <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCollector.PerformanceCollectorModule, Microsoft.ApplicationInsights.Extensibility.PerfCollector">
       <Counters>
@@ -115,7 +120,7 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
       </Counters>
     </Add>
 
-형식은 `\Category(instance)\Counter"` 또는 인스턴스가 없는 범주에는 `\Category\Counter`입니다.
+형식은 `\Category(instance)\Counter"` 또는 인스턴스가 없는 범주에는 `\Category\Counter`입니다. 시스템에서 어떤 카운터를 사용할 수 있는지 검색하려면 [이 소개](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters)를 읽습니다.
 
 `ReportAs`은 다음 이외의 문자를 포함하는 카운터 이름에 필요합니다: 둥근 괄호, 정방향 슬래쉬, 하이픈, 밑줄 문자, 공백 및 점선입니다.
 
@@ -178,4 +183,4 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Azure의 Linux 가상 컴퓨터에서 디스크 분리"
-	description="Azure 가상 컴퓨터에서 데이터 디스크를 분리하는 방법에 대해 알아봅니다."
+	description="클래식 배포 모델을 사용하여 만든 Azure 가상 컴퓨터에서 데이터 디스크를 분리하는 방법을 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -25,6 +26,6 @@
 
 [Linux 가상 컴퓨터에 데이터 디스크를 연결하는 방법](virtual-machines-linux-how-to-attach-disk.md)
 
-[Azure 서비스 관리에서 Azure CLI 사용](virtual-machines-command-line-tools.md)
+[서비스 관리 API에서 Azure CLI 사용](virtual-machines-command-line-tools.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

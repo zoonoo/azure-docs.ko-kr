@@ -4,7 +4,7 @@
 	description="Azure 모바일 서비스를 사용하여 Android JavaScript 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." 
 	services="mobile-services, notification-hubs" 
 	documentationCenter="android" 
-	authors="RickSaling" 
+	authors="RickSaling"  
 	manager="dwrede" 
 	editor=""/>
 
@@ -36,7 +36,7 @@
 
 ##<a id="register"></a>Google Cloud Messaging 사용
 
-[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ##<a id="configure"></a>푸시 요청을 전송하도록 모바일 서비스 구성
 
@@ -52,7 +52,7 @@
 
 ###프로젝트에 Google Play Services 추가
 
-[AZURE.INCLUDE [Play 서비스 추가](../../includes/mobile-services-add-Google-play-services.md)]
+[AZURE.INCLUDE [Play 서비스 추가](../../includes/mobile-services-add-google-play-services.md)]
 
 ###코드 추가
 
@@ -153,7 +153,7 @@ To see a completed version of the source code in an Eclipse project, go <a href=
 
 
 <!-- URLs. -->
-[푸시 알림 시작(Eclipse)]: mobile-services-javascript-backend-android-get-started-push-EC.md
+[푸시 알림 시작(Eclipse)]: mobile-services-javascript-backend-android-get-started-push-ec.md
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Get started with Mobile Services]: mobile-services-android-get-started.md
@@ -178,4 +178,4 @@ To see a completed version of the source code in an Eclipse project, go <a href=
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

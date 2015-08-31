@@ -1,14 +1,12 @@
 
-## <a id="add-push"></a>앱에 푸시 알림 추가
-
-* QSAppDelegate.m에서 iOS SDK 및 QSTodoService.h를 가져옵니다.
+* **QSAppDelegate.m**에서 iOS SDK 및 **QSTodoService.h**를 가져옵니다.
 
 ```
         #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
         #import "QSTodoService.h"
 ```
 
-* QSAppDelegate.m의 `didFinishLaunchingWithOptions`에서 `return YES;` 바로 앞에 다음 줄을 삽입합니다.
+* **QSAppDelegate.m**의 `didFinishLaunchingWithOptions`에서 `return YES;` 바로 앞에 다음 줄을 삽입합니다.
 
 ```
         UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
@@ -16,7 +14,7 @@
         [[UIApplication sharedApplication] registerForRemoteNotifications];
 ```
 
-* QSAppDelegate.m에서 다음 처리기 메서드를 추가합니다. 이제 앱이 푸시 알림을 지원하도록 업데이트되었습니다.
+* **QSAppDelegate.m**에서 다음 처리기 메서드를 추가합니다. 이제 푸시 알림을 지원하도록 앱이 업데이트됩니다.
 
 ```
         // Registration with APNs is successful
@@ -57,4 +55,4 @@
         }
 ```
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

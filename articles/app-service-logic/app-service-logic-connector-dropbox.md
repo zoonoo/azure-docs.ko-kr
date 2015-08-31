@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2015"
+	ms.date="08/19/2015"
 	ms.author="sameerch"/>
 
 # Dropbox 커넥터
@@ -36,10 +36,9 @@ Dropbox 커넥터는 논리 앱에서 동작으로 사용할 수 있으며 JSON 
 ## 논리 앱용 Dropbox 커넥터 만들기
 커넥터는 논리 앱 내에서 만들거나 Azure 마켓플레이스에서 직접 만들 수 있습니다. 마켓플레이스에서 커넥터를 만들려면
 
-1.	Azure 포털의 왼쪽 아래에 있는 + 새로 만들기 옵션을 사용하여 Azure 마켓플레이스를 엽니다.
-2.	“웹 및 모바일 --> Azure 마켓플레이스”로 이동하여 “Dropbox 커넥터”를 검색합니다.
-3.	다음과 같이 Dropbox 커넥터를 구성합니다.
- 
+1. Azure 시작 보드에서 **마켓플레이스**를 선택합니다.
+2. “Dropbox 커넥터”를 검색하여 선택하고 **만들기**를 선택합니다.
+3. 이름, 앱 서비스 계획 및 기타 속성을 입력합니다.
 	![][1]
 	- **위치** - 커넥터를 배포할 지리적 위치를 선택합니다.
 	- **구독** - 이 커넥터를 만들 구독을 선택합니다.
@@ -50,25 +49,19 @@ Dropbox 커넥터는 논리 앱에서 동작으로 사용할 수 있으며 JSON 
 4. **만들기**를 선택합니다.
 
 
-## 논리 앱에서 Dropbox 커넥터 사용 ##
-API 앱을 만들고 나면 이제 Dropbox 커넥터를 논리 앱에 대한 동작으로 사용할 수 있습니다. 이렇게 하려면 다음을 수행해야 합니다.
+## 논리 앱에서 Dropbox 커넥터 사용
+API 앱을 만들고 나면 이제 Dropbox 커넥터를 논리 앱에 대한 동작으로 사용할 수 있습니다. 다음을 수행합니다.
 
-1.	새 논리 앱을 만들고 Dropbox 커넥터가 있는 동일한 리소스 그룹을 선택합니다.
-
-	![][2]
-2.	"트리거 및 동작"을 열어 논리 앱 디자이너를 열고 흐름을 구성합니다.
-
+1.	논리 앱에서 **트리거 및 동작**을 열어 논리 앱 디자이너를 열고 흐름을 구성합니다.
 	![][3]
-3.	Dropbox 커넥터가 오른쪽의 갤러리에 있는 “이 리소스 그룹의 API 앱” 섹션에 나타납니다.
-
+2.	갤러리에 Dropbox 커넥터가 나열됩니다.
 	![][4]
-4.	“Dropbox 커넥터”를 클릭하여 Dropbox 커넥터 API 앱을 편집기에 놓을 수 있습니다. 권한 부여 단추를 클릭합니다. Dropbox 자격 증명을 제공합니다. “허용”을 클릭합니다.
- 
+3.	Dropbox 커넥터를 선택하면 자동으로 디자이너에 추가됩니다. **인증**을 선택하고 자격 증명을 입력한 후 **허용**을 선택합니다.
 	![][5]
 	![][6]
 	![][7]
-6.	이제 흐름에서 Dropbox 커넥터를 사용할 수 있습니다. "파일 업로드" Dropbox 동작을 사용하여 Dropbox 계정으로 파일을 업로드할 수 있습니다.
- 
+
+이제 흐름에서 Dropbox 커넥터를 사용할 수 있습니다. "파일 업로드" Dropbox 동작을 사용하여 Dropbox 계정으로 파일을 업로드할 수 있습니다.
 	![][8]
 	![][9]
 
@@ -82,7 +75,7 @@ API 앱을 만들고 나면 이제 Dropbox 커넥터를 논리 앱에 대한 동
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
-REST API를 사용하여 API 앱을 만듭니다. [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)를 참조하세요.
+[커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
 커넥터의 성능 통계를 검토하고 보안을 제어할 수 있습니다. [기본 제공 API 앱 및 커넥터 관리 및 모니터링](app-service-logic-monitor-your-connectors.md)을 참조하세요.
 
@@ -97,4 +90,4 @@ REST API를 사용하여 API 앱을 만듭니다. [커넥터 및 API 앱 참조]
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

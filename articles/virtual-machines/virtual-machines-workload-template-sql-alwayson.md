@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 리소스 관리자 템플릿을 사용하여 SQL Server AlwaysOn 배포"
+	pageTitle="Azure 리소스 관리자 템플릿을 사용하여 SQL Server AlwaysOn 배포 | Microsoft Azure"
 	description="리소스 관리자 템플릿 및 Azure Preview 포털, Azure PowerShell 또는 Azure CLI를 사용하여 SQL Server AlwaysOn을 지원하는 5개의 서버를 쉽게 배포합니다."
 	services="virtual-machines"
 	documentationCenter=""
@@ -19,7 +19,7 @@
 
 # Azure 리소스 관리자 템플릿을 사용하여 SQL Server AlwaysOn 배포
 
-리소스 관리자 템플릿을 사용하여 SQL 서버 AlwaysOn을 배포하려면 이 섹션을 지침을 사용하세요. 이 템플릿은 두 개의 서로 다른 서브넷의 새로운 가상 네트워크에 5개의 가상 컴퓨터를 만듭니다.
+Azure 리소스 관리자 템플릿을 사용하여 SQL Server AlwaysOn을 배포하려면 이 문서의 지침을 사용하세요. 이 템플릿은 두 개의 서로 다른 서브넷의 새로운 가상 네트워크에 5개의 가상 컴퓨터를 만듭니다.
 
 ![](./media/virtual-machines-workload-template-sql-alwayson/five-server-sqlao.png)
 
@@ -27,7 +27,7 @@ Azure Preview 포털, Azure PowerShell 또는 Azure CLI에서 템플릿 파일�
 
 ## Azure Preview 포털
 
-리소스 관리자 템플릿과 Azure Preview 포털을 사용하여 이 작업을 배포하려면 [여기](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsql-server-2014-alwayson-dsc%2Fazuredeploy.json)를 클릭하세요.
+Azure 리소스 관리자 템플릿과 Azure Preview 포털을 사용하여 이 작업을 배포하려면 [여기](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsql-server-2014-alwayson-dsc%2Fazuredeploy.json)를 클릭하세요.
 
 ![](./media/virtual-machines-workload-template-sql-alwayson/azure-portal-template.png)
 
@@ -106,4 +106,4 @@ Azure Preview 포털, Azure PowerShell 또는 Azure CLI에서 템플릿 파일�
 
 [Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

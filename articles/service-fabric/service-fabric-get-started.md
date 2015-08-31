@@ -1,5 +1,5 @@
 <properties
-   pageTitle="서비스 패브릭 개발 환경 설정"
+   pageTitle="서비스 패브릭 개발 환경 설정 | Microsoft Azure"
    description="서비스 패브릭 런타임, SDK 및 도구를 설치하고 로컬 개발 클러스터를 만듭니다."
    services="service-fabric"
    documentationCenter=".net"
@@ -27,7 +27,7 @@
 
 - Windows 8/8.1
 - Windows Server 2012 R2
-- Windows 10 기술 미리 보기
+- Windows 10
 
 ### Visual Studio 2015
 
@@ -41,7 +41,7 @@
 
 1. 웹 플랫폼 설치 관리자를 사용하여 [SDK를 다운로드][3]합니다.
 
-2. 설치를 클릭하여 설치 프로세스를 시작합니다.
+2. **설치**를 클릭하여 설치 프로세스를 시작합니다.
 
 3. EULA를 검토하고 동의합니다.
 
@@ -58,7 +58,7 @@
 로컬 클러스터는 단일 개발 컴퓨터의 프로덕션 환경에서 최종적으로 사용할 다중 컴퓨터 토폴로지를 나타냅니다. 로컬 클러스터를 설정하려면 다음 단계를 따르세요.
 
 
-1. 다른 PowerShell 창을 모두 닫고 관리자로 새 PowerShell 창을 시작합니다.
+1. 다른 PowerShell 창을 모두 닫고 관리자로 새 창을 시작합니다.
 
 2. `cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"`가 포함된 클러스터 설정 디렉토리로 이동합니다.
 
@@ -93,4 +93,4 @@ SDK와 함께 제공되는 서비스 패브릭 탐색기 도구를 사용하여,
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "WebPI 링크"
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

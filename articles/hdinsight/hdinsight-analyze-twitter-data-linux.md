@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -13,14 +14,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.date="08/05/2015"
 	ms.author="larryfr"/>
 
 # HDInsight에서 Hive를 사용하여 Twitter 데이터 분석
 
 이 문서에는 Twitter 스트리밍 API를 사용하여 트윗을 가져온 다음 Linux 기반 HDInsight(미리 보기) 클러스터에서 Apache Hive를 사용하여 JSON 형식의 데이터를 처리합니다. 결과는 특정 단어가 포함된 많은 트윗을 보낸 Twitter 사용자의 목록이 됩니다.
 
-> [AZURE.NOTE]이 문서 내의 단계는 Linux 기반 HDInsight 클러스터 사용을 기반으로 합니다. Windows 기반 클러스터에 대한 특정 단는 [HDInsight에서 Hive를 사용하여 Twitter 데이터 분석](hdinsight-analyze-twitter-data.md)을 참조하세요.
+> [AZURE.NOTE]Windows 기반 HDInsight 클러스터(예: Python, Hive)와 함께 이 문서의 개별 항목을 사용할 수 있지만 이 문서의 여러 단계는 Linux 기반 HDInsight 클러스터 사용을 기준으로 합니다. Windows 기반 클러스터에 대한 특정 단는 [HDInsight에서 Hive를 사용하여 Twitter 데이터 분석](hdinsight-analyze-twitter-data.md)을 참조하세요.
 
 ###필수 조건
 
@@ -318,4 +319,4 @@ WASB(HDInsight에서 사용하는 분산 파일 시스템)에 데이터를 업�
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

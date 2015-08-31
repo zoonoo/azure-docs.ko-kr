@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Linux를 실행하는 Microsoft Azure 가상 컴퓨터에서 PostgreSQL 설치 및 구성"
-	description="Azure의 Ubuntu 또는 CentOS VM(가상 컴퓨터)에서 PostgreSQL을 설치하고 구성하는 방법을 알아봅니다."
+	description="Azure의 Linux VM(가상 컴퓨터)에서 PostgreSQL을 설치하고 구성하는 방법을 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"
@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="linux"
 	ms.workload="infrastructure-services"
-	ms.date="06/04/2015"
+	ms.date="08/10/2015"
 	ms.author="mingzhan"/>
 
 
@@ -24,7 +24,7 @@ PostgreSQL은 Oracle 및 DB2와 유사한 고급 오픈 소스 데이터베이�
 
 이 문서에서는 Linux를 실행하는 Azure 가상 컴퓨터에서 PostgreSQL을 설치 및 구성하는 방법을 알아봅니다.
 
-> [Azure.NOTE]이 자습서를 완료하려면 Linux를 실행하는 Microsoft Azure 가상 컴퓨터가 이미 있어야 합니다. 계속하기 전에 Linux VM을 생성하고 설정하려면 [Azure Linux VM 자습서](virtual-machines-linux-tutorial.md)를 참조하세요.
+> [AZURE.NOTE]이 자습서를 완료하려면 Linux를 실행하는 Microsoft Azure 가상 컴퓨터가 이미 있어야 합니다. 계속하기 전에 Linux VM을 생성하고 설정하려면 [Azure Linux VM 자습서](virtual-machines-linux-tutorial.md)를 참조하세요.
 
 [이 경우 1999 PostgreSQL 포트로 포트를 사용하세요.]
 
@@ -34,19 +34,19 @@ putty를 통해 생성한 Linux VM에 연결합니다. 처음으로 Azure Linux 
 
 1. 다음 명령을 실행하여 루트(관리자)로 전환합니다.
 
-		$ sudo su -
+		# sudo su -
 
 2. 일부 배포의 경우 PostgreSQL을 설치하기 전에 설치해야 하는 종속성이 있습니다. 이 목록에서 배포를 확인하고 적절한 명령을 실행합니다.
 
-	- Redhat:
+	- Red Hat 기반 Linux:
 
 			# yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
 
-	- Debian:
+	- Debian 기반 Linux:
 
  			# apt-get install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam libxslt-devel tcl-devel python-devel -y  
 
-	- Suse:
+	- SUSE Linux:
 
 			# zypper install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
 
@@ -90,7 +90,7 @@ putty를 통해 생성한 Linux VM에 연결합니다. 처음으로 Azure Linux 
 
 		# su - postgres
 
-    >[Azure.NOTE]보안상의 이유로, PostgreSQL은 루트가 아닌 사용자를 사용하여 데이터베이스를 초기화, 시작 또는 종료합니다.
+   >[AZURE.NOTE]보안상의 이유로, PostgreSQL은 루트가 아닌 사용자를 사용하여 데이터베이스를 초기화, 시작 또는 종료합니다.
 
 
 4. 아래 명령을 입력하여 *bash\_profile*을 편집합니다. *bash\_profile* 파일 끝에 다음 줄이 추가됩니다.
@@ -251,4 +251,4 @@ Postgres 데이터베이스를 만듭니다.
 ##PostgreSQL에 관한 추가 내용
 지금 바로 Microsoft Azure Linux VM에서 PostgreSQL 설치를 완료하고 Microsoft Azure에서 사용해 보세요. PostgreSQL에 관한 추가 내용은 [여기](http://www.postgresql.org/)를 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

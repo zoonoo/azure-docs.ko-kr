@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="joaoma;cherylmc" />
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # 트래픽 관리자 설정 테스트
 
@@ -54,7 +54,7 @@
 
 ## 참고 항목
 
-[트래픽 관리자 부하 분산 방법 정보](../about-traffic-manager-balancing-methods.md) [트래픽 관리자 구성 작업](https://msdn.microsoft.com/library/azure/hh744830.aspx) [트래픽 관리자](../traffic-manager.md)
+[트래픽 관리자 트래픽 라우팅 방법 정보](../about-traffic-manager-balancing-methods.md) [트래픽 관리자](../traffic-manager.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

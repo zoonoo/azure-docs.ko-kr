@@ -10,7 +10,7 @@
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="08/12/2015" 
+	ms.date="08/13/2015" 
 	ms.author="sstein" 
 	ms.workload="data-management" 
 	ms.topic="article" 
@@ -50,7 +50,7 @@
     ****풀당 데이터베이스 수 및 풀 eDTU 수에 대한 현재 한도는 증가할 것으로 예상됩니다.***
 
 
-- 풀로 데이터베이스를 직접 가져오는 것은 지원되지 않습니다. 단일 데이터베이스로 가져온 다음 해당 데이터베이스를 풀로 이동할 수 있습니다. 풀 내에서 데이터베이스를 내보내는 것은 *지원됩니다*.
+
 
 ## 문서 목록
 
@@ -62,7 +62,7 @@
 | [가격 및 성능 고려 사항](sql-database-elastic-pool-guidance.md) | 탄력적 데이터베이스 풀 사용이 비용 효율적인지를 평가하는 방법 |
 | [Azure 포털을 사용하여 SQL 데이터베이스 탄력적 데이터베이스 풀 만들기 및 관리](sql-database-elastic-pool-portal.md) | Azure 포털을 사용하여 탄력적 데이터베이스 풀을 만들고 관리하는 방법 |
 | [PowerShell을 사용하여 SQL 데이터베이스 탄력적 데이터베이스 풀 만들기 및 관리](sql-database-elastic-pool-powershell.md) | PowerShell cmdlet을 사용하여 탄력적 데이터베이스 풀을 만들고 관리하는 방법 |
-| [.NET용 Azure SQL 데이터베이스 라이브러리를 사용하여 SQL 데이터베이스 만들기 및 관리](sql-database-elastic-pool-powershell.md) | C#을 사용하여 탄력적 데이터베이스 풀을 만들고 관리하는 방법 |
+| [.NET용 Azure SQL 데이터베이스 라이브러리를 사용하여 SQL 데이터베이스 만들기 및 관리](sql-database-elastic-pool-powershell.md) | C\#을 사용하여 탄력적 데이터베이스 풀을 만들고 관리하는 방법 |
 | [탄력적 데이터베이스 작업 개요](sql-database-elastic-jobs-overview.md) | 풀에 있는 전체 탄력적 데이터베이스에서 T-SQL 스크립트의 실행을 지원하는 탄력적 작업 서비스의 개요 |
 | [탄력적 데이터베이스 작업 구성 요소 설치](sql-database-elastic-jobs-service-installation.md) | 탄력적 데이터베이스 작업 서비스를 설치하는 방법 |
 | [탄력적 작업 서비스에 필요한 사용자 만들기](sql-database-elastic-jobs-add-logins-to-dbs.md) | 탄력적 데이터베이스 작업 스크립트를 실행하려면 풀에 있는 모든 데이터베이스에 적절한 권한을 가진 사용자를 추가해야 합니다. |
@@ -210,4 +210,4 @@ Azure SQL 데이터베이스 V12 서버는 리소스 그룹에 있습니다.
 | 40891 | EX_USER | 데이터베이스당 DTU 최소값 (%d)은(는) 데이터베이스당 DTU 최대값 (%d)을(를) 초과할 수 없습니다. | 데이터베이스당 DTU 최소값, 데이터베이스당 DTU 최대값 | 데이터베이스당 DTU 최소값을 데이터베이스당 DTU 최대값보다 높게 설정하려고 했습니다. | 데이터베이스당 DTU 최소값이 데이터베이스당 DTU 최대값을 초과하지 않도록 하세요. |
 | TBD | EX_USER | 탄력적 풀에 있는 개별 데이터베이스의 저장소 크기는 '%.\*ls' 서비스 계층 탄력적 풀에서 허용하는 최대 크기를 초과할 수 없습니다. | 탄력적 풀 서비스 계층 | 데이터베이스의 최대 크기가 탄력적 풀 서비스 계층에서 허용하는 최대 크기를 초과합니다. | 데이터베이스의 최대 크기를 탄력적 풀 서비스 계층에서 허용하는 최대 크기 한도 내로 설정하세요. |
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

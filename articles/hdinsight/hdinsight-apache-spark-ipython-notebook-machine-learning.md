@@ -5,7 +5,8 @@
 	documentationCenter="" 
 	authors="nitinme" 
 	manager="paulettm" 
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags 
 	ms.service="hdinsight" 
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="07/31/2015" 
 	ms.author="nitinme"/>
 
 
@@ -42,9 +43,11 @@ Apache Spark 클러스터를 사용하여 HDInsight에서 기계 학습 응용 �
 
 ##<a name="app"></a>Spark MLlib를 사용하여 기계 학습 응용 프로그램 작성
 
-1. [Jupyter](https://jupyter.org) 노트북을 시작합니다. Azure 포털에서 Spark 클러스터를 선택하고 맨 아래 포털 작업 표시줄에서 **Jupyter 노트북**을 클릭합니다. 메시지가 표시되면 Spark 클러스터에 대한 관리자 자격 증명을 입력합니다.
+1. [Azure Preview 포털](https://ms.portal.azure.com/)의 시작 보드에서 Spark 클러스터 타일을 클릭합니다(Spark 클러스터를 시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다. 
+ 
+2. [Jupyter](https://jupyter.org) 노트북을 시작합니다. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Jupyter 노트북**을 클릭합니다. 메시지가 표시되면 Spark 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
-2. 새 노트북을 만듭니다. **새로 만들기**를 클릭한 후 **Python2**를 클릭합니다.
+2. 새 노트북을 만듭니다. **새로 만들기**를 클릭한 다음 **Python 2**를 클릭합니다.
 
 	![새 Jupyter 노트북 만들기](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/HDI.Spark.Note.Jupyter.CreateNotebook.png "새 Jupyter 노트북 만들기")
 
@@ -240,4 +243,4 @@ HDInsight에서 Apache Spark 클러스터에는 Anaconda 라이브러리가 포�
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

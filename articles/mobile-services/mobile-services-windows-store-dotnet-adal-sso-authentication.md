@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증(Windows 스토어) | Microsoft Azure" 
-	description="Windows 스토어 응용 프로그램에서 ADAL을 사용하여 SSO(Single Sign-On) 사용자를 인증하는 방법에 대해 알아봅니다." 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증(Windows 스토어) | Microsoft Azure"
+	description="Windows 스토어 응용 프로그램에서 ADAL을 사용하여 SSO(Single Sign-On) 사용자를 인증하는 방법에 대해 알아봅니다."
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/29/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-store"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc"/>
 
 # Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증
@@ -37,7 +37,7 @@
 * Windows 8.1에서 실행 중인 Visual Studio 2013
 * [모바일 서비스 시작] 또는 [데이터 시작] 자습서 완료
 * Microsoft Azure 모바일 서비스 SDK NuGet 패키지
-* Active Directory 인증 라이브러리 NuGet 패키지 
+* Active Directory 인증 라이브러리 NuGet 패키지
 
 [AZURE.INCLUDE [mobile-services-dotnet-adal-register-service](../../includes/mobile-services-dotnet-adal-register-service.md)]
 
@@ -134,12 +134,12 @@ Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연
 
 5. 다음 코드를 `AuthenticateAsync` 메서드를 선언하는 MainPage 클래스에 추가합니다.
 
-        private MobileServiceUser user; 
+        private MobileServiceUser user;
         private async Task AuthenticateAsync()
         {
             string authority = "<INSERT-AUTHORITY-HERE>";
             string resourceURI = "<INSERT-RESOURCE-URI-HERE>";
-            string clientID = "<INSERT-CLIENT-ID-HERE>"; 
+            string clientID = "<INSERT-CLIENT-ID-HERE>";
             while (user == null)
             {
                 string message;
@@ -155,11 +155,11 @@ Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연
                 catch (InvalidOperationException)
                 {
                   message = "You must log in. Login Required";
-                } 
+                }
                 var dialog = new MessageDialog(message);
                 dialog.Commands.Add(new UICommand("OK"));
                 await dialog.ShowAsync();
-            } 
+            }
         }
 
 6. 위의 `AuthenticateAsync` 메서드에 대한 코드에서 **INSERT-AUTHORITY-HERE**를 응용 프로그램이 프로비전된 테넌트의 이름으로 바꿉니다. https://login.windows.net/tenant-name.onmicrosoft.com 형식이어야 합니다. 이 값은 [Azure 관리 포털]에서 Azure Active Directory의 도메인 탭에서 복사할 수 있습니다.
@@ -217,4 +217,4 @@ Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연
 [모바일 서비스 시작]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Windows 개발자 센터 대시보드]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

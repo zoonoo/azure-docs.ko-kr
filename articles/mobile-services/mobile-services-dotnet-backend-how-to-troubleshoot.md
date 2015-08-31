@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="모바일 서비스 .NET 백 엔드 문제 해결 | Microsoft Azure" 
-	description=".NET 백 엔드를 사용하여 모바일 서비스와 관련된 문제를 진단 및 해결하는 방법에 대해 알아봅니다." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="모바일 서비스 .NET 백 엔드 문제 해결 | Microsoft Azure"
+	description=".NET 백 엔드를 사용하여 모바일 서비스와 관련된 문제를 진단 및 해결하는 방법에 대해 알아봅니다."
+	services="mobile-services"
+	documentationCenter=""
+	authors="wesmc7777"
+	manager="dwrede"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="multiple" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="04/20/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="multiple"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="wesmc;ricksal"/>
 
 # 모바일 서비스 .NET 백 엔드 문제 해결
@@ -34,7 +34,7 @@
 HTTP 트래픽을 전송 및 검사하기 위해서는 아무 HTTP 디버거나 사용할 수 있습니다. [Fiddler](http://www.telerik.com/fiddler)는 이러한 목적으로 개발자가 자주 사용하는 인기 있는 도구입니다. 개발 작업을 쉽게 수행할 수 있도록 모바일 서비스에는 외부 도구를 사용할 필요 없이 모바일 서비스에서 직접 사용할 수 있는 웹 기반 HTTP 디버거("테스트 클라이언트")가 포함되어 있습니다. 모바일 서비스를 로컬로 호스트할 때는 [http://localhost:59233](http://localhost:59233)과 같은 URI로 사용할 수 있으며, 클라우드에서 호스트할 때는 [http://todo-list.azure-mobile.net](http://todo-list.azure-mobile.net) 형식의 URI가 사용됩니다. 다음 단계는 서비스 호스팅 위치에 관계없이 동일하게 작동합니다.
 
 1. 시작하려면 **Visual Studio 2013 업데이트 2** 이상에서 모바일 서비스 서버 프로젝트를 엽니다. 아직 프로젝트가 없으면 **파일**, **새로 만들기**, **프로젝트**를 선택한 후 **클라우드** 노드를 선택하고** Microsoft Azure 모바일 서비스** 템플릿을 선택하여 만들 수 있습니다.
-2. **F5**를 누르면 프로젝트가 빌드되고 실행됩니다. 시작 페이지에서 **try it out(사용해 보기)**를 선택합니다. 
+2. **F5**를 누르면 프로젝트가 빌드되고 실행됩니다. 시작 페이지에서 **try it out(사용해 보기)**를 선택합니다.
 
     >[AZURE.NOTE]서비스가 로컬로 호스트되는 경우 링크를 클릭하면 다음 페이지로 이동됩니다. 하지만 클라우드에서 호스팅할 경우에는 자격 증명 집합을 입력하라는 메시지가 표시됩니다. 이 메시지는 인증되지 않은 사용자가 API 및 페이로드에 대한 정보에 액세스할 수 없도록 보장하기 위한 것입니다. 페이지를 표시하려면 **빈 사용자 이름** 및 **응용 프로그램 키**(암호)를 사용해서 로그인해야 합니다. 응용 프로그램 키는 **Azure 관리 포털**에서 모바일 서비스에 대한 **대시보드** 탭으로 이동하고 **키 관리**를 선택하여 확인할 수 있습니다.
     >
@@ -69,7 +69,7 @@ HTTP 트래픽을 전송 및 검사하기 위해서는 아무 HTTP 디버거나 
     ![기호 로드 구성][SymbolLoading]
 
 3. 왼쪽에서 **기호** 노드를 선택하고 [http://srv.symbolsource.org/pdb/Public](http://srv.symbolsource.org/pdb/Public) URI를 사용해서 (SymbolSource)[http://symbolsource.org] 서버에 참조를 추가합니다. 모바일 서비스 .NET 백 엔드의 기호는 모든 새 릴리스에 제공됩니다.
- 
+
     ![기호 서버 구성][SymbolServer]
 
 4. 디버그하려는 코드 조각에 중단점을 설정합니다. 예를 들어 Visual Studio의 모바일 서비스 프로젝트 템플릿과 함께 제공되는 **TodoItemController**의 **GetAllTodoItems()** 메서드에 중단점을 설정합니다.
@@ -154,4 +154,4 @@ SQL 데이터베이스와 함께 모바일 서비스 .NET 백 엔드를 사용�
 [LogsPortal]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/13.png
 [HelpConflict]: ./media/mobile-services-dotnet-backend-how-to-troubleshoot/14.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

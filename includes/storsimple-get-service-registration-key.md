@@ -1,4 +1,3 @@
-
 #### StorSimple 서비스 등록 키를 가져오려면
 
 1. **StorSimple 관리자 서비스** 페이지에서 작성한 서비스를 클릭합니다. 그러면 **빠른 시작** 페이지로 이동합니다. 언제든지 빠른 시작 아이콘 ![StorSimple 빠른 시작 아이콘](./media/storsimple-get-service-registration-key/HCS_QuickStartIcon-include.png)을 클릭하여 **빠른 시작** 페이지에 액세스할 수 있습니다.
@@ -19,4 +18,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

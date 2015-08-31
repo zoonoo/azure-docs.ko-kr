@@ -3,8 +3,8 @@
 	description="역할 기반 액세스 제어의 작동 방식 및 설정 방법에 대해 설명합니다."
 	services=""
 	documentationCenter=""
-	authors="Justinha"
-	manager="terrylan"
+	authors="IHenkel"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="Ibiza"
 	ms.workload="infrastructure-services"
-	ms.date="06/29/2015"
-	ms.author="justinha"/>
+	ms.date="08/14/2015"
+	ms.author="inhenk"/>
 
 # Microsoft Azure 포털에서의 역할 기반 액세스 제어
 
@@ -1293,4 +1293,4 @@ Azure RBAC를 사용해 보고 [의견](http://aka.ms/azurerbacfeedback)을 보�
 [9]: ./media/role-based-access-control-configure/RBACInviteExtUser_NEW.png
 [10]: ./media/role-based-access-control-configure/RBACDirConfigTab.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

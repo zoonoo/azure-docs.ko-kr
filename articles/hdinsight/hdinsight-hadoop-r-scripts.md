@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="HDInsight에서 R을 사용하여 클러스터 사용자 지정 | Microsoft Azure" 
-	description="R을 설치하고 사용하여 Hadoop 클러스터를 사용자 지정하는 방법을 알아봅니다." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="mumian" 
-	manager="paulettm" 
+<properties
+	pageTitle="HDInsight에서 R을 사용하여 클러스터 사용자 지정 | Microsoft Azure"
+	description="R을 설치하고 사용하여 Hadoop 클러스터를 사용자 지정하는 방법을 알아봅니다."
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
+	authors="mumian"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/09/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 # HDInsight Hadoop 클러스터에 R 설치 및 사용
@@ -23,23 +24,23 @@
 스크립트 작업을 사용하면 클러스터를 생성할 때에만 클러스터를 사용자 지정하는 스크립트를 실행할 수 있습니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]을 참조하세요.
 
 
-## <a name="whatIs"></a>R이란?
+## R이란?
 
 <a href="http://www.r-project.org/" target="_blank">R Project for Statistical Computing</a>은 통계 계산을 위한 오픈 소스 언어 및 환경입니다. R은 수백 개의 통계 함수와 기능 및 개체 지향 프로그래밍의 측면을 결합하는 자체 프로그래밍 언어를 제공합니다. 또한 광범위한 그래픽 기능도 제공합니다. R은 다양한 분야에서 전문 통계학자와 과학자 대부분의 기본 프로그래밍 환경입니다.
 
 R 스크립트는 클러스터를 만들 때 스크립트 작업을 사용하여 사용자 지정하여 R 환경을 설치한 HDInsight의 Hadoop 클러스터에서 실행할 수 있습니다. R은 Azure Blob 저장소(WASB)와 호환되므로 HDInsight의 R을 사용하여 이 저장소에 저장된 데이터를 처리할 수 있습니다.
 
-## <a name="install"></a>R을 설치하는 방법
+## R 설치
 
-HDInsight 클러스터에 R을 설치하기 위한 [샘플 스크립트](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1)는 Azure 저장소의 읽기 전용 Blob에서 다운로드할 수 있습니다. 이 섹션에서는 Azure 포털을 사용하여 클러스터를 프로비전하면서 샘플 스크립트를 사용하는 방법에 대한 지침을 제공합니다.
+HDInsight 클러스터에 R을 설치하기 위한 [샘플 스크립트](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1)는 Azure 저장소의 읽기 전용 Blob에서 다운로드할 수 있습니다. 이 섹션에서는 Azure Preview 포털을 사용하여 클러스터를 프로비전하면서 샘플 스크립트를 사용하는 방법에 대한 지침을 제공합니다.
 
 > [AZURE.NOTE]샘플 스크립트는 HDInsight 클러스터 버전 3.1에서 도입되었습니다. HDInsight 클러스터 버전에 대한 자세한 내용은 [HDInsight 클러스터 버전](../hdinsight-component-versioning/)을 참조하세요.
 
-1. [사용자 지정 옵션을 사용하여 클러스터를 프로비저닝](../hdinsight-provision-clusters/#portal)에 설명된 대로 **사용자 지정 만들기** 옵션을 사용하여 클러스터 프로비저닝을 시작합니다. 
-2. 아래와 같이 마법사의 **스크립트 작업** 페이지에서 **스크립트 작업 추가**를 클릭하여 스크립트 작업에 대한 세부 정보를 제공합니다.
+1. Preview 포털에서 HDInsight 클러스터를 프로비전할 때 **선택적 구성**을 클릭한 다음 **스크립트 동작**을 클릭합니다.
+2. **스크립트 동작** 페이지에서 다음 값을 입력합니다.
 
 	![스크립트 작업을 사용하여 클러스터 사용자 지정](./media/hdinsight-hadoop-r-scripts/hdi-r-script-action.png "스크립트 작업을 사용하여 클러스터 사용자 지정")
-	
+
 	<table border='1'>
 	<tr><th>속성</th><th>값</th></tr>
 	<tr><td>이름</td>
@@ -54,10 +55,10 @@ HDInsight 클러스터에 R을 설치하기 위한 [샘플 스크립트](https:/
 
 스크립트를 사용하여 Azure PowerShell 또는 HDInsight.NET SDK로 HDInsight에 R을 설치할 수도 있습니다. 이 절차에 대한 자세한 내용은 이 문서의 뒷부분에 제공됩니다.
 
-## <a name="useR"></a>HDInsight에서 R 스크립트를 실행하는 방법
+## R 스크립트 실행
 이 섹션에서는 HDInsight를 사용하는 Hadoop 클러스터에서 R 스크립트를 실행하는 방법에 대해 설명합니다.
 
-1. **클러스터에 대한 원격 데스크톱 연결 설정**: Azure 포털에서 R을 설치하여 만든 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 클러스터에 연결합니다. 지침은 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">RDP를 사용하여 HDInsight 클러스터에 연결</a>을 참조하세요.
+1. **클러스터에 대한 원격 데스크톱 연결 설정**: Preview 포털에서 R을 설치하여 만든 클러스터에 대해 원격 데스크톱을 사용하도록 설정한 다음 클러스터에 연결합니다. 지침은 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">RDP를 사용하여 HDInsight 클러스터에 연결</a>을 참조하세요.
 
 2. **R 콘솔 열기**: R 설치에서는 R 콘솔에 대한 링크를 헤드 노드의 데스크톱에 놓습니다. 이 링크를 클릭하여 R 콘솔을 엽니다.
 
@@ -80,7 +81,7 @@ HDInsight 클러스터에 R을 설치하기 위한 [샘플 스크립트](https:/
 	[99,]  99 198
 	[100,] 100 200
 
-## <a name="usingPS"></a>Azure PowerShell을 사용하여 HDInsight 클러스터에 R 설치
+## Azure PowerShell을 사용하여 R 설치
 
 이 섹션에서는 스크립트 작업을 통해 스크립트를 호출하여 클러스터를 사용자 지정하는 **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet을 사용합니다. 계속하기 전에 Azure PowerShell을 설치 및 구성했는지 확인하세요. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
 
@@ -97,7 +98,7 @@ HDInsight 클러스터에 R을 설치하기 위한 [샘플 스크립트](https:/
 		$location = "<MicrosoftDataCenter>"				# Location of the HDInsight cluster. It must be in the same data center as the storage account.
 		$clusterNodes = <ClusterSizeInNumbers>			# The number of nodes in the HDInsight cluster.
 		$version = "<HDInsightClusterVersion>"          # HDInsight version, for example "3.1"
-	
+
 2. 구성 값(예: 클러스터의 노드) 및 사용할 기본 저장소를 지정합니다.
 
 		# SPECIFY THE CONFIGURATION OPTIONS
@@ -106,7 +107,7 @@ HDInsight 클러스터에 R을 설치하기 위한 [샘플 스크립트](https:/
 		$config.DefaultStorageAccount.StorageAccountName="$storageAccountName.blob.core.windows.net"
 		$config.DefaultStorageAccount.StorageAccountKey=$storageAccountKey
 		$config.DefaultStorageAccount.StorageContainerName=$containerName
-	
+
 3. **Add-AzureHDInsightScriptAction** cmdlet으로 샘플 스크립트를 호출하여 R을 설치합니다. 예를 들면 다음과 같습니다.
 
 		# INVOKE THE SCRIPT USING THE SCRIPT ACTION
@@ -130,22 +131,22 @@ HDInsight 클러스터에 R을 설치하기 위한 [샘플 스크립트](https:/
 <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">사용자 지정 스크립트가 실행되는 노드를 지정합니다. 유효한 값은 **HeadNode**(헤드 노드에 설치) 또는 **DataNode**(데이터 노드에 설치)입니다. 두 값 중 하나 또는 모두 사용할 수 있습니다.</td></tr>
 <tr>
 <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">매개 변수</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">스크립트에 필요한 매개 변수입니다. 
+<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">스크립트에 필요한 매개 변수입니다.
 </td></tr>
 <tr>
 <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Uri</td>
 <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">실행되는 스크립트의 URI를 지정합니다.</td></tr>
 </table>
-	
+
 4. 마지막으로 R이 설치되도록 사용자 지정된 클러스터를 프로비전합니다.
-	
+
 		# PROVISION A CLUSTER WITH R INSTALLED
-		New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version 
+		New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version
 
 메시지가 나타나면 클러스터에 대한 자격 증명을 입력합니다. 클러스터가 생성되는 데 몇 분 정도 걸릴 수 있습니다.
 
 
-## <a name="usingSDK"></a>.NET SDK를 사용하여 HDInsight에서 R 설치
+## .NET SDK를 사용하여 R 설치
 
 HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다.
 
@@ -158,23 +159,23 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
 
 다음 섹션에서는 이러한 절차를 수행하는 방법을 보여 줍니다.
 
-### <a name="installSDK"></a>HDInsight .NET SDK를 설치하려면
+**HDInsight .NET SDK를 설치하려면**
 
 [NuGet](http://nuget.codeplex.com/wikipage?title=Getting%20Started)(영문)에서 가장 최근에 게시된 SDK 빌드를 설치할 수 있습니다. 지침은 다음 절차에서 설명합니다.
 
-### <a name="createCert"></a>자체 서명된 인증서를 만들려면
+**자체 서명된 인증서를 만들려면**
 
 자체 서명 인증서를 만들어 워크스테이션에 설치한 다음 Azure 구독에 업로드합니다. 관련 지침은 [자체 서명된 인증서 만들기](http://go.microsoft.com/fwlink/?LinkId=511138)를 참조하세요.
 
 
-### <a name="createApp"></a>Visual Studio에서 .NET 응용 프로그램을 만들려면
+**Visual Studio에서 .NET 응용 프로그램을 만들려면**
 
 1. Visual Studio 2013을 엽니다.
 
 2. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
 
 3. **새 프로젝트**에서 다음 값을 입력하거나 선택합니다.
-	
+
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
 <tr>
 <th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">속성</th>
@@ -208,9 +209,9 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
 		using Microsoft.WindowsAzure.Management.HDInsight;
 		using Microsoft.WindowsAzure.Management.HDInsight.ClusterProvisioning;
 		using Microsoft.WindowsAzure.Management.HDInsight.Framework.Logging;
-	
+
 9. **Main()** 함수에서 다음 코드를 붙여넣고 변수 값을 지정합니다.
-		
+
         var clusterName = args[0];
 
         // PROVIDE VALUES FOR THE VARIABLES
@@ -223,7 +224,7 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
         string password = "<HDInsightUserPassword>";
         int clustersize = <NumberOfNodesInTheCluster>;
 
-        // PROVIDE THE CERTIFICATE THUMBPRINT TO RETRIEVE THE CERTIFICATE FROM THE CERTIFICATE STORE 
+        // PROVIDE THE CERTIFICATE THUMBPRINT TO RETRIEVE THE CERTIFICATE FROM THE CERTIFICATE STORE
         X509Store store = new X509Store();
         store.Open(OpenFlags.ReadOnly);
         X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.Thumbprint == thumbprint);
@@ -245,7 +246,7 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
             Password = password,
             ClusterSizeInNodes = clustersize,
             Version = "3.1"
-        };        
+        };
 
 10. 다음 코드를 **Main()** 함수에 추가하여 [ScriptAction](http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) 클래스를 사용하고 사용자 지정 스크립트를 호출하여 R을 설치합니다.
 
@@ -263,7 +264,7 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
 
 11. 응용 프로그램에 대한 변경 내용을 저장하고 솔루션을 빌드합니다.
 
-### <a name="runApp"></a>응용 프로그램을 실행하려면
+**응용 프로그램을 실행하려면**
 
 Azure PowerShell 콘솔을 열고 프로젝트를 저장한 위치로 이동하고 프로젝트 내의 \\bin\\debug 디렉터리로 이동한 후 다음 명령을 실행합니다.
 
@@ -271,7 +272,7 @@ Azure PowerShell 콘솔을 열고 프로젝트를 저장한 위치로 이동하�
 
 클러스터 이름을 제공하고 ENTER 키를 눌러 R이 설치된 클러스터를 프로비전합니다.
 
-## <a name="seeAlso"></a>참고 항목
+## 참고 항목
 
 - [HDInsight 클러스터에 Spark 설치 및 사용][hdinsight-install-spark] - 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Spark를 설치하고 사용하는 방법에 대한 지침을 제공합니다. Spark는 메모리 내 처리를 지원하여 빅데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다.
 - [HDInsight 클러스터에 Giraph 설치](../hdinsight-hadoop-giraph-install). 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Giraph를 설치합니다. Giraph를 통해 Hadoop을 사용하여 그래프 처리를 수행할 수 있으며, Azure HDInsight에서 이를 사용할 수도 있습니다.
@@ -281,6 +282,5 @@ Azure PowerShell 콘솔을 열고 프로젝트를 저장한 위치로 이동하�
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

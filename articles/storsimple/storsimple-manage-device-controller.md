@@ -5,14 +5,14 @@
    documentationCenter=""
    authors="alkohli"
    manager="carolz"
-   editor="tysonn" />
+   editor="" />
 <tags 
    ms.service="storsimple"
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/23/2015"
+   ms.date="08/13/2015"
    ms.author="alkohli" />
 
 # StorSimple 장치 컨트롤러 관리
@@ -25,7 +25,7 @@
 - StorSimple 관리자 서비스에서 **유지 관리** 페이지의 **컨트롤러** 섹션
 - StorSimple용 Windows PowerShell입니다. 
 
-사용자가 StorSimple 관리자 서비스를 통해 장치 컨트롤러를 관리하는 것이 좋습니다. StorSimple용 Windows PowerShell을 사용하여 동작을 수행할 수 있으면 이 자습서가 그 메모를 만듭니다.
+사용자가 StorSimple Manager 서비스를 통해 장치 컨트롤러를 관리하는 것이 좋습니다. StorSimple용 Windows PowerShell을 사용해야 동작을 수행할 수 있는 경우에는 자습서에 관련 메모가 표시됩니다.
 
 이 자습서를 읽은 후에 다음을 수행할 수 있습니다.
 
@@ -65,14 +65,14 @@
 
 	![StorSimple 장치 컨트롤러 관리](./media/storsimple-manage-device-controller/IC766018.png)</br>
 
-	> [AZURE.NOTE]컨트롤러 관리가 표시되지 않는 경우 업데이트를 설치해야 합니다. 자세한 내용은 [장치 업데이트](storsimple-update-device.md)를 참조하십시오.
+	>[AZURE.NOTE]**컨트롤러 관리**가 표시되지 않는 경우 업데이트를 설치해야 합니다. 자세한 내용은 [StorSimple 장치 업데이트](storsimple-update-device.md)를 참조하세요.
 
 1. **컨트롤러 설정 변경** 대화 상자에서 다음을 수행합니다.
 
 
 	- **컨트롤러 선택** 드롭다운 목록에서 관리하려는 컨트롤러를 선택합니다. 옵션은 컨트롤러 0과 컨트롤러 1입니다. 이러한 컨트롤러는 활성 또는 수동으로 식별됩니다.
 
-		> [AZURE.NOTE]컨트롤러를 사용할 수 없거나 꺼져있으면 관리할 수 없으며 드롭다운 목록에 표시되지 않습니다.
+		>[AZURE.NOTE]컨트롤러를 사용할 수 없거나 꺼져있으면 관리할 수 없으며 드롭다운 목록에 표시되지 않습니다.
 	
 
 
@@ -89,16 +89,16 @@
 |선택 #|선택한 경우...|발생합니다.|
 |---|---|---|
 |1\.|수동 컨트롤러를 다시 시작합니다.|작업을 만들어서 작업 컨트롤러를 다시 시작하고 작업이 성공적으로 만들어진 후에 알림이 표시됩니다. 이 컨트롤러를 다시 시작하도록 시작합니다. **서비스 > 대시보드 > 작업 로그 보기**에 액세스하여 프로세스 다시 시작을 모니터링하고 서비스에 특정된 매개 변수로 필터링할 수 있습니다.|
-|2\.|활성 컨트롤러를 다시 시작합니다.|다음과 같은 경고가 표시됩니다. "활성 컨트롤러를 다시 시작하면 장치는 수동 컨트롤러에 장애 조치합니다. 계속 하시겠습니까?” </br>이 작업을 계속하려는 경우 다음 단계는 수동 컨트롤러를 다시 시작하는데 사용되는 것과 동일합니다.(선택 1 참조)|
-|3\.|수동 컨트롤러를 종료합니다.|다음 메시지가 표시됩니다. "종료가 완료된 후에 컨트롤러를 켜기 위해서 전원 단추를 눌러야 합니다. 이 컨트롤러를 종료하시겠습니까?” </br>이 작업을 계속하려는 경우 다음 단계는 수동 컨트롤러를 다시 시작하는데 사용되는 것과 동일합니다.(선택 1 참조)|
-|4\.|활성 컨트롤러를 종료합니다.|다음 메시지가 표시됩니다. "종료가 완료된 후에 컨트롤러를 켜기 위해서 전원 단추를 눌러야 합니다. 이 컨트롤러를 종료하시겠습니까?” </br>이 작업을 계속하려는 경우 다음 단계는 수동 컨트롤러를 다시 시작하는데 사용되는 것과 동일합니다.(선택 1 참조)|
+|2\.|활성 컨트롤러를 다시 시작합니다.|다음과 같은 경고가 표시됩니다. "활성 컨트롤러를 다시 시작하면 장치는 수동 컨트롤러에 장애 조치합니다. 계속 하시겠습니까?” </br>이 작업을 계속하려는 경우 다음 단계는 수동 컨트롤러를 다시 시작하는 데 사용되는 것과 동일합니다(선택 1 참조).|
+|3\.|수동 컨트롤러를 종료합니다.|다음 메시지가 표시됩니다. "종료가 완료된 후에 컨트롤러를 켜기 위해서 전원 단추를 눌러야 합니다. 이 컨트롤러를 종료하시겠습니까?” </br>이 작업을 계속하려는 경우 다음 단계는 수동 컨트롤러를 다시 시작하는 데 사용되는 것과 동일합니다(선택 1 참조).|
+|4\.|활성 컨트롤러를 종료합니다.|다음 메시지가 표시됩니다. "종료가 완료된 후에 컨트롤러를 켜기 위해서 전원 단추를 눌러야 합니다. 이 컨트롤러를 종료하시겠습니까?” </br>이 작업을 계속하려는 경우 다음 단계는 수동 컨트롤러를 다시 시작하는 데 사용되는 것과 동일합니다(선택 1 참조).|
 
 
 #### StorSimple용 Windows PowerShell에서 컨트롤러를 다시 시작하거나 종료합니다.
 다음 단계를 수행하여 관리 포털에서 StorSimple 장치에 단일 컨트롤러를 종료 하거나 다시 시작합니다.
 
 
-1. 직렬 콘솔 또는 원격 컴퓨터에서 텔넷 세션을 사용하여 장치에 액세스합니다. [장치 직렬 콘솔 연결에 PuTTY 사용](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) 단계를 수행하여 컨트롤러 0 또는 컨트롤러 1에 연결합니다.
+1. 직렬 콘솔 또는 원격 컴퓨터에서 텔넷 세션을 사용하여 장치에 액세스합니다. [장치 직렬 콘솔 연결에 PuTTY 사용](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console) 단계를 수행하여 컨트롤러 0 또는 컨트롤러 1에 연결합니다.
 
 1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다.
 
@@ -134,7 +134,7 @@
 
 <!--#### To shut down a StorSimple device in Windows PowerShell for StorSimple
 
-1. Connect to the serial console of the StorSimple device by following the steps in [Use PuTTY to connect to the device serial console](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple).
+1. Connect to the serial console of the StorSimple device by following the steps in [Use PuTTY to connect to the device serial console](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-serial-console).
 
 1. In the serial console menu, verify from the banner message that the controller you are connected to is the passive controller. If you are connected to the active controller, disconnect from this controller and connect to the other controller.
 
@@ -170,9 +170,9 @@ Microsoft Azure StorSimple 장치를 공장 기본 설정으로 다시 설정하
 
 	> [AZURE.TIP]
 	
-	> - `Reset-HcsFactoryDefault –SkipFirmwareVersionCheck` 명령을 사용하여 공장 재설정 cmdlet(위에서 사용)가 펌웨어 버전의 불일치를 보고하는 경우 펌웨어 버전 확인을 건너뜁니다. 공장 재설정은 펌웨어 버전의 불일치로 인해 계속할 수 없습니다. Microsoft 업데이트 또는 핫픽스 메커니즘을 사용하는 이전에 업데이트된 장치에 공장 재설정을 수행하는 경우 펌웨어 검사(`–SkipFirmwareCheck` 옵션을 사용하여)를 건너뛰어야 합니다.
+	> - `Reset-HcsFactoryDefault –SkipFirmwareVersionCheck` 명령을 사용하여 공장 재설정 cmdlet(위에서 사용)이 펌웨어 버전의 불일치를 보고하는 경우 펌웨어 버전 확인을 건너뜁니다. 공장 재설정은 펌웨어 버전의 불일치로 인해 계속할 수 없습니다. Microsoft 업데이트 또는 핫픽스 메커니즘을 사용하여 이전에 업데이트된 장치에 공장 재설정을 수행하는 경우 펌웨어 검사(`–SkipFirmwareCheck` 옵션 사용)를 건너뛰어야 합니다.
 	
-	> - 이 cmdlet을 사용하는 방법에 대한 자세한 내용은 [StorSimple용 Windows PowerShell에 대한 cmdlet 참조](https://technet.microsoft.com/ko-kr/library/dn688168.aspx)로 이동합니다.
+	> - 이 cmdlet을 사용하는 방법에 대한 자세한 내용을 보려면 [StorSimple용 Windows PowerShell에 대한 cmdlet 참조](https://technet.microsoft.com/library/dn688168.aspx)로 이동합니다.
 
 
 ## 장치 컨트롤러를 관리하는 방법에 대한 질문 및 답변
@@ -183,17 +183,17 @@ Microsoft Azure StorSimple 장치를 공장 기본 설정으로 다시 설정하
 
 **A.** 장치에서 컨트롤러가 모두 정상이고 켜져 있는 경우 확인을 위한 메시지가 표시됩니다. 선택할 수 있습니다.
 
-- **활성 컨트롤러 다시 시작** – 활성 컨트롤러를 다시 시작하면 장치가 수동 컨트롤러에 장애 조치를 발생시킨다는 알림이 표시됩니다. 컨트롤러가 다시 시작됩니다.
+- **활성 컨트롤러 다시 시작** – 활성 컨트롤러를 다시 시작하면 장치가 수동 컨트롤러로 장애 조치(Failover)된다는 알림이 표시됩니다. 컨트롤러가 다시 시작됩니다.
 
-- **활성 컨트롤러 종료** – 활성 컨트롤러를 종료하면 가동 중지 시간이 발생한다는 알림이 표시됩니다. 컨트롤러를 켜기 위해 장치에서 전원 단추를 눌러야 합니다.
+- **활성 컨트롤러 종료** – 활성 컨트롤러를 종료하면 가동이 중지된다는 알림이 표시됩니다. 컨트롤러를 켜기 위해 장치에서 전원 단추를 눌러야 합니다.
 
 **Q.** 장치에서 수동 컨트롤러가 모두 정상이고 켜져 있으며 활성 컨트롤러를 다시 시작 또는 종료하는 경우 무엇이 발생합니까?
 
 **A.** 장치에서 수동 컨트롤러를 사용할 수 없거나 해제된 경우 다음을 선택합니다.
 
-- **활성 컨트롤러 다시 시작** – 작업을 계속하면 서비스의 임시 중단이 발생했다는 메시지가 표시되고 확인을 위한 알림이 표시됩니다.
+- **활성 컨트롤러 다시 시작** – 작업을 계속하면 서비스의 임시 중단이 발생하고 확인 메시지가 표시된다는 내용의 알림이 표시됩니다.
 
-- **활성 컨트롤러 종료** – 작업을 계속하면 가동 중지 시간이 발생하고 장치를 켜기 위해 하나 또는 모든 컨트롤러에서 전원 단추를 눌러야 한다는 알림이 표시됩니다. 확인하라는 메시지가 표시됩니다.
+- **활성 컨트롤러 종료** – 작업을 계속하면 가동 중지 시간이 발생하고 장치를 켜기 위해 하나 또는 두 컨트롤러 모두에서 전원 단추를 눌러야 한다는 알림이 표시됩니다. 확인하라는 메시지가 표시됩니다.
 
 **Q.** 어떤 경우에 컨트롤러를 다시 시작 또는 종료를 진행하는 데 실패합니까?
 
@@ -207,18 +207,18 @@ Microsoft Azure StorSimple 장치를 공장 기본 설정으로 다시 설정하
 
 **Q.** 컨트롤러를 다시 시작하거나 종료하는 경우 어떻게 확인합니까?
 
-**A.** 유지 관리 페이지에서 컨트롤러의 상태를 확인할 수 있습니다. 컨트롤러의 상태는 컨트롤러가 다시 시작하거나 종료되었는지 여부를 나타냅니다. 또한 컨트롤러가 다시 시작하거나 종료된 경우 경고 페이지는 정보 경고를 포함합니다. 컨트롤러 다시 시작 및 종료 작업은 작업 로그에 기록됩니다. 작업 로그에 대한 자세한 내용은 [작업 로그 보기](storsimple-service-dashboard.md#view-the-operations-logs)로 이동하십시오.
+**A.** 유지 관리 페이지에서 컨트롤러의 상태를 확인할 수 있습니다. 컨트롤러의 상태는 컨트롤러가 다시 시작하거나 종료되었는지 여부를 나타냅니다. 또한 컨트롤러가 다시 시작하거나 종료된 경우 경고 페이지는 정보 경고를 포함합니다. 컨트롤러 다시 시작 및 종료 작업은 작업 로그에 기록됩니다. 작업 로그에 대한 자세한 내용을 보려면 [작업 로그 보기](storsimple-service-dashboard.md#view-the-operations-logs)로 이동합니다.
 
 **Q.** 컨트롤러 장애 조치의 결과로써 I/O에 영향이 있습니까?
 
 **A.** 초기자 및 활성 컨트롤러 간의 TCP 연결은 컨트롤러 장애 조치의 결과로 재설정되지만 수동 컨트롤러가 작업을 가정하는 경우 다시 설정할 수 있습니다. 이 작업의 과정에서 초기자와 장치 간의 I/O 작업에서 임시(30초 미만) 일시 정지가 있을 수 있습니다.
 
-**Q.** 컨트롤러를 서비스에서 종료하고 제거 한 후에 어떻게 서비스에 반환할 수 있습니까?
+**Q.** 컨트롤러를 서비스에서 종료하고 제거한 후에 서비스에 반환하는 방법은 무엇인가요?
 
-**A.** 컨트롤러를 서비스에 반환하려면 [하드웨어 구성 요소 교체 가이드](https://msdn.microsoft.com/library/azure/dn757736.aspx)에서 설명한 대로 섀시에 컨트롤러를 삽입해야 합니다.
+**A.** 컨트롤러를 서비스에 반환하려면 [StorSimple 장치의 컨트롤러 모듈 교체](storsimple-controller-replacement.md)에 설명된 대로 섀시에 삽입해야 합니다.
 
 ## 다음 단계
 
-이 자습서에서 나열된 절차를 사용하여 해결할 수 없는 StorSimple 장치 컨트롤러에 있는 모든 문제가 발생하는 경우 [Microsoft 지원에 문의](https://msdn.microsoft.com/library/azure/dn757750.aspx)하십시오.
+StorSimple 장치 컨트롤러에 이 자습서에 나열된 절차를 사용하여 해결할 수 없는 문제가 발생할 경우 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

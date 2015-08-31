@@ -161,6 +161,8 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/34-create-table.png)
 
+이 샘플에서 페이지 보기에서 데이터를 사용합니다. 사용 가능한 다른 데이터를 보려면 JSON 출력을 검사하고 [데이터 모델 내보내기](app-insights-export-data-model.md)를 참조합니다.
+
 ## Azure 스트림 분석 인스턴스 만들기
 
 [클래식 Azure 포털](https://manage.windowsazure.com/)에서 Azure 스트림 분석 서비스를 선택하고 새 스트림 분석 작업을 만듭니다.
@@ -200,7 +202,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 * `webapplication27`은 Application Insights 리소스의 이름입니다. 
 * `1000...`은 Application Insights 리소스의 계측 키입니다. 
-* `PageViews`는 분석하려는 데이터의 형식입니다. 사용 가능한 형식은 연속 내보내기에 설정한 필터에 따라 다릅니다. 내보낸 데이터를 검사하여 사용 가능한 다른 형식을 확인합니다.
+* `PageViews`는 분석하려는 데이터의 형식입니다. 사용 가능한 형식은 연속 내보내기에 설정한 필터에 따라 다릅니다. 내보낸 데이터를 검사하여 사용 가능한 다른 형식을 확인하고 [데이터 모델 내보내기](app-insights-export-data-model.md)를 참조합니다.
 * `/{date}/{time}`은 문자로 기록된 패턴입니다.
 
 Application Insights 리소스의 이름 및 iKey를 가져오려면 해당 개요 페이지에서 필수 항목을 열거나 설정을 엽니다.
@@ -305,4 +307,4 @@ SQL 데이터베이스를 지정합니다.
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

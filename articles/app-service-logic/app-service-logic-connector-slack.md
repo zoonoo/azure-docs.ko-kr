@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.date="08/19/2015"
 	ms.author="andalmia"/>
 
 # Slack 커넥터
@@ -75,7 +75,8 @@ Slack 커넥터를 만든 후 논리 앱에 동작으로 추가할 수 있습니
 --- | ---
 텍스트 | 게시할 메시지의 텍스트를 입력합니다.
 채널 이름 | 이 메시지가 게시되는 Slack 채널을 입력합니다. 채널을 입력하지 않으면 메시지는 #general에 게시됩니다.
-고급 속성 | <ul><li><strong>Bot 사용자 이름</strong>: 이 메시지에 사용할 bot의 이름입니다. 입력하지 않으면 메시지가 "Bot"으로 게시됩니다. </li><li><strong>아이콘 URL</strong>: 이 메시지에 대한 아이콘으로 사용할 이미지 URL입니다.</li><li><strong>아이콘 이모지</strong>: 이 메시지에 대한 아이콘으로 사용할 이모지입니다. 이 속성은 아이콘 URL 속성을 재정의합니다.</li></ul>
+고급 속성 | **Bot 사용자 이름**: 이 메시지에 사용할 bot의 이름입니다. 입력하지 않으면 메시지가 "Bot"으로 게시됩니다.<p><p>**아이콘 URL**: 이 메시지에 대한 아이콘으로 사용할 이미지 URL입니다.<p><p>**아이콘 이모지**: 이 메시지에 대한 아이콘으로 사용할 이모지입니다. 이 속성은 아이콘 URL 속성을 재정의합니다.
+
 
 논리 앱 외부에서 Slack 커넥터를 사용할 수 있도록 이 커넥터에는 사용 가능한 REST API가 있습니다. Slack 커넥터를 열고 **API 정의**를 선택합니다.
 
@@ -85,7 +86,7 @@ Slack 커넥터를 만든 후 논리 앱에 동작으로 추가할 수 있습니
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
-REST API를 사용하여 API 앱을 만듭니다. [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)를 참조하세요.
+[커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
 커넥터의 성능 통계를 검토하고 보안을 제어할 수 있습니다. [기본 제공 API 앱 및 커넥터 관리 및 모니터링](app-service-logic-monitor-your-connectors.md)을 참조하세요.
 
@@ -101,4 +102,4 @@ REST API를 사용하여 API 앱을 만듭니다. [커넥터 및 API 앱 참조]
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

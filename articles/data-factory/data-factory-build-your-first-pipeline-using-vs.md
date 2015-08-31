@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="07/27/2015"
+	ms.date="08/18/2015"
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리를 사용하여 첫 번째 파이프라인 빌드
@@ -75,7 +75,7 @@
 
 ### Visual Studio 프로젝트 만들기 
 1. **Visual Studio 2013**을 실행합니다. **파일**을 클릭하고 **새로 만들기**를 가리킨 다음 **프로젝트**를 클릭합니다. **새 프로젝트** 대화 상자가 나타납니다.  
-2. **새 프로젝트** 대화 상자에서 **DataFactory** 템플릿을 선택하고 **Empty Data Factory Project**(빈 데이터 팩터리 프로젝트)를 클릭합니다. DataFactory 템플릿이 보이지 않으면 Visual Studio를 닫고 Visual Studio 2013용 Azure SDK를 설치한 다음 Visual Studio를 다시 엽니다.  
+2. **새 프로젝트** 대화 상자에서 **DataFactory** 템플릿을 선택하고 **빈 데이터 팩터리 프로젝트**를 클릭합니다. DataFactory 템플릿이 보이지 않으면 Visual Studio를 닫고 Visual Studio 2013용 Azure SDK를 설치한 다음 Visual Studio를 다시 엽니다.  
 
 	![새 프로젝트 대화 상자](./media/data-factory-build-your-first-pipeline-using-vs/new-project-dialog.png)
 
@@ -109,15 +109,14 @@ Hive 스크립트를 실행하는데 사용될 주문형 HDInsight 클러스터�
 3. **JSON**을 다음과 같이 변경합니다.
 
 		{
-		    "name": "HDInsightOnDemandLinkedService",
-		    "properties": {
-		        "version": "3.1",
-		        "clusterSize": 1,
-		        "timeToLive": "00:05:00",
-		        "jobsContainer": "adfjobs",
-		        "linkedServiceName": "StorageLinkedService",
-		        "type": "HDInsightOnDemandLinkedService"
-		    }
+		  "name": "HDInsightOnDemandLinkedService",
+		  "properties": {
+	        "type": "HDInsightOnDemandLinkedService",
+            "version": "3.1",
+	        "clusterSize": 1,
+	        "timeToLive": "00:05:00",
+	        "linkedServiceName": "AzureStorageLinkedService1"
+		  }
 		}
 	
 	다음 테이블은 코드 조각에 사용된 JSON 속성에 대한 설명을 제공합니다.
@@ -149,7 +148,7 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 		                "type": "TextFormat",
 		                "columnDelimiter": ","
 		            },
-		            "linkedServiceName": "StorageLinkedService"
+		            "linkedServiceName": "AzureStorageLinkedService1"
 		        },
 		        "availability": {
 		            "frequency": "Month",
@@ -169,15 +168,15 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 3. **JSON**을 다음과 같은 코드 조각으로 변경하고 **storageaccountname**을 사용자의 저장소 계정 이름으로 변경합니다.
 
 		{
-			"name": "MyFirstPipeline",
-			"properties": {
-			"description": "My first Azure Data Factory pipeline",
-		 	"activities": [
+		    "name": "MyFirstPipeline",
+		    "properties": {
+		    "description": "My first Azure Data Factory pipeline",
+		    "activities": [
 		      {
 		            "type": "HDInsightActivity",
 		            "transformation": {
 		                    "scriptPath": "script/partitionweblogs.hql",
-		                    "scriptLinkedService": "StorageLinkedService",
+		                    "scriptLinkedService": "AzureStorageLinkedService1",
 		                    "type": "Hive",
 		                    "extendedProperties": {
 		                        "partitionedtable": "wasb://data@<storageaccountname>.blob.core.windows.net/partitioneddata"
@@ -187,7 +186,7 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 		                "policy": {  
 		                    "concurrency": 1,
 		                    "retry": 3
-						},
+		                },
 		                "name": "RunSampleHiveActivity",
 		                "linkedServiceName": "HDInsightOnDemandLinkedService"
 		            }
@@ -199,20 +198,27 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
  
 	JSON 코드 조각에서 Hive를 사용하여 HDInsight 클러스터에서 데이터를 처리하는 단일 작업으로 구성되는 파이프라인을 만듭니다.
 	
-	Hive 스크립트 파일 **partitionweblogs.hql**은 Azure 저장소 계정(**StorageLinkedService**라고 하는 scriptLinkedService에 의해 지정되는)과 **스크립트** 컨테이너에 저장됩니다.
+	Hive 스크립트 파일 **partitionweblogs.hql**은 Azure 저장소 계정(**AzureStorageLinkedService1**이라고 하는 scriptLinkedService에 의해 지정되는)과 **스크립트** 컨테이너에 저장됩니다.
 
 	**extendedProperties** 섹션은 Hive 스크립트에 Hive 구성 값(예를 들어 ${hiveconf:PartitionedData})으로 전달되는 런타임 설정을 지정하는데 사용됩니다.
 
 	파이프라인의 **시작** 및 **끝** 속성은 파이프라인의 활성 기간을 지정합니다.
 
 	작업 JSON에서 Hive 스크립트가 연결된 서비스 **HDInsightOnDemandLinkedService**에서 지정된 계산에 실행되도록 지정합니다.
-3. **HiveActivity1.json** 파일을 저장합니다. 
+3. **HiveActivity1.json** 파일을 저장합니다.
+
+### 종속성으로 Partitionweblogs.hql 추가 
+
+1. **솔루션 탐색기** 창에서 종속성을 마우스 오른쪽 단추로 클릭하고 **추가**를 가리키고 **기존 항목**을 클릭합니다.  
+2. **C:\\ADFGettingStarted**로 이동하고 **partitionweblogs.hql** 파일을 선택하고 **추가**를 클릭합니다. 
+
+다음 단계에서 솔루션을 게시할 때 HQL 파일은 Blob 저장소의 스크립트 컨테이너로 업로드됩니다.
 
 ### 데이터 팩터리 엔터티 게시/배포
   
 1. 데이터 팩터리 도구 모음이 아직 사용하도록 설정되지 않은 경우 도구 모음 영역에서 마우스 오른쪽 단추로 클릭하고 **데이터 팩터리**를 선택하여 사용하도록 설정합니다. 
-19. **데이터 팩터리 도구 모음**에서 **드롭다운 상자**를 클릭하여 Azure 구독의 모든 데이터 팩터리를 봅니다. **Visual Studio에 로그인** 대화 상자가 표시되는 경우 
-	20. 데이터 팩터리를 만들려는 Azure 구독과 연결된 **메일 계정**을 입력하고 **암호**를 입력한 다음 **로그인**을 클릭합니다.
+19. **데이터 팩터리 도구 모음**에서 **드롭다운 상자**를 클릭하여 Azure 구독의 모든 데이터 팩터리를 봅니다. **Visual Studio에 로그인** 대화 상자가 표시되는 경우: 
+	20. 데이터 팩터리를 만들려는 Azure 구독과 연결된 **전자 메일 계정**을 입력하고 **암호**를 입력한 다음 **로그인**을 클릭합니다.
 	21. 로그인이 성공하면 Azure 구독에 모든 데이터 팩터리가 표시됩니다. 이 자습서에서는 새 데이터 팩터리를 만듭니다.       
 22. 드롭다운 목록에서 **DataFactoryMyFirstPipeline**을 클릭하고 **게시** 단추를 클릭하여 연결된 서비스, 데이터 집합 및 파이프라인을 배포/게시합니다.    
 
@@ -239,11 +245,11 @@ Visual Studio용 Azure Data Factory 도구를 업데이트하려면 다음을 �
 2. 왼쪽 창에서 **업데이트**를 선택한 다음 **Visual Studio 갤러리**를 선택합니다.
 3. **Visual Studio용 Azure Data Factory 도구**를 선택하고 **업데이트**를 클릭합니다. 이 항목이 표시되지 않으면 이미 최신 버전의 도구가 있는 것입니다. 
 
-Azure Preview 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데이터 집합을 모니터링하는 방법에 대한 지침은 [데이터 집합 및 파이프라인 모니터링](data-factory-monitor-manage-pipelines.md)을 참조하십시오.
+Azure Preview 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데이터 집합을 모니터링하는 방법에 대한 지침은 [데이터 집합 및 파이프라인 모니터링](data-factory-monitor-manage-pipelines.md)을 참조하세요.
  
 
 ## 다음 단계
-이 문서에서 파이프라인과 주문형 HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Azure Blob에서 Azure SQL로 데이터를 복사하는 방법은 [자습서: Azure Blob에서 Azure SQL로 데이터 복사](data-factory-get-started.md)를 참조하십시오.
+이 문서에서 파이프라인과 주문형 HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Azure Blob에서 Azure SQL로 데이터를 복사하는 방법은 [자습서: Azure Blob에서 Azure SQL로 데이터 복사](data-factory-get-started.md)를 참조하세요.
   
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

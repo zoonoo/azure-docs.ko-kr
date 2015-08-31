@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Azure Active Directory 버전"
+	pageTitle="Azure Active Directory 버전 | Microsoft Azure"
 	description="무료 및 유료 버전의 Azure Active Directory를 설명하는 항목입니다."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="TerryLan"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/01/2015"
+	ms.date="08/14/2015"
 	ms.author="curtand"/>
 
 # Azure Active Directory 버전
@@ -66,6 +66,7 @@ Active Directory Premium 버전은 Azure Active Directory의 유료 버전이며
 
 - **나중 쓰기를 사용한 암호 재설정** - 셀프 서비스 암호 재설정을 온-프레미스 디렉터리에 다시 쓸 수 있습니다.
 
+- [Azure Active Directory Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx): 온-프레미스 Active Directory 인프라의 상태를 모니터링하고 사용 현황 분석을 가져옵니다.
 
 
 
@@ -98,6 +99,7 @@ Active Directory Premium 버전은 Azure Active Directory의 유료 버전이며
 - 고급 응용 프로그램 사용 현황 보고
 - 클라우드 사용자를 위한 다단계 인증 서비스
 - 온-프레미스 사용자를 위한 다단계 인증 서버
+- Azure Active Directory Connect Health
 
 ## 현재 공개 미리 보기에 제공되는 기능
 
@@ -105,7 +107,6 @@ Active Directory Premium 버전은 Azure Active Directory의 유료 버전이며
 
 - [관리 단위](https://msdn.microsoft.com/library/azure/dn832057.aspx): 사용자의 하위 집합에 대해 관리 권한을 위임하고 사용자의 하위 집합에 정책을 적용하는 데 사용할 수 있는 리소스의 새 Azure Active Directory 컨테이너입니다.
 - Azure Active Directory에 [자체 SaaS 응용 프로그램을 추가](https://msdn.microsoft.com/library/azure/dn893637.aspx)합니다.
-- [Azure Active Directory Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx): 온-프레미스 Active Directory 인프라의 상태를 모니터링하고 사용 현황 분석을 가져옵니다.
 - Facebook, Twitter 및 LinkedIn에 대한 암호 롤오버. 자세한 내용은 [이 문서](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx)(영문)를 읽어보세요.
 - 동적 그룹 멤버 자격입니다. 자세한 내용은 [이 문서](https://msdn.microsoft.com/library/azure/dn913807.aspx)(영문)를 읽어보세요.
 - [조건부 액세스](https://msdn.microsoft.com/library/azure/dn906877.aspx): 응용 프로그램별 Multi-Factor Authentication
@@ -120,6 +121,5 @@ Active Directory Premium 버전은 Azure Active Directory의 유료 버전이며
 - [Azure Active Directory Premium 시작](active-directory-get-started-premium.md)
 - [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가하기](active-directory-add-company-branding.md)
 - [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

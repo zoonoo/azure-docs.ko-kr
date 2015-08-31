@@ -67,7 +67,7 @@
 
 기본적으로 API 앱 프로젝트는 자동 [Swagger](http://swagger.io/ "공식 Swagger 정보") 메타데이터 생성을 통해 사용할 수 있으며, **API 앱 SDK 추가** 메뉴 항목을 사용하여 Web API 프로젝트를 변환한 경우 API 테스트 페이지도 기본적으로 사용할 수 있습니다.
 
-그러나 Azure API 앱의 새 프로젝트 템플릿은 API 테스트 페이지를 사용하지 않도록 설정합니다. API 앱 프로젝트 템플릿을 사용하여 API 앱 프로젝트를 만든 경우 테스트 페이지를 사용하려면 다음 단계를 수행해야 합니다.
+그러나 Azure API 앱의 새 프로젝트 템플릿은 API 테스트 페이지를 사용하지 않도록 설정합니다. API 앱 프로젝트 템플릿을 사용하여 API 앱 프로젝트를 만들 때 테스트 페이지를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
 **참고:** API 앱을 *공용(익명)*으로 Swagger UI를 사용 가능하도록 배포하는 경우 누구든지 API를 검색하고 호출하는 Swagger UI를 사용할 수 있습니다.
 
@@ -89,12 +89,18 @@
 
 API 테스트 페이지를 보려면 다음 단계를 수행합니다.
 
-1. 로컬에서 앱을 실행(Ctrl-F5)하고 `/swagger`로 이동합니다. 
+1. 로컬에서 앱을 실행합니다(Ctrl+F5).
 
-	![](./media/app-service-api-define-api-app/14-swagger-ui.png)
+	브라우저가 열리고 기준 URL이 유효한 웹 페이지가 아니거나 이 프로젝트의 API 메서드 URL이 아니기 때문에 HTTP 403 오류가 표시됩니다.
+ 
+3.  기준 URL 끝에 `/swagger`를 추가하여 Swagger 페이지로 이동합니다.
 
-2. **사용해 보기** 단추를 클릭하면 API가 작동하고 예상 결과를 반환하는 것을 볼 수 있습니다.
+	![](./media/app-service-api-define-api-app/swaggerhome.png)
 
-	![](./media/app-service-api-define-api-app/15-swagger-ui-post-test.png)
+2. **연락처 > 가져오기 > 사용해 보기**를 클릭하면 API가 작동하고 예상 결과를 반환하는 것을 볼 수 있습니다.
 
-<!---HONumber=August15_HO6-->
+	![](./media/app-service-api-define-api-app/swaggertry.png)
+
+3. Visual Studio에서 **디버그 > 디버깅 중지**를 클릭합니다.
+
+<!---HONumber=August15_HO8-->

@@ -1,4 +1,11 @@
-<properties pageTitle="여러 지역에서 로그인" description="두 개의 로그인이 다른 지역에서 발생한 것처럼 보이며 두 로그인 시간이 사용자가 그러한 지역을 여행했을 가능성을 보여준다는 것을 나타냅니다."" services="active-directory" documentationCenter="" authors="kenhoff" manager="ilanas" editor=""/>
+<properties
+	pageTitle="여러 지역에서의 로그인"
+	description="한 사용자의 두 로그인이 각각 다른 지역에서 시작된 것으로 보이고 로그인 간격이 사용자가 두 지역 간에 이동하기에는 불가능한 시간임을 나타내는 보고서입니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="SSalahAhmed"
+	manager="gchander"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -6,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
-	ms.author="kenhoff"/>
+	ms.date="08/17/2015"
+	ms.author="saah;kenhoff"/>
 
 # 여러 지역에서의 로그인
 
@@ -17,4 +24,4 @@
 
 ![여러 지역에서의 로그인](./media/active-directory-reporting-sign-ins-from-multiple-geographies/signInsFromMultipleGeographies.PNG)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

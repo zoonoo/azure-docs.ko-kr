@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="Blackmist"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
 	ms.service="hdinsight"
@@ -61,7 +62,7 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로/코디네이션 시�
 
 ##작업 디렉터리 만들기
 
-Oozie에는 작업을 같은 디렉터리에 저장하는 데 사용되는 리소스가 필요합니다. 이 예제에서는 **wasb:///tutorials/useoozie**를 사용합니다. 다음 명령을 사용하여 이 디렉터리와 이 워크플로에서 만든 새 Hive 테이블을 유지할 data 디렉터리를 만듭니다.
+Oozie에는 작업을 같은 디렉터리에 저장하는 데 사용되는 리소스가 필요합니다. 이 예제는 **wasb:///tutorials/useoozie**를 사용합니다. 다음 명령을 사용하여 이 디렉터리와 이 워크플로에서 만든 새 Hive 테이블을 유지할 data 디렉터리를 만듭니다.
 
 	hadoop fs -mkdir -p /tutorials/useoozie/data
 
@@ -215,7 +216,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
         data:    Server Name i1qwc540ts
         info:    sql server create command OK
 
-    > [AZURE.IMPORTANT]이 명령에서 반환되는 서버 이름(위 예제의 경우 \*\*i1qwc540ts\*\*)을 기록해 둡니다. 이것은 생성된 SQL 데이터베이스 서버의 짧은 이름입니다. 완전히 정규화된 도메인 이름(FQDN)은 **&lt;shortname&gt;.database.windows.net**입니다. 위 예제의 경우 FQDN은 **i1qwc540ts.database.windows.net**입니다.
+    > [AZURE.IMPORTANT]이 명령에서 반환되는 서버 이름(위 예제의 경우 **i1qwc540ts**)을 기록해 둡니다. 이것은 생성된 SQL 데이터베이스 서버의 짧은 이름입니다. 완전히 정규화된 도메인 이름(FQDN)은 **&lt;shortname&gt;.database.windows.net**입니다. 위 예제의 경우 FQDN은 **i1qwc540ts.database.windows.net**입니다.
 
 2. 다음 명령을 사용하여 SQL 데이터베이스 서버에서 **oozietest**라는 이름의 데이터베이스를 생성합니다.
 
@@ -724,4 +725,4 @@ Oozie UI를 사용하면 Oozie 로그뿐 아니라 Hive 쿼리와 같은 MapRedu
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

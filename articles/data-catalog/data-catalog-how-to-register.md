@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-catalog"
-   ms.date="07/27/2015"
+   ms.date="08/19/2015"
    ms.author="maroche"/>
 
 
@@ -35,6 +35,7 @@
 * SQL Server Analysis Services 다차원 차원, 측정값 및 KPI
 * SQL Server Analysis Services 테이블 형식 테이블
 * SQL Server Reporting Services 보고서
+* Azure 저장소 Blob 및 디렉터리
 
 > [AZURE.NOTE]SQL Server 지원에는 Microsoft Azure SQL 데이터베이스도 포함됩니다.
 
@@ -60,6 +61,6 @@
 이미 등록된 데이터 원본의 재등록은 병합 “upsert” 작업을 수행합니다. 기존 개체는 업데이트되고 새 개체가 생성됩니다. **Azure 데이터 카탈로그** 포털을 통해 사용자가 제공한 메타데이터는 모두 유지 관리됩니다.
 
 ## 요약
-데이터 원본을 **Azure 데이터 카탈로그**에 등록하면 구조적 메타데이터 및 설명이 포함된 메타데이터를 데이터 원본에서 카탈로그 서비스를 복사하여 데이터 원본을 보다 쉽게 검색하고 이해할 수 있게 됩니다. 데이터 원본이 등록되면 **Azure 데이터 카탈로그** 포털을 사용하여 주석을 추가하고, 관리하고, 검색할 수 있습니다.
+데이터 원본을 **Azure 데이터 카탈로그**에 등록하면 구조적 메타데이터 및 설명이 포함된 메타데이터를 데이터 원본에서 카탈로그 서비스로 복사하여 데이터 원본을 보다 쉽게 검색하고 이해할 수 있게 됩니다. 데이터 원본이 등록되면 **Azure 데이터 카탈로그** 포털을 사용하여 주석을 추가하고, 관리하고, 검색할 수 있습니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

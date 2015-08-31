@@ -79,4 +79,4 @@ Windows용 사용자 지정 스크립트 확장을 사용하면 원격 가상 �
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -1,5 +1,5 @@
 <properties
-   pageTitle="트래픽 관리자 프로필 사용 안 함, 사용 또는 삭제"
+   pageTitle="트래픽 관리자 프로필 사용 안 함, 사용 또는 삭제 | Microsoft Azure"
    description="이 문서는 트래픽 관리자 프로필 작업에 도움이 됩니다."
    services="traffic-manager"
    documentationCenter="na"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/09/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 # 프로필 사용 안 함, 사용 또는 삭제
@@ -31,7 +31,7 @@
 
 1. 사용하도록 설정하려는 프로필을 선택합니다. 트래픽 관리자 페이지에서 프로필을 선택하려면 프로필 이름 옆에 있는 열을 클릭하여 프로필을 강조표시합니다. 프로필 이름 또는 이름 옆의 화살표를 클릭하지 마세요. 클릭하면 프로필 설정 페이지로 이동합니다.
 1. 프로필을 선택한 후 페이지의 맨 아래에서 사용을 클릭합니다.
-1. 회사 도메인 이름이 트래픽 관리자 프로필의 도메인 이름으로 매핑하는 CNAME 레코드 종류를 사용하여 인터넷 DNS 서버의 DNS 리소스 레코드를 수정합니다. 자세한 내용은 [회사 인터넷 도메인이 트래픽 관리자 도메인을 가리키도록 설정](../point-a-company-internet-domain-to-a-traffic-manager-domain.md)을 참조하세요.
+1. 회사 도메인 이름이 트래픽 관리자 프로필의 도메인 이름으로 매핑하는 CNAME 레코드 종류를 사용하여 인터넷 DNS 서버의 DNS 리소스 레코드를 수정합니다. 자세한 내용은 [회사 인터넷 도메인이 트래픽 관리자 도메인을 가리키도록 설정](traffic-manager-point-internet-domain.md)을 참조하세요.
 1. 트래픽은 끝점에 전달되어 다시 시작됩니다.
 
 ## 프로필 삭제
@@ -44,11 +44,10 @@
 
 ## 다음 단계
 
-[트래픽 관리자](../traffic-manager.md)
+[트래픽 관리자 - 끝점 사용 안 함 또는 사용](disable-or-enable-an-endpoint.md)
 
-[트래픽 관리자 구성 작업](https://msdn.microsoft.com/library/azure/hh744830.aspx)
-
+[트래픽 관리자란?](traffic-manager-overview.md)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

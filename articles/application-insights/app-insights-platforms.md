@@ -52,7 +52,7 @@
 + [SharePoint](app-insights-sharepoint.md)
 + [Windows 스토어 C#|VB](app-insights-windows-get-started.md)
 + [Windows 스토어 C++](app-insights-windows-cpp.md)
-+ [응용 프로그램 및 서비스 보기](app-insights-windows-desktop.md)
++ [Windows 데스크톱 응용 프로그램, 서비스 및 작업자 역할](app-insights-windows-desktop.md)
 + [WordPress](https://wordpress.org/plugins/application-insights/)
 + [다른 항목](#projects)
 
@@ -77,4 +77,4 @@
 
 <!--Link references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

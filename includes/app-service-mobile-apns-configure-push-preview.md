@@ -1,6 +1,15 @@
 
-* [서버에 클라이언트 SSL 서명 ID 설치](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html#//apple_ref/doc/uid/TP40012582-CH32-SW15) 단계에 따라 이전 단계에서 다운로드한 인증서를 .p12 파일로 내보냅니다.
+1.  Mac에서 **Keychain Access**를 시작합니다. **범주** > **내 인증서**를 엽니다. 내보낼 SSL 인증서(이전에 다운로드함)를 찾고 해당 콘텐츠를 공개합니다. 개인 키를 선택하지 않고 인증서만 선택한 다음 [내보냅니다](https://support.apple.com/kb/PH20122?locale=en_US).
 
-* Azure Preview 포털에서 **찾아보기** > **모바일 앱** > 사용자 앱 > **푸시 알림 서비스** > **Apple 푸시 알림 서비스** > **인증서 업로드**를 클릭합니다. 올바른 **모드**(생성한 클라이언트 SSL 인증서가 개발인지 또는 배포인지에 따라 샌드박스 또는 프로덕션)를 선택하여 .p12 파일을 업로드합니다. 이제 iOS의 푸시 알림과 작동하도록 서비스가 구성되었습니다.
+2. Azure 포털에서 **모두 찾아보기** > **모바일 앱** > 백 엔드 > **설정** > **모바일 앱** > **푸시** > **필요한 설정 구성** > **+ 알림 허브**를 클릭하고 알림 허브에 대한 이름 및 네임스페이스를 입력한 다음 **확인** 단추를 클릭합니다.
 
-<!---HONumber=August15_HO6-->
+  ![][1]
+
+3. **알림 허브 만들기** 블레이드에서 **만들기** 단추를 클릭합니다.
+     
+    다음 단계를 계속 진행하기 전에 **알림**을 클릭하여 알림 허브 설정이 완료되도록 합니다. 
+4. Azure 포털에서 **모두 찾아보기** > **모바일 앱** > 백 엔드 > **설정** > **모바일 앱** > **푸시** > **Apple 푸시 알림 서비스** > **인증서 업로드**를 클릭합니다. 올바른 **모드**(전에 생성한 클라이언트 SSL 인증서가 개발인지 또는 배포인지에 따라 다름)를 선택하여 .p12 파일을 업로드합니다. 이제 iOS의 푸시 알림과 작동하도록 서비스가 구성되었습니다.
+
+[1]: ./media/app-service-mobile-apns-configure-push-preview/mobile-push-notification-hub.png
+
+<!---HONumber=August15_HO8-->

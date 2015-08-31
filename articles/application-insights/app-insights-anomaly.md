@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/21/2015" 
+	ms.date="08/18/2015" 
 	ms.author="awills"/>
 
 #  Application Insights: 자동 관리 이상 감지
@@ -67,7 +67,11 @@ Application Insights는 심층 분석 앱 원격 분석을 수행하고 잠재�
 * *알림을 수신하려면 이 서비스에 가입해야 합니까?*
  * 아니요. 우리의 bot은 주기적으로 모든 Application Insights 사용자로부터 데이터를 조사하여 문제를 검색하는 경우 알림을 보냅니다.
 * *구독을 취소하거나 동료에게 대신 보낸 알림을 가져올 수 있습니까?*
- * 경고 또는 이메일의 링크를 클릭합니다. 이상 설정을 엽니다. ![](./media/app-insights-anomaly/01.png) 현재 [Application Insights 리소스에 대한 쓰기 액세스 권한](app-insights-resources-roles-access-control.md)이 있는 사용자에게는 보내지 않습니다.
+ * 경고 또는 이메일의 링크를 클릭합니다. 이상 설정을 엽니다.
+ 
+    ![](./media/app-insights-anomaly/01.png)
+
+    현재 [Application Insights 리소스에 대한 쓰기 액세스 권한](app-insights-resources-roles-access-control.md)이 있는 사용자에게는 보내지 않습니다.
 * *이 메시지를 너무 많이 받고 싶지 않습니다.*
  * 하루에 3개로 제한됩니다. 모든 메시지는 중복으로 보내지 않습니다.
 * *아무일도 하지 않는 경우 미리 알림을 받습니까?*
@@ -82,4 +86,4 @@ Application Insights는 심층 분석 앱 원격 분석을 수행하고 잠재�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

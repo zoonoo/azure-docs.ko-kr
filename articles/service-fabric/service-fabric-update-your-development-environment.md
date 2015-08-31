@@ -1,5 +1,5 @@
 <properties
-   pageTitle="서비스 패브릭 개발 환경 업데이트"
+   pageTitle="서비스 패브릭 개발 환경 업데이트 | Microsoft Azure"
    description="최신 런타임, SDK 및 도구를 사용하려면 서비스 패브릭 개발 환경을 업데이트합니다."
    services="service-fabric"
    documentationCenter=".net"
@@ -29,7 +29,7 @@
  다음과 같이 로컬 클러스터를 정리할 수 있습니다.
 
 
- 1. 다른 PowerShell 창을 모두 닫고 관리자로 새 PowerShell 창을 시작합니다.
+ 1. 다른 PowerShell 창을 모두 닫고 관리자로 새 창을 시작합니다.
 
  2. `cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"`가 포함된 클러스터 설정 디렉토리로 이동합니다.
 
@@ -43,7 +43,7 @@
 
  1. 웹 플랫폼 설치 관리자를 시작하여 [새 릴리스로 업데이트][1]합니다.
 
- 2. 완료되면 관리자 권한으로 새 PowerShell 창을 실행하고 `cd "$ENV:ProgramFiles\Microsoft SDKs\ServiceFabric\ClusterSetup"`을 사용하여 클러스터 설치 디렉터리로 이동합니다.
+ 2. 완료되면 관리자 권한으로 새 PowerShell 창을 시작하고 `cd "$ENV:ProgramFiles\Microsoft SDKs\ServiceFabric\ClusterSetup"`을 사용하여 클러스터 설치 디렉터리로 이동합니다.
 
  3. `.\DevClusterSetup.ps1`을 실행하여 로컬 클러스터를 설정합니다.
 
@@ -53,4 +53,4 @@
 
  [1]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "WebPI 링크"
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

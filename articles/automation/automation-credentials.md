@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure 자동화의 자격 증명 자산"
+   pageTitle="Azure 자동화의 자격 증명 자산 | Microsoft Azure"
    description="Azure 자동화의 자격 증명 자산에는 Runbook에서 액세스하는 리소스를 인증하는 데 사용할 수 있는 보안 자격 증명이 들어 있습니다. 이 문서에서는 자격 증명 자산을 만들고 Runbook에서 사용하는 방법에 대해 설명합니다."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Azure 자동화의 자격 증명 자산
@@ -103,4 +103,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

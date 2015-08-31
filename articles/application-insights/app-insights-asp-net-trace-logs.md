@@ -12,16 +12,16 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="08/19/2015" 
 	ms.author="awills"/>
  
 # Application Insights에서 .NET 추적 로그 탐색  
 
 ASP.NET 응용 프로그램에서 진단 추적에 NLog, log4Net 또는 System.Diagnostics.Trace를 사용하는 경우 [Visual Studio Application Insights][start]로 로그를 보내서 탐색 및 검색할 수 있습니다. 서비스를 제공하는 각 사용자 요청과 연결된 추적을 식별하고 다른 이벤트 및 예외 보고서와 상호 연결할 수 있도록 로그가 응용 프로그램에서 들어오는 다른 원격 분석과 병합됩니다.
 
-또한 Application Insights SDK를 사용하여 로그 추적, 이벤트 및 예외 보고서를 작성할 수 있습니다.
+> [AZURE.NOTE]로그 캡처 모듈이 필요한가요? 타사 로거에 대한 유용한 어댑터지만 NLog, log4Net 또는 System.Diagnostics.Trace를 사용하지 않는 경우 [Application Insights TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace)를 직접 호출하는 것이 좋습니다.
 
-아직 [프로젝트에 Application Insights를 설정][start]하지 않았다면 지금 설정하세요.
+아직 [프로젝트에 Application Insights를 설정][start]하지 않았다면 지금 설정하세요. 프로젝트에 파일 `ApplicationInsights.config` 및 NuGet 패키지 `Microsoft.ApplicationInsights.Web`이 있어야 합니다.
 
 
 ##  로깅 프레임워크 어댑터 설치
@@ -30,7 +30,7 @@ ASP.NET 응용 프로그램에서 진단 추적에 NLog, log4Net 또는 System.D
 
 1. Log4Net 또는 NLog를 사용하려는 경우 프로젝트에 설치합니다. 
 2. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
-3. 온라인 > 모두를 선택하고, **시험판 포함**을 선택하고, "Microsoft.ApplicationInsights"를 검색합니다.
+3. "Application Insights" 검색
 
     ![적절한 어댑터의 시험판 버전 가져오기](./media/app-insights-asp-net-trace-logs/appinsights-36nuget.png)
 
@@ -124,4 +124,4 @@ Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

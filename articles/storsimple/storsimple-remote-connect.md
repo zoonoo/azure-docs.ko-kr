@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/04/2015"
+   ms.date="08/14/2015"
    ms.author="alkohli" />
 
 # StorSimple 장치에 원격으로 연결
@@ -21,7 +21,7 @@
 
 Windows PowerShell 원격을 사용하여 StorSimple 장치에 연결할 수 있습니다. 이러한 방식으로 연결하면 메뉴가 표시되지 않습니다. 장치의 직렬 콘솔을 사용하여 연결하는 경우에만 메뉴가 표시됩니다. Windows PowerShell 원격을 사용하여 특정 Runspace에 연결합니다. 표시 언어를 지정할 수도 있습니다.
 
-Windows PowerShell 원격을 사용하여 장치를 관리하는 방법에 대한 자세한 내용은 [StorSimple용 Windows PowerShell을 사용하여 장치 관리](storsimple-windows-powershell-administration.md)를 참조하세요.
+Windows PowerShell 원격을 사용하여 장치를 관리하는 방법에 대한 자세한 내용은 [StorSimple용 Windows PowerShell을 사용하여 StorSimple 장치 관리](storsimple-windows-powershell-administration.md)를 참조하세요.
 
 이 자습서에서는 원격 관리를 위해 장치를 구성하는 방법 및 StorSimple용 Windows PowerShell에 연결하는 방법을 설명합니다. HTTP 또는 HTTPS를 사용하여 Windows PowerShell 원격을 통해 연결할 수 있습니다. 그러나 StorSimple용 Windows PowerShell에 연결하는 방법을 결정하는 경우 다음 사항을 고려하세요.
 
@@ -37,9 +37,9 @@ Windows PowerShell 인터페이스에 원격으로 연결할 수 있습니다. �
 
 HTTP 세션을 통해 StorSimple용 Windows PowerShell에 연결하는 경우 StorSimple 장치의 직렬 콘솔을 통해 연결하는 것보다 보안이 강화됩니다. 가장 안전한 방법은 아니지만 신뢰할 수 있는 네트워크에서는 적합합니다.
 
-관리 포털 또는 직렬 콘솔을 사용하여 원격 관리를 구성할 수 있습니다. 다음 절차에서 선택합니다.
+Azure 포털 또는 직렬 콘솔을 사용하여 원격 관리를 구성할 수 있습니다. 다음 절차에서 선택합니다.
 
-- [관리 포털을 사용하여 HTTP를 통한 원격 관리 사용](#use-the-management-portal-to-enable-remote-management-over-http)
+- [Azure 포털을 사용하여 HTTP를 통한 원격 관리 사용](#use-the-azure-portal-to-enable-remote-management-over-http)
 
 - [직렬 콘솔을 사용하여 HTTP를 통한 원격 관리 사용](#use-the-serial-console-to-enable-remote-management-over-http)
 
@@ -47,11 +47,11 @@ HTTP 세션을 통해 StorSimple용 Windows PowerShell에 연결하는 경우 St
 
 - [원격 연결을 위해 클라이언트 준비](#prepare-the-client-for-remote-connection)
 
-### 관리 포털을 사용하여 HTTP를 통한 원격 관리 사용 
+### Azure 포털을 사용하여 HTTP를 통한 원격 관리 사용 
 
-HTTP를 통한 원격 관리를 사용하도록 설정하려면 관리 포털에서 다음 단계를 따르세요.
+HTTP를 통한 원격 관리를 사용하도록 설정하려면 Azure 포털에서 다음 단계를 따르세요.
 
-#### 관리 포털을 통해 원격 관리를 사용하도록 설정하려면
+#### Azure 포털을 통해 원격 관리를 사용하도록 설정하려면
 
 1. 장치에 대한 **장치** > **구성**에 액세스합니다.
 
@@ -122,9 +122,9 @@ HTTP를 통한 원격 관리를 사용하도록 설정하려면 관리 포털에
 
 HTTPS 세션을 통해 StorSimple용 Windows PowerShell에 연결하는 것은 Microsoft Azure StorSimple 장치에 원격으로 연결하는 가장 안전하고 권장되는 방법입니다. 다음 절차에서는 HTTPS를 사용 여 StorSimple용 Windows PowerShell에 연결할 수 있도록 직렬 콘솔과 클라이언트 컴퓨터를 설정하는 방법을 설명합니다.
 
-관리 포털 또는 직렬 콘솔을 사용하여 원격 관리를 구성할 수 있습니다. 다음 절차에서 선택합니다.
+Azure 포털 또는 직렬 콘솔을 사용하여 원격 관리를 구성할 수 있습니다. 다음 절차에서 선택합니다.
 
-- [관리 포털을 사용하여 HTTPS를 통한 원격 관리 사용](#use-the-management-portal-to-enable-remote-management-over-https)
+- [Azure 포털을 사용하여 HTTPS를 통한 원격 관리 사용](#use-the-azure-portal-to-enable-remote-management-over-https)
 
 - [직렬 콘솔을 사용하여 HTTPS를 통한 원격 관리 사용](#use-the-serial-console-to-enable-remote-management-over-https)
 
@@ -134,11 +134,11 @@ HTTPS 세션을 통해 StorSimple용 Windows PowerShell에 연결하는 것은 M
 
 - [원격 호스트에서 장치에 연결](#connect-to-the-device-from-the-remote-host)
 
-### 관리 포털을 사용하여 HTTPS를 통한 원격 관리 사용
+### Azure 포털을 사용하여 HTTPS를 통한 원격 관리 사용
 
-HTTPS를 통한 원격 관리를 사용하도록 설정하려면 관리 포털에서 다음 단계를 따르세요.
+HTTPS를 통한 원격 관리를 사용하도록 설정하려면 Azure 포털에서 다음 단계를 따르세요.
 
-#### 관리 포털에서 HTTPS를 통한 원격 관리를 사용하도록 설정하려면
+#### Azure 포털에서 HTTPS를 통한 원격 관리를 사용하도록 설정하려면
 
 1. 장치에 대한 **장치** > **구성**에 액세스합니다.
 
@@ -194,9 +194,9 @@ HTTPS를 통한 원격 관리를 사용하도록 설정하려면 관리 포털�
 
 HTTPS 세션을 사용하는 원격 연결을 위해 호스트 컴퓨터를 준비하려면 다음 절차를 따르세요.
 
-- [클라이언트 또는 원격 호스트의 루트 저장소로 .cer 파일을 가져옵니다](to-import-the-certificate-on-the-remote-host).
+- [클라이언트 또는 원격 호스트의 루트 저장소로 .cer 파일을 가져옵니다](#to-import-the-certificate-on-the-remote-host).
 
-- [원격 호스트의 호스트 파일에 장치 일련 번호를 추가합니다](to-add-device-serial-numbers-to-the-remote-host).
+- [원격 호스트의 호스트 파일에 장치 일련 번호를 추가합니다](#to-add-device-serial-numbers-to-the-remote-host).
 
 아래에서는 이러한 각 절차에 대해 설명합니다.
 
@@ -254,7 +254,7 @@ Windows PowerShell 및 SSL을 사용하여 원격 호스트 또는 클라이언�
 
 4. 다음을 입력하여 세션을 만듭니다.
 
-     $session = new-pssession -usessl -CN <Serial number of target device> -credential $cred -configurationname "SSAdminConsole"
+     `$session = new-pssession -usessl -CN <Serial number of target device> -credential $cred -configurationname "SSAdminConsole"`
 
     cmdlet의 CN 이름에 대해 *<serial number of target device>*을 제공합니다. 이 일련 번호는 원격 호스트에서 hosts 파일에 있는 DATA 0의 IP 주소(예: 다음 그림에 표시된 **SHX0991003G44MT**)에 매핑되었습니다.
 
@@ -270,4 +270,4 @@ Windows PowerShell 및 SSL을 사용하여 원격 호스트 또는 클라이언�
 
 [Windows PowerShell을 사용하여 StorSimple 장치를 관리하는 방법에 대해 자세히 알아봅니다](storsimple-windows-powershell-administration.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

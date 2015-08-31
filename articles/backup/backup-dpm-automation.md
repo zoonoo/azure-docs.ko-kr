@@ -3,11 +3,11 @@
 	description="PowerShell을 사용하여 DPM(Data Protection Manager)에 대해 Azure 백업을 배포 및 관리하는 방법을 알아봅니다."
 	services="backup"
 	documentationCenter=""
-	authors="Jim-Parker"
+	authors="SamirMehta"
 	manager="jwhit"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/11/2015" ms.author="jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/18/2015" ms.author="jimpark"; "aashishr"; "sammehta"/>
 
 
 # PowerShell을 사용하여 DPM(Data Protection Manager) 서버용 Azure 백업 배포 및 관리
@@ -21,11 +21,11 @@ PS C:\> & "C:\Program Files\Microsoft System Center 2012 R2\DPM\DPM\bin\DpmCliIn
 
 Welcome to the DPM Management Shell!
 
-Full list of cmdlets: Get-Command 
-Only DPM cmdlets: Get-DPMCommand 
-Get general help: help 
-Get help for a cmdlet: help <cmdlet-name> or <cmdlet-name> -? 
-Get definition of a cmdlet: Get-Command <cmdlet-name> -Syntax 
+Full list of cmdlets: Get-Command
+Only DPM cmdlets: Get-DPMCommand
+Get general help: help
+Get help for a cmdlet: help <cmdlet-name> or <cmdlet-name> -?
+Get definition of a cmdlet: Get-Command <cmdlet-name> -Syntax
 Sample DPM scripts: Get-DPMSampleScript
 ```
 
@@ -97,7 +97,7 @@ f5303a0b-fae4-4cdb-b44d-0e4c032dde26_backuprg_backuprn_2015-08-11--06-22-35.Vaul
 [Start-DPMCloudRegistration](https://technet.microsoft.com/library/jj612787) cmdlet을 사용하여 컴퓨터에 저장소를 등록합니다.
 
 ```
-PS C:\> $cred = $credspath + $credsfilename 
+PS C:\> $cred = $credspath + $credsfilename
 PS C:\> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredentialsFilePath $cred
 ```
 
@@ -300,4 +300,4 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 ## 다음 단계
 DPM에 대한 Azure 백업에 대한 자세한 정보는 [Azure DPM 백업 소개](backup-azure-dpm-introduction.md)를 참조합니다.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/17/2015"
+   ms.date="08/19/2015"
    ms.author="joaoma" />
 
 
@@ -28,7 +28,7 @@ Azure 트래픽 관리자 관련 일반적인 질문은 발생할 수 있는 잠
 
 ## 트래픽 관리자 작동 방식에 대한 중요 정보
 
-http://msdn.microsoft.com/library/windowsazure/hh744833.aspx은(는) 트래픽 관리자 작동 방식에 대해 배울 수 있는 탁월한 리소스지만 해당 페이지에는 매우 많은 정보가 있어 성능 관련 주요 정보를 골라내기가 어려울 수 있습니다. MSDN 설명서에서 살펴볼 중요한 포인트는 이미지 3에서 #5 및 #6단계이며, 여기에서 다 자세히 설명할 것입니다.
+http://msdn.microsoft.com/library/windowsazure/hh744833.aspx은(는) 트래픽 관리자 작동 방식에 대해 배울 수 있는 탁월한 리소스지만 해당 페이지에는 매우 많은 정보가 있어 성능 관련 주요 정보를 골라내기가 어려울 수 있습니다. MSDN 설명서에서 살펴볼 중요한 포인트는 이미지 3에서 \#5 및 \#6단계이며, 여기에서 다 자세히 설명할 것입니다.
 
 - 트래픽 관리자는 기본적으로 DNS 확인 한 가만 수행합니다. 이는 트래픽 관리자가 웹 사이트에 미칠 수 있는 유일한 성능 영향은 초기 DNS 조회라는 뜻입니다.
 - 트래픽 관리자 DNS 조회에 대한 확인 지점입니다. 트래픽 관리자는 정보를 표시하고 정기적으로 업데이트하며, 일반 Microsoft DNS 루트 서버는 사용자 정책 및 검색 결과에 기반합니다. 초기 DNS 조회 중에도 DNS 요청은 일반 Microsoft DNS 루트 서버가 처리하기 때문에 트래픽 관리자가 관여할 부분은 없습니다. 트래픽 관리자가 ‘다운'되는 경우(예: 정책 검색 및 DNS 업데이트를 수행하는 VM의 오류) Microsoft DNS 서버의 항목이 여전히 보존되기 때문에 트래픽 관리자 DNS 이름에 영향을 미치지 않습니다. 유일한 영향은 정책에 기반한 검색 및 업데이트가 일어나지 않는다는 점입니다(예: 기본 사이트가 다운되는 경우 사이트 장애 조치에 조첨을 맞추기 위해 트래픽 관리자는 DNS를 업데이트할 수 없음).
@@ -85,9 +85,9 @@ http://www.digwebinterface.com – Watchmouse 사이트와 유사하지만, CNAM
 ## 다음 단계
 
 
-[트래픽 관리자 부하 분산 방법 정보](traffic-manager-load-balancing-methods.md)
+[트래픽 관리자 트래픽 라우팅 방법 정보](traffic-manager-load-balancing-methods.md)
 
-[트래픽 관리자 개요](../traffic-manmager-overview.md)
+[트래픽 관리자란?](../traffic-manmager-overview.md)
 
 [클라우드 서비스](http://go.microsoft.com/fwlink/?LinkId=314074)
 
@@ -98,4 +98,4 @@ http://www.digwebinterface.com – Watchmouse 사이트와 유사하지만, CNAM
 [Azure 트래픽 관리자 cmdlet](http://go.microsoft.com/fwlink/p/?LinkId=400769)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

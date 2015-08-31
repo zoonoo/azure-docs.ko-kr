@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Azure 자동화의 일정"
+   pageTitle="Azure 자동화의 일정 | Microsoft Azure"
    description="자동화 일정은 Azure 자동화에서 Runbook이 자동으로 시작되도록 예약하는 데 사용됩니다. 이 문서에서는 일정을 만드는 방법을 설명합니다."
    services="automation"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/21/2015"
+   ms.date="08/18/2015"
    ms.author="bwren" />
 
 # Azure 자동화의 일정
@@ -66,4 +66,4 @@
 - [Azure 자동화에서 Runbook 예약](automation-scheduling-a-runbook.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

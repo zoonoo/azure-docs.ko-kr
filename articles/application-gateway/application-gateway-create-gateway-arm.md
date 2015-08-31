@@ -62,14 +62,14 @@ ARM cmdlet을 사용하려면 PowerShell 모드를 전환해야 합니다. 자�
 
 ### 1단계
 
-    PS C:\> Switch-AzureMode -Name AzureResourceManager
+    Switch-AzureMode -Name AzureResourceManager
 
 ### 2단계
 
 Azure 계정에 로그인
 
 
-    PS C:\> Add-AzureAccount
+    Add-AzureAccount
 
 자격 증명을 사용하여 인증하라는 메시지가 표시됩니다.
 
@@ -78,7 +78,7 @@ Azure 계정에 로그인
 
 사용할 Azure 구독을 선택합니다.
 
-    PS C:\> Select-AzureSubscription -SubscriptionName "MySubscription"
+    Select-AzureSubscription -SubscriptionName "MySubscription"
 
 사용 가능한 구독 목록을 보려면 ‘Get-AzureSubscription’ cmdlet을 사용합니다.
 
@@ -87,7 +87,7 @@ Azure 계정에 로그인
 
 새 리소스 그룹을 만듭니다. 기존 리소스 그룹을 사용하는 경우에는 이 단계를 건너뛰세요.
 
-    PS C:\> New-AzureResourceGroup -Name appgw-rg -location "West US"
+    New-AzureResourceGroup -Name appgw-rg -location "West US"
 
 Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치를 지정해야 합니다. 이 위치는 해당 리소스 그룹에서 리소스의 기본 위치로 사용됩니다. 응용 프로그램 게이트웨이를 만들기 위한 모든 명령이 동일한 리소스 그룹을 사용하는지 확인합니다.
 
@@ -121,7 +121,7 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 	$gipconfig = New-AzureApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 
-"GatewayIP01"이라는 응용 프로그램 게이트웨이 IP 구성을 만듭니다. 응용 프로그램 게이트웨이는 시작되면 구성된 서브넷에서 IP 주소를 선택하고 백 엔드 IP 풀의 IP 주소로 네트워크 트래픽을 라우팅합니다. 인스턴스마다 하나의 IP 주소를 사용합니다.
+"gatewayIP01"이라는 응용 프로그램 게이트웨이 IP 구성을 만듭니다. 응용 프로그램 게이트웨이는 시작되면 구성된 서브넷에서 IP 주소를 선택하고 백 엔드 IP 풀의 IP 주소로 네트워크 트래픽을 라우팅합니다. 인스턴스마다 하나의 IP 주소를 사용합니다.
  
 ### 2단계
 
@@ -131,7 +131,7 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 ### 3단계
 
-	$poolSetting = New-AzureApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol HTTP -CookieBasedAffinity Disabled
+	$poolSetting = New-AzureApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 
 백 엔드 풀에서 부하가 분산된 네트워크 트래픽에 대해 응용 프로그램 게이트웨이 설정 "poolsetting01"을 구성합니다.
 
@@ -143,21 +143,21 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 ### 5단계
 
-	$fipconfig = New-AzureApplicationGatewayFrontendIPConfig -Name $fipconfigName -PublicIPAddress $publicip
+	$fipconfig = New-AzureApplicationGatewayFrontendIPConfig -Name fipconfig01 -PublicIPAddress $publicip
 
-프런트 엔드 IP 구성에 공용 IP 주소를 연결하는 프런트 엔드 IP 구성을 만듭니다.
+"fipconfig01"이라는 프런트 엔드 IP 구성을 만들고 프런트 엔드 IP 구성에 공용 IP 주소를 연결합니다.
 
 ### 6단계
 
-	$listener = New-AzureApplicationGatewayHttpListener -Name $listenerName  -Protocol http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
+	$listener = New-AzureApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 
-프런트 엔드 IP 구성에 프런트 엔드 포트를 연결하는 수신기를 만듭니다.
+"listener01"이라는 수신기를 만들고 프런트 엔드 IP 구성에 프런트 엔드 포트를 연결합니다.
 
 ### 7단계 
 
-	$rule = New-AzureApplicationGatewayRequestRoutingRule -Name $ruleName -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
+	$rule = New-AzureApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 
-부하 분산 장치 라우팅 규칙을 만들고 부하 분산 장치 동작을 구성합니다.
+부하 분산 장치 동작을 구성하는 "rule01"이라는 부하 분산 장치 라우팅 규칙을 만듭니다.
 
 ### 8단계
 
@@ -165,15 +165,13 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 응용 프로그램 게이트웨이의 인스턴스 크기를 구성합니다.
 
->[AZURE.NOTE]*InstanceCount*의 기본값은 2이고, 최대값은 10입니다. *GatewaySize*의 기본값은 보통입니다. 작게, 보통 및 크게를 선택할 수 있습니다.
+>[AZURE.NOTE]*InstanceCount*의 기본값은 2이고, 최대값은 10입니다. *GatewaySize*의 기본값은 보통입니다. Standard\_Small, Standard\_Medium 및 Standard\_Large 간에 선택할 수 있습니다.
 
 ## New-AzureApplicationGateway를 사용하여 응용 프로그램 게이트웨이 만들기
 
-	$appgw = New-AzureApplicationGateway -Name appgwtest -ResourceGroupName $rgname -Location $location -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
+	$appgw = New-AzureApplicationGateway -Name appgwtest -ResourceGroupName appw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 
 위 단계의 모든 구성 항목으로 응용 프로그램 게이트웨이를 만듭니다. 이 예제에서는 응용 프로그램 게이트웨이를 "appgwtest"라고 합니다.
-
-
 
 
 ## 응용 프로그램 게이트웨이 시작
@@ -196,15 +194,9 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 	 
 `Start-AzureApplicationGateway`를 사용하여 응용 프로그램 게이트웨이를 시작합니다.
 
-	PS C:\> Start-AzureApplicationGateway -ApplicationGateway $getgw  
+	 Start-AzureApplicationGateway -ApplicationGateway $getgw  
 
-	PS C:\> Start-AzureApplicationGateway AppGwTest 
-
-	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
-	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error 
-	----       ----------------     ------------                             ----
-	Successful OK                   fc592db8-4c58-2c8e-9a1d-1c97880f0b9b
+	
 
 ## 응용 프로그램 게이트웨이 상태 확인
 
@@ -212,19 +204,150 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 이 샘플은 응용 프로그램 게이트웨이가 시작되고 실행 중이며 트래픽이 `http://<generated-dns-name>.cloudapp.net`으로 이동될 준비가 되었음을 보여 줍니다.
 
-	PS C:\> Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName app-rg
+	Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
-	VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway 
-	VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
-	Name          : AppGwTest 
-	Description   : 
-	VnetName      : appgwvnet 
-	Subnets       : {Subnet01} 
-	InstanceCount : 2 
-	GatewaySize   : Medium 
-	State         : Running 
-	Vip           : 138.91.170.26 
-	DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
+	Sku                               : Microsoft.Azure.Commands.Network.Models.PSApplicationGatewaySku
+	GatewayIPConfigurations           : {gatewayip01}
+	SslCertificates                   : {}
+	FrontendIPConfigurations          : {frontendip01}
+	FrontendPorts                     : {frontendport01}
+	BackendAddressPools               : {pool01}
+	BackendHttpSettingsCollection     : {setting01}
+	HttpListeners                     : {listener01}
+	RequestRoutingRules               : {rule01}
+	OperationalState                  : 
+	ProvisioningState                 : Succeeded
+	GatewayIpConfigurationsText       : [
+                                      {
+                                        "Subnet": {
+                                          "Id": "/subscriptions/###############################/resourceGroups/appgw-rg
+                                    /providers/Microsoft.Network/virtualNetworks/vnet01/subnets/subnet01"
+                                        },
+                                        "ProvisioningState": "Succeeded",
+                                        "Name": "gatewayip01",
+                                        "Etag": "W/"ddb0408e-a54c-4501-a7f8-8487c3530bd7"",
+                                        "Id": "/subscriptions/###############################/resourceGroups/appgw-rg/p
+                                    roviders/Microsoft.Network/applicationGateways/appgwtest/gatewayIPConfigurations/gatewayip
+                                    01"
+                                      }
+                                    ]
+	SslCertificatesText               : []
+	FrontendIpConfigurationsText      : [
+                                      {
+                                        "PrivateIPAddress": null,
+                                        "PrivateIPAllocationMethod": "Dynamic",
+                                        "Subnet": null,
+                                        "PublicIPAddress": {
+                                          "Id": "/subscriptions/###############################/resourceGroups/appgw-rg
+                                    /providers/Microsoft.Network/publicIPAddresses/publicip01"
+                                        },
+                                        "ProvisioningState": "Succeeded",
+                                        "Name": "frontendip01",
+                                        "Etag": "W/"ddb0408e-a54c-4501-a7f8-8487c3530bd7"",
+                                        "Id": "/subscriptions/###############################/resourceGroups/appgw-rg/p
+                                    roviders/Microsoft.Network/applicationGateways/appgwtest/frontendIPConfigurations/frontend
+                                    ip01"
+                                      }
+                                    ]
+	FrontendPortsText                 : [
+                                      {
+                                        "Port": 80,
+                                        "ProvisioningState": "Succeeded",
+                                        "Name": "frontendport01",
+                                        "Etag": "W/"ddb0408e-a54c-4501-a7f8-8487c3530bd7"",
+                                        "Id": "/subscriptions/###############################/resourceGroups/appgw-rg/p
+                                    roviders/Microsoft.Network/applicationGateways/appgwtest/frontendPorts/frontendport01"
+                                      }
+                                    ]
+	BackendAddressPoolsText           : [
+                                      {
+                                        "BackendAddresses": [
+                                          {
+                                            "Fqdn": null,
+                                            "IpAddress": "134.170.185.46"
+                                          },
+                                          {
+                                            "Fqdn": null,
+                                            "IpAddress": "134.170.188.221"
+                                          },
+                                          {
+                                            "Fqdn": null,
+                                            "IpAddress": "134.170.185.50"
+                                          }
+                                        ],
+                                        "BackendIpConfigurations": [],
+                                        "ProvisioningState": "Succeeded",
+                                        "Name": "pool01",
+                                        "Etag": "W/"ddb0408e-a54c-4501-a7f8-8487c3530bd7"",
+                                        "Id": "/subscriptions/###############################/resourceGroups/appgw-rg/p
+                                    roviders/Microsoft.Network/applicationGateways/appgwtest/backendAddressPools/pool01"
+                                      }
+                                    ]
+	BackendHttpSettingsCollectionText : [
+                                      {
+                                        "Port": 80,
+                                        "Protocol": "Http",
+                                        "CookieBasedAffinity": "Disabled",
+                                        "ProvisioningState": "Succeeded",
+                                        "Name": "setting01",
+                                        "Etag": "W/"ddb0408e-a54c-4501-a7f8-8487c3530bd7"",
+                                        "Id": "/subscriptions/###############################/resourceGroups/appgw-rg/p
+                                    roviders/Microsoft.Network/applicationGateways/appgwtest/backendHttpSettingsCollection/set
+                                    ting01"
+                                      }
+                                    ]
+	HttpListenersText                 : [
+                                      {
+                                        "FrontendIpConfiguration": {
+                                          "Id": "/subscriptions/###############################/resourceGroups/appgw-rg
+                                    /providers/Microsoft.Network/applicationGateways/appgwtest/frontendIPConfigurations/fronte
+                                    ndip01"
+                                        },
+                                        "FrontendPort": {
+                                          "Id": "/subscriptions/###############################/resourceGroups/appgw-rg
+                                    /providers/Microsoft.Network/applicationGateways/appgwtest/frontendPorts/frontendport01"
+                                        },
+                                        "Protocol": "Http",
+                                        "SslCertificate": null,
+                                        "ProvisioningState": "Succeeded",
+                                        "Name": "listener01",
+                                        "Etag": "W/"ddb0408e-a54c-4501-a7f8-8487c3530bd7"",
+                                        "Id": "/subscriptions/###############################/resourceGroups/appgw-rg/p
+                                    roviders/Microsoft.Network/applicationGateways/appgwtest/httpListeners/listener01"
+                                      }
+                                    ]
+	RequestRoutingRulesText           : [
+                                      {
+                                        "RuleType": "Basic",
+                                        "BackendAddressPool": {
+                                          "Id": "/subscriptions/###############################/resourceGroups/appgw-rg
+                                    /providers/Microsoft.Network/applicationGateways/appgwtest/backendAddressPools/pool01"
+                                        },
+                                        "BackendHttpSettings": {
+                                          "Id": "/subscriptions/###############################/resourceGroups/appgw-rg
+                                    /providers/Microsoft.Network/applicationGateways/appgwtest/backendHttpSettingsCollection/s
+                                    etting01"
+                                        },
+                                        "HttpListener": {
+                                          "Id": "/subscriptions/###############################/resourceGroups/appgw-rg
+                                    /providers/Microsoft.Network/applicationGateways/appgwtest/httpListeners/listener01"
+                                        },
+                                        "ProvisioningState": "Succeeded",
+                                        "Name": "rule01",
+                                        "Etag": "W/"ddb0408e-a54c-4501-a7f8-8487c3530bd7"",
+                                        "Id": "/subscriptions/###############################/resourceGroups/appgw-rg/p
+                                    roviders/Microsoft.Network/applicationGateways/appgwtest/requestRoutingRules/rule01"
+                                      }
+                                    ]
+	ResourceGroupName                 : appgw-rg
+	Location                          : westus
+		Tag                               : {}
+	TagsTable                         : 
+	Name                              : appgwtest
+	Etag                              : W/"ddb0408e-a54c-4501-a7f8-8487c3530bd7"
+	Id                                : /subscriptions/###############################/resourceGroups/appgw-rg/providers/Microsoft.Network/applicationGateways/appgwtest
+
+
 
 
 ## 응용 프로그램 게이트웨이 삭제
@@ -235,53 +358,41 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 2. `Remove-AzureApplicationGateway` cmdlet을 사용하여 게이트웨이를 제거합니다.
 3. `Get-AzureApplicationGateway` cmdlet을 사용하여 게이트웨이가 제거되었는지 확인합니다.
 
-이 샘플의 첫째 줄에는 `Stop-AzureApplicationGateway` cmdlet이 먼저 표시되고 그 다음에 출력이 표시됩니다.
 
 ### 1단계
 
 게이트웨이 응용 프로그램 개체를 가져오고 "$getgw" 변수에 연결합니다.
  
-	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName app-rg
+	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 ### 2단계
 	 
 `Stop-AzureApplicationGateway`를 사용하여 응용 프로그램 게이트웨이를 중지합니다.
 
-	PS C:\> Stop-AzureApplicationGateway -ApplicationGateway $getgw  
-
-	VERBOSE: 9:49:34 PM - Begin Operation: Stop-AzureApplicationGateway 
-	VERBOSE: 10:10:06 PM - Completed Operation: Stop-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error 
-	----       ----------------     ------------                             ----
-	Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
-
-응용 프로그램 게이트웨이가 중지 상태가 되면, `Remove-AzureApplicationGateway` cmdlet을 사용하여 서비스를 제거합니다.
+	Stop-AzureApplicationGateway -ApplicationGateway $getgw  
 
 
-	PS C:\> Remove-AzureApplicationGateway -Name $appgwName -ResourceGroupName $rgname -Force
+응용 프로그램 게이트웨이가 중지 상태가 되면 `Remove-AzureApplicationGateway` cmdlet을 사용하여 서비스를 제거합니다.
 
-	VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway 
-	VERBOSE: 10:50:36 PM - Completed Operation: Remove-AzureApplicationGateway
-	Name       HTTP Status Code     Operation ID                             Error 
-	----       ----------------     ------------                             ----
-	Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
+
+	Remove-AzureApplicationGateway -Name $appgwtest -ResourceGroupName appgw-rg -Force
+
+	
 
 >[AZURE.NOTE]'-force' 스위치를 사용하여 제거 확인 메시지가 표시되지 않도록 할 수 있습니다.
 >
 
-서비스가 제거되었는지 확인하려면 `Get-AzureApplicationGateway` cmdlet을 사용할 수 있습니다. 이 단계는 필요 하지 않습니다.
+서비스가 제거되었는지 확인하려면 `Get-AzureApplicationGateway` cmdlet을 사용합니다. 이 단계는 필요 하지 않습니다.
 
 
-	PS C:\>Get-AzureApplicationGateway -Name appgwtest-ResourceGroupName app-rg
+	Get-AzureApplicationGateway -Name appgwtest-ResourceGroupName appgw-rg
 
-	VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway 
+	
 
-	Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist. 
-	.....
 
 ## 다음 단계
 
-SSL 오프로드를 구성하려는 경우 [SSL 오프로드에 대해 응용 프로그램 게이트웨이 구성](application-gateway-ssl.md)을 참조하세요.
+SSL 오프로드를 구성하려는 경우, [SSL 오프로드를 위한 응용 프로그램 게이트웨이 구성](application-gateway-ssl.md)을 참조하세요.
 
 ILB에서 사용되도록 응용 프로그램 게이트웨이를 구성하려면 [ILB(내부 부하 분산 장치)를 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-ilb.md)를 참조하세요.
 
@@ -290,4 +401,4 @@ ILB에서 사용되도록 응용 프로그램 게이트웨이를 구성하려면
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

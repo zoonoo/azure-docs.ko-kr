@@ -104,9 +104,11 @@ Test-AzureName 명령에서 "False"를 표시하는 경우 제안된 이름이 �
 
 	$domName="<domain name label to test>"
 	$loc="<short name of an Azure location, for example, for West US, the short name is westus>"
-	Get-AzureCheckDnsAvailability -DomainQualifiedName $domName -Location $loc
+	Test-AzureDnsAvailability -DomainQualifiedName $domName -Location $loc
 
 DNSNameAvailability가 "True"인 경우 제안된 이름이 고유한 것입니다.
+
+>[AZURE.NOTE]Test-AzureDnsAvailability cmdlet의 이름은 0.9.5 이전 버전의 Azure PowerShell에서는 Get AzureCheckDnsAvailability였습니다. 0.9.4 이하 버전을 사용하는 경우 위에 표시된 명령에서 Test-AzureDnsAvailability를 Get-AzureCheckDnsAvailability로 바꿉니다.
 
 리소스 관리자 기반 가상 컴퓨터를 리소스 관리자 기반 가용성 집합에 배치할 수 있습니다. 필요한 경우 다음 명령을 사용하여 새 가상 컴퓨터의 새 가용성 집합을 만듭니다.
 
@@ -119,7 +121,7 @@ DNSNameAvailability가 "True"인 경우 제안된 이름이 고유한 것입니�
 
 	Get-AzureAvailabilitySet –ResourceGroupName $rgName | Sort Name | Select Name
 
-인터넷에서 들어오는 트래픽을 허용하고 부하 분산된 집합에 배치할 수 있도록 인바운드 NAT 규칙을 사용하여 리소스 관리자 기반 가상 컴퓨터를 구성할 수 있습니다. 두 경우 모두 부하 분산 장치 인스턴스 및 기타 설정을 지정해야 합니다. 자세한 내용은 [Azure 리소스 관리자를 사용하여 부하 분산 장치를 만드는 방법](../load-balancer/load-balancer-arm-powershell.md)을 참조하세요.
+인터넷에서 들어오는 트래픽을 허용하고 부하 분산된 집합에 배치할 수 있도록 인바운드 NAT 규칙을 사용하여 리소스 관리자 기반 가상 컴퓨터를 구성할 수 있습니다. 두 경우 모두 부하 분산 장치 인스턴스 및 기타 설정을 지정해야 합니다. 자세한 내용은 [Azure 리소스 관리자를 사용하여 부하 분산 장치 만들기](../load-balancer/load-balancer-arm-powershell.md)를 참조하세요.
 
 리소스 관리자 기반 가상 컴퓨터를 사용하려면 리소스 관리자 기반 가상 네트워크가 필요합니다. 필요한 경우 새 가상 컴퓨터에 대한 하나 이상의 서브넷이 있는 새 리소스 관리자 기반 가상 네트워크를 만듭니다. 다음은 frontendSubnet 및 backendSubnet이라는 두 서브넷을 사용하는 새 가상 네트워크에 대한 예입니다.
 
@@ -211,7 +213,7 @@ NIC를 만들고 인바운드 NAT 규칙에 대한 부하 분산 장치 인스�
 	$lbName="<name of the load balancer instance>"
 	$bePoolIndex=<index of the back end pool, starting at 0>
 	$natRuleIndex=<index of the inbound NAT rule, starting at 0>
-	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName
 	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex] -LoadBalancerInboundNatRule $lb.InboundNatRules[$natRuleIndex]
 
 $nicName 문자열은 리소스 그룹에 대해 고유해야 합니다. "LOB07 NIC"와 같은 가상 컴퓨터 이름을 문자열에 통합하는 것이 좋습니다.
@@ -223,14 +225,14 @@ NIC를 만들고 부하 분산된 집합에 대한 부하 분산 장치 인스�
 - 부하 분산된 트래픽에 대한 규칙이 있는 이전에 만든 부하 분산 장치 인스턴스의 이름
 - Nic에 할당할 부하 분산 장치 인스턴스의 백 엔드 주소 풀 인덱스 번호
 
-부하 분산된 트래픽에 대한 규칙을 사용하여 부하 분산 장치 인스턴스를 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자를 사용하여 부하 분산 장치 만들기](../load-balancer/load-balancer-arm-powershell.md)를 참조하세요.
+부하가 분산된 트래픽에 대한 규칙을 사용하여 부하 분산 장치 인스턴스를 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자를 사용하여 부하 분산 장치 만들기](../load-balancer/load-balancer-arm-powershell.md)를 참조하세요.
 
 다음 줄을 명령 집합으로 복사하고 필요한 이름과 인덱스 번호를 지정합니다.
 
 	$nicName="<name of the NIC of the VM>"
 	$lbName="<name of the load balancer instance>"
 	$bePoolIndex=<index of the back end pool, starting at 0>
-	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName 
+	$lb=Get-AzureLoadBalancer -Name $lbName -ResourceGroupName $rgName
 	$nic=New-AzureNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -Subnet $vnet.Subnets[$subnetIndex].Id -LoadBalancerBackendAddressPool $lb.BackendAddressPools[$bePoolIndex]
 
 이제, 로컬 VM 개체를 만들고 필요에 따라 가용성 집합에 추가합니다. 다음 두 옵션 중 하나를 명령 집합으로 복사하고 이름, 크기 및 가용성 집합 이름을 입력합니다.
@@ -387,4 +389,4 @@ VM에 데이터 디스크를 더 추가하려면 다음 줄을 명령 집합으�
 
 [Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

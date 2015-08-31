@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.date="08/17/2015"  
 	ms.author="juliako"/>
 
 
@@ -219,7 +219,7 @@ VMAP 파일은 각각 광고를 정의하는 하나 이상의 <AdBreak> 요소�
 1. Time – hh:mm:ss 또는 hh:mm:ss.mmm 형식으로 지정합니다. 여기서 .mmm은 밀리초입니다. 이 특성 값은 비디오 타임라인 시작부터 광고 시작까지 지나는 시간을 지정합니다.
 1. Percentage – n% 형식으로 지정합니다. 여기서 n은 광고를 재생하기 전에 재생할 비디오 타임라인의 백분율입니다.
 1. Start/End – 비디오가 표시되기 전이나 후에 광고가 표시되도록 지정합니다.
-1. Position – 라이브 스트리밍과 같이 광고 타이밍을 알 수 없을 때 광고 순서를 지정합니다. 각 광고 순서는 #n 형식으로 지정합니다. 여기서 n은 정수 1 이상입니다. 1은 광고가 첫 번째 기회에 재생되어야 함을 나타내고, 2는 광고가 두 번째 기회에 재생되어야 함을 나타냅니다.
+1. Position – 라이브 스트리밍과 같이 광고 타이밍을 알 수 없을 때 광고 순서를 지정합니다. 각 광고 순서는 \#n 형식으로 지정합니다. 여기서 n은 정수 1 이상입니다. 1은 광고가 첫 번째 기회에 재생되어야 함을 나타내고, 2는 광고가 두 번째 기회에 재생되어야 함을 나타냅니다.
 
 <**AdBreak**> 요소 내에는 <**AdSource**> 요소 하나가 있을 수 있습니다. <**AdSource**> 요소는 다음 특성을 포함합니다.
 
@@ -356,9 +356,7 @@ VPAID는 실행 가능한 광고 단위가 비디오 플레이어와 통신하�
 
 ##광고 지원이 포함된 Windows 또는 Windows Phone 8 플레이어 구현
 
-Microsoft Media Platform: Windows 8 및 Windows Phone 8용 플레이어 프레임워크에는 프레임워크를 사용하여 비디오 플레이어 응용 프로그램을 구현하는 방법을 보여 주는 샘플 응용 프로그램 컬렉션이 포함됩니다. [Windows 8 및 Windows Phone 8용 플레이어 프레임워크](https://playerframework.codeplex.com/releases/view/105214)에서 플레이어 프레임워크와 샘플을 다운로드할 수 있습니다.
-
-광고 삽입에 대한 자세한 내용은 [미디어에 광고 삽입](media-services-inserting-ads-on-client-side.md#insert_ads_into_media)을 참조하세요.
+Microsoft Media Platform: Windows 8 및 Windows Phone 8용 플레이어 프레임워크에는 프레임워크를 사용하여 비디오 플레이어 응용 프로그램을 구현하는 방법을 보여 주는 샘플 응용 프로그램 컬렉션이 포함됩니다. [Windows 8 및 Windows Phone 8용 플레이어 프레임워크](https://playerframework.codeplex.com)에서 플레이어 프레임워크와 샘플을 다운로드할 수 있습니다.
 
 Microsoft.PlayerFramework.Xaml.Samples 솔루션을 열면 프로젝트 내에 많은 폴더가 표시됩니다. Advertising 폴더에는 광고 지원이 있는 비디오 플레이어를 만드는 방법과 관련된 샘플 코드가 들어 있습니다. Advertising 폴더 내에는 각각 광고를 다르게 삽입하는 방법을 보여 주는 다양한 XAML/cs 파일이 있습니다. 다음 목록은 각각에 대해 설명합니다.
 
@@ -396,7 +394,7 @@ Microsoft.PlayerFramework.Xaml.Samples 솔루션을 열면 프로젝트 내에 �
 	    </mmppf:MediaPlayer.Plugins>
 	</mmppf:MediaPlayer>
 
-AdSchedulerPlugin에 대한 자세한 내용은 [Windows 8 및 Windows Phone 8의 플레이어 프레임 워크에서 광고](http://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation)(영문)를 참조하세요.
+AdSchedulerPlugin에 대한 자세한 내용은 [Windows 8 및 Windows Phone 8의 플레이어 프레임워크에서 광고](http://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation)(영문)를 참조하세요.
 
 ###AdSchedulingPage
 
@@ -573,7 +571,6 @@ ProgrammaticAdPage.xaml.cs 파일은 AdHandlerPlugin을 만들고, TimelineMarke
 
 Microsoft Media Platform: iOS용 플레이어 프레임워크에는 프레임워크를 사용하여 비디오 플레이어 응용 프로그램을 구현하는 방법을 보여 주는 샘플 응용 프로그램 컬렉션이 포함됩니다. [Azure 미디어 플레이어 프레임워크](https://github.com/Azure/azure-media-player-framework)에서 플레이어 프레임워크와 샘플을 다운로드할 수 있습니다. github 페이지에는 플레이어 프레임워크에 대한 추가 정보와 플레이어 샘플에 대한 소개가 포함된 Wiki 링크, [Azure 미디어 플레이어 Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework)가 있습니다.
 
-광고 삽입에 대한 자세한 내용은 [미디어에 광고 삽입](media-services-inserting-ads-on-client-side.md#insert_ads_into_media)을 참조하세요.
 
 ###VMAP를 사용하여 광고 예약
 
@@ -802,6 +799,6 @@ Microsoft Media Platform: iOS용 플레이어 프레임워크에는 프레임워
  
 ##참고 항목
 
-[비디오 플레이어 응용 프로그램 개발](media-services-develop-video-players.md) [iOS용 Azure 미디어 플레이어 프레임워크 소개](https://channel9.msdn.com/Series/Windows-Azure-Media-Services-Tutorials/An-introduction-to-Azure-Media-Player-Framework-for-IOS)
+[비디오 플레이어 응용 프로그램 개발](media-services-develop-video-players.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

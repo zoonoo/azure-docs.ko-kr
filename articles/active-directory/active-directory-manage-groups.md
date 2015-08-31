@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="08/14/2015" 
 	ms.author="femila"/>
 
 
@@ -92,4 +92,6 @@ Azure Active Directory의 액세스 관리 솔루션 센터에 보안 그룹이 
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+* [그룹에 대한 그래프 API 참조](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/groups-operations#GroupFunctions)
+
+<!---HONumber=August15_HO8-->

@@ -1,9 +1,9 @@
 <properties
-	pageTitle="iOS에서 모바일 앱에 대한 인증 시작"
-	description="모바일 앱을 사용하여 AAD, Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 iOS 앱 사용자를 인증하는 방법을 알아봅니다."
+	pageTitle="Azure 모바일 앱을 사용하여 iOS에서 인증 추가"
+	description="Azure 모바일 앱을 사용하여 AAD, Google, Facebook, Twitter 및 Microsoft를 포함한 다양한 ID 공급자를 통해 iOS 앱 사용자를 인증하는 방법을 알아봅니다."
 	services="app-service\mobile"
 	documentationCenter="ios"
-	authors="mattchenderson" 
+	authors="krisragh" 
 	manager="dwrede"
 	editor=""/>
 
@@ -13,22 +13,22 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
-	ms.author="mahender"/>
+	ms.date="08/12/2015"
+	ms.author="krisragh"/>
 
-# iOS 앱에 인증 추가
+# Azure 모바일 앱을 사용하여 iOS 인증
 
-[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
-[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
-
-이 항목에서는 클라이언트 응용 프로그램에서 앱 서비스 모바일 앱의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 앱 서비스가 지원하는 ID 공급자를 사용하여 퀵 스타트 프로젝트에 인증을 추가합니다. 모바일 앱에서 인증되고 권한이 부여된 후 사용자 ID 값이 표시됩니다.
-
-이 자습서는 모바일 앱 퀵 스타트를 기반으로 합니다. 또한 [iOS 앱 만들기] 자습서를 먼저 완료해야 합니다.
+이 자습서에서는 지원되는 ID 공급자를 사용하여 [iOS 빠른 시작]에 인증을 추가합니다. 이 자습서는 먼저 완료해야 하는 [iOS 빠른 시작 안내서]를 기반으로 합니다.
 
 ##<a name="review"></a>서버 프로젝트 구성 검토(옵션)
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
+
+##<a name="create-gateway"></a>앱 서비스 게이트웨이 만들기
+
+[AZURE.INCLUDE [app-service-mobile-dotnet-backend-create-gateway-preview](../../includes/app-service-mobile-dotnet-backend-create-gateway-preview.md)]
 
 ##<a name="register"></a>인증을 위해 앱 등록 및 앱 서비스 구성
 
@@ -38,28 +38,19 @@
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-<ol start="5">
-<li><p>Xcode에서 프로젝트를 엽니다. <b>실행</b> 단추를 눌러 앱을 시작합니다. 앱이 시작된 후 상태 코드 401(인증되지 않음)의 예외가 발생하는지 확인합니다.</p>
-
-   	<p>이 예외는 앱이 인증되지 않은 사용자로 모바일 앱 코드에 액세스하려고 시도하는데 <em>TodoItem</em> 테이블에서 이제 인증을 요구하기 때문에 발생합니다.</p></li>
-</ol>
-
-다음에는 앱 서비스에서 리소스를 요청하기 전에 사용자를 인증하도록 앱을 업데이트합니다.
+Xcode에서 **실행**을 눌러 앱을 시작합니다. 앱이 인증되지 않은 사용자로 백 엔드에 액세스하려고 시도하지만 _TodoItem_ 테이블에서 이제 인증을 요구하기 때문에 예외가 발생합니다.
 
 ##<a name="add-authentication"></a>앱에 인증 추가
 
 [AZURE.INCLUDE [app-service-mobile-ios-authenticate-app](../../includes/app-service-mobile-ios-authenticate-app.md)]
 
-##<a name="store-authentication"></a>앱에 인증 토큰 저장
-
-[AZURE.INCLUDE [app-service-mobile-ios-authenticate-app-with-token](../../includes/app-service-mobile-ios-authenticate-app-with-token.md)]
-
 
 <!-- URLs. -->
 
-[iOS 앱 만들기]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+[iOS 빠른 시작]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
+[iOS 빠른 시작 안내서]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
 
 [Azure Management Portal]: https://portal.azure.com
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

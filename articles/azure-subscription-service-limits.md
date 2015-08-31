@@ -189,6 +189,10 @@ SQL 데이터베이스 제한에 대한 자세한 내용은 다음 항목을 참
 
 [AZURE.INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
 
+## Application Insights 제한
+
+[AZURE.INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
+
 ## API 관리 제한
 
 [AZURE.INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
@@ -210,4 +214,4 @@ SQL 데이터베이스 제한에 대한 자세한 내용은 다음 항목을 참
 
 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

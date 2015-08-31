@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Azure AD 디렉터리 관리" 
-	description="Azure AD 테넌트의 정의 및 Azure AD 디렉터리를 관리하는 방법을 설명하는 항목입니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="Justinha" 
-	manager="TerryLan" 
+<properties
+	pageTitle="Azure AD 디렉터리 관리"
+	description="Azure AD 테넌트의 정의 및 Azure AD 디렉터리를 관리하는 방법을 설명하는 항목입니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="Markusvi"
+	manager="stevenpo"
 	editor="LisaToft"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="05/05/2015" 
-	ms.author="Justinha"/>
+<tags
+	ms.service="active-directory"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="05/05/2015"
+	ms.author="markvi"/>
 
 # Azure AD 디렉터리 관리
 
@@ -97,17 +97,17 @@ Azure 관리 포털에서 Azure AD 디렉터리를 추가할 수 있습니다. �
 
 각 디렉터리를 완전히 독립된 리소스로 관리할 수 있습니다. 각 디렉터리는 관리하는 다른 디렉터리와 논리적으로 독립된 완전한 기능을 갖춘 피어이며, 디렉터리 간에 부모-자식 관계가 없습니다. 디렉터리 간 독립성에는 리소스 독립성, 관리 독립성 및 동기화 독립성이 포함됩니다.
 
-- **리소스 독립성**. 한 디렉터리에서 리소스를 만들거나 삭제해도 다른 디렉터리의 리소스에 영향을 주지 않습니다. 단, 아래에 설명된 외부 사용자는 부분적으로 제외됩니다. 한 디렉터리에서 사용자 지정 도메인 'contoso.com'을 사용하는 경우 다른 디렉터리에서 사용할 수 없습니다. 
-- **관리 독립성**. 'Contoso' 디렉터리의 관리자가 아닌 사용자가 테스트 디렉터리 ‘Test’를 만들면 다음과 같이 수행됩니다. 
-    - ◦디렉터리 동기화 도구에서 데이터를 단일 AD 포리스트와 동기화합니다. 
-    - ◦'Contoso' 디렉터리의 관리자는 'Test'의 관리자가 'Test' 디렉터리에 대한 관리 권한을 특별히 부여하지 않는 한 이 디렉터리에 대한 직접 관리 권한이 없습니다. 'Contoso'의 관리자는 'Test'를 만든 사용자 계정에 대한 제어 권한을 통해 'Test' 디렉터리에 대한 액세스를 제어할 수 있습니다. 
+- **리소스 독립성**. 한 디렉터리에서 리소스를 만들거나 삭제해도 다른 디렉터리의 리소스에 영향을 주지 않습니다. 단, 아래에 설명된 외부 사용자는 부분적으로 제외됩니다. 한 디렉터리에서 사용자 지정 도메인 'contoso.com'을 사용하는 경우 다른 디렉터리에서 사용할 수 없습니다.
+- **관리 독립성**. 'Contoso' 디렉터리의 관리자가 아닌 사용자가 테스트 디렉터리 ‘Test’를 만들면 다음과 같이 수행됩니다.
+    - ◦디렉터리 동기화 도구에서 데이터를 단일 AD 포리스트와 동기화합니다.
+    - ◦'Contoso' 디렉터리의 관리자는 'Test'의 관리자가 'Test' 디렉터리에 대한 관리 권한을 특별히 부여하지 않는 한 이 디렉터리에 대한 직접 관리 권한이 없습니다. 'Contoso'의 관리자는 'Test'를 만든 사용자 계정에 대한 제어 권한을 통해 'Test' 디렉터리에 대한 액세스를 제어할 수 있습니다.
 
     또한 한 디렉터리의 사용자에 대한 관리자 역할을 변경(추가 또는 제거)하는 경우 이 변경 내용은 사용자가 다른 디렉터리에 대해 가질 수 있는 관리자 역할에 영향을 주지 않습니다.
 
 
 - **동기화 독립성**. 각 Azure AD를 독립적으로 구성하여 다음 중 하나의 단일 인스턴스에서 데이터를 동기화할 수 있습니다.
     - 데이터를 단일 AD 포리스트와 동기화하는 디렉터리 동기화 도구
-    - 데이터를 하나 이상의 온-프레미스 포리스트 및/또는 AD 이외의 데이터 소스와 동기화하는 Forefront Identity Manager용 Azure Active Directory 커넥터. 
+    - 데이터를 하나 이상의 온-프레미스 포리스트 및/또는 AD 이외의 데이터 소스와 동기화하는 Forefront Identity Manager용 Azure Active Directory 커넥터.
 
 또한 다른 Azure 리소스와 달리 디렉터리는 Azure 구독의 자식 리소스가 아닙니다. 따라서 Azure 구독을 취소하거나 만료를 허용하는 경우에도 Azure AD PowerShell, Azure Graph API 또는 Office 365 관리 센터와 같은 다른 인터페이스를 사용하여 디렉터리 데이터에 계속 액세스할 수 있습니다. 다른 구독을 디렉터리와 연결할 수도 있습니다.
 
@@ -123,8 +123,8 @@ Azure AD에서 디렉터리를 삭제하려면 특정 조건을 충족해야 합
 다음과 같은 조건을 확인합니다.
 
 - 디렉터리의 유일한 사용자가 디렉터리를 삭제할 전역 관리자입니다. 디렉터리를 삭제하려면 먼저 다른 모든 사용자를 삭제해야 합니다. 사용자가 온-프레미스에서 동기화된 경우 동기화를 해제해야 하며 관리 포털 또는 Windows PowerShell용 Azure 모듈을 사용하여 클라우드 디렉터리에서 사용자를 삭제해야 합니다. Office 365 관리 센터에서 추가된 연락처와 같은 그룹이나 연락처를 삭제하는 요구 사항은 없습니다.
-- 디렉터리에 응용 프로그램이 없을 수 있습니다. 디렉터리를 삭제하려면 먼저 응용 프로그램을 모두 삭제해야 합니다. 
-- Microsoft Azure, Office 365 또는 Azure AD Premium 등 Microsoft Online Services에 대한 구독이 디렉터리에 연결되어 있지 않습니다. 예를 들어 Azure에서 직접 기본 디렉터리를 만든 경우 Azure 구독에서 인증에 이 디렉터리를 계속 사용하면 이 디렉터리를 삭제할 수 없습니다. 마찬가지로 다른 사용자가 구독을 연결한 경우 디렉터리를 삭제할 수 없습니다. 구독을 다른 디렉터리와 연결하려면 Azure 관리 포털에 로그인하고 왼쪽 탐색 영역에서 **설정**을 클릭합니다. 그런 다음 **구독** 페이지 아래쪽에서 **디렉터리 편집**을 클릭합니다. Azure 구독에 대한 자세한 내용은 [Azure 구독과 Azure AD의 연관 관계](active-directory-how-subscriptions-associated-directory.md)를 참조하세요. 
+- 디렉터리에 응용 프로그램이 없을 수 있습니다. 디렉터리를 삭제하려면 먼저 응용 프로그램을 모두 삭제해야 합니다.
+- Microsoft Azure, Office 365 또는 Azure AD Premium 등 Microsoft Online Services에 대한 구독이 디렉터리에 연결되어 있지 않습니다. 예를 들어 Azure에서 직접 기본 디렉터리를 만든 경우 Azure 구독에서 인증에 이 디렉터리를 계속 사용하면 이 디렉터리를 삭제할 수 없습니다. 마찬가지로 다른 사용자가 구독을 연결한 경우 디렉터리를 삭제할 수 없습니다. 구독을 다른 디렉터리와 연결하려면 Azure 관리 포털에 로그인하고 왼쪽 탐색 영역에서 **설정**을 클릭합니다. 그런 다음 **구독** 페이지 아래쪽에서 **디렉터리 편집**을 클릭합니다. Azure 구독에 대한 자세한 내용은 [Azure 구독과 Azure AD의 연관 관계](active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
 
     > [AZURE.NOTE]사용자가 회사 또는 학교 계정을 사용하여 로그인하는 경우 사용자는 자신의 홈 디렉터리를 삭제하려고 하면 안 됩니다. 예를 들어 사용자가 joe@contoso.onmicrosoft.com으로 로그인하는 경우 해당 사용자는 contoso.onmicrosoft.com을 기본 도메인으로 사용하는 디렉터리를 삭제할 수 없습니다.
 
@@ -144,7 +144,4 @@ Azure AD에서 디렉터리를 삭제하려면 특정 조건을 충족해야 합
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
 
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

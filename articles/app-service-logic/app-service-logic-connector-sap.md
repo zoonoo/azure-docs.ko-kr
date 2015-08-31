@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/02/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
 
 
@@ -52,7 +52,7 @@ SAP 커넥터를 사용하려면 먼저 ‘SAP 커넥터’ API 앱의 인스턴
 
 ![][2]
 
-하이브리드 연결을 설정하려면 다음을 수행합니다.
+SAP Conector는 *모든* SAP 끝점을 연결하는 데 하이브리드 연결이 필요합니다. 하이브리드 연결을 설정하려면 다음을 수행합니다.
 
 1. 기본 연결 문자열을 복사합니다.
 2. ‘'다운로드 및 구성’ 링크를 클릭합니다.
@@ -85,6 +85,13 @@ SAP 커넥터는 논리 앱에서 작업/단계로만 사용할 수 있습니다
 
 논리 앱을 완료하여 비즈니스 프로세스를 정의하고 실행하여 원하는 목적을 달성합니다.
 
+## 커넥터의 추가 기능
+이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
+
+[커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
+
+커넥터의 성능 통계를 검토하고 보안을 제어할 수 있습니다. [기본 제공 API 앱 및 커넥터 관리 및 모니터링](app-service-logic-monitor-your-connectors.md)을 참조하세요.
+
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-sap/Create.jpg
 [2]: ./media/app-service-logic-connector-sap/BrowseSetupIncomplete.jpg
@@ -94,4 +101,4 @@ SAP 커넥터는 논리 앱에서 작업/단계로만 사용할 수 있습니다
 [6]: ./media/app-service-logic-connector-sap/LogicApp2.jpg
 [7]: ./media/app-service-logic-connector-sap/LogicApp3.jpg
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

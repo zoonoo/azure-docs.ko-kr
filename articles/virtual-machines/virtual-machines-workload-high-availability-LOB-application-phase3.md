@@ -34,7 +34,7 @@ PowerShell 명령의 다음 블록을 사용하여 3개 서버용 가상 컴퓨�
 - 가상 컴퓨터의 경우 표 M
 - 가상 네트워크 설정의 경우 표 V
 - 서브넷의 경우 표 S
-- 저장소 계정의 경우 테이블 ST
+- 저장소 계정의 경우 표 ST
 - 가용성 집합의 경우 표 A
 
 [2단계](virtual-machines-workload-high-availability-LOB-application-phase2.md)에서 정의한 테이블 M과, [1단계](virtual-machines-workload-high-availability-LOB-application-phase1.md)에서 정의한 테이블 V, S, ST 및 A를 불러옵니다.
@@ -266,4 +266,6 @@ SQL Server에서 AlwaysOn 가용성 그룹을 사용하도록 설정하려면 �
 
 [Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO7-->
+[Azure 인프라 서비스 작업: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
+
+<!---HONumber=August15_HO8-->

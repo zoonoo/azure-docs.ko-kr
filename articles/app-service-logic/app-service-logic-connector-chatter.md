@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="08/09/2015"
+   ms.date="08/19/2015"
    ms.author="sameerch"/>
 
 
@@ -37,7 +37,10 @@ Chatter 커넥터는 논리 앱에서 트리거나 동작으로 사용할 수 �
 ## 논리 앱용 Chatter 커넥터 만들기
 커넥터는 논리 앱 내에서 만들거나 Azure 마켓플레이스에서 직접 만들 수 있습니다. 마켓플레이스에서 커넥터를 만들려면
 
-	![][1]
+1. Azure 시작 보드에서 **마켓플레이스**를 선택합니다.
+2. “Chatter 커넥터”를 검색하여 선택하고 **만들기**를 선택합니다.
+3. 이름, 앱 서비스 계획 및 기타 속성을 입력합니다.
+	![][1]  
 	- **위치** - 커넥터를 배포할 지리적 위치를 선택합니다.
 	- **구독** - 이 커넥터를 만들 구독을 선택합니다.
 	- **리소스 그룹** - 커넥터가 상주할 리소스 그룹을 선택하거나 만듭니다.
@@ -51,24 +54,21 @@ Chatter 커넥터는 논리 앱에서 트리거나 동작으로 사용할 수 �
 ## 논리 앱에서 Chatter Connector 사용
 API 앱을 만들고 나면 이제 Chatter 커넥터를 논리 앱에서 트리거 또는 동작으로 사용할 수 있습니다. 다음을 수행합니다.
 
-1.	새 논리 앱을 만들고 Chatter Connector가 있는 동일한 리소스 그룹을 선택합니다.
+1. 논리 앱에서 **트리거 및 동작**을 열어 논리 앱 디자이너를 열고 흐름을 구성합니다.
 
-	![][2]
-2.	"트리거 및 동작"을 열어 논리 앱 디자이너를 열고 흐름을 구성합니다.
-
-3.	Chatter Connector가 오른쪽의 갤러리에 있는 “이 리소스 그룹의 API 앱” 섹션에 나타납니다.
-
+2. 갤러리에 Chatter 커넥터가 나열됩니다.
 	![][4]
-4. “Chatter Connector”를 클릭하여 Chatter Connector API 앱을 편집기에 놓을 수 있습니다. 권한 부여 단추를 클릭합니다. 자격 증명을 제공 합니다. “허용”을 클릭합니다.
-
+3. Chatter 커넥터를 선택하면 자동으로 디자이너에 추가됩니다. **인증**을 선택하고 자격 증명을 입력한 후 **허용**을 선택합니다.
 	![][5]
 	![][6]
 	![][7]
-5.	이제 흐름에서 Chatter Connector를 사용할 수 있습니다. 흐름의 다른 동작에서 Chatter Connector("새 메시지")로부터 검색된 새 메시지를 사용할 수 있습니다. 다음과 같이 Chatter 트리거에 대한 입력 속성을 구성합니다.
-	- **그룹 ID** - 새 메시지를 검색할 그룹의 ID를 지정합니다. 그룹 ID를 제공하지 않는 경우 사용자의 피드에서 새 메시지가 검색됩니다.
 
-  ![][8]
-  ![][9]
+이제 흐름에서 Chatter Connector를 사용할 수 있습니다. 흐름의 다른 동작에서 Chatter Connector("새 메시지")로부터 검색된 새 메시지를 사용할 수 있습니다. 다음과 같이 Chatter 트리거에 대한 입력 속성을 구성합니다.
+
+**그룹 ID** - 새 메시지를 검색할 그룹의 ID를 입력합니다. 그룹 ID를 제공하지 않는 경우 사용자의 피드에서 새 메시지가 검색됩니다.
+	![][8]
+	![][9]
+
 
 6. 유사한 방식으로 흐름에서 "메시지 게시" 동작을 선택하여 메시지를 게시하도록 Chatter 동작을 사용할 수 있습니다. 다음과 같이 "메시지 게시" 동작에 대한 입력 속성을 구성합니다.
 	- **메시지 텍스트** - 게시할 메시지의 텍스트내용입니다.
@@ -83,6 +83,14 @@ API 앱을 만들고 나면 이제 Chatter 커넥터를 논리 앱에서 트리�
 	![][10]
 	![][11]
 
+## 커넥터의 추가 기능
+이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
+
+[커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
+
+커넥터의 성능 통계를 검토하고 보안을 제어할 수 있습니다. [기본 제공 API 앱 및 커넥터 관리 및 모니터링](app-service-logic-monitor-your-connectors.md)을 참조하세요.
+
+
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-chatter/img1.PNG
 [2]: ./media/app-service-logic-connector-chatter/img2.PNG
@@ -96,4 +104,4 @@ API 앱을 만들고 나면 이제 Chatter 커넥터를 논리 앱에서 트리�
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

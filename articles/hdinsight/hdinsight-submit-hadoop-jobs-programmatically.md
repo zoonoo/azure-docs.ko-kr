@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="HDInsight에서 Hadoop 작업 제출 | Microsoft Azure" 
-	description="Azure HDInsight Hadoop에 Hadoop 작업을 제출하는 방법에 대해 알아봅니다." 
-	editor="cgronlun" 
-	manager="paulettm" 
-	services="hdinsight" 
-	documentationCenter="" 
+<properties
+	pageTitle="HDInsight에서 Hadoop 작업 제출 | Microsoft Azure"
+	description="Azure HDInsight Hadoop에 Hadoop 작업을 제출하는 방법에 대해 알아봅니다."
+	editor="cgronlun"
+	manager="paulettm"
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/15/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 # HDInsight에서 Hadoop 작업 제출
@@ -47,12 +48,12 @@ Hadoop MapReduce는 방대한 양의 데이터를 처리하는 응용 프로그�
 1.	**Azure PowerShell**을 엽니다. Azure PowerShell 콘솔 창을 여는 방법에 대한 지침은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
 
 3. 다음 PowerShell 명령을 실행하여 다음 변수를 설정합니다:
-		
-		$subscriptionName = "<SubscriptionName>"   
-		$clusterName = "<HDInsightClusterName>"    
+
+		$subscriptionName = "<SubscriptionName>"
+		$clusterName = "<HDInsightClusterName>"
 
 	구독 이름은 HDInsight 클러스터를 만드는 데 사용한 것입니다. HDInsight 클러스터는 MapReduce 작업 실행에 사용하려는 것입니다.
-	
+
 5. 다음 명령을 실행하여 MapReduce 작업 정의를 만듭니다.
 
 		# Define the word count MapReduce job
@@ -64,34 +65,34 @@ Hadoop MapReduce는 방대한 양의 데이터를 처리하는 응용 프로그�
 
 		# Submit the MapReduce job
 		Select-AzureSubscription $subscriptionName
-		$wordCountJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $wordCountJobDefinition 
+		$wordCountJob = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $wordCountJobDefinition
 
 	MapReduce 작업 정의뿐 아니라 MapReduce 작업을 실행하려는 HDInsight 클러스터 이름도 제공해야 합니다.
 
 7. 다음 명령을 실행하여 MapReduce 작업 완료를 확인합니다.
 
 		# Wait for the job to complete
-		Wait-AzureHDInsightJob -Job $wordCountJob -WaitTimeoutInSeconds 3600 
-		
+		Wait-AzureHDInsightJob -Job $wordCountJob -WaitTimeoutInSeconds 3600
+
 
 8. 다음 명령을 실행하여 MapReduce 작업 실행 오류를 확인합니다.
 
 		# Get the job standard error output
-		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $wordCountJob.JobId -StandardError 
-					
+		Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $wordCountJob.JobId -StandardError
+
 	다음 스크린샷은 성공한 실행 출력을 보여 줍니다. 그렇지 않으면 오류 메시지가 표시됩니다.
 
 	![HDI.GettingStarted.RunMRJob][image-hdi-gettingstarted-runmrjob]
 
-		
+
 **MapReduce 작업 결과를 검색하려면**
 
 1. **Azure PowerShell**을 엽니다.
 2. 다음 PowerShell 명령을 실행하여 다음 변수를 설정합니다:
 
-		$subscriptionName = "<SubscriptionName>"       
+		$subscriptionName = "<SubscriptionName>"
 		$storageAccountName = "<StorageAccountName>"
-		$containerName = "<ContainerName>"			
+		$containerName = "<ContainerName>"
 
 	저장소 계정 이름은 HDInsight 클러스터 프로비전 중에 지정한 Azure 저장소 이름입니다. 저장소 계정은 기본 HDInsight 클러스터 파일 시스템으로 사용되는 Blob 컨테이너를 호스트하는 데 사용됩니다. 일반적으로 컨테이너 이름은 클러스터를 프로비전할 때 다른 이름을 지정하지 않을 경우 HDInsight 클러스터와 동일한 이름을 공유합니다.
 
@@ -270,9 +271,9 @@ HDInsight 클러스터는 *hivesampletable*이라는 샘플 Hive 테이블과 �
 1.	**Azure PowerShell**을 엽니다. Azure PowerShell 콘솔 창을 여는 방법에 대한 지침은 [Azure PowerShell 설치 및 구성][powershell-install-configure]을 참조하세요.
 
 2. 다음 명령에서 처음 2개 변수를 설정한 후 명령을 실행합니다.
-		
-		$subscriptionName = "<SubscriptionName>"   
-		$clusterName = "<HDInsightClusterName>"             
+
+		$subscriptionName = "<SubscriptionName>"
+		$clusterName = "<HDInsightClusterName>"
 		$querystring = "SELECT * FROM hivesampletable WHERE Country='United Kingdom';"
 
 	$querystring은 HiveQL 쿼리입니다.
@@ -354,10 +355,10 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
 		using System.IO;
 		using System.Threading;
 		using System.Security.Cryptography.X509Certificates;
-		
+
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Blob;
-		
+
 		using Microsoft.WindowsAzure.Management.HDInsight;
 		using Microsoft.Hadoop.Client;
 
@@ -372,26 +373,26 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
                 Thread.Sleep(TimeSpan.FromSeconds(10));
             }
         }
-	
+
 10. **Main()** 함수에서 다음 코드를 붙여넣습니다:
-		
+
 		// Set the variables
 		string subscriptionID = "<Azure subscription ID>";
 		string certFriendlyName = "<certificate friendly name>";
 
 		string clusterName = "<HDInsight cluster name>";
-		
+
 		string storageAccountName = "<Azure storage account name>";
 		string storageAccountKey = "<Azure storage account key>";
 		string containerName = "<Blob container name>";
-		
-	
-	이러한 모든 변수를 프로그램에 대해 설정해야 합니다. [Azure 포털][azure-management-portal]에서 Azure 구독 이름을 가져올 수 있습니다.
+
+
+	이러한 모든 변수를 프로그램에 대해 설정해야 합니다. [Azure Preview 포털][azure-management-portal]에서 Azure 구독 이름을 가져올 수 있습니다.
 
 	인증서에 대한 정보는 [Azure용 관리 인증서 만들기 및 업로드][azure-certificate]를 참조하세요. 인증서를 구성하는 손쉬운 방법은 **Get-AzurePublishSettingsFile** 및 **Import-AzurePublishSettingsFile** Azure PowerShell cmdlet을 실행하는 것입니다. 그러면 관리 인증서가 자동으로 생성되어 업로드됩니다. 이러한 cmdlet을 실행한 후 워크스테이션에서 **certmgr.msc**를 열고, **Personal** > **Certificates**를 확장하여 인증서를 찾을 수 있습니다. Azure PowerShell cmdlet으로 만든 인증서에는 **발급 대상** 및 **발급자** 필드 모두에 사용할 수 있는 Azure Tools가 있습니다.
 
 	Azure 저장소 계정 이름은 HDInsight 클러스터를 프로비전할 때 지정하는 계정입니다. 기본 컨테이너 이름은 HDInsight 클러스터 이름과 동일합니다.
-	
+
 11. **Main()** 함수에서 다음 코드를 추가하여 MapReduce 작업을 정의합니다:
 
 
@@ -406,7 +407,7 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
         mrJobDefinition.Arguments.Add("wasb:///example/data/WordCountOutput");
 
 	두 개의 인수가 있습니다. 첫 번째 인수는 원본 파일 이름이고, 두 번째 인수는 출력 파일 경로입니다. wasb:// 접두사에 대한 자세한 내용은 [HDInsight와 함께 Azure Blob 저장소 사용][hdinsight-storage]을 참조하세요.
-		
+
 12. **Main()** 함수에서 다음 코드를 추가하여 JobSubmissionCertificateCredential 개체를 만듭니다:
 
         // Get the certificate object from certificate store using the friendly name to identify it
@@ -414,7 +415,7 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
         store.Open(OpenFlags.ReadOnly);
         X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
         JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
-		
+
 13. **Main()** 함수에서 다음 코드를 추가하여 작업을 실행하고 작업이 완료되기를 기다립니다:
 
         // Create a hadoop client to connect to HDInsight
@@ -430,18 +431,18 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
 
 		// Print the MapReduce job output
 		Stream stream = new MemoryStream();
-		
+
 		CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=" + storageAccountName + ";AccountKey=" + storageAccountKey);
 		CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 		CloudBlobContainer blobContainer = blobClient.GetContainerReference(containerName);
 		CloudBlockBlob blockBlob = blobContainer.GetBlockBlobReference("example/data/WordCountOutput/part-r-00000");
-		
+
 		blockBlob.DownloadToStream(stream);
 		stream.Position = 0;
-		
+
 		StreamReader reader = new StreamReader(stream);
 		Console.WriteLine(reader.ReadToEnd());
-		
+
         Console.WriteLine("Press ENTER to continue.");
 		Console.ReadLine();
 
@@ -452,25 +453,25 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
 Visual Studio에 응용 프로그램이 열려 있을 때 **F5**를 눌러 응용 프로그램을 실행합니다. 콘솔 창이 열리고 응용 프로그램의 상태 및 응용 프로그램 출력이 표시됩니다.
 
 ##HDInsight .NET SDK를 사용하여 Hadoop 스트리밍 작업 제출
-HDInsight 클러스터는 C#으로 개발된 단어 수 계산 Hadoop 스트림 프로그램과 함께 제공됩니다. 매퍼 프로그램은 */example/apps/cat.exe*이고 reduce 프로그램은 */example/apps/wc.exe*입니다. 이 세션에서는 단어 개수 샘플을 실행하는 .NET 응용 프로그램을 만드는 방법에 대해 알아봅니다.
+HDInsight 클러스터는 C\#으로 개발된 단어 수 계산 Hadoop 스트림 프로그램과 함께 제공됩니다. 매퍼 프로그램은 */example/apps/cat.exe*이고 reduce 프로그램은 */example/apps/wc.exe*입니다. 이 세션에서는 단어 개수 샘플을 실행하는 .NET 응용 프로그램을 만드는 방법에 대해 알아봅니다.
 
 MapReduce 작업 제출을 위한 .Net 응용 프로그램을 만드는 방법에 대한 자세한 내용은 [HDInsight .NET SDK를 사용하여 MapReduce 작업 제출](#mapreduce-sdk)을 참조하세요.
 
-Hadoop 스트리밍 작업 개발 및 배포에 대한 자세한 내용은 [HDInsight용 C# Hadoop 스트리밍 프로그램 개발][hdinsight-develop-streaming-jobs]을 참조하세요.
+Hadoop 스트리밍 작업 개발 및 배포에 대한 자세한 내용은 [HDInsight용 C#Hadoop 스트리밍 프로그램 개발][hdinsight-develop-streaming-jobs]을 참조하세요.
 
 	using System;
 	using System.Collections.Generic;
 	using System.Linq;
 	using System.Text;
 	using System.Threading.Tasks;
-	
+
 	using System.IO;
 	using System.Threading;
 	using System.Security.Cryptography.X509Certificates;
-	
+
 	using Microsoft.WindowsAzure.Management.HDInsight;
 	using Microsoft.Hadoop.Client;
-	
+
 	namespace SubmitStreamingJob
 	{
 	    class Program
@@ -481,7 +482,7 @@ Hadoop 스트리밍 작업 개발 및 배포에 대한 자세한 내용은 [HDIn
 				// Set the variables
 				string subscriptionID = "<Azure subscription ID>";
 				string certFriendlyName = "<certificate friendly name>";
-		
+
 				string clusterName = "<HDInsight cluster name>";
 				string statusFolderName = @"/tutorials/wordcountstreaming/status";
 
@@ -495,28 +496,28 @@ Hadoop 스트리밍 작업 개발 및 배포에 대한 자세한 내용은 [HDIn
 	                Reducer = "wc.exe",
 	                Mapper = "cat.exe"
 	            };
-	
+
 	            myJobDefinition.Files.Add("/example/apps/wc.exe");
 	            myJobDefinition.Files.Add("/example/apps/cat.exe");
-	
+
 	            // Get the certificate object from certificate store using the friendly name to identify it
 	            X509Store store = new X509Store();
 	            store.Open(OpenFlags.ReadOnly);
 	            X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
-	
+
 	            JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
-	
+
 	            // Create a hadoop client to connect to HDInsight
 	            var jobClient = JobSubmissionClientFactory.Connect(creds);
-	
+
 	            // Run the MapReduce job
 	            Console.WriteLine("----- Submit the Hadoop streaming job ...");
 	            JobCreationResults mrJobResults = jobClient.CreateStreamingJob(myJobDefinition);
-	
+
 	            // Wait for the job to complete
 	            Console.WriteLine("----- Wait for the Hadoop streaming job to complete ...");
 	            WaitForJobCompletion(mrJobResults, jobClient);
-	
+
 	            // Display the error log
 	            Console.WriteLine("----- The hadoop streaming job error log.");
 	            using (Stream stream = jobClient.GetJobErrorLogs(mrJobResults.JobId))
@@ -524,7 +525,7 @@ Hadoop 스트리밍 작업 개발 및 배포에 대한 자세한 내용은 [HDIn
 	                var reader = new StreamReader(stream);
 	                Console.WriteLine(reader.ReadToEnd());
 	            }
-	
+
 	            // Display the output log
 	            Console.WriteLine("----- The hadoop streaming job output log.");
 	            using (Stream stream = jobClient.GetJobOutput(mrJobResults.JobId))
@@ -532,11 +533,11 @@ Hadoop 스트리밍 작업 개발 및 배포에 대한 자세한 내용은 [HDIn
 	                var reader = new StreamReader(stream);
 	                Console.WriteLine(reader.ReadToEnd());
 	            }
-	
+
 	            Console.WriteLine("----- Press ENTER to continue.");
 	            Console.ReadLine();
 	        }
-	
+
 	        private static void WaitForJobCompletion(JobCreationResults jobResults, IJobSubmissionClient client)
 	        {
 	            JobDetails jobInProgress = client.GetJob(jobResults.JobId);
@@ -554,7 +555,7 @@ Hadoop 스트리밍 작업 개발 및 배포에 대한 자세한 내용은 [HDIn
 
 
 
-##HDInsight .NET SDK를 사용하여 Hive 작업 제출 
+##HDInsight .NET SDK를 사용하여 Hive 작업 제출
 HDInsight 클러스터는 *hivesampletable*이라는 샘플 Hive 테이블과 함께 제공됩니다. 이 세션에서는 HDInsight 클러스터에서 만든 Hive 테이블을 나열하기 위한 Hive 작업을 실행하는 .NET 응용 프로그램을 만듭니다. Hive에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용][hdinsight-use-hive]을 참조하세요.
 
 SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절차가 필요합니다:
@@ -623,19 +624,19 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
                 Thread.Sleep(TimeSpan.FromSeconds(10));
             }
         }
-	
+
 10. **Main()** 함수에서 다음 코드를 붙여넣습니다:
-		
+
 		// Set the variables
 		string subscriptionID = "<Azure subscription ID>";
 		string clusterName = "<HDInsight cluster name>";
-		string certFriendlyName = "<certificate friendly name>";		
-		
-	
+		string certFriendlyName = "<certificate friendly name>";
+
+
 	이러한 모든 변수를 프로그램에 대해 설정해야 합니다. 시스템 관리자로부터 Azure 구독 ID를 얻을 수 있습니다.
 
 	인증서에 대한 정보는 [Azure용 관리 인증서 만들기 및 업로드][azure-certificate]를 참조하세요. 인증서를 구성하는 손쉬운 방법은 **Get-AzurePublishSettingsFile** 및 **Import-AzurePublishSettingsFile** Azure PowerShell cmdlet을 실행하는 것입니다. 그러면 관리 인증서가 자동으로 생성되어 업로드됩니다. 이러한 cmdlet을 실행한 후 워크스테이션에서 **certmgr.msc**를 열고, **Personal** > **Certificates**를 확장하여 인증서를 찾을 수 있습니다. PowerShell cmdlet으로 만든 인증서에는 **발급 대상** 및 **발급자** 필드 모두에 사용할 수 있는 Azure Tools가 있습니다.
-	
+
 11. **Main()** 함수에서 다음 코드를 추가하여 Hive 작업을 정의합니다:
 
         // define the Hive job
@@ -656,15 +657,15 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
             File = "/user/admin/showtables.hql"
         };
 
-		
+
 12. **Main()** 함수에서 다음 코드를 추가하여 **JobSubmissionCertificateCredential** 개체를 만듭니다:
-	
+
         // Get the certificate object from certificate store using the friendly name to identify it
         X509Store store = new X509Store();
         store.Open(OpenFlags.ReadOnly);
         X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
         JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
-		
+
 13. **Main()** 함수에서 다음 코드를 추가하여 작업을 실행하고 작업이 완료되기를 기다립니다:
 
         // Submit the Hive job
@@ -673,7 +674,7 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
 
         // Wait for the job to complete
         WaitForJobCompletion(jobResults, jobClient);
-		
+
 14. **Main()** 함수에서 다음 코드를 추가하여 Hive 작업 출력을 인쇄합니다:
 
         // Print the Hive job output
@@ -691,7 +692,9 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5**를 눌러 응�
 
 	hivesampletable
 
+##Visual Studio용 HDInsight 도구를 사용하여 작업 제출
 
+Visual Studio용 HDInsight 도구를 사용하여 Hive 쿼리 및 Pig 스크립트를 실행할 수 있습니다. [HDInsight용 Visual Studio Hadoop 도구를 사용 시작](hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
 
 ##다음 단계
@@ -706,7 +709,7 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5**를 눌러 응�
 
 
 [azure-certificate]: http://msdn.microsoft.com/library/windowsazure/gg551722.aspx
-[azure-management-portal]: http://manage.windowsazure.com/
+[azure-management-portal]: https://portal.azure.com/
 
 [hdinsight-visual-studio-tools]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
@@ -727,6 +730,5 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5**를 눌러 응�
 [image-hdi-gettingstarted-mrjoboutput]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.MRJobOutput.png
 
 [apache-hive]: http://hive.apache.org/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

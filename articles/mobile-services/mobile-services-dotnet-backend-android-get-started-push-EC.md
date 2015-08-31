@@ -18,7 +18,7 @@
 
 # 모바일 서비스 앱에 푸시 알림 추가
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push-EC.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push-ec.md)]
 
 ##개요
 
@@ -28,7 +28,7 @@
 
 ##<a id="register"></a>Google Cloud Messaging 사용
 
-[AZURE.INCLUDE [GCM 사용](../../includes/mobile-services-enable-Google-cloud-messaging.md)]
+[AZURE.INCLUDE [GCM 사용](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 
 ##<a id="configure"></a>푸시 요청을 전송하도록 모바일 서비스 구성
@@ -99,7 +99,7 @@
 
 ###Android SDK 버전 확인
 
-[AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../../includes/mobile-services-verify-android-sdk-version-EC.md)]
+[AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../../includes/mobile-services-verify-android-sdk-version-ec.md)]
 
 
 다음 단계에서는 Google Play Services를 설치합니다. Google Cloud Messaging에는 매니페스트의 **minSdkVersion** 속성이 준수해야 하는 개발 및 테스트에 대한 최소 API 수준 요구 사항이 있습니다.
@@ -108,11 +108,11 @@
 
 ###프로젝트에 Google Play Services 추가
 
-[AZURE.INCLUDE [Play 서비스 추가](../../includes/mobile-services-add-Google-play-services-EC.md)]
+[AZURE.INCLUDE [Play 서비스 추가](../../includes/mobile-services-add-google-play-services-ec.md)]
 
 ###코드 추가
 
-[AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push-EC.md)]
+[AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push-ec.md)]
 
 ##<a name="test-app"></a>게시된 모바일 서비스에 대해 앱 테스트
 
@@ -237,4 +237,4 @@ Google API를 지원하는 AVD(Android Virtual Device)를 사용해야 합니다
 [Azure 관리 포털]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

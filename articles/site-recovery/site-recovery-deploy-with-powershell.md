@@ -45,7 +45,7 @@ Azure Site Recovery는 여러 배포 시나리오에서 가상 컴퓨터의 복�
 - 보호할 VMM 서버에 클라우드가 하나 이상 있어야 합니다. 클라우드에는 다음이 포함되어야 합니다.
 	- 하나 이상의 VMM 호스트 그룹.
 	- 각 호스트 그룹에 있는 하나 이상의 Hyper-V 호스트 서버 또는 클러스터.
-	- 원본 Hyper-V 서버에 있는 하나 이상의 가상 컴퓨터. 가상 컴퓨터는 1세대 가상 컴퓨터여야 합니다.
+	- 원본 Hyper-V 서버에 있는 하나 이상의 가상 컴퓨터.
 - VMM 클라우드 설정에 대해 자세히 알아봅니다.
 	- [System Center 2012 R2 VMM에서 사설 클라우드의 새로운 기능](http://go.microsoft.com/fwlink/?LinkId=324952)과 [VMM 2012 및 클라우드](http://go.microsoft.com/fwlink/?LinkId=324956)에서 사설 VMM 클라우드에 대해 알아봅니다.
 	- [VMM 클라우드 패브릭 구성](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)에 대해 알아봅니다.
@@ -461,4 +461,4 @@ if($isJobLeftForProcessing)
 
 <LI>궁금한 사항은 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 복구 서비스 포럼</a>을 참조하세요.</LI> </UL>
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

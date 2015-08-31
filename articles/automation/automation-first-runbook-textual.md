@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 자동화의 내 첫 번째 텍스트 Runbook"
+	pageTitle="Azure 자동화의 내 첫 번째 텍스트 Runbook | Microsoft Azure"
 	description="PowerShell 워크플로를 사용하여 간단한 텍스트 Runbook의 생성, 테스트, 게시 과정을 안내하는 자습서입니다. Azure 리소스 인증 및 입력 매개 변수와 같은 여러 개념을 설명합니다."
 	services="automation"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="08/13/2015"
+	ms.date="08/18/2015"
 	ms.author="bwren"/>
 
 
@@ -82,14 +82,14 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 
 ## 5 단계-Azure 리소스를 관리 인증 추가
 
-지금까지 runbook을 테스트 하고 게시했지만, 딱히 유용하지는 않습니다. Azure 리소스를 관리하고자 합니다. [필수 구성 요소](#prerequisites)에서 언급된 자격 증명을 사용하여 인증하지 않은 경우 이 작업을 수행할 수 없습니다. **Set-AzureAccount** cmdlet으로 이 작업을 수행합니다.
+지금까지 runbook을 테스트 하고 게시했지만, 딱히 유용하지는 않습니다. Azure 리소스를 관리하고자 합니다. [필수 구성 요소](#prerequisites)에서 언급된 자격 증명을 사용하여 인증하지 않은 경우 이 작업을 수행할 수 없습니다. **Add-AzureAccount** cmdlet으로 이 작업을 수행합니다.
 
 1.  MyFirstRunbook-Textual 창에 있는 **편집**을 클릭하여 텍스트 편집기를 엽니다.<br> ![Runbook 편집](media/automation-first-runbook-textual/runbook-toolbar-edit.png) 
 2.  **Write-Output** 줄이 더 이상 필요하지 않으면 삭제합니다.
 3.  중괄호 사이의 빈 줄에 커서를 놓습니다.
 3.  라이브러리 컨트롤에서 **자산**과 **자격 증명**을 차례로 확장합니다.
-4.  자격 증명을 마우스 오른쪽 단추로 클릭하고 **캔버스에 추가**를 클릭합니다. 이렇게 하면 자격 증명에 대해 **Get-AutomationCredential** 작업이 추가됩니다.
-5.  **Get-AutomationCredential** 앞에 *$Credential =*을 입력하여 자격 증명을 변수에 할당합니다. 
+4.  자격 증명을 마우스 오른쪽 단추로 클릭하고 **캔버스에 추가**를 클릭합니다. 이렇게 하면 자격 증명에 대해 **Get-AutomationPSCredential** 작업이 추가됩니다.
+5.  **Get-AutomationPSCredential** 앞에 *$Credential =*을 입력하여 자격 증명을 변수에 할당합니다. 
 3.  다음 줄에 *Add-AzureAccount -Credential $Credential*을 입력합니다.<br>![인증](media/automation-first-runbook-textual/authentication.png) 
 3. Runbook을 테스트할 수 있도록 **테스트 창**을 클릭합니다.
 10. **시작**을 클릭하여 테스트를 시작합니다. 완료되면 자격 증명의 사용자에 대한 정보를 반환하는 다음과 비슷한 출력이 표시됩니다. 이를 통해 자격 증명이 유효한지 확인됩니다.<br>![인증](media/automation-first-runbook-textual/authentication-test.png) 
@@ -122,4 +122,4 @@ Runbook이 Azure 구독에서 인증을 받으므로 리소스를 관리할 수 
 
 - [내 첫 번째 그래픽 Runbook](automation-first-runbook-graphical.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

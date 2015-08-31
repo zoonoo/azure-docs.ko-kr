@@ -31,7 +31,7 @@ Azure 인프라 서비스의 고가용성 LOB(기간 업무) 응용 프로그램
 
 	Switch-AzureMode AzureServiceManagement
 	$vnet="<Table V – Item 1 – Value column>"
-	$testIP="<a chosen IP address from the subnet address space, Table S - Item 1 – Subnet address space column>"
+	$testIP="<a chosen IP address from the subnet address space, Table S - Item 2 – Subnet address space column>"
 	Test-AzureStaticVNetIP –VNetName $vnet –IPAddress $testIP
 
 표시되는 Test-AzureStaticVNetIP 명령에서 **IsAvailable** 필드가 **True**이면 해당 IP 주소를 사용할 수 있습니다.
@@ -166,4 +166,6 @@ PowerShell 명령의 다음 블록을 사용하여 두 웹 서버용 가상 컴�
 
 [Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO7-->
+[Azure 인프라 서비스 작업: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
+
+<!---HONumber=August15_HO8-->

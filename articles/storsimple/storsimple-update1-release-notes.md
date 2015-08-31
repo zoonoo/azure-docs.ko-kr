@@ -1,18 +1,18 @@
 <properties 
-    pageTitle="StorSimple 8000 시리즈 업데이트 1 릴리스 정보"
+    pageTitle="StorSimple 8000 시리즈 업데이트 1 릴리스 정보 | Microsoft Azure"
     description="StorSimple 8000 시리즈 업데이트 1에 대한 새로운 기능, 문제 및 해결 방법을 설명합니다."
     services="storsimple"
     documentationCenter="NA"
     authors="alkohli"
-    manager="adinah"
-    editor="tysonn" />
+    manager="carolz"
+    editor="" />
  <tags 
     ms.service="storsimple"
     ms.devlang="NA"
     ms.topic="article"
     ms.tgt_pltfrm="NA"
     ms.workload="TBD"
-    ms.date="08/12/2015"
+    ms.date="08/19/2015"
     ms.author="alkohli" />
 
 # StorSimple 8000 시리즈 업데이트 1 릴리스 정보  
@@ -82,10 +82,10 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 | 3 | 저장소 계정 | 저장소 계정 삭제에 저장소 서비스를 사용하는 것은 지원되지 않는 시나리오입니다. 이렇게 되면 사용자 데이터를 검색할 수 없게 됩니다. | 예 | 예 |
 | 4 | 장치 장애 조치 | 동일한 원본 장치에서 다른 대상 장치로의 볼륨 컨테이너의 다중 장애 조치는 지원되지 않습니다. 단일 데드 장치에서 여러 장치로의 장애 조치로 첫 번째 장애 조치된 장치의 볼륨 컨테이너에서 데이터 소유권이 손실됩니다. 이러한 장애 조치 후 관리 포털에서 볼 때 이 볼륨 컨테이너가 나타나거나 다르게 동작합니다. | | 예 | 아니요 |
 | 5 | 설치 | SharePoint용 StorSimple 어댑터 설치 중, 성공적으로 설치를 완료하려면 장비 IP를 입력해야 합니다. | | 예 | 아니요 |
-| 6 | 웹 프록시 | 웹 프록시 구성에 지정된 프로토콜로 HTTPS가 있는 경우, 장치 대 서비스의 통신에 영향을 줄 수 있으며 장치는 오프라인 상태가 됩니다. 지원 패키지는 장치에서 중요한 리소스를 소모하는 프로세스에도 생성됩니다. | 웹 프록시 URL에 지정된 프로토콜로 HTTP가 있는지 확인합니다. 자세한 내용은 [장치에 웹 프록시 구성](https://msdn.microsoft.com/library/azure/dn764937.aspx)으로 이동합니다. | 예 | 아니요 |
+| 6 | 웹 프록시 | 웹 프록시 구성에 지정된 프로토콜로 HTTPS가 있는 경우, 장치 대 서비스의 통신에 영향을 줄 수 있으며 장치는 오프라인 상태가 됩니다. 지원 패키지는 장치에서 중요한 리소스를 소모하는 프로세스에도 생성됩니다. | 웹 프록시 URL에 지정된 프로토콜로 HTTP가 있는지 확인합니다. 자세한 내용은 [장치에 웹 프록시 구성](storsimple-configure-web-proxy.md)으로 이동합니다. | 예 | 아니요 |
 | 7 | 웹 프록시 | 등록된 장치에서 웹 프록시를 구성하고 사용하는 경우, 장치에서 활성 컨트롤러를 다시 시작해야 합니다. | | 예 | 아니요 |
 | 8 | 긴 클라우드 대기 시간 및 많은 I/O 작업 | StorSimple 장치에서 클라우드 대기 시간(초 순서)이 매우 길고 I/O 작업이 많으면 장치 볼륨의 성능이 저하되며 "장치가 준비 되지 않았습니다"라는 오류와 함께 I/O가 실패할 수 있습니다. | 이 상황에서 복구하려면 수동으로 장치 컨트롤러를 다시 부팅하거나 장치 장애 조치를 수행해야 합니다. | 예 | 아니요 |
-| 9 | Azure PowerShell | StorSimple cmdlet **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait**를 사용하여 새 **VolumeContainer** 개체를 만들 수 있도록 첫 번째 개체를 선택한 경우, cmdlet은 모든 개체를 리턴합니다. | 다음과 같이 cmdlet을 괄호로 래핑합니다. **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** | 예 | 예 |
+| 9 | Azure PowerShell | StorSimple cmdlet **Get-AzureStorSimpleStorageAccountCredential &\#124; Select-Object -First 1 -Wait**를 사용하여 새 **VolumeContainer** 개체를 만들 수 있도록 첫 번째 개체를 선택한 경우, cmdlet은 모든 개체를 리턴합니다. | 다음과 같이 cmdlet을 괄호로 래핑합니다. **(Get-Azure-StorSimpleStorageAccountCredential) &\#124; Select-Object -First 1 -Wait** | 예 | 예 |
 | 10| 마이그레이션 | 여러 볼륨 컨테이너가 마이그레이션을 위해 전달되는 경우, 최신 백업에 대한 ETA는 첫 번째 볼륨 컨테이너에 대해서만 정확합니다. 또한 병렬 마이그레이션은 첫 번째 볼륨 컨테이너에서 처음 4개의 백업이 마이그레이션된 후 시작됩니다. | 한번에 하나의 볼륨 컨테이너를 마이그레이션하는 것이 좋습니다. | 예 | 아니요 |
 | 11| 마이그레이션 | 복원 후 볼륨은 백업 정책 또는 가상 디스크 그룹에 추가되지 않습니다. | 백업을 만들기 위해 이러한 볼륨을 백업 정책에 추가해야 합니다. | 예 | 예 |
 | 12| 마이그레이션 | 마이그레이션이 완료되면 5000/7000 시리즈 장치는 마이그레이션된 데이터 컨테이너에 액세스하지 않아야 합니다. | 마이그레이션이 완료되고 커밋된 후 마이그레이션된 데이터 컨테이너를 삭제하는 것이 좋습니다. | 예 | 아니요 |
@@ -115,4 +115,4 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 - [장치에 업데이트 1 설치](storsimple-install-update-1.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

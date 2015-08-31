@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,7 +19,7 @@
 
 # Linux 가상 컴퓨터에 데이터 디스크를 연결하는 방법
 
-빈 디스크와 데이터가 포함된 디스크를 모두 연결할 수 있습니다. 두 경우 모두, 디스크는 실제로 Azure 저장소 계정에 상주하는 .vhd 파일입니다. 또한 두 경우 모두 디스크를 연결한 후 초기화를 해야 사용 준비가 완료됩니다.
+빈 디스크와 데이터가 포함된 디스크를 모두 연결할 수 있습니다. 두 경우 모두, 디스크는 실제로 Azure 저장소 계정에 상주하는 .vhd 파일입니다. 또한 두 경우 모두 디스크를 연결한 후 초기화를 해야 사용 준비가 완료됩니다. 이 문서는 클래식 배포 모델을 사용하여 만든 가상 컴퓨터를 참조합니다.
 
 > [AZURE.NOTE]모범 사례는 별도 디스크를 하나 이상 사용하여 가상 컴퓨터의 데이터를 저장하는 것입니다. Azure 가상 컴퓨터를 만들면 운영 체제 디스크와 임시 디스크가 있습니다. **임시 디스크를 데이터 저장에 사용하지 마세요.** 이름이 의미하는 것과 같이 D 드라이브는 임시 저장소만 제공합니다. Azure 저장소에 상주하지 않으므로 중복성이나 백업을 제공하지 않습니다. 임시 디스크는 일반적으로 Azure Linux 에이전트에 의해 관리되며 **/mnt/resource**(또는 Ubuntu 이미지의 **/mnt**)에 자동으로 탑재됩니다. 반면, 데이터 디스크 이름은 `/dev/sdc`처럼 Linux 커널로 지정할 수 있으며 사용자가 해당 리소스에 대한 파티셔닝, 포맷, 마운팅을 수행해야 합니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드][Agent]를 참조하십시오.
 
@@ -164,10 +165,10 @@
 
 [Linux 가상 컴퓨터에서 디스크를 분리하는 방법](virtual-machines-linux-how-to-detach-disk.md)
 
-[Azure 서비스 관리에서 Azure CLI 사용](virtual-machines-command-line-tools.md)
+[서비스 관리 API에서 Azure CLI 사용](virtual-machines-command-line-tools.md)
 
 <!--Link references-->
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

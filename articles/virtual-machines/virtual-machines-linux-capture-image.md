@@ -26,7 +26,7 @@ Azure에서는 이 템플릿이 이미지로 취급되고 **이미지**에 저�
 
 ## 시작하기 전에
 
-이러한 단계는 이미 Azure 가상 컴퓨터를 만들었으며 데이터 디스크 연결을 비롯해 운영 체제 구성을 완료했다는 것을 전제로 합니다. 아직 완료하지 못한 경우 다음 지침을 참조하세요.
+이러한 단계는 이미 클래식 배포 모델을 사용하여 Azure 가상 컴퓨터를 만들었으며 데이터 디스크 연결을 비롯해 운영 체제 구성을 완료했다는 것을 전제로 합니다. 아직 완료하지 못한 경우 다음 지침을 참조하세요.
 
 - [Linux를 실행하는 가상 컴퓨터를 만드는 방법][]
 
@@ -86,7 +86,7 @@ Azure에서는 이 템플릿이 이미지로 취급되고 **이미지**에 저�
 
 
 ## 다음 단계
-가상 컴퓨터를 만들기 위한 템플릿으로 사용할 이미지가 마련됩니다. Azure CLI 명령 `azure vm create`를 사용하여 방금 만든 이미지 이름을 제공할 수 있습니다. 명령에 대한 자세한 내용은 [서비스 관리에서 Azure CLI 사용](virtual-machines-command-line-tools.md)을 참조하세요. 또는 [관리 포털][]에서 **갤러리에서** 방법을 사용하여 사용자 지정 가상 컴퓨터를 만들고 위에서 만든 이미지를 선택할 수 있습니다. 자세한 내용은 [사용자 지정 가상 컴퓨터를 만드는 방법][]을 참조하세요.
+가상 컴퓨터를 만들기 위한 템플릿으로 사용할 이미지가 마련됩니다. Azure CLI 명령 `azure vm create`를 사용하여 방금 만든 이미지 이름을 제공할 수 있습니다. 명령에 대한 자세한 내용은 [서비스 관리 API에서 Azure CLI 사용](virtual-machines-command-line-tools.md)을 참조하세요. 또는 [관리 포털][]에서 **갤러리에서** 방법을 사용하여 사용자 지정 가상 컴퓨터를 만들고 위에서 만든 이미지를 선택할 수 있습니다. 자세한 내용은 [사용자 지정 가상 컴퓨터를 만드는 방법][]을 참조하세요.
 
 **참고 항목:** [Azure Linux 에이전트 사용자 가이드](virtual-machines-linux-agent-user-guide.md)
 
@@ -97,4 +97,4 @@ Azure에서는 이 템플릿이 이미지로 취급되고 **이미지**에 저�
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [Linux를 실행하는 가상 컴퓨터를 만드는 방법]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

@@ -122,4 +122,6 @@ Azure에서 호스트되는 SharePoint 팜에 대한 개발/테스트 환경을 
 
 [Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO7-->
+[Azure 인프라 서비스 작업: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
+
+<!---HONumber=August15_HO8-->

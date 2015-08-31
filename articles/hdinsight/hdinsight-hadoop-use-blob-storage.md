@@ -3,6 +3,7 @@
 	description="HDInsight에서는 Blob 저장소를 HDFS용 빅 데이터 저장소로 사용합니다. Blob 저장소에서 데이터를 쿼리하고 분석을 위해 결과를 저장하는 방법에 대해 알아봅니다."
 	services="hdinsight,storage"
 	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian"
 	manager="paulettm"
 	editor="cgronlun"/>
@@ -12,8 +13,8 @@
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="06/10/2015"
+	ms.topic="article"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 
@@ -76,7 +77,7 @@ HDFS 대신Azure Blob 저장소에 데이터를 저장할 경우 몇 가지 이�
 * **데이터 보관:** Blob 저장소에 데이터를 저장하면 계산에 사용된 HDInsight 클러스터를 사용자 데이터 손실 없이 안전하게 삭제할 수 있습니다.
 * **데이터 저장 비용:** 데이터를 장기간 저장하는 경우 DFS에 저장하는 것이 Azure Blob 저장소에 저장하는 것보다 비용이 많이 드는데, 이는 계산 클러스터의 비용이 Azure Blob 저장소 컨테이너의 비용보다 비싸기 때문입니다. 또한 계산 클러스터를 생성할 때마다 데이터를 다시 로드할 필요가 없기 때문에 데이터 로드 비용도 절약됩니다.
 * **탄력적인 확장:** HDFS는 확장된 파일 시스템을 제공하지만, 확장은 클러스터에 대해 프로비전하는 노드의 수에 의해 결정됩니다. 규모를 변경하는 것이 Azure Blob 저장소에서 자동으로 수행되는 탄력적인 확장 기능에 의존하는 것보다 더 복잡한 프로세스가 될 수 있습니다.
-* **지역에서 복제:** Azure 포털을 통해 Blob 저장소 컨테이너를 지역에서 복제할 수 있습니다. 이 경우 지리적 복구와 데이터 중복 기능이 제공되지만, 지역에서 복제된 위치에 대한 장애 조치(Failover)는 성능에 심각한 영향을 미치게 되며 추가 비용을 발생시킬 수 있습니다. 따라서 지역에서 복제 기능은 추가 비용을 감수할 만큼 가치 있는 데이터에 한해서만 현명하게 사용하는 것이 좋습니다.
+* **지역에서 복제:** Azure Blob 저장소 컨테이너를 지역에서 복제할 수 있습니다. 이 경우 지리적 복구와 데이터 중복 기능이 제공되지만, 지역에서 복제된 위치에 대한 장애 조치(Failover)는 성능에 심각한 영향을 미치게 되며 추가 비용을 발생시킬 수 있습니다. 따라서 지역에서 복제 기능은 추가 비용을 감수할 만큼 가치 있는 데이터에 한해서만 현명하게 사용하는 것이 좋습니다.
 
 특정 MapReduce 작업과 패키지는 Azure Blob 저장소에 전혀 저장하고 싶지 않을 만한 중간 결과를 생성할 수 있습니다. 그런 경우에는 로컬 HDFS에 데이터를 저장하도록 선택할 수 있습니다. 실제로 HDInsight는 Hive 작업 및 기타 프로세스에서 생성되는 이러한 중간 결과 중 일부에 DFS를 사용합니다.
 
@@ -91,23 +92,11 @@ Blob을 사용하려면 먼저 [Azure 저장소 계정][azure-storage-create]을
 여러 HDInsight 클러스터의 기본 저장소 컨테이너를 공유하지 마십시오. 여러 HDInsight 클러스터용 데이터에 액세스를 제공하기 위해 공유된 컨테이너를 사용해야 하는 경우 클러스터 구성에서 추가적인 저장소 계정으로 추가해야 합니다. 자세한 내용은 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요. 그러나 원래 HDInsight 클러스터를 삭제한 후에 기본 저장소 컨테이너를 다시 사용할 수 있습니다. HBase 클러스터를 사용하면 삭제된 HBase 클러스터에서 쓰인 기본 blob 저장소 컨테이너를 사용하여 새로운 HBase 클러스터를 프로비전함으로써 HBase 테이블 스키마 및 데이터를 실제로 보존할 수 있습니다.
 
 
-###Azure 포털 사용
+###Azure Preview 포털 사용
 
-Azure 포털에서 HDInsight 클러스터를 프로비전할 경우 두 가지 옵션이 있습니다: **빠른 생성** 및 **사용자 지정 만들기**입니다. 빠른 생성 옵션을 사용하려면 Azure 저장소 계정을 미리 만들어두어야 합니다. 자세한 내용은 [저장소 계정을 만드는 방법][azure-storage-create]을 참조하십시오.
+Preview 포털에서 HDInsight 클러스터를 프로비전할 때 기존 저장소 계정을 사용하거나 새 저장소 계정을 만들 수 있습니다.
 
-빠른 생성 옵션을 사용하는 경우 기존 저장소 계정을 선택할 수 있습니다. 프로비전 프로세스에서 HDInsight 클러스터 이름과 동일한 이름의 새 컨테이너가 생성됩니다. 같은 이름의 컨테이너가 이미 있으면 <clusterName>-<x>이 사용됩니다. 예를 들면*myHDIcluster-1*과 같습니다. 이 컨테이너는 기본 파일 시스템으로 사용됩니다.
-
-![Azure 포털의 HDInsight에서 새로운 Hadoop 클러스터용 빠른 생성을 사용합니다.][img-hdi-quick-create]
-
-사용자 지정 만들기를 사용할 경우 기본 저장소 계정로 다음 옵션 중 하나를 사용할 수 있습니다:
-
-- 기존 저장소 사용
-- 새 저장소 만들기
-- 옵션을 선택한 경우
-
-자체 컨테이너를 만들거나 기존 컨테이너를 사용할 수 있는 옵션도 제공됩니다.
-
-![HDInsight 클러스터용으로 기존 저장소 계정을 사용하는 옵션입니다.][img-hdi-custom-create-storage-account]
+![hdinsight hadoop 프로비전 데이터 원본](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
 
 ###Azure CLI 사용
 
@@ -325,6 +314,5 @@ URI 체계는암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SS
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

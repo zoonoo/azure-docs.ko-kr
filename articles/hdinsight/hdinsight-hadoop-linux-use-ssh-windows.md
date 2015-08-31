@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="Blackmist"
    manager="paulettm"
-   editor="cgronlun"/>
+   editor="cgronlun"
+	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/06/2015"
+   ms.date="07/24/2015"
    ms.author="larryfr"/>
 
 #Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용(미리 보기)
@@ -68,21 +69,23 @@ Linux 기반 HDInsight 클러스터를 만드는 경우 SSH 키를 사용할 때
 
 6. **Save public key**를 클릭하여 **.txt** 파일로 키를 저장합니다. 이 옵션을 사용하면 추가 Linux 기반 HDInsight 클러스터를 만들 때 공개 키를 나중에 다시 사용할 수 있습니다.
 
-	> [AZURE.NOTE]공개 키는 PuTTYGen의 상단에도 표시됩니다. 이 필드를 마우스 오른쪽 단추로 클릭하고, 값을 복사하고, Azure 포털에서 HDInsight 마법사와 같은 양식에 붙여넣을 수 있습니다.
+	> [AZURE.NOTE]공개 키는 PuTTYGen의 상단에도 표시됩니다. Azure Preview 포털을 사용하여 클러스터를 만들 때 이 필드를 마우스 오른쪽 단추로 클릭하고 값을 복사한 다음 양식에 붙여넣을 수 있습니다.
 
 ##Linux 기반 HDInsight 클러스터 만들기
 
 Linux 기반 HDInsight 클러스터를 만들 때 이전에 생성한 공개 키를 제공해야 합니다. Windows 기반 클라이언트에서는 두 가지의 Linux 기반 HDInsight 클러스터를 만들 수 있습니다.
 
-* **Azure 포털** - 웹 기반 포털을 사용하여 클러스터를 만듭니다.
+* **Azure Preview 포털** - 웹 기반 포털을 사용하여 클러스터를 만듭니다.
 
 * **Mac, Linux 및 Windows용 Azure CLI** - 명령줄 명령을 사용하여 클러스터를 만듭니다.
 
 이러한 각 메서드에는 공개 키가 필요합니다. Linux 기반 HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [Linux 기반 HDInsight 클러스터 프로비전](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
 
-###Azure 포털
+###Azure Preview 포털
 
-Linux 기반 HDInsight 클러스터를 만들려면 포털을 사용하는 경우 다음 양식에 사용자 이름 및 암호 또는 공개 키를 입력해야 합니다.
+[Azure Preview 포털][preview-portal]을 사용하여 Linux 기반 HDInsight 클러스터를 만드는 경우 **SSH 사용자 이름**을 입력하고 **암호** 또는 **SSH 공개 키**를 선택하여 입력해야 합니다.
+
+**SSH 공개 키**를 선택하는 경우 PuttyGen의 __Public key for pasting into OpenSSH authorized\_keys file(OpenSSH authorized\_keys 파일에 붙여넣기 위한 공개 키)__ 필드에 표시되는 공개 키를 __SSH 공개 키__ 필드에 붙여넣거나 __파일 선택__을 선택하여 공개 키가 포함된 파일을 찾아 선택할 수 있습니다.
 
 ![공개 키를 묻는 양식의 이미지](./media/hdinsight-hadoop-linux-use-ssh-windows/ssh-key.png)
 
@@ -92,7 +95,7 @@ Linux 기반 HDInsight 클러스터를 만들려면 포털을 사용하는 경�
 
 [Mac, Linux 및 Windows용 Azure CLI](../xplat-cli.md)를 사용하여 `azure hdinsight cluster create` 명령을 통해 새 클러스터를 만들 수 있습니다.
 
-이 명령 사용에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight에서 Hadoop Linux 클러스터 프로비전](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
+이 명령 사용에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight의 Hadoop Linux 클러스터 프로비전](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
 
 ##Linux 기반 HDInsight 클러스터에 연결
 
@@ -117,6 +120,8 @@ Linux 기반 HDInsight 클러스터를 만들려면 포털을 사용하는 경�
 	> [AZURE.NOTE]처음으로 클러스터에 연결한 경우 보안 경고를 받게 됩니다. 이것은 정상입니다. 서버의 RSA2 키를 계속 캐시하려면 **예**를 선택합니다.
 
 6. 메시지가 표시되면 클러스터를 생성할 때 입력한 사용자를 입력합니다. 사용자에 대한 암호를 제공한 경우 사용자를 입력하라는 메시지도 나타납니다.
+
+> [AZURE.NOTE]위의 단계에서는 HDInsight 클러스터의 headnode0에 연결하는 포트 22를 사용 중이라고 가정합니다. 포트 23을 사용하는 경우 headnode1에 연결합니다. 헤드 노드에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability-linux.md)을 참조하세요.
 
 ###작업자 노드에 연결
 
@@ -194,9 +199,9 @@ Linux 기반 HDInsight 클러스터를 만들려면 포털을 사용하는 경�
 
 ##<a id="tunnel"></a>SSH 터널링
 
-SSH는 웹 요청과 같은 로컬 요청을 HDInsight 클러스터에 터널링하는 데 사용할 수도 있습니다. HDInsight 클러스터 헤드 노드에서 발생하는 경우 요청이 요청된 리소스에 라우팅됩니다.
+SSH는 웹 요청과 같은 로컬 요청을 HDInsight 클러스터에 터널링하는 데 사용할 수 있습니다. HDInsight 클러스터 헤드 노드에서 발생하는 경우 요청이 요청된 리소스에 라우팅됩니다.
 
-클러스터에서 헤드 또는 작업자 노드에 대한 내부 도메인 이름을 사용하는 HDInsight 클러스터의 웹 기반 서비스에 엑세스할 때 가장 유용합니다. 예를 들어 Ambari 웹 페이지의 일부 섹션은 **headnode0.mycluster.d1.internal.cloudapp.net**과 같은 내부 도메인 이름을 사용합니다. 이 이름은 클러스터 외부에서 확인할 수 없지만 SSH를 통해 터널링된 요청은 클러스터 내에서 발생하고 올바르게 확인됩니다.
+> [AZURE.IMPORTANT]SSH 터널은 sopme Hadoop 서비스의 웹 UI에 액세스하기 위한 요구 사항입니다. 예를 들어 작업 기록 UI와 리소스 관리자 UI는 둘 다 SSH 터널을 사용해서만 액세스할 수 있습니다.
 
 SSH 터널을 만들고 브라우저를 구성하여 클러스터에 연결하려면 다음 단계를 따르세요.
 
@@ -224,7 +229,7 @@ SSH 터널을 만들고 브라우저를 구성하여 클러스터에 연결하�
 
 	> [AZURE.NOTE]**Remote DNS**를 선택하면 HDInsight 클러스터를 통해 DNS 요청이 확인됩니다. 선택하지 않은 경우 DNS가 로컬로 확인됩니다.
 
-	Firefox에서 프록시 설정을 사용하거나 사용하지 않도록 설정한 상태에서 [http://www.whatismyip.com/](http://www.whatismyip.com/)과 같은 사이트를 방문하여 트래픽이 터널을 통해 라우팅되는지 확인할 수 있습니다. 활성화되어 있는 동안 IP 주소는 Microsoft Azure 데이터 센터에 있는 컴퓨터의 주소입니다.
+	Firefox에서 프록시 설정을 사용하거나 사용하지 않도록 설정한 상태에서 [http://www.whatismyip.com/](http://www.whatismyip.com/)과 같은 사이트를 방문하여 트래픽이 터널을 통해 라우트되는지 확인할 수 있습니다. 활성화되어 있는 동안 IP 주소는 Microsoft Azure 데이터 센터에 있는 컴퓨터의 주소입니다.
 
 ###브라우저 확장
 
@@ -278,4 +283,6 @@ FoxyProxy 표준을 설치한 경우 터널을 통해 HDInsight에 대한 트래
 
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO6-->
+[preview-portal]: https://portal.azure.com/
+
+<!---HONumber=August15_HO8-->

@@ -1,6 +1,6 @@
 <properties
-  pageTitle="리소스 관리자 템플릿을 사용하여 Ubuntu에서 MongoDB 클러스터 만들기"
-  description="PowerShell 또는 Azure CLI를 통해 리소스 관리자 템플릿을 사용하여 Ubuntu에서 MongoDB 클러스터 만들기"
+  pageTitle="Azure 리소스 관리자 템플릿을 사용하여 Ubuntu에서 MongoDB 클러스터 만들기"
+  description="Azure PowerShell 또는 Azure CLI를 통해 Azure 리소스 관리자 템플릿을 사용하여 Ubuntu에서 MongoDB 클러스터 만들기"
   services="virtual-machines"
   documentationCenter=""
   authors="karthmut"
@@ -16,17 +16,17 @@
   ms.date="04/29/2015"
   ms.author="karthmut"/>
 
-# 리소스 관리자 템플릿을 사용하여 Ubuntu에서 MongoDB 클러스터 만들기
+# Azure 리소스 관리자 템플릿을 사용하여 Ubuntu에서 MongoDB 클러스터 만들기
 
-MongoDB는 높은 성능, 고가용성 및 자동 크기 조정을 제공하는 공개 소스 문서 데이터베이스입니다. MongoDB는 기본 제공되는 복제 기능을 활용하여 독립 실행형 또는 클러스터 내에서 설치할 수 있습니다 경우에 따라 읽기 용량을 늘리려면 복제를 사용할 수 있습니다. 클라이언트에는 서로 다른 서버에 읽기 및 쓰기 작업을 보내는 기능이 있습니다. 분산된 응용 프로그램을 위한 데이터의 위치 및 가용성을 높이기 위해 다른 데이터 센터에 복사본을 유지할 수도 있습니다. MongoDB를 사용하여 복제는 중복성을 제공하고 데이터 가용성을 높일 수도 있습니다. 다른 데이터베이스 서버에서 데이터의 여러 복사본을 사용하여 복제는 단일 서버 손실로부터 데이터베이스를 보호합니다. 복제를 사용하면 하드웨어 오류 및 서비스 중단에서 복구할 수도 있습니다. 데이터의 추가 복사본을 사용하여 한 복사본은 재해 복구, 보고 또는 백업에 전념할 수 있습니다.
+MongoDB는 높은 성능, 고가용성 및 자동 크기 조정을 제공하는 공개 소스 문서 데이터베이스입니다. MongoDB는 기본 제공되는 복제 기능을 활용하여 독립 실행형 데이터베이스 또는 클러스터 내에서 설치할 수 있습니다. 경우에 따라 읽기 용량을 늘리려면 복제를 사용할 수 있습니다. 클라이언트에는 서로 다른 서버에 읽기 및 쓰기 작업을 보내는 기능이 있습니다. 분산된 응용 프로그램을 위한 데이터의 위치 및 가용성을 높이기 위해 다른 데이터 센터에 복사본을 유지할 수도 있습니다. MongoDB를 사용하여 복제는 중복성을 제공하고 데이터 가용성을 높일 수도 있습니다. 다른 데이터베이스 서버에서 데이터의 여러 복사본을 사용하여 복제는 단일 서버 손실로부터 데이터베이스를 보호합니다. 복제를 사용하면 하드웨어 오류 및 서비스 중단에서 복구할 수도 있습니다. 데이터의 추가 복사본을 사용하여 한 복사본은 재해 복구, 보고 또는 백업에 전념할 수 있습니다.
 
-Azure 마켓플레이스에서 이미 제공되는 것 외에도 이제 [Azure PowerShell](../powershell-install-configure.md) 또는 [Azure CLI](../xplat-cli.md)를 통해 리소스 관리자 템플릿을 사용하여 Ubuntu VM에 새 MongoDB 클러스터를 쉽게 배포할 수도 있습니다.
+Azure 마켓플레이스에서 이미 제공되는 것 외에도 이제 [Azure PowerShell](../powershell-install-configure.md) 또는 [Azure CLI](../xplat-cli.md)를 통해 Azure 리소스 관리자 템플릿을 사용하여 Ubuntu VM에 새 MongoDB 클러스터를 쉽게 배포할 수도 있습니다.
 
 이 템플릿을 기반으로 새로 배포되는 클러스터에는 다음 다이어그램에 설명된 토폴로지가 구축됩니다. 물론 제공된 템플릿을 사용자 지정하여 다른 토폴리지를 쉽게 실현할 수도 있습니다.
 
 ![cluster-architecture](media/virtual-machines-mongodb-template/cluster-architecture.png)
 
-새 MongoDB 클러스터에 배포되고 기타 매개 변수에 기반한 노드 수를 정의할 수 있는 매개 변수를 통해 공용 IP 주소를 포함하는 VM 인스턴스(Jumpbox)은 공용 인터넷에서 클러스터로 연결하는 기능 및 해당 클러스터에 관련된 일종의 관리 작업을 수행할 수 있는 기능을 제공하는 동일한 VNET 내에서도 배포될 수 있습니다. 매개 변수로 사용할 수 있는 다른 옵션에는 중재자 노드를 복제 집합에 추가하는 기능으로, 일반적으로 멤버 수가 짝수인 경우 제안됩니다. MongoDB 복제 토폴로지 및 세부 정보에 대한 자세한 내용은 공식 [MongoDB 설명서](http://docs.mongodb.org/manual/core/replication-introduction/)를 참조하세요.
+새 MongoDB 클러스터에 배포되고 기타 매개 변수에 기반한 노드 수를 정의할 수 있는 매개 변수를 통해 공용 IP 주소를 포함하는 VM 인스턴스(Jumpbox)는 공용 인터넷에서 클러스터로 연결하는 기능 및 해당 클러스터에 관련된 일종의 관리 작업을 수행할 수 있는 기능을 제공하는 동일한 VNET 내에서도 배포될 수 있습니다. 매개 변수로 사용할 수 있는 다른 옵션에는 중재자 노드를 복제 집합에 추가하는 기능으로, 일반적으로 멤버 수가 짝수인 경우 제안됩니다. MongoDB 복제 토폴로지 및 세부 정보에 대한 자세한 내용은 공식 [MongoDB 설명서](http://docs.mongodb.org/manual/core/replication-introduction/)를 참조하세요.
 
 배포가 완료되면 SSH 포트 22에 구성된 DNS 주소를 사용하여 Jumpbox에 액세스할 수 있습니다.
 
@@ -44,7 +44,7 @@ Github 템플릿 리포지토리의 리소스 관리자 템플릿을 사용하�
 
 JSON 템플릿과 기타 관련 파일을 저장할 로컬 폴더를 만듭니다(예: C:\\Azure\\Templates\\MongoDB).
 
-로컬 폴더의 폴더 이름을 대신 입력하여 다음 명령을 실행합니다.
+다음 예에서는 로컬 폴더의 폴더 이름을 대체하고 명령을 실행합니다.
 
     $folderName="C:\Azure\Templates\MongoDB"
     $webclient = New-Object System.Net.WebClient
@@ -99,17 +99,17 @@ JSON 템플릿과 기타 관련 파일을 저장할 로컬 폴더를 만듭니�
 
 ### 1-b단계: Azure CLI를 사용하여 템플릿 파일 다운로드
 
-다음과 같이 원하는 git 클라이언트를 사용하여 전체 템플릿 리포지토리를 복제합니다.
+다음 예에서는 원하는 Git 클라이언트를 사용하여 전체 템플릿 리포지토리를 복제하는 방법을 보여줍니다.
 
     git clone https://github.com/Azure/azure-quickstart-templates C:\Azure\Templates
 
-복제가 완료되면 C:\\Azure\\Templates 디렉터리에서 **mongodb-high-availability** 폴더를 찾습니다.
+복제가 완료되면 C:\\Azure\\Template 디렉터리에서 mongodb-high-availability 폴더를 찾습니다.
 
 ### 2단계: (선택 사항) 템플릿 매개 변수 파악
 
 MongoDB 클러스터와 같은 중요한 솔루션을 배포하는 경우 필요한 여러 설정을 처리할 구성 매개 변수 집합을 지정해야 합니다. 템플릿 정의에서 이러한 매개 변수를 선언하면 외부 파일을 통해 또는 명령줄에서 배포하는 동안 값을 지정할 수 있습니다.
 
-**azuredeploy.json** 파일 위쪽의 "parameters" 섹션에서 MongoDB 클러스터를 구성하기 위해 템플릿에 필요한 매개 변수 집합을 찾을 수 있습니다. 이 템플릿의 azuredeploy.json 파일에서 매개 변수 섹션의 예는 다음과 같습니다.
+azuredeploy.json 파일 위쪽의 parameters 섹션에서 MongoDB 클러스터를 구성하기 위해 템플릿에 필요한 매개 변수 집합을 찾을 수 있습니다. 다음 예에서는 이 템플릿의 azuredeploy.json 파일에 있는 parameters 섹션을 보여줍니다.
 
     "parameters": {
       "adminUsername": {
@@ -128,7 +128,7 @@ MongoDB 클러스터와 같은 중요한 솔루션을 배포하는 경우 필요
           "type": "string",
           "defaultValue": "",
           "metadata": {
-            "Description": "Unique namespace for the Storage Account where the Virtual Machine's disks will be placed (this name will be used as a prefix to create one or more storage accounts as per t-shirt size)"
+            "Description": "Unique namespace for the storage account where the Virtual Machine's disks will be placed (this name will be used as a prefix to create one or more storage accounts as per t-shirt size)"
           }
         },
         "region": {
@@ -236,7 +236,7 @@ MongoDB 클러스터와 같은 중요한 솔루션을 배포하는 경우 필요
 
 모든 매개 변수에 대한 런타임 값이 포함된 JSON 파일을 만들어 배포용 매개 변수 파일을 준비합니다. 이 파일이 배포 명령에 단일 엔터티로 전달됩니다. 매개 변수 파일을 포함하지 않으면 PowerShell는 템플릿에 지정된 기본값을 사용하며 나머지 값을 입력하라는 메시지를 표시합니다.
 
-다음은 **azuredeploy-parameters.json** 파일에서 볼 수 있는 매개 변수 집합의 예입니다.
+다음 예에서는 azuredeploy-parameters.json 파일의 매개 변수 집합을 보여줍니다.
 
     {
       "adminUsername": {
@@ -286,7 +286,7 @@ MongoDB 클러스터와 같은 중요한 솔루션을 배포하는 경우 필요
       }
     }
 
-Azure 배포 이름, 리소스 그룹 이름, Azure 위치 및 저장된 JSON 배포 파일의 폴더를 입력합니다. 그리고 다음 명령을 실행합니다.
+Azure 배포 이름, 리소스 그룹 이름, Azure 위치 및 저장된 JSON 배포 파일의 폴더를 입력합니다. 다음 명령을 실행합니다.
 
     $deployName="<deployment name>"
     $RGName="<resource group name>"
@@ -307,22 +307,21 @@ Azure 배포 이름, 리소스 그룹 이름, Azure 위치 및 저장된 JSON �
 
 이렇게 하려면 [Azure 포털](https://portal.azure.com)로 이동하여 다음을 수행합니다.
 
-- 왼쪽 탐색 모음에서 "찾아보기”를 클릭하고 아래로 스크롤하여 "리소스 그룹”을 클릭합니다.
-- 방금 만든 리소스 그룹을 클릭하면 "리소스 그룹” 블레이드가 나타납니다.
-- "리소스 그룹” 블레이드의 "모니터링” 파트에서 "이벤트” 막대 그래프를 클릭하면 배포에 대한 이벤트를 확인할 수 있습니다.
-- 개별 이벤트를 클릭하면 템플릿을 대신해 수행된 각 개별 작업에 대한 세부 정보를 볼 수 있습니다.
+- 왼쪽 탐색 모음에서 **찾아보기**를 클릭하고 아래로 스크롤하여 **리소스 그룹**을 클릭합니다.
+- 방금 만든 리소스 그룹을 클릭하면 리소스 그룹 블레이드가 나타납니다.
+- 리소스 그룹 블레이드의 "모니터링" 파트에서 "이벤트" 막대 그래프를 클릭하면 배포에 대한 이벤트를 확인할 수 있습니다. 개별 이벤트를 클릭하면 템플릿을 대신해 수행된 각 개별 작업에 대한 세부 정보를 볼 수 있습니다.
 
-테스트 후 이 리소스 그룹과 모든 해당 리소스(저장소 계정, 가상 컴퓨터 및 가상 네트워크)를 제거해야 하는 경우 다음 단일 명령을 사용합니다.
+테스트 후 이 리소스 그룹과 모든 해당 리소스(저장소 계정, 가상 컴퓨터 및 가상 네트워크)를 제거해야 하는 경우 다음 명령을 사용합니다.
 
     Remove-AzureResourceGroup –Name "<resource group name>" -Force
 
 ### 3-b단계: Azure CLI를 사용하여 템플릿을 통해 MongoDB 클러스터 배포
 
-Azure CLI를 통해 MongoDB 클러스터를 배포하려면 먼저 이름과 위치를 지정하여 리소스 그룹을 만듭니다.
+Azure CLI를 통해 MongoDB 클러스터를 배포하려면 다음 명령으로 이름과 위치를 지정하여 먼저 리소스 그룹을 만듭니다.
 
     azure group create mdbc "West US"
 
-이 리소스 그룹 이름, JSON 템플릿 파일의 위치, 그리고 매개 변수 파일의 위치(위의 PowerShell 섹션에서 자세한 내용 확인)를 다음 명령으로 전달합니다.
+이 리소스 그룹 이름, JSON 템플릿 파일의 위치, 그리고 매개 변수 파일의 위치(이전 PowerShell 섹션에서 자세한 내용 확인)를 다음 명령으로 전달합니다.
 
     azure group deployment create mdbc -f .\azuredeploy.json -e .\azuredeploy-parameters.json
 
@@ -332,21 +331,21 @@ Azure CLI를 통해 MongoDB 클러스터를 배포하려면 먼저 이름과 위
 
 ## MongoDB 템플릿 구조 및 파일 구성 살펴보기
 
-강력하고 재사용 가능한 리소스 관리자 템플릿을 디자인하려면 MongoDB와 같은 복잡한 솔루션을 배포하는 동안 필요한 상호 관련된 일련의 복잡한 작업을 구성해야 합니다. 관련된 확장을 통해 스크립트를 실행하는 것 외에 ARM **템플릿 연결** 및 **리소스 루핑**을 활용하면 거의 모든 복잡한 템플릿 기반 배포에서 재사용할 수 있는 모듈식 방법을 구현할 수 있습니다.
+강력하고 재사용 가능한 Azure 리소스 관리자 템플릿을 디자인하려면 MongoDB와 같은 복잡한 솔루션을 배포하는 동안 필요한 상호 관련된 일련의 복잡한 작업을 구성해야 합니다. 관련된 확장을 통해 스크립트를 실행하고 Azure 리소스 관리자 *템플릿 연결* 및 *리소스 루핑*을 활용하면 거의 모든 복잡한 템플릿 기반 배포에서 재사용할 수 있는 모듈식 방법을 구현할 수 있습니다.
 
 다음 다이어그램에서는 이 배포를 위해 GitHub에서 다운로드한 모든 파일 간의 관계를 설명합니다.
 
 ![mongodb-files](media/virtual-machines-mongodb-template/mongodb-files.png)
 
-이 섹션에서는 MongoDB 클러스터용 **azuredeploy.json** 파일의 구조를 단계별로 설명합니다.
+이 섹션에서는 MongoDB 클러스터용 azuredeploy.json 파일의 구조를 단계별로 설명합니다.
 
-### "parameters" 섹션
+### Parameters 섹션
 
-**azuredeploy.json**의 "parameters" 섹션은 이 템플릿에 데이터를 입력하는 데 사용되는 매개 변수를 지정합니다. 이 항목에서 앞서 설명한 **azuredeploy-parameters.json** 파일은 템플릿을 실행하는 동안 azuredeploy.json의 "parameters" 섹션으로 값을 전달하는 데 사용됩니다.
+azuredeploy.json의 parameters 섹션은 이 템플릿에 데이터를 입력하는 데 사용되는 매개 변수를 지정합니다. 이 항목에서 앞서 설명한 azuredeploy-parameters.json 파일은 템플릿을 실행하는 동안 azuredeploy.json의 parameters 섹션으로 값을 전달하는 데 사용됩니다.
 
-### "variables" 섹션
+### Variables 섹션
 
-"variables" 섹션은 이 템플릿 전체에서 사용할 수 있는 변수를 지정합니다. 이 섹션에는 실행 시 상수 또는 계산된 값으로 설정되는 여러 필드(JSON 데이터 형식 또는 조각)가 포함됩니다. 다음은 이 MongoDB 템플릿의 "variables" 섹션입니다.
+variables 섹션은 이 템플릿 전체에서 사용할 수 있는 변수를 지정합니다. 이 섹션에는 실행 시 상수 또는 계산된 값으로 설정되는 여러 필드(JSON 데이터 형식 또는 조각)가 포함됩니다. 다음 예제에서는 이 MongoDB 템플릿의 variables 섹션을 보여 줍니다.
 
     "variables": {
           "_comment0": "/* T-shirt sizes may vary for different reasons, and some customers may want to modify these - so feel free to go ahead and define your favorite t-shirts */",
@@ -517,7 +516,7 @@ Azure CLI를 통해 MongoDB 클러스터를 배포하려면 먼저 이름과 위
           "storageAccountForXXLarge_15": "7"
       },
 
-이 예제를 자세히 살펴보면 두 가지 방법을 볼 수 있습니다. 이 첫 번째 조각에서 "osFamilyUbuntu" 변수는 6개의 키 값 쌍이 있는 JSON 요소로 설정됩니다.
+위 예제에서 두 가지 방법을 볼 수 있습니다. 이 첫 번째 조각에서 "osFamilyUbuntu" 변수는 6개의 키 값 쌍이 있는 JSON 요소로 설정됩니다.
 
     "osFamilyUbuntu": {
       "osName": "ubuntu",
@@ -536,7 +535,7 @@ Azure CLI를 통해 MongoDB 클러스터를 배포하려면 먼저 이름과 위
       "[concat(variables('sharedScriptUrl'), 'vm-disk-utils-0.1.sh')]"
     ],
 
-이 템플릿에서 중요한 개념 중 하나는 MongoDB 클러스터에 대 해 다른 “티셔츠 크기”가 정의되는 방법입니다. 이러한 “tshirtSizeXXXX” 변수 중 하나를 살펴보면 클러스터 배포 방법의 중요한 특징을 설명한다는 것을 알 수 있습니다. 중간 크기를 예로 살펴보겠습니다.
+이 템플릿에서 중요한 개념 중 하나는 MongoDB 클러스터에 대 해 다른 “티셔츠 크기”가 정의되는 방법입니다. 이러한 “tshirtSizeXXXX” 변수 중 하나를 살펴보면 클러스터 배포 방법의 중요한 특징을 설명한다는 것을 알 수 있습니다. 다음 예제에서는 중간 크기를 예로 살펴보겠습니다.
 
     "tshirtSizeMedium": {
       "vmSizeMember": "Standard_D2",
@@ -549,11 +548,11 @@ Azure CLI를 통해 MongoDB 클러스터를 배포하려면 먼저 이름과 위
       "dataDiskSize": 250
     },
 
-“중간” MongoDB 클러스터는 3개의 MongoDB 노드 호스팅 데이터에 대한 VM 크기로 D2를 사용하며 네 번째 A1 VM이 복제를 목적으로 중재자로 사용됩니다. 데이터 노드를 배포하기 위해 호출되는 해당 하위 템플릿은 **member-resources-D2.json**이 되며 데이터 파일(각각 250GB)은 2개의 저장소 계정에 저장됩니다. 이 변수는 노드 배포 및 기타 작업을 오케스트레이션하기 위해 “resources” 섹션에서 사용됩니다.
+"중간" MongoDB 클러스터는 3개의 MongoDB 노드 호스팅 데이터에 대한 VM 크기로 D2를 사용하며 네 번째 A1 VM이 복제를 목적으로 중재자로 사용됩니다. 데이터 노드를 배포하기 위해 호출되는 해당 하위 템플릿은 `member-resources-D2.json`이 되며 데이터 파일(각각 250GB)은 두 개의 저장소 계정에 저장됩니다. 이 변수는 노드 배포 및 기타 작업을 오케스트레이션하기 위해 resources 섹션에서 사용됩니다.
 
-### "resources" 섹션
+### Resources 섹션
 
-**"resources"** 섹션은 대부분의 작업이 발생하는 곳입니다. 이 섹션을 자세히 살펴보면 두 가지 경우를 즉시 확인할 수 있습니다. 첫 번째는 기본적으로 기본 배포 내 중첩된 배포 호출을 의미하는 `Microsoft.Resources/deployments` 형식으로 정의된 요소입니다. 아래 조각에서 볼 수 있듯이, "templateLink" 요소(및 관련 버전 속성)를 통해서는 호출할 연결된 템플릿 파일을 지정할 수 있습니다. 이 파일은 매개 변수 집합을 입력으로 전달합니다.
+resources 섹션은 대부분의 작업이 발생하는 곳입니다. 이 섹션을 자세히 살펴보면 두 가지 경우를 즉시 확인할 수 있습니다. 첫 번째는 기본적으로 기본 배포 내 중첩된 배포 호출을 의미하는 `Microsoft.Resources/deployments` 형식으로 정의된 요소입니다. 다음 예제에서 볼 수 있듯이, "templateLink" 요소(및 관련 버전 속성)를 통해서는 호출할 연결된 템플릿 파일을 지정할 수 있습니다. 이 파일은 매개 변수 집합을 입력으로 전달합니다.
 
     {
       "name": "shared-resources",
@@ -579,23 +578,23 @@ Azure CLI를 통해 MongoDB 클러스터를 배포하려면 먼저 이름과 위
       }
     },
 
-이 첫 번째 예제에서는 이 시나리오의 **azuredeploy.json**이 일종의 오케스트레이션 메커니즘으로 구성되어 각각 필요한 배포 활동의 일부를 담당하는 여러 템플릿 파일을 호출합니다.
+이전 예제에서는 이 시나리오의 azuredeploy.json이 일종의 오케스트레이션 메커니즘으로 구성되어 각각 필요한 배포 활동의 일부를 담당하는 여러 템플릿 파일을 호출합니다.
 
 특히 다음과 같은 연결된 템플릿이 이 배포에 사용됩니다.
 
--	**shared-resource.json**: 배포에서 공유할 모든 리소스의 정의를 포함합니다. 예제는 VM의 OS 디스크 및 가상 네트워크를 저장하는 데 사용되는 저장소 계정입니다.
--	**jumpbox-resources.json**: 사용하도록 설정하면 Jumpbox VM에 관련된 모든 리소스 배포를 수행합니다. 공용 IP 주소는 공용 네트워크에서 MongoDB 클러스터에 액세스하는 데 사용할 수 있습니다.
--	**arbiter-resources.json**: 사용하도록 설정하면 이 템플릿은 MongoDB 클러스터에서 중재자 멤버를 배포합니다. 중재자는 데이터를 포함하지 않지만 복제 집합이 주요 선택을 관리하기 위해 노드 수를 짝수로 포함할 때 사용됩니다.
--	**member-resources-Dx.json**: 해당 리소스 템플릿은 MongoDB 노드를 효과적으로 배포합니다. 특정 파일은 선택한 티셔츠 크기 정의에 기반하여 사용되며, 각 파일은 각 노드에 연결된 디스크 수에 따라 다릅니다.
--	**mongodb-ubuntu-install.sh**: 클러스터에서 모든 노드의 CustomScriptForLinux 확장에 의해 호출되는 bash 스크립트 파일입니다. 데이터 디스크 탑재와 서식 및 노드에 MongoDB 비트 설치를 담당합니다.
+-	**Shared-resource.json**: 배포에서 공유할 모든 리소스의 정의를 포함합니다. 예제는 VM의 OS 디스크 및 가상 네트워크를 저장하는 데 사용되는 저장소 계정입니다.
+-	**Jumpbox-resources.json**: 사용하도록 설정하면 Jumpbox VM에 관련된 모든 리소스 배포를 수행합니다. 공용 IP 주소는 공용 네트워크에서 MongoDB 클러스터에 액세스하는 데 사용할 수 있습니다.
+-	**Arbiter-resources.json**: 사용하도록 설정하면 이 템플릿은 MongoDB 클러스터에서 중재자 멤버를 배포합니다. 중재자는 데이터를 포함하지 않지만 복제 집합이 주요 선택을 관리하기 위해 노드 수를 짝수로 포함할 때 사용됩니다.
+-	**Member-resources-Dx.json**: MongoDB 노드를 효과적으로 배포하는 리소스 템플릿을 지정합니다. 특정 파일은 선택한 티셔츠 크기 정의에 기반하여 사용되며, 각 파일은 각 노드에 연결된 디스크 수에 따라 다릅니다.
+-	**Mongodb-ubuntu-install.sh**: 클러스터에서 모든 노드의 CustomScriptForLinux 확장에 의해 호출되는 bash 스크립트 파일입니다. 데이터 디스크 탑재와 서식 및 노드에 MongoDB 비트 설치를 담당합니다.
 
-MongoDB 클러스터를 배포하려면 복제 집합을 올바르게 설정하기 위해 특정 논리가 필요합니다. 배포하는 동안 사용해야 하는 특정 순서는 다음과 같습니다.
+MongoDB 클러스터를 배포하려면 복제 집합을 올바르게 설정하기 위해 특정 논리가 필요합니다. 다음 예제에서는 배포하는 동안 사용해야 하는 특정 순서를 보여줍니다.
 
 데이터 멤버 배포(병렬로) => 마지막 데이터 멤버 배포 ==> (선택 사항) 중재자 배포
 
 이 순서에서 여러 데이터 노드 배포는 마지막 노드를 제외하고 병렬로 발생합니다. 여기서 클러스터가 형성되고 새 복제 집합이 배포되므로 모든 이전 노드는 해당 순간이 되기 전에 실행되어야 합니다. 마지막 단계는 선택적 중재자 노드를 배포하는 것입니다(이 단계가 필요한 지점은 해당 티셔츠 크기에만 해당).
 
-기본 템플릿(azuredeploy.json)을 다시 살펴보고 모든 데이터 멤버에서 시작하여 이 논리가 어떻게 구현되는지 알아보겠습니다.
+다음 예제에서는 기본 템플릿(azuredeploy.json)을 다시 살펴보고 모든 데이터 멤버에서 시작하여 이 논리가 어떻게 구현되는지 알아보겠습니다.
 
     {
       "type": "Microsoft.Resources/deployments",
@@ -645,19 +644,19 @@ MongoDB 클러스터를 배포하려면 복제 집합을 올바르게 설정하�
       }
     },
 
-한 가지 중요한 개념은 단일 리소스 유형의 여러 복사본을 배포하고 각 인스턴스에 대해 필요한 설정의 고유 값을 설정하는 방법입니다. 이 개념은 **리소스 루핑**이라고 합니다.
+한 가지 중요한 개념은 단일 리소스 유형의 여러 복사본을 배포하고 각 인스턴스에 대해 필요한 설정의 고유 값을 설정하는 방법입니다. 이 개념은 *리소스 루핑*이라고 합니다.
 
-이전 조각에서 매개 변수(클러스터에서 배포할 노드 수)는 자식 배포의 수(루프)를 트리거하기 위해 **“복사”** 요소로 전달되는 변수(“numberOfMembers”) 설정에 사용됩니다. 각각은 클러스터에서 각 멤버를 위한 템플릿의 인스턴스화를 유발합니다. 인스턴스 간에 고유한 값을 지정하는 데 필요한 모든 설정을 설정하려면 **copyindex()** 함수를 사용하여 해당 특정 리소스 루프 만들기에서 현재 인덱스를 나타내는 숫자 값을 가져올 수 있습니다.
+이전 예제에서 매개 변수(클러스터에서 배포할 노드 수)는 자식 배포의 수(루프)를 트리거하기 위해 **"복사"** 요소로 전달되는 변수("numberOfMembers") 설정에 사용됩니다. 각각은 클러스터에서 각 멤버를 위한 템플릿의 인스턴스화를 유발합니다. 인스턴스 간에 고유한 값을 지정하는 데 필요한 모든 설정을 설정하려면 **copyindex()** 함수를 사용하여 해당 특정 리소스 루프 만들기에서 현재 인덱스를 나타내는 숫자 값을 가져올 수 있습니다.
 
 리소스 만들기의 또 다른 중요한 개념은 **dependsOn** JSON 배열에서 알 수 있는 것처럼 리소스 간의 종속성 및 우선 순위를 지정하는 기능입니다. 이 특정 템플릿에서 각각의 노드 배포는 **공유 리소스**의 성공적인 이전 배포에 따라 다릅니다.
 
-연결된 디스크는 **mongodb-ubuntu-install.sh** 스크립트 파일의 실행을 통해 트리거되는 노드 준비 작업의 일부로 포맷됩니다. 실제로 해당 파일 내에서 이 호출의 인스턴스를 찾을 수 있습니다.
+연결된 디스크는 mongodb-ubuntu-install.sh 스크립트 파일의 실행을 통해 트리거되는 노드 준비 작업의 일부로 포맷됩니다. 실제로 해당 파일 내에서 다음 호출의 인스턴스를 찾을 수 있습니다.
 
     bash ./vm-disk-utils-0.1.sh -b $DATA_DISKS -s
 
-**vm-disk-utils-0.1.sh**는 azure-quickstart-tempates github 리포지토리 내 **shared\_scripts\\ubuntu** 폴더의 일부이며, 템플릿 만들기의 일부로 유사한 작업을 실행하는 데 필요할 때마다 재사용할 수 있는 디스크 탑재, 포맷 및 스트라이프에 매우 유용한 함수를 포함하고 있습니다.
+vm-disk-utils-0.1.sh는 azure-quickstart-tempates Github 리포지토리 내 shared\_scripts\\ubuntu 폴더의 일부이며, 템플릿 만들기의 일부로 유사한 작업을 실행하는 데 필요할 때마다 재사용할 수 있는 디스크 탑재, 포맷 및 스트라이프에 매우 유용한 함수를 포함하고 있습니다.
 
-또 다른 흥미로운 조각은 CustomScriptForLinux VM 확장과 관련된 조각입니다. 이는 각 클러스터 노드 배포 템플릿에서 종속성이 있는 별도의 리소스 유형으로 설치됩니다. 각 **member-resources-Dx.json** 파일 마지막에서 이 조각을 참조하세요.
+또 다른 흥미로운 조각은 CustomScriptForLinux VM 확장과 관련된 조각입니다. 이러한 확장은 별도의 리소스 유형으로 설치되며 각 클러스터 노드 배포 템플릿에 대한 종속성이 적용됩니다. 예를 들어 각 member-resources-Dx.json 파일의 끝에서 다음 조각을 확인하세요.
 
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -677,7 +676,7 @@ MongoDB 클러스터를 배포하려면 복제 집합을 올바르게 설정하�
       }
     }
 
-이 배포에 포함된 다른 파일을 알면 Azure 리소스 관리자 템플릿을 활용하여 모든 기술을 기반으로 하는 다중 노드 솔루션에 대한 복잡한 배포 전략을 구성 및 오케스트레이션하는 데 필요한 모든 세부 정보 및 모범 사례를 이해할 수 있습니다. 필수 사항은 아니지만 다음 다이어그램에 강조 표시된 대로 템플릿 파일을 구성하는 것이 좋습니다.
+이 배포에 포함된 다른 파일을 알면 Azure 리소스 관리자 템플릿을 활용하여 모든 기술을 기반으로 하는 다중 노드 솔루션에 대한 복잡한 배포 전략을 구성 및 오케스트레이션하는 데 필요한 모든 세부 정보 및 모범 사례를 이해할 수 있습니다. 필수 사항은 아니지만 다음 다이어그램에 표시된 대로 템플릿 파일을 구성하는 것이 좋습니다.
 
 ![mongodb-template-structure](media/virtual-machines-mongodb-template/mongodb-template-structure.png)
 
@@ -690,6 +689,5 @@ MongoDB 클러스터를 배포하려면 복제 집합을 올바르게 설정하�
 -	모든 배포 후 작업(예: 제품 설치, 구성 등)의 경우 스크립트 배포 확장을 활용하고 각 기술에 특정한 스크립트를 만듭니다.
 
 자세한 내용은 [Azure 리소스 관리자 템플릿 언어](https://msdn.microsoft.com/library/azure/dn835138.aspx)를 참조하세요.
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

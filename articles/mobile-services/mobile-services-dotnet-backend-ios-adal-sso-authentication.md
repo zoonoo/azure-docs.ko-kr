@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증(iOS) | Microsoft Azure" 
-	description="iOS 응용 프로그램에서 ADAL을 사용하여 SSO(Single Sign-On) 사용자를 인증하는 방법에 대해 알아봅니다." 
-	documentationCenter="ios" 
-	authors="mattchenderson" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증(iOS) | Microsoft Azure"
+	description="iOS 응용 프로그램에서 ADAL을 사용하여 SSO(Single Sign-On) 사용자를 인증하는 방법에 대해 알아봅니다."
+	documentationCenter="ios"
+	authors="mattchenderson"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
-	ms.devlang="objective-c" 
-	ms.topic="article" 
-	ms.date="04/29/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-ios"
+	ms.devlang="objective-c"
+	ms.topic="article"
+	ms.date="08/18/2015" 
 	ms.author="mahender"/>
 
 # Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증
@@ -119,6 +119,5 @@
 [Azure Active Directory에 등록하는 방법]: mobile-services-how-to-register-active-directory-authentication.md
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [iOS용 Active Directory 인증 라이브러리]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="HDInsight의 HBase | Microsoft Azure" 
-	description="Hadoop을 기반으로 하는 NoSQL 데이터베이스인 HDInsight의 Apache HBase를 소개합니다. 사용 사례에 대해 알아보고 HBase를 다른 Hadoop 클러스터와 비교합니다." 
-	services="hdinsight" 
-	documentationCenter="" 
+<properties
+	pageTitle="HDInsight의 HBase | Microsoft Azure"
+	description="Hadoop을 기반으로 하는 NoSQL 데이터베이스인 HDInsight의 Apache HBase를 소개합니다. 사용 사례에 대해 알아보고 HBase를 다른 Hadoop 클러스터와 비교합니다."
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
 	authors="mumian" 
-	manager="paulettm" 
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/20/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/28/2015"
 	ms.author="jgao"/>
 
 
@@ -34,7 +35,7 @@ HDInsight 구현은 HBase의 규모 확장 아키텍처를 활용하여 테이�
 ## HDInsight HBase에서 데이터를 관리하는 방법
 
 HBase의 HBase 셸에서 `create`, `get`, `put` 및 `scan` 명령을 사용하여 데이터를 관리할 수 있습니다. 데이터는 `put`을 사용하여 데이터베이스에 기록되고 `get`을 사용하여 읽습니다. `scan` 명령은 테이블의 여러 행에서 데이터를 가져오는 데 사용됩니다. HBase REST API에서 클라이언트 라이브러리를 제공하는 HBase C# API를 사용하여 데이터를 관리할 수도 있습니다. 또한 Hive를 사용하여 HBase 데이터베이스를 쿼리할 수 있습니다. 이러한 프로그래밍 모델 소개는 [HDInsight에서 Hadoop와 함께 HBase를 사용하여 시작][hbase-get-started]을 참조하세요. 데이터베이스를 호스트하는 노드에서 데이터를 처리할 수 있도록 하는 보조 프로세서를 사용할 수도 있습니다.
- 
+
 
 ## 시나리오: HBase의 사용 사례
 BigTable 및 확장에 의해 HBase를 만드는 정식 사용 사례는 웹 검색입니다. 검색 엔진은 엔진을 포함하는 웹 페이지에 용어를 매핑하는 인덱스를 구축합니다. 그러나 HBase가 적합한 다른 많은 사용 사례가 있으며, 몇 가지 사례가 이 섹션에 나와 있습니다.
@@ -60,7 +61,7 @@ BigTable 및 확장에 의해 HBase를 만드는 정식 사용 사례는 웹 검
 
 - [HDInsight의 Hadoop에서 HBase 사용 시작][hbase-get-started]
 - [Azure 가상 네트워크에 HDInsight 클러스터 프로비전][hbase-provision-vnet]
-- [HDInsight에서 HBase 복제 구성](hdinsight-hbase-geo-replication.md) 
+- [HDInsight에서 HBase 복제 구성](hdinsight-hbase-geo-replication.md)
 - [HDInsight에서 HBase를 사용하여 Twitter 데이터 분석][hbase-twitter-sentiment]
 - [Maven을 사용하여 HDInsight(Hadoop)에서 HBase를 사용하는 Java 응용 프로그램 빌드][hbase-build-java-maven]
 
@@ -87,20 +88,9 @@ BigTable 및 확장에 의해 HBase를 만드는 정식 사용 사례는 웹 검
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[azure-management-portal]: https://manage.windowsazure.com/
+[azure-management-portal]: https://portal.azure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
 
-
-
-
-
-
-
-
-
-
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->

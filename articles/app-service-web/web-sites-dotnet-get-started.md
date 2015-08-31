@@ -52,9 +52,9 @@
 
 첫 번째 단계는 Visual Studio의 웹 프로젝트와 Azure App Service의 웹앱을 만드는 것입니다. 이 작업을 마치면 프로젝트를 인터넷에서 사용할 수 있게 웹앱에 배포합니다.
 
-이 표에서는 만들기 및 배포 단계에서의 수행 작업을 설명합니다.
+만들기와 배포 단계에서 수행하는 작업이 다이어그램에 설명되어 있습니다.
 
-![생성](./media/web-sites-dotnet-get-started/Create_App.png)
+![만들기 및 배포](./media/web-sites-dotnet-get-started/Create_App.png)
 
 1. Visual Studio 2015 또는 Visual Studio 2013을 엽니다. 
 
@@ -76,7 +76,7 @@
 
 5. **새 ASP.NET 프로젝트** 대화 상자에서 **MVC** 템플릿을 선택합니다.
 
-	[MVC](http://www.asp.net/mvc)는 웹앱을 위한 ASP.NET 프레임워크입니다.
+	[MVC](http://www.asp.net/mvc)는 웹앱 제작을 위한 ASP.NET 프레임워크입니다.
 
 7. **인증 변경**을 클릭합니다.
 
@@ -100,7 +100,7 @@
 
 	![Azure에 로그인함](./media/web-sites-dotnet-get-started/configuresitesettings.png)
 
-3. **Microsoft Azure Web App 설정 구성** 대화 상자에 *azurewebsites.net*에서 고유한 **웹앱 이름**을 입력합니다. 예를 들어, MyExample810처럼 MyExample 오른쪽에 숫자를 더하여 고유의 이름을 지정할 수 있습니다. 기본 웹 이름이 만들어진 경우 해당 이름은 고유하므로 사용할 수 있습니다.
+3. **Microsoft Azure 웹앱 설정 구성** 대화 상자에 *azurewebsites.net* 도메인에서 고유한 **웹앱 이름**을 입력합니다. 예를 들어, MyExample810처럼 MyExample 오른쪽에 숫자를 더하여 고유의 이름을 지정할 수 있습니다. 기본 웹 이름이 만들어진 경우 해당 이름은 고유하므로 사용할 수 있습니다.
 
 	입력한 이름을 다른 사용자가 이미 사용한 경우 녹색 확인 표시 대신 오른쪽에 빨간색 느낌표가 표시되며, 다른 이름을 입력해야 합니다.
 
@@ -176,7 +176,7 @@
 
 	Visual Studio에서 Azure 서버로 파일을 복사하는 프로세스를 시작합니다.
 
-	**출력** 및 **Azure App Service Activity** 창에 수행된 배포 작업이 표시되고 성공적인 배포 완료가 보고됩니다.
+	**출력** 및 **Azure 앱 서비스 활동** 창에 수행된 배포 작업이 표시되고 성공적인 배포 완료가 보고됩니다.
 
 	![성공적인 배포를 보고하는 출력 창](./media/web-sites-dotnet-get-started/PublishOutput.png)
 
@@ -188,7 +188,7 @@
 
 ## 변경 및 다시 배포
 
-자습서의 이 섹션은 선택 사항입니다. 여기서는 홈 페이지의 **h1** 제목을 변경하고 개발 컴퓨터에서 로컬로 프로젝트를 실행하여 변경 내용을 확인한 다음 Azure에 변경 내용을 배포합니다.
+자습서의 이 섹션은 선택 사항입니다. 여기서는 홈 페이지의 **h1** 머리글을 변경하고 개발 컴퓨터에서 로컬로 프로젝트를 실행하여 변경 내용을 확인한 다음 Azure에 변경 내용을 배포합니다.
 
 2. *솔루션 탐색기*에서 *Views/Home/Index.cshtml* 또는 **.vbhtml** 파일을 열고 **h1** 제목을 "ASP.NET"에서 "ASP.NET and Azure"로 변경한 다음 파일을 저장합니다.
 
@@ -208,7 +208,7 @@
 
 	![게시 선택](./media/web-sites-dotnet-get-started/choosepublish.png)
 
-	**웹 게시** 마법사의 **미리 보기** 탭이 나타납니다. 게시 설정을 변경해야 하는 경우 다른 탭을 선택할 수 있지만 이제 같은 설정으로 다시 배포하면 됩니다.
+	**웹 게시** 마법사의 **미리 보기** 탭이 표시됩니다. 게시 설정을 변경해야 하는 경우 다른 탭을 선택할 수 있지만 이제 같은 설정으로 다시 배포하면 됩니다.
 
 2. **웹 게시** 마법사에서 **게시**를 클릭합니다.
 
@@ -224,13 +224,13 @@
 
 ## 관리 포털에서 웹 응용 프로그램 모니터링 및 관리
 
-[Azure 미리 보기 포털](/services/management-portal/)은 Azure 서비스(예: 방금 만든 웹 응용 프로그램)를 관리하고 모니터링하는 데 사용할 수 있는 웹 인터페이스입니다. 자습서의 이 섹션에서는 포털에서 수행할 수 있는 작업 중 일부를 살펴봅니다.
+[Azure Preview 포털](/services/management-portal/)은 Azure 서비스(예: 방금 만든 웹앱)를 관리하고 모니터링하는 데 사용할 수 있는 웹 인터페이스입니다. 자습서의 이 섹션에서는 포털에서 수행할 수 있는 작업 중 일부를 살펴봅니다.
 
 1. 브라우저에서 [https://portal.azure.com]()으로 이동하여 Azure 자격 증명으로 로그인합니다.
 
-2. **모두 찾아보기 > 웹앱**을 클릭한 다음 웹 응용 프로그램의 이름을 클릭합니다.
+2. **모두 찾아보기 > 웹앱**을 클릭한 다음 웹앱의 이름을 클릭합니다.
 
-	**웹 앱** 블레이드에 웹앱의 설정 개요와 사용량 통계가 표시됩니다.
+	**웹앱** 블레이드에 웹앱의 설정 개요와 사용량 통계가 표시됩니다.
 
 	![웹앱 블레이드](./media/web-sites-dotnet-get-started/portaldashboard.png)
 
@@ -289,7 +289,7 @@
 
 * 웹 응용 프로그램용 앱 서비스, 클라우드 서비스 및 VM을 선택하는 방법
 
-	Azure에서는 앱 서비스 웹 응용 프로그램을 웹 사이트(이 자습서에 설명됨), 클라우드 서비스 또는 가상 컴퓨터에서 실행할 수 있습니다. 자세한 내용은 [Azure 웹앱, 클라우드 서비스 및 VM을 사용하는 경우](/manage/services/web-sites/choose-web-app-service/) 를 참조하세요.
+	Azure에서는 앱 서비스 웹 응용 프로그램을 웹 사이트(이 자습서에 설명됨), 클라우드 서비스 또는 가상 컴퓨터에서 실행할 수 있습니다. 자세한 내용은 [Azure 웹앱, 클라우드 서비스 및 VM을 사용하는 경우](/manage/services/web-sites/choose-web-app-service/)를 참조하세요.
 
 * [앱 서비스 계획을 선택하거나 만드는 방법](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
@@ -301,4 +301,4 @@
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO8-->

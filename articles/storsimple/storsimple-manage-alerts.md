@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="StorSimple 경고 보기 및 관리"
+   pageTitle="StorSimple 알림 보기 및 관리 | Microsoft Azure"
    description="StorSimple 경고 및 StorSimple 관리자 서비스를 사용하는 방법을 설명하여 이를 보고 지웁니다."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/30/2015"
+   ms.date="08/14/2015"
    ms.author="v-sharos" />
 
 # StorSimple 경고 보기 및 관리
@@ -137,8 +137,24 @@ StorSimple 관리자 서비스 대시보드는 장치에서 경고의 개수를 
 
 |경고 텍스트|이벤트|자세한 내용 / 권장 작업|
 |:---|:---|:---|
-|<*클라우드 자격 증명 이름*>에 연결을 설정할 수 없습니다.|저장소 계정에 연결할 수 없습니다.|장치에 연결 문제가 있을 수 있습니다. 장치에서 StorSimple용 Windows PowerShell 인터페이스의 **Test-HcsmConnection** cmdlet을 실행하여 문제를 식별하고 해결합니다. 설정이 올바른 경우 경고가 발생한 저장소 계정의 자격 증명에 문제가 발생할 수 있습니다. 이 경우에 **Test-HcsStorageAccountCredential** cmdlet을 사용하여 해결할 수 있는 문제가 있는지 확인합니다.<ul><li>네트워크 설정을 확인합니다.</li><li>저장소 계정 자격 증명을 확인합니다.</li></ul>|
-|최근 <*숫자*>분 동안 장치로부터 하트비트를 받지 못했습니다.|장치에 연결할 수 없습니다.|장치에 연결 문제가 있을 수 있습니다. 장치에서 StorSimple용 Windows PowerShell 인터페이스의 **Test-HcsmConnection** cmdlet을 사용하여 문제를 확인하고 해결하거나 네트워크 관리자에 문의하십시오.|
+|<*클라우드 자격 증명 이름*>에 연결을 설정할 수 없습니다.|저장소 계정에 연결할 수 없습니다.|장치에 연결 문제가 있을 수 있습니다. 장치에서 StorSimple용 Windows PowerShell 인터페이스의 `Test-HcsmConnection` cmdlet을 실행하여 문제를 식별하고 해결합니다. 설정이 올바른 경우 경고가 발생한 저장소 계정의 자격 증명에 문제가 발생할 수 있습니다. 이 경우에 `Test-HcsStorageAccountCredential` cmdlet을 사용하여 해결할 수 있는 문제가 있는지 확인합니다.<ul><li>네트워크 설정을 확인합니다.</li><li>저장소 계정 자격 증명을 확인합니다.</li></ul>|
+|최근 <*숫자*>분 동안 장치로부터 하트비트를 받지 못했습니다.|장치에 연결할 수 없습니다.|장치에 연결 문제가 있을 수 있습니다. 장치에서 StorSimple용 Windows PowerShell 인터페이스의 `Test-HcsmConnection` cmdlet을 사용하여 문제를 확인하고 해결하거나 네트워크 관리자에 문의하세요.|
+
+### 클라우드 연결에 실패할 경우의 StorSimple 동작
+
+프로덕션 환경에서 실행 중인 내 StorSimple 장치에 대한 클라우드 연결에 실패하면 어떻게 되나요?
+
+StorSimple 프로덕션 장치에서 클라우드 연결에 실패하면 장치 상태에 따라 다음 상황이 발생할 수 있습니다.
+
+- **장치에 있는 로컬 데이터**: 중단 없이 계속 읽기 작업을 서비스할 수 있습니다. 그러나 해결되지 않은 IO의 수가 증가하여 한도를 초과하면 읽기가 실패하기 시작할 수 있습니다. 
+
+	장치의 로컬 계층에 있는 데이터의 양에 따라 클라우드 연결이 중단된 후 처음 몇 시간 동안 쓰기도 계속될 수 있습니다. 그 후에는 쓰기 속도가 저하되다가 클라우드 연결이 몇 시간 동안 중단되면 결국 실패하기 시작합니다.
+
+ 
+- **클라우드에 있는 데이터**: 대부분의 클라우드 연결 오류에서 오류가 반환됩니다. 연결이 복원되면 사용자가 볼륨을 온라인 상태로 전환하지 않아도 IO가 다시 시작됩니다. 드물게 Azure 포털에서 볼륨을 온라인으로 되돌리기 위해 사용자 개입이 필요한 경우도 있습니다.
+ 
+- **진행 중인 클라우드 스냅숏**: 4-5 시간 내에 여러 번 작업을 다시 시도하고, 연결이 복원되지 않으면 클라우드 스냅숏이 실패합니다.
+
 
 ### 클러스터 경고
 
@@ -155,8 +171,8 @@ StorSimple 관리자 서비스 대시보드는 장치에서 경고의 개수를 
 
 |경고 텍스트|이벤트|자세한 내용 / 권장 작업|
 |:---|:---|:---|
-|복구 작업은 이 서비스에 대한 설정을 모두 복원하지 못했습니다. 장치 구성 데이터는 일부 장치에 대해 일관성 없는 상태입니다.|재해 복구 후에 데이터 일치가 검색되었습니다.|서비스의 암호화된 데이터와 장치의 암호화된 데이터가 동기화되지 않습니다. StorSimple Manager에서 <*장치 이름*> 장치에 권한을 부여하여 동기화 프로세스를 시작합니다. StorSimple용 Windows PowerShell 인터페이스를 사용하여 **<*장치 이름*> 장치의 Restore-HcsmEncryptedServiceData** cmdlet을 실행하고 이 cmdlet에 대한 입력으로 이전 암호를 제공하여 보안 프로필을 복원합니다. 그런 다음 **Invoke-HcsmServiceDataEncryptionKeyChange** cmdlet을 실행하여 서비스 데이터 암호화 키를 업데이트합니다. 적절한 조치를 수행한 후에 경고 페이지에서 이 경고를 지우십시오.|
-|서비스는 예기치 않은 오류로 인해 보조 데이터 센터로 장애 조치합니다.|기타 / 알 수 없는 원인입니다.|계속하려면 StorSimple 관리자에서 구성 설정을 확인해야 합니다. 적절한 조치를 수행한 후에 경고 페이지에서 이 경고를 지우십시오. StorSimple Manager에 대한 자세한 내용은 [StorSimple Manager 관리자 가이드](https://msdn.microsoft.com/library/azure/dn772401.aspx)를 참조하세요.|
+|복구 작업은 이 서비스에 대한 설정을 모두 복원하지 못했습니다. 장치 구성 데이터는 일부 장치에 대해 일관성 없는 상태입니다.|재해 복구 후에 데이터 일치가 검색되었습니다.|서비스의 암호화된 데이터와 장치의 암호화된 데이터가 동기화되지 않습니다. StorSimple Manager에서 <*장치 이름*> 장치에 권한을 부여하여 동기화 프로세스를 시작합니다. StorSimple용 Windows PowerShell 인터페이스를 사용하여 <*장치 이름*> cmdlet에서 `Restore-HcsmEncryptedServiceData`를 실행하고 이 cmdlet에 대한 입력으로 이전 암호를 제공하여 보안 프로필을 복원합니다. 그런 다음 `Invoke-HcsmServiceDataEncryptionKeyChange` cmdlet을 실행하여 서비스 데이터 암호화 키를 업데이트합니다. 적절한 조치를 수행한 후에 경고 페이지에서 이 경고를 지우십시오.|
+|서비스는 예기치 않은 오류로 인해 보조 데이터 센터로 장애 조치합니다.|기타 / 알 수 없는 원인입니다.|계속하려면 StorSimple 관리자에서 구성 설정을 확인해야 합니다. 적절한 조치를 수행한 후에 경고 페이지에서 이 경고를 지우십시오. StorSimple Manager에 대한 자세한 내용은 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md)를 참조하세요.|
 
 ### 하드웨어 경고
 
@@ -187,7 +203,7 @@ StorSimple 관리자 서비스 대시보드는 장치에서 경고의 개수를 
 |<*요소*>의 암호가 <*시간 길이*> 후에 만료됩니다.||만료되기 전에 암호를 변경합니다.|
 |<*요소 ID*>에 대한 보안 구성 정보가 없습니다.||이 볼륨 컨테이너와 연결된 볼륨을 StorSimple 구성을 복제하는 데 사용할 수 없습니다. 데이터를 안전하게 저장하려면 볼륨 컨테이너와 볼륨 컨테이너와 연결된 모든 볼륨을 삭제하는 것이 좋습니다. 적절한 조치를 수행한 후에 경고 페이지에서 이 경고를 지우십시오.|
 |<*요소 ID*>에 대한 로그인 시도가 <*숫자*>회 실패했습니다.|로그온 시도가 여러 번 실패했습니다.|장치가 공격을 받고 있거나 권한이 있는 사용자가 잘못된 암호로 연결하려고 합니다.<ul><li>권한이 있는 사용자에게 문의하고 합법적인 출처에서 이러한 시도가 있었는지 확인합니다. 실패한 로그인 시도 횟수가 많은 경우 원격 관리를 사용하지 않도록 설정하고 네트워크 관리자에 문의합니다. 적절한 조치를 수행한 후 경고 페이지에서 이 경고를 지우세요.</li><li>스냅숏 관리자 인스턴스가 올바른 암호로 구성되어 있는지 확인합니다. 적절한 조치를 수행한 후 경고 페이지에서 이 경고를 지우세요.</li></ul>|
-|서비스 데이터 암호화 키를 변경하는 동안 하나 이상의 오류가 발생했습니다.||서비스 데이터 암호화 키를 변경하는 동안 오류가 발생했습니다. 오류 조건을 해결한 후 장치에서 StorSimple용 Windows PowerShell 인터페이스의 **Invoke-HcsmServiceDataEncryptionKeyChange** cmdlet를 실행하여 서비스를 업데이트합니다. 문제가 지속되면 Microsoft 지원에 문의하십시오. 문제가 해결되면 경고 페이지에서 이 경고를 지우십시오.|
+|서비스 데이터 암호화 키를 변경하는 동안 하나 이상의 오류가 발생했습니다.||서비스 데이터 암호화 키를 변경하는 동안 오류가 발생했습니다. 오류 조건을 해결한 후 장치에서 StorSimple용 Windows PowerShell 인터페이스의 `Invoke-HcsmServiceDataEncryptionKeyChange` cmdlet을 실행하여 서비스를 업데이트합니다. 문제가 지속되면 Microsoft 지원에 문의하십시오. 문제가 해결되면 경고 페이지에서 이 경고를 지우십시오.|
 
 ### 지원 패키지 경고
 
@@ -215,6 +231,6 @@ StorSimple 관리자 서비스 대시보드는 장치에서 경고의 개수를 
 
 ## 다음 단계
 
-[StorSimple 오류에 대해 자세히 알아봅니다](storsimple-troubleshoot-operational-device.md)
+[StorSimple 오류에 대해 자세히 알아봅니다](storsimple-troubleshoot-operational-device.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO8-->
