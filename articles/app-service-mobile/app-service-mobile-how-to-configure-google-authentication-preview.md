@@ -35,7 +35,7 @@
 
 4. 왼쪽 탐색 모음에서 **API & Auth**를 클릭합니다. 그런 다음 **Consent screen**을 클릭합니다. **Email Address**를 선택하고 **Product Name**을 입력합니다. 그런 다음 **Save**를 클릭합니다.
 
-5. 또한 **API & Auth**에서 **APIs**를 선택하고 **Google+ API**를 사용하도록 설정합니다. **소셜 API**에 위치합니다. 또한 **Google+API**를 검색할 수 있습니다.
+5. 또한 **API & Auth**에서 **APIs**를 선택하고 **Google+ API**를 사용하도록 설정합니다. **Social APIs**에 위치합니다. 또한 **Google+API**를 검색할 수 있습니다.
 
 6. 다시 **API & Auth**에서 **Credentials**를 선택한 다음 **Create new Client ID**를 선택합니다.
 
