@@ -480,7 +480,6 @@ Azure Blob을 참조하는 Data Factory 테이블을 정의하는 JSON 요소에
 
 ## 참고 항목
 
-- [Azure 데이터 팩터리를 사용하여 데이터 복사][adf-copyactivity]
 - [복사 작업 - JSON 스크립팅 참조](https://msdn.microsoft.com/library/dn835035.aspx)
 - [비디오: Azure 데이터 팩터리 복사 작업 소개][copy-activity-video]
 
@@ -488,4 +487,4 @@ Azure Blob을 참조하는 Data Factory 테이블을 정의하는 JSON 요소에
 [adf-copyactivity]: data-factory-copy-activity.md
 [copy-activity-video]: http://azure.microsoft.com/documentation/videos/introducing-azure-data-factory-copy-activity/
 
-<!----HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->

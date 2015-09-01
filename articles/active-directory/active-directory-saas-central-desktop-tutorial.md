@@ -49,8 +49,8 @@
     ![Central Desktop](./media/active-directory-saas-central-desktop-tutorial/IC769560.png "Central Desktop")
 ##Single Sign-On 구성
 
-이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Central Desktop에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.
-이 절차의 일부로 base-64로 인코딩된 인증서 파일을 Central Desktop 테넌트에 업로드해야 합니다.
+이 섹션은 사용자가 SAML 프로토콜 기반 페더레이션을 사용하여 Azure AD의 계정으로 Central Desktop에 인증할 수 있게 하는 방법을 간략하게 설명하기 위한 것입니다.  
+이 절차의 일부로 base-64로 인코딩된 인증서 파일을 Central Desktop 테넌트에 업로드해야 합니다.  
 이 절차를 잘 모르는 경우 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
 Nase
@@ -154,4 +154,4 @@ AAD 사용자가 로그인할 수 있도록 Central Desktop 응용 프로그램�
 
 Single sign-on 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!----HONumber=August15_HO7-->
+<!-----HONumber=August15_HO7-->
