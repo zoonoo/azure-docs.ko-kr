@@ -762,14 +762,14 @@ Azure에서 실행 중인 컴퓨터를 장애 조치(Failover)한 다음 온-프
 
 ## 타사 소프트웨어 통지 및 정보
 
-번역 또는 지역화 금지
+Do Not Translate or Localize
 
-Microsoft 제품이나 서비스에서 실행되는 소프트웨어와 펌웨어는 아래 나열된 프로젝트의 자료(총체적으로 "타사 코드")를 기반으로 하거나 통합합니다. Microsoft는 타사 코드의 원래 작성자가 아닙니다. Microsoft가 이러한 타사 코드를 받을 때 적용된 원래 저작권 표시 및 라이선스는 아래에 명시되어 있습니다.
+The software and firmware running in the Microsoft product or service is based on or incorporates material from the projects listed below (collectively, “Third Party Code”).  Microsoft is the not original author of the Third Party Code.  The original copyright notice and license, under which Microsoft received such Third Party Code, are set forth below.
 
-섹션 A의 정보는 아래 나열된 프로젝트의 타사 코드 구성 요소와 관련된 것입니다. 해당 라이선스와 정보는 정보 제공 목적으로만 제공됩니다. 이 타사 코드는 Microsoft 제품 또는 서비스에 대한 Microsoft 소프트웨어 사용 조건에 의거하여 Microsoft에 의해 사용이 재허용됩니다.
+The information in Section A is regarding Third Party Code components from the projects listed below. Such licenses and information are provided for informational purposes only.  This Third Party Code is being relicensed to you by Microsoft under Microsoft's software licensing terms for the Microsoft product or service.  
 
-섹션 B의 정보는 원래 사용 조건에 의거하여 Microsoft에서 제공하는 타사 구성 요소와 관련된 것입니다.
+The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
 
-전체 파일은 [Microsoft 다운로드 센터](http://go.microsoft.com/fwlink/?LinkId=529428)에서 확인할 수 있습니다. Microsoft에서 명시적으로 부여하지 않은 모든 권한은 묵시적, 금반언적 또는 기타 어떠한 방식에 의해서든 Microsoft가 보유합니다.
+The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 
 <!------HONumber=August15_HO7-->
