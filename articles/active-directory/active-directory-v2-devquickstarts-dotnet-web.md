@@ -20,9 +20,10 @@
 
 v2.0 앱 모델에서는 개인 Microsoft 계정과 회사 또는 학교 계정 둘 다를 지원하는 인증을 웹앱에 빠르게 추가할 수 있습니다. Asp.NET 웹앱에서는 .NET Framework 4.5에 포함된 Microsoft OWIN 미들웨어를 사용하여 이 작업을 수행할 수 있습니다.
 
-  >[AZURE.NOTE]이 정보는 v2.0 앱 모델 공개 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
+  >[AZURE.NOTE]
+	이 정보는 v2.0 앱 모델 공개 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
 
- 여기서는 OWIN을 사용하여 다음과 같은 작업을 수행합니다. 즉, Azure AD와 v2.0 앱 모델을 사용하여 사용자를 앱에 로그인하고, 사용자에 대한 일부 정보를 표시하고, 사용자를 앱에서 로그아웃합니다.
+ 여기서는 OWIN을 사용하여 다음과 같은 작업을 수행합니다.즉, Azure AD와 v2.0 앱 모델을 사용하여 사용자를 앱에 로그인하고,사용자에 대한 일부 정보를 표시하고,사용자를 앱에서 로그아웃합니다.
 
 이 작업을 수행하려면 다음 작업이 필요합니다.
 
@@ -35,26 +36,29 @@ v2.0 앱 모델에서는 개인 Microsoft 계정과 회사 또는 학교 계정 
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIdConnect-DotNet.git```
 
-The completed app is provided at the end of this tutorial as well.
+완성된 앱이 이 자습서 끝에도 제공됩니다.
 
-## 1. Register an App
-Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
+## 1. 앱 등록
+[apps.dev.microsoft.com](https://apps.dev.microsoft.com)에서 새 앱을 만들거나 다음 [자세한 단계](active-directory-v2-app-registration.md)를 따르세요.  다음을 수행해야 합니다.
 
-- Copy down the **Application Id** assigned to your app, you'll need it soon.
-- Add the **Web** platform for your app.
-- Enter the correct **Redirect URI**. The redirect uri indicates to Azure AD where authentication responses should be directed - the default for this tutorial is `https://localhost:44326/`.
+- 앱에 할당된 **응용 프로그램 ID**를 적어둡니다. 곧 필요합니다.
+- 앱에 대한 **웹** 플랫폼을 추가합니다.
+- 올바른 **리디렉션 URI**를 입력합니다. 리디렉션 URI는 인증 응답을 보내야 하는 Azure AD를 나타냅니다. 이 자습서에 대한 기본값은 `https://localhost:44326/`입니다.
 
-## 2. Set up your app to use the OWIN authentication pipeline
-Here, we'll configure the OWIN middleware to use the OpenID Connect authentication protocol.  OWIN will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
+## 2. OWIN 인증 파이프라인을 사용하도록 앱을 설정합니다.
+여기서는 OpenID Connect 인증 프로토콜을 사용하도록 OWIN 미들웨어를 구성합니다.  OWIN은 로그인 및 로그아웃 요청을 실행하고, 사용자의 세션을 관리하고, 사용자에 대한 정보를 가져오는 데 사용됩니다.
 
--	To begin, open the `web.config` file in the root of the project, and enter your app's configuration values in the `<appSettings>` section.
-    -	The `ida:ClientId` is the **Application Id** assigned to your app in the registration portal.
-    -	The `ida:RedirectUri` is the **Redirect Uri** you entered in the portal.
+-	먼저 프로젝트의 루트에서 `web.config` 파일을 열고 `<appSettings>` 섹션에 앱의 구성 값을 입력합니다.
+    -	`ida:ClientId` 는 등록 포털에서 앱에 할당된 **응용 프로그램 ID**입니다.
+    -	`ida:RedirectUri` 는 포털에서 입력한 **리디렉션 URI**입니다.
 
--	Next, add the OWIN middleware NuGet packages to the project using the Package Manager Console.
+-	다음으로 패키지 관리자 콘솔을 사용하여 OWIN 미들웨어 NuGet 패키지를 프로젝트에 추가합니다.
 
 ```
-PM> Install-Package Microsoft.Owin.Security.OpenIdConnect PM> Install-Package Microsoft.Owin.Security.Cookies PM> Install-Package Microsoft.Owin.Host.SystemWeb ```
+PM> Install-Package Microsoft.Owin.Security.OpenIdConnect 
+PM> Install-Package Microsoft.Owin.Security.Cookies 
+PM> Install-Package Microsoft.Owin.Host.SystemWeb 
+```
 
 -	`Startup.cs` 프로젝트에 "OWIN 시작 클래스"를 추가하고, 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **추가** --> **새 항목** --> "OWIN" 검색을 클릭합니다. OWIN 미들웨어는 앱이 시작되면 `Configuration(...)` 메서드를 호출합니다.
 -	클래스 선언을 이미 다른 파일에서 이 클래스의 일부를 구현했던 `public partial class Startup`으로 변경합니다. `Configuration(...)` 메서드에서 ConfigureAuth(...)를 호출하여 웹앱에 대한 인증을 설정합니다.  
@@ -199,6 +203,8 @@ public ActionResult About()
 
 [v2.0 앱 모델을 사용하여 Web API 보안 유지 >>](active-directory-devquickstarts-webapi-dotnet.md)
 
-추가 리소스는 다음을 확인해보세요. - [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md) - [스택 오버플로 "azure-active-directory" 태그 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
+추가 리소스는 다음을 확인해보세요. 
+- [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md) 
+- [스택 오버플로 "azure-active-directory" 태그 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

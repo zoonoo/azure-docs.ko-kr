@@ -23,4 +23,4 @@
   > [AZURE.NOTE]
     이 정보는 v2.0 앱 모델 공개 미리 보기에 적용됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
 
-<!-------HONumber=August15_HO7-->
+<!--------HONumber=August15_HO7-->

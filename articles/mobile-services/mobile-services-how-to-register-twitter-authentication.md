@@ -40,11 +40,11 @@
 
    	앱이 등록되고 응용 프로그램 세부 정보가 표시됩니다.
 
-6. 앱 대시보드에서 **Keys and Access Tokens** 탭을 클릭하고 **Consumer key** 및 **Consumer secret** 값을 기록해 둡니다.
+6. 앱 대시보드에서 **키 및 액세스 토큰** 탭을 클릭하고 **소비자 키** 및 **소비자 암호** 값을 기록해 둡니다.
 
     > [AZURE.NOTE]소비자 암호는 중요한 보안 자격 증명입니다. 다른 사람과 이 암호를 공유하거나 앱과 함께 배포하지 마십시오.
 
-7. **Settings** 탭을 클릭하고 아래로 스크롤하여 **Allow this application to be used to sign in with Twitter** 확인란이 선택되어 있는지 확인한 후 **Update Settings**를 클릭합니다.
+7. **설정** 탭을 클릭하고 아래로 스크롤하여 **Twitter로 로그인하는 데 이 애플리케이션을 사용하도록 허용** 확인란이 선택되어 있는지 확인한 후 **설정 업데이트**를 클릭합니다.
 
 이제 모바일 서비스에 소비자 키 및 소비자 암호 값을 제공하여 앱에서 Twitter 로그인을 인증에 사용할 준비가 되었습니다.
 
@@ -62,4 +62,4 @@
 [Azure Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

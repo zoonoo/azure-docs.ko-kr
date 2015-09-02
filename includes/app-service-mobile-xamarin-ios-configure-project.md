@@ -30,12 +30,12 @@
 
     이제 프로젝트에서 코드 서명에 새 프로필을 사용하게 됩니다. 공식 Xamarin 장치 프로비저닝 설명서를 보려면 [Xamarin 장치 프로비저닝]을 참조하세요.
 
-[120]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-20.png
-[121]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png
-[122]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-22.png
-[123]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-23.png
-[124]: ./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-24.png
+[120]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-20.png
+[121]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png
+[122]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-22.png
+[123]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-23.png
+[124]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-24.png
 
 [Xamarin 장치 프로비저닝]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

@@ -80,8 +80,8 @@ API 앱을 만들고 나면 이제 Chatter 커넥터를 논리 앱에서 트리�
 	- 	**멘션** - 이 메시지에 태그된 다양한 사용자 이름입니다.
 	- 	**해시 태그** - 메시지와 함께 게시될 다양한 해시 태그입니다.
 
-	![][10]
-	![][11]
+![][10]
+![][11]
 
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
@@ -104,4 +104,4 @@ API 앱을 만들고 나면 이제 Chatter 커넥터를 논리 앱에서 트리�
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->
