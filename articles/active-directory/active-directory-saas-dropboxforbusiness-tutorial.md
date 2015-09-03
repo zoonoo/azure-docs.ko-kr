@@ -94,7 +94,7 @@
      5\.2. Azure 포털의 **Dropbox for Business에서 Single Sign-On 설정** 대화상자 페이지에서 **Sign-in page URL** 값을 복사하여, **Sign in URL** 텍스트 상자에 붙여넣습니다.
 
 
-     5\.3. 다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다.[AZURE.TIP]자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
+     5\.3. 다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다. > [AZURE.TIP] 자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
 
 
      5\.4. **인증서 선택**을 클릭한 다음 **base-64로 인코딩된 인증서 파일**을 업로드합니다.
@@ -173,4 +173,4 @@ Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액�
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?](active-directory-appssoaccess-whatis.md)
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

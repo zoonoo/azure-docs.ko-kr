@@ -110,7 +110,7 @@ Azure AD 메서드를 사용한 로그인:
 
 	메시지가 표시되면 조직 사용자 ID와 암호를 입력합니다.
 
-**또는 ** PublishSettings 파일을 대신 사용합니다.
+또는 PublishSettings 파일을 대신 사용합니다.
 
 1. Azure PowerShell 창을 엽니다.
 
@@ -159,4 +159,4 @@ VHD 파일을 업로드할 저장소 계정이 필요합니다. 기존 계정을
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!---HONumber=August15_HO8-->
+<!----HONumber=August15_HO8-->

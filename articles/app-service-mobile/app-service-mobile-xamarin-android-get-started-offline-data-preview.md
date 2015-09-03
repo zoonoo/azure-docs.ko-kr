@@ -182,4 +182,4 @@
 
 [클라우드 표지: Azure 모바일 서비스에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 
-<!-----HONumber=August15_HO8-->
+<!-----------HONumber=August15_HO8-->
