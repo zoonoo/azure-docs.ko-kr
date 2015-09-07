@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="인증 및 SQL DB를 사용하여 ASP.NET MVC 앱을 만들고 Azure 앱 서비스에 배포" 
-	description="SQL 데이터베이스 백엔드로 ASP.NET MVC 5 앱을 개발하고, 인증 및 권한 부여를 추가하고 Azure에 배포하는 방법에 알아봅니다." 
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="Rick-Anderson" 
-	manager="wpickett" 
+	pageTitle="인증 및 SQL DB를 사용하여 ASP.NET MVC 앱을 만들고 Azure 앱 서비스에 배포"
+	description="SQL 데이터베이스 백엔드로 ASP.NET MVC 5 앱을 개발하고, 인증 및 권한 부여를 추가하고 Azure에 배포하는 방법에 알아봅니다."
+	services="app-service\web"
+	documentationCenter=".net"
+	authors="Rick-Anderson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/07/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/07/2015"
 	ms.author="riande"/>
 
 
@@ -36,7 +36,9 @@ ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity 
 
 ![로그인 페이지][rxb]
 
->[AZURE.NOTE]이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](../ko-kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](../ko-kr/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
+>[AZURE.NOTE]위의 스크린샷에 예쁜 소셜 로그인 단추를 만들려면 [ASP.NET MVC 5에 대한 예쁜 소셜 로그인 단추](http://www.jerriepelser.com/blog/pretty-social-login-buttons-for-asp-net-mvc-5)(영문)라는 블로그 게시물을 참조하세요.
+
+>[AZURE.NOTE]이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](../ko-KR/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](../ko-KR/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
 
 >Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
@@ -94,7 +96,7 @@ ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity 
 		
 		</head>
 		<body>
-		    <div class="navbar navbar-inverse navbar-fixed-top">
+		    <div class="navbar navbar-inverase navbar-fixed-top">
 		        <div class="container">
 		            <div class="navbar-header">
 		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -455,7 +457,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 		Update-Database
 
-**Update-Database** 명령을 실행합니다. 이 명령은 **Seed** 메서드를 실행하고, 이 메서드가 방금 추가한 **AddUserAndRole**을 실행합니다. **AddUserAndRole**은 사용자 **user1@contoso.com*을만들고 *canEdit* 역할에 추가합니다.
+**Update-Database** 명령을 실행합니다. 이 명령은 **Seed** 메서드를 실행하고, 이 메서드가 방금 추가한 **AddUserAndRole**을 실행합니다. **AddUserAndRole**은 사용자 **user1@contoso.com*을 만들고 *canEdit* 역할에 추가합니다.
 
 ## SSL 및 Authorize 특성을 사용하여 응용 프로그램 보호 ##
 
@@ -528,14 +530,13 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 		
 1. 이전 세션에서 로그인되어 있는 경우 **로그아웃** 링크를 누릅니다.
 1. **정보** 또는 **연락처** 링크를 클릭합니다. 익명 사용자는 해당 페이지를 볼 수 없으므로 로그인 페이지로 리디렉션됩니다. 
-1. **새 사용자로 등록** 링크를 클릭하고 전자 메일 **joe@contoso.com*을 사용하여 로컬 사용자를 추가합니다. *Joe*가 홈, 정보 및 연락처 페이지를 볼 수 있는지 확인합니다.
+1. **새 사용자로 등록** 링크를 클릭하고 메일 **joe@contoso.com*을 사용하여 로컬 사용자를 추가합니다. *Joe*가 홈, 정보 및 연락처 페이지를 볼 수 있는지 확인합니다.
 
 	![로그인](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/ss14.PNG)
 
 1. *CM Demo* 링크를 클릭하고 데이터가 표시되는지 확인합니다.
 1. 페이지의 편집 링크를 클릭하면 새 로컬 사용자가 *canEdit* 역할에 추가되지 않았으므로 로그인 페이지로 리디렉션됩니다.
-1. 암호가 "P_assw0rd1"("word"에서 "0"은 숫자 0임)인 *user1@contoso.com*로 로그인합니다. 이전에 선택한 편집 페이지로 리디렉션됩니다. <br/>
-   해당 계정과 암호를 사용하여 로그인할 수 없는 경우 소스 코드에서 암호를 복사하여 붙여 넣습니다. 그래도 로그인할 수 없으면 **AspNetUsers** 테이블의 **UserName** 열을 검사하여 *user1@contoso.com*이 추가되었는지 확인합니다. 
+1. 암호가 "P\_assw0rd1"("word"에서 "0"은 숫자 0임)인 **user1@contoso.com*으로 로그인합니다. 이전에 선택한 편집 페이지로 리디렉션됩니다. <br/> 해당 계정과 암호를 사용하여 로그인할 수 없는 경우 소스 코드에서 암호를 복사하여 붙여 넣습니다. 그래도 로그인할 수 없으면 **AspNetUsers** 테이블의 **UserName** 열을 검사하여 **user1@contoso.com*이 추가되었는지 확인합니다.
 
 1. 데이터를 변경할 수 있는지 확인합니다.
 
@@ -557,7 +558,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 	![설정](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrc3.png)
 
 1. **게시**를 클릭합니다.
-1. *user1@contoso.com*(으)로 로그인하고(암호가 "P_assw0rd1") 데이터를 편집할 수 있는지 확인합니다.
+1. **user1@contoso.com*으로 로그인하고(암호 "P\_assw0rd1") 데이터를 편집할 수 있는지 확인합니다.
 1. 로그아웃합니다.
 1. [Google Developers Console](https://console.developers.google.com/)로 이동하고 **자격 증명** 탭에서 Azure URL을 사용하도록 리디렉션 URIS 및 JavaScript Orgins를 업데이트합니다.
 1. Google 또는 Facebook을 사용하여 로그인합니다. 이렇게 하면 Google 또는 Facebook 계정이 **canEdit** 역할에 추가됩니다. *요청에서 리디렉션 URI:https://contactmanager{my version}.azurewebsites.net/signin-google은 등록된 리디렉션 URI와 일치하지 않습니다.*라는 메시지와 함께 HTTP 400 오류가 발생한 경우, 변경 내용을 전파할 때까지 대기해야 합니다. 몇 분 후에 이 오류가 발생하면 URI가 올바른지 확인하세요.
@@ -575,8 +576,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 ### AddToRoleAsync 제거, 게시 및 테스트
 
-1. Account 컨트롤러의 **ExternalLoginConfirmation** 메서드에서 다음 코드를 주석으로 처리하거나 제거합니다. 
-                `await UserManager.AddToRoleAsync(user.Id, "canEdit");`
+1. Account 컨트롤러의 **ExternalLoginConfirmation** 메서드에서 다음 코드를 주석으로 처리하거나 제거합니다. `await UserManager.AddToRoleAsync(user.Id, "canEdit");`
 1. 프로젝트를 빌드하여 파일 변경 내용을 저장하고 컴파일 오류가 없는지 확인합니다.
 5. **Solution Explorer**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Publish**를 선택합니다.
 
@@ -603,8 +603,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 	![CM 페이지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr4.png)
  
 1. 편집 링크를 클릭합니다. 로그인 페이지로 리디렉션됩니다. **다른 서비스를 사용하여 로그인**에서 Google 또는 Facebook을 클릭하고 이전에 등록한 계정으로 로그인합니다. 신속하게 작업하는 동안 세션 쿠키가 시간 초과되지 않으면 이전에 사용한 Google 또는 Facebook 계정을 사용하여 자동으로 로그인됩니다.
-2. 해당 계정에 로그인되어 있는 동안 데이터를 편집할 수 있는지 확인합니다.
- 	**참고:** 이 앱을 통해 Google에서 로그아웃한 다음 동일한 브라우저에서 다른 Google 계정으로 로그인할 수 없습니다. 브라우저 한 개를 사용하는 경우 Google로 이동해서 로그아웃해야 합니다. 다른 브라우저에서는 Google과 같은 동일한 타사 인증자의 다른 계정으로 로그온할 수 있습니다.
+2. 해당 계정에 로그인되어 있는 동안 데이터를 편집할 수 있는지 확인합니다. **참고:** 이 앱을 통해 Google에서 로그아웃한 다음 동일한 브라우저에서 다른 Google 계정으로 로그인할 수 없습니다. 브라우저 한 개를 사용하는 경우 Google로 이동해서 로그아웃해야 합니다. 다른 브라우저에서는 Google과 같은 동일한 타사 인증자의 다른 계정으로 로그온할 수 있습니다.
 
 Google 계정 정보의 이름과 성을 채우지 않은 경우 NullReferenceException이 발생합니다.
 
@@ -626,7 +625,7 @@ Google 계정 정보의 이름과 성을 채우지 않은 경우 NullReferenceEx
 
 	![CM 페이지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rrr8.png)
  
-1. **canEdit** 역할 및 *user1@contoso.com*의 ID가 되도록 등록한 Google 계정의 ID를 확인합니다. **canEdit** 역할에 포함된 유일한 사용자여야 합니다. 다음 단계에서 확인하겠습니다.
+1. 등록 시 사용한 Google 계정의 ID가 **canEdit** 역할에 있고 **user1@contoso.com*의 ID입니다. **canEdit** 역할에 포함된 유일한 사용자여야 합니다. 다음 단계에서 확인하겠습니다.
 
 	![CM 페이지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/s2.png)
  
@@ -634,7 +633,7 @@ Google 계정 정보의 이름과 성을 채우지 않은 경우 NullReferenceEx
 
 	![CM 페이지](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rs1.png)
  
-**UserId**가 *user1@contoso.com*이며 등록한 Google 계정인지 확인합니다.
+**UserId**가 **user1@contoso.com*에 속하고 등록한 Google 계정인지 확인합니다.
 
 
 ## 다음 단계
@@ -718,4 +717,4 @@ Tom Dykstra의 뛰어난 [EF 및 MVC 시작](http://www.asp.net/mvc/tutorials/ge
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

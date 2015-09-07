@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구"
-   description="Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 다양한 유형의 HADR 전략을 설명합니다."
-   services="virtual-machines"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar" />
+	description="Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 다양한 유형의 HADR 전략을 설명합니다."
+	services="virtual-machines"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"/>
 <tags 
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows-sql-server"
-   ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
-   ms.author="jroth" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="08/17/2015"
+	ms.author="jroth"/>
 
 # Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구
 
@@ -134,7 +134,7 @@ Azure 디스크의 지역 복제는 동일한 데이터베이스의 로그 파�
 
 SQL Server가 포함된 Azure 가상 컴퓨터를 만들어야 한다면 [Azure에 SQL Server 가상 컴퓨터 프로비저닝](virtual-machines-provision-sql-server.md)을 참조하세요.
 
-Azure VM에서 실행되는 SQL Server에서 최상의 성능을 얻으려면 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](https://msdn.microsoft.com/library/azure/dn133149.aspx)를 참조하세요.
+Azure VM에서 실행되는 SQL Server에서 최상의 성능을 얻으려면 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-sql-server-performance-best-practices.md)의 지침을 참조하세요.
 
 Azure VM에서 SQL Server 실행에 관련된 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
@@ -143,4 +143,4 @@ Azure VM에서 SQL Server 실행에 관련된 다른 항목은 [Azure 가상 컴
 - [Azure에 새 Active Directory 포리스트 설치](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Azure VM에서 AlwaysOn 가용성 그룹을 위한 WSFC 클러스터 만들기](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

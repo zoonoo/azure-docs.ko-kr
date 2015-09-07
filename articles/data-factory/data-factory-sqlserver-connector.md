@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="SQL Server 커넥터 - SQL Server 간 데이터 이동" 
-	description="온-프레미스 또는 Azure VM에 있는 SQL Server 데이터베이스 간에 데이터를 이동할 수 있는 데이터 팩터리 서비스용 SQL Server 커넥터에 대해 알아봅니다." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="SQL Server 간 데이터 이동 | Azure 데이터 팩터리"
+	description="Azure 데이터 팩터리를 사용하여 온-프레미스 또는 Azure VM에 있는 SQL Server 데이터베이스 간에 데이터를 이동하는 방법에 대해 알아봅니다."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# SQL Server 커넥터 - 온-프레미스 또는 IaaS(Azure VM) SQL Server 간 데이터 이동
+# Azure 데이터 팩터리를 사용하여 온-프레미스 또는 IaaS(Azure VM) SQL Server 간 데이터 이동
 
 이 문서에서는 Azure 데이터 팩토리에서 복사 작업을 사용하여 다른 데이터 저장소와 SQL Server 간에 데이터를 이동하는 방법을 간략하게 설명합니다. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 작성합니다.
 
@@ -32,11 +32,11 @@ SQL Server가 호스팅되는 온-프레미스 또는 Azure IaaS(Infrastructure-
 
 아래 샘플은 다음을 보여줍니다.
 
-1.	OnPremisesSqlServer 형식의 연결된 서비스입니다.
-2.	AzureStorage 형식의 연결된 서비스입니다.
-3.	SqlServerTable 형식의 입력 데이터 집합입니다. 
-4.	AzureBlob 형식의 출력 데이터 집합입니다.
-4.	SqlSource 및 BlobSink를 사용하는 복사 작업의 파이프라인입니다.
+1.	[OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties) 형식의 연결된 서비스
+2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스
+3.	[SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md) 
+4.	[AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
+4.	[SqlSource](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
 
 샘플은 SQL Server 데이터베이스의 테이블에서 blob로 매시간 시계열에 속한 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
@@ -156,7 +156,7 @@ SQL Server가 호스팅되는 온-프레미스 또는 Azure IaaS(Infrastructure-
 
 **복사 작업을 포함하는 파이프라인**
 
-파이프라인은 위의 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **SqlSource**으로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다. **SqlReaderQuery** 속성에 지정된 SQL 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
+파이프라인은 위의 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **원본** 형식은 **SqlSource**로 설정되고 **싱크** 형식은 **BlobSink**로 설정됩니다. **SqlReaderQuery** 속성에 지정된 SQL 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
 
 
 	{  
@@ -183,7 +183,7 @@ SQL Server가 호스팅되는 온-프레미스 또는 Azure IaaS(Infrastructure-
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm}\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm}\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -208,11 +208,11 @@ SQL Server가 호스팅되는 온-프레미스 또는 Azure IaaS(Infrastructure-
 
 아래 샘플은 다음을 보여줍니다.
 
-1.	OnPremisesSqlServer 형식의 연결된 서비스입니다.
-2.	AzureStorage 형식의 연결된 서비스입니다.
-3.	AzureBlob 형식의 입력 데이터 집합입니다.
-4.	SqlServerTable 형식의 출력 데이터 집합입니다.
-4.	BlobSource 및 SqlSink를 사용하는 복사 작업의 파이프라인입니다.
+1.	[OnPremisesSqlServer](data-factory-sqlserver-connector.md#sql-server-linked-service-properties) 형식의 연결된 서비스
+2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스
+3.	[AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)
+4.	[SqlServerTable](data-factory-sqlserver-connector.md#sql-server-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
+4.	[BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) 및 [SqlSink](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
 
 샘플은 Azure blob에서 SQL Server 데이터베이스의 테이블로 매시간 시계열에 속한 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
@@ -329,7 +329,7 @@ SQL Server가 호스팅되는 온-프레미스 또는 Azure IaaS(Infrastructure-
 
 **복사 작업을 포함하는 파이프라인**
 
-파이프라인은 위의 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **BlobSource**으로 설정되고 **sink** 형식은 **SqlSink**로 설정됩니다.
+파이프라인은 위의 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **원본** 형식은 **BlobSource**로 설정되고 **싱크** 형식은 **SqlSink**로 설정됩니다.
 
 	{  
 	    "name":"SamplePipeline",
@@ -388,6 +388,10 @@ SQL Server가 호스팅되는 온-프레미스 또는 Azure IaaS(Infrastructure-
 | username | Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. | 아니요 |
 | password | 사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. | 아니요 |
 
+**New-AzureDataFactoryEncryptValue** cmdlet을 사용하여 자격 증명을 암호화하고 다음 예제와 같이 연결 문자열에 사용할 수 있습니다(**EncryptedCredential** 속성).
+
+	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
+
 ### 샘플
 
 **SQL 인증을 사용하는 JSON**
@@ -417,6 +421,8 @@ SQL Server가 호스팅되는 온-프레미스 또는 Azure IaaS(Infrastructure-
 	         "gatewayName": "<gateway name>" 
 	     } 
 	}
+
+SQL Server 데이터 원본의 자격 증명 설정에 대한 자세한 내용은 [자격 증명 및 보안 설정](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)을 참조하세요.
 
 ## SQL Server 데이터집합 형식 속성
 
@@ -491,7 +497,7 @@ Azure SQL, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식�
 | ntext | String, Char |
 | numeric | 10진수 |
 | nvarchar | String, Char |
-| real | Single |
+| real | 단일 |
 | rowversion | Byte |
 | smalldatetime | DateTime |
 | smallint | Int16 |
@@ -512,4 +518,4 @@ Azure SQL, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식�
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

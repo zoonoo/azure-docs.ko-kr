@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Redis Cache 사용 방법" 
-	description="Azure Redis Cache를 사용하여 Azure 응용 프로그램의 성능을 향상시키는 방법을 알아봅니다." 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+	pageTitle="Azure Redis Cache 사용 방법"
+	description="Azure Redis Cache를 사용하여 Azure 응용 프로그램의 성능을 향상시키는 방법을 알아봅니다."
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="dotnet" 
-	ms.topic="hero-article" 
-	ms.date="08/05/2015" 
+	ms.service="cache"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="cache-redis"
+	ms.devlang="dotnet"
+	ms.topic="hero-article"
+	ms.date="08/25/2015"
 	ms.author="sdanie"/>
 
 # Azure Redis Cache 사용 방법
@@ -45,7 +45,7 @@ Azure Redis 캐시를 시작하기는 쉽습니다. 먼저 캐시를 프로비�
 <a name="create-cache"></a>
 ## 캐시 만들기
 
-캐시를 만들려면 먼저 [Microsoft Azure Preview 포털][]에 로그인하고 **새로 만들기**, **데이터 + 저장소**, **Redis Cache**를 클릭합니다.
+캐시를 만들려면 먼저 [Azure 미리 보기 포털][]에 로그인하고 **새로 만들기**, **데이터 + 저장소**, **Redis Cache**를 클릭합니다.
 
 ![새 캐시][NewCacheMenu]
 
@@ -55,7 +55,7 @@ Azure Redis 캐시를 시작하기는 쉽습니다. 먼저 캐시를 프로비�
 
 ![캐시 만들기][CacheCreate]
 
-**DNS 이름** - 캐시 끝점에 사용할 하위 도메인 이름을 입력합니다. 끝점은 6\~20자 사이의 문자열이어야 하며, 소문자와 숫자만 포함할 수 있고, 문자로 시작해야 합니다.
+**DNS 이름** - 캐시 끝점에 사용할 하위 도메인 이름을 입력합니다. 끝점은 6~20자 사이의 문자열이어야 하며, 소문자와 숫자만 포함할 수 있고, 문자로 시작해야 합니다.
 
 **가격 계층**을 사용하여 원하는 캐시 크기 및 기능을 선택합니다. **기본** 캐시에는 최대 53GB까지 여러 크기를 가진 단일 노드가 있습니다. **표준** 캐시에는 SLA가 99.9%이며 최대 53GB까지 여러 크기를 가진 2노드 주/복제본 구성이 있습니다.
 
@@ -120,7 +120,7 @@ NuGet 패키지는 클라이언트 응용 프로그램이 StackExchange.Redis �
 
 Azure Redis Cache 연결은 `ConnectionMultiplexer` 클래스로 관리됩니다. 이 클래스는 클라이언트 응용 프로그램 전체에서 공유하고 다시 사용하도록 설계되었으며 작업별로 만들 필요가 없습니다.
 
-Azure Redis Cache에 연결하고 연결된 `ConnectionMultiplexer` 인스턴스를 반환하려면 다음 예제와 같이 정적 `Connect` 메서드를 호출하여 캐시 끝점 및 키에 전달합니다. 포털에서 생성된 Azure 키를 암호 매개 변수로 사용합니다.
+Azure Redis Cache에 연결하고 연결된 `ConnectionMultiplexer` 인스턴스를 반환하려면 다음 예제와 같이 정적 `Connect` 메서드를 호출하여 캐시 끝점 및 키에 전달합니다. 미리 보기 포털에서 생성된 Azure 키를 암호 매개 변수로 사용합니다.
 
 	ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
 
@@ -231,7 +231,7 @@ NuGet 패키지는 필요한 어셈블리 참조를 다운로드 및 추가하�
 
 주석으로 처리된 섹션은 특성 예제 및 이에 대한 샘플 설정을 제공합니다.
 
-포털의 캐시 블레이드에서 가져온 값을 사용하여 특성을 구성하고 원하는 대로 다른 값을 구성합니다.
+미리 보기 포털의 캐시 블레이드에서 가져온 값을 사용하여 특성을 구성하고 원하는 대로 다른 값을 구성합니다.
 
 	<sessionState mode="Custom" customProvider="MySessionStateStore">
       <providers>
@@ -269,7 +269,7 @@ NuGet 패키지는 필요한 어셈블리 참조를 다운로드 및 추가하�
 
 이제 Azure Redis Cache의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 캐싱 작업을 수행하는 방법을 알아보세요.
 
--	캐시의 상태를 [cache-how-to-monitor.md)할 수 있도록 [캐시 진단을 사용하도록 설정](cache-how-to-monitor.md#enable-cache-diagnostics)합니다. 포털에서 메트릭을 볼 수 있으며 선택한 도구를 사용하여 메트릭을 [다운로드 및 검토](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring)할 수도 있습니다.
+-	캐시의 상태를 [cache-how-to-monitor.md)할 수 있도록 [캐시 진단을 사용하도록 설정](cache-how-to-monitor.md#enable-cache-diagnostics)합니다. 미리 보기 포털에서 메트릭을 볼 수 있으며 선택한 도구를 사용하여 메트릭을 [다운로드 및 검토](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring)할 수도 있습니다.
 -	[StackExchange.Redis 캐시 클라이언트 설명서][](영문)를 확인하세요.
 	-	Azure Redis Cache는 다양한 Redis 클라이언트와 개발 언어에서 액세스할 수 있습니다. 자세한 내용은 [http://redis.io/clients][](영문) 및 [Azure Redis Cache용으로 다른 언어에서 개발][]을 참조하세요.
 	-	Redsmin과 같은 서비스와 함께 Azure Redis Cache를 사용할 수도 있습니다. 자세한 내용은 [Azure Redis 연결 문자열을 검색하고 Redsmin과 함께 사용하는 방법][](영문)을 참조하세요.
@@ -347,7 +347,7 @@ NuGet 패키지는 필요한 어셈블리 참조를 다운로드 및 추가하�
 
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
 [캐시 가격 정보]: http://www.windowsazure.com/pricing/details/cache/
-[Microsoft Azure Preview 포털]: https://portal.azure.com/
+[Azure 미리 보기 포털]: https://portal.azure.com/
 
 [Azure Redis 캐시 개요]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=398247
@@ -367,4 +367,4 @@ NuGet 패키지는 필요한 어셈블리 참조를 다운로드 및 추가하�
 
 [Azure 무료 체험]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

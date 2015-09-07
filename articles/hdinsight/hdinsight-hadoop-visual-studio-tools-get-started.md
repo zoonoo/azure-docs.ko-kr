@@ -19,7 +19,7 @@
 
 # HDInsight용 Visual Studio Hadoop 도구를 사용하여 Hive 쿼리 실행 시작
 
-Visual Studio용 HDInsight 도구를 사용하여 HDInsight 클러스터에 연결하고 Hive 쿼리를 제출하는 방법에 대해 알아봅니다. HDInsight 사용에 대한 자세한 내용은 [HDInsight 소개][hdinsight.introduction] 및 [HDInsight 시작][hdinsight.get.started]을 참조하세요. Storm 클러스터에 연결하는 방법에 대한 자세한 내용은 Visual Studio를 사용하여 [HDInsight에서 Apache Storm용 C#토폴로지 개발][hdinsight.storm.visual.studio.tools]을 참조하세요.
+Visual Studio용 HDInsight 도구를 사용하여 HDInsight 클러스터에 연결하고 Hive 쿼리를 제출하는 방법에 대해 알아봅니다. HDInsight 사용에 대한 자세한 내용은 [HDInsight 소개][hdinsight.introduction] 및 [HDInsight 시작][hdinsight.get.started]을 참조하세요. Storm 클러스터에 연결하는 방법에 대한 자세한 내용은 Visual Studio를 사용하여 [HDInsight에서 Apache Storm용 C# 토폴로지 개발][hdinsight.storm.visual.studio.tools]을 참조하세요.
 
 >[AZURE.NOTE]최신 릴리스에는 Hive 편집기 지원, Hive 스크립트 로컬 유효성 검사 및 YARN 로그 액세스와 같은 몇 가지 새로운 기능이 도입되었습니다.
 
@@ -67,12 +67,12 @@ Visual Studio용 HDInsight 도구를 사용하면 HDInsight 클러스터에 연�
 2.	**보기** 메뉴에서 **서버 탐색기**를 클릭하여 서버 탐색기 창을 엽니다.
 3.	**Azure**를 확장한 다음 **HDInsight**를 확장합니다.
 
-	>[AZURE.NOTE]**HDInsight 작업 목록** 창이 열립니다. 이 창이 표시되지 않는 경우 **보기** 메뉴에서 **다른 창**을 클릭한 후 **HDInsight 작업 목록 창**를 클릭하여 열 수 있습니다.  
+	>[AZURE.NOTE]**HDInsight 작업 목록** 창이 열립니다. 이 창이 표시되지 않는 경우 **보기** 메뉴에서 **다른 창**을 클릭한 후 **HDInsight 작업 목록 창**를 클릭합니다.  
 4.	Azure 구독 자격 증명을 입력한 후 **로그인**을 클릭합니다. 이 과정은 이 워크스테이션에서 Visual Studio를 통해 Azure 구독에 연결한 적이 없는 경우에만 필요합니다.
 5.	서버 탐색기에서 기존 HDInsight 클러스터 목록이 표시됩니다. 클러스터가 없는 경우 Azure Preview 포털, Azure PowerShell 또는 HDInsight SDK를 사용하여 클러스터를 프로비전할 수 있습니다. 자세한 내용은 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요.
 
 	![Hadoop 도구: Visual Studio용 HDInsight 도구 서버 탐색기 클러스터 목록][5]
-6.	HDInsight 클러스터를 확장합니다. **Hive 데이터베이스**, 기본 저장소 계정, 연결된 저장소 계정 및 **Hadoop 서비스 로그**를 볼 수 있습니다. 엔터티를 더 확장할 수 있습니다.
+6.	HDInsight 클러스터를 확장합니다. **Hive 데이터베이스**, 기본 저장소 계정, 연결된 저장소 계정 및 **Hadoop 서비스 로그**가 표시됩니다. 엔터티를 더 확장할 수 있습니다.
 
 Azure 구독에 연결한 후에는 다음을 수행할 수 있습니다.
 
@@ -97,8 +97,8 @@ HDInsight 클러스터에 대해 Hive 스크립트를 테스트하려면 많은 
 
 Visual Studio용 HDInsight 도구를 사용하여 일부 Hive 작업의 YARN 로그를 수집하고 표시하여 사용자가 Hive 작업 내에 무엇이 있는지 볼 수 있습니다.
 
-###**hivesampletable** 보기
-모든 HDInsight 클러스터에는 *hivesampletable*이라는 샘플 Hive 테이블이 함께 제공됩니다. 여기서는 이 테이블을 사용하여 Hive 테이블을 나열하고, 테이블 스키마를 보고, Hive 테이블의 행을 나열하는 방법을 보여 줍니다.
+### **hivesampletable** 보기
+모든 HDInsight 클러스터에는 *hivesampletable*이라는 샘플 Hive 테이블이 함께 제공됩니다. 여기서는 이 테이블을 사용하여 Hive 테이블을 나열하고, 테이블 스키마를 보고, Hive 테이블의 행을 나열하는 방법을 보여줍니다.
 
 
 
@@ -113,7 +113,7 @@ Visual Studio용 HDInsight 도구를 사용하여 일부 Hive 작업의 YARN 로
 
 	![Hadoop 도구: HDinsight Hive Visual Studio 스키마 쿼리][6]
 
-###Hive 테이블 만들기
+### Hive 테이블 만들기
 
 GUI를 사용하여 Hive 테이블을 만들거나 Hive 쿼리를 사용할 수 있습니다. Hive 쿼리 사용에 대한 자세한 내용은 [Hive 쿼리 실행](#run.queries)을 참조하세요.
 
@@ -125,7 +125,7 @@ GUI를 사용하여 Hive 테이블을 만들거나 Hive 쿼리를 사용할 수 
 
 	![Hadoop 도구: HDInsight Visual Studio Tools hive 테이블 만들기][7]
 
-###<a name="run.queries"></a>Hive 쿼리 유효성 검사 및 실행
+### <a name="run.queries"></a>Hive 쿼리 유효성 검사 및 실행
 다음 두 가지 방법으로 Hive 쿼리를 만들고 실행할 수 있습니다.
 
 - 임시 쿼리 만들기
@@ -150,7 +150,7 @@ GUI를 사용하여 Hive 테이블을 만들거나 Hive 쿼리를 사용할 수 
 
 	![hdinsight hadoop hive 쿼리][9]
 
-	작업을 제출하면 **Hive 작업 요약** 창을 볼 수 있습니다.
+	작업을 제출하면 **Hive 작업 요약** 창이 표시됩니다.
 
 	![HDInsight Hadoop Hive 쿼리 요약][8]
 5. 작업 상태가 **완료**로 변경될 때까지 **새로 고침** 단추를 사용하여 상태를 새로 고칩니다.
@@ -168,7 +168,7 @@ GUI를 사용하여 Hive 테이블을 만들거나 Hive 쿼리를 사용할 수 
 4. Hive 스크립트의 유효성을 검사하려면 **스크립트 유효성 검사** 단추를 클릭하거나 Hive 편집기에서 스크립트를 마우스 오른쪽 단추로 클릭한 후 상황에 맞는 메뉴에서 **스크립트 유효성 검사**를 클릭합니다.
 
 
-###Hive 작업 보기
+### Hive 작업 보기
 Hive 작업에 대한 작업 쿼리, 작업 출력, 작업 로그 및 Yarn 로그를 볼 수 있습니다. 자세한 내용은 이전 스크린샷을 참조하세요.
 
 최신 릴리스의 도구에서는 YARN 로그를 수집하고 표시하여 Hive 작업 내의 항목을 확인할 수 있습니다. YARN 로그를 사용하여 성능 문제를 조사할 수 있습니다. HDInsight가 YARN 로그를 수집하는 방법에 대한 자세한 내용은 [프로그래밍 방식으로 HDInsight 응용 프로그램 로그에 액세스][hdinsight.access.application.logs]를 참조하세요.
@@ -183,7 +183,7 @@ Hive 작업에 대한 작업 쿼리, 작업 출력, 작업 로그 및 Yarn 로�
 
 ### Tez Hive 작업 성능 그래프
 
-HDInsight Visual Studio Tools는 Tez 실행 엔진이 실행한 Hive 작업에 대한 성능 그래프를 보여 줍니다. Tez 사용에 대한 정보는 [HDInsight의 Hive 사용][hdinsight.hive]을 참조하세요. Visual Studio에서 Hive 작업을 제출하면 Visual Studio가 작업이 완료될 때 그래프를 보여 줍니다. 최신 작업 상태를 가져오려면 새로 고침 단추를 클릭해야 할 수 있습니다.
+HDInsight Visual Studio Tools는 Tez 실행 엔진이 실행한 Hive 작업에 대한 성능 그래프를 보여 줍니다. Tez 사용에 대한 정보는 [HDInsight의 Hive 사용][hdinsight.hive]을 참조하세요. Visual Studio에서 Hive 작업을 제출하면 Visual Studio가 작업이 완료될 때 그래프를 보여줍니다. 최신 작업 상태를 가져오려면 **새로 고침** 단추를 클릭해야 할 수 있습니다.
 
 > [AZURE.NOTE]이 기능은 HDInsight 클러스터의 3.2.4.593 상위 버전에서만 사용할 수 있으며 완료된 작업에 대해서만 동작할 수 있습니다. Windows 및 Linux 기반 클러스터 모두에 대해 동작합니다.
 
@@ -236,4 +236,4 @@ Visual Studio용 HDInsight 도구는 Pig 스크립트를 만들어 HDInsight 클
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/03/2015"
+	ms.date="08/26/2015"
 	ms.author="mandia"/>
 
 
@@ -28,9 +28,9 @@
 선택한 버전에 따라 일부 BizTalk 서비스 설정을 사용하지 못할 수도 있습니다.
 
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=213885)에 로그인합니다.
-2. 탐색 창 맨 아래쪽에서 **새로 만들기**를 선택합니다. <br/> ![새로 만들기 단추 선택][NEWButton]
+2. 탐색 창 맨 아래쪽에서 **새로 만들기**를 선택합니다.![새로 만들기 단추 선택][NEWButton]
 
-3. **앱 서비스** > **BIZTALK 서비스** > **사용자 지정 만들기**를 선택합니다. <br/> ![BizTalk 서비스 선택 및 사용자 지정 만들기 선택][NewBizTalkService]
+3. **앱 서비스** > **BIZTALK 서비스** > **사용자 지정 만들기**를 선택합니다.![BizTalk 서비스 선택 및 사용자 지정 만들기 선택][NewBizTalkService]
 
 4. BizTalk 서비스 설정을 입력합니다.
 
@@ -107,11 +107,11 @@ BizTalk 서비스에서 사용할 SQL 데이터베이스 이름을 입력합니�
 </tr>
 </table>
 
-마법사를 완료하려면 확인 표시를 선택합니다. 진행률 아이콘이 표시됩니다. <br/> ![완료 시 진행률 아이콘 표시][ProgressComplete]
+마법사를 완료하려면 확인 표시를 선택합니다. 진행률 아이콘이 표시됩니다.![완료 시 진행률 아이콘 표시][ProgressComplete]
 
-완료되면 Azure BizTalk 서비스가 만들어져 응용 프로그램에서 사용할 준비가 됩니다. 기본 설정이 충분합니다. 기본 설정을 변경하려면 왼쪽 탐색 창에서 **BizTalk 서비스**를 선택하고 해당 BizTalk 서비스를 선택합니다. 위쪽의 [대시보드, 모니터 및 크기 조정 탭](http://go.microsoft.com/fwlink/p/?LinkID=302281)에 추가 설정이 표시됩니다.
+완료되면 Azure BizTalk 서비스가 만들어져 응용 프로그램에서 사용할 준비가 됩니다. 기본 설정이 충분합니다. 기본 설정을 변경하려면 왼쪽 탐색 창에서 **BizTalk 서비스**를 선택하고 해당 BizTalk 서비스를 선택합니다. 위쪽의 [대시보드, 모니터 및 크기 조정 탭](biztalk-dashboard-monitor-scale-tabs.md)에 추가 설정이 표시됩니다.
 
-BizTalk 서비스 상태에 따라 완료할 수 없는 작업도 일부 있습니다. 이러한 작업 목록은 [BizTalk 서비스 상태 차트](http://go.microsoft.com/fwlink/p/?LinkID=329870)를 참조하세요.
+BizTalk 서비스 상태에 따라 완료할 수 없는 작업도 일부 있습니다. 이러한 작업 목록은 [BizTalk 서비스 상태 차트](biztalk-service-state-chart.md)를 참조하세요.
 
 
 ## 프로비전 후 단계
@@ -126,7 +126,7 @@ BizTalk 서비스 프로비전의 일부로 자체 서명된 인증서가 만들
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=213885)에 로그인합니다.
 2. 왼쪽 탐색 창에서 **BizTalk 서비스**를 선택한 다음 해당 BizTalk 서비스 구독을 선택합니다.
 3. **대시보드** 탭을 선택합니다.
-4. **SSL 인증서 다운로드**를 선택합니다. <br/> ![SSL 인증서 수정][QuickGlance]
+4. **SSL 인증서 다운로드**를 선택합니다.![SSL 인증서 수정][QuickGlance]
 5. 인증서를 두 번 클릭하고 마법사를 실행하여 인증서를 설치합니다. **신뢰할 수 있는 루트 인증 기관** 저장소에 인증서를 설치해야 합니다.
 
 #### <a name="AddCert"></a>프로덕션이 준비된 인증서 추가
@@ -139,7 +139,7 @@ BizTalk 서비스를 만들 때 자동으로 만들어진 자체 서명된 인�
 
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=213885)에 로그인합니다.
 2. 왼쪽 탐색 창에서 **BizTalk 서비스**를 선택한 다음 해당 BizTalk 서비스를 선택합니다.
-3. 작업 표시줄에서 **연결 정보**를 선택합니다. <br/> ![연결 정보 선택][ACSConnectInfo]
+3. 작업 표시줄에서 **연결 정보**를 선택합니다.![연결 정보 선택][ACSConnectInfo]
 
 4. 액세스 제어 값을 복사합니다.
 
@@ -147,13 +147,13 @@ Visual Studio에서 BizTalk 서비스를 배포할 때 이 액세스 제어 네�
 
 액세스 제어 값은 모든 응용 프로그램에서 사용할 수 있습니다. Azure BizTalk 서비스가 만들어지면 이 액세스 제어 네임스페이스는 BizTalk 서비스 배포 인증을 제어합니다. 구독을 변경하거나 네임스페이스를 관리하려면 왼쪽 탐색 창에서 **ACTIVE DIRECTORY**를 선택한 다음 해당 네임스페이스를 선택합니다. 작업 표시줄에 옵션이 나열됩니다.
 
-**관리**를 클릭하면 액세스 제어 관리 포털이 열립니다. 액세스 제어 관리 포털에서 BizTalk 서비스는 **서비스 ID**를 사용합니다. <br/> ![액세스 제어 관리 포털의 ACS 서비스 ID][ACSServiceIdentities]
+**관리**를 클릭하면 액세스 제어 관리 포털이 열립니다. 액세스 제어 관리 포털에서 BizTalk 서비스는 **서비스 ID**를 사용합니다.![액세스 제어 관리 포털의 ACS 서비스 ID][ACSServiceIdentities]
 
 액세스 제어 서비스 ID는 응용 프로그램이나 클라이언트가 액세스 제어를 직접 인증하고 토큰을 받을 수 있도록 하는 자격 증명 집합입니다.
 
 > [AZURE.IMPORTANT]BizTalk 서비스는 **암호** 값 및 기본 서비스 ID의 **소유자**를 사용합니다. 암호 값 대신 대칭 키 값을 사용하면 다음 오류가 발생할 수 있습니다.<br/><br/>*지정한 자격 증명으로 액세스 제어 관리 서비스 계정에 연결할 수 없습니다.*
 
-[ACS 네임스페이스 관리](http://go.microsoft.com/fwlink/p/?LinkID=285670)에는 일부 지침 및 권장 사항이 나열되어 있습니다.
+[ACS 네임스페이스 관리](https://msdn.microsoft.com/library/azure/hh674478.aspx)에는 일부 지침 및 권장 사항이 나열되어 있습니다.
 
 ## 요구 사항 설명
 
@@ -213,21 +213,21 @@ Azure BizTalk 서비스를 만들면 **하이브리드 연결** 탭을 사용할
 
 하이브리드 연결은 Azure 웹 사이트 또는 Azure 모바일 서비스를 정적 TCP 포트를 사용하는 온-프레미스 리소스(예: SQL Server, MySQL, HTTP 웹 API, 모바일 서비스 및 대부분의 사용자 지정 웹 서비스)에 연결하는 데 사용됩니다. 하이브리드 연결은 BizTalk 어댑터 서비스와 다릅니다. BizTalk 어댑터 서비스는 Azure BizTalk 서비스를 온-프레미스 LOB(기간 업무) 시스템에 연결하는 데 사용됩니다.
 
- 하이브리드 연결을 만들고 관리하는 방법을 비롯한 자세한 내용은 [하이브리드 연결](http://go.microsoft.com/fwlink/p/?LinkID=397274)을 참조하세요.
+ 하이브리드 연결을 만들고 관리하는 방법을 비롯한 자세한 내용은 [하이브리드 연결](integration-hybrid-connection-overview.md)을 참조하세요.
 
 
 ## 다음 단계
 
-BizTalk 서비스를 만들었으므로 이제 다른 [BizTalk 서비스: 대시보드, 모니터 및 크기 조정 탭](http://go.microsoft.com/fwlink/p/?LinkID=302281)도 익숙해질 수 있습니다. 응용 프로그램에 BizTalk 서비스를 사용할 준비가 되었습니다. 응용 프로그램을 만들려면 [Azure BizTalk 서비스](http://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동하십시오.
+BizTalk 서비스를 만들었으므로 이제 다른 [BizTalk 서비스: 대시보드, 모니터 및 크기 조정 탭](biztalk-dashboard-monitor-scale-tabs.md)도 익숙해질 수 있습니다. 응용 프로그램에 BizTalk 서비스를 사용할 준비가 되었습니다. 응용 프로그램을 만들려면 [Azure BizTalk 서비스](http://go.microsoft.com/fwlink/p/?LinkID=235197)로 이동하십시오.
 
 ## 참고 항목
-- [BizTalk 서비스: 버전 차트](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-- [BizTalk 서비스: 상태 차트](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-- [BizTalk 서비스: 백업 및 복원](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-- [BizTalk 서비스: 제한](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-- [BizTalk 서비스: 발급자 이름 및 발급자 키](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
-- [Azure BizTalk 서비스 SDK로 시작하는 방법](http://go.microsoft.com/fwlink/p/?LinkID=302335)
-- [하이브리드 연결](http://go.microsoft.com/fwlink/p/?LinkID=397274)
+- [BizTalk 서비스: 버전 차트](biztalk-editions-feature-chart.md)<br/>
+- [BizTalk 서비스: 상태 차트](biztalk-service-state-chart.md)<br/>
+- [BizTalk 서비스: 백업 및 복원](biztalk-backup-restore.md)<br/>
+- [BizTalk 서비스: 제한](biztalk-throttling-thresholds.md)<br/>
+- [BizTalk 서비스: 발급자 이름 및 발급자 키](biztalk-issuer-name-issuer-key.md)<br/>
+- [Azure BizTalk 서비스 SDK로 시작하는 방법](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+- [하이브리드 연결](integration-hybrid-connection-overview.md)
 
 [NewBizTalkService]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png
 [NEWButton]: ./media/biztalk-provision-services/WABS_New.png
@@ -237,4 +237,4 @@ BizTalk 서비스를 만들었으므로 이제 다른 [BizTalk 서비스: 대시
 [ACSServiceIdentities]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

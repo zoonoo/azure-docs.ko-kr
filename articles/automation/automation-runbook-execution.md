@@ -1,19 +1,19 @@
 <properties
    pageTitle="Azure 자동화에서 Runbook 실행"
-   description="Azure 자동화의 Runbook이 처리되는 방법에 대한 자세한 내용을 설명합니다."
-   services="automation"
-   documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
-   editor="tysonn" />
+	description="Azure 자동화의 Runbook이 처리되는 방법에 대한 자세한 내용을 설명합니다."
+	services="automation"
+	documentationCenter=""
+	authors="bwren"
+	manager="stevenka"
+	editor="tysonn"/>
 <tags
    ms.service="automation"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/22/2015"
-   ms.author="bwren" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/22/2015"
+	ms.author="bwren"/>
 
 # Azure 자동화에서 Runbook 실행
 
@@ -89,7 +89,7 @@ Runbook 대시보드는 단일 Runbook에 대한 요약을 보여줍니다. 요�
 
 ## 공평 분배
 
-Azure 자동화에서는 클라우드의 모든 Runbook 간에 리소스를 공유할 수 있도록 작업을 실행한 후 3시간 동안 작업을 일시적으로 언로드한 다음 마지막 [검사점](http://aka.ms/runbookauthor/checkpoints)에서 다시 시작합니다. 이 시간 동안 작업은 실행 중, 리소스 대기 상태로 표시됩니다. Runbook에 검사점이 없거나 작업이 언로드되기 전에 첫 번째 검사점에 도달하지 않은 경우에는 처음부터 다시 시작됩니다.
+Azure 자동화에서는 클라우드의 모든 Runbook 간에 리소스를 공유할 수 있도록 작업을 실행한 후 3시간 동안 작업을 일시적으로 언로드한 다음 마지막 [검사점](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints)에서 다시 시작합니다. 이 시간 동안 작업은 실행 중, 리소스 대기 상태로 표시됩니다. Runbook에 검사점이 없거나 작업이 언로드되기 전에 첫 번째 검사점에 도달하지 않은 경우에는 처음부터 다시 시작됩니다.
 
 Runbook이 동일한 검사점 또는 Runbook의 처음부터 세 번 연속 다시 시작된 경우에는 실패함, 리소스 대기 상태로 종료됩니다. 이는 Runbook이 완료되지 않고 무기한적으로 실행되어 다시 언로드되지 않은 상태로 다음 검사점에 도달하지 못하도록 하기 위한 것입니다. 이 경우 오류와 함께 다음 예외가 발생합니다.
 
@@ -101,8 +101,6 @@ Runbook을 만들 때 두 검사점 간의 모든 활동을 실행할 시간을 
 
 ## 관련된 문서
 
-- [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook)
-- [Azure 자동화에서 Runbook 작업의 상태 보기](automation-viewing-the-status-of-a-runbook-job)
- 
+- [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

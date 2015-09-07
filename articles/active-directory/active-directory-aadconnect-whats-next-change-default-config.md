@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure AD Connect 기본 구성 변경" 
-	description="Azure AD 연결에 대한 기본 구성을 변경 하는 방법에 대해 알아봅니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure AD Connect 기본 구성 변경"
+	description="Azure AD 연결에 대한 기본 구성을 변경 하는 방법에 대해 알아봅니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure AD Connect 기본 구성 변경 
@@ -27,4 +27,4 @@
 - 동기화 규칙 편집기를 사용하여 사용자 지정 동기화 규칙을 내보냅니다. 이렇게 하면 재해 복구 시나리오의 경우에 쉽게 다시 만드는 데 사용할 수 있는 PowerShell 스크립트를 얻게 됩니다.
 - "기본" 동기화 규칙에서 범위 또는 조인 설정을 변경해야 하는 경우 이를 문서화한 후에 최신 버전의 Azure AD Connect로 업그레이드한 후에 변경 사항을 다시 적용합니다. 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

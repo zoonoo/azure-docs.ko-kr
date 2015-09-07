@@ -1,21 +1,21 @@
 <properties
    pageTitle="Azure 리소스 관리자에 통합된 Azure 계산, 네트워크 및 저장소 공급자"
-   description="계산, 네트워크 및 저장소 공급자(CRP, NRP 및 SRP)에 대한 개념적 개요"
-   services="virtual-machines"
-   documentationCenter="dev-center-name"
-   authors="mahthi"
-   manager="coreysa"
-   editor=""
+	description="계산, 네트워크 및 저장소 공급자(CRP, NRP 및 SRP)에 대한 개념적 개요"
+	services="virtual-machines"
+	documentationCenter="dev-center-name"
+	authors="mahthi"
+	manager="timlt"
+	editor=""
 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="04/29/2015"
-   ms.author="mahthi"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="04/29/2015"
+	ms.author="mahthi"/>
 
 # Azure 리소스 관리자에 통합된 Azure 계산, 네트워크 및 저장소 공급자
 
@@ -110,4 +110,4 @@ Azure CLI(Azure 명령줄 인터페이스)에는 **AzureServiceManagement** 모�
 이 기능은 현재 지원되지 않습니다. 새 Azure 리소스 관리자 API를 사용하여 만든 가상 네트워크는 Express Route 회로에 연결할 수 없습니다. 이 기능은 나중에 지원될 예정입니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

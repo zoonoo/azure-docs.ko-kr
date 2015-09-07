@@ -78,9 +78,13 @@ Azure AD는 HTML 기반 로그인 페이지가 있는 모든 클라우드 기반
 
 암호 기반 SSO는 브라우저 확장에 의존하여 Azure AD에서 응용 프로그램 및 사용자 관련 정보를 안전하게 검색하고 서비스에 적용합니다. Azure AD에서 지원하는 대부분의 타사 SaaS 응용 프로그램은 이 기능을 지원합니다.
 
-암호 기반 SSO의 경우 최종 사용자의 브라우저는 Windows 7 이상에서 IE 8, IE9 및 IE10이거나, Windows 7 이상 또는 MacOS X 이상에서 Chrome일 수 있습니다.
+암호 기반 SSO의 경우 최종 사용자 브라우저는 다음 중 하나일 수 있습니다.
 
-**참고:** 브라우저 확장이 Edge을 지원하는 경우 Windows 10의 Edge에 암호 기반 SSO 확장을 사용할 수 있습니다.
+- Internet Explorer 8, 9 및 10 - Windows 7 이상
+- Chrome - Windows 7 이상 및 Mac OS X 이상
+- Firefox 26.0 이상 - Windows XP SP2 이상 및 Mac OS X 10.6 이상
+
+**참고:** 브라우저 확장이 Edge에서 지원되는 경우 Windows 10의 Edge에 암호 기반 SSO 확장을 사용할 수 있습니다.
 
 ###기존 Single Sign-On
 
@@ -102,15 +106,15 @@ Azure AD에서 사용자가 삭제되거나 사용자 정보가 변경되면 이
 
 ###Azure AD 응용 프로그램 갤러리 사용
 
-[Azure Active Directory 응용 프로그램 갤러리](http://azure.microsoft.com/marketplace/active-directory/all/)는 Single Sign-On 형식을 지원하는 것으로 알려진 응용 프로그램 목록에 Azure Active Directory를 제공합니다.
+[Azure Active Directory 응용 프로그램 갤러리](http://azure.microsoft.com/marketplace/active-directory/all/)는 Azure Active Directory와의 Single Sign-On 형식을 지원하는 것으로 알려진 응용 프로그램 목록을 제공합니다.
 
 ![][1]
 
 다음은 이들이 지원하는 기능별 앱 찾기에 대한 몇 가지 팁입니다.
 
-*	Azure AD는 [Azure Active Directory 응용 프로그램 갤러리](http://azure.microsoft.com/marketplace/active-directory/all/)에서 모든 “기능을 갖춘” 앱에 대한 자동 프로비저닝 및 프로비저닝 해제를 지원합니다.
+*	Azure AD는 [Azure Active Directory 응용 프로그램 갤러리](http://azure.microsoft.com/marketplace/active-directory/all/)에서 모든 "기능을 갖춘" 앱에 대한 자동 프로비저닝 및 프로비저닝 해제를 지원합니다.
 
-*	SAML, WS-Federation 또는 OpenID Connect와 같은 프로토콜을 사용하여 페더레이션된 Single Sign-On을 지원하는 페더레이션된 응용 프로그램 목록은 [여기](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx)서 찾을 수 있습니다.
+*	SAML, WS-Federation 또는 OpenID Connect와 같은 프로토콜을 사용하여 페더레이션된 Single Sign-On을 지원하는 페더레이션된 응용 프로그램 목록은 [여기](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx)서 확인할 수 있습니다.
 
 응용 프로그램을 찾았으면 앱 갤러리와 Azure 관리 포털에 Single Sign-On 활성화에 대해 제공된 단계별 지침을 따라 시작할 수 있습니다.
 
@@ -121,7 +125,7 @@ Azure AD에서 사용자가 삭제되거나 사용자 정보가 변경되면 이
 *	**사용 중이지만 목록에 없는 앱 추가** - Azure 관리 포털 내에 있는 앱 갤러리에서 사용자 지정 범주를 사용하여 조직에서 사용 중이지만 목록에 없는 응용 프로그램을 연결합니다. SAML 2.0을 페더레이션된 앱으로 지원하는 모든 응용 프로그램 또는 HTML 기반 로그인 페이지가 암호 SSO 앱으로 있는 모든 응용 프로그램을 추가할 수 있습니다. 자세한 내용은 [고유한 응용 프로그램 추가](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)에 대한 이 문서를 참조하세요.
 
 
-*	**개발 중인 고유한 앱 추가** - 사용자가 직접 응용 프로그램을 개발한 경우 Azure AD 개발자 설명서의 지침을 따라 Azure AD Graph API를 사용하여 페더레이션된 Single Sign-On 또는 프로비저닝을 구현합니다. 자세한 내용은 다음 리소스를 참조하세요.
+*	**개발 중인 고유한 앱 추가** - 사용자가 직접 응용 프로그램을 개발한 경우 Azure AD 개발자 설명서의 지침에 따라 Azure AD Graph API를 사용하여 페더레이션된 Single Sign-On 또는 프로비저닝을 구현합니다. 자세한 내용은 다음 리소스를 참조하세요.
   * [Azure AD의 인증 시나리오](active-directory-authentication-scenarios.md)
   * [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
@@ -164,7 +168,7 @@ Azure AD는 조직의 최종 사용자에게 응용 프로그램을 배포하는
 
 ###Azure AD 액세스 패널
 
-https://myapps.microsoft.com의 액세스 패널은 최종 사용자가 Azure Active Directory에서 회사 계정을 사용하여 Azure AD 관리자가 액세스 권한을 부여한 클라우드 기반 응용 프로그램을 보고 시작할 수 있도록 하는 웹 기반 포털입니다. [Azure Active Directory Premium](http://azure.microsoft.com/pricing/details/active-directory/)을 사용하는 최종 사용자인 경우 액세스 패널을 통해 셀프 비스 그룹 관리 기능을 활용할 수도 있습니다.
+https://myapps.microsoft.com의 액세스 패널은 Azure Active Directory에 회사 계정이 있는 최종 사용자가 Azure AD 관리자에 의해 액세스 권한이 부여된 클라우드 기반 응용 프로그램을 보고 시작할 수 있도록 하는 웹 기반 포털입니다. [Azure Active Directory Premium](http://azure.microsoft.com/pricing/details/active-directory/)이 있는 최종 사용자는 액세스 패널을 통해 셀프 서비스 그룹 관리 기능을 활용할 수도 있습니다.
 
 ![][3]
 
@@ -174,7 +178,7 @@ Azure AD 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개
 
 ###Office 365 응용 프로그램 실행 프로그램
 
-Office 365를 배포한 조직에서 Azure AD를 통해 사용자에게 할당된 응용 프로그램은 Office 365 포털 https://portal.office.com/myapps에도 표시됩니다. 이렇게 하면 조직의 사용자가 두 번째 포털을 사용하지 않고도 해당 앱을 쉽고 편리하게 시작할 수 있으므로 Office 365를 사용하는 조직에 권장되는 앱 시작 솔루션입니다.
+Office 365를 배포한 조직에서 Azure AD를 통해 사용자에게 할당된 응용 프로그램은 Office 365 포털(https://portal.office.com/myapps)에도 표시됩니다. 이렇게 하면 조직의 사용자가 두 번째 포털을 사용하지 않고도 해당 앱을 쉽고 편리하게 시작할 수 있으므로 Office 365를 사용하는 조직에 권장되는 앱 시작 솔루션입니다.
 
 ![][4]
 
@@ -216,4 +220,4 @@ Azure AD는 또한 암호 기반 Single Sign-On, 기존 Single Sign-On 및 페�
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

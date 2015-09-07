@@ -1,19 +1,19 @@
 <properties 
     pageTitle="StorSimple 8000 시리즈 업데이트 1 릴리스 정보 | Microsoft Azure"
-    description="StorSimple 8000 시리즈 업데이트 1에 대한 새로운 기능, 문제 및 해결 방법을 설명합니다."
-    services="storsimple"
-    documentationCenter="NA"
-    authors="alkohli"
-    manager="carolz"
-    editor="" />
+	description="StorSimple 8000 시리즈 업데이트 1에 대한 새로운 기능, 문제 및 해결 방법을 설명합니다."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
  <tags 
     ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="08/19/2015"
-    ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/21/2015"
+	ms.author="alkohli"/>
 
 # StorSimple 8000 시리즈 업데이트 1 릴리스 정보  
 
@@ -28,7 +28,7 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 >[AZURE.IMPORTANT]
 > 
 - 중요 패치, 업데이트 1.1은 6월 23일에 출시 되었습니다. 이 패치에서는 백업 엔진의 문제를 해결합니다. 6월 23일 전에 업데이트 1을 적용하고 **6.3.9600.17491** 소프트웨어 버전을 현재 사용 중인 경우 백업에 관한 모든 문제를 방지하려면 이 중요한 업데이트를 적용하고 있는지 확인하세요. 업데이트를 설치한 후 소프트웨어 버전은 **6.3.9600.17521**로 바뀝니다.
-- 5월 27일과 7월 10일 사이에 소프트웨어 버전이 6.3.9600.17481인 가상 장치를 만든 경우 새 가상 장치를 만들고 모든 볼륨을 이전 가상 장치에서 새 가상 장치로 장애 조치(failover)합니다. 이는 이전 가상 장치를 업데이트할 수 없기 때문입니다. 새 가상 장치를 만들지 않으면 백업에 실패할 수 있습니다. 장애 조치(failover) 및 재해 복구 절차를 보려면 [StorSimple 장치에 대한 장애 조치 및 재해 복구](storsimple-device-failover-disaster-recovery.md)로 이동하세요.
+- 5월 27일과 7월 10일 사이에 소프트웨어 버전이 **6.3.9600.17481**인 가상 장치를 만든 경우 새 가상 장치를 만들고 모든 볼륨을 이전 가상 장치에서 새 가상 장치로 장애 조치(failover)합니다. 이는 이전 가상 장치를 업데이트할 수 없기 때문입니다. 새 가상 장치를 만들지 않으면 백업에 실패할 수 있습니다. 장애 조치(failover) 및 재해 복구 절차를 보려면 [StorSimple 장치에 대한 장애 조치 및 재해 복구](storsimple-device-failover-disaster-recovery.md)로 이동하세요.
 - StorSimple용 Windows PowerShell이 아닌 StorSimple 관리자 서비스를 사용하여 업데이트 1을 설치합니다.
 - 이 릴리스에는 장치가 유지 관리 모드에 있을 때에만 적용할 수 있는 디스크 펌웨어 업데이트도 포함합니다. 장치에 대해 작동 중지가 발생하는 강제 업데이트가 있습니다. 계획된 유지 관리 중 이 업데이트를 적용할 수 있습니다.
 - 이 업데이트를 설치하려면 5-10시간 정도 걸립니다(Windows 업데이트 포함). 
@@ -45,7 +45,7 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
     StorSimple 5000-7000 시리즈에서 8000 시리즈 장치로 마이그레이션하는 방법에 대한 자세한 내용은 [마이그레이션 가이드](http://www.microsoft.com/download/details.aspx?id=47322)를 참조하세요.
 
-- **Azure 정부 포털에서 가용성** – StorSimple은 이제 Azure 정부 포털에서 사용 가능합니다. [Azure 정부 포털에서 StorSimple 장치를 배포하는 방법](storsimple-deployment-walkthrough-gov.md)을 참조하세요.
+- **Azure 정부 포털에서 가용성** – StorSimple은 이제 Azure 정부 포털에서 사용 가능합니다. [Azure 정부 포털에서 StorSimple 장치를 배포](storsimple-deployment-walkthrough-gov.md)하는 방법을 참조하세요.
 
 - **다른 클라우드 서비스 공급자에 대한 지원** – 지원되는 다른 클라우드 서비스 공급자는 Amazon S3, RRS가 있는 Amazon S3, HP 및 OpenStack(베타)입니다.
 
@@ -85,7 +85,7 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 | 6 | 웹 프록시 | 웹 프록시 구성에 지정된 프로토콜로 HTTPS가 있는 경우, 장치 대 서비스의 통신에 영향을 줄 수 있으며 장치는 오프라인 상태가 됩니다. 지원 패키지는 장치에서 중요한 리소스를 소모하는 프로세스에도 생성됩니다. | 웹 프록시 URL에 지정된 프로토콜로 HTTP가 있는지 확인합니다. 자세한 내용은 [장치에 웹 프록시 구성](storsimple-configure-web-proxy.md)으로 이동합니다. | 예 | 아니요 |
 | 7 | 웹 프록시 | 등록된 장치에서 웹 프록시를 구성하고 사용하는 경우, 장치에서 활성 컨트롤러를 다시 시작해야 합니다. | | 예 | 아니요 |
 | 8 | 긴 클라우드 대기 시간 및 많은 I/O 작업 | StorSimple 장치에서 클라우드 대기 시간(초 순서)이 매우 길고 I/O 작업이 많으면 장치 볼륨의 성능이 저하되며 "장치가 준비 되지 않았습니다"라는 오류와 함께 I/O가 실패할 수 있습니다. | 이 상황에서 복구하려면 수동으로 장치 컨트롤러를 다시 부팅하거나 장치 장애 조치를 수행해야 합니다. | 예 | 아니요 |
-| 9 | Azure PowerShell | StorSimple cmdlet **Get-AzureStorSimpleStorageAccountCredential &\#124; Select-Object -First 1 -Wait**를 사용하여 새 **VolumeContainer** 개체를 만들 수 있도록 첫 번째 개체를 선택한 경우, cmdlet은 모든 개체를 리턴합니다. | 다음과 같이 cmdlet을 괄호로 래핑합니다. **(Get-Azure-StorSimpleStorageAccountCredential) &\#124; Select-Object -First 1 -Wait** | 예 | 예 |
+| 9 | Azure PowerShell | StorSimple cmdlet **Get-AzureStorSimpleStorageAccountCredential | Select-Object -First 1 -Wait**를 사용하여 새 **VolumeContainer** 개체를 만들 수 있도록 첫 번째 개체를 선택한 경우, cmdlet은 모든 개체를 리턴합니다. | 다음과 같이 cmdlet을 괄호로 래핑합니다. **(Get-Azure-StorSimpleStorageAccountCredential) | Select-Object -First 1 -Wait** | 예 | 예 |
 | 10| 마이그레이션 | 여러 볼륨 컨테이너가 마이그레이션을 위해 전달되는 경우, 최신 백업에 대한 ETA는 첫 번째 볼륨 컨테이너에 대해서만 정확합니다. 또한 병렬 마이그레이션은 첫 번째 볼륨 컨테이너에서 처음 4개의 백업이 마이그레이션된 후 시작됩니다. | 한번에 하나의 볼륨 컨테이너를 마이그레이션하는 것이 좋습니다. | 예 | 아니요 |
 | 11| 마이그레이션 | 복원 후 볼륨은 백업 정책 또는 가상 디스크 그룹에 추가되지 않습니다. | 백업을 만들기 위해 이러한 볼륨을 백업 정책에 추가해야 합니다. | 예 | 예 |
 | 12| 마이그레이션 | 마이그레이션이 완료되면 5000/7000 시리즈 장치는 마이그레이션된 데이터 컨테이너에 액세스하지 않아야 합니다. | 마이그레이션이 완료되고 커밋된 후 마이그레이션된 데이터 컨테이너를 삭제하는 것이 좋습니다. | 예 | 아니요 |
@@ -94,9 +94,9 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
 ## 업데이트 1에서 물리적 장치 업데이트
 
-이러한 업데이트를 실제 장치에 적용하는 경우, 소프트웨어 버전은 6.3.9600.17521로 변경됩니다.
+패치 업데이트 1.2가 (업데이트 1 이전 버전을 실행하는)실제 장치에 적용되면 소프트웨어 버전이 6.3.9600.17521로 변경됩니다.
 
-## 업데이트 1의 SAS(Serial attached SCSI) 컨트롤러 및 펌웨어 업데이트
+## 업데이트 1의 컨트롤러 및 펌웨어 업데이트
 
 이 릴리스는 물리적 장치의 SAS 컨트롤러에서 드라이버 및 펌웨어를 업데이트합니다. 장치에서 디스크 펌웨어도 업데이트합니다.
  
@@ -112,7 +112,7 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 
 ## 다음 단계
 
-- [장치에 업데이트 1 설치](storsimple-install-update-1.md)
+- [장치에 업데이트 1을 설치합니다.](storsimple-install-update-1.md)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

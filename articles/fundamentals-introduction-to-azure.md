@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure 소개 | Microsoft Azure" 
-	description="Microsoft Azure를 처음 사용하나요? 이 제품이 제공하는 서비스에 대한 기본적인 개요와 유용하게 사용되는 예제를 확인하시기 바랍니다." 
-	services=" " 
-	documentationCenter=".net" 
-	authors="Rboucher" 
+	pageTitle="Azure 소개 | Microsoft Azure"
+	description="Microsoft Azure를 처음 사용하나요? 이 제품이 제공하는 서비스에 대한 기본적인 개요와 유용하게 사용되는 예제를 확인하시기 바랍니다."
+	services=" "
+	documentationCenter=".net"
+	authors="Rboucher"
 	manager="jwhit"
 	editor=""/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015"  
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/30/2015"
 	ms.author="robb"/>
 
 # Microsoft Azure 소개
@@ -179,9 +179,9 @@ Blob 저장소는 다른 많은 Azure 기능(가상 컴퓨터 포함)에 사용�
 
 
 ### 파일 서비스
-![Azure 파일 서비스](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *그림: Azure 파일 서비스는 클라우드에서 실행 중인 응용 프로그램에 대해 SMB \\\\server\\share paths를 제공합니다.*
+![Azure 파일 서비스](./media/fundamentals-introduction-to-azure/FileServiceIntroNew.png) *그림: Azure 파일 서비스는 클라우드에서 실행 중인 응용 프로그램에 대해 SMB \\\server\\share paths를 제공합니다.*
 
-온-프레미스에서는 \\\\Server\\share 형식을 사용하여 SMB(서버 메시지 블록) 프로토콜을 통해 액세스 가능한 대량의 파일 저장소를 사용하는 것이 일반적입니다. 이제 Azure는 클라우드에서 이 프로토콜을 사용하도록 허용하는 서비스를 갖추었습니다. Azure에서 실행되는 응용 프로그램은 이 서비스를 통해 ReadFile 및 WriteFile과 같은 친숙한 파일 시스템을 사용하는 VM 간에 파일을 공유할 수 있습니다. 또한 REST 인터페이스를 통해 파일에 동시에 액세스할 수 있으므로, 가상 네트워크를 설치한 경우에도 온-프레미스에서 공유에 액세스할 수 있습니다. Azure 파일은 Blob 서비스를 기반으로 하므로, Azure 저장소에 기본 제공된 가용성, 영속성, 확장성 및 원자성, 일관성, 격리, 지리적 중복성을 동일하게 상속합니다.
+온-프레미스에서는 \\\Server\\share 형식을 사용하여 SMB(서버 메시지 블록) 프로토콜을 통해 액세스 가능한 대량의 파일 저장소를 사용하는 것이 일반적입니다. 이제 Azure는 클라우드에서 이 프로토콜을 사용하도록 허용하는 서비스를 갖추었습니다. Azure에서 실행되는 응용 프로그램은 이 서비스를 통해 ReadFile 및 WriteFile과 같은 친숙한 파일 시스템을 사용하는 VM 간에 파일을 공유할 수 있습니다. 또한 REST 인터페이스를 통해 파일에 동시에 액세스할 수 있으므로, 가상 네트워크를 설치한 경우에도 온-프레미스에서 공유에 액세스할 수 있습니다. Azure 파일은 Blob 서비스를 기반으로 하므로, Azure 저장소에 기본 제공된 가용성, 영속성, 확장성 및 원자성, 일관성, 격리, 지리적 중복성을 동일하게 상속합니다.
 
 **Azure 파일에 대한 시나리오**
 
@@ -212,7 +212,7 @@ Blob 저장소는 다른 많은 Azure 기능(가상 컴퓨터 포함)에 사용�
 
 이를 정말 유용하게 활용하려면 사용자가 이러한 응용 프로그램이 원래 데이터 센터에서 실행되고 있는 것처럼 사용할 수 있어야 합니다. Azure 가상 네트워크가 바로 그러한 서비스를 제공합니다. 관리자는 VPN 게이트웨이 장치를 사용하여 로컬 네트워크와 Azure의 가상 네트워크에 배포된 VM 간에 VPN(가상 사설망)을 설정할 수 있습니다. 클라우드 VM에 자신의 IP v4 주소를 할당하기 때문에 VM이 자신의 네트워크에 있는 것으로 보입니다. 조직에 있는 사용자는 이러한 VM에 포함된 응용 프로그램에 로컬에서 실행되고 있는 것처럼 액세스할 수 있습니다.
 
-사용자에게 적합한 가상 네트워크를 계획 및 생성에 대한 자세한 내용은 [가상 네트워크](http://msdn.microsoft.com/library/azure/jj156007.aspx)를 참조하세요.
+사용자에게 적합한 가상 네트워크를 계획 및 생성에 대한 자세한 내용은 [가상 네트워크](../virtual-network/virtual-networks-overview.md)를 참조하세요.
 
 ### Express 경로
 
@@ -224,7 +224,7 @@ Azure 가상 네트워크 연결에서 제공할 수 있는 것보다 더 많은
 
 Express 경로 연결을 설정하는 데 더 많은 시간과 계획이 필요하므로, 사이트 간 VPN으로 시작한 다음 Express 경로 연결로 마이그레이션할 수 있습니다.
 
-Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](http://msdn.microsoft.com/library/azure/dn606309.aspx)를 참조하세요.
+Express 경로에 대한 자세한 내용은 [Express 경로 기술 개요](../expressroute/expressroute-introduction.md)를 참조하세요.
 
 ### 트래픽 관리자
 
@@ -592,4 +592,4 @@ SendGrid는 메일을 보낼 수 있는 Azure 스토어의 응용 프로그램�
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

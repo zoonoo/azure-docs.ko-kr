@@ -1,20 +1,20 @@
 <properties
    pageTitle="DMV를 사용하여 작업 모니터링 | Microsoft Azure"
-   description="DMV를 사용하여 작업을 모니터링하는 방법을 알아봅니다."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sahaj08"
-   manager="barbkess"
-   editor=""/>
+	description="DMV를 사용하여 작업을 모니터링하는 방법을 알아봅니다."
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="sahaj08"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="08/06/2015"
-   ms.author="sahajs"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="08/06/2015"
+	ms.author="sahajs"/>
 
 # DMV를 사용하여 작업 모니터링
 
@@ -135,7 +135,11 @@ ORDER BY step_index;
 
 장기 실행 단계의 단계 인덱스를 저장합니다.
 
-장기 실행 쿼리 단계의 *operation\_type* 열을 확인합니다. - **SQL 작업**(OnOperation, RemoteOperation, ReturnOperation)의 경우 4a단계를 진행합니다. - **데이터 이동 작업**(ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation)의 경우 4b단계를 진행합니다.
+장기 실행 쿼리 단계의 *operation\_type* 열을 확인합니다.
+
+- **SQL 작업**에 OnOperation, RemoteOperation, ReturnOperation 등의 4a 단계를 진행합니다.
+- **데이터 이동 작업**에 ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation 등의 4b 단계를 진행합니다.
+
 
 
 
@@ -213,4 +217,4 @@ SQL 데이터 웨어하우스 관리에 대한 자세한 팁은 [관리 개요][
 
 <!--MSDN references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

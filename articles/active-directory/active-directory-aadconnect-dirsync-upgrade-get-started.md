@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Microsoft Azure AD Connect - Microsoft Azure AD 동기화 도구(DirSync)에서 업그레이드" 
-   description="DirSync에서 Azure AD Connect로 업그레이드하는 방법을 알아봅니다. 이 문서에서는 현재 Microsoft Azure AD 동기화 도구(DirSync)에서 Azure AD Connect로 업그레이드하는 단계를 설명합니다." 
-   services="active-directory" 
-   documentationCenter="" 
-   authors="shoatman" 
-   manager="terrylanfear" 
-   editor="billmath"/>
+   pageTitle="Microsoft Azure AD Connect - Microsoft Azure AD 동기화 도구(DirSync)에서 업그레이드"
+	description="DirSync에서 Azure AD Connect로 업그레이드하는 방법을 알아봅니다. 이 문서에서는 현재 Microsoft Azure AD 동기화 도구(DirSync)에서 Azure AD Connect로 업그레이드하는 단계를 설명합니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="shoatman"
+	manager="terrylanfear"
+	editor="billmath"/>
 
 <tags 
-   ms.service="active-directory" 
-   ms.workload="identity" 
-   ms.tgt_pltfrm="na" 
-   ms.devlang="na" 
-   ms.topic="article" 
-   ms.date="05/26/2015" 
-   ms.author="shoatman"/>
+   ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/26/2015"
+	ms.author="shoatman"/>
 
 # Microsoft Azure Active Directory 동기화(DirSync)를 Azure Active Directory Connect로 업그레이드
 
@@ -203,7 +203,7 @@ Azure AD Connect가 DirSync로부터 인수할 준비가 되었는지 여부를 
 * [Azure AD Connect 작동 방법](active-directory-aadconnect-how-it-works.md)
 * [Azure AD Connect의 다음 단계](active-directory-aadconnect-whats-next.md)
 * [자세한 정보](active-directory-aadconnect-learn-more.md)
-* [MSDN의 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx)
+* [MSDN의 Azure AD Connect](active-directory-aadconnect.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

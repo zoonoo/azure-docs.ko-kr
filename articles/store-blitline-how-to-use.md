@@ -1,35 +1,25 @@
 <properties 
-	pageTitle="이미지 처리에 Blitline을 사용하는 방법 - Azure 기능 가이드" 
-	description="Azure 응용 프로그램 내에서 Blitline 서비스를 사용하여 이미지를 처리하는 방법에 대해 알아봅니다." 
-	services="" 
-	documentationCenter=".net" 
-	authors="blitline-dev" 
-	manager="jason@blitline.com" 
+	pageTitle="이미지 처리에 Blitline을 사용하는 방법 - Azure 기능 가이드"
+	description="Azure 응용 프로그램 내에서 Blitline 서비스를 사용하여 이미지를 처리하는 방법에 대해 알아봅니다."
+	services=""
+	documentationCenter=".net"
+	authors="blitline-dev"
+	manager="jason@blitline.com"
 	editor="jason@blitline.com"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="12/09/2014" 
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="12/09/2014"
 	ms.author="support@blitline.com"/>
-
-
-
-
-
-
 # Azure 및 Azure 저장소로 Blitline을 사용하는 방법
 
 이 가이드는 Blitline 서비스를 액세스하는 방법 및 작업을 Blitline에 전송하는 방법을 설명합니다.
 
-## 목차
-
-[Blitline 정의][] [Blitline이 수행할 수 없는 작업][] [Blitline 계정 만들기][] [Blitline 작업을 만드는 방법][] [Azure 저장소에 이미지를 저장하는 방법][] [다음 단계][]
-
-## <a id="whatis"></a>Blitline 정의
+## Blitline 정의
 
 Blitline은 직접 빌드하는 비용보다 훨씬 저렴한 가격으로 엔터프라이즈 수준의 이미지 처리를 제공하는 클라우드 기반 이미지 처리 서비스입니다.
 
@@ -37,7 +27,7 @@ Blitline은 직접 빌드하는 비용보다 훨씬 저렴한 가격으로 엔�
 
 자세한 내용은 [http://www.blitline.com](http://www.blitline.com)(영문)을 참조하십시오.
 
-## <a id="whatisnot"></a>Blitline이 수행할 수 없는 작업
+## Blitline이 수행할 수 없는 작업
 
 계속 진행하기 전에 Blitline이 수행할 수 없는 작업을 확인하는 것이 Blitline이 유용한 이유를 명확하게 하는 데 더 쉽습니다.
 
@@ -49,11 +39,11 @@ Blitline은 직접 빌드하는 비용보다 훨씬 저렴한 가격으로 엔�
 
 - Blitline은 대량 병렬식이어서 동기식 처리를 하지 않습니다. 즉, postback\_url을 보내주어야 처리가 완료되는 시점을 알려줄 수 있습니다.
 
-## <a id="createaccount"></a>Blitline 계정 만들기
+## Blitline 계정 만들기
 
 [AZURE.INCLUDE [blitline-signup](../includes/blitline-signup.md)]
 
-## <a id="createjob"></a>Blitline 작업을 만드는 방법
+## Blitline 작업을 만드는 방법
 
 Blitline은 JSON을 사용하여 이미지에 적용할 동작을 정의합니다. 이 JSON은 간단한 필드 몇 개로 구성됩니다.
 
@@ -97,7 +87,7 @@ JSON이 있으면 `http://api.blitline.com/jobs`에 **게시**하기만 하면 �
 
 이는 Blitline에서 요청을 받았음을 나타내고 그 요청을 처리 큐에 넣은 후 완료되면 다음에서 이미지를 사용할 수 있습니다.****https://s3.amazonaws.com/dev.blitline/2011110722/YOUR\_APP\_ID/CK3f0xBF_2bV6wf7gEZE8w.jpg**
 
-## <a id="saveazure"></a>Azure 저장소 계정에 이미지를 저장하는 방법
+## Azure 저장소 계정에 이미지를 저장하는 방법
 
 Azure 저장소 계정이 있으면 Blitline이 처리된 이미지를 쉽게 Azure 컨테이너에 푸시하도록 할 수 있습니다. "azure\_destination"을 추가하여 푸시할 Blitline의 위치와 권한을 정의합니다.
 
@@ -121,7 +111,7 @@ Azure 저장소 계정이 있으면 Blitline이 처리된 이미지를 쉽게 Az
 
 CAPITALIZED 값을 자체 값으로 채우면 이 JSON을 http://api.blitline.com/job에 제출할 수 있으며 "src" 이미지가 흐리게 하는 필터로 처리된 다음 Azure 대상에 푸시됩니다.
 
-<h3>참고:</h3>
+###참고:
 
 SAS에는 대상 파일의 파일 이름을 포함하여 전체 SAS URL이 포함되어야 합니다.
 
@@ -133,7 +123,7 @@ SAS에는 대상 파일의 파일 이름을 포함하여 전체 SAS URL이 포�
 Blitline의 Azure 저장소 문서의 최신 버전을 [여기](http://www.blitline.com/docs/azure_storage)에서 읽을 수도 있습니다.
 
 
-## <a id="nextsteps"></a>다음 단계
+## 다음 단계
 
 다른 모든 기능에 대한 내용을 보려면 다음 blitline.com을 방문하십시오.
 
@@ -142,12 +132,4 @@ Blitline의 Azure 저장소 문서의 최신 버전을 [여기](http://www.blitl
 * Blitline API 예제 <http://www.blitline.com/docs/examples>
 * 타사 Nuget 라이브러리 <http://nuget.org/packages/Blitline.Net>
 
-
-  [다음 단계]: #nextsteps
-  [Blitline 정의]: #whatis
-  [Blitline이 수행할 수 없는 작업]: #whatisnot
-  [Blitline 계정 만들기]: #createaccount
-  [Blitline 작업을 만드는 방법]: #createjob
-  [Azure 저장소에 이미지를 저장하는 방법]: #saveazure
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

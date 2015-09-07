@@ -1,27 +1,26 @@
 <properties
-   pageTitle="Chatter Connector API 앱"
-   description="Chatter Connector를 사용하는 방법"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="논리 앱에서 Chatter 커넥터 사용 | Microsoft Azure 앱 서비스"
+	description="Chatter 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-# 논리 앱에서 Chatter Connector 사용
+# Chatter 커넥터 시작 및 논리 앱에 추가 
+Chatter에 연결하고 메시지를 게시하거나 피드를 검색합니다. 예를 들어 Chatter 피드를 검색할 수 있으며, 특별한 내용을 발견하면 Sales 그룹에 해당 Chatter 메시지를 게시할 수 있습니다.
 
-Chatter 커넥터를 사용하여 Chatter에 연결하고 메시지 게시와 같은 일반적인 작업을 수행할 수 있습니다. 예를 들어 Chatter 피드를 검색할 수 있으며, 특별한 내용을 발견하면 Sales 그룹에 해당 Chatter 메시지를 게시할 수 있습니다.
-
-Chatter 커넥터를 비즈니스 워크플로에 추가하고 이 워크플로의 일부로 데이터를 처리할 수 있습니다.
+Chatter 커넥터를 비즈니스 워크플로에 추가하고 논리 앱 내에서 이 워크플로의 일부로 데이터를 처리할 수 있습니다.
 
 ## 트리거 및 작업
 
@@ -104,4 +103,4 @@ API 앱을 만들고 나면 이제 Chatter 커넥터를 논리 앱에서 트리�
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

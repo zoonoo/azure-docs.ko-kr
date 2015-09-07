@@ -1,6 +1,6 @@
 <properties
-	pageTitle="파일 커넥터"
-	description="파일 커넥터 시작"
+	pageTitle="논리 앱에서 File 커넥터 사용 | Microsoft Azure 앱 서비스"
+	description="File 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
 	authors="anuragdalmia"
 	manager="dwrede"
 	editor=""
@@ -13,14 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="andalmia"/>
 
-# 논리 앱에서 파일 커넥터 사용 #
+# File 커넥터 시작 및 논리 앱에 추가
+파일 시스템에 연결하여 호스트 컴퓨터에서 파일 업로드, 다운로드 등을 수행합니다. 논리 앱은 다양한 데이터 원본을 기반으로 트리거되고 데이터를 가져오고 처리하기 위한 커넥터를 제공할 수 있습니다. File 커넥터를 비즈니스 워크플로에 추가하고 논리 앱 내에서 이 워크플로의 일부로 데이터를 처리할 수 있습니다.
 
-논리 앱은 다양한 데이터 원본을 기반으로 트리거하고 흐름의 일부로 데이터를 가져오고 처리하기 위한 커넥터를 제공할 수 있습니다.
-
-파일 커넥터를 사용하면 호스트 컴퓨터의 파일 시스템에서 파일을 업로드\\다운로드\\삭제할 수 있습니다. 호스트 컴퓨터에 대한 하이브리드 연결에 하이브리드 연결 관리자를 사용합니다.
+File 커넥터는 호스트 파일 시스템에 대한 하이브리드 연결에 하이브리드 연결 관리자를 사용합니다.
 
 ## 논리 앱용 파일 커넥터 만들기 ##
 파일 커넥터를 사용하려면 먼저 파일 커넥터 API 앱의 인스턴스를 만들어야 합니다. 이 작업은 다음과 같이 수행할 수 있습니다.
@@ -84,4 +83,4 @@ API의 세부 정보는 [파일 커넥터 API 정의]에서 찾을 수 있습니
 [파일 커넥터 API 정의]: https://msdn.microsoft.com/library/dn936296.aspx
 [하이브리드 연결 관리자 사용]: app-service-logic-hybrid-connection-manager.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

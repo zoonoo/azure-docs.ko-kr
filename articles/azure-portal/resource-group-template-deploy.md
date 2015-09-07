@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포"
-   services="azure-resource-manager"
-   description="Azure 리소스 관리자를 사용하여 Azure에 응용 프로그램 배포 템플릿은 JSON 파일로, 포털, PowerShell, Mac/Linux/Windows용 Azure 명령줄 인터페이스 또는 REST에서 사용할 수 있습니다."
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	services="azure-resource-manager"
+	description="Azure 리소스 관리자를 사용하여 Azure에 응용 프로그램 배포 템플릿은 JSON 파일로, 포털, PowerShell, Mac/Linux/Windows용 Azure 명령줄 인터페이스 또는 REST에서 사용할 수 있습니다."
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/24/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/20/2015"
+	ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포
 
@@ -256,12 +256,14 @@ Azure 리소스 관리자와 포털 사용에 대한 자세한 내용은 [Azure 
        }
     }
 
+매개 변수 파일 크기는 64KB보다 클 수 없습니다.
+
 ## 다음 단계
 - .NET 클라이언트 라이브러리를 통한 리소스 배포의 예를 보려면 [.NET 라이브러리 및 템플릿을 사용하여 리소스 배포](../arm-template-deployment.md)를 참조하세요.
-- 응용 프로그램 배포에 대한 자세한 예제는 [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](../app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
+- 응용 프로그램 배포에 대한 자세한 예는 [Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포](../app-service-web/app-service-deploy-complex-application-predictably.md)를 참조하세요.
 - Azure 리소스 관리자 템플릿 섹션에 대한 자세한 내용은 [템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
 - Azure 리소스 관리자 템플릿에서 사용할 수 있는 함수 목록은 [템플릿 함수](../resource-group-template-functions.md)를 참조하세요.
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

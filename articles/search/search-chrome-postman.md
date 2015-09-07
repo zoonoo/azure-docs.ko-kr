@@ -1,18 +1,18 @@
 <properties
-	pageTitle="Azure 검색에서 Chrome Postman을 사용하는 방법"
-	description="Azure 검색에서 Chrome Postman을 사용하는 방법"
+	pageTitle="Azure 검색에서 Chrome Postman 사용 | Microsoft Azure"
+	description="Azure 검색에서 Chrome Postman을 사용합니다 Postman을 설치하고 구성합니다. Azure 검색 인덱스 만들기 Postman에 문서를 게시하고 인덱스를 쿼리합니다."
 	services="search"
 	documentationCenter=""
 	authors="HeidiSteen"
 	manager="mblythe"
 	editor=""
-    tags="azure-portal"/>
+	tags="azure-portal"/>
 
 <tags
 	ms.service="search"
 	ms.devlang="rest-api"
 	ms.workload="search"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.date="07/08/2015"
 	ms.author="heidist"/>
@@ -27,26 +27,26 @@
 
 Azure 검색 서비스가 있어야 합니다. Azure 검색을 사용하는 모든 사용자 지정 응용 프로그램과 마찬가지로 서비스의 URL과 관리 `api-key`키가 있어야 인덱스를 만들 수 있습니다. 검색 서비스에 대한 값을 가져오는 방법에 대한 지침은 [포털에서 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
-## Postman 설치 ##
+## Postman을 설치하려면 ##
 Postman을 다운로드하려면 [Google Chrome Store](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm)를 방문합니다. 이 페이지의 링크를 통해 Postman용 REST 클라이언트를 다운로드하여 설치할 수 있습니다. 설치한 후에는 Chrome App Launcher에서 Postman을 시작할 수 있습니다.
 
 ![][2]
 
-## Azure 검색을 쿼리하도록 Postman 구성 ##
+## Azure 검색을 쿼리하도록 Postman을 구성하려면 ##
 Postman을 구성하려면 다음 단계를 따릅니다.
 
 1. "Enter request URL here"에 Azure 검색 서비스 URL을 입력합니다.  
-2. URL에 `?api-version=2015-02-28`을 추가합니다. 다른 API 버전을 지정할 수도 있습니다. 자세한 내용은 [검색 서비스 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx)를 참조하세요.
+2. URL에 `?api-version=2015-02-28`을 추가합니다. 다른 API 버전을 지정할 수도 있습니다. 자세한 내용은 [Azure 검색 서비스 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx)를 참조하세요.
 3. `GET`을 선택해야 합니다.
 4. **Headers** 단추를 클릭합니다.
 5. 다음 값을 입력합니다.
 	- `api-key`: [관리 키]
 	- `Content-Type`: `application/json; charset=utf-8`
-6. **Send**를 클릭하여 Azure 검색에 대한 REST 호출을 실행하고 JSON 응답을 시각화합니다.
+6. **Send**를 클릭하여 Azure 검색에 대한 REST 호출을 실행하고 JSON 응답을 표시합니다.
 
 ![][3]
 
-## Postman을 사용하여 Azure 검색 인덱스 만들기 ##
+## Postman을 사용하여 Azure 검색 인덱스를 만들려면 ##
 
 이제 새 Azure 검색 인덱스를 만드는 REST 호출을 실행하여 마지막 단계에서 완료한 항목을 확장합니다. 이전 호출과 달리 인덱스 만들기에는 HTTP PUT 및 인덱스 스키마 정의가 있는 JSON 문서가 필요합니다. 이 샘플에서는 자전거 도로 목록을 저장할 인덱스를 만듭니다. 다음을 수행합니다.
 
@@ -68,7 +68,7 @@ Postman을 구성하려면 다음 단계를 따릅니다.
 
 ![][4]
 
-## Postman을 사용하여 Azure 검색 인덱스에 문서 게시 ##
+## Postman을 사용하여 Azure 검색 인덱스에 문서를 게시하려면 ##
 이제 인덱스를 만들었으므로 문서를 로드할 수 있습니다. 이렇게 하려면 USGS(United States Geological Survey) 데이터 집합에서 5개의 도로에 대한 데이터를 사용하여 문서 그룹을 일괄적으로 게시합니다.
 
 1. 검색 서비스 이름을 사용하여 URL을 `https://[SEARCH SERVICE].windows.net/indexes/trails/docs/index?api-version=2015-02-28`로 변경합니다. URL에 방금 만든 인덱스의 경로가 포함되었습니다.
@@ -89,7 +89,7 @@ Postman을 구성하려면 다음 단계를 따릅니다.
 
 ![][5]
 
-## Postman을 사용하여 인덱스 쿼리 ##
+## Postman을 사용하여 인덱스를 쿼리하려면 ##
 마지막 단계에서는 인덱스를 쿼리하고 *trail*이라는 단어에 대한 간단한 전체 텍스트 검색 요청을 실행합니다.
 
 1. 검색 서비스 이름을 사용하여 URL에 `https://[SEARCH SERVICE].search.windows.net/indexes/trails/docs?api-version=2015-02-28&search=trail`을 입력합니다. URL에 `search` 쿼리 매개 변수와 검색 용어 *trail*이 포함되었습니다.
@@ -117,6 +117,5 @@ REST API에 대한 설명서는 [MSDN](https://msdn.microsoft.com/library/azure/
 [4]: ./media/search-chrome-postman/create_index.png
 [5]: ./media/search-chrome-postman/upload_documents.png
 [6]: ./media/search-chrome-postman/query.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

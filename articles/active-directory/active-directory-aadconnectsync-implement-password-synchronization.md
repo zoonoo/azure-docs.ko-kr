@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure AD 연결 동기화-암호 동기화 구현"
+	pageTitle="Azure AD Connect 동기화 구현 암호 동기화 | Microsoft Azure"
 	description="암호 동기화 작동 방법 및 사용자 환경에서 사용하도록 설정하는 방법을 이해하는데 필요한 정보를 제공합니다."
 	services="active-directory"
 	documentationCenter=""
 	authors="markusvi"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,31 +13,31 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/27/2015"
-	ms.author="markusvi"/>
+	ms.date="08/24/2015"
+	ms.author="markusvi;andkjell"/>
 
 
-# Azure AD 연결 동기화: 암호 동기화 구현 
+# Azure AD Connect 동기화: 암호 동기화 구현
 
-암호 동기화를 사용하면 고객들이 Azure Active Directory에 로그인하여 온-프레미스 Active Directory에 로그온 할때 사용하는 암호와 똑같은 암호를 사용할수 있게해줍니다.
+암호 동기화를 사용하면 사용자가 Azure Active Directory에 로그인하여 온-프레미스에 로그인하는데 사용하는 동일한 암호를 사용할 수 있습니다.
 
 이 항목의 목표는 암호 동기화 작동 방법 및 사용자 환경에서 사용하도록 설정하는 방법을 이해하는데 필요한 정보를 제공하는 것입니다.
 
 ## 암호 동기화란 무엇입니까?
 
-암호 동기화는 온 프레미스 Active Directory에서 Azure Active Directory(Azure AD)로 사용자의 암호를 동기화하는 Azure Active Directory 연결 동기화(Azure AD 연결 동기화)의 기능입니다. 이 기능은 사용자가 온-프레미스 네트워크에 로그온 할 때 사용하는 암호와 동일한 암호를 사용하여 Azure Active Directory services (Office 365, Microsoft Intune, CRM Onlie 등)에 로그인 할 때 사용할 수 있도록 해줍니다. 이 기능은 암호 동기화 기반 프로세스에 토큰 공유/교환 기능이 없기때문에 SSO(Single Sign-On) 솔루션을 제공하지 않는다는 점을 명심해야합니다.
+암호 동기화는 온 프레미스 Active Directory에서 Azure Active Directory(Azure AD)로 사용자의 암호를 동기화하는 Azure Active Directory Connect 동기화(Azure AD Connect 동기화)의 기능입니다. 이 기능은 사용자가 자신의 Azure Active Directory 서비스 (예: Office 365, Microsoft Intune, CRM Online)에 로그인할 때 온-프레미스 네트워크에 로그인할 때 사용하는 동일한 암호를 사용합니다.
 
 > [AZURE.NOTE]FIPS 및 암호 동기화에 대해 Active Directory Domain 서비스 구성에 대한 자세한 내용은 FIPS 호환 시스템에서 암호 동기화 실패를 참조하세요.
- 
+
 ## 암호 동기화의 가용성
 
 Azure Active Directory의 모든 고객은 암호 동기화를 실행할 수 있습니다. 암호 동기화의 호환성 및 페더레이션 인증과 같은 다른 기능에 대한 정보는 아래를 참조하세요.
 
 ## 암호 동기화 작동 방법
 
-암호 동기화는 Azure AD 연결 동기화를 통한 디렉터리 동기화 기능 구현의 확장판입니다. 따라서, 이 기능은 온-프레미스와 구성할 Azure Active Directory간에 디렉터리 동기화를 요구합니다.
+암호 동기화는 Azure AD Connect 동기화를 통한 디렉터리 동기화 기능 구현의 확장판입니다. 따라서, 이 기능은 온-프레미스와 구성할 Azure Active Directory간에 디렉터리 동기화를 요구합니다.
 
-Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 표시 형태로 암호를 저장합니다. 암호 해시는 온-프레미스 네트워크에 로그온 할때 사용할 수 없습니다. 또한 사용자의 일반 텍스트 암호에 대한 액세스 권한을 얻기위해 reverse할 수 없도록 설계 되었습니다. 암호를 동기화 하기위해, Azure AD 연결 동기화가 온-프레미스 Active Directory에서 사용자 암호 해시를 추출합니다. Azure Active Directory 인증 서비스로 동기화 되기 전에 암호 해시에 추가적인 보안 처리가 적용됩니다. 암호 동기화 과정의 실제 흐름은 DisplayName 또는 전자 메일 주소와 같은 사용자 데이터 동기화와 비슷합니다.
+Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 표시 형태로 암호를 저장합니다. 암호 해시는 온-프레미스 네트워크에 로그인할 때 사용할 수 없습니다. 또한 사용자의 일반 텍스트 암호에 대한 액세스 권한을 얻기위해 reverse할 수 없도록 설계 되었습니다. 암호를 동기화 하기 위해, Azure AD Connect 동기화가 사용자의 암호 해시를 온-프레미스 Active Directory에서 추출합니다. Azure Active Directory 인증 서비스로 동기화 되기 전에 암호 해시에 추가적인 보안 처리가 적용됩니다. 암호 동기화 과정의 실제 흐름은 DisplayName 또는 전자 메일 주소와 같은 사용자 데이터 동기화와 비슷합니다.
 
 암호는 다른특성에 대한 표준 디렉터리 동기화 창 보다 더 자주 동기화 됩니다. 암호는 각 사용자 기본별로 동기화되고 일반적으로는 시간 순서대로 동기화됩니다. 사용자의 암호가 온-프레미스 AD에서 클라우드로 동기화 될 때, 기존 클라우드 암호는 덮여쓰여집니다.
 
@@ -49,7 +49,7 @@ Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 �
 
 암호를 동기화 할 때, 사용자 암호의 일반 텍스트 버전은 암호 동기화 기능이나 Azure AD 혹은 다른 어떤 관련 서비스에 노출되지 않아야 합니다.
 
-또한 역방향으로 암호화 된 형식으로 암호를 저장하는 온-프레미스 Director에서는 요구사항이 없습니다. 온-프레미스 AD와 Azure Active Directory간 전송에 Windows Active Directory 암호 해시의 다이제스트가 사용됩니다. 암호 해시의 다이제스트는 고객의 온-프레미스 환경의 원본에 액세스 할 때 사용할 수 없습니다.
+또한 역방향으로 암호화 된 형식으로 암호를 저장하는 온-프레미스 Director에서는 요구사항이 없습니다. Active Directory 암호 해시의 다이제스트는 온-프레미스 AD와 Azure Active Directory간의 전송에 사용됩니다. 암호 해시의 다이제스트는 고객의 온-프레미스 환경의 원본에 액세스 할 때 사용할 수 없습니다.
 
 ## 암호 정책 고려 사항
 
@@ -64,7 +64,7 @@ Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 �
 
 
 > [AZURE.NOTE]클라우드에서 직접 만든 사용자의 암호는 클라우드 내에서 정의된 암호 정책을 계속 따릅니다.
- 
+
 ### 암호 만료 정책
 
 사용자가 암호 동기화 범위 내에 있을 경우 클라우드 계정 암호는 "*사용 기간 제한 없음*"으로 설정됩니다. 즉, 사용자의 암호가 온-프레미스 환경에서 만료되어도 만료된 암호를 사용하여 클라우드 서비스에 계속 로그인할 수 있습니다.
@@ -91,12 +91,12 @@ Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 �
 Azure AD 연결 구성 마법사를 실행할 때 암호 동기화를 사용 가능으로 설정합니다.
 
 **선택적 기능** 대화 상자 페이지에서 “**암호 동기화**”를 선택합니다.
- 
+
 ![선택적 기능][1]
 
 
 > [AZURE.NOTE]이 프로세스는 전체 동기화를 트리거합니다. 전체 동기화 주기는 일반적으로 다른 동기화 주기보다 완료하는 데 더 오랜 시간이 소요됩니다.
- 
+
 
 ## 암호 동기화 관리
 
@@ -111,7 +111,7 @@ Azure AD 연결을 실행하는 컴퓨터의 이벤트 로그를 통해 암호 �
 | --- | --- |
 | 디렉터리 동기화| 656|
 | 디렉터리 동기화| 657|
- 
+
 이벤트 ID 656이 포함된 이벤트는 변경 요청이 처리된 암호의 보고서를 제공합니다.
 
 ![이벤트 ID 656][2]
@@ -132,14 +132,29 @@ ID 657이 포함된 해당 이벤트는 이러한 요청에 대한 결과를 제
 
 ![암호 변경 결과][5]
 
- 
+### 모든 암호의 전체 동기화를 트리거합니다.
+필터 구성을 변경한 경우, 모든 암호의 전체 동기화를 트리거하면 범위 내의 사용자는 동기화된 암호를 갖게 됩니다.
+
+    $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
+    $aadConnector = "<CASE SENSITIVE AAD CONNECTOR NAME>"
+    Import-Module adsync
+    $c = Get-ADSyncConnector -Name $adConnector
+    $p = New-Object Microsoft.IdentityManagement.PowerShell.ObjectModel.ConfigurationParameter “Microsoft.Synchronize.ForceFullPasswordSync”, String, ConnectorGlobal, $null, $null, $null
+    $p.Value = 1
+    $c.GlobalParameters.Remove($p.Name)
+    $c.GlobalParameters.Add($p)
+    $c = Add-ADSyncConnector -Connector $c
+    Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $false
+    Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $true
+
+
 ## 암호 동기화를 사용하지 않도록 설정
 
 Azure AD 연결 구성 마법사를 다시 실행하여 암호 동기화를 사용하지 않도록 설정합니다. 마법사가 메시지를 표시하면 "암호 동기화" 확인란의 선택을 취소합니다.
 
 
 > [AZURE.NOTE]이 프로세스는 전체 동기화를 트리거합니다. 전체 동기화 주기는 일반적으로 다른 동기화 주기보다 완료하는 데 더 오랜 시간이 소요됩니다.
- 
+
 구성 마법사를 실행한 후, 테넌트는 더이상 동기화 암호가 되지 않습니다. 새 암호 변경 내용이 클라우드로 동기화되지 않습니다. 이전에 암호를 동기화한 사용자는 클라우드에서 암호를 수동으로 변경하기전까지 로그인 할때 암호를 사용할 수 있습니다.
 
 
@@ -148,7 +163,7 @@ Azure AD 연결 구성 마법사를 다시 실행하여 암호 동기화를 사�
 
 * [Azure AD Connect Sync: 사용자 지정 동기화 옵션](active-directory-aadconnectsync-whatis.md)
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
- 
+
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-implement-password-synchronization/IC759788.png
 [2]: ./media/active-directory-aadsync-implement-password-synchronization/IC662504.png
@@ -156,4 +171,4 @@ Azure AD 연결 구성 마법사를 다시 실행하여 암호 동기화를 사�
 [4]: ./media/active-directory-aadsync-implement-password-synchronization/IC662506.png
 [5]: ./media/active-directory-aadsync-implement-password-synchronization/IC662507.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

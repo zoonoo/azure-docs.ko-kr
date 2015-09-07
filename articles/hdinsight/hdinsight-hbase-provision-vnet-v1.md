@@ -9,12 +9,12 @@
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="08/07/2015"
-   ms.author="jgao"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="08/07/2015"
+	ms.author="jgao"/>
 
 # Azure 가상 네트워크에 HBase 클러스터 프로비전
 
@@ -60,7 +60,7 @@ HBase 클러스터를 프로비전하기 전에 Azure 가상 네트워크가 있
 	- **주소 공간** - 클러스터의 모든 노드에 대한 주소를 제공하기에 충분히 큰 가상 네트워크의 주소 공간을 선택합니다. 그렇지 않으면 프로비전에 실패합니다. 이 자습서를 살펴볼 때 다음 세 가지 선택 사항 중 하나를 선택할 수 있습니다.
 	- **최대 VM 수** - 최대 VM(가상 컴퓨터) 수 중 하나를 선택합니다. 이 값은 주소 공간에서 만들 수 있는 가능한 호스트(VM)의 수를 결정합니다. 이 자습서를 살펴보는 데에는 **4096 [CIDR: /20]**이면 충분합니다.
 	- **위치** - 위치는 만들 HBase 클러스터와 동일해야 합니다.
-	- **DNS 서버** - 이 자습서에서는 Azure에서 제공하는 내부 DNS(Domain Name System) 서버를 사용하므로 **없음**을 선택할 수 있습니다. 사용자 지정 DNS 서버가 포함된 고급 네트워킹 구성도 지원됩니다. 자세한 지침이 필요하면 [이름 확인(DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx)을 참조하세요.
+	- **DNS 서버** - 이 자습서에서는 Azure에서 제공하는 내부 DNS(Domain Name System) 서버를 사용하므로 **없음**을 선택할 수 있습니다. 사용자 지정 DNS 서버가 포함된 고급 네트워킹 구성도 지원됩니다. 자세한 지침이 필요하면 [이름 확인(DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
 4. 오른쪽 아래에서 **가상 네트워크 만들기**를 클릭합니다. 새 가상 네트워크 이름이 목록에 나타납니다. 상태 열에 **생성됨**이 표시될 때까지 기다립니다.
 5. 기본 창에서 방금 만든 가상 네트워크를 클릭합니다.
 6. 페이지 위쪽에서 **대시보드**를 클릭합니다.
@@ -132,9 +132,7 @@ DNS 서버는 선택 사항이지만 반드시 필요한 경우도 있습니다.
 	<tr><td>헤드 노드 크기</td><td><p>헤드 노드에 대한 VM 크기를 선택합니다.</p></td></tr>
 	<tr><td>데이터 노드 크기</td><td><p>데이터 노드에 대한 VM 크기를 선택합니다.</p></td></tr>
 	<tr><td>Zookeeper 크기</td><td><p>Zookeeper 노드에 대한 VM 크기를 선택합니다.</p></td></tr>
-	</table>
-
-	>[AZURE.NOTE]선택한 VM에 따라 비용이 달라질 수 있습니다. HDInsight에서는 클러스터 노드에 모든 표준 계층 VM을 사용합니다. VM 크기가 가격에 미치는 영향에 대한 자세한 내용은 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 가격</a>을 참조하세요.
+</table>>[AZURE.NOTE]선택한 VM에 따라 비용이 달라질 수 있습니다. HDInsight에서는 클러스터 노드에 모든 표준 계층 VM을 사용합니다. VM 크기가 가격에 미치는 영향에 대한 자세한 내용은 <a href="http://azure.microsoft.com/pricing/details/hdinsight/" target="_blank">HDInsight 가격</a>을 참조하세요.
 
 	오른쪽 단추를 클릭합니다.
 
@@ -150,7 +148,7 @@ DNS 서버는 선택 사항이지만 반드시 필요한 경우도 있습니다.
 		<td>HDInsight 클러스터 사용자 암호 지정</td></tr>
 	<tr><td>클러스터에 대한 원격 데스크톱 활성화</td>
 		<td>클러스터가 프로비전된 후 원격 데스크톱 사용자가 클러스터 노드에 원격으로 연결할 수 있는 사용자 이름, 암호 및 만료 날짜를 지정하려면 이 확인란을 선택합니다. 클러스터가 프로비전된 후 나중에 원격 데스크톱을 사용하도록 설정할 수도 있습니다. 지침은 <a href="hdinsight-administer-use-management-portal/#rdp" target="_blank">RDP를 사용하여 HDInsight 클러스터에 연결</a>을 참조하세요.</td></tr>
-	</table>
+</table>
 
 6. **저장소 계정** 페이지에서 다음 값을 제공합니다.
 
@@ -179,9 +177,7 @@ DNS 서버는 선택 사항이지만 반드시 필요한 경우도 있습니다.
     </td></tr>
 	<tr><td>추가 저장소 계정</td>
 		<td>필요한 경우 클러스터의 추가 저장소 계정을 지정합니다. HDInsight는 여러 저장소 계정을 지원합니다. 클러스터에서 사용할 수 있는 추가 저장소 계정에는 한도가 없습니다. 하지만 Azure 포털을 사용하여 클러스터를 만드는 경우에는 UI 제약으로 인해 7개로 제한됩니다. 지정하는 각 추가 저장소 계정은 마법사에 계정 정보를 지정할 수 있는 <strong>저장소 계정</strong> 페이지를 더합니다. 예를 들어 위의 스크린샷에서는 선택된 추가 저장소 계정이 없으므로 추가 페이지가 마법사에 추가되지 않았습니다.</td></tr>
-	</table>
-
-	오른쪽 화살표를 클릭합니다.
+</table>오른쪽 화살표를 클릭합니다.
 
 7. **스크립트 작업** 페이지에서 오른쪽 아래에 있는 확인 표시를 선택합니다. 이 자습서에서는 사용자 지정 클러스터 설정이 필요 없으므로 **스크립트 작업 추가** 단추를 클릭하지 마세요.
 
@@ -336,7 +332,7 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
     	<value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
 	</property>
 
-> [AZURE.NOTE]자체 DNS 서버를 사용하는 방법을 포함한 Azure 가상 네트워크의 이름 확인에 대한 자세한 내용은 [이름 확인(DNS)](http://msdn.microsoft.com/library/azure/jj156088.aspx)을 참조하세요.
+> [AZURE.NOTE]자체 DNS 서버를 사용하는 방법을 포함한 Azure 가상 네트워크의 이름 확인에 대한 자세한 내용은 [이름 확인(DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
 
 ##Azure PowerShell을 사용하여 HBase 클러스터 프로비전
 
@@ -395,7 +391,7 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 
 [hbase-get-started]: ../hdinsight-hbase-get-started.md
 [hbase-twitter-sentiment]: ../hdinsight-hbase-twitter-sentiment.md
-[vnet-overview]: http://msdn.microsoft.com/library/azure/jj156007.aspx
+[vnet-overview]: ../virtual-network/virtual-networks-overview.md
 [vm-create]: ../virtual-machines-windows-tutorial.md
 
 [azure-portal]: https://management.windowsazure.com
@@ -433,4 +429,4 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "새 HBase 클러스터에 대한 프로비전 정보"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "스크립트 작업을 사용하여 HBase 클러스터 사용자 지정"
 
-<!-----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

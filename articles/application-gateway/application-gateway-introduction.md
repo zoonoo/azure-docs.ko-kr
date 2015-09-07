@@ -1,24 +1,26 @@
 <properties 
    pageTitle="응용 프로그램 게이트웨이 소개 | Microsoft Azure"
-   description="이 페이지는 게이트웨이 크기, HTTP 부하 분산, 쿠키 기반의 세션 선호도, 및 SSL 오프로드를 비롯하여 응용 프로그램 게이트웨이 서비스 계층 7 부하 분산의 개요를 제공합니다."
-   documentationCenter="na"
-   services="application-gateway"
-   authors="joaoma"
-   manager="jdial"
-   editor="tysonn"/>
+	description="이 페이지는 게이트웨이 크기, HTTP 부하 분산, 쿠키 기반의 세션 선호도, 및 SSL 오프로드를 비롯하여 응용 프로그램 게이트웨이 서비스 계층 7 부하 분산의 개요를 제공합니다."
+	documentationCenter="na"
+	services="application-gateway"
+	authors="joaoma"
+	manager="jdial"
+	editor="tysonn"/>
 <tags 
    ms.service="application-gateway"
-   ms.devlang="na"
-   ms.topic="article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="06/24/2015"
-   ms.author="joaoma"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/23/2015"
+	ms.author="joaoma"/>
 
-# 응용 프로그램 게이트웨이 기술 개요 
+# 응용 프로그램 게이트웨이란?
 
 
-Microsoft Azure 응용 프로그램 게이트웨이는 레이어 7 부하 분산에 기반을 둔 Azure-관리 HTTP 부하 분산 솔루션을 제공합니다. 응용 프로그램 부하 분산을 통해 IT 관리자 및 개발자가 HTTP 기반 네트워크 트래픽에 대한 라우팅 규칙을 만들 수 있습니다. 응용 프로그램 게이트웨이 서비스는 항상 사용 가능하고 요금제입니다. SLA 및 가격은 [SLA](http://azure.microsoft.com/support/legal/sla/) 및 [가격 책정](https://azure.microsoft.com/pricing/details/application-gateway/)페이지를 참고하세요.
+Microsoft Azure 응용 프로그램 게이트웨이는 레이어 7 부하 분산에 기반을 둔 Azure-관리 HTTP 부하 분산 솔루션을 제공합니다.
+
+응용 프로그램 부하 분산을 통해 IT 관리자 및 개발자가 HTTP 기반 네트워크 트래픽에 대한 라우팅 규칙을 만들 수 있습니다. 응용 프로그램 게이트웨이 서비스는 항상 사용 가능하고 요금제입니다. SLA 및 가격은 [SLA](http://azure.microsoft.com/support/legal/sla/) 및 [가격 책정](https://azure.microsoft.com/pricing/details/application-gateway/) 페이지를 참조하세요.
 
 현재 응용 프로그램 게이트웨이는 다음과 같은 layer7 응용 프로그램을 지원합니다.
 
@@ -59,4 +61,4 @@ HTTP 계층 7 부하 분산은 다음에 유용합니다.
 
 SSL 오프로드를 구성 합니다. [응용 프로그램 게이트웨이를 사용하여 SSL 오프로드 구성](application-gateway-ssl.md)을 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

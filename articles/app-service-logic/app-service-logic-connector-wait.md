@@ -1,44 +1,38 @@
 <properties 
-   pageTitle="Wait 커넥터" 
-   description="Wait 커넥터" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="rajeshramabathiran" 
-   manager="dwrede" 
-   editor=""/>
+   pageTitle="논리 앱에서 Wait 커넥터 사용 | Microsoft Azure 앱 서비스"
+	description="Wait 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="08/19/2015"
-   ms.author="rajram"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="rajram"/>
 
-#Wait 커넥터
-Wait 커넥터를 사용하면 앱 실행을 지정된 기간 동안 또는 지정된 시간이 될 때까지 지연할 수 있습니다. 흐름에서 사용할 경우 실행을 지연하는 데 사용될 수 있습니다.
+# Wait 커넥터 시작 및 논리 앱에 추가
+Wait 커넥터를 사용하면 앱 실행을 지정된 기간 동안 또는 지정된 시간이 될 때까지 지연할 수 있습니다. Wait 커넥터를 비즈니스 워크플로에 추가하고 논리 앱 내에서 이 워크플로의 일부로 데이터를 처리할 수 있습니다. 논리 앱에서 사용할 경우 실행을 지연하는 데 사용될 수 있습니다.
 
-##Wait 커넥터 사용
+## Wait 커넥터 사용
 Wait 커넥터를 사용하려면 먼저 Wait 커넥터 API 앱의 인스턴스를 만들어야 합니다. 이 작업은 논리 앱을 만드는 동안 인라인으로 수행하거나 Azure 마켓플레이스에서 Wait 커넥터 API 앱을 선택하여 수행할 수 있습니다.
 
-##논리 앱 디자이너 화면에서 Wait 커넥터 사용
+## 논리 앱 디자이너 화면에서 Wait 커넥터 사용
 Wait 커넥터는 동작으로 사용할 수 있습니다. 트리거가 필요하지 않습니다.
 
-###작업
-- 오른쪽 창에서 Wait 커넥터를 클릭합니다.
-
-	![작업 목록][1]
+### 작업
+- 오른쪽 창에서 Wait 커넥터를 클릭합니다. ![작업 목록][1]
 - Wait 커넥터는 다음 두 동작을 지원합니다. 
 	- 지연
 	- 다음까지 지연
 	 
-- *지연*을 선택합니다.
-
-	![지연 입력][2]
-- 동작에 대한 입력을 제공하고 구성합니다.
-
-	![구성된 동작][3]
+- *지연*을 선택합니다. ![지연 입력][2]
+- 동작에 대한 입력을 제공하고 구성합니다. ![구성된 동작][3]
 
 매개 변수|형식|매개 변수에 대한 설명
 ---|---|---
@@ -57,4 +51,4 @@ Wait 커넥터는 동작으로 사용할 수 있습니다. 트리거가 필요�
 [2]: ./media/app-service-logic-wait/DelayInput.PNG
 [3]: ./media/app-service-logic-wait/ActionConfigured.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

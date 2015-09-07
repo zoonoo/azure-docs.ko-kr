@@ -1,4 +1,3 @@
-
 <properties
 	pageTitle="Azure 백업 - 가상 컴퓨터 복원 | Microsoft Azure"
 	description="Azure 가상 컴퓨터 복원 방법 알아보기"
@@ -95,4 +94,4 @@
 ## 다음 단계
 - [가상 컴퓨터 관리](backup-azure-manage-vms.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

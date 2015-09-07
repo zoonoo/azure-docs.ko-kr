@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 검색 서비스 REST API 버전 2015-02-28-Preview | Microsoft Azure"
-   description="Azure 검색 서비스 REST API 버전 2015-02-28-Preview에는 자연어 분석기 및 moreLikeThis 검색과 같은 실험적 기능이 포함되어 있습니다."
-   services="search"
-   documentationCenter="na"
-   authors="HeidiSteen"
-   manager="mblythe"
-   editor=""/>
+	description="Azure 검색 서비스 REST API 버전 2015-02-28-Preview에는 자연어 분석기 및 moreLikeThis 검색과 같은 실험적 기능이 포함되어 있습니다."
+	services="search"
+	documentationCenter="na"
+	authors="HeidiSteen"
+	manager="mblythe"
+	editor=""/>
 
 <tags
    ms.service="search"
-   ms.devlang="rest-api"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="search"
-   ms.date="07/22/2015"
-   ms.author="heidist"/>
+	ms.devlang="rest-api"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="search"
+	ms.date="08/25/2015"
+	ms.author="heidist"/>
 
 # Azure 검색 서비스 REST API: 버전 2015-02-28-Preview
 
@@ -95,7 +95,7 @@ Azure 검색 서비스에서 간단한 HTTP 요청(POST, GET, PUT, DELETE)을 �
       {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
       {"name": "baseRate", "type": "Edm.Double"},
       {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer: "fr.lucene"},
+	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
       {"name": "hotelName", "type": "Edm.String"},
       {"name": "category", "type": "Edm.String"},
       {"name": "tags", "type": "Collection(Edm.String)"},
@@ -262,7 +262,7 @@ POST 요청의 경우에는 요청 본문에 인덱스 이름을 지정해야 �
 
   - **참고**: 위의 모든 특성(`searchable`, `filterable`, `sortable`, `facetable`)이 `true`로 설정되어 있지 않은 필드는 반전된 인덱스에서 제외됩니다. 쿼리에서 사용되지는 않지만 검색 결과에는 필요한 필드의 경우 이 옵션을 사용하면 유용합니다. 이러한 필드를 인덱스에서 제외하면 성능이 향상됩니다.
 
-  - `suggestions` - 이전 버전의 API에는 `suggestions` 속성이 포함되어 있었습니다. 이 부울 속성은 이제 사용되지 않으므로 `2015-02-28` 또는 `2015-02-28-Preview`에서 더 이상 사용할 수 없습니다. [확인기 API](#Suggesters)를 대신 사용하세요. `2014-07-31` 버전에서는 `suggestions` 속성을 사용하여 특정 필드를 자동 완성, 미리 입력 또는 `Edm.String`/`Collection(Edm.String)` 형식 필드에 사용할 수 있는지 여부를 지정했습니다. `suggestions`는 인덱스에 추가 공간이 필요하기 때문에 기본적으로 `false`로 설정되었지만 이를 사용하도록 설정한 경우 새 API로 전환하는 방법에 대한 지침은 [Azure 검색에서 미리 보기에서 일반 릴리스로 전환](search-transition-from-preview.md)을 참조하세요.
+`suggestions` - 이전 버전의 API에는 `suggestions` 속성이 포함되어 있었습니다. 이 부울 속성은 이제 사용되지 않으므로 `2015-02-28` 또는 `2015-02-28-Preview`에서 더 이상 사용할 수 없습니다. [확인기 API](#Suggesters)를 대신 사용하세요. `2014-07-31` 버전에서는 `suggestions` 속성을 사용하여 특정 필드를 자동 완성, 미리 입력 또는 `Edm.String`/`Collection(Edm.String)` 형식 필드에 사용할 수 있는지 여부를 지정했습니다. `suggestions`는 인덱스에 추가 공간이 필요하기 때문에 기본적으로 `false`로 설정되었지만 이를 사용하도록 설정한 경우 새 API로 전환하는 방법에 대한 지침은 [Azure 검색의 미리 보기에서 일반 릴리스로 전환](search-transition-from-preview.md)을 참조하세요.
 
 `key` - 필드가 인덱스 내의 문서에 대한 고유 식별자를 포함하는 것으로 표시합니다. 정확히 하나의 필드를 `key` 필드로 선택해야 하며 해당 필드의 형식은 `Edm.String`이어야 합니다. 키 필드를 사용하면 [문서 조회](#LookupAPI)를 통해 문서를 직접 조회할 수 있습니다.
 
@@ -270,7 +270,7 @@ POST 요청의 경우에는 요청 본문에 인덱스 이름을 지정해야 �
 
 `analyzer` - 필드에 사용할 텍스트 분석기의 이름을 설정합니다. 허용되는 값 집합은 [언어 지원](#LanguageSupport)을 참조하세요. 이 옵션은 `searchable` 필드에만 사용할 수 있습니다. 필드에 대해 분석기를 선택한 후에는 변경할 수 없습니다.
 
-`sugggesters` - 검색 모드 및 제안 내용의 원본인 필드를 설정합니다. 자세한 내용은 [확인기](#Suggesters)를 참조하세요.
+`suggesters` - 검색 모드 및 제안 내용의 원본인 필드를 설정합니다. 자세한 내용은 [확인기](#Suggesters)를 참조하세요.
 
 `scoringProfiles` - 검색 결과에서 더 위쪽에 표시할 항목을 제어할 수 있는 사용자 지정 점수 매기기 동작을 정의합니다. 점수 매기기 프로필은 필드 가중치와 함수로 구성됩니다. 점수 매기기 프로필에서 사용되는 특성에 대한 자세한 내용은 [점수 매기기 프로필 추가](https://msdn.microsoft.com/library/azure/dn798928.aspx)를 참조하세요.
 
@@ -279,894 +279,316 @@ POST 요청의 경우에는 요청 본문에 인덱스 이름을 지정해야 �
 
 검색 가능 필드에서는 대개 단어 분리, 텍스트 정규화, 용어 필터링 등을 포함하는 분석이 수행됩니다. 기본적으로 Azure 검색에서는 [Apache Lucene 표준 분석기](http://lucene.apache.org/core/4_9_0/analyzers-common/index.html)를 사용하여 검색 가능 필드를 분석합니다. 이 분석기는 ["유니코드 텍스트 구분"](http://unicode.org/reports/tr29/) 규칙에 따라 텍스트를 요소로 분리합니다. 또한 표준 분석기에서는 모든 문자를 소문자 형식으로 변환합니다. 인덱싱 및 쿼리 처리 중에는 인덱싱된 문서와 검색 용어 둘 다에 대해 분석을 수행합니다.
 
-Azure 검색에서는 다양한 언어로 필드를 인덱싱할 수 있습니다. 각 언어를 사용하려면 지정된 언어의 특성을 고려할 수 있는 비표준 텍스트 분석기가 필요합니다. Azure 검색에서는 다음 두 가지 유형의 분석기를 제공합니다.
+Azure 검색은 다양한 언어를 지원합니다. 각 언어를 사용하려면 지정된 언어의 특성을 고려할 수 있는 비표준 텍스트 분석기가 필요합니다. Azure 검색에서는 다음 두 가지 유형의 분석기를 제공합니다.
 
-- Lucene에서 지원하는 28개의 분석기
+- Lucene에서 지원하는 35개의 분석기
 - Office 및 Bing에서 사용되는 Microsoft 소유 자연어 처리 기술로 지원되는 50개의 분석기
 
-일부 개발자는 보다 친숙하고 간단한 Lucene의 오픈 소스 솔루션을 선호할 수 있습니다. Lucene이 더 빠르지만 Microsoft 분석기에는 분류 정리와 같은 고급 기능이 있습니다. 가능한 경우 Microsoft 분석기와 Lucene 분석기를 비교하여 어떤 것이 더 적합한지 결정해야 합니다.
+일부 개발자는 보다 친숙하고 간단한 Lucene의 오픈 소스 솔루션을 선호할 수 있습니다. Lucene 분석기가 보다 빠르지만 Microsoft 분석기에는 분류 정리, 단어 분해(독일어, 덴마크어, 네덜란드어, 스웨덴어, 노르웨이어, 에스토니아어, 핀란드어, 헝가리어, 슬로바키아어와 같은 언어에서) 및 엔터티 인식(URL, 전자 메일, 날짜, 숫자)과 같은 고급 기능이 있습니다. 가능한 경우 Microsoft 분석기와 Lucene 분석기를 비교하여 어떤 것이 더 적합한지 결정해야 합니다.
 
 ***비교 방법***
 
-Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는 단어에서 소유격(후행 's)을 제거하고, [Porter 형태소 분석 알고리즘](http://tartarus.org/~martin/PorterStemmer/)에 따라 형태소 분석을 적용하며, 영어의 [중지 단어](http://en.wikipedia.org/wiki/Stop_words)를 제거합니다. Lucene 분석기를 사용한 쿼리 및 인덱싱은 매우 빠릅니다.
+Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는 단어에서 소유격(후행 's)을 제거하고, [Porter 형태소 분석 알고리즘](http://tartarus.org/~martin/PorterStemmer/)에 따라 형태소 분석을 적용하며, 영어의 [중지 단어](http://en.wikipedia.org/wiki/Stop_words)를 제거합니다.
 
-반면, Microsoft 분석기는 쿼리 시 각 쿼리 용어의 가능한 모든 단어 형태를 생성하는 확장 형태소 분석기를 구현합니다. 따라서 결과의 정확도가 높지만 대기 시간이 깁니다. 확장 형태소 분석기의 경우 일반적으로 쿼리 성능이 저하됩니다. Microsoft 분석기를 사용한 인덱싱은 Lucene보다 평균 3배 정도 더 느립니다.
+반면 Microsoft 분석기는 형태소 분석 대신 분류 정리를 수행합니다. 즉, 어형이 변화되고 불규칙한 단어 형태 관련 검색 결과에서 더 정확한 결과로 처리할 수 있습니다.(자세한 내용은 [Azure 검색 MVA 프레젠테이션](http://www.microsoftvirtualacademy.com/training-courses/adding-microsoft-azure-search-to-your-websites-and-apps)의 모듈 7 보기)
+
+언어에 따라 Microsoft 분석기를 사용한 인덱싱은 Lucene보다 평균 두세 배 정도 더 느립니다. 검색 성능은 평균 크기 쿼리에 크게 영향을 받지 않아야 합니다.
 
 ***구성***
 
-인덱스 정의의 각 필드에 대해 `analyzer` 속성을 언어 및 공급업체를 지정하는 분석기 이름으로 설정할 수 있습니다. 예를 들어 영어, 프랑스어, 스페인어 호텔 설명을 표시하는 개별 필드를 같은 인덱스에서 나란히 표시할 수 있습니다. 쿼리가 검색 쿼리에서 반환할 언어별 필드를 지정합니다. `analyzer` 속성을 포함하는 쿼리 예제는 [문서 검색](#SearchDocs)에서 검토할 수 있습니다.
+인덱스 정의의 각 필드에 대해 `analyzer` 속성을 언어 및 공급업체를 지정하는 분석기 이름으로 설정할 수 있습니다. 해당 필드를 인덱싱 및 검색하는 경우 동일한 분석기를 적용합니다. 예를 들어 영어, 프랑스어, 스페인어 호텔 설명을 표시하는 개별 필드를 같은 인덱스에서 나란히 표시할 수 있습니다. ['searchFields' 쿼리 매개 변수](#SearchQueryParameters)를 사용하여 쿼리에서 검색하는 특정 언어 필드를 지정합니다. `analyzer` 속성을 포함하는 쿼리 예제는 [문서 검색](#SearchDocs)에서 검토할 수 있습니다.
 
 ***분석기 목록***
 
-아래 목록에는 지원되는 분석기와 해당 기능에 대한 간단한 설명이 나와 있습니다.
+다음은 Lucene 및 Microsoft 분석기 이름으로 지원되는 언어의 목록입니다.
 
 <table style="font-size:12">
     <tr>
 		<th>언어</th>
-		<th>분석기 이름</th>
-		<th>설명</th>
-	</tr>
-    <tr>
-		<td>아랍어</td>
-		<td>ar.lucene</td>
-		<td>
-		<ul>
-			<li>아랍어 철자 정규화를 구현합니다.</li>
-			<li>간단한 알고리즘 방식 형태소 분석을 적용합니다.</li>
-			<li>아랍어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
+		<th>Microsoft 분석기 이름</th>
+		<th>Lucene 분석기 이름</th>
 	</tr>
     <tr>
 		<td>아랍어</td>
 		<td>ar.microsoft</td>
-		<td>
-		<ul>
-			<li>축소된 형태소 분석기</li>
-			<li>아랍어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
+		<td>ar.lucene</td>		
 	</tr>
     <tr>
     	<td>아르메니아어</td>
+		<td></td>
     	<td>hy.lucene</td>
-    	<td>
-    	<ul>
-      		<li>간단한 알고리즘 방식 형태소 분석을 적용합니다.</li>
-    		<li>아르메니아어 중지 단어를 필터링합니다.</li>
-	    </ul>
-    	</td>
   	</tr>
     <tr>
 		<td>벵골어</td>
-		<td>bg.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-		</ul>
-		</td>
+		<td>bn.microsoft</td>
+		<td></td>
 	</tr>
   	<tr>
     	<td>바스크어</td>
+		<td></td>
     	<td>eu.lucene</td>
-    	<td>
-    	<ul>
-      		<li>간단한 알고리즘 방식 형태소 분석을 적용합니다.</li>
-    		<li>바스크어 중지 단어를 필터링합니다.</li>
-	    </ul>
-    	</td>
     </tr>
   	<tr>
- 	   <td>불가리아어</td>
+ 		<td>불가리아어</td>
+		<td>bg.microsoft</td>
     	<td>bg.lucene</td>
-    	<td>
-    	<ul>
-      		<li>간단한 알고리즘 방식 형태소 분석을 적용합니다.</li>
-    		<li>불가리어 중지 단어를 필터링합니다.</li>
-	    </ul>
-    	</td>
   	</tr>
-    <tr>
-		<td>불가리아어</td>
-		<td>bn.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-		</ul>
-		</td>
-	</tr>
   	<tr>
     	<td>카탈로니아어</td>
-    	<td>ca.lucene</td>
-    	<td>
-    	<ul>
-      		<li>간단한 알고리즘 방식 형태소 분석을 적용합니다.</li>
-      		<li>카탈로니아어 중지 단어를 필터링합니다.</li>
-      		<li>발음 생략을 제거합니다.</li>
-   		</ul>
-    	</td>
+    	<td>ca.microsoft</td>
+		<td>ca.lucene</td>  		
   	</tr>
-    <tr>
-		<td>카탈로니아어</td>
-		<td>ca.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-			<li>분음 부호를 제거합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>중국어 간체</td>
-		<td>zh-Hans.lucene</td>
-		<td>
-		<ul>
-			<li>개연적 지식 모델을 사용하여 최적의 단어 구분을 찾습니다.</li>
-			<li>중국어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
     <tr>
 		<td>중국어 간체</td>
 		<td>zh-Hans.microsoft</td>
-		<td>
-		<ul>
-			<li>개연적 지식 모델을 사용하여 최적의 단어 구분을 찾습니다.</li>
-		</ul>
-		</td>
+		<td>zh-Hans.lucene</td>		
 	</tr>
     <tr>
 		<td>중국어 번체</td>
-		<td>zh-Hant.lucene</td>
-		<td>
-		<ul>
-			<li>인접하는 두 중국어 문자의 겹치는 그룹인 바이그램을 인덱싱합니다.</li>
-			<li>문자 너비 차이를 정규화합니다.</li>
-		</ul>
-		</td>
-	<tr>
-    <tr>
-		<td>중국어 번체</td>
 		<td>zh-Hant.microsoft</td>
-		<td>
-		<ul>
-			<li>개연적 지식 모델을 사용하여 최적의 단어 구분을 찾습니다.</li>
-		</ul>
-		</td>
+		<td>zh-Hant.lucene</td>		
 	<tr>
     <tr>
 		<td>크로아티아어</td>
 		<td>hr.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>체코어</td>
-		<td>cs.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>체코어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
+		<td/></td>
 	</tr>
     <tr>
 		<td>체코어</td>
 		<td>cs.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-			<li>체코어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>덴마크어</td>
-		<td>da.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>덴마크어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
+		<td>cs.lucene</td>		
+	</tr>    
     <tr>
 		<td>덴마크어</td>
 		<td>da.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-			<li>덴마크어 중지 단어를 필터링합니다.</li>
-			<li>분해</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>네덜란드어</td>
-		<td>nl.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>네덜란드어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
+		<td>da.lucene</td>		
+	</tr>    
     <tr>
 		<td>네덜란드어</td>
 		<td>nl.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-			<li>네덜란드어 중지 단어를 필터링합니다.</li>
-			<li>분해</li>
-			<li>분음 부호를 제거합니다.</li>
-		</ul>
-		</td>
-	</tr>
+		<td>nl.lucene</td>	
+	</tr>    
     <tr>
-		<td>영어</td>
-		<td>en.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>영어 중지 단어를 필터링합니다.</li>
-			<li>소유격을 제거합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>영어</td>
+		<td>영어</td>		
 		<td>en.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-			<li>영어 중지 단어를 필터링합니다.</li>
-			<li>소유격과 분음 부호를 제거합니다.</li>
-		</ul>
-		</td>
+		<td>en.lucene</td>		
 	</tr>
     <tr>
 		<td>에스토니아어</td>
 		<td>et.microsoft</td>
-		<td>
-		<ul>
-			<li>축소된 형태소 분석기</li>
-			<li>분해</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>핀란드어</td>
-		<td>fi.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>핀란드어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>핀란드어</td>
 		<td>fi.microsoft</td>
-		<td>
-		<ul>
-			<li>축소된 형태소 분석기</li>
-			<li>핀란드어 중지 단어를 필터링합니다.</li>
-			<li>분해</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>프랑스어</td>
-		<td>fr.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>프랑스어 중지 단어를 필터링합니다.</li>
-			<li>발음 생략을 제거합니다.</li>
-		</ul>
-		</td>
-	</tr>
+		<td>fi.lucene</td>		
+	</tr>    
     <tr>
 		<td>프랑스어</td>
 		<td>fr.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-			<li>프랑스어 중지 단어를 필터링합니다.</li>
-			<li>분음 부호를 제거합니다.</li>
-		</ul>
-		</td>
+		<td>fr.lucene</td>		
 	</tr>
     <tr>
     	<td>갈리시아어</td>
-	    <td>gl.lucene</td>
-    	<td>
-    	<ul>
-    		<li>간단한 형태소 분석을 적용합니다.</li>
-      		<li>갈리시아어 중지 단어를 필터링합니다.</li>
-    	</ul>
-    	</td>
+	    <td></td>
+		<td>gl.lucene</td>    	
   	</tr>
     <tr>
 		<td>독일어</td>
-		<td>de.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>독일어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>독일어</td>
 		<td>de.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-			<li>독일어 중지 단어를 필터링합니다.</li>
-			<li>분해</li>
-			<li>분음 부호를 제거합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>그리스어</td>
-		<td>el.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>그리스어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
+		<td>de.lucene</td>		
 	</tr>
     <tr>
 		<td>그리스어</td>
 		<td>el.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-			<li>그리스어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
+		<td>el.lucene</td>		
 	</tr>
     <tr>
 		<td>구자라트어</td>
 		<td>gu.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>히브리어</td>
 		<td>he.microsoft</td>
-		<td>
-		<ul>
-			<li>축소된 형태소 분석기</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>힌디어</td>
-		<td>hi.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>힌디어 중지 단어를 필터링합니다.</li>
-			<li>일부 철자 변형 차이를 제거합니다.</li>
-			<li>인도어 텍스트의 유니코드 표현을 정규화합니다.</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>힌디어</td>
 		<td>hi.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-			<li>힌디어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
+		<td>hi.lucene</td>		
 	</tr>
     <tr>
-		<td>헝가리어</td>
-		<td>hu.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>헝가리어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>헝가리어</td>
+		<td>헝가리어</td>		
 		<td>hu.microsoft</td>
-		<td>
-		<ul>
-			<li>축소된 형태소 분석기</li>
-			<li>헝가리어 중지 단어를 필터링합니다.</li>
-			<li>분해</li>
-		</ul>
-		</td>
+		<td>hu.lucene</td>
 	</tr>
     <tr>
 		<td>아이슬란드어</td>
 		<td>is.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>인도네시아어(공용어)</td>
-		<td>id.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>인도네시아어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>인도네시아어(공용어)</td>
 		<td>id.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-			<li>인도네시아어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
+		<td>id.lucene</td>		
 	</tr>
     <tr>
     	<td>아일랜드어</td>
+		<td></td>
       	<td>ga.lucene</td>
-      	<td>
-      	<ul>
-        	<li>간단한 형태소 분석을 적용합니다.</li>
-        	<li>아일랜드어 중지 단어를 필터링합니다.</li>
-      	</ul>
-      	</td>
     </tr>
     <tr>
 		<td>이탈리아어</td>
-		<td>it.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>이탈리아어 중지 단어를 필터링합니다.</li>
-			<li>발음 생략을 제거합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>이탈리아어</td>
 		<td>it.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-			<li>이탈리아어 중지 단어를 필터링합니다.</li>
-			<li>분음 부호를 제거합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>일본어</td>
-		<td>ja.lucene</td>
-		<td>
-		<ul>
-			<li>형태학적 분석을 사용합니다.</li>
-			<li>일반적인 가타카나 철자 변형을 정규화합니다.</li>
-			<li>간단한 중지 단어/중지 태그 제거를 수행합니다.</li>
-			<li>문자 너비를 정규화합니다.</li>
-			<li>분류 정리를 통해 어형이 변화되는 형용사와 동사를 기본 형태로 축약합니다.</li>
-		</ul>
-		</td>
+		<td>it.lucene</td>		
 	</tr>
     <tr>
 		<td>일본어</td>
 		<td>ja.microsoft</td>
-		<td>
-		<ul>
-			<li>형태학적 분석을 사용합니다.</li>
-		</ul>
-		</td>
+		<td>ja.lucene</td>
+		
 	</tr>
     <tr>
 		<td>카나다어</td>
 		<td>ka.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>한국어</td>
+		<td></td>
 		<td>ko.lucene</td>
-		<td>
-		<ul>
-			<li>인접하는 두 한글 문자의 겹치는 그룹인 바이그램을 인덱싱합니다.</li>
-			<li>문자 너비 차이를 정규화합니다.</li>
-		</ul>
-		</td>
-	</tr>
-  	<tr>
-		<td>한국어</td>
-		<td>ko.microsoft</td>
-		<td>
-		<ul>
-			<li>축소 형태소 분석기(분류 정리)</li>
-		</ul>
-		</td>
 	</tr>
     <tr>
-		<td>라트비아어</td>
-		<td>lv.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>라트비아어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>라트비아어</td>
+		<td>라트비아어</td>		
 		<td>lv.microsoft</td>
-		<td>
-		<ul>
-			<li>축소된 형태소 분석기</li>
-			<li>라트비아어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
+		<td>lv.lucene</td>	
 	</tr>
     <tr>
 		<td>리투아니아어</td>
 		<td>lt.microsoft</td>
-		<td>
-		<ul>
-			<li>축소된 형태소 분석기</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>말라얄람어</td>
 		<td>ml.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>말레이어(라틴 문자)</td>
 		<td>ms.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>마라티어</td>
 		<td>mr.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>노르웨이어</td>
-		<td>no.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>노르웨이어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>노르웨이어</td>
-		<td>no.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-			<li>노르웨이어 중지 단어를 필터링합니다.</li>
-			<li>분해</li>
-		</ul>
-		</td>
+		<td>nb.microsoft</td>
+		<td>no.lucene</td>		
 	</tr>
   	<tr>
     	<td>페르시아어</td>
-		<td>fa.lucene</td>
-    	<td>
-    	<ul>
-      		<li>알고리즘 방식 형태소 분석을 적용합니다.</li>
-      		<li>페르시아어 중지 단어를 필터링합니다.</li>
-      		<li>아랍어 및 페르시아어 철자 정규화를 구현합니다.</li>
-    	</ul>
-    	</td>
+		<td></td>
+		<td>fa.lucene</td>    	
   	</tr>
     <tr>
 		<td>폴란드어</td>
-		<td>pl.lucene</td>
-		<td>
-		<ul>
-			<li>알고리즘 방식 형태소 분석(Stempel)을 적용합니다.</li>
-			<li>폴란드어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>폴란드어</td>
 		<td>pl.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-			<li>폴란드어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>포르투갈어(브라질)</td>
-		<td>pt-Br.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>브라질어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
+		<td>pl.lucene</td>		
 	</tr>
     <tr>
 		<td>포르투갈어(브라질)</td>
 		<td>pt-Br.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-			<li>브라질어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
+		<td>pt-Br.lucene</td>		
 	</tr>
     <tr>
 		<td>포르투갈어(포르투갈)</td>
+		<td>pt-Pt.microsoft</td>		
 		<td>pt-Pt.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>포르투갈어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>포르투갈어(포르투갈)</td>
-		<td>pt-Pt.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-			<li>포르투갈어 중지 단어를 필터링합니다.</li>
-			<li>분음 부호를 제거합니다.</li>
-		</ul>
-		</td>
 	</tr>
     <tr>
 		<td>펀잡어</td>
 		<td>pa.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>루마니아어</td>
-		<td>ro.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>루마니아어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>루마니아어</td>
 		<td>ro.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-			<li>루마니아어 중지 단어를 필터링합니다.</li>
-			<li>분음 부호를 제거합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>러시아어</td>
-		<td>ru.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>러시아어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
+		<td>ro.lucene</td>
 	</tr>
     <tr>
 		<td>러시아어</td>
 		<td>ru.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-			<li>러시아어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
+		<td>ru.lucene</td>	
 	</tr>
     <tr>
 		<td>세르비아어(키릴자모)</td>
 		<td>sr-cyrillic.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>세르비아어(라틴 문자)</td>
 		<td>sr-latin.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>슬로바키아어</td>
 		<td>sk.microsoft</td>
-		<td>
-		<ul>
-			<li>축소된 형태소 분석기</li>
-			<li>분해</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>슬로베니아어</td>
-		<td>sk.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>스페인어</td>
-		<td>es.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>스페인어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
+		<td>sl.microsoft</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>스페인어</td>
 		<td>es.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-			<li>스페인어 중지 단어를 필터링합니다.</li>
-			<li>분음 부호를 제거합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>스웨덴어</td>
-		<td>sv.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>스웨덴어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
+		<td>es.lucene</td>
 	</tr>
     <tr>
 		<td>스웨덴어</td>
 		<td>sv.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-			<li>스웨덴어 중지 단어를 필터링합니다.</li>
-			<li>분해</li>
-		</ul>
-		</td>
+		<td>sv.lucene</td>
 	</tr>
+
     <tr>
 		<td>타밀어</td>
 		<td>ta.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>텔루구어</td>
 		<td>te.microsoft</td>
-		<td>
-		<ul>
-			<li>확장 형태소 분석기(분류 정리)</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>태국어</td>
-		<td>th.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>태국어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>태국어</td>
 		<td>th.microsoft</td>
-		<td>
-		<ul>
-			<li>태국어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>터키어</td>
-		<td>tr.lucene</td>
-		<td>
-		<ul>
-			<li>아포스트로피와 그 뒤의 모든 문자를 제거합니다.</li>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>터키어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
+		<td>th.lucene</td>
 	</tr>
     <tr>
 		<td>터키어</td>
 		<td>tr.microsoft</td>
-		<td>
-		<ul>
-			<li>축소된 형태소 분석기</li>
-			<li>터키어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
+		<td>tr.lucene</td>		
 	</tr>
     <tr>
 		<td>우크라이나어</td>
 		<td>uk.microsoft</td>
-		<td>
-		<ul>
-		<li>확장 형태소 분석기(분류 정리)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>우르두어</td>
 		<td>ur.microsoft</td>
-		<td>
-		<ul>
-		<li>확장 형태소 분석기(분류 정리)</li>
-		</ul>
-		</td>
+		<td></td>
 	</tr>
     <tr>
 		<td>베트남어</td>
 		<td>vi.microsoft</td>
-		<td>
-		<ul>
-
-		</ul>
-		</td>
+		<td></td>
 	</tr>
 	<td colspan="3">Azure 검색에서는 추가적으로 언어에 관계없는 분석기 구성을 제공합니다.</td>
     <tr>
@@ -1211,7 +633,7 @@ Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer="fr.lucene"},
+	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer"="fr.lucene"},
         {"name": "hotelName", "type": "Edm.String"},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},
@@ -1282,7 +704,7 @@ Azure 검색에서 제안 기능은 검색 상자에 입력한 부분 문자열 
 		  ]
 		}
 
-> [AZURE.NOTE]Azure 검색의 공개 미리 보기 버전을 사용하는 경우에는 3\~25자 사이의 짧은 문자열에 대해서만 접두사 제안을 지원했던 이전 부울 속성 `"suggestions": false` 대신 `suggesters`가 사용됩니다. 이 속성 대신 제공되는 `suggesters`는 필드 내용 시작 부분이나 중간에서 일치하는 용어를 찾는 중위 일치 기능을 지원하므로 검색 문자열을 잘못 입력해도 올바른 결과가 반환될 확률이 높아집니다. 일반적으로 사용 가능한 릴리스를 포함하여 이것이 현재 제안 API의 유일한 구현입니다. `api-version=2014-07-31-Preview`에 도입되었던 이전 `suggestions` 속성도 해당 버전에서는 계속 작동하지만 Azure 검색의 `2015-02-28` 이상 버전에서는 작동하지 않습니다.
+> [AZURE.NOTE]Azure 검색의 공개 미리 보기 버전을 사용하는 경우에는 3~25자 사이의 짧은 문자열에 대해서만 접두사 제안을 지원했던 이전 부울 속성 `"suggestions": false` 대신 `suggesters`가 사용됩니다. 이 속성 대신 제공되는 `suggesters`는 필드 내용 시작 부분이나 중간에서 일치하는 용어를 찾는 중위 일치 기능을 지원하므로 검색 문자열을 잘못 입력해도 올바른 결과가 반환될 확률이 높아집니다. 일반적으로 사용 가능한 릴리스를 포함하여 이것이 현재 제안 API의 유일한 구현입니다. `api-version=2014-07-31-Preview`에 도입되었던 이전 `suggestions` 속성도 해당 버전에서는 계속 작동하지만 Azure 검색의 `2015-02-28` 이후 버전에서는 작동하지 않습니다.
 
 <a name="UpdateIndex"></a>
 ## 인덱스 업데이트
@@ -1565,7 +987,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
 
 ________________________________________
 <a name="DocOps"></a>
-## 문서 작업 #
+## 문서 작업
 
 Azure 검색에서는 인덱스가 클라우드에 저장되며 서비스에 업로드하는 JSON 문서를 사용하여 인덱스를 채웁니다. 업로드하는 모든 문서는 검색 데이터 모음으로 구성됩니다. 문서에는 필드가 포함되며, 이러한 필드 중 일부는 문서 업로드 시 검색 용어로 토큰화됩니다. Azure 검색 API의 `/docs` URL 세그먼트는 인덱스의 문서 컬렉션을 나타냅니다. 문서 업로드/병합/삭제/쿼리 등 컬렉션에 대해 수행하는 모든 작업은 단일 인덱스의 컨텍스트에서 수행되므로 이러한 작업의 URL은 항상 지정된 인덱스 이름에 대해 `/indexes/[index name]/docs`로 시작됩니다.
 
@@ -1741,7 +1163,7 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
 
 또한 URL 인코딩은 GET을 사용하여 REST API를 직접 호출할 때만 필요합니다. POST를 사용하여 **검색**을 호출할 때 또는 URL 인코딩을 자동으로 처리하는 [.NET 클라이언트 라이브러리](https://msdn.microsoft.com/library/dn951165.aspx)를 사용할 때는 URL 인코딩이 필요하지 않습니다.
 
-**쿼리 매개 변수**
+<a name="SearchQueryParameters"></a> **쿼리 매개 변수**
 
 **검색**은 쿼리 조건을 제공하고 검색 동작을 지정하는 여러 매개 변수를 허용합니다. GET을 통해 **검색**을 호출할 때 URL 쿼리 문자열로, 그리고 POST를 통해 **검색**을 호출할 때 요청 본문에 JSON 속성으로 이러한 매개 변수를 제공합니다. 일부 매개 변수에 대한 구문은 GET 및 POST 간에 약간 다릅니다. 이러한 차이가 아래에 나와 있습니다.
 
@@ -1784,9 +1206,9 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
   - **참고**: `count` 매개 변수가 고유한 항목 수보다 작으면 결과가 정확하지 않을 수 있습니다. 이는 패싯 쿼리가 분할된 데이터베이스에서 분산된 방식 때문입니다. `count`를 늘리면 일반적으로 용어 수의 정확도가 높아지지만 성능이 저하됩니다.
 - `sort`(개수별로 *내림차순* 정렬하는 `count`, 개수별로 *오름차순* 정렬하는 `-count`, 값별로 *오름차순* 정렬하는 `value`, 값별로 *내림차순* 정렬하는 `-value` 중 하나)
   - 예: `facet=category,count:3,sort:count`는 각 도시 이름이 있는 문서 수를 기준으로 내림차순으로 정렬된 패싯 결과에서 상위 3개의 범주를 가져옵니다. 예를 들어 상위 3개의 범주가 Budget, Motel, Luxury인 경우 적중 항목 수가 Budget은 5개, Motel은 6개, Luxury는 4개이면 버킷이 Motel, Budget, Luxury 순으로 정렬됩니다.
-  - 예: `facet=rating,sort:-value`는 값을 기준으로 내림차순으로 정렬된 가능한 모든 등급의 버킷을 생성합니다. 예를 들어 등급이 1\~5인 경우 각 등급과 일치하는 문서 수에 상관없이 버킷이 5, 4, 3, 2, 1 순으로 정렬됩니다.
+  - 예: `facet=rating,sort:-value`는 값을 기준으로 내림차순으로 정렬된 가능한 모든 등급의 버킷을 생성합니다. 예를 들어 등급이 1~5인 경우 각 등급과 일치하는 문서 수에 상관없이 버킷이 5, 4, 3, 2, 1 순으로 정렬됩니다.
 - `values`(파이프로 구분된 숫자 또는 패싯 항목 값의 동적 집합을 지정하는 `Edm.DateTimeOffset` 값)
-  - 예: `facet=baseRate,values:10|20`은 각각 기본 요금이 1\~9, 10\~19 및 20 이상인 버킷 3개를 생성합니다.
+  - 예: `facet=baseRate,values:10|20`은 각각 기본 요금이 1~9, 10~19 및 20 이상인 버킷 3개를 생성합니다.
   - 예: `facet=lastRenovationDate,values:2010-02-01T00:00:00Z`는 각각 2010년 2월 이전에 리노베이션된 호텔과 2010년 2월 1일 이후에 리노베이션된 호텔에 대한 버킷 2개를 생성합니다.
 - `interval`(숫자의 경우 0보다 큰 정수 간격 또는 날짜/시간 값의 경우 `minute`, `hour`, `day`, `week`, `month`, `quarter`, `year`)
   - 예: `facet=baseRate,interval:100`은 기본 요금 범위 100을 기준으로 버킷을 생성합니다. 예를 들어 기본 요금이 모두 $60에서 $600 사이에 속한 경우 0-100, 100-200, 200-300, 300-400, 400-500 및 500-600에 대한 버킷이 생성됩니다.
@@ -2213,7 +1635,7 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
 
 `searchFields=[string]`(선택) - 지정된 검색 텍스트를 검색하기 위한 쉼표로 구분된 필드 이름 목록입니다. 대상 필드가 제안을 사용하도록 설정되어 있어야 합니다.
 
-`$top=#`(선택, 기본값=5) - 검색할 제안의 수입니다. 값은 1\~100 사이의 숫자여야 합니다.
+`$top=#`(선택, 기본값=5) - 검색할 제안의 수입니다. 값은 1~100 사이의 숫자여야 합니다.
 
 > [AZURE.NOTE]POST를 사용하여 **제안**을 호출하는 경우 이 매개 변수의 이름은 `$top` 대신 `top`입니다.
 
@@ -2307,4 +1729,4 @@ POST의 경우:
       "suggesterName": "sg"
     }
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

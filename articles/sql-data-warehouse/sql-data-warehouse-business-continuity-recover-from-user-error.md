@@ -1,20 +1,20 @@
 <properties
    pageTitle="SQL 데이터 웨어하우스 | Microsoft Azure의 사용자 오류에서 데이터베이스 복구"
-   description="SQL 데이터 웨어하우스의 사용자 오류에서 데이터베이스를 복구하기 위한 단계"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sahaj08"
-   manager="barbkess"
-   editor=""/>
+	description="SQL 데이터 웨어하우스의 사용자 오류에서 데이터베이스를 복구하기 위한 단계"
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="sahaj08"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/26/2015"
-   ms.author="sahajs"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="06/26/2015"
+	ms.author="sahajs"/>
 
 # SQL 데이터 웨어하우스의 사용자 오류에서 데이터베이스 복구
 
@@ -58,6 +58,8 @@ $RestoreRequest = Start-AzureSqlDatabaseRestore -SourceServerName "<YourServerNa
 # Monitor progress of restore operation
 Get-AzureSqlDatabaseOperation -ServerName "<YourServerName>" –OperationGuid $RestoreRequest.RequestID
 ```
+
+서버가 foo.database.windows.net인 경우 Powershell cmdlet에서 -ServerName로 "foo"를 사용합니다.
 
 ### REST API
 프로그래밍 방식으로 데이터베이스 복원을 수행하려면 REST를 사용합니다.
@@ -116,8 +118,8 @@ Get-AzureSqlDatabaseOperation –ServerName "<YourServerName>" –OperationGuid 
 [데이터베이스 작업 상태]: http://msdn.microsoft.com/library/azure/dn720371.aspx
 [복원 가능한 삭제된 데이터베이스 가져오기]: http://msdn.microsoft.com/library/azure/dn509574.aspx
 [복원 가능한 삭제된 데이터베이스 나열]: http://msdn.microsoft.com/library/azure/dn509562.aspx
-[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/ko-kr/library/dn720218.aspx
+[Start-AzureSqlDatabaseRestore]: https://msdn.microsoft.com/ko-KR/library/dn720218.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

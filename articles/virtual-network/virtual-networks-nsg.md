@@ -1,19 +1,19 @@
 <properties 
    pageTitle="NSG(네트워크 보안 그룹)란?"
-   description="NSG(네트워크 보안 그룹)에 대해 알아봅니다."
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="NSG(네트워크 보안 그룹)에 대해 알아봅니다."
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/13/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/13/2015"
+	ms.author="telmos"/>
 
 # NSG(네트워크 보안 그룹)란?
 
@@ -23,7 +23,7 @@ NSG를 사용하여 가상 네트워크에 있는 하나 이상의 VM(가상 컴
 
 NSG는 VM에 연결하거나 VNet 내에 있는 서브넷에 연결할 수 있습니다. NSG가 VM과 연결된 경우 VM 인스턴스에서 보내고 받는 모든 트래픽에 적용됩니다. NSG가 VNet 내에 있는 서브넷에 적용된 경우 서브넷의 모든 VM 인스턴스에서 보내고 받는 모든 트래픽에 적용됩니다. VM 또는 서브넷은 오직 1개의 NSG와 연결될 수 있으며, 각 NSG에는 규칙이 200개까지 포함될 수 있습니다. 구독당 100개의 NSG가 있을 수 있습니다.
 
->[AZURE.NOTE]끝점 기반 ACL과 네트워크 보안 그룹은 동일한 VM 인스턴스에서 지원되지 않습니다. NSG를 사용하려는데 끝점 ACL이 이미 있는 경우 먼저, 끝점 ACL을 제거합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록) 관리](https://msdn.microsoft.com/library/azure/dn376543.aspx)를 참조하세요.
+>[AZURE.NOTE]끝점 기반 ACL과 네트워크 보안 그룹은 동일한 VM 인스턴스에서 지원되지 않습니다. NSG를 사용하려는데 끝점 ACL이 이미 있는 경우 먼저, 끝점 ACL을 제거합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록) 관리](virtual-networks-acl-powershell.md)를 참조하세요.
 
 ## 네트워크 보안 그룹은 어떻게 작동하나요?
 
@@ -138,7 +138,7 @@ Azure의 일반적인 시나리오는 이러한 개체가 인터넷 엑세스에
 
 | 이름 | 우선 순위 | 원본 IP | 원본 포트 | 대상 IP | 대상 포트 | 프로토콜 | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|인터넷 허용 안 함|100| VIRTUAL\_NETWORK|& \#42;|인터넷|& \#42;|TCP|거부| 
+|인터넷 허용 안 함|100| VIRTUAL\_NETWORK|& #42;|인터넷|& #42;|TCP|거부| 
 
 규칙이 가상 네트워크에서의 인터넷 엑세스를 전부 허용하지 않으므로, SQL 데이터베이스처럼 공용 인터넷 끝점이 필요한 Azure PaaS 서비스는 VM이 엑세스할 수 없습니다.
 
@@ -146,8 +146,8 @@ Azure의 일반적인 시나리오는 이러한 개체가 인터넷 엑세스에
 
 | 이름 | 우선 순위 | 원본 IP | 원본 포트 | 대상 IP | 대상 포트 | 프로토콜 | Access |
 |------|----------|-----------|-------------|----------------|------------------|----------|--------|
-|인터넷으로의 엑세스|100| VIRTUAL\_NETWORK|& \#42;|인터넷|& \#42;|TCP|허용|
-|인터넷에서의 엑세스|110| 인터넷|& \#42;|VIRTUAL\_NETWORK|& \#42;|TCP|거부| 
+|인터넷으로의 엑세스|100| VIRTUAL\_NETWORK|& #42;|인터넷|& #42;|TCP|허용|
+|인터넷에서의 엑세스|110| 인터넷|& #42;|VIRTUAL\_NETWORK|& #42;|TCP|거부| 
 
 >[AZURE.WARNING]Azure는 **게이트웨이** 서브넷이라는 특수 서브넷을 사용하여 다른 VNet 및 온-프레미스 네트워크에 대한 VPN 게이트웨이를 처리합니다. 이 서브넷에 NSG를 연결하면 VPN 게이트웨이가 예상대로 작동이 중지됩니다. 게이트웨이 서브넷에 NSG를 연결하지 마세요.
 
@@ -249,4 +249,4 @@ Azure의 일반적인 시나리오는 이러한 개체가 인터넷 엑세스에
 
 	Get-Command *azurenetworksecuritygroup*
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

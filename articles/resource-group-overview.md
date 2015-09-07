@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 리소스 관리자 개요"
-   description="Azure에서 리소스 배포, 관리 및 액세스 제어용 Azure 리소스 관리자 사용 방법을 설명합니다."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	description="Azure에서 리소스 배포, 관리 및 액세스 제어용 Azure 리소스 관리자 사용 방법을 설명합니다."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/24/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/20/2015"
+	ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 개요
 
@@ -22,7 +22,9 @@
 
 Azure 리소스 관리자는 관리 플랫폼으로 액세스 제어를 고유하게 통합하므로 조직에서 사용자는 리소스 그룹에 대해 어떤 작업을 할지 지정할 수 있습니다.
 
-이 개요는 다음과 같습니다.
+리소스 관리자는 솔루션을 배포 및 관리하는 새로운 방식을 제공합니다. 이 새로운 배포 모델의 변경 내용에 대해 알아보려면 [리소스 관리자 배포 및 클래식 배포 이해](resource-manager-deployment-model.md)를 참조하세요.
+
+이 개요에 대한 비디오 데모는 다음과 같습니다.
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
@@ -120,7 +122,7 @@ Azure CLI에 대한 정보는 [Azure 리소스 관리에서 Mac, Linux 및 Windo
 
 REST API에 대한 정보는 [Azure 리소스 관리자 REST API 참조](https://msdn.microsoft.com/library/azure/dn790568.aspx)를 참조하십시오..
 
-Preview 포털 사용에 대한 내용은 [Azure Preview 포털을 사용하여 Azure 리소스 관리](azure-portal/resource-group-portal.md)를 참조하세요.
+미리 보기 포털 사용에 대한 내용은 [Azure Preview 포털을 사용하여 Azure 리소스 관리](azure-portal/resource-group-portal.md)를 참조하세요.
 
 ## 다음 단계
 
@@ -129,4 +131,4 @@ Preview 포털 사용에 대한 내용은 [Azure Preview 포털을 사용하여 
 - 템플릿에서 사용할 수 있는 함수를 이해하려면 [템플릿 함수](./resource-group-template-functions.md)를 참조하세요.
 - 템플릿 설계에 대한 지침은 [Azure 리소스 관리자 템플릿 설계의 모범 사례](best-practices-resource-manager-design-templates.md)를 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

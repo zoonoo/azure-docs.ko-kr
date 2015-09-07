@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure AD Connect - 사용자 로그인" 
-	description="사용자 지정 설정을 위한 Azure AD Connect 사용자 로그인." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure AD Connect - 사용자 로그인"
+	description="사용자 지정 설정을 위한 Azure AD Connect 사용자 로그인."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 
@@ -64,4 +64,4 @@ Office 365, SaaS 응용 프로그램 및 기타 Azure AD 기반 리소스에 사
 	- 장치 등록, Azure AD 연결 또는 Intune MDM 정책을 사용하여 온-프레미스 및 클라우드 리소스 모두에 대한 조건부 액세스
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

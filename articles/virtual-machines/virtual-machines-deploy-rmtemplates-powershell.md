@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="08/25/2015"
 	ms.author="davidmu"/>
 
 # Azure 리소스 관리자 템플릿 및 PowerShell을 사용하여 가상 컴퓨터 배포 및 관리
@@ -962,4 +962,4 @@ Azure 배포 이름, 리소스 그룹 이름, Azure 위치를 입력하고 다�
 
 [Azure PowerShell을 설치 및 구성하는 방법](install-configure-powershell.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

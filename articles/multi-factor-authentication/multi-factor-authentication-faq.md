@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication FAQ" 
-	description="Azure Multi-Factor Authentication은 사용자 이름 및 암호 이외의 다른 내용을 사용해야하는 사람인지를 확인하는 메서드입니다. 사용자 로그인 및 트랜잭션에 대한 보안의 추가 계층을 제공합니다." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadwha" 
+	pageTitle="Azure Multi-Factor Authentication FAQ"
+	description="Azure Multi-Factor Authentication은 사용자 이름 및 암호 이외의 다른 내용을 사용해야하는 사람인지를 확인하는 메서드입니다. 사용자 로그인 및 트랜잭션에 대한 보안의 추가 계층을 제공합니다."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication FAQ
@@ -145,4 +145,4 @@ Azure Multi-Factor Authentication 서비스는 SMS 집계를 통해 문자 메�
 
 이 문제를 해결하려면 관리 관련 작업용 사용자 계정과 비관리 관련 작업용 사용자 계정을 따로 두어야 합니다. 나중에 관리 계정과 비관리 계정 간의 사서함을 연결하면 비관리 계정을 사용하여 Outlook에 로그인할 수 있습니다. 이에 대한 자세한 내용은 [관리자에게 사용자의 사서함 내용을 열고 보는 기능 제공](http://help.outlook.com/141/gg709759(d=loband).aspx?sl=1))을 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

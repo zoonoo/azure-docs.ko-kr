@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Mobile Engagement Android SDK 통합" 
+	pageTitle="Azure Mobile Engagement Android SDK 통합"
 	description="Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 절차"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
+	editor=""/>
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
+	ms.author="piyushjo"/>
 
 
 #업그레이드 절차
@@ -24,6 +24,29 @@
 여러 SDK 버전을 건너뛴 경우에는 여러 절차를 수행해야 할 수 있습니다. 예를 들어 1.4.0에서 1.6.0으로 마이그레이션하는 경우 먼저 "1.4.0에서 1.5.0으로" 절차를 따른 다음 "1.5.0에서 1.6.0으로" 절차를 따라야 합니다.
 
 업그레이드를 수행하려는 소스 버전이 무엇이든, `mobile-engagement-VERSION.jar`을 새로운 파일로 바꾸세요.
+
+##4\.0.0에서 4.1.0으로
+
+이제 SDK가 Android M에서 새 권한 모델을 다룹니다.
+
+위치 기능 또는 큰 그림 알림을 사용하는 경우 [이 섹션](mobile-engagement-android-integrate-engagement.md#android-m-permissions)을 읽으세요.
+
+새 권한 모델 외에도 이제 런타임 시 위치 기능 구성을 지원합니다. 위치에 대한 매니페스트 매개 변수와 계속 호환 가능하지만 더 이상 사용할 수 없습니다. 런타임 구성을 사용하려면 ``AndroidManifest.xml``에서 다음 섹션을 제거합니다.
+
+    <meta-data
+      android:name="engagement:locationReport:lazyArea"
+      android:value="true"/>
+    <meta-data
+      android:name="engagement:locationReport:realTime"
+      android:value="true"/>
+    <meta-data
+      android:name="engagement:locationReport:realTime:background"
+      android:value="true"/>
+    <meta-data
+      android:name="engagement:locationReport:realTime:fine"
+      android:value="true"/>
+
+대신 런타임 구성을 사용하려면 [이 업데이트된 절차](mobile-engagement-android-integrate-engagement.md#location-reporting)를 확인합니다.
 
 ##3\.0.0에서 4.0.0으로
 
@@ -363,4 +386,4 @@ Proguard 구성은 브랜드 재지정의 영향을 받을 수 있으며, 규칙
 			}
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle=".net SDK를 사용하여 DNS 및 레코드 집합 작업 자동화 | Microsoft Azure" 
-   description=".NET SDK를 사용하여 Azure DNS에 대한 모든 DNS 작업을 자동화합니다." 
-   services="dns" 
-   documentationCenter="na" 
-   authors="joaoma" 
-   manager="adinah" 
-   editor=""/>
+   pageTitle=".net SDK를 사용하여 DNS 및 레코드 집합 작업 자동화 | Microsoft Azure"
+	description=".NET SDK를 사용하여 Azure DNS에 대한 모든 DNS 작업을 자동화합니다."
+	services="dns"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor=""/>
 
 <tags
    ms.service="dns"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="05/20/2015"
-   ms.author="joaoma"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/20/2015"
+	ms.author="joaoma"/>
 # .NET SDK를 사용하여 DNS 영역 및 레코드 집합 만들기
 .NET DNS 관리 라이브러리와 함께 DNS SDK를 사용하여 DNS 영역, 레코드 집합 및 레코드를 만들거나 삭제하거나 업데이트하는 작업을 자동화할 수 있습니다. 전체 Visual Studio 프로젝트는 [여기](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)서 사용할 수 있습니다.
 
@@ -54,7 +54,7 @@ DNS 영역 만들기
 	dnsClient.Zones.CreateOrUpdate("myresgroup", "myzone.com", zoneParams);
 
 
-Azure DNS는 [Etag](../dns-getstarted-create-dnszone#Etags-and-tags)라는 낙관적 동시성을 지원합니다. Etag는 Zone의 속성이고 IfNoneMatch는 ZoneCreateOrUpdateParameters의 속성입니다.
+Azure DNS는 [Etag](dns-getstarted-create-dnszone.md#Etags-and-tags)라는 낙관적 동시성을 지원합니다. Etag는 Zone의 속성이고 IfNoneMatch는 ZoneCreateOrUpdateParameters의 속성입니다.
 
 ## DNS 레코드 만들기 또는 업데이트
 DNS 레코드는 레코드 집합으로 관리됩니다. 레코드 집합은 영역 내에서 동일한 이름과 레코드 형식을 가진 레코드 집합입니다. 레코드 집합을 만들거나 업데이트하려면 RecordSet 개체를 만들어 dnsClient.RecordSets.CreateOrUpdate로 전달합니다. 레코드 집합 이름은 정규화된 DNS 이름과 반대로 영역 이름을 기준으로 합니다. 위치는 "전역"으로 설정됩니다.
@@ -74,7 +74,7 @@ DNS 레코드는 레코드 집합으로 관리됩니다. 레코드 집합은 영
 	"myzone.com", "www", RecordType.A, recordParams);
 	
     
-Azure DNS는 [Etag](../dns-getstarted-create-dnszone#Etags-and-tags)라는 낙관적 동시성을 지원합니다. Etag는 RecordSet의 속성이고 IfNoneMatch는 RecordSetCreateOrUpdateParameters의 속성입니다.
+Azure DNS는 [Etag](dns-getstarted-create-dnszone.md#Etags-and-tags)라는 낙관적 동시성을 지원합니다. Etag는 RecordSet의 속성이고 IfNoneMatch는 RecordSetCreateOrUpdateParameters의 속성입니다.
 
 ## 영역 및 레코드 집합 가져오기
 영역 및 레코드 집합 컬렉션은 각각 영역 및 레코드 집합을 가져오는 기능을 제공합니다. 레코드 집합은 해당 형식, 이름 및 속해 있는 영역(및 리소스 그룹)으로 식별됩니다. 영역은 해당 이름 및 속해 있는 리소스 그룹으로 식별됩니다.
@@ -100,11 +100,12 @@ Azure DNS는 [Etag](../dns-getstarted-create-dnszone#Etags-and-tags)라는 낙�
 
     // do something like write out each record set
 	}
-## 참고 항목 
-[트래픽 관리자 개요](../traffic-manager-overview)
+## 다음 단계
 
-[Azure DNS 개요](../dns-overview)
+[트래픽 관리자란?](traffic-manager-overview.md)
+
+[Azure DNS란?](dns-overview.md)
 
 [Visual Studio SDK 샘플 프로젝트](http://download.microsoft.com/download/2/A/C/2AC64449-1747-49E9-B875-C71827890126/AzureDnsSDKExample_2015_05_05.zip)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

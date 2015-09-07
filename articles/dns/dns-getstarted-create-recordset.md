@@ -1,23 +1,28 @@
 <properties
    pageTitle="DNS 영역에 대한 레코드 집합 및 레코드 만들기 | Microsoft Azure"
-   description="Azure DNS에 대한 호스트 레코드를 만드는 방법입니다. PowerShell을 사용하여 레코드 집합 및 레코드를 설정합니다."
-   services="dns"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="Adinah"
-   editor=""/>
+	description="Azure DNS에 대한 호스트 레코드를 만드는 방법입니다. PowerShell을 사용하여 레코드 집합 및 레코드를 설정합니다."
+	services="dns"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="Adinah"
+	editor=""/>
 
 <tags
    ms.service="dns"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/01/2015"
-   ms.author="joaoma"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/12/2015"
+	ms.author="joaoma"/>
 
 
 # DNS 레코드 만들기
+
+
+> [AZURE.SELECTOR]
+- [Azure CLI](dns-getstarted-create-recordset-cli.md)
+- [Azure Powershell steps](dns-getstarted-create-recordset.md)
 
 DNS 영역을 만든 후 도메인에 대한 DNS 레코드를 추가해야 합니다. 이 작업을 수행하려면 먼저 DNS 레코드 및 레코드 집합을 이해해야 합니다.
 
@@ -119,4 +124,4 @@ nslookup 또는 다른 DNS 도구를 사용하여 새 레코드 집합을 쿼리
 [.NET SDK로 Azure 작업 자동화](dns-sdk.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

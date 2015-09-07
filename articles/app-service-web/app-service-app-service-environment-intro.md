@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="앱 서비스 환경 소개" 
-	description="모든 앱을 실행하기 위한 VNet 가입 보안 전용 확장 단위를 제공하는 앱 서비스 환경 기능에 대해 알아봅니다." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="ccompy" 
-	manager="wpickett" 
+	pageTitle="앱 서비스 환경 소개"
+	description="모든 앱을 실행하기 위한 VNet 가입 보안 전용 확장 단위를 제공하는 앱 서비스 환경 기능에 대해 알아봅니다."
+	services="app-service\web"
+	documentationCenter=""
+	authors="ccompy"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
 	ms.author="stefsh"/>
 
 # 앱 서비스 환경 소개
@@ -31,7 +31,7 @@
 또한 앱에서는 내부 데이터베이스 및 웹 서비스와 같은 회사 리소스에 자주 액세스해야 합니다. 일반적인 접근 방법은 Azure 가상 네트워크 내에서 이동하는 내부 네트워크 트래픽에만 이러한 끝점을 사용할 수 있도록 하는 것입니다. 앱 서비스 환경이 내부 서비스와 동일한 가상 네트워크에 가입되면 해당 환경에서 실행되는 앱은 [사이트 간][SiteToSite] 및 [Azure ExpressRoute][ExpressRoute] 연결을 통해 도달할 수 있는 끝점을 비롯하여 내부 서비스에 액세스할 수 있게 됩니다.
 
 ## 전용 계산 리소스 ##
-앱 서비스 환경의 모든 계산 리소스는 단일 구독에만 사용됩니다. 앱 서비스 환경은 단일 프런트 엔드 계산 리소스 풀 및 1\~3개의 작업자 계산 리소스 풀로 구성됩니다.
+앱 서비스 환경의 모든 계산 리소스는 단일 구독에만 사용됩니다. 앱 서비스 환경은 단일 프런트 엔드 계산 리소스 풀 및 1~3개의 작업자 계산 리소스 풀로 구성됩니다.
 
 프런트 엔드 풀에는 앱 서비스 환경 내의 앱 요청에 대한 자동 부하 분산뿐 아니라 SSL 종료를 담당하는 계산 리소스가 포함되어 있습니다.
 
@@ -60,7 +60,7 @@ Express 경로로 앱 서비스 환경 사용에 대한 세부 정보는 [Expres
 
 <!-- LINKS -->
 [PremiumTier]: http://azure.microsoft.com/pricing/details/app-service/
-[MoreInfoOnVirtualNetworks]: https://msdn.microsoft.com/library/azure/dn133803.aspx
+[MoreInfoOnVirtualNetworks]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
 [AppServicePlan]: http://azure.microsoft.com/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview/
 [Azure preview portal]: http://portal.azure.com
 [HowToCreateAnAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
@@ -69,7 +69,7 @@ Express 경로로 앱 서비스 환경 사용에 대한 세부 정보는 [Expres
 [MobileApps]: http://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop-preview/
 [APIApps]: http://azure.microsoft.com/documentation/articles/app-service-api-apps-why-best-platform/
 [LogicApps]: http://azure.microsoft.com/documentation/articles/app-service-logic-what-are-logic-apps/
-[NetworkSecurityGroups]: https://msdn.microsoft.com/library/azure/dn848316.aspx
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 [HowToConfigureanAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment/
@@ -79,4 +79,4 @@ Express 경로로 앱 서비스 환경 사용에 대한 세부 정보는 [Expres
 
 <!-- IMAGES -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

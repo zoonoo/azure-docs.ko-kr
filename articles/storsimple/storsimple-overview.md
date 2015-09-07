@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="StorSimple이란?" 
-   description="StorSimple 기능 및 아키텍처를 설명하고 StorSimple 구성 요소를 소개합니다." 
-   services="storsimple" 
-   documentationCenter="NA" 
-   authors="SharS" 
-   manager="carolz" 
-   editor=""/>
+   pageTitle="StorSimple 정의 | Microsoft Azure"
+	description="StorSimple 데이터 관리 및 보호 프로세스, 이점 및 아키텍처에 대해 설명하고 StorSimple 구성 요소를 소개합니다."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD" 
-   ms.date="08/14/2015"
-   ms.author="v-sharos@microsoft.com"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/26/2015"
+	ms.author="v-sharos@microsoft.com"/>
 
-# StorSimple이란? 
+# StorSimple 8000 시리즈: 하이브리드 클라우드 저장소 솔루션 
 
 ## 개요
 
@@ -66,11 +66,11 @@ Microsoft Azure StorSimple 솔루션에는 다음 구성 요소가 포함됩니�
 
 ## 다음 단계
 
-[StorSimple 8000 시리즈 솔루션 개요](http://www.microsoft.com/server-cloud/products/storsimple/resources.aspx)를 읽고 [StorSimple 강의](http://www.microsoft.com/server-cloud/products/storsimple/Features.aspx)를 봅니다.
+[StorSimple](https://azure.microsoft.com/documentation/services/storsimple/)에 대해 자세히 알아봅니다.
 
 [StorSimple 구성 요소 및 용어](storsimple-components.md)에 대해 자세히 알아봅니다.
 
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

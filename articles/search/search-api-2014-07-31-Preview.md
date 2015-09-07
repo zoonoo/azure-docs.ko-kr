@@ -1,6 +1,6 @@
 <properties pageTitle="Azure 검색 서비스 REST API 버전 2014-07-31-Preview" description="Azure 검색 서비스 REST API: 버전 2014-07-31-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/22/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="08/26/2015" ms.author="heidist"/>
 
 # Azure 검색 서비스 REST API 버전: 2014-07-31-Preview
 
@@ -125,8 +125,7 @@ Azure 검색 서비스에서 간단한 HTTP 요청(POST, GET, PUT, DELETE)을 �
     "fields": [
       {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
       {"name": "baseRate", "type": "Edm.Double"},
-      {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true},
-	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true, analyzer="fr.lucene"},
+      {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true}
       {"name": "hotelName", "type": "Edm.String", "suggestions": true},
       {"name": "category", "type": "Edm.String"},
       {"name": "tags", "type": "Collection(Edm.String)"},
@@ -164,7 +163,7 @@ HTTP POST 요청을 사용하여 Azure 검색 서비스 내에서 새 인덱스�
 
 인덱스 이름은 소문자여야 하고 문자나 숫자로 시작되어야 합니다. 또한 슬래시나 마침표를 포함할 수 없으며 128자 미만이어야 합니다. 문자나 숫자로 시작하는 인덱스 이름의 뒤에는 원하는 모든 문자, 숫자, 대시(여러 대시를 연속적으로 포함할 수는 없음)를 사용할 수 있습니다.
 
-`api-version`은 필수 사항입니다. 유효한 값은 `2014-07-31-Preview` 또는 `2014-10-20-Preview`입니다. 각 요청에서 버전 관련 동작을 가져오는 데 사용할 값을 지정할 수 있지만 코드 전체에서 동일한 버전을 사용하는 것이 가장 좋습니다. 권장되는 버전은 일반적으로 `2014-07-31-Preview`입니다. 또는 `2014-10-20-Preview`를 사용하여 분석기 인덱스 특성을 통해 표현되는 언어 분석기에 대한 지원 등의 실험적 기능을 평가할 수 있습니다. API 버전에 대한 자세한 내용은 [검색 서비스 버전 관리](http://msdn.microsoft.com/library/azure/dn864560.aspx)를 참조하세요. 언어 분석기에 대한 자세한 내용은 [언어 지원](#LanguageSupport)을 참조하세요.
+`api-version`은 필수 사항입니다. 유효한 값은 `2014-07-31-Preview` 또는 `2014-10-20-Preview`입니다. 각 요청에서 버전 관련 동작을 가져오는 데 사용할 값을 지정할 수 있지만 코드 전체에서 동일한 버전을 사용하는 것이 가장 좋습니다. 권장되는 버전은 일반적으로 `2014-07-31-Preview`입니다. 또는 `2014-10-20-Preview`를 사용하여 분석기 인덱스 특성을 통해 표현되는 언어 분석기에 대한 지원 등의 실험적 기능을 평가할 수 있습니다.
 
 **요청 헤더**
 
@@ -274,321 +273,6 @@ POST 요청의 경우에는 요청 본문에 인덱스 이름을 지정해야 �
 
 `scoringProfiles` - 검색 결과에서 더 위쪽에 표시할 항목을 제어할 수 있는 사용자 지정 점수 매기기 동작을 정의합니다. 점수 매기기 프로필은 가중치가 적용된 필드와 함수로 구성됩니다. 점수 매기기 프로필에서 사용되는 특성에 대한 자세한 내용은 [검색 인덱스에 점수 매기기 프로필 추가](http://msdn.microsoft.com/library/azure/dn798928.aspx)를 참조하세요.
 
-`analyzer` - 필드에 사용할 텍스트 분석기의 이름을 설정합니다. 허용되는 값 집합은 [언어 지원](#LanguageSupport)을 참조하세요. 이 옵션은 `searchable` 필드에만 사용할 수 있습니다. 필드에 대해 분석기를 선택한 후에는 변경할 수 없습니다.
-
-
-<a name="LanguageSupport"></a> **언어 지원**
-
-검색 가능 필드에서는 대개 단어 분리, 텍스트 정규화, 용어 필터링 등을 포함하는 분석이 수행됩니다. 기본적으로 Azure 검색에서는 [Apache Lucene 표준 분석기](http://lucene.apache.org/core/4_9_0/analyzers-common/index.html)를 사용하여 검색 가능 필드를 분석합니다. 이 분석기는 ["유니코드 텍스트 구분"](http://unicode.org/reports/tr29/) 규칙에 따라 텍스트를 요소로 분리합니다. 또한 표준 분석기에서는 모든 문자를 소문자 형식으로 변환합니다. 인덱싱 및 쿼리 처리 중에는 인덱싱된 문서와 검색 용어 둘 다에 대해 분석을 수행합니다.
-
-Azure 검색에서는 다양한 언어로 필드를 인덱싱할 수 있습니다. 이러한 각 언어를 사용하려면 지정된 언어의 특성을 고려할 수 있는 비표준 텍스트 분석기가 필요합니다. 예를 들어 프랑스어 분석기에서는 [Light French Stemmer](http://lucene.apache.org/core/4_9_0/analyzers-common/org/apache/lucene/analysis/fr/FrenchLightStemmer.html)를 적용하여 단어를 [단어 형태소](http://en.wikipedia.org/wiki/Stemming)로 줄입니다. 또한 분석된 텍스트에 [발음 생략](http://en.wikipedia.org/wiki/Elision) 및 프랑스어 중지 단어를 제거합니다. 영어 분석기를 사용하면 표준 분석기의 기능을 확장할 수 있습니다. 이 분석기는 단어에서 소유격(후행 's)을 제거하고, [Porter 형태소 분석 알고리즘](http://tartarus.org/~martin/PorterStemmer/)에 따라 형태소 분석을 적용하며, 영어의 [중지 단어](http://en.wikipedia.org/wiki/Stop_words)를 제거합니다.
-
-`analyzer` 속성을 설정하면 인덱스 정의에서 각 필드에 대해 독립적으로 분석기를 구성할 수 있습니다. 예를 들어 영어, 프랑스어, 스페인어 호텔 설명을 표시하는 개별 필드를 같은 인덱스에서 나란히 표시할 수 있습니다. 쿼리가 검색 쿼리에서 반환할 언어별 필드를 지정합니다.
-
-아래 목록에는 지원되는 분석기와 해당 기능에 대한 간단한 설명이 나와 있습니다.
-
-<table style="font-size:12">
-    <tr>
-		<th>언어</th>
-		<th>분석기 이름</th>
-		<th>설명</th>
-	</tr>
-    <tr>
-		<td>아랍어</td>
-		<td>ar.lucene</td>
-		<td>
-		<ul>
-			<li>아랍어 철자 정규화를 구현합니다.</li>
-			<li>간단한 알고리즘 방식 형태소 분석을 적용합니다.</li>
-			<li>아랍어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>브라질어</td>
-		<td>pt-Br.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>브라질어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>중국어 간체</td>
-		<td>zh-Hans.lucene</td>
-		<td>
-		<ul>
-			<li>개연적 지식 모델을 사용하여 최적의 단어 구분을 찾습니다.</li>
-			<li>중국어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>중국어 번체</td>
-		<td>zh-Hant.lucene</td>
-		<td>
-		<ul>
-			<li>인접하는 두 중국어 문자의 겹치는 그룹인 바이그램을 인덱싱합니다.</li>
-			<li>문자 너비 차이를 정규화합니다.</li>
-		</ul>
-		</td>
-	<tr>
-    <tr>
-		<td>체코어</td>
-		<td>cs.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>체코어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>덴마크어</td>
-		<td>da.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>덴마크어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>네덜란드어</td>
-		<td>nl.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>네덜란드어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>독일어</td>
-		<td>de.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>독일어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>그리스어</td>
-		<td>el.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>그리스어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>영어</td>
-		<td>en.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>영어 중지 단어를 필터링합니다.</li>
-			<li>소유격을 제거합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>핀란드어</td>
-		<td>fi.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>핀란드어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>프랑스어</td>
-		<td>fr.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>프랑스어 중지 단어를 필터링합니다.</li>
-			<li>발음 생략을 제거합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>힌디어</td>
-		<td>hi.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>힌디어 중지 단어를 필터링합니다.</li>
-			<li>일부 철자 변형 차이를 제거합니다.</li>
-			<li>인도어 텍스트의 유니코드 표현을 정규화합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>헝가리어</td>
-		<td>hu.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>헝가리어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>인도네시아어(공용어)</td>
-		<td>id.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>인도네시아어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>이탈리아어</td>
-		<td>it.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>이탈리아어 중지 단어를 필터링합니다.</li>
-			<li>발음 생략을 제거합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>일본어</td>
-		<td>ja.lucene</td>
-		<td>
-		<ul>
-			<li>형태학적 분석을 사용합니다.</li>
-			<li>일반적인 가타카나 철자 변형을 정규화합니다.</li>
-			<li>간단한 중지 단어/중지 태그 제거를 수행합니다.</li>
-			<li>문자 너비를 정규화합니다.</li>
-			<li>분류 정리를 통해 어형이 변화되는 형용사와 동사를 기본 형태로 축약합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>한국어</td>
-		<td>ko.lucene</td>
-		<td>
-		<ul>
-			<li>인접하는 두 중국어 문자의 겹치는 그룹인 바이그램을 인덱싱합니다.</li>
-			<li>문자 너비 차이를 정규화합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>라트비아어</td>
-		<td>lv.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>라트비아어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-
-    <tr>
-		<td>노르웨이어</td>
-		<td>no.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>노르웨이어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>폴란드어</td>
-		<td>pl.lucene</td>
-		<td>
-		<ul>
-			<li>알고리즘 방식 형태소 분석(Stempel)을 적용합니다.</li>
-			<li>폴란드어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>포르투갈어</td>
-		<td>pt-Pt.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>포르투갈어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-
-    <tr>
-		<td>루마니아어</td>
-		<td>ro.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>루마니아어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>러시아어</td>
-		<td>ru.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>러시아어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>스페인어</td>
-		<td>es.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>스페인어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>스웨덴어</td>
-		<td>sv.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>스웨덴어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>터키어</td>
-		<td>tr.lucene</td>
-		<td>
-		<ul>
-			<li>아포스트로피와 그 뒤의 모든 문자를 제거합니다.</li>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>터키어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-    <tr>
-		<td>태국어</td>
-		<td>th.lucene</td>
-		<td>
-		<ul>
-			<li>간단한 형태소 분석을 적용합니다.</li>
-			<li>태국어 중지 단어를 필터링합니다.</li>
-		</ul>
-		</td>
-	</tr>
-</table>
-
-이름에 <i>lucene</i> 주석이 포함된 모든 분석기는 [Apache Lucene 언어 분석기](http://lucene.apache.org/core/4_9_0/analyzers-common/overview-summary.html)를 통해 구동됩니다.
-
 **CORS 옵션**
 
 브라우저에서는 모든 교차 원본 요청을 차단하므로 클라이언트 쪽 JavaScript는 기본적으로 API를 호출할 수 없습니다. 인덱스에 대한 교차 원본 쿼리를 허용하려면 `corsOptions` 특성을 설정하여 CORS(교차 원본 자원 공유)를 사용하도록 설정합니다. 보안상 쿼리 API에서만 CORS가 지원됩니다. CORS에 대해 설정할 수 있는 옵션은 다음과 같습니다.
@@ -605,7 +289,6 @@ Azure 검색에서는 다양한 언어로 필드를 인덱싱할 수 있습니�
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "suggestions": true, analyzer="fr.lucene"},
         {"name": "hotelName", "type": "Edm.String", "suggestions": true},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},
@@ -632,7 +315,7 @@ HTTP PUT 요청을 사용하여 Azure 검색 내에서 기존 인덱스를 업�
     Content-Type: application/json
     api-key: [admin key]
 
-**중요:** Azure 검색 공개 미리 보기에서는 제한된 인덱스 스키마 업데이트가 지원됩니다. 필드 형식을 변경하는 등 인덱싱을 다시 수행해야 하는 모든 스키마 업데이트는 현재 지원되지 않습니다. 기존 필드를 변경하거나 삭제할 수는 없지만 언제든지 새 필드를 추가할 수는 있습니다.
+**중요:** Azure 검색 Public Preview에서 필드 형식을 변경하는 등 인덱싱이 다시 필요한 스키마 업데이트를 지원하지 않습니다. 기존 필드를 변경하거나 삭제할 수는 없지만 언제든지 새 필드를 추가할 수는 있습니다.
 
 새 필드를 인덱스에 추가하면 인덱스의 모든 기존 문서에서 해당 필드에 null 값이 자동으로 포함됩니다. 새 문서를 인덱스에 추가할 때까지는 저장소 공간이 추가로 사용되지 않습니다.
 
@@ -999,7 +682,6 @@ HTTP POST를 사용하여 지정한 인덱스에서 문서를 업로드, 병합,
           "hotelId": "1",
           "baseRate": 199.0,
           "description": "Best hotel in town",
-		  "description_fr": "Meilleur hôtel en ville",
           "hotelName": "Fancy Stay",
 		  "category": "Luxury",
           "tags": ["pool", "view", "wifi", "concierge"],
@@ -1014,7 +696,6 @@ HTTP POST를 사용하여 지정한 인덱스에서 문서를 업로드, 병합,
           "hotelId": "2",
           "baseRate": 79.99,
           "description": "Cheapest hotel in town",
-	      "description_fr": "Hôtel le moins cher en ville",
           "hotelName": "Roach Motel",
 		  "category": "Budget",
           "tags": ["motel", "budget"],
@@ -1079,9 +760,9 @@ ________________________________________
   - **참고**: `count` 매개 변수가 고유한 항목 수보다 작으면 결과가 정확하지 않을 수 있습니다. 이는 패싯 쿼리가 분할된 데이터베이스에서 분산된 방식 때문입니다. `count`를 늘리면 일반적으로 용어 수의 정확도가 높아지지만 성능이 저하됩니다.
 - `sort`(개수별로 *내림차순* 정렬하는 `count`, 개수별로 *오름차순* 정렬하는 `-count`, 값별로 *오름차순* 정렬하는 `value`, 값별로 *내림차순* 정렬하는 `-value` 중 하나)
   - 예: `facet=category,count:3,sort:count`는 각 도시 이름이 있는 문서 수를 기준으로 내림차순으로 정렬된 패싯 결과에서 상위 3개의 범주를 가져옵니다. 예를 들어 상위 3개의 범주가 Budget, Motel, Luxury인 경우 적중 항목 수가 Budget은 5개, Motel은 6개, Luxury는 4개이면 버킷이 Motel, Budget, Luxury 순으로 정렬됩니다.
-  - 예: `facet=rating,sort:-value`는 값을 기준으로 내림차순으로 정렬된 가능한 모든 등급의 버킷을 생성합니다. 예를 들어 등급이 1\~5인 경우 각 등급과 일치하는 문서 수에 상관없이 버킷이 5, 4, 3, 2, 1 순으로 정렬됩니다.
+  - 예: `facet=rating,sort:-value`는 값을 기준으로 내림차순으로 정렬된 가능한 모든 등급의 버킷을 생성합니다. 예를 들어 등급이 1~5인 경우 각 등급과 일치하는 문서 수에 상관없이 버킷이 5, 4, 3, 2, 1 순으로 정렬됩니다.
 - `values`(파이프로 구분된 숫자 또는 패싯 항목 값의 동적 집합을 지정하는 `Edm.DateTimeOffset` 값)
-  - 예: `facet=baseRate,values:10|20`은 각각 기본 요금이 1\~9, 10\~19 및 20 이상인 버킷 3개를 생성합니다.
+  - 예: `facet=baseRate,values:10|20`은 각각 기본 요금이 1~9, 10~19 및 20 이상인 버킷 3개를 생성합니다.
   - 예: `facet=lastRenovationDate,values:2010-02-01T00:00:00Z`는 각각 2010년 2월 이전에 리노베이션된 호텔과 2010년 2월 1일 이후에 리노베이션된 호텔에 대한 버킷 2개를 생성합니다.
 - `interval`(숫자의 경우 0보다 큰 정수 간격 또는 날짜/시간 값의 경우 `minute`, `hour`, `day`, `week`, `month`, `quarter`, `year`)
   - 예: `facet=baseRate,interval:100`은 기본 요금 범위 100을 기준으로 버킷을 생성합니다. 예를 들어 기본 요금이 모두 $60에서 $600 사이에 속한 경우 0-100, 100-200, 200-300, 300-400, 400-500 및 500-600에 대한 버킷이 생성됩니다.
@@ -1318,13 +999,13 @@ OData 구문을 사용하여 '3' 키가 있는 문서 조회
 
 **쿼리 매개 변수**
 
-`search=[string]` - 쿼리를 제안하는 데 사용할 검색 텍스트입니다. 설명은 3\~25자여야 합니다.
+`search=[string]` - 쿼리를 제안하는 데 사용할 검색 텍스트입니다. 설명은 3~25자여야 합니다.
 
 `fuzzy=[boolean]`(선택, 기본값=false) - true로 설정하면 검색 텍스트에 대체되었거나 누락된 문자가 있더라도 이 API는 제안을 찾습니다. 이 경우 일부 시나리오에서는 검색 환경이 개선되지만, 유사 제안 검색 속도가 느려지며 리소스가 더 많이 사용되므로 성능은 저하됩니다.
 
 `searchFields=[string]`(선택) - 지정된 검색 텍스트를 검색하기 위한 쉼표로 구분된 필드 이름 목록입니다. 대상 필드가 제안을 사용하도록 설정되어 있어야 합니다.
 
-`$top=#`(선택, 기본값=5) - 검색할 제안의 수입니다. 값은 1\~10 사이의 숫자여야 합니다.
+`$top=#`(선택, 기본값=5) - 검색할 제안의 수입니다. 값은 1~10 사이의 숫자여야 합니다.
 
 `$filter=[string]`(선택) - 제안을 검색할 때 고려할 문자를 필터링하는 식입니다.
 
@@ -1381,4 +1062,4 @@ OData 구문을 사용하여 '3' 키가 있는 문서 조회
 
     GET /indexes/hotels/docs/suggest?search=lux&$top=5&api-version=2014-07-31-Preview
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

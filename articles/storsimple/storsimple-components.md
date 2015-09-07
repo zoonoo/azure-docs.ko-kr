@@ -1,23 +1,25 @@
 <properties 
-   pageTitle="StorSimple 구성 요소는 무엇인가요? | Microsoft Azure" 
-   description="StorSimple 장치, 서비스 및 관리 기술을 설명합니다." 
-   services="storsimple" 
-   documentationCenter="NA" 
-   authors="SharS" 
-   manager="AdinaH" 
-   editor=""/>
+   pageTitle="StorSimple 구성 요소는 무엇인가요? | Microsoft Azure"
+	description="StorSimple 장치, 가상 장치, 서비스 및 관리 기술에 대해 설명하고 솔루션에서 사용하는 주요 용어를 정의합니다."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="AdinaH"
+	editor=""/>
 
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD" 
-   ms.date="08/13/2015"
-   ms.author="v-sharos"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/26/2015"
+	ms.author="v-sharos"/>
 
 
-# StorSimple 구성 요소는 무엇인가요? 
+# StorSimple 구성 요소는 무엇이며 어떻게 작동하나요? 
+
+## 개요
 
 온-프레미스 장치 및 Microsoft Azure 클라우드 저장소 간의 저장소 작업을 관리하는 통합된 저장소 솔루션인 Microsoft Azure StorSimple을 시작합니다. StorSimple은 저장소 비용을 줄이고, 저장소 관리를 간소화하고, 재해 복구 기능과 효율성을 개선하고 데이터 이동성을 제공하도록 설계되었습니다.
 
@@ -226,4 +228,4 @@ Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

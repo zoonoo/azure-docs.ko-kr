@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 인프라 서비스 워크로드: 인트라넷 SharePoint 팜 "
-	description="Azure에 배포된 인트라넷 SharePoint 팜의 가치, 개발/테스트 환경을 설정하는 방법 및 고가용성 프로덕션 구성을 배포하는 방법을 알아봅니다."
+	pageTitle="Azure의 SharePoint Server 2013 팜 | Microsoft Azure"
+	description="Azure의 SharePoint Server 2013 팜의 가치를 알아보고, 테스트 환경을 설정하고, 고가용성 구성을 배포합니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -124,4 +124,4 @@ Azure에서 호스트되는 SharePoint 팜에 대한 개발/테스트 환경을 
 
 [Azure 인프라 서비스 작업: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

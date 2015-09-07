@@ -1,25 +1,27 @@
 <properties 
-   pageTitle="BizTalk Edifact 커넥터" 
-   description="BizTalk Edifact 커넥터" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="rajeshramabathiran" 
-   manager="dwrede" 
-   editor=""/>
+   pageTitle="논리 앱에서 BizTalk Edifact 커넥터 사용 | Microsoft Azure 앱 서비스"
+	description="BizTalk Edifact 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="08/19/2015"
-   ms.author="rajram"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="rajram"/>
 
-# BizTalk Edifact 커넥터
-Microsoft Azure Edifact 서비스를 사용하면 Edifact 프로토콜에 따라 기업 간 커뮤니케이션을 위해 메시지를 받고 보낼 수 있습니다. Edifact는 일반적으로 ASC Edifact 또는 공인 표준 위원회 Edifact라고 합니다. 이는 업계 전체에서 널리 사용됩니다.
+# BizTalk Edifact 커넥터 시작 및 논리 앱에 추가  
+Edifact 서비스를 사용하여 B2B 커뮤니케이션에서 Edifact 프로토콜을 통해 메시지를 주고받을 수 있습니다. Edifact는 일반적으로 ASC(공인 표준 위원회) Edifact라고도 하며 여러 산업에서 널리 사용됩니다.
 
-## 필수 구성 요소
+BizTalk Edifact 커넥터를 비즈니스 워크플로에 추가하고 논리 앱 내에서 이 워크플로의 일부로 데이터를 처리할 수 있습니다.
+
+## 필수 조건
 - TPM API 앱: Edifact 커넥터를 만들기 전에 [BizTalk 거래 업체 관리 커넥터][1]를 만들어야 합니다.
 - SQL Azure 데이터베이스: 각 B2B API 앱에는 자체 Azure SQL 데이터베이스가 필요합니다.
 - Azure 서비스 버스: 선택 사항이며, 일괄 처리에만 사용됩니다.
@@ -30,7 +32,7 @@ Edifact 커넥터를 사용하려면 먼저 AS2 커넥터 API 앱의 인스턴�
 ## Edifact 커넥터 구성
 거래 업체는 B2B(Business to Business) 통신과 관련된 엔터티입니다. 두 파트너가 관계를 설정하는 경우 이를 규약이라고 합니다. 정의된 규약은 두 파트너가 수행하려고 하는 통신을 기반으로 하며 특정 프로토콜 또는 전송입니다.
 
-거래 업체 규약을 만드는 단계에 대한 문서는 에 있습니다 [여기][2].
+거래 업체 규약을 만드는 단계에 대한 문서는 [여기][2]에 있습니다.
 
 ## 논리 앱 디자이너 화면에서 Edifact 커넥터 사용
 Edifact 커넥터는 트리거 또는 작업으로 사용할 수 있습니다.
@@ -93,4 +95,4 @@ Segment Terminator Suffix|string|세그먼트 마침 표시 접미사
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

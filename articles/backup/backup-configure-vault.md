@@ -7,14 +7,7 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/12/2015"
-	ms.author="jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2015" ms.author="jimpark"; "aashishr"/>
 
 # Windows Server 백업을 준비하도록 Azure 백업 구성
 
@@ -28,7 +21,7 @@ Windows Server에서 파일 및 데이터를 Azure에 백업하려면 먼저 다
 - **저장소 자격 증명 다운로드** — Azure 백업에서 자격 증명 모음에 대해 만든 관리 인증서를 업로드합니다.
 - **Azure 백업 에이전트 설치 및 서버 등록** — Azure 백업에서 백업 자격 증명 모음에 에이전트를 설치하고 서버를 등록합니다.
 
-[AZURE.INCLUDE [backup-create-vault](../../includes/backup-create-vault.md)]
+[AZURE.INCLUDE [백업-만들기-자격 증명 모음-wgif](../../includes/backup-create-vault-wgif.md)]
 
 [AZURE.INCLUDE [backup-download-credentials](../../includes/backup-download-credentials.md)]
 
@@ -41,4 +34,4 @@ Windows Server에서 파일 및 데이터를 Azure에 백업하려면 먼저 다
 - [Azure 백업 - FAQ](backup-azure-backup-faq.md)
 - [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

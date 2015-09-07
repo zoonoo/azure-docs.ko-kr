@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Application Insights: 플랫폼" 
-	description="Application Insights와 같이 사용할 수 있습니까...?" 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+<properties
+	pageTitle="Application Insights: 언어 및 플랫폼| Microsoft Azure"
+	description="Application Insights에 사용할 수 있는 언어 및 플랫폼"
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/05/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/05/2015"
 	ms.author="awills"/>
- 
-# Application Insights: 플랫폼
+
+# Application Insights: 언어 및 플랫폼
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
 
@@ -30,7 +30,7 @@
 + [Objective-C](app-insights-ios.md)
 + [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 + [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
-+ [Ruby](https://rubygems.org/gems/application_insights) 
++ [Ruby](https://rubygems.org/gems/application_insights)
 + [다른 항목](#projects)
 
 ## 플랫폼
@@ -41,7 +41,7 @@
 + [ASP.NET 5](app-insights-asp-net-five.md)
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [Azure 웹 앱 및 VM](../insights-perf-analytics.md)
-+ 웹 및 작업자 역할 모두를 포함하는 [Azure 클라우드 서비스](app-insights-cloudservices.md)
++ [Azure 클라우드 서비스](app-insights-cloudservices.md)&#151;웹 및 작업자 역할 둘 다 포함
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [J2EE](app-insights-java-get-started.md)
 + [J2EE - 이미 라이브 상태](app-insights-java-live.md)
@@ -61,7 +61,7 @@
 
 +	[Log4Net, NLog 또는 System.Diagnostics.Trace](app-insights-diagnostic-search.md)
 +	[Java, Log4J 또는 Logback](app-insights-java-trace-logs.md)
-+   [의미 체계 로깅](https://github.com/fidmor89/SLAB_AppInsights) - [의미 체계 로깅 응용 프로그램 블록](https://msdn.microsoft.com/library/dn440729.aspx)과 통합
++   [의미 체계 로깅](https://github.com/fidmor89/SLAB_AppInsights)&#151;[의미 체계 로깅 응용 프로그램 블록](https://msdn.microsoft.com/library/dn440729.aspx)과 통합
 +   [클라우드 기반 부하 테스트](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 
 ## <a name="projects"></a> 사용자 고유의 SDK를 빌드합니다
@@ -77,4 +77,4 @@
 
 <!--Link references-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

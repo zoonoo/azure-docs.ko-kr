@@ -1,20 +1,20 @@
 <properties
    pageTitle="비정상 상황 테스트 실행."
-   description="이 문서에서는 Microsoft에서 제공하는 미리 작성된 서비스 패브릭 시나리오에 대해 설명합니다."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="anmolah"
-   manager="timlt"
-   editor=""/>
+	description="이 문서에서는 Microsoft에서 제공하는 미리 작성된 서비스 패브릭 시나리오에 대해 설명합니다."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="anmolah"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/14/2015"
-   ms.author="anmola"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="anmola"/>
 
 # 테스트 용이성 시나리오
 클라우드 인프라 같은 대규모 분산 시스템은 본질적으로 불안정합니다. 서비스 패브릭은 개발자에게 불안정한 인프라를 기반으로 실행되는 서비스를 작성할 수 있는 기능을 제공합니다. 고품질 서비스를 작성하려면 개발자는 이처럼 불안정한 인프라에서 서비스의 안정성을 테스트하도록 유도할 수 있어야 합니다. 서비스 패브릭은 개발자에게 오류가 있는 상황에서 서비스를 테스트할 수 있도록 오류 작업을 유도하는 기능을 제공합니다. 그러나 특정 대상을 통한 오류 시뮬레이션으로는 한계가 있습니다. 광범위한 테스트가 가능하도록 서비스 패브릭에서는 미리 만든 테스트 시나리오를 제공합니다. 이러한 시나리오는 장기간에 걸쳐 클러스터 전체에서 정상적 및 비정상적 인터리브 오류를 지속적으로 시뮬레이션합니다. 오류의 비율 및 종류와 함께 구성하면 C# API 또는 PowerShell을 통해 클라이언트 쪽 도구로 실행되어 클러스터 및 서비스에서 오류를 생성합니다. 테스트 용이성 기능의 일부로 다음 시나리오가 제공됩니다.
@@ -251,4 +251,4 @@ Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxService
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

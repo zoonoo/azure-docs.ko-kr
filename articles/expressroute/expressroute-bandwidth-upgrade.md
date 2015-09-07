@@ -1,19 +1,19 @@
 <properties 
    pageTitle="동적으로 Express 경로 대역폭 업그레이드 | Microsoft Azure"
-   description="가동 중지 시간 없이 동적으로 Express 경로 회로의 대역폭 크기를 늘리는 방법."
-   services="expressroute"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="jdial"
-   editor="tysonn" />
+	description="가동 중지 시간 없이 동적으로 Express 경로 회로의 대역폭 크기를 늘리는 방법."
+	services="expressroute"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/03/2015"
-   ms.author="cherylmc" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="cherylmc"/>
 
 # 가동 중지 시간 없이 동적으로 Express 경로 회로 대역폭 업그레이드
 
@@ -85,4 +85,4 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

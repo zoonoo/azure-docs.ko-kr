@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="LOB(기간 업무) 응용 프로그램 작업 5단계: 가용성 그룹 만들기 및 응용 프로그램 데이터베이스 추가" 
-	description="고가용성 LOB(기간 업무) 응용 프로그램 배포의 이 마지막 단계에서는 가용성 그룹을 만들어 응용 프로그램 데이터베이스를 추가합니다." 
+	pageTitle="LOB(기간 업무) 응용 프로그램 5단계 | Microsoft Azure"
+	description="Azure의 LOB(기간 업무) 응용 프로그램의 5단계에서 가용성 그룹을 만들고 응용 프로그램 데이터베이스를 추가합니다."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # LOB(기간 업무) 응용 프로그램 작업 5단계: 가용성 그룹 만들기 및 응용 프로그램 데이터베이스 추가
@@ -56,7 +56,7 @@ Azure 인프라 서비스의 고가용성 LOB(기간 업무) 응용 프로그램
 3.	왼쪽 창에서 **데이터베이스** 노드를 확장합니다.
 4.	백업할 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **작업**을 가리킨 다음 **백업**을 클릭합니다.
 5.	**대상** 섹션에서 **제거**를 클릭하여 백업 파일의 기본 파일 경로를 제거합니다.
-6.	**추가**를 클릭합니다. **파일 이름**에 **\\[machineName]\\backup[databaseName].bak**를 입력합니다. 여기서 **machineName**은 주 **SQL Server 컴퓨터**의 이름이고 **databaseName**은 데이터베이스의 이름입니다. **확인**을 클릭한 다음 백업 성공 메시지가 표시되면 **확인**을 다시 클릭합니다.
+6.	**추가**를 클릭합니다. **파일 이름**에 **\[machineName]\\backup[databaseName].bak**를 입력합니다. 여기서 **machineName**은 주 **SQL Server 컴퓨터**의 이름이고 **databaseName**은 데이터베이스의 이름입니다. **확인**을 클릭한 다음 백업 성공 메시지가 표시되면 **확인**을 다시 클릭합니다.
 7.	왼쪽 창에서 **[databaseName]**을 마우스 오른쪽 단추로 클릭하고 **작업**을 가리킨 다음 **백업**을 클릭합니다.
 8.	**백업 유형**에서 **트랜잭션 로그**를 선택하고 **확인**을 두 번 클릭합니다.
 9.	이 원격 데스크톱 세션을 열어 둡니다.
@@ -69,7 +69,7 @@ Azure 인프라 서비스의 고가용성 LOB(기간 업무) 응용 프로그램
 4.	왼쪽 창에서 **데이터베이스**를 마우스 오른쪽 단추로 클릭하고 **데이터베이스 복원**을 클릭합니다.
 5.	**원본** 섹션에서 **장치**를 선택하고 줄임표(...) 단추를 클릭합니다.
 6.	**백업 장치 선택**에서 **추가**를 클릭합니다.
-7.	**백업 파일 위치**에 **\\[machineName]\\backup**을 입력하고 **Enter**를 누른 다음, **[databaseName].bak**를 선택하고**확인**을 두 번 클릭합니다. 그러면 **복원할 백업 세트** 섹션에 전체 백업 및 로그 백업이 표시됩니다.
+7.	**백업 파일 위치**에 **\[machineName]\\backup**을 입력하고 **Enter**를 누른 다음, **[databaseName].bak**를 선택하고**확인**을 두 번 클릭합니다. 그러면 **복원할 백업 세트** 섹션에 전체 백업 및 로그 백업이 표시됩니다.
 8.	**페이지 선택**에서 **옵션**을 클릭합니다. **복원 옵션** 섹션의 **복구 상태**에서 **RESTORE WITH NORECOVERY**를 선택하고 **확인**을 클릭합니다. 
 9.	메시지가 표시되면 **확인**을 클릭합니다.
 
@@ -125,4 +125,4 @@ Azure 인프라 서비스의 고가용성 LOB(기간 업무) 응용 프로그램
 
 [Azure 인프라 서비스 작업: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="테스트용 시뮬레이션된 하이브리드 클라우드 환경 설정" 
-	description="Azure 가상 네트워크 두 개와 VNet 간 연결을 사용하여 IT 전문가 또는 개발 테스트용 시뮬레이션된 하이브리드 클라우드 환경을 만드는 방법에 대해 알아봅니다." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="시뮬레이션된 하이브리드 클라우드 테스트 환경 | Microsoft Azure"
+	description="Azure 가상 네트워크 두 개와 VNet 간 연결을 사용하여 IT 전문가 또는 개발 테스트용 시뮬레이션된 하이브리드 클라우드 환경을 만들어봅니다."
+	services="virtual-network"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="josephd"/>
 
 # 테스트용 시뮬레이션된 하이브리드 클라우드 환경 설정
@@ -171,7 +171,7 @@ VPN 장치 IP 주소 131.107.0.1 및 131.107.0.2는 두 가상 네트워크에 �
 3.	DC2.rdp를 여는 대화 상자가 나타나면 **열기**를 클릭합니다.
 4.	원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **연결**을 클릭합니다.
 5.	자격 증명을 묻는 메시지가 나타나면 다음을 사용합니다.
-- 이름: **DC2\**[로컬 관리자 계정 이름]
+- 이름: **DC2**[로컬 관리자 계정 이름]
 - 암호: [로컬 관리자 계정 암호]
 6.	인증서를 참조하는 원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **예**를 클릭합니다.
 
@@ -273,4 +273,4 @@ Azure VPN 게이트웨이는 지속적인 비용이 발생하는 두 개의 Azur
 그런 다음 Azure 관리 포털의 네트워크 페이지에서 **TestLab** 가상 네트워크를 클릭한 후 작업 표시줄에서 **연결**을 클릭합니다. TestLab 가상 네트워크가 TestVNET 로컬 네트워크에 연결된 상태로 표시될 때까지 기다립니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

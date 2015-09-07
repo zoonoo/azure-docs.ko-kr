@@ -1,19 +1,19 @@
 <properties 
    pageTitle="예약된 IP"
-   description="예약된 IP, VIP, ILPIP 및 관리 방법에 대해 알아봅니다."
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="adinah"
-   editor="tysonn" />
+	description="예약된 IP, VIP, ILPIP 및 관리 방법에 대해 알아봅니다."
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/17/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/17/2015"
+	ms.author="telmos"/>
 
 # 예약된 IP 개요
 Azure의 IP 주소는 두 범주 즉, 동적 IP 및 예약된 IP로 나뉩니다. Azure에서 관리하는 공용 IP 주소는 기본적으로 동적입니다. 즉, 지정된 클라우드 서비스에 사용되는 IP 주소(VIP) 또는 VM이나 역할 인스턴스에 직접 액세스하는 데 사용되는 IP 주소(ILPIP)는 리소스가 종료 또는 할당 취소된 경우 때때로 변경될 수 있습니다.
@@ -35,7 +35,7 @@ IP 주소의 변경을 방지하기 위해 IP 주소를 예약할 수 있습니�
 1. IP 주소를 어떻게 예약하나요? 
   - PowerShell 또는 [Azure 관리 REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 사용하여 특정 지역에서 예약된 IP를 요청할 수 있습니다. Azure에서는 해당 지역의 IP 주소를 예약하고 구독에 대한 상관관계를 지정합니다. 그러면 해당 지역에서 예약된 IP를 사용할 수 있습니다. 관리 포털을 사용하여 IP 주소를 예약할 수는 없습니다.
 1. 선호도 그룹 기반 VNet에서 예약된 IP를 사용할 수 있나요? 
-  - 예약된 IP는 지역 VNet에서만 지원됩니다. 선호도 그룹과 연결된 VNet에 대해서는 지원되지 않습니다. VNet을 지역 또는 선호도 그룹과 연결하는 방법에 대한 자세한 내용은 [지역 VNet 및 선호도 그룹 정보](https://msdn.microsoft.com/library/azure/jj156085.aspx)를 참조하세요. 
+  - 예약된 IP는 지역 VNet에서만 지원됩니다. 선호도 그룹과 연결된 VNet에 대해서는 지원되지 않습니다. VNet을 지역 또는 선호도 그룹과 연결하는 방법에 대한 자세한 내용은 [지역 VNet 및 선호도 그룹 정보](virtual-networks-migrate-to-regional-vnet.md)를 참조하세요. 
 
 ## 예약된 VIP를 관리하는 방법
 
@@ -119,4 +119,4 @@ IP를 예약하면 예약된 IP는 삭제될 때까지 계속 구독에 연결�
 
 - [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 확인합니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

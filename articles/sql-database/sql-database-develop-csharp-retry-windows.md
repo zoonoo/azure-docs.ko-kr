@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="코드 샘플: SQL 데이터베이스 | Microsoft Azure에 연결에 대한 C#에서 논리 다시 시도" 
-	description="C# 샘플에는 Azure SQL 데이터베이스와 상호작용하기 위한 견고한 재시도 논리가 포함되어 있습니다." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
+	pageTitle="코드 샘플: SQL 데이터베이스 | Microsoft Azure에 연결에 대한 C#에서 논리 다시 시도"
+	description="C# 샘플에는 Azure SQL 데이터베이스와 상호작용하기 위한 견고한 재시도 논리가 포함되어 있습니다."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jeffreyg"
 	editor=""/>
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="genemi"/>
 
 
@@ -174,7 +174,7 @@ Microsoft는 해당 디자인 선택을 권장하거나 권장하지 않습니�
 	        {
 	            int connectionTimeoutSeconds = 30;  // Default of 15 seconds is too short over the Internet, sometimes.
 	            int maxCountTriesConnectAndQuery = 3;  // You can adjust the various retry count values.
-	            int secondsBetweenRetries = 4;  // Simple retry strategy.
+	            int secondsBetweenRetries = 6;  // Simple retry strategy.
 	
 	            // [A.1] Prepare the connection string to Azure SQL Database.
 	            this.scsBuilder = new C.SqlConnectionStringBuilder();
@@ -496,4 +496,4 @@ Microsoft는 해당 디자인 선택을 권장하거나 권장하지 않습니�
 
 - [SQL 데이터베이스에 대한 클라이언트 빠른 시작 코드 샘플](sql-database-develop-quick-start-client-code-samples.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

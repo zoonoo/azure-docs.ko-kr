@@ -1,19 +1,19 @@
-<properties 
-    pageTitle="Android 앱용 Application Insights" 
-    description="Application Insights를 사용하여 Android 앱의 사용 현황 및 성능을 분석할 수 있습니다." 
-    services="application-insights" 
-    documentationCenter="android"
-    authors="alancameronwills" 
-    manager="ronmart"/>
+<properties
+    pageTitle="Android 앱용 Application Insights | Microsoft Azure"
+	description="Application Insights를 사용하여 Android 앱의 사용 현황 및 성능을 분석할 수 있습니다."
+	services="application-insights"
+	documentationCenter="android"
+	authors="alancameronwills"
+	manager="ronmart"/>
 
-<tags 
-    ms.service="application-insights" 
-    ms.workload="mobile" 
-    ms.tgt_pltfrm="mobile-android" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-	ms.date="04/28/2015" 
-    ms.author="awills"/>
+<tags
+    ms.service="application-insights"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="04/28/2015"
+	ms.author="awills"/>
 
 # Android 앱용 Application Insights
 
@@ -50,10 +50,10 @@ Visual Studio Application Insights를 사용하여 모바일 응용 프로그램
 ## <a name="sdk"></a>응용 프로그램에 SDK를 설치합니다.
 
 
-1.  도구-> Application Insights 통합을 선택합니다.
+1.  **도구** > **Application Insights SDK 통합**을 선택합니다.
 
     ![Application Insights 통합](./media/app-insights-android/04-tools-integrate.png)
-    
+
 3.  구독에서 구성 요소를 만듭니다.
 
     ![구성 요소 만들기](./media/app-insights-android/07-create-component.png)
@@ -63,10 +63,10 @@ Visual Studio Application Insights를 사용하여 모바일 응용 프로그램
 4.  gradle을 동기화하여 SDK를 다운로드하고 프로젝트와 통합합니다
 
     ![gradle 파일을 동기화하여 SDK 다운로드](./media/app-insights-android/08-successful-integration.png)
-    
-    (추가 정보는 [사용 현황 페이지](http://go.microsoft.com/fwlink/?LinkID=533220)에 제공).
-    
-이 시점에서 다음 참조가 모듈 build.gradle에 추가되고 `INTERNET` 및 `ACCESS_NETWORK_STATE`에 대한 권한과 구성 요소의 계측 키를 포함하는 메타 데이터 태그가 모듈의 `AndroidManifest.xml`에 추가되었습니다.
+
+    추가 정보는 [사용 현황 페이지](http://go.microsoft.com/fwlink/?LinkID=533220)에서 확인할 수 있습니다.
+
+이 시점에서 다음 참조가 모듈 build.gradle에 추가되고 `INTERNET` 및 `ACCESS_NETWORK_STATE`에 대한 권한과 구성 요소의 계측 키를 포함하는 메타데이터 태그가 모듈의 `AndroidManifest.xml`에 추가되었습니다.
 
 ```java
 
@@ -80,7 +80,7 @@ Visual Studio Application Insights를 사용하여 모바일 응용 프로그램
     <manifest>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    
+
     <application>
         <meta-data
             android:name="com.microsoft.applicationinsights.instrumentationKey"
@@ -130,7 +130,7 @@ SDK를 초기화하고 원격 분석 추적을 시작합니다.
 * catch 절에는 TrackHandledException(exception)
 * 특정 이벤트에 연결되지 않은 메트릭의 정기적인 보고서를 보내기 위한 배경 작업에서는 TrackMetric(name, value)
 
-다음은 초기화 및 수동 원격 분석 수집의 예입니다.
+다음 코드는 초기화 및 수동 원격 분석 수집의 예입니다.
 
 ```java
 
@@ -138,11 +138,11 @@ SDK를 초기화하고 원격 분석 추적을 시작합니다.
 
       @Override
       protected void onCreate(Bundle savedInstanceState) {
-        
+
         ApplicationInsights.setup(this);
         //... other initialization code ...//
         ApplicationInsights.start();
-        
+
         // track telemetry data
         TelemetryClient client = TelemetryClient.getInstance();
         HashMap<String, String> properties = new HashMap<String, String>();
@@ -163,7 +163,7 @@ SDK를 초기화하고 원격 분석 추적을 시작합니다.
 
 http://portal.azure.com으로 돌아가서 Application Insights 리소스를 찾습니다.
 
-검색을 클릭하여 [진단 검색][diagnostic]을 엽니다. 여기에 첫 번째 이벤트가 표시됩니다. 아무 것도 표시되지 않으면 1-2분 정도 기다렸다가 새로 고침을 클릭합니다.
+**검색**을 클릭하여 [진단 검색][diagnostic]을 엽니다. 여기에 첫 번째 이벤트가 표시됩니다. 아무 것도 표시되지 않으면 1-2분 정도 기다렸다가 **새로 고침**을 클릭합니다.
 
 ![진단 검색 클릭](./media/app-insights-android/21-search.png)
 
@@ -195,8 +195,6 @@ http://portal.azure.com으로 돌아가서 Application Insights 리소스를 찾
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

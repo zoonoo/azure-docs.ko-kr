@@ -1,6 +1,6 @@
 <properties
-	pageTitle="구성 표를 사용하여 크로스-프레미스 가상 네트워크 만들기"
-	description="이 항목에서는 미리 결정된 구성 표를 사용하여 크로스-프레미스 가상 네트워크를 구성하는 방법을 설명합니다."
+	pageTitle="구성 테이블을 사용한 가상 네트워크 | Microsoft Azure"
+	description="사전 지정된 설정이 있는 구성 테이블의 설정을 사용하여 프레미스 간 Azure 가상 네트워크를 구성하는 방법을 알아봅니다."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -30,7 +30,7 @@
 
 다음 절차에서는 이러한 표의 정보를 참조하여 가상 네트워크 구성 프로세스를 안내합니다. 다른 항목에서 이러한 표의 설정을 아직 지정하지 않은 상태로 프레미스 간 가상 네트워크를 구성하려는 경우 [Azure 가상 네트워크에 대한 프레미스 사이 사이트 간 연결 구성](../vpn-gateway/vpn-gateway-site-to-site-create.md)을 참조하세요.
 
-> [AZURE.NOTE]이 절차에서는 사이트 간 VPN 연결을 사용하는 가상 네트워크를 만드는 과정을 안내합니다. 사이트 간 연결에 대해 Azure Express 경로를 사용하는 방법에 대한 자세한 내용은 [Express 경로 기술 개요](https://msdn.microsoft.com/library/dn606309.aspx)를 참조하세요.
+> [AZURE.NOTE]이 절차에서는 사이트 간 VPN 연결을 사용하는 가상 네트워크를 만드는 과정을 안내합니다. 사이트 간 연결에 대해 Azure Express 경로를 사용하는 방법은 [Express 경로 기술 개요](../expressroute/expressroute-introduction.md)를 참조하세요.
 
 ## 구성 표 설정을 사용하여 새 크로스-프레미스 Azure 가상 네트워크 만들기
 
@@ -61,10 +61,10 @@
 
 ## 추가 리소스
 
-[가상 네트워크 개요](https://msdn.microsoft.com/library/jj156007.aspx)
+[가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)
 
-[가상 네트워크 구성 작업](https://msdn.microsoft.com/library/jj156206.aspx)
+[가상 네트워크 구성 작업](../documentation/services/virtual-machines/)
 
 [Azure 가상 네트워크에 대한 프레미스 사이 사이트 간 연결 구성](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

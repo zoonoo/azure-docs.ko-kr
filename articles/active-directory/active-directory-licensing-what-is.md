@@ -1,45 +1,48 @@
 <properties
    pageTitle="Microsoft Azure Active Directory 라이선스란? | Microsoft Azure"
-   description="Office 365, Microsoft Intune 및 Azure Active Directory Premium 및 Basic 버전을 포함하여, Microsoft Azure AD 라이선스에 대한 설명, 작동 방법, 시작하는 방법 및 모범 사례"
-   services="active-directory"
-   documentationCenter=""
-   authors="curtand"
-   manager="swadhwa"
-   editor=""/>
+	description="Office 365, Microsoft Intune 및 Azure Active Directory Premium 및 Basic 버전을 포함하여, Microsoft Azure AD 라이선스에 대한 설명, 작동 방법, 시작하는 방법 및 모범 사례"
+	services="active-directory"
+	documentationCenter=""
+	authors="curtand"
+	manager="swadhwa"
+	editor=""/>
 
 <tags
    ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="07/16/2015"
-   ms.author="curtand"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="07/16/2015"
+	ms.author="curtand"/>
 
 # Microsoft Azure Active Directory 라이선스란?
 
 ##설명
 Azure AD(Active Directory)는 Microsoft의 IDaaS(Identity as a Service) 솔루션 및 플랫폼입니다. Azure AD는 Office 365, Dynamics, Microsoft Intune 및 Azure 등과 같은 Microsoft 서비스와 함께 사용할 수 있는 Azure AD 무료 버전부터, Azure Multi-Factor Authentication(MFA) 뿐만 아니라 Enterprise Mobility Suite(EMS), Azure AD Premium 및 Basic 등과 같은 Azure AD 유료 버전에 이르기까지 다양한 기능적, 기술적 버전으로 제공됩니다. 많은 Microsoft 온라인 서비스와 마찬가지로 대부분의 Azure AD 유료 버전은 Office 365, Microsoft Intune 및 Azure AD에서 사용자별 권한 부여를 통해 제공됩니다. 이런 경우 서비스 구매는 하나 이상의 구독으로 표시되며 각 구독에는 테넌트의 사전 구매 라이선스 수가 포함됩니다. 사용자별 권한 부여는 사용자와 제품 간에 연결을 생성하고 사용자가 서비스 구성 요소를 사용하도록 설정하고 선불 라이선스 중 하나를 사용하는 라이선스 할당을 통해 수행됩니다.
 
-Azure AD 관리 포털은 Azure 관리 포털의 일부입니다. Azure AD를 사용하기 위해 Azure를 구매할 필요는 없지만 이 포털에 액세스하려면 활성 Azure 구독 또는 [Azure 평가판 구독](http://azure.microsoft.com/pricing/free-trial/)이 필요합니다.
+[이제 Azure AD premium을 시도합니다.](https://portal.office.com/Signup/Signup.aspx?OfferId=01824d11-5ad8-447f-8523-666b0848b381&ali=1#0)
 
-Azure AD 서비스 기능에 대한 광범위한 개요는 [Azure AD란?](active-directory-whatis.md)을 참조하세요.
+> [AZURE.NOTE]Azure AD 관리 포털은 Azure 관리 포털의 일부입니다. Azure AD를 사용하기 위해 Azure를 구매할 필요는 없지만 이 포털에 액세스하려면 활성 Azure 구독 또는 [Azure 평가판 구독](http://azure.microsoft.com/pricing/free-trial/)이 필요합니다.
+
+Azure AD 서비스 기능에 대한 광범위한 개요는 [Azure AD란?](active-directory-whatis.md)을 참조하세요. [Azure AD 서비스 수준에 대한 자세한 정보](http://azure.microsoft.com/support/legal/sla/)
 
 > [AZURE.NOTE]Azure 종량제 구독은 다릅니다. 디렉터리에 표시되기도 하지만 이러한 구독을 통해 Azure 리소스를 만들 수 있고 지불 방법에 매핑할 수도 있습니다. 이 경우 구독과 연결된 라이센스 수가 없습니다. 사용자와 구독과의 연결, 관리되는 구독 리소스에 대한 사용자 액세스는 구독에 매핑된 Azure 리소스에 대해 작동하는 권한을 부여하여 수행됩니다.
 
-> [Azure AD 서비스 수준에 대한 자세한 정보](http://azure.microsoft.com/support/legal/sla/)
 
 ##Azure AD 라이선스 작동 방식
 
-권한 부여 또는 라이선스 기반 Azure AD 서비스는 Azure AD 디렉터리/서비스 테넌트에서 구독을 활성화하면 작동됩니다. 구독이 활성화되면 디렉터리/서비스 관리자가 서비스 기능을 관리하고 허가된 사용자가 사용할 수 있습니다.
+라이선스 기반(자격 기반) Azure AD 서비스는 Azure AD 디렉터리/서비스 테넌트에서 구독을 활성화하면 작동됩니다. 구독이 활성화되면 디렉터리/서비스 관리자가 서비스 기능을 관리하고 허가된 사용자가 사용할 수 있습니다.
 
 Enterprise Mobility Suite, Azure AD Premium 또는 Azure AD Basic을 구매 또는 활성화하면 디렉터리의 유효 기간 및 선불 라이선스를 포함하여 디렉터리가 구독으로 업데이트됩니다. 상태, 다음 수명 주기 이벤트 및 할당되거나 사용 가능한 라이선스 수를 포함한 구독 정보는 특정 디렉터리에 대한 라이선스 탭 아래에서 Azure AD 관리 포털을 통해 사용할 수 있습니다. 또한 이 탭은 사용자 라이선스 할당을 관리하기에 가장 적합한 위치이기도 합니다.
 
-각 구독은 Azure AD, Azure MFA, Microsoft Intune, Exchange Online 또는 SharePoint Online 등과 같은 서비스 유형의 포함된 기능적 수준을 나타내는 하나 이상의 서비스 계획으로 구성됩니다. Azure AD 라이선스 관리에는 서비스 계획 수준 관리가 필요하지 않습니다. 포함된 서비스에 대한 액세스를 관리하기 위해 이 고급 구성 모드에 의존하는 Office 365와는 다릅니다. Azure AD는 서비스 구성에 의존하여 기능을 활성화하고 개별 사용 권한을 관리합니다.
+각 구독은 Azure AD, Azure MFA, Microsoft Intune, Exchange Online 또는 SharePoint Online 등과 같은 서비스 유형의 포함된 기능적 수준을 매핑하는 하나 이상의 서비스 계획으로 구성됩니다. Azure AD 라이선스 관리에는 서비스 계획 수준 관리가 필요하지 않습니다. 포함된 서비스에 대한 액세스를 관리하기 위해 이 고급 구성 모드에 의존하는 Office 365와는 다릅니다. Azure AD는 서비스 구성에 의존하여 기능을 활성화하고 개별 사용 권한을 관리합니다.
 
 일반적으로 Azure AD 구독 정보는 Azure 관리 포털을 통해 특정 디렉터리에 대한 라이선스 탭에서 관리됩니다. Azure AD Premium 이외의 Azure AD 구독은 Office 포털에 표시되지 않습니다.
 
 > [AZURE.IMPORTANT]Enterprise Mobility Suite 구독 뿐만 아니라 Azure AD Premium 및 Basic도 프로비저닝된 디렉터리/테넌트로 제한됩니다. 구독은 디렉터리 간에 분할하거나 다른 디렉터리의 사용자에게 자격을 부여하는 데 사용될 수 없습니다. 구독을 디렉터리 간에 이동하는 것은 가능하지만 지원 티켓을 제출하거나, 직접 구매의 경우 취소 후 다시 구매해야 합니다.
+
+> [AZURE.IMPORTANT]볼륨 라이선싱을 통해 Azure AD 또는 Enterprise Mobility Suite를 구입하는 경우 계약에 다른 Microsoft Online 서비스(예: Office 365)가 포함되어 있으면 자동으로 구독 활성화가 발생합니다.
 
 유료 Azure AD 기능은 광범위한 디렉터리로 확장됩니다. 예를 들면 다음과 같습니다. - 응용 프로그램에 대한 그룹 기반 할당은 관리 중인 특정 응용 프로그램에서 사용하도록 설정됩니다. - 고급 및 셀프 서비스 그룹 관리 기능은 디렉터리 구성에서 또는 특정 그룹 내에서 사용할 수 있습니다. - 프리미엄 보안 보고서는 보고 탭에 있습니다. - 클라우드 응용 프로그램 검색은 Azure 미리 보기 포털의 ID 아래에 표시됩니다.
 
@@ -77,7 +80,7 @@ Azure AD를 시작하는 것은 간단합니다. 항상 무료 Azure 평가판�
 ![활성 평가판 라이선스 계획](./media/active-directory-licensing-what-is/active_license_trials.png)
 
 ###라이선스 할당
-평가판이 활성화되면 사용자가 자신에게 라이선스를 할당하고 브라우저를 새로 고쳐야 모든 기능을 볼 수 있습니다. 다음 단계는 유료 Azure AD 기능에 액세스하거나 포함시켜야 할 사용자에게 라이선스를 할당하는 것입니다. 위의 "라이선스 할당"에서 설명한 것처럼, 이 작업을 수행하는 가장 좋은 방법은 원하는 대상 그룹을 식별하여 라이선스에 할당하는 것입니다. 이 방법을 사용하면 그룹에 추가된 사용자를 라이선스에 할당하거나 수명 주기가 지나 그룹에서 삭제된 사용자를 라이선스에서 제거할 수 있습니다.
+구독이 활성화되면 사용자가 자신에게 라이선스를 할당하고 브라우저를 새로 고쳐야 모든 기능을 볼 수 있습니다. 다음 단계는 유료 Azure AD 기능에 액세스하거나 포함시켜야 할 사용자에게 라이선스를 할당하는 것입니다. 위의 "라이선스 할당"에서 설명한 것처럼, 이 작업을 수행하는 가장 좋은 방법은 원하는 대상 그룹을 식별하여 라이선스에 할당하는 것입니다. 이 방법을 사용하면 그룹에 추가된 사용자를 라이선스에 할당하거나 수명 주기가 지나 그룹에서 삭제된 사용자를 라이선스에서 제거할 수 있습니다.
 
 그룹 또는 개별 사용자에게 라이선스를 할당하려면 할당할 라이선스 계획을 선택하고 명령 모음에서 **할당**을 클릭합니다.
 
@@ -128,4 +131,4 @@ Office 365 포털을 통해 평가판을 셀프 서비스로 확장할 수 있�
 - [Azure Multi-Factor Authentication](multi-factor-authentication.md)
 - [Azure AD Premium 라이선스 직접 구매](http://aka.ms/buyaadp)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

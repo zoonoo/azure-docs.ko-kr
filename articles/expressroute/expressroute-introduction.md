@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Express 경로 소개 | Microsoft Azure"
-   description="이 페이지에서는 Express 경로 연결의 작동 방식, exchange 공급자 및 네트워크 서비스 공급자 사용, Express 경로 공용, 개인 및 Microsoft 피어링 등 Express 경로 서비스에 대한 개요를 제공합니다."
-   documentationCenter="na"
-   services="expressroute"
-   authors="cherylmc"
-   manager="adinah"
-   editor="tysonn"/>
+	description="이 페이지에서는 Express 경로 연결의 작동 방식, exchange 공급자 및 네트워크 서비스 공급자 사용, Express 경로 공용, 개인 및 Microsoft 피어링 등 Express 경로 서비스에 대한 개요를 제공합니다."
+	documentationCenter="na"
+	services="expressroute"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="06/15/2015"
-   ms.author="cherylmc"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="cherylmc"/>
 
 # Express 경로 기술 개요
 
@@ -110,4 +110,4 @@ Microsoft 피어링을 통해 다른 모든 Microsoft 온라인 서비스(예: O
 - 서비스 공급자를 찾습니다. [Express 경로 서비스 공급자 및 위치](expressroute-locations.md)를 참조하세요.
 - Express 경로 연결을 구성합니다. 지침은 [네트워크 서비스 공급자를 통해 Express 경로 연결 구성](expressroute-configuring-nsps.md) 또는 [Exchange 공급자를 통해 Express 경로 연결 구성](expressroute-configuring-exps.md)을 참조하세요. 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Azure 게스트 OS에 적용된 업데이트 목록 | Microsoft Azure" 
-   description="게스트 OS 릴리스에 적용된 업데이트 목록" 
-   services="cloud-services" 
-   documentationCenter="na" 
-   authors="yuemlu" 
-   manager="markkie" 
-   editor=""/>
+   pageTitle="Azure 게스트 OS에 적용된 업데이트 목록 | Microsoft Azure"
+	description="게스트 OS 릴리스에 적용된 업데이트 목록"
+	services="cloud-services"
+	documentationCenter="na"
+	authors="yuemlu"
+	manager="markkie"
+	editor=""/>
 
 <tags
    ms.service="cloud-services"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd" 
-   ms.date="04/17/2015"
-   ms.author="adegeo"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="08/24/2015"
+	ms.author="yuemlu"/>
 
 # Azure 게스트 OS 
 
@@ -32,7 +32,6 @@
 | MS15-088 | [3082458] | 안전하지 않은 명령줄 매개 변수 전달로 인한 정보 노출 | 4\.23, 3.30, 2.42 | 2015년 8월 11일 |
 | MS15-089 | [3060716] | Microsoft Windows의 취약성으로 인한 권한 상승 | 4\.23, 3.30, 2.42 | 2015년 8월 11일 |
 | MS15-090 | [3076949] | WebDAV의 취약성으로 인한 정보 공개 | 4\.23, 3.30, 2.42 | 2015년 8월 11일 |
-| MS15-092 | [3086251] | .NET Framework의 취약성으로 인한 권한 상승 | 4\.23, 3.30, 2.42 | 2015년 8월 11일 |
 
 
 ## 게스트 OS 7월
@@ -265,4 +264,4 @@
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

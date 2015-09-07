@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure AD Connect - Windows 원격 관리 힌트" 
-	description="AD FS와 함께 사용하기 위한 Azure AD Connect Windows Remote Managed 힌트" 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure AD Connect - Windows 원격 관리 힌트"
+	description="AD FS와 함께 사용하기 위한 Azure AD Connect Windows Remote Managed 힌트"
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure AD Connect - Windows 원격 관리 힌트
@@ -43,6 +43,6 @@ Azure AD Connect를 사용하여 웹 응용 프로그램 프록시 또는 Active
 
 * [Azure AD Connect 계정 및 사용 권한에 대한 추가 정보](active-directory-aadconnect-account-summary.md)
 * [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)
-* [MSDN의 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
+* [MSDN의 Azure AD Connect](active-directory-aadconnect.md) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

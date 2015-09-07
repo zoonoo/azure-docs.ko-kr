@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Mobile Engagement Android SDK 통합" 
+	pageTitle="Azure Mobile Engagement Android SDK 통합"
 	description="Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 절차"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
+	editor=""/>
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
+	ms.author="piyushjo"/>
 
 #Android에서 Engagement를 통합하는 방법
 
@@ -54,10 +54,6 @@
 
 			<uses-permission android:name="android.permission.INTERNET"/>
 			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-
--   일부 장치 모델에서는 ANDROID\_ID의 Engagement 장치 식별자를 생성할 수 없습니다(버그가 있거나 사용할 수 없음). 이러한 경우에 SDK는 다른 Engagement 응용 프로그램에서 동일한 장치 식별자를 공유할 수 있도록 임의 장치 식별자를 생성하고 장치의 외부 저장소에 저장하려고 시도합니다. 또한 이 식별자는 외부 저장소에서 어떤 일이 발생하든지 응용 프로그램 자체에서 항상 동일한 장치 식별자를 사용할 수 있도록 공유 기본 설정으로도 저장됩니다. 이러한 메커니즘이 제대로 작동하도록 다음 권한을 `<application>` 태그 앞에 추가해야 합니다(없는 경우).
-
-			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
 -   `<application>` 태그와 `</application>` 태그 사이에 다음 섹션을 추가합니다.
 
@@ -177,15 +173,20 @@ Engagement에서 사용자, 세션, 작업, 충돌 및 기술 통계를 계산�
 
 지연 영역 위치 보고를 통해 국가, 지역 및 장치와 연결된 위치를 보고할 수 있습니다. 이러한 유형의 위치 보고에서는 네트워크 위치(셀 ID 또는 WIFI 기반)만 사용합니다. 장치 영역은 세션당 한번 이하로 보고됩니다. GPS는 전혀 사용되지 않으므로 이러한 위치 보고는 배터리에 거의 영향을 미치지 않습니다.
 
-보고된 영역은 사용자, 세션, 이벤트 및 오류에 대한 지리적 통계를 계산 하는 데 사용됩니다. 이 영역은 도달률 캠페인의 기준으로도 사용할 수 있습니다. [장치 API] 덕분에 장치에 대해 마지막으로 알려진 영역을 검색할 수 있습니다.
+보고된 영역은 사용자, 세션, 이벤트 및 오류에 대한 지리적 통계를 계산 하는 데 사용됩니다. 이 영역은 도달률 캠페인의 기준으로도 사용할 수 있습니다.
 
-지연 영역 위치 보고를 사용하려면 다음을 추가합니다.
+지연 영역 위치 보고를 사용하도록 설정하려면 이 절차의 앞에서 설명한 구성을 사용하여 수행할 수 있습니다.
 
-			<meta-data android:name="engagement:locationReport:lazyArea" android:value="true"/>
+    EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+    engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
+    engagementConfiguration.setLazyAreaLocationReport(true);
+    EngagementAgent.getInstance(this).init(engagementConfiguration);
 
 또한 아직 없는 경우 다음 권한도 추가해야 합니다.
 
 			<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+또는 응용 프로그램에서 이미 사용하고 있는 경우 ``ACCESS_FINE_LOCATION``을 계속 사용할 수 있습니다.
 
 ### 실시간 위치 보고
 
@@ -193,19 +194,28 @@ Engagement에서 사용자, 세션, 작업, 충돌 및 기술 통계를 계산�
 
 실시간 위치는 통계를 계산하는 데 사용되지 *않습니다*. 유일한 용도는 도달률 캠페인에서 실시간 지리적 펜스 <Reach-Audience-geofencing> 사용을 허용하는 것입니다.
 
-실시간 위치 보고를 사용하려면 다음을 추가합니다.
+실시간 위치 보고를 사용하도록 설정하려면 이 절차의 앞에서 설명한 구성을 사용하여 수행할 수 있습니다.
 
-			<meta-data android:name="engagement:locationReport:realTime" android:value="true" />
+    EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+    engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
+    engagementConfiguration.setRealtimeLocationReport(true);
+    EngagementAgent.getInstance(this).init(engagementConfiguration);
 
 또한 아직 없는 경우 다음 권한도 추가해야 합니다.
 
 			<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
+또는 응용 프로그램에서 이미 사용하고 있는 경우 ``ACCESS_FINE_LOCATION``을 계속 사용할 수 있습니다.
+
 #### GPS 기반 보고
 
-기본적으로 실시간 위치 보고에서는 네트워크 기반 위치만 사용합니다. 훨씬 더 정밀한 GPS 기반 위치의 사용을 설정하려면 다음을 추가합니다.
+기본적으로 실시간 위치 보고에서는 네트워크 기반 위치만 사용합니다. 훨씬 더 정밀한 GPS 기반 위치의 사용을 설정하려면 구성 개체를 사용합니다.
 
-			<meta-data android:name="engagement:locationReport:realTime:fine" android:value="true" />
+    EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+    engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
+    engagementConfiguration.setRealtimeLocationReport(true);
+    engagementConfiguration.setFineRealtimeLocationReport(true);
+    EngagementAgent.getInstance(this).init(engagementConfiguration);
 
 또한 아직 없는 경우 다음 권한도 추가해야 합니다.
 
@@ -213,9 +223,13 @@ Engagement에서 사용자, 세션, 작업, 충돌 및 기술 통계를 계산�
 
 #### 백그라운드 보고
 
-기본적으로 실시간 위치 보고는 응용 프로그램이 포그라운드로 실행되는 경우(즉, 세션 중)에만 활성 상태입니다. 백그라운드에서도 보고를 활성화하려면 다음을 추가합니다.
+기본적으로 실시간 위치 보고는 응용 프로그램이 포그라운드로 실행되는 경우(즉, 세션 중)에만 활성 상태입니다. 백그라운드에서도 보고를 활성화하려면 구성 개체를 사용합니다.
 
-			<meta-data android:name="engagement:locationReport:realTime:background" android:value="true" />
+    EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
+    engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
+    engagementConfiguration.setRealtimeLocationReport(true);
+    engagementConfiguration.setBackgroundRealtimeLocationReport(true);
+    EngagementAgent.getInstance(this).init(engagementConfiguration);
 
 > [AZURE.NOTE]응용 프로그램이 백그라운드에서 실행될 때 GPS를 활성화한 경우에도 네트워크 기반 위치만 보고됩니다.
 
@@ -231,6 +245,63 @@ Engagement에서 사용자, 세션, 작업, 충돌 및 기술 통계를 계산�
 또한 아직 없는 경우 다음 권한도 추가해야 합니다.
 
 			<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+### Android M 권한
+
+Android M부터는 일부 권한이 런타임 시 관리되며 사용자 승인이 필요합니다.
+
+Android API Level 23을 대상으로 하는 경우 새 앱 설치에 대해서는 기본적으로 런타임 권한이 해제됩니다. 그렇지 않으면 기본적으로 활성화됩니다.
+
+사용자는 장치 설정 메뉴에서 이러한 권한을 설정/해제할 수 있습니다. 시스템 메뉴에서 권한을 해제하면 응용 프로그램의 백그라운드 프로세스가 중단되며 이것은 시스템 동작으로 백그라운드로 푸시 알림을 받는 기능에는 영향을 주지 않습니다.
+
+Mobile Engagement의 컨텍스트에서 런타임 시 승인이 필요한 권한은 다음과 같습니다.
+
+- `ACCESS_COARSE_LOCATION`
+- `ACCESS_FINE_LOCATION`
+- `WRITE_EXTERNAL_STORAGE`(이에 대한 Android API Level 23을 대상으로 할 때만 해당)
+
+외부 저장소는 도달률 큰 그림 기능에만 사용됩니다. 사용자에게 이 권한을 요청하는 것이 번거롭다고 생각되는 경우, 큰 그림 기능을 사용하지 않는 비용으로 Mobile Engagement에 대해서만 사용하는 경우 권한을 제거할 수 있습니다.
+
+위치 기능의 경우 표준 시스템 대화 상자를 사용하여 사용자에 대한 권한을 요청해야 합니다. 사용자가 승인하면 ``EngagementAgent``에 알려 실시간으로 변경 내용을 고려하도록 해야 합니다. 그렇지 않으면 사용자가 다음에 응용 프로그램을 시작할 때 변경 내용이 처리됩니다.
+
+다음은 사용 권한을 요청하고 ``EngagementAgent``에 긍정적인 경우 결과를 전달하는 응용 프로그램의 활동에 사용할 코드 샘플입니다.
+
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+      /* Other code... */
+    
+      /* Request permissions */
+      requestPermissions();
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    private void requestPermissions()
+    {
+      /* Avoid crashing if not on Android M */
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+      {
+        /*
+         * Request location permission, but this won't explain why it is needed to the user.
+         * The standard Android documentation explains with more details how to display a rationale activity to explain the user why the permission is needed in your application.
+         * Putting COARSE vs FINE has no impact here, they are part of the same group for runtime permission management.
+         */
+        if (checkSelfPermission(android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+          requestPermissions(new String[] { android.Manifest.permission.ACCESS_FINE_LOCATION }, 0);
+    
+        /* Only if you want to keep features using external storage */
+        if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+          requestPermissions(new String[] { android.Manifest.permission.WRITE_EXTERNAL_STORAGE }, 1);
+      }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults)
+    {
+      /* Only a positive location permission update requires engagement agent refresh, hence the request code matching from above function */
+      if (requestCode == 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+        getEngagementAgent().refreshPermissions();
+    }
 
 ##고급 보고
 
@@ -308,7 +379,7 @@ Engagement는 이 설정을 관리하기 위한 기본 설정 파일 내에서 �
 			  android:summaryOff="Engagement is disabled." />
 
 <!-- URLs. -->
-[장치 API]: http://go.microsoft.com/?linkid=9876094
+[Device API]: http://go.microsoft.com/?linkid=9876094
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

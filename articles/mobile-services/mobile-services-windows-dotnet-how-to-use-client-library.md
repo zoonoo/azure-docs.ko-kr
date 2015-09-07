@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015" 
+	ms.date="08/18/2015"
 	ms.author="glenga"/>
 
 # Azure 모바일 서비스용 .NET 클라이언트를 사용하는 방법
@@ -22,7 +22,7 @@
 
 ##개요
 
-이 가이드에서는 Windows 스토어 앱 및 Windows Phone 앱에서 Azure 서비스용 .NET 클라이언트를 사용하는 일반적인 시나리오를 수행하는 방법을 보여 줍니다. 여기서 다루는 시나리오에는 데이터 쿼리, 삽입, 업데이트, 삭제 및 사용자 인증과 오류 처리가 포함됩니다. 모바일 서비스를 처음 접하는 경우 먼저 [모바일 서비스 퀵 스타트]() 자습서 또는 [기존 앱에 모바일 서비스 추가]() 자습서를 완료하는 것이 좋습니다.
+이 가이드에서는 Windows 스토어 앱 및 Windows Phone 앱에서 Azure 서비스용 .NET 클라이언트를 사용하는 일반적인 시나리오를 수행하는 방법을 보여 줍니다. 여기서 다루는 시나리오에는 데이터 쿼리, 삽입, 업데이트, 삭제 및 사용자 인증과 오류 처리가 포함됩니다. 모바일 서비스를 처음 접하는 경우 먼저 [모바일 서비스 퀵 스타트](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md) 자습서 또는 [기존 앱에 모바일 서비스 추가](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md) 자습서를 완료하는 것이 좋습니다.
 
 [AZURE.INCLUDE [mobile-services-concepts](../../includes/mobile-services-concepts.md)]
 
@@ -700,4 +700,4 @@ Windows Phone 앱의 경우 [ProtectedData] 클래스를 사용하여 데이터�
 [클라이언트에서 사용자 지정 API 호출]: mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api.md
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

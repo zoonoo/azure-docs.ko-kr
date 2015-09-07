@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="모바일 서비스에서 오프라인 데이터 사용(Xamarin iOS) | Microsoft Azure" 
-	description="Azure 모바일 서비스를 사용하여 Xamarin iOS 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법에 대해 알아봅니다." 
-	documentationCenter="xamarin" 
-	authors="lindydonna" 
-	editor="wesmc" 
-	manager="dwrede" 
+	pageTitle="모바일 서비스에서 오프라인 데이터 사용(Xamarin iOS) | Microsoft Azure"
+	description="Azure 모바일 서비스를 사용하여 Xamarin iOS 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법에 대해 알아봅니다."
+	documentationCenter="xamarin"
+	authors="lindydonna"
+	editor="wesmc"
+	manager="dwrede"
 	services="mobile-services"/>
 
 <tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
 	ms.date="07/01/2015"
 	ms.author="donnam"/>
 
@@ -66,7 +66,7 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
             await client.SyncContext.InitializeAsync(store);
         }
 
-    이 작업에서는 모바일 서비스 SDK에서 제공하는 `MobileServiceSQLiteStore` 클래스를 사용하여 로컬 저장소를 만듭니다. `IMobileServiceLocalStore`을(를) 구현하여 다양한 로컬 저장소 구현을 제공할 수도 있습니다.
+    이 작업에서는 모바일 서비스 SDK에서 제공하는 `MobileServiceSQLiteStore` 클래스를 사용하여 로컬 저장소를 만듭니다. `IMobileServiceLocalStore`를 구현하여 다양한 로컬 저장소 구현을 제공할 수도 있습니다.
 
     `DefineTable` 메서드는 제공된 형식(이 경우 `ToDoItem`)의 필드와 일치하는 테이블을 로컬 저장소에 만듭니다. 이 형식은 원격 데이터베이스에 있는 열을 모두 포함하지 않아도 되며, 열의 하위 집합만 저장할 수 있습니다.
 
@@ -184,4 +184,4 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 [Xamarin 확장]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

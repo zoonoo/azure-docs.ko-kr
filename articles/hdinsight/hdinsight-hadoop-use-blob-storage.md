@@ -18,7 +18,7 @@
 	ms.author="jgao"/>
 
 
-#HDInsight에서 Hadoop로 HDFS 호환 가능한 Azure Blob 저장소 사용
+# HDInsight에서 Hadoop로 HDFS 호환 가능한 Azure Blob 저장소 사용
 
 이 자습서에서는 HDInsight로 저비용 Azure Blob 저장소를 사용하고 Azure 저장소 계정 및 Blob 저장소 컨테이너를 만든 다음 데이터 내부에서 해결하는 방법에 대해 알아봅니다.
 
@@ -35,7 +35,7 @@ Blob 저장소에 데이터를 저장하면 사용자 데이터 손실 없이 �
 HDInsight 클러스터 프로비전에 대한 자세한 내용은 [HDInsight 시작][hdinsight-get-started] 또는 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하십시오.
 
 
-##<a id="architecture"></a>HDInsight 저장소 아키텍처
+## <a id="architecture"></a>HDInsight 저장소 아키텍처
 다음 다이어그램은 HDInsight 저장소 아키텍처의 추상 보기를 제공합니다.
 
 ![Hadoop 클러스터는 HDFS API를 사용하여 Blob 저장소의 구조적 및 비구조적 데이터에 액세스하고 저장합니다.](./media/hdinsight-hadoop-use-blob-storage/HDI.WASB.Arch.png "HDInsight 저장소 아키텍처")
@@ -83,7 +83,7 @@ HDFS 대신Azure Blob 저장소에 데이터를 저장할 경우 몇 가지 이�
 
 
 
-##<a id="preparingblobstorage"></a>Blob 컨테이너 만들기
+## <a id="preparingblobstorage"></a>Blob 컨테이너 만들기
 
 Blob을 사용하려면 먼저 [Azure 저장소 계정][azure-storage-create]을 만듭니다. 이 작업의 일부로, 이 계정을 사용하여 만드는 개체를 저장할 Azure 데이터 센터를 지정합니다. 클러스터와 저장소 계정은 동일한 데이터 센터에서 호스팅되어야 합니다. Hive 메타 스토어 SQL Server 데이터베이스 및 Oozie 메타 스토어 SQL Server 데이터베이스도 동일한 데이터 센터에서 찾아야 합니다.
 
@@ -92,7 +92,7 @@ Blob을 사용하려면 먼저 [Azure 저장소 계정][azure-storage-create]을
 여러 HDInsight 클러스터의 기본 저장소 컨테이너를 공유하지 마십시오. 여러 HDInsight 클러스터용 데이터에 액세스를 제공하기 위해 공유된 컨테이너를 사용해야 하는 경우 클러스터 구성에서 추가적인 저장소 계정으로 추가해야 합니다. 자세한 내용은 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요. 그러나 원래 HDInsight 클러스터를 삭제한 후에 기본 저장소 컨테이너를 다시 사용할 수 있습니다. HBase 클러스터를 사용하면 삭제된 HBase 클러스터에서 쓰인 기본 blob 저장소 컨테이너를 사용하여 새로운 HBase 클러스터를 프로비전함으로써 HBase 테이블 스키마 및 데이터를 실제로 보존할 수 있습니다.
 
 
-###Azure Preview 포털 사용
+### Azure Preview 포털 사용
 
 Preview 포털에서 HDInsight 클러스터를 프로비전할 때 기존 저장소 계정을 사용하거나 새 저장소 계정을 만들 수 있습니다.
 
@@ -116,7 +116,7 @@ Preview 포털에서 HDInsight 클러스터를 프로비전할 때 기존 저장
 
 	azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-###Azure PowerShell 사용
+### Azure PowerShell 사용
 
 [Azure PowerShell을 설치하고 구성한][powershell-install] 경우, Azure PowerShell 프롬프트에서 다음을 사용하여 저장소 계정 및 컨테이너를 만들 수 있습니다.
 
@@ -136,7 +136,7 @@ Preview 포털에서 HDInsight 클러스터를 프로비전할 때 기존 저장
 	New-AzureStorageContainer -Name $containerName -Context $destContext
 
 
-##<a id="addressing"></a>Blob 저장소에서 파일 주소 지정
+## <a id="addressing"></a>Blob 저장소에서 파일 주소 지정
 
 HDInsight에서 Blob 저장소의 파일에 액세스하기 위한 URI 체계는 다음과 같습니다.
 
@@ -166,7 +166,7 @@ URI 체계는암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SS
 
 > [AZURE.NOTE]HDInsight 외부에서 blob를 작업할 때 대부분의 유틸리티는 WASB 형식을 인식하지 않으며 대신 `example/jars/hadoop-mapreduce-examples.jar`과 같은 기본 경로 형식을 예상합니다.
 
-##<a id="azurecli"></a>Azure CLI를 사용하여 blob 액세스
+## <a id="azurecli"></a>Azure CLI를 사용하여 blob 액세스
 
 다음 명령을 사용하여 Blob 관련 명령을 나열합니다.
 
@@ -188,7 +188,7 @@ URI 체계는암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SS
 
 	azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-##<a id="powershell"></a>Azure PowerShell을 사용하여 blob 액세스
+## <a id="powershell"></a>Azure PowerShell을 사용하여 blob 액세스
 
 > [AZURE.NOTE]이 섹션의 명령은 PowerShell을 사용하여 blob에 저장된 데이터에 액세스하는 기본 예제를 제공합니다. HDInsight와의 작업에 대해 사용자 지정되는 더 완전한 기능의 예는 [HDInsight 도구](https://github.com/Blackmist/hdinsight-tools)를 참조하세요.
 
@@ -290,11 +290,11 @@ URI 체계는암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SS
 
 	Invoke-Hive -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
-##<a id="nextsteps"></a>다음 단계
+## <a id="nextsteps"></a>다음 단계
 
 이 문서에서는 HDInsight와 함께 HDFS 호환 가능한 Azure Blob 저장소를 사용하는 방법에 대해 알아보았고 Azure Blob 저장소가 HDInsight의 기본 구성 요소라는 점을 배웠습니다. 이제 Azure Blob 저장소를 통해 장기적이고 확장 가능한 보관 데이터 취득 솔루션을 구축할 수 있으며, 저장된 구조적 및 비구조적 데이터 내부의 정보를 활용하는 데 HDInsight를 사용할 수 있습니다.
 
-자세한 내용은 다음 문서를 참조하세요.
+자세한 내용은 다음을 참조하세요.
 
 * [Azure HDInsight 시작][hdinsight-get-started]
 * [HDInsight에 데이터 업로드][hdinsight-upload-data]
@@ -315,4 +315,4 @@ URI 체계는암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SS
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

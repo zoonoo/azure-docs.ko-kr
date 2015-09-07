@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="StorSimple 시스템 요구 사항 | Microsoft Azure" 
-   description="소프트웨어, 고가용성 및 Azure StorSimple 솔루션을 위한 네트워킹에 대한 시스템 요구 사항 및 모범 사례를 설명합니다." 
-   services="storsimple" 
-   documentationCenter="NA" 
-   authors="alkohli" 
-   manager="carolz" 
-   editor=""/>
+   pageTitle="StorSimple 시스템 요구 사항 | Microsoft Azure"
+	description="소프트웨어, 고가용성 및 Azure StorSimple 솔루션을 위한 네트워킹에 대한 시스템 요구 사항 및 모범 사례를 설명합니다."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD" 
-   ms.date="08/17/2015"
-   ms.author="alkohli"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/26/2015"
+	ms.author="alkohli"/>
 
-# StorSimple 시스템 요구 사항
+# StorSimple 소프트웨어, 높은 가용성 및 네트워킹 요구 사항
 
 ## 개요
 
@@ -194,4 +194,4 @@ StorSimple 솔루션의 최적의 성능을 위해 위의 네트워킹 요구 �
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

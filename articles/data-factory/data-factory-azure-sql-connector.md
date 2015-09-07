@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Azure SQL 커넥터-SQL Azure에서 데이터 이동" 
-	description="Azure SQL 데이터베이스에서 데이터를 이동시키는 데이터 팩터리 서비스용 Azure SQL 커넥터에 대해 알아봅니다" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Azure SQL 간 데이터 이동 | Azure 데이터 팩터리"
+	description="Azure 데이터 팩터리를 사용하여 Azure SQL 데이터베이스 간 데이터를 이동하는 방법에 대해 알아봅니다."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Azure SQL 커넥터-SQL Azure에서 데이터 이동
+# Azure 데이터 팩터리를 사용하여 Azure SQL 간 데이터 이동
 
 이 문서에서는 Azure 데이터 팩토리에서 복사 작업을 사용하여 다른 데이터 저장소와 Azure SQL 간에 데이터를 이동하는 방법을 간략하게 설명합니다. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 작성합니다.
 
@@ -24,11 +24,11 @@
 
 아래 샘플은 다음을 보여줍니다.
 
-1. AzureSqlDatabase 형식의 연결된 서비스입니다.
-2. [AzureStorage](data-factory-azure-blob-connector.md/#LinkedService) 형식의 연결된 서비스입니다. 
-3. AzureSqlTable 형식의 입력 데이터 집합입니다. 
-4. [AzureBlob](data-factory-azure-blob-connector.md/#Dataset) 형식의 출력 데이터 집합입니다.
-4. SqlSource 및 [BlobSink](data-factory-azure-blob-connector.md/#CopyActivity)를 사용하는 복사 작업의 파이프라인입니다.
+1. [AzureSqlDatabase](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) 형식의 연결된 서비스입니다.
+2. [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스입니다. 
+3. [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다. 
+4. [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)입니다.
+4. [SqlSource](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
 샘플은 Azure SQL 데이터베이스의 테이블에서 blob로 매시간 시계열에 속한 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
@@ -87,7 +87,7 @@
 
 **Azure Blob 출력 데이터 집합**
 
-데이터는 매시간 새 blob에 기록됩니다.(빈도: 1시간, 간격:1회) Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간에서 연도, 월, 일 및 시간 부분을 사용합니다.
+데이터는 매시간 새 blob에 기록됩니다(frequency: hour, interval: 1). Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간에서 연도, 월, 일 및 시간 부분을 사용합니다.
 
 	{
 	  "name": "AzureBlobOutput",
@@ -145,7 +145,7 @@
 
 **복사 작업을 포함하는 파이프라인**
 
-파이프라인은 위의 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **원본** 형식은 **SqlSource**으로 설정되고 **싱크** 형식은 **BlobSink**으로 설정됩니다. **SqlReaderQuery** 속성에 지정된 SQL 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
+파이프라인은 위의 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **원본** 형식은 **SqlSource**로 설정되고 **싱크** 형식은 **BlobSink**로 설정됩니다. **SqlReaderQuery** 속성에 지정된 SQL 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
 
 	{  
 	    "name":"SamplePipeline",
@@ -171,7 +171,7 @@
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm}\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm}\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -196,11 +196,11 @@
 
 아래 샘플은 다음을 보여줍니다.
 
-1.	AzureSqlDatabase 형식의 연결된 서비스입니다.
-2.	AzureStorage 형식의 연결된 서비스입니다.
-3.	AzureBlob 형식의 입력 데이터 집합입니다.
-4.	AzureSqlTable 형식의 출력 데이터 집합입니다.
-4.	BlobSource 및 SqlSink를 사용하는 복사 작업의 파이프라인입니다.
+1.	[AzureSqlDatabase](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) 형식의 연결된 서비스입니다.
+2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스입니다.
+3.	[AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다.
+4.	[AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)입니다.
+4.	[BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) 및 [SqlSink](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
 샘플은 Azure blob에서 Azure SQL 데이터베이스의 테이블로 매시간 시계열에 속한 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
@@ -231,7 +231,7 @@
 
 **Azure Blob 입력 데이터 집합**
 
-데이터는 매시간 새 blob에 선택됩니다.(빈도: 1시간, 간격:1회) Blob에 대한 폴더 경로 및 파일 이름은 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 연도, 월 및 일 일부 시작 시간을 사용하고 파일 이름은 시작 시간의 시간 부분을 사용합니다. "external": "true" 설정은 데이터 팩터리 서비스에 이 테이블이 데이터 팩터리의 외부에 있으며 데이터 팩터리의 활동에서 생성되지 않았음을 알립니다.
+데이터는 매시간 새 blob에 선택됩니다(frequency: hour, interval: 1). Blob에 대한 폴더 경로 및 파일 이름은 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 연도, 월 및 일 일부 시작 시간을 사용하고 파일 이름은 시작 시간의 시간 부분을 사용합니다. "external": "true" 설정은 데이터 팩터리 서비스에 이 테이블이 데이터 팩터리의 외부에 있으며 데이터 팩터리의 활동에서 생성되지 않았음을 알립니다.
 
 	{
 	  "name": "AzureBlobInput",
@@ -387,7 +387,7 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 
 ## Azure SQL 복사 활동 형식 속성
 
-활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하십시오. 이름, 설명, 입력 및 출력 테이블, 다양한 정책 등과 같은 속성은 모든 유형의 활동에 사용할 수 있습니다.
+활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력 및 출력 테이블, 다양한 정책 등과 같은 속성은 모든 유형의 활동에 사용할 수 있습니다.
 
 > [AZURE.NOTE]복사 작업은 하나의 입력을 가지고 하나의 출력을 생성합니다.
 
@@ -397,15 +397,15 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- |
-| sqlReaderQuery | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | SQL 쿼리 문자열입니다. 예를 들어 MyTable에서 *를 선택합니다. 실행되는 SQL 문을 지정하지 않으면 MyTable 중에서 선택합니다. | 아니요 |
+| sqlReaderQuery | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | SQL 쿼리 문자열입니다. 예: select * from MyTable. 지정하지 않는 경우 실행되는 SQL 문: select from MyTable. | 아니요 |
 
 **SqlSink**는 다음 속성을 지원합니다.
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- |
-| sqlWriterStoredProcedureName | 사용자는 대상 테이블에 데이터를 upsert(업데이트/삽입)하는 저장 프로시저를 지정했습니다. | 저장 프로시저의 이름입니다. | 아니요 |
-| sqlWriterTableType | 사용자는 위의 저장 프로시저에서 사용할 테이블 형식 이름을 지정했습니다. 복사 작업을 사용하면 이 테이블 형식으로 임시 테이블에서 사용할 수 있는 데이터를 이동시킵니다. 저장 프로시저 코드는 기존 데이터로 복사된 데이터를 병합할 수 있습니다. | 테이블 유형 이름 | 아니요 |
-| writeBatchTimeout | 시간이 초과 되기 전에 완료하려는 일괄 처리 삽입 작업을 위한 대기 시간입니다. | (단위 = timespan) 예를 들어 “00:30:00”(30분)입니다. | 아니요 | 
+| sqlWriterStoredProcedureName | 대상 테이블에 데이터를 upsert(업데이트/삽입)하기 위해 사용자가 지정한 저장 프로시저 이름입니다. | 저장 프로시저의 이름입니다. | 아니요 |
+| sqlWriterTableType | 위의 저장 프로시저에서 사용할 사용자가 지정한 테이블 형식 이름입니다. 복사 작업을 사용하면 이 테이블 형식으로 임시 테이블에서 사용할 수 있는 데이터를 이동시킵니다. 그러면 저장 프로시저 코드가 복사되는 데이터를 기존 데이터와 병합할 수 있습니다. | 테이블 유형 이름 | 아니요 |
+| writeBatchTimeout | 시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. | (단위 = timespan) 예: "00:30:00"(30분). | 아니요 | 
 | sqlWriterCleanupScript | 사용자는 데이터의 특정 조각을 정리할 수 있도록 실행하는 복사 작업에 쿼리를 지정했습니다. 자세한 내용은 아래 반복성 섹션을 참조하십시오. | 쿼리 문입니다. | 아니요 |
 | sliceIdentifierColumnName | 사용자는 자동 생성된 조각 식별자로 채워진 복사 작업에 열 이름을 지정하여 다시 실행하는 경우 특정 조각의 데이터를 정리하는 데 사용합니다. 자세한 내용은 아래 반복성 섹션을 참조하십시오. | 이진(32) 데이터 형식이 있는 열의 열 이름입니다. | 아니요 |
 
@@ -423,14 +423,14 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 1. 네이티브 원본 형식에서 .NET 형식으로 변환
 2. .NET 형식에서 네이티브 싱크 형식으로 변환
 
-SQL Azure, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식에서 .NET 유형에 그리고 그 반대로 다음 매핑을 사용합니다.
+Azure SQL, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식에서 .NET 형식에 그리고 그 반대로 다음 매핑을 사용합니다.
 
 매핑은 ADO.NET에 대한 SQL Server 데이터 형식 매핑과 같습니다.
 
 | SQL Server 데이터베이스 엔진 형식 | .NET Framework 형식 |
 | ------------------------------- | ------------------- |
 | bigint | Int64 |
-| binary | 바이트 |
+| binary | Byte |
 | bit | Boolean |
 | char | String, Char |
 | date | DateTime |
@@ -438,9 +438,9 @@ SQL Azure, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식�
 | datetime2 | DateTime |
 | Datetimeoffset | DateTimeOffset |
 | 10진수 | 10진수 |
-| FILESTREAM 특성 (이진(최대)) | 바이트 |
+| FILESTREAM 특성(varbinary(max)) | Byte |
 | Float | Double |
-| 이미지 | 바이트 | 
+| 이미지 | Byte | 
 | int | Int32 | 
 | money | 10진수 |
 | nchar | String, Char |
@@ -448,17 +448,17 @@ SQL Azure, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식�
 | numeric | 10진수 |
 | nvarchar | String, Char |
 | real | 단일 |
-| rowversion | 바이트 |
+| rowversion | Byte |
 | smalldatetime | DateTime |
 | smallint | Int16 |
 | smallmoney | 10진수 | 
 | sql\_variant | 개체 * |
 | 텍스트 | String, Char |
 | 실시간 | TimeSpan |
-| timestamp | 바이트 |
-| tinyint | 바이트 |
+| timestamp | Byte |
+| tinyint | Byte |
 | uniqueidentifier | Guid |
-| varbinary | 바이트 |
+| varbinary | Byte |
 | varchar | String, Char |
 | xml | Xml |
 
@@ -471,4 +471,4 @@ SQL Azure, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식�
 
 	 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

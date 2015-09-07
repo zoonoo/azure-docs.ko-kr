@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Express 경로 프리미엄 추가 기능 사용 또는 사용하지 않도록 설정하는 방법 | Microsoft Azure"
-   description="Express 경로 회로에 대해 Express 경로 프리미엄 추가 기능 사용 또는 사용하지 않도록 설정하는 방법 Express 경로 프리미엄으로 Express 경로 회로에 대해 최대 10개의 가상 네트워크 및 공용 및 개인 피어링에 대해 최대 10, 000개의 경로를 추가할 수 있습니다. 또한 한 지역의 가상 네트워크를 다른 지역의 Express 경로 회로에 연결할 수 있습니다."
-   services="expressroute"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="jdial"
-   editor="tysonn" />
+	description="Express 경로 회로에 대해 Express 경로 프리미엄 추가 기능 사용 또는 사용하지 않도록 설정하는 방법 Express 경로 프리미엄으로 Express 경로 회로에 대해 최대 10개의 가상 네트워크 및 공용 및 개인 피어링에 대해 최대 10, 000개의 경로를 추가할 수 있습니다. 또한 한 지역의 가상 네트워크를 다른 지역의 Express 경로 회로에 연결할 수 있습니다."
+	services="expressroute"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/02/2015"
-   ms.author="cherylmc" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="cherylmc"/>
 
 # Express 경로 회로에 대한 Express 경로 프리미엄 추가 기능 구성
 
@@ -172,9 +172,9 @@ Express 경로 프리미엄 추가 기능을 회로에 사용할 수 있는지 �
 		Sku                              : Premium
 		Status                           : Standard
 
-	이제 Express 경로 프리미엄 추가 기능을 사용하지 않도록 설정했습니다.
+	그러면 회로에 대해 프리미엄 추가 기능을 사용할 수 없습니다.
 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

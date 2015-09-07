@@ -1,19 +1,19 @@
 <properties 
    pageTitle="VNet(가상 네트워크)에서 사용하는 DNS 서버 관리"
-   description="VNet(가상 네트워크)에서 DNS 서버를 추가 및 제거하는 방법을 알아봅니다."
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="VNet(가상 네트워크)에서 DNS 서버를 추가 및 제거하는 방법을 알아봅니다."
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="06/08/2015"
+	ms.author="telmos"/>
 
 # VNet(가상 네트워크)에서 사용하는 DNS 서버 관리
 
@@ -49,11 +49,11 @@
 
 네트워크 구성 파일을 사용하여 DNS 서버 목록을 편집하려면 먼저 관리 포털에서 구성 설정을 내보냅니다. 그런 다음 네트워크 구성 파일을 편집하고 관리 포털을 통해 다시 가져옵니다. 다음은 이 프로세스를 완료하기 위한 대략적인 단계 목록입니다.
 
-1. 가상 네트워크 설정을 네트워크 구성 파일로 내보냅니다. 네트워크 구성 설정을 내보내는 단계에 대한 자세한 내용은 [가상 네트워크 설정을 네트워크 구성 파일로 내보내기](https://msdn.microsoft.com/library/azure/dn133804.aspx)를 참조하세요.
+1. 가상 네트워크 설정을 네트워크 구성 파일로 내보냅니다. 네트워크 구성 설정을 내보내는 단계에 대한 자세한 내용은 [가상 네트워크 설정을 네트워크 구성 파일로 내보내기](virtual-networks-using-network-configuration-file.md)를 참조하세요.
 
-1. 가상 네트워크에 대한 DNS 서버 정보를 지정합니다. DNS 서버를 지정하는 방법에 대한 자세한 내용은 [가상 네트워크 구성 파일에서 DNS 서버 지정](https://msdn.microsoft.com/library/windowsazure/jj156098.aspx)을 참조하세요. 네트워크 구성 파일에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx) 및 [네트워크 구성 파일을 사용하여 가상 네트워크 구성](https://msdn.microsoft.com/library/azure/jj156097.aspx)을 참조하세요.
+1. 가상 네트워크에 대한 DNS 서버 정보를 지정합니다. DNS 서버를 지정하는 방법에 대한 자세한 내용은 [가상 네트워크 구성 파일에서 DNS 서버 지정](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)을 참조하세요. 네트워크 구성 파일에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx) 및 [네트워크 구성 파일을 사용하여 가상 네트워크 구성](virtual-networks-using-network-configuration-file.md)을 참조하세요.
 
-1. 네트워크 구성 파일을 가져옵니다. 네트워크 구성 파일을 가져오는 단계에 대한 자세한 내용은 [네트워크 구성 파일 가져오기](https://msdn.microsoft.com/library/azure/jj156213.aspx)를 참조하세요.
+1. 네트워크 구성 파일을 가져옵니다. 네트워크 구성 파일을 가져오는 단계에 대한 자세한 내용은 [네트워크 구성 파일 가져오기](virtual-networks-using-network-configuration-file.md)를 참조하세요.
 
 1. 가상 네트워크에 있는 가상 컴퓨터에서 새로운 DNS 설정을 가져올 수 있도록 하려면 해당 가상 컴퓨터를 다시 시작합니다.
 
@@ -65,4 +65,4 @@
 
 [VNet(가상 네트워크)을 삭제하는 방법](../virtual-networks-delete-vnet)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

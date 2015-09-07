@@ -1,22 +1,20 @@
 <properties 
-   authors="danielceckert" 
-   documentationCenter="dev-center-name" 
-   editor=""
-   manager="jefco" 
-   pageTitle="관리: 부하 분산 장치 유휴 시간 제한" 
-   description="Azure 부하 분산 장치 유휴 시간 제한 관리 기능" 
-   services="virtual-network" 
-   />
+   authors="danielceckert"
+	documentationCenter="dev-center-name"
+	editor=""
+	manager="jefco"
+	pageTitle="관리: 부하 분산 장치 유휴 시간 제한"
+	description="Azure 부하 분산 장치 유휴 시간 제한 관리 기능"
+	services="virtual-network"/>
 
 <tags
    ms.author="danecke"
-   ms.date="05/27/2015"
-   ms.devlang="na"
-   ms.service="virtual-network"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   />
+	ms.date="05/27/2015"
+	ms.devlang="na"
+	ms.service="virtual-network"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"/>
    
 # 가상 네트워크 관리: 부하 분산 장치 TCP 유휴 시간 제한
 
@@ -28,14 +26,14 @@
 
 TCP 연결 유지는 효율적으로 작동하기는 하지만 모바일 응용 프로그램은 모바일 장치에서 제한적인 전원 리소스를 사용하기 때문에 일반적으로 TCP 연결 유지를 사용하지 않습니다. 모바일 응용 프로그램이 TCP 연결 유지를 사용하는 경우 네트워크용으로 전원을 계속 사용하므로 장치 배터리가 더 빨리 소진됩니다.
 
-모바일 장치 시나리오를 지원하기 위해 Azure 부하 분산 장치는 구성 가능한 TCP 유휴 시간 제한을 지원합니다. 개발자는 인바운드 연결의 TCP 유휴 시간 제한을 4분\~30분 사이로 설정할 수 있습니다. 아웃바운드 연결에는 구성 가능한 TCP 유휴 시간 제한을 적용할 수 없습니다. 그러므로 클라이언트는 비활성 시간이 길더라도 서버와의 세션을 훨씬 오랫동안 유지할 수 있습니다. 모바일 장치의 응용 프로그램도 TCP 연결 유지 기술을 사용하여 비활성 상태인 시간이 30분보다 긴 연결을 유지할 수 있습니다. 이처럼 TCP 유휴 시간 제한이 길면 응용 프로그램이 TCP 연결 유지 요청을 보내는 빈도가 이전보다 훨씬 낮아지므로 모바일 장치 전원 리소스에 대한 부담이 크게 줄어듭니다.
+모바일 장치 시나리오를 지원하기 위해 Azure 부하 분산 장치는 구성 가능한 TCP 유휴 시간 제한을 지원합니다. 개발자는 인바운드 연결의 TCP 유휴 시간 제한을 4분~30분 사이로 설정할 수 있습니다. 아웃바운드 연결에는 구성 가능한 TCP 유휴 시간 제한을 적용할 수 없습니다. 그러므로 클라이언트는 비활성 시간이 길더라도 서버와의 세션을 훨씬 오랫동안 유지할 수 있습니다. 모바일 장치의 응용 프로그램도 TCP 연결 유지 기술을 사용하여 비활성 상태인 시간이 30분보다 긴 연결을 유지할 수 있습니다. 이처럼 TCP 유휴 시간 제한이 길면 응용 프로그램이 TCP 연결 유지 요청을 보내는 빈도가 이전보다 훨씬 낮아지므로 모바일 장치 전원 리소스에 대한 부담이 크게 줄어듭니다.
 
 ## 구현
 
 다음에 대해 TCP 유휴 시간 제한을 구성할 수 있습니다.
 
-* [인스턴스 수준 공용 IP](http://msdn.microsoft.com/library/azure/dn690118.aspx)
-* [부하 분산된 끝점 집합](http://msdn.microsoft.com/library/azure/dn655055.aspx)
+* [인스턴스 수준 공용 IP](virtual-networks-instance-level-public-ip.md)
+* [부하 분산된 끝점 집합](../load-balancer/load-balancer-overview.md)
 * [가상 컴퓨터 끝점](../virtual-machines/virtual-machines-set-up-endpoints.md)
 * [웹 역할](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 * [작업자 역할](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
@@ -50,7 +48,7 @@ TCP 연결 유지는 효율적으로 작동하기는 하지만 모바일 응용 
 
     Set-AzurePublicIP –PublicIPName webip –VM MyVM -IdleTimeoutInMinutes 15
 
-IdleTimeoutInMinutes는 선택 사항이며 설정하지 않으면 기본 시간 제한은 4분으로 설정됩니다. 이제는 해당 값을 4분\~30분 사이로 설정할 수 있습니다.
+IdleTimeoutInMinutes는 선택 사항이며 설정하지 않으면 기본 시간 제한은 4분으로 설정됩니다. 이제는 해당 값을 4분~30분 사이로 설정할 수 있습니다.
 
 ### 가상 컴퓨터에서 Azure 끝점을 만들 때 유휴 시간 제한 설정
 
@@ -152,4 +150,4 @@ LoadBalancerDistribution의 값은 2개 튜플 선호도의 경우 sourceIP로, 
     </LoadBalancedEndpointList>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

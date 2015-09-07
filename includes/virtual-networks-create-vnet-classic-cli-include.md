@@ -1,9 +1,9 @@
-## How to create a classic VNet using Azure CLI
+## Azure CLI를 사용하여 클래식 VNet을 만드는 방법
 
-You can use the Azure CLI to manage your Azure resources from the command prompt from any computer running Windows, Linux, or OSX. To create a VNet by using the Azure CLI, follow the steps below.
+Windows, Linux 또는 OSX를 실행하는 컴퓨터의 명령 프롬프트에서 Azure CLI를 사용하여 Azure 리소스를 관리할 수 있습니다. Azure CLI를 사용하여 VNet을 만들려면 다음 단계를 수행합니다.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
-2. Run the **azure network vnet create** command to create a VNet and a subnet, as shown below. Notice the output from the CLI command. The list shown after the output explains the parameters used.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](xplat-cli.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+2. 아래와 같이 **azure network vnet create** 명령을 실행하여 VNet과 서브넷을 만듭니다. CLI 명령의 출력을 확인합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
 
 			azure network vnet create --vnet TestVNet -e 192.168.0.0 -i 16 -n FrontEnd -p 192.168.1.0 -r 24 -l "Central US"
 	
@@ -13,15 +13,15 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 			+ Setting network configuration
 			info:    network vnet create command OK
 
-	- **--vnet**. Name of the VNet to be created. For our scenario, *TestVNet*
-	- **-e (or --address-space)**. VNet address space. For our scenario, *192.168.0.0*
-	- **-i (or -cidr)**. Network mask in CIDR format. For our scenario, *16*.
-	- **-n (or --subnet-name**). Name of the first subnet. For our scenario, *FrontEnd*.
-	- **-p (or --subnet-start-ip)**. Starting IP address for subnet, or subnet address space. For our scenario, *192.168.1.0*.
-	- **-r (or --subnet-cidr)**. Network mask in CIDR format for subnet. For our scenario, *24*.
-	- **-l (or --location)**. Azure region where the VNet will be created. For our scenario, *Central US*.
+	- **--vnet**. 만들 VNet의 이름입니다. 이 시나리오에서는 *TestVNet*입니다.
+	- **-e(또는 --address-space)**. VNet 주소 공간입니다. 이 시나리오에서는 *192.168.0.0*입니다.
+	- **-i(또는 -cidr)**. CIDR 형식의 네트워크 마스크입니다. 이 시나리오에서는 *16*입니다.
+	- **-n(또는 --subnet-name**). 첫 번째 서브넷의 이름입니다. 이 시나리오에서는 *FrontEnd*입니다.
+	- **-p(또는 --subnet-start-ip)**. 서브넷 또는 서브넷 주소 공간의 시작 IP 주소입니다. 이 시나리오에서는 *192.168.1.0*입니다.
+	- **-r(또는 --subnet-cidr)**. 서브넷에 대한 CIDR 형식의 네트워크 마스크입니다. 이 시나리오에서는 *24*입니다.
+	- **-l(또는 --location)**. VNet을 만들 Azure 지역입니다. 이 시나리오에서는 *Central US*입니다.
 
-3. Run the **azure network vnet subnet create** command to create a subnet as shown below. Notice the output of the command. The list shown after the output explains the parameters used.
+3. 아래와 같이 **azure network vnet subnet create** 명령을 실행하여 서브넷을 만듭니다. 명령의 출력을 확인합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
 
 			azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
 	
@@ -35,11 +35,11 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 			data:    Address prefix                  : 192.168.2.0/24
 			info:    network vnet subnet create command OK
 
-	- **-t (or --vnet-name**. Name of the VNet where the subnet will be created. For our scenario, *TestVNet*.
-	- **-n (or --name)**. Name of the new subnet. For our scenario, *BackEnd*.
-	- **-a (or --address-prefix)**. Subnet CIDR block. Four our scenario, *192.168.2.0/24*.
+	- **-t(또는 --vnet-name**. 서브넷이 만들어지는 VNet의 이름입니다. 이 시나리오에서는 *TestVNet*입니다.
+	- **-n(또는 --name)**. 새 서브넷의 이름입니다. 이 시나리오에서는 *BackEnd*입니다.
+	- **-a(또는 --address-prefix)**. 서브넷 CIDR 블록입니다. 이 시나리오에서는 *192.168.2.0/24*입니다.
 
-4. Run the **azure network vnet show** command to view the properties of the new vnet, as shown below.
+4. 아래와 같이 새 VNet의 속성을 보려면 **azure network vnet show** 명령을 실행합니다.
 
 			azure network vnet show
 
@@ -58,3 +58,5 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 			data:      Address prefix                : 192.168.2.0/24
 			data:
 			info:    network vnet show command OK
+
+<!---HONumber=August15_HO9-->

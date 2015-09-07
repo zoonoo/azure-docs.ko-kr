@@ -1,20 +1,20 @@
 <properties
    pageTitle="SQL 데이터 웨어하우스를 통한 탄력적인 성능과 확장| Microsoft Azure"
-   description="데이터 웨어하우스 단위를 사용하여 계산 리소스를 증가/축소하면서 SQL 데이터 웨어하우스의 탄력성에 대해 이해합니다. 코드 예제가 제공됩니다."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="TwoUnder"
-   manager="barbkess"
-   editor=""/>
+	description="데이터 웨어하우스 단위를 사용하여 계산 리소스를 증가/축소하면서 SQL 데이터 웨어하우스의 탄력성에 대해 이해합니다. 코드 예제가 제공됩니다."
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="TwoUnder"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/25/2015"
-   ms.author="nicw;JRJ@BigBangData.co.uk;mausher"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="06/25/2015"
+	ms.author="nicw;JRJ@BigBangData.co.uk;mausher"/>
 
 # SQL 데이터 웨어하우스를 통한 탄력적인 성능과 확장
 계산 능력을 탄력적으로 늘리거나 줄이려면 SQL 데이터 웨어하우스에 할당된 데이터 웨어하우스 단위(DWU)의 수를 조정하기만 하면 됩니다. 데이터 웨어하우스 단위는 SQL 데이터 웨어하우스에서 제공하는 새로운 개념으로 이것을 간단하고 효과적으로 관리해줍니다. 이 토픽에서는 데이터 웨어하우스 단위를 사용하여 계산 능력을 탄력적으로 조정할 수 있는 방법과 함께 데이터 웨어하우스 단위에 대해 소개합니다. 이 문서는 또한 사용자 환경에 맞게 적절한 DWU 값을 설정하는 방법에 대한 일부 초기 지침도 제공합니다.
@@ -39,15 +39,16 @@ SQL 데이터 웨어하우스는 많은 다양한 솔루션을 고객을 위해 
 ## 계산 리소스 위/아래로 조정
 클라우드 저장소와는 독립적으로 SQL 데이터 웨어하우스의 탄력성 덕분에 데이터 웨어하우스 단위(DWU)의 슬라이딩 규모를 사용함으로써 계산 능력을 확장, 축소 또는 일시 중지할 수 있습니다. 따라서 계산 능력을 자사에 맞게 최적으로 조정할 수 있는 유연성이 확보됩니다.
 
-계산 능력의 증가는 [Azure 포털][]을 통해 T-SQL, REST Api 또는 Powershell을 사용하여 가능합니다. 위/아래로 조정하면 실행 중인 모든 큐 대기 활동이 취소되지만 몇 초 안에 완료되므로 더 많은 또는 더 적은 계산 능력으로 다시 시작할 수 있습니다.
+계산 능력을 향상시키려면 Azure 포털에서 눈금 슬라이더를 사용하여 서비스에 DWU를 추가할 수 있습니다. 또한 T-SQL, REST API 또는 Powershell cmdlet을 통해 DWU를 추가할 수 있습니다. 위/아래로 조정하면 실행 중인 모든 큐 대기 활동이 취소되지만 몇 초 안에 완료되므로 더 많은 또는 더 적은 계산 능력으로 다시 시작할 수 있습니다.
 
-다음 T-SQL 코드는 SQL 데이터 웨어하우스에 대한 DWU의 할당을 조정하는 방법을 보여줍니다.
+[Azure 포털][]에서 SQL 데이터 웨어하우스에 페이지 위쪽의 '배율' 아이콘을 클릭한 다음 '저장'을 클릭하기 전에 슬라이더를 사용하여 데이터 웨어하우스의에 적용하는 DWU 양을 늘리거나 줄입니다. 규모를 프로그래밍 방식으로 변경하려면 다음 T-SQL 코드가 SQL 데이터 웨어하우스에 대한 DWU의 할당을 조정하는 방법을 보여줍니다.
 
 ```
 ALTER DATABASE MySQLDW 
 MODIFY (SERVICE_OBJECTIVE = 'DW1000')
 ;
 ```
+T-SQL는 SQL 데이터 웨어하우스 인스턴스 자체가 아닌 논리 서버에 대해 실행되어야 합니다.
 
 아래 코드를 사용하여 Powershell을 통해 동일한 결과를 얻을 수도 있습니다.
 
@@ -95,4 +96,4 @@ PowerShell을 사용하는 방법에 대한 자세한 내용은 [PowerShell cmdl
 
 [Azure 포털]: http://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

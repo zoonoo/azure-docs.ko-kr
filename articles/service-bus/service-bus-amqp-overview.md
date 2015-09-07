@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="서비스 버스 AMQP 개요 | Microsoft Azure" 
-	description="Azure에서 AMQP(Advanced Message Queuing Protocol) 1.0을 사용하는 방법에 대해 알아봅니다." 
-	services="service-bus" 
-	documentationCenter=".net" 
-	authors="sethmanheim" 
-	manager="timlt" 
+	pageTitle="서비스 버스 AMQP 개요 | Microsoft Azure"
+	description="Azure에서 AMQP(Advanced Message Queuing Protocol) 1.0을 사용하는 방법에 대해 알아봅니다."
+	services="service-bus"
+	documentationCenter=".net"
+	authors="sethmanheim"
+	manager="timlt"
 	editor="mattshel"/>
 
 <tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.service="service-bus"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="07/21/2015"
 	ms.author="sethm"/>
 
 
@@ -77,7 +77,7 @@ AMQP 1.0은 2008년 이래로 기술 공급업체와 최종 사용자 업체를 
 | C | Apache Qpid Proton-C |
 | PHP | Apache Qpid Proton-PHP |
 | Python | Apache Qpid Proton-Python |
-
+| C# | AMQP .Net Lite |
 
 **그림 2: AMQP 1.0 클라이언트 라이브러리 표**
 
@@ -98,4 +98,4 @@ AMQP 1.0은 2008년 이래로 기술 공급업체와 최종 사용자 업체를 
 [0]: ./media/service-bus-amqp-overview/Example1.png
 [서비스 버스 AMQP 개발자 가이드]: http://msdn.microsoft.com/library/jj841071.aspx
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

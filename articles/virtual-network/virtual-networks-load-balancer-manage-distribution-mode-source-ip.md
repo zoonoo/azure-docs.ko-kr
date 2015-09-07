@@ -1,22 +1,20 @@
 <properties 
    pageTitle="관리: 부하 분산 장치 배포 모드(원본 IP 선호도)"
-   description="Azure 부하 분산 장치 배포 모드용 관리 기능" 
-   services="virtual-network" 
-   documentationCenter="" 
-   authors="telmosampaio" 
-   manager="carolz" 
-   editor=""
-   />
+	description="Azure 부하 분산 장치 배포 모드용 관리 기능"
+	services="virtual-network"
+	documentationCenter=""
+	authors="telmosampaio"
+	manager="carolz"
+	editor=""/>
 
 <tags
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/27/2015"
-   ms.author="telmos"
-   />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/21/2015"
+	ms.author="telmos"/>
    
 # 가상 네트워크 관리: 부하 분산 장치 배포 모드(원본 IP 선호도)
 **원본 IP 선호도**는 **세션 선호도** 또는 **클라이언트 IP 선호도**라고도 하며, 각 클라이언트 연결을 여러 Azure 호스팅 서버에 동적으로 분산시키는 기본 부하 분산 장치 동작을 사용하는 대신 단일 클라이언트의 연결을 단일 Azure 호스팅 서버에 연결하는 Azure 부하 분산 장치 배포 모드입니다.
@@ -32,7 +30,7 @@
 다음에 대해 원본 IP 선호도를 구성할 수 있습니다.
 
 * [가상 컴퓨터 끝점](../virtual-machines/virtual-machines-set-up-endpoints.md)
-* [부하 분산된 끝점 집합](http://msdn.microsoft.com/library/azure/dn655055.aspx)
+* [부하 분산된 끝점 집합](../load-balancer/load-balancer-overview.md)
 * [웹 역할](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 * [작업자 역할](http://msdn.microsoft.com/library/windowsazure/ee758711.aspx)
 
@@ -161,4 +159,4 @@ LoadBalancerDistribution의 값은 2개 튜플 선호도의 경우 sourceIP로, 
     Date: Thu, 16 Oct 2014 22:49:21 GMT
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

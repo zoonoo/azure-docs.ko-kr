@@ -1,20 +1,20 @@
 <properties
    pageTitle="서비스 패브릭 서비스의 확장성"
-   description="서비스 패브릭 서비스의 규모를 조정하는 방법을 설명합니다."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="appi101"
-   manager="timlt"
-   editor=""/>
+	description="서비스 패브릭 서비스의 규모를 조정하는 방법을 설명합니다."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="appi101"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/23/2015"
-   ms.author="aprameyr"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="aprameyr"/>
 
 # 서비스 패브릭 응용 프로그램 크기 조정
 서비스 패브릭을 사용하면 클러스터의 모든 노드에서 부하 분산 서비스, 파티션 및 복제본에 의해 확장 가능한 응용 프로그램의 빌드가 쉬워집니다. 최대 리소스 사용률을 가능하게 합니다.
@@ -61,4 +61,4 @@
 - [상태 정의 및 관리](service-fabric-concepts-state.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

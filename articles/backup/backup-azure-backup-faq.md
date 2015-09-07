@@ -1,13 +1,13 @@
 <properties
    pageTitle="Azure 백업 FAQ | Microsoft Azure"
-   description="Azure 백업 서비스에 대한 질문과 대답"
-   services="backup"
-   documentationCenter=""
-   authors="Jim-Parker"
-   manager="shreeshd"
-   editor=""/>
+	description="Azure 백업 서비스에 대한 질문과 대답"
+	services="backup"
+	documentationCenter=""
+	authors="Jim-Parker"
+	manager="shreeshd"
+	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/07/2015" ms.author="arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/26/2015" ms.author="giridham"; "arunak"; "jimpark"; "aashishr"/>
 
 # Azure 백업 - FAQ
 다음은 Azure 백업에 대한 질문과 대답 목록입니다. Azure 백업에 대한 추가 질문이 있으면 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)으로 이동하여 질문을 게시하세요. 커뮤니티의 구성원이 답변을 얻는 데 도움을 줄 것입니다. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
@@ -21,6 +21,7 @@
 | Windows 8 및 최신 SP | 64비트 | Enterprise, Pro |
 | Windows 7 및 최신 SP | 64비트 | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
 | Windows 8.1 및 최신 SP | 64비트 | Enterprise, Pro |
+| Windows 10 | 64비트 | Enterprise, Pro, Home |
 |Windows Server 2012 R2 및 최신 SP|	64비트|	Standard, Datacenter, Foundation|
 |Windows Server 2012 및 최신 SP|	64비트|	Datacenter, Foundation, Standard|
 |Windows Storage Server 2012 R2 및 최신 SP |64비트|	Standard, Workgroup|
@@ -77,11 +78,11 @@
 
 **Q16. 구독 간에 내 백업 자격 증명 모음을 “마이그레이션”할 수 있나요?** <br/> A16: 아니요, 자격 증명 모음은 구독 수준에서 만들어지며 생성된 후에는 다른 구독에 다시 할당할 수 없습니다.
 
-**Q17. Azure 백업 에이전트는 Windows 2012 중복제거를 사용하는 서버에서 작동합니까?** <br/>A17: 예. 에이전트 서비스는 백업 작업을 준비할 때 중복 제거 된 데이터를 일반 데이터로 변환 합니다. 그 다음 백업에 대 한 데이터를 최적화, 데이터를 암호화 한 다음 온라인 백업 서비스에 암호화 된 데이터를 보냅니다.
+**Q17. Azure 백업 에이전트는 Windows 2012 중복제거를 사용하는 서버에서 작동합니까?** <br/> A17: 예. 에이전트 서비스는 백업 작업을 준비할 때 중복 제거 된 데이터를 일반 데이터로 변환 합니다. 그 다음 백업에 대 한 데이터를 최적화, 데이터를 암호화 한 다음 온라인 백업 서비스에 암호화 된 데이터를 보냅니다.
 
-**Q18. 백업이 시작되고 난 뒤 취소한 경우 백업 데이터는 삭제됩니까?** <br/>A 18: 아니요. 백업 자격 증명 모음은 취소 지점까지 전송 된 데이터 백업을 저장 합니다. Azure 백업은 백업 데이터 검사 기준 백업하는 동안 가끔 가져오고 다음 백업 프로세스에서 파일의 무결성 유효성을 검사할 수 있도록 검사점 메커니즘을 사용합니다. 트리거된 다음 백업에 백업 된 이전에 데이터에 대해 증분된 것입니다. 동일한 데이터를 반복해서 전송할 필요가 없으므로 대역폭 사용률 개선을 제공합니다.
+**Q18. 백업이 시작되고 난 뒤 취소한 경우 백업 데이터는 삭제됩니까?** <br/> A18: 아니요. 백업 자격 증명 모음은 취소 지점까지 전송된 데이터 백업을 저장합니다. Azure 백업은 백업 데이터 검사 기준 백업하는 동안 가끔 가져오고 다음 백업 프로세스에서 파일의 무결성 유효성을 검사할 수 있도록 검사점 메커니즘을 사용합니다. 트리거된 다음 백업에 백업 된 이전에 데이터에 대해 증분된 것입니다. 동일한 데이터를 반복해서 전송할 필요가 없으므로 대역폭 사용률 개선을 제공합니다.
 
-**Q19. 이전에 정기 백업을 예약한 경우에도 “Azure 백업이 이 서버에 대해 구성되지 않았습니다"라는 경고가 표시됩니까?** <br/>A19: 로컬 서버에 저장된 백업 일정 설정과 백업 저장소에 저장된 설정이 동일하지 않을 경우 발생할 수 있습니다. 서버 혹은 설정이 좋은 상태로 복구된 경우, 백업 일정은 동기화를 잃을 수 있습니다. 이런 경우, 백업 정책을 다시 구성한 다음 **지금 백업 실행**하여 로컬서버를 Azure와 다시 동기화 합니다.
+**Q19. 이전에 정기 백업을 예약한 경우에도 “Azure 백업이 이 서버에 대해 구성되지 않았습니다"라는 경고가 표시됩니까?** <br/> A19: 로컬 서버에 저장된 백업 일정 설정과 백업 자격 증명 모음에 저장된 설정이 동일하지 않을 경우 발생할 수 있습니다. 서버 혹은 설정이 좋은 상태로 복구된 경우, 백업 일정은 동기화를 잃을 수 있습니다. 이런 경우, 백업 정책을 다시 구성한 다음 **지금 백업 실행**을 수행하여 로컬 서버를 Azure와 다시 동기화합니다.
 
 **Q20. Azure 백업의 백업을 구성하는 방화벽 규칙은 무엇입니까?** <br/> A20. 방화벽 규칙은 Azure에서 Azure 및 워크로드 보호를 위한 원활한 온-프레미스의 백업에 대한 아래 URL로 통신할 수 있습니다.
 
@@ -93,13 +94,25 @@
 
 
 ## 백업 및 보존
-**Q1. 백업하는 각 데이터 원본의 크기에 제한이 있나요?** <br/> A1. 2015년 7월을 기준으로 각 데이터 원본은 1.7TB보다 작거나 같아야 합니다. 데이터 원본은 다음 중 하나입니다.
+**Q1. 백업하는 각 데이터 원본의 크기에 제한이 있나요?** <br/> A1. 2015년 8월 기준으로, 다양한 운영 체제에 대한 데이터 원본의 최대 크기는 아래와 같습니다.
 
-- 파일/폴더 볼륨
-- SQL DB
-- Sharepoint 팜
-- Exchange Server
-- Hyper-V VM
+|S.No |	운영 체제 |	데이터 원본의 최대 크기 |
+| :-------------: |:-------------| :-----|
+|1| Windows Server 2012 이상| 54400GB|
+|2| Windows Server 8 이상| 54400GB|
+|3| Windows Server 2008, Windows Server 2008 R2 | 1700GB|
+|4| Windows 7 | 1700GB|
+ 
+데이터 원본 크기는 아래와 같이 측정됩니다.
+
+|	데이터 원본 |	세부 정보 |
+| :-------------: |:-------------|
+|볼륨 |컴퓨터의 단일 볼륨에서 백업되는 데이터 양. 서버와 클라이언트 컴퓨터 둘 다에서 보호되는 볼륨에 적용할 수 있습니다.|
+|Hyper-V 가상 컴퓨터|백업되는 가상 컴퓨터의 모든 VHD 데이터 합계|
+|Microsoft SQL Server 데이터베이스|백업되는 단일 SQL 데이터베이스 크기 |
+|Microsoft SharePoint|백업되는 SharePoint 팜 내의 콘텐츠 및 구성 데이터베이스 합계|
+|Microsoft Exchange|백업되는 Exchange 서버의 모든 Exchange 데이터베이스 합계|
+|BMR/시스템 상태|백업되는 컴퓨터의 각 개별 BMR 복사본 또는 시스템 상태|
 
 **Q2. 하루에 백업을 예약할 수 있는 횟수에 제한이 있나요?**<br/> A2. 예, Azure Backup은 Windows 서버/클라이언트를 통한 백업 복사본을 하루에 3개, SCDPM을 통한 백업 복사본을 하루에 2개 지원합니다.
 
@@ -166,4 +179,4 @@
 
 새 캐시 위치로 성공적으로 백업되면 원래 캐시 폴더를 제거할 수 있습니다.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

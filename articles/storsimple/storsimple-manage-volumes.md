@@ -1,19 +1,19 @@
 <properties
    pageTitle="StorSimple 볼륨 관리 | Microsoft Azure"
-   description="StorSimple 볼륨을 추가, 수정 및 모니터링하는 방법 및 필요에 따라 이를 오프라인으로 전환하는 방법에 대해 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+	description="StorSimple 볼륨을 추가, 수정 및 모니터링하는 방법 및 필요에 따라 이를 오프라인으로 전환하는 방법에 대해 설명합니다."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/14/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/21/2015"
+	ms.author="v-sharos"/>
 
 # StorSimple 볼륨 관리
 
@@ -71,7 +71,7 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 
   1. 볼륨의 **이름**을 지정합니다.
   2. 볼륨의 **프로비전된 용량**을 GB 또는 TB로 지정합니다. 용량은 실제 장치에 대해 1GB 및 64TB 사이여야 합니다. StorSimple 가상 장치에 있는 볼륨에 대해 프로비전할 수 있는 최대 용량은 30TB입니다.
-  3. 드롭다운 목록에서 볼륨의 **사용 유형**을 선택합니다. 자주 액세스하지 않는 보관 데이터로 작업하는 경우 **보관 볼륨**을 선택합니다. 기타 모든 경우에는 **기본 볼륨**을 선택합니다.
+  3. 드롭다운 목록에서 볼륨의 **사용 유형**을 선택합니다. 자주 액세스하지 않는 보관 데이터로 작업하는 경우 **보관 볼륨**을 선택합니다. 기타 모든 경우에는 **계층화된 볼륨**을 선택합니다. (계층화된 볼륨은 이전의 기본 볼륨입니다.)
   5. 화살표 아이콘![화살표 아이콘](./media/storsimple-manage-volumes/HCS_ArrowIcon.png)을 클릭하여 **추가 설정** 페이지로 이동합니다.
 
      ![추가 볼륨](./media/storsimple-manage-volumes/HCs_AddVolume2M.png)
@@ -181,4 +181,4 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,44 +1,46 @@
-## Create a Backup Vault
-To back up files and data from your Windows Server or System Center Data Protection Manager (SCDPM) to Azure or when backing up IaaS VMs to Azure, you must create a backup vault in the geographic region where you want to store the data.
+## 백업 자격 증명 모음 만들기
+Windows Server 또는 System Center Data Protection Manager(SCDPM)의 파일과 데이터를 Azure에 백업하거나 IaaS VM을 Azure에 백업하려면 데이터를 저장하려는 지역에 백업 자격 증명 모음을 만들어야 합니다.
 
-This article will walk you through the creation of the vault you will use to store backups.
+이 문서에서는 백업을 저장하는 데 사용할 자격 증명 모음을 만드는 과정을 안내합니다.
 
-## Video walkthrough
+## 연습 동영상
 
-Here's a quick video of the process.
+다음은 이 프로세스를 보여 주는 간단한 비디오입니다.
 
 [AZURE.VIDEO azure-backup-vault-creation]
 
-The following steps will walk you through the creation of the vault used to store backups.
+다음 단계에서는 백업을 저장하는 데 사용된 자격 증명 모음을 만드는 과정을 안내합니다.
 
-### Creating a backup vault
-1. Sign in to the [Management Portal](https://manage.windowsazure.com/)
-2. Click **New** > **Data Services** > **Recovery Services** > **Backup Vault** and choose **Quick Create**.
-3. For the **Name** parameter, enter a friendly name to identify the backup vault. This needs to be unique for each subscription.
-4. For the **Region** parameter, select the geographic region for the backup vault. The choice determines the geographic region to which your backup data is sent. By choosing a geographic region close to your location, you can reduce the network latency when backing up to Azure.
-5. Click on **Create Vault** to complete the workflow. It can take a while for the backup vault to be created. To check the status, you can monitor the notifications at the bottom of the portal.
+### 백업 자격 증명 모음 만들기
+1. [관리 포털](https://manage.windowsazure.com/)에 로그인합니다.
+2. **새로 만들기** -> **데이터 서비스** -> **복구 서비스** -> **백업 자격 증명 모음**을 클릭하고 **빨리 만들기**를 선택합니다.
+3. **이름** 매개 변수에 백업 자격 증명 모음을 식별할 이름을 입력합니다. 이는 각 구독에 대해 고유해야 합니다.
+4. **지역** 매개 변수에서 백업 자격 증명 모음의 지역을 선택합니다. 선택에 따라 백업 데이터가 전송되는 지역이 결정됩니다. 사용자의 위치에 가까운 지역을 선택하면 Azure에 백업할 때 네트워크 대기 시간을 줄일 수 있습니다.
+5. **자격 증명 모음 만들기**를 클릭하여 워크플로를 완료합니다. 백업 저장소름 만드는 데 시간이 걸릴 수 있습니다. 상태를 확인하려면 포털 화면의 아래쪽에서 알림을 모니터링할 수 있습니다.
 
-    ![Creating Vault](./media/backup-create-vault-wgif/create-vault-wgif.gif)
+    ![자격 증명 모음을 만드는 중](./media/backup-create-vault-wgif/create-vault-wgif.gif)
 
-6. After the backup vault has been created, a message tells you the vault has been successfully created. The vault is also listed in the resources for Recovery Services as **Active**.
-
-
+6. 백업 자격 증명 모음을 만든 후 자격 증명 모음이 성공적으로 생성되었다는 메시지가 나타납니다. 자격 증명 모음이 복구 서비스에 대한 리소스에 **활성**으로 표시됩니다.
 
 
-### Azure Backup - Storage Redundancy Options
 
-The best time to identify your storage redundancy option is right after vault creation, and before any machines are registered to the vault. Once an item has been registered to the vault, the storage redundancy option is locked and cannot be modified.
 
-Your business needs would determine the storage redundancy of the Azure Backup backend storage. If you are using Azure as a primary backup storage endpoint (e.g. you are backing up to Azure from a Windows Server), you should consider picking (the default) Geo-Redundant storage option. This is seen under the **Configure** option of your Backup vault.
+### Azure 백업 - 저장소 중복 옵션
+
+저장소 중복 옵션을 지정하기에 가장 좋은 시기는 자격 증명 모음을 만든 후 자격 증명 모음에 컴퓨터를 등록하기 바로 직전입니다. 항목이 자격 증명 모음에 등록되고 나면 저장소 중복 옵션 잠기고 수정할 수 없습니다.
+
+비즈니스 요구에 따라 Azure 백업 백엔드 저장소의 저장소 중복을 결정할 수 있습니다. 기본 백업 저장소 끝점으로 Azure를 사용 중인 경우(예: Windows Server에서 Azure로 백업하는 경우) 지역 중복 저장소 옵션(기본값)을 선택하는 것이 좋습니다. 이는 백업 자격 증명 모음의 **구성** 옵션 아래에서 볼 수 있습니다.
 
 ![GRS](./media/backup-create-vault/grs.png)
 
-#### Geo-Redundant Storage (GRS)
-GRS maintains six copies of your data. With GRS, your data is replicated three times within the primary region, and is also replicated three times in a secondary region hundreds of miles away from the primary region, providing the highest level of durability. In the event of a failure at the primary region, by storing data in GRS, Azure Backup ensures that your data is durable in two separate regions.
+#### 지역 중복 저장소(GRS)
+GRS는 데이터의 복사본을 6개 유지 관리합니다. GRS를 사용하면 데이터가 기본 영역에서 3번 복제되고 기본 지역으로부터 수백 킬로미터 떨어진 보조 지역에도 3번 복제되며, 최고 수준의 영속성을 제공합니다. Azure 백업은 주 지역에서 오류가 발생할 경우 GRS에 데이터를 저장하여 두 지역에서 데이터가 지속되도록 합니다.
 
-#### Locally Redundant Storage (LRS)
-Loclly redundant storage (LRS) maintains three copies of your data. LRS is replicated three times within a single facility in a single region. LRS protects your data from normal hardware failures, but not from the failure of an entire Azure facility.
+#### 로컬 중복 저장소(LRS)
+LRS(로컬 중복 저장소)는 데이터의 복제본 3개를 유지 관리합니다. LRS는 단일 지역의 단일 시설 내에서 3번 복제됩니다. LRS는 전체 Azure 시설의 오류가 아닌 일반적인 하드웨어 오류로부터 데이터를 보호합니다.
 
-If you are using Azure as a tertiary backup storage endpoint (e.g. you are using SCDPM to have a local backup copy on-premises & using Azure for your long term retention needs), you should consider choosing Locally Redundant Storage from the **Configure** option of your Backup vault. This brings down the cost of storing data in Azure, while providing a lower level of durability for your data that might be acceptable for tertiary copies.
+3차 백업 저장소 끝점으로 Azure를 사용 중인 경우(예: 온-프레미스에 로컬 백업 복사본을 보관하기 위해 SCDPM을 사용하는 경우 및 장기 보존 요구를 해결하기 위해 Azure를 사용하는 경우), 백업 자격 증명 모음의 **구성** 옵션에서 로컬 중복 저장소를 선택하는 것이 좋습니다. 이렇게 하면 Azure에 데이터를 저장하는 비용을 크게 줄일 수 있지만 3차 복사본에 허용될 수 있는 데이터 영속성 수준이 낮아집니다.
 
 ![LRS](./media/backup-create-vault/lrs.png)
+
+<!---HONumber=August15_HO9-->

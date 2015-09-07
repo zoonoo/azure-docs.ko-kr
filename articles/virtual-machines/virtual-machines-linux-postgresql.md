@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Linux를 실행하는 Microsoft Azure 가상 컴퓨터에서 PostgreSQL 설치 및 구성"
-	description="Azure의 Linux VM(가상 컴퓨터)에서 PostgreSQL을 설치하고 구성하는 방법을 알아봅니다."
+	pageTitle="Linux를 실행하는 Microsoft Azure 가상 컴퓨터에서 PostgreSQL 설치 및 구성 | Microsoft Azure"
+	description="Azure의 Linux 가상 컴퓨터에서 PostgreSQL을 설치하고 구성하는 방법을 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
 	editor=""
-  tags=""/>
+	tags=""/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,19 +18,19 @@
 	ms.author="mingzhan"/>
 
 
-#Microsoft Azure에서 PostgreSQL 설치 및 구성
+#Azure에서 PostgreSQL 설치 및 구성
 
-PostgreSQL은 Oracle 및 DB2와 유사한 고급 오픈 소스 데이터베이스입니다. 전체 ACID 규정 준수, 신뢰할 수 있는 트랜잭션 처리 및 다중 버전 동시성 제어와 같은 엔터프라이즈 기능이 포함됩니다. 또한 ANSI SQL 및 SQL/MED(Oracle, MySQL, MongoDB 등에 대한 외부 데이터 래퍼 포함)와 같은 표준을 지원합니다. 12개 이상의 프로시저 언어, GIN 및 GIST 인덱스, 공간 데이터 지원 및 JSON에 대한 여러 NoSQL 같은 기능 또는 키 값 기반 응용 프로그램에 대한 지원을 통해 확장성을 높일 수 있습니다.
+PostgreSQL은 Oracle 및 DB2와 유사한 고급 오픈 소스 데이터베이스입니다. 전체 ACID 규정 준수, 신뢰할 수 있는 트랜잭션 처리 및 다중 버전 동시성 제어와 같은 엔터프라이즈 기능이 포함됩니다. 또한 ANSI SQL 및 SQL/MED(Oracle, MySQL, MongoDB 등에 대한 외부 데이터 래퍼 포함)와 같은 표준을 지원합니다. 12개 이상의 프로시저 언어, GIN 및 GiST 인덱스, 공간 데이터 지원 및 JSON에 대한 여러 NoSQL 같은 기능 또는 키 값 기반 응용 프로그램에 대한 지원을 통해 확장성을 높일 수 있습니다.
 
 이 문서에서는 Linux를 실행하는 Azure 가상 컴퓨터에서 PostgreSQL을 설치 및 구성하는 방법을 알아봅니다.
 
-> [AZURE.NOTE]이 자습서를 완료하려면 Linux를 실행하는 Microsoft Azure 가상 컴퓨터가 이미 있어야 합니다. 계속하기 전에 Linux VM을 생성하고 설정하려면 [Azure Linux VM 자습서](virtual-machines-linux-tutorial.md)를 참조하세요.
+> [AZURE.NOTE]이 자습서를 완료하려면 Linux를 실행하는 Azure 가상 컴퓨터가 이미 있어야 합니다. 계속하기 전에 Linux VM을 생성하고 설정하려면 [Azure Linux VM 자습서](virtual-machines-linux-tutorial.md)를 참조하세요.
 
-[이 경우 1999 PostgreSQL 포트로 포트를 사용하세요.]
+이 경우 PostgreSQL 포트로 포트 1999를 사용하세요.
 
 ## PostgreSQL 설치
 
-putty를 통해 생성한 Linux VM에 연결합니다. 처음으로 Azure Linux VM을 사용하는 경우 putty를 사용하여 Linux VM에 연결하는 방법은 [여기](virtual-machines-linux-use-ssh-key.md)를 참조하세요.
+PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 사용하는 경우 [Azure에서 Linux와 함께 SSH를 사용하는 방법](virtual-machines-linux-use-ssh-key.md)을 참조하여 Linux VM에 연결하기 위해 PuTTY를 사용하는 방법을 배웁니다.
 
 1. 다음 명령을 실행하여 루트(관리자)로 전환합니다.
 
@@ -56,7 +56,7 @@ putty를 통해 생성한 Linux VM에 연결합니다. 처음으로 Azure Linux 
 
 		# tar jxvf  postgresql-9.3.5.tar.bz2
 
-	위 내용은 한 예입니다. [여기](https://ftp.postgresql.org/pub/source/)에서 더 자세한 다운로드 주소를 찾을 수 있습니다.
+	위 내용은 한 예입니다. [/pub/source/의 인덱스](https://ftp.postgresql.org/pub/source/)에서 더 자세한 다운로드 주소를 찾을 수 있습니다.
 
 4. 빌드를 시작하려면 다음 명령을 실행합니다.
 
@@ -82,7 +82,7 @@ putty를 통해 생성한 Linux VM에 연결합니다. 처음으로 Azure Linux 
 
 		# mkdir -p /opt/pgsql_data
 
-3. 루트가 아닌 사용자를 만들고 해당 사용자의 프로필을 수정합니다. 그런 다음 이 새 사용자(이 예에서는 *postgres* 사용)로 전환합니다.
+3. 루트가 아닌 사용자를 만들고 해당 사용자의 프로필을 수정합니다. 그런 다음 이 새 사용자(이 예에서는 *postgres*임)로 전환합니다.
 
 		# useradd postgres
 
@@ -93,7 +93,7 @@ putty를 통해 생성한 Linux VM에 연결합니다. 처음으로 Azure Linux 
    >[AZURE.NOTE]보안상의 이유로, PostgreSQL은 루트가 아닌 사용자를 사용하여 데이터베이스를 초기화, 시작 또는 종료합니다.
 
 
-4. 아래 명령을 입력하여 *bash\_profile*을 편집합니다. *bash\_profile* 파일 끝에 다음 줄이 추가됩니다.
+4. 아래 명령을 입력하여 *bash\_profile* 파일을 편집합니다. *bash\_profile* 파일 끝에 다음 줄이 추가됩니다.
 
 		cat >> ~/.bash_profile <<EOF
 		export PGPORT=1999
@@ -168,7 +168,7 @@ PostgreSQL의 끝점이 켜져 있는지 확인합니다.
 
 ## Postgres 데이터베이스에 연결
 
-계속 진행하고 다시 한 번 postgres 사용자로 전환합니다.
+다시 한 번 postgres 사용자로 전환합니다.
 
 	# su - postgres
 
@@ -180,7 +180,7 @@ Postgres 데이터베이스를 만듭니다.
 
 	$ psql -d events
 
-## Postgres 테이블을 만들고 삭제하는 방법
+## Postgres 테이블 만들기 및 삭제
 
 데이터베이스에 연결했으므로 해당 데이터베이스에 테이블을 만들 수 있습니다.
 
@@ -237,7 +237,7 @@ Postgres 데이터베이스를 만듭니다.
 
 	delete from potluck where name=’John’;
 
-"John" 행에 있는 모든 정보가 삭제됩니다. 출력은 다음과 같습니다.
+"John" 행에 있는 모든 정보를 삭제합니다. 출력은 다음과 같습니다.
 
 ![이미지](./media/virtual-machines-linux-postgresql/no8.png)
 
@@ -248,7 +248,7 @@ Postgres 데이터베이스를 만듭니다.
  	UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 
 
-##PostgreSQL에 관한 추가 내용
-지금 바로 Microsoft Azure Linux VM에서 PostgreSQL 설치를 완료하고 Microsoft Azure에서 사용해 보세요. PostgreSQL에 관한 추가 내용은 [여기](http://www.postgresql.org/)를 참조하세요.
+##PostgreSQL에 대한 자세한 정보 얻기
+Azure Linux VM에서 PostgreSQL의 설치를 완료하면 Azure에서 사용하여 즐길 수 있습니다. PostgreSQL에 대한 자세한 내용은 [PostgreSQL 웹 사이트](http://www.postgresql.org/)를 방문하세요.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Azure 큐 및 서비스 버스 큐 - 비교 및 대조"
-   description="Azure에서 제공하는 두 가지 유형의 큐 사이의 차이점과 유사점을 분석합니다."
-   services="service-bus"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="tysonn" />
+	description="Azure에서 제공하는 두 가지 유형의 큐 사이의 차이점과 유사점을 분석합니다."
+	services="service-bus"
+	documentationCenter="na"
+	authors="sethmanheim"
+	manager="timlt"
+	editor="tysonn"/>
 <tags 
    ms.service="service-bus"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="05/21/2015"
-   ms.author="sethm" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="08/25/2015"
+	ms.author="sethm"/>
 
 # Azure 큐 및 서비스 버스 큐 - 비교 및 대조
 
@@ -27,7 +27,7 @@ Microsoft Azure는 **Azure 큐** 및 **서비스 버스 큐**의 두 가지 큐 
 
 **서비스 버스 큐**는 더 폭넓은 [Azure 메시징](http://azure.microsoft.com/services/messaging/) 인프라의 일부이며, 큐뿐 아니라 게시/구독, 웹 서비스 원격화, 통합 패턴도 지원합니다. 서비스 버스 큐, 항목/구독, 릴레이에 대한 자세한 내용은 [서비스 버스 메시징 패턴 개요](https://msdn.microsoft.com/library/hh410103.aspx)를 참조하세요.
 
-두 큐 기술이 동시에 존재하고 있지만, Azure 큐가 Azure 저장소 서비스를 기반으로 구축된 전용 큐 저장소 메커니즘으로 먼저 소개되었습니다. 서비스 버스 큐는 여러 통신 프로토콜, 데이터 계약, 신뢰 도메인 및/또는 네트워크 환경에 걸쳐 존재할 수 있는 응용 프로그램 또는 응용 프로그램 구성 요소를 통합하도록 설계된 더 폭넓은 “조정된 메시징” 인프라를 기반으로 구축되었습니다.
+두 큐 기술이 동시에 존재하고 있지만, Azure 큐가 Azure 저장소 서비스를 기반으로 구축된 전용 큐 저장소 메커니즘으로 먼저 소개되었습니다. 서비스 버스 큐는 여러 통신 프로토콜, 데이터 계약, 신뢰 도메인 및/또는 네트워크 환경에 걸쳐 존재할 수 있는 응용 프로그램 또는 응용 프로그램 구성 요소를 통합하도록 설계된 더 폭넓은 "조정된 메시징" 인프라를 기반으로 구축되었습니다.
 
 이 문서는 각각이 제공하는 기능의 동작 및 구현과 관련된 차이점을 논의함으로써 Azure에서 제공하는 두 큐 기술을 비교합니다. 이 문서는 또한 응용 프로그램 개발 요구에 가장 적합한 기능을 선택할 수 있는 지침도 제공합니다.
 
@@ -177,7 +177,7 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 
 |비교 기준|Azure 큐|서비스 버스 큐|
 |---|---|---|
-|최대 큐 크기|**200TB**<br/><br/>(단일 저장소 계정 용량으로 제한됨)|**1GB \~ 80GB**<br/><br/>(큐 생성 및 [분할 사용](https://msdn.microsoft.com/library/dn520246.aspx) 시에 정의됨 – “추가 정보” 섹션 참조)|
+|최대 큐 크기|**200TB**<br/><br/>(단일 저장소 계정 용량으로 제한됨)|**1GB ~ 80GB**<br/><br/>(큐 생성 및 [분할 사용](https://msdn.microsoft.com/library/dn520246.aspx) 시에 정의됨 – “추가 정보” 섹션 참조)|
 |최대 메시지 크기|**64KB**<br/><br/>(**Base64** 인코딩을 사용하는 경우 48KB)<br/><br/>Azure는 큐 및 BLOB 결합을 통해 더 큰 메시지를 지원하며, 단일 항목에 대해 최대 200GB까지 큐에 삽입할 수 있습니다.|**256KB**<br/><br/>(헤더 및 본문 포함, 최대 헤더 크기: 64KB)|
 |최대 메시지 TTL|**7일**|**무제한**|
 |최대 큐 수|**무제한**|**10,000개**<br/><br/>(서비스 네임스페이스별, 확장 가능)|
@@ -185,7 +185,7 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 
 ### 추가 정보
 
-- 서비스 버스의 경우 큐 크기 제한이 강제 적용됩니다. 최대 큐 크기는 큐 생성 시에 지정되며, 1GB \~ 80GB 사이의 값이 될 수 있습니다. 큐 생성 시에 설정된 큐 크기 값에 도달하면, 추가로 수신되는 메시지가 거부되며 호출 코드에서 예외를 수신합니다. 서비스 버스의 할당량에 대한 자세한 내용은 [서비스 버스 할당량](https://msdn.microsoft.com/library/ee732538.aspx)을 참조하세요.
+- 서비스 버스의 경우 큐 크기 제한이 강제 적용됩니다. 최대 큐 크기는 큐 생성 시에 지정되며, 1GB ~ 80GB 사이의 값이 될 수 있습니다. 큐 생성 시에 설정된 큐 크기 값에 도달하면, 추가로 수신되는 메시지가 거부되며 호출 코드에서 예외를 수신합니다. 서비스 버스의 할당량에 대한 자세한 내용은 [서비스 버스 할당량](https://msdn.microsoft.com/library/ee732538.aspx)을 참조하세요.
 
 - 서비스 버스 큐는 1, 2, 3, 4 또는 5GB 크기로 만들 수 있습니다(기본값은 1GB). 분할을 사용하는 경우(기본값) 서비스 버스는 사용자가 지정한 각 GB마다 16개의 파티션을 만듭니다. 따라서 크기가 5GB인 큐를 만들 경우 16개의 파티션에서 최대 큐 크기는 (5 * 16) = 80GB가 됩니다. Azure 관리 포털에서 해당 항목을 보면 분할된 큐 또는 토픽의 최대 크기를 확인할 수 있습니다.
 
@@ -222,7 +222,7 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 
 - 서비스 버스의 .NET 조정된 메시징 API는 HTTP를 통한 REST에 비해 향상된 성능을 제공하는 전이중 TCP 연결을 활용하며, AMQP 1.0 표준 프로토콜을 지원합니다.
 
-- Azure 큐 이름은 3 \~ 63자로 지정할 수 있으며, 소문자, 숫자, 하이픈이 포함될 수 있습니다. 자세한 내용은 [큐 및 메타데이터 명명](https://msdn.microsoft.com/library/dd179349.aspx)을 참조하세요.
+- Azure 큐 이름은 3 ~ 63자로 지정할 수 있으며, 소문자, 숫자, 하이픈이 포함될 수 있습니다. 자세한 내용은 [큐 및 메타데이터 명명](https://msdn.microsoft.com/library/dd179349.aspx)을 참조하세요.
 
 - 서비스 버스 큐 이름은 최대 260자로 지정할 수 있으며 명명 규칙이 덜 제한적입니다. 서비스 버스 큐 이름에는 문자, 숫자, 마침표(.), 하이픈(-), 밑줄(\_)이 포함될 수 있습니다.
 
@@ -233,7 +233,7 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 |비교 기준|Azure 큐|서비스 버스 큐|
 |---|---|---|
 |최대 처리량|**초당 최대 2,000개의 메시지**<br/><br/>(1KB 메시지를 사용한 벤치마크 기준)|**초당 최대 2,000개의 메시지**<br/><br/>(1KB 메시지를 사용한 벤치마크 기준)|
-|평균 대기 시간|**10ms**<br/><br/>([TCP Nagle](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) 비활성화 상태)|**20 \~ 25 ms**|
+|평균 대기 시간|**10ms**<br/><br/>([TCP Nagle](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) 비활성화 상태)|**20 ~ 25 ms**|
 |제한 동작|**HTTP 503 코드로 거부**<br/><br/>(제한된 요청은 청구 가능으로 처리되지 않음)|**예외/HTTP 503으로 거부**<br/><br/>(제한된 요청은 청구 가능으로 처리되지 않음)|
 
 ### 추가 정보
@@ -280,7 +280,7 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 |청구 가능한 작업|**모두**|**송신/수신만 해당**<br/><br/>(다른 작업에 대한 비용 없음)|
 |유휴 트랜잭션|**청구 가능**<br/><br/>(빈 큐에 쿼리하는 것도 청구 가능한 트랜잭션으로 간주됨)|**청구 가능**<br/><br/>(빈 큐에 대해 수신하는 것도 청구 가능한 메시지로 간주됨)|
 |저장소 비용|**$0.07**<br/><br/>(GB/월)|**$0.00**|
-|아웃바운드 데이터 전송 비용|**$0.12 \~ $0.19**<br/><br/>(지역에 따라 다름)|**$0.12 \~ $0.19**<br/><br/>(지역에 따라 다름)|
+|아웃바운드 데이터 전송 비용|**$0.12 ~ $0.19**<br/><br/>(지역에 따라 다름)|**$0.12 ~ $0.19**<br/><br/>(지역에 따라 다름)|
 
 ### 추가 정보
 
@@ -289,8 +289,6 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 - 동일한 하위 지역 내에 위치한 Azure 서비스 간의 데이터 전송에 대해서는 요금이 청구되지 않습니다.
 
 - 이 문서 작성 시점 기준으로 모든 인바운드 데이터 전송에는 요금이 청구되지 않습니다.
-
-- 서비스 버스 큐에 대한 메시징 작업을 수행할 때 ACS 트랜잭션 비용은 무시할 수 있습니다. 서비스 버스는 메시징 팩터리 개체의 단일 인스턴스마다 하나의 ACS 토큰을 획득합니다. 그 다음 해당 토큰은 약 20분 후 만료되기 전까지 재사용됩니다. 따라서 서비스 버스의 메시징 작업 규모는 해당 작업을 지원하는 데 필요한 ACS 트랜잭션의 크기와 정비례하지 않습니다.
 
 - 장기 폴링에 대한 지원을 고려할 때, 대기 시간이 짧은 배달이 필요한 상황이라면 서비스 버스 큐를 사용하는 것이 비용 효율적일 수 있습니다.
 
@@ -317,4 +315,4 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 - [Azure 저장소 대금 청구 - 대역폭, 트랜잭션, 용량의 이해](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

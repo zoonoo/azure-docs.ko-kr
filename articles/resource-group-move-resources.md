@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="새 리소스 그룹으로 리소스 이동" 
-	description="Azure PowerShell 또는 REST API를 사용하여 Azure 리소스 관리자에 대한 새 리소스 그룹에 리소스를 이동합니다." 
-	services="azure-resource-manager" 
-	documentationCenter="" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+	pageTitle="새 리소스 그룹으로 리소스 이동"
+	description="Azure PowerShell 또는 REST API를 사용하여 Azure 리소스 관리자에 대한 새 리소스 그룹에 리소스를 이동합니다."
+	services="azure-resource-manager"
+	documentationCenter=""
+	authors="tfitzmac"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="azure-resource-manager" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.service="azure-resource-manager"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/20/2015"
 	ms.author="tomfitz"/>
 
 # 새 리소스 그룹 또는 구독으로 리소스 이동
@@ -54,6 +54,11 @@
 현재 리소스 이동을 지원하지 않는 서비스는 다음과 같습니다.
 
 - 가상 네트워크
+
+웹앱으로 작업할 경우에는 앱 서비스 계획만 이동할 수 없습니다. 웹앱을 이동하려면 옵션은 다음과 같습니다.
+
+- 대상 리소스 그룹에 아직 Microsoft.Web 리소스가 없는 경우 하나의 리소스 그룹에 있는 모든 리소스를 다른 리소스 그룹으로 이동합니다.
+- 웹앱을 다른 리소스 그룹으로 이동하지만 앱 서비스는 원래 리소스 그룹에 유지합니다.
 
 ## PowerShell을 사용하여 리소스 이동
 
@@ -96,4 +101,4 @@
 - [Azure 포털을 사용하여 리소스 관리](azure-portal/resource-group-portal.md)
 - [태그를 사용하여 리소스 구성](./resource-group-using-tags.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

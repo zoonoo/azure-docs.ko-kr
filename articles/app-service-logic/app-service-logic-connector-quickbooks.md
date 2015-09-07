@@ -1,25 +1,24 @@
 <properties
-   pageTitle="QuickBooks 커넥터"
-   description="QuickBooks 커넥터 사용 방법"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="논리 앱에서 QuickBooks 커넥터 사용 | Microsoft Azure 앱 서비스"
+	description="QuickBooks 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-#논리 앱에서 QuickBooks 커넥터 사용#
-
-논리 앱은 다양한 데이터 원본을 기반으로 트리거하고 흐름의 일부로 데이터를 가져오고 처리하기 위한 커넥터를 제공할 수 있습니다. QuickBooks 커넥터를 사용하여 다른 QuickBooks 엔터티를 만들고 수정할 수 있습니다. 다음은 QuickBooks 커넥터를 통해 지원되는 QuickBooks 엔터티의 목록입니다.
+# QuickBooks 커넥터 시작 및 논리 앱에 추가
+QuickBooks 커넥터를 사용하여 다른 QuickBooks 엔터티를 만들고 수정할 수 있습니다. 다음 표에서는 지원되는 엔터티를 보여 줍니다.
 
 엔터티|설명
 ---|---
@@ -31,7 +30,7 @@
 항목|항목은 제품, 배송 및 취급 수수료, 할인 및 판매세(적용 가능한 경우)와 같이 회사가 구매, 판매 또는 재판매하는 것입니다. 항목은 송장이나 기타 판매 양식에서 한 줄로 표시됩니다.
 영수증|이 엔터티는 고객에게 제공되는 판매 영수증을 나타냅니다.
 
-
+논리 앱은 다양한 데이터 원본을 기반으로 트리거하고 흐름의 일부로 데이터를 가져오고 처리하기 위한 커넥터를 제공할 수 있습니다. QuickBooks 커넥터를 비즈니스 워크플로에 추가하고 논리 앱 내에서 이 워크플로의 일부로 데이터를 처리할 수 있습니다.
 
 ##QuickBooks 작업 ##
 다음은 QuickBooks 커넥터에서 사용할 수 있는 다양한 작업입니다.
@@ -141,4 +140,4 @@ QuickBooks에서 계정을 만들고 이 계정의 범주 유형을 업데이트
 [12]: ./media/app-service-logic-connector-quickbooks/12_Update_Account_Address.png
 [13]: ./media/app-service-logic-connector-quickbooks/13_Create_new_quickbooks_connector.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

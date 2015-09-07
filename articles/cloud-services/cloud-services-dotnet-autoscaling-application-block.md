@@ -1,44 +1,25 @@
 <properties 
-	pageTitle="자동 크기 조정 응용 프로그램 블록 사용(.NET) | Microsoft Azure" 
-	description="Azure용 자동 크기 조정 응용 프로그램 사용 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 .NET API를 사용합니다." 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="squillace" 
-	manager="timlt" 
+	pageTitle="자동 크기 조정 응용 프로그램 블록 사용(.NET) | Microsoft Azure"
+	description="Azure용 자동 크기 조정 응용 프로그램 사용 방법에 대해 알아봅니다. 코드 샘플은 C#으로 작성되었으며 .NET API를 사용합니다."
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="squillace"
+	manager="timlt"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/18/2015" 
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="05/18/2015"
 	ms.author="rasquill"/>
-
-
-
-
-
-
-
 # 자동 크기 조정 응용 프로그램 블록을 사용하는 방법
 
-이 가이드에서는 [Azure용 Microsoft Enterprise Library 5.0 통합 팩][]에서 자동 크기 조정 응용 프로그램 블록을 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 C#으로 작성되었으며 .NET API를 사용합니다. **블록 호스팅**, **제약 조건 규칙 사용**, **반응 규칙 사용** 등의 시나리오를 다룹니다. 자동 크기 조정 응용 프로그램 블록에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
+이 가이드에서는 [Azure용 Microsoft Enterprise Library 5.0 통합 팩][]에서 자동 크기 조정 응용 프로그램 블록을 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 C#으로 작성되었으며 .NET API를 사용합니다. **블록 호스팅**, **제약 조건 규칙 사용**, **반응 규칙 사용** 등의 시나리오를 다룹니다. 자동 크기 조정 응용 프로그램 블록에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
 
-## 목차
-
-[자동 크기 조정 응용 프로그램 블록이란?][]   
-[개념][]   
-[대상 Azure 응용 프로그램에서 성능 카운터 데이터 수집][]   
-[자동 크기 조정 응용 프로그램 블록의 호스트 응용 프로그램 설정][]   
-[방법: 자동 크기 조정기 인스턴스화 및 실행][]   
-[방법: 서비스 모델 정의][]   
-[방법: 자동 크기 조정 규칙 정의][]   
-[방법: 자동 크기 조정 응용 프로그램 블록 구성][]   
-[다음 단계][]   
-
-## <a id="WhatIs"> </a>자동 크기 조정 응용 프로그램 블록이란?
+## 자동 크기 조정 응용 프로그램 블록이란?
 
 자동 크기 조정 응용 프로그램 블록은 응용 프로그램에 대해 특별히 정의한 규칙에 따라 Azure 응용 프로그램 크기를 자동으로 조정할 수 있습니다. 이러한 규칙을 사용하여 Azure 응용 프로그램에서 작업의 변경 내용에 따른 처리량을 관리하고, 동시에 Azure의 응용 프로그램 호스팅과 관련한 비용을 제어할 수 있습니다. 블록을 사용하면 응용 프로그램에서 역할 인스턴스의 수를 증가시키거나 감소시켜서 크기를 조정하는 것 외에도 응용 프로그램 내의 특정 기능 제한 또는 사용자 지정 작업 사용과 같은 다른 크기 조정 작업을 사용할 수 있습니다.
 
@@ -46,7 +27,7 @@ Azure 역할이나 온-프레미스 응용 프로그램에서 블록을 호스�
 
 자동 크기 조정 응용 프로그램 블록은 [Azure용 Microsoft Enterprise Library 5.0 통합 팩][]의 일부입니다.
 
-## <a id="Concepts"> </a>개념
+## 개념
 
 다음 다이어그램에서 녹색 선은 이틀 동안 실행 중인 Azure 역할 인스턴스의 수를 도표로 보여 줍니다. 인스턴스 수는 자동 크기 조정 규칙 집합에 따라 점차 자동으로 변경됩니다.
 
@@ -54,7 +35,7 @@ Azure 역할이나 온-프레미스 응용 프로그램에서 블록을 호스�
 
 블록은 다음 두 가지 유형의 규칙을 사용하여 응용 프로그램의 자동 규칙 조정 동작을 정의합니다.
 
--   **제약 조건 규칙:** 인스턴스 수의 상한 및 하한을 설정하려면, 예를 들어 매일 아침 8:00\~10:00에 인스턴스를 최소 4개와 최대 6개를 설정하려면 **제약 조건 규칙**을 사용합니다. 다이어그램에서 빨간 선과 파란 선은 제약 조건 규칙을 나타냅니다. 예를 들어 다이어그램에서 **A** 지점의 역할 인스턴스 최소 수는 현재 응용 프로그램의 작업에서 예상 증가량을 수용하기 위해 2개에서 4개로 늘어납니다. 다이어그램에서 **B** 지점의 역할 인스턴스 수는 응용 프로그램의 실행 비용을 제어하기 위해 5개 위로 올라가지 못합니다.
+-   **제약 조건 규칙:** 인스턴스 수의 상한 및 하한을 설정하려면, 예를 들어 매일 아침 8:00~10:00에 인스턴스를 최소 4개와 최대 6개를 설정하려면 **제약 조건 규칙**을 사용합니다. 다이어그램에서 빨간 선과 파란 선은 제약 조건 규칙을 나타냅니다. 예를 들어 다이어그램에서 **A** 지점의 역할 인스턴스 최소 수는 현재 응용 프로그램의 작업에서 예상 증가량을 수용하기 위해 2개에서 4개로 늘어납니다. 다이어그램에서 **B** 지점의 역할 인스턴스 수는 응용 프로그램의 실행 비용을 제어하기 위해 5개 위로 올라가지 못합니다.
 
 -   **반응 규칙:** 예기치 않은 수요 변화에 따라 역할 인스턴스 수를 변경하려면 **반응 규칙**을 사용합니다. 다이어그램에서 **C** 지점의 블록은 역할 인스턴스 수를 작업의 감소에 따라 4개에서 3개로 자동으로 줄입니다. **D** 지점에서 블록은 작업 증가를 감지하여 실행 중인 역할 인스턴스 수를 3개에서 4개로 자동으로 늘립니다.
 
@@ -64,13 +45,13 @@ Azure 역할이나 온-프레미스 응용 프로그램에서 블록을 호스�
 
 -   **서비스 정보 저장소:** 서비스 정보 저장소는 Azure 응용 프로그램의 서비스 모델인 작동 구성을 저장합니다. 이 서비스 모델은 블록이 대상 Azure 응용 프로그램에서 데이터 요소를 수집하고 크기 조정 작업을 수행할 수 있어야 하는 Azure 응용 프로그램에 관한 모든 정보(예: 역할 이름 및 저장소 계정 세부 정보)를 포함합니다.
 
-## <a id="PerfCounter"> </a>대상 Azure 응용 프로그램에서 성능 카운터 데이터 수집
+## 대상 Azure 응용 프로그램에서 성능 카운터 데이터 수집
 
 반응 규칙은 규칙 정의의 일부로 역할에서 성능 카운터 데이터를 사용할 수 있습니다. 예를 들어 반응 규칙은 블록이 크기 조정 작업을 시작해야 하는지 여부를 결정하기 위해 Azure 역할의 CPU 사용률을 모니터링할 수도 있습니다. 블록은 Azure 저장소의 **WADPerformanceCountersTable**이라는 Azure 진단 테이블에서 성능 카운터 데이터를 읽습니다.
 
 기본적으로 Azure는 성능 카운터 데이터를 Azure 저장소의 Azure 진단 테이블에 쓰지 않습니다. 따라서 이 데이터를 저장하기 위해 성능 카운터 데이터를 수집해야 하는 역할을 수정해야 합니다. 응용 프로그램에서 성능 카운터를 사용하도록 설정하는 방법에 대한 내용은 [Azure에서 성능 카운터 사용][]을 참조하세요.
 
-## <a id="CreateHost"> </a>자동 크기 조정 응용 프로그램 블록의 호스트 응용 프로그램 설정
+## 자동 크기 조정 응용 프로그램 블록에 대해 호스트 응용 프로그램 설정
 
 Azure 역할이나 온-프레미스 응용 프로그램에서 자동 크기 조정 응용 프로그램 블록을 호스트할 수 있습니다. 자동 크기 조정 응용 프로그램 블록은 일반적으로 자동으로 크기를 조정할 대상 응용 프로그램과는 별도의 응용 프로그램에 호스트됩니다. 이 섹션에서는 호스트 응용 프로그램을 구성하는 방법에 관한 지침을 제공합니다.
 
@@ -109,7 +90,7 @@ NuGet 패키지를 설치하면 자동 크기 조정 응용 프로그램 블록�
     using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
     using Microsoft.Practices.EnterpriseLibrary.WindowsAzure.Autoscaling;
 
-## <a id="Instantiate"> </a>방법: 자동 크기 조정기 인스턴스화 및 실행
+## 방법: 자동 크기 조정기 인스턴스화 및 실행
 
 **IServiceLocator.GetInstance** 메서드를 사용하여 자동 크기 조정기를 인스턴스화한 다음 **Autoscaler.Start** 메서드를 호출하여 **Autoscaler**를 실행합니다.
 
@@ -117,7 +98,7 @@ NuGet 패키지를 설치하면 자동 크기 조정 응용 프로그램 블록�
         EnterpriseLibraryContainer.Current.GetInstance<Autoscaler>();
     scaler.Start();
 
-## <a id="DefineServiceModel"> </a>방법: 서비스 모델 정의
+## 방법: 서비스 모델 정의
 
 일반적으로 서비스 모델(구독, 호스티드 서비스, 역할, 저장소 계정에 관한 정보를 포함하는 Azure 환경에 대한 설명)은 XML 파일에 저장합니다. 프로젝트의 **AutoscalingServiceModel.xsd** 파일에서 이 XML 파일에 대한 스키마 복사본을 찾을 수 있습니다. Visual Studio에서 이 스키마는 서비스 모델 XML 파일을 편집할 때 Intellisense 및 유효성 검사를 제공합니다.
 
@@ -134,31 +115,14 @@ Visual Studio에서 서비스 모델 파일이 출력 폴더에 복사되었는�
 
 	다음 코드 샘플은 **services.xml** 파일의 예제 서비스 모델을 보여 줍니다.
 
-    <?xml version="1.0" encoding="utf-8" ?>
-    <serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel">
-      <subscriptions>
-        <subscription name="[subscriptionname]"
+    <?xml version="1.0" encoding="utf-8" ?> <serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel"> <subscriptions> <subscription name="[subscriptionname]"
                       certificateThumbprint="[managementcertificatethumbprint]"
                       subscriptionId="[subscriptionid]"
                       certificateStoreLocation="CurrentUser"
-                      certificateStoreName="My">
-          <services>
-            <service dnsPrefix="[hostedservicednsprefix]" slot="Staging">
-              <roles>
-                <role alias="AutoscalingApplicationRole"
+                      certificateStoreName="My"> <services> <service dnsPrefix="[hostedservicednsprefix]" slot="Staging"> <roles> <role alias="AutoscalingApplicationRole"
                       roleName="[targetrolename]"
-                      wadStorageAccountName="targetstorage"/>
-              </roles>
-            </service>
-          </services>
-          <storageAccounts>
-            <storageAccount alias="targetstorage"
-              connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]">
-            </storageAccount>
-          </storageAccounts>
-        </subscription>
-      </subscriptions>
-    </serviceModel>
+                      wadStorageAccountName="targetstorage"/> </roles> </service> </services> <storageAccounts> <storageAccount alias="targetstorage"
+              connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]"> </storageAccount> </storageAccounts> </subscription> </subscriptions> </serviceModel>
 
 대괄호 안의 값을 환경 및 대상 응용 프로그램 고유 값으로 바꿔야 합니다. 대부분의 이러한 값을 찾으려면 [Azure 관리 포털][]에 로그인해야 합니다.
 
@@ -214,7 +178,7 @@ Visual Studio에서 서비스 모델 파일이 출력 폴더에 복사되었는�
 
 서비스 모델 파일의 내용에 대한 자세한 정보를 보려면 [서비스 정보 데이터 저장][]을 참조하세요.
 
-## <a id="DefineAutoscalingRules"> </a>방법: 자동 크기 조정 규칙 정의
+## 방법: 자동 크기 조정 규칙 정의
 
 일반적으로 대상 응용 프로그램의 역할 인스턴스 수를 제어하는 자동 크기 조정 규칙은 XML 파일에 저장합니다. 프로젝트의 **AutoscalingRules.xsd** 파일에서 이 XML 파일에 대한 스키마 복사본을 찾을 수 있습니다. Visual Studio에서 이 스키마는 XML 파일을 편집할 때 Intellisense 및 유효성 검사를 제공합니다.
 
@@ -261,7 +225,7 @@ Visual Studio에서 규칙 파일이 출력 폴더에 복사되었는지 확인�
       </reactiveRules>
       <operands>
         <performanceCounter alias="WebRoleA_CPU_Avg_5m"
-          performanceCounterName="\Processor(_Total)\% Processor Time"
+          performanceCounterName="\Processor(_Total)% Processor Time"
           source ="AutoscalingApplicationRole"
           timespan="00:05:00" aggregate="Average"/>
       </operands>
@@ -277,7 +241,7 @@ Visual Studio에서 규칙 파일이 출력 폴더에 복사되었는지 확인�
 
 -   **ScaleDownOnLowUtilization**이라는 반응 규칙은 지난 5분 동안의 평균 CPU 사용량이 60% 미만인 경우 대상 역할의 인스턴스 수를 하나씩 줄입니다.
 
-## <a id="Configure"> </a>방법: 자동 크기 조정 응용 프로그램 블록 구성
+## 방법: 자동 크기 조정 응용 프로그램 블록 구성
 
 서비스 모델 및 자동 크기 조정 규칙을 정의했으면 이들을 사용할 자동 크기 조정 응용 프로그램 블록을 구성해야 합니다. 이 작동 구성 정보는 응용 프로그램 구성 파일에 저장됩니다.
 
@@ -287,36 +251,32 @@ Visual Studio에서 규칙 파일이 출력 폴더에 복사되었는지 확인�
 
 1.  솔루션 탐색기에서 **App.config** 파일을 마우스 오른쪽 단추로 클릭한 다음 **구성 파일 편집**을 클릭합니다.
 
-2.  **블록** 메뉴에서 **자동 크기 조정 설정 추가**를 클릭합니다.  
-	![이미지](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling10.png)
+2.  **블록** 메뉴에서 **자동 크기 조정 설정 추가**를 클릭합니다. ![이미지](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling10.png)
   
-3.  **자동 크기 조정 설정**을 확장한 다음 **데이터 요소 저장 저장소 계정** 옆의 줄임표(...)를 클릭하고, 블록이 수집하는 데이터 요소를 저장할 Azure 저장소 계정의 **계정 이름** 및 **계정 키**를 추가한 다음(이러한 값의 위치가 확실하지 않은 경우 [방법: 서비스 모델 정의][] 참조) **확인**을 클릭합니다.
+3.  **자동 크기 조정 설정**을 확장한 다음 **데이터 요소 저장 저장소 계정** 옆의 줄임표(...)를 클릭하고, 블록이 수집하는 데이터 요소를 저장할 Azure 저장소 계정의 **계정 이름** 및 **계정 키**를 추가한 다음(이러한 값의 위치가 확실하지 않은 경우 [방법: 서비스 모델 정의] 참조) **확인**을 클릭합니다.
 
 	![이미지](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling11.png)
 
-4.  **자동 크기 조정 설정** 섹션을 확장하여 **규칙 저장소** 및 **서비스 정보 저장소** 섹션을 표시합니다. 기본적으로 이러한 설정은 Azure Blob 저장소를 사용하도록 구성되어 있습니다.  
-	![이미지](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling12.png)
+4.  **자동 크기 조정 설정** 섹션을 확장하여 **규칙 저장소** 및 **서비스 정보 저장소** 섹션을 표시합니다. 기본적으로 이러한 설정은 Azure Blob 저장소를 사용하도록 구성되어 있습니다. ![이미지](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling12.png)
 
 
 5.  **규칙 저장소** 옆의 더하기 기호(+)를 클릭하고 **규칙 저장소 설정**을 가리킨 다음 **로컬 파일 규칙 저장소 사용**을 클릭하고 **예**를 클릭합니다.
 
-6.  **파일 이름** 상자에 **rules.xml**을 입력합니다. 자동 크기 조정 규칙이 포함된 파일의 이름입니다.  
-	![이미지](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling13.png)
+6.  **파일 이름** 상자에 **rules.xml**을 입력합니다. 자동 크기 조정 규칙이 포함된 파일의 이름입니다. ![이미지](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling13.png)
 
 
 7.  **서비스 정보 저장소** 옆의 더하기 기호(+)를 클릭하고 **서비스 정보 저장소 설정**을 가리킨 다음 **로컬 파일 서비스 정보 저장소 사용**을 클릭하고 **예**를 클릭합니다.
 
-8.  **파일 이름** 상자에 **services.xml**을 입력합니다. 자동 크기 조정 규칙이 포함된 파일의 이름입니다.  
-	![이미지](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling14.png)
+8.  **파일 이름** 상자에 **services.xml**을 입력합니다. 자동 크기 조정 규칙이 포함된 파일의 이름입니다. ![이미지](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling14.png)
 
 
-9.  엔터프라이즈 라이브러리 구성 창의 **파일** 메뉴에서 **저장**을 클릭하여 구성 변경 내용을 저장합니다. 그 다음에 엔터프라이즈 라이브러리 구성 창의 **파일** 메뉴에서 **끝내기**를 클릭합니다.
+9.  엔터프라이즈 라이브러리 구성 창의 **파일** 메뉴에서 **저장**을 클릭하여 구성 변경 내용을 저장합니다. 그다음에 엔터프라이즈 라이브러리 구성 창의 **파일** 메뉴에서 **끝내기**를 클릭합니다.
 
 자동 크기 조정 응용 프로그램 블록이 수행하는 동작에 대한 자세한 정보를 가져오려면 작성되는 로그 메시지를 캡처해야 합니다. 예를 들어 콘솔 응용 프로그램의 블록을 호스트하는 중이면 Visual Studio의 출력 창에서 로그 메시지를 볼 수 있습니다. 다음 섹션에서는 이 동작을 구성하는 방법을 보여 줍니다.
 
 ### 자동 크기 조정 응용 프로그램 블록 호스트 응용 프로그램 로그인 구성
 
-1.  Visual Studio의 솔루션 탐색기에서 **App.config** 파일을 두 번 클릭하여 편집기에서 엽니다. 그 후에 다음 샘플처럼 **system.diagnostics** 섹션을 추가합니다.
+1.  Visual Studio의 솔루션 탐색기에서 **App.config** 파일을 두 번 클릭하여 편집기에서 엽니다. 그후에 다음 샘플처럼 **system.diagnostics** 섹션을 추가합니다.
 
         <?xml version="1.0" encoding="utf-8" ?>
         <configuration>
@@ -366,7 +326,7 @@ Visual Studio에서 규칙 파일이 출력 폴더에 복사되었는지 확인�
     "InstanceChanges":{"AutoscalingApplicationRole":{"CurrentValue":1,"DesiredValue":2}},
     "SettingChanges":{},"RequestID":"f8ca3ada07c24559b1cb075534f02d44"}
 
-## <a id="NextSteps"> </a>다음 단계
+## 다음 단계
 
 이제 자동 크기 조정 응용 프로그램 블록 사용의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 자동 크기 조정 시나리오를 구현하는 방법을 알아보세요.
 
@@ -383,15 +343,6 @@ Visual Studio에서 규칙 파일이 출력 폴더에 복사되었는지 확인�
 -   [TechNet 및 MSDN 호스팅 비용과 Azure에서 자동 크기 조정으로 인한 환경적 영향 줄이기][]
 
   [Azure용 Microsoft Enterprise Library 5.0 통합 팩]: http://go.microsoft.com/fwlink/?LinkID=235134
-  [다음 단계]: #NextSteps
-  [자동 크기 조정 응용 프로그램 블록이란?]: #WhatIs
-  [개념]: #Concepts
-  [대상 Azure 응용 프로그램에서 성능 카운터 데이터 수집]: #PerfCounter
-  [자동 크기 조정 응용 프로그램 블록의 호스트 응용 프로그램 설정]: #CreateHost
-  [방법: 자동 크기 조정기 인스턴스화 및 실행]: #Instantiate
-  [방법: 서비스 모델 정의]: #DefineServiceModel
-  [방법: 자동 크기 조정 규칙 정의]: #DefineAutoscalingRules
-  [방법: 자동 크기 조정 응용 프로그램 블록 구성]: #Configure
   [Azure에서 성능 카운터 사용]: http://www.windowsazure.com/develop/net/common-tasks/performance-profiling/
   [NuGet]: http://nuget.org/
   [Azure 관리 포털]: http://manage.windowsazure.com
@@ -409,4 +360,4 @@ Visual Studio에서 규칙 파일이 출력 폴더에 복사되었는지 확인�
   [TechNet 및 MSDN 호스팅 비용과 Azure에서 자동 크기 조정으로 인한 환경적 영향 줄이기]: http://msdn.microsoft.com/library/jj838718(PandP.50).aspx
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

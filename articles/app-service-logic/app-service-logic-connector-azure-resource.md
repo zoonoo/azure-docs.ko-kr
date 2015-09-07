@@ -1,23 +1,23 @@
 <properties
-   pageTitle="Azure 리소스 커넥터"
-   description="Azure 리소스 커넥터"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="stepsic-microsoft-com"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="논리 앱에서 Azure 리소스 커넥터 사용 | Microsoft Azure 앱 서비스"
+	description="Azure 리소스 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="stepsic-microsoft-com"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="stepsic"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="stepsic"/>
 
-# Azure 리소스 커넥터
-Azure 리소스 커넥터를 사용하면 논리 앱 내에서 Azure 리소스를 쉽게 관리할 수 있습니다.
+# Azure 리소스 커넥터 시작 및 논리 앱에 추가 
+Azure 리소스 커넥터를 사용하여 논리 앱 내에서 Azure 리소스를 쉽게 관리할 수 있습니다.
 
 ## Azure 리소스 커넥터 만들기
 Azure 리소스 커넥터 API 앱을 사용하려면 먼저 해당 앱의 인스턴스를 만들어야 합니다. 이 작업은 논리 앱을 만드는 동안 인라인으로 수행하거나 Azure 마켓플레이스에서 Azure 리소스 커넥터 API 앱을 선택하여 수행할 수 있습니다.
@@ -96,4 +96,4 @@ David Ebbo가 이를 설정하는 방법에 대해 [훌륭한 블로그 게시�
 <!--Links -->
 [Creating a Logic App]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

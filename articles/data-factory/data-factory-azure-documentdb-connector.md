@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="DocumentDB 커넥터 - DocumentDB 간에 데이터 이동" 
-	description="Azure DocumentDB 콜렉션에서 데이터를 이동시키는 데이터 팩터리 서비스용 Azure DocumentDB 커넥터에 대해 알아봅니다" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="DocumentDB 간 데이터 이동 | Azure 데이터 팩터리"
+	description="Azure 데이터 팩터리를 사용하여 Azure DocumentDB 컬렉션 간 데이터를 이동하는 방법에 대해 알아봅니다."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# DocumentDB 커넥터 - DocumentDB 간에 데이터 이동
+# Azure 데이터 팩터리를 사용하여 DocumentDB 간 데이터 이동
 
 이 문서에서는 Azure 데이터 팩토리에서 복사 작업을 사용하여 다른 데이터 저장소와 Azure DocumentDB 간에 데이터를 이동하는 방법을 간략하게 설명합니다. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 작성합니다.
 
@@ -24,11 +24,11 @@
 
 아래 샘플은 다음을 보여줍니다.
 
-1. DocumentDb 형식의 연결된 서비스입니다.
-2. AzureStorage 형식의 연결된 서비스입니다. 
-3. DocumentDbCollection 형식의 입력 데이터 집합입니다. 
-4. AzureBlob 형식의 출력 데이터 집합입니다.
-4. DocumentDbCollectionSource 및 BlobSink를 사용하는 복사 작업의 파이프라인입니다.
+1. [DocumentDb](#azure-documentdb-linked-service-properties) 형식의 연결된 서비스입니다.
+2. [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스입니다. 
+3. [DocumentDbCollection](#azure-documentdb-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다. 
+4. [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)입니다.
+4. [DocumentDbCollectionSource](#azure-documentdb-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
 샘플은 DocumentDB Azure에서 Azure Blob에 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
@@ -164,11 +164,12 @@ DocumentDB는 계층적 JSON 문서에 대한 구문과 같이 SQL을 사용하�
 
 아래 샘플은 다음을 보여줍니다.
 
-1. DocumentDb 형식의 연결된 서비스입니다.
-2. AzureStorage 형식의 연결된 서비스입니다.
-3. AzureBlob 형식의 입력 데이터 집합입니다.
-4. DocumentDbCollection 형식의 출력 데이터 집합입니다. 
-4. BlobSource 및DocumentDbCollectionSink를 사용하는 복사 작업의 파이프라인입니다.
+1. [DocumentDb](#azure-documentdb-linked-service-properties) 형식의 연결된 서비스입니다.
+2. [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스입니다.
+3. [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다.
+4. [DocumentDbCollection](#azure-documentdb-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)입니다. 
+4. [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) 및 [DocumentDbCollectionSink](#azure-documentdb-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
+
 
 샘플은 Azure Blob에서 Azure DocumentDB로 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
@@ -343,7 +344,7 @@ DocumentDB는 중첩된 구조를 허용하는 JSON 문서용 NoSQL 저장소입
 
 | **속성** | **설명** | **필수** |
 | -------- | ----------- | --------- |
-| type | 형식 속성은 **DocumentDb**으로 설정되어야 합니다. | 예 |
+| type | 형식 속성은 **DocumentDb**로 설정되어야 합니다. | 예 |
 | connectionString | Azure DocumentDB 데이터베이스에 연결하는 데 필요한 정보를 지정합니다. | 예 |
 
 ## Azure DocumentDB 데이터 집합 형식 속성
@@ -387,7 +388,7 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 
 | **속성** | **설명** | **허용되는 값** | **필수** |
 | ------------ | --------------- | ------------------ | ------------ |
-| 쿼리 | 데이터를 읽는 쿼리를 지정합니다. | DocumentDB에서 지원하는 쿼리 문자열입니다. <p>예: SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > "2009-01-01T00:00:00"</p> | 아니요 <p>실행되는 SQL 문을 지정하지 않으면 mycollection </p>에서 <columns defined in structure>를선택합니다.
+| 쿼리 | 데이터를 읽는 쿼리를 지정합니다. | DocumentDB에서 지원하는 쿼리 문자열입니다. <p>예: SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > "2009-01-01T00:00:00"</p> | 아니요 <p>실행되는 SQL 문을 지정하지 않으면 mycollection </p>에서 <columns defined in structure>를 선택합니다.
 | nestingSeparator | 문서가 중첩됨을 나타내는 특수 문자 | 모든 character입니다. <p>DocumentDB는 중첩된 구조를 허용하는 JSON 문서용 NoSQL 저장소입니다. Azure 데이터 팩터리를 사용하면 nestingSeparator 즉, 위의 예에서 "."를 통해 계층 구조를 표시할 수 있습니다. 테이블 정의에서 "Name.First", "Name.Middle" 및 "Name.Last"에 따르면 구분 기호를 사용하여 복사 작업이 3개의 자식 요소(처음, 중간 및 마지막)가 있는 "Name" 개체를 생성합니다.</p> | 아니요
 
 **DocumentDbCollectionSink**는 다음 속성을 지원합니다.
@@ -400,4 +401,4 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

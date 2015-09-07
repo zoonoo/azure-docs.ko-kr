@@ -1,25 +1,25 @@
-<properties 
-	pageTitle="서비스 버스 릴레이를 사용하는 방법(.NET) | Microsoft Azure" 
-	description="Azure 서비스 버스 릴레이 서비스를 사용하여 서로 다른 위치에서 호스팅되는 두 응용 프로그램을 연결하는 방법에 대해 알아봅니다." 
-	services="service-bus" 
-	documentationCenter=".net" 
-	authors="sethmanheim" 
-	manager="timlt" 
+<properties
+	pageTitle="서비스 버스 릴레이를 사용하는 방법(.NET) | Microsoft Azure"
+	description="Azure 서비스 버스 릴레이 서비스를 사용하여 서로 다른 위치에서 호스팅되는 두 응용 프로그램을 연결하는 방법에 대해 알아봅니다."
+	services="service-bus"
+	documentationCenter=".net"
+	authors="sethmanheim"
+	manager="timlt"
 	editor=""/>
 
-<tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="get-started-article" 
-	ms.date="07/02/2015" 
+<tags
+	ms.service="service-bus"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article"
+	ms.date="07/02/2015"
 	ms.author="sethm"/>
 
 
-# 서비스 버스 릴레이 서비스를 사용하는 방법
+# Azure 서비스 버스 릴레이 서비스를 사용하는 방법
 
-이 가이드에서는 서비스 버스 릴레이 서비스를 사용하는 방법을 설명합니다. 샘플은 C#으로 작성되었으며 Microsoft Azure .NET SDK의 일부인 서비스 버스 어셈블리에 포함된 확장과 함께 WCF(Windows Communication Foundation) API를 사용합니다. 서비스 버스 릴레이에 대한 자세한 내용은 [다음 단계](#Next-steps) 섹션을 참조하세요.
+이 문서는 서비스 버스 릴레이 서비스를 사용하는 방법을 설명합니다. 샘플은 C#으로 작성되었으며 Microsoft Azure .NET SDK의 일부인 서비스 버스 어셈블리에 포함된 확장과 함께 WCF(Windows Communication Foundation) API를 사용합니다. 서비스 버스 릴레이에 대한 자세한 내용은 [다음 단계](#Next-steps) 섹션을 참조하세요.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -31,7 +31,7 @@
 
 서비스 버스 릴레이를 사용하면 기존 엔터프라이즈 환경 내에 WCF 서비스를 호스트할 수 있습니다. 그런 다음 이러한 WCF 서비스로 들어오는 세션 및 요청의 수신 대기를 Azure 내에서 실행되는 서비스 버스 서비스로 위임할 수 있습니다. 이렇게 하면 Azure에서 실행되는 응용 프로그램 코드나 모바일 작업자 또는 엑스트라넷 파트너 환경에 이러한 서비스를 노출할 수 있습니다. 서비스 버스를 사용하면 이러한 서비스에 액세스할 수 있는 사람을 세부적으로 안전하게 제어할 수 있습니다. 서비스 버스는 기존 엔터프라이즈 솔루션의 응용 프로그램 기능과 데이터를 노출하고 클라우드에서 이용하는 강력하고 안전한 방법을 제공합니다.
 
-이 방법 가이드에서는 서비스 버스 릴레이를 사용하여 TCP 채널 바인딩을 통해 노출되고 두 당사자 간의 보안 통신을 구현하는 WCF 웹 서비스를 만드는 방법을 보여 줍니다.
+이 방법 문서는 서비스 버스 릴레이를 사용하여 TCP 채널 바인딩을 통해 노출되고 두 당사자 간의 보안 통신을 구현하는 WCF 웹 서비스를 만드는 방법을 보여 줍니다.
 
 ## 서비스 네임스페이스 만들기
 
@@ -39,28 +39,27 @@ Azure에서 서비스 버스 릴레이 사용을 시작하려면 먼저 서비�
 
 서비스 네임스페이스를 만들려면
 
-1.  [Azure 관리 포털][]에 로그온합니다.
+1.  [Azure 포털][]에 로그온합니다.
 
-2.  관리 포털의 왼쪽 탐색 창에서 **서비스 버스**를 클릭합니다.
+2.  Azure 포털의 왼쪽 탐색 창에서 **서비스 버스**를 클릭합니다.
 
-3.  관리 포털의 아래쪽 창에서 **Create**를 클릭합니다.
+3.  Azure 포털의 아래쪽 창에서 **만들기**를 클릭합니다.
 
 	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
 
-4.  **Add a new namespace** 대화 상자에서 네임스페이스 이름을 입력합니다. 시스템에서 사용 가능한 이름인지 즉시 확인합니다.
+4.  **새 네임스페이스 추가** 대화 상자에서 네임스페이스 이름을 입력합니다. 시스템에서 사용 가능한 이름인지 즉시 확인합니다.
 
 	![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-04.png)
 
-
 5.  네임스페이스 이름이 사용 가능한지 확인한 후 해당 네임스페이스를 호스트할 국가 또는 지역을 선택합니다(계산 리소스를 배포할 국가/지역과 같아야 함).
 
-	중요: 응용 프로그램을 배포하도록 선택할 지역과 **같은 지역**을 선택합니다. 그러면 최상의 성능을 얻을 수 있습니다.
+	> [AZURE.IMPORTANT]응용 프로그램을 배포하도록 선택할 지역과 *같은 지역*을 선택합니다. 그러면 최상의 성능을 얻을 수 있습니다.
 
-6.	대화 상자의 다른 필드는 기본값으로 그대로 두고(**메시징** 및 **표준 계층**) 확인 표시를 클릭합니다. 이제 시스템이 네임스페이스를 만들고 사용하도록 설정합니다. 시스템이 계정에 대한 리소스를 프로비전하는 동안 몇 분 정도 기다려야 할 수도 있습니다.
+6.	대화 상자의 다른 필드는 기본값으로 그대로 두고(**메시징** 및 **표준** 계층) 확인 표시를 클릭합니다. 이제 시스템이 네임스페이스를 만들고 사용하도록 설정합니다. 시스템이 계정에 대한 리소스를 프로비전하는 동안 몇 분 정도 기다려야 할 수도 있습니다.
 
 	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png)
 
-	만든 네임스페이스가 관리 포털에 표시되며, 활성화되는 데 약간의 시간이 걸립니다. 계속하기 전에 **활성** 상태가 될 때까지 기다리세요.
+	만든 네임스페이스가 Azure 포털에 표시되며, 활성화되는 데 약간의 시간이 걸립니다. 계속하기 전에 **활성** 상태가 될 때까지 기다리십시오.
 
 ## 네임스페이스에 대한 기본 관리 자격 증명 얻기
 
@@ -68,25 +67,23 @@ Azure에서 서비스 버스 릴레이 사용을 시작하려면 먼저 서비�
 
 1.  왼쪽 탐색 창에서 **서비스 버스** 노드를 클릭하여 사용 가능한 네임스페이스 목록을 표시합니다. ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png)
 
-
-2.  표시된 목록: ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-09.png)에서 방금 만든 네임스페이스의 이름을 두 번 클릭합니다.
-
+2.  표시된 목록에서 방금 만든 네임스페이스의 이름을 두 번 클릭합니다. ![](./media/service-bus-dotnet-how-to-use-relay/sb-queues-09.png)
 
 3.  페이지 맨 위에 있는 **구성** 탭을 클릭합니다.
- 
+
 4.  서비스 버스 네임스페이스를 프로비전하면 기본적으로 **KeyName**이 **RootManageSharedAccessKey**로 설정된 **SharedAccessAuthorizationRule**이 생성됩니다. 이 페이지에는 해당 키와 기본 규칙에 대한 기본 키 및 보조 키가 표시됩니다.
 
 ## 서비스 버스 NuGet 패키지 다운로드
 
-서비스 버스 **NuGet** 패키지는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다. NuGet Visual Studio 확장을 사용하면 Visual Studio 및 Visual Studio Express에서 라이브러리와 도구를 쉽게 설치 및 업데이트할 수 있습니다. 서비스 버스 NuGet 패키지는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다.
+서비스 버스 NuGet 패키지는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다. NuGet Visual Studio 확장을 사용하면 Visual Studio 및 Visual Studio Express에서 라이브러리와 도구를 쉽게 설치 및 업데이트할 수 있습니다. 서비스 버스 NuGet 패키지는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다.
 
 응용 프로그램에서 NuGet 패키지를 설치하려면 다음을 수행합니다.
 
 1.  솔루션 탐색기에서 **참조**를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
-2.  "서비스 버스"를 검색하고 **Microsoft Azure 서비스 버스** 항목을 선택합니다. **설치**를 클릭하여 설치를 완료한 후 이 대화 상자를 닫습니다.
+2.  "서비스 버스"를 검색하고 **Microsoft Azure 서비스 버스** 항목을 선택합니다. **설치**를 클릭하여 설치를 완료한 후 다음의 대화 상자를 닫습니다.
 
 	![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
-  
+
 
 ## 서비스 버스를 사용하여 SOAP 웹 서비스를 노출하고 TCP와 함께 이용하는 방법
 
@@ -97,13 +94,13 @@ Azure에서 서비스 버스 릴레이 사용을 시작하려면 먼저 서비�
 아래 단계를 시작하기 전에 다음 절차를 완료하여 환경을 설정합니다.
 
 1.  Visual Studio 내에서 솔루션에 "Client" 및 "Service"의 두 프로젝트가 포함된 콘솔 응용 프로그램을 만듭니다.
-2.  두 프로젝트에 **Microsoft Azure 서비스 버스** NuGet 패키지를 추가합니다. 그러면 필요한 모든 어셈블리 참조가 프로젝트에 추가됩니다.
+2.  두 프로젝트에 Microsoft Azure 서비스 버스 NuGet 패키지를 추가합니다. 그러면 필요한 모든 어셈블리 참조가 프로젝트에 추가됩니다.
 
 ### 서비스를 만드는 방법
 
 먼저 서비스 자체를 만듭니다. 모든 WCF 서비스는 적어도 다음 세 가지 요소로 구성되어 있습니다.
 
--   교환되는 메시지 및 호출해야 하는 작업을 설명하는 계약 정의 
+-   교환되는 메시지 및 호출해야 하는 작업을 설명하는 계약 정의
 -   위 계약의 구현
 -   WCF 서비스를 호스트하고 많은 끝점을 노출하는 호스트
 
@@ -112,14 +109,14 @@ Azure에서 서비스 버스 릴레이 사용을 시작하려면 먼저 서비�
 계약은 두 개의 숫자를 더하고 결과를 반환하는 단일 작업 `AddNumbers`를 정의합니다. `IProblemSolverChannel` 인터페이스를 사용하면 클라이언트에서 프록시 수명을 더 쉽게 관리할 수 있습니다. 이러한 인터페이스 생성은 모범 사례로 간주됩니다. 이 계약 정의를 별도의 파일에 저장하여 "Client" 및 "Service" 프로젝트 둘 다에서 해당 파일을 참조할 수 있게 하는 것이 좋지만 두 프로젝트에 코드를 복사할 수도 있습니다.
 
         using System.ServiceModel;
-     
+
         [ServiceContract(Namespace = "urn:ps")]
         interface IProblemSolver
         {
             [OperationContract]
             int AddNumbers(int a, int b);
         }
-     
+
         interface IProblemSolverChannel : IProblemSolver, IClientChannel {}
 
 계약이 준비되면 구현은 어렵지 않습니다.
@@ -139,11 +136,11 @@ Azure에서 서비스 버스 릴레이 사용을 시작하려면 먼저 서비�
     ServiceHost sh = new ServiceHost(typeof(ProblemSolver));
 
     sh.AddServiceEndpoint(
-       typeof (IProblemSolver), new NetTcpBinding(), 
+       typeof (IProblemSolver), new NetTcpBinding(),
        "net.tcp://localhost:9358/solver");
 
     sh.AddServiceEndpoint(
-       typeof(IProblemSolver), new NetTcpRelayBinding(), 
+       typeof(IProblemSolver), new NetTcpRelayBinding(),
        ServiceBusEnvironment.CreateServiceUri("sb", "namespace", "solver"))
         .Behaviors.Add(new TransportClientEndpointBehavior {
               TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider("RootManageSharedAccessKey", "yourKey")});
@@ -159,7 +156,7 @@ Azure에서 서비스 버스 릴레이 사용을 시작하려면 먼저 서비�
 
 ### App.config 파일에서 서비스 호스트를 구성하는 방법
 
-App.config 파일을 사용하여 호스트를 구성할 수도 있습니다. 이 경우 서비스 호스팅 코드는 다음과 같습니다.
+App.config 파일을 사용하여 호스트를 구성할 수도 있습니다. 이 예제에서 코드를 호스팅하는 서비스를 다음 예제에 표시합니다.
 
     ServiceHost sh = new ServiceHost(typeof(ProblemSolver));
     sh.Open();
@@ -167,7 +164,7 @@ App.config 파일을 사용하여 호스트를 구성할 수도 있습니다. �
     Console.ReadLine();
     sh.Close();
 
-끝점 정의가 App.config 파일로 이동합니다. 참고로 **NuGet** 패키지의 App.config 파일(서비스 버스를 위해 필요한 구성 확장)에는 다양한 정의가 이미 추가되었습니다. 이전 코드 조각과 똑같은 다음 코드 조각이 **system.serviceModel** 요소 바로 아래에 표시되어야 합니다. 이 코드 조각에서는 프로젝트 C# 네임스페이스의 이름이 "Service"라고 가정합니다. 자리 표시자를 해당 서비스 버스 서비스 네임스페이스와 SAS 키로 바꿉니다.
+끝점 정의가 App.config 파일로 이동합니다. 참고로 NuGet 패키지의 App.config 파일(서비스 버스를 위해 필요한 구성 확장)에는 다양한 정의가 이미 추가되었습니다. 이전 코드 예제와 똑같은 다음 코드 예제가 **system.serviceModel** 요소 바로 아래에 표시되어야 합니다. 이 코드 예제에서는 프로젝트 C# 네임스페이스의 이름이 "Service"라고 가정합니다. 자리 표시자를 해당 서비스 버스 서비스 네임스페이스와 SAS 키로 바꿉니다.
 
     <services>
         <service name="Service.ProblemSolver">
@@ -205,22 +202,22 @@ App.config 파일을 사용하여 호스트를 구성할 수도 있습니다. �
 그런 다음 자리 표시자 텍스트를 해당 서비스 버스 네임스페이스와 SAS 키로 바꾸어 클라이언트 `Main` 메서드의 코드를 바꿉니다.
 
     var cf = new ChannelFactory<IProblemSolverChannel>(
-        new NetTcpRelayBinding(), 
+        new NetTcpRelayBinding(),
         new EndpointAddress(ServiceBusEnvironment.CreateServiceUri("sb", "namespace", "solver")));
 
     cf.Endpoint.Behaviors.Add(new TransportClientEndpointBehavior
                 { TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider("RootManageSharedAccessKey","yourKey") });
-     
+
     using (var ch = cf.CreateChannel())
     {
         Console.WriteLine(ch.AddNumbers(4, 5));
     }
 
-이제 클라이언트와 서비스를 빌드한 후 실행할 수 있으며(서비스 먼저 실행), 클라이언트가 서비스를 호출하고 "**9**"를 인쇄합니다. 클라이언트와 서버를 서로 다른 컴퓨터 또는 네트워크에서도 실행할 수 있으며, 통신이 제대로 작동합니다. 클라이언트 코드가 클라우드나 로컬에서 실행될 수도 있습니다.
+이제 클라이언트와 서비스를 빌드한 후 실행할 수 있으며(서비스 먼저 실행) 클라이언트가 서비스를 호출하고 "**9**"를 인쇄합니다. 클라이언트와 서버를 서로 다른 컴퓨터 또는 네트워크에서도 실행할 수 있으며, 통신이 제대로 작동합니다. 클라이언트 코드가 클라우드나 로컬에서 실행될 수도 있습니다.
 
 #### App.config 파일에서 클라이언트를 구성하는 방법
 
-App.config 파일을 사용하여 클라이언트를 구성할 수도 있습니다. 이 경우 클라이언트 코드는 다음과 같습니다.
+다음 코드는 App.config 파일을 사용하여 클라이언트를 구성하는 방법을 보여줍니다.
 
     var cf = new ChannelFactory<IProblemSolverChannel>("solver");
     using (var ch = cf.CreateChannel())
@@ -228,7 +225,7 @@ App.config 파일을 사용하여 클라이언트를 구성할 수도 있습니�
         Console.WriteLine(ch.AddNumbers(4, 5));
     }
 
-끝점 정의가 App.config 파일로 이동합니다. 이전에 나열된 코드와 같은 다음 코드 조각은 **system.serviceModel** 요소 바로 아래에 표시되어야 합니다. 이전처럼 여기서 자리 표시자를 해당 서비스 버스 네임스페이스와 SAS 키로 바꾸어야 합니다.
+끝점 정의가 App.config 파일로 이동합니다. 이전에 나열된 코드와 같은 다음 코드 예제는 **system.serviceModel** 요소 바로 아래에 표시되어야 합니다. 이전처럼 여기서 자리 표시자를 해당 서비스 버스 네임스페이스와 SAS 키로 바꾸어야 합니다.
 
     <client>
         <endpoint name="solver" contract="Service.IProblemSolver"
@@ -250,22 +247,21 @@ App.config 파일을 사용하여 클라이언트를 구성할 수도 있습니�
 
 ## 다음 단계
 
-이제 서비스 버스 **릴레이** 서비스의 기본 사항을 익혔으므로 다음 링크를 따라 자세히 알아보세요.
+이제 서비스 버스 *릴레이* 서비스의 기본 사항을 익혔으므로 다음 링크를 따라 자세히 알아보세요.
 
--   서비스 빌드: [서비스 버스용 서비스 빌드][].
--   클라이언트 빌드: [서비스 버스 클라이언트 응용 프로그램 빌드][].
+-   서비스 빌드: [서비스 버스용 서비스를 빌드][]합니다.
+-   클라이언트 빌드: [서비스 버스 클라이언트 응용 프로그램을 빌드][]합니다.
 -   서비스 버스 샘플: [Azure 샘플][]에서 다운로드하거나 [MSDN][]에 대한 개요를 참조하세요.
 
   [Create a Service Namespace]: #create_namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain_credentials
   [Get the Service Bus NuGet Package]: #get_nuget_package
   [How to: Use Service Bus to Expose and Consume a SOAP Web Service  with TCP]: #how_soap
-  [Azure 관리 포털]: http://manage.windowsazure.com
+  [Azure 포털]: http://manage.windowsazure.com
   [서비스 버스를 사용한 공유 액세스 서명 인증]: http://msdn.microsoft.com/library/azure/dn170477.aspx
-  [서비스 버스용 서비스 빌드]: http://msdn.microsoft.com/library/azure/ee173564.aspx
-  [서비스 버스 클라이언트 응용 프로그램 빌드]: http://msdn.microsoft.com/library/azure/ee173543.aspx
+  [서비스 버스용 서비스를 빌드]: http://msdn.microsoft.com/library/azure/ee173564.aspx
+  [서비스 버스 클라이언트 응용 프로그램을 빌드]: http://msdn.microsoft.com/library/azure/ee173543.aspx
   [Azure 샘플]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-  [MSDN]: https://msdn.microsoft.com/ko-kr/library/azure/dn194201.aspx
- 
+  [MSDN]: https://msdn.microsoft.com/ko-KR/library/azure/dn194201.aspx
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

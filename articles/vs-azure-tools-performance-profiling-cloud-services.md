@@ -1,19 +1,20 @@
 <properties 
-   pageTitle="클라우드 서비스의 성능 테스트"
-   description="Visual Studio 프로파일러를 사용하여 클라우드 서비스의 성능을 테스트합니다."
-   services="visual-studio-online"
-   documentationCenter="n/a"
-   authors="patshea123"
-   manager="douge"
-   editor="tlee" />
+   pageTitle="클라우드 서비스의 성능 테스트 | Microsoft Azure"
+	description="Visual Studio 프로파일러를 사용하여 클라우드 서비스의 성능을 테스트합니다."
+	services="visual-studio-online"
+	documentationCenter="n/a"
+	authors="patshea123"
+	manager="douge"
+	editor="tlee"/>
 <tags 
    ms.service="visual-studio-online"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.workload="na"
-   ms.tgt_pltfrm="na"
-   ms.date="08/12/2015"
-   ms.author="patshea" />
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="08/14/2015"
+	ms.author="patshea"/>
+
 
 # 클라우드 서비스의 성능 테스트 
 
@@ -81,7 +82,8 @@ Visual Studio에서 성능을 프로파일링하는 방법을 알아보려면 [�
 
 >[AZURE.NOTE]응용 프로그램을 게시할 때 IntelliTrace 또는 프로파일링을 사용할 수 있습니다. 둘 다 사용할 수는 없습니다.
 
-###프로파일러 컬렉션 방법###
+###프로파일러 컬렉션 방법
+
 프로파일링을 위해 성능 문제에 따라 여러 수집 방법을 사용할 수 있습니다.
 
 - **CPU 샘플링** - 이 방법은 CPU 이용률 문제의 초기 분석에 유용한 응용 프로그램 통계를 수집합니다. CPU 샘플링은 대부분의 성능 조사를 시작하기 위한 권장 방법입니다. CPU 샘플링 데이터를 수집할 때 프로파일링하는 응용 프로그램에 많은 영향을 미치지 않습니다.
@@ -100,10 +102,11 @@ Visual Studio에서 성능을 프로파일링하는 방법을 알아보려면 [�
 
 ![프로파일링 설정 구성](./media/vs-azure-tools-performance-profiling-cloud-services/IC526984.png)
 
+>[AZURE.NOTE]**프로파일링 사용** 확인란을 활성화하려면 클라우드 서비스를 게시하는 데 사용 중인 로컬 컴퓨터에 프로파일러가 설치되어 있어야 합니다. 기본적으로 프로파일러는 Visual Studio를 설치할 때 설치됩니다.
 
 ### 프로파일링 설정 구성
 
-1. 솔루션 탐색기에서 Azure 프로젝트에 대한 바로 가기 메뉴를 열고 **게시**를 선택합니다. 클라우드 서비스를 게시하는 방법에 대한 자세한 단계는 [Azure 도구를 사용하여 클라우드 서비스 게시](http://go.microsoft.com/fwlink/p?LinkId=623012)를 참조하십시오.
+1. 솔루션 탐색기에서 Azure 프로젝트에 대한 바로 가기 메뉴를 열고 **게시**를 선택합니다. 클라우드 서비스를 게시하는 방법에 대한 자세한 단계는 [Azure 도구를 사용하여 클라우드 서비스 게시](http://go.microsoft.com/fwlink/p?LinkId=623012)를 참조하세요.
 
 1. **Azure 응용 프로그램 게시** 대화 상자에서 **고급 설정**을 선택합니다.
 
@@ -115,7 +118,9 @@ Visual Studio에서 성능을 프로파일링하는 방법을 알아보려면 [�
 
 1. 계층 상호작용 프로파일링 데이터를 수집하려면 **계층 상호작용 프로파일링 사용** 확인란을 선택합니다.
 
-1. 설정을 저장하려면 **확인** 단추를 선택합니다. 이 응용 프로그램을 게시할 때 각 역할에 대한 프로파일링 세션을 만들기 위해 이러한 설정이 사용됩니다.
+1. 설정을 저장하려면 **확인** 단추를 선택합니다.
+
+    이 응용 프로그램을 게시할 때 각 역할에 대한 프로파일링 세션을 만들기 위해 이러한 설정이 사용됩니다.
 
 ## 프로파일링 보고서 보기
 
@@ -123,22 +128,22 @@ Visual Studio에서 성능을 프로파일링하는 방법을 알아보려면 [�
 
 ![Azure에서 프로파일링 보고서 보기](./media/vs-azure-tools-performance-profiling-cloud-services/IC748914.png)
 
-
-
 ### 프로파일링 보고서 보기
 
 1. Visual Studio에서 서버 탐색기 창을 보려면 메뉴 모음에서 보기, 서버 탐색기를 선택합니다.
 
 1. Azure 계산 노드를 선택한 다음 Visual Studio에서 게시할 때 프로파일링 하도록 선택한 클라우드 서비스에 대한 Azure 배포 노드를 선택합니다.
 
-1. 인스턴스에 대한 프로파일링 보고서를 보려면 서비스에서 역할을 선택하고, 특정 인스턴스에 대한 바로 가기 메뉴를 연 다음 프로파일링 보고서 보기를 선택합니다. 보고서인 .vsp 파일은 이제 Azure에서 다운로드할 수 있으며 다운로드 상태는 Azure 활동 로그에 나타납니다. 다운로드가 완료되면 프로파일링 보고서가 <Role name>\_<Instance Number>\_<identifier>.vsp라는 Visual Studio에 대한 편집기의 탭에 나타납니다. 보고서에 대한 요약 데이터가 표시됩니다.
+1. 인스턴스에 대한 프로파일링 보고서를 보려면 서비스에서 역할을 선택하고 특정 인스턴스에 대한 바로 가기 메뉴를 연 다음 **프로파일링 보고서 보기**를 선택합니다.
 
-1. 현재 보기 목록에서 보고서의 다른 보기를 표시하려면 원하는 보기의 유형을 선택합니다. 자세한 내용은 [프로파일링 도구 보고서 보기](https://msdn.microsoft.com/library/bb385755.aspx)를 참조하십시오.
+    .vsp 파일인 보고서가 이제 Azure에서 다운로드되며 Azure 활동 로그에 다운로드 상태가 표시됩니다. 다운로드가 완료되면 프로파일링 보고서가 <Role name>\_<Instance Number>\_<identifier>.vsp라는 Visual Studio에 대한 편집기의 탭에 나타납니다. 보고서에 대한 요약 데이터가 표시됩니다.
+
+1. 현재 보기 목록에서 보고서의 다른 보기를 표시하려면 원하는 보기의 유형을 선택합니다. 자세한 내용은 [프로파일링 도구 보고서 보기](https://msdn.microsoft.com/library/azure/bb385755.aspx)를 참조하세요.
 
 ## 다음 단계
 
-[클라우드 서비스 디버깅](http://go.microsoft.com/fwlink//p/?LinkID=62304)
+[클라우드 서비스 디버깅](https://msdn.microsoft.com/library/azure/ee405479.aspx)
 
-[Visual Studio에서 Azure 클라우드 서비스에 게시](http://go.microsoft.com/fwlink//p/?LinkID=623012)
+[Visual Studio에서 Azure 클라우드 서비스에 게시](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

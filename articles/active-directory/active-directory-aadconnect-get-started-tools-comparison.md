@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="디렉터리 통합 도구 비교" 
-	description="이 페이지는 다양한 디렉터리 통합 도구를 비교하는 포괄적인 표를 제공합니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="디렉터리 통합 도구 비교"
+	description="이 페이지는 다양한 디렉터리 통합 도구를 비교하는 포괄적인 표를 제공합니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # 디렉터리 통합 도구 비교
@@ -88,4 +88,4 @@
 AD에서 Azure AD로의 흐름에서 특성 제거 허용 | ● | ● | |  
 특성 흐름에 대한 고급 사용자 지정 허용 | ● | ● | | ●  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

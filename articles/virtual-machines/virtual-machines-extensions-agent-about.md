@@ -1,26 +1,27 @@
-<properties 
- pageTitle="가상 컴퓨터 에이전트 및 확장 정보 | Microsoft Azure" 
- description="에이전트 및 확장에 대한 개요와 에이전트 설치 방법을 제공합니다." 
- services="virtual-machines" 
- documentationCenter="" 
- authors="squillace" 
- manager="timlt" 
- editor=""/>
-<tags 
-ms.service="virtual-machines" 
- ms.devlang="na" 
- ms.topic="article" 
- ms.tgt_pltfrm="vm-multiple" 
- ms.workload="infrastructure-services"
- ms.date="03/10/2015" 
- ms.author="kathydav"/>
+<properties
+ pageTitle="가상 컴퓨터 에이전트 및 확장 정보 | Microsoft Azure"
+	description="에이전트 및 확장에 대한 개요와 에이전트 설치 방법을 제공합니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""/>
+<tags
+ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.workload="infrastructure-services"
+	ms.date="03/10/2015"
+	ms.author="rasquill"/>
+ 
 #가상 컴퓨터 에이전트 및 확장 정보
 Azure 가상 컴퓨터 에이전트(VM 에이전트)는 Azure 가상 컴퓨터 확장(VM 확장)을 설치, 구성, 관리 및 실행하는 데 사용됩니다. VM 확장은 Microsoft 및 기타 타사가 제공하는 동적 기능을 구현합니다. 에이전트 및 확장은 주로 관리 포털을 통해 추가되지만 VM을 만들 때나 기존 VM에서 [Powershell](../install-configure-powershell.md) cmdlet 또는 [xplat-cli](virtual-machines-command-line-tools.md)를 사용해서도 추가 및 구성할 수 있습니다. VM 확장에는 [Visual Studio에서의 원격 디버깅](https://msdn.microsoft.com/library/y7f5zaaa.aspx), [System Center 2012](http://social.technet.microsoft.com/wiki/contents/articles/18274.system-center-2012-r2-virtual-machine-role-authoring-guide-resource-extension-package.aspx), [Microsoft Azure Diagnostics](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/) 및 [Docker](virtual-machines-docker-vm-extension.md)를 비롯한 다양한 항목에 대한 지원도 포함됩니다.
 
 VM 확장은 다음과 같은 작업에 도움이 될 수 있습니다.
 
--   보안 및 ID 기능 수정(예: 계정 값 재설정 및 맬웨어 방지 프로그램) 
--   모니터링 및 진단 시작, 중지 또는 구성 
+-   보안 및 ID 기능 수정(예: 계정 값 재설정 및 맬웨어 방지 프로그램)
+-   모니터링 및 진단 시작, 중지 또는 구성
 -   연결 기능 재설정 또는 설치(예: RDP 및 SSH)
 -   VM 진단, 모니터링 및 관리
 
@@ -58,4 +59,4 @@ VM 에이전트는 다음과 같은 상황에서 사용됩니다.
 
 이러한 작업에 대한 자세한 내용은 [Azure VM 확장 추가, 찾기, 업데이트 및 제거](https://msdn.microsoft.com/library/dn850373.aspx)를 참조하세요.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

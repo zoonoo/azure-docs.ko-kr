@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="ASP.NET 5용 Application Insights" 
-	description="응용 프로그램의 가용성, 성능 및 사용 현황을 모니터링합니다." 
-	services="application-insights" 
-    documentationCenter=".net"
-	authors="alancameronwills" 
+	pageTitle="ASP.NET 5용 Application Insights"
+	description="응용 프로그램의 가용성, 성능 및 사용 현황을 모니터링합니다."
+	services="application-insights"
+	documentationCenter=".net"
+	authors="alancameronwills"
 	manager="ronmart"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/27/2015"
 	ms.author="awills"/>
 
 # ASP.NET 5용 Application Insights
@@ -90,16 +90,20 @@ NuGet 패키지의 [최신 릴리스 번호](https://github.com/Microsoft/Applic
 
 `Startup` 메서드:
 
-    // Setup configuration sources.
-    var configuration = new Configuration()
-       .AddJsonFile("config.json")
-       .AddJsonFile($"config.{env.EnvironmentName}.json", optional: true);
-    configuration.AddEnvironmentVariables();
-    Configuration = configuration;
-
-    if (env.IsEnvironment("Development"))
+    public Startup(IHostingEnvironment env, IApplicationEnvironment appEnv)
     {
-      configuration.AddApplicationInsightsSettings(developerMode: true);
+    	// Setup configuration sources.
+    	var builder = new ConfigurationBuilder(appEnv.ApplicationBasePath)
+	   		.AddJsonFile("config.json")
+	   		.AddJsonFile($"config.{env.EnvironmentName}.json", optional: true);
+    	builder.AddEnvironmentVariables();
+
+    	if (env.IsEnvironment("Development"))
+    	{
+	    	builder.AddApplicationInsightsSettings(developerMode: true);
+    	}
+    
+    	Configuration = builder.build();
     }
 
 `ConfigurationServices` 메서드:
@@ -171,4 +175,4 @@ Visual Studio에서 응용 프로그램을 디버깅하거나 웹 서버에 게�
 [start]: app-insights-get-started.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

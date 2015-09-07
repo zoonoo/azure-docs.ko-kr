@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure 데이터 팩터리 - 질문과 대답" 
-	description="Azure 데이터 팩터리에 대한 질문과 대답입니다." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Azure 데이터 팩터리 - 질문과 대답"
+	description="Azure 데이터 팩터리에 대한 질문과 대답입니다."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리 - 질문과 대답
@@ -90,17 +90,6 @@ Azure 데이터 팩터리에 대한 가격 정보는 [데이터 팩터리 가격
 출력 데이터 테이블의 **가용성** 구성 설정에 따라 작업 실행 시기가 결정됩니다. 작업은 실행을 시작하기 전에 모든 입력 데이터 종속성이 충족되었는지(즉, **Ready** 상태) 검사합니다.
 
 ## 복사 작업 - FAQ
-### 복사 작업에서 지원하는 지역은 어디인가요?
-
-복사 작업은 미국 동부, 미국 동부 2, 미국 서부, 미국 중부, 미국 중북부, 미국 중남부, 북유럽, 서유럽 및 동남 아시아, 일본 동부 및 브라징 남부 지역으로 데이터 복사를 지원합니다.
-
-위의 지역 중 하나를 사용하여 데이터를 라우팅하면 다른 지역으로도 데이터를 복사할 수 있습니다. 복사 작업에 대한 요금은 어느 지역을 통해 데이터가 라우팅되는지를 기준으로 청구됩니다.
-
-복사 대상의 지역 | 라우팅에 사용되는 지역
--------------------------- | -----------------------
-동아시아 | 동남아시아
-일본 서부 | 일본 동부
- 
 ### 여러 작업이 포함된 파이프라인 1개보다 각 작업에 개별 파이프라인을 사용하는 것이 더 효율적인가요? 
 파이프라인은 관련 작업의 번들로 간주됩니다. 논리적으로, 작업을 연결하는 테이블이 파이프라인 외부의 다른 작업에서 사용 되지 않는 경우 파이프라인 하나에 작업을 유지할 수 있습니다. 이 경우 서로 정렬되도록 파이프라인 활성 기간을 연결할 필요가 없습니다. 또한 파이프라인을 업데이트할 때 파이프라인 내부 테이블의 데이터 무결성이 보다 완벽하게 유지됩니다. 파이프라인 업데이트는 기본적으로 파이프라인 내의 모든 작업을 중지하고 제거한 후 다시 만듭니다. 제작 관점에서는 파이프라인에 대한 하나의 JSON 파일에서 관련 작업 내의 데이터 흐름을 확인하는 것이 더 쉬울 수도 있습니다.
 
@@ -192,4 +181,4 @@ cmdlet에 대한 자세한 내용은 [Set-AzureDataFactorySliceStatus][set-azure
 [hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

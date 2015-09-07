@@ -1,24 +1,24 @@
 <properties
     pageTitle="서비스 버스 토픽을 사용하는 방법(.NET) | Microsoft Azure"
-    description="Azure에서 서비스 버스 토픽 및 구독을 사용하는 방법에 대해 알아봅니다. 코드 샘플은 .NET 응용 프로그램용으로 작성되었습니다."
-    services="service-bus"
-    documentationCenter=".net"
-    authors="sethmanheim"
-    manager="timlt"
-    editor=""/>
+	description="Azure에서 서비스 버스 토픽 및 구독을 사용하는 방법에 대해 알아봅니다. 코드 샘플은 .NET 응용 프로그램용으로 작성되었습니다."
+	services="service-bus"
+	documentationCenter=".net"
+	authors="sethmanheim"
+	manager="timlt"
+	editor=""/>
 
 <tags
     ms.service="service-bus"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="get-started-article" 
-    ms.date="07/02/2015"
-    ms.author="sethm"/>
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="get-started-article"
+	ms.date="07/02/2015"
+	ms.author="sethm"/>
 
-# 서비스 버스 토픽 및 구독을 사용하는 방법
+# Azure 서비스 버스 토픽 및 구독을 사용하는 방법
 
-이 가이드에서는 서비스 버스 토픽과 구독을 사용하는 방법을 보여 줍니다. 샘플은 C#으로 작성되었으며 .NET API를 사용합니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기**, **구독 필터 만들기**, **토픽에 메시지 보내기**, **구독에서 메시지 받기**, **토픽 및 구독 삭제** 등이 포함됩니다. 토픽 및 구독에 대한 자세한 내용은 [다음 단계](#Next-steps) 섹션을 참조하세요.
+이 문서에서는 서비스 버스 토픽과 구독을 사용하는 방법을 보여 줍니다. 샘플은 C#으로 작성되었으며 .NET API를 사용합니다. 여기서 다루는 시나리오에는 토픽 및 구독 만들기, 구독 필터 만들기, 토픽에 메시지 보내기, 구독에서 메시지 받기, 토픽 및 구독 삭제 등이 포함됩니다. 토픽 및 구독에 대한 자세한 내용은 [다음 단계](#Next-steps) 섹션을 참조하세요.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -30,12 +30,12 @@
 
 ## 서비스 버스 NuGet 패키지 다운로드
 
-서비스 버스 **NuGet** 패키지는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다. NuGet Visual Studio 확장을 사용하면 Visual Studio 및 Visual Studio Express에서 라이브러리와 도구를 쉽게 설치 및 업데이트할 수 있습니다. 서비스 버스 NuGet 패키지는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다.
+서비스 버스 NuGet 패키지는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다. NuGet Visual Studio 확장을 사용하면 Visual Studio 및 Visual Studio Express에서 라이브러리와 도구를 쉽게 설치 및 업데이트할 수 있습니다. 서비스 버스 NuGet 패키지는 서비스 버스 API를 가져오고 모든 서비스 버스 종속성으로 응용 프로그램을 구성하는 가장 쉬운 방법입니다.
 
 응용 프로그램에서 NuGet 패키지를 설치하려면 다음을 수행합니다.
 
 1.  솔루션 탐색기에서 **참조**를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭합니다.
-2.  "서비스 버스"를 검색하고 **Microsoft Azure 서비스 버스** 항목을 선택합니다. **설치**를 클릭하여 설치를 완료한 후 이 대화 상자를 닫습니다.
+2.  "서비스 버스"를 검색하고 **Microsoft Azure 서비스 버스** 항목을 선택합니다. **설치**를 클릭하여 설치를 완료한 후 다음의 대화 상자를 닫습니다.
 
     ![][7]
 
@@ -45,14 +45,14 @@
 
 서비스 버스는 연결 문자열을 사용하여 끝점과 자격 증명을 저장합니다. 하드 코딩하는 대신 구성 파일에 연결 문자열을 저장할 수 있습니다.
 
-- Azure 클라우드 서비스를 사용하는 경우 Azure 서비스 구성 시스템(****.csdef** 및 ****.cscfg** 파일)을 사용하여 연결 문자열을 저장하는 것이 좋습니다.
-- Azure 웹 사이트나 Azure 가상 컴퓨터를 사용하는 경우 .NET 구성 시스템(예: **Web.config** 파일)을 사용하여 연결 문자열을 저장하는 것이 좋습니다.
+- Azure 클라우드 서비스를 사용하는 경우 Azure 서비스 구성 시스템(.csdef 및 .cscfg 파일)을 사용하여 연결 문자열을 저장하는 것이 좋습니다.
+- Azure 웹 사이트나 Azure 가상 컴퓨터를 사용하는 경우 .NET 구성 시스템(예: Web.config 파일)을 사용하여 연결 문자열을 저장하는 것이 좋습니다.
 
-두 경우 모두, 이 가이드의 뒷부분에 표시된 대로 `CloudConfigurationManager.GetSetting` 메서드를 사용하여 연결 문자열을 검색할 수 있습니다.
+두 경우 모두, 이 문서의 뒷부분에 표시된 대로 `CloudConfigurationManager.GetSetting` 메서드를 사용하여 연결 문자열을 검색할 수 있습니다.
 
 ### 클라우드 서비스를 사용하는 경우 연결 문자열 구성
 
-서비스 구성 메커니즘은 Azure 클라우드 서비스 프로젝트에 고유하며, 응용 프로그램을 다시 배포하지 않고도 Azure 관리 포털에서 구성 설정을 동적으로 변경할 수 있게 해줍니다. 예를 들어 아래 표시된 대로 서비스 정의(****.csdef**) 파일에 `Setting` 레이블을 추가합니다.
+서비스 구성 메커니즘은 Azure 클라우드 서비스 프로젝트에 고유하며, 응용 프로그램을 다시 배포하지 않고도 Azure 포털에서 구성 설정을 동적으로 변경할 수 있게 해줍니다. 예를 들어 다음 예에 표시된 대로 서비스 정의(****.csdef**) 파일에 `Setting` 레이블을 추가합니다.
 
     <ServiceDefinition name="Azure1">
     ...
@@ -64,7 +64,7 @@
     ...
     </ServiceDefinition>
 
-그런 다음 서비스 구성(****.cscfg**) 파일에서 값을 지정합니다.
+그런 다음 서비스 구성(.cscfg) 파일에서 값을 지정합니다.
 
     <ServiceConfiguration serviceName="Azure1">
     ...
@@ -77,11 +77,11 @@
     ...
     </ServiceConfiguration>
 
-이전 섹션에서 설명한 대로 관리 포털에서 검색된 SAS(공유 액세스 서명) 키 이름 및 키 값을 사용합니다.
+이전 섹션에서 설명한 대로 Azure 포털에서 검색된 SAS(공유 액세스 서명) 키 이름 및 키 값을 사용합니다.
 
-### 웹 사이트 또는 가상 컴퓨터를 사용하는 경우 연결 문자열 구성
+### Azure 웹 사이트 또는 Azure 가상 컴퓨터를 사용하는 경우 연결 문자열 구성
 
-Azure웹 사이트나 가상 컴퓨터를 사용하는 경우 .NET 구성 시스템(예: **Web.config**)을 사용하는 것이 좋습니다. 다음과 같이 `<appSettings>` 요소를 사용하여 연결 문자열을 저장합니다.
+웹 사이트나 가상 컴퓨터를 사용하는 경우 .NET 구성 시스템(예: Web.config)을 사용하는 것이 좋습니다. 다음과 같이 `<appSettings>` 요소를 사용하여 연결 문자열을 저장합니다.
 
     <configuration>
         <appSettings>
@@ -90,7 +90,7 @@ Azure웹 사이트나 가상 컴퓨터를 사용하는 경우 .NET 구성 시스
         </appSettings>
     </configuration>
 
-이전 섹션에서 설명한 대로 관리 포털에서 검색된 SAS 이름 및 키 값을 사용합니다.
+이전 섹션에서 설명한 대로 Azure 포털에서 검색된 SAS 이름 및 키 값을 사용합니다.
 
 ## 토픽을 만드는 방법
 
@@ -100,9 +100,9 @@ Azure웹 사이트나 가상 컴퓨터를 사용하는 경우 .NET 구성 시스
 
     Endpoint=sb://<yourServiceNamespace>.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey
 
-예를 들어 이전 섹션의 구성 설정이 제공될 경우
+이전 섹션의 구성 설정이 제공될 경우 다음 예를 사용합니다.
 
-    // Create the topic if it does not exist already
+    // Create the topic if it does not exist already.
     string connectionString =
         CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
@@ -114,14 +114,14 @@ Azure웹 사이트나 가상 컴퓨터를 사용하는 경우 .NET 구성 시스
         namespaceManager.CreateTopic("TestTopic");
     }
 
-토픽의 속성을 조정할 수 있게 해주는 [`CreateTopic`](https://msdn.microsoft.com/library/microsoft.servicebus.namespacemanager.createtopic.aspx) 메서드 오버로드가 있습니다. 예를 들어 토픽에 전송되는 메시지에 적용할 기본 "TTL(Time-To-Live)" 값을 설정할 수 있습니다. 이러한 설정은 [`TopicDescription`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.topicdescription.aspx) 클래스를 사용하여 적용됩니다. 다음 예제에서는 최대 크기가 5GB이고 기본 메시지 TTL(Time-To-Live)이 1분인 **TestTopic**이라는 토픽을 만드는 방법을 보여 줍니다.
+토픽의 속성을 조정할 수 있게 해주는 [`CreateTopic`](https://msdn.microsoft.com/library/microsoft.servicebus.namespacemanager.createtopic.aspx) 메서드 오버로드가 있습니다. 예를 들어 토픽에 전송되는 메시지에 적용할 기본 "TTL(Time-To-Live)" 값을 설정할 수 있습니다. 이러한 설정은 [`TopicDescription`](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.topicdescription.aspx) 클래스를 사용하여 적용됩니다. 다음 예제에서는 최대 크기가 5GB이고 기본 메시지 TTL(Time-To-Live)이 1분인 TestTopic이라는 토픽을 만드는 방법을 보여 줍니다.
 
-    // Configure Topic Settings
+    // Configure Topic Settings.
     TopicDescription td = new TopicDescription("TestTopic");
     td.MaxSizeInMegabytes = 5120;
     td.DefaultMessageTimeToLive = new TimeSpan(0, 1, 0);
 
-    // Create a new Topic with custom settings
+    // Create a new Topic with custom settings.
     string connectionString =
         CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
@@ -162,7 +162,7 @@ Azure웹 사이트나 가상 컴퓨터를 사용하는 경우 .NET 구성 시스
 
 다음 예제에서는 사용자 지정 **MessageNumber** 속성이 3보다 큰 메시지만 선택하는 [SqlFilter] 개체를 사용하여 **HighMessages**라는 구독을 만듭니다.
 
-     // Create a "HighMessages" filtered subscription
+     // Create a "HighMessages" filtered subscription.
      SqlFilter highMessagesFilter =
         new SqlFilter("MessageNumber > 3");
 
@@ -172,7 +172,7 @@ Azure웹 사이트나 가상 컴퓨터를 사용하는 경우 .NET 구성 시스
 
 마찬가지로, 다음 예제에서는 **MessageNumber** 속성이 3보다 작거나 같은 메시지만 선택하는 [SqlFilter]를 사용하여 **LowMessages**라는 구독을 만듭니다.
 
-     // Create a "LowMessages" filtered subscription
+     // Create a "LowMessages" filtered subscription.
      SqlFilter lowMessagesFilter =
         new SqlFilter("MessageNumber <= 3");
 
@@ -199,18 +199,18 @@ Azure웹 사이트나 가상 컴퓨터를 사용하는 경우 .NET 구성 시스
 
 서비스 버스 토픽으로 전송된 메시지는 [`BrokeredMessage`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) 클래스의 인스턴스입니다. **BrokeredMessage** 개체에는 표준 속성 집합(예: [`Label`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) 및 [`TimeToLive`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), 응용 프로그램별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 임의 응용 프로그램 데이터 본문이 있습니다. 응용 프로그램은 [`BrokeredMessage`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) 개체 생성자에 직렬화된 개체를 전달하여 메시지 본문을 설정할 수 있으며, 적절한 **DataContractSerializer**를 사용하여 개체를 직렬화합니다. 또는 **System.IO.Stream**을 제공할 수 있습니다.
 
-다음 예제에서는 이전 코드 조각에서 얻은 **TestTopic** [`TopicClient`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx) 개체에 테스트 메시지 5개를 보내는 방법을 보여 줍니다. 루프가 반복될 때마다 각 메시지의 [`MessageNumber`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.properties.aspx) 속성 값이 변경되며 이 값에 따라 해당 메시지를 받는 구독이 결정됩니다.
+다음 예제에서는 이전 코드 예제에서 얻은 **TestTopic** [`TopicClient`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx) 개체에 테스트 메시지 5개를 보내는 방법을 보여 줍니다. 루프가 반복될 때마다 각 메시지의 [`MessageNumber`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.properties.aspx) 속성 값이 변경되며 이 값에 따라 해당 메시지를 받는 구독이 결정됩니다.
 
      for (int i=0; i<5; i++)
      {
-       // Create message, passing a string message for the body
+       // Create message, passing a string message for the body.
        BrokeredMessage message =
         new BrokeredMessage("Test message " + i);
 
-       // Set additional custom app-specific property
+       // Set additional custom app-specific property.
        message.Properties["MessageNumber"] = i;
 
-       // Send message to the topic
+       // Send message to the topic.
        Client.Send(message);
      }
 
@@ -222,7 +222,7 @@ Azure웹 사이트나 가상 컴퓨터를 사용하는 경우 .NET 구성 시스
 
 **ReceiveAndDelete** 모드를 사용하는 경우 수신은 1단계 작업입니다. 즉, 서비스 버스가 구독 메시지에 대한 읽기 요청을 받으면 메시지를 이용되는 것으로 표시하고 응용 프로그램에 반환합니다. **ReceiveAndDelete** 모드는 가장 단순한 모델이며, 응용 프로그램이 실패 이벤트 시 메시지를 처리하지 않아도 안전한 시나리오에서 효과적입니다. 이해를 돕기 위해 소비자가 수신 요청을 실행한 후 처리하기 전에 크래시되는 시나리오를 고려해 보세요. 서비스 버스가 메시지를 이용되는 것으로 표시했기 때문에 응용 프로그램이 다시 시작되고 메시지 이용을 다시 시작할 때 크래시 전에 이용된 메시지는 누락됩니다.
 
-**PeekLock** 모드(기본 모드)에서는 수신 프로세스가 2단계 작업이므로 메시지 누락이 허용되지 않는 응용 프로그램을 지원할 수 있습니다. 서비스 버스는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 응용 프로그램에 반환합니다. 응용 프로그램은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후 받은 메시지에 대해 [`Complete`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)를 호출하여 수신 프로세스의 두 번째 단계를 완료합니다. 서비스 버스는 `Complete` 호출을 확인한 후 메시지를 이용되는 것으로 표시하고 구독에서 제거합니다.
+**PeekLock** 모드(기본 모드)에서는 수신 프로세스가 2단계 작업이므로 메시지 누락이 허용되지 않는 응용 프로그램을 지원할 수 있습니다. 서비스 버스는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 응용 프로그램에 반환합니다. 응용 프로그램은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후에 받은 메시지에 대해 [`Complete`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)를 호출하여 수신 프로세스의 두 번째 단계를 완료합니다. 서비스 버스는 `Complete` 호출을 확인한 후 메시지를 이용되는 것으로 표시하고 구독에서 제거합니다.
 
 다음 예제에서는 기본 **PeekLock** 모드를 사용하여 메시지를 받고 처리하는 방법을 보여 줍니다. 다른 [`ReceiveMode`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.receivemode.aspx) 값을 지정하려면 [`CreateFromConnectionString`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.createfromconnectionstring.aspx)의 다른 오버로드를 사용할 수 있습니다. 다음 예제는 [`OnMessage`](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptionclient.onmessage.aspx) 콜백을 사용하여 메시지가 **HighMessages** 구독에 도착하면 처리합니다.
 
@@ -233,7 +233,7 @@ Azure웹 사이트나 가상 컴퓨터를 사용하는 경우 .NET 구성 시스
         SubscriptionClient.CreateFromConnectionString
                 (connectionString, "TestTopic", "HighMessages");
 
-    // Configure the callback options
+    // Configure the callback options.
     OnMessageOptions options = new OnMessageOptions();
     options.AutoComplete = false;
     options.AutoRenewTimeout = TimeSpan.FromMinutes(1);
@@ -242,19 +242,19 @@ Azure웹 사이트나 가상 컴퓨터를 사용하는 경우 .NET 구성 시스
     {
         try
         {
-            // Process message from subscription
+            // Process message from subscription.
             Console.WriteLine("\n**High Messages**");
             Console.WriteLine("Body: " + message.GetBody<string>());
             Console.WriteLine("MessageID: " + message.MessageId);
             Console.WriteLine("Message Number: " +
                 message.Properties["MessageNumber"]);
 
-            // Remove message from subscription
+            // Remove message from subscription.
             message.Complete();
         }
         catch (Exception)
         {
-            // Indicates a problem, unlock message in subscription
+            // Indicates a problem, unlock message in subscription.
             message.Abandon();
         }
     }, options);
@@ -271,9 +271,9 @@ Azure웹 사이트나 가상 컴퓨터를 사용하는 경우 .NET 구성 시스
 
 ## 토픽 및 구독을 삭제하는 방법
 
-아래 예제에서는 **HowToSample** 서비스 네임스페이스에서 **TestTopic** 항목을 삭제하는 방법을 보여 줍니다.
+다음 예제에서는 **HowToSample** 서비스 네임스페이스에서 **TestTopic** 항목을 삭제하는 방법을 보여 줍니다.
 
-     // Delete Topic
+     // Delete Topic.
      namespaceManager.DeleteTopic("TestTopic");
 
 토픽을 삭제하면 토픽에 등록된 모든 구독도 삭제됩니다. 구독을 개별적으로 삭제할 수도 있습니다. 다음 코드는 **TestTopic** 토픽에서 **HighMessages**라는 구독을 삭제하는 방법을 보여 줍니다.
@@ -289,7 +289,7 @@ Azure웹 사이트나 가상 컴퓨터를 사용하는 경우 .NET 구성 시스
 -   서비스 버스 큐로 메시지를 보내고 받는 작동하는 응용 프로그램 만들기: [서비스 버스 조정된 메시징 .NET 자습서][].
 -   서비스 버스 샘플: [Azure 샘플][]에서 다운로드하거나 [MSDN][]에 대한 개요를 참조하세요.
 
-  [Azure management portal]: http://manage.windowsazure.com
+  [Azure portal]: http://manage.windowsazure.com
 
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
 
@@ -299,6 +299,5 @@ Azure웹 사이트나 가상 컴퓨터를 사용하는 경우 .NET 구성 시스
   [서비스 버스 조정된 메시징 .NET 자습서]: http://msdn.microsoft.com/library/azure/hh367512.aspx
   [Azure 샘플]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
   [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

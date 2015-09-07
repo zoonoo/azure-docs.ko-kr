@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="StorSimple 장치에 대한 기술 사양 및 규정 준수 | Microsoft Azure"
-   description="StorSimple 장치에 대한 기술 사양 및 규제 표준 준수 정보를 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="" />
+   pageTitle="StorSimple 기술 사양 | Microsoft Azure"
+	description="StorSimple 하드웨어 구성 요소에 대한 기술 사양 및 규제 표준 준수 정보를 설명합니다."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
  <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/26/2015"
+	ms.author="alkohli"/>
 
 # StorSimple 장치에 대한 기술 사양 및 규정 준수
 
@@ -103,8 +103,8 @@ StorSimple 장치는 최대 12개의 3.5인치 폼 요소 SAS(Serial Attached SC
 | 인클로저 | 운영 사양 |
 |--------------------|---------------------------------------------------------------------------| 
 | 기류 | 시스템의 공기는 앞에서 뒤로 흐릅니다. 압력이 낮고, 후면 배기가 설치된 시스템을 작동할 수 있어야 합니다. 랙 문 및 장애물때문에 생성된 역 압력은 5 파스칼(0.5mm 수면계)을 초과해서는 안됩니다. |
-| 작동 가능 고도 | 최대 작동 온도가 7000 피트 이상에서 5°로 지정된 -30m에서 3045m까지(-100피트 \~ 10, 000피트)입니다. |
-| 작동 불가능 고도 | -305m \~ 12,192m(-1,000피트 \~ 40,000피트) |
+| 작동 가능 고도 | 최대 작동 온도가 7000 피트 이상에서 5°로 지정된 -30m에서 3045m까지(-100피트 ~ 10, 000피트)입니다. |
+| 작동 불가능 고도 | -305m ~ 12,192m(-1,000피트 ~ 40,000피트) |
 | 충격, 작동 | 5g 10 ms ½ sine |
 | 충격, 작동 불가능 | 30g 10 ms ½ sine |
 | 진동, 작동 | 0\.21g RMS 5-500Hz 임의 |
@@ -172,4 +172,4 @@ Microsoft Azure StorSimple 장치는 다음 EMC 등급을 만족합니다.
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -1,22 +1,22 @@
 <properties 
    pageTitle="Azure에서 SQL Server 가상 컴퓨터 연결"
-   description="이 항목에서는 Azure의 가상 컴퓨터에서 실행되는 SQL Server에 연결하는 방법을 설명합니다. 시나리오는 네트워킹 구성 및 클라이언트의 위치에 따라 다릅니다."
-   services="virtual-machines"
-   documentationCenter="na"
-   authors="rothja"
-   manager="jeffreyg"
-   editor="monicar" />
+	description="이 항목에서는 Azure의 가상 컴퓨터에서 실행되는 SQL Server에 연결하는 방법을 설명합니다. 시나리오는 네트워킹 구성 및 클라이언트의 위치에 따라 다릅니다."
+	services="virtual-machines"
+	documentationCenter="na"
+	authors="rothja"
+	manager="jeffreyg"
+	editor="monicar"/>
 <tags 
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows-sql-server"
-   ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
-   ms.author="jroth" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.workload="infrastructure-services"
+	ms.date="08/18/2015"
+	ms.author="jroth"/>
 
 # Azure에서 SQL Server 가상 컴퓨터 연결
-
+ 
 ## 개요
 
 Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 연결 구성은 온-프레미스 SQL Server 인스턴스에 필요한 절차와 크게는 다르지 않습니다. 여기서도 방화벽, 인증, 데이터베이스 로그인과 관련한 구성 단계를 수행해야 합니다.
@@ -79,8 +79,8 @@ DNS를 구성했다고 가정하면 연결 문자열에 SQL Server VM 호스트 
 
 고가용성 및 재해 복구를 위해 AlwaysOn 가용성 그룹도 사용하려는 경우 수신기의 구현을 고려해야 합니다. 데이터베이스 클라이언트는 SQL Server 인스턴스 중 하나에 직접 연결하기 보다는 수신기에 연결합니다. 수신기는 가용성 그룹의 주 복제본에 클라이언트를 라우팅합니다. 자세한 내용은 [Azure에서 AlwaysOn 가용성 그룹에 대한 ILB 수신기 구성](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)을 참조하세요.
 
-Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 모든 보안 모범 사례를 반드시 검토해야 합니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 보안 고려 사항](https://msdn.microsoft.com/library/azure/dn133147.aspx)을 참조하세요.
+Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 모든 보안 모범 사례를 반드시 검토해야 합니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 보안 고려 사항](virtual-machines-sql-server-security-considerations.md)을 참조하세요.
 
 Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

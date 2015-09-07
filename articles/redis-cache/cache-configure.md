@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Azure Redis 캐시 구성 방법"
-   description="Azure Redis 캐시에 대한 기본 Redis 구성을 이해하고 Azure Redis 캐시 인스턴스를 구성하는 방법을 알아봅니다."
-   services="redis-cache"
-   documentationCenter="na"
-   authors="steved0x"
-   manager="dwrede"
-   editor="tysonn" />
+	description="Azure Redis 캐시에 대한 기본 Redis 구성을 이해하고 Azure Redis 캐시 인스턴스를 구성하는 방법을 알아봅니다."
+	services="redis-cache"
+	documentationCenter="na"
+	authors="steved0x"
+	manager="dwrede"
+	editor="tysonn"/>
 <tags 
    ms.service="cache"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="cache-redis"
-   ms.workload="tbd"
-   ms.date="07/24/2015"
-   ms.author="sdanie" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="cache-redis"
+	ms.workload="tbd"
+	ms.date="08/25/2015"
+	ms.author="sdanie"/>
 
 # Azure Redis 캐시 구성 방법
 
@@ -21,7 +21,7 @@
 
 ## Redis 캐시 설정 구성
 
-캐시는 [Microsoft Azure Preview 포털](https://portal.azure.com)의 **찾아보기** 블레이드를 사용하여 액세스할 수 있습니다.
+캐시는 [Azure 미리 보기 포털](https://portal.azure.com)의 **찾아보기** 블레이드를 사용하여 액세스할 수 있습니다.
 
 ![Azure Redis 캐시 찾아보기 블레이드](./media/cache-configure/IC796920.png)
 
@@ -98,7 +98,7 @@ Maxmemory 정책에 대한 자세한 내용은 [제거 정책](http://redis.io/t
 
 ![Redis 캐시 사용자 및 태그](./media/cache-configure/IC808320.png)
 
-조직이 액세스 관리에 필요한 요구 사항을 간단하면서도 정밀하게 충족할 수 있도록 포털의 **사용자** 섹션에서 RBAC(역할 기반 액세스 제어)를 지원합니다. 자세한 내용은 [Microsoft Azure Preview 포털의 역할 기반 액세스 제어](http://go.microsoft.com/fwlink/?LinkId=512803)를 참조하세요.
+조직이 액세스 관리에 필요한 요구 사항을 간단하면서도 정밀하게 충족할 수 있도록 미리 보기 포털의 **사용자** 섹션에서 RBAC(역할 기반 액세스 제어)를 지원합니다. 자세한 내용은 [Azure 미리 보기 포털의 역할 기반 액세스 제어](http://go.microsoft.com/fwlink/?LinkId=512803)를 참조하세요.
 
 **태그** 섹션은 리소스 구성에 도움이 됩니다. 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../resource-group-using-tags.md)을 참조하세요.
 
@@ -110,13 +110,13 @@ Maxmemory 정책에 대한 자세한 내용은 [제거 정책](http://redis.io/t
 >
 >`StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
 >  
->**max-memory-policy**와 같이 구성 가능한 모든 값은 포털을 통해 구성할 수 있습니다.
+>**max-memory-policy**와 같이 구성 가능한 모든 값은 미리 보기 포털을 통해 구성할 수 있습니다.
 
 |설정|기본값|설명|
 |---|---|---|
 |데이터베이스|16|기본 데이터베이스는 DB 0입니다. connection.GetDataBase(dbid)를 사용하여 연결 단위로 다른 데이터베이스를 사용할 수 있습니다. 여기서 dbid는 0에서 15 사이의 숫자입니다.|
 |maxclients|10000|이 값은 동시에 연결이 허용되는 클라이언트의 최대 수입니다. 제한에 도달하면 Redis는 'max number of clients reached' 오류를 보내고 모든 새 연결을 닫습니다.|
-|maxmemory-policy|volatile-lru|Maxmemory 정책은 최대 메모리(캐시를 만들 때 선택한 캐시의 크기)에 도달했을 때 Redis가 어떤 것을 제거할지 선택하는 방법에 대한 설정입니다. Azure Redis 캐시를 사용할 때의 기본 설정은 volatile-lru로, LRU 알고리즘을 사용하여 만료 설정이 있는 키를 제거합니다. 이 설정은 포털에서 구성할 수 있습니다. 자세한 내용은 [Maxmemory-policy 및 maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)를 참조하세요.|
+|maxmemory-policy|volatile-lru|Maxmemory 정책은 최대 메모리(캐시를 만들 때 선택한 캐시의 크기)에 도달했을 때 Redis가 어떤 것을 제거할지 선택하는 방법에 대한 설정입니다. Azure Redis 캐시를 사용할 때의 기본 설정은 volatile-lru로, LRU 알고리즘을 사용하여 만료 설정이 있는 키를 제거합니다. 이 설정은 미리 보기 포털에서 구성할 수 있습니다. 자세한 내용은 [Maxmemory-policy 및 maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)를 참조하세요.|
 |maxmemory-samples|3|LRU 및 최소 TTL 알고리즘은 정밀한 알고리즘은 아니지만 대략적인(메모리 절약을 위해) 알고리즘이므로, 확인할 샘플도 선택할 수 있습니다. 기본 Redis를 예로 들면 세 개의 키를 확인하고 가장 오래 전에 사용된 키를 선택합니다.|
 |lua-time-limit|5, 000|밀리초 단위의 Lua 스크립트 최대 실행 시간입니다. 최대 실행 시간에 도달하면 Redis는 허용된 시간 이후에도 실행 중인 스크립트를 기록하고 쿼리에 오류로 응답합니다.|
 |lua-event-limit|500|스크립트 이벤트 큐의 최대 크기입니다.|
@@ -124,7 +124,7 @@ Maxmemory 정책에 대한 자세한 내용은 [제거 정책](http://redis.io/t
 
 ## Azure Redis Cache에서 지원되지 않는 Redis 명령
 
->[AZURE.IMPORTANT]Azure Redis 캐시 인스턴스의 구성과 관리는 Azure 포털을 사용하여 수행되므로 다음 명령이 비활성화됩니다. 이러한 명령을 호출하려 시도하면 `"(error) ERR unknown command"`와 유사한 오류 메시지가 표시됩니다.
+>[AZURE.IMPORTANT]Azure Redis 캐시 인스턴스의 구성과 관리는 미리 보기 포털을 사용하여 수행되므로 다음 명령이 비활성화됩니다. 이러한 명령을 호출하려 시도하면 `"(error) ERR unknown command"`와 유사한 오류 메시지가 표시됩니다.
 >
 >-	BGREWRITEAOF
 >-	BGSAVE
@@ -154,4 +154,4 @@ Azure Redis Cache에 대해 사용할 수 없도록 설정된 Redis 명령 목�
 ## 다음 단계
 -	Redis 명령을 사용하는 방법은 [어떻게 Redis 명령을 실행할 수 있나요?](cache-faq.md#how-can-i-run-redis-commands)를 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

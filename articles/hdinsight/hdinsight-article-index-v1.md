@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 포털에 대한 HDInsight 문서 인덱스 | Microsoft Azure"
-   description="Azure 포털에서 HDInsight에 대한 문서 링크를 포함하는 인덱스 페이지입니다. HDInsight의 새 Hadoop 클러스터에는 Azure Preview 포털을 사용하는 것이 좋습니다."
-   services="hdinsight"
-   documentationCenter="na"
-   authors="cjgronlund"
-   manager="pablissima"
-   editor=""/>
+	description="Azure 포털에서 HDInsight에 대한 문서 링크를 포함하는 인덱스 페이지입니다. HDInsight의 새 Hadoop 클러스터에는 Azure Preview 포털을 사용하는 것이 좋습니다."
+	services="hdinsight"
+	documentationCenter="na"
+	authors="cjgronlund"
+	manager="pablissima"
+	editor=""/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="index-page"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="08/17/2015"
-   ms.author="cjgronlund"/>
+	ms.devlang="na"
+	ms.topic="index-page"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="08/17/2015"
+	ms.author="cjgronlund"/>
 
 # Azure 포털에 대한 HDInsight 문서 인덱스
 
@@ -63,11 +63,11 @@ Linux 및 Linux 클러스터 사용에 대한 전체 문서 집합을 보려면 
 * [Hive 및 Pig 스트리밍과 함께 C# UDF(사용자 정의 함수) 사용](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 * [C# Hadoop 스트리밍 프로그램 개발](hdinsight-hadoop-develop-deploy-streaming-jobs.md)
 
-## HBase: NoSQL 분석
+## HBase: NoSQL 데이터베이스
 
 * [HBase 지역에서 복제 구성](hdinsight-hbase-geo-replication.md)
 * [Maven을 사용하여 HBase를 사용하는 Java 응용 프로그램 빌드](hdinsight-hbase-build-java-maven.md)
-* [HBase를 사용하여 Twitter 데이터 실시간 분석](hdinsight-hbase-analyze-twitter-sentiment.md)
+* [HBase에서 Twitter 감성 실시간 분석](hdinsight-hbase-analyze-twitter-sentiment.md)
 
 ## Apache Storm: 스트림 쿼리
 
@@ -132,4 +132,4 @@ Azure Preview 포털에서 네이티브 Apache Spark 사용에 대한 문서를 
 * [오류 메시지 해석](hdinsight-debug-jobs.md)
 * [포럼에서 도움말 보기](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

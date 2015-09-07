@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="실행 중인 웹 사이트에서 성능 문제 진단" 
-	description="다시 배포하지 않고 웹 사이트의 성능을 모니터링합니다. 독립 실행형 또는 Application Insights SDK를 사용하여 종속성 원격 분석을 가져옵니다." 
-	services="application-insights" 
-    documentationCenter=".net"
-	authors="alancameronwills" 
+<properties
+	pageTitle="실행 중인 웹 사이트에서 성능 문제 진단 | Microsoft Azure"
+	description="다시 배포하지 않고 웹 사이트의 성능을 모니터링합니다. 독립 실행형 또는 Application Insights SDK를 사용하여 종속성 원격 분석을 가져옵니다."
+	services="application-insights"
+	documentationCenter=".net"
+	authors="alancameronwills"
 	manager="ronmart"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="04/27/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="04/27/2015"
 	ms.author="awills"/>
- 
+
 
 # Application Insights 상태 모니터를 설치하여 웹 사이트 성능 모니터링
 
@@ -27,12 +27,12 @@ Visual Studio Application Insights의 상태 모니터를 사용하여 IIS 서�
 Application Insights를 IIS 웹 응용 프로그램에 적용하는 세 가지 방법이 있습니다.
 
 * **빌드 시간:** 웹앱 코드에 [Application Insights SDK를 추가][greenbrown]합니다. 그러면 다음 항목을 사용할 수 있습니다.
- * 다양한 표준 진단 및 사용 원격 분석입니다. 
+ * 다양한 표준 진단 및 사용 원격 분석입니다.
  * 사용 또는 진단 문제를 추적할 자체 원격 분석을 작성하려는 경우 [Application Insights API][api]를 사용할 수 있습니다.
 * **런타임:** 상태 모니터를 사용하여 서버에서 웹앱을 계측할 수 있습니다.
  * 이미 실행 중인 웹앱 모니터링: 다시 작성하거나 다시 게시할 필요가 없습니다.
  * 다양한 표준 진단 및 사용 원격 분석입니다.
- * 종속성 진단 - 앱이 데이터베이스, REST API 또는 다른 서비스 등의 다른 구성 요소를 사용하는 곳에서 오류 또는 성능 저하를 찾습니다.
+ * 종속성 진단&#151;앱이 데이터베이스, REST API 또는 다른 서비스 등의 다른 구성 요소를 사용하는 곳에서 오류 또는 성능 저하를 찾습니다.
  * 원격 분석 문제를 해결합니다.
 * **둘 모두:** SDK를 웹앱 코드로 컴파일하고, 웹 서버에서 상태 모니터를 실행합니다. 두 가지 모두로부터 최상의 기능을 사용합니다.
  * 표준 진단 및 사용 원격 분석
@@ -42,12 +42,12 @@ Application Insights를 IIS 웹 응용 프로그램에 적용하는 세 가지 �
 
 
 
-> [AZURE.TIP]사용 중인 앱이 [Azure 앱 서비스 웹앱](../app-service-web/websites-learning-map.md)인가요? Azure의 앱 제어판에서 [Application Insights SDK를 추가][greenbrown]한 다음 [Application Insights Extension을 추가](../insights-perf-analytics.md)합니다.
+> [AZURE.TIP]사용 중인 앱이 [Azure 앱 서비스 웹앱](../app-service-web/websites-learning-map.md)인가요? Microsoft Azure의 앱 제어판에서 [Application Insights SDK를 추가][greenbrown]한 다음 [Application Insights Extension을 추가](../insights-perf-analytics.md)합니다.
 
 
 ## IIS 웹 서버에 Application Insights 상태 모니터를 설치합니다.
 
-1. [Microsoft Azure](http://azure.com) 구독이 필요합니다. 
+1. [Microsoft Azure](http://azure.com) 구독이 필요합니다.
 
 1. IIS 웹 서버에서 관리자 자격 증명으로 로그인합니다.
 2. [상태 모니터 설치 관리자](http://go.microsoft.com/fwlink/?LinkId=506648)를 다운로드하고 실행합니다.
@@ -60,9 +60,9 @@ Application Insights를 IIS 웹 응용 프로그램에 적용하는 세 가지 �
 
     ![앱과 리소스를 선택합니다.](./media/app-insights-monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
-    일반적으로 새 리소스 및 [리소스 그룹][roles]을 구성하도록 선택해야 합니다.
+    일반적으로 새 리소스 및 [리소스 그룹][roles]을 구성하도록 선택합니다.
 
-    사이트에 대해 [웹 테스트][availability] 또는 [웹 클라이언트 모니터링][client]을 이미 설정한 경우 기존 리소스를 사용합니다.
+    그렇지 않으면 사이트에 대해 [웹 테스트][availability] 또는 [웹 클라이언트 모니터링][client]을 이미 설정한 경우 기존 리소스를 사용합니다.
 
 6. IIS를 다시 시작합니다.
 
@@ -106,7 +106,7 @@ HTTP, SQL, AZUREBLOB 차트는 종속성에 대한 응답 시간 및 호출의 �
 #### 성능 카운터
 
 성능 카운터 차트를 클릭하여 표시 항목을 변경합니다. 또는 새 차트를 추가할 수 있습니다.
- 
+
 #### 예외
 
 ![서버 예외 차트를 클릭합니다.](./media/app-insights-monitor-performance-live-website-now/appinsights-039-1exceptions.png)
@@ -117,16 +117,16 @@ HTTP, SQL, AZUREBLOB 차트는 종속성에 대한 응답 시간 및 호출의 �
 ### 원격 분석이 없나요?
 
   * 사이트를 사용하여 일부 데이터를 생성합니다.
-  * 데이터가 들어올 때까지 몇 분 정도 기다린 다음 새로 고침을 클릭합니다.
+  * 데이터가 들어올 때까지 몇 분 정도 기다린 다음 **새로 고침**을 클릭합니다.
   * 진단 검색(검색 타일)을 열어 개별 이벤트를 봅니다. 이벤트는 집계 데이터가 차트에 표시되기 전에 진단 검색에 종종 표시됩니다.
   * 상태 모니터를 열고 왼쪽 창에서 응용 프로그램을 선택합니다. "구성 알림" 섹션에 이 응용 프로그램에 대한 진단 메시지가 있는지 확인합니다.
-  
+
   ![](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
 
-  * 서버 방화벽이 포트 443에서 dc.services.visualstudio.com으로 나가는 트래픽을 허용하는지 확인합니다. 
-  * 서버에서 "권한 부족"에 대한 메시지가 표시되는 경우:
-  * IIS 관리자에서 응용 프로그램 풀을 선택하고 고급 설정을 연 다음 프로세스 모델에서 ID를 확인합니다.
-  * 컴퓨터 관리 제어판에서 성능 모니터 사용자 그룹에 이 ID를 추가합니다.
+  * 서버 방화벽이 포트 443에서 dc.services.visualstudio.com으로 나가는 트래픽을 허용하는지 확인합니다.
+  * 서버에서 "권한 부족"에 대한 메시지가 표시되는 경우 다음을 시도합니다.
+    * IIS 관리자에서 응용 프로그램 풀을 선택하고 **고급 설정**을 연 다음 **프로세스 모델**에서 ID를 확인합니다.
+    * 컴퓨터 관리 제어판에서 성능 모니터 사용자 그룹에 이 ID를 추가합니다.
   * [문제 해결][qna]을 참조하세요.
 
 ## 시스템 요구 사항
@@ -168,6 +168,4 @@ IIS 지원: IIS 7, 7.5, 8, 8.5(IIS 필요)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

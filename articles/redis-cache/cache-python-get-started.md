@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="08/17/2015"
+	ms.date="08/25/2015"
 	ms.author="sdanie"/>
 
 # Azure Redis Cache를 Python과 함께 사용하는 방법
@@ -28,7 +28,7 @@
 
 ## Azure에 Redis 캐시 만들기
 
-[Azure 관리 포털 미리 보기](http://go.microsoft.com/fwlink/?LinkId=398536)에서 **새로 만들기**, **데이터 + 저장소**를 클릭하고 **Redis Cache**를 선택합니다.
+[Azure 미리 보기 포털](http://go.microsoft.com/fwlink/?LinkId=398536)에서 **새로 만들기**, **데이터 + 저장소**를 클릭하고 **Redis Cache**를 선택합니다.
 
   ![][1]
 
@@ -36,7 +36,7 @@ DNS 호스트 이름을 입력합니다. 양식은 `<name>.redis.cache.windows.n
 
   ![][2]
 
-캐시를 만들었으면 Azure 포털에서 캐시를 클릭하여 캐시 설정을 봅니다. 다음 정보가 필요합니다.
+캐시를 만들었으면 미리 보기 포털에서 캐시를 클릭하여 캐시 설정을 봅니다. 다음 정보가 필요합니다.
 
 - **호스트 이름.** 캐시를 만들 때 이 이름을 입력했습니다.
 - **포트.** 포트를 보려면 **포트** 아래 링크를 클릭합니다. SSL 포트를 사용합니다.
@@ -59,4 +59,4 @@ DNS 호스트 이름을 입력합니다. 양식은 `<name>.redis.cache.windows.n
 [1]: ./media/cache-python-get-started/cache01.png
 [2]: ./media/cache-python-get-started/cache02.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

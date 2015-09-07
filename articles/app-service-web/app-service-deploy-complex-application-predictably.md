@@ -291,7 +291,7 @@ DevOps에서 반복성 및 예측 가능성은 마이크로 서비스로 구성�
 <a name="resources"></a>
 ## 추가 리소스 ##
 
--	[Azure 리소스 관리자 템플릿 언어](http://msdn.microsoft.com/library/azure/dn835138.aspx)
+-	[Azure 리소스 관리자 템플릿 언어](../resource-group-authoring-templates.md)
 -	[Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)
 -	[Azure 리소스 관리자 템플릿 함수](../resource-group-template-functions.md)
 -	[Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](../resource-group-template-deploy.md)
@@ -303,4 +303,4 @@ DevOps에서 반복성 및 예측 가능성은 마이크로 서비스로 구성�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

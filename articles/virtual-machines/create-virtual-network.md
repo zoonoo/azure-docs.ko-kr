@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="자습서: Azure에서 클라우드 전용 가상 네트워크 만들기" 
-	description="이 자습서에서는 클라우드 전용 Azure 가상 네트워크 예제를 만드는 방법에 대해 알아봅니다." 
-	services="virtual-machines, virtual-network" 
-	documentationCenter="" 
-	authors="cherylmc" 
-	manager="adinah" 
+	pageTitle="자습서: Azure에서 클라우드 전용 가상 네트워크 만들기"
+	description="이 자습서에서는 클라우드 전용 Azure 가상 네트워크 예제를 만드는 방법에 대해 알아봅니다."
+	services="virtual-machines, virtual-network"
+	documentationCenter=""
+	authors="cherylmc"
+	manager="adinah"
 	editor=""/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/18/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/17/2015"
 	ms.author="cherylmc"/>
 
 # 자습서: Azure에서 클라우드 전용 가상 네트워크 만들기
@@ -24,7 +24,7 @@
 
 예를 들어 FrontEndSubnet은 웹 서버에 사용되고, BackEndSubnet은 SQL 서버 또는 도메인 컨트롤러에 사용될 수 있습니다.
 
-이 자습서에서는 이전에 Azure를 사용한 경험이 없다고 가정합니다. 이는 단계별 예제 구성 작업을 통해 사용자 고유의 가상 네트워크를 만드는 데 필요한 단계에 익숙해지도록 도와주기 위한 것입니다. 특정 구성에 적합한 클라우드 전용 가상 네트워크를 만들려면 [관리 포털에서 클라우드 전용 가상 네트워크 구성](http://msdn.microsoft.com/library/azure/dn631643.aspx)을 참조하세요. 가상 네트워크에 대한 설계 시나리오 및 고급 정보를 찾는다면 [Azure 가상 네트워크 개요](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)를 참조하세요.
+이 자습서에서는 이전에 Azure를 사용한 경험이 없다고 가정합니다. 이는 단계별 예제 구성 작업을 통해 사용자 고유의 가상 네트워크를 만드는 데 필요한 단계에 익숙해지도록 도와주기 위한 것입니다. 특정 구성에 적합한 클라우드 전용 가상 네트워크를 만들려면 [관리 포털에서 클라우드 전용 가상 네트워크 구성](../virtual-network/virtual-networks-create-vnet.md)을 참조하세요. 가상 네트워크에 대한 설계 시나리오 및 고급 정보를 찾는다면 [Azure 가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
 
 
 > [AZURE.NOTE]가상 네트워크가 조직 네트워크에 연결된 크로스-프레미스 구성을 만드는 단계는 이 자습서에서 다루지 않습니다. 프레미스 간 연결 및 사이트 간 VPN 연결(즉, 회사에 있는 Active Directory 또는 SharePoint에 연결)로 가상 네트워크를 만드는 방법에 대한 자습서는 [자습서: 사이트 간 연결용 프레미스 간 가상 네트워크 만들기](../virtual-network/virtual-networks-create-site-to-site-cross-premises-connectivity.md)를 참조하세요.
@@ -90,9 +90,9 @@
 
 이 가상 네트워크를 제거하려면 가상 네트워크를 선택하고 **삭제**를 클릭한 후 **예**를 클릭합니다.
 
-특정 구성에 적합한 클라우드 전용 가상 네트워크를 만들 준비가 완료되었으면 [관리 포털에서 클라우드 전용 가상 네트워크 구성](http://msdn.microsoft.com/library/azure/dn631643.aspx)을 참조하세요.
+특정 구성에 적합한 클라우드 전용 가상 네트워크를 만들 준비가 완료되었으면 [관리 포털에서 클라우드 전용 가상 네트워크 구성](../virtual-network/virtual-networks-create-vnet.md)을 참조하세요.
 
-가상 네트워크에 대한 설계 시나리오 및 고급 정보를 찾는다면 [Azure 가상 네트워크 개요](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)를 참조하세요.
+가상 네트워크에 대한 설계 시나리오 및 고급 정보를 찾는다면 [Azure 가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
 
 추가 가상 네트워크 구성 절차 및 설정은 [Azure 가상 네트워크 구성 작업](http://go.microsoft.com/fwlink/p/?linkid=296652&clcid=0x409)을 참조하세요.
 
@@ -118,4 +118,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

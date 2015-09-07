@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="Azure 앱 서비스에서 Slack 커넥터 사용"
-	description="Slack 커넥터를 시작하는 방법"
-	authors="anuragdalmia" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	pageTitle="논리 앱에서 Slack 커넥터 사용 | Microsoft Azure 앱 서비스"
+	description="Slack 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -13,11 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="andalmia"/>
 
-# Slack 커넥터
-
+# Slack 커넥터 시작 및 논리 앱에 추가
 Slack 채널에 연결하고 팀에 메시지를 게시합니다. 커넥터는 논리 앱에서 다양한 작업을 수행하기 위한 "워크플로"의 일부로 사용될 수 있습니다. 워크플로에서 Slack 커넥터를 활용하면 다른 커넥터를 사용하여 다양한 시나리오를 수행할 수 있습니다. 예를 들어 워크플로의 [Facebook 커넥터](app-service-logic-connector-facebook.md)를 사용하여 Slack 채널에 메시지를 게시할 수 있습니다.
 
 ## 트리거 및 작업
@@ -50,10 +49,11 @@ Slack 커넥터를 만든 후 논리 앱에 동작으로 추가할 수 있습니
 
 1.	논리 앱 내에서 **트리거 및 동작**을 엽니다. [새 논리 앱 만들기](app-service-logic-create-a-logic-app.md)
 
-2.	Slack 커넥터가 오른쪽의 갤러리에 표시됩니다. <br/> ![][2]
+2.	Slack 커넥터가 오른쪽의 갤러리에 표시됩니다.  
+	![][2]
 
 3.	논리 앱에 자동으로 추가하기 위해 만든 Slack 커넥터를 선택합니다.
-4.	**인증**을 선택합니다. Slack 계정으로 로그인합니다. 거의 마지막 단계에서 Slack 계정에 액세스할 수 있는 권한을 커넥터에 제공할지 묻는 메시지가 나타납니다. **인증**을 선택합니다. 
+4.	**권한 부여**를 선택합니다. Slack 계정으로 로그인합니다. 거의 마지막 단계에서 Slack 계정에 액세스할 수 있는 권한을 커넥터에 제공할지 묻는 메시지가 나타납니다. **권한 부여**를 선택합니다.
 <br/>
 ![][3]
 ![][4]
@@ -78,9 +78,8 @@ Slack 커넥터를 만든 후 논리 앱에 동작으로 추가할 수 있습니
 고급 속성 | **Bot 사용자 이름**: 이 메시지에 사용할 bot의 이름입니다. 입력하지 않으면 메시지가 "Bot"으로 게시됩니다.<p><p>**아이콘 URL**: 이 메시지에 대한 아이콘으로 사용할 이미지 URL입니다.<p><p>**아이콘 이모지**: 이 메시지에 대한 아이콘으로 사용할 이모지입니다. 이 속성은 아이콘 URL 속성을 재정의합니다.
 
 
-논리 앱 외부에서 Slack 커넥터를 사용할 수 있도록 이 커넥터에는 사용 가능한 REST API가 있습니다. Slack 커넥터를 열고 **API 정의**를 선택합니다.
-
-![][9]
+논리 앱 외부에서 Slack 커넥터를 사용할 수 있도록 이 커넥터에는 사용 가능한 REST API가 있습니다. Slack 커넥터를 열고 **API 정의**를 선택합니다. 
+	![][9]
 
 
 ## 커넥터의 추가 기능
@@ -102,4 +101,4 @@ Slack 커넥터를 만든 후 논리 앱에 동작으로 추가할 수 있습니
 [8]: ./media/app-service-logic-connector-slack/img8.PNG
 [9]: ./media/app-service-logic-connector-slack/img9.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

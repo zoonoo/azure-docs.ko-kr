@@ -1,6 +1,6 @@
 ## Azure 리소스 템플릿 및 리소스 그룹 이해
 
-Microsoft Azure 에서 배포되고 실행되는 대부분의 응용 프로그램은 다양한 클라우드 리소스 유형(예: 하나 이상의 VM 및 저장소 계정, SQL 데이터베이스, 가상 네트워크, CDN 등)의 조합으로 구축됩니다. [Azure 리소스 관리자 템플릿](https://msdn.microsoft.com/library/azure/dn835138.aspx)을 사용하면 리소스와 관련 구성 및 배포 매개 변수에 대한 JSON 설명을 사용하여 이러한 다양한 리소스를 함께 배포하고 관리할 수 있습니다.
+Microsoft Azure 에서 배포되고 실행되는 대부분의 응용 프로그램은 다양한 클라우드 리소스 유형(예: 하나 이상의 VM 및 저장소 계정, SQL 데이터베이스, 가상 네트워크, CDN 등)의 조합으로 구축됩니다. [Azure 리소스 관리자 템플릿](../resource-group-authoring-templates.md)을 사용하면 리소스와 관련 구성 및 배포 매개 변수에 대한 JSON 설명을 사용하여 이러한 다양한 리소스를 함께 배포하고 관리할 수 있습니다.
 
 JSON 기반 리소스 템플릿을 정의한 경우 이 템플릿을 실행하고 템플릿 내에 정의된 리소스를 PowerShell 명령을 사용하여 Azure에서 배포할 수 있습니다. 이 PowerShell 명령을 PowerShell 명령 셸 내에서 독립 실행형으로 실행하거나 추가 자동화 논리를 포함하는 PowerShell 스크립트 내에 통합할 수 있습니다.
 
@@ -8,4 +8,4 @@ Azure 리소스 관리자 템플릿을 사용하여 만드는 리소스는 새 A
 
 다음 자동화 예제에서는 Azure 리소스 관리자 템플릿을 사용하고, PowerShell 또는 CLI를 사용하여 리소스 그룹을 배포하는 방법을 보여 줍니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

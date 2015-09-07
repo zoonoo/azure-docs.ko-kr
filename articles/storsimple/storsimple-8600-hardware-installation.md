@@ -1,21 +1,21 @@
 <properties 
    pageTitle="StorSimple 8600 장치 설치 | Microsoft Azure"
-   description="StorSimple 8600 장치의 개봉, 랙 탑재, 케이블 연결 방법을 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="소프트웨어를 배포하고 구성하기 전에 StorSimple 8600 장치를 개봉, 랙 탑재, 케이블 연결하는 방법을 설명합니다."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/06/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/06/2015"
+	ms.author="alkohli"/>
 
-# StorSimple 8600 장치 설치
+# StorSimple 8600 장치 개봉, 랙 탑재, 케이블 연결
 
 ## 개요
 Microsoft Azure StorSimple 8600은 이중 인클로저 장치이며 기본 및 EBOD 인클로저로 구성되어 있습니다. 이 자습서는 StorSimple 소프트웨어를 구성하기 전에 StorSimple 8600 장치 하드웨어를 개봉하고 랙에 탑재하고 케이블로 연결하는 방법을 설명합니다.
@@ -289,4 +289,4 @@ H, I | 호스트(예: 파일 서버)
 이제 [온-프레미스 StorSimple 장치를 배포 및 구성](storsimple-deployment-walkthrough.md)할 준비가 되었습니다.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

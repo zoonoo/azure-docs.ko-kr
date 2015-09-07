@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure에서 고가용성 LOB(기간 업무) 응용 프로그램 배포" 
-	description="다섯 단계를 통해 Azure의 SQL Server AlwaysOn 가용성 그룹으로 웹 기반 고가용성 LOB(기간 업무) 응용 프로그램을 배포할 수 있습니다." 
+	pageTitle="LOB(기간 업무) 응용 프로그램 배포 | Microsoft Azure"
+	description="다섯 단계를 통해 Azure의 SQL Server AlwaysOn 가용성 그룹으로 웹 기반 고가용성 LOB(기간 업무) 응용 프로그램을 배포합니다."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # 고가용성 LOB(기간 업무) 응용 프로그램 배포
@@ -44,8 +44,8 @@
 
 규범적이고 미리 정의된 아키텍처입니다. 다음 사항을 고려하세요.
 
-- 웹 기반 LOB(기간 업무) 응용 프로그램 구현 작업에 익숙한 경우 3\~5단계의 지침을 조정하여 요구 사항에 가장 적합한 응용 프로그램 인프라를 구축할 수 있습니다. 
-- 기존 Azure 하이브리드 클라우드 구현이 이미 있는 경우 1\~2단계의 지침을 조정하거나 건너뛰어 적절한 서브넷에서 새 가상 컴퓨터를 호스팅할 수 있습니다.
+- 웹 기반 LOB(기간 업무) 응용 프로그램 구현 작업에 익숙한 경우 3~5단계의 지침을 조정하여 요구 사항에 가장 적합한 응용 프로그램 인프라를 구축할 수 있습니다. 
+- 기존 Azure 하이브리드 클라우드 구현이 이미 있는 경우 1~2단계의 지침을 조정하거나 건너뛰어 적절한 서브넷에서 새 가상 컴퓨터를 호스팅할 수 있습니다.
 - 모든 서버는 Azure 가상 네트워크에서 단일 서브넷에 있습니다. 서브넷 격리에 해당하는 추가 보안을 제공하려는 경우 [네트워크 보안 그룹](../virtual-networks/virtual-networks-nsg.md)을 사용할 수 있습니다.
 
 이 구성의 개념 증명 또는 개발/테스트 환경을 빌드하려면 [테스트용 하이브리드 클라우드에 웹 기반 LOB 응용 프로그램 설치](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)를 참조하세요.
@@ -66,4 +66,4 @@ Azure에 대한 IT 작업 부하 설계에 관한 자세한 내용은 [Azure 인
 
 [Azure 인프라 서비스 작업: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

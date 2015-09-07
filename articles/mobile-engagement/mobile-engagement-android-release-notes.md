@@ -1,30 +1,37 @@
 <properties 
-	pageTitle="Azure Mobile Engagement Android SDK 통합" 
+	pageTitle="Azure Mobile Engagement Android SDK 통합"
 	description="Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 절차"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
+	editor=""/>
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
+	ms.author="piyushjo"/>
 
 
 #릴리스 정보
+
+##4\.1.0(08/25/2015)
+
+- Android M에 대한 새 권한 모델을 다룹니다.
+- `AndroidManifest.xml`을 사용하는 대신 이제 런타임 시 위치 기능을 구성할 수 있습니다.
+- 권한 버그 수정: `ACCESS_FINE_LOCATION`을 사용하는 경우 `ACCESS_COARSE_LOCATION`이 더 이상 필요하지 않습니다.
+- 안정성 향상
 
 ##4\.0.0(07/06/2015)
 
 -   내부 프로토콜이 분석을 수행하고 더 안정적으로 푸시하도록 변경됩니다.
 -   네이티브 푸시(GCM/ADM)가 이제 앱 알림에도 사용되므로 모든 푸시 캠페인 유형에 대한 네이티브 푸시 자격 증명을 구성해야 합니다.
 -   큰 그림 알림을 수정합니다. 푸시된 후 10초만 표시되었습니다.
--   기본 작업 URL이 있는 웹 공지 내에서 링크를 클릭하는 동작을 수정합니다.
+-   웹 보기에서 버그 수정: 링크를 클릭하면 기본 작업 URL도 실행되었습니다.
 -   로컬 저장소 관리와 관련된 드문 충돌을 수정합니다.
 -   동적 구성 문자열 관리를 수정합니다.
 -   EULA를 업데이트합니다.
@@ -40,4 +47,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

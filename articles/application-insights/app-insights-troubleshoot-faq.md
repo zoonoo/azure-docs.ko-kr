@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Application Insights에 대한 문제 해결 및 질문" 
-	description="Visual Studio Application Insights에서 무엇인가 명확하지 않거나 작동하지 않나요? 여기를 참조하세요." 
-	services="application-insights" 
-    documentationCenter=".net"
-	authors="alancameronwills" 
+	pageTitle="Application Insights에 대한 문제 해결 및 질문"
+	description="Visual Studio Application Insights에서 무엇인가 명확하지 않거나 작동하지 않나요? 여기를 참조하세요."
+	services="application-insights"
+	documentationCenter=".net"
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.service="application-insights"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="awills"/>
  
 # ASP.NET용 Application Insights 문제 해결 및 질문
@@ -217,9 +217,9 @@ POST 데이터를 자동으로 기록 하지 않지만 TrackTrace 호출을 사�
 <tr><td>종속성 원격 분석</td><td><a href="../app-insights-monitor-performance-live-website-now/">서버에 AI 상태 모니터 설치</a></td><td>데이터베이스 또는 다른 외부 구성 요소의 문제 진단</td></tr>
 <tr><td>예외에서 스택 추적 가져오기</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">TrackException 호출을 코드에 삽입합니다</a> (하지만 일부는 자동으로 보고 됩니다)</td><td>예외 감지 및 진단</td></tr>
 <tr><td>로그 추적 검색</td><td><a href="../app-insights-search-diagnostic-logs/">로깅 어댑터 추가</a></td><td>예외, 성능 문제 진단</td></tr>
-<tr><td>클라이언트 사용 기본 사항: 페이지 보기, 세션,...</td><td><a href="../app-insights-start-monitoring-app-health-usage/#webclient">웹 페이지의 JavaScript 이니셜라이저</a></td><td>사용 현황 분석</td></tr>
-<tr><td>클라이언트 사용자 지정 메트릭</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">웹 페이지에서 추적 호출</a></td><td>사용자 환경 향상</td></tr>
-<tr><td>서버 사용자 지정 메트릭</td><td><a href="../app-insights-web-track-usage-custom-events-metrics/">서버 코드에서 추적 호출</a></td><td>비즈니스 인텔리전스</td></tr>
+<tr><td>클라이언트 사용 기본 사항: 페이지 보기, 세션,...</td><td><a href="../app-insights-javascript/">웹 페이지의 JavaScript 이니셜라이저</a></td><td>사용 현황 분석</td></tr>
+<tr><td>클라이언트 사용자 지정 메트릭</td><td><a href="../app-insights-api-custom-events-metrics/">웹 페이지에서 추적 호출</a></td><td>사용자 환경 향상</td></tr>
+<tr><td>서버 사용자 지정 메트릭</td><td><a href="../app-insights-api-custom-events-metrics/">서버 코드에서 추적 호출</a></td><td>비즈니스 인텔리전스</td></tr>
 </table>
 
 웹 서비스를 Azure VM에서 실행하는 경우 이 위치에서도 [진단을 가져올][azurediagnostic] 수 있습니다.
@@ -239,4 +239,4 @@ Application Insights 리소스를 만드는 [PowerShell script 스크립트를 �
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

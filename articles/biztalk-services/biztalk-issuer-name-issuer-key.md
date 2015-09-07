@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="BizTalk 서비스의 발급자 이름 및 발급자 키 | Microsoft Azure" 
-	description="BizTalk 서비스에서 서비스 버스 또는 액세스 제어(ACS)에 대한 발급자 이름 및 발급자 키를 검색하는 방법에 대해 알아봅니다. MABS, WABS" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+	pageTitle="BizTalk 서비스의 발급자 이름 및 발급자 키 | Microsoft Azure"
+	description="BizTalk 서비스에서 서비스 버스 또는 액세스 제어(ACS)에 대한 발급자 이름 및 발급자 키를 검색하는 방법에 대해 알아봅니다. MABS, WABS"
+	services="biztalk-services"
+	documentationCenter=""
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/07/2015" 
+	ms.service="biztalk-services"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="mandia"/>
 
 
@@ -42,7 +42,9 @@ Visual Studio에서 BizTalk 어댑터 서비스로 LOB 릴레이 만들기 | 서
 1. [Azure 관리 포털](http://go.microsoft.com/fwlink/p/?LinkID=213885)에 로그인합니다.
 2. 왼쪽 탐색 창에서 **BizTalk 서비스**를 선택합니다.
 3. BizTalk 서비스를 선택합니다. 
-4. 작업 표시줄에서 **연결 정보**를 선택합니다. 액세스 제어 네임스페이스, 기본 발급자(발급자 이름) 및 기본 키(발급자 키)가 나열되며 이러한 항목은 복사하여 붙여넣을 수 있습니다.<br/><br/> 요약하면 다음과 같습니다. <br/> 발급자 이름 = 기본 발급자<br/> 발급자 키 = 기본 키
+4. 작업 표시줄에서 **연결 정보**를 선택합니다. 액세스 제어 네임스페이스, 기본 발급자(발급자 이름) 및 기본 키(발급자 키)가 나열되며 이러한 항목은 복사하여 붙여넣을 수 있습니다.  
+
+요약하면 다음과 같습니다.발급자 이름 = 기본 발급자 발급자 키 = 기본 키
 
 
 **ACS 관리 포털 열기**를 선택하여 액세스 제어 값을 가져올 수도 있습니다.
@@ -51,7 +53,9 @@ Visual Studio에서 BizTalk 어댑터 서비스로 LOB 릴레이 만들기 | 서
 2. 왼쪽 탐색 창에서 **BizTalk 서비스**를 선택합니다.
 3. BizTalk 서비스를 선택합니다.
 4. 연결 정보 단추를 선택하고 **ACS 관리 포털 열기**를 선택합니다.
-5. 포털의 **서비스 설정**에서 **서비스 ID**를 선택합니다. 그러면 액세스 제어 발급자 이름 값인 서비스 ID가 표시됩니다. 서비스 ID 링크를 선택하여 발급자 키 값인 암호를 표시합니다. 이 값은 복사할 수 있습니다.<br/><br/> 예를 들어, **서비스 ID**에 "owner"가 표시됩니다. "Owner"는 액세스 제어 발급자 이름입니다. "owner" 링크를 클릭하면 **암호**가 표시됩니다. "암호" 링크를 클릭하면 값이 표시됩니다. 이 암호 값은 액세스 제어 발급자 키입니다. <br/><br/> 요약하면 다음과 같습니다.<br/> 발급자 이름 = 서비스 ID 이름<br/> 발급자 키 = 암호 값
+5. 포털의 **서비스 설정**에서 **서비스 ID**를 선택합니다. 그러면 액세스 제어 발급자 이름 값인 서비스 ID가 표시됩니다. 서비스 ID 링크를 선택하여 발급자 키 값인 암호를 표시합니다. 이 값은 복사할 수 있습니다.<br/><br/> 예를 들어, **서비스 ID**에 "owner"가 표시됩니다. "Owner"는 액세스 제어 발급자 이름입니다. "owner" 링크를 클릭하면 **암호**가 표시됩니다. "암호" 링크를 클릭하면 값이 표시됩니다. 이 암호 값은 액세스 제어 발급자 키입니다.  
+
+요약하면 다음과 같습니다.발급자 이름 = 서비스 ID 이름 발급자 키 = 암호 값
 
 왼쪽 탐색 창에서 **Active Directory**를 선택하여 액세스 제어 값을 검색할 수도 있습니다.
 
@@ -65,7 +69,9 @@ Visual Studio에서 BizTalk 어댑터 서비스로 LOB 릴레이 만들기 | 서
 
 1. [Azure 관리 포털](http://go.microsoft.com/fwlink/p/?LinkID=213885)에 로그인합니다.
 2. 왼쪽 탐색 창에서 **Service Bus**를 선택합니다.
-3. 네임스페이스를 선택합니다. 작업 표시줄에서 **연결 정보**를 선택합니다. 그러면 **기본 발급자**(발급자 이름) 및 **기본 키**(발급자 키)가 표시됩니다. 이 값은 복사할 수 있습니다.<br/><br/> 요약하면 다음과 같습니다.<br/> 발급자 이름 = 기본 발급자<br/> 발급자 키 = 기본 키
+3. 네임스페이스를 선택합니다. 작업 표시줄에서 **연결 정보**를 선택합니다. 그러면 **기본 발급자**(발급자 이름) 및 **기본 키**(발급자 키)가 표시됩니다. 이 값은 복사할 수 있습니다.  
+
+요약하면 다음과 같습니다.발급자 이름 = 기본 발급자 발급자 키 = 기본 키
 
 ## 다음
 추가 Azure BizTalk 서비스 항목:
@@ -86,4 +92,4 @@ Visual Studio에서 BizTalk 어댑터 서비스로 LOB 릴레이 만들기 | 서
 - [BizTalk 서비스: 제한](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

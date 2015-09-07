@@ -1,20 +1,20 @@
 <properties
    pageTitle="서비스 패브릭의 신뢰할 수 있는 서비스 프로그래밍 모델 개요"
-   description="서비스 패브릭의 신뢰할 수 있는 서비스 프로그래밍 모델에 대해 알아보고 사용자 고유의 서비스 작성을 시작합니다."
-   services="Service-Fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor="jessebenson; mani-ramaswamy"/>
+	description="서비스 패브릭의 신뢰할 수 있는 서비스 프로그래밍 모델에 대해 알아보고 사용자 고유의 서비스 작성을 시작합니다."
+	services="Service-Fabric"
+	documentationCenter=".net"
+	authors="masnider"
+	manager="timlt"
+	editor="jessebenson; mani-ramaswamy"/>
 
 <tags
    ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="07/17/2015"
-   ms.author="masnider;jesseb"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="masnider;jesseb"/>
 
 # 신뢰할 수 있는 서비스 개요
 서비스 패브릭은 신뢰할 수 있는 상태 비저장 및 상태 저장 서비스의 작성과 관리를 단순화합니다. 이 문서에 대해 이야기합니다.
@@ -23,11 +23,11 @@
 2. 신뢰할 수 있는 서비스를 작성할 때 선택해야 하는 여러 가지 옵션.
 3. 신뢰할 수 있는 서비스를 사용할 때의 다양한 시나리오 및 예와 신뢰할 수 있는 서비스를 작성하는 방법
 
-신뢰할 수 있는 서비스는 서비스 패브릭에서 사용할 수 있는 프로그래밍 모델 중 하나입니다. 신뢰할 수 있는 행위자 프로그래밍 모델에 대한 자세한 내용은 [소개](../service-fabric/service-fabric-reliable-actors-introduction.md)를 확인하세요.
+신뢰할 수 있는 서비스는 서비스 패브릭에서 사용할 수 있는 프로그래밍 모델 중 하나입니다. 신뢰할 수 있는 행위자 프로그래밍 모델에 대한 자세한 내용은 [소개](service-fabric-reliable-actors-introduction.md)를 확인하세요.
 
 서비스 패브릭에서 서비스는 구성, 응용 프로그램 코드, 그리고 선택적 상태로 구성됩니다.
 
-서비스 패브릭은 [서비스 패브릭 응용 프로그램 관리](../service-fabric/service-fabric-deploy-remove-applications.md)를 통해 프로비저닝 및 배포에서 업그레이드 및 삭제까지 서비스의 수명을 관리합니다.
+서비스 패브릭은 [서비스 패브릭 응용 프로그램 관리](service-fabric-deploy-remove-applications.md)를 통해 프로비저닝 및 배포에서 업그레이드 및 삭제까지 서비스의 수명을 관리합니다.
 
 ## 신뢰할 수 있는 서비스는 무엇입니까?
 신뢰할 수 있는 서비스는 응용 프로그램에 중요한 내용을 나타낼 수 있도록 도와주는 단순하고 강력한 최고 수준의 프로그래밍 모델입니다. 신뢰할 수 있는 서비스 프로그래밍 모델은 다음을 제공합니다.
@@ -36,7 +36,7 @@
 
 2. 기존에 사용하던 프로그래밍 모델과 비슷한 사용자 고유의 코드를 실행하기 위한 간단한 모델: 사용자의 코드에는 잘 정의된 진입점과 쉽게 관리되는 수명 주기가 있습니다.
 
-3. 플러그형 통신 모델: [Web API](../service-fabric/service-fabric-reliable-services-communication-webapi.md), WebSockets, 사용자 지정 TCP 프로토콜 등과 함께 HTTP와 같은 원하는 전송 프로토콜을 사용할 수 있습니다. 신뢰할 수 있는 서비스는 훌륭한 기본 옵션을 제공하거나 직접 만들 수 있게 지원합니다.
+3. 플러그형 통신 모델: [Web API](service-fabric-reliable-services-communication-webapi.md), WebSockets, 사용자 지정 TCP 프로토콜 등과 함께 HTTP와 같은 원하는 전송 프로토콜을 사용할 수 있습니다. 신뢰할 수 있는 서비스는 훌륭한 기본 옵션을 제공하거나 직접 만들 수 있게 지원합니다.
 
 ## 신뢰할 수 있는 서비스가 다른 서비스와 다른 점은 무엇입니까?
 서비스 패브릭의 신뢰할 수 있는 서비스는 이전에 작성하던 서비스와 다릅니다. 서비스 패브릭은 안정성, 가용성, 일관성 및 확장성을 제공합니다.
@@ -52,7 +52,7 @@
 ## 서비스 수명 주기
 서비스가 상태 저장 서비스이든, 상태 비저장 서비스이든, 신뢰할 수 있는 서비스는 신속하게 코드를 연결하고 시작할 수 있는 간단한 수명 주기를 제공합니다. 서비스를 시작 및 실행하기 위해 구현해야 하는 메서드가 실제로 한두 개뿐입니다.
 
-+ CreateCommunicationListener - 서비스가 사용하려는 통신 스택을 정의하는 위치입니다. [Web API](../service-fabric/service-fabric-reliable-services-communication-webapi.md)와 같은 통신 스택은 서비스의 수신 대기 끝점(클라이언트가 어떻게 연결할지)을 정의하고, 표시되는 메시지가 서비스 코드의 나머지 부분과 상호 작용하는 방법을 정의합니다.
++ CreateCommunicationListener - 서비스가 사용하려는 통신 스택을 정의하는 위치입니다. [Web API](service-fabric-reliable-services-communication-webapi.md)와 같은 통신 스택은 서비스의 수신 대기 끝점(클라이언트가 어떻게 연결할지)을 정의하고, 표시되는 메시지가 서비스 코드의 나머지 부분과 상호 작용하는 방법을 정의합니다.
 
 + RunAsync - 서비스가 비즈니스 논리를 실행할 수 있는 위치입니다. 제공되는 취소 토큰은 해당 작업이 중지되어야 하는 경우에 대한 신호입니다. 예를 들어 지속적으로 ReliableQueue에서 메시지를 빼내 처리해야 하는 서비스가 있는 경우 여기에서 해당 작업이 수행되어야 합니다.
 
@@ -63,13 +63,13 @@
 2. CreateCommunicationListener 메서드가 호출되고, 서비스가 선택한 통신 수신기를 반환할 수 있게 됩니다.
   + 선택적이지만 대부분의 서비스는 일부 끝점을 직접 노출합니다.
 
-3. CommunicationListener가 생성되면 열립니다.
-  + CommunicationListener에는 이때 호출되고 서비스의 수신 대기 주소를 반환하는 Open()이라는 메서드가 있습니다. 신뢰할 수 있는 서비스가 ICommunicationListener에 내장된 것 중 하나를 사용할 경우 자동으로 처리됩니다.
+3. 통신 수신기가 생성되면 열립니다.
+  + 통신 수신기는 이때 호출되고 서비스의 수신 대기 주소를 반환하는 Open()이라는 메서드가 있습니다. 신뢰할 수 있는 서비스가 ICommunicationListener에 내장된 것 중 하나를 사용할 경우 자동으로 처리됩니다.
 
 4. 통신 수신기가 Open()이면 기본 서비스의 RunAsync() 호출이 호출됩니다.
   + RunAsync()는 선택적입니다. 서비스가 모든 작업을 사용자 호출에 대한 응답으로만 직접 수행할 경우 RunAsync()를 구현할 필요가 없습니다.
 
-서비스 종료되면(삭제되거나 특정 위치에서 이동 하는 경우) 호출 순서는 동일합니다. CommunicationListener에서 첫 번째 Close()가 호출되고, RunAsync()에 전달된 취소 토큰이 취소됩니다.
+서비스 종료되면(삭제되거나 특정 위치에서 이동 하는 경우) 호출 순서는 동일합니다. 통신 수신기에서 첫 번째 Close()가 호출되고, RunAsync()에 전달된 취소 토큰이 취소됩니다.
 
 ## 예제 서비스
 이 프로그래밍 모델을 알았으니 두 가지 서비스를 간단히 살펴보고 어떻게 연동되는지 알아보겠습니다.
@@ -79,7 +79,7 @@
 
 예를 들어 메모리가 없고 모든 용어 및 수행할 작업을 한 번에 수신하는 계산기를 가정해 보겠습니다.
 
-이 경우 서비스가 수행 야 하는 백그라운드 작업 처리가 없으므로 서비스의 RunAsync()가 비어 있을 수 있습니다. 계산기 서비스가 생성되면 일부 포트에서 수신 대기 끝점을 여는 CommunicationListener(예: [Web API](../service-fabric/service-fabric-reliable-services-communication-webapi.md))를 반환합니다. 이 수신 대기 끝점은 계산기의 공용 API를 정의하는 다른 메서드(예: "Add(n1, n2)")에 연결됩니다.
+이 경우 서비스가 수행 야 하는 백그라운드 작업 처리가 없으므로 서비스의 RunAsync()가 비어 있을 수 있습니다. 계산기 서비스가 생성되면 일부 포트에서 수신 대기 끝점을 여는 CommunicationListener(예: [Web API](service-fabric-reliable-services-communication-webapi.md))를 반환합니다. 이 수신 대기 끝점은 계산기의 공용 API를 정의하는 다른 메서드(예: "Add(n1, n2)")에 연결됩니다.
 
 클라이언트에서 호출이 수행되면 적절한 메서드가 호출되고 계산기 서비스가 제공된 데이터에 대한 작업을 수행하고 결과를 반환합니다. 상태는 저장하지 않습니다.
 
@@ -125,9 +125,9 @@
 
 
 ## 다음 단계
-+ [신뢰할 수 있는 서비스 빠른 시작](../service-fabric/service-fabric-reliable-services-quick-start.md)
++ [신뢰할 수 있는 서비스 빠른 시작](service-fabric-reliable-services-quick-start.md)
 + [신뢰할 수 있는 서비스는 고급 사용법 확인](service-fabric-reliable-services-advanced-usage.md)
-+ [신뢰할 수 있는 행위자 프로그래밍 모델 읽기](../service-fabric/service-fabric-reliable-actors-introduction.md)
++ [신뢰할 수 있는 행위자 프로그래밍 모델 읽기](service-fabric-reliable-actors-introduction.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure 마켓플레이스에서 Orchard CMS 웹 앱 만들기" 
-	description="Azure에서 새 웹 앱을 만드는 방법에 대해 설명하는 자습서입니다. Azure 포털을 사용하여 웹 앱을 시작하고 관리하는 방법도 알아봅니다." 
+	pageTitle="Azure 마켓플레이스에서 Orchard CMS 웹 앱 만들기"
+	description="Azure에서 새 웹 앱을 만드는 방법에 대해 설명하는 자습서입니다. Azure 포털을 사용하여 웹 앱을 시작하고 관리하는 방법도 알아봅니다."
 	tags="azure-portal"
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+	services="app-service\web"
+	documentationCenter=".net"
+	authors="tfitzmac"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/03/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/03/2015"
 	ms.author="tomfitz"/>
 
 # Azure 마켓플레이스에서 Orchard CMS 웹 앱 만들기
@@ -73,7 +73,6 @@
 
 ## 다음 단계
 
-* [Microsoft WebMatrix로 웹 앱 개발 및 배포](web-sites-dotnet-using-webmatrix.md) -- WebMatrix에서 앱 서비스 웹 앱을 편집하는 방법을 알아봅니다. 
 * [인증 및 SQL DB을 사용하여 ASP.NET MVC 앱을 만들고 Azure 앱 서비스 배포](web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)-- Visual Studio에서 Azure 앱 서비스에 새 웹 앱을 만드는 방법을 설명합니다.
 
 ## 변경된 내용
@@ -92,4 +91,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

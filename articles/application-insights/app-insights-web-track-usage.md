@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Application Insights를 사용한 웹 응용 프로그램의 사용 현황 분석" 
-	description="Application Insights를 사용한 사용량 분석 개요" 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Application Insights를 사용한 웹 응용 프로그램의 사용 현황 분석"
+	description="Application Insights를 사용한 사용량 분석 개요"
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="awills"/>
  
 # Application Insights를 사용한 웹 응용 프로그램의 사용 현황 분석
@@ -109,13 +109,33 @@ Application Insights 리소스는 사용자 앱의 원격 분석 데이터를 �
 
 ## 사용자 및 사용자 수
 
+
 각 사용자 세션은 고유한 사용자 id와 연결됩니다.
 
-기본적으로 사용자는 쿠키를 배치하여 식별됩니다. 이 경우 여러 브라우저 또는 장치를 사용하는 사용자는 두 번 이상 계산됩니다.
+기본적으로 사용자는 쿠키를 배치하여 식별됩니다. 여러 브라우저 또는 장치를 사용하는 사용자는 두 번 이상 계산됩니다. [인증된 사용자만](#authenticated-users)을 참조하세요.
+
 
 특정 간격의 **사용자 수** 메트릭은 이 간격 중에 기록된 활동이 있는 고유한 사용자 수라고 정의됩니다. 따라서 단위가 한 시간보다 더 짧도록 시간 범위를 설정한 경우, 긴 세션을 가진 사용자는 여러 번 계산됩니다.
 
-**새 사용자**는 이 간격 중에 앱에 대한 첫 번째 세션이 발생한 사용자 수를 계산합니다. 쿠키에 의해 사용자별로 계산하는 기본 방법을 사용하는 경우, 자신의 쿠키를 삭제했거나 새 장치 또는 브라우저를 사용하여 앱에 처음 액세스하는 사용자 수도 이 사용자 수에 포함됩니다.![사용 현황 블레이드에서 사용자 차트를 클릭하여 새 사용자를 검사합니다.](./media/app-insights-web-track-usage/031-dual.png)
+**새 사용자**는 이 간격 중에 앱에 대한 첫 번째 세션이 발생한 사용자 수를 계산합니다. 쿠키에 의해 사용자별로 계산하는 기본 방법을 사용하는 경우, 자신의 쿠키를 삭제했거나 새 장치 또는 브라우저를 사용하여 앱에 처음 액세스하는 사용자 수도 이 사용자 수에 포함됩니다. ![사용 현황 블레이드에서 사용자 차트를 클릭하여 새 사용자를 검사합니다.](./media/app-insights-web-track-usage/031-dual.png)
+
+### 인증된 사용자
+
+웹앱에서 사용자 로그인을 허용하는 경우 Application Insights에 고유한 사용자 식별자를 제공하여 보다 정확한 개수를 얻을 수 있습니다. 앱에서 사용한 것과 동일한 ID 또는 해당 이름이 아니어도 됩니다. 앱이 사용자를 식별하는 즉시 다음 코드를 사용합니다.
+
+
+*클라이언트의 JavaScript*
+
+      appInsights.setAuthenticatedUserContext(userId);
+
+앱이 사용자를 계정으로 그룹화하는 경우 계정 식별자를 전달할 수도 있습니다.
+
+      appInsights.setAuthenticatedUserContext(userId, accountId);
+
+사용자 및 계정 ID에 공백이나 `,;=|` 문자가 포함되면 안 됩니다.
+
+
+[메트릭 탐색기](app-insights-metrics-explorer.md)에서 **인증된 사용자** 및 **계정** 차트를 만들 수 있습니다.
 
 ## 종합 트래픽
 
@@ -144,7 +164,7 @@ Application Insights는 종합 트래픽을 자동으로 결정하고 분류한 
 
 하지만 별도의 웹 페이지에서 게임할 때와 완전히 동일한 방법으로 각각의 게임이 열리는 횟수를 로그하기 위해 여전히 Application Insights를 사용하고자 합니다. 간단합니다. 열리는 새 '페이지'를 기록하려는 JavaScript에 원격 분석 모듈에 대한 호출을 삽입하면 됩니다.
 
-	telemetryClient.trackPageView(game.Name);
+	appInsights.trackPageView(game.Name);
 
 ## 사용자 지정 이벤트
 
@@ -152,7 +172,7 @@ Application Insights는 종합 트래픽을 자동으로 결정하고 분류한 
 
 *JavaScript*
 
-    telemetryClient.trackEvent("GameEnd");
+    appInsights.trackEvent("GameEnd");
 
 *C#*
 
@@ -371,4 +391,4 @@ Global.asax.cs 같은 앱 이니셜라이저에서:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

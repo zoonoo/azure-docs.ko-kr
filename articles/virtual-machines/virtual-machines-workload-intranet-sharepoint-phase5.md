@@ -1,6 +1,6 @@
 <properties
-	pageTitle="SharePoint 인트라넷 팜 작업 5단계: 가용성 그룹을 만들고 SharePoint 데이터베이스 추가"
-	description="인트라넷 전용 SharePoint 2013 팜을 배포하는 이 마지막 단계에서는 가용성 그룹을 만들고 SharePoint 데이터베이스를 해당 그룹에 추가합니다."
+	pageTitle="SharePoint Server 2013 팜 5단계 | Microsoft Azure"
+	description="Azure의 SharePoint Server 2013 팜 5단계에서 가용성 그룹을 만들고 여기에 SharePoint 데이터베이스를 추가합니다."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -126,4 +126,4 @@ SQL Server AlwaysOn 가용성 그룹을 사용하는 SharePoint에 대한 자세
 
 [Azure 인프라 서비스 작업: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

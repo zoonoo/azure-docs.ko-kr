@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Windows Server 2012 R2 AD FS에서 Azure MFA 서버를 사용하여 클라우드 및 온-프레미스 리소스 보안 유지" 
-	description="Windows Server 2012 R2에서의 Azure MFA 및 AD FS 시작 방법을 설명하는 Azure Multi-Factor Authentication 페이지입니다." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Windows Server 2012 R2 AD FS에서 Azure MFA 서버를 사용하여 클라우드 및 온-프레미스 리소스 보안 유지"
+	description="Windows Server 2012 R2에서의 Azure MFA 및 AD FS 시작 방법을 설명하는 Azure Multi-Factor Authentication 페이지입니다."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 
@@ -229,4 +229,4 @@ PowerShell에서 \\Program Files\\Multi-Factor Authentication Server\\Register-M
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

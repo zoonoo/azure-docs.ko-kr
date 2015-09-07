@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 하이브리드 클라우드 테스트 환경"
-	description="Azure 하이브리드 클라우드의 개발/테스트 또는 개념 증명에 사용할 수 있는 테스트 환경 구축 방법을 설명하는 주요 항목으로 이동합니다."
+	pageTitle="Azure에서 하이브리드 클라우드 테스트 환경 | Microsoft Azure"
+	description="Azure 기반 하이브리드 클라우드에 개발/테스트 또는 개념 증명 IT 전문가 환경을 구축하는 방법을 설명하는 문서를 찾습니다."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -58,4 +58,4 @@
 
 [Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

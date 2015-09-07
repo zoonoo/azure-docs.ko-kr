@@ -1,20 +1,20 @@
 <properties
    pageTitle="상태 저장 신뢰할 수 있는 서비스 구성"
-   description="서비스 패브릭에서 상태 저장 신뢰할 수 있는 서비스를 구성하는 방법을 알아봅니다."
-   services="Service-Fabric"
-   documentationCenter=".net"
-   authors="sumukhs"
-   manager="vipulm"
-   editor=""/>
+	description="서비스 패브릭에서 상태 저장 신뢰할 수 있는 서비스를 구성하는 방법을 알아봅니다."
+	services="Service-Fabric"
+	documentationCenter=".net"
+	authors="sumukhs"
+	manager="anuragg"
+	editor=""/>
 
 <tags
    ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/24/2015"
-   ms.author="sumukhs"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="sumukhs"/>
 
 # 상태 저장 신뢰할 수 있는 서비스 구성
 상태 저장 신뢰할 수 있는 서비스의 기본 구성은 응용 프로그램의 각 서비스에 대한 Visual Studio 패키지 루트의 "Config" 폴더에 생성된 "settings.xml" 파일을 변경하여 수정할 수 있습니다.
@@ -91,4 +91,4 @@ MaxRecordSizeInKB는 복제자가 로그 파일에 쓸 수 있는 레코드의 �
 SharedLogId 및 SharedLogPath 설정은 항상 함께 사용되며, 서비스가 노드에 대한 기본 공유 로그에서 별도의 공유 로그를 사용하도록 허용합니다. 최상의 효율성을 위해 최대한 많은 서비스가 동일한 공유 로그를 지정해야 합니다. 헤드 이동 경합이 감소하도록 공유 로그 파일에만 사용되는 디스크에 공유 로그 파일을 배치해야 합니다. 이 값은 드문 경우에만 변경해야 합니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

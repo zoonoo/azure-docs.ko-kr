@@ -51,12 +51,12 @@
     마법사 페이지 | 값 지정
 	------------- | -------------
 	**가상 네트워크 세부 정보** | <p>이름: WestUSVNet 같은 가상 네트워크 이름을 입력합니다.</p><p>지역: 가장 가까운 지역을 선택합니다.</p>
-	**DNS 및 VPN 연결** | <p>DNS 서버: 하나 이상의 온-프레미스 DNS 서버의 이름 및 IP 주소를 지정합니다.</p><p>연결: **사이트 및 사이트 간 VPN 구성**을 선택합니다.</p><p>로컬 네트워크: 새 로컬 네트워크를 지정합니다.</p><p>VPN 대신 Express 경로를 사용하는 경우 [Exchange 공급자를 통해 Express 경로 연결 구성](https://msdn.microsoft.com/library/azure/dn606306.aspx)을 참조하십시오.</p>
+	**DNS 및 VPN 연결** | <p>DNS 서버: 하나 이상의 온-프레미스 DNS 서버의 이름 및 IP 주소를 지정합니다.</p><p>연결: **사이트 및 사이트 간 VPN 구성**을 선택합니다.</p><p>로컬 네트워크: 새 로컬 네트워크를 지정합니다.</p><p>VPN 대신 Express 경로를 사용하는 경우 [Exchange 공급자를 통해 Express 경로 연결 구성](../expressroute/expressroute-configuring-exps.md)을 참조하세요.</p>
 	**사이트 간 연결** | <p>이름: 온-프레미스 네트워크 이름을 입력합니다.</p><p>VPN 장치 IP 주소: 가상 네트워크에 연결될 장치의 공용 IP 주소를 지정합니다. VPN 장치는 NAT 뒤에 배치할 수 없습니다.</p><p>주소: 온-프레미스 네트워크에 대한 주소 범위를 지정합니다(예: 시나리오 다이어그램의 192.168.0.0/16).</p>
 	**가상 네트워크 주소 공간** | <p>주소 공간: Azure 가상 네트워크에서 실행할 VM에 대한 IP 주소 범위를 지정합니다(예: 시나리오 다이어그램의 10.1.0.0/16). 이 주소 범위는 온-프레미스 네트워크의 주소 범위와 겹칠 수 없습니다.</p><p>서브넷: 응용 프로그램 서버의 서브넷(예: 프런트엔드, 10.1.1.0/24) 및 Dc(예: 백엔드, 10.1.2.0/24)에 대한 이름 및 주소를 지정합니다.</p><p>**게이트웨이 서브넷 추가**를 클릭합니다.</p>
 
-2. 다음에는 가상 네트워크 게이트웨이를 구성하여 안전한 사이트 간 VPN 연결을 만들겠습니다. 자세한 내용은 [가상 네트워크 게이트웨이 구성](https://msdn.microsoft.com/library/azure/jj156210.aspx)을.참조하십시오.
-3. 새 가상 네트워크와 온-프레미스 VPN 장치 간에 사이트 간 VPN 연결을 만듭니다. 자세한 내용은 [가상 네트워크 게이트웨이 구성](https://msdn.microsoft.com/library/azure/jj156210.aspx)을.참조하십시오.
+2. 다음에는 가상 네트워크 게이트웨이를 구성하여 안전한 사이트 간 VPN 연결을 만들겠습니다. 자세한 내용은 [가상 네트워크 게이트웨이 구성](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md)을.참조하세요.
+3. 새 가상 네트워크와 온-프레미스 VPN 장치 간에 사이트 간 VPN 연결을 만듭니다. 자세한 내용은 [가상 네트워크 게이트웨이 구성](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md)을.참조하세요.
 
 
 
@@ -86,7 +86,7 @@ VM에 로그인한 다음 사이트 간 VPN 또는 Express 경로 연결을 통�
 
 ## Azure 가상 네트워크에 대한 DNS 서버 다시 구성
 
-1. Azure 클래식 포털에서 가상 네트워크의 이름을 클릭한 다음 **구성** 탭을 클릭하여 [가상 네트워크에 대한 DNS 서버 IP 주소를 다시 구성](https://msdn.microsoft.com/library/azure/dn275925.aspx)하고 온-프레미스 DNS 서버의 IP 주소가 아닌 복제본 DC에 할당된 정적 IP 주소를 사용합니다.
+1. Azure 클래식 포털에서 가상 네트워크의 이름을 클릭한 다음 **구성** 탭을 클릭하여 [가상 네트워크에 대한 DNS 서버 IP 주소를 다시 구성](virtual-networks-manage-dns-in-vnet.md)하고 온-프레미스 DNS 서버의 IP 주소가 아닌 복제본 DC에 할당된 정적 IP 주소를 사용합니다.
 
 2. 가상 네트워크의 모든 복제 DC VM이 가상 네트워크의 DNS 서버를 사용하도록 구성되었는지 확인하려면 **가상 컴퓨터**를 클릭하고 각 VM의 상태 열을 클릭한 후 **다시 시작**을 클릭합니다. VM에 **실행 중** 상태가 표시될 때까지 기다렸다가 로그인을 시도합니다.
 
@@ -113,7 +113,7 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하
 -  [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 -  [Azure PowerShell을 사용하여 기존 온-프레미스 Hyper-V 도메인 컨트롤러를 Azure에 업로드하는 방법](http://support.microsoft.com/kb/2904015)
 -  [Azure 가상 네트워크에 새 Active Directory 포리스트 설치](../active-directory-new-forest-virtual-machine.md)
--  [Azure 가상 네트워크](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+-  [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)
 -  [Microsoft Azure IT Pro IaaS: (01) 가상 컴퓨터 기본 사항(영문)](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Microsoft Azure IT Pro IaaS: (05) 가상 네트워크 및 프레미스 간 연결 만들기(영문)](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
@@ -122,4 +122,4 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하
 <!--Image references-->
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

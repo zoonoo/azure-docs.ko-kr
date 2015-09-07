@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure 앱 서비스에서 Azure CDN 사용" 
-	description="통합 Azure CDN 끝점에서 콘텐츠를 제공하는 Azure 앱 서비스에 웹앱을 배포하는 방법을 설명하는 자습서입니다." 
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
+	pageTitle="Azure 앱 서비스에서 Azure CDN 사용"
+	description="통합 Azure CDN 끝점에서 콘텐츠를 제공하는 Azure 앱 서비스에 웹앱을 배포하는 방법을 설명하는 자습서입니다."
+	services="app-service\web"
+	documentationCenter=".net"
+	authors="cephalin"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/25/2015" 
+	ms.service="app-service-web"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/25/2015"
 	ms.author="cephalin"/>
 
 
@@ -125,7 +125,7 @@ Azure CDN을 통해 전체 Azure 웹앱을 제공하는 것이 일반적으로 �
 -	예정된 유지 관리 또는 사용자 오류든, 어떤 이유로 CDN 끝점이 오프라인 상태가 된 경우 원본 URL인 **http://*&lt;sitename>*.azurewebsites.net/**으로 고객을 리디렉션할 수 없으면 전체 웹앱이 오프라인 상태가 됩니다. 
 -	사용자 지정 캐시 컨트롤 설정([Azure 웹앱의 정적 파일에 대한 캐싱 옵션 구성](#configure-caching-options-for-static-files-in-your-azure-web-app) 참조)이 있는 경우에도 CDN 끝점이 높은 수준의 동적 콘텐츠 성능을 개선하지는 않습니다. 위와 같이 CDN 끝점에서 홈페이지를 로드하려는 경우 상당히 단순한 페이지인 기본 홈페이지를 처음 로드하는 데도 5초 이상이 걸립니다. 이 페이지에 매분 업데이트되어야 하는 동적 콘텐츠가 포함되어 있다면 클라이언트 환경이 어떨지 상상해 보세요. CDN 끝점에서 동적 콘텐츠를 제공하려면 캐시 만료가 짧아야 하며 이는 CDN 끝점에서 빈번한 캐시 누락이 발생함을 의미합니다. 그러면 Azure 웹앱의 성능이 저하되며 CDN의 목적이 무산됩니다.
 
-대안은 Azure 웹앱의 사례별로 Azure CDN에서 제공할 콘텐츠를 판단하는 것입니다. 이를 위해 CDN 끝점에서 개별 콘텐츠 파일에 액세스하는 방법을 이미 알아보았습니다. [Azure CDN을 통해 컨트롤러 작업의 콘텐츠 제공](#controller)에서는 CDN 끝점을 통해 특정 컨트롤러 작업을 제공하는 방법을 설명하겠습니다.
+대안은 Azure 웹앱의 사례별로 Azure CDN에서 제공할 콘텐츠를 판단하는 것입니다. 이를 위해 CDN 끝점에서 개별 콘텐츠 파일에 액세스하는 방법을 이미 알아보았습니다. [Azure CDN을 통해 컨트롤러 작업의 콘텐츠 제공](#serve-content-from-controller-actions-through-azure-cdn)에서는 CDN 끝점을 통해 특정 컨트롤러 작업을 제공하는 방법을 설명하겠습니다.
 
 ## Azure 웹앱의 정적 파일에 대한 캐싱 옵션 구성 ##
 
@@ -167,7 +167,7 @@ Azure 웹앱을 Azure CDN과 통합하는 경우 Azure CDN을 통해 컨트롤�
 
 위의 단계에 따라 이 컨트롤러 작업을 설정하려면 다음을 수행합니다.
 
-1. *\\Controllers* 폴더에서 *MemeGeneratorController.cs*라는 새로운 .cs 파일을 만들고 내용을 다음 코드로 바꿉니다. `~/Content/chuck.bmp`의 파일 경로와 `yourCDNName`의 CDN 이름을 대신합니다.
+1. *\Controllers* 폴더에서 *MemeGeneratorController.cs*라는 새로운 .cs 파일을 만들고 내용을 다음 코드로 바꿉니다. `~/Content/chuck.bmp`의 파일 경로와 `yourCDNName`의 CDN 이름을 대신합니다.
 
 
         using System;
@@ -521,11 +521,11 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 	...
 	```
 
-	Note that injected script for the CSS bundle still contains the errant remnant from the `CdnFallbackExpression` property in the line:
+	CSS 번들의 삽입 스크립트에서 다음 줄에 여전히 `CdnFallbackExpression` 속성의 나머지 잘못된 부분이 포함되어 있습니다.
 
 		}())||document.write('<script src="/Content/css"><\/script>');</script>
 
-	But since the first part of the || expression will always return true (in the line directly above that), the document.write() function will never run.
+	그러나 || 식의 첫 부분이 항상 true(바로 위의 줄에서)를 반환하므로 document.write() 함수가 실행되지 않습니다.
 
 6. 대체(fallback) 스크립트가 작동 중인지를 테스트하려면 CDN 끝점의 대시보드로 돌아간 후 **끝점 사용 안 함**을 클릭합니다.
 
@@ -545,4 +545,4 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

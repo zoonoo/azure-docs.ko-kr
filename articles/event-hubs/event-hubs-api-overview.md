@@ -1,19 +1,19 @@
 <properties 
    pageTitle="이벤트 허브 API 개요"
-   description="주요 이벤트 허브 .NET 클라이언트 API의 일부 요약입니다."
-   services="event-hubs"
-   documentationCenter="na"
-   authors="sethmanheim"
-   manager="timlt"
-   editor="" />
+	description="주요 이벤트 허브 .NET 클라이언트 API의 일부 요약입니다."
+	services="event-hubs"
+	documentationCenter="na"
+	authors="sethmanheim"
+	manager="timlt"
+	editor=""/>
 <tags 
    ms.service="event-hubs"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/10/2015"
-   ms.author="sethm" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="07/10/2015"
+	ms.author="sethm"/>
 
 # 이벤트 허브 API 개요
 
@@ -186,6 +186,5 @@ public class SimpleEventProcessor : IEventProcessor
 
 - [서비스 버스 및 이벤트 허브 .NET API 참조](https://msdn.microsoft.com/library/jj933424.aspx)
 - [이벤트 프로세서 호스트 API 참조](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx)
-- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

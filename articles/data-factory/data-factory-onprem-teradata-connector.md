@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Teradata 커넥터 - Teradata에서 데이터 이동" 
-	description="Teradata 데이터베이스에서 데이터를 이동시킬 수 있는 데이터 팩터리 서비스용 Teradata 커넥터에 대해 알아봅니다." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Teradata에서 데이터 이동 | Azure 데이터 팩터리"
+	description="Teradata 데이터베이스에서 데이터를 이동시킬 수 있는 데이터 팩터리 서비스용 Teradata 커넥터에 대해 알아봅니다."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Teradata 커넥터 - Teradata에서 데이터 이동
+# Azure 데이터 팩터리를 사용하여 Teradata에서 데이터 이동
 
 이 문서에서는 Azure 데이터 팩토리에서 복사 작업을 사용하여 Teradata에서 다른 데이터 저장소로 데이터를 이동하는 방법에 대해 간략하게 설명합니다. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 작성합니다.
 
@@ -34,11 +34,11 @@ Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경
 
 아래 샘플은 다음을 보여줍니다.
 
-1.	OnPremisesTeradata 형식의 연결된 서비스입니다.
-2.	AzureStorage 형식의 연결된 서비스입니다.
-3.	RelationalTable 형식의 입력 데이터 집합입니다.
-4.	AzureBlob 형식의 출력 데이터 집합입니다. 
-4.	RelationalSource 및 BlobSink를 사용하는 복사 작업의 파이프라인입니다.
+1.	[OnPremisesTeradata](data-factory-onprem-teradata-connector.md#teradata-linked-service-properties) 형식의 연결된 서비스
+2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스
+3.	[RelationalTable](data-factory-onprem-teradata-connector.md#teradata-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)
+4.	[AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md) 
+4.	[RelationalSource](data-factory-onprem-teradata-connector.md#teradata-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
 
 샘플은 Teradata 데이터베이스의 쿼리 결과에서 blob에 매시간 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
@@ -108,7 +108,7 @@ Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경
 
 **Azure Blob 출력 데이터 집합:**
 
-데이터는 매시간 새 blob에 기록됩니다(frequency: hour, interval: 1). Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간에서 연도, 월, 일 및 시간 부분을 사용합니다.
+데이터는 매시간 새 blob에 기록됩니다.(빈도: 1시간, 간격:1회) Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간에서 연도, 월, 일 및 시간 부분을 사용합니다.
 
 	{
 	    "name": "AzureBlobTeradataDataSet",
@@ -180,7 +180,7 @@ Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경
 	                "typeProperties": {
 	                    "source": {
 	                        "type": "RelationalSource",
-	                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', SliceStart, SliceEnd)"
+	                        "query": "$$Text.Format('select * from MyTable where timestamp >= \'{0:yyyy-MM-ddTHH:mm:ss}\' AND timestamp < \'{1:yyyy-MM-ddTHH:mm:ss}\'', SliceStart, SliceEnd)"
 	                    },
 	                    "sink": {
 	                        "type": "BlobSink",
@@ -222,7 +222,7 @@ Teradata 데이터베이스에 연결할 데이터 관리 게이트웨이의 경
 
 속성 | 설명 | 필수
 -------- | ----------- | --------
-type | 형식 속성은 **OnPremisesTeradata**으로 설정되어야 합니다. | 예
+type | 형식 속성은 **OnPremisesTeradata**로 설정되어야 합니다. | 예
 server | Teradata 서버의 이름입니다. | 예
 database | Teradata 데이터베이스의 이름입니다. | 예 
 schema | 데이터베이스에서 스키마의 이름입니다. | 아니요
@@ -230,6 +230,8 @@ authenticationType | Teradata 데이터베이스에 연결하는 데 사용되�
 username | 기본 또는 Windows 인증을 사용하는 경우 사용자 이름을 지정합니다. | 아니요 
 password | 사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. | 아니요 
 gatewayName | 데이터 팩터리 서비스가 온-프레미스 Teradata 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. | 예
+
+온-프레미스 Teradata 데이터 원본의 자격 증명 설정에 대한 자세한 내용은 [자격 증명 및 보안 설정](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)을 참조하세요.
 
 ## Teradata 데이터 집합 형식 속성
 
@@ -310,4 +312,4 @@ Xml | String
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

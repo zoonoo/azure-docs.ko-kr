@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="PostgreSQL 커넥터 - PostgreSQL에서 데이터 이동" 
-	description="PostgreSQL 데이터베이스에서 데이터를 이동할 수 있는 데이터 팩터리 서비스용 PostgreSQL 커넥터에 대해 알아봅니다" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="PostgreSQL에서 데이터 이동 | Azure 데이터 팩터리"
+	description="Azure 데이터 팩터리를 사용하여 PostgreSQL 데이터베이스에서 데이터를 이동하는 방법에 대해 알아봅니다."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# PostgreSQL 커넥터 - Azure Data Factory를 사용하여 PostgreSQL에서 데이터 이동
+# Azure 데이터 팩터리를 사용하여 PostgreSQL에서 데이터 이동
 
 이 문서에서는 Azure 데이터 팩토리에서 복사 작업을 사용하여 PostgreSQL에서 다른 데이터 저장소로 데이터를 이동하는 방법에 대해 간략하게 설명합니다. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 작성합니다.
 
@@ -34,11 +34,11 @@ PostgreSQL 데이터베이스에 연결할 데이터 관리 게이트웨이의 �
 
 아래 샘플은 다음을 보여줍니다.
 
-1.	OnPremisesPostgreSql 형식의 연결된 서비스입니다.
-2.	AzureStorage 형식의 연결된 서비스입니다.
-3.	RelationalTable 형식의 입력 데이터 집합입니다.
-4.	BlobSink 형식의 출력 데이터 집합입니다.
-4.	RelationalSource 및 BlobSink를 사용하는 복사 작업의 파이프라인입니다. 
+1.	[OnPremisesPostgreSql](data-factory-onprem-postgresql-connector.md#postgresql-linked-service-properties) 형식의 연결된 서비스
+2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스
+3.	[RelationalTable](data-factory-onprem-postgresql-connector.md#postgresql-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)
+4.	[AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
+4.	[RelationalSource](data-factory-onprem-postgresql-connector.md#postgresql-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md) 
 
 샘플은 PostgreSQL 데이터베이스의 쿼리 결과에서 blob에 매시간 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
@@ -223,6 +223,8 @@ username | 기본 또는 Windows 인증을 사용하는 경우 사용자 이름�
 password | 사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. | 아니요 
 gatewayName | 데이터 팩터리 서비스가 온-프레미스 PostgreSQL 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. | 예 
 
+온-프레미스 PostgreSQL 데이터 원본의 자격 증명 설정에 대한 자세한 내용은 [자격 증명 및 보안 설정](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)을 참조하세요.
+
 ## PostgreSQL 데이터 집합 형식 속성
 
 데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).
@@ -249,7 +251,7 @@ tableName | 연결된 서비스가 참조하는 PostgreSQL 데이터베이스 �
 
 ## PostgreSQL에 대한 형식 매핑
 
-[데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 것처럼 복사 작업은 다음 2단계 접근 방법 사용하여 원본 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.
+[데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 것처럼 복사 작업은 다음 2단계 접근 방법을 사용하여 원본 형식에서 싱크 형식까지 자동 형식 변환을 수행합니다.
 
 1. 네이티브 원본 형식에서 .NET 형식으로 변환
 1. .NET 형식에서 네이티브 싱크 형식으로 변환
@@ -304,4 +306,4 @@ serial | serial4 | Int32
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-relational-sources](../../includes/data-factory-type-repeatability-for-relational-sources.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Express 경로를 사용하기 위한 네트워크 구성 세부 정보" 
-	description="가상 네트워크에서 앱 서비스 환경을 실행하기 위해 네트워크 구성 세부 정보를 Express 경로 회로에 연결합니다." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="stefsch" 
-	manager="nirma" 
+	pageTitle="Express 경로를 사용하기 위한 네트워크 구성 세부 정보"
+	description="가상 네트워크에서 앱 서비스 환경을 실행하기 위해 네트워크 구성 세부 정보를 Express 경로 회로에 연결합니다."
+	services="app-service\web"
+	documentationCenter=""
+	authors="stefsch"
+	manager="nirma"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/30/2015"
 	ms.author="stefsch"/>
 
 # Express 경로를 사용하는 앱 서비스 환경에 대한 네트워크 구성 세부 정보 
@@ -34,7 +34,7 @@ Express 루트에 연결된 가상 네트워크에서 처음에 충족되지 않
 
 DNS 요구 사항은 가상 네트워크의 유효한 DNS 구성을 확인하여 충족시킬 수 있습니다.
 
-인바운드 네트워크 액세스 요구 사항은 이 [문서][requiredports]에서 설명한 대로 필요한 액세스를 허락해 주는 앱 서비스 환경의 서브넷상 [네트워크 보안 그룹][NetworkSecurityGroups]을 구성하여 충족시킬 수 있습니다.
+인바운드 네트워크 액세스 요구 사항은 이 [문서][requiredports]에 설명된 대로 앱 서비스 환경의 서브넷에서 필요한 액세스를 허용하는 [네트워크 보안 그룹][NetworkSecurityGroups]을 구성하여 충족시킬 수 있습니다.
 
 ## 앱 서비스 환경에 대한 아웃바운드 네트워크 연결을 사용하도록 설정##
 기본적으로, 새로 생성된 Express Route 회로는 아웃바운드 인터넷 연결을 허용하는 기본 경로를 알립니다. 이 앱 서비스 환경 구성을 사용하여 다른 Azure 끝점에 연결할 수 있게 만듭니다.
@@ -77,7 +77,7 @@ DNS 요구 사항은 가상 네트워크의 유효한 DNS 구성을 확인하여
     Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 9' -AddressPrefix 191.0.0.0/8 -NextHopType Internet
 
 
-Azure에 의해 사용되고 있는 CIDR 범위의 포괄적이고 업데이트된 목록에 대해서는 [Microsoft 다운로드 센터][DownloadCenterAddressRanges]에서 모든 범위를 포함한 Xml 파일을 다운로드 할 수 있습니다.
+Azure에 의해 사용되고 있는 CIDR 범위의 포괄적이고 업데이트된 목록에 대해서는 [Microsoft 다운로드 센터][DownloadCenterAddressRanges]에서 모든 범위를 포함한 Xml 파일을 다운로드할 수 있습니다.
 
 **참고:**일부 지점의 약식된 0.0.0.0/0의 CIDR 약칭은 *AddressPrefix*매개 변수로 사용할 수 있습니다. 이 약칭은 "모든 인터넷 주소"와 같습니다. 이제 개발자가 CIDR 범위의 broad set 대신 앱 서비스 환경이 배포된 지역 안에서 사용 가능한 모든 Azure 주소 범위를 사용해야 합니다.
 
@@ -113,12 +113,12 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [UDRHowTo]: http://azure.microsoft.com/documentation/articles/virtual-networks-udr-how-to/
 [HowToCreateAnAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
 [AzureDownloads]: http://azure.microsoft.com/downloads/
-[DownloadCenterAddressRanges]: http://www.microsoft.com/ko-kr/download/details.aspx?id=41653
-[NetworkSecurityGroups]: https://msdn.microsoft.com/library/azure/dn848316.aspx
+[DownloadCenterAddressRanges]: http://www.microsoft.com/download/details.aspx?id=41653
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [IntroToAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
  
 
 <!-- IMAGES -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -12,8 +12,8 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
-	ms.date="06/09/2015"
+	ms.topic="hero-article"
+	ms.date="08/24/2015"
 	ms.author="wesmc"/>
 
 # 알림 허브 시작
@@ -35,21 +35,20 @@
 
 + 활성 Windows 스토어 계정
 
-+ 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F)을 참조하세요.
++ 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F)을 참조하세요.
 
 이 자습서를 완료해야 다른 모든 Windows 스토어 앱용 알림 허브 자습서를 진행할 수 있습니다.
 
 ##Windows 스토어에 앱 등록
 
-모바일 서비스에서 Windows 스토어 앱으로 푸시 알림을 보내려면 앱을 Windows 스토어에 제출해야 합니다. 그런 다음 WNS와 통합되도록 알림 허브를 구성해야 합니다.
+Windows 스토어 앱으로 푸시 알림을 보내려면 앱을 Windows 스토어와 연결해야 합니다. 그런 다음 WNS와 통합되도록 알림 허브를 구성해야 합니다.
 
-1. 앱을 아직 등록하지 않은 경우 Windows 스토어 앱용 개발자 센터의 <a href="http://go.microsoft.com/fwlink/p/?LinkID=266582" target="_blank">앱 제출 페이지</a>로 이동하여 Microsoft 계정으로 로그온한 후 **앱 이름**을 클릭합니다.
+1. 앱을 아직 등록하지 않은 경우 <a href="http://go.microsoft.com/fwlink/p/?LinkID=266582" target="_blank">Windows 개발자 센터</a>로 이동하여 Microsoft 계정으로 로그온한 후 **새 앱 만들기**를 클릭합니다.
 
-   	![][0]
 
-2. **앱 이름**에 앱의 이름을 입력하고 **앱 이름 예약**을 클릭한 후 **저장**을 클릭합니다.
+2. 앱의 이름을 입력하고 **앱 이름 예약**을 클릭합니다.
 
-   	![][1]
+   	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-win8-app-name.png)
 
    	이렇게 하면 앱을 새로 Windows 스토어에 등록하게 됩니다.
 
@@ -71,15 +70,11 @@
 
    	이렇게 하면 필요한 Windows 스토어 등록 정보가 응용 프로그램 매니페스트에 추가됩니다.
 
-7. (옵션) Windows Phone 스토어 앱 프로젝트에 대해 4\~6단계를 반복합니다.
+7. (옵션) Windows Phone 스토어 앱 프로젝트에 대해 4~6단계를 반복합니다.
 
-7. 새 앱의 Windows 개발자 센터 페이지로 돌아가서 **Services**를 클릭합니다.
+8. 새 앱을 위한 Windows 개발자 센터 페이지로 돌아가 **서비스**, **푸시 알림**을 클릭한 후 **WNS(Windows 푸시 알림 서비스) 및 Microsoft Azure 모바일 서비스** 아래의 **Live 서비스 사이트**를 클릭합니다.
 
-   	![][5]
-
-8. **서비스** 페이지에서 **Microsoft Azure 모바일 서비스** 아래의 **Live 서비스 사이트**를 클릭합니다.
-
-   	![][17]
+   	![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hubs-win8-app-live-services.png)
 
 9. **앱 설정** 탭에서 **클라이언트 암호** 및 **패키지 SID(보안 식별자)**를 적어둡니다.
 
@@ -198,13 +193,13 @@
 
 6. 패키지 관리자 콘솔 창에서 **기본 프로젝트**를 새 콘솔 응용 프로그램 프로젝트로 설정한 후 콘솔 창에서 다음 명령을 실행합니다.
 
-        Install-Package WindowsAzure.ServiceBus
+        Install-Package Microsoft.Azure.NotificationHubs
 
-	이 명령은 <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet 패키지</a>를 사용하여 Azure 서비스 버스 SDK에 대한 참조를 추가합니다.
+	그러면 <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet 패키지</a>를 사용하는 Azure 알림 허브 SDK에 대한 참조가 추가됩니다.
 
 5. Program.cs 파일을 열고 다음 `using` 문을 추가합니다.
 
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
 
 6. **Program** 클래스에서 다음 메서드를 추가합니다.
 
@@ -240,12 +235,9 @@ MSDN의 [알림 카탈로그], [타일 카탈로그] 및 [배지 개요] 항목�
 
 
 <!-- Images. -->
-[0]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-submit-win8-app.png
-[1]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-win8-app-name.png
 [2]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-windows-universal-app.png
 [3]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-associate-win8-app.png
 [4]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-select-app-name.png
-[5]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-win8-edit-app.png
 [6]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-win8-app-push-auth.png
 [7]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-from-portal.png
 [8]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-from-portal2.png
@@ -257,7 +249,6 @@ MSDN의 [알림 카탈로그], [타일 카탈로그] 및 [배지 개요] 항목�
 [14]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-toast.png
 [15]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-scheduler1.png
 [16]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-scheduler2.png
-[17]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-win8-edit2-app.png
 [18]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-win8-app-toast.png
 [19]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-reg.png
 [20]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-universal-app-install-package.png
@@ -274,4 +265,4 @@ MSDN의 [알림 카탈로그], [타일 카탈로그] 및 [배지 개요] 항목�
 [배지 개요]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

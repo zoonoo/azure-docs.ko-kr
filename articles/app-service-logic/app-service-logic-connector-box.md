@@ -1,22 +1,23 @@
 <properties
-   pageTitle="논리 앱에 Box Connector 사용"
-   description="논리 앱에 Box 커넥터를 사용하는 방법"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="rajeshramabathiran"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="논리 앱에서 Box 커넥터 사용 | Microsoft Azure 앱 서비스"
+	description="Box 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="andalmia"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="andalmia"/>
 
-# Box 커넥터
+# Box 커넥터 시작 및 논리 앱에 추가 
+Box에 연결하여 파일을 가져오고, 업로드, 삭제 등을 수행합니다. 커넥터는 논리 앱에서 "워크플로"의 일부로 사용됩니다.
 
 방화벽 외부에 있는 사용자와도 안전하게 데이터를 공유할 수 있게 해주는 Box를 사용해야 하는 시나리오가 있을 수 있습니다. 논리 앱은 다양한 데이터 원본을 기반으로 트리거하고 흐름의 일부로 데이터를 가져오고 처리하기 위한 커넥터를 제공할 수 있습니다.
 
@@ -64,8 +65,9 @@ File Path(파일 경로) | 폴더를 포함하는 파일 경로를 완료합니�
 커넥터는 논리 앱 내에서 만들거나 Azure 마켓플레이스에서 직접 만들 수 있습니다. 마켓플레이스에서 커넥터를 만들려면
 
 1. Azure 시작 보드에서 **마켓플레이스**를 선택합니다.
-2. “Box 커넥터”를 검색하여 선택하고 **만들기**를 선택합니다.
-3. 이름, 앱 서비스 계획 및 기타 속성을 입력합니다. ![][1]
+2. "Box 커넥터"를 검색하여 선택하고 **만들기**를 선택합니다.
+3. 이름, 앱 서비스 계획 및 기타 속성을 입력합니다. 
+	![][1]
 4. **만들기**를 선택합니다.
 
 
@@ -77,16 +79,16 @@ API 앱을 만들고 나면 이제 Box 커넥터를 논리 앱의 동작으로 �
 
 	> [AZURE.NOTE]논리 앱의 시작 부분에 Box 커넥터를 선택하면 트리거처럼 작동합니다. 그렇지 않은 경우 커넥터를 사용하는 Box 계정에서 작업을 수행할 수 있습니다. 이 문서의 작성 시점에 Box 커넥터에는 트리거가 없습니다.
 
-2. 사용자를 대신하여 작업을 수행하도록 논리 앱을 인증하고 논리 앱에 권한을 부여하세요. Box 커넥터에서 **인증**을 선택합니다.
+2. 사용자를 대신하여 작업을 수행하도록 논리 앱을 인증하고 논리 앱에 권한을 부여하세요. Box 커넥터에서 **권한 부여**를 선택합니다. 
 	![][2]
 
-3. 작업을 수행하려는 Box 계정의 로그인 세부 정보를 입력합니다.
+3. 작업을 수행하려는 Box 계정의 로그인 세부 정보를 입력합니다. 
 	![][3]
 
-4. 논리 앱에 계정에 대한 액세스 권한을 부여하여 사용자를 대신하여 작업을 수행하도록 합니다.
+4. 논리 앱에 계정에 대한 액세스 권한을 부여하여 사용자를 대신하여 작업을 수행하도록 합니다. 
 	![][4]
 
-5. 동작 목록이 표시되며 수행하려는 적절한 작업을 선택할 수 있습니다.
+5. 동작 목록이 표시되며 수행하려는 적절한 작업을 선택할 수 있습니다. 
 	![][5]
 
 ## 커넥터의 추가 기능
@@ -103,4 +105,4 @@ API 앱을 만들고 나면 이제 Box 커넥터를 논리 앱의 동작으로 �
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

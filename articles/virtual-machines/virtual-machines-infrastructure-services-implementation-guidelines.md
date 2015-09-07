@@ -25,7 +25,7 @@ Azure는 솔루션 구현에 대한 특정 접근 방법을 테스트하는 데 
 
 이 문서는 [Azure 구현 지침](http://blogs.msdn.com/b/thecolorofazure/archive/2014/05/13/azure-implementation-guidelines.aspx) 블로그 게시물의 내용에서 가져왔습니다. 원본 자료를 제공한 Santiago Cánepa(Microsoft의 응용 프로그램 개발 관리자)와 Hugo Salcedo(Microsoft의 이전 응용 프로그램 개발 관리자에게 감사를 전합니다.
 
-> [AZURE.NOTE]선호도 그룹은 지원이 중단되었습니다. 여기서는 그 용도를 설명하지 않습니다. 자세한 내용은 [지역 VNet 및 선호도 그룹 정보](https://msdn.microsoft.com/library/azure/jj156085.aspx)를 참조하세요.
+> [AZURE.NOTE]선호도 그룹은 지원이 중단되었습니다. 여기서는 그 용도를 설명하지 않습니다. 자세한 내용은 [지역 VNet 및 선호도 그룹 정보](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)를 참조하세요.
 
 ## 1\. 명명 규칙
 
@@ -440,4 +440,4 @@ Contoso는 Azure 가상 컴퓨터에 대해 다음 이름으로 결정했습니�
 
 [Azure 리소스 관리자에 통합된 Azure 계산, 네트워크 및 저장소 공급자](../articles/virtual-machines/virtual-machines-azurerm-versus-azuresm.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

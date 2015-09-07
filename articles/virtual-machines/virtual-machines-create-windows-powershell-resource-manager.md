@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="08/25/2015"
 	ms.author="davidmu"/>
 
 # Azure 리소스 관리자 및 PowerShell을 사용하여 Windows 가상 컴퓨터 만들기
@@ -70,7 +70,7 @@ Azure 데이터 센터의 위치를 지정해야 합니다. Azure 데이터 센�
 	$storageAcc=New-AzureStorageAccount -ResourceGroupName $rgName -Name $stName -Type "Standard_GRS" -Location $locName
 	$singleSubnet=New-AzureVirtualNetworkSubnetConfig -Name singleSubnet -AddressPrefix 10.0.0.0/24
 	$vnet=New-AzurevirtualNetwork -Name TestNet -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
-	$pip = New-AzurePublicIpAddress -Name TestNIC -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
+	$pip = New-AzurePublicIpAddress -Name TestPIP -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
 	$nic = New-AzureNetworkInterface -Name TestNIC -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 	$cred = Get-Credential -Message "Type the name and password of the local administrator account."
 	$vm = New-AzureVMConfig -VMName WindowsVM -VMSize "Standard_A1"
@@ -142,4 +142,4 @@ Azure 데이터 센터의 위치를 지정해야 합니다. Azure 데이터 센�
 
 [Azure PowerShell을 설치 및 구성하는 방법](install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 관리자 서비스를 사용하여 StorSimple 장치 모니터링 | Microsoft Azure"
-   description="StorSimple 관리자 서비스를 사용하여 I/O 성능, 용량 사용률, 네트워크 처리량 및 장치 성능을 모니터링하는 방법에 대해 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="StorSimple 관리자 서비스를 사용하여 I/O 성능, 용량 사용률, 네트워크 처리량 및 장치 성능을 모니터링하는 방법에 대해 설명합니다."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/14/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/25/2015"
+	ms.author="alkohli"/>
 
 # StorSimple 관리자 서비스를 사용하여 StorSimple 장치를 모니터링합니다. 
 
@@ -61,7 +61,7 @@ StorSimple 관리자 서비스를 사용하여 StorSimple 솔루션 내에서 �
 	![클라우드 스냅숏 후 클라우드 용량 사용률](./media/storsimple-monitor-device/StorSimple_CloudCapacityUtil_For_AllVolumeContainers1M.png)
 
 
-- **장치 저장소 용량 사용률**은 SSD 선형 계층을 포함하므로 기본 저장소 사용률 이상인 장치에 대한 총 사용률을 보여 줍니다. 이 계층에는 장치의 다른 계층에 있는 데이터의 양이 포함되어 있습니다. SSD 선형 계층의 용량은 순환되어 새로운 데이터가 들어오면 이전 데이터가 클라우드로 이동됩니다(이때 중복 제거되고 압축됨).
+- **장치 저장소 용량 사용률**은 SSD 선형 계층을 포함하므로 기본 저장소 사용률 이상인 장치에 대한 총 사용률을 보여 줍니다. 이 계층에는 장치의 다른 계층에 있는 데이터의 양이 포함되어 있습니다. SSD 선형 계층의 용량은 순환되어 새로운 데이터가 들어오면 이전 데이터가 HDD 계층(이때 중복 제거되고 압축됨) 및 이후에 클라우드로 이동됩니다.
 
 	시간이 지남에 따라 기본 용량 사용률 및 장치 용량 사용률은 데이터가 클라우드로 티어링되기 시작할 때까지 함께 증가할 가능성이 높습니다. 이때 장치 용량 사용률이 안정 상태를 유지하기 시작하지만 기본 용량 사용률은 더 많은 데이터가 기록될수록 증가합니다.
 
@@ -93,4 +93,4 @@ StorSimple 관리자 서비스를 사용하여 StorSimple 솔루션 내에서 �
 
 [StorSimple Manager 서비스 장치 대시보드를 사용하는 방법에 대해 알아봅니다.](storsimple-device-dashboard.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

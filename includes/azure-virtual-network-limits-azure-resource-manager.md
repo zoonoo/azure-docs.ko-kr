@@ -4,7 +4,7 @@
    <th align="left" valign="middle">기본 제한</th>
 </tr>
 <tr>
-   <td valign="middle"><p>구독당 <a href="http://msdn.microsoft.com/library/azure/jj156007.aspx">가상 네트워크</a><sup>1</sup></p></td>
+   <td valign="middle"><p>구독당 <a href="../virtual-network/virtual-networks-overview.md">가상 네트워크</a><sup>1</sup></p></td>
    <td valign="middle"><p>지역<sup>1</sup>당 50</p></td>
 </tr>
 <tr>
@@ -51,4 +51,4 @@
 
 <sup>1</sup>지원에 문의하여 제한을 늘릴 수 있습니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,27 +1,27 @@
 <properties
    pageTitle="Azure에서 리소스 그룹 배포 문제 해결"
-   description="Azure에서 리소스 배포와 관련한 일반적인 문제에 대해 설명하고 Azure 포털, Mac, Linux 및 Windows용 Azure CLI(Azure 명령줄 인터페이스), PowerShell 등을 사용하여 배포를 검사하고 문제를 감지하는 방법을 보여 줍니다."
-   services="virtual-machines"
-   documentationCenter=""
-   authors="squillace"
-   manager="timlt"
-   editor=""/>
+	description="Azure에서 리소스 배포와 관련한 일반적인 문제에 대해 설명하고 Azure 포털, Mac, Linux 및 Windows용 Azure CLI(Azure 명령줄 인터페이스), PowerShell 등을 사용하여 배포를 검사하고 문제를 감지하는 방법을 보여 줍니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="command-line-interface"
-   ms.workload="infrastructure"
-   ms.date="04/25/2015"
-   ms.author="rasquill"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="command-line-interface"
+	ms.workload="infrastructure"
+	ms.date="04/25/2015"
+	ms.author="rasquill"/>
 
 # Azure에서 리소스 그룹 배포 문제 해결
 
-몇 가지 사항을 미리 확인하면 배포 오류를 훨씬 쉽게 방지할 수 있지만, 다양한 이유로 배포가 실패하는 경우가 있습니다. 이 문서에서는 간단한 실수를 방지하고, 템플릿 파일을 다운로드하고, 배포 로그를 검사하기 위한 도구 및 작업에 대해 설명합니다. 또한 배포 로그에서 오류를 검사할 때 고려해야 할 주요 영역에 대해 설명합니다.
+배포는 여러 이유로 인해 실패할 수 있습니다. 몇 가지 사항을 미리 확인하여 배포 오류를 방지하는 것이 좋습니다. 이 문서에서는 간단한 실수를 방지하고, 템플릿 파일을 다운로드하고, 배포 로그를 검사하기 위한 도구 및 작업에 대해 설명합니다. 또한 배포 로그에서 오류를 검사할 때 고려해야 할 주요 영역에 대해 설명합니다.
 
 ## Azure를 조작하는 데 유용한 도구
-AzureResourceManager 모듈에는 명령줄에서 Azure 리소스를 사용할 때 작업에 도움이 되는 도구를 수집하는 cmdlet이 포함되어 있습니다. Azure 리소스 그룹 템플릿은 JSON 문서이고 Azure 리소스 관리 API는 JSON을 수락하고 반환하므로, 리소스에 대한 정보를 탐색하거나 템플릿 및 템플릿 매개 변수 파일을 설계 또는 조작할 때 일반적으로 가장 먼저 사용하는 것은 JSON 구문 분석 도구입니다.
+명령줄에서 Azure 리소스를 작업하는 경우 작업에 도움이 되도록 도구를 수집합니다. Azure 리소스 그룹 템플릿은 JSON 문서이고 Azure 리소스 관리자 API는 JSON을 수락하고 반환하므로, 리소스에 대한 정보를 탐색하거나 템플릿 및 템플릿 매개 변수 파일을 설계 또는 조작할 때 일반적으로 가장 먼저 사용하는 것은 JSON 구문 분석 도구입니다.
 
 ### Mac, Linux 및 Windows 도구
 Mac, Linux 및 Windows용 Azure 명령줄 인터페이스를 사용하는 경우 표준 다운로드 도구(예: **[curl](http://curl.haxx.se/)**, **[wget](https://www.gnu.org/software/wget/)**, **[Resty](https://github.com/beders/Resty)**) 및 JSON 유틸리티(예: **[jq](http://stedolan.github.io/jq/download/)**, **[jsawk](https://github.com/micha/jsawk)** 및 JSON을 처리하는 언어 라이브러리)에 대해 잘 알고 있을 것입니다. 이러한 도구는 대부분 Windows용 포트(예: [wget](http://gnuwin32.sourceforge.net/packages/wget.htm))가 있습니다. 실제로 Windows에서 실행 중인 Linux 및 기타 오픈 소스 소프트웨어 도구를 다양한 방법으로 가져올 수 있습니다.
@@ -37,11 +37,11 @@ Windows PowerShell에는 동일한 절차를 수행하는 몇 가지 기본 명�
 
 ## Mac, Linux 및 Windows용 Azure CLI에서 오류 방지
 
-Azure CLI에는 오류를 방지하고 수행 중에 잘못된 사항을 감지하는 데 도움이 되는 여러 가지 명령이 있습니다.
+Azure CLI에는 오류를 방지하고 에러가 발생한 경우 잘못된 사항을 감지할 수 있는 몇 가지 명령이 있습니다.
 
 - **azure location list**. 이 명령은 각 리소스 유형(예: 가상 컴퓨터의 공급자)을 지원하는 위치를 가져옵니다. 리소스에 대한 위치를 입력하기 전에 이 명령을 사용하여 해당 위치에서 리소스 유형을 지원하는지 확인하세요.
 
-    위치 목록이 길 수도 있고 많은 공급자가 있으므로, 아직 사용할 수 없는 위치를 사용하기 전에 도구를 사용하여 공급자와 위치를 검사할 수 있습니다. 다음 스크립트에서는 **jq**를 사용하여 Azure 가상 컴퓨터에 대한 리소스 공급자를 사용할 수 있는 위치를 검색합니다. ()
+    위치 목록이 길 수도 있고 많은 공급자가 있으므로, 아직 사용할 수 없는 위치를 사용하기 전에 도구를 사용하여 공급자와 위치를 검사할 수 있습니다. 다음 스크립트에서는 **jq**를 사용하여 Azure 가상 컴퓨터에 리소스 공급자를 사용할 수 있는 위치를 검색합니다.
 
         azure location list --json | jq '.[] | select(.name == "Microsoft.Compute/virtualMachines")'
         {
@@ -51,7 +51,7 @@ Azure CLI에는 오류를 방지하고 수행 중에 잘못된 사항을 감지�
 
 - **azure group template validate <resource group>**. 이 명령은 템플릿과 템플릿 매개 변수를 사용하기 전에 유효성을 검사합니다. 사용자 지정 또는 갤러리 템플릿과 사용할 템플릿 매개 변수 값을 입력합니다.
 
-    다음 예에서는 템플릿과 필수 매개 변수의 유효성을 검사하는 방법을 보여 주고, Azure CLI에서 필요한 매개 변수 값을 묻습니다.
+    다음 예제에서는 템플릿 및 필수 매개 변수의 유효성을 검사하는 방법을 보여줍니다. Azure CLI는 필요한 매개 변수 값을 표시합니다.
 
         azure group template validate \
         > --template-uri "https://contoso.com/templates/azuredeploy.json" \
@@ -203,24 +203,24 @@ AzureResourceManager 모듈에는 오류를 방지하는 데 유용한 cmdlet이
 
 - **세부 정보 표시 및 디버그**: AzureResourceManager 모듈의 cmdlet은 실제 작업을 수행하는 REST API를 호출합니다. API가 반환하는 메시지를 표시하려면 $DebugPreference 변수를 "Continue"로 설정하고 명령에서 Verbose 공통 매개 변수를 사용합니다. 메시지에 오류의 원인에 대한 중요한 단서가 제공되는 경우도 있습니다.
 
-- **Azure 자격 증명이 설정되지 않았거나 만료된 경우**: Windows PowerShell 세션에서 자격 증명을 새로 고치려면 Add-AzureAccount cmdlet을 사용합니다. 게시 설정 파일의 자격 증명으로는 AzureResourceManager 모듈의 cmdlet을 지원할 수 없습니다.
+- **Azure 자격 증명이 설정되지 않았거나 만료된 경우**: Windows PowerShell 세션에서 자격 증명을 새로 고치려면 **Add-AzureAccount** cmdlet을 사용합니다. 게시 설정 파일의 자격 증명으로는 AzureResourceManager 모듈의 cmdlet을 지원할 수 없습니다.
 
 ## 인증, 구독, 역할 및 할당량 문제
 
 인증, 권한 부여, Azure Active Directory를 비롯하여 성공적인 배포를 방해하는 하나 이상의 문제가 존재할 수 있습니다. Azure 리소스 그룹을 관리하는 방법에 상관없이 계정에 로그인하는 데 사용하는 ID는 Azure Active Directory 개체이거나 서비스 사용자여야 합니다. 이를 회사 또는 학교 계정, 조직 ID라고도 합니다.
 
-개발자 또는 관리자는 Azure Active Directory를 사용하여 ID와 해당 ID가 액세스할 수 있는 리소스를 자세히 제어할 수 있습니다. 배포가 실패할 경우 요청에 인증 또는 권한 부여 문제가 있는지 확인하고 배포 로그에서 리소스 그룹을 검사합니다. 일부 리소스에 대해서는 권한이 있지만, 다른 리소스에 대해서는 권한이 없을 수도 있습니다. Azure CLI를 사용하여 `azure ad` 명령으로 Azure Active Directory 테넌트 및 사용자를 검사할 수 있습니다. Azure CLI 명령에 대한 전체 목록은 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](azure-cli-arm-commands.md)을 참조하세요.
+개발자 또는 관리자는 Azure Active Directory를 사용하여 ID와 해당 ID가 액세스할 수 있는 리소스를 자세히 제어할 수 있습니다. 배포가 실패할 경우 요청에 인증 또는 권한 부여 문제가 있는지 확인하고 배포 로그에서 리소스 그룹을 검사합니다. 일부 리소스에 대해서는 권한이 있지만, 다른 리소스에 대해서는 권한이 없을 수도 있습니다. Azure CLI를 사용하여 `azure ad` 명령으로 Azure Active Directory 테넌트 및 사용자를 검사할 수 있습니다. (Azure CLI 명령에 대한 전체 목록은 [Azure 리소스 관리자에서 Mac, Linux 및 Windows용 Azure CLI 사용](azure-cli-arm-commands.md)을 참조하세요.)
 
-또한 리소스 그룹, 구독, 계정 및 기타 범위당 배포 기본 할당량에 도달할 경우 문제가 발생할 수 있습니다. 적절하게 배포할 수 있는 리소스가 있는지 확인합니다. 전체 할당량 정보는 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
+또한 배포가 리소스 그룹, 구독, 계정 및 기타 범위당 기본 할당량에 도달할 경우 문제가 발생할 수 있습니다. 올바르게 배포할 수 있는 리소스가 있는지 확인합니다. 전체 할당량 정보는 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
 
-코어에 대한 고유의 구독 할당량을 검사하려면 `azure vm list-usage` Azure CLI 명령 및 `Get-AzureVMUsage` powershell의 cmdlet을 사용하세요. 다음은 Azure CLI에 명령과 무료 평가판 계정에 대한 코어 할당량이 4개 임을 보여줍니다.
+코어에 대한 고유의 구독 할당량을 검사하려면 Azure CLI의 `azure vm list-usage` 명령 및 Powershell의 **Get-AzureVMUsage** cmdlet을 사용합니다. 다음은 Azure CLI에 명령과 무료 평가판 계정에 대한 코어 할당량이 4개 임을 보여줍니다.
 
     azure vm list-usage
     info:    Executing command vm list-usage
     Location: westus
     data:    Name   Unit   CurrentValue  Limit
     data:    -----  -----  ------------  -----
-    data:    Cores  Count  0             4    
+    data:    Cores  Count  0             4
     info:    vm list-usage command OK
 
 상기 구독을 미국 서부지역에서 4개 이상의 코어를 만드는 템플릿을 배포하려고 한다면, (포털에서나 혹은 배포 로그를 조사하여) 이와 같은 오류를 얻게 됩니다
@@ -231,12 +231,12 @@ AzureResourceManager 모듈에는 오류를 방지하는 데 유용한 cmdlet이
 
 이러한 경우 포털로 이동하여 사용자가 배포하고 싶은 지역의 할당량을 올려서 지원 문제를 해결합니다.
 
-> [AZURE.NOTE]리소스 그룹에 대해서는 이것을 기억하세요. 할당량은 개별적인 지역을 위한 것이지, 전체 구독을 위한 것이 아닙니다. 사용자가 미국 서부에 30코어를 배포하려고 한다면, 30 리소스 관리 코어를 요청해야 합니다. 사용자가 액세스 할 수 있는 임의적인 지역에 30코어를 배포해야 하는 경우, 모든 지역에서 30 리소스 관리 코어를 요청 해야 합니다. <!-- -->예를 들어, 특정한 코어를 만들려면 json 구문 분석을 위해 **jq**를 빼낸 아래의 명령을 이용하여 적정한 할당량을 요청해야 하는 지역을 확인 할 수 있습니다. <!-- -->azure 공급자 표시 Microsoft.Compute--json | q '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
-     
+> [AZURE.NOTE]리소스 그룹에 대해서는 이것을 기억하세요. 할당량은 개별적인 지역을 위한 것이지, 전체 구독을 위한 것이 아닙니다. 사용자가 미국 서부에 30개의 코어를 배포해야 하면 미국 서부에 30개의 리소스 관리자 코어를 요청해야 합니다. 사용자가 액세스하는 임의적인 지역에 30개의 코어를 배포해야 하는 경우 모든 지역에 30개의 리소스 관리자 코어를 요청해야 합니다. <!-- -->예를 들어 특정한 코어를 만들려면 json 구문 분석을 위해 **jq**를 빼낸 아래의 명령을 이용하여 적정한 할당량을 요청해야 하는 지역을 확인할 수 있습니다. <!-- -->azure 공급자 표시 Microsoft.Compute--json | q '.resourceTypes | select(.name == "virtualMachines") | { name,apiVersions, locations}' { "name": "virtualMachines", "apiVersions": [ "2015-05-01-preview", "2014-12-01-preview" ], "locations": [ "East US", "West US", "West Europe", "East Asia", "Southeast Asia" ] }
+
 
 ## Azure CLI 및 PowerShell 모드 문제
 
-서비스 관리 API 또는 클래식 포털을 사용하여 배포한 Azure 리소스를 리소스 관리 API 또는 Azure 포털을 사용하여 표시할 수 없는 경우도 있습니다. 리소스를 만들 때 사용한 것과 동일한 관리 API 또는 포털을 사용하여 리소스를 관리하는 것이 중요합니다. 리소스가 사리진 경우 다른 관리 API 또는 포털을 사용하여 나타낼 수 있는지 확인합니다.
+서비스 관리 API 또는 포털을 사용하여 배포한 Azure 리소스를 리소스 관리자 API 또는 Azure 포털을 사용하여 표시할 수 없는 경우도 있습니다. 리소스를 만들 때 사용한 것과 동일한 리소스 관리자 API 또는 포털을 사용하여 리소스를 관리하는 것이 중요합니다. 리소스가 사리진 경우 다른 관리 API 또는 포털을 사용하여 나타낼 수 있는지 확인합니다.
 
 ## Azure 리소스 공급자 등록 문제
 
@@ -263,7 +263,7 @@ Azure CLI를 사용하여 공급자가 사용하도록 등록되어 있는지 �
         data:    Microsoft.Sql                    Registered
         info:    provider list command OK
 
-마찬가지로, 국가별 가용성을 포함한 공급자에 대한 더 많은 정보를 원한다면, Type`azure provider list --json` 다음은 살펴보기 위해 목록의 오직 첫 번째 것만을 추려낸 것입니다.
+마찬가지로 국가별 가용성을 포함한 공급자에 대한 더 많은 정보를 원하면 `azure provider list --json`을 입력합니다. 다음은 살펴보기 위해 목록의 오직 첫 번째 것만을 추려낸 것입니다.
 
         azure provider list --json | jq '.[0]'
         {
@@ -294,9 +294,9 @@ Azure CLI를 사용하여 공급자가 사용하도록 등록되어 있는지 �
 
 ## 사용자 지정 템플릿에 대해 배포가 성공하는 경우 이해
 
-직접 만든 템플릿을 사용하는 경우 Azure 리소스 관리 시스템에서는 모든 공급자가 배포에서 성공적으로 반환될 때 배포가 성공한 것으로 보고한다는 것을 알고 있어야 합니다. 즉, 모든 템플릿 항목이 사용하도록 배포된 것을 의미합니다.
+사용자가 만든 템플릿을 사용하는 경우 모든 공급자가 배포에서 성공적으로 반환할 때 Azure 리소스 관리자 시스템은 배포가 성공한 것으로 보고한다는 것을 이해하는 것이 중요합니다. 즉, 모든 템플릿 항목이 사용하도록 배포된 것을 의미합니다.
 
-하지만 반드시 리소스 그룹이 **활성 상태이고 사용자를 위해 준비된** 것을 의미하는 것은 아닙니다. 예를 들어 대부분의 배포에서는 업그레이드를 다운로드하거나, 다른 템플릿이 아닌 리소스를 대기하거나, 공급자가 추적하는 활동이 아니므로 Azure에서 알지 못하는 다른 실행 가능한 활동이나 복잡한 스크립트를 설치해야 합니다. 이러한 경우 리소스를 실제로 사용하기 위해 준비하는 데 시간이 걸릴 수 있습니다. 따라서 배포를 사용할 수 있기 이전에 배포 상태가 성공한 것으로 간주해야 합니다.
+하지만 반드시 리소스 그룹이 "활성 상태이고 사용자를 위해 준비된" 것을 의미하는 것은 아닙니다. 예를 들어 대부분의 배포에서는 업그레이드를 다운로드하거나, 다른 템플릿이 아닌 리소스를 대기하거나, 공급자가 추적하는 활동이 아니므로 Azure에서 알지 못하는 다른 실행 가능한 활동이나 복잡한 스크립트를 설치해야 합니다. 이러한 경우 리소스를 실제로 사용하기 위해 준비하는 데 시간이 걸릴 수 있습니다. 따라서 배포를 사용할 수 있기 이전에 배포 상태가 성공한 것으로 간주해야 합니다.
 
 하지만 전체 배포에서 시스템 전체 준비 상태를 모니터링하는 방법을 알려주고 사용자가 전체 배포를 조작할 수 있는 경우에만 성공적으로 반환되는 사용자 지정 템플릿에 대한 사용자 지정 스크립트를 작성하여(예: [CustomScriptExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/) 사용) Azure에서 배포 성공을 보고하지 못하도록 차단할 수 있습니다. 확장이 마지막에 실행되도록 하려면 템플릿에서 **dependsOn** 속성을 사용합니다. 예제는 [여기서](https://msdn.microsoft.com/library/azure/dn790564.aspx) 확인할 수 있습니다.
 
@@ -326,7 +326,7 @@ Azure CLI를 사용하여 공급자가 사용하도록 등록되어 있는지 �
 
 ## 리소스 그룹 교차
 
-템플릿을 배포 중인 현재 리소스 그룹의 외부에서 리소스를 사용하는 것이 일반적입니다. 이 동작의 경우 대체 리소스 그룹에서 저장소 계정 또는 가상 네트워크를 사용하는 것이 가장 일반적입니다. 이렇게 하면 가상 컴퓨터를 포함하는 리소스 그룹을 삭제해도 여러 리소스 그룹에서 사용되는 VNet 또는 vhd bolb가 삭제되지 않습니다. 다음 예에서는 외부 리소스 그룹의 리소스를 쉽게 사용할 수 있는 방법을 보여 줍니다.
+템플릿을 배포 중인 현재 리소스 그룹의 외부에서 리소스를 사용하는 것이 일반적입니다. 이 동작의 경우 대체 리소스 그룹에서 저장소 계정 또는 가상 네트워크를 사용하는 것이 가장 일반적입니다. 이렇게 하면 가상 컴퓨터를 포함하는 리소스 그룹을 삭제해도 여러 리소스 그룹에서 사용되는 VNet 또는 VHD blob가 삭제되지 않습니다. 다음 예에서는 외부 리소스 그룹의 리소스를 사용할 수 있는 방법을 보여 줍니다.
 
 
     {
@@ -385,6 +385,5 @@ Azure CLI를 사용하여 공급자가 사용하도록 등록되어 있는지 �
 [gog]: http://google.com/
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

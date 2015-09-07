@@ -1,24 +1,23 @@
 <properties
-   pageTitle="Microsoft Azure 앱 서비스에서 Oracle 커넥터 사용"
-   description="Oracle 커넥터 사용 방법"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="논리 앱에서 Oracle 데이터베이스 커넥터 사용 | Microsoft Azure 앱 서비스"
+	description="Oracle 데이터베이스 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-# Oracle 데이터베이스 커넥터
-
+# Oracle 데이터베이스 커넥터 시작 및 논리 앱에 추가
 온-프레미스 Oracle 데이터베이스 서버에 연결하여 사용자의 정보 또는 데이터를 만들고 변경할 수 있습니다. 커넥터는 논리 앱에서 사용하여 "워크플로"의 일부로 데이터를 검색, 처리 또는 푸시할 수 있습니다. 워크플로에서 Oracle 커넥터를 활용하면 다양한 시나리오를 수행할 수 있습니다. 예를 들어 다음을 수행할 수 있습니다.
 
 - 웹 또는 모바일 응용 프로그램을 통해 Oracle 데이터베이스에 있는 데이터의 섹션을 표시합니다.
@@ -117,4 +116,4 @@ Oracle 커넥터를 작업으로 사용하려면 Oracle 커넥터를 만들 때 
 [11]: ./media/app-service-logic-connector-oracle/LogicApp7.png
 [12]: ./media/app-service-logic-connector-oracle/LogicApp8.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

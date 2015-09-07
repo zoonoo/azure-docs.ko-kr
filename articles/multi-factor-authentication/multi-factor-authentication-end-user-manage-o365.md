@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Office 365 포털에서 Azure MFA 설정 관리" 
-	description="이 페이지에서는 Office 365 포털에서 Azure MFA 설정 관리를 수행하는 위치를 사용자에게 보여 줍니다." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Office 365 포털에서 Azure MFA 설정 관리"
+	description="이 페이지에서는 Office 365 포털에서 Azure MFA 설정 관리를 수행하는 위치를 사용자에게 보여 줍니다."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Office 365 포털에서 Azure Multi-Factor Authentication 설정 관리
@@ -41,4 +41,4 @@ Office 365와 함께 다단계 인증을 사용하는 경우 Office 365 포털�
 
 <center>![Cloud](./media/multi-factor-authentication-end-user-manage-o365/addsec.png)</center>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="API 앱 관리" 
-	description="Azure 포털 및 Visual Studio 서버 탐색기를 사용하여 Azure 앱 서비스 API 앱을 관리하는 방법을 알아봅니다." 
-	services="app-service\api" 
-	documentationCenter="" 
-	authors="tdykstra" 
-	manager="wpickett" 
+	pageTitle="API 앱 관리"
+	description="Azure 포털 및 Visual Studio 서버 탐색기를 사용하여 Azure 앱 서비스 API 앱을 관리하는 방법을 알아봅니다."
+	services="app-service\api"
+	documentationCenter=""
+	authors="tdykstra"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
+	ms.service="app-service-api"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="06/17/2015" 
+	ms.topic="article"
+	ms.date="06/17/2015"
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스에서 API 앱 관리
@@ -65,7 +65,7 @@ Azure 앱 서비스에서 API 앱은 웹 서비스를 호스트하는 추가 기
 
 ### API 앱 호스트 블레이드에서만 수행할 수 있는 작업
 
-웹앱에 대해 수행하는 모든 작업에 **API 앱 호스트** 블레이드를 사용할 수 있습니다. 자세한 내용은 [포털에서 웹앱 관리](../app-service-web/web-sites-manage.md)를 참조하세요.
+웹앱에 대해 수행하는 모든 작업에 **API 앱 호스트** 블레이드를 사용할 수 있습니다.
 
 ### 게이트웨이 블레이드에서만 수행할 수 있는 작업
 
@@ -80,7 +80,7 @@ Azure 앱 서비스에서 API 앱은 웹 서비스를 호스트하는 추가 기
 
 ### 게이트웨이 호스트 블레이드에서만 수행할 수 있는 작업
 
-웹앱에 대해 수행하는 모든 작업에 **게이트웨이 호스트** 블레이드를 사용할 수 있습니다. 자세한 내용은 [포털에서 웹앱 관리](web-sites-manage.md)를 참조하세요.
+웹앱에 대해 수행하는 모든 작업에 **게이트웨이 호스트** 블레이드를 사용할 수 있습니다.
 
 ## <a id="navigate"></a>API 앱 및 게이트웨이 블레이드로 이동하는 방법 
 
@@ -134,4 +134,4 @@ Visual Studio의 **서버 탐색기**에서 원격 디버깅 세션을 시작하
 
 명령줄을 사용하여 API 앱을 관리 하는 방법에 대한 정보는 문서의 왼쪽(넓은 브라우저 창) 또는 위쪽(좁은 브라우저 창)에 표시되는 메뉴의 **자동화** 섹션의 문서를 참조하십시오.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

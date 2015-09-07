@@ -1,19 +1,19 @@
 <properties 
    pageTitle="네트워크 리소스 공급자"
-   description="네트워크 리소스 공급자"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="adinah"
-   editor="tysonn" />
+	description="네트워크 리소스 공급자"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/23/2015"
+	ms.author="telmos"/>
 
 # 네트워크 리소스 공급자
 현대 비즈니스의 성공에 있어서 가장 필요한 것은 대규모 네트워크 인식 응용 프로그램을 신속하고 유연하고 안전하고 반복 가능한 방법으로 작성하여 관리할 수 있는 기능입니다. ARM(Azure 리소스 관리자)을 사용하면 그런 응용 프로그램을 리소스 그룹에서 단일 리소스 컬렉션으로 만들 수 있습니다. 이러한 리소스는 ARM 아래의 다양한 리소스 공급자를 통해 관리됩니다.
@@ -210,7 +210,7 @@ API 또는 SDK를 사용하여 명령을 통해 리소스를 관리할 뿐만 �
 
 샘플 템플릿은 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates)을 참조하세요.
 
-ARM 템플릿 언어에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 언어](https://msdn.microsoft.com/library/azure/dn835138.aspx)를 참조하세요.
+ARM 템플릿 언어에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 언어](../resource-group-authoring-templates.md)를 참조하세요.
 
 위의 샘플 템플릿에서는 가상 네트워크와 서브넷 리소스를 사용합니다. 사용 가능한 다른 네트워크 리소스는 아래 목록을 참조하세요.
 
@@ -267,6 +267,19 @@ VNET을 다음 네트워크 리소스와 연결할 수도 있습니다.
 - **검색** - 검색을 사용하여 VM 인스턴스의 상태를 추적할 수 있습니다. 상태 검색에 실패하면 해당 VM 인스턴스는 자동으로 회전에서 제외됩니다.
 - **인바운드 NAT 규칙** - 프런트 엔드 IP를 통해 흐르고 백 엔드 IP에 분산되는 인바운드 트래픽을 정의하는 NAT 규칙입니다.
 
+## 응용 프로그램 게이트웨이
+
+응용 프로그램 게이트웨이는 레이어 7 부하 분산에 기반을 둔 Azure-관리 HTTP 부하 분산 솔루션을 제공합니다. 응용 프로그램 부하 분산 기능을 사용하면 HTTP 기반 네트워크 트래픽에 대 해 라우팅 규칙을 사용할 수 있습니다.
+
+응용 프로그램 게이트웨이는 다음과 같은 자식 리소스를 포함합니다.
+
+- **백 엔드 서버 풀:** 백 엔드 서버의 IP 주소 목록입니다. 나열된 IP 주소는 가상 네트워크 서브넷에 속하거나 공용 IP/VIP이어야 합니다. 
+- **백 엔드 서버 풀 설정:** 모든 풀에는 포트, 프로토콜 및 쿠키 기반의 선호도와 같은 설정이 있습니다. 이러한 설정은 풀에 연결 및 풀 내의 모든 서버에 적용 됩니다.
+- **프런트 엔드 포트:** 이 포트는 응용 프로그램 게이트웨이에서 열린 공용 포트입니다. 트래픽이 이 포트에 도달하면, 백엔드 서버 중의 하나로 리디렉트됩니다.
+- **수신기:** 수신기에는 프런트 엔드 포트, 프로토콜(Http 또는 Https, 이 경우 대/소문자 구분) 및 SSL 인증서 이름(SSL 오프로드를 구성하는 경우)이 있습니다. 
+- **규칙:** 규칙은 수신기와 백 엔드 서버 풀을 바인딩하고 특정 수신기에 도달했을 때 트래픽이 이동되는 백 엔드 서버 풀을 정의합니다. 현재 기본 규칙만 지원됩니다. 기본 규칙은 라운드 로빈 부하 분산입니다.
+
+
 ## 공용 IP
 공용 IP 주소 리소스는 예약된 공용 IP 주소 또는 동적 공용 IP 주소를 제공합니다. 공용 IP 주소를 부하 분산 장치 또는 NAT에 할당하거나 VM NIC의 개인 IP 주소와 연결할 수 있습니다.
 
@@ -307,6 +320,8 @@ VPN 게이트웨이의 키 속성은 다음과 같습니다.
 - **게이트웨이 유형** - 동적으로 라우팅되거나 정적으로 라우팅된 게이트웨이입니다. 
 - **VPN 클라이언트 주소 풀 접두사** - 지점 및 사이트 구성으로 연결 중인 클라이언트에 할당할 IP 주소입니다.
 
+
+
 ## 트래픽 관리자 프로필
 트래픽 관리자와 자식 끝점 리소스를 사용하여 Azure 내부와 외부의 끝점에 트래픽을 배포할 수 있습니다. 이러한 트래픽 배포는 정책에 의해 제어됩니다. 또한 트래픽 관리자를 사용하여 끝점 상태를 모니터링할 수 있습니다. 트래픽은 끝점의 상태를 기반으로 적절하게 전환됩니다.
 
@@ -329,6 +344,16 @@ VPN 게이트웨이의 키 속성은 다음과 같습니다.
 - **가중치** -트래픽 관리에 사용되는 끝점 가중치입니다. 
 - **우선 순위** - 장애 조치(Failover) 동작을 정의하는 데 사용되는 끝점의 우선 순위입니다. 
 
+## Azure DNS
+
+Azure DNS는 DNS 도메인에 대한 호스팅 서비스로, Microsoft Azure 인프라를 사용하여 이름 확인을 제공합니다.
+
+Azure DNS의 키 속성은 다음과 같습니다.
+
+- ** DNS 영역** - 특정 도메인의 DNS 레코드를 호스트할 도메인 영역 정보입니다.
+- ** DNS 레코드 집합** - 특정 유형의 레코드 컬렉션입니다. 지원되는 유형은 A, AAAA, CNAME, MX, NS, SOA, SRV 및 TXT입니다.
+
+
 ## 템플릿 사용
 
 PowerShell, AzureCLI를 사용하거나 GitHub에서 배포를 클릭하여 템플릿에서 Azure에 서비스를 배포할 수 있습니다. GitHub의 템플릿에서 서비스를 배포하려면 다음 단계를 실행합니다.
@@ -343,13 +368,14 @@ PowerShell, AzureCLI를 사용하거나 GitHub에서 배포를 클릭하여 템�
 
 ![샘플 템플릿 배포](./media/resource-groups-networking/Figure6.png)
 
+
 ## 참고 항목
 
 [Azure 네트워킹 API 참조](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
 [네트워킹을 위한 Azure PowerShell 참조](https://msdn.microsoft.com/library/azure/mt163510.aspx)
 
-[Azure 리소스 관리자 템플릿 언어](https://msdn.microsoft.com/library/azure/dn835138.aspx)
+[Azure 리소스 관리자 템플릿 언어](../resource-group-authoring-templates.md)
 
 [Azure 네트워킹- 일반적으로 사용되는 템플릿](https://github.com/Azure/azure-quickstart-templates)
 
@@ -363,4 +389,4 @@ PowerShell, AzureCLI를 사용하거나 GitHub에서 배포를 클릭하여 템�
 
 [템플릿 배포](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,21 +1,20 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication으로 처음 로그인" 
-	description="이 페이지에서는 처음 로그인할 때의 사용자 환경에 대해 설명합니다." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Azure Multi-Factor Authentication으로 처음 로그인"
+	description="이 페이지에서는 처음 로그인할 때의 사용자 환경에 대해 설명합니다."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenp"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
-
 # Azure Multi-Factor Authentication의 환경 설정
 
  관리자가 사용자의 ID를 확인하기 위해 휴대폰의 암호 및 응답을 둘 다 사용하도록 사용자 계정을 구성할 경우 추가 보안 확인 설정이 사용됩니다. 관리자가 추가 보안 확인을 요구하도록 계정을 구성한 경우 **자동 등록 프로세스를 완료할 때까지 로그인할 수 없습니다**.
@@ -37,4 +36,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

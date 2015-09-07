@@ -1,29 +1,24 @@
 <properties 
-	pageTitle="Azure AD Connect 작동 방법" 
-	description="Azure AD Connect가 작동하는 방법을 알아봅니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure AD Connect 작동 방법"
+	description="Azure AD Connect가 작동하는 방법을 알아봅니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure AD Connect 작동 방법
 
- > [AZURE.SELECTOR]
-- [What is It](../active-directory-aadconnect/)
-- [How it Works](../active-directory-aadconnect-how-it-works/)
-- [Getting Started](../active-directory-aadconnect-get-started/)
-- [What's Next](../active-directory-aadconnect-whats-next/) 
-- [Learn More](../active-directory-aadconnect-learn-more/)
+
 
 Azure Active Directory Connect는 기본 세 부분으로 구성됩니다. 이러한 주요 부분은 동기화 서비스, 선택적 Active Directory Federation Services 부분, [Azure AD Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx)를 사용하여 수행하는 모니터링 부분입니다.
 
@@ -52,4 +47,4 @@ Azure Active Directory Connect는 기본 세 부분으로 구성됩니다. 이�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

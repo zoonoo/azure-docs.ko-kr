@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure AD Connect Health FAQ" 
-	description="이 FAQ는 Azure AD Connect Health에 대한 질문에 답변합니다. 이 FAQ는 요금 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용에 대한 질문을 다룹니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure AD Connect Health FAQ"
+	description="이 FAQ는 Azure AD Connect Health에 대한 질문에 답변합니다. 이 FAQ는 요금 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용에 대한 질문을 다룹니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/12/2015"
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/14/2015"
 	ms.author="billmath"/>
 
 
@@ -43,7 +43,7 @@ ADFS 서버에 Microsoft Identity Health Agent를 설치해도 CPU, 메모리 �
 - CPU 사용: ~1% 증가
 - 메모리 소비: 전체 시스템 메모리의 최대 10%
 - 네트워크 대역폭 사용: ~1MB/ADFS 요청 1000개
->[AZURE.NOTE]에이전트가 Azure와 통신할 수 없는 경우 에이전트는 데이터를 전체 시스템 메모리의 최대 10%까지 로컬로 저장합니다. 에이전트가 전체 실제 메모리의 10%에 도달한 후, 에이전트가 데이터를 서비스로 업로드하지 못했다면, 서비스한지 가장 오래된 "캐싱된" 트랜잭션부터 새로운 ADFS 트랜잭션으로 대체됩니다.
+>[AZURE.NOTE]에이전트가 Azure와 통신할 수 없는 경우, 에이전트는 총 시스템 메모리의 최대 10% 한계까지 데이터를 로컬로 저장합니다. 에이전트가 총 실제 메모리의 10% 값에 도달하여 에이전트가 데이터를 서비스에 업로드할 수 없는 경우, 새 ADFS 트랜잭션이 "최소 최근 서비스" 단위로 "캐시된" 모든 트랜잭션을 덮어 쓰게 됩니다.
 
 - AD Health Agent의 로컬 버퍼 저장소: ~20MB
 - 감사 채널에 필요한 데이터 저장소
@@ -68,10 +68,9 @@ Register-AdHealthAgent를 실행하기 전 언제든지 수행하세요(설치 �
 - 1단계 - machine.config 파일에 항목 추가
 
 
-machine.config 파일을 찾습니다. 파일은 %windir%\Microsoft.NET\Framework64[version]\config\machine.config</li>에 있습니다.
+machine.config 파일을 찾습니다. 파일은 %windir%\\Microsoft.NET\\Framework64[version]\\config\\machine.config</li>에 있습니다.
 
 machine.config 파일의 <configuration></configuration> 요소 아래에 다음 항목을 추가합니다.
- 
 		
 	<system.net>  
 			<defaultProxy useDefaultCredentials="true">
@@ -84,7 +83,7 @@ machine.config 파일의 <configuration></configuration> 요소 아래에 다음
 
  
 
-추가 <defaultProxy> 정보는 [여기](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110).aspx)에서 확인할 수 있습니다.
+추가 <defaultProxy> 정보는 [여기](https://msdn.microsoft.com/library/kd3cf2ex(v=vs.110))에서 확인할 수 있습니다.
 
 이 설정은 http .NET 요청을 수행할 때 명시적으로 정의된 프록시를 사용하도록 시스템 전체의 .NET 응용 프로그램을 구성합니다. 자동 업데이트 중에 실행이 취소되므로 개별 app.config는 수정하지 않는 것이 좋습니다. 파일 한 개만 변경해야 하며 machine.config만 수정하는 경우 업데이트 시에도 유지됩니다.
 
@@ -128,4 +127,11 @@ Azure AD Connect Health 경고는 성공 조건에서 해결됩니다. Azure AD 
 
 Azure AD Connect Health Agent가 Azure AD Health 서비스 끝점과 통신할 수 있도록 하려면 TCP/UDP 포트 80 및 443을 열어야 합니다.
 
-<!---HONumber=August15_HO6-->
+## 관련 링크
+
+* [Azure AD Connect Health](active-directory-aadconnect-health.md)
+* [AD FS에 대한 Azure AD Connect Health 에이전트 설치](active-directory-aadconnect-health-agent-install-adfs.md)
+* [AD FS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adfs.md)
+* [Azure AD Connect Health 작업](active-directory-aadconnect-health-operations.md)
+
+<!---HONumber=August15_HO9-->

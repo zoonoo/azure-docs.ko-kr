@@ -1,20 +1,20 @@
 <properties
    pageTitle="리소스 관리자 및 클래식 배포 모델 간 차이점 이해"
-   description="리소스 관리자 배포 모델 및 기본(또는 서비스 관리) 배포 모델 간 차이점을 설명합니다."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	description="리소스 관리자 배포 모델 및 기본(또는 서비스 관리) 배포 모델 간 차이점을 설명합니다."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/13/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/20/2015"
+	ms.author="tomfitz"/>
 
 # 리소스 관리자 배포 및 클래식 배포 이해
 
@@ -151,9 +151,11 @@
 
 전환, 계산, 저장소 및 네트워킹 리소스에 관한 자세한 내용은 [Azure 리소스 관리자에서 Azure 계산, 네트워크 및 저장소 공급자](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md)를 참조하세요.
 
+여러 배포 모델에서 가상 네트워크 연결에 대한 자세한 내용은 [클래식 VNet을 새 VNet에 연결](./virtual-network/virtual-networks-arm-asm-s2s.md)을 참조하십시오.
+
 ## 다음 단계
 
-- 선언적 배포 템플릿 만들기에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 제작](resource-group-authoring-templates.md)을 참조하세요.
-- 템플릿 배포을 위한 명령에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
+- 선언적 배포 템플릿 만들기에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하십시오.
+- 템플릿 배포에 대한 명령을 보려면 [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하십시오.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

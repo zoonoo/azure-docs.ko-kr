@@ -75,7 +75,7 @@ PS C:\> MARSAgentInstaller.exe /?
 
 
 ### Azure 백업 서비스 등록
-Azure 백업 서비스에 등록하려면 먼저 [필수 조건](backup-try-azure-backup-in-10-mins.md)이 충족되어야 합니다. 다음이 필요합니다.
+Azure 백업 서비스에 등록하려면 먼저 [필수 조건](backup-configure-vault.md)이 충족되어야 합니다. 다음이 필요합니다.
 
 - 유효한 Azure 구독이 있어야 함
 - 백업 자격 증명 모음
@@ -568,8 +568,8 @@ PS C:\> Set-ExecutionPolicy unrestricted -force
 이제 에이전트 설치부터 시작하여 컴퓨터를 원격으로 관리할 수 있습니다. 예를 들어, 다음 스크립트는 에이전트를 원격 컴퓨터로 복사하고 설치합니다.
 
 ```
-PS C:\> $dloc = "\\REMOTESERVER01\c$\Windows\Temp"
-PS C:\> $agent = "\\REMOTESERVER01\c$\Windows\Temp\MARSAgentInstaller.exe"
+PS C:\> $dloc = "\REMOTESERVER01\c$\Windows\Temp"
+PS C:\> $agent = "\REMOTESERVER01\c$\Windows\Temp\MARSAgentInstaller.exe"
 PS C:\> $args = "/q"
 PS C:\> Copy-Item "C:\Downloads\MARSAgentInstaller.exe" -Destination $dloc - force
 
@@ -578,6 +578,9 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ```
 
 ## 다음 단계
-Windows Server/Client용 Azure 백업에 대한 자세한 정보는 [Azure 백업 소개](backup-introduction-to-azure-backup.md)를 참조합니다.
+Windows Server/Client용 Azure 백업에 대한 자세한 정보는 다음을 참조하세요.
 
-<!---HONumber=August15_HO8-->
+- [Azure 백업 소개](backup-introduction-to-azure-backup.md)
+- [Windows 서버 백업](backup-azure-backup-windows-server.md)
+
+<!---HONumber=August15_HO9-->

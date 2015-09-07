@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Oracle 커넥터 - Oracle 간에 데이터 이동" 
-	description="온-프레미스 Oracle 데이터베이스 간에 데이터를 이동할 수 있는 데이터 팩터리 서비스용 Oracle 커넥터에 대해 알아봅니다" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Oracle 간 데이터 이동 | Azure 데이터 팩터리"
+	description="Azure 데이터 팩터리를 사용하여 온-프레미스 Oracle 데이터베이스 간 데이터를 이동하는 방법에 대해 알아봅니다."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Oracle 커넥터 - 온-프레미스 Oracle로 데이터 이동 
+# Azure 데이터 팩터리를 사용하여 온-프레미스 Oracle로 데이터 이동 
 
 이 문서에서는 데이터 팩터리를 사용하여 Oracle에서 다른 데이터 저장소로 데이터를 이동하는 방법에 대해 간략하게 설명합니다. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 작성합니다.
 
@@ -24,11 +24,11 @@
 
 아래 샘플은 다음을 보여줍니다.
 
-1.	OnPremisesOracle 형식의 연결된 서비스입니다.
-2.	AzureStorage 형식의 연결된 서비스입니다.
-3.	OracleTable 형식의 입력 데이터 집합입니다. 
-4.	AzureBlob 형식의 출력 데이터 집합입니다.
-5.	OracleSource를 소스로, BlobSink를 싱크로 사용하는 복사 작업의 파이프라인입니다.
+1.	[OnPremisesOracle](data-factory-onprem-oracle-connector.md#oracle-linked-service-properties) 형식의 연결된 서비스
+2.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스
+3.	[OracleTable](data-factory-onprem-oracle-connector.md#oracle-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md) 
+4.	[AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)
+5.	[OracleSource](data-factory-onprem-oracle-connector.md#oracle-copy-activity-type-properties)를 소스로, [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 싱크로 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
 
 샘플은 온-프레미스 Oracle 데이터베이스의 테이블에서 blob에 매시간 데이터를 복사합니다. 아래 샘플에 사용되는 다양한 속성에 대한 자세한 내용은 샘플 다음에 나오는 섹션의 다양한 속성에 대한 문서를 참조하세요.
 
@@ -150,7 +150,7 @@
 
 **복사 작업을 포함하는 파이프라인:**
 
-파이프라인은 위의 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **RelationalSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다. **oracleReaderQuery** 속성에 지정된 SQL 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
+파이프라인은 위의 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **소스** 형식은 **RelationalSource**으로 설정되고 **싱크** 형식은 **BlobSink**으로 설정됩니다. **oracleReaderQuery** 속성에 지정된 SQL 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
 
 	
 	{  
@@ -177,7 +177,7 @@
 	        "typeProperties": {
 	          "source": {
 	            "type": "OracleSource",
-	            "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+	            "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm}\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm}\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -208,6 +208,7 @@ type | 형식 속성은 **OnPremisesOracle**로 설정되어야 합니다. | 예
 connectionString | connectionString 속성에 대한 Oracle 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. | 예 
 gatewayName | 온-프레미스 Oracle 서버에 연결하는 데 사용할 게이트웨이 이름입니다. | 예
 
+온-프레미스 Oracle 데이터 원본의 자격 증명 설정에 대한 자세한 내용은 [자격 증명 및 보안 설정](data-factory-move-data-between-onprem-and-cloud.md#setting-credentials-and-security)을 참조하세요.
 ## Oracle 데이터 집합 형식 속성
 
 데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다(Oracle, Azure blob, Azure 테이블 등).
@@ -237,7 +238,7 @@ oracleReaderQuery | 사용자 지정 쿼리를 사용하여 데이터를 읽습�
 
 ### Oracle에 대한 형식 매핑
 
-[데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 것처럼 복사 작업은 다음 2단계 접근 방법 사용하여 원본 형식에서 싱크 형식으로 자동 형식 변환을 수행합니다.
+[데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 설명한 것처럼 복사 작업은 다음 2단계 접근 방법을 사용하여 원본 형식에서 싱크 형식까지 자동 형식 변환을 수행합니다.
 
 1. 네이티브 원본 형식에서 .NET 형식으로 변환
 2. .NET 형식에서 네이티브 싱크 형식으로 변환
@@ -273,4 +274,4 @@ XML | 문자열
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

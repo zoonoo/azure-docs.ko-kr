@@ -1,20 +1,20 @@
 <properties
    pageTitle="F5를 사용하여 Visual Studio에서 서비스 패브릭 애플리케이션 디버깅"
-   description="Visual Studio 및 로컬 개발 클러스터를 사용하여 서비스의 안정성과 성능을 향상시킵니다."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="jessebenson"
-   manager="timlt"
-   editor=""/>
+	description="Visual Studio 및 로컬 개발 클러스터를 사용하여 서비스의 안정성과 성능을 향상시킵니다."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="jessebenson"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="05/18/2015"
-   ms.author="jesseb"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/26/2015"
+	ms.author="jesseb"/>
 
 # F5를 사용하여 Visual Studio에서 서비스 패브릭 애플리케이션 디버깅
 
@@ -28,7 +28,7 @@
 
 3. 코드의 중단점을 설정하고 **디버그** 메뉴의 명령을 클릭하여 응용 프로그램의 단계를 진행합니다.
 
-    > [AZURE.NOTE]Visual Studio는 응용 프로그램의 모든 인스턴스에 연결합니다. 단계별로 코드를 실행하는 동안 중단점은 동시 세션에서 발생하는 여러 프로세스에 히트될 수 있습니다. 히트된 후에 중단점을 비활성화하고, 스레드 ID의 중단점을 조건부 생성하거나 진단 이벤트 사용을 시도하십시오.
+    > [AZURE.NOTE]Visual Studio는 응용 프로그램의 모든 인스턴스에 연결합니다. 단계별로 코드를 실행하는 동안 중단점은 동시 세션에서 발생하는 여러 프로세스에 히트될 수 있습니다. 히트된 후에 중단점을 비활성화하고 스레드 ID의 중단점을 조건부로 생성하거나 진단 이벤트를 사용해 보세요.
 
 4. **진단 이벤트** 창이 자동으로 열려서 실시간으로 진단 이벤트를 표시합니다.
 
@@ -66,4 +66,4 @@
 [breakpoint]: ./media/service-fabric-debugging-your-application/breakpoint.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

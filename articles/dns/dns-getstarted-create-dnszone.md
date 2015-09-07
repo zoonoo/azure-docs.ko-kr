@@ -1,22 +1,28 @@
 <properties
    pageTitle="Azure DNS 시작 | Microsoft Azure"
-   description="Azure DNS에 대한 DNS 영역을 만드는 방법을 알아봅니다. DNS 도메인 호스팅을 시작하기 위해 첫 번째 DNS 영역을 만드는 단계별 가이드입니다."
-   services="dns"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
-   editor=""/>
+	description="Azure DNS에 대한 DNS 영역을 만드는 방법을 알아봅니다. DNS 도메인 호스팅을 시작하기 위해 첫 번째 DNS 영역을 만드는 단계별 가이드입니다."
+	services="dns"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor=""/>
 
 <tags
    ms.service="dns"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/28/2015"
-   ms.author="joaoma"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/20/2015"
+	ms.author="joaoma"/>
 
 # Azure DNS 시작
+
+
+> [AZURE.SELECTOR]
+- [Azure CLI](dns-getstarted-create-dnszone-cli.md)
+- [Azure Powershell steps](dns-getstarted-create-dnszone.md)
+
 'contoso.com' 도메인은 'mail.contoso.com'(메일 서버) 및 'www.contoso.com'(웹 사이트)과 같은 많은 DNS 레코드를 포함할 수 있습니다. DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다.<BR><BR> 도메인 호스팅을 시작하려면 먼저 DNS 영역을 만들어야 합니다. 특정 도메인에 대해 만든 DNS 레코드는 모두 해당 도메인에 대한 DNS 영역 내에 있습니다.<BR><BR> 이러한 지침은 Microsoft Azure PowerShell을 사용합니다. Azure DNS cmdlet을 사용하려면 최신 Azure PowerShell로 업데이트해야 합니다. Microsoft Azure 명령줄 인터페이스, REST API 또는 SDK를 사용하여 동일한 단계를 실행할 수도 있습니다.<BR><BR>
 
 ## Azure DNS PowerShell 설정
@@ -24,7 +30,7 @@
 Azure PowerShell을 사용하여 Azure DNS를 관리하려면 먼저 다음 단계를 완료해야 합니다.
 
 ### 1단계
- Azure DNS는 ARM(Azure 리소스 관리자)을 사용합니다. ARM cmdlet을 사용하려면 PowerShell 모드를 전환해야 합니다. 자세한 내용은 [리소스 관리자에서 Windows PowerShell 사용](../powershell-azure-resource-manager)을 참조하세요.<BR><BR>
+ Azure DNS는 ARM(Azure 리소스 관리자)을 사용합니다. ARM cmdlet을 사용하려면 PowerShell 모드를 전환해야 합니다. 자세한 내용은 [리소스 관리자에서 Windows PowerShell 사용](powershell-azure-resource-manager.md)을 참조하세요.<BR><BR>
 
 		PS C:\> Switch-AzureMode -Name AzureResourceManager
 
@@ -55,7 +61,7 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 Azure DNS 서비스는 Microsoft.Network 리소스 공급자에 의해 관리됩니다. Azure DNS를 사용하려면 먼저 이 리소스 공급자를 사용하도록 Azure 구독을 등록해야 합니다. 이 작업은 각 구독에 대해 한 번만 수행하면 됩니다.
 
-	PS C:\> Register-AzureProvider -ProviderNamespace Microsoft.Network
+	PS c:> Register-AzureProvider -ProviderNamespace Microsoft.Network
 
 
 
@@ -91,7 +97,7 @@ New-AzureDnsZone cmdlet을 사용하여 DNS 영역을 만듭니다. 아래 예�
 
 
 - 'SOA(권한 시작)' 레코드. 각 DNS 영역의 루트에 있습니다.
-- 권한이 있는 NS(이름 서버) 레코드. 영역을 호스트하는 이름 서버를 보여 줍니다. Azure DNS는 이름 서버 풀을 사용하므로 Azure DNS의 각 영역에 다른 이름 서버가 할당될 수 있습니다. 자세한 내용은 [Azure DNS에 도메인 위임](../dns-domain-delegation)을 참조하세요.<BR>
+- 권한이 있는 NS(이름 서버) 레코드. 영역을 호스트하는 이름 서버를 보여 줍니다. Azure DNS는 이름 서버 풀을 사용하므로 Azure DNS의 각 영역에 다른 이름 서버가 할당될 수 있습니다. 자세한 내용은 [Azure DNS에 도메인 위임](dns-domain-delegation.md)을 참조하세요.<BR>
 
 이러한 레코드를 보려면 Get-AzureDnsRecordSet를 사용합니다.
 
@@ -147,4 +153,4 @@ Azure DNS에서 새 영역을 사용하도록 도메인을 아직 위임하지 �
 [레코드 집합 및 레코드 만들기 시작](dns-getstarted-create-recordset.md)<BR> [DNS 영역을 관리하는 방법](dns-operations-dnszones.md)<BR> [DNS 레코드를 관리하는 방법](dns-operations-recordsets.md)<BR> [.NET SDK로 Azure 작업 자동화](dns-sdk.md)<BR> [Azure DNS REST API 참조](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

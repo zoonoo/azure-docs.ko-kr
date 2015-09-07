@@ -3,7 +3,7 @@
 	description="Python의 테이블 서비스를 사용하여 테이블을 작성 및 삭제하고 테이블을 삽입 및 쿼리하는 방법을 알아봅니다."
 	services="storage"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="emgerner-msft"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="03/11/2015"
-	ms.author="huvalo"/>
+	ms.date="08/25/2015"
+	ms.author="emgerner"/>
 
 
 # Python에서 테이블 저장소를 사용하는 방법
@@ -23,7 +23,7 @@
 
 ## 개요
 
-이 가이드에서는 Azure 테이블 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다. 샘플은 Python으로 작성되었으며 [Python Azure 패키지][]를 사용합니다. 테이블 만들기 및 삭제, 테이블에서 엔터티 삽입 및 쿼리 등의 시나리오를 다룹니다.
+이 가이드에서는 Azure 테이블 저장소 서비스를 사용하여 일반 시나리오를 수행하는 방법을 설명합니다. 샘플은 Python으로 작성되었으며 [Python Azure 저장소 패키지][]를 사용합니다. 테이블 만들기 및 삭제, 테이블에서 엔터티 삽입 및 쿼리 등의 시나리오를 다룹니다.
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -36,7 +36,7 @@
 
 **TableService** 개체를 사용하면 테이블 서비스로 작업할 수 있습니다. 다음 코드는 **TableService** 개체를 만듭니다. 프로그래밍 방식으로 Azure 저장소에 액세스하려는 Python 파일의 위쪽에 다음 코드를 추가합니다.
 
-	from azure.storage import TableService, Entity
+	from azure.storage.table import TableService, Entity
 
 다음 코드는 저장소 계정 이름 및 계정 키를 사용하여 **TableService** 개체를 만듭니다. 'myaccount' 및 'mykey'를 실제 계정 및 키로 바꾸세요.
 
@@ -139,5 +139,6 @@
 [Azure 저장소]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 [Python Azure 패키지]: https://pypi.python.org/pypi/azure
+[Python Azure 저장소 패키지]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

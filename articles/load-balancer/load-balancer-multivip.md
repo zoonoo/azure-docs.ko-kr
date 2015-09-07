@@ -1,19 +1,19 @@
 <properties 
    pageTitle="클라우드 서비스당 여러 VIP"
-   description="MultiVIP 및 클라우드 서비스에서 여러 VIP를 설정하는 방법에 대한 개요입니다."
-   services="load-balancer"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
-   editor="tysonn" />
+	description="MultiVIP 및 클라우드 서비스에서 여러 VIP를 설정하는 방법에 대한 개요입니다."
+	services="load-balancer"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/23/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/23/2015"
+	ms.author="joaoma"/>
 
 # 클라우드 서비스당 여러 VIP
 Azure에서 제공하는 IP 주소를 사용하여 공용 인터넷을 통해 Azure 클라우드 서비스에 액세스할 수 있습니다. 이 공용 IP 주소는 Azure 부하 분산 장치에 연결되며 실제로 클라우드 서비스 내의 VM 인스턴스가 아니기 때문에 VIP(가상 IP)라고 합니다. 단일 VIP를 사용하여 클라우드 서비스 내의 모든 VM 인스턴스에 액세스할 수 있습니다.
@@ -150,9 +150,9 @@ PowerShell을 통해 클라우드 서비스에서 사용하는 VIP를 확인하�
 
 [인터넷 연결 부하 분산 장치 시작](load-balancer-internet-getstarted.md)
 
-[가상 네트워크 개요](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+[가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)
 
 [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

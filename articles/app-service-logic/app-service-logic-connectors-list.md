@@ -1,6 +1,6 @@
 <properties
-	pageTitle="커넥터 및 API 앱의 목록 | Microsoft Azure"
-	description="Azure 앱 서비스의 커넥터 및 API 앱 알아보기, 마이크로 서비스 아키텍처"
+	pageTitle="사용 가능한 커넥터 및 API 앱 목록 | Microsoft Azure 앱 서비스"
+	description="Azure 앱 서비스의 커넥터 및 API 앱 알아보기"
 	services="app-service\logic"
 	documentationCenter=""
 	authors="MandiOhlinger"
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2015"
+	ms.date="08/23/2015"
 	ms.author="mandia"/>
 
 
-# Microsoft Azure 앱 서비스의 커넥터 및 API 앱 목록
-이 항목에는 Microsoft에서 만든 사용 가능한 모든 커넥터 및 API 앱이 나열되어 있습니다.
+# 논리 앱에서 사용할 커넥터 및 API 앱 목록
+논리 앱으로 사용하려는 Microsoft에서 만든 사용 가능한 모든 커넥터 및 API 앱에 대해 알아봅니다.
 
 가격 정보 및 각 서비스 계층에 포함된 항목의 목록은 [Azure 앱 서비스 가격](http://azure.microsoft.com/pricing/details/app-service/)을 참조하세요.
 
@@ -93,4 +93,4 @@ MQ | Windows 운영 체제를 실행하는 IBM WebSphere MQ Server 버전 8, 온
 
 [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md) [Azure 앱 서비스에서 하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md) [기본 제공 API 앱 및 커넥터 관리 및 모니터링](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

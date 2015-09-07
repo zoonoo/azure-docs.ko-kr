@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="비즈니스 응용 프로그램 작업 라인 3단계: SQL Server 인프라 구성" 
-	description="Azure 인프라 서비스의 비즈니스 응용 프로그램 고가용성 라인을 배포한는 이 3단계에서는 SQL Server 클러스터 컴퓨터와, 클러스터 자체를 만듭니다." 
+	pageTitle="LOB(기간 업무) 응용 프로그램 3단계 | Microsoft Azure"
+	description="Azure의 LOB(기간 업무) 응용 프로그램의 3단계에서 컴퓨터 및 SQL Server 클러스터를 만들고 가용성 그룹을 사용하도록 설정합니다."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # 비즈니스 응용 프로그램 작업 라인 3단계: SQL Server 인프라 구성
@@ -177,7 +177,7 @@ SQL Server 서비스에서는 클라이언트가 데이터베이스 서버에 �
 
 각 SQL Server 가상 컴퓨터에 대해 로컬 관리자로 로그아웃합니다.
 
-Azure에서 SQL Server 성능을 최적화하는 방법에 대한 자세한 내용은 [ Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](https://msdn.microsoft.com/library/azure/dn133149.aspx)를 참조하세요. 비즈니스 응용 프로그램 저장소 계정에 대해 GRS(지역 중복 저장소)를 사용하지 않도록 설정하고 저장소 공간을 사용해 IOPS를 최적화할 수도 있습니다.
+Azure에서 SQL Server 성능을 최적화하는 방법에 대한 자세한 내용은 [ Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-sql-server-performance-best-practices.md)를 참조하세요. 비즈니스 응용 프로그램 저장소 계정에 대해 GRS(지역 중복 저장소)를 사용하지 않도록 설정하고 저장소 공간을 사용해 IOPS를 최적화할 수도 있습니다.
 
 ## 클러스터 주 노드 서버 구성
 
@@ -268,4 +268,4 @@ SQL Server에서 AlwaysOn 가용성 그룹을 사용하도록 설정하려면 �
 
 [Azure 인프라 서비스 작업: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

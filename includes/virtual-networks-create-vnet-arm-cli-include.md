@@ -1,15 +1,15 @@
-## How to create a VNet using the Azure CLI
+## Azure CLI를 사용하여 VNet을 만드는 방법
 
-You can use the Azure CLI to manage your Azure resources from the command prompt from any computer running Windows, Linux, or OSX. To create a VNet by using the Azure CLI, follow the steps below.
+Windows, Linux 또는 OSX를 실행하는 컴퓨터의 명령 프롬프트에서 Azure CLI를 사용하여 Azure 리소스를 관리할 수 있습니다. Azure CLI를 사용하여 VNet을 만들려면 다음 단계를 수행합니다.
 
-1. If you have never used the Azure CLI, see [Install and Configure the Azure CLI](xplat-cli.md) and follow the instructions up to the point where you select your Azure account and subscription.
-2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](xplat-cli.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+2. 아래와 같이 **azure config mode** 명령을 실행하여 리소스 관리자 모드로 전환합니다.
 
 		azure config mode arm
 
 		info:    New mode is arm
 
-3. If necessary, run the **azure group create** to create a new resource group, as shown below. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager Overview](resource-group-overview.md/#resource-groups).
+3. 필요한 경우 아래와 같이 **azure group create**를 실행하여 새 리소스 그룹을 만듭니다. 명령의 출력을 확인합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md/#resource-groups)를 참조하세요.
 
 		azure group create -n TestRG -l centralus
 
@@ -25,10 +25,10 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 		data:
 		info:    group create command OK
 
-	- **-n (or --name)**. Name for the new resource group. For our scenario, *TestRG*.
-	- **-l (or --location)**. Azure region where the new resource group will be created. For our scenario, *centralus*.
+	- **-n(또는 --name)**. 새 리소스 그룹의 이름입니다. 이 시나리오에서는 *TestRG*입니다.
+	- **-l(또는 --location)**. 새 리소스 그룹이 생성되는 Azure 지역입니다. 이 시나리오에서는 *centralus*입니다.
 
-4. Run the **azure network vnet create** command to create a VNet and a subnet, as shown below. Notice the output from the CLI command. The list shown after the output explains the parameters used.
+4. 아래와 같이 **azure network vnet create** 명령을 실행하여 VNet과 서브넷을 만듭니다. CLI 명령의 출력을 확인합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
 5. 
 		azure network vnet create -g TestRG -n TestVNet -a 192.168.0.0/16 -l centralus
 
@@ -45,12 +45,12 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 		data:      192.168.0.0/16
 		info:    network vnet create command OK
 
-	- **-g (or --resource-group)**. Name of the resource group where the VNet will be created. For our scenario, *TestRG*.
-	- **-n (or --name)**. Name of the VNet to be created. For our scenario, *TestVNet*
-	- **-a (or --address-prefixes)**. List of CIDR blocks used for the VNet address space. For our scenario, *192.168.0.0/16*
-	- **-l (or --location)**. Azure region where the VNet will be created. For our scenario, *centralus*.
+	- **-g(또는 --resource-group)**. VNet이 만들어지는 리소스 그룹의 이름입니다. 이 시나리오에서는 *TestRG*입니다.
+	- **-n(또는 --name)**. 만들 VNet의 이름입니다. 이 시나리오에서는 *TestVNet*입니다.
+	- **-a(또는 --address-prefixes)**. VNet 주소 공간에 사용되는 CIDR 블록의 목록입니다. 이 시나리오에서는 *192.168.0.0/16*입니다.
+	- **-l(또는 --location)**. VNet을 만들 Azure 지역입니다. 이 시나리오에서는 *centralus*입니다.
 
-5. Run the **azure network vnet subnet create** command to create a subnet as shown below. Notice the output of the command. The list shown after the output explains the parameters used.
+5. 아래와 같이 **azure network vnet subnet create** 명령을 실행하여 서브넷을 만듭니다. 명령의 출력을 확인합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
 
 		azure network vnet subnet create -g TestRG -e TestVNet -n FrontEnd -a 192.168.1.0/24
 
@@ -66,15 +66,15 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 		data:
 		info:    network vnet subnet create command OK
 
-	- **-e (or --vnet-name**. Name of the VNet where the subnet will be created. For our scenario, *TestVNet*.
-	- **-n (or --name)**. Name of the new subnet. For our scenario, *FrontEnd*.
-	- **-a (or --address-prefix)**. Subnet CIDR block. Four our scenario, *192.168.1.0/24*.
+	- **-e(또는 --vnet-name**. 서브넷이 만들어지는 VNet의 이름입니다. 이 시나리오에서는 *TestVNet*입니다.
+	- **-n(또는 --name)**. 새 서브넷의 이름입니다. 이 시나리오에서는 *FrontEnd*입니다.
+	- **-a(또는 --address-prefix)**. 서브넷 CIDR 블록입니다. 이 시나리오에서는 *192.168.1.0/24*입니다.
 
-6. Repeat step 5 above to create other subnets, if necessary. For our scenario, run the command below to create the *BackEnd* subnet.
+6. 필요한 경우 위의 5단계를 반복하여 다른 서브넷을 만드세요. 이 시나리오에서는 아래 명령을 실행하여 *BackEnd* 서브넷을 만듭니다.
 
 		azure network vnet subnet create -g TestRG -e TestVNet -n BackEnd -a 192.168.2.0/24
 
-4. Run the **azure network vnet show** command to view the properties of the new vnet, as shown below.
+4. 아래와 같이 새 VNet의 속성을 보려면 **azure network vnet show** 명령을 실행합니다.
 
 		azure network vnet show -g TestRG -n TestVNet
 
@@ -95,3 +95,5 @@ You can use the Azure CLI to manage your Azure resources from the command prompt
 		data:      Address prefix                : 192.168.2.0/24
 		data:
 		info:    network vnet show command OK
+
+<!---HONumber=August15_HO9-->

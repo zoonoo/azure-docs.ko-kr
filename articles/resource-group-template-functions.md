@@ -1,24 +1,36 @@
 <properties
    pageTitle="Azure 리소스 관리자 템플릿 함수"
-   description="값을 검색하고 문자열을 포맷하며 배포 정보를 검색하는 Azure 리소스 관리자 템플릿에서 사용하는 함수를 설명합니다."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	description="값을 검색하고 문자열을 포맷하며 배포 정보를 검색하는 Azure 리소스 관리자 템플릿에서 사용하는 함수를 설명합니다."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/27/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/21/2015"
+	ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿 함수
 
 이 항목에서는 Azure 리소스 관리자 템플릿에서 사용할 수 있는 모든 함수에 대해 설명합니다.
+
+## 추가
+
+**add(operand1, operand2)**
+
+제공된 두 정수의 합을 반환합니다.
+
+| 매개 변수 | 필수 | 설명
+| :--------------------------------: | :------: | :----------
+| operand1 | 예 | 사용할 첫 번째 피연산자입니다.
+| operand2 | 예 | 사용할 두 번째 피연산자입니다.
+
 
 ## base64
 
@@ -85,6 +97,23 @@
       }
     }
 
+## div
+
+**div(operand1, operand2)**
+
+제공된 두 정수의 나누기를 반환합니다.
+
+| 매개 변수 | 필수 | 설명
+| :--------------------------------: | :------: | :----------
+| operand1 | 예 | 나누어지는 수입니다.
+| operand2 | 예 | 나누는 데 사용되는 번호는 0과 다를 수 있습니다.
+
+## length
+
+**length(array)**
+
+배열 내의 요소 수를 반환합니다. 일반적으로 리소스를 만들 때 반복 횟수를 지정하는 데 사용합니다. 이 함수를 사용하는 예는 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
+
 ## listKeys
 
 **listKeys (resourceName or resourceIdentifier, [apiVersion])**
@@ -104,6 +133,30 @@
         "type" : "object" 
       } 
     } 
+
+## mod
+
+**mod(operand1, operand2)**
+
+제공된 두 정수를 사용하여 나누기한 나머지를 반환합니다.
+
+| 매개 변수 | 필수 | 설명
+| :--------------------------------: | :------: | :----------
+| operand1 | 예 | 나누어지는 수입니다.
+| operand2 | 예 | 나누는 데 사용되는 번호는 0과 다를 수 있습니다.
+
+
+## mul
+
+**mul(operand1, operand2)**
+
+제공된 두 정수의 곱하기를 반환합니다.
+
+| 매개 변수 | 필수 | 설명
+| :--------------------------------: | :------: | :----------
+| operand1 | 예 | 사용할 첫 번째 피연산자입니다.
+| operand2 | 예 | 사용할 두 번째 피연산자입니다.
+
 
 ## padLeft
 
@@ -311,6 +364,37 @@
       }]
     }
 
+## 분할
+
+**split(inputString, 구분 기호)** **split(inputString, [구분 기호])**
+
+보낸 구분 기호로 구분되는 입력 문자열의 부분 문자열을 포함하는 문자열의 배열을 반환합니다.
+
+| 매개 변수 | 필수 | 설명
+| :--------------------------------: | :------: | :----------
+| inputString | 예 | 분할에 사용될 문자열입니다.
+| 구분 기호 | 예 | 사용할 구분 기호는 단일 문자열 또는 문자열의 배열일 수 있습니다.
+
+다음 예제에서는 쉼표를 사용하여 입력 문자열을 분할합니다.
+
+    "parameters": {
+        "inputString": { "type": "string" }
+    },
+    "variables": { 
+        "stringPieces": "[split(parameters('inputString'), ',')]"
+    }
+
+## sub
+
+**sub(operand1, operand2)**
+
+제공된 두 정수의 빼기를 반환합니다.
+
+| 매개 변수 | 필수 | 설명
+| :--------------------------------: | :------: | :----------
+| operand1 | 예 | 빼기할 수입니다.
+| operand2 | 예 | 뺄 수입니다.
+
 
 ## (구독당)
 
@@ -386,6 +470,6 @@
 - Azure 리소스 관리자 템플릿의 섹션에 대한 설명은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 여러 템플릿을 병합하려면 [Azure 리소스 관리자에서 연결된 템플릿 사용](resource-group-linked-templates.md)을 참조하세요.
 - 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
-- 만든 템플릿을 배포하는 방법을 보려면 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](azure-portal/resource-group-template-deploy.md)를 참조하세요.
+- 만든 템플릿을 배포하는 법을 보려면 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](azure-portal/resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

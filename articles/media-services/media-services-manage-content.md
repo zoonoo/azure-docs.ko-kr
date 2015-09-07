@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure 관리 포털을 사용하여 Azure 미디어 서비스 미디어 콘텐츠를 관리하는 방법" 
-	description="Azure 미디어 서비스에서 미디어 콘텐츠를 관리하는 방법에 대해 알아봅니다. 여기에는 업로드, 인덱싱, 인코딩, 암호화 및 게시가 포함됩니다." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Azure 관리 포털을 사용하여 Azure 미디어 서비스 미디어 콘텐츠를 관리하는 방법"
+	description="Azure 미디어 서비스에서 미디어 콘텐츠를 관리하는 방법에 대해 알아봅니다. 여기에는 업로드, 인덱싱, 인코딩, 암호화 및 게시가 포함됩니다."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/23/2015"
 	ms.author="juliako"/>
 
 
@@ -99,7 +99,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 이 섹션에서는 관리 포털을 사용하여 Azure 미디어 인코더로 콘텐츠를 인코딩할 수 있는 단계를 설명합니다.
 
 1.  인코딩하려는 파일을 선택합니다. 이 파일 형식에 대해 이 지원되는 경우에는 콘텐츠 페이지 아래쪽에서 프로세스 단추를 사용할 수 있습니다.
-4. **프로세스** 대화 상자에서 **Azure 미디어 인코더 **프로세서를 선택합니다.
+4. **프로세스** 대화 상자에서 **Azure 미디어 인코더** 프로세서를 선택합니다.
 5. **인코딩 구성** 중에서 하나를 선택합니다.
 
 	![Process2][process2]
@@ -129,6 +129,7 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 
 ##<a id="encrypt"></a>방법: 콘텐츠 암호화
 
+
 미디어 서비스의 경우 AES 키 또는 PlayReady DRM을 통해 자산을 동적으로 암호화하려는 경우, 다음을 참조하세요.
 
 - mezzanine(원본) 파일을 적응 비트 전송률 MP4 파일 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합으로 인코딩합니다(인코딩 단계는 [인코드](#encode) 섹션에서 설명).
@@ -141,6 +142,11 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 	![암호화][encrypt]
 
 	암호화를 사용하면 플레이어가 스트림을 요청할 때마다 미디어 서비스에서 AES 또는 PlayReady 암호화를 사용하여 콘텐츠를 동적으로 암호화하는 데 지정된 키를 사용합니다. 스트림을 해독하기 위해 플레이어는 키 배달 서비스에서 키를 요청합니다. 사용자에게 키를 얻을 수 있는 권한이 있는지 여부를 결정하기 위해 서비스는 키에 지정된 권한 부여 정책을 평가합니다.
+
+참고 항목:
+
+- [PlayReady DRM으로 보호](media-services-rest-deliver-streaming-content.md)
+- [AES-128 키로 보호](media-services-protect-with-aes128.md)
 
 ##<a id="publish"></a>방법: 콘텐츠 게시
 
@@ -215,4 +221,4 @@ MPEG DASH 스트리밍 URL을 작성하려면 URL에 (format=mpd-time-csf)를 �
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-manage-content/media-services-portal-player.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure MFA와 함께 연락 방법으로 휴대폰 사용" 
-	description="이 페이지에서는 Azure MFA에 대한 기본 연락 방법으로 휴대폰을 사용하는 방법을 보여 줍니다." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Azure MFA와 함께 연락 방법으로 휴대폰 사용"
+	description="이 페이지에서는 Azure MFA에 대한 기본 연락 방법으로 휴대폰을 사용하는 방법을 보여 줍니다."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenp"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure Multi-factor Authentication과 함께 연락 방법으로 휴대폰 사용
@@ -39,4 +39,4 @@
 
 <center>![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-phone/app.png)</center>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -15,25 +15,11 @@
 	ms.topic="article"
 	ms.date="06/11/2015"
 	ms.author="szark"/>
-
-
-
-
-
 #Azure의 Linux 소개
 
 이 항목에서는 Azure 클라우드에서 Linux 가상 컴퓨터를 사용하는 몇 가지 측면을 간략하게 설명합니다. 갤러리의 기존 이미지를 사용하여 Linux 가상 컴퓨터 배포는 간단한 프로세스입니다.
 
-## 목차 ##
-
-* [인증: 사용자 이름, 암호 및 SSH 키입니다.](#authentication)
-* [sudo를 사용하여 superuser 권한 얻기](#superuserprivileges)
-* [방화벽 구성](#firewallconfiguration)
-* [호스트 이름 변경](#hostnamechanges)
-* [가상 컴퓨터 이미지 캡처](#virtualmachine)
-* [디스크 연결](#attachingdisks)
-
-## <a id="authentication"></a>인증: 사용자 이름, 암호 및 SSH 키
+## 인증: 사용자 이름, 암호 및 SSH 키
 
 Azure 관리 포털에서 Linux 가상 컴퓨터를 만들 경우 사용자 이름, 암호 또는 SSH 공개 키를 지정해야 합니다. Azure에 Linux 가상 컴퓨터를 배포할 때 선택하는 사용자 이름에는 다음과 같은 제약이 있습니다. 가상 컴퓨터에 이미 존재하던 시스템 계정의 이름(UID <100)(예: 'root')은 허용되지 않습니다.
 
@@ -42,7 +28,7 @@ Azure 관리 포털에서 Linux 가상 컴퓨터를 만들 경우 사용자 이�
  - [Azure에서 Linux와 함께 SSH를 사용하는 방법](../linux-use-ssh-key.md) 참조
 
 
-## <a id="superuserprivileges"></a>`sudo`를 사용하여 Superuser 권한 얻기
+## `sudo`를 사용하여 Superuser 권한 얻기
 
 Azure에서 가상 컴퓨터 인스턴스를 배포하는 동안 지정한 사용자 계정이 권한 있는 계정입니다. Azure Linux 에이전트에서 `sudo` 유틸리티를 사용하여 루트(superuser 계정)로 권한을 상승하도록 이 계정을 구성할 수 있습니다. 이 사용자 계정을 사용하여 로그인한 후 다음 명령 구문을 사용하여 루트로 명령을 실행할 수 있습니다.
 
@@ -53,7 +39,7 @@ Azure에서 가상 컴퓨터 인스턴스를 배포하는 동안 지정한 사�
 - [Azure의 Linux 가상 컴퓨터에서 루트 권한 사용](virtual-machines-linux-use-root-privileges.md) 참조
 
 
-## <a id="firewallconfiguration"></a>방화벽 구성
+## 방화벽 구성
 
 Azure는 관리 포털에서 지정한 포트에 대한 연결을 제한하는 인바운드 패킷 필터를 제공합니다. 기본적으로 허용되는 유일한 포트는 SSH입니다. 관리 포털에서 끝점을 구성하여 Linux 가상 컴퓨터의 추가 포트에 액세스할 수 있습니다.
 
@@ -62,7 +48,7 @@ Azure는 관리 포털에서 지정한 포트에 대한 연결을 제한하는 �
 Azure 갤러리의 Linux 이미지는 기본적으로 *iptables* 방화벽을 사용하도록 설정하지 않습니다. 원하는 경우 추가 필터링을 제공하도록 이 방화벽을 구성할 수 있습니다.
 
 
-## <a id="hostnamechanges"></a>호스트 이름 변경
+## 호스트 이름 변경
 
 Linux 이미지의 인스턴스를 처음 배포할 때 가상 컴퓨터의 호스트 이름을 지정해야 합니다. 가상 컴퓨터를 실행하면 이 호스트 이름이 플랫폼 DNS 서버에 게시되므로 서로 연결된 여러 가상 컴퓨터에서 호스트 이름을 사용하여 IP 주소를 조회할 수 있습니다.
 
@@ -83,7 +69,7 @@ Azure Linux 에이전트에는 이 이름 변경을 자동으로 검색하여 �
  - [Azure에서 CoreOS를 사용하는 방법](virtual-machines-linux-coreos-how-to.md)
 
 
-## <a id="virtualmachine"></a>가상 컴퓨터 이미지 캡처
+## 가상 컴퓨터 이미지 캡처
 
 Azure는 기존 가상 컴퓨터의 상태를 이미지로 캡처하는 기능을 제공합니다. 이 이미지는 이후에 추가 가상 컴퓨터 인스턴스를 배포하는 데 사용할 수 있습니다. Azure Linux 에이전트는 프로비전 프로세스 중 수행된 일부 사용자 지정을 롤백하는 데 사용할 수 있습니다. 아래 단계를 따르면 가상 컴퓨터를 이미지로 캡처할 수 있습니다.
 
@@ -96,18 +82,18 @@ Azure는 기존 가상 컴퓨터의 상태를 이미지로 캡처하는 기능�
  - 참고: [Linux 가상 컴퓨터를 캡처하여 템플릿으로 사용하는 방법](virtual-machines-linux-capture-image.md)
 
 
-## <a id="attachingdisks"></a>디스크 연결
+## 디스크 연결
 
 각 가상 컴퓨터에는 임시 로컬 *리소스 디스크*가 연결되어 있습니다. 리소스 디스크의 데이터는 다시 부팅 후 지속되지 않을 수도 있으므로 가상 컴퓨터에서 실행되는 응용 프로그램 및 프로세스에서 **임시** 데이터 저장소에 사용되는 경우가 많습니다. 또한 운영 체제의 페이지 또는 스왑 파일을 저장하는 데 사용됩니다.
 
 Linux에서 리소스 디스크는 일반적으로 Azure Linux 에이전트에 의해 관리되며 **/mnt/resource**(또는 Ubuntu 이미지의 **/mnt**)에 자동으로 탑재됩니다.
 
 
-	>[AZURE.NOTE] Note that the resource disk is a **temporary** disk, and might be deleted and reformatted when the VM is rebooted.
+	>[AZURE.NOTE] 해당 리소스 디스크는 **임시** 디스크이며, 해당 VM을 재부팅할 경우 삭제 및 다시 포맷될 수 있음을 기억하십시오.
 
 Linux에서 데이터 디스크 이름은 커널에서 `/dev/sdc`로 지정될 수 있으며 사용자는 해당 리소스를 파티셔닝, 형식 지정 및 마운트해야 합니다. [데이터 디스크를 가상 컴퓨터에 연결하는 방법](virtual-machines-linux-how-to-attach-disk.md)에 대한 자습서의 단계를 다루었습니다.
 
  - **참고 항목**: [Linux에서 소프트웨어 RAID 구성](virtual-machines-linux-configure-raid.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

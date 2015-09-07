@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="javascript"
-	ms.date="05/20/2015"
+	ms.date="08/25/2015"
 	ms.author="krisragh"/>
 
 # 모바일 서비스에서 사용자의 서비스 쪽 권한 부여
@@ -70,4 +70,4 @@
 [Azure 관리 포털]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

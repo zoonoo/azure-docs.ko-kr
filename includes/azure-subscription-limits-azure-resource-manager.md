@@ -8,7 +8,7 @@
 리소스 관리자 API 쓰기|시간당 1200|시간당 1200
 리소스 관리자 API 요청 크기|4194304바이트|4194304바이트
 구독당 [클라우드 서비스](cloud-services-what-is.md)|사용되지 않음<sup>3</sup>|사용되지 않음<sup>3</sup>
-구독당 [선호도 그룹](http://msdn.microsoft.com/library/azure/jj156085.aspx)|사용되지 않음<sup>3</sup>|사용되지 않음<sup>3</sup>
+구독당 [선호도 그룹](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)|사용되지 않음<sup>3</sup>|사용되지 않음<sup>3</sup>
 
 <sup>1</sup>기본 제한은 무료 평가판, 종량제 등과 같은 제공 범주 유형에 따라 다릅니다.
 
@@ -16,4 +16,4 @@
 
 <sup>3</sup>Azure 리소스 그룹 및 Azure 리소스 관리자를 사용하면 이러한 기능이 더 이상 필요하지 않습니다.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

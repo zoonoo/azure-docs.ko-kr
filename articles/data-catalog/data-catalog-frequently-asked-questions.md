@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 데이터 카탈로그에 대한 질문과 대답"
-   description="Azure 데이터 카탈로그: 카탈로그에 대한 질문과 대답"
-   services="data-catalog"
-   documentationCenter=""
-   authors="steelanddata"
-   manager="NA"
-   editor=""
-   tags=""/>
+	description="데이터 원본 검색, 주석 및 관리에 대한 기능을 포함한 Azure 데이터 카탈로그 미리 보기에 대한 질문과 대답입니다."
+	services="data-catalog"
+	documentationCenter=""
+	authors="steelanddata"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="08/19/2015"
-   ms.author="maroche"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="08/21/2015"
+	ms.author="maroche"/>
 
 # Azure 데이터 카탈로그에 대한 질문과 대답
 
@@ -101,7 +101,7 @@ Azure 데이터 카탈로그에 데이터를 등록하려면 Azure 데이터 카
 
 ## 질문: 새로 등록된 자산이 Azure 데이터 카탈로그에 나타나려면 얼마나 걸리나요?
 
-**Azure 데이터 카탈로그**를 사용하여 자산을 등록하면 **Azure 데이터 카탈로그** 포털에 나타나기까지 5\~10초 정도 걸릴 수 있습니다.
+**Azure 데이터 카탈로그**를 사용하여 자산을 등록하면 **Azure 데이터 카탈로그** 포털에 나타나기까지 5~10초 정도 걸릴 수 있습니다.
 
 ## 질문: 등록된 데이터 자산에 대한 메타데이터에 주석을 추가하고 보강하려면 어떻게 하나요?
 
@@ -160,4 +160,4 @@ Azure 데이터 카탈로그에 데이터를 등록하려면 Azure 데이터 카
 
 [Azure 데이터 카탈로그 포럼](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)을 참조하세요. 게시된 질문을 여기에서 찾을 수 있습니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

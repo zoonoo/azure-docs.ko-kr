@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Active Directory와 온-프레미스 ID 통합" 
-	description="Azure AD Connect의 정의 및 사용해야 하는 이유를 설명합니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure Active Directory와 온-프레미스 ID 통합"
+	description="Azure AD Connect의 정의 및 사용해야 하는 이유를 설명합니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="07/13/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure Active Directory와 온-프레미스 ID 통합
@@ -249,7 +249,7 @@ Azure AD Connect 작업에 대한 추가 설명서는 다음을 참조하세요.
 - [Azure AD Connect 동기화 규칙 편집기 사용](active-directory-aadconnect-whats-next-synch-rules-editor.md)
 - [선언적 프로비저닝 사용](active-directory-aadconnect-whats-next-declarative-prov.md)
 
-Azure AD Sync용으로 만들어진 설명서 중 일부는 Azure AD Connect에도 관련되며 적용됩니다. 이 설명서를 Azure.com에서도 볼 수 있도록 최선의 노력을 하고 있지만 이 설명서 일부는 여전히 MSDN의 범위 지정된 라이브러리에 있습니다. 추가 설명서를 보려면 [MSDN의 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx) 및 [MSDN의 Azure AD Sync](https://msdn.microsoft.com/library/azure/dn790204.aspx)를 참조하세요.
+Azure AD Sync용으로 만들어진 설명서 중 일부는 Azure AD Connect에도 관련되며 적용됩니다. 이 설명서를 Azure.com에서도 볼 수 있도록 최선의 노력을 하고 있지만 이 설명서 일부는 여전히 MSDN의 범위 지정된 라이브러리에 있습니다. 추가 설명서를 보려면 [MSDN의 Azure AD Connect](active-directory-aadconnect.md) 및 [MSDN의 Azure AD Sync](https://msdn.microsoft.com/library/azure/dn790204.aspx)를 참조하세요.
 
 
 **추가 리소스**
@@ -273,4 +273,4 @@ Azure AD Sync용으로 만들어진 설명서 중 일부는 Azure AD Connect에�
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

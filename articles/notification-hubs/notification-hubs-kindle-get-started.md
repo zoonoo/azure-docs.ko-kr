@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 알림 허브 시작"
-	description="Azure 알림 허브를 사용하여 푸시 알림을 보내는 방법에 대해 알아봅니다."
+	pageTitle="Azure 알림 허브 시작 | Microsoft Azure"
+	description="이 자습서에서 Azure 알림 허브를 사용하여 Kindle 응용 프로그램에 푸시 알림을 보내는 방법을 알아봅니다."
 	services="notification-hubs"
 	documentationCenter=""
 	authors="wesmc7777"
@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-kindle"
 	ms.devlang="Java"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
@@ -22,18 +22,18 @@
 
 ##개요
 
-이 항목에서는 Azure 알림 허브를 사용하여 Kindle 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 ADM(Amazon Device Messaging)을 사용하여 푸시 알림을 받는 빈 Kindle 앱을 만듭니다.
+이 자습서에서는 Azure 알림 허브를 사용하여 Kindle 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. ADM(Amazon 장치 메시징)을 사용하여 푸시 알림을 받는 빈 Kindle 앱을 만듭니다.
 
 ##필수 조건
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
-+ Android SDK(Eclipse를 사용하는 것으로 가정) - <a href="http://go.microsoft.com/fwlink/?LinkId=389797">여기</a>서 다운로드 가능
-+ <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">이</a> 단계에 따라 Kindle에 대한 개발 환경 설정
++ <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android 사이트</a>에서 Android SDK(Eclipse를 사용한다고 가정)를 가져옵니다.
++ <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">개발 환경 설정</a>의 단계에 따라 Kindle에 대한 개발 환경을 설정합니다.
 
 ##개발자 포털에 새 앱 추가
 
-1. 먼저 [개발자 포털]에서 앱을 만듭니다.
+1. 먼저 [Amazon 개발자 포털]에서 앱을 만듭니다.
 
 	![][0]
 
@@ -49,7 +49,7 @@
 
 	![][3]
 
-5. “보안 프로필”을 클릭하여 방금 만든 보안 프로필을 확인합니다. 나중에 사용할 수 있도록 **클라이언트 ID** 및 **클라이언트 암호** 값을 복사해 둡니다.
+5. **Security Profiles**를 클릭하여 방금 만든 보안 프로필을 확인합니다. 나중에 사용할 수 있도록 **클라이언트 ID** 및 **클라이언트 암호** 값을 복사해 둡니다.
 
 	![][4]
 
@@ -66,7 +66,7 @@
 4.  **keystore** 암호에 **android**를 입력합니다.
 
 5.  **MD5** 지문을 복사합니다.
-6.  개발자 포털로 돌아가서 **메시징** 탭에서 **Android/Kindle**을 클릭하고 앱에 대한 패키지 이름(예: **com.sample.notificationhubtest**)과 **MD5** 값을 입력한 다음 **Generate API Key**을 클릭합니다.
+6.  개발자 포털로 돌아가서 **메시징** 탭에서 **Android/Kindle**을 클릭하고 앱에 대한 패키지 이름(예: **com.sample.notificationhubtest**)과 **MD5** 값을 입력한 다음 **API 키 생성**을 클릭합니다.
 
 ## 허브에 자격 증명 추가
 
@@ -81,7 +81,7 @@ Eclipse 프로젝트에 ADM 라이브러리를 추가합니다.
 1. ADM 라이브러리를 가져오려면 [SDK를 다운로드합니다]. SDK zip 파일의 압축을 풉니다.
 2. Eclipse에서 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **Properties**를 클릭합니다. 왼쪽에서 **Java Build Path**를 선택한 다음 맨 위에 있는 **Libraries** 탭을 선택합니다. **Add External Jar**을 클릭하고, Amazon SDK의 압축을 푼 디렉터리에서 `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` 파일을 선택합니다.
 3. NotificationHubs Android SDK(링크)를 다운로드합니다.
-4. 패키지의 압축을 푼 후 `notification-hubs-sdk.jar` 파일을 Eclipse의 `libs ` 폴더로 끌어옵니다.
+4. 패키지의 압축을 푼 후 `notification-hubs-sdk.jar` 파일을 Eclipse의 `libs` 폴더로 끌어옵니다.
 
 ADM을 지원하도록 앱 매니페스트를 편집합니다.
 
@@ -132,7 +132,7 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 		    </intent-filter>
 		</receiver>
 
-## ADM 메시지 처리기 만들기:
+## ADM 메시지 처리기 만들기
 
 1. 다음 그림에 표시된 것처럼 `com.amazon.device.messaging.ADMMessageHandlerBase`에서 상속되는 새 클래스를 만들고 이름을 `MyADMMessageHandler`로 지정합니다.
 
@@ -216,11 +216,11 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 				Log.e("[your package name]", "Fail onUnregister: " + e.getMessage(), e);
 			}
 
-7. 그런 다음 `MainActivity` 메서드에 다음 import 문을 추가합니다.
+7. `MainActivity` 메서드에 다음 import 문을 추가합니다.
 
 		import com.amazon.device.messaging.ADM;
 
-8. 이제 `OnCreate` 메서드의 끝에 다음 코드를 추가합니다.
+8. `OnCreate` 메서드의 끝에 다음 코드를 추가합니다.
 
 		final ADM adm = new ADM(this);
 		if (adm.getRegistrationId() == null)
@@ -243,7 +243,7 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 ## 앱에 API 키 추가
 
 1. Eclipse에서 프로젝트의 디렉터리 자산에 **api\_key.txt**라는 새 파일을 만듭니다.
-2. 파일을 열고 Amazon 개발자 포털에서 생성한 **API 키**를 복사합니다.
+2. 파일을 열고 Amazon 개발자 포털에서 생성한 API 키를 복사합니다.
 
 ## 앱 실행
 
@@ -269,7 +269,7 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 ![][7]
 
 <!-- URLs. -->
-[개발자 포털]: https://developer.amazon.com/home.html
+[Amazon 개발자 포털]: https://developer.amazon.com/home.html
 [SDK를 다운로드합니다]: https://developer.amazon.com/public/resources/development-tools/sdk
 
 [0]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
@@ -280,6 +280,5 @@ ADM을 지원하도록 앱 매니페스트를 편집합니다.
 [5]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-cmd-window.png
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

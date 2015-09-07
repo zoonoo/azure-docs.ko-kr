@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="테스트용 하이브리드 클라우드에 Office 365 디렉터리 동기화(DirSync) 설치" 
-	description="IT 전문가 또는 개발 테스트용 하이브리드 클라우드에서 Office 365 디렉터리 동기화(DirSync) 서버를 구성하는 방법에 대해 알아봅니다." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="Office 365 DirSync 테스트 환경 | Microsoft Azure"
+	description="IT 전문가 또는 개발 테스트용 하이브리드 클라우드에서 Office 365 디렉터리 동기화(DirSync) 서버를 구성하는 방법에 대해 알아봅니다."
+	services="virtual-network"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="josephd"/>
 
 # 테스트용 하이브리드 클라우드에 Office 365 디렉터리 동기화(DirSync) 설치
@@ -197,4 +197,4 @@ CLIENT1의 **Active Directory 동기화 설정 및 관리 페이지**에서 이 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

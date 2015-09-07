@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 데이터 카탈로그 데이터 카탈로그 시작"
-   description="시나리오의 종단간 자습서 및 Azure 데이터 카탈로그의 기능"
-   documentationCenter=""
-   services="data-catalog"
-   authors="dvana"
-   manager="mblythe"
-   editor=""
-   tags=""/>
+	description="시나리오의 종단간 자습서 및 Azure 데이터 카탈로그의 기능."
+	documentationCenter=""
+	services="data-catalog"
+	authors="dvana"
+	manager="mblythe"
+	editor=""
+	tags=""/>
 <tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="07/13/2015"
+	ms.author="derrickv"/>
 
 # Azure 데이터 카탈로그 시작
 
@@ -62,7 +62,7 @@ Adventure Works OLTP 데이터베이스는 제조, 판매 및 구매를 비롯�
     ![register3][3]
 6.	**서버 이름**을 입력하고 **연결**을 클릭합니다.
 7.	다음 페이지는 데이터 원본의 메타데이터를 등록하는 위치입니다. 이 예에서는 AdventureWorks 프로덕션 네임스페이스에서 **Product** 개체를 등록합니다. 수행하는 방법은 다음과 같습니다.
-    
+
     a. 계층 트리에서 **Production**을 클릭합니다.
 
     b. Product, ProductCategory, ProductDescription 및 ProductPhoto를 Ctrl+클릭합니다.
@@ -76,7 +76,7 @@ Adventure Works OLTP 데이터베이스는 제조, 판매 및 구매를 비롯�
     d. **선택 사항**: **미리 보기를 포함**하고 **데이터 원본 전문가를 추가**할 수 있습니다.
 
     e. **태그 추가**에서 설명, 사진을 입력합니다. 이러한 데이터 자산에 대한 검색 태그가 추가됩니다. 태그는 사용자가 등록된 데이터 원본을 찾을 수 있는 훌륭한 방법입니다.
- 
+
     f. **등록**을 클릭합니다. Azure 데이터 카탈로그는 선택한 개체를 등록합니다. 이 연습에서는 Adventure Works에서 선택한 개체가 등록됩니다.
 
     ![register6][6]
@@ -115,9 +115,9 @@ Adventure Works OLTP 데이터베이스는 제조, 판매 및 구매를 비롯�
 
 1.	**Azure 데이터 카탈로그** 포털에 로그인합니다.
 2.	**검색**을 클릭합니다.
-3.	**검색** 상자에 **그룹화** 쿼리(tags:description OR tags:photo)를 입력합니다. 
+3.	**검색** 상자에 **그룹화** 쿼리(tags:description OR tags:photo)를 입력합니다.
 4.	검색 아이콘을 클릭하거나 Enter를 누릅니다. **Azure 데이터 카탈로그**에서 이 검색 쿼리에 대한 데이터 자산을 표시합니다.
-    
+
     ![검색][8]
 
 이 연습에서는 카탈로그를 사용하여 등록된 데이터 자산을 검색하고 보기 위해 **Azure 데이터 카탈로그** 포털을 사용했습니다.
@@ -222,4 +222,4 @@ Adventure Works OLTP 데이터베이스는 제조, 판매 및 구매를 비롯�
 [11]: ./media/data-catalog-get-started/connect2.png
 [12]: ./media/data-catalog-get-started/ownership.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

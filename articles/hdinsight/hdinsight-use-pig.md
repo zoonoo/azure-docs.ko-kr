@@ -1,21 +1,21 @@
 <properties
    pageTitle="HDInsight|Microsoft Azure에서 Hadoop Pig 사용"
-   description="HDInsight에서 Hadoop와 함께 Pig를 사용하는 방법에 대해 알아봅니다."
-   services="hdinsight"
-   documentationCenter=""
-   authors="Blackmist"
-   manager="paulettm"
-   editor="cgronlun"
+	description="HDInsight에서 Hadoop와 함께 Pig를 사용하는 방법에 대해 알아봅니다."
+	services="hdinsight"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="07/06/2015"
-   ms.author="larryfr"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="08/21/2015"
+	ms.author="larryfr"/>
 
 # HDInsight에서 Hadoop과 Pig 사용
 
@@ -94,6 +94,19 @@ HDInsight는 다양한 메서드를 사용하여 Pig Latin 작업을 실행할 �
 | [Windows PowerShell](hdinsight-hadoop-use-pig-powershell.md) | &nbsp; | ✔ | Linux 또는or Windows | Windows |
 | [원격 데스크톱](hdinsight-hadoop-use-pig-remote-desktop.md) | ✔ | ✔ | Windows | Windows |
 
+
+## 온-프레미스 SQL Server Integration Services를 사용하여 Azure HDInsight에서 Pig 작업 실행
+
+SSIS(SQL Server Integration Services)를 사용하여 Pig 작업을 실행할 수도 있습니다. Azure Feature Pack for SSIS는 HDInsight에서 Pig 작업을 하는 다음 구성 요소를 제공합니다.
+
+
+- [Azure HDInsight Pig 작업][pigtask]
+- [Azure 구독 연결 관리자][connectionmanager]
+
+
+[여기][ssispack]에서 Azure Feature Pack for SSIS에 대해 자세히 알아보세요.
+
+
 ##<a id="nextsteps"></a>다음 단계
 
 Scalding을 사용하여 HDInsight와 함께 Pig를 사용하는 방법을 살펴보았으므로 이제 다음 링크를 사용하여 Azure HDInsight로 작업하는 다른 방법을 알아봅니다.
@@ -107,6 +120,9 @@ Scalding을 사용하여 HDInsight와 함께 Pig를 사용하는 방법을 살�
 [apachepig-home]: http://pig.apache.org/
 [putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 [curl]: http://curl.haxx.se/
+[pigtask]: http://msdn.microsoft.com/ko-KR/library/mt146781(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/ko-KR/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/ko-KR/library/mt146770(v=sql.120).aspx
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -128,4 +144,4 @@ Scalding을 사용하여 HDInsight와 함께 Pig를 사용하는 방법을 살�
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure 데이터 팩터리를 사용하여 온-프레미스 및 클라우드 간 데이터 이동" 
-	description="데이터 관리 게이트웨이 및 Azure 데이터 팩터리를 사용하여 온-프레미스와 클라우드 간에 데이터 이동을 알아봅니다." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Azure 데이터 팩터리를 사용하여 온-프레미스 및 클라우드 간 데이터 이동"
+	description="데이터 관리 게이트웨이 및 Azure 데이터 팩터리를 사용하여 온-프레미스와 클라우드 간에 데이터 이동을 알아봅니다."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/29/2015"
 	ms.author="spelluru"/>
 
 # 온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동
@@ -193,25 +193,14 @@ MSI 설치는 게이트웨이 컴퓨터에 인바운드 포트에 대한 Windows
 5. **새 데이터 저장소** 블레이드에서 **확인**을 클릭합니다. 	
 6. **SqlServerLinkedService**의 상태가 연결된 서비스 블레이드에서 온라인으로 설정되었는지 확인합니다.![SQL Server 연결된 서비스 상태](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
-게이트웨이 컴퓨터와 다른 컴퓨터에서 포털에 액세스하는 경우 자격 증명 관리자 응용프로그램이 게이트웨이 컴퓨터에 연결할 수 있는지 확인해야 합니다. 응용프로그램이 게이트웨이 컴퓨터에 연결할 수 없는 경우, 데이터 원본에 대한 자격 증명을 설정하고 데이터 원본에 대한 연결을 테스트할 수 없습니다.
-
-##### 자격 증명 및 보안 설정
-Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램으로 위에서 설명한 메서드를 사용하여 온-프레미스 데이터 원본에 대한 자격 증명을 설정하는 경우 포털은 게이트웨이 컴퓨터에서 데이터 관리 게이트웨이 구성 관리자의 인증서 탭에 지정한 인증서를 사용하여 자격 증명을 암호화합니다.
-
-자격 증명을 암호화하기 위한 API 기반 접근 방식을 하는 경우 [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/azure/dn834940.aspx) PowerShell cmdlet을 사용하여 자격 증명을 암호화합니다. Cmdlet은 해당 게이트웨이 구성하는 인증서를 사용하여 자격 증명을 암호화를 사용합니다. 이 cmdlet에서 반환되는 암호화된 자격을 증명하고 [New-AzureDataFactoryLinkedService](https://msdn.microsoft.com/library/azure/dn820246.aspx) cmdlet 또는 포털의 데이터 팩터리 편집기에서 JSON 조각을 사용하는 JSON 파일에서 connectionString의 EncryptedCredential 요소에 추가할 수 있습니다.
-
-	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
-
-**참고:**"자격 증명 설정" 응용 프로그램을 사용하는 경우 위와 같이 연결된 서비스에서 자동으로 암호화된 자격 증명을 설정합니다.
-
-데이터 팩터리 편집기를 사용하여 자격 증명을 설정할 수 있는 방법이 한 가지 더 있습니다. 편집기를 사용하여 SQL 서버 연결된 서비스를 만들고 일반 텍스트에서 자격 증명을 입력하면 게이트웨이가 사용하도록 구성한 인증서가 아니라 데이터 팩터리 서비스를 소유하는 인증서를 사용하는 자격 증명이 암호화됩니다. 경우에 따라 이 방법은 약간 빠를 수 있는 반면에 안전성이 떨어집니다. 따라서 개발/테스트 목적에 대해서만이 방법을 수행하는 것이 좋습니다.
+자격 증명 설정에 대한 자세한 내용은 [자격 증명 및 보안 설정](#setting-credentials-and-security) 섹션을 참조하세요.
 
 #### Azure 저장소 계정에 대한 연결된 서비스 추가
  
 1. **연결된 서비스** 블레이드의 도구 모음에서 **새로운 데이터 저장소**를 클릭합니다. 
 2. **이름** 필드에 **StorageLinkedService**를 입력합니다. 
 3. **형식** 옆에 화살표를 클릭하고**Azure 저장소**를 선택합니다.
-4. 새 필드를 참조해야 합니다. **형식** 설정의 **계정 이름** 및 **계정 키**입니다. 
+4. **형식** 설정 아래에 **계정 이름** 및 **계정 키**의 새로운 필드가 표시됩니다. 
 3. **계정 이름**에 Azure 저장소 계정의 이름을 입력합니다.
 4. **계정 키**에 Azure 저장소 계정의 키를 입력합니다. 
 5. **확인**을 클릭하여 대화 상자를 닫습니다. 
@@ -279,10 +268,10 @@ Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램으로 �
 
 	다음 사항에 유의하세요.
 	
-	- **형식**을 **SqlServerTable**로 설정합니다.
+	- **type**을 **SqlServerTable**로 설정합니다.
 	- **tablename**을 **emp**로 설정합니다.
 	- **linkedServiceName**을 **SqlServerLinkedService**(2단계에서 만든 연결된 서비스)로 설정합니다.
-	- Azure 데이터 팩터리의 다른 파이프라인에서 생성되지 않는 입력 테이블의 경우 **external**을 **true**로 설정해야 합니다. 이 섹션은 입력 데이터가 Azure 데이터 팩터리 서비스 외부에서 생성되었음을 나타냅니다. **정책** 섹션에서 **externalData** 요소를 사용하여 외부 데이터 정책을 선택적으로 지정할 수 있습니다.    
+	- Azure 데이터 팩터리의 다른 파이프라인에서 생성되지 않는 입력 테이블의 경우 **external**을 **true**로 설정해야 합니다. 이 섹션은 입력 데이터가 Azure 데이터 팩터리 서비스 외부에서 생성되었음을 나타냅니다. **Policy** 섹션에서 **externalData** 요소를 사용하여 외부 데이터 정책을 선택적으로 지정할 수 있습니다.    
 
 	JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조][json-script-reference]를 참조하십시오.
 
@@ -315,10 +304,10 @@ Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램으로 �
   
 	다음 사항에 유의하세요.
 	
-	- **형식**을 **AzureBlob**으로 설정합니다.
+	- **type**을 **AzureBlob**으로 설정합니다.
 	- **linkedServiceName**을 **StorageLinkedService**(2단계에서 만든 연결된 서비스)로 설정합니다.
 	- **folderPath**를 **adftutorial/outfromonpremdf**로 설정합니다. 여기서 outfromonpremdf는 adftutorial 컨테이너의 폴더입니다. **adftutorial** 컨테이너만 만들면 됩니다.
-	- **가용성**은 **매시간** (**빈도**는 **시간**으로, **간격**은 **1**로 설정)로 설정됩니다. 데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다. 
+	- **availability**는 **hourly**(**frequency**는 **hour**로, **interval**은 **1**로 설정)로 설정됩니다. 데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다. 
 
 	**입력 테이블**의 **fileName**을 지정하지 않는 경우 입력 폴더(**folderPath**)의 모든 파일/Blob이 입력으로 간주됩니다. JSON에서 fileName을 지정하는 경우에는 지정한 파일/Blob만 입력으로 간주됩니다. 예제는 [자습서][adf-tutorial]의 샘플 파일을 참조하십시오.
  
@@ -398,14 +387,14 @@ Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램으로 �
 
 	다음 사항에 유의하세요.
  
-	- 활동 섹션에는 **형식**이 **복사**로 설정된 작업 하나밖에 없습니다.
+	- activities 섹션에는 **type**이 **Copy**로 설정된 작업 하나밖에 없습니다.
 	- 작업에 대한 **입력**을 **EmpOnPremSQLTable**로 설정하고 작업에 대한 **출력**을 **OutputBlobTable**로 설정합니다.
-	- **변환** 섹션에서 **SqlSource**를 **원본 형식**으로 지정하고 **BlobSink **를 **싱크 형식**으로 지정합니다.
+	- **transformation** 섹션에서 **SqlSource**를 **source type**으로 지정하고 **BlobSink**를 **sink type**으로 지정합니다.
 - **SqlSource**의 **sqlReaderQuery** 속성에 대해 SQL 쿼리 **select * from emp**를 지정합니다.
 
 	**start** 속성 값을 현재 날짜로 바꾸고 **end** 값을 다음 날짜로 바꿉니다. start 및 end 날짜/시간은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항이지만 이 자습서에서는 사용합니다.
 	
-	**끝** 속성 값을 지정하지 않는 경우 "**start + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **end** 속성 값으로 **9/9/9999**를 지정합니다.
+	**end** 속성 값을 지정하지 않는 경우 "**start + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **end** 속성 값으로 **9/9/9999**를 지정합니다.
 	
 	각 Azure 데이터 팩터리 테이블에 대해 정의된 **가용성** 속성을 기준으로 데이터 조각이 처리되는 기간이 정의됩니다.
 	
@@ -429,7 +418,7 @@ Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램으로 �
 	확대, 축소, 100% 확대, 크기에 맞게, 자동으로 파이프라인 및 테이블 위치 지정, 계보 정보 표시(선택한 항목의 업스트림 및 다운스트림 항목 강조 표시)를 수행할 수 있습니다. 개체(입출력 테이블 또는 파이프라인)를 두 번 클릭하면 해당 속성을 볼 수 있습니다.
 
 ### 5단계: 데이터 집합 및 파이프라인 모니터링
-이 단계에서는 Azure 포털을 사용하여 Azure 데이터 팩터리에서 어떤 일이 일어나는지 모니터링합니다. 또한 PowerShell cmdlet을 사용하여 데이터 집합과 파이프라인을 모니터링할 수도 있습니다. 모니터링에 대한 세부 정보는 [파이프라인 모니터링 및 관리](monitor-manage-pipelines.md) 문서를 참조하십시오.
+이 단계에서는 Azure 포털을 사용하여 Azure 데이터 팩터리에서 어떤 일이 일어나는지 모니터링합니다. 또한 PowerShell cmdlet을 사용하여 데이터 집합과 파이프라인을 모니터링할 수도 있습니다. 모니터링에 대한 세부 정보는 [파이프라인 모니터링 및 관리](monitor-manage-pipelines.md) 문서를 참조하세요.
 
 1. 닫혀 있는 경우 **Azure Preview 포털**로 이동합니다.
 2. **ADFTutorialOnPremDF**에 대한 블레이드가 열려있지 않은 경우, **시작 보드**에서 **ADFTutorialOnPremDF**를 클릭하여 엽니다.
@@ -474,6 +463,20 @@ Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램으로 �
 15. **Azure 저장소 탐색기**와 같은 도구를 사용하여 출력을 확인합니다.
 
 	![Azure 저장소 탐색기](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
+
+
+## 자격 증명 및 보안 설정
+게이트웨이 컴퓨터와 다른 컴퓨터에서 포털에 액세스하는 경우 자격 증명 관리자 응용프로그램이 게이트웨이 컴퓨터에 연결할 수 있는지 확인해야 합니다. 응용프로그램이 게이트웨이 컴퓨터에 연결할 수 없는 경우, 데이터 원본에 대한 자격 증명을 설정하고 데이터 원본에 대한 연결을 테스트할 수 없습니다.
+
+Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램을 사용하여 온-프레미스 데이터 원본에 대한 자격 증명을 설정하는 경우 포털은 게이트웨이 컴퓨터에서 데이터 관리 게이트웨이 구성 관리자의 인증서 탭에 지정한 인증서를 사용하여 자격 증명을 암호화합니다.
+
+자격 증명을 암호화하기 위한 API 기반 접근 방식을 하는 경우 [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/azure/dn834940.aspx) PowerShell cmdlet을 사용하여 자격 증명을 암호화합니다. Cmdlet은 해당 게이트웨이 구성하는 인증서를 사용하여 자격 증명을 암호화를 사용합니다. 이 cmdlet에서 반환되는 암호화된 자격을 증명하고 [New-AzureDataFactoryLinkedService](https://msdn.microsoft.com/library/azure/dn820246.aspx) cmdlet 또는 포털의 데이터 팩터리 편집기에서 JSON 조각을 사용하는 JSON 파일에서 connectionString의 EncryptedCredential 요소에 추가할 수 있습니다.
+
+	"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
+
+**참고:** "자격 증명 설정" 응용 프로그램을 사용하는 경우 위와 같이 연결된 서비스에서 자동으로 암호화된 자격 증명을 설정합니다.
+
+데이터 팩터리 편집기를 사용하여 자격 증명을 설정할 수 있는 방법이 한 가지 더 있습니다. 편집기를 사용하여 SQL 서버 연결된 서비스를 만들고 일반 텍스트에서 자격 증명을 입력하면 게이트웨이가 사용하도록 구성한 인증서가 아니라 데이터 팩터리 서비스를 소유하는 인증서를 사용하는 자격 증명이 암호화됩니다. 경우에 따라 이 방법은 약간 빠를 수 있는 반면에 안전성이 떨어집니다. 따라서 개발/테스트 목적에 대해서만이 방법을 수행하는 것이 좋습니다.
 
 
 ## Azure PowerShell을 사용하여 게이트웨이 만들기 및 등록 
@@ -533,9 +536,9 @@ Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램으로 �
 ## 데이터 관리 게이트웨이를 사용하는 복사에 대한 데이터 흐름
 데이터 파이프라인에는 복사 활동을 사용하여 온-프레미스 데이터를 클라우드로 수집하거나 결과 데이터를 클라우드에서 온-프레미스 데이터 저장소에 다시 내보내는 경우 복사 작업은 내부적으로 게이트웨이를 사용하여 온-프레미스 데이터 원본에서 클라우드로 그리고 반대로 데이터를 전송합니다.
 
-여기에 높은 수준의 데이터 흐름 및 데이터 게이트웨이를 사용한 복사본에 대한 단계의 요약입니다.![게이트웨이를 사용하는 데이터 흐름](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
+다음은 높은 수준의 데이터 흐름 및 데이터 게이트웨이를 사용한 복사본에 대한 단계의 요약입니다.![게이트웨이를 사용하는 데이터 흐름](./media/data-factory-move-data-between-onprem-and-cloud/data-flow-using-gateway.png)
 
-1.	데이터 개발자는 [Azure 포털](http://portal.azure.com)또는[PowerShell Cmdlet](https://msdn.microsoft.com/library/dn820234.aspx) 중 하나를 사용하는 Azure 데이터 팩터리에 대한 새 게이트웨이를 만듭니다. 
+1.	데이터 개발자는 [Azure 포털](http://portal.azure.com) 또는 [PowerShell Cmdlet](https://msdn.microsoft.com/library/dn820234.aspx) 중 하나를 사용하는 Azure 데이터 팩터리에 대한 새 게이트웨이를 만듭니다. 
 2.	데이터 개발자는 게이트웨이로 "연결된 서비스" 패널을 사용하여 온-프레미스 데이터 저장소에 대한 새 연결 된 서비스를 정의합니다. 연결된 서비스 데이터 설정의 일부로서 개발자는 단계별 연습에 표시된 대로 자격 증명 설정 응용 프로그램을 사용하여 인증 유형 및 자격 증명을 지정합니다. 자격 증명 설정 응용 프로그램 대화 상자는 연결을 테스트하는 데이터 저장소 및 자격 증명을 저장하는 게이트웨이와 통신합니다.
 3.	게이트웨이는 클라우드에서 자격 증명을 저장하기 전에 게이트웨이(데이터 개발자가 제공함)에 연결된 인증서로 자격 증명을 암호화합니다.
 4.	데이터 팩터리 이동 서비스는 공유 Azure 서비스 버스 큐를 사용하는 컨트롤 채널을 통해 작업의 예정 및 관리에 대한 게이트웨이와 통신합니다. 복사 작업이 시작되어야 할 경우 데이터 팩터리는 자격 증명 정보와 함께 요청을 나열합니다. 게이트웨이는 큐를 폴링한 후에 작업을 시작합니다.
@@ -547,7 +550,7 @@ Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램으로 �
 1. 위에서 언급한 것처럼 단계별 연습에서 데이터 팩터리를 사용하여 온-프레미스 데이터 저장소에 대한 자격 증명을 설정하는 여러 방법이 있습니다. 포트 고려 사항은 이러한 옵션에 따라 달라집니다.	
 
 	- **자격 증명 설정** 앱 사용: 기본적으로 데이터 관리 게이트웨이 설치 프로그램이 로컬 windows 방화벽에서 게이트웨이 컴퓨터에 **8050** 및 **8051** 포트를 엽니다. 이러한 포트는 자격 증명 설정 응용 프로그램에서 사용하여 게이트웨이에 자격 증명을 릴레이합니다. 로컬 windows 방화벽에서 컴퓨터에 이러한 포트를 엽니다. 인터넷에서 연결될 수는 없으며, 회사 범위의 방화벽에서 해당 포트를 열 필요도 없습니다.
-	2.	[New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) powershell commandlet을 사용합니다.a. Powershell 명령을 사용하여 자격 증명을 암호화하고 결과적으로 게이트웨이 설치하여 windows 방화벽의 게이트웨이 컴퓨터에서 인바운드 포트를 열기를 원하지 않으면 설치하는 동안 다음 명령을 사용하여 수행할 수 있습니다.
+	2.	[New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) powershell commandlet을 사용합니다. a. Powershell 명령을 사용하여 자격 증명을 암호화하고 결과적으로 게이트웨이 설치하여 windows 방화벽의 게이트웨이 컴퓨터에서 인바운드 포트를 열기를 원하지 않으면 설치하는 동안 다음 명령을 사용하여 수행할 수 있습니다.
 	
 			msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 3.	**자격 증명 설정** 응용 프로그램을 사용하면 데이터 원본에 대한 자격 증명을 설정하고 데이터 원본에 대한 연결을 테스트하려면 데이터 관리 게이트웨이에 연결할 수 있는 컴퓨터에서 시작해야 합니다.
@@ -556,4 +559,4 @@ Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램으로 �
 	- 	**허용된 IP 주소**에 **게이트웨이 컴퓨터의 IP 주소**를 추가하도록 [Azure SQL 방화벽 설정](https://msdn.microsoft.com/library/azure/jj553530.aspx)을 구성합니다.
 5.	온-프레미스 SQL Server와 대상 간에 데이터를 복사하고 게이트웨이와 SQL Server 컴퓨터가 서로 다른 경우 다음을 수행 합니다. 게이트웨이가 SQL Server 인스턴스에서 수신 대기하는 포트를 통해 데이터베이스에 액세스할 수 있도록 SQL Server 컴퓨터의 [Windows 방화벽을 구성](https://msdn.microsoft.com/library/ms175043.aspx)합니다. 기본 인스턴스의 경우 포트 1433입니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

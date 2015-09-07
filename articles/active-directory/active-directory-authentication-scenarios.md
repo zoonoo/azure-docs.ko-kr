@@ -1,21 +1,21 @@
 
 <properties
    pageTitle="Azure AD의 인증 시나리오"
-   description="AAD(Azure Active Directory)에 대한 5개의 가장 일반적인 인증 시나리오 개요"
-   services="active-directory"
-   documentationCenter="dev-center-name"
-   authors="msmbaldwin"
-   manager="mbaldwin"
-   editor=""/>
+	description="AAD(Azure Active Directory)에 대한 5개의 가장 일반적인 인증 시나리오 개요"
+	services="active-directory"
+	documentationCenter="dev-center-name"
+	authors="msmbaldwin"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
    ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="06/01/2015"
-   ms.author="mbaldwin"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="06/01/2015"
+	ms.author="mbaldwin"/>
 
 # Azure AD의 인증 시나리오
 
@@ -60,7 +60,7 @@ ID가 필요한 가장 기본적인 시나리오를 가정하겠습니다. 예�
 - 개발자는 오픈 소스 Azure AD 인증 라이브러리를 사용하여 프로토콜 세부 정보를 처리함으로써 인증을 간편하게 만들 수 있습니다. 자세한 내용은 [Azure Active Directory 인증 라이브러리](https://msdn.microsoft.com/library/azure/dn151135.aspx)를 참조하세요.
 
 
-• 사용자가 인증되고 나면 응용 프로그램은 이 사용자의 보안 토큰의 유효성을 검사하여 의도한 당사자에 대해 인증이 성공했는지 확인해야 합니다. 개발자는 제공된 인증 라이브러리를 사용하여 JWT(JSON Web Token) 또는 SAML 2.0를 포함한 Azure AD의 토큰에 대한 유효성 인증을 처리할 수 있습니다. 유효성 검사를 수동으로 수행하려는 경우 [JWT 토큰 처리기](https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx) 설명서를 참조하세요.
+• 사용자가 인증되고 나면 응용 프로그램은 이 사용자의 보안 토큰의 유효성을 검사하여 의도한 당사자에 대해 인증이 성공했는지 확인해야 합니다. 개발자는 제공된 인증 라이브러리를 사용하여 JWT(JSON Web Token) 또는 SAML 2.0를 포함한 Azure AD의 토큰에 대한 유효성 인증을 처리할 수 있습니다. 유효성 검사를 수동으로 수행하려는 경우 [JWT 토큰 처리기](<https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx>) 설명서를 참조하세요.
 
 
 > [AZURE.IMPORTANT]Azure AD는 공개 키 암호화를 사용하여 토큰을 서명하고 토큰 유효성을 확인합니다. 응용 프로그램이 항상 최신 키로 업데이트되도록 하기 위해 응용 프로그램에 있어야 하는 필수 논리에 대해 자세히 알아보려면 [Azure AD의 서명 키 롤오버에 대한 중요한 정보](https://msdn.microsoft.com/library/azure/dn641920.aspx)를 참조하세요.
@@ -338,7 +338,7 @@ AD 인증 라이브러리를 사용하는 경우 아래에서 설명하는 브�
 
 ##### OAuth 2.0 클라이언트 자격 증명 권한을 사용한 응용 프로그램 ID
 
-1. 사용자가 웹 응용 프로그램에서 Azure AD에 로그인합니다(위의 웹 브라우저-웹 응용 프로그램 섹션 참조).
+1. 사용자가 웹 응용 프로그램에서 Azure AD에 로그인합니다(위의 [웹 브라우저-웹 응용 프로그램](#web-browser-to-web-application) 참조).
 
 
 2. 웹 응용 프로그램이 웹 API에 인증하고 원하는 리소스를 검색할 수 있도록 액세스 토큰을 획득해야 합니다. Azure AD의 토큰 끝점에 요청하여 자격 증명, 클라이언트 ID, 웹 API의 응용 프로그램 ID URI를 제공합니다.
@@ -351,7 +351,7 @@ AD 인증 라이브러리를 사용하는 경우 아래에서 설명하는 브�
 
 ##### OpenID Connect를 사용한 위임된 사용자 ID
 
-1. 사용자가 Azure AD를 사용하여 웹 응용 프로그램에 로그인합니다(위의 [웹 브라우저-웹 응용 프로그램](#web-browser-to-web-application) 참조). 웹 응용 프로그램 사용자가 웹 응용 프로그램이 사용자를 대신하여 웹 API를 호출할 수 있도록 동의하지 않은 경우 동의해야 합니다. 응용 프로그램에 필요한 권한이 표시됩니다. 이 권한 중 하나라도 관리자 수준 권한인 경우 디렉터리의 일반 사용자는 동의할 수 없습니다. 이러한 동의 프로세스는 단일 테넌트 응용 프로그램이 아니라 다중 테넌트 응용 프로그램에만 적용됩니다(응용 프로그램에 필수 권한이 이미 있으므로). 사용자가 로그인할 때 웹 응용 프로그램은 사용자에 대한 정보가 포함된 ID 토큰과 인증 코드를 수신했습니다.
+1. 사용자가 Azure AD를 사용하여 웹 응용 프로그램에 로그인합니다(위의 [웹 브라우저-웹 응용 프로그램](#web-browser-to-web-application) 섹션 참조). 웹 응용 프로그램 사용자가 웹 응용 프로그램이 사용자를 대신하여 웹 API를 호출할 수 있도록 동의하지 않은 경우 동의해야 합니다. 응용 프로그램에 필요한 권한이 표시됩니다. 이 권한 중 하나라도 관리자 수준 권한인 경우 디렉터리의 일반 사용자는 동의할 수 없습니다. 이러한 동의 프로세스는 단일 테넌트 응용 프로그램이 아니라 다중 테넌트 응용 프로그램에만 적용됩니다(응용 프로그램에 필수 권한이 이미 있으므로). 사용자가 로그인할 때 웹 응용 프로그램은 사용자에 대한 정보가 포함된 ID 토큰과 인증 코드를 수신했습니다.
 
 
 2. Azure AD에서 발급된 인증 코드를 사용하여 웹 응용 프로그램은 인증 코드, 클라이언트 응용 프로그램에 대한 정보(클라이언트 ID 및 리디렉션 URI), 원하는 리소스(웹 API에 대한 응용 프로그램 ID URI) 등이 포함된 요청을 Azure AD의 토큰 끝점에 보냅니다.
@@ -466,4 +466,4 @@ AD 인증 라이브러리를 사용하는 경우 아래에서 설명하는 브�
 [Azure AD의 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

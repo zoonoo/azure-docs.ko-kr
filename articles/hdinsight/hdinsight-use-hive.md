@@ -14,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/06/2015"
+	ms.date="08/21/2015"
 	ms.author="larryfr"/>
 
 # 샘플 Apache log4j 파일 분석을 위해 HDInsight에서 Hadoop와 함께 Hive 및 HiveQL 사용
@@ -119,13 +119,26 @@ HDInsight는 다양한 메서드를 사용하여 HiveQL 작업을 실행할 수 
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) | &nbsp; | ✔ | Linux 또는or Windows | Windows |
 | [원격 데스크톱](hdinsight-hadoop-use-hive-remote-desktop.md) | ✔ | ✔ | Windows | Windows |
 
+## 온-프레미스 SQL Server Integration Services를 사용하여 Azure HDInsight에서 Hive 작업 실행
+
+SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 수도 있습니다. Azure Feature Pack for SSIS는 HDInsight에서 Hive 작업을 하는 다음 구성 요소를 제공합니다.
+
+
+- [Azure HDInsight Hive 작업][hivetask]
+- [Azure 구독 연결 관리자][connectionmanager]
+
+
+[여기][ssispack]에서 Azure Feature Pack for SSIS에 대해 자세히 알아보세요.
+
+
 ##<a id="nextsteps"></a>다음 단계
 
 이제 Hive의 정의 및 HDInsight에서 Hadoop와 Hive를 사용하는 방법을 살펴보았으므로 다음 링크를 사용하여 Azure HDInsight로 작업하는 다른 방법을 알아봅니다.
 
-* [HDInsight에 데이터 업로드][hdinsight-upload-data]
-* [HDInsight에서 Pig 사용][hdinsight-use-pig]
-* [HDInsight에서 MapReduce 작업 사용][hdinsight-use-mapreduce]
+
+- [HDInsight에 데이터 업로드][hdinsight-upload-data]
+- [HDInsight에서 Pig 사용][hdinsight-use-pig]
+- [HDInsight에서 MapReduce 작업 사용][hdinsight-use-mapreduce]
 
 [check]: ./media/hdinsight-use-hive/hdi.checkmark.png
 
@@ -142,6 +155,9 @@ HDInsight는 다양한 메서드를 사용하여 HiveQL 작업을 실행할 수 
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
 [import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
+[hivetask]: http://msdn.microsoft.com/ko-KR/library/mt146771(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/ko-KR/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/ko-KR/library/mt146770(v=sql.120).aspx
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -163,4 +179,4 @@ HDInsight는 다양한 메서드를 사용하여 HiveQL 작업을 실행할 수 
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

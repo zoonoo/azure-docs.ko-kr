@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="C#을 사용하여 Azure SQL 데이터베이스 만들기 및 관리" 
-   description="이 문서에서는 .NET용 Azure SQL 데이터베이스 라이브러리를 사용하여 C#으로 Azure SQL 데이터베이스를 만들고 관리하는 방법을 보여 줍니다." 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="stevestein" 
-   manager="jeffreyg" 
-   editor=""/>
+   pageTitle="C#을 사용하여 Azure SQL 데이터베이스 만들기 및 관리"
+	description="이 문서에서는 .NET용 Azure SQL 데이터베이스 라이브러리를 사용하여 C#으로 Azure SQL 데이터베이스를 만들고 관리하는 방법을 보여 줍니다."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
+	editor=""/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="data-management" 
-   ms.date="08/07/2015"
-   ms.author="sstein"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="powershell"
+	ms.workload="data-management"
+	ms.date="08/25/2015"
+	ms.author="sstein"/>
 
 # C&#x23;을 사용하여 SQL 데이터베이스 만들기 및 관리
 
@@ -335,6 +335,8 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
 
 ## 기존 데이터베이스를 탄력적 데이터베이스 풀 내로 이동
 
+*풀을 만든 후에 기존 데이터베이스를 풀 내부 및 외부로 이동하는 데 Transact-SQL을 사용할 수 있습니다. 자세한 정보는 [탄력적 데이터베이스 풀 참조 - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL)을 참조하세요.*
+
 탄력적 데이터베이스를 풀 내로 이동합니다.
 
     
@@ -364,6 +366,8 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
 
 
 ## 탄력적 데이터베이스 풀 내에 새 데이터베이스 생성
+
+*풀을 만든 후에 풀에서 탄력적인 새 데이터베이스를 만드는 데 Transact-SQL을 사용할 수 있습니다. 자세한 정보는 [탄력적 데이터베이스 풀 참조 - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL)을 참조하세요.*
 
 풀 내에 직접 새 데이터베이스를 만듭니다.
 
@@ -780,7 +784,7 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
 
 [Azure 리소스 관리 API](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-
+[탄력적 데이터베이스 풀 참조](sql-database-elastic-pool-reference.md)입니다.
 
 
 <!--Image references-->
@@ -794,4 +798,4 @@ SQL 데이터베이스는 서버에 포함되어 있습니다. 서버 이름은 
 [8]: ./media/sql-database-client-library/add-application2.png
 [9]: ./media/sql-database-client-library/clientid.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

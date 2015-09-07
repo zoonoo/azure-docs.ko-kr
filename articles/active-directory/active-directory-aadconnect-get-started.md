@@ -1,26 +1,23 @@
 <properties 
-	pageTitle="Azure AD Connect 시작" 
-	description="Azure AD Connect용 설치 마법사를 다운로드, 설치 및 실행하는 방법을 알아봅니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure AD Connect 시작"
+	description="Azure AD Connect용 설치 마법사를 다운로드, 설치 및 실행하는 방법을 알아봅니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure AD Connect 시작
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="../active-directory-aadconnect/" title="정의">정의</a> <a href="../active-directory-aadconnect-how-it-works/" title="작동 방식">작동 방식</a> <a href="../active-directory-aadconnect-get-started/" title="시작" class="current">시작</a> <a href="../active-directory-aadconnect-whats-next/" title="다음 단계">다음 단계</a> <a href="../active-directory-aadconnect-learn-more/" title="자세한 정보">자세한 정보</a>
-</div>
 
 
 다음 설명서는 Azure Active Directory Connect를 시작하는 데 유용합니다. 이 문서에서는 Azure AD 연결을 위해 빠른 설치를 사용하여 처리합니다. 사용자 지정 설치에 대한 내용은 [Azure AD 연결을 위한 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)를 참조하세요. 디렉토리 동기화에서 Azure AD 연결로 업그레이드에 대한 내용은 [디렉토리 동기화를 Azure Active Directory 연결로 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md)를 참조하세요.
@@ -114,4 +111,4 @@ Azure AD Connect를 성공적으로 설치한 후 Azure 포털에 로그인하�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

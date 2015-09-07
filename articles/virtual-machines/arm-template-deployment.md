@@ -1,12 +1,12 @@
-<properties pageTitle="템플릿을 사용하여 Azure 리소스 배포" description="Azure 리소스 관리 라이브러리에서 사용 가능한 클라이언트 중 일부를 사용하여 가상 컴퓨터, 가상 네트워크 및 저장소 계정을 배포하는 방법을 알아봅니다." services="virtual-machines,virtual-networks,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager/>
+<properties pageTitle="템플릿을 사용하여 Azure 리소스 배포" description="Azure 리소스 관리 라이브러리에서 사용 가능한 클라이언트 중 일부를 사용하여 가상 컴퓨터, 가상 네트워크 및 저장소 계정을 배포하는 방법을 알아봅니다." services="virtual-machines,virtual-networks,storage" documentationCenter="" authors="davidmu1" manager="timlt" editor="tysonn" tags="azure-resource-manager"/>
 
 <tags
-	ms.service="multiple"
+	ms.service="azure-resource-manager"
 	ms.workload="multiple"
 	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na" 
+	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/15/2015"
+	ms.date="08/25/2015"
 	ms.author="davidmu"/>
 
 # .NET 라이브러리 및 템플릿을 사용하여 Azure 리소스 배포
@@ -75,7 +75,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
             "contentVersion": "1.0.0.0",
         }
 
-6. [매개 변수](https://msdn.microsoft.com/library/azure/dn835138.aspx#parameters)는 항상 필요한 것은 아니지만 템플릿 관리를 용이하게 합니다. 값 형식, 기본값(필요한 경우) 및 매개 변수의 허용되는 값을 설명합니다. 이 자습서에서는 가상 컴퓨터, 저장소 계정 및 가상 네트워크를 만드는 데 사용되는 매개 변수가 템플릿에 추가됩니다.
+6. [매개 변수](../resource-group-authoring-templates.md#parameters)는 항상 필요한 것은 아니지만 템플릿 관리를 용이하게 합니다. 값 형식, 기본값(필요한 경우) 및 매개 변수의 허용되는 값을 설명합니다. 이 자습서에서는 가상 컴퓨터, 저장소 계정 및 가상 네트워크를 만드는 데 사용되는 매개 변수가 템플릿에 추가됩니다.
 
     매개 변수 요소와 해당 자식 요소를 contentVersion 요소 뒤에 추가합니다.
 
@@ -106,7 +106,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
           },
         }
 
-7.	템플릿에서 [변수](https://msdn.microsoft.com/library/azure/dn835138.aspx#variables)를 사용하여 자주 변경되는 값 또는 매개 변수 값의 조합에서 만들어야 하는 값을 지정할 수 있습니다.
+7.	템플릿에서 [변수](../resource-group-authoring-templates.md#variables)를 사용하여 자주 변경되는 값 또는 매개 변수 값의 조합에서 만들어야 하는 값을 지정할 수 있습니다.
 
     변수 요소를 매개 변수 섹션 뒤에 추가합니다.
 
@@ -142,7 +142,7 @@ Azure 리소스 관리자 템플릿을 사용하면 리소스와 관련 배포 �
           },
         }
 
-8.	가상 컴퓨터, 가상 네트워크 및 저장소 계정과 같은 [리소스](https://msdn.microsoft.com/library/azure/dn835138.aspx#resources)는 다음에 템플릿에 정의됩니다.
+8.	가상 컴퓨터, 가상 네트워크 및 저장소 계정과 같은 [리소스](../resource-group-authoring-templates.md#resources)는 다음에 템플릿에 정의됩니다.
 
     리소스 섹션을 변수 섹션 뒤에 추가합니다.
 
@@ -443,4 +443,4 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 
 	![AD 응용 프로그램 만들기](./media/arm-template-deployment/crpportal.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

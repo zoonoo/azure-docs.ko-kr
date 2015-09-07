@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Azure DNS 개요 | Microsoft Azure" 
-   description="Microsoft Azure의 Azure DNS 호스팅 서비스 및 Microsoft Azure에서 도메인 호스팅 시작에 대한 개요입니다." 
-   services="dns" 
-   documentationCenter="na" 
-   authors="joaoma" 
-   manager="adinah" 
-   editor=""/>
+   pageTitle="Azure DNS 개요 | Microsoft Azure"
+	description="Microsoft Azure의 Azure DNS 호스팅 서비스 및 Microsoft Azure에서 도메인 호스팅 시작에 대한 개요입니다."
+	services="dns"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor=""/>
 
 <tags
    ms.service="dns"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="05/01/2015"
-   ms.author="joaoma"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/12/2015"
+	ms.author="joaoma"/>
 
 # Azure DNS 개요
 
@@ -31,7 +31,7 @@ Azure DNS의 DNS 도메인은 DNS 이름 서버의 Azure 글로벌 네트워크�
 
 [DNS 영역 만들기 시작](dns-getstarted-create-dnszone.md)
 
-[.NET SDK로 Azure 작업 자동화](../dns-sdk)
+[.NET SDK로 Azure 작업 자동화](dns-sdk.md)
 
 [Azure DNS REST API 참조](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
@@ -40,4 +40,4 @@ Azure DNS의 DNS 도메인은 DNS 이름 서버의 Azure 글로벌 네트워크�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

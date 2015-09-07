@@ -1,21 +1,21 @@
 
 
 <properties 
-	pageTitle="Azure AD Connect 선언적 프로비전 사용" 
-	description="Azure AD Connect 선언적 프로비전을 사용하는 방법에 대해 알아봅니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure AD Connect 선언적 프로비전 사용"
+	description="Azure AD Connect 선언적 프로비전을 사용하는 방법에 대해 알아봅니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure AD Connect 선언적 프로비전
@@ -28,4 +28,4 @@
 
 표현 언어에 대한 자세한 내용은[선언적 프로비저닝 표현식 이해](https://msdn.microsoft.com/library/azure/dn801048.aspx)를 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

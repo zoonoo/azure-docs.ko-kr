@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication은 무엇을 의미하나요?" 
-	description="최종 사용자가 Azure Multi-Factor Authentication을 진행하는 데 도움이 되는 Azure Multi-Factor Authentication 페이지입니다." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Azure Multi-Factor Authentication은 무엇을 의미하나요?"
+	description="최종 사용자가 Azure Multi-Factor Authentication을 진행하는 데 도움이 되는 Azure Multi-Factor Authentication 페이지입니다."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 
@@ -49,4 +49,4 @@ IT 부서의 누군가로부터 메일을 받았거나 상사가 사용자의 �
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

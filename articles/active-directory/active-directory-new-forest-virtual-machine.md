@@ -1,26 +1,26 @@
 <properties 
-	pageTitle="Azure 가상 네트워크에 Active Directory 포리스트 설치" 
-	description="Azure 가상 네트워크의 VM(가상 컴퓨터)에서 새 Active Directory 포리스트를 만드는 방법에 대해 설명하는 자습서입니다." 
-	services="active-directory, virtual-network" 
-	documentationCenter="" 
-	authors="markusvi" 
-	manager="TerryLan" 
+	pageTitle="Azure 가상 네트워크에 Active Directory 포리스트 설치"
+	description="Azure 가상 네트워크의 VM(가상 컴퓨터)에서 새 Active Directory 포리스트를 만드는 방법에 대해 설명하는 자습서입니다."
+	services="active-directory, virtual-network"
+	documentationCenter=""
+	authors="markusvi"
+	manager="TerryLan"
 	editor="LisaToft"
 	tags="azure-classic-portal"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.devlang="na" 
-	ms.topic="article" 
-    ms.tgt_pltfrm="na" 
-    ms.workload="identity" 
-	ms.date="07/23/2015" 
+	ms.service="active-directory"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="07/23/2015"
 	ms.author="markusvi"/>
 
 
 # Azure 가상 네트워크에 새 Active Directory 포리스트 설치
 
-이 토픽에서는 Azure 가상 네트워크 또는 [Azure 가상 네트워크](https://msdn.microsoft.com/library/azure/jj156007.aspx)의 VM(가상 컴퓨터)에 새 Windows Server Active Directory 환경을 만드는 방법을 보여 줍니다. 이 경우 Azure 가상 네트워크는 온-프레미스 네트워크에 연결되지 않습니다.
+이 토픽에서는 Azure 가상 네트워크 또는 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)의 VM(가상 컴퓨터)에 새 Windows Server Active Directory 환경을 만드는 방법을 보여 줍니다. 이 경우 Azure 가상 네트워크는 온-프레미스 네트워크에 연결되지 않습니다.
 
 다음 관련 토픽을 참조할 수도 있습니다.
 
@@ -32,8 +32,7 @@
 
 이 시나리오에서는 외부 사용자가 도메인에 가입된 서버에서 실행되는 응용 프로그램에 액세스해야 합니다. 응용 프로그램 서버를 실행하는 VM과 도메인 컨트롤러를 실행하는 VM이 Azure 가상 네트워크에서 자신의 클라우드 서비스에 설치됩니다. 또한 내결함성 향상을 위해 가용성 집합 내에도 포함됩니다.
 
-![][1]
-
+![][1] 7
 ## 온-프레미스와의 차이점
 
 Azure에 도메인 컨트롤러를 설치할 때와 온-프레미스에 설치할 때의 차이점은 크지 않습니다. 주요 차이점은 다음 표에 나와 있습니다.
@@ -120,12 +119,12 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하
 
 -  [Azure 가상 네트워크에 새 Active Directory 포리스트를 설치하는 방법](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 -  [Azure 가상 컴퓨터에 Windows Server Active Directory를 배포하기 위한 지침](https://msdn.microsoft.com/library/azure/jj156090.aspx)
--  [클라우드 전용 가상 네트워크 구성](https://msdn.microsoft.com/library/dn631643.aspx)
+-  [클라우드 전용 가상 네트워크 구성](../virtual-network/virtual-networks-create-vnet.md)
 -  [사이트 간 VPN 구성](../vpn-gateway/vpn-gateway-site-to-site-create.md)
 -  [Azure 가상 네트워크에 복제 Active Directory 도메인 컨트롤러 설치](../virtual-networks-install-replica-active-directory-domain-controller.md)
 -  [Microsoft Azure IT Pro IaaS: (01) 가상 컴퓨터 기본 사항(영문)](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 -  [Microsoft Azure IT Pro IaaS: (05) 가상 네트워크 및 프레미스 간 연결 만들기(영문)](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
--  [가상 네트워크 개요](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+-  [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)
 -  [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)
 -  [Azure PowerShell](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 -  [Azure Cmdlet 참조](https://msdn.microsoft.com/library/azure/jj554330.aspx)
@@ -139,4 +138,4 @@ Windows PowerShell 사용에 대한 자세한 내용은 [Azure Cmdlets 시작하
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

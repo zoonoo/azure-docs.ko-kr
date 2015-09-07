@@ -1,26 +1,27 @@
 <properties
-   pageTitle="논리 앱에서 SharePoint 커넥터 만들기"
-   description="SharePoint 커넥터 만들기, 논리 앱에서 SharePoint 커넥터 사용"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="논리 앱에서 SharePoint 커넥터 사용 | Microsoft Azure 앱 서비스"
+	description="SharePoint 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
-# 논리 앱에서 SharePoint 커넥터 사용
-
-논리 앱은 다양한 데이터 원본을 기반으로 트리거하고 흐름의 일부로 데이터를 가져오고 처리하기 위한 커넥터를 제공할 수 있습니다. Microsoft SharePoint 커넥터를 사용하여 Microsoft SharePoint Server 또는 SharePoint Online에 연결하여 문서를 관리하고 항목을 나열할 수 있습니다. 문서에 대해 만들기, 업데이트, 가져오기 및 삭제와 같은 다양한 작업을 수행하고 항목을 나열할 수 있습니다. 온-프레미스 SharePoint 서버를 사용할 경우 서비스 버스 연결 문자열을 커넥터 구성의 일부로 입력하고, 온-프레미스 수신기 에이전트를 설치하여 서버에 연결할 수 있습니다.
+# SharePoint 커넥터 시작 및 논리 앱에 추가
+SharePoint Server 또는 SharePoint Online에 연결하여 문서를 관리하고 목록을 나열합니다. 문서에 대해 만들기, 업데이트, 가져오기 및 삭제와 같은 다양한 작업을 수행하고 항목을 나열할 수 있습니다. 온-프레미스 SharePoint 서버를 사용할 경우 서비스 버스 연결 문자열을 커넥터 구성의 일부로 입력하고, 온-프레미스 수신기 에이전트를 설치하여 서버에 연결할 수 있습니다.
 
 SharePoint Online 커넥터 및 SharePoint Server 커넥터 갤러리 앱은 SharePoint를 조작하는 메커니즘으로 트리거 및 동작을 제공합니다.
+
+논리 앱은 다양한 데이터 원본을 기반으로 트리거하고 흐름의 일부로 데이터를 가져오고 처리하기 위한 커넥터를 제공할 수 있습니다. SharePoint 커넥터를 비즈니스 워크플로에 추가하고 논리 앱 내에서 이 워크플로의 일부로 데이터를 처리할 수 있습니다.
 
 ## SharePoint Online 커넥터 만들기
 
@@ -74,17 +75,19 @@ API 앱을 만들면 이제 SharePoint 커넥터를 논리 앱의 트리거 또�
 
 3. 논리 앱의 시작 부분에 SharePoint 커넥터를 선택하면 트리거처럼 작동합니다. 그렇지 않은 경우 커넥터를 사용하는 SharePoint 계정에서 작업을 수행할 수 있습니다.
 
-4. SharePoint Online 커넥터를 사용하는 경우 논리 앱을 인증하고 사용자 대신 작업을 수행할 수 있는 권한을 부여해야 합니다. 권한 부여를 시작하려면 SharePoint 커넥터에서 **권한 부여**를 클릭합니다. <br/> 
-	![][3]
+4. SharePoint Online 커넥터를 사용하는 경우 논리 앱을 인증하고 사용자 대신 작업을 수행할 수 있는 권한을 부여해야 합니다. 권한 부여를 시작하려면 
+	![][3]SharePoint 커넥터의 **인증**을 클릭합니다.
 
-5. 권한 부여를 클릭하면 SharePoint의 인증 대화 상자가 열립니다. 작업을 수행하려는 SharePoint 계정의 로그인 세부 정보를 입력합니다. ![][4]
+5. 권한 부여를 클릭하면 SharePoint의 인증 대화 상자가 열립니다. 작업을 수행하려는 SharePoint 계정의 로그인 세부 정보를 입력합니다. 
+	![][4]
 
 6. 사용자 대신 작업을 수행하려면 계정에 대한 논리 앱 액세스 권한을 부여 합니다.
 	![][5]
 
-7. SharePoint 커넥터를 트리거로 구성하는 경우 트리거가 표시됩니다. 그렇지 않은 경우 작업 목록이 표시되며 수행하려는 적절한 작업을 선택할 수 있습니다. ![][6]
+7. SharePoint 커넥터를 트리거로 구성하는 경우 트리거가 표시됩니다. 그렇지 않은 경우 작업 목록이 표시되며 수행하려는 적절한 작업을 선택할 수 있습니다.  
+	![][6]
   
-**문서 라이브러리에 대해 구성된 상대 URL**
+**문서 라이브러리에 대해 구성된 상대 URL**  
 	![][7]
 
 **문서 목록에 대해 구성된 상대 URL**
@@ -475,4 +478,4 @@ ItemID | 예 | 목록 항목의 ItemId입니다.
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

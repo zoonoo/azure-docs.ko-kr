@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="서비스 버스 큐를 사용하는 방법(Node.js) | Microsoft Azure" 
-	description="Node.js app에서 Azure의 서비스 버스 큐를 사용하는 방법에 대해 알아봅니다." 
-	services="service-bus" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="서비스 버스 큐를 사용하는 방법(Node.js) | Microsoft Azure"
+	description="Node.js app에서 Azure의 서비스 버스 큐를 사용하는 방법에 대해 알아봅니다."
+	services="service-bus"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="service-bus" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.service="service-bus"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="07/06/2015"
 	ms.author="mwasson"/>
 
 # 서비스 버스 큐를 사용하는 방법
@@ -24,7 +24,7 @@
 
 ## Node.js 응용 프로그램 만들기
 
-빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포], [Node.js 클라우드 서비스][Node.js Cloud Service](Windows PowerShell 사용) 또는 [WebMatrix를 사용하는 웹 사이트]를 참조하세요.
+빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포] 또는 [Node.js 클라우드 서비스][Node.js Cloud Service](Windows PowerShell 사용)를 참조하세요.
 
 ## 서비스 버스를 사용하도록 응용 프로그램 구성
 
@@ -60,7 +60,7 @@ Azure 서비스 버스를 사용하려면 Node.js Azure 패키지를 다운로�
 
 Azure 모듈은 AZURE\_SERVICEBUS\_NAMESPACE 및 AZURE\_SERVICEBUS\_ACCESS\_KEY 환경 변수를 읽고 서비스 버스에 연결하는 데 필요한 정보를 가져옵니다. 이러한 환경 변수가 설정되지 않은 경우 **createServiceBusService**를 호출할 때 계정 정보를 지정해야 합니다.
 
-Azure 클라우드 서비스의 구성 파일에서 환경 변수를 설정하는 방법에 대한 예제는 [Node.js 클라우드 서비스 및 저장소]를 참조하세요.
+Azure 클라우드 서비스의 구성 파일에서 환경 변수를 설정하는 방법에 대한 예제는 [Node.js 클라우드 서비스 및 저장소]를 참조하십시오.
 
 Azure 웹 사이트의 관리 포털에서 환경 변수를 설정하는 방법에 대한 예는 [Node.js 웹 응용 프로그램 및 저장소]를 참조하세요.
 
@@ -166,7 +166,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 이제 서비스 버스 큐의 기본 사항을 익혔으므로 다음 링크를 따라 자세히 알아보세요.
 
 -   MSDN 참조: [큐, 항목 및 구독][]을 참조하세요.
--   GitHub에서 [Azure SDK for Node] 리포지토리를 방문하세요.
+-   GitHub에서 [Azure SDK for Node] 리포지토리를 방문하십시오.
 
   [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
   [다음 단계]: #next-steps
@@ -184,10 +184,9 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
   
   [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
   [큐, 항목 및 구독]: http://msdn.microsoft.com/library/azure/hh367516.aspx
-  [WebMatrix를 사용하는 웹 사이트]: ../app-service-web/web-sites-dotnet-using-webmatrix.md
   [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포]: ../app-service-web/web-sites-nodejs-develop-deploy-mac.md
   [Node.js 클라우드 서비스 및 저장소]: ../cloud-services/storage-nodejs-use-table-storage-cloud-service-app.md
   [Node.js 웹 응용 프로그램 및 저장소]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

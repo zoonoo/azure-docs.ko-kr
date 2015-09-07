@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 리소스 관리자 템플릿을 사용하여 SharePoint 팜 배포"
-	description="리소스 관리자 템플릿 및 Azure Preview 포털, Azure PowerShell 또는 Azure CLI를 사용하여 3-서버 또는 9-서버 SharePoint 팜을 쉽게 배포합니다."
+	pageTitle="Azure 리소스 관리자 템플릿을 사용하여 SharePoint 팜 배포 | Microsoft Azure"
+	description="리소스 관리자 템플릿 및 Azure Preview 포털, Azure PowerShell 또는 Azure CLI를 사용하여 3대 서버 또는 9대 서버 SharePoint 팜을 쉽게 배포합니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="davidmu1"
@@ -95,7 +95,7 @@ Azure Preview 포털, Azure PowerShell 또는 Azure CLI에서 템플릿 파일�
 
 이제 사용자는 새로운 리소스 그룹에 3-서버 Sharepoint 팜을 갖게 됩니다.
 
-##9-서버 SharePoint 팜 배포
+## 9-서버 SharePoint 팜 배포
 
 고가용성 SharePoint Server 2013 팜에 대해, 리소스 관리자 템플릿은 9개의 서로 다른 서브넷의 새로운 가상 네트워크에 9개의 가상 컴퓨터를 만듭니다.
 
@@ -112,7 +112,7 @@ Azure Preview 포털, Azure PowerShell 또는 Azure CLI에서 템플릿 파일�
 3.	필요한 경우 **구독**을 클릭하고 올바른 Azure 구독을 선택합니다.
 4.	**리소스 그룹**을 클릭하고 기존 리소스 그룹을 선택합니다. 아니면 **또는 새로 만들기**를 클릭하여 이 작업에 대해 새 그룹을 만듭니다.
 5.	필요한 경우 **리소스 그룹 위치**를 클릭하고 올바른 Azure 위치를 선택합니다.
-6.	필요한 경우 템플릿 사용 조건 및 규약에 대해 검토하려면 약관을 클릭하십시오.
+6.	필요한 경우 템플릿 사용 조건 및 규약에 대해 검토하려면 **약관**을 클릭하세요.
 7.	**만들기**를 클릭합니다.
 
 템플릿에 따라 Azure의 워크로드 빌드에 다소 시간이 걸릴 수 있습니다. 해당 작업이 완료되면 기존 또는 새 리소스 그룹에 새로운 9-서버 SharePoint 팜을 갖게 됩니다.
@@ -139,7 +139,7 @@ Azure Preview 포털, Azure PowerShell 또는 Azure CLI에서 템플릿 파일�
 	New-AzureResourceGroup -Name $RGName -Location $locName
 	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
-다음으로, Azure PowerShell 프롬프트에서 명령 블록을 실행합니다.
+다음으로, Azure PowerShell 명령 프롬프트에서 명령 블록을 실행합니다.
 
 **New-AzureResourceGroupDeployment** 명령을 실행하면 일련의 매개변수 값을 제공하라는 메시지가 표시됩니다. 모든 매개변수 값을 지정하면 **New-AzureResourceGroupDeployment**에서 가상 컴퓨터를 만들고 구성합니다.
 
@@ -180,6 +180,6 @@ Azure Preview 포털, Azure PowerShell 또는 Azure CLI에서 템플릿 파일�
 
 [가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-[Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)
+[Azure PowerShell 설치 및 구성하는 방법](../install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

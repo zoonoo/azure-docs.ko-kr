@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Azure 자동화 DSC 개요" 
-   description="Azure 자동화 DSC(필요한 상태 구성)의 개요, 용어 및 알려진 문제" 
-   services="automation" 
-   documentationCenter="dev-center-name" 
-   authors="coreyp-at-msft" 
-   manager="stevenka" 
-   editor="tysonn"/>
+   pageTitle="Azure 자동화 DSC 개요"
+	description="Azure 자동화 DSC(필요한 상태 구성)의 개요, 용어 및 알려진 문제"
+	services="automation"
+	documentationCenter="dev-center-name"
+	authors="coreyp-at-msft"
+	manager="stevenka"
+	editor="tysonn"/>
 
 <tags
    ms.service="automation"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="TBD" 
-   ms.date="07/09/2015"
-   ms.author="coreyp"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="powershell"
+	ms.workload="TBD"
+	ms.date="08/18/2015"
+	ms.author="coreyp"/>
 
 # Azure 자동화 DSC 개요 #
 
@@ -57,7 +57,7 @@ PowerShell DSC에는 구성이라는 새로운 개념이 도입되었습니다. 
 
 ![대체 텍스트](./media/automation-dsc-overview/AADSC_1.png)
 
-구성 블록 내에서 정확히 동일하게 구성해야 하는 사용자 환경의 노드(컴퓨터) 집합에 대한 필요한 구성을 지정하는 노드 구성 블록을 정의할 수 있습니다. 이러한 방식으로 노드 구성은 하나 이상의 노드에 대한 "역할"을 나타냅니다. 노드 구성 블록은 노드 키워드로 시작합니다. 이 키워드 뒤에는 역할의 이름(변수일 수 있음)이 있습니다. 컴퓨터 이름 뒤에는 노드 구성 블록을 구분하는 중괄호({})를 사용합니다.
+구성 블록 내에서 정확히 동일하게 구성해야 하는 사용자 환경의 노드(컴퓨터) 집합에 대한 필요한 구성을 지정하는 노드 구성 블록을 정의할 수 있습니다. 이러한 방식으로 노드 구성은 하나 이상의 노드에 대한 "역할"을 나타냅니다. 노드 구성 블록은 노드 키워드로 시작합니다. 이 키워드 뒤에는 역할 이름(변수 또는 식일 수 있음)이 있습니다. 역할 이름 뒤에는 노드 구성 블록을 구분하는 중괄호({})를 사용합니다.
 
 ![대체 텍스트](./media/automation-dsc-overview/AADSC_2.png)
  
@@ -103,7 +103,7 @@ Azure 자동화 DSC는 현재 [Azure 리소스 관리자 PowerShell 모듈](http
 -	`Get-AzureAutomationDscNodeReport`
 -	`Export-AzureAutomationDscNodeReportContent`
 
-`Get-AzureAutomationRegistrationInfo` cmdlet은 Azure 포털의 Azure 자동화 DSC VM 확장 또는 PowerShell을 통해 Azure 클래식 VM을 Azure 자동화 계정에 등록하는 데 필요한 등록 URL 및 키를 가져오는 데 사용될 수 있습니다.
+`Get-AzureAutomationRegistrationInfo` cmdlet을 사용하여 Azure 포털의 Azure 자동화 DSC VM 확장 또는 PowerShell을 통해 Azure 클래식 VM을 Azure 자동화 계정에 등록하는 데 필요한 등록 URL 및 키를 가져올 수 있습니다.
 
 
 Azure 자동화 DSC VM 확장:
@@ -170,7 +170,7 @@ DSC 리소스를 PowerShell 모듈의 일부로 가져와 기본 제공 DSC 리�
 
 Azure 자동화 DSC는 PS DSC와 모두 동일한 기본 제공 DSC 리소스와 함께 제공됩니다. 리소스가 포함된 PowerShell 모듈을 Azure 자동화로 가져와 Azure 자동화 DSC에 리소스를 추가할 수 있습니다.
 
-Azure 자동화 DSC는 현재 [Azure 리소스 관리자 PowerShell 모듈](https://msdn.microsoft.com/library/mt244122.aspx)에서 다음과 같은 DSC 노드 관리용 cmdlet을 제공합니다.
+Azure 자동화 DSC는 현재 [Azure 리소스 관리자 PowerShell 모듈](https://msdn.microsoft.com/library/mt244122.aspx)에서 다음과 같은 PowerShell 모듈 관리용 cmdlet을 제공합니다.
 
 - `New-AzureAutomationModule`
 - `Remove-AzureAutomationModule`
@@ -195,7 +195,7 @@ Azure 자동화 DSC는 현재 [Azure 리소스 관리자 PowerShell 모듈](http
 
 ##알려진 문제##
 
-- Azure 자동화 DSC는 미리 보기로 제공되기 때문에 이 기능을 처음 사용할 때 Azure PowerShell cmdlet을 사용하여 등록해야 합니다. 다음 두 cmdlet을 호출하여 등록할 수 있습니다.
+- Azure 자동화 DSC는 미리 보기로 제공되기 때문에 이 기능을 처음 사용할 때 Azure PowerShell cmdlet 또는 Azure Preview 포털을 사용하여 등록해야 합니다. 다음 두 cmdlet을 호출하여 등록할 수 있습니다.
 
  - `Register-AzureProvider –ProviderNamespace Microsoft.Automation`
  - `Register-AzureProviderFeature -FeatureName dsc -ProviderNamespace Microsoft.Automation` 
@@ -226,4 +226,4 @@ Azure 자동화 DSC는 현재 [Azure 리소스 관리자 PowerShell 모듈](http
 
 - Azure 자동화 DSC로 온보드 된 DCS 노드는 처음에 ‘호환' 상태로 표시되며, 매핑된 DCS 노드 구성과 실제로 호환이 되지 않을 경우에도 마찬가지로 표시됩니다. 노드가 첫 번째 끌어오기 수행 및 Azure 자동화 DSC에 첫 번째 DSC 보고를 전송한 후, 노드의 상태는 수정 됩니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="사용자 지정 스크립트 확장 Azure 리소스 관리자 템플릿 사용"
-   description="ARM 템플릿으로 사용자 지정 스크립트를 사용하여 Azure 가상 컴퓨터 구성 작업 자동화"
-   services="virtual-machines"
-   documentationCenter=""
-   authors="kundanap"
-   manager="madhana"
-   editor=""/>
+	description="ARM 템플릿으로 사용자 지정 스크립트를 사용하여 Azure 가상 컴퓨터 구성 작업 자동화"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="kundanap"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/01/2015"
-   ms.author="kundanap"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/01/2015"
+	ms.author="kundanap"/>
 
 # Azure 리소스 관리자 템플릿으로 사용자 지정 스크립트 확장 사용
 
@@ -97,4 +97,4 @@ Azure 리소스 관리자 템플릿을 사용하면 Json 언어에서 리소스 
 
 <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Linux VM의 사용자 지정 스크립트 확장</a>입니다. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Windows VM의 사용자 지정 스크립트 확장</a>입니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

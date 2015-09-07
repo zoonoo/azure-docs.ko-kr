@@ -1,4 +1,3 @@
-
 #사용자 지정 가상 컴퓨터를 만드는 방법
 
 *사용자 지정* 가상 컴퓨터란 **갤러리에서** 방법을 사용하여 만드는 가상 컴퓨터를 말하는데, 이는 **빠른 생성** 방법보다 사용할 수 있는 구성 옵션이 더 많기 때문입니다. 이러한 옵션에는 다음이 포함됩니다.
@@ -37,7 +36,7 @@
 
 	**참고**: 동일한 클라우드 서비스에 가상 컴퓨터를 배치하는 방법에 대한 자세한 내용은 [클라우드 서비스에서 가상 컴퓨터를 연결하는 방법](http://www.windowsazure.com/manage/windows/how-to-guides/connect-to-a-cloud-service/)을 참조하세요.
 
-12. **Region/Affinity Group/Virtual Network**에서 가상 컴퓨터에 사용할 영역, 선호도 그룹 또는 가상 네트워크를 선택합니다. 선호도 그룹에 대한 자세한 내용은 [가상 네트워크의 선호도 그룹 정보](http://msdn.microsoft.com/library/azure/jj156085.aspx)를 참조하십시오.
+12. **Region/Affinity Group/Virtual Network**에서 가상 컴퓨터에 사용할 영역, 선호도 그룹 또는 가상 네트워크를 선택합니다. 선호도 그룹에 대한 자세한 내용은 [가상 네트워크의 선호도 그룹 정보](../virtual-network/virtual-networks-migrate-to-regional-vnet.md)를 참조하십시오.
 
 13. **Storage Account**에서 VHD 파일에 대한 기존 저장소 계정을 선택하거나 자동으로 생성된 저장소 계정을 사용합니다. 영역당 하나의 저장소 계정만 자동으로 만들어집니다. 이 설정으로 만든 다른 모든 가상 컴퓨터는 이 저장소 계정에 있습니다. 20개의 저장소 계정으로 제한됩니다.
 
@@ -60,4 +59,4 @@
 - [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/virtual-machines-linux-how-to-log-on.md)
 - [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](../articles/virtual-machines/virtual-machines-log-on-windows-server.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

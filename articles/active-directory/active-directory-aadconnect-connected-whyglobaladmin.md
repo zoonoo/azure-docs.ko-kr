@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure AD Connect를 설정하기 위한 Azure AD 전역 관리자 계정이 필요한 이유" 
-	description="전역 관리자 계정이 필요한 이유의 사용자 지정 설정의 설명입니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure AD Connect를 설정하기 위한 Azure AD 전역 관리자 계정이 필요한 이유"
+	description="전역 관리자 계정이 필요한 이유의 사용자 지정 설정의 설명입니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure AD Connect를 설정하기 위한 Azure AD 전역 관리자 계정이 필요한 이유
@@ -32,6 +32,5 @@ Express 설정 및 DirSync 업그레이드 | Azure AD 디렉터리에서 동기�
 
 * [Azure AD Connect 계정 및 사용 권한에 대한 추가 정보](active-directory-aadconnect-account-summary.md)
 * [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)
-* [MSDN의 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

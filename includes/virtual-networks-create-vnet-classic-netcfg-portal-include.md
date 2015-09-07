@@ -1,22 +1,22 @@
-## How to create a VNet using a network config file in the Azure portal
+## Azure 포털에서 네트워크 구성 파일을 사용하여 VNet을 만드는 방법
 
-Azure uses an xml file to define all VNets available to a subscription. You can download this file, and edit it to modify or delete existing VNets, and create new ones. In this document, you will learn how to download this file, referred to as network configuration (or netcgf) file, and edit it to create a new VNet. Check the [Azure virtual network configuration schema](https://msdn.microsoft.com/library/azure/jj157100.aspx) to learn more about the network configuration file.
+Azure에서는 xml 파일을 사용하여 구독에 사용할 수 있는 모든 VNet을 정의합니다. 이 파일을 다운로드하고, 편집하여 기존 VNet을 수정 또는 삭제하고 새 VNet을 만들 수 있습니다. 이 문서에서는 네트워크 구성(또는 netcgf) 파일이라고 하는 이 파일을 다운로드하고 편집하여 새 VNet을 만드는 방법을 알아봅니다. 네트워크 구성 파일에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 참조하세요.
 
-To create a VNet using a netcfg file through the Azure portal, follow the steps below.
+Azure 포털을 통해 netcfg 파일을 사용하여 VNet을 만들려면 다음 단계를 수행합니다.
 
-1. From a browser, navigate to http://manage.windowsazure.com and, if necessary, sign in with your Azure account.
-2. Scroll down on the list of services, and click on **NETWORKS** as seen below.
+1. 브라우저에서 http://manage.windowsazure.com으로 이동하고 필요한 경우 Azure 계정으로 로그인합니다.
+2. 아래와 같이 서비스 목록 아래로 스크롤하여 **네트워크**를 클릭합니다.
 
-	![Azure virtual networks](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure1.gif)
+	![Azure 가상 네트워크](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure1.gif)
 
-3. On the bottom of the page, click the **EXPORT** button, as shown below.
+3. 아래와 같이 페이지 아래쪽에서 **내보내기** 단추를 클릭합니다.
 
-	![Export button](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure2.png)
+	![내보내기 단추](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure2.png)
 
-4. On the **Export network configuration** page, select the subscription you want to export the virtual network configuration from, and then click the check mark button on the bottom left hand corner of the page.
-5. Follow your browser instructions to save the **NetworkConfig.xml** file. Make sure you note where you are saving the file.
-6. Open the file you saved in step 5 above using any XML or text editor application, and look for the **<VirtualNetworkSites>** element. If you have any networks already created, each network will be displayed as its own **<VirtualNetworkSite>** element.
-7. To create the virtual network described in this scenario, add the following XML just under the **<VirtualNetworkSites>** element:
+4. **네트워크 구성 내보내기** 페이지에서 가상 네트워크 구성을 내보낼 구독을 선택하고, 페이지의 왼쪽 아래 구석에 있는 확인 표시 단추를 클릭합니다.
+5. 브라우저의 지침에 따라 **NetworkConfig.xml** 파일을 저장합니다. 파일을 저장하는 위치를 적어둡니다.
+6. XML 또는 텍스트 편집기 응용 프로그램을 사용하여 위의 2단계에서 저장한 파일을 열고 **<VirtualNetworkSites>** 요소를 찾아봅니다. 이미 만들어진 네트워크가 있으면 각 네트워크는 자체의 **<VirtualNetworkSite>** 요소로 표시됩니다.
+7. 이 시나리오에서 설명하는 가상 네트워크를 만들려면 **<VirtualNetworkSites>** 요소 바로 아래에 다음 XML을 추가합니다.
 
 		<VirtualNetworkSite name="TestVNet" Location="Central US">
 		  <AddressSpace>
@@ -32,19 +32,21 @@ To create a VNet using a netcfg file through the Azure portal, follow the steps 
 		  </Subnets>
 		</VirtualNetworkSite>
 
-8.  Save the network configuration file.
-9.  In the Azure portal, on the bottom left hand corner of the page, click **NEW**, then click **NETWORK SERVICES**, then click **VIRTUAL NETWORK**, and then click **IMPORT CONFIGURATION** as shown in the figure below.
+8.  네트워크 구성 파일을 저장합니다.
+9.  아래 그림과 같이 Azure 포털에서 페이지의 왼쪽 아래 구석에 있는 **새로 만들기**를 클릭하고 **네트워크 서비스**를 클릭한 후 **가상 네트워크**를 클릭하고 **구성 가져오기**를 클릭합니다.
 
-	![Import configuration](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure3.gif)
+	![구성 가져오기](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure3.gif)
 
-10.  On the **Import the network configuration file** page, click **BROWSE FOR FILE...**, then navigate to the folder you saved your file in step 8 above, select the file, and then click **Open**. The web page should look similar to the figure below. On the bottom right hand corner of the page, click on the arrow button to move to the next step.
+10.  **네트워크 구성 파일 가져오기** 페이지에서 **파일 찾아보기...**를 클릭한 후 위의 8단계에서 파일을 저장한 폴더로 이동한 후 **열기**를 클릭합니다. 웹 페이지는 아래 그림과 비슷합니다. 페이지의 오른쪽 아래 구석에서 화살표 단추를 클릭하여 다음 단계로 이동합니다.
 
-	![Import network configuration file page](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure4.png)
+	![네트워크 구성 파일 가져오기 페이지](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure4.png)
 
-11.   On the **Building your network** page, notice the entry for your new VNet, as shown in the figure below.
+11.   아래 그림과 같이 **네트워크를 빌드하는 중** 페이지에서 새 VNet에 대한 항목을 확인합니다.
 
-	![Building your network page](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure5.png)
+	![네트워크를 빌드하는 중 페이지](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure5.png)
 
-12.   Click on the check mark button on the bottom right hand corner of the page to create the VNet. After a few seconds your VNet will be shown in the list of available VNets, as shown in the figure below.
+12.   페이지의 오른쪽 아래 구석에 있는 확인 표시 단추를 클릭하여 VNet을 만듭니다. 아래 그림과 같이 잠시 후에 사용 가능한 VNet 목록에 해당 Vnet이 표시됩니다.
 
-	![New virtual network](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure6.png)
+	![새 가상 네트워크](./media/virtual-networks-create-vnet-classic-portal-xml-include/vnet-create-portal-netcfg-figure6.png)
+
+<!---HONumber=August15_HO9-->

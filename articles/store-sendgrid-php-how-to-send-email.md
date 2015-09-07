@@ -1,36 +1,25 @@
 <properties 
-	pageTitle="SendGrid 메일 서비스를 사용하는 방법(PHP) | Microsoft Azure" 
-	description="Azure에서 SendGrid 메일 서비스를 사용하여 메일을 보내는 방법을 알아봅니다. 코드 샘플은 PHP로 작성되었습니다." 
-	documentationCenter="php" 
-	services="" 
-	manager="sendgrid" 
-	editor="mollybos" 
+	pageTitle="SendGrid 메일 서비스를 사용하는 방법(PHP) | Microsoft Azure"
+	description="Azure에서 SendGrid 메일 서비스를 사용하여 메일을 보내는 방법을 알아봅니다. 코드 샘플은 PHP로 작성되었습니다."
+	documentationCenter="php"
+	services=""
+	manager="sendgrid"
+	editor="mollybos"
 	authors="thinkingserious"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="PHP" 
-	ms.topic="article" 
-	ms.date="10/30/2014" 
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="PHP"
+	ms.topic="article"
+	ms.date="10/30/2014"
 	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com"/>
-
 # PHP에서 SendGrid 메일 서비스를 사용하는 방법
 
-이 가이드에서는 Azure에서 SendGrid 전자 메일 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 샘플은 PHP로 작성되었습니다. **전자 메일 작성**, **전자 메일 보내기**, **첨부 파일 추가** 등의 시나리오를 다룹니다. SendGrid 및 전자 메일 보내기에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하세요.
+이 가이드에서는 Azure에서 SendGrid 전자 메일 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 샘플은 PHP로 작성되었습니다. **전자 메일 작성**, **전자 메일 보내기**, **첨부 파일 추가** 등의 시나리오를 다룹니다. SendGrid 및 전자 메일 보내기에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
 
-## 목차
-
--   [SendGrid 메일 서비스 정의][]
--   [SendGrid 계정 만들기][]
--   [PHP 응용 프로그램에서 SendGrid 사용][]
--   [방법: 전자 메일 보내기][]
--   [방법: 첨부 파일 추가][]
--   [방법: 필터를 사용하여 바닥글, 추적 및 분석을 사용하도록 설정][]
--   [다음 단계][]
-
-## <a name="bkmk_WhatIsSendGrid"> </a>SendGrid 메일 서비스 정의
+## SendGrid 전자 메일 서비스 정의
 
 SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 신뢰할 만한 [트랜잭션 전자 메일 배달], 확장성 및 실시간 분석을 제공하는 [클라우드 기반 전자 메일 서비스]입니다. 일반적인 SendGrid 사용 시나리오는 다음과 같습니다.
 
@@ -43,15 +32,15 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 
 자세한 내용은 [https://sendgrid.com][]을 참조하세요.
 
-## <a name="bkmk_CreateSendGrid"> </a>SendGrid 계정 만들기
+## SendGrid 계정 만들기
 
 [AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-## <a name="bkmk_UsingSendGridfromPHP"> </a>PHP 응용 프로그램에서 SendGrid 사용
+## PHP 응용 프로그램에서 SendGrid 사용
 
 Azure PHP 응용 프로그램에서 SendGrid를 사용하기 위해 특별한 구성이 필요하지는 않습니다. SendGrid는 서비스이므로, 온-프레미스 응용 프로그램에서 액세스하는 것과 동일한 방법으로 클라우드 응용 프로그램에서 액세스할 수 있습니다.
 
-## <a name="bkmk_HowToSendEmail"> </a>방법: 전자 메일 보내기
+## 방법: 전자 메일 보내기
 
 SendGrid에서 제공하는 SMTP 또는 웹 API를 사용하여 전자 메일을 보낼 수 있습니다.
 
@@ -163,7 +152,7 @@ PHP의 [curl 함수][]를 사용하여 SendGrid 웹 API를 사용하여 전자 �
 
 SendGrid의 웹 API는 REST API와 매우 유사하지만 대부분의 호출에서 GET 및 POST 동사를 상호 교환 가능한 방식으로 사용할 수 있으므로 진정한 의미에서 RESTful API는 아닙니다.
 
-## <a name="bkmk_HowToAddAttachment"> </a>방법: 첨부 파일 추가
+## 방법: 첨부 파일 추가
 
 ### SMTP API
 
@@ -244,7 +233,7 @@ SMTP API를 사용하여 첨부 파일을 보내는 프로세스에는 Swift Mai
 
     'files['.$fileName.']' => '@'.$filePath.'/'.$fileName
 
-예:
+예제:
 
     <?php
 
@@ -290,7 +279,7 @@ SMTP API를 사용하여 첨부 파일을 보내는 프로세스에는 Swift Mai
      // print everything out
      print_r($response);
 
-## <a name="bkmk_HowToUseFilters"> </a>방법: 필터를 사용하여 바닥글, 추적 및 분석을 사용하도록 설정
+## 방법: 필터를 사용하여 바닥글, 추적 및 분석을 사용하도록 설정
 
 SendGrid는 '필터' 사용을 통해 추가 메일 기능을 제공합니다. 클릭 추적, Google 분석, 구독 추적 등을 사용하도록 설정하는 것과 같이 특정 기능을 사용하도록 설정하기 위해 전자 메일 메시지에 추가할 수 있는 설정입니다.
 
@@ -298,7 +287,7 @@ SendGrid는 '필터' 사용을 통해 추가 메일 기능을 제공합니다. �
     
     php composer.phar require sendgrid/sendgrid 2.1.1
 
-예:
+예제:
 
     <?php
      /*
@@ -393,7 +382,7 @@ SendGrid는 '필터' 사용을 통해 추가 메일 기능을 제공합니다. �
 
      print_r($response);
 
-## <a name="bkmk_NextSteps"> </a>다음 단계
+## 다음 단계
 
 SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내용을 보려면 다음 링크를 따라가십시오.
 
@@ -401,14 +390,6 @@ SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으�
 -   SendGrid PHP 라이브러리: <https://github.com/sendgrid/sendgrid-php>
 -   Azure 고객을 위한 SendGrid 특가 제공: <https://sendgrid.com/windowsazure.html>
 
-  [다음 단계]: #bkmk_NextSteps
-  [SendGrid 메일 서비스 정의]: #bkmk_WhatIsSendGrid
-  [SendGrid 계정 만들기]: #bkmk_CreateSendGrid
-  [PHP 응용 프로그램에서 SendGrid 사용]: #bkmk_UsingSendGridfromPHP
-  [방법: 전자 메일 보내기]: #bkmk_HowToSendEmail
-  [방법: 첨부 파일 추가]: #bkmk_HowToAddAttachment
-  [방법: 필터를 사용하여 바닥글, 추적 및 분석을 사용하도록 설정]: #bkmk_HowToUseFilters
-  [How to: Use Additional SendGrid Services]: #bkmk_HowToUseAdditionalSvcs
   [https://sendgrid.com]: https://sendgrid.com
   [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
   [special offer]: https://www.sendgrid.com/windowsazure.html
@@ -420,4 +401,4 @@ SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으�
   [sendgrid-php 라이브러리]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Composer]: https://getcomposer.org/download/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

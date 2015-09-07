@@ -1,20 +1,20 @@
 <properties
   pageTitle="Azure 리소스 관리자 템플릿을 사용하여 Ubuntu에서 MongoDB 클러스터 만들기"
-  description="Azure PowerShell 또는 Azure CLI를 통해 Azure 리소스 관리자 템플릿을 사용하여 Ubuntu에서 MongoDB 클러스터 만들기"
-  services="virtual-machines"
-  documentationCenter=""
-  authors="karthmut"
-  manager="timlt"
-  editor="tysonn"/>
+	description="Azure PowerShell 또는 Azure CLI를 통해 Azure 리소스 관리자 템플릿을 사용하여 Ubuntu에서 MongoDB 클러스터 만들기"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="karthmut"
+	manager="timlt"
+	editor="tysonn"/>
 
 <tags
   ms.service="virtual-machines"
-  ms.workload="multiple"
-  ms.tgt_pltfrm="vm-windows"
-  ms.devlang="na"
-  ms.topic="article"
-  ms.date="04/29/2015"
-  ms.author="karthmut"/>
+	ms.workload="multiple"
+	ms.tgt_pltfrm="vm-windows"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="04/29/2015"
+	ms.author="karthmut"/>
 
 # Azure 리소스 관리자 템플릿을 사용하여 Ubuntu에서 MongoDB 클러스터 만들기
 
@@ -688,6 +688,6 @@ vm-disk-utils-0.1.sh는 azure-quickstart-tempates Github 리포지토리 내 sha
 -	리소스 그룹의 동일한 구성원(클러스터의 노드 등)에 대해 고유한 속성의 여러 인스턴스를 배포하기 위해 리소스 루핑을 활용하는 특정 템플릿을 만듭니다.
 -	모든 배포 후 작업(예: 제품 설치, 구성 등)의 경우 스크립트 배포 확장을 활용하고 각 기술에 특정한 스크립트를 만듭니다.
 
-자세한 내용은 [Azure 리소스 관리자 템플릿 언어](https://msdn.microsoft.com/library/azure/dn835138.aspx)를 참조하세요.
+자세한 내용은 [Azure 리소스 관리자 템플릿 언어](../resource-group-authoring-templates.md)를 참조하세요.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

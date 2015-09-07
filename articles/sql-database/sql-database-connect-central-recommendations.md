@@ -1,38 +1,34 @@
 <properties 
-	pageTitle="SQL 데이터베이스 연결: 링크, 모범 사례, 설계 지침" 
-	description="시작지점 항목은 Ado.net 및 php같은 기술에서 Azure SQL 데이터베이스에 연결해주는 클라이언트 프로그램과 링크를 수집합니다." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="MightyPen" 
-	manager="jeffreyg" 
+	pageTitle="SQL 데이터베이스 연결: 링크, 모범 사례, 설계 지침"
+	description="시작지점 항목은 Ado.net 및 php같은 기술에서 Azure SQL 데이터베이스에 연결해주는 클라이언트 프로그램과 링크를 수집합니다."
+	services="sql-database"
+	documentationCenter=""
+	authors="MightyPen"
+	manager="jeffreyg"
 	editor=""/>
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/05/2015"
 	ms.author="genemi"/>
 
 
 # SQL 데이터베이스 연결: 링크, 모범 사례, 설계 지침
 
 
-이 항목은 Azure SQL 데이터베이스에 대한 클라이언트 연결을 시작할 좋은 기회입니다. 이 항목에서는 Azure SQL 데이터베이스에 연결하고 상호 작용하는 데 사용할 수 있는 여러 기술에 대한 코드 샘플의 링크를 제공합니다. 기술에는 Enterprise Library, JDBC, PHP 등이 있습니다. 일반적으로 특정 연결 기술에 상관없이 적용되는 권장 사항이 제공됩니다.
+이 항목은 Azure SQL 데이터베이스에 대한 클라이언트 연결을 시작할 좋은 기회입니다. 이 항목에서는 Azure SQL 데이터베이스에 연결하고 상호 작용하는 데 사용할 수 있는 여러 기술에 대한 코드 샘플의 링크를 제공합니다. 기술에는 Enterprise Library, JDBC, PHP 등이 있습니다. 제공된 정보는 SQL 데이터베이스에 연결하는 데 사용하는 특정 기술에 상관없이 적용됩니다.
 
 
 ## 기술 독립적 권장 사항
 
 
-이 섹션의 정보는 SQL 데이터베이스에 연결하는 데 사용하는 특정 기술에 상관없이 적용됩니다.
-
-
 - [Azure SQL 데이터베이스 프로그래밍 방식으로 연결 하기 위한 지침](http://msdn.microsoft.com/library/azure/ee336282.aspx) -다음 사항을 다룹니다.
- - 포트
- - 방화벽
+ - [포트 및 방화벽](https://azure.microsoft.com/ko-KR/documentation/articles/sql-database-configure-firewall-settings/)
  - 연결 문자열
 - [Azure SQL 데이터베이스 리소스 관리](https://msdn.microsoft.com/library/azure/dn338083.aspx) -다음 사항을 다룹니다.
  - 리소스 관리
@@ -40,20 +36,14 @@
  - 제한
 
 
-사용하는 연결 기술에 상관없이 SQL 데이터베이스 서버 및 개별 데이터베이스에 대한 특정 방화벽 설정은 다음과 관련이 있습니다.
-
-
-- [Azure SQL 데이터베이스 방화벽](https://msdn.microsoft.com/library/azure/ee621782.aspx)
 
 
 ## 인증 권장 사항
 
 
-- Windows 인증이 아니라 SQL 데이터베이스 인증을 사용합니다.
+- Azure SQL 데이터베이스에서 사용할 수 없는 Windows 인증이 아닌 Azure SQL 데이터베이스 인증을 사용합니다.
 - *마스터* 데이터의 기본값 대신 특정데이터 베이스를 지정합니다.
-- 경우에 따라 사용자 이름에*@yourservername*을 붙이거나 생략해야 합니다. 이는 사용자 도구 또는 API가 작성된 방법에 따라 결정됩니다.
- - 각 개별 기술에 대한 세부 정보를 확인하세요.
-- [포함 된 데이터베이스](http://msdn.microsoft.com/library/ff929071.aspx)에서 사용자를 지정하여 연결합니다.
+- [포함된 데이터베이스](http://msdn.microsoft.com/library/ff929071.aspx)에서 사용자를 지정하여 연결합니다.
  - 이 방법을 사용하면 마스터 데이터베이스에 로그인할 필요가 없으므로 성능 및 확장성이 향상됩니다.
  - SQL 데이터베이스에서는 Transact-SQL **USE myDatabaseName;** 문장을 사용할 수 없습니다.
 
@@ -66,7 +56,7 @@
 - [Azure SQL 데이터베이스 방화벽](http://msdn.microsoft.com/library/ee621782.aspx) 에서 포트 1433을 통해 나가는 TCP 통신을 허용해야 합니다.
  - SQL 데이터베이스 서버 또는 개별 데이터베이스에 대해 [방화벽](http://msdn.microsoft.com/library/azure/ee621782.aspx) 설정을 구성할 수 있습니다.
 - [연결 풀](http://msdn.microsoft.com/library/8xx3tyca.aspx)을 사용하는 경우 프로그램에서 적극적으로 사용하지 않고 다시 사용할 준비를 하지 않는 경우 연결을 즉시 닫습니다.
- - 프로그램에서 다른 작업을 위해 일시 중지하지 않고 연결을 즉시 다시 용하는 경우를 제외하고는 다음패턴이 권장됩니다: <br/><br/>연결을 엽니다. <br/>연결을 통해 하나의 작업을 수행합니다. <br/>연결을 닫습니다.<br/><br/>
+ - 프로그램에서 다른 작업을 위해 일시 중지하지 않고 연결을 즉시 다시 용하는 경우를 제외하고는 다음패턴이 권장됩니다. <br/><br/>연결을 엽니다. <br/>연결을 통해 하나의 작업을 수행합니다. <br/>연결을 닫습니다.<br/><br/>
 - 연결 논리와 함께 다시 시도 논리를 사용하되, 일시적인 오류에 대해서만 사용합니다. SQL 데이터베이스를 사용할 때 여러 가지 이유로 인해 연결을 열거나 쿼리를 실행하려는 시도가 실패할 수 있습니다.
  - 한 가지 영구적인 실패 원인으로는 잘못된 형식의 연결 문자열을 들 수 있습니다.
  - 한 가지 일시적인 실패 원인으로는 Azure SQL 데이터베이스 시스템에 전체 부하 균형 조정이 필요한 경우를 들 수 있습니다. 일시적인 원인은 자체적으로 사라집니다. 즉, 프로그램에서 다시 시도해야 합니다.
@@ -168,4 +158,4 @@ Windows, Linux 및 Mac OS X 모두에서 실행 되는 클라이언트에 대한
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

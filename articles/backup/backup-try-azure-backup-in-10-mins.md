@@ -1,16 +1,16 @@
 <properties
    pageTitle="10분 내 Azure 백업 | Microsoft Azure"
-   description="10분 내 Azure 백업 시작"
-   services="backup"
-   documentationCenter=""
-   authors="Jim-Parker"
-   manager="shreeshd"
-   editor=""/>
+	description="10분 내 Azure 백업 시작"
+	services="backup"
+	documentationCenter=""
+	authors="Jim-Parker"
+	manager="shreeshd"
+	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="07/06/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="get-started-article" ms.date="08/20/2015" ms.author="aashishr"; "jimpark"/>
 
 # 10분 내 Azure 백업 시도
-Azure 백업 설치는 매우 쉬우며, 다음과 같은 방법 동영상도 시작하는 데 도움이 됩니다.
+Azure 백업 설치는 매우 쉬우며, 다음과 같은 방법 동영상도 시작하는데 도움이 됩니다.
 
 ## 1단계: Azure 구독하기
 - Azure 구독이 없는 경우 모든 Azure 서비스에 액세스할 수 있게 해주는 무료 평가판으로 시작할 수 있습니다. 자세한 내용은 다음 링크 [http://azure.microsoft.com/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial)를 참조하세요.
@@ -43,6 +43,7 @@ Azure 백업 설치는 매우 쉬우며, 다음과 같은 방법 동영상도 �
 
 ## 다음 단계
 - Azure 백업에 대한 자세한 내용은 [Azure 백업 개요](backup-introduction-to-azure-backup.md)를 참조하세요.
+- [Windows 서버 백업](backup-azure-backup-windows-server.md)
 - [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

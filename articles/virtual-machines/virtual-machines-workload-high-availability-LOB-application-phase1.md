@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="LOB(기간 업무) 응용 프로그램 작업 1단계: Azure 구성" 
-	description="Azure 인프라 서비스의 고가용성 LOB(기간 업무) 응용 프로그램을 배포하는 이 첫 단계에서는 Azure 가상 네트워크 및 기타 Azure 인프라 요소를 만듭니다." 
+	pageTitle="LOB(기간 업무) 응용 프로그램 1단계 | Microsoft Azure"
+	description="Azure의 LOB(기간 업무) 응용 프로그램 1단계에서 가상 네트워크 및 기타 Azure 인프라 요소를 만듭니다."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # LOB(기간 업무) 응용 프로그램 작업 1단계: Azure 구성
@@ -60,7 +60,7 @@ Azure 구성 요소 구성을 시작하기 전에 다음 표에 필요한 정보
 
 **표 S: 가상 네트워크의 서브넷**
 
-> [AZURE.NOTE]이 미리 정의된 아키텍처에서는 간편한 작업을 위해 단일 서브넷을 사용합니다. 서브넷 격리를 에뮬레이트하기 위해 트래픽 필터 집합을 오버레이하려는 경우에는 Azure [네트워크 보안 그룹](https://msdn.microsoft.com/library/azure/dn848316.aspx)을 사용할 수 있습니다.
+> [AZURE.NOTE]이 미리 정의된 아키텍처에서는 간편한 작업을 위해 단일 서브넷을 사용합니다. 서브넷 격리를 에뮬레이트하기 위해 트래픽 필터 집합을 오버레이하려는 경우에는 Azure [네트워크 보안 그룹](virtual-networks-nsg.md)을 사용할 수 있습니다.
 
 가상 네트워크에서 도메인 컨트롤러를 처음 설정할 때 사용하려는 두 온-프레미스 DNS 서버의 정보를 표 D에 입력합니다. 각 DNS 서버에는 이름과 단일 IP 주소를 지정합니다. 이 이름은 DNS 서버의 호스트 이름 또는 컴퓨터 이름과 일치하지 않아도 됩니다. 아래에는 빈 칸이 두 개 있지만 항목을 더 추가할 수 있습니다. 추가 항목은 IT 부서에서 확인할 수 있습니다.
 
@@ -248,4 +248,4 @@ Test-AzureName 명령에서 **False**를 표시하는 경우 제안된 이름이
 
 [Azure 인프라 서비스 작업: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

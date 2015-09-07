@@ -72,7 +72,7 @@ Azure 포털에서 생성된 RDP 파일의 예는 다음과 같습니다.
 
 원인:연결 중인 가상 컴퓨터는 자격 증명의 사용자 이름 부분에 표시된 보안 기관을 찾을 수 없습니다.
 
-사용자 이름이 *SecurityAuthority*\*UserName* (example: CORP\\User1) 형식인 경우, *SecurityAuthority* 부분은 가상 컴퓨터 이름(로컬 보안 기관)이거나 Active Directory 도메인 이름입니다.
+사용자 이름이 *SecurityAuthority**UserName* (example: CORP\\User1) 형식인 경우, *SecurityAuthority* 부분은 가상 컴퓨터 이름(로컬 보안 기관)이거나 Active Directory 도메인 이름입니다.
 
 이 문제의 가능한 해결책:
 
@@ -86,8 +86,8 @@ Azure 포털에서 생성된 RDP 파일의 예는 다음과 같습니다.
 
 Windows 기반 컴퓨터는 로컬 계정 또는 도메인 기반 계정 자격 증명의 유효성을 검사할 수 있습니다.
 
-- 로컬 계정의 경우 *ComputerName*\*UserName* 구문(예: SQL1\\Admin4798)을 사용합니다.
-- 도메인 계정의 경우*DomainName*\*UserName* 구문(예: CONTOSO\\johndoe)을 사용합니다.
+- 로컬 계정의 경우 *ComputerName**UserName* 구문(예: SQL1\\Admin4798)을 사용합니다.
+- 도메인 계정의 경우*DomainName**UserName* 구문(예: CONTOSO\\johndoe)을 사용합니다.
 
 새 Active Directory 포리스트의 도메인 컨트롤러로 승격하는 컴퓨터의 경우 승격을 수행할 때 사용자가 로그인된 로컬 관리자 계정이 새 포리스트 및 도메인과 같은 암호를 가진 동일한 계정으로 변환됩니다. 이전 로컬 관리자 계정은 삭제됩니다. 예를 들어 DC1\\DCAdmin 로컬 관리자 계정으로 로그인하고 가상 컴퓨터를 corp.contoso.com 도메인에 대한 새 포리스트의 도메인 컨트롤러로 승격하는 경우 DC1\\DCAdmin 로컬 계정이 삭제되고 같은 암호를 가진 새 도메인 계정 CORP\\DCAdmin이 생성됩니다.
 
@@ -182,7 +182,7 @@ Windows 기반 컴퓨터는 로컬 계정 또는 도메인 기반 계정 자격 
 동일한 클라우드 서비스 또는 가상 네트워크에 가상 컴퓨터와 원격 데스크톱 연결을 설정할 수 있는 경우 다음을 확인합니다.
 
 - 대상 가상 컴퓨터의 원격 데스크톱 트래픽에 대 한 끝점 구성. 끝점의 개인 TCP 포트는 가상 컴퓨터에서 원격 데스크톱 서비스를 수신하는 TCP 포트(기본값 3389)와 일치해야 합니다.
-- 대상 가상 컴퓨터의 원격 데스크톱 트래픽 끝점에 대한 ACL. ACL은 인터넷에서 들어오는 트래픽을 원본 IP 주소에 따라 허용 또는 거부하도록 지정하는 데 사용됩니다. ACL이 잘못 구성될 경우 끝점에 원격 데스크톱 트래픽이 들어오지 못할 수 있습니다. ACL을 살펴보고 프록시 또는 다른 에지 서버의 공용 IP 주소에서 들어오는 트래픽이 허용되어 있는지 확인하세요. 자세한 내용은 [네트워크 ACL(액세스 제어 목록)이란?](https://msdn.microsoft.com/library/azure/dn376541.aspx)을 참조하세요.
+- 대상 가상 컴퓨터의 원격 데스크톱 트래픽 끝점에 대한 ACL. ACL은 인터넷에서 들어오는 트래픽을 원본 IP 주소에 따라 허용 또는 거부하도록 지정하는 데 사용됩니다. ACL이 잘못 구성될 경우 끝점에 원격 데스크톱 트래픽이 들어오지 못할 수 있습니다. ACL을 살펴보고 프록시 또는 다른 에지 서버의 공용 IP 주소에서 들어오는 트래픽이 허용되어 있는지 확인하세요. 자세한 내용은 [네트워크 ACL(액세스 제어 목록)이란?](../virtual-network/virtual-networks-acl.md)을 참조하세요.
 
 문제의 발생지인 끝점을 제거하려면 현재 끝점을 제거하고 새 끝점을 만든 후 외부 포트 번호에 49152-65535 범위의 임의 포트를 선택합니다. 자세한 내용은 [가상 컴퓨터로 끝점을 설정하는 방법](virtual-machines-set-up-endpoints.md)을 참조하세요.
 
@@ -267,7 +267,7 @@ MSDN Azure 또는 스택 오버플로 포럼에 문제를 제출하면 전 세�
 
 ## 6단계: Azure 기술 지원 인시던트 제출
 
-**Azure VM에 대한 RDP 연결(다시 부팅 필요)** 문제로 인해 [Azure IaaS(Windows) 진단 패키지](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)를 실행했거나 이 문서의 2\~5단계를 수행하고 Azure 지원 포럼에 문제를 제출했지만 여전히 원격 데스크톱에 연결할 수 없는 경우 한 가지 대안은 가상 컴퓨터를 다시 만들 수 있는지 여부를 고려하는 것입니다.
+**Azure VM에 대한 RDP 연결(다시 부팅 필요)** 문제로 인해 [Azure IaaS(Windows) 진단 패키지](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)를 실행했거나 이 문서의 2~5단계를 수행하고 Azure 지원 포럼에 문제를 제출했지만 여전히 원격 데스크톱에 연결할 수 없는 경우 한 가지 대안은 가상 컴퓨터를 다시 만들 수 있는지 여부를 고려하는 것입니다.
 
 가상 컴퓨터를 다시 만들 수 없는 경우 Azure 기술 지원 인시던트를 제출하는 것이 좋을 수 있습니다.
 
@@ -287,4 +287,4 @@ Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azu
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

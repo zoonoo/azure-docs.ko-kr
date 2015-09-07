@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure 미디어 서비스를 사용하여 라이브 인코딩을 수행할 수 있는 채널 작업" 
-	description="이 항목에서는 온-프레미스 인코더에서 단일 비트 전송률 라이브 스트림을 받은 다음 미디어 서비스를 사용하여 적응 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널을 설정하는 방법에 대해 설명합니다. 적응 스트리밍 프로토콜인 HLS, 부드러운 스트림, MPEG DASH, HDS 중 하나를 사용하여 스트림을 하나 이상의 스트리밍 끝점을 통해 클라이언트 재생 응용 프로그램에 배달할 수 있습니다." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Azure 미디어 서비스를 사용하여 라이브 인코딩을 수행할 수 있는 채널 작업"
+	description="이 항목에서는 온-프레미스 인코더에서 단일 비트 전송률 라이브 스트림을 받은 다음 미디어 서비스를 사용하여 적응 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널을 설정하는 방법에 대해 설명합니다. 적응 스트리밍 프로토콜인 HLS, 부드러운 스트림, MPEG DASH, HDS 중 하나를 사용하여 스트림을 하나 이상의 스트리밍 끝점을 통해 클라이언트 재생 응용 프로그램에 배달할 수 있습니다."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ne"
+	ms.topic="article"
+	ms.date="08/20/2015"
 	ms.author="juliako"/>
 
 #Azure 미디어 서비스를 사용하여 라이브 인코딩을 수행할 수 있는 채널 작업(미리 보기)
@@ -410,30 +410,7 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 - RTP 지원은 전문 방송인을 위해 제공됩니다. [이](http://azure.microsoft.com/blog/2015/04/13/an-introduction-to-live-encoding-with-azure-media-services/) 블로그에서 RTP에 대한 설명을 검토하세요.
 - 슬레이트 이미지는 [여기](media-services-manage-live-encoder-enabled-channels.md#default_slate) 설명된 제한 사항을 따라야 합니다. 1920x1080보다 큰 기본 슬레이트를 사용하여 채널을 만들려고 하면 결국 요청이 오류로 처리됩니다.
 
-
-##<a id="tasks"></a>라이브 스트리밍 관련 작업
-
-###미디어 서비스 계정 만들기
-
-[미디어 서비스 계정을 만듭니다](media-services-create-account.md).
-
-###스트리밍 끝점 구성
-
-스트리밍 끝점 개요 및 관리 방법에 대한 정보는 [미디어 서비스 계정에서 스트리밍 끝점을 관리하는 방법](media-services-manage-origins.md)을 참조하세요.
-
-###개발 환경 설정하기  
-
-개발 환경에 **.NET** 또는 **REST API**를 선택합니다.
-
-[AZURE.INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
-
-###프로그래밍 방식으로 연결하기  
-
-Azure 미디어 서비스에 프로그래밍 방식으로 연결할 **.NET** 또는 **REST API**를 선택합니다.
-
-[AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
-
-###단일 비트 전송률에서 적응 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 만들기 
+###단일 비트 전송률에서 적응 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널을 만드는 방법 
 
 **포털**, **.NET**, **REST API**를 선택하여 채널과 프로그램을 만들고 관리하는 방법을 살펴봅니다.
 
@@ -441,58 +418,6 @@ Azure 미디어 서비스에 프로그래밍 방식으로 연결할 **.NET** 또
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 - [.NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 - [REST API](https://msdn.microsoft.com/library/azure/dn783458.aspx)
-
-###자산 보호
-
-**개요**:
-
-[콘텐츠 보호 개요](media-services-content-protection-overview.md)
-
-프로그램과 연결된 자산을 AES(Advanced Encryption Standard)(128비트 암호화 키 사용) 또는 PlayReady DRM을 사용하여 암호화하려면 콘텐츠 키를 만들어야 합니다.
-
-**.NET** 또는 **REST API**를 사용하여 키를 만듭니다.
-
-[AZURE.INCLUDE [media-services-selector-create-contentkey](../../includes/media-services-selector-create-contentkey.md)]
-
-콘텐츠 키를 만든 후 **.NET** 또는 **REST API**를 사용하여 키 인증 정책을 구성할 수 있습니다.
-
-[AZURE.INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
-
-####파트너와 통합
-
-[castLabs를 사용하여 Azure 미디어 서비스에 DRM 라이선스 제공](media-services-castlabs-integration.md)
-
-
-###자산 게시 및 제공
-
-**개요**:
-
-- [동적 패키징 개요](../media-services-dynamic-overview.md)
-
-
-**.NET** 또는 **REST API**를 사용하여 자산 배달 정책을 구성합니다.
-
-[AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
-
-**Azure 관리 포털** 또는 **.NET**을 사용하여 자산을 게시합니다(로케이터를 만들어서 게시).
-
-[AZURE.INCLUDE [media-services-selector-publish](../../includes/media-services-selector-publish.md)]
-
-
-콘텐츠 배달
-
-> [AZURE.SELECTOR]
-- [Overview](media-services-deliver-content-overview.md)
-
-###Azure CDN 사용하기
-
-미디어 서비스는 Azure CDN과의 통합을 지원합니다. Azure CDN을 사용하도록 설정하는 방법에 대한 자세한 내용은 [미디어 서비스 계정에서 스트리밍 끝점을 관리하는 방법](media-services-manage-origins.md#enable_cdn)을 참조하세요.
-
-###Media Services 계정 크기 조정하기
-
-계정을 프로비전하려는 **스트리밍 예약 단위**의 수를 지정하여 **미디어 서비스** 크기를 조정할 수 있습니다.
-
-스트리밍 단위 크기 조정에 대한 자세한 내용은 [스트리밍 단위 크기를 조정하는 방법](media-services-manage-origins.md#scale_streaming_endpoints.md)을 참조하세요.
 
 ##관련된 항목
 
@@ -505,4 +430,4 @@ Azure 미디어 서비스에 프로그래밍 방식으로 연결할 **.NET** 또
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

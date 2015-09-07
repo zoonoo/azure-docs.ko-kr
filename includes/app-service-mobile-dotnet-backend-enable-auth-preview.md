@@ -1,9 +1,4 @@
-포털에서 다운로드한 서버 프로젝트에는 이미 인증이 사용하도록 설정되어 있습니다.
 
-ASP.NET 프로젝트에서 다음을 확인해야 합니다.
+>[AZURE.TIP]인증 확장 패키지는 빠른 시작 확장 패키지에 포함됩니다. 포털에서 다운로드한 서버 프로젝트에는 이미 인증이 사용되도록 설정되어 있습니다. 빠른 시작 확장을 사용하지 않을 때 인증을 설치하고 초기화하는 방법을 알아보려면 [방법: 서버 프로젝트에 푸시 알림 추가](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-authentication-to-a-server-project)를 참조하세요.
 
-* `Microsoft.Azure.Mobile.Server.Authentication` NuGet 패키지가 설치되어 있습니다.
-
-* WebApiConfig.cs에서 MobileAppConfiguration 개체에 대해 `UseDefaultConfiguration()` 메서드가 호출됩니다. 이 메서드는 위 NuGet 패키지에서 제공되는 `AddAppServiceAuthentication()` 확장 메서드를 호출하며, OWIN 시작 중에 `app.UseAppServiceAuthentication()`을 호출하여 인증에 필요한 OWIN 미들웨어를 등록합니다.
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

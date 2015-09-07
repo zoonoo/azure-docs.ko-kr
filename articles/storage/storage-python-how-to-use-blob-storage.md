@@ -3,7 +3,7 @@
 	description="Python에서 Azure Blob 저장소를 사용하여 Blob을 업로드, 나열, 다운로드 및 삭제하는 방법을 알아봅니다."
 	services="storage"
 	documentationCenter="python"
-	authors="huguesv"
+	authors="emgerner-msft"
 	manager="wpickett"
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="python"
 	ms.topic="article"
-	ms.date="05/11/2015"
-	ms.author="huvalo"/>
+	ms.date="08/25/2015"
+	ms.author="emgerner"/>
 
 # Python에서 Azure Blob 저장소를 사용하는 방법
 
@@ -22,7 +22,7 @@
 
 ## 개요
 
-이 문서에서는 Blob 저장소를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Python으로 작성되었으며 [Python Azure 패키지][]를 사용합니다. 여기서 다루는 시나리오에는 Blob 업로드, 나열, 다운로드 및 삭제가 포함됩니다.
+이 문서에서는 Blob 저장소를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Python으로 작성되었으며 [Python Azure 저장소 패키지][]를 사용합니다. 여기서 다루는 시나리오에는 Blob 업로드, 나열, 다운로드 및 삭제가 포함됩니다.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -34,7 +34,7 @@
 
 **BlobService** 개체를 통해 컨테이너 및 Blob에 대한 작업을 할 수 있습니다. 다음 코드는 **BlobService** 개체를 만듭니다. 프로그래밍 방식으로 Azure 저장소에 액세스하려는 Python 파일의 위쪽에 다음을 추가합니다.
 
-	from azure.storage import BlobService
+	from azure.storage.blob import BlobService
 
 다음 코드는 저장소 계정 이름 및 계정 키를 사용하는 **BlobService** 개체를 만듭니다. 'myaccount' 및 'mykey'를 실제 계정 및 키로 바꾸세요.
 
@@ -73,7 +73,7 @@ Blob에 데이터를 업로드하려면 **put\_block\_blob\_from\_path**, **put\
 
 ## 컨테이너의 Blob 나열
 
-컨테이너의 Blob을 나열하려면 **list\\\_blobs** 메서드를 사용합니다. **list\_blobs**를 호출할 때마다 결과의 한 세그먼트가 반환됩니다. 모든 결과를 가져오려면 결과의 **next\_marker**를 선택하고 필요에 따라 **list\_blobs**를 다시 호출합니다. 다음 코드는 컨테이너에 있는 각 Blob의 **이름**을 콘솔에 출력합니다.
+컨테이너의 Blob을 나열하려면 **list\\_blobs** 메서드를 사용합니다. **list\_blobs**를 호출할 때마다 결과의 한 세그먼트가 반환됩니다. 모든 결과를 가져오려면 결과의 **next\_marker**를 선택하고 필요에 따라 **list\_blobs**를 다시 호출합니다. 다음 코드는 컨테이너에 있는 각 Blob의 **이름**을 콘솔에 출력합니다.
 
 	blobs = []
 	marker = None
@@ -112,5 +112,6 @@ Blob에서 데이터를 다운로드하려면 **get\_blob\_to\_path**, **get\_bl
 [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 [Python Azure 패키지]: https://pypi.python.org/pypi/azure
+[Python Azure 저장소 패키지]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

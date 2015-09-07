@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 데이터 카탈로그 릴리스 정보"
-   description="Azure 데이터 카탈로그의 2015년 7월 13일 릴리스 정보"
-   services="data-catalog"
-   documentationCenter=""
-   authors="dvana"
-   manager="mblythe"
-   editor=""
-   tags=""/>
+	description="Azure 데이터 카탈로그의 2015년 7월 13일 공개 미리 보기 릴리스 정보"
+	services="data-catalog"
+	documentationCenter=""
+	authors="dvana"
+	manager="mblythe"
+	editor=""
+	tags=""/>
 <tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="07/13/2015"
-   ms.author="derrickv"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="07/13/2015"
+	ms.author="derrickv"/>
 
 # Azure 데이터 카탈로그의 2015년 7월 13일 릴리스 정보
 
@@ -35,7 +35,7 @@ Azure 데이터 카탈로그의 초기 미리 보기 릴리스에서 SSRS(SQL Se
 
 Azure 데이터 카탈로그 포털에서 Microsoft Excel의 데이터 자산을 열 때 **Microsoft Excel 보안 공지** 대화 상자가 표시될 수 있습니다. 이는 표준이며 예상된 동작입니다. 사용자는 **사용**을 선택하여 계속할 수 있습니다.
 
-자세한 내용은 [의심스러운 웹 사이트에서 링크 및 파일에 대한 보안 경고 사용 또는 사용 안 함](https://support.office.com/ko-kr/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE)을 참조하세요.
+자세한 내용은 [의심스러운 웹 사이트에서 링크 및 파일에 대한 보안 경고 사용 또는 사용 안 함](https://support.office.com/ko-KR/article/Enable-or-disable-security-alerts-about-links-and-files-from-suspicious-websites-A1AC6AE9-5C4A-4EB3-B3F8-143336039BBE)을 참조하세요.
 
 ## 미리 보기에서 누락된 BLOB 및 UDT 열
 
@@ -67,4 +67,4 @@ Azure 데이터 카탈로그 포털에 로그온할 수 있는 상황이 발생�
 
 RegistrationTool.exe.config 파일을 찾으려면 등록 도구를 시작하여 Windows 작업 관리자 유틸리티를 엽니다. 작업 관리자의 세부 정보 탭에서 RegistrationTool.exe를 마우스 오른쪽 단추로 클릭하고 팝업 메뉴에서 파일 위치 열기를 선택합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

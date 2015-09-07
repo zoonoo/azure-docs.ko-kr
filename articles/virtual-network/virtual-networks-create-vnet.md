@@ -1,25 +1,25 @@
 <properties 
    pageTitle="VNet(가상 네트워크)을 만드는 방법"
-   description="VNet(가상 네트워크)을 만드는 방법을 알아봅니다."
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="VNet(가상 네트워크)을 만드는 방법을 알아봅니다."
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="06/08/2015"
+	ms.author="telmos"/>
 
 # VNet(가상 네트워크)을 만드는 방법
 
 VNet을 만들 경우 Vnet 내의 VM과 서비스는 인터넷을 거치지 않고도 서로 안전하게 통신할 수 있습니다. VNet을 다른 VNet 또는 온-프레미스 네트워크에 연결할 의도가 없는 경우 VPN 장치를 가져와 구성하거나, 다른 VNet 또는 로컬 네트워크에서 선택한 IP 주소를 조정하지 않아도 되므로 Azure VNet을 비교적 쉽고 빠르게 만들 수 있습니다.
 
->[AZURE.WARNING]나중에 다른 VNet 또는 온-프레미스 네트워크에 연결할 VNet을 만드는 데 이 절차를 사용하지 마세요. 보안 프레미스 간 연결 또는 하이브리드 연결을 만들려는 경우 [가상 네트워크 보안 프레미스 간 연결 정보](https://msdn.microsoft.com/library/azure/dn133798.aspx)를 참조하세요. 다른 VNet에 연결된 VNet을 만들려는 경우 [VNet 간 연결 구성](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)을 참조하세요.
+>[AZURE.WARNING]나중에 다른 VNet 또는 온-프레미스 네트워크에 연결할 VNet을 만드는 데 이 절차를 사용하지 마세요. 보안 프레미스 간 연결 또는 하이브리드 연결을 만들려는 경우 [가상 네트워크 보안 프레미스 간 연결 정보](vpn-gateway-cross-premises-options.md)를 참조하세요. 다른 VNet에 연결된 VNet을 만들려는 경우 [VNet 간 연결 구성](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)을 참조하세요.
 
 ## VNet 구성
 
@@ -35,7 +35,7 @@ VNet을 만들 경우 Vnet 내의 VM과 서비스는 인터넷을 거치지 않�
 
 	- **위치** - 드롭다운 메뉴에서 위치(지역)를 선택합니다. 위치는 리소스(VM)를 이 VNet에 배포할 때 해당 리소스를 배치할 실제 위치와 직접적인 관련이 있습니다. 예를 들어 VM을 실제로 *미국 동부*에 배치하려는 경우 해당 위치 지역을 선택합니다. VNet을 만든 후에는 해당 VNet과 연결된 지역을 변경할 수 없습니다.
 
-1. **DNS 서버 및 VPN 연결** 페이지에서는 아무 항목도 변경하지 않습니다. 화살표를 클릭하여 다음 페이지로 이동하세요. Azure에서는 기본적으로 VNet에 대한 기본 이름 확인 기능을 제공합니다. 이름 확인 요구 사항이 기본 Azure 이름 확인을 통해 처리할 수 있는 것보다 더 복잡할 수도 있습니다. 이 경우에는 나중에 DNS를 실행하는 가상 컴퓨터를 VNet에 추가할 수 있습니다. Azure 이름 확인 및 DNS에 대한 자세한 내용은 [이름 확인(DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx)을 참조하세요.
+1. **DNS 서버 및 VPN 연결** 페이지에서는 아무 항목도 변경하지 않습니다. 화살표를 클릭하여 다음 페이지로 이동하세요. Azure에서는 기본적으로 VNet에 대한 기본 이름 확인 기능을 제공합니다. 이름 확인 요구 사항이 기본 Azure 이름 확인을 통해 처리할 수 있는 것보다 더 복잡할 수도 있습니다. 이 경우에는 나중에 DNS를 실행하는 가상 컴퓨터를 VNet에 추가할 수 있습니다. Azure 이름 확인 및 DNS에 대한 자세한 내용은 [이름 확인(DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
 
 1. **가상 네트워크 주소 공간** 페이지에서 이 VNet에 사용할 주소 공간을 입력합니다. VM에 대해 특정 내부 IP 주소 범위를 사용해야 하거나 고정 DIP를 수신할 VM용 특정 서브넷을 만들려는 경우가 아니면 이 페이지의 항목을 변경할 필요가 없습니다. 여러 서브넷을 만들려는 경우에는 이 페이지에서 **서브넷 추가**를 클릭하면 됩니다.
 
@@ -66,4 +66,4 @@ VNet을 만든 후 새 VM을 해당 VNet에 추가할 수 있습니다. 먼저 V
 [VNet(가상 네트워크)을 삭제하는 방법](../virtual-networks-delete-vnet)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

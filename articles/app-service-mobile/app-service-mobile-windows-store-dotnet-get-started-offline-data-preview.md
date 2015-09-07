@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="08/22/2015"
 	ms.author="wesmc"/>
 
 # Windows 앱에 대해 오프라인 동기화 사용
@@ -24,7 +24,7 @@
 
 이 자습서에서는 Azure 모바일 앱 백 엔드를 사용하여 Windows 8.1 스토어 또는 Phone 앱에 오프라인 지원을 추가하는 방법을 보여줍니다. 오프라인 동기화를 사용하면 최종 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱과 데이터 보기, 추가 또는 수정과 같은 상호 작용을 수행할 수 있습니다. 변경 내용은 로컬 데이터베이스에 저장됩니다. 장치가 다시 온라인 상태가 되면 이러한 변경 내용이 원격 백 엔드와 동기화됩니다.
 
-이 자습서에서는 Azure 모바일 앱의 오프라인 기능을 지원하도록 자습서 [Windows 앱 만들기]의 Windows 8.1 앱 프로젝트를 업데이트합니다.
+이 자습서에서는 Azure 모바일 앱의 오프라인 기능을 지원하도록 자습서 [Windows 앱 만들기]의 Windows 8.1 앱 프로젝트를 업데이트합니다. 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 프로젝트에 데이터 액세스 확장 패키지를 추가해야 합니다. 서버 확장 패키지에 대한 자세한 내용은 [Azure 모바일 앱용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
 
 오프라인 동기화 기능에 대한 자세한 내용은 [Azure 모바일 앱에서 오프라인 데이터 동기화] 항목을 참조하세요.
 
@@ -38,10 +38,6 @@
 * [Windows 8.1용 SQLite](http://www.sqlite.org/downloads)
 
 >[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Azure 무료 평가판</a>을 참조하세요.
-
-## 서버 프로젝트 구성 검토(옵션)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-offline-preview](../../includes/app-service-mobile-dotnet-backend-enable-offline-preview.md)]
 
 ## 오프라인 기능을 지원하도록 클라이언트 앱 업데이트
 
@@ -145,7 +141,7 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
             ButtonRefresh.IsEnabled = true;
         }
 
-10. `SyncAsync` 메서드에서 예외 처리기를 추가합니다. 오프라인 상황에서 `MobileServicePushFailedException`는 `PushResult.Status == CancelledByNetworkError`을 사용하여 throw됩니다.
+10. `SyncAsync` 메서드에서 예외 처리기를 추가합니다. 오프라인 상황에서 `MobileServicePushFailedException`은 `PushResult.Status == CancelledByNetworkError`를 사용하여 발생합니다.
 
         private async Task SyncAsync()
         {
@@ -176,7 +172,7 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
             }
         }
 
-    이 `PullAsync` 예에서는 원격 `todoTable`에 있는 모든 레코드를 검색하지만 쿼리를 전달하여 레코드를 필터링할 수도 있습니다. `PullAsync`에 대한 첫 번째 매개 변수는 증분 동기화에 사용되는 쿼리 ID이며, `UpdatedAt` 타임스탬프를 사용하여 마지막 동기화 이후에 수정된 레코드만 가져옵니다. 쿼리 ID는 클라이언트 응용 프로그램의 각 논리 쿼리에 고유한 설명 문자열이어야 합니다. 증분 동기화를 옵트아웃하려면 `null`을 쿼리 ID로 전달합니다. 그러면 각 끌어오기 작업에서 모든 레코드를 검색하므로 비효율적일 수 있습니다.
+    이 `PullAsync` 예제에서는 원격 `todoTable`에 있는 모든 레코드를 검색하지만 쿼리를 전달하여 레코드를 필터링할 수도 있습니다. `PullAsync`에 대한 첫 번째 매개 변수는 증분 동기화에 사용되는 쿼리 ID이며, `UpdatedAt` 타임스탬프를 사용하여 마지막 동기화 이후에 수정된 레코드만 가져옵니다. 쿼리 ID는 클라이언트 응용 프로그램의 각 논리 쿼리에 고유한 설명 문자열이어야 합니다. 증분 동기화를 옵트아웃하려면 `null`을 쿼리 ID로 전달합니다. 그러면 각 끌어오기 작업에서 모든 레코드를 검색하므로 비효율적일 수 있습니다.
 
     `MobileServicePushFailedException`이(가) 푸시 및 끌어오기 작업 둘 다에 대해 발생할 수 있습니다. 끌어오기의 경우 끌어오기 작업에서 내부적으로 푸시를 수행하여 모든 테이블 및 관계가 동기화된 상태인지 확인하기 때문에 이 예외가 발생할 수 있습니다.
 
@@ -184,7 +180,7 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
 
 ## <a name="update-sync"></a>클라이언트 앱의 동기화 동작 업데이트
 
-Azure 모바일 앱 백 엔드에 연결을 끊어서 오프라인 시나리오를 시뮬레이션하도록 클라이언트 앱을 수정합니다. 데이터 항목을 추가하면 예외 처리기는 앱이 `PushResult.Status == CancelledByNetworkError`을 사용하여 오프라인 모드로 작동 중임을 사용자에게 알립니다. 추가된 항목은 로컬 저장소에 보관되지만 다시 온라인 상태가 되고 Azure 모바일 앱 백 엔드에 푸시를 성공적으로 실행할 때까지 모바일 앱 백 엔드에 동기화되지 않습니다.
+Azure 모바일 앱 백 엔드에 연결을 끊어서 오프라인 시나리오를 시뮬레이션하도록 클라이언트 앱을 수정합니다. 데이터 항목을 추가하면 예외 처리기는 앱이 `PushResult.Status == CancelledByNetworkError`를 사용하여 오프라인 모드로 작동 중임을 사용자에게 알립니다. 추가된 항목은 로컬 저장소에 보관되지만 다시 온라인 상태가 되고 Azure 모바일 앱 백 엔드에 푸시를 성공적으로 실행할 때까지 모바일 앱 백 엔드에 동기화되지 않습니다.
 
 1. 공유 프로젝트에서 App.xaml.cs를 편집합니다. **MobileServiceClient**의 초기화를 주석 처리하고 잘못된 모바일 앱 URL을 사용하는 다음 줄을 추가합니다.
 
@@ -197,29 +193,29 @@ Azure 모바일 앱 백 엔드에 연결을 끊어서 오프라인 시나리오�
 2. **F5**를 눌러 응용 프로그램을 빌드 및 실행합니다. 앱을 시작하는 경우 동기화는 새로 고침에 실패합니다.
 3. 새 todo 항목을 몇 개 입력하고 각각에 대해 **저장**을 클릭합니다. `PushResult.Status=CancelledByNetworkError`를 사용하는 각각에 대해 푸시가 실패합니다. 새 todo 항목은 모바일 앱 백 엔드에 푸시할 수 있을 때까지 로컬 저장소에만 있습니다. 
  
-	`PushResult.Status=CancelledByNetworkError`에 대한 예외 대화 상자를 무시할 수 있습니다. 그러면 클라이언트 앱은 모든 동작, 읽기, 업데이트, 삭제(CRUD) 작업을 원활하게 지원하는 모바일 앱 백 엔드에 연결 된 것처럼 동작합니다.
+	`PushResult.Status=CancelledByNetworkError`에 대한 예외 대화 상자를 무시할 수 있습니다. 그러면 클라이언트 앱은 모든 CRUD(만들기, 읽기, 업데이트, 삭제) 작업을 원활하게 지원하는 모바일 앱 백 엔드에 연결된 것처럼 동작합니다.
 
 4. 앱을 닫았다가 다시 시작하여 만든 새 항목이 로컬 저장소에 유지되는지 확인합니다.
 
 5. (선택 사항) Azure SQL 데이터베이스 테이블을 보는 Visual Studio를 사용하여 백 엔드 데이터베이스에서 데이터가 변경되지 않았음을 확인합니다.
 
-   Visual Studio에서 **서버 탐색기**를 엽니다. **Azure**->**SQL 데이터베이스**에 있는 데이터베이스에 이동합니다. 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **SQL Server 개체 탐색기에서 열기**를 선택합니다. 이제 SQL 데이터베이스 테이블 및 콘텐츠를 찾아볼 수 있습니다.
+   Visual Studio에서 **서버 탐색기**를 엽니다. **Azure**->**SQL 데이터베이스**에 있는 데이터베이스로 이동합니다. 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **SQL Server 개체 탐색기에서 열기**를 선택합니다. 이제 SQL 데이터베이스 테이블 및 콘텐츠를 찾아볼 수 있습니다.
 
-6. (선택 사항) 형태 `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem`에서 GET 쿼리를 사용하여 모바일 백 엔드를 쿼리하는 데 Fiddler 또는 Postman와 같은 REST 도구를 사용합니다. 
+6. (선택 사항) Fiddler 또는 Postman와 같은 REST 도구를 사용하여 `https://your-mobile-app-backend-name.azurewebsites.net/tables/TodoItem` 형식의 GET 쿼리를 통해 모바일 백 엔드를 쿼리합니다. 
 
 ## <a name="update-online-app"></a>모바일 앱 백 엔드를 다시 연결하도록 앱 업데이트
 
-이 섹션에서는 앱을 모바일 앱 백 엔드에 다시 연결합니다. 여기서는 모바일 앱 백 엔드를 사용하여 오프라인 상태에서 온라인 상태로 전환되는 앱을 시뮬레이트합니다. 응용 프로그램을 처음 실행하는 경우 `OnNavigatedTo` 이벤트 처리기는 `InitLocalStoreAsync`를 호출합니다. 차례로 `SyncAsync`을 호출하여 백 엔드 데이터베이스와 로컬 저장소를 동기화합니다. 따라서 앱이 시작할 때 동기화하려고 합니다.
+이 섹션에서는 앱을 모바일 앱 백 엔드에 다시 연결합니다. 여기서는 모바일 앱 백 엔드를 사용하여 오프라인 상태에서 온라인 상태로 전환되는 앱을 시뮬레이트합니다. 응용 프로그램을 처음 실행하는 경우 `OnNavigatedTo` 이벤트 처리기는 `InitLocalStoreAsync`를 호출합니다. 차례로 `SyncAsync`를 호출하여 백 엔드 데이터베이스와 로컬 저장소를 동기화합니다. 따라서 앱이 시작할 때 동기화하려고 합니다.
 
 1. 공유 프로젝트에서 App.xaml.cs를 엽니다. `MobileServiceClient`의 이전 초기화에서 주석 처리를 제거하여 올바른 모바일 앱 URL과 게이트웨이 URL을 사용합니다.
 
-2. **F5**를 눌러 앱을 다시 빌드하고 실행합니다. 앱은 밀어넣기 및 끌어오기 작업을 사용하여 `OnNavigatedTo` 이벤트 처리기가 실행되는 즉시 로컬 변경 내용을 Azure 모바일 앱 백엔드와 동기화합니다.
+2. **F5**를 눌러 앱을 다시 빌드하고 실행합니다. 앱은 푸시 및 끌어오기 작업을 사용하여 `OnNavigatedTo` 이벤트 처리기가 실행되는 즉시 로컬 변경 내용을 Azure 모바일 앱 백 엔드와 동기화합니다.
 
 3. (선택 사항) SQL Server 개체 탐색기 또는 Fiddler와 같은 REST 도구를 사용하여 업데이트된 데이터를 봅니다. Azure 모바일 앱 백 엔드 데이터베이스와 로컬 저장소 간에 데이터는 동기화되었습니다.
 
 4. 앱에서 로컬 저장소에서 완료할 몇 개 항목 옆의 확인란을 클릭합니다.
 
-  `UpdateCheckedTodoItem`는 `SyncAsync`를 호출하여 모바일 앱 백 엔드로 전체 항목을 동기화합니다. `SyncAsync`은 푸시 및 끌어오기 모두를 호출합니다. 그러나 **클라이언트가 변경한 테이블에 끌어오기를 실행할 때마다 클라이언트 동기화 컨텍스트에 푸시가 항상 먼저 자동으로 실행됩니다**. 이는 로컬 저장소의 모든 테이블 및 관계를 동기화된 상태로 유지하기 위해서입니다. 따라서 이 경우에 끌어오기를 실행하는 경우 자동으로 실행되기 때문에 `PushAsync`에 대한 호출을 제거할 수 있습니다. 인식하지 못하면 이 동작으로 예기치 않은 푸시가 발생할 수 있습니다. 이 동작에 대한 자세한 내용은 [Azure 모바일 앱에서 오프라인 데이터 동기화]를 참조하세요.
+  `UpdateCheckedTodoItem`은 `SyncAsync`를 호출하여 모바일 앱 백 엔드와 전체 항목을 동기화합니다. `SyncAsync`는 푸시와 끌어오기를 둘 다 호출합니다. 그러나 **클라이언트가 변경한 테이블에 끌어오기를 실행할 때마다 클라이언트 동기화 컨텍스트에 푸시가 항상 먼저 자동으로 실행됩니다**. 이는 로컬 저장소의 모든 테이블 및 관계를 동기화된 상태로 유지하기 위해서입니다. 따라서 이 경우에 끌어오기를 실행할 때 자동으로 실행되기 때문에 `PushAsync` 호출을 제거할 수 있습니다. 인식하지 못하면 이 동작으로 예기치 않은 푸시가 발생할 수 있습니다. 이 동작에 대한 자세한 내용은 [Azure 모바일 앱에서 오프라인 데이터 동기화]를 참조하세요.
 
 
 ##요약
@@ -255,7 +251,7 @@ Azure 모바일 앱 백 엔드에 연결을 끊어서 오프라인 시나리오�
 
 * [Azure 모바일 앱에서 오프라인 데이터 동기화]
 
-* [클라우드 표지: Azure 모바일 서비스에서 오프라인 동기화] \(참고: 비디오는 모바일 서비스에 있지만 Azure 모바일 앱에서 비슷한 방식으로 오프라인 동기화가 작동합니다.)
+* [클라우드 표지: Azure 모바일 서비스에서 오프라인 동기화](참고: 비디오는 모바일 서비스에 있지만 Azure 모바일 앱에서 비슷한 방식으로 오프라인 동기화가 작동합니다.)
 
 * [Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱]
 
@@ -284,4 +280,4 @@ Azure 모바일 앱 백 엔드에 연결을 끊어서 오프라인 시나리오�
 [클라우드 표지: Azure 모바일 서비스에서 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

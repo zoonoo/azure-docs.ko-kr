@@ -1,21 +1,21 @@
 <properties
    pageTitle="HDInsight에서 Hadoop 클러스터 사용자 지정 프로비전 | Microsoft Azure"
-   	description="Azure Preview 포털, Azure PowerShell, 명령줄 또는 .NET SDK를 사용하여 Azure HDInsight용 클러스터를 사용자 지정 프로비전하는 방법에 대해 알아봅니다."
-   services="hdinsight"
-   documentationCenter=""
-   tags="azure-portal"
-   authors="mumian"
-   manager="paulettm"
-   editor="cgronlun"/>
+	description="Azure Preview 포털, Azure PowerShell, 명령줄 또는 .NET SDK를 사용하여 Azure HDInsight용 클러스터를 사용자 지정 프로비전하는 방법에 대해 알아봅니다."
+	services="hdinsight"
+	documentationCenter=""
+	tags="azure-portal"
+	authors="mumian"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="08/11/2015"
-   ms.author="jgao"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="08/21/2015"
+	ms.author="jgao"/>
 
 # HDInsight에서 Hadoop 클러스터 프로비전
 
@@ -43,7 +43,7 @@ HDInsight 클러스터 프로비전에 대한 계획을 세우는 방법에 대�
 
 	클러스터 이름은 클러스터를 식별하는 데 사용됩니다. 클러스터 이름은 다음 지침을 따라야 합니다.
 
-	- 이 필드는 3\~63자 사이의 문자열이어야 합니다.
+	- 이 필드는 3~63자 사이의 문자열이어야 합니다.
 	- 이 필드에는 문자, 숫자 및 하이픈만 포함할 수 있습니다.
 
 - **구독 이름**
@@ -224,7 +224,7 @@ HDInsight 클러스터 프로비전에 대한 계획을 세우는 방법에 대�
 
 	![지점 및 사이트 간 구성 다이어그램](./media/hdinsight-provision-clusters/hdinsight-vnet-point-to-site.png)
 
-가상 네트워크의 기능과 이점에 대한 자세한 내용은 [Azure 가상 네트워크 개요](http://msdn.microsoft.com/library/azure/jj156007.aspx)를 참조하세요.
+가상 네트워크의 기능과 이점에 대한 자세한 내용은 [Azure 가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
 
 > [AZURE.NOTE]HDInsight 클러스터를 프로비전하기 전에 Azure 가상 네트워크를 만들어야 합니다. 자세한 내용은 [가상 네트워크에 Hadoop 클러스터 프로비전](hdinsight-hbase-provision-vnet.md#provision-an-hbase-cluster-into-a-virtual-network)을 참조하세요.
 >
@@ -266,7 +266,7 @@ HDInsight 클러스터 프로비전에 대한 계획을 세우는 방법에 대�
 	   ![데이터 원본 블레이드](./media/hdinsight-provision-clusters/HDI.CreateCluster.4.png "데이터 원본 구성 제공")
 
   	- **선택 방법**: 모든 구독에서 저장소 계정을 찾을 수 있도록 하려면 이 항목을 **From all subscriptions(모든 구독에서)**로 설정합니다. 기존 저장소 계정의 **저장소 이름** 및 **액세스 키**를 입력하려면 이 항목을 **액세스 키**로 설정합니다.
-  	- **저장소 계정 선택/새로 만들기**: 클러스터와 연결할 기존 저장소 계정을 찾아 선택하려면 **저장소 계정 선택**을 클릭합니다. 또는 새 저장소 계정을 만들려면 **새로 만들기**를 클릭합니다. 나타나는 필드를 사용하여 저장소 계정의 이름을 입력합니다. 이름을 사용할 수 있는 경우 녹색 확인 표시가 나타납니다.
+  	- **저장소 계정 선택/새로 만들기**: 클러스터와 연결할 기존 저장소 계정을 찾아 선택하려면 **저장소 계정 선택**을 클릭합니다. 또는 새 저장소 계정을 만들려면 **새로 만들기**를 클릭합니다. 저장소 계정의 이름을 입력할 때 나타나는 필드를 사용합니다. 이름을 사용할 수 있는 경우 녹색 확인 표시가 나타납니다.
     - **기본 컨테이너 선택**: 클러스터에 사용할 기본 컨테이너의 이름을 입력하려면 이 항목을 사용합니다. 여기에 아무 이름이나 입력할 수 있지만, 컨테이너가 이 특정 클러스터에 사용됨을 쉽게 인식할 수 있도록 클러스터와 같은 이름을 사용하는 것이 좋습니다.
   	- **위치**: 저장소 계정이 있거나 저장소 계정을 만들 지역입니다. 이 위치는 클러스터 위치를 결정합니다. 클러스터와 해당 기본 저장소 계정은 같은 Azure 데이터 센터에 공동 배치되어야 합니다.
 
@@ -305,7 +305,7 @@ HDInsight 클러스터 프로비전에 대한 계획을 세우는 방법에 대�
 	| ------------------ | --------------------- |
 	| ![시작 보드에 표시기 프로비전](./media/hdinsight-provision-clusters/provisioning.png) | ![프로비전된 클러스터 타일](./media/hdinsight-provision-clusters/provisioned.png) |
 
-	> [AZURE.NOTE]클러스터를 만드는 데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 **알림** 항목을 사용하여 프로비전 프로세스를 확인하세요.
+	> [AZURE.NOTE]클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 **알림** 항목을 사용하여 프로비전 프로세스를 확인하세요.
 
 5. 프로비전이 완료되면 시작 보드에서 클러스터 타일을 클릭하여 클러스터 블레이드를 시작합니다. 클러스터 블레이드는 이름, 속한 리소스 그룹, 위치, 운영 체제, 클러스터 대시보드의 URL 등 클러스터에 대한 필수 정보를 제공합니다.
 
@@ -404,7 +404,7 @@ Azure PowerShell을 사용하여 HDInsight 클러스터를 프로비전하려면
 
 
 ### HDInsight .NET SDK 사용
-HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다. 아래 지침에 따라 Visual Studio 콘솔 응용 프로그램을 만들고 클러스터를 만들기 위한 코드를 붙여넣으세요.
+HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다. 아래 지침에 따라 Visual Studio 콘솔 응용 프로그램을 만들고 클러스터를 만들기 위한 코드를 붙여 넣으세요.
 
 **Visual Studio 콘솔 응용 프로그램을 만들려면**
 
@@ -543,6 +543,19 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 7. **F5** 키를 눌러 응용 프로그램을 실행합니다. 콘솔 창이 열리고 응용 프로그램의 상태가 표시되며 또한 Azure 계정 자격 증명을 입력하라는 메시지가 표시됩니다. HDInsight 클러스터를 만들려면 몇 분정도 걸릴 수 있습니다.
 
 
+## 온-프레미스 SQL Server Integration Services를 사용하여 HDInsight 클러스터 만들기
+
+SSIS(SQL Server Integration Services)를 사용하여 HDInsight 클러스터를 만들거나 삭제할 수 있습니다. Azure Feature Pack for SSIS는 HDInsight 클러스터에 대한 작업을 하는 다음 구성 요소를 제공합니다.
+
+
+- [Azure HDInsight 클러스터 만들기 작업][ssisclustercreate]
+- [Azure HDInsight 클러스터 삭제 작업][ssisclusterdelete]
+- [Azure 구독 연결 관리자][connectionmanager]
+
+[여기][ssispack]에서 Azure Feature Pack for SSIS에 대해 자세히 알아보세요.
+
+
+
 ##<a id="nextsteps"></a> 다음 단계
 이 문서에서는 HDInsight 클러스터를 프로비전하는 여러 가지 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하십시오.
 
@@ -555,5 +568,9 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-preview-portal]: https://manage.windowsazure.com
+[connectionmanager]: http://msdn.microsoft.com/ko-KR/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/ko-KR/library/mt146770(v=sql.120).aspx
+[ssisclustercreate]: http://msdn.microsoft.com/ko-KR/library/mt146774(v=sql.120).aspx
+[ssisclusterdelete]: http://msdn.microsoft.com/ko-KR/library/mt146778(v=sql.120).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

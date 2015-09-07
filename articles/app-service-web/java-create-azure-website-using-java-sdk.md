@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Java용 Azure SDK를 사용하여 Azure 앱 서비스에서 웹 앱 만들기" 
-	description="Java 용 Azure SDK를 사용하여 프로그래밍 방식으로 Azure 앱 서비스에 웹 앱을 만드는 방법에 대해 알아봅니다." 
+	pageTitle="Java용 Azure SDK를 사용하여 Azure 앱 서비스에서 웹 앱 만들기"
+	description="Java 용 Azure SDK를 사용하여 프로그래밍 방식으로 Azure 앱 서비스에 웹 앱을 만드는 방법에 대해 알아봅니다."
 	tags="azure-classic-portal"
-	services="app-service\web" 
-	documentationCenter="Java" 
-	authors="donntrenton" 
-	manager="wpickett" 
+	services="app-service\web"
+	documentationCenter="Java"
+	authors="donntrenton"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="04/24/2015" 
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="04/24/2015"
 	ms.author="v-donntr"/>
 
 
@@ -438,7 +438,6 @@ WAR 파일의 배포에 대한 자세한 내용은 [Java 응용 프로그램을 
 
 FTP를 사용하여 웹 서비스 웹 앱에 배포에 대한 자세한 내용은 다음 항목을 참조하세요.
 
-- [Azure 포털을 사용하여 웹 앱 관리: 배포](web-sites-manage.md/#deployment)
 - [FTP 유틸리티를 사용하여 배포](web-sites-deploy.md)
 
 
@@ -590,4 +589,4 @@ FTP를 사용하여 새로 만든된 웹 앱에 응용 프로그램 파일을 �
   [10]: ./media/java-create-azure-website-using-java-sdk/kudu-console-jsphello-war-2.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

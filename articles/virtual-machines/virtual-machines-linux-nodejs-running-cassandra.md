@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure에서 Linux 환경의 Cassandra 실행" 
-	description="Node.js 앱에서 Azure 가상 컴퓨터의 Linux에서 Cassandra 클러스터를 실행하는 방법에 대해 알아봅니다." 
-	services="virtual-machines" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Azure에서 Linux 환경의 Cassandra 실행"
+	description="Node.js 앱에서 Azure 가상 컴퓨터의 Linux에서 Cassandra 클러스터를 실행하는 방법에 대해 알아봅니다."
+	services="virtual-machines"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/30/2015"
 	ms.author="MikeWasson"/>
 
 
@@ -53,7 +53,7 @@ Cassandra는 작업의 분산 특성에 따라 단일 Azure 지역이나 여러 
 
 이 문서를 작성할 당시, Azure는 특정 장애 도메인에 대한 VM 그룹의 명시적 매핑을 허용하지 않습니다. 따라서 그림 1에 표시된 배포 모델에서도 통계상 모든 가상 컴퓨터가 4개가 아닌 2개의 장애 도메인에 매핑될 수 있습니다.
 
-**로드 균형 조정 Thrift 트래픽:** 웹 서버 내부의 Thrift 클라이언트 라이브러리는 내부 부하 분산 장치를 통해 클러스터에 연결합니다. 이렇게 하려면 Cassandra 클러스터를 호스팅하는 클라우드 서비스의 컨텍스트에서 "데이터" 서브넷에 내부 부하 분산 장치를 추가하는 프로세스가 필요합니다(그림 1 참조). 내부 부하 분산을 정의한 후, 각 노드에서 부하 분산된 끝점이 이전에 정의된 부하 분산 장치 이름을 포함하는 부하 분산된 집합의 주석으로 추가되어야 합니다. 자세한 내용은 [Azure 내부 부하 분산](http://msdn.microsoft.com/library/azure/dn690121.aspx)을 참조하세요.
+**로드 균형 조정 Thrift 트래픽:** 웹 서버 내부의 Thrift 클라이언트 라이브러리는 내부 부하 분산 장치를 통해 클러스터에 연결합니다. 이렇게 하려면 Cassandra 클러스터를 호스팅하는 클라우드 서비스의 컨텍스트에서 "데이터" 서브넷에 내부 부하 분산 장치를 추가하는 프로세스가 필요합니다(그림 1 참조). 내부 부하 분산을 정의한 후, 각 노드에서 부하 분산된 끝점이 이전에 정의된 부하 분산 장치 이름을 포함하는 부하 분산된 집합의 주석으로 추가되어야 합니다. 자세한 내용은 [Azure 내부 부하 분산](../load-balancer/load-balancer-internal-overview.md)을 참조하세요.
 
 **클러스터 시드:** 새 노드는 시드 노드와 통신하여 클러스터의 토폴로지를 검색하므로 가장 가용성이 큰 노드를 시드에 대해 선택하는 것이 중요합니다. 단일 실패 지점을 방지하기 위해 각 가용성 집합에서 하나의 노드가 시드 노드로 지정됩니다.
 
@@ -124,7 +124,7 @@ Azure에 배포된 시스템에 고가용성(예: 8.76시간/년과 동등한 �
 
 JRE를 다운로드하려면 Oracle 라이선스를 수동으로 승인해야 하므로 배포를 간소화하려면 클러스터 배포 전에 만들려는 Ubuntu 템플릿 이미지에 나중에 업로드할 필수 소프트웨어를 데스크톱에 모두 다운로드합니다.
 
-로컬 데스크톱의 잘 알려진 downloads 디렉터리(예: Windows의 %TEMP%/downloads 또는 Linux/Mac의 \~/downloads)에 위 소프트웨어를 다운로드합니다.
+로컬 데스크톱의 잘 알려진 downloads 디렉터리(예: Windows의 %TEMP%/downloads 또는 Linux/Mac의 ~/downloads)에 위 소프트웨어를 다운로드합니다.
 
 ### UBUNTU VM 만들기
 이 프로세스 단계에서는 여러 개의 Cassandra 노드를 프로비전하는 데 이미지를 다시 사용할 수 있도록 필수 조건 소프트웨어로 Ubuntu 이미지를 만듭니다.
@@ -165,7 +165,7 @@ Azure는 프로비전 시간에 PEM 또는 DER 인코딩된 X509 공개 키를 �
 
 ###필수 소프트웨어 설치
 ####1단계: tarball 업로드 
-scp 또는 pscp를 사용하여 다음 명령 형식으로 이전에 다운로드한 소프트웨어를 \~/downloads 디렉터리로 복사합니다.
+scp 또는 pscp를 사용하여 다음 명령 형식으로 이전에 다운로드한 소프트웨어를 ~/downloads 디렉터리로 복사합니다.
 
 #####pscp server-jre-8u5-linux-x64.tar.gz localadmin@hk-cas-template.cloudapp.net:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
 
@@ -301,7 +301,7 @@ Cassandra 시작 스크립트에서 이러한 jar을 찾을 수 있도록 $CASS\
 이 작업은 몇 초 정도 걸리며, 이미지 갤러리의 내 이미지 섹션에서 해당 이미지를 사용할 수 있습니다. 이미지가 성공적으로 캡처되면 원본 VM이 자동으로 삭제됩니다.
 
 ##단일 지역 배포 프로세스
-**1단계: 가상 네트워크 만들기** 관리 포털에 로그인한 다음 표에 나열된 특성을 사용하여 가상 네트워크를 만듭니다. 프로세스의 자세한 단계는 [관리 포털에서 클라우드 전용 가상 네트워크 구성](http://msdn.microsoft.com/library/azure/dn631643.aspx)을 참조하세요.
+**1단계: 가상 네트워크 만들기** 관리 포털에 로그인한 다음 표에 나열된 특성을 사용하여 가상 네트워크를 만듭니다. 프로세스의 자세한 단계는 [관리 포털에서 클라우드 전용 가상 네트워크 구성](../virtual-network/virtual-networks-create-vnet.md)을 참조하세요.
 
 <table>
 <tr><th>VM 특성 이름</th><th>값</th><th>설명</th></tr>
@@ -467,7 +467,7 @@ VM에 로그인하고 다음을 수행합니다.
 완료된 단일 지역 배포를 활용하며 두 번째 지역 설치를 위해 동일한 프로세스를 반복합니다. 단일 지역 배포와 다중 지역 배포 간의 주요 차이점은 지역 간 통신을 위한 VPN 터널 설정입니다. 네트워크 설치에서 시작하여 VM을 프로비전하고 Cassandra를 구성하겠습니다.
 
 ###1단계: 2번째 지역에 가상 네트워크 만들기
-관리 포털에 로그인한 다음 표에 나열된 특성을 사용하여 가상 네트워크를 만듭니다. 프로세스의 자세한 단계는 [관리 포털에서 클라우드 전용 가상 네트워크 구성](http://msdn.microsoft.com/library/azure/dn631643.aspx)을 참조하세요.
+관리 포털에 로그인한 다음 표에 나열된 특성을 사용하여 가상 네트워크를 만듭니다. 프로세스의 자세한 단계는 [관리 포털에서 클라우드 전용 가상 네트워크 구성](../virtual-network/virtual-networks-create-vnet.md)을 참조하세요.
 
 <table>
 <tr><th>특성 이름    </th><th>값	</th><th>설명</th></tr>
@@ -700,4 +700,4 @@ Microsoft Azure는 이 연습에서 알 수 있듯이 Microsoft 및 오픈 소�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

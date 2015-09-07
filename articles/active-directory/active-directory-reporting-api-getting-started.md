@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure AD Reporting API 시작하기"
-   description="Azure Active Directory Reporting API를 시작하는 방법"
-   services="active-directory"
-   documentationCenter=""
-   authors="kenhoff"
-   manager="mbaldwin"
-   editor=""/>
+	description="Azure Active Directory Reporting API를 시작하는 방법"
+	services="active-directory"
+	documentationCenter=""
+	authors="kenhoff"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
    ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="07/17/2015"
-   ms.author="kenhoff;yossib"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="07/17/2015"
+	ms.author="kenhoff;yossib"/>
 
 
 # Azure AD Reporting API 시작하기
@@ -73,7 +73,9 @@ Reporting API는 [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
 
 ## 스크립트 수정
-디렉터리에서 아래 PowerShell 스크립트가 작동하도록 편집하려면 $ClientID, $ClientSecret, $tenantdomain를 "Azure AD에서 액세스 위임"의 올바른 값으로 바꾸세요.
+$ClientID, $ClientSecret, $tenantdomain을 "Azure AD에서 액세스 위임"의 올바른 값으로 대체하여 디렉터리에서 작동하도록 아래 스크립트 중 하나를 편집합니다.
+
+### PowerShell 스크립트
 
     # This script will require the Web Application and permissions setup in Azure Active Directory
     $ClientID      = "<<YOUR CLIENT ID HERE>>"                # Should be a ~35 character string insert your info here
@@ -125,6 +127,30 @@ Reporting API는 [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx)
         Write-Host "ERROR: No Access Token"
         }
 
+### Bash 스크립트
+
+    #!/bin/bash
+
+    # Author: Ken Hoff (kenhoff@microsoft.com)
+    # Date: 2015.08.20
+    # NOTE: This script requires jq (https://stedolan.github.io/jq/)
+
+    CLIENT_ID="<<YOUR CLIENT ID HERE>>"			# Should be a ~35 character string insert your info here
+    CLIENT_SECRET="<<YOUR CLIENT SECRET HERE>>"	# Should be a ~44 character string insert your info here
+    LOGIN_URL="https://login.windows.net"
+    TENANT_DOMAIN="<<YOUR TENANT NAME HERE>>"	 # For example, contoso.onmicrosoft.com
+
+    TOKEN_INFO=$(curl -s --data-urlencode "grant_type=client_credentials" --data-urlencode "client_id=$CLIENT_ID" --data-urlencode "client_secret=$CLIENT_SECRET" "$LOGIN_URL/$TENANT_DOMAIN/oauth2/token?api-version=1.0")
+
+    TOKEN_TYPE=$(echo $TOKEN_INFO | jq -r '.token_type')
+    ACCESS_TOKEN=$(echo $TOKEN_INFO | jq -r '.access_token')
+
+    REPORT=$(curl -s --header "Authorization: $TOKEN_TYPE $ACCESS_TOKEN" https://graph.windows.net/$TENANT_DOMAIN/reports/auditEvents?api-version=beta)
+
+    echo $REPORT | jq -r '.value' | jq -r ".[]"
+
+
+
 
 ## 스크립트 실행
 스크립트를 편집한 후에는 실행하여 AuditEvents에서 예상한 데이터가 반환되는지 확인합니다.
@@ -137,4 +163,4 @@ Reporting API는 [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 - 감사 보고서에 대한 자세한 내용은 [Azure AD 감사 보고서 이벤트](active-directory-reporting-audit-events.md) 참조
 - Graph API REST 서비스에 대한 자세한 내용은 [Azure AD 보고서 및 이벤트(미리 보기)](https://msdn.microsoft.com/library/azure/mt126081.aspx) 참조
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

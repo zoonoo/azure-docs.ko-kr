@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Redis Cache를 Java와 함께 사용하는 방법"
+   pageTitle="Azure Redis Cache를 Java와 함께 사용하는 방법 | Microsoft Azure"
 	description="Java를 사용하여 Azure Redis Cache를 시작합니다."
 	services="redis-cache"
 	documentationCenter=""
@@ -13,12 +13,12 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="08/17/2015"
+	ms.date="08/25/2015"
 	ms.author="sdanie"/>
 
 # Azure Redis Cache를 Java와 함께 사용하는 방법
 
-Azure Redis Cache는 Microsoft에서 관리하는 안전한 전용 Redis Cache에 액세스할 수 있게 합니다. Microsoft Azure 내의 모든 응용 프로그램에서 캐시에 액세스할 수 있습니다.
+Azure Redis Cache는 Microsoft에서 관리하는 전용 Redis Cache에 액세스할 수 있게 합니다. Microsoft Azure 내의 모든 응용 프로그램에서 캐시에 액세스할 수 있습니다.
 
 이 항목에서는 Java를 사용하여 Azure Redis Cache를 시작하는 방법을 설명합니다.
 
@@ -32,7 +32,7 @@ Azure Redis Cache는 Microsoft에서 관리하는 안전한 전용 Redis Cache�
 
 ## Azure에 Redis 캐시 만들기
 
-[Azure 관리 포털 미리 보기](http://go.microsoft.com/fwlink/?LinkId=398536)에서 **새로 만들기**, **데이터 + 저장소**를 클릭하고 **Redis Cache**를 선택합니다.
+[Azure 미리 보기 포털](http://go.microsoft.com/fwlink/?LinkId=398536)에서 **새로 만들기**, **데이터 + 저장소**를 클릭하고 **Redis Cache**를 선택합니다.
 
   ![][1]
 
@@ -41,7 +41,7 @@ DNS 호스트 이름을 입력합니다. 양식은 `<name>.redis.cache.windows.n
   ![][2]
 
 
-캐시가 만들어졌으면 포털에서 캐시를 클릭하여 캐시 설정을 확인합니다. **키** 아래 링크를 클릭하고 기본 키를 복사합니다. 요청을 인증하려면 이 키가 필요합니다.
+캐시를 만들었으면 미리 보기 포털에서 캐시를 클릭하여 캐시 설정을 봅니다. **키** 아래 링크를 클릭하고 기본 키를 복사합니다. 요청을 인증하려면 이 키가 필요합니다.
 
   ![][4]
 
@@ -60,7 +60,7 @@ DNS 호스트 이름을 입력합니다. 양식은 `<name>.redis.cache.windows.n
 	import redis.clients.jedis.Jedis;
 	import redis.clients.jedis.JedisShardInfo;
 
-	/* Make sure your turn on non SSL port in Azure Redis using the Configuration section in the Azure portal */
+	/* Make sure you turn on non-SSL port in Azure Redis using the Configuration section in the preview portal */
 	public class App
 	{
 	  public static void main( String[] args )
@@ -87,4 +87,4 @@ DNS 호스트 이름을 입력합니다. 양식은 `<name>.redis.cache.windows.n
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

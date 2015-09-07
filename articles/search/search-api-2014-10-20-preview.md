@@ -1,8 +1,8 @@
-<properties pageTitle="Azure 검색 서비스 REST API 버전 2014-10-20-Preview" description="Azure 검색 서비스 REST API 버전 2014-10-20-Preview" services="search"  documentationCenter="" authors="HeidiSteen" manager="mblythe" editor="" />
+<properties pageTitle="Azure 검색 서비스 REST API 버전 2014-10-20-Preview" description="Azure 검색 서비스 REST API 버전 2014-10-20-Preview" services="search" documentationCenter="" authors="HeidiSteen" manager="mblythe" editor=""/>
 
-<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="07/22/2015" ms.author="heidist" />
+<tags ms.service="search" ms.devlang="rest-api" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="na" ms.date="08/25/2015" ms.author="heidist"/>
 
-# Azure 검색 서비스 REST API 버전 2014-10-20-Preview #
+#Azure 검색 서비스 REST API 버전 2014-10-20-Preview
 
 이 문서에서는 첫 번째 Azure 검색 공용 미리 보기에 대한 업데이트로 릴리스된 Azure 검색 서비스 REST API의 시험판 **2014-10-20-Preview** 버전을 설명합니다. 이 버전은 곧 단계적으로 중단될 예정이므로 일반적으로 사용 가능한 릴리스와 연결된 버전을 대신 사용하는 것이 좋습니다. 코드 마이그레이션에 대한 지침은 [미리 보기에서 일반적으로 사용할 수 있는 API 버전으로 전환](search-transition-from-preview.md)을 참조하세요.
 
@@ -12,7 +12,7 @@
 
 Azure 검색 REST API의 현재 일반적으로 사용 가능한 버전에 대한 설명서는 MSDN에서 확인할 수 있습니다. 자세한 내용은 [Azure 검색 서비스 REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx)를 참조하세요.
 
-##서비스 REST API 정보##
+##서비스 REST API 정보
 
 Azure 검색은 사용자 지정 검색 응용 프로그램을 빌드하는 데 사용할 수 있는 클라우드 기반 서비스입니다. Azure 검색에서는 *검색 서비스*와 *인덱스*의 개념이 사용됩니다. 검색 서비스는 인덱스를 하나 이상 포함합니다. 검색 서비스는 정규화된 도메인 이름(예: `mysearchservice.search.windows.net`)을 통해 고유하게 식별됩니다. 서비스를 프로비전하면 생성되는 api-key를 사용하여 Azure 검색 서비스에 대한 요청을 인증합니다.
 
@@ -126,7 +126,7 @@ Azure 검색 서비스에서 간단한 HTTP 요청(POST, GET, PUT, DELETE)을 �
       {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
       {"name": "baseRate", "type": "Edm.Double"},
       {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer: "fr.lucene"},
+	  {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
       {"name": "hotelName", "type": "Edm.String"},
       {"name": "category", "type": "Edm.String"},
       {"name": "tags", "type": "Collection(Edm.String)"},
@@ -629,7 +629,7 @@ Azure 검색에서는 다양한 언어로 필드를 인덱싱할 수 있습니�
 
 suggester를 사용하면 검색을 자동 완성할 수 있습니다. 일반적으로는 사용자가 입력하는 동안 부분 검색 문자열이 제안 API로 전송되며 API는 제안 구 집합을 반환합니다.
 
-Azure 검색에서 새 suggesters API로 전환하고 있습니다. 버전 2014-07-31-Preview에는 필드를 `"suggestions": true`로 표시한 다음 짧은 문자열(3\~25자)에 대한 접두사 제안을 수행할 수 있는 좁은 범위의 제안 API가 있습니다. 버전 2014-10-20-Preview부터 Azure 검색에서는 이 섹션에 설명된 대로 "suggesters"를 기반으로 보다 강력한 버전의 제안을 제공합니다. 이 새 구현은 접두사 및 중위 일치를 수행할 수 있으며, 검색 문자열 오류에 대한 더 나은 허용 오차를 제공합니다. 버전 2014-10-20-Preview부터 새 suggesters API를 사용하는 것이 좋습니다.
+Azure 검색에서 새 suggesters API로 전환하고 있습니다. 버전 2014-07-31-Preview에는 필드를 `"suggestions": true`로 표시한 다음 짧은 문자열(3~25자)에 대한 접두사 제안을 수행할 수 있는 좁은 범위의 제안 API가 있습니다. 버전 2014-10-20-Preview부터 Azure 검색에서는 이 섹션에 설명된 대로 "suggesters"를 기반으로 보다 강력한 버전의 제안을 제공합니다. 이 새 구현은 접두사 및 중위 일치를 수행할 수 있으며, 검색 문자열 오류에 대한 더 나은 허용 오차를 제공합니다. 버전 2014-10-20-Preview부터 새 suggesters API를 사용하는 것이 좋습니다.
 
 현재 확인기 지원은 광범위한 용어/구보다는 특정 문서를 제안하는 데 사용하는 경우 가장 효율적입니다. 확인기를 사용하기에 적합한 원본 필드는 제목, 이름 및 항목을 식별할 수 있는 비교적 짧은 기타 구입니다. 반면 범주/태그 등의 반복 필드나 설명/주석 등의 매우 긴 필드는 확인기를 사용하기에 효과적이지 않습니다.
 
@@ -649,7 +649,7 @@ Azure 검색에서 새 suggesters API로 전환하고 있습니다. 버전 2014-
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer="fr.lucene"},
+	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer"="fr.lucene"},
         {"name": "hotelName", "type": "Edm.String"},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},
@@ -1142,9 +1142,9 @@ ________________________________________
   - **참고**: `count` 매개 변수가 고유한 항목 수보다 작으면 결과가 정확하지 않을 수 있습니다. 이는 패싯 쿼리가 분할된 데이터베이스에서 분산된 방식 때문입니다. `count`를 늘리면 일반적으로 용어 수의 정확도가 높아지지만 성능이 저하됩니다.
 - `sort`(개수별로 *내림차순* 정렬하는 `count`, 개수별로 *오름차순* 정렬하는 `-count`, 값별로 *오름차순* 정렬하는 `value`, 값별로 *내림차순* 정렬하는 `-value` 중 하나)
   - 예: `facet=category,count:3,sort:count`는 각 도시 이름이 있는 문서 수를 기준으로 내림차순으로 정렬된 패싯 결과에서 상위 3개의 범주를 가져옵니다. 예를 들어 상위 3개의 범주가 Budget, Motel, Luxury인 경우 적중 항목 수가 Budget은 5개, Motel은 6개, Luxury는 4개이면 버킷이 Motel, Budget, Luxury 순으로 정렬됩니다.
-  - 예: `facet=rating,sort:-value`는 값을 기준으로 내림차순으로 정렬된 가능한 모든 등급의 버킷을 생성합니다. 예를 들어 등급이 1\~5인 경우 각 등급과 일치하는 문서 수에 상관없이 버킷이 5, 4, 3, 2, 1 순으로 정렬됩니다.
+  - 예: `facet=rating,sort:-value`는 값을 기준으로 내림차순으로 정렬된 가능한 모든 등급의 버킷을 생성합니다. 예를 들어 등급이 1~5인 경우 각 등급과 일치하는 문서 수에 상관없이 버킷이 5, 4, 3, 2, 1 순으로 정렬됩니다.
 - `values`(파이프로 구분된 숫자 또는 패싯 항목 값의 동적 집합을 지정하는 `Edm.DateTimeOffset` 값)
-  - 예: `facet=baseRate,values:10|20`은 각각 기본 요금이 1\~9, 10\~19 및 20 이상인 버킷 3개를 생성합니다.
+  - 예: `facet=baseRate,values:10|20`은 각각 기본 요금이 1~9, 10~19 및 20 이상인 버킷 3개를 생성합니다.
   - 예: `facet=lastRenovationDate,values:2010-02-01T00:00:00Z`는 각각 2010년 2월 이전에 리노베이션된 호텔과 2010년 2월 1일 이후에 리노베이션된 호텔에 대한 버킷 2개를 생성합니다.
 - `interval`(숫자의 경우 0보다 큰 정수 간격 또는 날짜/시간 값의 경우 `minute`, `hour`, `day`, `week`, `month`, `quarter`, `year`)
   - 예: `facet=baseRate,interval:100`은 기본 요금 범위 100을 기준으로 버킷을 생성합니다. 예를 들어 기본 요금이 모두 $60에서 $600 사이에 속한 경우 0-100, 100-200, 200-300, 300-400, 400-500 및 500-600에 대한 버킷이 생성됩니다.
@@ -1386,7 +1386,7 @@ OData 구문을 사용하여 '3' 키가 있는 문서 조회
 
 **쿼리 매개 변수**
 
-`search=[string]` - 쿼리를 제안하는 데 사용할 검색 텍스트입니다. 설명은 3\~25자여야 합니다.
+`search=[string]` - 쿼리를 제안하는 데 사용할 검색 텍스트입니다. 설명은 3~25자여야 합니다.
 
 `highlightPreTag=[string]`(선택) - 검색의 적중 항목 앞에 추가할 문자열 태그입니다. `highlightPostTag`로 설정해야 합니다. URL의 예약 문자는 %로 인코딩해야 합니다. 예를 들어 # 대신 %23을 사용해야 합니다.
 
@@ -1398,7 +1398,7 @@ OData 구문을 사용하여 '3' 키가 있는 문서 조회
 
 `searchFields=[string]`(선택) - 지정된 검색 텍스트를 검색하기 위한 쉼표로 구분된 필드 이름 목록입니다. 대상 필드가 제안을 사용하도록 설정되어 있어야 합니다.
 
-`$top=#`(선택, 기본값=5) - 검색할 제안의 수입니다. 값은 1\~100 사이의 숫자여야 합니다.
+`$top=#`(선택, 기본값=5) - 검색할 제안의 수입니다. 값은 1~100 사이의 숫자여야 합니다.
 
 `$filter=[string]`(선택) - 제안을 검색할 때 고려할 문자를 필터링하는 식입니다.
 
@@ -1455,4 +1455,4 @@ OData 구문을 사용하여 '3' 키가 있는 문서 조회
 
     GET /indexes/hotels/docs/suggest?search=lux&$top=5&suggesterName=sg&api-version=2014-10-20-Preview
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -85,10 +85,10 @@ SSH 클라이언트가 Azure 가상 컴퓨터의 SSH 서비스에 연결할 수 
 
 인증서 인증을 사용하는 경우 홈 디렉터리의 .ssh 폴더에 대해 다음 권한이 있는지 확인하세요.
 
-- Chmod 700 \~/.ssh
-- Chmod 644 \~/.ssh/*.pub
-- Chmod 600 \~/.ssh/id\_rsa(또는 개인 키가 저장되어 있을 수 있는 기타 파일)
-- Chmod 644 \~/.ssh/known\_hosts(SSH를 통해 연결한 호스트 포함)
+- Chmod 700 ~/.ssh
+- Chmod 644 ~/.ssh/*.pub
+- Chmod 600 ~/.ssh/id\_rsa(또는 개인 키가 저장되어 있을 수 있는 기타 파일)
+- Chmod 644 ~/.ssh/known\_hosts(SSH를 통해 연결한 호스트 포함)
 
 ### 발생지 2: 조직 에지 장치
 
@@ -119,7 +119,7 @@ SSH 클라이언트가 Azure 가상 컴퓨터의 SSH 서비스에 연결할 수 
 동일한 가상 네트워크의 가상 컴퓨터에 대한 SSH 연결을 만들 수 있는 경우 다음을 확인합니다.
 
 - 대상 가상 컴퓨터의 SSH 트래픽에 대한 끝점 구성. 끝점의 개인 TCP 포트는 가상 컴퓨터에서 SSH 서비스를 수신하는 TCP 포트(기본값 22)와 일치해야 합니다. 템플릿을 사용하여 Azure 리소스 관리자에서 만들어진 가상 컴퓨터의 경우 Azure Preview 포털에서 **찾아보기** > **가상 컴퓨터(v2)** > *VM 이름* > **설정** > **끝점**을 사용하여 SSH TCP 포트 번호를 확인합니다.
-- 대상 가상 컴퓨터의 SSH 트래픽 끝점에 대한 ACL. ACL은 인터넷에서 들어오는 트래픽을 원본 IP 주소에 따라 허용 또는 거부하도록 지정하는 데 사용됩니다. ACL이 잘못 구성될 경우 끝점에 SSH 트래픽이 들어오지 못할 수 있습니다. ACL을 살펴보고 프록시 또는 다른 에지 서버의 공용 IP 주소에서 들어오는 트래픽이 허용되어 있는지 확인하세요. 자세한 내용은 [네트워크 ACL(액세스 제어 목록) 정보](https://msdn.microsoft.com/library/azure/dn376541.aspx)를 참조하세요.
+- 대상 가상 컴퓨터의 SSH 트래픽 끝점에 대한 ACL. ACL은 인터넷에서 들어오는 트래픽을 원본 IP 주소에 따라 허용 또는 거부하도록 지정하는 데 사용됩니다. ACL이 잘못 구성될 경우 끝점에 SSH 트래픽이 들어오지 못할 수 있습니다. ACL을 살펴보고 프록시 또는 다른 에지 서버의 공용 IP 주소에서 들어오는 트래픽이 허용되어 있는지 확인하세요. 자세한 내용은 [네트워크 ACL(액세스 제어 목록) 정보](../virtual-network/virtual-networks-acl.md)를 참조하세요.
 
 문제의 발생지인 끝점을 제거하려면 현재 끝점을 제거하고 **SSH** 이름(공용 및 개인 포트 번호에 TCP 포트 22)을 지정하면서 새 끝점을 만듭니다. 자세한 내용은 [Azure의 가상 컴퓨터에 끝점 설정](virtual-machines-set-up-endpoints.md)을 참조하세요.
 
@@ -165,4 +165,4 @@ Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azu
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

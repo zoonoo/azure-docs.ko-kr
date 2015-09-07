@@ -1,6 +1,6 @@
 <properties
-	pageTitle="SharePoint 인트라넷 팜 작업 1단계: Azure 구성"
-	description="Azure 인프라 서비스의 SQL Server AlwaysOn 가용성 그룹을 사용하여 인트라넷 전용 SharePoint 2013 팜을 배포하는 이 첫 단계에서는 Azure 가상 네트워크 및 기타 Azure 인프라 요소를 만듭니다."
+	pageTitle="SharePoint Server 2013 팜 1단계 | Microsoft Azure"
+	description="Azure의 SharePoint Server 2013 팜 1단계에서 가상 네트워크 및 기타 Azure 인프라 요소를 만듭니다."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -53,7 +53,7 @@ Azure 구성 요소 구성을 시작하기 전에 다음 표에 필요한 정보
 
 **표 S: 가상 네트워크의 서브넷**
 
-> [AZURE.NOTE]이 미리 정의된 아키텍처에서는 간편한 작업을 위해 단일 서브넷을 사용합니다. 서브넷 격리를 에뮬레이트하기 위해 트래픽 필터 집합을 오버레이하려는 경우에는 Azure [네트워크 보안 그룹](https://msdn.microsoft.com/library/azure/dn848316.aspx)을 사용할 수 있습니다.
+> [AZURE.NOTE]이 미리 정의된 아키텍처에서는 간편한 작업을 위해 단일 서브넷을 사용합니다. 서브넷 격리를 에뮬레이트하기 위해 트래픽 필터 집합을 오버레이하려는 경우에는 Azure [네트워크 보안 그룹](virtual-networks-nsg.md)을 사용할 수 있습니다.
 
 가상 네트워크에서 도메인 컨트롤러를 처음 설정할 때 사용하려는 두 온-프레미스 DNS 서버의 정보를 표 D에 입력합니다. 각 DNS 서버에는 이름과 단일 IP 주소를 지정합니다. 이 이름은 DNS 서버의 호스트 이름 또는 컴퓨터 이름과 일치하지 않아도 됩니다. 아래에는 빈 칸이 두 개 있지만 항목을 더 추가할 수 있습니다. 추가 항목은 IT 부서에서 확인할 수 있습니다.
 
@@ -78,7 +78,7 @@ Azure 구성 요소 구성을 시작하기 전에 다음 표에 필요한 정보
 
 표 V, S, D, L의 설정을 사용하여 가상 네트워크를 만들려면 [구성 표를 사용하여 크로스-프레미스 가상 네트워크 만들기](virtual-machines-workload-deploy-vnet-config-tables.md)의 지침을 사용합니다.
 
-> [AZURE.NOTE]이 절차에서는 사이트 간 VPN 연결을 사용하는 가상 네트워크를 만드는 과정을 안내합니다. 사이트 간 연결에 대해 Express 경로를 사용하는 방법에 대한 자세한 내용은 [Express 경로 기술 개요](http://msdn.microsoft.com/library/dn606309.aspx)를 참조하세요.
+> [AZURE.NOTE]이 절차에서는 사이트 간 VPN 연결을 사용하는 가상 네트워크를 만드는 과정을 안내합니다. 사이트 간 연결에 대해 Express 경로를 사용하는 방법에 대한 자세한 내용은 [Express 경로 기술 개요](../expressroute/expressroute-introduction.md)를 참조하세요.
 
 Azure 가상 네트워크를 만들고 나면 Azure 관리 포털에서 다음 항목을 확인합니다.
 
@@ -87,9 +87,9 @@ Azure 가상 네트워크를 만들고 나면 Azure 관리 포털에서 다음 �
 
 가상 네트워크를 만든 후 Azure 관리 포털에서 이러한 정보를 확인하려면 **네트워크**, 가상 네트워크의 이름, **대시보드** 메뉴 옵션을 차례로 클릭합니다.
 
-다음으로는 보안 사이트 간 VPN 연결을 만들기 위해 가상 네트워크 게이트웨이를 구성합니다. 관련 지침은 [관리 포털에서 가상 네트워크 게이트웨이 구성](http://msdn.microsoft.com/library/jj156210.aspx)을 참조하세요.
+다음으로는 보안 사이트 간 VPN 연결을 만들기 위해 가상 네트워크 게이트웨이를 구성합니다. 관련 지침은 [관리 포털에서 가상 네트워크 게이트웨이 구성](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md)을 참조하세요.
 
-그런 다음 새 가상 네트워크와 온-프레미스 VPN 장치 간에 사이트 간 VPN 연결을 만듭니다. 자세한 지침은 [관리 포털에서 가상 네트워크 게이트웨이 구성](http://msdn.microsoft.com/library/jj156210.aspx)을 참조하세요.
+그런 다음 새 가상 네트워크와 온-프레미스 VPN 장치 간에 사이트 간 VPN 연결을 만듭니다. 자세한 지침은 [관리 포털에서 가상 네트워크 게이트웨이 구성](../vpn-gateway/vpn-gateway-configure-vpn-gateway-mp.md)을 참조하세요.
 
 그런 다음 온-프레미스 네트워크에서 가상 네트워크의 주소 공간에 연결할 수 있는지 확인합니다. 이를 위해 일반적으로는 가상 네트워크 주소 공간에 해당하는 경로를 VPN 장치에 추가한 다음 조직 네트워크의 나머지 라우팅 인프라에 해당 경로를 보급합니다. 이 작업을 수행하는 방법은 IT 부서에서 확인할 수 있습니다.
 
@@ -171,4 +171,4 @@ Azure 가상 네트워크를 만들고 나면 Azure 관리 포털에서 다음 �
 
 [Azure 인프라 서비스 작업: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="앱 서비스 환경으로의 인바운드 트래픽을 제어하는 방법" 
-	description="앱 서비스 환경으로의 인바운드 트래픽을 제어하도록 네트워크 보안 규칙을 구성하는 방법에 알아봅니다." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="ccompy" 
-	manager="wpickett" 
+	pageTitle="앱 서비스 환경으로의 인바운드 트래픽을 제어하는 방법"
+	description="앱 서비스 환경으로의 인바운드 트래픽을 제어하도록 네트워크 보안 규칙을 구성하는 방법에 알아봅니다."
+	services="app-service\web"
+	documentationCenter=""
+	authors="ccompy"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/30/2015"
 	ms.author="stefsh"/>
 
 # 앱 서비스 환경으로의 인바운드 트래픽을 제어하는 방법
@@ -37,7 +37,7 @@
 - 80: 앱 서비스 환경의 앱 서비스 계획에서 실행되는 앱에 대한 인바운드 HTTP 트래픽의 기본 포트입니다.
 - 443: 앱 서비스 환경의 앱 서비스 계획에서 실행되는 앱에 대한 인바운드 SSL 트래픽의 기본 포트입니다.
 - 21: FTP에 대한 컨트롤 채널입니다. FTP를 사용하지 않는 경우 이 포트를 안전하게 차단할 수 있습니다.
-- 10001\~10020: FTP에 대한 데이터 채널입니다. 컨트롤 채널과 마찬가지로 FTP를 사용하지 않는 경우 이러한 포트를 안전하게 차단할 수 있습니다(**참고:** FTP 데이터 채널은 미리 보기 중 변경될 수 있음).
+- 10001~10020: FTP에 대한 데이터 채널입니다. 컨트롤 채널과 마찬가지로 FTP를 사용하지 않는 경우 이러한 포트를 안전하게 차단할 수 있습니다(**참고:** FTP 데이터 채널은 미리 보기 중 변경될 수 있음).
 - 4016: Visual Studio 2012를 통한 원격 디버깅에 사용됩니다. 이 기능을 사용하지 않는 경우 이 포트를 안전하게 차단할 수 있습니다.
 - 4018: Visual Studio 2013을 통한 원격 디버깅에 사용됩니다. 이 기능을 사용하지 않는 경우 이 포트를 안전하게 차단할 수 있습니다.
 - 4020: Visual Studio 2015를 통한 원격 디버깅에 사용됩니다. 이 기능을 사용하지 않는 경우 이 포트를 안전하게 차단할 수 있습니다.
@@ -121,13 +121,13 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- LINKS -->
-[virtualnetwork]: https://msdn.microsoft.com/library/azure/dn133803.aspx
+[virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
 [HowToCreateAnAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-web-how-to-create-an-app-service-environment/
-[NetworkSecurityGroups]: https://msdn.microsoft.com/library/azure/dn848316.aspx
+[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 [IntroToAppServiceEnvironment]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
 [SecurelyConnecttoBackend]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-securely-connecting-to-backend-resources/
 
 <!-- IMAGES -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

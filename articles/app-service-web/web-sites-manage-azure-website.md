@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure 앱 서비스에서 웹 앱 관리" 
-	description="Azure 앱 서비스에서 웹 앱 관리를 위한 리소스에 대한 링크입니다." 
-	services="app-service\web" 
-	documentationCenter="" 
-	authors="erikre" 
-	manager="wpickett" 
+	pageTitle="Azure 앱 서비스에서 웹 앱 관리"
+	description="Azure 앱 서비스에서 웹 앱 관리를 위한 리소스에 대한 링크입니다."
+	services="app-service\web"
+	documentationCenter=""
+	authors="erikre"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/31/2015"
 	ms.author="erikre"/>
 
 # Azure 앱 서비스에서 웹 앱 관리
@@ -22,7 +22,7 @@
 
 웹 앱의 수명 주기 동안 초기 배포에서 일반 작업, 유지 관리 및 업데이트를 거치면서 여러 관리 작업을 수행합니다.
 
-Azure 포털에서 다양한 웹 앱 관리 작업을 수행할 수 있습니다. 자세한 내용은 [Azure 포털을 사용하여 웹 앱 관리](web-sites-manage.md)를 참조하세요.
+Azure 포털에서 다양한 웹 앱 관리 작업을 수행할 수 있습니다.
 
 ## 웹 앱을 프로덕션으로 배포하기 전에 수행할 작업
 
@@ -103,4 +103,4 @@ Visual Studio Online을 사용하는 경우 소스 제어에서 연속 배포를
 
   
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

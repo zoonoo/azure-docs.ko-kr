@@ -1,25 +1,24 @@
 <properties
-   pageTitle="Azure 앱 서비스에서 Azure 서비스 버스 커넥터 사용"
-   description="Azure 서비스 버스 커넥터를 사용하는 방법"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="논리 앱에서 Azure 서비스 버스 커넥터 사용 | Microsoft Azure 앱 서비스"
+	description="Azure 서비스 버스 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="andalmia"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="andalmia"/>
 
 
-# Azure 서비스 버스 커넥터
-
-Azure 서비스 버스 커넥터를 사용하면 큐 및 항목과 같은 서비스 버스 엔터티에서 메시지를 보낼 수 있으며 큐 및 구독과 같은 서비스 버스 엔터티에서 메시지를 받을 수 있습니다.
+# Azure 서비스 버스 커넥터 시작 및 논리 앱에 추가 
+Azure 서비스 버스에 연결하여 큐 및 토픽에 메시지를 보내고 큐 및 구독에서 메시지를 받습니다. 커넥터는 논리 앱에서 "워크플로"의 일부로 사용됩니다.
 
 ## 트리거 및 작업
 트리거는 발생하는 이벤트입니다. 예를 들어 주문이 업데이트되거나 새 고객이 추가되는 것이 트리거입니다. 동작은 트리거의 결과입니다. 예를 들어 주문 또는 새 메시지가 큐에 대기되면 경고 또는 메시지를 보냅니다.
@@ -37,8 +36,9 @@ Azure 서비스 버스 커넥터에서 사용할 수 있는 트리거와 동작�
 
 1. Azure 시작 보드에서 **마켓플레이스**를 선택합니다.
 2. “Azure 서비스 버스 커넥터”를 검색하여 선택하고 **만들기**를 선택합니다.
-3. 이름, 앱 서비스 계획 및 기타 속성을 입력합니다. 
-	![][1]
+3. 이름, 앱 서비스 계획 및 기타 속성을 입력합니다.
+<br/>
+![][1]
 
 4. 다음 패키지 설정을 입력합니다.
 
@@ -54,24 +54,28 @@ Azure 서비스 버스 커넥터에서 사용할 수 있는 트리거와 동작�
 커넥터를 만들고 나면 이제 Azure 서비스 버스 커넥터를 논리 앱에 대한 트리거 또는 동작으로 사용할 수 있습니다. 다음을 수행합니다.
 
 1.	새 논리 앱을 만들고 Azure 서비스 버스 커넥터가 있는 동일한 리소스 그룹을 선택합니다.
-	![][2]
+<br/>
+![][2]
 
 2.	“트리거 및 동작”을 열어 논리 앱 디자이너를 열고 흐름을 구성합니다.
-	![][3]
+<br/>
+![][3]
 
 3. Azure 서비스 버스 커넥터가 오른쪽의 갤러리에 있는 “이 리소스 그룹의 API 앱” 섹션에 나타납니다.
-	![][4]
+<br/>
+![][4]
 
 4. “Azure 서비스 버스 커넥터”를 클릭하여 Azure 서비스 버스 커넥터를 편집기에 놓을 수 있습니다.
 
-5.	이제 워크플로에서 Azure 서비스 버스 커넥터를 사용할 수 있습니다. 흐름의 다른 동작에서 Azure 서비스 버스 트리거("메시지 사용 가능")로부터 검색된 새 메시지를 사용할 수 있습니다. 
-	![][5]
-
-	![][6]
+5.	이제 워크플로에서 Azure 서비스 버스 커넥터를 사용할 수 있습니다. 흐름의 다른 동작에서 Azure 서비스 버스 트리거("메시지 사용 가능")로부터 검색된 새 메시지를 사용할 수 있습니다. <br/>
+![][5]
+<br/>
+![][6]
 
 Azure 서비스 버스 "메시지 보내기" 동작을 사용할 수도 있습니다.
-	![][7]
-
+<br/>
+![][7]
+<br/>
 ![][8]
 
 ## 커넥터의 추가 기능
@@ -92,4 +96,4 @@ Azure 서비스 버스 "메시지 보내기" 동작을 사용할 수도 있습�
 [7]: ./media/app-service-logic-connector-azureservicebus/img7.PNG
 [8]: ./media/app-service-logic-connector-azureservicebus/img8.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties 
    pageTitle="Nsp를 사용하여 Express 경로 구성"
-   description="이 자습서에서는 NSPs를 통한 Express 경로 설정 과정을 안내합니다."
-   documentationCenter="na"
-   services="expressroute"
-   authors="cherylmc"
-   manager="adinah"
-   editor="tysonn"/>
+	description="이 자습서에서는 NSPs를 통한 Express 경로 설정 과정을 안내합니다."
+	documentationCenter="na"
+	services="expressroute"
+	authors="cherylmc"
+	manager="adinah"
+	editor="tysonn"/>
 
 <tags 
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services" 
-   ms.date="06/29/2015"
-   ms.author="cherylmc"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="06/29/2015"
+	ms.author="cherylmc"/>
 
 #  네트워크 서비스 공급자를 통해 Express 경로 연결 구성
 
@@ -134,7 +134,7 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자�
 
 4. **가상 네트워크와 게이트웨이를 구성합니다.**
 
-	[ExpressRoute에 대한 가상 네트워크 및 게이트웨이 구성](https://msdn.microsoft.com/library/azure/dn643737.aspx)을.참조하세요. 게이트웨이 서브넷이 ExpressRoute 연결을 사용하려면 /28이어야 합니다.
+	[ExpressRoute에 대한 가상 네트워크 및 게이트웨이 구성](../expressroute/expressroute-configuring-vnet-gateway.md)을.참조하세요. 게이트웨이 서브넷이 ExpressRoute 연결을 사용하려면 /28이어야 합니다.
 
 5. **네트워크를 회로에 연결합니다.**
 
@@ -150,4 +150,4 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자�
 		
 		Provisioned 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

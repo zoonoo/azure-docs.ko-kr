@@ -1,20 +1,20 @@
 <properties
    pageTitle="기술 개요"
-   description="서비스 패브릭의 기술 개요입니다. 주요 개념 및 아키텍처 개요를 설명합니다."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="msfussell"
-   manager="timlt"
-   editor="chackdan;subramar"/>
+	description="서비스 패브릭의 기술 개요입니다. 주요 개념 및 아키텍처 개요를 설명합니다."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="msfussell"
+	manager="timlt"
+	editor="chackdan;subramar"/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/14/2015"
-   ms.author="mfussell"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/25/2015"
+	ms.author="mfussell"/>
 
 # 서비스 패브릭의 기술 개요
 
@@ -54,4 +54,4 @@
 - [응용 프로그램 시나리오](service-fabric-application-scenarios.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

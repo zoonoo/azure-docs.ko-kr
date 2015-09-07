@@ -12,11 +12,15 @@
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
-	ms.date="08/06/2015"
+	ms.topic="get-started-article"
+	ms.date="08/14/2015"
 	ms.author="juliako"/>
 
 #PlayReady DRM 동적 암호화 및 License Delivery 서비스 사용
+
+> [AZURE.SELECTOR]
+- [.NET](media-services-protect-with-drm.md)
+- [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
 
 Microsoft Azure 미디어 서비스를 사용하면 [Microsoft PlayReady DRM](https://www.microsoft.com/playready/overview/)으로 보호되는 MPEG-DASH, 부드러운 스트리밍 및 Http-Live-Streaming(HLS) 스트림을 배달할 수 있습니다.
 
@@ -158,7 +162,7 @@ Microsoft Azure 미디어 서비스를 사용하면 [Microsoft PlayReady DRM](ht
 
 자세한 내용은 [자산 배달 정책 구성](media-services-rest-configure-asset-delivery-policy.md)을 참조하세요.
 
-##<a id="create_locator"></a>스트리밍 URL을 얻기 위해 주문형 로케이터 만들기
+##<a id="create_locator"></a>스트리밍 URL을 얻기 위해 주문형 스트리밍 로케이터 만들기
 
 사용자에게 Smooth, DASH 또는 HLS에 대한 스트리밍 URL을 제공해야 합니다.
 
@@ -575,4 +579,4 @@ Microsoft Azure 미디어 서비스를 사용하면 [Microsoft PlayReady DRM](ht
 		    }
 		}
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

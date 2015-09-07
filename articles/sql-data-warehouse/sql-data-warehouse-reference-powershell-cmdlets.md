@@ -1,20 +1,20 @@
 <properties
    pageTitle="SQL 데이터 웨어하우스에서 cmdlet 시작"
-   description="PowerShell cmdlet을 사용하여 SQL 데이터 웨어하우스 일시 중단 후 다시 시작"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sidneyh"
-   manager="jhubbard"
-   editor=""/>
+	description="PowerShell cmdlet을 사용하여 SQL 데이터 웨어하우스 일시 중단 후 다시 시작"
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="sidneyh"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/29/2015"
-   ms.author="sidneyh;barbkess"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="06/29/2015"
+	ms.author="sidneyh;barbkess"/>
 
 # Azure 데이터 웨어하우스 cmdlet 및 REST API 시작
 
@@ -90,6 +90,10 @@ RestorePointCreationDate |백업 스냅숏 시간(restorePointType = DISCRETE인
 	$restorePoints = $database | Get-AzureSqlDatabaseRestorePoints
 
 
+
+> [AZURE.NOTE]서버가 foo.database.windows.net인 경우 Powershell cmdlet에서 -ServerName로 "foo"를 사용합니다.
+
+
 ## 다음 단계
 자세한 참조 정보는 [SQL 데이터 웨어하우스 참조 개요][]를 참조하세요.
 
@@ -106,4 +110,4 @@ RestorePointCreationDate |백업 스냅숏 시간(restorePointType = DISCRETE인
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

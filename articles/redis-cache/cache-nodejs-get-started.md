@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="08/17/2015"
+	ms.date="08/25/2015"
 	ms.author="sdanie"/>
 
 # Azure Redis Cache를 Node.js와 함께 사용하는 방법
@@ -33,7 +33,7 @@ Azure Redis Cache는 Microsoft에서 관리하는 안전한 전용 Redis Cache�
 
 ## Azure에 Redis 캐시 만들기
 
-[Azure 관리 포털 미리 보기](http://go.microsoft.com/fwlink/?LinkId=398536)에서 **새로 만들기**, **데이터 + 저장소**를 클릭하고 **Redis Cache**를 선택합니다.
+[Azure 미리 보기 포털](http://go.microsoft.com/fwlink/?LinkId=398536)에서 **새로 만들기**, **데이터 + 저장소**를 클릭하고 **Redis Cache**를 선택합니다.
 
   ![][1]
 
@@ -42,7 +42,7 @@ DNS 호스트 이름을 입력합니다. 양식은 `<name>.redis.cache.windows.n
   ![][2]
 
 
-캐시를 만들었으면 Azure 포털에서 캐시를 클릭하여 캐시 설정을 봅니다. **키** 아래 링크를 클릭하고 기본 키를 복사합니다. 요청을 인증하려면 이 키가 필요합니다.
+캐시를 만들었으면 미리 보기 포털에서 캐시를 클릭하여 캐시 설정을 봅니다. **키** 아래 링크를 클릭하고 기본 키를 복사합니다. 요청을 인증하려면 이 키가 필요합니다.
 
   ![][4]
 
@@ -91,4 +91,4 @@ DNS 호스트 이름을 입력합니다. 양식은 `<name>.redis.cache.windows.n
 
 [Azure 웹 사이트에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

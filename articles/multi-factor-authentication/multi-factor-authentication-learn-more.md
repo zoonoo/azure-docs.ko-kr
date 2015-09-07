@@ -1,23 +1,22 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - 자세히 알아보기" 
-	description="Azure Multi-Factor Authentication에 대한 추가 콘텐츠 링크를 제공하는 Azure 다단계 인증 페이지입니다. 여기에서 Multi-Factor Authentication에 대한 추가 항목에 대해 알아볼 수 있습니다." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Azure Multi-Factor Authentication - 자세히 알아보기"
+	description="Azure Multi-Factor Authentication에 대한 추가 콘텐츠 링크를 제공하는 Azure 다단계 인증 페이지입니다. 여기에서 Multi-Factor Authentication에 대한 추가 항목에 대해 알아볼 수 있습니다."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication에 대해 자세히 알아보기
-[정의](multi-factor-authentication.md)<br> [작동 방법](multi-factor-authentication-how-it-works.md)<br> [시작하기](multi-factor-authentication-get-started.md)<br> [다음 내용](multi-factor-authentication-whats-next.md)<br> [자세히 알아보기](multi-factor-authentication-learn-more.md)
 
 
 다음은 Azure Multi-Factor Authentication에서 사용 가능한 모든 기능을 완전히 활용하는데 도움이 되는 추가 리소스 컬렉션입니다.
@@ -39,4 +38,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

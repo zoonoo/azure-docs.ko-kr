@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 배치 PowerShell cmdlet 시작 | Microsoft Azure"
-   description="Azure 배치 서비스를 관리하는 데 사용되는 Azure PowerShell cmdlet을 소개합니다."
-   services="batch"
-   documentationCenter=""
-   authors="dlepow"
-   manager="timlt"
-   editor=""/>
+	description="Azure 배치 서비스를 관리하는 데 사용되는 Azure PowerShell cmdlet을 소개합니다."
+	services="batch"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="batch"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="big-compute"
-   ms.date="08/07/2015"
-   ms.author="danlep"/>
+	ms.devlang="NA"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="powershell"
+	ms.workload="big-compute"
+	ms.date="08/07/2015"
+	ms.author="danlep"/>
 
 # Azure 배치 PowerShell Cmdlet 시작
 이 문서에서는 Batch 계정을 관리하고 배치 작업, 작업 및 기타 세부 정보에 대한 정보를 얻는 데 사용할 수 있는 Azure PowerShell cmdlet에 대해 간략히 소개합니다.
@@ -39,6 +39,12 @@ Azure PowerShell을 시작하고 [Azure 구독에 연결](../powershell-install-
 
     ```
     Switch-AzureMode -Name AzureResourceManager
+    ```
+
+* **배치 공급자 네임스페이스(일회성 작업)에 등록** -배치 계정을 관리하기 전에 배치 공급자 네임스페이스에 등록해야 합니다. 이 작업은 구독당 한 번만 수행하면 됩니다.
+
+    ```
+    Register-AzureProvider -ProviderNamespace Microsoft.Batch
     ```
 
 ## 배치 계정 및 키 관리
@@ -105,7 +111,7 @@ $context = Get-AzureBatchAccountKeys "<account_name>"
 
 ### 데이터에 대한 쿼리
 
-예제와 같이 **Get AzureBatchPools**을 사용하여 풀을 찾습니다. 이 작업은 기본적으로 사용자 계정 아래의 모든 풀을 쿼리합니다. 이때 *$context*에는 이미 BatchAccountContext 개체가 저장되어 있다고 가정합니다.
+예제와 같이 **Get AzureBatchPools**를 사용하여 풀을 찾습니다. 이 작업은 기본적으로 사용자 계정 아래의 모든 풀을 쿼리합니다. 이때 *$context*에는 이미 BatchAccountContext 개체가 저장되어 있다고 가정합니다.
 
 ```
 Get-AzureBatchPool -BatchContext $context
@@ -156,4 +162,4 @@ Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 * [Azure 배치 cmdlet 참조](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [효율적인 목록 쿼리](batch-efficient-list-queries.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

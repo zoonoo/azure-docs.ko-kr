@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 앱 서비스에서 ASP.NET API 앱 만들기"
+	pageTitle="Azure 앱 서비스에서 ASP.NET API 앱 만들기 | Microsoft Azure"
 	description="Visual Studio 2013을 사용하여 Azure 앱 서비스에서 ASP.NET API 앱을 만드는 방법을 알아봅니다."
 	services="app-service\api"
 	documentationCenter=".net"
@@ -12,7 +12,7 @@
 	ms.workload="web"
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.date="08/14/2015"
 	ms.author="tdykstra"/>
 
@@ -34,7 +34,7 @@
 
 ## API 앱 프로젝트 만들기
 
-프로젝트의 이름을 입력하라는 지침이 있으면 *ContactsList*를 입력합니다.
+프로젝트의 이름을 입력하라는 지침이 있으면 **ContactsList**를 입력합니다.
 
 [AZURE.INCLUDE [app-service-api-create](../../includes/app-service-api-create.md)]
 
@@ -47,6 +47,5 @@
 ## 다음 단계
 
 이제 API 앱을 배포할 준비가 되었으며 [API 앱 배포](app-service-dotnet-deploy-api-app.md) 자습서에 따라 API 앱을 배포할 수 있습니다.
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

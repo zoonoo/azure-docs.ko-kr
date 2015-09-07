@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="테스트용 하이브리드 클라우드에 SharePoint 인트라넷 팜 설치" 
-	description="개발 또는 IT 전문가 테스트용 하이브리드 클라우드 환경에서 SharePoint 인트라넷 팜을 만드는 방법에 대해 알아봅니다." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="SharePoint 2013 팜 테스트 환경 | Microsoft Azure"
+	description="개발 또는 IT 전문가 테스트용 하이브리드 클라우드 환경에서 2계층 SharePoint Server 2013 인트라넷 팜을 만드는 방법에 대해 알아봅니다."
+	services="virtual-network"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="josephd"/>
 
 
@@ -88,7 +88,7 @@ SPFarmAdmin 계정 암호를 제공하라는 메시지가 나타나면 강력한
 3.	SQL1.rdp를 열라는 메시지가 나타나면 **열기**를 클릭합니다.
 4.	원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **연결**을 클릭합니다.
 5.	자격 증명을 묻는 메시지가 나타나면 다음을 사용합니다.
-	- 이름: **SQL1\**[로컬 관리자 계정 이름]
+	- 이름: **SQL1**[로컬 관리자 계정 이름]
 	- 암호: [로컬 관리자 계정 암호]
 6.	인증서를 참조하는 원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **예**를 클릭합니다.
 
@@ -212,4 +212,4 @@ Ping 명령을 실행한 경우 IP 주소 10.0.0.1에서 성공적인 회신 4�
 [Azure 인프라 서비스 구현 지침](../virtual-machines/virtual-machines-infrastructure-services-implementation-guidelines.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

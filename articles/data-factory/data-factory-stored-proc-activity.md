@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="SQL Server 저장 프로시저 작업" 
-	description="SQL Server 저장 프로시저 작업을 사용하여 데이터 팩터리 파이프라인으로 Azure SQL 데이터베이스에서 저장 프로시저를 호출해보겠습니다." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="SQL Server 저장 프로시저 작업"
+	description="SQL Server 저장 프로시저 작업을 사용하여 데이터 팩터리 파이프라인으로 Azure SQL 데이터베이스에서 저장 프로시저를 호출해보겠습니다."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/04/2015"
 	ms.author="spelluru"/>
 
 # SQL Server 저장 프로시저 작업
@@ -45,13 +45,10 @@
 name | 작업의 이름 | 예
 description | 작업이 무엇에 사용되는지 설명하는 텍스트입니다. | 아니요
 type | SqlServerStoredProcedure | 예
-inputs | 실행할 저장 프로시저 작업에 사용할 수 있어야 하는 입력입니다('Ready' 상태). | 아니요
-outputs | 저장 프로시저 작업에서 생성하는 출력입니다. 출력 테이블은 Azure SQL 데이터베이스를 데이터 팩터리에 연결하는 연결된 서비스를 사용해야 합니다. | 예
+inputs | 실행할 저장 프로시저 작업에 사용할 수 있어야 하는 데이터 집합입니다('Ready' 상태). 저장 프로시저 활동에 대한 입력은 이 활동을 다른 사용자와 연결할 때 종속성 관리 역할로만 제공됩니다. 저장 프로시저에서 입력 데이터 집합을 매개 변수로 사용할 수 없습니다. | 아니요
+outputs | 저장 프로시저 작업에서 생성하는 출력 데이터 집합입니다. 출력 테이블은 Azure SQL 데이터베이스를 데이터 팩터리에 연결하는 연결된 서비스를 사용해야 합니다. 저장 프로시저 작업에서 출력은 저장 프로시저 작업의 결과를 전달하는 방법으로 제공할 수 있으며 또는 이 활동을 다른 사용자와 연결할 때 종속성 관리 역할로 제공할 수 있습니다. | 예
 storedProcedureName | 출력 테이블에서 사용하는 연결된 서비스로 표시되는 Azure SQL 데이터베이스의 저장 프로시저 이름을 지정합니다. | 예
 storedProcedureParameters | 저장 프로시저 매개 변수의 값을 지정합니다. | 아니요
-
-> [AZURE.NOTE]저장 프로시저 활동에 대한 입력은 종속성 관리 및 다른 사용자와 작업 연결에만 사용됩니다. 저장 프로시저에서 입력을 매개 변수로 사용할 수 없습니다.
- 
 
 ## 예
 
@@ -104,9 +101,9 @@ Datetime | 해당 ID가 생성된 날짜 및 시간
 		     }
 		}
 5.	[파이프라인](data-factory-create-pipelines.md)을 배포합니다.
-6.	Data Factory 모니터링 및 관리 보기를 사용하여 [파이프라인을 모니터링](data-factory-monitor-manage-pipelines.md)합니다.
+6.	데이터 팩터리 모니터링 및 관리 보기를 사용하여 [파이프라인을 모니터링](data-factory-monitor-manage-pipelines.md)합니다.
 
-> [AZURE.NOTE]위의 예에서 SprocActivitySample에는 입력이 없습니다. 작업 업스트림과 연결하려면 업스트림 작업의 출력을 이 작업의 입력으로 사용할 수 있습니다. 이 경우 업스트림 작업이 완료되어 출력이 제공될 때까지(Ready 상태) 이 작업은 실행되지 않습니다. 입력은 저장 프로시저 작업에 대한 매개 변수로 직접 사용할 수 없습니다.
+> [AZURE.NOTE]위의 예에서 SprocActivitySample에는 입력이 없습니다. 작업 업스트림과 연결하려면(즉, 처리 전) 업스트림 작업의 출력을 이 작업의 입력으로 사용할 수 있습니다. 이 경우 업스트림 작업이 완료되어 업스트림 작업의 출력이 제공될 때까지(Ready 상태) 이 작업은 실행되지 않습니다. 입력은 저장 프로시저 작업에 대한 매개 변수로 직접 사용할 수 없습니다.
 > 
 > JSON 파일에서 저장 프로시저 매개 변수 이름 및 대/소문자 구분은 대상 데이터베이스에서 저장 프로시저 매개 변수의 이름과 일치해야 합니다.
 
@@ -135,4 +132,4 @@ Datetime | 해당 ID가 생성된 날짜 및 시간
 		}
 	}
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 데이터 카탈로그 일반적인 시나리오"
-   description="Azure 데이터 카탈로그에서 일반적인 시나리오 검토: 데이터 소스의 등록, 보강, 탐색, 이해 및 사용과 데이터 원본 메타데이터의 제거"
-   services="data-catalog"
-   documentationCenter=""
-   authors="steelanddata"
-   manager="NA"
-   editor=""
-   tags=""/>
+	description="높은 가치의 데이터 원본 등록 및 검색을 포함한 Azure 데이터 카탈로그에 대한 일반적인 시나리오의 개요를 통해 셀프서비스 비즈니스 인텔리전스를 실현하고 데이터 원본과 프로세스에 대한 기존 조직 지식을 획득합니다."
+	services="data-catalog"
+	documentationCenter=""
+	authors="steelanddata"
+	manager="NA"
+	editor=""
+	tags=""/>
 <tags
    ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="07/31/2015"
-   ms.author="maroche"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-catalog"
+	ms.date="07/31/2015"
+	ms.author="maroche"/>
 
 
 # Azure 데이터 카탈로그 일반적인 시나리오
@@ -66,4 +66,4 @@ Azure 데이터 카탈로그를 사용하여, 사용자는 이러한 중복 노�
 
 Azure 데이터 카탈로그는 이러한 조직의 지식을 공유하고 쉽게 검색할 수 있는 위치를 제공합니다. 데이터 전문가는 데이터 자산에 직접 주석을 달 수 있고 기존 설명서에 대한 링크를 포함할 수도 있습니다. 이렇게 하면 지식 자체를 캡처 할 수 있을 뿐만 아니라 데이터 소스 검색에 사용되는 동일한 경험 지식을 넣을 수 있습니다. 누군가 데이터 소스를 검색하는 데 카탈로그를 사용하면 소스 자체를 찾을 수 있을 뿐만 아니라 이전에 전문가의 마음에만 존재하는 전문가의 지식을 찾을 수 있습니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

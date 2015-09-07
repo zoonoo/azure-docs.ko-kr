@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Xamarin.iOS 앱용 Azure 모바일 앱 시작"
-	description="이 자습서에 따라 Azure 모바일 앱을 사용하여 Xamarin iOS 개발을 시작할 수 있습니다."
+	pageTitle="Xamarin.iOS 앱용 Azure 앱 서비스 모바일 앱 시작 | Microsoft Azure"
+	description="이 자습서에 따라 모바일 앱을 사용하여 Xamarin.iOS 개발을 시작할 수 있습니다."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
 	authors="normesta"
@@ -25,21 +25,21 @@
 
 이 자습서에서는 Azure 모바일 앱 백 엔드를 사용하여 클라우드 기반 백 엔드 서비스를 Xamarin.iOS 모바일 앱에 추가하는 방법을 보여 줍니다. 새 모바일 앱 백 엔드와 앱 데이터를 Azure에 저장하는 간단한 _할 일 모음_ Xamarin.iOS 앱을 만듭니다.
 
-이 자습서를 완료해야 다른 모든 Xamarin Android 앱용 모바일 앱 자습서를 진행할 수 있습니다.
- 
+이 자습서를 완료해야 Azure 앱 서비스에서 모바일 앱 기능을 사용하는 방법에 대한 다른 모든 Xamarin.iOS 자습서를 진행할 수 있습니다.
+
 ##필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * 활성 Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 앱을 가져올 수 있습니다. 이러한 앱은 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
- 
+
 * [Visual Studio Community 2013] 이상 버전입니다. Visual Studio 커뮤니티 2013을 설치하는 경우 별도로 [Xamarin]을 설치합니다. Visual Studio 2015를 설치할 때 Xamarin 도구를 설치할 수 있습니다.
 
 * [Xcode] v7.0 이상 및 [Xamarin Studio]가 설치된 Mac입니다.
- 
-     >[AZURE.NOTE]Visual Studio를 사용하여 Windows 컴퓨터에 앱을 빌드하려면 여전히 네트워크에 연결된 Mac에 액세스해야 합니다.
- 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 체험](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile)으로 이동합니다. 여기서 앱 서비스에 단기 시작 모바일 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+
+     >[AZURE.NOTE]Visual Studio를 사용하여 Windows 기반 컴퓨터에 앱을 빌드하려면 여전히 네트워크에 연결된 Mac에 액세스해야 합니다.
+
+>[AZURE.NOTE]Azure 계정에 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile)로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 모바일 앱을 즉시 만들 수 있습니다.
 
 ## 새 Azure 모바일 앱 백 엔드 만들기
 
@@ -50,9 +50,9 @@
 1. 사용자 PC에서 [Azure 포털]을 방문합니다. **모두 찾아보기** > **모바일 앱**을 클릭한 다음 방금 만든 모바일 앱 백 엔드를 클릭합니다.
 
 2. 모바일 앱 블레이드에서 **설정**을 클릭하고 **모바일 앱**에서 **빠른 시작** > **Xamarin.iOS**를 클릭합니다.
- 
+
 3. **서버 프로젝트 다운로드 및 실행**에서 **다운로드**를 클릭합니다. 귀하의 PC에 압축된 프로젝트 파일을 추출하고 Visual Studio에서 솔루션을 엽니다.
- 
+
 ## 로컬로 백 엔드 프로젝트를 테스트
 
 [AZURE.INCLUDE [app-service-mobile-dotnet-backend-test-local-service-preview](../../includes/app-service-mobile-dotnet-backend-test-local-service-preview.md)]
@@ -65,7 +65,7 @@
 
 1. Mac의 브라우저 창에서 [Azure 포털]을 엽니다.
 
->[AZURE.NOTE]Mac에서 Xamarin.iOS 앱을 보다 쉽게 사용할 수 있습니다. 원하는 경우 Windows 컴퓨터에서 Visual Studio를 사용하여 Xamarin.iOS 앱을 실행할 수 있지만 네트워크에 연결된 Mac에 연결해야 하기 때문에 좀 더 복잡합니다. 실행에 관심이 있다면 [Windows에서 Xamarin.iOS 설치]를 참조하세요.
+>[AZURE.NOTE]Mac에서 Xamarin.iOS 앱을 보다 쉽게 사용할 수 있습니다. 원하는 경우 Windows 기반 컴퓨터에서 Visual Studio를 사용하여 Xamarin.iOS 앱을 실행할 수 있지만 네트워크에 연결된 Mac에 연결해야 하기 때문에 좀더 복잡합니다. 실행에 관심이 있다면 [Windows에서 Xamarin.iOS 설치]를 참조하세요.
 
 2. **Xamarin.iOS 프로젝트 다운로드 및 실행**에서 **다운로드** 단추를 클릭합니다.
 
@@ -77,9 +77,9 @@
 
 	![][8]
 
-4. **F5** 키를 눌러 프로젝트를 빌드하고 iPhone 에뮬레이터에서 앱을 시작합니다.
+4. F5 키를 눌러 프로젝트를 빌드하고 iPhone 에뮬레이터에서 앱을 시작합니다.
 
-5. 앱에서 _Learn Xamarin_와 같은 의미 있는 텍스트를 입력한 후 더하기(**+**) 아이콘을 클릭합니다.
+5. 앱에서 _Learn Xamarin_과 같은 의미 있는 텍스트를 입력한 후 더하기(**+**) 아이콘을 클릭합니다.
 
 	![][10]
 
@@ -124,4 +124,4 @@
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 [Windows에서 Xamarin.iOS 설치]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

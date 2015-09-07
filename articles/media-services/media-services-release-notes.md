@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="미디어 서비스 릴리스 정보" 
-	description="미디어 서비스 릴리스 정보" 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="미디어 서비스 릴리스 정보"
+	description="미디어 서비스 릴리스 정보"
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="media" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="media"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@
 
 - [현재 알려진 문제](#issues)
 - [REST API 버전 기록](#rest_version_history)
+- [2015년 8월 릴리스](#august_changes_15)
 - [2015년 7월 릴리스](#july_changes_15)
 - [2015년 6월 릴리스](#june_changes_15)
 - [2015년 5월 릴리스](#may_changes_15)
@@ -72,12 +73,21 @@ SDK의 미디어 서비스 개체는 직렬화할 수 없으며, 결과적으로
 
 미디어 서비스 REST API 버전 기록에 대한 자세한 내용은 [Azure 미디어 서비스 REST API 참조]를 참조하세요.
 
+##<a id="august_changes_15"></a>2015년 8월 릴리스
+
+- Azure Media Services SDK for Java V0.8.0 릴리스 및 새로운 샘플이 제공됩니다. 자세한 내용은 다음을 참조하세요.
+
+	- [블로그 게시물](http://southworks.com/blog/2015/08/25/microsoft-azure-media-services-sdk-for-java-v0-8-0-released-and-new-samples-available/)
+	- [Java 샘플 리포지토리](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+- 다중 오디오 스트림을 지원하는 Azure 미디어 플레이어 업데이트. 자세한 내용은 다음을 참조하세요.
+	- [블로그 게시물](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/)
+
 ##<a id="july_changes_15"></a>2015년 7월 릴리스
 
-미디어 인코더 표준의 일반 공급 발표 자세한 내용은 [이 게시물](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)을 참조하세요.
+- 미디어 인코더 표준의 일반 공급 발표 자세한 내용은 [이 블로그 게시물](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)을 참조하세요.
 
-미디어 인코더 표준은 [이](http://go.microsoft.com/fwlink/?LinkId=618336) 섹션에 설명된 기본 설정을 사용합니다. 4k 인코드에 대한 기본 설정을 사용하는 경우 **프리미엄** 예약 단위 형식을 가져와야 합니다. 자세한 내용은 [인코딩 크기를 조정하는 방법](media-services-portal-encoding-units)을 참조하세요.
-
+	미디어 인코더 표준은 [이](http://go.microsoft.com/fwlink/?LinkId=618336) 섹션에 설명된 기본 설정을 사용합니다. 4k 인코드에 대한 기본 설정을 사용하는 경우 **프리미엄** 예약 단위 형식을 가져와야 합니다. 자세한 내용은 [인코딩 크기를 조정하는 방법](media-services-portal-encoding-units)을 참조하세요.
+- Azure 미디어 서비스 및 플레이어의 라이브 실시간 캡션. 자세한 내용은 [이 블로그 게시물](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)을 참조하세요.
 
 ###미디어 서비스 .NET SDK 업데이트
 
@@ -87,7 +97,7 @@ Azure 미디어 서비스 .NET SDK의 현재 버전은 3.4.0.0입니다. 이 릴
 - 동적 필터에 대한 지원 구현
 - 사용자가 자산을 삭제하는 동안 저장소 컨테이너를 유지할 수 있도록 하는 기능 구현
 - 채널에서 재시도 정책 관련 버그 수정
-- **미디어 인코더 Premium 워크플로** 사용
+- **미디어 인코더 프리미엄 워크플로** 사용
 
 ##<a id="june_changes_15"></a>2015년 6월 릴리스
 
@@ -563,4 +573,4 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 [미디어 서비스 작업 알림 처리]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

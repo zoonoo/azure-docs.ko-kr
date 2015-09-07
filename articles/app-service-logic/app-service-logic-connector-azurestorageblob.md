@@ -1,23 +1,23 @@
 <properties 
-   pageTitle="Azure Storage Blob Connector" 
-   description="Azure Storage Blob Connector 시작" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="anuragdalmia" 
-   manager="dwrede" 
-   editor=""/>
+   pageTitle="논리 앱에서 Azure 저장소 Blob 커넥터 사용 | Microsoft Azure 앱 서비스"
+	description="Azure 저장소 Blob 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="08/19/2015"
-   ms.author="rajram"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="rajram"/>
    
-# Azure Storage Blob Connector
-Azure Storage Blob에 연결하여 Blob 컨테이너의 Blob을 업로드, 다운로드 및 삭제할 수 있습니다. 커넥터는 논리 앱에서 "워크플로"의 일부로 사용될 수 있습니다.
+# Azure 저장소 Blob 커넥터 시작 및 논리 앱에 추가 
+Azure Storage Blob에 연결하여 Blob 컨테이너의 Blob을 업로드, 다운로드 및 삭제할 수 있습니다. 커넥터는 논리 앱에서 "워크플로"의 일부로 사용됩니다.
 
 ## 트리거 및 작업
 *트리거*는 발생하는 이벤트입니다. 예를 들어 주문이 업데이트되거나 새 고객이 추가되는 것이 트리거입니다. *작업*은 트리거의 결과입니다. 예를 들어 주문이 업데이트되면 영업 직원에게 경고를 보내는 것이 작업입니다. 또는 새 고객이 추가되면 새 고객에게 환영 전자 메일을 보냅니다.
@@ -102,4 +102,4 @@ Content를 원하는 값으로 설정할 수 있습니다. 식은 논리 앱 트
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

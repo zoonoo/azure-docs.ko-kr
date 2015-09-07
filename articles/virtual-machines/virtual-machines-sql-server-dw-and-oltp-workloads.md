@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/19/2015"
-	ms.author="jroth" />
+	ms.author="jroth"/>
 
 # Azure 가상 컴퓨터의 SQL Server 데이터 웨어하우징 및 트랜잭션 작업
 
-Azure 가상 컴퓨터에서 데이터 웨어하우징 또는 트랜잭션 워크로드에 SQL Server를 사용하려면 Azure 가상 컴퓨터 갤러리에서 미리 구성한 가상 컴퓨터 이미지 중 하나를 사용하는 것이 좋습니다. 이 이미지는 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](https://msdn.microsoft.com/library/azure/dn133149.aspx)의 권장 사항을 기준으로 최적화되어 있습니다.
+Azure 가상 컴퓨터에서 데이터 웨어하우징 또는 트랜잭션 워크로드에 SQL Server를 사용하려면 Azure 가상 컴퓨터 갤러리에서 미리 구성한 가상 컴퓨터 이미지 중 하나를 사용하는 것이 좋습니다. 이러한 이미지는 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-sql-server-performance-best-practices.md)의 권장 사항을 기준으로 최적화되어 있습니다.
 
 이 문서에서는 Azure 가상 컴퓨터에서 이러한 워크로드를 실행하는 데 초점을 맞춥니다(IaaS, 서비스 형태의 인프라라고도 함). Azure에서 데이터 웨어하우징과 트랜잭션 워크로드를 서비스 형태로 실행할 수도 있습니다. 자세한 내용은 [Azure SQL 데이터 웨어하우스에 미리 보기](http://azure.microsoft.com/documentation/services/sql-data-warehouse/) 및 [Azure SQL 데이터베이스](http://azure.microsoft.com/documentation/services/sql-database/)를 참조하세요.
 
@@ -75,23 +75,26 @@ PowerShell을 사용하여 VM을 만드는 것과 관련한 자세한 내용은 
 
 ## 트랜잭션/DW 이미지에 포함된 특정 구성
 
-이 이미지에 포함된 최적화는 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](https://msdn.microsoft.com/library/azure/dn133149.aspx)를 기준으로 합니다. 특히 이러한 이미지에 대한 구성은 다음과 같은 최적화를 포함합니다.
+이 이미지에 포함된 최적화는 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-sql-server-performance-best-practices.md)를 기준으로 합니다. 특히 이러한 이미지에 대한 구성은 다음과 같은 최적화를 포함합니다.
 
 >[AZURE.NOTE]사용자 고유의 라이선스가 있고 데이터 웨어하우징 또는 트랜잭션 가상 컴퓨터를 처음부터 새로 만들려면 아래의 미리 구성된 갤러리 이미지에서 제공하는 최적화 예제와 성능 문서를 기준으로 최적화를 수행할 수 있습니다.
 
 ### 디스크 구성
 
-
+|구성|설정|
 |---|---|
 |연결된 데이터 디스크 수|15|
-|저장소 공간|2개의 저장소 풀:<br/>-- 1개의 데이터 풀(12개 데이터 디스크, 12TB 고정 크기); Column = 12<br/>-- 1개의 로그 풀(3개 데이터 디스크, 3TB 고정); Column = 3<br/><br/>데이터 디스크 하나는 사용자가 연결하여 사용을 결정할 수 있게 남아 있음<br/><br/>**DW**: 스트라이프 크기 = 256KB<br/>**트랜잭션**: 스트라이프 크기 = 64KB|
-|디스크 크기, 캐싱, 할당 크기|각각 1TB, HostCache = None, NTFS 할당 단위 크기 = 64KB|
+|저장소 공간|2개의 저장소 풀:<br/>--1개의 데이터 풀(12개 데이터 디스크, 12TB 고정 크기); Column = 12<br/>--1개의 로그 풀(3개 데이터 디스크, 3TB 고정 크기); Column = 3<br/><br/>데이터 디스크 하나는 사용자가 연결하여 사용을 결정할 수 있게 남아 있음<br/><br/>**DW**: 스트라이프 크기 = 256KB<br/>**트랜잭션**: 스트라이프 크기 = 64KB|
+|디스크 크기|각각 1TB|
+|구성|HostCache=None|
+|할당 크기|NTFS 할당 단위 크기 = 64KB|
 
 ### SQL Server 구성
 
+|구성|설정|
 |---|---|
-|시작 매개 변수|-데이터베이스가 자동 증가해야할 경우 데이터 파일을 동일한 크기로 유지하기 위한 T1117 <br/><br/>- tempdb 확장성 지원을 위한 T1118(자세한 내용은 [SQL Server(2005 및 2008) 추적 플래그 1118 (-T1118) 사용](http://blogs.msdn.com/b/psssql/archive/2008/12/17/sql-server-2005-and-2008-trace-flag-1118-t1118-usage.aspx?WT.mc_id=Blog_SQL_Announce_Announce) 참조)|
-|복구 모델|**DW**: ALTER DATABASE를 사용하 여 모델 데이터베이스에 대해 SIMPLE로 설정<br/>**트랜잭션**: 변경 없음|
+|시작 매개 변수|-T1117: 데이터베이스가 자동 증가해야 할 경우 데이터 파일을 동일한 크기로 유지<br/><br/>-T1118: tempdb 확장성 지원(자세한 내용은 [SQL Server(2005 및 2008) 추적 플래그 1118(-T1118) 사용](http://blogs.msdn.com/b/psssql/archive/2008/12/17/sql-server-2005-and-2008-trace-flag-1118-t1118-usage.aspx?WT.mc_id=Blog_SQL_Announce_Announce) 참조)|
+|복구 모델|**DW**: ALTER DATABASE를 사용하여 model 데이터베이스에 대해 SIMPLE로 설정<br/>**트랜잭션**: 변경 없음|
 |설정 기본 위치|SQL Server 오류 로그와 추적 파일 디렉터리를 데이터 디스크로 이동|
 |데이터베이스 기본 위치|시스템 데이터베이스가 데이터 디스크로 옮겨졌습니다.<br/><br/>사용자 데이터베이스 만들기를 위한 위치가 데이터 디스크로 변경되었습니다.|
 |즉시 파일 초기화|사용|
@@ -101,7 +104,7 @@ PowerShell을 사용하여 VM을 만드는 것과 관련한 자세한 내용은 
 
 - 최적화된 이미지와 최적화되지 않은 이미지 간에 가격 차이가 있습니까?
 
-	아니요. 최적화된 이미지도 같은 가격 모델을 따르며 추가 비용이 없습니다(자세한 내용: [여기](http://azure.microsoft.com/pricing/details/virtual-machines/)). 비용이 더 높아지면 VM 인스턴스 크기가 더 커집니다.
+	아니요. 최적화된 이미지도 같은 가격 책정 모델을 따르며 추가 비용이 없습니다(자세한 내용은 [여기](http://azure.microsoft.com/pricing/details/virtual-machines/) 참조). 비용이 더 높아지면 VM 인스턴스 크기가 더 커집니다.
 
 - 고려해야 하는 성능 픽스가 있습니까?
 
@@ -113,7 +116,7 @@ PowerShell을 사용하여 VM을 만드는 것과 관련한 자세한 내용은 
 
 - 저장소 공간에 대한 자세한 내용을 찾으려면 어떻게 해야 합니까?
 
-	저장소 공간에 자세한 내용은 [저장소 공간 질문과 대답(FAQ)](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx)을 참조하세요.
+	저장소 공간에 자세한 내용은 [저장소 공간 FAQ(질문과 대답)](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx)를 참조하세요.
 
 - 새 DW 이미지와 기존 이미지 간의 차이는 무엇입니까?
 
@@ -121,7 +124,7 @@ PowerShell을 사용하여 VM을 만드는 것과 관련한 자세한 내용은 
 
 - 이전 DW 이미지를 사용해야 할 경우 어떻게 합니까? 액세스할 수 있는 방법이 있습니까?
 
-	이전 VM 이미지는 계속 사용할 수 있습니다. 갤러리에서 직접 액세스하짐 못할 뿐입니다. Powershell commandlet을 통해 사용을 계속할 수 있습니다. 예를 들어, **Get-AzureVMImage**를 사용하여 모든 이미지를 나열하고 설명과 게시일을 근거로 이전 DW 이미지를 찾으면 **New-AzureVM**을 사용해 프로비전할 수 있습니다.
+	이전 VM 이미지는 계속 사용할 수 있습니다. 갤러리에서 직접 액세스하짐 못할 뿐입니다. Powershell commandlet을 통해 사용을 계속할 수 있습니다. 예를 들어 **Get-AzureVMImage**를 사용하여 모든 이미지를 나열할 수 있고 설명과 게시일을 근거로 이전 DW 이미지를 찾으면 **New-AzureVM**을 사용하여 프로비전할 수 있습니다.
 
 ## 다음 단계
 
@@ -130,6 +133,6 @@ SQL Server와 함께 모든 가상 컴퓨터를 설치한 후 다음 작업이 �
 - [데이터 마이그레이션](virtual-machines-migrate-onpremises-database.md)
 - [연결 설정](virtual-machines-sql-server-connectivity.md).
 
-Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
+Azure VM에서 SQL Server 실행에 관련된 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,27 +1,29 @@
 <properties 
-   pageTitle="관리 포털에서 VPN 게이트웨이 구성 | Microsoft Azure"
-   description="이 문서에서는 가상 네트워크 VPN 게이트웨이 구성하고 VPN 게이트웨이 라우팅 유형을 고정에서 동적으로 또는 동적에서 고정으로 변경하는 방법을 안내합니다."
-   services="vpn-gateway"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="jdial"
-   editor="tysonn" />
+   pageTitle="Azure 포털에서 VPN 게이트웨이 구성 | Microsoft Azure"
+	description="이 문서에서는 가상 네트워크 VPN 게이트웨이 구성하고 VPN 게이트웨이 라우팅 유형을 고정에서 동적으로 또는 동적에서 고정으로 변경하는 방법을 안내합니다."
+	services="vpn-gateway"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="vpn-gateway"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/12/2015"
-   ms.author="cherylmc" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="cherylmc"/>
 
-# 관리 포털에서 VPN 게이트웨이 구성
+# Azure 포털에서 VPN 게이트웨이 구성
 
 Azure 및 온-프레미스 위치 간에 보안 프레미스 간 연결을 만들려면 VPN 게이트웨이를 구성해야 합니다. 다양한 유형의 게이트웨이가 있으며, 만들 게이트웨이의 유형은 네트워크 설계 계획과 사용하려는 온-프레미스 VPN 장치에 따라 다릅니다. 예를 들어 지점 및 사이트 간 연결과 같은 일부 연결 옵션은 동적 라우팅 게이트웨이가 필요합니다. 지점 및 사이트 간(P2S) 연결과 사이트 간(S2S) 연결을 모두 지원하도록 게이트웨이를 구성하려면, 두 게이트웨이 라우팅 유형 중 하나로 사이트 간 연결을 구성할 수 있더라도 동적 라우팅 게이트웨이를 구성해야 합니다. 또한 사이트 간 연결에 사용하려는 장치가 만들려는 게이트웨이 유형을 지원하는지 확인해야 합니다. [VPN 게이트웨이 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
 
 ## 구성 개요
 
-게이트웨이를 구성하기 전에 먼저 가상 네트워크를 만들어야 합니다. 프레미스 간 연결을 위해 가상 네트워크를 만드는 단계는 [사이트 간 VPN을 통한 가상 네트워크 구성](vpn-gateway-site-to-site-create.md) 또는 [지점 및 사이트 간 VPN을 통한 가상 네트워크 구성](vpn-gateway-point-to-site-create.md)을 참조하세요. 그런 다음 아래 단계에 따라 VPN 게이트웨이 구성하고 VPN 장치를 구성하는 데 필요한 정보를 수집합니다.
+아래 절차는 Azure 포털에서 VPN 게이트웨이를 구성하는 과정을 안내합니다. 이러한 단계는 서비스 관리 모드를 사용하여 만들었으며 Azure 포털에 표시되는 VNet용 게이트웨이에 적용됩니다. Preview 포털 사용 또는 리소스 관리자 모드를 사용하여 구성된 VNet에 대한 단계는 아닙니다. [Azure 리소스 관리자 및 PowerShell을 사용하여 사이트 간 연결로 가상 네트워크 만들기](vpn-gateway-create-site-to-site-rm-powershell.md)에서는 리소스 관리자 모드를 사용하여 만든 가상 네트워크용 VNet 게이트웨이를 만드는 방법에 대한 정보를 찾을 수 있습니다.
+
+게이트웨이를 구성하기 전에 먼저 가상 네트워크를 만들어야 합니다. 프레미스 간 연결을 위해 가상 네트워크를 만드는 단계는 [사이트 간 VPN 연결을 사용하여 가상 네트워크 구성](vpn-gateway-site-to-site-create.md) 또는 [지점 및 사이트 간 VPN 연결을 사용하여 가상 네트워크 구성](vpn-gateway-point-to-site-create.md)을 참조하세요. 그런 다음 아래 단계에 따라 VPN 게이트웨이 구성하고 VPN 장치를 구성하는 데 필요한 정보를 수집합니다.
 
 이미 VPN 게이트웨이가 있고 라우팅 유형을 변경하려면 [VPN 게이트웨이 유형을 변경하는 방법](#how-to-change-your-vpn-gateway-type)을 참조하세요.
 
@@ -35,7 +37,7 @@ Azure 및 온-프레미스 위치 간에 보안 프레미스 간 연결을 만�
 
 ## VPN 게이트웨이 만들기
 
-1. **네트워크** 페이지에서 가상 네트워크의 상태 열이 **생성됨**인지 확인합니다.
+1. Azure 포털의 **네트워크** 페이지에서 가상 네트워크의 상태 열이 **생성됨**인지 확인합니다.
 
 1. **이름** 열에서 가상 네트워크의 이름을 클릭합니다.
 
@@ -44,7 +46,7 @@ Azure 및 온-프레미스 위치 간에 보안 프레미스 간 연결을 만�
 ![게이트웨이가 만들어지지 않음](./media/vpn-gateway-configure-vpn-gateway-mp/IC717025.png)
 
 
-그런 다음 페이지 아래쪽에서 **게이트웨이 만들기**를 클릭합니다. *고정 라우팅* 또는 *동적 라우팅*을 선택할 수 있습니다. 라우팅 유형은 다양한 요인에 따라 선택합니다. 예를 들어 VPN 장치가 지원하는 항목과 지점 및 사이트 간 연결을 지원해야 하는지 여부 등에 따라 달라집니다. 필요한 라우팅 유형은 [가상 네트워크 연결을 위한 VPN 장치 정보](http://go.microsoft.com/fwlink/p/?LinkId=615934)를 확인하세요. 게이트웨이를 만든 후에는 게이트웨이 유형을 변경하려면 게이트웨이를 삭제하고 다시 만들어야 합니다. 시스템에서 게이트웨이 만들 것인지 확인하는 메시지를 표시하면 **예**를 클릭합니다.
+그런 다음 페이지 아래쪽에서 **게이트웨이 만들기**를 클릭합니다. *고정 라우팅* 또는 *동적 라우팅*을 선택할 수 있습니다. 라우팅 유형은 다양한 요인에 따라 선택합니다. 예를 들어 VPN 장치가 지원하는 항목과 지점 및 사이트 간 연결을 지원해야 하는지 여부 등에 따라 달라집니다. 필요한 라우팅 유형은 [가상 네트워크 연결을 위한 VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 확인하세요. 게이트웨이를 만든 후에는 게이트웨이 유형을 변경하려면 게이트웨이를 삭제하고 다시 만들어야 합니다. 시스템에서 게이트웨이 만들 것인지 확인하는 메시지를 표시하면 **예**를 클릭합니다.
 
 ![게이트웨이 유형](./media/vpn-gateway-configure-vpn-gateway-mp/IC717026.png)
 
@@ -69,7 +71,7 @@ Azure 및 온-프레미스 위치 간에 보안 프레미스 간 연결을 만�
 
 ## VPN 장치 구성
 
-이전 단계를 완료한 후 사용자 또는 네트워크 관리자는 연결을 설정하기 위해 VPN 장치를 구성해야 합니다. VPN 장치에 대한 자세한 내용은 [가상 네트워크 연결을 위한 VPN 장치 정보](http://go.microsoft.com/fwlink/p/?LinkID=615934)를 참조하세요.
+이전 단계를 완료한 후 사용자 또는 네트워크 관리자는 연결을 설정하기 위해 VPN 장치를 구성해야 합니다. VPN 장치에 대한 자세한 내용은 [가상 네트워크 연결을 위한 VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요.
 
 VPN 장치를 구성한 후 VNet에 대한 대시보드 페이지에서 업데이트된 연결 정보를 볼 수 있습니다.
 
@@ -126,7 +128,7 @@ VPN 장치를 구성한 후 VNet에 대한 대시보드 페이지에서 업데�
 
 VPN 게이트웨이 라우팅 유형을 변경해야 하는 경우 기존 게이트웨이 삭제한 다음 새 라우팅 유형으로 다시 만듭니다. 게이트웨이 라우팅 유형을 변경하기 위해 전체 가상 네트워크를 삭제할 필요는 없습니다.
 
-게이트웨이 유형을 변경하기 전에 VPN 장치에서 사용할 라우팅 유형을 지원하는지 확인해야 합니다. 새 라우팅 구성 샘플을 다운로드하고 VPN 장치 요구 사항을 확인하려면 [가상 네트워크 연결을 위한 VPN 장치 정보](http://go.microsoft.com/fwlink/p/?LinkID=615934)를 참조하세요.
+게이트웨이 유형을 변경하기 전에 VPN 장치에서 사용할 라우팅 유형을 지원하는지 확인해야 합니다. 새 라우팅 구성 샘플을 다운로드하고 VPN 장치 요구 사항을 확인하려면 [가상 네트워크 연결을 위한 VPN 장치 정보](vpn-gateway-about-vpn-devices.md)를 참조하세요.
 
 >[AZURE.IMPORTANT]가상 네트워크 VPN 게이트웨이를 삭제하면 게이트웨이에 할당된 VIP가 해제됩니다. 게이트웨이를 다시 만들면 새 VIP가 게이트웨이에 할당됩니다.
 
@@ -141,7 +143,7 @@ VPN 게이트웨이 라우팅 유형을 변경해야 하는 경우 기존 게이
 
 ## 다음 단계
 
-[가상 네트워크 보안 프레미스 간 연결 정보](http://go.microsoft.com/fwlink/p/?LinkID=532884) 문서에서 가상 네트워크 프레미스 간 연결에 대해 알아볼 수 있습니다.
+[가상 네트워크에 대한 보안 프레미스 간 연결 정보](vpn-gateway-cross-premises-options.md) 문서에서 가상 네트워크 프레미스 간 연결에 대해 알아볼 수 있습니다.
 
 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. [사용자 지정 가상 컴퓨터를 만드는 방법](../virtual-machines/virtual-machines-create-custom.md)을 참조하세요.
 
@@ -149,4 +151,4 @@ VPN 게이트웨이 라우팅 유형을 변경해야 하는 경우 기존 게이
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="두 가상 네트워크 간의 VPN 연결 구성 | Microsoft Azure" 
-   description="두 Azure 가상 네트워크 간의 VPN 연결을 구성하는 방법, 두 Azure 가상 네트워크 간의 도메인 이름 확인을 구성하는 방법 및 HBase 지역에서 복제를 구성하는 방법에 대해 알아봅니다." 
-   services="hdinsight,virtual-network" 
-   documentationCenter="" 
-   authors="mumian" 
-   manager="paulettm" 
-   editor="cgronlun"/>
+   pageTitle="두 가상 네트워크 간의 VPN 연결 구성 | Microsoft Azure"
+	description="두 Azure 가상 네트워크 간의 VPN 연결을 구성하는 방법, 두 Azure 가상 네트워크 간의 도메인 이름 확인을 구성하는 방법 및 HBase 지역에서 복제를 구성하는 방법에 대해 알아봅니다."
+	services="hdinsight,virtual-network"
+	documentationCenter=""
+	authors="mumian"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data" 
-   ms.date="07/08/2015"
-   ms.author="jgao"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="07/08/2015"
+	ms.author="jgao"/>
 
 # 두 Azure 가상 네트워크 간의 VPN 연결 구성  
 
@@ -29,7 +29,7 @@ Azure 가상 네트워크 사이트 간 연결에서는 VPN 게이트웨이를 �
 - 분리 경계가 뚜렷한 지역별 다중 계층 응용 프로그램 
 - Azure의 구독 간/조직 간 통신
 
-자세한 내용은 [VNet 간 연결 구성](https://msdn.microsoft.com/library/azure/dn690122.aspx)을 참조하세요.
+자세한 내용은 [VNet 간 연결 구성](../virtual-network/virtual-networks-configure-vnet-to-vnet-connection.md)을 참조하세요.
 
 비디오를 보려면
 
@@ -83,7 +83,7 @@ Azure 가상 네트워크 사이트 간 연결에서는 VPN 게이트웨이를 �
 
 	- **DNS 서버**:(빈 상태로 둠) 
 	
-		가상 네트워크 내에서 이름 확인을 위해 자체 DNS 서버가 필요합니다. Azure가 제공한 이름 확인을 사용하는 경우 및 사용자 고유의 DNS 서버를 사용하는 경우에 대한 자세한 내용은 [이름 확인(DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx)을 참조하세요. VNet 간의 이름 확인을 구성하는 지침은 [두 Azure 가상 네트워크 간 DNS 구성][hdinsight-hbase-dns]을 참조하세요.
+		가상 네트워크 내에서 이름 확인을 위해 자체 DNS 서버가 필요합니다. Azure가 제공한 이름 확인을 사용하는 경우 및 사용자 고유의 DNS 서버를 사용하는 경우에 대한 자세한 내용은 [이름 확인(DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요. VNet 간의 이름 확인을 구성하는 지침은 [두 Azure 가상 네트워크 간 DNS 구성][hdinsight-hbase-dns]을 참조하세요.
   
 	- **지점 및 사이트 간 VPN 구성**:(선택 안 함)
 
@@ -270,4 +270,4 @@ VNet에 VM을 배포하지 않은 경우 가상 네트워크의 시각적 다이
 [img-vnet-lnet-diagram]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.LNet.diagram.png
 [img-vpn-status]: ./media/hdinsight-hbase-geo-replication-configure-VNets/HDInsight.HBase.VPN.status.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

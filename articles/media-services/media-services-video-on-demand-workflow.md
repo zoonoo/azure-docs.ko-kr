@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure 미디어 서비스를 사용하여 주문형 미디어 제공" 
-	description="이 항목에서는 Azure 미디어 서비스를 사용하여 주문형 미디어를 제공하는 일반적인 시나리오에 대해 다룹니다." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Azure 미디어 서비스를 사용하여 주문형 미디어 제공"
+	description="이 항목에서는 Azure 미디어 서비스를 사용하여 주문형 미디어를 제공하는 일반적인 시나리오에 대해 다룹니다."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="juliako"/>
 
 
@@ -27,7 +27,7 @@
 
 다음 다이어그램에서는 주문형 워크플로 관련 비디오에 관련된 미디어 서비스 플랫폼의 주요 부분을 보여 줍니다.![VoD 워크플로][vod-overview]
 
-##<a id="vod_scenarios"></a>일반적인 시나리오: 주문형 미디어를 제공합니다. 
+##<a id="vod_scenarios"></a>일반적인 시나리오: 주문형 미디어 제공
 
 ###저장소에서 콘텐츠 보호 및 암호화하지 않고 스트리밍 미디어 배달(암호화되지 않음)
 
@@ -220,4 +220,4 @@ Azure 미디어 서비스에 프로그래밍 방식으로 연결할 **.NET** 또
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

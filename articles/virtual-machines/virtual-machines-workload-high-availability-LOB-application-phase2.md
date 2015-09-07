@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="LOB(기간 업무) 응용 프로그램 작업 2단계: 도메인 컨트롤러 구성" 
-	description="이 두번째 단계에서는 Active Directory 도메인 컨트롤러를 만들고 구성합니다." 
+	pageTitle="LOB(기간 업무) 응용 프로그램 2단계 | Microsoft Azure"
+	description="Azure의 LOB(기간 업무) 응용 프로그램의 2단계에서 두 Active Directory 복제본 도메인 컨트롤러를 만들고 구성합니다."
 	documentationCenter=""
-	services="virtual-machines" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	services="virtual-machines"
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # LOB(기간 업무) 응용 프로그램 작업 2단계: 도메인 컨트롤러 구성
@@ -206,4 +206,4 @@ Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤
 
 [Azure 인프라 서비스 작업: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

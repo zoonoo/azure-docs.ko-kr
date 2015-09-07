@@ -29,7 +29,7 @@ Azure 포털에서 가상 컴퓨터를 만드는 경우 원격 데스크톱, Win
 
 포털을 사용하여 끝점을 만드는 경우 잘 알려진 네트워크 프로토콜의 TCP 또는 UDP 포트 및 IP 프로토콜 기본값이 제공됩니다. 사용자 지정 끝점의 경우 올바른 IP 프로토콜(TCP 또는 UDP)과 공용 및 개인 포트를 직접 지정해야 합니다. 들어오는 트래픽을 여러 가상 컴퓨터에 임의로 배포하려면 여러 끝점으로 구성된 부하 분산된 집합을 만들어야 합니다.
 
-끝점을 만든 후 ACL(액세스 제어 목록)을 사용하여 해당 원본 IP 주소에 따라 끝점의 공용 포트로 들어오는 트래픽을 허용하거나 거부하는 규칙을 정의할 수 있습니다. 그러나 가상 컴퓨터가 Azure 가상 네트워크에 있는 경우에는 대신 네트워크 보안 그룹을 사용해야 합니다. 자세한 내용은 [네트워크 보안 그룹 정보](https://msdn.microsoft.com/library/azure/dn848316.aspx)를 참조하세요.
+끝점을 만든 후 ACL(액세스 제어 목록)을 사용하여 해당 원본 IP 주소에 따라 끝점의 공용 포트로 들어오는 트래픽을 허용하거나 거부하는 규칙을 정의할 수 있습니다. 그러나 가상 컴퓨터가 Azure 가상 네트워크에 있는 경우에는 대신 네트워크 보안 그룹을 사용해야 합니다. 자세한 내용은 [네트워크 보안 그룹 정보](virtual-networks-nsg.md)를 참조하세요.
 
 **중요**: Azure 가상 컴퓨터에 대한 방화벽 구성은 원격 데스크톱 및 SSH(Secure Shell)와 연결된 포트 및 대부분의 경우 Windows PowerShell 원격에 대해 자동으로 수행됩니다. 다른 모든 끝점에 지정된 포트의 경우 가상 컴퓨터의 방화벽에 대한 구성이 자동으로 수행되지 않습니다. 가상 컴퓨터에 대한 끝점을 만들 때 가상 컴퓨터의 방화벽에서 끝점 구성에 해당하는 프로토콜 및 개인 포트에 대한 트래픽도 허용하도록 해야 합니다.
 
@@ -65,7 +65,7 @@ Azure PowerShell cmdlet을 사용하여 이 작업을 설정하려면 [Add-Azure
 
 > [AZURE.NOTE]끝점이 부하 분산 집합의 일부인 경우 끝점에 대한 ACL의 변경 내용이 집합의 모든 끝점에 적용됩니다.
 
-가상 컴퓨터가 Azure 가상 네트워크에 있는 경우에는 대신 네트워크 보안 그룹을 사용해야 합니다. 자세한 내용은 [네트워크 보안 그룹 정보](https://msdn.microsoft.com/library/azure/dn848316.aspx)를 참조하세요.
+가상 컴퓨터가 Azure 가상 네트워크에 있는 경우에는 대신 네트워크 보안 그룹을 사용해야 합니다. 자세한 내용은 [네트워크 보안 그룹 정보](virtual-networks-nsg.md)를 참조하세요.
 
 
 1.	아직 로그인하지 않은 경우 포털에 로그인합니다.
@@ -85,7 +85,7 @@ Azure PowerShell cmdlet을 사용하여 이 작업을 설정하려면 [Add-Azure
 
 규칙은 첫 번째 규칙에서 시작하여 마지막 규칙까지 순서대로 평가됩니다. 따라서 가장 제한적인 규칙까지 오름차순으로 규칙의 순서를 지정해야 합니다. 예제 및 자세한 내용은 [네트워크 액세스 제어 목록 정보](http://go.microsoft.com/fwlink/p/?linkid=303816)를 참조하십시오.
 
-Azure PowerShell cmdlet을 사용하여 이 작업을 설정하려면, [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록) 관리](https://msdn.microsoft.com/library/azure/dn376543.aspx)를 참조하세요.
+Azure PowerShell cmdlet을 사용하여 이 작업을 설정하려면 [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록) 관리](../virtual-network/virtual-networks-acl-powershell.md)를 참조하세요.
 
 ## 추가 리소스
 
@@ -93,6 +93,6 @@ Azure PowerShell cmdlet을 사용하여 이 작업을 설정하려면, [PowerShe
 
 [네트워크 액세스 제어 목록 정보](http://go.microsoft.com/fwlink/p/?linkid=303816)
 
-[네트워크 보안 그룹 정보](https://msdn.microsoft.com/library/azure/dn848316.aspx)
+[네트워크 보안 그룹 정보](virtual-networks-nsg.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="네트워크 ACL(액세스 제어 목록)이란?"
-   description="ACL 정보"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="ACL 정보"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="06/08/2015"
+	ms.author="telmos"/>
 
 # 네트워크 ACL(액세스 제어 목록)이란?
 
@@ -21,7 +21,7 @@
 
 > [AZURE.IMPORTANT]가능하면 ACL 대신 NSG(네트워크 보안 그룹)를 사용하는 것이 좋습니다. NSG에 대해 자세히 알아보려면 [네트워크 보안 그룹이란?](../virtual-networks-nsg)을 참조하세요.
 
-ACL은 PowerShell 또는 관리 포털을 사용하여 구성할 수 있습니다. PowerShell을 사용하여 네트워크 ACL을 구성하려면 [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록) 관리](https://msdn.microsoft.com/library/azure/dn376543.aspx)를 참조하세요. 관리 포털을 사용하여 네트워크 ACL을 구성하려면 [가상 컴퓨터에 끝점을 설정하는 방법](../virtual-machines-set-up-endpoints/)을 참조하세요.
+ACL은 PowerShell 또는 관리 포털을 사용하여 구성할 수 있습니다. PowerShell을 사용하여 네트워크 ACL을 구성하려면 [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록) 관리](virtual-networks-acl-powershell.md)를 참조하세요. 관리 포털을 사용하여 네트워크 ACL을 구성하려면 [가상 컴퓨터에 끝점을 설정하는 방법](../virtual-machines-set-up-endpoints/)을 참조하세요.
 
 네트워크 ACL을 사용하여 다음을 수행할 수 있습니다.
 
@@ -99,4 +99,4 @@ LB 집합(부하 분산된 집합) 끝점에서 네트워크 ACL을 지정할 �
 
 [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록)을 관리하는 방법](../virtual-networks-acl-powershell)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,23 +1,25 @@
 <properties
-   pageTitle="BizTalk JSON 인코더"
-   description="BizTalk JSON 인코더"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="rajeshramabathiran"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="논리 앱에서 BizTalk JSON 인코더 사용 | Microsoft Azure 앱 서비스"
+	description="BizTalk JSON 인코더 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="rajram"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="rajram"/>
 
-# BizTalk JSON 인코더
+# BizTalk JSON 인코더 시작 및 논리 앱에 추가 
 BizTalk JSON Encode Decode 커넥터를 사용하면 JSON 및 XML 데이터 간에 사용자 앱을 상호 운용할 수 있습니다. 이것은 주어진 JSON 인스턴스를 XML로 변환하며 그 반대로 변환할 수도 있습니다.
+
+BizTalk JSON 인코더를 비즈니스 워크플로에 추가하고 논리 앱 내에서 이 워크플로의 일부로 데이터를 처리할 수 있습니다.
 
 ## BizTalk JSON 인코더 사용
 BizTalk JSON 인코더를 사용하려면 먼저 BizTalk JSON 인코더 API 앱의 인스턴스를 만들어야 합니다. 이 작업은 논리 앱을 만드는 동안 인라인으로 수행하거나 Azure Marketplace에서 BizTalk JSON 인코더 API 앱을 선택하여 수행할 수 있습니다.
@@ -64,4 +66,4 @@ Input Xml|object|입력 Xml 내용
 <!--Links -->
 [논리 앱 만들기]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -44,13 +44,13 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
    3. 기타 함수 예: FunctionOne(<<argument1>>, FunctionTwo(<<argument2>>))
 
 
-- 문자열 상수의 경우, 백슬래시 (\\) 또는 따옴표(")가 문자열에 필요한 경우 백슬래시(\\) 기호로 이스케이프되어야 합니다. 예: "회사 이름:"Contoso""
+- 문자열 상수의 경우, 백슬래시 (\) 또는 따옴표(")가 문자열에 필요한 경우 백슬래시(\) 기호로 이스케이프되어야 합니다. 예: "회사 이름:"Contoso""
 
 
 
 ## 함수 목록
 
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [MatchRegex](#matchregex) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [ObsoleteReplace](#obsoletereplace) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [ReplaceRegex](#replaceregex) &nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
 
 
 
@@ -61,7 +61,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 **함수:**<br> Append(source, suffix)
 
-**설명:**<br> 소스 문자열 값을 문자열의 끝에 접미사로 추가합니다.
+**설명:**<br> 원본 문자열 값을 문자열의 끝에 접미사로 추가합니다.
  
 **매개 변수:**<br>
 
@@ -69,21 +69,6 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 |--- | ---                 | ---  | ---   |
 | **원본** | 필수 | String | 대개는 원본 개체의 특성 이름 |
 | **접미사** | 필수 | 문자열 | 원본 값의 끝에 추가하려는 문자열입니다. |
-
-
-----------
-### Coalesce
-
-**함수:**<br> Coalesce(source1, source2, …)
-
-**설명:**<br> 원본 매개 변수 목록에서 첫번째 비어 있지 않은 값을 반환합니다.
- 
-**매개 변수:**<br>
-
-|이름| 필수/ 반복 | 형식 | 참고 사항 |
-|--- | ---                 | ---  | ---   |
-| ****source1 .. sourceN ** | 필수, 시간 변수 | 문자열 | 선택할 **원본** 값 |
-
 
 
 ----------
@@ -119,26 +104,6 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 |--- | ---                 | ---  | ---   |
 | **구분 기호** | 필수 | 문자열 | 문자열이 하나의 문자열로 연결되면 원본 값을 구분하는데 문자열을 사용합니다. 구분 기호가 필요하지 않은 경우 ""일 수 있습니다. |
 | ****source1 … sourceN ** | 필수, 시간 변수 | 문자열 | 함께 조인될 문자열 값 |
-
-
-
-
-
-----------
-### MatchRegex
-
-**함수:**<br> MatchRegex(source, find, group)
-
-**설명:**<br> find 매개 변수에 지정된 정규식 패턴과 일치하는 부분 분자열 내 원본 값을 반환합니다. 그룹이 지정된 경우 해당 RegEx 그룹의 값만 반환합니다.
-
-
-**매개 변수:**<br>
-
-|이름| 필수/ 반복 | 형식 | 참고 사항 |
-|--- | ---                 | ---  | ---   |
-| **원본** | 필수 | 문자열 | 검색할 **원본** 값입니다. |
-| **find** | 필수 | String | 내부 **원본** 값과 일치하는 정규식입니다. |
-| **group** | 옵션 | 문자열 | 사용하려는 값과 일치하는 그룹 내 정규식의 이름입니다. |
 
 
 
@@ -178,14 +143,11 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
 
 ----------
-### ObsoleteReplace
+### Replace
 
 **함수:**<br> ObsoleteReplace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
-**설명:**<br>
-> [AZURE.NOTE]이 함수는 가까운 미래에 사용되어 간단 버전으로 교체됩니다.
-
-문자열 내 값을 대체합니다. 제공된 매개 변수에 따라 다르게 작동합니다.
+**설명:**<br> 문자열 내 값을 대체합니다. 제공된 매개 변수에 따라 다르게 작동합니다.
 
 - **oldValue** 및 **replacementValue**가 제공되는 경우:
 
@@ -203,7 +165,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 
    - **원본**에 값이 있는 경우 **원본**이 반환됩니다.
 
-- **원본**에 값이 없는 경우 **oldValueRegexPattern** 및 **oldValueRegexGroupName**을 사용하여 **replacementPropertyName**으로 속성에서 대체 값을 추출합니다. 대체 값이 결과로 반환됩니다.
+   - **원본**에 값이 없는 경우 **oldValueRegexPattern** 및 **oldValueRegexGroupName**을 사용하여 **replacementPropertyName**으로 속성에서 대체 값을 추출합니다. 대체 값이 결과로 반환됩니다.
 
 
 **매개 변수:**<br>
@@ -217,42 +179,6 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 | **replacementValue** | 옵션 | String | 이전 값과 대체할 새로운 값입니다. |
 | **replacementAttributeName** | 옵션 | 문자열 | 원본에 값이 없는 경우 대체 값에 사용할 특성의 이름입니다. |
 | **template** | 옵션 | String | **template** 값이 제공되면, 템플릿 내에서 **oldValue**를 찾아 원본 값으로 바꿉니다. |
-
-
-
-----------
-### Replace
-
-**함수:**<br> Replace(source, find, replace)
-
-**설명:**<br> **원본** 문자열의 **find** 값의 모든 항목을 **replace** 매개 변수의 값으로 바꿉니다.
-
-**매개 변수:**<br>
-
-|이름| 필수/ 반복 | 형식 | 참고 사항 |
-|--- | ---                 | ---  | ---   |
-| **원본** | 필수 | 문자열 | 검색할 **원본** 값입니다. |
-| **find** | 필수 | 문자열 | 검색할 값입니다. |
-| **replace** | 필수 | 문자열 | 대체할 값입니다. |
-
-
-
-----------
-### ReplaceRegex
-
-**함수:**<br> ReplaceRegex(source, find, replace, group)
-
-**설명:**<br> **원본** 문자열 내에서 **find** 정규식과 일치하는 모든 부분 문자열을 **replace** 값으로 바꿉니다. **group**이 지정되면 해당 RegEx 그룹의 값만 바꿉니다.
-
-**매개 변수:**<br>
-
-|이름| 필수/ 반복 | 형식 | 참고 사항 |
-|--- | ---                 | ---  | ---   |
-| **원본** | 필수 | 문자열 | 검색할 **원본** 값입니다. |
-| **find** | 필수 | String | 내부 **원본** 값과 일치하는 정규식입니다. |
-| **replace** | 필수 | 문자열 | 대체할 값입니다. |
-| **group** | 옵션 | 문자열 | 사용하려는 값과 일치하는 그룹 내 정규식의 이름입니다. |
-
 
 
 
@@ -296,14 +222,13 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 사용자 이름을 가져오려면 사용자의 전자 메일에서 알려진 도메인 이름을 제거해야 합니다. <br> 예를 들어, 도메인이 "contoso.com"인 경우 다음 식을 사용할 수 있습니다.
 
 
-**식:** <br> `Replace([mail], "@contoso.com", "")`
+**식:** <br> `Replace([mail], "@contoso.com", , ,"", ,)`
 
-**샘플 입/출력:** <br>
+**샘플 입출력:** <br>
 
 - **입력**(mail): "john.doe@contoso.com"
 
 - **출력**: "john.doe"
-
 
 
 ### 사용자 이름에 상수 접미사 추가
@@ -315,7 +240,7 @@ Salesforce 샌드박스를 사용하는 경우 동기화하기 전에 모든 사
 
 **식:** <br> `Append([userPrincipalName], ".test"))`
 
-**샘플 입/출력:** <br>
+**샘플 입출력:** <br>
 
 - **입력**: (userPrincipalName): "John.Doe@contoso.com"
 
@@ -333,7 +258,7 @@ Salesforce 샌드박스를 사용하는 경우 동기화하기 전에 모든 사
 
 **식:** <br> `Append(Mid([givenName], 1, 3), Mid([surname], 1, 5))`
 
-**샘플 입/출력:** <br>
+**샘플 입출력:** <br>
 
 - **입력**(givenName): "John"
 
@@ -354,7 +279,7 @@ SaaS 응용 프로그램에 특정 형식의 날짜를 전송하려고 합니다
 
 `FormatDateTime([extensionAttribute1], "yyyyMMddHHmmss.fZ", "yyyy-MM-dd")`
 
-**샘플 입/출력:**
+**샘플 입출력:**
 
 - **입력**(extensionAttribute1): "20150123105347.1Z"
 
@@ -373,7 +298,7 @@ Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 �
 
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
 
-**샘플 입/출력:**
+**샘플 입출력:**
 
 - **입력**(상태): "QLD"
 
@@ -382,4 +307,4 @@ Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 �
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

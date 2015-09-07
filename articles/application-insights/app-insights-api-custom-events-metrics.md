@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="사용자 지정 이벤트 및 메트릭용 Application Insights API" 
-	description="장치 또는 데스크톱 앱, 웹 페이지, 서비스에 코드를 몇 줄 삽입하여 사용 및 진단 문제를 추적할 수 있습니다." 
+	pageTitle="사용자 지정 이벤트 및 메트릭용 Application Insights API"
+	description="장치 또는 데스크톱 앱, 웹 페이지, 서비스에 코드를 몇 줄 삽입하여 사용 및 진단 문제를 추적할 수 있습니다."
 	services="application-insights"
-    documentationCenter="" 
-	authors="alancameronwills" 
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
  
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="awills"/>
 
 # 사용자 지정 이벤트 및 메트릭용 Application Insights API 
@@ -411,6 +411,36 @@ Windows 모바일 앱에서 SDK는 처리되지 않은 예외를 catch합니다.
 
 표준 종속성 추적 모듈을 해제하려면 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)을 편집하고 `DependencyCollector.DependencyTrackingTelemetryModule`에 대한 참조를 삭제합니다.
 
+
+## 인증된 사용자
+
+웹앱에서 사용자는 기본적으로 쿠키로 식별됩니다. 사용자가 다른 컴퓨터 또는 브라우저에서 앱에 액세스하거나 쿠키를 삭제하는 경우 두 번 이상 계산될 수 있습니다.
+
+그러나 사용자가 앱에 로그인하면 브라우저 코드에서 인증된 사용자 ID를 설정하여 보다 정확한 개수를 얻을 수 있습니다.
+
+*JavaScript*
+
+```JS
+    // Called when my app has identified the user.
+    function Authenticated(signInId) {
+      var validatedId = signInId.replace(/[,;=| ]+/g, "_");
+      appInsights.setAuthenticatedUserContext(validatedId);
+      ...
+    }
+```
+
+사용자의 실제 로그인 이름을 사용할 필요는 없습니다. 해당 사용자에게 고유한 ID이기만 하면 됩니다. 공백이나 `,;=|` 문자를 포함해서는 안 됩니다.
+
+사용자 ID도 세션 쿠키에 설정되고 서버로 전송됩니다. 서버 SDK가 설치된 경우 인증된 사용자 ID가 클라이언트 및 서버 원격 분석 둘 다에 대한 컨텍스트 속성의 일부로 전송되므로 필터링하여 검색할 수 있습니다.
+
+앱이 사용자를 계정으로 그룹화하는 경우 계정 식별자를 전달할 수도 있습니다(동일한 문자 제한이 적용됨).
+
+
+      appInsights.setAuthenticatedUserContext(validatedId, accountId);
+
+[메트릭 탐색기](app-insights-metrics-explorer.md)에서 **인증된 사용자** 및 **계정** 차트를 만들 수 있습니다.
+
+
 ## <a name="defaults"></a>선택한 사용자 지정 원격 분석에 대한 기본값 설정
 
 작성하는 사용자 정의 이벤트의 일부에 대해 기본 속성 값을 설정하려는 경우 TelemetryClient에서 설정할 수 있습니다. 설정된 값은 해당 클라이언트에서 보낸 모든 원격 분석 항목에 연결됩니다.
@@ -443,10 +473,12 @@ Windows 모바일 앱에서 SDK는 처리되지 않은 예외를 catch합니다.
     context.getProperties().put("Game", currentGame.Name);
     
     gameTelemetry.TrackEvent("WinGame");
+
+
     
 개별 원격 분석 호출이 자신의 속성 사전에 있는 기본값을 재정의할 수 있습니다.
 
-
+**JavaScript 웹 클라이언트의 경우**, [JavaScript 원격 분석 이니셜라이저를 사용합니다](#js-initializer).
 
 
 ## <a name="ikey"></a> 선택한 사용자 지정 원격 분석에 대해 계측 키를 설정합니다.
@@ -540,7 +572,10 @@ ApplicationInsights.config에서:
     TelemetryConfiguration.getActive().getContextInitializers().add(new MyContextInitializer());
 ```
 
-JavaScript 웹 클라이언트에서 현재 기본 속성을 설정하는 방법은 없습니다.
+
+### JavaScript 웹 클라이언트
+
+JavaScript 웹 클라이언트의 경우, [원격 분석 이니셜라이저를 사용하여 기본값을 설정](#js-initializer)합니다.
 
 ## 원격 분석 이니셜라이저
 
@@ -617,6 +652,55 @@ ApplicationInsights.config에서:
 
 
 [이 샘플에 대해 자세히 알아봅니다.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
+
+<a name="js-initializer"></a>
+### JavaScript 원격 분석 이니셜라이저
+
+*JavaScript*
+
+포털에서 가져온 초기화 코드 바로 뒤에 원격 분석 이니셜라이저를 삽입합니다.
+
+```JS
+
+    <script type="text/javascript">
+        // ... initialization code
+        ...({
+            instrumentationKey: "your instrumentation key"
+        });
+        window.appInsights = appInsights;
+
+
+        // Adding telemetry initializer.
+        // This is called whenever a new telemetry item
+        // is created.
+
+        appInsights.queue.push(function () {
+            appInsights.context.addTelemetryInitializer(function (envelope) {
+                var telemetryItem = envelope.data.baseData;
+
+                // To check the telemetry item’s type - for example PageView:
+                if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
+                    // this statement removes url from all page view documents
+                    telemetryItem.url = "URL CENSORED";
+                }
+
+                // To set custom properties:
+                telemetryItem.properties = telemetryItem.properties || {};
+                telemetryItem.properties["globalProperty"] = "boo";
+
+                // To set custom metrics:
+                telemetryItem.measurements = telemetryItem.measurements || {};
+                telemetryItem.measurements["globalMetric"] = 100;
+            });
+        });
+
+        // End of inserted code.
+
+        appInsights.trackPageView();
+    </script>
+```
+
+telemetryItem에서 사용할 수 있는 사용자 지정이 아닌 속성의 요약은 [데이터 모델](app-insights-export-data-model.md/#lttelemetrytypegt)을 참조하세요.
 
 ## <a name="dynamic-ikey"></a> 동적 계측 키
 
@@ -704,7 +788,7 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
  * **SyntheticSource**: null이거나 비어 있지 않다면 이 문자열은 요청의 원본이 로봇 또는 웹 테스트로 확인되었음을 나타냅니다. 기본적으로 메트릭 탐색기의 계산에서 제외됩니다.
 * **Properties** 모든 원격 분석 데이터와 함께 전송되는 속성입니다. 개별 Track* 호출에서 재정의할 수 있습니다.
 * **Session** 사용자의 세션을 식별합니다. ID는 생성된 값으로 설정되며, 사용자가 잠시 동안 비활성 상태이면 값이 변경됩니다.
-* **User** 사용자 수를 계산할 수 있습니다. 웹 앱의 경우 쿠키가 있으면 해당 쿠키에서 사용자 ID를 가져옵니다. 쿠키가 없으면 새 쿠키가 생성됩니다. 사용자가 앱에 로그인해야 하는 경우 사용자의 인증된 ID로 ID를 설정하면 사용자가 다른 컴퓨터에서 로그인하더라도 사용자 수를 정확하게 계산할 수 있습니다. 
+* **사용자** 사용자 정보입니다. 
 
 
 
@@ -781,4 +865,4 @@ TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

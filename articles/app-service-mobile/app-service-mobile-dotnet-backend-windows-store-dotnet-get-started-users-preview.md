@@ -3,7 +3,7 @@
 	description="Azure 앱 서비스 모바일 앱을 사용하여 AAD, Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 사용해서 Windows 앱 사용자를 인증하는 방법을 알아봅니다."
 	services="app-service\mobile"
 	documentationCenter="windows"
-	authors="mattchenderson" 
+	authors="mattchenderson"
 	manager="dwrede"
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/14/2015"
+	ms.date="08/22/2015"
 	ms.author="glenga"/>
 
 # Windows 앱에 인증 추가
@@ -22,11 +22,7 @@
 
 이 항목에서는 클라이언트 응용 프로그램에서 앱 서비스 모바일 앱의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 앱 서비스가 지원하는 ID 공급자를 사용하여 퀵 스타트 프로젝트에 인증을 추가합니다. 모바일 앱에서 인증되고 권한이 부여된 후 사용자 ID 값이 표시됩니다.
 
-이 자습서는 모바일 앱 퀵 스타트를 기반으로 합니다. 먼저 [모바일 앱 시작] 자습서를 완료해야 합니다.
-
-##<a name="review"></a>서버 프로젝트 구성 검토(옵션)
-
-[AZURE.INCLUDE [app-service-mobile-dotnet-backend-enable-auth-preview](../../includes/app-service-mobile-dotnet-backend-enable-auth-preview.md)]
+이 자습서는 모바일 앱 퀵 스타트를 기반으로 합니다. 먼저 [모바일 앱 시작] 자습서를 완료해야 합니다. http://acom-sandbox.azurewebsites.net/documentation/articles/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-push-preview/?rnd=1
 
 ##<a name="create-gateway"></a>앱 서비스 게이트웨이 만들기
 
@@ -40,7 +36,7 @@
 
 [AZURE.INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-&nbsp;&nbsp;4. Visual Studio에서 클라이언트 앱 프로젝트에 있는 공유 App.xaml.cs 프로젝트 파일을 열고 **MobileServiceClient** 인스턴스가 모바일 앱 백엔드 및 게이트웨이의 URL을 모두 사용하도록 구성합니다.
+&nbsp;&nbsp;4. Visual Studio에서 클라이언트 앱 프로젝트에 있는 공유 App.xaml.cs 프로젝트 파일을 열고 **MobileServiceClient** 인스턴스가 모바일 앱 백 엔드 및 게이트웨이의 URL을 둘 다 사용하도록 구성합니다.
 
 &nbsp;&nbsp;5. 시작 프로젝트로 설정된 Windows 스토어 앱 프로젝트를 사용하여 F5 키를 눌러 앱을 실행합니다. 앱이 시작된 후 상태 코드 401(인증되지 않음)의 처리되지 않은 예외가 발생하는지 확인합니다.
 
@@ -64,4 +60,4 @@
 [모바일 앱 시작]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-preview.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

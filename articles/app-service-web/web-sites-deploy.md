@@ -127,7 +127,6 @@ Visual Studio에서 웹 앱에 배포하는 방법에 대한 자세한 내용은
 
 WebMatrix에서 웹 앱에 배포하는 방법에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [Microsoft WebMatrix로 웹 앱을 개발 및 배포합니다.](web-sites-dotnet-using-webmatrix.md) WebMatrix 템플릿을 사용하여 간단한 ASP.NET 웹 앱을 만들고 WebMatrix 및 웹 배포를 사용하여 이 웹 앱에 배포하는 방법을 설명합니다.
 * [WebMatrix를 사용하여 Node.js 웹 사이트 빌드 및 Azure에 배포](web-sites-nodejs-use-webmatrix.md).
 * [WebMatrix를 사용하여 PHP-MySQL 웹 앱을 만들고 배포합니다.](web-sites-php-mysql-use-webmatrix.md)
 * [WebMatrix 3:통합된 Git 및 Azure에 배포합니다](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD)(영문). WebMatrix를 사용하여 Git 소스 제어 리포지토리에서 배포하는 방법을 설명합니다.
@@ -228,4 +227,4 @@ Azure의 역할 기반 액세스 제어를 사용하여 웹 앱 배포에 대한
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties
    pageTitle="StorSimple 가상 장치 | Microsoft Azure"
-   description="StorSimple 가상 장치를 만들고 구성, 배포 및 관리하는 방법을 설명합니다."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="adinah"
-   editor="" />
+	description="StorSimple 가상 장치를 만들고 구성, 배포 및 관리하는 방법을 설명합니다."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/13/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/21/2015"
+	ms.author="alkohli"/>
 
 # StorSimple 가상 장치
 
@@ -76,7 +76,7 @@ StorSimple 가상 장치를 사용하는 경우 다음 보안 고려 사항을 �
 
 >[AZURE.IMPORTANT]**가상 네트워크가 가상 장치와 사용 하려는 클라우드 저장소 계정과 동일한 지역에 있는지 확인합니다.**
 
-- 가상 장치에 표시된 볼륨을 사용할 수 있는 [Azure 가상 컴퓨터](https://msdn.microsoft.com/library/azure/jj156003.aspx)(호스트 서버)를 가상 네트워크에 만들 수 있습니다. 이 서버는 다음 요구 사항을 충족해야 합니다.
+- 가상 장치에 표시된 볼륨을 사용할 수 있는 [Azure 가상 컴퓨터](../virtual-machines/virtual-machines-about.md)(호스트 서버)를 가상 네트워크에 만들 수 있습니다. 이 서버는 다음 요구 사항을 충족해야 합니다.
 	- iSCSI 초기자 소프트웨어가 설치된 Windows 또는 Linux VM입니다.
 	- 가상 장치와 동일한 가상 네트워크에서 실행 중입니다.
 	- 가상 장치의 내부 IP 주소를 통해 가상 장치의 iSCSI 대상에 연결할 수 없습니다.
@@ -121,21 +121,21 @@ StorSimple 가상 장치를 사용하는 경우 다음 보안 고려 사항을 �
 
 1.  Azure 포털에서 **StorSimple Manager** 서비스로 이동합니다.
 
-- **장치** 페이지로 이동합니다.
+2. **장치** 페이지로 이동합니다.
 
-- **가상 장치 만들기** 대화 상자에서 다음 정보를 지정합니다.
+3. **가상 장치 만들기** 대화 상자에서 다음 정보를 지정합니다.
 
 	![StorSimple 가상 장치 만들기](./media/storsimple-virtual-device/StorSimple_CreateVirtualDevice1.png)
 
-	a. **이름** – 가상 장치에 대한 고유 이름입니다.
+	1. **이름** – 가상 장치에 대한 고유 이름입니다.
 
-	b. **가상 네트워크** –이 가상 장치에 사용하려는 가상 네트워크의 이름입니다.
+	2. **가상 네트워크** –이 가상 장치에 사용하려는 가상 네트워크의 이름입니다.
 
-	c. **서브넷** – 가상 장치에 사용하기 위한 가상 네트워크의 서브넷입니다.
+	3. **서브넷** – 가상 장치에 사용하기 위한 가상 네트워크의 서브넷입니다.
 
-	d. **가상 장치를 만들기 위한 저장소 계정** – 프로비전하는 동안 가상 장치의 이미지를 저장하는데 사용할 저장소 계정입니다. 이 저장소 계정은 가상 장치 및 가상 네트워크와 동일한 지역에 있어야 합니다. 물리적 장치나 가상 장치에서 데이터 저장소에 대해 사용되어서는 안됩니다. 기본적으로 새 저장소 계정은 이 용도로 만들어집니다. 그러나 이 용도에 적합한 저장소 계정을 이미 알고 있는 경우 목록에서 선택할 수 있습니다.
+	4. **가상 장치를 만들기 위한 저장소 계정** – 프로비전하는 동안 가상 장치의 이미지를 저장하는데 사용할 저장소 계정입니다. 이 저장소 계정은 가상 장치 및 가상 네트워크와 동일한 지역에 있어야 합니다. 물리적 장치나 가상 장치에서 데이터 저장소에 대해 사용되어서는 안됩니다. 기본적으로 새 저장소 계정은 이 용도로 만들어집니다. 그러나 이 용도에 적합한 저장소 계정을 이미 알고 있는 경우 목록에서 선택할 수 있습니다.
 
-- 가상 장치에 저장된 데이터를 Microsoft 데이터 센터에서 호스팅함을 이해했음을 표시하려면 확인 표시를 클릭합니다. 이제 가상 장치가 만들어집니다. 가상 장치를 만드는데 45분에서 1시간까지 걸릴 수 있습니다.![StorSimple 가상 장치 만들기 단계](./media/storsimple-virtual-device/StorSimple_VirtualDeviceCreating1M.png)
+4. 가상 장치에 저장된 데이터를 Microsoft 데이터 센터에서 호스팅함을 이해했음을 표시하려면 확인 표시를 클릭합니다. 이제 가상 장치가 만들어집니다. 가상 장치를 만드는데 45분에서 1시간까지 걸릴 수 있습니다.![StorSimple 가상 장치 만들기 단계](./media/storsimple-virtual-device/StorSimple_VirtualDeviceCreating1M.png)
 
 물리적 장치만 사용하는 경우, 암호화 키는 사용자 장치와 함께 유지되므로 Microsoft는 해독할 수 없습니다. 가상 장치를 사용하면 Microsoft Azure에 암호화 키와 암호 해독 키 모두가 저장됩니다. 자세한 내용은 [가상 장치를 사용하기 위한 보안 고려 사항](#security-considerations-for-using-a-virtual-device)을 참조하세요.
 
@@ -156,7 +156,7 @@ StorSimple 가상 장치를 사용하는 경우 다음 보안 고려 사항을 �
 
 	1. **서비스 데이터 암호화 키**를 제공한 공간에 입력합니다.
 	2. **스냅숏 관리자 암호**를 입력합니다. **스냅숏 관리자 암호**는 14 또는 15자여야 하며 대문자, 소문자, 숫자 및 특수 문자의 조합이 포함되어야 합니다.
-	3. **장치 관리자 암호**를 입력합니다. **장치 관리자 암호**는 8\~15자여야 하며 대문자, 소문자, 숫자 및 특수 문자의 조합이 포함되어야 합니다.
+	3. **장치 관리자 암호**를 입력합니다. **장치 관리자 암호**는 8-15자여야 하며 대문자, 소문자, 숫자 및 특수 문자의 조합이 포함되어야 합니다.
 	4. 가상 장치의 초기 구성 및 등록을 완료하려면 확인 아이콘을 클릭합니다.
 
 		![StorSimple 가상 장치 설정](./media/storsimple-virtual-device/StorSimple_VirtualDeviceSettings1.png)
@@ -244,7 +244,7 @@ StorSimple 가상 장치를 만들고 구성했으므로 작업을 시작할 준
 
 - [볼륨](storsimple-manage-volumes.md)
 
-- [백업 정책](storsimple-manage-backup-policies)
+- [백업 정책](storsimple-manage-backup-policies.md)
 
 다음 섹션에서는 가상 장치를 작업할 때 발생하는 차이점 중 일부에 대해 설명합니다.
 
@@ -281,7 +281,7 @@ StorSimple 장치 구성 페이지에서 활성화한 후, Windows PowerShell �
 
 >[AZURE.WARNING]보안 강화를 위해 끝점에 연결할 때 HTTPS를 사용하고 PowerShell 원격 세션을 완료한 후 끝점을 삭제하는 것이 좋습니다.
 
-[Windows PowerShell을 사용하여 원격으로 연결](storsimple-remote-connect.md)의 절차에 따라 가상 장치에 대한 원격 서비스를 설정해야 합니다.
+[StorSimple 장치에 원격으로 연결](storsimple-remote-connect.md)의 절차에 따라 가상 장치에 대한 원격을 설정해야 합니다.
 
 그러나 Microsoft Azure 환경 외부 또는 가상 네트워크 외부의 다른 컴퓨터에서 가상 장치에 직접 연결 하려는 경우 다음 절차에서 설명한 대로 추가 끝점을 만들어야 합니다.
 
@@ -363,7 +363,7 @@ DR(재해 복구)는 StorSimple 가상 장치가 설계된 주요 시나리오 �
 
 StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도에 맞게 계산 비용 발생을 중지하려는 경우, 가상 장치를 종료할 수 있습니다. 가상 장치를 종료해도 저장소에서 해당 운영 체제 또는 데이터 디스크를 삭제하지 않습니다. 구독으로 발생하는 요금을 중지하지만 OS 및 데이터 디스크에 대한 저장소 비용은 계속 청구됩니다.
 
-가상 장치를 삭제하거나 종료하는 경우 StorSimple Manager 서비스의 장치 페이지에 **오프라인**으로 표시됩니다. 가상 장치에서 만든 백업도 삭제하려는 경우, 장치에 따라 삭제하거나 비활성화하도록 선택할 수 있습니다. 자세한 내용은 [비활성화](storsimple-deactivate-and-delete-device.md#deactivate-a-device)를 참조하세요.
+가상 장치를 삭제하거나 종료하는 경우 StorSimple Manager 서비스의 장치 페이지에 **오프라인**으로 표시됩니다. 가상 장치에서 만든 백업도 삭제하려는 경우, 장치에 따라 삭제하거나 비활성화하도록 선택할 수 있습니다. 자세한 내용은 [장치 비활성화](storsimple-deactivate-and-delete-device.md#deactivate-a-device)를 참조하세요.
 
 ### StorSimple 가상 장치를 종료하려면
 
@@ -384,6 +384,6 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
 
 ## 다음 단계
 
-가상 장치를 관리하려면 [StorSimple 장치 관리](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service)에서 워크플로의 자세한 목록을 참조하세요.
+가상 장치를 관리하려면 [StorSimple 관리 서비스를 사용한 StorSimple 장치 관리](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service)에서 워크플로의 자세한 목록을 참조하세요.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure 미디어 서비스를 사용하여 라이브 스트리밍 제공" 
-	description="이 항목에서는 라이브 스트리밍에 관련된 주요 구성 요소의 개요를 제공합니다." 
-	services="media-services" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Azure 미디어 서비스를 사용하여 라이브 스트리밍 제공"
+	description="이 항목에서는 라이브 스트리밍에 관련된 주요 구성 요소의 개요를 제공합니다."
+	services="media-services"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/20/2015"
 	ms.author="juliako"/>
 
 
@@ -85,4 +85,4 @@ Azure 미디어 서비스에서 **Channel**, **Program**, and **StreamingEndpoin
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

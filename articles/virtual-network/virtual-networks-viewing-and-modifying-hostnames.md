@@ -1,19 +1,19 @@
 <properties 
    pageTitle="호스트 이름 보기 및 수정"
-   description="설명"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="jdial"
-   editor="tysonn" />
+	description="설명"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="jdial"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/28/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="joaoma"/>
 
 # 호스트 이름 보기 및 수정
 
@@ -51,7 +51,7 @@ REST 클라이언트에서 다음 지침을 따릅니다.
 
 1. 값이 2013-11-01인 x-ms-version 헤더 항목을 설정합니다.
 
-1. 다음 형식으로 요청을 보냅니다. https://management.core.windows.net/\<subscrition-id>/services/hostedservices/<service-name>?embed-detail=true
+1. 다음 형식으로 요청을 보냅니다. https://management.core.windows.net/<subscrition-id>/services/hostedservices/<service-name>?embed-detail=true
 
 1. 각 **RoleInstance** 요소에 대해 **HostName** 요소를 찾습니다.
 
@@ -61,14 +61,14 @@ REST 클라이언트에서 다음 지침을 따릅니다.
 
 수정된 서비스 구성 파일을 업로드하거나 원격 데스크톱 세션에서 컴퓨터 이름을 바꿔 역할 인스턴스 또는 가상 컴퓨터의 호스트 이름을 수정할 수 있습니다.
 
-## 참고 항목
+## 다음 단계
 
-[이름 확인(DNS)](https://msdn.microsoft.com/library/azure/jj156088.aspx)
+[이름 확인(DNS)](virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 [Azure 서비스 구성 스키마(.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710.aspx)
 
 [Azure 가상 네트워크 구성 스키마)](http://go.microsoft.com/fwlink/?LinkId=248093)
 
-[네트워크 구성 파일을 사용하여 가상 네트워크 구성](http://go.microsoft.com/fwlink/?LinkId=248094)
+[네트워크 구성 파일을 사용하여 DNS 설정 지정](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

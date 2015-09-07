@@ -1,21 +1,20 @@
 <properties 
-	pageTitle="Azure 가상 컴퓨터 및 컨테이너" 
-	description="가상 컴퓨터, Docker, Linux 컨테이너 및 Azure에서 함께 사용할 때 각각의 활용 방법에 대해 설명합니다. 이 활용 방법에는 각각의 장점과 각 접근 방법을 사용하기에 가장 좋은 시나리오가 포함되어 있습니다." 
-	services="virtual-machines" 
-	documentationCenter="virtual-machines" 
-	authors="squillace" 
-	manager="timlt" />
+	pageTitle="Azure 가상 컴퓨터 및 컨테이너"
+	description="가상 컴퓨터, Docker, Linux 컨테이너 및 Azure에서 함께 사용할 때 각각의 활용 방법에 대해 설명합니다. 이 활용 방법에는 각각의 장점과 각 접근 방법을 사용하기에 가장 좋은 시나리오가 포함되어 있습니다."
+	services="virtual-machines"
+	documentationCenter="virtual-machines"
+	authors="squillace"
+	manager="timlt"/>
 	
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="infrastructure" 
-	ms.workload="infrastructure" 
-	ms.date="07/02/2015" 
-	ms.author="rasquill" 
-/>
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="infrastructure"
+	ms.workload="infrastructure"
+	ms.date="07/02/2015"
+	ms.author="rasquill"/>
 
 <!--The next line, with one pound sign at the beginning, is the page title-->
 # Azure 가상 컴퓨터 및 컨테이너
@@ -122,7 +121,7 @@ IT 및 운영 전문가 역시 컨테이너 및 가상 컴퓨터를 조합하여
 
 ### Azure 리소스 그룹 템플릿
 
-최근 Azure는 [Azure 리소스 관리](virtual-machines-azurerm-versus-azuresm.md) REST API와 업데이트된 PowerShell 및 Azure CLI 도구를 배포하여 사용이 더욱 간편해졌습니다. 다음을 사용하면 Azure 리소스 관리 API와 함께 [Azure 리소스 관리자 템플릿](https://msdn.microsoft.com/library/azure/dn835138.aspx)으로 전체 응용 프로그램 토폴로지를 배포, 수정 또는 재배포할 수 있습니다.
+최근 Azure는 [Azure 리소스 관리](virtual-machines-azurerm-versus-azuresm.md) REST API와 업데이트된 PowerShell 및 Azure CLI 도구를 배포하여 사용이 더욱 간편해졌습니다. 다음을 사용하면 Azure 리소스 관리 API와 함께 [Azure 리소스 관리자 템플릿](../resource-group-authoring-templates.md)으로 전체 응용 프로그램 토폴로지를 배포, 수정 또는 재배포할 수 있습니다.
 
 - [Azure Preview 포털의 템플릿](https://github.com/Azure/azure-quickstart-templates)(힌트: "DeployToAzure" 버튼을 사용하십시오)
 - [Azure CLI](virtual-machines-deploy-rmtemplates-azure-cli.md)
@@ -235,4 +234,4 @@ Linux 배포 도구 및 Azure 예시:
 [마이크로 서비스]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

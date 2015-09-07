@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure AD Connect의 사용자 지정 설치" 
-	description="이 문서는 Azure AD Connect에 대한 사용자 지정 설치 옵션에 대해 자세히 설명합니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure AD Connect의 사용자 지정 설치"
+	description="이 문서는 Azure AD Connect에 대한 사용자 지정 설치 옵션에 대해 자세히 설명합니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory"  
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure AD Connect의 사용자 지정 설치
@@ -83,7 +83,7 @@ sAMAccountName 및 MailNickName|이 옵션은 사용자에 대한 로그인 ID�
 
 - **소스 앵커** -특성 sourceAnchor는 사용자 개체의 수명 동안 변경할 수 없는 특성입니다. Azure AD에서 사용자와 온-프레미스 사용자를 연결하는 기본 키입니다. 특성을 변경할 수 없으므로, 좋은 특성을 사용해야 합니다. 좋은 후보는 objectGUID입니다. 사용자 계정이 포리스트/도메인 간에 이동하지 않는 한 이 특성은 변경되지 않습니다. 포리스트 간에 계정을 이동하는 다중 포리스트 환경에서 employeeID가 있는 특성과 같은 다른 특성이 사용되어야 합니다. 피해야할 특성은 결혼하거나 약속을 변경한 경우 변경되는 특성입니다. @ 기호와 함께 특성을 사용할 수 없으므로 전자 메일 및 userPrincipalName을 사용할 수 없습니다. 특성은 대/소문자를 구분하므로 포리스트 간에 개체를 이동하는 경우 대/소문자를 유지해야 합니다. 이진 특성의 경우 값은 base64로 인코딩되지만 다른 특성 유형의 경우 인코딩되지 않은 상태로 유지됩니다. 페더레이션 시나리오 및 일부 Azure AD 인터페이스에서 이 특성은 immutableID라고도 합니다.
 
-- **UserPrincipalName** -특성 userPrincipalName은 Azure AD 및 Office 365에 로그인하는 경우 사용자가 사용하는 특성입니다. UPN-접미사로 알려진 사용된 도메인은 사용자가 동기화되기 전에 Azure AD에서 확인해야 합니다. 기본 특성 userPrincipalName을 유지하는 것이 좋습니다. 이 특성은 라우팅할 수 없고 확인할 수 없으며 전자 메일의 경우 로그인 ID를 보유하는 특성으로 다른 특성을 선택할 수 없습니다.
+- **UserPrincipalName** -특성 userPrincipalName은 Azure AD 및 Office 365에 로그인하는 경우 사용자가 사용하는 특성입니다. UPN-접미사로 알려진 사용된 도메인은 사용자가 동기화되기 전에 Azure AD에서 확인해야 합니다. 기본 특성 userPrincipalName을 유지하는 것이 좋습니다. 이 특성은 라우팅할 수 없고 확인할 수 없으며 전자 메일의 경우 로그인 ID를 보유하는 특성으로 다른 특성을 선택할 수 없습니다. **대체 ID**로도 알려져 있습니다. 대체 ID 특성 값은 RFC822 표준을 따라야 합니다. 대체 ID는 로그인 솔루션으로 암호 SSO 및 페더레이션 SSO 모두를 함께 사용할 수 있습니다.
 
 >[AZURE.WARNING]대체 ID를 사용하면 모든 Office 365 작업 부하와 호환되지 않습니다. 자세한 내용은 [대체 로그인 ID 구성](https://technet.microsoft.com/library/dn659436.aspx.)을 참조하십시오.
 
@@ -103,7 +103,7 @@ sAMAccountName 및 MailNickName|이 옵션은 사용자에 대한 로그인 ID�
 
 이 화면을 사용하면 특정 시나리오에 대 한 선택적 기능을 선택할 수 있습니다. 다음은 각각의 개별 기능에 대해 간략히 설명합니다.
 
-<center>![빠른 설치](./media/active-directory-aadconnect-get-started-custom/of.png)</center>
+<center>![빠른 설치] (. /media/active-directory-aadconnect-get-started-custom/optional.png)</center>
 
 
 선택적 기능 | 설명
@@ -111,7 +111,6 @@ sAMAccountName 및 MailNickName|이 옵션은 사용자에 대한 로그인 ID�
 Exchange 하이브리드 배포 |Exchange 하이브리드 배포 기능을 사용하면Azure AD에서 특정 특성 집합을 온-프레미스 디렉터리에 다시 동기화하여 Exchange 사서함이 온-프레미스와 Azure에서 공존할 수 있습니다.
 Azure AD 앱 및 특성 필터링|Azure AD 앱 및 특성 필터링을 사용하도록 설정하면 동기화된 특성 집합을 마법사의 후속 페이지에 나오는 특정 집합에 맞게 지정할 수 있습니다. 마법사에서 두 개의 추가 구성 페이지가 열립니다.  
 암호 쓰기 저장|암호 쓰기 저장을 사용하도록 설정하면 Azure AD에서 이루어지는 암호 변경 사항이 온-프레미스 디렉터리에 다시 기록됩니다.
-사용자 쓰기 저장|사용자 쓰기 저장을 사용하도록 설정하면 Azure AD에서 만들어진 사용자가 온-프레미스 디렉터리에 다시 기록됩니다. 이 마법사에서 추가 구성 페이지가 열립니다.  
 디렉터리 확장 특성 동기화|디렉터리 확장 특성 동기화를 사용하도록 설정하면 지정된 특성이 Azure AD에 동기화됩니다. 이 마법사에서 추가 구성 페이지가 열립니다.  
 
 기본 구성을 변경하거나 동기화 규칙 편집기 및 선언적 프로비저닝을 사용하는 등의 추가 구성 옵션에 대한 자세한 내용은 [Azure AD Connect 관리](active-directory-aadconnect-whats-next.md)를 참조하세요.
@@ -137,17 +136,7 @@ Azure AD 앱 및 특성 필터링|Azure AD 앱 및 특성 필터링을 사용하
 ![동기화 필터링](./media/active-directory-aadconnect-get-started-custom/extension4.png)
 
 
-## 사용자 쓰기 저장(미리 보기)
 
-> [AZURE.WARNING]현재 디렉터리 동기화 또는 Azure AD Sync가 활성화되어 있는 경우 Azure AD Connect에서 쓰기 저장 기능을 활성화하지 마세요.
-
-사용자 쓰기 저장을 사용하면 Azure AD(포털, 그래프, PowerShell 또는 다른 메서드를 통해)에서 만든 사용자를 사용하고 온-프레미스 ADDS에 사용자를 다시 쓸 수 있습니다. 기능을 사용하려면 선택적 기능 페이지에서 "사용자 쓰기 저장"을 선택합니다. 이제 이 사용자를 만들 위치로 표시됩니다. 기본 구성은 AD DS의 한 위치에서 모든 사용자를 만듭니다.
-
-![동기화 필터링](./media/active-directory-aadconnect-get-started-custom/writeback2.png)
-
-사용자는 임의 암호로 만들어지므로 사용자가 실제로 로그인할 수 있으려면 AD DS에서 암호를 다시 설정해야 합니다.
-
->[AZURE.NOTE]암호 동기화 및 암호 쓰기 저장은 이 미리 보기 기능과 호환되지 않습니다.
 
 ## 그룹 쓰기 저장(미리 보기)
 
@@ -290,4 +279,4 @@ AD FS에 로그인하고 PSH를 사용하여 이렇게 구성하여 AD FS 로그
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

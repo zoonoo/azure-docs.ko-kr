@@ -1,19 +1,21 @@
 <properties 
-   pageTitle="IntelliTrace 및 Visual Studio를 사용하여 게시된 클라우드 서비스 디버깅"
-   description="IntelliTrace 및 Visual Studio를 사용하여 게시된 클라우드 서비스 디버깅"
-   services="visual-studio-online"
-   documentationCenter="n/a"
-   authors="patshea123"
-   manager="douge"
-   editor="tlee" />
+   pageTitle="IntelliTrace 및 Visual Studio를 사용하여 게시된 클라우드 서비스 디버깅 | Microsoft Azure"
+	description="IntelliTrace 및 Visual Studio를 사용하여 게시된 클라우드 서비스 디버깅"
+	services="visual-studio-online"
+	documentationCenter="n/a"
+	authors="patshea123"
+	manager="douge"
+	editor="tlee"/>
 <tags 
    ms.service="visual-studio-online"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.workload="na"
-   ms.tgt_pltfrm="na"
-   ms.date="08/12/2015"
-   ms.author="patshea" />
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="08/14/2015"
+	ms.author="patshea"/>
+
+
 
 # IntelliTrace 및 Visual Studio를 사용하여 게시된 클라우드 서비스 디버깅
 
@@ -31,7 +33,9 @@ Azure 응용 프로그램에 IntelliTrace를 사용하려면 Visual Studio Azure
 
 1. Azure 응용 프로그램을 배포할 준비가 되면 프로젝트의 빌드 대상이 **디버그**로 설정되어 있는지 확인합니다.
 
-1. 솔루션 탐색기에서 Azure 프로젝트에 대한 바로 가기 메뉴를 열고 **게시**를 선택합니다. Publish Azure Application 대화 상자가 나타납니다.
+1. 솔루션 탐색기에서 Azure 프로젝트에 대한 바로 가기 메뉴를 열고 **게시**를 선택합니다.
+ 
+    Publish Azure Application 대화 상자가 나타납니다.
 
 1. 클라우드에 게시될 때 응용 프로그램에 대한 IntelliTrace 로그를 수집하려면 **IntelliTrace 사용** 확인란을 선택합니다.
 
@@ -39,7 +43,7 @@ Azure 응용 프로그램에 IntelliTrace를 사용하려면 Visual Studio Azure
 
 1. 기본 IntelliTrace 구성을 사용자 지정하려면 **설정** 하이퍼링크를 선택합니다.
 
-    다음 그림에 표시된 것 처럼 IntelliTrace 설정 대화 상자가 나타납니다. 기록할 이벤트, 호출 정보를 수집할지 여부, 로그를 수집할 모듈 및 프로세스, 기록에 할당할 공간의 크기를 지정할 수 있습니다. IntelliTrace에 대한 자세한 내용은 [IntelliTrace로 디버깅](http://go.microsoft.com/fwlink/?LinkId=214468)을 참조하십시오.
+    다음 그림에 표시된 것 처럼 IntelliTrace 설정 대화 상자가 나타납니다. 기록할 이벤트, 호출 정보를 수집할지 여부, 로그를 수집할 모듈 및 프로세스, 기록에 할당할 공간의 크기를 지정할 수 있습니다. IntelliTrace에 대한 자세한 내용은 [IntelliTrace로 디버깅](http://go.microsoft.com/fwlink/?LinkId=214468)을 참조하세요.
 
     ![VST\_IntelliTraceSettings](./media/vs-azure-tools-intellitrace-debug-published-cloud-services/IC519063.png)
 
@@ -61,8 +65,8 @@ IntelliTrace 로그를 다운로드하는 동안 Visual Studio에서 작업을 �
 
 >[AZURE.NOTE]IntelliTrace 로그는 프레임워크가 생성하고 이후에 처리하는 예외를 포함할 수 있습니다. 내부 프레임워크 코드는 안전하게 무시할 수 있도록 역할을 시작할 때의 일반적인 한 부분으로 이러한 예외를 생성합니다.
 
-## 다음 단계
+## 참고 항목
 
-[클라우드 서비스 디버깅](http://go.microsoft.com/fwlink/p/?LinkID=62304)
+[클라우드 서비스 디버깅](https://msdn.microsoft.com/library/ee405479.aspx)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="테스트용 하이브리드 클라우드 환경 설정" 
-	description="IT 전문가 또는 개발 테스트용 하이브리드 클라우드 환경을 만드는 방법에 대해 알아봅니다." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="하이브리드 클라우드 테스트 환경 | Microsoft Azure"
+	description="IT 전문가 또는 개발 테스트용 하이브리드 클라우드 환경을 만드는 방법에 대해 알아보고 단순한 온-프레미스 네트워크까지 살펴봅니다."
+	services="virtual-network"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/08/2015"
 	ms.author="josephd"/>
 
 # 테스트용 하이브리드 클라우드 환경 설정
@@ -239,7 +239,7 @@ CLIENT1의 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 
 3.	DC2.rdp를 여는 대화 상자가 나타나면 **열기**를 클릭합니다.
 4.	원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **연결**을 클릭합니다.
 5.	자격 증명을 묻는 메시지가 나타나면 다음을 사용합니다.
-	- 이름: **DC2\**[로컬 관리자 계정 이름]
+	- 이름: **DC2**[로컬 관리자 계정 이름]
 	- 암호: [로컬 관리자 계정 암호]
 6.	인증서를 참조하는 원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **예**를 클릭합니다.
 
@@ -326,4 +326,4 @@ Azure VPN 게이트웨이는 지속적인 비용이 발생하는 두 개의 Azur
 그런 다음 로컬 컴퓨터에서 Azure 관리 포털로 이동하여 TestVNET 가상 네트워크의 상태가 연결됨으로 표시될 때까지 기다립니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

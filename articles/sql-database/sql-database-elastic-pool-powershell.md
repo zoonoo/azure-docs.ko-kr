@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="PowerShell을 사용하여 SQL 데이터베이스 탄력적 데이터베이스 풀 만들기 및 관리" 
-   description="PowerShell을 사용하여 Azure SQL 데이터베이스 탄력적 데이터베이스 풀 만들기 및 관리" 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="stevestein" 
-   manager="jeffreyg" 
-   editor=""/>
+   pageTitle="PowerShell을 사용하여 SQL 데이터베이스 탄력적 데이터베이스 풀 만들기 및 관리"
+	description="PowerShell을 사용하여 Azure SQL 데이터베이스 탄력적 데이터베이스 풀 만들기 및 관리"
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
+	editor=""/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="powershell"
-   ms.workload="data-management" 
-   ms.date="08/12/2015"
-   ms.author="adamkr; sstein"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="powershell"
+	ms.workload="data-management"
+	ms.date="08/25/2015"
+	ms.author="adamkr; sstein"/>
 
 # PowerShell을 사용하여 SQL 데이터베이스 탄력적 데이터베이스 풀 만들기 및 관리
 
@@ -105,6 +105,7 @@ Azure SQL 데이터베이스 및 탄력적 데이터베이스 풀을 만들고 �
 
 이전 단계에서 만든 풀은 비어 있으며 포함된 탄력적 데이터베이스가 없습니다. 다음 섹션에서는 풀 내에 새 탄력적 데이터베이스를 만드는 방법 및 풀에 기존 데이터베이스를 추가하는 방법을 보여 줍니다.
 
+*풀을 만든 후에 풀에서 탄력적인 새 데이터베이스를 만들고 기존 데이터베이스는 풀 내부 및 외부로 이동하는 데 Transact-SQL을 사용할 수 있습니다. 자세한 정보는 [탄력적 데이터베이스 풀 참조 - Transact-SQL](sql-database-elastic-pool-reference.md#Transact-SQL)을 참조하세요.*
 
 ### 탄력적 데이터베이스 풀 내에 새 탄력적 데이터베이스 만들기
 
@@ -117,7 +118,7 @@ Azure SQL 데이터베이스 및 탄력적 데이터베이스 풀을 만들고 �
 
 ### 기존 데이터베이스를 탄력적 데이터베이스 풀 내로 이동
 
-기존 데이터베이스를 풀로 이동하려면 **Set-AzurSqlDatabase** cmdlet을 사용하고 **ElasticPoolName** 매개 변수를 설정합니다.
+기존 데이터베이스를 풀로 이동하려면 **Set-AzureSqlDatabase** cmdlet을 사용하고 **ElasticPoolName** 매개 변수를 설정합니다.
 
 
 데모 목적으로 탄력적 데이터베이스 풀에 포함되지 않은 데이터베이스를 만듭니다.
@@ -239,4 +240,4 @@ CSV 파일로 내보내기:
 
 API 및 오류 세부 정보를 포함하여 탄력적 데이터베이스 및 탄력적 데이터베이스 풀에 대한 자세한 내용은 [탄력적 데이터베이스 참조](sql-database-elastic-pool-reference.md)를 참조하세요.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

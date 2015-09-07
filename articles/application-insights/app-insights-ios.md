@@ -1,19 +1,19 @@
-<properties 
-    pageTitle="iOS 앱용 Application Insights" 
-    description="Application Insights를 사용하여 iOS 앱의 사용 현황 및 성능을 분석합니다." 
-    services="application-insights" 
-    documentationCenter="ios"
-    authors="alancameronwills" 
-    manager="ronmart"/>
+<properties
+    pageTitle="iOS 앱용 Application Insights | Microsoft Azure"
+	description="Application Insights를 사용하여 iOS 앱의 사용 현황 및 성능을 분석합니다."
+	services="application-insights"
+	documentationCenter="ios"
+	authors="alancameronwills"
+	manager="ronmart"/>
 
-<tags 
-    ms.service="application-insights" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="ibiza" 
-    ms.devlang="na" 
-    ms.topic="get-started-article" 
-    ms.date="04/27/2015" 
-    ms.author="awills"/>
+<tags
+    ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="04/27/2015"
+	ms.author="awills"/>
 
 # iOS 앱용 Application Insights
 
@@ -35,7 +35,7 @@ Visual Studio Application Insights를 사용하여 모바일 응용 프로그램
 
 열리는 블레이드에서 앱의 성능 및 사용 데이터를 볼 수 있습니다. 다음에 Azure에 로그인할 때 다시 이 블레이드로 돌아가려면 시작 화면에서 해당 타일을 찾아야 합니다. 또는 찾아보기를 클릭하여 찾아야 합니다.
 
-## iOS용 Application Insights 다운로드
+## Mac용 Application Insights 다운로드
 
 (아직 설치하지 않은 경우)
 
@@ -47,37 +47,35 @@ Visual Studio Application Insights를 사용하여 모바일 응용 프로그램
 
 ## <a name="signin"></a>Azure에 로그인
 
-1. 로그인을 클릭합니다.
+1. **로그인**을 클릭합니다.
 
 2. Azure 계정으로 로그인합니다.
 
-## 응용 프로그램에 SDK를 설치합니다.
+## 응용 프로그램에 SDK 설치
 
-1. 통합을 클릭하여 SDK 통합을 시작합니다.
+1. **통합**을 클릭하여 SDK 통합을 시작합니다.
 
-2. 목록에서 Xcode 프로젝트를 선택하거나 다른 프로젝트 열기를 클릭하여 원하는 프로젝트를 찾은 후 통합을 클릭합니다.
+2. 목록에서 Xcode 프로젝트를 선택하거나 **다른 프로젝트 열기**를 클릭하여 원하는 프로젝트를 찾은 후 **통합**을 클릭합니다.
 
-3. Application Insights SDK를 설치할 폴더를 선택한 다음 설치를 클릭합니다.
+3. Application Insights SDK를 설치할 폴더를 선택한 다음 **설치**를 클릭합니다.
 
-4. 표시된 스크립트 실행을 빌드 단계에 추가합니다.
-
-    [스크립트 실행 단계 추가](http://hockeyapp.net/help/runscriptbuildphase/)
+4. 이 실행 스크립트를 빌드 단계 [실행 스크립트 추가 단계](http://hockeyapp.net/help/runscriptbuildphase/)에 추가합니다.
 
 5. 누락된 프레임워크를 Xcode 프로젝트에 추가합니다.
 
-6. Application Insights 프레임워크를 Xcode 프로젝트에 끌어 놓은 후 다음을 클릭합니다.
+6. Application Insights 프레임워크를 Xcode 프로젝트에 끌어 놓은 후 **다음**을 클릭합니다.
 
-7. 대상에 대해 SDK를 대상에 통합을 선택합니다.
+7. 대상에 대해 **SDK를 대상에 통합**을 선택합니다.
 
-8. 새 구성 요소 만들기를 클릭하여 Application Insights 포털에서 앱을 만듭니다.
+8. **새 구성 요소 만들기**를 클릭하여 Application Insights 포털에서 앱을 만듭니다.
 
-9. 구독, 리소스 그룹을 선택하고 구성 요소 이름을 입력합니다. 대부분의 경우 앱 이름과 일치해야 합니다. 리소스 만들기 단추를 눌러 확인합니다.
+9. 구독, 리소스 그룹을 선택하고 구성 요소 이름을 입력합니다. 대부분의 경우 앱 이름과 일치해야 합니다. **리소스 만들기** 단추를 눌러 확인합니다.
 
-10. 올바른 구성 요소를 선택했는지 확인하고 다음을 클릭합니다.
+10. 올바른 구성 요소를 선택했는지 확인하고 **다음**을 클릭합니다.
 
-11. 마법사에서 표시된 것처럼 소스 코드를 수정하고 마침을 클릭합니다.
+11. 마법사에서 표시된 것처럼 소스 코드를 수정하고 **마침**을 클릭합니다.
 
-12. 빌드 및 실행을 클릭하여 iOS 시뮬레이터에서 앱을 시작합니다.
+12. **빌드 및 실행**을 클릭하여 iOS 시뮬레이터에서 앱을 시작합니다.
 
 ## 원격 분석 호출 삽입
 
@@ -102,14 +100,14 @@ Visual Studio Application Insights를 사용하여 모바일 응용 프로그램
                              properties:@{@"Test measurement 1":@(4.8)}];
 
     // Send custom metrics
-    [MSAITelemetryManager trackMetricWithName:@"Test metric" 
+    [MSAITelemetryManager trackMetricWithName:@"Test metric"
                                         value:42.2];
 
 ## Application Insights에서 데이터 보기
 
 http://portal.azure.com으로 돌아가서 Application Insights 리소스를 찾습니다.
 
-검색을 클릭하여 [진단 검색][diagnostic]을 엽니다. 여기에 첫 번째 이벤트가 표시됩니다. 아무 것도 표시되지 않으면 1-2분 정도 기다렸다가 새로 고침을 클릭합니다.
+**검색**을 클릭하여 [진단 검색][diagnostic]을 엽니다. 여기에 첫 번째 이벤트가 표시됩니다. 아무 것도 표시되지 않으면 1-2분 정도 기다렸다가 **새로 고침**을 클릭합니다.
 
 ![진단 검색 클릭](./media/app-insights-ios/21-search.png)
 
@@ -137,8 +135,6 @@ http://portal.azure.com으로 돌아가서 Application Insights 리소스를 찾
 [metrics]: app-insights-metrics-explorer.md
 [portal]: http://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 
- 
-
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

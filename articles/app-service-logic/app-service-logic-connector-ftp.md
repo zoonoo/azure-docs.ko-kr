@@ -1,6 +1,6 @@
 <properties
-	pageTitle="FTP Connector"
-	description="FTP Connector 시작"
+	pageTitle="논리 앱에서 FTP 커넥터 사용 | Microsoft Azure 앱 서비스"
+	description="FTP 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
 	authors="rajram"
 	manager="dwrede"
 	editor=""
@@ -13,13 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/19/2015"
+	ms.date="08/23/2015"
 	ms.author="rajram"/>
 
-# FTP Connector
-
-## 개요
-FTP Connector를 사용하면 FTP 서버에서/로 데이터를 이동할 수 있습니다. FTP Connector의 주요 기능은 다음과 같습니다.
+# FTP 커넥터 시작 및 논리 앱에 추가
+FTP 서버에 연결하여 데이터 또는 파일을 이동합니다. FTP 커넥터의 주요 기능은 다음과 같습니다.
 
 - 요청 시 FTP 서버에서 파일 끌어오기
 - 구성 가능한 일정을 기반으로 폴링 실행
@@ -27,6 +25,8 @@ FTP Connector를 사용하면 FTP 서버에서/로 데이터를 이동할 수 �
 - FTP 서버를 IP 주소, 포트, 암호 및 호스트 이름으로 지정
 - 요청 시 보내기를 실행하는 기능
 - 요청 시 FTP 서버에서 파일을 삭제하는 기능
+
+FTP 커넥터를 비즈니스 워크플로에 추가하고 논리 앱 내에서 이 워크플로의 일부로 데이터를 처리할 수 있습니다.
 
 ## 새 FTP Connector 만들기
 새 FTP 커넥터를 만들려면 아래에 설명된 단계를 따르세요. - Azure 포털을 시작합니다. - +새로 만들기(페이지 아래쪽에 있음) -> 웹 + 모바일 -> Azure 마켓플레이스를 사용하여 Azure 마켓플레이스를 엽니다.![Azure 마켓플레이스 시작][1]
@@ -158,4 +158,4 @@ Content를 원하는 값으로 설정할 수 있습니다. 이것은 예로 든 
 [13]: ./media/app-service-logic-connector-ftp/ConfiguredUploadFile.PNG
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

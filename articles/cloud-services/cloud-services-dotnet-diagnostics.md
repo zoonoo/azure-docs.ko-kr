@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="진단 사용 방법(.NET) | Microsoft Azure" 
-	description="Azure에서 디버그, 성능 측정, 모니터링, 트래픽 분석 등에 진단 데이터를 사용하는 방법에 대해 알아봅니다." 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="rboucher" 
-	manager="jwhit" 
+	pageTitle="진단 사용 방법(.NET) | Microsoft Azure"
+	description="Azure에서 디버그, 성능 측정, 모니터링, 트래픽 분석 등에 진단 데이터를 사용하는 방법에 대해 알아봅니다."
+	services="cloud-services"
+	documentationCenter=".net"
+	authors="rboucher"
+	manager="jwhit"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="robb"/>
 
 
@@ -174,7 +174,7 @@ WorkerRole.cs 내용을 다음 코드로 바꿉니다. [EventSource 클래스][]
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -320,7 +320,7 @@ Visual Studio **서버 탐색기**에서 wadexample 저장소 계정으로 이�
   			<WadCfg>
     			<DiagnosticMonitorConfiguration overallQuotaInMB="25000">
       			<PerformanceCounters scheduledTransferPeriod="PT1M">
-        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
+        			<PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)% Processor Time" sampleRate="PT1M" unit="percent" />
         			<PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
       				</PerformanceCounters>
       				<EtwProviders>
@@ -373,24 +373,24 @@ Visual Studio **서버 탐색기**에서 wadexample 저장소 계정으로 이�
 종료 코드|설명
 ---|---
 0|성공.
-\-1|일반 오류.
-\-2|rcf 파일을 로드할 수 없습니다.<p>게스트 에이전트 플러그 인 시작 관리자가 VM에서 수동으로 잘못 호출된 경우에만 발생되어야 하는 내부 오류입니다
-\-3|진단 구성 파일을 로드할 수 없습니다.<p><p>해결 방법: 스키마 유효성 검사를 통과하지 못한 구성 파일의 결과입니다. 해결 방법은 스키마를 준수하는 구성 파일을 제공하는 것입니다.
-\-4|진단에서 이미 로컬 리소스 디렉터리를 사용하고 있는 모니터링 에이전트의 또 다른 인스턴스입니다.<p><p>해결 방법: **LocalResourceDirectory**에 대해 다른 값을 지정합니다.
-\-6|게스트 에이전트 플러그인 시작 관리자는 잘못된 명령줄으로 진단 유틸리티를 시작 하려고 했습니다.<p><p>게스트 에이전트 플러그인 시작 관리자가 VM에서 수동으로 잘못 호출된 경우에만 발생되어야 하는 내부 오류입니다.
-\-10|진단 플러그 인이 처리되지 않은 예외와 함께 종료되었습니다.
-\-11|게스트 에이전트는 모니터링 에이전트를 시작하고 모니터링하는 일을 담당하는 프로세스를 만들 수 없습니다.<p><p>해결 방법: 충분한 시스템 리소스를 사용하여 새 프로세스를 시작할 수 있는지 확인합니다.<p>
-\-101|진단 플러그 인을 호출할 때 잘못된 인수입니다.<p><p>게스트 에이전트 플러그 인 시작 관리자를 VM에서 수동으로 잘못 호출한 경우에만 발생되어야 하는 내부 오류입니다.
-\-102|플러그인 프로세스 자체를 초기화할 수 없습니다.<p><p>해결 방법: 새 프로세스를 실행할 수 있을 만큼 시스템 리소스가 충분한지 확인합니다.
-\-103|플러그 인 프로세스를 초기화할 수 없습니다. 특히 로거 자체를 만들 수 없습니다.<p><p>해결 방법: 새 프로세스를 실행할 수 있을 만큼 시스템 리소스가 충분한지 확인합니다.
-\-104|게스트 에이전트에서 제공한 rcf 파일을 로드할 수 없습니다.<p><p>게스트 에이전트 플러그 인 시작 관리자를 VM에서 수동으로 잘못 호출된 경우에만 발생되어야 하는 내부 오류입니다.
-\-105|진단 플러그인은 진단 구성 파일을 열 수 없습니다.<p><p>진단 플러그 인이 VM에서 수동으로 잘못 호출된 경우에만 발생되어야 하는 내부 오류입니다.
-\-106|진단 구성 파일을 읽을 수 없습니다.<p><p>해결 방법: 스키마 유효성 검사를 통과하지 못한 구성 파일의 결과입니다. 따라서 해결 방법은 스키마를 준수하는 구성 파일을 제공하는 것입니다. 진단 확장으로 전달되는 XML은 VM의 *%SystemDrive%\\WindowsAzure\\Config* 폴더에서 확인할 수 있습니다. 해당하는 XML 파일을 열고 **Microsoft.Azure.Diagnostics**를 검색한 후 **xmlCfg** 필드를 검색합니다. 데이터는 base64로 인코딩되므로 진단을 통해 로드된 XML을 보려면 [디코딩](http://www.bing.com/search?q=base64+decoder)해야 합니다.<p>
-\-107|리소스 디렉터리 통과 모니터링 에이전트가 올바르지 않습니다.<p><p>모니터링 에이전트가 VM에서 수동으로 잘못 호출된 경우에만 발생되어야 하는 내부 오류입니다.</p>
-\-108 |모니터링 에이전트 구성 파일로의 진단 구성 파일을 변환할 수 없습니다.<p><p>진단 플러그 인이 올바르지 않은 구성 파일로 수동으로 호출된 경우에만 발생되어야 하는 내부 오류입니다.
-\-110|일반 진단 구성 오류입니다.<p><p>진단 플러그 인이 올바르지 않은 구성 파일로 수동으로 호출된 경우에만 발생되어야 하는 내부 오류입니다.
-\-111|모니터링 에이전트를 시작할 수 없습니다.<p><p>해결 방법: 시스템 리소스가 충분한지 확인합니다.
-\-112|일반 오류
+-1|일반 오류.
+-2|rcf 파일을 로드할 수 없습니다.<p>게스트 에이전트 플러그 인 시작 관리자가 VM에서 수동으로 잘못 호출된 경우에만 발생되어야 하는 내부 오류입니다
+-3|진단 구성 파일을 로드할 수 없습니다.<p><p>해결 방법: 스키마 유효성 검사를 통과하지 못한 구성 파일의 결과입니다. 해결 방법은 스키마를 준수하는 구성 파일을 제공하는 것입니다.
+-4|진단에서 이미 로컬 리소스 디렉터리를 사용하고 있는 모니터링 에이전트의 또 다른 인스턴스입니다.<p><p>해결 방법: **LocalResourceDirectory**에 대해 다른 값을 지정합니다.
+-6|게스트 에이전트 플러그인 시작 관리자는 잘못된 명령줄으로 진단 유틸리티를 시작 하려고 했습니다.<p><p>게스트 에이전트 플러그인 시작 관리자가 VM에서 수동으로 잘못 호출된 경우에만 발생되어야 하는 내부 오류입니다.
+-10|진단 플러그 인이 처리되지 않은 예외와 함께 종료되었습니다.
+-11|게스트 에이전트는 모니터링 에이전트를 시작하고 모니터링하는 일을 담당하는 프로세스를 만들 수 없습니다.<p><p>해결 방법: 충분한 시스템 리소스를 사용하여 새 프로세스를 시작할 수 있는지 확인합니다.<p>
+-101|진단 플러그 인을 호출할 때 잘못된 인수입니다.<p><p>게스트 에이전트 플러그 인 시작 관리자를 VM에서 수동으로 잘못 호출한 경우에만 발생되어야 하는 내부 오류입니다.
+-102|플러그인 프로세스 자체를 초기화할 수 없습니다.<p><p>해결 방법: 새 프로세스를 실행할 수 있을 만큼 시스템 리소스가 충분한지 확인합니다.
+-103|플러그 인 프로세스를 초기화할 수 없습니다. 특히 로거 자체를 만들 수 없습니다.<p><p>해결 방법: 새 프로세스를 실행할 수 있을 만큼 시스템 리소스가 충분한지 확인합니다.
+-104|게스트 에이전트에서 제공한 rcf 파일을 로드할 수 없습니다.<p><p>게스트 에이전트 플러그 인 시작 관리자를 VM에서 수동으로 잘못 호출된 경우에만 발생되어야 하는 내부 오류입니다.
+-105|진단 플러그인은 진단 구성 파일을 열 수 없습니다.<p><p>진단 플러그 인이 VM에서 수동으로 잘못 호출된 경우에만 발생되어야 하는 내부 오류입니다.
+-106|진단 구성 파일을 읽을 수 없습니다.<p><p>해결 방법: 스키마 유효성 검사를 통과하지 못한 구성 파일의 결과입니다. 따라서 해결 방법은 스키마를 준수하는 구성 파일을 제공하는 것입니다. 진단 확장으로 전달되는 XML은 VM의 *%SystemDrive%\\WindowsAzure\\Config* 폴더에서 확인할 수 있습니다. 해당하는 XML 파일을 열고 **Microsoft.Azure.Diagnostics**를 검색한 후 **xmlCfg** 필드를 검색합니다. 데이터는 base64로 인코딩되므로 진단을 통해 로드된 XML을 보려면 [디코딩](http://www.bing.com/search?q=base64+decoder)해야 합니다.<p>
+-107|리소스 디렉터리 통과 모니터링 에이전트가 올바르지 않습니다.<p><p>모니터링 에이전트가 VM에서 수동으로 잘못 호출된 경우에만 발생되어야 하는 내부 오류입니다.</p>
+-108 |모니터링 에이전트 구성 파일로의 진단 구성 파일을 변환할 수 없습니다.<p><p>진단 플러그 인이 올바르지 않은 구성 파일로 수동으로 호출된 경우에만 발생되어야 하는 내부 오류입니다.
+-110|일반 진단 구성 오류입니다.<p><p>진단 플러그 인이 올바르지 않은 구성 파일로 수동으로 호출된 경우에만 발생되어야 하는 내부 오류입니다.
+-111|모니터링 에이전트를 시작할 수 없습니다.<p><p>해결 방법: 시스템 리소스가 충분한지 확인합니다.
+-112|일반 오류
 
 
 ### 진단 데이터가 저장소에 기록되지 않음
@@ -511,4 +511,4 @@ EventSource|아니요|테이블|.NET EventSource 클래스를 사용하여 코�
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/library/dn495168.aspx
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

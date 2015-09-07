@@ -1,20 +1,20 @@
 
 <properties 
-	pageTitle="Azure Multi-factor Authentication에서 확인 코드를 사용하여 모바일 앱에 로그인" 
-	description="이 페이지에서는 사용자가 Azure MFA에서 모바일 앱 확인 코드를 사용하여 로그인하는 방법을 설명합니다." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Azure Multi-factor Authentication에서 확인 코드를 사용하여 모바일 앱에 로그인"
+	description="이 페이지에서는 사용자가 Azure MFA에서 모바일 앱 확인 코드를 사용하여 로그인하는 방법을 설명합니다."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure Multi-factor Authentication에서 확인 코드를 사용하여 모바일 앱에 로그인
@@ -39,4 +39,4 @@
 
 <li>사용자가 로그인됩니다.</li>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

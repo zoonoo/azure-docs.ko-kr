@@ -1,23 +1,23 @@
 <properties 
-	pageTitle="Azure 앱 서비스용 하이브리드 연결 관리자 사용" 
-	description="Azure 앱 서비스에서 하이브리드 연결 관리자 설치 및 구성, 마이크로 서비스 아키텍처" 
-	services="app-service\logic" 
+	pageTitle="하이브리드 연결 관리자 사용 | Microsoft Azure 앱 서비스"
+	description="하이브리드 연결 관리자를 설치 및 구성하고 Azure 앱 서비스에서 온-프레미스 커넥터에 연결"
+	services="app-service\logic"
 	documentationCenter=".net,nodejs,java"
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="app-service-logic" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.service="app-service-logic"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/23/2015"
 	ms.author="mandia"/>
 
-# Azure 앱 서비스에서 하이브리드 연결 관리자 사용
-일부 커넥터는 SQL Server, SAP, SharePoint 등의 온-프레미스 시스템에 연결할 수 있습니다. 온-프레미스 시스템을 사용하기 위해 Azure 앱 서비스가 하이브리드 연결 관리자를 사용합니다.
+# 하이브리드 연결 관리자를 사용하여 Azure 앱 서비스에서 온-프레미스 커넥터에 연결
+온-프레미스 시스템을 사용하기 위해 Azure 앱 서비스가 하이브리드 연결 관리자를 사용합니다. 일부 커넥터는 SQL Server, SAP, SharePoint 등의 온-프레미스 시스템에 연결할 수 있습니다.
 
 하이브리드 연결 관리자(HCM)는 방화벽 뒤의 네트워크 내에서 IIS 서버에 설치된 원클릭 설치 관리자입니다. Azure 서비스 버스 릴레이를 사용하여 HCM이 Azure의 커넥터로 온-프레미스 시스템을 인증합니다.
 
@@ -133,4 +133,4 @@ Azure 앱 서비스 커넥터를 사용할 경우 하이브리드 연결 관리�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

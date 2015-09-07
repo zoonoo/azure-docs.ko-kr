@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure Mobile Engagement Android SDK 통합" 
+	pageTitle="Azure Mobile Engagement Android SDK 통합"
 	description="Azure Mobile Engagement용 Android SDK의 최신 업데이트 및 절차"
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+	services="mobile-engagement"
+	documentationCenter="mobile"
+	authors="piyushjo"
+	manager="dwrede"
+	editor=""/>
 
 <tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="piyushjo" />
+	ms.service="mobile-engagement"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/10/2015"
+	ms.author="piyushjo"/>
 
 #Android에서 Engagement 도달률을 통합하는 방법
 
@@ -93,6 +93,8 @@ Eclipse를 사용하지 않는 경우 [여기]에서 지침을 읽어볼 수 있
 
 			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 			<uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+
+  -   Android M에서 응용 프로그램이 Android API level 23 이상을 대상으로 하는 경우 ``WRITE_EXTERNAL_STORAGE`` 권한에 사용자 승인이 필요합니다. [이 섹션](mobile-engagement-android-integrate-engagement.md#android-m-permissions)을 읽어보세요.
 
 -   또한 시스템 알림을 위해 장치에서 신호음이 울리거나 진동이 작동해야 하는 경우 도달률 캠페인에서 지정할 수도 있습니다. 신호음이나 진동이 작동하도록 하려면 `</application>` 태그 뒤에 다음 권한을 선언해야 합니다.
 
@@ -247,7 +249,7 @@ Engagement Reach SDK는 알림 레이아웃이 이 작업에 포함되었으며 
 
 알림의 범주 처리기를 등록하려면 응용 프로그램이 초기화될 때 호출을 추가해야 합니다.
 
-> [AZURE.IMPORTANT]계속하기 전에 Android에서 Engagement를 통합하는 방법 항목에서 android:process attribute\<android-sdk-engagement-process\>에 관한 경고를 읽어보세요.
+> [AZURE.IMPORTANT]계속하기 전에 Android에서 Engagement를 통합하는 방법 항목에서 android:process attribute<android-sdk-engagement-process>에 관한 경고를 읽어보세요.
 
 다음 예제에서는 이전 경고를 확인하였고 `EngagementApplication`의 하위 클래스를 사용한다고 가정합니다.
 
@@ -647,4 +649,4 @@ Reach SDK에서 제공하는 `Engagement*Activity` 클래스 중 하나를 확�
 [Amazon Device Messaging]: https://developer.amazon.com/sdk/adm.html
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

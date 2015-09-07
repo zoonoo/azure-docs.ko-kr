@@ -46,7 +46,7 @@
 
 [Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-[가상 네트워크가 필요한가요?](https://msdn.microsoft.com/library/azure/jj156007.aspx)
+[가상 네트워크가 필요한가요?](../virtual-network/virtual-networks-overview.md)
 
 ## 생성
 
@@ -150,4 +150,4 @@
 
 [Azure 서비스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](virtual-machines-command-line-tools.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

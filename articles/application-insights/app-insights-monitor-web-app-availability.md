@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="웹 사이트의 가용성 및 응답성 모니터링" 
-	description="Application Insights에서 웹 테스트를 설정합니다. 웹 사이트가 사용할 수 없게 되거나 느리게 응답하는 경우 알림이 제공됩니다." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+<properties
+	pageTitle="웹 사이트의 가용성 및 응답성 모니터링 | Microsoft Azure"
+	description="Application Insights에서 웹 테스트를 설정합니다. 웹 사이트가 사용할 수 없게 되거나 느리게 응답하는 경우 알림이 제공됩니다."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="07/08/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="07/08/2015"
 	ms.author="awills"/>
- 
+
 # 웹 사이트의 가용성 및 응답성 모니터링
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
@@ -42,7 +42,7 @@
 
 ![새로 만들기 > Application Insights](./media/app-insights-monitor-web-app-availability/11-new-app.png)
 
-새 리소스에 대한 개요 블레이드가 열립니다. 언제든지 이것을 [Azure 포털](https://portal.azure.com)에서 찾으려면, 찾아보기를 클릭합니다.
+새 리소스에 대한 개요 블레이드가 열립니다. 언제든지 [Azure 포털](https://portal.azure.com)에서 찾으려면 **찾아보기**를 클릭합니다.
 
 ### <a name="setup"></a>2. 웹 테스트 만들기
 
@@ -72,7 +72,7 @@ Application Insights 리소스에서 가용성 타일을 찾습니다. 이것을
 
 ### <a name="monitor"></a>3. 가용성 보고서 보기
 
-1-2분 후 가용성/웹 테스트 블레이드에서 새로 고침을 클릭합니다. 이 버전에서는 새로 고침이 자동으로 수행되지 않습니다.
+1-2분 후 가용성/웹 테스트 블레이드에서 **새로 고침**을 클릭합니다. 이 버전에서는 새로 고침이 자동으로 수행되지 않습니다.
 
 ![홈 블레이드에 대한 요약 결과](./media/app-insights-monitor-web-app-availability/14-availSummary.png)
 
@@ -102,7 +102,7 @@ Application Insights 리소스에서 가용성 타일을 찾습니다. 이것을
 
 ![특정 웹 테스트 클릭](./media/app-insights-monitor-web-app-availability/16-1test.png)
 
-여러 위치에서 테스트를 실행합니다 - (결과 중에서 100% 미만을 하나 선택하십시오.)
+여러 위치에서 테스트를 실행합니다. 결과가 100% 미만인 위치를 하나 선택합니다.
 
 ![특정 웹 테스트 클릭](./media/app-insights-monitor-web-app-availability/17-availViewDetails.png)
 
@@ -127,6 +127,8 @@ URL 시퀀스를 포함하는 시나리오를 모니터링할 수 있습니다. 
 
 다단계 테스트를 만들려면 Visual Studio를 사용하여 시나리오를 기록한 다음 Application Insights에 기록을 업로드합니다. Application Insights는 지정된 간격에 따라 시나리오를 재생하고 응답을 확인합니다.
 
+코딩된 함수는 테스트에 사용할 수 없습니다. 시나리오 단계를 .webtest 파일에 스크립트로 포함해야 합니다.
+
 #### 1\. 시나리오 기록
 
 Visual Studio Ultimate를 사용하여 웹 세션을 기록합니다.
@@ -150,9 +152,9 @@ Visual Studio Ultimate를 사용하여 웹 세션을 기록합니다.
     웹 test runner에서 웹 브라우저가 열리고 기록한 작업을 반복합니다. 예상대로 작동하는지 확인합니다.
 
     ![Visual Studio에서 .webtest 파일을 열고 실행을 클릭합니다.](./media/app-insights-monitor-web-app-availability/appinsights-71webtest-multi-vs-run.png)
- 
 
-(웹 테스트코드에 루프를 삽입하지 마세요.)
+
+웹 테스트에 루프를 삽입하지 마세요.
 
 #### 2\. Application Insights에 웹 테스트를 업로드
 
@@ -169,6 +171,8 @@ Visual Studio Ultimate를 사용하여 웹 세션을 기록합니다.
 실패의 일반적인 이유는 테스트를 너무 오래 실행하기 때문입니다. 2분 이내로 실행해야 합니다.
 
 테스트가 성공하려면 스크립트, 스타일 시트, 이미지 등을 포함하는 페이지의 모든 리소스가 제대로 로드되어야 한다는 점을 잊지 마십시오.
+
+웹 테스트를 .webtest 파일에 완전히 포함해야 합니다. 코딩된 함수는 테스트에 사용할 수 없습니다.
 
 
 ### 다단계 테스트에 시간 및 난수 연결
@@ -207,13 +211,14 @@ Visual Studio Ultimate를 사용하여 웹 세션을 기록합니다.
 
 ## 질문이 있으십니까? 문제가 있습니까?
 
-* 다음과 같은 경우 "잘못된 문자"에 대한 오류가 발생합니다. 
 
-* **"웹 테스트" 및 "가용성" 간의 차이가 있습니까?
+* *"웹 테스트" 및 "가용성" 간의 차이가 있나요?*
 
     두 용어는 같은 의미로 사용됩니다.
 
+* *웹 테스트에서 코드를 호출할 수 있나요?*
 
+    아니요. 테스트 단계는 .webtest 파일에 포함되어야 합니다.
 
 ## <a name="video"></a>동영상
 
@@ -235,6 +240,4 @@ Visual Studio Ultimate를 사용하여 웹 세션을 기록합니다.
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-get-started.md
 
- 
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

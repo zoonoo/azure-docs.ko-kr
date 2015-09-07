@@ -1,27 +1,27 @@
 
 <properties 
     pageTitle="Azure RemoteApp에 대한 앱 요구 사항"
-    description="Azure RemoteApp에서 사용할 앱에 대한 요구 사항에 대해 알아봅니다." 
-    services="remoteapp" 
-    documentationCenter="" 
-    authors="lizap" 
-    manager="mbaldwin" />
+	description="Azure RemoteApp에서 사용할 앱에 대한 요구 사항에 대해 알아봅니다."
+	services="remoteapp"
+	documentationCenter=""
+	authors="lizap"
+	manager="mbaldwin"/>
 
 <tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/12/2015" 
-    ms.author="elizapo" />
+    ms.service="remoteapp"
+	ms.workload="compute"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/12/2015"
+	ms.author="elizapo"/>
 
 
 
 # 앱 요구 사항
 Azure RemoteApp은 Windows Server 2012 R2 이미지로 스트리밍 32비트 또는 64비트 Windows 기반 응용 프로그램을 지원합니다. 대부분 기존 32비트 또는 64비트 Windows 기반 응용 프로그램은 Azure RemoteApp(원격 데스크톱 서비스 또는 이전의 터미널 서비스) 환경에서 "있는 그대로" 실행됩니다. 그러나 실행과 잘 실행되고 있는 것 사이에는 차이가 있습니다. 일부 응용 프로그램은 제대로 작동되고 잘 수행되고 있지만 일부는 그렇지 않습니다. 다음 정보는 원격 데스크톱 서비스 환경에서의 응용 프로그램 개발 및 호환성을 위한 테스트에 대한 지침을 제공합니다.
 
-팁: Microsoft는 작동하는 앱의 예를 만들고 있습니다. RemoteApp에서 Microsoft Access, QuickBooks 및 App-v를 사용하여 설명하는 새 항목을 볼 수 있습니다.
+팁: Microsoft는 작동하는 앱의 예를 만들고 있습니다. RemoteApp에서 Microsoft Access, QuickBooks, 및 App-v를 사용하여 설명하는 새 항목을 볼 수 있습니다.
 
 ## 요구 사항
 다음 세가지 요구 사항은, 따르는 경우, RemoteApp에서 응용 프로그램을 잘 실행되는 데 도움이 됩니다.
@@ -56,4 +56,4 @@ RemoteApp용 응용 프로그램을 개발하기 위해 다음 지침을 사용�
 - 성능을 최적화하려면 응용 프로그램이 클라이언트 세션에서 실행 중인지 [감지](https://msdn.microsoft.com/library/aa380798.aspx)하도록 하는 것이 좋습니다. 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

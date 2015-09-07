@@ -1,29 +1,30 @@
 <properties
-   pageTitle="Microsoft Azure 앱 서비스에서 SQL 커넥터 사용"
-   description="SQL 커넥터 사용 방법"
-   services="app-service\logic"
-   documentationCenter=".net,nodejs,java"
-   authors="anuragdalmia"
-   manager="dwrede"
-   editor=""/>
+   pageTitle="논리 앱에서 SQL 커넥터 사용 | Microsoft Azure 앱 서비스"
+	description="SQL 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="anuragdalmia"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="08/19/2015"
-   ms.author="sameerch"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="sameerch"/>
 
 
-# Microsoft SQL 커넥터
-
+# Microsoft SQL 커넥터 시작 및 논리 앱에 추가
 온-프레미스 SQL Server 또는 Azure SQL 데이터베이스에 연결하여 정보나 데이터를 만들고 변경할 수 있습니다. 커넥터는 논리 앱에 사용하여 "워크플로"의 일부로 데이터 검색하기, 처리 또는 푸시를 수행할 수 있습니다. 워크플로에서 SQL 커넥터를 활용하면 다양한 시나리오를 수행할 수 있습니다. 예를 들어 다음을 수행할 수 있습니다.
 
 - 웹 또는 모바일 응용 프로그램을 통해 SQL 데이터베이스에 있는 데이터의 섹션을 표시합니다.
 - SQL 데이터베이스 테이블에 데이터를 삽입하여 저장합니다. 예를 들어 직원 레코드를 입력하고 판매 주문을 업데이트할 수 있습니다.
 - SQL에서 데이터를 가져와 비즈니스 프로세스에 사용합니다. 예를 들어 고객 레코드를 가져와 SalesForce에 이러한 고객 레코드를 입력할 수 있습니다.
+
+SQL 커넥터를 비즈니스 워크플로에 추가하고 논리 앱 내에서 이 워크플로의 일부로 데이터를 처리할 수 있습니다.
 
 ## 트리거 및 작업
 *트리거*는 발생하는 이벤트입니다. 예를 들어 주문이 업데이트되거나 새 고객이 추가되는 것이 트리거입니다. *작업*은 트리거의 결과입니다. 예를 들어 주문이 업데이트되면 영업 직원에게 경고를 보내는 것이 작업입니다. 또는 새 고객이 추가되면 새 고객에게 환영 전자 메일을 보냅니다.
@@ -41,7 +42,7 @@ SQL 커넥터에서 사용할 수 있는 트리거와 작업은 다음과 같습
 커넥터는 논리 앱 내에서 만들거나 Azure 마켓플레이스에서 직접 만들 수 있습니다. 마켓플레이스에서 커넥터를 만들려면
 
 1. Azure 시작 보드에서 **마켓플레이스**를 선택합니다.
-2. “SQL 커넥터”를 검색하여 선택하고 **만들기**를 선택합니다.
+2. "SQL 커넥터"를 검색하여 선택하고 **만들기**를 선택합니다.
 3. 이름, 앱 서비스 계획 및 기타 속성을 입력합니다.
 4. 다음 패키지 설정을 입력합니다.
 
@@ -87,9 +88,9 @@ SQL 커넥터를 트리거로 사용하려면 **데이터 사용 가능한 쿼�
 		(SELECT Id FROM [Order] WHERE OrderStatus = 'ProcessedForCollection' ORDER BY Id DESC)
 
 ### 트리거 추가
-1. 논리 앱 만들기 또는 편집을 수행할 때 트리거로 만든 SQL 커넥터를 선택합니다. 이렇게 하면 사용 가능한 트리거인 **Poll Data (JSON)** 및 **Poll Data (XML)**가 나열됩니다. ![][5]
+1. 논리 앱 만들기 또는 편집을 수행할 때 트리거로 만든 SQL 커넥터를 선택합니다. 이렇게 하면 사용 가능한 트리거인 **데이터 폴링(JSON)** 및 **데이터 폴링(XML)**이 나열됩니다. ![][5]
 
-2. **데이터 폴링(JSON)** 트리거를 선택하고 빈도를 지정한 다음 ✓을 클릭합니다. ![][6]
+2. **데이터 폴링(JSON)** 트리거를 선택하고 빈도를 지정한 다음 ✓를 클릭합니다. ![][6]
 
 3. 이제 논리 앱에서 구성된 대로 트리거가 표시됩니다. 트리거의 출력이 표시되며 후속 작업에서 입력으로 사용할 수 있습니다. ![][7]
 
@@ -98,13 +99,13 @@ SQL 테이블에서 데이터를 폴링하는 단순한 논리 앱 시나리오�
 
 SQL 커넥터를 동작으로 사용하려면 SQL 커넥터를 만들 때 입력한 테이블 및/또는 저장 프로시저의 이름을 입력합니다.
 
-1. 트리거(또는 '이 논리를 수동으로 실행'을 선택) 뒤에 갤러리에서 만든 SQL 커넥터를 추가합니다. *Insert Into TempEmployeeDetails (JSON)*와 같은 삽입 작업 중 하나를 선택합니다. ![][8]
+1. 트리거(또는 '이 논리를 수동으로 실행'을 선택) 뒤에 갤러리에서 만든 SQL 커넥터를 추가합니다. *Insert Into TempEmployeeDetails(JSON)*와 같은 삽입 작업 중 하나를 선택합니다. ![][8]
 
-2. 삽입될 레코드의 입력 값을 입력하고 ✓을 클릭합니다. ![][9]
+2. 삽입할 레코드의 입력 값을 입력하고 ✓를 클릭합니다. ![][9]
 
-3. 갤러리에서, 전에 만든 것과 동일한 SQL 커넥터를 선택합니다. 작업으로 *Update TempEmployeeDetails*와 같이 동일한 테이블의 업데이트 작업을 선택합니다. ![][11]
+3. 갤러리에서, 전에 만든 것과 동일한 SQL 커넥터를 선택합니다. 작업으로 동일한 테이블의 업데이트 작업을 선택합니다(예: *Update EmployeeDetails*). ![][11]
 
-4. 업데이트 작업을 위한 입력 값을 입력하고 ✓을 클릭합니다. ![][12]
+4. 업데이트 작업의 입력 값을 입력하고 ✓를 클릭합니다. ![][12]
 
 폴링 중인 테이블에서 새 레코드를 추가하여 논리 앱을 테스트할 수 있습니다.
 
@@ -148,4 +149,4 @@ Where 절 | <ul><li>연산자: AND, OR, =, <>, <, <=, >, >= 및 LIKE</li><li>여
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,21 +1,21 @@
 <properties 
-   pageTitle="StorSimple 장치에 대한 안전성"
-   description="StorSimple 장치의 배포 및 작동을 위한 안전 지침 검토"
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="tysonn" />
+   pageTitle="StorSimple 장치에 대한 안정성 | Microsoft Azure"
+	description="안전성 규칙, 지침 및 고려 사항을 설명하고 StorSimple 장치를 안전하게 설치하고 작동하는 방법을 설명합니다."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/14/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/26/2015"
+	ms.author="alkohli"/>
 
-# 장치의 안전성
+# StorSimple 장치의 안전한 설치 및 작동
 
 ![경고 아이콘](./media/storsimple-safety/IC740879.png) ![안전성 고지 읽기 아이콘](./media/storsimple-safety/IC740885.png) **안전성 및 상태 정보 읽기**
 
@@ -179,4 +179,4 @@
 
 - 8600 장치의 경우 [StorSimple 8600 장치 설치](storsimple-8600-hardware-installation.md)로 이동합니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="고정 내부 개인 IP를 설정하는 방법"
-   description="고정 내부 개인 IP(DIP) 및 관리 방법 이해"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="adinah"
-   editor="tysonn" />
+	description="고정 내부 개인 IP(DIP) 및 관리 방법 이해"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/17/2015"
+	ms.author="telmos"/>
 
 # 고정 내부 개인 IP를 설정하는 방법
 대부분의 경우 가상 컴퓨터에 고정 내부 IP 주소를 지정할 필요가 없습니다. 가상 네트워크의 VM은 사용자가 지정한 범위의 내부 IP 주소를 자동으로 받습니다. 그러나 특정한 상황에서는 특정 VM에 고정 IP 주소를 지정하는 것이 적합한 경우도 있습니다. 예를 들어 VM에서 DNS를 실행하거나 VM을 도메인 컨트롤러로 구성하는 경우입니다.
@@ -31,7 +31,7 @@ IP 주소 *10.0.0.7*을 *TestVnet*이라는 이름의 VNet에서 사용할 수 �
 	OperationId          : fd3097e1-5f4b-9cac-8afa-bba1e3492609
 	OperationStatus      : Succeeded
 
->[AZURE.NOTE]안전한 환경에서 위 명령을 테스트하려는 경우 [가상 네트워크 만들기](https://msdn.microsoft.com/library/azure/dn631643.aspx)의 지침에 따라 *TestVnet*이라는 이름의 VNet을 만들어 *10.0.0.0/8* 주소 공간을 사용하도록 합니다.
+>[AZURE.NOTE]안전한 환경에서 위 명령을 테스트하려는 경우 [가상 네트워크 만들기](../virtual-network/virtual-networks-create-vnet.md)의 지침에 따라 *TestVnet*이라는 이름의 VNet을 만들어 *10.0.0.0/8* 주소 공간을 사용하도록 합니다.
 
 ## VM을 만들 때 고정 내부 IP를 지정하는 방법
 아래의 PowerShell 스크립트는 *TestService*라는 새 클라우드 서비스를 만들고 Azure에서 이미지를 검색합니다. 그다음에 이 이미지를 사용하여 새 클라우드 서비스에 *TestVM*이라는 VM을 만들고 이 VM을 *Subnet-1*이라는 서브넷에 속하도록 설정하고 VM의 고정 내부 IP로 *10.0.0.7*을 설정합니다.
@@ -99,4 +99,4 @@ IP 주소 *10.0.0.7*을 *TestVnet*이라는 이름의 VNet에서 사용할 수 �
 [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

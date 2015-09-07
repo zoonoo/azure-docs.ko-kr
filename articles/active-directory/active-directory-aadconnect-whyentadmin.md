@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="엔터프라이즈 관리자 계정이 필요한 이유" 
-	description="사용자 지정 설정 설명." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="엔터프라이즈 관리자 계정이 필요한 이유"
+	description="사용자 지정 설정 설명."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure AD 연결을 설정할 때 AD DS에 연결하는 데 엔터프라이즈 관리자 계정이 필요한 이유
@@ -31,6 +31,6 @@ Express 설정 및 DirSync 업그레이드 | <li>Express 설정의 경우, 동�
 
 * [Azure AD Connect 계정 및 사용 권한에 대한 추가 정보](active-directory-aadconnect-account-summary.md)
 * [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)
-* [MSDN의 Azure AD Connect](https://msdn.microsoft.com/library/azure/dn832695.aspx) 
+* [MSDN의 Azure AD Connect](active-directory-aadconnect.md) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

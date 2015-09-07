@@ -1,25 +1,25 @@
 <properties
    pageTitle="Azure DNS로 도메인 위임 | Microsoft Azure"
-   description="도메인 위임을 변경하고 Azure DNS 이름 서버를 사용하여 도메인 호스팅을 제공하는 방법을 이해합니다."
-   services="dns"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="Adinah"
-   editor=""/>
+	description="도메인 위임을 변경하고 Azure DNS 이름 서버를 사용하여 도메인 호스팅을 제공하는 방법을 이해합니다."
+	services="dns"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="Adinah"
+	editor=""/>
 
 <tags
    ms.service="dns"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="04/28/2015"
-   ms.author="joaoma"/>
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/12/2015"
+	ms.author="joaoma"/>
 
 
 # Azure DNS로 도메인 위임
 
-Azure DNS는 DNS 도메인에 대한 호스팅 서비스입니다. 도메인에 대한 DNS 쿼리가 Azure DNS에 도달하려면 부모 도메인에서 Azure DNS로 도메인을 위임해야 합니다. 이 페이지에서는 도메인 위임의 작동 방식 및 도메인을 Azure DNS로 위임하는 방법을 설명합니다.
+Azure DNS는 DNS 도메인에 대한 호스팅 서비스입니다. 도메인에 대한 DNS 쿼리가 Azure DNS에 도달하려면 부모 도메인에서 Azure DNS로 도메인을 위임해야 합니다. 이 문서에서는 도메인 위임의 작동 방식 및 도메인을 Azure DNS로 위임하는 방법을 설명합니다.
 
 
 ## DNS 위임의 작동 방식
@@ -53,11 +53,10 @@ PC 또는 모바일 장치의 DNS 클라이언트는 일반적으로 재귀적 D
 
 부모 영역은 자식 영역에 대한 이름 서버를 어떻게 ‘가리킬까요'? 이 작업을 위해 NS 레코드(NS는 '이름 서버'를 나타냄)라는 특수 형식의 DNS 레코드를 사용합니다. 예를 들어 루트 영역은 'com' 영역에 대한 이름 서버를 보여 주는 'com'에 대한 NS 레코드를 포함합니다. 마찬가지로, 'com' 영역은 'contoso.com' 영역에 대한 이름 서버를 보여 주는 'contoso.com'에 대한 NS 레코드를 포함합니다. 부모 영역에서 자식 영역에 대한 NS 레코드를 설정하는 작업을 도메인 위임이라고 합니다.
 
-아래 다이어그램은 다음 사항을 보여 줍니다.
 
 ![Dns-nameserver](./media/dns-domain-delegation/image1.png)
 
-실제로 각 위임에는 NS 레코드의 두 복사본이 있습니다. 하나는 자식을 가리키는 부모 영역의 NS 레코드이고 다른 하나는 자식 영역 자체의 NS 레코드입니다. 즉, 'contoso.com' 영역은 'com'의 NS 레코드뿐 아니라 'contoso.com'의 NS 레코드를 포함합니다. 이를 권한이 있는 NS 레코드라고 하며, 자식 영역의 루트에 있습니다.
+실제로 각 위임에는 NS 레코드의 두 복사본이 있습니다. 하나는 자식을 가리키는 부모 영역의 NS 레코드이고 다른 하나는 자식 영역 자체의 NS 레코드입니다. 'contoso.com' 영역은 'com'의 NS 레코드뿐 아니라 'contoso.com'의 NS 레코드를 포함합니다. 이를 권한이 있는 NS 레코드라고 하며, 자식 영역의 루트에 있습니다.
 
 
 ## Azure DNS에 도메인 위임
@@ -122,7 +121,7 @@ Azure dns에서 'contoso.com'을 설정하고 위임하면 별도의 자식 영�
 	PS C:\> $parent = New-AzureDnsZone -Name contoso.com -ResourceGroupName RG1
 	PS C:\> $child = New-AzureDnsZone -Name partners.contoso.com -ResourceGroupName RG1
 
-다음으로 자식 영역에서 신뢰할 수 있는 NS 레코드 검색합니다.
+다음으로 아래 예제와 같이 자식 영역에서 신뢰할 수 있는 NS 레코드 검색합니다.
 
 	PS C:\> $child_ns_recordset = Get-AzureDnsRecordSet -Zone $child -Name "@" -RecordType NS
 
@@ -130,15 +129,15 @@ Azure dns에서 'contoso.com'을 설정하고 위임하면 별도의 자식 영�
 
 	PS C:\> $parent_ns_recordset = New-AzureDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
 	PS C:\> $parent_ns_recordset.Records = $child_ns_recordset.Records
-	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset 
+	PS C:\> Set-AzureDnsRecordSet -RecordSet $parent_ns_recordset
 
 등록자를 사용하여 위임하는 경우 자식 영역의 SOA 레코드를 조회하여 모두 올바르게 설정되어 있는지 확인할 수 있습니다.
 
 	PS C:\> nslookup –type=SOA partners.contoso.com
-	
+
 	Server: ns1-08.azure-dns.com
 	Address: 208.76.47.8
-	
+
 	partners.contoso.com
 		primary name server = ns1-08.azure-dns.com
 		responsible mail addr = msnhst.microsoft.com
@@ -159,6 +158,5 @@ Azure dns에서 'contoso.com'을 설정하고 위임하면 별도의 자식 영�
 [.NET SDK로 Azure 작업 자동화](../dns-sdk)
 
 [Azure DNS REST API 참조](https://msdn.microsoft.com/library/azure/mt163862.aspx)
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -364,7 +364,7 @@ Azure에서 다중 계층 인프라를 구축하는 사용자 고유의 JSON 템
 1.	배포를 지원하는 데 필요한 Azure 인프라의 일반 요소(저장소 계정, 가상 네트워크), 계층 관련 요소(가용성 집합) 및 가상 컴퓨터 관련 요소(공용 IP 주소, 가용성 집합, 네트워크 인터페이스 및 부하 분산 장치 인스턴스)를 만듭니다.
 2.	응용 프로그램의 각 계층(예: 인증, 데이터베이스, 웹)에 대해 일반 요소(저장소 계정, 가상 네트워크), 계층 관련 요소(가용성 집합) 및 가상 컴퓨터 관련 요소(공용 IP 주소, 가용성 집합, 네트워크 인터페이스 및 부하 분산 장치 인스턴스)를 사용하여 해당 계층에서 서버를 만들고 구성합니다.
 
-자세한 내용은 [Azure 리소스 관리자 템플릿 언어](https://msdn.microsoft.com/library/azure/dn835138.aspx)를 참조하세요.
+자세한 내용은 [Azure 리소스 관리자 템플릿 언어](../resource-group-authoring-templates.md)를 참조하세요.
 
 ## 추가 리소스
 
@@ -374,4 +374,4 @@ Azure에서 다중 계층 인프라를 구축하는 사용자 고유의 JSON 템
 
 [가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

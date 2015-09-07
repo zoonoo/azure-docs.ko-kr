@@ -1,6 +1,6 @@
 <properties
-	pageTitle="SharePoint Server 팜"
-	description="Azure 미리보기 포탈에서 SharePoint 서버 2013을 신속하게 만들 수 있습니다."
+	pageTitle="SharePoint Server 팜 | Microsoft Azure"
+	description="Azure Preview 포털의 SharePoint Server 팜을 사용하여 새로운 기본 또는 고가용성의 SharePoint Server 2013을 신속하게 만들 수 있습니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -95,4 +95,4 @@ Azure 미리보기 포털의 SharePoint 서버 팜 기능은 서비스 관리에
 
 [Azure 인프라 서비스에서 호스트되는 SharePoint 팜](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

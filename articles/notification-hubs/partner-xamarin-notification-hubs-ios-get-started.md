@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Xamarin iOS 앱에 대한 알림 허브 시작"
-	description="Azure 알림 허브를 사용하여 Xamarin iOS 응용 프로그램에 푸시 알림을 보내는 방법에 대해 알아봅니다."
+	pageTitle="Xamarin iOS 앱에 대한 알림 허브 시작 | Microsoft Azure"
+	description="이 자습서에서 Azure 알림 허브를 사용하여 Xamarin iOS 응용 프로그램에 푸시 알림을 보내는 방법을 알아봅니다."
 	services="notification-hubs"
 	documentationCenter="xamarin"
 	authors="ysxu"
@@ -22,27 +22,27 @@
 
 ##개요
 
-이 항목에서는 Azure 알림 허브를 사용하여 iOS 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 APNS(Apple 푸시 알림 서비스)를 사용하여 푸시 알림을 받는 빈 Xamarin.iOS 앱을 만듭니다. 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다. 완성된 코드는 [NotificationHubs 앱][GitHub] 샘플에서 확인할 수 있습니다.
+이 자습서에서는 Azure 알림 허브를 사용하여 iOS 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. APNS(Apple 푸시 알림 서비스)를 사용하여 푸시 알림을 받는 빈 Xamarin.iOS 앱을 만듭니다. 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다. 완성된 코드는 [NotificationHubs 앱][GitHub] 샘플에서 확인할 수 있습니다.
 
 이 자습서에서는 알림 허브를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다.
 
 ##필수 조건
 
-이 자습서를 사용하려면 다음 필수 조건이 필요합니다.
+이 자습서를 사용하려면 다음이 필요합니다.
 
-+ [XCode 6.0][Install Xcode]
++ [Xcode 6.0][Install Xcode]
 + iOS 7.0(이상) 지원 장치
 + iOS 개발자 프로그램 멤버 자격
 + [Xamarin.iOS]
 + [Azure 모바일 서비스 구성 요소]
 
-   >[AZURE.NOTE]푸시 알림 구성 요구 사항 때문에 시뮬레이터 대신 iOS 지원 장치(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
+   >[AZURE.NOTE]푸시 알림에 대한 구성 요구 사항 때문에 시뮬레이터 대신 iOS 지원 장치(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
 
 이 자습서를 완료해야 다른 모든 Xamarin.iOS 앱용 알림 허브 자습서를 진행할 수 있습니다.
 
-> [AZURE.IMPORTANT]이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started)을 참조하세요.
+> [AZURE.IMPORTANT]이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started)을 참조하세요.
 
-APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서비스를 인증합니다. 필요한 인증서를 만들어 모바일 서비스에 업로드하려면 해당 지침을 따르세요. 공식 APNS 기능 설명서는 [Apple Push Notification Service](영문)를 참조하세요.
+APNS(Apple 푸시 알림 서비스)는 인증서를 사용하여 모바일 서비스를 인증합니다. 필요한 인증서를 만들어 모바일 서비스에 업로드하려면 해당 지침을 따르세요. 공식 APNS 기능 설명서는 [Apple 푸시 알림 서비스]를 참조하세요.
 
 
 ##<a name="certificates"></a>인증서 서명 요청 파일 생성
@@ -51,7 +51,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
 1. Utilities 폴더에서 Keychain Access 도구를 실행합니다.
 
-2. **Keychain Access**를 클릭하고 **Certificate Assistant**를 확장한 다음 **Request a Certificate from a Certificate Authority...**를 클릭합니다.
+2. **Keychain 액세스**를 클릭하고 **Certificate 도우미**를 확장한 다음 **인증 기관에서 인증서 요청**을 클릭합니다.
 
   	![][5]
 
@@ -59,23 +59,23 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
   	![][6]
 
-4. **Save As**에 CSR(인증서 서명 요청) 파일의 이름을 입력하고, **Where**에서 위치를 선택한 후 **Save**를 클릭합니다.
+4. **Save As**에 CSR(인증서 서명 요청) 파일의 이름을 입력하고, **Where**에서 위치를 선택한 후 **저장**을 클릭합니다.
 
   	![][7]
 
-  	CSR 파일이 선택한 위치에 저장됩니다. 기본 위치는 바탕 화면입니다. 이 파일을 저장한 위치를 기억해두세요.
+  	CSR 파일이 선택한 위치에 저장 합니다. 기본 위치는 바탕 화면입니다. 이 파일을 저장한 위치를 기억해두세요.
 
 이제 Apple에 앱을 등록하고, 푸시 알림을 사용하도록 설정하고, 내보낸 CSR을 업로드하여 푸시 인증서를 만드세요.
 
 ##<a name="register"></a>푸시 알림에 대해 앱 등록
 
-모바일 서비스에서 iOS 앱으로 푸시 알림을 보내려면 Apple에 앱을 등록하고 푸시 알림도 등록해야 합니다.
+모바일 서비스에서 iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등록하고 푸시 알림도 등록해야 합니다.
 
-1. 아직 앱을 등록하지 않은 경우 Apple Developer Center의 <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>로 이동하여 Apple ID로 로그온하고 **Identifiers**와 **App IDs**를 클릭한 다음에 **+** 기호를 클릭하여 새 앱을 등록합니다.
+1. 아직 앱을 등록하지 않은 경우 Apple 개발자 센터의 <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS 프로비전 포털</a>로 이동하여 Apple ID로 로그인하고 **식별자**와 **App IDs**를 클릭한 다음에 **+** 기호를 클릭하여 새 앱을 등록합니다.
 
    	![][105]
 
-2. **Description**에 앱 이름을 입력하고 **Bundle Identifier** 값을 입력한 후 "App Services" 섹션에서 "Push Notifications" 옵션을 선택하고 **Continue**를 클릭합니다.
+2. **설명**에 앱 이름을 입력하고 **번들 식별자** 값을 입력한 후 **앱 서비스** 섹션에서 **푸시 알림** 옵션을 선택하고 **계속**을 클릭합니다.
 
    	![][106]
 
@@ -104,11 +104,11 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
    	![][113]
 
-4. **Edit**를 클릭하고 화면 맨 아래로 스크롤한 후 **Development Push SSL Certificate** 섹션 아래의 **Create Certificate...**를 클릭합니다.
+4. **편집**을 클릭하고 화면 맨 아래로 스크롤한 후 **개발 푸시 SSL 인증서** 섹션 아래의 **인증서 만들기...**를 클릭합니다.
 
    	![][114]
 
-	"Add iOS Certificate" assistant가 표시됩니다.
+	iOS 인증서 추가 도우미가 표시됩니다.
 
    	![][115]
 
@@ -128,7 +128,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
   	![][9]
 
-    > [AZURE.NOTE]기본적으로 다운로드된 개발 증명서 파일은 이름이 **aps\_development.cer**로 지정됩니다.
+    > [AZURE.NOTE]기본적으로 다운로드된 개발 인증서 파일은 이름이 **aps\_development.cer**로 지정됩니다.
 
 7. 다운로드한 푸시 인증서 **aps\_development.cer**을 두 번 클릭합니다.
 
@@ -142,7 +142,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
 ##<a name="profile"></a>앱용 프로비저닝 프로필 만들기
 
-1. <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>로 돌아가서 **Provisioning Profiles**와 **All**을 차례로 선택하고 **+** 단추를 클릭하여 새 프로필을 만듭니다. **Add iOS Provisioning Profile** 마법사가 표시됩니다.
+1. <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Provisioning Portal</a>로 돌아가서 **Provisioning Profiles**와 **All**을 차례로 선택하고 **+** 단추를 클릭하여 새 프로필을 만듭니다. **iOS 프로비전 프로필 추가** 마법사가 표시됩니다.
 
    	![][120]
 
@@ -150,15 +150,15 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
    	![][121]
 
-3. **App ID** 드롭다운 목록에서 모바일 서비스 Quickstart 앱의 앱 ID를 선택하고 **Continue**를 클릭합니다.
+3. **앱 ID** 드롭다운 목록에서 모바일 서비스 빠른 시작 앱의 앱 ID를 선택하고 **계속**을 클릭합니다.
 
    	![][122]
 
-4. **Select certificates** 화면에서 앞서 만든 인증서를 선택하고 **Continue**를 클릭합니다.
+4. **인증서 선택** 화면에서 앞서 만든 인증서를 선택하고 **계속**을 클릭합니다.
 
    	![][123]
 
-5. 테스트에 사용할 **Devices**를 선택하고 **Continue**를 클릭합니다.
+5. 테스트에 사용할 장치를 선택하고 **계속**을 클릭합니다.
 
    	![][124]
 
@@ -170,7 +170,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
   	새 프로비저닝 프로필이 생성됩니다.
 
-7. Xcode에서 Organizer를 열고 왼쪽 창의 **Library** 섹션에서 **Provisioning Profiles**를 선택한 다음 방금 만든 프로비저닝 프로필을 가져옵니다.
+7. Xcode에서 Organizer를 열고 장치 보기를 선택하고 왼쪽 창의 **라이브러리** 섹션에서 **프로비전 프로필**을 선택한 다음 방금 만든 프로비전 프로필을 가져옵니다.
 
 8. 왼쪽에서 장치를 선택하고 프로비저닝 프로필을 다시 가져옵니다.
 
@@ -184,9 +184,9 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
 ##<a name="configure-hub"></a>알림 허브 구성
 
-1. [Azure 관리 포털]에 로그온하고 화면 맨 아래에 있는 **+새로 만들기**를 클릭합니다.
+1. [Azure 포털]에 로그인한 다음 화면 아래쪽에서 **+새로 만들기**를 클릭합니다.
 
-2. **앱 서비스**, **Service Bus**, **알림 허브**, **빠른 생성**을 차례로 클릭합니다.
+2. **앱 서비스**, **서비스 버스**, **알림 허브** 및 **빠른 생성**을 차례로 클릭합니다.
 
    	![][27]
 
@@ -202,7 +202,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
    	![][210]
 
-6. 맨 위에 있는 **구성** 탭을 선택한 다음 Apple 알림 설정에 대해 **업로드**를 클릭합니다. 그런 다음 앞서 내보낸 **.p12** 인증서 및 인증서의 암호를 선택합니다. **프로덕션**(스토어에서 앱을 구매한 사용자에게 푸시 알림을 보내려는 경우) 또는 **샌드박스**(개발 중에) 중 어떤 푸시 서비스를 사용할지를 선택해야 합니다.
+6. 맨 위에 있는 **구성** 탭을 선택한 다음 Apple 알림 설정에 대해 **업로드**를 클릭합니다. 그런 다음 인증서의 암호와 함께 앞서 내보낸 **.p12** 인증서를 선택합니다. **프로덕션**(스토어에서 앱을 구매한 사용자에게 푸시 알림을 보내려는 경우) 또는 **샌드박스**(개발 중에) 중 어떤 푸시 서비스를 사용할지를 선택해야 합니다.
 
    	![][211]
 
@@ -216,11 +216,11 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
 ### 새 프로젝트 만들기
 
-1. Xamarin Studio에서 새 iOS 프로젝트를 만들고 **통합 API > 단일 보기 응용 프로그램** 템플릿을 선택합니다.
+1. Xamarin Studio에서 새 iOS 프로젝트를 만들고 **통합 API** > **단일 보기 응용 프로그램** 템플릿을 선택합니다.
 
    	![][31]
 
-2. 먼저 Azure 메시징 구성 요소에 대한 참조를 추가합니다. 솔루션 보기에서 프로젝트에 대한 **Components** 폴더를 마우스 오른쪽 단추로 클릭하고 **Get More Components**를 선택합니다. **Azure 메시징** 구성 요소를 검색하여 프로젝트에 추가합니다.
+2. Azure 메시징 구성 요소에 대한 참조를 추가합니다. 솔루션 보기에서 프로젝트에 대한 **구성 요소** 폴더를 마우스 오른쪽 단추로 클릭하고 **구성 요소 더 가져오기**를 선택합니다. **Azure 메시징** 구성 요소를 검색하여 프로젝트에 추가합니다.
 
 3. **AppDelegate.cs**에서 다음 using 문을 추가합니다.
 
@@ -232,7 +232,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
 5. 다음 변수를 사용하여 **Constants.cs** 클래스를 만듭니다.
 
-        // Azure app specific connection string and hub path
+        // Azure app-specific connection string and hub path
         public const string ConnectionString = "<Azure connection string>";
         public const string NotificationHubPath = "<Azure hub path>";
 
@@ -290,10 +290,10 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
                 //Extract the alert text
                 // NOTE: If you're using the simple alert by just specifying
-                // "  aps:{alert:"alert msg here"}  " this will work fine.
+                // "  aps:{alert:"alert msg here"}  ", this will work fine.
                 // But if you're using a complex alert with Localization keys, etc.,
                 // your "alert" object from the aps dictionary will be another NSDictionary.
-                // Basically the json gets dumped right into a NSDictionary,
+                // Basically the JSON gets dumped right into a NSDictionary,
                 // so keep that in mind.
                 if (aps.ContainsKey(new NSString("alert")))
                     alert = (aps [new NSString("alert")] as NSString).ToString();
@@ -312,14 +312,14 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
             }
         }
 
-    > [AZURE.NOTE]네트워크 연결 없음 등의 경우를 처리하도록 **FailedToRegisterForRemoteNotifications()**를 재정의할 수 있습니다.
+    > [AZURE.NOTE]네트워크 연결이 없는 경우를 처리하도록 **FailedToRegisterForRemoteNotifications()**를 재정의할 수 있습니다.
 
 
 10. 장치에서 앱을 실행합니다.
 
 ##<a name="send"></a>백 엔드에서 알림 보내기
 
-<a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 인터페이스</a>를 사용하여 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다. 이 자습서에서는 .NET 콘솔 앱 및 노드 스크립트를 사용하는 모바일 서비스를 통해 알림을 보냅니다.
+<a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 인터페이스</a>를 통해 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다. 이 자습서에서는 노드 스크립트를 통해 .NET 콘솔 앱 및 모바일 서비스를 사용하여 알림을 보냅니다.
 
 .NET 앱을 사용하여 알림을 보내려면
 
@@ -327,9 +327,9 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
    	![][213]
 
-2. <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet 패키지</a>를 사용하여 Azure 서비스 버스 SDK에 대한 참조를 추가합니다. Visual Studio 주 메뉴에서 **도구**, **라이브러리 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다. 그런 다음 콘솔 창에서 다음을 입력하고
+2. <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet 패키지</a>를 사용하여 Azure 서비스 버스 SDK에 참조를 추가합니다. Visual Studio 주 메뉴에서 **도구**를 클릭하고 **라이브러리 패키지 관리자**를 클릭한 다음 **패키지 관리자 콘솔**을 클릭합니다. 그런 다음 콘솔 창에서 다음을 입력하고 Enter 키를 누릅니다.
 
-        Install-Package WindowsAzure.ServiceBus and press Enter.
+        Install-Package WindowsAzure.ServiceBus
 
 2. Program.cs 파일을 열고 다음 using 문을 추가합니다.
 
@@ -344,7 +344,7 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
             await hub.SendAppleNativeNotificationAsync(alert);
         }
 
-4. 그런 다음 `Main` 메서드에 다음 줄을 추가합니다.
+4. `Main` 메서드에 다음 줄을 추가합니다.
 
          SendNotificationAsync();
 		 Console.ReadLine();
@@ -353,9 +353,9 @@ APNS(Apple Push Notification Service)는 인증서를 사용하여 모바일 서
 
 Apple [Local and Push Notification Programming Guide]에서 가능한 모든 페이로드를 찾아볼 수 있습니다.
 
-모바일 서비스를 사용하여 알림을 보내려면 [모바일 서비스 시작](영문)을 따른 후 다음을 수행하세요.
+모바일 서비스를 사용하여 알림을 보내려면 [모바일 서비스 시작]을 따른 후 다음을 수행하세요.
 
-1. [Azure 관리 포털]에 로그온하고 모바일 서비스를 선택합니다.
+1. [Azure 포털]에 로그인하고 모바일 서비스를 선택합니다.
 
 2. 맨 위에 있는 **스케줄러** 탭을 선택합니다.
 
@@ -391,7 +391,7 @@ Apple [Local and Push Notification Programming Guide]에서 가능한 모든 페
 
 ## <a name="next-steps"> </a>다음 단계
 
-이 간단한 예제에서는 모든 iOS 장치로 알림을 브로드캐스트합니다. 특정 사용자에게만 알림을 보내려면 [알림 허브를 사용하여 사용자에게 알림 푸시] 자습서를 참조하세요. 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기]를 참조하세요. 알림 허브 사용 방법에 대해 자세히 알아보려면 [알림 허브 지침] 및 [iOS용 알림 허브 방법]을 참조하세요.
+이 간단한 예제에서는 모든 iOS 장치로 알림을 브로드캐스트합니다. 특정 사용자를 대상으로 하려면 [알림 허브를 사용하여 사용자에게 알림 푸시](영문) 자습서를 참조하세요. 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기](영문)를 참조하세요. 알림 허브 사용 방법에 대해 자세히 알아보려면 [알림 허브 지침] 및 [iOS용 알림 허브 방법]을 참조하세요.
 
 <!-- Anchors. -->
 [Generate the certificate signing request]: #certificates
@@ -462,7 +462,7 @@ Apple [Local and Push Notification Programming Guide]에서 가능한 모든 페
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [모바일 서비스 시작]: /develop/mobile/tutorials/get-started-xamarin-ios
-[Azure 관리 포털]: https://manage.windowsazure.com/
+[Azure 포털]: https://manage.windowsazure.com/
 [알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
 [iOS용 알림 허브 방법]: http://msdn.microsoft.com/library/jj927168.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
@@ -472,12 +472,11 @@ Apple [Local and Push Notification Programming Guide]에서 가능한 모든 페
 [알림 허브를 사용하여 뉴스 속보 보내기]: /manage/services/notification-hubs/breaking-news-dotnet
 
 [Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
-[Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
+[Apple 푸시 알림 서비스]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 
 [Azure 모바일 서비스 구성 요소]: http://components.xamarin.com/view/azure-mobile-services/
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331329
 [Xamarin.iOS]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

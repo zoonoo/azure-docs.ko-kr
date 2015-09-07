@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication 다음 작업" 
-	description="MFA로 다음에 수행할 작업을 설명하는 Azure Multi-Factor Authentication 페이지입니다. 보고서, 사기 행위 경고, 일회성 바이패스, 사용자 지정 음성 메시지, 캐시, 신뢰할 수 있는 ip 및 앱 암호를 포함합니다." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure Multi-Factor Authentication 다음 작업"
+	description="MFA로 다음에 수행할 작업을 설명하는 Azure Multi-Factor Authentication 페이지입니다. 보고서, 사기 행위 경고, 일회성 바이패스, 사용자 지정 음성 메시지, 캐시, 신뢰할 수 있는 ip 및 앱 암호를 포함합니다."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure Multi-Factor Authentication 구성
@@ -228,6 +228,8 @@ Office 2010 또는 이전 및 Apple 메일과 같은일부 앱에서 Multi-facto
 >
 > Office 2013 클라이언트(Outlook 포함)는 이제 새 인증 프로토콜을 지원하고 Multi-Factor Authentication을 지원하도록 설정할 수 있습니다. 즉, 일단 이렇게 설정되면 Office 2013 클라이언트에서 앱 암호를 사용할 필요가 없습니다. 자세한 내용은 [발표된 Office 2013 최신 인증 공개 미리 보기](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/)를 참조하십시오.
 
+
+
 ### 앱 암호에 대해 알아야 할 중요 사항
 
 다음은 앱 암호에 대해 알고 있어야 하는 중요한 사항의 목록입니다.
@@ -240,6 +242,11 @@ Office 2010 또는 이전 및 Apple 메일과 같은일부 앱에서 Multi-facto
 - 암호를 캐시하고 온-프레미스 시나리오에서 사용하는 앱은 앱 암호가 조직 ID 외부에서 알려질 수 없으므로 실패할 수도 있습니다. 예제는 온-프레미스에 있는 Exchange 전자 메일이지만 보관된 메일은 클라우드에 있습니다. 동일한 암호는 작동하지 않습니다.
 - 실제 암호는 자동으로 생성되고 사용자가 제공하지 않습니다. 자동으로 생성된 암호를 공격자가 추측하기 어렵고 더 안전하기 때문입니다.
 - 현재 사용자 당 40개의 암호로 제한되어 있습니다. 새로 만들려면 기존 앱 암호 중 하나를 삭제하 라는 메시지가 표시됩니다.
+- 사용자 계정에 Multi-Factor Authentication을 사용하도록 설정되었으면 대부분의 브라우저가 아닌 클라이언트(예: Outlook 및 Lync)에 앱 암호를 사용할 수 있지만, Windows PowerShell과 같은 브라우저가 아닌 응용 프로그램을 통해서는 사용자에게 관리 계정이 있어도 앱 암호를 사용하여 관리 작업을 수행할 수 없습니다. 강력한 암호로 PowerShell 스크립트를 실행할 서비스 계정을 만들고 해당 계정에 Multi-Factor Authentication을 사용하지 않도록 설정해야 합니다.
+
+>[AZURE.WARNING]앱 암호는 클라이언트가 온-프레미스 및 클라우드 자동 검색 끝점과 통신하는 하이브리드 환경에서는 작동하지 않습니다.
+>
+>앱 암호는 클라이언트가 온-프레미스 및 클라우드 자동 검색 끝점과 통신하는 하이브리드 환경에서는 작동하지 않음을 유의하세요. 온-프레미스를 인증하는 데는 도메인 암호가 필요하고 클라우드를 인증하는 데는 앱 암호가 필요하기 때문입니다.
 
 
 ### 앱 암호에 대한 명명 지침
@@ -305,7 +312,7 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 3. 왼쪽에서 추가 보안 확인을 선택합니다.
 4. 오른쪽의 **Update my phone numbers used for account security(계정 보안에 사용되는 전화 번호 업데이트)**를 선택합니다.
 5. 검사 페이지 위쪽에서 앱 암호를 선택합니다.
-6. **만들기** 클릭
+6. **만들기**를 클릭합니다.
 7. 앱 암호의 이름을 입력하고 **다음**을 클릭합니다.
 8. 앱 암호를 클립보드에 복사하고 앱에 붙여 넣습니다.
 
@@ -317,7 +324,7 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 1. Azure 관리 포털에 로그인
 3. 위쪽에서 사용자 이름을 마우스 오른쪽 단추로 클릭하고 추가 보안 확인을 선택합니다.
 5. 검사 페이지 위쪽에서 앱 암호를 선택합니다.
-6. **만들기** 클릭
+6. **만들기**를 클릭합니다.
 7. 앱 암호의 이름을 입력하고 **다음**을 클릭합니다.
 8. 앱 암호를 클립보드에 복사하고 앱에 붙여 넣습니다.
 
@@ -326,11 +333,11 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 
 ### Office 365 또는 Azure 구독이 없는 경우 앱 암호를 만들려면
 --------------------------------------------------------------------------------
-1. [https://myapps.microsoft.com](https://myapps.microsoft.com)에 로그인	
+1. [https://myapps.microsoft.com](https://myapps.microsoft.com)에 로그인합니다.	
 2. 위쪽에서 프로필을 선택합니다.
 3. 사용자 이름을 클릭하고 추가 보안 확인을 선택합니다.
 5. 검사 페이지 위쪽에서 앱 암호를 선택합니다.
-6. **만들기** 클릭
+6. **만들기**를 클릭합니다.
 7. 앱 암호의 이름을 입력하고 **다음**을 클릭합니다.
 8. 앱 암호를 클립보드에 복사하고 앱에 붙여 넣습니다.
 
@@ -356,6 +363,6 @@ Azure AD는 온-프레미스 Windows Server Active Directory 도메인 서비스
 <li>선택한 디렉터리에서 구성을 클릭합니다.</li>
 <li>Multi-factor Authentication 섹션에서 서비스 설정 관리를 클릭합니다.</li>
 <li>서비스 설정 페이지의 사용자 장치 설정 관리 아래에서 **사용자가 장치를 기억하도록 하여 Multi-Factor Authentication을 일시 중단할 수 있습니다**를 선택/선택 취소합니다.</li>
-![장치 일시 중단](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>일시 중단을 허용하려는 일수를 설정합니다. 기본값은 14일입니다.</li> <li>저장을 클릭합니다.</li> <li>닫기를 클릭합니다.</li>
+![장치 일시 중단](./media/multi-factor-authentication-manage-users-and-devices/suspend.png) <li>일시 중단을 허용하려는 일 수를 설정합니다. 기본값은 14일입니다.</li> <li>저장을 클릭합니다.</li> <li>닫기를 클릭합니다.</li>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

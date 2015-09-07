@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure AD Connect FAQ" 
-	description="이 페이지에는 Azure AD Connect에 대해 자주 묻는 질문과 대답이 있습니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="swadhwa" 
+	pageTitle="Azure AD Connect FAQ"
+	description="이 페이지에는 Azure AD Connect에 대해 자주 묻는 질문과 대답이 있습니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenpo"
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure Active Directory Connect FAQ
@@ -40,4 +40,4 @@
 
 이 문서의 [여기](active-directory-aadconnect-o365-certs.md)에 나온 지침을 사용하여 인증서를 갱신하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

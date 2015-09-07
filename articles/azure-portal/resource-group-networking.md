@@ -1,19 +1,19 @@
 <properties 
    pageTitle="네트워크 리소스 공급자"
-   description="네트워크 리소스 공급자"
-   services="azure-portal"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="adinah"
-   editor="tysonn" />
+	description="네트워크 리소스 공급자"
+	services="azure-portal"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="azure-portal"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="04/22/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="04/22/2015"
+	ms.author="telmos"/>
 
 # 네트워크 리소스 공급자
 현대 비즈니스의 성공에 있어서 가장 필요한 것은 대규모 네트워크 인식 응용 프로그램을 신속하고 유연하고 안전하고 반복 가능한 방법으로 작성하여 관리할 수 있는 기능입니다. ARM(Azure 리소스 관리자)을 사용하면 그런 응용 프로그램을 리소스 그룹에서 단일 리소스 컬렉션으로 만들 수 있습니다. 이러한 리소스는 ARM 아래의 다양한 리소스 공급자를 통해 관리됩니다.
@@ -210,7 +210,7 @@ API 또는 SDK를 사용하여 명령을 통해 리소스를 관리할 뿐만 �
 
 샘플 템플릿은 [Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates)을 참조하세요.
 
-ARM 템플릿 언어에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 언어](https://msdn.microsoft.com/library/azure/dn835138.aspx)를 참조하세요.
+ARM 템플릿 언어에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 언어](../resource-group-authoring-templates.md)를 참조하세요.
 
 위의 샘플 템플릿에서는 가상 네트워크와 서브넷 리소스를 사용합니다. 사용 가능한 다른 네트워크 리소스는 아래 목록을 참조하세요.
 
@@ -349,7 +349,7 @@ PowerShell, AzureCLI를 사용하거나 GitHub에서 배포를 클릭하여 템�
 
 [네트워킹을 위한 Azure PowerShell 참조](https://msdn.microsoft.com/library/azure/mt163510.aspx)
 
-[Azure 리소스 관리자 템플릿 언어](https://msdn.microsoft.com/library/azure/dn835138.aspx)
+[Azure 리소스 관리자 템플릿 언어](../resource-group-authoring-templates.md)
 
 [Azure 네트워킹- 일반적으로 사용되는 템플릿](https://github.com/Azure/azure-quickstart-templates)
 
@@ -363,4 +363,4 @@ PowerShell, AzureCLI를 사용하거나 GitHub에서 배포를 클릭하여 템�
 
 [템플릿 배포](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

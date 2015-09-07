@@ -1,19 +1,19 @@
 <properties
  pageTitle="MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정 | Microsoft Azure"
- description="RDMA를 사용하여 MPI 응용 프로그램을 실행하기 위해 크기가 A8 또는 A9인 VM의 Linux 클러스터를 만드는 방법에 대해 알아봅니다."
- services="virtual-machines"
- documentationCenter=""
- authors="dlepow"
- manager="timlt"
- editor=""/>
+	description="RDMA를 사용하여 MPI 응용 프로그램을 실행하기 위해 크기가 A8 또는 A9인 VM의 Linux 클러스터를 만드는 방법에 대해 알아봅니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""/>
 <tags
 ms.service="virtual-machines"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="vm-linux"
- ms.workload="infrastructure-services"
- ms.date="07/17/2015"
- ms.author="danlep"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="07/17/2015"
+	ms.author="danlep"/>
 
 # MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정
 
@@ -137,7 +137,7 @@ $ ssh-keygen
 $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ```
 
-\~/.ssh 디렉터리에서 ssh\_config 파일을 편집하거나 만듭니다. Azure에서 사용할 개인 네트워크의 IP 주소 범위를 제공합니다.
+~/.ssh 디렉터리에서 ssh\_config 파일을 편집하거나 만듭니다. Azure에서 사용할 개인 네트워크의 IP 주소 범위를 제공합니다.
 
 ```
 host 10.32.0.*
@@ -190,7 +190,7 @@ azure vm capture -t <vm-name> <image-name>
 ### Select a region where A8 and A9 VMs are available, such as West US
 ### See Azure Pricing pages for prices and availability of A8 and A9 VMs
 
-azure network vnet create -l "West US" –e 10.32.0.0 <network-name>
+azure network vnet create -l "West US" -e 10.32.0.0 <network-name>
 
 ### Create a cloud service. All the A8 and A9 instances need to be in the same cloud service for Linux RDMA to work across InfiniBand.
 ### Note: The current maximum number of VMs in a cloud service is 50. If you need to provision more than 50 VMs in the same cloud service in your cluster, contact Azure Support.
@@ -339,4 +339,4 @@ private ip address2:16
 
 * Intel MPI에 대한 지침은 [Intel MPI Library 설명서](https://software.intel.com/ko-kr/articles/intel-mpi-library-documentation/)를 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

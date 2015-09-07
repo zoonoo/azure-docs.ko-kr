@@ -1,21 +1,21 @@
 <properties
    pageTitle="Azure 리소스 관리자 및 PowerShell을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기 | Microsoft Azure"
-   description="Azure 리소스 관리자 및 PowerShell을 사용하여 가상 네트워크에서 온-프레미스 위치로 사이트 간 VPN 연결 만들기"
-   services="vpn-gateway"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="carolz"
-   editor=""
-   tags="azure-resource-manager"/>
+	description="Azure 리소스 관리자 및 PowerShell을 사용하여 가상 네트워크에서 온-프레미스 위치로 사이트 간 VPN 연결 만들기"
+	services="vpn-gateway"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
    ms.service="vpn-gateway"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/28/2015"
-   ms.author="cherylmc"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/21/2015"
+	ms.author="cherylmc"/>
 
 # Azure 리소스 관리자 및 PowerShell을 사용하여 사이트 간 VPN 연결로 가상 네트워크 만들기
 
@@ -96,9 +96,26 @@ ARM 모드로 전환합니다. 이렇게 하면 모드를 전환하여 ARM cmdle
 - *GatewayIPAddress*는 온-프레미스 VPN 장치의 IP 주소입니다. VPN 장치는 NAT 뒤에 배치할 수 없습니다. 
 - *AddressPrefix*는 온-프레미스 주소 공간입니다.
 
-다음 예제를 사용하여 로컬 사이트를 추가합니다.
+이 예제를 사용하여 로컬 사이트에 단일 주소 접두사를 추가합니다.
 
 		New-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
+
+로컬 사이트에 여러 주소 접두사를 추가하려는 경우 이 예제를 사용합니다.
+
+		New-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix @('10.0.0.0/24','20.0.0.0/24')
+
+
+이미 만든 로컬 사이트에 주소 접두사를 더 추가하려면 아래 예제를 사용합니다.
+
+		$local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
+
+
+로컬 사이트에서 주소 접두사를 제거하려면 아래 예제를 사용합니다. 더 이상 필요하지 않은 접두사는 생략합니다. 이 예제에서는 접두사 20.0.0.0/24(이전 예제)가 더 이상 필요하지 않으므로 로컬 사이트를 업데이트하고 해당 접두사를 제외합니다.
+
+		local = Get-AzureLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
+		Set-AzureLocalNetworkGateway -LocalNetworkGateway $local -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
+
 
 ## VNet 게이트웨이에 대한 공용 IP 주소 요청
 
@@ -152,4 +169,4 @@ ARM 모드로 전환합니다. 이렇게 하면 모드를 전환하여 ARM cmdle
 
 가상 네트워크에 가상 컴퓨터를 추가합니다. [가상 컴퓨터를 만듭니다](../virtual-machines/virtual-machines-windows-tutorial.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure 인프라 서비스 작업: 고가용성 LOB(기간 업무) 응용 프로그램" 
-	description="Azure에 배포된 웹 기반 LOB(기간 업무) 응용 프로그램의 가치, 개발/테스트 환경을 설정하는 방법 및 고가용성 프로덕션 구성을 배포하는 방법을 알아봅니다." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="JoeDavies-MSFT" 
-	manager="timlt" 
+	pageTitle="Azure의 LOB(기간 업무) 응용 프로그램 | Microsoft Azure"
+	description="Azure의 LOB(기간 업무) 응용 프로그램의 가치를 알아보고, 테스트 환경을 설정하고, 고가용성 구성을 배포합니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="JoeDavies-MSFT"
+	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/11/2015"
 	ms.author="josephd"/>
 
 # Azure 인프라 서비스 작업: 고가용성 LOB(기간 업무) 응용 프로그램
@@ -103,4 +103,4 @@ LOB(기간 업무) 응용 프로그램 개요는 [LOB(기간 업무) 응용 프�
 
 [Azure 인프라 서비스 작업: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

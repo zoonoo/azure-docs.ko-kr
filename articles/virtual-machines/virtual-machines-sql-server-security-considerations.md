@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/19/2015"
-	ms.author="jroth" />
+	ms.author="jroth"/>
 
 # Azure 가상 컴퓨터의 SQL Server에 대한 보안 고려 사항
 
@@ -54,8 +54,8 @@ Azure는 가상 컴퓨터에서 실행되는 SQL Server로 호환되는 솔루�
 
 ## 다음 단계
 
-성능에 대한 모범 사례에도 관심이 있다면 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](https://msdn.microsoft.com/library/azure/dn133149.aspx)를 참조하세요.
+성능에 대한 모범 사례에도 관심이 있으면 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-sql-server-performance-best-practices.md)를 참조하세요.
 
 Azure VM에서 SQL Server 실행에 관련된 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

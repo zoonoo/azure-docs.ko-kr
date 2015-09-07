@@ -1,12 +1,14 @@
-## Scenario
+## 시나리오
 
-To better illustrate how to create a VNet and subnets, this document will use the scenario below.
+VNet 및 서브넷을 만드는 방법을 보다 잘 설명하기 위해 이 문서에서는 아래의 시나리오를 사용합니다.
 
-![VNet scenario](./media/virtual-networks-create-vnet-scenario-include/vnet-scenario.png)
+![VNet 시나리오](./media/virtual-networks-create-vnet-scenario-include/vnet-scenario.png)
 
-In this scenario you will create a VNet named **TestVNet** with a reserved CIDR block of **192.168.0.0./16**. Your VNet will contain the following subnets: 
+이 시나리오에서는 예약된 CIDR 블록 **192.168.0.0./16**을 사용하여 **TestVNet**이라는 VNet을 만듭니다. VNet에는 다음 서브넷이 포함됩니다.
 
-- **FrontEnd**, using **192.168.1.0/24** as its CIDR block.
-- **BackEnd**, using **192.168.2.0/24** as its CIDR block.
+- **FrontEnd**, CIDR 블록으로 **192.168.1.0/24** 사용
+- **BackEnd**, CIDR 블록으로 **192.168.2.0/24** 사용
 
  
+
+<!---HONumber=August15_HO9-->

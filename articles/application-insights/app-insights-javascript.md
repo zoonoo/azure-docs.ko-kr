@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="JavaScript 웹앱 Application Insights" 
-	description="페이지 보기 및 세션 수와 웹 클라이언트 데이터를 가져오고 사용 패턴을 추적합니다. JavaScript 웹 페이지의 예외 및 성능 문제를 감지합니다." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+<properties
+	pageTitle="JavaScript 웹앱 Application Insights | Microsoft Azure"
+	description="페이지 보기 및 세션 수와 웹 클라이언트 데이터를 가져오고 사용 패턴을 추적합니다. JavaScript 웹 페이지의 예외 및 성능 문제를 감지합니다."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="07/10/2015"
 	ms.author="awills"/>
- 
+
 # JavaScript 웹앱 Application Insights
 
 [AZURE.INCLUDE [app-insights-selector-get-started](../../includes/app-insights-selector-get-started.md)]
@@ -48,19 +48,19 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 
 추적하려는 모든 페이지의 &lt;/head&gt; 태그 바로 앞에 스크립트를 삽입합니다. 웹 사이트에 마스터 페이지가 있는 경우 이 페이지에 스크립트를 넣을 수 있습니다. 예:
 
-* ASP.NET MVC 프로젝트에서는 View\\Shared\\\_Layout.cshtml에 추가합니다.
+* ASP.NET MVC 프로젝트에서는 View\\Shared\\_Layout.cshtml에 추가합니다.
 * SharePoint 사이트의 경우 제어판에서 [사이트 설정/마스터 페이지](app-insights-sharepoint.md)를 엽니다.
 
 스크립트에는 Application Insights 리소스에 데이터를 전달하는 계측 키가 포함됩니다.
 
 *(잘 알려진 웹 페이지 프레임워크를 사용하는 경우 Application Insights 어댑터를 찾아보세요. 예를 들어 [AngularJS 모듈](http://ngmodules.org/modules/angular-appinsights)이 있습니다.)*
 
- 
+
 ## <a name="run"></a>앱 실행
 
-웹 앱을 실행하고, 잠깐 사용하여 원격 분석을 생성하고, 잠시 기다립니다. 개발 컴퓨터에서 F5 키를 눌러 실행하거나 사용자가 플레이할 수 있도록 게시할 수 있습니다.
+웹 앱을 실행하고, 잠깐 사용하여 원격 분석을 생성하고, 잠시 기다립니다. 개발 컴퓨터에서 **F5** 키를 사용하여 실행하거나 사용자가 실행할 수 있도록 게시할 수 있습니다.
 
-웹 앱에서 Application Insights로 보내는 원격 분석을 확인하려면 브라우저의 디버깅 도구(대부분의 브라우저는 F12 키)를 사용합니다. 데이터가 dc.services.visualstudio.com으로 전송됩니다.
+웹앱에서 Application Insights로 보내는 원격 분석을 확인하려면 브라우저의 디버깅 도구(대부분의 브라우저는 **F12** 키)를 사용합니다. 데이터가 dc.services.visualstudio.com으로 전송됩니다.
 
 ## 데이터 탐색
 
@@ -96,7 +96,7 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 
 ## 클라이언트 사용 개요
 
-다시 개요 블레이드에서 사용을 클릭합니다.
+다시 개요 블레이드에서 **사용**을 클릭합니다.
 
 ![](./media/app-insights-javascript/14-usage.png)
 
@@ -147,7 +147,7 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 
 ### 페이지 보기 속성
 
-* **페이지 보기 기간**은 페이지를 로드하고 스크립트 실행을 시작하는 데 걸리는 시간입니다. 특히, 시작 페이지와 트랙 페이지 보기의 실행을 로드하는 사이의 간격입니다. 스크립트의 초기화 후 일반적인 위치에서 trackPageView를 이동한 경우 다른 값이 반영 됩니다. 
+* **페이지 보기 기간**&#151;페이지를 로드하고 스크립트 실행을 시작하는 데 걸리는 시간입니다. 특히, 시작 페이지와 트랙 페이지 보기의 실행을 로드하는 사이의 간격입니다. 스크립트의 초기화 후 일반적인 위치에서 trackPageView를 이동한 경우 다른 값이 반영 됩니다.
 
 ## 사용자 지정 사용 추적
 
@@ -184,6 +184,4 @@ Application Insights 리소스는 페이지의 성능 및 사용 현황에 대�
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-api-custom-events-metrics.md
 
- 
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

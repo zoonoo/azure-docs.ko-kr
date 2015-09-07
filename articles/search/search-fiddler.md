@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Fiddler를 사용하여 Azure 검색 REST API를 평가 및 테스트하는 방법"
+	pageTitle="Fiddler를 사용하여 Azure 검색 REST API를 평가 및 테스트하는 방법 | Microsoft Azure"
 	description="코드를 작성할 필요가 없는 Fiddler를 사용하여 Azure 검색 가용성을 확인하고 REST API를 사용해 봅니다."
 	services="search"
 	documentationCenter=""
@@ -16,7 +16,7 @@
 	ms.date="07/08/2015"
 	ms.author="heidist"/>
 
-# Fiddler를 사용하여 Azure 검색 REST API를 평가 및 테스트하는 방법
+# Fiddler를 사용하여 Azure 검색 REST API를 평가 및 테스트
 
 이 문서에서는 [Telerik에서 무료로 다운로드](http://www.telerik.com/fiddler)할 수 있는 Fiddler를 사용하여 HTTP 요청을 실행하고 코드를 작성할 필요 없이 Azure 검색 REST API를 사용하여 응답을 확인하는 방법을 설명합니다. Azure 검색 서비스 REST API는 [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)에 설명되어 있습니다.
 
@@ -26,9 +26,9 @@
 
 ## 인덱스 만들기
 
-1. Fiddler를 시작합니다. File 메뉴에서 **Capture Traffic**을 해제하여 현재 작업과 관련 없는 HTTP 활동을 숨깁니다.
+1. Fiddler를 시작합니다. **File** 메뉴에서 **Capture Traffic**을 해제하여 현재 작업과 관련 없는 HTTP 활동을 숨깁니다.
 
-3. Composer 탭에서 다음과 같은 요청을 작성합니다.
+3. **Composer** 탭에서 다음 스크린샷과 같은 요청을 작성합니다.
 
   	![][1]
 
@@ -77,7 +77,7 @@ HTTP 504가 표시될 경우 URL이 HTTPS를 지정하는지 확인합니다. HT
 
 ## 문서 로드
 
-Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요청 본문에 4개 호텔에 대한 검색 데이터가 포함됩니다.
+**Composer** 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요청 본문에 4개 호텔에 대한 검색 데이터가 포함됩니다.
 
    ![][2]
 
@@ -163,7 +163,7 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
 
 ## 인덱스 쿼리
 
-이제 인덱스와 문서가 로드되었으므로 쿼리를 실행할 수 있습니다. Composer 탭에서 서비스를 쿼리하는 GET 명령은 다음과 유사합니다.
+이제 인덱스와 문서가 로드되었으므로 쿼리를 실행할 수 있습니다. **Composer** 탭에서 서비스를 쿼리하는 **GET** 명령은 다음과 유사합니다.
 
    ![][3]
 
@@ -182,7 +182,7 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
         content-type: application/json
         api-key: 1111222233334444
 
-응답 코드는 200이고, 다음 그림과 같은 응답 출력이 표시됩니다.
+응답 코드는 200이고, 다음 스크린샷과 같은 응답 출력이 표시됩니다.
 
    ![][4]
 
@@ -198,7 +198,7 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
 
 ## 시스템 쿼리
 
-시스템을 쿼리하여 문서 수와 저장소 사용을 가져올 수도 있습니다. Composer 탭에서 요청은 다음과 유사하고, 응답에서 문서 수와 사용된 공간을 반환합니다.
+시스템을 쿼리하여 문서 수와 저장소 사용을 가져올 수도 있습니다. **Composer** 탭에서 요청은 다음과 유사하고, 응답에서 문서 수와 사용된 공간을 반환합니다.
 
  ![][5]
 
@@ -219,7 +219,7 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
 
 5.	**실행**을 클릭합니다. 세션 목록에 HTTP 200 상태 코드가 표시됩니다. 명령에 대해 게시할 항목을 선택합니다.
 
-6.	**Inspectors** 탭 | **Headers**를 클릭하고 JSON 형식을 선택합니다. 문서 수와 저장소 크기(KB)가 표시됩니다.
+6.	**Inspectors** 탭과 **Headers**를 차례로 클릭하고 JSON 형식을 선택합니다. 문서 수와 저장소 크기(KB)가 표시됩니다.
 
 ## 다음 단계
 
@@ -234,6 +234,5 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
 [3]: ./media/search-fiddler/AzureSearch_Fiddler3_Query.png
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

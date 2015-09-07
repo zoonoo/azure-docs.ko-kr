@@ -487,7 +487,7 @@ Redis 클러스터 배포의 크기를 사용자 지정하려는 경우 azuredep
 
 참고: 현재 템플릿 언어에는 수학 식 연산이 포함되어 있지 않으므로 `totalMemberCountExcludingLast` 및 `totalMemberCount` 속성이 필요합니다.
 
-템플릿 언어에 대한 자세한 내용은 MSDN의 [Azure 리소스 관리자 템플릿 언어](https://msdn.microsoft.com/library/azure/dn835138.aspx)에서 확인할 수 있습니다.
+템플릿 언어에 대한 자세한 내용은 MSDN의 [Azure 리소스 관리자 템플릿 언어](../resource-group-authoring-templates.md)에서 확인할 수 있습니다.
 
 ### "resources" 섹션
 
@@ -664,6 +664,6 @@ node-resources.json은 기본 azuredeploy.json 파일 내에서 호출하면 `co
 - 리소스 그룹의 동일한 구성원(클러스터의 노드 등)에 대해 고유한 속성의 여러 인스턴스를 배포하기 위해 리소스 루핑을 활용하는 특정 템플릿을 만듭니다.
 - 모든 배포 후 작업(제품 설치, 구성 등)의 경우 스크립트 배포 확장을 활용하고 각 기술에 특정한 스크립트를 만듭니다.
 
-자세한 내용은 [Azure 리소스 관리자 템플릿 언어](https://msdn.microsoft.com/library/azure/dn835138.aspx)를 참조하세요.
+자세한 내용은 [Azure 리소스 관리자 템플릿 언어](../resource-group-authoring-templates.md)를 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 리소스 관리자를 사용하여 서비스 사용자 인증"
-   description="역할 기반 액세스 제어를 통해 서비스 사용자에게 액세스 권한을 부여하고 서비스 사용자를 인증하는 방법을 설명합니다. PowerShell 및 Azure CLI를 사용하여 이러한 작업을 수행하는 방법을 보여 줍니다."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="wpickett"
-   editor=""/>
+	description="역할 기반 액세스 제어를 통해 서비스 사용자에게 액세스 권한을 부여하고 서비스 사용자를 인증하는 방법을 설명합니다. PowerShell 및 Azure CLI를 사용하여 이러한 작업을 수행하는 방법을 보여 줍니다."
+	services="azure-resource-manager"
+	documentationCenter="na"
+	authors="tfitzmac"
+	manager="wpickett"
+	editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="multiple"
-   ms.workload="na"
-   ms.date="08/14/2015"
-   ms.author="tomfitz"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="08/25/2015"
+	ms.author="tomfitz"/>
 
 # Azure 리소스 관리자를 사용하여 서비스 주체 인증
 
@@ -32,6 +32,11 @@ Mac, Linux 및 Windows용 Azure PowerShell 또는 Azure CLI 중 하나를 사용
 ## 암호로 서비스 주체 인증 - PowerShell
 
 이 섹션에서는 Azure Active Directory 응용 프로그램용 서비스 주체를 만들고, 서비스 주체에 역할을 할당하고, 응용 프로그램 식별자와 암호를 제공하여 서비스 주체로 인증하는 단계를 수행합니다.
+
+1. Azure 리소스 관리자 모드로 전환한 다음 계정에 로그인합니다.
+
+        PS C:\> Switch-AzureMode AzureResourceManager
+        PS C:\> Add-AzureAccount
 
 1. **New-AzureADApplication** 명령을 실행하여 새 AAD 응용 프로그램을 만듭니다. 응용 프로그램의 표시 이름, 응용 프로그램을 설명하는 페이지에 대한 링크(이 링크는 확인되지 않음), 응용 프로그램을 식별하는 URI, 응용 프로그램 ID에 대한 암호를 제공합니다.
 
@@ -98,6 +103,24 @@ Mac, Linux 및 Windows용 Azure PowerShell 또는 Azure CLI 중 하나를 사용
 
      이제 사용자는 작성한 AAD 응용 프로그램에 대한 서비스 사용자로 인증됩니다.
 
+7. 응용 프로그램에서 인증하려면 다음 .NET 코드를 포함합니다. 토큰을 검색한 후 구독에서 리소스에 액세스할 수 있습니다.
+
+        public static string GetAToken()
+        {
+          var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
+          var credential = new ClientCredential(clientId: "{application id}", clientSecret: {application password}");
+          var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", clientCredential:credential);
+
+          if (result == null) {
+            throw new InvalidOperationException("Failed to obtain the JWT token");
+          }
+
+          string token = result.AccessToken;
+
+          return token;
+        }
+
+
 
 ## 인증서로 서비스 주체 인증 - PowerShell
 
@@ -106,6 +129,11 @@ Mac, Linux 및 Windows용 Azure PowerShell 또는 Azure CLI 중 하나를 사용
 인증서로 작업하는 두 가지 방법, 키 자격 증명 및 값을 보여 줍니다. 두 가지 방법 중 하나를 사용할 수 있습니다.
 
 첫째, 응용 프로그램을 만들 때 나중에 사용할 PowerShell의 일부 값을 설정해야 합니다.
+
+1. Azure 리소스 관리자 모드로 전환한 다음 계정에 로그인합니다.
+
+        PS C:\> Switch-AzureMode AzureResourceManager
+        PS C:\> Add-AzureAccount
 
 1. 두 방법 모두에 대해, 인증서에서 X509Certificate 개체를 만들고 키 값을 검색합니다. 인증서 경로 및 인증서 암호를 사용합니다.
 
@@ -172,11 +200,11 @@ Mac, Linux 및 Windows용 Azure PowerShell 또는 Azure CLI 중 하나를 사용
 
         PS C:\> New-AzureRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $azureAdApplication.ApplicationId
 
-6. 응용 프로그램에서 인증하려면 다음 코드를 포함합니다. 클라이언트를 검색한 후 구독에서 리소스에 액세스할 수 있습니다.
+6. 응용 프로그램에서 인증하려면 다음 .NET 코드를 포함합니다. 클라이언트를 검색한 후 구독에서 리소스에 액세스할 수 있습니다.
 
-        string clientId = "<Client ID for your AAD app>"; 
+        string clientId = "<Application ID for your AAD app>"; 
         var subscriptionId = "<Your Azure SubscriptionId>"; 
-        string tenant = "<AAD tenant name>.onmicrosoft.com"; 
+        string tenant = "<Tenant id or tenant name>"; 
 
         var authContext = new AuthenticationContext(string.Format("https://login.windows.net/{0}", tenant)); 
 
@@ -205,7 +233,12 @@ Mac, Linux 및 Windows용 Azure PowerShell 또는 Azure CLI 중 하나를 사용
 
 먼저 서비스 사용자를 만듭니다. 이렇게 하려면 디렉터리에서 응용 프로그램 만들기를 사용해야 합니다. 이 섹션에서는 디렉터리에서 새 응용 프로그램을 만드는 방법을 안내합니다.
 
-1. **Azure AD 앱 만들기** 명령을 실행하여 새 AAD 응용 프로그램을 만듭니다. 응용 프로그램의 표시 이름, 응용 프로그램을 설명하는 페이지에 대한 링크(이 링크는 확인되지 않음), 응용 프로그램을 식별하는 URI, 응용 프로그램 ID에 대한 암호를 제공합니다.
+1. Azure 리소스 관리자 모드로 전환한 다음 계정에 로그인합니다.
+
+        azure config mode arm
+        azure login
+
+2. **Azure AD 앱 만들기** 명령을 실행하여 새 AAD 응용 프로그램을 만듭니다. 응용 프로그램의 표시 이름, 응용 프로그램을 설명하는 페이지에 대한 링크(이 링크는 확인되지 않음), 응용 프로그램을 식별하는 URI, 응용 프로그램 ID에 대한 암호를 제공합니다.
 
         azure ad app create --name "<Your Application Display Name>" --home-page "<https://YourApplicationHomePage>" --identifier-uris "<https://YouApplicationUri>" --password <Your_Password>
         
@@ -221,7 +254,7 @@ Mac, Linux 및 Windows용 Azure PowerShell 또는 Azure CLI 중 하나를 사용
         ...
         info:    ad app create command OK
 
-2. 응용 프로그램에 대한 서비스 사용자를 만듭니다. 이전 단계에서 반환된 응용 프로그램 id를 제공합니다.
+3. 응용 프로그램에 대한 서비스 사용자를 만듭니다. 이전 단계에서 반환된 응용 프로그램 id를 제공합니다.
 
         azure ad sp create b57dd71d-036c-4840-865e-23b71d8098ec
         
@@ -236,15 +269,15 @@ Mac, Linux 및 Windows용 Azure PowerShell 또는 Azure CLI 중 하나를 사용
 
     이제 디렉터리에서 서비스 사용자를 만들었지만, 아직은 서비스에 할당된 권한 또는 범위가 없습니다. 서비스 사용자에게 일부 범위에서 작업을 수행할 수 있는 권한을 명시적으로 부여해야 합니다.
 
-3. 서비스 사용자에게 구독에 대한 권한을 부여합니다. 이 샘플에서는 서비스 사용자에게 구독에서 모든 리소스를 읽을 수 있는 권한을 부여합니다. **ServicePrincipalName** 매개 변수의 경우 응용 프로그램을 만들 때 사용한 **ApplicationId** 또는 **IdentifierUris**를 제공합니다. 역할 기반 액세스 제어에 대한 자세한 내용은 [리소스에 대한 액세스 관리 및 감사](azure-portal/resource-group-rbac.md)를 참조하세요.
+4. 서비스 사용자에게 구독에 대한 권한을 부여합니다. 이 샘플에서는 서비스 사용자에게 구독에서 모든 리소스를 읽을 수 있는 권한을 부여합니다. **ServicePrincipalName** 매개 변수의 경우 응용 프로그램을 만들 때 사용한 **ApplicationId** 또는 **IdentifierUris**를 제공합니다. 역할 기반 액세스 제어에 대한 자세한 내용은 [리소스에 대한 액세스 관리 및 감사](azure-portal/resource-group-rbac.md)를 참조하세요.
 
         azure role assignment create --objectId 47193a0a-63e4-46bd-9bee-6a9f6f9c03cb -o Reader -c /subscriptions/{subscriptionId}/
 
-4. 계정을 나열하고 출력에서 **TenantId**를 조사하여 서비스 사용자의 역할 할당이 있는 테넌트의 **TenantId** 결정합니다.
+5. 계정을 나열하고 출력에서 **TenantId**를 조사하여 서비스 사용자의 역할 할당이 있는 테넌트의 **TenantId** 결정합니다.
 
         azure account list
 
-5. 서비스 사용자를 ID로 사용하여 로그인합니다. 사용자 이름의 경우 응용 프로그램을 만들 때 사용한 **ApplicationId**를 사용합니다. 암호의 경우 계정을 만들 때 지정한 암호를 사용합니다.
+6. 서비스 사용자를 ID로 사용하여 로그인합니다. 사용자 이름의 경우 응용 프로그램을 만들 때 사용한 **ApplicationId**를 사용합니다. 암호의 경우 계정을 만들 때 지정한 암호를 사용합니다.
 
         azure login -u "<ApplicationId>" -p "<password>" --service-principal --tenant "<TenantId>"
 
@@ -260,4 +293,4 @@ Mac, Linux 및 Windows용 Azure PowerShell 또는 Azure CLI 중 하나를 사용
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

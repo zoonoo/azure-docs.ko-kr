@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure SQL 데이터베이스 및 Azure VM의 SQL Server 이해" 
-	description="Azure 가상 컴퓨터의 Azure SQL 데이터베이스 및 SQL Server를 이해합니다. 일반적인 비즈니스 동기 부여 요소를 검토하여 응용 프로그램에 가장 적합한 SQL 기술을 확인합니다." 
-	services="sql-database, virtual-machines" 
-	documentationCenter="" 
-	authors="Selcin" 
-	manager="jeffreyg" 
+	pageTitle="Azure SQL 데이터베이스 및 Azure VM의 SQL Server 이해"
+	description="Azure 가상 컴퓨터의 Azure SQL 데이터베이스 및 SQL Server를 이해합니다. 일반적인 비즈니스 동기 부여 요소를 검토하여 응용 프로그램에 가장 적합한 SQL 기술을 확인합니다."
+	services="sql-database, virtual-machines"
+	documentationCenter=""
+	authors="Selcin"
+	manager="jeffreyg"
 	editor="tysonn"/>
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="vm-windows-sql-server" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/15/2015" 
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="vm-windows-sql-server"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="selcint"/>
 
 # Azure SQL 데이터베이스 및 Azure VM의 SQL Server 이해
@@ -60,7 +60,7 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 일반적으로 이러한 두 SQL 옵션은 다음과 같이 최적의 용도가 서로 다릅니다.
 
 - **Azure SQL 데이터베이스**는 여러 데이터베이스를 프로비전 및 관리하는 전체 비용을 최소한으로 줄이는 데에 최적화되어 있습니다. 가상 컴퓨터, 운영 체제 또는 데이터베이스 소프트웨어의 업그레이드, 고가용성, 백업 등을 관리할 필요가 없으므로 지속적인 관리 비용을 최소화합니다. 일반적으로 SQL 데이터베이스는 단일 IT 또는 개발 리소스로 관리되는 데이터베이스 수를 크게 늘립니다.
-- **Azure VM에서 실행되는 SQL Server**는 하이브리드 시나리오에서 기존 온-프레미스 SQL Server 응용 프로그램을 Azure로 확장하거나 마이그레이션 시나리오 또는 개발/테스트 시나리오에서 기존 응용 프로그램을 Azure에 배포하는 데 가장 적합합니다. 하이브리드 시나리오의 예로 [Azure 가상 네트워크](http://msdn.microsoft.com/library/azure/jj156007.aspx)를 통해 보조 데이터베이스 복제본을 Azure에 유지하는 경우를 들 수 있습니다. Azure VM의 SQL Server를 사용할 경우 전용 SQL Server 인스턴스와 클라우드 기반 VM에 대한 모든 관리 권한을 갖습니다. 이 옵션은 가상 컴퓨터를 유지 관리하는 IT 리소스를 이미 갖춘 조직에게 가장 적합합니다. VM의 SQL Server를 사용하면 응용 프로그램 관련 성능 및 가용성 요구 사항을 해결하는 고도로 사용자 지정된 시스템을 구축할 수 있습니다.
+- **Azure VM에서 실행되는 SQL Server**는 하이브리드 시나리오에서 기존 온-프레미스 SQL Server 응용 프로그램을 Azure로 확장하거나 마이그레이션 시나리오 또는 개발/테스트 시나리오에서 기존 응용 프로그램을 Azure에 배포하는 데 가장 적합합니다. 하이브리드 시나리오의 예로 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)를 통해 보조 데이터베이스 복제본을 Azure에 유지하는 경우를 들 수 있습니다. Azure VM의 SQL Server를 사용할 경우 전용 SQL Server 인스턴스와 클라우드 기반 VM에 대한 모든 관리 권한을 갖습니다. 이 옵션은 가상 컴퓨터를 유지 관리하는 IT 리소스를 이미 갖춘 조직에게 가장 적합합니다. VM의 SQL Server를 사용하면 응용 프로그램 관련 성능 및 가용성 요구 사항을 해결하는 고도로 사용자 지정된 시스템을 구축할 수 있습니다.
 
 다음 표에는 Azure SQL 데이터베이스와 Azure VM의 SQL Server의 주요 특징이 요약되어 있습니다.
 
@@ -90,7 +90,7 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
       <li type=round>SQL Server 응용 프로그램이 Azure에서 보안 터널을 통해 Active Directory와 같은 온-프레미스 리소스에 액세스해야 하는 경우 
       <li type=round>모든 관리 권한이 있는 사용자 지정된 IT 환경이 필요한 경우
       <li type=round>온-프레미스 개발 및 테스팅 SQL Server 하드웨어를 구입하지 않는 빠른 개발 및 테스트 시나리오
-      <li type=round><a href="http://msdn.microsoft.com/library/jj919148.aspx">Azure 저장소의 백업</a> 또는<a href="http://msdn.microsoft.com/library/azure/jj870962.aspx">Azure VMs의 AlwaysOn 복제본</a>을 사용한 온-프레미스 SQL Server 응용 프로그램에 대한 재해 복구
+      <li type=round><a href="http://msdn.microsoft.com/library/jj919148.aspx">Azure 저장소의 백업</a> 또는<a href="https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions">Azure VMs의 AlwaysOn 복제본</a>을 사용한 온-프레미스 SQL Server 응용 프로그램에 대한 재해 복구
       <li type=round>크기가 1TB 이상인 대형 데이터베이스
       </ul></td>
    
@@ -114,15 +114,15 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 <tr>
    <td valign="middle"><p><b>비즈니스 연속성</b></p></td>
    <td valign="middle"><ul><li type=round>Azure SQL 데이터베이스는 내결함성 인프라 기능을 기본적으로 제공할 뿐 아니라 지정 시간 복원, 지역 복원 및 지역에서 복제 등의 다양한 기능을 제공하여 비즈니스 연속성을 향상합니다. 자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/hh852669.aspx">Azure SQL 데이터베이스 비즈니스 연속성</a>을 참조하세요.</ul></td>
-   <td valign="middle"><ul><li type=round>Azure VM의 SQL Server를 사용하면 데이터베이스의 특정 요구에 맞게 고가용성 및 재해 복구 솔루션을 설정할 수 있습니다. 따라서 시스템을 응용 프로그램에 최적화할 수 있습니다. 필요한 경우 장애 조치(Failover)를 직접 테스트하고 실행할 수 있습니다. 자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/jj870962.aspx">Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해복구</a>를 참조하세요.</ul></td>
+   <td valign="middle"><ul><li type=round>Azure VM의 SQL Server를 사용하면 데이터베이스의 특정 요구에 맞게 고가용성 및 재해 복구 솔루션을 설정할 수 있습니다. 따라서 시스템을 응용 프로그램에 최적화할 수 있습니다. 필요한 경우 장애 조치(Failover)를 직접 테스트하고 실행할 수 있습니다. 자세한 내용은 <a href="https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions">Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해복구</a>를 참조하세요.</ul></td>
    
 </tr>
 <tr>
    <td valign="middle"><p><b>하이브리드 클라우드</b></p></td>
    <td valign="middle"><ul><li type=round>온-프레미스 응용 프로그램은 Azure SQL 데이터베이스의 데이터에 액세스할 수 있습니다.</ul></td>
    <td valign="middle"><ul>
-      <li type=round>Azure VM의 SQL Server를 사용하면 응용 프로그램을 일부는 클라우드에서, 일부는 온-프레미스에서 실행할 수 있습니다. 예를 들어 온-프레미스 네트워크 및 도메인의 Active Directory를 <a href="http://msdn.microsoft.com/library/azure/gg433091.aspx">Azure 네트워크 서비스</a>를 통해 클라우드로 확장할 수 있습니다. 또한<a href="http://msdn.microsoft.com/library/dn385720.aspx">Azure의 SQL Server 데이터 파일기능</a>을 사용하여 온-프레미스 데이터 파일을 Azure 저장소에 저장할 수도 있습니다. 자세한 내용은 <a href="http://msdn.microsoft.com/library/dn606154.aspx">SQL Server 2014 하이브리드 클라우드 소개</a>를 참조하세요.
-      <li type=round><a href="http://msdn.microsoft.com/library/jj919148.aspx">Azure 저장소의 백업</a> 또는 <a href="http://msdn.microsoft.com/library/azure/jj870962.aspx">Azure VMs의 AlwaysOn 복제본</a>을 사용한 온-프레미스 SQL Server 응용 프로그램에 대한 재해 복구를 지원합니다.
+      <li type=round>Azure VM의 SQL Server를 사용하면 응용 프로그램을 일부는 클라우드에서, 일부는 온-프레미스에서 실행할 수 있습니다. 예를 들어 온-프레미스 네트워크 및 도메인의 Active Directory를 <a href="https://azure.microsoft.com/documentation/articles/virtual-networks-overview/">Azure 네트워크 서비스</a>를 통해 클라우드로 확장할 수 있습니다. 또한<a href="http://msdn.microsoft.com/library/dn385720.aspx">Azure의 SQL Server 데이터 파일기능</a>을 사용하여 온-프레미스 데이터 파일을 Azure 저장소에 저장할 수도 있습니다. 자세한 내용은 <a href="http://msdn.microsoft.com/library/dn606154.aspx">SQL Server 2014 하이브리드 클라우드 소개</a>를 참조하세요.
+      <li type=round><a href="http://msdn.microsoft.com/library/jj919148.aspx">Azure 저장소의 백업</a> 또는 <a href="https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions">Azure VM의 AlwaysOn 복제본</a>을 사용한 온-프레미스 SQL Server 응용 프로그램에 대한 재해 복구를 지원합니다.
       </ul></td>
    
 </tr>
@@ -173,7 +173,7 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 
 이미 여러 작업으로 분주하다면 서버 및 데이터베이스 관리를 맡고 싶지 않을 것입니다. 많은 기업이 클라우드를 선택하는 이유는 전적으로 관리의 복잡성을 줄일 수 있기 때문입니다. **Azure SQL 데이터베이스**에서는 Microsoft가 하드 드라이브, 서버 및 저장소와 같은 물리적 하드웨어를 관리하고, 모든 데이터를 자동으로 복제하여 고가용성을 제공하고, 데이터베이스 소프트웨어를 구성 및 업그레이드하고, 부하 분산을 관리하고, 서버 오류가 발생하는 경우 장애 조치(Failover)를 투명하게 수행합니다. 사용자가 Azure SQL 데이터베이스 인스턴스를 계속 관리할 수 있지만 기본 SQL Server 인스턴스 및 Azure 플랫폼의 물리적 리소스를 제어하지 않아도 됩니다. 예를 들어 데이터베이스 및 로그인을 관리하고, 인덱스 조정을 수행하고, 쿼리를 최적화할 수는 있지만 시스템 테이블 및 파일 그룹 관리는 수행할 수 없습니다. 자세한 내용은 [Azure SQL 데이터베이스 지침 및 제한 사항](http://msdn.microsoft.com/library/ff394102.aspx)을 참조하세요.
 
-반면에 사내 전문성을 갖추고 데이터베이스 위치에서 컴퓨터 자체에 이르기까지 제어할 수 있는 기능을 유지하고 싶을 수도 있습니다. **Azure VM에서 실행되는 SQL Server**에서는 운영 체제와 SQL Server 인스턴스 구성을 완벽히 제어할 수 있습니다. VM에서는 운영 체제 및 데이터베이스 소프트웨어를 업데이트/업그레이드할 시기 및 바이러스 백신, 백업 도구 등의 추가 소프트웨어를 설치할 시기를 사용자가 결정합니다. 또한 VM 크기, 디스크 수 및 해당 저장소 구성도 사용자가 제어할 수 있습니다. 예를 들어 Azure를 사용하여 실행 중인 VM 크기를 필요에 맞게 변경할 수 있습니다. 자세한 내용은 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하세요.
+반면에 사내 전문성을 갖추고 데이터베이스 위치에서 컴퓨터 자체에 이르기까지 제어할 수 있는 기능을 유지하고 싶을 수도 있습니다. **Azure VM에서 실행되는 SQL Server**에서는 운영 체제와 SQL Server 인스턴스 구성을 완벽히 제어할 수 있습니다. VM에서는 운영 체제 및 데이터베이스 소프트웨어를 업데이트/업그레이드할 시기 및 바이러스 백신, 백업 도구 등의 추가 소프트웨어를 설치할 시기를 사용자가 결정합니다. 또한 VM 크기, 디스크 수 및 해당 저장소 구성도 사용자가 제어할 수 있습니다. 예를 들어 Azure를 사용하여 실행 중인 VM 크기를 필요에 맞게 변경할 수 있습니다. 자세한 내용은 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](https://azure.microsoft.com/documentation/articles/virtual-machines-size-specs)를 참조하세요.
 
 ###<a name="sla"></a>SLA(서비스 수준 계약)
 
@@ -188,7 +188,7 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 
 **Azure SQL 데이터베이스**는 개발자 생산성과 빠른 출시 시간이 중요한 경우 클라우드용으로 설계된 응용 프로그램에 적합한 솔루션입니다. 프로그래밍 방식 DBA와 비슷한 기능을 사용하여 기본 운영 체제 및 데이터베이스를 관리할 필요성을 낮추므로 클라우드 설계자와 개발자에게 이상적인 솔루션입니다. 개발자가 데이터베이스 관련 작업을 파악하고 구성하는 데 도움을 줍니다. 예를 들어 [REST API](http://msdn.microsoft.com/library/azure/dn505719.aspx) 및 [PowerShell cmdlet](http://msdn.microsoft.com/library/azure/dn546726.aspx)을 사용하여 수천 개 데이터베이스에 대한 관리 작업을 자동화할 수 있습니다. 클라우드의 [탄력적인 규모 조정](sql-database-elastic-pool.md)을 통해 응용 프로그램 계층에 집중하기 쉽고 응용 프로그램을 더 빨리 출시할 수 있습니다.
 
-**Azure VM에서 실행되는 SQL Server**는 기존 응용 프로그램과 새 응용 프로그램이 SQL Server 인스턴스의 모든 기능을 액세스하고 제어해야 하는 경우와 기존 온-프레미스 응용 프로그램 및 데이터베이스를 클라우드로 그대로 마이그레이션하려는 경우에 이상적입니다. 프레젠테이션, 응용 프로그램 및 데이터 계층을 변경할 필요가 없으므로 기존 솔루션 재설계에 따른 비용과 예산이 절감됩니다. 대신 모든 솔루션 패키지를 VM으로 마이그레이션하고 Azure 플랫폼에 필요한 일부 성능 최적화를 수행하는 데 집중할 수 있습니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](http://msdn.microsoft.com/library/azure/dn133149.aspx)를 참조하세요.
+**Azure VM에서 실행되는 SQL Server**는 기존 응용 프로그램과 새 응용 프로그램이 SQL Server 인스턴스의 모든 기능을 액세스하고 제어해야 하는 경우와 기존 온-프레미스 응용 프로그램 및 데이터베이스를 클라우드로 그대로 마이그레이션하려는 경우에 이상적입니다. 프레젠테이션, 응용 프로그램 및 데이터 계층을 변경할 필요가 없으므로 기존 솔루션 재설계에 따른 비용과 예산이 절감됩니다. 대신 모든 솔루션 패키지를 VM으로 마이그레이션하고 Azure 플랫폼에 필요한 일부 성능 최적화를 수행하는 데 집중할 수 있습니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-performance-best-practices)를 참조하세요.
 
 ##<a name="summary"></a>요약
 
@@ -234,13 +234,13 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 </tr>
 <tr>
    <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/ee336279.aspx">MSDN: Azure SQL Database</a></p>
-<p><a href="http://msdn.microsoft.com/library/azure/jj823132.aspx">MSDN: SQL Server in Azure Virtual Machines</a></p>
+<p><a href="https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/">Azure 가상 컴퓨터에서 SQL Server 개요</a></p>
 
 <p><a href="http://azure.microsoft.com/services/sql-database/">Azure.com: Azure SQL Database</a></p></td>
    <td valign="middle">라이브러리 문서에 대한 링크입니다.</td>   
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/dn574746.aspx">Azure 가상 컴퓨터의 SQL Server를 위한 응용 프로그램 패턴 및 개발 전략</p></td>
+   <td valign="middle"><p><a href="https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-application-patterns-and-development-strategies/">Azure 가상 컴퓨터의 SQL Server에 대한 응용 프로그램 패턴 및 개발 전략</p></td>
    <td valign="middle">이 문서에서는 Azure VM의 SQL Server에 적용되는 가장 일반적인 응용 프로그램 패턴에 대해 설명하고 Azure SQL 데이터베이스를 비롯한 하이브리드 시나리오도 다룹니다. </td>   
 </tr>
 <tr>
@@ -253,4 +253,4 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

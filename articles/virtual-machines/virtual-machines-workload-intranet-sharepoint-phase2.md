@@ -1,6 +1,6 @@
 <properties
-	pageTitle="SharePoint 인트라넷 팜 작업 2단계: 도메인 컨트롤러 구성"
-	description="Azure 인프라 서비스의 SQL Server AlwaysOn 가용성 그룹을 사용하여 인트라넷 전용 SharePoint 2013 팜을 배포하는 이 두 번째 단계에서는 두 Active Directory 도메인 컨트롤러를 만들고 구성합니다."
+	pageTitle="SharePoint Server 2013 팜 2단계 | Microsoft Azure"
+	description="Azure의 SharePoint Server 2013 팜 2단계에서 두 Active Directory 복제본 도메인 컨트롤러를 만들고 구성합니다."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -246,4 +246,4 @@ SharePoint 팜에는 다음 사용자 계정이 필요합니다.
 
 [Azure 인프라 서비스 작업: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

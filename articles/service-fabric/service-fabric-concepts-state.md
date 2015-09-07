@@ -1,20 +1,20 @@
 <properties
    pageTitle="상태 정의 및 관리"
-   description="서비스 패브릭에서 서비스 상태를 정의하고 관리하는 방법"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="appi101"
-   manager="timlt"
-   editor=""/>
+	description="서비스 패브릭에서 서비스 상태를 정의하고 관리하는 방법"
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="appi101"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/13/2015"
-   ms.author="aprameyr"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="aprameyr"/>
 
 # 서비스 상태
 **서비스 상태**는 서비스가 작동하기 위해 필요한 데이터입니다. 서비스가 작업을 수행하기 위해 읽고 쓰는 데이터 구조 및 변수입니다.
@@ -41,4 +41,4 @@
 - [서비스 패브릭 서비스의 분할](service-fabric-concepts-partitioning.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

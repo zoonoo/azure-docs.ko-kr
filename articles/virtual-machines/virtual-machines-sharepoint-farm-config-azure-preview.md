@@ -1,6 +1,6 @@
 <properties
-	pageTitle="SharePoint 서버 팜 구성 정보"
-	description="이 문서에서는 Azure Preview 포털의 SharePoint 서버 팜 기능을 사용하는 경우 SharePoint 팜의 기본 구성에 대해 설명합니다."
+	pageTitle="SharePoint Server 팜 구성 | Microsoft Azure"
+	description="Azure Preview 포털의 SharePoint Server 팜 기능을 사용하는 경우 SharePoint 팜의 기본 구성에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="JoeDavies-MSFT"
@@ -139,4 +139,4 @@ Azure Preview 포털의 SharePoint 서버 팜 기능은 서비스 관리에서 �
 
 [테스트용 하이브리드 클라우드에 SharePoint 인트라넷 팜 설치](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

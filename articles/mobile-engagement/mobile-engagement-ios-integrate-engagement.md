@@ -1,11 +1,11 @@
-<properties 
-	pageTitle="Azure Mobile Engagement iOS SDK 통합" 
+<properties
+	pageTitle="Azure Mobile Engagement iOS SDK 통합"
 	description="Azure Mobile Engagement용 iOS SDK의 최신 업데이트 및 절차"
 	services="mobile-engagement"
 	documentationCenter="mobile"
 	authors="MehrdadMzfr"
 	manager="dwrede"
-	editor="" />
+	editor=""/>
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,25 +14,25 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr" />
+	ms.author="MehrdadMzfr"/>
 
 #IOS에서 Engagement를 통합하는 방법
 
-> [AZURE.SELECTOR] 
-- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
-- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
-- [iOS](mobile-engagement-ios-integrate-engagement.md) 
-- [Android](mobile-engagement-android-integrate-engagement.md) 
+> [AZURE.SELECTOR]
+- [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
+- [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
+- [iOS](mobile-engagement-ios-integrate-engagement.md)
+- [Android](mobile-engagement-android-integrate-engagement.md)
 
 이 절차에서는 iOS 응용 프로그램에서 Engagement의 분석 및 모니터링 기능을 활성화하는 가장 간단한 방법을 설명합니다.
 
-> [AZURE.IMPORTANT]Engagement SDK에는 iOS5+ 이상이 필요합니다. 응용 프로그램의 배포 대상은 iOS 5 이상이어야 합니다.
+> [AZURE.IMPORTANT]Engagement SDK에는 iOS6 이상이 필요합니다. 응용 프로그램의 배포 대상은 iOS 6 이상이어야 합니다.
 
 다음 단계만 수행하면 사용자, 세션, 활동, 작동 중단 및 기술과 관련된 모든 통계를 계산하는 데 필요한 로그 보고를 활성화할 수 있습니다. 이벤트, 오류, 작업 등의 기타 통계는 응용 프로그램별로 다르므로, 해당 통계를 계산하는 데 필요한 로그 보고는 Engagement API를 사용하여 수동으로 수행해야 합니다. 관련 설명은 [iOS 앱에서 고급 Mobile Engagement 태깅 API를 사용하는 방법](mobile-engagement-ios-use-engagement-api.md)을 참조하세요.
 
 ##IOS 프로젝트에 Engagement SDK를 포함합니다.
 
-iOS 프로젝트에 Engagement SDK를 추가합니다. Xcode 4에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **"Add files to ..."**를 선택하고 `EngagementSDK` 폴더를 선택합니다.
+iOS 프로젝트에 Engagement SDK를 추가합니다. Xcode에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **"Add files to ..."**를 선택하고 `EngagementSDK` 폴더를 선택합니다.
 
 Engagement가 작동하려면 추가 프레임워크가 필요합니다. 프로젝트 탐색기에서 프로젝트 창을 열고 올바른 대상을 선택합니다. 그런 다음 **"Build phases"** 탭을 열고 **"Link Binary With Libraries"** 메뉴에서 다음 프레임워크를 추가합니다.
 
@@ -43,7 +43,7 @@ Engagement가 작동하려면 추가 프레임워크가 필요합니다. 프로�
 > -   `CoreLocation.framework`
 > -   `libxml2.dylib`
 
-> [AZURE.NOTE] AdSupport 프레임워크는 제거할 수 있습니다. Engagement에서 IDFA를 수집하려면 이 프레임워크가 필요합니다. 그러나 이 ID와 관련된 새 Apple 정책을 준수하기 위해 IDFA 컬렉션을 비활성화할 수 있습니다(\<ios-sdk-engagement-idfa\>).
+> [AZURE.NOTE] AdSupport 프레임워크는 제거할 수 있습니다. Engagement에서 IDFA를 수집하려면 이 프레임워크가 필요합니다. 그러나 이 ID와 관련된 새 Apple 정책을 준수하기 위해 IDFA 컬렉션을 비활성화할 수 있습니다(<ios-sdk-engagement-idfa>).
 
 ##Engagement SDK 초기화
 
@@ -51,17 +51,17 @@ Engagement가 작동하려면 추가 프레임워크가 필요합니다. 프로�
 
 -   구현 파일의 맨 위에서 Engagement 에이전트를 가져옵니다.
 
-			[...]
-			#import "EngagementAgent.h"
+		[...]
+		#import "EngagementAgent.h"
 
 -   '**applicationDidFinishLaunching:**' 또는 '**application:didFinishLaunchingWithOptions:**' 메서드에서 Engagement를 초기화합니다.
 
-			- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-			{
-			  [...]
-			  [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];
-			  [...]
-			}
+		- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+		{
+		  [...]
+		  [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];
+		  [...]
+		}
 
 ##기본 보고
 
@@ -71,28 +71,28 @@ Engagement에서 사용자, 세션, 활동, 크래시 및 기술 통계를 계�
 
 **Engagement 사용 안 함:**
 
-			#import <UIKit/UIKit.h>
-			
-			@interface Tab1ViewController : UIViewController<UITextFieldDelegate> {
-			  UITextField* myTextField1;
-			  UITextField* myTextField2;
-			}
-			
-			@property (nonatomic, retain) IBOutlet UITextField* myTextField1;
-			@property (nonatomic, retain) IBOutlet UITextField* myTextField2;
+	#import <UIKit/UIKit.h>
+
+	@interface Tab1ViewController : UIViewController<UITextFieldDelegate> {
+	  UITextField* myTextField1;
+	  UITextField* myTextField2;
+	}
+
+	@property (nonatomic, retain) IBOutlet UITextField* myTextField1;
+	@property (nonatomic, retain) IBOutlet UITextField* myTextField2;
 
 **Engagement 사용:**
 
-			#import <UIKit/UIKit.h>
-			#import "EngagementViewController.h"
-			
-			@interface Tab1ViewController : EngagementViewController<UITextFieldDelegate> {
-			  UITextField* myTextField1;
-			  UITextField* myTextField2;
-			}
-			
-			@property (nonatomic, retain) IBOutlet UITextField* myTextField1;
-			@property (nonatomic, retain) IBOutlet UITextField* myTextField2;
+	#import <UIKit/UIKit.h>
+	#import "EngagementViewController.h"
+
+	@interface Tab1ViewController : EngagementViewController<UITextFieldDelegate> {
+	  UITextField* myTextField1;
+	  UITextField* myTextField2;
+	}
+
+	@property (nonatomic, retain) IBOutlet UITextField* myTextField1;
+	@property (nonatomic, retain) IBOutlet UITextField* myTextField2;
 
 ### 대체 메서드: 수동으로 `startActivity()` 호출
 
@@ -114,34 +114,34 @@ iOS 8부터는 앱의 Info.plist 파일에서 [NSLocationWhenInUseUsageDescripti
 
 지연 영역 위치 보고를 사용하려면 Engagement 에이전트를 초기화한 후 다음 줄을 추가합니다.
 
-			- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-			{
-			  [...]
-			  [[EngagementAgent shared] setLazyAreaLocationReport:YES];
-			  [...]
-			}
+	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+	{
+	  [...]
+	  [[EngagementAgent shared] setLazyAreaLocationReport:YES];
+	  [...]
+	}
 
 ### 실시간 위치 보고
 
 실시간 위치 보고를 통해 장치와 연결된 위도와 경도를 보고할 수 있습니다. 기본적으로 이 유형의 위치 보고에서는 네트워크 위치(셀 ID 또는 WIFI 기반)만 사용하고, 보고는 응용 프로그램이 포그라운드로 실행될 때(즉, 세션 중)만 활성화됩니다.
 
-실시간 위치는 통계를 계산하는 데 사용되지 *않습니다*. 유일한 용도는 도달률 캠페인에서 실시간 지리적 펜스 \<Reach-Audience-geofencing\> 사용을 허용하는 것입니다.
+실시간 위치는 통계를 계산하는 데 사용되지 *않습니다*. 유일한 용도는 도달률 캠페인에서 실시간 지리적 펜스 <Reach-Audience-geofencing> 사용을 허용하는 것입니다.
 
 실시간 위치 보고를 활성화하려면 Engagement 에이전트를 초기화한 후 다음 줄을 추가합니다.
 
-			[[EngagementAgent shared] setRealtimeLocationReport:YES];
+	[[EngagementAgent shared] setRealtimeLocationReport:YES];
 
 #### GPS 기반 보고
 
 기본적으로 실시간 위치 보고에서는 네트워크 기반 위치만 사용합니다. 훨씬 더 정밀한 GPS 기반 위치의 사용을 설정하려면 다음을 추가합니다.
 
-			[[EngagementAgent shared] setFineRealtimeLocationReport:YES];
+	[[EngagementAgent shared] setFineRealtimeLocationReport:YES];
 
 #### 백그라운드 보고
 
 기본적으로 실시간 위치 보고는 응용 프로그램이 포그라운드로 실행되는 경우(즉, 세션 중)에만 활성 상태입니다. 백그라운드에서도 보고를 활성화하려면 다음을 추가합니다.
 
-			[[EngagementAgent shared] setBackgroundRealtimeLocationReport:YES withLaunchOptions:launchOptions];
+	[[EngagementAgent shared] setBackgroundRealtimeLocationReport:YES withLaunchOptions:launchOptions];
 
 > [AZURE.NOTE]응용 프로그램이 백그라운드에서 실행될 때 GPS를 활성화한 경우에도 네트워크 기반 위치만 보고됩니다.
 
@@ -159,8 +159,8 @@ Engagement API는 모든 Engagement의 고급 기능 사용을 허용하며 iOS�
 
 **prefix.pch** 파일의 통합:
 
-			#define ENGAGEMENT_DISABLE_IDFA
-			...
+	#define ENGAGEMENT_DISABLE_IDFA
+	...
 
 Engagement 테스트 로그를 확인하여 응용 프로그램에서 IDFA 컬렉션이 제대로 비활성화되었는지 확인할 수 있습니다. 자세한 내용은 통합 테스트 <ios-sdk-engagement-test-idfa> 설명서를 참조하세요.
 
@@ -170,7 +170,7 @@ Engagement 테스트 로그를 확인하여 응용 프로그램에서 IDFA 컬�
 
 Engagement에서 로그 전송을 중지하려면 다음을 호출할 수 있습니다.
 
-			[[EngagementAgent shared] setEnabled:NO];
+	[[EngagementAgent shared] setEnabled:NO];
 
 이 호출은 영구적이며, `NSUserDefaults`을(를) 사용하여 정보를 저장합니다.
 
@@ -182,23 +182,23 @@ Engagement에서 로그 전송을 중지하려면 다음을 호출할 수 있습
 
 `Settings.bundle`의 다음 예제에서는 구현 방법을 보여 줍니다.
 
-			<dict>
-			    <key>PreferenceSpecifiers</key>
-			    <array>
-			        <dict>
-			            <key>DefaultValue</key>
-			            <true/>
-			            <key>Key</key>
-			            <string>engagement_agent_enabled</string>
-			            <key>Title</key>
-			            <string>Log reporting enabled</string>
-			            <key>Type</key>
-			            <string>PSToggleSwitchSpecifier</string>
-			        </dict>
-			    </array>
-			    <key>StringsTable</key>
-			    <string>Root</string>
-			</dict>
+	<dict>
+	    <key>PreferenceSpecifiers</key>
+	    <array>
+	        <dict>
+	            <key>DefaultValue</key>
+	            <true/>
+	            <key>Key</key>
+	            <string>engagement_agent_enabled</string>
+	            <key>Title</key>
+	            <string>Log reporting enabled</string>
+	            <key>Type</key>
+	            <string>PSToggleSwitchSpecifier</string>
+	        </dict>
+	    </array>
+	    <key>StringsTable</key>
+	    <string>Root</string>
+	</dict>
 
 <!-- URLs. -->
 [장치 API]: http://go.microsoft.com/?linkid=9876094
@@ -207,4 +207,4 @@ Engagement에서 로그 전송을 중지하려면 다음을 호출할 수 있습
 [startMonitoringSignificantLocationChanges]: http://developer.apple.com/library/IOs/#documentation/CoreLocation/Reference/CLLocationManager_Class/CLLocationManager/CLLocationManager.html#//apple_ref/occ/instm/CLLocationManager/startMonitoringSignificantLocationChanges
 [IDFA]: https://developer.apple.com/library/ios/documentation/AdSupport/Reference/ASIdentifierManager_Ref/ASIdentifierManager.html#//apple_ref/occ/instp/ASIdentifierManager/advertisingIdentifier
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

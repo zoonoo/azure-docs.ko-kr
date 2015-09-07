@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure MFA와 함께 연락 방법으로 모바일 앱 사용" 
-	description="이 페이지에서는 Azure MFA에 대한 기본 연락 방법으로 모바일 앱을 사용하는 방법을 보여 줍니다." 
-	services="multi-factor-authentication" 
-	documentationCenter="" 
-	authors="billmath" 
-	manager="terrylan" 
-	editor="bryanla"/>
+	pageTitle="Azure MFA와 함께 연락 방법으로 모바일 앱 사용"
+	description="이 페이지에서는 Azure MFA에 대한 기본 연락 방법으로 모바일 앱을 사용하는 방법을 보여 줍니다."
+	services="multi-factor-authentication"
+	documentationCenter=""
+	authors="billmath"
+	manager="stevenp"
+	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.service="multi-factor-authentication"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/24/2015"
 	ms.author="billmath"/>
 
 # Azure Multi-factor Authentication과 함께 연락 방법으로 모바일 앱 사용
@@ -73,4 +73,4 @@
 >[AZURE.NOTE]"작업 계정 추가"가 표시되는 경우 작업 공간 연결을 위한 것으로, Multi-Factor Authentication을 위한 것이 아닙니다. 무시해도 됩니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="가상 네트워크 VPN 게이트웨이 FAQ | Microsoft Azure"
-   description="VPN 게이트웨이 FAQ. Microsoft Azure 가상 네트워크 프레미스 간 연결, 하이브리드 구성 연결 및 VPN 게이트웨이에 대한 FAQ"
-   services="vpn-gateway"
-   documentationCenter="na"
-   authors="cherylmc"
-   manager="jdial"
-   editor="tysonn" />
+	description="VPN 게이트웨이 FAQ. Microsoft Azure 가상 네트워크 프레미스 간 연결, 하이브리드 구성 연결 및 VPN 게이트웨이에 대한 FAQ"
+	services="vpn-gateway"
+	documentationCenter="na"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="vpn-gateway"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/16/2015"
-   ms.author="cherylmc" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="08/20/2015"
+	ms.author="cherylmc"/>
 
 # VPN 게이트웨이 FAQ
 
@@ -22,6 +22,7 @@
 ### 다양한 Azure 지역에서 가상 네트워크를 연결할 수 있습니까?
 
 예. 실제로 지역 제약 조건이 없습니다. 가상 네트워크를 동일한 지역 또는 다른 Azure 지역의 다른 가상 네트워크에 연결할 수 있습니다.
+
 ### 다른 구독의 가상 네트워크를 연결할 수 있습니까?
 
 예.
@@ -30,17 +31,17 @@
 Windows PowerShell 및 Azure REST API를 사용하여 여러 사이트에 연결할 수 있습니다. [다중 사이트 및 VNet 간 연결](#multi-site-and-vnet-to-vnet-connectivity) FAQ 섹션을 참조하세요.
 ## 내 프레미스 간 연결 옵션은 무엇입니까?
 
-가상 네트워크는 다음 프레미스 간 연결을 지원합니다.
+다음 프레미스 간 연결을 지원합니다.
 
 - [사이트 간](vpn-gateway-site-to-site-create.md) – IPsec 통한 VPN 연결(IKE v1 및 IKE v2). 이 연결 유형은 VPN 장치 또는 RRAS가 필요합니다.
 
 - [지점 및 사이트 간](vpn-gateway-point-to-site-create.md) -SSTP를 통한 VPN 연결(보안 소켓 터널링 프로토콜). 이 연결에는 VPN 장치가 필요하지 않습니다.
 
-- [VNet 간](../virtual-networks-vnet-to-vnet-connection.md) -이 유형의 연결은 사이트 간 구성과 동일합니다. VNet 간 연결은 IPsec를 통한 VPN 연결(IKE v1 및 IKE v2)입니다. VPN 장치가 필요하지 않습니다.
+- [VNet 간](virtual-networks-configure-vnet-to-vnet-connection.md) -이 유형의 연결은 사이트 간 구성과 동일합니다. VNet 간 연결은 IPsec를 통한 VPN 연결(IKE v1 및 IKE v2)입니다. VPN 장치가 필요하지 않습니다.
 
-- [다중 사이트](http://go.microsoft.com/fwlink/?LinkID=615106) -가상 네트워크에 여러 온-프레미스 사이트를 연결할 수 있는 사이트 간 구성의 변형입니다.
+- [다중 사이트](vpn-gateway-multi-site.md) -가상 네트워크에 여러 온-프레미스 사이트를 연결할 수 있는 사이트 간 구성의 변형입니다.
 
-- [Express 경로](../expressroute-overview.md) - Express 경로는 공용 인터넷을 사용하지 않고 WAN에서 Azure에 직접 연결합니다. 자세한 내용은 [Express 경로 기술 개요](../expressroute-overview.md) 및 [Express 경로 FAQ](../expressroute-faqs.md)를 참조하세요.
+- [Express 경로](../expressroute/expressroute-introduction.md) - Express 경로는 공용 인터넷을 사용하지 않고 WAN에서 Azure에 직접 연결합니다. 자세한 내용은 [Express 경로 기술 개요](../expressroute/expressroute-introduction.md) 및 [Express 경로 FAQ](../expressroute/expressroute-faqs.md)를 참조하세요.
 
 ### 사이트 간 연결과 지점 및 사이트 간 연결의 차이점은 무엇입니까?
 
@@ -48,7 +49,9 @@ Windows PowerShell 및 Azure REST API를 사용하여 여러 사이트에 연결
 
 **지점 및 사이트 간** 연결을 사용하면 모든 위치의 단일 컴퓨터에서 가상 네트워크에 있는 모든 컴퓨터에 연결할 수 있습니다. Windows 인박스 VPN 클라이언트를 사용합니다. 지점 및 사이트 간 구성 중에 가상 네트워크 내의 가상 컴퓨터 또는 역할 인스턴스에 컴퓨터를 연결할 수 있도록 해주는 설정이 포함된 인증서 및 VPN 클라이언트 구성 패키지를 설치합니다. 가상 네트워크에 연결하려고 하지만 온-프레미스에 없는 경우에 유용합니다. 사이트 간 연결에 필요한 VPN 하드웨어 또는 외부 연결 IPv4 주소에 액세스할 수 없을 때 유용한 옵션입니다.
 
-참고: 동적 라우팅 게이트웨이를 사용하여 사이트 간 연결을 만들 경우 사이트 간 연결과 지점 및 사이트 간 연결을 동시에 사용하도록 가상 네트워크를 구성할 수 있습니다. 자세한 내용은 [가상 네트워크 보안 프레미스 간 연결 정보](http://go.microsoft.com/fwlink/p/?LinkID=532884&clcid=0x409)를 참조하세요.
+참고: 동적 라우팅 게이트웨이를 사용하여 사이트 간 연결을 만들 경우 사이트 간 연결과 지점 및 사이트 간 연결을 동시에 사용하도록 가상 네트워크를 구성할 수 있습니다.
+
+자세한 내용은 [가상 네트워크에 대한 보안 프레미스 간 연결 정보](vpn-gateway-cross-premises-options.md)를 참조하세요.
 
 ### Express 경로란?
 
@@ -56,17 +59,17 @@ Express 경로를 사용하면 온-프레미스 또는 공동 배치 환경의 �
 
 Express 경로 연결은 인터넷을 통한 일반 연결보다 안정적이고 대역폭이 높으며 대기 시간이 짧고 보안성이 높습니다. 경우에 따라 온-프레미스 네트워크와 Azure 간 데이터 전송에 Express 경로 연결을 사용하면 상당한 비용 혜택을 얻을 수도 있습니다. 이미 온-프레미스 네트워크에서 Azure로 크로스 프레미스 연결을 설정한 경우, 가상 네트워크를 그대로 유지 하면서 Express 경로 연결로 마이그레이션할 수 있습니다.
 
-자세한 내용은 [Express 경로 FAQ](../expressroute-faqs.md)를 참조하세요.
+자세한 내용은 [Express 경로 FAQ](../expressroute/expressroute-faqs.md)를 참조하세요.
 
-## VPN 장치 및 사이트 간 연결
+## 사이트 간 연결 및 VPN 장치
 
 ### VPN 장치를 선택할 때 고려할 사항은 무엇입니까?
 
-장치 공급업체와 협력하여 표준 사이트 간 VPN 장치의 유효성을 검사했습니다. 알려진 호환 VPN 장치, 해당 구성 지침 또는 샘플 및 장치 사양 목록은 [여기](http://go.microsoft.com/fwlink/p/?LinkID=248098)서 확인할 수 있습니다. 호환하는 것으로 알려진 목록의 장치 제품군에 포함된 모든 장치는 가상 네트워크에서 작동합니다. VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 장치 구성 샘플 또는 링크를 참조하세요.
+장치 공급업체와 협력하여 표준 사이트 간 VPN 장치의 유효성을 검사했습니다. 알려진 호환 VPN 장치, 해당 구성 지침 또는 샘플 및 장치 사양 목록은 [여기](vpn-gateway-about-vpn-devices.md)서 확인할 수 있습니다. 호환하는 것으로 알려진 목록의 장치 제품군에 포함된 모든 장치는 가상 네트워크에서 작동합니다. VPN 장치를 구성하려면 적절한 장치 제품군에 해당하는 장치 구성 샘플 또는 링크를 참조하세요.
 
 ### 사용 중인 VPN 장치가 알려진 호환 장치 목록에 없는 경우 어떻게 해야 합니까?
 
-사용 중인 장치가 알려진 호환 VPN 장치 목록에 표시되지 않지만 해당 장치를 VPN 연결에 사용하려면 해당 장치가 [여기에](http://go.microsoft.com/fwlink/p/?LinkID=615099) 나열된 지원되는 IPsec/IKE 구성 옵션 및 매개 변수를 충족하는지 확인해야 합니다. 최소 요구 사항을 충족하는 장치는 가상 네트워크에서 잘 작동합니다. 추가 지원 및 구성 지침은 장치 제조업체에 문의하세요.
+사용 중인 장치가 알려진 호환 VPN 장치 목록에 표시되지 않지만 해당 장치를 VPN 연결에 사용하려면 해당 장치가 [여기에](vpn-gateway-about-vpn-devices.md#devices-not-on-the-compatible-list) 나열된 지원되는 IPsec/IKE 구성 옵션 및 매개 변수를 충족하는지 확인해야 합니다. 최소 요구 사항을 충족하는 장치는 VPN 게이트웨이에서 잘 작동합니다. 추가 지원 및 구성 지침은 장치 제조업체에 문의하세요.
 
 ### 소프트웨어 VPN을 사용하여 Azure에 연결할 수 있습니까?
 
@@ -152,17 +155,17 @@ Azure VPN은 PSK(미리 공유한 키) 인증을 사용합니다. VPN 터널을 
 
 ### "게이트웨이 서브넷"은 무엇이고 왜 필요합니까?
 
-프레미스 간 연결을 사용하도록 설정하기 위해 게이트웨이 서비스를 설정했습니다. 프레미스와 클라우드 간 라우팅을 사용하려면 라우팅 도메인의 두 IP 주소가 필요합니다. 경로를 설정하기 위해 IP 주소를 선택할 수 있는 최소 /29 서브넷을 지정해야 합니다.
+프레미스 간 연결을 사용하도록 설정하기 위해 게이트웨이 서비스를 설정했습니다. 프레미스와 클라우드 간 라우팅을 사용하려면 라우팅 도메인의 두 IP 주소가 필요합니다. 경로를 설정하기 위해 IP 주소를 선택할 수 있는 최소 /29 서브넷을 지정해야 합니다. /29 서브넷을 만들 수 있지만 일부 기능을 사용하려면 특정 게이트웨이 크기가 필요합니다. 구성하려는 기능에 대한 게이트웨이 서브넷 요구 사항을 따르세요.
 
 게이트웨이 서브넷에서 가상 컴퓨터 또는 역할 인스턴스를 배포해서는 안 됩니다.
 
 ### VPN 게이트웨이를 통해 전송되는 트래픽을 지정하려면 어떻게 해야 합니까?
 
-로컬 네트워크 아래의 네트워크 페이지에서 가상 네트워크에 대해 게이트웨이를 통해 전송할 각 범위를 추가합니다.
+Azure 포털을 사용하는 경우 로컬 네트워크 아래의 네트워크 페이지에서 가상 네트워크에 대해 게이트웨이를 통해 전송할 각 범위를 추가합니다.
 
 ### 강제 터널링을 구성할 수 있습니까?
 
-예. [강제 터널링 정보](vpn-gateway-about-forced-tunneling.md)를 참조하세요.
+예. [강제 터널링 구성](vpn-gateway-about-forced-tunneling.md)을 참조하세요.
 
 ### Azure에서 내 VPN 서버를 설정하여 온-프레미스 네트워크에 연결하는 데 사용할 수 있습니까?
 
@@ -186,6 +189,10 @@ Azure VPN은 PSK(미리 공유한 키) 인증을 사용합니다. VPN 터널을 
 
 예, IPsec/IKE 암호화로 보호됩니다.
 
+### VNet-VNet 트래픽이 Azure 백본에서 이동됩니까?
+
+예.
+
 ### 하나의 가상 네트워크에 연결할 수 있는 온-프레미스 사이트 및 가상 네트워크 수는 어떻게 됩니까?
 
 최대 기본 및 표준 동적 라우팅 게이트웨이의 경우 총 10개, 고성능 VPN 게이트웨이의 경우 총 30개까지 연결할 수 있습니다.
@@ -200,7 +207,7 @@ Azure VPN은 PSK(미리 공유한 키) 인증을 사용합니다. VPN 터널을 
 
 ### 연결된 가상 네트워크와 온-프레미스 로컬 사이트 사이에 주소 공간이 겹칠 수 있습니까?
 
-아니요. 주소 공간이 겹치면 NETCFG 업로드 또는 가상 네트워크 만들기가 실패합니다.
+아니요. 주소 공간이 겹치면 netcfg 파일 업로드 또는 가상 네트워크 만들기가 실패합니다.
 
 ### 단일 가상 네트워크보다 더 많은 사이트 간 VPN을 사용하면 대역폭이 증가합니까?
 
@@ -208,23 +215,24 @@ Azure VPN은 PSK(미리 공유한 키) 인증을 사용합니다. VPN 터널을 
 
 ### Azure VPN 게이트웨이를 사용하여 온-프레미스 사이트 간에 또는 다른 가상 네트워크에 트래픽을 전송할 수 있습니까?
 
-Azure VPN 게이트웨이 통해 트래픽을 전송할 수 있지만, NETCFG 구성 파일에 정적으로 정의된 주소 공간을 사용해야 합니다. BGP는 Azure 가상 네트워크 및 VPN 게이트웨이에서 아직 지원되지 않습니다. BGP를 사용하지 않고 NETCFG에서 전송 주소 공간을 수동으로 정의하면 오류가 발생하기 쉬우므로 사용하지 않는 것이 좋습니다.
+Azure VPN 게이트웨이 통해 트래픽을 전송할 수 있지만, netcfg 구성 파일에 정적으로 정의된 주소 공간을 사용해야 합니다. BGP는 Azure 가상 네트워크 및 VPN 게이트웨이에서 아직 지원되지 않습니다. BGP를 사용하지 않고 netcfg에서 전송 주소 공간을 수동으로 정의하면 오류가 발생하기 쉬우므로 사용하지 않는 것이 좋습니다.
 
 ### Azure는 동일한 가상 네트워크의 모든 VPN 연결에 대해 동일한 IPsec/IKE 미리 공유한 키를 생성합니까?
 
-아니요, 기본적으로 Azure는 VPN 연결마다 다른 미리 공유한 키를 생성합니다. 하지만 VPN 게이트웨이 키 생성 REST API 또는 PowerShell cmdlet을 사용하여 원하는 키 값을 설정할 수 있습니다. 키는 1 \~ 128자 사이의 영숫자 문자열이어야 합니다.
+아니요, 기본적으로 Azure는 VPN 연결마다 다른 미리 공유한 키를 생성합니다. 하지만 VPN 게이트웨이 키 생성 REST API 또는 PowerShell cmdlet을 사용하여 원하는 키 값을 설정할 수 있습니다. 키는 1 ~ 128자 사이의 영숫자 문자열이어야 합니다.
 
 ### Azure는 가상 네트워크 간 트래픽에 대해 요금을 청구합니까?
 
-다른 Azure 가상 네트워크 간의 트래픽에서 Azure는 다른 Azure 지역 간에 트래버스되는 트래픽에 대해서만 요금을 청구합니다. 청구 요금은 Azure VPN 게이트웨이 [가격](https://azure.microsoft.com/pricing/details/vpn-gateway/) 페이지에 나열되어 있습니다.
+다른 Azure 가상 네트워크 간의 트래픽에서 Azure는 다른 Azure 지역 간에 트래버스되는 트래픽에 대해서만 요금을 청구합니다. 청구 요금은 Azure [VPN 게이트웨이 가격](https://azure.microsoft.com/pricing/details/vpn-gateway/) 페이지에 나열되어 있습니다.
+
 
 ### IPsec VPN을 사용하는 가상 네트워크를 Express 경로 회로에 연결할 수 있습니까?
 
-아니요, 이 기능은 지원되지 않습니다.
+예, 지원됩니다. 자세한 내용은 [공존하는 Express 경로 및 사이트 간 VPN 연결 구성](../expressroute/expressroute-coexist.md)을 참조하세요.
 
-## 연결 및 가상 컴퓨터
+## 연결 및 VM
 
-### 내 VM이 가상 네트워크에 있고 프레미스 간 연결을 사용하는 경우 VM에 연결하려면 어떻게 해야 합니까?
+### 가상 컴퓨터가 가상 네트워크에 있고 프레미스 간 연결을 사용하는 경우 VM에 연결하려면 어떻게 해야 합니까?
 
 몇 가지 옵션이 있습니다. RDP를 사용하도록 설정하고 끝점을 만든 경우 VIP를 사용하여 가상 컴퓨터에 연결할 수 있습니다. 이 경우 VIP 및 연결할 포트를 지정합니다. 가상 컴퓨터에서 트래픽에 대한 포트를 구성해야 합니다. 일반적으로 관리 포털로 이동하여 컴퓨터에 대한 RDP 연결 설정을 저장합니다. 설정에는 필요한 연결 정보가 포함됩니다.
 
@@ -238,10 +246,10 @@ Azure VPN 게이트웨이 통해 트래픽을 전송할 수 있지만, NETCFG �
 
 자세한 내용은 네트워킹 FAQ를 참조하세요.
 
-- [가상 네트워크 FAQ](http://go.microsoft.com/fwlink/p/?LinkId=615155)
+- [가상 네트워크 FAQ](../virtual-network/virtual-networks-faq.md)
 
-- [Express 경로 FAQ](../expressroute-faqs.md)
+- [Express 경로 FAQ](../expressroute/expressroute-faqs.md)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

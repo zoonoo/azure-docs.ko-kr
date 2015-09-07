@@ -114,6 +114,8 @@ Preview 포털의 Azure 마켓플레이스로 이동하여 원하는 Windows Ser
 	ops@ubuntuvm:~$
 
 
+> [AZURE.NOTE]또한 포털에서 가상 컴퓨터에 정규화된 도메인 이름 (FQDN)을 구성할 수 있습니다. [여기](virtual-machines-create-fqdn-on-portal.md)서 FQDN에 대해 자세히 알아봅니다.
+
 ## 다음 단계
 
 Azure의 Linux에 대한 자세한 내용은 다음 을 참조하세요.
@@ -126,4 +128,4 @@ Azure의 Linux에 대한 자세한 내용은 다음 을 참조하세요.
 
 - [Azure의 Linux용 Docker 가상 컴퓨터 확장](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

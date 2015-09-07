@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="MehrdadMzfr"
 	manager="dwrede"
-	editor="" />
+	editor=""/>
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,13 +14,18 @@
 	ms.devlang="objective-c"
 	ms.topic="article"
 	ms.date="08/05/2015"
-	ms.author="MehrdadMzfr" />
+	ms.author="MehrdadMzfr"/>
 
 #릴리스 정보
+
+##3\.1.0(08/26/2015)
+
+-   타사 라이브러리와 iOS 9 호환성 버그를 수정합니다. 설문 조사 결과, 응용 프로그램 정보 또는 추가 데이터를 보내는 동안 충돌을 야기합니다.
 
 ##3\.0.0(2015/06/19)
 
 -   Mobile Engagement는 자동 푸시 알림을 사용합니다.
+-   iOS 4.X에 대한 지원을 삭제했습니다. 이 버전부터 응용 프로그램의 배포 대상은 iOS 6 이상이어야 합니다.
 
 ##2\.2.0(05/21/2015)
 
@@ -42,4 +47,4 @@
 -   보안이 개선되었습니다.
 -   SmartAd 추적 기능이 제거되었습니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

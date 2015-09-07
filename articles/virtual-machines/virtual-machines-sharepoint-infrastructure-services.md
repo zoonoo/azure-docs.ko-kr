@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 인프라 서비스에서 호스트되는 SharePoint 팜"
-	description="Microsoft Azure 인프라 서비스에서 개발/테스트 또는 프로덕션 SharePoint 2013 팜을 설정하는 방법을 설명하는 주요 문서를 알아봅니다."
+	pageTitle="Azure의 SharePoint Server 2013 팜 | Microsoft Azure"
+	description="Microsoft Azure에서 개발/테스트 환경 또는 프로덕션 SharePoint Server 2013 팜을 설정하는 방법이 설명된 문서를 찾습니다."
 	documentationCenter=""
 	services="virtual-machines"
 	authors="JoeDavies-MSFT"
@@ -63,4 +63,4 @@ Azure의 SharePoint에 대한 추가 정보 및 구성은 다음 리소스를 �
 
 - [Microsoft Azure에서 Office 365 디렉터리 동기화(DirSync) 배포](https://technet.microsoft.com/library/dn635310.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

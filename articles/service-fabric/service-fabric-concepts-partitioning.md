@@ -1,20 +1,20 @@
 <properties
    pageTitle="서비스 패브릭 서비스의 분할"
-   description="서비스 패브릭 서비스를 분할하는 방법을 설명합니다."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="appi101"
-   manager="timlt"
-   editor=""/>
+	description="서비스 패브릭 서비스를 분할하는 방법을 설명합니다."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="appi101"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="04/13/2015"
-   ms.author="aprameyr"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/26/2015"
+	ms.author="aprameyr"/>
 
 # 서비스 패브릭 서비스의 분할
 서비스 패브릭은 서비스 상태의 분할을 지원하고 전체 상태의 하위 세트에서 작동하는 각 파티션을 가져서 확장 가능한 상태 저장 서비스를 빌드하기 쉽게 해 줍니다. 각 파티션은 [높은 가용성](service-fabric-availability-services.md)을 만드는 단위가 됩니다. 파티션이 복제본은 클러스터의 노드 간에 균등하게 분산됩니다.
@@ -54,4 +54,4 @@
 - [서비스 패브릭 서비스의 확장성](service-fabric-concepts-scalability.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

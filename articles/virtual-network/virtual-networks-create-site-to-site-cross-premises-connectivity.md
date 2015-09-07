@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="자습서: 사이트 간 연결용 프레미스 간 가상 네트워크 만들기" 
-	description="이 자습서에서는 프레미스 간 연결을 지원하는 Azure 가상 네트워크를 만드는 방법에 대해 알아봅니다." 
-	services="virtual-network" 
-	documentationCenter="" 
-	authors="cherylmc" 
-	manager="adinah" 
+	pageTitle="자습서: 사이트 간 연결용 프레미스 간 가상 네트워크 만들기"
+	description="이 자습서에서는 프레미스 간 연결을 지원하는 Azure 가상 네트워크를 만드는 방법에 대해 알아봅니다."
+	services="virtual-network"
+	documentationCenter=""
+	authors="cherylmc"
+	manager="adinah"
 	editor="tysonn"/>
 
 <tags 
-	ms.service="virtual-network" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/28/2015" 
+	ms.service="virtual-network"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/17/2015"
 	ms.author="cherylmc"/>
 
 
@@ -24,7 +24,7 @@
 
 클라우드 전용 가상 네트워크를 만들려는 경우, [자습서: Azure에서 클라우드 전용 가상 네트워크 만들기](../virtual-machines/create-virtual-network.md)를 참조하세요. 인증서 및 VPN 클라이언트를 사용하여 지점 및 사이트 간 VPN을 만들려는 경우 [관리 포털 마법사를 사용하여 지점 및 사이트 간 VPN 구성](http://go.microsoft.com/fwlink/p/?LinkId=296653)을 참조하십시오.
 
-이 자습서에서는 이전에 Azure를 사용한 경험이 없다고 가정합니다. 이 자습서는 프레미스 간 가상 네트워크 예제를 만드는 데 필요한 단계에 익숙해지도록 돕기 위한 것입니다. 가상 네트워크에 대한 디자인 시나리오 및 고급 정보를 원하는 경우에는 [Azure 가상 네트워크 개요](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)를 참조하십시오.
+이 자습서에서는 이전에 Azure를 사용한 경험이 없다고 가정합니다. 이 자습서는 프레미스 간 가상 네트워크 예제를 만드는 데 필요한 단계에 익숙해지도록 돕기 위한 것입니다. 가상 네트워크에 대한 디자인 시나리오 및 고급 정보를 원하는 경우에는 [Azure 가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)를 참조하십시오.
 
 이 자습서를 완료하고 나면 프레미스 간 가상 네트워크 예제가 준비됩니다. 다음 그림에서는 이 자습서에서 예제 설정을 기반으로 한 세부 정보를 보여 줍니다.
 
@@ -253,9 +253,9 @@ Azure 가상 네트워크를 만든 후 사이트 간 VPN을 만들려면 다음
 
 ## 참고 항목
 
--  [Azure 가상 네트워크 기술 개요](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
+-  [Azure 가상 네트워크 기술 개요](../virtual-network/virtual-networks-overview.md)
 
--  [가상 네트워크 FAQ](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
+-  [가상 네트워크 FAQ](virtual-networks-faq.md)
 
 -  [네트워크 구성 파일을 사용하여 가상 네트워크 구성](virtual-networks-using-network-configuration-file.md)
 
@@ -272,4 +272,4 @@ Azure 가상 네트워크를 만든 후 사이트 간 VPN을 만들려면 다음
 
  
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

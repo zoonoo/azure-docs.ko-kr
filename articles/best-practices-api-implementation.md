@@ -1,21 +1,21 @@
 <properties
    pageTitle="API 구현 지침 | Microsoft Azure"
-   description="API를 구현하는 방법에 대한 지침입니다."
-   services=""
-   documentationCenter="na"
-   authors="dragon119"
-   manager="masimms"
-   editor=""
-   tags=""/>
+	description="API를 구현하는 방법에 대한 지침입니다."
+	services=""
+	documentationCenter="na"
+	authors="dragon119"
+	manager="masimms"
+	editor=""
+	tags=""/>
 
 <tags
    ms.service="best-practice"
-   ms.devlang="rest-api"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="05/13/2015"
-   ms.author="masashin"/>
+	ms.devlang="rest-api"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="05/13/2015"
+	ms.author="masashin"/>
 
 # API 구현 지침
 
@@ -881,7 +881,7 @@ ASP.NET Web API를 사용하여 구현된 서비스에서 각 요청은 _control
 
 - **비동기 작업을 지원하지 않는 클라이언트에 대해 부분 응답을 구현합니다**.
 
-	비동기 스트리밍에 대한 대안으로 클라이언트 응용 프로그램은 큰 개체의 데이터를 명시적으로 청크로 요청할 수 있으며 이를 부분 응답이라고도 합니다. 클라이언트 응용 프로그램은 개체에 대한 정보를 입수하기 위해 HTTP HEAD 요청을 보냅니다. Web API가 부분 응답을 지원하면 HEAD 요청에 대해 Accept-Ranges 헤더 및 개체의 총 크기를 나타내는 Content-Length 헤더를 포함하지만 메시지 본문은 빈 상태의 응답 메시지로 응답해야 합니다. 클라이언트 응용 프로그램은 이 정보를 사용하여 수신할 바이트의 범위를 지정하는 일련의 GET 요청을 구성할 수 있습니다. Web API는 HTTP 상태 코드 206(부분 콘텐츠), 응답 메시지의 본문에 포함된 실제 데이터 양을 나타내는 Content-Length 헤더, 데이터가 개체의 어느 부분(예: 4000\~ 8000바이트)에 해당하는지를 나타내는 Content-Range 헤더를 포함하는 응답 메시지를 반환해야 합니다.
+	비동기 스트리밍에 대한 대안으로 클라이언트 응용 프로그램은 큰 개체의 데이터를 명시적으로 청크로 요청할 수 있으며 이를 부분 응답이라고도 합니다. 클라이언트 응용 프로그램은 개체에 대한 정보를 입수하기 위해 HTTP HEAD 요청을 보냅니다. Web API가 부분 응답을 지원하면 HEAD 요청에 대해 Accept-Ranges 헤더 및 개체의 총 크기를 나타내는 Content-Length 헤더를 포함하지만 메시지 본문은 빈 상태의 응답 메시지로 응답해야 합니다. 클라이언트 응용 프로그램은 이 정보를 사용하여 수신할 바이트의 범위를 지정하는 일련의 GET 요청을 구성할 수 있습니다. Web API는 HTTP 상태 코드 206(부분 콘텐츠), 응답 메시지의 본문에 포함된 실제 데이터 양을 나타내는 Content-Length 헤더, 데이터가 개체의 어느 부분(예: 4000~ 8000바이트)에 해당하는지를 나타내는 Content-Range 헤더를 포함하는 응답 메시지를 반환해야 합니다.
 
 	HTTP HEAD 요청 및 부분 응답은 API 디자인 지침에 보다 자세히 설명되어 있습니다.
 
@@ -1061,7 +1061,7 @@ Azure에는 Web API를 게시 및 관리하는데 사용할 수 있는 [API 관�
 
 이러한 작업을 수행하는 방법에 대한 자세한 내용은 Microsoft 웹 사이트의 [API 관리](http://azure.microsoft.com/services/api-management/) 페이지를 참조하세요. Azure API 관리 서비스에는 Web API 구성 과정을 간소화하기 위한 사용자 지정 인터페이스를 빌드할 수 있도록 자체적인 REST 인터페이스가 제공됩니다. 자세한 내용을 보려면 Microsoft 웹 사이트의 [Azure API 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn776326.aspx) 페이지를 방문하세요.
 
-> [AZURE.TIP]Azure에는 장애 조치(failover) 및 부하 분산을 구현하고, 지리적으로 다른 위치에서 호스팅되는 웹 사이트의 복수 인스턴스에 대해 대기 시간을 줄일 수 있도록 하는 Azure 트래픽 관리자가 제공됩니다. Azure 트래픽 관리자를 API 관리 서비스와 결합하여 사용할 수 있습니다. API 관리 서비스는 Azure 트래픽 관리자를 통해 웹 사이트의 인스턴스로 요청을 라우팅할 수 있습니다. 자세한 내용을 보려면 Microsoft 웹 사이트의 [트래픽 관리자 부하 분산 방법 정보](https://msdn.microsoft.com/library/azure/dn339010.aspx) 페이지를 방문하세요.
+> [AZURE.TIP]Azure에는 장애 조치(failover) 및 부하 분산을 구현하고, 지리적으로 다른 위치에서 호스팅되는 웹 사이트의 복수 인스턴스에 대해 대기 시간을 줄일 수 있도록 하는 Azure 트래픽 관리자가 제공됩니다. Azure 트래픽 관리자를 API 관리 서비스와 결합하여 사용할 수 있습니다. API 관리 서비스는 Azure 트래픽 관리자를 통해 웹 사이트의 인스턴스로 요청을 라우팅할 수 있습니다. 자세한 내용을 보려면 Microsoft 웹 사이트의 [트래픽 관리자 부하 분산 방법 정보](../traffic-manager/traffic-manager-load-balancing-methods.md) 페이지를 방문하세요.
 
 > 이런 구조에서 웹 사이트에 사용자 지정 DNS 이름을 사용하면 Azure 트래픽 관리자 웹 사이트의 DNS 이름을 포인트하도록 각 웹 사이트에 대해 적절한 CNAME 레코드를 구성해야 합니다.
 
@@ -1147,9 +1147,9 @@ API 관리 서비스를 사용하여 Web API를 게시한 경우 Azure 관리 �
 - Microsoft 웹 사이트의 [Azure Notification Hubs Notify Users](notification-hubs-aspnet-backend-windows-dotnet-notify-users/)(Azure 알림 허브 사용자 알림) 페이지는 Azure 알림 허브를 사용하여 클라이언트 응용 프로그램에 비동기 응답을 푸시하는 방법을 보여줍니다.
 - Microsoft 웹 사이트의 [API 관리](http://azure.microsoft.com/services/api-management/) 페이지는 Web API에 제어 및 보안 액세스를 제공하는 제품을 게시하는 방법을 설명합니다.
 - Microsoft 웹 사이트의 [Azure API Management REST API Reference](https://msdn.microsoft.com/library/azure/dn776326.aspx)(Azure API 관리 REST API 참조) 페이지는 API 관리 REST API를 사용하여 사용자 지정 관리 응용 프로그램을 빌드하는 방법을 설명합니다.
-- Microsoft 웹 사이트의 [트래픽 관리자 부하 분산 방법 정보](https://msdn.microsoft.com/library/azure/dn339010.aspx) 페이지는 Web API를 호스팅하는 웹 사이트의 복수 인스턴스에 대한 부하 분산 요청에 Azure 트래픽 관리자를 사용하는 방법을 간추려 설명합니다.
+- Microsoft 웹 사이트의 [트래픽 관리자 부하 분산 방법 정보](../traffic-manager/traffic-manager-load-balancing-methods.md) 페이지는 Web API를 호스팅하는 웹 사이트의 복수 인스턴스에 대한 부하 분산 요청에 Azure 트래픽 관리자를 사용하는 방법을 간추려 설명합니다.
 - Microsoft 웹 사이트의 [Application Insights - 앱의 상태 및 사용 현황 모니터링 시작](app-insights-start-monitoring-app-health-usage.md) 페이지는 ASP.NET Web API 프로젝트에서 Application Insights를 설치하고 구성하는 자세한 정보를 제공합니다.
 - Microsoft 웹 사이트의 [단위 테스트를 사용하여 코드 확인](https://msdn.microsoft.com/library/dd264975.aspx) 페이지는 Visual Studio를 사용하여 단위 테스트를 생성하고 관리하는 자세한 정보를 제공합니다.
 - Microsoft 웹 사이트의 [앱에서 성능 테스트 실행](https://msdn.microsoft.com/library/dn250793.aspx) 페이지는 Visual Studio Ultimate을 사용하여 웹 성능 및 부하 테스트 프로젝트를 생성하는 방법을 설명합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

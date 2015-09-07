@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure RemoteApp용 하이브리드 컬렉션을 만드는 방법" 
-	description="내부 네트워크에 연결되는 RemoteApp 배포를 만드는 방법에 대해 알아봅니다." 
-	services="remoteapp" 
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" 
+	pageTitle="Azure RemoteApp용 하이브리드 컬렉션을 만드는 방법"
+	description="내부 네트워크에 연결되는 RemoteApp 배포를 만드는 방법에 대해 알아봅니다."
+	services="remoteapp"
+	documentationCenter=""
+	authors="lizap"
+	manager="mbaldwin"
 	editor=""/>
 
 <tags 
-	ms.service="remoteapp" 
-	ms.workload="compute" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.service="remoteapp"
+	ms.workload="compute"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/12/2015"
 	ms.author="elizapo"/>
 
 # Azure RemoteApp용 하이브리드 컬렉션을 만드는 방법
@@ -53,9 +53,9 @@
 
 ### Azure VNET을 만들고 Active Directory 배포에 조인
 
-[가상 네트워크](https://msdn.microsoft.com/library/azure/dn631643.aspx)를 만들기 시작합니다. 이 작업은 Azure 관리 포털의 **네트워크** 탭에서 수행됩니다. Azure Active Directory 테넌트로 동기화되는 Active Directory 배포에 가상 네트워크를 연결해야 합니다.
+[가상 네트워크](../virtual-network/virtual-networks-create-vnet.md)를 만들기 시작합니다. 이 작업은 Azure 관리 포털의 **네트워크** 탭에서 수행됩니다. Azure Active Directory 테넌트로 동기화되는 Active Directory 배포에 가상 네트워크를 연결해야 합니다.
 
-자세한 내용은 [관리 포털에서 가상 네트워크 설정 정보](https://msdn.microsoft.com/library/azure/jj156074.aspx)를 참조하세요.
+자세한 내용은 [관리 포털에서 가상 네트워크 설정 정보](../virtual-network/virtual-networks-settings.md)를 참조하세요.
 
 ### 가상 네트워크가 RemoteApp에 대해 사용할 수 있는지 확인합니다.
 RemoteApp 컬렉션을 만들기 전에 새 가상 네트워크를 사용할 수 있는지 확인해 보겠습니다. 다음을 수행하여 이를 확인할 수 있습니다.
@@ -136,4 +136,4 @@ RemoteApp 하이브리드 컬렉션을 성공적으로 만들고 배포했습니
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

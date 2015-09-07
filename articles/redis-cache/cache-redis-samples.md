@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Redis Cache 샘플" 
-	description="Azure Redis Cache를 사용하는 방법을 알아봅니다." 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+	pageTitle="Azure Redis Cache 샘플"
+	description="Azure Redis Cache를 사용하는 방법을 알아봅니다."
+	services="redis-cache"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.service="cache"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="cache-redis"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="08/25/2015"
 	ms.author="sdanie"/>
 
 # Azure Redis Cache 샘플 
@@ -65,7 +65,7 @@
 
 ## 사용자 지정 모니터링 샘플
 
-[Redis Cache 모니터링 데이터 액세스](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) 샘플은 Azure 포털 외부에서 Azure Redis Cache에 대한 모니터링 데이터에 액세스하는 방법을 보여 줍니다.
+[Redis Cache 모니터링 데이터 액세스](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) 샘플은 Azure 미리 보기 포털 외부에서 Azure Redis Cache에 대한 모니터링 데이터에 액세스하는 방법을 보여 줍니다.
 
 ## PHP 및 Redis를 사용하여 작성된 Twitter 스타일 클론
 
@@ -75,4 +75,4 @@
 
 [대역폭 모니터](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) 샘플을 사용하면 클라이언트에서 사용 되는 대역폭을 모니터링할 수 있습니다. 대역폭을 측정하려면 캐시 클라이언트 컴퓨터에서 샘플을 실행하고, 캐시를 호출하고, 대역폭 모니터 샘플에서 보고하는 대역폭을 관찰합니다.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

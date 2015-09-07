@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="클라우드 서비스 디버깅"
-   description="클라우드 서비스 디버깅"
-   services="visual-studio-online"
-   documentationCenter="n/a"
-   authors="patshea123"
-   manager="douge"
-   editor="tlee" />
+   pageTitle="Azure 클라우드 서비스 디버깅 | Microsoft Azure"
+	description="Azure 클라우드 서비스 디버깅"
+	services="visual-studio-online"
+	documentationCenter="n/a"
+	authors="patshea123"
+	manager="douge"
+	editor="tlee"/>
 <tags 
    ms.service="visual-studio-online"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.workload="na"
-   ms.tgt_pltfrm="na"
-   ms.date="08/12/2015"
-   ms.author="patshea" />
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="multiple"
+	ms.workload="na"
+	ms.date="08/14/2015"
+	ms.author="patshea"/>
 
 # 클라우드 서비스 디버깅
 
@@ -27,4 +27,4 @@ Microsoft Visaul Studio 및 Azure SDK용 Azure 도구를 사용하여 Azure 응�
 
 - Visual Studio에서 클라우드 서비스를 배포할 때 클라우드 서비스를 원격 디버깅할 수 있습니다. 배포에 원격 디버깅 사용을 선택하면 원격 디버깅 서비스는 각 역할 인스턴스에 실행되는 가상 컴퓨터에 설치됩니다. Msvsmon.exe 같은 서비스는 성능에 영향을 주지 않거나 추가 비용이 발생하지 않습니다. 자세한 내용은 [Visual Studio의 클라우드 서비스 또는 가상 컴퓨터 디버깅](http://go.microsoft.com/fwlink/p/?LinkID=623018)을 참조하십시오.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

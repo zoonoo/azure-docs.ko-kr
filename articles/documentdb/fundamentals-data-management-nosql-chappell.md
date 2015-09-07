@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure의 NoSQL 기술 이해 | Microsoft Azure" 
-	description="HDInsight의 NoSQL 기술을 통해 빅 데이터 집합 및 JSON 문서나 그래프와 같이 관계형 데이터베이스에 적합하지 않은 데이터를 관리하는 방법에 대해 알아봅니다." 
-	editor="cgronlun" 
-	manager="jhubbard" 
-	services="documentdb, storage, hdinsight" 
-	documentationCenter="" 
+	pageTitle="Azure의 NoSQL 기술 이해 | Microsoft Azure"
+	description="HDInsight의 NoSQL 기술을 통해 빅 데이터 집합 및 JSON 문서나 그래프와 같이 관계형 데이터베이스에 적합하지 않은 데이터를 관리하는 방법에 대해 알아봅니다."
+	editor="cgronlun"
+	manager="jhubbard"
+	services="documentdb, storage, hdinsight"
+	documentationCenter=""
 	authors="mimig1"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/13/2015" 
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/21/2015"
 	ms.author="mimig"/>
 
 # Microsoft Azure의 NoSQL 이해
@@ -31,4 +31,4 @@ Azure에서는 다양한 NoSQL 기술을 제공하지만 기술 간의 차이점
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

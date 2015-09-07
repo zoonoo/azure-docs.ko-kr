@@ -1,39 +1,25 @@
 <properties 
-	pageTitle="SendGrid 메일 서비스를 사용하는 방법(Java) | Microsoft Azure" 
-	description="Azure에서 SendGrid 메일 서비스를 사용하여 메일을 보내는 방법을 알아봅니다. 코드 샘플은 Java로 작성되었습니다." 
-	services="" 
-	documentationCenter="java" 
-	authors="thinkingserious" 
-	manager="sendgrid" 
+	pageTitle="SendGrid 메일 서비스를 사용하는 방법(Java) | Microsoft Azure"
+	description="Azure에서 SendGrid 메일 서비스를 사용하여 메일을 보내는 방법을 알아봅니다. 코드 샘플은 Java로 작성되었습니다."
+	services=""
+	documentationCenter="java"
+	authors="thinkingserious"
+	manager="sendgrid"
 	editor="mollybos"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="10/30/2014" 
+	ms.service="multiple"
+	ms.workload="na"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="10/30/2014"
 	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"/>
-
 # Java의 SendGrid를 사용하여 메일을 보내는 방법
 
-이 가이드에서는 Azure에서 SendGrid 전자 메일 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었습니다. **전자 메일 생성**, **전자 메일 보내기**, **첨부 파일 추가**, **필터 사용**, **속성 업데이트** 등의 시나리오를 다룹니다. SendGrid 및 전자 메일 보내기에 대한 자세한 내용은 [다음 단계][] 섹션을 참조하십시오.
+이 가이드에서는 Azure에서 SendGrid 전자 메일 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었습니다. **전자 메일 생성**, **전자 메일 보내기**, **첨부 파일 추가**, **필터 사용**, **속성 업데이트** 등의 시나리오를 다룹니다. SendGrid 및 전자 메일 보내기에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하십시오.
 
-## 목차
-
--   [SendGrid 메일 서비스 정의][]
--   [SendGrid 계정 만들기][]
--   [방법: javax.mail 라이브러리 사용][]
--   [방법: 전자 메일 만들기][]
--   [방법: 전자 메일 보내기][]
--   [방법: 첨부 파일 추가][]
--   [방법: 필터를 사용하여 바닥글, 추적 및 분석을 사용하도록 설정][]
--   [방법: 전자 메일 속성 업데이트][]
--   [방법: 추가 SendGrid 서비스 사용][]
--   [다음 단계][]
-
-## <a name="bkmk_WhatIsSendGrid"> </a>SendGrid 메일 서비스 정의
+## SendGrid 메일 서비스 정의
 
 SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 신뢰할 만한 [트랜잭션 전자 메일 배달], 확장성 및 실시간 분석을 제공하는 [클라우드 기반 전자 메일 서비스]입니다. 일반적인 SendGrid 사용 시나리오는 다음과 같습니다.
 
@@ -46,11 +32,11 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
 
 자세한 내용은 <http://sendgrid.com>을 참조하세요.
 
-## <a name="bkmk_CreateSendGridAcct"> </a>SendGrid 계정 만들기
+## SendGrid 계정 만들기
 
 [AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
-## <a name="bkmk_HowToUseJavax"> </a>방법: javax.mail 라이브러리 사용
+## 방법: javax.mail 라이브러리 사용
 
 예를 들어 <http://www.oracle.com/technetwork/java/javamail>에서 javax.mail 라이브러리를 얻어 코드로 가져옵니다. javax.mail 라이브러리를 사용하여 SMTP를 통해 전자 메일을 보내는 전반적인 프로세스는 다음과 같습니다.
 
@@ -96,9 +82,9 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
         Session mailSession = Session.getDefaultInstance(properties, auth);
 
 4.  메시지를 만들고 **받는 사람**, **보낸 사람**, **제목** 및 내용 값을 할당합니다. [방법: 전자 메일 만들기](#bkmk_HowToCreateEmail) 섹션에 나와 있습니다.
-5.  *javax.mail.Transport* 개체를 통해 메시지를 보냅니다. [방법: 전자 메일 보내기][How to: Send an Email] 섹션에 나와 있습니다.
+5.  *javax.mail.Transport* 개체를 통해 메시지를 보냅니다. [방법: 전자 메일 보내기][방법: 전자 메일 보내기] 섹션에 나와 있습니다.
 
-## <a name="bkmk_HowToCreateEmail"> </a>방법: 전자 메일 만들기
+## 방법: 전자 메일 만들기
 
 다음은 메일 값을 지정하는 방법을 보여 줍니다.
 
@@ -120,7 +106,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
     message.setSubject("Your recent order");
     message.setContent(multipart);
 
-## <a name="bkmk_HowToSendEmail"> </a>방법: 전자 메일 보내기
+## 방법: 전자 메일 보내기
 
 다음은 메일을 보내는 방법을 보여 줍니다.
 
@@ -132,13 +118,13 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
     // Close the connection.
     transport.close();
 
-## <a name="bkmk_HowToAddAttachment"> </a>방법: 첨부 파일 추가
+## 방법: 첨부 파일 추가
 
 다음 코드는 첨부 파일을 추가하는 방법을 보여 줍니다.
 
     // Local file name and path.
     String attachmentName = "myfile.zip";
-    String attachmentPath = "c:\\myfiles\"; 
+    String attachmentPath = "c:\\myfiles"; 
     MimeBodyPart attachmentPart = new MimeBodyPart();
     // Specify the local file to attach.
     DataSource source = new FileDataSource(attachmentPath + attachmentName);
@@ -148,7 +134,7 @@ SendGrid는 사용자 지정 통합을 쉽게 만드는 유연한 API와 함께 
     attachmentPart.setFileName(attachmentName);
     multipart.addBodyPart(attachmentPart);
 
-## <a name="bkmk_HowToUseFilters"> </a>방법: 필터를 사용하여 바닥글, 추적 및 분석을 사용하도록 설정
+## 방법: 필터를 사용하여 바닥글, 추적 및 분석을 사용하도록 설정
 
 SendGrid는 *필터* 사용을 통해 추가 전자 메일 기능을 제공합니다. 클릭 추적, Google 분석, 구독 추적 등을 사용하도록 설정하는 것과 같이 특정 기능을 사용하도록 설정하기 위해 전자 메일 메시지에 추가할 수 있는 설정입니다. 전체 필터 목록은 [필터 설정][](영문)을 참조하십시오.
 
@@ -178,7 +164,7 @@ SendGrid는 *필터* 사용을 통해 추가 전자 메일 기능을 제공합�
 			{"settings": 
         	{"enable":1}}}}");
 
-## <a name="bkmk_HowToUpdateEmail"> </a>방법: 전자 메일 속성 업데이트
+## 방법: 전자 메일 속성 업데이트
 
 일부 전자 메일 속성은 **set*Property***를 사용하여 덮어쓰거나 **add*Property***를 사용하여 추가할 수 있습니다.
 
@@ -195,11 +181,11 @@ SendGrid는 *필터* 사용을 통해 추가 전자 메일 기능을 제공합�
     message.addRecipient(Message.RecipientType.CC, new 
     InternetAddress("john@contoso.com"));
 
-## <a name="bkmk_HowToUseAdditionalSvcs"> </a>방법: 추가 SendGrid 서비스 사용
+## 방법: 추가 SendGrid 서비스 사용
 
 SendGrid는 Azure 응용 프로그램에서 추가 SendGrid 기능을 활용하는 데 사용할 수 있는 웹 기반 API를 제공합니다. 자세한 내용은 [SendGrid API 설명서][](영문)를 참조하십시오.
 
-## <a name="bkmk_NextSteps"> </a>다음 단계
+## 다음 단계
 
 SendGrid 메일 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내용을 보려면 다음 링크를 따라가세요.
 
@@ -208,17 +194,6 @@ SendGrid 메일 서비스에 관한 기본적인 사항들을 익혔으며 자�
 * SendGrid API 설명서: <https://sendgrid.com/docs/API_Reference/index.html>
 * Azure 고객을 위한 SendGrid 특가 제공: <https://sendgrid.com/windowsazure.html>
 
-  [다음 단계]: #bkmk_NextSteps
-  [SendGrid 메일 서비스 정의]: #bkmk_WhatIsSendGrid
-  [SendGrid 계정 만들기]: #bkmk_CreateSendGridAcct
-  [방법: javax.mail 라이브러리 사용]: #bkmk_HowToUseJavax
-  [방법: 전자 메일 만들기]: #bkmk_HowToCreateEmail
-  [How to: Send an Email]: #bkmk_HowToSendEmail
-  [방법: 전자 메일 보내기]: #bkmk_HowToSendEmail
-  [방법: 첨부 파일 추가]: #bkmk_HowToAddAttachment
-  [방법: 필터를 사용하여 바닥글, 추적 및 분석을 사용하도록 설정]: #bkmk_HowToUseFilters
-  [방법: 전자 메일 속성 업데이트]: #bkmk_HowToUpdateEmail
-  [방법: 추가 SendGrid 서비스 사용]: #bkmk_HowToUseAdditionalSvcs
   [http://sendgrid.com]: https://sendgrid.com
   [http://sendgrid.com/pricing.html]: http://sendgrid.com/pricing.html
   [http://www.sendgrid.com/azure.html]: https://www.sendgrid.com/windowsazure.html
@@ -230,4 +205,4 @@ SendGrid 메일 서비스에 관한 기본적인 사항들을 익혔으며 자�
   [트랜잭션 전자 메일 배달]: https://sendgrid.com/email-solutions
   [클라우드 기반 전자 메일 서비스]: https://sendgrid.com/transactional-email
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=August15_HO9-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="New Relic 응용 프로그램 성능 관리를 사용하는 Azure 앱 서비스에서의 .NET 웹 앱" 
-	description="Azure 응용 프로그램 서비스에서 실행 중인 ASP.NET 응용 프로그램에 New Relic 성능 모니터링을 사용하는 방법에 대해 알아봅니다." 
-	services="app-service\web" 
-	documentationCenter=".net" 
-	authors="cephalin" 
-	manager="wpickett" 
+	pageTitle="New Relic 응용 프로그램 성능 관리를 사용하는 Azure 앱 서비스에서의 .NET 웹 앱"
+	description="Azure 응용 프로그램 서비스에서 실행 중인 ASP.NET 응용 프로그램에 New Relic 성능 모니터링을 사용하는 방법에 대해 알아봅니다."
+	services="app-service\web"
+	documentationCenter=".net"
+	authors="cephalin"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="07/30/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="07/30/2015"
 	ms.author="stepsic"/>
 
 
@@ -78,7 +78,7 @@ Azure 마켓플레이스에서 직접 New Relic에 등록하려면 다음과 같
 
 ## 3단계: ASP.NET 웹 앱 게시
 
-Visual Studio 또는 WebMatrix를 사용하여 웹 앱을 게시합니다. 이전에 웹 앱을 게시한 경우 다시 게시하여 웹 앱 인스턴스가 New Relic 모니터링을 사용하도록 필요한 New Relic NuGet 패키지를 추가합니다.
+Visual Studio를 사용하여 웹앱을 게시합니다. 이전에 웹 앱을 게시한 경우 다시 게시하여 웹 앱 인스턴스가 New Relic 모니터링을 사용하도록 필요한 New Relic NuGet 패키지를 추가합니다.
 
 ## 4단계. New Relic에서 응용 프로그램 성능 확인
 
@@ -180,4 +180,4 @@ Applications Overview 대시보드에는 <a href="https://newrelic.com/docs/site
 [custom]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrcustom.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

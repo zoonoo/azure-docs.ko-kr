@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="서비스 패브릭의 개요" 
-   description="응용 프로그램이 마이크로 서비스로 구성된 서비스 패브릭의 개요. 서비스 패브릭은 확장 가능하고 안정적이며 관리하기 쉬운 클라우드 응용 프로그램을 빌드하는 데 사용되는 분산 시스템 플랫폼입니다." 
-   services="service-fabric" 
-   documentationCenter=".net" 
-   authors="msfussell" 
-   manager="timlt" 
-   editor="masnider"/>
+   pageTitle="서비스 패브릭의 개요 | Microsoft Azure"
+	description="응용 프로그램이 마이크로 서비스로 구성된 서비스 패브릭의 개요. 서비스 패브릭은 확장 가능하고 안정적이며 관리하기 쉬운 클라우드 응용 프로그램을 빌드하는 데 사용되는 분산 시스템 플랫폼입니다."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="msfussell"
+	manager="timlt"
+	editor="masnider"/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA" 
-   ms.date="04/14/2015"
-   ms.author="mfussell"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/25/2015"
+	ms.author="mfussell"/>
 
 # 서비스 패브릭의 개요
 서비스 패브릭은 클라우드를 위한 확장 가능하고 안정적이며 쉽게 관리할 수 있는 응용 프로그램을 빌드하는 데 사용되는 분산 시스템 플랫폼입니다. 서비스 패브릭은 클라우드 응용 프로그램 개발 및 관리에서 발생하는 중요한 과제를 해결합니다. 서비스 패브릭을 사용하면 개발자와 관리자가 복잡한 인프라 문제를 해결하기 위한 작업에 시간을 소비하는 대신, 업무 수행에 필수적인 까다로운 작업을 확장 가능하고 신뢰할 수 있으며 관리가 가능하도록 구현하는 데 집중할 수 있습니다. 서비스 패브릭은 엔터프라이즈급 계층 1 클라우드 규모의 서비스를 빌드 및 관리하기 위한 차세대 미들웨어 플랫폼을 나타냅니다.
 
-## 마이크로 서비스로 구성된 응용 프로그램 ##
+## 마이크로 서비스로 구성된 응용 프로그램
 서비스 패브릭을 사용하면 컴퓨터의 공유 풀(일반적으로 서비스 패브릭 클러스터라고 함)에서 매우 높은 밀도로 실행되는 마이크로 서비스로 구성된 확장 가능하고 신뢰할 수 있는 응용 프로그램을 빌드하고 관리할 수 있습니다. 또한 분산된 확장 가능한 상태 비저장 및 상태 저장 마이크로 서비스와 배포된 응용 프로그램의 프로비전, 배포, 모니터링, 업그레이드/패치 및 삭제를 위한 포괄적인 응용 프로그램 관리 기능을 빌드하는 데 필요한 정교한 런타임을 제공합니다.
 
 서비스 패브릭은 Azure SQL 데이터베이스, Azure DocumentDB, Cortana, Power BI, Microsoft Intune, Azure 이벤트 허브, 많은 핵심 Azure 서비스 및 비즈니스용 Skype 등과 같은 오늘날의 많은 Microsoft 서비스를 지원합니다.
@@ -42,7 +42,7 @@
 
 2) 상태 저장 마이크로 서비스가 순수한 상태 비저장 응용 프로그램의 가용성 및 대기 시간 요구 사항을 해결하기 위해 일반적으로 필요로 했던 추가 큐 및 캐시에 대한 필요성을 제거하여 응용 프로그램 설계 간소화. 상태 저장 서비스는 기본적으로 가용성이 높고 대기 시간이 낮기 때문에 전체적으로 응용 프로그램에서 관리하는 이동 부분이 적습니다.
 
-서비스 패브릭을 사용하는 응용 프로그램 패턴 및 디자인에 대한 자세한 내용은 [응용 프로그램 시나리오](../service-fabric-application-scenarios)를 참조하세요.
+서비스 패브릭을 사용하는 응용 프로그램 패턴 및 디자인에 대한 자세한 내용은 [응용 프로그램 시나리오](service-fabric-application-scenarios.md)를 참조하세요.
 
 ## 응용 프로그램 수명 주기 관리
 서비스 패브릭은 개발부터 배포, 일상적인 관리, 유지 관리 및 최종적인 서비스 해제에 이르기까지 클라우드 응용 프로그램의 전체 ALM(응용 프로그램 수명 주기 관리)에 대해 최고 수준의 지원을 제공합니다.
@@ -51,7 +51,7 @@
 
 대부분의 응용 프로그램은 상태 비저장 및 상태 저장 마이크로 서비스, 그리고 함께 배포되는 다른 EXE/런타임의 조합으로 구성됩니다. 응용 프로그램 및 패키지된 마이크로 서비스에 대한 강력한 형식을 가지고 있으므로, 서비스 패브릭을 사용하면 각각을 독립적으로 관리 및 업그레이드할 수 있는 여러 응용 프로그램 인스턴스를 배포할 수 있습니다. 중요한 것은 서비스 패브릭을 사용하여 *모든* 실행 파일 또는 런타임을 배포하고 안정적으로 만들 수 있다는 것입니다. 예를 들어, ASP.NET 5, node.js, 스크립트 또는 응용 프로그램을 구성하는 모든 항목을 배포하는 데 사용할 수 있습니다.
   
-응용 프로그램 수명 주기 관리에 대한 자세한 내용은 [응용 프로그램 수명 주기](../service-fabric-application-lifecycle)를 참조하세요.
+응용 프로그램 수명 주기 관리에 대한 자세한 내용은 [응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)를 참조하세요.
 
 ## 주요 기능
 서비스 패브릭을 사용하면 다음을 수행할 수 있습니다.
@@ -89,10 +89,13 @@
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## 다음 단계
 
-자세한 내용은 [기술 개요](../service-fabric-technical-overview)를 참조하세요.
+* 자세한 내용은 [기술 개요](service-fabric-technical-overview.md)를 참조하세요.
+* 서비스 패브릭 [개발 환경](service-fabric-get-started.md)을 설정합니다.  
+* 서비스에 대한 [프레임워크](service-fabric-choose-framework.md)를 선택합니다.
+
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

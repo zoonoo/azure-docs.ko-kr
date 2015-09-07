@@ -1,19 +1,19 @@
 <properties
 	pageTitle="조건부 액세스를 사용한 위험 관리"
-	description="정책을 준수하는 알려진 장치에서 원격으로 특정 리소스에 액세스하도록 허용하고 분실되었거나, 도난당했거나, 호환되지 않는 장치에서는 액세스할 수 없도록 하는 방법을 설명하는 항목입니다."
+	description="정책을 준수하는 알려진 장치에서 원격으로 회사 네트워크 내의 특정 리소스에 액세스하도록 허용하고 분실되었거나, 도난당했거나, 호환되지 않는 장치에서는 액세스할 수 없도록 합니다."
 	services="active-directory, virtual-network"
 	documentationCenter=""
 	authors="femila"
-	manager="stevepo"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
 	ms.service="active-directory"
 	ms.devlang="na"
 	ms.topic="article"
-  ms.tgt_pltfrm="na"
-  ms.workload="identity" 
-	ms.date="07/31/2015"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/19/2015"
 	ms.author="femila"/>
 
 
@@ -35,13 +35,13 @@ Azure Active Directory, Office 365 및 Microsoft Intune을 통해 제공되는 �
 
 다음 항목에서는 조직에서 조건부 액세스 정책을 설정하는 데 사용할 수 있는 메커니즘 각각에 대해 설명합니다.
 
-- [Azure Active Directory Device Registration Overview](https://msdn.microsoft.com/library/azure/dn903763.aspx)
-- [Azure Active Directory Device Registration을 사용하여 온-프레미스 조건부 액세스 설정](https://msdn.microsoft.com/library/azure/dn788908.aspx)
-- [Conditional Access Device Policies for Office 365 services](https://msdn.microsoft.com/library/azure/dn903766.aspx)
-- [Azure Conditional Access Preview for SaaS Apps](https://msdn.microsoft.com/library/azure/dn906877.aspx)
+- [Azure Active Directory Device Registration Overview](active-directory-conditional-access-device-registration-overview.md)
+- [Azure Active Directory Device Registration을 사용하여 온-프레미스 조건부 액세스 설정](active-directory-conditional-access-on-premises-setup.md)
+- [Conditional Access Device Policies for Office 365 services](active-directory-conditional-access-device-policies.md)
+- [Azure Conditional Access Preview for SaaS Apps](active-directory-conditional-access-azuread-connected-apps.md)
 
 
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access/condaccoverviewvsdx1.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,23 +1,25 @@
 <properties 
-   pageTitle="Microsoft Azure 앱 서비스에서 AS2 커넥터 사용" 
-   description="AS2 커넥터를 사용하는 방법" 
-   services="app-service\logic" 
-   documentationCenter=".net,nodejs,java" 
-   authors="rajeshramabathiran" 
-   manager="dwrede" 
-   editor=""/>
+   pageTitle="논리 앱에서 AS2 커넥터 사용 | Microsoft Azure 앱 서비스"
+	description="AS2 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
+	services="app-service\logic"
+	documentationCenter=".net,nodejs,java"
+	authors="rajeshramabathiran"
+	manager="dwrede"
+	editor=""/>
 
 <tags
    ms.service="app-service-logic"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="08/19/2015"
-   ms.author="rajram"/>
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="integration"
+	ms.date="08/23/2015"
+	ms.author="rajram"/>
 
-# Microsoft AS2 커넥터
-Microsoft Azure AS2 커넥터는 B2B 통신에서 AS2(Applicability Statement 2) 전송 프로토콜을 통해 메시지를 주고 받을 수 있도록 합니다. 데이터는 인터넷을 통해 안전하고 안정적으로 전송됩니다. 보안은 디지털 인증서 및 암호화를 사용하여 수행됩니다.
+# AS2 커넥터 시작 및 논리 앱에 추가
+AS2 커넥터를 사용하여 B2B 통신에서 AS2(Applicability Statement 2) 전송 프로토콜을 통해 메시지를 주고받을 수 있습니다. 데이터는 인터넷을 통해 안전하고 안정적으로 전송됩니다. 보안은 디지털 인증서 및 암호화를 사용하여 수행됩니다.
+
+AS2 커넥터를 비즈니스 워크플로에 추가하고 논리 앱 내에서 B2B 워크플로의 일부로 데이터를 처리할 수 있습니다.
 
 ## 트리거 및 작업
 트리거는 파트너의 AS2 메시지 도착과 같은 특정 이벤트를 기반으로 새 인스턴스를 시작합니다. 동작은 AS2 메시지를 받은 후 AS2를 사용하여 메시지를 보내는 것과 같은 결과입니다.
@@ -35,14 +37,14 @@ AS2 커넥터는 논리 앱에서 트리거 또는 동작으로 사용할 수 �
 --- | ---
 TPM API 앱 | AS2 커넥터를 만들기 전에 [BizTalk 거래 업체 관리 커넥터][1]를 만들어야 합니다. <br/><br/>**참고** TPM API 앱의 이름을 확인하세요. 
 Azure SQL 데이터베이스 | 파트너, 스키마, 인증서 및 규약을 비롯한 B2B 항목을 저장합니다. 각 B2B API 앱에는 자체 Azure SQL 데이터베이스가 필요합니다.<br/><br/>**참고** 이 데이터베이스에 연결 문자열을 복사합니다.<br/><br/>[Azure SQL 데이터베이스 만들기](../sql-database-get-started.md)
-Azure Blob 저장소 컨테이너 | AS2 보관을 사용하도록 설정한 경우 메시지 속성을 저장합니다. AS2 메시지 보관이 불필요한 경우에는 저장소 컨테이너가 필요하지 않습니다.<br/><br/>**참고** 보관을 사용하도록 설정하는 경우 이 Blob 저장소에 연결 문자열을 복사합니다.<br/><br/>[Azure 저장소 계정 정보](../storage-create-storage-account.md).
+Azure Blob 저장소 컨테이너 | AS2 보관을 사용하도록 설정한 경우 메시지 속성을 저장합니다. AS2 메시지 보관이 불필요한 경우에는 저장소 컨테이너가 필요하지 않습니다. <br/><br/>**참고** 보관을 사용하도록 설정하는 경우 이 Blob 저장소에 연결 문자열을 복사합니다.<br/><br/>[Azure 저장소 계정 정보](../storage-create-storage-account.md).
 
 ## AS2 커넥터 만들기
 
 커넥터는 논리 앱 내에서 만들거나 Azure 마켓플레이스에서 직접 만들 수 있습니다. 마켓플레이스에서 커넥터를 만들려면
 
 1. Azure 시작 보드에서 **마켓플레이스**를 선택합니다.
-2. “AS2 커넥터”를 검색하여 선택하고 **만들기**를 선택합니다.
+2. "AS2 커넥터"를 검색하여 선택하고 **만들기**를 선택합니다.
 3. 이름, 앱 서비스 계획 및 기타 속성을 입력합니다.
 4. 다음 패키지 설정을 입력합니다.
 
@@ -113,4 +115,4 @@ Enable Archiving | boolean | 아웃바운드 메시지를 보관해야 하는지
 [9]: ./media/app-service-logic-connector-as2/EncodeAndSendInput.PNG
 [10]: ./media/app-service-logic-connector-as2/EncodeAndSendConfigured.PNG
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=August15_HO9-->

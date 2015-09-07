@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 리소스 관리자 아키텍처"
-   description="리소스 관리자의 아키텍처 및 계산, 네트워크 및 저장소 리소스 공급자 간의 관계에 대해 알아봅니다."
-   services="virtual-machines"
-   documentationCenter=""
-   authors="davidmu1"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+	description="리소스 관리자의 아키텍처 및 계산, 네트워크 및 저장소 리소스 공급자 간의 관계에 대해 알아봅니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="davidmu1"
+	manager="timlt"
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
-	ms.service="virtual-machines"
+	ms.service="azure-resource-manager"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="08/25/2015"
 	ms.author="davidmu"/>
 
 # Azure 리소스 관리자 아키텍처
@@ -79,4 +79,4 @@ Azure 리소스 관리자의 경우, 리소스 공급자는 사용자가 필요�
 
 [Azure 리소스 관리자 개요](resource-group-overview.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Azure 테이블 커넥터 - Azure 테이블에서 데이터 이동" 
-	description="Azure 테이블 저장소에서 데이터를 이동시키는 데이터 팩터리 서비스용 Azure 테이블 커넥터에 대해 알아봅니다" 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Azure 테이블 간 데이터 이동 | Azure 데이터 팩터리"
+	description="Azure 데이터 팩터리를 사용하여 Azure 테이블 저장소 간 데이터를 이동하는 방법에 대해 알아봅니다."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/26/2015"
 	ms.author="spelluru"/>
 
-# Azure 테이블 커넥터 - Azure 테이블에서 데이터 이동
+# Azure 데이터 팩터리를 사용하여 Azure 테이블 간 데이터 이동
 
 이 문서에서는 Azure 데이터 팩토리에서 복사 작업을 사용하여 다른 데이터 저장소와 Azure 테이블 간에 데이터를 이동하는 방법을 간략하게 설명합니다. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 작성합니다.
 
@@ -24,10 +24,10 @@
 
 아래 샘플은 다음을 보여줍니다.
 
-1.	AzureStorage 형식의 연결된 서비스입니다.(테이블 및 blob에 모두 사용됨)
-2.	AzureTable 형식의 입력 데이터 집합입니다.
-3.	AzureBlob 형식의 출력 데이터 집합입니다. 
-3.	AzureTableSource 및 BlobSink를 사용하는 복사 작업의 파이프라인입니다. 
+1.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스(테이블 및 blob에 모두 사용됨)
+2.	[AzureTable](#azure-table-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다.
+3.	[AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)입니다. 
+3.	[AzureTableSource](#azure-table-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다. 
 
 샘플은 매시간 Azure 테이블의 기본 파티션에 속하는 데이터를 blob로 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
@@ -132,7 +132,7 @@
 
 **복사 작업을 포함하는 파이프라인:**
 
-파이프라인은 위의 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **AzureTableSource**으로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다. **AzureTableSourceQuery** 속성으로 지정된 SQL 쿼리는 매시간 기본 파티션에서 복사할 데이터를 선택합니다.
+파이프라인은 위의 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **원본** 형식은 **AzureTableSource**로 설정되고 **sink** 형식은 **BlobSink**로 설정됩니다. **AzureTableSourceQuery** 속성으로 지정된 SQL 쿼리는 매시간 기본 파티션에서 복사할 데이터를 선택합니다.
 
 	{  
 	    "name":"SamplePipeline",
@@ -183,10 +183,11 @@
 
 아래 샘플은 다음을 보여줍니다.
 
-1.	AzureStorage 형식의 연결된 서비스(테이블 및 blob에 모두 사용됨)
-3.	AzureBlob 형식의 입력 데이터 집합입니다.
-4.	AzureTable 형식의 출력 데이터 집합입니다. 
-4.	BlobSource 및 AzureTableSink를 사용하는 복사 작업의 파이프라인입니다. 
+1.	[AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스(테이블 및 blob에 모두 사용됨)
+3.	[AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다.
+4.	[AzureTable](#azure-table-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)입니다. 
+4.	[BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) 및 [AzureTableSink](#azure-table-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다. 
+
 
 샘플은 Azure blob에서 Azure 테이블 데이터베이스의 테이블로 매시간 시계열에 속한 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
@@ -290,7 +291,7 @@
 
 **복사 작업을 포함하는 파이프라인:**
 
-파이프라인은 위의 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **source** 형식은 **BlobSource**으로 설정되고 **sink** 형식은 **AzureTableSink**로 설정됩니다.
+파이프라인은 위의 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **원본** 형식은 **BlobSource**로 설정되고 **sink** 형식은 **AzureTableSink**로 설정됩니다.
 
 
 	{  
@@ -351,9 +352,9 @@ Azure 저장소 계정을 Azure 저장소 연결된 서비스로 Azure 데이터
 
 ## Azure 테이블 데이터 집합 형식 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하십시오. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다.(SQL Azure, Azure Blob, Azure 테이블 등)
+데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다(Azure SQL, Azure blob, Azure 테이블 등).
 
-typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **AzureTable** 데이터 집합 형식의 데이터 집합에 대한 **typeProperties** 섹션에는 다음 속성이 있습니다.
+typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **AzureTable** 데이터 집합 형식에 대한 **typeProperties** 섹션에는 다음 속성이 있습니다.
 
 | 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- |
@@ -361,18 +362,18 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 
 ## Azure 테이블 복사 활동 형식 속성
 
-활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하십시오. 이름, 설명, 입력 및 출력 테이블, 다양한 정책 등과 같은 속성은 모든 유형의 활동에 사용할 수 있습니다.
+활동 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md) 문서를 참조하세요. 이름, 설명, 입력 및 출력 테이블, 다양한 정책 등과 같은 속성은 모든 유형의 활동에 사용할 수 있습니다.
 
 반면 작업의 typeProperties 섹션에서 사용할 수 있는 속성은 각 작업 형식에 따라 다르며 복사 작업의 경우 속성은 원본 및 싱크의 형식에 따라 다릅니다.
 
-**AzureTableSource**은 typeProperties 섹션에서 다음 속성을 지원합니다.
+**AzureTableSource**는 typeProperties 섹션에서 다음 속성을 지원합니다.
 
 속성 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | -------- 
 azureTableSourceQuery | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | Azure 테이블 쿼리 문자열. 샘플: **ColumnA eq ValueA** | 아니요
 azureTableSourceIgnoreTableNotFound | 존재하지 않는 테이블의 예외를 받아들이는지를 나타냅니다. | TRUE<br/>FALSE | 아니요 |
 
-**AzureTableSink**은 typeProperties 섹션에서 다음 속성을 지원합니다.
+**AzureTableSink**는 typeProperties 섹션에서 다음 속성을 지원합니다.
 
 
 속성 | 설명 | 허용되는 값 | 필수  
@@ -393,7 +394,7 @@ writeBatchTimeout | WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azur
 1. 네이티브 원본 형식에서 .NET 형식으로 변환
 2. .NET 형식에서 네이티브 싱크 형식으로 변환
 
-Azure 테이블에서 데이터를 이동하는 경우 다음 [Azure 테이블 서비스에서 정의된 매핑](https://msdn.microsoft.com/library/azure/dd179338.aspx)은 Azure 테이블 OData 형식에서 .NET 유형에 또는 그 반대로사용됩니다.
+Azure 테이블에서 데이터를 이동하는 경우 다음 [Azure 테이블 서비스에서 정의된 매핑](https://msdn.microsoft.com/library/azure/dd179338.aspx)은 Azure 테이블 OData 형식에서 .NET 유형에 또는 그 반대로 사용됩니다.
 
 | OData 데이터 형식 | .NET 형식 | 세부 정보 |
 | --------------- | --------- | ------- |
@@ -484,4 +485,4 @@ lastlogindate | Edm.DateTime
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->

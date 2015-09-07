@@ -1,20 +1,20 @@
 <properties
    pageTitle="SQL 데이터 웨어하우스에서 데이터베이스 보호 | Microsoft Azure"
-   description="솔루션 개발을 위해 Azure SQL 데이터 웨어하우스에서 데이터베이스를 보호하는 팁"
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="sahaj08"
-   manager="barbkess"
-   editor=""/>
+	description="솔루션 개발을 위해 Azure SQL 데이터 웨어하우스에서 데이터베이스를 보호하는 팁"
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="sahaj08"
+	manager="barbkess"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/22/2015"
-   ms.author="sahajs"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="06/22/2015"
+	ms.author="sahajs"/>
 
 # SQL 데이터 웨어하우스에서 데이터베이스 보호
 
@@ -58,6 +58,28 @@ ALTER ROLE db_datawriter ADD MEMBER ApplicationUser; -- allows ApplicationUser t
 Azure 관리 포털에서 또는 Azure 리소스 관리자 API를 사용하여 데이터베이스 및 논리 서버를 관리하는 것은 포털 사용자 계정의 역할 할당에 의해 제어됩니다. 이 항목에 대한 자세한 내용은 [Azure Preview 포털의 역할 기반 액세스 제어][]를 참조하세요.
 
 
+
+## 암호화
+
+Azure SQL 데이터 웨어하우스는 데이터가 "휴지 상태"일 때 또는 데이터베이스 파일 및 백업에 저장된 경우 [투명한 데이터 암호화][]를 사용하여 데이터를 암호화함으로써 데이터를 보호할 수 있도록 도와줍니다. 데이터베이스를 암호화하려면 데이터베이스 소유자로 연결하고 다음을 실행합니다.
+
+
+```
+
+ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
+
+```
+
+또한 [Azure 포털][]의 데이터베이스 설정에서 투명한 데이터 암호화를 설정할 수 있습니다.
+
+
+
+## 감사
+
+데이터베이스 이벤트의 감사 및 추적은 규정을 준수하고 의심스러운 활동을 식별할 수 있도록 도와줍니다. SQL 데이터 웨어하우스 감사를 사용하면 Azure 저장소 계정의 감사 로그에 데이터베이스의 이벤트를 기록할 수 있습니다. 또한 드릴다운 보고서 및 분석을 용이하게 하려면 SQL 데이터 웨어하우스 감사 기능을 Microsoft Power BI와 통합합니다. 자세한 내용은 [SQL 데이터베이스 감사 시작][]을 참조하세요.
+
+
+
 ## 다음 단계
 더 많은 개발 팁은 [개발 개요][]를 참조하세요.
 
@@ -73,9 +95,11 @@ Azure 관리 포털에서 또는 Azure 리소스 관리자 API를 사용하여 �
 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리]: https://msdn.microsoft.com/library/ee336235.aspx
 [사용 권한]: https://msdn.microsoft.com/library/ms191291.aspx
 [저장 프로시저]: https://msdn.microsoft.com/library/ms190782.aspx
-[Transparent Data Encryption]: http://go.microsoft.com/fwlink/?linkid=526242&clcid=0x409
+[투명한 데이터 암호화]: http://go.microsoft.com/fwlink/?LinkId=526242
+[SQL 데이터베이스 감사 시작]: sql-database-auditing-get-started.md
+[Azure 포털]: https://portal.azure.com/
 
 <!--Other Web references-->
 [Azure Preview 포털의 역할 기반 액세스 제어]: http://azure.microsoft.com/documentation/articles/role-based-access-control-configure.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=August15_HO9-->
