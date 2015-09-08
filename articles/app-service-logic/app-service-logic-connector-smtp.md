@@ -67,16 +67,16 @@ SMTP 커넥터에서 사용할 수 있는 트리거와 동작은 다음과 같�
 
 이제 워크플로에서 사용되도록 SMTP 커넥터를 구성할 수 있습니다. **메일 보내기** 동작을 선택하고 입력 속성을 구성합니다.
 
-	Property | Description
+	속성 | 설명
 	--- | ---
-	To | 받는 사람의 메일 주소를 입력합니다. 여러 개의 메일 주소는 세미콜론(;)으로 구분하면 됩니다. 예를 들어, recipient1@domain.com;recipient2@domain.com과 같이 입력할 수 있습니다.
-	Cc | 참조에 포함할 사람의 메일 주소를 입력합니다. 여러 개의 메일 주소는 세미콜론(;)으로 구분하면 됩니다. 예를 들어, recipient1@domain.com;recipient2@domain.com과 같이 입력할 수 있습니다.
-	Subject | 메일의 제목을 입력합니다.
-	Body | 메일의 본문을 입력합니다.
-	Is HTML | 이 속성을 true로 설정하면 본문의 내용이 HTML로 전송됩니다.
-	Bcc | 숨은 참조에 포함할 사람의 메일 주소를 입력합니다. 여러 개의 메일 주소는 세미콜론(;)으로 구분하면 됩니다. 예를 들어, recipient1@domain.com;recipient2@domain.com과 같이 입력할 수 있습니다.
-	Importance | 메일의 중요도를 입력합니다. 보통, 낮음, 높음 중에서 선택할 수 있습니다.
-	Attachments | 첨부 파일이 메일과 함께 전송되며, 다음과 같은 필드가 포함되어 있습니다: <ul><li>Content (String)</li><li>Content transfer Encoding (Enum) (“none”|”base64”)</li><li>Content Type (String)</li><li>Content ID (String)</li><li>File Name (String)</li></ul>
+	받는 사람 | 받는 사람의 메일 주소를 입력합니다. 여러 개의 메일 주소는 세미콜론(;)으로 구분하면 됩니다. 예를 들어, recipient1@domain.com;recipient2@domain.com과 같이 입력할 수 있습니다.
+	참조 | 참조에 포함할 사람의 메일 주소를 입력합니다. 여러 개의 메일 주소는 세미콜론(;)으로 구분하면 됩니다. 예를 들어, recipient1@domain.com;recipient2@domain.com과 같이 입력할 수 있습니다.
+	제목 | 메일의 제목을 입력합니다.
+	본문 | 메일의 본문을 입력합니다.
+	HTML | 이 속성을 true로 설정하면 본문의 내용이 HTML로 전송됩니다.
+	숨은 참조 | 숨은 참조에 포함할 사람의 메일 주소를 입력합니다. 여러 개의 메일 주소는 세미콜론(;)으로 구분하면 됩니다. 예를 들어, recipient1@domain.com;recipient2@domain.com과 같이 입력할 수 있습니다.
+	중요도 | 메일의 중요도를 입력합니다. 보통, 낮음, 높음 중에서 선택할 수 있습니다.
+	첨부 파일 | 첨부 파일이 메일과 함께 전송되며, 다음과 같은 필드가 포함되어 있습니다: <ul><li>콘텐츠(문자열)</li><li>콘텐츠 전송 인코딩(열거형) (“none”|”base64”)</li><li>콘텐츠 유형(문자열)</li><li>콘텐츠 ID(문자열)</li><li>파일 이름(문자열)</li></ul>
 
 	![][5]
 	![][6]

@@ -474,9 +474,69 @@ UDF(사용자 정의 함수)는 DocumentDB SQL 쿼리 언어 문법을 확장하
 ## JavaScript 언어 통합 쿼리 API
 DocumentDB의 SQL 문법을 사용하여 쿼리를 발급하는 것 외에도 서버 쪽 SDK를 사용하면 SQL의 지식 없이도 흐름 JavaScript 인터페이스를 사용하여 최적화된 쿼리를 수행할 수 있습니다. JavaScript 쿼리 API를 사용하면 조건자 함수를 ECMAScript5의 배열 기본 제공 항목과 익숙한 구문 및 lodash와 같은 인기 있는 JavaScript 라이브러리가 포함된 연결 가능한 함수 호출에 전달하여 쿼리를 프로그래밍 방식으로 작성할 수 있습니다. 쿼리는 DocumentDB의 인덱스를 사용하여 효율적으로 실행되도록 JavaScript 런타임으로 구문 분석됩니다.
 
-> [AZURE.NOTE]`__`(이중 밑줄)은(는) `getContext().getCollection()`에 대한 별칭입니다. <br/> 즉 `__` 또는 `getContext().getCollection()`을(를) 사용하여 JavaScript 쿼리 API에 액세스할 수 있습니다.
+> [AZURE.NOTE]`__`(이중 밑줄)은(는) `getContext().getCollection()`에 대한 별칭입니다.
+> <br/>
+> 즉 `__` 또는 `getContext().getCollection()`을(를) 사용하여 JavaScript 쿼리 API에 액세스할 수 있습니다.
 
-지원되는 함수는 다음을 포함합니다: <ul> <li> <b>chain().... 값([콜백] [, 옵션])</b> <ul> <li> 값()으로 끝나야 하는 연결된 호출을 시작합니다. </li> </ul> </li> <li> <b>필터(predicateFunction [, 옵션] [, 콜백])</b> <ul> <li> 결과 집합으로 in/out 입력된 문서를 필터링하기 위해 true/false를 반환하는 조건자 함수를 사용하여 입력을 필터링합니다. SQL의 WHERE 절과 비슷하게 동작합니다. </li> </ul> </li> <li> <b>맵(transformationFunction [, 옵션] [, 콜백])</b> <ul> <li> 입력된 각 항목을 매핑하는 변환 함수가 지정된 프로젝션을JavaScript 개체 또는 값에 적용합니다. SQL의 SELECT 절과 비슷하게 동작 합니다. </li> </ul> </li> <li> <b>pluck([propertyName] [, 옵션] [, 콜백])</b> <ul> <li> 입력된 각 항목에서 단일 속성의 값을 추출하는 맵에 대 한 바로 가기입니다. </li> </ul> </li> <li> <b>평면화([isShallow] [, 옵션] [, 콜백])</b> <ul> <li> 배열을 입력된 각 항목에서 단일 배열로 결합하고 평면화합니다. LINQ의 SelectMany와 비슷하게 동작합니다. </li> </ul> </li> <li> <b>sortBy([조건부] [, 옵션] [, 콜백])</b> <ul> <li> 입력된 문서 스트림에서 문서를 지정된 조건자를 사용하여 오름차순으로 정렬하여 새 문서 집합을 생성합니다. SQL의 ORDER BY 절과 비슷하게 동작합니다. </li> </ul> </li> <li> <b>sortByDescending([조건부] [, 옵션] [, 콜백])</b> <ul> <li> 입력된 문서 스트림에서 문서를 지정된 조건자를 사용하여 내림차순으로 정렬하여 새 문서 집합을 생성합니다. SQL의 ORDER BY x DESC 절과 비슷하게 동작합니다. </li> </ul> </li> </ul>
+지원되는 함수는 다음을 포함합니다:
+<ul>
+<li>
+<b>chain().... 값([콜백] [, 옵션])</b>
+<ul>
+<li>
+값()으로 끝나야 하는 연결된 호출을 시작합니다.
+</li>
+</ul>
+</li>
+<li>
+<b>필터(predicateFunction [, 옵션] [, 콜백])</b>
+<ul>
+<li>
+결과 집합으로 in/out 입력된 문서를 필터링하기 위해 true/false를 반환하는 조건자 함수를 사용하여 입력을 필터링합니다. SQL의 WHERE 절과 비슷하게 동작합니다.
+</li>
+</ul>
+</li>
+<li>
+<b>맵(transformationFunction [, 옵션] [, 콜백])</b>
+<ul>
+<li>
+입력된 각 항목을 매핑하는 변환 함수가 지정된 프로젝션을JavaScript 개체 또는 값에 적용합니다. SQL의 SELECT 절과 비슷하게 동작 합니다.
+</li>
+</ul>
+</li>
+<li>
+<b>pluck([propertyName] [, 옵션] [, 콜백])</b>
+<ul>
+<li>
+입력된 각 항목에서 단일 속성의 값을 추출하는 맵에 대 한 바로 가기입니다.
+</li>
+</ul>
+</li>
+<li>
+<b>평면화([isShallow] [, 옵션] [, 콜백])</b>
+<ul>
+<li>
+배열을 입력된 각 항목에서 단일 배열로 결합하고 평면화합니다. LINQ의 SelectMany와 비슷하게 동작합니다.
+</li>
+</ul>
+</li>
+<li>
+<b>sortBy([조건부] [, 옵션] [, 콜백])</b>
+<ul>
+<li>
+입력된 문서 스트림에서 문서를 지정된 조건자를 사용하여 오름차순으로 정렬하여 새 문서 집합을 생성합니다. SQL의 ORDER BY 절과 비슷하게 동작합니다.
+</li>
+</ul>
+</li>
+<li>
+<b>sortByDescending([조건부] [, 옵션] [, 콜백])</b>
+<ul>
+<li>
+입력된 문서 스트림에서 문서를 지정된 조건자를 사용하여 내림차순으로 정렬하여 새 문서 집합을 생성합니다. SQL의 ORDER BY x DESC 절과 비슷하게 동작합니다.
+</li>
+</ul>
+</li>
+</ul>
 
 
 조건자 및/또는 선택기 함수 안에 포함된 경우 다음과 같은 JavaScript 구문이 DocumentDB 인덱스에서 직접 실행하도록 자동으로 최적화됩니다.
@@ -553,7 +613,140 @@ DocumentDB의 SQL 문법을 사용하여 쿼리를 발급하는 것 외에도 �
 
 SQL 쿼리를 사용하는 것과 같이 문서 속성 키(예: `doc.id`)는 소문자를 구분합니다.
 
-<br/> <table border="1" width="100%"> <colgroup> <col span="1" style="width: 40%;"> <col span="1" style="width: 40%;"> <col span="1" style="width: 20%;"> </colgroup> <tbody> <tr> <th>SQL</th> <th>JavaScript 쿼리 API</th> <th>세부 정보</th> </tr> <tr> <td> <pre> SELECT * FROM docs </pre> </td> <td> <pre> \_\_.map(function(doc) {return doc;}); </pre> </td> <td>모든 문서(연속 토큰과 함께 페이지가 매겨진)의 결과는 있는 그대로입니다.</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg, docs.actions FROM docs </pre> </td> <td> <pre> \_\_.map(function(doc) { return { id: doc.id, msg: doc.message, actions: doc.actions }; }); </pre> </td> <td>모든 문서에서 id, message(msg로 지정됨) 및 action을 프로젝션합니다.</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.filter(function(doc) { return doc.id === "X998\_Y998"; }); </pre> </td> <td>조건자: id = "X998\_Y998"을 사용한 문서에 대해 쿼리합니다.</td> </tr> <tr> <td> <pre> SELECT * FROM docs WHERE ARRAY\_CONTAINS(docs.Tags, 123) </pre> </td> <td> <pre> \_\_.filter(function(x) { return x.Tags && x.Tags.indexOf(123) > -1; }); </pre> </td> <td>Tags 속성이 있는 문서에 대해 쿼리하고 Tags는 123 값을 포함하는 배열입니다.</td> </tr> <tr> <td> <pre> SELECT docs.id, docs.message AS msg FROM docs WHERE docs.id="X998\_Y998" </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.id === "X998\_Y998"; }) .map(function(doc) { return { id: doc.id, msg: doc.message }; }) .value(); </pre> </td> <td>조건자 id = "X998\_Y998"을 사용한 문서에 대해 쿼리한 다음 id, message(msg로 지정됨)를 프로젝션합니다.</td> </tr> <tr> <td> <pre> SELECT VALUE tag FROM docs JOIN tag IN docs.Tags ORDER BY docs.\_ts </pre> </td> <td> <pre> \_\_.chain() .filter(function(doc) { return doc.Tags && Array.isArray(doc.Tags); }) .sortBy(function(doc) { return doc.\_ts; }) .pluck("Tags") .flatten() .value() </pre> </td> <td>array 속성, Tags가 있는 문서에 대해 필터링하고 \_ts timestamp system 속성으로 결과 문서를 정렬한 다음 Tags 배열을 프로젝션 + 평면화합니다.</td> </tr> </tbody> </table>
+<br/>
+<table border="1" width="100%">
+<colgroup>
+<col span="1" style="width: 40%;">
+<col span="1" style="width: 40%;">
+<col span="1" style="width: 20%;">
+</colgroup>
+<tbody>
+<tr>
+<th>SQL</th>
+<th>JavaScript 쿼리 API</th> <th>세부 정보</th>
+</tr>
+<tr>
+<td>
+<pre>
+SELECT *
+FROM docs
+</pre>
+</td>
+<td>
+<pre>
+__.map(function(doc) {
+    return doc;
+});
+</pre>
+</td>
+<td>모든 문서(연속 토큰과 함께 페이지가 매겨진)의 결과는 있는 그대로입니다.</td>
+</tr>
+<tr>
+<td>
+<pre>
+SELECT docs.id, docs.message AS msg, docs.actions 
+FROM docs
+</pre>
+</td>
+<td>
+<pre>
+__.map(function(doc) {
+    return {
+        id: doc.id,
+        msg: doc.message,
+        actions: doc.actions
+    };
+});
+</pre>
+</td>
+<td>모든 문서에서 id, message(msg로 지정됨) 및 action을 프로젝션합니다.</td>
+</tr>
+<tr>
+<td>
+<pre>
+SELECT * 
+FROM docs 
+WHERE docs.id="X998_Y998"
+</pre>
+</td>
+<td>
+<pre>
+__.filter(function(doc) {
+    return doc.id === "X998_Y998";
+});
+</pre>
+</td>
+<td>조건자: id = "X998\_Y998"을 사용한 문서에 대해 쿼리합니다.</td>
+</tr>
+<tr>
+<td>
+<pre>
+SELECT *
+FROM docs
+WHERE ARRAY_CONTAINS(docs.Tags, 123)
+</pre>
+</td>
+<td>
+<pre>
+__.filter(function(x) {
+    return x.Tags && x.Tags.indexOf(123) > -1;
+});
+</pre>
+</td>
+<td>Tags 속성이 있는 문서에 대해 쿼리하고 Tags는 123 값을 포함하는 배열입니다.</td>
+</tr>
+<tr>
+<td>
+<pre>
+SELECT docs.id, docs.message AS msg
+FROM docs 
+WHERE docs.id="X998_Y998"
+</pre>
+</td>
+<td>
+<pre>
+__.chain()
+    .filter(function(doc) {
+        return doc.id === "X998_Y998";
+    })
+    .map(function(doc) {
+        return {
+            id: doc.id,
+            msg: doc.message
+        };
+    })
+    .value();
+</pre>
+</td>
+<td>조건자 id = "X998_Y998"을 사용한 문서에 대해 쿼리한 다음 id, message(msg로 지정됨)를 프로젝션합니다.</td>
+</tr>
+<tr>
+<td>
+<pre>
+SELECT VALUE tag
+FROM docs
+JOIN tag IN docs.Tags
+ORDER BY docs._ts
+</pre>
+</td>
+<td>
+<pre>
+__.chain()
+    .filter(function(doc) {
+        return doc.Tags && Array.isArray(doc.Tags);
+    })
+    .sortBy(function(doc) {
+    	return doc._ts;
+    })
+    .pluck("Tags")
+    .flatten()
+    .value()
+</pre>
+</td>
+<td>array 속성, Tags가 있는 문서에 대해 필터링하고 \_ts timestamp system 속성으로 결과 문서를 정렬한 다음 Tags 배열을 프로젝션 + 평면화합니다.</td> 
+</tr>
+</tbody>
+</table>
 
 ## 런타임 지원
 [DocumentDB JavaScript 서버 쪽 SDK](http://dl.windowsazure.com/documentDB/jsserverdocs/)는 [ECMA-262](documentdb-interactions-with-resources.md)에서 표준화된 일반 JavaScript 언어 기능을 대부분 지원합니다
@@ -660,7 +853,8 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 	}
 
 
-만들려는 저장 프로시저를 본문에 포함하여 URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs에 대해 POST 요청을 실행하면 저장 프로시저가 등록됩니다. 트리거 및 UDF는 각각 /triggers 및 /udfs에 대해 POST를 실행해서 비슷하게 등록할 수 있습니다. 그런 다음 해당 리소스 링크에 대해 POST 요청을 실행해서 이 저장 프로시저를 실행할 수 있습니다.
+만들려는 저장 프로시저를 본문에 포함하여 URI dbs/sehcAA==/colls/sehcAIE2Qy4=/sprocs에 대해 POST 요청을 실행하면 저장 프로시저가 등록됩니다. 트리거 및 UDF는 각각 /triggers 및 /udfs에 대해 POST를 실행해서 비슷하게 등록할 수 있습니다.
+그런 다음 해당 리소스 링크에 대해 POST 요청을 실행해서 이 저장 프로시저를 실행할 수 있습니다.
 
 	POST https://<url>/sprocs/<sproc> HTTP/1.1
 	authorization: <<auth>>

@@ -2,7 +2,7 @@
 
 1. Xamarin.Studio에서 **Info.plist**를 열고 앞에서 만든 ID를 사용하여 **Bundle Identifier**를 업데이트합니다.
 
-    ![][121]
+    ![][88]
 
 2. 아래의 **Background Modes**로 스크롤하여 **Enable Background Modes** 상자와 **Remote notifications** 상자를 선택합니다.
 
@@ -31,7 +31,7 @@
     이제 프로젝트에서 코드 서명에 새 프로필을 사용하게 됩니다. 공식 Xamarin 장치 프로비저닝 설명서를 보려면 [Xamarin 장치 프로비저닝]을 참조하세요.
 
 [120]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-20.png
-[121]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png
+[88]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-21.png
 [122]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-22.png
 [123]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-23.png
 [124]:./media/app-service-mobile-xamarin-ios-configure-project/mobile-services-ios-push-24.png

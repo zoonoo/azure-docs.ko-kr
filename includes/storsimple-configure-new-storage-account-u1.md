@@ -33,7 +33,7 @@
 	  		
  - **Openstack**을 클라우드 서비스 공급자로 선택한 경우, **호스트 이름**, **액세스 키** 및 **비밀 키**를 제공합니다.
 
-        > [AZURE.NOTE] For all the cloud service providers, excluding Azure, a friendly name is allowed. You can use different friendly names and create more than one storage account with the same set of credentials.
+        > [AZURE.NOTE] Azure를 제외한 모든 클라우드 서비스 공급자는 대화명 사용이 허용됩니다. 대화명을 사용하고 같은 자격 증명 집합의 저장소 계정을 여러 개 만들 수 있습니다.
 
         ![Add Openstack storage account](./media/storsimple-configure-new-storage-account-u1/AddOpenstackStorageaccount-include.png)
 

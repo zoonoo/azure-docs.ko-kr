@@ -18,7 +18,9 @@
 
 # Xamarin iOS 모바일 앱에 대해 오프라인 동기화 사용
 
-[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]&nbsp;[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
+[AZURE.INCLUDE [app-service-mobile-selector-offline-preview](../../includes/app-service-mobile-selector-offline-preview.md)]
+&nbsp;  
+[AZURE.INCLUDE [app-service-mobile-note-mobile-services-preview](../../includes/app-service-mobile-note-mobile-services-preview.md)]
 
 ## 개요
 
@@ -65,7 +67,10 @@
     제공된 코드에서 원격 `TodoItem` 테이블에 있는 모든 레코드를 쿼리하지만 쿼리 ID 및 쿼리를 `PushAsync`로 전달하여 레코드를 필터링할 수도 있습니다. 자세한 내용은 [Azure 모바일 앱에서 오프라인 데이터 동기화]에서 섹션 *증분 동기화*를 참조하세요.
 
 	<!-- Need updated conflict handling info : `InitializeAsync` uses the default conflict handler, which fails whenever there is a conflict. To provide a custom conflict handler, see the tutorial [Handling conflicts with offline support for Mobile Services].
--->	// QSTodoService.cs
+ 	-->
+
+
+		// QSTodoService.cs
 
         public async Task SyncAsync()
         {

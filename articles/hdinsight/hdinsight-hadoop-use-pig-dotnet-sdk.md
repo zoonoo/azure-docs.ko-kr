@@ -232,6 +232,7 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 내용입니�
 
 * [HDInsight에서 Hadoop과 Hive 사용](hdinsight-use-hive.md)
 
-* [SSH를 사용하여 HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md) [preview-portal]: https://portal.azure.com/
+* [SSH를 사용하여 HDInsight에서 Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
+[preview-portal]: https://portal.azure.com/
 
 <!---HONumber=August15_HO8-->
