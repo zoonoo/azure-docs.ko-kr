@@ -78,8 +78,8 @@ SMTP 커넥터에서 사용할 수 있는 트리거와 동작은 다음과 같�
 	중요도 | 메일의 중요도를 입력합니다. 보통, 낮음, 높음 중에서 선택할 수 있습니다.
 	첨부 파일 | 첨부 파일이 메일과 함께 전송되며, 다음과 같은 필드가 포함되어 있습니다: <ul><li>콘텐츠(문자열)</li><li>콘텐츠 전송 인코딩(열거형) (“none”|”base64”)</li><li>콘텐츠 유형(문자열)</li><li>콘텐츠 ID(문자열)</li><li>파일 이름(문자열)</li></ul>
 
-	![][5]
-	![][6]
+![][5]
+![][6]
 
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
@@ -96,4 +96,4 @@ SMTP 커넥터에서 사용할 수 있는 트리거와 동작은 다음과 같�
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!---HONumber=August15_HO9-->
+<!-----HONumber=August15_HO9-->

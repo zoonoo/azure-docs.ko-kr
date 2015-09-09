@@ -83,9 +83,9 @@ Windows용 사용자 지정 스크립트 확장을 사용하면 원격 VM에 로
 
 ### 템플릿에 사용자 지정 스크립트 확장 사용
 
-사용자 지정 스크립트 확장을 템플릿에 사용하는 방법을 확인하려면 [여기] 문서를 참조하세요.(virtual-machines-extensions-customscript -with template.md)
+사용자 지정 스크립트 확장을 템플릿에 사용하는 방법을 확인하려면 [여기](virtual-machines-extensions-customscript -with template.md) 문서를 클릭하세요.
 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!---HONumber=August15_HO9-->
+<!------HONumber=August15_HO9-->
