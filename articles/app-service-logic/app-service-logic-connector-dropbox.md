@@ -35,9 +35,8 @@ Dropbox 커넥터는 논리 앱에서 동작으로 사용할 수 있으며 JSON 
 
 1. Azure 시작 보드에서 **마켓플레이스**를 선택합니다.
 2. "Dropbox 커넥터"를 검색하여 선택하고 **만들기**를 선택합니다.
-3. 이름, 앱 서비스 계획 및 기타 속성을 입력합니다. !
-
-	[][1]
+3. 이름, 앱 서비스 계획 및 기타 속성을 입력합니다.  
+	![][1]
 	- **위치** - 커넥터를 배포할 지리적 위치를 선택합니다.
 	- **구독** - 이 커넥터를 만들 구독을 선택합니다.
 	- **리소스 그룹** - 커넥터가 상주할 리소스 그룹을 선택하거나 만듭니다.
@@ -88,4 +87,4 @@ API 앱을 만들고 나면 이제 Dropbox 커넥터를 논리 앱에 대한 동
 [8]: ./media/app-service-logic-connector-dropbox/img8.PNG
 [9]: ./media/app-service-logic-connector-dropbox/img9.PNG
 
-<!---HONumber=August15_HO9-->
+<!----HONumber=August15_HO9-->

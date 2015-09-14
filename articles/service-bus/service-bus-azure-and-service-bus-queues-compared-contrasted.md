@@ -292,7 +292,7 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 
 - 장기 폴링에 대한 지원을 고려할 때, 대기 시간이 짧은 배달이 필요한 상황이라면 서비스 버스 큐를 사용하는 것이 비용 효율적일 수 있습니다.
 
->[AZURE.NOTE]모든 비용은 변경될 수 있습니다. 이 표에는 이 문서의 작성 당시 가격이 반영되어 있으며, 현재 사용 가능할 수 있는 판촉 제품이 포함되어 있지 않습니다. Azure 가격에 대한 최신 정보는 [Azure 가격](http://azure.microsoft.com/pricing/) 페이지를 참조하세요. 서비스 버스 가격에 대한 자세한 내용은 [서비스 버스 가격((http://azure.microsoft.com/pricing/details/service-bus/)을 참조하세요.
+>[AZURE.NOTE] 모든 비용은 변경될 수 있습니다. 이 표에는 이 문서의 작성 당시 가격이 반영되어 있으며, 현재 사용 가능할 수 있는 판촉 제품이 포함되어 있지 않습니다. Azure 가격에 대한 최신 정보는 [Azure 가격](http://azure.microsoft.com/pricing/) 페이지를 참조하세요. 서비스 버스 가격에 대한 자세한 내용은 [서비스 버스 가격](http://azure.microsoft.com/pricing/details/service-bus/)을 참조하세요.
 
 ## 결론
 
@@ -315,4 +315,4 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 - [Azure 저장소 대금 청구 - 대역폭, 트랜잭션, 용량의 이해](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!---HONumber=August15_HO9-->
+<!----HONumber=August15_HO9-->
