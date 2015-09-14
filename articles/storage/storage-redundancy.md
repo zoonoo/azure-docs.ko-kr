@@ -1,19 +1,22 @@
-<properties
-	pageTitle="Azure 저장소 복제 | Microsoft Azure"
-	description="description = ";Microsoft Azure 저장소 계정의 데이터는 항상 내구성 및 고가용성을 위해 복제됩니다. 복제 옵션은 (LRS) 로컬 중복 저장소(LRS), 영역 중복 저장소 (ZRS), 지역 중복 저장소 (GRS) 및 읽기 액세스 지역 중복 저장소 (RA-GRS)에 포함 됩니다."
-	services="storage"
-	documentationCenter=""
-	authors="tamram"
-	manager="adinah"
-	editor=""/>
 
-<tagsms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="tamram"/>
+<properties 
+  pageTitle="Azure 저장소 복제 | Microsoft Azure" 
+  description="Microsoft Azure 저장소 계정의 데이터는 항상 내구성 및 고가용성을 위해 복제됩니다. 복제 옵션은 (LRS) 로컬 중복 저장소(LRS), 영역 중복 저장소 (ZRS), 지역 중복 저장소 (GRS) 및 읽기 액세스 지역 중복 저장소 (RA-GRS)에 포함 됩니다." 
+  services="storage" 
+  documentationCenter="" 
+  authors="tamram" 
+  manager="adinah" 
+  editor=""/>
+
+<tags 
+  ms.service="storage" 
+  ms.workload="storage" 
+  ms.tgt_pltfrm="na" 
+  ms.devlang="na" 
+  ms.topic="article" 
+  ms.date="09/01/2015" 
+  ms.author="tamram"/>
+
 
 # Azure 저장소 복제
 
