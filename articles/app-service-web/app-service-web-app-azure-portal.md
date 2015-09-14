@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="03/24/2015"
+	ms.date="07/17/2015"
 	ms.author="jaime-espinosa"/>
 
 # Azure 포털 탐색을 위한 참조
@@ -86,4 +86,4 @@ Azure 웹 사이트를 이제 [앱 서비스 웹앱](http://go.microsoft.com/fwl
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [새 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

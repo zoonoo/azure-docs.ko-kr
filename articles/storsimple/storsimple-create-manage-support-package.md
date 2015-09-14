@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="지원 패키지 만들기 및 관리| Microsoft Azure"
-   description="StorSimple 장치용 지원 패키지 만들기, 암호 해독 및 편집 방법을 알아봅니다."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="StorSimple 지원 패키지 만들기 | Microsoft Azure"
+	description="StorSimple 장치용 지원 패키지를 만들고, 암호 해독 및 편집하는 방법을 알아봅니다."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 
-# 지원 티켓 만들기 및 관리
+# StorSimple 지원 패키지 만들기 및 관리
 
 ## 개요
 
@@ -198,4 +198,4 @@ Microsoft 지원 사이트에 업로드하기 전에 지원 패키지를 편집�
 
 [지원 패키지 및 장치 로그를 사용하여 장치 배포 문제 해결](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting) 방법을 알아봅니다.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure Active Directory 그래프 정보 액세스(Windows 스토어) | Microsoft Azure" 
-	description="Windows 스토어 응용 프로그램에서 Graph API를 사용하여 Azure Active Directory 정보에 액세스하는 방법에 대해 알아봅니다." 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Azure Active Directory 그래프 정보 액세스(Windows 스토어) | Microsoft Azure"
+	description="Windows 스토어 응용 프로그램에서 Graph API를 사용하여 Azure Active Directory 정보에 액세스하는 방법에 대해 알아봅니다."
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="mobile-services"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/09/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # Azure Active Directory 그래프 정보 액세스
@@ -34,7 +34,7 @@ Azure AD Graph API에 대한 자세한 내용은 [Azure Active Directory 그래�
 
 
 
-##필수 조건 
+##필수 조건
 
 이 자습서를 시작하려면 먼저 다음 모바일 서비스 자습서를 완료해야 합니다.
 
@@ -84,7 +84,7 @@ Azure AD Graph API에 대한 자세한 내용은 [Azure Active Directory 그래�
 	        public String postalCode { get; set; }
 	        public String mail { get; set; }
 	        public String[] otherMails { get; set; }
-	
+
 	        public override string ToString()
 	        {
 	            return "displayName : " + displayName + "\n" +
@@ -206,7 +206,7 @@ Azure AD Graph API에 대한 자세한 내용은 [Azure Active Directory 그래�
         }
 
 9. 변경 내용을 저장하고 서비스를 빌드하여 구문 오류가 없는지 확인합니다.
-10. 모바일 서비스 프로젝트를 사용자의 Azure 계정에 게시합니다. 
+10. 모바일 서비스 프로젝트를 사용자의 Azure 계정에 게시합니다.
 
 
 ## <a name="update-app"></a>GetUserInfo를 사용하도록 앱 업데이트
@@ -214,7 +214,7 @@ Azure AD Graph API에 대한 자세한 내용은 [Azure Active Directory 그래�
 이 섹션에서는 [앱에 인증 추가] 자습서에서 구현한 `AuthenticateAsync` 메서드를 업데이트하여 사용자 지정 API를 호출하고 AAD에서 사용자에 대한 추가 정보를 반환합니다.
 
 [AZURE.INCLUDE [mobile-services-aad-graph-info-update-app](../../includes/mobile-services-aad-graph-info-update-app.md)]
-  
+
 
 
 ## <a name="test-app"></a>앱 테스트
@@ -253,6 +253,5 @@ Azure AD Graph API에 대한 자세한 내용은 [Azure Active Directory 그래�
 [Azure Active Directory 그래프 팀 블로그]: http://go.microsoft.com/fwlink/?LinkId=510536
 [Get User]: http://msdn.microsoft.com/library/azure/dn151678.aspx
 [모바일 서비스의 AAD에서 역할 기반 액세스 제어]: mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac.md
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

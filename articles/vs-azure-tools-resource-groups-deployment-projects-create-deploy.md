@@ -85,7 +85,7 @@ Azure 리소스 그룹 프로젝트를 배포할 때 Azure 리소스 그룹에 �
 
     ![리소스 그룹에 배포 대화 상자](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796673.png)
 
-1. **리소스 그룹** 드롭다운 상자에서 기존 리소스 그룹을 선택하거나 새로 만듭니다. 리소스 그룹을 만들려면 **리소스 그룹** 드롭다운 상자를 선택하고 **<Create New...>**를 선택합니다.
+1. **리소스 그룹** 드롭다운 상자에서 기존 리소스 그룹을 선택하거나 새 항목을 만듭니다. 리소스 그룹을 만들려면 **리소스 그룹** 드롭다운 상자를 열고 **<Create New...>**을(를) 선택합니다.
 
     **리소스 그룹 만들기** 대화 상자가 나타납니다.
 
@@ -195,4 +195,4 @@ TFS 자동화된 빌드 및 Microsoft 내 다른 프로젝트에서 명명 규�
 
 Visual Studio에서 Azure 리소스 그룹에 리소스를 추가하는 방법을 알아보려면 [Azure 리소스 그룹에 리소스 추가](https://msdn.microsoft.com/library/azure/mt125415.aspx)를 참조하세요.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

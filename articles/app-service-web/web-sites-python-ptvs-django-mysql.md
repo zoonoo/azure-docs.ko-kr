@@ -1,25 +1,25 @@
 <properties 
-	pageTitle="Python Tools 2.1 for Visual Studio가 있는 Azure의 Django 및 MySQL" 
-	description="Python Tools for Visual Studio를 사용하여 MySQL 데이터베이스 인스턴스에 데이터를 저장하고 Azure 앱 서비스 웹앱에 배포할 수 있는 Django 웹앱을 만드는 방법에 대해 알아봅니다." 
-	services="app-service\web" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+	pageTitle="Azure의 Django 및 MySQL과 Python Tools 2.2 for Visual Studio"
+	description="Python Tools for Visual Studio를 사용하여 MySQL 데이터베이스 인스턴스에 데이터를 저장하고 Azure 앱 서비스 웹앱에 배포할 수 있는 Django 웹앱을 만드는 방법에 대해 알아봅니다."
+	services="app-service\web"
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
 
 
 
-# Python Tools 2.1 for Visual Studio가 있는 Azure의 Django 및 MySQL 
+# Azure의 Django 및 MySQL과 Python Tools 2.2 for Visual Studio 
 
 이 자습서에서는 PTVS 샘플 템플릿 중 하나를 사용하여 간단한 설문 조사 웹앱을 만들기 위해 [Python Tools for Visual Studio]를 사용해 보겠습니다. 이 자습서는 [비디오](https://www.youtube.com/watch?v=oKCApIrS0Lo)로도 제공됩니다.
 
@@ -29,10 +29,10 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 ## 필수 조건
 
- - Visual Studio 2012 또는 2013
- - [Python Tools 2.1 for Visual Studio]
- - [Python Tools 2.1 for Visual Studio Samples VSIX]
- - [Azure SDK Tools for VS 2013] 또는 [Azure SDK Tools for VS 2012]
+ - Visual Studio 2013 또는 2015
+ - [Python Tools 2.2 for Visual Studio]
+ - [Python Tools 2.2 for Visual Studio Samples VSIX]
+ - [Azure SDK Tools for VS 2013] 또는 [Azure SDK Tools for VS 2015]
  - [Python 2.7 32비트]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -198,17 +198,17 @@ Python Tools for Visual Studio, Django 및 MySQL에 대해 자세히 알아보�
 <!--External Link references-->
 [Azure 포털]: https://portal.azure.com
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
-[Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Python Tools 2.1 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
+[Python Tools 2.2 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Azure SDK Tools for VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 32비트]: http://go.microsoft.com/fwlink/?LinkId=517190
-[Python Tools for Visual Studio 설명서]: http://pytools.codeplex.com/documentation
-[Microsoft Azure의 원격 디버깅]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
-[웹 프로젝트]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
-[클라우드 서비스 프로젝트]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[Python Tools for Visual Studio 설명서]: http://aka.ms/ptvsdocs
+[Microsoft Azure의 원격 디버깅]: http://go.microsoft.com/fwlink/?LinkId=624026
+[웹 프로젝트]: http://go.microsoft.com/fwlink/?LinkId=624027
+[클라우드 서비스 프로젝트]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Django 설명서]: https://www.djangoproject.com/
 [MySQL]: http://www.mysql.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

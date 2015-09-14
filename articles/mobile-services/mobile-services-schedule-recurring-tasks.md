@@ -1,27 +1,27 @@
-<properties 
-	pageTitle="스케줄러를 사용하여 백 엔드 작업 예약 | Microsoft Azure" 
-	description="Azure 모바일 서비스 스케줄러를 사용하여 모바일 앱에 대한 작업을 예약합니다." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="스케줄러를 사용하여 백 엔드 작업 예약 | Microsoft Azure"
+	description="Azure 모바일 서비스 스케줄러를 사용하여 모바일 앱에 대한 작업을 예약합니다."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
-# 모바일 서비스에서 되풀이 작업 예약 
+# 모바일 서비스에서 되풀이 작업 예약
 
 > [AZURE.SELECTOR-LIST (Platform | Backend)]
 - [(Any | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
 - [(Any | Javascript)](mobile-services-schedule-recurring-tasks.md)
- 
+
 이 항목에서는 관리 포털의 작업 스케줄러 기능을 사용하여 정의한 일정에 따라 실행되는 서버 스크립트 코드를 정의하는 방법을 보여 줍니다. 이 경우 스크립트는 원격 서비스(이 예에서는 Twitter)를 주기적으로 확인하여 결과를 새 테이블에 저장합니다. 예약할 수 있는 다른 정기 작업에는 다음이 포함됩니다.
 
 + 오래되었거나 중복된 데이터 레코드 보관
@@ -46,7 +46,7 @@
 
 이제 Twitter에 액세스하고 새 Updates 테이블에 트윗 데이터를 저장하는 예약된 작업을 만들 수 있습니다.
 
-2. **스케줄러** 탭을 클릭한 후 **+만들기**를 클릭합니다. 
+2. **스케줄러** 탭을 클릭한 후 **+만들기**를 클릭합니다.
 
     >[AZURE.NOTE]<em>무료</em> 계층에서 모바일 서비스를 실행하는 경우 한 번에 하나의 예약된 작업만 실행할 수 있습니다. 유료 계층에서는 한 번에 최대 10개의 예약된 작업을 실행할 수 있습니다.
 
@@ -62,23 +62,23 @@
 
 		// Get the service configuration module.
 		var config = require('mobileservice-config');
-		
-		// Get the stored Twitter consumer key and secret. 
+
+		// Get the stored Twitter consumer key and secret.
 		var consumerKey = config.twitterConsumerKey,
 		    consumerSecret = config.twitterConsumerSecret
-		// Get the Twitter access token from app settings.    
+		// Get the Twitter access token from app settings.
 		var accessToken= config.appSettings.TWITTER_ACCESS_TOKEN,
 		    accessTokenSecret = config.appSettings.TWITTER_ACCESS_TOKEN_SECRET;
-		
-		function getUpdates() {   
+
+		function getUpdates() {
 		    // Check what is the last tweet we stored when the job last ran
 		    // and ask Twitter to only give us more recent tweets
 		    appendLastTweetId(
-		        twitterUrl, 
-		        function twitterUrlReady(url){            
+		        twitterUrl,
+		        function twitterUrlReady(url){
 		            // Create a new request with OAuth credentials.
 		            request.get({
-		                url: url,                
+		                url: url,
 		                oauth: {
 		                    consumer_key: consumerKey,
 		                    consumer_secret: consumerSecret,
@@ -89,7 +89,7 @@
 		                if (!error && response.statusCode == 200) {
 		                    var results = JSON.parse(body).statuses;
 		                    if(results){
-		                        console.log('Fetched ' + results.length + ' new results from Twitter');                       
+		                        console.log('Fetched ' + results.length + ' new results from Twitter');
 		                        results.forEach(function (tweet){
 		                            if(!filterOutTweet(tweet)){
 		                                var update = {
@@ -101,12 +101,12 @@
 		                                updatesTable.insert(update);
 		                            }
 		                        });
-		                    }            
-		                } else { 
+		                    }
+		                } else {
 		                    console.error('Could not contact Twitter');
 		                }
 		            });
-		
+
 		        });
 		 }
 		// Find the largest (most recent) tweet ID we have already stored
@@ -117,13 +117,13 @@
 		    .orderByDescending('twitterId')
 		    .read({success: function readUpdates(updates){
 		        if(updates.length){
-		            callback(url + '&since_id=' + (updates[0].twitterId + 1));           
+		            callback(url + '&since_id=' + (updates[0].twitterId + 1));
 		        } else {
 		            callback(url);
 		        }
 		    }});
 		}
-		
+
 		function filterOutTweet(tweet){
 		    // Remove retweets and replies
 		    return (tweet.text.indexOf('RT') === 0 || tweet.to_user_id);
@@ -165,6 +165,5 @@
 [Register your apps for Twitter login with Mobile Services]: /develop/mobile/how-to-guides/register-for-twitter-authentication
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

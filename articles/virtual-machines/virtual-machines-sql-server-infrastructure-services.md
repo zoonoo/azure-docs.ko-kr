@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/24/2015"
+	ms.date="09/01/2015"
 	ms.author="jroth"/>
 
 # Azure 가상 컴퓨터의 SQL Server 개요
@@ -29,24 +29,21 @@ Azure에서 SQL Server 가상 컴퓨터를 만들려면 먼저 Azure 플랫폼 �
 
 구독에 등록한 후 Azure에서 SQL Server 가상 컴퓨터를 배포하는 가장 쉬운 방법은 [Azure 관리 포털에서 SQL Server 컴퓨터 갤러리 이미지를 프로비전](virtual-machines-provision-sql-server.md)하는 것입니다. 이러한 이미지에는 VM 가격에 포함된 SQL Server의 라이선스가 포함되어 있습니다.
 
-Azure 가상 컴퓨터에서 일반적인 SQL Server 작업을 실행할 수 있습니다. SQL Server에는 갤러리에서 사용할 수 있는 몇 가지 최적화된 가상 컴퓨터 이미지가 있습니다. 특정 작업에 대한 자세한 내용은 다음을 참조하세요.
-
-- [Azure 가상 컴퓨터의 SQL Server Business Intelligence](virtual-machines-sql-server-business-intelligence.md)
-- [Azure 가상 컴퓨터의 SQL Server 데이터 웨어하우징 및 트랜잭션 작업](virtual-machines-sql-server-dw-and-oltp-workloads.md)
-
 다음 표에서는 가상 컴퓨터 갤러리의 사용 가능한 SQL Server 이미지의 매트릭스를 제공합니다.
 
 |SQL Server 버전|운영 체제|SQL Server 버전|
 |---|---|---|
-|SQL Server 2008 R2 SP2|Windows Server 2008 R2|Enterprise, Standard 및 Web|
-|SQL Server 2008 R2 SP3|Windows Server 2008 R2|Enterprise, Standard 및 Web|
-|SQL Server 2012 SP2|Windows Server 2012|Enterprise, Standard, Web, OLTP(Enterprise) 및 Data Warehouse(Enterprise)|
-|SQL Server 2012 SP2|Windows Server 2012 R2|Enterprise, Standard, Web, OLTP(Enterprise) 및 Data Warehouse(Enterprise)|
-|SQL Server 2014|Windows Server 2012 R2|Enterprise, Standard, Web, OLTP(Enterprise) 및 Data Warehouse(Enterprise)|
-|SQL Server 2014 SP1|Windows Server 2012 R2|Enterprise, Standard, Web, OLTP(Enterprise) 및 Data Warehouse(Enterprise)|
+|SQL Server 2008 R2 SP2|Windows Server 2008 R2|Enterprise, Standard, Web|
+|SQL Server 2008 R2 SP3|Windows Server 2008 R2|Enterprise, Standard, Web|
+|SQL Server 2012 SP2|Windows Server 2012|Enterprise, Standard, Web|
+|SQL Server 2012 SP2|Windows Server 2012 R2|Enterprise, Standard, Web|
+|SQL Server 2014|Windows Server 2012 R2|Enterprise, Standard, Web|
+|SQL Server 2014 SP1|Windows Server 2012 R2|Enterprise, Standard, Web|
 |SQL Server 2016 CTP|Windows Server 2012 R2|평가|
 
-미리 구성된 이미지 외에도 사전 설치된 SQL Server 없이 [Azure 가상 컴퓨터 만들기](virtual-machines-windows-tutorial.md)를 수행할 수도 있습니다. 라이선스가 있다면 어떤 SQL Server 인스턴스든 설치할 수 있습니다. Azure 가상 컴퓨터에서 SQL Server를 실행하기 위해 [Azure에서 Software Assurance를 통한 라이선스 이동](http://azure.microsoft.com/pricing/license-mobility/)을 사용하여 라이선스를 Azure로 마이그레이션합니다. 이 시나리오에서는 가상 컴퓨터와 관련된 Azure 계산 및 저장소 [비용](http://azure.microsoft.com/pricing/details/virtual-machines)에 대해서만 지불합니다.
+>[AZURE.NOTE]데이터 웨어하우징 및 트랜잭션 작업에 대한 가상 컴퓨터 갤러리 이미지(위에 표시되지 않음)는 사용되지 않으며 갤러리에서 곧 제거될 예정입니다. 앞의 표에 있는 표준 이미지를 사용하고 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-sql-server-performance-best-practices.md)의 권장 사항에 따라 특정 워크로드에 대해 성능을 최적화하세요.
+
+미리 구성된 이미지뿐 아니라 사전 설치된 SQL Server 없이 [Azure 가상 컴퓨터 만들기](virtual-machines-windows-tutorial.md)를 수행할 수도 있습니다. 라이선스가 있다면 어떤 SQL Server 인스턴스든 설치할 수 있습니다. Azure 가상 컴퓨터에서 SQL Server를 실행하기 위해 [Azure에서 Software Assurance를 통한 라이선스 이동](http://azure.microsoft.com/pricing/license-mobility/)을 사용하여 라이선스를 Azure로 마이그레이션합니다. 이 시나리오에서는 가상 컴퓨터와 관련된 Azure 계산 및 저장소 [비용](http://azure.microsoft.com/pricing/details/virtual-machines)에 대해서만 지불합니다.
 
 프로비저닝과 구성의 이러한 초기 단계에는 다음과 같은 일반적인 작업이 수행됩니다.
 
@@ -56,7 +53,7 @@ Azure 가상 컴퓨터에서 일반적인 SQL Server 작업을 실행할 수 있
 
 ### 데이터 마이그레이션
 
-SQL Server 가상 컴퓨터를 준비하고 실행한 후 기존 데이터베이스를 컴퓨터로 마이그레이션할 수도 있습니다. 여러 가지 기술이 있지만 SQL Server Management Studio의 배포 마법사는 대부분의 시나리오에 적합합니다. 시나리오에 대한 설명 및 마법사에 대한 자습서는 [Azure VM에서 SQL Server로 데이터베이스 마이그레이션](virtual-machines-migrate-onpremises-database.md)을 참조하세요.
+SQL Server 가상 컴퓨터를 준비하고 실행한 후 기존 데이터베이스를 컴퓨터로 마이그레이션할 수도 있습니다. 여러 가지 기술이 있지만 SQL Server Management Studio의 배포 마법사는 대부분의 시나리오에 적합합니다. 시나리오에 대한 설명 및 마법사에 대한 자습서는 [Azure VM의 SQL Server로 데이터베이스 마이그레이션](virtual-machines-migrate-onpremises-database.md)을 참조하세요.
 
 ## 고가용성
 
@@ -66,6 +63,7 @@ SQL Server 가상 컴퓨터를 준비하고 실행한 후 기존 데이터베이
 
 - [Azure의 AlwaysOn 가용성 그룹 구성(GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
 - [Azure에서 AlwaysOn 가용성 그룹에 대한 ILB 수신기 구성](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)
+- [Azure 리소스 관리자 템플릿을 사용하여 SQL Server AlwaysOn 배포](virtual-machines-workload-template-sql-alwayson.md)
 - [온-프레미스 AlwaysOn 가용성 그룹을 Azure에 확장](virtual-machines-sql-server-extend-on-premises-alwayson-availability-groups.md)
 
 다른 고가용성 고려 사항은 [Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)를 참조하세요.
@@ -110,7 +108,7 @@ SQL Server 가상 컴퓨터를 준비하고 실행한 후 기존 데이터베이
 |Data Quality Services|설치됨(SQL Server 2012 이상에만 해당)|
 |Master Data Services|설치됨(SQL Server 2012 이상에만 해당). [추가 구성 및 구성 요소](https://msdn.microsoft.com/library/ee633752.aspx) 필요
 |SharePoint용 PowerPivot|사용 가능(SQL Server 2012 이상에만 해당). 추가 구성 및 구성 요소(SharePoint 포함) 필요|
-|Distributed Replay Client|사용 가능(SQL Server 2012 이상에만 해당), 설치되지 않음. [플랫폼 제공 SQL Server 이미지에서 SQL Server 설치 프로그램 실행](#running-sql-server-setup-from-the-platform-provided-sql-server-image)을 참조하세요.|
+|Distributed Replay Client|사용 가능(SQL Server 2012 이상에만 해당), 설치되지 않음. [플랫폼 제공 SQL Server 이미지에서 SQL Server 설치 프로그램 실행](#run-sql-server-setup-from-the-platform-provided-sql-server-image)을 참조하세요.|
 |도구|SQL Server Management Studio, SQL Server 구성 관리자, Business Intelligence Development Studio, SQL Server 설치 프로그램, 클라이언트 도구 연결, 클라이언트 도구 SDK 및 SQL 클라이언트 연결 SDK, 업그레이드 및 마이그레이션 도구(예: DAC(데이터 계층 응용 프로그램), 백업, 복원, 연결 및 분리)를 포함한 모든 도구|
 |SQL Server 온라인 설명서|설치되었지만 도움말 뷰어를 사용한 구성 필요|
 
@@ -128,9 +126,11 @@ SQL Server 가상 컴퓨터를 준비하고 실행한 후 기존 데이터베이
 |기본 언어|영어|
 |데이터베이스 간 소유권 체인|꺼짐|
 
+### CEIP(사용자 환경 개선 프로그램)
+
 [CEIP(사용자 환경 개선 프로그램)](https://technet.microsoft.com/library/cc730757.aspx)를 사용하도록 설정되었습니다. SQL Server 오류 및 사용 보고 유틸리티를 사용하여 CEIP를 사용하지 않도록 설정할 수 있습니다. SQL Server 오류 및 사용 보고 유틸리티를 시작하려면 시작 메뉴에서 모든 프로그램, Microsoft SQL Server 버전, 구성 도구, SQL Server 오류 및 사용 보고를 순서대로 클릭합니다. CEIP를 사용하도록 설정된 SQL Server의 인스턴스를 사용하지 않으려면 해당 가상 컴퓨터 이미지를 Azure에 배포하는 것을 고려할 수도 있습니다. 자세한 내용은 [Windows Server 운영 체제가 포함된 가상 하드 디스크 만들기 및 업로드](virtual-machines-create-upload-vhd-windows-server.md)를 참조하세요.
 
-### 플랫폼 제공 SQL Server 이미지에서 SQL Server 설치 프로그램 실행
+## 플랫폼 제공 SQL Server 이미지에서 SQL Server 설치 프로그램 실행
 
 플랫폼 제공 SQL Server 이미지를 사용하여 가상 컴퓨터를 만드는 경우 가상 컴퓨터에 저장된 SQL Server 설치 미디어를 **C:\\SqlServer\_SQLMajorVersion.SQLMinorVersion\_Full** 디렉터리에서 찾을 수 있습니다. 디스크 공간이 허용한다면 이 디렉터리에서 설치 프로그램을 실행하여 기능 추가/제거, 새 인스턴스 추가 또는 인스턴스 복구를 포함한 설치 작업을 수행할 수 있습니다.
 
@@ -144,4 +144,4 @@ SQL Server 가상 컴퓨터를 준비하고 실행한 후 기존 데이터베이
 - [Azure 가상 컴퓨터의 SQL Server에 대한 응용 프로그램 패턴 및 개발 전략](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 - [Azure 가상 컴퓨터](virtual-machines-about.md) 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

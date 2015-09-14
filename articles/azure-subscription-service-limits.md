@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/09/2015"
+	ms.date="08/29/2015"
 	ms.author="jroth"/>
 
 # Azure 구독 및 서비스 제한, 할당량 및 제약 조건
@@ -22,9 +22,9 @@
 
 이 문서는 가장 일반적인 Microsoft Azure 제한을 지정합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간 경과에 따라 이 제한은 더 많은 플랫폼에 적용되도록 확장 및 업데이트됩니다.
 
-> [AZURE.NOTE] **기본 제한** 이상으로 제한을 높이려는 경우 [무료로 온라인 고객 지원 요청을 개설](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)할 수 있습니다. 다음 표에 나오는 **최대 제한** 값 이상으로 제한을 높일 수 없습니다. **최대 제한** 열이 없는 경우는 지정된 리소스에 조정 가능한 제한이 없습니다.
+> [AZURE.NOTE]**기본 제한** 이상으로 제한을 높이려는 경우 [무료로 온라인 고객 지원 요청을 개설](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)할 수 있습니다. 다음 표에 나오는 **최대 제한** 값 이상으로 제한을 높일 수 없습니다. **최대 제한** 열이 없는 경우는 지정된 리소스에 조정 가능한 제한이 없습니다.
 
-### 제한 및 Azure 리소스 관리자
+## 제한 및 Azure 리소스 관리자
 
 이제 단일 Azure 리소스 그룹에 여러 Azure 리소스를 결합할 수 있습니다. 리소스 그룹을 사용하는 경우 전역이었던 제한이 Azure 리소스 관리자에서 지역 수준으로 관리됩니다. Azure 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](resource-group-portal.md)를 참조하세요.
 
@@ -34,184 +34,211 @@
 <!-- -->
 따라서 어떤 한 지역에서 작업에 필요한 Azure 리소스 그룹 할당량을 결정하고 배포를 고려 중인 각 지역에서 해당 금액을 요청하는 것이 유용할 수 있습니다. 특정 지역의 현재 할당량 검색에 대한 자세한 내용은 [배포 문제 해결](resource-group-deploy-debug.md##authentication-subscription-role-and-quota-issues)을 참조하세요.
 
-## 구독 제한
+- [Active Directory](#active-directory-limits)
+- [API 관리](#api-management-limits)
+- [앱 서비스](#app-service-limits)
+- [Application Insights](#application-insights-limits)
+- [Azure Redis 캐시(영문)](#azure-redis-cache-limits)
+- [Azure RemoteApp](#azure-remoteapp-limits)
+- [백업](#backup-limits)
+- [배치](#batch-limits)
+- [CDN](#cdn-limits)
+- [클라우드 서비스](#cloud-services-limits)
+- [데이터 팩터리](#data-factory-limits)
+- [DocumentDB](#documentdb-limits)
+- [키 자격 증명 모음](#key-vault-limits)
+- [미디어 서비스](#media-services-limits)
+- [모바일 고객 관리](#mobile-engagement-limits)
+- [모바일 서비스](#mobile-services-limits)
+- [Multi-Factor Authentication](#multi-factor-authentication)
+- [네트워킹](#networking-limits)
+- [알림 허브 서비스](#notification-hub-service-limits)
+- [Operational Insights](#operational-insights-limits)
+- [리소스 그룹](#resource-group-limits)
+- [스케줄러](#scheduler-limits)
+- [이를 통해 검색](#search-limits)
+- [서비스 버스](#service-bus-limits)
+- [사이트 복구](#site-recovery-limits)
+- [SQL 데이터베이스](#sql-database-limits)
+- [저장소](#storage-limits)
+- [StorSimple 시스템](#storsimple-system-limits)
+- [스트림 분석](#stream-analytics-limits)
+- [구독](#subscription-limits)
+- [가상 컴퓨터](#virtual-machines-limits)
 
+
+### 구독 제한
+#### 구독 제한
 [AZURE.INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
-### 구독 제한 - Azure 리소스 관리자
+#### 구독 제한 - Azure 리소스 관리자
 
 Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다음과 같은 제한이 적용됩니다. Azure 리소스 관리자에서 변경되지 않는 제한은 아래에 나열되지 않습니다. 이러한 제한에 대해서는 이전 테이블을 참조하세요.
 
 [AZURE.INCLUDE [azure-subscription-limits-azure-resource-manager](../includes/azure-subscription-limits-azure-resource-manager.md)]
 
 
-## 리소스 그룹 제한
+### 리소스 그룹 제한
 
 [AZURE.INCLUDE [azure-resource-groups-limits](../includes/azure-resource-groups-limits.md)]
 
 
-## 가상 컴퓨터 제한
-
+### 가상 컴퓨터 제한
+#### 가상 컴퓨터 제한
 [AZURE.INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
 
 
-### 가상 컴퓨터 제한 - Azure 리소스 관리자
+#### 가상 컴퓨터 제한 - Azure 리소스 관리자
 
 Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다음과 같은 제한이 적용됩니다. Azure 리소스 관리자에서 변경되지 않는 제한은 아래에 나열되지 않습니다. 이러한 제한에 대해서는 이전 테이블을 참조하세요.
 
 [AZURE.INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
 
-## 네트워킹 제한
-
+### 네트워킹 제한
+#### 네트워킹 제한
 [AZURE.INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
-### 트래픽 관리자 제한
+#### 트래픽 관리자 제한
 
 [AZURE.INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
 
-### DNS 제한
+#### DNS 제한
 
 [AZURE.INCLUDE [dns-limits](../includes/dns-limits.md)]
 
-## 저장소 제한
+### 저장소 제한
 
-### 표준 저장소 제한
+#### 표준 저장소 제한
 
 [AZURE.INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
 저장소 계정 제한에 대한 자세한 내용은 [Azure 저장소 확장성 및 성능 목표](../articles/storage/storage-scalability-targets.md)를 참조하세요.
 
 
-### 프리미엄 저장소 제한
+#### 프리미엄 저장소 제한
 
 [AZURE.INCLUDE [azure-storage-limits-premium-storage](../includes/azure-storage-limits-premium-storage.md)]
 
 
-### 저장소 제한 - Azure 리소스 관리자
+#### 저장소 제한 - Azure 리소스 관리자
 
 [AZURE.INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
 
-## 클라우드 서비스 제한
+### 클라우드 서비스 제한
 
 [AZURE.INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
 
 
-## 앱 서비스 제한 - 웹앱, 모바일 앱, API 앱, 논리 앱
+### 앱 서비스 제한
+다음 앱 서비스 제한에는 웹앱, 모바일 앱, API 앱 및 논리 앱에 대한 제한이 포함됩니다.
 
 [AZURE.INCLUDE [azure-websites-limits](../includes/azure-websites-limits.md)]
 
-## 스케줄러 제한
+### 스케줄러 제한
 
 [AZURE.INCLUDE [scheduler-limits-table](../includes/scheduler-limits-table.md)]
 
-## 배치 제한
+### 배치 제한
 
 [AZURE.INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
 
-## DocumentDB 제한
+### DocumentDB 제한
 
 [AZURE.INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
 
 
-## 모바일 고객 관리 제한
+### 모바일 고객 관리 제한
 
 [AZURE.INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
 
 
-## 검색 제한
+### 검색 제한
 
 [AZURE.INCLUDE [azure-search-limits](../includes/azure-search-limits.md)]
 
 Azure 검색 제한에 대한 자세한 내용은 [제한 및 제약 조건](https://msdn.microsoft.com/library/azure/dn798934.aspx)을 참조하세요.
 
-## SQL 데이터베이스 제한
-
-[AZURE.INCLUDE [azure-sql-database-limits](../includes/azure-sql-database-limits.md)]
-
-SQL 데이터베이스 제한에 대한 자세한 내용은 다음 항목을 참조하세요.
-
- - [Azure SQL 데이터베이스 서비스 계층(Edition)](http://msdn.microsoft.com/library/azure/dn741340.aspx)
- - [Azure SQL 데이터베이스 서비스 계층 및 성능 수준](http://msdn.microsoft.com/library/azure/dn741336.aspx)
- - [DTU(데이터베이스 처리량 단위) 할당량](http://msdn.microsoft.com/library/azure/ee336245.aspx#DTUs)
- - [SQL 데이터베이스 리소스 제한](sql-database/sql-database-resource-limits.md)
-
-## 미디어 서비스 제한
+### 미디어 서비스 제한
 
 [AZURE.INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
-## CDN 제한
+### CDN 제한
 
 [AZURE.INCLUDE [cdn-limits](../includes/cdn-limits.md)]
 
-## 모바일 서비스 제한
+### 모바일 서비스 제한
 
 [AZURE.INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
-## 알림 허브 서비스 제한
+### 알림 허브 서비스 제한
 
 [AZURE.INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
 
 
-## 서비스 버스 제한
+### 서비스 버스 제한
 
 [AZURE.INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
 
-## 데이터 팩터리 제한
+### 데이터 팩터리 제한
 
 [AZURE.INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]
 
 
-## 스트림 분석 제한
+### 스트림 분석 제한
 
 [AZURE.INCLUDE [stream-analytics-limits-table](../includes/stream-analytics-limits-table.md)]
 
-## Active Directory 제한
+### Active Directory 제한
 
 [AZURE.INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
 
 
-## Azure RemoteApp 제한
+### Azure RemoteApp 제한
 
 [AZURE.INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]
 
-## StorSimple 시스템 제한
+### StorSimple 시스템 제한
 
 [AZURE.INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
 
-## Operational Insights 제한 사항
+### Operational Insights 제한 사항
 
 [AZURE.INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
 
-## 백업 제한
+### 백업 제한
 
 [AZURE.INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
 
-## 사이트 복구 제한
+### 사이트 복구 제한
 
 [AZURE.INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
 
-## Application Insights 제한
+### Application Insights 제한
 
 [AZURE.INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
 
-## API 관리 제한
+### API 관리 제한
 
 [AZURE.INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
 
-## Azure Redis 캐시 제한
+### Azure Redis 캐시 제한
 
 [AZURE.INCLUDE [redis-cache-service-limits](../includes/redis-cache-service-limits.md)]
 
-## 키 값 제한
+### 키 값 제한
 
 [AZURE.INCLUDE [key-vault-limits](../includes/key-vault-limits.md)]
 
-## Multi-Factor Authentication
+### Multi-Factor Authentication
 [AZURE.INCLUDE [azure-mfa-service-limits](../includes/azure-mfa-service-limits.md)]
+
+### SQL 데이터베이스 제한
+
+SQL 데이터베이스 제한은 [SQL 데이터베이스 리소스 제한](sql-database/sql-database-resource-limits.md)을 참조하세요.
 
 ## 참고 항목
 
@@ -219,4 +246,4 @@ SQL 데이터베이스 제한에 대한 자세한 내용은 다음 항목을 참
 
 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

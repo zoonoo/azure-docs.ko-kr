@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="리소스 관리자 템플릿과 Mac, Linux 및 Windows용 Azure CLI를 사용하여 Azure 가상 컴퓨터 배포 및 관리" 
-	description="Azure 가상 컴퓨터에 대한 가장 일반적인 구성 집합을 간단하게 배포하고 리소스 관리자 템플릿 및 Azure CLI를 사용하여 관리합니다." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="squillace" 
-	manager="timlt" 
+	pageTitle="리소스 관리자 템플릿과 Mac, Linux 및 Windows용 Azure CLI를 사용하여 Azure 가상 컴퓨터 배포 및 관리"
+	description="Azure 가상 컴퓨터에 대한 가장 일반적인 구성 집합을 간단하게 배포하고 리소스 관리자 템플릿 및 Azure CLI를 사용하여 관리합니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
 	editor=""/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/11/2015" 
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="rasquill"/>
 
 # Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리
@@ -236,7 +236,7 @@ Azure CLI 및 템플릿을 사용하여 새 Azure VM을 배포하려면 이러�
  
 ### 1단계: JSON 파일에서 템플릿 매개 변수 검사
 
-다음은 템플릿에 대한 JSON 파일의 내용입니다. 템플릿은 GitHub([여기](https://github.com/Azure/azure-quickstart-templates/blob/master/101-simple-linux-vm/azuredeploy.json))에도 있습니다.
+다음은 템플릿에 대한 JSON 파일의 내용입니다. 템플릿은 GitHub([여기](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json))에도 있습니다.
 
 템플릿은 유연하므로 디자이너는 많은 매개 변수를 제공하도록 선택하거나 좀더 수정된 템플릿을 만들어 몇 개의 매개 변수만 제공하도록 선택할 수 있습니다. 템플릿을 매개 변수로 전달하는 데 필요한 정보를 수집하려면 템플릿 파일(이 항목에는 아래의 인라인에 템플릿이 있음)을 열고 **매개 변수** 값을 검사합니다.
 
@@ -251,184 +251,180 @@ Azure CLI 및 템플릿을 사용하여 새 Azure VM을 배포하려면 이러�
 이러한 값을 확인했으면 해당 그룹을 만들고 Azure 구독에 이 템플릿을 배포할 수 있습니다.
 
     {
-        "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "newStorageAccountName": {
-                "type": "string",
-                "metadata": {
-                    "Description": "Unique DNS Name for the Storage Account where the Virtual Machine's disks will be placed."
-                }
-            },
-            "adminUsername": {
-                "type": "string",
-                "metadata": {
-                   "Description": "User name for the Virtual Machine."
-                }
-            },
-            "adminPassword": {
-                "type": "securestring",
-                "metadata": {
-                    "Description": "Password for the Virtual Machine."
-                }
-            },
-            "dnsNameForPublicIP": {
-                "type": "string",
-                "metadata": {
-                      "Description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
-                }
-            },
-            "ubuntuOSVersion": {
-                "type": "string",
-                "defaultValue": "14.10",
-                "allowedValues": [
-                    "12.04.2-LTS",
-                    "12.04.3-LTS",
-                    "12.04.4-LTS",
-                    "12.04.5-LTS",
-    				"12.10",
-                    "14.04.2-LTS",
-                    "14.10",
-                    "15.04"
-                ],
-                "metadata": {
-                    "Description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version. Allowed values: 12.04.2-LTS, 12.04.3-LTS, 12.04.4-LTS, 12.04.5-LTS, 12.10, 14.04.2-LTS, 14.10, 15.04."
-                }
-            }
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "newStorageAccountName": {
+        "type": "string",
+        "metadata": {
+            "description": "Unique DNS Name for the Storage Account where the Virtual Machine's disks will be placed."
+        }
         },
-        "variables": {
-            "location": "West US",
-            "imagePublisher": "Canonical", 
-            "imageOffer": "UbuntuServer", 
-            "OSDiskName": "osdiskforlinuxsimple",
-            "nicName": "myVMNic",
-            "addressPrefix": "10.0.0.0/16", 
-            "subnetName": "Subnet",
-            "subnetPrefix": "10.0.0.0/24",
-            "storageAccountType": "Standard_LRS",
-            "publicIPAddressName": "myPublicIP",
-            "publicIPAddressType": "Dynamic",
-            "vmStorageAccountContainerName": "vhds",
-            "vmName": "MyUbuntuVM",
-            "vmSize": "Standard_D1",
-            "virtualNetworkName": "MyVNET",        
-            "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
-            "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]"
-        },    
-        "resources": [
-            {
-                "type": "Microsoft.Storage/storageAccounts",
-                "name": "[parameters('newStorageAccountName')]",
-                "apiVersion": "2015-05-01-preview",
-                "location": "[variables('location')]",
-                "properties": {
-                    "accountType": "[variables('storageAccountType')]"
-                }
+        "adminUsername": {
+        "type": "string",
+        "metadata": {
+            "description": "User name for the Virtual Machine."
+        }
+        },
+        "adminPassword": {
+        "type": "securestring",
+        "metadata": {
+            "description": "Password for the Virtual Machine."
+        }
+        },
+        "dnsNameForPublicIP": {
+        "type": "string",
+        "metadata": {
+            "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
+        }
+        },
+        "ubuntuOSVersion": {
+        "type": "string",
+        "defaultValue": "14.04.2-LTS",
+        "allowedValues": [
+            "12.04.5-LTS",
+            "14.04.2-LTS",
+            "15.04"
+        ],
+        "metadata": {
+            "description": "The Ubuntu version for the VM. This will pick a fully patched image of this given Ubuntu version. Allowed values: 12.04.5-LTS, 14.04.2-LTS, 15.04."
+        }
+        }
+    },
+    "variables": {
+        "location": "West US",
+        "imagePublisher": "Canonical",
+        "imageOffer": "UbuntuServer",
+        "OSDiskName": "osdiskforlinuxsimple",
+        "nicName": "myVMNic",
+        "addressPrefix": "10.0.0.0/16",
+        "subnetName": "Subnet",
+        "subnetPrefix": "10.0.0.0/24",
+        "storageAccountType": "Standard_LRS",
+        "publicIPAddressName": "myPublicIP",
+        "publicIPAddressType": "Dynamic",
+        "vmStorageAccountContainerName": "vhds",
+        "vmName": "MyUbuntuVM",
+        "vmSize": "Standard_D1",
+        "virtualNetworkName": "MyVNET",
+        "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
+        "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]"
+    },
+    "resources": [
+        {
+        "type": "Microsoft.Storage/storageAccounts",
+        "name": "[parameters('newStorageAccountName')]",
+        "apiVersion": "2015-05-01-preview",
+        "location": "[variables('location')]",
+        "properties": {
+            "accountType": "[variables('storageAccountType')]"
+        }
+        },
+        {
+        "apiVersion": "2015-05-01-preview",
+        "type": "Microsoft.Network/publicIPAddresses",
+        "name": "[variables('publicIPAddressName')]",
+        "location": "[variables('location')]",
+        "properties": {
+            "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
+            "dnsSettings": {
+            "domainNameLabel": "[parameters('dnsNameForPublicIP')]"
+            }
+        }
+        },
+        {
+        "apiVersion": "2015-05-01-preview",
+        "type": "Microsoft.Network/virtualNetworks",
+        "name": "[variables('virtualNetworkName')]",
+        "location": "[variables('location')]",
+        "properties": {
+            "addressSpace": {
+            "addressPrefixes": [
+                "[variables('addressPrefix')]"
+            ]
             },
+            "subnets": [
             {
-                "apiVersion": "2015-05-01-preview",
-                "type": "Microsoft.Network/publicIPAddresses",
-                "name": "[variables('publicIPAddressName')]",
-                "location": "[variables('location')]",
+                "name": "[variables('subnetName')]",
                 "properties": {
-                    "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
-                    "dnsSettings": {
-                        "domainNameLabel": "[parameters('dnsNameForPublicIP')]"
-                    }
-                }
-            },
-            {
-                "apiVersion": "2015-05-01-preview",
-                "type": "Microsoft.Network/virtualNetworks",
-                "name": "[variables('virtualNetworkName')]",
-                "location": "[variables('location')]",
-                "properties": {
-                    "addressSpace": {
-                        "addressPrefixes": [
-                            "[variables('addressPrefix')]"
-                        ]
-                    },
-                    "subnets": [
-                        {
-                            "name": "[variables('subnetName')]",
-                            "properties": {
-                                "addressPrefix": "[variables('subnetPrefix')]"
-                            }
-                        }
-                    ]
-                }
-            },
-            {
-                "apiVersion": "2015-05-01-preview",
-                "type": "Microsoft.Network/networkInterfaces",
-                "name": "[variables('nicName')]",
-                "location": "[variables('location')]",
-                "dependsOn": [
-                    "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
-                    "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
-                ],
-                "properties": {
-                    "ipConfigurations": [
-                        {
-                            "name": "ipconfig1",
-                            "properties": {
-                                "privateIPAllocationMethod": "Dynamic",
-                                "publicIPAddress": {
-                                    "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]"
-                                },
-                                "subnet": {
-                                    "id": "[variables('subnetRef')]"
-                                }
-                            }
-                        }
-                    ]
-                }
-            },
-            {
-                "apiVersion": "2015-05-01-preview",
-                "type": "Microsoft.Compute/virtualMachines",
-                "name": "[variables('vmName')]",
-                "location": "[variables('location')]",
-                "dependsOn": [
-                    "[concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName'))]",
-                    "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
-                ],
-                "properties": {
-                    "hardwareProfile": {
-                        "vmSize": "[variables('vmSize')]"
-                    },
-                    "osProfile": {
-                        "computername": "[variables('vmName')]",
-                        "adminUsername": "[parameters('adminUsername')]",
-                        "adminPassword": "[parameters('adminPassword')]"
-                    },
-                    "storageProfile": {
-                        "imageReference": {
-                            "publisher": "[variables('imagePublisher')]",
-                            "offer": "[variables('imageOffer')]",
-                            "sku" : "[parameters('ubuntuOSVersion')]",
-                            "version":"latest"
-                        },
-                       "osDisk" : {
-                            "name": "osdisk",
-                            "vhd": {
-                                "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'),'.vhd')]"
-                            },
-                            "caching": "ReadWrite",
-                            "createOption": "FromImage"
-                        }
-                    },
-                    "networkProfile": {
-                        "networkInterfaces": [
-                            {
-                                "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
-                            }
-                        ]
-                    }
+                "addressPrefix": "[variables('subnetPrefix')]"
                 }
             }
-        ]
-    } 
+            ]
+        }
+        },
+        {
+        "apiVersion": "2015-05-01-preview",
+        "type": "Microsoft.Network/networkInterfaces",
+        "name": "[variables('nicName')]",
+        "location": "[variables('location')]",
+        "dependsOn": [
+            "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
+            "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+        ],
+        "properties": {
+            "ipConfigurations": [
+            {
+                "name": "ipconfig1",
+                "properties": {
+                "privateIPAllocationMethod": "Dynamic",
+                "publicIPAddress": {
+                    "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]"
+                },
+                "subnet": {
+                    "id": "[variables('subnetRef')]"
+                }
+                }
+            }
+            ]
+        }
+        },
+        {
+        "apiVersion": "2015-05-01-preview",
+        "type": "Microsoft.Compute/virtualMachines",
+        "name": "[variables('vmName')]",
+        "location": "[variables('location')]",
+        "dependsOn": [
+            "[concat('Microsoft.Storage/storageAccounts/', parameters('newStorageAccountName'))]",
+            "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+        ],
+        "properties": {
+            "hardwareProfile": {
+            "vmSize": "[variables('vmSize')]"
+            },
+            "osProfile": {
+            "computername": "[variables('vmName')]",
+            "adminUsername": "[parameters('adminUsername')]",
+            "adminPassword": "[parameters('adminPassword')]"
+            },
+            "storageProfile": {
+            "imageReference": {
+                "publisher": "[variables('imagePublisher')]",
+                "offer": "[variables('imageOffer')]",
+                "sku": "[parameters('ubuntuOSVersion')]",
+                "version": "latest"
+            },
+            "osDisk": {
+                "name": "osdisk",
+                "vhd": {
+                "uri": "[concat('http://',parameters('newStorageAccountName'),'.blob.core.windows.net/',variables('vmStorageAccountContainerName'),'/',variables('OSDiskName'),'.vhd')]"
+                },
+                "caching": "ReadWrite",
+                "createOption": "FromImage"
+            }
+            },
+            "networkProfile": {
+            "networkInterfaces": [
+                {
+                "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
+                }
+            ]
+            }
+        }
+        }
+    ]
+    }
+
   
 ### 2단계: 템플릿을 사용하여 가상 컴퓨터 만들기
 
@@ -716,7 +712,7 @@ Linux 기반 가상 컴퓨터의 경우 [Azure에서 Linux VHD 만들기 및 업
 그런 다음 `--template-uri` 옵션을 사용하여 템플릿에서 직접 호출하여 배포를 만들거나 `--template-file` 옵션을 사용하여 로컬에 저장한 파일을 사용할 수 있습니다. 템플릿에는 기본값이 지정되어 있으므로 몇 가지 항목만 입력하면 됩니다. 템플릿을 다른 위치에 배포하는 경우 기본값에서 이름이 충돌하는 경우를 확인할 수 있습니다(특히 직접 만든 DNS 이름).
 
     azure group deployment create \
-    > --template-uri https://raw.githubusercontent.com/azurermtemplates/azurermtemplates/master/101-vm-from-user-image/azuredeploy.json \
+    > --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json \
     > myResourceGroup \
     > customVhdDeployment
     info:    Executing command group deployment create
@@ -741,7 +737,7 @@ Linux 기반 가상 컴퓨터의 경우 [Azure에서 Linux VHD 만들기 및 업
     data:    ProvisioningState  : Succeeded
     data:    Timestamp          : 2015-04-28T14:55:48.0963829Z
     data:    Mode               : Incremental
-    data:    TemplateLink       : https://raw.githubusercontent.com/azurermtemplates/azurermtemplates/master/101-vm-from-user-image/azuredeploy.json
+    data:    TemplateLink       : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json
     data:    ContentVersion     : 1.0.0.0
     data:    Name                           Type          Value                               
     data:    -----------------------------  ------------  ------------------------------------
@@ -1277,7 +1273,7 @@ Azure PowerShell 명령과 Github 템플릿 리포지토리의 리소스 관리�
 
     azure vm stop <group name> <virtual machine name>
 
->[AZURE.IMPORTANT]해당 클라우드 서비스의 마지막 VM인 경우 이 매개 변수를 사용하여 클라우드 서비스의 VIP(가상 IP)를 유지합니다. <br><br> StayProvisioned 매개 변수를 사용하는 경우 VM에 대한 요금이 청구됩니다.
+>[AZURE.IMPORTANT]해당 vnet의 마지막 VM인 경우 이 매개 변수를 사용하여 vnet의 VIP(가상 IP)를 유지합니다. <br><br> `StayProvisioned` 매개 변수를 사용하는 경우에도 VM에 대한 요금이 청구됩니다.
 
 ## <a id="start-a-virtual-machine"></a>작업: VM 시작
 
@@ -1315,4 +1311,4 @@ Azure PowerShell 명령과 Github 템플릿 리포지토리의 리소스 관리�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

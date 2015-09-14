@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="StorSimple 장치에 대한 장애 조치 및 재해 복구 | Microsoft Azure"
-   description="자체적으로, 다른 실제 장치 또는 가상 장치로 StorSimple 장치의 장애를 조치하는 방법을 알아봅니다."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="adinah"
-   editor="" />
+   pageTitle="StorSimple 장애 조치(failover) 및 재해 복구 | Microsoft Azure"
+	description="자체적으로, 다른 실제 장치 또는 가상 장치로 StorSimple 장치의 장애를 조치하는 방법을 알아봅니다."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="adinah"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/28/2015"
+	ms.author="alkohli"/>
 
 # StorSimple 장치에 대한 장애 조치 및 재해 복구
 
@@ -145,4 +145,4 @@ DR(재해 복구) 시나리오에서 기본 장치가 작동을 중지합니다.
 StorSimple Manager 서비스를 사용하여 장치를 관리하는 방법에 대한 자세한 내용은 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md)로 이동하세요.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="ADO.NET 4.5, ODBC 11 및 SQL 데이터베이스 V12에 대한 1433 이외의 포트 | Microsoft Azure"
+	pageTitle="ADO.NET 4.5 및 SQL 데이터베이스 V12에 대한 1433 이외의 포트 | Microsoft Azure"
 	description="Azure SQL 데이터베이스 V12에 대한 클라이언트 연결이 프록시를 무시하고 데이터베이스와 직접 상호 작용하는 경우가 있습니다. 1433 이외의 포트가 중요해집니다."
 	services="sql-database"
 	documentationCenter=""
 	authors="MightyPen"
 	manager="jeffreyg"
-	editor="" />
+	editor=""/>
 
 
 <tags 
-	ms.service="sql-database" 
-	ms.workload="data-management" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.service="sql-database"
+	ms.workload="data-management"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="genemi"/>
 
 
-# ADO.NET 4.5, ODBC 11 및 SQL 데이터베이스 V12에 대한 1433 이외의 포트
+# ADO.NET 4.5 및 SQL 데이터베이스 V12에 대한 1433 이외의 포트
 
 
 이 항목은 Azure SQL 데이터베이스 V12 가 ADO.NET 4.5 이상을 사용하는 클라이언트의 연결 동작에 가져오는 변경 내용에 대해 설명합니다.
@@ -62,14 +62,14 @@ V12에 대한 연결의 경우 클라이언트 프로그램이 Azure 클라우�
 
 
 1. ADO.NET 4.5 (또는 그 이상)는 Azure 클라우드와 간단한 상호작용을 시작하고, 동적으로 식별된 포트 번호를 받습니다.
- - 동적으로 식별된 포트 번호는 11000 \~ 11999 범위 사이입니다.
+ - 동적으로 식별된 포트 번호는 11000 ~ 11999 범위 사이입니다.
 
 2. 그러면 ADO.NET은 미들웨어 없이 직접SQL 데이터베이스로 연결합니다.
 
 3. 쿼리는 데이터베이스로 직접 전송되며 결과는 클라이언트에 직접 반환됩니다.
 
 
-Azure 클라이언트 컴퓨터에 있는 11000 \~ 11999 범위 내의 포트가 ADO.NET 4.5와 SQL 데이터베이스 V12 사이의 클라이언트 상호작용에 사용 가능한지 확인합니다.
+Azure 클라이언트 컴퓨터에 있는 11000 ~ 11999 범위 내의 포트가 ADO.NET 4.5와 SQL 데이터베이스 V12 사이의 클라이언트 상호작용에 사용 가능한지 확인합니다.
 
 - 특히 해당 범위의 포트는 모든 다른 아웃바운드 차단으로부터 자유로워야 합니다.
 - Azure VM에 있는 Windows 방화벽이 포트 설정을 제어합니다.
@@ -122,13 +122,17 @@ Azure 클라이언트 컴퓨터에 있는 11000 \~ 11999 범위 내의 포트가
 
 - [SQL 데이터베이스 V12의 새로운 기능](sql-database-v12-whats-new.md)
 
-- 재시도 논리 고려 사항: ["SQL 데이터베이스에 연결: 링크, 모범 사례 및 디자인 지침" 항목의 "게이트웨이는 V12에서 재시도 논리를 더 이상 제공하지 않습니다." 섹션](sql-database-connect-central-recommendations.md#gatewaynoretry)
+
+- [SQL 데이터베이스 연결: 링크, 모범 사례, 설계 지침](sql-database-connect-central-recommendations.md)
+
 
 - ADO.NET 4.6은 2015년 7월 20일에 출시되었습니다. .NET 팀의 블로그 알림은 [여기](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx)서 확인할 수 있습니다.
+
 
 - ADO.NET 4.5는 2012년 8월 15일에 출시되었습니다. .NET 팀의 블로그 알림은 [여기](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx)서 확인할 수 있습니다.
  - ADO.NET 4.5.1에 관한 블로그 게시물은 [여기](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx)서 확인할 수 있습니다.
 
+
 - [TDS 프로토콜 버전 목록](http://www.freetds.org/userguide/tdshistory.htm)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

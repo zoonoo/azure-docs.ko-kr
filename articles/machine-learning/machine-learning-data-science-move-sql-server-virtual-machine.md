@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure 가상 컴퓨터에서 SQL Server로 데이터 이동 | Azure" 
-	description="플랫 파일 또는 온-프레미스 SQL Server에서 Azure VM의 SQL Server로 데이터 이동" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="msolhab" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="Azure 가상 컴퓨터에서 SQL Server로 데이터 이동 | Azure"
+	description="플랫 파일 또는 온-프레미스 SQL Server에서 Azure VM의 SQL Server로 데이터를 이동합니다."
+	services="machine-learning"
+	documentationCenter=""
+	authors="msolhab"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
-	ms.author="fashah;mohabib;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="fashah;mohabib;bradsev"/>
 
 # Azure 가상 컴퓨터에서 SQL Server로 데이터 이동
 
@@ -40,16 +40,17 @@
 <tr>
   <td><b>온-프레미스 SQL Server</b></td>
   <td>
-    1. <a href="#export-flat-file">플랫 파일로 내보내기</a><br>
-    2. <a href="#sql-migration">SQL 데이터베이스 마이그레이션 마법사</a> <br>    
-    3. <a href="#sql-backup">데이터베이스 백업 및 복원</a> <br>
+    1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Microsoft Azure 가상 컴퓨터에 SQL Server 데이터베이스 배포 마법사</a><br>
+    2. <a href="#export-flat-file">플랫 파일로 내보내기</a><br>
+    3. <a href="#sql-migration">SQL 데이터베이스 마이그레이션 마법사</a> <br>    
+    4. <a href="#sql-backup">데이터베이스 백업 및 복원</a> <br>
   </td>
 </tr>
 </table>
 
 이 문서는 SQL Server Management Studio 또는 Visual Studio 데이터베이스 탐색기에서 SQL 명령을 실행하는 것으로 가정합니다.
 
-> [AZURE.TIP]하나의 대안으로, [Azure 데이터 팩터리](https://azure.microsoft.com/ko-kr/services/data-factory/)를 사용하여 Azure의 SQL Server VM으로 데이터를 이동하는 파이프라인을 만들고 예약할 수 있습니다. 자세한 내용은 [Azure 데이터 팩터리를 사용하여 데이터 복사(복사 작업)](../data-factory/data-factory-copy-activity.md)를 참조하세요.
+> [AZURE.TIP]하나의 대안으로, [Azure Data Factory](https://azure.microsoft.com/ko-KR/services/data-factory/)를 사용하여 Azure의 SQL Server VM으로 데이터를 이동하는 파이프라인을 만들고 예약할 수 있습니다. 자세한 내용은 [Azure Data Factory를 사용하여 데이터 복사(복사 작업)](../data-factory/data-factory-copy-activity.md)를 참조하세요.
 
 
 ## <a name="prereqs"></a>필수 조건
@@ -173,13 +174,18 @@ SSIS(SQL Server Integrations Services)를 사용하여 플랫 파일의 데이�
 
 ## <a name="sqlonprem_to_sqlonazurevm"></a>온-프레미스 SQL Server에서 Azure VM의 SQL Server로 데이터 이동
 
-다음과 같은 방법으로 온-프레미스 SQL Server의 데이터를 이동할 수 있습니다.
+다음과 같은 마이그레이션 전략을 사용할 수도 있습니다.
 
-1. [플랫 파일로 내보내기](#export-flat-file) 
-2. [SQL 데이터베이스 마이그레이션 마법사](#sql-migration)
-3. [데이터베이스 백업 및 복원](#sql-backup)
+1. [Microsoft Azure 가상 컴퓨터에 SQL Server 데이터베이스 배포 마법사](#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard)
+2. [플랫 파일로 내보내기](#export-flat-file) 
+3. [SQL 데이터베이스 마이그레이션 마법사](#sql-migration)
+4. [데이터베이스 백업 및 복원](#sql-backup)
 
 아래는 각 방법에 대한 설명입니다.
+
+### Microsoft Azure 가상 컴퓨터에 SQL Server 데이터베이스 배포 마법사
+
+**Microsoft Azure 가상 컴퓨터에 SQL Server 데이터베이스 배포 마법사**는 온-프레미스 SQL Server 인스턴스에서 Azure VM의 SQL Server로 데이터를 이동하는 간단한 권장 방법입니다. 자세한 단계 및 다른 대안에 대한 설명은 [Azure VM의 SQL Server로 데이터베이스 마이그레이션](../virtual-machines/virtual-machines-migrate-onpremises-database.md)을 참조하세요.
 
 ### <a name="export-flat-file"></a>플랫 파일로 내보내기
 
@@ -221,10 +227,13 @@ SQL Server는 다음을 지원합니다.
 
 ![SQL Server 가져오기 도구][1]
 
+## 리소스
+
+[Azure VM에서 SQL Server로 데이터베이스 마이그레이션](../virtual-machines/virtual-machines-migrate-onpremises-database.md)
+
+[Azure 가상 컴퓨터의 SQL Server 개요](../virtual-machines/virtual-machines-sql-server-infrastructure-services.md)
 
 [1]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/sqlserver_builtin_utilities.png
 [2]: ./media/machine-learning-data-science-move-sql-server-virtual-machine/database_migration_wizard.png
 
- 
-
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

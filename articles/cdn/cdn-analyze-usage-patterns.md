@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="CDN 사용 패턴 분석" 
-	description="다음과 같은 보고서를 사용하여 CDN 사용 패턴을 볼 수 있습니다. 대역폭, 전송되는 데이터, 적중 횟수, 캐시 상태, 캐시 적중률, 전송되는 IPv4/IPv6 데이터" 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="CDN 사용 패턴 분석"
+	description="다음과 같은 보고서를 사용하여 CDN 사용 패턴을 볼 수 있습니다. 대역폭, 전송되는 데이터, 적중 횟수, 캐시 상태, 캐시 적중률, 전송되는 IPv4/IPv6 데이터"
+	services="cdn"
+	documentationCenter=".NET"
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/08/2015" 
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="juliako"/>
 
 #CDN 사용 패턴 분석 
@@ -139,4 +139,4 @@
 
 보고서는 최근 18개월 내에서만 생성할 수 있습니다.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

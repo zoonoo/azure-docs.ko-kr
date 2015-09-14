@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="작동하는 StorSimple 장치 문제 해결 | Microsoft Azure"
-   description="작동하는 StorSimple 장치에서 발생 하는 오류를 진단하고 수정하는 방법을 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+   pageTitle="배포된 StorSimple 장치 문제 해결 | Microsoft Azure"
+	description="현재 배포되어 작동하는 StorSimple 장치에서 발생하는 오류를 진단하고 수정하는 방법을 설명합니다."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/19/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="v-sharos"/>
 
 # 작동 StorSimple 장치 문제 해결
 
 ## 개요
 
-이 문서에서는 StorSimple 장치가 배포되고 작동된 후 발생할 수 있는 구성 문제를 해결하기 위한 유용한 문제 해결 지침을 제공합니다. 일반 문제, 가능한 원인 및 StorSimple을 실행할 때 발생할 수 있는 문제를 해결할 수 있는 권장 단계를 설명합니다. 이 정보는 StorSimple 온-프레미스 물리적 장치 및 StorSimple 가상 장치 모두에 적용됩니다.
+이 문서에서는 StorSimple 장치가 배포되고 작동된 후 발생할 수 있는 구성 문제를 해결하기 위한 유용한 문제 해결 지침을 제공합니다. 일반 문제, 가능한 원인 및 Microsoft Azure StorSimple을 실행할 때 발생할 수 있는 문제를 해결할 수 있는 권장 단계를 설명합니다. 이 정보는 StorSimple 온-프레미스 물리적 장치 및 StorSimple 가상 장치 모두에 적용됩니다.
 
 이 문서의 끝에서 Microsoft Azure StorSimple 작업 중 발생할 수 있는 오류 코드 목록 및 오류를 해결하기 위해 취할 수 있는 단계를 찾을 수 있습니다.
 
@@ -53,18 +53,18 @@
 
 |오류 번호|오류 텍스트 또는 설명|권장되는 사용자 작업|
 |:---|:---|:---|
-|10502|저장소 계정에 액세스하는 동안 오류가 발생했습니다.|몇 분간 기다린 다음 작업을 다시 시도하세요. 문제가 지속되면 다음 단계는 Microsoft 지원에 문의하십시오.|
-|40017|백업 세트에 있는 디스크를 확인할 수 없습니다.|문제가 지속되면 다음 단계는 Microsoft 지원에 문의하십시오.|
-|40018|백업 세트에 있는 모든 디스크를 확인할 수 없습니다.|문제가 지속되면 다음 단계는 Microsoft 지원에 문의하십시오.|
-|390061|시스템이 사용 중이거나 사용할 수 없습니다.|몇 분간 기다린 다음 작업을 다시 시도하세요. 문제가 지속되면 다음 단계는 Microsoft 지원에 문의하십시오.|
-|390143|오류 코드가 390143인 오류가 발생했습니다. (알 수 없는 오류.)|문제가 지속되면 다음 단계는 Microsoft 지원에 문의하십시오.|
+|10502|저장소 계정에 액세스하는 동안 오류가 발생했습니다.|몇 분간 기다린 다음 작업을 다시 시도하세요. 문제가 지속되면 다음 단계는 Microsoft 지원에 문의하세요.|
+|40017|백업 세트에 있는 디스크를 확인할 수 없습니다.|문제가 지속되면 다음 단계는 Microsoft 지원에 문의하세요.|
+|40018|백업 세트에 있는 모든 디스크를 확인할 수 없습니다.|문제가 지속되면 다음 단계는 Microsoft 지원에 문의하세요.|
+|390061|시스템이 사용 중이거나 사용할 수 없습니다.|몇 분간 기다린 다음 작업을 다시 시도하세요. 문제가 지속되면 다음 단계는 Microsoft 지원에 문의하세요.|
+|390143|오류 코드가 390143인 오류가 발생했습니다. (알 수 없는 오류.)|문제가 지속되면 다음 단계는 Microsoft 지원에 문의하세요.|
 
 ## 다음 단계
 
 문제를 해결할 수 없는 경우 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
 
 
-[1]: https://technet.microsoft.com/ko-kr/%5Clibrary/Dn688135(v=WPS.630).aspx
-[2]: https://technet.microsoft.com/ko-kr/%5Clibrary/Dn715782(v=WPS.630).aspx
+[1]: https://technet.microsoft.com/ko-KR/%5Clibrary/Dn688135(v=WPS.630).aspx
+[2]: https://technet.microsoft.com/ko-KR/%5Clibrary/Dn715782(v=WPS.630).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

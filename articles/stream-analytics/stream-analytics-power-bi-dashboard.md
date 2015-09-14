@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="스트림 분석의 Power BI 대시보드 | Microsoft Azure" 
-	description="실시간 스트리밍 Power BI 대시보드를 사용하여 비즈니스 인텔리전스를 수집하고 스트림 분석 작업에서 대량의 데이터를 분석합니다." 	
-	services="stream-analytics" 
-	documentationCenter="" 
-	authors="jeffstokes72" 
-	manager="paulettm" 
+	pageTitle="스트림 분석의 Power BI 대시보드 | Microsoft Azure"
+	description="실시간 스트리밍 Power BI 대시보드를 사용하여 비즈니스 인텔리전스를 수집하고 스트림 분석 작업에서 대량의 데이터를 분석합니다."
+	services="stream-analytics"
+	documentationCenter=""
+	authors="jeffstokes72"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="stream-analytics" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="data-services" 
-	ms.date="08/03/2015" 
+	ms.service="stream-analytics"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="data-services"
+	ms.date="08/27/2015"
 	ms.author="jeffstok"/>
 	
 # Azure 스트림 분석 및 Power BI: 스트리밍 데이터의 실시간 분석에 대한 라이브 대시보드
@@ -165,7 +165,7 @@ Power BI를 사용한 대시보드 만들기에 대해 알 수 있는 다른 유
 ## 제한 사항 및 모범 사례 ##
 Power BI는 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing "Power BI 가격 책정")에 설명된 바와 같이 동시성과 처리량 제약 조건을 모두 사용합니다.
 
-때문에 Power BI는 Azure 스트림 분석으로 상당한 데이터 부하 감소가 이루어 지는 경우에 가장 적합합니다. TumblingWindow 또는 HoppingWindow를 사용하여 데이터 푸시가 최대 1초마다 푸시가 되도록 하고 쿼리가 처리량 요구 사항 이내에 들도록 하는 것이 좋습니다. 수식을 사용하여 몇 초 내에 창에 공급할 값을 계산할 수 있습니다 ![수식 1](./media/stream-analytics-power-bi-dashboard/equation1.png).
+때문에 Power BI는 Azure 스트림 분석으로 상당한 데이터 부하 감소가 이루어 지는 경우에 가장 적합합니다. TumblingWindow 또는 HoppingWindow를 사용하여 데이터 푸시가 최대 1초마다 푸시가 되도록 하고 쿼리가 처리량 요구 사항 이내에 들도록 하는 것이 좋습니다. 수식을 사용하여 몇 초 내에 창에 공급할 값을 계산할 수 있습니다(![수식 1](./media/stream-analytics-power-bi-dashboard/equation1.png)).
 
 예를 들어 매초마다 데이터를 보내는 1,000개의 장치가 있다면 시간당 1,000,000행을 지원하는 Power BI Pro SKU를 사용하면서 Power BI에서 장치별 평균 데이터를 확인하고 아래 표시된 것과 같이 장치별로 최대 4초마다 푸시를 할 수 있습니다.
 ![수식 2](./media/stream-analytics-power-bi-dashboard/equation2.png)
@@ -185,10 +185,18 @@ Power BI는 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.co
     	TUMBLINGWINDOW(ss,4),
     	dspl
 
+## 권한 부여 갱신
 
+Power BI 출력을 포함하는 모든 작업에 대해 90일마다 인증 토큰을 수동으로 새로 고쳐야 하는 임시 제한 사항이 있습니다. 작업을 만들거나 마지막으로 인증한 후에 암호가 변경된 경우에도 Power BI 계정을 다시 인증해야 합니다. 이 문제의 증상은 작업 출력이 없으며 작업 로그에 "사용자 인증 오류"가 표시됩니다.
+
+![graphic12][graphic12]
+
+이 문제를 해결하려면 실행 중인 작업을 중지하고 Power BI 출력으로 이동합니다. "권한 부여 갱신" 링크를 클릭하고 마지막 중지 시간부터 작업을 다시 시작하여 데이터 손실을 방지합니다.
+
+![graphic13][graphic13]
 
 ## 도움말 보기 ##
-추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-kr/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## 다음 단계 ##
 
@@ -210,5 +218,7 @@ Power BI는 [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.co
 [graphic9]: ./media/stream-analytics-power-bi-dashboard/9-stream-analytics-power-bi-dashboard.png
 [graphic10]: ./media/stream-analytics-power-bi-dashboard/10-stream-analytics-power-bi-dashboard.png
 [graphic11]: ./media/stream-analytics-power-bi-dashboard/11-stream-analytics-power-bi-dashboard.png
+[graphic12]: ./media/stream-analytics-power-bi-dashboard/12-stream-analytics-power-bi-dashboard.png
+[graphic13]: ./media/stream-analytics-power-bi-dashboard/13-stream-analytics-power-bi-dashboard.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

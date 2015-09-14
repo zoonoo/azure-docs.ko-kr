@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Socket.io를 사용하는 Node.js 응용 프로그램 | Microsoft Azure" 
-	description="Azure에 호스트된 node.js 응용 프로그램에서 socket.io를 사용하는 방법을 알아봅니다." 
-	services="cloud-services" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Socket.io를 사용하는 Node.js 응용 프로그램 | Microsoft Azure"
+	description="Azure에 호스트된 node.js 응용 프로그램에서 socket.io를 사용하는 방법을 알아봅니다."
+	services="cloud-services"
+	documentationCenter="nodejs"
+	authors="TomArcher"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="02/25/2015" 
-	ms.author="mwasson"/>
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="tarcher"/>
 
 
 
@@ -28,6 +28,14 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 커뮤니케이�
 
 ![Azure에 호스트된 서비스를 표시하는 브라우저 창][completed-app]
 
+## 필수 조건
+
+이 문서의 예제를 완료하려면 다음 제품 및 버전이 설치되어 있는지 확인합니다.
+
+* [Visual Studio 2013](https://www.visualstudio.com/ko-KR/downloads/download-visual-studio-vs.aspx) 설치
+* [Node.js](https://nodejs.org/download/) 설치
+* [Python 버전 2.7.10](https://www.python.org/) 설치
+
 ## 클라우드 서비스 프로젝트 만들기
 
 다음은 Socket.IO 응용 프로그램을 호스트하는 클라우드 서비스 프로젝트를 만드는 단계입니다.
@@ -36,11 +44,15 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 커뮤니케이�
 
 	![Azure PowerShell 아이콘][powershell-menu]
 
-	[AZURE.INCLUDE [install-dev-tools](../../includes/install-dev-tools.md)]
+2. **c:\\node**라는 디렉터리를 만듭니다.
+ 
+		PS C:\> md node
 
+3. 디렉터리를 **c:\\node** 디렉터리로 변경합니다.
+ 
+		PS C:\> cd node
 
-
-2. 디렉터리를 **c:\\node** 디렉터리로 변경한 후 다음 명령을 입력하여 **chatapp**라는 이름의 새 솔루션과 **WorkerRole1**이라는 작업자 역할을 만듭니다.
+4. 다음 명령을 입력하여 **chatapp**라는 이름의 새 솔루션과 **WorkerRole1**이라는 작업자 역할을 만듭니다.
 
 		PS C:\node> New-AzureServiceProject chatapp
 		PS C:\Node> Add-AzureNodeWorkerRole
@@ -69,7 +81,7 @@ Socket.IO는 node.js 서버와 클라이언트 간에 실시간 커뮤니케이�
 
 Azure 에뮬레이터에서 응용 프로그램을 테스트하기 전에 몇 가지 항목을 수정해야 합니다. server.js 파일에 대해 다음 단계를 수행합니다.
 
-1.  메모장 또는 기타 텍스트 편집기에서 server.js 파일을 엽니다.
+1.  Visual Studio 또는 임의의 텍스트 편집기에서 **server.js** 파일을 엽니다.
 
 2.  server.js의 시작 부분에서 **모듈 종속성** 섹션을 찾아 아래와 같이 **sio = require('..//..//lib//socket.io')**가 포함된 줄을 **sio = require('socket.io')**로 변경합니다.
 
@@ -87,7 +99,7 @@ Azure 에뮬레이터에서 응용 프로그램을 테스트하기 전에 몇 �
 		  console.log('   app listening on http://' + addr.address + ':' + addr.port);
 		});
 
-server.js에 변경 내용을 저장한 후 다음 단계에 따라 필요한 모듈을 설치하고 Azure 에뮬레이터에서 응용 프로그램을 테스트합니다.
+**server.js**에 변경 내용을 저장한 후 다음 단계에 따라 필요한 모듈을 설치하고 Azure 에뮬레이터에서 응용 프로그램을 테스트합니다.
 
 1.  **Azure PowerShell**을 사용하여 디렉터리를 **C:\\node\\chatapp\\WorkerRole1** 디렉터리를 변경하고 다음 명령을 사용하여 이 응용 프로그램에서 필요한 모듈을 설치합니다.
 
@@ -107,7 +119,9 @@ server.js에 변경 내용을 저장한 후 다음 단계에 따라 필요한 �
 
         PS C:\node\chatapp\WorkerRole1> Start-AzureEmulator -Launch
 
-2.  브라우저 창이 열리면 애칭을 입력하고 Enter 키를 누릅니다. 이렇게 하면 특정 애칭으로 메시지를 게시할 수 있습니다. 다중 사용자 기능을 테스트하려면 같은 URL을 사용하여 브라우저 창을 추가로 열고 다른 애칭을 입력합니다.
+2.  브라우저를 열고 ****http://127.0.0.1**로 이동합니다.
+
+3.  브라우저 창이 열리면 애칭을 입력하고 Enter 키를 누릅니다. 이렇게 하면 특정 애칭으로 메시지를 게시할 수 있습니다. 다중 사용자 기능을 테스트하려면 같은 URL을 사용하여 브라우저 창을 추가로 열고 다른 애칭을 입력합니다.
 
     ![User1 및 User2의 채팅 메시지를 표시하는 두 브라우저 창](./media/cloud-services-nodejs-chat-app-socketio/socketio-8.png)
 
@@ -158,4 +172,4 @@ server.js에 변경 내용을 저장한 후 다음 단계에 따라 필요한 �
   
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

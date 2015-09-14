@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 가상 컴퓨터에서 Docker 및 Compose 시작"
-   description="Azure에서 Compose 및 Docker 작업을 간략히 소개"
-   services="virtual-machines"
-   documentationCenter=""
-   authors="dlepow"
-   manager="timlt"
-   editor=""/>
+	description="Azure에서 Compose 및 Docker 작업을 간략히 소개"
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="08/07/2015"
-   ms.author="danlep"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-linux"
+	ms.workload="infrastructure-services"
+	ms.date="08/07/2015"
+	ms.author="danlep"/>
 
 # Azure 가상 컴퓨터에서 Docker 및 Compose 시작
 
@@ -24,7 +24,7 @@ Docker 및 컨테이너를 처음 사용하는 경우는 [Docker 요약 화이�
 
 ## 1단계: Docker 호스트로 Linux VM 설정
 
-다양한 Azure 절차와 Azure Markeplace에서 사용 가능한 이미지를 사용하여 Linux VM을 만들고 Docker 호스트로 설정할 수 있습니다. 예를 들어, Docker VM 확장이 있는 Ubuntu VM을 만드는 빠른 절차에 대해서는 [Azure 명령줄 인터페이스에서 Docker VM 확장 사용](virtual-machines-docker-with-xplat-cli)을 참조하세요. Docker VM 확장을 사용하면 VM이 자동으로 Docker 호스트로 설정됩니다. 해당 문서의 예제에서는 서비스 관리 모드에서 [Mac, Linux 및 Windows에 대한 Azure 명령줄 인터페이스](xplat-cli.md)(Azure CLI)를 사용하여 VM을 만드는 방법을 보여줍니다.
+다양한 Azure 절차와 Azure Markeplace에서 사용 가능한 이미지를 사용하여 Linux VM을 만들고 Docker 호스트로 설정할 수 있습니다. 예를 들어 Docker VM 확장이 있는 Ubuntu VM을 만드는 빠른 절차는 [Azure 명령줄 인터페이스에서 Docker VM 확장 사용](virtual-machines-docker-with-xplat-cli.md)을 참조하세요. Docker VM 확장을 사용하면 VM이 자동으로 Docker 호스트로 설정됩니다. 해당 문서의 예제에서는 서비스 관리 모드에서 [Mac, Linux 및 Windows에 대한 Azure 명령줄 인터페이스](../xplat-cli.md)(Azure CLI)를 사용하여 VM을 만드는 방법을 보여 줍니다.
 
 ## 2단계: Compose 설치
 
@@ -112,4 +112,4 @@ $ azure vm endpoint create <machine-name> 80 8080
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

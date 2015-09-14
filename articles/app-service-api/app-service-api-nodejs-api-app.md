@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Azure 앱 서비스에서 Node.js API 앱 빌드 및 배포"
+	pageTitle="Azure 앱 서비스에서 Node.js API 앱 빌드 및 배포 | Microsoft Azure"
 	description="Node.js API 앱 패키지를 만들고 Azure 앱 서비스에 배포하는 방법을 알아봅니다."
 	services="app-service\api"
 	documentationCenter="nodejs"
 	authors="pkefal"
-  manager="" 
-  editor=""/>
+	manager=""
+	editor=""/>
 
 <tags
 	ms.service="app-service-api"
@@ -20,11 +20,11 @@
 
 이 자습서에서는 [Node.js](http://nodejs.org) 응용 프로그램을 만들고 [Git](http://git-scm.com)를 사용하여 Azure 앱 서비스 API 앱에 배포하는 방법을 보여 줍니다. 이 자습서의 지침은 Node를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다.
 
-다음은 완성된 응용 프로그램의 스크린샷입니다.
+아래 스크린샷은 완성된 응용 프로그램을 보여 줍니다.
 
 ![][sample-api-app-page]
 
-> [AZURE.NOTE]또한 Azure 앱 서비스에서 Node.js API 앱을 빌드하고 배포하기 위해 Visual Studio 코드를 사용할 수 있습니다. Visual Studio 코드 및 Node.js에 대한 자세한 내용은 [Visual Studio 코드](http://code.visualstudio.com/Docs/) 및 [노드 응용 프로그램 개발](http://code.visualstudio.com//Docs/nodejs)을 참조하십시오.
+> [AZURE.NOTE]또한 Azure 앱 서비스에서 Node.js API 앱을 빌드하고 배포하기 위해 Visual Studio 코드를 사용할 수 있습니다. Visual Studio 코드 및 Node.js에 대한 자세한 내용은 [Visual Studio 코드](http://code.visualstudio.com/Docs/) 및 [노드 응용 프로그램 개발](http://code.visualstudio.com//Docs/nodejs)을 참조하세요.
 
 ## Azure Preview 포털에서 API 앱 만들기
 
@@ -34,7 +34,7 @@
 
 2. 포털의 왼쪽 아래에서 **새로 만들기**를 클릭합니다.
 
-3. **웹 + 모바일 > API 앱**을 클릭합니다.
+3. **웹 + 모바일** > **API 앱**을 클릭합니다.
 
 	![][portal-quick-create]
 
@@ -50,7 +50,7 @@
 
 	**시작 보드에 추가** 확인란을 선택된 상태로 두면 API 앱의 블레이드를 만든 후 포털에서 해당 블레이드가 자동으로 열립니다. 이 확인란의 선택을 취소한 경우 포털 홈 페이지에서 **알림**을 클릭하여 API 앱 만들기 상태를 보고, 알림을 클릭하여 새 API 앱의 블레이드로 이동합니다.
 
-7. **설정 > 응용 프로그램 설정**을 클릭합니다.
+7. **설정** > **응용 프로그램 설정**을 클릭합니다.
 
 9. 액세스 수준을 **공용(익명)**으로 설정합니다.
 
@@ -171,7 +171,6 @@
 
 		git init
 
-
 2. 다음 명령을 입력하여 리포지토리에 파일을 추가합니다.
 
 		git add .
@@ -243,6 +242,5 @@ API 앱 백 엔드를 사용하는 Node.js 웹 응용 프로그램을 Azure에 �
 [server-js]: ./media/app-service-api-nodejs-api-app/server-js.png
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="09/01/2015"
 	ms.author="aashishr"/>
 
 # Azure 가상 컴퓨터 백업 - 소개
@@ -92,48 +92,41 @@ Azure 가상 컴퓨터를 백업하려면 먼저 백업 자격 증명 모음을 
 
 4. **지역**에서 자격 증명 모음에 대한 지리적 지역을 선택합니다. 자격 증명 모음은 보호하려는 가상 컴퓨터와 동일한 지역에 있어야 합니다. 가상 컴퓨터가 여러 지역에 있는 경우 각 지역에 자격 증명 모음을 만듭니다. 백업 데이터를 저장하기 위해 저장소 계정을 지정할 필요는 없습니다. 백업 자격 증명 모음 및 Azure 백업 서비스가 자동으로 처리합니다. ![백업 자격 증명 모음 만들기](./media/backup-azure-vms-introduction/backup_vaultcreate.png)
 
-    >[AZURE.NOTE]Azure 백업 서비스를 사용한 가상 컴퓨터 백업은 일부 선택 지역에서만 지원됩니다. [지원되는 지역](http://azure.microsoft.com/regions/#services) 목록을 확인하세요. 찾는 지역이 현재 지원되지 않는 경우, 자격 증명 모음을 만드는 동안 드롭다운 목록에 표시되지 않습니다.
-
 5. **자격 증명 모음 만들기**를 클릭합니다. 백업 자격 증명 모음을 만드는 데 시간이 걸릴 수 있습니다. 포털의 맨 아래에서 상태 알림을 모니터링합니다. ![자격 증명 모음 알림 메시지 만들기](./media/backup-azure-vms-introduction/creating-vault.png)
 
-6. 자격 증명 모음이 성공적으로 만들어졌으며 복구 서비스 페이지에 활성 상태로 나열됨을 확인하는 메시지가 나타납니다. ![백업 자격 증명 모음 목록](./media/backup-azure-vms-introduction/backup_vaultslist.png)
+6. 자격 증명 모음이 성공적으로 만들어졌으며 복구 서비스 페이지에 활성 상태로 나열됨을 확인하는 메시지가 나타납니다. 자격 증명 모음이 생성된 후 즉시 적절한 저장소 중복 옵션을 선택해야 합니다. [백업 자격 증명 모음에서 저장소 중복 옵션 설정](../backup-azure-backup-create-vault.md#storage-redundancy-options)에 대해 자세히 알아보세요. ![백업 자격 증명 모음 목록](./media/backup-azure-vms-introduction/backup_vaultslist.png)
 
 7. 백업 자격 증명 모음을 클릭하면 **빠른 시작** 페이지로 이동하며, Azure 가상 컴퓨터의 백업 지침이 표시됩니다. ![대시보드 페이지의 가상 컴퓨터 백업 지침](./media/backup-azure-vms-introduction/vmbackup-instructions.png)
 
-    >[AZURE.NOTE]자격 증명 모음이 생성된 후 즉시 적절한 저장소 중복 옵션을 선택해야 합니다. [백업 자격 증명 모음에서 저장소 중복 옵션 설정][vault-storage-redundancy]에 대해 자세히 알아보세요.
 
 ### 2\. VM 에이전트
 Azure 가상 컴퓨터 백업을 시작하기 전에 Azure VM 에이전트가 가상 컴퓨터에 올바르게 설치되었는지 확인합니다. 가상 컴퓨터를 백업하기 위해 Azure 백업 서비스는 VM 에이전트 확장을 설치합니다. VM 에이전트는 가상 컴퓨터를 만들 때의 선택적 구성 요소이므로 가상 컴퓨터를 프로비전하기 전에 VM 에이전트에 대한 확인란이 선택되었는지 확인해야 합니다.
 
 [VM 에이전트](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) 및 [설치 방법](http://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/)에 대해 알아보세요.
 
->[AZURE.NOTE]온-프레미스 데이터 센터에서 Azure로 가상 컴퓨터를 마이그레이션하려는 경우 마이그레이션 프로세스를 시작하기 전에 VM 에이전트 MSI를 다운로드하여 설치합니다. 이는 Azure Site Recovery를 사용하여 Azure에 보호된 가상 컴퓨터에도 적용됩니다.
+## 제한 사항
 
-## 미리 보기 중 제한 사항
-
+- IaaS(V2) 가상 컴퓨터의 백업은 지원되지 않습니다.
 - 16개 이상의 데이터 디스크가 있는 가상 컴퓨터의 백업은 지원되지 않습니다.
 - 프리미엄 저장소를 사용하는 가상 컴퓨터의 백업은 지원되지 않습니다.
 - 여러 NIC를 사용하거나 부하 분산 구성에 포함된 가상 컴퓨터의 백업은 지원되지 않습니다.
 - 복원하는 동안 기존 가상 컴퓨터의 교체는 지원되지 않습니다. 먼저 기존 가상 컴퓨터와 관련 디스크를 모두 삭제한 다음 백업에서 데이터를 복원합니다.
-- Azure Site Recovery를 사용하여 복원된 가상 컴퓨터의 백업은 지원되지 않습니다.
 - 지역 간 백업 및 복원은 지원되지 않습니다.
 - Azure 백업 서비스를 사용한 가상 컴퓨터 백업은 일부 선택 지역에서만 지원됩니다. [지원되는 지역](http://azure.microsoft.com/regions/#services) 목록을 확인하세요. 찾는 지역이 현재 지원되지 않는 경우, 자격 증명 모음을 만드는 동안 드롭다운 목록에 표시되지 않습니다.
 - Azure 백업 서비스를 사용하는 가상 컴퓨터 백업은 선택한 운영 체제 버전에 대해서만 지원됩니다.
   - **Linux**: Azure 인증 배포 목록은 [여기](../virtual-machines-linux-endorsed-distributions.md)서 확인할 수 있습니다. 가상 컴퓨터에서 VM 에이전트를 사용할 수 있는 한 기타 Bring-Your-Own-Linux 배포도 작동합니다.
   - **Windows Server**: Windows Server 2008 R2 이전 버전은 지원되지 않습니다.
+- 다중 DC 구성의 일부인 도메인 컨트롤러 VM 복원은 PowerShell을 통해서만 지원됩니다. [다중 DC 도메인 컨트롤러 복원](backup-azure-restore-vms.md#multiple-dcs)에 대해 자세히 알아보세요.
 
 포함되었으면 하는 기능이 있는 경우 [의견을 보내 주세요](http://aka.ms/azurebackup_feedback).
 
 ## 다음 단계
 가상 컴퓨터 백업을 시작하려면 다음 방법을 알아보세요.
 
-- [가상 컴퓨터 검색, 등록 및 보호](backup-azure-vms.md)
+- [가상 컴퓨터 백업](backup-azure-vms.md)
 
 - [가상 컴퓨터 복원](backup-azure-restore-vms.md)
 
-+ 백업 작업 모니터링
+- [가상 컴퓨터 백업 관리](backup-azure-manage-vms.md)
 
-
- 
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

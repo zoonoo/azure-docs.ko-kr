@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Ruby에서 Blob 저장소를 사용하는 방법 | Microsoft Azure" 
-	description="Azure Blob 서비스를 사용하여 Blob 콘텐츠를 업로드, 다운로드, 나열 및 삭제하는 방법을 알아봅니다. 샘플은 Ruby로 작성되었습니다." 
-	services="storage" 
-	documentationCenter="ruby" 
-	authors="tfitzmac" 
-	manager="wpickett" 
+<properties
+	pageTitle="Ruby에서 Blob 저장소를 사용하는 방법 | Microsoft Azure"
+	description="Azure Blob 서비스를 사용하여 Blob 콘텐츠를 업로드, 다운로드, 나열 및 삭제하는 방법을 알아봅니다. 샘플은 Ruby로 작성되었습니다."
+	services="storage"
+	documentationCenter="ruby"
+	authors="tfitzmac"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ruby" 
-	ms.topic="article" 
-	ms.date="05/11/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ruby"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="tomfitz"/>
 
 
@@ -31,7 +31,7 @@
 
 ## Ruby 응용 프로그램 만들기
 
-Ruby 응용 프로그램을 만듭니다. 자세한 내용은 [Azure에서 Ruby 응용 프로그램 만들기](/develop/ruby/tutorials/web-app-with-linux-vm/)를 참조하십시오.
+Ruby 응용 프로그램을 만듭니다. 자세한 내용은 [Azure에서 Ruby 응용 프로그램 만들기](/develop/ruby/tutorials/web-app-with-linux-vm/)를 참조하세요.
 
 ## 저장소에 액세스하도록 응용 프로그램 구성
 
@@ -64,13 +64,13 @@ Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS\_KEY** 
 3. 탐색 창 아래쪽에서 **키 관리**를 클릭합니다.
 4. 팝업 대화 상자에 저장소 계정 이름, 기본 액세스 키 및 보조 액세스 키가 표시됩니다. 액세스 키의 경우 기본 액세스 키 또는 보조 액세스 키를 사용할 수 있습니다.
 
-## 방법: 컨테이너 만들기
+## 컨테이너 만들기
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
 **Azure::BlobService** 개체를 통해 컨테이너 및 Blob에 대한 작업을 할 수 있습니다. 컨테이너를 만들려면 **create\_container()** 메서드를 사용합니다.
 
-다음 예제는 컨테이너를 만들거나 컨테이너가 있으면 오류를 출력합니다.
+다음 코드 예제에서는 컨테이너를 만들거나, 컨테이너가 있을 경우 오류를 출력합니다.
 
 	azure_blob_service = Azure::BlobService.new
 	begin
@@ -84,7 +84,7 @@ Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS\_KEY** 
 **: public\_access\_level**옵션 전달하기를 호출하여 <strong>create\_container ()</strong>를 수정할 수 있습니다.  
 
 
-	container = azure_blob_service.create_container("test-container", 
+	container = azure_blob_service.create_container("test-container",
 	  :public_access_level => "<public access level>")
 
 
@@ -95,23 +95,23 @@ Azure 모듈은 **AZURE\_STORAGE\_ACCOUNT** 및 **AZURE\_STORAGE\_ACCESS\_KEY** 
 * **컨테이너:** blob에 대한 공용 읽기 액세스 권한을 지정 합니다. 이 컨테이너 내의 Blob 데이터는 익명 요청을 통해 읽을 수 있으나 컨테이너 데이터는 읽을 수 없습니다. 클라이언트는 익명 요청을 통해 컨테이너 내의 Blob을 열거할 수 없습니다.
 
 또는 **set\_container\_acl()** 메서드로 공용 액세스 수준을 지정하여 컨테이너의 공용 액세스 수준을 수정할 수 있습니다.
- 
-다음 예제에서는 공용 액세스 수준을 **container**로 변경합니다.
+
+다음 코드 예제에서는 공용 액세스 수준을 **container**로 변경합니다.
 
 	azure_blob_service.set_container_acl('test-container', "container")
 
-## 컨테이너에 Blob을 업로드하는 방법
+## 컨테이너에 Blob 업로드
 
 Blob에 콘텐츠를 업로드하려면 **create\_block\_blob()** 메서드를 사용하여 Blob을 만들고 Blob의 콘텐츠로 파일이나 문자열을 사용합니다.
 
-다음 코드는 **test.png** 파일을 "image-blob"이라는 새 Blob로 컨테이너에 업로드합니다.
+다음 코드에서는 **test.png** 파일을 "image-blob"이라는 새 Blob으로 컨테이너에 업로드합니다.
 
 	content = File.open("test.png", "rb") { |file| file.read }
 	blob = azure_blob_service.create_block_blob(container.name,
 	  "image-blob", content)
 	puts blob.name
 
-## 컨테이너에 Blob 나열하는 방법
+## 컨테이너의 Blob 나열
 
 컨테이너를 나열하려면 **list\_containers()** 메서드를 사용합니다. 컨테이너 내에 Blob을 나열하려면 **list\_blobs()** 메서드를 사용합니다.
 
@@ -125,27 +125,26 @@ Blob에 콘텐츠를 업로드하려면 **create\_block\_blob()** 메서드를 �
 	  end
 	end
 
-## Blob 다운로드하는 방법
+## Blob 다운로드
 
 Blob을 다운로드하려면 **get\_blob()** 메서드를 사용하여 콘텐츠를 가져옵니다.
 
-다음 예제는 **get\_blob()**을 사용하여 "image-blob"의 콘텐츠를 다운로드하고 그 콘텐츠를 로컬 파일에 쓰는 방법을 보여 줍니다.
+다음 코드 예제에서는 **get\_blob()**을 사용하여 "image-blob"의 콘텐츠를 다운로드하고 그 콘텐츠를 로컬 파일에 쓰는 방법을 보여 줍니다.
 
 	blob, content = azure_blob_service.get_blob(container.name,"image-blob")
 	File.open("download.png","wb") {|f| f.write(content)}
 
-## Blob을 삭제하는 방법
-마지막으로 Blob을 삭제하려면 **delete\_blob()** 메서드를 사용합니다. 다음 예제는 Blob을 삭제하는 방법을 보여 줍니다.
+## Blob 삭제
+마지막으로 Blob을 삭제하려면 **delete\_blob()** 메서드를 사용합니다. 다음 코드 예제에서는 Blob을 삭제하는 방법을 보여 줍니다.
 
 	azure_blob_service.delete_blob(container.name, "image-blob")
 
 ## 다음 단계
 
-이제 Blob 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업에 대해 알아보세요.
+더 복잡한 저장소 작업에 대해 알아보려면 다음 링크를 따라가세요.
 
-- 다음 MSDN 참조를 확인하세요. [Azure 저장소](http://msdn.microsoft.com/library/azure/gg433040.aspx)
-- [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문)를 방문하세요.
-- GitHub에서 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby)(영문) 리포지토리를 방문하십시오.
- 
+- MSDN 참조: [Azure 저장소](http://msdn.microsoft.com/library/azure/gg433040.aspx)
+- [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)
+- GitHub의 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby)(영문) 리포지토리
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

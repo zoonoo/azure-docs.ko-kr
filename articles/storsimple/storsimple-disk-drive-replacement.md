@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 장치의 디스크 드라이브 교체 | Microsoft Azure"
-   description="StorSimple 기본 장치 또는 EBOD 엔클로저의 디스크 드라이브를 교체하는 방법을 설명합니다."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="StorSimple 기본 장치 또는 EBOD 엔클로저의 디스크 드라이브를 교체하는 방법을 설명합니다."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # StorSimple 장치의 디스크 드라이브 교체
 
@@ -124,4 +124,4 @@ Microsoft Azure StorSimple 장치에서 드라이브 오류가 발생하고 드�
 
 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

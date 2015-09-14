@@ -1,21 +1,21 @@
 <properties 
    pageTitle="StorSimple 대역폭 템플릿 관리 | Microsoft Azure"
-   description="대역폭 소비를 제어할 수 있도록 StorSimple 대역폭 템플릿을 관리하는 방법을 설명합니다."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="대역폭 소비를 제어할 수 있도록 StorSimple 대역폭 템플릿을 관리하는 방법을 설명합니다."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/13/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
-# StorSimple 대역폭 템플릿 관리
+# StorSimple 관리자 서비스를 사용하여 StorSimple 대역폭 템플릿 관리
 
 ## 개요
 
@@ -54,7 +54,7 @@
 
 #### 대역폭 템플릿을 추가하려면
 
-1. **대역폭 템플릿 추가/편집**을 클릭합니다.
+1. StorSimple 관리자 서비스 **구성** 페이지에서 **대역폭 템플릿 추가/편집**을 클릭합니다.
 
 2. **대역폭 템플릿 추가/편집** 대화 상자에서:
 
@@ -176,4 +176,4 @@ StorSimple 장치에 대해 이 모범 사례를 따릅니다.
 
 [StorSimple 구성 요소](storsimple-components.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="단일 모바일 서비스 백 엔드에서 여러 클라이언트를 사용하는 방법 | Microsoft Azure" 
-	description="Windows 스토어 및 Windows Phone을 비롯한 다양한 모바일 플랫폼을 대상으로 하는 여러 클라이언트 앱에서 단일 모바일 서비스 백 엔드를 사용하는 방법에 대해 알아봅니다." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="단일 모바일 서비스 백 엔드에서 여러 클라이언트를 사용하는 방법 | Microsoft Azure"
+	description="Windows 스토어 및 Windows Phone을 비롯한 다양한 모바일 플랫폼을 대상으로 하는 여러 클라이언트 앱에서 단일 모바일 서비스 백 엔드를 사용하는 방법에 대해 알아봅니다."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor="mollybos"/>
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-multiple"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # 단일 모바일 장치에서 여러 장치 플랫폼 지원
- 
+
 모바일 앱 개발에서 Azure 모바일 서비스를 사용할 때의 주요 이점 중 하나는 여러 클라이언트 플랫폼에서 앱을 지원하는 단일 백 엔드 서비스를 사용할 수 있다는 것입니다. 모바일 서비스에서는 모든 주요 장치 플랫폼에 대해 네이티브 클라이언트 라이브러리를 제공하기 때문에 단일 백 엔드 서비스를 사용하고 교차 플랫폼 개발자 도구를 사용하여 앱을 좀 더 쉽게 개발할 수 있습니다. 이 항목에서는 단일 모바일 서비스 백 엔드를 사용하면서도 여러 클라이언트 플랫폼에서 앱을 실행할 수 있도록 하기 위한 고려 사항에 대해 설명합니다.
 
 ##<a id="push"></a>교차 플랫폼 푸시 알림
@@ -25,7 +25,7 @@
 
 + iOS 앱용 APNS(Apple Push Notification Service)
 + Android 앱용 GCM(Google Cloud Messaging) 서비스
-+ Windows Store, Windows Phone 8.1 Store 및 범용 Windows 앱용 WNS(Windows Notification Service) 
++ Windows Store, Windows Phone 8.1 Store 및 범용 Windows 앱용 WNS(Windows Notification Service)
 + Windows Phone Silverlight 앱용 MPNS(Microsoft Push Notification Service)
 
 >[AZURE.NOTE]현재, 알림 허브는 WNS를 사용하여 Windows Phone Silverlight 8.1 앱에 푸시 알림을 보내는 것을 지원하지 않습니다. Silverlight와 Windows Phone 8.0 및 7.0 앱에는 MPNS를 사용하여 알림을 보내야 합니다.
@@ -34,8 +34,8 @@
 
 클라이언트 등록은 플랫폼별 모바일 서비스 클라이언트 라이브러리에서 등록 기능을 사용하거나 모바일 서비스 REST API를 사용하여 만듭니다. 알림 허브는 두 가지 종류의 장치 등록을 지원합니다.
 
-+ **기본 등록**<br/>기본 등록은 플랫폼별 푸시 알림 서비스에 맞춰져 있습니다. 기본 등록을 사용하여 등록된 장치에 알림을 보낼 때는 모바일 서비스에서 플랫폼별 API를 호출해야 합니다. 여러 플랫폼의 장치에 알림을 보내려면 여러 개의 플랫폼별 호출이 필요합니다.   
-  
++ **기본 등록**<br/>기본 등록은 플랫폼별 푸시 알림 서비스에 맞춰져 있습니다. 기본 등록을 사용하여 등록된 장치에 알림을 보낼 때는 모바일 서비스에서 플랫폼별 API를 호출해야 합니다. 여러 플랫폼의 장치에 알림을 보내려면 여러 개의 플랫폼별 호출이 필요합니다.
+
 + **템플릿 등록**<br/>알림 허브는 플랫폼별 템플릿 등록도 지원합니다. 템플릿 등록을 사용하면 단일 API 호출을 사용하여 등록된 플랫폼에서 실행 중인 앱에 알림을 보낼 수 있습니다. 자세한 내용은 [알림 허브를 통해 사용자에게 플랫폼 간 알림 보내기]를 참조하십시오.
 
 >[AZURE.NOTE]장치 등록이 존재하지 않는 기본 장치 플랫폼에 메시지를 보내려고 하면 오류가 발생합니다. 템플릿 알림을 보낼 때는 이 오류가 발생하지 않습니다.
@@ -53,7 +53,7 @@
 다음 코드는 .NET 백 엔드 서비스에서 모든 iOS 및 Windows Store 디바이스 등록에 푸시 알림을 보냅니다.
 
 	// Define a push notification for APNS.
-	ApplePushMessage apnsMessage = new ApplePushMessage(item.Text, TimeSpan.FromHours(1));    
+	ApplePushMessage apnsMessage = new ApplePushMessage(item.Text, TimeSpan.FromHours(1));
 
 	// Define a push notification for WNS.
 	WindowsPushMessage wnsMessage = new WindowsPushMessage();
@@ -61,8 +61,8 @@
                          @"<toast><visual><binding template=""ToastText01"">" +
                          @"<text id=""1"">" + item.Text + @"</text>" +
                          @"</binding></visual></toast>";
-    
-	// Send push notifications to all registered iOS and Windows Store devices. 
+
+	// Send push notifications to all registered iOS and Windows Store devices.
     await Services.Push.SendAsync(apnsMessage);
 	await Services.Push.SendAsync(wnsMessage);
 
@@ -70,13 +70,13 @@
 
 기본 클라이언트 등록 대신 템플릿 클라이언트 등록을 사용할 때는 [SendAsync]에 대한 단일 호출만으로 같은 알림을 보냄으로써 다음과 같이 [TemplatePushMessage] 개체를 제공할 수 있습니다.
 
-	// Create a new template message and add the 'message' parameter.    
+	// Create a new template message and add the 'message' parameter.
 	var templatePayload = new TemplatePushMessage();
     templatePayload.Add("message", item.Text);
 
 	// Send a push notification to all template registrations.
-    await Services.Push.SendAsync(templatePayload); 
- 
+    await Services.Push.SendAsync(templatePayload);
+
 ###JavaScript 백 엔드
 
 JavaScript 백 엔드 모바일 서비스에서는 다음 표에서와 같이 글로벌 **푸시 개체**에서 가져온 플랫폼별 개체에 [send] 메서드를 호출함으로써 알림을 보냅니다.
@@ -88,20 +88,20 @@ JavaScript 백 엔드 모바일 서비스에서는 다음 표에서와 같이 �
 다음 코드는 모든 Android 및 Windows Phone 등록에 푸시 알림을 보냅니다.
 
 	// Define a push notification for GCM.
-	var gcmPayload = 
+	var gcmPayload =
     '{"data":{"message" : item.text }}';
 
 	// Define the payload for a Windows Phone toast notification.
 	var mpnsPayload = '<?xml version="1.0" encoding="utf-8"?>' +
     '<wp:Notification xmlns:wp="WPNotification"><wp:Toast>' +
-    '<wp:Text1>New Item</wp:Text1><wp:Text2>' + item.text + 
+    '<wp:Text1>New Item</wp:Text1><wp:Text2>' + item.text +
     '</wp:Text2></wp:Toast></wp:Notification>';
 
-	// Send push notifications to all registered Android and Windows Phone 8.0 devices. 
+	// Send push notifications to all registered Android and Windows Phone 8.0 devices.
 	push.mpns.send(null, mpnsPayload, 'toast', 22, {
             success: function(pushResponse) {
                 // Push succeeds.
-                },              
+                },
                 error: function (pushResponse) {
                     // Push fails.
                     }
@@ -109,7 +109,7 @@ JavaScript 백 엔드 모바일 서비스에서는 다음 표에서와 같이 �
     push.gcm.send(null, gcmPayload, {
             success: function(pushResponse) {
                 // Push succeeds.
-                },              
+                },
                 error: function (pushResponse) {
                     // Push fails.
                     }
@@ -119,18 +119,18 @@ JavaScript 백 엔드 모바일 서비스에서는 다음 표에서와 같이 �
 
 기본 클라이언트 등록 대신 템플릿 클라이언트 등록을 사용할 때는 글로벌 **푸시 개체**에 대한 [send] 기능의 단일 호출만으로 같은 알림을 보냄으로써 다음과 같이 템플릿 메시지 페이로드를 제공할 수 있습니다.
 
-	// Create a new template message with the 'message' parameter.    
+	// Create a new template message with the 'message' parameter.
 	var templatePayload = { "message": item.text };
 
 	// Send a push notification to all template registrations.
     push.send(null, templatePayload, {
             success: function(pushResponse) {
                 // Push succeeds.
-                },              
+                },
                 error: function (pushResponse) {
                     // Push fails.
                     }
-                }); 
+                });
 
 ##<a id="xplat-app-dev"></a>교차 플랫폼 앱 개발
 모든 주요 모바일 장치 플랫폼에 대한 기본 모바일 장치 앱을 개발하려면 최소한 Objective-C, Java 및 C# 또는 JavaScript 프로그래밍 언어에 대한 전문 지식이 필요합니다. 이처럼 여러 가지 플랫폼에서 개발해야 하는 비용 부담 때문에 일부 개발자들은 완전한 웹 브라우저 기반 환경을 앱에 사용하기로 선택합니다. 하지만 이러한 웹 기반 환경은 사용자들이 모바일 장치에서 기대하는 풍부한 환경을 제공하는 대다수의 기본 리소스에 액세스할 수 없습니다.
@@ -138,9 +138,9 @@ JavaScript 백 엔드 모바일 서비스에서는 다음 표에서와 같이 �
 교차 플랫폼 도구는 단일 코드 기반(주로 JavaScript)을 공유하면서도 모바일 장치에 보다 풍부한 기본 환경을 제공합니다. 모바일 서비스를 사용하면 다음과 같은 개발 플랫폼에 대해 빠른 시작 자습서를 제공함으로써 교차 플랫폼 앱 개발 플랫폼의 백 엔드 서비스를 쉽게 만들고 관리할 수 있습니다.
 
 + [**Appcelerator**](http://go.microsoft.com/fwlink/p/?LinkId=509987)<br/>Appcelerator는 JavaScript를 사용하여 모든 모바일 장치 플랫폼에서 기본 앱처럼 실행되도록 컴파일된 단일 앱을 개발할 수 있게 해 줍니다. 풍부한 UI 사용자 환경, 모든 기본 장치 리소스에 대한 액세스, 기본 앱 성능을 제공합니다. 자세한 내용은 [Appcelerator 자습서][Appcelerator]를 참조하십시오.
- 
+
 + [**PhoneGap**](https://go.microsoft.com/fwLink/p/?LinkID=390707)**/**[**Cordova**](http://cordova.apache.org/)<br/>PhoneGap(Apache Cordova 프로젝트 배포)은 표준화된 웹 API, HTML 및 JavaScript를 사용하여 Android, iOS 및 Windows 장치에서 실행되는 단일 앱을 개발할 수 있도록 해주는 무료 오픈 소스 프레임워크입니다. PhoneGap은 웹 뷰 기반의 UI를 제공하지만 푸시 알림, 가속도계, 카메라, 저장소, 지리적 위치, 앱 내 브라우저 등 장치의 기본 리소스에 액세스함으로써 사용자 환경을 개선합니다. 자세한 내용은 [PhoneGap 빠른 시작 자습서][PhoneGap]를 참조하십시오.
-	
+
 	이제 Visual Studio에서는 시험판 소프트웨어인 Visual Studio용 Multi-Device Hybrid Apps 확장을 사용하여 교차 플랫폼 Cordova 앱을 구축할 수 있습니다. 자세한 내용은 [HTML 및 JavaScript를 사용하여 Multi-Device Hybrid Apps 시작](http://msdn.microsoft.com/library/dn771545.aspx)(영문)을 참조하십시오.
 
 + [**Sencha Touch**](http://go.microsoft.com/fwlink/p/?LinkId=509988)<br/>Sencha Touch는 단일 HTML 및 JavaScript 코드 기반에서 다양한 모바일 장치에 기본 환경과 비슷한 환경을 제공하는 터치 스크린에 최적화된 다양한 컨트롤을 갖추고 있습니다. Sencha Touch를 PhoneGap 또는 Cordova 라이브러리와 함께 사용하여 기본 장치 리소스에 대한 사용자 액세스를 제공할 수 있습니다. 자세한 내용은 [Sencha Touch 빠른 시작 자습서][Sencha]를 참조하십시오.
@@ -208,6 +208,5 @@ Windows Phone 8.1에서는 이전 Silverlight 기반 XAML을 사용하여 앱을
 [Windows Phone 8 개발자를 위한 향후 계획]: http://msdn.microsoft.com/library/windows/apps/dn655121(v=vs.105).aspx
 [모든 Windows 장치에 대한 범용 Windows 앱 만들기]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [MVVM을 사용하는 Azure 모바일 서비스의 범용 Windows 앱 프로젝트]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

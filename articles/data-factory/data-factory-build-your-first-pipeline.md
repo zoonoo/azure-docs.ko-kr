@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 데이터 팩터리를 사용하여 첫 번째 파이프라인 빌드"
-	description="이 자습서는 데이터 팩터리 편집기를 사용하여 Azure HDInsight를 사용하여 데이터를 변환하는 샘플 데이터 파이프라인을 만드는 방법을 보여줍니다."
+	pageTitle="Azure Data Factory를 사용하여 첫 번째 파이프라인 빌드"
+	description="이 자습서에서는 Azure HDInsight를 사용하여 데이터를 변환하는 샘플 데이터 파이프라인을 만드는 방법을 보여 줍니다."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -12,25 +12,25 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
-# Azure 데이터 팩터리를 사용하여 첫 번째 파이프라인 빌드
+# Azure Data Factory를 사용하여 첫 번째 파이프라인 빌드
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
 - [Using PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 
-이 문서는 첫 번째 파이프라인 빌드를 시작하고 Azure 데이터 팩터리에 배포하는 데 도움이 됩니다.
+이 문서는 첫 번째 파이프라인 빌드를 시작하고 Azure Data Factory에 배포하는 데 도움이 됩니다.
 
-> [AZURE.NOTE]이 문서는 Azure 데이터 팩터리 서비스에 대한 개념적 개요를 제공하지 않습니다. 서비스에 대한 자세한 개요는 [Azure 데이터 팩터리 소개](data-factory-introduction.md) 문서를 참조하세요.
+> [AZURE.NOTE]이 문서는 Azure Data Factory 서비스에 대한 개념적 개요를 제공하지 않습니다. 서비스에 대한 자세한 개요는 [Azure Data Factory 소개](data-factory-introduction.md) 문서를 참조하세요.
 
 ## 자습서 개요
 이 자습서는 첫 번째 파이프라인을 작동시키기 위해 필요한 단계를 안내합니다. 파이프라인을 만들고 필요한 모든 리소스를 처음부터 지정합니다.
 
-데이터 팩터리를 처음부터 만들지 않고도 데이터 팩터리의 다양한 기능을 신속하게 알아보려면 Azure Preview 포털에 제공되는 샘플을 사용합니다. Azure Preview 포털을 사용하여 사용 사례 기반 샘플을 배포하는 방법은 [Azure Data Factory Update: Simplified sample deployment(Azure 데이터 팩터리 업데이트: 간소화된 샘플 배포)](http://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/)(영문)을 참조하세요.
+데이터 팩터리를 처음부터 만들지 않고도 데이터 팩터리의 다양한 기능을 신속하게 알아보려면 Azure Preview 포털에 제공되는 샘플을 사용합니다. Azure Preview 포털을 사용하여 사용 사례 기반 샘플을 배포하는 방법은 [Azure Data Factory Update: Simplified sample deployment(Azure Data Factory 업데이트: 간소화된 샘플 배포)](http://azure.microsoft.com/blog/2015/04/24/azure-data-factory-update-simplified-sample-deployment/)(영문)을 참조하세요.
 
 ## 필수 구성 요소
 이 자습서를 시작하기 전에 다음과 같은 필수 구성 요소가 반드시 필요합니다.
@@ -40,7 +40,7 @@
 2.	**Azure 저장소** – 이 자습서에서는 데이터 저장을 위해 Azure 저장소 계정을 사용합니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../storage-create-storage-account/#create-a-storage-account) 문서를 참조하세요. 저장소 계정을 만든 후에는 저장소 액세스에 사용되는 계정 키를 확보해야 합니다. [저장소 액세스 키 보기, 복사 및 다시 생성](../storage-create-storage-account/#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
 
 ## 이 자습서에서 다루는 내용	
-Azure 데이터 팩터리를 사용하면 데이터 이동 및 데이터 처리 작업을 데이터 기반 워크플로로 작성할 수 있습니다. HDInsight를 사용하여 월별 웹 로그를 변환 및 분석하는 첫 번째 파이프라인을 빌드하는 방법을 알아봅니다.
+Azure Data Factory를 사용하면 데이터 이동 및 데이터 처리 작업을 데이터 기반 워크플로로 작성할 수 있습니다. HDInsight를 사용하여 월별 웹 로그를 변환 및 분석하는 첫 번째 파이프라인을 빌드하는 방법을 알아봅니다.
 
 이 자습서에서는 다음 단계를 수행합니다.
 
@@ -173,4 +173,7 @@ Hive 스크립트 실행 후에는 결과가 Azure Blob 저장소 컨테이너 *
 - 맨 위의 [PowerShell 사용](data-factory-build-your-first-pipeline-using-powershell.md) 링크를 클릭하여 Azure PowerShell을 통해 자습서를 수행합니다.
 - 맨 위의 [Visual Studio 사용](data-factory-build-your-first-pipeline-using-vs.md) 링크를 클릭하여 Visual Studio를 사용하여 자습서를 수행합니다. 
 
-<!---HONumber=August15_HO7-->
+## 피드백 보내기
+이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md)을 통해 의견을 보내주세요.
+
+<!---HONumber=September15_HO1-->

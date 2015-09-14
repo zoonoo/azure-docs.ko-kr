@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="인증된 사용자에게 푸시 알림 보내기" 
-	description="특정 사용자에게 푸시 알림을 보내는 방법에 대해 알아봅니다." 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="android" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="인증된 사용자에게 푸시 알림 보내기"
+	description="특정 사용자에게 푸시 알림을 보내는 방법에 대해 알아봅니다."
+	services="mobile-services,notification-hubs"
+	documentationCenter="android"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="notification-hubs" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="notification-hubs"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # 인증된 사용자에게 푸시 알림 보내기
@@ -27,7 +27,7 @@
 
 이 자습서에서는 Android 앱이 지원됩니다.
 
-##필수 조건 
+##필수 조건
 
 이 자습서를 시작하려면 먼저 다음 모바일 서비스 자습서를 완료해야 합니다.
 
@@ -62,6 +62,5 @@ In the next tutorial, [Service-side authorization of Mobile Services users](mobi
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

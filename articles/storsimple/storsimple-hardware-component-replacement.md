@@ -1,31 +1,31 @@
 <properties 
    pageTitle="StorSimple 하드웨어 구성 요소 교체 | Microsoft Azure"
-   description="StorSimple 장치의 PCM, 배터리, 컨트롤러 모듈, EBOD 컨트롤러, 디스크 드라이브 및 섀시를 안전하게 교체하는 방법을 설명합니다."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="StorSimple 장치의 PCM, 배터리, 컨트롤러 모듈, EBOD 컨트롤러, 디스크 드라이브 및 섀시를 안전하게 교체하는 방법을 설명합니다."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/05/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # StorSimple 하드웨어 구성 요소 교체
 
 ## 개요
 
-하드웨어 구성 요소 교체 자습서에서는 Microsoft Azure StorSimple 장치의 하드웨어 구성 요소 및 구성 요소를 꺼내고 교체하는 데 필요한 단계를 설명합니다. 이러한 자습서를 통해 교체 가능한 구성 요소 및 교체 방법을 배웁니다.
+하드웨어 구성 요소 교체 자습서에서는 Microsoft Azure StorSimple 장치의 하드웨어 구성 요소 및 구성 요소를 꺼내고 교체하는 데 필요한 단계를 설명합니다. 이 문서에서는 안전 아이콘을 설명하고, 자세한 자습서에 대한 포인터를 제공하고, 교체 가능한 구성 요소를 나열합니다.
 
-StorSimple 구성 요소를 꺼내거나 교체하기 전에 [안전성 아이콘 표시 규칙](#safety-icon-conventions) 및 기타 [안전 주의 사항](storsimple-safety.md)을 검토해야 합니다.
+>[AZURE.IMPORTANT]StorSimple 구성 요소를 꺼내거나 교체하기 전에 [안전성 아이콘 표시 규칙](#safety-icon-conventions) 및 기타 [안전 주의 사항](storsimple-safety.md)을 검토해야 합니다.
  
 ### 안전성 아이콘 표시 규칙
 
-다음 표에서는 이 가이드에서 사용된 안전성 아이콘에 대해 설명합니다. 장치 구성 요소를 꺼내고 교체하는 단계를 진행할 때 이러한 안전성 아이콘에 각별히 주의하세요.
+다음 표에서는 이러한 자습서에서 사용된 안전성 아이콘에 대해 설명합니다. 장치 구성 요소를 꺼내고 교체하는 단계를 진행할 때 이러한 안전성 아이콘에 각별히 주의하세요.
 
 | 아이콘 | 텍스트 | 추가 정보 |
 |:---- |:---- |:-----------|
@@ -35,13 +35,13 @@ StorSimple 구성 요소를 꺼내거나 교체하기 전에 [안전성 아이�
 |![고지 아이콘](./media/storsimple-hardware-component-replacement/NoticeIcon.png)| **고지:** | 중요하지만 위험과 관련되지 않은 것으로 간주되는 정보를 나타냅니다.|
 |![감전 아이콘](./media/storsimple-hardware-component-replacement/Electric.png) | **감전 위험** | 높은 전압을 나타냅니다.|
 |![무거운 무게 아이콘](./media/storsimple-hardware-component-replacement/Weight.png)| **무거운 무게**| |
-|![사용자 서비스 가능 부품 없음 아이콘](./media/storsimple-hardware-component-replacement/NoUserServiceableParts.png)| **사용자 서비스 가능 부품 없음** | 제대로 교육을 받지 않은 경우 액세스하지 마십시오.|
+|![사용자 서비스 가능 부품 없음 아이콘](./media/storsimple-hardware-component-replacement/NoUserServiceableParts.png)| **사용자 서비스 가능 부품 없음** | 제대로 교육을 받지 않은 경우 액세스하지 마세요.|
 |![지침 읽기 아이콘](./media/storsimple-hardware-component-replacement/ReadInstructions.png)|**먼저 모든 지침 읽기**| |
 |![기울어짐 위험 아이콘](./media/storsimple-hardware-component-replacement/TipHazard.png)|**기울어짐 위험**| |
 
 ### 시작하기 전에
 
-이 자습서에서 사용된 안전성 아이콘 및 장치에 대한 안전성 정보를 숙지합니다. 자세한 내용은 [장치의 안전성](storsimple-safety.md)을 참조하세요. StorSimple 장치를 처리하기 전에 [안전 주의 사항](storsimple-safety.md#handling-precautions)을 검토해야 합니다.
+이 자습서에서 사용된 안전성 아이콘 및 장치에 대한 안전성 정보를 숙지합니다. 자세한 내용을 보려면 [StorSimple 장치의 안전한 설치 및 작동](storsimple-safety.md)으로 이동합니다. StorSimple 장치를 처리하기 전에 [안전 주의 사항](storsimple-safety.md#handling-precautions)을 검토해야 합니다.
 
 구성 요소를 교체하기 전에 다음 정보를 고려하세요.
 
@@ -51,15 +51,15 @@ StorSimple 구성 요소를 꺼내거나 교체하기 전에 [안전성 아이�
 
 - 회로를 만지지 마세요. 노출된 회로가 있을 수 있는 구성 요소를 처리할 때는 제공된 핸들 및 가이드를 사용합니다.
 
-![경고 아이콘](./media/storsimple-hardware-component-replacement/Warning.png) ![참고 아이콘](./media/storsimple-hardware-component-replacement/NoticeIcon.png) **고지:**
+![경고 아이콘](./media/storsimple-hardware-component-replacement/Warning.png) ![참고 아이콘](./media/storsimple-hardware-component-replacement/NoticeIcon.png) **알림:**
 
 모듈을 교체하는 경우 **엔클로저 뒷면에 빈 베이를 남기지 마세요**. 문제 부품을 꺼내기 전에 교체 또는 빈 모듈을 구합니다.
 
-## 장치의 하드웨어 구성 요소
+## 하드웨어 구성 요소 교체 절차
 
 Microsoft Azure StorSimple 장치는 기본 및/또는 EBOD 엔클로저의 여러 플러그 인 모듈로 구성되어 있습니다. 8100에는 단일 기본 엔클로저가 있는 반면 8600은 기본 엔클로저와 EBOD 엔클로저가 있는 이중 엔클로저 장치입니다.
 
-장치의 기본 하드웨어 구성 요소는 다음 표에 요약되어 있습니다. 교체 절차 열에 있는 링크를 클릭하면 연결된 자습서로 이동합니다.
+장치의 기본 하드웨어 구성 요소는 다음 표에 요약되어 있습니다. **교체 절차** 열에 있는 링크를 클릭하면 연결된 자습서로 이동합니다.
 
 |구성 요소|개수|플러그 인 모듈 여부|교체 절차
 |:---------|:--------|:--------------|:---------------------|
@@ -142,4 +142,4 @@ StorSimple 장치에 사용할 수 있는 FRU(필드 교체 장치)는 다음과
 
 StorSimple 하드웨어 구성 요소를 교체하기 전에 모든 [안전 정보](storsimple-safety.md)를 검토하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 데이터 팩터리를 사용하여 첫 번째 파이프라인 빌드"
-	description="이 자습서는 Visual Studio를 사용하여 Azure HDInsight를 사용하여 데이터를 변환하는 샘플 데이터 파이프라인을 만드는 방법을 보여줍니다."
+	pageTitle="Visual Studio를 사용하여 첫 번째 Azure Data Factory 파이프라인 빌드"
+	description="이 자습서에서는 Visual Studio를 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -12,11 +12,11 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="08/18/2015"
 	ms.author="spelluru"/>
 
-# Azure 데이터 팩터리를 사용하여 첫 번째 파이프라인 빌드
+# Visual Studio를 사용하여 첫 번째 Azure Data Factory 파이프라인 빌드
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -30,7 +30,7 @@
 2.	연결된 서비스(데이터 저장소, 계산) 및 데이터 집합 만들기
 3.	파이프라인 만들기
 
-이 문서는 Azure 데이터 팩터리 서비스에 대한 개념적 개요를 제공하지 않습니다. 서비스에 대한 자세한 개요는 [Azure 데이터 팩터리 소개](data-factory-introduction.md) 문서를 참조하세요.
+이 문서는 Azure Data Factory 서비스에 대한 개념적 개요를 제공하지 않습니다. 서비스에 대한 자세한 개요는 [Azure Data Factory 소개](data-factory-introduction.md) 문서를 참조하세요.
 
 ## 1단계: 데이터 팩터리 만들기
 
@@ -45,7 +45,7 @@
 
 	![새 데이터 팩터리 블레이드](./media/data-factory-build-your-first-pipeline-using-vs/new-data-factory-blade.png)
 
-	> [AZURE.IMPORTANT]Azure 데이터 팩터리 이름은 전역적으로 고유합니다. 팩터리를 성공적으로 만들려면 데이터 팩터리의 이름의 접두사를 사용자의 이름으로 해야 합니다. 
+	> [AZURE.IMPORTANT]Azure Data Factory 이름은 전역적으로 고유합니다. 팩터리를 성공적으로 만들려면 데이터 팩터리의 이름의 접두사를 사용자의 이름으로 해야 합니다. 
 3.	만들어 놓은 리소스 그룹이 없으면 리소스 그룹을 만들어야 합니다. 다음을 수행합니다.
 	1.	**리소스 그룹 이름**을 클릭합니다.
 	2.	**리소스 그룹** 블레이드에서 **새 리소스 그룹 만들기**를 선택합니다.
@@ -68,9 +68,7 @@
 
 ### 필수 구성 요소
 
-컴퓨터에 이 설치되어 있어야 합니다.
-- Visual Studio 2013
-- Visual Studio 2013용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](http://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013 설치**를 클릭합니다.
+컴퓨터에 Visual Studio 2013이 설치되어 있어야 합니다. Visual Studio 2013용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](http://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013 설치**를 클릭합니다.
 
 
 ### Visual Studio 프로젝트 만들기 
@@ -251,5 +249,7 @@ Azure Preview 포털을 사용하여 이 자습서에서 만든 파이프라인 
 ## 다음 단계
 이 문서에서 파이프라인과 주문형 HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Azure Blob에서 Azure SQL로 데이터를 복사하는 방법은 [자습서: Azure Blob에서 Azure SQL로 데이터 복사](data-factory-get-started.md)를 참조하세요.
   
+## 피드백 보내기
+이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-vs.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

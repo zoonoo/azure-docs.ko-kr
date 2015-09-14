@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="SQL 파티션 테이블을 사용하여 대량의 데이터를 병렬로 가져오기 | Microsoft Azure" 
-	description="SQL 파티션 테이블을 사용하여 대량의 데이터를 병렬로 가져오기" 
-	services="machine-learning" 
-	documentationCenter="" 
+	pageTitle="SQL 파티션 테이블을 사용하여 대량의 데이터를 병렬로 가져오기 | Microsoft Azure"
+	description="SQL 파티션 테이블을 사용하여 대량의 데이터를 병렬로 가져오기"
+	services="machine-learning"
+	documentationCenter=""
 	authors="msolhab"
-	manager="paulettm" 
-	editor="cgronlun" />
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="msolhab" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="msolhab"/>
 
 # SQL 파티션 테이블을 사용하여 대량의 데이터를 병렬로 가져오기
 
@@ -184,4 +184,4 @@ SQL 데이터베이스로 빅 데이터를 로드/전송할 때 _분할된 테�
 공용 데이터 집합에서 ADAPT(고급 분석 프로세스 및 기술)를 사용하는 종단 간 연습 예제는 [고급 분석 프로세스 및 기술 작동: SQL Server 사용](machine-learning-data-science-process-sql-walkthrough.md)을 참조하세요.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

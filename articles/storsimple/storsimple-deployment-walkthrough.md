@@ -1,19 +1,19 @@
 <properties
    pageTitle="온-프레미스 StorSimple 장치 배포 | Microsoft Azure"
-   description="StorSimple 장치 및 서비스를 배포하기 위한 단계 및 모범 사례입니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
+	description="StorSimple 장치 및 서비스를 배포하기 위한 단계 및 모범 사례를 설명합니다. Microsoft Azure StorSimple .3 이전 버전에 적용됩니다."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="adinah"
+	editor=""/>
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/14/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="09/02/2015"
+	ms.author="alkohli"/>
 
 # 온-프레미스 StorSimple 장치 배포
 
@@ -24,7 +24,7 @@
 Microsoft Azure StorSimple 장치 배포를 시작합니다. 이 배포 자습서는 StorSimple 8000 시리즈 릴리스 버전, StorSimple 8000 시리즈 Update 0.1, StorSimple 8000 시리즈 Update 0.2, StorSimple 8000 시리즈 Update 0.3에 적용됩니다. 이 자습서 시리즈에서는 StorSimple 장치를 구성하는 방법에 대해 설명하며 구성 검사 목록, 구성 필수 목록 및 자세한 구성 단계를 포함합니다.
 
 
-이 자습서의 정보는 안전 주의 사항을 검토했으며, StorSimple 장치의 포장을 풀었고, 랙을 탑재했으며, 케이블에 연결되어 있다고 가정합니다. 여전히 이러한 작업을 수행해야 하는 경우 [안전 주의 사항](storsimple-safety.md) 검토로 시작하십시오. 장치 모델에 따라 다음 지침을 따라 개봉, 랙 탑재, 케이블 연결을 할 수 있습니다.
+이 자습서의 정보는 안전 주의 사항을 검토했으며, StorSimple 장치의 포장을 풀었고, 랙을 탑재했으며, 케이블에 연결되어 있다고 가정합니다. 여전히 이러한 작업을 수행해야 하는 경우 [안전 주의 사항](storsimple-safety.md) 검토로 시작하세요. 장치 모델에 따라 다음 지침을 따라 개봉, 랙 탑재, 케이블 연결을 할 수 있습니다.
 
 - [8100 개봉, 랙 탑재, 케이블 연결](storsimple-8100-hardware-installation.md)
 - [8600 개봉, 랙 탑재, 케이블 연결](storsimple-8600-hardware-installation.md)
@@ -70,7 +70,7 @@ StorSimple 장치를 구성하여 StorSimple 관리자 서비스에 연결하려
 | **장치 케이블 연결** | 직렬 액세스 | 초기 장치 구성 | 예/아니요 |
 | | | | |
 | **장치 구성 및 등록** | 데이터 0 네트워크 설정 | Data 0 IP 주소:</br>서브넷 마스크:</br>게이트웨이:</br>기본 DNS 서버:</br>기본 NTP 서버:</br>웹 프록시 서버 IP/FQDN (선택 사항):</br>웹 프록시 포트:| |
-| | 장치 관리자 암호 | 암호는 8\~15자이며 소문자, 대문자, 숫자 및 특수 문자를 포함해야 합니다. | |
+| | 장치 관리자 암호 | 암호는 8~15자이며 소문자, 대문자, 숫자 및 특수 문자를 포함해야 합니다. | |
 | | StorSimple 스냅숏 관리자 암호 | 암호는 14 또는 15자이며 소문자, 대문자, 숫자 및 특수 문자를 포함해야 합니다.| |
 | | 서비스 등록 키 | Azure 포털에서 이 키가 생성됩니다. | |
 | | 서비스 데이터 암호화 키 | 이 키는 장치가 StorSimple용 Windows PowerShell을 통해 관리 서비스와 등록될 때 생성됩니다. 이 키를 복사하고 안전한 위치에 저장합니다.| |
@@ -80,11 +80,11 @@ StorSimple 장치를 구성하여 StorSimple 관리자 서비스에 연결하려
 | | 보조 DNS 서버 | 필요한 구성입니다. | |
 | | 네트워크 인터페이스: 데이터 0 컨트롤러 고정 IP | 이러한 IP는 인터넷에 라우팅 가능해야 합니다.</br>컨트롤러 0 고정 IP 주소:</br>컨트롤러 1 고정 IP 주소:|
 | | | | |
-| **추가 네트워크 인터페이스 설정** | 네트워크 인터페이스: 데이터 1</br>iSCSI가 사용하도록 설정된 경우 게이트웨이를 구성하지 마십시오. | 용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이:|
-| | 네트워크 인터페이스: 데이터 2</br>iSCSI가 사용하도록 설정된 경우 게이트웨이를 구성하지 마십시오. | 용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이:|
-| | 네트워크 인터페이스: 데이터 3</br>iSCSI가 사용하도록 설정된 경우 게이트웨이를 구성하지 마십시오. | 용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이:|
-| | 네트워크 인터페이스: 데이터 4</br>iSCSI가 사용하도록 설정된 경우 게이트웨이를 구성하지 마십시오. | 용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이:|
-| | 네트워크 인터페이스: 데이터 5</br>iSCSI가 사용하도록 설정된 경우 게이트웨이를 구성하지 마십시오. | 용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이:|
+| **추가 네트워크 인터페이스 설정** | 네트워크 인터페이스: 데이터 1</br>iSCSI가 사용하도록 설정된 경우 게이트웨이를 구성하지 마세요. | 용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이:|
+| | 네트워크 인터페이스: 데이터 2</br>iSCSI가 사용하도록 설정된 경우 게이트웨이를 구성하지 마세요. | 용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이:|
+| | 네트워크 인터페이스: 데이터 3</br>iSCSI가 사용하도록 설정된 경우 게이트웨이를 구성하지 마세요. | 용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이:|
+| | 네트워크 인터페이스: 데이터 4</br>iSCSI가 사용하도록 설정된 경우 게이트웨이를 구성하지 마세요. | 용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이:|
+| | 네트워크 인터페이스: 데이터 5</br>iSCSI가 사용하도록 설정된 경우 게이트웨이를 구성하지 마세요. | 용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이:|
 | | | | |
 | **볼륨 컨테이너 만들기** | 볼륨 컨테이너 이름: | 컨테이너의 이름 | |
 | | Azure 저장소 계정: | 이 볼륨 컨테이너와 연결할 저장소 계정 이름 및 액세스 키 | |
@@ -143,7 +143,7 @@ StorSimple 장치를 구성하여 StorSimple 관리자 서비스에 연결하려
 | | | |
 | **NTP** | NTP 서버가 입력되는 즉시 시간 동기화를 트리거합니다. `time.windows.com` 또는 공용 시간 서버를 입력할 때 UDP 포트 123이 열려 있는지 확인합니다. | [이 스크립트를 다운로드하고 사용합니다](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca). |
 | | | |
-| **프록시(선택 사항)** | 유효한 프록시 URI 및 포트입니까? </br> 인증 모드가 올바릅니까? | <code>wget http://bing.com &\#124; % {$\_.StatusCode}</code></br>이 명령은 웹 프록시 구성 후 즉시 실행되어야 합니다. 상태 코드 200이 반환되는 경우 연결이 성공적임을 나타냅니다. |
+| **프록시(선택 사항)** | 유효한 프록시 URI 및 포트입니까? </br> 인증 모드가 올바릅니까? | <code>wget http://bing.com | % {$\_.StatusCode}</code></br>이 명령은 웹 프록시 구성 후 즉시 실행되어야 합니다. 상태 코드 200이 반환되는 경우 연결이 성공적임을 나타냅니다. |
 | | 트래픽이 프록시를 통해 라우팅할 수 있습니까? | 장치의 프록시 구성 후 DNS 유효성 검사, NTP 확인 또는 HTTP 검사를 실행합니다. 트래픽이 프록시 또는 다른 곳에서 차단된 경우 명확한 그림을 제공합니다. |
 | | | |
 | **등록** | 아웃바운드 TCP 포트 443, 80, 9354가 열려 있는지 확인합니다. | `Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Test-NetConnection cmdlet에 대한 자세한 내용](https://technet.microsoft.com/library/dn372891.aspx) |
@@ -290,4 +290,4 @@ StorSimple 장치에서 단일 볼륨에 대한 주문형 수동 백업을 만�
 
 - [StorSimple 관리자 서비스](https://msdn.microsoft.com/library/azure/dn772396.aspx)를 사용하여 StorSimple 장치를 관리할 수 있습니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

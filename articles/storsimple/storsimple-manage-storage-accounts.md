@@ -1,21 +1,21 @@
 <properties 
-   pageTitle="StorSimple 저정소 계정 관리 Microsoft Azure | Microsoft Azure"
-   description="구성 페이지를 사용하여 저장소 계정에 대한 보안 키를 추가, 편집, 삭제 또는 회전하는 방법에 대해 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+   pageTitle="StorSimple 저장소 계정 관리 | Microsoft Azure"
+	description="StorSimple 관리자 구성 페이지를 사용하여 저장소 계정에 대한 보안 키를 추가, 편집, 삭제 또는 회전하는 방법을 설명합니다."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/14/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/27/2015"
+	ms.author="v-sharos"/>
 
-# StorSimple 저장소 계정 관리
+# StorSimple 관리자 서비스를 사용하여 저장소 계정 관리
 
 ## 개요
 
@@ -28,8 +28,6 @@
 이 자습서에서는 **구성** 페이지를 사용하여 저장소 계정을 추가, 편집 또는 삭제하거나, 저장소 계정에 대한 보안 키를 회전하는 방법에 대해 설명합니다.
 
  ![구성 페이지](./media/storsimple-manage-storage-accounts/HCS_ConfigureService.png)
-
-**그림 1: StorSimple 관리자 서비스 구성 페이지**
 
 저장소 계정은 클라우드 서비스 공급자와 저장소 계정에 액세스하기 위해 장치가 사용하는 자격 증명을 포함합니다. Microsoft Azure 저장소 계정의 경우 계정 이름 및 기본 액세스 키와 같은 자격 증명이 있습니다.
 
@@ -152,4 +150,4 @@ StorSimple 관리자 서비스에 변경을 알리려면 StorSimple 관리자 �
 
 [StorSimple 보안](storsimple-security.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/03/2015"
+	ms.date="08/19/2015"
 	ms.author="jeffstok"/>
 
 
@@ -259,22 +259,22 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 
 **입력**:
 
-| 번호판 | 계정을 | Time |
+| LicensePlate | 계정을 | Time |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:00:05.0000000Z |
-| YZK 5704 | Ford | 2015-07-27T07:00:02:17.0000000Z |
-| RMV 8282 | Honda | 2015-07-27T07:00:05:01.0000000Z |
-| YHN 6970 | Toyota | 2015-07-27T07:00:06:00.0000000Z |
-| VFE 1616 | Toyota | 2015-07-27T07:00:09:31.0000000Z |
-| QYF 9358 | Honda | 2015-07-27T07:00:12:02.0000000Z |
-| MDR 6128 | BMW | 2015-07-27T07:00:13:45.0000000Z |
+| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
+| YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
+| RMV 8282 | Honda | 2015-07-27T00:05:01.0000000Z |
+| YHN 6970 | Toyota | 2015-07-27T00:06:00.0000000Z |
+| VFE 1616 | Toyota | 2015-07-27T00:09:31.0000000Z |
+| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
+| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
 **출력**:
 
-| 번호판 | 계정을 | Time |
+| LicensePlate | 계정을 | Time |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:05.000Z |
-| QYF 9358 | Honda | 2015-07-27T07:12:02.000Z |
+| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
+| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
 
 **솔루션**:
 
@@ -289,13 +289,13 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 
 이제 10분 간격마다 특정 브랜드의 첫 번째 차를 찾도록 문제를 변경해보겠습니다.
 
-| 번호판 | 계정을 | Time |
+| LicensePlate | 계정을 | Time |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:05.000Z |
-| YZK 5704 | Ford | 2015-07-27T07:02:17.000Z |
-| YHN 6970 | Toyota | 2015-07-27T07:06:00.000Z |
-| QYF 9358 | Honda | 2015-07-27T07:12:02.000Z |
-| MDR 6128 | BMW | 2015-07-27T07:13:45.000Z |
+| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
+| YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
+| YHN 6970 | Toyota | 2015-07-27T00:06:00.0000000Z |
+| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
+| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
 **솔루션**:
 
@@ -313,22 +313,22 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 
 **입력**:
 
-| 번호판 | 계정을 | Time |
+| LicensePlate | 계정을 | Time |
 | --- | --- | --- |
-| DXE 5291 | Honda | 2015-07-27T07:00:00:05.0000000Z |
-| YZK 5704 | Ford | 2015-07-27T07:00:02:17.0000000Z |
-| RMV 8282 | Honda | 2015-07-27T07:00:05:01.0000000Z |
-| YHN 6970 | Toyota | 2015-07-27T07:00:06:00.0000000Z |
-| VFE 1616 | Toyota | 2015-07-27T07:00:09:31.0000000Z |
-| QYF 9358 | Honda | 2015-07-27T07:00:12:02.0000000Z |
-| MDR 6128 | BMW | 2015-07-27T07:00:13:45.0000000Z |
+| DXE 5291 | Honda | 2015-07-27T00:00:05.0000000Z |
+| YZK 5704 | Ford | 2015-07-27T00:02:17.0000000Z |
+| RMV 8282 | Honda | 2015-07-27T00:05:01.0000000Z |
+| YHN 6970 | Toyota | 2015-07-27T00:06:00.0000000Z |
+| VFE 1616 | Toyota | 2015-07-27T00:09:31.0000000Z |
+| QYF 9358 | Honda | 2015-07-27T00:12:02.0000000Z |
+| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
 **출력**:
 
-| 번호판 | 계정을 | Time |
+| LicensePlate | 계정을 | Time |
 | --- | --- | --- |
-| VFE 1616 | Toyota | 2015-07-27T07:09:31.000Z |
-| MDR 6128 | BMW | 2015-07-27T07:13:45.000Z |
+| VFE 1616 | Toyota | 2015-07-27T00:09:31.0000000Z |
+| MDR 6128 | BMW | 2015-07-27T00:13:45.0000000Z |
 
 **솔루션**:
 
@@ -358,7 +358,7 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 
 **입력**:
 
-| 계정을 | 번호판 | Time |
+| 계정을 | LicensePlate | Time |
 | --- | --- | --- |
 | Honda | ABC 123 | 2015-01-01T00:00:01.0000000Z |
 | Honda | AAA 999 | 2015-01-01T00:00:02.0000000Z |
@@ -443,7 +443,7 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 이러한 것들을 조합하여 중간에 잘못된 이벤트가 없는 good->bad->good을 얻습니다. 이제 버그의 기간을 알려주는 첫 번째 정상 이벤트와 마지막 정상 이벤트 사이의 기간을 계산할 수 있습니다.
 
 ## 도움말 보기
-추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-kr/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## 다음 단계
 
@@ -454,4 +454,4 @@ Azure Stream 분석의 쿼리는 [여기](https://msdn.microsoft.com/library/azu
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

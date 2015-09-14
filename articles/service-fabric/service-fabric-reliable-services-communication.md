@@ -1,20 +1,20 @@
 <properties
    pageTitle="서비스 통신 모델 개요"
-   description="이 문서에서는 신뢰할 수 있는 서비스의 API에서 지원하는 통신 모델의 기본 사항을 설명합니다."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="BharatNarasimman"
-   manager="vipulm"
-   editor=""/>
+	description="이 문서에서는 신뢰할 수 있는 서비스의 API에서 지원하는 통신 모델의 기본 사항을 설명합니다."
+	services="service-fabric"
+	documentationCenter=".net"
+	authors="BharatNarasimman"
+	manager="vipulm"
+	editor=""/>
 
 <tags
    ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="required"
-   ms.date="04/13/2015"
-   ms.author="bharatn@microsoft.com"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="required"
+	ms.date="08/27/2015"
+	ms.author="bharatn@microsoft.com"/>
 
 # 서비스 통신 모델
 
@@ -70,7 +70,7 @@ var port = codePackageActivationContext.GetEndpoint("ServiceEndpoint").Port;
 
 ```
 
-> [AZURE.NOTE]끝점 리소스는 전체 서비스 패키지에 공통되며, 서비스 패키지가 활성화될 때 서비스 패브릭에서 할당합니다.(자세한 내용은 [서비스 패브릭 ServiceModel](../service-fabric-service-model.md) 확인). 따라서 동일한 ServiceHost에서 호스팅되는 모든 복제본은 동일한 포트를 공유합니다. 이는 통신 수신기가 포트 공유를 지원해야 한다는 의미입니다. 이에 대한 권장 방법은 통신 수신기가 수신 주소를 생성할 때 파티션 ID 및 복제본/인스턴스 ID를 사용하도록 하는 것입니다.
+> [AZURE.NOTE]끝점 리소스는 전체 서비스 패키지에 공통되며, 서비스 패키지가 활성화될 때 서비스 패브릭에서 할당합니다. 따라서 동일한 ServiceHost에서 호스팅되는 모든 복제본은 동일한 포트를 공유합니다. 이는 통신 수신기가 포트 공유를 지원해야 한다는 의미입니다. 이에 대한 권장 방법은 통신 수신기가 수신 주소를 생성할 때 파티션 ID 및 복제본/인스턴스 ID를 사용하도록 하는 것입니다.
 
 ```csharp
 
@@ -230,4 +230,4 @@ var myServicePartitionClient = new ServicePartitionClient<MyCommunicationClient>
 * [WebAPI 통신 스택을 사용하는 신뢰할 수 있는 서비스 API를 사용하여 서비스 작성](service-fabric-reliable-services-communication-webapi.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

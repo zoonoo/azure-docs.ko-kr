@@ -1,6 +1,6 @@
 <properties
-   pageTitle="StorSimple 가상 장치 | Microsoft Azure"
-	description="StorSimple 가상 장치를 만들고 구성, 배포 및 관리하는 방법을 설명합니다."
+   pageTitle="Azure의 StorSimple 가상 장치 | Microsoft Azure"
+	description="Microsoft Azure 가상 네트워크에서 StorSimple 가상 장치를 만들고 배포 및 관리하는 방법을 알아봅니다. StorSimple .3 이전 버전에 적용됩니다."
 	services="storsimple"
 	documentationCenter=""
 	authors="alkohli"
@@ -12,18 +12,16 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="NA"
-	ms.date="08/21/2015"
+	ms.date="09/02/2015"
 	ms.author="alkohli"/>
 
-# StorSimple 가상 장치
+# Azure에서 StorSimple 가상 장치 배포 및 관리
 
 [AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
 
 ## 개요
 
 StorSimple 가상 장치는 Microsoft Azure StorSimple 솔루션와 함께 제공되는 추가 기능입니다. StorSimple 가상 장치는 Microsoft Azure 가상 네트워크의 가상 컴퓨터에서 실행되며, 이 장치를 사용하여 호스트에서 데이터를 백업하고 복제할 수 있습니다. 이 문서에서 다음 항목은 StorSimple 가상 장치에 대해 배우고 구성하고 사용하는 데 도움이 됩니다.
-
-
 
 - 가상 장치와 물리적 장치의 차이
 
@@ -386,4 +384,4 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
 
 가상 장치를 관리하려면 [StorSimple 관리 서비스를 사용한 StorSimple 장치 관리](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service)에서 워크플로의 자세한 목록을 참조하세요.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

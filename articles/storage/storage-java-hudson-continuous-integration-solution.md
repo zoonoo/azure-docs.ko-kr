@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Blob 서비스와 함께 Hudson을 사용하는 방법 | Microsoft Azure" 
-	description="아티팩트 빌드용 리포지토리로 Azure Blob 저장소와 함께 Hudson을 사용하는 방법에 대해 설명합니다." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	pageTitle="Azure Blob 서비스와 함께 Hudson을 사용하는 방법 | Microsoft Azure"
+	description="아티팩트 빌드용 리포지토리로 Azure Blob 저장소와 함께 Hudson을 사용하는 방법에 대해 설명합니다."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="robmcm"/>
 
 #Hudson Continuous Integration 솔루션과 함께 Azure 저장소 사용
@@ -168,4 +168,4 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

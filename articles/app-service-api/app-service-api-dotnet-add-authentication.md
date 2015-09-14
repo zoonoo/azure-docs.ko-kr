@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure API 앱 보호" 
-	description="Visual Studio를 사용하여 Azure API 앱을 보호하는 방법에 대해 알아봅니다." 
-	services="app-service\api" 
-	documentationCenter=".net" 
-	authors="tdykstra" 
-	manager="wpickett" 
+	pageTitle="Azure API 앱 보호"
+	description="Visual Studio를 사용하여 Azure API 앱을 보호하는 방법에 대해 알아봅니다."
+	services="app-service\api"
+	documentationCenter=".net"
+	authors="tdykstra"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.service="app-service-api"
+	ms.workload="web"
+	ms.tgt_pltfrm="dotnet"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/05/2015"
 	ms.author="tdykstra"/>
 
 # API 앱 보호: Azure Active Directory 또는 소셜 공급자 인증 추가
@@ -229,7 +229,11 @@ API 앱이 인증된 요청만 수락하도록 구성하기 위해 해당 접근
 	* "twitter"
 	* "facebook". 
 
-2. *ContactsController.cs* 파일에서 `Get` 메서드의 코드를 다음 코드로 바꿉니다.
+3. *ContactsController.cs* 파일의 맨 위에 `using` 문을 추가합니다.
+
+		using Microsoft.Azure.AppService.ApiApps.Service;
+
+2. `Get` 메서드의 코드를 다음 코드로 바꿉니다.
 
 		var runtime = Runtime.FromAppSettings(Request);
 		var user = runtime.CurrentUser;
@@ -245,7 +249,7 @@ API 앱이 인증된 요청만 수락하도록 구성하기 위해 해당 접근
 
 	샘플 코드는 Azure Active Directory를 사용합니다. 다른 공급자에 대해 이전 단계에서와 같이 적절한 토큰 이름 및 클레임 식별자를 사용하게 됩니다.
 
-	사용할 수 있는 Azure Active Directory 클레임에 대한 정보는 [지원 토큰 및 클레임 유형](https://msdn.microsoft.com/library/dn195587.aspx)을 참조하십시오.
+	사용할 수 있는 Azure Active Directory 클레임에 대한 정보는 [지원 토큰 및 클레임 유형](https://msdn.microsoft.com/library/dn195587.aspx)을 참조하세요.
 
 3. `Microsoft.Azure.AppService.ApiApps.Service`에 using 문을 추가합니다.
 
@@ -253,7 +257,7 @@ API 앱이 인증된 요청만 수락하도록 구성하기 위해 해당 접근
 
 3. 프로젝트를 다시 배포합니다.
 
-	Visual Studio에서는 [배포](app-service-dotnet-deploy-api-app.md) 자습서를 따르는 동안 프로젝트를 배포할 때 설정을 기억합니다. 프로젝트를 마우스 오른쪽 단추로 클릭하여, **게시**를 클릭하고 **웹 게시** 대화 상자의 **게시**를 클릭하십시오.
+	Visual Studio에서는 [배포](app-service-dotnet-deploy-api-app.md) 자습서를 따르는 동안 프로젝트를 배포할 때 설정을 기억합니다. 프로젝트를 마우스 오른쪽 단추로 클릭하여, **게시**를 클릭하고 **웹 게시** 대화 상자의 **게시**를 클릭하세요.
 
 6. 보호된 API 앱으로 Get 요청을 보내기에 앞서 수행한 절차를 따릅니다.
 
@@ -268,4 +272,4 @@ Azure Active Directory 또는 소셜 공급자 인증을 요구하여 Azure API 
 [Azure 포털]: https://manage.windowsazure.com/
 [Azure Preview 포털]: https://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

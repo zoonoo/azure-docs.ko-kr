@@ -1,26 +1,30 @@
 <properties 
-	pageTitle="API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법" 
-	description="API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법에 대해 알아봅니다." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="dwrede" 
+	pageTitle="API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법"
+	description="API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법에 대해 알아봅니다."
+	services="api-management"
+	documentationCenter=""
+	authors="steved0x"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.service="api-management"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="sdanie"/>
 
 # API 검사기를 사용하여 Azure API 관리에서 호출을 추적하는 방법
 
-API 관리는 API 디버깅 및 문제 해결로 사용자를 돕는 API 검사기 도구를 제공합니다. 응용 프로그램에서 API 검사기를 프로그래밍 방식으로 사용할 수 있으며 개발자 포털에서 직접 사용할 수도 있습니다. 이 안내서는 API 검사기 사용을 단계적으로 안내해 줍니다.
+API 관리는 API 디버깅 및 문제 해결로 사용자를 돕는 API 검사기 도구를 제공합니다. API 검사기를 프로그래밍 방식으로 사용할 수 있으며 개발자 포털에서 직접 사용할 수도 있습니다.
 
->[AZURE.NOTE]API 검사기는 작업 추적 외에 [정책 식](https://msdn.microsoft.com/library/azure/dn910913.aspx) 평가도 추적합니다. 데모를 보려면 [클라우드 커버 에피소드 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)에서 21:00 지점을 참조하세요.
+API 검사기는 작업 추적 외에 [정책 식](https://msdn.microsoft.com/library/azure/dn910913.aspx) 평가도 추적합니다. 데모를 보려면 [Cloud Cover 에피소드 177: 추가 API 관리 기능](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)에서 21:00 지점을 참조하세요.
+
+이 안내서는 API 검사기 사용을 단계적으로 안내해 줍니다.
+
+>[AZURE.NOTE]API 검사기 추적은 API 관리 서비스 인스턴스의 [관리자](api-management-howto-create-groups.md)만 사용할 수 있습니다. API 검사기 추적은 구독 키가 필요한 [보호된 제품](api-management-howto-add-products.md)을 호출할 때만 반환됩니다.
 
 ## <a name="trace-call"> </a>API 검사기를 사용하여 호출 추적
 
@@ -226,7 +230,7 @@ API 검사기를 사용하려면 **ocp-apim-trace: true** 요청 헤더를 작�
 ## <a name="next-steps"> </a>다음 단계
 
 -	[고급 API 구성 시작][] 자습서에서 다른 항목을 확인하세요.
--	[클라우드 커버 에피소드 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)에서 추적 정책 식의 데모를 볼 수 있습니다. 데모를 보려면 21:00 지점으로 빨리 감기 하세요.
+-	[Cloud Cover 에피소드 177: 추가 API 관리 기능](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)에서 추적 정책 식의 데모를 볼 수 있습니다. 데모를 보려면 21:00 지점으로 빨리 감기 하세요.
 
 >[AZURE.VIDEO episode-177-more-api-management-features-with-vlad-vinogradsky]
 
@@ -257,4 +261,4 @@ API 검사기를 사용하려면 **ocp-apim-trace: true** 요청 헤더를 작�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

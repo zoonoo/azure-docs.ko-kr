@@ -1,19 +1,19 @@
 <properties 
-	pageTitle=".NET 클라이언트의 Azure 앱 서비스에서 API 앱 사용" 
-	description="앱 서비스 SDK를 사용하여 .NET 클라이언트에서 API 앱을 사용하는 방법을 알아봅니다." 
-	services="app-service\api" 
-	documentationCenter=".net" 
-	authors="tdykstra" 
-	manager="wpickett" 
+	pageTitle=".NET 클라이언트의 Azure 앱 서비스에서 API 앱 사용"
+	description="앱 서비스 SDK를 사용하여 .NET 클라이언트에서 API 앱을 사용하는 방법을 알아봅니다."
+	services="app-service\api"
+	documentationCenter=".net"
+	authors="tdykstra"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.service="app-service-api"
+	ms.workload="web"
+	ms.tgt_pltfrm="dotnet"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/30/2015"
 	ms.author="tdykstra"/>
 
 # .NET 클라이언트의 Azure 앱 서비스에서 API 앱 사용 
@@ -37,7 +37,7 @@
 
 - [API 앱 만들기](app-service-dotnet-create-api-app.md)
 - [API 앱 배포](app-service-dotnet-deploy-api-app.md)
-- [API 앱 보호](../app-service-dotnet-add-authentication.md)
+- [API 앱 보호](../app-service-api-dotnet-add-authentication.md)
 
 [AZURE.INCLUDE [install-sdk-2013-only](../../includes/install-sdk-2013-only.md)]
 
@@ -205,4 +205,4 @@ API 앱을 호출하려면 다음 예제와 같이 클라이언트 개체를 만
 API 앱에서 인증을 사용하는 방법에 대한 자세한 내용은 [Azure 앱 서비스에서 API 앱 및 모바일 앱 인증](../app-service/app-service-authentication-overview.md)을 참조하세요.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

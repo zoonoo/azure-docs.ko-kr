@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="StorSimple 관리자 서비스 장치 대시보드 사용 | Microsoft Azure"
-   description="StorSimple 관리자 장치 대시보드 및 이를 사용하여 저장소 메트릭 및 연결된 초기자를 보고 장치 일련 번호 및 IQN을 찾는 방법에 대해 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="StorSimple 관리자 장치 대시보드 사용 | Microsoft Azure"
+	description="StorSimple 관리자 서비스 장치 대시보드 및 이를 사용하여 저장소 메트릭 및 연결된 초기자를 보고 일련 번호 및 IQN을 찾는 방법을 설명합니다."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
 # StorSimple 관리자 장치 대시보드 사용
 
@@ -99,4 +99,4 @@ StorSimple 장치에는 CHAP(Challenge Handshake 인증 프로토콜)를 구성�
 
 [StorSimple 관리자 서비스 대시보드에 대해 자세히 알아봅니다](storsimple-service-dashboard.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

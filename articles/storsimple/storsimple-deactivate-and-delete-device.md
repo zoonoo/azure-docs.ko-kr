@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 장치 비활성화 및 삭제 | Microsoft Azure"
-   description="StorSimple 장치를 비활성화한 후 삭제하여 서비스에서 제거하는 방법에 대해 설명합니다."
-   services="storsimple"
-   documentationCenter=""
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+	description="먼저 StorSimple 장치를 비활성화한 후 삭제하여 서비스에서 제거하는 방법을 설명합니다."
+	services="storsimple"
+	documentationCenter=""
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/12/2015"
-   ms.author="v-sharos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="v-sharos"/>
 
 # StorSimple 장치 비활성화 및 삭제
 
@@ -37,23 +37,23 @@ StorSimple 가상 장치의 경우 비활성화하면 해당 가상 컴퓨터와
 
 1. 장치를 비활성화하기 전에 장치와 연결된 모든 볼륨 컨테이너(및 볼륨)를 삭제해야 합니다. 연결된 백업을 삭제한 후에만 볼륨 컨테이너를 삭제할 수 있습니다.
 
-2. 장치를 비활성화합니다. [비활성화 단계](#steps-to-deactivate)로 이동하여 지침을 따르십시오.
+2. 장치를 비활성화합니다. [비활성화 단계](#steps-to-deactivate)로 이동하여 지침을 따르세요.
 
-3. 비활성화한 후 장치를 완전히 삭제할 수 있습니다. [장치 삭제](#delete-a-device)로 이동하여 지침을 따르십시오.
+3. 비활성화한 후 장치를 완전히 삭제할 수 있습니다. [장치 삭제](#delete-a-device)로 이동하여 지침을 따르세요.
 
 ### 데이터 비활성화 및 보존
 
 장치를 삭제하지만 장치 데이터를 보존하고 싶은 경우 다음을 수행합니다.
 
-1. 장치를 비활성화합니다. 장치의 모든 볼륨 컨테이너 및 스냅숏은 유지됩니다. [비활성화 단계](#steps-to-deactivate)로 이동하여 지침을 따르십시오.
+1. 장치를 비활성화합니다. 장치의 모든 볼륨 컨테이너 및 스냅숏은 유지됩니다. [비활성화 단계](#steps-to-deactivate)로 이동하여 지침을 따르세요.
 
-2. 이제 볼륨 컨테이너와 연결된 스냅숏을 장애 조치(Failover)할 수 있습니다. 이에 대한 절차를 보려면 [StorSimple 장치에 대한 장애 조치 및 재해 복구](storsimple-device-failover-disaster-recovery.md)로 이동하십시오.
+2. 이제 볼륨 컨테이너와 연결된 스냅숏을 장애 조치(Failover)할 수 있습니다. 이에 대한 절차를 보려면 [StorSimple 장치에 대한 장애 조치 및 재해 복구](storsimple-device-failover-disaster-recovery.md)로 이동하세요.
 
-3. 비활성화 및 장애 조치(Failover) 후 장치를 완전히 삭제할 수 있습니다. [장치 삭제](#delete-a-device)로 이동하여 지침을 따르십시오.
+3. 비활성화 및 장애 조치(Failover) 후 장치를 완전히 삭제할 수 있습니다. [장치 삭제](#delete-a-device)로 이동하여 지침을 따르세요.
 
 ### 비활성화하는 단계
 
-다음 절차에 따라 삭제를 준비하는 과정에서 장치를 비활성화하십시오.
+다음 절차에 따라 삭제를 준비하는 과정에서 장치를 비활성화하세요.
 
 #### 장치를 비활성화하려면
 
@@ -91,4 +91,4 @@ StorSimple 가상 장치의 경우 비활성화하면 해당 가상 컴퓨터와
 
 기술 지원을 받으려면 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

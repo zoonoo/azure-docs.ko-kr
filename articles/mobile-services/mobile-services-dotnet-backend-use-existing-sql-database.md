@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="모바일 서비스 .NET 백 엔드가 포함된 기존 SQL 데이터베이스를 사용해서 서비스 구축 | Microsoft Azure" 
-	description=".NET 기반 모바일 서비스에서 기존 클라우드 또는 온-프레미스 SQL 데이터베이스를 사용하는 방법에 대해 알아봅니다." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="모바일 서비스 .NET 백 엔드가 포함된 기존 SQL 데이터베이스를 사용해서 서비스 구축 | Microsoft Azure"
+	description=".NET 기반 모바일 서비스에서 기존 클라우드 또는 온-프레미스 SQL 데이터베이스를 사용하는 방법에 대해 알아봅니다."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor="mollybos"/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="05/20/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="na"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 
@@ -39,7 +39,7 @@
             {
                 [Key]
                 public int CustomerId { get; set; }
-                
+
                 public string Name { get; set; }
 
                 public virtual ICollection<Order> Orders { get; set; }
@@ -48,7 +48,7 @@
         }
 
 3. **Models** 폴더 안에 **Order.cs** 파일을 만들고 다음 구현을 사용합니다.
-    
+
         using System.ComponentModel.DataAnnotations;
 
         namespace ShoppingService.Models
@@ -65,7 +65,7 @@
                 public bool Completed { get; set; }
 
                 public int CustomerId { get; set; }
-              
+
                 public virtual Customer Customer { get; set; }
 
             }
@@ -144,7 +144,7 @@
     **Customer** 관계 속성은 클라이언트에서 관계를 수동으로 모델링하는 데 사용할 수 있는 **Customer** 이름 및 **MobileCustomerId** 속성으로 바뀌었습니다. **CustomerId** 속성은 나중에 사용되므로 지금은 무시해도 됩니다.
 
 3. **EntityData** 기본 클래스에 시스템 속성이 추가되어 DTO에는 이제 모델 유형보다 많은 속성이 포함되었습니다. 확실히 이러한 속성을 저장할 공간이 필요하므로, 원본 데이터베이스에 열을 몇 개 추가해야 합니다. 이렇게 하면 데이터베이스가 변경되긴 해도 변경 사항이 단순히 추가된 항목(스키마에 새로운 열 추가)이므로 기존 응용 프로그램의 작업이 중단되지는 않을 것입니다. 이를 위해서는 **Customer.cs** 및 **Order.cs** 위에 다음 문을 추가합니다.
-    
+
         using System.ComponentModel.DataAnnotations.Schema;
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
         using System.ComponentModel.DataAnnotations;
@@ -174,7 +174,7 @@
         public byte[] Version { get; set; }
 
 4. 지금 추가한 시스템 속성은 데이터베이스 작업에 영향을 주지 않고 수행되는 몇 가지 기본 제공되는 동작(예: 생성/업데이트 시 자동 업데이트)을 포함합니다. 이러한 동작을 사용하도록 설정하기 위해서는 **ExistingContext.cs**를 변경해야 합니다. 파일 맨 위에 다음을 추가합니다.
-    
+
         using System.Data.Entity.ModelConfiguration.Conventions;
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
         using System.Linq;
@@ -188,7 +188,7 @@
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
 
             base.OnModelCreating(modelBuilder);
-        } 
+        }
 
 5. 이제 데이터베이스에 몇 가지 예제 데이터를 채웁니다. **WebApiConfig.cs** 파일을 엽니다. 새로운 [**IDatabaseInitializer**](http://msdn.microsoft.com/library/gg696323.aspx)를 만들고 아래 표시된 것처럼 **Register** 메서드에서 구성합니다.
 
@@ -227,11 +227,11 @@
 
                     List<Customer> customers = new List<Customer>
                     {
-                        new Customer { CustomerId = 1, Name = "John", Orders = new Collection<Order> { 
+                        new Customer { CustomerId = 1, Name = "John", Orders = new Collection<Order> {
                             orders[0]}, Id = Guid.NewGuid().ToString()},
-                        new Customer { CustomerId = 2, Name = "Paul", Orders = new Collection<Order> { 
+                        new Customer { CustomerId = 2, Name = "Paul", Orders = new Collection<Order> {
                             orders[1]}, Id = Guid.NewGuid().ToString()},
-                        new Customer { CustomerId = 3, Name = "Ringo", Orders = new Collection<Order> { 
+                        new Customer { CustomerId = 3, Name = "Ringo", Orders = new Collection<Order> {
                             orders[2]}, Id = Guid.NewGuid().ToString()},
                     };
 
@@ -318,7 +318,7 @@ AutoMapper가 이제 개체를 다른 개체에 매핑합니다. 이름이 일�
                 {
                     return (T)(object)GetKey(mobileCustomerId, this.context.Customers, this.Request);
                 }
-                
+
                 public override SingleResult<MobileCustomer> Lookup(string mobileCustomerId)
                 {
                     int customerId = GetKey<int>(mobileCustomerId);
@@ -605,7 +605,7 @@ AutoMapper가 이제 개체를 다른 개체에 매핑합니다. 이름이 일�
             public DateTimeOffset? UpdatedAt { get; set; }
 
             public bool Deleted { get; set; }
-            
+
             [Version]
             public string Version { get; set; }
 
@@ -615,4 +615,4 @@ AutoMapper가 이제 개체를 다른 개체에 매핑합니다. 이름이 일�
 
 다음 단계에서는 서비스에 액세스하기 위한 클라이언트 앱을 작성할 수 있습니다. 자세한 내용은 [기존 앱에 모바일 서비스 추가](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service)를 참조하세요.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

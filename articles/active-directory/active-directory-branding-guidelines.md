@@ -1,20 +1,20 @@
 <properties
    pageTitle="응용 프로그램에 대한 브랜딩 지침"
-   description="Azure Active Directory의 개발자 중심 리소스에 대한 포괄적인 가이드"
-   services="active-directory"
-   documentationCenter="dev-center-name"
-   authors="msmbaldwin"
-   manager="mbaldwin"
-   editor=""/>
+	description="Azure Active Directory의 개발자 중심 리소스에 대한 포괄적인 가이드"
+	services="active-directory"
+	documentationCenter="dev-center-name"
+	authors="msmbaldwin"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
    ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="07/30/2015"
-   ms.author="mbaldwin"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/25/2015"
+	ms.author="mbaldwin"/>
 
 
 # 응용 프로그램에 대한 브랜딩 지침
@@ -53,12 +53,12 @@ Microsoft는 Azure 또는 Active Directory 브랜드 이름에 최종 사용자�
 
 ## 앱 구입에 대한 시각적 지침
 
-"앱 가져오기" 링크는 Azure AD 액세스 권한 부여(권한 부여) 페이지로 사용자를 리디렉션해야 합니다. 그러면 조직 관리자가 앱이 Microsoft에서 호스트되는 조직 데이터에 액세스할 수 있게 승인할 수 있습니다. 액세스 권한을 요청하는 방법에 대한 자세한 내용은 [응용 프로그램 추가, 업데이트 및 제거](https://msdn.microsoft.com/library/azure/dn132599.aspx) 항목에서 설명합니다.
+"앱 가져오기" 링크는 Azure AD 액세스 권한 부여(권한 부여) 페이지로 사용자를 리디렉션해야 합니다. 그러면 조직 관리자가 앱이 Microsoft에서 호스트되는 조직 데이터에 액세스할 수 있게 승인할 수 있습니다. 액세스 권한을 요청하는 방법에 대한 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합](active-directory-integrating-applications.md) 항목에서 설명합니다.
 
 관리자가 앱에 동의한 후에는 사용자의 Office 365 앱 시작 관리자 환경(와플 및 [https://portal.office.com/myapps](https://portal.office.com/myapps)에서 액세스 가능)에 앱을 추가할 수 있습니다. 이 기능을 보급하려는 경우 "조직에 이 앱 추가"와 같은 용어를 사용하고 다음과 같은 단추를 표시할 수 있습니다.
 
 ![응용 프로그램 종류 및 시나리오](./media/active-directory-branding-guidelines/add-to-my-org.png)
-  
+
 그러나 단추에 의존하는 대신 설명 텍스트를 작성하는 것이 좋습니다. 예:
 > *미 Office 365 또는Microsoft의 다른 비즈니스 서비스를 사용하는 경우 조직의 데이터에 대한 <your_app_name> 액세스 권한을 부여하면 됩니다. 이렇게 하면 사용자들이 기존 회사 계정으로 <your_app_name>에 액세스할 수 있습니다.*
 
@@ -66,9 +66,9 @@ Microsoft는 Azure 또는 Active Directory 브랜드 이름에 최종 사용자�
 ## 로그인에 대한 시각적 지침
 앱은 Azure AD와 통합하는 데 사용하는 프로토콜에 해당하는 로그인 끝점으로 사용자를 리디렉션하는 로그인 단추를 표시해야 합니다. 다음 섹션에서는 이 단추의 모양을 자세히 설명합니다.
 
-### 픽토그램 및 "회사 또는 학교 계정" 
+### 픽토그램 및 "회사 또는 학교 계정"
 Microsoft 로고와 앱이 지원하는 다른 ID 공급자 중에서 Azure AD를 고유하게 나타내는 “회사 또는 학교”라는 일반 용어를 결합한 것입니다. 공간이 부족하여 "회사 또는 학교 계정"을 사용할 수 없는 경우에는 "회사 계정"으로 줄여도 됩니다.
- 
+
 ![응용 프로그램 종류 및 시나리오](./media/active-directory-branding-guidelines/work-or-school-account.png)
 
 ![응용 프로그램 종류 및 시나리오](./media/active-directory-branding-guidelines/work-account.png)
@@ -76,7 +76,7 @@ Microsoft 로고와 앱이 지원하는 다른 ID 공급자 중에서 Azure AD�
 최종 사용자가 이 단추를 사용할 수 있는지 여부를 인식할 수 있도록, 추가 설명을 제공할 수도 있습니다.
 
 ![응용 프로그램 종류 및 시나리오](./media/active-directory-branding-guidelines/work-account-with-explaination.png)
- 
+
 ## 브랜딩 관련 할 일과 하지 말아야 할 일
 **권장** "회사 또는 학교 계정"을Microsoft 로고와 함께 사용하여 Azure AD에서 로그인을 나타냅니다. 공간이 부족한 경우 “회사 계정”이라고 해도 됩니다. **권장 안 함** “엔터프라이즈 계정”, “비즈니스 계정” 또는 “회사 계정”과 같은 다른 용어는 사용하지 않습니다.
 
@@ -94,6 +94,4 @@ Microsoft 로고와 앱이 지원하는 다른 ID 공급자 중에서 Azure AD�
 
 앱이 Azure AD 및 Microsoft 계정을 모두 지원하는 경우 앱에 두 개의 개별 로그인 단추를 포함해야 합니다. 한 번 통합하면 Microsoft의 개인 계정과 회사 계정을 모두 지원할 수 있는 업데이트를 제공하기 위해 현재 적극적으로 노력하고 있습니다. 이 업데이트가 제공되면 앱에 하나의 "Microsoft로 로그인" 단추를 표시할 수 있습니다.
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

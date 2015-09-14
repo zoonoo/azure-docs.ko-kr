@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-catalog"
-	ms.date="08/21/2015"
+	ms.date="08/25/2015"
 	ms.author="maroche"/>
 
 # Azure 데이터 카탈로그에 대한 질문과 대답
@@ -69,6 +69,8 @@ Azure 데이터 카탈로그 표준 버전은 최대 100,000개의 등록된 데
 - Oracle 데이터베이스 뷰
 - Azure 저장소 Blob
 - Azure 저장소 디렉터리
+- HDFS 파일
+- HDSF 디렉터리
 
 ## 질문: 다른 데이터 원본에 대한 지원을 어떻게 요청하나요?
 
@@ -97,7 +99,7 @@ Azure 데이터 카탈로그에 데이터를 등록하려면 Azure 데이터 카
 
 <br/>
 
-> [AZURE.NOTE]최우선 **Description** 속성이 있는 SQL Server Analysis Services와 같은 데이터 원본의 경우, **Azure 데이터 카탈로그** 게시 응용 프로그램이 해당 속성 값을 추출합니다. 최우선 **Description** 속성이 없는 SQL Server 관계형 데이터베이스의 경우, **Azure 데이터 카탈로그** 게시 응용 프로그램이 개체 및 열에 대해 ms\_description extended 속성에서 해당 값을 추출합니다. 자세한 내용은 TechNet [데이터베이스 개체에서 Extended 속성 사용](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx)을 참조하세요.
+> [AZURE.NOTE]최우선 **Description** 속성이 있는 SQL Server Analysis Services와 같은 데이터 원본의 경우, **Azure 데이터 카탈로그** 게시 응용 프로그램이 해당 속성 값을 추출합니다. 최우선 **Description** 속성이 없는 SQL Server 관계형 데이터베이스의 경우, **Azure 데이터 카탈로그** 게시 응용 프로그램이 개체 및 열에 대한 ms\_description 확장 속성에서 해당 값을 추출합니다. 자세한 내용은 TechNet [데이터베이스 개체의 확장 속성 사용](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx)을 참조하세요.
 
 ## 질문: 새로 등록된 자산이 Azure 데이터 카탈로그에 나타나려면 얼마나 걸리나요?
 
@@ -119,14 +121,14 @@ Azure 데이터 카탈로그에 데이터를 등록하려면 Azure 데이터 카
 
 ## 질문: 미리 보기에 대한 SLA란 무엇인가요?
 
-**Azure 데이터 카탈로그** 미리 보기 중에는 명시적 서비스 수준 규약이 없습니다.
+**Azure 데이터 카탈로그** 미리 보기 중에는 명시적 서비스 수준 계약이 없습니다.
 
 ## 질문: 문제가 발생했을 때 Azure 데이터 카탈로그 팀과 정보를 공유하려면 어떻게 하나요?
 
 **Azure 데이터 카탈로그** 포럼을 사용하여 문제를 보고하고, 정보를 공유하며, 질문을 할 수 있습니다. 포럼은 http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409에서 찾을 수 있습니다.
 
 ##질문: Azure 데이터 카탈로그에서 관심이 있는 다른 데이터 원본과 함께 작업하나요?
-저희는 **Azure 데이터 카탈로그**에 더 많은 데이터 원본을 추가하는 작업을 활발히 하고 있습니다. 지원되는지 확인하고 싶은 데이터 원본이 있는 경우, [Azure 데이터 카탈로그 포럼](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)에 제안하시기 바랍니다. 또는 이미 제안되어 있는 경우 제안에 의견을 더해 주시기 바랍니다.
+Microsoft는 **Azure 데이터 카탈로그**에 더 많은 데이터 원본을 추가하는 작업을 활발히 하고 있습니다. 지원되는지 확인하고 싶은 데이터 원본이 있는 경우, [Azure 데이터 카탈로그 포럼](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)에 제안하시기 바랍니다. 또는 이미 제안되어 있는 경우 제안에 의견을 더해 주시기 바랍니다.
 
 ## 질문: Azure 데이터 카탈로그는 어떻게 Office 365용 Power BI의 데이터 카탈로그와 연결되나요?
 
@@ -154,10 +156,10 @@ Azure 데이터 카탈로그에 데이터를 등록하려면 Azure 데이터 카
 
 ## 질문: Azure 데이터 카탈로그와 함께 작업 시 질문하거나 도움을 얻으려면 어떻게 하나요?
 
-문제가 발생하거나 Azure 데이터 카탈로그 미리 보기와 관련하여 지원이 필요한 경우, [Azure 데이터 카탈로그 포럼](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)에 게시물을 올려 주세요.
+문제가 발생하거나 Azure 데이터 카탈로그 미리 보기와 관련하여 지원이 필요한 경우, [Azure 데이터 카탈로그 포럼](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)에 게시물을 올려주세요.
 
 ## 질문: 내 질문에 대답이 없습니다. 어떻게 하나요?
 
 [Azure 데이터 카탈로그 포럼](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)을 참조하세요. 게시된 질문을 여기에서 찾을 수 있습니다.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

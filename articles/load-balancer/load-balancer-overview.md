@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Azure 부하 분산 장치 개요 | Microsoft Azure"
-   description="Azure 부하 분산 장치 기능, 아키텍처 및 구현에 대한 개요입니다. 부하 분산 장치의 작동 방식을 이해하고 클라우드에 활용하는 데 도움이 됩니다."
-   services="load-balancer"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="adinah"
-   editor="tysonn" />
+	description="Azure 부하 분산 장치 기능, 아키텍처 및 구현에 대한 개요입니다. 부하 분산 장치의 작동 방식을 이해하고 클라우드에 활용하는 데 도움이 됩니다."
+	services="load-balancer"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="adinah"
+	editor="tysonn"/>
 <tags 
    ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="07/10/2015"
+	ms.author="joaoma"/>
 
 
 # 부하 분산 장치 개요 
@@ -21,7 +21,7 @@ Azure 부하 분산 장치는 응용 프로그램에 고가용성 및 네트워�
  
 다음을 수행하도록 구성할 수 있습니다.
 
-- 들어오는 인터넷 트래픽을 가상 컴퓨터에 부하 분산합니다. 이를 [인터넷 연결 부하 분산](load-balancer-overview.md)이라고 합니다.
+- 들어오는 인터넷 트래픽을 가상 컴퓨터에 부하 분산합니다. 이를 [인터넷 연결 부하 분산](load-balancer-internet-overview.md)이라고 합니다.
 - 가상 네트워크의 가상 컴퓨터 간, 클라우드 서비스의 가상 컴퓨터 간 또는 크로스-프레미스 가상 네트워크의 온-프레미스 컴퓨터와 가상 컴퓨터 간에 트래픽을 부하 분산합니다. 이를 [ILB(내부 부하 분산)](load-balancer-internal-overview.md)라고 합니다.
 - 	외부 트래픽을 특정 가상 컴퓨터 인스턴스로 전달합니다.
 
@@ -99,4 +99,4 @@ Azure 부하 분산 장치 구성은 UDP에 대해 완전한 원뿔형 NAT를 �
 [시작 - 인터넷 연결 부하 분산 장치](load-balancer-internet-getstarted.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

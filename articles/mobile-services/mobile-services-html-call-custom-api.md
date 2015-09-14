@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="HTML 클라이언트에서 사용자 지정 API 호출 | 모바일 서비스" 
-	description="사용자 지정 API를 정의한 다음 Azure 모바일 서비스를 사용하는 HTML 앱에서 이를 호출하는 방법에 대해 알아봅니다." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="bureado"  
-	manager="dwrede" 
+<properties
+	pageTitle="HTML 클라이언트에서 사용자 지정 API 호출 | 모바일 서비스"
+	description="사용자 지정 API를 정의한 다음 Azure 모바일 서비스를 사용하는 HTML 앱에서 이를 호출하는 방법에 대해 알아봅니다."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-html" 
-	ms.devlang="javascript" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-html"
+	ms.devlang="javascript"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # HTML 응용 프로그램에서 사용자 지정 API 호출
@@ -32,9 +32,9 @@
 
 ##<a name="update-app"></a>사용자 지정 API를 호출하도록 앱 업데이트
 
-1. 텍스트 편집기에서 index.html 파일을 열고 `buttonRefresh`(이)라는 **button** 요소를 찾아서 바로 오른쪽에 다음과 같은 새 요소를 추가합니다. 
+1. 텍스트 편집기에서 index.html 파일을 열고 `buttonRefresh`(이)라는 **button** 요소를 찾아서 바로 오른쪽에 다음과 같은 새 요소를 추가합니다.
 
-		<button id="buttonCompleteAll">Complete All</button> 
+		<button id="buttonCompleteAll">Complete All</button>
 
 	이 코드는 페이지에 새 단추를 추가합니다.
 
@@ -92,4 +92,4 @@
 [기존 앱에 모바일 서비스 추가]: mobile-services-html-get-started-data.md
 [원본 제어에 서버 스크립트 저장]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

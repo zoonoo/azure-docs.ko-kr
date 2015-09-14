@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,15 +13,15 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/12/2015"
-	ms.author="jroth" />
+	ms.author="jroth"/>
 
 # Azure의 AlwaysOn 가용성 그룹 구성(GUI)
 
 이 종단 간 자습서에서는 Azure 가상 컴퓨터에서 실행되는 SQL Server AlwaysOn을 사용하여 가용성 그룹을 구현하는 방법을 보여줍니다.
 
->[AZURE.NOTE]Azure 관리 포털에는 수신기와 함께 AlwaysOn 가용성 그룹을 위한 새로운 갤러리 설치가 있습니다. 설치 시 AlwaysOn 가용성 그룹에 필요한 모든 항목이 자동으로 구성됩니다. 자세한 내용은 [Microsoft Azure 포털 갤러리의 SQL Server AlwaysOn 제품](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)을 참조하세요. PowerShell을 사용하려면 [자습서: Azure의 AlwaysOn 가용성 그룹(PowerShell)](https://msdn.microsoft.com/library/azure/jj870963.aspx)에서 동일한 시나리오의 자습서를 참조하세요.
+>[AZURE.NOTE]Azure 관리 포털에는 수신기와 함께 AlwaysOn 가용성 그룹을 위한 새로운 갤러리 설치가 있습니다. 설치 시 AlwaysOn 가용성 그룹에 필요한 모든 항목이 자동으로 구성됩니다. 자세한 내용은 [Microsoft Azure 포털 갤러리의 SQL Server AlwaysOn 제품](http://blogs.technet.com/b/dataplatforminsider/archive/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery.aspx)을 참조하세요. PowerShell을 사용하려면 [PowerShell을 사용하여 Azure에서 AlwaysOn 가용성 그룹 구성](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)에서 동일한 시나리오의 자습서를 참조하세요.
 
-자습서 끝부분에 Azure의 SQL Server AlwaysOn 솔루션은 다음 요소로 구성됩니다.
+자습서 마지막에서 Azure의 SQL Server AlwaysOn 솔루션은 다음 요소로 구성됩니다.
 
 - 프런트 엔드 및 백 엔드 서브넷을 비롯한 여러 서브넷을 포함하는 가상 네트워크
 
@@ -534,4 +534,4 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 
 Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

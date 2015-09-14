@@ -103,7 +103,7 @@ VM 프로비전이 완료되면 VM의 외부 IP 주소(또는 DNS 이름) 및 �
 
 >[AZURE.IMPORTANT]이때 Linux RDMA 드라이버에 문제가 발생할 수 있으므로 커널 업데이트를 적용하지 않는 것이 좋습니다.
 
-**Intel MPI** - [Intel.com 사이트](https://software.intel.com/ko-kr/intel-mpi-library/)에서 Intel MPI Library 5.0 런타임을 다운로드하여 설치합니다. Intel에 등록한 후 확인 전자 메일의 링크를 따라 관련 웹 페이지로 이동하여 적절한 Intel MPI 버전의 .tgz 파일에 대한 다운로드 링크를 복사합니다.
+**Intel MPI** - [Intel.com 사이트](https://software.intel.com/ko-KR/intel-mpi-library/)에서 Intel MPI Library 5.0 런타임을 다운로드하여 설치합니다. Intel에 등록한 후 확인 전자 메일의 링크를 따라 관련 웹 페이지로 이동하여 적절한 Intel MPI 버전의 .tgz 파일에 대한 다운로드 링크를 복사합니다.
 
 다음과 유사한 명령을 실행하여 VM에 Intel MPI를 설치합니다.
 
@@ -190,7 +190,7 @@ azure vm capture -t <vm-name> <image-name>
 ### Select a region where A8 and A9 VMs are available, such as West US
 ### See Azure Pricing pages for prices and availability of A8 and A9 VMs
 
-azure network vnet create -l "West US" -e 10.32.0.0 <network-name>
+azure network vnet create -l "West US" -e 10.32.0.0 -i 16 <network-name>
 
 ### Create a cloud service. All the A8 and A9 instances need to be in the same cloud service for Linux RDMA to work across InfiniBand.
 ### Note: The current maximum number of VMs in a cloud service is 50. If you need to provision more than 50 VMs in the same cloud service in your cluster, contact Azure Support.
@@ -208,7 +208,7 @@ portnumber=101
 ### In this cluster there will be 8 size A9 nodes, named cluster11 to cluster18. Specify your captured image in <image-name>.
 
 for (( i=11; i<19; i++ )); do
-        azure vm create -g <username> -p <password> -c <cloud-service-name> -z A9 -n $vmname$i -e $portnumber$i <image-name>
+        azure vm create -g <username> -p <password> -c <cloud-service-name> -z A9 -n $vmname$i -e $portnumber$i -w <network-name> -b Subnet-1 <image-name>
 done
 
 ### Save this script and run it at the CLI prompt to provision your cluster
@@ -337,6 +337,6 @@ private ip address2:16
 
 * Linux 클러스터에서 Linux MPI 응용 프로그램을 배포하고 실행합니다.
 
-* Intel MPI에 대한 지침은 [Intel MPI Library 설명서](https://software.intel.com/ko-kr/articles/intel-mpi-library-documentation/)를 참조하세요.
+* Intel MPI에 대한 지침은 [Intel MPI Library 설명서](https://software.intel.com/ko-KR/articles/intel-mpi-library-documentation/)를 참조하세요.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

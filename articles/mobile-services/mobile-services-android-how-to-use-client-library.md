@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="모바일 서비스 Android 클라이언트 라이브러리 사용" 
-	description="Azure 모바일 서비스에 Android 클라이언트를 사용하는 방법에 대해 알아봅니다." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	pageTitle="모바일 서비스 Android 클라이언트 라이브러리 사용"
+	description="Azure 모바일 서비스에 Android 클라이언트를 사용하는 방법에 대해 알아봅니다."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="ricksal"/>
 
 
@@ -44,7 +44,7 @@ Android 클라이언트 라이브러리용 Javadocs API 참조는 [여기](http:
 		private String text;
 		private Boolean complete;
 	}
-	
+
 동적 스키마가 사용하도록 설정된 경우 Azure 모바일 서비스에서 삽입 또는 업데이트 요청의 개체를 기준으로 새 열을 자동으로 생성합니다. 자세한 내용은 [동적 스키마](http://go.microsoft.com/fwlink/p/?LinkId=296271)를 참조하십시오.
 
 ##<a name="create-client"></a>방법: 모바일 서비스 클라이언트 만들기
@@ -52,7 +52,7 @@ Android 클라이언트 라이브러리용 Javadocs API 참조는 [여기](http:
 
 		MobileServiceClient mClient = new MobileServiceClient(
 				"MobileServiceUrl", // Replace with the above Site URL
-				"AppKey", 			// replace with the Application Key 
+				"AppKey", 			// replace with the Application Key
 				this)
 
 위 코드에서 `MobileServiceUrl` 및 `AppKey`을(를) 모바일 서비스 URL 및 응용 프로그램 키로 바꿉니다(두 항목 순서 유지). 이 두 항목은 모두 Azure 관리 포털에서 사용할 수 있습니다. 모바일 서비스를 선택한 후 *대시보드*를 클릭하면 됩니다.
@@ -130,7 +130,7 @@ Android 클라이언트 라이브러리용 Javadocs API 참조는 [여기](http:
             @Override
             protected Void doInBackground(Void... params) {
                 try {
-                    final MobileServiceList<ToDoItem> result = 
+                    final MobileServiceList<ToDoItem> result =
 						mToDoTable.where().field("complete").eq(false).execute().get();
 					for (ToDoItem item : result) {
                 		Log.i(TAG, "Read object with ID " + item.id);  
@@ -206,12 +206,12 @@ Android 클라이언트 라이브러리용 Javadocs API 참조는 [여기](http:
 
 		mToDoTable.select("complete", "text").execute().get();
 
-	
+
 여기서 select 함수의 매개 변수는 반환하려는 테이블 열의 문자열 이름입니다.
 
 [**select**](http://go.microsoft.com/fwlink/p/?LinkId=290689) 메서드는 [**where**](http://go.microsoft.com/fwlink/p/?LinkId=296296), [**orderBy**](http://go.microsoft.com/fwlink/p/?LinkId=296313) 등의 메서드(있는 경우) 뒤에 나와야 합니다. 그 뒤에 [**top**](http://go.microsoft.com/fwlink/p/?LinkId=298731) 등의 메서드가 나올 수 있습니다.
 
-### <a name="chaining"></a>방법: 쿼리 메서드 연결 
+### <a name="chaining"></a>방법: 쿼리 메서드 연결
 
 모바일 서비스 테이블을 쿼리하는 데 사용되는 메서드를 연결할 수 있습니다. 이를 통해 예를 들어 정렬 및 페이징되는 필터링된 행의 특정 열을 선택할 수 있습니다. 상당히 복잡한 논리 필터를 만들 수 있습니다.
 
@@ -223,7 +223,7 @@ Android 클라이언트 라이브러리용 Javadocs API 참조는 [여기](http:
 						.and().startsWith("text", "PRI0")
 						.or().field("duration").gt(10)
 					.select("id", "complete", "text", "duration")
-					.orderBy(duration, QueryOrder.Ascending).top(20)				
+					.orderBy(duration, QueryOrder.Ascending).top(20)
 					.execute().get();
 
 메서드를 연결하는 데 있어 기본적인 요구 사항은 *where* 메서드 및 조건자가 먼저 나와야 한다는 것입니다. 그 뒤에 응용 프로그램의 요구 사항에 가장 부합하는 순서로 후속 메서드를 호출할 수 있습니다.
@@ -238,12 +238,12 @@ Android 클라이언트 라이브러리용 Javadocs API 참조는 [여기](http:
 		ToDoItem mToDoItem = new ToDoItem();
 		mToDoItem.text = "Test Program";
 		mToDoItem.complete = false;
-		
+
  그런 후 다음 코드를 실행합니다.
 
 		// Insert the new item
 	    new AsyncTask<Void, Void, Void>() {
-	
+
 	        @Override
 	        protected Void doInBackground(Void... params) {
 	            try {
@@ -313,9 +313,9 @@ Android 클라이언트 라이브러리용 Javadocs API 참조는 [여기](http:
 	    if (mClient == null) {
 	        return;
 	    }
-	
+
 	    new AsyncTask<Void, Void, Void>() {
-	
+
 	        @Override
 	        protected Void doInBackground(Void... params) {
 	            try {
@@ -347,7 +347,7 @@ Android 클라이언트 라이브러리용 Javadocs API 참조는 [여기](http:
 
 		// Set the item as completed and update it in the table
 		item.setComplete(true);
-		
+
 		new AsyncTask<Void, Void, Void>() {
 
             @Override
@@ -461,7 +461,7 @@ Android 클라이언트 라이브러리용 Javadocs API 참조는 [여기](http:
 		item.addProperty("complete", false);
 
 다음 단계는 개체를 삽입하는 것입니다. [**insert**](http://go.microsoft.com/fwlink/p/?LinkId=298535) 메서드에 전달되는 콜백 함수는 [**TableJsonOperationCallback**](http://go.microsoft.com/fwlink/p/?LinkId=298532) 클래스의 인스턴스입니다. *insert* 메서드의 매개 변수는 JsonObject입니다.
-		 
+
         // Insert the new item
         new AsyncTask<Void, Void, Void>() {
 
@@ -492,7 +492,7 @@ Android 클라이언트 라이브러리용 Javadocs API 참조는 [여기](http:
 
 
 ID를 사용하여 직접 인스턴스를 삭제할 수도 있습니다.
-		
+
 		 mToDoTable.delete(ID);
 
 
@@ -551,7 +551,7 @@ ID를 사용하여 직접 인스턴스를 삭제할 수도 있습니다.
 그리고 이 두 요소는 어댑터(*ArrayAdapter&lt;ToDoItem&gt;* 클래스의 확장)를 통해 바인딩됩니다.
 
 ### <a name="layout"></a>방법: 레이아웃 정의
- 
+
 레이아웃은 다수의 XML 코드 조각으로 정의됩니다. 기존 레이아웃을 고려할 때 다음 코드는 서버 데이터로 채울 **ListView**를 나타낸다고 가정하겠습니다.
 
     <ListView
@@ -560,7 +560,7 @@ ID를 사용하여 직접 인스턴스를 삭제할 수도 있습니다.
         android:layout_height="wrap_content"
         tools:listitem="@layout/row_list_to_do" >
     </ListView>
-	
+
 
 위의 코드에서 *listitem* 특성은 목록의 개별 행에 대한 레이아웃의 ID를 지정합니다. 다음은 확인란 및 관련 텍스트를 지정하는 코드입니다. 이 코드는 목록의 항목별로 한 번씩 인스턴스화됩니다. 더 복잡한 레이아웃은 디스플레이의 추가 필드를 지정합니다. 이 코드는 *row\_list\_to\_do.xml* 파일에 있습니다.
 
@@ -568,17 +568,17 @@ ID를 사용하여 직접 인스턴스를 삭제할 수도 있습니다.
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent"
-	    android:orientation="horizontal">		    
+	    android:orientation="horizontal">
 	    <CheckBox
 	        android:id="@+id/checkToDoItem"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="@string/checkbox_text" />
 	</LinearLayout>
-		
+
 
 ### <a name="adapter"></a>방법: 어댑터 정의
-	
+
 이 뷰의 데이터 원본은 *ToDoItem*의 배열이기 때문에, *ArrayAdapter&lt;ToDoItem&gt;* 클래스에서 어댑터의 서브클래스를 지정합니다. 이 서브클래스는 *row\_list\_to\_do* 레이아웃을 사용하는 모든 *ToDoItem*의 뷰를 생성합니다.
 
 이 예제 코드에서 *ArrayAdapter&lt;E&gt;* 클래스의 확장인 다음 클래스를 정의합니다.
@@ -590,21 +590,21 @@ ID를 사용하여 직접 인스턴스를 삭제할 수도 있습니다.
 
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View row = convertView;
-	
+
 		final ToDoItem currentItem = getItem(position);
-	
+
 		if (row == null) {
 			LayoutInflater inflater = ((Activity) mContext).getLayoutInflater();
 			row = inflater.inflate(R.layout.row_list_to_do, parent, false);
 		}
-	
+
 		row.setTag(currentItem);
-	
+
 		final CheckBox checkBox = (CheckBox) row.findViewById(R.id.checkToDoItem);
 		checkBox.setText(currentItem.getText());
 		checkBox.setChecked(false);
 		checkBox.setEnabled(true);
-	
+
 		return row;
 	}
 
@@ -668,7 +668,7 @@ ToDoItemAdapter 생성자의 두 번째 매개 변수는 레이아웃에 대한 
 - Microsoft 계정
 - Facebook
 - Twitter
-- Google 
+- Google
 - Azure Active Directory
 
 테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 ID를 사용하여 요청을 수정할 수도 있습니다.
@@ -690,24 +690,24 @@ ToDoItemAdapter 생성자의 두 번째 매개 변수는 레이아웃에 대한 
 		import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
 
 2. 활동 클래스의 **onCreate** 메서드에서 `MobileServiceClient` 개체를 만드는 코드 뒤에 다음 코드 줄을 추가합니다. `MobileServiceClient` 개체에 대한 참조가 *mClient*라고 간주합니다.
-	
+
 	    // Login using the Google provider.
-	    
+
 		ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
 
     	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
     		@Override
     		public void onFailure(Throwable exc) {
     			createAndShowDialog((Exception) exc, "Error");
-    		}   		
+    		}
     		@Override
     		public void onSuccess(MobileServiceUser user) {
     			createAndShowDialog(String.format(
                         "You are now logged in - %1$2s",
                         user.getUserId()), "Success");
-    			createTable();	
+    			createTable();
     		}
-    	}); 
+    	});
 
     이 코드는 Google 로그인을 사용하는 사용자를 인증합니다. 인증된 사용자의 ID를 표시하는 대화 상자가 나타납니다. 양성 인증 없이는 진행할 수 없습니다.
 
@@ -732,38 +732,38 @@ ToDoItemAdapter 생성자의 두 번째 매개 변수는 레이아웃에 대한 
 		}
 		else
 		{
-			    // Login using the Google provider.    
+			    // Login using the Google provider.
 				ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
-		
+
 		    	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
 		    		@Override
 		    		public void onFailure(Throwable exc) {
 		    			createAndShowDialog("You must log in. Login Required", "Error");
-		    		}   		
+		    		}
 		    		@Override
 		    		public void onSuccess(MobileServiceUser user) {
 		    			createAndShowDialog(String.format(
 		                        "You are now logged in - %1$2s",
 		                        user.getUserId()), "Success");
 		    			cacheUserToken(mClient.getCurrentUser());
-		    			createTable();	
+		    			createTable();
 		    		}
 		    	});		}
-	}	
+	}
 
 
 	private boolean LoadCache()
 	{
 		SharedPreferences prefs = getSharedPreferences("temp", Context.MODE_PRIVATE);
-		String tmp1 = prefs.getString("tmp1", "undefined"); 
+		String tmp1 = prefs.getString("tmp1", "undefined");
 		if (tmp1 == "undefined")
 			return false;
-		String tmp2 = prefs.getString("tmp2", "undefined"); 
+		String tmp2 = prefs.getString("tmp2", "undefined");
 		if (tmp2 == "undefined")
 			return false;
 		MobileServiceUser user = new MobileServiceUser(tmp1);
 		user.setAuthenticationToken(tmp2);
-		mClient.setCurrentUser(user);		
+		mClient.setCurrentUser(user);
 		return true;
 	}
 
@@ -793,7 +793,7 @@ ToDoItemAdapter 생성자의 두 번째 매개 변수는 레이아웃에 대한 
 
         @Override
         public ListenableFuture<ServiceFilterResponse> handleRequest(
-                	ServiceFilterRequest request, 
+                	ServiceFilterRequest request,
 					NextServiceFilterCallback next) {
 
             runOnUiThread(new Runnable() {
@@ -843,7 +843,7 @@ Java 클라이언트 코드에서 *ToDoItem* 개체 속성에 다음과 같이 �
 
 	@com.google.gson.annotations.SerializedName("complete")
 	private boolean mComplete;
- 
+
 	@com.google.gson.annotations.SerializedName("duration")
 	private String mDuration;
 
@@ -873,12 +873,12 @@ Java 클라이언트 코드에서 *ToDoItem* 개체 속성에 다음과 같이 �
 	            }
 	        })
 	        .setPrettyPrinting());
-	
+
 
 
 이 코드는 모바일 서비스 클라이언트 개체에 대한 모든 메서드 호출 이전에 실행해야 합니다.
 
-### <a name="complex"></a>방법: 테이블에 개체 또는 배열 속성 저장 
+### <a name="complex"></a>방법: 테이블에 개체 또는 배열 속성 저장
 
 지금까지 모든 serialization 예에는 정수 및 JSON뿐만 아니라 모바일 서비스 테이블에도 쉽게 직렬화되는 문자열과 같은 기본 형식이 사용되었습니다. JSON 및 테이블에 자동으로 직렬화되지 않는 클라이언트 유형에 복합 개체를 추가하려는 경우를 가정하겠습니다. 예를 들어 클라이언트 개체에 문자열 배열을 추가할 수 있습니다. 이제 serialization 수행 방법 및 모바일 서비스 테이블에 배열을 저장하는 방법을 지정하면 됩니다.
 
@@ -926,6 +926,5 @@ Java 클라이언트 코드에서 *ToDoItem* 개체 속성에 다음과 같이 �
 <!-- URLs. -->
 [모바일 서비스 시작]: mobile-services-android-get-started.md
 [ASCII 제어 코드 C0 및 C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

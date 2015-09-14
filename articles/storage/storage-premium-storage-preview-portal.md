@@ -25,7 +25,7 @@
 
 프리미엄 저장소가 도입되면서 이제 Microsoft Azure는 **프리미엄 저장소** 및 **표준 저장소**라는 두 가지 유형의 지속형 저장소를 제공합니다. 프리미엄 저장소는 최신 기술인 SSD(Solid State Drive)에 데이터를 저장하는 반면, 표준 저장소는 HDD(하드 디스크 드라이브)에 데이터를 저장합니다.
 
-프리미엄 저장소는 Azure 가상 컴퓨터에서 실행되는 I/O 사용량이 많은 작업에 대해 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. 여러 개의 프리미엄 저장소 디스크를 VM(가상 컴퓨터)에 연결할 수 있습니다. 프리미엄 저장소를 사용할 경우 응용프로그램이 VM당 최대 32TB의 저장소를 사용할 수 있으며, 읽기 작업의 대기 시간이 매우 짧은 상태로 VM당 64,000 IOPS(초당 입/출력 작업 수)를 얻을 수 있습니다.
+프리미엄 저장소는 Azure 가상 컴퓨터에서 실행되는 I/O 사용량이 많은 작업에 대해 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. 여러 개의 프리미엄 저장소 디스크를 VM(가상 컴퓨터)에 연결할 수 있습니다. 프리미엄 저장소를 사용할 경우 응용 프로그램이 VM당 최대 64TB의 저장소를 사용할 수 있으며, 읽기 작업의 대기 시간이 매우 짧은 상태로 VM당 80,000 IOPS(초당 입/출력 작업 수) 및 VM당 디스크 처리량 초당 2000MB를 얻을 수 있습니다.
 
 Azure 프리미엄 저장소를 시작하려면 방문 [무료로 시작 하기](http://azure.microsoft.com/pricing/free-trial/) 페이지를 방문하세요.
 
@@ -43,11 +43,11 @@ Azure 프리미엄 저장소를 시작하려면 방문 [무료로 시작 하기]
 
 - 프리미엄 저장소는 Azure VM(가상 컴퓨터)용 영구적인 디스크를 포함하는 데 사용되는 Azure 페이지 Blob만 지원합니다. Azure 페이지 Blob에 대한 자세한 내용은 [블록 Blob 및 페이지 Blob 이해](http://msdn.microsoft.com/library/azure/ee691964.aspx)를 참조하세요. 프리미엄 저장소는 Azure 블록 Blob, Azure 파일, Azure 테이블 또는 Azure 큐를 지원하지 않습니다.
 
-- 프리미엄 저장소 계정은 로컬에서 중복(LRS)되며 단일 지역 내에 데이터 복사본 3개를 유지합니다. 프리미엄 저장소 사용 시 지역에서 복제와 관련된 고려 사항은 이 문서의 [프리미엄 저장소 사용 시 Blob 스냅숏 생성 및 복사](#snapshots-and-copy-blob-whko-kring-premium-storage)를 참조하세요.
+- 프리미엄 저장소 계정은 로컬에서 중복(LRS)되며 단일 지역 내에 데이터 복사본 3개를 유지합니다. 프리미엄 저장소 사용 시 지역에서 복제와 관련된 고려 사항은 이 문서의 [프리미엄 저장소 사용 시 Blob 스냅숏 생성 및 복사](#snapshots-and-copy-blob-whko-KRing-premium-storage)를 참조하세요.
 
-- VM 디스크에 프리미엄 저장소 계정을 사용하려는 경우 DS 시리즈의 VM을 사용해야 합니다. DS 시리즈 VM에는 표준 및 프리미엄 저장소 디스크를 모두 사용할 수 있습니다. 그러나 DS 시리즈가 아닌 VM의 경우 프리미엄 저장소 디스크를 사용할 수 없습니다. 사용 가능한 Azure VM 디스크 유형 및 크기에 대한 자세한 내용은 [Azure용 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하세요.
+- VM 디스크에 프리미엄 저장소 계정을 사용하려는 경우 DS 시리즈 또는 GS 시리즈의 VM을 사용해야 합니다. DS 시리즈 또는 GS 시리즈의 VM에는 표준 및 프리미엄 저장소 디스크를 모두 사용할 수 있습니다. 그러나 DS 시리즈 또는 GS 시리즈가 아닌 VM의 경우 프리미엄 저장소 디스크를 사용할 수 없습니다. 사용 가능한 Azure VM 디스크 유형 및 크기에 대한 자세한 내용은 [Azure용 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하세요.
 
-- VM용 프리미엄 저장소 디스크를 설정하는 프로세스는 표준 저장소 디스크와 유사합니다. Azure 디스크와 VM에 가장 적합한 프리미엄 저장소 옵션을 선택해야 합니다. 프리미엄 제품의 성능 특성에 따라 VM 크기가 작업에 적합해야 합니다. 자세한 내용은 [프리미엄 저장소 사용 시 확장성 및 성능 목표](#scalability-and-performance-targets-whko-kring-premium-storage)를 참조하세요.
+- VM용 프리미엄 저장소 디스크를 설정하는 프로세스는 표준 저장소 디스크와 유사합니다. Azure 디스크와 VM에 가장 적합한 프리미엄 저장소 옵션을 선택해야 합니다. 프리미엄 제품의 성능 특성에 따라 VM 크기가 작업에 적합해야 합니다. 자세한 내용은 [프리미엄 저장소 사용 시 확장성 및 성능 목표](#scalability-and-performance-targets-whko-KRing-premium-storage)를 참조하세요.
 
 - 프리미엄 저장소 계정은 사용자 지정 도메인 이름에 매핑할 수 없습니다.
 
@@ -57,86 +57,27 @@ Azure 프리미엄 저장소를 시작하려면 방문 [무료로 시작 하기]
 다음 두 가지 방법 중 하나로 디스크용 프리미엄 저장소를 사용할 수 있습니다.
 
 - 먼저 새 프리미엄 저장소 계정을 만든 후 VM을 만들 때 사용합니다.
-- 새 DS 시리즈 VM을 만듭니다. VM을 만드는 동안 이전에 만든 프리미엄 저장소 계정을 선택하거나, 새로 만들거나, Azure 포털에서 기본 프리미엄 계정을 만들도록 할 수 있습니다.
+- 새 DS 시리즈 또는 GS 시리즈 VM을 만듭니다. VM을 만드는 동안 이전에 만든 프리미엄 저장소 계정을 선택하거나, 새로 만들거나, Azure 포털에서 기본 프리미엄 계정을 만들도록 할 수 있습니다.
 
-Azure는 저장소 계정을 운영 체제(OS) 및 데이터 디스크의 컨테이너로 사용합니다. 즉, Azure DS 시리즈 VM을 만들고 Azure 프리미엄 저장소 계정을 선택하는 경우 운영 체제와 데이터 디스크가 해당 저장소 계정에 저장됩니다.
+Azure는 저장소 계정을 운영 체제(OS) 및 데이터 디스크의 컨테이너로 사용합니다. 즉, Azure DS 시리즈 또는 GS 시리즈 VM을 만들고 Azure 프리미엄 저장소 계정을 선택하는 경우 운영 체제와 데이터 디스크가 해당 저장소 계정에 저장됩니다.
 
-프리미엄 저장소의 혜택을 활용하려면 먼저 *Premium_LRS* 계정 유형을 사용하여 프리미엄 저장소 계정을 만듭니다. 이렇게 하려면 [Microsoft Azure Preview 포털](https://portal.azure.com/), [Azure PowerShell](../install-configure-powershell.md) 또는 [서비스 관리 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)를 사용할 수 있습니다. 단계별 지침은 [디스크용 프리미엄 저장소 계정 만들기 및 사용](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)을 참조하세요.
+프리미엄 저장소의 혜택을 활용하려면 먼저 *Premium\_LRS* 계정 유형을 사용하여 프리미엄 저장소 계정을 만듭니다. 이렇게 하려면 [Microsoft Azure Preview 포털](https://portal.azure.com/), [Azure PowerShell](../install-configure-powershell.md) 또는 [서비스 관리 REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)를 사용할 수 있습니다. 단계별 지침은 [디스크용 프리미엄 저장소 계정 만들기 및 사용](#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk)을 참조하세요.
 
 ### 중요:
 
-- 프리미엄 저장소 계정의 용량 및 대역폭 미리 보기 한도에 대한 자세한 내용은 [프리미엄 저장소 사용 시 확장성 및 성능 목표](#scalability-and-performance-targets-whko-kring-premium-storage) 섹션을 참조하세요. 응용 프로그램의 요구가 단일 저장소 계정의 확장성 목표를 초과하는 경우 여러 저장소 계정을 사용하도록 응용 프로그램을 빌드하고 데이터를 이러한 저장소 계정에 분할합니다. 예를 들어 많은 VM에 51TB(테라바이트) 디스크를 연결하려는 경우 35TB가 단일 프리미엄 저장소 계정의 한도이므로 두 개의 저장소 계정에 분산합니다. 단일 프리미엄 저장소 계정에 35TB 이상의 프로비전된 디스크가 없어야 합니다.
+- 프리미엄 저장소 계정의 용량 및 대역폭 미리 보기 한도에 대한 자세한 내용은 [프리미엄 저장소 사용 시 확장성 및 성능 목표](#scalability-and-performance-targets-whko-KRing-premium-storage) 섹션을 참조하세요. 응용 프로그램의 요구가 단일 저장소 계정의 확장성 목표를 초과하는 경우 여러 저장소 계정을 사용하도록 응용 프로그램을 빌드하고 데이터를 이러한 저장소 계정에 분할합니다. 예를 들어 많은 VM에 51TB(테라바이트) 디스크를 연결하려는 경우 35TB가 단일 프리미엄 저장소 계정의 한도이므로 두 개의 저장소 계정에 분산합니다. 단일 프리미엄 저장소 계정에 35TB 이상의 프로비전된 디스크가 없어야 합니다.
 - 기본적으로 디스크 캐싱 정책은 VM에 연결된 프리미엄 운영 체제 디스크에 대한 "읽기 / 쓰기" 및 모든 프리미엄 데이터 디스크에 대한 "읽기 전용"입니다. 응용프로그램의 I/O에 대한 최적의 성능을 얻으려면 이 구성 설정이 좋습니다. 쓰기가 많거나 쓰기 전용인 디스크의 경우(예: SQL Server 로그 파일) 더 나은 응용 프로그램 성능을 얻기 위해 디스크 캐싱을 사용하지 않도록 설정합니다.
-- VM에서 디스크 트래픽을 제어하기에 충분한 대역폭을 사용할 수 있는지 확인합니다. 예를 들어, STANDARD_DS1 VM에는 프리미엄 저장소 디스크 트래픽에 사용할 수 있는 초당 32MB의 전용 대역폭이 있습니다. 즉, 이 VM에 연결된 P10 프리미엄 저장소 디스크는 초당 최대 32MB로만 이동할 수 있으며 P10 디스크가 제공할 수 있는 초당 최대 100MB는 이동할 수 없습니다. 마찬가지로, STANDARD_DS13 VM은 모든 디스크에서 초당 최대 256MB로 이동할 수 있습니다. 현재, DS 계열에서 가장 큰 VM은 STANDARD_DS14 이며 모든 디스크에서 초당 최대 512MB를 제공할 수 있습니다.
+- VM에서 디스크 트래픽을 제어하기에 충분한 대역폭을 사용할 수 있는지 확인합니다. 예를 들어, STANDARD\_DS1 VM에는 프리미엄 저장소 디스크 트래픽에 사용할 수 있는 초당 32MB의 전용 대역폭이 있습니다. 즉, 이 VM에 연결된 P10 프리미엄 저장소 디스크는 초당 최대 32MB로만 이동할 수 있으며 P10 디스크가 제공할 수 있는 초당 최대 100MB는 이동할 수 없습니다. 마찬가지로, STANDARD\_DS13 VM은 모든 디스크에서 초당 최대 256MB로 이동할 수 있습니다. 현재, DS 계열에서 가장 큰 VM은 STANDARD\_DS14 이며 모든 디스크에서 초당 최대 512MB를 제공할 수 있습니다. GS 시리즈에서 가장 큰 VM은 STANDARD\_GS5 이며 모든 디스크에서 초당 최대 2000MB를 제공할 수 있습니다.
 
-	이러한 한도는 캐시 적중 수 및 네트워크 트래픽을 포함하지 않는 디스크 트래픽에만 단독으로 적용됩니다. VM 네트워크 트래픽에 사용할 수 있는 별도 대역폭이 있으며, 프리미엄 저장소 디스크 전용 대역폭과는 다릅니다. 다음 표에서 VM에 연결된 모든 디스크에서 DS 시리즈 VM당 현재 최대 IOPS 및 처리량(대역폭) 값이 나열됩니다.
+	이러한 한도는 캐시 적중 수 및 네트워크 트래픽을 포함하지 않는 디스크 트래픽에만 단독으로 적용됩니다. VM 네트워크 트래픽에 사용할 수 있는 별도 대역폭이 있으며, 프리미엄 저장소 디스크 전용 대역폭과는 다릅니다.
+	
+	DS 시리즈 및 GS 시리즈 VM에 대 한 최대 IOPS 및 처리량(대역폭)에 대한 최신 정보는 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하세요. 프리미엄 저장소 디스크와 해당 IOPS 및 처리량 한도에 대한 자세한 내용은 이 문서에서 [프리미엄 저장소 사용 시 확장성 및 성능 목표](#scalability-and-performance-targets-whko-KRing-premium-storage) 섹션의 테이블을 참조하세요.
 
-	<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-<tbody>
-<tr>
-	<td><strong>VM 크기</strong></td>
-	<td><strong>CPU 코어</strong></td>
-	<td><strong>최대 IOPS</strong></td>
-	<td><strong>최대 디스크 대역폭</strong></td>
-</tr>
-<tr>
-	<td><strong>STANDARD_DS1</strong></td>
-	<td>1</td>
-	<td>3,200</td>
-	<td>초당 32MB</td>
-</tr>
-<tr>
-	<td><strong>STANDARD_DS2</strong></td>
-	<td>2</td>
-	<td>6,400</td>
-	<td>초당 64MB</td>
-</tr>
-<tr>
-	<td><strong>STANDARD_DS3</strong></td>
-	<td>4</td>
-	<td>12,800</td>
-	<td>초당 128MB</td>
-</tr>
-<tr>
-	<td><strong>STANDARD_DS4</strong></td>
-	<td>8</td>
-	<td>25,600</td>
-	<td>초당 256MB</td>
-</tr>
-<tr>
-	<td><strong>STANDARD_DS11</strong></td>
-	<td>2</td>
-	<td>6,400</td>
-	<td>초당 64MB</td>
-</tr>
-<tr>
-	<td><strong>STANDARD_DS12</strong></td>
-	<td>4</td>
-	<td>12,800</td>
-	<td>초당 128MB</td>
-</tr>
-<tr>
-	<td><strong>STANDARD_DS13</strong></td>
-	<td>8</td>
-	<td>25,600</td>
-	<td>초당 256MB</td>
-</tr>
-<tr>
-	<td><strong>STANDARD_DS14</strong></td>
-	<td>16</td>
-	<td>50,000</td>
-	<td>초당 512MB</td>
-</tr>
-</tbody>
-</table>
+> [AZURE.NOTE]캐시 적중 수는 디스크의 할당된 IOPS/처리량으로 제한되지 않습니다. 즉, DS 시리즈 VM 또는 GS 시리즈 VM에서 읽기 전용 캐시 설정된 데이터 디스크를 사용하는 경우 캐시에서 제공 하는 읽기는 프리미엄 저장소 디스크의 대상이 아닙니다. 따라서 워크로드가 대부분 읽기인 경우 디스크에서 상당히 높은 처리량을 얻을 수 있습니다. 캐시는 VM 크기에 기반한 VM 단계에서 별도의 IOPS/처리량으로 제한됩니다. DS 시리즈 VM은 대략 캐시 및 로컬 SSD IO에 대해 코어당 4000 IOPS 및 33MB/초여야 합니다.
 
-	최신 정보는 [Azure를 위한 가상 컴퓨터 및 클라우드서비스 크기](http://msdn.microsoft.com/library/azure/dn197896.aspx) 를 참조하세요. 프리미엄 저장소 디스크와 해당 IOPS 및 처리량 한도에 대한 자세한 내용은 이 문서에서 [프리미엄 저장소 사용 시 확장성 및 성능 목표](#scalability-and-performance-targets-whko-kring-premium-storage) 섹션의 테이블을 참조하세요.
-
-> [AZURE.NOTE]캐시 적중 수는 디스크의 할당된 IOPS/처리량으로 제한되지 않습니다. 즉, DS 시리즈 VM에서 읽기 전용 캐시 설정된 데이터 디스크를 사용하는 경우 캐시에서 제공 하는 읽기는 프리미엄 저장소 디스크의 대상이 아닙니다. 따라서 워크로드가 대부분 읽기인 경우 디스크에서 상당히 높은 처리량을 얻을 수 있습니다. 캐시는 VM 크기에 기반한 VM 단계에서 별도의 IOPS/처리량으로 제한됩니다. DS 시리즈 VM은 대략 캐시 및 로컬 SSD IO에 대해 코어당 4000 IOPS 및 33MB/초여야 합니다.
-
-- 동일한 DS 시리즈 VM에 프리미엄 및 표준 저장소 디스크를 모두 사용할 수 있습니다.
+- 동일한 DS 시리즈 VM 또는 GS 시리즈 VM에 프리미엄 및 표준 저장소 디스크를 모두 사용할 수 있습니다.
 - 프리미엄 저장소를 사용하여 DS 시리즈 VM을 프로비전할 수 있으며 여러 영구 데이터 디스크를 VM에 연결할 수 있습니다. 필요한 경우, 볼륨의 성능과 용량을 늘리도록 디스크에 걸쳐 스트라이핑 할 수 있습니다. [저장소 공간](http://technet.microsoft.com/library/hh831739.aspx)을 사용하여 프리미엄 저장소 데이터 디스크를 스트라이프하는 경우, 사용되는 각 디스크에 대해 하나의 열로 구성해야 합니다. 그렇지 않은 경우, 디스크에서의 고르지 못한 트래픽 분배로 스트라이프 볼륨의 전반적인 성능이 예상보다 저하될 수 있습니다. 기본적으로 서버 관리자 사용자 인터페이스(UI)를 사용하면 최대 8개의 디스크를 열로 설정할 수 있습니다. 하지만 디스크가 8개 이상인 경우, 볼륨을 만들고 열 수를 수동으로 지정하려면 PowerShell을 사용해야 합니다. 그렇지 않은 경우 서버 관리자 UI는 더 많은 디스크가 있더라도 8개의 열을 사용하여 계속합니다. 예를 들어 단일 스트라이프 세트에 32개의 디스크가 있다면 32개의 열을 지정해야 합니다. [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) PowerShell cmdlet의 *NumberOfColumns* 매개 변수를 사용하여 가상 디스크에서 사용되는 열 수를 지정할 수 있습니다. 자세한 내용은 [저장소 공간 개요](http://technet.microsoft.com/library/jj822938.aspx) 및 [저장소 공간 질문과 대답](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx)을 참조하세요.
-- DS 시리즈 VM을 비 DS 시리즈 VM을 포함하는 기존 클라우드 서비스에 추가하지 마십시오. 가능한 해결 방법은 DS 시리즈 VM만 실행 중인 새 클라우드 서비스로 기존 VHD를 마이그레이션하는 것입니다. DS 시리즈 VM을 호스트하는 새 클라우드 서비스에 동일한 VIP(가상 IP 주소)를 유지하려는 경우, [예약된 IP 주소](virtual-networks-configure-vnet-to-vnet-connection.md) 기능을 사용합니다.
+- DS 시리즈 VM을 비 DS 시리즈 VM을 포함하는 기존 클라우드 서비스에 추가하지 마십시오. 가능한 해결 방법은 DS 시리즈 VM만 실행 중인 새 클라우드 서비스로 기존 VHD를 마이그레이션하는 것입니다. DS 시리즈 VM을 호스트하는 새 클라우드 서비스에 동일한 VIP(가상 IP 주소)를 유지하려는 경우, [예약된 IP 주소](virtual-networks-configure-vnet-to-vnet-connection.md) 기능을 사용합니다. GS 시리즈 VM은 G 시리즈 VM만을 실행 중인 기존 클라우드 서비스에 추가될 수 있습니다.
 - 표준 저장소 계정 또는 프리미엄 저장소 계정에서 호스팅된 운영 체제(OS) 디스크를 사용하도록 Azure 가상 컴퓨터의 DS 시리즈를 구성할 수 있습니다. 부팅에 대해서만 OS 디스크를 사용하는 경우에 OS 디스크 기반 표준 저장소 사용을 고려할 수 있습니다. 이렇게 하면 부팅 후 프리미엄 저장소와 유사한 비용 혜택 및 유사한 성능 결과가 제공됩니다. 부팅이 아닌 OS 디스크에서 추가 작업을 수행하는 경우 더 나은 성능 결과를 제공하므로 프리미엄 저장소를 사용합니다. 예를 들어 응용프로그램이 OS 디스크를 읽고/쓰는 경우 OS 디스크 기반 프리미엄 저장소를 사용하면 VM에 더 나은 성능을 제공합니다.
 - 프리미엄 저장소와 함께 [Azure CLI(Azure 명령줄 인터페이스)](../xplat-cli.md)를 사용할 수 있습니다. Azure CLI를 사용하여 디스크 중 하나에서 캐시 정책을 변경하려면 다음 명령을 실행합니다.
 
@@ -261,55 +202,10 @@ Azure에서 디스크를 생성하는 경우 용량, 성능, 확장성 및 최�
 
 - “ReadWrite”으로 캐시가 설정된 프리미엄 저장소 디스크의 경우 쓰기 내구성을 위해 장벽이 설정되어야 합니다.
 
-다음은 프리미엄 저장소로 유효성을 검사한 Linux 배포판입니다. 프리미엄 저장소 사용 시 더 나은 성능 및 확장성을 위해 이러한 버전 이상으로 VM을 업그레이드하는 것이 좋습니다. 또한 버전 중 일부는 최신 LIS(Microsoft Azure 용 Linux Integration Services v4.0)가 필요합니다. 다운로드 및 설치를 위해 아래 제공된 링크를 따르십시오. 추가 유효성 검사가 완료되면 목록에 대한 자세한 이미지 추가가 계속됩니다. 유효성 검사는 이러한 이미지에 따라 다른 성능을 보여주었으며 해당 이미지의 워크로드 특성 및 설정에 따라서도 달라집니다. 다른 종류의 워크로드에 대해 서로 다른 이미지가 조정됩니다. 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-<tbody>
-<tr>
-	<td><strong>배포</strong></td>
-	<td><strong>버전</strong></td>
-	<td><strong>지원 커널</strong></td>
-	<td><strong>지원 이미지</strong></td>
-</tr>
-<tr>
-	<td rowspan="4"><strong>Ubuntu</strong></td>
-	<td>12.04</td>
-	<td>3.2.0-75.110</td>
-	<td>Ubuntu-12_04_5-LTS-amd64-server-20150119-ko-kr-30GB</td>
-</tr>
-<tr>
-	<td>14.04</td>
-	<td>3.13.0-44.73</td>
-	<td>Ubuntu-14_04_1-LTS-amd64-server-20150123-ko-kr-30GB</td>
-</tr>
-<tr>
-	<td>14.10</td>
-	<td>3.16.0-29.39</td>
-	<td>Ubuntu-14_10-amd64-server-20150202-ko-kr-30GB</td>
-</tr>
-<tr>
-	<td>15.04</td>
-	<td>3.19.0-15</td>
-	<td>Ubuntu-15_04-amd64-server-20150422-ko-kr-30GB</td>
-</tr>
-<tr>
-	<td><strong>SUSE</strong></td>
-	<td>SLES 12</td>
-	<td>3.12.36-38.1</td>
-	<td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td>
-</tr>
-<tr>
-	<td><strong>CoreOS</strong></td>
-	<td>584.0.0</td>
-	<td>3.18.4</td>
-	<td>CoreOS 584.0.0</td>
-</tr>
-<tr>
-	<td rowspan="2"><strong>CentOS</strong></td>
-	<td>6.5, 6.6, 7.0</td>
-	<td></td> <td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 필수 </a></td> </tr> <tr> <td>7.1</td> <td>3.10.0-229.1.2.el7</td> <td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 권장 </a></td> </tr>
+다음은 프리미엄 저장소로 유효성을 검사한 Linux 배포판입니다. 프리미엄 저장소 사용 시 더 나은 성능 및 확장성을 위해 이러한 버전 이상으로 VM을 업그레이드하는 것이 좋습니다. 또한 버전 중 일부는 최신 LIS(Microsoft Azure 용 Linux Integration Services v4.0)가 필요합니다. 다운로드 및 설치를 위해 아래 제공된 링크를 따르십시오. 추가 유효성 검사가 완료되면 목록에 대한 자세한 이미지 추가가 계속됩니다. 유효성 검사는 이러한 이미지에 따라 다른 성능을 보여주었으며 해당 이미지의 워크로드 특성 및 설정에 따라서도 달라집니다. 다른 종류의 워크로드에 대해 서로 다른 이미지가 조정됩니다. <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;"> <tbody> <tr> <td><strong>배포</strong></td> <td><strong>버전</strong></td> <td><strong>지원 커널</strong></td> <td><strong>지원 이미지</strong></td> </tr> <tr> <td rowspan="4"><strong>Ubuntu</strong></td> <td>12.04</td> <td>3.2.0-75.110</td> <td>Ubuntu-12\_04\_5-LTS-amd64-server-20150119-ko-KR-30GB</td> </tr> <tr> <td>14.04</td> <td>3.13.0-44.73</td> <td>Ubuntu-14\_04\_1-LTS-amd64-server-20150123-ko-KR-30GB</td> </tr> <tr> <td>14.10</td> <td>3.16.0-29.39</td> <td>Ubuntu-14\_10-amd64-server-20150202-ko-KR-30GB</td> </tr> <tr> <td>15.04</td> <td>3.19.0-15</td> <td>Ubuntu-15\_04-amd64-server-20150422-ko-KR-30GB</td> </tr> <tr> <td><strong>SUSE</strong></td> <td>SLES 12</td> <td>3.12.36-38.1</td> <td>suse-sles-12-priority-v20150213<br>suse-sles-12-v20150213</td> </tr> <tr> <td><strong>CoreOS</strong></td> <td>584.0.0</td> <td>3.18.4</td> <td>CoreOS 584.0.0</td> </tr> <tr> <td rowspan="2"><strong>CentOS</strong></td> <td>6.5, 6.6, 7.0</td> <td></td> <td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 필수 </a></br> *아래 참고 참조 </td> </tr> <tr> <td>7.1</td> <td>3.10.0-229.1.2.el7</td> <td> <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 권장 </a> <br/> *아래 참고 참조 </td> </tr>
 
 <tr>
-	<td rowspan="2"><link id="138" refid="139" url="virtual-machines-oracle-azure-virtual-machines.md">Oracle</link></td>
+	<td rowspan="2"><strong>Oracle</strong></td>
 	<td>6.4</td>
 	<td></td>
 	<td><a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409"> LIS 4.0 필수 </a></td>
@@ -335,11 +231,11 @@ OpenLogic CentOS VM을 실행하는 고객은 다음 명령을 실행하여 최�
 ## 프리미엄 저장소 사용 시 가격 책정 및 청구
 프리미엄 저장소를 사용하는 경우 다음과 같은 청구 고려 사항이 적용됩니다.
 
-- 프리미엄 저장소 디스크에 대한 청구는 프로비전된 디스크 크기에 따라 달라집니다. Azure는 [프리미엄 저장소 사용 시 확장성 및 성능 목표](#scalability-and-performance-targets-whko-kring-premium-storage) 섹션에 지정된 표에 따라 디스크 크기(반올림됨)를 가장 가까운 프리미엄 저장소 디스크 옵션에 매핑합니다 프로비전된 디스크에 대한 청구는 프리미엄 저장소 제품의 월별 가격을 사용하여 시간당 비례합니다. 예를 들어 P10 디스크를 프로비전하고 20시간 후 삭제한 경우 20시간에 비례하여 P10 제품에 대해 청구됩니다. 이는 디스크에 기록되는 실제 데이터 양이나 사용한 IOPS/처리량에 관계없이 적용됩니다.
+- 프리미엄 저장소 디스크에 대한 청구는 프로비전된 디스크 크기에 따라 달라집니다. Azure는 [프리미엄 저장소 사용 시 확장성 및 성능 목표](#scalability-and-performance-targets-whko-KRing-premium-storage) 섹션에 지정된 표에 따라 디스크 크기(반올림됨)를 가장 가까운 프리미엄 저장소 디스크 옵션에 매핑합니다 프로비전된 디스크에 대한 청구는 프리미엄 저장소 제품의 월별 가격을 사용하여 시간당 비례합니다. 예를 들어 P10 디스크를 프로비전하고 20시간 후 삭제한 경우 20시간에 비례하여 P10 제품에 대해 청구됩니다. 이는 디스크에 기록되는 실제 데이터 양이나 사용한 IOPS/처리량에 관계없이 적용됩니다.
 - 프리미엄 저장소의 스냅숏은 스냅숏이 사용한 추가 용량에 대해 청구됩니다. 스냅숏에 대한 자세한 내용은 [Blob의 스냅숏 만들기](http://msdn.microsoft.com/library/azure/hh488361.aspx)를 참조하세요.
 - [아웃바운드 데이터 전송](http://azure.microsoft.com/pricing/details/data-transfers/)(Azure 데이터 센터에서 데이터 전송) 시 대역폭 사용에 대해 청구가 발생합니다.
 
-프리미엄 저장소와 DS 시리즈 VM에 대한 자세한 내용은 다음을 참조하세요.
+프리미엄 저장소, DS 시리즈 VM 및 GS 시리즈 VM에 대한 자세한 내용은 다음을 참조하세요.
 
 - [Azure 저장소 가격](http://azure.microsoft.com/pricing/details/storage/)
 - [가상 컴퓨터 가격](http://azure.microsoft.com/pricing/details/virtual-machines/)
@@ -350,7 +246,7 @@ OpenLogic CentOS VM을 실행하는 고객은 다음 명령을 실행하여 최�
 
 ### Azure Preview 포털을 통해 프리미엄 저장소를 사용하여 Azure 가상 컴퓨터 만들기
 
-이 섹션에서이 섹션에서는 Azure Preview 포털을 사용하여 프리미엄 저장소 계정을 만드는 방법을 보여 줍니다.
+이 섹션에서는 Azure Preview 포털을 사용하여 프리미엄 저장소 계정을 만드는 방법을 보여 줍니다.
 
 1.	[Azure 미리 보기 포털](https://portal.azure.com/)에 로그인합니다. 아직 구독이 없으면 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/) 서비스를 확인하세요.
 
@@ -372,14 +268,14 @@ OpenLogic CentOS VM을 실행하는 고객은 다음 명령을 실행하여 최�
 Azure 환경 내의 전체 연습은 [Azure Preview 포털에서 Windows를 실행하는 가상 컴퓨터 만들기](../virtual-machines-windows-tutorial-azure-preview.md)를 참조하세요.
 
 ### Azure PowerShell을 통해 프리미엄 저장소를 사용하여 Azure 가상 컴퓨터 만들기
-이 PowerShell 예제에서는 새 Premium 저장소 계정을 만들고 새 Azure 가상 컴퓨터에 해당 계정을 사용하는 데이터 디스크를 연결하는 방법을 보여줍니다.
+이 PowerShell 예제에서는 새 프리미엄 저장소 계정을 만들고 새 Azure 가상 컴퓨터에 해당 계정을 사용하는 데이터 디스크를 연결하는 방법을 보여 줍니다.
 
 1. [Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)에 제공된 단계에 따라 PowerShell 환경을 설정합니다.
-2. PowerShell 콘솔을 시작하고, 구독에 연결한 후 콘솔 창에서 다음 PowerShell cmdlet을 실행합니다. 이 PowerShell 문에 표시된 대로 프리미엄 저장소 계정을 만드는 경우 **Type** 매개 변수를 **Premium_LRS**로 지정해야 합니다.
+2. PowerShell 콘솔을 시작하고, 구독에 연결한 후 콘솔 창에서 다음 PowerShell cmdlet을 실행합니다. 이 PowerShell 문에 표시된 대로 프리미엄 저장소 계정을 만드는 경우 **Type** 매개 변수를 **Premium\_LRS**로 지정해야 합니다.
 
 		New-AzureStorageAccount -StorageAccountName "yourpremiumaccount" -Location "West US" -Type "Premium_LRS"
 
-3. 새 DS 시리즈 VM을 만든 후 콘솔 창에서 다음 PowerShell cmdlet을 실행하여 프리미엄 저장소를 만들도록 지정합니다.
+3. 새 DS 시리즈 VM을 만든 후 콘솔 창에서 다음 PowerShell cmdlet을 실행하여 프리미엄 저장소를 만들도록 지정합니다. 동일한 단계를 사용하여 GS 시리즈 VM을 만들 수 있습니다. 명령에서 적절한 VM 크기를 지정합니다. 예: Standard\_GS2:
 
     	$storageAccount = "yourpremiumaccount"
     	$adminName = "youradmin"
@@ -393,7 +289,7 @@ Azure 환경 내의 전체 연습은 [Azure Preview 포털에서 Windows를 실�
     	Add-AzureProvisioningConfig -Windows -VM $vm -AdminUsername $adminName -Password $adminPassword
     	New-AzureVM -ServiceName $vmName -VMs $VM -Location $location
 
-4. VM에 추가 디스크 공간을 사용하려면 콘솔 창에서 다음 PowerShell cmdlet을 실행하여 생성 후 기존 DS 시리즈 VM에 새 데이터 디스크를 연결합니다.
+4. VM에 추가 디스크 공간을 사용하려면 콘솔 창에서 다음 PowerShell cmdlet을 실행하여 생성 후 기존 DS 시리즈 VM 또는 GS 시리즈 VM에 새 데이터 디스크를 연결합니다.
 
     	$storageAccount = "yourpremiumaccount"
     	$vmName ="yourVM"
@@ -416,7 +312,7 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 #### DS 시리즈 가상 컴퓨터 만들기
 
 	azure vm create -z "Standard_DS2" -l "west us" -e 22 "premium-test-vm"
-		"b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ko-kr-30GB" -u "myusername" -p "passwd@123"
+		"b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ko-KR-30GB" -u "myusername" -p "passwd@123"
 
 #### 가상 컴퓨터에 대한 정보 표시
 
@@ -445,4 +341,4 @@ azure storage account create "premiumtestaccount" -l "west us" --type PLRS
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

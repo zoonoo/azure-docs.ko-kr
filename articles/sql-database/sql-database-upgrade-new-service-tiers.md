@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="SQL 데이터베이스 Web 또는 Business 데이터베이스를 새 서비스 계층으로 업그레이드" 
-	description="Azure SQL 데이터베이스 Web 또는 Business 데이터베이스를 새 Azure SQL 서비스 기본, 표준 및 프리미엄 서비스 계층/성능 수준으로 업그레이드합니다." 
-	services="sql-database" 
-	documentationCenter="" 
-	authors="stevestein" 
-	manager="jeffreyg" 
+	pageTitle="SQL 데이터베이스 Web 또는 Business 데이터베이스를 새 서비스 계층으로 업그레이드"
+	description="Azure SQL 데이터베이스 Web 또는 Business 데이터베이스를 새 Azure SQL 서비스 기본, 표준 및 프리미엄 서비스 계층/성능 수준으로 업그레이드합니다."
+	services="sql-database"
+	documentationCenter=""
+	authors="stevestein"
+	manager="jeffreyg"
 	editor=""/>
 
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/18/2015" 
-	ms.author="sstein" 
-	ms.workload="data-management" 
-	ms.topic="article" 
+	ms.date="06/18/2015"
+	ms.author="sstein"
+	ms.workload="data-management"
+	ms.topic="article"
 	ms.tgt_pltfrm="NA"/>
 
 
@@ -67,8 +67,7 @@ Web 또는 Business 데이터베이스를 새 서비스 계층으로 업그레�
 
 새 서비스 계층의 대략적인 기능 및 성능 수준과 각 계층을 비교한 내용이 다음 표에 나와 있습니다.
 
-![서비스 계층 기능 비교][1]
-
+[AZURE.INCLUDE [SQL DB 서비스 계층 테이블](../../includes/sql-database-service-tiers-table.md)]
 
 **서비스 계층 및 성능 수준 비교 내용을 확인할 수 있는 추가 리소스:**
 
@@ -86,7 +85,7 @@ Web 또는 Business 데이터베이스를 새 서비스 계층으로 업그레�
 
 
 
-## 2. 과거 리소스 사용량을 적합한 기준으로 성능 수준 결정
+## 2\. 과거 리소스 사용량을 적합한 기준으로 성능 수준 결정
 
 Azure SQL 데이터베이스 서비스는 관리 포털과 시스템 뷰를 표시하여 기존 Web 또는 Business 데이터베이스와 비슷한 권장 새 서비스 계층 및 성능 수준 정보를 제공합니다.
 
@@ -127,8 +126,7 @@ Azure SQL 데이터베이스 V12로 서버를 업그레이드할 때 Web 또는 
 
 ![DTU 백분율 데이터][2]
 
-위 예제의 데이터는 약 10개 DTU에 해당하는 평균 사용량(50개의 19.23%) 및 최대 28개 DTU의 최대 DTU 백분율(55.83% x 50)을 나타냅니다.
-이 데이터가 일반적인 워크로드를 나타낸다고 가정할 때 초기 업그레이드로는 표준(S1)을 선택하면 적합합니다. 표준(S0)도 평균 사용량인 10개 DTU를 제공하지만 이 계층을 선택하는 경우 데이터베이스가 평균 100% 용량으로 실행되어야 하므로 적합한 계획이라고 할 수 없습니다. S1도 평균 사용량에 적합한 계획이기는 하지만 최대 사용량에 도달하는 경우도 고려해야 합니다. 야간 유지 관리 프로세스 시에만 작업량이 증가하여 고객의 데이터베이스 사용에는 영향이 없다면 해당 시간 동안에는 성능 수준이 낮아져도 됩니다. 그러나 최대 사용량에 도달하는 시기를 알 수 없다면 DTU 백분율 사용량을 더 자세히 분석해야 할 수 있습니다.
+위 예제의 데이터는 약 10개 DTU에 해당하는 평균 사용량(50개의 19.23%) 및 최대 28개 DTU의 최대 DTU 백분율(55.83% x 50)을 나타냅니다. 이 데이터가 일반적인 워크로드를 나타낸다고 가정할 때 초기 업그레이드로는 표준(S1)을 선택하면 적합합니다. 표준(S0)도 평균 사용량인 10개 DTU를 제공하지만 이 계층을 선택하는 경우 데이터베이스가 평균 100% 용량으로 실행되어야 하므로 적합한 계획이라고 할 수 없습니다. S1도 평균 사용량에 적합한 계획이기는 하지만 최대 사용량에 도달하는 경우도 고려해야 합니다. 야간 유지 관리 프로세스 시에만 작업량이 증가하여 고객의 데이터베이스 사용에는 영향이 없다면 해당 시간 동안에는 성능 수준이 낮아져도 됩니다. 그러나 최대 사용량에 도달하는 시기를 알 수 없다면 DTU 백분율 사용량을 더 자세히 분석해야 할 수 있습니다.
 
 데이터베이스 리소스 사용량의 세부 정보를 확인하려는 경우 제공된 시스템 뷰를 사용하면 됩니다.
 
@@ -310,4 +308,4 @@ Azure SQL 데이터베이스 서비스는 Web/Business 데이터베이스 작업
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

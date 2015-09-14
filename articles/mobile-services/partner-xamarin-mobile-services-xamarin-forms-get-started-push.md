@@ -2,8 +2,8 @@
 	pageTitle="모바일 서비스 앱에 푸시 알림 추가(Xamarin.Forms) - 모바일 서비스"
 	description="Azure 모바일 서비스와 함께 Xamarin.Forms 앱에서 푸시 알림을 사용하는 방법에 대해 알아봅니다."
 	documentationCenter="xamarin"
-	authors="normesta"
-	manager="stevenpo"
+	authors="wesmc7777"
+	manager="dwrede"
 	services="mobile-services"
 	editor=""/>
 
@@ -23,7 +23,7 @@
 
 이 섹션에서는 Azure 모바일 서비스를 사용하여 Xamarin.Forms 솔루션의 iOS, Android 및 Windows Phone 앱에 푸시 알림을 보내는 방법을 보여 줍니다. 먼저 모바일 서비스를 만듭니다. 그런 다음 시작 샘플을 다운로드하고, 해당 푸시 알림 서비스에 등록하고, 솔루션에 코드를 추가하여 해당 서비스에서 알림을 받습니다.
 
-이 자습서를 완료하면 모바일 서비스는 사용자가 앱 중 하나에 작업을 추가할 때마다 푸시 알림을 보냅니다. 여기서 전체 샘플을 확인할 수 있습니다. [전체 Xamarin.Forms Azure 푸시 알림 샘플]\(영문)
+이 자습서를 완료하면 모바일 서비스는 사용자가 앱 중 하나에 작업을 추가할 때마다 푸시 알림을 보냅니다. 여기서 전체 샘플을 확인할 수 있습니다. [전체 Xamarin.Forms Azure 푸시 알림 샘플](영문)
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
@@ -293,7 +293,7 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
             const string template = "{"aps":{"alert":"$(message)"}}";
 
             var expiryDate = DateTime.Now.AddDays(90).ToString
-                (System.Globalization.CultureInfo.CreateSpecificCulture("ko-kr"));
+                (System.Globalization.CultureInfo.CreateSpecificCulture("ko-KR"));
 
             var push = client.GetPush();
 
@@ -379,7 +379,7 @@ GCM(Google Cloud Messaging) 서비스를 사용하여 Android 앱에 푸시 알�
 
 ###<a id="register"></a>Google Cloud Messaging 사용
 
-[AZURE.INCLUDE [mobile-services-enable-google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
+[AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
 ###<a id="configure"></a>푸시 요청을 전송하도록 모바일 서비스 구성
 
@@ -846,4 +846,4 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [전체 Xamarin.Forms Azure 푸시 알림 샘플]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

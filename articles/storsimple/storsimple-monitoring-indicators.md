@@ -1,21 +1,21 @@
 <properties 
-    pageTitle="StorSimple 모니터링 표시기 | Microsoft Azure" 
-    description="StorSimple 장치의 상태를 모니터링하는 데 사용되는 LED 및 경보에 대해 설명합니다."
-    services="storsimple"
-    documentationCenter="NA"
-    authors="SharS"
-    manager="adinah"
-    editor="" />
+    pageTitle="StorSimple 모니터링 표시기 | Microsoft Azure"
+	description="StorSimple 장치의 상태를 모니터링하는 데 사용되는 LED(발광 다이오드) 및 청각적 경보에 대해 설명합니다."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
  <tags 
     ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="08/14/2015"
-    ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="v-sharos"/>
 
-# StorSimple 모니터링 표시기   
+# StorSimple 모니터링 표시기를 사용하여 장치 관리   
 
 ## 개요
 
@@ -33,9 +33,7 @@ StorSimple 장치에는 모듈 및 StorSimple 장치의 모듈 및 전반적인 
 
 *작업 패널* 또는 *ops 패널*이라고도 하는 전면 패널은 시스템에서 모든 모듈의 집계 상태를 표시합니다. 전면 패널은 StorSimple 장비 및 EBOD 인클로저에서 동일하며 아래에서 설명됩니다.
 
-   ![][1]
-
-**그림 1: 장치 전면 패널**
+   ![장치 전면 패널][1]
  
 전면 패널은 다음과 같은 표시기를 포함합니다.
 
@@ -45,7 +43,7 @@ StorSimple 장치에는 모듈 및 StorSimple 장치의 모듈 및 전반적인 
 4. 논리 결함 표시기 LED(켜기 빨간색-주황색/끄기)
 5. 장치 ID 디스플레이  
 
-장치 및 EBOD 인클로저의 전면 패널 LED 사이의 주요한 차이점은 LED 디스플레이에서 표시되는 **시스템 장치 ID 번호**입니다. 장치에 표시되는 기본 장치 ID는 **00**이며, EBOD 인클로저에 표시되는 기본 장치 ID는 **01**입니다. 이를 통해 장치가 켜졌을 때 장치와 EBOD 인클로저 사이를 빠르게 구분할 수 있습니다. 장치가 꺼져 있는 경우 [새 장치 켜기](storsimple-turn-device-on-or-off.md#turn-on-a-new-device)에 제공된 정보를 사용하여 EBOD 인클로저에서 장치를 구분할 수 있습니다.
+장치 및 EBOD 인클로저의 전면 패널 LED 사이의 주요한 차이점은 LED 디스플레이에서 표시되는 **시스템 장치 ID 번호**입니다. 장치에 표시되는 기본 장치 ID는 **00**이며, EBOD 인클로저에 표시되는 기본 장치 ID는 **01**입니다. 이를 통해 장치가 켜졌을 때 장치와 EBOD 인클로저 사이를 빠르게 구분할 수 있습니다. 장치가 꺼져 있는 경우 [새 장치 켜기](storsimple-turn-device-on-or-off.md#turn-on-a-new-device)에 제공된 정보를 사용하여 EBOD 엔클로저에서 장치를 구분할 수 있습니다.
 
 ## 전면 패널 LED 상태  
 
@@ -72,10 +70,8 @@ PCM(전원 냉각 모듈) 표시기 LED는 각 PCM 모듈의 기본 인클로저
 
 StorSimple 장치에는 764W PCM 모듈과 추가 배터리가 있습니다. 다음 그림에서는 장치의 LED 패널을 보여줍니다.
 
-   ![][2]
+   ![기본 엔클로저의 PCM LED][2]
 
-**그림 2: 기본 인클로저의 PCM LED**
- 
 LED 범례
 
 1. AC 전원 오류
@@ -114,9 +110,7 @@ PCM 상태는 LED 패널에 표시됩니다. 장치 PCM LED 패널에는 6개의
 
 EBOD 인클로저에 580W PCM이 있으며 추가 배터리는 없습니다. EBOD 인클로저의 PCM 패널에 전원 공급 장치 및 팬을 위한 표시기 LED만 있습니다. 다음 그림에서는 이러한 LED를 보여줍니다.
 
-   ![][3]
-
-**그림 3: EBOD 인클로저의 PCM LED**
+   ![EBOD 엔클로저의 PCM LED][3]
  
 다음 표는 PCM 상태를 확인하는 데 사용할 수 있습니다.
 
@@ -138,34 +132,30 @@ StorSimple 장치에는 기본 컨트롤러 및 EBOD 컨트롤러 모듈에 대 
 ### 기본 컨트롤러에 대한 모니터링 LED
 다음 그림을 통해 기본 컨트롤러에 있는 LED를 확인할 수 있습니다. (방향을 지원하기 위해 모든 구성 요소가 나열되었습니다.)
 
-   ![][4]
+   ![LED -기본 컨트롤러 모니터링][4]
  
-**그림 4: LED -기본 컨트롤러 모니터링**
-
 다음 표를 사용하여 컨트롤러 모듈이 올바르게 작동하는지 확인할 수 있습니다.
 
 ### 컨트롤러 표시기 LED  
 
 | LED | 설명                                                                            
 |---- | ----------- |
-| ID LED(파란색) | 모듈이 식별되는지 나타냅니다. 실행 중인 컨트롤러에 파란색 LED가 깜박이면 해당 컨트롤러는 활성 컨트롤러이며 다른 하나는 대기 컨트롤러입니다. 자세한 내용은 [장치에서 활성 컨트롤러 식별](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device)을 참조하세요. |
+| ID LED(파란색) | 모듈이 식별되는지 나타냅니다. 실행 중인 컨트롤러에 파란색 LED가 깜박이면 해당 컨트롤러는 활성 컨트롤러이며 다른 하나는 대기 컨트롤러입니다. 자세한 내용은 [장치의 활성 컨트롤러 식별](storsimple-controller-replacement.md#identify-the-active-controller-on-your-device)을 참조하세요. |
 | 오류 LED(주황색) | 컨트롤러의 오류를 나타냅니다.        
 | 정상 LED(녹색) | 녹색은 컨트롤러가 정상임을 나타냅니다. 깜박이는 녹색은 컨트롤러 VPD 구성 오류를 나타냅니다. |
 | SAS 활동 LED(녹색) | 녹색은 현재 활동이 없는 연결을 나타냅니다. 깜박이는 녹색은 활동 중인 연결을 나타냅니다. |
 | 이더넷 상태 LED | 링크/네트워크 활동을 나타내는 오른쪽: 링크 활동(녹색), 네트워크 활동(깜박이는 녹색) 네트워크 속도를 나타내는 왼쪽: 1000Mb/s(노란색), 100Mb/s(녹색) 및 10Mb/s(꺼짐) 구성 요소 모델에 따라 네트워크 인터페이스가 설정되지 않은 경우에도 이 빛이 깜박일 수 있습니다. |
 | POST LED | 컨트롤러가 켜져 있을 때 부팅 진행률을 나타냅니다. StorSimple 장치에서 부팅에 실패하는 경우 이 LED는 Microsoft 기술 지원 서비스에서 오류가 발생한 부팅 프로세스 지점을 식별하는 데 도움이 됩니다. |
 
->[AZURE.IMPORTANT]오류 LED가 켜져 있으면 컨트롤러를 다시 시작하여 해결할 수 있는 컨트롤러 모듈에 문제가 있습니다. 컨트롤러를 다시 시작해도 이 문제가 해결되지 않으면 Microsoft 기술 지원 서비스에 문의하십시오.
+>[AZURE.IMPORTANT]오류 LED가 켜져 있으면 컨트롤러를 다시 시작하여 해결할 수 있는 컨트롤러 모듈에 문제가 있습니다. 컨트롤러를 다시 시작해도 이 문제가 해결되지 않으면 Microsoft 기술 지원 서비스에 문의하세요.
 
 
 ### EBOD의 모니터링 LED(EBOD 인클로저)  
 
 각 6Gb/s SAS EBOD 컨트롤러에 다음 그림과 같이 해당 상태를 나타내는 LED가 있습니다.
 
-  ![][5]
+  ![LED - EBOD 엔클로저 모니터링][5]
 
-**그림 5: LED-EBOD 인클로저 모니터링**
- 
 다음 표를 사용하여 EBOD 컨트롤러 모듈이 올바르게 작동하는지 확인할 수 있습니다.
 
 ### EBOD 컨트롤러 모듈 표시기 LED  
@@ -180,9 +170,7 @@ StorSimple 장치에는 기본 인클로저 및 EBOD 인클로저에 둘 다 있
 
 디스크 드라이브의 경우 드라이브 상태는 각 드라이브 캐리어 모듈 전면에 장착된 녹색 LED 및 빨간색-주황색 LED를 통해 나타납니다. 다음 그림에서는 이러한 LED를 보여줍니다.
 
-  ![][6]
-
-**그림 6: 디스크 드라이브 LED**
+  ![디스크 드라이브 LED][6]
  
 다음 표를 사용하여 전체적인 전면 패널 LED 상태에 차례로 영향을 주는 각 디스크 드라이브의 상태를 확인할 수 있습니다.
 
@@ -257,7 +245,7 @@ ops 패널에 있는 음소거 단추를 눌러 청각적 경보를 음소거할
 
 ## 다음 단계
 
-[StorSimple 하드웨어 구성 요소](storsimple-monitor-hardware-status.md)에 대해 알아봅니다.
+[StorSimple 하드웨어 구성 요소 및 상태](storsimple-monitor-hardware-status.md)에 대해 자세히 알아봅니다.
 
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
 [2]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE02.png
@@ -268,4 +256,4 @@ ops 패널에 있는 음소거 단추를 눌러 청각적 경보를 음소거할
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

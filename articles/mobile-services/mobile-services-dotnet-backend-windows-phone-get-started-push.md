@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure 모바일 서비스와 알림 허브를 사용하여 Windows Phone 앱에 푸시 알림을 보내는 방법" 
-	description="Azure 모바일 서비스와 알림 허브를 사용하여 Windows Phone 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Azure 모바일 서비스와 알림 허브를 사용하여 Windows Phone 앱에 푸시 알림을 보내는 방법"
+	description="Azure 모바일 서비스와 알림 허브를 사용하여 Windows Phone 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다."
+	services="mobile-services,notification-hubs"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 # 모바일 서비스 앱에 푸시 알림 추가
@@ -38,8 +38,8 @@
 
 2. `App` 클래스에 다음 `AcquirePushChannel` 메서드를 추가합니다.
 
-        public static HttpNotificationChannel CurrentChannel { get; private set; }	
-        
+        public static HttpNotificationChannel CurrentChannel { get; private set; }
+
         private void AcquirePushChannel()
         {
             CurrentChannel = HttpNotificationChannel.Find("MyPushChannel");
@@ -68,13 +68,13 @@
                     {
                         Deployment.Current.Dispatcher.BeginInvoke(() =>
                         {
-                            MessageBox.Show(exception.Message, 
+                            MessageBox.Show(exception.Message,
                                             "Registering for Push Notifications",
                                             MessageBoxButton.OK);
                         });
                     }
             });
-            CurrentChannel.ShellToastNotificationReceived += 
+            CurrentChannel.ShellToastNotificationReceived +=
                 new EventHandler<NotificationEventArgs>((o, args) =>
                 {
                     string message = "";
@@ -90,7 +90,7 @@
         }
 
     이 코드는 앱의 채널 URI를 검색합니다(있는 경우). 채널 URI가 없는 경우 생성됩니다. 그런 다음 채널 URI가 열리고 알림 메시지에 바인딩됩니다. 채널 URI가 완전히 열리면 `ChannelUriUpdated` 메서드에 대한 처리기가 호출되고, 수신된 푸시 알림에 채널이 등록됩니다. 등록이 실패하면 이후 앱을 실행할 때 등록을 다시 시도하도록 채널이 닫힙니다. 앱이 실행 중에 푸시 알림을 받고 처리할 수 있도록 `ShellToastNotificationReceived` 처리기가 설정됩니다.
-    
+
 4. App.xaml.cs에서 `Application_Launching` 이벤트 처리기에 다음과 같은 새 `AcquirePushChannel` 메서드 호출을 추가합니다.
 
         AcquirePushChannel();
@@ -98,7 +98,7 @@
 	이제 앱이 로드될 때마다 등록이 요청됩니다. 등록 상태가 유지되도록 앱에서 주기적으로 등록할 수도 있습니다.
 
 5. **F5** 키를 눌러 앱을 실행합니다. 등록 키가 포함된 팝업 대화 상자가 표시됩니다.
-  
+
 6. Visual Studio에서 Package.appxmanifest 파일을 열고 **응용 프로그램 UI** 탭에서 **알림 가능**이 **예**로 설정되어 있는지 확인합니다.
 
    	![][1]
@@ -202,6 +202,5 @@
 [모바일 서비스 .NET 방법 개념 참조]: mobile-services-html-how-to-use-client-library.md
 [Windows Phone Silverlight 8.1 앱]: http://msdn.microsoft.com/library/windowsphone/develop/dn642082(v=vs.105).aspx
 [Azure 관리 포털]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

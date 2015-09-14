@@ -13,10 +13,11 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="07/28/2015"
+	ms.date="09/02/2015"
 	ms.author="joaoma"/>
 
 # Azure DNS 시작
+
 
 
 > [AZURE.SELECTOR]
@@ -38,6 +39,9 @@ Azure CLI를 설치합니다. Windows, Linux 또는 MAC용 Azure CLI를 설치�
 
 	Azure network
 
+
+>[AZURE.IMPORTANT]DNS 명령에는 Azure CLI 버전 0.9.8 이상이 필요합니다. `azure -v`를 입력하여 현재 컴퓨터에 설치되어 있는 Azure CLI 버전을 확인합니다.
+ 
 ### 2단계
 
 Azure DNS는 Azure 리소스 관리자를 사용합니다. arm 명령 및 DNS를 사용하려면 CLI를 전환해야 합니다.
@@ -75,15 +79,15 @@ Azure DNS 서비스는 Microsoft.Network 리소스 공급자에 의해 관리됩
 
 ## 태그
 
-태그는 Etag와 다릅니다. 태그는 이름-값 쌍의 목록으로, Azure 리소스 관리자에서 대금 청구 또는 그룹화를 위해 리소스에 레이블을 지정하는 데 사용됩니다. 태그에 대한 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](resource-group-using-tags.md)을 참조하십시오. Azure DNS CLI는 옵션 '-Tag ' 매개 변수를 사용하여 지정된 영역 및 레코드 집합 양쪽에서 태그를 지원합니다. 다음 예제에서는 두 태그 ‘project = demo’ and ‘env = test’를 사용하여 DNS 영역을 만드는 방법을 보여 줍니다.
+태그는 Etag와 다릅니다. 태그는 이름-값 쌍의 목록으로, Azure 리소스 관리자에서 대금 청구 또는 그룹화를 위해 리소스에 레이블을 지정하는 데 사용됩니다. 태그에 대한 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](resource-group-using-tags.md)을 참조하세요. Azure DNS CLI는 옵션 '-Tag ' 매개 변수를 사용하여 지정된 영역 및 레코드 집합 양쪽에서 태그를 지원합니다. 다음 예제에서는 두 태그 ‘project = demo’ and ‘env = test’를 사용하여 DNS 영역을 만드는 방법을 보여 줍니다.
 
-	Azure network dns-zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
+	Azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
 
 ## DNS 영역 만들기
 
-DNS 영역은 "azure network dns-zone create" 명령을 사용하여 생성됩니다. 아래 예제에서는 'MyResourceGroup'이라는 리소스 그룹에 'contoso.com'이라는 DNS 영역을 만듭니다.
+`azure network dns zone create` 명령을 사용하여 DNS 영역을 만듭니다. 아래 예제에서는 'MyResourceGroup'이라는 리소스 그룹에 'contoso.com'이라는 DNS 영역을 만듭니다.
 
-    Azure network dns-zone create -n contoso.com -g myresourcegroup
+    Azure network dns zone create -n contoso.com -g myresourcegroup
 
 
 >[AZURE.NOTE]Azure DNS에서는 종료하는 '.' 없이 영역 이름을 지정해야 합니다. 예를 들어 'contoso.com.' 대신 'contoso.com'으로 지정합니다.
@@ -96,13 +100,13 @@ DNS 영역은 "azure network dns-zone create" 명령을 사용하여 생성됩�
 
 이러한 레코드를 보려면 "azure network dns-record-set show" 명령을 사용합니다.
 
-	Usage: network dns-record-set show <resource-group> <dns-zone-name> <name> <type>
+	Usage: network dns record-set show <resource-group> <dns-zone-name> <name> <type>
 
 
 아래 예제에서 "myresourcegroup" 리소스 그룹, "@" 레코드 집합 이름(루트 레코드인 경우) 및 "SOA" 형식으로 명령을 실행하면 다음과 같은 결과가 생성됩니다.
  
 
-	azure network dns-record-set show myresourcegroup "contoso.com" "@" SOA
+	azure network dns record-set show myresourcegroup "contoso.com" "@" SOA
 	info:    Executing command network dns-record-set show
 	+ Looking up the DNS record set "@"
 	data:    Id                              : /subscriptions/#######################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/SOA/@
@@ -120,7 +124,7 @@ DNS 영역은 "azure network dns-zone create" 명령을 사용하여 생성됩�
 	data:                                    :
 <BR> 생성된 NS 레코드를 보려면 다음 명령을 사용합니다.
 
-	azure network dns-record-set show myresourcegroup "contoso.com" "@" NS
+	azure network dns record-set show myresourcegroup "contoso.com" "@" NS
 	info:    Executing command network dns-record-set show
 	+ Looking up the DNS record set "@"
 	data:    Id                              : /subscriptions/#######################/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com/NS/@
@@ -169,4 +173,4 @@ DNS 영역은 "azure network dns-zone create" 명령을 사용하여 생성됩�
 
 [레코드 집합 및 레코드 만들기 시작](dns-getstarted-create-recordset-cli.md)<BR> [DNS 영역을 관리하는 방법](dns-operations-dnszones-cli.md)<BR> [DNS 레코드를 관리하는 방법](dns-operations-recordsets-cli.md)<BR> [.NET SDK로 Azure 작업 자동화](dns-sdk.md)<BR> [Azure DNS REST API 참조](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="데이터 이동 활동" 
-	description="데이터를 이동하려면 데이터 팩터리 파이프라인에서 사용할 수 있는 데이터 팩터리 엔터티를 알아봅니다." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="데이터 이동 활동"
+	description="데이터를 이동하려면 데이터 팩터리 파이프라인에서 사용할 수 있는 데이터 팩터리 엔터티를 알아봅니다."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/29/2015"
 	ms.author="spelluru"/>
 
 # 데이터 이동 활동
@@ -41,7 +41,7 @@
 ## <a name="copyactivity"></a>복사 작업
 복사 작업은 하나의 입력 데이터 집합(**원본**)을 가지고 한 출력 데이터 집합 (**싱크**)에 활동 구성 당 데이터를 복사합니다. 데이터 복사는 작업에 지정된 일정에 따라 일괄 처리 방식으로 수행됩니다.
 
-> [AZURE.NOTE]모든 활동에서 사용할 수 있는 다양한 JSON 섹션 및 속성과 같은 높은 수준의 일반적 활동을 정의에 대해 알아보려면 [파이프라인 및 활동 이해](data-factory-create-pipelines.md) 문서를 참조하십시오.
+> [AZURE.NOTE]모든 활동에서 사용할 수 있는 다양한 JSON 섹션 및 속성과 같은 높은 수준의 일반적 활동을 정의에 대해 알아보려면 [파이프라인 및 활동 이해](data-factory-create-pipelines.md) 문서를 참조하세요.
 
 복사 작업은 다음 기능을 제공합니다.
 
@@ -72,7 +72,7 @@
 3.	대시보드에 기반하는 데이터 팩터리 클라우드를 사용하여 게이트웨이 상태에 대한 가시성을 사용하는 모니터링 및 관리를 위한 유리의 단일 창이 있습니다.
 
 
-자세한 내용은 [온-프레미스 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하십시오.
+자세한 내용은 [온-프레미스 및 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요.
 
 ### 안정적이고 비용 효율적인 데이터 이동
 복사 작업은 안전한 방법으로 많은 양의 데이터를 이동하도록 설계되었으며 많고 다양한 데이터 원본에 걸친 일시적인 오류를 방어합니다. 옵션을 사용하여 비용 효율적인 방식으로 데이터를 복사하여 네트워크를 통해 압축을 사용하도록 설정합니다.
@@ -93,4 +93,8 @@
 
 복사 작업의 경우 **typeProperties** 섹션은 원본 및 싱크의 형식에 따라 달라집니다. 각 페이지에 특정 데이터 저장소의 위에 나열 된 문서 이러한 속성을 데이터 저장소 형식에 따라 다릅니다.
 
-<!---HONumber=August15_HO7-->
+
+## 피드백 보내기
+이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md)을 통해 의견을 보내주세요.
+
+<!---HONumber=September15_HO1-->

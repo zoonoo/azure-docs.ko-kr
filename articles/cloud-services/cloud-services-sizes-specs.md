@@ -1,19 +1,19 @@
 <properties 
- pageTitle="클라우드 서비스에 적합한 크기" 
- description="Azure 클라우드 서비스 웹 및 작업자 역할에 대한 다양한 크기를 나열합니다." 
- services="cloud-services" 
- documentationCenter="" 
- authors="Thraka" 
- manager="timlt" 
- editor=""/>
+ pageTitle="클라우드 서비스에 적합한 크기"
+	description="Azure 클라우드 서비스 웹 및 작업자 역할에 대한 다양한 크기를 나열합니다."
+	services="cloud-services"
+	documentationCenter=""
+	authors="Thraka"
+	manager="timlt"
+	editor=""/>
 <tags 
- ms.service="cloud-services" 
- ms.devlang="na" 
- ms.topic="article" 
- ms.tgt_pltfrm="na" 
- ms.workload="tbd"
- ms.date="06/04/2015" 
- ms.author="adegeo"/>
+ ms.service="cloud-services"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="09/01/2015"
+	ms.author="adegeo"/>
  
 # 클라우드 서비스에 적합한 크기
 
@@ -76,4 +76,4 @@ Azure 가상 컴퓨터 및 클라우드 서비스는 Azure에서 제공하는 �
 
 [Azure용 클라우드 서비스 설정](https://msdn.microsoft.com/library/hh124108)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

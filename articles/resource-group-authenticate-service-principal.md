@@ -108,7 +108,7 @@ Mac, Linux 및 Windows용 Azure PowerShell 또는 Azure CLI 중 하나를 사용
         public static string GetAToken()
         {
           var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantId or tenant name}");  
-          var credential = new ClientCredential(clientId: "{application id}", clientSecret: {application password}");
+          var credential = new ClientCredential(clientId: "{application id}", clientSecret: "{application password}");
           var result = authenticationContext.AcquireToken(resource: "https://management.core.windows.net/", clientCredential:credential);
 
           if (result == null) {
@@ -293,4 +293,4 @@ Mac, Linux 및 Windows용 Azure PowerShell 또는 Azure CLI 중 하나를 사용
 <!-- Images. -->
 [1]: ./media/resource-group-authenticate-service-principal/arm-get-credential.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

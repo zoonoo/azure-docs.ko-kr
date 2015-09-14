@@ -1,19 +1,19 @@
 <properties 
- pageTitle="Azure CDN(콘텐츠 배달 네트워크)에서 클라우드 서비스 콘텐츠의 만료를 관리하는 방법" 
- description="" 
- services="cdn" 
- documentationCenter=".NET" 
- authors="zhangmanling" 
- manager="dwrede" 
- editor=""/>
+ pageTitle="Azure CDN(콘텐츠 배달 네트워크)에서 클라우드 서비스 콘텐츠의 만료를 관리하는 방법"
+	description=""
+	services="cdn"
+	documentationCenter=".NET"
+	authors="zhangmanling"
+	manager="dwrede"
+	editor=""/>
 <tags 
- ms.service="cdn" 
- ms.workload="media" 
- ms.tgt_pltfrm="na" 
- ms.devlang="dotnet" 
- ms.topic="article" 
- ms.date="04/25/2015" 
- ms.author="mazha"/>
+ ms.service="cdn"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="mazha"/>
 
 #Azure CDN(콘텐츠 배달 네트워크)에서 클라우드 서비스 콘텐츠의 만료를 관리하는 방법
 
@@ -50,4 +50,4 @@ Azure CDN 캐싱이 가장 도움이 되는 개체는 TTL(Time-To-Live) 기간 �
 
 [Azure CDN(콘텐츠 배달 네트워크)에서 Blob 콘텐츠의 만료를 관리하는 방법](./cdn-manage-expiration-of-blob-content.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,25 +1,25 @@
 <properties 
-   pageTitle="서비스 구성 파일에서 DNS 설정 지정"
-   description="설명"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="joaoma"
-   manager="jdial"
-   editor="tysonn" />
+   pageTitle="서비스 구성 파일에서 DNS 설정 지정 | Microsoft Azure"
+	description="가상 네트워크에 대한 서비스 구성 파일을 사용하여 사용자 지정 DNS 설정 지정"
+	services="virtual-network"
+	documentationCenter="na"
+	authors="joaoma"
+	manager="jdial"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/28/2015"
-   ms.author="joaoma" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="09/01/2015"
+	ms.author="joaoma"/>
 
 # 서비스 구성 파일에서 DNS 설정 지정
 
 ## DNS 요소
 
-서비스 구성 파일은 서비스에서 사용할 도메인 이름 시스템(DNS) 서버에 대한 IPv4 주소 목록과 함께 DnsServers 요소를 포함할 수 있습니다. 서비스 구성 파일의 설정은 네트워크 구성 파일의 설정보다 우선합니다. 자세한 내용은 [Azure 서비스 구성 스키마(.cscfg 파일)](https://msdn.microsoft.com/library/azure/ee758710.aspx)를 참조하십시오.
+서비스 구성 파일은 서비스에서 사용할 도메인 이름 시스템(DNS) 서버에 대한 IPv4 주소 목록과 함께 DnsServers 요소를 포함할 수 있습니다. 서비스 구성 파일의 설정은 네트워크 구성 파일의 설정보다 우선합니다. 자세한 내용은 [Azure 서비스 구성 스키마(.cscfg 파일)](https://msdn.microsoft.com/library/azure/ee758710.aspx)를 참조하세요.
 
 **네트워크 구성 요소**
 
@@ -41,4 +41,4 @@
 
 [관리 포털의 가상 네트워크 설정 정보](http://go.microsoft.com/fwlink/?LinkId=248092)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

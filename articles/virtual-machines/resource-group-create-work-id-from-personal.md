@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure Active Directory에서 회사 또는 학교 ID 만들기"
-   description="다른 기능 중에서 리소스 그룹 템플릿 또는 역할 기반 액세스에서 사용할 회사 또는 학교 ID를 개인 ID에서 만드는 방법을 설명합니다."
-   services="virtual-machines"
-   documentationCenter=""
-   authors="squillace"
-   manager="timlt"
-   editor=""/>
+	description="다른 기능 중에서 리소스 그룹 템플릿 또는 역할 기반 액세스에서 사용할 회사 또는 학교 ID를 개인 ID에서 만드는 방법을 설명합니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""/>
 
 <tags
    ms.service="virtual-machines"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure"
-   ms.date="05/05/2015"
-   ms.author="rasquill"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure"
+	ms.date="09/01/2015"
+	ms.author="rasquill"/>
 
 # Azure Active Directory에서 회사 또는 학교 ID 만들기
 
@@ -140,4 +140,4 @@ Ahmet 에 대한 자세한 정보를 입력합니다. 하지만 적절한 **역�
     data:
     info:    group create command OK
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

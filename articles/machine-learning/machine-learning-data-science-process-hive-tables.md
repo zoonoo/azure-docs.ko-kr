@@ -4,8 +4,8 @@
 	services="machine-learning"
 	documentationCenter=""
 	authors="hangzh-msft"
-	manager="paulettm" 
-	editor="cgronlun"  />
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
-	ms.author="hangzh;bradsev" />
+	ms.date="09/01/2015"
+	ms.author="hangzh;bradsev"/>
 
 #<a name="heading"></a> 고급 분석 프로세스 및 기술에서 Hive 쿼리를 HDInsight Hadoop 클러스터에 제출 
 
 이 문서에서는 Azure의 HDInsight 서비스에서 관리하는 Hadoop 클러스터에 Hive 쿼리를 제출하는 다양한 방법에 대해 설명합니다. 이 작업은 Azure 기계 학습에서 제공하는 ADAPT(고급 분석 프로세스 및 기술)의 일부입니다. 여러 데이터 랭글링 작업(데이터 탐색 및 기능 생성)에 대해 설명합니다. 데이터를 탐색하거나 기능을 생성하는 방법을 보여 주는 일반 Hive 쿼리를 살펴볼 것입니다. 이러한 Hive 쿼리는 제공되는 포함된 Hive UDF(사용자 정의 함수)를 사용합니다.
 
-또한 <a href="http://chriswhong.com/open-data/foil_nyc_taxi/" target="_blank">NYC Taxi Trip Data</a> 시나리오에 대한 쿼리 예제가 <a href="https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts" target="_blank">Github 리포지토리</a>에 제공됩니다. 이러한 쿼리는 이미 데이터 스키마가 지정되어 있으며 바로 제출하여 실행할 수 있습니다.
+또한 [NYC Taxi Trip Data](http://chriswhong.com/open-data/foil_nyc_taxi/) 시나리오에 대한 쿼리 예제가 [Github 리포지토리](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts)에 제공됩니다. 이러한 쿼리는 이미 데이터 스키마가 지정되어 있으며 바로 제출하여 실행할 수 있습니다.
 
 마지막 섹션에서는 사용자가 조정하여 Hive 쿼리 성능을 높일 수 있는 매개 변수에 대해 설명합니다.
 
@@ -174,7 +174,7 @@ Azure 저장소 탐색기 또는 그에 상응하는 도구를 사용하여 Hado
 1. [빈도 기반 기능 생성](#hive-frequencyfeature)
 2. [이진 분류에서 범주 변수의 위험](#hive-riskfeature)
 3. [날짜/시간 필드에서 기능 추출](#hive-datefeatures)
-4. [L텍스트 필드에서 기능 추출](#hive-textfeatures)
+4. [텍스트 필드에서 기능 추출](#hive-textfeatures)
 5. [GPS 좌표 사이의 거리 계산](#hive-gpsdistance)
 
 ###<a name="hive-frequencyfeature"></a>빈도 기반 기능 생성
@@ -215,7 +215,7 @@ Azure 저장소 탐색기 또는 그에 상응하는 도구를 사용하여 Hado
 	    	group by <column_name1>, <column_name2>
 	    	)b
 
-이 예에서 변수 `smooth_param1` 및 `smooth_param2`는 데이터에서 계산된 위험 값을 완화하도록 설정되었습니다. 위험 범위는 -Inf\~Inf입니다. 위험>0은 대상이 1일 확률이 0.5보다 크다는 뜻입니다.
+이 예에서 변수 `smooth_param1` 및 `smooth_param2`는 데이터에서 계산된 위험 값을 완화하도록 설정되었습니다. 위험 범위는 -Inf~Inf입니다. 위험>0은 대상이 1일 확률이 0.5보다 크다는 뜻입니다.
 
 위험 테이블이 계산되면 사용자는 위험 값을 위험 테이블에 조인하여 위험 값을 할당할 수 있습니다. Hive 조인 쿼리는 이전 섹션에서 제공되었습니다.
 
@@ -319,4 +319,4 @@ Hive 클러스터의 기본 매개 변수 설정이 Hive 쿼리 및 쿼리에서
 [15]: ./media/machine-learning-data-science-process-hive-tables/run-hive-queries-3.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

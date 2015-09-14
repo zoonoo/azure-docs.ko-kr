@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Power BI에서 Application Insights 데이터를 참조하세요." 
-	description="Power BI를 사용하여 응용 프로그램의 성능 및 사용을 모니터링할 수 있습니다." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="noamben" 
+	pageTitle="Power BI에서 Application Insights 데이터를 참조하세요."
+	description="Power BI를 사용하여 응용 프로그램의 성능 및 사용을 모니터링할 수 있습니다."
+	services="application-insights"
+	documentationCenter=""
+	authors="noamben"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="awills"/>
  
 # Application Insights 데이터의 Power BI 보기
@@ -74,9 +74,17 @@ Noam Ben Zeev는 이 기사에서 설명한 내용을 보여줍니다.
 
     ![이벤트 유형 선택](./media/app-insights-export-power-bi/080.png)
 
-이제 한동안 사용자가 응용 프로그램을 사용하도록 놓아둡니다. 원격 분석이 제공되어 [메트릭 탐색기](app-insights-metrics-explorer.md)에는 통계 차트가 표시되고 [진단 검색](app-insights-diagnostic-search.md)에는 개별 이벤트가 표시됩니다.
+3. 일부 데이터가 누적되도록 합니다. 한동안 사용자가 응용 프로그램을 사용하도록 놓아둡니다. 원격 분석이 제공되어 [메트릭 탐색기](app-insights-metrics-explorer.md)에는 통계 차트가 표시되고 [진단 검색](app-insights-diagnostic-search.md)에는 개별 이벤트가 표시됩니다.
 
-또한 데이터를 저장소로 내보냅니다.
+    또한 데이터를 저장소로 내보냅니다.
+
+4. 내보낸 데이터를 검사합니다. Visual Studio에서 **보기/클라우드 탐색기**를 선택하고 Azure/저장소를 엽니다. 이 메뉴 옵션이 없는 경우 Azure SDK를 설치해야 합니다. 새 프로젝트 대화 상자를 열고 Visual C#/클라우드/Microsoft Azure SDK for .NET 가져오기를 엽니다.
+
+    ![](./media/app-insights-export-power-bi/04-data.png)
+
+    응용 프로그램 이름 및 계측 키에서 파생된 경로 이름의 공통 부분을 적어 둡니다.
+
+이벤트는 JSON 형식으로 blob 파일에 기록됩니다. 각 파일에는 하나 이상의 이벤트가 있을 수 있습니다. 따라서 이벤트 데이터를 읽고 원하는 필드를 필터링하려고 합니다. 데이터로 온갖 종류의 작업을 수행할 수 있지만, 지금은 스트림 분석을 사용하여 데이터를 Power BI로 파이프하려고 합니다.
 
 ## Azure 스트림 분석 인스턴스 만들기
 
@@ -108,20 +116,21 @@ Noam Ben Zeev는 이 기사에서 설명한 내용을 보여줍니다.
 
 ![](./media/app-insights-export-power-bi/140.png)
 
+
 날짜 형식을 YYYY-MM-DD(파선 포함)로 설정해야 합니다.
 
-경로 접두사 패턴은 스트림 분석이 저장소에서 입력 파일을 찾는 방법을 지정합니다. 연속 내보내기에서 데이터를 저장하는 방법과 일치하도록 설정해야 합니다. 다음과 같이 설정합니다.
+전위 패턴은 스트림 분석이 저장소에서 입력 파일을 찾는 위치를 지정합니다. 연속 내보내기에서 데이터를 저장하는 방법과 일치하도록 설정해야 합니다. 다음과 같이 설정합니다.
 
-    webapplication27_100000000-0000-0000-0000-000000000000/PageViews/{date}/{time}
+    webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
 이 예제에서:
 
-* `webapplication27`은 Application Insights 리소스의 이름입니다. 
-* `1000...`은 Application Insights 리소스의 계측 키입니다. 
+* `webapplication27`은 Application Insights 리소스의 이름으로, **모두 소문자**입니다.
+* `1234...`은 **대시를 생략한** Application Insights 리소스의 계측 키입니다. 
 * `PageViews`는 분석하려는 데이터의 형식입니다. 사용 가능한 형식은 연속 내보내기에 설정한 필터에 따라 다릅니다. 내보낸 데이터를 검사하여 사용 가능한 다른 형식을 확인하고 [데이터 모델 내보내기](app-insights-export-data-model.md)를 참조합니다.
 * `/{date}/{time}`은 문자로 기록된 패턴입니다.
 
-Application Insights 리소스의 이름 및 iKey를 가져오려면 해당 개요 페이지에서 필수 항목을 열거나 설정을 엽니다.
+> [AZURE.NOTE]저장소를 검사하여 올바른 경로를 가져오는지 확인합니다.
 
 #### 초기 설치 완료
 
@@ -194,7 +203,8 @@ Noam Ben Zeev는 Power BI를 내보내는 방법을 보여줍니다.
 ## 관련된 자료
 
 * [연속 내보내기](app-insights-export-telemetry.md)
+* [속성 형식 및 값에 대한 자세한 데이터 모델 참조입니다.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)
 * [추가 샘플 및 연습](app-insights-code-samples.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

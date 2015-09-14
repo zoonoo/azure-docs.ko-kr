@@ -1,19 +1,19 @@
 <properties 
- pageTitle="가상 컴퓨터 확장 및 특징 정보 | Microsoft Azure" 
- description="다양한 가상 컴퓨터 확장을 연결 및 기본 관리 등, 제공 또는 향상 대상별로 그룹화하여 설명합니다." 
- services="virtual-machines" 
- documentationCenter="" 
- authors="squillace" 
- manager="timlt" 
- editor=""/>
+ pageTitle="가상 컴퓨터 확장 및 특징 정보 | Microsoft Azure"
+	description="다양한 가상 컴퓨터 확장을 연결 및 기본 관리 등, 제공 또는 향상 대상별로 그룹화하여 설명합니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="squillace"
+	manager="timlt"
+	editor=""/>
 <tags 
- ms.service="virtual-machines" 
- ms.devlang="na" 
- ms.topic="article" 
- ms.tgt_pltfrm="vm-multiple" 
- ms.workload="infrastructure-services"
- ms.date="10/31/2014" 
- ms.author="rasquill"/>
+ ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.workload="infrastructure-services"
+	ms.date="08/25/2015"
+	ms.author="rasquill"/>
 #가상 컴퓨터 확장 및 기능 정보
 Microsoft Azure에서는 Azure Virtual Machine에서의 생산성을 높이는 데 활용할 수 있는 보안, 런타임, 디버깅, 관리 및 기타 기능을 구현하기 위해 Microsoft와 신뢰할 수 있는 타 공급업체가 구축한 VM 확장을 제공합니다. 이 항목에서는 Windows 및 Linux 가상 컴퓨터 모두에 제공되는 Azure VM 확장의 다양한 기능을 설명하고 각 기능에 대한 관련 문서를 안내합니다.
 
@@ -96,4 +96,4 @@ VM 확장은 VM에서 사용하려는 대부분의 중요 기능을 구현합니
 |**BGInfo**|RDP를 사용할 때 바탕 화면에 서버에 대한 유용한 통합 정보를 표시합니다.|[BGInfo 확장](https://msdn.microsoft.com/library/dn606289.aspx)|
 |**HpcVmDrivers**|VM이 Azure RDMA(원격 직접 메모리 액세스) 네트워크에 액세스할 수 있게, A8 또는 A9 가상 컴퓨터에서 다음 네트워크 장치를 설치, 구성 및 유지 관리합니다.|[HpcVmDrivers 확장](https://msdn.microsoft.com/library/dn690126.aspx)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

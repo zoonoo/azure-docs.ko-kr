@@ -261,15 +261,35 @@ Visual Studio Online은 Azure에서 응용 프로그램을 개발하도록 돕�
 
 Visual Studio Online은 부하 테스팅 서비스를 제공합니다. 클라우드의 VM에서 Visual Studio로 생성된 부하 테스트를 실행할 수 있습니다. 부하 테스트를 원하는 사용자의 총 수를 지정하면 Visual Studio Online에서 필요한 에이전트 수를 자동으로 결정하고, 필요한 가상 컴퓨터를 스핀업하고, 부하 테스트를 실행합니다. MSDN 구독자인 경우 매달 부하 테스팅을 할 수 있는 상당한 무료 사용 시간을 받게 됩니다.
 
-또한 Visual Studio Online은 Application Insights라는 서비스를 제공하는데, 이 서비스는 전체 응용 프로그램에 대한 분석을 제공합니다. 또한 온-프레미스의 통계와 응용 프로그램 사용 방법도 제공합니다. 이미 System Center Operations Manager를 사용하는 경우 System Center Operations Manager에 연결하고 문제가 발생할 경우 경고를 생성할 수 있습니다. 또한 Visual Studio Online은 연속 통합 빌드, Kanban 보드, 가상 팀 회의실과 같은 기능을 통해 민첩한 개발도 지원합니다.
-	
-또한 연속 통합 빌드, Kanban 보드, 가상 팀 회의실과 같은 기능을 통해 민첩한 개발도 지원합니다.
+또한 Visual Studio Online은 연속 통합 빌드, Kanban 보드, 가상 팀 회의실과 같은 기능을 통해 민첩한 개발도 지원합니다.
 
 **Visual Studio Online 시나리오**
 
 Visual Studio Online은 전 세계적으로 협업해야 하지만 그렇게 할 수 있는 적절한 인프라는 아직 갖추지 못한 회사에 적합한 옵션입니다. 몇 분 안에 설정하고, 소스 제어 시스템을 선택하고 하루 만에 코드 작성과 빌드를 시작할 수 있습니다. 팀 도구는 조정 및 협업을 위한 방법을 제공하며 추가적인 도구는 응용 프로그램을 신속하게 테스트 및 조정하는 데 필요한 분석을 제공합니다.
 
 온-프레미스 시스템을 이미 갖춘 조직은 Visual Studio Online에서 새로운 프로젝트를 테스트하여 더 효율적인지 확인할 수 있습니다.
+
+### Application Insights
+
+![Application Insights](./media/fundamentals-introduction-to-azure/ApplicationInsights.png)
+
+*그림: Application Insights는 라이브 웹 또는 장치 앱의 성능 및 사용 현황을 모니터링합니다.*
+
+모바일 장치, 데스크톱 또는 웹 브라우저에서 실행되는 앱을 게시한 경우 Application Insights는 앱의 작동 방식 및 사용자가 해당 앱으로 수행하는 작업을 알려줍니다. 또한 크래시 및 느린 응답의 수를 계산하고, 해당 수치가 허용하는 임계값을 초과할 경우 경고하고, 문제를 진단하도록 도와줍니다.
+
+새로운 기능을 개발할 때는 사용자의 성공적인 기능 사용 결과를 측정하도록 합니다. 사용 패턴을 분석하여 고객에게 최적으로 작동하는 기능을 이해하고 모든 개발 주기에서 앱을 향상시킵니다.
+
+Azure에 호스트되지만 Application Insights는 Azure 내부 및 외부의 광범위한 앱에 작동합니다. iOS, Android, OSX 및 Windows 응용 프로그램은 물론, J2EE 및 ASP.NET 웹앱을 모두 포괄합니다. Azure의 Application Insights 서비스에서 분석 및 표시되기 위해 앱과 함께 빌드된 SDK에서 원격 분석이 전송됩니다.
+
+보다 구체적인 분석을 원할 경우 원격 분석 스트림을 데이터베이스, Power BI 또는 기타 도구로 내보냅니다.
+
+**Application Insights 시나리오**
+
+앱을 개발 중입니다. 웹앱이나 장치 앱일 수도 있고, 웹 백 엔드가 있는 장치 앱일 수도 있습니다.
+
+* 앱을 게시한 후 또는 부하 테스트 중에 성능을 조정합니다. Application Insights는 설치된 모든 인스턴스에서 원격 분석을 집계하고, 응답 시간, 요청 및 예외 개수, 종속성 응답 시간 및 기타 성능 표시기에 대한 차트를 제공합니다. 이를 통해 앱 성능을 쉽게 조정할 수 있습니다. 필요한 경우 보다 구체적인 데이터를 보고하기 위해 코드를 삽입할 수 있습니다.
+* 라이브 앱에서 문제를 검색하고 진단합니다. 성과 표시기가 허용 가능한 임계값을 초과하거나 못미칠 경우 전자 메일로 경고할 수 있습니다. 예외를 발생시킨 요청을 확인하는 것처럼 특정 사용자 세션을 조사할 수 있습니다. 
+* 사용 현황을 추적하여 각 새 기능의 성공을 평가합니다. 새 사용자 사례를 디자인할 때는 사용량 및 사용자가 예상 목표를 달성하는지 여부를 측정합니다. Application Insights를 사용하면 웹 페이지 보기와 같은 기본 사용 현황 데이터를 볼 수 있으며 사용자 환경을 보다 자세히 추적하기 위한 코드를 삽입할 수 있습니다.
 
 ### 자동화
 동일한 수동 프로세스를 반복하는 데 시간을 낭비하고 싶은 사람은 없을 것입니다. Azure 자동화는 Azure 환경에서 리소스를 생성, 모니터, 관리 및 배포할 수 있는 방법을 제공합니다.
@@ -592,4 +612,4 @@ SendGrid는 메일을 보낼 수 있는 Azure 스토어의 응용 프로그램�
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

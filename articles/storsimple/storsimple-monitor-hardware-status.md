@@ -1,21 +1,21 @@
 <properties 
    pageTitle="StorSimple 하드웨어 구성 요소 및 상태 | Microsoft Azure"
-   description="StorSimple Manager 서비스를 통해 StorSimple 장치의 하드웨어 구성 요소를 모니터링하는 방법에 대해 알아봅니다."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="StorSimple Manager 서비스를 통해 StorSimple 장치의 하드웨어 구성 요소를 모니터링하는 방법에 대해 알아봅니다."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/14/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/02/2015"
+	ms.author="alkohli"/>
 
-# StorSimple 하드웨어 구성 요소 및 상태
+# StorSimple 관리자 서비스를 사용하여 하드웨어 구성 요소 및 상태 모니터링
 
 ## 개요
 
@@ -131,4 +131,4 @@
 
 장치 문제가 계속되면 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Azure에 사용자 지정 Java 웹 앱 업로드" 
-	description="이 자습서에서는 Azure 앱 서비스 웹 앱에 사용자 지정 Java 웹 앱을 업로드하는 방법을 보여줍니다." 
-	services="app-service\web" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	pageTitle="Azure에 사용자 지정 Java 웹 앱 업로드"
+	description="이 자습서에서는 Azure 앱 서비스 웹 앱에 사용자 지정 Java 웹 앱을 업로드하는 방법을 보여줍니다."
+	services="app-service\web"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 # Azure에 사용자 지정 Java 웹 앱 업로드
 
-이 항목에서는 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714) 웹 앱에 사용자 지정 Java 웹 앱을 업로드하는 방법을 설명합니다. 이 항목에는 모든 Java 웹 사이트이나 웹 앱에 적용되는 정보와 특정 응용 프로그램의 일부 예제도 포함되어 있습니다.
+이 항목에서는 [Azure 앱 서비스] 웹 앱에 사용자 지정 Java 웹 앱을 업로드하는 방법을 설명합니다. 이 항목에는 모든 Java 웹 사이트이나 웹 앱에 적용되는 정보와 특정 응용 프로그램의 일부 예제도 포함되어 있습니다.
 
 Azure에서는 [Azure 앱 서비스에서 Java 웹 앱 만들기](web-sites-java-get-started.md)에서 설명한 대로 Azure 미리보기 포털의 구성 UI 및 Azure 마켓플레이스를 사용하여 Java 웹 앱을 만드는 방법을 제공합니다. 이 자습서는 포털 구성 UI 또는 Azure 마켓플레이스를 사용하지 않는 시나리오용입니다.
 
@@ -46,11 +46,10 @@ Azure에서는 [Azure 앱 서비스에서 Java 웹 앱 만들기](web-sites-java
     arguments="start"
     
     processPath="%JAVA_HOME\bin\java.exe"
-    arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP\_PLATFORM\_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
+    arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP\_PLATFORM\_PORT% -Djetty.base=";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115"; -jar ";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar";"
 
 
 **processPath** - HTTP 요청을 수신 대기하는 프로세스를 시작할 실행 파일 또는 스크립트의 경로입니다.
-
 
 예제:
 
@@ -65,7 +64,7 @@ Azure에서는 [Azure 앱 서비스에서 Java 웹 앱 만들기](web-sites-java
                                     
 **requestTimeout**(기본값 = "00:02:00"). **HttpPlatformHandler**가 `%HTTP_PLATFORM_PORT%`에서 수신 대기하는 프로세스의 응답을 대기하는 기간입니다.
 
-**startupRetryCount**(기본값 = 10). **HttpPlatformHandler**가 **processPath**에 지정된 프로세스 시작을 시도하는 횟수입니다. 자세한 내용은 **startupTimeLimit**를 참조하십시오.
+**startupRetryCount**(기본값 = 10). **HttpPlatformHandler**가 **processPath**에 지정된 프로세스 시작을 시도하는 횟수입니다. 자세한 내용은 **startupTimeLimit**를 참조하세요.
 
 **startupTimeLimit**(기본값 = 10초). 실행 파일/스크립트가 포트에서 수신 대기하는 프로세스를 시작할 때까지 **HttpPlatformHandler**가 대기하는 기간입니다. 이 시간 제한을 초과하는 경우 **HttpPlatformHandler**가 프로세스를 중단하고 프로세스의 시작을 **startupRetryCount**번 다시 시도합니다.
                                                                                       
@@ -84,7 +83,7 @@ Java 기반 웹 앱은 IIS(인터넷 정보 서비스) 기반 웹 응용 프로�
 다음 응용 프로그램에 대해 앱 서비스 웹 앱에서 Java 응용 프로그램을 사용하도록 설정하는 방법을 보여 주는 예제로 web.config 파일 및 응용 프로그램 구성을 제공합니다.
 
 ### Tomcat
-앱 서비스 웹 앱과 함께 제공되는 Tomcat에는 두 가지 변형이 있지만 Tomcat에서는 계속 고객별 인스턴스를 업로드할 수 있습니다. 다음은 다른 JVM으로 Tomcat을 설치한 예제입니다.
+앱 서비스 웹 앱과 함께 제공되는 Tomcat에는 두 가지 변형이 있지만 Tomcat에서는 계속 고객별 인스턴스를 업로드할 수 있습니다. 다음은 다른 JVM(Java Virtual Machine)으로 Tomcat을 설치한 예제입니다.
 
 	<?xml version="1.0" encoding="UTF-8"?>
 	<configuration>
@@ -125,7 +124,7 @@ Tomcat의 경우와 마찬가지로 고객이 고유한 Jetty 인스턴스를 �
 	      <add name="httppPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
 	    </handlers>
 	    <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" 
-	         arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
+	         arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115"; -jar ";%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar";"
 	        startupTimeLimit="20"
 		  startupRetryCount="10"
 		  stdoutLogEnabled="true">
@@ -180,7 +179,7 @@ start.ini에서 `java.net.preferIPv4Stack=true`를 설정하도록 Jetty 구성�
 
 8. 설정을 저장합니다. Hudson을 구성하였으므로 이제 사용할 준비가 되었습니다.
 
-Hudson에 대한 자세한 내용은 [http://hudson-ci.org](http://hudson-ci.org)를 참조하십시오.
+Hudson에 대한 자세한 내용은 [http://hudson-ci.org](http://hudson-ci.org)를 참조하세요.
 
 ### Liferay
 
@@ -228,12 +227,14 @@ tomcat-7.0.40 폴더와 동일한 디렉터리 수준에서 다음 내용을 포
 
 이러한 내용을 변경하면 Liferay를 실행하는 웹 앱을 다시 시작한 후 http://yourwebapp를 엽니다. Liferay 포털은 웹 앱 루트에서 사용할 수 있습니다.
 
-Liferay에 대한 자세한 내용은 [http://www.liferay.com](http://www.liferay.com)을 참조하십시오.
+Liferay에 대한 자세한 내용은 [http://www.liferay.com](http://www.liferay.com)을 참조하세요.
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
  
+<!-- External Links -->
+[Azure 앱 서비스]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

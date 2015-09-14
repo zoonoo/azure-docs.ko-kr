@@ -26,7 +26,7 @@ Azure 키 자격 증명 모음은 대부분 지역에서 사용할 수 있습니
 
 >[AZURE.NOTE]이 자습서에는 단계 중 하나에 포함되는 Azure 응용 프로그램을 작성하는 방법(즉, 주요 자격 증명 모음의 키나 비밀을 사용하도록 응용 프로그램에 사용 권한을 부여하는 방법)에 대한 지침이 포함되어 있지 않습니다.
 >
->현재는 Azure 포털에서 Azure 키 자격 증명 모음을 구성할 수 없습니다. 대신, 이 Azure PowerShell 지침을 사용합니다. 또는 플랫폼 간 명령줄 인터페이스 지침에 대한 참조는[이 해당 자습서](key-vault-manage-with-cli.md)를 참조하십시오.
+>현재는 Azure 포털에서 Azure 키 자격 증명 모음을 구성할 수 없습니다. 대신, 이 Azure PowerShell 지침을 사용합니다. 또는 플랫폼 간 명령줄 인터페이스 지침에 대한 참조는[이 해당 자습서](key-vault-manage-with-cli.md)를 참조하세요.
 
 Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모음이란?](key-vault-whatis.md)을 참조하세요.
 
@@ -36,7 +36,7 @@ Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모�
 
 - Microsoft Azure 구독. 아직 구독하지 않은 경우 [무료 평가판](../../../../pricing/free-trial)에 등록할 수 있습니다.
 - Azure PowerShell 버전 0.9.1 이상. 최신 버전을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
-- 이 자습서에서 만드는 키 또는 암호를 사용하여 구성되는 응용 프로그램입니다. 샘플 응용 프로그램은 [Microsoft 다운로드 센터](http://www.microsoft.com/ko-kr/download/details.aspx?id=45343)에서 사용할 수 있습니다. 자세한 내용은 해당 추가 정보 파일을 참조하세요.
+- 이 자습서에서 만드는 키 또는 암호를 사용하여 구성되는 응용 프로그램입니다. 샘플 응용 프로그램은 [Microsoft 다운로드 센터](http://www.microsoft.com/ko-KR/download/details.aspx?id=45343)에서 사용할 수 있습니다. 자세한 내용은 해당 추가 정보 파일을 참조하세요.
 
 
 이 자습서는 Windows PowerShell 초보자용으로 설계되었지만, 모듈, cmdlet, 세션 등과 같은 기본 개념을 잘 알고 있다고 가정합니다. Windows PowerShell에 대한 자세한 내용은 [Windows PowerShell 시작](https://technet.microsoft.com/library/hh857337.aspx)을 참조하세요.
@@ -179,6 +179,11 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
 
 
 	Set-AzureKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
+	
+자격 증명 모음에서 기밀 정보를 읽기 위해 동일한 응용 프로그램에 권한을 부여하려면 다음을 실행합니다.
+
+
+	Set-AzureKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToSecrets Get
 
 ## <a id="HSM"></a>하드웨어 보안 모듈(HSM)을 사용하려는 경우 ##
 
@@ -194,7 +199,7 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
 
 
 
-이 자격 증명이 모음에 소프트웨어 보호 키(이전에 표시된 대로)와 HSM 보호되는 키를 추가할 수 있습니다. HSM 보호 키를 만들려면 다음과 같이 **-Destination** 매개 변수를 'HSM'으로 설정합니다.
+이 자격 증명이 모음에 소프트웨어 보호 키(이전에 표시된 대로)와 HSM 보호되는 키를 추가할 수 있습니다. HSM으로 보호되는 키를 만들려면 **-Destination** 매개 변수를 'HSM'으로 설정합니다.
 
 	$key = Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMKey' -Destination 'HSM'
 
@@ -239,4 +244,4 @@ Azure 키 자격 증명 모음에 대한 Windows PowerShell cmdlet의 목록은 
 
 프로그래밍 참조는 MSDN의 Microsoft Azure 문서 라이브러리에서 [주요 자격 증명 모음](https://msdn.microsoft.com/library/azure/dn903625.aspx)을 참조하세요.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

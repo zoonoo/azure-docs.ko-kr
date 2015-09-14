@@ -1,17 +1,17 @@
 <properties 
-	pageTitle="Application Insights에 대한 릴리스 정보" 
-	description="최신 업데이트입니다." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle=".NET용 Application Insights에 대한 릴리스 정보"
+	description="최신 업데이트입니다."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/06/2015"
 	ms.author="sergkanz"/>
  
 # Application Insights SDK for .NET에 대한 릴리스 정보
@@ -61,7 +61,7 @@
 
 ## 버전 0.17
 - Framework 4.5 응용 프로그램에 대한 EventSource NuGet에 대한 종속성을 제거합니다.
-- 익명 사용자 및 세션 쿠키는 서버쪽에서 생성되지 않습니다. 웹앱의 사용자 및 세션 추적을 구현하려면, JS SDK를 포함한 계측은 원래 목적을 실현하는 JavaScript SDK의 쿠키가 필요합니다. 원격 분석 모듈 ```WebSessionTrackingTelemetryModule``` 및 ```WebUserTrackingTelemetryModule```은 더이상 지원되지 않으며 ApplicationInsights.config 파일에서 제거되었습니다. 이 변경 사항 은 오직 사용자-시작 세션만 계산되는 것처럼 사용자 및 세션 개수의 중요한 restatement를 발생시킨다는 것을 참고하십시오.
+- 익명 사용자 및 세션 쿠키는 서버쪽에서 생성되지 않습니다. 웹앱의 사용자 및 세션 추적을 구현하려면, JS SDK를 포함한 계측은 원래 목적을 실현하는 JavaScript SDK의 쿠키가 필요합니다. 원격 분석 모듈 ```WebSessionTrackingTelemetryModule``` 및 ```WebUserTrackingTelemetryModule```은 더이상 지원되지 않으며 ApplicationInsights.config 파일에서 제거되었습니다. 이 변경 사항 은 오직 사용자-시작 세션만 계산되는 것처럼 사용자 및 세션 개수의 중요한 restatement를 발생시킨다는 것을 참고하세요.
 - OSVersion은 더 이상 기본적으로 SDK로 채워지지 않습니다. 비어 있는 경우, OS 및 OSVersion은 사용자 에이전트에 따라 Application Insights 파이프라인에서 계산됩니다. 
 - 로드가 많은 시나리오에 맞게 최적화된 지속성 채널이 웹 SDK에 사용됩니다. "죽음의 나선" 문제가 수정되었습니다. 끝점에 대한 조정 제한을 훨씬 초과하는 원격 분석 항목의 나선 수가 특정 시간 후 다시 시도되며 다시 시도되는 동안 침체되는 경우 죽음의 나선이 조건입니다.
 - 개발자 모드는 프로덕션에 최적화되어있습니다. 실수로 남아있는 경우, 추가 정보를 출력하기 전에 큰 오버 헤드가 발생하지 않습니다.
@@ -86,4 +86,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

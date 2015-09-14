@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="data-services"
-	ms.date="06/29/2015"
-	ms.author="sidneyh;barbkess"/>
+	ms.date="08/28/2015"
+	ms.author="twounder;sidneyh;barbkess"/>
 
 # Azure 데이터 웨어하우스 cmdlet 및 REST API 시작
 
@@ -27,8 +27,8 @@ SQL 데이터 웨어하우스는 Azure PowerShell cmdlet 또는 REST API를 사�
 ## Azure PowerShell cmdlet을 다운로드하여 실행합니다.
 
 1. Azure PowerShell 모듈을 다운로드하려면 [Microsoft 웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)를 실행합니다. 
-2. 2. 모듈을 실행하려면 시작 창에서 **Microsoft Azure PowerShell**을 입력합니다.
-3. 아직 컴퓨터에 계정을 추가하지 않았다면 다음 cmdlet을 실행합니다. (자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure/)을 참조하세요.)
+2. 모듈을 실행하려면 시작 창에서 **Microsoft Azure PowerShell**을 입력합니다.
+3. 아직 컴퓨터에 계정을 추가하지 않았다면 다음 cmdlet을 실행합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법]()을 참조하세요.
 
 		Add-AzureAccount
 3. 다음 cmdlet 사용하여 모드를 전환합니다.
@@ -101,6 +101,7 @@ RestorePointCreationDate |백업 스냅숏 시간(restorePointType = DISCRETE인
 
 <!--Article references-->
 [SQL 데이터 웨어하우스 참조 개요]: sql-data-warehouse-overview-reference.md
+[How to install and configure Azure PowerShell]: powershell-install-configure.md
 
 <!--MSDN references-->
 
@@ -110,4 +111,4 @@ RestorePointCreationDate |백업 스냅숏 시간(restorePointType = DISCRETE인
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

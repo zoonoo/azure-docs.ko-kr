@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure 알림 허브 사용자에게 알림" 
-	description="Azure에서 사용자에게 푸시 알림을 보내는 방법에 대해 알아봅니다. Android용 Java로 작성된 코드 샘플" 
-	documentationCenter="android" 
-	services="notification-hubs" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Azure 알림 허브 사용자에게 알림"
+	description="Azure에서 사용자에게 푸시 알림을 보내는 방법에 대해 알아봅니다. Android용 Java로 작성된 코드 샘플"
+	documentationCenter="android"
+	services="notification-hubs"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="05/31/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 #Azure 알림 허브 사용자에게 알림
@@ -36,16 +36,16 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 1. [알림 허브 시작(Android)](notification-hubs-android-get-started.md) 자습서에 따라 앱을 만들고 GCM에서 푸시 알림을 받도록 구성합니다.
 
 2. **res/layout/activity\_main.xml** 파일을 열고 다음 콘텐츠 정의로 바꿉니다.
- 
+
     그러면 사용자로 로그인할 수 있는 새 EditText 컨트롤이 추가됩니다. 또한 보내는 알림의 일부가 될 사용자 이름 태그 필드가 추가됩니다.
-			
+
 		<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
             android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin"
             android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
-        
+
         <EditText
             android:id="@+id/usernameText"
             android:layout_width="match_parent"
@@ -138,11 +138,11 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 	![][A1]
 
 4. `MainActivity` 클래스와 동일한 패키지에서 **RegisterClient**라는 새 클래스를 만듭니다. 새 클래스 파일에 아래 코드를 사용합니다.
- 
+
 		import java.io.IOException;
         import java.io.UnsupportedEncodingException;
         import java.util.Set;
-        
+
         import org.apache.http.HttpResponse;
         import org.apache.http.HttpStatus;
         import org.apache.http.client.ClientProtocolException;
@@ -156,11 +156,11 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
         import org.json.JSONArray;
         import org.json.JSONException;
         import org.json.JSONObject;
-        
+
         import android.content.Context;
         import android.content.SharedPreferences;
         import android.util.Log;
-        
+
         public class RegisterClient {
             private static final String PREFS_NAME = "ANHSettings";
             private static final String REGID_SETTING_NAME = "ANHRegistrationId";
@@ -168,32 +168,32 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
             SharedPreferences settings;
             protected HttpClient httpClient;
             private String authorizationHeader;
-        
+
             public RegisterClient(Context context, String backendEnpoint) {
                 super();
                 this.settings = context.getSharedPreferences(PREFS_NAME, 0);
                 httpClient =  new DefaultHttpClient();
                 Backend_Endpoint = backendEnpoint + "/api/register";
             }
-        
+
             public String getAuthorizationHeader() {
                 return authorizationHeader;
             }
-        
+
             public void setAuthorizationHeader(String authorizationHeader) {
                 this.authorizationHeader = authorizationHeader;
             }
-        
+
             public void register(String handle, Set<String> tags) throws ClientProtocolException, IOException, JSONException {
                 String registrationId = retrieveRegistrationIdOrRequestNewOne(handle);
-        
+
                 JSONObject deviceInfo = new JSONObject();
                 deviceInfo.put("Platform", "gcm");
                 deviceInfo.put("Handle", handle);
                 deviceInfo.put("Tags", new JSONArray(tags));
-        
+
                 int statusCode = upsertRegistration(registrationId, deviceInfo);
-        
+
                 if (statusCode == HttpStatus.SC_OK) {
                     return;
                 } else if (statusCode == HttpStatus.SC_GONE){
@@ -209,7 +209,7 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
                     throw new RuntimeException("Error upserting registration");
                 }
             }
-        
+
             private int upsertRegistration(String registrationId, JSONObject deviceInfo)
                     throws UnsupportedEncodingException, IOException,
                     ClientProtocolException {
@@ -221,11 +221,11 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
                 int statusCode = response.getStatusLine().getStatusCode();
                 return statusCode;
             }
-        
+
             private String retrieveRegistrationIdOrRequestNewOne(String handle) throws ClientProtocolException, IOException {
                 if (settings.contains(REGID_SETTING_NAME))
                     return settings.getString(REGID_SETTING_NAME, null);
-        
+
                 HttpUriRequest request = new HttpPost(Backend_Endpoint+"?handle="+handle);
                 request.addHeader("Authorization", "Basic "+authorizationHeader);
                 HttpResponse response = httpClient.execute(request);
@@ -235,9 +235,9 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
                 }
                 String registrationId = EntityUtils.toString(response.getEntity());
                 registrationId = registrationId.substring(1, registrationId.length()-1);
-        
+
                 settings.edit().putString(REGID_SETTING_NAME, registrationId).commit();
-        
+
                 return registrationId;
             }
         }
@@ -251,20 +251,20 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 		private RegisterClient registerClient;
 	    private static final String BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
 
- 
+
 6. `MainActivity` 클래스의 `onCreate` 메서드에서 `hub` 필드의 초기화를 제거하거나 주석 처리하고 `registerWithNotificationHubs` 메서드를 호출합니다. 그런 다음 `RegisterClient` 클래스의 인스턴스를 초기화할 코드를 추가합니다. 메서드에는 다음 줄이 포함되어야 합니다.
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-    
+
             MyHandler.mainActivity = this;
             NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
             gcm = GoogleCloudMessaging.getInstance(this);
-    
+
             //hub = new NotificationHub(HubName, HubListenConnectionString, this);
             //registerWithNotificationHubs();
-    
+
 	        registerClient = new RegisterClient(this, BACKEND_ENDPOINT);
 
             setContentView(R.layout.activity_main);
@@ -292,10 +292,10 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
         	Button sendPush = (Button) findViewById(R.id.sendbutton);
 	        sendPush.setEnabled(false);
 	    }
-	
+
 		public void login(View view) throws UnsupportedEncodingException {
 	    	this.registerClient.setAuthorizationHeader(getAuthorizationHeader());
-	    	
+
 	    	final Context context = this;
 	    	new AsyncTask<Object, Object, Object>() {
 				@Override
@@ -309,7 +309,7 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 					}
 					return null;
 				}
-	
+
 				protected void onPostExecute(Object result) {
                 	Button sendPush = (Button) findViewById(R.id.sendbutton);
 			        sendPush.setEnabled(true);
@@ -318,7 +318,7 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 				}
 			}.execute(null, null, null);
 	    }
-	    
+
 		private String getAuthorizationHeader() throws UnsupportedEncodingException {
 			EditText username = (EditText) findViewById(R.id.usernameText);
 	    	EditText password = (EditText) findViewById(R.id.passwordText);
@@ -344,20 +344,20 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
                 @Override
                 protected Object doInBackground(Object... params) {
                     try {
-    
+
                         String uri = BACKEND_ENDPOINT + "/api/notifications";
                         uri += "?pns=" + pns;
                         uri += "&to_tag=" + userTag;
-    
+
                         HttpPost request = new HttpPost(uri);
                         request.addHeader("Authorization", "Basic "+ getAuthorizationHeader());
                         request.setEntity(new StringEntity(message));
                         request.addHeader("Content-Type", "application/json");
-    
+
                         HttpResponse response = new DefaultHttpClient().execute(request);
-    
+
                         if (response.getStatusLine().getStatusCode() != HttpStatus.SC_OK) {
-                            DialogNotify("MainActivity - Error sending " + pns + " notification", 
+                            DialogNotify("MainActivity - Error sending " + pns + " notification",
 								response.getStatusLine().toString());
                             throw new RuntimeException("Error sending notification");
                         }
@@ -365,7 +365,7 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
                         DialogNotify("MainActivity - Failed to send " + pns + " notification ", e.getMessage());
                         return e;
                     }
-    
+
                     return null;
                 }
             }.execute(null, null, null);
@@ -386,15 +386,15 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
          */
         public void sendNotificationButtonOnClick(View v)
                 throws ClientProtocolException, IOException {
-    
+
             String nhMessageTag = ((EditText) findViewById(R.id.editTextNotificationMessageTag))
                     .getText().toString();
             String nhMessage = ((EditText) findViewById(R.id.editTextNotificationMessage))
                     .getText().toString();
-    
+
             // JSON String
             nhMessage = """ + nhMessage + """;
-    
+
             if (((ToggleButton)findViewById(R.id.toggleButtonWNS)).isChecked())
             {
                 sendPush("wns", nhMessageTag, nhMessage);
@@ -432,6 +432,4 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users.png
 [A2]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users-enter-password.png
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

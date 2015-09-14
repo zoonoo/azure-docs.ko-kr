@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/03/2015"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 # Java에서 Blob 저장소를 사용하는 방법
@@ -253,12 +253,12 @@ Blob을 삭제하려면 Blob 참조를 가져온 후 **deleteIfExists**를 호�
 
 이제 Blob 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀더 복잡한 저장소 작업에 대해 알아보세요.
 
-- [Java용 Azure 저장소 SDK]
-- [Azure 저장소 클라이언트 SDK 참조]
-- [Azure 저장소 REST API]
-- [Azure 저장소 팀 블로그]
+- [Java용 Azure 저장소 SDK][]
+- [Azure 저장소 클라이언트 SDK 참조][]
+- [Azure 저장소 REST API][]
+- [Azure 저장소 팀 블로그][]
 
-[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+[Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Java용 Azure Storage SDK]: https://github.com/azure/azure-storage-java
 [Java용 Azure 저장소 SDK]: https://github.com/azure/azure-storage-java
 [Android용 Azure Storage SDK]: https://github.com/azure/azure-storage-android
@@ -267,4 +267,4 @@ Blob을 삭제하려면 Blob 참조를 가져온 후 **deleteIfExists**를 호�
 [Azure 저장소 REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

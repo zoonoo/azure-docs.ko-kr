@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/08/2015"
+	ms.date="09/01/2015"
 	ms.author="tdykstra"/>
 
 # Azure 클라우드 서비스 및 ASP.NET 시작
@@ -399,7 +399,7 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 
 12. 왼쪽 창에서 **업데이트**를 선택합니다.
 
-13. *Azure 저장소* 패키지를 찾습니다. 이 패키지가 목록에 있는 경우 **업데이트**를 클릭하여 최신 버전의 저장소 클라이언트 라이브러리를 가져옵니다.
+13. *WindowsAzure.Storage* 패키지를 찾습니다. 이 패키지가 목록에 있는 경우 **업데이트**를 클릭하여 최신 버전의 저장소 클라이언트 라이브러리를 가져옵니다.
 
 	![SCL 업데이트](./media/cloud-services-dotnet-get-started/updstg.png)
 
@@ -408,6 +408,8 @@ Contoso Ads 응용 프로그램을 만드는 데는 다음 단계가 필요합�
 14. 왼쪽 창에서 **온라인**을 선택합니다.
 
 16. *EntityFramework* NuGet 패키지를 찾아 세 개의 프로젝트 모두에서 설치합니다.
+
+17. *Microsoft.WindowsAzure.ConfigurationManager* NuGet 패키지를 찾은 후 작업자 역할 프로젝트에 설치합니다.
 
 ### 프로젝트 참조 설정
 
@@ -811,4 +813,4 @@ Azure 저장소 모범 사례 및 패턴에 대한 비디오 소개는 [Microsof
 * [클라우드 서비스를 관리하는 방법](cloud-services-how-to-manage.md)
 * [Azure 저장소](/documentation/services/storage/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

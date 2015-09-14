@@ -1,29 +1,29 @@
 <properties 
-   pageTitle="StorSimple용 Windows PowerShell을 사용하 여 StorSimple 장치 관리 | Microsoft Azure"
-   description="StorSimple용 Windows PowerShell을 사용하여 장치를 관리하는 방법을 알아봅니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="StorSimple 장치 관리를 위한 PowerShell | Microsoft Azure"
+	description="StorSimple용 Windows PowerShell을 사용하여 StorSimple 장치를 관리하는 방법을 알아봅니다."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/19/2015"
-   ms.author="alkohli@microsoft.com" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/28/2015"
+	ms.author="alkohli@microsoft.com"/>
 
 # StorSimple용 Windows PowerShell을 사용하여 장치 관리
 
 ## 개요
+
 StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 장치를 관리하는 데 사용할 수 있는 명령줄 인터페이스를 제공합니다. 이름에서 알 수 있듯이 제한된 Runspace에서 기본 제공되는 Windows PowerShell 기반의 명령줄 인터페이스입니다. 명령줄의 사용자 관점에서 제한된 Runspace는 Windows PowerShell의 제한된 버전으로 나타납니다. Windows PowerShell의 일부 기본 기능을 유지하는 동시에 이 인터페이스는 Microsoft Azure StorSimple 장치를 관리하기 위한 전용 cmdlet을 추가로 포함합니다.
 
-이 문서에서는 이 인터페이스에 연결할 수 있는 방법 및 이 인터페이스를 사용하여 수행할 수 있는 워크플로의 단계별 절차에 대한 링크를 포함하여 StorSimple용 Windows PowerShell의 기능에 대해 설명합니다. 워크플로에는 장치를 등록하고, 장치에서 네트워크 인터페이스를 구성하고, 장치가 유지 관리 모드에 있도록 요구하는 업데이트를 설치하고, 장치 상태를 변경하고, 발생할 수 있는 문제를 해결하는 방법이 포함됩니다.
+이 문서에서는 이 인터페이스에 연결할 수 있는 방법을 포함하여 StorSimple용 Windows PowerShell 기능에 대해 설명하며 이 인터페이스를 사용하여 수행할 수 있는 단계별 절차 또는 워크플로에 대한 링크를 포함합니다. 워크플로에는 장치를 등록하고, 장치에서 네트워크 인터페이스를 구성하고, 장치가 유지 관리 모드에 있도록 요구하는 업데이트를 설치하고, 장치 상태를 변경하고, 발생할 수 있는 문제를 해결하는 방법이 포함됩니다.
 
 이 문서를 읽은 후 다음을 수행할 수 있습니다.
-
 
 - StorSimple용 Windows PowerShell을 사용하여 StorSimple 장치에 연결
 
@@ -95,7 +95,7 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 장치를 관리�
  	|---|---|
  	|백스페이스 키|Ctrl-? (127)|
 	|Home 및 End 키|표준|
-	|기능 키 및 키패드|Esc[n\~|
+	|기능 키 및 키패드|Esc[n~|
 	|커서 키의 초기 상태|정상|
 	|숫자 키패드의 초기 상태|정상|
 	|추가 키보드 기능 사용|Ctrl-Alt는 AltGr과 다름|
@@ -197,4 +197,4 @@ Windows PowerShell 인터페이스에서 도움말을 쉽게 업데이트할 수
 ## 다음 단계
 위의 워크플로 중 하나를 수행할 때 StorSimple 장치에서 문제가 발생하는 경우 [StorSimple 배포 문제를 해결하는 도구](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments)를 참조하세요.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

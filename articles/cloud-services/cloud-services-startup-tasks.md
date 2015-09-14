@@ -29,7 +29,7 @@ ms.service="cloud-services"
 
 환경 변수는 시작 작업으로 정보를 전달하고 로컬 저장소는 시작 작업에서 정보를 전달하는데 사용할 수 있습니다. 예를 들어 환경 변수는 설치하려는 프로그램에 경로를 지정할 수 있고 사용자 역할에 의해 나중에 읽을 수 있는 로컬 저장소에 파일을 쓸 수 있습니다.
 
-시작 작업은 **TEMP** 환경 변수로 지정된 디렉터리에 정보 및 오류를 로깅할 수 있습니다. 시작 작업 중 **TEMP** 환경 변수는 클라우드에서 실행되는 경우 *C:\\Resources\\temp\[guid]. [ rolename] \\RoleTemp* 디렉터리로 확인됩니다.
+시작 작업은 **TEMP** 환경 변수로 지정된 디렉터리에 정보 및 오류를 로깅할 수 있습니다. 시작 작업 중 **TEMP** 환경 변수는 클라우드에서 실행되는 경우 *C:\\Resources\\temp\\[guid]. [ rolename] \\RoleTemp* 디렉터리로 확인됩니다.
 
 시작 작업은 재부팅 사이에 여러 번 실행할 수도 있습니다. 예를 들어 시작 작업은 역할 재활용 때마다 실행되고 역할 재활용은 재부팅을 항상 포함하지 않을 수도 있습니다. 시작 작업은 문제 없이 여러 번 실행할 수 있도록 하는 방식으로 작성되어야 합니다.
 
@@ -68,9 +68,9 @@ ms.service="cloud-services"
 ```xml
 <Startup>
     <Task commandLine="Startup.cmd" executionContext="limited" taskType="simple" >
-    <Environment>
-        <Variable name="MyVersionNumber" value="1.0.0.0" />
-    </Environment>
+        <Environment>
+            <Variable name="MyVersionNumber" value="1.0.0.0" />
+        </Environment>
     </Task>
 </Startup>
 ```
@@ -132,24 +132,24 @@ RoleEnvironment 클래스의 멤버를 기반으로 한 환경 변수는 [변수
 ```xml
 <Startup>
     <Task commandLine="Startup.cmd" executionContext="limited" taskType="simple">
-    <Environment>
-
-        <!-- Create the environment variable that informs the startup task whether it is running
-            in the Compute Emulator or in the cloud. "%ComputeEmulatorRunning%"=="true" when
-            running in the Compute Emulator, "%ComputeEmulatorRunning%"=="false" when running
-            in the cloud. -->
-
-        <Variable name="ComputeEmulatorRunning">
-            <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
-        </Variable>
-
-    </Environment>
+        <Environment>
+    
+            <!-- Create the environment variable that informs the startup task whether it is running
+                in the Compute Emulator or in the cloud. "%ComputeEmulatorRunning%"=="true" when
+                running in the Compute Emulator, "%ComputeEmulatorRunning%"=="false" when running
+                in the cloud. -->
+    
+            <Variable name="ComputeEmulatorRunning">
+                <RoleInstanceValue xpath="/RoleEnvironment/Deployment/@emulated" />
+            </Variable>
+    
+        </Environment>
     </Task>
 </Startup>
 ```
 
 ## 다음 단계
-클라우드 서비스를 사용하여 일부 [일반 시작 작업](cloud-services-common-startup-tasks.md)을 수행하는 방법에 알아봅니다
+클라우드 서비스를 사용하여 일부 [일반적인 시작 작업](cloud-services-startup-tasks-common.md)을 수행하는 방법을 알아봅니다.
 
 클라우드 서비스를 [포장합니다](cloud-services-model-and-package.md).
 
@@ -163,4 +163,4 @@ RoleEnvironment 클래스의 멤버를 기반으로 한 환경 변수는 [변수
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

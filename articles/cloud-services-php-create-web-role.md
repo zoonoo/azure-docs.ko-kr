@@ -1,5 +1,5 @@
 <properties
-	pageTitle="웹 및 작업자 역할 만들기"
+	pageTitle="PHP 웹 및 작업자 역할 | Microsoft Azure"
 	description="Azure 클라우드 서비스에서 PHP 웹 및 작업자 역할을 만들고 PHP 런타임을 구성하는 방법을 설명하는 가이드입니다."
 	services=""
 	documentationCenter="php"
@@ -12,8 +12,8 @@
 	ms.workload="tbd"
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
-	ms.topic="hero-article"
-	ms.date="06/09/2015"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="tomfitz"/>
 
 #PHP 웹 및 작업자 역할을 만드는 방법
@@ -23,13 +23,13 @@
 이 가이드는 Windows 개발 환경에서 PHP 웹이나 작업자 역할을 만들고, 사용 가능한 "기본 제공" 버전에서 특정 PHP 버전을 선택하여 PHP 구성을 변경하고, 확장을 사용하고, 마지막으로 Azure를 배포하는 방법을 보여 줍니다. 또한 사용자 지정 구성 및 확장으로 제공하는 PHP 런타임을 사용하도록 웹 또는 작업자 역할을 구성하는 방법도 설명합니다.
 
 ## PHP 웹 및 작업자 역할이란?
-Azure는 응용 프로그램을 실행하기 위한 세 가지 컴퓨팅 모델인 [Azure 웹 사이트][execution model-web sites], [Azure 가상 컴퓨터][execution model-vms] 및 [Azure 클라우드 서비스][execution model-cloud services]를 제공합니다. 이 세 모델은 모두 PHP를 지원합니다. 웹 및 작업자 역할을 포함하는 클라우드 서비스는 *PaaS(Platform as a Service)*를 제공합니다. 클라우드 서비스 내에서 웹 역할은 프런트 엔드 웹 응용 프로그램을 호스트하기 위해 전용 IIS(인터넷 정보 서비스) 웹 서버를 제공하고, 작업자 역할은 사용자 조작 또는 입력과 관계없이 비동기, 장기 실행 또는 영구 작업을 실행할 수 있습니다.
+Azure는 응용 프로그램을 실행하기 위한 세 가지 계산 모델인 Azure 앱 서비스, Azure 가상 컴퓨터 및 Azure 클라우드 서비스를 제공합니다. 이 세 모델은 모두 PHP를 지원합니다. 웹 및 작업자 역할을 포함하는 클라우드 서비스는 *PaaS(Platform as a Service)*를 제공합니다. 클라우드 서비스 내에서 웹 역할은 프런트 엔드 웹 응용 프로그램을 호스트하기 위해 전용 IIS(인터넷 정보 서비스) 웹 서버를 제공하고, 작업자 역할은 사용자 조작 또는 입력과 관계없이 비동기, 장기 실행 또는 영구 작업을 실행할 수 있습니다.
 
-자세한 내용은 [클라우드 서비스란?]을 참조하세요.
+이러한 옵션에 대한 자세한 내용은 [Azure에서 제공하는 계산 호스팅 옵션](./cloud-services/fundamentals-application-models.md)을 참조하세요.
 
 ## PHP용 Azure SDK 다운로드
 
-[PHP용 Azure SDK]는 여러 구성 요소로 구성됩니다. 이 문서에서는 이러한 구성 요소 중 두 가지인 Azure PowerShell 및 Azure 에뮬레이터를 사용합니다. 이 두 구성 요소는 [Azure PowerShell 및 Azure 에뮬레이터 설치][install ps and emulators]에서 Microsoft 웹 플랫폼 설치 관리자를 통해 설치할 수 있습니다.
+[PHP용 Azure SDK]는 여러 구성 요소로 구성됩니다. 이 문서에서는 이러한 구성 요소 중 두 가지인 Azure PowerShell 및 Azure 에뮬레이터를 사용합니다. 이러한 두 구성 요소는 Microsoft 웹 플랫폼 설치 관리자를 통해 설치할 수 있습니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하세요.
 
 ## 방법: 클라우드 서비스 프로젝트 만들기
 
@@ -99,7 +99,7 @@ PHP 웹 또는 작업자 역할을 프로젝트에 추가하면 응용 프로그
 
 제공하는 PHP 런타임을 사용하도록 웹 역할을 구성하려면 다음 단계를 따르세요.
 
-1. 위의 [방법: 클라우드 서비스 프로젝트 만들기](#how-to-create-a-cloud-services-project) 및 [방법: PHP 웹 또는 작업자 역할 추가](#how-to-add-php-web-or-worker-roles) 섹션에서 설명한 대로 Azure 서비스 프로젝트를 만들고 PHP 웹 역할을 추가합니다.
+1. 이 항목의 앞부분에서 설명한 대로 Azure 서비스 프로젝트를 만들고 PHP 웹 역할을 추가합니다.
 2. 웹 역할의 루트 디렉터리에 있는 `bin` 폴더에 `php` 폴더를 만든 후 PHP 런타임(모든 바이너리, 구성 파일, 하위 폴더 등)을 `php` 폴더에 추가합니다.
 3. (옵션) PHP 런타임이 [Microsoft Drivers for PHP for SQL Server][sqlsrv drivers]를 사용하면 웹 역할이 프로비전될 때 [SQL Server Native Client 2012][sql native client]를 설치하도록 웹 역할을 구성해야 합니다. 이렇게 하려면 `sqlncli.msi` 설치 관리자를 웹 역할의 루트 디렉터리에 있는 `bin` 폴더에 추가합니다. [sqlncli.msi x64 installer]에서 설치 관리자를 다운로드할 수 있습니다. 다음 단계에 설명되어 있는 시작 스크립트는 역할이 프로비전될 때 설치 관리자를 자동으로 실행합니다. PHP 런타임이 Microsoft Drivers for PHP for SQL Server를 사용하지 않으면 다음 단계의 스크립트에서 다음 줄을 제거할 수 있습니다.
 
@@ -133,7 +133,7 @@ PHP 웹 또는 작업자 역할을 프로젝트에 추가하면 응용 프로그
 
 제공하는 PHP 런타임을 사용하도록 작업자 역할을 구성하려면 다음 단계를 따르세요.
 
-1. 위의 [방법: 클라우드 서비스 프로젝트 만들기](#how-to-create-a-cloud-services-project) 및 [방법: PHP 웹 또는 작업자 역할 추가](#how-to-add-php-web-or-worker-roles) 섹션에서 설명한 대로 Azure 서비스 프로젝트를 만들고 PHP 작업자 역할을 추가합니다.
+1. 이 항목의 앞부분에서 설명한 대로 Azure 서비스 프로젝트를 만들고 PHP 작업자 역할을 추가합니다.
 2. 작업자 역할의 루트 디렉터리에 `php` 폴더를 만든 후 PHP 런타임(모든 바이너리, 구성 파일, 하위 폴더 등)을 `php` 폴더에 추가합니다.
 3. (옵션) PHP 런타임이 [Microsoft Drivers for PHP for SQL Server][sqlsrv drivers]를 사용하면 작업자 역할이 프로비전될 때 [SQL Server Native Client 2012][sql native client]를 설치하도록 작업자 역할을 구성해야 합니다. 이렇게 하려면 `sqlncli.msi` 설치 관리자를 작업자 역할의 루트 디렉터리에 추가합니다. [sqlncli.msi x64 installer]에서 설치 관리자를 다운로드할 수 있습니다. 다음 단계에 설명되어 있는 시작 스크립트는 역할이 프로비전될 때 설치 관리자를 자동으로 실행합니다. PHP 런타임이 Microsoft Drivers for PHP for SQL Server를 사용하지 않으면 다음 단계의 스크립트에서 다음 줄을 제거할 수 있습니다.
 
@@ -172,7 +172,7 @@ PHP 웹 또는 작업자 역할을 프로젝트에 추가하면 응용 프로그
 
 ## 방법: 계산 및 저장소 에뮬레이터에서 응용 프로그램 실행
 
-Azure 계산 및 저장소 에뮬레이터는 클라우드에 배포하기 전에 Azure 응용 프로그램을 테스트할 수 있는 로컬 환경을 제공합니다. 에뮬레이터와 Azure 환경 사이에는 약간의 차이가 있습니다. 좀 더 이해하려면 [계산 에뮬레이터와 Azure의 차이점](http://msdn.microsoft.com/library/windowsazure/gg432960.aspx) 및 [저장소 에뮬레이터와 Azure 저장소 서비스의 차이점](http://msdn.microsoft.com/library/windowsazure/gg433135.aspx)을 참조하세요.
+Azure 에뮬레이터는 클라우드에 배포하기 전에 Azure 응용 프로그램을 테스트할 수 있는 로컬 환경을 제공합니다. 에뮬레이터와 Azure 환경 사이에는 약간의 차이가 있습니다. 이해하기 쉽도록 [개발 및 테스트에 Azure 저장소 에뮬레이터 사용](./storage/storage-use-emulator.md)을 참조하세요.
 
 계산 에뮬레이터를 사용하려면 PHP를 로컬로 설치해야 합니다. 계산 에뮬레이터는 로컬 PHP 설치를 사용하여 응용 프로그램을 실행합니다.
 
@@ -195,21 +195,15 @@ Azure 계산 및 저장소 에뮬레이터는 클라우드에 배포하기 전�
 
 ## 방법: 응용 프로그램 게시
 
-응용 프로그램을 게시하려면 먼저 **Import-PublishSettingsFile** cmdlet으로 게시 설정을 가져와야 합니다. 그런 다음 **Publish-AzureServiceProject** cmdlet으로 응용 프로그램을 게시할 수 있습니다. 이러한 cmdlet을 사용하는 방법에 대한 자세한 내용은 각각 [방법: 게시 설정 가져오기] 및 [방법: Azure에 클라우드 서비스 배포]에서 확인할 수 있습니다.
+응용 프로그램을 게시하려면 먼저 **Import-PublishSettingsFile** cmdlet으로 게시 설정을 가져와야 합니다. 그런 다음 [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) cmdlet으로 응용 프로그램을 게시할 수 있습니다. 로그인에 대한 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하세요.
 
-[execution model-web sites]: /develop/net/fundamentals/compute/#WebSites
-[execution model-vms]: /develop/net/fundamentals/compute/#VMachine
-[execution model-cloud services]: /develop/net/fundamentals/compute/#CloudServices
 [PHP용 Azure SDK]: /develop/php/common-tasks/download-php-sdk/
-[install ps and emulators]: http://go.microsoft.com/fwlink/?LinkId=253447&clcid=0x409
-[클라우드 서비스란?]: /manage/services/cloud-services/what-is-a-cloud-service/
+[install ps and emulators]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
 [서비스 정의(.csdef)]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
 [서비스 구성(.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 [iis.net]: http://www.iis.net/
 [sql native client]: http://msdn.microsoft.com/sqlserver/aa937733.aspx
 [sqlsrv drivers]: http://php.net/sqlsrv
 [sqlncli.msi x64 installer]: http://go.microsoft.com/fwlink/?LinkID=239648
-[방법: 게시 설정 가져오기]: /develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
-[방법: Azure에 클라우드 서비스 배포]: /develop/php/how-to-guides/powershell-cmdlets/#Deploy
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

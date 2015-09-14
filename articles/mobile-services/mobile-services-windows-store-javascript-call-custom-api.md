@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Windows 스토어 JS 클라이언트에서 사용자 지정 API 호출 - 모바일 서비스" 
-	description="사용자 지정 API를 정의한 다음 Azure 모바일 서비스를 사용하는 Windows 스토어 앱에서 이를 호출하는 방법에 대해 알아봅니다." 
-	services="mobile-services" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="Windows 스토어 JS 클라이언트에서 사용자 지정 API 호출 - 모바일 서비스"
+	description="사용자 지정 API를 정의한 다음 Azure 모바일 서비스를 사용하는 Windows 스토어 앱에서 이를 호출하는 방법에 대해 알아봅니다."
+	services="mobile-services"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows" 
-	ms.devlang="javascript" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows"
+	ms.devlang="javascript"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # 클라이언트에서 사용자 지정 API 호출
@@ -59,6 +59,5 @@
 
 [Define a custom API that supports periodic notifications]: mobile-services-windows-store-javascript-create-pull-notifications.md
 [원본 제어에 서버 스크립트 저장]: mobile-services-store-scripts-source-control.md
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

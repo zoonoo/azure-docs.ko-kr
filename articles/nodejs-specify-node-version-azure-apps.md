@@ -1,6 +1,6 @@
 <properties pageTitle="Node.js 버전 지정" description="Azure 웹 사이트 및 클라우드 서비스에서 사용하는 Node.js의 버전을 지정하는 방법에 대해 알아봅니다." services="" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="02/19/2015" ms.author="mwasson"/>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="08/31/2015" ms.author="mwasson"/>
 
 
 
@@ -40,9 +40,11 @@ Azure에서 제공하는 Node.js 버전은 지속적으로 업데이트됩니다
 
 클라우드 서비스에서 응용 프로그램을 호스트하고 Azure PowerShell을 사용하여 응용 프로그램을 배포하는 경우 **Set-AzureServiceProjectRole** PowerShell cmdlet을 사용하여 기본 Node.js 버전을 재정의할 수 있습니다. 예를 들면 다음과 같습니다.
 
-	Set-AzureServiceProjectRole WebRole1 node 0.8.4
+	Set-AzureServiceProjectRole WebRole1 Node 0.8.4
 
-**Get-AzureServiceProjectRoleRuntime**을 사용하여 클라우드 서비스로 호스트된 응용 프로그램에 사용 가능한 Node.js 버전 목록을 검색할 수도 있습니다.
+위의 문에서 매개 변수는 대/소문자를 구분합니다. 역할의 **package.json**에서 **engines** 속성을 검사하여 올바른 버전의 Node.js가 선택되었는지 확인할 수 있습니다.
+
+**Get-AzureServiceProjectRoleRuntime**을 사용하여 클라우드 서비스로 호스트된 응용 프로그램에 사용 가능한 Node.js 버전 목록을 검색할 수도 있습니다. 프로젝트에서 사용하는 Node.js 버전이 목록에 있는지 항상 확인합니다.
 
 ##Azure 웹 사이트에서 사용자 지정 버전 사용
 
@@ -93,4 +95,4 @@ Azure는 Node.js의 기본 버전을 여러 개 제공하지만 기본적으로 
 [모듈 작업]: nodejs-use-node-modules-azure-apps.md
 [Node.js 웹 사이트 빌드 및 배포]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

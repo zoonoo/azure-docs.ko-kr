@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/03/2015"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 # Blob 저장소를 사용하는 온-프레미스 응용 프로그램
@@ -26,8 +26,8 @@
 
 - JDK(Java Developer Kit) 버전 1.6 이상이 설치되어 있어야 합니다.
 - Azure SDK가 설치되어 있어야 합니다.
-- Java용 Azure 라이브러리를 위한 JAR 및 해당하는 종속성 JAR이 설치되어 있어야 하며 Java 컴파일러가 사용하는 빌드 경로에 있어야 합니다. Java용 Azure 라이브러리 설치에 대한 자세한 내용은 [Java용 Azure SDK 다운로드]를 참조하세요.
-- Azure 저장소 계정이 설정되어 있어야 합니다. 이 문서의 코드에서는 저장소 계정의 계정 이름 및 계정 키를 사용합니다. 저장소 계정 만들기에 대한 내용은 [저장소 계정을 만드는 방법]을, 계정 키 검색에 대한 내용은 [저장소 계정을 관리하는 방법]을 참조하십시오.
+- Java용 Azure 라이브러리를 위한 JAR 및 해당하는 종속성 JAR이 설치되어 있어야 하며 Java 컴파일러가 사용하는 빌드 경로에 있어야 합니다. Java용 Azure 라이브러리 설치에 대한 자세한 내용은 [Java용 Azure SDK 다운로드][]를 참조하세요.
+- Azure 저장소 계정이 설정되어 있어야 합니다. 이 문서의 코드에서는 저장소 계정의 계정 이름 및 계정 키를 사용합니다. 저장소 계정 만들기에 대한 내용은 [저장소 계정을 만드는 방법]을, 계정 키 검색에 대한 내용은 [저장소 계정을 관리하는 방법][]을 참조하세요.
 - 이름을 지정한 로컬 이미지 파일을 만들어 c:\\myimages\\image1.jpg 경로에 저장해야 합니다. 또는 예제에서 **FileInputStream** 생성자를 수정하여 다른 이미지 경로 및 파일 이름을 사용합니다.
 
 [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
@@ -351,14 +351,14 @@ Azure 핵심 저장소 클래스, Azure Blob 클라이언트 클래스, Java IO 
 
 ## 다음 단계
 
-더 복잡 한 저장소 작업에 대한 자세한 내용을 보려면 다음 링크를 따라가십시오.
+더 복잡 한 저장소 작업에 대한 자세한 내용을 보려면 다음 링크를 따라가세요.
 
-- [Java용 Azure 저장소 SDK]
-- [Azure 저장소 클라이언트 SDK 참조]
-- [Azure 저장소 REST API]
-- [Azure 저장소 팀 블로그]
+- [Java용 Azure 저장소 SDK][]
+- [Azure 저장소 클라이언트 SDK 참조][]
+- [Azure 저장소 REST API][]
+- [Azure 저장소 팀 블로그][]
 
-  [Download the Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+  [Download the Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
   [저장소 계정을 만드는 방법]: storage-create-storage-account.md#create-a-storage-account
   [저장소 계정을 관리하는 방법]: storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys
   [Java에서 Blob 저장소 서비스를 사용하는 방법]: storage-java-how-to-use-blob-storage.md
@@ -367,4 +367,4 @@ Azure 핵심 저장소 클래스, Azure Blob 클라이언트 클래스, Java IO 
   [Azure 저장소 REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

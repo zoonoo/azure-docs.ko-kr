@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Android 클라이언트에서 사용자 지정 API 호출 | Microsoft Azure" 
-	description="사용자 지정 API를 정의한 다음 Microsoft Azure 모바일 서비스를 사용하는 Android 앱에서 이를 호출하는 방법에 대해 알아봅니다." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	pageTitle="Android 클라이언트에서 사용자 지정 API 호출 | Microsoft Azure"
+	description="사용자 지정 API를 정의한 다음 Microsoft Azure 모바일 서비스를 사용하는 Android 앱에서 이를 호출하는 방법에 대해 알아봅니다."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="ricksal"/>
 
 # 클라이언트에서 사용자 지정 API 호출
@@ -61,6 +61,5 @@
 [Get started with push notifications]: mobile-services-dotnet-backend-android-get-started-push.md
 
 [원본 제어에 서버 스크립트 저장]: mobile-services-store-scripts-source-control.md
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

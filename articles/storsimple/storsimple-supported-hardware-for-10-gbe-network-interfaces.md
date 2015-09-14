@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="StorSimple 장치의 10GbE 네트워크 인터페이스에 대해 지원되는 하드웨어"
-   description="StorSimple 장치의 10GbE 네트워크 인터페이스를 지원하는 트랜시버, 케이블, 및 스위치를 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="StorSimple 10GbE 인터페이스에 대한 하드웨어 | Microsoft Azure"
+	description="StorSimple 장치의 10GbE 네트워크 인터페이스에 대해 지원되는 SFP(Small Form Factor Pluggable) 트랜시버, 케이블 및 스위치에 대해 설명합니다."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/17/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/27/2015"
+	ms.author="alkohli"/>
 
 # StorSimple 장치의 10GbE 네트워크 인터페이스에 대해 지원되는 하드웨어
 
@@ -112,4 +112,4 @@ Microsoft는 다음과 같은 소형 폼팩터 플러그형(SFP) 트랜시버, �
 
 [StorSimple 하드웨어 구성 요소 및 상태에 대해 자세히 알아보기](storsimple-monitor-hardware-status.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

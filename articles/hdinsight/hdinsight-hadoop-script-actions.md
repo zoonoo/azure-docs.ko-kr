@@ -14,74 +14,23 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/21/2015"
+	ms.date="09/03/2015"
 	ms.author="jgao"/>
 
 # HDInsight용 스크립트 작업 스크립트 개발
 
+HDInsight용 스크립트 작업 스크립트를 작성하는 방법을 알아봅니다. 스크립트 동작 스크립트 사용에 대한 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md)을 참조하세요. Linux 운영 체제에서 HDInsight 클러스터용으로 작성된 동일한 문서를 보려면 [HDInsight용 스크립트 작업 스크립트 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
+
 스크립트 작업은 Hadoop 클러스터에서 실행되는 추가 소프트웨어를 설치하거나 클러스터에 설치된 응용 프로그램의 구성을 변경하기 위해 사용할 수 있습니다. 스크립트 작업은 HDInsight 클러스터를 배포할 때 클러스터 노드에서 실행되는 스크립트이며 클러스터의 노드에서 HDInsight 구성이 완료되면 실행됩니다. 스크립트 작업은 시스템 관리자 계정 권한으로 실행되며 클러스터 노드에 대한 모든 액세스 권한을 제공합니다. 각 클러스터에는 지정된 순서로 실행되는 스크립트 작업 목록이 제공될 수 있습니다.
 
-## 사용자 지정 스크립트에 대한 도우미 메서드
-
-스크립트 작업 도우미 메서드는 사용자 지정 스크립트를 쓰는 동안 사용할 수 있는 유틸리티입니다. 이 메서드는 [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1)에 정의되어 있으며 다음을 사용하여 스크립트에 포함할 수 있습니다.
-
-    # Download config action module from a well-known directory.
-	$CONFIGACTIONURI = "https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1";
-	$CONFIGACTIONMODULE = "C:\apps\dist\HDInsightUtilities.psm1";
-	$webclient = New-Object System.Net.WebClient;
-	$webclient.DownloadFile($CONFIGACTIONURI, $CONFIGACTIONMODULE);
-	
-	# (TIP) Import config action helper method module to make writing config action easy.
-	if (Test-Path ($CONFIGACTIONMODULE))
-	{ 
-		Import-Module $CONFIGACTIONMODULE;
-	} 
-	else
-	{
-		Write-Output "Failed to load HDInsightUtilities module, exiting ...";
-		exit;
-	}
-
-다음은 이 스크립트에서 제공하는 도우미 메서드입니다.
-
-도우미 메서드 | 설명
--------------- | -----------
-**Save-HDIFile** | 파일을 지정된 URI(Uniform Resource Identifier)에서 클러스터에 할당된 Azure VM 노드와 연결된 로컬 디스크의 위치로 다운로드합니다.
-**Expand-HDIZippedFile** | 압축된 파일의 압축을 풉니다.
-**Invoke-HDICmdScript** | cmd.exe에서 스크립트를 실행합니다.
-**Write-HDILog** | 스크립트 작업에 사용되는 사용자 지정 스크립트의 출력을 씁니다.
-**Get-Services** | 스크립트가 실행되는 컴퓨터에서 실행 중인 서비스의 목록을 가져옵니다.
-**Get-Service** | 입력으로 특정 서비스 이름을 사용하는 이 메서드는 스크립트가 실행되는 컴퓨터의 특정 서비스에 대한 세부 정보(서비스 이름, 프로세스 ID, 상태 등)를 가져옵니다.
-**Get-HDIServices** | 스크립트가 실행되는 컴퓨터에서 실행 중인 HDInsight 서비스의 목록을 가져옵니다.
-**Get-HDIService** | 입력으로 특정 HDInsight 서비스 이름을 사용하는 이 메서드는 스크립트가 실행되는 컴퓨터의 특정 서비스에 대한 세부 정보(서비스 이름, 프로세스 ID, 상태 등)를 가져옵니다.
-**Get-ServicesRunning** | 스크립트가 실행되는 컴퓨터에서 실행 중인 서비스의 목록을 가져옵니다.
-**Get-ServiceRunning** | 특정 서비스(이름별)가 스크립트가 실행되는 컴퓨터에서 실행 중인지 확인합니다.
-**Get-HDIServicesRunning** | 스크립트가 실행되는 컴퓨터에서 실행 중인 HDInsight 서비스의 목록을 가져옵니다.
-**Get-HDIServiceRunning** | 특정 HDInsight 서비스(이름별)가 스크립트가 실행되는 컴퓨터에서 실행 중인지 확인합니다.
-**Get-HDIHadoopVersion** | 스크립트가 실행되는 컴퓨터에 설치된 Hadoop의 버전을 가져옵니다.
-**Test-IsHDIHeadNode** | 스크립트가 실행되는 컴퓨터가 헤드 노드인지 확인합니다.
-**Test-IsActiveHDIHeadNode** | 스크립트가 실행되는 컴퓨터가 활성 헤드 노드인지 확인합니다.
-**Test-IsHDIDataNode** | 스크립트가 실행되는 컴퓨터가 데이터 노드인지 확인합니다.
-**Edit-HDIConfigFile** | 구성 파일 hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml 또는 yarn-site.xml을 편집합니다.
-
-## 스크립트 작업 호출
-
-HDInsight는 HDInsight 클러스터에 추가 구성 요소를 설치하는 여러 스크립트를 제공합니다.
-
-이름 | 스크립트
------ | -----
-**Spark 설치** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. [HDInsight 클러스터에서 Spark 설치 및 사용][hdinsight-install-spark]을 참조하세요.
-**R 설치** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. [HDInsight 클러스터에서 R 설치 및 사용][hdinsight-r-scripts]을 참조하세요.
-**Solr 설치** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. [HDInsight 클러스터에서 Solr 설치 및 사용](hdinsight-hadoop-solr-install.md)을 참조하세요.
-- **Giraph 설치** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. [HDInsight 클러스터에서 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install.md)을 참조하세요.
-
-스크립트 작업은 Azure Preview 포털, Azure PowerShell에서 배포하거나 HDInsight .NET SDK를 사용하여 배포할 수 있습니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]을 참조하세요.
-
-> [AZURE.NOTE]샘플 스크립트는 HDInsight 클러스터 버전 3.1 이상에서만 작동합니다. HDInsight 클러스터 버전에 대한 자세한 내용은 [HDInsight 클러스터 버전](../hdinsight-component-versioning/)을 참조하세요.
+> [AZURE.NOTE]다음 오류 메시지가 나타나는 경우
+> 
+>     System.Management.Automation.CommandNotFoundException; ExceptionMessage : The term 'Save-HDIFile' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+> 도우미 메서드를 포함하지 않았기 때문입니다. [사용자 지정 스크립트에 대한 도우미 메서드](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts)를 참조하세요.
 
 ## 샘플 스크립트
 
-다음은 사이트 구성 파일을 구성하는 샘플 스크립트입니다.
+Windows 운영 체제에서 HDInsight 클러스터를 프로비전하는 경우 스크립트 작업은 Azure PowerShell 스크립트입니다. 다음은 사이트 구성 파일 구성에 대한 샘플 스크립트입니다.
 
 	param (
 	    [parameter(Mandatory)][string] $ConfigFileName,
@@ -126,11 +75,74 @@ HDInsight는 HDInsight 클러스터에 추가 구성 요소를 설치하는 여�
 
 	Write-HDILog "$configFileName has been configured."
 
-스크립트 파일의 복사본은 [https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1](https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1)에 있습니다. Azure Preview 포털에서 스크립트를 호출할 때 다음 매개 변수를 사용할 수 있습니다.
+스크립트에서는 구성 파일 이름, 수정하려는 속성, 설정하려는 값 및 설명의 4가지 매개 변수가 사용됩니다. 예를 들면 다음과 같습니다.
 
-	hive-site.xml hive.metastore.client.socket.timeout 90
+	hive-site.xml hive.metastore.client.socket.timeout 90 
 
 이러한 매개 변수는 hive-site.xml 파일에서 hive.metastore.client.socket.timeout 값을 90으로 설정합니다. 기본값은 60초입니다.
+
+이 샘플 스크립트는 [https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1](https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1)에도 나옵니다.
+
+HDInsight는 HDInsight 클러스터에 추가 구성 요소를 설치하는 여러 스크립트를 제공합니다.
+
+이름 | 스크립트
+----- | -----
+**Spark 설치** | https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. [HDInsight 클러스터에서 Spark 설치 및 사용][hdinsight-install-spark]을 참조하세요.
+**R 설치** | https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. [HDInsight 클러스터에서 R 설치 및 사용][hdinsight-r-scripts]을 참조하세요.
+**Solr 설치** | https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. [HDInsight 클러스터에서 Solr 설치 및 사용](hdinsight-hadoop-solr-install.md)을 참조하세요.
+- **Giraph 설치** | https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. [HDInsight 클러스터에서 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install.md)을 참조하세요.
+
+스크립트 작업은 Azure Preview 포털, Azure PowerShell에서 배포하거나 HDInsight .NET SDK를 사용하여 배포할 수 있습니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정][hdinsight-cluster-customize]을 참조하세요.
+
+> [AZURE.NOTE]샘플 스크립트는 HDInsight 클러스터 버전 3.1 이상에서만 작동합니다. HDInsight 클러스터 버전에 대한 자세한 내용은 [HDInsight 클러스터 버전](../hdinsight-component-versioning/)을 참조하세요.
+
+
+
+
+
+## 사용자 지정 스크립트에 대한 도우미 메서드
+
+스크립트 작업 도우미 메서드는 사용자 지정 스크립트를 쓰는 동안 사용할 수 있는 유틸리티입니다. 이러한 메서드는 [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1)에 정의되어 있으며 다음을 사용하여 스크립트에 포함할 수 있습니다.
+
+    # Download config action module from a well-known directory.
+	$CONFIGACTIONURI = "https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1";
+	$CONFIGACTIONMODULE = "C:\apps\dist\HDInsightUtilities.psm1";
+	$webclient = New-Object System.Net.WebClient;
+	$webclient.DownloadFile($CONFIGACTIONURI, $CONFIGACTIONMODULE);
+	
+	# (TIP) Import config action helper method module to make writing config action easy.
+	if (Test-Path ($CONFIGACTIONMODULE))
+	{ 
+		Import-Module $CONFIGACTIONMODULE;
+	} 
+	else
+	{
+		Write-Output "Failed to load HDInsightUtilities module, exiting ...";
+		exit;
+	}
+
+다음은 이 스크립트에서 제공하는 도우미 메서드입니다.
+
+도우미 메서드 | 설명
+-------------- | -----------
+**Save-HDIFile** | 파일을 지정된 URI(Uniform Resource Identifier)에서 클러스터에 할당된 Azure VM 노드와 연결된 로컬 디스크의 위치로 다운로드합니다.
+**Expand-HDIZippedFile** | 압축된 파일의 압축을 풉니다.
+**Invoke-HDICmdScript** | cmd.exe에서 스크립트를 실행합니다.
+**Write-HDILog** | 스크립트 작업에 사용되는 사용자 지정 스크립트의 출력을 씁니다.
+**Get-Services** | 스크립트가 실행되는 컴퓨터에서 실행 중인 서비스의 목록을 가져옵니다.
+**Get-Service** | 입력으로 특정 서비스 이름을 사용하는 이 메서드는 스크립트가 실행되는 컴퓨터의 특정 서비스에 대한 세부 정보(서비스 이름, 프로세스 ID, 상태 등)를 가져옵니다.
+**Get-HDIServices** | 스크립트가 실행되는 컴퓨터에서 실행 중인 HDInsight 서비스의 목록을 가져옵니다.
+**Get-HDIService** | 입력으로 특정 HDInsight 서비스 이름을 사용하는 이 메서드는 스크립트가 실행되는 컴퓨터의 특정 서비스에 대한 세부 정보(서비스 이름, 프로세스 ID, 상태 등)를 가져옵니다.
+**Get-ServicesRunning** | 스크립트가 실행되는 컴퓨터에서 실행 중인 서비스의 목록을 가져옵니다.
+**Get-ServiceRunning** | 특정 서비스(이름별)가 스크립트가 실행되는 컴퓨터에서 실행 중인지 확인합니다.
+**Get-HDIServicesRunning** | 스크립트가 실행되는 컴퓨터에서 실행 중인 HDInsight 서비스의 목록을 가져옵니다.
+**Get-HDIServiceRunning** | 특정 HDInsight 서비스(이름별)가 스크립트가 실행되는 컴퓨터에서 실행 중인지 확인합니다.
+**Get-HDIHadoopVersion** | 스크립트가 실행되는 컴퓨터에 설치된 Hadoop의 버전을 가져옵니다.
+**Test-IsHDIHeadNode** | 스크립트가 실행되는 컴퓨터가 헤드 노드인지 확인합니다.
+**Test-IsActiveHDIHeadNode** | 스크립트가 실행되는 컴퓨터가 활성 헤드 노드인지 확인합니다.
+**Test-IsHDIDataNode** | 스크립트가 실행되는 컴퓨터가 데이터 노드인지 확인합니다.
+**Edit-HDIConfigFile** | 구성 파일 hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml 또는 yarn-site.xml을 편집합니다.
+
 
 ## 스크립트 개발을 위한 모범 사례
 
@@ -187,6 +199,17 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
 	Save-HDIFile -SrcUri 'https://somestorageaccount.blob.core.windows.net/somecontainer/some-file.jar' -DestFile 'C:\apps\dist\hadoop-2.4.0.2.1.9.0-2196\share\hadoop\mapreduce\some-file.jar'
 
 이 예에서는 'somestorageaccount' 저장소 계정의 'somecontainer' 컨테이너가 공개적으로 액세스할 수 있는지 확인해야 합니다. 그렇지 않은 경우 스크립트는 ' 찾을 수 없음 ' 예외를 발생시키고 실패합니다.
+
+### Add-AzureHDInsightScriptAction cmdlet에 매개 변수 전달
+
+여러 매개 변수를 AzureHDInsightScriptAction cmdlet에 전달하려면 스크립트에 대한 모든 매개 변수를 포함하도록 문자열 값의 형식을 지정해야 합니다. 예:
+
+	"-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
+ 
+또는
+
+	$parameters = '-Parameters "{0};{1};{2}"' -f $CertificateName,$certUriWithSasToken,$CertificatePassword
+
 
 ### 실패한 클러스터 배포에 대한 예외 발생
 
@@ -256,7 +279,15 @@ HDInsight 스크립트 작업 명령에서 사용하기 전에 사용자 지정 
 
 ## 사용자 지정 스크립트 디버그
 
-스크립트 오류 로그는 클러스터 생성 시 클러스터에 대해 지정한 기본 스토리지 계정에 다른 출력과 함께 저장됩니다. 오류는 *u<\\cluster-name-fragment><\\time-stamp>setuplog*라는 이름으로 테이블에 저장됩니다. 이러한 로그는 클러스터에서 스크립트가 실행되는 모든 노드(헤드 노드 및 작업자 노드)의 레코드를 포함하는 집계된 로그입니다.
+스크립트 오류 로그는 클러스터 생성 시 클러스터에 대해 지정한 기본 스토리지 계정에 다른 출력과 함께 저장됩니다. 오류는 *u<\\cluster-name-fragment><\\time-stamp>setuplog*라는 이름으로 테이블에 저장됩니다. 이러한 로그는 클러스터에서 스크립트가 실행되는 모든 노드(헤드 노드 및 작업자 노드)의 레코드를 포함하는 집계된 로그입니다. 로그를 확인하는 쉬운 방법은 Visual Studio용 HDInsight 도구를 사용하는 것입니다. 도구 설치에 대해서는 [HDInsight용 Visual Studio Hadoop 도구 사용 시작](hdinsight-hadoop-visual-studio-tools-get-started.md#install-hdinsight-tools-for-visual-studio)을 참조하세요.
+
+**Visual Studio를 사용하여 로그를 확인하려면**
+
+1. Visual Studio를 엽니다.
+2. **보기**를 클릭하고 **서버 탐색기**를 클릭합니다.
+3. "Azure"를 마우스 오른쪽 단추로 클릭하고 **Microsoft Azure 구독**에 연결을 클릭한 후 자격 증명을 입력합니다.
+4. **저장소**를 확장하고 기본 파일 시스템으로 사용되는 Azure 저장소 계정을 확장한 후 **테이블**을 확장하고 테이블 이름을 두 번 클릭합니다.
+
 
 또한 클러스터 노드에 원격 액세스하여 사용자 지정 스크립트의 STDOUT 및 STDERR을 확인할 수 있습니다. 각 노드의 로그는 해당 노드 전용이며 **C:\\HDInsightLogs\\DeploymentAgent.log**에 로깅됩니다. 이러한 로그 파일은 사용자 지정 스크립트의 모든 출력을 기록합니다. Spark 스크립트 작업에 대한 예제 로그 조각은 다음과 같습니다.
 
@@ -320,4 +351,4 @@ HDInsight 스크립트 작업 명령에서 사용하기 전에 사용자 지정 
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

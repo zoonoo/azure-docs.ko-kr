@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Node.js에서 테이블 저장소를 사용하는 방법 | Microsoft Azure&quot;" 
-	description="Azure에서 테이블 저장소 서비스를 사용하는 방법을 알아봅니다. 코드 샘플은 Node.js API를 사용하여 작성되었습니다." 
-	services="storage" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Node.js에서 테이블 저장소를 사용하는 방법 | Microsoft Azure";"
+	description="Azure에서 테이블 저장소 서비스를 사용하는 방법을 알아봅니다. 코드 샘플은 Node.js API를 사용하여 작성되었습니다."
+	services="storage"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="03/11/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mwasson"/>
 
 
@@ -46,17 +46,18 @@ Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편�
 
 1.  **PowerShell**(Windows), **Terminal**(Mac), **Bash**(Unix) 등과 같은 명령줄 인터페이스를 사용하여 응용 프로그램을 만든 폴더로 이동합니다.
 
-2.  명령 창에 **npm install azure-storage**를 입력합니다. 그러면 다음과 같이 출력됩니다.
+2.  명령 창에 **npm install azure-storage**를 입력합니다. 명령 출력은 다음 예제와 비슷합니다.
 
-        azure-storage@0.1.0 node_modules\azure-storage
-		├── extend@1.2.1
-		├── xmlbuilder@0.4.3
-		├── mime@1.2.11
-		├── underscore@1.4.4
-		├── validator@3.1.0
-		├── node-uuid@1.4.1
-		├── xml2js@0.2.7 (sax@0.5.2)
-		└── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
+		azure-storage@0.5.0 node_modules\azure-storage
+		+-- extend@1.2.1
+		+-- xmlbuilder@0.4.3
+		+-- mime@1.2.11
+		+-- node-uuid@1.4.3
+		+-- validator@3.22.2
+		+-- underscore@1.4.4
+		+-- readable-stream@1.0.33 (string_decoder@0.10.31, isarray@0.0.1, inherits@2.0.1, core-util-is@1.0.1)
+		+-- xml2js@0.2.7 (sax@0.5.2)
+		+-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
 
 3.  **ls** 명령을 수동으로 실행하여 **node\_modules** 폴더가 만들어졌는지 확인할 수 있습니다. 이 폴더에서 저장소에 액세스하는 데 필요한 라이브러리가 들어 있는 **azure-storage** 패키지를 찾습니다.
 
@@ -184,7 +185,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 >    
 > 3. 업데이트 작업을 수행합니다. ETag 값을 검색한 후에 응용 프로그램의 다른 인스턴스 등에서 엔터티가 수정된 경우에는 요청에 지정된 업데이트 조건이 충족되지 않았다는 내용`error`의가 반환됩니다.
     
-**updateEntity** 및 **mergeEntity**를 사용할 때 업데이트 중인 엔터티가 없는 경우 업데이트 작업이 실패합니다. 따라서 엔터티의 존재 여부에 상관없이 엔터티를 저장하려면 **insertOrReplaceEntity** 또는 **insertOrMergeEntity**를 대신 사용해야 합니다.
+**updateEntity** 및 **mergeEntity**를 사용할 때 업데이트 중인 엔터티가 없는 경우 업데이트 작업이 실패합니다. 따라서 엔터티의 존재 여부에 상관없이 엔터티를 저장하려면 **insertOrReplaceEntity** 또는 **insertOrMergeEntity**를 사용합니다.
 
 `result`업데이트 작업이 성공할 경우에는 업데이트된 엔터티의 **Etag**가 포함됩니다.
 
@@ -275,9 +276,9 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 	  }
 	});
 
-성공할 경우에는 쿼리와 일치하는 엔터티의 배열이 `result.entries`포함됩니다. 쿼리에서 엔터티를 모두 반환할 수 없는 경우 `result.continuationToken`이 *null*이 아닌 값이 되므로 **queryEntities**의 세 번째 매개 변수로 사용하여 더 많은 결과를 검색할 수 있습니다. 초기 쿼리의 경우 세 번째 매개 변수가 *null*이어야 합니다.
+성공할 경우에는 쿼리와 일치하는 엔터티의 배열이 `result.entries`포함됩니다. 쿼리에서 엔터티를 모두 반환할 수 없는 경우 `result.continuationToken`이 *null*이 아닌 값이 되므로 **queryEntities**의 세 번째 매개 변수로 사용하여 더 많은 결과를 검색할 수 있습니다. 초기 쿼리의 경우 세 번째 매개 변수에 *null*을 사용합니다.
 
-### 엔터티 속성 하위 집합을 쿼리하는 방법
+### 엔터티 속성 하위 집합 쿼리
 
 테이블 쿼리에서는 엔터티에서 일부 필드만 검색할 수 있습니다. 따라서 대역폭이 줄어들며 특히 큰 엔터티의 경우 쿼리 성능이 향상될 수 있습니다. **select** 절을 사용하여 반환할 필드의 이름을 전달합니다. 예를 들어 다음 쿼리에서는 **description** 및 **dueDate** 필드만 반환합니다.
 
@@ -286,7 +287,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 	  .top(5)
 	  .where('PartitionKey eq ?', 'hometasks');
 
-## 엔터티를 삭제하는 방법
+## 엔터티 삭제
 
 파티션 및 행 키를 사용하여 엔터티를 삭제할 수 있습니다. 이 예제에서 **task1** 개체는 삭제할 엔터티의 **RowKey** 및 **PartitionKey** 값을 포함합니다. 그런 다음 개체는 **deleteEntity** 메서드에 전달됩니다.
 
@@ -301,9 +302,9 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 	  }
 	});
 
-> [AZURE.NOTE]항목을 삭제할 때 항목이 다른 프로세스에서 수정되지 않았는지 확인할 수 있도록 ETag를 사용하는 것이 좋습니다. [엔터티 업데이트하는 방법]을 참조하세요.
+> [AZURE.NOTE]항목을 삭제할 때 항목이 다른 프로세스에서 수정되지 않았는지 확인할 수 있도록 ETag를 사용하는 것이 좋습니다. ETag 사용 방법에 대한 자세한 내용은 [엔터티 업데이트](#update-an-entity)를 참조하세요.
 
-## 테이블을 삭제하는 방법
+## 테이블 삭제
 
 다음 코드는 저장소 계정에서 테이블을 삭제합니다.
 
@@ -315,9 +316,9 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 테이블이 있는지 확실하지 않은 경우에는 **deleteTableIfExists**를 사용합니다.
 
-## 연속토큰 사용 방법
+## 연속토큰 사용
 
-테이블에 대한 많은 양의 결과가 쿼리되는 경우 연속 토큰을 찾아야 합니다. 당신이 인식하지 못한 쿼리에 대한 사용 가능한 많은 양의 데이터가 있을 경우 연속토큰의 유무를 인식하지 못하도록 작성하지마세요.
+많은 양의 결과를 얻기 위해 테이블을 쿼리하는 경우 연속 토큰을 찾습니다. 당신이 인식하지 못한 쿼리에 대한 사용 가능한 많은 양의 데이터가 있을 경우 연속토큰의 유무를 인식하지 못하도록 작성하지마세요.
 
 연속 토큰이 있을 경우 쿼리하는 엔터티가 `continuationToken` 속성을 설정할 때 결과 개체가 반환됩니다. 그 다음 파티션 및 테이블 엔터티 간에 이동을 계속하기 위해 쿼리를 수행 할 경우 이것을 사용할 수 있습니다.
 
@@ -344,7 +345,7 @@ dc.table.queryEntities(tableName,
 
 또한 GitHub의 Azure Storage Node.js 리포지토리 내에 연속된 샘플이 있습니다. `examples/samples/continuationsample.js`를 찾아보세요.
 
-## 공유 액세스 서명 작업 방법
+## 공유 액세스 서명 작업
 
 SAS(공유 액세스 서명)는 저장소 계정 이름이나 키를 제공하지 않으면서 테이블에 세분화된 액세스 권한을 안전하게 제공하는 방법입니다. SAS는 모바일 앱에서 레코드를 쿼리하는 경우와 같이 데이터에 대해 제한된 액세스를 제공하는 경우에 자주 사용합니다.
 
@@ -449,4 +450,4 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
   [Create and deploy a Node.js application to an Azure Web Site]: ../web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

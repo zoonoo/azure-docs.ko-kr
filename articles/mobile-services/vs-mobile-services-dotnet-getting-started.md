@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="" 
-	description="Visual Studio .NET 프로젝트에서 Azure 모바일 서비스를 시작하는 방법을 알아봅니다." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="patshea123" 
-	manager="douge" 
+<properties
+	pageTitle=""
+	description="Visual Studio .NET 프로젝트에서 Azure 모바일 서비스를 시작하는 방법을 알아봅니다."
+	services="mobile-services"
+	documentationCenter=""
+	authors="patshea123"
+	manager="douge"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="vs-getting-started" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/22/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="vs-getting-started"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="patshea123"/>
 
 # 모바일 서비스 시작(.NET 프로젝트)
@@ -47,22 +47,22 @@
 
 이 코드는 테이블의 사용 권한이 **응용 프로그램 키가 있는 모든 사용자**로 설정된 경우 작동합니다. 모바일 서비스를 보호하기 위해 사용 권한을 변경하는 경우 사용자 인증 지원을 추가해야 합니다. [인증 시작](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md)을 참조하세요.
 
-#####테이블 항목 추가 
+#####테이블 항목 추가
 
 데이터 테이블에 새 항목을 삽입합니다.
 
 	TodoItem todoItem = new TodoItem() { Text = "My first to do item", Complete = false };
 	await todoTable.InsertAsync(todoItem);
 
-#####테이블 읽기 또는 쿼리 
+#####테이블 읽기 또는 쿼리
 
 다음 코드에서는 테이블의 모든 항목을 쿼리합니다. 기본적으로 50개 항목인 데이터의 첫 번째 페이지만 반환합니다. 선택적 매개 변수이므로 원하는 페이지 크기를 전달할 수 있습니다.
 
     List<TodoItem> items;
     try
     {
-        // Query that returns all items.   
-        items = await todoTable.ToListAsync();             
+        // Query that returns all items.
+        items = await todoTable.ToListAsync();
     }
     catch (MobileServiceInvalidOperationException e)
     {
@@ -85,4 +85,4 @@
 
 [모바일 서비스에 대한 자세한 정보](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

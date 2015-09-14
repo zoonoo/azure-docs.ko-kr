@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure CDN(콘텐츠 배달 네트워크) POP 위치" 
-	description="이 항목은 Azure CDN(콘텐츠 배달 네트워크) POP 위치를 나열합니다." 
-	services="cdn" 
-	documentationCenter="" 
-	authors="Juliako" 
-	manager="dwrede" 
+	pageTitle="Azure CDN(콘텐츠 배달 네트워크) POP 위치"
+	description="이 항목은 Azure CDN(콘텐츠 배달 네트워크) POP 위치를 나열합니다."
+	services="cdn"
+	documentationCenter=""
+	authors="Juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="ne" 
-	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.service="cdn"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="ne"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="juliako"/>
 
 
@@ -71,4 +71,4 @@
 - 멜버른
 - 시드니 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

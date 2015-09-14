@@ -1,25 +1,23 @@
 <properties 
    pageTitle="StorSimple 장치 | Microsoft Azure에 대한 CHAP 구성"
-   description="StorSimple 장치에 Challenge Handshake 인증 프로토콜을 구성하는 방법을 설명합니다."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="StorSimple 장치에 CHAP(Challenge Handshake 인증 프로토콜)를 구성하는 방법을 설명합니다."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="TBD"
-   ms.date="08/11/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="TBD"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
 # StorSimple 장치에 대한 CHAP 구성
 
-이 자습서에서는 StorSimple 장치에 대한 CHAP를 구성하는 방법에 대해 설명합니다.
-
-CHAP는 Challenge Handshake Authentication Protocol의 약어입니다. CHAP는 서버에서 원격 클라이언트의 ID를 확인하는데 사용하는 인증 체계입니다. 확인은 공유 암호 또는 암호를 기반으로 합니다.
+이 자습서에서는 StorSimple 장치에 대한 CHAP를 구성하는 방법에 대해 설명합니다. CHAP는 Challenge Handshake Authentication Protocol의 약어입니다. CHAP는 서버에서 원격 클라이언트의 ID를 확인하는데 사용하는 인증 체계입니다. 확인은 공유 암호 또는 암호를 기반으로 합니다.
 
 CHAP는 일방(단방향)이거나 상호적(양방향)일 수 있습니다. 단방향 CHAP는 대상이 초기자를 인증하는 경우입니다. 반면에 상호 또는 역방향 CHAP는 대상이 초기자를 인증한 다음 초기자에서 대상을 인증해야 합니다. 대상 인증 없이 초기자 인증을 구현할 수 있습니다. 그러나 초기자 인증도 구현하는 경우 대상 인증을 구현할 수 있습니다.
 
@@ -41,17 +39,17 @@ StorSimple 장치에서 CHAP 설정은 다음과 같은 방법으로 구성할 �
 
 #### 단방향 인증에 대한 장치를 구성하려면
 
-1. **장치** 페이지의 관리 포털에서 **구성** 탭을 클릭합니다.
+1. 관리 포털의 **장치** 페이지에서 **구성** 탭을 클릭합니다.
 
     ![CHAP 초기자](./media/storsimple-configure-chap/IC740943.png)
 
-2. 이 페이지에서 아래로 스크롤하고 **CHAP 초기자** 섹션에서:
+2. 이 페이지에서 아래로 스크롤하고 **CHAP 초기자** 섹션에서 다음을 수행합니다.
 													
 	1. CHAP 초기자에 대한 사용자 이름을 입력합니다.
 
 	2. CHAP 초기자에 대한 암호를 입력합니다.
 
-    > [AZURE.IMPORTANT]CHAP 사용자 이름은 233 미만의 문자를 포함해야 합니다. CHAP 암호는 12 \~ 16 자 사이여야 합니다. 더 긴 사용자 이름이나 암호를 사용하면 Windows 호스트에서 인증 오류가 발생합니다.
+    > [AZURE.IMPORTANT]CHAP 사용자 이름은 233 미만의 문자를 포함해야 합니다. CHAP 암호는 12 ~ 16 자 사이여야 합니다. 더 긴 사용자 이름이나 암호를 사용하면 Windows 호스트에서 인증 오류가 발생합니다.
 
 #### Windows 호스트 서버에서 일방 인증을 구성하려면
 
@@ -65,7 +63,7 @@ StorSimple 장치에서 CHAP 설정은 다음과 같은 방법으로 구성할 �
 
 	2. **포털 검색**을 클릭합니다.
 
-3. **대상 포털 검색** 대화 상자에서:
+3. **대상 포털 검색** 대화 상자에서 다음을 수행합니다.
 													
 	1. 장치의 IP 주소를 지정합니다.
 
@@ -89,7 +87,7 @@ StorSimple 장치에서 CHAP 설정은 다음과 같은 방법으로 구성할 �
 
     > [AZURE.IMPORTANT]iSCSI 이름을 변경하는 경우 새 iSCSI 세션에 대한 새 이름이 사용됩니다. 새 설정은 로그오프하고 다시 로그온할 때까지 기존 세션에 대해 다시 사용되지 않습니다.
 
-Windows 호스트 서버에서 CHAP를 구성하는 방법에 대한 자세한 내용은 [추가 고려 사항](#additional-considerations)으로 이동하세요.
+Windows 호스트 서버에서 CHAP를 구성하는 방법에 대한 자세한 내용을 보려면 [추가 고려 사항](#additional-considerations)으로 이동하세요.
 
 
 ## 양방향 또는 상호 인증
@@ -98,11 +96,11 @@ Windows 호스트 서버에서 CHAP를 구성하는 방법에 대한 자세한 �
 
 #### 상호 인증에 대한 장치를 구성하려면
 
-1. **장치** 페이지의 관리 포털에서 **구성** 탭을 클릭합니다.
+1. 관리 포털의 **장치** 페이지에서 **구성** 탭을 클릭합니다.
 
     ![CHAP 대상](./media/storsimple-configure-chap/IC740948.png)
 
-2. 이 페이지에서 아래로 스크롤하고 **CHAP 대상** 섹션에서
+2. 이 페이지에서 아래로 스크롤하고 **CHAP 대상** 섹션에서 다음을 수행합니다.
 													
 	1. 장치에 대한 **역방향 CHAP 사용자 이름**을 입력합니다.
 
@@ -110,7 +108,7 @@ Windows 호스트 서버에서 CHAP를 구성하는 방법에 대한 자세한 �
 
 	3. 암호를 확인합니다.
 
-3. **CHAP 초기자** 섹션에서:
+3. **CHAP 초기자** 섹션에서 다음을 수행합니다.
 												
 	1. 장치에 대한 **사용자 이름**을 입력합니다.
 
@@ -118,7 +116,7 @@ Windows 호스트 서버에서 CHAP를 구성하는 방법에 대한 자세한 �
 
 	3. 암호를 확인합니다.
 
-4. **저장**을 클릭합니다. 확인 메시지가 표시됩니다. **확인**을 클릭하여 변경 내용을 저장합니다.
+4. **Save**를 클릭합니다. 확인 메시지가 표시됩니다. **확인**을 클릭하여 변경 내용을 저장합니다.
 
 #### Windows 호스트 서버에서 양방향 인증을 구성하려면
 
@@ -128,7 +126,7 @@ Windows 호스트 서버에서 CHAP를 구성하는 방법에 대한 자세한 �
 
 3. **CHAP**를 클릭합니다.
 
-4. **iSCSI 초기자 상호 CHAP 암호** 대화 상자에서:
+4. **iSCSI 초기자 상호 CHAP 암호** 대화 상자에서 다음을 수행합니다.
 													
 	1. 관리 포털에서 구성한 **역방향 CHAP 암호**를 입력합니다.
 
@@ -142,7 +140,7 @@ Windows 호스트 서버에서 CHAP를 구성하는 방법에 대한 자세한 �
 
 7. **대상에 연결** 대화 상자에서 **고급**을 클릭합니다.
 
-8. **고급 속성** 대화 상자에서:
+8. **고급 속성** 대화 상자에서 다음을 수행합니다.
 													
 	1. **CHAP 로그온 사용** 확인란을 선택합니다.
 
@@ -156,11 +154,11 @@ Windows 호스트 서버에서 CHAP를 구성하는 방법에 대한 자세한 �
 
 	5. **확인**을 클릭하여 CHAP 구성을 완료합니다.
 
-Windows 호스트 서버에서 CHAP를 구성하는 방법에 대한 자세한 내용은 [추가 고려 사항](#additional-considerations)으로 이동하세요.
+Windows 호스트 서버에서 CHAP를 구성하는 방법에 대한 자세한 내용을 보려면 [추가 고려 사항](#additional-considerations)으로 이동하세요.
 
 ## 추가 고려 사항
 
-**빠른 연결** 기능은 CHAP를 사용할 수 있는 연결을 지원하지 않습니다. CHAP를 사용하는 경우 대상에 연결하는 **대상** 탭에서 사용 가능한 **연결** 단추를 사용하고 있는지 확인하십시오.
+**빠른 연결** 기능은 CHAP를 사용할 수 있는 연결을 지원하지 않습니다. CHAP를 사용하도록 설정한 경우 **대상** 탭에 있는 **연결** 단추를 사용하여 대상에 연결해야 합니다.
 
 ![대상에 연결](./media/storsimple-configure-chap/IC740947.png)
 
@@ -184,7 +182,7 @@ CHAP 구성이 올바르지 않은 경우 **인증 실패** 오류 메시지가 
 
     ![iSCSI 초기자 속성 즐겨찾는 대상](./media/storsimple-configure-chap/IC740951.png)
 
-4. **즐겨찾는 대상 세부 정보** 대화 상자에서 **인증** 필드에 항목을 입력합니다. 구성이 성공되면 **CHAP**라는 텍스트가 표시되어야 합니다.
+4. **즐겨찾는 대상 세부 정보** 대화 상자에서 **인증** 필드에 항목을 입력합니다. 구성이 성공하면 **CHAP**라는 텍스트가 표시되어야 합니다.
 
     ![즐겨찾는 대상 세부 정보](./media/storsimple-configure-chap/IC740952.png)
 
@@ -192,4 +190,4 @@ CHAP 구성이 올바르지 않은 경우 **인증 실패** 오류 메시지가 
 
 [StorSimple 보안](storsimple-security.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

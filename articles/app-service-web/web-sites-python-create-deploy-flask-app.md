@@ -1,22 +1,21 @@
 <properties 
-	pageTitle="Azure에서 Flask를 사용하여 웹앱 만들기" 
-	description="Azure에서 Python 웹앱을 실행하는 방법을 소개하는 자습서입니다." 
-	services="app-service\web" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+	pageTitle="Azure에서 Flask를 사용하여 웹앱 만들기"
+	description="Azure에서 Python 웹앱을 실행하는 방법을 소개하는 자습서입니다."
+	services="app-service\web"
+	documentationCenter="python"
+	tags="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="08/30/2015"
 	ms.author="huguesv"/>
-
-
 
 
 # Azure에서 Flask를 사용하여 웹앱 만들기
@@ -35,7 +34,7 @@
 - Python 2.7 또는 3.4
 - setuptools, pip, virtualenv(Python 2.7 전용)
 - Git
-- [Python Tools 2.1 for Visual Studio](optional)
+- [Python Tools for Visual Studio][](PTVS) - 참고: 선택 사항입니다.
 
 **참고**: 현재 Python 프로젝트에서는 TFS 게시를 사용할 수 없습니다.
 
@@ -45,7 +44,7 @@ Python 2.7 또는 3.4(32비트)를 아직 설치하지 않은 경우 웹 플랫�
 
 Git의 경우 [Windows용 Git] 또는 [Windows용 GitHub]를 설치하는 것이 좋습니다. Visual Studio를 사용하는 경우 통합 Git 지원을 사용할 수 있습니다.
 
-또한 [Python Tools 2.1 for Visual Studio]를 설치하는 것이 좋습니다. 이는 선택 사항이지만 [Visual Studio](무료 Visual Studio Community 2013 또는 Visual Studio Express 2013 for Web 포함)가 있으면 Python IDE가 향상됩니다.
+또한 [Python Tools 2.2 for Visual Studio]를 설치하는 것이 좋습니다. 이는 선택 사항이지만 [Visual Studio](무료 Visual Studio Community 2013 또는 Visual Studio Express 2013 for Web 포함)가 있으면 Python IDE가 향상됩니다.
 
 ### Mac/Linux
 
@@ -89,7 +88,7 @@ Python 및 Git를 이미 설치했어야 하지만 Python 버전은 2.7 또는 3
     \FlaskWebProject.pyproj
     \FlaskWebProject.sln
 
-[Python Tools for Visual Studio](http://pytools.codeplex.com)에서 사용되는 프로젝트 파일
+[Python Tools for Visual Studio]에서 사용되는 프로젝트 파일
 
     \ptvs_virtualenv_proxy.py
 
@@ -161,7 +160,7 @@ F5 키를 눌러 디버깅을 시작하면 웹 브라우저에서 로컬로 실�
 
 ![](./media/web-sites-python-create-deploy-flask-app/windows-browser-flask.png)
 
-원본에서 중단점을 설정하고, 조사식 창을 사용하는 등의 작업을 수행할 수 있습니다. 여러 기능에 대한 자세한 내용은 [PTVS 설명서]를 참조하세요.
+원본에서 중단점을 설정하고, 조사식 창을 사용하는 등의 작업을 수행할 수 있습니다. 여러 기능에 대한 자세한 내용은 [Python Tools for Visual Studio 설명서]를 참조하세요.
 
 ### 변경 작업
 
@@ -375,8 +374,8 @@ Flask 및 Python Tools for Visual Studio에 대한 자세한 내용은 다음 �
 
 Azure 테이블 저장소 및 MongoDB에 대한 자세한 정보:
 
-- [Python Tools 2.1 for Visual Studio가 있는 Azure의 Flask 및 MongoDB]
-- [Python Tools 2.1 for Visual Studio가 있는 Azure의 Flask 및 Azure 테이블 저장소]
+- [Azure의 Flask 및 MongoDB와 Python Tools for Visual Studio]
+- [Azure의 Flask 및 Azure 테이블 저장소와 Python Tools for Visual Studio]
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
@@ -384,8 +383,8 @@ Azure 테이블 저장소 및 MongoDB에 대한 자세한 정보:
 
 
 <!--Link references-->
-[Python Tools 2.1 for Visual Studio가 있는 Azure의 Flask 및 MongoDB]: web-sites-python-ptvs-flask-mongodb.md
-[Python Tools 2.1 for Visual Studio가 있는 Azure의 Flask 및 Azure 테이블 저장소]: web-sites-python-ptvs-flask-table-storage.md
+[Azure의 Flask 및 MongoDB와 Python Tools for Visual Studio]: https://github.com/microsoft/ptvs/wiki/Flask-and-MongoDB-on-Azure
+[Azure의 Flask 및 Azure 테이블 저장소와 Python Tools for Visual Studio]: web-sites-python-ptvs-flask-table-storage.md
 
 <!--External Link references-->
 [Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281
@@ -394,11 +393,10 @@ Azure 테이블 저장소 및 MongoDB에 대한 자세한 정보:
 [Windows용 Git]: http://msysgit.github.io/
 [Windows용 GitHub]: https://windows.github.com/
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
-[Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkID=624025
 [Visual Studio]: http://www.visualstudio.com/
-[PTVS 설명서]: http://pytools.codeplex.com/documentation
-[Python Tools for Visual Studio 설명서]: http://pytools.codeplex.com/documentation
+[Python Tools for Visual Studio 설명서]: http://aka.ms/ptvsdocs
 [Flask 설명서]: http://flask.pocoo.org/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

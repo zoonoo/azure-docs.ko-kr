@@ -1,19 +1,19 @@
 <properties
     pageTitle="Azure RemoteApp 템플릿 이미지에 있는 항목"
-    description="Azure RemoteApp에 포함된 템플릿 이미지에 대해 알아봅니다."
-    services="remoteapp"
-    documentationCenter=""
-    authors="lizap"
-    manager="mbaldwin" />
+	description="Azure RemoteApp에 포함된 템플릿 이미지에 대해 알아봅니다."
+	services="remoteapp"
+	documentationCenter=""
+	authors="lizap"
+	manager="mbaldwin"/>
 
 <tags
     ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="08/12/2015" 
-    ms.author="elizapo" />
+	ms.workload="compute"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="09/02/2015"
+	ms.author="elizapo"/>
 
 # Azure RemoteApp 템플릿 이미지에 있는 항목
 
@@ -64,10 +64,10 @@ Office 365는 가장 많이 요청되는 응용 프로그램이므로 작업에 
 - OneDrive for Business
 - Outlook
 - PowerPoint
-- Project
-- Visio
 - Word
 - Microsoft Office 언어 교정 도구
+
+이미지에는 Visio Pro 및 Project Pro도 포함됩니다.
 
 다음 응용 프로그램도 포함:
 
@@ -80,7 +80,9 @@ Office 365는 가장 많이 요청되는 응용 프로그램이므로 작업에 
 - PowerMap
 
 
-Office 365 ProPlus 계획이 있는 사용자만 Office 365 ProPlus 앱의 모든 기능을 사용할 수 있습니다. Office 365 구독 계획에 대한 자세한 내용은 [Office 365 서비스 계획](http://technet.microsoft.com/library/office-365-plan-options.aspx)을 참조하세요. 질문이 있으십니까? [Office 365 + RemoteApp](remoteapp-o365.md) 정보를 확인하세요.
+Office 365 ProPlus 계획이 있는 사용자만 Office 365 ProPlus 앱의 모든 기능을 사용할 수 있습니다. Office 365 구독 계획에 대한 자세한 내용은 [Office 365 서비스 계획](http://technet.microsoft.com/library/office-365-plan-options.aspx)을 참조하세요. 질문이 있으십니까? [Office 365 + RemoteApp](remoteapp-o365.md) 정보를 확인하세요. 또한 새 문서 [Azure RemoteApp와 함께 Office 365 구독을 사용하는 방법](remoteapp-officesubscription.md)을 확인하세요.
+
+Office 365 ProPlus, Visio Pro 및 Project Pro 라이선스를 별도로 구입해야 하는 경우 각각 해당 라이선스가 있습니다.
 
 ## Microsoft Office 2013 Professional Plus(평가판 전용)
 무료 평가 기간 동안 Office 2013 이미지를 사용하여 서비스를 테스트할 수 있습니다.
@@ -103,4 +105,4 @@ Office 365 ProPlus 계획이 있는 사용자만 Office 365 ProPlus 앱의 모�
 > [AZURE.IMPORTANT]**법적 정보:** 이 이미지에는 Microsoft Office 라이선스를 포함하지 않으며 *프로덕션에 사용할 수 없습니다*. Office 2013 Professional Plus 이미지는 평가 용도로만 사용됩니다. 프로덕션에 대해 Azure RemoteApp에서 Office 앱을 사용하려는 경우 Office 365 ProPlus 이미지를 사용해야 합니다. 라이선스 Office에 대한 자세한 내용은 [Azure RemoteApp과 함께 Office 365 사용](remoteapp-o365.md)을 참조하세요.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

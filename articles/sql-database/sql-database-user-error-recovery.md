@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="SQL 데이터베이스 사용자 오류 복구" 
-   description="Azure SQL 데이터베이스의 PITR(지정 시간 복원) 기능을 사용하여 사용자 오류, 실수로 인한 데이터 손상 또는 삭제된 데이터베이스를 복구하는 방법을 알아봅니다." 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="elfisher" 
-   manager="jeffreyg" 
-   editor="monicar"/>
+   pageTitle="SQL 데이터베이스 사용자 오류 복구"
+	description="Azure SQL 데이터베이스의 PITR(지정 시간 복원) 기능을 사용하여 사용자 오류, 실수로 인한 데이터 손상 또는 삭제된 데이터베이스를 복구하는 방법을 알아봅니다."
+	services="sql-database"
+	documentationCenter=""
+	authors="elfisher"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
-   ms.date="07/23/2015"
-   ms.author="elfish"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-management"
+	ms.date="07/23/2015"
+	ms.author="elfish"/>
 
 # 사용자 오류에서 Azure SQL 데이터베이스 복구
 
@@ -30,6 +30,8 @@ Azure SQL 데이터베이스는 항상 새로운 데이터베이스로 복원됩
 사용자 오류나 의도하지 않은 데이터 수정 시, 지정 시간 복원 기능을 사용하여 데이터베이스 보존 기간 내의 지정된 임의의 시간으로 데이터베이스를 복원할 수 있습니다.
 
 기본 데이터베이스는 7일 동안 보존되고 표준 데이터베이스는 14일 동안, 프리미엄 데이터베이스는 35일 동안 보존됩니다. 데이터베이스 보존에 대해 자세히 알아보려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 읽어 보시기 바랍니다.
+
+> [AZURE.NOTE]데이터베이스를 복원하면 새 데이터베이스가 생성됩니다. 복원하는 서버에 새 데이터베이스를 위한 충분한 DTU 용량이 있는지 확인하는 것이 중요합니다. [지원 센터에 연락](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/)하여 이 할당량을 늘리도록 요청할 수 있습니다.
 
 ###Azure 포털
 1. [Azure 포털](https://portal.Azure.com)에 로그인합니다.
@@ -66,6 +68,8 @@ Azure SQL 데이터베이스는 항상 새로운 데이터베이스로 복원됩
 데이터베이스가 삭제된 경우, Azure SQL 데이터베이스를 사용하면 삭제된 데이터베이스를 지정된 삭제 시점으로 복원할 수 있습니다. Azure SQL 데이터베이스는 데이터베이스 보존 기간 동안 삭제된 데이터베이스의 백업을 저장합니다.
 
 삭제된 데이터베이스의 보존 기간은 해당 데이터베이스가 존재했던 서비스 계층 또는 데이터베이스의 존재 일 수 중 더 작은 일 수에 의해 결정됩니다. 데이터베이스 보존에 대해 자세히 알아보려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 읽어 보시기 바랍니다.
+
+> [AZURE.NOTE]데이터베이스를 복원하면 새 데이터베이스가 생성됩니다. 복원하는 서버에 새 데이터베이스를 위한 충분한 DTU 용량이 있는지 확인하는 것이 중요합니다. [지원 센터에 연락](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/)하여 이 할당량을 늘리도록 요청할 수 있습니다.
 
 ###Azure 포털
 1. [Azure 포털](https://portal.Azure.com)에 로그인합니다.
@@ -109,4 +113,4 @@ Azure SQL 데이터베이스는 항상 새로운 데이터베이스로 복원됩
 복원이 완료된 후 [복구된 데이터베이스 마무리](sql-database-recovered-finalize.md) 가이드에 따라 복구된 데이터베이스를 사용하도록 구성할 수 있습니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

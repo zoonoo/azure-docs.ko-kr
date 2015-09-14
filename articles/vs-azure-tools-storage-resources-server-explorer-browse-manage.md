@@ -205,7 +205,7 @@ Azure 테이블 저장소 서비스는 다량의 구조화된 데이터를 저�
 
     - Timestamp는 Azure 저장소 서비스가 사용하는 이름이므로 해당 이름의 속성을 만들 수 없습니다.
 
-    - DateTime 값을 입력하는 경우 컴퓨터의 지역 및 언어 설정에 부합하는 형식을 따라야 합니다 (예: 미국 영어에 경우MM/DD/YYYY HH:MM:SS [AM|PM]).
+    - DateTime 값을 입력하는 경우 컴퓨터의 지역 및 언어 설정에 부합하는 형식을 따라야 합니다(예: 미국&nbsp;영어의 경우 MM/DD/YYYY HH:MM:SS [AM|PM]).
 
 ### 엔터티를 추가하려면
 
@@ -319,4 +319,4 @@ Azure 테이블 저장소 서비스는 다량의 구조화된 데이터를 저�
 
 [Azure 저장소 서비스 엑세스](https://msdn.microsoft.com/library/azure/ee405490.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure 데이터 팩터리를 사용하여 로그 파일 이동 및 처리"
-	description="이 고급 자습서에서는 거의 실제 시나리오를 설명하고 Azure 데이터 팩터리 서비스 및 데이터 팩터리 편집기를 사용하여 시나리오를 구현합니다."
+	pageTitle="Azure Data Factory를 사용하여 로그 파일 이동 및 처리(Azure 포털)"
+	description="이 고급 자습서에서는 거의 실제 시나리오를 설명하고 Azure 포털의 Azure Data Factory 서비스 및 데이터 팩터리 편집기를 사용하여 시나리오를 구현합니다."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -26,11 +26,11 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 3.	**AnalyzeMarketingCampaignPipeline** 파이프라인은 강화된 데이터를 활용하고 이 데이터를 광고 데이터와 함께 처리하여 마케팅 캠페인 효과가 포함된 최종 출력을 만듭니다.
 
 ## 자습서 수행을 위한 준비
-1.	[Azure 데이터 팩터리 소개][adfintroduction]를 읽고 Azure 데이터 팩터리에 대한 개요를 확인하고 최상위 개념을 이해합니다.
-2.	이 자습서를 수행하려면 Azure 구독이 있어야 합니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션](http://azure.microsoft.com/pricing/purchase-options/), [구성원 제공 항목](http://azure.microsoft.com/pricing/member-offers/) 또는 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하십시오.
+1.	[Azure Data Factory 소개][adfintroduction]를 읽고 Azure Data Factory에 대한 개요를 확인하고 최상위 개념을 이해합니다.
+2.	이 자습서를 수행하려면 Azure 구독이 있어야 합니다. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션](http://azure.microsoft.com/pricing/purchase-options/), [구성원 제공 항목](http://azure.microsoft.com/pricing/member-offers/) 또는 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 3.	컴퓨터에 [Azure PowerShell][download-azure-powershell]을 다운로드하고 설치해야 합니다. 데이터 팩터리 cmdlet을 실행하여 샘플 데이터 및 pig/hive 스크립트를 Blob 저장소로 업로드합니다. 
-2.	**(권장)** [Azure 데이터 팩터리 시작][adfgetstarted] 문서의 간단한 자습서를 검토하고 연습하여 포털 및 cmdlet을 익힙니다.
-3.	**(권장)** [Azure 데이터 팩터리에서 Pig 및 Hive 사용][usepigandhive] 문서의 연습을 검토하고 실습하여 온-프레미스에서 Azure Blob 저장소로 데이터를 복사하는 파이프라인을 만들어 봅니다.
+2.	**(권장)** [Azure Data Factory 시작][adfgetstarted] 문서의 간단한 자습서를 검토하고 연습하여 포털 및 cmdlet을 익힙니다.
+3.	**(권장)** [Azure Data Factory에서 Pig 및 Hive 사용][usepigandhive] 문서의 연습을 검토하고 실습하여 온-프레미스에서 Azure Blob 저장소로 데이터를 복사하는 파이프라인을 만들어 봅니다.
 4.	[ADFWalkthrough][adfwalkthrough-download] 파일을 **C:\\ADFWalkthrough** 폴더로 다운로드합니다. 이때 다음과 같이 **폴더 구조를 유지**합니다.
 	- **Pipelines:** 파이프라인 정의가 포함된 JSON 파일을 포함합니다.
 	- **Tables:** 테이블 정의가 포함된 JSON 파일을 포함합니다.
@@ -63,7 +63,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
     
 ## 연습: 워크플로 만들기, 배포 및 모니터링
 1. [1단계: 샘플 데이터 및 스크립트 업로드](#MainStep1) 이 단계에서는 모든 샘플 데이터(모든 로그 및 참조 데이터 포함)와 워크플로에서 실행할 Hive/Pig 스크립트를 업로드합니다. 실행하는 스크립트에서는 MarketingCampaigns라는 Azure SQL 데이터베이스, 테이블, 사용자 정의 형식 및 저장 프로시저도 만듭니다.
-2. [2단계: Azure 데이터 팩터리 만들기](#MainStep2) 이 단계에서는 LogProcessingFactory라는 Azure 데이터 팩터리를 만듭니다.
+2. [2단계: Azure Data Factory 만들기](#MainStep2) 이 단계에서는 LogProcessingFactory라는 Azure Data Factory를 만듭니다.
 3. [3단계: 연결된 서비스 만들기](#MainStep3) 이 단계에서는 연결된 서비스 
 	
 	- 	**StorageLinkedService**. 원시 게임 이벤트, 분할된 게임 이벤트, 보강된 게임 이벤트, 마케팅 캠페인 효과 정보, 참조 지역 코드 데이터 및 참조 마케팅 캠페인 데이터를 포함하는 Azure 저장소 위치를 LogProcessingFactory에 연결합니다.   
@@ -154,8 +154,8 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 		6/6/2014 11:54:36 AM 3. Created ‘MarketingCampaigns’ Azure SQL database and tables.
 		6/6/2014 11:54:36 AM You are ready to deploy Linked Services, Tables and Pipelines. 
 
-## <a name="MainStep2"></a> 2단계: Azure 데이터 팩터리 만들기
-이 단계에서는 **LogProcessingFactory**라는 Azure 데이터 팩터리를 만듭니다.
+## <a name="MainStep2"></a> 2단계: Azure Data Factory 만들기
+이 단계에서는 **LogProcessingFactory**라는 Azure Data Factory를 만듭니다.
 
 1.	[Azure Preview 포털][azure-preview-portal]에 로그인한 후 왼쪽 아래에서 **새로 만들기**를 클릭하고 **만들기** 블레이드에서 **데이터 분석**을 클릭한 다음 **데이터 분석** 블레이드에서 **데이터 팩터리**를 클릭합니다. 
 
@@ -188,7 +188,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 	- **시작 보드**(홈페이지)에서 **LogProcessingFactory**를 클릭합니다.
 	- 왼쪽에서 **찾아보기**를 클릭하고, **모두**, **데이터 팩터리**를 차례로 클릭한 다음 데이터 팩터리를 클릭합니다.
  
-	Azure 데이터 팩터리 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 “LogProcessingFactory”를 사용할 수 없습니다.** 오류가 표시되는 경우 이름을 변경합니다(예: yournameLogProcessingFactory). 이 자습서의 단계를 수행하는 동안 LogProcessingFactory 대신 이 이름을 사용합니다.
+	Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 “LogProcessingFactory”를 사용할 수 없습니다.** 오류가 표시되는 경우 이름을 변경합니다(예: yournameLogProcessingFactory). 이 자습서의 단계를 수행하는 동안 LogProcessingFactory 대신 이 이름을 사용합니다.
  
 ## <a name="MainStep3"></a> 3단계: 연결된 서비스 만들기
 
@@ -232,7 +232,7 @@ Contoso는 게임 콘솔, 핸드헬드 장치, PC(개인용 컴퓨터) 등 다�
 3. 도구 모음에서 **배포**를 클릭하여 AzureSqlLinkedService를 만들고 배포합니다.
 
 ### HDInsightLinkedService 만들기
-Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지원하며 이 클러스터를 사용하여 입력을 처리하고 출력 데이터를 생성합니다. 또한 고유한 클러스터를 사용하여 같은 작업을 할 수도 있습니다. 주문형 HDInsight 클러스터를 사용하면 각 조각에 대해 클러스터가 생성됩니다. 반면 고유한 HDInsight 클러스터를 사용하는 경우에는 클러스터에서 조각을 즉시 처리할 수 있습니다. 따라서 주문형 클러스터를 사용하는 경우 출력 데이터가 고유한 클러스터를 사용할 때처럼 빠르게 표시되지 않을 수 있습니다. 샘플을 보여 주기 위해 주문형 클러스터를 사용해 보겠습니다.
+Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며 이 클러스터를 사용하여 입력을 처리하고 출력 데이터를 생성합니다. 또한 고유한 클러스터를 사용하여 같은 작업을 할 수도 있습니다. 주문형 HDInsight 클러스터를 사용하면 각 조각에 대해 클러스터가 생성됩니다. 반면 고유한 HDInsight 클러스터를 사용하는 경우에는 클러스터에서 조각을 즉시 처리할 수 있습니다. 따라서 주문형 클러스터를 사용하는 경우 출력 데이터가 고유한 클러스터를 사용할 때처럼 빠르게 표시되지 않을 수 있습니다. 샘플을 보여 주기 위해 주문형 클러스터를 사용해 보겠습니다.
 
 #### 주문형 HDInsight 클러스터를 사용하려면
 1. 명령 모음에서 **새 계산**을 클릭하고 메뉴에서 **주문형 HDInsight 클러스터**를 선택합니다.
@@ -347,7 +347,7 @@ Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지�
 	왼쪽 위의 이동 경로에서 **데이터 팩터리**를 클릭하여 모든 파이프라인이 포함된 다이어그램 뷰로 돌아갑니다.
 
 
-**축하합니다.** Azure 데이터 팩터리, 연결된 서비스, 파이프라인, 테이블을 만들었고 워크플로를 시작했습니다.
+**축하합니다.** Azure Data Factory, 연결된 서비스, 파이프라인, 테이블을 만들었고 워크플로를 시작했습니다.
 
 
 ## <a name="MainStep6"></a> 6단계: 파이프라인 및 데이터 조각 모니터링 
@@ -398,7 +398,7 @@ Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지�
 
 	조각이 **Ready** 상태가 아닌 경우 **Upstream slices that are not ready(준비되지 않은 업스트림 조각)** 목록에서 Ready 상태가 아니고 현재 조각의 실행을 차단하는 업스트림 조각을 확인할 수 있습니다.
  
-	조각의 가능한 모든 상태에 대해 알아보려면 [Azure 데이터 팩터리 개발자 참조][developer-reference](영문)를 참조하세요.
+	조각의 가능한 모든 상태에 대해 알아보려면 [Azure Data Factory 개발자 참조][developer-reference](영문)를 참조하세요.
 
 12.	**데이터 조각** 블레이드의 **작업 실행** 목록에서 실행을 클릭합니다. 해당 조각의 Activity Run 블레이드가 표시됩니다. 다음과 같은 **작업 실행 세부 정보** 블레이드가 표시됩니다.
 
@@ -409,7 +409,7 @@ Azure 데이터 팩터리 서비스는 주문형 클러스터 만들기를 지�
 	
 모든 파이프라인의 실행이 완료되면 **MarketingCampaigns** Azure SQL 데이터베이스에서 **MarketingCampaignEffectivenessTable**을 조사하여 결과를 볼 수 있습니다.
 
-**축하합니다.** 이제 워크플로를 모니터링하고 문제를 해결할 수 있습니다. 지금까지 Azure 데이터 팩터리를 사용하여 데이터를 처리하고 분석 결과를 얻는 방법을 배웠습니다.
+**축하합니다.** 이제 워크플로를 모니터링하고 문제를 해결할 수 있습니다. 지금까지 Azure Data Factory를 사용하여 데이터를 처리하고 분석 결과를 얻는 방법을 배웠습니다.
 
 ## 온-프레미스 데이터를 사용하도록 자습서 확장
 이 문서의 연습에서 로그 처리 시나리오의 마지막 단계에 마케팅 캠페인 효과 출력이 Azure SQL 데이터베이스에 복사되었습니다. 이 데이터를 조직 내에서 분석하기 위해 온-프레미스 SQL Server로 이동할 수도 있습니다.
@@ -418,6 +418,8 @@ Azure Blob에서 온-프레미스 SQL Server로 마케팅 캠페인 효과 데�
 
 [연습: 온-프레미스 데이터 원본 사용][tutorial-onpremises]을 실습하여 마케팅 캠페인 효과 데이터를 온-프레미스 SQL Server 데이터베이스로 복사하는 파이프라인을 만드는 방법을 알아봅니다.
 
+## 피드백 보내기
+이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-tutorial.md)을 통해 의견을 보내주세요.
 
 [monitor-manage-using-powershell]: data-factory-monitor-manage-using-powershell.md
 [use-custom-activities]: data-factory-use-custom-activities.md
@@ -526,4 +528,4 @@ Azure Blob에서 온-프레미스 SQL Server로 마케팅 캠페인 효과 데�
 
 [image-data-factory-new-datafactory-create-button]: ./media/data-factory-tutorial/DataFactoryCreateButton.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

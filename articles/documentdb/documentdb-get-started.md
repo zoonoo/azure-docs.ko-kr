@@ -12,8 +12,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article" 
-	ms.date="05/19/2015"
+	ms.topic="hero-article"
+	ms.date="09/03/2015"
 	ms.author="anhoh"/>
 
 #DocumentDB .NET SDK 시작  
@@ -34,11 +34,13 @@ DocumentDB는 NoSQL 문서 데이터베이스 서비스로서, [사용할 수 �
 
 자습서를 완료할 시간이 없고 작동하는 솔루션을 가져오고 싶으신가요? 걱정하지 마세요. [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started)에서 전체 솔루션을 사용할 수 있습니다. 빠른 지침은 [전체 솔루션 다운로드](#GetSolution)를 참조하세요.
 
+자습서를 완료했으면 항목의 시작 또는 끝 부분에 있는 투표 단추를 사용하여 평가해 주세요. 이 항목은 자주 업데이트되므로 개선 사항에 대한 의견을 보내주시면 감사하겠습니다. 연락을 받고 싶으면 후속 조치를 위해 설명에 메일 주소를 포함하세요.
+
 ## 필수 조건
 
 이 문서의 지침을 따르기 전에 다음이 있는지 확인해야 합니다.
 
-- 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/)을 참조하십시오.
+- 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 - [Visual Studio 2013](http://www.visualstudio.com/) 업데이트 4 이상
 
 ## 1단계: DocumentDB 계정 만들기
@@ -454,6 +456,8 @@ DocumentDB 쿼리는 이미 단일 컬렉션으로 범위가 지정되었기 때
 
 > [AZURE.NOTE]데이터베이스를 제거하지 않고 응용 프로그램을 여러 번 실행하면 이미 사용 중인 ID를 사용하는 새 데이터베이스를 만드는 문제가 발생할 수 있습니다. 이를 방지하기 위해 동일한 ID를 사용하는 데이터베이스, 컬렉션 또는 문서가 있는지 확인할 수 있습니다. 이 작업을 수행하는 방법은 [GitHub 페이지](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started)를 참조하세요.
 
+축하합니다. 첫 번째 DocumentDB 앱을 만들었습니다.
+
 ##<a id="GetSolution"></a> 전체 솔루션 다운로드
 이 문서의 모든 샘플을 포함하는 GetStarted 솔루션을 빌드하려면 다음이 필요합니다.
 
@@ -463,6 +467,7 @@ DocumentDB 쿼리는 이미 단일 컬렉션으로 범위가 지정되었기 때
 Visual Studio 2013에서 DocumentDB .NET SDK에 대한 참조를 복원하려면 솔루션 탐색기에서 **GetStarted** 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 복원 사용**을 클릭합니다. 다음으로, App.config 파일에서 EndpointUrl 및 AuthorizationKey 값을 [DocumentDB 계정에 연결](#Connect)에 설명된 대로 업데이트합니다.
 
 ## 다음 단계
+
 -   보다 복잡한 ASP.NET MVC 샘플이 필요하신가요? [DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 빌드](documentdb-dotnet-application.md)를 참조하세요.
 -	[DocumentDB 계정 모니터링](documentdb-monitor-accounts.md) 방법에 대해 자세히 알아봅니다.
 -	[쿼리 실습](https://www.documentdb.com/sql/demo)의 샘플 데이터 집합에 대해 쿼리를 실행합니다.
@@ -475,4 +480,4 @@ Visual Studio 2013에서 DocumentDB .NET SDK에 대한 참조를 복원하려면
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

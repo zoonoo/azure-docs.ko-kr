@@ -3,7 +3,7 @@
 	description="Azure 앱 서비스를 사용하여Xamarin.iOS 앱에 푸시 알림을 전송하는 방법을 알아봅니다."
 	services="app-service\mobile"
 	documentationCenter="xamarin"
-	authors="normesta"
+	authors="wesmc7777"
 	manager="dwrede"
 	editor=""/>
 
@@ -210,4 +210,4 @@
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

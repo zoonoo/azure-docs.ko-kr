@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Application Insights에 대한 릴리스 정보" 
-	description="최신 업데이트입니다." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Application Insights에 대한 릴리스 정보"
+	description="최신 업데이트입니다."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/11/2015"
 	ms.author="awills"/>
  
 # SDK 릴리스 정보 - Application Insights
@@ -24,7 +24,7 @@
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 * [Java](app-insights-release-notes-java.md)
-* [JavaScript](app-insights-release-notes-javascript.md)
+* [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/commits/master)
 * [Windows Phone and Store C#|VB](app-insights-release-notes-windows.md)
 * [Windows Phone and Store C++](app-insights-release-notes-windows-cpp.md)
 * [기타 플랫폼](https://github.com/Microsoft/ApplicationInsights-Home)
@@ -33,4 +33,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 알림 허브 시작"
-	description="Azure 알림 허브를 사용하여 알림을 푸시하는 방법에 대해 알아봅니다."
+	pageTitle="Azure 알림 허브 시작 | Microsoft Azure"
+	description="이 자습서에서 Azure 알림 허브를 사용하여 Android 장치로 푸시 알림을 보내는 방법을 알아봅니다."
 	services="notification-hubs"
 	documentationCenter="android"
 	authors="wesmc7777"
@@ -10,7 +10,7 @@
 <tags
 	ms.service="notification-hubs"
 	ms.devlang="java"
-	ms.topic="hero-article" 
+	ms.topic="hero-article"
 	ms.tgt_pltfrm="mobile-baidu"
 	ms.workload="mobile"
 	ms.date="06/16/2015"
@@ -22,28 +22,28 @@
 
 ##개요
 
-Baidu 클라우드 푸시는 모바일 장치로 푸시 알림을 보내는 데 사용할 수 있는 중국어 클라우드 서비스입니다. 이 서비스는 서로 다른 앱 스토어, 푸시 서비스 및 일반적으로 GCM(Google 클라우드 메시징)에 연결되지 않은 Android 장치의 가용성이 있어서 Android로 푸시 알림을 전달하는 것이 복잡한 중국에서 특히 유용합니다.
+Baidu 클라우드 푸시는 모바일 장치로 푸시 알림을 보내는 데 사용할 수 있는 중국어 클라우드 서비스입니다. 이 서비스는 서로 다른 앱 스토어, 푸시 서비스에 더해 일반적으로 GCM(Google 클라우드 메시징)에 연결되지 않은 Android 장치가 존재하기 때문에 Android로 푸시 알림을 전달하는 것이 복잡한 중국에서 특히 유용합니다.
 
 ##필수 조건
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
-+ Android SDK(Eclipse를 사용하는 것으로 가정) - <a href="http://go.microsoft.com/fwlink/?LinkId=389797">여기</a>에서 다운로드 가능
++ <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android 사이트</a>에서 다운로드할 수 있는 Android SDK(Eclipse를 사용한다고 가정)입니다.
 + [모바일 서비스 Android SDK]
 + [Baidu 푸시 Android SDK]
 
->[AZURE.NOTE]이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F)을 참조하십시오.
+>[AZURE.NOTE]이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F)을 참조하십시오.
 
 
 ##Baidu 계정 만들기
 
-Baidu를 사용하려면 계정을 만들어야 합니다. 계정이 이미 있는 경우 Baidu 계정을 사용하여 [Baidu 포털]에 로그인한 후 다음 단계로 건너뜁니다. 그렇지 않으면 새 Baidu 계정을 만드는 방법에 대해 아래 지침을 참조하십시오.
+Baidu를 사용하려면 Baidu 계정이 있어야 합니다. 이미 있는 경우 [Baidu 포털]에 로그인하고 다음 단계를 건너뜁니다. 그렇지 않은 경우 Baidu 계정을 만드는 방법은 아래 지침을 참조하세요.
 
-1. [Baidu 포털]로 이동하여 登录(로그인) 링크를 클릭합니다. 立即注册을 클릭하여 새 계정 등록 프로세스를 시작합니다.
+1. [Baidu 포털]로 이동하여 **登录**(**Login**) 링크를 클릭합니다. **立即注册**을 클릭하여 새 계정 등록 프로세스를 시작합니다.
 
    	![][1]
 
-2. 필요한 세부 정보(전화/메일 주소, 암호 및 확인 코드)를 입력하고 등록을 클릭합니다.
+2. 필요한 세부 정보(전화/메일 주소, 암호 및 확인 코드)를 입력하고 **등록**을 클릭합니다.
 
    	![][2]
 
@@ -55,27 +55,27 @@ Baidu를 사용하려면 계정을 만들어야 합니다. 계정이 이미 있�
 
    	![][4]
 
-활성화된 Baidu 계정이 있으면 해당 계정으로 [Baidu 포털]에 로그인합니다.
+활성화된 Baidu 계정이 있으면 [Baidu 포털]에 로그인합니다.
 
 ##Baidu 개발자로 등록
 
-1. [Baidu 포털]에 로그인한 후 **更多>>(추가)**를 클릭합니다.
+1. [Baidu 포털]에 로그인한 후 **更多>>**(**추가**)를 클릭합니다.
 
   	![][5]
 
-2. **站长与开发者服务(웹 마스터 및 개발자 서비스)** 섹션까지 아래로 스크롤한 후 **百度开放云平台(Baidu 개방형 클라우드 플랫폼)**을 클릭합니다.
+2. **站长与开发者服务(웹 마스터 및 개발자 서비스)** 섹션까지 아래로 스크롤한 후 **百度开放云平台**(**Baidu 개방형 클라우드 플랫폼**)을 클릭합니다.
 
   	![][6]
 
-3. 다음 페이지의 오른쪽 위에서 **开发者服务(개발자 서비스)**를 클릭합니다.
+3. 다음 페이지의 오른쪽 위에서 **开发者服务**(**개발자 서비스**)를 클릭합니다.
 
   	![][7]
 
-4. 다음 페이지의 오른쪽 위에 있는 메뉴에서 **注册开发者(등록된 개발자)**를 클릭합니다.
+4. 다음 페이지의 오른쪽 위에 있는 메뉴에서 **注册开发者**(**등록된 개발자**)를 클릭합니다.
 
   	![][8]
 
-5. 이름, 설명 및 확인 문자 메시지를 수신할 휴대폰 번호를 입력하고 **送验证码(확인 코드 보내기)**를 클릭합니다. 국제 전화 번호의 경우 국가 번호를 괄호로 묶어야 합니다. 예를 들어 미국 번호의 경우 **(1)1234567890**이 됩니다.
+5. 이름, 설명 및 확인 문자 메시지를 수신할 휴대폰 번호를 입력하고 **送验证码**(**확인 코드 보내기**)를 클릭합니다. 국제 전화 번호의 경우 국가 번호를 괄호로 묶어야 합니다. 예를 들어 미국 번호는 **(1) 1234567890**입니다.
 
   	![][9]
 
@@ -83,9 +83,9 @@ Baidu를 사용하려면 계정을 만들어야 합니다. 계정이 이미 있�
 
   	![][10]
 
-7. 메시지에 포함된 확인 번호를 **验证码(확인 코드)**에 입력합니다.
+7. 메시지에 포함된 확인 번호를 **验证码**(**확인 코드**)에 입력합니다.
 
-8. 마지막으로, Baidu 규약 내용에 동의하고 **提交(제출)**을 클릭하여 개발자 등록을 완료합니다. 등록이 완료되면 다음 페이지가 표시됩니다.
+8. 마지막으로, Baidu 규약 내용에 동의하고 **提交**(**제출**)을 클릭하여 개발자 등록을 완료합니다. 등록이 완료되면 다음 페이지가 표시됩니다.
 
   	![][11]
 
@@ -93,57 +93,57 @@ Baidu를 사용하려면 계정을 만들어야 합니다. 계정이 이미 있�
 
 Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 키를 받게 됩니다.
 
-1. [Baidu 포털]에 로그인한 후 **更多>>(추가)**를 클릭합니다.
+1. [Baidu 포털]에 로그인한 후 **更多>>**(**추가**)를 클릭합니다.
 
   	![][5]
 
-2. **站长与开发者服务(웹 마스터 및 개발자 서비스)** 섹션까지 아래로 스크롤한 후 **百度开放云平台(Baidu 개방형 클라우드 플랫폼)**을 클릭합니다.
+2. **站长与开发者服务**(**웹 마스터 및 개발자 서비스**) 섹션까지 아래로 스크롤한 후 **百度开放云平台**(**Baidu 개방형 클라우드 플랫폼**)을 클릭합니다.
 
   	![][6]
 
-3. 다음 페이지의 오른쪽 위에서 **开发者服务(개발자 서비스)**를 클릭합니다.
+3. 다음 페이지의 오른쪽 위에서 **开发者服务**(**개발자 서비스**)를 클릭합니다.
 
   	![][7]
 
-4. 다음 페이지의 **云推送(클라우드 서비스)** 섹션에서 **云服务(클라우드 푸시)**를 클릭합니다.
+4. 다음 페이지의 **云服务**(**클라우드 서비스**) 섹션에서 **云推送**(**클라우드 푸시**)를 클릭합니다.
 
   	![][12]
 
-5. 등록된 개발자인 경우 최상위 메뉴에 **管理控制台(관리 콘솔)**이 표시됩니다. **开发者服务管理(개발자 서비스 관리)**를 클릭합니다.
+5. 등록된 개발자인 경우 최상위 메뉴에 **管理控制台**(**관리 콘솔**)이 표시됩니다. **开发者服务管理**(**개발자 서비스 관리**)를 클릭합니다.
 
   	![][13]
 
-6. 다음 페이지에서 **创建工程(프로젝트 만들기)**를 클릭합니다.
+6. 다음 페이지에서 **创建工程**(**프로젝트 만들기**)를 클릭합니다.
 
   	![][14]
 
-7. 응용 프로그램 이름을 입력하고 **创建(만들기)**를 클릭합니다.
+7. 응용 프로그램 이름을 입력하고 **创建**(**만들기)**를 클릭합니다.
 
   	![][15]
 
-8. 성공적으로 만들면 **AppID**, **API 키** 및 **비밀 키**가 포함된 페이지가 표시됩니다. 나중에 사용할 **API 키**와 **비밀 키**를 적어 둡니다.
+8. Baidu 클라우드 푸시 프로젝트를 성공적으로 만들면 **AppID**, **API 키** 및 **비밀 키**가 포함된 페이지가 표시됩니다. 나중에 사용할 API 키와 비밀 키를 적어 둡니다.
 
   	![][16]
 
-9. 왼쪽 창에서 **云推送(클라우드 푸시)**를 클릭하여 푸시 알림에 대해 프로젝트를 구성합니다.
+9. 왼쪽 창에서 **云推送**(**클라우드 푸시**)를 클릭하여 푸시 알림에 대해 프로젝트를 구성합니다.
 
   	![][31]
 
-10. 다음 페이지에서 **推送设置(푸시 설정)** 단추를 클릭합니다.
+10. 다음 페이지에서 **推送设置**(**푸시 설정**) 단추를 클릭합니다.
 
 	![][32]
 
-11. 구성 페이지에서 **应用包名(응용 프로그램 패키지)** 필드에 Android 프로젝트에 사용할 패키지 이름을 추가하고 **保存设置(저장)**를 클릭합니다.
+11. 구성 페이지에서 **应用包名**(**응용 프로그램 패키지**) 필드에 Android 프로젝트에 사용할 패키지 이름을 추가하고 **保存设置**(**저장**)를 클릭합니다.
 
 	![][33]
 
-**保存成功!이 나타납니다.(성공적으로 저장했습니다!)** 메시지입니다.
+**保存成功!**(**성공적으로 저장했습니다!**) 메시지가 나타납니다.
 
 ##알림 허브 구성
 
-1. [Azure 관리 포털]에 로그온하고 화면 맨 아래에 있는 **+새로 만들기**를 클릭합니다.
+1. [Azure 포털]에 로그인한 다음 화면 아래쪽에서 **+새로 만들기**를 클릭합니다.
 
-2. **앱 서비스**, **Service Bus**, **알림 허브**, **빠른 생성**을 차례로 클릭합니다.
+2. **앱 서비스**, **서비스 버스**, **알림 허브** 및 **빠른 생성**을 차례로 클릭합니다.
 
 3. **알림 허브**의 이름을 입력하고 이 알림 허브를 만들 **하위 지역** 및 **네임스페이스**를 선택한 후 **새 알림 허브 만들기**를 클릭합니다.
 
@@ -157,7 +157,7 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 
   	![][19]
 
-6. **Baidu 알림 설정** 섹션까지 아래로 스크롤한 후 이전에 Baidu 콘솔에서 Baidu 클라우드 푸시 프로젝트에 대해 받은 **API 키**와 **비밀 키**를 입력합니다. 이러한 값을 입력한 후 **저장**을 클릭합니다.
+6. **Baidu 알림 설정** 섹션까지 아래로 스크롤한 후 이전에 Baidu 콘솔에서 Baidu 클라우드 푸시 프로젝트에 대해 받은 API 키와 비밀 키를 입력합니다. **저장**을 클릭합니다.
 
   	![][20]
 
@@ -165,13 +165,13 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 
   	![][21]
 
-8. Access 연결 정보 창에 있는 **DefaultListenSharedAccessSignature** 및 **DefaultFullSharedAccessSignature**를 적어 둡니다.
+8. **Access 연결 정보** 창에 있는 **DefaultListenSharedAccessSignature** 및 **DefaultFullSharedAccessSignature**를 적어 둡니다.
 
     ![][22]
 
 ##알림 허브에 앱 연결
 
-1. Eclipse ADT에서 새로운 Android 프로젝트를 만듭니다(File -> New -> Android Application).
+1. Eclipse ADT에서 새로운 Android 프로젝트를 만듭니다(**파일** > **새로 만들기** > **Android 응용 프로그램 프로젝트**).
 
     ![][23]
 
@@ -179,7 +179,7 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 
     ![][24]
 
-3. **다음**을 클릭하고 **Create Activity** 창이 표시될 때까지 마법사를 계속 진행합니다. **Blank Activity**가 선택되었는지 확인하고 **마침**을 선택하여 새로운 Android 응용 프로그램을 만듭니다.
+3. **다음**을 클릭하고 **만들기 작업** 창이 표시될 때까지 마법사를 계속 진행합니다. **빈 작업**이 선택되었는지 확인하고 **마침**을 선택하여 새로운 Android 응용 프로그램을 만듭니다.
 
     ![][25]
 
@@ -187,11 +187,11 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 
     ![][26]
 
-5. [모바일 서비스 Android SDK]를 다운로드하여 압축을 풀고 **notificationhubs** 폴더를 연 후 **notification-hubs-x.y.jar** 파일을 Eclipse 프로젝트의 *libs* 폴더에 복사한 다음 *libs* 폴더를 새로 고칩니다.
+5. [모바일 서비스 Android SDK]를 다운로드하여 압축을 풀고 **notificationhubs** 폴더를 연 후 **notification-hubs-x.y.jar** 파일을 Eclipse 프로젝트의 **libs** 폴더에 복사한 다음 *libs* 폴더를 새로 고칩니다.
 
-6. [Baidu 푸시 Android SDK]를 다운로드하여 압축을 풀고 **libs** 폴더를 연 후 *pushservice-x.y.z* jar 파일 및 Android 응용 프로그램의 **libs** 폴더에 있는 *armeabi* 및 *mips* 폴더를 복사합니다.
+6. [Baidu 푸시 Android SDK]를 다운로드하여 압축을 풀고 **libs** 폴더를 연 후 **pushservice-x.y.z** jar 파일 및 Android 응용 프로그램의 **libs** 폴더에 있는 **armeabi** 및 **mips** 폴더를 복사합니다.
 
-7. Android 프로젝트의 **AndroidManifest.xml**을 열고 Baidu SDK에 필요한 권한을 추가합니다.
+7. Android 프로젝트의 **AndroidManifest.xml** 파일을 열고 Baidu SDK에 필요한 권한을 추가합니다.
 
 	    <uses-permission android:name="android.permission.INTERNET" />
 	    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -206,11 +206,11 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 	    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
 	    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
 
-8. 예를 들어 **com.example.BaiduTest**와 같은 *yourprojectname*을 대체하여 **AndroidManifest.xml**의 *응용 프로그램* 요소에 *android:name* 속성을 추가합니다. 이 프로젝트 이름은 Baidu 콘솔에서 구성한 이름과 일치해야 합니다.
+8. 예를 들어 **com.example.BaiduTest**와 같은 *yourprojectname*을 대체하여 **AndroidManifest.xml**의 **응용 프로그램** 요소에 **android:name** 속성을 추가합니다. 이 프로젝트 이름은 Baidu 콘솔에서 구성한 이름과 일치해야 합니다.
 
 		<application android:name="yourprojectname.DemoApplication"
 
-9. 예를 들어 **com.example.BaiduTest**와 같은 *yourprojectname*을 대체하여 .MainActivity 작업 요소 뒤의 응용 프로그램 요소 내에 다음 구성을 추가합니다.
+9. 예를 들어 **com.example.BaiduTest**와 같은 *yourprojectname*을 대체하여 **.MainActivity** 작업 요소 뒤의 응용 프로그램 요소 내에 다음 구성을 추가합니다.
 
 		<receiver android:name="yourprojectname.MyPushMessageReceiver">
 		    <intent-filter>
@@ -264,7 +264,7 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 				public static String NotificationHubConnectionString = "...";
 			}
 
-	*API\_KEY* 값을 앞에서 Baidu 클라우드 프로젝트에서 검색한 값으로 설정하고, *NotificationHubName*을 Azure 포털의 알림 허브 이름으로 설정하고, *NotificationHubConnectionString*을 Azure 포털의 DefaultListenSharedAccessSignature로 설정합니다.
+	**API\_KEY** 값을 앞에서 Baidu 클라우드 프로젝트에서 검색한 값으로 설정하고, **NotificationHubName**을 Azure 포털의 알림 허브 이름으로 설정하고, **NotificationHubConnectionString**을 Azure 포털의 DefaultListenSharedAccessSignature로 설정합니다.
 
 11. **DemoApplication.java**라는 새 클래스를 추가하고 여기에 다음 코드를 추가합니다.
 
@@ -391,21 +391,24 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 	        PushManager.startWork(getApplicationContext(),
 	                PushConstants.LOGIN_TYPE_API_KEY, ConfigurationSettings.API_KEY);
 
-위쪽에 다음 import 문을 추가합니다. import com.baidu.android.pushservice.PushConstants; import com.baidu.android.pushservice.PushManager;
+14. 그런 다음 맨 위에 다음 import 문을 엽니다.
+
+			import com.baidu.android.pushservice.PushConstants;
+			import com.baidu.android.pushservice.PushManager;
 
 ##앱에 알림 보내기
 
-<a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 인터페이스</a>를 사용하여 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다. 이 자습서에서는 .NET 콘솔 앱을 사용하여 이를 보여 줍니다.
+<a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 인터페이스</a>를 사용하는 모든 백 엔드에서 Azure 알림 허브를 사용하여 알림을 보낼 수 있습니다. 이 자습서에서는 .NET 콘솔 앱을 사용하여 이를 보여 줍니다.
 
 1. 새 Visual C# 콘솔 응용 프로그램을 만듭니다.
 
 	![][30]
 
-2. <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet 패키지</a>를 사용하여 Azure 서비스 버스 SDK에 대한 참조를 추가합니다. Visual Studio 주 메뉴에서 **도구**, **라이브러리 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다. 그런 다음 콘솔 창에서 다음을 입력하고 Enter 키를 누릅니다.
+2. <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet 패키지</a>를 사용하여 Azure 서비스 버스 SDK에 대한 참조를 추가합니다. Visual Studio 주 메뉴에서 **도구**를 클릭하고 **라이브러리 패키지 관리자**를 클릭한 다음 **패키지 관리자 콘솔**을 클릭합니다. 그런 다음 콘솔 창에서 다음을 입력하고 Enter 키를 누릅니다.
 
         Install-Package WindowsAzure.ServiceBus
 
-3. Program.cs 파일을 열고 다음 using 문을 추가합니다.
+3. **Program.cs** 파일을 열고 다음 using 문을 추가합니다.
 
         using Microsoft.ServiceBus.Notifications;
 
@@ -418,24 +421,20 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 			var result = await hub.SendBaiduNativeNotificationAsync(message);
 		}
 
-5. 그런 다음 Main 메서드에 다음 줄을 추가합니다.
+5. **Main** 메서드에 다음 줄을 추가합니다.
 
          SendNotificationAsync();
 		 Console.ReadLine();
 
 ##앱 테스트
 
-실제 휴대폰에서 이 앱을 테스트하려면 USB 케이블로 컴퓨터에 연결하면 됩니다.
+실제 휴대폰에서 이 앱을 테스트하려면 USB 케이블을 사용하여 휴대폰을 컴퓨터에 연결하면 됩니다. 앱을 연결된 전화기로 로드합니다.
 
-에뮬레이터로 이 앱을 테스트하려면:
+에뮬레이터를 사용하여 앱을 테스트하려면 Eclipse 상단 도구 모음에서 **실행**을 클릭하고 앱을 선택합니다. 에뮬레이터가 시작된 다음 앱을 로드하고 실행합니다.
 
-1. Eclipse 상단 도구 모음에서 Run을 클릭하고 앱을 선택합니다.
+앱이 Baidu 푸시 알림 서비스에서 'userId' 및 'channelId'를 검색하고 알림 허브에 등록합니다.
 
-2. 앱이 연결된 휴대폰으로 로드되거나, 에뮬레이터가 시작된 후 앱이 로드되고 실행됩니다.
-
-3. 앱이 Baidu 푸시 알림 서비스에서 'userId' 및 'channelId'를 검색하고 알림 허브에 등록합니다.
-
-4.	.Net 콘솔 응용 프로그램을 사용할 때 테스트 알림을 보내려면 Visual Studio에서 F5 키를 눌러 응용 프로그램을 실행합니다. 그러면 장치나 에뮬레이터의 위쪽 알림 영역에 나타날 알림이 전송됩니다.
+.NET 콘솔 응용 프로그램을 사용할 때 테스트 알림을 보내려면 Visual Studio에서 F5 키를 눌러 응용 프로그램을 실행합니다. 응용 프로그램은 장치 또는 에뮬레이터의 상위 알림 영역에 표시되는 알림을 전송합니다.
 
 
 <!-- Images. -->
@@ -476,8 +475,7 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 <!-- URLs. -->
 [모바일 서비스 Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Baidu 푸시 Android SDK]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
-[Azure 관리 포털]: https://manage.windowsazure.com/
+[Azure 포털]: https://manage.windowsazure.com/
 [Baidu 포털]: http://www.baidu.com/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

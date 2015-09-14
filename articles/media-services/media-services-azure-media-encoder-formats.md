@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.date="08/30/2015"
 	ms.author="juliako"/>
 
 #Azure 미디어 인코더 형식 및 코덱
@@ -141,4 +141,4 @@ YUV 211 형식 데이터|압축된 YUV 형식입니다. 두 번째 픽셀마다 
 Cirrus Logic Jr YUV 411 형식|Y, U 및 V 샘플당 비트 수가 8보다 작은 Cirrus Logic Jr YUV 411 형식입니다. 픽셀마다 Y 샘플이 있고 각 줄의 가로 방향으로 네 번째 픽셀마다 U 및 V 샘플이 있으며 모든 세로 줄이 샘플링됩니다.
 Indeo 생성 YVU9 형식|마지막 프레임과의 차이점에 대한 추가 정보가 있는 Indeo 생성 YVU9 형식입니다. 픽셀당 9.5비트이지만 9로 보고됩니다.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

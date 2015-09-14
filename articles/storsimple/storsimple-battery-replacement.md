@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="StorSimple 장치의 백업 배터리 모듈 교체 | Microsoft Azure"
-   description="StorSimple 장치의 백업 배터리 모듈을 꺼내고 교체 및 유지 관리하는 방법을 설명합니다."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="StorSimple 장치의 배터리 교체 | Microsoft Azure"
+	description="StorSimple 장치의 백업 배터리 모듈을 꺼내고 교체 및 유지 관리하는 방법을 설명합니다."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/05/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # StorSimple 장치의 백업 배터리 모듈 교체
 
@@ -27,7 +27,7 @@ Microsoft Azure StorSimple 장치의 기본 엔클로저 PCM(전원 및 냉각 �
 - 새 백업 배터리 모듈 설치
 - 백업 배터리 모듈 유지 관리
 
->[AZURE.IMPORTANT]백업 배터리 모듈을 꺼내고 교체하기 전에 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에서 안전 정보를 검토하세요.
+>[AZURE.IMPORTANT]백업 배터리 모듈을 꺼내고 교체하기 전에 [StorSimple 하드웨어 구성 요소 교체 소개](storsimple-hardware-component-replacement.md)에서 안전 정보를 검토하세요.
 
 ## 백업 배터리 모듈 꺼내기
 
@@ -115,4 +115,4 @@ StorSimple 장치의 기본 엔클로저에 교체 배터리 모듈을 설치하
 
 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,23 +1,24 @@
 <properties 
    pageTitle="StorSimple 장치 컨트롤러 관리 | Microsoft Azure"
-   description="StorSimple 장치 컨트롤러를 중지, 다시 시작, 종료 또는 다시 설정하는 방법을 알아봅니다."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="StorSimple 장치 컨트롤러를 중지, 다시 시작, 종료 또는 다시 설정하는 방법을 알아봅니다."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/13/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
 # StorSimple 장치 컨트롤러 관리
 
 ## 개요
+
 이 자습서에서는 StorSimple 장치 컨트롤러에서 수행할 수 있는 다양한 작업을 설명합니다. StorSimple 장치의 컨트롤러는 능동-수동 구성에서 중복(피어) 컨트롤러입니다. 지정된 시간에 컨트롤러는 하나만 활성화되어 모든 디스크 및 네트워크 작업을 처리합니다. 다른 컨트롤러는 수동 모드입니다. 활성 컨트롤러에 실패하면 수동 컨트롤러가 자동으로 활성화됩니다.
 
 이 자습서는 다음을 사용하여 장치 컨트롤러를 관리하도록 단계별 지침을 제공합니다.
@@ -44,7 +45,7 @@
 
 > - **이렇게 하면 중복 손실과 가동 중지 시간 위험 가능성이 높아져서 실행 중인 컨트롤러를 물리적으로 제거하지 말아야 합니다.**
 
-> - 다음 절차는 물리적 StorSimple 장치에만 적용됩니다. 가상 장치를 시작, 중지 및 다시 시작하는 방법에 대한 자세한 내용은 [가상 장치로 작업](storsimple-virtual-device-u1.md#work-with-the-storsimple-virtual-device)을 참조하십시오.
+> - 다음 절차는 물리적 StorSimple 장치에만 적용됩니다. 가상 장치를 시작, 중지 및 다시 시작하는 방법에 대한 자세한 내용은 [가상 장치로 작업](storsimple-virtual-device-u1.md#work-with-the-storsimple-virtual-device)을 참조하세요.
 
 다음을 사용하여 단일 장치 컨트롤러를 다시 시작하거나 종료할 수 있습니다.
 
@@ -158,7 +159,7 @@ Microsoft Azure StorSimple 장치를 공장 기본 설정으로 다시 설정하
 
 ### StorSimple용 Windows PowerShell의 기본 설정으로 장치를 재설정하려면
 
-1. 직렬 콘솔을 통해 장치에 액세스합니다. 활성 컨트롤러에 연결하려면 배너 메시지를 확인하십시오.
+1. 직렬 콘솔을 통해 장치에 액세스합니다. 활성 컨트롤러에 연결하려면 배너 메시지를 확인하세요.
 
 1. 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다.
 
@@ -221,4 +222,4 @@ Microsoft Azure StorSimple 장치를 공장 기본 설정으로 다시 설정하
 
 StorSimple 장치 컨트롤러에 이 자습서에 나열된 절차를 사용하여 해결할 수 없는 문제가 발생할 경우 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

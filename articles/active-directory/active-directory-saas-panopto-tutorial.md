@@ -1,5 +1,7 @@
 <properties pageTitle="자습서: Panopto와 Azure Active Directory 통합 | Microsoft Azure" description="Azure Active Directory에서 Panopto를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+
+<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi"/>
+
 #자습서: Panopto와 Azure Active Directory 통합
 >[AZURE.TIP]피드백을 보내려면 [여기](http://go.microsoft.com/fwlink/?LinkId=524766)를 클릭하십시오.
   
@@ -38,7 +40,7 @@
 
     ![응용 프로그램 추가](./media/active-directory-saas-panopto-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **수행할 작업** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-panopto-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -124,4 +126,4 @@ Panopto를 프로비전하는 사용자를 구성할 작업 항목이 없습니�
   
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

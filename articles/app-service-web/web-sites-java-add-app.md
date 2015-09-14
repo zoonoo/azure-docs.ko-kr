@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="Azure 앱 서비스 웹 앱에 Java 응용 프로그램 추가" 
-	description="이 자습서에서는 페이지 또는 응용 프로그램을 Java를 사용하도록 이미 구성된 Azure 앱 서비스 웹 앱의 인스턴스를 추가하는 방법을 보여줍니다." 
-	services="app-service\web" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	pageTitle="Azure 앱 서비스 웹 앱에 Java 응용 프로그램 추가"
+	description="이 자습서에서는 페이지 또는 응용 프로그램을 Java를 사용하도록 이미 구성된 Azure 앱 서비스 웹 앱의 인스턴스를 추가하는 방법을 보여줍니다."
+	services="app-service\web"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 # Azure 앱 서비스 웹 앱에 Java 응용 프로그램 추가
 
-[Azure 앱 서비스에서 Java 웹 앱 만들기](web-sites-java-get-started.md)에 설명된 대로 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에서 Java 웹 앱을 초기화하면, **webapps** 폴더에 WAR을 배치하여 응용 프로그램을 업로드할 수 있습니다.
+[Azure 앱 서비스에서 Java 웹 앱 만들기](web-sites-java-get-started.md)에 설명된 대로 [Azure 앱 서비스][]에서 Java 웹 앱을 초기화하면, **webapps** 폴더에 WAR을 배치하여 응용 프로그램을 업로드할 수 있습니다.
 
 **webapps** 폴더의 탐색 경로는 웹 앱 인스턴스 설정 방법에 따라 다릅니다.
 
@@ -32,7 +32,8 @@ Tomcat 웹 앱에 대한 참고 사항: **webapps** 폴더에 WAR 파일을 업�
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
- 
- 
 
-<!---HONumber=August15_HO6-->
+<!-- External Links -->
+[Azure 앱 서비스]: http://go.microsoft.com/fwlink/?LinkId=529714
+
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="자습서: Azure Blob에서 Azure SQL로 데이터 복사" 
-	description="이 자습서에서는 Blob에서 Azure SQL 데이터베이스 인스턴스로 데이터를 복사하는 샘플 데이터 파이프라인을 만드는 방법을 보여 줍니다." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="자습서: Visual Studio를 사용하여 복사 작업이 있는 파이프라인 만들기"
+	description="이 자습서에서는 Visual Studio를 사용하여 복사 작업이 있는 Azure Data Factory 파이프라인을 만듭니다."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
 # 자습서: Visual Studio를 사용하여 데이터 팩터리 만들기 및 모니터링
@@ -250,4 +250,8 @@ Visual Studio용 Azure Data Factory 도구를 업데이트하려면 다음을 �
 
 Azure Preview 포털을 사용하여 이 자습서에서 만든 파이프라인 및 데이터 집합을 모니터링하는 방법에 대한 지침은 [데이터 집합 및 파이프라인 모니터링](data-factory-get-started-using-editor.md/#MonitorDataSetsAndPipeline)을 참조하세요.
 
-<!---HONumber=August15_HO6-->
+
+## 피드백 보내기
+이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started-using-vs.md)을 통해 의견을 보내주세요.
+
+<!---HONumber=September15_HO1-->

@@ -149,11 +149,9 @@ Management Studio를 사용하여 Azure 가상 컴퓨터에서 실행 중인 SQL
 ### Azure에서 SQL Server 서버 작업:
 - [Azure 가상 컴퓨터의 SQL Server Business Intelligence](virtual-machines-sql-server-business-intelligence.md)
 
-- [Azure 가상 컴퓨터의 SQL Server 데이터 웨어하우징 및 트랜잭션 작업](virtual-machines-sql-server-dw-and-oltp-workloads.md)
-
 ### 백서:
 - [Azure 가상 컴퓨터의 Azure SQL 데이터베이스 및 SQL Server 이해](sql-database/data-management-azure-sql-database-and-sql-server-iaas.md)
 
 - [Azure 가상 컴퓨터의 SQL Server에 대한 응용 프로그램 패턴 및 개발 전략](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!------HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

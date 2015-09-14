@@ -32,7 +32,7 @@ HDInsight에서 HBase 클러스터를 프로비전하고, HBase 테이블을 만
 
 이 HBase 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+- **Microsoft Azure 구독** [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 - Visual Studio 2013이 포함된 **워크스테이션**: 지침은 [Visual Studio 설치](http://msdn.microsoft.com/library/e2h7fzkw.aspx)를 참조하세요.
 
 ## HBase 클러스터 프로비저닝
@@ -46,20 +46,20 @@ HDInsight에서 HBase 클러스터를 프로비전하고, HBase 테이블을 만
 2. 왼쪽 위 모서리에서 **새로 만들기**를 클릭한 다음 **데이터 + 분석**, **HDInsight**를 차례로 클릭합니다.
 3. 다음 값을 입력합니다.
 
-	- **클러스터 이름**: 이 클러스터를 식별하기 위한 이름을 입력합니다.
-	- **클러스터 유형**: HBase
+	- **클러스터 이름** - 이 클러스터를 식별하기 위한 이름을 입력합니다.
+	- **클러스터 유형** - HBase
 	- **클러스터 운영 체제**: 현재 HDInsight HBase 클러스터는 Windows 운영 체제에서만 사용할 수 있습니다.
-	- **구독**: 이 클러스터를 프로비전하는 데 사용할 Azure 구독을 선택합니다.
-	- **리소스 그룹**: Azure 리소스 그룹을 추가하거나 선택합니다. 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
-	- **자격 증명 구성**: Windows 기반 클러스터의 경우 클러스터 사용자(HTTP 사용자, HTTP 웹 서비스 사용자라고도 함) 및 원격 데스크톱 사용자를 만들 수 있습니다.
-	- **데이터 원본**: 클러스터의 기본 파일 시스템으로 사용할 기존 Azure 저장소 계정을 선택하거나 새 Azure 저장소 계정을 만듭니다. 이 Azure 저장소 계정은 HDInsight HBase 클러스터와 같은 위치에 있어야 합니다.
-	- **노드 가격 책정 계층:** HBase 클러스터에 사용할 지역 서버 수를 선택합니다.
+	- **구독** - 이 클러스터를 프로비전하는 데 사용할 Azure 구독을 선택합니다.
+	- **리소스 그룹** - Azure 리소스 그룹을 추가하거나 선택합니다. 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
+	- **자격 증명 구성** - Windows 기반 클러스터의 경우 클러스터 사용자(HTTP 사용자, HTTP 웹 서비스 사용자라고도 함) 및 원격 데스크톱 사용자를 만들 수 있습니다.
+	- **데이터 원본** - 클러스터의 기본 파일 시스템으로 사용할 기존 Azure 저장소 계정을 선택하거나 새 Azure 저장소 계정을 만듭니다. 이 Azure 저장소 계정은 HDInsight HBase 클러스터와 같은 위치에 있어야 합니다.
+	- **노드 가격 책정 계층** - HBase 클러스터에 사용할 지역 서버 수를 선택합니다.
 
 		> [AZURE.WARNING]HBase 서비스의 고가용성을 위해 **3개** 이상의 노드가 포함된 클러스터를 프로비전해야 합니다. 이렇게 하면 하나의 노드가 작동이 중지된 경우 다른 노드에서 HBase 데이터 영역을 사용할 수 있습니다.
 
 		> HBase를 학습하는 경우 항상 클러스터 크기로 1을 선택하고 각 사용 후에는 클러스터를 삭제하여 비용을 줄입니다.
 
-	- **옵션 구성**: 클러스터 버전을 선택하고, Azure 가상 네트워크를 구성하고, Hive/Oozie Metastore를 구성하고, 스크립트 동작을 구성하고, 저장소 계정을 더 추가합니다.
+	- **옵션 구성** - 클러스터 버전을 선택하고, Azure 가상 네트워크를 구성하고, Hive/Oozie Metastore를 구성하고, 스크립트 동작을 구성하고, 저장소 계정을 더 추가합니다.
 
 4. **만들기**를 클릭합니다.
 
@@ -176,34 +176,6 @@ Hive를 사용하여 HBase 테이블의 데이터를 쿼리할 수 있습니다.
 
 	![HDInsight 클러스터 대시보드][img-hdinsight-hbase-hive-editor]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 **Hive 쿼리를 실행하려면**
 
 1. 다음 HiveQL 스크립트를 Hive 편집기에 입력하고 **제출**을 클릭하여 HBase 테이블에 매핑되는 Hive 테이블을 만듭니다. 이 문을 실행하기 전에 HBase 셸을 사용하여 이 자습서의 앞에서 참조한 샘플 테이블을 만들었는지 확인합니다.
@@ -240,7 +212,7 @@ Hive를 사용하여 HBase 테이블의 데이터를 쿼리할 수 있습니다.
 GitHub에서 HBase REST API Client Library for .NET을 다운로드하고 HBase .NET SDK를 사용할 수 있도록 프로젝트를 빌드해야 합니다. 다음 절차에는 이 작업에 대한 지침이 있습니다.
 
 1. 새 C# Visual Studio Windows 데스크톱 콘솔 응용 프로그램을 만듭니다.
-2. **도구** 메뉴 > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 클릭하여 NuGet 패키지 관리자 콘솔을 엽니다.
+2. **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 차례로 클릭하여 NuGet 패키지 관리자 콘솔을 엽니다.
 3. 콘솔에서 다음 NuGet 명령을 실행합니다.
 
 		Install-Package Microsoft.HBase.Client
@@ -264,7 +236,7 @@ GitHub에서 HBase REST API Client Library for .NET을 다운로드하고 HBase 
             ClusterCredentials creds = new ClusterCredentials(new Uri(clusterURL), hadoopUsername, hadoopUserPassword);
             HBaseClient hbaseClient = new HBaseClient(creds);
 
-            // Retrieve the cluster version
+            // Retrieve the cluster version.
             var version = hbaseClient.GetVersion();
             Console.WriteLine("The HBase cluster version is " + version);
 
@@ -325,10 +297,10 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 프로비
 
 자세한 내용은 다음을 참조하세요.
 
-- [HDInsight HBase 개요][hdinsight-hbase-overview]\: HBase는 비구조적/반구조적 대량 데이터에 대해 임의 액세스 및 강력한 일관성을 제공하는 Hadoop 기반의 Apache 오픈 소스 NoSQL 데이터베이스입니다.
-- [Azure 가상 네트워크에서 HBase 클러스터 프로비전][hdinsight-hbase-provision-vnet]\: 가상 네트워크 통합을 사용하면 응용 프로그램이 HBase와 직접 통신할 수 있도록 응용 프로그램과 동일한 가상 네트워크에 HBase 클러스터를 배포할 수 있습니다.
-- [HDInsight에서 HBase 복제 구성](hdinsight-hbase-geo-replication.md): 두 Azure 데이터 센터에서 HBase 복제를 구성하는 방법에 대해 알아봅니다.
-- [HDInsight에서 HBase를 사용하여 Twitter 데이터 분석][hbase-twitter-sentiment]\: HDInsight의 Hadoop 클러스터에서 HBase를 사용하여 빅데이터에 대한 실시간 [데이터 분석](http://en.wikipedia.org/wiki/Sentiment_analysis)을 수행하는 방법에 대해 알아봅니다.
+- [HDInsight HBase 개요][hdinsight-hbase-overview] HBase는 구조화되지 않은/반구조화된 대량 데이터에 대해 임의 액세스 및 강력한 일관성을 제공하는 Hadoop 기반의 Apache 오픈 소스 NoSQL 데이터베이스입니다.
+- [Azure 가상 네트워크에 HBase 클러스터 프로비전][hdinsight-hbase-provision-vnet] 가상 네트워크 통합을 사용하면 응용 프로그램이 HBase와 직접 통신할 수 있도록 응용 프로그램과 동일한 가상 네트워크에 HBase 클러스터를 배포할 수 있습니다.
+- [HDInsight에서 HBase 복제 구성](hdinsight-hbase-geo-replication.md) 두 Azure 데이터 센터에서 HBase 복제를 구성하는 방법에 대해 알아봅니다.
+- [HDInsight에서 HBase를 사용하여 Twitter 데이터 분석][hbase-twitter-sentiment] HDInsight의 Hadoop 클러스터에서 HBase를 사용하여 빅 데이터에 대한 실시간 [데이터 분석](http://en.wikipedia.org/wiki/Sentiment_analysis)을 수행하는 방법을 알아봅니다.
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -357,4 +329,4 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 프로비
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

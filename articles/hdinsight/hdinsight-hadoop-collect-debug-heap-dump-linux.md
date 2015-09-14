@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/19/2015"
+	ms.date="09/02/2015"
 	ms.author="larryfr"/>
 
 
@@ -99,7 +99,7 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
 
 4. 힙 덤프를 사용할 서비스에 대한 ***\_OPTS** 항목을 찾아서 사용할 옵션을 추가합니다. 다음 그림에서는 **HADOOP\_NAMENODE\_OPTS** 항목에 `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/`를 추가했습니다.
 
-    ![\-XX가 포함된 HADOOP\_NAMENODE\_OPTS:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
+    ![-XX가 포함된 HADOOP\_NAMENODE\_OPTS:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
 
 	> [AZURE.NOTE]map 또는 reduce 자식 프로세스에 힙 덤프를 사용할 때는 대신 **mapreduce.admin.map.child.java.opts** 및 **mapreduce.admin.reduce.child.java.opts**라는 레이블이 지정된 필드를 찾습니다.
 
@@ -121,4 +121,4 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
 
 8. 서비스가 다시 시작되면 **Service Actions** 단추를 사용하여 **Turn Off Maintenance Mode**를 지정합니다. 그러면 Ambari에서 서비스에 대한 경고 모니터링을 재개합니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

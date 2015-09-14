@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="StorSimple 관리자 서비스를 사용하여 StorSimple 장치 모니터링 | Microsoft Azure"
+   pageTitle="StorSimple 장치 모니터링 | Microsoft Azure"
 	description="StorSimple 관리자 서비스를 사용하여 I/O 성능, 용량 사용률, 네트워크 처리량 및 장치 성능을 모니터링하는 방법에 대해 설명합니다."
 	services="storsimple"
 	documentationCenter="NA"
@@ -12,7 +12,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="TBD"
-	ms.date="08/25/2015"
+	ms.date="09/02/2015"
 	ms.author="alkohli"/>
 
 # StorSimple 관리자 서비스를 사용하여 StorSimple 장치를 모니터링합니다. 
@@ -93,4 +93,4 @@ StorSimple 관리자 서비스를 사용하여 StorSimple 솔루션 내에서 �
 
 [StorSimple Manager 서비스 장치 대시보드를 사용하는 방법에 대해 알아봅니다.](storsimple-device-dashboard.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,23 +1,23 @@
 <properties 
    pageTitle="선호도 그룹에서 지역 VNet(가상 네트워크)으로 마이그레이션하는 방법"
-   description="선호도 그룹에서 지역 VNet으로 마이그레이션하는 방법을 알아봅니다."
-   services="virtual-network"
-   documentationCenter="na"
-   authors="telmosampaio"
-   manager="carolz"
-   editor="tysonn" />
+	description="선호도 그룹에서 지역 VNet으로 마이그레이션하는 방법을 알아봅니다."
+	services="virtual-network"
+	documentationCenter="na"
+	authors="telmosampaio"
+	manager="carolz"
+	editor="tysonn"/>
 <tags 
    ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="05/29/2015"
-   ms.author="telmos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="09/02/2015"
+	ms.author="telmos"/>
 
 # 선호도 그룹에서 지역 VNet(가상 네트워크)으로 마이그레이션하는 방법
 
-선호도 그룹을 사용하면 동일한 선호도 그룹 내에서 만든 리소스가 서로 가까이 있는 서버에서 물리적으로 호스트되도록 할 수 있으며, 이러한 리소스는 더욱 빠르게 통신할 수 있습니다. 과거에는 선호도 그룹이 VNet(가상 네트워크)을 만들기 위한 요구 사항이었습니다. 동시에 VNet을 관리한 네트워크 관리자 서비스는 실제 서버 집합 또는 배율 단위 내에서만 작동할 수 있었습니다. 최근의 아키텍처 개선을 통해 네트워크 관리 범위가 하위 지역까지 증가했습니다.
+선호도 그룹을 사용하면 동일한 선호도 그룹 내에서 만든 리소스가 서로 가까이 있는 서버에서 물리적으로 호스트되도록 할 수 있으며, 이러한 리소스는 더욱 빠르게 통신할 수 있습니다. 과거에는 선호도 그룹이 VNet(가상 네트워크)을 만들기 위한 요구 사항이었습니다. 동시에 VNet을 관리한 네트워크 관리자 서비스는 실제 서버 집합 또는 배율 단위 내에서만 작동할 수 있었습니다. 아키텍처 개선을 통해 네트워크 관리 범위가 하위 지역까지 증가했습니다.
 
 이러한 아키텍처 개선의 결과, 선호도 그룹이 더 이상 권장 사항이 아니며 가상 네트워크에 필수가 아닙니다. VNet에 선호도 그룹을 사용하는 것은 하위 지역 사용으로 바뀌고 있습니다. 하위 지역과 연결된 VNet을 지역 VNet이라고 합니다.
 
@@ -41,11 +41,13 @@
 	
 	네트워크 구성 파일에서 값을 고유한 값으로 바꿔 다음 줄을 편집합니다.
 
-	**이전 값:** \<VirtualNetworkSitename "VNetUSWest" AffinityGroup = "VNetDemoAG">
+	**이전 값:** <VirtualNetworkSitename "VNetUSWest" AffinityGroup = "VNetDemoAG">
 
-	**새 값:** \<VirtualNetworkSitename "VNetUSWest" 위치 = "미국 서부">
+	**새 값:** <VirtualNetworkSitename "VNetUSWest" 위치 = "미국 서부">
 
 1. 변경 내용을 저장하고 Azure에 네트워크 구성을 [가져옵니다](../virtual-networks-using-network-configuration-file/).
+
+>[AZURE.INFO]이 마이그레이션에서는 서비스 가동 중지 시간이 발생하지 않습니다.
 
 ## 선호도 그룹 및 VM
 
@@ -64,4 +66,4 @@
 VM을 배포하면 단일 배율 단위에 배포됩니다. 선호도 그룹이 새 VM 배포에 대해 사용 가능한 VM 크기의 집합을 제한할 수 있지만 배포된 모든 기존 VM은 VM이 배포되는 배율 단위에서 사용 가능한 VM 크기의 집합으로 이미 제한되어 있습니다. 이 때문에 선호도 그룹에서 VM을 제거해도 아무런 효과가 없습니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

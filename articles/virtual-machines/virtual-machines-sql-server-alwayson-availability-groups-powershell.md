@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/14/2015"
-	ms.author="jroth" />
+	ms.author="jroth"/>
 
 # Azure의 AlwaysOn 가용성 그룹(PowerShell) 구성
 
@@ -528,7 +528,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 		$svc2.Start(); 
 		$svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
 
-1. [Azure VM에서 AlwaysOn 가용성 그룹의 WSFC 클러스터 만들기](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)에서 **CreateAzureFailoverCluster.ps1**을 로컬 작업 디렉터리로 다운로드합니다. 이 스크립트를 사용하면 작동 가능한 WSFC 클러스터를 만들 수 있습니다. WSFC가 Azure 네트워크와 상호 작용하는 방식에 대한 중요 정보는 [Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구](https://msdn.microsoft.com/ko-kr/library/azure/jj870962.aspx)를 참조하세요.
+1. [Azure VM에서 AlwaysOn 가용성 그룹의 WSFC 클러스터 만들기](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)에서 **CreateAzureFailoverCluster.ps1**을 로컬 작업 디렉터리로 다운로드합니다. 이 스크립트를 사용하면 작동 가능한 WSFC 클러스터를 만들 수 있습니다. WSFC가 Azure 네트워크와 상호 작용하는 방식에 대한 중요 정보는 [Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)를 참조하세요.
 
 1. 작업 디렉터리로 변경하고 다운로드한 스크립트로 WSFC 클러스터를 만듭니다.
 
@@ -623,4 +623,4 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 
 Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

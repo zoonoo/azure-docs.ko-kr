@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Java에서 파일 저장소를 사용하는 방법| Microsoft Azure" 
-	description="Azure 파일 서비스를 사용하여 파일을 업로드, 다운로드, 나열 및 삭제하는 방법을 알아봅니다. 샘플은 Java로 작성되었습니다." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
-	editor="jimbe" />
+	pageTitle="Java에서 파일 저장소를 사용하는 방법| Microsoft Azure"
+	description="Azure 파일 서비스를 사용하여 파일을 업로드, 다운로드, 나열 및 삭제하는 방법을 알아봅니다. 샘플은 Java로 작성되었습니다."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
+	editor="jimbe"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="v-dedomi"/>
 
 # Java에서 파일 저장소를 사용하는 방법
@@ -221,4 +221,4 @@ Azure 파일 저장소 공유에는 파일이 상주할 수 있는 최소한의 
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,29 +1,29 @@
 <properties 
-   pageTitle="StorSimple 장치에서 장치 모드 변경 | Microsoft Azure"
-   description="다양한 StorSimple 장치 모드 및 장치 모드를 변경하는 방법에 대해 알아보세요."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="StorSimple 장치 모드 변경 | Microsoft Azure"
+	description="StorSimple 장치 모드 및 StorSimple용 Windows PowerShell을 사용하여 장치 모드를 변경하는 방법을 설명합니다."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/12/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/01/2015"
+	ms.author="alkohli"/>
 
-# StorSimple 장치 모드
+# StorSimple 장치에서 장치 모드 변경
 
 이 문서에서는 StorSimple 장치에서 작동할 수 있는 다양한 모드에 대한 간략한 설명을 제공합니다. StorSimple 장치는 표준, 유지 관리 및 복구의 세 가지 모드로 작동할 수 있습니다.
 
 이 문서를 읽은 후 다음에 대해 알 수 있습니다.
 
-- StorSimple 장치 모드
-- StorSimple 장치가 있는 모드를 파악하는 방법
-- 표준에서 유지 관리 모드로 및 *그 반대로* 변경하는 방법
+- StorSimple 장치 모드 정의
+- StorSimple 장치의 현재 모드를 파악하는 방법
+- 표준에서 유지 관리 모드로, 그리고 *그 반대로* 변경하는 방법
 
 
 위의 관리 작업은 StorSimple 장치의 Windows PowerShell 인터페이스를 통해만 수행할 수 있습니다.
@@ -48,20 +48,20 @@ StorSimple용 Windows PowerShell을 통해서만 시스템을 유지 관리 모�
 
 복구 모드는 "네트워크를 지원하는 Windows 안전 모드"로 설명될 수 있습니다. 복구 모드는 Microsoft 기술 지원 서비스 팀을 통해 시스템에서 진단을 수행할 수 있습니다. 복구 모드의 기본 목표는 시스템 로그를 검색하는 것입니다.
 
-시스템이 복구 모드로 전환되는 경우 Microsoft 지원에 다음 단계를 문의해야 합니다. 자세한 내용은 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)로 이동하십시오.
+시스템이 복구 모드로 전환되는 경우 Microsoft 지원에 다음 단계를 문의해야 합니다. 자세한 내용은 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)로 이동하세요.
 
 >[AZURE.NOTE]**장치를 복구 모드로 유지할 수 없습니다. 장치가 잘못된 상태에 있으면 복구 모드는 Microsoft 고객 지원 담당자가 검사할 수 있는 상태로 장치를 전환하려고 합니다.**
 
-## StorSimple 장치 모드 파악
+## StorSimple 장치 모드 확인
 
-장치 모드를 파악하려면 다음 단계를 수행하십시오.
+#### 현재 장치 모드를 확인하려면
 
 1. [장치 직렬 콘솔 연결에 PuTTY 사용](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console) 단계를 수행하여 장치 직렬 콘솔에 로그온합니다.
 2. 장치의 직렬 콘솔 메뉴에 있는 배너 메시지를 살펴봅니다. 이 메시지는 장치가 유지 관리 또는 복구 모드에 있는지를 명시적으로 나타냅니다. 메시지에 시스템 모드에 대한 특정 정보가 없는 경우 장치가 표준 모드에 있습니다.
 
 ## StorSimple 장치 모드 변경 
 
-StorSimple 장치를 유지 관리 모드(표준 모드에서)에 배치하여 유지 관리를 수행하거나 유지 관리 모드 업데이트를 설치할 수 있습니다. 유지 관리 모드로 들어가거나 종료하려면 다음 절차를 수행하십시오.
+StorSimple 장치를 유지 관리 모드(표준 모드에서)에 배치하여 유지 관리를 수행하거나 유지 관리 모드 업데이트를 설치할 수 있습니다. 유지 관리 모드로 들어가거나 종료하려면 다음 절차를 수행하세요.
 
 > [AZURE.IMPORTANT]유지 관리 모드에 들어가기 전에 관리 포털의 **유지 관리** 페이지에서 **하드웨어 상태**에 액세스하여 두 장치 컨트롤러 모두가 정상 상태인지 확인합니다. 컨트롤러가 정상 상태가 아니면 다음 단계는 Microsoft 지원에 문의하세요. 자세한 내용은 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)를 참조하세요.
 
@@ -97,4 +97,4 @@ StorSimple 장치를 유지 관리 모드(표준 모드에서)에 배치하여 �
 
 StorSimple 장치에서 [표준 및 유지 관리 모드 업데이트를 적용](storsimple-update-device.md)하는 방법을 알아봅니다.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

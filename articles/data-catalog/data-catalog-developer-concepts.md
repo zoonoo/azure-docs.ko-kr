@@ -115,13 +115,40 @@ Azure 데이터 카탈로그의 주요 측면은 시스템에서 메타데이터
 <tr><td></td><td>mimeType</td><td>string</td><td>콘텐츠의 mime 형식입니다.</td></tr>
 <tr><td></td><td>콘텐츠</td><td>string</td><td>이 데이터 자산에 액세스하는 방법에 대한 지침입니다. URL, 메일 주소 또는 명령 집합일 수 있습니다.</td></tr>
 
+<tr><td>TableDataProfile</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>numberOfRows</td></td><td>int</td><td>데이터 집합의 행 수입니다.</td></tr>
+<tr><td></td><td>size</td><td>long</td><td>데이터 집합의 크기(바이트)입니다.  </td></tr>
+<tr><td></td><td>schemaModifiedTime</td><td>string</td><td>스키마가 마지막으로 수정된 시간입니다.</td></tr>
+<tr><td></td><td>dataModifiedTime</td><td>string</td><td>데이터 집합이 마지막으로 수정된 시간입니다(데이터 추가, 수정 또는 삭제).</td></tr>
+
+<tr><td>ColumnsDataProfile</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>열</td></td><td>ColumnDataProfile[]</td><td>데이터 집합의 행 수입니다.</td></tr>
+
+
 </table>
 
 ### 일반 형식
 
 일반 형식 속성에 대 한 형식으로 사용할 수 있지만 항목은 없습니다.
 
-<table><tr><td><b>일반 형식</b></td><td><b>속성</b></td><td><b>데이터 형식</b></td><td><b>설명</b></td></tr><tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr><tr><td></td><td>sourceType</td><td>string</td><td>SQL Server, Oracle 데이터베이스 등 데이터 소스의 형식을 설명합니다.   </td></tr><tr><td></td><td>ObjectType</td><td>string</td><td>테이블, SQL Server에 대한 보기 등 데이터 소스에 대한 개체의 형식을 설명합니다.</td></tr><tr><td></td><td>formatType</td><td>string</td><td>데이터의 구조를 설명합니다. 현재 값은 구조적 또는 비구조적입니다.</td></tr><tr><td>SecurityPrincipal</td><td></td><td></td><td></td></tr><tr><td></td><td>upn</td><td>string</td><td>사용자의 고유한 전자 메일 주소입니다.</td></tr><tr><td></td><td>firstname</td><td>string</td><td>사용자의 이름(표시 용).</td></tr><tr><td></td><td>Lastname</td><td>string</td><td>사용자 성(표시 용).</td></tr><tr><td>열</td><td></td><td></td><td></td></tr><tr><td></td><td>name</td><td>string</td><td>열 또는 특성의 이름입니다.</td></tr><tr><td></td><td>type</td><td>string</td><td>열 또는 특성의 데이터 형식입니다. 허용 되는 형식은 자산의 데이터 소스 형식에 따라 달라집니다. 형식의 하위 집합만 지원됩니다.</td></tr><tr><td></td><td>maxLength</td><td>int</td><td>열 또는 특성에 허용되는 최대 길이입니다. 데이터 소스에서 파생됩니다. 일부 소스 형식에만 적용됩니다.</td></tr><tr><td></td><td>자릿수</td><td>바이트</td><td>열 또는 특성에 대한 자릿수입니다. 데이터 소스에서 파생됩니다. 일부 소스 형식에만 적용됩니다.</td></tr><tr><td></td><td>isNullable</td><td>Boolean</td><td>열에 null 값의 허용 여부. 데이터 소스에서 파생됩니다. 일부 소스 형식에만 적용됩니다.</td></tr><tr><td></td><td>식</td><td>string</td><td>값에 계산된 열이 있는 경우 이 필드에는 값을 표현하는 식이 포함됩니다. 데이터 소스에서 파생됩니다. 일부 소스 형식에만 적용됩니다.</td></tr><tr><td></td><td>defaultValue</td><td>object</td><td>개체에 대한 insert 문에 지정하지 않으면 기본 값이 삽입됩니다. 데이터 소스에서 파생됩니다. 일부 소스 형식에만 적용됩니다.</td></tr><tr><td>ColumnDescription</td><td></td><td></td><td></td></tr><tr><td></td><td>tags</td><td>string[]</td><td>열을 설명하는 태그의 배열입니다.</td></tr><tr><td></td><td>description</td><td>string</td><td>열을 설명하는 설명입니다.</td></tr><tr><td></td><td>columnName</td><td>string</td><td>이 정보가 참조하는 열의 이름입니다.</td></tr>
+<table><tr><td><b>일반 형식</b></td><td><b>속성</b></td><td><b>데이터 형식</b></td><td><b>설명</b></td></tr><tr><td>DataSourceInfo</td><td></td><td></td><td></td></tr><tr><td></td><td>sourceType</td><td>string</td><td>SQL Server, Oracle 데이터베이스 등 데이터 소스의 형식을 설명합니다.   </td></tr><tr><td></td><td>ObjectType</td><td>string</td><td>테이블, SQL Server에 대한 보기 등 데이터 소스에 대한 개체의 형식을 설명합니다.</td></tr><tr><td></td><td>formatType</td><td>string</td><td>데이터의 구조를 설명합니다. 현재 값은 구조적 또는 비구조적입니다.</td></tr><tr><td>SecurityPrincipal</td><td></td><td></td><td></td></tr><tr><td></td><td>upn</td><td>string</td><td>사용자의 고유한 전자 메일 주소입니다.</td></tr><tr><td></td><td>firstname</td><td>string</td><td>사용자의 이름(표시 용).</td></tr><tr><td></td><td>Lastname</td><td>string</td><td>사용자 성(표시 용).</td></tr><tr><td>열</td><td></td><td></td><td></td></tr><tr><td></td><td>name</td><td>string</td><td>열 또는 특성의 이름입니다.</td></tr><tr><td></td><td>type</td><td>string</td><td>열 또는 특성의 데이터 형식입니다. 허용 되는 형식은 자산의 데이터 소스 형식에 따라 달라집니다. 형식의 하위 집합만 지원됩니다.</td></tr><tr><td></td><td>maxLength</td><td>int</td><td>열 또는 특성에 허용되는 최대 길이입니다. 데이터 소스에서 파생됩니다. 일부 소스 형식에만 적용됩니다.</td></tr><tr><td></td><td>자릿수</td><td>바이트</td><td>열 또는 특성에 대한 자릿수입니다. 데이터 소스에서 파생됩니다. 일부 소스 형식에만 적용됩니다.</td></tr><tr><td></td><td>isNullable</td><td>Boolean</td><td>열에 null 값의 허용 여부. 데이터 소스에서 파생됩니다. 일부 소스 형식에만 적용됩니다.</td></tr><tr><td></td><td>식</td><td>string</td><td>값에 계산된 열이 있는 경우 이 필드에는 값을 표현하는 식이 포함됩니다. 데이터 소스에서 파생됩니다. 일부 소스 형식에만 적용됩니다.</td></tr><tr><td></td><td>defaultValue</td><td>object</td><td>개체에 대한 insert 문에 지정하지 않으면 기본 값이 삽입됩니다. 데이터 소스에서 파생됩니다. 일부 소스 형식에만 적용됩니다.</td>
+
+</tr><tr><td>ColumnDescription</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>tags</td><td>string[]</td><td>열을 설명하는 태그의 배열입니다.</td></tr>
+<tr><td></td><td>description</td><td>string</td><td>열을 설명하는 설명입니다.</td></tr><tr><td></td><td>columnName</td><td>string</td><td>이 정보가 참조하는 열의 이름입니다.</td></tr>
+
+</tr><tr><td>ColumnDataProfile</td><td></td><td></td><td></td></tr>
+<tr><td></td><td>columnName </td><td>string</td><td>열의 이름입니다.</td></tr>
+<tr><td></td><td>type </td><td>string</td><td>열의 형식입니다.</td></tr>
+<tr><td></td><td>min </td><td>string</td><td>데이터 집합의 최소값입니다.</td></tr>
+<tr><td></td><td>max </td><td>string</td><td>데이터 집합의 최대값입니다.</td></tr>
+<tr><td></td><td>avg </td><td>double</td><td>데이터 집합의 평균 값입니다.</td></tr>
+<tr><td></td><td>stdev </td><td>double</td><td>데이터 집합의 표준 편차입니다.</td></tr>
+<tr><td></td><td>nullCount </td><td>int</td><td>데이터 집합에 있는 null 값의 개수입니다.</td></tr>
+<tr><td></td><td>distinctCount  </td><td>int</td><td>데이터 집합에 있는 고유한 값의 개수입니다.</td></tr>
+
+
+
 </table>
 
 ## 역할 및 권한 부여
@@ -229,6 +256,6 @@ Azure 데이터 카탈로그는 두 가지 권한 부여 메커니즘을 사용�
 > [AZURE.NOTE]PUT에서 본문에는 항목 페이로드 지정은 필수 사항이 아닙니다. PUT은 역할 및/또는 사용 권한을 업데이트 하는 데에만 사용할 수 있습니다.
 
 <!--Image references-->
-[1]: ./media/data-catalog-developer-concepts/concept.png
+[1]: ./media/data-catalog-developer-concepts/concept2.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

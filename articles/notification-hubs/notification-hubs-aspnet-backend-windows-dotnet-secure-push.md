@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure 알림 허브 보안 푸시" 
-	description="Azure에서 보안 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 .NET API를 사용하여 C#으로 작성되었습니다." 
-	documentationCenter="windows" 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
+<properties
+	pageTitle="Azure 알림 허브 보안 푸시"
+	description="Azure에서 보안 푸시 알림을 보내는 방법에 대해 알아봅니다. 코드 샘플은 .NET API를 사용하여 C#으로 작성되었습니다."
+	documentationCenter="windows"
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
 	services="notification-hubs"/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="windows" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="windows"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 #Azure 알림 허브 보안 푸시
@@ -75,7 +75,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 		using Windows.ApplicationModel.Background;
 
 4. Visual Studio의 **파일** 메뉴에서 **모두 저장**을 클릭합니다.
-		
+
 ## 푸시 백그라운드 구성 요소 만들기
 
 다음은 푸시 백그라운드 구성 요소를 만드는 단계입니다.
@@ -96,11 +96,11 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
         		public string Payload { get; set; }
         		public bool Read { get; set; }
     		}
-    
+
 		    public sealed class PushBackgroundTask : IBackgroundTask
     		{
         		private string GET_URL = "{back-end endpoint}/api/notifications/";
-		
+
         		async void IBackgroundTask.Run(IBackgroundTaskInstance taskInstance)
 		        {
         		    // Store the content received from the notification so it can be retrieved from the UI.
@@ -161,7 +161,7 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 	![][3]
 
 13. 계속 **Package.appxmanifest**에서 맨 위 근처에서 **선언**을 클릭합니다. **사용 가능한 선언** 드롭다운에서 **백그라운드 작업**, **추가**를 차례로 클릭합니다.
- 
+
 14. **Package.appxmanifest**의 **속성**에서 **푸시 알림**을 선택합니다.
 
 15. **Package.appxmanifest**의 **앱 설정**에서 **진입점** 필드에 **PushBackgroundComponent.PushBackgroundTask**를 입력합니다.
@@ -185,6 +185,5 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 [3]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push3.png
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png
 [13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push13.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -2,7 +2,14 @@ Azure 저장소의 모든 Blob은 컨테이너에 있어야 합니다. 컨테이
 
 	https://storagesample.blob.core.windows.net/mycontainer/blob1.txt
 	https://storagesample.blob.core.windows.net/mycontainer/photos/myphoto.jpg
- 
-> [AZURE.IMPORTANT]컨테이너의 이름은 항상 소문자여야 합니다. 컨테이너 이름에 대문자를 포함하거나 컨테이너 명명 규칙을 위반하는 경우에 400 오류(잘못된 요청) 메시지를 받을 수 있습니다. 컨테이너 명명 규칙에 대해서는 [컨테이너와 Blob, 메타데이터의 명명 및 참조](https://msdn.microsoft.com/library/azure/dd135715.aspx)를 참조하세요.
 
-<!---HONumber=August15_HO6-->
+컨테이너 이름은 유효한 DNS 이름이어야 하고 다음 명명 규칙을 따라야 합니다.
+
+1. 컨테이너 이름은 문자 또는 숫자로 시작해야 하며 문자, 숫자 및 대시(-) 문자를 포함할 수 있습니다.
+1. 컨테이너 이름에서 모든 대시(-) 문자는 문자 또는 숫자 바로 앞뒤에 와야 하며 연속 대시를 사용할 수 없습니다.
+1. 컨테이너 이름의 모든 문자는 소문자여야 합니다.
+1. 컨테이너 이름의 길이는 3자 이상, 63자 이하여야 합니다.
+
+> [AZURE.IMPORTANT]컨테이너의 이름은 항상 소문자여야 합니다. 컨테이너 이름에 대문자를 포함하거나 컨테이너 명명 규칙을 위반하는 경우에 400 오류(잘못된 요청) 메시지를 받을 수 있습니다.
+
+<!---HONumber=September15_HO1-->

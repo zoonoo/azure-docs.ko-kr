@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="CDN - 국가별로 콘텐츠에 대한 액세스 제한" 
-	description="기본적으로 사용자가 콘텐츠를 요청하는 경우 사용자가 이 요청을 수행하는 위치에 관계 없이 콘텐츠 페이지가 제공됩니다. 경우에 따라 국가별로 콘텐츠에 액세스를 제한 할 수 있습니다. 이 항목에서는 국가별로 액세스를 허용 또는 차단하도록 서비스를 구성하기 위해 **국가 필터링** 기능을 사용하는 방법을 설명합니다." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="CDN - 국가별로 콘텐츠에 대한 액세스 제한"
+	description="기본적으로 사용자가 콘텐츠를 요청하는 경우 사용자가 이 요청을 수행하는 위치에 관계 없이 콘텐츠 페이지가 제공됩니다. 경우에 따라 국가별로 콘텐츠에 액세스를 제한 할 수 있습니다. 이 항목에서는 국가별로 액세스를 허용 또는 차단하도록 서비스를 구성하기 위해 **국가 필터링** 기능을 사용하는 방법을 설명합니다."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/08/2015" 
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="juliako"/>
 
 #국가별로 콘텐츠에 대한 액세스 제한
@@ -65,4 +65,4 @@
 - 상대 경로와 관련된 국가 필터링 구성은 해당 경로에 재귀적으로 적용됩니다.
 - 동일한 상대 경로에 하나의 규칙만 적용할 수 있습니다. (동일한 상대 경로를 가리키는 여러 국가 필터를 만들 수 없습니다 그러나 폴더에는 여러 국가 필터가 있을 수 있습니다. 이는 국가 필터의 재귀적 특성 때문입니다. 즉, 이전에 구성된 폴더의 하위 폴더에 다른 국가 필터를 할당할 수 있습니다.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

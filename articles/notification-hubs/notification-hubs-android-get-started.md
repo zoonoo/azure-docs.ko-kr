@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="05/27/2015"
+	ms.date="09/01/2015"
 	ms.author="wesmc"/>
 
 # 알림 허브 시작
@@ -31,7 +31,7 @@
 이 자습서를 사용하려면 다음이 필요합니다.
 
 + Android Studio - <a href="http://go.microsoft.com/fwlink/?LinkId=389797">사이트에서 다운로드</a>에서 다운로드 가능
-+ 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F)을 참조하십시오.
++ 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fnotification-hubs-android-get-started%2F)을 참조하세요.
 
 
 이 자습서를 완료해야 다른 모든 Android 앱용 알림 허브 자습서를 진행할 수 있습니다.
@@ -104,6 +104,7 @@
 		private NotificationHub hub;
     	private String HubName = "<Enter Your Hub Name>";
 		private String HubListenConnectionString = "<Your default listen connection string>";
+	    private static Boolean isVisible = false;
 
 
 	자리 표시자 3개를 업데이트해야 합니다. * **SENDER\_ID**: `SENDER_ID`를 이전에 [Google 클라우드 콘솔](http://cloud.google.com/console)에서 만든 프로젝트에서 얻은 프로젝트 번호로 설정합니다. * **HubListenConnectionString**: `HubListenConnectionString`을 허브의 **DefaultListenAccessSignature** 연결 문자열로 설정합니다. [Azure 포털]에서 허브의 **대시보드** 탭에 있는 **연결 문자열 보기**를 클릭하여 이 연결 문자열을 복사할 수 있습니다. * **HubName**: Azure의 허브 페이지 위쪽에 표시된 알림 허브의 이름(전체 URL이 **아님**)입니다. 예를 들면 `"myhub"`를 사용합니다.
@@ -139,6 +140,21 @@
     	}
 
 
+7. 앱이 실행 중이며 표시되는 경우 알림을 표시하려면 **DialogNotify** 메서드를 활동에 추가합니다. 또한 대화 상자를 표시하기 위해 활동이 표시되는지 확인하려면 **onStart** 및 **onStop**을 재정의합니다.
+
+	    @Override
+	    protected void onStart() {
+	        super.onStart();
+	        isVisible = true;
+	    }
+	
+	    @Override
+	    protected void onStop() {
+	        super.onStop();
+	        isVisible = false;
+	    }
+
+
 		/**
 		  * A modal AlertDialog for displaying a message on the UI thread
 		  * when there's an exception or message to report.
@@ -148,6 +164,9 @@
 		  */
     	public void DialogNotify(final String title,final String message)
     	{
+	        if (isVisible == false)
+	            return;
+
         	final AlertDialog.Builder dlg;
         	dlg = new AlertDialog.Builder(this);
 
@@ -170,7 +189,7 @@
         	});
     	}
 
-7. Android는 알림을 표시하지 않기 때문에 수신기를 직접 작성해야 합니다. **AndroidManifest.xml**에서 `<application>` 요소 내에 다음 요소를 추가합니다.
+8. Android는 알림을 표시하지 않기 때문에 수신기를 직접 작성해야 합니다. **AndroidManifest.xml**에서 `<application>` 요소 내에 다음 요소를 추가합니다.
 
 	> [AZURE.NOTE]자리 표시자를 패키지 이름으로 교체하세요.
 
@@ -183,14 +202,14 @@
         </receiver>
 
 
-8. Project View에서 **app** > **src** > **main** > **java**를 확장합니다. **java** 아래의 패키지 폴더를 마우스 오른쪽 단추로 클릭하고 **New**, **Java Class**를 차례로 클릭합니다.
+9. Project View에서 **app** > **src** > **main** > **java**를 확장합니다. **java** 아래의 패키지 폴더를 마우스 오른쪽 단추로 클릭하고 **New**, **Java Class**를 차례로 클릭합니다.
 
 	![][6]
 
-9. 새 클래스의 **Name** 필드에 **MyHandler**를 입력하고 **OK**를 클릭합니다.
+10. 새 클래스의 **Name** 필드에 **MyHandler**를 입력하고 **OK**를 클릭합니다.
 
 
-10. 다음 가져오기 문을 **MyHandler.java**의 맨 위에 추가합니다.
+11. 다음 가져오기 문을 **MyHandler.java**의 맨 위에 추가합니다.
 
 		import android.app.NotificationManager;
 		import android.app.PendingIntent;
@@ -201,12 +220,12 @@
 		import com.microsoft.windowsazure.notifications.NotificationsHandler;
 
 
-11. 다음과 같이 클래스 선언을 업데이트하여 `MyHandler`를 `com.microsoft.windowsazure.notifications.NotificationsHandler`의 하위 클래스로 설정합니다.
+12. 다음과 같이 클래스 선언을 업데이트하여 `MyHandler`를 `com.microsoft.windowsazure.notifications.NotificationsHandler`의 하위 클래스로 설정합니다.
 
 		public class MyHandler extends NotificationsHandler {
 
 
-12. `MyHandler` 클래스에 대해 다음 코드를 추가합니다.
+13. `MyHandler` 클래스에 대해 다음 코드를 추가합니다.
 
 	이 코드는 처리기가 받은 알림을 보여 주는 팝업 `AlertDialog`를 표시할 수 있도록 `OnReceive` 메서드를 재정의합니다. 또한 처리기는 `sendNotification()` 메서드를 사용하여 Android Notification Manager에 알림을 보냅니다.
 
@@ -245,7 +264,7 @@
 			mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
 		}
 
-13. Android Studio의 메뉴 모음에서 **Build** -> **Rebuild Project**를 클릭하여 발견된 오류가 없는지 확인합니다.
+14. Android Studio의 메뉴 모음에서 **Build** -> **Rebuild Project**를 클릭하여 발견된 오류가 없는지 확인합니다.
 
 ##알림 보내기
 
@@ -511,4 +530,4 @@
 [알림 허브를 사용하여 사용자에게 알림 푸시]: notification-hubs-aspnet-backend-android-notify-users.md
 [알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

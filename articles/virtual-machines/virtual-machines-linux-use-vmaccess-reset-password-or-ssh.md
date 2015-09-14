@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="KBDAzure"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -13,12 +14,12 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/07/2015"
+	ms.date="08/28/2015"
 	ms.author="kathydav"/>
 
 # Linux 가상 컴퓨터에 대한 암호 또는 SSH를 다시 설정하는 방법 #
 
-암호를 잊어버리거나, SSH(Secure Shell) 키가 잘못되었거나, SSH 구성 문제가 발생하여 Linux 가상 컴퓨터에 연결할 수 없는 경우, Azure 미리 보기 포털이나 VMAccessforLinux 확장을 사용하여 암호 또는 SSH 키를 다시 설정하거나 SSH 구성을 수정할 수 있습니다.
+암호를 잊어버리거나, SSH(Secure Shell) 키가 잘못되었거나, SSH 구성 문제가 발생하여 Linux 가상 컴퓨터에 연결할 수 없는 경우, Azure 미리 보기 포털이나 VMAccessforLinux 확장을 사용하여 암호 또는 SSH 키를 다시 설정하거나 SSH 구성을 수정할 수 있습니다. 이 문서는 **클래식** 배포 모델을 사용하여 만든 가상 컴퓨터에 적용됩니다.
 
 ## Azure Preview 포털
 
@@ -261,6 +262,5 @@ VMAccess 확장 상태를 표시하려면, 다음 명령을 실행합니다.
 [Azure PowerShell을 설치 및 구성하는 방법]: ../install-configure-powershell.md
 [Azure VM 확장 및 기능]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결]: http://msdn.microsoft.com/library/azure/dn535788.aspx
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

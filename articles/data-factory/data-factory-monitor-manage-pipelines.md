@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Azure 데이터 팩터리 파이프라인 모니터링 및 관리" 
-	description="Azure 관리 포털과 Azure PowerShell을 사용하여 사용자가 만든 Azure 데이터 팩터리와 파이프라인을 모니터링하고 관리하는 방법에 대해 알아봅니다." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
+	pageTitle="Azure Data Factory 파이프라인 모니터링 및 관리"
+	description="Azure 관리 포털과 Azure PowerShell을 사용하여 사용자가 만든 Azure Data Factory와 파이프라인을 모니터링하고 관리하는 방법에 대해 알아봅니다."
+	services="data-factory"
+	documentationCenter=""
+	authors="spelluru"
+	manager="jhubbard"
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/27/2015" 
+	ms.service="data-factory"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
-# Azure 데이터 팩터리 파이프라인 모니터링 및 관리
+# Azure Data Factory 파이프라인 모니터링 및 관리
 데이터 팩터리 서비스는 저장소, 처리 및 데이터 이동 서비스의 안정적이고 완전한 뷰를 제공합니다. 이 서비스는 신속하게 종단 간 데이터 파이프라인 상태를 평가하고 문제를 파악하여 필요한 경우 수정 동작을 수행할 수 있도록 도와줍니다. 또한 모든 원본에서 데이터 간의 관계 및 데이터 연결을 시각적으로 추적하고 단일 모니터링 대시보드에서 작업 실행, 시스템 상태 및 종속성의 전체 기록을 확인할 수도 있습니다.
 
 이 문서는 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 경고를 생성하고 오류에 대한 알림을 받는 방법에 대한 정보도 제공합니다.
@@ -131,10 +131,10 @@ Azure PowerShell을 사용하여 파이프라인을 관리할 수 있습니다. 
 
 
 ## 파이프라인 디버깅
-Azure 데이터 팩터리는 Azure 포털 및 Azure PowerShell을 통해 파이프라인 디버그와 문제 해결을 위한 다양한 기능을 제공합니다.
+Azure Data Factory는 Azure 포털 및 Azure PowerShell을 통해 파이프라인 디버그와 문제 해결을 위한 다양한 기능을 제공합니다.
 
 ### 파이프라인에서 오류 찾기
-파이프라인에서 작업이 실패하면 파이프라인에 의해 생성된 데이터 집합은 실패로 인한 오류 상태가 됩니다. 다음과 같은 메커니즘을 사용하여 Azure 데이터 팩터리에서 오류의 문제를 해결하고 디버그할 수 있습니다.
+파이프라인에서 작업이 실패하면 파이프라인에 의해 생성된 데이터 집합은 실패로 인한 오류 상태가 됩니다. 다음과 같은 메커니즘을 사용하여 Azure Data Factory에서 오류의 문제를 해결하고 디버그할 수 있습니다.
 
 #### Azure 포털을 사용한 오류 디버그:
 
@@ -226,7 +226,7 @@ Azure 데이터 팩터리는 Azure 포털 및 Azure PowerShell을 통해 파이�
 
 	Set-AzureDataFactorySliceStatus [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Status] <String> [[-UpdateType] <String> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
 
-**예:** 다음 예에서는 Azure 데이터 팩터리 'WikiADF'에서 'DAWikiAggregatedData' 테이블의 모든 조각 상태를 'PendingExecution'으로 설정합니다.
+**예:** 다음 예에서는 Azure Data Factory 'WikiADF'에서 'DAWikiAggregatedData' 테이블의 모든 조각 상태를 'PendingExecution'으로 설정합니다.
 
 **참고:** UpdateType이 UpstreamInPipeline으로 설정되며 이것은 파이프라인에서 작업의 입력 테이블로 사용되는 테이블과 모든 종속(업스트림) 테이블에 대한 각 조각의 상태를 "PendingExecution"으로 설정합니다. 이 매개 변수에 사용할 수 있는 다른 값은 "Individual"입니다.
 
@@ -467,4 +467,8 @@ Powershell을 사용하여 경고 설정을 보려면 다음과 같은 명령을
 	Parameters        :
 	Outputs           
 
-<!---HONumber=August15_HO6-->
+
+## 피드백 보내기
+이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-pipelines.md)을 통해 의견을 보내주세요.
+
+<!---HONumber=September15_HO1-->

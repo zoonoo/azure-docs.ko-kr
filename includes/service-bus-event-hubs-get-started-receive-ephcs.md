@@ -4,7 +4,7 @@
 
 [EventProcessorHost]를 사용하려면 [Azure 저장소 계정]이 있어야 합니다.
 
-1. [Azure 관리 포털]에 로그온하고 화면 맨 아래에 있는 **새로 만들기**를 클릭합니다.
+1. [Azure 포털]에 로그온한 다음 화면 맨 아래에서 **새로 만들기**를 클릭합니다.
 
 2. **데이터 서비스**, **저장소**, **빠른 생성**을 차례로 클릭한 다음 저장소 계정 이름을 입력합니다. 원하는 지역을 선택하고 **저장소 계정 만들기**를 클릭합니다.
 
@@ -28,7 +28,7 @@
 
     ![][13]
 
-	그러면 <a href="https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost">Azure 서비스 버스 이벤트 허브 - EventProcessorHost NuGet 패키지</a>에 대한 참조 및 해당하는 모든 종속성이 다운로드, 설치 및 추가됩니다.
+	그러면 [Azure 서비스 버스 이벤트 허브 - EventProcessorHost NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost)에 대한 참조 및 해당하는 모든 종속성이 다운로드, 설치 및 추가됩니다.
 
 7. **Receiver** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**를 클릭한 후 **클래스**를 클릭합니다. 새 클래스의 이름을 **SimpleEventProcessor**로 지정하고 **확인**을 클릭하여 클래스를 생성합니다.
 
@@ -112,12 +112,12 @@
 > [AZURE.NOTE]이 자습서에서는 [EventProcessorHost]의 단일 인스턴스를 사용합니다. 처리량을 늘리려면 [EventProcessorHost]의 여러 인스턴스를 사용하는 것이 좋습니다. [확장된 이벤트 처리 샘플](영문)을 참조하세요. 이러한 경우 다양한 인스턴스가 자동으로 서로 조정하여 수신된 이벤트의 부하를 분산합니다. 여러 수신기가 각각 이벤트를 *모두* 처리하도록 하려면 **ConsumerGroup** 개념을 사용해야 합니다. 서로 다른 컴퓨터에서 이벤트를 수신하는 경우 [EventProcessorHost] 인스턴스의 이름을 해당 인스턴스가 배포된 컴퓨터 또는 역할을 기준으로 지정하면 유용할 수 있습니다. 이러한 항목에 대한 자세한 내용은 [이벤트 허브 개요] 및 [이벤트 허브 프로그래밍 가이드]를 참조하세요.
 
 <!-- Links -->
-[이벤트 허브 개요]: http://azure.microsoft.com/documentation/articles/event-hubs-overview/
+[이벤트 허브 개요]: event-hubs-overview.md
 [확장된 이벤트 처리]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
 [확장된 이벤트 처리 샘플]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
-[Azure 저장소 계정]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
+[Azure 저장소 계정]: storage-create-storage-account.md
 [EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[Azure 관리 포털]: http://manage.windowsazure.com
+[Azure 포털]: http://manage.windowsazure.com
 
 <!-- Images -->
 
@@ -126,8 +126,8 @@
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[이벤트 허브 프로그래밍 가이드]: http://azure.microsoft.com/documentation/articles/event-hubs-programming-guide/
+[이벤트 허브 프로그래밍 가이드]: event-hubs-programming-guide.md
 [Async Await in Console Apps]: http://blogs.msdn.com/b/pfxteam/archive/2012/01/20/10259049.aspx
 [AsyncPump.cs]: http://blogs.msdn.com/cfs-file.ashx/__key/communityserver-components-postattachments/00-10-25-90-49/AsyncPump_2E00_cs
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="HDInsight의 Storm으로 이벤트 허브에서 이벤트 처리 | Microsoft Azure"
-   description="Visual Studio용 HDInsight 도구를 사용하여 Visual Studio에서 만든 C# Storm 토폴로지로 이벤트 허브 데이터를 처리하는 방법에 대해 알아봅니다."
-   services="hdinsight,notification hubs"
-   documentationCenter=""
-   authors="Blackmist"
-   manager="paulettm"
-   editor="cgronlun"/>
+	description="Visual Studio용 HDInsight 도구를 사용하여 Visual Studio에서 만든 C# Storm 토폴로지로 이벤트 허브 데이터를 처리하는 방법에 대해 알아봅니다."
+	services="hdinsight,notification hubs"
+	documentationCenter=""
+	authors="Blackmist"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="07/24/2015"
-   ms.author="larryfr"/>
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="big-data"
+	ms.date="09/02/2015"
+	ms.author="larryfr"/>
 
 # HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리
 
@@ -237,14 +237,14 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 
 이벤트 허브 Bolt에는 이벤트 허브로 라우팅되는 단일 문자열 값이 필요합니다. 다음 예제에서는 기본 **Spout.cs** 파일을 수정하여 JSON 문자열을 생성합니다.
 
-1. **솔루션 탐색기**에서 **EventHubWriter** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Nuget 패키지 관리**를 선택합니다. **Json.NET** 패키지를 검색한 다음 솔루션에 추가합니다. 그러면 Bolt를 사용하여 이벤트 허브로 전송할 JSON 데이터를 쉽게 만들 수 있습니다.
-
-1. **Spout.cs**를 열고 파일 맨 위에 다음을 추가합니다.
+1. **솔루션 탐색기**에서 **Spout.cs**를 열고 파일 맨 위에 다음을 추가합니다.
 
 		using Newtonsoft.Json;
 		using Newtonsoft.Json.Linq;
 
 	이렇게 하면 JSON 데이터를 사용하여 보다 쉽게 작업할 수 있습니다.
+    
+    > [AZURE.NOTE]C# Storm 토폴로지에 사용되는 SCP.NET 프레임워크에서 필요하므로 JSON.NET 패키지가 이미 설치되어 있어야 합니다.
 
 3. 다음 코드를 찾습니다.
 
@@ -420,9 +420,7 @@ Spout 및 Bolt는 **eventhubs-storm-spout-0.9-jar-with-dependencies.jar**이라�
 
 ### bolt 수정
 
-1. **솔루션 탐색기**에서 **EventHubReader** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Nuget 패키지 관리**를 선택합니다. **Json.Net** 패키지를 검색한 다음 솔루션에 추가합니다. 그러면 spout에서 받은 JSON 데이터를 쉽게 처리할 수 있습니다. 또한 테이블 저장소에 기록할 수 있도록 하는 **WindowsAzure.Storage** 패키지를 추가합니다.
-
-1. **Bolt.cs**를 열고 파일 맨 위에 다음을 추가합니다.
+1. **솔루션 탐색기**에서 **EventHubReader** 프로젝트를 확장하고 **Bolt.cs** 파일을 엽니다. 파일 맨 위에 다음을 추가합니다.
 
 		using Newtonsoft.Json.Linq;
 		using Microsoft.WindowsAzure.Storage;
@@ -557,4 +555,4 @@ EventHubSpout는 해당 상태의 검사점을 큐에서 읽은 메시지의 현
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

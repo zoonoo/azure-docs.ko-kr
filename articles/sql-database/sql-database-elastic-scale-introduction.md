@@ -1,20 +1,20 @@
 <properties
     pageTitle="Azure SQL 데이터베이스 탄력적 데이터베이스 도구"
-    description="탄력적 데이터베이스 도구를 사용하여 클라우드에서 데이터베이스 리소스를 쉽게 확장할 수 있습니다."
-    services="sql-database"
-    documentationCenter=""
-    manager="jeffreyg"
-    authors="sidneyh"
-    editor=""/>
+	description="SaaS(Software as a Service) 개발자는 이러한 도구를 사용하여 클라우드에서 확장 가능한 탄력적 데이터베이스를 쉽게 만들 수 있습니다."
+	services="sql-database"
+	documentationCenter=""
+	manager="jeffreyg"
+	authors="ddove"
+	editor=""/>
 
 <tags
     ms.service="sql-database"
-    ms.workload="sql-database"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/03/2015"
-    ms.author="sidneyh"/>
+	ms.workload="sql-database"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/27/2015"
+	ms.author="sidneyh"/>
 
 # 탄력적 데이터베이스 기능 개요
 
@@ -29,13 +29,15 @@
 
 ![탄력적 데이터베이스 도구][1]
 
+이 그래픽의 인쇄 가능한 버전을 보려면 [탄력적 데이터베이스 개요 다운로드](http://aka.ms/axmybc)로 이동합니다.
+
 이 그래픽에서 데이터베이스의 색은 스키마를 나타냅니다. 동일한 색의 데이터베이스는 동일한 스키마를 공유합니다.
 
 1. **Azure SQL 데이터베이스** 집합은 분할 아키텍처를 사용하여 Azure에서 호스트됩니다. 
 2. **탄력적 데이터베이스 클라이언트 라이브러리**는 분할된 데이터베이스 집합을 관리하는 데 사용됩니다.
 3. 데이터베이스 하위 집합은 **탄력적 데이터베이스 풀**에 배치됩니다. [탄력적 데이터베이스로 폭발적인 증가](sql-database-elastic-pool.md)를 참조하세요. 
 4. **탄력적 데이터베이스 작업**은 모든 데이터베이스에 대해 T-SQL 스크립트를 실행합니다.
-5. **분할-병합 도구**는 데이터를 하나의 분할된 데이터베이스에서 다른 분할된 데이터베이스로 이동하는데 사용됩니다.
+5. **분할-병합 도구**는 데이터를 하나의 분할된 데이터베이스에서 다른 분할된 데이터베이스로 이동하는 데 사용됩니다.
 6. **탄력적 데이터베이스 쿼리**를 통해 분할된 데이터베이스 집합의 모든 데이터베이스에 걸쳐 있는 쿼리를 작성할 수 있습니다.
   
 ## 약속 및 도전 과제
@@ -55,7 +57,7 @@
 
 용량이나 전체적인 성능을 조절 하기 위해 데이터베이스를 추가하거나 제거 하려면 수평적 확장을 참조합니다. “확장"이라고도 합니다. 분할은 동일한 구조 데이터베이스 컬렉션 간의 분할된 데이터의 수평적 확장 구현을 위한 일반적인 방법입니다.
 
-개별 데이터베이스 성능 수준을 증가시키거나 감소하려면 수직적 확장을 참조하세요-“Scaling up”이라고도 합니다.
+수직적 크기 조정은 개별 데이터베이스 성능 수준의 증가 또는 감소를 나타냅니다. “강화”라고도 합니다.
 
 대부분의 클라우드 규모 데이터베이스 응용 프로그램에 이러한 두 전략의 조합을 사용 합니다. 예를 들어, 서비스 응용 프로그램 같은 소프트웨어는 새로운 최종고객을 프로비전하기 위해 수평적 확장을 사용할 것이고, 워크로드의 필요에 의해 개별 최종 고객의 데이터베이스 리소스를 늘리거나 줄이기 위해 수직적 확장을 사용할 것입니다.
 
@@ -102,4 +104,4 @@ SaaS 응용 프로그램을 만들 때 잠재 고객에게 평가판 소프트�
 [3]: ./media/sql-database-elastic-scale-introduction/overview.png
 [4]: ./media/sql-database-elastic-scale-introduction/single_v_multi_tenant.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

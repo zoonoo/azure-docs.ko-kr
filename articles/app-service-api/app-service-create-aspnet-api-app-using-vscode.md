@@ -1,26 +1,25 @@
 <properties
    pageTitle="Visual Studio Code에서 ASP.NET 5 API 앱 만들기"
-   description="이 자습서에서는 Visual Studio Code를 사용하여 ASP.NET 5 API 앱을 만드는 방법을 보여줍니다."
-   services="app-service\api"
-   documentationCenter=".net"
-   authors="erikre"
-   manager="wpickett"
-   editor="jimbe"/>
+	description="이 자습서에서는 Visual Studio Code를 사용하여 ASP.NET 5 API 앱을 만드는 방법을 보여줍니다."
+	services="app-service\api"
+	documentationCenter=".net"
+	authors="erikre"
+	manager="wpickett"
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-api" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.service="app-service-api"
+	ms.workload="web"
+	ms.tgt_pltfrm="dotnet"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="erikre"/>
 
 # Visual Studio Code에서 ASP.NET 5 API 앱 만들기
 
 > [AZURE.SELECTOR]
-- [Visual Studio 2013](app-service-dotnet-create-api-app.md)
-- [Visual Studio 2015 RC](app-service-dotnet-create-api-app-vs2015.md)
+- [Visual Studio 2015 or 2013](app-service-dotnet-create-api-app.md)
 - [Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
 
 ## 개요
@@ -173,7 +172,7 @@ namespace ContactsList.Models
 
 5. 브라우저를 열고 다음 URL로 이동합니다.
 
-	**http://localhost:5001/api/Contacts**로 바꿉니다.
+	****http://localhost:5001/api/Contacts**
 
 	여기서 *Contacts.json*의 내용을 볼 수 있습니다. 파일에서 다음 내용을 볼 수 있습니다.
 
@@ -450,4 +449,4 @@ Azure Preview 포털에서 API 앱에 대한 **API 앱 호스트** 블레이드�
 이 자습서에서는 Visual Studio Code에서 API 앱을 만드는 방법을 알아보았습니다. Visual Studio Code에 대한 자세한 내용은 [Visual Studio Code](https://code.visualstudio.com/Docs/)를 참조하세요. API 앱에 대한 자세한 내용은 [API 앱 정의](app-service-api-apps-why-best-platform.md)를 참조하세요.
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

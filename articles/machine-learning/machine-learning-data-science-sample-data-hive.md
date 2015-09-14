@@ -4,8 +4,8 @@
 	services="machine-learning,hdinsight"
 	documentationCenter=""
 	authors="hangzh-msft"
-	manager="paulettm" 
-	editor="cgronlun"  />
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -13,14 +13,18 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
-	ms.author="hangzh;bradsev" />
+	ms.date="09/01/2015"
+	ms.author="hangzh;bradsev"/>
 
 # Azure HDInsight Hive 테이블에서 데이터 샘플링
 
 분석할 데이터 집합이 큰 경우 일반적으로 데이터를 다운 샘플링하여 작지만 전형적이고 관리하기 쉬운 크기로 줄이는 것이 좋습니다. 그러면 데이터 이해, 탐색 및 기능 엔지니어링이 용이해집니다. Azure 기계 학습의 ADAPT(고급 분석 프로세스 및 기술)에서 해당 역할은 데이터 처리 함수 및 기계 학습 모델의 프로토타입을 신속하게 만드는 것입니다.
 
-이 문서에서는 Hive 쿼리를 사용하여 Azure HDInsight Hive 테이블의 데이터를 다운 샘플링하는 방법에 대해 설명합니다. 일반적으로 사용되는 세 가지 샘플링 방법인 균일한 무작위 샘플링, 그룹별 무작위 샘플링 및 계층화된 샘플링에 대해 알아봅니다.
+이 문서에서는 Hive 쿼리를 사용하여 Azure HDInsight Hive 테이블의 데이터를 다운 샘플링하는 방법에 대해 설명합니다. 일반적으로 사용되는 세 가지 샘플링 방법인
+
+* 균일한 무작위 샘플링 
+* 그룹별 무작위 샘플링 
+* 계층화된 샘플링
 
 Hadoop 클러스터 헤드 노드의 Hadoop 명령줄 콘솔에서 Hive 쿼리를 제출해야 합니다. 이렇게 하려면 Hadoop 클러스터의 헤드 노드에 로그인하여 Hadoop 명령줄 콘솔을 열고 여기에서 Hive 쿼리를 제출합니다. Hadoop 명령줄 콘솔에서 Hive 쿼리를 제출하는 방법에 대한 지침은 [Hive 쿼리를 제출하는 방법](machine-learning-data-science-process-hive-tables.md#submit)을 참조하세요.
 
@@ -95,4 +99,4 @@ Hadoop 클러스터 헤드 노드의 Hadoop 명령줄 콘솔에서 Hive 쿼리�
 Hive에서 사용할 수 있는 고급 샘플링 방법에 대한 자세한 내용은 [LanguageManual 샘플링](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling)을 참조하세요.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Azure Site Recovery: 질문과 대답" 
-	description="이 문서는 Azure Site Recovery를 사용하는 방법에 대한 일반적인 질문을 설명합니다." 
-	services="site-recovery" 
+	pageTitle="Azure Site Recovery: 질문과 대답"
+	description="이 문서는 Azure Site Recovery를 사용하는 방법에 대한 일반적인 질문을 설명합니다."
+	services="site-recovery"
 	documentationCenter=""
 	authors="csilauraa"
 	manager="jwhit"
@@ -11,9 +11,9 @@
 	ms.service="site-recovery"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm="na" 
+	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="06/02/2015" 
+	ms.date="08/26/2015"
 	ms.author="lauraa"/>
 
 
@@ -42,6 +42,28 @@ ASR은 ISO 27001:2005 인증이며, HIPAA, DPA 및 FedRAMP JAB 평가를 완료�
 
 예. ASR 워크플로는 Rest API, PowerShell 또는 Azure SDK를 사용하여 자동화할 수 있습니다. [Azure Site Recovery를 위한 PowerShell 지원 소개](http://azure.microsoft.com/blog/2014/11/05/introducing-powershell-support-for-azure-site-recovery/)라는 제목의 블로그 게시물에서 자세한 내용을 볼 수 있습니다.
 
+### ASR은 복제를 암호화합니까? 
+Azure에 대한 온-프레미스 간 및 온-프레미스 간 복제는 *Hyper-V 및 VMM 보호 시나리오*에 대한 전송 중에 암호화를 지원합니다. Azure에 대한 *Hyper-V 및 VMM 보호*는 휴지 상태에서도 암호화를 지원합니다. 자세한 내용은 [이 문서](https://azure.microsoft.com/blog/2014/09/02/azure-site-recovery-privacy-security-part1/)를 참조하세요.
+
+### 복제/복사 빈도를 15분 보다 높게 늘릴 수 있습니까?
+* **Hyper-V 및 VMM 시나리오**: 아니요, 호스트 기반 복제를 사용한 Hyper-V 가상 컴퓨터 복제는 30초, 5분 및 15분으로만 구성할 수 있습니다.
+* **VMware/실제 시나리오**: 기술은 지속적인 데이터 보호를 사용하기 때문에 게스트 내 기반 복제에 적용할 수 없습니다.
+
+### ASR을 사용하여 특정 디스크를 복제에서 제외할 수 있습니까?
+지원되지 않습니다. [Azure 사이트 복구 피드백 포럼 - 복제에서 디스크 제외](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6418801-exclude-disks-from-replication)를 통해 사용자 의견을 보내 주세요.
+
+### 가상 컴퓨터를 기반으로 동적 디스크를 복제할 수 있습니까?
+*Hyper-V 및 VMM 시나리오*는 동적 디스크를 지원합니다. *VMware 가상 컴퓨터 또는 물리적 컴퓨터 시나리오*는 동적 디스크를 지원하지 않습니다. [Azure 사이트 복구 피드백 포럼](http://feedback.azure.com/forums/256299-site-recovery)을 통해 사용자 의견을 보내 주세요.
+
+### 어떤 종류의 저장소 계정 유형이 지원됩니까?
+[표준 지역 중복 저장소](../storage/storage-redundancy.md#geo-redundant-storage)가 지원됩니다. [프리미엄 저장소 계정]((../storage/storage-premium-storage-preview-portal/)은 [VMware 가상 컴퓨터 또는 물리적 컴퓨터 시나리오](site-recovery-vmware-to-azure.md)에만 지원됩니다. 표준 로컬 중복 저장소에 대한 지원은 백로그에 있으며 [로컬 중복 저장소 지원에 대한 지원](http://feedback.azure.com/forums/256299-site-recovery/suggestions/7204469-local-redundant-type-azure-storage-support)을 통해 사용자 의견을 보내 주세요.
+
+### 기존 복구 사이트에서 3차 사이트로 복제를 확장할 수 있습니까?
+지원되지 않습니다. [Azure 사이트 복구 피드백 포럼 - 복제 확장에 대한 지원](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication)을 통해 사용자 의견을 보내 주세요.
+
+### 오프라인 메커니즘을 사용하여 Azure에 초기 디스크를 시드할 수 있습니까?
+지원되지 않습니다. [Azure 사이트 복구 피드백 포럼 - 오프라인 복제에 대한 지원](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)을 통해 사용자 의견을 보내 주세요.
+
 ## 버전 지원
 
 ### 어떤 버전의 Windows Server 호스트 및 클러스터가 지원됩니까?
@@ -57,7 +79,7 @@ Azure에 가상 컴퓨터를 복제하는 클라이언트 운영 체제에서 �
 
 ### ASR은 2세대 컴퓨터를 지원합니까?
 
-현재 ASR은 Azure에 Hyper-V의 2세대 가상 컴퓨터 복제를 지원합니다. ASR은 장애 조치 중 2세대에서 1세대로 변환합니다. 장애 복구 시 컴퓨터는 1세대로 다시 변환됩니다. 현재 지원에 대해 [자세한 알아봅니다](http://azure.microsoft.com/updates/azure-site-recovery-supports-gen-2-vm-protection-in-west-us-north-europe-and-japan-west/).
+예, ASR은 Azure에 Hyper-V의 2세대 가상 컴퓨터 복제를 지원합니다. ASR은 장애 조치 중 2세대에서 1세대로 변환합니다. 장애 복구 시 컴퓨터는 1세대로 다시 변환됩니다. 추가 정보는 [자세히 알아보기](http://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)를 참조하세요.
 
 
 ## 서비스 공급자 사이트 간 배포 
@@ -128,6 +150,11 @@ Hyper-V 사이트 및 Azure 사이에서 ASR 및 Hyper-V 복제본을 사용하�
 
 아니요,이 유형의 체인으로 연결된 복제는 지원되지 않습니다.
 
+### 두 VMM 데이터 센터 간의 보호를 구성하는 인증서가 필요합니까?
+
+아니요. VMM 클라우드 간의 보호를 구성하는 동안 ASR에서 인증 유형을 지정합니다. 작동하는 Kerberos 환경이 구성되어 있지 않으면 HTTPS를 선택합니다. Azure Site Recovery가 HTTPS 인증을 위한 인증서를 자동으로 구성합니다. 수동으로 구성할 필요가 없습니다. Kerberos를 선택하면 호스트 서버의 상호 인증에 Kerberos 티켓이 사용됩니다. 기본적으로 Hyper-V 호스트 서버의 Windows 방화벽에서 포트 8083(Kerberos용)과 8084(인증서용)가 열립니다. 이 설정은 Windows Server 2012 R2에서 실행 중인 Hyper-V 호스트 서버와만 관련이 있습니다.
+
+
 
 ## SAN을 사용하여 두 VMM 데이터 센터 간에 배포
 
@@ -141,7 +168,16 @@ Hyper-V 사이트 및 Azure 사이에서 ASR 및 Hyper-V 복제본을 사용하�
 권장된 구성이 사이트 관리에 별도의 VMM 서버를 사용해도 배열 형식에 기반하여 단일 VMM HA 배포를 지원합니다.
 
 
-### 내 저장소 관리자가 확실하지 않다면 어떻게 해애 합니까?
+### 지원되는 저장소 배열은 무엇입니까?
+
+NetApp, EMC 및 HP는 해당 SMI-S 공급자에 대한 업데이트로 Azure 사이트 복구 SAN 복제에 대한 지원을 활성화했습니다. 자세한 내용은 아래 링크를 참조하세요.
+
+- [NetApp 클러스터형 데이터 ONTAP 8.2](http://community.netapp.com/t5/Technology/NetApp-Unveils-Support-for-Microsoft-Azure-SAN-Replication-with-SMI-S-and/ba-p/94483)
+- [EMC VMAX 시리즈](https://thecoreblog.emc.com/high-end-storage/microsoft-azure-site-recovery-now-generally-available-vmax-srdf-integration-pack-ready-for-public-review/)    
+- [HP 3PAR](http://h20195.www2.hp.com/V2/GetDocument.aspx?docname=4AA5-7068ENW&cc=us&lc=en)
+
+
+### 내 저장소 관리자가 확실하지 않다면 어떻게 해야 합니까?
 저희는 귀하의 저장소 관리자가 설정한 기존의 복제 구성으로 작업합니다. 따라서 저장소 관리자가 배열에 어떠한 변경도 할 필요가 없습니다. 그러나 SCVMM을 통해 저장소 관리를 자동화하고자 하는 조직은 ASR 및 VMM을 사용하여 저장소를 프로비전할 수도 있습니다.
 
 ### 동기 복제를 지원할 수 있습니까? 게스트 클러스터? 공유 저장소?
@@ -200,4 +236,4 @@ ASR의 배포를 시작하려면:
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

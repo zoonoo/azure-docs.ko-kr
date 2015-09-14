@@ -1,19 +1,20 @@
 <properties
- pageTitle="HPC Pack 클러스터의 Linux 계산 노드 시작 | Microsoft Azure"
- description="Windows Server를 실행하는 헤드 노드와 Linux 계산 노드를 포함하는 HPC Pack 클러스터의 Azure 배포를 스크립팅하는 방법을 알아봅니다."
- services="virtual-machines"
- documentationCenter=""
- authors="dlepow"
- manager="timlt"
- editor=""/>
+ pageTitle="HPC 팩 클러스터의 Linux 계산 VM 사용 | Microsoft Azure"
+	description="Windows Server를 실행하는 헤드 노드와 Linux 계산 노드를 포함하는 HPC Pack 클러스터의 Azure 배포를 스크립팅하는 방법을 알아봅니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 <tags
-ms.service="virtual-machines"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="vm-multiple"
- ms.workload="big-compute"
- ms.date="07/27/2015"
- ms.author="danlep"/>
+ ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-multiple"
+	ms.workload="big-compute"
+	ms.date="09/01/2015"
+	ms.author="danlep"/>
 
 # Azure에서 HPC Pack 클러스터의 Linux 계산 노드 시작
 
@@ -25,7 +26,7 @@ ms.service="virtual-machines"
 
 ## Linux 계산 노드가 포함된 HPC Pack 클러스터 배포
 
-Microsoft HPC Pack IaaS 배포 스크립트(**New-HpcIaaSCluster.ps1**)를 사용하여 IaaS(Azure 인프라 서비스)에서 클러스터 배포를 자동화합니다. 이 Azure PowerShell 스크립트는 빠른 배포를 위해 Azure 마켓플레이스의 HPC Pack VM 이미지를 사용하며 배포가 쉽고 유연하도록 포괄적인 구성 매개 변수 집합을 제공합니다. 스크립트를 사용하여 Azure 가상 네트워크, 저장소 계정, 클라우드 서비스, 도메인 컨트롤러, 선택적 개별 SQL Server 데이터베이스 서버, 클러스터 헤드 노드, 계산 노드, 브로커 노드, Azure PaaS("버스트") 노드 및 Linux 계산 노드를 배포할 수 있습니다(Linux 지원은 [HPC Pack 2012 R2 업데이트 2](https://technet.microsoft.com/library/mt269417.aspx)에서 도입됨).
+Microsoft HPC Pack IaaS 배포 스크립트(**New-HpcIaaSCluster.ps1**)를 사용하여 IaaS(Azure 인프라 서비스)에서 클러스터 배포를 자동화합니다. 이 Azure PowerShell 스크립트는 빠른 배포를 위해 Azure 마켓플레이스의 HPC Pack VM 이미지를 사용하며 배포가 쉽고 유연하도록 포괄적인 구성 매개 변수 집합을 제공합니다. 스크립트는 Azure 가상 네트워크, 저장소 계정, 클라우드 서비스, 도메인 컨트롤러, 선택적 개별 SQL Server 데이터베이스 서버, 클러스터 헤드 노드, 계산 노드, 브로커 노드, Azure PaaS("버스트") 노드 및 Linux 계산 노드를 배포합니다(Linux 지원은 [HPC Pack 2012 R2 업데이트 2](https://technet.microsoft.com/library/mt269417.aspx)에서 도입됨).
 
 HPC Pack 클러스터 배포 옵션에 대한 개요는 [HPC Pack 2012 R2 및 HPC Pack 2012용 시작 가이드](https://technet.microsoft.com/library/jj884144.aspx)를 참조하세요.
 
@@ -66,9 +67,9 @@ HPC Pack IaaS 배포 스크립트는 HPC 클러스터의 인프라를 설명하�
   <HeadNode>
     <VMName>CentOS7RDMA-HN</VMName>
     <ServiceName>centos7rdma-je</ServiceName>
-<VMSize>A4</VMSize>
-<EnableRESTAPI />
-    <EnableWebPortal />
+  <VMSize>A4</VMSize>
+  <EnableRESTAPI />
+  <EnableWebPortal />
   </HeadNode>
   <LinuxComputeNodes>
     <VMNamePattern>CentOS7RDMA-LN%1%</VMNamePattern>
@@ -98,7 +99,7 @@ HPC Pack IaaS 배포 스크립트는 HPC 클러스터의 인프라를 설명하�
 
 * **VNet** - HPC 클러스터를 만들 가상 네트워크 및 서브넷의 설정입니다. 이 스크립트를 실행하기 전에 가상 네트워크 및 서브넷을 직접 만들 수 있거나, 스크립트에서 주소 공간이 192.168.0.0/20인 가상 네트워크와 주소 공간이 192.168.0.0/23인 서브넷을 만듭니다. 이 예제에서는 스크립트가 가상 네트워크 centos7rdmavnetje 및 서브넷 CentOS7RDMACluster를 만듭니다.
 
-* **Domain** - HPC Pack 클러스터에 대한 Active Directory 도메인 설정입니다. 스크립트에서 만든 모든 Windows VM이 도메인에 가입합니다. 현재 스크립트는 ExistingDC, NewDC 및 HeadNodeAsDC의 세 가지 도메인 옵션을 지원합니다. 이 예제에서는 헤드 노드를 도메인 컨트롤러로 구성합니다. 정규화된 도메인 이름은 hpc.local입니다.
+* **Domain** - HPC Pack 클러스터에 대한 Active Directory 도메인 설정입니다. 스크립트에서 만든 모든 Windows VM이 도메인에 가입합니다. 현재 스크립트는 ExistingDC, NewDC 및 HeadNodeAsDC의 세 가지 도메인 옵션을 지원합니다. 이 예제에서는 hpc.local의 정규화된 도메인 이름으로 헤드 노드를 도메인 컨트롤러로 구성합니다.
 
 * **Database** - HPC Pack 클러스터에 대한 데이터베이스 설정입니다. 현재 스크립트는 ExistingDB, NewRemoteDB 및 LocalDB의 세 가지 데이터베이스 옵션을 지원합니다. 이 예제에서는 헤드 노드에 로컬 데이터베이스를 만듭니다.
 
@@ -116,8 +117,7 @@ HPC Pack IaaS 배포 스크립트는 HPC 클러스터의 인프라를 설명하�
 
     필요한 이미지를 찾은 다음 구성 파일에서 **ImageName** 값을 바꿉니다.
 
-* 크기 A8 및 A9 VM에 대해 RDMA 연결을 지원하는 Linux 이미지를 사용할 수 있습니다. Linux RDMA 드라이버가 설치 및 사용되는 이미지를 지정하는 경우 HPC Pack IaaS 배포 스크립트에서 배포합니다. 예를 들어 마켓플레이스에서 고성능 계산 이미지에 최적화된 현재 SUSE Linux Enterprise Server 12에 대해 이미지 이름 `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708`을 지정할 수 있습니다.
-
+* 크기 A8 및 A9 VM에 대해 RDMA 연결을 지원하는 Linux 이미지를 사용할 수 있습니다. Linux RDMA 드라이버가 설치 및 사용되는 이미지를 지정하는 경우 HPC Pack IaaS 배포 스크립트에서 배포합니다. 예를 들어 마켓플레이스에서 고성능 계산 이미지에 최적화된 현재 SUSE Linux Enterprise Server 12에 대해 이미지 이름 `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-hpc-v20150708`을 지정합니다.
 
 * 지원되는 이미지로부터 만든 Linux VM에서 Linux RDMA를 사용하도록 설정하려면 응용 프로그램 요구에 따라 클러스터 배포 후 Linux 노드에 특정 MPI 라이브러리를 설치 및 구성합니다. Azure의 Linux 노드에서 RDMA를 사용하는 방법에 대한 자세한 내용은 [MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](virtual-machines-linux-cluster-rdma.md)을 참조하세요.
 
@@ -131,14 +131,14 @@ HPC Pack IaaS 배포 스크립트는 HPC 클러스터의 인프라를 설명하�
 2. 디렉터리를 스크립트 폴더(이 예제에서는 E:\\IaaSClusterScript)로 변경합니다.
 
     ```
-cd E:\IaaSClusterScript
-```
+    cd E:\IaaSClusterScript
+    ```
 
 3. 아래 명령을 실행하여 HPC Pack 클러스터를 배포합니다. 이 예제에서는 구성 파일이 E:\\HPCDemoConfig.xml에 있다고 가정합니다.
 
     ```
     .\New-HpcIaaSCluster.ps1 –ConfigFile E:\HPCDemoConfig.xml –AdminUserName MyAdminName
-```
+    ```
 
     **-LogFile** 매개 변수가 지정되지 않았으므로 스크립트에서 자동으로 로그 파일을 생성합니다. 로그는 실시간으로 기록되지 않고 유효성 검사 및 배포가 끝날 때 수집되므로 스크립트가 실행되는 동안 PowerShell 프로세스가 중지될 경우 일부 로그가 손실됩니다.
 
@@ -201,7 +201,7 @@ PS > clusrun /nodegroup:LinuxNodes mount -t cifs //allvhdsje.file.core.windows.n
 
 첫 번째 명령은 LinuxNodes 그룹의 모든 노드에 /rdma라는 폴더를 만듭니다. 두 번째 명령은 dir 및 파일 모드 비트를 777로 설정하여 Azure 파일 공유 allvhdsjw.file.core.windows.net/rdma를 /rdma 폴더에 탑재합니다. 두 번째 명령에서 allvhdsje는 저장소 계정 이름이고 storageaccountkey는 저장소 계정 키입니다.
 
->[AZURE.NOTE]두 번째 명령의 "'" 기호는 PowerShell의 이스케이프 기호입니다. "',"는 ","(쉼표)가 명령의 일부임을 의미합니다.
+>[AZURE.NOTE]두 번째 명령의 "`" 기호는 PowerShell의 이스케이프 기호입니다. "`,"는 ","(쉼표)가 명령의 일부임을 의미합니다.
 
 ### 헤드 노드 공유
 
@@ -218,12 +218,12 @@ PS > clusrun /nodegroup:LinuxNodes mount -t cifs //allvhdsje.file.core.windows.n
 ```
 PS > clusrun /nodegroup:LinuxNodes mkdir -p /openfoam
 
-PS > clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS7RDMA-HN/OpenFOAM /openfoam -o vers=2.1`,username=<username>,password='<password>’,dir_mode=0777`,file_mode=0777
+PS > clusrun /nodegroup:LinuxNodes mount -t cifs //CentOS7RDMA-HN/OpenFOAM /openfoam -o vers=2.1`,username=<username>`,password='<password>'`,dir_mode=0777`,file_mode=0777
 ```
 
-첫 번째 명령은 LinuxNodes 그룹의 모든 노드에 /openfoam이라는 폴더를 만듭니다. 두 번째 명령은 dir 및 파일 모드 비트를 777로 설정하여 공유 폴더 //CentOS7RDMA-HN/OpenFOAM을 폴더에 탑재합니다. 명령의 사용자 이름과 암호는 헤드 노드 사용자의 사용자 이름과 암호여야 합니다.
+첫 번째 명령은 LinuxNodes 그룹의 모든 노드에 /openfoam이라는 폴더를 만듭니다. 두 번째 명령은 dir 및 파일 모드 비트를 777로 설정하여 공유 폴더 //CentOS7RDMA-HN/OpenFOAM을 폴더에 탑재합니다. 명령의 사용자 이름과 암호는 헤드 노드 클러스터 사용자의 사용자 이름과 암호여야 합니다.
 
->[AZURE.NOTE]두 번째 명령의 "'" 기호는 PowerShell의 이스케이프 기호입니다. "',"는 ","(쉼표)가 명령의 일부임을 의미합니다.
+>[AZURE.NOTE]두 번째 명령의 "`" 기호는 PowerShell의 이스케이프 기호입니다. "`,"는 ","(쉼표)가 명령의 일부임을 의미합니다.
 
 
 ### NFS 서버
@@ -271,31 +271,30 @@ HPC Pack **clusrun** 도구를 사용하여 명령 창 또는 HPC 클러스터 �
 * 클러스터에 있는 모든 노드의 현재 사용자 이름 표시
 
     ```
-> clusrun whoami
-```
+    > clusrun whoami
+    ```
 
-* linuxnodes 그룹의 모든 노드에서 **yum**을 사용하여 **gdb** 디버거 도구를 설치하고 10분 후에 다시 시작합니다.
+* linuxnodes 그룹의 모든 노드에서 **yum**을 사용하여 **gdb** 디버거 도구를 설치하고 10분 후에 노드를 다시 시작합니다.
 
     ```
-> clusrun /nodegroup:linuxnodes yum install gdb –y; shutdown –r 10
-```
+    > clusrun /nodegroup:linuxnodes yum install gdb –y; shutdown –r 10
+    ```
 
-* 클러스터의 노드에서 초당 1-10을 표시하는 셸 스크립트를 만들고 실행한 다음 각 노드의 출력을 즉시 표시합니다.
+* 클러스터의 각 노드에서 1초에 대해 각각 숫자 1에서 10을 표시하는 셸 스크립트를 만들고 실행한 다음 노드에서 즉시 출력을 표시합니다.
 
     ```
-> clusrun /interleaved echo "for i in {1..10}; do echo \\"\$i\\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh```
+    > clusrun /interleaved echo "for i in {1..10}; do echo \\"\$i\\"; sleep 1; done" ^> script.sh; chmod +x script.sh; ./script.sh
+    ```
 
->[AZURE.NOTE]clusrun 명령에 특정 이스케이프 문자를 사용해야 할 수도 있습니다. ^(명령 창) 및 '(PowerShell)를 사용하여 특수 문자를 변환합니다. 예를 들어 PowerShell에서는 쉼표 및 세미콜론 문자를 각각 ', 및 ';으로 변환해야 합니다. 명령 창에서는 이러한 문자를 변환할 필요가 없습니다.
-
-
-
+>[AZURE.NOTE]**clusrun** 명령에 특정 이스케이프 문자를 사용해야 할 수도 있습니다. 이 예와 같이 명령 창의 ^를 사용하여 ">" 기호를 이스케이프합니다.
 
 ## 다음 단계
 
-* **clusrun**을 사용하여 Linux 계산 노드에 Linux 응용 프로그램을 설치하고 HPC Pack 클러스터에 작업을 제출합니다.
+* 클러스터에서 Linux 워크로드를 실행합니다. 예제는 [Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 NAMD 실행](virtual-machines-linux-cluster-hpcpack-namd.md)을 참조하세요.
 
 * 클러스터를 더 많은 노드로 확장하거나 MPI 작업을 실행할 크기 [A8 또는 A9](virtual-machines-a8-a9-a10-a11-specs.md) 컴퓨터 노드를 배포합니다.
 
+* Azure 리소스 관리자로 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)을 사용하여 많은 수의 Linux 계산 노드로 HPC 팩의 배포를 가속화합니다.
 
 <!--Image references-->
 [scenario]: ./media/virtual-machines-linux-cluster-hpcpack/scenario.png
@@ -311,4 +310,4 @@ HPC Pack **clusrun** 도구를 사용하여 명령 창 또는 HPC 클러스터 �
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

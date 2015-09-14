@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="SQL 데이터베이스 재해 복구" 
-   description="Azure SQL 데이터베이스의 지역에서 복제 및 지역 복원 기능을 사용하여 하위 지역 데이터 센터 중단 또는 오류로부터 데이터베이스를 복구하는 방법에 대해 알아봅니다." 
-   services="sql-database" 
-   documentationCenter="" 
-   authors="elfisher" 
-   manager="jeffreyg" 
-   editor="monicar"/>
+   pageTitle="SQL 데이터베이스 재해 복구"
+	description="Azure SQL 데이터베이스의 지역에서 복제 및 지역 복원 기능을 사용하여 하위 지역 데이터 센터 중단 또는 오류로부터 데이터베이스를 복구하는 방법에 대해 알아봅니다."
+	services="sql-database"
+	documentationCenter=""
+	authors="elfisher"
+	manager="jeffreyg"
+	editor="monicar"/>
 
 <tags
    ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-management" 
-   ms.date="07/14/2015"
-   ms.author="elfish"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-management"
+	ms.date="07/14/2015"
+	ms.author="elfish"/>
 
 # 중단 상태에서 Azure SQL 데이터베이스 복구
 
@@ -68,6 +68,8 @@ Azure SQL 데이터베이스는 몇 가지 중단 복구 기능을 제공합니�
 
 데이터베이스의 중단이 발생하는 경우, 지역 복원을 사용하여 최신 지역 중복 백업으로 데이터베이스를 복구할 수 있습니다.
 
+> [AZURE.NOTE]데이터베이스를 복구하면 새 데이터베이스가 생성됩니다. 복구하는 서버에 새 데이터베이스를 위한 충분한 DTU 용량이 있는지 확인하는 것이 중요합니다. [지원 센터에 연락](http://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/)하여 이 할당량을 늘리도록 요청할 수 있습니다.
+
 ###Azure 포털
 1. [Azure 포털](https://portal.Azure.com) 로그인
 2. 화면 왼쪽에서 **새로 만들기**를 선택한 다음 **데이터 및 저장소**를 선택하고 **SQL 데이터베이스**를 선택합니다.
@@ -101,4 +103,4 @@ Azure SQL 데이터베이스는 몇 가지 중단 복구 기능을 제공합니�
 데이터베이스가 복구된 후 [복구된 데이터베이스 마무리](sql-database-recovered-finalize.md) 가이드에 따라 사용할 방식을 구성할 수 있습니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

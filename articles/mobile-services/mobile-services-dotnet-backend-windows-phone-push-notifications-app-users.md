@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="인증된 사용자에게 푸시 알림 보내기" 
-	description="특정 사용자에게 푸시 알림을 보내는 방법에 대해 알아봅니다." 
-	services="mobile-services,notification-hubs" 
-	documentationCenter="windows" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="인증된 사용자에게 푸시 알림 보내기"
+	description="특정 사용자에게 푸시 알림을 보내는 방법에 대해 알아봅니다."
+	services="mobile-services,notification-hubs"
+	documentationCenter="windows"
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="06/04/2015" 
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-windows-phone"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="glenga"/>
 
 # 인증된 사용자에게 푸시 알림 보내기
@@ -24,7 +24,7 @@
 
 이 자습서에서는 Windows Phone 8.0 및 Windows Phone 8.1Silverlight 앱이 지원됩니다. Windows Phone 8.1 스토어 앱의 경우 [이 항목의 Windows 스토어 버전](mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users.md)을 참조하세요.
 
-##필수 조건 
+##필수 조건
 
 이 자습서를 시작하려면 먼저 다음 모바일 서비스 자습서를 완료해야 합니다.
 
@@ -59,6 +59,5 @@
 [앱에 푸시 알림 추가]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

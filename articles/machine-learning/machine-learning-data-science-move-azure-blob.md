@@ -1,33 +1,33 @@
 <properties 
-	pageTitle="Azure Blob 저장소의 데이터 이동 | Microsoft Azure" 
-	description="Azure Blob 저장소의 데이터 이동" 
-	services="machine-learning,storage" 
-	documentationCenter="" 
-	authors="msolhab" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="Azure Blob 저장소의 데이터 이동 | Microsoft Azure"
+	description="Azure Blob 저장소의 데이터 이동"
+	services="machine-learning,storage"
+	documentationCenter=""
+	authors="msolhab"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="sunliangms;sachouks;mohabib;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="sunliangms;sachouks;mohabib;bradsev"/>
 
 # Azure Blob 저장소의 데이터 이동
 
-[Azure 기계 학습의 ADAPT(고급 분석 프로세스 및 기술) 시나리오](../machine-learning-data-science-plan-sample-scenarios.md) 문서는 고급 분석 프로세스에서 사용되는 다양한 데이터 과학 워크플로에 필요한 리소스를 확인하도록 도와줍니다. 사용자 시나리오에 따라 Azure Blob 저장소의 데이터를 이동해야 하는 경우 다음 방법 중 하나를 사용합니다.
+이 항목에서는 Azure Blob 저장소 내부 및 외부로 데이터를 이동하는 세 가지 방법을 설명합니다.
 
 - [Azure 저장소 탐색기 사용](#explorer)
 - [AzCopy 명령줄 유틸리티 사용](#AzCopy)
 - [Python에서 Azure SDK 사용](#PythonSDK)
 
+가장 적합한 방법은 시나리오에 따라 달라집니다. [Azure 기계 학습의 ADAPT(고급 분석 프로세스 및 기술) 시나리오](../machine-learning-data-science-plan-sample-scenarios.md) 문서는 고급 분석 프로세스에서 사용되는 다양한 데이터 과학 워크플로에 필요한 리소스를 확인하도록 도와줍니다.
 
-> [AZURE.TIP]하나의 대안으로, [Azure 데이터 팩터리](https://azure.microsoft.com/ko-kr/services/data-factory/)를 사용하여 Azure blob 저장소에서 데이터를 다운로드하여 게시된 Azure 기계 학습 웹 서비스로 전달하고, 예측 분석 결과를 받아 이를 저장소에 업로드하는 파이프라인을 만들고 예약할 수 있습니다. 자세한 내용은 [Azure 데이터 팩터리 및 Azure 기계 학습을 사용하여 예측 파이프라인 만들기](../data-factory/data-factory-create-predictive-pipelines.md)를 참조하세요.
+> [AZURE.TIP]하나의 대안으로, [Azure Data Factory](https://azure.microsoft.com/ko-KR/services/data-factory/)를 사용하여 Azure blob 저장소에서 데이터를 다운로드하여 게시된 Azure 기계 학습 웹 서비스로 전달하고, 예측 분석 결과를 받아 이를 저장소에 업로드하는 파이프라인을 만들고 예약할 수 있습니다. 자세한 내용은 [Azure Data Factory 및 Azure 기계 학습을 사용하여 예측 파이프라인 만들기](../data-factory/data-factory-create-predictive-pipelines.md)를 참조하세요.
 
-<para></para>
 
 > [AZURE.NOTE]Azure blob 저장소에 대한 전체 지침은 [Azure Blob 기본 사항](../storage-dotnet-how-to-use-blobs.md) 및 [Azure Blob 서비스](https://msdn.microsoft.com/library/azure/dd179376.aspx)를 참조하세요.
 
@@ -181,4 +181,4 @@ Azure SDK에 제공되는 Python API를 사용하여 다음을 수행할 수 있
 [3]: ./media/machine-learning-data-science-move-azure-blob/data-science-process-uploading-data-to-blob-storage-img3.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

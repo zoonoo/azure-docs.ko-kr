@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 모바일 앱에서 Windows 런타임 8.1 범용 앱 만들기"
-	description="이 자습서에 따라 Azure 모바일 앱 백 엔드를 사용하여 C#, VB 또는 JavaScript로 Windows 스토어 개발을 시작할 수 있습니다."
+	pageTitle="Azure 앱 서비스 모바일 앱에서 Windows Runtime 8.1 유니버설 앱 만들기 | Microsoft Azure"
+	description="이 자습서에 따라 Azure 모바일 앱 백 엔드를 사용하여 C#, Visual Basic 또는 JavaScript로 Windows 스토어 개발을 시작할 수 있습니다."
 	services="app-service\mobile"
 	documentationCenter="windows"
 	authors="ggailey777"
@@ -22,7 +22,7 @@
 
 ##개요
 
-이 자습서에서는 Azure 모바일 앱 백 엔드를 사용하여 Windows Runtime 8.1 범용 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 범용 Windows 앱 솔루션에는 Windows 스토어 8.1 및 Windows Phone 스토어 8.1 앱용 프로젝트와 공통 공유 프로젝트가 포함됩니다.
+이 자습서에서는 Azure 모바일 앱 백 엔드를 사용하여 Windows Runtime 8.1 범용 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 유니버설 Windows 앱 솔루션에는 Windows 스토어 8.1 및 Windows Phone 스토어 8.1 앱용 프로젝트와 공통 공유 프로젝트가 포함됩니다.
 
 [AZURE.INCLUDE [app-service-mobile-windows-universal-get-started-preview](../../includes/app-service-mobile-windows-universal-get-started-preview.md)]
 
@@ -34,7 +34,7 @@
 
 * [Visual Studio Community 2013] 이상 버전
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 체험](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile)으로 이동합니다. 여기서 앱 서비스에 단기 시작 모바일 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE]Azure 계정에 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751&appServiceName=mobile)로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 모바일 앱을 즉시 만들 수 있습니다.
 
 ##새 Azure 모바일 앱 백 엔드 만들기
 
@@ -42,9 +42,9 @@
 
 ## 서버 프로젝트 다운로드
 
-1. [Azure 포털]에서 **모두 찾아보기** > **웹앱**을 클릭한 다음 방금 만든 모바일 앱 백 엔드를 클릭합니다. 
+1. [Azure 포털]에서 **모두 찾아보기** > **웹앱**을 클릭한 다음 방금 만든 모바일 앱 백 엔드를 클릭합니다.
 
-2. 모바일 앱 백엔드에서 **모든 설정**을 클릭하고 **모바일 앱**에서 **빠른 시작** > **Windows (C#)**를 클릭합니다.
+2. 모바일 앱 백 엔드에서 **모든 설정**을 클릭하고 **모바일 앱**에서 **빠른 시작** > **Windows (C#)**를 클릭합니다.
 
 3. **서버 프로젝트 다운로드 및 실행**의 **새 앱 만들기**에서 **다운로드**를 클릭하고, 압축된 프로젝트 파일을 로컬 컴퓨터에 추출하고 Visual Studio에서 솔루션을 엽니다.
 
@@ -60,10 +60,10 @@
 
 이 섹션에서 Azure 모바일 앱 백 엔드에 연결하도록 사용자 지정된 범용 Windows 앱 템플릿 프로젝트를 다운로드합니다.
 
-1. 모바일 앱 백 엔드용 블레이드로 돌아가서 **모든 설정**을 클릭하고 **모바일 앱**에서 **빠른 시작** > **Windows (C#)**를 클릭합니다. 
+1. 모바일 앱 백 엔드용 블레이드로 돌아가서 **모든 설정**을 클릭하고 **모바일 앱**에서 **빠른 시작** > **Windows (C#)**를 클릭합니다.
 
 2.  **Windows 프로젝트 다운로드 및 실행**의 **새 앱 만들기**에서 **다운로드**를 클릭하고, 압축된 프로젝트 파일을 로컬 컴퓨터에 추출합니다.
-  
+
 3. (선택 사항) 서버 프로젝트를 사용하여 솔루션에 범용 Windows 앱 프로젝트를 추가합니다. 이렇게 하면 작업을 수행하려는 경우 동일한 Visual Studio 솔루션에서 앱 및 백 엔드 모두를 디버그하고 테스트할 수 있습니다.
 
 4. 시작 프로젝트인 Windows 스토어 앱을 사용하여 프로젝트를 다시 빌드하고 Windows 스토어 앱을 시작하려면 F5 키를 누릅니다.
@@ -92,8 +92,6 @@
 [Get started with authentication]: app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md
 [Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure 포털]: https://portal.azure.com/
-
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
- 
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

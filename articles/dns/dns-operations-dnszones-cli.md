@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="infrastructure-services"
-	ms.date="08/02/2015"
+	ms.date="09/02/2015"
 	ms.author="joaoma"/>
 
 # DNS 영역을 관리하는 방법
@@ -26,9 +26,9 @@
 
 ## 새 DNS 영역 만들기
 
-도메인을 호스트할 새 DNS 영역을 만들려면 `azure network dns-zone create`을 사용합니다.
+도메인을 호스트할 새 DNS 영역을 만들려면 `azure network dns zone create`를 사용합니다.
 
-		Azure network dns-zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
+		Azure network dns zone create -n contoso.com -g myresourcegroup -t "project=demo";"env=test"
 
 이 작업으로 Azure DNS에 새 DNS 영역이 만들어집니다. 필요한 경우 Azure 리소스 관리자 태그 배열을 지정할 수도 있습니다. 자세한 내용은 [Etag 및 태그](dns-getstarted-create-dnszone.md#Etags-and-tags)를 참조하세요.
 
@@ -38,33 +38,33 @@
 
 ## DNS 영역 가져오기
 
-DNS 영역을 가져오려면 `azure network dns-zone show`를 사용합니다.
+DNS 영역을 가져오려면 `azure network dns zone show`를 사용합니다.
 
-	azure network dns-zone show myresourcegroup contoso.com
+	azure network dns zone show myresourcegroup contoso.com
 
 이 작업은 해당 ID, 레코드 집합 및 태그 번호와 함께 DNS 영역을 반환합니다.
 
 
 ## DNS 영역 나열
 
-리소스 그룹 내 DNS 영역을 가져오려면 `azure network dns-zone list`를 사용합니다.
+리소스 그룹 내 DNS 영역을 가져오려면 `azure network dns zone list`를 사용합니다.
 
-	azure network dns-zone list myresourcegroup
+	azure network dns zone list myresourcegroup
 
 
 ## DNS 영역 업데이트
 
-`azure network dns-zone set`를 사용하여 DNS 영역 리소스를 변경할 수 있습니다. 이 작업은 영역 내의 DNS 레코드 집합을 업데이트하지 않습니다([DNS 레코드를 관리하는 방법](dns-operations-recordsets.md) 참조). 영역 리소스 자체의 속성을 업데이트하는 데만 사용됩니다. 이 작업은 현재 영역 리소스에 대한 Azure 리소스 관리자 '태그'로 제한됩니다. 자세한 내용은 [Etag 및 태그](dns-getstarted-create-dnszone.md#Etags-and-tags)를 참조하세요.
+`azure network dns zone set`를 사용하여 DNS 영역 리소스를 변경할 수 있습니다. 이 작업은 영역 내의 DNS 레코드 집합을 업데이트하지 않습니다([DNS 레코드를 관리하는 방법](dns-operations-recordsets.md) 참조). 영역 리소스 자체의 속성을 업데이트하는 데만 사용됩니다. 이 작업은 현재 영역 리소스에 대한 Azure 리소스 관리자 '태그'로 제한됩니다. 자세한 내용은 [Etag 및 태그](dns-getstarted-create-dnszone.md#Etags-and-tags)를 참조하세요.
 
-	azure network dns-zone set myresourcegroup contoso.com -t prod=value2
+	azure network dns zone set myresourcegroup contoso.com -t prod=value2
 
 ## DNS 영역 삭제
 
-`azure network dns-zone delete`를 사용하여 DNS 영역을 삭제할 수 있습니다.
+`azure network dns zone delete`를 사용하여 DNS 영역을 삭제할 수 있습니다.
  
 Azure DNS에서 DNS 영역을 삭제하기 전에 영역을 만들 때 자동으로 생성된, 영역 루트에 있는 NS 및 SOA 레코드를 제외한 모든 레코드 집합을 삭제해야 합니다.
 
-	azure network dns-zone delete myresourcegroup contoso.com 
+	azure network dns zone delete myresourcegroup contoso.com 
 
 이 작업에는 DNS 영역을 제거할 것인지 확인하는 메시지를 표시하지 않는 선택적 '-q' 스위치가 있습니다.
 
@@ -76,4 +76,4 @@ Azure DNS에서 DNS 영역을 삭제하기 전에 영역을 만들 때 자동으
 
 [.NET SDK로 작업 자동화](dns-sdk.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="DocumentDB에 대한 질문과 대답 | Microsoft Azure" 
-	description="Azure DocumentDB, NoSQL 문서 데이터베이스 서비스에 관련된 질문과 대답을 제공합니다." 
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="monicar" 
+	pageTitle="DocumentDB에 대한 질문과 대답 | Microsoft Azure"
+	description="Azure DocumentDB, NoSQL 문서 데이터베이스 서비스에 관련된 질문과 대답을 제공합니다."
+	services="documentdb"
+	authors="mimig1"
+	manager="jhubbard"
+	editor="monicar"
 	documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/13/2015" 
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mimig"/>
 
 
@@ -48,7 +48,7 @@ DocumentDB는 스키마 제약이 없는 데이터에 대한 크기 조정, 성�
 자세한 내용은 [DocumentDB 가격 세부 정보](http://go.microsoft.com/fwlink/p/?LinkID=402317) 페이지를 참조하세요. DocumentDB 사용 요금은 사용 중인 컬렉션 수, 컬렉션이 온라인이었던 시간, 각 컬렉션의 [성능 수준](documentdb-performance-levels.md)으로 결정됩니다.
 
 ### 무료 평가판이 있나요?
-Azure를 처음 사용하는 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록하면 30일간 제공된 ₩240,000로 모든 Azure 서비스를 사용해 볼 수 있습니다. MSDN 구독이 있다면 모든 Azure 서비스에 사용할 수 있는 [월별 ₩180,000의 무료 Azure 크레딧](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)에 대한 자격이 주어집니다. DocumentDB를 30일간 무료로 사용하려는 경우 신용 카드가 필요하지 않으며 메일 제목 줄에 Documentation FAQ, Azure Trial을 넣어 askdocdb@microsoft.com에 메일을 보내면 공급이 지속되는 동안은 프로모션 코드를 포함하는 회신을 보내드립니다.
+Azure를 처음 사용하는 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록하면 30일간 제공된 ₩240,000로 모든 Azure 서비스를 사용해 볼 수 있습니다. 또는 MSDN 구독이 있다면 모든 Azure 서비스에 사용할 수 있는 [월별 ₩180,000의 무료 Azure 크레딧](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)에 대한 자격이 주어집니다.
 
 ### DocumentDB 추가 도움말은 어떻게 구할 수 있나요?
 도움이 필요한 경우 [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-documentdb), [Azure DocumentDB MSDN 개발자 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)을 통해 문의하거나 [DocumentDB 엔지니어링 팀과의 1:1 채팅](http://www.askdocdb.com/)을 예약하세요. 최신 DocumentDB 소식과 기능에 대한 최신 동향을 파악하려면 [Twitter](https://twitter.com/DocumentDB)에서 Azure DocumentDB를 팔로우하세요.
@@ -80,7 +80,7 @@ Microsoft Azure DocumentDB는 [Azure Preview 포털][azure-portal]에 있습니�
 ### DocumentDB에 대해 어떻게 개발을 시작하나요?
 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)는 .NET, Python, Node.js, JavaScript 및 Java용으로 제공됩니다. 또한 개발자는 [RESTful HTTP API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 사용하여 다양한 플랫폼 및 언어의 DocumentDB 리소스를 조작할 수 있습니다.
 
-GitHub에서 샘플 DocumentDB [.NET](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](https://github.com/Azure/azure-documentdb-node/tree/master/samples), 및 [Python](https://github.com/Azure/azure-documentdb-python) SDK를 받을 수 있습니다.
+GitHub에서 DocumentDB [.NET](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](https://github.com/Azure/azure-documentdb-node/tree/master/samples), 및 [Python](https://github.com/Azure/azure-documentdb-python) SDK용 샘플을 사용할 수 있습니다.
 
 ### DocumentDB에서 SQL을 지원하나요?
 DocumentDB SQL 쿼리 언어는 JavaScript 기반 UDF(사용자 정의 함수)를 통해 다양한 계층 구조 및 관계형 연산자를 제공합니다. JSON 문법은 트리 노드로 레이블이 지정된 트리로 JSON 문서 모델링을 허용합니다. 이 내용은 DocumentDB 자동 인덱싱 기술 및 DocumentDB의 SQL 쿼리 언어 모두에 사용됩니다. SQL 문법을 사용하는 방법에 대한 자세한 내용은 [DocumentDB 쿼리][query] 문서를 참조하세요.
@@ -97,9 +97,9 @@ DocumentDB는 JavaScript 저장 프로시저 및 트리거를 통해 언어 통�
 ### DocumentDB에 문서를 어떻게 일괄 삽입할 수 있나요? 
 DocumentDB에 문서를 일괄 삽입하는 세 가지 방법이 있습니다.
 
-- [DocumentDB로 데이터 가져오기](documentdb-import-data.md)에 설명된 데이터 마이그레이션 도구.
-- [문서 탐색기를 사용하여 문서 일괄 추가](documentdb-view-json-document-explorer.md#BulkAdd)에 설명된 Azure Preview 포털의 문서 탐색기.
-- [DocumentDB 서버 쪽 프로그래밍](documentdb-programming.md)에 설명된 저장 프로시저.
+- [DocumentDB로 데이터 가져오기](documentdb-import-data.md)에 설명된 데이터 마이그레이션 도구
+- [문서 탐색기를 사용하여 문서 일괄 추가](documentdb-view-json-document-explorer.md#BulkAdd)에 설명된 Azure Preview 포털의 문서 탐색기
+- [DocumentDB 서버 쪽 프로그래밍](documentdb-programming.md)에 설명된 저장 프로시저
 
 ### DocumentDB에서 리소스 링크 캐싱을 지원하나요?
 예, DocumentDB는 RESTful 서비스이므로 리소스 링크가 제한되며 캐시될 수 있습니다. DocumentDB 클라이언트는 문서 또는 컬렉션과 같은 모든 리소스 읽기에 대해 "If-None-Match" 헤더를 지정하고, 서버 버전이 변경될 때만 로컬 복사본을 업데이트할 수 있습니다.
@@ -111,4 +111,4 @@ DocumentDB에 문서를 일괄 삽입하는 세 가지 방법이 있습니다.
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

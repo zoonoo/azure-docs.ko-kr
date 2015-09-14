@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="고급 분석 프로세스 및 기술 작동: Hadoop 클러스터 사용 | Microsoft Azure" 
-	description="HDInsight Hadoop 클러스터를 사용하는 종단 간 시나리오에 ADAPT(고급 분석 처리 및 기술)를 사용하여 공개적으로 사용 가능한 데이터 집합으로 모델을 빌드 및 배포합니다."  
-	services="machine-learning,hdinsight" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="고급 분석 프로세스 및 기술 작동: Hadoop 클러스터 사용 | Microsoft Azure"
+	description="HDInsight Hadoop 클러스터를 사용하는 종단 간 시나리오에 ADAPT(고급 분석 처리 및 기술)를 사용하여 공개적으로 사용 가능한 데이터 집합으로 모델을 빌드 및 배포합니다."
+	services="machine-learning,hdinsight"
+	documentationCenter=""
+	authors="bradsev"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="hangzh;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="hangzh;bradsev"/>
 
                 
 # 고급 분석 프로세스 및 기술 작동: HDInsight Hadoop 클러스터 사용
@@ -531,7 +531,7 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 	hive -f "C:\temp\sample_hive_trip_direct_distance.hql"
 
 
-쿼리 결과는 Hadoop 클러스터 기본 컨테이너 아래 9개의 Azure blob(***queryoutputdir/000000\_0***\~***queryoutputdir/000008\_0***)에 기록됩니다.
+쿼리 결과는 Hadoop 클러스터 기본 컨테이너 아래 9개의 Azure blob(***queryoutputdir/000000\_0***~***queryoutputdir/000008\_0***)에 기록됩니다.
 
 개별 blob의 크기를 보려면 Hive 디렉터리 프롬프트에서 다음 명령을 실행합니다.
 
@@ -809,4 +809,4 @@ b. 회귀 문제의 경우 예측의 제곱된 오류, 결정 계수 등을 확�
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

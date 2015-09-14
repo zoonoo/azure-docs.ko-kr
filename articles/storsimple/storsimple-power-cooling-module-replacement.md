@@ -1,27 +1,25 @@
 <properties 
-   pageTitle="StorSimple 장치의 전원 및 냉각 모듈 교체 | Microsoft Azure"
-   description="StorSimple 장치의 PCM(전원 및 냉각 모듈)을 꺼내고 교체하는 방법을 설명합니다."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="StorSimple 장치의 PCM 교체 | Microsoft Azure"
+	description="StorSimple 장치의 PCM(전원 및 냉각 모듈)을 꺼내고 교체하는 방법을 설명합니다."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/05/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
 # StorSimple 장치의 전원 및 냉각 모듈 교체
 
 ## 개요
 
-Microsoft Azure StorSimple 장치의 PCM(전원 및 냉각 모듈)은 기본 및 EBOD 엔클로저를 통해 제어되는 전원 공급 장치 및 냉각 팬으로 구성되어 있습니다.
-
-각 엔클로저마다 인증된 PCM 모델 하나만 있습니다. 기본 엔클로저는 764W PCM에 대해 인증되고 EBOD 엔클로저는 580W PCM에 대해 인증됩니다. 기본 엔클로저와 EBOD 엔클로저의 PCM은 서로 다르지만 교체 절차는 동일합니다.
+Microsoft Azure StorSimple 장치의 PCM(전원 및 냉각 모듈)은 기본 및 EBOD 엔클로저를 통해 제어되는 전원 공급 장치 및 냉각 팬으로 구성되어 있습니다. 각 엔클로저마다 인증된 PCM 모델 하나만 있습니다. 기본 엔클로저는 764W PCM에 대해 인증되고 EBOD 엔클로저는 580W PCM에 대해 인증됩니다. 기본 엔클로저와 EBOD 엔클로저의 PCM은 서로 다르지만 교체 절차는 동일합니다.
 
 이 자습서에서는 다음을 수행하는 방법을 설명합니다.
 
@@ -154,4 +152,4 @@ StorSimple 장치에 PCM을 설치하려면 다음 지침을 따르세요.
 
 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

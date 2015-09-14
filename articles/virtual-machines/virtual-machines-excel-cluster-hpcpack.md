@@ -1,19 +1,19 @@
 <properties
  pageTitle="Excel 및 SOA 작업을 실행할 HPC Pack 클러스터 시작 | Microsoft Azure"
- description="."
- services="virtual-machines"
- documentationCenter=""
- authors="dlepow"
- manager="timlt"
- editor=""/>
+	description="."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="dlepow"
+	manager="timlt"
+	editor=""/>
 <tags
 ms.service="virtual-machines"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="vm-windows"
- ms.workload="big-compute"
- ms.date="08/18/2015"
- ms.author="danlep"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
+	ms.workload="big-compute"
+	ms.date="08/18/2015"
+	ms.author="danlep"/>
 
 # Azure에서 Excel 및 SOA 작업을 실행할 HPC Pack 클러스터 시작
 
@@ -60,7 +60,7 @@ Azure 빠른 시작 템플릿을 사용하여 빠르고 쉽게 Azure Preview 포
     >
     >컴퓨터 노드 VM은 선택한 컴퓨터 노드 제품군의 최신 이미지에서 생성됩니다. 범용 최신 HPC Pack 2012 R2 업데이트 2 컴퓨터 이미지에 대해 **ComputeNode** 옵션을 선택합니다. Microsoft Excel Professional Plus 2013 평가 버전을 포함하는 최신 HPC Pack 컴퓨터 노드 이미지에 대해 **ComputeNodeWithExcel** 옵션을 선택합니다. 일반 SOA 세션 또는 Excel UDF 오프로딩에 대해 클러스터를 배포하려는 경우 **ComputeNode** 옵션을 선택합니다(Excel이 설치되어 있지 않음).
     >
-    >프로덕션 작업에 대해 **ComputeNodeWithExcel**을 사용하는 경우 컴퓨터 노드에서 Excel을 활성화하려면 유효한 Excel 라이선스를 제공해야 합니다. 그렇지 않으면 30일 후에 Excel 평가 버전이 만료되고 해당 시간에 Excel 작업이 실행되지 않습니다.
+    >프로덕션 작업에 대해 **ComputeNodeWithExcel**을 사용하는 경우 컴퓨터 노드에서 Excel을 활성화하려면 유효한 Excel 라이선스를 제공해야 합니다. 그렇지 않은 경우 평가 버전의 Excel은 30일 내에 만료될 수 있으며 Excel 통합 문서 실행은 COMExeption(0x800AC472)으로 지속적으로 실패합니다. 이 문제가 발생하면 HPC 클러스터 관리자 콘솔을 통해 모든 Excel 계산 노드의 clusrun "%ProgramFiles(x86) %\\Microsoft Office\\Office15\\OSPPREARM.exe"에 헤드 노드를 로그온하여 다른 30일의 평가 시간에 대해 Excel을 재무장할 수 있습니다. 유예 기간에 대한 최대 재무장 횟수는 2이며 그 후 유효한 Excel 라이선스를 제공해야 합니다.
 
     c. 구독을 선택합니다.
 
@@ -222,7 +222,7 @@ Azure의 HPC Pack 클러스터에서 실행할 Excel 통합 문서를 오프로�
 ```
 4.	전체 [HPC Pack 2012 R2 업데이트 2 설치](http://www.microsoft.com/download/details.aspx?id=47755)를 다운로드하고 HPC Pack 클라이언트를 설치하거나 [HPC Pack 2012 R2 업데이트 2 클라이언트 유틸리티](https://www.microsoft.com/download/details.aspx?id=47754) 및 사용자 컴퓨터에 적절한 Visual C++ 2010 재배포 가능 패키지([x64](http://www.microsoft.com/download/details.aspx?id=14632)[x86](https://www.microsoft.com/download/details.aspx?id=5555))를 다운로드 및 설치합니다.
 
-5.	이 예제에서는 [여기](https://www.microsoft.com/ko-kr/download/details.aspx?id=2939)서 다운로드할 수 있는 ConvertiblePricing\_Complete.xlsb라는 샘플 Excel 통합 문서를 사용합니다.
+5.	이 예제에서는 [여기](https://www.microsoft.com/ko-KR/download/details.aspx?id=2939)서 다운로드할 수 있는 ConvertiblePricing\_Complete.xlsb라는 샘플 Excel 통합 문서를 사용합니다.
 
 6.	D:\\Excel\\Run과 같은 작업 폴더에 Excel 통합 문서를 복사합니다.
 
@@ -259,7 +259,7 @@ Azure의 HPC Pack 클러스터에서 실행할 Excel 통합 문서를 오프로�
 
 Excel UDF를 실행하려면 앞의 1-3단계에 따라 클라이언트 컴퓨터를 설정합니다. Excel UDF의 경우 컴퓨터 노드에 Excel 응용 프로그램이 설치되어 있을 필요가 없으므로 Excel이 포함된 컴퓨터 노드 이미지 대신 1단계에서 일반 컴퓨터 노드 이미지를 선택할 수 있습니다.
 
->[AZURE.NOTE]Excel 2010 및 2013 클러스터 커넥터 대화 상자에는 34자 제한이 있습니다. 전체 클러스터 이름이 더 긴 경우(예: hpcexcelhn01.southeastasia.cloudapp.azure.com) 제한에 맞지 않으며 UDF가 실행되지 않습니다. 해결 방법은 IaaS 배포 스크립트를 사용하여 hpcexcelhn01.cloudapp.net과 같은 더 짧은 이름으로 클러스터를 배포하는 것입니다. 이 문제는 이후 버전의 SOA 세션 API에서 수정될 예정입니다.
+>[AZURE.NOTE]Excel 2010 및 2013 클러스터 커넥터 대화 상자에는 34자 제한이 있습니다. 전체 클러스터 이름이 더 긴 경우(예: hpcexcelhn01.southeastasia.cloudapp.azure.com) 대화 상자에 맞지 않습니다. 문제 해결 방법은 클라이언트 컴퓨터의 SOA 세션 API에 업데이트 2 QFE KB3085833([여기](http://www.microsoft.com/ko-KR/download/details.aspx?id=48725)에서 다운로드)을 적용한 다음 컴퓨터를 긴 클러스터 이름 값으로(예: *CCP\_IAASHN*) 넓은 변수를 설정하고 클러스터 헤드 노드 이름으로 대화 상자에 *%CCP\_IAASHN%*를 입력합니다.
 
 클러스터가 배포된 후 다음 단계를 계속 진행하여 샘플 기본 제공 Excel UDF를 실행합니다. 사용자 지정 Excel UDF의 경우 다음 [리소스](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx)를 참조하여 XLL을 빌드하고 IaaS 클러스터에 배포하세요.
 
@@ -376,4 +376,4 @@ NetTcp 바인딩을 사용하려면 구성이 온-프레미스 클러스터에 �
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

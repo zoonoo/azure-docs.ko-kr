@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="클라우드 서비스를 구성하는 방법 | Microsoft Azure" 
-	description="Azure에서 클라우드 서비스를 구성하는 방법에 대해 알아봅니다. 또한 클라우드 서비스 구성을 업데이트하고 역할 인스턴스에 대한 원격 액세스를 구성하는 방법도 알아봅니다." 
-	services="cloud-services" 
-	documentationCenter="" 
-	authors="Thraka" 
-	manager="timlt" 
+	pageTitle="클라우드 서비스를 구성하는 방법 | Microsoft Azure"
+	description="Azure에서 클라우드 서비스를 구성하는 방법에 대해 알아봅니다. 또한 클라우드 서비스 구성을 업데이트하고 역할 인스턴스에 대한 원격 액세스를 구성하는 방법도 알아봅니다."
+	services="cloud-services"
+	documentationCenter=""
+	authors="Thraka"
+	manager="timlt"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
 	ms.date="06/29/2015"
 	ms.author="adegeo"/>
 
@@ -85,8 +85,8 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
 
 ## 역할 인스턴스에 대한 원격 액세스 구성
 
-원격 액세스는 **Azure Preview 포털**을 사용하여 구성할 수 없으며 [미리 보기를 할 수 없는 포털](http://manage.windowsazure.com/)을 통해서만 이 설정을 변경할 수 있습니다. 이 내용은 [여기](cloud-services-how-to-configure.md#configure-remote-access-to-role-instances)에 자세히 설명되어 있습니다.
+원격 액세스는 **Azure Preview 포털**을 사용하여 구성할 수 없으며 [미리 보기를 할 수 없는 포털](http://manage.windowsazure.com/)을 통해서만 이 설정을 변경할 수 있습니다. 이 내용은 [여기](cloud-services-role-enable-remote-desktop.md)에 자세히 설명되어 있습니다.
 			
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

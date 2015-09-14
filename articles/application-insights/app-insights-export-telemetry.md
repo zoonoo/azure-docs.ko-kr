@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Application Insights에서 원격 분석 연속 내보내기" 
-	description="Microsoft Azure에서 저장소에 진단 및 사용량 데이터를 내보내고 여기에서 다운로드합니다." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Application Insights에서 원격 분석 연속 내보내기"
+	description="Microsoft Azure에서 저장소에 진단 및 사용량 데이터를 내보내고 여기에서 다운로드합니다."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/13/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="awills"/>
  
 # Application Insights에서 원격 분석 내보내기
@@ -40,6 +40,7 @@ Application Insights 포털의 응용 프로그램 개요 블레이드에서 연
 
 내보내기를 만들면 진행을 시작합니다. (내보내기를 만든 후에는 도착하는 데이터만 받습니다.)
 
+데이터가 Blob에 표시되기까지 1시간 정도 지연될 수 있습니다.
 
 나중에 이벤트 유형을 변경하려는 경우 내보내기를 편집하면 됩니다.
 
@@ -59,20 +60,23 @@ Application Insights 포털의 응용 프로그램 개요 블레이드에서 연
 
 계산된 다른 메트릭은 포함되지 않습니다. 예를들어 평균 CPU 사용률을 내보내지 않지만 평균이 계산된 곳에서 원시 원격 분석을 내보냅니다.
 
+데이터에는 설정한 [가용성 웹 테스트](app-insights-monitor-web-app-availability.md)의 결과도 포함됩니다.
+
 ## <a name="get"></a> 데이터 검사
 
-[서버 탐색기](http://msdn.microsoft.com/library/azure/ff683677.aspx)와 같은 도구로 blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입니다. 각 파일의 URI는 응용 프로그램-id/원격 분석-유형/날짜/시간입니다.
+Visual Studio에서 Azure 저장소를 검사하려면 **보기**, **클라우드 탐색기**를 엽니다. 해당 메뉴 명령이 없는 경우 Azure SDK를 설치해야 합니다. **새 프로젝트** 대화 상자를 열고 Visual C#/클라우드를 확장한 다음 **Microsoft Azure SDK for .NET 가져오기**를 선택합니다.
+
+blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입니다. Application Insights 리소스 이름, 계측 키, 원격 분석 유형/날짜/시간에서 파생된 각 파일의 URI입니다. 리소스 이름은 모두 소문자이고 계측 키에서 대시를 생략합니다.
 
 ![적합한 도구를 사용하여 blob 저장소 검사](./media/app-insights-export-telemetry/04-data.png)
 
 날짜 및 시간은 UTC이며 생성된 시간이 아니라 원격 분석이 저장소에 보관된 시기입니다. 따라서 데이터를 다운로드할 코드를 작성하는 경우 데이터를 선형으로 이동할 수 있습니다.
 
 
-
 ## <a name="format"></a> 데이터 형식
 
 * 각 blob은 다중 '\\n'-separated 행을 포함하는 텍스트 파일입니다.
-* 각 행은 서식이 지정되지 않은 JSON 파일입니다. 가만히 앉아서 지켜보려는 경우 JSON 플러그인을 사용하여 메모장++과 같은 뷰어로 시도해 봅니다.
+* 각 행은 서식이 지정되지 않은 JSON 파일입니다. 관찰만 하려는 경우 Visual Studio에서 열고 편집, 고급, 형식 파일을 선택합니다.
 
 ![적합한 도구를 사용하여 원격 분석 보기](./media/app-insights-export-telemetry/06-json.png)
 
@@ -198,4 +202,4 @@ Application Insights 포털의 응용 프로그램 개요 블레이드에서 연
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

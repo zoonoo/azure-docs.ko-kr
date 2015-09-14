@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="연습: Application Insights에서 SQL 데이터베이스로 원격 분석 내보내기" 
-	description="연속 내보내기 기능을 사용하여 Application Insights에서 원격 분석에 대한 자체 분석을 코딩합니다." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="noamben" 
+	pageTitle="연습: Application Insights에서 SQL 데이터베이스로 원격 분석 내보내기"
+	description="연속 내보내기 기능을 사용하여 Application Insights에서 원격 분석에 대한 자체 분석을 코딩합니다."
+	services="application-insights"
+	documentationCenter=""
+	authors="noamben"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="awills"/>
  
 # 연습: 스트림 분석을 사용하여 Application Insights에서 SQL로 내보내기
@@ -92,12 +92,16 @@
 
     ![이벤트 유형 선택](./media/app-insights-code-sample-export-sql-stream-analytics/085-types.png)
 
-이제 한동안 사용자가 응용 프로그램을 사용하도록 놓아둡니다. 원격 분석이 제공되어 [메트릭 탐색기][metrics]에는 통계 차트가 표시되고 [진단 검색][diagnostic]에는 개별 이벤트가 표시됩니다.
 
-또한 데이터는 콘텐츠를 검사할 수 있는 사용자 저장소로 내보내집니다. 예를 들어 Visual Studio에는 저장소 브라우저가 있습니다.
+3. 일부 데이터가 누적되도록 합니다. 한동안 사용자가 응용 프로그램을 사용하도록 놓아둡니다. 원격 분석이 제공되어 [메트릭 탐색기](app-insights-metrics-explorer.md)에는 통계 차트가 표시되고 [진단 검색](app-insights-diagnostic-search.md)에는 개별 이벤트가 표시됩니다.
 
+    또한 데이터를 저장소로 내보냅니다.
 
-![Visual Studio에서 서버 브라우저, Azure, 저장소 열기](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
+4. 내보낸 데이터를 검사합니다. Visual Studio에서 **보기/클라우드 탐색기**를 선택하고 Azure/저장소를 엽니다. 이 메뉴 옵션이 없는 경우 Azure SDK를 설치해야 합니다. 새 프로젝트 대화 상자를 열고 Visual C#/클라우드/Microsoft Azure SDK for .NET 가져오기를 엽니다.
+
+    ![Visual Studio에서 서버 브라우저, Azure, 저장소 열기](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
+
+    응용 프로그램 이름 및 계측 키에서 파생된 경로 이름의 공통 부분을 적어 둡니다.
 
 이벤트는 JSON 형식으로 blob 파일에 기록됩니다. 각 파일에는 하나 이상의 이벤트가 있을 수 있습니다. 따라서 이벤트 데이터를 읽고 원하는 필드를 필터링하려고 합니다. 데이터로 온갖 종류의 작업을 수행할 수 있지만, 지금은 스트림 분석을 사용하여 데이터를 SQL 데이터베이스로 이동하려고 합니다. 이렇게 하면 흥미로운 많은 쿼리를 쉽게 실행할 수 있습니다.
 
@@ -196,12 +200,12 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 경로 접두사 패턴은 스트림 분석이 저장소에서 입력 파일을 찾는 방법을 지정합니다. 연속 내보내기에서 데이터를 저장하는 방법과 일치하도록 설정해야 합니다. 다음과 같이 설정합니다.
 
-    webapplication27_100000000-0000-0000-0000-000000000000/PageViews/{date}/{time}
+    webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
 이 예제에서:
 
-* `webapplication27`은 Application Insights 리소스의 이름입니다. 
-* `1000...`은 Application Insights 리소스의 계측 키입니다. 
+* `webapplication27`은 Application Insights 리소스의 이름으로, **모두 소문자**입니다. 
+* `1234...`은 **대시를 제거한** Application Insights 리소스의 계측 키입니다. 
 * `PageViews`는 분석하려는 데이터의 형식입니다. 사용 가능한 형식은 연속 내보내기에 설정한 필터에 따라 다릅니다. 내보낸 데이터를 검사하여 사용 가능한 다른 형식을 확인하고 [데이터 모델 내보내기](app-insights-export-data-model.md)를 참조합니다.
 * `/{date}/{time}`은 문자로 기록된 패턴입니다.
 
@@ -259,7 +263,7 @@ Application Insights 리소스의 이름 및 iKey를 가져오려면 해당 개�
 
 ```
 
-처음 몇 가지 속성은 페이지 보기 데이터에만 해당됩니다. 다른 원격 분석 유형 내보내기에 다른 속성이 있습니다.
+처음 몇 가지 속성은 페이지 보기 데이터에만 해당됩니다. 다른 원격 분석 유형 내보내기에 다른 속성이 있습니다. [속성 형식 및 값에 대한 자세한 데이터 모델 참조](app-insights-export-data-model.md)를 참조하세요.
 
 ## 데이터베이스에 출력 설정
 
@@ -294,6 +298,7 @@ SQL 데이터베이스를 지정합니다.
 ## 관련된 문서
 
 * [작업자 역할을 사용하여 SQL로 내보내기](app-insights-code-sample-export-telemetry-sql-database.md)
+* [속성 형식 및 값에 대한 자세한 데이터 모델 참조입니다.](app-insights-export-data-model.md)
 * [Application Insights에서 연속 내보내기](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
 
@@ -307,4 +312,4 @@ SQL 데이터베이스를 지정합니다.
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

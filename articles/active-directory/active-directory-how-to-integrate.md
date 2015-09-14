@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure Active Directory와 통합하는 방법"
-   description="Azure Active Directory와의 통합의 이점 및 리소스에 대한 설명입니다."
-   services="active-directory"
-   documentationCenter="dev-center-name"
-   authors="msmbaldwin"
-   manager="mbaldwin"
-   editor=""/>
+	description="Azure Active Directory와의 통합의 이점 및 리소스에 대한 설명입니다."
+	services="active-directory"
+	documentationCenter="dev-center-name"
+	authors="msmbaldwin"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
    ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="07/30/2015"
-   ms.author="mbaldwin"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/25/2015"
+	ms.author="mbaldwin"/>
 
 # Azure Active Directory와의 통합
 
@@ -50,7 +50,7 @@ Azure Active Directory는 클라우드 응용 프로그램에 대해 엔터프�
 
 **이미 Azure AD를 사용 중인 수백만 개의 조직에 응용 프로그램을 홍보합니다.** 이러한 마켓플레이스를 검색하고 찾아보는 사용자는 자격 있는 클라우드 서비스 고객이 되어 이미 하나 이상의 클라우드 서비스를 사용하고 있습니다. [Azure 마켓플레이스](http://azure.microsoft.com/marketplace/partner-program/)에서 응용 프로그램 홍보하기에 대해 자세히 알아보세요.
 
-**사용자가 응용 프로그램에 등록하면 사용자의 Azure AD 액세스 패널 및 Office 365 앱 시작 관리자에 표시됩니다.** 사용자가 나중에 응용 프로그램으로 쉽고 빠르게 돌아갈 수 있어 사용자 참여를 향상시킵니다. [Azure AD 액세스 패널](https://msdn.microsoft.com/library/azure/dn308586.aspx)에 대해 자세히 알아보세요.
+**사용자가 응용 프로그램에 등록하면 사용자의 Azure AD 액세스 패널 및 Office 365 앱 시작 관리자에 표시됩니다.** 사용자가 나중에 응용 프로그램으로 쉽고 빠르게 돌아갈 수 있어 사용자 참여를 향상시킵니다. [Azure AD 액세스 패널](active-directory-saas-access-panel-introduction.md)에 대해 자세히 알아보세요.
 
 ### 장치와 서비스 및 서비스와 서비스 간의 안전한 통신
 
@@ -78,7 +78,7 @@ Azure AD와 통합하면 추가 코드를 작성할 필요가 없다는 이점�
 
 **산업 표준 프로토콜.** Microsoft는 산업 표준을 지원합니다. Azure AD는 SAML 2.0, OpenID Connect 1.0, OAuth 2.0, Ws-federation 1.2 인증 프로토콜을 지원합니다. Graph API는 OData 4.0을 따릅니다. 응용 프로그램이 페더레이션된 로그인에 대해 이미 SAML 2.0 또는 OpenID Connect 1.0 프로토콜을 지원하는 경우 Azure AD 지원을 추가하는 것은 간단합니다. [Azure AD 지원 인증 프로토콜](../authentication-protocols.md)에 대해 자세히 알아보세요.
 
-**오픈 소스 라이브러리.** Microsoft는 인기 있는 언어 및 플랫폼에 대해 개발에 박차를 가하기 위해 완벽하게 지원되는 오픈 소스 라이브러리를 제공합니다. 소스 코드는 Apache 2.0에 따라 사용이 허가되며, 원하는 대로 소스 코드를 분기하여 프로젝트에 다시 제공할 수 있습니다. [Azure AD 오픈 소스 라이브러리](https://msdn.microsoft.com/library/azure/dn151135.aspx)에 대해 자세히 알아보세요.
+**오픈 소스 라이브러리.** Microsoft는 인기 있는 언어 및 플랫폼에 대해 개발에 박차를 가하기 위해 완벽하게 지원되는 오픈 소스 라이브러리를 제공합니다. 소스 코드는 Apache 2.0에 따라 사용이 허가되며, 원하는 대로 소스 코드를 분기하여 프로젝트에 다시 제공할 수 있습니다. [Azure AD 인증 라이브러리](active-directory-authentication-libraries.md)에 대해 자세히 알아보세요.
 
 ### 전 세계 제공 및 고가용성
 
@@ -90,4 +90,4 @@ Azure AD와 통합하면 추가 코드를 작성할 필요가 없다는 이점�
 
 [Azure AD를 사용한 사용자 로그인](active-directory-authentication-scenarios.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

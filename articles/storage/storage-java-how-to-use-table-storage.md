@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Java에서 테이블 저장소를 사용하는 방법 | Microsoft Azure&quot;" 
-	description="Azure에서 테이블 저장소 서비스를 사용하는 방법을 알아봅니다. 코드 샘플은 Java 코드로 작성되었습니다." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	pageTitle="Java에서 테이블 저장소를 사용하는 방법 | Microsoft Azure";"
+	description="Azure에서 테이블 저장소 서비스를 사용하는 방법을 알아봅니다. 코드 샘플은 Java 코드로 작성되었습니다."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 
@@ -547,12 +547,12 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
 이제 테이블 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업을 수행하는 방법을 알아보세요.
 
-- [Java용 Azure 저장소 SDK]
-- [Azure 저장소 클라이언트 SDK 참조]
-- [Azure 저장소 REST API]
-- [Azure 저장소 팀 블로그]
+- [Java용 Azure 저장소 SDK][]
+- [Azure 저장소 클라이언트 SDK 참조][]
+- [Azure 저장소 REST API][]
+- [Azure 저장소 팀 블로그][]
 
-[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+[Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Java용 Azure Storage SDK]: https://github.com/azure/azure-storage-java
 [Java용 Azure 저장소 SDK]: https://github.com/azure/azure-storage-java
 [Android용 Azure Storage SDK]: https://github.com/azure/azure-storage-android
@@ -563,4 +563,4 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 [블로그 게시물]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

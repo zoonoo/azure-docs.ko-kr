@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="ruby"
 	ms.topic="article"
-	ms.date="03/20/2015"
+	ms.date="08/31/2015"
 	ms.author="tomfitz"/>
 
 
@@ -22,7 +22,7 @@
 
 # 서비스 버스 토픽/구독을 사용하는 방법
 
-이 가이드에서는 Ruby 응용 프로그램에서 서비스 버스 토픽과 구독을 사용하는 방법을 보여 줍니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기, 구독 필터 만들기, 토픽에 메시지 보내기,** **구독에서 메시지 받기,** **토픽 및 구독 삭제** 등이 포함됩니다. 토픽 및 구독에 대한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하세요.
+이 가이드에서는 Ruby 응용 프로그램에서 서비스 버스 토픽과 구독을 사용하는 방법을 보여 줍니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기, 구독 필터 만들기, 토픽에 메시지 보내기,** **구독에서 메시지 받기,** **토픽 및 구독 삭제** 등이 포함됩니다. 토픽 및 구독에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
 
 ## 서비스 버스 토픽 및 구독 정의
 
@@ -58,7 +58,7 @@ Azure 서비스 버스 네임스페이스를 만들 때 실행한 PowerShell cmd
 
       ![Copy key](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
 
-> [AZURE.NOTE][Azure 관리 포털](http://manage.windowsazure.com/)에 로그인하여 서비스 버스 네임스페이스에 대한 연결 정보로 이동하여 이 키를 찾을 수도 있습니다.
+> [AZURE.NOTE][Azure 포털](http://manage.windowsazure.com/)에 로그인하여 서비스 버스 네임스페이스에 대한 연결 정보로 이동하여 이 키를 찾을 수도 있습니다.
 
 ## Ruby 응용 프로그램 만들기
 
@@ -201,7 +201,7 @@ Azure 모듈은 **AZURE\_SERVICEBUS\_NAMESPACE** 및 **AZURE\_SERVICEBUS\_ACCESS
 
 ## 토픽과 구독을 삭제하는 방법
 
-토픽과 구독은 영구적이므로, [Azure 관리 포털](https://manage.windowsazure.com) 또는 프로그래밍 방식을 통해 명시적으로 삭제해야 합니다. 아래 예제에서는 "test-topic"이라는 토픽을 삭제하는 방법을 보여 줍니다.
+토픽과 구독은 영구적이므로, [Azure 포털](https://manage.windowsazure.com) 또는 프로그래밍 방식을 통해 명시적으로 삭제해야 합니다. 아래 예제에서는 "test-topic"이라는 토픽을 삭제하는 방법을 보여 줍니다.
 
 	azure_service_bus_service.delete_topic("test-topic")
 
@@ -218,4 +218,4 @@ Azure 모듈은 **AZURE\_SERVICEBUS\_NAMESPACE** 및 **AZURE\_SERVICEBUS\_ACCESS
 -	GitHub에서 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby)(영문) 리포지토리를 방문하세요.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

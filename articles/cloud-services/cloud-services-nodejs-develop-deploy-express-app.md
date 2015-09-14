@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Express를 사용하여 웹앱 빌드(Node.js) | Microsoft Azure" 
-	description="클라우드 서비스 자습서를 기반으로 웹앱을 빌드하고 Express 모듈 사용 방법을 보여 주는 자습서입니다." 
-	services="cloud-services" 
-	documentationCenter="nodejs" 
-	authors="MikeWasson" 
-	manager="wpickett" 
+	pageTitle="Express를 사용하여 웹앱 빌드(Node.js) | Microsoft Azure"
+	description="클라우드 서비스 자습서를 기반으로 웹앱을 빌드하고 Express 모듈 사용 방법을 보여 주는 자습서입니다."
+	services="cloud-services"
+	documentationCenter="nodejs"
+	authors="MikeWasson"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="nodejs" 
-	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.service="cloud-services"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="nodejs"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mwasson"/>
 
 
@@ -43,9 +43,9 @@ Node.js에는 핵심 런타임에 최소한의 기능이 들어 있습니다. �
 
 		PS C:\node> New-AzureServiceProject expressapp
 		PS C:\Node\expressapp> Add-AzureNodeWebRole
-		PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 node 0.10.21
+		PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 Node 0.10.21
 
-	> [AZURE.NOTE]기본적으로 **Add-AzureNodeWebRole**은 이전 버전의 Node.js를 사용합니다. 위의 **Set-AzureServiceProjectRole** 문은 Azure에 Node의 v0.10.21을 사용하도록 지시합니다.
+	> [AZURE.NOTE]기본적으로 **Add-AzureNodeWebRole**은 이전 버전의 Node.js를 사용합니다. 위의 **Set-AzureServiceProjectRole** 문은 Azure에 Node의 v0.10.21을 사용하도록 지시합니다. 매개 변수는 대/소문자를 구분합니다. **WebRole1\\package.json**의 **engines** 속성을 확인하여 올바른 버전의 Node.js가 선택되었는지 확인할 수 있습니다.
 
 ##Express 설치
 
@@ -135,4 +135,4 @@ Azure PowerShell 창에서 **Publish-AzureServiceProject** cmdlet을 사용하�
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

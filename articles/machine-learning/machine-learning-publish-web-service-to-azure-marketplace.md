@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="기계 학습 웹 서비스를 Azure 마켓플레이스에 게시 | Microsoft Azure" 
-	description="Azure 마켓플레이스에 Azure 기계 학습 웹 서비스를 게시하는 방법" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="LuisCabrer" 
-	manager="paulettm" 
+	pageTitle="기계 학습 웹 서비스를 Azure 마켓플레이스에 게시 | Microsoft Azure"
+	description="Azure 마켓플레이스에 Azure 기계 학습 웹 서비스를 게시하는 방법"
+	services="machine-learning"
+	documentationCenter=""
+	authors="LuisCabrer"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/12/2015" 
-	ms.author="luisca"/>
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="bharaths"/>
 
 # Azure 마켓플레이스에 Azure 기계 학습 웹 서비스 게시 
 
@@ -109,4 +109,4 @@ Azure 기계 학습 웹 서비스를 Azure 마켓플레이스에 게시하는 �
 [odata]: ./media/machine-learning-publish-web-service-to-azure-marketplace/odata.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

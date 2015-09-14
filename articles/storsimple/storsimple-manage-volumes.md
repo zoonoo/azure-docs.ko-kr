@@ -1,6 +1,6 @@
 <properties
    pageTitle="StorSimple 볼륨 관리 | Microsoft Azure"
-	description="StorSimple 볼륨을 추가, 수정 및 모니터링하는 방법 및 필요에 따라 이를 오프라인으로 전환하는 방법에 대해 설명합니다."
+	description="StorSimple 볼륨을 추가, 수정, 모니터링 및 삭제하는 방법 및 필요에 따라 이를 오프라인으로 전환하는 방법을 설명합니다."
 	services="storsimple"
 	documentationCenter="NA"
 	authors="SharS"
@@ -12,10 +12,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="TBD"
-	ms.date="08/21/2015"
+	ms.date="08/27/2015"
 	ms.author="v-sharos"/>
 
-# StorSimple 볼륨 관리
+# StorSimple 관리자 서비스를 사용하여 볼륨 관리
 
 ## 개요
 
@@ -65,7 +65,7 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 
 3. 페이지 맨 아래에 있는 **추가**를 클릭합니다. 볼륨 추가 마법사가 시작됩니다.
 
-     ![추가 볼륨](./media/storsimple-manage-volumes/HCS_AddVolume1M.png)
+     ![볼륨 추가 마법사 기본 설정](./media/storsimple-manage-volumes/HCS_AddVolume1M.png)
 
 4. 볼륨 추가 마법사의 **기본 설정**에서 다음을 수행합니다.
 
@@ -74,7 +74,7 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
   3. 드롭다운 목록에서 볼륨의 **사용 유형**을 선택합니다. 자주 액세스하지 않는 보관 데이터로 작업하는 경우 **보관 볼륨**을 선택합니다. 기타 모든 경우에는 **계층화된 볼륨**을 선택합니다. (계층화된 볼륨은 이전의 기본 볼륨입니다.)
   5. 화살표 아이콘![화살표 아이콘](./media/storsimple-manage-volumes/HCS_ArrowIcon.png)을 클릭하여 **추가 설정** 페이지로 이동합니다.
 
-     ![추가 볼륨](./media/storsimple-manage-volumes/HCs_AddVolume2M.png)
+     ![볼륨 추가 마법사 추가 설정](./media/storsimple-manage-volumes/HCs_AddVolume2M.png)
    
 5. **추가 설정**에서 새 ACR(액세스 제어 레코드)을 추가합니다.
   
@@ -172,7 +172,7 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 
 5. 볼륨 수정 마법사의 **기본 설정**에 있는 **모니터링** 드롭다운 목록에서 **사용** 또는 **사용 안 함**을 선택합니다.
 
-    ![볼륨 모니터링](./media/storsimple-manage-volumes/HCS_MonitorVolumeM.png)
+    ![볼륨 기본 설정 수정](./media/storsimple-manage-volumes/HCS_MonitorVolumeM.png)
 
 ## 다음 단계
 
@@ -181,4 +181,4 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="출력 데이터를 자습서에서 온-프레미스 SQL Server 데이터베이스로 복사"
-	description="이 자습서의 연습은 데이터 팩터리 자습서를 확장하여 마케팅 캠페인 효율성 데이터를 온-프레미스 SQL Server 데이터베이스로 복사합니다."
+	pageTitle="온-프레미스 SQL Server 데이터베이스에 출력 데이터 복사(Azure PowerShell)"
+	description="이 연습에서는 파이프라인이 출력 데이터를 SQL Server 데이터베이스에 복사하도록 Azure PowerShell을 사용하는 자습서를 확장합니다."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -35,7 +35,7 @@
 
 1. [1단계: 데이터 관리 게이트웨이를 만듭니다.](#OnPremStep1) 데이터 관리 게이트웨이는 클라우드에서 조직의 온-프레미스 데이터 원본에 액세스할 수 있게 해주는 클라이언트 에이전트입니다. 이 게이트웨이를 사용하여 온-프레미스 SQL Server와 Azure 데이터 저장소 간에 데이터를 전송할 수 있습니다.	
 
-	온-프레미스 SQL Server 데이터베이스를 Azure 데이터 팩터리에 연결된 서비스로 추가하기 전에 회사 환경에 게이트웨이를 2개 이상 설치하고 Azure 데이터 팩터리에 등록해야 합니다.
+	온-프레미스 SQL Server 데이터베이스를 Azure Data Factory에 연결된 서비스로 추가하기 전에 회사 환경에 게이트웨이를 2개 이상 설치하고 Azure Data Factory에 등록해야 합니다.
 
 2. [2단계: 온-프레미스 SQL Server에 대한 연결 서비스를 만듭니다.](#OnPremStep2) 이 단계에서는 먼저 온-프레미스 SQL Server 컴퓨터에서 데이터베이스와 테이블을 만든 다음 연결된서비스 **OnPremSqlLinkedService**를 만듭니다.
 3. [3단계: 테이블 및 파이프라인을 만듭니다.](#OnPremStep3) 이 단계에서는 **MarketingCampaignEffectivenessOnPremSQLTable** 테이블과 **EgressDataToOnPremPipeline** 파이프라인을 만듭니다. 
@@ -47,7 +47,7 @@
 
 데이터 관리 게이트웨이는 클라우드에서 조직의 온-프레미스 데이터 원본에 액세스할 수 있게 해주는 클라이언트 에이전트입니다. 이 게이트웨이를 사용하여 온-프레미스 SQL Server와 Azure 데이터 저장소 간에 데이터를 전송할 수 있습니다.
   
-온-프레미스 SQL Server 데이터베이스를 Azure 데이터 팩터리에 연결된 서비스로 추가하기 전에 회사 환경에 게이트웨이를 2개 이상 설치하고 Azure 데이터 팩터리에 등록해야 합니다.
+온-프레미스 SQL Server 데이터베이스를 Azure Data Factory에 연결된 서비스로 추가하기 전에 회사 환경에 게이트웨이를 2개 이상 설치하고 Azure Data Factory에 등록해야 합니다.
 
 사용할 수 있는 기존 데이터 게이트웨이가 있는 경우 이 단계를 건너뜁니다.
 
@@ -170,4 +170,4 @@
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

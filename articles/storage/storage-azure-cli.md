@@ -1,19 +1,19 @@
 <properties
     pageTitle="Azure 저장소에서 Azure CLI 사용 | Microsoft Azure"
-    description="Azure 저장소에서 Azure 명령줄 인터페이스(Azure CLI)를 사용하여 저장소 계정을 만들어 관리하고 Azure blob과 파일 작업을 수행하는 방법에 대해 알아봅니다."
-    services="storage"
-    documentationCenter="na"
-    authors="tamram"
-    manager="jdial"/>
+	description="Azure 저장소에서 Azure 명령줄 인터페이스(Azure CLI)를 사용하여 저장소 계정을 만들어 관리하고 Azure blob과 파일 작업을 수행하는 방법에 대해 알아봅니다."
+	services="storage"
+	documentationCenter="na"
+	authors="tamram"
+	manager="jdial"/>
 
 <tags
     ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article" 
-    ms.date="05/27/2015"
-    ms.author="chungli;jiyang;yaxia;tamram"/>
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="chungli;jiyang;yaxia;tamram"/>
 
 # Azure 저장소에서 Azure CLI 사용
 
@@ -80,9 +80,9 @@ Azure 구독에 대한 자세한 내용은 [계정, 구독 및 관리 역할 관
 
     - **<container_name>** 스크립트에 지정된 이름을 사용하거나 사용자 컨테이너에 대한 새 이름을 입력합니다.
 
-    - **<image_to_upload>** 로컬 컴퓨터의 그림 경로(예: "\~/images/HelloWorld.png")를 입력합니다.
+    - **<image_to_upload>** 로컬 컴퓨터의 그림 경로(예: "~/images/HelloWorld.png")를 입력합니다.
 
-    - **<destination_folder>** Azure 저장소에서 다운로드한 파일을 보관할 로컬 디렉터리의 경로(예: “\~/downloadImages”)를 입력합니다.
+    - **<destination_folder>** Azure 저장소에서 다운로드한 파일을 보관할 로컬 디렉터리의 경로(예: “~/downloadImages”)를 입력합니다.
 
 7. vim에서 필요한 변수를 업데이트 한 후 키 조합 "Esc,:, wq!"를 눌러 스크립트를 저장합니다.
 
@@ -94,7 +94,7 @@ Azure 구독에 대한 자세한 내용은 [계정, 구독 및 관리 역할 관
 
 ### Azure 구독에 연결
 
-대부분의 저장소 명령이 Azure 구독 없이 작동하지만 Azure CLI에서 구독에 연결하는 것이 좋습니다. 구독과 함께 작동하도록 Azure CLI를 구성하려면 [Azure 구독에 연결하는 방법](../xplat-cli.md#how-to-connect-to-your-azure-subscription)의.단계에 따르십시오.
+대부분의 저장소 명령이 Azure 구독 없이 작동하지만 Azure CLI에서 구독에 연결하는 것이 좋습니다. 구독과 함께 작동하도록 Azure CLI를 구성하려면 [Azure 구독에 연결하는 방법](../xplat-cli.md#how-to-connect-to-your-azure-subscription)의.단계에 따르세요.
 
 ### 새 저장소 계정 만들기
 
@@ -189,7 +189,7 @@ Azure에서 Azure 파일 공유는 SMB 2.1 파일 공유입니다. 모든 디렉
 
 ### 디렉터리에 로컬 파일 업로드
 
-다음 예제에서는 **\~/temp/samplefile.txt**에서 **myDir**로 파일을 업로드합니다. 로컬 컴퓨터의 유효한 파일을 가리키도록 파일 경로를 편집합니다.
+다음 예제에서는 **~/temp/samplefile.txt**에서 **myDir**로 파일을 업로드합니다. 로컬 컴퓨터의 유효한 파일을 가리키도록 파일 경로를 편집합니다.
 
         azure storage file upload '~/temp/samplefile.txt' myshare myDir
 
@@ -203,6 +203,16 @@ Azure에서 Azure 파일 공유는 SMB 2.1 파일 공유입니다. 모든 디렉
 
 나열 작업에 대해 디렉터리 이름은 선택적입니다. 생략하면 명령이 공유의 루트 디렉터리의 내용을 나열합니다.
 
+### 파일 복사
+
+Azure CLI 버전 0.9.8부터 파일을 다른 파일로, 파일을 Blob으로 또는 Blob을 파일로 복사할 수 있습니다. 아래에는 CLI 명령을 사용하여 이러한 복사 작업을 수행하는 방법이 나와 있습니다. 새 디렉터리에 파일을 복사하려면 다음을 수행합니다.
+
+	azure storage file copy start --source-share srcshare --source-path srcdir/hello.txt --dest-share destshare --dest-path destdir/hellocopy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
+	
+파일 디렉터리에 Blob을 복사하려면 다음을 수행합니다.
+
+	azure storage file copy start --source-container srcctn --source-blob hello2.txt --dest-share hello --dest-path hellodir/hello2copy.txt --connection-string $srcConnectionString --dest-connection-string $destConnectionString
+
 ## 다음 단계
 
 다음은 Azure 저장소에 대한 자세한 내용을 확인할 수 있는 몇 가지 관련 항목 및 리소스입니다.
@@ -214,4 +224,4 @@ Azure에서 Azure 파일 공유는 SMB 2.1 파일 공유입니다. 모든 디렉
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

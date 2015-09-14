@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="R을 사용하여 작성한 기계 학습 웹 서비스 예제 | Microsoft Azure" 
-	description="R 코드와 기계 학습을 사용하여 만든 후 Azure 마켓플레이스에 게시한 유용한 웹 서비스 예제 집합을 찾아보세요." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jaymathe" 
-	manager="paulettm" 
+	pageTitle="R을 사용하여 작성한 기계 학습 웹 서비스 예제 | Microsoft Azure"
+	description="R 코드와 기계 학습을 사용하여 만든 후 Azure 마켓플레이스에 게시한 유용한 웹 서비스 예제 집합을 찾아보세요."
+	services="machine-learning"
+	documentationCenter=""
+	authors="jaymathe"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2015"
 	ms.author="jaymathe"/>
 
 
@@ -73,4 +73,4 @@ Azure 기계 학습 스튜디오에서 사용자는 R 코드를 작성한 후 �
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

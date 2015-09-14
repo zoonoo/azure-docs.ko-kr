@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Python 기계 학습 스크립트 실행 | Microsoft Azure" 
-	description="Azure 기계 학습에서 Python 스크립트를 지원하는 데 기본이 되는 디자인 원칙 및 기본 사용 시나리오, 기능 및 제한 사항을 간략히 설명합니다." 
+	pageTitle="Python 기계 학습 스크립트 실행 | Microsoft Azure"
+	description="Azure 기계 학습에서 Python 스크립트를 지원하는 데 기본이 되는 디자인 원칙 및 기본 사용 시나리오, 기능 및 제한 사항을 간략히 설명합니다."
 	services="machine-learning"
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
+	documentationCenter=""
+	authors="bradsev"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/14/2015" 
-	ms.author="bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="08/30/2015"
+	ms.author="bradsev"/>
 
 
 # Azure 기계 학습 스튜디오에서 Python 기계 학습 스크립트 실행
@@ -40,7 +40,7 @@ Azure 기계 학습 스튜디오에서 Python의 기본 인터페이스는 그�
 [Python 스크립트 실행][execute-python-script] 모듈에서는 R 아날로그인 [R 스크립트 실행][execute-r-script] 모듈과 마찬가지로 최대 세 개의 입력을 허용하고 최대 두 개의 출력(아래 설명)을 생성합니다. 실행할 Python 코드는 `azureml_main`이라는 특별하게 명명된 진입점 함수로 매개 변수 상자에 입력됩니다. 다음은 이 모듈을 구현하는 데 사용하는 핵심 디자인 원칙입니다.
 
 1.	*Python 사용자에게 자연스러워야 합니다.* 대부분의 Python 사용자는 코드를 모듈 내의 함수로 고려해야 하므로, 최상위 모듈에 실행 가능 문을 많이 두는 경우는 비교적 드뭅니다. 따라서 스크립트 상자도 일련의 문장이 아니라 특별하게 명명된 Python 함수를 사용합니다. 함수에 노출된 개체는 [Pandas](http://pandas.pydata.org/) 데이터 프레임 및 [NumPy](http://www.numpy.org/) 배열과 같은 표준 Python 라이브러리입니다.
-2.	*로컬 및 클라우드 실행 간의 충실도가 높아야 합니다.* Python 코드를 실행하는 데 사용하는 백 엔드는 널리 사용되는 크로스 플랫폼 과학 Python 배포인 [Anaconda](https://store.continuum.io/cshop/anaconda/) 2.1을 기반으로 합니다. 가장 일반적인 Python 패키지가 거의 200개 포함되어 있습니다. 따라서 데이터 과학자가 [IPython](http://ipython.org/) 노트북 또는 [Python Tools for Visual Studio](http://pytools.codeplex.com/)와 같은 기존 개발 환경을 사용하여 로컬 Azure 기계 학습 호환 Anaconda 환경에서 코드를 디버그 및 한정하고, 자신 있게 Azure 기계 학습 환경의 일부로 실행할 수 있습니다. 또한 `azureml_main` 진입점은 바닐라 Python 함수이며 Azure 기계 학습 특정 코드 또는 SDK가 설치되어 있지 않아도 작성할 수 있습니다.
+2.	*로컬 및 클라우드 실행 간의 충실도가 높아야 합니다.* Python 코드를 실행하는 데 사용하는 백 엔드는 널리 사용되는 크로스 플랫폼 과학 Python 배포인 [Anaconda](https://store.continuum.io/cshop/anaconda/) 2.1을 기반으로 합니다. 가장 일반적인 Python 패키지가 거의 200개 포함되어 있습니다. 따라서 데이터 과학자가 [IPython](http://ipython.org/) 노트북 또는 [Python Tools for Visual Studio]와 같은 기존 개발 환경을 사용하여 로컬 Azure 기계 학습 호환 Anaconda 환경에서 코드를 디버그 및 한정하고, 자신 있게 Azure 기계 학습 환경의 일부로 실행할 수 있습니다. 또한 `azureml_main` 진입점은 바닐라 Python 함수이며 Azure 기계 학습 특정 코드 또는 SDK가 설치되어 있지 않아도 작성할 수 있습니다.
 3.	*다른 Azure 기계 학습 모듈로 원활하게 구성할 수 있어야 합니다.* [Python 스크립트 실행][execute-python-script] 모듈이 입력 및 출력으로 표준 Azure 기계 학습 데이터 집합을 허용합니다. 기본 프레임워크를 통해 투명하고 효율적으로 Azure 기계 학습과 Python 런타임을 연결합니다(누락된 값 등의 지원 기능). 따라서 Python은 R 및 SQLite로 호출되는 워크플로를 비롯하여 기존 Azure 기계 학습 워크플로와 함께 사용할 수 있습니다. 따라서 다음과 같은 워크플로가 해당될 수 있습니다.
   * 데이터 사전 처리 및 정리에 Python과 Pandas를 사용, 
   * SQL 변환으로 데이터를 피드하고, 여 데이터 집합을 조인하여 기능 구성, 
@@ -168,6 +168,6 @@ Azure 기계 학습에 설치된 Anaconda 환경에는 NumPy, SciPy 및 Scikits-
 <!-- Module References -->
 [execute-python-script]: https://msdn.microsoft.com/library/azure/cdb56f95-7f4c-404d-bde7-5bb972e6f232/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
- 
+[Python Tools for Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

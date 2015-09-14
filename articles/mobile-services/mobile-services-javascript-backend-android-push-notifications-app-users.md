@@ -1,20 +1,20 @@
 
-<properties 
-	pageTitle="인증된 사용자에게 푸시 알림 보내기" 
-	description="특정 사용자에게 푸시 알림을 보내는 방법에 대해 알아봅니다." 
-	services="mobile-services, notification-hubs" 
-	documentationCenter="android" 
-	authors="wesmc7777" 
-	manager="dwrede" 
+<properties
+	pageTitle="인증된 사용자에게 푸시 알림 보내기"
+	description="특정 사용자에게 푸시 알림을 보내는 방법에 대해 알아봅니다."
+	services="mobile-services, notification-hubs"
+	documentationCenter="android"
+	authors="wesmc7777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 
@@ -28,7 +28,7 @@
 
 이 자습서에서는 Android 앱이 지원됩니다.
 
-##필수 조건 
+##필수 조건
 
 이 자습서를 시작하려면 먼저 다음 모바일 서비스 자습서를 완료해야 합니다.
 
@@ -46,21 +46,21 @@
 <pre><code>function insert(item, user, request) {
 
     // Define a payload for the Google Cloud Messaging toast notification.
-    var payload = 
+    var payload =
         '{"data":{"message" : "Hello from Mobile Services! An Item was inserted"}}';
 
     // Get the ID of the logged-in user.
-    var userId = user.userId;		
+    var userId = user.userId;
 
     request.execute({
         success: function() {
-            // If the insert succeeds, send a notification to all devices 
+            // If the insert succeeds, send a notification to all devices
             // registered to the logged-in user as a tag.
             push.gcm.send(userId, payload, {
                 success: function(pushResponse) {
                     console.log("Sent push with " + userId + " tag:", pushResponse, payload);
 	    			request.respond();
-                    },              
+                    },
                     error: function (pushResponse) {
                             console.log("Error Sending push:", pushResponse);
 	    				request.respond(500, { error: pushResponse });
@@ -94,8 +94,7 @@ In the next tutorial, [Service-side authorization of Mobile Services users](mobi
 [Get started with push notifications]: mobile-services-javascript-backend-android-get-started-push.md
 [푸시 알림 시작]: mobile-services-javascript-backend-android-get-started-push.md
 
-[Azure 관리 포털]: https://manage.windowsazure.com/
+[Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,21 +1,21 @@
 <properties 
-   pageTitle="온-프레미스 StorSimple 장치 배포"
-	description="StorSimple 업데이트 1 장치 및 서비스를 배포하기 위한 단계 및 모범 사례입니다."
+   pageTitle="StorSimple 장치(업데이트 1) 배포 | Microsoft Azure"
+	description="StorSimple 업데이트 1 장치 및 서비스를 배포하기 위한 단계 및 모범 사례를 설명합니다."
 	services="storsimple"
 	documentationCenter="NA"
 	authors="alkohli"
-	manager="adinah"
-	editor="tysonn"/>
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
 	ms.devlang="NA"
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="TBD"
-	ms.date="08/21/2015"
+	ms.date="09/02/2015"
 	ms.author="alkohli"/>
 
-# 온-프레미스 StorSimple 장치 배포
+# 온-프레미스 StorSimple 장치(업데이트 1) 배포
 
 [AZURE.INCLUDE [storsimple-version-selector](../../includes/storsimple-version-selector.md)]
 
@@ -23,7 +23,7 @@
 
 Microsoft Azure StorSimple 장치 배포를 시작합니다. 이러한 배포 자습서는 StorSimple 8000 시리즈 업데이트 1.0에 적용됩니다. 이 자습서 시리즈에서는 StorSimple 장치를 구성하는 방법에 대해 설명하며 구성 검사 목록, 구성 필수 목록 및 자세한 구성 단계를 포함합니다.
 
-이 자습서의 정보는 안전 주의 사항을 검토했으며, StorSimple 장치의 포장을 풀었고, 랙을 탑재했으며, 케이블에 연결되어 있다고 가정합니다. 여전히 이러한 작업을 수행해야 하는 경우 [안전 주의 사항](storsimple-safety.md) 검토로 시작하십시오. 장치 모델에 따라 다음 지침을 따라 개봉, 랙 탑재, 케이블 연결을 할 수 있습니다.
+이 자습서의 정보는 안전 주의 사항을 검토했으며, StorSimple 장치의 포장을 풀었고, 랙을 탑재했으며, 케이블에 연결되어 있다고 가정합니다. 여전히 이러한 작업을 수행해야 하는 경우 [안전 주의 사항](storsimple-safety.md) 검토로 시작하세요. 장치 모델에 따라 다음 지침을 따라 개봉, 랙 탑재, 케이블 연결을 할 수 있습니다.
 
 - [8100 개봉, 랙 탑재, 케이블 연결](storsimple-8100-hardware-installation.md)
 - [8600 개봉, 랙 탑재, 케이블 연결](storsimple-8600-hardware-installation.md)
@@ -79,11 +79,11 @@ StorSimple 장치를 구성하여 StorSimple 관리자 서비스에 연결하려
 | | 보조 DNS 서버 | 필요한 구성입니다. | |
 | | 네트워크 인터페이스: 데이터 0 컨트롤러 고정 IP | 이러한 IP는 인터넷에 라우팅 가능해야 합니다.</br>컨트롤러 0 고정 IP 주소:</br>컨트롤러 1 고정 IP 주소:|
 | | | | |
-| **추가 네트워크 인터페이스 설정** | 네트워크 인터페이스: 데이터 1</br>iSCSI가 사용하도록 설정된 경우 게이트웨이를 구성하지 마십시오. | 용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이:|
-| | 네트워크 인터페이스: 데이터 2</br>iSCSI가 사용하도록 설정된 경우 게이트웨이를 구성하지 마십시오. | 용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이:|
-| | 네트워크 인터페이스: 데이터 3</br>iSCSI가 사용하도록 설정된 경우 게이트웨이를 구성하지 마십시오. | 용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이:|
-| | 네트워크 인터페이스: 데이터 4</br>iSCSI가 사용하도록 설정된 경우 게이트웨이를 구성하지 마십시오. | 용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이:|
-| | 네트워크 인터페이스: 데이터 5</br>iSCSI가 사용하도록 설정된 경우 게이트웨이를 구성하지 마십시오. | 용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이:|
+| **추가 네트워크 인터페이스 설정** | 네트워크 인터페이스: 데이터 1</br>iSCSI가 사용하도록 설정된 경우 게이트웨이를 구성하지 마세요. | 용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이:|
+| | 네트워크 인터페이스: 데이터 2</br>iSCSI가 사용하도록 설정된 경우 게이트웨이를 구성하지 마세요. | 용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이:|
+| | 네트워크 인터페이스: 데이터 3</br>iSCSI가 사용하도록 설정된 경우 게이트웨이를 구성하지 마세요. | 용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이:|
+| | 네트워크 인터페이스: 데이터 4</br>iSCSI가 사용하도록 설정된 경우 게이트웨이를 구성하지 마세요. | 용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이:|
+| | 네트워크 인터페이스: 데이터 5</br>iSCSI가 사용하도록 설정된 경우 게이트웨이를 구성하지 마세요. | 용도: 클라우드/iSCSI/사용되지 않음</br>IP 주소:</br>서브넷 마스크:</br>게이트웨이:|
 | | | | |
 | **볼륨 컨테이너 만들기** | 볼륨 컨테이너 이름: | 컨테이너의 이름 | |
 | | Azure 저장소 계정: | 이 볼륨 컨테이너와 연결할 저장소 계정 이름 및 액세스 키 | |
@@ -287,4 +287,4 @@ Linux 호스트에 연결된 StorSimple 도구에 대한 MPIO 설치 지침은 [
 [StorSimple 관리자 서비스](storsimple-manager-service-administration.md)를 사용하여 StorSimple 장치를 관리할 수 있습니다.
  
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

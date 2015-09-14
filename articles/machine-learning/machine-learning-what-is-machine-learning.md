@@ -1,20 +1,20 @@
 <properties
     pageTitle="Azure 기계 학습이란 무엇인가요? | Microsoft Azure"
-    description="솔루션을 만들고, 운영하고, 화폐화하는 데 사용할 수 있는 클라우드 기술인 완전한 관리 기계 학습 서비스의 기본 개념에 대해 설명합니다."
+	description="솔루션을 만들고, 운영하고, 화폐화하는 데 사용할 수 있는 클라우드 기술인 완전한 관리 기계 학습 서비스의 기본 개념에 대해 설명합니다."
 	services="machine-learning"
-    documentationCenter=""
-    authors="cjgronlund"
-    manager="neerajkh"
-    editor="cgronlun"/>
+	documentationCenter=""
+	authors="cjgronlund"
+	manager="neerajkh"
+	editor="cgronlun"/>
 
 <tags
     ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="06/23/2015"
-    ms.author="cgronlun;tedway;olgali"/>
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2015"
+	ms.author="cgronlun;tedway;olgali"/>
 
 
 # Microsoft Azure의 기계 학습 소개
@@ -47,12 +47,12 @@ Azure 기계 학습에는 대규모 알고리즘 라이브러리부터 모델 �
 
 모듈을 끌어다 놓고, 연결하여 라우저 기반 도구인 [기계 학습 스튜디오](machine-learning-what-is-ml-studio.md)에서 예측 모델을 만들 수 있습니다.
 
-![예측 분석이란?: Azure 기계 학습 스튜디오의 예측 분석 실험 예제](./media/machine-learning-what-is-machine-learning/AzureMLStudio.png)
+![예측 분석이란?: Azure 기계 학습 스튜디오의 예측 분석 실험 예제](./media/machine-learning-what-is-machine-learning/azure-machine-learning-studio-predictive-score-experiment.png)
 
 * 기계 학습 스튜디오의 대규모 [기계 학습 알고리즘 및 모듈](https://msdn.microsoft.com/library/azure/f5c746fd-dcea-4929-ba50-2a79c4c067d7) 라이브러리를 사용하여 예측 모델을 빠르게 시작할 수 있습니다. 샘플 실험, R 및 Python 패키지 및 Microsoft 비즈니스(Xbox 및 Bing)의 최상급 알고리즘 라이브러리에서 선택할 수 있습니다. 사용자 고유의 사용자 지정 [R](machine-learning-r-quickstart.md) 및 [Python](machine-learning-execute-python-scripts.md) 스크립트를 사용하여 Studio 모듈을 확장합니다.
 * [기계 학습 커뮤니티 갤러리](machine-learning-gallery-how-to-use-contribute-publish.md)에서 Azure 기계 학습을 시작하고 커뮤니티의 다른 사용자로부터 배울 수 있습니다. 다른 사용자가 작성한 실험을 사용해 보거나, 실험에 대한 의견을 게시하거나, 실험을 직접 게시해 보세요. LinkedIn 및 Twitter와 같은 소셜 네트워크를 통해 실험 링크를 공유할 수 있습니다.  
 
-	![Azure 기계 학습 갤러리에서 예측 실험 샘플을 시도하거나 고유한 샘플 기여](./media/machine-learning-what-is-machine-learning/AzureMLGallery.png)
+	![Azure 기계 학습 갤러리에서 예측 실험 샘플을 시도하거나 고유한 샘플 기여](./media/machine-learning-what-is-machine-learning/azure-machine-learning-gallery-resources.png)
 
 ### 예측 분석 솔루션 운영: 웹 서비스를 구입하거나 본인의 웹 서비스 게시
 
@@ -115,4 +115,4 @@ Azure 기계 학습에서는 학습 데이터 및 기능 모듈(예: 점수 매�
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

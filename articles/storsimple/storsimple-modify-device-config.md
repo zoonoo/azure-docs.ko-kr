@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="StorSimple 관리자 서비스를 사용하여 StorSimple 장치 구성 수정 | Microsoft Azure" 
-   description="이미 배포된 StorSimple 장치를 다시 구성하기 위해 StorSimple 관리자 서비스를 사용하는 방법에 대해 설명합니다." 
-   services="storsimple" 
-   documentationCenter="NA" 
-   authors="SharS" 
-   manager="carolz" 
-   editor=""/>
+   pageTitle="StorSimple 장치 구성 수정 | Microsoft Azure"
+	description="이미 배포된 StorSimple 장치를 다시 구성하기 위해 StorSimple 관리자 서비스를 사용하는 방법에 대해 설명합니다."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 
 <tags
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD" 
-   ms.date="07/30/2015"
-   ms.author="v-sharos@microsoft.com"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/14/2015"
+	ms.author="v-sharos@microsoft.com"/>
 
 # StorSimple 관리자 서비스를 사용하여 StorSimple 장치 구성 수정
 
@@ -131,4 +131,4 @@ StorSimple 8000 시리즈 업데이트 1에서 DATA 0의 라우팅 메트릭은 
  
      
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

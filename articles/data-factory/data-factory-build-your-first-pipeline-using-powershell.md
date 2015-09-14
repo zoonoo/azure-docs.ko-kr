@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 데이터 팩터리를 사용하여 첫 번째 파이프라인 빌드 | Microsoft Azure"
-	description="이 자습서는 Azure HDInsight 및 Azure PowerShell을 사용하여 데이터를 변환하는 샘플 데이터 파이프라인을 만드는 방법을 보여 줍니다."
+	pageTitle="Azure PowerShell을 사용하여 첫 번째 Azure Data Factory 파이프라인 빌드"
+	description="이 자습서에서는 Azure PowerShell을 사용하여 샘플 Azure Data Factory 파이프라인을 만듭니다."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -16,7 +16,7 @@
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
-# Azure PowerShell을 사용하여 첫 번째 Azure 데이터 팩터리 파이프라인 빌드
+# Azure PowerShell을 사용하여 첫 번째 Azure Data Factory 파이프라인 빌드
 > [AZURE.SELECTOR]
 - [Tutorial Overview](data-factory-build-your-first-pipeline.md)
 - [Using Data Factory Editor](data-factory-build-your-first-pipeline-using-editor.md)
@@ -30,17 +30,17 @@
 2.	연결된 서비스(데이터 저장소, 계산) 및 데이터 집합 만들기
 3.	파이프라인 만들기.
 
-이 문서는 Azure 데이터 팩터리 서비스에 대한 개념적 개요를 제공하지 않습니다. 서비스에 대한 자세한 개요는 [Azure 데이터 팩터리 소개](data-factory-introduction.md) 문서를 참조하세요.
+이 문서는 Azure Data Factory 서비스에 대한 개념적 개요를 제공하지 않습니다. 서비스에 대한 자세한 개요는 [Azure Data Factory 소개](data-factory-introduction.md) 문서를 참조하세요.
 
 ## 1단계: 데이터 팩터리 만들기
 
-이 단계에서는 Azure PowerShell을 사용하여 ADFTutorialDataFactoryPSH라는 Azure 데이터 팩터리를 만듭니다.
+이 단계에서는 Azure PowerShell을 사용하여 ADFTutorialDataFactoryPSH라는 Azure Data Factory를 만듭니다.
 
 1. Azure PowerShell을 시작하고 다음 명령을 실행합니다. 이 자습서를 마칠 때까지 Azure PowerShell을 열어 두세요. 닫은 후 다시 여는 경우 이러한 명령을 다시 실행해야 합니다.
 	- **Add-AzureAccount**를 실행하고 Azure Preview 포털에 로그인하는데 사용하는 사용자 이름 및 암호를 입력합니다.  
 	- **Get-AzureSubscription**을 실행하여 이 계정의 모든 구독을 확인합니다.
 	- **Select-AzureSubscription**을 실행하여 사용하려는 구독을 선택합니다. 이 구독은 미리 보기 포털에서 사용한 것과 같아야 합니다.
-2. AzureResourceManager 모드로 전환합니다. Azure 데이터 팩터리 cmdlet은 이 모드에서 사용할 수 있습니다.
+2. AzureResourceManager 모드로 전환합니다. Azure Data Factory cmdlet은 이 모드에서 사용할 수 있습니다.
 
 		Switch-AzureMode AzureResourceManager
 3. 다음 명령을 실행하여 *ADFTutorialResourceGroup*이라는 Azure 리소스 그룹을 만듭니다.
@@ -52,7 +52,7 @@
 
 		New-AzureDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name DataFactoryMyFirstPipelinePSH –Location "West US"
 
-	Azure 데이터 팩터리 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 “DataFactoryMyFirstPipelinePSH”를 사용할 수 없습니다.** 오류가 표시되는 경우 이름을 변경합니다(예: yournameADFTutorialDataFactoryPSH). 이 자습서의 단계를 수행하는 동안 ADFTutorialFactoryPSH 대신 이 이름을 사용합니다.
+	Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 “DataFactoryMyFirstPipelinePSH”를 사용할 수 없습니다.** 오류가 표시되는 경우 이름을 변경합니다(예: yournameADFTutorialDataFactoryPSH). 이 자습서의 단계를 수행하는 동안 ADFTutorialFactoryPSH 대신 이 이름을 사용합니다.
 
 이후 단계에서는 이 자습서에서 사용할 연결된 서비스, 데이터 집합, 파이프라인을 만드는 방법을 알아봅니다.
 
@@ -263,4 +263,7 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 ## 다음 단계
 이 문서에서 파이프라인과 주문형 Azure HDInsight 클러스터에서 Hive 스크립트를 실행하는 변환 작업(HDInsight 작업)을 만들었습니다. 복사 작업을 사용하여 Azure Blob에서 Azure SQL로 데이터를 복사하는 방법은 [자습서: Azure Blob에서 Azure SQL로 데이터 복사](./data-factory-get-started.md)를 참조하세요.
 
-<!---HONumber=August15_HO8-->
+## 피드백 보내기
+이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-powershell.md)을 통해 의견을 보내주세요.
+
+<!---HONumber=September15_HO1-->

@@ -41,7 +41,7 @@ Azure 가상 컴퓨터의 SQL Server에 대한 추가 배경 정보는 [Azure �
 
 ### 컴퓨터 크기
 
-프리미엄 저장소를 사용하려면 DS 시리즈 VM(가상 컴퓨터)을 사용해야 합니다. 이전에 클라우드 서비스에서 DS 시리즈 컴퓨터를 사용한 적이 없으면 기존 VM을 삭제하고 연결된 디스크를 보관한 다음 새 클라우드 서비스를 만들고 DS* 역할 크기로 VM을 다시 만들어야 합니다. 가상 컴퓨터 크기에 대한 자세한 내용은 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](https://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하세요.
+프리미엄 저장소를 사용하려면 DS 시리즈 VM(가상 컴퓨터)을 사용해야 합니다. 이전에 클라우드 서비스에서 DS 시리즈 컴퓨터를 사용한 적이 없으면 기존 VM을 삭제하고 연결된 디스크를 보관한 다음 새 클라우드 서비스를 만들고 DS* 역할 크기로 VM을 다시 만들어야 합니다. 가상 컴퓨터 크기에 대한 자세한 내용은 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](virtual-machines-size-specs.md)를 참조하세요.
 
 ### 클라우드 서비스
 
@@ -141,9 +141,9 @@ VHD를 연결한 후에는 캐시 설정을 변경할 수 없습니다. 설정�
 
 ### VM 저장소 대역폭 및 VHD 저장소 처리량 
 
-저장소 성능은 지정한 DS* VM 크기와 VHD 크기에 따라 달라집니다. VM마다 연결할 수 있는 VHD 수와 지원하는 최대 대역폭(MB/s)이 다릅니다. 구체적인 대역폭 수치는 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](https://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하세요.
+저장소 성능은 지정한 DS* VM 크기와 VHD 크기에 따라 달라집니다. VM마다 연결할 수 있는 VHD 수와 지원하는 최대 대역폭(MB/s)이 다릅니다. 구체적인 대역폭 수치는 [Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](virtual-machines-size-specs.md)를 참조하세요.
 
-디스크가 클수록 IOPS가 높아집니다. 마이그레이션 경로를 고려할 때는 이 점에 유의해야 합니다. 자세한 내용은 [IOPS 및 디스크 유형 표](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whko-kring-premium-storage)를 참조하세요.
+디스크가 클수록 IOPS가 높아집니다. 마이그레이션 경로를 고려할 때는 이 점에 유의해야 합니다. 자세한 내용은 [IOPS 및 디스크 유형 표](../storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whko-KRing-premium-storage)를 참조하세요.
 
 마지막으로, VM이 연결된 모든 디스크에 대해 지원하는 최대 디스크 대역폭이 서로 다르다는 점도 고려해야 합니다. 부하가 높을 때는 해당 VM 역할 크기에 사용 가능한 최대 디스크 대역폭을 모두 사용하게 될 수 있습니다. 예를 들어 Standard_DS14는 최대 512MB/s를 지원하므로 P30 디스크가 3개인 경우 VM의 디스크 대역폭이 모두 사용됩니다. 그러나 이 예제에서는 읽기 및 쓰기 IO 조합에 따라 처리량 제한을 초과할 수도 있습니다.
 
@@ -674,7 +674,7 @@ SQL 클라이언트 응용 프로그램에서 .NET 4.5 SQLClient를 지원하는
 
     Set-ClusterQuorum -NodeMajority  
 
-클러스터 쿼럼을 관리하고 구성하는 방법에 대한 자세한 내용은 [Windows Server 2012 장애 조치(failover) 클러스터에서 쿼럼 구성 및 관리](https://technet.microsoft.com/ko-kr/library/jj612870.aspx)를 참조하세요.
+클러스터 쿼럼을 관리하고 구성하는 방법에 대한 자세한 내용은 [Windows Server 2012 장애 조치(failover) 클러스터에서 쿼럼 구성 및 관리](https://technet.microsoft.com/ko-KR/library/jj612870.aspx)를 참조하세요.
 
 #### 6단계: 기존 끝점 및 ACL 추출
     #GET Endpoint info
@@ -1143,4 +1143,4 @@ IP 주소를 추가하려면 [부록](#appendix-migrating-a-multisite-alwayson-c
 [25]: ./media/virtual-machines-sql-server-use-premium-storage/10_Appendix_15.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

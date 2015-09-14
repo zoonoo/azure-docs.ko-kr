@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="msolhab"
 	manager="paulettm"
-	editor="cgronlun"  />
+	editor="cgronlun"/>
 
 <tags
 	ms.service="machine-learning"
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/29/2015"
-	ms.author="mohabib;xibingao;bradsev" />
+	ms.date="09/01/2015"
+	ms.author="mohabib;xibingao;bradsev"/>
 
 # 고급 분석을 위해 Azure 가상 컴퓨터를 IPython Notebook으로 설정
 
@@ -52,7 +52,7 @@ Azure에서 가상 컴퓨터를 만드는 프로세스를 시작하기 전에 �
 	![작업 영역 만들기][28]
 
 
-가상 컴퓨터 프로비저닝 프로세스를 완료하는 데 15\~25분이 걸릴 수 있습니다. 가상 컴퓨터를 만든 후에는 이 컴퓨터의 상태가 **실행 중**으로 표시됩니다.
+가상 컴퓨터 프로비저닝 프로세스를 완료하는 데 15~25분이 걸릴 수 있습니다. 가상 컴퓨터를 만든 후에는 이 컴퓨터의 상태가 **실행 중**으로 표시됩니다.
 
 ![작업 영역 만들기][29]
 
@@ -143,4 +143,4 @@ Azure 가상 컴퓨터는 **종량제**로 비용이 청구됩니다. 가상 컴
 [29]: ./media/machine-learning-data-science-setup-virtual-machine/create-virtual-machine-6.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

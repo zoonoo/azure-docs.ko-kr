@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 알림 허브 시작"
-	description="Azure 알림 허브를 사용하여 알림을 푸시하는 방법에 대해 알아봅니다."
+	pageTitle="Azure 알림 허브 시작 | Microsoft Azure"
+	description="이 자습서에서 Azure 알림 허브를 사용하여 iOS 응용 프로그램으로 푸시 알림을 보내는 방법을 알아봅니다."
 	services="notification-hubs"
 	documentationCenter="ios"
 	authors="wesmc7777"
@@ -12,8 +12,8 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
-	ms.topic="hero-article" 
-	ms.date="05/27/2015"
+	ms.topic="hero-article"
+	ms.date="09/02/2015"
 	ms.author="wesmc"/>
 
 # 알림 허브 시작
@@ -22,20 +22,20 @@
 
 ##개요
 
-이 항목에서는 Azure 알림 허브를 사용하여 iOS 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. 이 자습서에서는 APNS(Apple Push Notification Service)를 사용하여 푸시 알림을 받는 빈 iOS 앱을 만듭니다. 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다.
+이 자습서에서는 Azure 알림 허브를 사용하여 iOS 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. APNS(Apple 푸시 알림 서비스)를 사용하여 푸시 알림을 받는 빈 iOS 앱을 만듭니다. 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다.
 
 이 자습서에서는 알림 허브를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다.
 
 ##필수 조건
 
-이 자습서를 사용하려면 다음 필수 조건이 필요합니다.
+이 자습서를 사용하려면 다음이 필요합니다.
 
 + [모바일 서비스 iOS SDK]
-+ [XCode 6][Install Xcode]
++ [Xcode 6][Install Xcode]
 + iOS 8(이상) 지원 장치
 + iOS 개발자 프로그램 멤버 자격
 
-   >[AZURE.NOTE]푸시 알림 구성 요구 사항 때문에 시뮬레이터 대신 iOS 지원 장치(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
+   >[AZURE.NOTE]푸시 알림에 대한 구성 요구 사항 때문에 iOS 시뮬레이터 대신 iOS 지원 장치(iPhone 또는 iPad)에서 푸시 알림을 배포 및 테스트해야 합니다.
 
 이 자습서를 완료해야 다른 모든 iOS 앱용 알림 허브 자습서를 진행할 수 있습니다.
 
@@ -48,17 +48,17 @@
 이 섹션에서는 사용자가 만든 푸시 인증서를 사용하여 새 알림 허브를 만들고 구성하는 과정을 설명합니다. 이미 만든 알림 허브를 사용하려는 경우 2-5단계를 건너뛸 수 있습니다.
 
 
-1. 키체인 접근 에서는 **인증서** 범주에서 만든 새 푸시 인증서를 마우스 오른쪽 단추로 클릭합니다. **Export**를 클릭하고 파일의 이름을 지정한 후 **.p12** 형식을 선택하고 **Save**를 클릭합니다.
+1. Keychain Access에서는 **인증서** 범주에서 만든 새 푸시 인증서를 마우스 오른쪽 단추로 클릭합니다. **내보내기**를 클릭하고 파일의 이름을 지정한 후 **.p12** 형식을 선택하고 **저장**을 클릭합니다.
 
     ![][1]
 
 	내보낸 인증서의 파일 이름과 위치를 적어둡니다.
 
-	>[AZURE.NOTE]이 자습서에서는 QuickStart.p12 파일을 만듭니다. 파일 이름과 위치가 다를 수 있습니다.
+	>[AZURE.NOTE]이 자습서에서는 QuickStart.p12 파일을 만듭니다. Your file name and location might be different.
 
-2. [Azure 관리 포털]에 로그온하고 화면 맨 아래에 있는 **+새로 만들기**를 클릭합니다.
+2. [Azure 포털]에 로그인한 다음 화면 아래쪽에서 **+새로 만들기**를 클릭합니다.
 
-3. **앱 서비스**, **Service Bus**, **알림 허브**, **빠른 생성**을 차례로 클릭합니다.
+3. **앱 서비스**, **서비스 버스**, **알림 허브** 및 **빠른 생성**을 차례로 클릭합니다.
 
    	![][2]
 
@@ -82,25 +82,25 @@
 
    	![][7]
 
-이제 알림 허브가 APNS과 작동하도록 구성되었으며 앱을 등록하고 알림을 보내기 위한 연결 문자열이 있습니다.
+이제 알림 허브가 APNS와 작동하도록 구성되었으며 앱을 등록하고 알림을 보내기 위한 연결 문자열이 있습니다.
 
 ##알림 허브에 앱 연결
 
-1. XCode에서 새 iOS 프로젝트를 만들고 **Single View Application** 템플릿을 선택합니다.
+1. Xcode에서 새 iOS 프로젝트를 만들고 **응용 프로그램 단일 보기** 템플릿을 선택합니다.
 
    	![][8]
 
-2. 새 프로젝트에 대한 옵션을 설정할 때 Apple 개발 포털에서 이전에 번들 ID를 설정한 경우에 사용한 동일한 **제품 이름** 및 **조직 식별자**를 사용해야 합니다.
+2. 새 프로젝트에 대한 옵션을 설정할 때 Apple 개발자 포털에서 이전에 번들 ID를 설정한 경우에 사용한 동일한 **제품 이름** 및 **조직 식별자**를 사용해야 합니다.
 
 	![][11]
 
-3. **대상** 아래에서 프로젝트 이름을 클릭하고 **빌드 설정** 탭을 클릭하며 **코드 서명 ID**를 확장한 다음 **디버그**에서 **코드 서명 ID**를 설정합니다. **수준**을 **기본**에서 **모든**으로 설정/해제하고 이전에 만든 프로비저닝 프로필에 **프로필 프로비전**합니다.
+3. **대상** 아래에서 프로젝트 이름을 클릭하고 **빌드 설정** 탭을 클릭하며 **코드 서명 ID**를 확장한 다음 **디버그**에서 코드 서명 ID를 설정합니다. **수준**을 **기본**에서 **전체**로 설정/해제하고 이전에 만든 프로비전 프로필에 **프로필을 프로비전**합니다.
 
-	XCode에서 만든 새 프로비전 프로필이 보이지 않으면 메뉴 모음에서 **XCode**를 클릭하여 서명 idenity용 프로필을 새로 고친 다음 **기본 설정**, **계정** 탭, **자세히 보기** 단추를 클릭하고 서명 idenity 단추를 클릭하며 오른쪽 아래 모서리에서 새로 고침 단추를 클릭합니다.
+	Xcode에서 만든 새 프로비전 프로필이 보이지 않으면 서명 ID에 대한 프로필을 새로 고칩니다. 메뉴 모음에서 **Xcode**, **기본 설정**, **계정** 탭, **세부 정보 보기** 단추, 서명 ID를 차례로 클릭한 다음 오른쪽 아래 모서리에 있는 새로 고침 단추를 클릭합니다.
 
    	![][9]
 
-4. [모바일 서비스 iOS SDK]의 **버전 1.2.4**를 다운로드하고 파일의 압축을 풉니다. XCode에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **파일 추가** 옵션을 클릭하여 **WindowsAzureMessaging.framework** 폴더를 XCode 프로젝트에 추가합니다. **필요한 경우 항목 복사**를 선택한 다음 **추가**를 클릭합니다.
+4. [모바일 서비스 iOS SDK]의 버전 1.2.4를 다운로드하고 파일의 압축을 풉니다. Xcode에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **파일 추가** 옵션을 클릭하여 **WindowsAzureMessaging.framework** 폴더를 Xcode 프로젝트에 추가합니다. **필요한 경우 항목 복사**를 선택한 다음 **추가**를 클릭합니다.
 
    	![][10]
 
@@ -157,20 +157,18 @@
 
 8. 실패하지 않았음을 확인하기 위해 장치에서 앱을 빌드 및 실행합니다.
 
-## 알림을 보내는 방법
+## 알림 보내기
 
 
-아래 화면과 같이 알림 허브의 디버그 탭을 사용하여 Azure 포털에서 알림을 보내 앱의 알림 수신을 테스트할 수 있습니다.
-
-![][30]
+아래 화면과 같이 알림 허브의 디버그 탭을 통해 Azure 포털에서 알림을 보내서 앱의 알림 수신을 테스트할 수 있습니다.![][30]
 
 [AZURE.INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
 ![][31]
 
-1. XCode에서 Main.storyboard를 열고 개체 라이브러리에서 다음 UI 구성 요소를 추가하여 사용자가 앱에서 푸시 알림을 보낼 수 있습니다.
+1. Xcode에서 Main.storyboard를 열고 개체 라이브러리에서 다음 UI 구성 요소를 추가하여 사용자가 앱에서 푸시 알림을 보낼 수 있습니다.
 
-	- 레이블 텍스트가 없는 레이블 알림을 보내는 오류 보고에 사용됩니다. **줄** 속성은 **0**으로 설정해야 하므로 오른쪽 및 왼쪽 여백과 보기의 위쪽에 크기가 자동으로 제한됩니다.
+	- 레이블 텍스트가 없는 레이블입니다. 알림을 보내는 오류 보고에 사용됩니다. **줄** 속성은 **0**으로 설정해야 하므로 오른쪽 및 왼쪽 여백과 보기의 위쪽에 크기가 자동으로 제한됩니다.
 	- **자리 표시자** 텍스트를 사용한 텍스트 필드가 **알림 메시지 입력**으로 설정됩니다. 아래와 같이 레이블 바로 아래에 있는 필드를 제한합니다. 뷰 컨트롤러를 콘센트 대리자로 설정합니다.
 	- **알림 보내기**라는 단추는 텍스트 필드의 바로 아래 및 가로 가운데로 제한됩니다.
 
@@ -205,7 +203,7 @@
 			NSXMLParser *xmlParser;
 		}
 
-		// Make sure these outlets are connected to your UI by ctrl+dragging.
+		// Make sure these outlets are connected to your UI by ctrl+dragging
 		@property (weak, nonatomic) IBOutlet UITextField *notificationMessage;
 		@property (weak, nonatomic) IBOutlet UILabel *sendResults;
 
@@ -215,7 +213,7 @@
 		@end
 
 
-4. ViewController.m를 열고 다음 코드를 *DefaultFullSharedAccessSignature* 연결 문자열을 구문 분석하도록 추가합니다. [REST API 참조](http://msdn.microsoft.com/library/azure/dn495627.aspx)에서 설명한 것처럼 이 구문 분석된 정보는 *권한 부여* 요청 헤더를 위한 SAS 토큰을 생성하는데 사용됩니다.
+4. ViewController.m를 열고 다음 코드를 *DefaultFullSharedAccessSignature* 연결 문자열을 구문 분석하도록 추가합니다. [REST API 참조](http://msdn.microsoft.com/library/azure/dn495627.aspx)에서 설명한 것처럼 이 구문 분석된 정보는 **권한 부여** 요청 헤더를 위한 SAS 토큰을 생성하는데 사용됩니다.
 
 		NSString *HubEndpoint;
 		NSString *HubSasKeyName;
@@ -277,7 +275,7 @@
 
 
 
-6. ViewController.m에서는 [REST API 참조](http://msdn.microsoft.com/library/azure/dn495627.aspx)에서 설명한 것처럼 *권한 부여* 헤더에서 제공될 SAS 권한 부여 토큰을 생성하는 다음 코드를 추가합니다.
+6. ViewController.m에서는 [REST API 참조](http://msdn.microsoft.com/library/azure/dn495627.aspx)에서 설명한 것처럼 **권한 부여** 헤더에서 제공될 SAS 권한 부여 토큰을 생성하는 다음 코드를 추가합니다.
 
 		-(NSString*) generateSasToken:(NSString*)uri
 		{
@@ -306,7 +304,7 @@
 				NSData *rawHmac = [[NSData alloc] initWithBytes:cHMAC length:sizeof(cHMAC)];
 				signature = [self CF_URLEncodedString:[rawHmac base64EncodedStringWithOptions:0]];
 
-				// construct authorization token string
+				// Construct authorization token string
 				token = [NSString stringWithFormat:@"SharedAccessSignature sr=%@&sig=%@&se=%qu&skn=%@",
 					targetUri, signature, expires, HubSasKeyName];
 			}
@@ -326,7 +324,7 @@
 		}
 
 
-7. **알림 보내기** 단추에서 ViewController.m으로 **Ctrl + 드래그**하여 다음의 코드를 사용하는 REST API 호출을 실행하는 **Touch 축소** 이벤트에 대한 작업을 추가합니다.
+7. 다음의 코드를 사용하여 REST API 호출을 실행하는 **Touch 축소** 이벤트에 대한 작업을 추가하기 위해 **알림 보내기** 단추에서 ViewController.m으로 Ctrl + 드래그합니다.
 
 		- (IBAction)SendNotificationMessage:(id)sender
 		{
@@ -344,19 +342,19 @@
 		    NSString *json = [NSString stringWithFormat:@"{"aps":{"alert":"%@"}}",
 								self.notificationMessage.text];
 
-			// Construct the messages REST endpoint
+			// Construct the message's REST endpoint
 			NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@/messages/%@", HubEndpoint,
 												HUBNAME, API_VERSION]];
 
-			// Generated the token to be used in the authorization header.
+			// Generate the token to be used in the authorization header
 			NSString* authorizationToken = [self generateSasToken:[url absoluteString]];
 
-			//Create the request to add the APNS notification message to the hub
+			//Create the request to add the APNs notification message to the hub
 			NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
 			[request setHTTPMethod:@"POST"];
 			[request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
 
-			// Signify apple notification format
+			// Signify Apple notification format
 			[request setValue:@"apple" forHTTPHeaderField:@"ServiceBusNotification-Format"];
 
 			//Authenticate the notification message POST request with the SaS token
@@ -385,7 +383,7 @@
 		}
 
 
-8. ViewController.m에서 텍스트 필드에 대한 키보드 닫기를 지원하려면 다음 대리자 메서드를 추가합니다. 인터페이스 디자이너에서 텍스트 필드에서 뷰 컨트롤러 아이콘으로 **Ctrl + 드래그**하여 뷰 컨트롤러를 콘센트 대리자로 설정합니다.
+8. ViewController.m에서 텍스트 필드에 대한 키보드 닫기를 지원하려면 다음 대리자 메서드를 추가합니다. 인터페이스 디자이너에서 텍스트 필드에서 뷰 컨트롤러 아이콘으로 Ctrl + 드래그하여 뷰 컨트롤러를 콘센트 대리자로 설정합니다.
 
 		//===[ Implement UITextFieldDelegate methods ]===
 
@@ -464,7 +462,7 @@ iOS에서 푸시 알림을 테스트하려면 장치에 앱을 배포해야 합�
 
 ##다음 단계
 
-이 간단한 예제에서는 모든 iOS 장치로 알림을 브로드캐스트합니다. 특정 사용자에게만 알림을 보내려면 [알림 허브를 사용하여 사용자에게 알림 푸시] 자습서를 참조하세요. 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기]를 참조하세요. [알림 허브 지침]에서 알림 허브 사용 방법을 자세히 알아보세요.
+이 간단한 예제에서는 모든 iOS 장치로 알림을 브로드캐스트합니다. 특정 사용자를 대상으로 하려면 [알림 허브를 사용하여 사용자에게 알림 푸시](영문) 자습서를 참조하세요. 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기](영문)를 참조하세요. [알림 허브 지침]에서 알림 허브 사용 방법을 자세히 알아보세요.
 
 
 
@@ -499,16 +497,15 @@ iOS에서 푸시 알림을 테스트하려면 장치에 앱을 배포해야 합�
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Azure 관리 포털]: https://manage.windowsazure.com/
+[Azure 포털]: https://manage.windowsazure.com/
 [알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [모바일 서비스에서 푸시 알림 시작]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[알림 허브를 사용하여 사용자에게 푸시 알림 보내기]: notification-hubs-aspnet-backend-ios-notify-users.md
+[알림 허브를 사용하여 사용자에게 알림 푸시]: notification-hubs-aspnet-backend-ios-notify-users.md
 [알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-ios-send-breaking-news.md
 
 [로컬 및 푸시 알림 프로그래밍 가이드]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
- 
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

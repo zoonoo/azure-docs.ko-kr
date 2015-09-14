@@ -1,21 +1,21 @@
 <properties 
-	pageTitle="새 Application Insights 리소스 만들기" 
-	description="새 응용 프로그램에 대해 설정하고 새 계측 키를 가져옵니다. Application Insights는 라이브 응용 프로그램의 성능 및 사용을 모니터링합니다." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="개발, 테스트 및 프로덕션용 Application Insights 리소스 구분"
+	description="개발의 여러 단계에서 응용 프로그램의 성능 및 사용 모니터링"
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2015"
 	ms.author="awills"/>
 
-# 새 Application Insights 리소스 만들기
+# 개발, 테스트 및 프로덕션용 Application Insights 리소스 구분
 
 
 디버깅, 테스트, 응용 프로그램의 프로덕션 버전에서 원격 분석 혼합을 피하려면, 별도의 [Application Insights][start] 리소스를 생성하여 각 버전의 데이터를 수신합니다.
@@ -98,4 +98,4 @@ iKey는 [빠른 시작 블레이드에서 가져온 스크립트](app-insights-j
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

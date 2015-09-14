@@ -1,25 +1,23 @@
 <properties 
-	pageTitle="Python Tools 2.1 for Visual Studio가 있는 Azure의 Bottle 및 Azure 테이블 저장소" 
-	description="Python Tools for Visual Studio를 사용하여 Azure 테이블 저장소에서 데이터를 저장하는 Bottle 응용 프로그램을 만들고 웹앱을 Azure 앱 서비스 웹앱에 배포하는 방법을 알아봅니다." 
-	services="app-service\web" 
-	documentationCenter="python" 
-	authors="huguesv" 
-	manager="wpickett" 
+	pageTitle="Azure의 Bottle 및 Azure 테이블 저장소와 Python Tools 2.2 for Visual Studio"
+	description="Python Tools for Visual Studio를 사용하여 Azure 테이블 저장소에서 데이터를 저장하는 Bottle 응용 프로그램을 만들고 웹앱을 Azure 앱 서비스 웹앱에 배포하는 방법을 알아봅니다."
+	services="app-service\web"
+	documentationCenter="python"
+	authors="huguesv"
+	manager="wpickett"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="python" 
-	ms.topic="article" 
-	ms.date="04/16/2015" 
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="python"
+	ms.topic="article"
+	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
 
-
-
-# Python Tools 2.1 for Visual Studio가 있는 Azure의 Bottle 및 Azure 테이블 저장소 
+# Azure의 Bottle 및 Azure 테이블 저장소와 Python Tools 2.2 for Visual Studio 
 
 이 자습서에서는 PTVS 샘플 템플릿 중 하나를 사용하여 간단한 설문 조사 웹앱을 만들기 위해 [Python Tools for Visual Studio]를 사용해 보겠습니다. 이 자습서는 [비디오](https://www.youtube.com/watch?v=GJXDGaEPy94)로도 제공됩니다.
 
@@ -31,10 +29,10 @@ Bottle, Flask 및 Django 웹 프레임워크, MongoDB, Azure 테이블 저장소
 
 ## 필수 조건
 
- - Visual Studio 2012 또는 2013
- - [Python Tools 2.1 for Visual Studio]
- - [Python Tools 2.1 for Visual Studio Samples VSIX]
- - [Azure SDK Tools for VS 2013] 또는 [Azure SDK Tools for VS 2012]
+ - Visual Studio 2013 또는 2015
+ - [Python Tools 2.2 for Visual Studio]
+ - [Python Tools 2.2 for Visual Studio Samples VSIX]
+ - [Azure SDK Tools for VS 2013] 또는 [Azure SDK Tools for VS 2015]
  - [Python 2.7 32비트] 또는 [Python 3.4 32비트]
 
 [AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
@@ -160,7 +158,7 @@ Azure .NET SDK를 통해 Azure 앱 서비스에 웹앱을 쉽게 배포할 수 �
 
   	<!-- ![Top Menu](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteTopMenu.png) -->
 
-1.  **앱 설정** 섹션으로 스크롤한 후 **프로젝트 구성** 섹션에 설명된 대로 **REPOSITORY_NAME**, **STORAGE_NAME** 및 **STORAGE_KEY** 값을 설정합니다.
+1.  **앱 설정** 섹션으로 스크롤한 후 **프로젝트 구성** 섹션에 설명된 대로 **REPOSITORY\_NAME**, **STORAGE\_NAME** 및 **STORAGE\_KEY** 값을 설정합니다.
 
   	<!-- ![App Settings](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonWebSiteConfigureSettingsTableStorage.png) -->
 
@@ -202,19 +200,19 @@ Python Tools for Visual Studio, Bottle 및 Azure 테이블 저장소에 대해 �
 [Azure 포털]: https://portal.azure.com
 [Azure SDK for .NET]: http://azure.microsoft.com/downloads/
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
-[Python Tools 2.1 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
-[Python Tools 2.1 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools 2.2 for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=624025
+[Python Tools 2.2 for Visual Studio Samples VSIX]: http://go.microsoft.com/fwlink/?LinkId=624025
 [Azure SDK Tools for VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
-[Azure SDK Tools for VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
+[Azure SDK Tools for VS 2015]: http://go.microsoft.com/fwlink/?LinkId=518003
 [Python 2.7 32비트]: http://go.microsoft.com/fwlink/?LinkId=517190
 [Python 3.4 32비트]: http://go.microsoft.com/fwlink/?LinkId=517191
-[Python Tools for Visual Studio 설명서]: http://pytools.codeplex.com/documentation
+[Python Tools for Visual Studio 설명서]: http://aka.ms/ptvsdocs
 [Bottle 설명서]: http://bottlepy.org/docs/dev/index.html
-[Microsoft Azure의 원격 디버깅]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
-[웹 프로젝트]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
-[클라우드 서비스 프로젝트]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
+[Microsoft Azure의 원격 디버깅]: http://go.microsoft.com/fwlink/?LinkId=624026
+[웹 프로젝트]: http://go.microsoft.com/fwlink/?LinkId=624027
+[클라우드 서비스 프로젝트]: http://go.microsoft.com/fwlink/?LinkId=624028
 [Azure 저장소]: http://azure.microsoft.com/documentation/services/storage/
 [Python용 Azure SDK]: https://github.com/Azure/azure-sdk-for-python
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

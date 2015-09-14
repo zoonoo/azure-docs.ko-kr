@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="기계 학습 권장 사항 API 설정 및 사용 | Microsoft Azure" 
-	description="Azure 기계 학습을 사용하여 빌드한 Microsoft 권장 사항 API FAQ" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jaymathe" 
-	manager="paulettm" 
+	pageTitle="기계 학습 권장 사항 API 설정 및 사용 | Microsoft Azure"
+	description="Azure 기계 학습을 사용하여 빌드한 Microsoft 권장 사항 API FAQ"
+	services="machine-learning"
+	documentationCenter=""
+	authors="jaymathe"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/19/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="luisca"/>
 
 #기계 학습 권장 사항 API 설정 및 사용에 대한 FAQ
@@ -31,7 +31,7 @@
 
 **사용 제한이 있습니까?**
 
-권장 사항에는 다음과 같은 사용 제한이 있습니다. *구독당 최대 모델 수: 10개 * 카탈로그 하나에 포함될 수 있는 최대 항목 수: 100, 000개 * 보관되는 최대 사용 포인트: \~5,000,000포인트. 새 포인트가 업로드 또는 보고되면 가장 오래된 포인트는 삭제됩니다 * 전자 메일로 보낼 수 있는 최대 데이터 크기(예: 카탈로그 데이터 가져오기, 사용 현황 데이터 가져오기): 200MB * 비활성 상태인 권장 사항 모델 빌드에 대한 초당 트랜잭션 수(TPS): \~2TPS. 활성화된 권장 사항 모델 빌드는 최대 20TPS를 유지할 수 있습니다.
+권장 사항에는 다음과 같은 사용 제한이 있습니다. *구독당 최대 모델 수: 10개 * 카탈로그 하나에 포함될 수 있는 최대 항목 수: 100, 000개 * 보관되는 최대 사용 포인트: ~5,000,000포인트. 새 포인트가 업로드 또는 보고되면 가장 오래된 포인트는 삭제됩니다 * 전자 메일로 보낼 수 있는 최대 데이터 크기(예: 카탈로그 데이터 가져오기, 사용 현황 데이터 가져오기): 200MB * 비활성 상태인 권장 사항 모델 빌드에 대한 초당 트랜잭션 수(TPS): ~2TPS. 활성화된 권장 사항 모델 빌드는 최대 20TPS를 유지할 수 있습니다.
 
 ##구매 및 요금 청구 
 
@@ -130,4 +130,4 @@ API 설명서는 [Azure 기계 학습 권장 사항 - 빠른 시작 가이드](m
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

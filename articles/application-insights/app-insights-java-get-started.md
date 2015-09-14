@@ -1,20 +1,20 @@
-<properties 
-	pageTitle="Java 웹 프로젝트에서 Application Insights 시작하기" 
-	description="Application Insights로 Java 웹 사이트의 성능 및 사용량 모니터링" 
-	services="application-insights" 
-    documentationCenter="java"
-	authors="alancameronwills" 
+<properties
+	pageTitle="Java 웹 프로젝트에서 Application Insights 시작 | Microsoft Azure"
+	description="Application Insights로 Java 웹 사이트의 성능 및 사용량 모니터링"
+	services="application-insights"
+	documentationCenter="java"
+	authors="alancameronwills"
 	manager="douge"/>
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="06/30/2015" 
+<tags
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="06/30/2015"
 	ms.author="awills"/>
- 
+
 # Java 웹 프로젝트에서 Application Insights 시작하기
 
 *Application Insights는 미리 보기 상태입니다.*
@@ -38,7 +38,7 @@
 ## 1\. Application Insights 계측 키 가져오기
 
 1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. 새 Application Insights 리소스 만들기
+2. 새 Application Insights 리소스를 만듭니다.
 
     ![\+를 클릭하고 Application Insights 선택](./media/app-insights-java-get-started/01-create.png)
 3. Java 웹 응용 프로그램에 대한 응용 프로그램 종류를 설정합니다.
@@ -58,7 +58,7 @@
 
 #### Maven을 사용하는 경우...
 
-빌드에 Maven을 사용하도록 프로젝트가 이미 설정된 경우 pom.xml 파일에 다음 코드 조각을 병합합니다.
+빌드에 Maven을 사용하도록 프로젝트가 이미 설정된 경우 pom.xml 파일에 다음 코드를 병합합니다.
 
 그런 다음 프로젝트 종속성을 새로 고쳐 다운로드한 이진을 가져옵니다.
 
@@ -80,13 +80,12 @@
     </dependencies>
 
 
-* *빌드 또는 체크섬 유효성 검사 오류가 있나요? 다음과 같은 특정 버전을 사용해 봅니다.* `<version>1.0.n</version>`. [SDK 릴리스 정보](app-insights-release-notes-java.md) 또는 [Maven 아티팩트](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)에서 최신 버전을 찾을 수 있습니다.
-* *새 SDK로 업데이트하려면*
- * 프로젝트의 종속성을 새로 고칩니다.
+* *빌드 또는 체크섬 유효성 검사 오류가 있는 경우* 다음과 같은 특정 버전을 사용해 봅니다. `<version>1.0.n</version>`. [SDK 릴리스 정보](app-insights-release-notes-java.md) 또는 [Maven 아티팩트](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)에서 최신 버전을 찾을 수 있습니다.
+* *새 SDK로 업데이트해야 하는 경우* 프로젝트의 종속성을 새로 고칩니다.
 
 #### Gradle을 사용하는 경우...
 
-빌드에 Gradle을 사용하도록 프로젝트가 이미 설정된 경우 다음 코드 조각을 build.gradle 파일에 병합합니다.
+빌드에 Gradle을 사용하도록 프로젝트가 이미 설정된 경우 다음 코드를 build.gradle 파일에 병합합니다.
 
 그런 다음 프로젝트 종속성을 새로 고쳐 다운로드한 이진을 가져옵니다.
 
@@ -99,7 +98,7 @@
       // or applicationinsights-core for bare API
     }
 
-* *빌드 또는 체크섬 유효성 검사 오류가 있나요? 다음과 같은 특정 버전을 사용해 봅니다.* `version:'1.0.n'`. *[SDK 릴리스 정보](app-insights-release-notes-java.md)에서 최신 버전을 찾을 수 있습니다.* 
+* *빌드 또는 체크섬 유효성 검사 오류가 있나요? 다음과 같은 특정 버전을 사용해 봅니다.* `version:'1.0.n'`. *[SDK 릴리스 정보](app-insights-release-notes-java.md)에서 최신 버전을 찾을 수 있습니다.*
 * *새 SDK로 업데이트하려면*
  * 프로젝트의 종속성을 새로 고칩니다.
 
@@ -107,7 +106,7 @@
 
 수동으로 SDK 추가:
 
-1. [Java용 Application Insights SDK](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip) 다운로드
+1. [Java용 Application Insights SDK](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip)를 다운로드합니다.
 2. zip 파일에서 이진 파일을 추출하고 프로젝트에 추가합니다.
 
 ### 질문...
@@ -115,7 +114,7 @@
 * *zip에서 `-core` 및 `-web` 구성 요소 간에는 어떤 관계가 있나요?*
 
  * `applicationinsights-core`는 최소한의 API를 제공합니다. 항상 필요합니다.
- * `applicationinsights-web`은 HTTP 요청 수와 응답 시간을 추적하는 메트릭을 제공합니다. 사용자가 원격 분석 자동 수집을 원하지 않는 경우, 생략할 수 있습니다(예: 사용자 자신의 코드를 작성하려는 경우).
+ * `applicationinsights-web`은 HTTP 요청 수와 응답 시간을 추적하는 메트릭을 제공합니다. 사용자가 원격 분석 자동 수집을 원하지 않는 경우 생략할 수 있습니다. 예를 들어 사용자 자신의 코드를 작성하려는 경우입니다.
 
 * *변경 내용을 게시하는 경우 해당 SDK를 업데이트하려면*
  * 최신 버전의 [Java용 Application Insights SDK](http://dl.windowsazure.com/lib/applicationinsights/javabin/sdk.zip)를 다운로드하여 이전 버전을 대체합니다.
@@ -123,9 +122,9 @@
 
 
 
-## 3\. Application Insights xml 파일 추가
+## 3\. Application Insights .xml 파일 추가
 
-ApplicationInsights.xml을 프로젝트의 리소스 폴더에 추가합니다. 그렇지 않으면 ApplicationInsights.xml이 프로젝트의 배포 클래스 경로에 추가되었는지 확인합니다. 다음 XML을 복사합니다.
+ApplicationInsights.xml을 프로젝트의 리소스 폴더에 추가하거나 ApplicationInsights.xml이 프로젝트의 배포 클래스 경로에 추가되었는지 확인합니다. 다음 XML을 복사합니다.
 
 Azure 포털에서 가져온 계측 키를 대체합니다.
 
@@ -168,7 +167,7 @@ Azure 포털에서 가져온 계측 키를 대체합니다.
 
 마지막 구성 단계는 HTTP 요청 구성 요소가 각 웹 요청을 로그하도록 허용합니다. (완전한 API를 원하는 경우에는 요청되지 않습니다.)
 
-프로젝트에서 web.xml 파일을 찾아 열고, 응용 프로그램 필터가 구성된 웹 앱 노드 아래 다음 코드 조각을 병합합니다.
+프로젝트에서 web.xml 파일을 찾아 열고, 응용 프로그램 필터가 구성된 웹앱 노드 아래에 다음 코드를 병합합니다.
 
 가장 정확한 결과를 얻으려면 필터를 다른 모든 필터 전에 매핑해야 합니다.
 
@@ -226,16 +225,16 @@ Windows 서버에 다음을 설치합니다.
 HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 몇 초 정도 기다린 다음 새로고침을 클릭합니다.)
 
 ![샘플 데이터](./media/app-insights-java-get-started/5-results.png)
- 
+
 
 차트를 클릭하면 더 자세한 메트릭을 볼 수 있습니다.
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
- 
+
 
 또한 요청 속성 검토 시 요청 및 예외 사항과 관련된 원격 분석 이벤트를 볼 수 있습니다.
- 
+
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 
@@ -259,25 +258,25 @@ Application Insights는 MVC 응용 프로그램에 대한 HTTP 요청 형식을 
 
 다른 예외에 대한 데이터를 수집하려면 다음 두 옵션을 사용합니다.
 
-* [사용자 코드에 TrackException에 대한 호출 삽입][apiexceptions].
-* [Java 에이전트를 서버에 설치](app-insights-java-agent.md). 감시 방법을 지정할 수 있습니다.
+* [사용자 코드에 TrackException에 대한 호출 삽입][apiexceptions]
+* [서버에 Java 에이전트 설치](app-insights-java-agent.md) 감시 방법을 지정할 수 있습니다.
 
 
 ## 메서드 호출 및 외부 종속성 모니터링
 
-[Java 에이전트를 설치](app-insights-java-agent.md)하여 타이밍 데이터를 사용하여 지정된 내부 메서드 및 JDBC를 통해 수행한 호출을 로깅합니다.
+[Java 에이전트를 설치](app-insights-java-agent.md)하여 지정된 내부 메서드 및 JDBC를 통해 수행한 호출을 타이밍 데이터와 함께 기록합니다.
 
 
 ## 성능 카운터
 
-서버 타일을 클릭하면 다양한 성능 카운터가 표시됩니다.
+**서버** 타일을 클릭하면 다양한 성능 카운터가 표시됩니다.
 
 
 ![](./media/app-insights-java-get-started/11-perf-counters.png)
 
 ### 성능 카운터 수집 사용자 지정
 
-성능 카운터의 표준 집합 수집을 사용하지 않으려면 ApplicationInsights.xml 파일의 루트 노드 아래에 다음 조각을 추가합니다.
+성능 카운터의 표준 집합 수집을 사용하지 않으려면 ApplicationInsights.xml 파일의 루트 노드 아래에 다음 코드를 추가합니다.
 
     <PerformanceCounters>
        <UseBuiltIn>False</UseBuiltIn>
@@ -306,7 +305,7 @@ Application Insights는 MVC 응용 프로그램에 대한 HTTP 요청 형식을 
 
 
 
-#### Windows 성능 카운터 
+#### Windows 성능 카운터
 
 각 [Windows 성능 카운터](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx)는 한 범주의 구성원입니다(필드가 클래스의 구성원인 것과 동일한 방식). 범주는 전역일 수 있으며, 번호 또는 이름이 지정된 인스턴스를 가질 수도 있습니다.
 
@@ -329,7 +328,7 @@ Application Insights는 MVC 응용 프로그램에 대한 HTTP 요청 형식을 
 
 ### Unix 성능 카운터
 
-* [Application Insights 플러그인과 함께 Collectd를 설치](app-insights-java-collectd.md)하여 광범위한 시스템 및 네트워크 데이터를 얻습니다.
+* [Application Insights 플러그인과 함께 collectd를 설치](app-insights-java-collectd.md)하여 광범위한 시스템 및 네트워크 데이터를 얻습니다.
 
 ## 사용자 및 세션 데이터 가져오기
 
@@ -371,6 +370,4 @@ Application Insights를 사용하여 Log4J, Logback 또는 다른 로깅 프레�
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

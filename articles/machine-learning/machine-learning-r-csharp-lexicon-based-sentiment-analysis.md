@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="어휘집 기반 감정 분석 | Microsoft Azure" 
-	description="어휘집 기반 감정 분석" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="jaymathe" 
-	manager="paulettm" 
+	pageTitle="어휘집 기반 감정 분석 | Microsoft Azure"
+	description="어휘집 기반 감정 분석"
+	services="machine-learning"
+	documentationCenter=""
+	authors="jaymathe"
+	manager="paulettm"
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/02/2015"
 	ms.author="jaymathe"/>
 
 
@@ -153,4 +153,4 @@ Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌습니다. 아
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

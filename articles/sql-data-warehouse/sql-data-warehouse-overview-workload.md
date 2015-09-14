@@ -1,20 +1,20 @@
 <properties
    pageTitle="데이터 웨어하우스 워크로드"
-   description="SQL 데이터 웨어하우스의 탄력성 덕분에 데이터 웨어하우스 단위(DWU)의 슬라이딩 규모를 사용함으로써 계산 능력을 확장, 축소 또는 일시 중지할 수 있습니다. 이 문서는 데이터 웨어하우스의 메트릭 및 이들과 DWU와의 관계를 설명합니다."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="barbkess"
-   manager="jhubbard"
-   editor=""/>
+	description="SQL 데이터 웨어하우스의 탄력성 덕분에 데이터 웨어하우스 단위(DWU)의 슬라이딩 규모를 사용함으로써 계산 능력을 확장, 축소 또는 일시 중지할 수 있습니다. 이 문서는 데이터 웨어하우스의 메트릭 및 이들과 DWU와의 관계를 설명합니다."
+	services="sql-data-warehouse"
+	documentationCenter="NA"
+	authors="barbkess"
+	manager="jhubbard"
+	editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="05/23/2015"
-   ms.author="barbkess;JRJ@BigBangData.co.uk"/>
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="data-services"
+	ms.date="05/23/2015"
+	ms.author="barbkess;JRJ@BigBangData.co.uk"/>
 
 # 데이터 웨어하우스 워크로드
 데이터 웨어하우스 워크로드란 데이터 웨어하우스에 대해 발생하는 모든 작업을 나타냅니다. 데이터 웨어하우스 워크로드는 데이터를 웨어하우스에 로드, 데이터 웨어하우스에서 분석 및 보고 수행, 데이터 웨어하우스에서 데이터 관리 및 데이터 웨어하우스로부터 데이터를 내보내는 전체 프로세스를 포괄합니다. 이러한 구성 요소의 깊이와 범위는 일반적으로 데이터 웨어하우스의 성숙도 수준과 관련이 있습니다.
@@ -60,6 +60,9 @@
 ## 다음 단계
 데이터 웨어하우스의 개발을 시작하려면[개발 개요][]를 참조하세요.
 
+## 설명서
+[Big Data Warehousing](https://www.manning.com/books/big-data-warehousing) by Karthik Ramachandran, Istvan Szededi, and Richard L. Saltzer (Manning Publications). [Chapter 1](https://manning-content.s3.amazonaws.com/download/e/3d94acd-9512-46c8-b0b0-8c9c3c6a303b/BDW_MEAP_ch1.pdf)
+
 <!--Image references-->
 
 <!--Article references-->
@@ -69,4 +72,4 @@
 
 <!--Other web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

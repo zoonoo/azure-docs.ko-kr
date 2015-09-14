@@ -12,13 +12,13 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.date="06/19/2015"
 	ms.author="mahender"/>
 
 # SaaS API에 모바일 앱 연결
 
-이 자습서에서는 모바일 앱을 엔터프라이즈 SaaS(Software-as-a-Service) 솔루션에 연결합니다. 새 TodoItem이 추가될 때마다 SharePoint Online에서 Word 문서를 만들도록 [Active Directory 인증 라이브러리 Single Sign-On을 사용하여 앱 인증]에 따라 앱을 업데이트합니다.
+이 자습서에서는 모바일 앱을 엔터프라이즈 SaaS(Software-as-a-Service) 솔루션에 연결합니다. 새 TodoItem이 추가될 때마다 SharePoint Online에서 Microsoft Word 문서를 만들도록 [Azure Active Directory 인증 라이브러리 Single Sign-On을 사용하여 앱 인증]에 따라 앱을 업데이트합니다.
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
@@ -35,7 +35,7 @@
 
     ![][1]
 
-이제 앱 서비스에 대해 SharePoint 액세스 토큰을 발급하도록 AAD를 구성했습니다.
+이제 앱 서비스에 대해 SharePoint 액세스 토큰을 발급하도록 Azure AD를 구성했습니다.
 
 ## <a name="store-credentials"></a>모바일 앱에 SharePoint 정보 추가
 
@@ -57,7 +57,7 @@ SharePoint를 호출하려면 모바일 앱이 연결할 끝점을 지정해야 
 
 ## <a name="obtain-token"></a>액세스 토큰 가져오기 및 SharePoint API 호출
 
-SharePoint에 액세스하려면 대상으로서 SharePoint에 대한 특별 액세스 토큰이 필요합니다. 이 토큰을 가져오려면 앱 서비스의 ID 및 사용자에 대해 발급된 토큰을 사용해서 AAD로 콜백해야 합니다.
+SharePoint에 액세스하려면 대상으로서 SharePoint에 대한 특별 액세스 토큰이 필요합니다. 이 토큰을 가져오려면 앱 서비스의 ID 및 사용자에 대해 발급된 토큰을 사용해서 Azure AD로 콜백해야 합니다.
 
 1. Visual Studio에서 모바일 앱 코드 프로젝트를 엽니다.
 
@@ -182,10 +182,8 @@ Word 문서를 만들려면 OpenXML NuGet 패키지를 사용합니다. NuGet �
 
 [Preview Azure Management Portal]: https://portal.azure.com/
 [Active Directory]: https://manage.windowsazure.com/
-[SharePoint Online]: http://office.microsoft.com/ko-kr/sharepoint/
+[SharePoint Online]: http://office.microsoft.com/ko-KR/sharepoint/
 [Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
-[Active Directory 인증 라이브러리 Single Sign-On을 사용하여 앱 인증]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [모바일 앱 .NET 백 엔드 앱 서비스 확장]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

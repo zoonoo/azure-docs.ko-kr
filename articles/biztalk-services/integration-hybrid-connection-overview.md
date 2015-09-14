@@ -1,43 +1,43 @@
-<properties 
-	pageTitle="하이브리드 연결 개요 | Microsoft Azure" 
-	description="보안, TCP 포트 및 지원되는 구성 등을 포함한 하이브리드 연결에 대해 알아봅니다. MABS, WABS" 
-	services="biztalk-services" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+<properties
+	pageTitle="하이브리드 연결 개요 | Microsoft Azure"
+	description="보안, TCP 포트 및 지원되는 구성 등을 포함한 하이브리드 연결에 대해 알아봅니다. MABS, WABS"
+	services="biztalk-services"
+	documentationCenter=""
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="biztalk-services" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="06/14/2015" 
+<tags
+	ms.service="biztalk-services"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="get-started-article"
+	ms.date="06/14/2015"
 	ms.author="mandia"/>
 
 
 # 하이브리드 연결 개요
-이 항목에서는 하이브리드 연결을 소개하고, 지원되는 구성과 필요한 TCP 포트를 설명합니다.
+이 문서에서는 하이브리드 연결을 소개하고, 지원되는 구성과 필요한 TCP 포트를 설명합니다.
 
 
 ## 하이브리드 연결 정의
 
-하이브리드 연결은 Azure BizTalk 서비스의 기능입니다. 하이브리드 연결은 방화벽 뒤에서 Azure 웹앱(이전의 웹 사이트) 및 Azure 모바일 앱(이전의 모바일 서비스)을 온-프레미스 리소스에 연결하는 쉽고 편리한 방법을 제공합니다.
+하이브리드 연결은 Azure BizTalk 서비스의 기능입니다. 하이브리드 연결은 방화벽 뒤에서 Azure 앱 서비스의 웹앱 기능(이전의 웹 사이트) 및 Azure 앱 서비스의 모바일 앱 기능(이전의 모바일 서비스)을 온-프레미스 리소스에 연결하는 쉽고 편리한 방법을 제공합니다.
 
 ![하이브리드 연결][HCImage]
 
 하이브리드 연결은 다음과 같은 이점을 제공합니다.
 
 - 웹앱 및 모바일 앱은 기존 온-프레미스 데이터 및 서비스에 안전하게 액세스할 수 있습니다.
-- 여러 웹앱 또는 모바일 앱이 하나의 하이브리드 연결을 공유하여 온-프레미스 리소스에 액세스할 수 있습니다. 
+- 여러 웹앱 또는 모바일 앱이 하나의 하이브리드 연결을 공유하여 온-프레미스 리소스에 액세스할 수 있습니다.
 - 네트워크에 액세스하려면 최소의 TCP 포트가 필요합니다.
 - 하이브리드 연결을 사용하는 응용 프로그램은 하이브리드 연결을 통해 게시되는 특정 온-프레미스 리소스에만 액세스합니다.
 - SQL Server, MySQL, HTTP Web API 및 대부분의 사용자 지정 웹 서비스와 같이 정적 TCP 포트를 사용하는 모든 온-프레미스 리소스에 연결할 수 있습니다.
 
 	> [AZURE.NOTE]동적 포트(예: FTP 수동 모드 또는 확장 수동 모드)를 사용하는 TCP 기반 서비스는 현재 지원되지 않습니다.
 
-- Azure 웹앱에서 지원하는 모든 프레임워크(.NET, PHP, Java, Python, Node.js) 및 Azure 모바일 앱에서 지원하는 모든 프레임워크(Node.js, .NET)에서 사용할 수 있습니다.
+- 웹앱에서 지원하는 모든 프레임워크(.NET, PHP, Java, Python, Node.js) 및 모바일 앱에서 지원하는 모든 프레임워크(Node.js, .NET)에서 사용할 수 있습니다.
 - 웹앱 및 모바일 앱은 웹이나 모바일 앱이 로컬 네트워크에 위치하는 것처럼 정확히 동일한 방식으로 온-프레미스 리소스에 액세스할 수 있습니다. 예를 들어 온-프레미스에 사용되는 동일한 연결 문자열을 Azure에서도 사용할 수 있습니다.
 
 
@@ -74,7 +74,7 @@
 
 [하이브리드 연결 만들기 및 관리](integration-hybrid-connection-create-manage.md)(영문)를 참조하세요.
 
-**응용 프로그램 권한 부여가 하이브리드 연결과는 별개임**. 적절한 어떤 권한 부여 방법도 사용될 수 있습니다. 권한 부여 방법은 Azure 클라우드와 온-프레미스 구성 요소에서 지원되는 종단 간 권한 부여 방법에 따라 좌우됩니다. 예를 들어 Azure 응용 프로그램은 온-프레미스 SQL Server에 액세스합니다. 이 시나리오에서 SQL 권한 부여는 종단 간에 지원되는 권한 부여 방법일 수 있습니다.
+*응용 프로그램 권한 부여가 하이브리드 연결과는 별개임*. 적절한 어떤 권한 부여 방법도 사용될 수 있습니다. 권한 부여 방법은 Azure 클라우드와 온-프레미스 구성 요소에서 지원되는 종단 간 권한 부여 방법에 따라 좌우됩니다. 예를 들어 Azure 응용 프로그램은 온-프레미스 SQL Server에 액세스합니다. 이 시나리오에서 SQL 권한 부여는 종단 간에 지원되는 권한 부여 방법일 수 있습니다.
 
 #### TCP 포트
 하이브리드 연결에는 개인 네트워크의 아웃바운드 TCP 또는 HTTP 연결만 필요합니다. 방화벽 포트를 열거나 네트워크에 대한 모든 인바운드 연결을 허용하도록 네트워크 경계 구성을 변경할 필요가 없습니다.
@@ -84,23 +84,23 @@
 포트 | 필요한 이유
 --- | ---
 9350 - 9354 | 이러한 포트는 데이터 전송에 사용됩니다. 서비스 버스 릴레이 관리자는 포트 9350를 조사하여 TCP 연결을 사용할 수 있는지 확인합니다. 사용 가능한 경우 포트 9352도 사용 가능한 것으로 가정합니다. 데이터 트래픽이 포트 9352를 통해 이동합니다. <br/><br/>이러한 포트에 아웃 바운드 연결을 허용합니다.
-5671 | 데이터 트래픽에 포트 9352를 사용하는 경우 포트 5671을 제어 채널로 사용합니다. <br/><br/>이 포트에 아웃 바운드 연결을 허용합니다. 
+5671 | 데이터 트래픽에 포트 9352를 사용하는 경우 포트 5671을 제어 채널로 사용합니다. <br/><br/>이 포트에 아웃 바운드 연결을 허용합니다.
 80, 443 | 포트 9352 및 5671를 사용할 수 없는 경우 *다음으로* 포트 80 및 443가 데이터 전송 및 제어 채널로 사용되는 대체(fallback) 포트입니다.<br/><br/>이러한 포트에 아웃 바운드 연결을 허용합니다. <br/><br/>**참고** 다른 TCP 포트 대신 이러한 대체 포트를 사용하는 것은 권장되지 않습니다. HTTP/WebSocket이 데이터 채널에 대한 기본 TCP 대신 프로토콜로 사용됩니다. 성능이 저하될 수 있습니다.
 
 
 
-## 다음
+## 다음 단계
 
 [하이브리드 연결 만들기 및 관리](integration-hybrid-connection-create-manage.md)<br/> [Azure 웹 사이트에 온-프레미스 리소스 연결](../web-sites-hybrid-connection-get-started.md)<br/> [Azure 웹앱으로부터 온-프레미스 SQL Server에 연결](../web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/> [Azure 모바일 서비스 및 하이브리드 연결](../mobile-services-dotnet-backend-hybrid-connections-get-started.md)
 
 
 ## 참고 항목
 
-[Microsoft Azure에서 BizTalk 서비스 관리를 위한 REST API](http://msdn.microsoft.com/library/azure/dn232347.aspx) [BizTalk 서비스: Editions 차트](biztalk-editions-feature-chart.md)<br/> [Azure 관리 포털을 사용하여 BizTalk 서비스 만들기](biztalk-provision-services.md)<br/> [BizTalk 서비스: 대시보드, 모니터 및 배율 탭](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+[Microsoft Azure에서 BizTalk 서비스 관리를 위한 REST API](http://msdn.microsoft.com/library/azure/dn232347.aspx) [BizTalk 서비스: Editions 차트](biztalk-editions-feature-chart.md)<br/> [Azure 포털을 사용하여 BizTalk 서비스 만들기](biztalk-provision-services.md)<br/> [BizTalk 서비스: 대시보드, 모니터 및 배율 탭](biztalk-dashboard-monitor-scale-tabs.md)<br/>
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png
 [HybridConnectionTab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

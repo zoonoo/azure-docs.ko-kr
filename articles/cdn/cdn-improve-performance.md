@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="CDN - 파일을 압축하여 성능 향상" 
-	description="파일을 압축하여 파일 전송 속도를 개선하고 페이지 로드 성능을 향상시킬 수 있습니다." 
-	services="cdn" 
-	documentationCenter=".NET" 
-	authors="juliako" 
-	manager="dwrede" 
+	pageTitle="CDN - 파일을 압축하여 성능 향상"
+	description="파일을 압축하여 파일 전송 속도를 개선하고 페이지 로드 성능을 향상시킬 수 있습니다."
+	services="cdn"
+	documentationCenter=".NET"
+	authors="juliako"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="cdn" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/10/2015" 
+	ms.service="cdn"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="juliako"/>
 
 #파일을 압축하여 성능 향상
@@ -54,4 +54,4 @@ CDN은 다음 두 가지 방법으로 압축을 지원할 수 있습니다.
 1. 미디어 서비스 CDN 사용 스트리밍 끝점의 경우 다음 콘텐츠 형식에 대해 기본적으로 압축이 사용됩니다. application/vnd.ms-sstr+xml,application/dash+xml,application/vnd.apple.mpegurl,application/f4m+xml. Azure 포털에서 언급된 형식에 대해 압축을 사용하거나 사용하지 않도록 설정할 수 없습니다.  
 2. 하나의 파일 버전(압축 또는 압축되지 않음)만 에지 서버에 캐시됩니다. 다른 버전을 요청하면 에지 서버에서 콘텐츠를 트랜스코딩합니다.  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

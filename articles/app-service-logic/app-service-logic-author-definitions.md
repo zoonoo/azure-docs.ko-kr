@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="작성자 논리 앱 정의" 
-	description="논리 앱에 대한 JSON 정의 작성 방법을 알아봅니다." 
-	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
-	editor="" 
-	services="app-service\logic" 
+	pageTitle="작성자 논리 앱 정의"
+	description="논리 앱에 대한 JSON 정의 작성 방법을 알아봅니다."
+	authors="stepsic-microsoft-com"
+	manager="dwrede"
+	editor=""
+	services="app-service\logic"
 	documentationCenter=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/23/2015"
+	ms.date="06/16/2015"
 	ms.author="stepsic"/>
 	
 #작성자 논리 앱 정의
@@ -99,7 +99,7 @@
         "destinationMap": {
             "defaultValue": {
                 "science": "http://www.nasa.gov",
-                "microsoft": "https://www.microsoft.com/ko-kr/default.aspx",
+                "microsoft": "https://www.microsoft.com/ko-KR/default.aspx",
                 "google": "https://www.google.com",
                 "robots": "https://en.wikipedia.org/wiki/Robot",
                 "NSA": "https://www.nsa.gov/"
@@ -234,7 +234,7 @@
 }
 ```
 
-[MSDN의 논리 앱 유형 작업](https://msdn.microsoft.com/en-US/library/azure/dn948511.aspx)에 대해 읽을 수 있습니다.
+[MSDN의 논리 앱 유형 작업](https://msdn.microsoft.com/ko-KR/library/azure/dn948511.aspx)에 대해 읽을 수 있습니다.
 
 >[AZURE.NOTE]논리 앱 디자이너는 논리 앱 유형 작업을 지원하지 않으므로 정의를 수동으로 편집해야 합니다.
 
@@ -250,7 +250,7 @@
     "parameters": {
         "dataFeeds": {
             "defaultValue": [
-                "https://www.microsoft.com/ko-kr/default.aspx",
+                "https://www.microsoft.com/ko-KR/default.aspx",
                 "https://gibberish.gibberish/"
             ],
             "type": "Array"
@@ -306,7 +306,7 @@
     "parameters": {
         "dataFeeds": {
             "defaultValue": [
-                "https://www.microsoft.com/ko-kr/default.aspx",
+                "https://www.microsoft.com/ko-KR/default.aspx",
                 "https://office.live.com/start/default.aspx"
             ],
             "type": "Array"
@@ -688,4 +688,4 @@ Content-type: application/json
 
 그러면 각 환경에서 `connection` 매개 변수에 대해 다른 값을 제공할 수 있습니다. 논리 앱 만들기 및 관리에 대한 가능한 모든 옵션은 [REST API 설명서](https://msdn.microsoft.com/library/azure/dn948513.aspx)를 참조하십시오.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

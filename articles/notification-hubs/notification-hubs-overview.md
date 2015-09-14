@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Azure 알림 허브" 
-	description="Azure에서 푸시 알림을 사용하는 방법에 대해 알아봅니다. 코드 샘플은 .NET API를 사용하여 C#으로 작성되었습니다." 
-	authors="wesmc7777" 
-	manager="dwrede" 
-	editor="" 
-	services="notification-hubs" 
+<properties
+	pageTitle="Azure 알림 허브"
+	description="Azure에서 푸시 알림을 사용하는 방법에 대해 알아봅니다. 코드 샘플은 .NET API를 사용하여 C#으로 작성되었습니다."
+	authors="wesmc7777"
+	manager="dwrede"
+	editor=""
+	services="notification-hubs"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="notification-hubs" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="multiple" 
-	ms.devlang="multiple" 
-	ms.topic="article" 
-	ms.date="06/02/2015" 
+<tags
+	ms.service="notification-hubs"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="multiple"
+	ms.devlang="multiple"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="wesmc"/>
 
 
@@ -94,7 +94,7 @@ Apple iOS 장치에서도 마찬가지로 푸시가 대화 상자로 표시되�
 
 알림 허브는 다음과 같은 장점이 있는 사용 준비가 된 푸시 알림 인프라를 제공합니다.
 
-- **다중 플랫폼.**   
+- **다중 플랫폼.**
 	+  모든 주요 모바일 플랫폼을 지원합니다. 알림 허브는 Windows 스토어, iOS, Android 및 Windows Phone 앱으로 푸시 알림을 보낼 수 있습니다.
 
 
@@ -140,7 +140,7 @@ Apple iOS 장치에서도 마찬가지로 푸시가 대화 상자로 표시되�
 푸시 알림에 대한 관련 .NET의 관리되는 API 참조는 다음 항목을 참조하세요.
 
 + [Microsoft.WindowsAzure.Messaging.NotificationHub]
-+ [Microsoft.ServiceBus.Notifications] 
++ [Microsoft.ServiceBus.Notifications]
 
 
   [0]: ./media/notification-hubs-overview/registration-diagram.png
@@ -156,8 +156,5 @@ Apple iOS 장치에서도 마찬가지로 푸시가 대화 상자로 표시되�
   [Xamarin.Android]: http://azure.microsoft.com/documentation/articles/partner-xamarin-notification-hubs-android-get-started
   [Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
   [Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
-  
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

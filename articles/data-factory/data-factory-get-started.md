@@ -1,6 +1,6 @@
 <properties
-	pageTitle="자습서: Azure Blob에서 Azure SQL로 데이터 복사"
-	description="이 자습서에서는 Blob에서 Azure SQL 데이터베이스 인스턴스로 데이터를 복사하는 샘플 데이터 파이프라인을 만드는 방법을 보여 줍니다."
+	pageTitle="자습서: Azure Data Factory 파이프라인에서 복사 작업 사용"
+	description="이 자습서에서는 Azure Data Factory 파이프라인에 Azure Blob에서 Azure SQL 데이터베이스로 데이터를 복사하는 복사 작업을 사용하는 방법을 보여 줍니다."
 	services="data-factory"
 	documentationCenter=""
 	authors="spelluru"
@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article" 
+	ms.topic="article"
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
@@ -100,6 +100,9 @@
 - 맨 위의 [Visual Studio 사용](data-factory-get-started-using-vs.md) 링크를 클릭하여 Visual Studio 2013을 통해 자습서를 수행합니다.
  
 
+## 피드백 보내기
+이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-get-started.md)을 통해 의견을 보내주세요.
+
 <!--Link references-->
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-preview-portal]: https://portal.azure.com/
@@ -110,4 +113,4 @@
 [data-factory-create-storage]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#create-a-storage-account
 [data-factory-create-sql-database]: ../sql-database-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

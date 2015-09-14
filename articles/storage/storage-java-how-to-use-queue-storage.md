@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Java에서 큐 저장소를 사용하는 방법 | Microsoft Azure&quot;" 
-	description="Azure 큐 서비스를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다. 샘플은 Java로 작성되었습니다." 
-	services="storage" 
-	documentationCenter="java" 
-	authors="rmcmurray" 
-	manager="wpickett" 
+	pageTitle="Java에서 큐 저장소를 사용하는 방법 | Microsoft Azure";"
+	description="Azure 큐 서비스를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다. 샘플은 Java로 작성되었습니다."
+	services="storage"
+	documentationCenter="java"
+	authors="rmcmurray"
+	manager="wpickett"
 	editor="jimbe"/>
 
 <tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="Java" 
-	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="Java"
+	ms.topic="article"
+	ms.date="08/31/2015"
 	ms.author="robmcm"/>
 
 # Java에서 큐 저장소를 사용하는 방법
@@ -379,18 +379,17 @@ Microsoft Azure의 역할 내에서 실행되는 응용 프로그램에서는 �
 
 이제 큐 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업에 대해 알아보세요.
 
-- [Java용 Azure 저장소 SDK]
-- [Azure 저장소 클라이언트 SDK 참조]
-- [Azure 저장소 REST API]
-- [Azure 저장소 팀 블로그]
+- [Java용 Azure 저장소 SDK][]
+- [Azure 저장소 클라이언트 SDK 참조][]
+- [Azure 저장소 REST API][]
+- [Azure 저장소 팀 블로그][]
 
-[Azure SDK for Java]: http://azure.microsoft.com/develop/java/
+[Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Java용 Azure Storage SDK]: https://github.com/azure/azure-storage-java
 [Java용 Azure 저장소 SDK]: https://github.com/azure/azure-storage-java
 [Android용 Azure Storage SDK]: https://github.com/azure/azure-storage-android
 [Azure 저장소 클라이언트 SDK 참조]: http://dl.windowsazure.com/storage/javadoc/
 [Azure 저장소 REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,17 +1,17 @@
 <properties 
-	pageTitle="Application Insights에 대한 릴리스 정보" 
-	description="최신 업데이트입니다." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
+	pageTitle="Windows용 Application Insights에 대한 릴리스 정보"
+	description="최신 업데이트입니다."
+	services="application-insights"
+	documentationCenter=""
+	authors="alancameronwills"
 	manager="douge"/>
 <tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.service="application-insights"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="ibiza"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/18/2015"
 	ms.author="sergkanz"/>
  
 # Windows Phone 및 Store용 Application Insights SDK에 대한 릴리스 정보
@@ -77,4 +77,4 @@
 
 이전 버전에 대한 릴리스 정보가 없습니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

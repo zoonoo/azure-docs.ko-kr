@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="07/24/2014"
+	ms.date="09/02/2015"
 	ms.author="larryfr"/>
 
 #HDInsight에서 Hadoop 클러스터의 가용성 및 안정성
@@ -170,4 +170,4 @@ Ambari 웹 UI에서 로그를 볼 서비스(예: YARN)를 선택한 다음 **빠
 [azure-powershell]: ../powershell-install-configure.md
 [azure-cli]: ../xplat-cli.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

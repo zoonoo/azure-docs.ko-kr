@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="nodejs"
 	ms.topic="article"
-	ms.date="04/28/2015"
+	ms.date="09/01/2015"
 	ms.author="mwasson"/>
 
 
@@ -44,7 +44,7 @@
 
 ## 필수 조건
 
-이 문서의 지침을 따르기 전에 다음이 설치되어 있는지 확인해야 합니다.
+이 문서의 지침을 따르기 전에 다음이 설치되어 있는지 확인합니다.
 
 * [node] 버전 0.10.24 이상
 
@@ -86,7 +86,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 		sudo npm install express-generator@4.2.0 -g
 
-    출력은 다음과 유사합니다.
+    출력은 다음 예제와 유사합니다.
 
 		express-generator@4.2.0 /usr/local/lib/node_modules/express-generator
 		├── mkdirp@0.3.5
@@ -98,7 +98,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
         express
 
-	이 명령의 출력은 다음과 유사하게 표시됩니다.
+	이 명령의 출력은 다음 예제와 유사합니다.
 
 		   create : .
 		   create : ./package.json
@@ -124,7 +124,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 		   run the app:
 		     $ DEBUG=my-application ./bin/www
 
-	**tasklist** 디렉터리에 몇 개의 새 디렉터리 및 파일이 있어야 합니다.
+	이제 **tasklist** 디렉터리에 몇 개의 새 디렉터리 및 파일이 있습니다.
 
 ### 추가 모듈 설치
 
@@ -134,7 +134,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
     npm install
 
-이 명령의 출력은 다음과 유사합니다.
+이 명령의 출력은 다음 예제와 유사합니다.
 
 	debug@0.7.4 node_modules\debug
 
@@ -151,7 +151,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 **--save** 플래그는 이러한 모듈에 대한 항목을 **package.json** 파일에 추가합니다.
 
-이 명령의 출력은 다음과 유사하게 표시됩니다.
+이 명령의 출력은 다음 예제와 유사합니다.
 
 	async@0.9.0 node_modules\async
 
@@ -466,26 +466,27 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 3. 웹 브라우저를 열고 http://127.0.0.1:3000(으)로 이동합니다.
 
-그러면 다음과 비슷한 웹 페이지가 표시됩니다.
+	다음 예제와 유사한 웹 페이지가 나타납니다.
 
 ![빈 tasklist가 표시된 웹 페이지][node-table-finished]
 
-새 할 일 항목을 만들려면 이름 및 범주를 입력하고 **항목 추가**를 클릭합니다. 작업을 완료로 표시하려면 **완료**에 표시하고 **작업 업데이트**를 클릭합니다.
+4. 새 할 일 항목을 만들려면 이름 및 범주를 입력하고 **항목 추가**를 클릭합니다.
 
-![작업 목록의 새 항목 이미지][node-table-list-items]
+6. 작업을 완료로 표시하려면 **완료**에 표시하고 **작업 업데이트**를 클릭합니다.
+
+	![작업 목록의 새 항목 이미지][node-table-list-items]
 
 응용프로그램이 로컬로 실행함에도 불구하고 Azure 테이블 서비스에 해당 데이터를 저장합니다.
-
 
 ## Azure에 응용 프로그램 배포
 
 이 섹션의 단계는 Azure 명령줄 도구를 사용하여 앱 서비스에서 새 웹앱을 만든 다음 Git을 사용하여 응용프로그램을 배포합니다. 이러한 단계를 수행하려면 Azure 구독이 있어야 합니다.
 
-> [AZURE.NOTE] 이러한 단계는 [Azure 포털](https://portal.azure.com)을 사용하여 수행할 수도 있습니다. [Azure 앱 서비스에서 Node.js 웹앱 빌드 및 배포]를 참조하세요.
+> [AZURE.NOTE]이러한 단계는 [Azure 포털](https://portal.azure.com)을 사용하여 수행할 수도 있습니다. [Azure 앱 서비스에서 Node.js 웹앱 빌드 및 배포]를 참조하세요.
 >
 > 처음으로 만든 웹앱인 경우 Azure 포털을 사용하여 이 응용프로그램을 배포해야 합니다.
 
-시작하려면, 명령줄에 다음 명령을 입력하여 [Azure 명령줄 인터페이스]를 설치합니다.
+시작하려면 명령줄에서 다음 명령을 입력하여 [Azure CLI]를 설치합니다.
 
 	npm install azure-cli -g
 
@@ -509,7 +510,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 	이전 단계에서 다운로드한 게시 설정 파일의 경로와 파일 이름을 지정합니다.
 
-3. 설정을 가져온 후에는 게시 설정 파일을 삭제해야 합니다. 이 파일은 더 이상 필요하지 않으며 Azure 구독과 관련된 중요한 정보가 포함됩니다.
+3. 설정을 가져온 후에는 게시 설정 파일을 삭제합니다. 이 파일은 더 이상 필요하지 않으며 Azure 구독과 관련된 중요한 정보가 포함됩니다.
 
 ### 앱 서비스 웹앱 만들기
 
@@ -540,7 +541,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 		info:   Executing `git remote add azure https://username@tabletasklist.azurewebsites.net/TableTasklist.git`
 		info:   site create command OK
 
-	> [AZURE.NOTE] 구독에 대한 앱 서비스 웹앱을 처음 만드는 경우 Azure 포털을 사용하여 웹앱을 만들라고 안내됩니다. 자세한 내용은 [Azure 앱 서비스에서 Node.js 웹앱 빌드 및 배포]를 참조하세요.
+	> [AZURE.NOTE]구독에 대한 앱 서비스 웹앱을 처음 만드는 경우 Azure 포털을 사용하여 웹앱을 만들라고 안내됩니다. 자세한 내용은 [Azure 앱 서비스에서 Node.js 웹앱 빌드 및 배포]를 참조하세요.
 
 ### 환경 변수 설정
 
@@ -584,7 +585,7 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 		git push azure master
 
-	대상 분기로 **master**를 사용합니다. 배포가 끝나면 다음과 같은 문이 표시됩니다.
+	대상 분기로 **master**를 사용합니다. 배포가 끝나면 다음 예제와 유사한 문이 표시됩니다.
 
 		To https://username@tabletasklist.azurewebsites.net/TableTasklist.git
  		 * [new branch]      master -> master
@@ -598,11 +599,11 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 
 ## 추가 리소스
 
-[Azure 명령줄 인터페이스]
+[Azure CLI]
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-* 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
+* Azure 미리 보기 포털에서 Azure 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
 [Azure 앱 서비스에서 Node.js 웹앱 빌드 및 배포]: web-sites-nodejs-develop-deploy-mac.md
 [Continuous deployment using GIT in Azure App Service]: web-sites-publish-source-control.md
@@ -643,4 +644,4 @@ Azure 저장소 계정을 만듭니다. 앱에서는 할 일 항목을 저장하
 [Create and deploy a Node.js application to an Azure Web Site]: web-sites-nodejs-develop-deploy-mac.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

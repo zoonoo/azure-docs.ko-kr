@@ -1,25 +1,25 @@
 <properties 
-	pageTitle="활성 중인 고급 분석 프로세스 및 기술: SQL Server 사용하기 | Microsoft Azure" 
-	description="활성 중인 고급 분석 프로세스 및 기술"  
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="msolhab" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="활성 중인 고급 분석 프로세스 및 기술: SQL Server 사용하기 | Microsoft Azure"
+	description="활성 중인 고급 분석 프로세스 및 기술"
+	services="machine-learning"
+	documentationCenter=""
+	authors="msolhab"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mohabib;fashah;bradsev"/>
 
                 
 # 활성 중인 고급 분석 프로세스 및 기술: SQL Server 사용하기
 
-이 자습서에서는 종단 간 Azure 고급 분석 프로세스 및 기술(ADAPT) 가이드에 따라 공용 데이터 집합인 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합을 사용하여 모델을 빌드 및 배포합니다.
+이 자습서에서는 공개적으로 사용할 수 있는 데이터 집합([NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합)을 사용하여 모델 빌드 및 배포를 연습합니다. 절차는 Azure ADAPT(고급 분석 프로세스 및 기술) 가이드를 따릅니다.
 
 
 ## <a name="dataset"></a>NYC Taxi Trips 데이터 집합 설명
@@ -93,7 +93,7 @@ AzCopy를 사용하여 데이터를 복사하려면
 
 1. VM(가상 컴퓨터)에 로그인합니다.
 
-2. VM의 데이터 디스크에서 새 디렉터리를 만듭니다(참고: VM과 함께 제공되는 임시 디스크를 데이터 디스크로 사용하지 마십시오.
+2. VM의 데이터 디스크에서 새 디렉터리를 만듭니다(참고: VM과 함께 제공되는 임시 디스크를 데이터 디스크로 사용하지 마세요.
 
 3. 명령 프롬프트 창에서 <path_to_data_folder>를 (2)에서 만든 데이터 폴더로 바꿔 다음 Azcopy 명령줄을 실행합니다.
 
@@ -113,7 +113,7 @@ _분할된 테이블 및 뷰_를 사용하여 대량의 데이터를 SQL 데이�
 
 	![SSMS 연결][12]
 
-3. SQL Server 인증 모드를 변경하여 새 SQL 로그인 사용자를 만드는 작업을 아직 수행하지 않은 경우 **Sample Scripts** 폴더에서 **change\\\_auth.sql**이라는 스크립트 파일을 엽니다. 기본 사용자 이름 및 암호를 변경합니다. 도구 모음에서 **!실행**을 클릭하여 스크립트를 실행합니다.
+3. SQL Server 인증 모드를 변경하여 새 SQL 로그인 사용자를 만드는 작업을 아직 수행하지 않은 경우 **Sample Scripts** 폴더에서 **change\\_auth.sql**이라는 스크립트 파일을 엽니다. 기본 사용자 이름 및 암호를 변경합니다. 도구 모음에서 **!실행**을 클릭하여 스크립트를 실행합니다.
 
 	![스크립트 실행][13]
 
@@ -129,7 +129,7 @@ _분할된 테이블 및 뷰_를 사용하여 대량의 데이터를 SQL 데이�
 	
 		![SQL 데이터베이스 기본값][15]
 
-5. 새 데이터베이스 및 파일 그룹 집합을 만들어 분할된 테이블을 유지하려면 **create\\\_db\\\_default.sql** 샘플 스크립트를 엽니다. 이 스크립트는 **TaxiNYC**라는 새 데이터베이스를 만들고 기본 데이터 위치에 12개의 파일 그룹을 만듭니다. 각 파일 그룹에는 한 달 분량의 trip\_data 및 trip\_fare 데이터가 유지됩니다. 필요한 경우 데이터베이스 이름을 수정합니다. **!실행**을 클릭하여 스크립트를 실행합니다.
+5. 새 데이터베이스 및 파일 그룹 집합을 만들어 분할된 테이블을 유지하려면 **create\\_db\\_default.sql** 샘플 스크립트를 엽니다. 이 스크립트는 **TaxiNYC**라는 새 데이터베이스를 만들고 기본 데이터 위치에 12개의 파일 그룹을 만듭니다. 각 파일 그룹에는 한 달 분량의 trip\_data 및 trip\_fare 데이터가 유지됩니다. 필요한 경우 데이터베이스 이름을 수정합니다. **!실행**을 클릭하여 스크립트를 실행합니다.
 
 6. 이제 trip\_data와 trip\_fare에 대해 각각 하나씩 두 개의 파티션 테이블을 만듭니다. 다음 작업을 수행하는 **create\_partitioned\_table.sql** 샘플 스크립트를 엽니다.
 
@@ -141,7 +141,7 @@ _분할된 테이블 및 뷰_를 사용하여 대량의 데이터를 SQL 데이�
 
 7. **Sample Scripts** 폴더에는 대량의 데이터를 SQL Server 테이블로 병렬로 가져오는 방법을 보여 주는 두 개의 샘플 PowerShell 스크립트가 제공되어 있습니다.
 
-	- **bcp\\\_parallel\\\_generic.ps1**은 대량의 데이터를 테이블로 병렬로 가져오는 일반 스크립트입니다. 이 스크립트를 수정하여 스크립트의 명령줄에 표시된 대로 입력 및 대상 변수를 설정합니다.
+	- **bcp\\_parallel\\_generic.ps1**은 대량의 데이터를 테이블로 병렬로 가져오는 일반 스크립트입니다. 이 스크립트를 수정하여 스크립트의 명령줄에 표시된 대로 입력 및 대상 변수를 설정합니다.
 	- **bcp\_parallel\_nyctaxi.ps1**은 미리 구성된 버전의 일반 스크립트로서, NYC Taxi Trips 데이터의 두 테이블을 모두 로드하는 데 사용될 수 있습니다.  
 
 8. **bcp\_parallel\_nyctaxi.ps1** 스크립트 이름을 마우스 오른쪽 단추로 클릭하고 **편집**을 클릭하여 PowerShell에서 엽니다. 사전 설정 변수를 검토하고 선택한 데이터베이스 이름, 입력 데이터 폴더, 대상 로그 폴더 및 샘플 형식파일 **nyctaxi\_trip.xml** 및 **nyctaxi\_fare.xml**(**Sample Scripts** 폴더에 제공)의 경로에 따라 수정합니다.
@@ -154,7 +154,7 @@ _분할된 테이블 및 뷰_를 사용하여 대량의 데이터를 SQL 데이�
 
 10. 이제 데이터베이스에서 탐색, 기능 엔지니어링 및 필요에 따라 다른 작업을 수행할 준비가 완료되었습니다. 테이블은 **pickup\_datetime** 필드에 따라 분할되어 있으므로 **WHERE** 절에 **pickup\_datetime** 조건이 포함된 쿼리에서 파티션 구성테이블을 활용합니다.
 
-11. **SQL Server Management Studio**에서 제공된 샘플 스크립트인 **sample\\\_queries.sql**을 탐색합니다. 샘플 쿼리를 실행하려면 쿼리 줄을 강조 표시한 다음 도구 모음에서 **!실행**을 클릭합니다.
+11. **SQL Server Management Studio**에서 제공된 샘플 스크립트인 **sample\\_queries.sql**을 탐색합니다. 샘플 쿼리를 실행하려면 쿼리 줄을 강조 표시한 다음 도구 모음에서 **!실행**을 클릭합니다.
 
 12. NYC Taxi Trips 데이터가 별도 두 테이블에 로드됩니다. 조인 작업을 향상시키려면 테이블을 인덱싱하는 것이 좋습니다. 샘플 스크립트 **create\_partitioned\_index.sql**은 복합 조인 키 **medallion, hack\_license 및 pickup\_datetime**에 대한 분할된 인덱스를 만듭니다.
 
@@ -206,7 +206,7 @@ Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 
 
 #### 데이터 품질 평가: 경도 및/또는 위도가 잘못된 레코드 확인
 
-이 예제에서는 경도 및/또는 위도 필드에 유효하지 않은 값(라디안이 -90도\~90도에 속해야 함)이 포함되거나 (0, 0) 좌표가 있는지 조사합니다.
+이 예제에서는 경도 및/또는 위도 필드에 유효하지 않은 값(라디안이 -90도~90도에 속해야 함)이 포함되거나 (0, 0) 좌표가 있는지 조사합니다.
 
 	SELECT COUNT(*) FROM nyctaxi_trip
 	WHERE pickup_datetime BETWEEN '20130101' AND '20130331'
@@ -479,7 +479,7 @@ Azure 기계 학습을 진행할 준비가 되었으면 다음을 수행할 수 
 다음 예제에서는 모델링에 사용할 두 개의 레이블 집합을 생성합니다.
 
 1. 이진 클래스 레이블 **tipped**(팁이 제공되는지 예측)
-2. 다중 클래스 레이블 **tip\\\_class**(팁 bin 또는 범위 예측)
+2. 다중 클래스 레이블 **tip\\_class**(팁 bin 또는 범위 예측)
 
 		nyctaxi_one_percent_add_col = '''
 			ALTER TABLE nyctaxi_one_percent ADD tipped bit, tip_class int
@@ -715,4 +715,4 @@ Azure 기계 학습에서는 학습 실험의 구성 요소를 기반으로 점�
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

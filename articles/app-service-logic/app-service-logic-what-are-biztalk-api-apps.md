@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="커넥터 및 BizTalk API 앱 정의" 
-	description="API 앱, 커넥터 및 BizTalk API 앱에 대해 알아봅니다." 
-	services="app-service\logic" 
-	documentationCenter="" 
-	authors="MandiOhlinger" 
-	manager="dwrede" 
+	pageTitle="커넥터 및 BizTalk API 앱 정의"
+	description="API 앱, 커넥터 및 BizTalk API 앱에 대해 알아봅니다."
+	services="app-service\logic"
+	documentationCenter=""
+	authors="MandiOhlinger"
+	manager="dwrede"
 	editor=""/>
 
 <tags 
-	ms.service="app-service-logic" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.service="app-service-logic"
+	ms.workload="integration"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="mandia"/>
 
 # 커넥터 및 BizTalk API 앱 정의
@@ -48,4 +48,4 @@ Azure 앱 서비스에서 다양한 서비스 "계층"을 사용할 수 있습�
 표준 커넥터, BizTalk EAI, 프리미엄 커넥터 등을 포함하여 각 범주에 포함된 커넥터 및 API 앱의 전체 목록은 [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)을 참조하세요.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

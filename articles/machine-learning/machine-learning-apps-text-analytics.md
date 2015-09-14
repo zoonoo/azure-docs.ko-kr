@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/28/2015"
+	ms.date="09/01/2015"
 	ms.author="luisca"/>
 
 
@@ -201,4 +201,4 @@
 시스템에 입력한 ID가 시스템에서 반환됩니다. 웹 서비스는 ID가 고유한지 검사하지 않습니다. 호출자가 고유성을 확인해야 합니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

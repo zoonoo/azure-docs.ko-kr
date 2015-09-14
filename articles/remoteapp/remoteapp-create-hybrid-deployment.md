@@ -13,22 +13,25 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/02/2015"
 	ms.author="elizapo"/>
 
 # Azure RemoteApp용 하이브리드 컬렉션을 만드는 방법
 
 다음과 같은 두 가지 종류의 RemoteApp 컬렉션이 있습니다.
 
-- 클라우드: 완전히 Azure에서 상주하며 Azure 관리 포털의 **빠른 생성** 옵션을 사용하여 만들어집니다.  
-- 하이브리드: 온-프레미스 액세스를 위한 가상 네트워크를 포함하며 관리 포털의 **VNET으로 만들기** 옵션을 사용하여 생성됩니다.
+- 클라우드: 완전히 Azure에 상주합니다. 클라우드에 모든 데이터를 저장(클라우드 전용 컬렉션)하거나 컬렉션을 VNET에 연결하고 해당 위치에 데이터를 저장하도록 선택할 수 있습니다.   
+- 하이브리드: 온-프레미스 액세스를 위해 가상 네트워크를 포함합니다. 이 경우 Azure AD 및 온-프레미스 Active Directory 환경을 사용해야 합니다.
+
+
+**참고** *이 항목은 다시 작성 중입니다. 인증 및 수집 옵션을 더 쉽게 파악하실 수 있도록 몇 개의 문서를 새로 작성하고 있습니다. 최대한 빨리 더 효과적인 정보를 제공해 드릴 예정이니 잘 모르는 내용이 있더라도 이해해 주시기 바랍니다. 감사합니다.*
 
 이 자습서에서는 하이브리드 컬렉션을 만드는 프로세스를 단계별로 안내합니다. 8가지 단계가 있습니다.
 
 1.	컬렉션에 사용할 [이미지](remoteapp-imageoptions.md)를 결정합니다. 사용자 지정 이미지를 만들거나 구독에 포함된 Microsoft 이미지 중 하나를 선택할 수 있습니다.
 2. 가상 네트워크를 설정합니다.
 2.	RemoteApp 컬렉션을 만듭니다.
-2.	컬렉션을 가상 네트워크에 연결합니다.
+2.	컬렉션을 로컬 도메인에 연결합니다.
 3.	템플릿 이미지를 컬렉션에 추가합니다.
 4.	디렉터리 동기화를 구성합니다. RemoteApp은 1) 암호 동기화 옵션을 포함하여 Azure Active Directory 동기화를 구성하거나 2) 암호 동기화 옵션을 포함하지 않지만 AD FS로 페더레이션되는 도메인을 사용하여 Azure Active Directory 동기화를 구성하는 방식으로 Azure Active Directory와 통합해야 합니다. [RemoteApp과 함께 Active Directory에 대한 구성 정보](remoteapp-ad.md)를 확인합니다.
 5.	RemoteApp 앱을 게시합니다.
@@ -42,14 +45,17 @@
 - RemoteApp 서비스 계정으로 사용할 Active Directory의 사용자 계정을 만듭니다. 이 계정의 권한은 도메인에 컴퓨터를 가입시킬 수 있는 권한만으로 제한합니다.
 - 온-프레미스 네트워크에 대한 정보 수집: IP 주소 정보 및 VPN 장치 세부 정보입니다.
 - [Azure PowerShell](../install-configure-powershell.md) 모듈을 설치합니다.
-- 액세스 권한을 부여할 사용자에 대한 정보를 수집합니다. 각 사용자당 하나의 Azure Active Directory 사용자 계정 이름(예: name@contoso.com)이 필요합니다.
+- 액세스 권한을 부여할 사용자에 대한 정보를 수집합니다. 사용자당 하나의 Azure Active Directory 사용자 계정 이름(예: name@contoso.com)이 필요합니다. Azure AD와 Active Directory 간에 UPN이 일치하는지 확인합니다.
 - 템플릿 이미지를 선택합니다. RemoteApp 템플릿 이미지는 사용자를 위해 게시하려는 앱 및 프로그램을 포함합니다. 자세한 내용은 [RemoteApp 이미지 옵션](remoteapp-imageoptions.md)을 참조하세요. 
+- Office 365 ProPlus 이미지를 사용하려는 경우 [여기](remoteapp-officesubscription.md)서 정보를 확인하세요.
 - [RemoteApp에 대해 Azure Active Directory를 구성합니다](remoteapp-ad.md).
 
 
 
 ## 1단계: 가상 네트워크를 설정합니다.
 기존 Azure 가상 네트워크를 사용하는 하이브리드 RemoteApp 컬렉션을 배포하거나 새 가상 네트워크를 만들 수 있습니다. 가상 네트워크를 사용하여 사용자는 RemoteApp 원격 리소스를 통해 로컬 네트워크의 데이터에 액세스할 수 있습니다. Azure 가상 네트워크를 사용하여 다른 Azure 서비스 및 해당 가상 네트워크에 배포된 가상 컴퓨터에 대한 직접 네트워크 액세스를 컬렉션에 제공합니다.
+
+VNET을 만들기 전에 [VNET 크기](remoteapp-vnetsizing.md) 정보를 검토해야 합니다.
 
 ### Azure VNET을 만들고 Active Directory 배포에 조인
 
@@ -72,21 +78,21 @@ Azure 가상 컴퓨터 만들기 및 원격 데스크톱을 사용하여 연결�
 
 
 
-1. [Azure 관리 포털](http://manage.windowsazure.com)에서, RemoteApp 페이지로 이동합니다.
+1. [Azure 포털](http://manage.windowsazure.com)에서 RemoteApp 페이지로 이동합니다.
 2. **새로 만들기 > VNET으로 만들기**를 클릭합니다.
 3. 컬렉션의 이름을 입력합니다.
 4. 사용할 계획(표준 또는 기본)을 선택합니다.
+5. 드롭다운 목록에서 VNET을 선택한 다음 해당 서브넷을 선택합니다.
+6. 도메인에 연결하도록 선택합니다.
 5. **RemoteApp 컬렉션 만들기**를 클릭합니다.
 
 RemoteApp 컬렉션을 만든 후에는 컬렉션의 이름을 두 번 클릭합니다. 그러면 **빠른 시작** 페이지가 나타나며 여기에서 컬렉션 구성을 완료합니다.
 
-## 3단계: 컬렉션을 가상 네트워크에 연결합니다. ##
+## 3단계: 로컬 도메인에 컬렉션 가입 ##
 
  
-1. **퀵 스타트** 페이지에서 **가상 네트워크 연결**을 클릭합니다.
-2. 드롭다운 목록에서 사용하려는 가상 네트워크를 선택합니다.
-3. 사용하려는 지역을 선택하고 올바른 구독이 필드에 나타나는지 확인합니다. 
-5. **퀵 스타트** 페이지로 돌아가 **로컬 도메인 가입**을 클릭합니다. 로컬 Active Directory 도메인에 RemoteApp 서비스 계정을 추가합니다. 도메인 이름, 조직 구성 단위, 서비스 계정 사용자 이름 및 암호가 필요합니다. 
+1. **빠른 시작** 페이지에서 **로컬 도메인 가입**을 클릭합니다.
+2. 로컬 Active Directory 도메인에 RemoteApp 서비스 계정을 추가합니다. 도메인 이름, 조직 구성 단위, 서비스 계정 사용자 이름 및 암호가 필요합니다. 
 
 	[Azure RemoteApp에 대해 Active Directory 구성](remoteapp-ad.md)에서 단계를 수행하면 수집되는 정보입니다.
 
@@ -103,7 +109,11 @@ RemoteApp 템플릿 이미지에는 사용자와 공유할 프로그램이 포�
 
 ## 5단계 : Active Directory 디렉터리 동기화 구성 ##
 
-RemoteApp은 1) 암호 동기화 옵션을 포함하여 Azure Active Directory 동기화를 구성하거나 2) 암호 동기화 옵션을 포함하지 않지만 AD FS로 페더레이션되는 도메인을 사용하여 Azure Active Directory 동기화를 구성하는 방식으로 Azure Active Directory와 통합해야 합니다. 계획 정보 및 자세한 단계에 대해서는 [디렉터리 동기화 로드맵](http://msdn.microsoft.com//library/azure/hh967642.aspx)을 참조하세요.
+RemoteApp은 1) 암호 동기화 옵션을 포함하여 Azure Active Directory 동기화를 구성하거나 2) 암호 동기화 옵션을 포함하지 않지만 AD FS로 페더레이션되는 도메인을 사용하여 Azure Active Directory 동기화를 구성하는 방식으로 Azure Active Directory와 통합해야 합니다.
+
+[AD Connect](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx)를 확인합니다. 이 문서는 4단계에서 디렉터리 통합을 설정하는 데 도움이 됩니다.
+
+계획 정보 및 자세한 단계에 대해서는 [디렉터리 동기화 로드맵](http://msdn.microsoft.com//library/azure/hh967642.aspx)을 참조하세요.
 
 ## 6단계: RemoteApp 앱 게시 ##
 
@@ -136,4 +146,4 @@ RemoteApp 하이브리드 컬렉션을 성공적으로 만들고 배포했습니
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

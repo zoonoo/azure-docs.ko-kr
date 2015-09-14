@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션 관리 | Microsoft Azure"
-   description="StorSimple 스냅숏 관리자 솔루션 관리 작업 및 워크플로에 대한 자세한 정보 링크를 제공합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+   pageTitle="StorSimple 스냅숏 관리자 관리 | Microsoft Azure"
+	description="StorSimple 스냅숏 관리자 솔루션 관리 작업 및 워크플로에 대한 개요 및 자세한 정보 링크를 제공합니다."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="07/13/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/28/2015"
+	ms.author="v-sharos"/>
 
 # StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션 관리
 
@@ -60,4 +60,4 @@ StorSimple 스냅숏 관리자를 사용하여 현재 백업 작업, 예약된 �
 
 [StorSimple 스냅숏 관리자 다운로드](https://www.microsoft.com/download/details.aspx?id=44220)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

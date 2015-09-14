@@ -14,7 +14,7 @@
 	ms.workload="search"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
-	ms.date="07/08/2015"
+	ms.date="08/25/2015"
 	ms.author="heidist"/>
 
 # Azure 검색에서 Chrome Postman을 사용하는 방법 #
@@ -108,7 +108,7 @@ Postman에서 Azure 검색을 사용하는 방법에 대한 모든 기본 사항
 
 REST API에 대한 설명서는 [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 확인할 수 있습니다.
 
-또한 [비디오 및 자습서 목록](https://msdn.microsoft.com/library/azure/dn818681.aspx)에서 추가 예제를 확인할 수도 있습니다.
+또한 [비디오 및 자습서 목록](search-video-demo-tutorial-list.md)에서 추가 예제를 확인할 수도 있습니다.
 
 <!-- Image References -->
 [1]: ./media/search-chrome-postman/full_postman_client.png
@@ -118,4 +118,4 @@ REST API에 대한 설명서는 [MSDN](https://msdn.microsoft.com/library/azure/
 [5]: ./media/search-chrome-postman/upload_documents.png
 [6]: ./media/search-chrome-postman/query.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

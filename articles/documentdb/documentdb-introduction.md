@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Microsoft Azure DocumentDB 소개 - 무료 평가판 | Microsoft Azure" 
-	description="Azure DocumentDB, NoSQL 문서 데이터베이스 및 클라우드와 모바일 응용 프로그램에서 DocumentDB를 활용하는 방법을 알아봅니다. DocumentDB에서 데이터를 관리하는 방법과 응용 프로그램 개발에 DocumentDB를 사용하는 방법에 대해서도 살펴봅니다." 
-	services="documentdb" 
-	authors="mimig1" 
-	manager="jhubbard" 
-	editor="monicar" 
+	pageTitle="Microsoft Azure DocumentDB 소개 - 무료 평가판 | Microsoft Azure"
+	description="Azure DocumentDB, NoSQL 문서 데이터베이스 및 클라우드와 모바일 응용 프로그램에서 DocumentDB를 활용하는 방법을 알아봅니다. DocumentDB에서 데이터를 관리하는 방법과 응용 프로그램 개발에 DocumentDB를 사용하는 방법에 대해서도 살펴봅니다."
+	services="documentdb"
+	authors="mimig1"
+	manager="jhubbard"
+	editor="monicar"
 	documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/13/2015" 
+	ms.service="documentdb"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
 	ms.author="mimig"/>
 
 # Microsoft Azure DocumentDB 소개
@@ -103,7 +103,6 @@ Azure 계정이 없는 경우
 
 - [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록하면 30일간 ₩240,000으로 모든 Azure 서비스를 사용해 볼 수 있습니다. 
 - MSDN 구독이 있는 경우 모든 Azure 서비스에 사용할 수 있는 [월별 ₩180,000의 무료 Azure 크레딧](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)에 대한 자격이 주어집니다. 
-- 또는 DocumentDB를 30일간 무료로 사용하려는 경우 신용 카드가 필요하지 않으며 메일 제목 줄에 "Documentation Introduction, Azure Trial"을 넣어 askdocdb@microsoft.com에 메일을 보내면 공급이 지속되는 동안은 프로모션 코드를 포함하는 회신을 보내드립니다.
 
 자세히 배울 준비가 되면 [학습 경로](http://azure.microsoft.com/documentation/learning-paths/documentdb/)를 방문하여 사용 가능한 모든 학습 리소스를 살펴보세요.
 
@@ -111,4 +110,4 @@ Azure 계정이 없는 경우
 [1]: ./media/documentdb-introduction/resources1.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

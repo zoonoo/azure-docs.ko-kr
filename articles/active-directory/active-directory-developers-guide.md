@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure Active Directory 개발자 가이드 | Microsoft Azure"
-   description="이 문서는 Azure Active Directory의 개발자 중심 리소스에 대한 포괄적인 가이드를 제공합니다."
-   services="active-directory"
-   documentationCenter="dev-center-name"
-   authors="msmbaldwin"
-   manager="mbaldwin"
-   editor=""/>
+	description="이 문서는 Azure Active Directory의 개발자 중심 리소스에 대한 포괄적인 가이드를 제공합니다."
+	services="active-directory"
+	documentationCenter="dev-center-name"
+	authors="msmbaldwin"
+	manager="mbaldwin"
+	editor=""/>
 
 <tags
    ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="08/12/2015"
-   ms.author="mbaldwin"/>
+	ms.devlang="na"
+	ms.topic="hero-article"
+	ms.tgt_pltfrm="na"
+	ms.workload="identity"
+	ms.date="08/12/2015"
+	ms.author="mbaldwin"/>
 
 
 # Azure Active Directory 개발자 가이드
@@ -40,19 +40,24 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 이러한 자습서는 여러 플랫폼에 맞게 작성되었으며 Azure Active Directory를 사용하여 빠르게 개발을 시작할 수 있도록 도와줄 수 있습니다. 필수 구성 요소로 먼저 [Azure Active Directory 테넌트를 가져와야](active-directory-howto-tenant.md) 합니다.
 
-### 모바일 또는 PC 응용 프로그램 빠른 시작 가이드
+### 모바일 및 PC 응용 프로그램 빠른 시작 가이드
 
 |[![iOS](./media/active-directory-developers-guide/ios.png)](active-directory-devquickstarts-ios.md)로 바꿉니다.|[![Android](./media/active-directory-developers-guide/android.png)](active-directory-devquickstarts-android.md)로 바꿉니다.|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-dotnet.md)로 바꿉니다.| [![Windows Phone](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsphone.md)로 바꿉니다.|[![Windows 스토어](./media/active-directory-developers-guide/windows.png)](active-directory-devquickstarts-windowsstore.md)로 바꿉니다.|[![Xamarin](./media/active-directory-developers-guide/xamarin.png)](active-directory-devquickstarts-xamarin.md)로 바꿉니다.|[![Cordova](./media/active-directory-developers-guide/cordova.png)](active-directory-devquickstarts-cordova.md)로 바꿉니다.
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:
 |[iOS](active-directory-devquickstarts-ios.md)|[Android](active-directory-devquickstarts-android.md)|[.NET](active-directory-devquickstarts-dotnet.md)|[Windows Phone](active-directory-devquickstarts-windowsphone.md)|[Windows 스토어](active-directory-devquickstarts-windowsstore.md)|[Xamarin](active-directory-devquickstarts-xamarin.md)|[Cordova](active-directory-devquickstarts-cordova.md)
 
 
-### 웹 응용 프로그램 또는 웹 API 빠른 시작 가이드
+### 웹 응용 프로그램 및 웹 API 빠른 시작 가이드
 
 |[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapp-dotnet.md)로 바꿉니다.|[![.NET](./media/active-directory-developers-guide/net.png)](active-directory-devquickstarts-webapi-dotnet.md)로 바꿉니다.|[![JavaScript](./media/active-directory-developers-guide/javascript.png)](active-directory-devquickstarts-angular.md)로 바꿉니다.|[![Node.js](./media/active-directory-developers-guide/nodejs.png)](active-directory-devquickstarts-webapi-nodejs.md)로 바꿉니다.
 |:--:|:--:|:--:|:--:
 |[.NET 웹앱](active-directory-devquickstarts-webapp-dotnet.md)|[.NET 웹 API](active-directory-devquickstarts-webapi-dotnet.md)|[Javascript](active-directory-devquickstarts-angular.md)|[Node.JS](active-directory-devquickstarts-webapi-nodejs.md)
 
+### 디렉터리 쿼리 빠른 시작 가이드
+
+| [![.NET](./media/active-directory-developers-guide/graph.png)](active-directory-graph-api-quickstart.md)로 바꿉니다.|
+|:--:|
+|[그래프 API](active-directory-graph-api-quickstart.md)|
 
 ## 방법
 
@@ -70,7 +75,7 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 이러한 문서는 REST 및 인증 라이브러리 API, 프로토콜, 오류, 코드 샘플 및 끝점에 대한 기초 참조를 제공합니다.
 
 ###  지원
-- [태그가 지정된 질문](http://stackoverflow.com/questions/tagged/azure-active-directory): 태그 [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) 및 [adal](http://stackoverflow.com/questions/tagged/adal)을 검색하여 스택 오버플로우에서 Azure Active Directory 솔루션을 찾습니다.
+- [태그가 지정된 질문](http://stackoverflow.com/questions/tagged/azure-active-directory): [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) 및 [adal](http://stackoverflow.com/questions/tagged/adal) 태그를 검색하여 스택 오버플로에서 Azure Active Directory 솔루션을 찾습니다.
 
 ### 코드
 
@@ -81,23 +86,23 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 ### 그래프 API
 
-- [Graph API 참조](https://msdn.microsoft.com/library/azure/hh974476.aspx): Azure Active Directory Graph API에 대한 REST 참조입니다. [대화형 그래프 API 참조 환경을 확인해보세요](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
+- [Graph API 참조](https://msdn.microsoft.com/library/azure/hh974476.aspx): Azure Active Directory Graph API에 대한 REST 참조입니다. [대화형 Graph API 참조 환경을 확인해보세요](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
 - [Graph API 사용 권한 범위](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/graph-api-permission-scopes)(영문): 앱이 테넌트의 디렉터리 데이터에 대해 가져야 하는 액세스 권한을 제어하는 데 사용되는 OAuth 2.0 사용 권한 범위입니다.
 
 
 ### 인증 프로토콜
 
-- [SAML 2.0 프로토콜 참조](https://msdn.microsoft.com/library/azure/dn195591.aspx): SAML 2.0 프로토콜을 사용하여 응용 프로그램은 사용자에게 Single Sign-On 환경을 제공할 수 있습니다.
+- [SAML 2.0 프로토콜 참조](https://msdn.microsoft.com/library/azure/dn195591.aspx): SAML 2.0 프로토콜을 사용하면 응용 프로그램에서 사용자에게 Single Sign-On 환경을 제공할 수 있습니다.
 
 
-- [OAuth 2.0 프로토콜 참조](https://msdn.microsoft.com/library/azure/dn645545.aspx): OAuth 2.0 프로토콜을 사용하여 사용자는 Azure Active Directory 테넌트에서 웹 응용 프로그램 및 웹 API에 대한 액세스 권한을 부여할 수 있습니다.
+- [OAuth 2.0 프로토콜 참조](https://msdn.microsoft.com/library/azure/dn645545.aspx): OAuth 2.0 프로토콜을 사용하여 Azure Active Directory 테넌트에서 웹 응용 프로그램 및 웹 API에 대한 액세스 권한을 부여할 수 있습니다.
 
 
 - [OpenID Connect 1.0 프로토콜 참조](https://msdn.microsoft.com/library/azure/dn645541.aspx)(영문): OpenID Connect 1.0 프로토콜은 인증 프로토콜로 사용할 수 있게 OAuth 2.0을 확장합니다.
 
 
-- [WS-Federation 1.2 프로토콜 참조](https://msdn.microsoft.com/library/azure/dn903702.aspx): 웹 서비스 페더레이션 버전 1.2 사양에 지정된 WS-Federation 1.2 프로토콜입니다.
+- [WS-Federation 1.2 프로토콜 참조](https://msdn.microsoft.com/library/azure/dn903702.aspx): Web Services Federation 버전 1.2 사양에 지정된 WS-Federation 1.2 프로토콜입니다.
 
 - [지원되는 토큰 및 클레임 유형](active-directory-token-and-claims.md): 이 가이드를 사용하여 SAML 2.0 및 JWT(JSON 웹 토큰) 토큰에서 클레임을 파악 및 평가할 수 있습니다.
 
@@ -112,7 +117,7 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 - [Azure Active Directory를 사용하여 최신 네이티브 응용 프로그램 개발](http://azure.microsoft.com/documentation/videos/build-2015-develop-modern-native-applications-with-azure-active-directory)(영문)
 
 ### Azure Friday
-[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/)는 금요일마다 다양한 전문가를 대상으로 진행된 Azure 토픽에 대한 10\~15분 정도의 짧은 인터뷰를 집중적으로 소개하는 1:1 비디오 시리즈입니다. 이 페이지의 서비스 필터 기능을 사용하여 모든 Azure Active Directory 비디오를 시청할 수 있습니다.
+[Azure Friday](http://azure.microsoft.com/documentation/videos/azure-friday/)는 금요일마다 전문가를 대상으로 진행되는 다양한 Azure 토픽과 관련된 10~15분 정도의 짧은 인터뷰를 집중적으로 소개하는 1:1 동영상 시리즈입니다. 이 페이지의 서비스 필터 기능을 사용하여 모든 Azure Active Directory 비디오를 시청할 수 있습니다.
 
 - [Azure Identity 101](http://azure.microsoft.com/documentation/videos/azure-identity-basics/)(영문)
 - [Azure Identity 102](http://azure.microsoft.com/documentation/videos/azure-identity-creating-active-directory/)(영문)
@@ -120,12 +125,12 @@ IDMaaS(Identity Management As A Service) 플랫폼인 Azure Active Directory는 
 
 ## 소셜
 
-- [Active Directory 팀 블로그](http://blogs.technet.com/b/ad/)(영문): Azure AD 분야에서 최근에 진행된 개발을 살펴봅니다.
+- [Active Directory 팀 블로그](http://blogs.technet.com/b/ad/)(영문): Azure Active Directory 분야에서 최근에 진행된 개발을 살펴봅니다.
 
-- [Azure Active Directory 그래프 팀 블로그](http://blogs.msdn.com/b/aadgraphteam): 그래프 API에 고유한 Azure Active Directory 정보입니다.
+- [Azure Active Directory Graph 팀 블로그](http://blogs.msdn.com/b/aadgraphteam): Graph API와 관련된 Azure Active Directory 정보입니다.
 
-- [클라우드 ID](http://www.cloudidentity.net)(영문): Identity Management as a Service에 대한 선임 Azure Active Directory PM의 견해
+- [클라우드 ID](http://www.cloudidentity.net)(영문): Identity Management as a Service에 대한 선임 Azure Active Directory PM의 견해입니다.
 
-- [Azure Active Directory Twitter](https://twitter.com/azuread): 140자 미만으로 Azure Active Directory에 대해 공지합니다.
+- [Azure Active Directory Twitter](https://twitter.com/azuread)(영문): 140자 이하의 Azure Active Directory 알림입니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

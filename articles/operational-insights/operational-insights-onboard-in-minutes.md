@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/06/2015"
+	ms.date="08/27/2015"
 	ms.author="banders"/>
 
 # 단 몇 분 만에 Azure Operational Insights에 등록
@@ -28,6 +28,10 @@
 
 작업 관리 도구 모음 웹 사이트를 사용하여 작업 관리 도구 모음 작업 영역을 만들 수 있습니다. 또는 Microsoft Azure 구독을 사용하여 Operational Insights 작업 영역을 만들 수 있습니다. 현재 두 작업 영역은 기능적으로 동일합니다. 둘 사이의 유일한 차이점은 이름입니다. Azure 구독을 사용하는 경우 해당 구독을 사용하여 다른 Azure 서비스에 액세스할 수도 있습니다. 영역을 만드는 데 사용하는 방법과 상관없이 Microsoft 계정 또는 조직 계정을 사용하여 작업 영역을 만듭니다.
 
+여기에서 프로세스를 살펴보세요.
+
+![온보딩 프로세스](./media/operational-insights-onboard-in-minutes/onboard-oms.png)
+
 ## 작업 관리 도구 모음을 사용하여 3단계 만에 등록
 
 1. [작업 관리 도구 모음](http://microsoft.com/oms) 웹 사이트로 이동하고 **무료로 시도**를 클릭합니다. Outlook.com 등과 같은 Microsoft 계정 또는 회사 또는 교육 기관이 Office 365 또는 다른 Microsoft 서비스와 함께 사용하도록 제공한 조직 계정을 사용하여 로그인합니다.
@@ -41,9 +45,9 @@
 ## Microsoft Azure를 사용하여 신속하게 등록
 
 1. [Azure 포털](https://manage.windowsazure.com)로 이동하여 로그인한 다음 서비스 목록에서 **Operational Insights**를 선택합니다.![Azure 포털](./media/operational-insights-onboard-in-minutes/azure-portal-op-insights.png)
-2. **작업 영역 만들기**, **빠른 생성**을 차례로 클릭한 다음 **계정**에서 작업 영역 이름을 입력하고 계층을 선택한 다음 작업 영역 데이터를 저장할 위치를 선택합니다. 여러 구독이 있는 경우 사용할 구독을 선택한 다음 **작업 영역 만들기**를 클릭할 수 있습니다.![Azure 포털](./media/operational-insights-onboard-in-minutes/quick-create.png)
-3. 만든 작업 영역을 선택하고 **Operational Insights 계정 방문**을 클릭하여 작업 관리 도구 모음 웹 사이트를 엽니다.![계정 방문](./media/operational-insights-onboard-in-minutes/visit-account.png)
-4. 작업 관리 도구 모음 웹 사이트에서 전자 메일 주소를 입력하고 **확인하고 계속**을 클릭합니다. 확인 전자 메일이 전송됩니다. 전자 메일을 열고 그 안에서 **지금 확인**을 클릭합니다.
+2. **작업 영역 만들기**, **빠른 생성**을 차례로 클릭한 다음 **계정**에서 작업 영역 이름을 입력하고 계층을 선택한 다음 작업 영역 데이터를 저장할 위치를 선택합니다. 여러 구독이 있는 경우 사용할 구독을 선택한 다음 **작업 영역 만들기**를 클릭할 수 있습니다. ![Azure 포털](./media/operational-insights-onboard-in-minutes/quick-create.png)
+3. 만든 작업 영역을 선택하고 **Operational Insights 계정 방문**을 클릭하여 작업 관리 도구 모음 웹 사이트를 엽니다. ![계정 방문](./media/operational-insights-onboard-in-minutes/visit-account.png)
+4. 작업 관리 도구 모음 웹 사이트에서 전자 메일 주소를 입력하고 **확인**을 클릭한 후 계속합니다. 확인 전자 메일이 전송됩니다. 전자 메일을 열고 그 안에서 **지금 확인**을 클릭합니다.
 5. 작업 관리 도구 모음 웹 사이트에 개요 페이지가 표시됩니다. **시작**을 클릭하여 계속합니다.
 
 작업 관리 도구 모음 포털을 시작할 준비가 되었습니다.
@@ -55,20 +59,20 @@
 
 ![작업 영역을 만들기 및 구독 연결](./media/operational-insights-onboard-in-minutes/get-started.png)
 
-- 사용할 솔루션을 선택한 다음 **선택한 솔루션 추가**를 클릭합니다.![솔루션](./media/operational-insights-onboard-in-minutes/solutions.png)
+- 사용할 솔루션을 선택한 다음 **선택한 솔루션 추가**를 클릭합니다. ![솔루션](./media/operational-insights-onboard-in-minutes/solutions.png)
 - 데이터를 수집하도록 서버 환경을 연결하는 방법을 선택합니다.
     - 에이전트를 설치하여 모든 Windows 서버 또는 클라이언트를 직접 연결합니다.
     - System Center Operations Manager를 사용하여 관리 그룹 또는 전체 Operations Manager 배포를 연결합니다.
     - Windows 또는 Linux Azure 진단 VM 확장을 사용하여 구성된 Azure 저장소 계정을 사용합니다.
-- 데이터를 채우는 적어도 한 개 이상의 로그를 구성합니다. IIS 로그를 선택하거나 이벤트 로그를 추가하고 페이지의 아래쪽에서 **저장**을 선택합니다. 이벤트 로그의 경우 오류, 경고 및 모니터링할 정보를 포함한 메시지 유형을 지정할 수 있습니다.![솔루션](./media/operational-insights-onboard-in-minutes/logs.png)
+- 데이터를 채우는 적어도 한 개 이상의 로그를 구성합니다. IIS 로그를 선택하거나 이벤트 로그를 추가하고 페이지의 아래쪽에서 **저장**을 선택합니다. 이벤트 로그의 경우 오류, 경고 및 모니터링할 정보를 포함한 메시지 유형을 지정할 수 있습니다. ![솔루션](./media/operational-insights-onboard-in-minutes/logs.png)
 
 ## 또는 에이전트를 설치하여 서버를 작업 관리에 직접 연결합니다.
 1. 시작 보기에서 **데이터 원본 연결** 노드를 클릭한 다음 **Windows 에이전트 다운로드**를 클릭합니다. Windows Server 2008 SP 1 이후 또는 Windows 7 SP1 이후에만 에이전트를 설치할 수 있습니다. 서버에 x64 아키텍처가 있어야 합니다.
-2. 하나 이상의 서버에 에이전트를 설치합니다. 에이전트를 하나씩 또는 [사용자 지정 스크립트](operational-insights-direct-agent.md#configure-the-microsoft-monitoring-agent-optional)로 더 자동화된 방법을 사용하여 설치하거나 가지고 있다면 기존 소프트웨어 배포 솔루션을 사용할 수 있습니다.
-3. 사용권 규약에 동의하고 설치 폴더를 선택한 후 **Microsoft Azure Operational Insights에 에이전트 연결**을 선택합니다.![에이전트 설치](./media/operational-insights-onboard-in-minutes/agent.png)
+2. 하나 이상의 서버에 에이전트를 설치합니다. 에이전트를 하나씩 설치하거나 [사용자 지정 스크립트](operational-insights-direct-agent.md#configure-the-microsoft-monitoring-agent-optional)를 통해 좀 더 자동화된 방법으로 설치할 수 있으며, 기존 소프트웨어 배포 솔루션을 사용할 수도 있습니다.
+3. 사용권 계약에 동의하고 설치 폴더를 선택한 후 **Microsoft Azure Operational Insights에 에이전트 연결**을 선택합니다.![에이전트 설치](./media/operational-insights-onboard-in-minutes/agent.png)
 4. 다음 페이지에서 작업 영역 ID와 작업 영역 키를 묻는 메시지가 표시됩니다. 작업 영역 ID 및 키는 에이전트 파일을 다운로드한 화면에 표시됩니다. ![서버 연결](./media/operational-insights-onboard-in-minutes/key.png)
 5. 설치하는 동안 **고급**을 클릭하여 선택적으로 프록시 서버를 설정하고 인증 정보를 제공할 수 있습니다. **다음** 단추를 클릭하여 작업 영역 정보 화면으로 돌아갑니다.
-6. **다음**을 클릭하여 작업 영역 ID 및 키의 유효성을 검사합니다. 오류가 발견되면 **뒤로**를 클릭하고 수정할 수 있습니다. 작업 영역 ID 및 키의 유효성이 확인되면 **설치**를 클릭하여 에이전트 설치를 완료합니다.
+6. **다음**을 클릭하여 작업 영역 ID 및 키의 유효성을 검사합니다. 오류가 발견되면 **뒤로**를 클릭하여 수정할 수 있습니다. 작업 영역 ID 및 키의 유효성이 확인되면 **설치**를 클릭하여 에이전트 설치를 완료합니다.
 7. 작업 관리 도구 모음 포털에 다시 로그인하고 개요 페이지에서 **설정** 타일을 클릭합니다. 에이전트가 작업 관리 도구 모음 서비스와 통신할 때 녹색 확인 표시 아이콘이 나타납니다. 처음에 이 과정에 약 5-10분이 걸립니다.
 
 > [AZURE.NOTE]용량 관리 및 구성 평가 솔루션은 현재 작업 관리 도구 모음에 직접 연결된 서버에서 지원되지 않습니다.
@@ -97,4 +101,4 @@ Operations Management Suite에 작업 관리자 연결은 [System Center Operati
 - [검색](operational-insights-search.md)을 익힙니다.
 - [대시보드](operational-insights-use-dashboards.md)를 사용하여 사용자 지정 검색을 저장하고 검색합니다.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

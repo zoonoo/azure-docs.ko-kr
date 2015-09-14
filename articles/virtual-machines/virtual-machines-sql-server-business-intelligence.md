@@ -98,7 +98,7 @@ SQL Server에서 지원되는 버전 및 기능에 대한 자세한 내용은 �
 	
 	- **D**: 드라이브는 페이지 파일에 주로 사용되는 임시 드라이브입니다. **D**: 드라이브는 지속되지 않고 Blob 저장소에 저장되지 않습니다. 관리 작업(예: 가상 컴퓨터 크기 변경)은 **D**: 드라이브를 재설정합니다. tempdb를 비롯한 데이터베이스 파일의 경우 **D**: 드라이브를 사용하지 **않는** 것이 좋습니다.
 
-	디스크 만들기 및 연결에 대한 자세한 내용은 [데이터 디스크를 가상 컴퓨터에 연결하는 방법](http://www.windowsazure.com/manage/windows/how-to-guides/attach-a-disk/)을 참조하세요.
+	디스크 만들기 및 연결에 대한 자세한 내용은 [가상 컴퓨터에 데이터 디스크를 연결하는 방법](storage-windows-attach-disk.md)을 참조하세요.
 
 - 사용하지 않으려는 서비스를 중지하거나 제거합니다. 예를 들어 가상 컴퓨터가 Reporting Services에만 사용되는 경우 Analysis Services 및 SQL Server Integration Services를 중지하거나 제거합니다. 다음 이미지는 기본적으로 시작되는 서비스의 예입니다.
 
@@ -427,4 +427,4 @@ Analysis Services의 **명명된 인스턴스**의 경우 포트 액세스를 �
 
 - [PowerShell을 사용한 Azure SQL 데이터베이스 관리](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

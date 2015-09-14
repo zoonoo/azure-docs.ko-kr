@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure의 SQL Server에서 데이터 샘플링 | Microsoft Azure" 
-	description="Azure의 SQL Server에서 데이터 샘플링" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="fashah" 
-	manager="paulettm" 
-	editor="cgronlun" />
+	pageTitle="Azure의 SQL Server에서 데이터 샘플링 | Microsoft Azure"
+	description="Azure의 SQL Server에서 데이터 샘플링"
+	services="machine-learning"
+	documentationCenter=""
+	authors="fashah"
+	manager="paulettm"
+	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/29/2015" 
-	ms.author="fashah;garye;bradsev" />
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/01/2015"
+	ms.author="fashah;garye;bradsev"/>
 
 #<a name="heading"></a>Azure의 SQL Server에서 데이터 샘플링
 
@@ -44,8 +44,7 @@
 	FROM <table_name> 
 	TABLESAMPLE (10 PERCENT)
 
-**참고**
-> 이 샘플링된 데이터를 새 테이블에 저장하여 기능을 탐색하고 생성할 수 있습니다.
+>[AZURE.NOTE]이 샘플링된 데이터를 새 테이블에 저장하여 기능을 탐색하고 생성할 수 있습니다.
 
 
 ###<a name="sql-aml"></a>Azure 기계 학습에 연결
@@ -114,4 +113,4 @@ Python의 [Pandas](http://pandas.pydata.org/) 라이브러리에서는 Python �
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple 가상 장치 | Microsoft Azure"
-	description="업데이트 1.0을 실행하는 StorSimple 가상 장치를 만들고, 구성하고, 배포하고, 관리하는 방법을 설명합니다."
+   pageTitle="StorSimple 가상 장치 업데이트 1 | Microsoft Azure"
+	description="Microsoft Azure 가상 네트워크에서 StorSimple 가상 장치를 만들고 배포 및 관리하는 방법을 알아봅니다. StorSimple 업데이트 1에 적용됩니다."
 	services="storsimple"
 	documentationCenter=""
 	authors="alkohli"
@@ -12,10 +12,10 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="NA"
 	ms.workload="NA"
-	ms.date="08/21/2015"
+	ms.date="09/02/2015"
 	ms.author="alkohli"/>
 
-# StorSimple 가상 장치
+# Azure에서 StorSimple 가상 장치 배포 및 관리
 
 [AZURE.INCLUDE [storsimple-version-selector-sva](../../includes/storsimple-version-selector-sva.md)]
 
@@ -383,4 +383,4 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
 
 [백업 세트에서 StorSimple 볼륨을 복원](storsimple-restore-from-backup-set.md)하는 방법에 대해 알아봅니다.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=September15_HO1-->

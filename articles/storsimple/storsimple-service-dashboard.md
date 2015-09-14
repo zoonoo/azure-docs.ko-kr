@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="StorSimple 관리자 서비스 대시보드 사용 | Microsoft Azure"
-   description="서비스 대시보드 및 이 대시보드를 사용하여 StorSimple 솔루션의 상태를 모니터링하는 방법을 설명합니다."
-   services="storsimple"
-   documentationCenter=""
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+   pageTitle="StorSimple 관리자 서비스 대시보드 | Microsoft Azure"
+	description="StorSimple 관리자 서비스 대시보드 및 이 대시보드를 사용하여 StorSimple 솔루션의 상태를 모니터링하는 방법을 설명합니다."
+	services="storsimple"
+	documentationCenter=""
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/17/2015"
-   ms.author="v-sharos" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="09/02/2015"
+	ms.author="v-sharos"/>
 
 # StorSimple 관리자 서비스 대시보드 사용
 
@@ -76,4 +76,4 @@ StorSimple 관리자 서비스 대시보드에 다음 정보가 표시됩니다.
 
 [StorSimple 장치 문제 해결](storsimple-troubleshoot-operational-device.md) 방법을 알아봅니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

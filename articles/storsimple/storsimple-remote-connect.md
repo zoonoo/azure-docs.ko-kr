@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 장치에 원격으로 연결 | Microsoft Azure"
-   description="Windows PowerShell 원격 및 HTTP 또는 HTTPS를 사용하여 StorSimple 장치에 원격으로 연결하는 방법을 설명합니다."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+	description="원격 관리를 위해 장치를 구성하는 방법 및 HTTP 또는 HTTPS를 통해 StorSimple용 Windows PowerShell에 연결하는 방법을 설명합니다."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/14/2015"
-   ms.author="alkohli" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="NA"
+	ms.date="08/28/2015"
+	ms.author="alkohli"/>
 
 # StorSimple 장치에 원격으로 연결
 
@@ -116,7 +116,7 @@ HTTP를 통한 원격 관리를 사용하도록 설정하려면 Azure 포털에�
 
      이제 장치에 대한 활성 원격 Windows PowerShell 세션이 있습니다.
 
-    ![HTTP를 사용한 PS 원격](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTP.png)
+    ![HTTP를 사용한 PowerShell 원격](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTP.png)
 
 ## HTTPS를 통해 연결
 
@@ -184,7 +184,7 @@ HTTPS를 통한 원격 관리를 사용하도록 설정하려면 Azure 포털에
 
     다음과 유사한 인증서가 나타납니다.
 
-    ![원격 ManagementCertificate 가져오기](./media/storsimple-remote-connect/HCS_GetRemoteManagementCertificate.png)
+    ![원격 관리 인증서 가져오기](./media/storsimple-remote-connect/HCS_GetRemoteManagementCertificate.png)
 
 5. **-----BEGIN CERTIFICATE-----**에서 **-----END CERTIFICATE-----**까지 인증서 정보를 메모장 등의 텍스트 편집기에 복사하고 .cer 파일로 저장합니다. 호스트를 준비할 때 이 파일을 원격 호스트에 복사합니다.
 
@@ -224,7 +224,7 @@ HTTPS 세션을 사용하는 원격 연결을 위해 호스트 컴퓨터를 준�
 
 3. 이전에 저장한 장치 일련 번호를 입력합니다. 다음 그림과 같이 이 일련 번호를 IP 주소에 매핑합니다. 컨트롤러 0과 컨트롤러 1의 경우 일련 번호(CN 이름)의 끝에 **Controller0** 및 **Controller1**을 추가합니다.
 
-    ![Hosts 파일에 CN 이름 추가](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
+    ![hosts 파일에 CN 이름 추가](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
 
 4. 호스트 파일을 저장합니다.
 
@@ -264,10 +264,10 @@ Windows PowerShell 및 SSL을 사용하여 원격 호스트 또는 클라이언�
 
 6. 몇 분 정도 기다리면 HTTPS over SSL을 통해 장치에 연결됩니다. 장치에 연결되었음을 나타내는 메시지가 표시됩니다.
 
-    ![HTTPS 및 SSL을 사용한 PS 원격](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
+    ![HTTPS 및 SSL을 사용한 PowerShell 원격](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
 
 ## 다음 단계
 
 [Windows PowerShell을 사용하여 StorSimple 장치를 관리하는 방법에 대해 자세히 알아봅니다](storsimple-windows-powershell-administration.md).
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=September15_HO1-->

@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/15/2015"
+	ms.date="09/02/2015"
 	ms.author="mmercuri"/>
 
 # Azure 리소스 관리자 템플릿에서 상태 공유
 
-이 항목에서는 Azure 리소스 관리자 템플릿 내에서 및 연결된 템플릿 간에 상태를 관리 및 공유하는 방법을 설명합니다.
+이 항목에서는 Azure 리소스 관리자 템플릿 내에서 및 연결된 템플릿 간에 상태를 관리 및 공유하기 위한 모범 사례를 보여 줍니다. 이 항목에 표시된 매개 변수 및 변수는 배포 요구 사항을 편리하게 구성하기 위해 정의할 수 있는 개체 유형의 예입니다. 이러한 예를 통해 사용자 환경에 맞는 속성 값으로 고유한 개체를 구현할 수 있습니다.
 
 ## 복잡한 개체를 사용하여 상태 공유
 
@@ -366,7 +366,7 @@ enableJumpbox | 제한된 목록에서 가져온 문자열(enabled/disabled) | �
 
     "outputs": {
         "masterip": {
-            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].properties.privateIPAddress]",
+            "value": "[reference(concat(variables('nicName'),0)).ipConfigurations[0].privateIPAddress]",
             "type": "string"
          }
     }
@@ -381,4 +381,4 @@ enableJumpbox | 제한된 목록에서 가져온 문자열(enabled/disabled) | �
 - [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)
 - [Azure 리소스 관리자 템플릿 함수](resource-group-template-functions.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

@@ -1,21 +1,21 @@
 <properties 
    pageTitle="SharePoint용 StorSimple 어댑터 | Microsoft Azure"
-   description="SharePoint 서버 팜에서 SharePoint용 StorSimple 어댑터를 설치하는 방법을 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
+	description="SharePoint 서버 팜에서 SharePoint용 StorSimple 어댑터를 설치 및 구성하는 방법을 설명합니다."
+	services="storsimple"
+	documentationCenter="NA"
+	authors="SharS"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="08/11/2015"
-   ms.author="v-sharos" />
+	ms.devlang="NA"
+	ms.topic="article"
+	ms.tgt_pltfrm="NA"
+	ms.workload="TBD"
+	ms.date="08/27/2015"
+	ms.author="v-sharos"/>
 
-# SharePoint용 StorSimple 어댑터
+# SharePoint용 StorSimple 어댑터 설치 및 구성
 
 ## 개요
 
@@ -51,11 +51,11 @@ RBS의 Microsoft Azure StorSimple 구현은 다음과 같은 이점을 제공합
 
 - SharePoint 용 StorSimple 어댑터는 SharePoint 중앙 관리 포털에 꽂으면 전체 SharePoint 솔루션을 중앙 위치에서 관리할 수 있습니다.
 
-파일 시스템에 BLOB 콘텐츠를 이동하면 다른 비용 절약 및 혜택을 제공할 수 있습니다. 예를 들어 RBS를 사용하면 비용이 많이 드는 계층1 저장소에 대한 필요성을 줄일 수 있고 콘텐츠 데이터베이스를 축소시키기 때문에 RBS가 SharePoint 서버 팜에서 필요한 데이터베이스의 수를 줄일 수 있습니다. 그러나 데이터베이스 크기 제한과 같은 다른 요인 및 비-RBS는 콘텐츠 양은 저장소 요구 사항에 영향을 줄 수 있습니다. 비용 및 RBS 사용의 이점에 대한 자세한 내용은 [RBS(SharePoint Foundation 2010)을 위한 계획][4] 및 [SharePoint 2013에서 RBS 사용 결정][5]을 참조하십시오.
+파일 시스템에 BLOB 콘텐츠를 이동하면 다른 비용 절약 및 혜택을 제공할 수 있습니다. 예를 들어 RBS를 사용하면 비용이 많이 드는 계층1 저장소에 대한 필요성을 줄일 수 있고 콘텐츠 데이터베이스를 축소시키기 때문에 RBS가 SharePoint 서버 팜에서 필요한 데이터베이스의 수를 줄일 수 있습니다. 그러나 데이터베이스 크기 제한과 같은 다른 요인 및 비-RBS는 콘텐츠 양은 저장소 요구 사항에 영향을 줄 수 있습니다. 비용 및 RBS 사용의 이점에 대한 자세한 내용은 [RBS(SharePoint Foundation 2010)을 위한 계획][4] 및 [SharePoint 2013에서 RBS 사용 결정][5]을 참조하세요.
 
 ### 용량 및 성능 제한
 
-SharePoint 솔루션에서 RBS를 사용을 고려하기 전에 SharePoint Server 2010 및 SharePoint Server 2013의 테스트된 성능 및 용량 제한과 이러한 제한이 어떻게 적절한 성능과 연관되는지 인식해야 합니다. 자세한 내용은 소프트웨어 경계 및 SharePoint 2013에 대한 한계를 참조하십시오.
+SharePoint 솔루션에서 RBS를 사용을 고려하기 전에 SharePoint Server 2010 및 SharePoint Server 2013의 테스트된 성능 및 용량 제한과 이러한 제한이 어떻게 적절한 성능과 연관되는지 인식해야 합니다. 자세한 내용은 소프트웨어 경계 및 SharePoint 2013에 대한 한계를 참조하세요.
 
 RBS를 구성하기 전에 다음을 검토합니다.
 
@@ -179,7 +179,7 @@ BLOB는 SQL Server에 StorSimple 장치를 나타내는 볼륨에서만 표면�
 
 ## SharePoint용 StorSimple 어댑터 설치
 
-SharePoint용 StorSimple 어댑터를 설치하려면 다음 단계를 따르십시오. 소프트웨어를 다시 설치하는 경우 [SharePoint용 StorSimple 어댑터 업그레이드 또는 다시 설치](#upgrade-or-reinstall-the-storsimple-adapter-for-sharepoint)를 참조하십시오. 설치에 필요한 시간은 SharePoint 서버 팜에서 SharePoint 데이터베이스의 총 수에 따라 달라집니다.
+SharePoint용 StorSimple 어댑터를 설치하려면 다음 단계를 따르세요. 소프트웨어를 다시 설치하는 경우 [SharePoint용 StorSimple 어댑터 업그레이드 또는 다시 설치](#upgrade-or-reinstall-the-storsimple-adapter-for-sharepoint)를 참조하세요. 설치에 필요한 시간은 SharePoint 서버 팜에서 SharePoint 데이터베이스의 총 수에 따라 달라집니다.
 
 [AZURE.INCLUDE [storsimple-install-sharepoint-adapter](../../includes/storsimple-install-sharepoint-adapter.md)]
 
@@ -199,7 +199,7 @@ SharePoint용 StorSimple 어댑터를 설치한 후에 다음 절차에서 설�
 
 RBS를 사용하도록 설정하면 이 유지 관리 프로그램(Microsoft.Data.SqlRemoteBlobs.Maintainer.exe)은 모든 SharePoint WFE 서버 및 응용 프로그램 서버에 자동으로 설치됩니다. 프로그램은 다음 위치에 설치됩니다.<boot drive>: files\\microsoft SQL Remote Blob Storage 10.50\\Maintainer\\
 
-유지 관리 프로그램의 구성 또는 사용에 대한 내용은 [SharePoint Server 2013에서 RBS 유지 관리][8]를 참조하십시오.
+유지 관리 프로그램의 구성 또는 사용에 대한 내용은 [SharePoint Server 2013에서 RBS 유지 관리][8]를 참조하세요.
 
 >[AZURE.IMPORTANT]RBS 유지 관리 프로그램은 많은 리소스를 사용합니다. SharePoint 팜에서 활동이 적은 기간 동안 실행되도록 예약해야 합니다.
 
@@ -224,7 +224,7 @@ RBS를 사용하도록 설정하면 이 유지 관리 프로그램(Microsoft.Dat
 >
 >- 업그레이드/다시 설치에 필요한 시간은 SharePoint 서버 팜에서 SharePoint 데이터베이스의 총 수에 따라 달라집니다.
 >
->- 업그레이드/다시 설치가 완료되면 콘텐츠 데이터베이스에 RBS를 사용하도록 설정해야 합니다. 자세한 내용은 [RBS 구성](#configure-rbs)을 참조하십시오.
+>- 업그레이드/다시 설치가 완료되면 콘텐츠 데이터베이스에 RBS를 사용하도록 설정해야 합니다. 자세한 내용은 [RBS 구성](#configure-rbs)을 참조하세요.
 >
 >- 매우 많은(200보다 큼) 데이터베이스가 있는 SharePoint 팜에 RBS를 구성하는 경우 **SharePoint 중앙 관리** 페이지가 시간을 초과할 수 있습니다. 발생하는 경우 페이지를 새로 고칩니다. 구성 프로세스에는 영향을 주지 않습니다.
 
@@ -238,6 +238,6 @@ RBS를 사용하도록 설정하면 이 유지 관리 프로그램(Microsoft.Dat
 [3]: https://technet.microsoft.com/library/ff628583(v=office.14).aspx
 [4]: https://technet.microsoft.com/library/ff628569(v=office.14).aspx
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
-[8]: https://technet.microsoft.com/ko-kr/library/ff943565.aspx
+[8]: https://technet.microsoft.com/ko-KR/library/ff943565.aspx
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->

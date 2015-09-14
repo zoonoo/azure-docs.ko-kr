@@ -1,19 +1,19 @@
 <properties
    pageTitle="Express 경로 FAQ"
-   description="Express 경로 FAQ는 Azure 서비스, 비용, 데이터 및 연결, SLA, 공급자 및 위치, 대역폭 및 추가 기술 세부 정보에 대한 정보를 포함합니다."
-   documentationCenter="na"
-   services="expressroute"
-   authors="cherylmc"
-   manager="adinah"
-   editor="tysonn"/>
+	description="Express 경로 FAQ는 Azure 서비스, 비용, 데이터 및 연결, SLA, 공급자 및 위치, 대역폭 및 추가 기술 세부 정보에 대한 정보를 포함합니다."
+	documentationCenter="na"
+	services="expressroute"
+	authors="cherylmc"
+	manager="carolz"
+	editor=""/>
 <tags
    ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article" 
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/28/2015"
-   ms.author="cherylmc"/>
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="09/02/2015"
+	ms.author="cherylmc"/>
 
 # Express 경로 FAQ
 
@@ -31,7 +31,7 @@ Express 경로는 오늘날 대부분의 Microsoft Azure 서비스를 지원합�
 서비스 위치 및 가용성은 [Express 경로 파트너 및 위치](expressroute-locations.md) 페이지를 참조하세요.
 
 ### Express 경로 통신 업체 중 하나와 파트너의 관계가 아닌 경우, Express 경로를 사용하여 Microsoft에 연결할 수 있는 방법이 있나요?
-지역 통신 업체를 선택하고 지원되는 exchange 공급자 위치 중 하나에 이더넷 연결을 제공할 수 있습니다. 그러면 EXP 위치에는 Microsoft와 피어 링할 수 있습니다. [Express 경로 파트너 및 위치](expressroute-locations.md)의 마지막 섹션을 보고 procider 네트워크가 Exchange 위치 중 하나에 있는지 확인합니다. 그런 다음 Azure에 연결하려면 Exchange 공급자를 통해 Express 경로 회로를 주문할 수 있습니다.
+지역 통신 업체를 선택하고 지원되는 exchange 공급자 위치 중 하나에 이더넷 연결을 제공할 수 있습니다. 그러면 EXP 위치에는 Microsoft와 피어 링할 수 있습니다. [Express 경로 파트너 및 위치](expressroute-locations.md)의 마지막 섹션을 검사하여 네트워크 공급자가 Exchange 위치 중 하나에 있는지 확인합니다. 그런 다음 Azure에 연결하려면 Exchange 공급자를 통해 Express 경로 회로를 주문할 수 있습니다.
 
 ### Express 경로 비용
 가격 정보는 [가격 정보](http://azure.microsoft.com/pricing/details/expressroute/)를 참조하세요.
@@ -40,7 +40,7 @@ Express 경로는 오늘날 대부분의 Microsoft Azure 서비스를 지원합�
 아니요. 서비스 공급자로부터 모든 속도의 VPN 연결을 구입할 수 있습니다. 그러나 Azure에 대한 연결은 구입할 Express 경로 회로 대역폭으로 제한됩니다.
 
 ### 지정된 대역폭의 Express 경로 회로에 대 한 비용을 지불하는 경우, 필요하다면 더 높은 속도까지 버스트할 수 있나요?
-예. Express 경로 회로는 추가 비용 없이 확보된 대역폭 제한의 최대 2배까지 버스트할 수 있는 경우를 지원하도록 구성됩니다. 이 기능을 지원하는 경우 해당 서비스 공급자를 확인하십시오.
+예. Express 경로 회로는 추가 비용 없이 확보된 대역폭 제한의 최대 2배까지 버스트할 수 있는 경우를 지원하도록 구성됩니다. 이 기능을 지원하는 경우 해당 서비스 공급자를 확인하세요.
 
 ### 동시에 가상 네트워크 및 다른 Azure 서비스와 동일한 개인 네트워크 연결을 사용할 수 있나요?
 예. Express 경로 회로를 일단 설정하면 동시에 가상 네트워크 내 서비스 및 기타 Azure 서비스에 액세스할 수 있습니다. 공용 피어링 경로를 통해 가상 네트워크에 연결하고 공용 피어링 경로를 통해 기타 서비스에 연결합니다.
@@ -48,20 +48,18 @@ Express 경로는 오늘날 대부분의 Microsoft Azure 서비스를 지원합�
 ### Express 경로는 SLA(서비스 수준 계약)을 제공하나요?
 자세한 내용은 [Express 경로 SLA 페이지](http://azure.microsoft.com/support/legal/sla/)를 참조하세요.
 
-## 지원되는 Azure 서비스
+## 지원되는 서비스
 대부분의 Azure 서비스는 Express 경로를 통해 지원됩니다.
 
-가상 컴퓨터 및 가상 네트워크에 배포된 클라우드 서비스에 대한 연결은 개인 피어링 경로를 통해 지원됩니다.
+- 가상 컴퓨터 및 가상 네트워크에 배포된 클라우드 서비스에 대한 연결은 개인 피어링 경로를 통해 지원됩니다.
+- Azure 웹 사이트는 공용 피어링 경로를 통해 지원됩니다.
+- 다른 모든 서비스는 공용 피어링 경로를 통해 액세스할 수 있습니다. 예외는 다음과 같습니다.
 
-Azure 웹 사이트는 공용 피어링 경로를 통해 지원됩니다.
+	**다음 서비스는 지원되지 않습니다.**
 
-다른 모든 서비스는 공용 피어링 경로를 통해 액세스할 수 있습니다. 예외는 다음과 같습니다.
-
-**다음은 지원되지 않습니다.**
-
-- CDN
-- Visual Studio 온라인 부하 테스트
-- Multi-Factor 인증
+	- CDN
+	- Visual Studio 온라인 부하 테스트
+	- Multi-Factor 인증
 
 ## 데이터 및 연결
 
@@ -91,7 +89,7 @@ Azure 웹 사이트는 공용 피어링 경로를 통해 지원됩니다.
 교차 연결 중 하나가 실패할 경우 연결이 손실되지 않습니다. 중복 연결은 네트워크의 로드를 지원하기 위해 사용할 수 있습니다. 오류 복구를 수행할 다른 피어링 위치에 여러 회로를 추가로 만들 수 있습니다.
 
 ### 서비스가 작동하도록 두 링크를 구성해야 하나요?
-NSP를 통해 연결하는 경우, NSP는 사용자를 대신해 중복 링크 구성을 담당합니다. EXP를 통해 연결하는 경우 두 링크를 모두 구성해야 합니다. 회로가 중복성을 위해 구성되지 않은 경우 SLA은 무효화됩니다.
+NSP를 통해 연결하는 경우, NSP는 사용자를 대신해 중복 링크 구성을 담당합니다. EXP에 이미 함께 있는 경우 EXP 클라우드 교환 플랫폼에 대해 두 개의 LAN 링크를 구성해야 합니다. 개인 데이터 센터에서 단일 WAN 링크를 통해 EXP에 연결하는 경우 EXP에서 해당 라우터의 WAN을 종료한 다음 EXP 클라우드 교환 플랫폼에 대한 LAN 링크 두 개를 구성해야 합니다.
 
 ### Express 경로를 사용하여 Azure에 대한 내 VLAN 중 하나를 확장할 수 있나요?
 아니요. Azure까지의 계층 2 연결 확장을 지원하지 않습니다.
@@ -113,7 +111,7 @@ NSP를 통해 연결하는 경우, NSP는 사용자를 대신해 중복 링크 �
 
 - [네트워크 서비스 공급자를 통해 Express 경로 연결 구성](expressroute-configuring-nsps.md)
 - [Exchange 공급자를 통해 Express 경로 연결 구성](expressroute-configuring-exps.md)
-- [Express 경로에 대한 가상 네트워크 및 게이트웨이 구성](expressroute-configuring-vnet-gateway.md)을.참조하세요.
+- [Express 경로에 대한 가상 네트워크 및 게이트웨이 구성](expressroute-configuring-vnet-gateway.md)
 
 ### 내 Express 경로 회로에 대한 연결 경계가 있나요?
 예. [Express 경로 파트너 및 위치](expressroute-locations.md) 페이지에서 Express 경로 회로에 대한 연결 경계를 간략하게 설명합니다. ExpressRoute 회로에 대한 연결은 단일 지역으로 제한됩니다. 연결은 Express 경로 프리미엄 기능을 사용하여 지역을 교차하도록 확장할 수 있습니다.
@@ -130,7 +128,7 @@ NSP를 통해 연결하는 경우, NSP는 사용자를 대신해 중복 링크 �
 아니요. 동일한 Express 경로 회로에 연결된 모든 가상 네트워크는 동일한 라우팅 도메인의 일부이며 라우팅 관점에서 서로 분리되지 않습니다. 경로 격리가 필요한 경우, 별도 Express 경로 회로를 만들어야 합니다.
 
 ### 하나의 가상 네트워크를 둘 이상의 Express 경로 회로에 연결할 수 있나요?
-예. 최대 4까지의 Express 경로 회로와 단일 가상 네트워크를 연결할 수 있습니다. 모든 Express 경로 회로는 같은 대륙 내에 있어야 합니다. 다른 서비스 공급자 및 서로 다른 위치에서 주문할 수 있습니다.
+예. 최대 4까지의 Express 경로 회로와 단일 가상 네트워크를 연결할 수 있습니다. 4개의 위치를 통과하도록 순서를 지정해야 합니다.
 
 ### Express 경로 회로에 연결된 내 가상 네트워크에서 인터넷에 액세스할 수 있나요?
 예. 기본 경로(0.0.0.0/0)나 BGP 세션을 통한 인터넷 경로 접두사를 보급하지 않았다면 Express 경로 회로에 연결된 가상 네트워크에서 인터넷에 연결할 수 있습니다.
@@ -151,15 +149,18 @@ NSP를 통해 연결하는 경우, NSP는 사용자를 대신해 중복 링크 �
 Express 경로 회로를 설정하고 공용 피어링에 대한 경로를 구성해야 합니다.
 
 ### 보급할 수 있는 경로의 수에 제한이 있나요?
-예. 개인 피어링 및 공용 피어링에 대한 최대 4000개의 경로 접두사를 허용합니다. 프리미엄이 제공하는 Express 경로를 사용하는 경우, 10, 000개의 경로까지 늘릴 수 있습니다.
+예. 개인 피어링 및 공용 피어링에 대한 최대 4000개의 경로 접두사를 허용합니다. Express 경로 프리미엄 기능을 사용하도록 설정하면 10,000개의 경로까지 늘릴 수 있습니다.
 
 ### BGP 세션을 통해 보급할 수 있는 IP 범위에 제한 사항이 있나요?
-BGP를 통해 보급되는 접두사는 /29 이상(/28 \~ /8)이어야 합니다.
+BGP를 통해 보급되는 접두사는 /29 이상(/28 ~ /8)이어야 합니다.
 
 공용 피어링 BGP 세션에서 개인 접두사(RFC1918)를 필터링합니다.
 
 ### BGP 제한을 초과하면 어떻게 되나요?
 BGP 세션이 삭제됩니다. 접두사 개수가 제한보다 적으면 재설정됩니다.
+
+### Express 경로 BGP 확보 시간이란 무엇인가요? 조정할 수 있나요?
+확보 시간은 180입니다. 연결 유지 메시지는 60초마다 전송됩니다. 이 설정은 Microsoft 쪽에서 고정된 설정으로, 변경할 수 없습니다.
 
 ### 가상 네트워크에 기본 경로(0.0.0.0/0)를 보급한 후 Azure VM에서 실행되는 Windows를 활성화할 수 없습니다. 이 문제를 해결하려면 어떻게 해야 하나요?
 다음 단계는 Azure가 정품 인증 요청을 인식하는 데 도움이 됩니다.
@@ -176,7 +177,7 @@ BGP 세션이 삭제됩니다. 접두사 개수가 제한보다 적으면 재설
 ### Express 경로 회로의 대역폭을 변경하려면 어떻게 해야 하나요?
 업데이트 전용 회로 API 및 PowerShell cmdlet을 사용하여 Express 경로 회로의 대역폭을 업데이트할 수 있습니다.
 
-## Express 경로 프리미엄:
+## Express 경로 프리미엄
 
 ### Express 경로 프리미엄이란?
 Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
@@ -234,9 +235,9 @@ Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
 
 ### Office 365 서비스에 연결하려면 어떻게 Express 경로 회로를 만드나요?
 
-1. [Express 경로 필수 구성 요소 페이지](expressroute-prerequisites.md)를 검토하여 요구 사항을 만족 하는지 확인합니다.
+1. [Express 경로 필수 구성 요소 페이지](expressroute-prerequisites.md)를 검토하여 요구 사항을 충족하는지 확인합니다.
 2. 서비스 공급자 및 위치 목록을 [Express 경로 파트너 및 위치](expressroute-locations.md)에서 검토하여 사용자 연결 요구 사항이 충족하는지 확인합니다.
-3. [네트워크 계획 및 Office 365에 대한 성능 튜닝](http://aka.ms/tune/)을 검토하여 용량 요구 사항을 계획합니다.
+3. [Office 365에 대한 네트워크 계획 및 성능 튜닝](http://aka.ms/tune/)을 검토하여 용량 요구 사항을 계획합니다.
 4. 워크플로 아래에 나열된 단계에 따라 연결을 설정합니다.
 
 	- [네트워크 서비스 공급자를 통해 Express 경로 연결 구성](expressroute-configuring-nsps.md)
@@ -264,7 +265,7 @@ Express 경로 프리미엄은 아래 표시된 기능의 컬렉션입니다.
 - Delve
 - Project Online
 
-**다음 Office 365 서비스가 지원되지 않습니다.**
+**다음 Office 365 서비스는 지원되지 않습니다.**
 
 - Yammer
 - Office 365 ProPlus 클라이언트 다운로드
@@ -286,4 +287,4 @@ NSP 및 EXP 모두를 통해 Office 365 서비스에 대한 연결을 지원합�
 예. Express 경로가 네트워크에 대해 구성된 경우라도 인터넷을 통해 Office 365 서비스 끝점에 연결할 수 있습니다. Express 경로를 통해 Office 365 서비스에 연결하도록 구성된 위치에 있는 경우 Express 경로를 통해 연결됩니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

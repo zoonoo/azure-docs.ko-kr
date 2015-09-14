@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Azure에서 제공하는 계산 호스팅 옵션" 
-	description="Azure 계산 호스팅 옵션 및 작동 방식에 대해 알아보세요. 가상 컴퓨터, 웹 사이트, 클라우드 서비스 등" 
+	pageTitle="Azure에서 제공하는 계산 호스팅 옵션"
+	description="Azure 계산 호스팅 옵션 및 작동 방식에 대해 알아보세요. 가상 컴퓨터, 웹 사이트, 클라우드 서비스 등"
 	services="cloud-services,virtual-machines"
-	authors="Thraka" 
+	authors="Thraka"
 	documentationCenter=""
 	manager="timlt"/>
 
 <tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/16/2015"
 	ms.author="adegeo;cephalin;kathydav"/>
 
 
@@ -50,7 +50,7 @@ Azure에서는 좀 더 특수한 용도로 사용할 수 있는 다음과 같은
 
 서버에 원격 접속하거나 서버 시작 작업을 구성하는 기능 등 웹 서버 환경에 대한 추가 제어 기능이 필요한 경우에는 대개 Azure 클라우드 서비스가 가장 적합한 옵션입니다.
 
-Azure 웹 사이트 또는 Azure 클라우드 서비스에서 실행하려면 기존 응용 프로그램을 크게 수정해야 하는 경우에는 클라우드로의 마이그레이션을 간소화하기 위해 Azure 가상 컴퓨터를 선택할 수 있습니다. 그러나 VM을 올바르게 구성, 보호 및 유지 관리하려면 Azure 웹 사이트와 클라우드 서비스에 비해 훨씬 많은 시간과 IT 전문 지식이 필요합니다. Azure 가상 컴퓨터를 고려 중인 경우 VM 환경 패치/업데이트/관리에 필요한 지속적인 유지 관리 작업을 고려해야 합니다. 앱 서비스 또는 Azure 클라우드 서비스에서 실행하려면 기존 응용 프로그램을 크게 수정해야 하는 경우에는 클라우드로의 마이그레이션을 간소화하기 위해 Azure 가상 컴퓨터를 선택할 수 있습니다. 그러나 VM을 올바르게 구성, 보호 및 유지 관리하려면 앱 서비스와 클라우드 서비스에 비해 훨씬 많은 시간과 IT 전문 지식이 필요합니다. Azure 가상 컴퓨터를 고려 중인 경우 VM 환경 패치/업데이트/관리에 필요한 지속적인 유지 관리 작업을 고려해야 합니다.
+Azure 웹 사이트 또는 Azure 클라우드 서비스에서 실행하려면 기존 응용 프로그램을 크게 수정해야 하는 경우에는 클라우드로의 마이그레이션을 간소화하기 위해 Azure 가상 컴퓨터를 선택할 수 있습니다. 그러나 VM을 올바르게 구성, 보호 및 유지 관리하려면 Azure 웹 사이트와 클라우드 서비스에 비해 훨씬 많은 시간과 IT 전문 지식이 필요합니다. Azure 가상 컴퓨터를 고려 중인 경우 VM 환경 패치/업데이트/관리에 필요한 지속적인 유지 관리 작업을 고려해야 합니다.
 
 적합한 옵션이 없는 수도 있습니다. 이런 경우 옵션을 조합하는 것이 가장 좋습니다. 예를 들어 클라우드 서비스 웹 역할의 관리 혜택을 원하는 위치에 응용 프로그램을 구축하고 있으나 호환성 및 성능 상의 이유로 가상 컴퓨터에서 호스트되는 표준 SQL Server를 사용해야 한다고 가정합니다.
 
@@ -76,4 +76,4 @@ As the figure illustrates, the Cloud Services VMs run in a separate cloud servic
 * [클라우드 서비스](services/cloud-services/)에 대해 자세히 알아보세요.
 * [가상 컴퓨터](https://msdn.microsoft.com/library/azure/jj156143.aspx)에 대해 자세히 알아봅니다. 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=September15_HO1-->

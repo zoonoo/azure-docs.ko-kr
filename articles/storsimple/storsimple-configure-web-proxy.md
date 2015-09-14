@@ -1,27 +1,27 @@
 <properties 
-   pageTitle="장치에 대한 웹 프록시 구성 | Microsoft Azure"
-   description="StorSimple용 Windows PowerShell을 사용하는 StorSimple 장치에 웹 프록시를 구성하는 방법을 알아봅니다."
-   services="storsimple"
-   documentationCenter=""
-   authors="alkohli"
-   manager="carolz"
-   editor="" />
+   pageTitle="StorSimple 장치에 대한 웹 프록시 설정 | Microsoft Azure"
+	description="StorSimple용 Windows PowerShell을 사용하여 StorSimple 장치에 대한 웹 프록시 설정을 구성하는 방법을 알아봅니다."
+	services="storsimple"
+	documentationCenter=""
+	authors="alkohli"
+	manager="carolz"
+	editor=""/>
 <tags 
    ms.service="storsimple"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/29/2015"
-   ms.author="alkohli" />
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="na"
+	ms.date="08/31/2015"
+	ms.author="alkohli"/>
 
-# 장치에 웹 프록시 구성
+# StorSimple 장치에 대한 웹 프록시 구성
 
 ## 개요
 
-이 자습서에서는 StorSimple용 Windows PowerShell을 사용 하는 방법을 설명하여 StorSimple 장치에 웹 프록시 설정을 구성하고 봅니다. 클라우드와 통신할 때 StorSimple 장치에서 웹 프록시 설정을 사용합니다. 웹 프록시 서버를 사용하여 보안, 필터 콘텐츠, 캐시의 다른 계층을 추가함으로써 대역폭 요구 사항 또는 분석을 돕습니다.
+이 자습서에서는 StorSimple용 Windows PowerShell을 사용하여 StorSimple 장치에 대한 웹 프록시 설정을 구성하고 보는 방법을 설명합니다. 클라우드와 통신할 때 StorSimple 장치에서 웹 프록시 설정을 사용합니다. 웹 프록시 서버를 사용하여 보안, 필터 콘텐츠, 캐시의 다른 계층을 추가함으로써 대역폭 요구 사항 또는 분석을 돕습니다.
 
-웹 프록시는 StorSimple 장치에 대한 선택적 구성입니다. StorSimple용 Windows PowerShell을 통해 웹 프록시를 구성합니다. 구성은 다음과 같은 2단계 프로세스입니다.
+웹 프록시는 StorSimple 장치에 대한 선택적 구성입니다. StorSimple용 Windows PowerShell을 통해서만 웹 프록시를 구성할 수 있습니다. 구성은 다음과 같은 2단계 프로세스입니다.
 
 1. 먼저 StorSimple cmdlet용 설치 마법사 또는 Windows PowerShell을 통해 웹 프록시 설정을 구성합니다.
 
@@ -65,7 +65,7 @@
 
 	기본적으로 TCP 포트 번호 8080가 지정됩니다.
 
-4. 인증 유형으로 **NTLM**, **기본** 또는 **없음**을 선택합니다. 기본은 프록시 서버 구성에 대한 최소한의 보안 인증입니다. NT LAN 관리자(NTLM)는 3방향 메시징 시스템을 사용(추가 무결성이 필요하면 4방향)하여 사용자를 인증하는 안전하고 복잡한 인증 프로토콜입니다. 기본 인증은 NTLM입니다. 자세한 내용은 [기본](http://hc.apache.org/httpclient-3.x/authentication.html) 및 [NTLM 인증](http://hc.apache.org/httpclient-3.x/authentication.html)을 참조하십시오.
+4. 인증 유형으로 **NTLM**, **기본** 또는 **없음**을 선택합니다. 기본은 프록시 서버 구성에 대한 최소한의 보안 인증입니다. NT LAN 관리자(NTLM)는 3방향 메시징 시스템을 사용(추가 무결성이 필요하면 4방향)하여 사용자를 인증하는 안전하고 복잡한 인증 프로토콜입니다. 기본 인증은 NTLM입니다. 자세한 내용은 [기본](http://hc.apache.org/httpclient-3.x/authentication.html) 및 [NTLM 인증](http://hc.apache.org/httpclient-3.x/authentication.html)을 참조하세요.
 
 	> [AZURE.IMPORTANT]**StorSimple 관리자 서비스에서 해당 장치에 대한 프록시 서버 구성에서 기본 또는 NTLM 인증이 사용되면 장치 모니터링 차트가 동작하지 않습니다. 작업할 차트를 모니터링하기 위해 인증이 NONE으로 설정되어 있는지 확인해야 합니다.**
 
@@ -135,10 +135,10 @@
 |1\.|0x80070001|명령은 수동 컨트롤러에서 실행되고 활성 컨트롤러와 통신할 수 없습니다.|활성 컨트롤러에서 이 명령을 실행합니다. 수동 컨트롤러에서 명령을 실행하려면 수동에서 활성 컨트롤러로 연결을 수정해야 합니다. 이 연결이 끊어진 경우 Microsoft 지원과 연계해야 합니다.|
 |2\.|0x800710dd - 작업 식별자가 유효하지 않습니다.|프록시 설정은 StorSimple 가상 장치에서 지원되지 않습니다.|프록시 설정은 StorSimple 가상 장치에서 지원되지 않습니다. 물리적 StorSimple 장치에만 구성할 수 있습니다.|
 |3\.|0x80070057 - 잘못된 매개 변수|프록시 설정에 대해 제공된 매개 변수 중 하나가 잘못되었습니다.|URI는 올바른 형식으로 제공되지 않습니다. 다음 형식을 사용하세요. `http://<IP address or FQDN of the web proxy server>:<TCP port number>`|
-|4\.|0x800706ba - RPC 서버를 사용할 수 없음|근본 원인은 다음 중 하나입니다. </br></br>클러스터가 작동하지 않습니다.</br></br>데이터 경로 서비스가 작동하지 않습니다.</br></br>수동 컨트롤러에서 명령이 실행되고 활성 컨트롤러와 통신할 수 없습니다.|클러스터가 작동하고 데이터 경로 서비스가 실행 중인지 확인하려면 Microsoft 지원 서비스와 연계하십시오.</br></br>활성 컨트롤러에서 명령을 실행합니다. 수동 컨트롤러에서 명령을 실행하려는 경우 수동 컨트롤러가 활성 컨트롤러와 통신할 수 있는지 확인해야 합니다. 이 연결이 끊어진 경우 Microsoft 지원과 연계해야 합니다.|
+|4\.|0x800706ba - RPC 서버를 사용할 수 없음|근본 원인은 다음 중 하나입니다. </br></br>클러스터가 작동하지 않습니다.</br></br>데이터 경로 서비스가 작동하지 않습니다.</br></br>수동 컨트롤러에서 명령이 실행되고 활성 컨트롤러와 통신할 수 없습니다.|클러스터가 작동하고 데이터 경로 서비스가 실행 중인지 확인하려면 Microsoft 지원 서비스와 연계하세요.</br></br>활성 컨트롤러에서 명령을 실행합니다. 수동 컨트롤러에서 명령을 실행하려는 경우 수동 컨트롤러가 활성 컨트롤러와 통신할 수 있는지 확인해야 합니다. 이 연결이 끊어진 경우 Microsoft 지원과 연계해야 합니다.|
 |5\.|0x800706be - RPC 호출 실패|클러스터의 작동이 중단되었습니다.|Microsoft 지원과 연계하여 클러스터가 작동하는지 확인합니다.|
-|6\.|0x8007138f - 클러스터 리소스를 찾을 수 없음|플랫폼 서비스 클러스터 리소스를 찾을 수 없습니다. 설치가 올바르지 않은 경우 발생할 수 있습니다.|장치에서 공장 재설정을 수행해야 합니다. 플랫폼 리소스를 만들어야 합니다. 다음 단계는 Microsoft 지원에 문의하십시오.|
-|7\.|0x8007138c - 클러스터 리소스는 온라인 상태가 아님|플랫폼 또는 데이터 경로 클러스터 리소스는 온라인 상태가 아닙니다.|데이터 경로 및 플랫폼 서비스 리소스가 온라인 상태인지 확인하려면 Microsoft 지원에 문의하십시오.|
+|6\.|0x8007138f - 클러스터 리소스를 찾을 수 없음|플랫폼 서비스 클러스터 리소스를 찾을 수 없습니다. 설치가 올바르지 않은 경우 발생할 수 있습니다.|장치에서 공장 재설정을 수행해야 합니다. 플랫폼 리소스를 만들어야 합니다. 다음 단계는 Microsoft 지원에 문의하세요.|
+|7\.|0x8007138c - 클러스터 리소스는 온라인 상태가 아님|플랫폼 또는 데이터 경로 클러스터 리소스는 온라인 상태가 아닙니다.|데이터 경로 및 플랫폼 서비스 리소스가 온라인 상태인지 확인하려면 Microsoft 지원에 문의하세요.|
 
 > [AZURE.NOTE]
 > 
@@ -146,6 +146,6 @@
 > - 웹 프록시 설정에 관련된 오류는 StorSimple 관리자 서비스의 관리 포털에 나타나지 않습니다. 구성이 완료된 후에 웹 프록시에 문제가 있다면 관리 포털에서 장치 상태가 **오프라인**으로 변경됩니다. |
 
 ## 다음 단계
-장치를 배포하거나 웹 프록시 설정을 구성하는 동안 문제가 발생하면 [StorSimple 장치 배포 문제 해결](storsimple-troubleshoot-deployment.md)을 참조하십시오.
+장치를 배포하거나 웹 프록시 설정을 구성하는 동안 문제가 발생하면 [StorSimple 장치 배포 문제 해결](storsimple-troubleshoot-deployment.md)을 참조하세요.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=September15_HO1-->
