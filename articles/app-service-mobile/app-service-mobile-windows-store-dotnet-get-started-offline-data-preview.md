@@ -249,7 +249,7 @@ Azure 모바일 앱 백 엔드에 연결을 끊어서 오프라인 시나리오�
 
 * [Azure 모바일 앱에서 오프라인 데이터 동기화]
 
-* [Cloud Cover: Azure 모바일 서비스의 오프라인 동기화](참고: 동영상은 모바일 서비스에 있지만 Azure 모바일 앱에서 비슷한 방식으로 오프라인 동기화가 작동합니다.)
+* [Cloud Cover: Azure 모바일 서비스의 오프라인 동기화]  \(참고: 동영상은 모바일 서비스에 있지만 Azure 모바일 앱에서 비슷한 방식으로 오프라인 동기화가 작동합니다.\)
 
 * [Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱]
 
@@ -278,4 +278,4 @@ Azure 모바일 앱 백 엔드에 연결을 끊어서 오프라인 시나리오�
 [Cloud Cover: Azure 모바일 서비스의 오프라인 동기화]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Azure 모바일 서비스의 오프라인 지원 앱]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->
