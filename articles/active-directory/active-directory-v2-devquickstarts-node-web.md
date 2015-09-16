@@ -43,16 +43,16 @@
 
 The completed application is provided at the end of this tutorial as well.
 
-## 1. Register an App
-Create a new app at [apps.dev.microsoft.com](https://apps.dev.microsoft.com), or follow these [detailed steps](active-directory-v2-app-registration.md).  Make sure to:
+## 1. 앱 등록
+[apps.dev.microsoft.com](https://apps.dev.microsoft.com)에서 새 앱을 만들거나 다음 [자세한 단계](active-directory-v2-app-registration.md)를 따르세요.  다음을 수행해야 합니다.
 
-- Copy down the **Application Id** assigned to your app, you'll need it soon.
-- Add the **Web** platform for your app.
-- Enter the correct **Redirect URI**. The redirect URI indicates to Azure AD where authentication responses should be directed - the default for this tutorial is `http://localhost:3000/auth/openid/return`.
+- 앱에 할당된 **응용 프로그램 ID**를 적어둡니다. 곧 필요합니다.
+- 앱에 대한 **웹** 플랫폼을 추가합니다.
+- 올바른 **리디렉션 URI**를 입력합니다. 리디렉션 URI는 인증 응답을 보내야 하는 Azure AD를 나타냅니다. 이 자습서에 대한 기본값은 `http://localhost:3000/auth/openid/return`입니다.
 
-## 2. Add pre-requisities to your directory
+## 2. pre Adicionar pré-requisitos ao seu diretório 디렉터리에 추가
 
-From the command-line, change directories to your root folder if not already there and run the following commands:
+명령줄에서 루트 폴더가 없는 경우 디렉터리를 루트 폴더로 변경하고 다음 명령을 실행합니다.
 
 - `npm install express`
 - `npm install ejs`
@@ -417,4 +417,4 @@ exports.list = function(req, res){
 
 추가 리소스는 다음을 확인해보세요. - [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md) - [스택 오버플로 "azure-active-directory" 태그 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->

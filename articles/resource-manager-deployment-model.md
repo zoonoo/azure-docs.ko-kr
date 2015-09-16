@@ -73,7 +73,7 @@
 
         ![Azure portal](./media/resource-manager-deployment-model/azure-portal.png)
 
-        Or, the preview portal and you specify **Classic** deployment (for Compute, Storage, and Networking).
+        또는 Preview 포털과 **클래식** 배포(계산, 저장소 및 네트워킹의 경우)를 지정합니다.
 
         ![Classic deployment](./media/resource-manager-deployment-model/select-classic.png)
 
@@ -158,4 +158,4 @@
 - 선언적 배포 템플릿 만들기에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하십시오.
 - 템플릿 배포에 대한 명령을 보려면 [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하십시오.
 
-<!---HONumber=August15_HO9-->
+<!----HONumber=August15_HO9-->
