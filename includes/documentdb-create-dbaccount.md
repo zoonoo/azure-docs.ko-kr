@@ -1,7 +1,7 @@
 1.	온라인 [Microsoft Azure Preview 포털](https://portal.azure.com/)에 로그인합니다.
 2.	점프 모음에서 **새로 만들기**를 클릭하고 **데이터+저장소**를 클릭한 다음 **Azure DocumentDB**를 클릭합니다. 
 
-	![새로 만들기 단추, 만들기 블레이드의 데이터+저장소, 데이터+저장소 블레이드의 Azure DocumentDB가 강조 표시된 Azure Preview 포털의 스크린샷][1]   
+	![Azure Preview 포털의 스크린샷][1]   
 
 	<!-- Alternatively, from the Startboard, you can browse the Azure Marketplace, select **Data + storage**, choose **DocumentDB**, and then click **Create**.  -->
 	
@@ -49,4 +49,4 @@
 [Next steps]: #NextSteps
 [documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->
