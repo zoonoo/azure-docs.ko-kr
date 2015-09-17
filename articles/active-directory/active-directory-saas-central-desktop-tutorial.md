@@ -68,7 +68,7 @@
 3.  **앱 URL 구성** 페이지에서 다음 단계를 수행하고 **다음**을 선택합니다.
 
     -   **Central Desktop 로그인 URL** 텍스트 상자에서 Central Desktop 테넌트의 URL을 입력합니다.(예: **http://contoso.centraldesktop.com*))
--   Central Desktop 회신 URL 텍스트 상자에 Central Desktop AssertionConsumerService URL을 입력합니다.(예:https://contoso.centraldesktop.com/saml2-assertion.php))
+    -   Central Desktop 회신 URL 텍스트 상자에 Central Desktop AssertionConsumerService URL을 입력합니다.(예:https://contoso.centraldesktop.com/saml2-assertion.php))
 
     >[AZURE.NOTE]Central Desktop 메타데이터에서 값을 가져올 수 있습니다.(예: **http://contoso.centraldesktop.com*))
 
@@ -154,4 +154,4 @@ AAD 사용자가 로그인할 수 있도록 Central Desktop 응용 프로그램�
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->

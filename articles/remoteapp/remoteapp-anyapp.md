@@ -83,7 +83,6 @@ Access는 데이터베이스이므로 모든 사용자가 Access 데이터 공�
 3. 이제 Azure [저장소 계정](../storage-create-storage-account.md)을 만들어야 합니다. 현재는 "accessstorage"만 지정되어 있으므로, 원하는 이름을 선택하세요.
 ![Azure 저장소 계정](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. 이제 대시보드로 돌아가서 저장소(끝점 위치)에 대한 경로를 가져올 수 있습니다. 잠시 후 이 경로를 사용할 것이므로 경로를 다른 곳에 복사해 두세요.
-
 ![저장소 계정 경로](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
 5. 저장소 계정을 만들었으므로 이제 기본 액세스 키가 필요합니다. **액세스 키 관리**를 클릭한 다음 기본 액세스 키를 복사합니다.
 6. 이제 저장소 계정의 컨텍스트를 설정하고 Access에 대한 새 파일 공유를 만듭니다. 관리자 권한 Windows PowerShell 창에서 다음 cmdlet을 실행합니다.
@@ -119,4 +118,4 @@ Access는 데이터베이스이므로 모든 사용자가 Access 데이터 공�
 
 <!--Image references-->
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=September15_HO1-->
