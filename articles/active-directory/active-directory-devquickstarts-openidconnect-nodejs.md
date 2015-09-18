@@ -38,22 +38,22 @@
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
 
-The completed application is provided at the end of this tutorial as well.
+전체 응용 프로그램은 이 자습서 마지막 부분에서도 제공됩니다.
 
-## 1. Register an App
-- Sign into the Azure Management Portal.
-- In the left hand nav, click on **Active Directory**.
-- Select the tenant where you wish to register the application.
-- Click the **Applications** tab, and click add in the bottom drawer.
-- Follow the prompts and create a new **Web Application and/or WebAPI**.
-    - The **name** of the application will describe your application to end-users
-    -	The **Sign-On URL** is the base URL of your app.  The skeleton's default is `http://localhost:3000/auth/openid/return``.
-    - The **App ID URI** is a unique identifier for your application.  The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`
-- Once you've completed registration, AAD will assign your app a unique client identifier.  You'll need this value in the next sections, so copy it from the Configure tab.
+## 1. 앱을 등록합니다
+- Azure 관리 포털에 로그인합니다.
+- 왼쪽 탐색 창에서 **Active Directory**를 클릭합니다.
+- 응용 프로그램을 등록할 테넌트를 선택합니다.
+- **응용 프로그램** 탭을 클릭하고 아래쪽 서랍에서 **추가**를 클릭합니다.
+- 프롬프트에 따라 새 **웹 응용 프로그램 및/또는 WebAPI** 를 만듭니다..
+    - 응용 프로그램의 **이름** 은 최종 사용자에게 응용 프로그램을 설명하는 항목입니다.
+    -	**로그온 URL** 은 앱의 기본 URL입니다. The skeleton's default is `http://localhost:3000/auth/openid/return`입니다..
+    - **앱 ID URI** 는 응용 프로그램의 고유 식별자입니다.  규칙은 `https://<tenant-domain>/<app-name>` 예 `https://contoso.onmicrosoft.com/my-first-aad-app`을 사용하는 것입니다.
+- 등록이 끝나면 AAD는 앱에 고유한 클라이언트 식별자를 할당합니다.  이 값은 다음 섹션에서 필요하므로 구성 탭에서 복사해둡니다.
 
-## 2. Add pre-requisities to your directory
+## 2. pre requisities를 디렉터리에 추가
 
-From the command-line, change directories to your root folder if not already there and run the following commands:
+명령줄에서 루트 폴더가 없는 경우 디렉터리를 루트 폴더로 변경하고 다음 명령을 실행합니다.
 
 - `npm install express`
 - `npm install ejs`
@@ -64,21 +64,21 @@ From the command-line, change directories to your root folder if not already the
 - `npm install assert-plus`
 - `npm install passport`
 
-- In addition, you'll need our `passport-azure-ad` as well:
+- 또한 `passport-azure-ad`도 필요합니다.
 
 - `npm install passport-azure-ad`
 
-This will install the libraries that passport-azure-ad depend on.
+이는 passport-azure-ad가 의존하는 라이브러리를 설치합니다.
 
-## 3. Set up your app to use the passport-node-js strategy
-Here, we'll configure the Express middleware to use the OpenID Connect authentication protocol.  Passport will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
+## 3. passport-node-js 전략을 사용하도록 앱을 설정합니다.
+여기서는 OpenID Connect 인증 프로토콜을 사용하도록 Express 미들웨어를 구성합니다.  passport는 로그인 및 로그아웃 요청을 실행하고, 사용자의 세션을 관리하고, 사용자에 대한 정보를 가져오는 데 사용됩니다.
 
--	To begin, open the `config.js` file in the root of the project, and enter your app's configuration values in the `exports.creds` section.
-    -	The `clientID:` is the **Application Id** assigned to your app in the registration portal.
-    -	The `returnURL` is the **Redirect Uri** you entered in the portal.
-    - The `clientSecret` is the secret you generated in the portal
+-	먼저 프로젝트의 루트에서 `web.config` 파일을 열고 `<appSettings>`  섹션에 앱의 구성 값을 입력합니다
+    -	`clientID`:는 등록 포털에서 앱에 할당된 **응용 프로그램 ID**입니다.
+    -	`returnURL`는 포털에서 입력한 **리디렉션 URI**입니다.
+    - `clientSecret`는 포털에서 생성한 암호입니다.
 
-- Next open `app.js` file in the root of the proejct and add the follwing call to invoke the `OIDCStrategy` strategy that comes with `passport-azure-ad`
+- 그 다음 프로젝트의 루트에 있는 `app.js`  파일을 열고 `passport-azure-ad`과 함께 제공되는 `OIDCStrategy` 전략을 불러오기 위해 다음 호출을 추가합니다.
 
 
 ```JavaScript
@@ -391,4 +391,4 @@ For reference, the completed sample (without your configuration values) [is prov
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
 
-<!---HONumber=September15_HO1-->
+<!-----HONumber=September15_HO1-->

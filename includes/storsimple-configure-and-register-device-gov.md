@@ -80,7 +80,10 @@
 
      `Get-HcsSystem`
 
-    다음 버전이 표시되어야 합니다. - HcsSoftwareVersion: 6.3.9600.17491 - CisAgentVersion: 1.0.9037.0 - MdsAgentVersion: 26.0.4696.1433
+    다음 버전이 표시되어야 합니다.
+    - HcsSoftwareVersion: 6.3.9600.17491
+    - CisAgentVersion: 1.0.9037.0
+    - MdsAgentVersion: 26.0.4696.1433
  
 9. 펌웨어 업데이트가 제대로 적용되었는지 확인하려면 다음 cmdlet을 실행합니다.
 
@@ -135,4 +138,4 @@
      
         
 
-<!-----HONumber=August15_HO6-->
+<!-------HONumber=August15_HO6-->

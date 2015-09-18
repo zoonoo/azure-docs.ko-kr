@@ -188,10 +188,15 @@ MSI 설치는 게이트웨이 컴퓨터에 인바운드 포트에 대한 Windows
 7.	**자격 증명** 블레이드에서 **자격 증명을 안전하게 설정하려면 여기를 클릭하세요**를 클릭합니다.
 8.	**자격 증명 설정** 대화 상자에서 다음을 수행합니다.
 
-	![자격 증명 대화 상자 설정](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1. 데이터 팩터리 서비스가 사용하려는 **인증**을 선택하여 데이터베이스에 연결합니다. 2. **USERNAME** 설정에 대한 데이터베이스에 액세스할 수 있는 사용자의 이름을 입력합니다. 3. **PASSWORD** 설정에 대해 사용자 암호를 입력합니다. 4. **확인**을 클릭하여 대화 상자를 닫습니다. 
+	![자격 증명 대화 상자 설정](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
+	1.	데이터 팩터리 서비스가 사용하려는 **인증**을 선택하여 데이터베이스에 연결합니다. 
+	2.	**USERNAME** 설정에 대한 데이터베이스에 액세스할 수 있는 사용자의 이름을 입력합니다. 
+	3.	**PASSWORD** 설정에 대해 사용자 암호를 입력합니다. 
+	4.	**확인**을 클릭하여 대화 상자를 닫습니다. 
 4. **확인**을 클릭하여 **자격 증명** 블레이드를 닫습니다. 
 5. **새 데이터 저장소** 블레이드에서 **확인**을 클릭합니다. 	
-6. **SqlServerLinkedService**의 상태가 연결된 서비스 블레이드에서 온라인으로 설정되었는지 확인합니다.![SQL Server 연결된 서비스 상태](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+6. **SqlServerLinkedService**의 상태가 연결된 서비스 블레이드에서 온라인으로 설정되었는지 확인합니다.
+	![SQL Server 연결된 서비스 상태](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
 
 자격 증명 설정에 대한 자세한 내용은 [자격 증명 및 보안 설정](#setting-credentials-and-security) 섹션을 참조하세요.
 
@@ -562,4 +567,4 @@ Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램을 사�
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-move-data-between-onprem-and-cloud.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=September15_HO1-->
+<!-----HONumber=September15_HO1-->
