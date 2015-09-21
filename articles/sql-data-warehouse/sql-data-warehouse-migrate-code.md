@@ -3,7 +3,7 @@
    description="솔루션 개발을 위한 Azure SQL 데이터 웨어하우스로 SQL 코드를 마이그레이션하기 위한 팁"
    services="sql-data-warehouse"
    documentationCenter="NA"
-   authors="jrowlandjones"
+   authors="lodipalm"
    manager="barbkess"
    editor=""/>
 
@@ -13,16 +13,16 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/25/2015"
+   ms.date="09/09/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # SQL 데이터 웨어하우스에 SQL 코드 마이그레이션
 
-코드가 SQL 데이터 웨어하우스와 호환하기 위해 코드 기본 사항을 변경해야 할 수 있습니다. 일부 SQL 데이터 웨어하우스 기능은 원래 분산 방식으로 직접 작동하도록 설계되었기 때문에 크게 성능을 향상시킬 수도 있습니다. 그러나 성능 및 확장을 유지하려면 일부 기능은 사용할 수 없습니다.
+코드가 SQL 데이터 웨어하우스와 호환되도록 코드 기본 사항을 변경해야 할 수 있습니다. 일부 SQL 데이터 웨어하우스 기능은 원래 분산 방식으로 직접 작동하도록 설계되었기 때문에 크게 성능을 향상시킬 수 있습니다. 그러나 성능 및 확장을 유지하려면 일부 기능은 사용할 수 없습니다.
 
 ## Transact-SQL 코드 변경 내용
 
-다음 목록에서는 Azure SQL 데이터 웨어하우스에서 지원하지 않는 주요 기능을 간략하게 설명합니다. 제공된 링크를 따라 이동하면 지원되지 않는 기능에 대한 대안을 확인할 수 있습니다.
+다음 목록에서는 Azure SQL 데이터 웨어하우스에서 지원하지 않는 주요 기능을 간략하게 설명합니다. 링크를 따라 이동하면 지원되지 않는 기능에 대한 대안을 확인할 수 있습니다.
 
 - [업데이트 시 ANSI 조인][]
 - [삭제 시 ANSI 조인][]
@@ -50,7 +50,7 @@
 - [변수 할당을 위한 select 사용][]
 - [동적 SQL 문자열에 대한 최대 데이터 형식][]
 
-다행히 대부분의 이러한 제한을 해결할 수 있습니다. 위에서 언급한 개발 관련 문서에 대한 설명이 포함되어 있습니다.
+다행히 대부분의 이러한 제한을 해결할 수 있습니다. 위에서 언급한 개발 관련 문서에 대한 설명이 제공됩니다.
 
 ### 재귀 공통 테이블 식(CTE)
 
@@ -114,4 +114,4 @@ AND     request_id IN
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

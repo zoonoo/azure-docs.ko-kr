@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="StorSimple 스냅숏 관리자를 사용하여 볼륨 보기 및 관리 | Microsoft Azure"
+   pageTitle="StorSimple 스냅숏 관리자 및 볼륨 | Microsoft Azure"
    description="StorSimple 스냅숏 관리자 MMC 스냅인을 사용하여 볼륨을 보고 관리하는 방법을 설명합니다."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자를 사용하여 볼륨 보기 및 관리
@@ -270,4 +270,4 @@ StorSimple 스냅숏 관리자 **볼륨** 노드(**범위** 창)를 사용하여
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

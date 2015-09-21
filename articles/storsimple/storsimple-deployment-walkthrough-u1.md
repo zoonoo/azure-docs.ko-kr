@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 장치(업데이트 1) 배포 | Microsoft Azure"
-	description="StorSimple 업데이트 1 장치 및 서비스를 배포하기 위한 단계 및 모범 사례를 설명합니다."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="StorSimple 업데이트 1 장치 및 서비스를 배포하기 위한 단계 및 모범 사례를 설명합니다."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/02/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/08/2015"
+   ms.author="alkohli" />
 
 # 온-프레미스 StorSimple 장치(업데이트 1) 배포
 
@@ -202,7 +202,7 @@ StorSimple 장치의 최소 장치 구성에는 다음 사항이 필요합니다
 
 > - Windows Server 호스트에서 MPIO 및 iSCSI 설치 및 구성 지침은 [StorSimple 장치에 대한 MPIO 구성](storsimple-configure-mpio-windows-server.md)으로 이동합니다. StorSimple 볼륨을 탑재, 초기화 및 포맷하는 단계도 포함됩니다.
 
-> - Linux 호스트에서 MPIO 및 iSCSI 설치 및 구성 지침은 [StorSimple Linux 호스트에 대한 MPIO 구성](storsimple-configure-mpio-linux.md)으로 이동합니다.
+> - Linux 호스트에서 MPIO 및 iSCSI 설치 및 구성 지침은 [StorSimple Linux 호스트에 대한 MPIO 구성](storsimple-configure-mpio-on-linux.md)으로 이동합니다.
 
 MPIO를 구성하지 않으려는 경우 다음 단계를 수행하여 Windows Server 호스트에서 StorSimple 볼륨을 탑재, 초기화 및 포맷합니다.
 
@@ -241,7 +241,7 @@ StorSimple용 Windows PowerShell에 연결하려면 PuTTY와 같은 터미널 �
 장치 업데이트는 몇 시간이 걸릴 수 있습니다. 다음 단계를 수행하여 장치에서 업데이트를 검색 및 적용합니다.
 <!-- > can take 1-4 hours-->
 
-<!-- > [AZURE.NOTE] 데이터 0 이외의 네트워크 인터페이스에 구성된 게이트웨이의 경우 업데이트를 설치하기 전에 데이터 2 및 데이터 3 네트워크 인터페이스를 사용하지 않도록 설정해야 합니다. **장치 > 구성**으로 이동하고 데이터 2 및 데이터 3 인터페이스를 사용하지 않도록 설정합니다. 장치를 업데이트한 후에 해당 인터페이스를 다시 사용하도록 설정해야 합니다.-->
+<!-- > [AZURE.NOTE] If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
 #### 장치를 업데이트하려면
 
@@ -255,7 +255,7 @@ StorSimple용 Windows PowerShell에 연결하려면 PuTTY와 같은 터미널 �
 
 4.	장치가 성공적으로 업데이트된 후 데이터 2 및 데이터 3이 비활성화된 경우 데이터 2 및 데이터 3 네트워크 인터페이스를 사용하도록 설정합니다.
 
-<!-- 업데이트를 설치하기 전에 데이터 2 및 데이터 3을 사용하지 않도록 설정하라는 메시지가 표시될 수 있습니다. 해당 네트워크 인터페이스를 사용하지 않도록 설정해야 합니다. 그렇지 않으면 업데이트가 실패할 수 있습니다.-->
+<!-- In step 2, you may be requested to disable Data 2 and Data 3 prior to installing the updates. You must disable these network interfaces or the updates may fail.-->
 
 ## Windows Server 호스트의 IQN 가져오기
 
@@ -273,7 +273,7 @@ StorSimple 장치에서 단일 볼륨에 대한 주문형 수동 백업을 만�
 
 MPIO(다중 경로 I/O)는 선택적 기능이며 Windows Server에 기본적으로 설치되지 않습니다. 서버 관리자를 통해 기능으로 설치해야 합니다. MPIO 설치 지침은 [StorSimple 장치에 대한 MPIO 구성](storsimple-configure-mpio-windows-server.md)으로 이동합니다.
 
-Linux 호스트에 연결된 StorSimple 도구에 대한 MPIO 설치 지침은 [Linux 호스트에 대한 MPIO 구성](storsimple-configure-mpio-linux.md)으로 이동합니다.
+Linux 호스트에 연결된 StorSimple 도구에 대한 MPIO 설치 지침은 [Linux 호스트에 대한 MPIO 구성](storsimple-configure-mpio-on-linux.md)으로 이동합니다.
 
 
 > [AZURE.NOTE]MPIO는 StorSimple 가상 장치에서 지원되지 않습니다.
@@ -287,4 +287,4 @@ Linux 호스트에 연결된 StorSimple 도구에 대한 MPIO 설치 지침은 [
 [StorSimple 관리자 서비스](storsimple-manager-service-administration.md)를 사용하여 StorSimple 장치를 관리할 수 있습니다.
  
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

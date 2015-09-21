@@ -5,9 +5,11 @@ Azure에서는 xml 파일을 사용하여 구독에 사용할 수 있는 모든 
 PowerShell과 netcfg 파일을 사용하여 VNet을 만들려면 다음 단계를 수행합니다.
 
 1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
-2. Azure PowerShell 콘솔에서 **Get-AzureVnetConfig** cmdlet을 사용하고 명령을 실행하여 네트워크 구성 파일을 다운로드합니다. 명령 아래의 출력을 확인합니다.
+2. Azure PowerShell 콘솔에서 **Get-AzureVnetConfig** cmdlet을 사용하고 명령을 실행하여 네트워크 구성 파일을 다운로드합니다. 
 
 		Get-AzureVNetConfig -ExportToFile c:\NetworkConfig.xml
+
+	다음은 위의 명령에 대해 예상된 출력입니다.
 
 		XMLConfiguration                                                                                                     
 		----------------                                                                                                     
@@ -31,17 +33,21 @@ PowerShell과 netcfg 파일을 사용하여 VNet을 만들려면 다음 단계�
 		</VirtualNetworkSite>
 
 9.  네트워크 구성 파일을 저장합니다.
-10. Azure PowerShell 콘솔에서 **Set-AzureVnetConfig** cmdlet을 사용하고 명령을 실행하여 네트워크 구성 파일을 업로드합니다. 명령 아래의 출력을 확인하면 **OperationStatus** 아래에 **Succeeded**가 표시됩니다. 그렇지 않으면 xml 파일에 오류가 있는지 확인합니다.
+10. Azure PowerShell 콘솔에서 **Set-AzureVnetConfig** cmdlet을 사용하고 아래 명령을 실행하여 네트워크 구성 파일을 업로드합니다. 명령 아래의 출력을 확인하면 **OperationStatus** 아래에 **Succeeded**가 표시됩니다. 그렇지 않으면 xml 파일에 오류가 있는지 확인합니다.
 
 		Set-AzureVNetConfig -ConfigurationPath c:\NetworkConfig.xml
+
+	다음은 위의 명령에 대해 예상된 출력입니다.
 
 		OperationDescription OperationId                          OperationStatus
 		-------------------- -----------                          ---------------
 		Set-AzureVNetConfig  49579cb9-3f49-07c3-ada2-7abd0e28c4e4 Succeeded 
 	
-11. Azure PowerShell 콘솔에서 **Get-AzureVnetSite** cmdlet을 사용하고 아래 명령을 실행하여 새 네트워크가 추가되었는지 확인합니다. 새 VNet의 속성을 포함하는 출력을 확인합니다.
+11. Azure PowerShell 콘솔에서 **Get-AzureVnetSite** cmdlet을 사용하고 아래 명령을 실행하여 새 네트워크가 추가되었는지 확인합니다.
 
 		Get-AzureVNetSite -VNetName TestVNet
+
+	다음은 위의 명령에 대해 예상된 출력입니다.
 
 		AddressSpacePrefixes : {192.168.0.0/16}
 		Location             : Central US
@@ -59,4 +65,4 @@ PowerShell과 netcfg 파일을 사용하여 VNet을 만들려면 다음 단계�
 		OperationId          : 3f35d533-1f38-09c0-b286-3d07cd0904d8
 		OperationStatus      : Succeeded
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

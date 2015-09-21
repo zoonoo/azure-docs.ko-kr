@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/08/2015" 
 	ms.author="heidist"/>
 
 # Azure 검색을 위한 프로토타입 응용 프로그램 빌드
@@ -80,7 +80,7 @@ Azure 테이블 저장소 등, 기본적으로 JSON을 사용하는 데이터 �
 
 JSON 파일에 데이터를 가져올 수 있는 경우, 해당 데이터로 기존 파일을 덮어쓴 다음 응용 프로그램을 실행하여 인덱스를 만들고 로드할 수 있습니다. 데이터를 여러 파일로 분산하면 배치 작업을 실험하는 데 도움이 됩니다.
 
-데이터를 로드는 다른 방법에는 인덱서 사용이 있습니다(Azure DocumentDB 데이터 원본 또는 Azure SQL 데이터베이스 데이터 원본 필요). 추가적인 데이터 로드 방법을 시험하는 예제 코드는 MSDN의 [Azure 검색 비디오 및 자습서 목록](https://msdn.microsoft.com/library/azure/dn818681.aspx)에서 제공합니다.
+데이터를 로드는 다른 방법에는 인덱서 사용이 있습니다(Azure DocumentDB 데이터 원본 또는 Azure SQL 데이터베이스 데이터 원본 필요). 추가적인 데이터 로드 방법을 시험하는 샘플 코드는 MSDN의 [Azure 검색 비디오 및 자습서 목록](search-video-demo-tutorial-list.md)에서 제공합니다.
 
 ### 쿼리 편집
 
@@ -133,4 +133,4 @@ JSON 파일에 데이터를 가져올 수 있는 경우, 해당 데이터로 기
 [1]: ./media/search-build-prototype/azsearch-datafiles.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

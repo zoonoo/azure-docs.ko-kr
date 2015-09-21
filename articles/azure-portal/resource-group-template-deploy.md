@@ -1,63 +1,33 @@
 <properties
-   pageTitle="Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포"
-	services="azure-resource-manager"
-	description="Azure 리소스 관리자를 사용하여 Azure에 응용 프로그램 배포 템플릿은 JSON 파일로, 포털, PowerShell, Mac/Linux/Windows용 Azure 명령줄 인터페이스 또는 REST에서 사용할 수 있습니다."
-	documentationCenter="na"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+   pageTitle="리소스 관리자 템플릿을 사용하여 리소스 배포 | Microsoft Azure"
+   services="azure-resource-manager"
+   description="Azure 리소스 관리자를 사용하여 Azure에 리소스를 배포합니다. 템플릿은 JSON 파일로, 포털, PowerShell, Mac/Linux/Windows용 Azure 명령줄 인터페이스 또는 REST에서 사용할 수 있습니다."
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/20/2015"
-	ms.author="tomfitz"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/09/2015"
+   ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포
 
 이 항목에서는 Azure 리소스 관리자 템플릿을 사용하여 Azure에 응용 프로그램을 배포하는 방법을 설명합니다. 여기서는 Azure PowerShell, Azure CLI, REST API 또는 Microsoft Azure Preview 포털을 사용하여 응용 프로그램을 배포합니다.
 
-Azure 리소스 관리자 서식 파일을 사용 하 쉽고 빠르게 선언적 JSON 통해 Azure에서 응용 프로그램을 프로 비전 할 수 있습니다. 단일 JSON 템플릿에서 가상 컴퓨터, 가상 네트워크, 저장소, 앱 서비스, 데이터베이스 등과 같은 여러 서비스를 배포할 수 있습니다. 동일한 템플릿을 사용하여 응용 프로그램 수명 주기의 각 단계 중에 응용 프로그램을 반복해서 일관되게 배포합니다.
-
-응용 프로그램 관리를 단순화하기 위해, 공통 수명 주기를 공유하는 모든 리소스 그룹을 단일 리소스 그룹으로 정리할 수 있습니다. 리소스 그룹을 사용하면 쉽게 모든 관련 리소스를 한꺼번에 배포, 업데이트 및 삭제할 수 있습니다. 대부분의 경우 리소스 그룹은 단일 응용 프로그램이나 응용 프로그램 계층(대규모 응용 프로그램의 경우)에 매핑됩니다. 템플릿을 통해 배포한 리소스는 단일 리소스 그룹 안에 상주하지만 다른 리소스 그룹과의 종속성을 포함할 수 있습니다.
-
-리소스 그룹 안에서는 배포 실행을 추적하고, 배포 상태와 템플릿 실행의 출력을 확인할 수 있습니다.
+리소스 관리자에 대한 소개는 [Azure 리소스 관리자 개요](../resource-group-overview.md)를 참조하세요. 템플릿을 만드는 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
 
 템플릿을 사용하여 응용 프로그램을 배포할 때는 매개 변수 값을 제공하여 리소스가 만들어지는 방식을 사용자 지정할 수 있습니다. 이 매개 변수의 값은 인라인 또는 매개 변수 파일로 지정할 수 있습니다.
-
-## 개념
-
-- 리소스 그룹 - 공통 수명 주기를 공유하는 엔터티 모음
-- 리소스 관리자 템플릿 - 배포의 목표 상태를 정의하는 선언 JSON 파일
-- 배포 - 리소스 관리자 템플릿의 실행을 추적하는 작업
-- 매개 변수 - 배포된 리소스를 사용자 지정하기 위해 배포를 실행하는 사용자가 제공한 값
-- 매개 변수 파일 - 매개 변수 이름과 값을 저장하는 JSON 파일 
-
-## 시나리오
-
-리소스 관리자 템플릿을 사용하면 다음이 가능합니다.
-
-- 복잡한 다계층 응용 프로그램 배포(예: Microsoft SharePoint)
-- 일관되고 반복적인 응용 프로그램 배포
-- 개발, 테스트 및 프로덕션 환경 지원
-- 배포 상태 확인
-- 배포 감사 로그를 통한 배포 실패 문제 해결
-
-## 미리 보기 포털로 배포
-
-어떤 혜택이 있을까요? Azure 리소스 관리자 템플릿은 [Preview 포털](https://portal.azure.com/)을 통해 만든 모든 응용 프로그램을 지원합니다. 포털을 통해 가상 컴퓨터, 가상 네트워크, 저장소 계정, 앱 서비스 또는 데이터베이스를 만들기만 하면 추가적인 작업 없이도 Azure 리소스 관리자의 혜택을 만끽할 수 있습니다. **새로 만들기** 아이콘을 선택하기만 하면 Azure 리소스 관리자를 통해 응용 프로그램을 배포하는 과정이 진행됩니다.
-
-![새로 만들기](./media/resource-group-template-deploy/new.png)
-
-Azure 리소스 관리자와 포털 사용에 대한 자세한 내용은 [Azure Preview 포털을 사용하여 Azure 리소스 관리](resource-group-portal.md)를 참조하세요.
 
 
 ## PowerShell을 사용하여 배포
 
-이전에 리소스 관리자에서 Azure PowerShell을 사용하지 않은 경우 [Azure 리소스 관리자와 함께 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요.
+[Microsoft 웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)를 실행하여 Azure PowerShell 모듈을 다운로드하고 설치할 수 있습니다.
 
 1. Azure 계정에 로그인합니다. 자격 증명을 제공하면 사용자 계정에 대한 정보가 반환됩니다.
 
@@ -171,13 +141,13 @@ Azure 리소스 관리자와 포털 사용에 대한 자세한 내용은 [Azure 
    
      다음과 같은 방법으로 매개 변수 값을 제공할 수 있습니다.
 
-     - 인라인 매개 변수 및 로컬 템플릿을 사용합니다.
+     - 인라인 매개 변수 및 로컬 템플릿을 사용합니다. 각 매개 변수는 `"ParameterName": { "value": "ParameterValue" }` 형식을 사용합니다. 다음 예제에서는 이스케이프 문자를 사용한 매개 변수를 보여줍니다.
 
-             azure group deployment create -f <PathToTemplate> {"ParameterName":"ParameterValue"} -g ExampleResourceGroup -n ExampleDeployment
+             azure group deployment create -f <PathToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
 
      - 인라인 매개 변수 및 템플릿 링크를 사용합니다.
 
-             azure group deployment create --template-uri <LinkToTemplate> {"ParameterName":"ParameterValue"} -g ExampleResourceGroup -n ExampleDeployment
+             azure group deployment create --template-uri <LinkToTemplate> -p "{"ParameterName":{"value":"ParameterValue"}}" -g ExampleResourceGroup -n ExampleDeployment
 
      - 매개 변수 파일을 사용합니다. 템플릿 파일에 대한 정보는 [매개 변수 파일](./#parameter-file)을 참조하세요.
     
@@ -236,6 +206,15 @@ Azure 리소스 관리자와 포털 사용에 대한 자세한 내용은 [Azure 
          GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
            <common headers>
 
+## 미리 보기 포털로 배포
+
+어떤 혜택이 있을까요? Azure 리소스 관리자 템플릿은 [Preview 포털](https://portal.azure.com/)을 통해 만든 모든 응용 프로그램을 지원합니다. 포털을 통해 가상 컴퓨터, 가상 네트워크, 저장소 계정, 앱 서비스 또는 데이터베이스를 만들기만 하면 추가적인 작업 없이도 Azure 리소스 관리자의 혜택을 만끽할 수 있습니다. **새로 만들기** 아이콘을 선택하기만 하면 Azure 리소스 관리자를 통해 응용 프로그램을 배포하는 과정이 진행됩니다.
+
+![새로 만들기](./media/resource-group-template-deploy/new.png)
+
+Azure 리소스 관리자와 포털 사용에 대한 자세한 내용은 [Azure Preview 포털을 사용하여 Azure 리소스 관리](resource-group-portal.md)를 참조하세요.
+
+
 ## 매개 변수 파일
 
 배포 중에 매개 변수 값을 템플릿에 전달하는 데 매개 변수 파일을 사용하려면 다음 예와 유사한 형식의 JSON 파일을 만들어야 합니다.
@@ -266,4 +245,4 @@ Azure 리소스 관리자와 포털 사용에 대한 자세한 내용은 [Azure 
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

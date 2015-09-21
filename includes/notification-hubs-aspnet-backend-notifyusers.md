@@ -109,18 +109,18 @@
 
 ## WebAPI 백 엔드를 사용하여 알림 등록
 
-이 섹션에서는 알림 허브에 클라이언트 라이브러리(Azure 서비스 버스 클라이언트 라이브러리)를 사용하여 사용자 및 장치 등록 요청을 처리하는 새 컨트롤러를 WebAPI 백 엔드에 추가합니다. 이 컨트롤러는 `AuthenticationTestHandler`에 의해 인증되고 HttpContext에 연결된 사용자에 대한 사용자 태그를 추가합니다. 태그의 문자열 형식은 `"username:<actual username>"`입니다.
+이 섹션에서는 알림 허브에 클라이언트 라이브러리를 사용하여 알림을 위한 사용자 및 장치 등록 요청을 처리하는 새 컨트롤러를 WebAPI 백 엔드에 추가합니다. 이 컨트롤러는 `AuthenticationTestHandler`에 의해 인증되고 HttpContext에 연결된 사용자에 대한 사용자 태그를 추가합니다. 태그의 문자열 형식은 `"username:<actual username>"`입니다.
 
 
  
 
 1. 솔루션 탐색기에서 **AppBackend**프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
 
-2. 왼쪽에서 **온라인**을 클릭하고 **검색** 상자에 **servicebus**를 입력합니다.
+2. 왼쪽에서 **온라인**을 클릭하고 **검색** 상자에서 **Microsoft.Azure.NotificationHubs**를 검색합니다.
 
-3. 결과 목록에서 **Microsoft Azure 서비스 버스**를 클릭한 다음 **설치**를 클릭합니다. 설치를 완료한 다음, NuGet 패키지 관리자 창을 닫습니다.
+3. 결과 목록에서 **Microsoft Azure 알림 허브 서비스 관리 라이브러리**를 클릭한 후 **설치**를 클릭합니다. 설치를 완료한 다음, NuGet 패키지 관리자 창을 닫습니다.
 
-	![][B14]
+	그러면 <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet 패키지</a>를 사용하는 Azure 알림 허브 SDK에 대한 참조가 추가됩니다.
 
 4. 이제 전송할 다른 보안 알림을 나타내는 새 클래스 파일을 만듭니다. 완전한 구현에서 알림은 데이터베이스에 저장됩니다. 여기서는 단순화를 위해 메모리에 알림을 저장합니다. 솔루션 탐색기에서 **Models** 폴더를 마우스 오른쪽 단추로 클릭한 후 **추가**, **클래스**를 차례로 클릭합니다. 새 클래스 이름을 **Notifications.cs**로 지정한 후 **추가**를 클릭하여 클래스를 생성합니다.
 
@@ -128,7 +128,7 @@
 
 5. Notifications.cs에서 파일의 맨 위에 `using` 문을 추가합니다.
 
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
 
 6. `Notifications` 클래스 정의를 다음으로 바꾸고 두 개의 자리 표시자를 알림 허브에 대한 연결 문자열(모든 권한 사용) 및 허브 이름([Azure 관리 포털](http://manage.windowsazure.com)에서 얻을 수 있음)으로 바꿉니다.
 
@@ -269,7 +269,7 @@
 
 ## WebAPI 백 엔드에서 알림 보내기
 
-이 섹션에서는 클라이언트 장치가 ASP.NET WebAPI 백 엔드에서 Azure 서비스 버스 클라이언트 라이브러리를 사용하여 사용자 이름 태그에 따라 알림을 보낼 수 있는 방법을 제공하는 새 컨트롤러를 추가합니다.
+이 섹션에서는 클라이언트 장치가 ASP.NET WebAPI 백 엔드에서 Azure 알림 허브 서비스 관리 라이브러리를 사용하여 사용자 이름 태그에 따라 알림을 보낼 수 있는 방법을 제공하는 새 컨트롤러를 추가합니다.
 
 
 1. **NotificationsController**라는 다른 새 컨트롤러를 만듭니다. 이전 섹션에서 **RegisterController**를 만들 때와 동일한 방법으로 만듭니다.
@@ -359,4 +359,4 @@
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

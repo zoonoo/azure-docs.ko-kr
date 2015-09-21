@@ -27,7 +27,7 @@
 
 동영상을 시청하려는 경우 아래쪽의 클립은 이 자습서와 동일한 단계를 따릅니다.
 
-> [AZURE.VIDEO build-offline-apps-azure-mobile-services]
+> [AZURE.VIDEO build-offline-apps-with-mobile-services]
 
 이 자습서에서는 오프라인 동기화 충돌 처리를 지원하는 앱의 범용 Windows C# 솔루션을 다운로드합니다. 모바일 서비스를 앱과 통합한 후 Windows 스토어 8.1 및 Windows Phone 8.1 클라이언트를 실행하여 동기화 충돌을 생성하고 해결합니다.
 
@@ -164,4 +164,4 @@
 [Todo 오프라인 모바일 서비스 샘플]: http://go.microsoft.com/fwlink/?LinkId=512866
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

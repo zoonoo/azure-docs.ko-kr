@@ -2,7 +2,7 @@
 	pageTitle="Application Insights SDK를 추가하여 ASP.NET 앱 모니터링 | Microsoft Azure"
 	description="Application Insights를 사용하여 온-프레미스 또는 Microsoft Azure 웹 응용 프로그램의 사용량, 가용성 및 성능을 분석합니다."
 	services="application-insights"
-	documentationCenter=".net"
+    documentationCenter=".net"
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/05/2015"
+	ms.date="09/09/2015"
 	ms.author="awills"/>
 
 
@@ -108,25 +108,29 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 차트를 클릭하면 더 자세한 메트릭을 볼 수 있습니다. [메트릭에 대해 자세히 알아봅니다.][perf]
 
-이제 응용 프로그램을 배포하고 누적되는 데이터를 관찰합니다.
-
-
-디버그 모드에서 실행할 때는 파이프라인을 통해 원격 분석이 신속하게 수행되므로 데이터가 몇 초 내에 표시됩니다. 앱을 배포할 때는 데이터가 더 천천히 누적됩니다.
-
 #### 데이터가 없나요?
 
 * [검색][diagnostic] 타일을 열고 개별 이벤트를 봅니다.
 * 응용 프로그램을 사용하여 여러 페이지를 열어 원격 분석을 생성해 봅니다.
-* 몇 초 정도 기다렸다가 **새로 고침**을 클릭합니다. 차트는 주기적으로 새로 고쳐지지만 일부 데이터가 표시되기를 기다리는 경우에는 수동으로 새로 고칠 수 있습니다.
+* 몇 초 정도 기다렸다가 **새로고침**을 클릭합니다. 차트는 주기적으로 새로 고쳐지지만 일부 데이터가 표시되기를 기다리는 경우에는 수동으로 새로 고칠 수 있습니다.
 * [문제 해결][qna]을 참조하세요.
+
+## 응용 프로그램 게시
+
+이제 응용 프로그램을 IIS 또는o Azure에 배포하고 누적되는 데이터를 관찰합니다.
+
+디버그 모드에서 실행할 때는 파이프라인을 통해 원격 분석이 신속하게 수행되므로 데이터가 몇 초 내에 표시됩니다. 앱을 배포할 때는 데이터가 더 천천히 누적됩니다.
+
 
 #### 빌드 서버에 문제가 있나요?
 
 [이 문제 해결 항목](app-insights-troubleshoot-faq.md#NuGetBuild)을 참조하세요.
 
-## 5\. 종속성 추적 추가
+## 5\. 종속성 추적 및 성능 카운터 추가
 
 SDK에는 일부 데이터에 액세스할 경우 다음과 같은 도움이 필요 합니다. 특히 자동으로 데이터베이스, REST Api 및 기타 외부 구성 요소를 앱에서 호출을 측정하기 위해 이 추가 단계가 필요합니다. 종속성 메트릭은 성능 문제 진단을 도와줄 때 매우 유용합니다.
+
+이 단계를 사용하면 [성능 카운터의 보고](app-insights-web-monitor-performance.md#system-performance-counters)(예: CPU, 메모리, 네트워크 선점)도 가능합니다.
 
 #### 앱이 IIS 서버에서 실행되는 경우
 
@@ -138,9 +142,13 @@ SDK로 빌드되지 않은 경우에도 상태 모니터를 사용하여 [이미
 
 Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
-![웹앱, 도구, 성능 모니터링에서 Application Insights를 추가합니다.](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
+![웹앱에서 설정, 확장, 추가, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
 
-(확장은 SDK로 빌드된 앱만 보조해 줍니다. 상태 모니터와는 달리, 기존 응용 프로그램을 계측할 수 없습니다.)
+(확장은 SDK로 빌드되어 Azure에 게시된 앱만 보조해 줍니다. 상태 모니터와는 달리, 기존 응용 프로그램을 계측할 수 없습니다.)
+
+#### Azure 클라우드 서비스 프로젝트 만들기인 경우
+
+[웹 및 작업자 역할에 스크립트 추가](app-insights-cloudservices.md)
 
 ## 6\. 클라이언트쪽 모니터링을 추가 합니다.
 
@@ -152,7 +160,7 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 앱을 웹 페이지에 표시하는 경우, 모든 페이지에 JavaScript 코드 조각을 추가합니다. Application Insights 리소스에서 코드를 가져옵니다.
 
-![웹앱에서, 빠른 시작을 열고 '내 웹 페이지를 모니터링하는 코드를 얻기'를 클릭합니다.](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
+![웹앱에서, 빠른 시작을 열고 '내 웹 페이지를 모니터링하는 코드를 얻기'를 클릭 합니다.](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
 
 코드는 응용 프로그램 리소스를 식별하는 계측 키를 포함한다는 것을 참고하세요.
 
@@ -240,4 +248,4 @@ Visual Studio는 Application Insights에서 리소스를 만들고, SDK를 프�
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

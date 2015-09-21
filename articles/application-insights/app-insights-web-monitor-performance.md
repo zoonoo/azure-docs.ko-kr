@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="09/08/2015" 
 	ms.author="awills"/>
  
 # 웹 응용 프로그램의 성능 모니터링
@@ -22,21 +22,24 @@
 
 응용 프로그램이 정상적으로 작동하는지 확인하고 오류가 발생하는지 신속하게 파악합니다. [Application Insights][start]는 성능 문제 및 예외에 대한 정보와, 이러한 현상에 대한 근본 원인을 확인하고 진단하는 기능을 제공합니다.
 
-Application Insights는 온-프레미스 또는 가상 컴퓨터와 Microsoft Azure 웹 사이트에서 호스트되는 ASP.NET 웹 응용 프로그램과 WCF 서비스를 모니터링할 수 있습니다.
+Application Insights에서 Java 및 ASP.NET 웹 응용 프로그램과 서비스, WCF 서비스를 모니터링할 수 있습니다. 온-프레미스, 가상 컴퓨터에서 또는 Microsoft Azure 웹 사이트로 호스팅할 수 있습니다.
+
+Application Insights는 클라이언트쪽에서 iOS, Android 및 Windows 스토어 앱을 포함하여 다양한 장치 및 웹 페이지에서 원격 분석을 수행할 수 있습니다.
 
 
 ## <a name="setup"></a>성능 모니터링 설정
 
 Application Insights를 아직 프로젝트에 추가하지 않은 경우(프로젝트에 ApplicationInsights.config가 없음) 다음 방법 중 하나를 선택하여 작업을 시작합니다.
 
-* [Visual Studio의 앱 프로젝트에 Application Insights 추가][greenbrown] - 권장 방법입니다. 이 방식을 사용하면 수동 성능 모니터링을 수행할 수 있을 뿐 아니라 진단 로깅을 삽입하고 사용 현황을 추적할 수도 있습니다.
-* [라이브 웹 사이트의 성능 모니터링][redfield] - 이 방식을 사용하는 경우 응용 프로그램 프로젝트를 업데이트하거나 웹 사이트를 다시 배포하지 않아도 됩니다.
-* [Microsoft Azure 웹 사이트](../insights-how-to-customize-monitoring.md)의 경우웹 사이트의 모니터링 렌즈에서도 이미 메트릭을 볼 수 있습니다. 
-
-이러한 방법 중 하나를 사용하여 Application Insights의 개요 블레이드에서 데이터를 신속하게 보게됩니다.
+* [ASP.NET 웹 앱](app-insights-asp-net.md)
+* [J2EE 웹앱](app-insights-java-get-started.md)
 
 
-## <a name="view"></a>메트릭 탐색
+## <a name="view"></a>성능 메트릭 탐색
+
+[Azure 포털](https://portal.azure.com)에서 응용 프로그램에 대해 설정한 Application Insights 리소스를 찾습니다. 개요 블레이드에 기본 성능 데이터가 표시됩니다.
+
+
 
 무엇이든 클릭하면 추가 세부 정보와 장기간에 걸친 결과를 확인할 수 있습니다. 예를 들어 요청 타일을 클릭하고 시간 범위를 선택합니다.
 
@@ -183,4 +186,4 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

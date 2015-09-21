@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="required" 
-   ms.date="07/08/2015"
+   ms.date="09/08/2015"
    ms.author="heidist"/>
 
 # Azure 검색의 사용량 및 통계 모니터링
@@ -45,7 +45,7 @@ Azure 검색 REST API와 .NET SDK는 모두 서비스 메트릭에 대한 프로
 
 ## 다음 단계
 
-기존 용량이 충분하지 않은 경우 [제한 및 용량](https://msdn.microsoft.com/library/azure/dn798934.aspx)을 검토하여 필요한 파티션과 복제본의 조합을 확인합니다.
+기존 용량이 충분하지 않은 경우 [제한 및 용량](search-limits-quotas-capacity.md)을 검토하여 필요한 파티션과 복제본의 조합을 확인합니다.
 
 서비스 관리에 대한 자세한 내용은 [Microsoft Azure에서 검색 서비스 관리](search-manage.md)를 방문하십시오.
 
@@ -57,4 +57,4 @@ Azure 검색 REST API와 .NET SDK는 모두 서비스 메트릭에 대한 프로
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

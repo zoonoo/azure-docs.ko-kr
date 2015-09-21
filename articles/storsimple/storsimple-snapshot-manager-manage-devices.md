@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="StorSimple 스냅숏 관리자를 사용하여 StorSimple 장치 연결 및 관리 | Microsoft Azure"
+   pageTitle="StorSimple 스냅숏 관리자에서 장치 관리 | Microsoft Azure"
    description="StorSimple 스냅숏 관리자 MMC 스냅인을 사용하여 StorSimple 장치를 연결하고 관리하는 방법을 설명합니다."
    services="storsimple"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/18/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자를 사용하여 StorSimple 장치 연결 및 관리
@@ -262,4 +262,4 @@ StorSimple 장치에서 오류가 발생하여 대기(장애 조치(failover)) �
 
 [StorSimple 스냅숏 관리자를 사용하여 볼륨 보기 및 관리](storsimple-snapshot-manager-manage-volumes.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

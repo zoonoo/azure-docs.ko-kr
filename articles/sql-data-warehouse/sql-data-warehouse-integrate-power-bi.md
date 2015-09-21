@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="09/09/2015"
    ms.author="lodipalm"/>
 
 # SQL 데이터 웨어하우스와 함께 Power BI 사용
@@ -51,17 +51,15 @@ Power BI에서 열기 단추를 사용 하는 것 외에도 사용자는 Power B
 ## 매개 변수 값 찾기
 정규화된 서버 이름과 데이터베이스 이름을 Azure 포털에서 찾을 수 있습니다. 이 때 SQL 데이터 웨어하우스만이 Azure Preview 포털에서 있음에 유의합니다.
 
-## 다음 단계
-통합 개요는 [SQL 데이터 웨어하우스 통합 개요][]를 참조하세요. 더 많은 개발 팁은 [SQL 데이터 웨어하우스 개발 개요][]를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL 데이터 웨어하우스 개발 개요]: ./sql-data-warehouse-overview-develop/
-[SQL 데이터 웨어하우스 통합 개요]: ./sql-data-warehouse-overview-integration/
+[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/
+[SQL Data Warehouse integration overview]: ./sql-data-warehouse-overview-integration/
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

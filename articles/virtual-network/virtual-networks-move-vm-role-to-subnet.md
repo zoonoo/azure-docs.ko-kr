@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="05/29/2015"
+   ms.date="09/04/2015"
    ms.author="telmos" />
 
 # 다른 서브넷으로 VM 또는 역할 인스턴스를 이동하는 방법
@@ -51,4 +51,4 @@ VM에 대한 고정 DIP를 지정한 경우 먼저 해당 설정을 제거해야
 	    </AddressAssignments>
 	</NetworkConfiguration> 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

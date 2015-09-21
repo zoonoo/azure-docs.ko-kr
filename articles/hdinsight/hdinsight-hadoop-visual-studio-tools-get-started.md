@@ -1,6 +1,7 @@
 <properties
 	pageTitle="HDInsight용 Visual Studio Hadoop 도구를 사용하는 방법 알아보기 | Microsoft Azure"
 	description="HDInsight용 Visual Studio Hadoop 도구를 설치하고 이를 사용하여 Hadoop 클러스터에 연결한 후 Hive 쿼리를 실행하는 방법에 대해 알아봅니다."
+	keywords="hadoop tools,hive query,visual studio"
 	services="HDInsight"
 	documentationCenter=""
 	tags="azure-portal"
@@ -14,17 +15,14 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="07/28/2015"
+	ms.date="09/03/2015"
 	ms.author="jgao"/>
 
 # HDInsight용 Visual Studio Hadoop 도구를 사용하여 Hive 쿼리 실행 시작
 
 Visual Studio용 HDInsight 도구를 사용하여 HDInsight 클러스터에 연결하고 Hive 쿼리를 제출하는 방법에 대해 알아봅니다. HDInsight 사용에 대한 자세한 내용은 [HDInsight 소개][hdinsight.introduction] 및 [HDInsight 시작][hdinsight.get.started]을 참조하세요. Storm 클러스터에 연결하는 방법에 대한 자세한 내용은 Visual Studio를 사용하여 [HDInsight에서 Apache Storm용 C# 토폴로지 개발][hdinsight.storm.visual.studio.tools]을 참조하세요.
 
->[AZURE.NOTE]최신 릴리스에는 Hive 편집기 지원, Hive 스크립트 로컬 유효성 검사 및 YARN 로그 액세스와 같은 몇 가지 새로운 기능이 도입되었습니다.
-
-
-## 필수 조건
+**필수 구성 요소**
 
 이 자습서를 완료하고 Visual Studio에서 Hadoop 도구를 사용하려면 다음이 필요합니다.
 
@@ -176,7 +174,7 @@ Hive 작업에 대한 작업 쿼리, 작업 출력, 작업 로그 및 Yarn 로�
 **Hive 작업을 보려면**
 
 1. **서비스 탐색기**에서 **Azure**를 확장한 후 **HDInsight**를 확장합니다.
-2. HDInsight 클러스터를 마우스 오른쪽 단추로 클릭한 다음 **Hive 작업 보기**를 클릭합니다. 클러스터에서 실행한 Hive 작업 목록이 표시됩니다.
+2. HDInsight 클러스터를 마우스 오른쪽 단추로 클릭한 다음 **작업 보기**를 클릭합니다. 클러스터에서 실행한 Hive 작업 목록이 표시됩니다.
 3. 작업 목록에서 작업을 클릭하여 선택하고 **Hive 작업 요약** 창을 사용하여 **작업 쿼리**, **작업 출력**, **작업 로그** 또는 **Yarn 로그**를 엽니다.
 
 	![Hadoop 도구: HDInsight Visual Studio Tools 새 Hive 작업][12]
@@ -188,6 +186,8 @@ HDInsight Visual Studio Tools는 Tez 실행 엔진이 실행한 Hive 작업에 �
 > [AZURE.NOTE]이 기능은 HDInsight 클러스터의 3.2.4.593 상위 버전에서만 사용할 수 있으며 완료된 작업에 대해서만 동작할 수 있습니다. Windows 및 Linux 기반 클러스터 모두에 대해 동작합니다.
 
 ![hadoop hive tez 성능 그래프](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.hive.tez.performance.graph.png)
+
+Hive 쿼리를 파악하는 데 도움이 되도록 이 릴리스에서는 도구에 Hive 운영자 뷰 기능이 추가되었습니다. 작업 그래프의 꼭짓점을 두 번 클릭해야 꼭짓점 내의 모든 운영자를 볼 수 있습니다. 특정 운영자에 대한 자세한 정보를 보려면 이 운영자를 마우스로 가리킵니다.
 
 ## Pig 스크립트 실행
 
@@ -236,4 +236,4 @@ Visual Studio용 HDInsight 도구는 Pig 스크립트를 만들어 HDInsight 클
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

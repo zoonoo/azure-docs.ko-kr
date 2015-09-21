@@ -33,6 +33,8 @@ Azure 인프라 서비스에서 인트라넷 SharePoint 팜을 호스트하는 �
 
 다음 단계는 Azure에서 호스트되는 개발/테스트 인트라넷 SharePoint 팜을 설정하는 것입니다.
 
+> [AZURE.NOTE]Microsoft은 SharePoint Server 2016 IT Preview를 출시했습니다. 이 Preview를 보다 쉽게 설치하고 테스트하기 위해 SharePoint Server 2016 IT Preview 및 해당 필수 구성 요소가 미리 설치된 상태에서 Azure 가상 컴퓨터 갤러리 이미지를 사용할 수 있습니다. 자세한 내용은 [Azure에서 SharePoint Server 2016 IT Preview 테스트](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)를 참조하세요.
+
 ## Azure에서 호스트되는 개발/테스트 인트라넷 SharePoint 팜 만들기
 
 Azure에서 호스트되는 SharePoint 팜에 대한 개발/테스트 환경을 만들 수 있는 두 가지 옵션이 있습니다.
@@ -124,4 +126,4 @@ Azure에서 호스트되는 SharePoint 팜에 대한 개발/테스트 환경을 
 
 [Azure 인프라 서비스 작업: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

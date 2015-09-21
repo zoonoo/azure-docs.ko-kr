@@ -1,10 +1,10 @@
 <properties 
-   pageTitle="StorSimple 스냅숏 관리자를 사용하여 볼륨 그룹 만들기 및 관리 | Microsoft Azure"
+   pageTitle="StorSimple 스냅숏 관리자 볼륨 그룹 | Microsoft Azure"
    description="StorSimple 스냅숏 관리자 MMC 스냅인을 사용하여 볼륨 그룹을 만들고 관리하는 방법을 설명합니다."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="07/09/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자를 사용하여 볼륨 그룹 만들기 및 관리
@@ -142,4 +142,4 @@
 
 [StorSimple 스냅숏 관리자를 사용하여 백업 정책을 만들고 관리합니다](storsimple-snapshot-manager-manage-backup-policies.md).
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="작성자 논리 앱 정의"
-	description="논리 앱에 대한 JSON 정의 작성 방법을 알아봅니다."
-	authors="stepsic-microsoft-com"
-	manager="dwrede"
-	editor=""
-	services="app-service\logic"
+	pageTitle="작성자 논리 앱 정의" 
+	description="논리 앱에 대한 JSON 정의 작성 방법을 알아봅니다." 
+	authors="stepsic-microsoft-com" 
+	manager="dwrede" 
+	editor="" 
+	services="app-service\logic" 
 	documentationCenter=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/08/2015"
 	ms.author="stepsic"/>
 	
 #작성자 논리 앱 정의
@@ -686,6 +686,41 @@ Content-type: application/json
 }
 ``` 
 
-그러면 각 환경에서 `connection` 매개 변수에 대해 다른 값을 제공할 수 있습니다. 논리 앱 만들기 및 관리에 대한 가능한 모든 옵션은 [REST API 설명서](https://msdn.microsoft.com/library/azure/dn948513.aspx)를 참조하십시오.
+그러면 각 환경에서 `connection` 매개 변수에 대해 다른 값을 제공할 수 있습니다.
 
-<!---HONumber=September15_HO1-->
+## 조건이 충족될 때까지 단계 실행
+
+호출 중인 API가 있을 수 있으며 특정 응답을 기다렸다가 진행하려 할 수 있습니다. 예를 들어, 다른 사용자가 디렉터리에 파일을 업로드할 때까지 기다렸다가 파일을 처리한다고 가정해 보겠습니다. *do-until*로 이 작업을 수행할 수 있습니다.
+
+```
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2014-12-01-preview/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "triggers": {},
+    "actions": {
+        "http0": {
+            "type": "Http",
+            "inputs": {
+                "method": "GET",
+                "uri": "http://mydomain/listfiles"
+            },
+            "until": {
+                "limit": {
+                    "timeout": "PT10M"
+                },
+                "conditions": [
+                    {
+                        "expression": "@greater(length(action().outputs.body),0)"
+                    }
+                ]
+            }
+        }
+    },
+    "outputs": {}
+}
+```
+
+논리 앱 만들기 및 관리에 대한 가능한 모든 옵션은 [REST API 설명서](https://msdn.microsoft.com/library/azure/dn948513.aspx)를 참조하십시오.
+
+<!---HONumber=Sept15_HO2-->

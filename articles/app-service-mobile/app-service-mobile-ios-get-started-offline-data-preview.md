@@ -88,7 +88,7 @@ Azure 모바일 앱의 오프라인 데이터 동기화 기능을 사용하면 �
 
     `pullWithQuery`에 대한 두 번째 매개 변수는 *증분 동기화*에 사용되는 쿼리 ID입니다. 증분 동기화는 레코드의 `UpdatedAt` 타임스탬프(로컬 저장소에서는 `ms_updatedAt`이라고 함)를 사용하여 마지막 동기화 이후에 수정된 레코드만 검색합니다. 쿼리 ID는 앱의 각 논리 쿼리에 고유한 설명 문자열이어야 합니다. 증분 동기화를 옵트아웃하려면 `nil`을 쿼리 ID로 전달합니다. 이 경우 각 끌어오기 작업에서 모든 레코드가 검색되므로 비효율적일 수 있습니다.
 
-	<!--     >[AZURE.NOTE] 모바일 서비스 데이터베이스에서 삭제된 레코드를 장치 로컬 저장소에서 제거하려면 [일시 삭제]를 사용해야 합니다. 그렇지 않으면 앱이 주기적으로 {MSSyncTable.purgeWithQuery}에 대해 호출하여 로컬 저장소를 제거합니다.
+	<!--     >[AZURE.NOTE] To remove records from the device local store when they have been deleted in your mobile service database, you should enable [Soft Delete]. Otherwise, your app should periodically call `MSSyncTable.purgeWithQuery` to purge the local store.
  -->
 
 5. `QSTodoService` 클래스에서 `syncData` 메서드는 데이터, `addItem` 및 `completeItem`을 수정하는 작업 뒤에 호출됩니다. 사용자가 새로 고침 제스처를 수행할 때마다 최신 데이터를 가져오도록 `QSTodoListViewController.refresh`에서도 호출됩니다. `QSTodoListViewController.init`이(가) `refresh`을(를) 호출하므로 앱이 시작될 때도 동기화를 수행합니다.
@@ -105,7 +105,7 @@ Azure 모바일 앱의 오프라인 데이터 동기화 기능을 사용하면 �
       * MS\_TableConfig: 모든 끌어오기 작업에 대한 마지막 동기화 작업의 마지막 업데이트 시간 추적
       * TodoItem: 할 일 항목 저장 시스템 열 **ms\_createdAt**, **ms\_updatedAt** 및 **ms\_version**은 선택적 시스템 속성입니다.
 
->[AZURE.NOTE]Azure 모바일 앱 SDK는 '**`ms_`**'로 시작하는 열 이름을 예약합니다. 시스템 열 이외의 항목에는 이 접두사를 사용하지 않아야 합니다. 그렇지 않으면 원격 백 엔드를 사용할 때 열 이름이 수정됩니다.
+>[AZURE.NOTE]Azure 모바일 앱 SDK는 "**`ms_`**"로 시작하는 열 이름을 예약합니다. 시스템 열 이외의 항목에는 이 접두사를 사용하지 않아야 합니다. 그렇지 않으면 원격 백 엔드를 사용할 때 열 이름이 수정됩니다.
 
 - 오프라인 동기화 기능을 사용할 경우 아래와 같이 시스템 테이블을 정의해야 합니다.
 
@@ -140,7 +140,7 @@ Azure 모바일 앱의 오프라인 데이터 동기화 기능을 사용하면 �
 
     | 특성 | 형식 |
     |----------- |   ------    |
-    | id | 정수 64 |
+    | id | String |
     | key | String |
     | keyType | 정수 64 |
     | 테이블 | String |
@@ -248,4 +248,4 @@ Azure 모바일 앱에 대한 일반적인 CRUD 작업은 앱이 계속 연결�
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

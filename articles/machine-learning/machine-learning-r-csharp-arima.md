@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="예측: ARIMA(자동 회귀 통합 이동 평균) | Microsoft Azure"
-	description="예측 - ARIMA(자동 회귀 통합 이동 평균)"
-	services="machine-learning"
-	documentationCenter=""
-	authors="jaymathe"
-	manager="paulettm"
+	pageTitle="예측: ARIMA(자동 회귀 통합 이동 평균) | Microsoft Azure" 
+	description="예측 - ARIMA(자동 회귀 통합 이동 평균)" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="yijichen" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="jaymathe"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/02/2015" 
+	ms.author="yijichen"/>
 
  
 #예측 - ARIMA(자동 회귀 통합 이동 평균)
@@ -138,4 +138,4 @@ Azure 기계 학습 내에서 새로운 빈 실험이 만들어졌습니다. 샘
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

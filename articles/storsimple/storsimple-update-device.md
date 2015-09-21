@@ -12,10 +12,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/19/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
-# StorSimple 장치 업데이트
+# StorSimple 8000 시리즈 장치 업데이트
 
 ## 개요
 
@@ -119,4 +119,4 @@ Microsoft Azure StorSimple에 대한 업데이트와 달리 핫픽스는 공유 
 [StorSimple용 Windows PowerShell을 사용하여 StorSimple 장치를 관리하는 방법 알아보기](storsimple-windows-powershell-administration.md).
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

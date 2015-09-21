@@ -1,6 +1,6 @@
 <properties
-	pageTitle="인증된 사용자에게 푸시 알림 보내기"
-	description="특정 사용자에게 푸시 알림을 보내는 방법에 대해 알아봅니다."
+	pageTitle="Android 앱의 인증된 사용자에게 푸시 알림 보내기(.NET 백 엔드)"
+	description=".NET 백 엔드와 함께 모바일 서비스를 사용하는 Android 앱의 인증된 특정 사용자에게 푸시 알림을 보내는 방법에 대해 알아봅니다."
 	services="mobile-services,notification-hubs"
 	documentationCenter="android"
 	authors="wesmc7777"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="notification-hubs"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015" 
 	ms.author="wesmc"/>
 
-# 인증된 사용자에게 푸시 알림 보내기
+# Android 앱의 인증된 사용자에게 푸시 알림 보내기
 
 [AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
@@ -25,7 +25,7 @@
 이 항목에서는 등록된 모든 장치에서 인증된 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. 이전의 [푸시 알림][Get started with push notifications] 자습서와 달리, 이 자습서에서는 먼저 사용자가 인증된 후에야 클라이언트가 푸시 알림을 받기 위해 알림 허브에 등록할 수 있도록 모바일 서비스를 변경합니다. 할당된 사용자 ID에 따라 태그를 추가하도록 등록도 수정됩니다. 마지막으로 서버 코드는 모든 등록 대신 인증된 사용자에게만 알림을 보내도록 업데이트됩니다.
 
 
-이 자습서에서는 Android 앱이 지원됩니다.
+이 자습서에서는.Net 백 엔드와 함께 모바일 서비스를 사용하는 Android 앱을 지원합니다.
 
 ##필수 조건
 
@@ -63,4 +63,4 @@ In the next tutorial, [Service-side authorization of Mobile Services users](mobi
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -1,36 +1,30 @@
 <properties
    pageTitle="Azure 데이터 카탈로그 릴리스 정보"
-	description="Azure 데이터 카탈로그의 2015년 8월 28일 공개 미리 보기 릴리스 정보"
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+   description="Azure 데이터 카탈로그의 2015년 8월 28일 공개 미리 보기 릴리스 정보"
+   services="data-catalog"
+   documentationCenter=""
+   authors="steelanddata"
+   manager="NA"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="08/28/2015"
-	ms.author="maroche"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="09/04/2015"
+   ms.author="maroche"/>
 
 # Azure 데이터 카탈로그 릴리스 정보
 
-## Azure 데이터 카탈로그의 2015년 8월 28일 릴리스 정보
+## Azure 데이터 카탈로그의 2015년 9월 4일 릴리스 정보
 
-### 일부 등록된 데이터 자산에 대한 데이터 프로필이 누락됨
+### 일부 등록된 데이터 자산에 대한 데이터 프로필이 누락될 수 있음
 
-데이터 원본 등록 도구에서 선택한 데이터 프로파일링 옵션을 사용하여 데이터 원본을 등록하는 경우 다음과 같은 시나리오에서 데이터 프로필 정보가 포함되지 않을 수 있습니다.
+데이터 원본 등록 도구에서 선택한 데이터 프로파일링 옵션을 사용하여 데이터 원본을 등록하는 경우 열 이름에 멀티바이트 문자열이 포함된 Oracle 테이블 및 뷰를 등록할 때 데이터 프로필 정보가 포함되지 않을 수 있습니다.
 
-* Azure SQL 데이터베이스 테이블
-* 서로 다른 스키마에 동일한 이름을 가진 여러 개체가 있는 SQL Server 테이블 및 뷰
-* 열 이름이 118자보다 큰 SQL Server 테이블 및 뷰
-* 열 이름이 20자보다 큰 Oracle 테이블 및 뷰
-* 열 이름에 공백 또는 더블 바이트 문자가 포함된 Oracle 테이블 및 뷰
-
-이러한 제한 사항은 8월 28일 릴리스의 알려진 문제로 인한 것이며 Azure 데이터 카탈로그의 향후 업데이트에서 해결될 예정입니다.
+이러한 제한 사항은 9월 4일 릴리스의 알려진 문제로 인한 것이며 Azure 데이터 카탈로그의 향후 업데이트에서 해결될 예정입니다.
 
 ## Azure 데이터 카탈로그의 2015년 7월 13일 릴리스 정보
 
@@ -83,4 +77,4 @@ Azure 데이터 카탈로그 포털에 로그온할 수 있는 상황이 발생�
 
 RegistrationTool.exe.config 파일을 찾으려면 등록 도구를 시작하여 Windows 작업 관리자 유틸리티를 엽니다. 작업 관리자의 세부 정보 탭에서 RegistrationTool.exe를 마우스 오른쪽 단추로 클릭하고 팝업 메뉴에서 파일 위치 열기를 선택합니다.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

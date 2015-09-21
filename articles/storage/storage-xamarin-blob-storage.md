@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 # Xamarin에서 Blob 저장소를 사용하는 방법(미리 보기)
@@ -179,4 +179,4 @@ Xamarin용 Azure 저장소 클라이언트 라이브러리와 함께 개발할 �
 [.NET에서 큐 저장소를 사용하는 방법](storage-dotnet-how-to-use-queues.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

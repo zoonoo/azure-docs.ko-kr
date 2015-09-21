@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -164,9 +164,18 @@ REST API를 통해 바로 미디어 서비스에 액세스하려면 ACS에서 �
 >[AZURE.NOTE]새 URI를 받은 후 미디어 서비스와 통신 하는데 사용 해야 하는 URI입니다.
 
 
+
+##미디어 서비스 학습 경로
+
+여기서 AMS 학습 경로를 볼 수 있습니다.
+
+- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 <!-- Anchors. -->
 
 
 <!-- URLs. -->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

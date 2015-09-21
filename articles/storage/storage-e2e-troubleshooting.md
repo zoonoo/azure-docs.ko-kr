@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/22/2015" 
+	ms.date="09/03/2015" 
 	ms.author="tamram"/>
 
 # Azure 저장소 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 종단 간 문제 해결 
@@ -23,7 +23,7 @@
 
 이 자습서에서는 성능에 영향을 줄 수 있는 클라이언트의 특정 오류를 확인하는 방법 및 클라이언트 응용 프로그램을 최적화하기 위해 Microsoft 및 Azure 저장소에서 제공하는 도구를 사용하여 종단 간에서 비롯한 해당 오류의 문제 해결 방법을 보여 줍니다.
 
-이 자습서는 종단 간 문제 해결 시나리오의 실습 탐색을 제공합니다. Azure 저장소 응용 프로그램의 문제 해결에 대한 심층적인 개념 가이드는 [저장소 모니터링, 진단 및 문제 해결](../articles/storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
+이 자습서는 종단 간 문제 해결 시나리오의 실습 탐색을 제공합니다. Azure 저장소 응용 프로그램의 문제 해결에 대한 심층적인 개념 가이드는 [저장소 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)을 참조하세요.
 
 ## Azure 저장소 응용 프로그램 문제 해결 도구
 
@@ -367,7 +367,7 @@ Message Analyzer를 사용하여 로그 데이터를 분석하는 데 익숙해�
 
 Azure 저장소의 종단 간 시나리오 문제 해결에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-- [저장소 모니터링, 진단 및 문제 해결](http://azure.microsoft.com/documentation/articles/storage-monitoring-diagnosing-troubleshooting/)
+- [저장소 모니터링, 진단 및 문제 해결](storage-monitoring-diagnosing-troubleshooting.md)
 - [저장소 분석](http://msdn.microsoft.com/library/azure/hh343270.aspx)
 - [저장소 계정을 모니터링하는 방법](storage-monitor-storage-account.md)
 - [Microsoft Azure 저장소와 함께 AzCopy를 사용하는 방법](storage-use-azcopy.md)
@@ -375,4 +375,4 @@ Azure 저장소의 종단 간 시나리오 문제 해결에 대한 자세한 내
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

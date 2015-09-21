@@ -7,11 +7,16 @@ PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 
 		azure config mode arm
 
+	다음은 위의 명령에 대해 예상된 출력입니다.
+
 		info:    New mode is arm
 
 3. 필요한 경우 아래와 같이 **azure group create**를 실행하여 새 리소스 그룹을 만듭니다. 명령의 출력을 확인합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md/#resource-groups)를 참조하세요.
 
 		azure group create -n TestRG -l centralus
+
+	다음은 위의 명령에 대해 예상된 출력입니다.
+
 		info:    Executing command group create
 		+ Getting resource group TestRG
 		+ Creating resource group TestRG
@@ -30,6 +35,8 @@ PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 4. **azure group deployment create** cmdlet을 실행하고 위에서 다운로드한 후 수정한 템플릿 및 매개 변수를 사용하여 새 VNet을 배포합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
 
 		azure group deployment create -g TestRG -n TestVNetDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
+
+	다음은 위의 명령에 대해 예상된 출력입니다.
 
 		info:    Executing command group deployment create
 		+ Initializing template configurations and parameters
@@ -62,6 +69,8 @@ PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 
 		azure network vnet show -g TestRG -n TestVNet
 
+	다음은 위의 명령에 대해 예상된 출력입니다.
+
 		info:    Executing command network vnet show
 		+ Looking up virtual network "TestVNet"
 		data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet
@@ -80,4 +89,4 @@ PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

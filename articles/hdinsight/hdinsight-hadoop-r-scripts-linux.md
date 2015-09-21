@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="HDInsight에서 R을 사용하여 클러스터 사용자 지정 | Microsoft Azure"
 	description="R을 설치하고 사용하여 Hadoop 클러스터를 사용자 지정하는 방법을 알아봅니다."
 	services="hdinsight"
@@ -7,7 +7,7 @@
 	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
+<tags
 	ms.service="hdinsight"
 	ms.workload="big-data"
 	ms.tgt_pltfrm="na"
@@ -84,11 +84,11 @@ HDFS 및 MapReduce와의 통합을 제공하는다음 RHadoop 패키지도 설�
 1. SSH를 사용하여 HDInsight 클러스터에 연결합니다.
 
 		ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-		
+
 	HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
-	
+
 	* [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-	
+
 	* [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 2. `username@headnode1:~$` 프롬프트가 표시되면 다음 명령을 입력하여 대화형 R 세션을 시작합니다.
@@ -100,24 +100,24 @@ HDFS 및 MapReduce와의 통합을 제공하는다음 RHadoop 패키지도 설�
 		library(rmr2)
 		ints = to.dfs(1:100)
 		calc = mapreduce(input = ints, map = function(k, v) cbind(v, 2*v))
-		
+
 
 	첫 번째 줄은 MapReduce 작업에 사용되는 RHadoop 라이브러리 rmr2를 호출합니다.
-	
+
 	두 번째 줄은 1-100의 값을 생성한 다음 `to.dfs`를 사용하여 Hadoop 파일 시스템에 저장합니다.
-	
+
 	세 번째 줄은 rmr2에서 제공하는 기능을 사용하여 MapReduce 프로세스를 만들고 처리를 시작합니다. 처리가 시작되면 시작을 넘어가면 몇 개의 줄이 스크롤됩니다.
-	
+
 4. 이제 다음을 사용하여 MapReduce 출력에 저장된 임시 경로를 확인합니다.
 
 		print(calc())
-		
+
 	`/tmp/file5f615d870ad2`과 비슷합니다. 실제 출력을 보려면 다음을 사용합니다.
-	
+
 		print(from.dfs(calc))
-	
+
 	출력은 다음과 같습니다.
-	
+
 		[1,]  1 2
 		[2,]  2 4
 		.
@@ -126,7 +126,7 @@ HDFS 및 MapReduce와의 통합을 제공하는다음 RHadoop 패키지도 설�
 		[98,]  98 196
 		[99,]  99 198
 		[100,] 100 200
-		
+
 5. R을 끝내려면 다음을 입력합니다.
 
 		q()
@@ -148,6 +148,5 @@ HDFS 및 MapReduce와의 통합을 제공하는다음 RHadoop 패키지도 설�
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
- 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

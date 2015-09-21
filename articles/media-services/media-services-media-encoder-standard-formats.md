@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="미디어 인코더 표준 형식 및 코덱"
-	description="이 항목에서는 Azure 미디어 인코더 표준 형식 및 코덱에 대한 개요를 제공합니다."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="미디어 인코더 표준 형식 및 코덱" 
+	description="이 항목에서는 Azure 미디어 인코더 표준 형식 및 코덱에 대한 개요를 제공합니다." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/03/2015"
 	ms.author="juliako"/>
 
 #미디어 인코더 표준 형식 및 코덱
@@ -29,10 +29,10 @@
 FLV(H.264 및 AAC 코덱 포함)(.flv) |예 
 MXF(.mxf) |예 
 GXF(.gxf) |예 
-MPEG2 PS, MPEG2-TS 3GP(.ts, .ps, .3gp) |예 
+MPEG2-PS, MPEG2-TS, 3GP(.ts, .ps, .3gp, .3gpp, .mpg) |예 
 WMV(Windows Media Video)/ASF(.wmv, .asf) |예 
 AVI(압축되지 않은 8비트/10비트)(.avi)|예 
-MP4/ISMV(.ismv)|예 
+MP4(.mp4, .m4a, .m4v)/ISMV(.isma, .ismv)|예 
 [DVR-MS(Microsoft Digital Video Recording)](https://msdn.microsoft.com/library/windows/desktop/dd692984)(.dvr-ms) |예 
 Matroska/WebM(.mkv) |예 
 WAVE/WAV(.wav) |예 
@@ -81,8 +81,16 @@ Dolby® Digital Plus(E-AC3) |아니요
 
 파일 형식|비디오 코덱|오디오 코덱
 ---|---|---
-MP4(* .mp4)<br/><br/>(다중 비트 전송률 MP4 컨테이너 포함) |H.264(High, Main 및 Baseline Profiles)|AAC-LC, HE-AAC v1, HE-AAC v2 
+MP4<br/><br/>(다중 비트 전송률 MP4 컨테이너 포함) |H.264(High, Main 및 Baseline Profiles)|AAC-LC, HE-AAC v1, HE-AAC v2 
 MPEG2-TS |H.264(High, Main 및 Baseline Profiles)|AAC-LC, HE-AAC v1, HE-AAC v2 
+
+
+##미디어 서비스 학습 경로
+
+여기서 AMS 학습 경로를 볼 수 있습니다.
+
+- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 ##참고 항목
 
@@ -90,4 +98,4 @@ MPEG2-TS |H.264(High, Main 및 Baseline Profiles)|AAC-LC, HE-AAC v1, HE-AAC v2
 
 [미디어 인코더 표준으로 인코딩하는 방법](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

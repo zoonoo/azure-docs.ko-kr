@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/25/2015" 
+	ms.date="09/08/2015" 
 	ms.author="stepsic"/>
 
 # 경고 알림 받기
@@ -39,6 +39,8 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 5. **메트릭**을 선택하면 메트릭에 대한 조건 및 임계값을 선택할 수 있습니다. 이 값은 Azure에서 경고 활동을 모니터링하고 표시하는 데 사용하는 기간입니다. ![조건 및 임계값](./media/insights-receive-alert-notifications/Insights_ConditionAndThreshold.png)
 
 6. 또한 **이벤트**를 선택하고 특정 이벤트가 발생할 때 알림을 받을 수도 있습니다. ![이벤트](./media/insights-receive-alert-notifications/Insights_Events.png)
+    
+>[AZURE.NOTE]지금은 웹앱에 대해서만 이벤트가 지원됩니다.
 
 7. 마지막으로, 담당 관리자에게 전자 메일 알림을 보낼 수도 있습니다.
 
@@ -63,4 +65,4 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 * [서비스 상태를 추적](insights-service-health.md)하여 Azure에서 성능 저하 또는 서비스 중단이 발생한 경우를 알아봅니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

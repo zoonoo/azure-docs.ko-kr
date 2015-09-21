@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="StorSimple 장치 배포 문제 해결 | Microsoft Azure"
+   pageTitle="StorSimple 배포 문제 해결 | Microsoft Azure"
    description="StorSimple을 처음 배포할 때 발생하는 오류를 진단하고 해결하는 방법을 설명합니다."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/18/2015"
+   ms.date="09/04/2015"
    ms.author="alkohli" />
 
 # StorSimple 장치 배포 문제 해결
@@ -575,4 +575,4 @@ StorSimple 장치에 업데이트 1을 실행하는 경우 데이터 0 네트워
 [1]: https://technet.microsoft.com/library/dd379547(v=ws.10).aspx
 [2]: https://technet.microsoft.com/library/dd392266(v=ws.10).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

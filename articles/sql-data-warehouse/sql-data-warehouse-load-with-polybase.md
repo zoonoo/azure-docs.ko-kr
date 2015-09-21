@@ -1,20 +1,20 @@
 <properties
    pageTitle="SQL 데이터 웨어하우스의 PolyBase 자습서 | Microsoft Azure"
-	description="PolyBase 정의 및 데이터 웨어하우징 시나리오에 대해 사용하는 방법에 대해 알아봅니다."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="barbkess"
-	manager="jhubbard"
-	editor="jrowlandjones"/>
+   description="PolyBase 정의 및 데이터 웨어하우징 시나리오에 대해 사용하는 방법에 대해 알아봅니다."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
+   editor="jrowlandjones"/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="05/09/2015"
-	ms.author="sahajs;barbkess"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/02/2015"
+   ms.author="sahajs;barbkess"/>
 
 
 # PolyBase를 사용하여 데이터 로드
@@ -137,6 +137,8 @@ DROP EXTERNAL FILE FORMAT text_file_format
 
 위치 옵션은 데이터 원본의 루트에서의 데이터에 대한 경로를 지정합니다. 이 예제에서 데이터는 'wasbs://mycontainer@ test.blob.core.windows.net/path/Demo/'에 있습니다. 동일 테이블의 모든 파일은 Azure BLOB의 동일한 논리 폴더 아래 있어야 합니다.
 
+필요에 따라 외부 데이터 소스에서 받은 더티 레코드를 PolyBase에서 처리하는 방법을 결정하는 거부 옵션(REJECT\_TYPE, REJECT\_VALUE, REJECT\_SAMPLE\_VALUE)을 지정할 수도 있습니다.
+
 ```
 -- Creating external table pointing to file stored in Azure Storage
 CREATE EXTERNAL TABLE [ext].[CarSensor_Data] 
@@ -170,11 +172,11 @@ DROP EXTERNAL TABLE [ext].[CarSensor_Data]
 ;
 ```
 
-> [AZURE.NOTE]외부 테이블을 끌어 놓으려면 `DROP EXTERNAL TABLE`을 사용해야 하며 `DROP TABLE`은 사용할 수 **없습니다**.
+> [AZURE.NOTE]외부 테이블을 삭제하는 경우 `DROP EXTERNAL TABLE`을 사용해야 합니다. `DROP TABLE`을 사용할 수 **없습니다**.
 
-참조 항목: [DROP EXTERNAL TABLE (Transact-SQL)][].
+참조 항목: [DROP EXTERNAL TABLE(Transact-SQL)][].
 
-외부 테이블이 두 `sys.tables` 모두에 표시되는지, 특히 `sys.external_tables` 카탈로그 뷰에 표시되는지 확인하는 것이 좋습니다.
+외부 테이블이 두 `sys.tables`에 모두 표시되는지, 특히 `sys.external_tables` 카탈로그 뷰에 표시되는지 확인하는 것이 좋습니다.
 
 ## 저장소 키 회전
 
@@ -197,21 +199,17 @@ Azure 저장소 계정 키를 회전하는 것은 간단한 3단계 프로세스
 ## Azure Blob 저장소 데이터 쿼리
 외부 테이블에 대한 쿼리는 관계형 테이블인 것처럼 테이블 이름을 사용합니다.
 
-Azure 저장소 blob에 저장된 자동차 센서 데이터와 함께 SQL 데이터 웨어하우스에 저장된 보험 고객 데이터를 조인하는 임시 쿼리입니다. 결과는 다른 드라이브보다 빠른 드라이브를 표시합니다.
 
 ```
--- Join SQL Data Warehouse relational data with Azure storage data. 
-SELECT 
-      [Insured_Customers].[FirstName]
-,     [Insured_Customers].[LastName]
-,     [Insured_Customers].[YearlyIncome]
-,     [CarSensor_Data].[Speed]
-FROM  [dbo].[Insured_Customers] 
-JOIN  [ext].[CarSensor_Data]         ON [Insured_Customers].[CustomerKey] = [CarSensor_Data].[CustomerKey]
-WHERE [CarSensor_Data].[Speed] > 60 
-ORDER BY [CarSensor_Data].[Speed] DESC
+
+-- Query Azure storage resident data via external table. 
+SELECT * FROM [ext].[CarSensor_Data]
 ;
+
 ```
+
+> [AZURE.NOTE]외부 테이블에 대한 쿼리가 실패하고 *"쿼리가 중단되었습니다. 외부 소스에서 읽는 동안 최대 거부 임계값에 도달했습니다."* 오류가 표시될 수 있습니다. 이는 외부 데이터에 *더티* 레코드가 포함되어 있음을 나타냅니다. 열의 실제 데이터 형식/개수가 외부 테이블의 열 정의와 일치하지 않거나 데이터가 지정된 외부 파일 형식에 맞지 않는 경우 데이터 레코드가 '더티'로 간주됩니다. 이 문제를 해결하려면 외부 테이블 및 외부 파일 형식 정의가 올바른지, 그리고 외부 데이터가 이러한 정의를 준수하는지 확인합니다. 외부 데이터 레코드의 하위 집합이 더티인 경우 CREATE EXTERNAL TABLE DDL의 거부 옵션을 사용하여 쿼리에 대해 해당 레코드를 거부하도록 선택할 수 있습니다.
+
 
 ## Azure Blob 저장소에서 데이터 로드
 이 예제에서는 SQL 데이터 웨어하우스 데이터베이스로 Azure blob 저장소에서 데이터를 로드합니다.
@@ -320,11 +318,11 @@ $write.Dispose()
 
 [DROP EXTERNAL DATA SOURCE (Transact-SQL)]: https://msdn.microsoft.com/ko-KR/library/mt146367.aspx
 [DROP EXTERNAL FILE FORMAT (Transact-SQL)]: https://msdn.microsoft.com/ko-KR/library/mt146379.aspx
-[DROP EXTERNAL TABLE (Transact-SQL)]: https://msdn.microsoft.com/ko-KR/library/mt130698.aspx
+[DROP EXTERNAL TABLE(Transact-SQL)]: https://msdn.microsoft.com/ko-KR/library/mt130698.aspx
 
 [CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
 [CREATE MASTER KEY (TRANSACT-SQL)]: https://msdn.microsoft.com/ko-KR/library/ms174382.aspx
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ko-KR/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ko-KR/library/ms189450.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

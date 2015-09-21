@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="4단계: 예측 분석 모델 학습 및 평가 | Microsoft Azure" 
-	description="예측 솔루션 개발 연습 4단계: Azure 기계 학습 스튜디오에서 다중 모델을 학습하고, 점수를 매기고, 평가합니다." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="4단계: 예측 분석 모델 학습 및 평가 | Microsoft Azure"
+	description="예측 솔루션 개발 연습 4단계: Azure 기계 학습 스튜디오에서 다중 모델을 학습하고, 점수를 매기고, 평가합니다."
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="garye"/>
 
 
@@ -26,7 +26,7 @@
 2.	[기존 데이터 업로드](machine-learning-walkthrough-2-upload-data.md)
 3.	[새 실험 만들기](machine-learning-walkthrough-3-create-new-experiment.md)
 4.	**모델 학습 및 평가**
-5.	[웹 서비스 게시](machine-learning-walkthrough-5-publish-web-service.md)
+5.	[웹 서비스 배포](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[웹 서비스 액세스](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
@@ -51,7 +51,7 @@
 실험의 이 부분은 이제 다음과 같이 표시됩니다.
 
 ![모델 학습][1]
- 
+
 다음으로 SVM 모델을 설정합니다.
 
 향상된 의사 결정 트리는 모든 기능 유형에서 제대로 작동합니다. 그러나 SVM 모듈은 선형 분류자를 생성하므로 여기서 생성하는 모델에는 모든 숫자 기능의 크기가 같을 때 최적의 테스트 오류가 포함됩니다. 모든 숫자 기능을 같은 크기로 변환하려면 [데이터 정규화][normalize-data] 모듈을 Tanh 변환과 함께 사용하여 기능을 [0,1] 범위로 변환합니다. 문자열 기능은 SVM 모듈을 통해 범주 기능으로 변환되고 나서 이진 0/1 기능으로 변환되므로 문자열 기능을 수동으로 변환할 필요가 없습니다. 또한 신용 위험 열(열 21)을 변환하지 않으려고 합니다. 이 열은 숫자 값이지만 모델을 학습하여 예측할 값이므로 단독으로 유지해야 합니다.
@@ -79,7 +79,7 @@
 
 1.	[모델 점수 매기기][score-model] 모듈을 찾아 캔버스로 끌어서 놓습니다.
 2.	이 모듈의 왼쪽 입력 포트를 향상된 의사 결정 트리 모델에 연결합니다. 즉, [2클래스 향상된 의사 결정 트리][train-model] 모듈에 연결된 [모델 학습][two-class-boosted-decision-tree] 모듈의 출력 포트에 연결합니다.
-3.	[모델 점수 매기기][score-model] 모듈의 오른쪽 입력 포트를 오른쪽 [R 스크립트 실행][execute-r-script] 모듈의 출력에 연결합니다. 
+3.	[모델 점수 매기기][score-model] 모듈의 오른쪽 입력 포트를 오른쪽 [R 스크립트 실행][execute-r-script] 모듈의 출력에 연결합니다.
 4.	[모델 점수 매기기][score-model] 모듈을 복사하고 붙여넣어 두 번째 복사본을 만들거나 새 모듈을 캔버스로 끌어서 놓습니다.
 5.	이 모듈의 왼쪽 입력 포트를 SVM 모델에 연결합니다. 즉, [2클래스 Support Vector Machine][train-model] 모듈에 연결된 [모델 학습][two-class-support-vector-machine] 모듈의 출력 포트에 연결합니다.
 6.	SVM 모델에서는 학습 데이터에 대해 수행한 것과 같은 변환을 테스트 데이터에 대해 수행해야 합니다. 따라서 [데이터 정규화][normalize-data] 모듈을 복사하고 붙여넣고 두 번째 복사본을 만들고 오른쪽 [R 스크립트 실행][execute-r-script] 모듈의 출력에 연결합니다.
@@ -94,7 +94,7 @@
 이제 실험이 다음과 같이 표시됩니다.
 
 ![두 모델 모두 평가][3]
- 
+
 캔버스 아래에서 **실행** 단추를 클릭하여 실험을 실행합니다. 몇 분이 걸릴 수 있습니다. 각 모듈에 실행 중임을 나타내는 회전 표시기가 표시되고 나서 모듈이 완료되면 녹색 확인 표시가 표시됩니다.
 
 모든 모듈에 확인 표시가 있으면 실험 실행이 완료된 것입니다. 결과를 확인하려면 [모델 평가][evaluate-model] 모듈의 출력 포트를 클릭하고 **결과 보기**를 선택합니다.
@@ -104,7 +104,7 @@
 **점수를 매긴 데이터 집합** 또는 **비교할 점수를 매긴 데이터 집합**을 클릭하여 관련 곡선을 강조 표시하고 아래에 관련 메트릭을 표시합니다. 곡선 범례에서 "점수를 매긴 데이터 집합"은 [모델 평가][evaluate-model] 모듈의 왼쪽 입력 포트(이 경우 향상된 의사 결정 트리 모델)에 해당합니다. "비교할 점수를 매긴 데이터 집합"은 오른쪽 입력 포트(이 경우 SVM 모델)에 해당합니다. 이러한 레이블의 하나를 클릭하면 해당 모델의 곡선이 강조 표시되고 아래에 해당 메트릭이 표시됩니다.
 
 ![모델에 대한 ROC 곡선][4]
- 
+
 이러한 값을 검토하여 찾고 있는 결과를 제공하는 것에 가장 가까운 모델을 결정할 수 있습니다. 돌아가서 다른 모델에서 값을 변경하여 실험을 반복할 수 있습니다.
 
 > [AZURE.TIP]실험을 실행할 때마다 해당 반복에 대한 레코드가 실행 기록에서 유지됩니다. 이러한 반복을 확인하고 캔버스 아래에서 **실행 기록 보기**를 클릭하여 원하는 반복으로 돌아갈 수 있습니다. **속성** 창에서 **이전 실행**을 클릭하여 열었던 반복의 바로 이전 반복으로 돌아갈 수도 있습니다. 자세한 내용은 [Azure 기계 학습 스튜디오에서 실험 반복 관리](machine-learning-manage-experiment-iterations.md)를 참조하세요.
@@ -116,7 +116,7 @@
 
 ----------
 
-**다음: [웹 서비스 게시](machine-learning-walkthrough-5-publish-web-service.md)**
+**다음: [웹 서비스 배포](machine-learning-walkthrough-5-publish-web-service.md)**
 
 [1]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train1.png
 [2]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train2.png
@@ -132,6 +132,5 @@
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

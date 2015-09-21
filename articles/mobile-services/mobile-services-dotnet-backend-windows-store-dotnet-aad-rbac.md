@@ -1,6 +1,6 @@
 <properties
-	pageTitle="모바일 서비스 및 Azure Active Directory의 역할 기반 액세스 제어(Windows 스토어) | Microsoft Azure"
-	description="Windows 스토어 응용 프로그램에서 Azure Active Directory 역할을 기반으로 액세스를 제어하는 방법을 알아봅니다."
+	pageTitle=".NET 및 Azure Active Directory를 사용하여 모바일 서비스에서 역할 기반 액세스 제어(Windows 스토어) | Microsoft Azure"
+	description="Windows 스토어 응용 프로그램에서 .NET 백 엔드와 함께 모바일 서비스를 사용하여 Azure Active Directory 역할을 기반으로 액세스를 제어하는 방법을 알아봅니다."
 	documentationCenter="windows"
 	authors="wesmc7777"
 	manager="dwrede"
@@ -8,15 +8,15 @@
 	services="mobile-services"/>
 
 <tags
-	ms.service="mobile-services"
+	ms.service="mobile-services" 
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# 모바일 서비스 및 Azure Active Directory의 역할 기반 액세스 제어
+# JavaScript 및 Azure Active Directory를 사용하여 모바일 서비스에서 역할 기반 액세스 제어
 
 [AZURE.INCLUDE [mobile-services-selector-rbac](../../includes/mobile-services-selector-rbac.md)]
 
@@ -392,4 +392,4 @@ RBAC(역할 기반 액세스 제어)는 사용자가 저장할 수 있는 역할
 [Azure Active Directory 그래프 정보 액세스]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [.NET용 ADAL]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

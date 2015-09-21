@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -84,6 +84,15 @@ PlayReady로 콘텐츠를 보호하려는 경우 권한 부여 정책에서 지�
 
 **정책 xml 가져오기** 단추를 클릭하고 [여기](https://msdn.microsoft.com/library/azure/dn783459.aspx)에 정의된 XML 스키마를 준수하는 다른 XML을 제공할 수 있습니다.
 
+
+##미디어 서비스 학습 경로
+
+여기서 AMS 학습 경로를 볼 수 있습니다.
+
+- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
 ##다음 단계
 콘텐츠 키의 인증 정책을 구성했으므로 [방법: Azure 관리 포털을 사용하여 암호화를 사용하도록 설정](../media-services-manage-content#encrypt/) 항목으로 이동합니다.
 
@@ -93,4 +102,4 @@ PlayReady로 콘텐츠를 보호하려는 경우 권한 부여 정책에서 지�
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

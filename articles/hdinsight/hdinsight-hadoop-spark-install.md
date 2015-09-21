@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="스크립트 작업을 사용하여 Hadoop 클러스터에 Spark 설치 | Microsoft Azure" 
-	description="Spark를 사용하여 HDInsight 클러스터를 사용자 지정하는 방법에 대해 알아봅니다. 스크립트를 사용하여 Spark를 설치하려면 스크립트 작업 구성 옵션을 사용하게 됩니다." 
-	services="hdinsight" 
-	documentationCenter="" 
-	authors="nitinme" 
-	manager="paulettm" 
+<properties
+	pageTitle="스크립트 작업을 사용하여 Hadoop 클러스터에 Spark 설치 | Microsoft Azure"
+	description="Spark를 사용하여 HDInsight 클러스터를 사용자 지정하는 방법에 대해 알아봅니다. 스크립트를 사용하여 Spark를 설치하려면 스크립트 작업 구성 옵션을 사용하게 됩니다."
+	services="hdinsight"
+	documentationCenter=""
+	authors="nitinme"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="hdinsight" 
-	ms.workload="big-data" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/11/2015" 
+<tags
+	ms.service="hdinsight"
+	ms.workload="big-data"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="07/11/2015"
 	ms.author="nitinme"/>
 
 # HDInsight Hadoop 클러스터에서 Spark 설치 및 사용
@@ -22,12 +22,13 @@
 
 이 항목에서는 스크립트 작업을 사용하여 Spark를 설치하는 방법에 대해 알아봅니다. Spark를 설치한 다음에는 HDInsight 클러스터에서 Spark 쿼리를 실행하는 방법도 알아봅니다.
 
-> [AZURE.NOTE]이제 HDInsight는 최고급 클러스터 유형으로 Spark를 제공하여 Hadoop 클러스터를 수정하지 않고 Spark를 직접 프로비전할 수 있습니다. Spark 클러스터 유형을 사용하여 Spark 버전 1.3.1과 함께 HDInsight 버전 3.2 클러스터를 얻습니다. 자세한 내용은 [HDInsight에서 Apache Spark 시작](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)을 참조하세요.
-
+> [AZURE.IMPORTANT]이제 HDInsight는 Windows 기반 클러스터를 위한 최고급 클러스터 유형으로 Spark를 제공하여 Hadoop 클러스터를 수정하지 않고 Spark 클러스터를 직접 프로비전할 수 있습니다. Spark 클러스터 유형을 사용하여 Spark 버전 1.3.1과 함께 HDInsight 버전 3.2 클러스터를 얻습니다. 자세한 내용은 [HDInsight에서 Apache Spark 시작](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)을 참조하세요.
+>
+> 클러스터 사용자 지정을 통해 Linux 기반 클러스터와 함께 Spark를 사용하는 방법은 [Linux 기반 HDInsight 클러스터에서 스파크 설치](hdinsight-hadoop-spark-install-linux.md)를 참조하세요.
 
 ## <a name="whatis"></a>Spark란?
 
-<a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a>는 메모리 내 처리를 지원하여 빅 데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다. Spark는 메모리 내 계산 기능을 지원하여 기계 학습 및 그래프 계산의 반복 알고리즘에 적합합니다.
+<a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a>는 메모리 내 처리를 지원하여 빅데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다. Spark는 메모리 내 계산 기능을 지원하여 기계 학습 및 그래프 계산의 반복 알고리즘에 적합합니다.
 
 Spark를 사용하여 기존 디스크 기반 데이터 처리를 수행할 수도 있습니다. Spark는 중간 단계에서 디스크에 쓰기를 방지하여 기존 MapReduce 프레임워크를 향상시킵니다. 또한 Spark는 HDFS(Hadoop Distributed File System) 및 Azure Blob 저장소와 호환되므로 Spark를 통해 기존 데이터를 쉽게 처리할 수 있습니다.
 
@@ -38,7 +39,7 @@ Spark를 사용하여 기존 디스크 기반 데이터 처리를 수행할 수�
 이 항목에서는 스크립트 작업 사용자 지정 스크립트를 사용하여 HDInsight 클러스터에 Spark를 설치합니다. 이 스크립트는 프로비전하는 HDInsight 클러스터의 버전에 따라 Spark 1.2.0 또는 Spark 1.0.2를 설치할 수 있습니다.
 
 - **HDInsight 3.2** 클러스터를 프로비전하는 동안 스크립트를 사용하면 **Spark 1.2.0**이 설치되고,
-- **HDInsight 3.1** 클러스터를 프로비전하는 동안 스크립트를 사용하면 **Spark 1.0.2**가 설치됩니다. 
+- **HDInsight 3.1** 클러스터를 프로비전하는 동안 스크립트를 사용하면 **Spark 1.0.2**가 설치됩니다.
 
 이 스크립트를 수정하거나 사용자 고유의 스크립트를 만들어 다른 버전의 Spark를 설치할 수 있습니다.
 
@@ -58,7 +59,7 @@ HDInsight 클러스터에 Spark를 설치하는 샘플 스크립트는 읽기 �
 2. 아래와 같이 마법사의 **스크립트 작업** 페이지에서 **스크립트 작업 추가**를 클릭하여 스크립트 작업에 대한 세부 정보를 제공합니다.
 
 	![스크립트 작업을 사용하여 클러스터 사용자 지정](./media/hdinsight-hadoop-spark-install/HDI.CustomProvision.Page6.png "스크립트 작업을 사용하여 클러스터 사용자 지정")
-	
+
 	<table border='1'>
 	<tr><th>속성</th><th>값</th></tr>
 	<tr><td>이름</td>
@@ -77,7 +78,7 @@ HDInsight 클러스터에 Spark를 설치하는 샘플 스크립트는 읽기 �
 Spark는 Scala, Python 및 Java의 API를 제공합니다. 대화형 Spark 셸을 사용하여 Spark 쿼리를 실행할 수도 있습니다. 이 섹션에서는 다음 두 가지 방식으로 Spark를 사용하는 방법에 대한 지침을 제공합니다.
 
 - [Spark 셸을 사용하여 대화형 쿼리 실행](#sparkshell)
-- [Spark 셸을 사용하여 Spark SQL 쿼리 실행](#sparksql) 
+- [Spark 셸을 사용하여 Spark SQL 쿼리 실행](#sparksql)
 - [독립 실행형 Scala 프로그램 사용](#standalone)
 
 ###<a name="sparkshell"></a>Spark 셸을 사용하여 대화형 쿼리 실행
@@ -105,7 +106,7 @@ Spark는 Scala, Python 및 Java의 API를 제공합니다. 대화형 Spark 셸�
 6. 출력은 다음과 유사합니다.
 
 	![HDInsight 클러스터에서 Scala 대화형 셸을 실행한 출력](./media/hdinsight-hadoop-spark-install/hdi-scala-interactive.png)
-		
+
 
 7. :q 입력하여 Scala 프롬프트를 종료합니다.
 
@@ -166,7 +167,7 @@ Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), Hi
 		import org.apache.spark.SparkContext
 		import org.apache.spark.SparkContext._
 		import org.apache.spark.SparkConf
-		
+
 		object SimpleApp {
 		  def main(args: Array[String]) {
 		    val logFile = "/example/data/gutenberg/davinci.txt"			//Location of the sample data file on Azure Blob storage
@@ -189,18 +190,18 @@ Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), Hi
 
 
 		name := "SimpleApp"
-	
+
 		version := "1.0"
-	
+
 		scalaVersion := "2.10.4"
-	
+
 		libraryDependencies += "org.apache.spark" %% "spark-core" % "1.2.0"
 
 
 
 	>[AZURE.NOTE]파일의 빈 줄을 그대로 유지해야 합니다.
 
-	
+
 3. **SimpleScalaApp** 폴더 아래에 디렉터리 구조 **\\src\\main\\scala**를 만들고 앞에서 \\src\\main\\scala 폴더에 만든 Scala 프로그램(**SimpleApp.scala**)을 붙여 넣습니다.
 4. 명령 프롬프트를 열고 SimpleScalaApp 디렉터리로 이동한 후 다음 명령을 입력합니다.
 
@@ -243,7 +244,7 @@ Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), Hi
 		$location = "<MicrosoftDataCenter>"				# Location of the HDInsight cluster. It must be in the same data center as the Storage account.
 		$clusterNodes = <ClusterSizeInNumbers>			# Number of nodes in the HDInsight cluster
 		$version = "<HDInsightClusterVersion>"          # For example, "3.2"
-	
+
 2. 사용할 기본 저장소 및 클러스터의 노드와 같은 구성 값을 지정합니다.
 
 		# Specify the configuration options
@@ -252,7 +253,7 @@ Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), Hi
 		$config.DefaultStorageAccount.StorageAccountName="$storageAccountName.blob.core.windows.net"
 		$config.DefaultStorageAccount.StorageAccountKey=$storageAccountKey
 		$config.DefaultStorageAccount.StorageContainerName=$containerName
-	
+
 3. **Add-AzureHDInsightScriptAction** cmdlet을 사용하여 클러스터 구성에 스크립트 작업을 추가합니다. 나중에 클러스터가 생성되는 중에 스크립트 작업이 실행됩니다.
 
 		# Add a script action to the cluster configuration
@@ -281,11 +282,11 @@ Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), Hi
 <td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">스크립트에 필요한 매개 변수입니다. 이 항목에서 사용되는 샘플 스크립트에는 매개 변수가 필요하지 않으므로 위의 코드 조각에는 이 매개 변수가 없습니다.
 </td></tr>
 </table>
-	
+
 4. 마지막으로 Spark가 설치된 사용자 지정된 클러스터 프로비전을 시작합니다.
-	
+
 		# Start provisioning a cluster with Spark installed
-		New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version 
+		New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version
 
 메시지가 나타나면 클러스터에 대한 자격 증명을 입력합니다. 클러스터가 생성되는 데 몇 분 정도 걸릴 수 있습니다.
 
@@ -316,7 +317,7 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 2. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
 
 3. **새 프로젝트**에서 다음 값을 입력하거나 선택합니다.
-	
+
 	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
 <tr>
 <th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">속성</th>
@@ -350,9 +351,9 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 		using Microsoft.WindowsAzure.Management.HDInsight;
 		using Microsoft.WindowsAzure.Management.HDInsight.ClusterProvisioning;
 		using Microsoft.WindowsAzure.Management.HDInsight.Framework.Logging;
-	
+
 9. Main() 함수에서 다음 코드를 복사하여 붙여넣고 변수 값을 지정합니다.
-		
+
         var clusterName = args[0];
 
         // Provide values for the variables
@@ -365,7 +366,7 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
         string password = "<HDInsightUserPassword>";
         int clustersize = <NumberOfNodesInTheCluster>;
 
-        // Provide the certificate thumbprint to retrieve the certificate from the certificate store 
+        // Provide the certificate thumbprint to retrieve the certificate from the certificate store
         X509Store store = new X509Store();
         store.Open(OpenFlags.ReadOnly);
         X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.Thumbprint == thumbprint);
@@ -374,7 +375,7 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
         HDInsightCertificateCredential creds = new HDInsightCertificateCredential(new Guid(subscriptionId), cert);
         var client = HDInsightClient.Connect(creds);
 		client.IgnoreSslErrors = true;
-        
+
         // Provide the cluster information
 		var clusterInfo = new ClusterCreateParameters()
         {
@@ -387,7 +388,7 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
             Password = password,
             ClusterSizeInNodes = clustersize,
             Version = "3.2"
-        };        
+        };
 
 10. 사용자 지정 스크립트를 호출하여 Spark를 설치하는 [ScriptAction](http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) 클래스를 사용하는 다음 코드를 Main() 함수에 추가합니다.
 
@@ -427,6 +428,5 @@ Azure PowerShell 콘솔을 열고 Visual Studio 프로젝트를 저장한 위치
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 [powershell-install-configure]: ../install-configure-powershell.md
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

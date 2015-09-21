@@ -1,20 +1,20 @@
 <properties
     pageTitle="DocumentDB를 사용하여 Python 및 Flask로 웹앱 작성 | Microsoft Azure"
-	description="DocumentDB를 사용하여 Azure에 호스팅되는 Python 및 Flask(MVC) 웹 응용 프로그램의 데이터를 저장하고 액세스하는 방법을 알아봅니다."
-	services="documentdb"
-	documentationCenter="python"
-	authors="ryancrawcour"
-	manager="jhubbard"
-	editor="cgronlun"/>
+    description="DocumentDB를 사용하여 Azure에 호스팅되는 Python 및 Flask(MVC) 웹 응용 프로그램의 데이터를 저장하고 액세스하는 방법을 알아봅니다."
+    services="documentdb"
+    documentationCenter="python"
+    authors="ryancrawcour"
+    manager="jhubbard"
+    editor="cgronlun"/>
 
 <tags
     ms.service="documentdb"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="hero-article"
-	ms.date="09/03/2015"
-	ms.author="ryancraw"/>
+    ms.workload="data-management"
+    ms.tgt_pltfrm="na"
+    ms.devlang="python"
+    ms.topic="hero-article"
+    ms.date="09/03/2015"
+    ms.author="ryancraw"/>
 
 # DocumentDB를 사용하여 Python 및 Flask(MVC)로 웹 응용 프로그램 작성
 
@@ -338,7 +338,7 @@ templates 폴더 아래에 다음 html 파일을 추가합니다. create.html, r
 
 축하합니다. 지금까지 Azure DocumentDB를 사용하여 첫 Python 응용 프로그램을 빌드하고 Azure 웹 사이트에 게시했습니다.
 
-이 자습서가 유용했는지 알고 싶습니다. 항목의 시작 또는 끝 부분에 있는 투표 단추를 사용하여 평가해 주세요. 이 항목은 자주 업데이트되므로 개선 사항에 대한 의견을 보내주시면 감사하겠습니다. 연락을 받고 싶으면 후속 조치를 위해 설명에 메일 주소를 포함하세요.
+이 항목은 사용자 피드백에 따라 자주 업데이트되고 개선됩니다. 자습서를 완료했으면 이 페이지 상단과 하단에 있는 응답 단추를 사용하여 개선되었으면 하는 사항에 대한 피드백을 포함해야 합니다. 직접 연락을 받고 싶은 경우 설명에 메일 주소를 포함하세요.
 
 응용 프로그램에 다른 기능을 추가하려면 [DocumentDB Python SDK](https://pypi.python.org/pypi/pydocumentdb)에서 사용할 수 있는 API를 검토하세요.
 
@@ -351,4 +351,4 @@ templates 폴더 아래에 다음 html 파일을 추가합니다. create.html, r
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

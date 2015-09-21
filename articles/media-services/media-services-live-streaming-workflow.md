@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure 미디어 서비스를 사용하여 라이브 스트리밍 제공"
-	description="이 항목에서는 라이브 스트리밍에 관련된 주요 구성 요소의 개요를 제공합니다."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="Azure 미디어 서비스를 사용하여 라이브 스트리밍 제공" 
+	description="이 항목에서는 라이브 스트리밍에 관련된 주요 구성 요소의 개요를 제공합니다." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 
@@ -70,6 +70,13 @@ Azure 미디어 서비스에서 **Channel**, **Program**, and **StreamingEndpoin
 자세한 내용은 [온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널 작업](media-services-manage-channels-overview.md)을 참조하세요.
 
 
+##미디어 서비스 학습 경로
+
+여기서 AMS 학습 경로를 볼 수 있습니다.
+
+- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 ##관련된 항목
 
 [미디어 서비스 개념](media-services-concepts.md)
@@ -85,4 +92,4 @@ Azure 미디어 서비스에서 **Channel**, **Program**, and **StreamingEndpoin
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

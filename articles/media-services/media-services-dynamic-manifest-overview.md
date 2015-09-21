@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #필터 및 동적 매니페스트
@@ -182,10 +182,15 @@
 
 - 동적 매니페스트는 GOP 경계(키 프레임)에서 작동하므로 트리밍에는 GOP 정확도가 있습니다. 
 - 로컬 및 전역 필터에 동일한 필터 이름을 사용할 수 있습니다. 로컬 필터의 우선 순위가 더 높으며 전역 필터에 우선합니다.
-- 필터를 업데이트 하는 경우, 규칙을 새로 고치는 스트리밍 끝점에서 최대 2분이 소요될 수 있습니다. 콘텐츠가 일부 필터로 처리된 경우(및 프록시와 CDN 캐시에서 캐시된 경우) 이들 필터를 업데이트하면 플레이어 오류가 발생할 수 있습니다. 필터 업데이트 후에는 캐시를 지우는 것이 바람직합니다. 이 옵션을 사용할 수 없는 경우는 서로 다른 필터를 사용하는 것이 좋습니다.
+- 필터를 업데이트 하는 경우, 규칙을 새로 고치는 스트리밍 끝점에서 최대 2분이 소요될 수 있습니다. 콘텐츠가 일부 필터로 처리된 경우(및 프록시와 CDN 캐시에서 캐시된 경우) 이들 필터를 업데이트하면 플레이어 오류가 발생할 수 있습니다. 필터 업데이트 후에는 캐시를 지우는 것이 바람직합니다. 이 옵션을 사용할 수 없는 경우에 서로 다른 필터를 사용 하는 것이 좋습니다.
 
 
-##참고 항목
+##미디어 서비스 학습 경로
+
+여기서 AMS 학습 경로를 볼 수 있습니다.
+
+- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
 
@@ -209,4 +214,4 @@
 [skiing]: ./media/media-services-dynamic-manifest-overview/media-services-skiing.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

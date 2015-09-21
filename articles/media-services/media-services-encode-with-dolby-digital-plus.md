@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015"  
+	ms.date="09/07/2015"   
 	ms.author="juliako"/>
 
 #Dolby Digital Plus를 사용하여 미디어 인코딩
@@ -651,4 +651,11 @@ true‐peak 측정 내에서 강조 필터가 사용되는지(true) 사용되지
 **TruePeak** - 이 결과에는 측정이 재설정된 이후 채널에서 가장 큰 절대 true‐peak 값이 포함됩니다. true peak에 대한 설명은 ITU‐R BS.1770‐2를 참조하세요. 값의 범위는 -70에서 12.04dBTP 사이입니다.
  
 
-<!---HONumber=August15_HO7-->
+##미디어 서비스 학습 경로
+
+여기서 AMS 학습 경로를 볼 수 있습니다.
+
+- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

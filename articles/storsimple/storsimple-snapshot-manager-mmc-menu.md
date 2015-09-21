@@ -1,6 +1,6 @@
 <properties 
-   pageTitle="StorSimple 스냅숏 관리자에서 MMC 메뉴 작업 사용 | Microsoft Azure"
-   description="StorSimple 스냅숏 관리자에서 Microsoft Management Console(MMC) 메뉴 작업을 사용하는 방법에 대해 설명합니다."
+   pageTitle="StorSimple 스냅숏 관리자 MMC 메뉴 작업 | Microsoft Azure"
+   description="StorSimple 스냅숏 관리자에서 표준 Microsoft Management Console(MMC) 메뉴 작업을 사용하는 방법에 대해 설명합니다."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자에서 MMC 메뉴 작업 사용
@@ -127,4 +127,4 @@ StorSimple 스냅숏 관리자에서 모든 작업 메뉴에 나열된 다음과
 
 [StorSimple 스냅숏 관리자 사용자 인터페이스에 대해 자세히 알아보기](storsimple-use-snapshot-manager.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

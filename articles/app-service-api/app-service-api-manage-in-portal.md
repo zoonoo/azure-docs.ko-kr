@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="API 앱 관리"
-	description="Azure 포털 및 Visual Studio 서버 탐색기를 사용하여 Azure 앱 서비스 API 앱을 관리하는 방법을 알아봅니다."
-	services="app-service\api"
-	documentationCenter=""
-	authors="tdykstra"
-	manager="wpickett"
+	pageTitle="API 앱 관리" 
+	description="Azure 포털 및 Visual Studio 서버 탐색기를 사용하여 Azure 앱 서비스 API 앱을 관리하는 방법을 알아봅니다." 
+	services="app-service\api" 
+	documentationCenter="" 
+	authors="tdykstra" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-api"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
+	ms.service="app-service-api" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/17/2015"
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스에서 API 앱 관리
@@ -134,4 +134,4 @@ Visual Studio의 **서버 탐색기**에서 원격 디버깅 세션을 시작하
 
 명령줄을 사용하여 API 앱을 관리 하는 방법에 대한 정보는 문서의 왼쪽(넓은 브라우저 창) 또는 위쪽(좁은 브라우저 창)에 표시되는 메뉴의 **자동화** 섹션의 문서를 참조하십시오.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

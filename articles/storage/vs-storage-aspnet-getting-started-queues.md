@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 큐 저장소 및 Visual Studio 연결된 서비스 시작 | Microsoft Azure"
-	description="Visual Studio의 ASP.NET 프로젝트에서 Azure 큐 저장소를 사용하는 방법"
+	pageTitle="큐 저장소 및 Visual Studio 연결 서비스 시작(ASP.NET) | Microsoft Azure"
+	description="Visual Studio 연결 서비스를 사용하여 저장소 계정에 연결한 후 Visual Studio ASP.NET 프로젝트에서 Azure 큐 저장소 사용을 시작하는 방법입니다."
 	services="storage"
 	documentationCenter=""
 	authors="patshea123"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="09/03/2015"
 	ms.author="patshea123"/>
 
 # Azure 큐 저장소 및 Visual Studio 연결된 서비스 시작
@@ -39,23 +39,23 @@ Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통
 
 ASP.NET 프로젝트의 큐에 액세스하려면 Azure 큐 저장소에 액세스하는 C# 소스 파일에 다음 항목을 포함해야 합니다.
 
-1. C# 파일 맨 위의 네임스페이스 선언에 이러한 `using` 문이 포함되어 있는지 확인합니다.
+1. C# 파일 맨 위의 네임스페이스 선언에 이러한 **using** 문이 포함되어 있는지 확인합니다.
 
 		using Microsoft.Framework.Configuration;
 		using Microsoft.WindowsAzure.Storage;
 		using Microsoft.WindowsAzure.Storage.Queue;
 
-2. 저장소 계정 정보를 나타내는 `CloudStorageAccount` 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다.
+2. 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다.
 
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-3. 저장소 계정의 큐 개체를 참조하려면 `CloudQueueClient` 개체를 가져옵니다.
+3. 저장소 계정의 큐 개체를 참조하려면 **CloudQueueClient** 개체를 가져옵니다.
 
 	    // Create the queueclient.
     	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-4. 특정 큐를 참조하려면 `CloudQueue` 개체를 가져옵니다.
+4. 특정 큐를 참조하려면 **CloudQueue** 개체를 가져옵니다.
 
     	// Get a reference to a queue named "messageQueue"
 	    CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
@@ -65,16 +65,16 @@ ASP.NET 프로젝트의 큐에 액세스하려면 Azure 큐 저장소에 액세�
 
 ## 코드에서 큐 만들기
 
-코드에서 Azure 큐를 만들려면 위의 코드에 `CreateIfNotExists` 호출을 추가하면 됩니다.
+코드에서 Azure 큐를 만들려면 위의 코드에 **CreateIfNotExists** 호출을 추가하면 됩니다.
 
 	// Create the CloudQuecClient  if it does not exist
 	messageQueue.CreateIfNotExists();
 
 ## 큐에 메시지 추가
 
-기존 큐에 메시지를 삽입하려면 새 `CloudQueueMessage` 개체를 만든 다음 `AddMessage` 메서드를 호출합니다.
+기존 큐에 메시지를 삽입하려면 새 **CloudQueueMessage** 개체를 만든 다음 **AddMessage** 메서드를 호출합니다.
 
-`CloudQueueMessage` 개체는 문자열(UTF-8 형식) 또는 바이트 배열에서 만들 수 있습니다.
+**CloudQueueMessage** 개체는 문자열(UTF-8 형식) 또는 바이트 배열에서 만들 수 있습니다.
 
 다음은 'Hello, World' 메시지를 삽입하는 예입니다.
 
@@ -95,9 +95,9 @@ ASP.NET 프로젝트의 큐에 액세스하려면 Azure 큐 저장소에 액세�
 
 ## 큐의 메시지 읽기 및 제거
 
-이 코드에서는 2단계를 거쳐 큐에서 메시지를 제거할 수 있습니다. 1. GetMessage()를 호출하여 큐에서 다음 메시지를 가져옵니다. GetMessage()에서 반환된 메시지는 이 큐의 메시지를 읽는 다른 코드에는 표시되지 않습니다. 기본적으로, 이 메시지는 30초간 표시되지 않습니다. 2. 큐에서 메시지 제거를 완료하려면 `DeleteMessage`를 호출합니다.
+이 코드에서는 2단계를 거쳐 큐에서 메시지를 제거할 수 있습니다. 1. GetMessage()를 호출하여 큐에서 다음 메시지를 가져옵니다. GetMessage()에서 반환된 메시지는 이 큐의 메시지를 읽는 다른 코드에는 표시되지 않습니다. 기본적으로, 이 메시지는 30초간 표시되지 않습니다. 2. 큐에서 메시지 제거를 완료하려면 **DeleteMessage**를 호출합니다.
 
-메시지를 제거하는 이 2단계 프로세스는 코드가 하드웨어 또는 소프트웨어 오류로 인해 메시지를 처리하지 못하는 경우 코드의 다른 인스턴스가 동일한 메시지를 가져와서 다시 시도할 수 있도록 보장합니다. 다음 코드에서는 메시지가 처리된 직후에 `DeleteMessage`를 호출합니다.
+메시지를 제거하는 이 2단계 프로세스는 코드가 하드웨어 또는 소프트웨어 오류로 인해 메시지를 처리하지 못하는 경우 코드의 다른 인스턴스가 동일한 메시지를 가져와서 다시 시도할 수 있도록 보장합니다. 다음 코드에서는 메시지가 처리된 직후에 **DeleteMessage**를 호출합니다.
 
 	// Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code"
 
@@ -112,7 +112,7 @@ ASP.NET 프로젝트의 큐에 액세스하려면 Azure 큐 저장소에 액세�
 
 ## 큐에서 메시지를 제거하는 추가 옵션 사용
 
-큐에서 메시지 검색을 사용자 지정할 수 있는 방법으로는 두 가지가 있습니다. 먼저, 메시지의 배치(최대 32개)를 가져올 수 있습니다. 두 번째로, 표시하지 않는 제한 시간을 더 길거나 더 짧게 설정하여 코드에서 각 메시지를 완전히 처리하는 시간을 늘리거나 줄일 수 있습니다. 다음 코드 예제에서는 `GetMessages` 메서드를 사용하여 한 번 호출에 20개의 메시지를 가져옵니다. 그런 다음에 `foreach` 루프를 사용하여 각 메시지를 처리합니다. 또한 각 메시지에 대해 표시하지 않는 제한 시간을 5분으로 설정합니다. 5분은 모든 메시지에 대해 동시에 시작되므로, `GetMessages`에 대한 호출 이후로 5분이 지나고 나면 삭제되지 않은 모든 메시지가 다시 표시됩니다.
+큐에서 메시지 검색을 사용자 지정할 수 있는 방법으로는 두 가지가 있습니다. 먼저, 메시지의 배치(최대 32개)를 가져올 수 있습니다. 두 번째로, 표시하지 않는 제한 시간을 더 길거나 더 짧게 설정하여 코드에서 각 메시지를 완전히 처리하는 시간을 늘리거나 줄일 수 있습니다. 다음 코드 예제는 **GetMessages** 메서드를 사용하여 한 번 호출에 20개의 메시지를 가져옵니다. 그런 다음에 **foreach** 루프를 사용하여 각 메시지를 처리합니다. 또한 각 메시지에 대해 표시하지 않는 제한 시간을 5분으로 설정합니다. 5분은 모든 메시지에 대해 동시에 시작되므로, **GetMessages**에 대한 호출 이후로 5분이 지나고 나면 삭제되지 않은 모든 메시지가 다시 표시됩니다.
 
     // Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code"
 
@@ -130,7 +130,7 @@ ASP.NET 프로젝트의 큐에 액세스하려면 Azure 큐 저장소에 액세�
 
 ## 큐 길이 가져오기
 
-큐에 있는 메시지의 추정된 개수를 가져올 수 있습니다. `FetchAttributes` 메서드는 메시지 수를 포함하여 큐 특성을 검색하도록 큐 서비스에 요청합니다. `ApproximateMethodCount` 속성은 큐 서비스를 호출하지 않고도 `FetchAttributes` 메서드를 통해 검색된 마지막 값을 반환합니다.
+큐에 있는 메시지의 추정된 개수를 가져올 수 있습니다. **FetchAttributes** 메서드는 메시지 수를 포함하여 큐 특성을 검색하도록 큐 서비스에 요청합니다. **ApproximateMethodCount** 속성은 큐 서비스를 호출하지 않고도 **FetchAttributes** 메서드를 통해 검색된 마지막 값을 반환합니다.
 
     // Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code"
 
@@ -166,7 +166,7 @@ ASP.NET 프로젝트의 큐에 액세스하려면 Azure 큐 저장소에 액세�
 
 ## 큐 삭제
 
-큐 및 해당 큐의 모든 메시지를 삭제하려면 큐 개체의 `Delete` 메서드를 호출합니다.
+큐 및 해당 큐의 모든 메시지를 삭제하려면 큐 개체의 **Delete** 메서드를 호출합니다.
 
     // Get a reference to the CloudQueue object named 'messageQueue' as described in "Access a queue in code"
 
@@ -179,4 +179,4 @@ ASP.NET 프로젝트의 큐에 액세스하려면 Azure 큐 저장소에 액세�
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

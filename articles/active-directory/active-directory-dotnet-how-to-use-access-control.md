@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="액세스 제어 사용 방법(.NET) | Microsoft Azure" 
-	description="웹앱에 대한 액세스 권한을 받으려고 하는 경우 Azure 응용 프로그램에서 ACS(액세스 제어 서비스)를 사용해 사용자를 인증하는 방법에 대해 알아봅니다." 
-	services="active-directory" 
-	documentationCenter=".net" 
-	authors="msmbaldwin" 
-	manager="mbaldwin" 
+<properties
+	pageTitle="액세스 제어 사용 방법(.NET) | Microsoft Azure"
+	description="웹앱에 대한 액세스 권한을 받으려고 하는 경우 Azure 응용 프로그램에서 ACS(액세스 제어 서비스)를 사용해 사용자를 인증하는 방법에 대해 알아봅니다."
+	services="active-directory"
+	documentationCenter=".net"
+	authors="msmbaldwin"
+	manager="mbaldwin"
 	editor=""/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/20/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="dotnet"
+	ms.topic="article"
+	ms.date="09/02/2015" 
 	ms.author="mbaldwin"/>
 
 
@@ -78,7 +78,7 @@ ACS는 온-프레미스 또는 클라우드에서 실행되는 응용 프로그�
 이 가이드의 작업을 완료하려면 다음이 필요합니다.
 
 -	Azure 구독
--	Microsoft Visual Studio 2012 
+-	Microsoft Visual Studio 2012
 -	Visual Studio 2012용 ID 및 액세스 도구(다운로드하려면 [ID 및 액세스 도구][] 참조)
 
 
@@ -87,7 +87,7 @@ ACS는 온-프레미스 또는 클라우드에서 실행되는 응용 프로그�
 Azure에서 Active Directory 액세스 제어를 사용하려면 액세스 제어 네임스페이스를 만듭니다. 네임스페이스는 응용 프로그램 내에서 ACS 리소스의 주소를 지정하기 위한 고유 범위를 제공합니다.
 
 1.  [Azure 관리 포털][](https://manage.WindowsAzure.com))에 로그인합니다.
-    
+
 2.  **Active Directory**를 클릭합니다.
 
 	![][1]
@@ -124,7 +124,7 @@ Azure에서 네임스페이스를 만들고 활성화합니다.
             if (!String.IsNullOrEmpty(User.Identity.Name))
             {
                 name = User.Identity.Name;
-            }    
+            }
             <text>
             Hello, @Html.ActionLink(name, "Manage", "Account", routeValues: null, htmlAttributes: new { @class = "username", title = "Manage" })!
                     @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
@@ -238,19 +238,19 @@ Azure에서 네임스페이스를 만들고 활성화합니다.
         <table>
             <tr>
                 <td>
-                    IsAuthenticated: 
+                    IsAuthenticated:
                 </td>
                 <td>
-                    @ViewBag.ClaimsIdentity.IsAuthenticated 
+                    @ViewBag.ClaimsIdentity.IsAuthenticated
                 </td>
             </tr>
             <tr>
                 <td>
-                    Name: 
-                </td>        
+                    Name:
+                </td>
                 <td>
                     @ViewBag.ClaimsIdentity.Name
-                </td>        
+                </td>
             </tr>
         </table>
         <h3>Claims from ClaimsIdentity</h3>
@@ -349,7 +349,7 @@ ACS 관리 포털을 사용하여 MvcACS 응용 프로그램의 인증을 변경
 ## 다음 단계
 
 ACS와 통합된 웹 응용 프로그램을 만들었습니다. 그러나 이것은 시작일 뿐입니다. 이 시나리오를 확장할 수 있습니다.
- 
+
 예를 들어 이 RP에 ID 공급자를 더 추가하거나 Active Directory 도메인 서비스 등의 엔터프라이즈 디렉터리에 등록된 사용자가 웹 응용 프로그램에 로그온하도록 허용할 수 있습니다.
 
 응용 프로그램 비즈니스 논리에서 처리하기 위해 응용 프로그램으로 전송되는 클레임을 결정하는 규칙을 네임스페이스에 추가할 수도 있습니다.
@@ -400,6 +400,5 @@ ACS 기능을 자세히 살펴보고 추가 시나리오를 실험하려면 [액
   [18]: ./media/active-directory-dotnet-how-to-use-access-control/acsManagementService.png
   [19]: ./media/active-directory-dotnet-how-to-use-access-control/acsShowKey.png
   [20]: ./media/active-directory-dotnet-how-to-use-access-control/acsConfigAcsNamespace2.png
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

@@ -2,7 +2,7 @@
 	pageTitle="Windows Phone 및 스토어 앱용 Application Insights | Microsoft Azure"
 	description="Application Insights를 사용하여 Windows 장치 앱의 사용량 및 성능을 분석합니다."
 	services="application-insights"
-	documentationCenter="windows"
+    documentationCenter="windows"
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -69,6 +69,7 @@ Windows 유니버설 앱인 경우 Windows Phone 및 Windows 프로젝트 모두
 4. ApplicationInsights.config 파일을 프로젝트의 루트에 추가하고 포털에서 복사한 계측 키를 삽입합니다. 이 구성파일에 대한 샘플 xml는 아래와 같습니다.
 
 	```xml
+
 		<?xml version="1.0" encoding="utf-8" ?>
 		<ApplicationInsights>
 			<InstrumentationKey>YOUR COPIED INSTRUMENTATION KEY</InstrumentationKey>
@@ -82,6 +83,10 @@ Windows 유니버설 앱인 경우 Windows Phone 및 Windows 프로젝트 모두
 5. 다음 초기화 코드를 추가합니다. 이 코드를 `App()` 생성자에 추가하는 것이 좋습니다. 다른 곳에서 추가하면 첫번째 pageviews의 자동 컬렉션을 누락할 수 있습니다.
 
 ```C#
+
+    using Microsoft.ApplicationInsights;
+    ...
+
 	public App()
 	{
 	   // Add this initilization line.
@@ -96,7 +101,7 @@ Windows 유니버설 앱인 경우 Windows Phone 및 Windows 프로젝트 모두
 
 ## <a name="network"></a>3. 앱에 대한 네트워크 액세스 설정
 
-앱이 아직 [나가는 네트워크 액세스를 요청](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx)하지 않은 경우 해당 매니페스트에 [필요한 기능](https://msdn.microsoft.com/library/windows/apps/br211477.aspx)으로 추가해야 합니다.
+앱이 아직 [인터넷 액세스를 요청](https://msdn.microsoft.com/library/windows/apps/hh452752.aspx)하지 않은 경우 해당 매니페스트에 [필요한 기능](https://msdn.microsoft.com/library/windows/apps/br211477.aspx)으로 추가해야 합니다.
 
 ## <a name="run"></a>4. 프로젝트 실행
 
@@ -111,16 +116,13 @@ Visual Studio에 수신된 이벤트의 수가 표시됩니다.
 
 ## <a name="monitor"></a>5. 모니터 데이터 보기
 
-프로젝트에서 Application Insights를 엽니다.
-
-![프로젝트를 마우스 오른쪽 단추로 클릭하고 Azure 포털을 엽니다.](./media/app-insights-windows-get-started/appinsights-04-openPortal.png)
-
+[Azure 포털](https://portal.azure.com)에서 이전에 만든 Application Insights 리소스를 엽니다.
 
 처음에는 요소가 1~2개만 표시됩니다. 예:
 
 ![클릭하여 추가 데이터 확인](./media/app-insights-windows-get-started/appinsights-26-devices-01.png)
 
-더 많은 데이터를 기대하는 경우 몇 초 후에 **새로 고침**을 클릭합니다.
+더 많은 데이터를 원하는 경우 몇 초 후에 **새로고침**을 클릭합니다.
 
 보다 자세한 정보를 확인하려면 원하는 차트를 클릭합니다.
 
@@ -165,7 +167,7 @@ Application Insights SDK는 앱의 서로 다른 유형의 데이터를 자동�
 
 ```
 
-자세한 내용은 [사용자 지정 이벤트 및 메트릭][api]을 참조하세요.
+자세한 내용은 [API 개요: 사용자 지정 이벤트 및 메트릭][api]을 참조하세요.
 
 ## 다음 작업
 
@@ -196,7 +198,10 @@ Visual Studio를 사용하여 설치 단계를 수행하려면 Windows Phone, Wi
 
 ## SDK의 새 릴리스로 업그레이드
 
-[새 SDK 버전이 출시된 경우](app-insights-release-notes-windows.md): * 프로젝트를 마우스 오른쪽 단추로 클릭하고 NuGet 패키지 관리를 선택합니다. * 설치된 Application Insights 패키지를 선택하고 **작업: 업그레이드**를 선택합니다.
+[새 SDK 버전이 출시](app-insights-release-notes-windows.md)될 때:
+
+* 프로젝트를 마우스 오른쪽 단추로 클릭하고 NuGet 패키지 관리를 선택합니다.
+* 설치된 Application Insights 패키지를 선택하고 **작업: 업그레이드**를 선택합니다.
 
 
 ## <a name="usage"></a>다음 단계
@@ -227,4 +232,4 @@ Visual Studio를 사용하여 설치 단계를 수행하려면 Windows Phone, Wi
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

@@ -222,11 +222,11 @@ Java용 Azure 라이브러리를 빌드 경로에 추가하고 프로젝트 배�
 
 ## 다음 단계
 
-지금까지 서비스 버스 큐의 기본 사항에 대해 알아보았습니다. 자세한 내용은 MSDN 항목 [서비스 버스 큐, 토픽 및 구독][](영문)을 참조하세요.
+지금까지 서비스 버스 큐의 기본 사항에 대해 알아보았습니다. 자세한 내용은 [서비스 버스 큐, 토픽 및 구독][]을 참조하세요.
 
   [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
   [Java용 Azure SDK]: http://azure.microsoft.com/develop/java/
-  [Eclipse용 Azure Toolkit]: https://msdn.microsoft.com/ko-kr/library/azure/hh694271.aspx
+  [Eclipse용 Azure Toolkit]: https://msdn.microsoft.com/ko-KR/library/azure/hh694271.aspx
   [What are Service Bus Topics and Subscriptions?]: #what-are-service-bus-topics
   [Create a Service Namespace]: #create-a-service-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
@@ -245,7 +245,7 @@ Java용 Azure 라이브러리를 빌드 경로에 추가하고 프로젝트 배�
   [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
   [Properties Pane screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
   [Default Key screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
-  [서비스 버스 큐, 토픽 및 구독]: http://msdn.microsoft.com/library/hh367516.aspx
+  [서비스 버스 큐, 토픽 및 구독]: service-bus-queues-topics-subscriptions.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

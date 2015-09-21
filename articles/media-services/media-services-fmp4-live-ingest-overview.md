@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/11/2015" 
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 #Azure 미디어 서비스 조각화된 MP4 라이브 수집 사양
@@ -48,7 +48,7 @@
 4. TrackFragmentExtendedHeaderBox 버전 2는 여러 데이터 센터에서 동일한 URL로 미디어 세그먼트를 생성하는 데 사용해야 합니다. 조각 인덱스 필드는 Apple HTTP 라이브 스트리밍(HLS) 및 인덱스 기반 MPEG-DASH와 같은 데이터 센터간 인덱스 기반 스트리밍의 장애 조치에 필요합니다. 데이터 센터간 장애 조치를 사용하려면 조각 인덱스가 반드시 여러 인코더에 걸쳐 동기화되고, 인코더 재시작이나 오류에서도 연속되는 각 미디어 조각에 대해 1씩 증가되어야 합니다.
 5. [1]의 섹션 3.3.6은 라이브 수집의 끝을 송신하여 채널에 EOS(스트리밍의 끝)를 나타낼 수 있는 MovieFragmentRandomAccessBox(‘mfra’)를 정의합니다. Azure 미디어 서비스의 수집 논리에 따라 EOS(스트리밍의 끝)가 사용되지 않고 라이브 수집용 ‘mfra’ 상자를 전송하지 않아야 합니다. 전송한 경우 Azure 미디어 서비스는 자동으로 이를 무시합니다. 수집 지점을 재설정하려면 [Channel Reset](https://msdn.microsoft.com/library/azure/dn783458.aspx#reset_channels)을 사용하는 것이 바람직하며 프레젠테이션 및 스트림을 종료하려면 [Program Stop](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs)을 사용하는 것이 바람직합니다.
 6. 클라이언트 매니페스트의 크기를 줄이고 반복 태그를 사용함으로써 클라이언트 다운로드 추론을 향상시키려면 MP4 조각 기간이 일정해야 합니다. 이 기간은 정수가 아닌 프레임 속도에 대한 보정을 위해 변동될 수 있습니다.
-7. MP4 조각 기간은 약 2\~6초 사이여야 합니다.
+7. MP4 조각 기간은 약 2~6초 사이여야 합니다.
 8. MP4 조각 타임 스탬프 및 인덱스(TrackFragmentExtendedHeaderBox fragment\_absolute\_time 및 fragment\_index)는 오름차순으로 도착해야 합니다. Azure 미디어 서비스는 중복 조각에 대한 복원력이 뛰어나지만 미디어 타임 라인에 따라 조각의 순서를 다시 지정하는 매우 한정된 기능을 가집니다.
 
 ##프로토콜 형식 – HTTP
@@ -115,7 +115,7 @@ Microsoft Azure 미디어 서비스용 라이브 수집에 기반한 ISO 조각�
 
 
 1. TCP 연결을 확립하기 위한 제한 시간은 10초를 사용하세요. 연결을 설정하려는 시도가 10 초 이상 걸리는 경우, 작업을 중단하고 다시 시도하세요. 
-2. HTTP 요청 메시지 청크를 보려면 짧은 제한 시간을 사용하세요. 대상 MP4 조각 기간이 N초인 경우, N \~ 2N초의 전송 제한 시간을 사용하세요. 예를 들어 MP4 조각 기간이 6초인 경우에는 6 \~ 12 초의 제한 시간을 사용하세요. 시간 초과가 발생하면 연결을 다시 설정하고, 새 연결을 열고, 새 연결에서 스트림 수집을 계속합니다. 
+2. HTTP 요청 메시지 청크를 보려면 짧은 제한 시간을 사용하세요. 대상 MP4 조각 기간이 N초인 경우, N ~ 2N초의 전송 제한 시간을 사용하세요. 예를 들어 MP4 조각 기간이 6초인 경우에는 6 ~ 12 초의 제한 시간을 사용하세요. 시간 초과가 발생하면 연결을 다시 설정하고, 새 연결을 열고, 새 연결에서 스트림 수집을 계속합니다. 
 3. 각 트랙에 서비스에 성공적으로 온전히 전송된 마지막 2개의 조각을 포함하는 롤링 버퍼를 유지하세요. 스트림에 대한 HTTP POST 요청이 종료되거나 스트림이 끝나기 전에 제한 시간을 초과하는 경우, 새 연결을 열고 다른 HTTP POST 요청을 시작하며 스트림 헤더를 다시 전송하고, 각 트랙의 마지막 두 조각을 다시 전송한 후 미디어 타임 라인에서 불연속성을 발생시키지 않고 스트림을 계속합니다. 이렇게 하면 데이터 손실 가능성이 줄어듭니다.
 4. 인코더는 연결을 설정하거나 TCP 오류가 발생한 후 스트리밍을 계속하는 재시도 횟수를 제한하지 않는 것이 바람직합니다.
 5. TCP 오류 후:
@@ -196,6 +196,15 @@ Microsoft Azure 미디어 서비스용 라이브 수집에 기반한 ISO 조각�
 3. 별도 서버(인코더) 인스턴스를 사용하여 인코딩하고 (1) 및 (2)에 언급된 중복 스트림을 전송합니다. 
 
 
+##미디어 서비스 학습 경로
+
+여기서 AMS 학습 경로를 볼 수 있습니다.
+
+- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+
+
 [image1]: ./media/media-services-fmp4-live-ingest-overview/media-services-image1.png
 [image2]: ./media/media-services-fmp4-live-ingest-overview/media-services-image2.png
 [image3]: ./media/media-services-fmp4-live-ingest-overview/media-services-image3.png
@@ -206,4 +215,4 @@ Microsoft Azure 미디어 서비스용 라이브 수집에 기반한 ISO 조각�
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

@@ -3,11 +3,11 @@
 	description="PowerShell을 사용하여 DPM(Data Protection Manager)에 대해 Azure 백업을 배포 및 관리하는 방법을 알아봅니다."
 	services="backup"
 	documentationCenter=""
-	authors="SamirMehta"
+	authors="AnuragMehrotra"
 	manager="jwhit"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/18/2015" ms.author="jimpark"; "aashishr"; "sammehta"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/04/2015" ms.author="jimpark"; "aashishr"; "sammehta"; "anuragm"/>
 
 
 # PowerShell을 사용하여 DPM(Data Protection Manager) 서버용 Azure 백업 배포 및 관리
@@ -206,10 +206,11 @@ PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS
 선택한 모든 데이터 원본이 보호 그룹에 추가될 때까지 필요한 만큼 이 단계를 반복합니다. 또한 하나의 데이터 원본으로만 시작한 다음, 보호 그룹을 만들기 위한 워크플로를 완료하고 나중에 해당 보호 그룹에 더 많은 데이터 원본을 추가할 수도 있습니다.
 
 ### 데이터 보호 방법 선택
-데이터 원본이 보호 그룹에 추가되고 나면 다음 단계는 [Set-DPMProtectionType](https://technet.microsoft.com/library/hh881725) cmdlet을 사용하여 보호 방법을 지정하는 것입니다. 이 예제에서는 보호 그룹이 로컬 디스크 및 클라우드 백업에 대한 설정됩니다.
+데이터 원본이 보호 그룹에 추가되고 나면 다음 단계는 [Set-DPMProtectionType](https://technet.microsoft.com/library/hh881725) cmdlet을 사용하여 보호 방법을 지정하는 것입니다. 이 예제에서는 보호 그룹이 로컬 디스크 및 클라우드 백업에 대한 설정됩니다. -Online 플래그와 함께 [Add-DPMChildDatasource](https://technet.microsoft.com/ko-KR/library/hh881732.aspx) cmdlet을 사용하여 클라우드에 대해 보호하려는 데이터 소스를 지정해야 합니다.
 
 ```
 PS C:\> Set-DPMProtectionType -ProtectionGroup $MPG -ShortTerm Disk –LongTerm Online
+PS C:\> Add-DPMChildDatasource -ProtectionGroup $MPG -ChildDatasource $DS –Online
 ```
 
 ### 보존 범위 설정
@@ -301,4 +302,4 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 ## 다음 단계
 DPM에 대한 Azure 백업에 대한 자세한 정보는 [Azure DPM 백업 소개](backup-azure-dpm-introduction.md)를 참조합니다.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

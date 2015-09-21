@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
+   ms.date="09/04/2015"
    ms.author="telmos" />
 
 # PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록)을 관리하는 방법
@@ -97,4 +97,4 @@ Azure PowerShell cmdlet을 사용하여 네트워크 ACL(액세스 제어 목록
 
 [가상 컴퓨터와의 통신을 설정하는 방법](http://go.microsoft.com/fwlink/?LinkId=303938)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

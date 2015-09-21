@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="StorSimple 스냅숏 관리자를 사용하여 백업 정책 만들기 및 관리 | Microsoft Azure"
+   pageTitle="StorSimple 스냅숏 관리자 백업 정책 | Microsoft Azure"
    description="StorSimple 스냅숏 관리자 MMC 스냅인을 사용하여 예약된 백업을 제어하는 백업 정책을 만들고 관리하는 방법을 설명합니다."
    services="storsimple"
    documentationCenter="NA"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/17/2015"
+   ms.date="09/04/2015"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자를 사용하여 백업 정책 만들기 및 관리
@@ -118,4 +118,4 @@
 
 [StorSimple 스냅숏 관리자를 사용하여 백업 작업 보기 및 관리](storsimple-snapshot-manager-manage-backup-jobs.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

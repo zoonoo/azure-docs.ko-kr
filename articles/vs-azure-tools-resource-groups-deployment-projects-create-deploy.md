@@ -1,25 +1,25 @@
 <properties 
    pageTitle="Azure 리소스 그룹 배포 프로젝트 만들기 및 배포"
-	description="Azure 리소스 그룹 배포 프로젝트 만들기 및 배포"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
+   description="Azure 리소스 그룹 배포 프로젝트 만들기 및 배포"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="azure-resource-manager"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Azure 리소스 그룹 배포 프로젝트 만들기 및 배포
 
 Azure SDK 2.6이 설치될 때 **Azure 리소스 그룹** 배포 프로젝트 템플릿은 Visual Studio에서 제공됩니다. Azure 리소스 그룹 프로젝트를 사용하여 관련된 여러 Azure 리소스를 단일 배포 작업으로 함께 그룹화하고 게시합니다. Azure 리소스 그룹 프로젝트는 **Azure 리소스 관리자**라는 기술을 사용하여 자신의 작업을 수행합니다. **Azure 리소스 관리자**는 Azure 리소스 그룹을 정의할 수 있는 REST API 서비스로, 일반적으로 함께 사용되며 수명 주기가 유사한 여러 Azure 리소스를 포함합니다. 리소스 그룹을 사용하여 각 개별 리소스에 대한 다른 함수를 호출하지 않고 단일 함수 호출로 그룹의 모든 리소스에 대해 작업할 수 있습니다. Azure 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](./azure-portal/azure-preview-portal-using-resource-groups/)를 참조하세요.
 
-Azure 리소스 그룹 프로젝트는 리소스 그룹에 배포되는 요소를 정의하는 Azure 리소스 관리자 JSON 템플릿을 포함합니다. 자세한 내용은 [Azure 리소스 관리자 템플릿 언어](https://msdn.microsoft.com/library/azure/dn835138.aspx)를 참조하세요.
+Azure 리소스 그룹 프로젝트는 리소스 그룹에 배포되는 요소를 정의하는 Azure 리소스 관리자 JSON 템플릿을 포함합니다. 자세한 내용은 [Azure 리소스 관리자 템플릿 언어](resource-group-authoring-templates.md)를 참조하세요.
 
 Azure 리소스 관리자에는 Ubuntu Server 및 Windows Server 2012 R2와 같은 리소스를 배포하는 데 사용될 수 있는 여러 다른 리소스는 공급자가 있습니다. 이 항목에서는 빈 기본 웹 사이트를 Azure에 배포하는 **웹앱**을 사용합니다.
 
@@ -85,7 +85,7 @@ Azure 리소스 그룹 프로젝트를 배포할 때 Azure 리소스 그룹에 �
 
     ![리소스 그룹에 배포 대화 상자](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/IC796673.png)
 
-1. **리소스 그룹** 드롭다운 상자에서 기존 리소스 그룹을 선택하거나 새 항목을 만듭니다. 리소스 그룹을 만들려면 **리소스 그룹** 드롭다운 상자를 열고 **<Create New...>**을(를) 선택합니다.
+1. **리소스 그룹** 드롭다운 상자에서 기존 리소스 그룹을 선택하거나 새로 만듭니다. 리소스 그룹을 만들려면 **리소스 그룹** 드롭다운 상자를 선택하고 **<Create New...>**를 선택합니다.
 
     **리소스 그룹 만들기** 대화 상자가 나타납니다.
 
@@ -195,4 +195,4 @@ TFS 자동화된 빌드 및 Microsoft 내 다른 프로젝트에서 명명 규�
 
 Visual Studio에서 Azure 리소스 그룹에 리소스를 추가하는 방법을 알아보려면 [Azure 리소스 그룹에 리소스 추가](https://msdn.microsoft.com/library/azure/mt125415.aspx)를 참조하세요.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

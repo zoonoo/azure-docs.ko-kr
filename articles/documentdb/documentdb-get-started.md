@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="hero-article"
+	ms.topic="hero-article" 
 	ms.date="09/03/2015"
 	ms.author="anhoh"/>
 
@@ -34,7 +34,7 @@ DocumentDB는 NoSQL 문서 데이터베이스 서비스로서, [사용할 수 �
 
 자습서를 완료할 시간이 없고 작동하는 솔루션을 가져오고 싶으신가요? 걱정하지 마세요. [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started)에서 전체 솔루션을 사용할 수 있습니다. 빠른 지침은 [전체 솔루션 다운로드](#GetSolution)를 참조하세요.
 
-자습서를 완료했으면 항목의 시작 또는 끝 부분에 있는 투표 단추를 사용하여 평가해 주세요. 이 항목은 자주 업데이트되므로 개선 사항에 대한 의견을 보내주시면 감사하겠습니다. 연락을 받고 싶으면 후속 조치를 위해 설명에 메일 주소를 포함하세요.
+이 항목은 사용자 피드백에 따라 자주 업데이트되고 개선됩니다. 자습서를 완료했으면 이 페이지 상단과 하단에 있는 응답 단추를 사용하여 개선되었으면 하는 사항에 대한 피드백을 포함해야 합니다. 직접 연락을 받고 싶은 경우 설명에 메일 주소를 포함하세요.
 
 ## 필수 조건
 
@@ -480,4 +480,4 @@ Visual Studio 2013에서 DocumentDB .NET SDK에 대한 참조를 복원하려면
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

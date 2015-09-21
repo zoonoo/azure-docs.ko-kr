@@ -1,24 +1,30 @@
 <properties
    pageTitle="Azure VM 확장에 대한 샘플 구성 | Microsoft Azure"
-	description="확장으로 템플릿 작성에 대한 샘플 구성"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="kundanap"
-	manager="timlt"
-	editor=""/>
+   description="확장으로 템플릿 작성에 대한 샘플 구성"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="kundanap"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/01/2015"
-	ms.author="kundanap"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/01/2015"
+   ms.author="kundanap"/>
 
 # Azure Windows VM 확장 구성 샘플
 
-이 문서에서는 Azure IaaS Windows VM에 대해 Azure VM 확장을 구성하기 위한 샘플 구성을 제공합니다. 이러한 확장에 대해 자세히 알아보려면 <a href="https://msdn.microsoft.com/ko-KR/library/azure/dn606311.aspx" target="_blank">여기</a>를 클릭하세요.
+이 문서에서는 Azure IaaS Windows VM에 대해 Azure VM 확장을 구성하기 위한 샘플 구성을 제공합니다.
+
+이러한 확장에 대해 자세히 알아보려면 [Azure VM 확장 개요](https://msdn.microsoft.com/library/azure/dn606311.aspx)를 클릭하세요.
+
+확장 템플릿 작성에 대해 자세히 알아보려면 [확장 템플릿 작성](virtual-machines-extensions-authoring-templates.md)을 클릭하세요.
+
+이 문서에서는 일부 Windows 확장에 대해 예상되는 구성 값을 나열합니다.
 
 ## VM 확장에 대한 샘플 템플릿 코드 조각
 확장을 배포하기 위한 템플릿 코드 조각은 다음과 같습니다.
@@ -268,6 +274,29 @@
             }
           }
 
+### Azure 진단
+
+[Azure 진단 확장](https://msdn.microsoft.com/library/azure/dn782207.aspx/)에 대한 개요를 보려면 여기를 클릭하세요.
+
+          {
+            "publisher": "Microsoft.Azure.Diagnostics",
+            "type": "IaaSDiagnostics",
+            "typeHandlerVersion": "1.4",
+            "settings": {
+              "xmlCfg": "[base64(variables('wadcfgx'))]",
+              "storageAccount": "[parameters('diagnosticsStorageAccount')]"
+            },
+            "protectedSettings": {
+            "storageAccountName": "[parameters('diagnosticsStorageAccount')]",
+            "storageAccountKey": "[listkeys(variables('accountid'), '2015-05-01-preview').key1]",
+            "storageAccountEndPoint": "https://core.windows.net"
+          }
+          }
+
 위의 예제에서 버전 번호를 최신 버전 번호로 바꿉니다.
 
-<!---HONumber=September15_HO1-->
+다음은 사용자 지정 스크립트 확장을 사용하는 전체 VM 템플릿의 예입니다.
+
+[Windows VM의 사용자 지정 스크립트 확장](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
+
+<!---HONumber=Sept15_HO2-->

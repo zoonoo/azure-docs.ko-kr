@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="09/09/2015"
    ms.author="lodipalm"/>
 
 # SQL 데이터 웨어하우스와 함께 Azure 데이터 팩터리 사용
@@ -43,7 +43,7 @@ Azure 데이터 팩터리는 온-프레미스 원본 및 다른 Azure 서비스 
 
 <!--Article references-->
 
-[Copy data with Azure Data Factory]: ./data-factory-copy-activity/
+[Copy data with Azure Data Factory]: ./data-factory-data-movement-activities/#copyactivity
 [SQL 데이터 웨어하우스 개발 개요]: ./sql-data-warehouse-overview-develop/
 [SQL 데이터 웨어하우스 통합 개요]: ./sql-data-warehouse-overview-integration/
 
@@ -51,6 +51,6 @@ Azure 데이터 팩터리는 온-프레미스 원본 및 다른 Azure 서비스 
 
 <!--Other Web references-->
 [Azure 데이터 팩터리 설명서]: https://azure.microsoft.com/documentation/services/data-factory/
-[Azure 데이터 팩터리를 사용하여 데이터 복사]: https://azure.microsoft.com/ko-kr/documentation/articles/data-factory-data-movement-activities/
+[Azure 데이터 팩터리를 사용하여 데이터 복사]: https://azure.microsoft.com/ko-KR/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

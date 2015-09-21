@@ -1,21 +1,23 @@
 <properties
    pageTitle="Azure Active Directory Graph API"
-	description="REST API 끝점을 통해 Azure AD에 프로그래밍 방식으로 액세스할 수 있도록 해주는 Graph API에 대한 개요 및 빠른 시작 가이드입니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor="mbaldwin"/>
+   description="REST API 끝점을 통해 Azure AD에 프로그래밍 방식으로 액세스할 수 있도록 해주는 Graph API에 대한 개요 및 빠른 시작 가이드입니다."
+   services="active-directory"
+   documentationCenter=""
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor="mbaldwin" />
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/25/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="09/08/2015"
+   ms.author="mbaldwin" />
 
 # Azure Active Directory Graph API
+
+> *[대화형 Graph API 참조 설명서](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)를 확인해보세요.*
 
 Azure Active Directory Graph API는 REST API 끝점을 통해 Azure AD에 프로그래밍 방식으로 액세스할 수 있게 합니다. 응용 프로그램은 Graph API를 사용하여 디렉터리 데이터 및 개체에 대한 CRUD(만들기, 읽기, 업데이트 및 삭제) 작업을 수행할 수 있습니다. 예를 들어, Graph API는 사용자 개체에 대한 다음과 같은 일반적인 작업을 지원합니다.
 
@@ -31,7 +33,7 @@ Azure Active Directory Graph API는 REST API 끝점을 통해 Azure AD에 프로
 
 사용자 개체 외에도, 그룹 및 응용 프로그램과 같은 다른 개체에 대해 유사한 작업을 수행할 수 있습니다. 디렉터리에서 Graph API를 호출하려면 응용 프로그램이 Azure AD에 등록되고 디렉터리에 대한 액세스를 허용하도록 구성해야 합니다. 이는 대개 사용자 또는 관리자 동의 흐름을 통해 수행됩니다.
 
-Azure Active Directory Graph API를 사용하여 시작하려면 [Graph API 빠른 시작 가이드](active-directory-graph-api-quickstart.md)를 참조하세요.
+Azure Active Directory Graph API 사용을 시작하려면 [Graph API 빠른 시작 가이드](active-directory-graph-api-quickstart.md)를 참조하거나 [대화형 Graph API 참조 설명서](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)를 확인하세요.
 
 
 ## 기능
@@ -40,7 +42,7 @@ Graph API는 다음과 같은 기능을 제공합니다.
 
 - **REST API 끝점**: Graph API는 표준 HTTP 요청을 사용하여 액세스하는 끝점으로 구성된 RESTful 서비스입니다. Graph API는 요청 및 응답에 대해 XML 또는 Javascript Object Notation(JSON) 콘텐츠 형식을 지원합니다. 자세한 내용은 [Azure AD Graph REST API 참조](https://msdn.microsoft.com/library/azure/hh974478.aspx)를 참조하세요.
 
-- **Azure AD 인증**: 요청의 인증 헤더에서 JSON 웹 토큰(JWT) 추가하여 Graph API에 대한 모든 요청을 인증해야 합니다. Azure AD의 토큰 끝점에 요청을 하고 유효한 자격 증명을 제공하여 이 토큰을 가져옵니다. OAuth 2.0 클라이언트 자격 증명 흐름 또는 권한 부여 코드 흐름을 사용하여 Graph를 호출하는 토큰을 획득할 수 있습니다. 자세한 내용은 [Azure AD의 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)을 참조하세요.
+- **Azure AD 인증**: 요청의 인증 헤더에서 JSON 웹 토큰(JWT)을 추가하여 Graph API에 대한 모든 요청을 인증해야 합니다. Azure AD의 토큰 끝점에 요청을 하고 유효한 자격 증명을 제공하여 이 토큰을 가져옵니다. OAuth 2.0 클라이언트 자격 증명 흐름 또는 권한 부여 코드 흐름을 사용하여 Graph를 호출하는 토큰을 획득할 수 있습니다. 자세한 내용은 [Azure AD의 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)을 참조하세요.
 
 - **역할 기반 권한 부여(RBAC)**: 보안 그룹은 Graph API에서 RBAC를 수행하는 데 사용됩니다. 예를 들어, 사용자가 특정 리소스에 액세스 권한이 있는지 확인하려는 경우, 응용 프로그램은 true 또는 false를 반환하는 [그룹 멤버 자격(전이) 확인](https://msdn.microsoft.com/library/azure/dn151601.aspx) 작업을 호출할 수 있습니다.
 
@@ -64,4 +66,4 @@ Graph API는 많은 응용 프로그램 시나리오를 사용할 수 있습니�
 
 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

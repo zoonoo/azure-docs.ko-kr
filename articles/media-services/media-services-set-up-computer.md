@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 # 환경 설정
@@ -44,9 +44,12 @@ Azure 미디어 서비스에 프로그래밍 방식으로 연결할 .NET 또는 
 
 [AZURE.INCLUDE [media-services-selector-connect](../../includes/media-services-selector-connect.md)]
 
-## 다음 단계
 
-- [.NET SDK를 사용한 VoD(주문형 비디오) 콘텐츠 제공 시작](media-services-dotnet-get-started.md)
-- [.NET SDK를 사용하여 단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 만들기(미리 보기)](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+##다음 단계: AMS 학습 경로
 
-<!---HONumber=September15_HO1-->
+여기서 AMS 학습 경로를 볼 수 있습니다.
+
+- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="SharePoint용 StorSimple 어댑터 | Microsoft Azure"
-	description="SharePoint 서버 팜에서 SharePoint용 StorSimple 어댑터를 설치 및 구성하는 방법을 설명합니다."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="SharePoint 서버 팜에서 SharePoint용 StorSimple 어댑터를 설치 및 구성하거나 제거하는 방법을 설명합니다."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/03/2015"
+   ms.author="v-sharos" />
 
 # SharePoint용 StorSimple 어댑터 설치 및 구성
 
@@ -55,7 +55,7 @@ RBS의 Microsoft Azure StorSimple 구현은 다음과 같은 이점을 제공합
 
 ### 용량 및 성능 제한
 
-SharePoint 솔루션에서 RBS를 사용을 고려하기 전에 SharePoint Server 2010 및 SharePoint Server 2013의 테스트된 성능 및 용량 제한과 이러한 제한이 어떻게 적절한 성능과 연관되는지 인식해야 합니다. 자세한 내용은 소프트웨어 경계 및 SharePoint 2013에 대한 한계를 참조하세요.
+SharePoint 솔루션에서 RBS를 사용을 고려하기 전에 SharePoint Server 2010 및 SharePoint Server 2013의 테스트된 성능 및 용량 제한과 이러한 제한이 어떻게 적절한 성능과 연관되는지 인식해야 합니다. 자세한 내용은 [소프트웨어 경계 및 SharePoint 2013에 대한 한계](https://technet.microsoft.com/library/cc262787.aspx)를 참조하세요.
 
 RBS를 구성하기 전에 다음을 검토합니다.
 
@@ -81,11 +81,11 @@ RBS를 구성하기 전에 다음을 검토합니다.
 
         이 단계는 표면화된 BLOB의 크기를 가져옵니다.
 
-- StorSimple 장치에 로컬로 모든 BLOB 및 데이터베이스 콘텐츠를 저장하는 것이 좋습니다. StorSimple 장치는 고가용성을 위한 두 개의 노드 클러스터입니다. StorSimple 장치에서 콘텐츠 데이터베이스 및 Blob를 배치하면 고가용성을 제공합니다.
+- StorSimple 장치에 로컬로 모든 BLOB 및 데이터베이스 콘텐츠를 저장하는 것이 좋습니다. StorSimple 장치는 고가용성을 위한 두 개의 노드 클러스터입니다. StorSimple 장치에서 콘텐츠 데이터베이스 및 Blob을 배치하면 고가용성을 제공합니다.
 
     기존의 SQL Server 마이그레이션 모범 사례를 사용하여 콘텐츠 데이터베이스를 StorSimple 장치로 이동합니다. 데이터베이스에서 모든 BLOB 콘텐츠 RBS를 통해 파일 공유로 이동한 후에 데이터베이스를 이동합니다. 콘텐츠 데이터베이스를 StorSimple 장치로 이동하기로 선택한 경우 기본 볼륨인 장치에서 콘텐츠 데이터베이스 저장소를 구성하는 것이 좋습니다.
 
-- Microsoft Azure StorSimple에서 StorSimple 장치에 로컬로 저장된 해당 콘텐츠가 Microsoft Azure 클라우드 저장소에 계층화되지 않았음을 보장할 방법은 없습니다. 콘텐츠 데이터베이스가 StorSimple 장치에 남아 있고 Microsoft Azure로 이동하지 않은 것을 확인하려면(SharePoint 트랜잭션 응답 시간에 부정적인 영향일 수 있음) StorSimple 장치에서 다른 작업을 이해하고 관리하는 것이 중요합니다. 장치가 SharePoint 콘텐츠 데이터베이스 워크로드 및 SharePoint 파일 공유 워크로드를 이미 호스팅하고 있는 경우 데이터 쓰기의 비율이 높은 워크로드를 호스팅하는 데 StorSimple 장치를 구성하지 않는 것이 좋습니다.
+- Microsoft Azure StorSimple에서 StorSimple 장치에 로컬로 저장된 해당 콘텐츠가 Microsoft Azure 클라우드 저장소에 계층화되지 않았음을 보장할 방법은 없습니다. 콘텐츠 데이터베이스가 StorSimple 장치에 남아 있고 Microsoft Azure로 이동하지 않은 것을 확인하려면(SharePoint 트랜잭션 응답 시간에 부정적인 영향일 수 있음) StorSimple 장치에서 다른 워크로드를 이해하고 관리하는 것이 중요합니다. 장치가 SharePoint 콘텐츠 데이터베이스 워크로드 및 SharePoint 파일 공유 워크로드를 이미 호스팅하고 있는 경우 데이터 쓰기의 비율이 높은 워크로드를 호스팅하는 데 StorSimple 장치를 구성하지 않는 것이 좋습니다.
 
 - StorSimple 장치에 콘텐츠 데이터베이스를 저장하지 않는 경우 RBS를 지원하는 기존의 SQL Server 고가용성 모범 사례를 사용합니다. SQL Server 미러링이 지원하지 않는 반면 SQL Server 클러스터링은 RBS를 지원합니다.
 
@@ -197,9 +197,9 @@ SharePoint용 StorSimple 어댑터를 설치한 후에 다음 절차에서 설�
 
 개체가 SharePoint 사이트에서 삭제되면 RBS 저장소 볼륨에서 자동으로 삭제되지 않습니다. 대신 비동기 백그라운드 유지 관리 프로그램이 삭제 파일에서 분리된 BLOB를 삭제합니다. 시스템 관리자는 이 프로세스가 주기적으로 실행되도록 예약하거나 필요할 때마다 프로세스를 시작할 수 있습니다.
 
-RBS를 사용하도록 설정하면 이 유지 관리 프로그램(Microsoft.Data.SqlRemoteBlobs.Maintainer.exe)은 모든 SharePoint WFE 서버 및 응용 프로그램 서버에 자동으로 설치됩니다. 프로그램은 다음 위치에 설치됩니다.<boot drive>: files\\microsoft SQL Remote Blob Storage 10.50\\Maintainer\\
+RBS를 사용하도록 설정하면 이 유지 관리 프로그램(Microsoft.Data.SqlRemoteBlobs.Maintainer.exe)은 모든 SharePoint WFE 서버 및 응용 프로그램 서버에 자동으로 설치됩니다. 프로그램은 다음 위치에 설치됩니다. <boot drive>:\\Program Files\\Microsoft SQL Remote Blob Storage 10.50\\Maintainer\\
 
-유지 관리 프로그램의 구성 또는 사용에 대한 내용은 [SharePoint Server 2013에서 RBS 유지 관리][8]를 참조하세요.
+유지 관리 프로그램을 구성 및 사용하는 방법에 대한 자세한 내용은 [SharePoint Server 2013에서 RBS 유지 관리][8]를 참조하세요.
 
 >[AZURE.IMPORTANT]RBS 유지 관리 프로그램은 많은 리소스를 사용합니다. SharePoint 팜에서 활동이 적은 기간 동안 실행되도록 예약해야 합니다.
 
@@ -226,7 +226,75 @@ RBS를 사용하도록 설정하면 이 유지 관리 프로그램(Microsoft.Dat
 >
 >- 업그레이드/다시 설치가 완료되면 콘텐츠 데이터베이스에 RBS를 사용하도록 설정해야 합니다. 자세한 내용은 [RBS 구성](#configure-rbs)을 참조하세요.
 >
->- 매우 많은(200보다 큼) 데이터베이스가 있는 SharePoint 팜에 RBS를 구성하는 경우 **SharePoint 중앙 관리** 페이지가 시간을 초과할 수 있습니다. 발생하는 경우 페이지를 새로 고칩니다. 구성 프로세스에는 영향을 주지 않습니다.
+>- 매우 많은(200개 초과) 데이터베이스가 있는 SharePoint 팜에 RBS를 구성하는 경우 **SharePoint 중앙 관리** 페이지가 시간을 초과할 수 있습니다. 발생하는 경우 페이지를 새로 고칩니다. 구성 프로세스에는 영향을 주지 않습니다.
+
+[AZURE.INCLUDE [storsimple-upgrade-sharepoint-adapter](../../includes/storsimple-upgrade-sharepoint-adapter.md)]
+ 
+## SharePoint용 StorSimple 어댑터 제거
+
+다음 절차에서는 Blob을 SQL Server 콘텐츠 데이터베이스로 다시 이동한 다음 SharePoint용 StorSimple 어댑터를 제거하는 방법을 설명합니다.
+
+>[AZURE.IMPORTANT]어댑터 소프트웨어를 제거하기 전에 Blob을 콘텐츠 데이터베이스로 다시 이동해야 합니다.
+
+### 시작하기 전에 
+
+데이터를 SQL Server 콘텐츠 데이터베이스로 다시 이동하고 어댑터 제거 프로세스를 시작하기 전에 다음 정보를 수집합니다.
+
+- RBS가 사용되는 모든 데이터베이스의 이름
+- 구성된 Blob 저장소의 UNC 경로
+
+### Blob을 콘텐츠 데이터베이스로 다시 이동
+
+SharePoint용 StorSimple 어댑터 소프트웨어를 제거하기 전에 외부화된 모든 Blob을 SQL Server 콘텐츠 데이터베이스로 다시 마이그레이션해야 합니다. 모든 Blob을 콘텐츠 데이터베이스로 다시 이동하기 전에 SharePoint용 StorSimple 어댑터를 제거하려고 하면 다음과 같은 경고 메시지가 표시됩니다.
+
+![경고 메시지](./media/storsimple-adapter-for-sharepoint/sasp1.png)
+ 
+####Blob을 콘텐츠 데이터베이스로 다시 이동하려면 
+
+1. 각 외부화된 개체를 다운로드합니다.
+
+2. **SharePoint 중앙 관리** 페이지를 열고 **시스템 설정**을 찾습니다.
+
+3. **Azure StorSimple**에서 **StorSimple 어댑터 구성**을 클릭합니다.
+
+4. **StorSimple 어댑터 구성** 페이지에서 외부 Blob 저장소에서 제거하려는 각 콘텐츠 데이터베이스 아래의 **사용 안 함** 단추를 클릭합니다.
+
+5. SharePoint에서 개체를 삭제한 다음 다시 업로드합니다.
+
+또는 SharePoint에 포함된 Microsoft ` RBS Migrate()` PowerShell cmdlet을 사용할 수 있습니다. 자세한 내용은 [RBS에서 콘텐츠 마이그레이션](https://technet.microsoft.com/library/ff628255.aspx)을 참조하세요.
+
+Blob을 콘텐츠 데이터베이스로 다시 이동한 후 다음 단계인 [어댑터 제거](#uninstall-the-adapter)로 이동합니다.
+
+### 어댑터 제거
+
+Blob을 SQL Server 콘텐츠 데이터베이스로 다시 이동한 후 다음 옵션 중 하나를 사용하여 SharePoint용 StorSimple 어댑터를 제거합니다.
+
+#### 설치 프로그램을 사용하여 어댑터를 제거하려면 
+
+1. 관리자 권한이 있는 계정을 사용하여 WFE(웹 프런트 엔드) 서버에 로그온합니다.
+2. SharePoint용 StorSimple 어댑터 설치 관리자를 두 번 클릭합니다. 설치 마법사가 시작됩니다.
+
+![설치 마법사](./media/storsimple-adapter-for-sharepoint/sasp2.png)
+
+3. **다음**을 클릭합니다. 다음 페이지가 나타납니다.
+
+![설치 마법사 제거 페이지](./media/storsimple-adapter-for-sharepoint/sasp3.png)
+
+4. **제거**를 클릭하여 제거 프로세스를 선택합니다. 다음 페이지가 나타납니다.
+
+![설치 마법사 확인 페이지](./media/storsimple-adapter-for-sharepoint/sasp4.png)
+
+5. **제거**를 클릭하여 제거를 확인합니다. 다음 진행률 페이지가 나타납니다.
+
+![설치 마법사 진행률 페이지](./media/storsimple-adapter-for-sharepoint/sasp5.png)
+
+6. 제거가 완료되면 마침 페이지가 나타납니다. **마침**을 클릭하여 설치 마법사를 닫습니다.
+
+#### 제어판을 사용하여 어댑터를 제거하려면 
+
+1. 제어판을 열고 **프로그램 및 기능**을 클릭합니다.
+
+2. **SharePoint용 StorSimple 어댑터**를 선택하고 **제거**를 클릭합니다.
 
 ## 다음 단계
 
@@ -240,4 +308,4 @@ RBS를 사용하도록 설정하면 이 유지 관리 프로그램(Microsoft.Dat
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/ko-KR/library/ff943565.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

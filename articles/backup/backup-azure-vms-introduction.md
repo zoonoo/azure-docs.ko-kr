@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 가상 컴퓨터 백업 소개"
+	pageTitle="Azure 가상 컴퓨터 백업 소개 | Microsoft Azure"
 	description="Azure 백업 서비스를 사용하여 Azure에서 가상 컴퓨터를 백업하는 방법 소개"
 	services="backup"
 	documentationCenter=""
@@ -7,16 +7,9 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/09/2015" ms.author="trinadhk";"aashishr";"jimpark"/>
 
-# Azure 가상 컴퓨터 백업 - 소개
+# Azure 가상 컴퓨터 백업
 
 이 섹션에서는 Microsoft Azure 백업을 사용하여 Azure 가상 컴퓨터를 보호하는 방법을 소개합니다. 이 섹션을 읽으면 다음을 알게 됩니다.
 
@@ -106,13 +99,15 @@ Azure 가상 컴퓨터 백업을 시작하기 전에 Azure VM 에이전트가 �
 
 ## 제한 사항
 
-- IaaS(V2) 가상 컴퓨터의 백업은 지원되지 않습니다.
+- Azure 리소스 관리자 기반(즉, IaaS V2) 가상 컴퓨터의 백업은 지원되지 않습니다.
 - 16개 이상의 데이터 디스크가 있는 가상 컴퓨터의 백업은 지원되지 않습니다.
 - 프리미엄 저장소를 사용하는 가상 컴퓨터의 백업은 지원되지 않습니다.
+- 여러 예약된 IP가 있는 가상 컴퓨터의 백업은 지원되지 않습니다.
+- 예약된 IP가 있고 정의된 끝점이 없는 가상 컴퓨터의 백업은 지원되지 않습니다.
 - 여러 NIC를 사용하거나 부하 분산 구성에 포함된 가상 컴퓨터의 백업은 지원되지 않습니다.
 - 복원하는 동안 기존 가상 컴퓨터의 교체는 지원되지 않습니다. 먼저 기존 가상 컴퓨터와 관련 디스크를 모두 삭제한 다음 백업에서 데이터를 복원합니다.
 - 지역 간 백업 및 복원은 지원되지 않습니다.
-- Azure 백업 서비스를 사용한 가상 컴퓨터 백업은 일부 선택 지역에서만 지원됩니다. [지원되는 지역](http://azure.microsoft.com/regions/#services) 목록을 확인하세요. 찾는 지역이 현재 지원되지 않는 경우, 자격 증명 모음을 만드는 동안 드롭다운 목록에 표시되지 않습니다.
+- Azure 백업 서비스를 사용한 가상 컴퓨터 백업은 Azure의 모든 공용 지역에서 지원됩니다. 다음은 지원되는 지역의 [검사 목록](http://azure.microsoft.com/regions/#services)입니다. 찾는 지역이 현재 지원되지 않는 경우, 자격 증명 모음을 만드는 동안 드롭다운 목록에 표시되지 않습니다.
 - Azure 백업 서비스를 사용하는 가상 컴퓨터 백업은 선택한 운영 체제 버전에 대해서만 지원됩니다.
   - **Linux**: Azure 인증 배포 목록은 [여기](../virtual-machines-linux-endorsed-distributions.md)서 확인할 수 있습니다. 가상 컴퓨터에서 VM 에이전트를 사용할 수 있는 한 기타 Bring-Your-Own-Linux 배포도 작동합니다.
   - **Windows Server**: Windows Server 2008 R2 이전 버전은 지원되지 않습니다.
@@ -124,9 +119,7 @@ Azure 가상 컴퓨터 백업을 시작하기 전에 Azure VM 에이전트가 �
 가상 컴퓨터 백업을 시작하려면 다음 방법을 알아보세요.
 
 - [가상 컴퓨터 백업](backup-azure-vms.md)
-
 - [가상 컴퓨터 복원](backup-azure-restore-vms.md)
-
 - [가상 컴퓨터 백업 관리](backup-azure-manage-vms.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

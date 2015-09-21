@@ -91,11 +91,11 @@ SAS 키 이름 및 값에 대한 값은 Azure 포털 연결 정보 또는 Visual
 
 이제 서비스 버스 큐의 기본 사항을 익혔으므로 다음 링크를 따라 자세히 알아보세요.
 
--   MSDN 참조: [큐, 항목 및 구독][]을 참조하세요.
+-   [큐, 토픽 및 구독][]을 참조하세요.
 
 [Azure Management Portal]: http://manage.windowsazure.com
 [Python Azure 패키지]: https://pypi.python.org/pypi/azure
-[큐, 항목 및 구독]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+[큐, 토픽 및 구독]: service-bus-queues-topics-subscriptions.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

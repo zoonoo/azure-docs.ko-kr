@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="데이터 작업 시작(Android) | Microsoft Azure" 
-	description="모바일 서비스를 사용하여 Android 앱에서 데이터를 활용하는 방법에 대해 알아봅니다." 
+	pageTitle="Android에서 데이터 작업 시작(JavaScript 백 엔드) | Microsoft Azure" 
+	description="모바일 서비스를 사용하여 Android 앱에서 데이터를 활용하는 방법에 대해 알아봅니다(JavaScript 백 엔드)." 
 	services="mobile-services" 
 	documentationCenter="android" 
 	authors="RickSaling" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="08/18/2015" 
+	ms.date="09/04/2015" 
 	ms.author="ricksal"/>
 
-# 기존 Android 앱에 모바일 서비스 추가
+# 기존 Android 앱에 모바일 서비스 추가(JavaScript 백 엔드)
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
@@ -35,7 +35,7 @@
 </div>
 
 
-<p>이 자습서에서는 Azure 모바일 서비스가 Android 앱에서 데이터를 검색하고 저장할 수 있는 방법에 대해 자세히 설명합니다. 따라서 모바일 서비스 퀵 스타트 자습서에서 이미 완료한 여러 단계를 순서대로 안내합니다. 모바일 서비스를 처음 사용하는 경우 먼저 <a href="/ko-kr/develop/mobile/tutorials/get-started-android">모바일 서비스 시작</a> 자습서를 완료하는 것이 좋습니다.</p>
+<p>이 자습서에서는 Azure 모바일 서비스가 Android 앱에서 데이터를 검색하고 저장할 수 있는 방법에 대해 자세히 설명합니다. 따라서 모바일 서비스 퀵 스타트 자습서에서 이미 완료한 여러 단계를 순서대로 안내합니다. 모바일 서비스를 처음 사용하는 경우 먼저 <a href="/ko-KR/develop/mobile/tutorials/get-started-android">모바일 서비스 시작</a> 자습서를 완료하는 것이 좋습니다.</p>
 
 ## 필수 조건
 
@@ -156,4 +156,4 @@ Azure 모바일 서비스 Android SDK의 이전 버전에서 사용되는 샘플
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

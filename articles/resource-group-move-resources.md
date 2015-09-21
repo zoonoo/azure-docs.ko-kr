@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="새 리소스 그룹으로 리소스 이동"
-	description="Azure PowerShell 또는 REST API를 사용하여 Azure 리소스 관리자에 대한 새 리소스 그룹에 리소스를 이동합니다."
-	services="azure-resource-manager"
-	documentationCenter=""
-	authors="tfitzmac"
-	manager="wpickett"
+	pageTitle="새 리소스 그룹으로 리소스 이동" 
+	description="Azure PowerShell 또는 REST API를 사용하여 Azure 리소스 관리자에 대한 새 리소스 그룹에 리소스를 이동합니다." 
+	services="azure-resource-manager" 
+	documentationCenter="" 
+	authors="tfitzmac" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="azure-resource-manager"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="azure-resource-manager" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="tomfitz"/>
 
 # 새 리소스 그룹 또는 구독으로 리소스 이동
@@ -39,12 +39,13 @@
 
 - API 관리
 - Azure 검색
+- Azure 웹앱(일부 [제한 사항](app-service-web/app-service-move-resources.md) 적용)
 - 데이터 팩터리
 - 키 자격 증명 모음
 - 모바일 고객 관리
 - Operational Insights
 - Redis 캐시
-- Azure 웹앱(일부 [제한 사항](app-service-web/app-service-move-resources.md) 적용)
+- SQL 데이터베이스
 
 새 리소스 그룹으로의 이동은 지원하지만 새 구독으로의 이동은 지원하지 않는 서비스는 다음과 같습니다.
 
@@ -101,4 +102,4 @@
 - [Azure 포털을 사용하여 리소스 관리](azure-portal/resource-group-portal.md)
 - [태그를 사용하여 리소스 구성](./resource-group-using-tags.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

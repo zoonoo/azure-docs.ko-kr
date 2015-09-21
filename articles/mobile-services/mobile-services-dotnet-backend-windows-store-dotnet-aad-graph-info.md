@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Active Directory 그래프 정보 액세스(Windows 스토어) | Microsoft Azure"
-	description="Windows 스토어 응용 프로그램에서 Graph API를 사용하여 Azure Active Directory 정보에 액세스하는 방법에 대해 알아봅니다."
+	pageTitle=".NET 백 엔드와 함께 모바일 서비스를 사용하여 Azure Active Directory Graph 정보에 액세스(Windows 스토어) | Microsoft Azure"
+	description="Graph API를 사용하여 .NET 백 엔드 모바일 서비스에서 Azure Active Directory 정보에 액세스하는 방법에 대해 알아봅니다."
 	documentationCenter="windows"
 	authors="wesmc7777"
 	manager="dwrede"
@@ -9,14 +9,14 @@
 
 <tags
 	ms.service="mobile-services"
-	ms.workload="mobile"
+	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/03/2015"
 	ms.author="wesmc"/>
 
-# Azure Active Directory 그래프 정보 액세스
+# .NET 백 엔드와 함께 모바일 서비스를 사용하여 Azure Active Directory Graph 정보에 액세스
 
 
 
@@ -254,4 +254,4 @@ Azure AD Graph API에 대한 자세한 내용은 [Azure Active Directory 그래�
 [Get User]: http://msdn.microsoft.com/library/azure/dn151678.aspx
 [모바일 서비스의 AAD에서 역할 기반 액세스 제어]: mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

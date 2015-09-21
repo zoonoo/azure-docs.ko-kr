@@ -5,9 +5,11 @@ PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
 2. 다음과 같이 **Switch-AzureMode** cmdlet을 실행하여 리소스 관리자 모드로 전환합니다.
 
-	Switch-AzureMode AzureResourceManager
+		Switch-AzureMode AzureResourceManager
 
-	경고: Switch-AzureMode cmdlet은 더 이상 사용되지 않으며 향후 릴리스에서 제거될 예정입니다.
+	다음은 위의 명령에 대해 예상된 출력입니다.
+
+		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
 
 	>[AZURE.WARNING]Switch-AzureMode cmdlet은 곧 더 이상 사용되지 않습니다. 이 경우 모든 리소스 관리자 cmdlet의 이름이 바뀝니다.
 
@@ -15,6 +17,8 @@ PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 
 		New-AzureResourceGroup -Name TestRG -Location centralus
 		
+	다음은 위의 명령에 대해 예상된 출력입니다.
+
 		ResourceGroupName : TestRG
 		Location          : centralus
 		ProvisioningState : Succeeded
@@ -29,7 +33,8 @@ PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 
 		New-AzureResourceGroupDeployment -Name TestVNetDeployment -ResourceGroupName TestRG `
 			-TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
-		
+			
+	다음은 위의 명령에 대해 예상된 출력입니다.
 		
 		DeploymentName    : TestVNetDeployment
 		ResourceGroupName : TestRG
@@ -55,6 +60,7 @@ PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 
 		Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 		
+	다음은 위의 명령에 대해 예상된 출력입니다.
 		
 		Name              : TestVNet
 		ResourceGroupName : TestRG
@@ -95,4 +101,4 @@ PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 		                      }
 		                    ]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

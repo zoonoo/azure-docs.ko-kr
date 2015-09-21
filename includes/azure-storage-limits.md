@@ -24,9 +24,9 @@
 단일 테이블 파티션의 목표 처리량(1KB 엔터티)|초당 최대 2,000개 엔터티
 단일 파일 공유의 목표 처리량(미리 보기)|초당 최대 60MB
 저장소 계정당 최대 수신<sup>3</sup>(미국 지역)|GRS/ZRS<sup>4</sup>를 사용하는 경우 10Gbps, LRS의 경우 20Gbps
-저장소 계정당 최대 송신<sup>3</sup>(미국 지역)|GRS/ZRS<sup>4</sup>를 사용하는 경우 20Gbps, LRS의 경우 30Gbps
+저장소 계정당 최대 송신<sup>3</sup>(미국 지역)|RA-GRS/GRS/ZRS<sup>4</sup>를 사용하는 경우 20Gbps, LRS의 경우 30Gbps
 저장소 계정당 최대 수신<sup>3</sup>(유럽 및 아시아 지역)|GRS/ZRS<sup>4</sup>를 사용하는 경우 5Gbps, LRS의 경우 10Gbps
-저장소 계정당 최대 송신<sup>3</sup>(유럽 및 아시아 지역)|GRS/ZRS<sup>4</sup>를 사용하는 경우 10Gbps, LRS의 경우 15Gbps
+저장소 계정당 최대 송신<sup>3</sup>(유럽 및 아시아 지역)|RA-GRS/GRS/ZRS<sup>4</sup>를 사용하는 경우 10Gbps, LRS의 경우 15Gbps
 
 <sup>1</sup>저장소 계정이 100개보다 많이 필요한 경우 [Azure 지원](http://azure.microsoft.com/support/faq/)에 문의하세요.
 
@@ -36,6 +36,11 @@
 
 <sup>3</sup>*수신*은 저장소 계정으로 전송되는 모든 데이터(요청)를 가리킵니다. *송신*은 저장소 계정에서 수신되는 모든 데이터(응답)를 가리킵니다.
 
-<sup>4</sup>GRS는 지역 중복 저장소를 가리킵니다. ZRS는 영역 중복 저장소를 가리키며 블록 blob에 대해서만 사용할 수 있습니다. LRS는 로컬 중복 저장소를 가리킵니다.
+<sup>4</sup>Azure 저장소 복제 옵션은 다음을 포함합니다.
 
-<!---HONumber=September15_HO1-->
+- **RA-GRS**: 읽기 액세스 지역 중복 저장소 RA-GRS를 사용하는 경우 보조 위치에 대한 송신 대상은 기본 위치에 대한 송신 대상과 동일합니다.
+- **GRS**: 지역 중복 저장소 
+- **ZRS**: 영역 중복 저장소. 블록 Blob에 대해서만 사용 가능합니다. 
+- **LRS**: 로컬 중복 저장소 
+
+<!---HONumber=Sept15_HO2-->

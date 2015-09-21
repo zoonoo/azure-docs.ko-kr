@@ -7,6 +7,8 @@ Windows, Linux 또는 OSX를 실행하는 컴퓨터의 명령 프롬프트에서
 
 			azure network vnet create --vnet TestVNet -e 192.168.0.0 -i 16 -n FrontEnd -p 192.168.1.0 -r 24 -l "Central US"
 	
+	다음은 위의 명령에 대해 예상된 출력입니다.
+
 			info:    Executing command network vnet create
 			+ Looking up network configuration
 			+ Looking up locations
@@ -25,6 +27,8 @@ Windows, Linux 또는 OSX를 실행하는 컴퓨터의 명령 프롬프트에서
 
 			azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
 	
+	다음은 위의 명령에 대해 예상된 출력입니다.
+
 			info:    Executing command network vnet subnet create
 			+ Looking up network configuration
 			+ Creating subnet "BackEnd"
@@ -35,13 +39,15 @@ Windows, Linux 또는 OSX를 실행하는 컴퓨터의 명령 프롬프트에서
 			data:    Address prefix                  : 192.168.2.0/24
 			info:    network vnet subnet create command OK
 
-	- **-t(또는 --vnet-name**. 서브넷이 만들어지는 VNet의 이름입니다. 이 시나리오에서는 *TestVNet*입니다.
+	- **-t(또는 --vnet-name)**. 서브넷이 만들어지는 VNet의 이름입니다. 이 시나리오에서는 *TestVNet*입니다.
 	- **-n(또는 --name)**. 새 서브넷의 이름입니다. 이 시나리오에서는 *BackEnd*입니다.
 	- **-a(또는 --address-prefix)**. 서브넷 CIDR 블록입니다. 이 시나리오에서는 *192.168.2.0/24*입니다.
 
 4. 아래와 같이 새 VNet의 속성을 보려면 **azure network vnet show** 명령을 실행합니다.
 
 			azure network vnet show
+
+	다음은 위의 명령에 대해 예상된 출력입니다.
 
 			info:    Executing command network vnet show
 			Virtual network name: TestVNet
@@ -59,4 +65,4 @@ Windows, Linux 또는 OSX를 실행하는 컴퓨터의 명령 프롬프트에서
 			data:
 			info:    network vnet show command OK
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

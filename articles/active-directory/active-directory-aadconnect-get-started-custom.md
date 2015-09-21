@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure AD Connect의 사용자 지정 설치"
-	description="이 문서는 Azure AD Connect에 대한 사용자 지정 설치 옵션에 대해 자세히 설명합니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Azure AD Connect의 사용자 지정 설치" 
+	description="이 문서는 Azure AD Connect에 대한 사용자 지정 설치 옵션에 대해 자세히 설명합니다." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="active-directory"  
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 # Azure AD Connect의 사용자 지정 설치
@@ -184,17 +184,6 @@ PowerShell cmdlet을 실행하려면 먼저 가져와야 합니다.
 
 스테이징 모드에 있는 동안, 동기화 엔진에 필요한 변경 내용을 작성하고 내보낼 내용을 검토합니다. 구성마음에 드는 경우, 설치 마법사를 다시 실행하고 스테이징 모드를 사용하지 않도록 설정합니다. 이렇게 하면 데이터를 Azure AD로 내보낼 수 있습니다. 한 서버만이 내보낼 수 있으므로 동시에 다른 서버를 사용하지 않도록 설정했는지 확인합니다.
 
-### 실수로 인한 삭제 방지
-Azure AD Connect를 설치하는 경우 실수로 인한 삭제를 방지하는 기능을 기본적으로 사용하고 500개가 넘는 삭제된 내보내기를 허용하지 않도록 구성합니다. 500개가 기본 값이며 변경할 수 있습니다. 이 기능을 사용하면 너무 많이 삭제한 경우 내보내기가 계속되지 않으며 다음과 같이 전자 메일을 받게 됩니다.
-
-![동기화 필터링](./media/active-directory-aadconnect-get-started-custom/email.png)
-
-
-예상된 경우가 아니라면 조사하여 수정 작업을 수행합니다.
-
-일시적으로 이 보호를 해제하고 삭제를 진행할 수 있도록 하려면, 이를 해제 하려면 Disable-ADSyncExportDeletionThreshold를 실행합니다.
-
-보호를 다시 설정하거나 기본 임계값 설정을 변경하려면 Enable-ADSyncExportDeletionThreshold를 실행합니다.
 
 
 ## AD FS로 페더레이션 구성
@@ -279,4 +268,4 @@ AD FS에 로그인하고 PSH를 사용하여 이렇게 구성하여 AD FS 로그
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

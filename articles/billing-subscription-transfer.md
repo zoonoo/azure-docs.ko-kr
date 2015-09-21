@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 구독 양도 | Microsoft Azure"
-	description="다른 사용자에게 Azure 구독을 전송하는 방법과 프로세스에 대한 몇 가지 질문과 대답(FAQ)"
-	services="billing"
-	documentationCenter=""
-	authors="curtand"
-	manager="msmStevenPo"
-	editor=""/>
+   description="다른 사용자에게 Azure 구독을 전송하는 방법과 프로세스에 대한 몇 가지 질문과 대답(FAQ)"
+   services="billing"
+   documentationCenter=""
+   authors="curtand"
+   manager="msmStevenPo"
+   editor=""/>
 
 <tags
    ms.service="billing"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="billing"
-	ms.date="08/19/2015"
-	ms.author="curtand;ruchic"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="billing"
+   ms.date="08/19/2015"
+   ms.author="curtand;ruchic"/>
 
 # Azure 구독 양도
 
@@ -94,4 +94,15 @@
 
     예, 실제로 송장에서 신용 카드까지 구독에 대한 지불 방법을 변경하려면 이 메커니즘을 사용할 수 있습니다. 소유하고 있는 다른 계정에 양도하고 구독을 수신하는 동안 사용자의 신용 카드를 입력합니다. 여기에 제한 사항이 있습니다. 현재 구독 청구 내역은 두 계정으로 분할됩니다. 하지만 [지원 부서에 문의](http://go.microsoft.com/fwlink/?LinkID=619338)할 필요 없이 이를 수행할 수 있는 장점이 있습니다.
 
-<!---HONumber=September15_HO1-->
+## 구독 소유권을 수락한 후 다음 단계
+
+1. 이제 계정 관리자입니다. 서비스 관리자 및 공동 관리자를 검토하고 업데이트합니다. [Azure 관리 포털](https://manage.windowsazure.com)에서 설정으로 이동하여 관리자를 관리합니다. [자세히 알아봅니다](http://go.microsoft.com/fwlink/?LinkID=533293). 
+2. 구독 및 서비스에 대해 RBAC(역할 기반 액세스 제어)를 사용할 수도 있습니다. [Azure Preview 포털](https://portal.azure.com) [RBAC에 대한 자세한 정보](http://go.microsoft.com/fwlink/?LinkID=544802)를 방문하세요.
+3. 이 구독의 서비스와 연결된 자격 증명을 업데이트합니다. 내용은 다음과 같습니다. 
+    -   구독 리소스에 대한 관리자 권한을 사용자에게 부여하는 관리 인증서. 자세한 내용은 [Azure용 관리 인증서 만들기 및 업로드](https://msdn.microsoft.com/library/azure/gg551722.aspx)를 참조하세요.
+    -	저장소와 같은 서비스에 대한 액세스 키. 자세한 내용은 [저장소 액세스 키 보기, 복사 및 다시 생성](storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys)을 참조하세요.
+    -	Azure 가상 컴퓨터와 같은 서비스에 대한 원격 액세스 자격 증명
+4. [Azure 계정 센터](https://account.windowsazure.com/Subscriptions) [자세한 정보](http://go.microsoft.com/fwlink/?LinkID=533292)에서 이 구독에 대한 청구 경고를 업데이트합니다.
+5. 	파트너와 함께 작업하는 경우 이 구독에서 파트너 ID를 업데이트하는 것이 좋습니다. 이 작업은 [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에서 수행할 수 있습니다.
+
+<!---HONumber=Sept15_HO2-->

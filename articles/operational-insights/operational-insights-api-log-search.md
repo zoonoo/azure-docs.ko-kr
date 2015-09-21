@@ -38,7 +38,7 @@ Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/librar
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
     ```
 
-3. 새 명령 프롬프트를 열어 ARMClient를 설치하고 다음 명령을 실행 합니다.
+2. 다음 명령을 실행하여 ARMClient를 설치합니다.
 
     ```
     choco install armclient
@@ -66,7 +66,7 @@ Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/librar
 2. 작업 관리 도구 모음 작업 영역을 가져옵니다. 예:
 
     ```
-    armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces?api-version=2014-10-10
+    armclient get /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces?api-version=2015-03-20
     ```
 
     Get 호출이 성공하면 구독에 연결된 모든 작업 영역이 출력됩니다. 예:
@@ -90,12 +90,12 @@ Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/librar
 3. 검색 변수를 만듭니다. 예:
 
     ```
-    $mySearch = "{ 'top':150, 'query':'Error'}”;
+    $mySearch = "{ 'top':150, 'query':'Error'}";
     ```
 4. 새 검색 변수를 사용하여 검색 합니다. 예:
 
     ```
-    armclient post /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{WORKSPACE NAME}/search?api-version=2014-10-10 $mySearch
+    armclient post /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{WORKSPACE NAME}/search?api-version=2015-03-20 $mySearch
     ```
 
 ## 검색 API 참조 예제
@@ -106,7 +106,7 @@ Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/librar
 **샘플 Url:**
 
 ```
-	/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search?api-version=2014-10-10
+	/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search?api-version=2015-03-20
 ```
 
 **요청:**
@@ -123,7 +123,7 @@ Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/librar
 	  "start":"2015-02-04T21:03:29.231Z",
 	  "end":"2015-02-11T21:03:29.231Z"
 	}
-	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2014-10-10 $searchParametersJson
+	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2015-03-20 $searchParametersJson
 ```
 다음 테이블에서 사용할 수 있는 속성을 설명합니다.
 
@@ -194,7 +194,7 @@ Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/librar
 **저장된 검색의 내용을 요청:**
 
 ```
-	armclient post /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search/{SearchId}?api-version=2014-10-10
+	armclient post /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/search/{SearchId}?api-version=2015-03-20
 ```
 
 >[AZURE.NOTE]검색이 '보류중' 상태와 함께 반환되면 업데이트된 결과를 폴링하는 것은 API를 통해 수행할 수 있습니다. 6분 후 캐시에서 검색 결과가 삭제되고 Http Gone이 반환됩니다. 초기 검색 요청이 '성공' 상태를 즉시 반환하는 경우 쿼리되면 이 API를 발생시키는 캐시에 추가되지 않아서 Http Gone을 반환합니다. Http 200 결과의 내용은 업데이트 된 값이 포함된 초기 검색 요청과 같은 형식입니다.
@@ -204,7 +204,7 @@ Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/librar
 **저장된 검색의 목록 요청입니다.**
 
 ```
-	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2014-10-10
+	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/savedSearches?api-version=2015-03-20
 ```
 
 지원되는 메서드: GET PUT DELETE
@@ -228,7 +228,7 @@ Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/librar
 **요청:**
 
 ```
-	armclient delete /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2014-10-10
+	armclient delete /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2015-03-20
 ```
 
 ### 저장된 검색 업데이트
@@ -237,7 +237,7 @@ Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/librar
 
 ```
 	$savedSearchParametersJson = "{'etag': 'W/`"datetime\'2015-04-16T23%3A35%3A35.3182423Z\'`"', 'properties': { 'Category': 'myCategory', 'DisplayName':'myDisplayName', 'Query':'* | measure Count() by Source', 'Version':'1'  }"
-	armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2014-10-10 $savedSearchParametersJson
+	armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/savedSearches/thisIsMyId?api-version=2015-03-20 $savedSearchParametersJson
 ```
 
 ### 메타데이터-JSON만
@@ -247,7 +247,7 @@ Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/librar
 **필드에 대한 요청:**
 
 ```
-	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/schema?api-version=2014-10-10
+	armclient get /subscriptions/{SubId}/resourceGroups/{ResourceGroupId}/providers/Microsoft.OperationalInsights/workspaces/{WorkspaceName}/schema?api-version=2015-03-20
 ```
 
 **응답:**
@@ -317,7 +317,7 @@ Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/librar
 	  "start":"2015-02-04T21:03:29.231Z",
 	  "end":"2015-02-11T21:03:29.231Z"
 	}
-	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2014-10-10 $searchParametersJson
+	armclient post /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace ID}/search?api-version=2015-03-20 $searchParametersJson
 ```
 
 **샘플 결과:**
@@ -346,4 +346,4 @@ Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/librar
 
 위의 결과 접두사가 있고 추가된 오류 메시지를 포함합니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

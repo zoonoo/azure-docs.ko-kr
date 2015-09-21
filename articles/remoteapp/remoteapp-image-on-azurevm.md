@@ -1,5 +1,5 @@
 <properties 
-    pageTitle="Azure VM을 기반으로 Azure RemoteApp 이미지 만들기"
+    pageTitle="Azure VM을 기반으로 Azure RemoteApp 이미지 만들기 | Microsoft Azure"
     description="Azure 가상 컴퓨터를 시작하여 Azure RemoteApp에 대한 이미지를 만드는 방법에 대해 알아봅니다." 
     services="remoteapp" 
     documentationCenter="" 
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="08/12/2015" 
+    ms.date="09/02/2015" 
     ms.author="elizapo" />
 
 
@@ -27,7 +27,7 @@ Azure VM을 기반으로 자신만의 이미지를 만드는 단계는 두 가�
 
 Azure VM을 기반으로 이미지를 만들려면 이 단계를 사용합니다.
 
-1. Azure 가상 컴퓨터를 만듭니다. Azure 가상 컴퓨터 이미지 갤러리에서 "Windows Server 원격 데스크톱 세션 호스트" 이미지를 사용할 수 있습니다. 이 이미지는 Azure RemoteApp 템플릿 이미지 요구 사항을 모두 충족합니다. 
+1. Azure 가상 컴퓨터를 만듭니다. Azure 가상 컴퓨터 이미지 갤러리에서 "Windows Server 원격 데스크톱 세션 호스트" 또는 "Microsoft Office 365 ProPlus가 있는 Windows Server 원격 데스크톱 세션 호스트" 이미지를 사용할 수 있습니다. 이 이미지는 Azure RemoteApp 템플릿 이미지 요구 사항을 모두 충족합니다. 
 
 	자세한 내용은 [Windows를 실행하는 VM 만들기](virtual-machines-windows-tutorial.md)를 참조하세요.
 
@@ -35,7 +35,7 @@ Azure VM을 기반으로 이미지를 만들려면 이 단계를 사용합니다
 
 	자세한 내용은 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-log-on-windows-server.md)을 참조하십시오.
 
-3. Windows Server 원격 데스크톱 세션 호스트 이미지를 사용하는 경우 VM이 RemoteApp pre reqs를 충족하는지 확인하는 유효성 검사 스크립트가 포함되어 있습니다. 스크립트를 실행하려면 바탕 화면에서 **ValidateRemoteAppImage**를 두 번 클릭합니다. 다음 단계를 진행하기 전에 스크립트에서 보고한 모든 오류가 해결되었는지 확인합니다.
+3. Windows Server 원격 데스크톱 세션 호스트 이미지 중 하나를 사용하는 경우 VM이 RemoteApp 사전 요구 사항을 충족하는지 확인하는 유효성 검사 스크립트가 포함되어 있습니다. 스크립트를 실행하려면 바탕 화면에서 **ValidateRemoteAppImage**를 두 번 클릭합니다. 다음 단계를 진행하기 전에 스크립트에서 보고한 모든 오류가 해결되었는지 확인합니다.
 
 4. SYSPREP가 일반화되고 이미지를 캡처합니다. 지침은 [템플릿으로 사용할 Windows 가상 컴퓨터를 캡처하는 방법](../virtual-machines-capture-image-windows-server.md)을 참조하세요.
 
@@ -59,4 +59,4 @@ Azure VM을 기반으로 이미지를 만들려면 이 단계를 사용합니다
 이제 필요에 따라 [클라우드](remoteapp-create-cloud-deployment.md) 컬렉션 또는 [하이브리드](remoteapp-create-hybrid-deployment.md) 컬렉션을 새로 만들 준비가 되었습니다.
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

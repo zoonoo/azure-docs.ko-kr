@@ -7,6 +7,8 @@ PowerShell을 사용하여 VNet을 만들려면 다음 단계를 수행합니다
 
 		Switch-AzureMode AzureResourceManager
 	
+	다음은 위의 명령에 대해 예상된 출력입니다.
+
 		WARNING: The Switch-AzureMode cmdlet is deprecated and will be removed in a future release.
 
 	>[AZURE.WARNING]Switch-AzureMode cmdlet은 곧 더 이상 사용되지 않습니다. 이 경우 모든 리소스 관리자 cmdlet의 이름이 바뀝니다.
@@ -14,6 +16,8 @@ PowerShell을 사용하여 VNet을 만들려면 다음 단계를 수행합니다
 3. 필요한 경우 **New-AzureResourceGroup** cmdlet을 실행하여 아래와 같이 새 리소스 그룹을 만듭니다. 이 시나리오의 경우 이름이 *TestRG*인 리소스 그룹을 만듭니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md/#resource-groups)를 참조하세요.
 
 		New-AzureResourceGroup -Name TestRG -Location centralus
+
+	다음은 위의 명령에 대해 예상된 출력입니다.
 	
 		ResourceGroupName : TestRG
 		Location          : centralus
@@ -31,6 +35,8 @@ PowerShell을 사용하여 VNet을 만들려면 다음 단계를 수행합니다
 		New-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet `
 			-AddressPrefix 192.168.0.0/16 -Location centralus	
 		
+	다음은 위의 명령에 대해 예상된 출력입니다.
+
 		Name              : TestVNet
 		ResourceGroupName : TestRG
 		Location          : centralus
@@ -60,6 +66,8 @@ PowerShell을 사용하여 VNet을 만들려면 다음 단계를 수행합니다
 		Add-AzureVirtualNetworkSubnetConfig -Name FrontEnd `
 			-VirtualNetwork $vnet -AddressPrefix 192.168.1.0/24
 		
+	다음은 위의 명령에 대해 예상된 출력입니다.
+
 		Name              : TestVNet
 		ResourceGroupName : TestRG
 		Location          : centralus
@@ -98,6 +106,8 @@ PowerShell을 사용하여 VNet을 만들려면 다음 단계를 수행합니다
 
 		Set-AzureVirtualNetwork -VirtualNetwork $vnet	
 		
+	다음은 위의 명령에 대해 예상된 출력입니다.
+
 		Name              : TestVNet
 		ResourceGroupName : TestRG
 		Location          : centralus
@@ -137,4 +147,4 @@ PowerShell을 사용하여 VNet을 만들려면 다음 단계를 수행합니다
 		                      }
 		                    ]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

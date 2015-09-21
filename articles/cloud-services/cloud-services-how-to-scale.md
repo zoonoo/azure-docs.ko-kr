@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="클라우드 서비스를 크기 조정하는 방법 | Microsoft Azure" 
-	description="Azure에서 클라우드 서비스 및 연결된 리소스의 크기를 조정하는 방법에 대해 알아봅니다." 
+	pageTitle="클라우드 서비스에 대해 크기 자동 조정 구성 | Microsoft Azure" 
+	description="Azure에서 클라우드 서비스 및 연결된 리소스에 대한 자동 크기 조정 규칙을 구성하는 데 포털을 사용하는 방법에 대해 알아봅니다." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015"
+	ms.date="09/08/2015"
 	ms.author="adegeo"/>
 
 
 
 
 
-# 응용 프로그램의 크기를 조정하는 방법
+# 응용 프로그램의 크기 자동 조정 방법
 
 Azure 관리 포털의 크기 조정 페이지에서 응용 프로그램의 크기를 수동으로 조정하거나, 매개 변수를 설정하여 응용 프로그램의 크기를 자동으로 조정할 수 있습니다. 웹 역할, 작업자 역할 또는 가상 컴퓨터를 실행 중인 응용 프로그램의 크기를 조정할 수 있습니다. 웹 역할 또는 작업자 역할의 인스턴스를 실행 중인 응용 프로그램의 크기를 조정하려면 작업에 맞게 역할 인스턴스를 추가하거나 제거할 수 있습니다.
 
@@ -227,4 +227,4 @@ Azure 관리 포털의 크기 조정 페이지에서 응용 프로그램의 크�
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

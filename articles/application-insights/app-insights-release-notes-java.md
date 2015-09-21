@@ -1,17 +1,17 @@
 <properties 
-	pageTitle="Java용 Application Insights에 대한 릴리스 정보"
-	description="최신 업데이트입니다."
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Java용 Application Insights에 대한 릴리스 정보" 
+	description="최신 업데이트입니다." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/18/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/18/2015" 
 	ms.author="awills"/>
  
 # Application Insights SDK for Java에 대한 릴리스 정보
@@ -38,11 +38,11 @@
 이전 버전과 새 ApplicationInsights.xml을 비교합니다. 대부분 변경 내용은 모듈을 추가하고 제거하기 때문입니다. 변경한 모든 사용자 지정을 복구합니다.
 
 ## 버전 1.0.1
-- Java 에이전트는 다음에 대한 종속성 정보 수집을 지원합니다.
+- [Java 에이전트](app-insights-java-agent.md)는 다음에 대한 종속성 정보를 수집합니다.
 	- HttpClient, OkHttp 및 RestTemplate(Spring)을 통해 수행한 HTTP 호출
 	- Jedis 클라이언트를 통해 수행한 Redis 호출. 구성 가능한 임계값이 전달되면 SDK가 호출 인수도 가져옵니다.
 	- Oracle DB 및 Apache Derby DB 클라이언트를 사용하여 수행한 JDBC 호출
-	- 준비된 문에 대해 'executeBatch' 쿼리 형식 지원 – SDK에서 일괄 처리 수와 함께 문을 표시됩니다.
+	- 준비된 문에 대해 'executeBatch' 쿼리 형식 지원 – SDK에서 일괄 처리 수와 함께 문이 표시됩니다.
 	- JDBC 클라이언트에 대해 해당 (MySql, PostgreSql)을 지원하는 쿼리 계획 제공 - 구성 가능한 임계값을 초과하는 경우에만 쿼리 계획을 가져옵니다.
 
 ## Version 1.0.0
@@ -68,4 +68,4 @@
 - 보고된 항목에 ```SyntheticSource``` 속성을 추가하여 원격 분석 항목에 가상으로 태그를 지정할 수 있습니다.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

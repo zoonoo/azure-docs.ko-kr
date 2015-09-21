@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure 미디어 서비스 개요 및 일반적인 시나리오"
-	description="이 항목에서는 Azure 미디어 서비스에 대한 개요를 제공합니다."
-	services="media-services"
-	documentationCenter=""
-	authors="Juliako"
-	manager="dwrede"
+	pageTitle="Azure 미디어 서비스 개요 및 일반적인 시나리오" 
+	description="이 항목에서는 Azure 미디어 서비스에 대한 개요를 제공합니다." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="Juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 #Azure 미디어 서비스 개요 및 일반적인 시나리오
@@ -34,6 +34,14 @@ Microsoft Azure 미디어 서비스는 개발자가 확장 가능한 미디어 �
 - [미디어 서비스 REST API](https://msdn.microsoft.com/library/azure/hh973617.aspx)
 - 사용 가능한 클라이언트 SDK의 하나: [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services), [Java용 Azure SDK](https://github.com/Azure/azure-sdk-for-java), [Node.js용 Azure 미디어 서비스](https://github.com/fritzy/node-azure-media), [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)
 - 기존 도구: [Azure 관리 포털](http://manage.windowsazure.com/) 또는 [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer)
+
+
+##미디어 서비스 학습 경로
+
+여기서 AMS 학습 경로를 볼 수 있습니다.
+
+- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
 
 ##필수 조건
@@ -211,8 +219,6 @@ Azure 미디어 서비스는 iOS 장치, Android 장치, Windows, Windows Phone,
 
 	자세한 내용은 [Microsoft Azure SLA](http://azure.microsoft.com/support/legal/sla/)를 참조하세요.
 
-
-
 <!-- Images -->
 [overview]: ./media/media-services-overview/media-services-overview.png
 [vod-overview]: ./media/media-services-video-on-demand-workflow/media-services-video-on-demand.png
@@ -220,4 +226,4 @@ Azure 미디어 서비스는 iOS 장치, Android 장치, Windows, Windows Phone,
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

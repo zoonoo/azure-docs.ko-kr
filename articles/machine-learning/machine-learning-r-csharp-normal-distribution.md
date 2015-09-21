@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="정규 분포 웹 서비스 제품군 | Microsoft Azure"
-	description="정규 분포 웹 서비스 제품군"
-	services="machine-learning"
-	documentationCenter=""
-	authors="jaymathe"
-	manager="paulettm"
+	pageTitle="정규 분포 웹 서비스 제품군 | Microsoft Azure" 
+	description="정규 분포 웹 서비스 제품군" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="ireiter" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="jaymathe"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/02/2015" 
+	ms.author="ireiter"/>
 
 #정규 분포 제품군
 
@@ -265,4 +265,4 @@
 [4]: ./media/machine-learning-r-csharp-normal-distribution/normal-img4.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

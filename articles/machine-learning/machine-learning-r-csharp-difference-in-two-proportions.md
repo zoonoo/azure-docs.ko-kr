@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="비율 차이 테스트 | Microsoft Azure"
-	description="비율 차이 테스트"
-	services="machine-learning"
-	documentationCenter=""
-	authors="aniedea"
-	manager="paulettm"
+	pageTitle="비율 차이 테스트 | Microsoft Azure" 
+	description="비율 차이 테스트" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="aniedea" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="jaymathe"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/02/2015" 
+	ms.author="aniedea"/>
 
 
 #비율 차이 테스트
@@ -130,4 +130,4 @@ Azure 기계 학습 내에서 두 개의 [R 스크립트 실행][execute-r-scrip
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

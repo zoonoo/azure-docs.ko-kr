@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 테이블 저장소 및 Visual Studio 연결된 서비스 시작"
-	description="Visual Studio의 클라우드 서비스 프로젝트에서 Azure 테이블 저장소를 사용하는 방법입니다."
+    pageTitle="테이블 저장소 및 Visual Studio 연결 서비스 시작(클라우드 서비스) | Microsoft Azure"
+	description="Visual Studio 연결 서비스를 사용하여 저장소 계정에 연결한 후 Visual Studio 클라우드 서비스 프로젝트에서 Azure 테이블 저장소 사용을 시작하는 방법입니다."
 	services="storage"
 	documentationCenter=""
 	authors="patshea123"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="09/03/2015"
 	ms.author="patshea123"/>
 
-# Azure 테이블 저장소 및 Visual Studio 연결된 서비스 시작
+# Azure 테이블 저장소 및 Visual Studio 연결 서비스 시작(클라우드 서비스 프로젝트)
 
 > [AZURE.SELECTOR]
 > - [Getting started](vs-storage-cloud-services-getting-started-tables.md)
@@ -42,11 +42,11 @@ Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 �
 - Azure 클라우드 서비스에 대한 일반적인 내용은 [클라우드 서비스 설명서](http://azure.microsoft.com/documentation/services/cloud-services/)를 참조하세요.
 - ASP.NET 응용 프로그램을 프로그래밍하는 방법에 대한 자세한 내용은 [ASP.NET](http://www.asp.net)을 참조하세요.
 
-##코드에서 테이블 액세스하기
+## 코드에서 테이블 액세스하기
 
 클라우드 서비스 프로젝트의 테이블에 액세스하려면 Azure 테이블 저장소에 액세스하는 C# 소스 파일에 다음 항목을 포함해야 합니다.
 
-1. C# 파일 맨 위의 네임스페이스 선언에 이러한 `using` 문이 포함되어 있는지 확인합니다.
+1. C# 파일 맨 위의 네임스페이스 선언에 이러한 **using** 문이 포함되어 있는지 확인합니다.
 
 		using Microsoft.Framework.Configuration;
 		using Microsoft.WindowsAzure.Storage;
@@ -71,14 +71,14 @@ Azure 테이블 저장소 서비스를 사용하면 많은 양의 구조화된 �
     	// Get a reference to a table named "peopleTable".
 	    CloudTable table = tableClient.GetTableReference("peopleTable");
 
-##코드에서 테이블 만들기
+## 코드에서 테이블 만들기
 
-Azure 테이블을 만들려면 "코드에서 테이블 액세스하기" 섹션에 설명된 대로 `CloudTable` 개체를 가져온 후 `CreateIfNotExistsAsync` 호출을 추가하면 됩니다.
+Azure 테이블을 만들려면 "코드에서 테이블 액세스" 섹션에 설명된 대로 **CloudTable** 개체를 가져온 후 **CreateIfNotExistsAsync** 호출을 추가하면 됩니다.
 
 	// Create the CloudTable if it does not exist.
 	await table.CreateIfNotExistsAsync();
 
-##테이블에 엔터티 추가
+## 테이블에 엔터티 추가
 
 테이블에 엔터티를 추가하려면 엔터티의 속성을 정의하는 클래스를 만듭니다. 다음 코드에서는 고객의 이름을 행 키로 사용하고 성을 파티션 키로 사용하는 **CustomerEntity**라는 엔터티 클래스를 정의합니다.
 
@@ -112,7 +112,7 @@ Azure 테이블을 만들려면 "코드에서 테이블 액세스하기" 섹션�
 	// Execute the insert operation.
 	await peopleTable.ExecuteAsync(insertOperation);
 
-##엔터티 일괄 삽입
+## 엔터티 일괄 삽입
 
 하나의 쓰기 작업으로 테이블에 여러 엔터티를 삽입할 수 있습니다. 다음 코드 예제에서는 두 개의 엔터티 개체("Jeff Smith" 및 "Ben Smith")를 만들고 Insert 메서드를 사용하여 **TableBatchOperation** 개체에 이 두 개체를 추가한 다음 **CloudTable.ExecuteBatchAsync**를 호출하여 작업을 시작합니다.
 
@@ -141,9 +141,9 @@ Azure 테이블을 만들려면 "코드에서 테이블 액세스하기" 섹션�
     // Create the CloudTable if it does not exist
     await table.CreateIfNotExistsAsync();
 
-##테이블에 엔터티 추가
+## 테이블에 엔터티 추가
 
-테이블에 엔터티를 추가하려면 엔터티의 속성을 정의하는 클래스를 만듭니다. 다음 코드에서는 고객의 이름을 행 키로 사용하고 성을 파티션 키로 사용하는 `CustomerEntity`라는 엔터티 클래스를 정의합니다.
+테이블에 엔터티를 추가하려면 엔터티의 속성을 정의하는 클래스를 만듭니다. 다음 코드에서는 고객의 이름을 행 키로 사용하고 성을 파티션 키로 사용하는 **CustomerEntity**라는 엔터티 클래스를 정의합니다.
 
     public class CustomerEntity : TableEntity
     {
@@ -160,7 +160,7 @@ Azure 테이블을 만들려면 "코드에서 테이블 액세스하기" 섹션�
          public string PhoneNumber { get; set; }
     }
 
-엔터티와 관련된 테이블 작업은 이전에 "코드에서 테이블 액세스하기"에서 만든 `CloudTable` 개체를 사용하여 수행됩니다. `TableOperation` 개체는 수행할 작업을 나타냅니다. 다음 코드 예제에서는 `CloudTable` 개체와 `CustomerEntity` 개체를 만드는 방법을 보여 줍니다. 작업을 준비하기 위해 고객 엔터티를 테이블에 삽입하는 `TableOperation`이 만들어집니다. 마지막으로 CloudTable.ExecuteAsync를 호출하여 작업이 실행됩니다.
+엔터티와 관련된 테이블 작업은 이전에 "코드에서 테이블 액세스"에서 만든 **CloudTable** 개체를 사용하여 수행됩니다. **TableOperation** 개체를 수행할 작업을 나타냅니다. 다음 코드 예제에서는 **CloudTable** 개체와 **CustomerEntity** 개체를 만드는 방법을 보여 줍니다. 작업을 준비하기 위해 고객 엔터티를 테이블에 삽입하는 **TableOperation**이 만들어집니다. 마지막으로 CloudTable.ExecuteAsync를 호출하여 작업이 실행됩니다.
 
     // Get a reference to the CloudTable object named 'peopleTable' as described in "Access a table in code".
 
@@ -175,9 +175,9 @@ Azure 테이블을 만들려면 "코드에서 테이블 액세스하기" 섹션�
     // Execute the insert operation.
     await peopleTable.ExecuteAsync(insertOperation);
 
-##엔터티 일괄 삽입
+## 엔터티 일괄 삽입
 
-하나의 쓰기 작업으로 테이블에 여러 엔터티를 삽입할 수 있습니다. 다음 코드 예제에서는 두 개의 엔터티 개체("Jeff Smith" 및 "Ben Smith")를 만들고 Insert 메서드를 사용하여 `TableBatchOperation` 개체에 이 두 개체를 추가한 다음 `CloudTable.ExecuteBatchAsync`를 호출하여 작업을 시작합니다.
+하나의 쓰기 작업으로 테이블에 여러 엔터티를 삽입할 수 있습니다. 다음 코드 예제에서는 두 개의 엔터티 개체("Jeff Smith" 및 "Ben Smith")를 만들고 Insert 메서드를 사용하여 **TableBatchOperation** 개체에 이 두 개체를 추가한 다음 **CloudTable.ExecuteBatchAsync**를 호출하여 작업을 시작합니다.
 
     // Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code".
 
@@ -201,9 +201,9 @@ Azure 테이블을 만들려면 "코드에서 테이블 액세스하기" 섹션�
     // Execute the batch operation.
     await peopleTable.ExecuteBatchAsync(batchOperation);
 
-##파티션의 모든 엔터티 가져오기
+## 파티션의 모든 엔터티 가져오기
 
-테이블에서 파티션의 모든 엔터티를 쿼리하려면 `TableQuery` 개체를 사용합니다. 다음 코드 예제에서는 'Smith'가 파티션 키인 엔터티에 대한 필터를 지정합니다. 이 예제에서는 쿼리 결과에 있는 각 엔터티의 필드를 콘솔에 출력합니다.
+테이블에서 파티션의 모든 엔터티를 쿼리하려면 **TableQuery** 개체를 사용합니다. 다음 코드 예제에서는 'Smith'가 파티션 키인 엔터티에 대한 필터를 지정합니다. 이 예제에서는 쿼리 결과에 있는 각 엔터티의 필드를 콘솔에 출력합니다.
 
     // Get a reference to a CloudTable object named 'peopleTable' as described in "Access a table in code".
 
@@ -228,7 +228,7 @@ Azure 테이블을 만들려면 "코드에서 테이블 액세스하기" 섹션�
     return View();
 
 
-##단일 엔터티 가져오기
+## 단일 엔터티 가져오기
 
 단일 특정 엔터티를 가져오는 쿼리를 작성할 수 있습니다. 다음 코드에서는 **TableOperation** 개체를 사용하여 'Ben Smith'라는 고객을 지정합니다. 이 메서드는 컬렉션 대신 하나의 엔터티만 반환하며, **TableResult.Result**에서 반환된 값은 **CustomerEntity** 개체입니다. 쿼리에 파티션과 행 키를 모두 지정하는 것이 **테이블** 서비스에서 단일 엔터티를 검색하는 가장 빠른 방법입니다.
 
@@ -246,7 +246,7 @@ Azure 테이블을 만들려면 "코드에서 테이블 액세스하기" 섹션�
 	else
 	   Console.WriteLine("The phone number could not be retrieved.");
 
-##엔터티 삭제
+## 엔터티 삭제
 엔터티를 찾은 후 삭제할 수 있습니다. 다음 코드에서는 "Ben Smith"라는 고객 엔터티를 검색하고, 찾으면 삭제합니다.
 
 	// Get a reference to a **CloudTable** object named 'peopleTable' as described in "Access a table in code".
@@ -274,8 +274,8 @@ Azure 테이블을 만들려면 "코드에서 테이블 액세스하기" 섹션�
 	else
 	   Console.WriteLine("Couldn't delete the entity.");
 
-##다음 단계
+## 다음 단계
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

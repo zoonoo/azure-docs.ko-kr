@@ -1,19 +1,19 @@
 <properties 
    pageTitle="VNet(가상 네트워크)에서 사용하는 DNS 서버 관리"
-	description="VNet(가상 네트워크)에서 DNS 서버를 추가 및 제거하는 방법을 알아봅니다."
-	services="virtual-network"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="carolz"
-	editor="tysonn"/>
+   description="VNet(가상 네트워크)에서 DNS 서버를 추가 및 제거하는 방법을 알아봅니다."
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="06/08/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/04/2015"
+   ms.author="telmos" />
 
 # VNet(가상 네트워크)에서 사용하는 DNS 서버 관리
 
@@ -65,4 +65,4 @@
 
 [VNet(가상 네트워크)을 삭제하는 방법](../virtual-networks-delete-vnet)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

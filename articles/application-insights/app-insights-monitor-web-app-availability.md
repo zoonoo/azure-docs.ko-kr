@@ -2,7 +2,7 @@
 	pageTitle="웹 사이트의 가용성 및 응답성 모니터링 | Microsoft Azure"
 	description="Application Insights에서 웹 테스트를 설정합니다. 웹 사이트가 사용할 수 없게 되거나 느리게 응답하는 경우 알림이 제공됩니다."
 	services="application-insights"
-	documentationCenter=""
+    documentationCenter=""
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/08/2015"
+	ms.date="09/08/2015"
 	ms.author="awills"/>
 
 # 웹 사이트의 가용성 및 응답성 모니터링
@@ -218,7 +218,7 @@ Visual Studio Ultimate를 사용하여 웹 세션을 기록합니다.
 
 * *웹 테스트에서 코드를 호출할 수 있나요?*
 
-    아니요. 테스트 단계는 .webtest 파일에 포함되어야 합니다.
+    아니요. 테스트 단계는 .webtest 파일에 포함되어야 합니다. 유용한 여러 플러그인이 제공됩니다.
 
 ## <a name="video"></a>동영상
 
@@ -240,4 +240,4 @@ Visual Studio Ultimate를 사용하여 웹 세션을 기록합니다.
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

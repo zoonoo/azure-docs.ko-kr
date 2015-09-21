@@ -318,7 +318,7 @@ Azure 검색에는 검색 연산자 동작을 제어하는 데 사용할 수 있
 
 이러한 모든 작업을 수행하려면 서비스에서 인덱스를 만들고 채울 수 있는 Azure 구독이 필요합니다. 무료 평가판에 등록하는 방법에 대한 자세한 내용은 [https://azure.microsoft.com/pricing/free-trial](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-Azure 검색에 대해 자세히 알아보려면 [http://azure.microsoft.com](http://azure.microsoft.com)에서 [설명서 페이지](http://azure.microsoft.com/documentation/services/search/)를 참조하거나 전체 Azure 검색 기능을 살펴보는 다양한 [샘플 및 비디오](https://msdn.microsoft.com/library/dn818681.aspx)를 확인하세요.
+Azure 검색에 대해 자세히 알아보려면 [http://azure.microsoft.com](http://azure.microsoft.com)에서 [설명서 페이지](http://azure.microsoft.com/documentation/services/search/)를 참조하거나 전체 Azure 검색 기능을 살펴보는 다양한 [샘플 및 비디오](search-video-demo-tutorial-list.md)를 확인하세요.
 
 <a name="Schema"></a>
 ##스키마 정보
@@ -529,4 +529,4 @@ Azure 검색에 대해 자세히 알아보려면 [http://azure.microsoft.com](ht
 [13]: ./media/search-tryappservice/AzSearch-TryAppService-Schema.png
 [14]: ./media/search-tryappservice/AzSearch-TryAppService-HitHighlight.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

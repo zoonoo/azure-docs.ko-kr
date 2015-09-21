@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="사용자 지정 이벤트 및 메트릭용 Application Insights API"
-	description="장치 또는 데스크톱 앱, 웹 페이지, 서비스에 코드를 몇 줄 삽입하여 사용 및 진단 문제를 추적할 수 있습니다."
+	pageTitle="사용자 지정 이벤트 및 메트릭용 Application Insights API" 
+	description="장치 또는 데스크톱 앱, 웹 페이지, 서비스에 코드를 몇 줄 삽입하여 사용 및 진단 문제를 추적할 수 있습니다." 
 	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+    documentationCenter="" 
+	authors="alancameronwills" 
 	manager="douge"/>
  
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="08/28/2015" 
 	ms.author="awills"/>
 
 # 사용자 지정 이벤트 및 메트릭용 Application Insights API 
@@ -82,9 +82,9 @@ TelemetryClient는 스레드로부터 안전합니다.
 
 ## 이벤트 추적
 
-[메트릭 탐색기][metrics]에 이벤트 총 집계를 표시할 수도 있고 [진단 검색][diagnostic]에 개별 항목을 표시할 수도 있습니다.
+Application Insights에서 *사용자 지정 이벤트*는 [메트릭 탐색기][metrics]에 집계된 개수로 표시하고 [진단 검색][diagnostic]에 개별 항목으로도 표시할 수 있는 데이터 요소입니다. MVC 또는 다른 프레임워크 "이벤트"와 관련이 없습니다.
 
-코드에 이벤트를 삽입하여 해당 이벤트에서 특정 기능을 얼마나 자주 사용하는지, 특정 목표를 얼마나 자주 달성하는지, 특정 항목을 얼마나 자주 선택하는지 집계할 수 있습니다.
+코드에 TrackEvent 호출을 삽입하여 사용자가 특정 기능을 얼마나 자주 선택하는지, 특정 목표를 얼마나 자주 달성하는지, 특정 유형의 실수를 얼마나 자주 하는지 계산할 수 있습니다.
 
 예를 들어 게임 앱은 사용자가 이길 때마다 이벤트를 보냅니다.
 
@@ -105,14 +105,12 @@ TelemetryClient는 스레드로부터 안전합니다.
 
     telemetry.trackEvent("WinGame");
 
-
-개요 블레이드에서 사용자 지정 이벤트 타일을 클릭합니다.
+여기서 "WinGame"은 Application Insights 포털에 표시되는 이름입니다. 개요 블레이드에서 사용자 지정 이벤트 타일을 클릭합니다.
 
 ![Portal.azure.com에서 응용 프로그램 리소스를 찾습니다.](./media/app-insights-api-custom-events-metrics/01-custom.png)
 
-클릭하여 개요 차트와 전체 목록을 살펴봅니다.
 
-차트와 그룹을 선택하고 이벤트 이름별로 분할하여 가장 중요한 이벤트의 상대적인 기여도를 살펴봅니다.
+가장 중요한 이벤트의 상대적인 기여도를 확인할 수 있도록 차트가 이벤트 이름별로 그룹화됩니다. 이를 제어하려면 차트를 선택하고 그룹화 컨트롤을 사용합니다.
 
 ![차트를 선택하고 그룹화를 선택합니다.](./media/app-insights-api-custom-events-metrics/02-segment.png)
 
@@ -203,7 +201,7 @@ TelemetryClient는 스레드로부터 안전합니다.
 
 ![메트릭 탐색기를 열고, 차트를 선택하고, 메트릭을 선택합니다.](./media/app-insights-api-custom-events-metrics/03-track-custom.png)
 
-*메트릭이 나타나지 않으면 선택 블레이드를 닫고 잠시 기다린 후 새로 고침을 클릭합니다.*
+*메트릭이 표시되지 않거나 사용자 지정 머리글이 없는 경우 선택 블레이드를 닫고 나중에 시도합니다. 때로는 메트릭이 파이프라인을 통해 집계되는 데 한 시간 정도 걸릴 수 있습니다.*
 
 **속성 및 메트릭을 사용한 경우** 속성에 따라 메트릭을 분할합니다.
 
@@ -903,4 +901,4 @@ ApplicationInsights.config에서:
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

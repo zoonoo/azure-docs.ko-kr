@@ -1,5 +1,5 @@
 <properties
-   pageTitle="공유 액세스 서명 개요"
+   pageTitle="공유 액세스 서명 개요 | Microsoft Azure"
    description="공유 액세스 서명의 정의, 그 작동 방법 및 노드, PHP, C#에서 공유 액세스 서명을 사용하는 방법에 대해 설명합니다."
    services="service-bus,event-hubs"
    documentationCenter="na"
@@ -12,8 +12,8 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="tbd"
-   ms.date="07/24/2015"
+   ms.workload="na"
+   ms.date="09/04/2015"
    ms.author="darosa"/>
 
 # 공유 액세스 서명
@@ -24,7 +24,7 @@
 
 공유 액세스 서명은 SHA-256 보안 해시 또는 URI에 따른 인증 메커니즘입니다. SAS는 모든 서비스 버스 서비스에서 사용되는 매우 강력한 메커니즘입니다. 실제 사용 시, SAS에는 *공유 액세스 정책*과 *공유 액세스 서명*(*토큰*이라고 부름)의 두 구성 요소가 있습니다.
 
-서비스 버스를 통한 공유 액세스 서명에 대한 자세한 내용은 [서비스 버스를 사용한 공유 액세스 서명 인증](https://msdn.microsoft.com/library/azure/dn170477.aspx)에서 확인할 수 있습니다.
+서비스 버스를 통한 공유 액세스 서명에 대한 자세한 내용은 [서비스 버스를 사용한 공유 액세스 서명 인증](service-bus-shared-access-signature-authentication.md)에서 확인할 수 있습니다.
 
 ## 공유 액세스 정책
 
@@ -251,6 +251,8 @@ AMQP 메시지는 간단한 메시지보다 정보가 많고 속성이 많으므
 
 이러한 SAS 토큰으로 수행할 수 있는 작업에 대한 자세한 내용은 [서비스 버스 REST API 참조](https://msdn.microsoft.com/library/azure/hh780717.aspx)를 참조하세요.
 
-SAS에 대한 자세한 내용은 MSDN의 [서비스 버스 인증](https://msdn.microsoft.com/library/azure/dn155925.aspx) 노드를 참조하세요. [Damir 블로그](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx)에서 C# 및 Java Script의 SAS에 대한 추가 예제
+서비스 버스 인증에 대한 자세한 내용은 [서비스 버스 인증 및 권한 부여](service-bus-authentication-and-authorization.md)를 참조하세요.
 
-<!---HONumber=August15_HO7-->
+C# 및 Java Script에서 SAS의 자세한 예는 [이 블로그 게시물](http://developers.de/blogs/damir_dobric/archive/2013/10/17/how-to-create-shared-access-signature-for-service-bus.aspx)에 나와 있습니다.
+
+<!---HONumber=Sept15_HO2-->

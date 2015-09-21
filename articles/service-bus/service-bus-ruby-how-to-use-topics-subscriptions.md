@@ -213,9 +213,9 @@ Azure 모듈은 **AZURE\_SERVICEBUS\_NAMESPACE** 및 **AZURE\_SERVICEBUS\_ACCESS
 
 이제 서비스 버스 토픽의 기본 사항을 익혔으므로 다음 링크를 따라 이동하여 자세한 내용을 확인할 수 있습니다.
 
--   MSDN 참조: [큐, 항목 및 구독](http://msdn.microsoft.com/library/windowsazure/hh367516.aspx)을 참조하세요.
+-   [큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)을 참조하세요.
 -   [SqlFilter](http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx)에 대한 API 참조
 -	GitHub에서 [Azure SDK for Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby)(영문) 리포지토리를 방문하세요.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

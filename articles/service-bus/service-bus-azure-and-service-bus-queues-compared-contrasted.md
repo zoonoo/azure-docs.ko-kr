@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Azure 큐 및 서비스 버스 큐 - 비교 및 대조"
-	description="Azure에서 제공하는 두 가지 유형의 큐 사이의 차이점과 유사점을 분석합니다."
-	services="service-bus"
-	documentationCenter="na"
-	authors="sethmanheim"
-	manager="timlt"
-	editor="tysonn"/>
+   description="Azure에서 제공하는 두 가지 유형의 큐 사이의 차이점과 유사점을 분석합니다."
+   services="service-bus"
+   documentationCenter="na"
+   authors="sethmanheim"
+   manager="timlt"
+   editor="tysonn" />
 <tags 
    ms.service="service-bus"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="08/25/2015"
-	ms.author="sethm"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="tbd"
+   ms.date="09/09/2015"
+   ms.author="sethm" />
 
 # Azure 큐 및 서비스 버스 큐 - 비교 및 대조
 
@@ -257,7 +257,7 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 |비교 기준|Azure 큐|서비스 버스 큐|
 |---|---|---|
 |인증|**대칭 키**|**대칭 키**|
-|액세스 제어 모델|SAS 토큰을 통해 위임된 액세스.|ACS를 통한 RBAC|
+|보안 모델|SAS 토큰을 통해 위임된 액세스.|SAS|
 |ID 공급자 페더레이션|**아니요**|**예**|
 
 ### 추가 정보
@@ -265,10 +265,6 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 - 각 큐 기술에 대한 모든 요청은 인증되어야 합니다. 익명 액세스 가능한 공개 큐는 지원되지 않습니다. SAS를 사용하면 쓰기 전용 SAS, 읽기 전용 SAS 또는 모든 권한 SAS를 게시하여 이러한 시나리오에 대응할 수 있습니다.
 
 - Azure 큐에서 제공하는 인증 체계에는 SHA-256 알고리즘으로 계산되고 **Base64** 문자열로 인코딩된 HMAC(해시 기반 메시지 인증 코드)인 대칭 키가 사용됩니다. 각 프로토콜에 대한 자세한 내용은 [저장소 계정에 대한 액세스 인증](https://msdn.microsoft.com/library/hh225339.aspx)을 참조하세요. 서비스 버스 큐도 대칭 키를 사용하는 유사한 모델을 지원합니다. 자세한 내용은 [서비스 버스에서 공유 액세스 서명 인증](https://msdn.microsoft.com/library/dn170477.aspx)을 참조하세요.
-
-- 서비스 버스에서 지원하는 Microsoft Azure Active Directory 액세스 제어(ACS 또는 액세스 제어 서비스라고도 부름)는 현재 Azure 큐에서 지원하지 않는 세 가지 고유한 역할 즉, **관리자**, **보낸 사람**, **받는 사람**을 제공합니다.
-
-- 서비스 버스는 ACS 통합을 제공하므로, Active Directory(ADFS를 사용하여) 및 기타 공용 웹 ID 공급자와 페더레이션이 가능합니다.
 
 ## 비용
 
@@ -292,7 +288,7 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 
 - 장기 폴링에 대한 지원을 고려할 때, 대기 시간이 짧은 배달이 필요한 상황이라면 서비스 버스 큐를 사용하는 것이 비용 효율적일 수 있습니다.
 
->[AZURE.NOTE] 모든 비용은 변경될 수 있습니다. 이 표에는 이 문서의 작성 당시 가격이 반영되어 있으며, 현재 사용 가능할 수 있는 판촉 제품이 포함되어 있지 않습니다. Azure 가격에 대한 최신 정보는 [Azure 가격](http://azure.microsoft.com/pricing/) 페이지를 참조하세요. 서비스 버스 가격에 대한 자세한 내용은 [서비스 버스 가격](http://azure.microsoft.com/pricing/details/service-bus/)을 참조하세요.
+>[AZURE.NOTE]모든 비용은 변경될 수 있습니다. 이 표에는 이 문서의 작성 당시 가격이 반영되어 있으며, 현재 사용 가능할 수 있는 판촉 제품이 포함되어 있지 않습니다. Azure 가격에 대한 최신 정보는 [Azure 가격](http://azure.microsoft.com/pricing/) 페이지를 참조하세요. 서비스 버스 가격에 대한 자세한 내용은 [서비스 버스 가격((http://azure.microsoft.com/pricing/details/service-bus/)을 참조하세요.
 
 ## 결론
 
@@ -315,4 +311,4 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 - [Azure 저장소 대금 청구 - 대역폭, 트랜잭션, 용량의 이해](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

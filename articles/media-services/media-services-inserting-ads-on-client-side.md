@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/17/2015"  
+	ms.date="09/07/2015" 
 	ms.author="juliako"/>
 
 
@@ -219,7 +219,7 @@ VMAP 파일은 각각 광고를 정의하는 하나 이상의 <AdBreak> 요소�
 1. Time – hh:mm:ss 또는 hh:mm:ss.mmm 형식으로 지정합니다. 여기서 .mmm은 밀리초입니다. 이 특성 값은 비디오 타임라인 시작부터 광고 시작까지 지나는 시간을 지정합니다.
 1. Percentage – n% 형식으로 지정합니다. 여기서 n은 광고를 재생하기 전에 재생할 비디오 타임라인의 백분율입니다.
 1. Start/End – 비디오가 표시되기 전이나 후에 광고가 표시되도록 지정합니다.
-1. Position – 라이브 스트리밍과 같이 광고 타이밍을 알 수 없을 때 광고 순서를 지정합니다. 각 광고 순서는 \#n 형식으로 지정합니다. 여기서 n은 정수 1 이상입니다. 1은 광고가 첫 번째 기회에 재생되어야 함을 나타내고, 2는 광고가 두 번째 기회에 재생되어야 함을 나타냅니다.
+1. Position – 라이브 스트리밍과 같이 광고 타이밍을 알 수 없을 때 광고 순서를 지정합니다. 각 광고 순서는 #n 형식으로 지정합니다. 여기서 n은 정수 1 이상입니다. 1은 광고가 첫 번째 기회에 재생되어야 함을 나타내고, 2는 광고가 두 번째 기회에 재생되어야 함을 나타냅니다.
 
 <**AdBreak**> 요소 내에는 <**AdSource**> 요소 하나가 있을 수 있습니다. <**AdSource**> 요소는 다음 특성을 포함합니다.
 
@@ -796,9 +796,18 @@ Microsoft Media Platform: iOS용 플레이어 프레임워크에는 프레임워
 	{
 	    [self logFrameworkError];
 	}
+
+
+##미디어 서비스 학습 경로
+
+여기서 AMS 학습 경로를 볼 수 있습니다.
+
+- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
  
 ##참고 항목
 
 [비디오 플레이어 응용 프로그램 개발](media-services-develop-video-players.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

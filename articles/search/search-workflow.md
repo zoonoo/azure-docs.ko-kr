@@ -62,7 +62,7 @@ Azure 검색에서 인덱스를 저장한 후 다음 단계는 문서로 인덱�
 
 문서를 로드하는 여러 가지 방법이 있지만 현재는 모두 API가 필요합니다. 대부분의 프로토타입에서 이 단계는 코딩이 요구되므로 가장 많은 시간이 소요될 수 있습니다. 옵션은 이 문서의 뒷부분에서 설명합니다.
 
-> [AZURE.NOTE]공유 서비스는 인덱스당 10,000개의 문서로 제한됩니다. 한도 아래를 유지하도록 데이터 집합을 줄이도록 합니다. 자세한 내용은 [한도 및 제약 조건](https://msdn.microsoft.com/library/dn798934.aspx)을 참조하세요.
+> [AZURE.NOTE]공유 서비스는 인덱스당 10,000개의 문서로 제한됩니다. 한도 아래를 유지하도록 데이터 집합을 줄이도록 합니다. 자세한 내용은 [한도 및 제약 조건](search-limits-quotas-capacity.md)을 참조하세요.
 
 #### 인덱스에 데이터를 로드하는 방법
 
@@ -190,4 +190,4 @@ Azure 검색에서 주목할 만한 기능 중 하나는 요구에 따라 쉽게
 <!--Image references-->
 [1]: ./media/search-workflow/AzSearch-Workflow.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

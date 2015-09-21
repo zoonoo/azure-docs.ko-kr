@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure Active Directory 시작(.NET 프로젝트)" 
-	description="Visual Studio에서 Azure Active Directory를 사용하는 방법" 
+	pageTitle="Azure Active Directory 및 Visual Studio 연결 서비스 시작(MVC 프로젝트)" 
+	description="Visual Studio 연결 서비스를 사용하여 Azure AD를 만들거나 연결한 후에 MVC 프로젝트에 Azure Active Directory를 사용하여 시작하는 방법입니다." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="patshea123" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/22/2015" 
+	ms.date="09/03/2015" 
 	ms.author="patshea"/>
 
-# Azure Active Directory 시작(.NET 프로젝트)
+# Azure Active Directory 및 Visual Studio 연결 서비스 시작(MVC 프로젝트)
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-active-directory-dotnet-getting-started.md)
@@ -77,4 +77,4 @@
 
 [Azure Active Directory에 대한 자세한 정보](http://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

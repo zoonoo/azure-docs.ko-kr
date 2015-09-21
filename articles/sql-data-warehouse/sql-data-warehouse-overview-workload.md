@@ -1,20 +1,20 @@
 <properties
    pageTitle="데이터 웨어하우스 워크로드"
-	description="SQL 데이터 웨어하우스의 탄력성 덕분에 데이터 웨어하우스 단위(DWU)의 슬라이딩 규모를 사용함으로써 계산 능력을 확장, 축소 또는 일시 중지할 수 있습니다. 이 문서는 데이터 웨어하우스의 메트릭 및 이들과 DWU와의 관계를 설명합니다."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="barbkess"
-	manager="jhubbard"
-	editor=""/>
+   description="SQL 데이터 웨어하우스의 탄력성 덕분에 데이터 웨어하우스 단위(DWU)의 슬라이딩 규모를 사용함으로써 계산 능력을 확장, 축소 또는 일시 중지할 수 있습니다. 이 문서는 데이터 웨어하우스의 메트릭 및 이들과 DWU와의 관계를 설명합니다."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="barbkess"
+   manager="jhubbard"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="05/23/2015"
-	ms.author="barbkess;JRJ@BigBangData.co.uk"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/04/2015"
+   ms.author="barbkess;twounder;JRJ@BigBangData.co.uk"/>
 
 # 데이터 웨어하우스 워크로드
 데이터 웨어하우스 워크로드란 데이터 웨어하우스에 대해 발생하는 모든 작업을 나타냅니다. 데이터 웨어하우스 워크로드는 데이터를 웨어하우스에 로드, 데이터 웨어하우스에서 분석 및 보고 수행, 데이터 웨어하우스에서 데이터 관리 및 데이터 웨어하우스로부터 데이터를 내보내는 전체 프로세스를 포괄합니다. 이러한 구성 요소의 깊이와 범위는 일반적으로 데이터 웨어하우스의 성숙도 수준과 관련이 있습니다.
@@ -37,7 +37,7 @@
 
 - 일반적으로 로드 프로세스를 추출, 변환 및 로드에 대한 ETL이라고 합니다. 데이터는 일반적으로 변환할 수 있으므로 데이터 웨어하우스 내의 다른 데이터와 일관적입니다. 이전에는 기업이 전용 ETL 서버를 사용하여 변환을 수행했습니다. 이제는 이렇게 빠르고 방대한 병렬 처리를 통해 먼저 SQL 데이터 웨어하우스로 데이터를 로드하고 변환을 수행할 수 있습니다. 이 프로세스를 추출, 로드 및 변환(ELT)이라고 부르며, 데이터 웨어하우스 워크로드에 대한 새로운 표준으로 떠오르고 있습니다.
 
-> [AZURE 참고] SQL Server CTP2를 통해 이제 OLTP 테이블에서 실시간으로 분석을 수행할 수 있습니다. 이것은 데이터 웨어하우스에서 데이터를 저장 및 분석해야 하는 필요성을 제거하지는 않지만 분석을 실시간으로 수행할 수 있는 방법을 제공합니다.
+> [AZURE.NOTE]SQL Server CTP2를 통해 이제 OLTP 테이블에서 실시간으로 분석을 수행할 수 있습니다. 이것은 데이터 웨어하우스에서 데이터를 저장 및 분석해야 하는 필요성을 제거하지는 않지만 분석을 실시간으로 수행할 수 있는 방법을 제공합니다.
  
 ### 보고 및 분석 쿼리
 보고 및 분석 쿼리는 종종 다양한 조건을 기반으로 소, 중, 대로 분류되지만 일반적으로 시간이 기준입니다. 대부분의 데이터 웨어하우스에는 장기 실행 쿼리와 빠른 실행 쿼리 워크로드가 혼합되어 있습니다. 각각의 경우 이러한 혼합과 빈도(매시간, 매일, 월말, 분기말 등)를 결정하는 것이 중요합니다. 혼합된 쿼리 워크로드가 동시성과 함께 데이터 웨어하우스를 위한 적절한 용량 계획으로 이어진다는 사실을 이해하는 것이 중요합니다.
@@ -66,10 +66,10 @@
 <!--Image references-->
 
 <!--Article references-->
-[개발 개요]: sql-data-warehouse-overview-development.md
+[개발 개요]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other web references-->
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

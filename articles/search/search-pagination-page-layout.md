@@ -13,7 +13,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/08/2015" 
 	ms.author="heidist"/>
 
 #Azure 검색에서 검색 결과를 페이징하는 방법#
@@ -103,7 +103,7 @@ Azure 검색에서는 `"Sortable": true.`(으)로 인덱싱되는 모든 필드�
 - [Azure 검색 서비스 REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx)
 - [인덱스 작업](http://msdn.microsoft.com/library/azure/dn798918.aspx)
 - [문서 작업](http://msdn.microsoft.com/library/azure/dn800962.aspx)
-- [Azure 검색에 대한 비디오 및 자습서](http://msdn.microsoft.com/library/azure/dn818681.aspx)
+- [Azure 검색에 대한 비디오 및 자습서](search-video-demo-tutorial-list.md)
 - [Azure 검색의 패싯 탐색](search-faceted-navigation.md)
 
 
@@ -114,4 +114,4 @@ Azure 검색에서는 `"Sortable": true.`(으)로 인덱싱되는 모든 필드�
 [4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
 [5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

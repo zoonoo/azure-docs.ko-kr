@@ -1,27 +1,28 @@
-<properties 
-	pageTitle="기계 학습 웹 서비스 사용 | Microsoft Azure" 
-	description="기계 학습 서비스가 게시된 후에는 요청-응답 서비스 또는 일괄 처리 실행 서비스로 RESTFul 웹 서비스를 사용할 수 있습니다." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="bradsev" 
-	manager="paulettm" 
+<properties
+	pageTitle="기계 학습 웹 서비스 사용 | Microsoft Azure"
+	description="기계 학습 서비스가 배포된 후에는 요청-응답 서비스 또는 일괄 처리 실행 서비스로 RESTFul 웹 서비스를 사용할 수 있습니다."
+	services="machine-learning"
+	solutions="big-data"
+	documentationCenter=""
+	authors="bradsev"
+	manager="paulettm"
 	editor="cgronlun" />
 
-<tags 
-	ms.service="machine-learning" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.tgt_pltfrm="na" 
-	ms.workload="tbd" 
-	ms.date="06/29/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="tbd"
+	ms.date="09/09/2015" 
 	ms.author="bradsev" />
 
 
-# Azure 기계 학습 실험에서 게시된 기계 학습 웹 서비스를 사용하는 방법
+# Azure 기계 학습 실험에서 배포된 기계 학습 웹 서비스를 사용하는 방법
 
 ## 소개
 
-웹 서비스로 게시된 경우 Azure 기계 학습 실험에서는 광범위한 장치 및 플랫폼에서 사용할 수 있는 REST API를 제공합니다. 이는 단순 REST API는 JSON 형식의 메시지를 허용하고 응답하기 때문입니다. Azure 기계 학습 포털에서는 웹 서비스를 호출하는 데 사용할 수 있는 R, C# 및 Python 코드를 제공합니다. 그러나 다음 세 가지 기준을 충족하는 모든 장치에서 모든 프로그래밍 언어로 이러한 서비스를 호출할 수 있습니다.
+웹 서비스로 배포된 경우 Azure 기계 학습 실험에서는 광범위한 장치 및 플랫폼에서 사용할 수 있는 REST API를 제공합니다. 이는 단순 REST API는 JSON 형식의 메시지를 허용하고 응답하기 때문입니다. Azure 기계 학습 포털에서는 웹 서비스를 호출하는 데 사용할 수 있는 R, C# 및 Python 코드를 제공합니다. 그러나 다음 세 가지 기준을 충족하는 모든 장치에서 모든 프로그래밍 언어로 이러한 서비스를 호출할 수 있습니다.
 
 * 네트워크에 연결되어야 합니다.
 * HTTPS 요청을 수행할 SSL 기능이 있어야 합니다.
@@ -31,13 +32,13 @@
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-Azure 기계 학습 웹 서비스는 요청-응답 서비스 및 일괄 처리 실행 서비스의 두 가지 방법 중 하나로 사용될 수 있습니다. 각 시나리오에서 기능은 실험이 게시된 후 사용할 수 있는 RESTFul 웹 서비스를 통해 제공됩니다. Azure에서 Azure 웹 서비스 끝점을 사용하여 기계 학습 웹 서비스를 배포하면 사용량에 따라 서비스가 자동으로 확장되기 때문에 하드웨어 리소스의 사전 비용 및 지속적인 비용을 방지할 수 있습니다.
+Azure 기계 학습 웹 서비스는 요청-응답 서비스 및 일괄 처리 실행 서비스의 두 가지 방법 중 하나로 사용될 수 있습니다. 각 시나리오에서 기능은 실험이 배포된 후 사용할 수 있는 RESTFul 웹 서비스를 통해 제공됩니다. Azure에서 Azure 웹 서비스 끝점을 사용하여 기계 학습 웹 서비스를 배포하면 사용량에 따라 서비스가 자동으로 확장되기 때문에 하드웨어 리소스의 사전 비용 및 지속적인 비용을 방지할 수 있습니다.
 
 <!-- When this article gets published, fix the link and uncomment
-For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**. 
+For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
 -->
 
-Azure 기계 학습 웹 서비스를 만들고 게시하는 방법에 대한 자세한 내용은 [Azure 기계 학습 웹 서비스 게시][publish]를 참조하세요. 기계 학습 실험을 만들고 게시하는 단계별 연습은 [Azure 기계 학습을 사용하여 예측 솔루션 개발][walkthrough]을 참조하세요.
+Azure 기계 학습 웹 서비스를 만들고 배포하는 방법에 대한 자세한 내용은 [Azure 기계 학습 웹 서비스 배포][publish]를 참조하세요. 기계 학습 실험을 만들고 배포하는 단계별 연습은 [Azure 기계 학습을 사용하여 예측 솔루션 개발][walkthrough]을 참조하세요.
 
 [publish]: machine-learning-publish-a-machine-learning-web-service.md
 [walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
@@ -45,15 +46,15 @@ Azure 기계 학습 웹 서비스를 만들고 게시하는 방법에 대한 자
 
 ## RRS(요청-응답 서비스)
 
-RRS(요청-응답 서비스)는 대기 시간이 짧고, 확장성이 높은 웹 서비스로, 기계 학습 스튜디오 실험에서 생성 및 게시된 상태 비저장 모델에 대한 인터페이스를 제공하는 데 사용됩니다.
+RRS(요청-응답 서비스)는 대기 시간이 짧고, 확장성이 높은 웹 서비스로, Azure 기계 학습 스튜디오 실험에서 생성 및 배포된 상태 비저장 모델에 대한 인터페이스를 제공하는 데 사용됩니다. 소비 응용 프로그램이 실시간 응답을 예상하는 시나리오를 가능하게 합니다.
 
-RRS는 단일 입력 매개 변수 행을 수락하고 단일 행을 출력으로 생성합니다. 출력 행에는 여러 열이 포함될 수 있습니다.
+RRS는 단일 행 또는 여러 행의 입력 매개 변수를 허용하며 단일 행 또는 여러 행을 출력으로 생성할 수 있습니다. 출력 행에는 여러 열이 포함될 수 있습니다.
 
 RRS 예제에서는 응용 프로그램의 신뢰성을 검증합니다. 이 경우 수억 회의 응용 프로그램 설치를 예상할 수 있습니다. 응용 프로그램을 시작하면 관련 입력으로 RRS 서비스를 호출합니다. 그런 다음 서비스로부터 응용 프로그램 실행을 허용하거나 차단하는 유효성 검사 응답을 받습니다.
 
 
 ## BES(일괄 처리 실행 서비스)
- 
+
 BES(일괄 처리 실행 서비스)는 많은 데이터 레코드의 점수 매기기를 일괄적으로 처리하는 비동기 서비스입니다. BES의 입력에는 Blob, Azure의 테이블, SQL Azure, HDInsight(예: Hive 쿼리의 결과) 및 HTTP 소스 등 다양한 소스의 일괄 처리 레코드가 포함되어 있습니다. BES의 출력에는 점수 매기기 결과가 포함되어 있습니다. 결과는 Azure Blob 저장소의 파일 출력이며 저장소 끝점의 데이터는 응답으로 반환됩니다.
 
 BES는 개인 또는 IOT(사물 인터넷) 장치에 대한 정기적으로 예약된 점수 매기기와 같이 응답이 즉시 필요하지 않은 경우에 유용합니다.
@@ -61,7 +62,7 @@ BES는 개인 또는 IOT(사물 인터넷) 장치에 대한 정기적으로 예�
 ## 예
 RRS와 BES의 작동 방식을 모두 보여 주기 위해 여기에서는 Azure 웹 서비스 예제를 사용합니다. 이 서비스는 IOT(사물 인터넷) 시나리오에서 사용됩니다. 단순함을 유지하기 위해 장치에서는 하나의 값인 `cog_speed`만 전송하고 단일 응답을 받습니다.
 
-RRS 또는 BES 서비스를 호출하는 데 필요한 정보에는 네 가지가 있습니다. 이 정보는 실험이 게시된 후 [Azure 기계 학습 서비스 페이지](https://studio.azureml.net)의 서비스 페이지에서 즉시 사용할 수 있습니다. 화면 왼쪽의 웹 서비스 링크를 클릭하면 게시된 서비스가 표시됩니다. 특정 서비스에 대한 정보를 찾으려면 RRS와 BES 둘 다에 대한 API 도움말 페이지 링크를 클릭하면 됩니다.
+RRS 또는 BES 서비스를 호출하는 데 필요한 정보에는 네 가지가 있습니다. 이 정보는 실험이 배포된 후 [Azure 기계 학습 서비스 페이지](https://studio.azureml.net)의 서비스 페이지에서 즉시 사용할 수 있습니다. 화면 왼쪽의 웹 서비스 링크를 클릭하면 배포된 서비스가 표시됩니다. 특정 서비스에 대한 정보를 찾으려면 RRS와 BES 둘 다에 대한 API 도움말 페이지 링크를 클릭하면 됩니다.
 
 1.	**서비스 API 키** - 서비스 기본 페이지에 있음
 2.	**서비스 URI** - 선택한 서비스에 대한 API 도움말 페이지에 있음
@@ -124,7 +125,7 @@ API 도움말 페이지에서 URI와 별도로 정의 및 코드 샘플을 입�
 	}
 
 페이지의 아래쪽에 코드 예제가 있습니다. 다음은 C# 구현에 대한 코드 샘플입니다.
-                   
+
 **샘플 코드**
 
 	using System;
@@ -135,7 +136,7 @@ API 도움말 페이지에서 URI와 별도로 정의 및 코드 샘플을 입�
 	using System.Net.Http.Headers;
 	using System.Text;
 	using System.Threading.Tasks;
-	
+
 	namespace CallRequestResponseService
 	{
 	    public class StringTable
@@ -143,24 +144,24 @@ API 도움말 페이지에서 URI와 별도로 정의 및 코드 샘플을 입�
 	        public string[] ColumnNames { get; set; }
 	        public string[,] Values { get; set; }
 	    }
-	
+
 	    class Program
 	    {
 	        static void Main(string[] args)
 	        {
 	            InvokeRequestResponseService().Wait();
 	        }
-	
+
 	        static async Task InvokeRequestResponseService()
 	        {
 	            using (var client = new HttpClient())
 	            {
 	                var scoreRequest = new
 	                {
-	                    Inputs = new Dictionary<string, StringTable> () { 
-	                        { 
-	                            "input1", 
-	                            new StringTable() 
+	                    Inputs = new Dictionary<string, StringTable> () {
+	                        {
+	                            "input1",
+	                            new StringTable()
 	                            {
 	                                ColumnNames = new string[] {"cog_speed"},
 	                                Values = new string[,] {  { "0"},  { "1"}  }
@@ -168,12 +169,12 @@ API 도움말 페이지에서 URI와 별도로 정의 및 코드 샘플을 입�
 	                        },
 	                    GlobalParameters = new Dictionary<string, string>() { }
 	                };
-	                
+
 	                const string apiKey = "abc123"; // Replace this with the API key for the web service
 	                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", apiKey);
-	
+
 	                client.BaseAddress = new Uri("https://ussouthcentral.services.azureml.net/workspaces/<workspace id>/services/<service id>/execute?api-version=2.0&details=true");
-	                
+
 	                // WARNING: The 'await' statement below can result in a deadlock if you are calling this code from the UI thread of an ASP.Net application.
 	                // One way to address this would be to call ConfigureAwait(false) so that the execution does not attempt to resume on the original context.
 	                // For instance, replace code such as:
@@ -182,7 +183,7 @@ API 도움말 페이지에서 URI와 별도로 정의 및 코드 샘플을 입�
 	                //      result = await DoSomeTask().ConfigureAwait(false)
 
 	                HttpResponseMessage response = await client.PostAsJsonAsync("", scoreRequest);
-	
+
 	                if (response.IsSuccessStatusCode)
 	                {
 	                    string result = await response.Content.ReadAsStringAsync();
@@ -214,9 +215,9 @@ Azure 기계 학습 서비스 끝점에 대한 일괄 처리 작업을 만들 �
 * **Outputs**: 서비스에서 하나 이상의 출력을 정의한 경우 호출자는 그 중 하나 이상을 선택한 Azure blob 위치로 리디렉션할 수 있습니다. 이를 통해 서비스의 출력을 예측 가능한 이름으로 기본 설정 위치에 저장할 수 있습니다. 그렇지 않으면 출력 blob 이름이 임의로 생성됩니다. **참고**: 서비스는 해당 형식에 따라 출력 내용을 지원되는 형식으로 저장해야 합니다.
   - 데이터 집합 출력: **.csv, .tsv, .arff**로 저장할 수 있음
   - 학습한 모델 출력: **.ilearner**로 저장할 수 있음
-  
+
   출력 위치 재정의는 *<output name  blob reference>* 쌍의 컬렉션으로 지정됩니다. 여기서 *output name*은 특정 출력 노드에 대한 사용자 정의 이름(서비스의 API 도움말 페이지에도 표시됨)이고, *blob reference*는 출력이 리디렉션되는 Azure blob 위치에 대한 참조입니다.
-  
+
 이러한 작업 만들기 매개 변수는 모두 서비스의 속성에 따라 선택할 수 있습니다. 예를 들어 정의된 입력 노드가 없는 서비스는 *Input* 매개 변수를 전달할 필요가 없으며, 출력 위치 재정의 기능이 완전히 선택적입니다. 그렇지 않으면 Azure 기계 학습 작업 영역에 대해 설정된 기본 저장소 계정에 출력이 저장됩니다. 다음은 입력 정보만 전달되는 서비스에 대해 REST API로 전달된 샘플 요청 페이로드입니다.
 
 **샘플 요청**
@@ -234,7 +235,7 @@ Azure 기계 학습 서비스 끝점에 대한 일괄 처리 작업을 만들 �
 	}
 
 일괄 처리 작업 만들기 API에 대한 응답은 작업에 연결된 고유한 작업 ID입니다. 이 ID는 다른 작업의 시스템에서 이 작업을 참조할 수 있는 유일한 수단을 제공하므로 매우 중요합니다.
-  
+
 **샘플 응답**
 
 	"539d0bc2fde945b6ac986b851d0000f0" // The JOB_ID
@@ -242,11 +243,11 @@ Azure 기계 학습 서비스 끝점에 대한 일괄 처리 작업을 만들 �
 **2. 일괄 처리 실행 작업 시작**
 
 일괄 처리 작업을 만들면 시스템 내에만 등록되고 *Not started* 상태로 표시됩니다. 실제로 작업 실행을 예약하려면 서비스 끝점의 API 도움말 페이지에 설명된 **시작** API를 호출하고 작업을 만들 때 가져온 작업 ID를 제공해야 합니다.
-  
+
 **3. 일괄 처리 실행 작업의 상태 가져오기**
 
 언제든지 GetJobStatus API로 작업의 ID를 전달하여 비동기 일괄 처리 작업의 상태를 폴링할 수 있습니다. API 응답에는 작업의 현재 상태에 대한 표시 및 일괄 처리 작업의 실제 결과(성공적으로 완료된 경우)가 포함됩니다. 오류가 발생한 경우 실제 원인에 대한 자세한 정보가 *Details* 속성에 반환됩니다.
- 
+
 **응답 페이로드**
 
 	{
@@ -299,7 +300,7 @@ Azure 기계 학습 서비스 끝점에 대한 일괄 처리 작업을 만들 �
 
 [BES SDK Nugget 패키지](http://www.nuget.org/packages/Microsoft.Azure.MachineLearning/)는 BES를 호출하여 일괄 처리 모드로 점수를 매기는 함수를 제공합니다. Nuget 패키지를 설치하려면 Visual Studio에서 도구로 이동하여 Nuget 패키지 관리자를 선택하고 패키지 관리자 콘솔을 클릭합니다.
 
-웹 서비스로 게시된 AzureML 실험은 웹 서비스 입력 모듈을 포함할 수 있습니다. 이는 웹 서비스 호출을 통해 blob 위치에 대한 참조 형식으로 입력을 제공해야 함을 의미합니다. 웹 서비스 입력 모듈을 사용하지 않고 대신 판독기 모듈을 사용하는 옵션도 있습니다. 이 경우 판독기는 일반적으로 런타임에 쿼리를 사용하여 SQL DB를 읽어 데이터를 가져옵니다. 웹 서비스 매개 변수를 사용하여 다른 서버 또는 테이블 등을 동적으로 가리킬 수 있습니다. SDK는 이 두 패턴을 모두 지원합니다.
+웹 서비스로 배포된 AzureML 실험은 웹 서비스 입력 모듈을 포함할 수 있습니다. 이는 웹 서비스 호출을 통해 blob 위치에 대한 참조 형식으로 입력을 제공해야 함을 의미합니다. 웹 서비스 입력 모듈을 사용하지 않고 대신 판독기 모듈을 사용하는 옵션도 있습니다. 이 경우 판독기는 일반적으로 런타임에 쿼리를 사용하여 SQL DB를 읽어 데이터를 가져옵니다. 웹 서비스 매개 변수를 사용하여 다른 서버 또는 테이블 등을 동적으로 가리킬 수 있습니다. SDK는 이 두 패턴을 모두 지원합니다.
 
 다음 코드 샘플에서는 BES SDK를 사용하여 Azure 기계 학습 서비스 끝점에 대해 일괄 처리 작업을 제출하고 모니터링하는 방법을 보여 줍니다. 설정 및 호출에 대한 세부 정보는 설명을 참고합니다.
 
@@ -308,16 +309,16 @@ Azure 기계 학습 서비스 끝점에 대한 일괄 처리 작업을 만들 �
 	// This code requires the Nuget package Microsoft.Azure.MachineLearning to be installed.
 	// Instructions for doing this in Visual Studio:
 	// Tools -> Nuget Package Manager -> Package Manager Console
-	// Install-Package Microsoft.Azure.MachineLearning 
-	
+	// Install-Package Microsoft.Azure.MachineLearning
+
 	  using System;
 	  using System.Collections.Generic;
 	  using System.Threading.Tasks;
-	  
+
 	  using Microsoft.Azure.MachineLearning;
 	  using Microsoft.Azure.MachineLearning.Contracts;
 	  using Microsoft.Azure.MachineLearning.Exceptions;
-	
+
 	namespace CallBatchExecutionService
 	{
 	    class Program
@@ -326,73 +327,73 @@ Azure 기계 학습 서비스 끝점에 대한 일괄 처리 작업을 만들 �
 	        {	            
 	            InvokeBatchExecutionService().Wait();
 	        }
-	
+
 	        static async Task InvokeBatchExecutionService()
 	        {
 	            // First collect and fill in the URI and access key for your web service endpoint.
 	            // These are available on your service's API help page.
 	            var endpointUri = "https://ussouthcentral.services.azureml.net/workspaces/YOUR_WORKSPACE_ID/services/YOUR_SERVICE_ENDPOINT_ID/";
 	            string accessKey = "YOUR_SERVICE_ENDPOINT_ACCESS_KEY";
-	
+
 	            // Create an Azure Machine Learning runtime client for this endpoint
 	            var runtimeClient = new RuntimeClient(endpointUri, accessKey);
-	
+
 	            // Define the request information for your batch job. This information can contain:
 	            // -- A reference to the AzureBlob containing the input for your job run
 	            // -- A set of values for global parameters defined as part of your experiment and service
 	            // -- A set of output blob locations that allow you to redirect the job's results
-	
+
 	            // NOTE: This sample is applicable, as is, for a service with explicit input port and
 	            // potential global parameters. Also, we choose to also demo how you could override the
-	            // location of one of the output blobs that could be generated by your service. You might 
+	            // location of one of the output blobs that could be generated by your service. You might
 	            // need to tweak these features to adjust the sample to your service.
 	            //
 	            // All of these properties of a BatchJobRequest shown below can be optional, depending on
 	            // your service, so it is not required to specify all with any request.  If you do not want to
 	            // use any of the parameters, a null value should be passed in its place.
-	            
+
 	            // Define the reference to the blob containing your input data. You can refer to this blob by its
-                    // connection string / container / blob name values; alternatively, we also support references 
+                    // connection string / container / blob name values; alternatively, we also support references
                     // based on a blob SAS URI
-                    
+
                     BlobReference inputBlob = BlobReference.CreateFromConnectionStringData(connectionString:                                         "DefaultEndpointsProtocol=https;AccountName=YOUR_ACCOUNT_NAME;AccountKey=YOUR_ACCOUNT_KEY",
                         containerName: "YOUR_CONTAINER_NAME",
                         blobName: "YOUR_INPUT_BLOB_NAME");
-                              
+
                     // If desired, one can override the location where the job outputs are to be stored, by passing in
                     // the storage account details and name of the blob where we want the output to be redirected to.
-                    
+
                     var outputLocations = new Dictionary<string, BlobReference>
                         {
                           {
-                           "YOUR_OUTPUT_NODE_NAME", 
+                           "YOUR_OUTPUT_NODE_NAME",
                            BlobReference.CreateFromConnectionStringData(                                     connectionString: "DefaultEndpointsProtocol=https;AccountName=YOUR_ACCOUNT_NAME;AccountKey=YOUR_ACCOUNT_KEY",
                                 containerName: "YOUR_CONTAINER_NAME",
                                 blobName: "YOUR_DESIRED_OUTPUT_BLOB_NAME")
                            }
                         };
-	            
+
 	            // If applicable, you can also set the global parameters for your service
 	            var globalParameters = new Dictionary<string, string>
 	            {
 	                { "YOUR_GLOBAL_PARAMETER", "PARAMETER_VALUE" }
 	            };
-	                
+
 	            var jobRequest = new BatchJobRequest
 	            {
 	                Input = inputBlob,
 	                GlobalParameters = globalParameters,
 	                Outputs = outputLocations
 	            };
-	
+
 	            try
 	            {
 	                // Register the batch job with the system, which will grant you access to a job object
 	                BatchJob job = await runtimeClient.RegisterBatchJobAsync(jobRequest);
-	
+
 	                // Start the job to allow it to be scheduled in the running queue
 	                await job.StartAsync();
-	
+
 	                // Wait for the job's completion and handle the output
 	                BatchJobStatus jobStatus = await job.WaitForCompletionAsync();
 	                if (jobStatus.JobState == JobState.Finished)
@@ -431,6 +432,4 @@ Azure 기계 학습 서비스 끝점에 대한 일괄 처리 작업을 만들 �
 	    }
 	}
 
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

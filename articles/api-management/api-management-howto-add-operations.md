@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 API에 작업을 추가하는 방법
@@ -164,4 +164,4 @@ API 관리 포털에서 원하는 API를 선택한 다음 **작업** 탭을 선�
 [제품을 만들고 게시하는 방법]: api-management-howto-add-products.md
 [Azure API 관리에서 작업 결과를 캐시하는 방법]: api-management-howto-cache.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

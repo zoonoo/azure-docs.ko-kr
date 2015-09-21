@@ -4,14 +4,14 @@
 	services="storage"
 	documentationCenter=""
 	authors="tamram"
-	manager="adinah"/>
+	manager="adinah" />
 <tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/18/2015"
+	ms.date="09/03/2015"
 	ms.author="tamram"/>
 # Windows 스토어 앱에서 Azure 저장소를 사용하는 방법
 
@@ -86,4 +86,4 @@ WCF 데이터 서비스 NuGet 패키지를 참조한 경우 단추의 **Click** 
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

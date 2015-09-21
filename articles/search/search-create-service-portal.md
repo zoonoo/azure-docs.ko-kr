@@ -84,7 +84,7 @@ Microsoft Azure 검색은 검색 기능을 사용자 지정 응용 프로그램�
 
 추가 복제본과 파티션은 검색 단위로 청구됩니다. 리소스를 추가할 때 특정 리소스 구성을 지원하는 데 필요한 총 검색 단위가 페이지에 표시됩니다.
 
-[가격 정보](http://go.microsoft.com/fwlink/p/?LinkID=509792)에서 단위당 청구 정보를 확인할 수 있습니다. 파티션 및 복제본 조합을 구성하는 방법 결정에 대한 도움말은 [제한 및 제약 조건](http://msdn.microsoft.com/library/azure/dn798934.aspx)을 참조하세요.
+[가격 정보](http://go.microsoft.com/fwlink/p/?LinkID=509792)에서 단위당 청구 정보를 확인할 수 있습니다. 파티션 및 복제본 조합을 구성하는 방법 결정에 대한 도움말은 [제한 및 제약 조건](search-limits-quotas-capacity.md)을 참조하세요.
 
 <a id="sub-4"></a>
 ##서비스 작동 테스트
@@ -120,4 +120,4 @@ Microsoft Azure 검색은 검색 기능을 사용자 지정 응용 프로그램�
 [2]: ./media/search-create-service-portal/create-search-portal-2.PNG
 [3]: ./media/search-create-service-portal/create-search-portal-3.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

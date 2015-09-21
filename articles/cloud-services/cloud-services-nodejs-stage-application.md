@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="02/25/2015" 
+	ms.date="09/08/2015" 
 	ms.author="mwasson"/>
 
 
@@ -24,18 +24,15 @@
 
 > [AZURE.NOTE]이 문서의 단계는 Azure 클라우드 서비스로 호스트되는 노드 응용 프로그램에만 적용됩니다.
 
-이 작업에는 다음 단계가 포함됩니다.
-
--   [1단계: 응용 프로그램 스테이징]
--   [2단계: VIP를 교환하여 프로덕션에 응용 프로그램 배포]
-
 ## 1단계: 응용 프로그램 스테이징
 
-이 작업은 **Azure PowerShell**을 사용하여 응용 프로그램을 준비하는 방법에 대해 다룹니다.
+이 작업은 **Microsoft Azure PowerShell**을 사용하여 응용 프로그램을 준비하는 방법에 대해 다룹니다.
 
 1.  서비스를 게시할 때 단지 **-Slot** 매개 변수를 **Publish-AzureServiceProject** cmdlet으로 전달합니다.
 
-    **Publish-AzureServiceProject -Slot 스테이징**
+    ```powershell
+    Publish-AzureServiceProject -Slot staging
+    ```
 
 2.  [Azure 관리 포털]에 로그온하고 **클라우드 서비스**를 선택합니다. 클라우드 서비스가 만들어지고 **스테이징** 열 상태가 **실행 중**으로 업데이트된 후 서비스 이름을 클릭합니다.
 
@@ -50,8 +47,6 @@
     ![사이트 URL][cloud-service-staging-url]
 
 이제 응용 프로그램이 스테이징 사이트 URL을 사용하여 스테이징 환경에서 올바르게 작동하고 있는 것을 확인할 수 있습니다.
-
-업그레이드 시나리오의 경우 미리 구성된 응용 프로그램이 프로덕션에 이미 배포한 업그레이드된 버전의 응용 프로그램이므로 [VIP를 교환하여 프로덕션 환경에서 응용 프로그램을 업그레이드][Step 2: Deploy an Application to Production by Swapping VIPs]할 수 있습니다.
 
 ## 2단계: VIP를 교환하여 프로덕션에서 응용 프로그램 업그레이드
 
@@ -72,18 +67,12 @@
 ## 추가 리소스
 
 - [Azure에서 VIP를 교환하여 프로덕션에 서비스 업그레이드를 배포하는 방법]
-- [Azure의 배포 관리 개요]
 
-  [1단계: 응용 프로그램 스테이징]: #step1
-  [Step 2: Deploy an Application to Production by Swapping VIPs]: #step2
-  [2단계: VIP를 교환하여 프로덕션에 응용 프로그램 배포]: #step2
-  [Azure 관리 포털]: http://manage.windowsazure.com
+[Azure 관리 포털]: http://manage.windowsazure.com
 [cloud-service]: ./media/cloud-services-nodejs-stage-application/staging-cloud-service-running.png
 [cloud-service-dashboard]: ./media/cloud-services-nodejs-stage-application/cloud-service-dashboard-staging.png
-  [cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
-  [vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
-  [Azure에서 VIP를 교환하여 프로덕션에 서비스 업그레이드를 배포하는 방법]: http://msdn.microsoft.com/library/windowsazure/ee517253.aspx
-  [Azure의 배포 관리 개요]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
- 
+[cloud-service-staging-url]: ./media/cloud-services-nodejs-stage-application/cloud-service-staging-url.png
+[vip-swap-dialog]: ./media/cloud-services-nodejs-stage-application/vip-swap-dialog.png
+[Azure에서 VIP를 교환하여 프로덕션에 서비스 업그레이드를 배포하는 방법]: cloud-services-how-to-manage.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

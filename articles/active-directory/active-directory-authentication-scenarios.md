@@ -1,21 +1,21 @@
 
 <properties
    pageTitle="Azure AD의 인증 시나리오"
-	description="AAD(Azure Active Directory)에 대한 5개의 가장 일반적인 인증 시나리오 개요"
-	services="active-directory"
-	documentationCenter="dev-center-name"
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor=""/>
+   description="AAD(Azure Active Directory)에 대한 5개의 가장 일반적인 인증 시나리오 개요"
+   services="active-directory"
+   documentationCenter="dev-center-name"
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/25/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="09/02/2015"
+   ms.author="mbaldwin"/>
 
 # Azure AD의 인증 시나리오
 
@@ -60,13 +60,13 @@ ID가 필요한 가장 기본적인 시나리오를 가정하겠습니다. 예�
 - 개발자는 오픈 소스 Azure AD 인증 라이브러리를 사용하여 프로토콜 세부 정보를 처리함으로써 인증을 간편하게 만들 수 있습니다. 자세한 내용은 [Azure Active Directory 인증 라이브러리](active-directory-authentication-libraries.md)를 참조하세요.
 
 
-• 사용자가 인증되고 나면 응용 프로그램은 이 사용자의 보안 토큰의 유효성을 검사하여 의도한 당사자에 대해 인증이 성공했는지 확인해야 합니다. 개발자는 제공된 인증 라이브러리를 사용하여 JWT(JSON Web Token) 또는 SAML 2.0를 포함한 Azure AD의 토큰에 대한 유효성 인증을 처리할 수 있습니다. 유효성 검사를 수동으로 수행하려는 경우 [JWT 토큰 처리기](https://msdn.microsoft.com/library/dn205065(v=vs.110).aspx) 설명서를 참조하세요.
+• 사용자가 인증되고 나면 응용 프로그램은 이 사용자의 보안 토큰의 유효성을 검사하여 의도한 당사자에 대해 인증이 성공했는지 확인해야 합니다. 개발자는 제공된 인증 라이브러리를 사용하여 JWT(JSON Web Token) 또는 SAML 2.0를 포함한 Azure AD의 토큰에 대한 유효성 인증을 처리할 수 있습니다. 유효성 검사를 수동으로 수행하려는 경우 [JWT 토큰 처리기](https://msdn.microsoft.com/library/dn205065.aspx) 설명서를 참조하세요.
 
 
 > [AZURE.IMPORTANT]Azure AD는 공개 키 암호화를 사용하여 토큰을 서명하고 토큰 유효성을 확인합니다. 응용 프로그램이 항상 최신 키로 업데이트되도록 하기 위해 응용 프로그램에 있어야 하는 필수 논리에 대해 자세히 알아보려면 [Azure AD의 서명 키 롤오버에 대한 중요한 정보](https://msdn.microsoft.com/library/azure/dn641920.aspx)를 참조하세요.
 
 
-• 인증 프로세스에 대한 요청 및 응답 흐름은 사용된 인증 프로토콜(예: OAuth 2.0, OpenID Connect, WS-Federation 또는 SAML 2.0)에 의해 결정됩니다. 이 프로토콜에 대한 자세한 내용은 [Azure Active Directory 인증 프로토콜](https://msdn.microsoft.com/library/azure/dn151124.aspx) 항목 및 다음 섹션을 참조하세요.
+• 인증 프로세스에 대한 요청 및 응답 흐름은 사용된 인증 프로토콜(예: OAuth 2.0, OpenID Connect, WS-Federation 또는 SAML 2.0)에 의해 결정됩니다. 이 프로토콜에 대한 자세한 내용은 [Azure Active Directory 인증 프로토콜](active-directory-authentication-protocols.md) 항목 및 다음 섹션을 참조하세요.
 
 > [AZURE.NOTE]Azure AD는 JWT로 표현되는 전달자 토큰을 포함한 전달자 토큰을 광범위하게 활용하는 OAuth 2.0 및 OpenID Connect 표준을 지원합니다. 전달자 토큰은 보호된 리소스에 대한 "전달자" 액세스 권한을 부여하는 간단한 보안 토큰입니다. 이런 의미에서, "전달자"는 토큰을 제공할 수 있는 당사자입니다. 이 당사자는 전달자 토큰을 수신하려면 먼저 Azure AD를 사용하여 인증해야 합니다. 하지만 전송 및 저장 시 토큰 보안을 유지하는 데 필요한 단계를 취하지 않는 경우 의도하지 않은 당사자가 토큰을 가로채서 사용할 수 있습니다. 일부 보안 토큰에는 권한 없는 당사자가 사용하는 것을 방지하는 기본 제공 메커니즘이 있지만, 전달자 토큰에는 이러한 메커니즘이 없으므로 전송 계층 보안(HTTPS)과 같은 보안 채널에서 전달자 토큰을 전송해야 합니다. 전달자 토큰이 일반 텍스트 상태로 전송되는 경우 악의적인 사용자가 메시지 가로채기(man-in-the-middle) 공격을 사용해서 토큰을 획득하고 보호된 리소스에 무단으로 액세스하는 데 이 토큰을 사용할 수 있습니다. 나중에 사용하기 위해 전달자 토큰을 저장하거나 캐싱할 때도 동일한 보안 원칙이 적용됩니다. 항상 응용 프로그램이 안전한 방식으로 전달자 토큰을 전송하고 저장하도록 합니다. 전달자 토큰의 보안 고려 사항을 자세히 알아보려면 [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750)를 참조하세요.
 
@@ -96,7 +96,8 @@ Azure AD에서 발급된 보안 토큰에는 인증된 주체에 대한 클레�
 | 개체 ID | Azure AD의 주체에 대한 변경 불가능한 고유 식별자를 포함합니다. |
 | 역할 | 사용자에게 부여된 Azure AD 응용 프로그램 역할의 이름을 포함합니다. |
 | 범위 | 클라이언트 응용 프로그램에 부여된 권한을 나타냅니다. |
-| Subject | 토큰에서 어설션하는 정보의 주체를 나타냅니다. |
+| 제목  
+ | 토큰에서 어설션하는 정보의 주체를 나타냅니다. |
 | 테넌트 ID | 토큰을 발급한 디렉터리 테넌트에 대한 변경 불가능한 고유 식별자를 포함합니다. |
 | 토큰 수명 | 토큰이 유효한 시간 간격을 정의합니다. |
 | 사용자 계정 이름 | 주체의 사용자 계정 이름을 포함합니다. |
@@ -459,10 +460,12 @@ AD 인증 라이브러리를 사용하는 경우 아래에서 설명하는 브�
 
 ## 참고 항목
 
+[Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)
+
 [Azure Active Directory 코드 샘플](active-directory-code-samples.md)
 
 [Azure AD의 서명 키 롤오버에 대한 중요한 정보](https://msdn.microsoft.com/library/azure/dn641920.aspx)
 
 [Azure AD의 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

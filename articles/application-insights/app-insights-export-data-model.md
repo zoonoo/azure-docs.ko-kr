@@ -451,7 +451,7 @@
 * 
     클라이언트의 앱 로캘입니다. 원격 분석 항목에 명시적으로 제공되지 않으면 사용자 에이전트 필드의 처리에 따라 제공됩니다. 
 
-    *예제*<br/> ru<br/>ko-kr<br/>de-DE<br/>unknown
+    *예제*<br/> ru<br/>ko-KR<br/>de-DE<br/>unknown
 
 **machineName**
 
@@ -679,6 +679,18 @@
     string context.user.accountId      Max: 100
 * 
     앱 내 계정을 정의하는 고유한 식별자입니다. 개발자가 제공합니다. 
+
+### 사용자 지정 메트릭
+
+    context.custom.metrics.<metric-name>
+
+      double value
+      double count
+      double min
+      double max
+      double stdDev
+      double sampledValue
+      double sum
 
 
 ## remotedependency
@@ -1069,4 +1081,4 @@
 * [연속 내보내기](app-insights-export-telemetry.md)
 * [코드 샘플](app-insights-export-telemetry.md#code-samples)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

@@ -1,20 +1,20 @@
-<properties 
+<properties
    pageTitle="Microsoft Azure AD Connect - Microsoft Azure AD 동기화 도구(DirSync)에서 업그레이드"
-	description="DirSync에서 Azure AD Connect로 업그레이드하는 방법을 알아봅니다. 이 문서에서는 현재 Microsoft Azure AD 동기화 도구(DirSync)에서 Azure AD Connect로 업그레이드하는 단계를 설명합니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="shoatman"
-	manager="terrylanfear"
-	editor="billmath"/>
+   description="DirSync에서 Azure AD Connect로 업그레이드하는 방법을 알아봅니다. 이 문서에서는 현재 Microsoft Azure AD 동기화 도구(DirSync)에서 Azure AD Connect로 업그레이드하는 단계를 설명합니다."
+   services="active-directory"
+   documentationCenter=""
+   authors="shoatman"
+   manager="terrylanfear"
+   editor="billmath"/>
 
-<tags 
+<tags
    ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/26/2015"
-	ms.author="shoatman"/>
+   ms.workload="identity"
+   ms.tgt_pltfrm="na"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.date="09/02/2015" 
+   ms.author="shoatman"/>
 
 # Microsoft Azure Active Directory 동기화(DirSync)를 Azure Active Directory Connect로 업그레이드
 
@@ -143,7 +143,7 @@ Azure AD Connect가 연결되고 다음 UI가 표시됩니다.
 
 ![Azure AD 자격 증명 입력](./media/active-directory-aadconnect-dirsync-upgrade-get-started/advancedsettings.png)
 
-7. 다음을 클릭합니다. 
+7. 다음을 클릭합니다.
 8. "구성 준비 완료" 페이지에서 "구성이 완료되자마자 동기화 프로세스를 시작합니다."를 선택한 상태로 둡니다.[AZURE.NOTE]Windows Server Active Directory와 Azure Active Directory 간의 동기화가 시작되지만 Azure AD로 내보내는 변경 내용은 없습니다. 하나의 동기화 도구만이 변경 내용을 한 번에 내보낼 수 있습니다.
 9. "설치"를 클릭합니다.
 
@@ -204,6 +204,5 @@ Azure AD Connect가 DirSync로부터 인수할 준비가 되었는지 여부를 
 * [Azure AD Connect의 다음 단계](active-directory-aadconnect-whats-next.md)
 * [자세한 정보](active-directory-aadconnect-learn-more.md)
 * [MSDN의 Azure AD Connect](active-directory-aadconnect.md)
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

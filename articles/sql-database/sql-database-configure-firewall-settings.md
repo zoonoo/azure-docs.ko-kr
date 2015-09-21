@@ -13,14 +13,15 @@
 	ms.workload="data-management"
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.topic="article" 
+	ms.date="09/04/2015"
 	ms.author="rickbyh"/>
 
 
 # 방법: SQL 데이터베이스에서 방화벽 설정 구성
 
- Microsoft Azure SQL 데이터베이스 서버와 데이터베이스에 대한 연결을 허용 하도록 방화벽 규칙을 사용 합니다. 선택적으로 데이터베이스에 대한 액세스를 허용 하도록 Azure SQL 데이터베이스 서버에서 master 데이터베이스 또는 사용자 데이터베이스에 대한 서버 수준 및 데이터베이스 수준 방화벽 설정을 정의할 수 있습니다.
+
+Microsoft Azure SQL 데이터베이스 서버와 데이터베이스에 대한 연결을 허용 하도록 방화벽 규칙을 사용 합니다. 선택적으로 데이터베이스에 대한 액세스를 허용 하도록 Azure SQL 데이터베이스 서버에서 master 데이터베이스 또는 사용자 데이터베이스에 대한 서버 수준 및 데이터베이스 수준 방화벽 설정을 정의할 수 있습니다.
 
 **중요** Azure에서 응용 프로그램 데이터베이스 서버에 연결할 수 있도록 Azure 연결을 설정 해야 합니다. 방화벽 규칙 및 Azure의 연결을 사용하도록 설정 하는 방법에 대한 자세한 내용은 [Azure SQL 데이터베이스 방화벽](sql-database-firewall-configure.md)을 참조하세요.
 
@@ -30,24 +31,14 @@
 서버 수준 방화벽 규칙을 만들고 Microsoft Azure 관리 포털, TRANSACT-SQL, Azure PowerShell 또는 REST API를 통해 관리할 수 있습니다.
 
 ### 새 Azure 포털을 통해 서버 수준 방화벽 규칙 관리
-1. Azure 포털에서 방문 https://portal.azure.com 및 Azure 관리자 또는 참가자 계정을 사용하여 한 로그인 합니다.
-2. 왼쪽의 배너에서 모두 찾아보기를 클릭하고 아래로 스크롤하여 다음 SQL 서버를 클릭 합니다.
-3. 표시된 SQL 서버 목록에 대한 방화벽 규칙을 구성 하려면 서버를 클릭 합니다.
 
-	![방화벽][1]
 
-4. 서버 블레이드에서 블레이드 위쪽에 있는 설정을 클릭하고 서버에 대한 방화벽 설정을 블레이드를 열도록 방화벽을 클릭 합니다.
-5. 추가 하거나 방화벽 규칙을 변경 합니다.
+[AZURE.INCLUDE [sql-database-include-ip-address-22-v12portal](../../includes/sql-database-include-ip-address-22-v12portal.md)]
 
-	* 현재 컴퓨터의 IP 주소를 추가 하려면 블레이드 맨 위에 있는 **클라이언트 IP 추가하기**를 클릭합니다.
-	* 추가 IP 주소를 추가 하려면 **규칙 이름**, **시작 IP** 주소, 및 **끝 IP** 주소를 입력합니다.
-	* 기존 규칙을 수정 하려면 클릭하고 규칙의 필드 중 하나를 변경 합니다.
-	* 기존 규칙을 삭제 하려면 규칙을 클릭하고, 행의 끝에 줄임표 (...)를 클릭 후 **삭제**를 클릭합니다.
-6. 변경내용을 저장하려면 방화벽 설정 블레이드 맨 위에 있는 저장을 클릭합니다.![방화벽 블레이드][2] 
 
 ## 관리 포털을 통해 서버 수준 방화벽 규칙 관리 
 
-1. 관리 포털에서 **SQL 데이터베이스**를 클릭. 모든 데이터베이스 및 해당 하는 서버가 여기에 나열 됩니다.
+1. 관리 포털에서 **SQL 데이터베이스**를 클릭합니다. 모든 데이터베이스 및 해당 하는 서버가 여기에 나열 됩니다.
 2. 페이지 위쪽에서 **서버**를 클릭합니다.
 3. 방화벽 규칙을 관리하려는 서버 옆의 화살표를 클릭 합니다.
 4. 페이지 위쪽에서 **구성**을 클릭합니다.
@@ -150,4 +141,4 @@
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

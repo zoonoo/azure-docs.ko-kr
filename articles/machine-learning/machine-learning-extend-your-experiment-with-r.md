@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="04/29/2015"
+	ms.date="09/03/2015"
 	ms.author="garye" />
 
 
-#R을 사용하여 실험 확장 
+#R을 사용하여 실험 확장
 
 [R 스크립트 실행][execute-r-script] 모듈을 사용하여 R 언어를 통해 기계 학습 스튜디오의 기능을 확장할 수 있습니다.
 
@@ -501,6 +501,5 @@
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

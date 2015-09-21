@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 리소스 관리자에서 연결된 템플릿 사용"
-	description="Azure 리소스 관리자 템플릿에서 연결된 템플릿을 사용하여 모듈식 템플릿 솔루션을 만드는 방법을 설명합니다. 매개 변수 값을 전달하고 매개 변수 파일 및 동적으로 생성된 URL을 지정하는 방법을 보여 줍니다."
-	services="azure-resource-manager"
-	documentationCenter="na"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+   description="Azure 리소스 관리자 템플릿에서 연결된 템플릿을 사용하여 모듈식 템플릿 솔루션을 만드는 방법을 설명합니다. 매개 변수 값을 전달하고 매개 변수 파일 및 동적으로 생성된 URL을 지정하는 방법을 보여 줍니다."
+   services="azure-resource-manager"
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/02/2015"
-	ms.author="tomfitz"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/04/2015"
+   ms.author="tomfitz"/>
 
 # Azure 리소스 관리자에서 연결된 템플릿 사용
 
@@ -44,7 +44,7 @@
       } 
     ] 
 
-리소스 관리자가 연결된 템플릿에 액세스할 수 있어야 합니다. 즉, 연결된 템플릿에 로컬 파일을 지정할 수 없습니다. **http** 또는 **https** 중 하나를 포함하는 URI 값만 제공할 수 있습니다. 한 가지 옵션은 연결된 템플릿을 저장소 계정에 배치하고 아래와 같이 해당 항목의 URI를 사용하는 것입니다.
+리소스 관리자 서비스가 연결된 템플릿에 액세스할 수 있어야 합니다. 즉, 연결된 템플릿에 대한 로컬 네트워크에서만 사용 가능한 파일 또는 로컬 파일을 지정할 수 없습니다. **http** 또는 **https** 중 하나를 포함하는 URI 값만 제공할 수 있습니다. 한 가지 옵션은 연결된 템플릿을 저장소 계정에 배치하고 아래와 같이 해당 항목의 URI를 사용하는 것입니다.
 
     "templateLink": {
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
@@ -110,4 +110,4 @@
 - [템플릿 작성](./resource-group-authoring-templates.md)
 - [템플릿 배포](azure-portal/resource-group-template-deploy.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

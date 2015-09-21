@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Blob 저장소 및 Visual Studio 연결된 서비스 시작 | Microsoft Azure"
-	description="Visual Studio의 클라우드 서비스 프로젝트에서 Azure Blob 저장소를 사용하는 방법"
+	pageTitle="Blob 저장소 및 Visual Studio 연결된 서비스 시작(클라우드 서비스) | Microsoft Azure"
+	description="Visual Studio 연결된 서비스를 사용하여 저장소 계정에 연결한 후 Visual Studio 클라우드 서비스 프로젝트에서 Azure Blob 저장소 사용을 시작하는 방법입니다."
 	services="storage"
 	documentationCenter=""
 	authors="patshea123"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="09/03/2015"
 	ms.author="patshea123"/>
 
-# Azure Blob 저장소 및 Visual Studio 연결된 서비스 시작
+# Azure Blob 저장소 및 Visual Studio 연결된 서비스 시작(클라우드 서비스 프로젝트)
 
 > [AZURE.SELECTOR]
 > - [Getting started](vs-storage-cloud-services-getting-started-blobs.md)
@@ -52,17 +52,17 @@ Azure Blob 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 �
         using System.Threading.Tasks;
         using LogLevel = Microsoft.Framework.Logging.LogLevel;
 
-2. 저장소 계정 정보를 나타내는 `CloudStorageAccount` 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다.
+2. 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다.
 
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
 
-3. 저장소 계정의 기존 컨테이너를 참조하려면 `CloudBlobClient` 개체를 가져옵니다.
+3. 저장소 계정의 기존 컨테이너를 참조하는 **CloudBlobClient** 개체를 가져옵니다.
 
 		// Create a blob client.
 		CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-4. 특정 Blob 컨테이너를 참조하려면 `CloudBlobContainer` 개체를 가져옵니다.
+4. 특정 Blob 컨테이너를 참조하는 **CloudBlobContainer** 개체를 가져옵니다.
 
         // Get a reference to a container named “mycontainer.”
         CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
@@ -73,7 +73,7 @@ Azure Blob 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 �
 
 > [AZURE.NOTE]ASP.NET의 Azure 저장소에 대한 호출을 수행하는 일부 API는 비동기적입니다. 자세한 내용은 [Async 및 Await를 사용한 비동기 프로그래밍](http://msdn.microsoft.com/library/hh191443.aspx)을 참조하세요. 다음 예제의 코드에서는 비동기 프로그래밍 메서드를 사용한다고 가정합니다.
 
-저장소 계정에서 컨테이너를 만들려면 다음 코드와 같이 `CreateIfNotExistsAsync` 호출을 추가하기만 하면 됩니다.
+저장소 계정에서 컨테이너를 만들려면 다음 코드와 같이 **CreateIfNotExistsAsync** 호출을 추가하면 됩니다.
 
 	// Get a reference to a CloudBlobContainer with the variable name 'container'
     // as described in the "Access blob containers in code" section.
@@ -96,7 +96,7 @@ Azure Blob 저장소는 HTTP 또는 HTTPS를 통해 전 세계 어디에서나 �
 
 Azure 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 대부분의 경우 블록 Blob을 사용하는 것이 좋습니다.
 
-블록 Blob에 파일을 업로드하려면 컨테이너 참조를 가져온 다음 이 참조를 사용하여 블록 Blob 참조를 가져옵니다. Blob 참조가 있는 경우 `UploadFromStream` 메서드를 호출하여 데이터 스트림을 업로드할 수 있습니다. 이 작업은 Blob이 없는 경우 새로 만들고, Blob이 있는 경우 덮어씁니다. 다음 예제에서는 컨테이너에 Blob을 업로드하는 방법을 보여 주며, 컨테이너가 이미 만들어져 있다고 가정합니다.
+블록 Blob에 파일을 업로드하려면 컨테이너 참조를 가져온 다음 이 참조를 사용하여 블록 Blob 참조를 가져옵니다. Blob 참조가 있는 경우 **UploadFromStream** 메서드를 호출하여 데이터 스트림을 업로드할 수 있습니다. 이 작업은 Blob이 없는 경우 새로 만들고, Blob이 있는 경우 덮어씁니다. 다음 예제에서는 컨테이너에 Blob을 업로드하는 방법을 보여 주며, 컨테이너가 이미 만들어져 있다고 가정합니다.
 
 	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in
     // the "Access blob containers in code" section.
@@ -112,7 +112,7 @@ Azure 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 대부분�
 
 ## 컨테이너의 Blob 나열
 
-컨테이너의 Blob을 나열하려면 먼저 컨테이너 참조를 가져옵니다. 컨테이너의 `ListBlobs` 메서드를 사용하여 컨테이너 내의 Blob 및/또는 디렉터리를 검색할 수 있습니다. 반환된 `IListBlobItem`에 대한 풍부한 속성 및 메서드 집합에 액세스하려면 `CloudBlockBlob`, `CloudPageBlob` 또는 `CloudBlobDirectory` 개체로 캐스트해야 합니다. 형식을 알 수 없는 경우 형식 검사를 사용하여 캐스트할 형식을 확인할 수 있습니다. 다음 코드는 `photos` 컨테이너에 있는 각 항목의 URI를 검색하고 출력하는 방법을 보여 줍니다.
+컨테이너의 Blob을 나열하려면 먼저 컨테이너 참조를 가져옵니다. 컨테이너의 **ListBlobs** 메서드를 사용하여 컨테이너 내의 Blob 및/또는 디렉터리를 검색할 수 있습니다. 반환된 **IListBlobItem**에 대한 풍부한 속성 및 메서드 집합에 액세스하려면 **CloudBlockBlob**, **CloudPageBlob** 또는 **CloudBlobDirectory** 개체로 캐스트해야 합니다. 형식을 알 수 없는 경우 형식 검사를 사용하여 캐스트할 형식을 확인할 수 있습니다. 다음 코드에서는 **photos** 컨테이너에 있는 각 항목의 URI를 검색하고 출력하는 방법을 보여 줍니다.
 
 	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in
     // the "Access blob containers in code" section.
@@ -141,7 +141,7 @@ Azure 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 대부분�
 		}
 	}
 
-이전 코드 예제에 나온 것처럼 Blob 서비스에도 컨테이너 내의 디렉터리 개념이 있습니다. 따라서 폴더와 유사한 구조로 Blob을 구성할 수 있습니다. 예를 들어 `photos`(이)라는 컨테이너에 있는 다음 블록 Blob 집합을 고려합니다.
+이전 코드 예제에 나온 것처럼 Blob 서비스에도 컨테이너 내의 디렉터리 개념이 있습니다. 따라서 폴더와 유사한 구조로 Blob을 구성할 수 있습니다. 예를 들어 **photos**라는 컨테이너에 있는 다음 블록 Blob 집합을 고려합니다.
 
 	photo1.jpg
 	2010/architecture/description.txt
@@ -152,14 +152,14 @@ Azure 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 대부분�
 	2011/architecture/description.txt
 	2011/photo7.jpg
 
-이전 샘플과 같이 컨테이너에서 `ListBlobs`를 호출하면 반환된 컬렉션에 디렉터리를 나타내는 `CloudBlobDirectory` 및 `CloudBlockBlob` 개체와 최상위 수준의 Blob이 포함됩니다. 결과 출력은 다음과 같습니다.
+이전 샘플과 같이 컨테이너에서 **ListBlobs**를 호출하면 반환된 컬렉션에 디렉터리를 나타내는 **CloudBlobDirectory** 및 **CloudBlockBlob** 개체와 최상위 수준의 Blob이 포함됩니다. 결과 출력은 다음과 같습니다.
 
 	Directory: https://<accountname>.blob.core.windows.net/photos/2010/
 	Directory: https://<accountname>.blob.core.windows.net/photos/2011/
 	Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-선택적으로, `ListBlobs` 메서드의 `UseFlatBlobListing` 매개 변수를 `true`로 설정할 수 있습니다. 이 경우 디렉터리에 관계없이 모든 Blob이 `CloudBlockBlob`으로 반환됩니다. 다음은 `ListBlobs`에 대한 호출입니다.
+선택적으로, **ListBlobs** 메서드의 **UseFlatBlobListing** 매개 변수를 **true**로 설정할 수 있습니다. 이 경우 디렉터리에 관계없이 모든 Blob이 **CloudBlockBlob**으로 반환됩니다. 다음은 **ListBlobs** 호출입니다.
 
     // Loop over items within the container and output the length and URI.
 	foreach (IListBlobItem item in container.ListBlobs(null, true))
@@ -182,7 +182,7 @@ Azure 저장소는 블록 Blob 및 페이지 Blob을 지원합니다. 대부분�
 
 ## Blob 다운로드
 
-Blob을 다운로드하려면 먼저 Blob 참조를 검색한 다음 `DownloadToStream` 메서드를 호출합니다. 다음 예제에서는 `DownloadToStream` 메서드를 사용하여 Blob 콘텐츠를 스트림 개체로 전송합니다. 그런 다음 이 개체를 로컬 파일에 저장할 수 있습니다.
+Blob을 다운로드하려면 먼저 Blob 참조를 검색한 다음 **DownloadToStream** 메서드를 호출합니다. 다음 예제에서는 **DownloadToStream** 메서드를 사용하여 Blob 콘텐츠를 스트림 개체로 전송한 다음 이 개체를 로컬 파일에 저장할 수 있습니다.
 
 	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in
     // the "Access blob containers in code" section.
@@ -196,7 +196,7 @@ Blob을 다운로드하려면 먼저 Blob 참조를 검색한 다음 `DownloadTo
         blockBlob.DownloadToStream(fileStream);
     }
 
-`DownloadToStream` 메서드를 사용하여 Blob 콘텐츠를 텍스트 문자열로 다운로드할 수도 있습니다.
+**DownloadToStream** 메서드를 사용하여 Blob 콘텐츠를 텍스트 문자열로 다운로드할 수도 있습니다.
 
 	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in
     // the "Access blob containers in code" section.
@@ -213,7 +213,7 @@ Blob을 다운로드하려면 먼저 Blob 참조를 검색한 다음 `DownloadTo
 
 ## Blob 삭제
 
-Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 `Delete` 메서드를 호출합니다.
+Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서드를 호출합니다.
 
 	// Get a reference to a CloudBlobContainer with the variable name 'container' as described in
     // the "Access blob containers in code" section.
@@ -229,9 +229,9 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 `Delete` 메서�
 
 많은 수의 Blob을 나열하거나 한 번의 나열 작업에서 반환되는 결과 수를 제어하려는 경우에는 여러 결과 페이지에 Blob을 나열할 수 있습니다. 이 예제에서는 여러 페이지에서 비동기식으로 결과를 반환하는 방법을 보여 주므로 큰 결과 집합이 반환되도록 기다리는 동안 실행이 차단되지 않습니다.
 
-이 예제에서는 플랫 Blob 나열을 보여 주지만 `ListBlobsSegmentedAsync` 메서드의 `useFlatBlobListing` 매개 변수를 `false`로 설정하여 계층적 나열을 수행할 수도 있습니다.
+이 예제에서는 플랫 Blob 나열을 보여 주지만 **ListBlobsSegmentedAsync** 메서드의 **useFlatBlobListing** 매개 변수를 **false**로 설정하여 계층적 나열을 수행할 수도 있습니다.
 
-샘플 메서드는 비동기 메서드를 호출하므로 앞에 `async` 키워드를 추가해야 하며 `Task` 개체를 반환해야 합니다. `ListBlobsSegmentedAsync` 메서드에 대해 지정된 await 키워드는 나열 작업이 완료될 때까지 샘플 메서드의 실행을 일시 중단합니다.
+샘플 메서드는 비동기 메서드를 호출하므로 앞에 **async** 키워드를 추가해야 하며 **Task** 개체를 반환해야 합니다. **ListBlobsSegmentedAsync** 메서드에 대해 지정된 await 키워드는 나열 작업이 완료될 때까지 샘플 메서드의 실행을 일시 중단합니다.
 
     async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer container)
     {
@@ -266,4 +266,4 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 `Delete` 메서�
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

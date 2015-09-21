@@ -1,20 +1,22 @@
 <properties 
-   authors="danielceckert"
-	documentationCenter="dev-center-name"
-	editor=""
-	manager="jefco"
-	pageTitle="관리: 부하 분산 장치 유휴 시간 제한"
-	description="Azure 부하 분산 장치 유휴 시간 제한 관리 기능"
-	services="virtual-network"/>
+   authors="danielceckert" 
+   documentationCenter="dev-center-name" 
+   editor=""
+   manager="jefco" 
+   pageTitle="관리: 부하 분산 장치 유휴 시간 제한" 
+   description="Azure 부하 분산 장치 유휴 시간 제한 관리 기능" 
+   services="virtual-network" 
+   />
 
 <tags
    ms.author="danecke"
-	ms.date="05/27/2015"
-	ms.devlang="na"
-	ms.service="virtual-network"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"/>
+   ms.date="09/01/2015"
+   ms.devlang="na"
+   ms.service="virtual-network"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   />
    
 # 가상 네트워크 관리: 부하 분산 장치 TCP 유휴 시간 제한
 
@@ -150,4 +152,4 @@ LoadBalancerDistribution의 값은 2개 튜플 선호도의 경우 sourceIP로, 
     </LoadBalancedEndpointList>
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

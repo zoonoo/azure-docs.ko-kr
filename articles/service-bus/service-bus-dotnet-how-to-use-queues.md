@@ -1,20 +1,20 @@
 <properties
     pageTitle="서비스 버스 큐를 사용하는 방법(.NET) | Microsoft Azure"
-	description="Azure에서 서비스 버스 큐를 사용하는 방법에 대해 알아봅니다. 코드 샘플은 .NET API를 사용하여 C#으로 작성되었습니다."
-	services="service-bus"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+    description="Azure에서 서비스 버스 큐를 사용하는 방법에 대해 알아봅니다. 코드 샘플은 .NET API를 사용하여 C#으로 작성되었습니다."
+    services="service-bus"
+    documentationCenter=".net"
+    authors="sethmanheim"
+    manager="timlt"
+    editor=""/>
 
 <tags
     ms.service="service-bus"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="07/02/2015"
-	ms.author="sethm"/>
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="dotnet"
+    ms.topic="get-started-article"
+    ms.date="07/02/2015"
+    ms.author="sethm"/>
 
 # Azure 서비스 버스 큐를 사용하는 방법
 
@@ -223,9 +223,9 @@
 
 이제 서비스 버스 큐의 기본 사항을 익혔으므로 다음 링크를 따라 자세히 알아보세요.
 
--   MSDN 개요: [큐, 항목 및 구독][]을 참조하세요.
+-   [큐, 토픽 및 구독][]을 참조하세요.
 -   서비스 버스 큐로 메시지를 보내고 받는 작동하는 응용 프로그램 만들기: [서비스 버스 조정된 메시징 .NET 자습서].
--   서비스 버스 샘플: [Azure 샘플][]에서 다운로드하거나 [MSDN][]에 대한 개요를 참조하세요.
+-   서비스 버스 샘플: [Azure 샘플][]에서 다운로드하거나 [개요][]를 참조하세요.
 
   [What are Service Bus Queues]: #what-queues
   [Create a Service Namespace]: #create-namespace
@@ -239,9 +239,9 @@
   [How to: Handle Application Crashes and Unreadable Messages]: #handle-crashes
   [Azure portal]: http://manage.windowsazure.com
   [7]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
-  [큐, 항목 및 구독]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+  [큐, 토픽 및 구독]: service-bus-queues-topics-subscriptions.md
   [서비스 버스 조정된 메시징 .NET 자습서]: http://msdn.microsoft.com/library/azure/hh367512.aspx
   [Azure 샘플]: https://code.msdn.microsoft.com/windowsazure/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
-  [MSDN]: https://msdn.microsoft.com/library/azure/dn194201.aspx
+  [개요]: service-bus-samples.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

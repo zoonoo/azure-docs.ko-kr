@@ -1,6 +1,7 @@
 <properties
 	pageTitle="기계 학습 스튜디오에서 간단한 실험 만들기 | Microsoft Azure"
 	description="Azure 기계 학습 스튜디오에서 선형 회귀 모델을 테스트할 간단한 실험을 만들기 위한 첫번째 기계 학습 자습서입니다."
+	keywords="experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques"
 	services="machine-learning"
 	documentationCenter=""
 	authors="garyericson"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/09/2015"
+	ms.date="09/09/2015"
 	ms.author="garye"/>
 
 #기계 학습 자습서: Azure 기계 학습 스튜디오에서 첫 번째 실험 만들기
@@ -197,11 +198,11 @@
 
 [runhistory]: machine-learning-manage-experiment-iterations.md
 
-모델이 마음에 들면 모델을 새 데이터를 사용한 자동차 가격 예측에 사용할 웹 서비스로 게시할 수 있습니다. 자세한 내용은 [Azure 기계 학습 웹 서비스 게시][publish]를 참조하세요.
+모델이 마음에 들면 모델을 새 데이터를 사용한 자동차 가격 예측에 사용할 웹 서비스로 배포할 수 있습니다. 자세한 내용은 [Azure 기계 학습 웹 서비스 배포][publish]를 참조하세요.
 
 [publish]: machine-learning-publish-a-machine-learning-web-service.md
 
-모델 만들기, 학습, 점수 매기기 및 게시를 위한 예측 모델링 기술에 대한 보다 광범위하고 자세한 연습은 [Azure 기계 학습을 사용하여 예측 솔루션 개발][walkthrough]을 참조하세요.
+모델 만들기, 학습, 점수 매기기 및 배포를 위한 예측 모델링 기술에 대한 보다 광범위하고 자세한 연습은 [Azure 기계 학습을 사용하여 예측 솔루션 개발][walkthrough]을 참조하세요.
 
 [walkthrough]: machine-learning-walkthrough-develop-predictive-solution.md
 
@@ -231,4 +232,4 @@
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

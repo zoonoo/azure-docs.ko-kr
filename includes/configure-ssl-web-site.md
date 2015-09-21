@@ -4,15 +4,15 @@
 
 SSL(Secure Socket Layer) 암호화를 사용하는 HTTPS를 통해 웹앱과 브라우저 간의 통신에 대한 보안을 설정할 수 있습니다. 인터넷을 통해 전송되는 데이터의 보안을 설정하는 가장 일반적인 방법으로, 방문자에게 앱과의 트랜잭션이 안전함을 보장합니다. 이 문서에서는 Azure 앱 서비스에서 웹앱에 대한 HTTPS를 구성하는 방법을 설명합니다. 이 문서는 클라이언트 인증서 인증을 다루지 않습니다. 이에 대한 정보는 [웹 앱용 TLS 상호 인증 구성 방법](../articles/app-service-web/app-service-web-configure-tls-mutual-auth.md)을 참조하십시오.
 
-##<a name="bkmk_azurewebsites"></a>\*.azurewebsites.net 도메인에 대한 HTTPS
+##<a name="bkmk_azurewebsites"></a>*.azurewebsites.net 도메인에 대한 HTTPS
 
-사용자 지정 도메인 이름을 사용하지 않고 Azure에서 웹 사이트에 할당한 \*.azurewebsites.net 도메인(예: contoso.azurewebsites.net)을 사용하려는 경우 HTTPS는 Microsoft에서 제공한 인증서로 사이트에서 이미 사용하도록 설정되었습니다. **https://mywebsite.azurewebsites.net**을 사용하여 앱에 액세스할 수 있습니다. 그러나 \*.azurewebsites.net은 와일드카드 도메인입니다. [모든 와일드카드 도메인](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/)과 마찬가지로, 자체 인증서로 사용자 지정 도메인을 사용하는 것만큼 안전하지 않습니다. 
+사용자 지정 도메인 이름을 사용하지 않고 Azure에서 웹 사이트에 할당한 *.azurewebsites.net 도메인(예: contoso.azurewebsites.net)을 사용하려는 경우 HTTPS는 Microsoft에서 제공한 인증서로 사이트에서 이미 사용하도록 설정되었습니다. ****https://mywebsite.azurewebsites.net**을 사용하여 앱에 액세스할 수 있습니다. 그러나 *.azurewebsites.net은 와일드카드 도메인입니다. [모든 와일드카드 도메인](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/)과 마찬가지로, 자체 인증서로 사용자 지정 도메인을 사용하는 것만큼 안전하지 않습니다.
 
-이 문서의 나머지 부분은 **contoso.com**, **www.contoso.com** 또는 **\*.contoso.com**과 같은 사용자 지정 도메인에 대한 HTTPS를 사용하기 위한 세부 정보를 제공합니다.
+이 문서의 나머지 부분은 **contoso.com**, **www.contoso.com** 또는 ***.contoso.com**과 같은 사용자 지정 도메인에 대한 HTTPS를 사용하기 위한 세부 정보를 제공합니다.
 
 ##<a name="bkmk_domainname"></a>사용자 지정 도메인에 대해 SSL 사용
 
-**contoso.com** 등의 사용자 지정 도메인에 HTTPS를 사용하도록 설정하려면 먼저 도메인 이름 등록 기관에 사용자 지정 도메인 이름을 등록해야 합니다. 웹앱의 도메인 이름을 구성하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성](/ko-kr/develop/net/common-tasks/custom-dns-web-site/)을 참조하세요. 사용자 지정 도메인 이름을 등록하고 사용자 지정 이름에 응답하도록 웹앱을 구성한 후에는 도메인에 대한 SSL 인증서를 요청해야 합니다.
+**contoso.com** 등의 사용자 지정 도메인에 HTTPS를 사용하도록 설정하려면 먼저 도메인 이름 등록 기관에 사용자 지정 도메인 이름을 등록해야 합니다. 웹앱의 도메인 이름을 구성하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 대한 사용자 지정 도메인 이름 구성](/ko-KR/develop/net/common-tasks/custom-dns-web-site/)을 참조하세요. 사용자 지정 도메인 이름을 등록하고 사용자 지정 이름에 응답하도록 웹앱을 구성한 후에는 도메인에 대한 SSL 인증서를 요청해야 합니다.
 
 > [AZURE.NOTE]사용자 지정 도메인 이름에 HTTPS를 사용하도록 설정하려면 **표준** 모드로 웹앱을 구성해야 합니다. 현재 무료 또는 공유 모드를 사용 중이면 추가 비용이 발생할 수도 있습니다. 공유 및 **표준** 가격 책정에 대한 자세한 내용은 [가격 정보][pricing]를 참조하세요.
 
@@ -38,7 +38,7 @@ Azure 웹 사이트에서 사용할 SSL 인증서를 받으려면 인증 기관�
 - [OpenSSL을 사용하여 SubjectAltName 인증서 가져오기](#bkmk_subjectaltname)
 - [자체 서명된 인증서 생성(테스트 전용)](#bkmk_selfsigned) 
 
-> [AZURE.NOTE]다음 단계에서 **일반 이름**(예: `www.contoso.com`)을 입력하라는 메시지가 표시됩니다. 와일드카드 인증서의 경우 이 값은 \*.domainname(예: \*.contoso.com)이어야 합니다. \*.contoso.com과 같은 와일드카드 이름과 contoso.com과 같은 루트 도메인 이름을 둘 다 지원해야 하는 경우 와일드카드 subjectAltName 인증서를 사용할 수 있습니다.
+> [AZURE.NOTE]다음 단계에서 **일반 이름**(예: `www.contoso.com`)을 입력하라는 메시지가 표시됩니다. 와일드카드 인증서의 경우 이 값은 *.domainname(예: *.contoso.com)이어야 합니다. *.contoso.com과 같은 와일드카드 이름과 contoso.com과 같은 루트 도메인 이름을 둘 다 지원해야 하는 경우 와일드카드 subjectAltName 인증서를 사용할 수 있습니다.
 >
 > ECC(Elliptic Curve Cryptography) 인증서는 Azure 앱 서비스에서 지원되지만 상대적으로 새로운 인증서이며 CSR을 만드는 것과 정확히 동일한 단계로 CA에 대해 작업해야 합니다.
 
@@ -60,7 +60,6 @@ Certreq.exe는 인증서 요청을 만들기 위한 Windows 유틸리티입니�
 		MachineKeySet = True
 		ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
 		ProviderType = 12
-		RequestType = CMC
 
 		[EnhancedKeyUsageExtension]
 		OID=1.3.6.1.5.5.7.3.1
@@ -449,7 +448,7 @@ Azure 앱 서비스는 HTTPS를 적용하지 *않습니다*. 방문자가 웹앱
 
 URL 다시 쓰기 규칙은 응용 프로그램 루트에 저장된 **web.config** 파일에 정의되어 있습니다. 다음 예에는 들어오는 모든 트래픽이 강제로 HTTPS를 사용하도록 하는 기본 URL 다시 쓰기 규칙이 포함되어 있습니다.
 
-<a name="example"></a>\*\*URL 다시 쓰기 예제 Web.Config\*\*
+<a name="example"></a>**URL 다시 쓰기 예제 Web.Config**
 
 	<?xml version="1.0" encoding="UTF-8"?>
 	<configuration>
@@ -545,4 +544,4 @@ IIS URL 다시 쓰기 모듈에 대한 자세한 내용은 [URL 다시 쓰기](h
 [certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
 [certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

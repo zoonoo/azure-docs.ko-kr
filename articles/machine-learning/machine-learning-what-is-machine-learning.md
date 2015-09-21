@@ -1,20 +1,21 @@
 <properties
     pageTitle="Azure 기계 학습이란 무엇인가요? | Microsoft Azure"
-	description="솔루션을 만들고, 운영하고, 화폐화하는 데 사용할 수 있는 클라우드 기술인 완전한 관리 기계 학습 서비스의 기본 개념에 대해 설명합니다."
+    description="솔루션을 만들고, 운영하고, 화폐화하는 데 사용할 수 있는 클라우드 기술인 완전한 관리 기계 학습 서비스의 기본 개념에 대해 설명합니다."
+	keywords="what is machine learning,cloud technology,predictive,what is predictive analytics,operationalize"
 	services="machine-learning"
-	documentationCenter=""
-	authors="cjgronlund"
-	manager="neerajkh"
-	editor="cgronlun"/>
+    documentationCenter=""
+    authors="cjgronlund"
+    manager="neerajkh"
+    editor="cgronlun"/>
 
 <tags
     ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="cgronlun;tedway;olgali"/>
+    ms.workload="data-services"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="09/09/2015"
+    ms.author="cgronlun;tedway;olgali"/>
 
 
 # Microsoft Azure의 기계 학습 소개
@@ -29,7 +30,7 @@
 
 Azure 기계 학습은 예측 모델을 신속하게 만들고 분석 솔루션으로 배포할 수 있게 해주는 강력한 클라우드 기반 예측 분석 서비스입니다.
 
-Azure 기계 학습은 예측 분석을 모델링하는 도구를 제공할 뿐 아니라 예측 모델을 사용할 준비가 된 웹 서비스로 게시하는 데 사용할 수 있는 완전한 관리 서비스도 제공합니다. Azure 기계 학습은 클라우드에서 예측 모델을 신속하게 만들고, 테스트하고, 운영하고, 관리하는 완전한 예측 분석 솔루션을 만들기 위한 도구를 클라우드에 제공합니다. 하드웨어를 구입하거나 가상 컴퓨터를 수동으로 관리할 필요가 없습니다.
+Azure 기계 학습은 예측 분석을 모델링하는 도구를 제공할 뿐 아니라 예측 모델을 사용할 준비가 된 웹 서비스로 배포하는 데 사용할 수 있는 완전한 관리 서비스도 제공합니다. Azure 기계 학습은 클라우드에서 예측 모델을 신속하게 만들고, 테스트하고, 운영하고, 관리하는 완전한 예측 분석 솔루션을 만들기 위한 도구를 클라우드에 제공합니다. 하드웨어를 구입하거나 가상 컴퓨터를 수동으로 관리할 필요가 없습니다.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -59,7 +60,7 @@ Azure 기계 학습에는 대규모 알고리즘 라이브러리부터 모델 �
 * [Microsoft Azure 마켓플레이스](https://datamarket.azure.com/browse?query=machine+learning)에서 권장 사항, 텍스트 분석 등 이상 탐지 등의 사용할 준비가 된 웹 서비스를 구입합니다.
 
 * 예측 분석 모델 운영:
-    * [웹 서비스 게시](machine-learning-publish-a-machine-learning-web-service.md)
+    * [웹 서비스 배포](machine-learning-publish-a-machine-learning-web-service.md)
     * [API를 통해 모델 학습 및 다시 학습](machine-learning-retrain-models-programmatically.md)
     * [웹 서비스 끝점 관리](machine-learning-create-endpoint.md)
     * [웹 서비스 크기 조정](machine-learning-scaling-endpoints.md)
@@ -115,4 +116,4 @@ Azure 기계 학습에서는 학습 데이터 및 기능 모듈(예: 점수 매�
 <!-- Module References -->
 [learning-with-counts]: https://msdn.microsoft.com/library/azure/81c457af-f5c0-4b2d-922c-fdef2274413c/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

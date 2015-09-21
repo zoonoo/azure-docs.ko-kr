@@ -35,7 +35,7 @@ Microsoft Azure Active Directory의 많은 무료 기능 위에 구축된 Azure 
 Active Directory Basic 버전은 Azure Active Directory의 유료 버전이며 다음과 같은 기능을 포함합니다.
 
 - **회사 브랜딩** - 최종 사용자에게 보다 나은 환경을 제공하기 위해 조직의 로그인 및 액세스 패널 페이지에 사용자 회사의 로고와 색 구성표를 추가할 수 있습니다. 로고를 추가하면 다른 언어 및 로캘에 대한 지역화된 로고 버전을 추가할 수 있는 옵션도 제공됩니다. 자세한 내용은 [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가하기](active-directory-add-company-branding.md)를 참조하세요.
-- **그룹 기반 응용 프로그램 액세스** - 그룹을 사용하여 사용자를 프로비전하고 수천 개의 SaaS 응용 프로그램에 대량으로 사용자 액세스를 할당합니다. 이러한 그룹을 클라우드에 따로 만들거나 온-프레미스 Active directory의 동기화된 기존 그룹을 활용할 수 있습니다. 자세한 내용은 [Azure AD에서 그룹에 대해 SaaS 응용 프로그램 액세스 권한 할당](https://msdn.microsoft.com/library/azure/dn621141.aspx)을 참조하세요.
+- **그룹 기반 응용 프로그램 액세스** - 그룹을 사용하여 사용자를 프로비전하고 수천 개의 SaaS 응용 프로그램에 대량으로 사용자 액세스를 할당합니다. 이러한 그룹을 클라우드에 따로 만들거나 온-프레미스 Active directory의 동기화된 기존 그룹을 활용할 수 있습니다. 자세한 내용은 [Azure AD에서 그룹에 대해 SaaS 응용 프로그램 액세스 권한 할당](active-directory-accessmanagement-group-saasapps.md)을 참조하세요.
 - **셀프 서비스 암호 재설정** - Azure에서는 항상 디렉터리 관리자가 암호를 재설정할 수 있습니다. Azure Active Directory Basic을 사용하면 디렉터리의 모든 사용자가 Office 365의 경우와 동일한 로그인 환경을 사용하여 암호를 재설정할 수 있도록 함으로써 암호를 잊어버린 문제로 인해 헬프 데스크로 걸려오는 전화 수를 줄일 수 있습니다. 자세한 내용은 [Azure AD의 암호 관리](https://msdn.microsoft.com/library/azure/dn510386.aspx)(영문)를 참조하세요.
 - **99.9%의 엔터프라이즈 SLA** - Azure Active Directory Basic 서비스에 대해 99.9% 이상의 가용성을 보장합니다.
 - [**Azure Active Directory 응용 프로그램 프록시**](https://msdn.microsoft.com/library/azure/dn768214.aspx) - 직원들이 Azure Active Directory를 사용하여 클라우드에서 SharePoint 및 Exchange/OWA와 같은 온-프레미스 응용 프로그램에 안전하게 액세스할 수 있도록 합니다.
@@ -122,4 +122,4 @@ Active Directory Premium 버전은 Azure Active Directory의 유료 버전이며
 - [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가하기](active-directory-add-company-branding.md)
 - [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

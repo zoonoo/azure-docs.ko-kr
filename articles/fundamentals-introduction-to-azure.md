@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure 소개 | Microsoft Azure"
-	description="Microsoft Azure를 처음 사용하나요? 이 제품이 제공하는 서비스에 대한 기본적인 개요와 유용하게 사용되는 예제를 확인하시기 바랍니다."
-	services=" "
-	documentationCenter=".net"
-	authors="Rboucher"
+	pageTitle="Azure 소개 | Microsoft Azure" 
+	description="Microsoft Azure를 처음 사용하나요? 이 제품이 제공하는 서비스에 대한 기본적인 개요와 유용하게 사용되는 예제를 확인하시기 바랍니다." 
+	services=" " 
+	documentationCenter=".net" 
+	authors="Rboucher" 
 	manager="jwhit"
 	editor=""/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="06/30/2015"  
 	ms.author="robb"/>
 
 # Microsoft Azure 소개
@@ -399,11 +399,11 @@ Azure 모바일 앱에서 알림을 수행하는 코드를 작성할 수도 있�
 
 ### 사이트 복구
  
-Azure 사이트 복구(이전의 Hyper-V 복구 관리자)를 사용하면 사이트 간에 Hyper-V 이미지의 복제 및 복구를 조정하여 중요 응용 프로그램을 보호할 수 있습니다. 호스팅 서비스 공급자의 사이트인 고유한 보조 사이트를 백업하거나 Azure를 사용하여 고유한 보조 위치를 빌드하고 관리하는 비용과 복잡성을 피할 수 있습니다. Azure는 데이터 및 통신을 암호화하고 저장 데이터에 대한 암호화를 사용하는 옵션도 제공합니다.
+Azure 사이트 복구(이전의 Hyper-V 복구 관리자)를 사용하면 사이트 간에 복제 및 복구를 조정하여 중요 응용 프로그램을 보호할 수 있습니다. 사이트 복구는 보조 사이트, 호스터의 사이트 또는 Azure에 대한 Hyper-v, VMWare 또는 SAN 기반 응용 프로그램을 보호하고 보조 위치를 직접 구축하고 관리하는 비용 및 복잡성을 방지하는 기능을 제공합니다. Azure는 데이터 및 통신을 암호화하고 저장 데이터에 대한 암호화를 사용하는 옵션도 제공합니다.
 
 이 기능은 서비스의 상태를 지속적으로 모니터하여 기본 데이터 센터에서 사이트 중단 시 순차적인 서비스 복구를 자동화합니다. 가상 컴퓨터를 오케스트레이션된 방식으로 가져오므로 다계층 작업을 위해서도 서비스를 빠르게 복원할 수 있습니다.
 
-사이트 복구는 Hyper-V 복제본, System Center, SQL Server AlwaysOn 등의 기존 기술에서도 작동합니다.
+사이트 복구는 Hyper-V 복제본, System Center, SQL Server AlwaysOn 등의 기존 기술에서도 작동합니다. 자세한 내용은 [Azure 사이트 복구 개요](site-recovery/site-recovery-overview.md)를 확인합니다.
 
 ### Azure 백업
 ![Azure 백업](./media/fundamentals-introduction-to-azure/AzureBackupIntroNew.png)
@@ -612,4 +612,4 @@ SendGrid는 메일을 보낼 수 있는 Azure 스토어의 응용 프로그램�
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

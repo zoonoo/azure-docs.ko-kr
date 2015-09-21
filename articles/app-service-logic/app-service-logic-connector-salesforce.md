@@ -1,20 +1,20 @@
 <properties
    pageTitle="논리 앱에서 Salesforce 커넥터 사용 | Microsoft Azure 앱 서비스"
-	description="Salesforce 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""/>
+   description="Salesforce 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="sameerch"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="sameerch"/>
 
 
 # Salesforce 커넥터 시작 및 논리 앱에 추가
@@ -38,7 +38,7 @@ Salesforce에 연결하여 계정, 잠재 고객 등의 엔터티를 만들고 �
 1.	Azure 포털의 오른쪽 아래에 있는 + 새로 만들기 옵션을 사용하여 Azure 마켓플레이스를 엽니다.
 2.	"웹 및 모바일 > API 앱"으로 이동하여 "SalesForce"를 검색합니다.
 3.	호스팅 계획, 리소스 그룹에 대한 세부 정보를 제공하고 API 앱의 이름을 선택하여 SalesForce 커넥터를 구성합니다. ![][15]
-4. ‘패키지 설정’에서 읽기/쓰기에 관련된 SalesForce 엔터티를 구성합니다.
+4. '패키지 설정'에서 읽기/쓰기에 관련된 SalesForce 엔터티를 구성합니다.
 
 이제 이를 통해 SalesForce 커넥터 API 앱을 만들 수 있습니다.
 
@@ -104,4 +104,4 @@ Salesforce에서 계정을 만들고 동일한 계정의 청구 주소 정보를
 [14]: ./media/app-service-logic-connector-salesforce/14_Update_Account_Address.png
 [15]: ./media/app-service-logic-connector-salesforce/15_Create_new_salesforce_connector.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

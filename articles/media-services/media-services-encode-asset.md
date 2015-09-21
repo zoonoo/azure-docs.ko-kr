@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure 주문형 미디어 인코더 개요 및 비교"
-	description="이 항목에서는 Azure 주문형 미디어 인코더 개요 및 비교를 제공합니다."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Azure 주문형 미디어 인코더 개요 및 비교" 
+	description="이 항목에서는 Azure 주문형 미디어 인코더 개요 및 비교를 제공합니다." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/07/2015"  
 	ms.author="juliako"/>
 
 #Azure 주문형 미디어 인코더 개요 및 비교
@@ -238,6 +238,14 @@ MPEG Layer 2|아니요|아니요|예
 MP3(MPEG-1 Audio Layer 3)|아니요|아니요|예
 Windows Media 오디오|아니요|예|예
 
+
+##미디어 서비스 학습 경로
+
+여기서 AMS 학습 경로를 볼 수 있습니다.
+
+- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
 ##관련된 문서
 
 - [할당량 및 제한 사항](media-services-quotas-and-limitations.md)
@@ -246,4 +254,4 @@ Windows Media 오디오|아니요|예|예
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

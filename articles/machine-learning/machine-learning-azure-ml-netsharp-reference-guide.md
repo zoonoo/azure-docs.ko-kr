@@ -20,7 +20,7 @@
 
 # Azure 기계 학습용 Net# 신경망 사양 언어에 대한 가이드
 
-##개요
+## 개요
 Net#은 Microsoft에서 개발된 언어로서, Microsoft Azure 기계 학습에서 신경망 모듈에 대한 신경망 아키텍처를 정의하는 데 사용됩니다. 이 문서에서는 다음에 대해 알아봅니다.
 
 -	신경망과 관련된 기본 개념
@@ -30,7 +30,7 @@ Net#은 Microsoft에서 개발된 언어로서, Microsoft Azure 기계 학습에
 	
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-##신경망 기본 사항
+## 신경망 기본 사항
 신경망 구조는 ***계층***으로 이루어진 ***노드*** 및 노드 간의 가중 ***연결***(또는 ***에지***)로 구성됩니다. 연결은 방향성이 있고 각 연결에는 ***원본*** 노드와 ***대상*** 노드가 있습니다.
 
 각 ***학습 가능한 계층***(숨겨진 계층 또는 출력 계층)에는 하나 이상의 ***연결 번들***이 있습니다. 연결 번들은 원본 계층 및 해당 원본 계층의 연결 지정으로 구성됩니다. 특정 번들의 모든 연결은 같은 ***원본 계층***과 같은 ***대상 계층***을 공유합니다. Net#에서 연결 번들은 번들의 대상 계층에 속하는 것으로 간주합니다.
@@ -47,7 +47,7 @@ Net#에서는 입력이 숨겨진 계층 및 출력에 매핑되는 방법을 �
 
 Net#을 사용하여 신경망 구조를 정의하면 이미지, 오디오 또는 비디오 같은 데이터에서 학습을 향상하는 것으로 알려진 임의 차원의 나선 또는 DNN(Deep Neural Network) 같은 복잡한 구조를 정의할 수 있습니다.
 
-##지원되는 사용자 지정
+## 지원되는 사용자 지정
 Azure 기계 학습에서 만드는 신경망 모델의 아키텍처는 Net#을 사용하여 광범위하게 사용자 지정할 수 있습니다. 다음을 수행할 수 있습니다.
 
 -	숨겨진 계층을 만들고 각 계층의 노드 수를 제어합니다.
@@ -55,11 +55,11 @@ Azure 기계 학습에서 만드는 신경망 모델의 아키텍처는 Net#을 
 -	나선 및 가중 공유 번들과 같은 특수 연결 구조를 정의합니다.
 -	여러 가지 활성화 함수를 지정합니다.  
 
-사양 언어 구문에 대한 자세한 내용은 구조 사양을 참조하세요.
+사양 언어 구문에 대한 자세한 내용은 [구조 사양](#Structure-specifications)을 참조하세요.
  
-일부 일반적인 기계 학습 작업에 대한 신경망 정의의 예는 예제를 참조하세요.
+일부 일반적인 기계 학습 작업에 대한 신경망 정의의 예는 [예제](#Examples-of-Net#-usage)를 참조하세요.
 
-##일반 요구 사항
+## 일반 요구 사항
 -	정확히 출력 계층 1개, 입력 계층 1개 이상, 숨겨진 계층 0개 이상이 있어야 합니다. 
 -	각 계층에는 개념적으로 임의 차원의 사각형 배열로 정렬된 고정된 수의 노드가 있습니다. 
 -	입력 계층은 연결된 학습된 매개 변수를 포함하지 않고 인스턴스 데이터가 네트워크에 들어가는 지점을 나타냅니다. 
@@ -68,10 +68,10 @@ Azure 기계 학습에서 만드는 신경망 모델의 아키텍처는 Net#을 
 -	연결은 비순환 방식이어야 합니다. 즉, 초기 원본 노드로 돌아가는 연결 체인은 있을 수 없습니다.
 -	출력 계층은 연결 번들의 원본 계층일 수 없습니다.  
 
-##구조 사양
+## 구조 사양
 신경망 구조 사양은 세 가지 섹션인 **상수 선언**, **계층 선언**, **연결 선언**으로 구성됩니다. 또한 선택적 **공유 선언** 섹션도 있습니다. 섹션은 순서와 관계없이 지정할 수 있습니다.
 
-##상수 선언 
+## 상수 선언 
 상수 선언은 선택 사항입니다. 신경망 정의에서 사용되는 값을 정의하는 수단을 제공합니다. 선언문은 식별자, 등호, 값 식 순으로 구성됩니다.
 
 예를 들어 다음 문은 상수 **x**를 정의합니다.
@@ -87,31 +87,33 @@ Azure 기계 학습에서 만드는 신경망 모델의 아키텍처는 Net#을 
 
 	Const { X = 17 * 2; Y = true; }  
 
-##계층 선언
+## 계층 선언
 계층 선언은 필수 사항입니다. 연결 번들 및 특성을 포함하여 계층의 크기와 원본을 정의합니다. 선언문은 계층 이름(input, hidden 또는 output)으로 시작하고 계층 차원(양의 정수 튜플)이 뒤따릅니다. 예:
 
-	input Data[784];
+	input Data auto;
 	hidden Hidden[5,20] from Data all;
 	output Result[2] from Hidden all;  
 
 -	차원의 곱은 계층의 노드 수입니다. 이 예제에 있는 차원 두 개 [5,20]은 계층에 노드 100개가 있음을 의미합니다.
 -	계층은 순서와 관계없이 선언할 수 있지만 한 가지 예외가 있습니다. 입력 계층을 두 개 이상 정의하면 계층 선언 순서가 입력 데이터의 기능 순서와 일치해야 합니다.  
 
-<!-- REMOVED THIS CONTENT UNTIL THIS FEATURE IS SUPPORTED IN THE PRODUCT
-To specify that the number of nodes in a layer be determined automatically, use the **auto** keyword. The **auto** keyword has different effects, depending on the layer:  
 
--	In an input layer declaration, the number of nodes is the number of features in the input data.
--	In a hidden layer declaration, the number of nodes is the number that is specified by the parameter value for **Number of hidden nodes**. 
--	In an output layer declaration, the number of nodes is 2 for two-class classification, 1 for regression, and equal to the number of output nodes for multiclass classification.   
+계층의 노드 수가 자동으로 결정되도록 지정하려면 **auto** 키워드를 사용합니다. **auto**키워드는 계층에 따라 다른 영향을 미칩니다.
 
-For example, the following network definition allows the size of all layers to be automatically determined:  
+-	입력 계층 선언에서 노드 수는 입력 데이터의 기능 수입니다.
+-	숨겨진 계층 선언에서 노드 수는 **숨겨진 노드 수**의 매개 변수 값으로 지정된 수입니다. 
+-	출력 계층 선언에서 노드 수는 2클래스 분류에 대해 2, 회귀에 대해 1이고 다중 클래스 분류에 대한 출력 노드 수와 같습니다.   
+
+예를 들어 다음 네트워크 정의에서는 모든 계층 크기가 자동으로 결정되도록 허용합니다.
 
 	input Data auto;
 	hidden Hidden auto from Data all;
 	output Result auto from Hidden all;  
--->
 
-학습 가능 계층(숨겨진 계층 또는 출력 계층)에 대한 계층 선언은 선택적으로 활성화 함수라는 출력 함수를 포함할 수 있습니다(기본값: **sigmoid**). 다음 출력 함수가 지원됩니다.
+
+학습 가능 계층(숨겨진 계층 또는 출력 계층)에 대한 계층 선언은 선택적으로 활성화 함수라는 출력 함수를 포함할 수 있습니다(기본값: 분류 모델의 경우 **sigmoid**, 회귀 모델의 경우 **linear**). 기본값을 사용하는 경우에도 명확한 설명을 위해 필요한 경우 활성화 함수를 명시적으로 설정할 수 있습니다.
+
+다음 출력 함수가 지원됩니다.
 
 -	sigmoid
 -	linear
@@ -128,7 +130,7 @@ For example, the following network definition allows the size of all layers to b
 
 	output Result [100] softmax from Hidden all;  
 
-##연결 선언
+## 연결 선언
 학습 가능 계층을 정의한 후에 바로 정의한 계층 간의 연결을 선언해야 합니다. 연결 번들 선언은 키워드 **from**으로 시작하고 번들의 원본 계층 이름 및 만들 연결 번들 종류가 뒤따릅니다.
 
 현재 다음 5가지 연결 번들이 지원됩니다.
@@ -139,25 +141,25 @@ For example, the following network definition allows the size of all layers to b
 -	**풀링** 번들 - 키워드 **max pool** 또는 **mean pool**로 나타냅니다.
 -	**응답 정규화** 번들 - 키워드 **response norm**으로 나타냅니다.  	
 
-##전체 번들  
+## 전체 번들  
 
 전체 연결 번들은 원본 계층의 각 노드에서 대상 계층의 각 노드로의 연결을 포함합니다. 이 번들이 기본 네트워크 연결 유형입니다.
 
-##필터링된 번들
+## 필터링된 번들
 필터링된 연결 번들 사양은 구문상 C# 람다 식과 훨씬 비슷하게 표현된 조건자를 포함합니다. 다음 예제에서는 필터링된 번들 두 개를 정의합니다.
 
 	input Pixels [10, 20];
 	hidden ByRow[10, 12] from Pixels where (s,d) => s[0] == d[0];
 	hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;  
 
--	IByRow에 대한 조건자에서 **s**는 입력 계층 Pixels의 사각형 노드 배열로 인덱스를 표시하는 매개 변수이고 **d**는 숨겨진 계층 ByRow의 노드 배열로 인덱스를 표시하는 매개 변수입니다. **s** 및 **d** 유형은 둘 다 길이가 2인 정수의 튜플입니다. 개념적으로 **s**는 _0 <= s[0] < 10_ 및 _0 <= s[1] < 20_ 조건의 모든 정수 쌍을 포함하고 **d**는 _0 <= d[0] < 10_ 및 _0 <= d[1] < 12_ 조건의 모든 정수 쌍을 포함합니다. 
+-	_ByRow_에 대한 조건자에서 **s**는 입력 계층 _Pixels_의 사각형 노드 배열로 인덱스를 표시하는 매개 변수이고 **d**는 숨겨진 계층 _ByRow_의 노드 배열로 인덱스를 표시하는 매개 변수입니다. **s** 및 **d** 유형은 둘 다 길이가 2인 정수의 튜플입니다. 개념적으로 **s**는 _0 <= s[0] < 10_ 및 _0 <= s[1] < 20_ 조건의 모든 정수 쌍을 포함하고 **d**는 _0 <= d[0] < 10_ 및 _0 <= d[1] < 12_ 조건의 모든 정수 쌍을 포함합니다. 
 -	조건자 식의 오른쪽에는 조건이 있습니다. 이 예제에서는 조건이 True가 되도록 **s** 및 **d**의 모든 값에 해당하는 원본 계층 노드에서 대상 계층 노드로의 에지가 있습니다. 따라서 이 필터 식은 s[0]이 d[0]과 같은 모든 경우에 번들이 **s**로 정의된 노드에서 **d**로 정의된 노드로의 연결을 포함함을 나타냅니다.  
 
 선택적으로 필터링된 번들의 가중치 집합을 지정할 수 있습니다. **Weights** 특성 값은 길이가 번들로 정의된 연결 수와 일치하는 부동 소수점 값의 튜플이어야 합니다. 기본적으로 가중치는 임의로 생성됩니다.
 
 가중치 값은 대상 노드 인덱스별로 그룹화됩니다. 즉, 첫 번째 대상 노드가 K 원본 노드에 연결되면 **Weights** 튜플의 첫 번째 _K_ 요소는 원본 인덱스 순서에서 첫 번째 대상 노드의 가중치입니다. 나머지 대상 노드에서 같은 원리가 적용됩니다.
 
-##나선형 번들
+## 나선형 번들
 학습 데이터에 같은 유형 구조가 있으면 일반적으로 데이터의 높은 수준 기능을 학습하는 데 나선형 연결이 사용됩니다. 예를 들어 이미지, 오디오 또는 비디오 데이터에서 공간 또는 임시 차원은 상당히 균일할 수 있습니다.
 
 나선형 번들에는 차원을 통해 움직이는 사각형 **커널**이 적용됩니다. 기본적으로 각 커널은 로컬 환경에 적용되는 **커널 응용 프로그램**이라는 가중치 집합을 정의합니다. 각 커널 응용 프로그램은 **중앙 노드**라는 원본 계층의 노드에 해당합니다. 커널의 가중치는 많은 연결에서 공유됩니다. 나선형 번들에서 각 커널은 사각형이고 모든 커널 응용 프로그램은 같은 크기입니다.
@@ -188,9 +190,9 @@ For example, the following network definition allows the size of all layers to b
 
 -	[http://deeplearning.net/tutorial/lenet.html ](http://deeplearning.net/tutorial/lenet.html)
 -	[http://research.microsoft.com/pubs/68920/icdar03.pdf](http://research.microsoft.com/pubs/68920/icdar03.pdf) 
--	[http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)  
+-	[http://people.csail.mit.edu/jvb/papers/cnn\_tutorial.pdf](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)  
 
-##풀링 번들
+## 풀링 번들
 **풀링 번들**은 나선형 연결과 비슷한 기하 도형에 적용되지만 원본 노드 값에 대한 미리 정의된 함수를 사용하여 대상 노드 값을 도출합니다. 또한 풀링 번들에는 학습 가능 상태가 없습니다(가중치 또는 편차). 풀링 번들은 **Sharing**, **MapCount**, **Weights**를 제외하고 모든 나선형 특성을 지원합니다.
 
 일반적으로 인접 풀링 단위로 요약된 커널은 겹치지 않습니다. 각 차원에서 Stride[d]가 KernelShape[d]와 같으면 얻은 계층은 일반적으로 나선형 신경망에서 적용되는 기존 로컬 풀링 계층입니다. 각 대상 노드에서는 원본 계층에 있는 커널 활동의 최대값이나 평균을 계산합니다.
@@ -215,8 +217,8 @@ For example, the following network definition allows the size of all layers to b
 -	[http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf](http://cs.nyu.edu/~koray/publis/lecun-iscas-10.pdf) 
 -	[http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf](http://cs.nyu.edu/~koray/publis/jarrett-iccv-09.pdf)
 	
-##응답 정규화 번들
-**응답 정규화**는 Geoffrey Hinton, et al이 ImageNet Classiﬁcation with Deep Convolutional Neural Networks(섹션 3.3 참조) 문서에서 처음 도입한 로컬 정규화 체계입니다. 응답 정규화는 신경망에서 일반화를 지원하는 데 사용됩니다. 신경 하나가 매우 높은 활성화 수준에서 실행되면 로컬 응답 정규화 계층에서는 주위 신경의 활성화 수준을 억제합니다. 이 작업에는 매개 변수 3개(***α***, ***β***, ***k***)와 나선형 구조(또는 환경 셰이프)를 사용합니다. 대상 계층 ***y***의 모든 신경은 원본 계층의 신경 ***x***에 해당합니다. ***y***의 활성화 수준은 다음 공식으로 제공됩니다. 여기서 ***f***는 신경의 활성화 수준이고 ***Nx***는 나선형 구조를 통해 정의된 대로 ***x***의 환경에 신경이 포함된 집합 또는 커널입니다.
+## 응답 정규화 번들
+**응답 정규화**는 Geoffrey Hinton, et al이 [ImageNet Classiﬁcation with Deep Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) 논문에서 처음 도입한 로컬 정규화 체계입니다. 응답 정규화는 신경망에서 일반화를 지원하는 데 사용됩니다. 신경 하나가 매우 높은 활성화 수준에서 실행되면 로컬 응답 정규화 계층에서는 주위 신경의 활성화 수준을 억제합니다. 이 작업에는 매개 변수 3개(***α***, ***β***, ***k***)와 나선형 구조(또는 환경 셰이프)를 사용합니다. 대상 계층 ***y***의 모든 신경은 원본 계층의 신경 ***x***에 해당합니다. ***y***의 활성화 수준은 다음 공식으로 제공됩니다. 여기서 ***f***는 신경의 활성화 수준이고 ***Nx***는 나선형 구조를 통해 정의된 대로 ***x***의 환경에 신경이 포함된 집합 또는 커널입니다.
 
 ![][1]
 
@@ -249,7 +251,7 @@ For example, the following network definition allows the size of all layers to b
 -	**KernelShape** 값은 이 계층이 3x3 사각형 환경이 있는 같은 맵 정규화 계층임을 나타냅니다. 
 -	**Padding**의 기본값은 False이므로 대상 계층의 각 차원에는 노드가 10개만 있습니다. 원본 계층의 각 노드에 해당하는 단일 노드를 대상 계층에 포함하려면 Padding = [true, true, true]를 추가하고 RN1 크기를 [5, 12, 12]로 변경합니다.  
 
-##공유 선언 
+## 공유 선언 
 Net#에서는 선택적으로 공유 가중치를 사용하여 여러 번들을 정의하도록 지원합니다. 구조가 같으면 번들 두 개의 가중치를 공유할 수 있습니다. 다음 구문에서는 공유 가중치를 사용하여 번들을 정의합니다.
 
 	share-declaration:
@@ -300,7 +302,7 @@ Net#에서는 선택적으로 공유 가중치를 사용하여 여러 번들을 
 
 -	입력 기능은 크기가 같은 입력 계층 두 개로 분할됩니다. 
 -	숨겨진 계층에서는 입력 계층 두 개에서 더 높은 수준의 기능을 계산합니다. 
--	공유 선언은 개별 입력에서 같은 방법으로 H1 및 H2를 계산하도록 지정합니다.  
+-	공유 선언은 개별 입력에서 같은 방법으로 _H1_ 및 _H2_를 계산하도록 지정합니다.  
  
 또는 다음과 같이 개별 공유 선언 두 개를 사용하여 이를 지정할 수 있습니다.
 
@@ -312,23 +314,23 @@ Net#에서는 선택적으로 공유 가중치를 사용하여 여러 번들을 
 
 계층에 단일 번들이 포함되어 있을 때만 약식 양식을 사용할 수 있습니다. 일반적으로 관련 구조가 동일하여 크기, 나선형 기하 도형 등이 같을 때만 공유가 가능합니다.
 
-##Net# 사용의 예
+## Net# 사용의 예
 이 섹션에서는 Net#을 사용하여 숨겨진 계층을 추가하고 숨겨진 계층이 다른 계층을 조작하는 방법을 정의하고 나선형 네트워크를 빌드하는 방법의 몇 가지 예를 제공합니다.
 
-###단순 사용자 지정 신경망 정의: "Hello World" 예제
+### 단순 사용자 지정 신경망 정의: "Hello World" 예제
 이 단순 예제에서는 단일 숨겨진 계층이 있는 신경망 모델을 만드는 방법을 보여 줍니다.
 
-	input Data [100];
+	input Data auto;
 	hidden H [200] from Data all;
 	output Out [10] sigmoid from H all;  
 
 이 예제에서는 다음과 같은 몇 가지 기본 명령을 보여 줍니다.
 
--	첫 줄에서는 각각 입력 예제에서 기능을 나타내는 노드 100개가 포함된 Data라는 입력 계층을 정의합니다.
--	두 번째 줄에서는 숨겨진 계층을 만듭니다. 이름 H는 노드 200개가 포함된 숨겨진 계층에 할당됩니다. 이 계층은 입력 계층에 완전히 연결됩니다.
--	세 번째 줄에서는 이름이 O이고 출력 노드 10개가 포함된 출력 계층을 정의합니다. 분류 신경망의 경우 클래스당 하나의 출력 노드가 있습니다. 키워드 **sigmoid**는 출력 계층에 적용된 출력 함수를 나타냅니다.   
+-	첫 번째 줄에서는 이름이 _Data_인 입력 계층을 정의합니다. **auto** 키워드를 사용하는 경우 신경망에 입력 예제의 모든 기능 열이 자동으로 포함됩니다. 
+-	두 번째 줄에서는 숨겨진 계층을 만듭니다. 노드 200개가 포함된 숨겨진 계층에 이름 _H_가 할당됩니다. 이 계층은 입력 계층에 완전히 연결됩니다.
+-	세 번째 줄에서는 이름이 _O_이고 출력 노드 10개가 포함된 출력 계층을 정의합니다. 신경망을 분류에 사용하는 경우 클래스당 하나의 출력 노드가 있습니다. 키워드 **sigmoid**는 출력 계층에 적용된 출력 함수를 나타냅니다.   
 
-###여러 숨겨진 계층 정의: 컴퓨터 비전 예제
+### 여러 숨겨진 계층 정의: 컴퓨터 비전 예제
 다음 예제에서는 여러 사용자 지정 숨겨진 계층을 사용하여 약간 더 복잡한 신경망을 정의하는 방법을 보여 줍니다.
 
 	// Define the input layers 
@@ -355,13 +357,13 @@ Net#에서는 선택적으로 공유 가중치를 사용하여 여러 번들을 
 
 이 예제에서는 신경망 사양 언어의 여러 가지 기능을 보여 줍니다.
 
--	구조에는 입력 계층 두 개, Pixels 및 MetaData가 있습니다.
--	Pixels 계층은 대상 계층 ByRow 및 ByCol이 포함된 연결 번들 두 개에 대한 원본 계층입니다.
--	Gather 및 Result 계층은 여러 연결 번들의 대상 계층입니다.
--	출력 계층 Result는 각각 두 번째 수준 숨겨진 계층(Gather) 및 입력 계층(MetaData)이 대상 계층으로 포함된 연결 번들 두 개의 대상 계층입니다.
--	숨겨진 계층인 ByRow 및 ByCol은 조건자 식을 사용하여 필터링된 연결을 지정합니다. 보다 정확하게는 첫 번째 인덱스 좌표를 노드의 첫 번째 좌표인 x와 동일하게 지정하여 [x, y]에 있는 ByRow의 노드를 Pixels의 해당 노드에 연결합니다. 이와 마찬가지로 두 번째 인덱스 좌표를 노드의 두 번째 좌표인 y 중 하나 내에 두어 [x, y]에 있는 ByCol의 노드를 Pixels의 해당 노드에 연결합니다.  
+-	구조에는 2개의 입력 계층, _Pixels_ 및 _MetaData_가 있습니다.
+-	_Pixels_ 계층은 대상 계층이 _ByRow_ 및 _ByCol_인 두 연결 번들에 대한 원본 계층입니다.
+-	_Gather_ 및 _Result_ 계층은 여러 연결 번들의 대상 계층입니다.
+-	출력 계층 _Result_는 각각 두 번째 수준 숨겨진 계층(Gather) 및 입력 계층(MetaData)이 대상 계층인 두 연결 번들의 대상 계층입니다.
+-	숨겨진 계층인 _ByRow_ 및 _ByCol_은 조건자 식을 사용하여 필터링된 연결을 지정합니다. 보다 정확하게, [x, y]에 있는 _ByRow_의 노드는 첫 번째 인덱스 좌표가 노드의 첫 번째 좌표인 x와 동일한 _Pixels_의 노드에 연결됩니다. 이와 마찬가지로 [x, y]에 있는 \_ByCol의 노드는 두 번째 인덱스 좌표가 노드의 두 번째 좌표인 y 중 하나 내에 있는 _Pixels_의 노드에 연결됩니다.
 
-###다중 클래스 분류에 대한 나선형 네트워크 정의: 숫자 인식 예제
+### 다중 클래스 분류에 대한 나선형 네트워크 정의: 숫자 인식 예제
 숫자를 인식하도록 고안된 다음 네트워크 정의에서는 신경망 사용자 지정을 위한 몇 가지 고급 기법을 보여 줍니다.
 
 	input Image [29, 29];
@@ -385,20 +387,26 @@ Net#에서는 선택적으로 공유 가중치를 사용하여 여러 번들을 
 	output Digit [10] from Hid3 all;  
 
 
--	구조에는 단일 입력 계층인 Image가 있습니다.
--	키워드 **convolve**는 Conv1 및 Conv2가 나선형 계층임을 나타냅니다. 이러한 각 계층 선언 뒤에는 나선 특성 목록이 나옵니다.
--	네트워크에는 두 번째 숨겨진 계층인 Conv2에 완전히 연결된 세 번째 숨겨진 계층인 Hid3이 있습니다.
--	Digit 출력 계층은 세 번째 계층인 Hid3에만 연결됩니다. 키워드 **all**은 출력 계층이 Hid3에 완전히 연결되었음을 나타냅니다.
+-	구조에는 단일 입력 계층인 _Image_가 있습니다.
+-	키워드 **convolve**는 _Conv1_ 및 _Conv2_라는 계층이 나선형 계층임을 나타냅니다. 이러한 각 계층 선언 뒤에는 나선 특성 목록이 나옵니다.
+-	네트워크에는 두 번째 숨겨진 계층인 _Conv2_에 완전히 연결된 세 번째 숨겨진 계층인 _Hid3_이 있습니다.
+-	_Digit_ 출력 계층은 세 번째 계층인 _Hid3_에만 연결됩니다. 키워드 **all**은 출력 계층이 _Hid3_에 완전히 연결되었음을 나타냅니다.
 -	나선 인자 수는 3입니다(**InputShape**, **KernelShape**, **Stride** 및 **Sharing** 튜플의 길이). 
--	커널당 가중치 수는 _1 + **KernelShape**[0] * **KernelShape**\[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26입니다. 또는 26 * 50 = 1300_입니다.
+-	커널당 가중치 수는 _1 + **KernelShape**[0] * **KernelShape**[1] * **KernelShape**[2] = 1 + 1 * 5 * 5 = 26입니다. 또는 26 * 50 = 1300_입니다.
 -	다음과 같이 각 숨겨진 계층에서 노드를 계산할 수 있습니다.
 	-	**NodeCount**[0] = (5 - 1) / 1 + 1 = 5.
-	-	**NodeCount**\[1] = (13 - 5) / 2 + 1 = 5. 
+	-	**NodeCount**[1] = (13 - 5) / 2 + 1 = 5. 
 	-	**NodeCount**[2] = (13 - 5) / 2 + 1 = 5. 
--	총 노드 수는 계층의 선언된 차원인 [50, 5, 5]를 사용하여 _**MapCount** * **NodeCount**[0] * **NodeCount**\[1] * **NodeCount**[2] = 10 * 5 * 5 * 5_와 같이 계산할 수 있습니다.
+-	총 노드 수는 계층의 선언된 차원인 [50, 5, 5]를 사용하여 _**MapCount** * **NodeCount**[0] * **NodeCount**[1] * **NodeCount**[2] = 10 * 5 * 5 * 5_와 같이 계산할 수 있습니다.
 -	**Sharing**[d]는 _d == 0_에 대해서만 False이므로 커널 수는 _**MapCount** * **NodeCount**[0] = 10 * 5 = 50_입니다. 
+
+
+## 감사의 말
+
+신경망 아키텍처를 사용자 지정하기 위한 Net# 언어는 Microsoft에서 Shon Katzenberger(설계자, 기계 학습) 및 Alexey Kamenev(소프트웨어 엔지니어, Microsoft Research)에 의해 개발되었습니다. 내부적으로 이미지 검색에서 텍스트 분석에 이르기까지 다양한 기계 학습 프로젝트 및 응용 프로그램에 사용됩니다. 자세한 내용은 [Azure ML의 신경망 - Net# 소개](http://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)를 참조하세요.
+
 
 [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_large.gif
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

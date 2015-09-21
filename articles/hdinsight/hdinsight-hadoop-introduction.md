@@ -1,6 +1,7 @@
 <properties
 	pageTitle="HDInsight의 Hadoop이란: 클라우드 빅 데이터 분석 | Microsoft Azure"
 	description="HDInsight의 클라우드에 있는 Hadoop 구성 요소를 소개합니다. HDInsight에서 Hadoop 클러스터를 사용하여 빅 데이터를 관리, 분석 및 보고하는 방법을 알아봅니다."
+	keywords="big data,big data analysis,hadoop,introduction to hadoop,what is hadoop"
 	services="hdinsight"
 	documentationCenter=""
 	authors="cjgronlund"
@@ -13,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/27/2015"
+   ms.date="09/03/2015"
    ms.author="cgronlun"/>
 
 
@@ -58,9 +59,9 @@ Azure HDInsight에서는 **Linux** 또는 **Windows**를 기본 OS로 사용하�
 
 
 
-### Hadoop, HBase, Storm 및 사용자 지정된 클러스터
+### Hadoop, HBase, Storm, Spark 및 사용자 지정된 클러스터
 
-HDInsight는 Hadoop, HBase 또는 Storm에 대한 클러스터 구성을 제공합니다. 또는 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">스크립트 작업으로 클러스터를 사용자 지정</a>할 수 있습니다.
+HDInsight는 Hadoop, HBase, Storm 및 Spark에 대한 클러스터 구성을 제공합니다. 또는 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">스크립트 작업으로 클러스터를 사용자 지정</a>할 수 있습니다.
 
 * **Hadoop**("쿼리" 워크로드): 데이터를 병렬로 처리하고 분석하도록 [HDFS](#HDFS)를 통해 신뢰할 수 있는 데이터 저장소와 간단한 [MapReduce](#mapreduce) 프로그래밍 모델을 제공합니다.
 
@@ -68,6 +69,7 @@ HDInsight는 Hadoop, HBase 또는 Storm에 대한 클러스터 구성을 제공�
 
 * **<a  target="_blank" href="https://storm.incubator.apache.org/">Apache Storm</a>**("스팀" 워크로드): 대규모 데이터 스트림을 빠르게 처리하기 위한 분산형 실시간 계산 시스템입니다. HDInsight에서 관리 클러스터로 제공됩니다. [Storm 및 Hadoop을 사용하여 실시간 센서 데이터 분석](hdinsight-storm-sensor-data-analysis.md)을 참조하세요.
 
+* **<a  target="_blank" href="http://spark.apache.org/">Apache Spark</a>**: 메모리 내 처리를 지원하여 빅 데이터 분석 응용 프로그램의 성능을 향상시키는 오픈 소스 병렬 처리 프레임워크입니다. [Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)를 참조하세요.
 
 ## Hadoop의 구성 요소는 무엇인가요?
 
@@ -246,4 +248,4 @@ HDInsight의 Hadoop이 제공하는 이점에 대한 자세한 내용은 [HDInsi
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

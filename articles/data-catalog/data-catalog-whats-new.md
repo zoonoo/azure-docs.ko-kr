@@ -1,24 +1,34 @@
 <properties
    pageTitle="Azure 데이터 카탈로그의 새로운 기능"
-	description="Azure 데이터 카탈로그 미리 보기에서 새로운 기능 개요를 제공합니다."
-	services="data-catalog"
-	documentationCenter=""
-	authors="steelanddata"
-	manager="NA"
-	editor=""
-	tags=""/>
+   description="Azure 데이터 카탈로그 미리 보기에서 새로운 기능 개요를 제공합니다."
+   services="data-catalog"
+   documentationCenter=""
+   authors="steelanddata"
+   manager="NA"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="08/28/2015"
-	ms.author="maroche"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="09/04/2015"
+   ms.author="maroche"/>
 
 # Azure 데이터 카탈로그의 새로운 기능
 
 **Azure 데이터 카탈로그**에 대한 업데이트는 정기적으로 릴리스됩니다. 일부 릴리스에서 백엔드 서비스 기능에 초점을 맞추므로 모든 릴리스는 새로운 사용자용 기능을 포함하지 않습니다. 이 페이지는 **Azure 데이터 카탈로그** 서비스에 추가된 새로운 사용자용 기능을 강조 표시합니다.
+
+## 2015년 9월 4일 주 릴리스의 새로운 기능
+
+2015년 9월 4일 주를 기준으로 다음과 같은 기능이 **Azure 데이터 카탈로그**에 추가되었습니다.
+
+- 알 수 없는 데이터 원본 유형의 수동 등록 지원. 사용자는 데이터 원본 등록 도구에서 명시적으로 지원하지 않는 데이터 원본에 주석을 추가하고 검색할 수 있도록 **Azure 데이터 카탈로그** 포털을 사용하여 데이터 원본 정보를 수동으로 입력할 수 있습니다.
+- 컨테이너로 SQL Server 데이터베이스 등록 및 검색 지원. SQL Server 테이블 및 뷰를 등록하면 **Azure 데이터 카탈로그**에 테이블 및 뷰는 물론 데이터베이스에 대한 항목도 생성됩니다. **Azure 데이터 카탈로그** 포털을 사용하여 데이터베이스를 검색하고 주석을 추가할 수 있습니다. 사용자는 카탈로그 내용을 검색 및 필터링하는 것은 물론 데이터베이스 내용을 검색 및 필터링할 수도 있습니다.
+
+
+> [AZURE.NOTE]2015년 9월 4일 릴리스 이전에 등록된 SQL Server 테이블 및 뷰는 데이터 원본 등록 도구를 사용해서 다시 등록해야 데이터베이스 항목이 카탈로그에 추가됩니다. 데이터 원본을 다시 등록해도 **Azure 데이터 카탈로그** 포털에서 사용자가 추가한 주석에는 영향을 주지 않습니다.
 
 ## 2015년 8월 28일 주 릴리스의 새로운 기능
 
@@ -37,4 +47,4 @@
 - Standard Edition에만 해당: 데이터 자산에 소유자를 추가하는 경우 이제 **Azure 데이터 카탈로그**에서 사용자 계정 및 보안 그룹 둘 다를 소유자로 지원합니다. 선택한 데이터 자산에 대해 소유자로 보안 그룹을 추가하려면 있는 경우 그룹의 표시 이름 또는 그룹의 UPN 전자 메일 주소를 입력할 수 있습니다.
 - Azure Blob 저장소의 데이터 원본에 대한 지원입니다. 이제 사용자는 Azure 저장소 Blob 및 디렉터리를 등록하고 검색할 수 있습니다.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

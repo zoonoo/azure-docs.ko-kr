@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure Blob 저장소 및 Visual Studio 연결된 서비스 시작"
-	description="Visual Studio ASP.NET 5 프로젝트에서 Azure Blob 저장소를 사용하는 방법"
+	pageTitle="Blob 저장소 및 Visual Studio 연결된 서비스 시작(ASP.NET 5) | Microsoft Azure"
+	description="Visual Studio 연결된 서비스를 사용하여 저장소 계정을 만든 후 Visual Studio ASP.NET 5 프로젝트에서 Azure Blob 저장소 사용을 시작하는 방법입니다."
 	services="storage"
 	documentationCenter=""
 	authors="patshea123"
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="09/03/2015"
 	ms.author="patshea123"/>
 
-# Azure Blob 저장소 및 Visual Studio 연결된 서비스 시작
+# Azure Blob 저장소 및 Visual Studio 연결된 서비스 시작(ASP.NET 5)
 
 > [AZURE.SELECTOR]
 > - [Getting started](vs-storage-aspnet5-getting-started-blobs.md)
@@ -49,7 +49,7 @@ ASP.NET 5 프로젝트에서 Blob에 프로그래밍 방식으로 액세스하�
 		using System.Threading.Tasks;
 		using LogLevel = Microsoft.Framework.Logging.LogLevel;
 
-2. 저장소 계정 정보를 나타내는 `CloudStorageAccount` 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다.
+2. 저장소 계정 정보를 나타내는 **CloudStorageAccount** 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다.
 
 		 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
 		   CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
@@ -57,7 +57,7 @@ ASP.NET 5 프로젝트에서 Blob에 프로그래밍 방식으로 액세스하�
     **참고:** 다음 섹션의 코드 앞에서 위의 코드를 모두 사용합니다.
 
 
-3. `CloudBlobClient` 개체를 사용하여 저장소 계정의 기존 컨테이너에 `CloudBlobContainer` 참조를 가져옵니다.
+3. **CloudBlobClient** 개체를 사용하여 저장소 계정의 기존 컨테이너에 **CloudBlobContainer** 참조를 가져옵니다.
 
 		// Create a blob client.
 		CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -69,7 +69,7 @@ ASP.NET 5 프로젝트에서 Blob에 프로그래밍 방식으로 액세스하�
 
 ##코드에서 컨테이너 만들기
 
-`CloudBlobClient`를 사용하여 저장소 계정에 컨테이너를 만들 수도 있습니다. 다음 코드와 같이 `CreateIfNotExistsAsync` 호출을 추가하기만 하면 됩니다.
+**CloudBlobClient**를 사용하여 저장소 계정에 컨테이너를 만들 수도 있습니다. 다음 코드와 같이 **CreateIfNotExistsAsync** 호출을 추가하기만 하면 됩니다.
 
 	// Create a blob client.
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
@@ -92,7 +92,7 @@ ASP.NET 5 프로젝트에서 Blob에 프로그래밍 방식으로 액세스하�
 
 ##컨테이너에 Blob 업로드
 
-컨테이너에 Blob 파일을 업로드하려면 컨테이너 참조를 가져온 후 이 참조를 사용하여 Blob 참조를 가져옵니다. Blob 참조가 있는 경우 `UploadFromStreamAsync` 메서드를 호출하여 데이터 스트림을 업로드할 수 있습니다. 이 작업은 Blob이 없는 경우 새로 만들고, Blob이 있는 경우 덮어씁니다. 다음 예제에서는 컨테이너에 Blob을 업로드하는 방법을 보여 주며, 컨테이너가 이미 만들어져 있다고 가정합니다.
+컨테이너에 Blob 파일을 업로드하려면 컨테이너 참조를 가져온 후 이 참조를 사용하여 Blob 참조를 가져옵니다. Blob 참조가 있는 경우 **UploadFromStreamAsync** 메서드를 호출하여 데이터 스트림을 업로드할 수 있습니다. 이 작업은 Blob이 없는 경우 새로 만들고, Blob이 있는 경우 덮어씁니다. 다음 예제에서는 컨테이너에 Blob을 업로드하는 방법을 보여 주며, 컨테이너가 이미 만들어져 있다고 가정합니다.
 
 	// Get a reference to a blob named "myblob".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob");
@@ -105,7 +105,7 @@ ASP.NET 5 프로젝트에서 Blob에 프로그래밍 방식으로 액세스하�
     }
 
 ##컨테이너의 Blob 나열
-컨테이너의 Blob을 나열하려면 먼저 컨테이너 참조를 가져옵니다. 컨테이너의 `ListBlobsSegmentedAsync` 메서드를 호출하여 컨테이너 내의 Blob 및/또는 디렉터리를 검색할 수 있습니다. 반환된 `IListBlobItem`에 대한 풍부한 속성 및 메서드 집합에 액세스하려면 `CloudBlockBlob`, `CloudPageBlob` 또는 `CloudBlobDirectory` 개체로 캐스트해야 합니다. Blob 유형을 알 수 없는 경우 유형 검사를 사용하여 캐스트할 유형을 확인할 수 있습니다. 다음 코드에서는 컨테이너에 있는 각 항목의 URI를 검색하고 출력하는 방법을 보여 줍니다.
+컨테이너의 Blob을 나열하려면 먼저 컨테이너 참조를 가져옵니다. 컨테이너의 **ListBlobsSegmentedAsync** 메서드를 호출하여 컨테이너 내의 Blob 및/또는 디렉터리를 검색할 수 있습니다. 반환된 **IListBlobItem**에 대한 풍부한 속성 및 메서드 집합에 액세스하려면 **CloudBlockBlob**, **CloudPageBlob** 또는 **CloudBlobDirectory** 개체로 캐스트해야 합니다. Blob 유형을 알 수 없는 경우 유형 검사를 사용하여 캐스트할 유형을 확인할 수 있습니다. 다음 코드에서는 컨테이너에 있는 각 항목의 URI를 검색하고 출력하는 방법을 보여 줍니다.
 
 	BlobContinuationToken token = null;
         do
@@ -140,7 +140,7 @@ ASP.NET 5 프로젝트에서 Blob에 프로그래밍 방식으로 액세스하�
 Blob 컨테이너의 콘텐츠를 나열하는 다른 방법이 있습니다. 자세한 내용은 [.NET에서 Blob 저장소를 사용하는 방법](storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container)(영문)을 참조하세요.
 
 ##Blob 다운로드
-Blob을 다운로드하려면 먼저 Blob에 대한 참조를 가져온 다음 `DownloadToStreamAsync` 메서드를 호출합니다. 다음 예제에서는 `DownloadToStreamAsync` 메서드를 사용하여 Blob 콘텐츠를 스트림 개체로 전송합니다. 그런 다음 이 개체를 로컬 파일에 저장할 수 있습니다.
+Blob을 다운로드하려면 먼저 Blob에 대한 참조를 가져온 다음 **DownloadToStreamAsync** 메서드를 호출합니다. 다음 예제에서는 **DownloadToStreamAsync** 메서드를 사용하여 Blob 콘텐츠를 스트림 개체로 전송합니다. 그러면 이 개체를 로컬 파일에 저장할 수 있습니다.
 
 	// Get a reference to a blob named "photo1.jpg".
 	CloudBlockBlob blockBlob = container.GetBlockBlobReference("photo1.jpg");
@@ -154,7 +154,7 @@ Blob을 다운로드하려면 먼저 Blob에 대한 참조를 가져온 다음 `
 Blob을 파일로 저장하는 다른 방법이 있습니다. 자세한 내용은 [.NET에서 Blob 저장소를 사용하는 방법](storage-dotnet-how-to-use-blobs.md/#download-blobs)(영문)을 참조하세요.
 
 ##Blob 삭제
-Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 `DeleteAsync` 메서드를 호출합니다.
+Blob을 삭제하려면 먼저 Blob에 대한 참조를 가져온 다음 **DeleteAsync** 메서드를 호출합니다.
 
 	// Get a reference to a blob named "myblob.txt".
 	CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob.txt");
@@ -166,4 +166,4 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 `DeleteAsync` 메
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

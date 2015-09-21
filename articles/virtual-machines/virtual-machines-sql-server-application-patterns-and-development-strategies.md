@@ -3,7 +3,7 @@
 	description="이 문서에서는 Azure VM을 실행하는 SQL Server와 관련한 여러 응용 프로그램 패턴을 설명하며 설계자와 개발자들에게 좋은 응용 프로그램 아키텍처 및 설계를 위한 기초를 제공합니다."
 	services="virtual-machines"
 	documentationCenter="na"
-	authors="rothja"
+	authors="Selcin"
 	manager="jeffreyg"
 	editor="monicar" />
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/20/2015"
-	ms.author="jroth" />
+	ms.author="selcint" />
 
 # Azure 가상 컴퓨터의 SQL Server에 대한 응용 프로그램 패턴 및 개발 전략
 
@@ -322,4 +322,4 @@ Azure에서 다계층 SQL Server 기반 응용 프로그램을 구현하려면 �
 
 Azure 가상 컴퓨터의 SQL Server 실행에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!-----HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

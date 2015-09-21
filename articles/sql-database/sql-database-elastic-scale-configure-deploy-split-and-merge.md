@@ -1,6 +1,8 @@
 <properties
+	title="Elastic database Split-Merge tool tutorial"
 	pageTitle="탄력적 데이터베이스 분할/병합 도구 자습서 | Microsoft Azure"
 	description="탄력적 데이터베이스 도구를 사용하는 분할 및 병합"
+	metaKeywords="elastic database tools, split and merge, Azure SQL Database sharding, elastic scale, splitting and merging elastic databases"
 	services="sql-database" documentationCenter=""  
 	manager="jeffreyg"
 	authors="sidneyh"/>
@@ -100,12 +102,12 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
 ### 서비스 구성 파일 업데이트
 
-이러한 설정의 지문/값 특성에 위의 복사한 인증서 지문을 붙여넣습니다. 웹 역할의 경우:
+이러한 설정의 지문/값 특성에 위의 복사한 인증서 지문을 붙여넣습니다. 작업자 역할의 경우:
 
     <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
 
-작업자 역할의 경우:
+웹 역할의 경우:
 
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
     <Setting name="AllowedClientCertificateThumbprints" value="" />
@@ -332,4 +334,4 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

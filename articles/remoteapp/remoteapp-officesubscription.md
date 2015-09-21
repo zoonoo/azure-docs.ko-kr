@@ -1,20 +1,20 @@
 
 <properties 
-    pageTitle="Azure RemoteApp으로 Office 365 구독을 사용하는 방법"
+    pageTitle="Azure RemoteApp으로 Office 365 구독을 사용하는 방법 | Microsoft Azure"
 	description="Azure RemoteApp에서 Office 365 구독을 사용하여 Office 앱을 공유하는 방법을 알아봅니다."
 	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"/>
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" />
 
 <tags 
-    ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
-	ms.author="elizapo"/>
+    ms.service="remoteapp" 
+    ms.workload="compute" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="09/09/2015" 
+    ms.author="elizapo" />
 
 
 
@@ -36,6 +36,8 @@ Office 365 ProPlus를 사용하면 [공유 컴퓨터 활성화](https://technet.
 
 Office 365 ProPlus에 대한 각 사용자 라이선스를 사용하면 단일 사용자가 태블릿 및 휴대폰에 더해 최대 5개의 컴퓨터에 Office 응용 프로그램을 활성화할 수 있습니다. 장치에서 Office를 비활성화할 때까지 각 활성화는 사용자로 등록됩니다. (사용자는 [Office 365 포털](https://portal.office365.com/)에서 장치를 관리할 수 있습니다.)
 
+Azure RemoteApp을 사용하면 단일 사용자가 인식하지 않고 같은 날짜에 여러 대의 컴퓨터에 로그인할 수 있습니다. 이는 사용자에게 공유된 앱과 프로그램만 표시하는 동시에 서비스에서 자동으로 클라우드의 리소스를 관리하고 크기를 조정하기 때문입니다. 이 시나리오를 위해 Office 365 ProPlus는 공유 컴퓨터 인증 모드를 제공합니다. 즉, 사용자는 이러한 리소스에 액세스하기 위해 라이선스 관리를 수행할 필요가 없으며 개별 컴퓨터가 컴퓨터 정품 인증 제한 5대에 계산되지 않습니다.
+
 (관리자가)사용자에게 Office 365 ProPlus 라이선스를 할당하는 한 사용자는 개인 장치는 물론 Azure RemoteApp 컬렉션을 통해 Office를 사용할 수 있습니다.
 
 ## 어떤 Office 응용 프로그램을 Office 365 및 Azure RemoteApp과 함께 사용할 수 있나요?
@@ -44,7 +46,7 @@ Office 365 ProPlus 구독을 사용하여 Office 2013 및 Office 2016(출시된 
 
 ## Visio Pro 또는 Project Pro의 경우는 어떤가요?
 
-RemoteApp 구독에 포함된 Office 365 ProPlus 이미지는 Visio Pro 및 Project Pro를 모두 포함합니다. 하지만 Office 365 ProPlus 구독을 사용하여 해당 프로그램을 활성화할 수 없습니다. 각자 자신의 라이선스가 있습니다. [Office 365 포털](https://portal.office365.com/)에서 활성화할 수 있습니다.
+RemoteApp 구독에 포함된 Office 365 ProPlus 이미지는 Visio Pro 및 Project Pro를 모두 포함합니다. 하지만 Office 365 ProPlus 구독을 사용하여 해당 프로그램을 활성화할 수 없습니다. 각자 자신의 라이선스가 있습니다. [Office 365 포털](https://portal.office365.com/)에서 정품 인증할 수 있습니다.
 
 이러한 프로그램을 사용하지 않으려는 경우 라이선스가 필요하지 않습니다. 방금 사용하려는 프로그램을 활성화하고 다른 프로그램을 건너뜁니다. 이미지에 계속 표시되지만 사용할 수는 없습니다.
 
@@ -112,7 +114,7 @@ Office 365 ProPlus를 포함하는 컬렉션에 사용자 지정 이미지를 �
 업데이트에 Office 배포 도구를 사용하는 데 대한 자세한 정보가 필요하나요?
 
 - [Office 배포 도구를 사용하여 Office 365 제품에 대한 간편 실행 배포](https://technet.microsoft.com/library/JJ219423.aspx)
-- [Office 배포 도구를 사용하여 Office 365 ProPlus 배포 및 업데이트](https://channel9.msdn.com/Events/Ignite/2015/BRK3168)(비디오)
+- [Office 배포 도구를 사용하여 Office 365 ProPlus 배포 및 업데이트](https://channel9.msdn.com/Events/Ignite/2015/BRK3168)(동영상)
 - [Office 365 ProPlus에 대한 업데이트 설정 구성](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

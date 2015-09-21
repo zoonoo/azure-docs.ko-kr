@@ -1,20 +1,20 @@
 <properties
    pageTitle="신뢰할 수 있는 행위자 분산 계산"
-	description="서비스 패브릭 신뢰할 수 있는 행위자는 병렬 비동기 메시징, 관리하기 쉬운 분산 상태 및 병렬 계산에 적합합니다."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="jessebenson"
-	manager="timlt"
-	editor=""/>
+   description="서비스 패브릭 신뢰할 수 있는 행위자는 병렬 비동기 메시징, 관리하기 쉬운 분산 상태 및 병렬 계산에 적합합니다."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="jessebenson"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/05/2015"
-	ms.author="claudioc"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="09/08/2015"
+   ms.author="claudioc"/>
 
 # 신뢰할 수 있는 행위자 디자인 패턴: 분산 계산
 터무니없이 짧은 시간 안에 서비스 패브릭 신뢰할 수 있는 행위자에서 재무 계산을 수행하는 실제 고객을 감시하려면 어느 정도는 위험한 계산을 정확하게 하는 Monte Carlo 시뮬레이션의 도움을 받아야 합니다.
@@ -48,10 +48,13 @@ public class Processor : Actor, IProcessor
     public Task ProcessAsync(int tries, int seed, int taskCount)
     {
         var tasks = new List<Task>();
+        ActorId aggregatorId = null;
         for (int i = 0; i < taskCount; i++)
         {
-            var task = ActorProxy.Create<IPooledTask>(0); // stateless
-            tasks.Add(task.CalculateAsync(tries, seed));
+            var task = ActorProxy.Create<IPooledTask>(ActorId.NewId()); // stateless
+            if (i % 2 == 0) // new aggregator for every 2 pooled actors
+               aggregatorId = ActorId.NewId();
+            tasks.Add(task.CalculateAsync(tries, seed, aggregatorId));
         }
         return Task.WhenAll(tasks);
     }
@@ -59,12 +62,12 @@ public class Processor : Actor, IProcessor
 
 public interface IPooledTask : IActor
 {
-    Task CalculateAsync(int tries, int seed);
+    Task CalculateAsync(int tries, int seed, ActorId aggregatorId);
 }
 
 public class PooledTask : Actor, IPooledTask
 {
-    public Task CalculateAsync(int tries, int seed)
+    public Task CalculateAsync(int tries, int seed, ActorId aggregatorId)
     {
         var pi = new Pi()
         {
@@ -82,7 +85,7 @@ public class PooledTask : Actor, IPooledTask
                 pi.InCircle++;
         }
 
-        var agg = ActorProxy.Create<IAggregator>(ActorId.NewId());
+        var agg = ActorProxy.Create<IAggregator>(aggregatorId);
         return agg.AggregateAsync(pi);
     }
 }
@@ -203,4 +206,4 @@ Azure 서비스 패브릭이 빅 데이터 프레임워크 또는 고성능 컴�
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-distributed-computation/distributed-computation-1.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

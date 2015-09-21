@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="Azure 자동화 DSC 개요"
-	description="Azure 자동화 DSC(필요한 상태 구성)의 개요, 용어 및 알려진 문제"
-	services="automation"
-	documentationCenter="dev-center-name"
-	authors="coreyp-at-msft"
-	manager="stevenka"
-	editor="tysonn"/>
+   pageTitle="Azure 자동화 DSC 개요" 
+   description="Azure 자동화 DSC(필요한 상태 구성)의 개요, 용어 및 알려진 문제" 
+   services="automation" 
+   documentationCenter="dev-center-name" 
+   authors="coreyp-at-msft" 
+   manager="stevenka" 
+   editor="tysonn"/>
 
 <tags
    ms.service="automation"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="TBD"
-	ms.date="08/18/2015"
-	ms.author="coreyp"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="TBD" 
+   ms.date="09/04/2015"
+   ms.author="coreyp"/>
 
 # Azure 자동화 DSC 개요 #
 
@@ -193,6 +193,12 @@ Azure 자동화 DSC는 현재 [Azure 리소스 관리자 PowerShell 모듈](http
 -	`Get-AzureAutomationDscCompilationJobOutput`
 -	`Start-AzureAutomationDscCompilationJob`
 
+
+##Azure 자동화 DSC 수명 주기##
+빈 자동화 계정부터 올바르게 구성된 관리 노드 집합까지에는 구성을 정의하고 해당 구성을 노드 구성으로 전환하며 온보딩 노드를 Azure 자동화 DSC 및 해당 노드 구성으로 전환하는 프로세스 집합이 포함됩니다. 다음 다이어그램에서는 Azure 자동화 DSC 수명 주기를 보여줍니다.
+
+![대체 텍스트](./media/automation-dsc-overview/DSCLifecycle.png)
+
 ##알려진 문제##
 
 - Azure 자동화 DSC는 미리 보기로 제공되기 때문에 이 기능을 처음 사용할 때 Azure PowerShell cmdlet 또는 Azure Preview 포털을 사용하여 등록해야 합니다. 다음 두 cmdlet을 호출하여 등록할 수 있습니다.
@@ -222,8 +228,8 @@ Azure 자동화 DSC는 현재 [Azure 리소스 관리자 PowerShell 모듈](http
 
 - `Register-AzureAutomationDscNode`, `Set-AzureVMExtension` 또는 Azure Preview 포털의 Azure 자동화 DSC VM 확장을 사용하여 Azure 자동화 DSC로 관리할 Azure VM을 등록할 때 **컴퓨터 이름이 지정되지 않았으며 구성 디렉터리에 구성 파일이 없습니다**라는 등록 실패 메시지가 나타나는 경우 이는 잘못된 알림이며 실제로는 VM 등록에 성공한 것입니다. 성공적인 등록은 `Get-AzureAutomationDscNode` cmdlet을 사용하여 확인할 수 있습니다.
 
-- `Register-AzureAutomationDscNode`, `Set-AzureVMExtension`를 사용하여 Azure 자동화 dsc를 사용한 관리를 위해 Azure VM을 온보딩하거나, Azure Preview 포털에서 Azure 자동화 DSC VM을 확장할 때, Azure 자동화의 DSC노드에 나타날 때까지 1시간 정도 걸립니다. 이것은 Azure 자동화 DSC의 VM을 온보드하기 위해 필요한 Azure VM DSC 확장에 의한 VM의 Windows 관리 프레임워크 5.0의 설치 때문에 꼭 필요한 일입니다.
+- `Register-AzureAutomationDscNode`, `Set-AzureVMExtension`을 사용하여 Azure 자동화 DSC를 사용한 관리를 위해 Azure VM을 온보딩하거나, Azure Preview 포털에서 Azure 자동화 DSC VM을 확장할 때, Azure 자동화의 DSC 노드로 VM이 나타날 때까지 1시간 정도 걸립니다. 이것은 Azure 자동화 DSC의 VM을 온보드하기 위해 필요한 Azure VM DSC 확장에 의한 VM의 Windows 관리 프레임워크 5.0의 설치 때문에 꼭 필요한 일입니다.
 
 - Azure 자동화 DSC로 온보드 된 DCS 노드는 처음에 ‘호환' 상태로 표시되며, 매핑된 DCS 노드 구성과 실제로 호환이 되지 않을 경우에도 마찬가지로 표시됩니다. 노드가 첫 번째 끌어오기 수행 및 Azure 자동화 DSC에 첫 번째 DSC 보고를 전송한 후, 노드의 상태는 수정 됩니다.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

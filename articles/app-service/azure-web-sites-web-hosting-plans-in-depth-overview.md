@@ -3,7 +3,7 @@
 	description="Azure 앱 서비스에 대한 앱 서비스 계획의 작동 방식 및 이러한 계획을 통해 관리 환경을 향상시킬 수 있는 방법을 알아봅니다." 
 	services="app-service" 
 	documentationCenter="" 
-	authors="cephalin" 
+	authors="btardif" 
 	manager="wpickett" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="09/07/2015" 
 	ms.author="byvinyal"/>
 
 #Azure 앱 서비스 계획의 포괄 개요#
@@ -50,17 +50,11 @@
 
 빈 앱 서비스 계획을 만들 수는 없습니다. 그러나 앱을 만드는 동안 새 계획을 명시적으로 만들 수 있습니다.
 
-[Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)에서 새 계획을 만들려면 **새로 만들기**를 클릭하고 **웹+모바일**을 선택한 다음 **웹앱**, **모바일 앱**, **논리 앱** 또는 **API 앱**을 선택합니다. 그런 다음 새 앱에 대한 앱 서비스 계획을 선택하거나 만들 수 있습니다.
- 
-![앱 서비스 계획 F.A.Q.](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview01.png)
+[Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)에서 새 계획을 만들려면 **새로 만들기**를 클릭하고 **웹+모바일**을 선택한 다음 **웹앱**, **모바일 앱**, **논리 앱** 또는 **API 앱**을 선택합니다. ![][createWebApp]
 
-##앱 서비스 계획에 앱 할당
-
-앱을 만드는 중에 기존 계획에 앱을 할당할 수 있습니다.
-
-[Azure 포털](http://portal.azure.com)에서 새 계획을 만들려면 **새로 만들기**를 클릭하고 **웹+모바일**을 선택한 다음 **웹앱**, **모바일 앱**, **논리 앱** 또는 **API 앱**을 선택합니다. 그런 다음 새 앱에 대한 앱 서비스 계획을 선택하거나 만들 수 있습니다. **또는 기존 계획 선택**을 클릭하면 선택할 수 있는 기존 계획 목록이 나타납니다.
-
-![앱 서비스 계획 F.A.Q.](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview02.png)
+그런 다음 새 앱에 대한 앱 서비스 계획을 선택하거나 만들 수 있습니다.
+  
+ ![][createASP]
  
 ## 다른 앱 서비스 계획으로 앱 이동
 
@@ -70,7 +64,7 @@
  
 앱 서비스 계획 블레이드가 열립니다. 이때 기존 계획을 선택하거나 새 계획을 만들 수 있습니다. 다른 지리적 위치의 계획은 회색으로 표시되어 선택할 수 없습니다.
 
-![앱 서비스 계획 F.A.Q.](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview03.png)
+![][change]
 
 각 계획에는 고유한 가격 책정 계층이 있습니다. **무료** 계층에서 **표준** 계층으로 사이트를 이동하는 경우 앱이 **표준** 계층의 모든 기능과 리소스를 활용할 수 있습니다.
 
@@ -84,7 +78,7 @@
 
 아래 이미지에서는 **앱 서비스 계획** 블레이드 및 **가격 책정 계층** 블레이드를 볼 수 있습니다. **앱 서비스 계획** 블레이드에서 **가격 책정 계층** 파트를 클릭하면 계획의 가격 책정 계층과 인스턴스 크기를 변경할 수 있는 **가격 책정 계층** 블레이드가 확장됩니다.
  
-![앱 서비스 계획 F.A.Q.](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview04.png)
+ ![][pricingtier]
 
 ##요약
 
@@ -95,5 +89,13 @@
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
+ 
+ 
+ <!-- Images. -->
+[pricingtier]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/appserviceplan-pricingtier.png
+[assign]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/assing-appserviceplan.png
+[change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
+[createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
+[createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -1,7 +1,7 @@
 
 <properties 
-  pageTitle="저장소 리소스에 대한 속성과 메타데이터 설정 및 검색 | Microsoft Azure" 
-  description="Azure 저장소 리소스에 대한 속성과 메타데이터를 설정 및 검색하는 방법을 알아봅니다." 
+  pageTitle="Azure 저장소에서 개체에 대한 속성 및 메타데이터를 설정 및 검색 | Microsoft Azure" 
+  description="Azure 저장소의 개체에 사용자 지정 메타데이터를 저장하고 시스템 속성을 설정 및 검색합니다." 
   services="storage" 
   documentationCenter="" 
   authors="tamram" 
@@ -14,7 +14,7 @@
   ms.tgt_pltfrm="na" 
   ms.devlang="na" 
   ms.topic="article" 
-  ms.date="08/04/2015" 
+  ms.date="09/03/2015" 
   ms.author="tamram"/>
 
 
@@ -106,4 +106,4 @@ Blob 또는 컨테이너 리소스에 하나 이상의 이름-값 쌍으로 메�
 - [.NET용 Blob 저장소 시작](storage-dotnet-how-to-use-blobs.md)  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/14/2015" 
+	ms.date="09/09/2015" 
 	ms.author="awills"/>
 
 
@@ -86,7 +86,7 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 ![프로젝트를 마우스 오른쪽 단추로 클릭하고 Azure 포털을 엽니다.](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
 
-개요 차트에서 데이터를 찾습니다. 처음에는 요소가 1\~2개만 표시됩니다. 예:
+개요 차트에서 데이터를 찾습니다. 처음에는 요소가 1~2개만 표시됩니다. 예:
 
 ![클릭하여 추가 데이터 확인](./media/app-insights-asp-net/12-first-perf.png)
 
@@ -154,17 +154,19 @@ SDK 서버와 동일한 계측 키를 가진 SDK 클라이언트를 구성하는
 
 
 
-## 종속성 추적 추가
+## 종속성 추적 및 시스템 성능 카운터 추가
 
 [종속성 메트릭](app-insights-dependencies.md)은 성능 문제 진단을 도와줄 때 매우 유용합니다. 앱에서 데이터베이스, REST API 및 다른 외부 구성 요소로 온 호출을 측정합니다.
 
 ![](./media/app-insights-asp-net/04-dependencies.png)
 
+이 단계를 사용하면 [성능 카운터의 보고](app-insights-web-monitor-performance.md#system-performance-counters)(예: CPU, 메모리, 네트워크 선점)도 가능합니다.
+
 #### 앱이 IIS 서버에서 실행되는 경우
 
-관리자 권한을 사용하여 서버에 로그인한 후 [Application Insights 상태 모니터](http://go.microsoft.com/fwlink/?LinkId=506648)를 설치합니다.
+관리자 권한으로 서버에 로그인하고 [Application Insights 상태 모니터](http://go.microsoft.com/fwlink/?LinkId=506648)를 설치합니다.
 
-(상태 모니터를 [이미 실행 중인 앱을 계측](app-insights-monitor-performance-live-website-now.md)할 경우에도 사용할 수 있으며, SDK로 빌드되지 않은 경우에도 사용할 수 있습니다.)
+SDK로 빌드되지 않은 경우에도 상태 모니터를 사용하여 [이미 실행 중인 앱을 계측](app-insights-monitor-performance-live-website-now.md)할 수 있습니다.
 
 #### 앱이 Azure 웹앱인 경우
 
@@ -174,9 +176,13 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 (확장은 SDK로 빌드된 앱만 보조해 줍니다. 상태 모니터와는 달리, 기존 응용 프로그램을 계측할 수 없습니다.)
 
+#### Azure 클라우드 서비스 역할을 모니터링하려면
+
+[상태 모니터를 추가하기 위한 수동 절차](app-insights-cloudservices.md)가 있습니다.
+
 ## 가용성 웹 테스트
 
-[웹 테스트 설정][availability] 응용 프로그램의 라이브 상태 및 응답성을 외부에서 테스트할 수 있습니다.
+[웹 테스트 설정][availability]으로 응용 프로그램의 라이브 상태 및 응답성을 외부에서 테스트할 수 있습니다.
 
 
 ![](./media/app-insights-asp-net/appinsights-10webtestresult.png)
@@ -220,4 +226,4 @@ ApplicationInsights.config에 대한 사용자 지정을 변경한 경우, 업�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

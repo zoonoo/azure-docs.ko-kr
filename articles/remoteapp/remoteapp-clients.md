@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="앱 액세스"
+    pageTitle="모든 장치에서 앱에 액세스 | Microsoft Azure"
     description="Azure RemoteApp에 지원되는 클라이언트 및 앱에 액세스하는 방법을 알아봅니다."
     services="remoteapp"
 	documentationCenter=""
@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="08/12/2015"
+    ms.date="09/09/2015"
     ms.author="elizapo" />
 
 
@@ -41,10 +41,11 @@ Azure RemoteApp의 장점 중 하나는 앱을 모든 장치에서 액세스할 
 
  씬 클라이언트의 경우 다음과 같은 Windows Embedded 씬 클라이언트가 지원됩니다.
 
- - Windows Embedded Standard 7 서비스 팩 1
- - Windows Embedded POSReady7
- - Windows Embedded Thin PC
- - Windows Embedded 8.1 Industry
+- Windows Embedded Standard 7
+- Windows Embedded 8 Standard
+- Windows Embedded 8.1 Industry Pro
+- Windows 10 IoT Enterprise
+
 
 ## 클라이언트 다운로드
 
@@ -207,4 +208,4 @@ Windows Phone 8.1 스토어에서 Microsoft 원격 데스크톱 앱을 설치하
 	![Azure RemoteApp에 대한 데모 피드](./media/remoteapp-clients/WinPhone8.png)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

@@ -12,11 +12,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="06/08/2015"
+   ms.date="09/02/2015"
    ms.author="telmos" />
 
 # VNet(가상 네트워크) 속성을 관리하는 방법
-관리 포털을 사용하여 VNet 설정을 확인하고 수정할 수 있습니다.
+Azure 포털을 사용하여 VNet 설정을 확인하고 수정할 수 있습니다.
 
 ## VNet 설정 보기
 
@@ -100,4 +100,4 @@
 
 [VNet(가상 네트워크)을 삭제하는 방법](../virtual-networks-delete-vnet)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

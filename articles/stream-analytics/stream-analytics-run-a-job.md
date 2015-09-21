@@ -1,0 +1,48 @@
+<properties 
+	pageTitle="작업 실행 | Microsoft Azure" 
+	description="작업 실행 학습 경로 세그먼트입니다."
+	documentationCenter=""
+	services="stream-analytics"
+	authors="jeffstokes72" 
+	manager="paulettm" 
+	editor="cgronlun"/>
+
+<tags 
+	ms.service="stream-analytics" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="data-services" 
+	ms.date="09/09/2015" 
+	ms.author="jeffstok"/>
+
+# 작업 실행
+
+작업 입력, 쿼리 및 출력을 모두 지정했으면 스트림 분석 작업을 시작할 수 있습니다.
+
+작업을 시작하려면
+
+1.	작업 대시보드에서 페이지 맨 아래에 있는 시작을 클릭합니다.
+
+    ![시작 단추](./media/stream-analytics-run-a-job/1-stream-analytics-run-a-job.png)
+
+2.	표시되는 대화 상자에서 **출력 시작** 값을 지정하여 이 작업이 출력 생성을 시작하는 시기를 결정합니다. 이전에 시작되지 않은 작업에 대한 기본 설정은 **작업 시작 시간**으로, 작업이 즉시 데이터 처리를 시작함을 의미합니다. 과거(기록 데이터 사용을 위해) 또는 미래(미래 시간까지 처리 지연을 위해)의 **사용자 지정** 시간을 지정할 수도 있습니다. 작업이 이전에 시작 및 중지된 경우 마지막 출력 시간부터 작업을 다시 시작하고 데이터 손실을 방지하기 위해 **마지막 중지 시간** 옵션을 사용할 수 있습니다.
+
+    ![시작 시간](./media/stream-analytics-run-a-job/2-stream-analytics-run-a-job.png)
+
+3.	대화 상자의 맨 아래에 있는 확인 단추를 클릭합니다. 작업 상태가 시작 중으로 변경되었다가 작업이 시작되면 곧 실행 중으로 변경됩니다. 알림 허브에서 시작 작업의 진행률을 모니터링할 수 있습니다.
+
+    ![진행](./media/stream-analytics-run-a-job/3-stream-analytics-run-a-job.png)
+
+## 도움말 보기
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
+
+## 다음 단계
+
+- [Azure 스트림 분석 소개](stream-analytics-introduction.md)
+- [Azure 스트림 분석 사용 시작](stream-analytics-get-started.md)
+- [Azure 스트림 분석 작업 규모 지정](stream-analytics-scale-jobs.md)
+- [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+- [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+
+<!---HONumber=Sept15_HO2-->

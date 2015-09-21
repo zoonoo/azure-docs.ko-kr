@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="03/17/2015"
+   ms.date="09/03/2015"
    ms.author="abhic"/>
 
 # 배치 제약 조건 개요
@@ -39,4 +39,4 @@ NodeProperty - 문자열을 값에 매핑하는 사용자 또는 시스템 정�
 자세한 내용은 [응용 프로그램 시나리오](../service-fabric-application-scenarios)를 참조하세요.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

@@ -47,7 +47,7 @@ Operational Insights 작업 영역에 대해 에이전트가 자동적으로 설
 
 ![Operational Insights 서버 페이지의 이미지](./media/operational-insights-analyze-data-azure/servers.png)
 
- >[AZURE.NOTE]자동으로 Operational Insights용 에이전트를 설치하려면 [Azure VM 에이전트](https://msdn.microsoft.com/library/azure/dn832621.aspx)를 설치해야 합니다.
+ >[AZURE.NOTE]자동으로 Operational Insights용 에이전트를 설치하려면 [Azure VM 에이전트](https://msdn.microsoft.com/library/azure/dn832621.aspx)를 설치해야 합니다. Azure 리소스 관리자 가상 컴퓨터가 있는 경우 목록에 표시되지 않으며 PowerShell을 사용하거나 ARM 템플릿을 만들어 에이전트를 설치해야 합니다.
 
 
 
@@ -55,7 +55,9 @@ Operational Insights 작업 영역에 대해 에이전트가 자동적으로 설
 
 Azure 가상 컴퓨터를 변경하는 데 스크립팅을 선호하는 경우, PowerShell을 사용하여 Microsoft 모니터링 에이전트를 활성화할 수 있습니다.
 
-Microsoft Monitoring 에이전트는 [Azure 가상 컴퓨터 확장](https://msdn.microsoft.com/library/azure/dn832621.aspx)이고 아래 예제처럼 PowerShell을 사용하여 관리할 수 있습니다.
+Microsoft Monitoring Agent는 [Azure 가상 컴퓨터 확장](https://msdn.microsoft.com/library/azure/dn832621.aspx)이고 아래 예제처럼 PowerShell을 사용하여 관리할 수 있습니다.
+
+"클래식" Azure 가상 컴퓨터의 경우 다음 PowerShell을 사용합니다.
 
 ```powershell
 Add-AzureAccount
@@ -66,6 +68,24 @@ $hostedService="enter hosted service here"
 
 $vm = Get-AzureVM –ServiceName $hostedService
 Set-AzureVMExtension -VM $vm -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionName 'MicrosoftMonitoringAgent' -Version '1.*' -PublicConfiguration "{'workspaceId':  '$workspaceId'}" -PrivateConfiguration "{'workspaceKey': '$workspaceKey' }" | Update-AzureVM -Verbose
+```
+Azure 리소스 관리자 가상 컴퓨터의 경우 다음 PowerShell을 사용합니다.
+
+```powershell
+Add-AzureAccount
+Switch-AzureMode -Name AzureResourceManager
+
+$workspaceId="enter workspace here"
+$workspaceKey="enter workspace key here"
+
+$resourcegroup = "enter resource group"
+$resourcename = "enter resource group"
+
+$vm = Get-AzureVM -ResourceGroupName $resourcegroup -Name $resourcename
+$location = $vm.Location
+
+Set-AzureVMExtension -ResourceGroupName $resourcegroup -VMName $resourcename -Name 'MicrosoftMonitoringAgent' -Publisher 'Microsoft.EnterpriseCloud.Monitoring' -ExtensionType 'MicrosoftMonitoringAgent' -TypeHandlerVersion '1.0' -Location $location -SettingString "{'workspaceId':  '$workspaceId'}" -ProtectedSettingString "{'workspaceKey': '$workspaceKey' }"
+
 ```
 
 PowerShell을 사용하여 구성할 때 작업 영역 ID 및 기본 키를 제공해야 합니다. Operational Insights 포털의 **설정** 페이지에서 작업 영역 ID와 기본 키를 찾을 수 있습니다.
@@ -162,7 +182,7 @@ Windows 이벤트 로그를 사용하도록 설정하거나 scheduledTransferPer
     </ConfigurationSettings>
 
 
-**AccountName** 및 **AccountKey** 값은 Microsoft Azure 관리 포털에서 저장소 계정 대시보드의 액세스 키 관리 아래에 있습니다. 연결 문자열에 대한 프로토콜은 **https**이어야 합니다.
+**AccountName** 및 **AccountKey** 값은 Microsoft Azure 관리 포털에서 저장소 계정 대시보드의 액세스 키 관리 아래에 있습니다. 연결 문자열에 대한 프로토콜은 **https**여야 합니다.
 
 업데이트된 진단 구성이 클라우드 서비스에 적용되고 Azure 저장소에 진단을 작성하면, Operational Insights를 구성할 준비가 됩니다.
 
@@ -186,7 +206,7 @@ Windows 이벤트 로그를 사용하도록 설정하거나 scheduledTransferPer
 	5. 사용하려는 각 진단 메트릭을 선택합니다. Operational Insights는 Windows 이벤트 시스템 로그, Windows 이벤트 응용 프로그램 로그와 IIS 로그를 분석할 수 있습니다.
 	7. **확인**을 클릭합니다.
 
-Azure PowerShell을 사용하여 Azure 저장소에 기록된 이벤트를 보다 정확하게 지정할 수 있습니다. 샘플 구성 파일 및 해당 스키마에 대한 자세한 설명서에 대한 Azure 진단 1.2 구성 스키마를 참조하십시오. [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure)으로 Azure PowerShell 버전 0.8.7 이상을 설치하고 구성해야 합니다. 설치된 Microsoft Azure 진단의 버전이 버전 1.2 보다 이전 버전인 경우, 새 포털을 사용하여 진단을 사용하거나 구성할 수 없습니다.
+Azure PowerShell을 사용하여 Azure 저장소에 기록된 이벤트를 보다 정확하게 지정할 수 있습니다. 샘플 구성 파일 및 해당 스키마에 대한 자세한 설명서에 대한 Azure 진단 1.2 구성 스키마를 참조하세요. [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure)으로 Azure PowerShell 버전 0.8.7 이상을 설치하고 구성해야 합니다. 설치된 Microsoft Azure 진단의 버전이 버전 1.2 보다 이전 버전인 경우, 새 포털을 사용하여 진단을 사용하거나 구성할 수 없습니다.
 
 다음 PowerShell 스크립트를 사용하여 에이전트를 사용하고 업데이트할 수 있습니다. 또한 사용자 지정 로깅 구성을 사용하여 이 스크립트를 사용할 수 있습니다. 저장소 계정, 서비스 이름 및 가상 컴퓨터 이름을 설정하도록 스크립트를 수정해야 합니다.
 
@@ -249,4 +269,4 @@ Azure PowerShell을 사용하여 Azure 저장소에 기록된 이벤트를 보�
 
 [프록시 및 방화벽 설정 구성(선택 사항)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

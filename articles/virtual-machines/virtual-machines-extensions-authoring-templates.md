@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure VM 확장을 사용하여 템플릿 작성 | Microsoft Azure"
-	description="확장으로 템플릿 작성에 대해 자세히 알아보기"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="kundanap"
-	manager="timlt"
-	editor=""/>
+   description="확장으로 템플릿 작성에 대해 자세히 알아보기"
+   services="virtual-machines"
+   documentationCenter=""
+   authors="kundanap"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/01/2015"
-	ms.author="kundanap"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/01/2015"
+   ms.author="kundanap"/>
 
 # VM 확장을 사용하여 Azure 리소스 관리자 템플릿 작성
 
@@ -22,10 +22,10 @@
 
 Azure 리소스 관리자 템플릿을 사용하면 Json 언어에서 리소스 간의 종속성을 정의하여 Azure IaaS 인프라를 선언적으로 지정할 수 있습니다. Azure 리소스 관리자 템플릿의 자세한 개요는 아래 문서를 참조하십시오.
 
-<a href="https://azure.microsoft.com/ko-KR/documentation/articles/resource-group-overview/" target="_blank">리소스 그룹 개요</a>입니다. <br/> <a href="https://azure.microsoft.com/ko-KR/documentation/articles/virtual-machines-deploy-rmtemplates-azure-cli/" target="_blank">Azure CLI을 사용하여 템플릿을 배포</a>합니다. <br/> <a href="https://azure.microsoft.com/ko-KR/documentation/articles/virtual-machines-deploy-rmtemplates-powershell/" target="_blank">Azure Powershell을 사용하여 템플릿을 배포</a>합니다.
+[리소스 그룹 개요](../resource-group-overview.md)
 
-## VM 확장에 대한 샘플 템플릿 코드 조각입니다.
-확장을 배포하기 위한 템플릿 코드 조각은 다음과 같습니다.
+## VM 확장에 대한 샘플 템플릿 코드 조각
+Azure 리소스 관리자 템플릿의 일부로 VM 확장을 배포하려면 템플릿에 확장 구성을 선언적으로 지정해야 합니다. 다음은 확장 구성을 지정하는 형식입니다.
 
       {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -43,6 +43,11 @@ Azure 리소스 관리자 템플릿을 사용하면 Json 언어에서 리소스 
       }
       }
       }
+
+위에서 볼 수 있는 것처럼 확장 템플릿은 다음 두 주요 부분으로 구성됩니다.
+
+1. 확장 이름, 게시자 및 버전
+2. 확장 구성
 
 ## 모든 확장에 대한 게시자, 유형 및 typeHandlerVersion을 식별합니다.
 
@@ -74,8 +79,10 @@ Linux 확장에 대한 샘플 구성을 보려면 설명서 [Linux 확장 샘플
 
 VM 확장으로 템플릿을 완벽하게 완료하려면 다음 VM 템플릿을 참조하세요.
 
-<a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/" target="_blank">Linux VM의 사용자 지정 스크립트 확장</a>입니다. </br> <a href="https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/" target="_blank">Windows VM의 사용자 지정 스크립트 확장</a>입니다.
+[Windows VM의 사용자 지정 스크립트 확장](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
+
+[Linux VM의 사용자 지정 스크립트 확장](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
 
 템플릿을 제작한 후에 Azure CLI 또는 Azure Powershell를 사용하여 배포할 수 있습니다.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

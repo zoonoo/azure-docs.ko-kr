@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 API를 만드는 방법
@@ -96,4 +96,4 @@ API를 만들고 설정을 구성한 후 다음 단계는 API에 작업을 추�
 [Azure API 관리에서 상호 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법]: api-management-howto-mutual-certificates.md
 [Azure API 관리에서 OAuth 2.0을 사용하여 개발자 계정에 권한을 부여하는 방법]: api-management-howto-oauth2.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

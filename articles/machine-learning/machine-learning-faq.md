@@ -1,34 +1,35 @@
-<properties 
-	pageTitle="Azure 기계 학습 FAQ | Microsoft Azure" 
-	description="Azure 기계 학습 소개: 간소화된 예측 모델링에 대한 클라우드 서비스의 요금 청구, 기능 및 제한 사항을 다루는 FAQ." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="pablissima" 
-	manager="paulettm" 
+<properties
+	pageTitle="Azure 기계 학습 FAQ | Microsoft Azure"
+	description="Azure 기계 학습 소개: 간소화된 예측 모델링에 대한 클라우드 서비스의 요금 청구, 기능 및 제한 사항을 다루는 FAQ."
+	keywords="machine learning introduction,predictive modeling,what is machine learning"
+	services="machine-learning"
+	documentationCenter=""
+	authors="pablissima"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/18/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/09/2015"
 	ms.author="paulettm"/>
 
 #Azure 기계 학습 질문과 대답(FAQ): 대금 청구, 기능, 제한 사항 및 지원
 
 이 FAQ에서는 Azure 기계 학습, 예측 모델링을 위한 클라우드 서비스 및 웹 서비스를 통한 운용성 솔루션에 대한 질문에 답변합니다. 이 FAQ는 요금 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용에 대한 질문을 다룹니다.
- 
+
 ##일반적인 질문
 
 **Azure 기계 학습이란 무엇인가요?**
- 
+
 Azure 기계 학습은 완벽하게 관리되는 서비스로, 이 서비스를 통해 클라우드에 예측 분석 솔루션을 만들고, 테스트하고, 운영하고, 관리할 수 있습니다. 브라우저만 있으면 로그인하고 데이터를 업로드하고 즉시 기계 학습 실험을 시작할 수 있습니다. 끌어서 놓기 예측 모델링, 모듈의 대형 팔레트 및 시작 템플릿의 라이브러리를 활용하면 일반적인 기계 학습 작업을 간단히, 빠르게 수행할 수 있습니다. 자세한 내용은 [Azure 기계 학습 서비스 개요](/services/machine-learning/)를 참조하세요. 주요 용어 및 개념을 다루는 기계 학습 소개는 [Azure 기계 학습 소개](machine-learning-what-is-machine-learning.md)를 참조하세요.
 
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
- 
+
 **기계 학습 스튜디오란 무엇인가요?**
 
 기계 학습 스튜디오는 웹 브라우저를 통해 액세스하는 워크벤치 환경입니다. 기계 학습 스튜디오는 실험 형태의 전체 데이터 과학 워크플로를 구성할 수 있는 시각적 컴퍼지션 인터페이스와 함께 모듈 팔레트를 호스트합니다.
@@ -54,7 +55,7 @@ Azure 기계 학습은 완벽하게 관리되는 서비스로, 이 서비스를 
 
 ## 기계 학습 스튜디오 질문
 
-###실험 만들기	
+###실험 만들기
 **실험 그래프에 대한 버전 제어 또는 Git 통합이 있나요?**
 
 아니요. 그러나 실험할 때마다 해당 버전의 그래프가 유지되고 다른 사용자가 수정할 수 없습니다.
@@ -101,7 +102,7 @@ SEE CLOUD DS PROCESS>
 
 이미지 입력 기능은 [이미지 판독기][image-reader] 참조에서 확인할 수 있습니다.
 
-###모듈 
+###모듈
 
 **알고리즘, 데이터 소스, 데이터 형식, 데이터 변환 작업이 Azure 기계 학습 스튜디오에 없는 경우 어떻게 해야 하나요?**
 
@@ -110,14 +111,14 @@ SEE CLOUD DS PROCESS>
 
 **기존 코드를 기계 학습 스튜디오로 가져올 수 있나요?**
 
-예, 기계 학습 스튜디오로 기존 R 코드를 가져와 Azure 기계 학습 제공 학습자를 사용하여 동일한 실험에서 실행하고 Azure 기계 학습을 통해 웹 서비스로 게시할 수 있습니다. [R을 사용하여 실험 확장](machine-learning-extend-your-experiment-with-r.md)을 참조하세요.
+예, 기계 학습 스튜디오로 기존 R 코드를 가져와 Azure 기계 학습 제공 학습자를 사용하여 동일한 실험에서 실행하고 Azure 기계 학습을 통해 웹 서비스로 배포할 수 있습니다. [R을 사용하여 실험 확장](machine-learning-extend-your-experiment-with-r.md)을 참조하세요.
 
 **[PMML](http://en.wikipedia.org/wiki/Predictive_Model_Markup_Language)과 유사한 것을 사용하여 모델을 정의할 수 있나요?**
 
 아니요, 이 기능은 지원되지 않습니다. 그러나 사용자 지정 R 및 Python 코드를 사용하여 모듈을 정의할 수 있습니다.
 
 
-###데이터 처리 
+###데이터 처리
 **실험 내에서 대화형으로 데이터를 시각화하는 기능(R 시각화 외)이 있나요?**
 
 모듈의 출력을 클릭하면 데이터를 시각화하고 통계를 가져올 수 있습니다.
@@ -157,7 +158,7 @@ SEE CLOUD DS PROCESS>
 
 현재 새 사용자 지정 모듈은 R로만 만들 수 있습니다.
 
-###R 모듈 
+###R 모듈
 **기계 학습 스튜디오에서 사용 가능한 R 패키지는 무엇인가요?**
 
 기계 학습 스튜디오는 현재 400개 이상의 R 패키지를 지원하며 이 목록은 지속적으로 늘어나고 있습니다. 지원되는 R 패키지 목록을 가져오는 방법은 [R을 사용하여 실험 확장](machine-learning-extend-your-experiment-with-r.md)을 참조하세요. 원하는 패키지가 이 목록에 없는 경우 [사용자 피드백 포럼](http://go.microsoft.com/fwlink/?LinkId=404231)에서 패키지 이름을 제공해 주세요.
@@ -170,7 +171,7 @@ SEE CLOUD DS PROCESS>
 
 아니요, R에 대한 REPL 환경은 스튜디오에 없습니다.
 
-###Python 모듈 
+###Python 모듈
 
 **사용자 지정 Python 모듈을 빌드할 수 있나요?**
 
@@ -197,11 +198,11 @@ SEE CLOUD DS PROCESS>
 ###사용
 **어떤 경우에 내 예측 모델을 일괄 처리 실행 서비스로 실행하고 어떤 경우에 요청-응답 웹 서비스를 실행하나요?**
 
-RRS(요청-응답 서비스)는 대기 시간이 짧고, 확장성이 높은 웹 서비스로, 실험 환경에서 생성하여 게시하는 상태 비저장 모델에 대한 인터페이스를 제공하는 데 사용됩니다. BES(일괄 처리 실행 서비스)는 데이터 레코드의 배치에 대한 점수를 비동기적으로 계산하는 서비스입니다. BES의 입력은 RRS에 사용되는 데이터 입력과 유사합니다. 가장 중요한 차이는 BES에서는 Azure의 Blob 서비스 및 테이블 서비스, Azure SQL 데이터베이스, HDInsight(Hive 쿼리), HTTP 소스 등의 다양한 소스에서 레코드 블록을 읽는다는 점입니다. 자세한 내용은 [기계 학습 웹 서비스 사용 방법](machine-learning-consume-web-services.md)을 참조하세요.
+RRS(요청-응답 서비스)는 대기 시간이 짧고, 확장성이 높은 웹 서비스로, 실험 환경에서 생성하여 배포하는 상태 비저장 모델에 대한 인터페이스를 제공하는 데 사용됩니다. BES(일괄 처리 실행 서비스)는 데이터 레코드의 배치에 대한 점수를 비동기적으로 계산하는 서비스입니다. BES의 입력은 RRS에 사용되는 데이터 입력과 유사합니다. 가장 중요한 차이는 BES에서는 Azure의 Blob 서비스 및 테이블 서비스, Azure SQL 데이터베이스, HDInsight(Hive 쿼리), HTTP 소스 등의 다양한 소스에서 레코드 블록을 읽는다는 점입니다. 자세한 내용은 [기계 학습 웹 서비스 사용 방법](machine-learning-consume-web-services.md)을 참조하세요.
 
 **배포된 웹 서비스의 모델을 업데이트하려면 어떻게 해야 하나요?**
 
-이미 배포된 서비스의 예측 모델을 업데이트하는 작업은 학습된 모델을 빌드하여 저장하는 데 사용된 실험을 수정하고 다시 실행하는 작업만큼 간단합니다. 사용 가능한 새 버전의 학습된 모델을 작성하면 기계 학습 스튜디오에서 스테이징 웹 서비스를 업데이트할지 여부를 묻습니다. 스테이징 웹 서비스에 업데이트를 적용한 후에는 동일한 업데이트를 프로덕션 웹 서비스에도 적용할 수 있습니다. 배포된 웹 서비스를 업데이트하는 방법에 대한 자세한 내용은 [기계 학습 웹 서비스 게시](machine-learning-publish-a-machine-learning-web-service.md)를 참조하세요.
+이미 배포된 서비스의 예측 모델을 업데이트하는 작업은 학습된 모델을 빌드하여 저장하는 데 사용된 실험을 수정하고 다시 실행하는 작업만큼 간단합니다. 사용 가능한 새 버전의 학습된 모델을 작성하면 기계 학습 스튜디오에서 스테이징 웹 서비스를 업데이트할지 여부를 묻습니다. 스테이징 웹 서비스에 업데이트를 적용한 후에는 동일한 업데이트를 프로덕션 웹 서비스에도 적용할 수 있습니다. 배포된 웹 서비스를 업데이트하는 방법에 대한 자세한 내용은 [기계 학습 웹 서비스 배포](machine-learning-publish-a-machine-learning-web-service.md)를 참조하세요.
 
 다시 학습 API도 사용할 수 있습니다. 샘플 코드는 [여기](https://azuremlretrain.codeplex.com/)에서 제공됩니다.
 
@@ -213,11 +214,11 @@ RRS(요청-응답 서비스)는 대기 시간이 짧고, 확장성이 높은 웹
 **RRS/BES의 출력을 볼 수 있는 곳이 있나요?**
 
 RRS의 경우 웹 서비스 응답은 일반적으로 결과를 보는 위치입니다. Blob으로 작성할 수도 있습니다. BES의 경우 기본적으로 출력은 Blob에 기록됩니다. 기록기 모듈을 사용하여 출력을 데이터베이스 또는 테이블에 기록할 수도 있습니다.
- 
- ****스튜디오에서 만든 모델에서만 웹 서비스를 만들 수 있나요? 아니요. Jupyter 노트북 및 RStudio에서 직접 웹 서비스를 만들 수도 있습니다.
- 
 
-##확장성 
+ ****스튜디오에서 만든 모델에서만 웹 서비스를 만들 수 있나요? 아니요. Jupyter 노트북 및 RStudio에서 직접 웹 서비스를 만들 수도 있습니다.
+
+
+##확장성
 
 **웹 서비스의 확장성이란 무엇인가요?**
 
@@ -259,30 +260,30 @@ RRS의 경우 웹 서비스 응답은 일반적으로 결과를 보는 위치입
 
 번호
 
-##보안 및 사용 가능성 
+##보안 및 사용 가능성
 
 **기본적으로, 프로덕션에 배포된 웹 서비스의 http 끝점에 대한 액세스 권한을 가지는 사람은 누구인가요? 끝점에 대한 액세스는 어떻게 제한합니까?**
 
-웹 서비스가 게시된 후 해당 서비스에 대한 기본 끝점이 만들어집니다. 해당 기본 끝점은 프로덕션에 배포되고 해당 API 키를 사용하여 호출할 수 있습니다. Azure 포털에서 또는 웹 서비스 관리 API를 사용하여 프로그래밍 방식으로 해당 고유 키로 끝점을 더 추가할 수 있습니다. 액세스 키는 프로덕션 및 스테이징의 웹 서비스를 호출하는 데 필요합니다. 자세한 내용은 [기계 학습 웹 서비스에 연결](machine-learning-connect-to-azure-machine-learning-web-service.md)을 참조하세요.
+웹 서비스가 배포된 후 해당 서비스에 대한 기본 끝점이 만들어집니다. 해당 기본 끝점은 프로덕션에 배포되고 해당 API 키를 사용하여 호출할 수 있습니다. Azure 포털에서 또는 웹 서비스 관리 API를 사용하여 프로그래밍 방식으로 해당 고유 키로 끝점을 더 추가할 수 있습니다. 액세스 키는 프로덕션 및 스테이징의 웹 서비스를 호출하는 데 필요합니다. 자세한 내용은 [기계 학습 웹 서비스에 연결](machine-learning-connect-to-azure-machine-learning-web-service.md)을 참조하세요.
 
 
 **저장소 계정을 찾을 수 없는 경우 어떻게 되나요?**
 
 기계 학습 스튜디오는 워크플로를 실행할 때 사용자가 제공한 Azure 저장소 계정을 기반으로 중간 데이터를 저장합니다. 이 저장소 계정은 작업 영역을 만들 때 기계 학습 스튜디오에 제공됩니다. 작업 영역을 만든 후 저장소 계정이 삭제되고 더 이상 찾을 수 없는 경우에는 해당 작업 영역의 작동이 중지되고 작업 영역의 모든 실험이 실패합니다.
- 
+
 저장소 계정을 실수로 삭제한 경우 이를 복구하려면 삭제한 계정과 정확히 동일한 지역에서 정확히 동일한 이름으로 해당 저장소 계정을 다시 만드는 방법밖에 없습니다. 그런 다음 액세스 키를 다시 동기화하세요.
- 
+
 
 **저장소 계정 액세스 키가 동기화되지 않은 경우 어떻게 되나요?** 기계 학습 스튜디오는 워크플로를 실행할 때 사용자가 제공한 Azure 저장소 계정을 기반으로 중간 데이터를 저장합니다. 이 저장소 계정은 작업 영역을 만들고 해당 작업 영역과 액세스 키를 연결할 때 기계 학습 스튜디오에 제공됩니다. 작업 영역을 만든 후 액세스 키가 변경되고 해당 작업 영역에서 저장소 계정에 더 이상 액세스할 수 없는 경우에는 해당 작업 영역의 작동이 중지되고 작업 영역의 모든 실험이 실패합니다.
 
 저장소 계정 액세스 키를 변경한 경우 Azure 포털의 작업 영역 설정에서 액세스 키를 다시 동기화해야 합니다.
 
 
-##Azure 마켓플레이스 
+##Azure 마켓플레이스
 
 [기계 학습 마켓플레이스에서 앱 게시 및 사용에 대한 FAQ](machine-learning-marketplace-faq.md)를 참조하세요.
 
-##지원 및 교육 
+##지원 및 교육
 
 **Azure 기계 학습에 대한 교육은 어디에서 받을 수 있나요?**
 
@@ -306,6 +307,5 @@ Azure 기계 학습에 대한 기술 지원을 받으려면 [Azure 지원](/supp
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
- 
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

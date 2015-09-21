@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure 큐 저장소 및 Visual Studio 연결된 서비스 시작(클라우드 서비스 프로젝트)" 
-	description="Visual Studio의 클라우드 서비스 프로젝트에서 Azure 큐 저장소를 사용하는 방법" 
+    pageTitle="큐 저장소 및 Visual Studio 연결 서비스 시작(클라우드 서비스) | Microsoft Azure"
+	description="Visual Studio 연결 서비스를 사용하여 저장소 계정에 연결한 후 Visual Studio 클라우드 서비스 프로젝트에서 Azure 큐 저장소 사용을 시작하는 방법입니다."
 	services="storage" 
 	documentationCenter="" 
 	authors="patshea123" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="09/03/2015" 
 	ms.author="patshea123"/>
 
 # Azure 큐 저장소 및 Visual Studio 연결된 서비스 시작(클라우드 서비스 프로젝트)
@@ -27,7 +27,7 @@
 > - [Queues](vs-storage-cloud-services-getting-started-queues.md)
 > - [Tables](vs-storage-cloud-services-getting-started-tables.md)
 
-##개요
+## 개요
 
 이 문서에서는 Visual Studio **연결된 서비스 추가** 대화 상자를 사용하여 클라우드 서비스 프로젝트에서 Azure 저장소 계정을 만들거나 참조한 후 Visual Studio에서 Azure 큐 저장소를 사용하는 방법을 설명합니다.
 
@@ -44,7 +44,7 @@
 Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통해 전 세계 어디에서나 액세스할 수 있는 다수의 메시지를 저장하기 위한 서비스입니다. 단일 큐 메시지의 크기는 최대 64KB일 수 있으며, 하나의 큐에 저장소 계정의 총 용량 제한까지 수백만 개의 메시지가 포함될 수 있습니다.
 
 
-##코드에서 큐 액세스
+## 코드에서 큐 액세스
 
 Visual Studio 클라우드 서비스 프로젝트의 큐에 액세스하려면 Azure 큐 저장소에 액세스하는 C# 소스 파일에 다음 항목을 포함해야 합니다.
 
@@ -72,7 +72,7 @@ Visual Studio 클라우드 서비스 프로젝트의 큐에 액세스하려면 A
 
 **참고:** 다음 샘플의 코드 앞에 위의 코드를 모두 사용합니다.
 
-##코드에서 큐 만들기
+## 코드에서 큐 만들기
 
 코드에서 큐를 만들려면 **CreateIfNotExists**에 대한 호출을 추가합니다.
 
@@ -82,7 +82,7 @@ Visual Studio 클라우드 서비스 프로젝트의 큐에 액세스하려면 A
 	// Create the CloudQueue if it does not exist
 	messageQueue.CreateIfNotExists();
 
-##큐에 메시지 추가
+## 큐에 메시지 추가
 
 기존 큐에 메시지를 삽입하려면 새 **CloudQueueMessage** 개체를 만든 다음 **AddMessage** 메서드를 호출합니다.
 
@@ -97,7 +97,7 @@ Visual Studio 클라우드 서비스 프로젝트의 큐에 액세스하려면 A
 	CloudQueueMessage message = new CloudQueueMessage("Hello, World");
 	messageQueue.AddMessage(message);
 
-##큐의 메시지 읽기
+## 큐의 메시지 읽기
 
 큐에서 메시지를 제거하지 않고도 **PeekMessage** 메서드를 호출하여 큐의 맨 앞에서 원하는 메시지를 볼 수 있습니다.
 
@@ -107,7 +107,7 @@ Visual Studio 클라우드 서비스 프로젝트의 큐에 액세스하려면 A
 	// Peek at the next message
     CloudQueueMessage peekedMessage = messageQueue.PeekMessage();
 
-##큐의 메시지 읽기 및 제거
+## 큐의 메시지 읽기 및 제거
 
 이 코드에서는 2단계를 거쳐 큐에서 메시지를 제거할 수 있습니다.
 
@@ -128,7 +128,7 @@ Visual Studio 클라우드 서비스 프로젝트의 큐에 액세스하려면 A
 	await messageQueue.DeleteMessage(retrievedMessage);
 
 
-## 큐 메시지를 처리 및 제거하는 추가 옵션 활용
+## 추가 옵션을 사용하여 큐 메시지를 처리 및 제거합니다.
 
 큐에서 메시지 검색을 사용자 지정할 수 있는 방법으로는 두 가지가 있습니다.
 
@@ -197,9 +197,9 @@ Visual Studio 클라우드 서비스 프로젝트의 큐에 액세스하려면 A
     // Delete the queue.
     messageQueue.Delete();
 
-##다음 단계
+## 다음 단계
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 			
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

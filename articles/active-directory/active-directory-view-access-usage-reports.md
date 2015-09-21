@@ -76,7 +76,7 @@ Azure 관리 포털에서 보고서는 다음과 같은 방식으로 분류되�
 |	비정상적인 로그인 활동을 포함하는 사용자 보고서 | | |	✓ |
 |	자격 증명이 손실된 사용자 | | |	✓ |
 |	**활동 로그**
-|	감사 보고서 |	✓ | | |
+|	감사 보고서 |	✓ |	✓ |	✓ |
 |	암호 재설정 활동 | | |	✓ |
 |	암호 재설정 등록 활동 | | |	✓ |
 |	셀프 서비스 그룹 활동 | | |	✓ |
@@ -276,4 +276,4 @@ Azure AD의 보고 알림에 대한 자세한 내용은 [Azure Active Directory 
 - [Azure Active Directory Premium 시작](active-directory-get-started-premium.md)
 - [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가](active-directory-add-company-branding.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

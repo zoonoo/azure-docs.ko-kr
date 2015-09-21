@@ -98,7 +98,7 @@ Microsoft Azure 검색은 검색 기능을 사용자 지정 응용 프로그램�
 
 추가 복제본과 파티션은 검색 단위로 청구됩니다. 리소스를 추가할 때 특정 리소스 구성을 지원하는 데 필요한 총 검색 단위가 페이지에 표시됩니다.
 
-[가격 정보](http://go.microsoft.com/fwlink/p/?LinkID=509792)에서 단위당 청구 정보를 확인할 수 있습니다. 파티션 및 복제본 조합을 구성하는 방법 결정에 대한 도움말은 [제한 및 제약 조건](http://msdn.microsoft.com/library/azure/dn798934.aspx)을 참조하세요.
+[가격 정보](http://go.microsoft.com/fwlink/p/?LinkID=509792)에서 단위당 청구 정보를 확인할 수 있습니다. 파티션 및 복제본 조합을 구성하는 방법 결정에 대한 도움말은 [제한 및 제약 조건](search-limits-quotas-capacity.md)을 참조하세요.
 
  ![][15]
 
@@ -334,7 +334,7 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
 
 - [Azure 검색이란?](search-what-is-azure-search.md)
 
-- [Azure 검색 REST API](http://msdn.microsoft.com/library/dn798935.aspx)
+- [Azure 검색 서비스 REST API](http://msdn.microsoft.com/library/dn798935.aspx)
 
 - [Azure 검색.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx)
 
@@ -378,4 +378,4 @@ Composer 탭에서 문서 게시 요청은 다음과 같이 표시됩니다. 요
 [Create your first azure search solution]: search-create-first-solution.md
 [Create a geospatial search app using Azure Search]: search-create-geospatial.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

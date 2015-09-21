@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Application Insights에서 원격 분석 연속 내보내기"
-	description="Microsoft Azure에서 저장소에 진단 및 사용량 데이터를 내보내고 여기에서 다운로드합니다."
-	services="application-insights"
-	documentationCenter=""
-	authors="alancameronwills"
+	pageTitle="Application Insights에서 원격 분석 연속 내보내기" 
+	description="Microsoft Azure에서 저장소에 진단 및 사용량 데이터를 내보내고 여기에서 다운로드합니다." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="alancameronwills" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="awills"/>
  
 # Application Insights에서 원격 분석 내보내기
@@ -63,6 +63,8 @@ Application Insights 포털의 응용 프로그램 개요 블레이드에서 연
 데이터에는 설정한 [가용성 웹 테스트](app-insights-monitor-web-app-availability.md)의 결과도 포함됩니다.
 
 ## <a name="get"></a> 데이터 검사
+
+포털에서 직접 저장소를 검사할 수 있습니다. **찾아보기**를 클릭하고 저장소 계정을 선택한 후 **컨테이너**를 엽니다.
 
 Visual Studio에서 Azure 저장소를 검사하려면 **보기**, **클라우드 탐색기**를 엽니다. 해당 메뉴 명령이 없는 경우 Azure SDK를 설치해야 합니다. **새 프로젝트** 대화 상자를 열고 Visual C#/클라우드를 확장한 다음 **Microsoft Azure SDK for .NET 가져오기**를 선택합니다.
 
@@ -128,7 +130,7 @@ blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입�
 
 ## Power BI에 내보내기
 
-[Microsoft Power BI](https://powerbi.microsoft.com/)는 여러 소스의 정보를 같이 가져올 수 있는 기능과 함께 풍부하고 다양한 시각적 개체로 데이터를 표시합니다. Application Insights에서 Power BI까지 앱의 성능 및 사용에 대한 원격 분석 데이터를 스트리밍할 수 있습니다.
+[Microsoft Power BI](https://powerbi.microsoft.com/)는 여러 소스의 정보를 같이 가져올 수 있는 기능과 함께 풍부하고 다양한 시각적으로 데이터를 표시합니다. Application Insights에서 Power BI까지 앱의 성능 및 사용에 대한 원격 분석 데이터를 스트리밍할 수 있습니다.
 
 [Power BI에 Application Insights를 스트림](app-insights-export-power-bi.md)
 
@@ -202,4 +204,4 @@ blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입�
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="VM 및 역할 인스턴스 이름 확인"
-	description="Azure IaaS, 하이브리드 솔루션, 서로 다른 클라우드 서비스, Active Directory, 자체 DNS 서버 사용 시의 이름 확인 시나리오"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="jdial"
-	editor="tysonn"/>
+   description="Azure IaaS, 하이브리드 솔루션, 서로 다른 클라우드 서비스, Active Directory, 자체 DNS 서버 사용 시의 이름 확인 시나리오"
+   services="virtual-network"
+   documentationCenter="na"
+   authors="GarethBradshawMSFT"
+   manager="jdial"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/10/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/02/2015"
+   ms.author="joaoma" />
 
 # VM 및 역할 인스턴스에 대한 이름 확인
 
@@ -52,19 +52,17 @@ Azure에서는 공용 DNS 이름 확인과 함께, 동일한 가상 네트워크
 
 - 사용 편의성: Azure에서 제공하는 이름 확인을 사용하면 별도로 구성할 필요가 없습니다.
 
+- Azure에서 제공하는 이름 확인 서비스는 항상 사용 가능하며 사용자 고유 DNS 서버의 클러스터를 만들고 관리해야 하는 필요성을 줄여줍니다.
+
 - 역할 인스턴스 또는 VM이 동일한 클라우드 서비스에 위치할 경우에 이름 확인이 제공되며 FQDN이 필요하지 않습니다.
 
-- ARM 기반 가상 네트워크에서는 VM 간에 이름 확인이 제공되므로 FQDN이 필요하지 않으며 클래식 네트워크에서는 서로 다른 클라우드 서비스에서 이름을 확인할 때 FQDN이 필요합니다.
+- ARM 기반 가상 네트워크에서는 VM 간에 이름 확인이 제공되므로 FQDN이 필요하지 않으며 클래식 가상 네트워크에서는 서로 다른 클라우드 서비스에서 이름을 확인할 때 FQDN이 필요합니다.
 
 - 자동 생성되는 이름 대신에 배포를 가장 잘 설명해주는 호트스 이름을 만들 수 있습니다.
 
 **고려 사항:**
 
-- 가상 네트워크 간의 이름 확인은 불가능합니다.
-
-- VM와 역할 인스턴스가 Azure 가상 네트워크에 추가된 첫 180개의 클라우드 서비스에 위치할 때만 호스트 이름을 등록할 수 있습니다. 180 개 이상의 클라우드 서비스를 사용하는 경우, 각 서비스에 위치한 VM과 역할 인스턴스의 수와는 관계없이 자체 DNS 서버를 이용해야 이름 확인을 할 수 있습니다.
-
-- 프레미스 간 이름 확인은 불가능합니다.
+- 가상 네트워크 간, Azure 및 온-프레미스 컴퓨터 간에 이름 확인을 사용할 수 없습니다.
 
 - Azure에서 만든 DNS 접미사는 수정할 수 없습니다.
 
@@ -74,7 +72,57 @@ Azure에서는 공용 DNS 이름 확인과 함께, 동일한 가상 네트워크
 
 - 호스트 이름이 DNS와 호환될 수 있어야 합니다. (0-9, a-z 및 '-'만 사용이 가능하며, '-'로 시작하거나 끝날 수 없습니다. RFC 3696 섹션을 2를 참조하세요.)
 
-- DNS 쿼리 트래픽은 VM별로 제한됩니다. 응용 프로그램에서 여러 대상 이름에 DNS 쿼리를 자주 수행하면 일부 쿼리 시간이 초과될 수 있습니다. 이러한 문제를 방지하려면 클라이언트 캐싱을 사용하도록 설정하는 것이 좋습니다. Windows에서는 기본적으로 사용하도록 설정되어 있지만 일부 Linux 배포판에서는 캐싱을 사용할 수 없는 경우도 있습니다.
+- DNS 쿼리 트래픽은 VM별로 제한됩니다. 이 대부분의 응용 프로그램에 영향을 주지 않아야 합니다. 요청 제한이 확인되는 경우 클라이언트쪽 캐싱이 사용하도록 설정되었는지 확인합니다. 자세한 내용은 참조 [Azure에서 제공하는 이름 확인 활용](#Getting-the-most-from-Azure-provided-name-resolution)을 참조하세요.
+
+- 최초 180개의 클라우드 서비스에 있는 VM만 각 클래식 가상 네트워크에 대해 등록됩니다. ARM 기반 가상 네트워크에는 적용되지 않습니다.
+
+
+### Azure에서 제공하는 이름 확인 활용
+**클라이언트쪽 캐싱:**
+
+모든 DNS 쿼리를 네트워크를 통해 전송해야 하는 것은 아닙니다. 클라이언트쪽 캐싱을 사용하면 대기 시간을 줄이고 로컬 캐시에서 되풀이되는 DNS 쿼리를 확인하여 네트워크 블립에 대한 복원력을 개선하는 데 도움이 됩니다. DNS 레코드는 레코드 새로 고침에 영향을 주지 않으면서 캐시가 가능한 오랫동안 레코드를 저장할 수 있도록 하는 TTL(Time-To-Live)을 포함하므로 클라이언트쪽 캐싱은 대부분의 상황에 적합합니다.
+
+기본 Windows DNS 클라이언트에는 기본 제공되는 DNS 캐시가 있습니다. 일부 Linux 배포판은 기본적으로 캐싱을 포함하지 않으므로 각 Linux VM에 추가된 캐싱이 권장됩니다. dnsmasq와 같은 다양한 여러 DNS 캐싱이 제공되며 여기서는 가장 일반적인 배포판에 dnsmasq를 설치하는 단계를 설명합니다.
+
+- **Ubuntu(resolvconf 사용)**:
+	- dnsmasq 패키지를 설치합니다("sudo apt-get install dnsmasq").
+- **SUSE(netconf 사용)**:
+	- dnsmasq 패키지를 설치합니다("sudo zypper install dnsmasq"). 
+	- dnsmasq 서비스를 사용하도록 설정합니다("systemctl enable dnsmasq.service"). 
+	- dnsmasq 서비스를 시작합니다("systemctl start dnsmasq.service"). 
+	- "/etc/sysconfig/network/config"를 편집하고 NETCONFIG\_DNS\_FORWARDER=""를 "dnsmasq"로 변경합니다.
+	- 캐시를 로컬 DNS 확인자로 설정하기 위해 resolv.conf("netconfig update")를 업데이트합니다.
+- **OpenLogic(NetworkManager 사용)**:
+	- dnsmasq 패키지를 설치합니다("sudo yum install dnsmasq").
+	- dnsmasq 서비스를 사용하도록 설정합니다("systemctl enable dnsmasq.service").
+	- dnsmasq 서비스를 시작합니다("systemctl start dnsmasq.service").
+	- "prepend domain-name-servers 127.0.0.1;"을 "/etc/dhclient-eth0.conf"에 추가합니다.
+	- 캐시를 로컬 DNS 확인자로 설정하기 위해 네트워크 서비스("service network restart")를 다시 시작합니다.
+
+[AZURE.NOTE]\: 'dnsmasq' 패키지는 여러 DNS 캐시 중에 Linux에 사용할 수 있는 유일한 캐시입니다. 사용하기 전에 특정 요구 사항에 대한 적합성을 확인하고 다른 캐시가 설치되어 있지 않은지 확인합니다.
+
+**클라이언트쪽 재시도:**
+
+DNS는 주로 UDP 프로토콜입니다. UDP 프로토콜은 메시지 배달을 보장하지 않으므로 DNS 프로토콜 자체에서 재시도 논리가 처리됩니다. 각 DNS 클라이언트(운영 체제)는 작성자의 기본 설정에 따라 서로 다른 재시도 논리를 나타낼 수 있습니다.
+
+ - Windows 운영 체제는 1초 후 재시도한 후 2초, 4초 후 다시 재시도하고 또 다시 4초 후 재시도합니다. 
+ - 기본 Linux 설정에서는 5초 후 재시도합니다. 1초 간격으로 5번 재시도하도록 설정을 변경하는 것이 좋습니다.  
+
+Linux VM에서 현재 설정을 확인하려면 'cat /etc/resolv.conf'에서 'options' 줄을 확인합니다. 예를 들면 다음과 같습니다.
+
+	options timeout:1 attempts:5
+
+resolv.conf 파일은 일반적으로 자동으로 생성되며 편집할 수 없습니다. 'options' 줄을 추가하는 구체적인 단계는 배포판마다 다릅니다.
+
+- **Ubuntu**(resolvconf 사용):
+	- options 줄을 '/etc/resolveconf/resolv.conf.d/head'에 추가합니다. 
+	- 'resolvconf -u'를 실행하여 업데이트합니다.
+- **SUSE**(netconf 사용):
+	- 'timeout:1 attempts:5'를 '/etc/sysconfig/network/config'의 NETCONFIG\_DNS\_RESOLVER\_OPTIONS="" 매개 변수에 추가합니다. 
+	- 'netconfig update'를 실행하여 업데이트합니다.
+- **OpenLogic**(NetworkManager 사용):
+	- 'echo "options timeout:1 attempts:5"'를 '/etc/NetworkManager/dispatcher.d/11-dhclient'에 추가합니다. 
+	- 'service network restart'를 실행하여 업데이트합니다.
 
 ## 자체 DNS 서버를 이용한 이름 확인
 
@@ -112,12 +160,11 @@ Azure에서 제공하지 않는 이름 확인을 사용할 경우, 지정하는 
 
 클래식 가상 네트워크에 대해 DNS 설정을 지정하려면 두 개의 구성 파일을 사용합니다. *네트워크 구성* 파일과 *서비스 구성* 파일입니다.
 
-> [AZURE.NOTE]서비스 구성 파일의 DNS 서버는 네트워크 구성 파일의 설정을 재정의합니다.
- 
 네트워크 구성 파일은 구독에서 가상 네트워크를 설명합니다. 가상 네트워크에 있는 클라우드 서비스에 역할 인스턴스나 VM을 추가할 경우, 네트워크 구성 파일에 따른 DNS 설정이 각 역할 인스턴스나 VM에 적용됩니다(단, 클라우드 서비스 특정 DNS 서버가 지정되지 않은 경우).
 
 서비스 구성 파일은 Azure에 클라우드 서비스 파일을 추가할 때마다 생성됩니다. 역할 인스턴스나 VM을 클라우드 서비스에 추가할 경우, 서비스 구성 파일의 DNS 설정이 각 역할 인스턴스나 VM에 적용됩니다.
 
+> [AZURE.NOTE]서비스 구성 파일의 DNS 서버는 네트워크 구성 파일의 설정을 재정의합니다.
 
 
 ## 다음 단계
@@ -130,4 +177,4 @@ Azure에서 제공하지 않는 이름 확인을 사용할 경우, 지정하는 
 
 [네트워크 구성 파일을 사용하여 가상 네트워크 구성](virtual-networks-using-network-configuration-file.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

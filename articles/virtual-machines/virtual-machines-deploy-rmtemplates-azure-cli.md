@@ -1,5 +1,5 @@
-<properties 
-	pageTitle="리소스 관리자 템플릿과 Mac, Linux 및 Windows용 Azure CLI를 사용하여 Azure 가상 컴퓨터 배포 및 관리"
+<properties
+	pageTitle="리소스 관리자 템플릿과 Mac, Linux 및 Windows용 Azure CLI를 사용하여 Azure 가상 컴퓨터 배포 및 관리 | Microsoft Azure"
 	description="Azure 가상 컴퓨터에 대한 가장 일반적인 구성 집합을 간단하게 배포하고 리소스 관리자 템플릿 및 Azure CLI를 사용하여 관리합니다."
 	services="virtual-machines"
 	documentationCenter=""
@@ -7,23 +7,23 @@
 	manager="timlt"
 	editor=""/>
 
-<tags 
+<tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="09/09/2015"
 	ms.author="rasquill"/>
 
 # Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 가상 컴퓨터 배포 및 관리
 
-이 문서에서는 Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 Azure 가상 컴퓨터를 배포하고 관리하는 다음 일반 작업을 수행하는 방법을 보여 줍니다. 사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](http://azure.microsoft.com/documentation/templates/) 및 [앱 프레임 워크](virtual-machines-app-frameworks.md)를 참조하세요.
+이 문서에서는 Azure 리소스 관리자 템플릿 및 Azure CLI를 사용하여 Azure 가상 컴퓨터를 배포하고 관리하는 다음 일반 작업을 수행하는 방법을 보여 줍니다. 사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](http://azure.microsoft.com/documentation/templates/) 및 [템플릿을 사용하는 응용 프로그램 프레임워크](virtual-machines-app-frameworks.md)를 참조하세요.
 
-- [Azure의 가상 컴퓨터를 빨리 만들기](#quick-create-a-vm-in-azure)
-- [템플릿의 Azure에서 가상 컴퓨터 배포](#deploy-a-vm-in-azure-from-a-template)
-- [사용자 지정 이미지에서 가상 컴퓨터 만들기](#create-a-custom-vm-image) 
-- [가상 네트워크를 및 부하 분산 장치를 사용하여 VM 배포](#deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer)
+- [Azure에서 가상 컴퓨터 빨리 만들기](#quick-create-a-vm-in-azure)
+- [템플릿에서 Azure의 가상 컴퓨터 배포](#deploy-a-vm-in-azure-from-a-template)
+- [사용자 지정 이미지에서 가상 컴퓨터 만들기](#create-a-custom-vm-image)
+- [가상 네트워크 및 부하 분산 장치를 사용하는 가상 컴퓨터 배포](#deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer)
 - [리소스 그룹 제거](#remove-a-resource-group)
 - [리소스 그룹 배포에 대한 로그 표시](#show-the-log-for-a-resource-group-deployment)
 - [가상 컴퓨터에 대한 정보 표시](#display-information-about-a-virtual-machine)
@@ -34,7 +34,7 @@
 
 ## 준비
 
-Azure 리소스 그룹에서 Azure CLI를 사용하려면 올바른 Azure CLI 버전 및 회사 또는 학교 ID(조직 ID라고도 함)가 있어야 합니다.
+Azure 리소스 그룹에서 Azure CLI를 사용하려면 올바른 Azure CLI 버전 및 회사 또는 학교 계정이 있어야 합니다.
 
 ### 0\.9.0 이상으로 Azure CLI 버전 업데이트
 
@@ -45,7 +45,7 @@ Azure 리소스 그룹에서 Azure CLI를 사용하려면 올바른 Azure CLI �
 
 버전이 0.9.0 이상이 아닌 경우 [Azure CLI를 설치](../xplat-cli-install.md)하거나 기본 설치 관리자 중 하나 또는 **npm**(`npm update -g azure-cli`입력)을 통해 업데이트해야 합니다.
 
-다음을 [Docker 이미지](https://registry.hub.docker.com/u/microsoft/azure-cli/)를 사용하여 Docker 컨테이너로 Azure CLI를 실행할 수도 있습니다. Docker 호스트에서 다음 명령을 실행합니다.
+다음 [Docker 이미지](https://registry.hub.docker.com/u/microsoft/azure-cli/)를 사용하여 Docker 컨테이너로 Azure CLI를 실행할 수도 있습니다. Docker 호스트에서 다음 명령을 실행합니다.
 
 	docker run -it microsoft/azure-cli
 
@@ -53,7 +53,7 @@ Azure 리소스 그룹에서 Azure CLI를 사용하려면 올바른 Azure CLI �
 
 Azure 구독은 아직 없지만 MSDN 구독은 있는 경우 [MSDN 구독자 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화할 수 있습니다. 또는 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
-Azure 리소스 관리 템플릿을 사용하려면 회사 또는 학교 계정이 있어야 합니다. 계정이 있는 경우 `azure login`을 입력하고 사용자 이름 및 암호를 입력하면 로그인됩니다.
+Azure 리소스 관리 템플릿을 사용하려면 회사 또는 학교 계정이 있어야 합니다. 계정이 있는 경우 `azure login`을 입력하고 사용자 이름 및 암호를 입력하여 성공적으로 로그인해야 합니다.
 
 > [AZURE.NOTE]계정이 없는 경우 다른 유형의 계정이 필요하다는 오류 메시지가 표시됩니다. 현재 Azure 계정에서 하나를 만들려면 [Azure Active Directory에서 회사 또는 학교 ID 만들기](resource-group-create-work-id-from-personal.md)를 참조하세요.
 
@@ -61,43 +61,43 @@ Azure 리소스 관리 템플릿을 사용하려면 회사 또는 학교 계정�
 
     azure account list
     info:    Executing command account list
-    data:    Name                              Id                                    Tenandt Id                            Current
+    data:    Name                              Id                                    Tenant Id                            Current
     data:    --------------------------------  ------------------------------------  ------------------------------------  -------
-    data:    Contoso Admin                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  true   
+    data:    Contoso Admin                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  true
     data:    Fabrikam dev                      xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
     data:    Fabrikam test                     xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
     data:    Contoso production                xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  false  
-    
-다음과 같이 입력하여 현재 Azure 구독을 설정할 수 있습니다.
+
+다음을 입력하여 현재 Azure 구독을 설정할 수 있습니다. 관리하려는 리소스가 있는 구독 이름 또는 ID를 사용합니다.
 
 	azure account set <subscription name or ID> true
 
-관리하려는 리소스가 있는 구독 이름 또는 ID와 함께 입력합니다.
+
 
 ### Azure CLI 리소스 그룹 모드로 전환
 
-기본적으로 Azure CLI는 서비스 관리 모드(**asm** 모드)로 시작됩니다. 형식
+기본적으로 Azure CLI는 서비스 관리 모드(**asm** 모드)로 시작됩니다. 다음을 입력하여 리소스 그룹 모드로 전환합니다.
 
 	azure config mode arm
 
-리소스 그룹 모드로 전환합니다.
+
 
 > [AZURE.NOTE]`azure config mode asm`을 입력하여 기본 명령 집합으로 다시 전환할 수 있습니다.
 
 ## Azure 리소스 템플릿 및 리소스 그룹 이해
 
-대부분의 응용 프로그램은 다양한 리소스 유형(예: 하나 이상의 VM 및 저장소 계정, SQL 데이터베이스, 가상 네트워크 또는 *CDN*(콘텐츠 배달 네트워크))의 조합으로 구축됩니다. 기본 Azure 서비스 관리 API 및 Azure 클래식 포털에서는 하나의 논리적인 배포 단위가 아니라 개별적으로 각 서비스를 배포하고 관리하거나 이러한 작업을 수행하는 다른 도구를 찾아야 하는 서비스 단위 접근 방식으로 사용하여 이러한 항목을 나타냈습니다.
+대부분의 응용 프로그램은 다양한 리소스 유형(예: 하나 이상의 VM 및 저장소 계정, SQL 데이터베이스, 가상 네트워크 또는 콘텐츠 배달 네트워크)의 조합으로 구축되었습니다. 기본 Azure 서비스 관리 API 및 Azure 포털에서는 서비스 단위 접근 방식을 사용하여 이러한 항목을 나타냈습니다. 이 접근 방식에서는 하나의 논리적인 배포 단위가 아니라 개별적으로 각 서비스를 배포하고 관리(또는 이러한 작업을 수행하는 다른 도구를 찾아야 함)해야 합니다.
 
 *Azure 리소스 관리자 템플릿*을 사용하면 선언적 방식으로 이러한 다양한 리소스를 하나의 논리적 배포 단위로 배포하고 관리할 수 있습니다. 명령을 통해 차례로 배포할 항목을 Azure에 지시하는 대신 JSON 파일에서 전체 배포(모든 리소스와 관련된 구성 및 배포 매개 변수)를 설명하고 이러한 리소스를 하나의 그룹으로 배포하도록 Azure에 지시합니다.
 
 그런 다음 Azure CLI 리소스 관리 명령을 사용하여 그룹 리소스의 전체 수명 주기를 관리할 수 있습니다.
 
-- 그룹 내의 모든 리소스를 한 번에 중지, 시작 또는 삭제합니다. 
-- RBAC(역할 기반 액세스 제어) 규칙을 적용하여 리소스에 대한 보안 권한을 잠급니다. 
-- 작업을 감사합니다. 
-- 더 잘 추적할 수 있도록 추가 메타데이터를 사용하여 리소스에 태그를 지정합니다. 
+- 그룹 내의 모든 리소스를 한 번에 중지, 시작 또는 삭제합니다.
+- RBAC(역할 기반 액세스 제어) 규칙을 적용하여 리소스에 대한 보안 권한을 잠급니다.
+- 작업을 감사합니다.
+- 추가 메타데이터로 리소스에 태그를 지정하여 추적을 개선합니다.
 
-Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [여기](../resource-group-overview.md)에서 확인할 수 있습니다. 템플릿 작성에 관심이 있다면 [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
+Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [Azure 리소스 관리자 개요](../resource-group-overview.md)에서 확인할 수 있습니다. 템플릿 작성에 관심이 있다면 [Azure 리소스 관리자 템플릿 작성](../resource-group-authoring-templates.md)을 참조하세요.
 
 ## <a id="quick-create-a-vm-in-azure"></a>작업: Azure에서 VM 빠르게 만들기
 
@@ -107,19 +107,19 @@ Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [여기](../reso
 
     azure group create coreos-quick westus
     info:    Executing command group create
-    + Getting resource group coreos-quick                                          
-    + Creating resource group coreos-quick                                         
+    + Getting resource group coreos-quick
+    + Creating resource group coreos-quick
     info:    Created resource group coreos-quick
     data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/coreos-quick
     data:    Name:                coreos-quick
     data:    Location:            westus
     data:    Provisioning State:  Succeeded
-    data:    Tags: 
-    data:    
+    data:    Tags:
+    data:
     info:    group create command OK
-    
 
-두 번째로 이미지가 필요합니다. Azure CLI를 사용하여 이미지를 찾으려면 [PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 이미지 탐색 및 선택](resource-groups-vm-searching.md)을 참조하세요. 그러나 이 빠른 시작에서는 다음과 같이 많이 사용되는 간단한 이미지 목록을 제공합니다. 이 quick-create에서는 CoreOS의 Stable 이미지를 사용합니다.
+
+두 번째로 이미지가 필요합니다. Azure CLI를 사용하여 이미지를 찾으려면 [PowerShell 및 Azure CLI를 사용하여 Azure 가상 컴퓨터 이미지 탐색 및 선택](resource-groups-vm-searching.md)을 참조하세요. 그러나 이 문서에서는 다음과 같이 많이 사용되는 간단한 이미지 목록을 제공합니다. 이 quick-create에서는 CoreOS의 Stable 이미지를 사용합니다.
 
 > [AZURE.NOTE]ComputeImageVersion의 경우, 템플릿 언어 및 Azure CLI 모두에서 매개 변수로 단순히 '최신'을 제공할 수도 있습니다. 이렇게 하면 사용자 스크립트 또는 템플릿을 수정하지 않고도 최신 및 패치가 적용된 버전의 이미지를 항상 사용할 수 있습니다. 다음과 같습니다.
 
@@ -143,9 +143,9 @@ Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [여기](../reso
 | MicrosoftWindowsServerEssentials | WindowsServerEssentials | WindowsServerEssentials | 1\.0.141204 |
 | MicrosoftWindowsServerHPCPack | WindowsServerHPCPack | 2012R2 | 4\.3.4665 |
 
-`azure vm quick-create command`를 입력하고 프롬프트를 준비하여 VM을 만들면 됩니다. 다음과 같이 표시됩니다.
+`azure vm quick-create` 명령을 입력하고 프롬프트를 준비하여 VM을 만들면 됩니다. 다음과 같이 표시됩니다.
 
-    azure vm quick-create 
+    azure vm quick-create
     info:    Executing command vm quick-create
     Resource group name: coreos-quick
     Virtual machine name: coreos
@@ -155,48 +155,48 @@ Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [여기](../reso
     User name: ops
     Password: *********
     Confirm password: *********
-    + Looking up the VM "coreos"                                                   
+    + Looking up the VM "coreos"
     info:    Using the VM Size "Standard_A1"
     info:    The [OS, Data] Disk or image configuration requires storage account
-    + Retrieving storage accounts                                                  
+    + Retrieving storage accounts
     info:    Could not find any storage accounts in the region "westus", trying to create new one
-    + Creating storage account "cli9fd3fce49e9a9b3d14302" in "westus"              
-    + Looking up the storage account cli9fd3fce49e9a9b3d14302                      
-    + Looking up the NIC "coreo-westu-1430261891570-nic"                           
+    + Creating storage account "cli9fd3fce49e9a9b3d14302" in "westus"
+    + Looking up the storage account cli9fd3fce49e9a9b3d14302
+    + Looking up the NIC "coreo-westu-1430261891570-nic"
     info:    An nic with given name "coreo-westu-1430261891570-nic" not found, creating a new one
-    + Looking up the virtual network "coreo-westu-1430261891570-vnet"              
+    + Looking up the virtual network "coreo-westu-1430261891570-vnet"
     info:    Preparing to create new virtual network and subnet
     / Creating a new virtual network "coreo-westu-1430261891570-vnet" [address prefix: "10.0.0.0/16"] with subnet "coreo-westu-1430261891570-sne+" [address prefix: "10.0.1.0/24"]
-    + Looking up the virtual network "coreo-westu-1430261891570-vnet"              
+    + Looking up the virtual network "coreo-westu-1430261891570-vnet"
     + Looking up the subnet "coreo-westu-1430261891570-snet" under the virtual network "coreo-westu-1430261891570-vnet"
     info:    Found public ip parameters, trying to setup PublicIP profile
-    + Looking up the public ip "coreo-westu-1430261891570-pip"                     
+    + Looking up the public ip "coreo-westu-1430261891570-pip"
     info:    PublicIP with given name "coreo-westu-1430261891570-pip" not found, creating a new one
-    + Creating public ip "coreo-westu-1430261891570-pip"                           
-    + Looking up the public ip "coreo-westu-1430261891570-pip"                     
-    + Creating NIC "coreo-westu-1430261891570-nic"                                 
-    + Looking up the NIC "coreo-westu-1430261891570-nic"                           
-    + Creating VM "coreos"                                                         
-    + Looking up the VM "coreos"                                                   
-    + Looking up the NIC "coreo-westu-1430261891570-nic"                           
-    + Looking up the public ip "coreo-westu-1430261891570-pip"                     
+    + Creating public ip "coreo-westu-1430261891570-pip"
+    + Looking up the public ip "coreo-westu-1430261891570-pip"
+    + Creating NIC "coreo-westu-1430261891570-nic"
+    + Looking up the NIC "coreo-westu-1430261891570-nic"
+    + Creating VM "coreos"
+    + Looking up the VM "coreos"
+    + Looking up the NIC "coreo-westu-1430261891570-nic"
+    + Looking up the public ip "coreo-westu-1430261891570-pip"
     data:    Id                              :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/coreos-quick/providers/Microsoft.Compute/virtualMachines/coreos
     data:    ProvisioningState               :Succeeded
     data:    Name                            :coreos
     data:    Location                        :westus
     data:    FQDN                            :coreo-westu-1430261891570-pip.westus.cloudapp.azure.com
     data:    Type                            :Microsoft.Compute/virtualMachines
-    data:    
+    data:
     data:    Hardware Profile:
     data:      Size                          :Standard_A1
-    data:    
+    data:
     data:    Storage Profile:
     data:      Image reference:
     data:        Publisher                   :coreos
     data:        Offer                       :coreos
     data:        Sku                         :stable
     data:        Version                     :633.1.0
-    data:    
+    data:
     data:      OS Disk:
     data:        OSType                      :Linux
     data:        Name                        :cli9fd3fce49e9a9b3d-os-1430261892283
@@ -204,13 +204,13 @@ Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [여기](../reso
     data:        CreateOption                :FromImage
     data:        Vhd:
     data:          Uri                       :https://cli9fd3fce49e9a9b3d14302.blob.core.windows.net/vhds/cli9fd3fce49e9a9b3d-os-1430261892283.vhd
-    data:    
+    data:
     data:    OS Profile:
     data:      Computer Name                 :coreos
     data:      User Name                     :ops
     data:      Linux Configuration:
     data:        Disable Password Auth       :false
-    data:    
+    data:
     data:    Network Profile:
     data:      Network Interfaces:
     data:        Network Interface #1:
@@ -225,7 +225,7 @@ Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [여기](../reso
     data:            Public IP address       :104.40.24.124
     data:            FQDN                    :coreo-westu-1430261891570-pip.westus.cloudapp.azure.com
     info:    vm quick-create command OK
-    
+
 이제 새 VM으로 전환하면 됩니다.
 
 ## <a id="deploy-a-vm-in-azure-from-a-template"></a>작업: 템플릿에서 Azure의 VM 배포
@@ -233,10 +233,10 @@ Azure 리소스 그룹 및 기능에 대한 자세한 내용은 [여기](../reso
 Azure CLI 및 템플릿을 사용하여 새 Azure VM을 배포하려면 이러한 섹션의 지침을 사용하세요. 이 템플릿에서는 단일 서브넷을 사용하는 새 가상 네트워크에 단일 가상 컴퓨터를 만들고 `azure vm quick-create`와 달리 원하는 항목을 정확하게 설명하고 오류 없이 반복할 수 있도록 합니다. 다음은 이 템플릿에서 만드는 항목입니다.
 
 ![](./media/virtual-machines-deploy-rmtemplates-azure-cli/new-vm.png)
- 
+
 ### 1단계: JSON 파일에서 템플릿 매개 변수 검사
 
-다음은 템플릿에 대한 JSON 파일의 내용입니다. 템플릿은 GitHub([여기](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json))에도 있습니다.
+다음은 템플릿에 대한 JSON 파일의 내용입니다. 템플릿은 [GitHub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json)에도 있습니다.
 
 템플릿은 유연하므로 디자이너는 많은 매개 변수를 제공하도록 선택하거나 좀더 수정된 템플릿을 만들어 몇 개의 매개 변수만 제공하도록 선택할 수 있습니다. 템플릿을 매개 변수로 전달하는 데 필요한 정보를 수집하려면 템플릿 파일(이 항목에는 아래의 인라인에 템플릿이 있음)을 열고 **매개 변수** 값을 검사합니다.
 
@@ -246,7 +246,7 @@ Azure CLI 및 템플릿을 사용하여 새 Azure VM을 배포하려면 이러�
 - VM의 관리 사용자 이름
 - 암호
 - 사용할 외부 세계의 도메인 이름
-- Ubuntu Server 버전 번호를 허용 -- 목록 중 하나만 허용 
+- Ubuntu Server 버전 번호 -- 목록 중 하나만 허용
 
 이러한 값을 확인했으면 해당 그룹을 만들고 Azure 구독에 이 템플릿을 배포할 수 있습니다.
 
@@ -257,25 +257,25 @@ Azure CLI 및 템플릿을 사용하여 새 Azure VM을 배포하려면 이러�
         "newStorageAccountName": {
         "type": "string",
         "metadata": {
-            "description": "Unique DNS Name for the Storage Account where the Virtual Machine's disks will be placed."
+            "description": "Unique DNS name for the storage account where the virtual machine's disks will be placed."
         }
         },
         "adminUsername": {
         "type": "string",
         "metadata": {
-            "description": "User name for the Virtual Machine."
+            "description": "User name for the virtual machine."
         }
         },
         "adminPassword": {
         "type": "securestring",
         "metadata": {
-            "description": "Password for the Virtual Machine."
+            "description": "Password for the virtual machine."
         }
         },
         "dnsNameForPublicIP": {
         "type": "string",
         "metadata": {
-            "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
+            "description": "Unique DNS name for the public IP used to access the virtual machine."
         }
         },
         "ubuntuOSVersion": {
@@ -425,7 +425,7 @@ Azure CLI 및 템플릿을 사용하여 새 Azure VM을 배포하려면 이러�
     ]
     }
 
-  
+
 ### 2단계: 템플릿을 사용하여 가상 컴퓨터 만들기
 
 매개 변수 값을 준비했으면 템플릿 배포를 위한 리소스 그룹을 만든 다음 템플릿을 배포해야 합니다.
@@ -434,26 +434,26 @@ Azure CLI 및 템플릿을 사용하여 새 Azure VM을 배포하려면 이러�
 
     azure group create myResourceGroup westus
     info:    Executing command group create
-    + Getting resource group myResourceGroup                                       
-    + Creating resource group myResourceGroup                                      
+    + Getting resource group myResourceGroup
+    + Creating resource group myResourceGroup
     info:    Created resource group myResourceGroup
     data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup
     data:    Name:                myResourceGroup
     data:    Location:            westus
     data:    Provisioning State:  Succeeded
-    data:    Tags: 
-    data:    
+    data:    Tags:
+    data:
     info:    group create command OK
-    
+
 
 이제 배포를 만들려면 `azure group deployment create`를 호출하고 다음을 전달합니다.
 
-- 템플릿 파일(위의 JSON 템플릿을 로컬 파일에 저장한 경우) 
+- 템플릿 파일(위의 JSON 템플릿을 로컬 파일에 저장한 경우)
 - 템플릿 URI(Github 또는 다른 웹 주소에 있는 파일을 가리키려는 경우)
 - 배포에 사용할 리소스 그룹
-- 배포 이름(선택 사항) 
+- 배포 이름(선택 사항)
 
-JSON 파일의 **"parameters"** 섹션에 매개 변수 값을 제공하라는 메시지가 표시됩니다. 모든 매개 변수 값을 지정하면 배포가 시작됩니다.
+JSON 파일의 "parameters" 섹션에 매개 변수 값을 제공하라는 메시지가 표시됩니다. 모든 매개 변수 값을 지정하면 배포가 시작됩니다.
 
 다음은 예제입니다.
 
@@ -464,17 +464,17 @@ JSON 파일의 **"parameters"** 섹션에 매개 변수 값을 제공하라는 �
     adminUsername: ops
     adminPassword: password
     dnsNameForPublicIP: newdomainname
-    
+
 다음과 같은 유형의 정보가 제공됩니다.
 
-    + Initializing template configurations and parameters                          
-    + Creating a deployment                                                        
+    + Initializing template configurations and parameters
+    + Creating a deployment
     info:    Created template deployment "firstDeployment"
-    + Registering providers                                                        
+    + Registering providers
     info:    Registering provider microsoft.storage
     info:    Registering provider microsoft.network
     info:    Registering provider microsoft.compute
-    + Waiting for deployment to complete                                           
+    + Waiting for deployment to complete
     data:    DeploymentName     : firstDeployment
     data:    ResourceGroupName  : myResourceGroup
     data:    ProvisioningState  : Succeeded
@@ -482,24 +482,24 @@ JSON 파일의 **"parameters"** 섹션에 매개 변수 값을 제공하라는 �
     data:    Mode               : Incremental
     data:    TemplateLink       : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-simple-linux-vm/azuredeploy.json
     data:    ContentVersion     : 1.0.0.0
-    data:    Name                   Type          Value        
+    data:    Name                   Type          Value
     data:    ---------------------  ------------  -------------
     data:    newStorageAccountName  String        storageaccount
-    data:    adminUsername          String        ops          
-    data:    adminPassword          SecureString  undefined    
-    data:    dnsNameForPublicIP     String        newdomainname   
-    data:    ubuntuOSVersion        String        14.10        
+    data:    adminUsername          String        ops
+    data:    adminPassword          SecureString  undefined
+    data:    dnsNameForPublicIP     String        newdomainname
+    data:    ubuntuOSVersion        String        14.10
     info:    group deployment create command OK
-    
+
 
 
 ## <a id="create-a-custom-vm-image"></a>작업: 사용자 지정 VM 이미지 만들기
 
-위에서 템플릿의 기본 사용법을 확인했으므로 이제 유사한 지침을 사용하여 Azure의 특정 .vhd 파일에서 Azure CLI를 사용하는 템플릿으로 사용자 지정 VM을 만들 수 있습니다. 여기서 차이점은 이 템플릿의 경우 특정 VHD(가상 하드 디스크)에서 단일 가상 컴퓨터를 만든다는 점입니다.
+위에서 템플릿의 기본 사용법을 확인했으므로 이제 유사한 지침을 사용하여 Azure의 특정 .vhd 파일에서 Azure CLI를 통해 템플릿을 사용하여 사용자 지정 VM을 만들 수 있습니다. 여기서 차이점은 이 템플릿의 경우 특정 VHD(가상 하드 디스크)에서 단일 가상 컴퓨터를 만든다는 점입니다.
 
 ### 1단계: JSON 파일에서 템플릿 검사
 
-다음은 이 섹션에서 예로 사용하는 템플릿에 대한 JSON 파일의 내용입니다. 템플릿 자체는 [여기](https://raw.githubusercontent.com/azurermtemplates/azurermtemplates/master/101-vm-from-user-image/azuredeploy.json)에서 항상 찾을 수 있습니다.
+다음은 이 섹션에서 예로 사용하는 템플릿에 대한 JSON 파일의 내용입니다.
 
 또한 기본값이 없는 매개 변수에 대해 입력할 값을 찾아야 합니다. `azure group deployment create` 명령을 실행하면 해당 값을 입력하라는 메시지가 Azure CLI에 표시됩니다.
 
@@ -690,7 +690,7 @@ JSON 파일의 **"parameters"** 섹션에 매개 변수 값을 제공하라는 �
 
 Windows 기반 가상 컴퓨터의 경우 [Windows Server VHD를 만들어서 Azure에 업로드](virtual-machines-create-upload-vhd-windows-server.md)를 참조하세요.
 
-Linux 기반 가상 컴퓨터의 경우 [Azure에서 Linux VHD 만들기 및 업로드](virtual-machines-linux-create-upload-vhd.md)를 참조하세요.
+Linux 기반 가상 컴퓨터의 경우 [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](virtual-machines-linux-create-upload-vhd.md)를 참조하세요.
 
 ### 3단계: 템플릿을 사용하여 가상 컴퓨터 만들기
 
@@ -698,17 +698,17 @@ Linux 기반 가상 컴퓨터의 경우 [Azure에서 Linux VHD 만들기 및 업
 
     azure group create myResourceGroupUser eastus
     info:    Executing command group create
-    + Getting resource group myResourceGroupUser                                            
-    + Creating resource group myResourceGroupUser                                           
+    + Getting resource group myResourceGroupUser
+    + Creating resource group myResourceGroupUser
     info:    Created resource group myResourceGroupUser
     data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroupUser
     data:    Name:                myResourceGroupUser
     data:    Location:            eastus
     data:    Provisioning State:  Succeeded
-    data:    Tags: 
-    data:    
+    data:    Tags:
+    data:
     info:    group create command OK
-    
+
 그런 다음 `--template-uri` 옵션을 사용하여 템플릿에서 직접 호출하여 배포를 만들거나 `--template-file` 옵션을 사용하여 로컬에 저장한 파일을 사용할 수 있습니다. 템플릿에는 기본값이 지정되어 있으므로 몇 가지 항목만 입력하면 됩니다. 템플릿을 다른 위치에 배포하는 경우 기본값에서 이름이 충돌하는 경우를 확인할 수 있습니다(특히 직접 만든 DNS 이름).
 
     azure group deployment create \
@@ -721,16 +721,16 @@ Linux 기반 가상 컴퓨터의 경우 [Azure에서 Linux VHD 만들기 및 업
     adminPassword: password
     osType: linux
     subscriptionId: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-        
+
 출력은 다음과 같이 표시됩니다.
 
-    + Initializing template configurations and parameters                          
-    + Creating a deployment                                                        
+    + Initializing template configurations and parameters
+    + Creating a deployment
     info:    Created template deployment "customVhdDeployment"
-    + Registering providers                                                        
+    + Registering providers
     info:    Registering provider microsoft.network
     info:    Registering provider microsoft.compute
-    + Waiting for deployment to complete                                           
+    + Waiting for deployment to complete
     error:   Deployment provisioning state was not successful
     data:    DeploymentName     : customVhdDeployment
     data:    ResourceGroupName  : myResourceGroupUser
@@ -739,32 +739,32 @@ Linux 기반 가상 컴퓨터의 경우 [Azure에서 Linux VHD 만들기 및 업
     data:    Mode               : Incremental
     data:    TemplateLink       : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json
     data:    ContentVersion     : 1.0.0.0
-    data:    Name                           Type          Value                               
+    data:    Name                           Type          Value
     data:    -----------------------------  ------------  ------------------------------------
-    data:    userImageStorageAccountName    String        userImageStorageAccountName         
-    data:    userImageStorageContainerName  String        userImageStorageContainerName       
-    data:    userImageVhdName               String        userImageVhdName                    
-    data:    dnsNameForPublicIP             String        uniqueDnsNameForPublicIP            
-    data:    adminUserName                  String        ops                                 
-    data:    adminPassword                  SecureString  undefined                           
-    data:    osType                         String        linux                               
+    data:    userImageStorageAccountName    String        userImageStorageAccountName
+    data:    userImageStorageContainerName  String        userImageStorageContainerName
+    data:    userImageVhdName               String        userImageVhdName
+    data:    dnsNameForPublicIP             String        uniqueDnsNameForPublicIP
+    data:    adminUserName                  String        ops
+    data:    adminPassword                  SecureString  undefined
+    data:    osType                         String        linux
     data:    subscriptionId                 String        xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-    data:    location                       String        West US                             
-    data:    vmSize                         String        Standard_A2                         
-    data:    publicIPAddressName            String        myPublicIP                          
-    data:    vmName                         String        myVM                                
-    data:    virtualNetworkName             String        myVNET                              
-    data:    nicName                        String        myNIC                               
+    data:    location                       String        West US
+    data:    vmSize                         String        Standard_A2
+    data:    publicIPAddressName            String        myPublicIP
+    data:    vmName                         String        myVM
+    data:    virtualNetworkName             String        myVNET
+    data:    nicName                        String        myNIC
     info:    group deployment create command OK
-    
+
 
 ## <a id="deploy-a-multi-vm-application-that-uses-a-virtual-network-and-an-external-load-balancer"></a>작업: 가상 네트워크 및 외부 부하 분산 장치를 사용하는 여러 VM 응용 프로그램 배포
 
 이 템플릿에서는 하나의 부하 분산 장치 아래에 2개의 가상 컴퓨터를 만들고 포트 80에서 부하 분산 규칙을 구성할 수 있습니다. 또한 이 템플릿에서는 저장소 계정, 가상 네트워크, 공용 IP 주소, 가용성 집합 및 네트워크 인터페이스를 배포합니다.
 
 ![](./media/virtual-machines-deploy-rmtemplates-azure-cli/multivmextlb.png)
- 
-Azure PowerShell 명령과 Github 템플릿 리포지토리의 리소스 관리자 템플릿을 사용하여 가상 네트워크 및 부하 분산 장치를 사용하는 여러 VM 응용 프로그램을 배포하려면 다음 단계를 수행하세요.
+
+Azure PowerShell 명령을 통해 Github 템플릿 리포지토리의 리소스 관리자 템플릿을 사용하여 가상 네트워크 및 부하 분산 장치를 사용하는 여러 VM 응용 프로그램을 배포하려면 다음 단계를 수행하세요.
 
 ### 1단계: JSON 파일에서 템플릿 검사
 
@@ -790,7 +790,7 @@ Azure PowerShell 명령과 Github 템플릿 리포지토리의 리소스 관리�
             "adminUsername": {
                 "type": "string",
                 "metadata": {
-                  "description": "Admin username"
+                  "description": "Admin user name"
                 }
             },
             "adminPassword": {
@@ -802,14 +802,14 @@ Azure PowerShell 명령과 Github 템플릿 리포지토리의 리소스 관리�
             "dnsNameforLBIP": {
                 "type": "string",
                 "metadata": {
-                  "description": "DNS for Load Balancer IP"
+                  "description": "DNS for load balancer IP"
                 }
             },
             "backendPort": {
                 "type": "int",
                 "defaultValue": 3389,
                 "metadata": {
-                  "description": "Backend port"
+                  "description": "Back-end port"
                 }
             },
             "vmNamePrefix": {
@@ -827,28 +827,28 @@ Azure PowerShell 명령과 Github 템플릿 리포지토리의 리소스 관리�
                 "type": "string",
                 "defaultValue": "myLB",
                 "metadata": {
-                  "description": "Load Balancer name"
+                  "description": "Load balancer name"
                 }
             },
             "nicNamePrefix": {
                 "type": "string",
                 "defaultValue": "nic",
                 "metadata": {
-                  "description": "Network Interface name prefix"
+                  "description": "Network interface name prefix"
                 }
             },
             "publicIPAddressName": {
                 "type": "string",
                 "defaultValue": "myPublicIP",
                 "metadata": {
-                  "description": "Public IP Name"
+                  "description": "Public IP name"
                 }
             },
             "vnetName": {
                 "type": "string",
                 "defaultValue": "myVNET",
                 "metadata": {
-                  "description": "VNET name"
+                  "description": "Virtual network name"
                 }
             },
             "vmSize": {
@@ -963,11 +963,11 @@ Azure PowerShell 명령과 Github 템플릿 리포지토리의 리소스 관리�
                                     "id": "[concat('Microsoft.Network/loadBalancers/',parameters('lbName'),'/inboundNatRule/RDP-VM', copyindex())]"
                                 }
                             ]
-    
-    
+
+
                         }
                     ]
-    
+
                 }
             },
             {
@@ -993,7 +993,7 @@ Azure PowerShell 명령과 Github 템플릿 리포지토리의 리소스 관리�
                     "backendAddressPools": [
                         {
                             "name": "LBBE"
-    
+
                         }
                     ],
                     "inboundNatRules": [
@@ -1104,22 +1104,22 @@ Azure PowerShell 명령과 Github 템플릿 리포지토리의 리소스 관리�
 
 ### 2단계: 템플릿을 사용하여 배포 만들기
 
-`azure group create <location>`을 사용하여 템플릿에 대한 리소스 그룹을 만든 다음 `azure group deployment create`을 사용하여 리소스 그룹, 배포 이름을 전달하고 기본값이 없는 템플릿의 매개 변수에 대한 프롬프트에 응답하여 해당 리소스 그룹에 대한 배포를 만듭니다.
+`azure group create <location>`을 사용하여 템플릿에 대한 리소스 그룹을 만듭니다. 그런 다음 `azure group deployment create`을 사용하여 리소스 그룹, 배포 이름을 전달하고 기본값이 없는 템플릿의 매개 변수에 대한 프롬프트에 응답하여 해당 리소스 그룹에 대한 배포를 만듭니다.
 
 
     azure group create lbgroup westus
     info:    Executing command group create
-    + Getting resource group lbgroup                                               
-    + Creating resource group lbgroup                                              
+    + Getting resource group lbgroup
+    + Creating resource group lbgroup
     info:    Created resource group lbgroup
     data:    Id:                  /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/lbgroup
     data:    Name:                lbgroup
     data:    Location:            westus
     data:    Provisioning State:  Succeeded
-    data:    Tags: 
-    data:    
+    data:    Tags:
+    data:
     info:    group create command OK
-    
+
 
 이제 `azure group deployment create` 명령 및 `--template-uri` 옵션을 사용하여 템플릿을 배포합니다. 아래와 같이 메시지가 표시되면 매개 변수 값을 입력할 수 있습니다.
 
@@ -1134,14 +1134,14 @@ Azure PowerShell 명령과 Github 템플릿 리포지토리의 리소스 관리�
     adminUsername: ops
     adminPassword: password
     dnsNameforLBIP: lbdomainname
-    + Initializing template configurations and parameters                          
-    + Creating a deployment                                                        
+    + Initializing template configurations and parameters
+    + Creating a deployment
     info:    Created template deployment "newdeployment"
-    + Registering providers                                                        
+    + Registering providers
     info:    Registering provider microsoft.storage
     info:    Registering provider microsoft.compute
     info:    Registering provider microsoft.network
-    + Waiting for deployment to complete                                           
+    + Waiting for deployment to complete
     data:    DeploymentName     : newdeployment
     data:    ResourceGroupName  : lbgroup
     data:    ProvisioningState  : Succeeded
@@ -1149,26 +1149,26 @@ Azure PowerShell 명령과 Github 템플릿 리포지토리의 리소스 관리�
     data:    Mode               : Incremental
     data:    TemplateLink       : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json
     data:    ContentVersion     : 1.0.0.0
-    data:    Name                   Type          Value                 
+    data:    Name                   Type          Value
     data:    ---------------------  ------------  ----------------------
-    data:    location               String        westus                
-    data:    newStorageAccountName  String        storagename         
-    data:    adminUsername          String        ops                   
-    data:    adminPassword          SecureString  undefined             
-    data:    dnsNameforLBIP         String        lbdomainname         
-    data:    backendPort            Int           3389                  
-    data:    vmNamePrefix           String        myVM                  
+    data:    location               String        westus
+    data:    newStorageAccountName  String        storagename
+    data:    adminUsername          String        ops
+    data:    adminPassword          SecureString  undefined
+    data:    dnsNameforLBIP         String        lbdomainname
+    data:    backendPort            Int           3389
+    data:    vmNamePrefix           String        myVM
     data:    imagePublisher         String        MicrosoftWindowsServer
-    data:    imageOffer             String        WindowsServer         
-    data:    imageSKU               String        2012-R2-Datacenter    
-    data:    lbName                 String        myLB                  
-    data:    nicNamePrefix          String        nic                   
-    data:    publicIPAddressName    String        myPublicIP            
-    data:    vnetName               String        myVNET                
-    data:    vmSize                 String        Standard_A1           
+    data:    imageOffer             String        WindowsServer
+    data:    imageSKU               String        2012-R2-Datacenter
+    data:    lbName                 String        myLB
+    data:    nicNamePrefix          String        nic
+    data:    publicIPAddressName    String        myPublicIP
+    data:    vnetName               String        myVNET
+    data:    vmSize                 String        Standard_A1
     info:    group deployment create command OK
-    
-이 템플릿은 Windows Server 이미지를 배포하지만 Linux 이미지로 간단하게 대체할 수도 있습니다. 여러 지역에 걸쳐 Docker Cluster를 만들려고 하시나요? [가능합니다](http://azure.microsoft.com/documentation/templates/201-discover-private-ip-dynamically/).
+
+이 템플릿은 Windows Server 이미지를 배포하지만 Linux 이미지로 간단하게 대체할 수 있습니다. 여러 swarm 관리자로 Docker Cluster를 만들려고 하시나요? [가능합니다](http://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
 
 ## <a id="remove-a-resource-group"></a>작업: 리소스 그룹 제거
 
@@ -1177,16 +1177,16 @@ Azure PowerShell 명령과 Github 템플릿 리포지토리의 리소스 관리�
     azure group delete myResourceGroup
     info:    Executing command group delete
     Delete resource group myResourceGroup? [y/n] y
-    + Deleting resource group myResourceGroup                                               
+    + Deleting resource group myResourceGroup
     info:    group delete command OK
-    
+
 ## <a id="show-the-log-for-a-resource-group-deployment"></a>작업: 리소스 그룹 배포에 대한 로그 표시
 
-템플릿을 만들거나 사용할 때 매우 일반적인 작업입니다. 그룹에 대한 배포 로그를 표시하려면 `azure group log show <groupname>`을 호출합니다. 그러면 특정 작업이 수행되거나 수행되지 않은 이유를 이해하는 데 유용한 많은 정보가 표시됩니다. 배포 문제 해결에 대한 자세한 내용 및 문제에 대한 기타 정보는 [Azure에서 리소스 그룹 배포 문제 해결](resource-group-deploy-debug.md)을 참조하세요.
+템플릿을 만들거나 사용할 때 일반적인 작업입니다. 그룹에 대한 배포 로그를 표시하려면 `azure group log show <groupname>`을 호출합니다. 그러면 특정 작업이 수행되거나 수행되지 않은 이유를 이해하는 데 유용한 많은 정보가 표시됩니다. 배포 문제 해결에 대한 자세한 내용 및 문제에 대한 기타 정보는 [Azure에서 리소스 그룹 배포 문제 해결](resource-group-deploy-debug.md)을 참조하세요.
 
 예를 들어 특정 오류를 대상으로 지정하려면 **jq**와 같은 도구를 사용하여 해결해야 하는 개별 오류와 같은 항목을 좀더 정확하게 쿼리할 수 있습니다. 다음 예제에서는 **jq**를 사용하여 **lbgroup**에 대한 배포 로그를 구문 분석하고 오류를 찾습니다.
 
-    azure group log show lbgroup -l --json | jq '.[] | select(.status.value == "Failed") | .properties' 
+    azure group log show lbgroup -l --json | jq '.[] | select(.status.value == "Failed") | .properties'
 
 잘못되어 수정하거나 다시 시도할 항목을 매우 신속하게 검색할 수 있습니다. 다음과 같은 경우 템플릿에서 두 개의 VM을 동시에 만들고 .vhd에 잠금을 만들었습니다. 템플릿을 수정한 후 바로 배포가 성공했습니다.
 
@@ -1194,42 +1194,42 @@ Azure PowerShell 명령과 Github 템플릿 리포지토리의 리소스 관리�
       "statusCode": "Conflict",
       "statusMessage": "{"status":"Failed","error":{"code":"ResourceDeploymentFailure","message":"The resource operation completed with terminal provisioning state 'Failed'.","details":[{"code":"AcquireDiskLeaseFailed","message":"Failed to acquire lease while creating disk 'osdisk' using blob with URI http://storage.blob.core.windows.net/vhds/osdisk.vhd."}]}}"
     }
-    
+
 
 ## <a id="display-information-about-a-virtual-machine"></a>작업: 가상 컴퓨터에 대한 정보 표시
 
-`azure vm show <groupname> <vmname> command`를 사용하여 리소스 그룹의 특정 VM에 대한 정보를 확인할 수 있습니다. 그룹이 둘 이상인 경우 `azure vm list <groupname>`을 사용하여 한 그룹의 VM을 먼저 나열해야 할 수 있습니다.
+`azure vm show <groupname> <vmname> command`를 사용하여 리소스 그룹의 특정 VM에 대한 정보를 확인할 수 있습니다. 그룹에 VM이 둘 이상 있는 경우 `azure vm list <groupname>`을 사용하여 한 그룹의 VM을 먼저 나열해야 할 수 있습니다.
 
     azure vm list zoo
     info:    Executing command vm list
-    + Getting virtual machines                                                     
-    data:    Name   ProvisioningState  Location  Size       
+    + Getting virtual machines
+    data:    Name   ProvisioningState  Location  Size
     data:    -----  -----------------  --------  -----------
     data:    myVM0  Succeeded          westus    Standard_A1
     data:    myVM1  Failed             westus    Standard_A1
-    
+
 그런 다음 myVM1을 조회합니다.
 
     azure vm show zoo myVM1
     info:    Executing command vm show
-    + Looking up the VM "myVM1"                                                    
-    + Looking up the NIC "nic1"                                                    
+    + Looking up the VM "myVM1"
+    + Looking up the NIC "nic1"
     data:    Id                              :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Compute/virtualMachines/myVM1
     data:    ProvisioningState               :Failed
     data:    Name                            :myVM1
     data:    Location                        :westus
     data:    Type                            :Microsoft.Compute/virtualMachines
-    data:    
+    data:
     data:    Hardware Profile:
     data:      Size                          :Standard_A1
-    data:    
+    data:
     data:    Storage Profile:
     data:      Image reference:
     data:        Publisher                   :MicrosoftWindowsServer
     data:        Offer                       :WindowsServer
     data:        Sku                         :2012-R2-Datacenter
     data:        Version                     :latest
-    data:    
+    data:
     data:      OS Disk:
     data:        OSType                      :Windows
     data:        Name                        :osdisk
@@ -1237,14 +1237,14 @@ Azure PowerShell 명령과 Github 템플릿 리포지토리의 리소스 관리�
     data:        CreateOption                :FromImage
     data:        Vhd:
     data:          Uri                       :http://zoostorageralph.blob.core.windows.net/vhds/osdisk.vhd
-    data:    
+    data:
     data:    OS Profile:
     data:      Computer Name                 :myVM1
     data:      User Name                     :ops
     data:      Windows Configuration:
     data:        Provision VM Agent          :true
     data:        Enable automatic updates    :true
-    data:    
+    data:
     data:    Network Profile:
     data:      Network Interfaces:
     data:        Network Interface #1:
@@ -1255,11 +1255,11 @@ Azure PowerShell 명령과 Github 템플릿 리포지토리의 리소스 관리�
     data:          Location                  :westus
     data:            Private IP alloc-method :Dynamic
     data:            Private IP address      :10.0.0.5
-    data:    
+    data:
     data:    AvailabilitySet:
     data:      Id                            :/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/zoo/providers/Microsoft.Compute/availabilitySets/MYAVSET
     info:    vm show command OK
-    
+
 
 > [AZURE.NOTE]콘솔 명령의 출력을 프로그래밍 방식으로 저장하고 조작하려는 경우 **[jq](https://github.com/stedolan/jq)**, **[jsawk](https://github.com/micha/jsawk)** 또는 작업에 적합한 언어 라이브러리 같은 JSON 구문 분석 도구를 사용할 수 있습니다.
 
@@ -1287,28 +1287,19 @@ Azure PowerShell 명령과 Github 템플릿 리포지토리의 리소스 관리�
 
 새 디스크를 연결하려면 다음 명령을 실행합니다.
 
-     azure vm disk attach-new <resource-group> <vm-name> <size-in-gb> 
+     azure vm disk attach-new <resource-group> <vm-name> <size-in-gb>
 
 기존 데이터 디스크를 연결하려면 다음 명령을 실행합니다.
 
     azure vm disk attach <resource-group> <vm-name> [vhd-url]
-    
+
 그런 다음 일반적으로 Linux 또는 Windows에서처럼 디스크를 탑재해야 합니다.
 
 
 ## 다음 단계
 
-**arm** 모드의 Azure CLI 사용에 대한 더 많은 예제는 [Azure 리소스 관리에 Mac, Linux 및 Windows용 Microsoft Azure CLI 사용](xplat-cli-azure-resource-manager.md)을 참조하세요. Azure 리소스 및 해당 개념에 대한 자세한 내용은 [Azure 리소스 관리자 개요](../resource-group-overview.md)를 참조하세요.
+**arm** 모드의 Azure CLI 사용에 대한 더 많은 예제는 [Azure 리소스 관리자에 Mac, Linux 및 Windows용 Azure CLI 사용](xplat-cli-azure-resource-manager.md)을 참조하세요. Azure 리소스 및 해당 개념에 대한 자세한 내용은 [Azure 리소스 관리자 개요](../resource-group-overview.md)를 참조하세요.
 
-사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](http://azure.microsoft.com/documentation/templates/) 및 [앱 프레임 워크](virtual-machines-app-frameworks.md)를 참조하세요.
+사용할 수 있는 더 많은 템플릿은 [Azure 빠른 시작 템플릿](http://azure.microsoft.com/documentation/templates/) 및 [템플릿을 사용하는 응용 프로그램 프레임워크](virtual-machines-app-frameworks.md)를 참조하세요.
 
-
-
-
-
-
-
-
- 
-
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

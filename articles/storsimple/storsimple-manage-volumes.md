@@ -1,19 +1,19 @@
 <properties
    pageTitle="StorSimple 볼륨 관리 | Microsoft Azure"
-	description="StorSimple 볼륨을 추가, 수정, 모니터링 및 삭제하는 방법 및 필요에 따라 이를 오프라인으로 전환하는 방법을 설명합니다."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="StorSimple 볼륨을 추가, 수정, 모니터링 및 삭제하는 방법 및 필요에 따라 이를 오프라인으로 전환하는 방법을 설명합니다."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/09/2015"
+   ms.author="v-sharos" />
 
 # StorSimple 관리자 서비스를 사용하여 볼륨 관리
 
@@ -88,8 +88,7 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 
 볼륨을 확장하거나 볼륨에 액세스하는 호스트를 변경할 경우 볼륨을 수정합니다.
 
-> [AZURE.IMPORTANT]장치에서 볼륨 크기를 수정하는 경우 볼륨 크기를 호스트에서도 변경해야 합니다. 호스트에서 볼륨을 수정할 때 호스트 운영 제체 지침을 참조하세요.
-
+> [AZURE.IMPORTANT]장치에서 볼륨 크기를 수정하는 경우 볼륨 크기를 호스트에서도 변경해야 합니다. 여기에 설명된 호스트 쪽 단계는 Windows Server 2012(2012R2)에 해당합니다. Linux 또는 다른 호스트 운영 체제에 대한 절차는 이와 다릅니다. 다른 운영 체제를 실행하는 호스트의 볼륨을 수정하는 경우 해당 호스트 운영 체제 지침을 참조하세요.
 
 ### 볼륨을 수정하려면
 
@@ -113,7 +112,14 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
  
     > [AZURE.NOTE]볼륨에 대해 **기본 백업 사용** 옵션을 변경할 수 없습니다.
 
-6. 확인 아이콘![확인 아이콘](./media/storsimple-manage-volumes/HCS_CheckIcon.png)을 클릭하여 변경 내용을 저장합니다.
+6. 확인 아이콘![확인 아이콘](./media/storsimple-manage-volumes/HCS_CheckIcon.png)을 클릭하여 변경 내용을 저장합니다. 포털에 볼륨 업데이트 중 메시지가 표시됩니다. 볼륨이 성공적으로 업데이트되면 성공 메시지가 표시됩니다.
+
+7. 볼륨을 확장하는 경우 Windows 호스트 컴퓨터에서 다음 단계를 완료합니다.
+
+   1. **컴퓨터 관리** -> **디스크 관리**로 이동합니다.
+   2. **디스크 관리**를 마우스 오른쪽 단추로 클릭하고 **디스크 다시 검사**를 선택합니다.
+   3. 디스크 목록에서 업데이트한 볼륨을 선택하고 마우스 오른쪽 단추를 클릭한 다음 **볼륨 확장**을 선택합니다. 볼륨 확장 마법사가 시작됩니다. **다음**을 클릭합니다.
+   4. 기본값을 적용하여 마법사를 완료합니다. 마법사가 완료되면 볼륨에 증가된 크기가 표시되어야 합니다.
 
 ## 볼륨을 오프라인으로 전환
 
@@ -176,9 +182,11 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 
 ## 다음 단계
 
+[StorSimple 볼륨을 확장](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume)하는 방법을 보여 주는 동영상을 시청합니다.
+
 [StorSimple 볼륨 복제](storsimple-clone-volume.md) 방법에 대해 배웁니다.
 
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="07/06/2015"
+	ms.date="09/03/2015"
 	ms.author="bwren"/>
 
 # Azure 자동화 정의
@@ -58,11 +58,11 @@ Azure 자동화의 runbook은 Powershell 워크플로 기반이기 때문에 Pow
 
 - **Azure 자동화 라이브러리**는 지금 현재 위치입니다. 이 문서에서는 Azure 자동화를 구성 및 관리하고 사용자 고유의 Runbook을 만드는 방법에 대한 전체 설명서를 제공합니다.
 - [Azure PowerShell cmdlet](http://msdn.microsoft.com/library/jj156055.aspx)에서는 Windows PowerShell을 사용하여 Azure 작업을 자동화하는 방법에 대한 정보를 제공합니다. Runbook에서는 이러한 cmdlet을 사용하여 Azure 리소스로 작업합니다.
-- [Azure 자동화 블로그](http://azure.microsoft.com/blog/tag/azure-automation)에서는 Microsoft에서 제공하는 Azure 자동화에 대한 최신 정보를 제공합니다. Azure 자동화 팀에서 제공하는 최신 정보를 받으려면 Azure 자동화 블로그를 구독하세요.
+- [관리 블로그](http://azure.microsoft.com/blog/topics/management)는 Azure 자동화 및 기타 관리 기술에 대한 Microsoft의 최신 정보를 제공합니다. Azure 자동화 팀에서 제공하는 최신 정보를 받으려면 Azure 자동화 블로그를 구독하세요.
 - [자동화 포럼](http://go.microsoft.com/fwlink/p/?LinkId=390561)에서는 Microsoft 및 자동화 커뮤니티에서 다루는 Azure 자동화에 대한 질문을 게시할 수 있습니다.
 
 ## 피드백을 제공할 수 있습니까?
 
 **사용자 의견을 보내 주십시오!** Azure 자동화 Runbook 솔루션 또는 통합 모듈을 찾고 있는 경우 스크립트 센터에 스크립트 요청을 게시하세요. Azure 자동화에 대한 의견이나 기능 요청이 있는 경우 [사용자 음성](http://feedback.windowsazure.com/forums/34192--general-feedback)에 게시하세요. 감사합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

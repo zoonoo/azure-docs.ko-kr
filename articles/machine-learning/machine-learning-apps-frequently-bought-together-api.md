@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/12/2015" 
+	ms.date="09/07/2015" 
 	ms.author="luisca"/>
 
 # 기계 학습 예제 앱: 자주 함께 구매됨
@@ -39,4 +39,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

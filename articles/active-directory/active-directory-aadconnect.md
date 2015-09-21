@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Active Directory와 온-프레미스 ID 통합"
-	description="Azure AD Connect의 정의 및 사용해야 하는 이유를 설명합니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Azure Active Directory와 온-프레미스 ID 통합" 
+	description="Azure AD Connect의 정의 및 사용해야 하는 이유를 설명합니다." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/24/2015"
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="09/09/2015" 
 	ms.author="billmath"/>
 
 # Azure Active Directory와 온-프레미스 ID 통합
@@ -102,7 +102,7 @@ Azure Active Directory Connect는 기본 세 부분으로 구성됩니다. 이�
 - 통합하려는 Azure AD 테넌트에 대한 Azure AD 전역 관리자 계정
 - Azure AD Connect는 반드시 Windows Server 2008 이상의 버전에 설치되어야 합니다. 이 서버는 도메인 컨트롤러 또는 멤버 서버일 수 있습니다.
 - AD 스키마의 버전 및 포리스트 수준은 Windows Server 2003 이상이어야 합니다. 도메인 컨트롤러는 스키마와 포레스트의 수준 요구 사항이 맞으면 어떤 버전도 실행할 수 있습니다.
-- Active Directory Federation Services를 배포하는 경우 AD FS가 설치될 서버는 Windows Server 2012 이상이어야 합니다.
+- Active Directory Federation Services를 배포하는 경우 AD FS가 설치될 서버는 Windows Server 2012 R2 이상이어야 합니다.
 - Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. 기본적으로 SQL Server 2012 Express LocalDB(SQL Server Express의 라이트 버전)가 설치되고 서비스에 대한 서비스 계정을 로컬 컴퓨터에 생성합니다. SQL Server Express는 약 100,000 개체를 관리할 수 있는 10GB의 용량을 제공합니다.
 - 더 큰 볼륨의 디렉터리 개체 관리가 필요한 경우 설치 프로세스가 SQL Server의 다른 버전을 가리키도록 해야 합니다. Azure AD Connect는 SQL Server 2008(SP4)에서 SQL Server 2014까지 Microsoft SQL Server의 모든 버전을 지원합니다.
 - 로컬 Active Directory에 대한 엔터프라이즈 관리자 계정
@@ -273,4 +273,4 @@ Azure AD Sync용으로 만들어진 설명서 중 일부는 Azure AD Connect에�
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO2-->

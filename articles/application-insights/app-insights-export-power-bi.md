@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="Power BI에서 Application Insights 데이터를 참조하세요."
-	description="Power BI를 사용하여 응용 프로그램의 성능 및 사용을 모니터링할 수 있습니다."
-	services="application-insights"
-	documentationCenter=""
-	authors="noamben"
+	pageTitle="Power BI에서 Application Insights 데이터를 참조하세요." 
+	description="Power BI를 사용하여 응용 프로그램의 성능 및 사용을 모니터링할 수 있습니다." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="noamben" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/08/2015" 
 	ms.author="awills"/>
  
 # Application Insights 데이터의 Power BI 보기
@@ -25,6 +25,9 @@
 
 ![Application Insights 사용 데이터의 Power BI 보기의 샘플](./media/app-insights-export-power-bi/020.png)
 
+
+> [AZURE.NOTE]스트림 분석에서 Power BI로 데이터를 보내려면 회사 또는 학교 계정(MSDN 조직 계정)이 필요합니다.
+
 ## 비디오
 
 Noam Ben Zeev는 이 기사에서 설명한 내용을 보여줍니다.
@@ -33,7 +36,7 @@ Noam Ben Zeev는 이 기사에서 설명한 내용을 보여줍니다.
 
 ## Application Insights를 사용한 앱 모니터링
 
-아직 시도하지 않은 경우 지금이 시작 시간입니다. Application Insights는 Windows, iOS, Android, J2EE 등과 같은 광범위한 플랫폼에서 모든 장치 또는 웹앱을 모니터링할 수 있습니다. [시작](app-insights-get-started.md).
+아직 시도하지 않은 경우 지금이 시작 시간입니다. Application Insights는 Windows, iOS, Android, J2EE 등과 같은 광범위한 플랫폼에서 모든 장치 또는 웹앱을 모니터링할 수 있습니다. [시작](app-insights-get-started.md)
 
 ## Azure에서 저장소 만들기
 
@@ -126,7 +129,7 @@ Noam Ben Zeev는 이 기사에서 설명한 내용을 보여줍니다.
 이 예제에서:
 
 * `webapplication27`은 Application Insights 리소스의 이름으로, **모두 소문자**입니다.
-* `1234...`은 **대시를 생략한** Application Insights 리소스의 계측 키입니다. 
+* `1234...`는 **대시를 생략한** Application Insights 리소스의 계측 키입니다. 
 * `PageViews`는 분석하려는 데이터의 형식입니다. 사용 가능한 형식은 연속 내보내기에 설정한 필터에 따라 다릅니다. 내보낸 데이터를 검사하여 사용 가능한 다른 형식을 확인하고 [데이터 모델 내보내기](app-insights-export-data-model.md)를 참조합니다.
 * `/{date}/{time}`은 문자로 기록된 패턴입니다.
 
@@ -140,13 +143,15 @@ Noam Ben Zeev는 이 기사에서 설명한 내용을 보여줍니다.
 
 마법사를 닫고 설치가 완료될 때까지 기다립니다.
 
+> [AZURE.TIP]샘플 명령을 사용하여 일부 데이터를 다운로드합니다. 쿼리를 디버그할 테스트 샘플로 보관합니다.
+
 ## 출력 설정
 
 이제 사용자의 작업을 선택하고 출력을 설정합니다.
 
 ![새 채널을 선택하고, 출력, 추가, Power BI를 클릭합니다.](./media/app-insights-export-power-bi/160.png)
 
-스트림 분석 프로그램에 Power BI 리소스에 대한 액세스 권한을 부여하고 출력 및 Power BI 데이터 집합 및 테이블에 대한 이름을 만듭니다.
+**회사 또는 학교 계정**을 제공하여 스트림 분석에 Power BI 리소스에 대한 액세스 권한을 부여합니다. 그런 다음 출력 및 대상 Power BI 데이터 집합과 테이블의 이름을 지정합니다.
 
 ![이름 3개를 생성합니다.](./media/app-insights-export-power-bi/170.png)
 
@@ -155,6 +160,11 @@ Noam Ben Zeev는 이 기사에서 설명한 내용을 보여줍니다.
 쿼리는 입력에서 출력으로 번역을 제어합니다.
 
 ![작업을 선택하고 쿼리를 클릭합니다. 아래 샘플을 붙여넣습니다.](./media/app-insights-export-power-bi/180.png)
+
+
+Test 함수를 사용하여 올바른 출력이 표시되는지 확인합니다. 입력 페이지에서 얻은 샘플 데이터를 제공합니다.
+
+#### 이벤트 수를 표시하는 쿼리
 
 이 쿼리 붙여넣기:
 
@@ -173,7 +183,29 @@ Noam Ben Zeev는 이 기사에서 설명한 내용을 보여줍니다.
 
 * 내보내기 입력은 스트림 입력에 제공된 별칭입니다.
 * pbi 출력은 정의한 출력 별칭입니다.
-* 이벤트 이름은 중첩된 JSON 배열에 있으므로 GetElements를 사용합니다. 그런 다음 Select는 기간의 해당 이름이 있는 인스턴스의 수의 개수와 함께 이벤트 이름을 선택합니다. Group By절은 요소를 1분의 시간으로 그룹화합니다.
+* 이벤트 이름은 중첩된 JSON 배열에 있으므로 [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx)를 사용합니다. 그런 다음 Select는 기간의 해당 이름이 있는 인스턴스의 수의 개수와 함께 이벤트 이름을 선택합니다. [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) 절은 요소를 1분 기간으로 그룹화합니다.
+
+
+#### 메트릭 값을 표시하는 쿼리
+
+
+```SQL
+
+    SELECT
+      A.context.data.eventtime,
+      avg(CASE WHEN flat.arrayvalue.myMetric.value IS NULL THEN 0 ELSE  flat.arrayvalue.myMetric.value END) as myValue
+    INTO
+      [pbi-output]
+    FROM
+      [export-input] A
+    OUTER APPLY GetElements(A.context.custom.metrics) as flat
+    GROUP BY TumblingWindow(minute, 1), A.context.data.eventtime
+
+``` 
+
+* 이 쿼리는 이벤트 시간과 메트릭 값을 가져오기 위해 메트릭 원격 분석을 드릴합니다. 메트릭 값은 배열 내부에 있으므로 OUTER APPLY GetElements 패턴을 사용하여 행을 추출합니다. 이 경우 "myMetric"은 메트릭 이름입니다. 
+
+
 
 ## 작업 실행
 
@@ -185,11 +217,11 @@ Noam Ben Zeev는 이 기사에서 설명한 내용을 보여줍니다.
 
 ## Power BI에 결과를 참조하세요.
 
-Power BI를 열고 스트림 분석 작업의 출력으로 정의된 데이터 집합 및 테이블을 선택합니다.
+회사 또는 학교 계정을 사용하여 Power BI를 열고 스트림 분석 작업의 출력으로 정의된 데이터 집합 및 테이블을 선택합니다.
 
 ![Power BI에서 데이터 집합과 필드를 선택합니다.](./media/app-insights-export-power-bi/200.png)
 
-이제 보고서에서 이 데이터 집합 및 [Power BI](https://powerbi.microsoft.com)에서 대시보드를 사용할 수 있습니다.
+이제 [Power BI](https://powerbi.microsoft.com)의 보고서 및 대시보드에서 이 데이터 집합을 사용할 수 있습니다.
 
 
 ![Power BI에서 데이터 집합과 필드를 선택합니다.](./media/app-insights-export-power-bi/210.png)
@@ -207,4 +239,4 @@ Noam Ben Zeev는 Power BI를 내보내는 방법을 보여줍니다.
 * [Application Insights](app-insights-overview.md)
 * [추가 샘플 및 연습](app-insights-code-samples.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

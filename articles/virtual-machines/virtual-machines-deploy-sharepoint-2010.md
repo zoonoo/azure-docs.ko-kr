@@ -20,19 +20,19 @@
 
 # Azure 가상 컴퓨터에 SharePoint 2010 배포
 
-Microsoft SharePoint Server 2010은 조직에서 비즈니스 요구와 목표에 맞춰 적절한 배포 시나리오를 결정할 수 있도록 다양한 배포 유연성을 제공합니다. Microsoft Azure에서 호스트되고 관리되는 Azure 가상 컴퓨터는 완전하고 신뢰할 수 있으며 사용 가능한 인프라를 제공하여 다양한 주문형 응용 프로그램 및 데이터베이스 작업(예: Microsoft SQL Server 및 SharePoint 배포)을 지원합니다.
+Microsoft SharePoint Server 2010은 조직에서 비즈니스 요구와 목표에 맞춰 적절한 배포 시나리오를 결정할 수 있도록 다양한 배포 유연성을 제공합니다. Microsoft Azure에서 호스트되고 관리되는 Azure 가상 컴퓨터는 완전하고 신뢰할 수 있으며 사용 가능한 인프라를 제공하여 다양한 주문형 응용 프로그램 및 데이터베이스 워크로드(예: Microsoft SQL Server 및 SharePoint 배포)을 지원합니다.
 
-Azure 가상 컴퓨터는 여러 작업을 지원하지만 이 문서에서는 SharePoint 배포에 중점을 둡니다. Azure 가상 컴퓨터를 통해 조직은 거의 모든 호스트를 빠르게 프로비전하고 해당 호스트에 액세스하여 SharePoint 인프라를 만들고 관리할 수 있습니다. 또한 SharePoint 가상 컴퓨터의 프로세서, RAM, CPU 범위 및 기타 리소스에 대해 모든 권한을 갖고 관리할 수 있습니다.
+Azure 가상 컴퓨터는 여러 워크로드를 지원하지만 이 문서에서는 SharePoint 배포에 중점을 둡니다. Azure 가상 컴퓨터를 통해 조직은 거의 모든 호스트를 빠르게 프로비전하고 해당 호스트에 액세스하여 SharePoint 인프라를 만들고 관리할 수 있습니다. 또한 SharePoint 가상 컴퓨터의 프로세서, RAM, CPU 범위 및 기타 리소스에 대해 모든 권한을 갖고 관리할 수 있습니다.
 
 Azure 가상 컴퓨터가 하드웨어에 대한 요구를 줄여주므로 조직은 높은 선행 투자 비용과 복잡성 처리에서 적정 규모의 인프라 빌드 및 관리로 관심사를 전환할 수 있습니다. 즉, 며칠 또는 몇 주가 걸리던 기존 배포를 몇 시간 내로 혁신하고 실험해 보고 반복할 수 있습니다.
 
-> [AZURE.NOTE]Azure에서 SharePoint 2013 배포에 대한 자세한 내용은 [Azure 인프라 서비스에서 SharePoint 2013에 대한 계획](https://msdn.microsoft.com/library/dn275958.aspx) 및 [Azure 인프라 서비스에서 호스팅되는 SharePoint 팜](virtual-machines-sharepoint-infrastructure-services.md)을 참조하세요.
+> [AZURE.NOTE]Azure에서 SharePoint 2013 배포에 대한 자세한 내용은 [SharePoint 2013용 Microsoft Azure 아키텍처](https://technet.microsoft.com/library/dn635309.aspx) 및 [Azure 인프라 서비스에서 호스트되는 SharePoint 팜](virtual-machines-sharepoint-infrastructure-services.md)을 참조하세요.
 
 ## Azure 가상 컴퓨터의 SharePoint
 
-SharePoint 2010은 Azure 가상 컴퓨터 배포의 대부분 작업을 유연하게 지원합니다. Azure 가상 컴퓨터는 FIS(인터넷 사이트용 SharePoint Server) 및 개발 시나리오에 최적입니다. 코어 SharePoint 작업도 지원합니다. 클라우드 인프라에서 가상화를 위한 옵션을 활용하는 동안 자체 SharePoint 2010 구현을 관리하고 제어하려는 경우 Azure 가상 컴퓨터가 배포에 가장 적합합니다.
+SharePoint 2010은 Azure 가상 컴퓨터 배포의 대부분 워크로드를 유연하게 지원합니다. Azure 가상 컴퓨터는 FIS(인터넷 사이트용 SharePoint Server) 및 개발 시나리오에 최적입니다. 코어 SharePoint 워크로드도 지원합니다. 클라우드 인프라에서 가상화를 위한 옵션을 활용하는 동안 자체 SharePoint 2010 구현을 관리하고 제어하려는 경우 Azure 가상 컴퓨터가 배포에 가장 적합합니다.
 
-Azure 가상 컴퓨터 제공은 클라우드에서 호스트되고 관리됩니다. 따라서 배포 유연성이 확보되며 하드웨어 조달에 따른 자본 지출이 줄어들어 전반적인 비용이 감소됩니다. 또한 인프라 기민성이 늘어나 SharePoint Server를 며칠 또는 몇 주가 아닌 몇 시간 내에 배포할 수 있습니다. Azure 가상 컴퓨터를 통해 "종량제" 모델을 사용하여 클라우드에서 SharePoint 작업을 배포할 수도 있습니다. SharePoint 작업이 증가함에 따라 인프라를 빠르게 확장할 수 있습니다. 이후 컴퓨팅 요구가 줄어들 경우 더 이상 필요하지 않은 리소스를 반환할 수 있으므로 사용하고 있는 리소스에 대해서만 결제할 수 있습니다.
+Azure 가상 컴퓨터 제공은 클라우드에서 호스트되고 관리됩니다. 따라서 배포 유연성이 확보되며 하드웨어 조달에 따른 자본 지출이 줄어들어 전반적인 비용이 감소됩니다. 또한 인프라 기민성이 늘어나 SharePoint Server를 며칠 또는 몇 주가 아닌 몇 시간 내에 배포할 수 있습니다. Azure 가상 컴퓨터를 통해 "종량제" 모델을 사용하여 클라우드에서 SharePoint 워크로드를 배포할 수도 있습니다. SharePoint 워크로드가 증가함에 따라 인프라를 빠르게 확장할 수 있습니다. 이후 컴퓨팅 요구가 줄어들 경우 더 이상 필요하지 않은 리소스를 반환할 수 있으므로 사용하고 있는 리소스에 대해서만 결제할 수 있습니다.
 
 ### IT 중점의 이동
 
@@ -40,7 +40,7 @@ Azure 가상 컴퓨터 제공은 클라우드에서 호스트되고 관리됩니
 
 ### 신속한 배포
 
-대규모 SharePoint 인프라를 지원하고 배포하는 작업은 비즈니스 요구 사항을 지원하기 위해 빠르게 이동하는 IT 기능을 제한할 수 있습니다. SharePoint 서버 및 팜을 빌드, 테스트 및 준비하고 프로덕션 환경에 배포하는 데 필요한 시간은 조직의 프로세스 및 제약 조건에 따라 몇 주 또는 심지어 몇 개월이 걸릴 수 있습니다. Azure 가상 컴퓨터를 통해 조직은 하드웨어에 대한 자본 지출 없이 SharePoint 작업을 빠르게 배포할 수 있습니다. 이런 방식으로 인프라 기민성을 활용하여 며칠 또는 몇 주가 아니라 몇 시간 내에 배포할 수 있습니다.
+대규모 SharePoint 인프라를 지원하고 배포하는 작업은 비즈니스 요구 사항을 지원하기 위해 빠르게 이동하는 IT 기능을 제한할 수 있습니다. SharePoint 서버 및 팜을 빌드, 테스트 및 준비하고 프로덕션 환경에 배포하는 데 필요한 시간은 조직의 프로세스 및 제약 조건에 따라 몇 주 또는 심지어 몇 개월이 걸릴 수 있습니다. Azure 가상 컴퓨터를 통해 조직은 하드웨어에 대한 자본 지출 없이 SharePoint 워크로드를 빠르게 배포할 수 있습니다. 이런 방식으로 인프라 기민성을 활용하여 며칠 또는 몇 주가 아니라 몇 시간 내에 배포할 수 있습니다.
 
 ### 확장성
 
@@ -48,7 +48,7 @@ Azure 가상 컴퓨터 제공은 클라우드에서 호스트되고 관리됩니
 
 ### 요금제 사용
 
-Azure 가상 컴퓨터는 일반적으로 리소스 사용에 따라 가격이 책정되는 SharePoint 시나리오의 컴퓨팅 기능, 메모리 및 저장소를 제공합니다. 조직은 사용하는 항목에 대해서만 결제하며, 서비스는 SharePoint 인프라를 실행하는 데 필요한 모든 용량을 제공합니다. 가격 책정 및 대금 청구에 대한 자세한 내용을 보려면 [Azure 가격 책정 세부 정보](http://azure.microsoft.com/pricing/)로 이동하십시오. Azure에서 온-프레미스 네트워크로 전송하는 저장소 및 데이터에 대해서는 명목상의 요금만 청구합니다. 그러나 데이터 업로드 요금은 청구하지 않습니다.
+Azure 가상 컴퓨터는 일반적으로 리소스 사용에 따라 가격이 책정되는 SharePoint 시나리오의 컴퓨팅 기능, 메모리 및 저장소를 제공합니다. 조직은 사용하는 항목에 대해서만 결제하며, 서비스는 SharePoint 인프라를 실행하는 데 필요한 모든 용량을 제공합니다. 가격 책정 및 대금 청구에 대한 자세한 내용을 보려면 [Azure 가격 책정 세부 정보](http://azure.microsoft.com/pricing/)로 이동하세요. Azure에서 온-프레미스 네트워크로 전송하는 저장소 및 데이터에 대해서는 명목상의 요금만 청구합니다. 그러나 데이터 업로드 요금은 청구하지 않습니다.
 
 ### 유연성
 
@@ -58,17 +58,21 @@ Azure 가상 컴퓨터는 .NET, Node.js, Java 및 PHP에 대한 공식적인 지
 
 Azure의 이미지 갤러리는 미리 구성된 사용 가능한 가상 컴퓨터의 목록을 제공합니다. 사용자는 SharePoint Server, SQL Server, Windows Server 및 기타 ISO/VHD를 이미지 갤러리에 게시할 수 있습니다. 가상 컴퓨터 만들기를 간소화하기 위해 기본 이미지를 만들어 라이브러리에 게시했습니다. 권한 있는 사용자는 이러한 이미지를 사용하여 원하는 가상 컴퓨터를 생성할 수 있습니다. 자세한 내용을 보려면 [Azure Preview 포털에서 Windows를 실행하는 가상 컴퓨터 만들기](virtual-machines-windows-tutorial.md)로 이동하세요. 그림 1은 Azure 포털에서 가상 컴퓨터를 만드는 기본 단계를 보여 줍니다.
 
+![azure-sharepoint-wp-13](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-2.png)
+
 **그림 1: 가상 컴퓨터를 만드는 단계 개요**
 
 사용자는 Azure 관리 포털에서 Sysprep을 실행한 이미지를 업로드할 수도 있습니다. 자세한 내용은 [Windows Server VHD를 만들어서 Azure에 업로드](virtual-machines-create-upload-vhd-windows-server.md)로 이동하세요. 그림 2는 VM을 만들 이미지를 업로드하는 기본 단계를 보여 줍니다.
 
 또한 Azure 포털에서 사용자는 SysPrep 도구가 이미 실행된 이미지를 업로드할 수 있습니다. 자세한 내용은 [Windows Server VHD를 만들어서 Azure에 업로드](virtual-machines-create-upload-vhd-windows-server.md)로 이동하세요. 그림 2는 가상 컴퓨터를 만들 이미지를 업로드하는 기본 단계를 보여 줍니다.
 
+![azure-sharepoint-wp-13](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-3.png)
+
 **그림 2: 이미지 업로드 단계 개요**
 
 ## Azure에서 SharePoint 2010 배포 
 
-다음 단계에 따라 Azure에서 SharePoint 2010을 배포할 수 있습니다.
+다음 단계에 따라 클래식 배포 모델을 사용하여 Azure에 SharePoint 2010을 배포할 수 있습니다.
 
 1. Azure 구독 계정을 사용하여 [Azure 관리 포털](http://manage.windowsazure.com/)에 로그인합니다. Azure 계정이 없는 경우 [Azure 무료 평가판에 등록합니다](http://azure.microsoft.com/pricing/free-trial/).
 2. 기본 운영 체제로 가상 컴퓨터를 만들려면 Azure 포털에서 **새로 만들기 > 계산 > 가상 컴퓨터 > 갤러리에서**를 클릭합니다.
@@ -82,7 +86,7 @@ Azure의 이미지 갤러리는 미리 구성된 사용 가능한 가상 컴퓨�
 5. 두 번째 **가상 컴퓨터 구성** 대화 상자가 나타납니다. 다음 정보를 지정합니다.
 	- **클라우드 서비스**에서 **새 클라우드 서비스 만들기**를 선택합니다. 이 경우에 클라우드 서비스 DNS 이름을 제공하거나 기존 클라우드 서비스를 선택해야 합니다.
 	- **지역/선호도 그룹/가상 네트워크**에서 가상 이미지를 호스트할 영역을 선택합니다.
-	- **저장소 계정**에서 **자동으로 생성된 저장소 계정 사용**을 클릭하거나 기존 저장소 계정 이름을 선택합니다. 영역당 하나의 저장소 계정만 자동으로 만들어집니다. 이 설정으로 만든 다른 모든 가상 컴퓨터는 이 저장소 계정에 있습니다. 20개의 저장소 계정으로 제한됩니다. 자세한 내용을 보려면 [Azure에서 저장소 계정 만들기](virtual-machines-create-upload-vhd-windows-server.md#step-2-create-a-storage-account-in-azure)로 이동하십시오.
+	- **저장소 계정**에서 **자동으로 생성된 저장소 계정 사용**을 클릭하거나 기존 저장소 계정 이름을 선택합니다. 영역당 하나의 저장소 계정만 자동으로 만들어집니다. 이 설정으로 만든 다른 모든 가상 컴퓨터는 이 저장소 계정에 있습니다. 20개의 저장소 계정으로 제한됩니다. 자세한 내용을 보려면 [Azure에서 저장소 계정 만들기](virtual-machines-create-upload-vhd-windows-server.md#step-2-create-a-storage-account-in-azure)로 이동하세요.
 	- **가용성 집합**에서 **(없음)**을 선택하고 오른쪽 화살표를 클릭합니다.
 6. 세 번째 **가상 컴퓨터 구성** 대화 상자에서 확인 표시를 클릭하여 가상 컴퓨터를 만듭니다.
 
@@ -90,12 +94,12 @@ Azure의 이미지 갤러리는 미리 구성된 사용 가능한 가상 컴퓨�
 
 다음 옵션 중 하나를 사용하여 SQL Server 가상 컴퓨터를 빌드합니다.
 
-- 위의 1~7단계에 따라(3단계는 예외) SQL Server 2012 가상 컴퓨터를 만들어 Windows Server 2008 R2 SP1 이미지 대신 SQL Server 2012 이미지를 사용합니다. 자세한 내용을 보려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-provision-sql-server.md)으로 이동하십시오.
+- 위의 1~7단계에 따라(3단계는 예외) SQL Server 2012 가상 컴퓨터를 만들어 Windows Server 2008 R2 SP1 이미지 대신 SQL Server 2012 이미지를 사용합니다. 자세한 내용을 보려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-provision-sql-server.md)으로 이동하세요.
 	- 이 옵션을 클릭한 경우 설치를 사용자 지정할 수 있도록 프로비전 프로세스에서 SQL Server 2012 설치 파일의 복사본을 C:\\SQLServer\_11.0\_Full 디렉터리 경로에 저장합니다. 예를 들어 SQL Server 2012의 평가판 설치를, 라이선스 키를 사용하여 사용이 허가된 버전으로 변환할 수 있습니다.
 
-- SQL Server 시스템 준비 도구(SysPrep)를 사용하여 기본 운영 체제가 있는 가상 컴퓨터(위의 1 - 7단계)에 SQL Server를 설치합니다. 자세한 내용을 보려면 [SysPrep을 사용하여 SQL Server 2012 설치](http://msdn.microsoft.com/library/ee210664.aspx)로 이동하십시오.
+- SQL Server 시스템 준비 도구(SysPrep)를 사용하여 기본 운영 체제가 있는 가상 컴퓨터(위의 1 - 7단계)에 SQL Server를 설치합니다. 자세한 내용을 보려면 [SysPrep을 사용하여 SQL Server 2012 설치](http://msdn.microsoft.com/library/ee210664.aspx)로 이동하세요.
 
-- 명령 프롬프트를 사용하여 SQL Server를 설치합니다. 자세한 내용을 보려면 [명령 프롬프트에서 SQL Server 2012 설치](http://msdn.microsoft.com/library/ms144259.aspx#SysPrep)로 이동하십시오.
+- 명령 프롬프트를 사용하여 SQL Server를 설치합니다. 자세한 내용을 보려면 [명령 프롬프트에서 SQL Server 2012 설치](http://msdn.microsoft.com/library/ms144259.aspx#SysPrep)로 이동하세요.
 
 - 지원되는 SQL Server 미디어와 라이선스 키를 사용하여 기본 운영 체제가 있는 가상 컴퓨터(위의 1~7단계)에 SQL Server를 설치합니다.
 
@@ -106,18 +110,18 @@ Azure의 이미지 갤러리는 미리 구성된 사용 가능한 가상 컴퓨�
 2단계. 기본 운영 체제가 있는 다른 가상 컴퓨터를 만들어 SharePoint 서버를 프로비전합니다(위의 1 - 6단계). 이 가상 컴퓨터에서 SharePoint 서버를 빌드하려면 다음 옵션 중 하나를 선택합니다.
 
 - SharePoint GUI를 사용하여 프로비전:
-	- SharePoint 팜을 만들어 프로비전하려면 [Microsoft SharePoint Server 팜 만들기](http://technet.microsoft.com/library/ee805948.aspx#CreateConfigure)로 이동하십시오.
-	- 웹 또는 응용 프로그램 서버를 팜에 추가하려면 [팜에 웹 또는 응용 프로그램 서버 추가](http://technet.microsoft.com/library/cc261752.aspx)로 이동합니다.
-	- 데이터베이스 서버를 기존 팜에 추가하려면 [기존 팜에 데이터베이스 서버 추가](http://technet.microsoft.com/library/cc262781)로 이동하십시오.
-	- SharePoint 팜에 SQL Server 2012를 사용하려면 응용 프로그램을 설치하고 서버를 구성하지 않도록 선택한 후 SharePoint Server 2010 서비스 팩 1을 다운로드하여 설치해야 합니다. 자세한 내용을 보려면 [SharePoint Server 2010 서비스 팩 1](http://www.microsoft.com/download/details.aspx?id=26623)로 이동하십시오.
-	- SQL Server BI 기능을 활용하려면 독립 실행형 서버 대신 서버 팜으로 SharePoint Server를 설치하는 것이 좋습니다. 자세한 내용을 보려면 [SQL Server 2012 비즈니스 인텔리전스 기능 설치](http://technet.microsoft.com/library/hh231681.aspx)로 이동하십시오.
+	- SharePoint 팜을 만들어 프로비전하려면 [Microsoft SharePoint 서버 팜 만들기](http://technet.microsoft.com/library/ee805948.aspx#CreateConfigure)로 이동하세요.
+	- 웹 또는 응용 프로그램 서버를 팜에 추가하려면 [팜에 웹 또는 응용 프로그램 서버 추가](http://technet.microsoft.com/library/cc261752.aspx)로 이동하세요.
+	- 데이터베이스 서버를 기존 팜에 추가하려면 [기존 팜에 데이터베이스 서버 추가](http://technet.microsoft.com/library/cc262781)로 이동하세요.
+	- SharePoint 팜에 SQL Server 2012를 사용하려면 응용 프로그램을 설치하고 서버를 구성하지 않도록 선택한 후 SharePoint Server 2010 서비스 팩 1을 다운로드하여 설치해야 합니다. 자세한 내용을 보려면 [SharePoint Server 2010 서비스 팩 1](http://www.microsoft.com/download/details.aspx?id=26623)로 이동하세요.
+	- SQL Server BI 기능을 활용하려면 독립 실행형 서버 대신 서버 팜으로 SharePoint Server를 설치하는 것이 좋습니다. 자세한 내용을 보려면 [SQL Server 2012 비즈니스 인텔리전스 기능 설치](http://technet.microsoft.com/library/hh231681.aspx)로 이동하세요.
 
-- Windows PowerShell을 사용하여 프로비전: Psconfig 명령줄 도구를 대체 인터페이스로 사용하여 SharePoint 2010 제품을 프로비전하는 방법을 제어하는 여러 작업을 수행할 수 있습니다. 자세한 내용을 보려면 [Psconfig 명령줄 참조](http://technet.microsoft.com/library/cc263093.aspx)로 이동하십시오.
+- Windows PowerShell을 사용하여 프로비전: Psconfig 명령줄 도구를 대체 인터페이스로 사용하여 SharePoint 2010 제품을 프로비전하는 방법을 제어하는 여러 작업을 수행할 수 있습니다. 자세한 내용을 보려면 [Psconfig 명령줄 참조](http://technet.microsoft.com/library/cc263093.aspx)로 이동하세요.
 
 3단계. SharePoint를 구성합니다. 각 SharePoint 가상 컴퓨터가 준비 상태에 있으면 다음 옵션 중 하나를 사용하여 각 서버에서 SharePoint Server를 구성합니다.
 
 - GUI에서 SharePoint를 구성합니다.
-- Windows PowerShell을 사용하여 SharePoint를 구성합니다. 자세한 내용을 보려면 [Windows PowerShell을 사용하여 SharePoint Server 2010 설치](http://technet.microsoft.com/library/cc262839.aspx)로 이동하십시오.
+- Windows PowerShell을 사용하여 SharePoint를 구성합니다. 자세한 내용을 보려면 [Windows PowerShell을 사용하여 SharePoint Server 2010 설치](http://technet.microsoft.com/library/cc262839.aspx)로 이동하세요.
 - 또한 Windows PowerShell 스크립트, XML 입력 파일 및 Microsoft Windows 표준 배치 파일로 구성된 CodePlex 프로젝트의 AutoSPInstaller를 사용할 수도 있습니다. AutoSPInstaller는 Windows PowerShell을 기반으로 하여 SharePoint 2010 설치 스크립트용 프레임워크를 제공합니다. 자세한 내용을 보려면 [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/)로 이동합니다.
 
 4단계. 스크립트가 완료되면 가상 컴퓨터 대시보드를 사용하여 가상 컴퓨터에 연결합니다.
@@ -138,24 +142,26 @@ SharePoint 구성을 확인하려면, SharePoint 서버에 로그인한 후 중�
 
 조직들은 더욱 민첩하게 SharePoint 응용 프로그램을 만들고 국내/해외 개발 및 테스트를 위한 SharePoint 환경을 설정하는 방법을 찾고 있습니다. 기본적으로는 SharePoint 응용 프로그램 개발 프로젝트를 설정하는 데 필요한 시간을 단축하고, 자체 테스트 환경을 더 많이 사용하여 비용을 절감하고자 합니다. 예를 들어 조직에서 SharePoint Server에서 주문형 부하 테스트를 수행하고 여러 지역에 더 많은 동시 사용자를 분산한 상태로 UAT(사용자 수용 테스트)를 실행할 수 있습니다. 마찬가지로 국내 팀과 해외 팀의 통합은 현재 대부분의 조직에서 증가하고 있는 중요한 비즈니스 요구입니다.
 
-이 시나리오에서는 조직이 개발 및 테스트 작업에 미리 구성된 SharePoint 팜을 사용하는 방법에 대해 설명합니다. SharePoint 배포 토폴로지는 온-프레미스에서 배포를 가상화한 것과 같은 모양과 느낌입니다. 기존 IT 기술이 1:1 배포를 Azure 가상 컴퓨터 배포로 변환하면서 거의 모든 비용이 자본 지출에서 운영 지출로 전환되는 혜택을 누릴 수 있습니다. 물리적 서버 구매에 비용을 선행 투자할 필요가 없습니다. 조직은 서버 하드웨어에 대한 자본 비용을 없앨 수 있으며, 테스트 및 개발 환경을 위해 SharePoint 팜을 만들거나 설정하거나 확장하는 데 필요한 프로비전 시간을 크게 줄여 유연성을 얻을 수 있습니다. IT 부서에서는 용량을 동적으로 추가하고 제거하여 테스트 및 개발의 변화하는 요구를 지원할 수 있습니다. 또한 SharePoint 프로젝트로 비즈니스 가치를 전달하는 데 더 집중하고 인프라를 관리하는 데에는 덜 집중할 수 있습니다.
+이 시나리오에서는 조직이 개발 및 테스트 워크로드에 미리 구성된 SharePoint 팜을 사용하는 방법에 대해 설명합니다. SharePoint 배포 토폴로지는 온-프레미스에서 배포를 가상화한 것과 같은 모양과 느낌입니다. 기존 IT 기술이 1:1 배포를 Azure 가상 컴퓨터 배포로 변환하면서 거의 모든 비용이 자본 지출에서 운영 지출로 전환되는 혜택을 누릴 수 있습니다. 물리적 서버 구매에 비용을 선행 투자할 필요가 없습니다. 조직은 서버 하드웨어에 대한 자본 비용을 없앨 수 있으며, 테스트 및 개발 환경을 위해 SharePoint 팜을 만들거나 설정하거나 확장하는 데 필요한 프로비전 시간을 크게 줄여 유연성을 얻을 수 있습니다. IT 부서에서는 용량을 동적으로 추가하고 제거하여 테스트 및 개발의 변화하는 요구를 지원할 수 있습니다. 또한 SharePoint 프로젝트로 비즈니스 가치를 전달하는 데 더 집중하고 인프라를 관리하는 데에는 덜 집중할 수 있습니다.
 
 부하 테스트 컴퓨터를 완벽하게 활용하기 위해 조직은 Azure에서 Windows Sever 2008 R2에 대한 운영 체제 지원으로 SharePoint가 가상화된 개발 및 테스트 컴퓨터를 구성할 수 있습니다. 이를 통해 개발 팀은 응용 프로그램을 만들고 테스트할 수 있으며, 코드 변경 없이 온-프레미스 또는 클라우드 프로덕션 환경으로 쉽게 마이그레이션할 수 있습니다. 온-프레미스 및 클라우드에서 동일한 프레임워크 및 도구 집합을 사용할 수 있으므로 분산된 팀에서 동일한 환경에 액세스할 수 있습니다. 또한 사용자는 VPN 직접 연결을 설정하여 온-프레미스 데이터 및 응용 프로그램에 액세스할 수 있습니다.
 
 그림 3은 Azure 가상 컴퓨터의 SharePoint 개발 및 테스트 환경을 보여 줍니다. 이 배포를 빌드하려면 먼저 응용 프로그램을 개발하는 데 사용한 것과 동일한 온-프레미스 SharePoint 개발 및 테스트 환경을 사용합니다. 그런 다음 테스트 및 개발을 위한 Azure 가상 컴퓨터에 응용 프로그램을 업로드하여 배포합니다. 조직에서 응용 프로그램을 다시 온-프레미스로 이동하기로 한 경우 응용 프로그램을 수정하지 않고 이동할 수 있습니다.
 
+![azure-sharepoint-wp-13](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-11.png)
+
 **그림 3: Azure 가상 컴퓨터의 SharePoint 개발 및 테스트 환경**
 
 Azure에서 SharePoint 개발 및 테스트 환경을 구현하려면 다음 단계를 따르세요.
 
-1. 프로비전: 먼저, Azure 가상 네트워크를 사용하여 온-프레미스와 Azure 간의 VPN 연결을 프로비전합니다. (여기에서는 Active Directory를 사용하지 않으므로 VPN 터널이 필요합니다.) 자세한 내용은 [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)로 이동합니다. 그런 다음 Azure 포털을 사용하여 이미지 라이브러리의 기존 이미지를 사용해 새 가상 컴퓨터를 프로비전합니다.
+1. 프로비전: 먼저, Azure 가상 네트워크를 사용하여 온-프레미스와 Azure 간의 VPN 연결을 프로비전합니다. (여기에서는 Active Directory를 사용하지 않으므로 VPN 터널이 필요합니다.) 자세한 내용을 보려면 [가상 네트워크 개요(영문)](../virtual-network/virtual-networks-overview.md)로 이동하세요. 그런 다음 Azure 포털을 사용하여 이미지 라이브러리의 기존 이미지를 사용해 새 가상 컴퓨터를 프로비전합니다.
 	- 온-프레미스 SharePoint 개발 및 테스트 가상 컴퓨터를 Azure 저장소 계정으로 업로드하고, 이미지 라이브러리를 통해 해당 가상 컴퓨터를 참조하여 필요한 환경을 빌드할 수 있습니다.
-	- Windows Server 2008 R2 SP1 이미지 대신 SQL Server 2012 이미지를 사용할 수 있습니다. 인자세한 내용을 보려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-provision-sql-server.md)으로 이동하십시오.
+	- Windows Server 2008 R2 SP1 이미지 대신 SQL Server 2012 이미지를 사용할 수 있습니다. 자세한 내용을 보려면 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-provision-sql-server.md)으로 이동하세요.
 
 2. 설치: 원격 데스크톱 연결을 사용하여 가상 컴퓨터에 SharePoint Server, Visual Studio 및 SQL Server를 설치합니다.
-	- SharePoint 2010 간편 설치 스크립트를 사용하여 SharePoint 개발자 컴퓨터를 빌드합니다. 자세한 내용을 보려면 [SharePoint 2010 간편 설치 스크립트](http://www.microsoft.com/download/details.aspx?id=23415)(영문)로 이동하십시오. Windows PowerShell을 사용합니다. 자세한 내용을 보려면 [Windows PowerShell을 사용하여 SharePoint Server 2010 설치](http://technet.microsoft.com/library/cc262839.aspx)로 이동하십시오. CodePlex 프로젝트의 AutoSPInstaller를 사용합니다. 자세한 내용은 [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/)로 이동합니다.
-	- Visual Studio를 설치합니다. 자세한 내용을 보려면 [Visual Studio 설치](http://msdn.microsoft.com/library/e2h7fzkw.aspx)로 이동하십시오.
-	- SQL Server를 설치합니다. 자세한 내용을 보려면 [SysPrep을 사용하여 SQL Server 설치](http://msdn.microsoft.com/library/ee210664.aspx)로 이동하십시오.
+	- SharePoint 2010 간편 설치 스크립트를 사용하여 SharePoint 개발자 컴퓨터를 빌드합니다. 자세한 내용을 보려면 [SharePoint 2010 간편 설치 스크립트](http://www.microsoft.com/download/details.aspx?id=23415)(영문)로 이동하세요. Windows PowerShell을 사용합니다. 자세한 내용을 보려면 [Windows PowerShell을 사용하여 SharePoint Server 2010 설치](http://technet.microsoft.com/library/cc262839.aspx)로 이동하세요. CodePlex 프로젝트의 AutoSPInstaller를 사용합니다. 자세한 내용은 [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/)로 이동합니다.
+	- Visual Studio를 설치합니다. 자세한 내용을 보려면 [Visual Studio 설치](http://msdn.microsoft.com/library/e2h7fzkw.aspx)로 이동하세요.
+	- SQL Server를 설치합니다. 자세한 내용을 보려면 [SysPrep을 사용하여 SQL Server 설치](http://msdn.microsoft.com/library/ee210664.aspx)로 이동하세요.
 3. 응용 프로그램 및 데이터베이스에 대한 배포 패키지 및 스크립트 개발: 이미지 라이브러리에서 사용 가능한 가상 컴퓨터를 사용하려는 경우 Azure 가상 컴퓨터에서 필요한 온-프레미스 응용 프로그램 및 데이터베이스를 배포할 수 있습니다.
 	- SQL Server Data Tools 및 Visual Studio를 사용하여 기존 온-프레미스 응용 프로그램 및 데이터베이스용 배포 패키지를 만듭니다.
 	- 이러한 패키지를 사용하여 Azure 가상 컴퓨터에서 응용 프로그램 및 데이터베이스를 배포합니다.
@@ -188,7 +194,7 @@ Azure에서 공용 SharePoint 팜을 구현하려면 다음 단계를 따르세�
 
 1. Active Directory 배포: Azure 가상 컴퓨터에서 Active Directory를 배포하기 위한 기본 요구 사항은 온-프레미스 가상 컴퓨터(및 어느 정도까지는 물리적 컴퓨터)에서 배포하는 경우와 유사하지만 동일하지는 않습니다. 차이점, 지침 및 기타 고려 사항에 대한 자세한 내용을 보려면 [Azure 가상 컴퓨터에 Active Directory를 배포하기 위한 지침](http://msdn.microsoft.com/library/jj156090)으로 이동하세요. Azure에서 Active Directory를 배포하려면 다음을 수행합니다.
 	- 가상 컴퓨터를 특정 서브넷에 할당할 수 있는 가상 네트워크를 정의하고 만듭니다.
-	- Azure에서 Azure 포털을 사용하여 새 가상 컴퓨터에서 도메인 컨트롤러를 만들고 배포합니다. 또한 Azure 가상 컴퓨터 및 Azure 가상 네트워크를 사용하는 클라우드에서 Windows PowerShell 스크립트를 참조하여 독립 실행형 도메인을 배포할 수도 있습니다. Azure 가상 네트워크의 가상 컴퓨터에서 새 Active Directory 포리스트를 만드는 방법에 대한 자세한 내용을 보려면 [Azure에서 새 Active Directory 포리스트 설치](active-directory-new-forest-virtual-machine.md)로 이동하십시오.
+	- Azure에서 Azure 포털을 사용하여 새 가상 컴퓨터에서 도메인 컨트롤러를 만들고 배포합니다. 또한 Azure 가상 컴퓨터 및 Azure 가상 네트워크를 사용하는 클라우드에서 Windows PowerShell 스크립트를 참조하여 독립 실행형 도메인을 배포할 수도 있습니다. Azure 가상 네트워크의 가상 컴퓨터에서 새 Active Directory 포리스트를 만드는 방법에 대한 자세한 내용을 보려면 [Azure에 새 Active Directory 포리스트 설치](active-directory-new-forest-virtual-machine.md)로 이동하세요.
 2. 가상 컴퓨터 프로비전: Azure 포털을 사용하여 이미지 라이브러리의 기존 이미지를 사용해 새 가상 컴퓨터를 프로비전합니다.
 3. SharePoint 팜을 배포합니다.
 	- Azure 포털을 사용하여 부하 분산을 구성합니다. 가상 컴퓨터 끝점을 구성하고 기존 끝점에서 트래픽 부하를 분산하는 옵션을 선택한 후 부하 분산된 가상 컴퓨터의 이름을 지정합니다.
@@ -201,9 +207,9 @@ Azure에서 공용 SharePoint 팜을 구현하려면 다음 단계를 따르세�
 
 비즈니스 인텔리전스(BI)는 핵심 내용을 이해하고 타당한 결정을 빠르게 내리는 데 매우 중요합니다. 조직은 온-프레미스 접근 방식에서 전환할 때 기존 BI 응용 프로그램을 클라우드에 배포하는 동안 BI 환경의 변화를 원하지 않습니다. 또한 유지 관리에 많은 시간과 예산을 사용하지 않으면서 BI 응용 프로그램에 대해 모든 권한을 유지한 상태로 지속성 및 가용성이 뛰어난 환경에서 SSAS(SQL Server Analysis Services) 또는 SSRS(SQL Server Reporting Services)의 보고서를 호스트하려고 합니다.
 
-이 시나리오에서는 조직이 Azure 가상 컴퓨터를 사용하여 중요 업무용 BI 응용 프로그램을 호스트하는 방법에 대해 설명합니다. 조직은 Azure 가상 컴퓨터에서 SharePoint 팜을 배포하고 응용 프로그램 서버 가상 컴퓨터의 BI 구성 요소(예: SSRS 또는 Excel Services)를 확장할 수 있습니다. 또한 클라우드에서 리소스를 많이 사용하는 구성 요소를 확장하여 특수한 작업을 훨씬 효율적으로 쉽게 지원할 수 있습니다. 작은 규모의 설치에서 매우 큰 규모의 설치에 이르기까지 SQL Server 인스턴스를 쉽게 확장할 수 있으므로 Azure 가상 컴퓨터의 SQL Server는 뛰어난 성능을 제공합니다. 따라서 즉각적인 작업 요구 사항에 따라 BI 인스턴스를 동적으로 프로비전(확장)하거나 프로비전을 해제(축소)할 수 있는 탄력성을 얻을 수 있습니다.
+이 시나리오에서는 조직이 Azure 가상 컴퓨터를 사용하여 중요 업무용 BI 응용 프로그램을 호스트하는 방법에 대해 설명합니다. 조직은 Azure 가상 컴퓨터에서 SharePoint 팜을 배포하고 응용 프로그램 서버 가상 컴퓨터의 BI 구성 요소(예: SSRS 또는 Excel Services)를 확장할 수 있습니다. 또한 클라우드에서 리소스를 많이 사용하는 구성 요소를 확장하여 특수한 워크로드를 훨씬 효율적으로 쉽게 지원할 수 있습니다. 작은 규모의 설치에서 매우 큰 규모의 설치에 이르기까지 SQL Server 인스턴스를 쉽게 확장할 수 있으므로 Azure 가상 컴퓨터의 SQL Server는 뛰어난 성능을 제공합니다. 따라서 즉각적인 워크로드 요구 사항에 따라 BI 인스턴스를 동적으로 프로비전(확장)하거나 프로비전을 해제(축소)할 수 있는 탄력성을 얻을 수 있습니다.
 
-기존 BI 응용 프로그램을 Azure로 마이그레이션하면 규모를 더욱 쉽게 조정할 수 있습니다. 조직은 SSAS(SQL Server Analysis Services), SSRS(SQL Server Reporting Service) 및 SharePoint Server의 기능을 사용하여 확장 또는 축소되는 강력한 BI 및 보고 응용 프로그램과 대시보드를 만들 수 있습니다. 또한 이러한 응용 프로그램 및 대시보드는 온-프레미스 데이터 및 응용 프로그램과 더욱 안전하게 통합될 수 있습니다. Azure는 ISO 27001 지원으로 데이터 센터 규정을 준수합니다. 자세한 내용을 보려면 [Azure 보안 센터](http://azure.microsoft.com/support/trust-center/compliance/)로 이동합니다.
+기존 BI 응용 프로그램을 Azure로 마이그레이션하면 규모를 더욱 쉽게 조정할 수 있습니다. 조직은 SSAS(SQL Server Analysis Services), SSRS(SQL Server Reporting Service) 및 SharePoint Server의 기능을 사용하여 확장 또는 축소되는 강력한 BI 및 보고 응용 프로그램과 대시보드를 만들 수 있습니다. 또한 이러한 응용 프로그램 및 대시보드는 온-프레미스 데이터 및 응용 프로그램과 더욱 안전하게 통합될 수 있습니다. Azure는 ISO 27001 지원으로 데이터 센터 규정을 준수합니다. 자세한 내용을 보려면 [Azure 보안 센터](http://azure.microsoft.com/support/trust-center/compliance/)로 이동하세요.
 
 BI 구성 요소 배포를 확장하려면 PowerPivot, Power View, Excel Services 또는 PerformancePoint Services와 같은 서비스를 제공하는 새 응용 프로그램 서버를 설치해야 합니다. 또는 추가적인 쿼리 처리를 지원하기 위해 SSAS 또는 SSRS와 같은 SQL Server BI 인스턴스를 기존 팜에 추가해야 합니다. SharePoint 2010 Server 또는 SQL Server를 설치한 새 Azure 가상 컴퓨터로 서버를 추가할 수 있습니다. 그런 다음 해당 서버에서 BI 구성 요소를 설치, 배포 및 구성할 수 있습니다(그림 5).
 
@@ -218,8 +224,8 @@ Azure에서 BI 환경을 확장하려면 다음 단계를 따르세요.
 	- Azure 포털을 사용하여 이미지 라이브러리의 기존 이미지에서 새 가상 컴퓨터를 프로비전합니다. SharePoint Server 또는 SQL Server BI 워크로드 이미지를 이미지 갤러리에 업로드할 수 있으며, 권한 있는 사용자는 해당 BI 구성 요소 가상 컴퓨터를 선택하여 확장된 환경을 빌드할 수 있습니다.
 2. 설치: 
 	- 조직에 SharePoint Server 또는 SQL Server BI 구성 요소의 미리 빌드된 이미지가 없는 경우 원격 데스크톱 연결을 사용하여 SharePoint Server 및 SQL Server를 가상 컴퓨터에 설치합니다.
-	- SharePoint 설치에 대한 자세한 내용은 [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/) 또는 [Windows PowerShell을 사용하여 SharePoint Server 2010 설치](http://technet.microsoft.com/library/cc262839.aspx)로 이동합니다.
-	- SQL Server를 설치하는 방법에 대한 자세한 내용을 보려면 [SysPrep을 사용하여 SQL Server 설치](http://msdn.microsoft.com/library/ee210664.aspx)로 이동하십시오.
+	- SharePoint 설치에 대한 자세한 내용을 보려면 [Windows PowerShell을 사용하여 SharePoint Server 2010 설치](http://technet.microsoft.com/library/cc262839.aspx) 또는 [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/)로 이동하세요.
+	- SQL Server를 설치하는 방법에 대한 자세한 내용을 보려면 [SysPrep을 사용하여 SQL Server 설치](http://msdn.microsoft.com/library/ee210664.aspx)로 이동하세요.
 3. BI 가상 컴퓨터를 추가합니다.
 	- Azure 포털 끝점에서 보안을 구성하고 가상 컴퓨터의 Windows 방화벽에 인바운드 포트를 설정하세요.
 	- 새로 만든 BI 가상 컴퓨터를 기존 SharePoint 또는 SQL Server 팜에 추가합니다.
@@ -247,16 +253,16 @@ Azure에서 완전히 사용자 지정된 SharePoint 웹 사이트를 구현하�
 1. Active Directory 배포: Azure 가상 컴퓨터에서 Active Directory를 배포하기 위한 기본 요구 사항은 온-프레미스 가상 컴퓨터(및 어느 정도까지는 물리적 컴퓨터)에서 배포하는 경우와 유사하지만 동일하지는 않습니다. 차이점, 지침 및 기타 고려 사항에 대한 자세한 내용을 보려면 [Azure 가상 컴퓨터에 Active Directory를 배포하기 위한 지침](http://msdn.microsoft.com/library/jj156090)으로 이동하세요. Azure에서 Active Directory를 배포하려면 다음을 수행합니다.
 	- 가상 컴퓨터를 특정 서브넷에 할당할 수 있는 가상 네트워크를 정의하고 만듭니다.
 	- Azure에서 Azure 포털을 사용하여 새 가상 컴퓨터에서 도메인 컨트롤러를 만들고 배포합니다.
-	- Azure 가상 네트워크의 가상 컴퓨터에서 새 Active Directory 포리스트를 만드는 방법에 대한 자세한 내용을 보려면 [Azure에서 새 Active Directory 포리스트 설치](active-directory-new-forest-virtual-machine)로 이동하십시오.
+	- Azure 가상 네트워크의 가상 컴퓨터에서 새 Active Directory 포리스트를 만드는 방법에 대한 자세한 내용을 보려면 [Azure에 새 Active Directory 포리스트 설치](active-directory-new-forest-virtual-machine)로 이동하세요.
 2. SQL Server 배포:
 	- Azure 포털을 사용하여 이미지 라이브러리의 기존 이미지에서 새 가상 컴퓨터를 프로비전합니다.
-	- 가상 컴퓨터에서 SQL Server를 구성합니다. 자세한 내용을 보려면 [SysPrep을 사용하여 SQL Server 설치](http://msdn.microsoft.com/library/ee210664.aspx)로 이동하십시오.
+	- 가상 컴퓨터에서 SQL Server를 구성합니다. 자세한 내용을 보려면 [SysPrep을 사용하여 SQL Server 설치](http://msdn.microsoft.com/library/ee210664.aspx)로 이동하세요.
 	- 새로 만든 Active Directory 도메인에 가상 컴퓨터를 가입합니다.
 3. 다중 서버 SharePoint 팜 배포:
-	- 가상 네트워크를 만듭니다. 자세한 내용은 [가상 네트워크 개요](http://msdn.microsoft.com/library/jj156007.aspx)로 이동합니다.
+	- 가상 네트워크를 만듭니다. 자세한 내용을 보려면 [가상 네트워크 개요(영문)](http://msdn.microsoft.com/library/jj156007.aspx)로 이동하세요.
 	- SharePoint 가상 컴퓨터를 배포할 때 프로비전하는 동안 로컬 Active Directory 상자의 DNS 주소를 사용할 수 있도록 SharePoint Server에 입력한 서브넷을 기록해 놓아야 합니다.
 	- Azure 포털을 사용하여 가상 컴퓨터를 만듭니다.
-	- 이 가상 컴퓨터에 SharePoint Server를 설치하고 재사용 가능 이미지를 생성합니다. SharePoint Server 설치에 대한 자세한 내용은 [Windows PowerShell을 사용하여 SharePoint Server 2010 설치 및 구성](http://technet.microsoft.com/library/cc262839.aspx) 또는 [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/)로 이동합니다.
+	- 이 가상 컴퓨터에 SharePoint Server를 설치하고 재사용 가능 이미지를 생성합니다. SharePoint Server 설치에 대한 자세한 내용을 보려면 [Windows PowerShell을 사용하여 SharePoint Server 2010 설치 및 구성](http://technet.microsoft.com/library/cc262839.aspx) 또는 [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/)로 이동하세요.
 	- SharePoint 가상 컴퓨터를 구성하여 SharePoint 팜을 만들고 [Join-SharePointFarm](http://technet.microsoft.com/library/ff607979.aspx) 명령을 사용하여 연결합니다.
 	- Azure 포털을 사용하여 부하 분산 구성: 가상 컴퓨터 끝점을 구성하고 기존 끝점에서 트래픽 부하를 분산하는 옵션을 선택한 후 부하 분산된 가상 컴퓨터의 이름을 지정합니다.
 4. System Center를 통해 SharePoint 팜 관리:
@@ -265,13 +271,11 @@ Azure에서 완전히 사용자 지정된 SharePoint 웹 사이트를 구현하�
 
 ## 요약
 
-Azure 가상 컴퓨터는 SharePoint 배포의 완전한 연속성을 제공합니다. Azure 가상 컴퓨터는 다른 Microsoft 응용 프로그램과의 최적의 환경을 제공하도록 완벽하게 지원되며 테스트되었습니다. 따라서 조직은 Azure에서 SharePoint Server를 쉽게 설치하고 배포하여 새 SharePoint 배포를 위한 인프라를 프로비전하거나 기존 인프라를 확장할 수 있습니다. 비즈니스 작업이 증가함에 따라 조직은 SharePoint 인프라를 빠르게 확장할 수 있습니다. 마찬가지로 작업 요구가 감소하면 조직은 주문형 리소스를 계약하여 사용하는 리소스에 대해서만 결제할 수 있습니다. 이 문서에서 논의한 네 개의 SharePoint 기반 시나리오에서 알 수 있듯이 Azure 가상 컴퓨터는 광범위한 비즈니스 요구 사항에 탁월한 인프라를 제공합니다.
+Azure 가상 컴퓨터는 SharePoint 배포의 완전한 연속성을 제공합니다. Azure 가상 컴퓨터는 다른 Microsoft 응용 프로그램과의 최적의 환경을 제공하도록 완벽하게 지원되며 테스트되었습니다. 따라서 조직은 Azure에서 SharePoint Server를 쉽게 설치하고 배포하여 새 SharePoint 배포를 위한 인프라를 프로비전하거나 기존 인프라를 확장할 수 있습니다. 비즈니스 워크로드가 증가함에 따라 조직은 SharePoint 인프라를 빠르게 확장할 수 있습니다. 마찬가지로 워크로드 요구가 감소하면 조직은 주문형 리소스를 계약하여 사용하는 리소스에 대해서만 결제할 수 있습니다. 이 문서에서 논의한 네 개의 SharePoint 기반 시나리오에서 알 수 있듯이 Azure 가상 컴퓨터는 광범위한 비즈니스 요구 사항에 탁월한 인프라를 제공합니다.
 
 Azure 가상 컴퓨터에서 SharePoint Server를 성공적으로 배포하려면 확실한 계획이 필요하며, 특히 중요 팜 아키텍처의 범위 및 배포 옵션을 고려해야 합니다. 이 문서에서 설명한 통찰력과 모범 사례가 SharePoint 배포를 구현하도록 결정하는 데 지침이 될 수 있습니다.
 
 ## 추가 리소스
-
-[Azure 가상 컴퓨터의 SharePoint](http://msdn.microsoft.com/library/dn275955.aspx)
 
 [Azure 인프라 서비스에서 호스트되는 SharePoint 팜](virtual-machines-sharepoint-infrastructure-services.md)
 
@@ -279,4 +283,6 @@ Azure 가상 컴퓨터에서 SharePoint Server를 성공적으로 배포하려�
 
 [Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-<!---HONumber=August15_HO9-->
+[Azure에서 SharePoint Server 2016 IT Preview 테스트](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)
+
+<!---HONumber=Sept15_HO2-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/13/2015"
+   ms.date="09/03/2015"
    ms.author="alanwar"/>
 
 # 신뢰할 수 있는 서비스 아키텍처
@@ -92,4 +92,4 @@ StatelessService 및 StatelessServiceBase 클래스를 사용하여 서비스를
 [신뢰할 수 있는 서비스 구성](../Service-Fabric/service-fabric-reliable-services-configuration.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

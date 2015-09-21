@@ -396,7 +396,7 @@ Azure 검색.NET SDK가 어떻게 `Hotel`와(과) 같은 사용자 정의 클래
 
 ## 다음 단계 ##
 
-- [비디오와 기타 샘플 및 자습서](https://msdn.microsoft.com/library/azure/dn818681.aspx)를 통해 지식을 심화시키십시오.
+- [비디오와 기타 샘플 및 자습서](search-video-demo-tutorial-list.md)를 통해 지식을 심화시키십시오.
 - 이 버전의 Azure 검색 SDK의 특징과 기능에 관한 내용인 [Azure 검색 개요](https://msdn.microsoft.com/library/azure/dn798933.aspx)를 읽어 보십시오.
 - [명명 규칙](https://msdn.microsoft.com/library/azure/dn857353.aspx)을 검토하여 다양한 개체 명명에 대한 규칙에 알아보십시오.
 - Azure 검색에서 [지원되는 데이터 유형](https://msdn.microsoft.com/library/azure/dn798938.aspx)을 검토하십시오.
@@ -625,4 +625,4 @@ Hotel.cs:
     }
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

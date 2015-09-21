@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure RemoteApp 컬렉션 업데이트"
+   pageTitle="Azure RemoteApp 컬렉션 업데이트 | Microsoft Azure"
    description="Azure RemoteApp 컬렉션 업데이트 방법"
    services="remoteapp"
    documentationCenter=""
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="compute"
-   ms.date="08/12/2015"
+   ms.date="09/03/2015"
    ms.author="elizapo"/>
 
 # Azure RemoteApp에서 컬렉션 업데이트
@@ -25,7 +25,7 @@
 그렇다면 컬렉션은 어떻게 업데이트할 수 있을까요? 방법은 상당히 간단합니다.
 
 1. 컬렉션에 사용되는 이미지를 업데이트합니다. 필요한 모든 패치 또는 업데이트를 적용하고 새 이름으로 저장합니다.
-2. 이 이미지를 RemoteApp으로 [업로드](remoteapp-uploadimage.md) 또는 [가져오기](remoteapp-image-on-azurevm)합니다.
+2. 이 이미지를 RemoteApp으로 [업로드](remoteapp-uploadimage.md) 또는 [가져오기](remoteapp-image-on-azurevm.md)합니다.
 3. 이제 컬렉션 페이지에서 **업데이트**를 클릭합니다.
 4. **템플릿 이미지** 목록에서 새 이미지를 선택합니다.
 4. 여기서 신경 쓸 부분이 하나 있습니다. 컬렉션의 앱을 현재 사용하고 있는 사용자를 어떻게 처리할까 하는 부분을 결정해야 합니다. 다음 옵션이 있습니다.
@@ -36,4 +36,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

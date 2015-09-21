@@ -1,7 +1,7 @@
 <properties 
-	pageTitle="Azure Site Recovery: 질문과 대답"
-	description="이 문서는 Azure Site Recovery를 사용하는 방법에 대한 일반적인 질문을 설명합니다."
-	services="site-recovery"
+	pageTitle="Azure Site Recovery: 질문과 대답" 
+	description="이 문서는 Azure Site Recovery를 사용하는 방법에 대한 일반적인 질문을 설명합니다." 
+	services="site-recovery" 
 	documentationCenter=""
 	authors="csilauraa"
 	manager="jwhit"
@@ -11,9 +11,9 @@
 	ms.service="site-recovery"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="na" 
 	ms.workload="storage-backup-recovery"
-	ms.date="08/26/2015"
+	ms.date="08/26/2015" 
 	ms.author="lauraa"/>
 
 
@@ -63,6 +63,17 @@ Azure에 대한 온-프레미스 간 및 온-프레미스 간 복제는 *Hyper-V
 
 ### 오프라인 메커니즘을 사용하여 Azure에 초기 디스크를 시드할 수 있습니까?
 지원되지 않습니다. [Azure 사이트 복구 피드백 포럼 - 오프라인 복제에 대한 지원](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)을 통해 사용자 의견을 보내 주세요.
+
+### 원본으로 hyper-v를 사용하는 경우 복제 트래픽에 할당된 대역폭을 제한할 수 있습니다?
+- 두 온-프레미스 사이트 간에 복제를 수행하는 경우 Windows QoS를 사용할 수 있습니다. 다음은 샘플 스크립트입니다. 
+
+    	New-NetQosPolicy -Name ASRReplication -IPDstPortMatchCondition 8084 -ThrottleRate (2048*1024)
+    	gpupdate.exe /force
+
+- Azure에 복제를 수행하는 경우 다음 샘플 powershell cmdlet을 사용하여 이를 구성할 수 있습니다.
+
+    	Set-OBMachineSetting -WorkDay $mon, $tue -StartWorkHour "9:00:00" -EndWorkHour "18:00:00" -WorkHourBandwidth (512*1024) -NonWorkHourBandwidth (2048*1024)
+
 
 ## 버전 지원
 
@@ -236,4 +247,4 @@ ASR의 배포를 시작하려면:
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

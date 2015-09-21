@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/10/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 사용자 계정을 관리하는 방법
@@ -26,7 +26,7 @@ API 관리에서 개발자는 API 관리 사용을 공개하는 API의 사용자
 
 ![게시자 포털][api-management-management-console]
 
-왼쪽의 **API 관리** 메뉴에서 **개발자**를 클릭한 다음 **사용자 추가**를 클릭합니다.
+왼쪽의 **API 관리** 메뉴에서 **사용자**를 클릭한 다음 **사용자 추가**를 클릭합니다.
 
 ![개발자 만들기][api-management-create-developer]
 
@@ -42,7 +42,7 @@ API 관리에서 개발자는 API 관리 사용을 공개하는 API의 사용자
 
 ## <a name="invite-developer"> </a>개발자 초대
 
-개발자를 초대하려면 왼쪽의 **API 관리** 메뉴에서 **개발자**를 클릭한 다음 **사용자 초대**를 클릭합니다.
+개발자를 초대하려면 왼쪽의 **API 관리** 메뉴에서 **사용자**를 클릭한 다음 **사용자 초대**를 클릭합니다.
 
 ![개발자 초대][api-management-invite-developer]
 
@@ -91,4 +91,4 @@ API 관리에서 개발자는 API 관리 사용을 공개하는 API의 사용자
 [Azure API 관리 시작]: api-management-get-started.md#create-service-instance
 [메일 템플릿 구성]: api-management-howto-configure-notifications.md#email-templates
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

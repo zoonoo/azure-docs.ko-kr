@@ -149,13 +149,13 @@ SAS 키 이름 및 값에 대한 값은 Azure 관리 포털 연결 정보 또는
 
 이제 서비스 버스 토픽의 기본 사항을 익혔으므로 다음 링크를 따라 이동하여 자세한 내용을 확인할 수 있습니다.
 
--   MSDN 참조: [큐, 항목 및 구독][]을 참조하세요.
+-   [큐, 토픽 및 구독][]을 참조하세요.
 -   [SqlFilter.SqlExpression][]에 대한 참조
 
 [Azure Management Portal]: http://manage.windowsazure.com
 [Python Azure 패키지]: https://pypi.python.org/pypi/azure
-[큐, 항목 및 구독]: http://msdn.microsoft.com/library/azure/hh367516.aspx
+[큐, 토픽 및 구독]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

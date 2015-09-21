@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 # Java에서 Blob 저장소를 사용하는 방법
@@ -161,11 +161,11 @@ Blob에 파일을 업로드하려면 컨테이너 참조를 가져온 후 이 �
         e.printStackTrace();
     }
 
-Blob 서비스에는 컨테이너 내 디렉터리의 개념도 있습니다. 따라서 폴더와 유사한 구조로 Blob을 구성할 수 있습니다.
+이름에 대한 경로 정보를 사용하여 Blob 이름을 지정할 수 있습니다. 이렇게 하면 기존 파일 시스템과 같이 구성 및 트래버스할 수 있는 가상 디렉터리 구조를 만듭니다. 디렉터리 구조는 가상만 해당됩니다. Blob 저장소에서 사용할 수 있는 리소스만 컨테이너 및 Blob입니다. 하지만 클라이언트 라이브러리는 가상 디렉터리를 참조하도록 **CloudBlobDirectory** 개체를 제공하며 이러한 방식으로 구성되는 Blob을 사용한 작업 과정을 단순화합니다.
 
 예를 들어 이름이 "photos"인 컨테이너가 있는 경우 이 컨테이너에서 이름이 "rootphoto1", "2010/photo1", "2010/photo2" 및 "2011/photo1"인 Blob을 업로드할 수 있습니다. 이 작업은 "photos" 컨테이너 내에 "2010" 및 "2011" 가상 디렉터리를 만듭니다. "photos" 컨테이너에서 **listBlobs**를 호출하면 최상위 수준에서 포함된 디렉터리 및 Blob을 나타내는 **CloudBlobDirectory** 및 **CloudBlob** 개체가 반환된 컬렉션에 포함됩니다. 이 경우에는 디렉터리 "2010", "2011" 및 사진 "rootphoto1"이 반환됩니다. **instanceof** 연산자를 사용하여 이러한 개체를 구분할 수 있습니다.
 
-선택적으로 **useFlatBlobListing** 매개 변수의 값을 True로 설정하여 **listBlobs** 메서드에 전달할 수도 있습니다. 그러면 모든 Blob이 디렉터리에 상관없이 반환됩니다. 자세한 내용은 [Azure Storage Client SDK 참조]에서 **CloudBlobContainer.listBlobs**를 참조하세요.
+선택적으로 **useFlatBlobListing** 매개 변수의 값을 True로 설정하여 **listBlobs** 메서드에 전달할 수도 있습니다. 그러면 모든 Blob이 디렉터리에 상관없이 반환됩니다. 자세한 내용은 [Azure 저장소 클라이언트 SDK 참조]에서 **CloudBlobContainer.listBlobs**를 참조하세요.
 
 ## Blob 다운로드
 
@@ -267,4 +267,4 @@ Blob을 삭제하려면 Blob 참조를 가져온 후 **deleteIfExists**를 호�
 [Azure 저장소 REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO2-->

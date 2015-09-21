@@ -14,7 +14,7 @@
 	ms.workload="search" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.date="07/08/2015" 
+	ms.date="09/08/2015" 
 	ms.author="heidist"/>
 
 # Microsoft Azure에서 검색 서비스 관리
@@ -36,7 +36,7 @@ Azure 검색은 사용자 지정 검색 응용 프로그램에서 사용할 수 
 
 용량을 계획하고 청구 영향을 이해하려면 다음 링크를 참조하세요.
 
-+	[한도 및 제약 조건](http://msdn.microsoft.com/library/dn798934.aspx)
++	[한도 및 제약 조건](search-limits-quotas-capacity.md)
 +	[가격 정보](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
 등록할 준비가 되면 [포털에 검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
@@ -100,7 +100,7 @@ api-key를 가져오거나 다시 생성하려면 서비스 대시보드를 엽�
 
 서비스 대시보드의 사용 섹션에서 파티션 리소스 수준이 응용 프로그램에 적합한지 신속하게 확인할 수 있습니다.
 
-검색 서비스 API를 사용하여 문서 및 인덱스 수를 가져올 수 있습니다. 가격 계층에 따라 이러한 개수와 연결된 고정 한도가 있습니다. 자세한 내용은 [한도 및 제약 조건](http://msdn.microsoft.com/library/dn798934.aspx)을 참조하세요.
+검색 서비스 API를 사용하여 문서 및 인덱스 수를 가져올 수 있습니다. 가격 계층에 따라 이러한 개수와 연결된 고정 한도가 있습니다. 자세한 내용은 [한도 및 제약 조건](search-limits-quotas-capacity.md)을 참조하세요.
 
 +	[인덱스 통계 가져오기](http://msdn.microsoft.com/library/dn798942.aspx)
 +	[문서 수 계산](http://msdn.microsoft.com/library/dn798924.aspx)
@@ -193,4 +193,4 @@ Azure 검색에서는 역할 기반 액세스 제어에 따라 다음 관리 작
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO2-->

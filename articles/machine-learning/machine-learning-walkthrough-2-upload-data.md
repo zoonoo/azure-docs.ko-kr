@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="2단계: 기계 학습 실험에 데이터 업로드 | Microsoft Azure" 
-	description="예측 솔루션 연습 개발의 2단계: Azure 기계 학습 스튜디오로 저장된 공용 데이터를 업로드합니다." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="2단계: 기계 학습 실험에 데이터 업로드 | Microsoft Azure"
+	description="예측 솔루션 연습 개발의 2단계: Azure 기계 학습 스튜디오로 저장된 공용 데이터를 업로드합니다."
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="tbd"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015" 
 	ms.author="garye"/>
 
 
@@ -26,7 +26,7 @@
 2.	**기존 데이터 업로드**
 3.	[새 실험 만들기](machine-learning-walkthrough-3-create-new-experiment.md)
 4.	[모델 학습 및 평가](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5.	[웹 서비스 게시](machine-learning-walkthrough-5-publish-web-service.md)
+5.	[웹 서비스 배포](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[웹 서비스 액세스](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
@@ -70,7 +70,7 @@ UCI 웹 사이트는 금융 정보, 신용 기록, 취업 상태, 개인 정보�
 
 ![데이터 집합 업로드][1]
 
- 
+
 그러면 데이터가 실험에 사용할 수 있는 데이터 집합 모듈에 업로드됩니다.
 
 다양한 데이터 형식을 실험으로 가져오는 방법에 대한 자세한 내용은 [Azure 기계 학습 스튜디오로 학습 데이터 가져오기](machine-learning-import-data.md)를 참조하세요.
@@ -78,6 +78,5 @@ UCI 웹 사이트는 금융 정보, 신용 기록, 취업 상태, 개인 정보�
 **다음 단계: [새 실험 만들기](machine-learning-walkthrough-3-create-new-experiment.md)**
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

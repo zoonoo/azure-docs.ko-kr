@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="1단계: 기계 학습 작업 영역 만들기 | Microsoft Azure" 
-	description="예측 솔루션 개발 연습 1단계: 새 Azure 기계 학습 스튜디오 작업 영역을 설정하는 방법을 알아봅니다." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="1단계: 기계 학습 작업 영역 만들기 | Microsoft Azure"
+	description="예측 솔루션 개발 연습 1단계: 새 Azure 기계 학습 스튜디오 작업 영역을 설정하는 방법을 알아봅니다."
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun"/>
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/10/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/08/2015"
 	ms.author="garye"/>
 
 
@@ -26,7 +26,7 @@
 2.	[기존 데이터 업로드](machine-learning-walkthrough-2-upload-data.md)
 3.	[새 실험 만들기](machine-learning-walkthrough-3-create-new-experiment.md)
 4.	[모델 학습 및 평가](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5.	[웹 서비스 게시](machine-learning-walkthrough-5-publish-web-service.md)
+5.	[웹 서비스 배포](machine-learning-walkthrough-5-publish-web-service.md)
 6.	[웹 서비스 액세스](machine-learning-walkthrough-6-access-web-service.md)
 
 ----------
@@ -54,6 +54,5 @@
 **다음: [기존 데이터 업로드](machine-learning-walkthrough-2-upload-data.md)**
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

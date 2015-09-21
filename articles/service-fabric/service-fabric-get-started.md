@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="07/24/2015"
+   ms.date="09/10/2015"
    ms.author="seanmck"/>
 
 # 서비스 패브릭 개발 환경 설정
@@ -51,8 +51,9 @@
 
 서비스 패브릭은 로컬 개발 클러스터를 만들고 Visual Studio에서 응용 프로그램을 배포하기 위해 Windows PowerShell 스크립트를 사용합니다. 기본적으로 Windows에서는 이러한 스크립트의 실행을 차단합니다. 따라서 이러한 스크립트를 사용하려면 PowerShell 실행 정책을 수정해야 합니다. 관리자로 PowerShell을 열고 다음 명령을 입력합니다.
 
-    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
-
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
+```
 
 ## 로컬 클러스터 설치 및 시작
 로컬 클러스터는 단일 개발 컴퓨터의 프로덕션 환경에서 최종적으로 사용할 다중 컴퓨터 토폴로지를 나타냅니다. 로컬 클러스터를 설정하려면 다음 단계를 따르세요.
@@ -60,9 +61,17 @@
 
 1. 다른 PowerShell 창을 모두 닫고 관리자로 새 창을 시작합니다.
 
-2. `cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"`가 포함된 클러스터 설정 디렉토리로 이동합니다.
+2. 클러스터 설정 디렉토리로 이동합니다.
 
-3. `.\DevClusterSetup.ps1` 실행
+    ```powershell
+    cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"
+    ```
+    
+3. 실행
+
+    ```powershell
+    .\DevClusterSetup.ps1
+    ```
 
 곧 노드 정보와 함께 클러스터가 성공적으로 만들어졌는지 확인하는 메시지가 표시됩니다. 경우에 따라 서비스 패브릭 호스트 서비스 및 이름 서비스를 시작하는 동안 경고가 표시될 수도 있습니다. 이는 정상적인 것이며 뒤이어 일시적으로 클러스터에 대한 몇 가지 기본 정보가 표시됩니다.
 
@@ -72,7 +81,11 @@
 
 SDK와 함께 제공되는 서비스 패브릭 탐색기 도구를 사용하여, 클러스터가 성공적으로 만들어졌는지 확인할 수 있습니다.
 
-1. `. "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"`를 실행하여 서비스 패브릭 탐색기를 시작합니다.
+1. 다음을 실행하여 서비스 패브릭 탐색기를 시작합니다. 
+
+    ```powershell
+    . "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"
+    ```
 
 2. 왼쪽 위 모퉁이에서 Onebox/로컬 클러스터 노드를 확장합니다.
 
@@ -93,4 +106,4 @@ SDK와 함께 제공되는 서비스 패브릭 탐색기 도구를 사용하여,
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "WebPI 링크"
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO2-->

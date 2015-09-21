@@ -1,44 +1,44 @@
-<properties 
-	pageTitle="기계 학습 웹 서비스에 연결 | Microsoft Azure" 
-	description="C# 또는 Python을 사용하는 경우 권한 부여 키를 사용하여 Azure 기계 학습 웹 서비스에 연결합니다." 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="garyericson" 
-	manager="paulettm" 
+<properties
+	pageTitle="기계 학습 웹 서비스에 연결 | Microsoft Azure"
+	description="C# 또는 Python을 사용하는 경우 권한 부여 키를 사용하여 Azure 기계 학습 웹 서비스에 연결합니다."
+	services="machine-learning"
+	documentationCenter=""
+	authors="garyericson"
+	manager="paulettm"
 	editor="cgronlun" />
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/17/2015" 
+<tags
+	ms.service="machine-learning"
+	ms.workload="data-services"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/09/2015" 
 	ms.author="derrickv" />
 
 
-# Azure 기계 학습 웹 서비스에 연결 
-Azure 기계 학습 개발자 환경은 실시간 또는 일괄 처리 모드로 입력 데이터에서 예측하는 웹 서비스 API입니다. Azure 기계 학습 스튜디오를 사용하여 예측을 만들고 Azure 기계 학습 웹 서비스를 게시할 수 있습니다.
+# Azure 기계 학습 웹 서비스에 연결
+Azure 기계 학습 개발자 환경은 실시간 또는 일괄 처리 모드로 입력 데이터에서 예측하는 웹 서비스 API입니다. Azure 기계 학습 스튜디오를 사용하여 예측을 만들고 Azure 기계 학습 웹 서비스를 배포할 수 있습니다.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-스튜디오를 사용하여 Azure 기계 학습 웹 서비스를 만들고 게시하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+스튜디오를 사용하여 Azure 기계 학습 웹 서비스를 만들고 배포하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
-- [기계 학습 웹 서비스 게시](machine-learning-publish-a-machine-learning-web-service.md)
+- [기계 학습 웹 서비스 배포](machine-learning-publish-a-machine-learning-web-service.md)
 - [기계 학습 스튜디오 시작](http://azure.microsoft.com/documentation/videos/getting-started-with-ml-studio/)
 - [Azure 기계 학습 미리 보기](https://studio.azureml.net/)
 - [기계 학습 설명서 센터](http://azure.microsoft.com/documentation/services/machine-learning/)
 
 ## Azure 기계 학습 웹 서비스 ##
 
-Azure 기계 학습 웹 서비스를 통해 외부 응용 프로그램에서 기계 학습 워크플로 점수 매기기 모델과 실시간으로 통신할 수 있습니다. 기계 학습 웹 서비스 호출은 외부 응용 프로그램에 예측 결과를 반환합니다. 기계 학습 웹 서비스를 호출하려면 예측을 게시할 때 생성된 API 키를 전달합니다. 기계 학습 웹 서비스는 웹 프로그래밍 프로젝트에 일반적으로 사용되는 아키텍처인 REST를 기반으로 합니다.
+Azure 기계 학습 웹 서비스를 통해 외부 응용 프로그램에서 기계 학습 워크플로 점수 매기기 모델과 실시간으로 통신할 수 있습니다. 기계 학습 웹 서비스 호출은 외부 응용 프로그램에 예측 결과를 반환합니다. 기계 학습 웹 서비스를 호출하려면 예측을 배포할 때 생성된 API 키를 전달합니다. 기계 학습 웹 서비스는 웹 프로그래밍 프로젝트에 일반적으로 사용되는 아키텍처인 REST를 기반으로 합니다.
 
 Azure 기계 학습에는 다음 두 가지 유형의 서비스가 있습니다.
 
-- RRS(요청-응답 서비스) - 대기 시간이 짧고, 확장성이 높은 서비스로, 기계 학습 스튜디오에서 생성 및 게시되는 상태 비저장 모델에 대한 인터페이스를 제공합니다.
+- RRS(요청-응답 서비스) - 대기 시간이 짧고, 확장성이 높은 서비스로, 기계 학습 스튜디오에서 생성 및 배포되는 상태 비저장 모델에 대한 인터페이스를 제공합니다.
 - BES(일괄 처리 실행 서비스) – 데이터 레코드의 점수를 일괄적으로 매기는 비동기 서비스입니다.
 
-Azure 기계 학습 웹 서비스에 대한 자세한 내용은 [기계 학습 웹 서비스 게시](machine-learning-publish-a-machine-learning-web-service.md)를 참조하세요.
+Azure 기계 학습 웹 서비스에 대한 자세한 내용은 [기계 학습 웹 서비스 배포](machine-learning-publish-a-machine-learning-web-service.md)를 참조하세요.
 
 ## Azure 기계 학습 권한 부여 키 가져오기 ##
 기계 학습 웹 서비스에서 웹 서비스 API 키를 가져올 수 있습니다. Microsoft Azure 기계 학습 스튜디오 또는 Azure 관리 포털에서 가져올 수 있습니다.
@@ -59,7 +59,7 @@ Azure 기계 학습 웹 서비스에 대한 자세한 내용은 [기계 학습 �
 HTTP 요청 및 응답을 지원하는 모든 프로그래밍 언어를 사용하여 Azure 기계 학습 웹 서비스에 연결할 수 있습니다. Azure 기계 학습 웹 서비스 도움말 페이지에서 C#, Python 및 R로 작성된 예제를 볼 수 있습니다.
 
 ### Azure 기계 학습 웹 서비스 API 도움말 페이지를 보려면 ###
-웹 서비스를 게시하면 Azure 기계 학습 API 도움말 페이지가 생성됩니다. [Azure 기계 학습 연습 - 웹 서비스 게시](machine-learning-walkthrough-5-publish-web-service.md)를 참조하세요.
+웹 서비스를 배포하면 Azure 기계 학습 API 도움말 페이지가 생성됩니다. [Azure 기계 학습 연습 - 웹 서비스 배포](machine-learning-walkthrough-5-publish-web-service.md)를 참조하세요.
 
 
 Microsoft Azure 기계 학습 Studio에서 **Azure 기계 학습 API 도움말 페이지를 보려면**
@@ -89,7 +89,7 @@ Azure 기계 학습 웹 서비스에 연결하려면 ScoreData를 전달하는 *
 
 1. Azure 기계 학습 샘플 컬렉션의 “샘플 1: UCI: Adult 2 클래스 데이터 집합에서 데이터 집합 다운로드” 실험 부분을 게시합니다.
 2. 웹 서비스에서 가져온 키로 apiKey를 할당합니다. Azure 기계 학습 권한 부여 키를 가져오는 방법을 참조하세요.
-3. 요청 URI로 serviceUri를 할당합니다. 
+3. 요청 URI로 serviceUri를 할당합니다.
 
 
 ### Python 샘플 ###
@@ -103,7 +103,4 @@ Azure 기계 학습 웹 서비스에 연결하려면 ScoreData를 전달하는 *
 2. 웹 서비스에서 가져온 키로 apiKey를 할당합니다. Azure 기계 학습 권한 부여 키를 가져오는 방법을 참조하세요.
 3. 요청 URI로 serviceUri를 할당합니다. 요청 URI를 가져오는 방법을 참조하세요.
 
-	
- 
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO2-->

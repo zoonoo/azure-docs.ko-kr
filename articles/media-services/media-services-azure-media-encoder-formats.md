@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure 미디어 인코더 형식 및 코덱"
-	description="이 항목에서는 Azure 미디어 인코더 형식 및 코덱에 대한 개요를 제공합니다."
-	services="media-services"
-	documentationCenter=""
-	authors="juliako"
-	manager="dwrede"
+	pageTitle="Azure 미디어 인코더 형식 및 코덱" 
+	description="이 항목에서는 Azure 미디어 인코더 형식 및 코덱에 대한 개요를 제공합니다." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="media-services"
-	ms.workload="media"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/30/2015"
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/05/2015" 
 	ms.author="juliako"/>
 
 #Azure 미디어 인코더 형식 및 코덱
@@ -21,7 +21,7 @@
 이 문서에는 Azure 미디어 인코더에서 사용할 수 있는 가장 일반적인 입력 및 출력 파일 형식 목록이 포함되어 있습니다.
 
 
-##입력 비디오 파일 형식(컨테이너)
+##입력 파일 형식(컨테이너)
  
 파일 형식(파일 확장명)|지원됨
 ---|---
@@ -33,32 +33,25 @@ Digital camcorder MPEG-2(MOD)(.mod) |예
 DVD TS(전송 스트림) 파일(.ts) |예
 DVD VOB(비디오 개체) 파일(.vob) |예
 Expression Encoder Screen Capture 코덱 파일(.xesc) |예
-MP4(.mp4) |예
+MP4(.mp4, .m4a, .m4v)/ISMV(.isma, .ismv) |예
 MPEG-1 시스템 스트림(.mpeg, .mpg) |예
 MPEG-2 비디오 파일(.m2v) |예
-부드러운 스트리밍 파일 형식(PIFF 1.3)(.ismv) |예
 WMV(Windows Media 비디오)(.wmv) |예
+AC-3(Dolby Digital) 오디오(.ac3)|예
+AIFF(Audio Interchange File Format)(.aiff)|예
+브로드캐스트 웨이브 형식(.bwf)|예
+MP3(MPEG-1 Audio Layer 3)(.mp3)|예
+MPEG-4 오디오 책(.m4b)|예
+WAVE 파일(.wav)|예
+Windows Media 오디오(.wma)|예
 Adobe® Flash® F4V |아니요		
 MXF/SMPTE 377M |제한 
 GXF |아니요		 
 [DVR-MS(Microsoft Digital Video Recording)](https://msdn.microsoft.com/library/windows/desktop/dd692984)|아니요
 Matroska/WebM |아니요
 
+
 일부 압축되지 않은 형식이 지원됩니다. 자세한 내용은 [지원되는 압축되지 않은 비디오 형식](#uncompressed)을 참조하세요.
-
-##입력 오디오 파일 형식
-
-파일 형식(파일 확장명)|지원됨
----|---
-AC-3(Dolby Digital) 오디오(.ac3)|예
-AIFF(Audio Interchange File Format)(.aiff)|예
-브로드캐스트 웨이브 형식(.bwf)|예
-MP3(MPEG-1 Audio Layer 3)(.mp3)|예
-MP4 오디오(.m4A)|예
-MPEG-4 오디오 책(.m4b)|예
-WAVE 파일(.wav)|예
-Windows Media 오디오(.wma)|예
-
 
 ##입력 비디오 코덱
 
@@ -119,7 +112,7 @@ WPF 캔버스 XAML(.xaml)| 예
 ---|---|---
 Windows Media(*.wmv; *.wma)|VC-1(Advanced, Main 및 Simple Profiles)|Windows Media 오디오 Standard, Windows Media 오디오 Professional, Windows Media 오디오 음성, Windows Media 오디오 무손실
 MP4(*.mp4)|H.264(High, Main 및 Baseline Profiles)|AAC-LC, HE-AAC v1, HE-AAC v2, Dolby Digital Plus
-부드러운 스트리밍 파일 형식(PIFF 1.1)(*.ismv; *.isma)|VC-1(Advanced Profile)<p>H.264(High, Main 및 Baseline Profiles) |Windows Media 오디오 Standard, Windows Media 오디오 Professional<p><p>AAC-LC, HE-AAC v1, HE-AAC v2
+부드러운 스트리밍 파일 형식(PIFF 1.1)(*.ismv; *.isma)|VC-1(Advanced Profile)<p>H.264(High, Main, and Baseline Profiles) |Windows Media 오디오 Standard, Windows Media 오디오 Professional<p><p>AAC-LC, HE-AAC v1, HE-AAC v2
 
 미디어 서비스에서 지원되는 추가 코덱 및 파일은 [Windows DirectShow 필터](https://msdn.microsoft.com/library/windows/desktop/dd375464.aspx)를 참조하세요.
 
@@ -141,4 +134,12 @@ YUV 211 형식 데이터|압축된 YUV 형식입니다. 두 번째 픽셀마다 
 Cirrus Logic Jr YUV 411 형식|Y, U 및 V 샘플당 비트 수가 8보다 작은 Cirrus Logic Jr YUV 411 형식입니다. 픽셀마다 Y 샘플이 있고 각 줄의 가로 방향으로 네 번째 픽셀마다 U 및 V 샘플이 있으며 모든 세로 줄이 샘플링됩니다.
 Indeo 생성 YVU9 형식|마지막 프레임과의 차이점에 대한 추가 정보가 있는 Indeo 생성 YVU9 형식입니다. 픽셀당 9.5비트이지만 9로 보고됩니다.
 
-<!---HONumber=September15_HO1-->
+
+##미디어 서비스 학습 경로
+
+여기서 AMS 학습 경로를 볼 수 있습니다.
+
+- [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
+- [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+<!---HONumber=Sept15_HO2-->
