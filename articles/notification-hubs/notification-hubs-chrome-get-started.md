@@ -374,7 +374,7 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
 	- *registerWithGCM*은 GCM에 대한 *chrome.gcm.register* 호출을 수행하여 이 Chrome 앱 인스턴스를 등록하는 첫 번째 단추 클릭 처리기입니다.
 	- *registerCallback*은 위의 GCM 등록 호출이 반환되면 호출되는 콜백 함수입니다.
 	- *registerWithNH*은 알림 허브에 등록하는 두 번째 단추 클릭 처리기입니다. 사용자가 지정한 *hubName* 및 *connectionString*을 가져와 알림 허브 등록 REST API 호출을 만듭니다.
-	- *splitConnectionString* 및 *generateSaSToken*은 모든 REST API 호출에서 전송해야 하는 SaS 토큰 만들기의 JavaScript 구현입니다. 이 작업에 대한 자세한 내용은 http://msdn.microsoft.com/library/dn495627.aspx를 참조하십시오.
+	- *splitConnectionString* 및 *generateSaSToken*은 모든 REST API 호출에서 전송해야 하는 SaS 토큰 만들기의 JavaScript 구현입니다. 자세한 내용은 다음을 참조하세요 [일반적인 개념](http://msdn.microsoft.com/library/dn495627.aspx). 
 	- *sendNHRegistrationRequest*는 HTTP REST 호출을 수행하는 함수입니다.
 	- *registrationPayload*는 등록 xml 페이로드를 정의합니다. 여기에 대한 자세한 내용은 [등록 NH REST API 만들기]를 참조하십시오. 여기서는 GCM에서 받은 정보를 사용하여 등록 ID를 업데이트합니다.
 	- *client*는 HTTP POST 요청을 수행하는 데 사용하는 *XMLHttpRequest*의 인스턴스입니다. 여기서는 sasToken을 사용하여 *Authorization* 헤더를 업데이트합니다. 이 호출이 정상적으로 완료되면 이 Chrome 앱 인스턴스가 Azure 알림 허브에 등록됩니다.
@@ -408,7 +408,8 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
 
 이 자습서에서는 .NET 콘솔 응용 프로그램을 사용하여 알림을 보냅니다. 그러나 <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 인터페이스</a>를 통해 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다.
 
-알림 허브와 통합된 Azure 모바일 서비스 백 엔드에서 알림을 보내는 방법에 대한 예제는 "모바일 서비스에서 푸시 알림 시작"([.NET backend](../mobile-services-javascript-backend-android-get-started-push.md) | [JavaScript backend](../mobile-services-javascript-backend-android-get-started-push.md))을 참조하세요. REST API를 사용하여 알림을 보내는 방법에 대한 예제는 Java/PHP/Python에서 알림 허브를 사용하는 방법([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md) | [Python](notification-hubs-python-backend-how-to.md))을 참조하십시오.
+알림 허브와 통합된 Azure 모바일 서비스 백 엔드에서 알림을 보내는 방법에 대한 예제는 "모바일 서비스에서 푸시 알림 시작"([.NET backend](../mobile-services-javascript-backend-android-get-started-push.md) | [JavaScript backend](../mobile-services-javascript-backend-android-get-started-push.md))을 참조하세요.  
+REST API를 사용하여 알림을 보내는 방법에 대한 예제는 **Java/PHP/Python에서 알림 허브를 사용하는 방법** ([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md) | [Python](notification-hubs-python-backend-how-to.md))을 참조하십시오.
 
 1. Visual Studio의 **파일** 메뉴에서 **새로 만들기**와 **프로젝트**를 차례로 선택합니다. **Visual C#**에서 **Windows** 및 **콘솔 응용 프로그램**을 클릭하고 **확인**을 클릭합니다. 그러면 새 콘솔 응용 프로그램 프로젝트가 만들어집니다.
 
@@ -493,4 +494,4 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
 [Azure 알림 허브 알릴 사용자]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Azure 알림 허브 뉴스 속보]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->
