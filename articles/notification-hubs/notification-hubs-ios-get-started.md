@@ -54,7 +54,7 @@
 
 	내보낸 인증서의 파일 이름과 위치를 적어둡니다.
 
-	>[AZURE.NOTE]이 자습서에서는 QuickStart.p12 파일을 만듭니다. Your file name and location might be different.
+	>[AZURE.NOTE]이 자습서에서는 QuickStart.p12 파일을 만듭니다. 파일 이름과 위치는 다를 수 있습니다.
 
 2. [Azure 포털]에 로그인한 다음 화면 아래쪽에서 **+새로 만들기**를 클릭합니다.
 
@@ -508,4 +508,4 @@ iOS에서 푸시 알림을 테스트하려면 장치에 앱을 배포해야 합�
 
 [로컬 및 푸시 알림 프로그래밍 가이드]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->

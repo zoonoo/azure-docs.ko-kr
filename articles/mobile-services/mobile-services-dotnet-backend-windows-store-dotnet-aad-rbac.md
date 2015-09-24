@@ -384,6 +384,7 @@ RBAC(역할 기반 액세스 제어)는 사용자가 저장할 수 있는 역할
 [앱에 인증 추가]: mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users.md
 [How to Register with the Azure Active Directory]: mobile-services-how-to-register-active-directory-authentication.md
 [Azure Management Portal]: https://manage.windowsazure.com/
+[Azure 관리 포털]: https://manage.windowsazure.com/
 [Directory Sync Scenarios]: http://msdn.microsoft.com/library/azure/jj573653.aspx
 [Store Server Scripts]: mobile-services-store-scripts-source-control.md
 [Azure Active Directory 로그인 사용 등록]: mobile-services-how-to-register-active-directory-authentication.md
@@ -392,4 +393,4 @@ RBAC(역할 기반 액세스 제어)는 사용자가 저장할 수 있는 역할
 [Azure Active Directory 그래프 정보 액세스]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [.NET용 ADAL]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->

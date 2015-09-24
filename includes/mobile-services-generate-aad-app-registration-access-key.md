@@ -1,4 +1,4 @@
-1. **Azure 관리 포털**의 디렉터리 페이지에서 [응용 프로그램](https://manage.windowsazure.com/) 탭을 클릭합니다.
+1. [Azure 관리 포털](https://manage.windowsazure.com/) 의 디렉터리 페이지에서 **응용 프로그램** 탭을 클릭합니다.
   
 2. 통합된 응용 프로그램 등록을 클릭합니다.
 
@@ -32,4 +32,4 @@
     ![](./media/mobile-services-generate-aad-app-registration-access-key/aad-app-settings.png)
   
 
-<!---HONumber=August15_HO6-->
+<!----HONumber=August15_HO6-->

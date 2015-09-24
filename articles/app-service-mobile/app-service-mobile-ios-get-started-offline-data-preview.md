@@ -231,7 +231,7 @@ Azure 모바일 앱에 대한 일반적인 CRUD 작업은 앱이 계속 연결�
 
 * [Azure 모바일 앱에서 오프라인 데이터 동기화]
 
-* [클라우드 표지: Azure 모바일 서비스에서 오프라인 동기화] (참고: 비디오는 모바일 서비스에 있지만 Azure 모바일 앱에서 비슷한 방식으로 오프라인 동기화가 작동합니다.)
+* [클라우드 표지: Azure 모바일 서비스에서 오프라인 동기화] \(참고: 비디오는 모바일 서비스에 있지만 Azure 모바일 앱에서 비슷한 방식으로 오프라인 동기화가 작동합니다.)
 
 <!-- URLs. -->
 
@@ -248,4 +248,4 @@ Azure 모바일 앱에 대한 일반적인 CRUD 작업은 앱이 계속 연결�
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
  
 
-<!---HONumber=Sept15_HO2-->
+<!----HONumber=Sept15_HO2-->
