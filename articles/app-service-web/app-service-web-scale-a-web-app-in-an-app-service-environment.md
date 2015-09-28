@@ -5,20 +5,22 @@
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/27/2015" 
+	ms.date="09/16/2015" 
 	ms.author="ccompy"/>
 
 # 앱 서비스 환경에서 웹앱 확장 #
 
 크게 보면 앱 서비스 환경은 기본적으로 Azure 앱 서비스를 VNET에 개인적으로 배포한 것이며, 구독을 통해서만 관리할 수 있습니다. 앱 서비스 환경은 VNET에 있기 때문에 새로운 네트워킹 기능을 제공하며, 일반적으로 Azure 앱 서비스 환경에서 제공되는 것보다 규모를 확장할 수 있습니다. ASE(앱 서비스 환경)에 대한 자세한 내용은 [앱 서비스 환경 정의][WhatisASE]를 참조하세요. 앱 서비스 환경을 만드는 방법 또는 앱 서비스 환경에서 웹앱을 만드는 방법에 대한 자세한 내용은 [앱 서비스 환경을 만드는 방법][HowtoCreateASE] 및 [앱 서비스 환경에서 웹앱을 만드는 방법][CreateWebappinASE]을 참조하세요.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 일반적으로 웹앱의 확장 특성을 변경할 때는 앱 서비스 계획 수준에서 변경합니다. 앱 서비스 계획을 확장하는 방법 또는 앱 서비스 환경 외부의 앱 서비스 계획에 대한 자세한 내용은 [Azure 앱 서비스에서 웹앱 확장][ScaleWebapp] 및 [앱 서비스 계획 세부 개요][Appserviceplans]를 참조하세요.
 
@@ -84,4 +86,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

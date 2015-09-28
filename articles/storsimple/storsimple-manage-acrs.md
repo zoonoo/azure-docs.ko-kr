@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple에서 액세스 제어 레코드 관리 | Microsoft Azure"
-	description="ACR(액세스 제어 레코드)을 사용하여 어떤 호스트가 StorSimple 장치의 볼륨에 연결할 수 있는지 지정하는 방법에 대해 설명합니다."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="ACR(액세스 제어 레코드)을 사용하여 어떤 호스트가 StorSimple 장치의 볼륨에 연결할 수 있는지 지정하는 방법에 대해 설명합니다."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # StorSimple 관리자 서비스를 사용하여 액세스 제어 레코드 관리
 
@@ -90,8 +90,8 @@ ACR을 편집하려면 다음 단계를 수행합니다.
 
 ## 다음 단계
 
-[StorSimple 볼륨 관리](storsimple-manage-volumes.md)에 대해 자세히 알아보세요.
-
+- [StorSimple 볼륨 관리](storsimple-manage-volumes.md)에 대해 자세히 알아봅니다.
+- [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

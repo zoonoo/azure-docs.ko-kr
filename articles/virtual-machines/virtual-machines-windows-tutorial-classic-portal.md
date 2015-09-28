@@ -3,7 +3,7 @@
 	description="Azure 포털에서 Windows 가상 컴퓨터만들기"
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/11/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Azure 포털에서 Windows를 실행하는 가상 컴퓨터 만들기
 
@@ -52,8 +52,4 @@
 
 - 데이터를 저장할 디스크를 연결합니다. 빈 디스크와 데이터가 포함된 디스크를 모두 연결할 수 있습니다. 자세한 내용은 [데이터 디스크 연결 자습서](storage-windows-attach-disk.md)를 참조하세요.
 
-## 추가 리소스
-
-가상 컴퓨터에 대해 구성할 수 있는 항목 및 이를 수행할 수 있는 경우에 대한 자세한 내용은 [Azure VM 구성 설정 정보](http://msdn.microsoft.com/library/azure/dn763935.aspx)를 참조하세요.
-
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

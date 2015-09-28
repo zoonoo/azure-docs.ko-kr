@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/05/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 
@@ -108,7 +108,8 @@
 
 ## 다음 단계
 
-[StorSimple 스냅숏 관리자를 사용하여 백업 카탈로그 관리](storsimple-snapshot-manager-manage-backup-catalog.md)
+- [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
+- [StorSimple 스냅숏 관리자를 사용하여 백업 카탈로그를 관리](storsimple-snapshot-manager-manage-backup-catalog.md)하는 방법을 알아봅니다.
 
 
 
@@ -129,4 +130,4 @@
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

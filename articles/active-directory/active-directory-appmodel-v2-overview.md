@@ -1,5 +1,5 @@
 <properties
-	pageTitle="앱 모델 v2.0 | Microsoft Azure"
+	pageTitle="앱 모델 v2.0 개요 | Microsoft Azure"
 	description="Microsoft 계정 및 Azure Active Directory 로그인을 사용하는 앱 구축을 소개합니다."
 	services="active-directory"
 	documentationCenter=""
@@ -13,12 +13,12 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # 앱 모델 v2.0 미리 보기: 단일 앱에서 Microsoft 계정 및 Azure AD 사용자 로그인
 
-> [AZURE.NOTE]이 정보는 v2.0 앱 모델 공용 미리 보기에 적용 됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하십시오.
+> [AZURE.NOTE]이 정보는 v2.0 앱 모델 공용 미리 보기에 적용 됩니다. 일반 공급 Azure AD 서비스와 통합하는 방법에 대한 지침은 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
 
 과거에 Microsoft 계정과 Azure Active Directory를 지원하려는 앱 개발자는 별도의 두 시스템을 통합해야 했습니다. v2.0 앱 모델을 사용하면 이제 두 유형의 계정으로 사용자가 로그인할 수 있습니다. 간단한 통합을 사용하면 개인 및 작업/학교 계정으로 범위가 수 백만 명의 사용자인 대상에 도달할 수 있습니다.
 
@@ -46,7 +46,7 @@ v2.0 앱 모델을 사용하여 두가지 방법으로 앱을 실행할 수 있�
 이러한 링크는 플랫폼을 자세히 탐색하는 데 유용합니다.
 
 - [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) 또는 [adal](http://stackoverflow.com/questions/tagged/adal) 태그를 사용하여 스택 오버플로에 대한 도움말을 봅니다.
-- [사용자 음성](http://feedback.azure.com/forums/169401-azure-active-directory)을 사용하여 미리 보기에 대한 의견을 보내주십시오. 사용자의 의견을 듣고 싶습니다! 게시물의 제목에 "AppModelv2:" 구문을 사용해야 찾을 수 있습니다.
+- [사용자 음성](http://feedback.azure.com/forums/169401-azure-active-directory)을 사용하여 미리 보기에 대한 의견을 보내주세요. 사용자의 의견을 듣고 싶습니다! 게시물의 제목에 "AppModelv2:" 구문을 사용해야 찾을 수 있습니다.
 - [앱 모델 v2.0 프로토콜 참조](active-directory-v2-protocols.md)
 - [앱 모델 v2.0 토큰 참조](active-directory-v2-tokens.md)
 - [Office 365 REST API 참조](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
@@ -57,4 +57,4 @@ v2.0 앱 모델을 사용하여 두가지 방법으로 앱을 실행할 수 있�
 - [v2 Endpoint FAQs](active-directory-v2-faq.md)
 -->
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

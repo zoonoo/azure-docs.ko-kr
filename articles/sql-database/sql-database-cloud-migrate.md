@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure SQL 데이터베이스로 데이터베이스 마이그레이션"
-	description="Microsoft Azure SQL 데이터베이스, 데이터베이스 배포, 데이터베이스 마이그레이션, 데이터베이스 가져오기, 데이터베이스 내보내기, 마이그레이션 마법사"
-	services="sql-database"
-	documentationCenter=""
-	authors="carlrabeler"
-	manager="jeffreyg"
-	editor=""/>
+   description="Microsoft Azure SQL 데이터베이스, 데이터베이스 배포, 데이터베이스 마이그레이션, 데이터베이스 가져오기, 데이터베이스 내보내기, 마이그레이션 마법사"
+   services="sql-database"
+   documentationCenter=""
+   authors="carlrabeler"
+   manager="jeffreyg"
+   editor=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-management"
-	ms.date="09/02/2015"
-	ms.author="carlrab"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-management"
+   ms.date="09/02/2015"
+   ms.author="carlrab"/>
 
 # Azure SQL 데이터베이스로 데이터베이스 마이그레이션
 
@@ -49,7 +49,7 @@ SQL Server Management Studio는 호환 가능한 온-프레미스 SQL Server 데
 ## 마이그레이션 도구
 사용되는 도구에는 SSMS(SQL Server Management Studio), Visual Studio의 SQL Server 도구(VS, SSDT), 및 Azure 포털이 포함됩니다.
 
-> 이전 버전의 도구는 Azure SQL 데이터베이스 V12와 호환되지 않으므로 클라이언트 도구를 최신 버전으로 설치해야 합니다.
+> [AZURE.IMPORTANT]이전 버전의 도구는 Azure SQL 데이터베이스 V12와 호환되지 않으므로 클라이언트 도구를 최신 버전으로 설치해야 합니다.
 
 ### SSMS(SQL Server Management Studio)
 SSMS를 사용하여 호환되는 데이터베이스를 Azure SQL 데이터베이스로 직접 배포하거나 데이터베이스의 논리적 백업을 BACPAC로 내보낼 수 있습니다. 그런 다음 SSMS를 사용하여 가져와 새로운 Azure SQL 데이터베이스를 만들 수 있습니다.
@@ -72,4 +72,4 @@ Visual Studio 2013 업데이트 4 이상이 포함된 [최신 Visual Studio용 S
 | 오류가 있는 경우 출력 변경을 위한 프로비전이 없습니다. 원본 스키마가 호환되어야 합니다. | 사용 가능한 Visual Studio용 SSDT의 전체 기능. 스키마는 오프라인으로 변경됩니다. | Azure에서 응용 프로그램 유효성 검사가 수행됩니다. 스키마 변경 없이 마이그레이션되는 경우 최소화해야 합니다. | 데이터베이스를 Azure에 배포하기 전에 SQL Server에서 응용 프로그램 유효성 검사를 수행할 수 있습니다. |
 | 간단히 하나 또는 두 단계의 프로세스로 쉽게 구성할 수 있습니다. | 더 복잡한 여러 단계의 프로세스(스키마만 배포하는 경우에 더 간단)입니다. |
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

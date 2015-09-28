@@ -1,21 +1,21 @@
 <properties
  pageTitle="가상 컴퓨터 크기"
-	description="가상 컴퓨터 및 해당 용량에 대한 다양한 크기를 나열합니다."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="KBDAzure"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager,azure-service-management"/>
+ description="가상 컴퓨터 및 해당 용량에 대한 다양한 크기를 나열합니다."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="cynthn"
+ manager="timlt"
+ editor=""
+ tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
-	ms.author="kathydav"/>
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-multiple"
+ ms.workload="infrastructure-services"
+ ms.date="09/02/2015"
+ ms.author="cynthn"/>
 
 # 가상 컴퓨터의 크기
 
@@ -146,4 +146,4 @@ Azure 가상 컴퓨터 및 클라우드 서비스는 Azure에서 제공하는 �
 
 [A8, A9, A10 및 A11 계산 집약적인 인스턴스 정보](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

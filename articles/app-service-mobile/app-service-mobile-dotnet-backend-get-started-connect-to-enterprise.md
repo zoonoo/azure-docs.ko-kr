@@ -26,6 +26,8 @@
 * 활성 [SharePoint Online] 구독
 * [Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증] 자습서 완료. SharePoint 구독으로 제공된 테넌트를 사용해야 합니다.
 
+[AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)]
+
 ## <a name="configure-permissions"></a>SharePoint에 대한 위임된 액세스를 위한 응용 프로그램 구성
 기본적으로 AAD로부터 받은 토큰은 권한이 제한되어 있습니다. 타사 리소스 또는 SharePoint Online과 같은 SaaS 응용 프로그램에 액세스하려면 이를 명시적으로 허용해야 합니다.
 
@@ -51,7 +53,7 @@ SharePoint를 호출하려면 모바일 앱이 연결할 끝점을 지정해야 
 
 * SP\_ClientSecret를 이전에 얻은 클라이언트 암호 값으로 설정합니다.
 
-* SP\_SharePointURL을 SharePoint 사이트에 대한 URL로 설정합니다. 형식은 `https://contoso-my.sharepoint.com`이어야 합니다.
+* SP\_SharePointURL을 SharePoint 사이트에 대한 URL로 설정합니다. `https://contoso-my.sharepoint.com` 형식이어야 합니다.
 
 이러한 값은 ApiServices.Settings를 사용하여 코드에서 다시 가져올 수 있습니다.
 
@@ -186,4 +188,4 @@ Word 문서를 만들려면 OpenXML NuGet 패키지를 사용합니다. NuGet �
 [Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [모바일 앱 .NET 백 엔드 앱 서비스 확장]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

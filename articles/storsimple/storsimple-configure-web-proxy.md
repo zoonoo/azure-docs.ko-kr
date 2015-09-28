@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 장치에 대한 웹 프록시 설정 | Microsoft Azure"
-	description="StorSimple용 Windows PowerShell을 사용하여 StorSimple 장치에 대한 웹 프록시 설정을 구성하는 방법을 알아봅니다."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="StorSimple용 Windows PowerShell을 사용하여 StorSimple 장치에 대한 웹 프록시 설정을 구성하는 방법을 알아봅니다."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # StorSimple 장치에 대한 웹 프록시 구성
 
@@ -146,6 +146,9 @@
 > - 웹 프록시 설정에 관련된 오류는 StorSimple 관리자 서비스의 관리 포털에 나타나지 않습니다. 구성이 완료된 후에 웹 프록시에 문제가 있다면 관리 포털에서 장치 상태가 **오프라인**으로 변경됩니다. |
 
 ## 다음 단계
-장치를 배포하거나 웹 프록시 설정을 구성하는 동안 문제가 발생하면 [StorSimple 장치 배포 문제 해결](storsimple-troubleshoot-deployment.md)을 참조하세요.
 
-<!---HONumber=September15_HO1-->
+- 장치를 배포하거나 웹 프록시 설정을 구성하는 동안 문제가 발생하면 [StorSimple 장치 배포 문제 해결](storsimple-troubleshoot-deployment.md)을 참조하세요.
+
+- StorSimple Manager 서비스를 사용하는 방법을 알아보려면 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md)로 이동하세요.
+
+<!---HONumber=Sept15_HO3-->

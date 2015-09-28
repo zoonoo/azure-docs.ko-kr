@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="기계 학습 권장 사항 API 설명서 | Microsoft Azure"
-	description="Microsoft Azure 마켓플레이스에서 사용할 수 있는 권장 사항 엔진에 대한 Azure 기계 학습 권장 사항 API 설명서입니다."
-	services="machine-learning"
-	documentationCenter=""
-	authors="AharonGumnik"
-	manager="paulettm"
+	pageTitle="기계 학습 권장 사항 API 설명서 | Microsoft Azure" 
+	description="Microsoft Azure 마켓플레이스에서 사용할 수 있는 권장 사항 엔진에 대한 Azure 기계 학습 권장 사항 API 설명서입니다." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="AharonGumnik" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/14/2015" 
 	ms.author="LuisCa"/>
 
 #Azure 기계 학습 권장 사항 API 설명서
@@ -352,7 +352,7 @@ HTTP 상태 코드: 200
 | MaxUserLength | 사용자의 최대 고유 항목 수 |
 | MinItemLength | 항목의 최대 고유 사용자 수 |
 | MinUserLength | 사용자의 최소 고유 항목 수 |
-| RawNumberOfItems | 모델링할 수 없는 항목을 정리하기 전의 항목 수 |
+| RawNumberOfItems | 사용 파일에 있는 항목 수 |
 | RawNumberOfUsers | 정리하기 전의 사용 포인트 수 |
 | RawNumberOfRecords | 정리하기 전의 사용 포인트 수 |
 | SamplingNumberOfItems | 해당 없음 |
@@ -848,6 +848,7 @@ OData XML
 | HTTP 메서드 | URI |
 |:--------|:--------|
 |POST |`<rootURI>/AddRule?apiVersion=%271.0%27`|
+|HEADER |`"Content-Type", "text/xml"`|
 
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
@@ -945,11 +946,12 @@ HTTP 상태 코드: 200
 | HTTP 메서드 | URI |
 |:--------|:--------|
 |POST |`<rootURI>/ImportCatalogFile?modelId=%27<modelId>%27&filename=%27<fileName>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/ImportCatalogFile?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&filename=%27catalog10_small.txt%27&apiVersion=%271.0%27`|
+|HEADER |`"Content-Type", "text/xml"`|
 
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
-| filename | 카탈로그의 텍스트 ID입니다.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)이 허용됩니다.<br>최대 길이: 50 | | apiVersion | 1.0 | ||| | 요청 본문 | 예제(기능 포함):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,책,책 설명,저자=Richard Wright,발행자=Harper Flamingo Canada,년도=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: 소설(Byzantium Book),책,,저자=Nick Bantock,발행자=Harpercollins,년도=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,책,,저자=Timothy Findley, 발행자=HarperFlamingo Canada, 년도=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,책,책 설명,저자=Magnus Mills, 발행자=Arcade Publishing, 년도=1998</pre> |
+| filename | 카탈로그의 텍스트 ID입니다.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(\_)만 사용할 수 있습니다.<br>최대 길이: 50 | | apiVersion | 1.0 | ||| | 요청 본문 | 예제(기능 포함):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
 
 **응답**:
@@ -1148,7 +1150,7 @@ OData XML
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
 |	modelId |	모델의 고유 식별자 |
-| filename | 카탈로그의 텍스트 식별자.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br>최대 길이: 50 | | apiVersion | 1.0 | ||| | 요청 본문 | 사용 데이터. 형식:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>이름</th><th>필수</th><th>유형</th><th>설명</th></tr><tr><td>사용자 ID</td><td>Yes</td><td>[A-z], [a-z], [0-9], [_] &#40;밑줄&#41;, [-] &#40;대시&#41;<br> 최대 길이: 255 </td><td>사용자의 고유 ID입니다.</td></tr><tr><td>항목 ID</td><td>예</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;밑줄&#41;, [-] &#40;대시&#41;<br> 최대 길이: 50</td><td>항목의 고유 ID입니다.</td></tr><tr><td>시간</td><td>아니요</td><td>날짜 형식: YYYY/MM/DDTHH:MM:SS (예: 2013/06/20T10:00:00)</td><td>데이터의 시간.</td></tr><tr><td>이벤트</td><td>아니요. 제공된 다음 날짜를 배치해야 합니다.</td><td>다음 중 하나:<br>• 클릭<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• 구매</td><td></td></tr></table><br>최대 크기: 200MB<br><br>예:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| filename | 카탈로그의 텍스트 식별자입니다.<br>문자(A-Z, a-z), 숫자(0-9), 하이픈(-) 및 밑줄(_)만 사용할 수 있습니다.<br>최대 길이: 50 | | apiVersion | 1.0 | ||| | 요청 본문 | 사용 데이터. 형식:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>이름</th><th>필수</th><th>유형</th><th>설명</th></tr><tr><td>사용자 ID</td><td>Yes</td><td>[A-z], [a-z], [0-9], [_] &#40;밑줄&#41;, [-] &#40;대시&#41;<br> 최대 길이: 255 </td><td>사용자의 고유 ID입니다.</td></tr><tr><td>항목 ID</td><td>예</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;밑줄&#41;, [-] &#40;대시&#41;<br> 최대 길이: 50</td><td>항목의 고유 ID입니다.</td></tr><tr><td>시간</td><td>아니요</td><td>YYYY/MM/DDTHH:MM:SS 형식의 날짜(예: 2013/06/20T10:00:00)</td><td>데이터의 시간입니다.</td></tr><tr><td>이벤트</td><td>아니요. 제공된 다음 날짜를 배치해야 합니다.</td><td>다음 중 하나:<br>• 클릭<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• 구매</td><td></td></tr></table><br>최대 크기: 200MB<br><br>예:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **응답**:
 
@@ -1189,6 +1191,7 @@ OData XML
 | HTTP 메서드 | URI |
 |:--------|:--------|
 |POST |`<rootURI>/AddUsageEvent?apiVersion=%271.0%27`|
+|HEADER |`"Content-Type", "text/xml"`|
 
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
@@ -1736,6 +1739,7 @@ FBT(자주 함께 구매됨) 빌드는 유형이 다른(같은 유형: 책, 영�
 | HTTP 메서드 | URI |
 |:--------|:--------|
 |POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&apiVersion=%271.0%27`|
+|HEADER |`"Content-Type", "text/xml"`(요청 본문을 보내는 경우)|
 
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
@@ -1809,6 +1813,7 @@ OData XML
 | HTTP 메서드 | URI |
 |:--------|:--------|
 |POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&buildType=%27<buildType>%27&apiVersion=%271.0%27`<br><br>예:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&buildType=%27Ranking%27&apiVersion=%271.0%27`|
+|HEADER |`"Content-Type", "text/xml"`(요청 본문을 보내는 경우)|
 
 |	매개 변수 이름 |	유효한 값 |
 |:--------			|:--------								|
@@ -2861,4 +2866,4 @@ HTTP 상태 코드: 200
 이 문서는 "있는 그대로" 제공됩니다. URL 및 기타 인터넷 웹 사이트 참조를 포함하여 본 문서에 명시된 정보 및 뷰는 통지 없이 변경될 수 있습니다.<br><br> 여기에서 설명하는 일부 예는 설명 목적으로만 제공되는 가상의 예이며, 어떠한 실제 사례와도 연관시킬 의도가 없으며 그렇게 유추해서도 안 됩니다.<br><br> 이 문서는 Microsoft 제품의 지적 소유권에 대한 법적 권한을 사용자에게 제공하지 않습니다. 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다.<br><br> © 2015 Microsoft. All rights reserved.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

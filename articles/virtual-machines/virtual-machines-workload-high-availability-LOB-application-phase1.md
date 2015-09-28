@@ -1,23 +1,26 @@
 <properties 
-	pageTitle="LOB(기간 업무) 응용 프로그램 1단계 | Microsoft Azure"
-	description="Azure의 LOB(기간 업무) 응용 프로그램 1단계에서 가상 네트워크 및 기타 Azure 인프라 요소를 만듭니다."
+	pageTitle="LOB(기간 업무) 응용 프로그램 1단계 | Microsoft Azure" 
+	description="Azure의 LOB(기간 업무) 응용 프로그램 1단계에서 가상 네트워크 및 기타 Azure 인프라 요소를 만듭니다." 
 	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
-	editor=""/>
+	services="virtual-machines" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
-# LOB(기간 업무) 응용 프로그램 작업 1단계: Azure 구성
-
+# LOB(기간 업무) 응용 프로그램 워크로드 1단계: Azure 구성
+ 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+ 
 이 인트라넷 전용 Azure 인프라 서비스의 고가용성 LOB(기간 업무) 응용 프로그램을 배포하는 단계에서는 Azure 네트워킹 및 저장소 인프라를 구축합니다. [2단계](virtual-machines-workload-high-availability-LOB-application-phase2.md)로 진행하기 전에 이 단계를 완료해야 합니다. 모든 단계는 [Azure에서 고가용성 LOB(기간 업무) 응용 프로그램 배포](virtual-machines-workload-high-availability-LOB-application-overview.md)를 참조하세요.
 
 다음과 같은 기본 네트워크 구성 요소를 Azure에 프로비전해야 합니다.
@@ -87,7 +90,7 @@ Azure 구성 요소 구성을 시작하기 전에 다음 표에 필요한 정보
 
 	Get-Module azure | format-table version
 
-최신 버전의 Azure PowerShell을 설치해야 할 경우 **제어판 - 프로그램 및 기능**을 사용하여 현재 버전을 제거합니다. 그런 다음 [Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)의 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다. Azure PowerShell 프롬프트를 엽니다.
+최신 버전의 Azure PowerShell을 설치해야 하는 경우 **제어판 - 프로그램 및 기능**을 사용하여 현재 버전을 제거합니다. 그런 다음 [Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)의 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다. Azure PowerShell 프롬프트를 엽니다.
 
 먼저 다음 명령을 사용하여 올바른 Azure 구독을 선택합니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
 
@@ -122,7 +125,7 @@ Azure 구성 요소 구성을 시작하기 전에 다음 표에 필요한 정보
 항목 | 저장소 계정 이름 | 목적 
 --- | --- | ---
 1\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | SQL server 가상 컴퓨터에서 사용되는 프리미엄 저장소 계정입니다.
-2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | 작업의 모든 다른 가상 컴퓨터에서 사용되는 표준 저장소 계정입니다. 
+2\. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ | 워크로드의 모든 다른 가상 컴퓨터에서 사용되는 표준 저장소 계정입니다. 
 
 **ST 테이블: 저장소 계정**
 
@@ -200,7 +203,7 @@ Test-AzureName 명령에서 **False**를 표시하는 경우 제안된 이름이
 
 온-프레미스 VPN 장치를 구성하려면 다음이 필요합니다.
 
-- 가상 네트워크에 대한 Azure VPN 게이트웨이 공용 IPv4 주소(**Get-AzurePublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName** 명령의 표시에 있음)
+- 가상 네트워크용 Azure VPN 게이트웨이의 공용 IPv4 주소(**Get-AzurePublicIpAddress -Name $publicGatewayVipName -ResourceGroupName $rgName** 명령의 표시에 있음)
 - 사이트 간 VPN 연결용 IPsec 사전 공유 키(테이블 V - 항목 8 - 값 열)
 
 그런 다음 온-프레미스 네트워크에서 가상 네트워크의 주소 공간에 연결할 수 있는지 확인합니다. 이를 위해 일반적으로는 가상 네트워크 주소 공간에 해당하는 경로를 VPN 장치에 추가한 다음 조직 네트워크의 나머지 라우팅 인프라에 해당 경로를 보급합니다. 이 작업을 수행하는 방법은 IT 부서에서 확인할 수 있습니다.
@@ -234,7 +237,7 @@ Test-AzureName 명령에서 **False**를 표시하는 경우 제안된 이름이
 
 ## 다음 단계
 
-이 작업을 계속 구성하려면 [2단계: 도메인 컨트롤러 구성](virtual-machines-workload-high-availability-LOB-application-phase2.md)으로 진행하세요.
+이 워크로드를 계속 구성하려면 [2단계: 도메인 컨트롤러 구성](virtual-machines-workload-high-availability-LOB-application-phase2.md)으로 진행하세요.
 
 ## 추가 리소스
 
@@ -246,6 +249,6 @@ Test-AzureName 명령에서 **False**를 표시하는 경우 제안된 이름이
 
 [Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-[Azure 인프라 서비스 작업: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
+[Azure 인프라 서비스 워크로드: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

@@ -1,7 +1,9 @@
+<!--author=alkohli last changed: 9/17/15-->
+
 
 #### 새 서비스를 만들려면
 
-1. Microsoft 계정 자격 증명을 사용하여 다음 URL로 관리 포털에 로그인합니다. [http://azure.microsoft.com/](http://azure.microsoft.com/)
+1. URL [http://azure.microsoft.com/](http://azure.microsoft.com/)에서 Microsoft 계정 자격 증명을 사용하여 관리 포털에 로그온합니다.
 
 2. 관리 포털에서 **새로 만들기** > **데이터 서비스** > **StorSimple 관리자** > **빠른 생성**을 클릭합니다.
 
@@ -16,10 +18,14 @@
   4. **새 저장소 계정 만들기**를 선택하여 서비스를 포함하는 저장소 계정을 자동으로 만듭니다. 이 저장소 계정에는 "storsimplebwv8c6dcnf"와 같은 특수한 이름이 주어집니다. 다른 위치에 있는 데이터가 필요하면 확인란의 선택을 취소합니다. 
   5. **StorSimple 관리자 만들기**를 클릭하여 서비스를 만듭니다.
 
-   ![서비스 만들기](./media/storsimple-create-new-service/HCS_CreateAService-include.png)
+   ![StorSimple Manager 만들기](./media/storsimple-create-new-service/HCS_CreateAService-include.png)
 
   **서비스** 방문 페이지로 이동됩니다. 서비스 만들기에는 몇 분 정도 소요됩니다. 서비스가 성공적으로 만들어진 후 적절하게 알림이 표시되며 서비스 상태가 **활성**으로 변경됩니다.
  
    ![서비스 만들기](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
-<!---HONumber=August15_HO8-->
+![동영상 사용 가능](./media/storsimple-create-new-service/Video_icon.png) **동영상 사용 가능**
+
+새 StorSimple Manager 서비스를 만드는 방법을 보여 주는 동영상을 시청하려면 [여기](http://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/)를 클릭하세요.
+
+<!---HONumber=Sept15_HO3-->

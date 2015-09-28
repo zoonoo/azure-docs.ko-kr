@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Visual Studio에서 Azure 가상 컴퓨터 만들기 및 관리"
-	description="Visual Studio에서 Azure 가상 컴퓨터 만들기 및 관리"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
-<tags 
+   description="Visual Studio에서 Azure 가상 컴퓨터 만들기 및 관리"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
+<tags
    ms.service="virtual-machines"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Visual Studio에서 Azure 가상 컴퓨터 만들기 및 관리
 
@@ -54,7 +54,7 @@ Visual Studio에서 서버 탐색기를 사용하여 Azure에 가상 컴퓨터�
     가상 컴퓨터 이미지 이름을 클릭하여 페이지 오른쪽에 있는 이미지에 대한 정보를 볼 수 있습니다.
 
     >[AZURE.NOTE]**공용 이미지** 또는 **MSDN 이미지** 목록은 읽기 전용이므로 가상 컴퓨터 이미지를 추가할 수 없습니다. 만드는 모든 가상 컴퓨터는 **개인 이미지** 목록에 추가됩니다.
-    
+
     >Visual Studio 수준 구독이 있는 MSDN 구독자인 경우에 Visual Studio 및 다른 여러 이미지를 포함하는 미리 작성된 Azure 가상 컴퓨터를 만들 수 있습니다. 자세한 내용은 [MSDN 구독자를 위한 Images Visual Studio 2013 갤러리 이미지를 사용하여 Visual Studio에서 가상 컴퓨터 만들기](http://visualstudio2013msdngalleryimage.azurewebsites.net) 및 [MSDN 구독](https://www.visualstudio.com/products/msdn-subscriptions-vs)을 참조하세요.
 
 1. **가상 컴퓨터 기본 설정** 페이지에서 컴퓨터 이름을 입력한 다음 크기, 사용자 이름 및 암호를 포함한 가상 컴퓨터에 대한 사양을 추가합니다. 완료되면 **확인**을 클릭합니다.
@@ -92,7 +92,6 @@ Visual Studio에서 서버 탐색기를 사용하여 Azure에 가상 컴퓨터�
     ![가상 컴퓨터 활동 로그 - 완료했습니다.](./media/vs-azure-tools-virtual-machines-create-manage/IC744139.png)
 
     작업이 성공적으로 완료되면 서버 탐색기의 **가상 컴퓨터** 노드 아래에 새로운 가상 컴퓨터가 나타납니다. **원격 데스크톱을 사용하여 연결** 바로 가기를 클릭해 로그인할 수 있습니다.
-
 
     ![서버 탐색기에 표시되는 가상 컴퓨터입니다.](./media/vs-azure-tools-virtual-machines-create-manage/IC744140.png)
 
@@ -145,7 +144,7 @@ Visual Studio에서 서버 탐색기를 사용하여 Azure에 가상 컴퓨터�
     Sysprep은 특별히 가상 컴퓨터 버전의 Windows에서 시스템 특정 데이터를 제거하는 도구로, 해당 데이터를 다른 사람이 사용할 수 있는 템플릿으로 만듭니다. 자세한 내용은 [템플릿으로 사용할 Windows 가상 컴퓨터를 캡처하는 방법](http://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/)을 참조하세요.
 
 1. 구성과 캡처 설정을 마친 후 **캡처** 단추를 선택하여 검사점을 만듭니다.
- 
+
     Azure가 검사점을 만들면 **Azure 활동 로그**는 작업의 진행률을 보여줍니다.
 
     ![가상 컴퓨터 검사점 캡처하기](./media/vs-azure-tools-virtual-machines-create-manage/IC744144.png)
@@ -174,12 +173,8 @@ Visual Studio에서 서버 탐색기를 사용하여 Azure에 가상 컴퓨터�
 
 1. 바로 가기 메뉴에서 **종료** 명령을 선택하거나, 또는 **구성**을 선택하여 가상 컴퓨터 구성 페이지를 확인한 후 **종료** 단추를 선택합니다.
 
-## 참고 항목
+## 다음 단계
 
-[가상 컴퓨터](https://msdn.microsoft.com/library/azure/)
+가상 컴퓨터를 만드는 방법을 자세히 알아보려면 [Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-tutorial.md) 및 [Azure Preview 포털에서 Windows를 실행하는 가상 컴퓨터 만들기](virtual-machines-windows-tutorial.md)를 참조하세요.
 
-[서버 탐색기에서 Azure 가상 컴퓨터 액세스(영문)](https://msdn.microsoft.com/library/azure/jj131259.aspx)
-
-[Microsoft Visual Studio용 Azure 도구](https://msdn.microsoft.com/library/azure/ee405484.aspx)
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

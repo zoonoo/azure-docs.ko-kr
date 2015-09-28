@@ -1,6 +1,7 @@
 <properties
-    pageTitle="DocumentDB를 사용하여 Python 및 Flask로 웹앱 작성 | Microsoft Azure"
-    description="DocumentDB를 사용하여 Azure에 호스팅되는 Python 및 Flask(MVC) 웹 응용 프로그램의 데이터를 저장하고 액세스하는 방법을 알아봅니다."
+    pageTitle="DocumentDB를 사용한 Python Flask 웹 응용 프로그램 개발 | Microsoft Azure"
+    description="DocumentDB를 사용하여 Azure에 호스트된 Python Flask 웹 응용 프로그램에서 데이터를 저장하고 액세스하는 방법에 대한 데이터베이스 자습서를 검토합니다. 응용 프로그램 개발 솔루션을 찾습니다." 
+	keywords="Application development, database tutorial, python flask, python web application, python web development, documentdb, azure, Microsoft azure"
     services="documentdb"
     documentationCenter="python"
     authors="ryancrawcour"
@@ -16,13 +17,13 @@
     ms.date="09/03/2015"
     ms.author="ryancraw"/>
 
-# DocumentDB를 사용하여 Python 및 Flask(MVC)로 웹 응용 프로그램 작성
+# DocumentDB를 사용한 Python Flask 웹 응용 프로그램 개발
 
-고객이 Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼리할 수 있는 방법을 강조하기 위해 이 문서에서는 Azure DocumentDB를 사용하여 투표 웹 응용 프로그램을 빌드하는 방법을 보여 주는 종합적인 자습서를 제공합니다.
+고객이 Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼리할 수 있는 방법을 강조하기 위해 이 문서에서는 Azure DocumentDB를 사용하여 투표 웹 응용 프로그램을 빌드하는 방법을 보여 주는 종합적인 Python 웹 응용 프로그램 자습서를 제공합니다.
 
 이 자습서에서는 Azure가 제공하는 DocumentDB 서비스를 사용하여 Azure에 호스트된 Python 웹 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 보여 주며 이전에 Python 및 Azure 웹 사이트를 사용한 경험이 있다고 가정합니다.
 
-이 자습서에서는 다음 내용을 다룹니다.
+이 데이터베이스 자습서에서는 다음 내용을 다룹니다.
 
 1. DocumentDB 계정 만들기 및 프로비전
 2. Python MVC 응용 프로그램 만들기
@@ -31,10 +32,10 @@
 
 이 자습서를 따르면 설문 조사에 투표할 수 있는 간단한 투표 응용 프로그램을 빌드합니다.
 
-![이 자습서에서 만든 할 일 모음 웹 응용 프로그램의 스크린샷](./media/documentdb-python-application/image1.png)
+![이 데이터베이스 자습서에서 만든 할 일 모음 웹 응용 프로그램의 스크린샷](./media/documentdb-python-application/image1.png)
 
 
-## 필수 조건
+## 데이터베이스 자습서 필수 조건
 
 이 문서의 지침을 따르기 전에 다음이 설치되어 있는지 확인해야 합니다.
 
@@ -58,18 +59,18 @@
 
 1. Visual Studio를 열고 **파일** -> **새 프로젝트** -> **Python** ->, **Flask Web 프로젝트**를 클릭한 다음 이름이 **tutorial**인 새 프로젝트를 만듭니다.
 
-	Flask를 처음 사용하는 경우 Flask는 Python에서 웹 응용 프로그램을 더 빨리 작성하는 데 도움이 되는 웹 프레임워크입니다. [Flask 자습서에 액세스하려면 여기를 클릭하세요][].
+	Python Flask를 처음 사용하는 경우 Flask는 Python에서 웹 응용 프로그램을 더 빨리 작성하는 데 도움이 되는 웹 응용 프로그램 개발 프레임워크입니다. [Flask 자습서에 액세스하려면 여기를 클릭하세요][].
 
-	![왼쪽에서 Python이 강조 표시되고, 가운데에서 Flask 웹 프로젝트가 선택되고, 이름 상자에 tutorial 이름이 포함된 Visual Studio 새 프로젝트 창의 스크린샷](./media/documentdb-python-application/image9.png)
+	![왼쪽에서 Python이 강조 표시되고, 가운데에서 Python Flask 웹 프로젝트가 선택되고, 이름 상자에 tutorial 이름이 포함된 Visual Studio 새 프로젝트 창의 스크린샷](./media/documentdb-python-application/image9.png)
 
 2. 외부 패키지를 설치할지 여부를 묻습니다. **가상 환경에 설치**를 클릭합니다. PyDocumentDB에서는 현재 Python 3.x가 지원되지 않으므로 Python 2.7을 기본 환경으로 사용해야 합니다. 프로젝트에 필요한 Python 가상 환경이 설정됩니다.
 
-	![이 자습서의 스크린샷 - Visual Studio 창에 대한 Python 도구](./media/documentdb-python-application/image10.png)
+	![데이터베이스 자습서의 스크린샷 - Python Tools for Visual Studio 창](./media/documentdb-python-application/image10.png)
 
 
 ## 3단계: Python Flask 웹 응용 프로그램 수정
 
-### 프로젝트에 Flask 패키지 추가
+### 프로젝트에 Python Flask 패키지 추가
 
 프로젝트가 설정된 후 DocumentDB용 Python 패키지인 pydocumentdb를 포함해서 프로젝트에 필요한 특정 Flask 패키지를 추가해야 합니다.
 
@@ -100,7 +101,7 @@
 
 - **F5** 키를 눌러 웹 사이트를 시작합니다. 그러면 Flask 개발 서버가 실행되고 웹 브라우저가 시작됩니다. 다음 페이지를 참조해야 합니다.
 
-	![브라우저에 표시된 빈 Flask 프로젝트](./media/documentdb-python-application/image12.png)
+	![브라우저에 표시된 빈 Python Flask 웹 개발 프로젝트](./media/documentdb-python-application/image12.png)
 
 ### 데이터베이스, 컬렉션 및 문서 정의 만들기
 
@@ -301,7 +302,7 @@ templates 폴더 아래에 다음 html 파일을 추가합니다. create.html, r
 	![Visual Studio 솔루션 탐색기 창의 스크린샷](./media/documentdb-python-application/image15.png)
 
 
-## 4단계: 로컬에서 응용 프로그램 실행
+## 4단계: 로컬에서 웹 응용 프로그램 실행
 
 1. Visual Studio에서 F5 키를 누르거나 **실행** 단추를 클릭하면 화면에 다음이 표시됩니다.
 
@@ -309,7 +310,7 @@ templates 폴더 아래에 다음 html 파일을 추가합니다. create.html, r
 
 2. **투표 데이터베이스 만들기/지우기**를 클릭하여 데이터베이스를 생성합니다.
 
-	![웹 응용 프로그램 만들기 페이지의 스크린샷](./media/documentdb-python-application/image17.png)
+	![웹 응용 프로그램 만들기 페이지의 스크린샷 - 개발 세부 정보](./media/documentdb-python-application/image17.png)
 
 3. 그런 다음 **투표**를 클릭하고 옵션을 선택합니다.
 
@@ -320,7 +321,7 @@ templates 폴더 아래에 다음 html 파일을 추가합니다. create.html, r
 	![표시된 투표 페이지의 결과 스크린샷](./media/documentdb-python-application/image19.png)
 
 
-## 5단계: Azure 웹 사이트에 응용 프로그램 배포
+## 5단계:· Azure 웹 사이트에 웹 응용 프로그램 배포
 
 이제 완료된 응용 프로그램이 DocumentDB에 대해 올바르게 작동하므로 Azure 웹 사이트에 배포하겠습니다.
 
@@ -336,11 +337,11 @@ templates 폴더 아래에 다음 html 파일을 추가합니다. create.html, r
 
 ## 다음 단계
 
-축하합니다. 지금까지 Azure DocumentDB를 사용하여 첫 Python 응용 프로그램을 빌드하고 Azure 웹 사이트에 게시했습니다.
+축하합니다. 지금까지 Azure DocumentDB를 사용하여 첫 Python 웹 응용 프로그램을 완성하고 Azure 웹 사이트에 게시했습니다.
 
 이 항목은 사용자 피드백에 따라 자주 업데이트되고 개선됩니다. 자습서를 완료했으면 이 페이지 상단과 하단에 있는 응답 단추를 사용하여 개선되었으면 하는 사항에 대한 피드백을 포함해야 합니다. 직접 연락을 받고 싶은 경우 설명에 메일 주소를 포함하세요.
 
-응용 프로그램에 다른 기능을 추가하려면 [DocumentDB Python SDK](https://pypi.python.org/pypi/pydocumentdb)에서 사용할 수 있는 API를 검토하세요.
+웹 응용 프로그램에 다른 기능을 추가하려면 [DocumentDB Python SDK](https://pypi.python.org/pypi/pydocumentdb)에서 사용할 수 있는 API를 검토하세요.
 
   [Flask 자습서에 액세스하려면 여기를 클릭하세요]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
   [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
@@ -351,4 +352,4 @@ templates 폴더 아래에 다음 html 파일을 추가합니다. create.html, r
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

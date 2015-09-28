@@ -2,24 +2,27 @@
 	pageTitle="Azure 앱 서비스 및 기존 Azure 서비스에 미치는 영향" 
 	description="새로운 Azure 앱 서비스와 해당 기능이 Azure의 기존 서비스에 미치는 영향을 설명합니다." 
 	authors="yochayk" 
+	writer="yochayk" 
 	editor="yochayk" 
 	manager="nirma" 
 	services="app-service\web" 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="03/24/2015" 
+	ms.date="09/15/2015" 
 	ms.author="yochayk"/>
 
 
 # Azure 앱 서비스 및 기존 Azure 서비스
 
 이 문서에서는 여러 Azure 서비스를 새로운 통합 제품인 [Azure 앱 서비스](http://azure.microsoft.com/services/app-service/)로 결합하는 변경의 일부로 적용된 기존 Azure 서비스의 변경 내용을 설명합니다.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## 개요 
 
@@ -90,4 +93,4 @@
 자세한 내용은 [앱 서비스 설명서](http://azure.microsoft.com/documentation/services/app-service/)를 참조하세요.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결 - Azure 모바일 서비스" 
-	description="하이브리드 연결을 사용하여 Azure 모바일 서비스에서 온-프레미스 SQL Server에 연결하는 방법에 대해 알아봅니다." 
+	pageTitle="하이브리드 연결을 사용하여 .NET 백 엔드 모바일 서비스에서 온-프레미스 SQL Server에 연결 | Azure 모바일 서비스" 
+	description="Azure 하이브리드 연결을 사용하여 .NET 백 엔드 모바일 서비스에서 온-프레미스 SQL Server에 연결하는 방법을 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="09/15/2015" 
 	ms.author="glenga"/>
 
   
@@ -133,4 +133,4 @@ Azure에 게시하고 하이브리드 연결을 사용하기 전에 로컬로 �
 [Azure 관리 포털]: http://manage.windowsazure.com
 [모바일 서비스 시작]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

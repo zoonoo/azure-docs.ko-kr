@@ -5,20 +5,22 @@
 	documentationCenter=""
 	authors="ccompy"
 	manager="stefsch"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="04/27/2015"
+	ms.date="09/15/2015"
 	ms.author="ccompy"/>
 
 # 앱 서비스 환경에서 웹앱을 만드는 방법 #
 
 웹앱 만들기는 일반적으로 ASE(앱 서비스 환경)에서 거의 동일합니다. 앱 서비스 환경 기능을 잘 모르는 경우 [앱 서비스 환경 정의](app-service-app-service-environment-intro.md) 문서를 참조하세요.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ASE에서 웹앱을 만들려면 먼저 ASE를 만들어야 합니다. ASE를 만드는 방법에 대한 자세한 내용은 [앱 서비스 환경을 만드는 방법](app-service-web-how-to-create-an-app-service-environment.md) 문서를 참조하세요.
 
@@ -91,4 +93,4 @@ ASE에서 웹앱을 실행하고 ASP를 관리하기 위해 고려해야 하는 
 [HowtoConfigureASE]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

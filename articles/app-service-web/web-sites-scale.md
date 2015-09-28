@@ -8,17 +8,19 @@
 	editor="mollybos"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스에서 웹 앱 크기 조정 #
 
 Microsoft Azure에서 웹 앱에 대한 향상된 성능 및 처리량은 [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)을 사용하여 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714) 계획을 **무료** 모드에서 **공유**, **기본**, **표준** 또는 **프리미엄** 모드로 크기를 조정할 수 있습니다.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 Azure 웹 앱 크기를 확장하려면 두 가지 관련 작업을 수행해야 합니다. 먼저 앱 서비스 계획 모드를 더 높은 수준의 서비스로 변경하고, 더 높은 수준의 서비스로 전환한 후에는 특정 설정을 구성합니다. 이 문서에서는 두 가지 작업을 모두 다룹니다. **표준** 및 **프리미엄** 모드와 같이 더 높은 서비스 계층은 Azure의 리소스 사용 방법을 결정하는 데 보다 뛰어난 유연성과 견고성을 제공합니다.
 
@@ -43,7 +45,7 @@ Azure 웹 앱 크기를 확장하려면 두 가지 관련 작업을 수행해야
 	
 	작업이 완료되면 **알림** 탭에 **성공**이 녹색으로 깜박입니다.
 	
-5. **인스턴스** 막대를 왼쪽에서 오른쪽으로 밀어 인스턴스 수를 늘린 다음 명령 모음에서 **저장**을 클릭합니다. **공유** 모드에서는 인스턴스 크기 옵션을 사용할 수 없습니다. 인스턴스 크기에 대한 자세한 내용은 [Microsoft Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기][vmsizes]를 참조하십시오.
+5. **인스턴스** 막대를 왼쪽에서 오른쪽으로 밀어 인스턴스 수를 늘린 다음 명령 모음에서 **저장**을 클릭합니다. **공유** 모드에서는 인스턴스 크기 옵션을 사용할 수 없습니다. 인스턴스 크기에 대한 자세한 내용은 [Microsoft Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기][vmsizes]를 참조하세요.
 	
 	![기본 모드의 인스턴스 크기][ChooseBasicInstances]
 	
@@ -148,7 +150,7 @@ Azure 웹 앱 크기를 확장하려면 두 가지 관련 작업을 수행해야
 ## 다음 단계
 
 - Azure에 등록하려면 [Microsoft Azure 무료 평가판](/pricing/free-trial/)을 참조하세요.
-- 가격, 지원 및 SLA에 대한 자세한 내용은 다음 링크를 방문하십시오.
+- 가격, 지원 및 SLA에 대한 자세한 내용은 다음 링크를 방문하세요.
 	
 	[데이터 전송 가격 정보](/pricing/details/data-transfers/)
 	
@@ -199,4 +201,4 @@ Azure 웹 앱 크기를 확장하려면 두 가지 관련 작업을 수행해야
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

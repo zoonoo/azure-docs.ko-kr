@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/05/2015"
+   ms.date="09/10/2015"
    ms.author="banders"/>
 # Microsoft Azure의 서버에서 데이터 분석
 
@@ -269,4 +269,4 @@ Azure PowerShell을 사용하여 Azure 저장소에 기록된 이벤트를 보�
 
 [프록시 및 방화벽 설정 구성(선택 사항)](../operational-insights-proxy-filewall.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

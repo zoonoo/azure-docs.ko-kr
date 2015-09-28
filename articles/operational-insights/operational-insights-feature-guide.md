@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/06/2015"
+	ms.date="09/10/2015"
 	ms.author="banders"/>
 
 # Operational Insights 기능 가이드
@@ -47,7 +47,7 @@ Operational Insights를 사용하면 다음 기능으로 컴퓨터 데이터를 
 	- [Operational Insights에 컴퓨터를 직접 연결](operational-insights-direct-agent.md)
 	- [Microsoft Azure의 서버에서 데이터 분석](operational-insights-analyze-data-azure.md)
 - **위의 모든 작업을 이동 중에 모바일 응용 프로그램으로 수행할 수 있습니다**.
-	- Windows Phone 응용 프로그램에 대한 자세한 내용은 [Operational Insights 모바일 앱](http://www.windowsphone.com/ko-kr/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)을 참조하세요.
+	- Windows Phone 응용 프로그램에 대한 자세한 내용은 [Operational Insights 모바일 앱](http://www.windowsphone.com/ko-KR/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)을 참조하세요.
 
 ## Operational Insights 환경
 
@@ -72,4 +72,4 @@ Operational Insights 소프트웨어를 Operations Manager 서비스로 사용�
 ### Operational Insights는 어디에서 사용할 수 있나요?
 Microsoft Azure Operational Insights는 미국에서 호스트됩니다. Operational Insights 언어가 영어이기는 하지만 여러 다양한 시장에서 이 서비스를 사용할 수 있습니다. 자세한 내용은 [국가별 가용성](http://go.microsoft.com/fwlink/?LinkId=229842)을 참조하세요.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

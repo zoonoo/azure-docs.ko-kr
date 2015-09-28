@@ -303,9 +303,6 @@ Azure의 Linux에 대한 자세한 내용은 다음 을 참조하세요.
 
 - [Linux용 Azure CustomScript 확장을 사용하여 LAMP 앱 배포](virtual-machines-linux-script-lamp.md)
 
-- [Azure VM 구성 설정 정보](http://msdn.microsoft.com/library/azure/dn763935.aspx)
-
 - [Azure의 Linux용 Docker 가상 컴퓨터 확장](virtual-machines-docker-vm-extension.md)
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

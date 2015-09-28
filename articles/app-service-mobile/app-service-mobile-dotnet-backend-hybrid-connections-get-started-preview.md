@@ -23,6 +23,8 @@
 
 이 자습서에서는 서비스와 함께 프로비전된 기본 Azure SQL 데이터베이스가 아닌 로컬 온-프레미스 SQL Server 데이터베이스를 사용하도록 모바일 앱 .NET 백 엔드를 수정하는 방법을 알아봅니다.
 
+[AZURE.INCLUDE [app-service-mobile-to-web-and-api](../../includes/app-service-mobile-to-web-and-api.md)]
+
 ## 필수 조건 ##
 
 이 자습서를 사용하려면 다음이 필요합니다.
@@ -55,7 +57,7 @@
 
 	![하이브리드 연결 만들기](./media/app-service-mobile-dotnet-backend-hybrid-connections-get-started-preview/create-hybrid-connection.png)
 
-4. **BizTalk 서비스**를 클릭하고 BizTalk 서비스의 이름을 입력하고 **확인**을 클릭합니다.
+4. **Biz Talk 서비스**를 클릭하고 BizTalk 서비스의 이름을 입력하고 **확인**을 클릭합니다.
 
 	이 자습서에서는 **mobile1**을 사용합니다. 새로운 BizTalk 서비스의 고유한 이름을 지정해야 합니다.
 
@@ -162,4 +164,4 @@
 [Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

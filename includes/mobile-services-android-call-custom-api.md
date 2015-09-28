@@ -1,5 +1,5 @@
 
-##<a name="update-app"></a>사용자 지정 API를 호출하도록 앱 업데이트
+###<a name="update-app"></a>사용자 지정 API를 호출하도록 앱 업데이트
 
 1. 기존 단추 옆에 "Complete All" 레이블의 단추를 추가하고 두 개의 단추를 한 줄 아래로 이동합니다. Android Studio에서 퀵 스타트 프로젝트의 *res\\layout\\activity\_to\_do.xml* 파일을 열고 이름이 `buttonAddToDo`인 **단추** 요소가 포함된 **LinearLayout** 요소를 찾습니다. **LinearLayout**을 복사하여 원래 요소 바로 뒤에 붙여넣습니다. 첫 번째 **LinearLayout**에서 **Button** 요소를 삭제합니다.
 
@@ -95,7 +95,7 @@
 	
 	이 메서드는 새 단추의 **Click** 이벤트를 처리합니다. **invokeApi** 메서드가 클라이언트에서 호출되어 POST 요청을 새 사용자 지정 API로 보냅니다. 사용자 지정 API에서 반환하는 결과는 오류와 마찬가지로 메시지 대화 상자에 표시됩니다.
 
-## 앱 테스트
+### 앱 테스트
 
 1. **실행** 메뉴에서 **앱 실행**을 클릭하여 Android 에뮬레이터 또는 연결된 Android 장치에서 프로젝트를 시작합니다.
 
@@ -112,4 +112,4 @@
 
 	완료 표시된 항목 수를 나타내는 메시지 대화 상자가 표시되고 필터링된 쿼리가 다시 실행되어 목록에서 모든 항목을 지웁니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

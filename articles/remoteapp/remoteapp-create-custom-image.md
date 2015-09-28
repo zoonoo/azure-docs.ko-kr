@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법"
+	pageTitle="Azure RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법 | Microsoft Azure"
 	description="Azure RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법에 대해 알아봅니다. 하이브리드 또는 클라우드 컬렉션에서 이 템플릿을 사용할 수 있습니다."
 	services="remoteapp"
 	documentationCenter=""
@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015" 
+	ms.date="09/12/2015" 
 	ms.author="elizapo"/>
 
 # Azure RemoteApp용 사용자 지정 템플릿 이미지를 만드는 방법
-Azure RemoteApp은 Windows Server 2012 R2 템플릿 이미지를 사용하여 사용자와 공유할 모든 프로그램을 호스트합니다. 사용자 지정 RemoteApp 템플릿 이미지를 만들려면 기존 이미지에서 시작하거나 새 이미지를 만듭니다. Azure RemoteApp과 사용하기 위해 업로드할 수 있는 이미지의 요구 사항은 다음과 같습니다.
+Azure RemoteApp은 Windows Server 2012 R2 템플릿 이미지를 사용하여 사용자와 공유할 모든 프로그램을 호스트합니다. 사용자 지정 RemoteApp 템플릿 이미지를 만들려면 기존 이미지에서 시작하거나 새 이미지를 만듭니다.
+
+
+> [AZURE.TIP]Azure VM에서 이미지를 만들 수 있다는 것을 알고 있나요? 이 방법을 사용하면 이미지를 가져오는 데 소요되는 시간을 크게 줄일 수 있습니다. [여기](remoteapp-image-on-azurevm.md)서 단계를 확인하세요.
+
+Azure RemoteApp과 사용하기 위해 업로드할 수 있는 이미지의 요구 사항은 다음과 같습니다.
 
 
 - 이미지 크기는 MB 단위의 배수여야 합니다. 크기가 정확한 배수가 아닌 이미지는 업로드에 실패합니다.
@@ -33,7 +38,6 @@ Azure RemoteApp은 Windows Server 2012 R2 템플릿 이미지를 사용하여 �
 - 이미지에 **/oobe /generalize /shutdown** 매개 변수를 사용하여 sysprep을 실행해야 합니다. **/mode:vm** 매개 변수는 사용하지 마세요.
 - 스냅숏 체인으로부터의 VHD 업로드는 지원되지 않습니다.
 
-> [AZURE.TIP]Azure VM에서 이미지를 만들 수 있다는 것을 알고 계십니까? 이 방법을 사용하면 이미지를 가져오는 데 소요되는 시간을 크게 줄일 수 있습니다. [여기](remoteapp-image-on-azurevm.md)에서 단계를 알아보십시오.
 
 **시작하기 전에**
 
@@ -56,7 +60,7 @@ Azure RemoteApp은 Windows Server 2012 R2 템플릿 이미지를 사용하여 �
 4.	Windows Server 2012 R2를 설치합니다.
 5.	RDSH(원격 데스크톱 세션 호스트) 역할 및 데스크톱 경험 기능을 설치합니다.
 6.	응용 프로그램에 필요한 추가 기능을 설치합니다.
-7.	응용 프로그램을 설치하고 구성합니다.
+7.	응용 프로그램을 설치하고 구성합니다. 공유 앱을 만들려면 공유하려는 앱 또는 프로그램을 이미지의 **시작** 메뉴(**%systemdrive%\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs)에 추가합니다.
 8.	응용 프로그램에 필요한 추가 Windows 구성을 수행합니다.
 9.	EFS(파일 시스템 암호화)를 사용하지 않도록 설정합니다.
 10.	**필수:** Windows Update로 이동하여 모든 중요 업데이트를 설치합니다.
@@ -106,11 +110,12 @@ Azure RemoteApp은 Windows Server 2012 R2 템플릿 이미지를 사용하여 �
 1.	.NET Framework 3.5와 같은 응용 프로그램에 필요한 추가 기능을 설치합니다. 이 기능을 설치하려면 역할 및 기능 추가 마법사를 실행합니다.
 7.	RemoteApp을 통해 게시할 프로그램 및 응용 프로그램을 설치하고 구성합니다.
 
- 	**중요:**
+>[AZURE.IMPORTANT]
+>
+>응용 프로그램을 설치하기 전에 RDSH 역할을 설치하여 RemoteApp에 이미지를 업로드하기 전에 응용 프로그램 호환성 문제가 검색되는지 확인합니다.
+>
+>응용 프로그램(**.lnk** 파일)의 바로 가기가 모든 사용자에 대한 **시작** 메뉴(%systemdrive%\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs)에 표시되는지 확인합니다. 또한 **시작** 메뉴에 표시되는 아이콘이 사용자에게 표시하려는 아이콘인지 확인합니다. 그렇지 않으면 변경합니다. 응용 프로그램을 시작 메뉴에 추가하지 *않아도 되지만* 추가할 경우 훨씬 쉽게 RemoteApp에 응용 프로그램을 게시할 수 있습니다. 그렇지 않으면 앱을 게시할 때 응용 프로그램의 설치 경로를 제공해야 합니다.
 
-
-	- 응용 프로그램을 설치하기 전에 RDSH 역할을 설치하여 RemoteApp에 이미지를 업로드하기 전에 응용 프로그램 호환성 문제가 검색되는지 확인합니다.
-	- 응용 프로그램이 **시작** 메뉴에 나타나는지 확인합니다. 또한 **시작** 메뉴에 표시되는 아이콘이 사용자에게 표시하려는 아이콘인지 확인합니다. 그렇지 않으면 변경합니다. 응용 프로그램을 시작 메뉴에 추가하지 *않아도 되지만* 추가할 경우 훨씬 쉽게 RemoteApp에 응용 프로그램을 게시할 수 있습니다. 그렇지 않으면 앱을 게시할 때 응용 프로그램의 설치 경로를 제공해야 합니다.
 
 8.	응용 프로그램에 필요한 추가 Windows 구성을 수행합니다.
 9.	EFS(파일 시스템 암호화)를 사용하지 않도록 설정합니다. 관리자 권한 명령 창에서 다음 명령을 실행합니다.
@@ -137,4 +142,4 @@ Azure RemoteApp은 Windows Server 2012 R2 템플릿 이미지를 사용하여 �
 - [RemoteApp의 클라우드 컬렉션을 만드는 방법](remoteapp-create-cloud-deployment.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

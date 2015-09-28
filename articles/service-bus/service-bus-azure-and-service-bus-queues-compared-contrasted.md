@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="09/09/2015"
+   ms.date="09/11/2015"
    ms.author="sethm" />
 
 # Azure 큐 및 서비스 버스 큐 - 비교 및 대조
@@ -59,7 +59,7 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 
 - 큐에서 여러 메시지를 송신 또는 수신할 경우 솔루션에 트랜잭션 동작 및 원자성이 필요합니다.
 
-- 응용 프로그램별 작업의 TTL(Time-to-Live) 특성은 7일의 기간을 초과할 수 있습니다.
+- 응용 프로그램별 워크로드의 TTL(Time-to-Live) 특성은 7일의 기간을 초과할 수 있습니다.
 
 - 응용 프로그램은 64KB를 초과하지만 256KB의 한도에 접근할 가능성은 없는 메시지를 처리합니다.
 
@@ -141,7 +141,7 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 |포이즌 메시지 지원|**예**|**예**|
 |전체 업데이트|**예**|**예**|
 |서버 측 트랜잭션 로그|**예**|**아니요**|
-|저장소 메트릭|**예**<br/><br/>**순간 메트릭**: 가용성, TPS, API 호출 횟수, 오류 수 등에 대한 실시간 메트릭을 모두 실시간으로 제공합니다(분 단위로 집계되며 프로덕션에서 방금 발생한 일이 몇 분 안에 보고됨). 자세한 내용은 [저장소 분석 메트릭 정보](https://msdn.microsoft.com/library/hh343258.aspx)(영문)를 참조하십시오.|**예**<br/><br/>([GetQueues](https://msdn.microsoft.com/library/hh293128.aspx) 호출을 통한 대량 쿼리)|
+|저장소 메트릭|**예**<br/><br/>**순간 메트릭**: 가용성, TPS, API 호출 횟수, 오류 수 등에 대한 실시간 메트릭을 모두 실시간으로 제공합니다(분 단위로 집계되며 프로덕션에서 방금 발생한 일이 몇 분 안에 보고됨). 자세한 내용은 [저장소 분석 메트릭 정보](https://msdn.microsoft.com/library/hh343258.aspx)(영문)를 참조하세요.|**예**<br/><br/>([GetQueues](https://msdn.microsoft.com/library/hh293128.aspx) 호출을 통한 대량 쿼리)|
 |상태 관리|**아니요**|**예**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.entitystatus.aspx)|
 |메시지 자동 전달|**아니요**|**예**|
 |큐 삭제 기능|**예**|**아니요**|
@@ -272,7 +272,7 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 
 |비교 기준|Azure 큐|서비스 버스 큐|
 |---|---|---|
-|큐 트랜잭션 비용|**$0.0005**<br/><br/>(트랜잭션 10,000개당)|**기본 계층**: **$0.05**<br/><br/>(작업 100만 개당)|
+|큐 트랜잭션 비용|**$0.0036**<br/><br/>(트랜잭션 100,000개당)|**기본 계층**: **$0.05**<br/><br/>(작업 100만 개당)|
 |청구 가능한 작업|**모두**|**송신/수신만 해당**<br/><br/>(다른 작업에 대한 비용 없음)|
 |유휴 트랜잭션|**청구 가능**<br/><br/>(빈 큐에 쿼리하는 것도 청구 가능한 트랜잭션으로 간주됨)|**청구 가능**<br/><br/>(빈 큐에 대해 수신하는 것도 청구 가능한 메시지로 간주됨)|
 |저장소 비용|**$0.07**<br/><br/>(GB/월)|**$0.00**|
@@ -288,7 +288,7 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 
 - 장기 폴링에 대한 지원을 고려할 때, 대기 시간이 짧은 배달이 필요한 상황이라면 서비스 버스 큐를 사용하는 것이 비용 효율적일 수 있습니다.
 
->[AZURE.NOTE]모든 비용은 변경될 수 있습니다. 이 표에는 이 문서의 작성 당시 가격이 반영되어 있으며, 현재 사용 가능할 수 있는 판촉 제품이 포함되어 있지 않습니다. Azure 가격에 대한 최신 정보는 [Azure 가격](http://azure.microsoft.com/pricing/) 페이지를 참조하세요. 서비스 버스 가격에 대한 자세한 내용은 [서비스 버스 가격](http://azure.microsoft.com/pricing/details/service-bus/)을 참조하세요.
+>[AZURE.NOTE] 모든 비용은 변경될 수 있습니다. 이 표에는 이 문서의 작성 당시 가격이 반영되어 있으며, 현재 사용 가능할 수 있는 판촉 제품이 포함되어 있지 않습니다. Azure 가격에 대한 최신 정보는 [Azure 가격](http://azure.microsoft.com/pricing/) 페이지를 참조하세요. 서비스 버스 가격에 대한 자세한 내용은 [서비스 버스 가격](http://azure.microsoft.com/pricing/details/service-bus/)을 참조하세요.
 
 ## 결론
 
@@ -311,4 +311,4 @@ Azure 큐와 서비스 버스 큐는 모두 현재 Microsoft Azure에서 제공�
 - [Azure 저장소 대금 청구 - 대역폭, 트랜잭션, 용량의 이해](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
  
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

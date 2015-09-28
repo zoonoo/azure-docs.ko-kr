@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="DocumentDB 프로그래밍: 저장된 프로시저, 트리거 및 UDF | Microsoft Azure" 
-	description="Microsoft Azure DocumentDB를 사용하여 JavaScript에서 기본적으로 저장 프로시저, 트리거 및 UDF(사용자 정의 함수)를 작성하는 방법을 알아봅니다." 
+	pageTitle="DocumentDB 프로그래밍: 저장 프로시저, 데이터베이스 트리거 및 UDF | Microsoft Azure" 
+	description="DocumentDB를 사용하여 JavaScript에서 저장 프로시저, 데이터베이스 트리거 및 UDF(사용자 정의 함수)를 작성하는 방법을 알아봅니다. 데이터베이스 프로그래밍 팁 등을 가져옵니다." 
+	keywords="Database triggers, stored procedure, stored procedure, database program, sproc, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="aliuy" 
@@ -16,11 +17,11 @@
 	ms.date="08/18/2015" 
 	ms.author="andrl"/>
 
-# DocumentDB 서버 쪽 프로그래밍: 저장된 프로시저, 트리거 및 UDF
+# DocumentDB 서버 쪽 프로그래밍: 저장 프로시저, 데이터베이스 트리거 및 UDF
 
-DocumentDB의 JavaScript 언어 통합 트랜잭션 실행을 사용해서 개발자가 기본적으로 **저장 프로시저**, **트리거** 및 **UDF(사용자 정의 함수)**를 작성하는 방법을 알아봅니다. 이 경우 사용자가 데이터베이스 저장소 파티션에 직접 전달되고 실행될 수 있는 응용 프로그램 논리를 작성할 수 있습니다.
+DocumentDB의 JavaScript 언어 통합 트랜잭션 실행을 사용해서 개발자가 기본적으로 **저장 프로시저**, **트리거** 및 **UDF(사용자 정의 함수)**를 작성하는 방법을 알아봅니다. 이 경우 사용자가 데이터베이스 저장소 파티션에 직접 전달되고 실행될 수 있는 데이터베이스 프로그램 응용 프로그램 논리를 작성할 수 있습니다.
 
-먼저 Andrew Liu가 DocumentDB의 서버 쪽 프로그래밍 모델을 간략하게 설명하는 다음 동영상을 보는 것이 좋습니다.
+먼저 Andrew Liu가 DocumentDB의 서버 쪽 데이터베이스 프로그래밍 모델을 간략하게 설명하는 다음 동영상을 보는 것이 좋습니다.
 
 > [AZURE.VIDEO azure-demo-a-quick-intro-to-azure-documentdbs-server-side-javascript]
 
@@ -33,7 +34,7 @@ DocumentDB의 JavaScript 언어 통합 트랜잭션 실행을 사용해서 개�
 - HTTP를 사용해서 RESTful 방식으로 저장 프로시저, 트리거 또는 UDF를 등록하고 실행하는 방법은 무엇인가?
 - 저장 프로시저, 트리거 및 UDF를 생성 및 실행하기 위해 사용할 수 있는 DocumentDB SDK는 무엇인가?
 
-## 소개
+## 저장 프로시저 및 UDF 프로그래밍 소개
 
 이 *"최신 T-SQL로서의 JavaScript"* 접근 방법을 통해 응용 프로그램 개발자는 형식 시스템 불일치 및 개체-관계형 매핑 기술의 복잡성을 벗어날 수 있습니다. 또한 풍부한 응용 프로그램을 작성하기 위해 활용할 수 있는 내재된 많은 장점이 있습니다.
 
@@ -49,7 +50,7 @@ DocumentDB의 JavaScript 언어 통합 트랜잭션 실행을 사용해서 개�
 	-	원시 데이터 위에 추상 계층이 추가되므로 데이터 설계자가 데이터와 독립적으로 응용 프로그램을 개발할 수 있습니다. 데이터를 직접 처리해야 할 경우 응용 프로그램에 포함되어야 할 수 있는 가정으로 인해 데이터에 스키마가 사용되지 않을 경우 이러한 장점은 특히 유용할 수 있습니다.  
 	-	이 추상화는 스크립트에서의 액세스를 간소화하여 기업이 데이터 보안을 유지할 수 있게 합니다.  
 
-트리거, 저장 프로시저 및 사용자 지정 쿼리 연산자의 생성 및 실행은 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 및 .NET, Node.js 및 JavaScript를 비롯한 많은 플랫폼에서의 [클라이언트 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)를 통해 지원됩니다. <b>이 자습서에서는 [Node.js SDK](http://dl.windowsazure.com/documentDB/nodedocs/)</b>를 사용하여 저장 프로시저, 트리거 및 UDF의 구문 및 사용법을 설명합니다.
+데이터베이스 트리거, 저장 프로시저 및 사용자 지정 쿼리 연산자의 생성 및 실행은 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 및 .NET, Node.js 및 JavaScript를 비롯한 많은 플랫폼의 [클라이언트 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)를 통해 지원됩니다. **이 자습서에서는 [Node.js SDK](http://dl.windowsazure.com/documentDB/nodedocs/)**를 사용하여 저장 프로시저, 트리거 및 UDF의 구문 및 사용법을 설명합니다.
 
 ## 저장 프로시저
 
@@ -91,7 +92,7 @@ DocumentDB의 JavaScript 언어 통합 트랜잭션 실행을 사용해서 개�
 		});
 
 
-컨텍스트 개체는 DocumentDB 저장소에서 수행될 수 있는 모든 작업에 대한 액세스와 요청 및 응답 개체에 대한 액세스를 제공합니다. 여기서는 응답 개체를 사용하여 클라이언트로 전송되는 응답의 본문을 설정했습니다. 자세한 내용은 [DocumentDB JavaScript 서버 SDK 설명서](http://dl.windowsazure.com/documentDB/jsserverdocs/)를 참조하십시오.
+컨텍스트 개체는 DocumentDB 저장소에서 수행될 수 있는 모든 작업에 대한 액세스와 요청 및 응답 개체에 대한 액세스를 제공합니다. 여기서는 응답 개체를 사용하여 클라이언트로 전송되는 응답의 본문을 설정했습니다. 자세한 내용은 [DocumentDB JavaScript 서버 SDK 설명서](http://dl.windowsazure.com/documentDB/jsserverdocs/)를 참조하세요.
 
 이 예제를 확장하여 저장 프로시저에 데이터베이스 관련 기능을 더 추가하겠습니다. 저장 프로시저는 컬렉션 내의 문서와 첨부 파일을 만들고 업데이트하고 읽고 쿼리 및 삭제할 수 있습니다.
 
@@ -147,7 +148,7 @@ DocumentDB의 JavaScript 언어 통합 트랜잭션 실행을 사용해서 개�
 
 설명한 예제에서는 저장 프로시저를 사용하는 방법을 보여 주었습니다. 트리거와 UDF(사용자 정의 함수)는 자습서의 뒷부분에서 설명합니다.
 
-## 트랜잭션
+## 데이터베이스 프로그램 트랜잭션
 일반적인 데이터베이스의 트랜잭션은 하나의 논리적 작업 단위로 수행되는 작업 시퀀스로 정의할 수 있습니다. 각 트랜잭션에서 **ACID 보장**을 제공합니다. ACID는 원자성, 일관성, 격리 및 내구성의 네 가지 속성을 나타내는 잘 알려진 머리글자어입니다.
 
 간단히 설명하면, 원자성은 트랜잭션 내부에서 수행된 모든 작업이 하나의 단위로 처리되어 모두 커밋되거나 커밋되지 않도록 합니다. 일관성은 데이터가 트랜잭션 간에 항상 양호한 내부 상태로 유지되도록 합니다. 격리는 두 트랜잭션이 서로를 방해하지 않도록 합니다. 일반적으로 대부분의 상용 시스템은 응용 프로그램 요구에 따라 사용할 수 있는 여러 격리 수준을 제공합니다. 내구성은 데이터베이스에서 커밋된 변경 내용이 항상 유지되도록 합니다.
@@ -234,7 +235,7 @@ DocumentDB에서 JavaScript는 데이터베이스와 동일한 메모리 공간�
 
 JavaScript 함수는 리소스 사용에 의해서도 제한됩니다. DocumentDB는 프로비전된 데이터베이스 계정 크기에 따라 컬렉션당 처리량을 예약합니다. 처리량은 요청 단위 또는 RU라고 하는 정규화된 CPU, 메모리 및 IO 사용 단위로 표현됩니다. JavaScript 함수는 짧은 시간 내에 다수의 RU를 사용할 수 있으며, 컬렉션 한도에 도달할 경우 비율이 제한될 수 있습니다. 기본 데이터베이스 작업의 가용성을 위해 리소스를 많이 사용하는 저장 프로시저가 보장될 수도 있습니다.
 
-### 예: 데이터 대량 가져오기
+### 예: 데이터베이스 프로그램으로 데이터 대량 가져오기
 다음은 문서를 컬렉션으로 대량 가져오기 위해 작성된 저장 프로시저의 예입니다. 저장 프로시저가 createDocument의 부울 반환 값을 검사하여 제한된 실행을 처리한 다음 각 저장 프로시저 호출에 삽입된 문서 수를 사용하여 일괄 처리의 진행 상황을 추적하고 다시 시작하는 방법을 확인합니다.
 
 	function bulkImport(docs) {
@@ -286,8 +287,8 @@ JavaScript 함수는 리소스 사용에 의해서도 제한됩니다. DocumentD
 	    }
 	}
 
-## <a id="trigger"></a> 트리거
-### 사전 트리거
+## <a id="trigger"></a> 데이터베이스 트리거
+### 데이터베이스 사전 트리거
 DocumentDB는 문서 작업에 의해 실행되거나 트리거되는 트리거를 제공합니다. 예를 들어 문서를 만들 때 사전 트리거를 지정할 수 있습니다. 이 사전 트리거는 문서를 만들기 전에 실행됩니다. 다음은 사전 트리거를 사용하여 만드는 문서의 속성 유효성을 검사할 수 있는 방법의 예입니다.
 
 	var validateDocumentContentsTrigger = {
@@ -356,7 +357,7 @@ DocumentDB는 문서 작업에 의해 실행되거나 트리거되는 트리거�
 	
 	// Fails, can’t use a create trigger in a replace operation
 
-### 사후 트리거
+### 데이터베이스 사후 트리거
 사전 트리거와 마찬가지로 사후 트리거는 문서 작업과 연결되며 입력 매개 변수를 사용하지 않습니다. 작업이 완료된 **후에** 실행되며 클라이언트에 전송된 응답 메시지에 액세스할 수 있습니다.
 
 다음 예제는 사후 트리거 작동을 보여 줍니다.
@@ -541,7 +542,7 @@ DocumentDB의 SQL 문법을 사용하여 쿼리를 발급하는 것 외에도 �
 
 조건자 및/또는 선택기 함수 안에 포함된 경우 다음과 같은 JavaScript 구문이 DocumentDB 인덱스에서 직접 실행하도록 자동으로 최적화됩니다.
 
-* 간단한 연산자: = + - * / % | ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! \~
+* 간단한 연산자: = + - * / % | ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! ~
 * 개체 리터럴을 포함하는 리터럴: {}
 * var, 반환
 
@@ -903,7 +904,7 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 
 [Github 리포지토리](https://github.com/Azure/azure-documentdb-js/tree/master/server-side/samples)에서 더 많은 서버쪽 코드 예제를 찾을 수 있습니다.([upsert](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/upsert.js), [bulk-delete](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/bulkDelete.js) 및 [업데이트](https://github.com/Azure/azure-documentdb-js/blob/master/server-side/samples/stored-procedures/update.js)를 포함)
 
-저장된 프로시저를 공유하시겠습니까? 끌어오기 요청을 보내주십시오.
+저장된 프로시저를 공유하시겠습니까? 끌어오기 요청을 보내주세요.
 
 ## 다음 단계
 
@@ -919,4 +920,4 @@ JavaScript 저장 프로시저와 트리거는 한 스크립트의 결과가 데
 -	[서비스 지향 데이터베이스 아키텍처](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 -	[Microsoft SQL server에서 .NET 런타임 호스팅](http://dl.acm.org/citation.cfm?id=1007669)  
 
-<!--------HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

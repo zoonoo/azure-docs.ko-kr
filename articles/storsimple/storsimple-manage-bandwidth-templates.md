@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 대역폭 템플릿 관리 | Microsoft Azure"
-	description="대역폭 소비를 제어할 수 있도록 StorSimple 대역폭 템플릿을 관리하는 방법을 설명합니다."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="대역폭 소비를 제어할 수 있도록 StorSimple 대역폭 템플릿을 관리하는 방법을 설명합니다."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # StorSimple 관리자 서비스를 사용하여 StorSimple 대역폭 템플릿 관리
 
@@ -23,7 +23,7 @@
 
 일정을 제한하는 대역폭을 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
-- 작업 부하에 따라 대역폭 사용량을 사용자 지정하는 일정을 지정합니다.
+- 워크로드 부하에 따라 대역폭 사용량을 사용자 지정하는 일정을 지정합니다.
 
 - 쉽고 원활한 방식으로 여러 장치에서 중앙 관리하고 일정을 다시 사용합니다.
 
@@ -174,6 +174,7 @@ StorSimple 장치에 대해 이 모범 사례를 따릅니다.
 
 ## 다음 단계
 
-[StorSimple 구성 요소](storsimple-components.md)에 대해 자세히 알아봅니다.
+- [StorSimple 구성 요소](storsimple-components.md)에 대해 자세히 알아봅니다. 
+- [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

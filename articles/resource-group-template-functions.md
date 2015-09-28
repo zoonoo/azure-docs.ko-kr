@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 리소스 관리자 템플릿 함수"
-	description="값을 검색하고 문자열을 포맷하며 배포 정보를 검색하는 Azure 리소스 관리자 템플릿에서 사용하는 함수를 설명합니다."
-	services="azure-resource-manager"
-	documentationCenter="na"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+   description="값을 검색하고 문자열을 포맷하며 배포 정보를 검색하는 Azure 리소스 관리자 템플릿에서 사용하는 함수를 설명합니다."
+   services="azure-resource-manager"
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/21/2015"
-	ms.author="tomfitz"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/14/2015"
+   ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 템플릿 함수
 
@@ -108,15 +108,34 @@
 | operand1 | 예 | 나누어지는 수입니다.
 | operand2 | 예 | 나누는 데 사용되는 번호는 0과 다를 수 있습니다.
 
+## int
+
+**int(valueToConvert)**
+
+지정된 값을 정수로 변환합니다.
+
+| 매개 변수 | 필수 | 설명
+| :--------------------------------: | :------: | :----------
+| valueToConvert | 예 | 정수로 변환할 값입니다. 값 형식은 문자열 또는 정수일 수만 있습니다.
+
+다음 예제는 사용자가 제공한 매개 변수 값을 정수로 변환합니다.
+
+    "parameters": {
+        "appId": { "type": "string" }
+    },
+    "variables": { 
+        "intValue": "[int(parameters('appId'))]"
+    }
+
 ## length
 
 **length(array)**
 
-배열 내의 요소 수를 반환합니다. 일반적으로 리소스를 만들 때 반복 횟수를 지정하는 데 사용합니다. 이 함수를 사용하는 예는 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
+배열 내의 요소 수를 반환합니다. 일반적으로 리소스를 만들 때 반복 횟수를 지정하는 데 사용합니다. 이 함수를 사용하는 방법의 예는 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
 
 ## listKeys
 
-**listKeys (resourceName or resourceIdentifier, [apiVersion])**
+**listKeys (resourceName or resourceIdentifier, apiVersion)**
 
 저장소 계정의 키를 반환합니다. [resourceId 함수](./#resourceid) 또는 **providerNamespace/resourceType/resourceName** 형식을 사용하여 resourceId를 지정할 수 있습니다. 이 함수를 사용하여 primaryKey 및 secondaryKey를 가져올 수 있습니다.
   
@@ -129,7 +148,7 @@
 
     "outputs": { 
       "exampleOutput": { 
-        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), providers('Microsoft.Storage', 'storageAccounts').apiVersions[0])]", 
+        "value": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2015-05-01-preview')]", 
         "type" : "object" 
       } 
     } 
@@ -206,9 +225,9 @@
        }
     ]
 
-## provider
+## providers
 
-**provider (providerNamespace, [resourceType])**
+**providers (providerNamespace, [resourceType])**
 
 리소스 공급자와 지원되는 리소스 유형에 대한 정보를 반환합니다. 유형이 제공되지 않은 경우 모든 지원되는 유형이 반환됩니다.
 
@@ -366,7 +385,7 @@
 
 ## 분할
 
-**split(inputString, 구분 기호)** **split(inputString, [구분 기호])**
+**split(inputString, delimiter)** **split(inputString, [delimiters])**
 
 보낸 구분 기호로 구분되는 입력 문자열의 부분 문자열을 포함하는 문자열의 배열을 반환합니다.
 
@@ -382,6 +401,25 @@
     },
     "variables": { 
         "stringPieces": "[split(parameters('inputString'), ',')]"
+    }
+
+## string
+
+**string(valueToConvert)**
+
+지정된 값을 문자열로 변환합니다.
+
+| 매개 변수 | 필수 | 설명
+| :--------------------------------: | :------: | :----------
+| valueToConvert | 예 | 문자열로 변환할 값입니다. 값 형식은 부울, 정수 또는 문자열일 수만 있습니다.
+
+다음 예제는 사용자가 제공한 매개 변수 값을 문자열로 변환합니다.
+
+    "parameters": {
+        "appId": { "type": "int" }
+    },
+    "variables": { 
+        "stringValue": "[string(parameters('appId'))]"
     }
 
 ## sub
@@ -470,6 +508,6 @@
 - Azure 리소스 관리자 템플릿의 섹션에 대한 설명은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 여러 템플릿을 병합하려면 [Azure 리소스 관리자에서 연결된 템플릿 사용](resource-group-linked-templates.md)을 참조하세요.
 - 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)를 참조하세요.
-- 만든 템플릿을 배포하는 법을 보려면 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](azure-portal/resource-group-template-deploy.md)를 참조하세요.
+- 만든 템플릿을 배포하는 방법을 보려면 [Azure 리소스 관리자 템플릿을 사용하여 응용 프로그램 배포](azure-portal/resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

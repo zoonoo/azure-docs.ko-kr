@@ -1,5 +1,5 @@
 <properties
-	pageTitle="기존 Azure 모바일 서비스 앱에 인증 추가(iOS) | Microsoft Azure"
+	pageTitle="기존 Azure 모바일 서비스 앱에 인증 추가(iOS) | JavaScript 백 엔드 | Microsoft Azure"
 	description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 iOS 앱 사용자를 인증하는 방법을 알아봅니다."
 	services="mobile-services"
 	documentationCenter="ios"
@@ -84,4 +84,4 @@
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

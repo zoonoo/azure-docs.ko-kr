@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="09/15/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
@@ -28,7 +28,7 @@ API 관리 서비스를 호스트하는 지역에 영향을 주는 가용성 문
 
 ## Azure 리소스 관리자 요청 인증
 
->[AZURE.IMPORTANT]백업 및 복원을 위한 REST API는 Azure 리소스 관리자를 사용하며 API 관리 엔터티를 관리하기 위한 REST API와는 다른 인증 메커니즘입니다. 이 섹션의 단계에는 Azure 리소스 관리자 요청을 인증하는 방법을 설명합니다. 자세한 내용은 [Azure 리소스 관리자 요청 인증](http://msdn.microsoft.com/library/dn790557.aspx)을 참조하세요.
+>[AZURE.IMPORTANT]백업 및 복원을 위한 REST API는 Azure 리소스 관리자를 사용하며 API 관리 엔터티를 관리하기 위한 REST API와는 다른 인증 메커니즘입니다. 이 섹션의 단계에는 Azure 리소스 관리자 요청을 인증하는 방법을 설명합니다. 자세한 내용은 [Azure 리소스 관리자 요청 인증](http://msdn.microsoft.com/library/azure/dn790557.aspx)을 참조하세요.
 
 Azure 리소스 관리자를 사용하여 리소스에서 수행하는 모든 작업은 다음 단계를 사용하여 Azure Active Directory에서 인증되어야 합니다.
 
@@ -189,4 +189,4 @@ API 관리 서비스를 백업하려면 다음 HTTP 요청을 실행합니다.
 [api-management-endpoint]: ./media/api-management-howto-disaster-recovery-backup-restore/api-management-endpoint.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

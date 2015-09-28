@@ -1,30 +1,30 @@
 <properties
    pageTitle="논리 앱에서 SMTP 커넥터 사용 | Microsoft Azure 앱 서비스"
-	description="SMTP 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""/>
+   description="SMTP 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="andalmia"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="andalmia"/>
 
 
 # SMTP 커넥터 시작 및 논리 앱에 추가
-SMTP 서버에 연결하고 첨부 파일이 있는 메일을 비롯한 메일을 보냅니다. SMTP 커넥터 "전자 메일 보내기" 동작을 사용하면 지정된 전자 메일 주소로 전자 메일을 보낼 수 있습니다.
+SMTP 서버에 연결하고 첨부 파일이 있는 메일을 비롯한 메일을 보냅니다. SMTP 커넥터 "메일 보내기" 동작을 사용하면 지정된 메일 주소로 메일을 보낼 수 있습니다.
 
 논리 앱은 다양한 데이터 원본을 기반으로 트리거하고 워크플로의 일부로 데이터를 가져오고 처리하기 위한 커넥터를 제공할 수 있습니다. SMTP 커넥터를 비즈니스 워크플로에 추가하고 논리 앱 내에서 이 워크플로의 일부로 데이터를 처리할 수 있습니다.
 
 
 ## 트리거 및 작업
-*트리거*는 발생하는 이벤트입니다. 예를 들어 주문이 업데이트되거나 새 고객이 추가되는 것이 트리거입니다. *작업*은 트리거의 결과입니다. 예를 들어 주문이 업데이트되거나 새 고객이 추가될 때 새 고객에게 전자 메일이 전송됩니다.
+*트리거*는 발생하는 이벤트입니다. 예를 들어 주문이 업데이트되거나 새 고객이 추가되는 것이 트리거입니다. *작업*은 트리거의 결과입니다. 예를 들어 주문이 업데이트되거나 새 고객이 추가될 때 새 고객에게 메일이 전송됩니다.
 
 SMTP 커넥터는 논리 앱에서 동작으로 사용할 수 있으며 JSON 및 XML 형식의 데이터를 지원합니다. 현재 이 커넥터에 대한 트리거는 없습니다.
 
@@ -54,18 +54,23 @@ SMTP 커넥터에서 사용할 수 있는 트리거와 동작은 다음과 같�
 
 6. **만들기**를 선택합니다.
 
+> [AZURE.IMPORTANT]일부 SMTP 서버에서는 이 커넥터의 작동 방식과 관련된 문제가 발생할 수도 있습니다(SendGrid 및 Gmail). SendGrid에서 메일을 보내려는 경우 [GitHub 리포지토리](https://github.com/logicappsio/SendGridAPI)에 SendGrid API와 직접 인터페이스되는 사용자 지정 API가 있습니다.
+
 ## 논리 앱에서 SMTP 커넥터 사용
 커넥터를 만들고 나면 이제 SMTP 커넥터를 논리 앱에 대한 동작으로 사용할 수 있습니다. 다음을 수행합니다.
 
-1.	새 논리 앱을 만듭니다. 
+1.	새 논리 앱을 만듭니다.
+
 	![][2]
-2.	**트리거 및 동작**을 열어 논리 앱 디자이너를 열고 흐름을 구성합니다. 
+2.	**트리거 및 작업**을 열어 논리 앱 디자이너를 열고 워크플로를 구성합니다.
+
 	![][3]
-3.	SMTP 커넥터가 오른쪽의 갤러리에 있는 “이 리소스 그룹의 API 앱” 섹션에 표시됩니다. 이를 선택합니다. 
+3.	SMTP 커넥터가 오른쪽의 갤러리에 있는 “이 리소스 그룹의 API 앱” 섹션에 표시됩니다. 이 커넥터를 선택합니다.
+
 	![][4]
 4.	워크플로 디자이너에 자동으로 추가할 SMTP 커넥터를 선택합니다.
 
-이제 워크플로에서 사용되도록 SMTP 커넥터를 구성할 수 있습니다. **메일 보내기** 동작을 선택하고 입력 속성을 구성합니다.
+이제 워크플로에서 사용되도록 SMTP 커넥터를 구성할 수 있습니다. **메일 보내기** 작업을 선택하고 입력 속성을 구성합니다.
 
 	속성 | 설명
 	--- | ---
@@ -96,4 +101,4 @@ SMTP 커넥터에서 사용할 수 있는 트리거와 동작은 다음과 같�
 [5]: ./media/app-service-logic-connector-smtp/img5.PNG
 [6]: ./media/app-service-logic-connector-smtp/img6.PNG
 
-<!-----HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

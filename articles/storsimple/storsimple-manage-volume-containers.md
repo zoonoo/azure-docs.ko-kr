@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 볼륨 컨테이너 관리 | Microsoft Azure"
-	description="StorSimple Manager 서비스 볼륨 컨테이너 페이지를 사용하여 볼륨 컨테이너를 추가, 수정 또는 삭제하는 방법을 설명합니다."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="StorSimple Manager 서비스 볼륨 컨테이너 페이지를 사용하여 볼륨 컨테이너를 추가, 수정 또는 삭제하는 방법을 설명합니다."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/02/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/16/2015"
+   ms.author="v-sharos" />
 
 # StorSimple 관리자 서비스를 사용하여 StorSimple 볼륨 컨테이너 관리
 
@@ -63,7 +63,7 @@ Microsoft Azure StorSimple 장치의 볼륨 컨테이너는 저장소 계정, �
 
 ## 다음 단계
 
-[StorSimple 볼륨 관리](storsimple-manage-volumes.md)에 대해 자세히 알아보세요.
- 
+- [StorSimple 볼륨 관리](storsimple-manage-volumes.md)에 대해 자세히 알아봅니다. 
+- [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

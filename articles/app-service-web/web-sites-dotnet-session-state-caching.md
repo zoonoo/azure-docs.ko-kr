@@ -3,17 +3,17 @@
 	description="Azure 캐시 서비스를 사용하여 ASP.NET 세션 상태 캐싱을 지원하는 방법에 대해 설명합니다." 
 	services="app-service\web" 
 	documentationCenter=".net" 
- 	authors="Rick-Anderson" 
+	authors="Rick-Anderson" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="08/06/2015" 
+	ms.date="09/16/2015" 
 	ms.author="riande"/>
 
 
@@ -23,6 +23,8 @@
 이 항목에서는 세션 상태에 Azure Redis 캐시 서비스를 사용하는 방법을 설명합니다.
 
 ASP.NET 웹 앱에서 세션 상태를 사용하는 경우 외부 세션 상태 공급자(Redis 캐시 서비스 또는 SQL Server 세션 상태 공급자)를 구성해야 합니다. 세션 상태를 사용하는 경우 외부 공급자를 사용하지 않으면 웹 앱의 인스턴스가 하나로 제한됩니다. Redis 캐시 서비스는 가장 빠르고 간편하게 사용하도록 설정할 수 있습니다.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ##<a id="createcache"></a>캐시 만들기
 캐시를 만들려면 [다음 지침](../cache-dotnet-how-to-use-azure-redis-cache.md#create-cache)을 따르세요.
@@ -41,7 +43,7 @@ NuGet 패키지는 캐시에 대한 어셈블리 참조를 만들 뿐 아니라 
 
 1. *web.config*를 열고 **sessionState** 요소를 찾습니다.
 
-1. `host`, `accessKey`, `port`(SSL 포트는 6380이어야 함) 값을 입력하고 `SSL`를 `true`로 설정합니다. 이러한 값은 캐시 인스턴스에 대한 [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715) 블레이드에서 가져올 수 있습니다. 자세한 내용은 [캐시에 연결](../cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache)을 참조하세요. 비 SSL 포트는 기본적으로 새 캐시에 대해 사용하지 않도록 설정됩니다. 비 SSL 포트를 사용하도록 설정하기에 대한 자세한 내용은 [Azure Redis 캐시에서 캐시 구성](https://msdn.microsoft.com/library/azure/dn793612.aspx) 항목의 [액세스 포트](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) 섹션을 참조하세요. 다음 표시에서는 *web.config* 파일, 특히 *port*, *host*, accessKey* 및 *ssl*에 대한 변경 사항을 나타냅니다.
+1. `host`, `accessKey`, `port`(SSL 포트는 6380이어야 함) 값을 입력하고 `SSL`를 `true`로 설정합니다. 이러한 값은 캐시 인스턴스에 대한 [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715) 블레이드에서 가져올 수 있습니다. 자세한 내용은 [캐시에 연결](../cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-cache)을 참조하세요. 비 SSL 포트는 기본적으로 새 캐시에 대해 사용하지 않도록 설정됩니다. 비 SSL 포트를 사용하도록 설정하기에 대한 자세한 내용은 [Azure Redis 캐시에서 캐시 구성](https://msdn.microsoft.com/library/azure/dn793612.aspx) 항목의 [액세스 포트](https://msdn.microsoft.com/library/azure/dn793612.aspx#AccessPorts) 섹션을 참조하세요. 다음 태그는 *web.config* 파일에 대한 변경 내용, 특히 *port*, *host*, accessKey* 및 *ssl*에 대한 변경 내용을 보여 줍니다.
 
 		  <system.web>;
 		    <customErrors mode="Off" />;
@@ -84,7 +86,7 @@ NuGet 패키지는 캐시에 대한 어셈블리 참조를 만들 뿐 아니라 
     if (objValue != null)
        strValue = (string)objValue;	
 
-Redis 캐시를 사용하여 웹 앱에서 개체를 캐시할 수도 있습니다. 자세한 내용은 [Azure Redis 캐시를 사용한 MVC 동영상 앱(15분)](http://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/)(영문)을 참조하세요. ASP.NET 세션 상태 사용 방법에 대한 자세한 내용은 [ASP.NET 세션 상태 개요][]를 참조하십시오.
+Redis 캐시를 사용하여 웹 앱에서 개체를 캐시할 수도 있습니다. 자세한 내용은 [Azure Redis 캐시를 사용한 MVC 동영상 앱(15분)](http://azure.microsoft.com/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/)(영문)을 참조하세요. ASP.NET 세션 상태 사용 방법에 대한 자세한 내용은 [ASP.NET 세션 상태 개요][]를 참조하세요.
 
 >[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
@@ -107,4 +109,4 @@ Redis 캐시를 사용하여 웹 앱에서 개체를 캐시할 수도 있습니�
   [ManageKeys]: ./media/web-sites-dotnet-session-state-caching/CachingScreenshot_ManageAccessKeys.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -2,9 +2,9 @@
 	pageTitle="실행 중인 웹 사이트에서 성능 문제 진단 | Microsoft Azure"
 	description="다시 배포하지 않고 웹 사이트의 성능을 모니터링합니다. 독립 실행형 또는 Application Insights SDK를 사용하여 종속성 원격 분석을 가져옵니다."
 	services="application-insights"
-	documentationCenter=".net"
+    documentationCenter=".net"
 	authors="alancameronwills"
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags
 	ms.service="application-insights"
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="04/27/2015"
+	ms.date="09/10/2015"
 	ms.author="awills"/>
 
 
@@ -55,6 +55,8 @@ Application Insights를 IIS 웹 응용 프로그램에 적용하는 세 가지 �
 4. 설치 마법사에서 Microsoft Azure에 로그인합니다.
 
     ![Microsoft 계정 자격 증명으로 Azure에 로그인합니다.](./media/app-insights-monitor-performance-live-website-now/appinsights-035-signin.png)
+
+    *연결 오류? [문제 해결](#troubleshooting)을 참조하세요.*
 
 5. 모니터링할 설치되어 있는 웹 응용 프로그램 또는 웹 사이트를 선택한 다음, Application Insights 포털의 결과를 볼 리소스를 구성합니다.
 
@@ -114,6 +116,32 @@ HTTP, SQL, AZUREBLOB 차트는 종속성에 대한 응답 시간 및 호출의 �
 특정 예외로 드릴다운(지난 7일부터)하고 스택 추적 및 컨텍스트 데이터를 가져올 수 있습니다.
 
 
+## 문제 해결
+
+### 연결 오류
+
+상태 모니터가 작동할 수 있도록 서버 방화벽에서 일부 나가는 포트를 열어야 합니다.
+
++ 원격 분석 - 항상 다음 항목이 필요합니다.
+ +	`dc.services.visualstudio.com:80`
+ +	`f5.services.visualstudio.com:80`
+ +	`dc.services.visualstudio.com:443`
+ +	`f5.services.visualstudio.com:443`
+ +	`dc.services.vsallin.net:443`
++ 구성 - 변경하는 경우에만 필요합니다.
+ -	`management.core.windows.net:443`
+ -	`management.azure.com:443`
+ -	`login.windows.net:443`
+ -	`login.microsoftonline.com:443`
+ -	`secure.aadcdn.microsoftonline-p.com:443`
+ -	`auth.gfx.ms:443`
+ -	`login.live.com:443`
++ 설치:
+ +	`packages.nuget.org:443`
+ +	`appinsightsstatusmonitor.blob.core.windows.net:80`
+
+이 목록은 수시로 변경될 수 있습니다.
+
 ### 원격 분석이 없나요?
 
   * 사이트를 사용하여 일부 데이터를 생성합니다.
@@ -123,7 +151,7 @@ HTTP, SQL, AZUREBLOB 차트는 종속성에 대한 응답 시간 및 호출의 �
 
   ![](./media/app-insights-monitor-performance-live-website-now/appinsights-status-monitor-diagnostics-message.png)
 
-  * 서버 방화벽이 포트 443에서 dc.services.visualstudio.com으로 나가는 트래픽을 허용하는지 확인합니다.
+  * 서버 방화벽이 위에 나열된 포트에서 나가는 트래픽을 허용하는지 확인합니다.
   * 서버에서 "권한 부족"에 대한 메시지가 표시되는 경우 다음을 시도합니다.
     * IIS 관리자에서 응용 프로그램 풀을 선택하고 **고급 설정**을 연 다음 **프로세스 모델**에서 ID를 확인합니다.
     * 컴퓨터 관리 제어판에서 성능 모니터 사용자 그룹에 이 ID를 추가합니다.
@@ -168,4 +196,4 @@ IIS 지원: IIS 7, 7.5, 8, 8.5(IIS 필요)
 [roles]: app-insights-resources-roles-access-control.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

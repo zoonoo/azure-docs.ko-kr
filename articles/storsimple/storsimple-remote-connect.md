@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 장치에 원격으로 연결 | Microsoft Azure"
-	description="원격 관리를 위해 장치를 구성하는 방법 및 HTTP 또는 HTTPS를 통해 StorSimple용 Windows PowerShell에 연결하는 방법을 설명합니다."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="원격 관리를 위해 장치를 구성하는 방법 및 HTTP 또는 HTTPS를 통해 StorSimple용 Windows PowerShell에 연결하는 방법을 설명합니다."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/28/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # StorSimple 장치에 원격으로 연결
 
@@ -268,6 +268,8 @@ Windows PowerShell 및 SSL을 사용하여 원격 호스트 또는 클라이언�
 
 ## 다음 단계
 
-[Windows PowerShell을 사용하여 StorSimple 장치를 관리하는 방법에 대해 자세히 알아봅니다](storsimple-windows-powershell-administration.md).
+- [Windows PowerShell을 사용하여 StorSimple 장치를 관리하는 방법](storsimple-windows-powershell-administration.md)을 자세히 알아봅니다.
 
-<!---HONumber=September15_HO1-->
+- [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
+
+<!---HONumber=Sept15_HO3-->

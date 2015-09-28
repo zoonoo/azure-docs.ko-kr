@@ -5,15 +5,15 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="mo	nicar"/>
+	editor="monicar" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/24/2015"
-	ms.author="jroth"/>
+	ms.date="09/16/2015"
+	ms.author="jroth" />
 
 # Azure에서 AlwaysOn 가용성 그룹에 대한 외부 수신기를 구성합니다.
 
@@ -35,13 +35,11 @@
 
 - 하이브리드 환경에 대한 수신기를 만드는 경우 온-프레미스 네트워크에 Azure 가상 네트워크와 사이트-사이트 VPN뿐 아니라 공용 인터넷에 대한 연결이 있어야 합니다. Azure 서브넷에 있을 때 가용성 그룹 수신기는 해당 클라우드 서비스의 공용 IP 주소를 통해서만 연결할 수 있습니다.
 
->[AZURE.NOTE]이 자습서는 PowerShell을 사용하여 Azure 복제본을 포함하는 가용성 그룹에 대한 수신기를 만드는 데 중점을 둡니다. SSMS 또는 TRANSACT-SQL을 사용 하여 수신기를 구성하는 방법에 대 한 자세한 내용은 [가용성 그룹 수신기 만들기 또는 구성](https://msdn.microsoft.com/library/hh213080.aspx)을 참조하세요.
-
 ## 수신기의 액세스 가능 여부 확인
 
 [AZURE.INCLUDE [ag-listener-accessibility](../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-이 문서에서는 **외부 부하 분산**을 사용하는 수신기를 만드는 데 중점을 둡니다. 사용자 가상 네트워크에 대한 사설 수신기를 만들려면 [ILB 수신기](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md) 설정 단계를 설명하는 이 문서의 다른 버전을 참조하세요.
+이 문서에서는 **외부 부하 분산**을 사용하는 수신기를 만드는 데 중점을 둡니다. 가상 네트워크에 대한 개인 수신기를 만들려면 [ILB 수신기](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md) 설정 단계를 설명하는 이 문서의 다른 버전을 참조하세요.
 
 ## 직접 서버 반환이 있는 부하 분산 VM 끝점 만들기
 
@@ -77,7 +75,7 @@
 
 1. 외부 부하 분산에서는 복제본을 포함하는 클라우드 서비스의 공용 가상 IP 주소를 구해야 합니다. Azure 포털에 로그인합니다. 가용성 그룹 VM이 포함된 클라우드 서비스로 이동합니다. **대시보드** 보기를 엽니다. 
 
-3. **공용 VIP(가상 IP) 주소** 아래에 표시된 주소를 확인합니다. 솔루션이 Vnet에 걸쳐 있으면 복제본을 호스팅하는 VM이 포함된 각 클라우드 서비스에 대해 이 단계를 반복합니다.
+3. **공용 VIP(가상 IP) 주소** 아래에 표시된 주소를 적어 둡니다. 솔루션이 Vnet에 걸쳐 있으면 복제본을 호스팅하는 VM이 포함된 각 클라우드 서비스에 대해 이 단계를 반복합니다.
 
 4. VM 중 하나에서 아래의 PowerShell 스크립트를 텍스트 편집기에 복사하 고 앞에서 기록한 값으로 변수를 설정합니다.
 
@@ -112,16 +110,16 @@
 
 ## (인터넷을 통해)가용성 그룹 수신기 테스트
 
-가상 네트워크 외부에서 수신기에 액세스하려면 동일한 VNet 안에서만 액세스 가능한 ILB보다는 외부/공용 부하 분산(이 항목에서 설명)을 사용해야 합니다. 연결 문자열에서 클라우드 서비스 이름을 지정합니다. 예: 이름이 *mycloudservice*인 클라우드 서비스의 경우 sqlcmd 문은 다음과 같이 됩니다.
+가상 네트워크 외부에서 수신기에 액세스하려면 동일한 VNet 안에서만 액세스 가능한 ILB보다는 외부/공용 부하 분산(이 항목에서 설명)을 사용해야 합니다. 연결 문자열에서 클라우드 서비스 이름을 지정합니다. 예를 들어 이름이 *mycloudservice*인 클라우드 서비스가 있는 경우 sqlcmd 문은 다음과 같습니다.
 
 	sqlcmd -S "mycloudservice.cloudapp.net,<EndpointPort>" -d "<DatabaseName>" -U "<LoginId>" -P "<Password>"  -Q "select @@servername, db_name()" -l 15
 
 앞의 예와 달리 호출자가 인터넷을 통해 windows 인증을 사용할 수 없으므로 SQL 인증을 사용해야 합니다. 자세한 내용은 [Azure VM의 AlwaysOn 가용성 그룹: 클라이언트 연결 시나리오](http://blogs.msdn.com/b/sqlcat/archive/2014/02/03/alwayson-availability-group-in-windows-azure-vm-client-connectivity-scenarios.aspx)를 참조하세요. SQL 인증을 사용할 때는 두 복제본에서 동일한 로그인을 만들 수 있는지 확인합니다. 가용성 그룹 로그인 문제 해결에 대한 자세한 내용은 [로그인 매핑 또는 포함된 SQL 데이터베이스 사용자를 통해 다른 복제본에 연결하고 가용성 데이터베이스에 매핑하는 방법](http://blogs.msdn.com/b/alwaysonpro/archive/2014/02/19/how-to-map-logins-or-use-contained-sql-database-user-to-connect-to-other-replicas-and-map-to-availability-databases.aspx)을 참조하세요.
 
-AlwaysOn 복제본이 다른 서브넷에 있는 경우 클라이언트는 연결 문자열에 **MultisubnetFailover=True**를 지정해야 합니다. 그러면 다른 서브넷에 있는 복제본에 대한 병렬 연결을 시도합니다. 이 시나리오에는 영역 간 AlwaysOn 가용성 그룹 배포가 포함되어 있습니다.
+AlwaysOn 복제본이 여러 서브넷에 있는 경우 클라이언트가 연결 문자열에 **MultisubnetFailover=True**를 지정해야 합니다. 그러면 다른 서브넷에 있는 복제본에 대한 병렬 연결을 시도합니다. 이 시나리오에는 영역 간 AlwaysOn 가용성 그룹 배포가 포함되어 있습니다.
 
 ## 다음 단계
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

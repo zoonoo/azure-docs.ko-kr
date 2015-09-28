@@ -3,7 +3,7 @@
 	description="Azure 미리 보기 포털이나 Linux용 VMAccess 확장을 사용하여 암호 및 SSH 키를 다시 설정하고, SSH 구성을 다시 설정하고, Linux 사용자를 삭제하는 방법."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/28/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Linux 가상 컴퓨터에 대한 암호 또는 SSH를 다시 설정하는 방법 #
 
@@ -263,4 +263,4 @@ VMAccess 확장 상태를 표시하려면, 다음 명령을 실행합니다.
 [Azure VM 확장 및 기능]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

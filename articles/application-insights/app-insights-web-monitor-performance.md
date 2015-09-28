@@ -32,7 +32,10 @@ Application Insights는 클라이언트쪽에서 iOS, Android 및 Windows 스토
 Application Insights를 아직 프로젝트에 추가하지 않은 경우(프로젝트에 ApplicationInsights.config가 없음) 다음 방법 중 하나를 선택하여 작업을 시작합니다.
 
 * [ASP.NET 웹 앱](app-insights-asp-net.md)
+ * [예외 모니터링 추가](app-insights-asp-net-exceptions.md)
+ * [종속성 모니터링 추가](app-insights-monitor-performance-live-website-now.md)
 * [J2EE 웹앱](app-insights-java-get-started.md)
+ * [종속성 모니터링 추가](app-insights-java-agent.md)
 
 
 ## <a name="view"></a>성능 메트릭 탐색
@@ -138,7 +141,12 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
     perfCollector.Initialize(TelemetryConfiguration.Active);
     TelemetryConfiguration.Active.TelemetryModules.Add(perfCollector);
 
+### 예외 개수
 
+*예외 속도와 예외 메트릭 간의 차이점은 무엇인가요?*
+
+* *예외 속도*는 시스템 성능 카운터입니다. CLR은 발생하는 처리된 예외 및 처리되지 않은 예외를 모두 계산하고 샘플링 간격의 합계를 간격 길이로 나눕니다. Application Insights SDK는 이 결과를 수집하여 포털에 보냅니다.
+* *예외*는 차트의 샘플링 간격에 포털이 받은 TrackException 보고서 개수입니다. 코드에서 TrackException 호출을 작성한 처리된 예외만 포함하며 [처리되지 않은 예외](app-insights-asp-net-exceptions.md)는 모두 포함되지 않습니다. 
 
 ## 경고 설정
 
@@ -150,7 +158,7 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 
 임계값을 입력하라는 단위에 주의하세요.
 
-*경고 추가 단추가 보이지 않습니다.*-이것은 읽기 전용 액세스 권한이 있는 그룹 계정입니까? 계정 관리자에게 확인하십시오.
+*경고 추가 단추가 보이지 않습니다.*-이것은 읽기 전용 액세스 권한이 있는 그룹 계정입니까? 계정 관리자에게 확인하세요.
 
 ## <a name="diagnosis"></a>문제 진단
 
@@ -186,4 +194,4 @@ catch되지 않은 예외를 throw한 요청의 수입니다.
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

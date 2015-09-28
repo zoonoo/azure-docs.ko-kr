@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="DocumentDB 리소스 모델 및 개념 | Microsoft Azure" 
-	description="Microsoft Azure DocumentDB는 리소스를 관리하기 위해 데이터베이스 계정의 계층 모델, 데이터베이스, 컬렉션, 저장 프로시저, 트리거, UDF, 문서, 첨부 파일, 미디어, 사용자 및 사용 권한을 사용하는 문서 데이터베이스로 완전하게 관리됩니다."  
+	pageTitle="DocumentDB 계층적 리소스 모델 및 개념 | Microsoft Azure" 
+	description="데이터베이스, 컬렉션, UDF(사용자 정의 함수), 문서, 리소스 관리 권한 등으로 구성된 DocumentDB의 계층적 모델에 대해 알아봅니다."
+	keywords="Hierarchical Model, documentdb, azure, Microsoft azure"	
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -16,21 +17,21 @@
 	ms.date="08/03/2015" 
 	ms.author="anhoh"/>
 
-#DocumentDB 리소스 모델 및 개념
+# DocumentDB 계층적 리소스 모델 및 개념
 
 DocumentDB에서 관리하는 데이터베이스 엔터티를 **리소스**라고 합니다. 각 리소스는 논리적 URI를 통해 고유하게 식별됩니다. 표준 HTTP 동사, request/response 헤더 및 상태 코드를 사용해서 리소스를 사용할 수 있습니다.
 
 이 문서를 읽어 보면 다음을 알게 됩니다.
 
 - DocumentDB 리소스는 무엇인가요?
-- DocumentDB 리소스의 계층 구조는 무엇인가요?
+- DocumentDB 리소스의 계층적 모델은 무엇인가요?
 - 시스템 정의 리소스와 사용자 정의 리소스의 차이는 무엇인가요?
 - 리소스를 어떻게 해결하나요?
 - 컬렉션을 어떻게 사용하나요?
 - 저장된 프로시저, 트리거 및 UDF(사용자 정의 함수)를 사용하려면 어떻게 하나요?
 
 ##계층적 리소스 모델
-다음 다이어그램에 표시된 대로, DocumentDB의 **리소스 모델**은 단일 데이터베이스 계정 아래에 있고 각각 논리적이고 안정적인 URI를 통해 주소 지정이 가능한 리소스 집합으로 구성됩니다. 이 문서에서는 리소스 집합을 **피드**라고 합니다.
+다음 다이어그램에 표시된 대로, DocumentDB의 계층적 **리소스 모델**은 단일 데이터베이스 계정 아래에 있고 각각 논리적이고 안정적인 URI를 통해 주소 지정이 가능한 리소스 집합으로 구성됩니다. 이 문서에서는 리소스 집합을 **피드**라고 합니다.
 
 >[AZURE.NOTE] DocumentDB는 통신 모델이 RESTful이며 [.NET 클라이언트 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)를 통해 사용할 수 있는 효율성 높은 TCP 프로토콜을 제공합니다.
 
@@ -224,7 +225,7 @@ DocumentDB 쿼리 모델은 기능, 효율성 및 간결성 간의 균형을 이
 저장 프로시저와 트리거는 현재 컬렉션 컨텍스트를 노출하는 잘 정의된 개체 모델을 통해 컬렉션 및 컬렉션 내 문서를 조작합니다.
 
 [Azure DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [클라이언트 SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)를 사용하여 DocumentDB의 컬렉션을 쉽게 만들거나 삭제하거나 읽거나 열거할 수 있습니다. DocumentDB는 컬렉션의 메타데이터 읽기 또는 쿼리에 대해 항상 강력한 일관성을 제공합니다. 컬렉션을 삭제하면 자동으로 컬렉션 내에 포함된 문서, 첨부 파일, 저장 프로시저, 트리거 및 UDF에 액세스할 수 없게 됩니다.
-##저장 프로시저, 트리거 및 UDF
+##저장 프로시저, 트리거 및 UDF(사용자 정의 함수)
 이전 섹션에서 설명한 대로 데이터베이스 엔진의 내부 트랜잭션 내에서 직접 실행할 응용 프로그램 논리를 작성할 수 있습니다. 전적으로 JavaScript로 응용 프로그램 논리를 작성하고 저장 프로시저, 트리거 또는 UDF로 모델링할 수 있습니다. 저장 프로시저 또는 트리거 내의 JavaScript 코드는 컬렉션 내 문서를 삽입하거나 바꾸거나 삭제하거나 읽거나 쿼리할 수 있습니다. 반면, UDF 내의 JavaScript는 쿼리 결과 집합의 문서를 열거하여 파생 작업 없는 계산을 수행하고 다른 결과 집합을 생성할 수만 있습니다. 다중 테넌트 지원을 위해 DocumentDB는 엄격한 예약 기반 리소스 거버넌스를 적용합니다. 각 저장 프로시저, 트리거 또는 UDF는 작업 수행을 위해 운영 체제 리소스의 고정 퀀텀을 받습니다. 또한 저장 프로시저, 트리거 또는 UDF는 외부 JavaScript 라이브러리에 대해 연결할 수 없으며 할당된 리소스 예산을 초과할 경우 블랙리스트에 추가됩니다. REST API를 통해 저장 프로시저, 트리거 또는 UDF를 컬렉션에 등록하거나 등록 취소할 수 있습니다. 등록하면 저장 프로시저, 트리거 또는 UDF가 사전 컴파일되고 나중에 실행되는 바이트 코드로 저장됩니다. 다음 섹션에서는 DocumentDB JavaScript SDK를 사용하여 저장 프로시저, 트리거 및 UDF를 등록, 실행 및 등록 취소하는 방법을 보여 줍니다. JavaScript SDK는 [DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 위의 단순한 래퍼입니다.
 
 ###저장 프로시저 등록
@@ -414,4 +415,4 @@ DocumentDB 사용자는 사용 권한 그룹화를 위한 논리적 네임스페
 [3]: media/documentdb-resources/resources3.png
  
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 데이터 카탈로그 데이터 카탈로그 시작"
-	description="시나리오의 종단간 자습서 및 Azure 데이터 카탈로그의 기능."
-	documentationCenter=""
-	services="data-catalog"
-	authors="dvana"
-	manager="mblythe"
-	editor=""
-	tags=""/>
+   description="시나리오의 종단간 자습서 및 Azure 데이터 카탈로그의 기능."
+   documentationCenter=""
+   services="data-catalog"
+   authors="dvana"
+   manager="mblythe"
+   editor=""
+   tags=""/>
 <tags
    ms.service="data-catalog"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-catalog"
-	ms.date="07/13/2015"
-	ms.author="derrickv"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-catalog"
+   ms.date="09/11/2015"
+   ms.author="derrickv"/>
 
 # Azure 데이터 카탈로그 시작
 
@@ -148,9 +148,18 @@ Adventure Works OLTP 데이터베이스는 제조, 판매 및 구매를 비롯�
 
 위의 **등록된 데이터 원본 주석 추가** 연습을 반복하도록 동료에게 요청하세요. 동료가 ProductPhoto 등의 데이터 자산에 설명을 추가하고 나면 여러 주석이 표시됩니다.
 
-이 연습에서는 모든 카탈로그 사용자가 검색하는 데이터 자산에 주석을 추가할 수 있는 크라우드소싱 메타데이터에 대한 Azure 데이터 카탈로그의 기능을 탐색했습니다. 연습: 데이터 원본에 연결. 이 연습에서는 Microsoft Excel을 사용하는 데이터 원본에 연결하기 위해 **Azure 데이터 카탈로그** 포털을 사용합니다.
 
-> [AZURE.NOTE]사용자가 **Azure 데이터 카탈로그**를 통해 실제 데이터 원본에 액세스하는 것은 아니라는 점이 중요합니다. 단지 사용자가 더 쉽게 검색하고 이해할 수 있도록 돕는 것입니다. 사용자가 데이터 원본에 연결할 때 사용자가 선택하는 클라이언트 응용 프로그램은 Windows 자격 증명을 사용하거나 필요에 따라 자격 증명에 대한 메시지가 표시됩니다. 사용자가 이전에 허용된 데이터 원본에 대한 액세스가 없는 경우 이 사용자가 연결할 수 있으려면 액세스가 허용되어야 합니다.
+![crowdsource][13]
+
+이 연습에서는 모든 카탈로그 사용자가 검색하는 데이터 자산에 주석을 추가할 수 있는 크라우드소싱 메타데이터에 대한 Azure 데이터 카탈로그의 기능을 탐색했습니다.
+
+
+## 연습 6: 데이터 원본에 연결
+
+이 연습에서는 Microsoft Excel을 사용하는 데이터 원본에 연결하기 위해 **Azure 데이터 카탈로그** 포털을 사용합니다.
+
+
+> [AZURE.NOTE]사용자가 **Azure 데이터 카탈로그**를 통해 실제 데이터 원본에 액세스할 수 있는 것은 아닙니다. 단지 사용자가 더 쉽게 검색하고 이해하는 데 도움이 됩니다. 사용자가 데이터 원본에 연결할 때 사용자가 선택하는 클라이언트 응용 프로그램은 Windows 자격 증명을 사용하거나 필요에 따라 자격 증명에 대한 메시지가 표시됩니다. 사용자가 이전에 허용된 데이터 원본에 대한 액세스가 없는 경우 이 사용자가 연결할 수 있으려면 액세스가 허용되어야 합니다.
 
 ### 다음은 Excel에서 데이터 원본에 연결하는 방법입니다.
 
@@ -168,7 +177,7 @@ Adventure Works OLTP 데이터베이스는 제조, 판매 및 구매를 비롯�
 
 이 연습에서는 Azure 데이터 카탈로그를 사용하여 검색된 데이터 원본에 연결합니다. **Azure 데이터 카탈로그** 포털에서는 **다음에서 열기...** 메뉴에 통합된 클라이언트 응용 프로그램을 사용하여 사용자가 직접 연결할 수 있으며 사용자가 자산 메타데이터에 포함된 연결 위치 정보를 통해 선택하는 모든 응용 프로그램을 사용하여 연결할 수 있습니다.
 
-## 연습 6: 데이터 원본 메타데이터 제거
+## 연습 7: 데이터 원본 메타데이터 제거
 
 이 연습에서는 **Azure 데이터 카탈로그** 포털을 사용하여 등록된 데이터 자산에서 미리 보기 데이터를 제거하고 해당 카탈로그에서 데이터 자산을 삭제합니다.
 
@@ -185,9 +194,9 @@ Adventure Works OLTP 데이터베이스는 제조, 판매 및 구매를 비롯�
 
 이 연습에서는 카탈로그에서 등록된 데이터 자산을 제거했습니다.
 
-## 연습 7: 등록된 데이터 원본 관리
+## 연습 8: 등록된 데이터 원본 관리
 
-이 연습에서는 **Azure 데이터 카탈로그**의 관리 기능을 사용하여 데이터 자산의 소유권을 얻고 사용자가 검색 및 관리할 수 있는 해당 자산을 제어합니다.
+이 연습에서는 **Azure 데이터 카탈로그**의 관리 기능을 사용하여 데이터 자산의 소유권을 얻고 해당 자산을 검색 및 관리할 수 있는 사용자를 제어합니다.
 
 참고: 이 연습에 설명된 관리 기능은 무료 버전이 아니라 표준 버전의 Azure 데이터 카탈로그에서만 사용할 수 있습니다. **Azure 데이터 카탈로그**에서 데이터 자산의 소유권을 얻고, 공동 소유자를 데이터 자산에 추가하고, 데이터 자산의 표시 여부를 설정할 수 있습니다.
 
@@ -221,5 +230,6 @@ Adventure Works OLTP 데이터베이스는 제조, 판매 및 구매를 비롯�
 [10]: ./media/data-catalog-get-started/connect1.png
 [11]: ./media/data-catalog-get-started/connect2.png
 [12]: ./media/data-catalog-get-started/ownership.png
+[13]: ./media/data-catalog-get-started/crowdsource.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

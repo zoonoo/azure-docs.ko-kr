@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="StorSimple 장치 구성 수정 | Microsoft Azure"
-	description="이미 배포된 StorSimple 장치를 다시 구성하기 위해 StorSimple 관리자 서비스를 사용하는 방법에 대해 설명합니다."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   pageTitle="StorSimple 장치 구성 수정 | Microsoft Azure" 
+   description="이미 배포된 StorSimple 장치를 다시 구성하기 위해 StorSimple 관리자 서비스를 사용하는 방법에 대해 설명합니다." 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="SharS" 
+   manager="carolz" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/14/2015"
-	ms.author="v-sharos@microsoft.com"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="09/15/2015"
+   ms.author="v-sharos@microsoft.com"/>
 
 # StorSimple 관리자 서비스를 사용하여 StorSimple 장치 구성 수정
 
@@ -83,7 +83,7 @@ StorSimple 8000 시리즈 업데이트 1에서 DATA 0의 라우팅 메트릭은 
 
 - **속도** – 사용자가 구성할 수 있는 매개 변수가 아닙니다. DATA 0, DATA 1, DATA 4 및 DATA 5는 1GbE인 반면, DATA 2 및 DATA 3은 10GbE 인터페이스입니다.
 
-     >[AZURE.NOTE] 속도 및 이중은 항상 자동으로 협상됩니다. 점보 프레임은 지원되지 않습니다.
+     >[AZURE.NOTE]속도 및 이중 교환 패턴은 항상 자동으로 협상합니다. Jumbo 프레임이 지원되지 않습니다.
  
 - **인터페이스 상태** – 인터페이스를 설정하거나 해제할 수 있습니다. 설정 경우 장치가 인터페이스를 사용하려고 합니다. 네트워크에 연결 및 사용되는 해당 인터페이스만 설정하는 것이 좋습니다. 사용하지 않는 모든 인터페이스는 해제합니다.
 
@@ -124,8 +124,9 @@ StorSimple 8000 시리즈 업데이트 1에서 DATA 0의 라우팅 메트릭은 
 
 ## 다음 단계
 
-[StorSimple 장치에 대해 MPIO를 구성합니다](storsimple-configure-mpio-windows-server.md).
- 
+- [StorSimple 장치에 대해 MPIO를 구성](storsimple-configure-mpio-windows-server.md)하는 방법을 알아봅니다.
+
+- [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
      
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

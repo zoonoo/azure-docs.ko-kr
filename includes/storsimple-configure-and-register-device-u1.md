@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="장치 구성 및 등록"
-   description="StorSimple용 Windows PowerShell을 사용하여 업데이트 1을 실행하는 장치를 구성 및 등록하는 방법에 대해 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="alkohli"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/08/2015"
-   ms.author="alkohli" />
+<!--author=alkohli last changed: 9/17/15-->
 
 
 ### 장치를 구성 및 등록하려면
@@ -42,7 +27,7 @@
    - 게이트웨이
    - 주 DNS 서버의 IP 주소
     
-		Note that the system is validating network settings after each step in the process.
+		프로세스의 각 단계가 완료된 후 시스템에서 네트워크 설정의 유효성을 검사합니다.
    
       >[AZURE.NOTE]서브넷 마스크 및 DNS 설정을 적용하려면 몇 분간 대기할 수 있습니다. "데이터 0에 대한 네트워크 연결을 확인합니다." 오류 메시지를 받게되면, 활성 컨트롤러의 데이터 0 네트워크 인터페이스에서 실제 네트워크 연결을 확인합니다.
 
@@ -83,4 +68,4 @@
      
        
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

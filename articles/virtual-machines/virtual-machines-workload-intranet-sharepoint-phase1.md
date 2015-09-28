@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
-# SharePoint 인트라넷 팜 작업 1단계: Azure 구성
+# SharePoint 인트라넷 팜 워크로드 1단계: Azure 구성
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 Azure 인프라 서비스의 SQL Server AlwaysOn 가용성 그룹을 사용하여 인트라넷 전용 SharePoint 2013 팜을 배포하는 이 단계에서는 Azure 서비스 관리에서 Azure 네트워킹 및 저장소 인프라를 구축합니다. [2단계](virtual-machines-workload-intranet-sharepoint-phase2.md)로 진행하기 전에 이 단계를 완료해야 합니다. 전체 단계를 보려면 [Azure에서 SQL Server AlwaysOn 가용성 그룹을 사용하여 SharePoint 배포](virtual-machines-workload-intranet-sharepoint-overview.md)를 참조하세요.
 
@@ -155,7 +157,7 @@ Azure 가상 네트워크를 만들고 나면 Azure 관리 포털에서 다음 �
 
 ## 다음 단계
 
-이 작업을 계속 구성하려면 [2단계: 도메인 컨트롤러 구성](virtual-machines-workload-intranet-sharepoint-phase2.md)으로 진행하세요.
+이 워크로드를 계속 구성하려면 [2단계: 도메인 컨트롤러 구성](virtual-machines-workload-intranet-sharepoint-phase2.md)으로 진행하세요.
 
 ## 추가 리소스
 
@@ -169,6 +171,6 @@ Azure 가상 네트워크를 만들고 나면 Azure 관리 포털에서 다음 �
 
 [Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-[Azure 인프라 서비스 작업: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
+[Azure 인프라 서비스 워크로드: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

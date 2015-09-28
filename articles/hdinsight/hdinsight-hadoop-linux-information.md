@@ -14,10 +14,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/24/2015"
+   ms.date="08/12/2015"
    ms.author="larryfr"/>
 
-# Linux에서 HDInsight 사용에 관한 정보(미리 보기)
+# Linux에서 HDInsight 사용에 관한 정보
 
 Linux 기반 Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 Linux 환경에서 Hadoop을 제공합니다. 대부분의 작업에 대해 Linux 설치에서 모든 다른 Hadoop으로 정확하게 작동해야 합니다. 이 문서를 알고 있어야 하는 특정 차이점을 호출합니다.
 
@@ -29,17 +29,13 @@ Linux 기반 Azure HDInsight 클러스터는 Azure 클라우드에서 실행되�
 
 * **Ambari(웹)** - https://&lt;clustername>. azurehdinsight.net
 
-	> [AZURE.NOTE]클러스터 관리자 계정 및 암호를 사용하여 인증하고 Ambari에 로그인합니다. 여기에서도 클러스터 관리자 계정 및 암호를 사용합니다.
+	클러스터 관리자 계정 및 암호를 사용하여 인증하고 Ambari에 로그인합니다. 여기에서도 클러스터 관리자 계정 및 암호를 사용합니다.
+
+	인증은 일반 텍스트입니다. 항상 HTTPS를 사용하여 연결의 보안을 유지합니다.
+
+	> [AZURE.IMPORTANT]인터넷을 통해 직접 액세스할 수 있는 클러스터의 Ambari의 경우, 일부 기능은 클러스터에서 사용하는 내부 도메인 이름으로 노드에 액세스해야 합니다. 공용이 아닌 내부 도메인 이름이어야 하므로 인터넷을 통해 일부 기능에 액세스하면 “서버를 찾을 수 없음" 오류가 발생합니다.
 	>
-	> 인증은 일반 텍스트입니다. 항상 HTTPS를 사용하여 연결의 보안을 유지합니다.
-
-	인터넷을 통해 직접 액세스할 수 있는 클러스터의 Ambari의 경우, 일부 기능은 클러스터에서 사용하는 내부 도메인 이름으로 노드에 액세스해야 합니다. 공용이 아닌 내부 도메인 이름이어야 하므로 인터넷을 통해 일부 기능에 액세스하면 “서버를 찾을 수 없음" 오류가 발생합니다.
-
-	이 문제를 해결하려면 SSH 터널을 프록시 웹 트래픽에서 클러스터 헤드 노드에 사용합니다. 다음 문서의 **SSH 터널링** 섹션을 사용하여 로컬 컴퓨터의 포트에서 클러스터로 SSH 터널을 만듭니다.
-
-	* [Linux, Unix 또는 OS X에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md): `ssh` 명령을 사용하여 SSH 터널을 만드는 단계
-
-	* [Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows): PuTTY를 사용하여 SSH 터널을 만드는 단계
+	> Ambari 웹 UI의 모든 기능을 사용하려면 프록시 웹 트래픽에 대한 SSH 터널을 클러스터 헤드 노드에 사용합니다. [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
 * **Ambari(REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
 
@@ -101,17 +97,28 @@ HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 �
 	> [AZURE.TIP][jq](http://stedolan.github.io/jq/)를 설치한 경우 다음을 사용하여 `fs.defaultFS` 항목만 반환할 수 있습니다.
 	>
 	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'`
-	
+
 3. 클러스터와 연결된 모든 보조 저장소 계정을 찾거나 저장소 계정을 인증하는 데 사용되는 키를 찾으려면 다음을 사용합니다.
 
 		curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1"
-		
+
 4. 반환되는 JSON 데이터에서 `fs.azure.account.key`로 시작하는 항목을 찾습니다. 항목 이름의 나머지 부분은 저장소 계정 이름입니다. 예: `fs.azure.account.key.mystorage.blob.core.windows.net` 이 항목에 저장된 값은 저장소 계정 인증에 사용되는 키입니다.
 
 	> [AZURE.TIP][jq](http://stedolan.github.io/jq/)를 설치한 경우, 다음을 사용하여 키 및 값의 목록을 반환할 수 있습니다.
 	>
 	> `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties as $in | $in | keys[] | select(. | contains("fs.azure.account.key.")) as $item | $item | ltrimstr("fs.azure.account.key.") | { storage_account: ., storage_account_key: $in[$item] }'`
 
+또한 Azure 미리 보기 포털을 사용하여 저장소 정보를 찾을 수 있습니다.
+
+1. [Azure 미리 보기 포털](https://portal.azure.com/)에서 HDInsight 클러스터를 선택합니다.
+
+2. __필수__ 섹션에서 __모든 설정__을 선택합니다.
+
+3. __설정__에서 __Azure 저장소 키__를 선택합니다.
+
+4. __Azure 저장소 키__에서 나열된 저장소 계정 중 하나를 선택합니다. 그러면 저장소 계정에 대한 정보가 표시됩니다.
+
+5. 키 아이콘을 선택합니다. 그러면 저장소 계정에 대한 키가 표시됩니다.
 
 ### Blob 저장소에 액세스하려면 어떻게 해야 합니까?
 
@@ -137,10 +144,80 @@ HDInsight은 클러스터와 여러 개의 Blob 저장소 계정을 연결할 �
 
 * [저장소 REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx)
 
+##<a name="scaling"></a>클러스터 크기 조정
+
+클러스터 크기 조정 기능을 사용하여 클러스터를 삭제한 후 다시 생성하지 않고 Azure HDInsight에서 실행되는 클러스터에서 사용되는 데이터 노드 수를 변경합니다.
+
+클러스터에서 다른 작업 또는 프로세스가 실행되는 동안 크기 조정 작업을 수행할 수 있습니다.
+
+다른 클러스터 종류는 다음과 같이 크기 조정에 영향을 받습니다.
+
+* __Hadoop__: 클러스터의 노드 수를 축소할 때 클러스터의 서비스 중 일부가 다시 시작됩니다. 그러면 실행 중인 작업과 보류 중인 작업이 크기 조정 작업을 완료하지 못하고 실패합니다. 작업이 완료되면 작업을 다시 제출할 수 있습니다.
+
+* __HBase__: 지역 서버는 크기 조정 작업을 완료하는 몇 분 안에 자동으로 균형을 맞춥니다. 지역 서버를 수동으로 조정하려면 다음 단계를 사용합니다.
+
+	1. SSH를 사용하여 HDInsight 클러스터에 연결합니다. HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서 중 하나를 참조하세요.
+
+		* [Linux, Unix 및 Mac OS X에서 HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
+
+		* [Windows에서 HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+	1. 다음을 사용하여 HBase 셸을 시작합니다.
+
+			hbase shell
+
+	2. HBase 셸이 로드되면 다음을 사용하여 지역 서버를 수동으로 조정합니다.
+
+			balancer
+
+* __Storm__: 크기 조정 작업을 수행한 후 실행 중인 모든 Storm 토폴로지 균형을 다시 조정해야 합니다. 토폴로지를 새 클러스터의 노드 수에 따라 병렬 처리 설정을 다시 조정할 수 있습니다. 실행 중인 토폴로지의 균형을 다시 조정하려면 다음 옵션 중 하나를 사용합니다.
+
+	* __SSH__: 서버에 연결하고 다음 명령을 사용하여 토폴로지 균형을 다시 조정합니다.
+
+			storm rebalance TOPOLOGYNAME
+
+		매개 변수를 지정하여 원래 토폴로지로 제공된 병렬 처리 힌트를 재정의할 수도 있습니다. 예를 들어 `storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10`은(는) 포톨로지를 5 작업자 프로세스, 파란색 spout 구성 요소에 대해 3 실행자 및 노란색 bolt 구성 요소에 대해 10 실행자로 다시 구성합니다.
+
+	* __Storm UI__: Storm UI를 사용하여 토폴로지의 균형을 다시 조정하려면 다음 단계를 사용합니다.
+
+		1. [클러스터에 대한 SSH 터널을 만들고 Ambari 웹 UI를 엽니다](hdinsight-linux-ambari-ssh-tunnel.md).
+
+		2. 페이지의 왼쪽에 있는 서비스 목록에서 __Storm__을 선택합니다. 그런 다음 __빠른 링크__에서 __Storm UI__를 선택합니다.
+
+			![빠른 연결에서 Storm UI 항목](./media/hdinsight-hadoop-linux-information/ambari-storm.png)
+
+			그러면 Storm UI가 표시됩니다.
+
+			![Storm UI](./media/hdinsight-hadoop-linux-information/storm-ui.png)
+
+		3. 균형을 다시 조정하려는 토폴로지를 선택한 다음 __균형 다시 맞추기__단추를 선택합니다. 균형 재조정 작업이 수행되기 전에 지연 시간을 입력합니다.
+
+HDInsight 클러스터 크기 조정에 대한 자세한 내용은 다음을 참조하세요.
+
+* [Azure 미리 보기 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md#scaling)
+
+* [Azure PowerShell을 사용하여 HDInsight의 Hadoop 클러스터 관리](hdinsight-administer-use-command-line.md#scaling)
+
+## Hue(또는 다른 Hadoop 구성 요소)를 어떻게 설치합니까?
+
+HDInsight는 관리되는 서비스로 문제가 발견되면 클러스터의 노드가 자동으로 소멸되고 다시 프로비전됩니다. 이 때문에 클러스터 노드에 구성 요소를 수동으로 설치하는 것은 좋지 않습니다.
+
+대신 [HDInsight 스크립트 작업](hdinsight-hadoop-customize-cluster.md)을 사용합니다.
+
+스크립트 작업은 클러스터가 프로비전되는 동안 실행되는 Bash 스크립트이며 클러스터에 추가 구성 요소를 설치하는데 사용할 수 있습니다. 다음 구성 요소를 설치하기 위한 예제 스크립트가 제공됩니다.
+
+* [Hue](hdinsight-hadoop-hue-linux.md)
+* [Giraph](hdinsight-hadoop-giraph-install-linux.md)
+* [R](hdinsight-hadoop-r-scripts-linux.md)
+* [Solr](hdinsight-hadoop-solr-install-linux.md)
+* [Spark](hdinsight-hadoop-spark-install-linux.md)
+
+사용자 고유의 스크립트 작업 개발에 대한 정보는 [HDInsight를 사용하여 스크립트 작업 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
+
 ## 다음 단계
 
 * [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

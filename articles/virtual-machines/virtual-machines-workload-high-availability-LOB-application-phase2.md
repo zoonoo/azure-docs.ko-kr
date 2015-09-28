@@ -1,23 +1,25 @@
 <properties 
-	pageTitle="LOB(기간 업무) 응용 프로그램 2단계 | Microsoft Azure"
-	description="Azure의 LOB(기간 업무) 응용 프로그램의 2단계에서 두 Active Directory 복제본 도메인 컨트롤러를 만들고 구성합니다."
+	pageTitle="LOB(기간 업무) 응용 프로그램 2단계 | Microsoft Azure" 
+	description="Azure의 LOB(기간 업무) 응용 프로그램의 2단계에서 두 Active Directory 복제본 도메인 컨트롤러를 만들고 구성합니다." 
 	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	services="virtual-machines" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
-# LOB(기간 업무) 응용 프로그램 작업 2단계: 도메인 컨트롤러 구성
+# LOB(기간 업무) 응용 프로그램 워크로드 2단계: 도메인 컨트롤러 구성
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 Azure 인프라 서비스에서 고가용성 LOB(기간 업무) 응용 프로그램을 배포하는 이 단계에서는 온-프레미스 네트워크 연결을 통해 해당 인증 트래픽을 보내는 대신 Azure 가상 네트워크에서 웹 리소스에 대한 클라이언트 웹 요청을 로컬로 인증할 수 있도록 두 복제본 도메인 컨트롤러를 구성합니다.
 
@@ -109,6 +111,8 @@ Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤
 	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
+> [AZURE.NOTE]이러한 가상 컴퓨터는 인트라넷 응용 프로그램용이므로 공용 IP 주소 또는 DNS 도메인 이름 레이블이 할당되지 않으며 인터넷에 노출되지 않습니다. 그러나 이는 Azure Preview 포털에서도 연결할 수 없음을 의미합니다. 가상 컴퓨터의 속성을 볼 때 **연결** 단추를 사용할 수 없습니다. 원격 데스크톱 연결 액세서리 또는 다른 원격 데스크톱 도구를 통해 해당 개인 IP 주소 또는 인트라넷 DNS 이름을 사용하여 가상 컴퓨터에 연결합니다.
+
 ## 첫 번째 도메인 컨트롤러 구성
 
 원하는 원격 데스크톱 클라이언트를 사용하여 첫 번째 도메인 컨트롤러 가상 컴퓨터에 대한 원격 데스크톱 연결을 만듭니다. 인트라넷 DNS 또는 컴퓨터 이름 및 로컬 관리자 계정의 자격 증명을 사용합니다.
@@ -161,13 +165,13 @@ Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤
 
 이제 Azure가 두 새 도메인 컨트롤러의 IP 주소를 DNS 서버로 사용하도록 가상 컴퓨터에 할당할 수 있게 DNS 서버를 업데이트해야 합니다. 이 절차에서는 가상 네트워크 설정에 대해 표 V(가상 네트워크 설정용) 및 표 M(가상 컴퓨터용) 값을 사용합니다.
 
-1.	[Azure 미리 보기 포털](https://portal.azure.com/)의 왼쪽 창에서 **모두 찾아보기 > 가상 네트워크**를 클릭하고 가상 네트워크의 이름(표 V - 항목 1 - 값 열)을 클릭합니다.
+1.	[Azure Preview 포털](https://portal.azure.com/)의 왼쪽 창에서 **모두 찾아보기 > 가상 네트워크**를 클릭하고 가상 네트워크의 이름(표 V - 항목 1 - 값 열)을 클릭합니다.
 2.	가상 네트워크에 대한 창에서 **모든 설정**을 클릭합니다.
 3.	**설정** 창에서 **DNS 서버**를 클릭합니다.
 4.	**DNS 서버** 창에서 다음을 입력합니다.
 	- **주 DNS 서버**: 표 V – 항목 6 – 값 열
 	- **보조 DNS 서버**: 표 V – 항목 7 – 값 열
-5.	Azure 미리보기 포털 왼쪽 창에서 **모두 찾아보기 > 가상 컴퓨터**를 클릭합니다.
+5.	Azure Preview 포털의 왼쪽 창에서 **모두 찾아보기 > 가상 컴퓨터**를 클릭합니다.
 6.	**가상 컴퓨터 창**에서 첫 번째 도메인 컨트롤러의 이름(표 M - 항목 1 - 가상 컴퓨터 이름 열)을 클릭합니다.
 7.	가상 컴퓨터의 창에서 **다시 시작**을 클릭합니다.
 8.	첫 번째 도메인 컨트롤러가 시작되면 **가상 컴퓨터 창**에서 두 번째 도메인 컨트롤러의 이름(표 M - 항목 2 - 가상 컴퓨터 이름 열)을 클릭합니다.
@@ -192,7 +196,7 @@ Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤
 
 ## 다음 단계
 
-이 작업을 계속 구성하려면 [3단계: SQL Server 인프라 구성](virtual-machines-workload-high-availability-LOB-application-phase3.md)으로 진행하세요.
+이 워크로드를 계속 구성하려면 [3단계: SQL Server 인프라 구성](virtual-machines-workload-high-availability-LOB-application-phase3.md)으로 진행하세요.
 
 ## 추가 리소스
 
@@ -204,6 +208,6 @@ Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤
 
 [Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-[Azure 인프라 서비스 작업: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
+[Azure 인프라 서비스 워크로드: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure 앱 서비스에서 Azure CDN 사용"
-	description="통합 Azure CDN 끝점에서 콘텐츠를 제공하는 Azure 앱 서비스에 웹앱을 배포하는 방법을 설명하는 자습서입니다."
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="cephalin"
-	manager="wpickett"
+	pageTitle="Azure 앱 서비스에서 Azure CDN 사용" 
+	description="통합 Azure CDN 끝점에서 콘텐츠를 제공하는 Azure 앱 서비스에 웹앱을 배포하는 방법을 설명하는 자습서입니다." 
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="06/25/2015"
+	ms.service="app-service" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 
@@ -27,6 +27,8 @@
 - Azure 앱 서비스의 웹앱에서 jQuery 또는 부트스트랩 버전과 같은 NuGet 패키지를 쉽게 업그레이드 
 - 동일한 Visual Studio 인터페이스에서 웹 응용 프로그램 및 CDN 제공 콘텐츠 관리
 - ASP.NET 묶음 및 축소를 Azure CDN과 통합
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## 빌드할 내용 ##
 
@@ -167,7 +169,7 @@ Azure 웹앱을 Azure CDN과 통합하는 경우 Azure CDN을 통해 컨트롤�
 
 위의 단계에 따라 이 컨트롤러 작업을 설정하려면 다음을 수행합니다.
 
-1. *\Controllers* 폴더에서 *MemeGeneratorController.cs*라는 새로운 .cs 파일을 만들고 내용을 다음 코드로 바꿉니다. `~/Content/chuck.bmp`의 파일 경로와 `yourCDNName`의 CDN 이름을 대신합니다.
+1. *\Controllers* 폴더에서 *MemeGeneratorController.cs*라는 새로운 .cs 파일을 만들고 내용을 다음 코드로 바꿉니다. `~/Content/chuck.bmp`를 해당 파일 경로로 대체하고 `yourCDNName`을 CDN 이름으로 대체합니다.
 
 
         using System;
@@ -445,7 +447,7 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 
 [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) 클래스에는 CDN 오류에 대비해 대체 메커니즘을 구성할 수 있도록 [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx)이라는 속성이 포함되어 있습니다. 이 속성을 사용하려면 다음 단계를 따르세요.
 
-1. ASP.NET 프로젝트에서 각 [Bundle 생성자](http://msdn.microsoft.com/library/jj646464.aspx)의 CDN URL을 추가한 *App\_Start\\BundleConfig.cs* 파일을 열고 다음과 같이 `CdnFallbackExpression` 코드를 네 곳에 추가하여 대체 메커니즘을 기본 번틀에 추가합니다.  
+1. ASP.NET 프로젝트에서 각 [Bundle 생성자](http://msdn.microsoft.com/library/jj646464.aspx)의 CDN URL을 추가한 *App\_Start\\BundleConfig.cs*를 열고 다음과 같이 `CdnFallbackExpression` 코드를 네 곳에 추가하여 대체(fallback) 메커니즘을 기본 번들에 추가합니다.  
 	
         public static void RegisterBundles(BundleCollection bundles)
         {
@@ -494,7 +496,7 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 
 4. *App\_Start\\StyleFundleExtensions.cs*에서 네임스페이스의 이름을 ASP.NET 응용 프로그램의 네임스페이스(예: **cdnwebapp**)로 바꿉니다.
 
-3. `App_Start\BundleConfig.cs`(으)로 돌아가 마지막 `bundles.Add` 문을 다음과 같은 코드로 대체합니다.
+3. `App_Start\BundleConfig.cs`로 돌아가 마지막 `bundles.Add` 문을 다음 코드로 바꿉니다.
 
         bundles.Add(new StyleBundle("~/Content/css", string.Format(cdnUrl, "Content/css"))
           .IncludeFallback("~/Content/css", "sr-only", "width", "1px")
@@ -533,7 +535,7 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
  	<script>(window.Modernizr)||document.write('<script src="/bundles/modernizr"><\/script>');</script>
 	... 
 	<script src="http://az673227.vo.msecnd.net/bundles/jquery?v=1.0.0.25474"></script>
-	<script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
+ 	<script>(window.jquery)||document.write('<script src="/bundles/jquery"><\/script>');</script>
 
  	<script src="http://az673227.vo.msecnd.net/bundles/bootstrap?v=1.0.0.25474"></script>
  	<script>($.fn.modal)||document.write('<script src="/bundles/bootstrap"><\/script>');</script>
@@ -564,4 +566,4 @@ ASP.NET 묶음 및 축소를 CDN 끝점과 통합하려면 다음 단계를 따�
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

@@ -21,18 +21,18 @@
 
 >[AZURE.NOTE][이벤트 허브 공급 및 지원 FAQ](event-hubs-availability-and-support-faq.md) 항목과 [이벤트 허브 가격 책정](http://azure.microsoft.com/pricing/details/event-hubs/) 항목에서 자세한 정보와 함께 이벤트 허브에 대한 가격 책정 구조를 설명합니다.
 
-- [서비스 버스 요금을 어떻게 청구하나요?](#How-do-you-charge-for-Service-Bus?)
-- [서비스 버스를 어떻게 사용하면 데이터가 전송의 대상이 되나요? 어떤 경우에 대상이 아닌가요?](#What-usage-of-Service-Bus-is-subject-to-data-transfer?-What-is-not?)
-- [정확하게 서비스 버스 "릴레이"란?](#What-exactly-is-a-Service-Bus-"relay"?)
-- [릴레이 시간 측정기는 어떻게 계산되나요?](#How-is-the-Relay-Hours-meter-calculated?)
-- [지정된 릴레이에 둘 이상의 수신기가 연결된 경우 어떻게 하나요?](#What-if-I-have-more-than-one-listener-connected-to-a-given-relay?)
-- [릴레이 대한 메시지 측정기를 어떻게 계산하나요?](#How-is-the-Messages-meter-calculated-for-relays?)
-- [서비스 버스는 저장소에 대한 요금을 청구하나요?](#Does-Service-Bus-charge-for-storage?)
-- [서비스 버스는 사용 할당량이 있나요?](#Does-Service-Bus-have-any-usage-quotas?)
+- [서비스 버스 요금을 어떻게 청구하나요?](#how-do-you-charge-for-service-bus)
+- [서비스 버스를 어떻게 사용하면 데이터 전송이 적용되나요? 어떤 경우에 대상이 아닌가요?](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not)
+- [정확하게 서비스 버스 "릴레이"란?](#what-exactly-is-a-service-bus-quotrelayquot)
+- [릴레이 시간 측정기는 어떻게 계산되나요?](#how-is-the-relay-hours-meter-calculated)
+- [지정된 릴레이에 둘 이상의 수신기가 연결된 경우 어떻게 하나요?](#what-if-i-have-more-than-one-listener-connected-to-a-given-relay)
+- [릴레이 대한 메시지 측정기를 어떻게 계산하나요?](#how-is-the-messages-meter-calculated-for-relays)
+- [서비스 버스는 저장소에 대한 요금을 청구하나요?](#does-service-bus-charge-for-storage)
+- [서비스 버스는 사용 할당량이 있나요?](#does-service-bus-have-any-usage-quotas)
 
 ## 서비스 버스 요금을 어떻게 청구하나요?
 
-서비스 버스 가격에 대한 전체 내용은 [서비스 버스 가격 책정 및 청구](https://msdn.microsoft.com/library/dn831889.aspx) 및 [서비스 버스 가격 책정 세부 정보](http://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요. 언급된 가격 외에도 응용 프로그램이 프로비전되는 데이터 센터의 외부에서 송신을 위해 연결된 데이터 전송에 요금이 부과됩니다. [서비스 버스를 어떻게 사용하면 데이터가 전송의 대상이 되나요?에서 자세한 정보를 찾을 수 있습니다. 어떤 경우에 대상이 아닌가요?아래의 ](#What-usage-of-Service-Bus-is-subject-to-data-transfer?-What-is-not?) 섹션입니다.
+서비스 버스 가격에 대한 전체 내용은 [서비스 버스 가격 책정 및 청구](https://msdn.microsoft.com/library/dn831889.aspx) 및 [서비스 버스 가격 책정 세부 정보](http://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요. 언급된 가격 외에도 응용 프로그램이 프로비전되는 데이터 센터의 외부에서 송신을 위해 연결된 데이터 전송에 요금이 부과됩니다. 자세한 내용은 아래의 다음 섹션을 참조하세요. [서비스 버스를 어떻게 사용하면 데이터 전송이 적용되나요? 어떤 경우에 대상이 아닌가요?아래의 ](#what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not) 섹션입니다.
 
 ## 서비스 버스를 어떻게 사용하면 데이터가 전송의 대상이 되나요? 어떤 경우에 대상이 아닌가요?
 
@@ -70,7 +70,7 @@
 
 - 2백만 릴레이 시간
 
-지정된 달에 사용 할당량을 초과하는 고객의 계정을 사용하지 않도록 설정하는 권한을 보유하지만 전자 메일 알림을 제공하며 조치를 취하기 전에 고객에게 연락을 여러 번 시도합니다. 이러한 할당량을 초과하는 고객은 할당량을 초과하는 요금을 지불해야 합니다.
+지정된 달에 사용 할당량을 초과하는 고객의 계정을 사용하지 않도록 설정하는 권한을 보유하지만 메일 알림을 제공하며 조치를 취하기 전에 고객에게 연락을 여러 번 시도합니다. 이러한 할당량을 초과하는 고객은 할당량을 초과하는 요금을 지불해야 합니다.
 
 Azure에서 다른 서비스와 마찬가지로 서비스 버스는 리소스의 공정한 사용을 보장하기 위해 특정한 할당량 집합을 적용합니다. 다음은 서비스에서 적용하는 사용 할당량입니다.
 
@@ -114,4 +114,4 @@ Azure에서 다른 서비스와 마찬가지로 서비스 버스는 리소스의
 - [Azure 서비스 버스 아키텍처 개요](fundamentals-service-bus-hybrid-solutions.md)
 - [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-how-to-use-queues.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

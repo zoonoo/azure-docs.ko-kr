@@ -1,18 +1,18 @@
 <properties
         pageTitle="Azure Active Directory Single Sign-On으로 iOS 앱의 사용자 인증"
-	description="Active Directory 인증 라이브러리를 통해 사용자를 iOS 응용 프로그램으로 로그인하는 방법을 알아봅니다."
-	documentationCenter="Mobile"
-	authors="mattchenderson"
-	services="app-service\mobile"
-	manager="dwrede"/>
+        description="Active Directory 인증 라이브러리를 통해 사용자를 iOS 응용 프로그램으로 로그인하는 방법을 알아봅니다."
+        documentationCenter="Mobile"
+        authors="mattchenderson"
+        services="app-service\mobile"
+        manager="dwrede" />
 
 <tags ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="05/19/2015"
-	ms.author="mahender"/>
+ms.workload="mobile"
+ms.tgt_pltfrm="mobile-ios"
+ms.devlang="objective-c"
+ms.topic="article"
+ms.date="09/14/2015"
+ms.author="mahender" />
 
 # iOS 앱에 Azure Active Directory Single Sign-On 추가
 
@@ -123,4 +123,4 @@ ADAL을 사용하여 사용자를 인증하려면 먼저 AAD(Azure Active Direct
  [모바일 앱 시작 자습서]: app-service-mobile-dotnet-backend-ios-get-started-preview.md
  [앱에 인증 추가]: app-service-mobile-dotnet-backend-ios-get-started-users-preview.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

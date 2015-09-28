@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="NA"
 	ms.devlang="NA"
 	ms.topic="article"
-	ms.date="08/05/2015"
+	ms.date="09/10/2015"
 	ms.author="alfran"/>
 
 # Operational Insights의 솔루션
@@ -129,4 +129,4 @@ Microsoft Azure Operational Insights의 용량 관리 솔루션을 사용하여 
 - 마지막 업데이트 이후 기간(일)
 - Windows Update 에이전트 버전
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

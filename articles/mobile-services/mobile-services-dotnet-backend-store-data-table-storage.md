@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="SQL 데이터베이스 대신 테이블 저장소를 사용하는 서비스 빌드 | Microsoft Azure" 
+	pageTitle="SQL 데이터베이스 대신 테이블 저장소를 사용하는 .NET 백 엔드 모바일 서비스 빌드 | Azure 모바일 서비스" 
 	description=".NET 백 엔드 모바일 서비스에서 Azure 테이블 저장소를 사용하는 방법을 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
+	ms.date="09/14/2015" 
 	ms.author="glenga"/>
 
-# SQL 데이터베이스 대신 테이블 저장소를 사용하는 .NET 백 엔드 모바일 서비스 빌드
+# 테이블 저장소를 사용하는 .NET 백 엔드 모바일 서비스 빌드
 
 이 항목에서는 .NET 백 엔드 모바일 서비스에 대한 비관계형 데이터 저장소를 사용하는 방법을 보여 줍니다. 이 자습서에서는 기본 Azure SQL 데이터베이스 데이터 저장소 대신 Azure 테이블 저장소를 사용하도록 Azure 모바일 서비스 빠른 시작 프로젝트를 수정합니다.
 
@@ -158,4 +158,4 @@ TodoList 빠른 시작 프로젝트는 Entity Framework를 사용하여 SQL 데�
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

@@ -1,23 +1,25 @@
 <properties 
-	pageTitle="하이브리드 클라우드 테스트 환경 | Microsoft Azure"
-	description="IT 전문가 또는 개발 테스트용 하이브리드 클라우드 환경을 만드는 방법에 대해 알아보고 단순한 온-프레미스 네트워크까지 살펴봅니다."
-	services="virtual-network"
-	documentationCenter=""
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	pageTitle="하이브리드 클라우드 테스트 환경 | Microsoft Azure" 
+	description="IT 전문가 또는 개발 테스트용 하이브리드 클라우드 환경을 만드는 방법에 대해 알아보고 단순한 온-프레미스 네트워크까지 살펴봅니다." 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/10/2015" 
 	ms.author="josephd"/>
 
 # 테스트용 하이브리드 클라우드 환경 설정
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 이 항목에서는 Microsoft Azure를 사용하여 테스트용 하이브리드 클라우드 환경을 만드는 과정을 안내합니다. 다음은 결과 구성입니다.
 
@@ -33,7 +35,7 @@
 이 구성은 다음 작업을 수행할 수 있는 기초 및 일반적인 시작 지점을 제공합니다.
 
 -  하이브리드 클라우드 환경에서 응용 프로그램 개발 및 테스트
--  일부는 Corpnet 서브넷에 있고 일부는 TestVNET 가상 네트워크에 있는 컴퓨터의 하이브리드 클라우드 기반 IT 작업에 대한 테스트 구성을 만듭니다.
+-  일부는 Corpnet 서브넷에 있고 일부는 TestVNET 가상 네트워크에 있는 컴퓨터의 하이브리드 클라우드 기반 IT 워크로드에 대한 테스트 구성을 만듭니다.
 
 이 하이브리드 클라우드 테스트 환경을 설정하는 다섯 가지 주요 단계가 있습니다.
 
@@ -57,8 +59,8 @@ Azure 구독이 아직 없는 경우 [Azure 평가판 사용](http://azure.micro
 
 	New-ADReplicationSite -Name "TestLab" 
 	New-ADReplicationSite -Name "TestVNET"
-	New-ADReplicationSubnet –Name "10.0.0.0/8" –Site "TestLab"
-	New-ADReplicationSubnet –Name "192.168.0.0/16" –Site "TestVNET
+	New-ADReplicationSubnet “Name "10.0.0.0/8" “Site "TestLab"
+	New-ADReplicationSubnet “Name "192.168.0.0/16" “Site "TestVNET
 
 다음은 현재 구성입니다.
 
@@ -85,15 +87,15 @@ RRAS1의 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 �
 	$publicIPpreflength=<Prefix length of your public IP address>
 	[IPAddress]$publicDG="<Your ISP default gateway>"
 	[IPAddress]$publicDNS="<Your ISP DNS server(s)>"
-	Rename-NetAdapter –Name $corpnetAdapterName –NewName Corpnet
-	Rename-NetAdapter –Name $internetAdapterName –NewName Internet
-	New-NetIPAddress -InterfaceAlias "Internet" -IPAddress $publicIP -PrefixLength $publicIPpreflength –DefaultGateway $publicDG
+	Rename-NetAdapter -Name $corpnetAdapterName -NewName Corpnet
+	Rename-NetAdapter -Name $internetAdapterName -NewName Internet
+	New-NetIPAddress -InterfaceAlias "Internet" -IPAddress $publicIP -PrefixLength $publicIPpreflength “DefaultGateway $publicDG
 	Set-DnsClientServerAddress -InterfaceAlias Internet -ServerAddresses $publicDNS
 	New-NetIPAddress -InterfaceAlias "Corpnet" -IPAddress 10.0.0.2 -AddressFamily IPv4 -PrefixLength 24
 	Set-DnsClientServerAddress -InterfaceAlias "Corpnet" -ServerAddresses 10.0.0.1
 	Set-DnsClient -InterfaceAlias "Corpnet" -ConnectionSpecificSuffix corp.contoso.com
-	New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
-	New-NetFirewallRule –DisplayName “Allow ICMPv4-Out” –Protocol ICMPv4 –Direction Outbound
+	New-NetFirewallRule -DisplayName "Allow ICMPv4-Input" -Protocol ICMPv4
+	New-NetFirewallRule -DisplayName "Allow ICMPv4-Output" -Protocol ICMPv4 -Direction Outbound
 	Disable-NetAdapterBinding -Name "Internet" -ComponentID ms_msclient
 	Disable-NetAdapterBinding -Name "Internet" -ComponentID ms_server
 	ping dc1.corp.contoso.com
@@ -129,7 +131,7 @@ RRAS1의 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 �
 
 다음으로는 [Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)의 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다.
 
-그런 다음 TestVNET 가상 네트워크에 대한 새 클라우드 서비스를 만듭니다. 고유한 이름을 선택해야 합니다. 예를 들어, TestVNET-*UniqueSequence*의 이름을 지정하며, 여기서 *UniqueSequence*는 조직의 약어입니다. 예를 들어 조직의 이름이 Tailspin Toys인 경우 클라우드 서비스 이름을 TestVNET-Tailspin으로 지정할 수 있습니다.
+그런 다음 TestVNET 가상 네트워크에 대한 새 클라우드 서비스를 만듭니다. 고유한 이름을 선택해야 합니다. 예를 들어 이름을 TestVNET-*UniqueSequence*로 지정합니다. 여기서 *UniqueSequence*는 조직의 약어입니다. 예를 들어 조직의 이름이 Tailspin Toys인 경우 클라우드 서비스 이름을 TestVNET-Tailspin으로 지정할 수 있습니다.
 
 로컬 컴퓨터에서 다음 Azure PowerShell 명령을 사용하여 이름의 고유성을 테스트할 수 있습니다.
 
@@ -197,14 +199,14 @@ RRAS1의 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 �
  
 DC1의 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
 
-	New-NetRoute –DestinationPrefix "0.0.0.0/0" –InterfaceAlias "Ethernet" –NextHop 10.0.0.2
-	Set-DhcpServerv4OptionValue –Router 10.0.0.2
+	New-NetRoute -DestinationPrefix "0.0.0.0/0" -InterfaceAlias "Ethernet" -NextHop 10.0.0.2
+	Set-DhcpServerv4OptionValue -Router 10.0.0.2
 
 이더넷 인터페이스의 이름이 이더넷이 아닌 경우 **Get-NetAdapter** 명령을 사용하여 인터페이스 이름을 확인합니다.
 
 APP1의 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
 
-	New-NetRoute –DestinationPrefix "0.0.0.0/0" –InterfaceAlias "Ethernet" –NextHop 10.0.0.2
+	New-NetRoute -DestinationPrefix "0.0.0.0/0" -InterfaceAlias "Ethernet" -NextHop 10.0.0.2
 
 CLIENT1의 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
 
@@ -223,13 +225,13 @@ CLIENT1의 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 
 	$ServiceName="<Your cloud service name from Phase 3>"
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DC2 -InstanceSize Medium -ImageName $image
-	$cred=Get-Credential –Message "Type the name and password of the local administrator account for DC2."
+	$cred=Get-Credential -Message "Type the name and password of the local administrator account for DC2."
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password 
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdminName -Password $LocalAdminPW	
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	$vm1 | Set-AzureStaticVNetIP -IPAddress 192.168.0.4
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
+	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles -LUN 0 -HostCaching None
+	New-AzureVM -ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
 
 그런 다음 새 DC2 가상 컴퓨터에 로그온합니다.
@@ -239,7 +241,7 @@ CLIENT1의 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 
 3.	DC2.rdp를 여는 대화 상자가 나타나면 **열기**를 클릭합니다.
 4.	원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **연결**을 클릭합니다.
 5.	자격 증명을 묻는 메시지가 나타나면 다음을 사용합니다.
-	- 이름: **DC2**[로컬 관리자 계정 이름]
+	- 이름: **DC2\**[로컬 관리자 계정 이름]
 	- 암호: [로컬 관리자 계정 암호]
 6.	인증서를 참조하는 원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **예**를 클릭합니다.
 
@@ -326,4 +328,4 @@ Azure VPN 게이트웨이는 지속적인 비용이 발생하는 두 개의 Azur
 그런 다음 로컬 컴퓨터에서 Azure 관리 포털로 이동하여 TestVNET 가상 네트워크의 상태가 연결됨으로 표시될 때까지 기다립니다.
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

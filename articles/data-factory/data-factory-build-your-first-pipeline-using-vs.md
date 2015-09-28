@@ -82,7 +82,7 @@ Hive 스크립트를 실행하는데 사용될 주문형 HDInsight 클러스터�
 		    "typeProperties": {
 		      "version": "3.1",
 		      "clusterSize": 1,
-		      "timeToLive": "00:05:00",
+		      "timeToLive": "00:30:00",
 		      "linkedServiceName": "AzureStorageLinkedService1"
 		    }
 		  }
@@ -235,4 +235,4 @@ Azure Preview 포털을 사용하여 이 자습서에서 만든 파이프라인 
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-vs.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -1,22 +1,22 @@
-<properties 
-	pageTitle="저장소 모니터링, 진단 및 문제 해결 | Microsoft Azure" 
-	description="저장소 분석, 클라이언트 쪽 로깅 등의 기능과 Azure 저장소 관련 문제를 파악, 진단 및 해결하는 기타 타사 도구를 사용하는 방법에 대해 알아봅니다." 
-	services="storage" 
-	documentationCenter="" 
-	authors="dominicbetts" 
-	manager="adinah" 
+<properties
+	pageTitle="저장소 모니터링, 진단 및 문제 해결 | Microsoft Azure"
+	description="저장소 분석, 클라이언트 쪽 로깅 등의 기능과 Azure 저장소 관련 문제를 파악, 진단 및 해결하는 기타 타사 도구를 사용하는 방법에 대해 알아봅니다."
+	services="storage"
+	documentationCenter=""
+	authors="dominicbetts"
+	manager="adinah"
 	editor=""/>
 
-<tags 
-	ms.service="storage" 
-	ms.workload="storage" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/03/2015" 
+<tags
+	ms.service="storage"
+	ms.workload="storage"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/03/2015"
 	ms.author="v-dobett"/>
 
-# Microsoft Azure 저장소 모니터링, 진단 및 문제 해결 
+# Microsoft Azure 저장소 모니터링, 진단 및 문제 해결
 
 클라우드 환경에서 호스트된 분산 응용 프로그램의 문제를 진단하고 해결하는 과정이 기존 환경보다 복잡할 수 있습니다. 응용 프로그램은 PaaS/IaaS 인프라, 온-프레미스, 모바일 장치에 배포될 수도 있고 이러한 항목이 조합되어 있는 환경에 배포될 수도 있습니다. 일반적으로 응용 프로그램의 네트워크 트래픽은 공용 네트워크와 개인 네트워크를 트래버스할 수 있으며 응용 프로그램은 Microsoft Azure 저장소 테이블, Blob, 큐 또는 파일과 같은 여러 저장소 기술뿐 아니라 관계형/문서 데이터베이스와 같은 기타 데이터 저장소도 사용할 수 있습니다.
 
@@ -109,8 +109,8 @@ Azure 포털에 표시할 시간 메트릭을 선택하고 시간 메트릭이 �
 Azure 응용 프로그램을 지속적으로 모니터링한 후 다음을 수행하여 응용 프로그램이 정상 상태이며 성능이 적절한 수준인지를 확인해야 합니다.
 
 - 현재 데이터를 비교하고 Azure 저장소와 응용 프로그램 동작에 발생하는 중요한 변경 사항을 파악할 수 있도록 응용 프로그램에 대해 몇 가지 기본 메트릭을 설정합니다. 대부분의 경우 기본 메트릭의 값은 응용 프로그램별로 다르며, 응용 프로그램 성능 테스트 시 해당 값을 설정해야 합니다.
-- 분 메트릭을 기록한 다음 오류 수나 요청 속도 급증 등의 비정상적인 현상과 예기치 않은 오류를 적극적으로 모니터링하는 데 사용합니다. 
-- 시간 메트릭을 기록한 다음 평균 오류 수와 요청 속도 등의 평균 값을 모니터링하는 데 사용합니다. 
+- 분 메트릭을 기록한 다음 오류 수나 요청 속도 급증 등의 비정상적인 현상과 예기치 않은 오류를 적극적으로 모니터링하는 데 사용합니다.
+- 시간 메트릭을 기록한 다음 평균 오류 수와 요청 속도 등의 평균 값을 모니터링하는 데 사용합니다.
 - 이 문서 뒷부분의 "[저장소 문제 진단]" 섹션에서 설명하는 진단 도구를 사용하여 잠재적 문제를 조사합니다.
 
 그림 3의 차트에는 시간 메트릭의 평균을 표시함으로써 활동 급증이 숨겨지는 방식이 표시되어 있습니다. 시간 메트릭에는 요청 속도가 안정적인 것으로 표시되지만 분 메트릭에는 실제로 발생하는 요청 수의 증감이 표시됩니다.
@@ -151,7 +151,7 @@ Azure 포털의 저장소 계정 **모니터** 페이지에서 서비스의 **Av
 
 - **AverageE2ELatency** 및 **AverageServerLatency**의 값은 저장소 서비스 또는 API 작업 유형이 요청을 처리하는 데 걸리는 평균 시간을 표시합니다. **AverageE2ELatency**는 요청을 읽고 응답을 보내는 데 걸리는 시간과 요청을 처리하는 시간을 포함하는 종단 간 대기 시간을 측정한 것으로, 요청이 저장소 서비스에 도달한 후의 네트워크 대기 시간을 포함합니다. **AverageServerLatency**는 처리 시간만 측정한 것으로, 클라이언트와의 통신과 관련한 네트워크 대기 시간은 제외됩니다. 이 두 값이 크게 다를 수 있는 이유에 대한 설명은 이 가이드 뒷부분의 "[메트릭에서 AverageE2ELatency는 높게 표시되고 AverageServerLatency는 낮게 표시됨]" 섹션을 참조하세요.
 - **TotalIngress** 및 **TotalEgress** 열의 값은 저장소 서비스로 들어오거나 저장소 서비스에서 나가는 총 데이터 양 또는 특정 API 작업 유형을 통과하는 총 데이터 양(바이트)을 표시합니다.
-- **TotalRequests** 열의 값은 저장소 서비스 또는 API 작업이 수신하는 총 요청 수를 표시합니다. **TotalRequests**는 저장소 서비스가 수신하는 총 요청 수입니다. 
+- **TotalRequests** 열의 값은 저장소 서비스 또는 API 작업이 수신하는 총 요청 수를 표시합니다. **TotalRequests**는 저장소 서비스가 수신하는 총 요청 수입니다.
 
 일반적으로는 이러한 값이 예기치 않게 변경되는지 여부를 모니터링하여 조사가 필요한 문제가 있는지 파악합니다.
 
@@ -165,14 +165,14 @@ Azure 포털의 저장소 계정 **모니터** 페이지에서 해당 서비스�
 여러 가지 방법으로 다음과 같은 응용 프로그램의 문제를 파악할 수 있습니다.
 
 - 응용 프로그램을 중단하거나 작동을 중지하는 중대한 오류
-- 메트릭의 값이 이전 섹션("[저장소 서비스 모니터링]")에서 설명한 모니터링 중인 메트릭의 기본 값에서 크게 변경되는 현상 
+- 메트릭의 값이 이전 섹션("[저장소 서비스 모니터링]")에서 설명한 모니터링 중인 메트릭의 기본 값에서 크게 변경되는 현상
 - 일부 특정 작업이 정상적으로 완료되지 않거나 일부 기능이 작동하지 않는다는 응용 프로그램 사용자의 보고
 - 응용 프로그램 내에서 생성되어 로그 파일이나 일부 기타 알림 방법을 통해 표시되는 오류
 
 일반적으로 Azure 저장소 서비스 관련 문제는 크게 다음의 네 가지 범주 중 하나에 속합니다.
 
 - 응용 프로그램에 성능 문제가 있습니다(사용자가 보고했거나 성능 메트릭의 변경으로 인해 확인됨).
-- 하나 이상의 지역에서 Azure 저장소 인프라에 문제가 있습니다. 
+- 하나 이상의 지역에서 Azure 저장소 인프라에 문제가 있습니다.
 - 응용 프로그램에 오류가 발생합니다(사용자가 보고했거나 모니터링하는 오류 수 메트릭 중 하나의 값 증가로 인해 확인됨).
 - 개발 및 테스트 중에 로컬 저장소 에뮬레이터를 사용 중일 수 있습니다. 이 경우 저장소 에뮬레이터 사용과 관련된 일부 문제가 발생할 수 있습니다.
 
@@ -231,7 +231,7 @@ Azure SDK에는 개발 워크스테이션에서 실행할 수 있는 저장소 �
 ## <a name="end-to-end-tracing"></a>종단 간 추적
 
 다양한 로그 파일을 사용하는 종단 간 추적은 잠재적 문제를 조사하는 데 유용한 기술입니다. 메트릭 데이터의 날짜/시간 정보를 통해 로그 파일에서 문제를 해결하는 데 도움이 되는 상세 정보 찾기를 시작할 위치를 파악할 수 있습니다.
-	
+
 ### <a name="correlating-log-data"></a>로그 데이터 상관 관계 지정
 
 클라이언트 응용 프로그램의 로그, 네트워크 추적 및 서버 쪽 저장소 로깅을 확인할 때는 여러 로그 파일 간에 요청 상관 관계를 설정할 수 있어야 합니다. 로그 파일에는 상관 관계 식별자로 활용할 수 있는 여러 필드가 포함되어 있습니다. 서로 다른 로그의 항목 간 상관 관계를 설정하는 데 사용할 수 있는 가장 유용한 필드는 클라이언트 요청 ID입니다. 그러나 서버 요청 ID 또는 타임스탬프를 사용하면 유용한 경우도 있습니다. 다음 섹션에서는 이러한 옵션에 대해 자세히 설명합니다.
@@ -264,7 +264,7 @@ Azure SDK에는 개발 워크스테이션에서 실행할 수 있는 저장소 �
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
     CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-    // Create an Operation Context that includes custom ClientRequestId string based on constants defined within the application along with a Guid. 
+    // Create an Operation Context that includes custom ClientRequestId string based on constants defined within the application along with a Guid.
     OperationContext oc = new OperationContext();
     oc.ClientRequestID = String.Format("{0} {1} {2} {3}", HOSTNAME, APPNAME, USERID, Guid.NewGuid().ToString());
 
@@ -281,11 +281,11 @@ Azure SDK에는 개발 워크스테이션에서 실행할 수 있는 저장소 �
     }
     catch (StorageException storageException)
     {
-        Console.WriteLine("Storage exception {0} occurred", storageException.Message); 
+        Console.WriteLine("Storage exception {0} occurred", storageException.Message);
         // Multiple results may exist due to client side retry logic - each retried operation will have a unique ServiceRequestId
         foreach (var result in oc.RequestResults)
         {
-                Console.WriteLine("HttpStatus: {0}, ServiceRequestId {1}", result.HttpStatusCode, result.ServiceRequestID); 
+                Console.WriteLine("HttpStatus: {0}, ServiceRequestId {1}", result.HttpStatusCode, result.ServiceRequestID);
         }
     }
 
@@ -403,7 +403,7 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 
 테이블이나 쿼리의 디자인이 잘못되어 검사 작업이 수행되거나 추가/앞에 추가 방지 패턴을 따르는 경우에도 **AverageServerLatency** 값이 높아지는 증상이 발생할 수 있습니다. 자세한 내용은 "[메트릭에서 PercentThrottlingError가 증가하는 것으로 표시됨]"을 참조하세요.
 
-> [AZURE.NOTE]주의해야할 다른 문제를 포함한 통합 검사목록은 여기에서 확인할 수 있습니다: “확장성과 성능이 뛰어난 저장소 기반 응용 프로그램 디자인 검사 목록”
+> [AZURE.NOTE]주의해야할 다른 문제를 포함한 통합 검사목록은 여기에서 확인할 수 있습니다: "[확장성과 성능이 뛰어난 저장소 기반 응용 프로그램 디자인 검사 목록](storage-performance-checklist.md)".
 
 ### <a name="you-are-experiencing-unexpected-delays-in-message-delivery"></a>큐에서 메시지 배달 중에 예기치 않은 대기 시간이 발생함
 
@@ -448,7 +448,7 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 메트릭에서 저장소 서비스 중 하나의 **PercentTimeoutError**가 증가하는 것으로 표시됨과 동시에, 저장소 작업에서 많은 수의 "500 작업 시간 초과" HTTP 상태 메시지가 클라이언트에 수신되는 경우가 있습니다.
 
 > [AZURE.NOTE]저장소 서비스가 파티션을 새 서버로 이동하여 요청 부하를 분산할 때는 시간 초과 오류가 일시적으로 발생할 수 있습니다.
- 
+
 **PercentTimeoutError** 메트릭은 **ClientTimeoutError**, **AnonymousClientTimeoutError**, **SASClientTimeoutError**, **ServerTimeoutError**, **AnonymousServerTimeoutError** 및 **SASServerTimeoutError** 메트릭을 집계한 것입니다.
 
 서버에 오류가 발생하면 서버 시간이 초과됩니다. 서버의 작업에서 클라이언트가 지정한 제한 시간이 초과되면 클라이언트 시간이 초과됩니다. 예를 들어 저장소 클라이언트 라이브러리를 사용하는 클라이언트가 **QueueRequestOptions** 클래스의 **ServerTimeout** 속성을 사용하여 작업에 제한 시간을 설정할 수 있습니다.
@@ -473,7 +473,7 @@ Microsoft.WindowsAzure.Storage|정보|3|85d077ab -…|응답을 기다리는 중
 Microsoft.WindowsAzure.Storage|Warning|2|85d077ab -…|응답을 기다리는 동안 throw 된 예외: 원격 서버 오류를 반환했습니다: (403) 사용할 수 없음..
 Microsoft.WindowsAzure.Storage|정보|3|85d077ab -…|응답을 받았습니다. 상태 코드 = 403, 요청 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = .
 Microsoft.WindowsAzure.Storage|Warning|2|85d077ab -…|작업하는 동안 throw 된 예외: 원격 서버 오류를 반환했습니다: (403) 사용할 수 없음..
-Microsoft.WindowsAzure.Storage|정보|3 |85d077ab -…|작업을 다시 시도해야 하는지 확인하는 중입니다. 재시도 횟수 = 0, HTTP 상태 코드 403, 예외 = = 원격 서버 오류를 반환 했습니다: (403) 사용할 수 없음... 
+Microsoft.WindowsAzure.Storage|정보|3 |85d077ab -…|작업을 다시 시도해야 하는지 확인하는 중입니다. 재시도 횟수 = 0, HTTP 상태 코드 403, 예외 = = 원격 서버 오류를 반환 했습니다: (403) 사용할 수 없음...
 Microsoft.WindowsAzure.Storage|정보|3|85d077ab -…|위치 모드에 따라 다음 위치가 Primary로 설정되었습니다.
 Microsoft.WindowsAzure.Storage|오류|1|85d077ab -…|다시 시도 정책에서 다시 시도를 허용하지 않았습니다. 원격서버에서 작업이 실패했습니다:(403) 사용할 수 없음
 
@@ -481,7 +481,7 @@ Microsoft.WindowsAzure.Storage|오류|1|85d077ab -…|다시 시도 정책에서
 
 - 보통 클라이언트에 대해 즉시 사용할 SAS를 만들 때는 시작 시간을 설정하면 안 됩니다. 현재 시간을 사용하여 SAS를 생성하는 호스트와 저장소 서비스 간에 약간의 클럭 차이가 있는 경우에는 저장소 서비스가 아직 유효하지 않은 SAS를 받을 가능성이 있습니다.
 - SAS에 대해 매우 짧은 만료 시간을 설정해서는 안 됩니다. 마찬가지로 SAS를 생성하는 호스트와 저장소 서비스 간에 클럭 차이가 약간이라도 있으면 SAS가 예상보다 빨리 만료됩니다.
-- SAS 키의 버전 매개 변수(예: **sv=2012-02-12**)가 사용 중인 저장소 클라이언트 라이브러리의 버전과 일치하는지 확인합니다. 항상 최신 버전의 저장소 클라이언트 라이브러리를 사용해야 합니다. SAS 토큰 버전 관리 및 클라이언트 라이브러리 버전에 대한 종속성과 관련된 자세한 내용은 <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx" target="_blank"></a> 항목을 참조하세요. 
+- SAS 키의 버전 매개 변수(예: **sv=2012-02-12**)가 사용 중인 저장소 클라이언트 라이브러리의 버전과 일치하는지 확인합니다. 항상 최신 버전의 저장소 클라이언트 라이브러리를 사용해야 합니다. SAS 토큰 버전 관리 및 클라이언트 라이브러리 버전에 대한 종속성과 관련된 자세한 내용은 <a href="http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/14/what-s-new-for-microsoft-azure-storage-at-teched-2014.aspx" target="_blank">Microsoft Azure 저장소의 새로운 기능</a> 항목을 참조하세요.
 - Azure 포털의 저장소 계정 내 임의의 페이지에서 **액세스 키 관리**를 클릭하여 저장소 액세스 키를 다시 생성하는 경우 기존 SAS 토큰이 무효화될 수 있습니다. 클라이언트 응용 프로그램이 캐시하도록 만료 시간이 매우 긴 SAS 토큰을 생성하는 경우 문제가 발생할 수 있습니다.
 
 저장소 클라이언트 라이브러리를 사용하여 SAS 토큰을 생성하는 경우에는 유효한 토큰을 쉽게 작성할 수 있습니다. 그러나 저장소 REST API를 사용 중이며 수동으로 SAS 토큰을 생성하는 경우에는 MSDN의 <a href="http://msdn.microsoft.com/library/azure/ee395415.aspx" target="_blank">공유 액세스 서명으로 액세스 위임 항목</a>을 자세히 확인해야 합니다.
@@ -542,7 +542,7 @@ e2d06d78-... | https://domemaildist.blob.core.windows.net/azuremmblobcontainer�
 e2d06d78-...|StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.
 e2d06d78-... | 응답을 기다리는 중입니다.
 de8b1c3c-... | 요청 데이터를 쓰는 중입니다.
-de8b1c3c-... | 응답을 기다리는 중입니다. 
+de8b1c3c-... | 응답을 기다리는 중입니다.
 e2d06d78-... | 응답을 기다리는 동안 throw 된 예외: 원격 서버 오류를 반환했습니다: (409) 충돌..
 e2d06d78-... | 응답을 받았습니다. 상태 코드 = 409, 요청 ID = c27da20e-..., Content-MD5 = , ETag = .
 e2d06d78-... | 오류 응답 본문을 다운로드하는 중입니다.
@@ -631,7 +631,7 @@ JavaScript 문제를 해결하려면 클라이언트가 액세스하는 저장�
     sp.Cors.CorsRules.Add(cr);
     client.SetServiceProperties(sp);
 
-#### <a name="network-failure"></a>네트워크 오류 
+#### <a name="network-failure"></a>네트워크 오류
 
 네트워크 패킷 손실로 인해 저장소 서비스가 HTTP 404 메시지를 클라이언트에 반환하는 경우가 있습니다. 예를 들어 클라이언트 응용 프로그램이 테이블 서비스의 엔터티를 삭제할 때 클라이언트가 저장소 예외를 throw하고 테이블 서비스에서 "HTTP 404(찾을 수 없음)" 상태 메시지를 보고할 수 있습니다. 그런데 테이블 저장소 서비스에서 테이블을 조사하면 서비스가 요청대로 엔터티를 삭제했음이 확인됩니다.
 
@@ -673,7 +673,7 @@ Timestamp|작업|결과|컨테이너 이름|클라이언트 요청 ID
 
 ### <a name="you-are-experiencing-unexpected-reboots"></a>많은 수의 VHD가 연결된 가상 컴퓨터가 예기치 않게 다시 부팅됨
 
-VM(가상 컴퓨터)에 같은 저장소 계정의 VHD가 여러 개 연결되어 있으면 개별 저장소 계정의 확장성 목표가 초과되어 VM에서 오류가 발생할 수 있습니다. 저장소 계정의 분 메트릭(**TotalRequests**/**TotalIngress**/**TotalEgress**)에서 저장소 계정의 확장성 목표를 초과하는 메트릭 값의 급증 현상을 확인해야 합니다. 저장소 계정에 대해 제한이 적용되었는지를 확인하는 데 도움이 필요하면 "[메트릭에서 PercentThrottlingError가 증가하는 것으로 표시됨]" 섹션을 참조하세요.
+Azure VM(가상 컴퓨터)에 같은 저장소 계정의 VHD가 여러 개 연결되어 있으면 개별 저장소 계정의 확장성 목표가 초과되어 VM에서 오류가 발생할 수 있습니다. 저장소 계정의 분 메트릭(**TotalRequests**/**TotalIngress**/**TotalEgress**)에서 저장소 계정의 확장성 목표를 초과하는 메트릭 값의 급증 현상을 확인해야 합니다. 저장소 계정에 대해 제한이 적용되었는지를 확인하는 데 도움이 필요하면 "[메트릭에서 PercentThrottlingError가 증가하는 것으로 표시됨]" 섹션을 참조하세요.
 
 일반적으로 가상 컴퓨터에서 수행하는 VHD의 개별 입력 또는 출력 작업은 기본 페이지 Blob에서 **페이지 가져오기** 또는 **페이지 배치** 작업으로 변환됩니다. 따라서 환경에 대한 예상 IOPS를 사용하여 응용 프로그램의 특정 동작을 기준으로 단일 저장소 계정에 포함할 수 있는 VHD의 수를 조정할 수 있습니다. 단일 저장소 계정에 디스크를 40개 이하로 유지하는 것이 좋습니다. 저장소 계정의 현재 확장성 목표, 특히 사용 중인 저장소 계정 유형에 대한 총 요청 속도 및 총 대역폭에 대한 자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/dn249410.aspx" target="_blank">Azure 저장소 확장성 및 성능 목표</a>를 참조하세요. 저장소 계정의 확장성 목표가 초과되는 경우에는 여러 저장소 계정에 VHD를 배치하여 개별 계정의 작업량을 줄여야 합니다. 저장소 계정의 확장성 목표를 초과 하는 경우에 각 개별 계정에 대한 작업을 줄일 수 있는 여러 다른 저장소 계정에서 Vhd를 배치 해야 합니다.
 
@@ -765,7 +765,7 @@ Wireshark는 광범위한 네트워크 프로토콜에 대한 상세 패킷 정�
 1.	로컬 컴퓨터에서 Wireshark를 시작합니다.
 2.	**시작** 섹션에서 로컬 네트워크 인터페이스 또는 인터넷에 연결된 인터페이스를 선택합니다.
 3.	**캡처 옵션**을 클릭합니다.
-4.	**캡처 필터** 텍스트 상자에 필터를 추가합니다. 예를 들어 **host contosoemaildist.table.core.windows.net**은 **contosoemaildist** 저장소 계정의 테이블 서비스 끝점에서 보내거나 받는 패킷만 캡처하도록 Wireshark를 구성합니다. 캡처 필터의 전체 목록은 <a href="http://wiki.wireshark.org/CaptureFilters" target="_blank">http://wiki.wireshark.org/CaptureFilters</a>를 참조하세요. 
+4.	**캡처 필터** 텍스트 상자에 필터를 추가합니다. 예를 들어 **host contosoemaildist.table.core.windows.net**은 **contosoemaildist** 저장소 계정의 테이블 서비스 끝점에서 보내거나 받는 패킷만 캡처하도록 Wireshark를 구성합니다. 캡처 필터의 전체 목록은 <a href="http://wiki.wireshark.org/CaptureFilters" target="_blank">http://wiki.wireshark.org/CaptureFilters</a>를 참조하세요.
 
     ![][6]
 
@@ -792,7 +792,7 @@ Microsoft Message Analyzer를 사용하여 Fiddler와 비슷한 방식으로 HTT
 Microsoft Message Analyzer를 사용하여 HTTP 및 HTTPS 트래픽에 대해 웹 추적 세션을 구성하려면 Microsoft Message Analyzer 응용 프로그램을 시작하고 **파일** 메뉴에서 **캡처/추적**을 클릭합니다. 사용 가능한 추적 시나리오 목록에서 **웹 프록시**를 선택합니다. 그런 다음 **추적 시나리오 구성** 패널의 **HostnameFilter** 텍스트 상자에 저장소 끝점의 이름을 추가합니다. Azure 포털에서 이러한 이름을 조회할 수 있습니다. 예를 들어 Azure 저장소 계정의 이름이 **contosodata**인 경우 **HostnameFilter** 텍스트 상자에 다음을 추가해야 합니다.
 
     contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata.queue.core.windows.net
-    
+
 > [AZURE.NOTE]호스트 이름이 여러 개이면 공백 문자로 구분합니다.
 
 추적 데이터 수집을 시작할 준비가 되면 **시작** 단추를 클릭합니다.
@@ -831,7 +831,7 @@ Blob 저장소에서 다운로드한 저장소 로깅 데이터를 Excel로 가�
 
 성능 및 가용성 모니터링의 일부분으로 Visual Studio Online의 Application Insights 기능을 사용할 수도 있습니다. 이 도구는 다음과 같은 작업을 수행할 수 있습니다.
 
-- 웹 서비스가 사용 가능하며 응답할 수 있는 상태인지 확인합니다. 앱이 웹 서비스를 사용하는 웹 사이트 또는 장치 앱인 경우에도 전 세계 여러 위치에서 몇 분마다 URL을 테스트하고 문제가 있는지 알려 줍니다. 
+- 웹 서비스가 사용 가능하며 응답할 수 있는 상태인지 확인합니다. 앱이 웹 서비스를 사용하는 웹 사이트 또는 장치 앱인 경우에도 전 세계 여러 위치에서 몇 분마다 URL을 테스트하고 문제가 있는지 알려 줍니다.
 - 웹 서비스의 성능 문제나 예외를 빠르게 진단합니다. CPU 또는 기타 리소스가 확대되는지 확인하고 예외에서 스택 추적을 가져오며 로그 추적을 쉽게 검색할 수 있습니다. 앱 성능이 허용되는 제한 미만으로 떨어지면 전자 메일이 전송됩니다. .NET 및 Java 웹 서비스를 모두 모니터링할 수 있습니다.
 
 이 문서를 작성한 시점에서는 Application Insights가 미리 보기 상태였습니다. 자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/dn481095.aspx" target="_blank">MSDN의 Visual Studio Online용 Application Insights</a>에서 확인할 수 있습니다.
@@ -912,6 +912,5 @@ Blob 저장소에서 다운로드한 저장소 로깅 데이터를 Excel로 가�
 [8]: ./media/storage-monitoring-diagnosing-troubleshooting/wireshark-screenshot-3.png
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
- 
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

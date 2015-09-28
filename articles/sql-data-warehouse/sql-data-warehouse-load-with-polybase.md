@@ -83,7 +83,7 @@ CREATE EXTERNAL DATA SOURCE azure_storage
 WITH
 (
     TYPE = HADOOP
-,   LOCATION ='wasbs://mycontainer@ test.blob.core.windows.net/path'
+,   LOCATION ='wasbs://mycontainer@test.blob.core.windows.net'
 ,   CREDENTIAL = ASBSecret
 )
 ;
@@ -125,7 +125,7 @@ PolyBase는 구분 기호로 분리된 텍스트, Hive RCFILE 및 HIVE ORC 형�
 외부 파일 형식을 끌어 놓으려는 경우 구문은 다음과 같습니다.
 
 ```
--- Dropping external file format...
+-- Dropping external file format
 DROP EXTERNAL FILE FORMAT text_file_format
 ;
 ```
@@ -325,4 +325,4 @@ $write.Dispose()
 [CREATE CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ko-KR/library/ms189522.aspx
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/ko-KR/library/ms189450.aspx
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="앱 모델 v2.0 | Microsoft Azure"
+	pageTitle="앱 모델 v2.0 .NET 웹앱 | Microsoft Azure"
 	description="개인 Microsoft 계정과 회사 또는 학교 계정 둘 다로 사용자를 로그인하는 .NET MVC Web 웹앱을 빌드하는 방법입니다."
 	services="active-directory"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # 앱 모델 v2.0 미리 보기: .NET MVC 웹앱에 로그인 추가
@@ -52,7 +52,7 @@ v2.0 앱 모델에서는 개인 Microsoft 계정과 회사 또는 학교 계정 
     -	`ida:ClientId` 는 등록 포털에서 앱에 할당된 **응용 프로그램 ID**입니다.
     -	`ida:RedirectUri` 는 포털에서 입력한 **리디렉션 URI**입니다.
 
--	다음으로 패키지 관리자 콘솔을 사용하여 OWIN 미들웨어 NuGet 패키지를 프로젝트에 추가합니다.
+-    다음으로 패키지 관리자 콘솔을 사용하여 OWIN 미들웨어 NuGet 패키지를 프로젝트에 추가합니다.
 
 ```
 PM> Install-Package Microsoft.Owin.Security.OpenIdConnect 
@@ -207,4 +207,4 @@ public ActionResult About()
 - [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md) 
 - [스택 오버플로 "azure-active-directory" 태그 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

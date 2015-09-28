@@ -1,3 +1,4 @@
+<!--author=alkohli last changed: 9/17/15-->
 
 #### 최소 StorSimple 장치 설치를 완료하려면
 
@@ -33,4 +34,8 @@
 
  >[AZURE.NOTE]**구성** 페이지에 액세스하여 언제든지 다른 모든 장치 설정을 수정할 수 있습니다.
 
-<!---HONumber=August15_HO7-->
+![동영상 사용 가능](./media/storsimple-complete-minimum-device-setup/Video_icon.png) **동영상 사용 가능**
+
+최소 장치 설치를 완료하는 방법을 보여 주는 동영상을 시청하려면 [여기](http://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/)를 클릭하세요.
+
+<!---HONumber=Sept15_HO3-->

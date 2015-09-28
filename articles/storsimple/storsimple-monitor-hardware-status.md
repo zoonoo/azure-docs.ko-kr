@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 하드웨어 구성 요소 및 상태 | Microsoft Azure"
-	description="StorSimple Manager 서비스를 통해 StorSimple 장치의 하드웨어 구성 요소를 모니터링하는 방법에 대해 알아봅니다."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="StorSimple Manager 서비스를 통해 StorSimple 장치의 하드웨어 구성 요소를 모니터링하는 방법에 대해 알아봅니다."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/02/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # StorSimple 관리자 서비스를 사용하여 하드웨어 구성 요소 및 상태 모니터링
 
@@ -52,7 +52,7 @@
 	-  **빨간색 느낌표** – **실패** 또는 **주의 필요** 상태인 구성 요소를 표시합니다.
 	-  **검정 텍스트에 흰색** – 존재하지 않는 구성 요소를 표시합니다.
 
-3. **정상** 상태가 아닌 구성 요소가 있는 경우 Microsoft 지원에 문의하세요. 장치에서 경고를 설정한 경우, 전자 메일 경고를 받게 됩니다. 실패한 하드웨어 구성 요소를 교체해야 하는 경우 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)를 참조하세요.
+3. **정상** 상태가 아닌 구성 요소가 있는 경우 Microsoft 지원에 문의하세요. 장치에서 경고를 설정한 경우, 메일 경고를 받게 됩니다. 실패한 하드웨어 구성 요소를 교체해야 하는 경우 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)를 참조하세요.
 
 
 ## StorSimple 장치의 기본 인클로저에 대한 구성 요소 목록
@@ -125,10 +125,12 @@
 |장치 컨트롤러에 연결|I/O|물리적|Controller|아니요|EBOD I/O 모듈 및 장치 컨트롤러 간의 연결 상태를 나타냅니다.|
 
 ## 다음 단계
-성능 저하 또는 실패 상태의 장치 구성 요소 문제를 해결해야 하는 경우 [StorSimple 모니터링 표시기](storsimple-monitoring-indicators.md)를 참조하세요.
+- StorSimple Manager 서비스를 사용하는 방법을 자세히 알아보려면 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md)로 이동하세요.
+ 
+- 성능 저하 또는 실패 상태의 장치 구성 요소 문제를 해결해야 하는 경우 [StorSimple 모니터링 표시기](storsimple-monitoring-indicators.md)를 참조하세요.
 
-오류가 발생한 하드웨어 구성 요소를 교체하려면 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)를 참조하세요.
+- 오류가 발생한 하드웨어 구성 요소를 교체하려면 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)를 참조하세요.
 
-장치 문제가 계속되면 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
+- 장치 문제가 계속되면 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

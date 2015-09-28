@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/05/2015"
+   ms.date="09/14/2015"
    ms.author="telmos" />
 
 # 가상 네트워크 개요
@@ -85,7 +85,7 @@ Azure에서 부하 분산에 대한 자세한 내용은 [부하 분산 장치 �
 
 ## 다음 단계
 
-- [VNet 만들기](../virtual-networks-create-a-vnet.md) 및 서브넷 만들기.
+- [VNet 만들기](../virtual-networks-create-vnet-arm-pportal.md) 및 서브넷 만들기.
 - [VNet에서 VM 만들기](../virtual-machines-windows-tutorial.md).
 - [NSG](../virtual-networks-nsg.md)에 대해 알아보기.
 - [부하 분산 장치](../load-balancer-overview.md)에 대해 알아보기.
@@ -93,4 +93,4 @@ Azure에서 부하 분산에 대한 자세한 내용은 [부하 분산 장치 �
 - [공용 IP 주소 예약](../virtual-networks-reserved-public-ip.md).
 - [사용자 정의 경로 및 IP 전달](virtual-networks-udr-overview.md)에 대해 알아보기.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

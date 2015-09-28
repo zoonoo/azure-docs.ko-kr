@@ -11,7 +11,7 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/07/2015"
@@ -19,12 +19,14 @@
 
 # 기본 구성 테스트 환경
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다. [리소스 관리자 배포 모델](virtual-machines-base-configuration-test-environment-resource-manager.md)을 사용하여 이러한 리소스를 만들 수도 있습니다.
+
 이 문서는 서비스 관리에서 만든 가상 컴퓨터를 사용하여 Azure 가상 네트워크의 기본 구성 테스트 환경을 만드는 방법에 대한 단계별 지침을 제공합니다.
 
 결과 테스트 환경을 다음에 사용할 수 있습니다.
 
 - 응용 프로그램 개발 및 테스트
-- [시뮬레이션된 하이브리드 클라우드 환경](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md).
+- [시뮬레이션된 하이브리드 클라우드 환경](../virtual-network/virtual-networks-setup-simulated-hybrid-cloud-environment-testing.md)
 - 추가 가상 컴퓨터 및 사용자 고유 디자인의 테스트 환경에 대한 Azure 서비스를 사용해 확장.
 
 기본 구성 테스트 환경은 시뮬레이션을 간소화시키는 TestLab이라고 하는 클라우드 전용 가상 네트워크의 Corpnet 서브넷과 인터넷에 연결된 개인 인트라넷으로 구성됩니다.
@@ -53,11 +55,6 @@ Azure에서 Windows Server 2012 R2 기본 구성 테스트 환경의 Corpnet 서
 
 > [AZURE.NOTE]Azure의 가상 컴퓨터는 실행 중인 동안 지속적인 비용이 부과됩니다. 이 비용은 무료 평가판, MSDN 구독 또는 유료 구독에 대해 청구됩니다. 실행 중인 Azure 가상 컴퓨터의 비용에 대한 자세한 내용은 [가상 컴퓨터 가격 정보](http://azure.microsoft.com/pricing/details/virtual-machines/) 및 [Azure 가격 계산기](http://azure.microsoft.com/pricing/calculator/)를 참조하세요. 비용을 절감하려면 [Azure에서 테스트 환경 가상 컴퓨터의 비용 최소화](#costs)를 참조하세요.
 
-[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
-
-- [Azure 리소스 관리자를 사용하는 기본 구성 테스트 환경](virtual-machines-base-configuration-test-environment-resource-manager.md)
-
-
 ## 1단계: 가상 네트워크 만들기
 
 먼저, 기본 구성의 Corpnet 서브넷을 호스팅하는 TestLab 가상 네트워크를 만듭니다.
@@ -84,7 +81,7 @@ Azure에서 Windows Server 2012 R2 기본 구성 테스트 환경의 Corpnet 서
 
 클라우드 서비스의 고유한 이름을 선택해야 합니다. *클라우드 서비스 이름은 문자, 숫자 및 하이픈만 포함할 수 있습니다. 필드의 첫 번째 및 마지막 문자는 문자 또는 숫자여야 합니다.*
 
-예를 들어 클라우드 서비스 이름을 TestLab-*UniqueSequence*로 지정할 수 있습니다(여기서 *UniqueSequence*는 조직의 약어). 예를 들어 조직의 이름이 Tailspin Toys인 경우 클라우드 서비스 이름을 TestLab-Tailspin으로 지정할 수 있습니다.
+예를 들어 클라우드 서비스 이름을 TestLab-*UniqueSequence*로 지정할 수 있습니다(여기서 *UniqueSequence*는 조직의 약어임). 예를 들어 조직의 이름이 Tailspin Toys인 경우 클라우드 서비스 이름을 TestLab-Tailspin으로 지정할 수 있습니다.
 
 로컬 컴퓨터에서 다음 Azure PowerShell 명령을 사용하여 이름의 고유성을 테스트할 수 있습니다.
 
@@ -244,7 +241,7 @@ CLIENT1과 DC1 간의 이름 확인 및 네트워크 통신을 확인하려면 W
 4.	시작 화면에서 **Internet Explorer**를 클릭한 후 **확인**을 클릭합니다.
 5.	주소 표시줄에 ****http://app1.corp.contoso.com/**을 입력하고 Enter 키를 누릅니다. APP1에 대한 기본 IIS(인터넷 정보 서비스) 웹 페이지가 표시됩니다.
 6.	바탕 화면 작업 표시줄에서 파일 탐색기 아이콘을 클릭합니다.
-7.	주소 표시줄에 **\\\\app1\\Files**를 입력하고 Enter 키를 누릅니다.
+7.	주소 표시줄에 **\\\app1\\Files**를 입력하고 Enter 키를 누릅니다.
 8.	Files 공유 폴더의 내용이 포함된 폴더 창이 표시됩니다.
 9.	**Files** 공유 폴더 창에서 **Example.txt** 파일을 두 번 클릭합니다. Example.txt 파일의 내용이 표시됩니다.
 10.	**example.txt - 메모장** 및 **Files** 공유 폴더 창을 닫습니다.
@@ -289,4 +286,4 @@ Azure PowerShell을 사용하여 가상 컴퓨터를 순서대로 시작하려�
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

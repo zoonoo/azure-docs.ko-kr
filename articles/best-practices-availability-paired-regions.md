@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/07/2015"
+    ms.date="09/16/2015"
     ms.author="robb"/>
 
 # Azure 지역 쌍을 사용하여 가용성 향상
@@ -84,4 +84,4 @@ Azure의 격리 및 가용성 정책을 활용하려면 지역 쌍 간에 작업
 
 ![9 주황색](./media/best-practices-availability-paired-regions/9Orange.png) **데이터 상주** – 지역은 세금 및 법률 집행 관할 구역의 데이터 상주 요구 사항을 충족하기 위해 동일한 지리적 위치 내에 쌍으로(브라질 남부 제외) 상주합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

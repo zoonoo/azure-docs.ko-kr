@@ -1,20 +1,22 @@
-<properties 
-	pageTitle="Azure의 가상 컴퓨터가 내가 원하는 계산 옵션인가요?" 
-	description="Azure 계산 호스팅 옵션 및 작동 방식에 대해 알아봅니다. 앱 서비스, 클라우드 서비스 및 가상 컴퓨터" 
+<properties
+	pageTitle="Azure의 가상 컴퓨터가 내가 원하는 계산 옵션인가요?"
+	description="Azure 계산 호스팅 옵션 및 작동 방식에 대해 알아봅니다. 앱 서비스, 클라우드 서비스 및 가상 컴퓨터"
+	headerExpose=""
+	footerExpose=""
 	services="virtual-machines"
-	authors="KBDAzure" 
+	authors="cynthn"
 	documentationCenter=""
 	manager="timlt"
 	tags=azure-resource-manager, azure-service-management/>
 
-<tags 
-	ms.service="multiple" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/19/2015" 
-	ms.author="kathydav"/>
+<tags
+	ms.service="multiple"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="06/19/2015"
+	ms.author="cynthn"/>
 
 # Azure 가상 컴퓨터를 선택해야 하나요?
 
@@ -29,4 +31,4 @@ Azure는 응용 프로그램을 실행하기 위한 여러 호스팅 모델을 �
 [Virtual Machines]: #tellmevm
 [Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

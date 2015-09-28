@@ -4,23 +4,28 @@
 	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
+	writer="cephalin" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스에서 엔터프라이즈 웹 앱 마이그레이션
 
-IIS(인터넷 정보 서비스) 6 이상을 실행하는 기존 웹 사이트를 [앱 서비스 웹 앱](http://go.microsoft.com/fwlink/?LinkId=529714)으로 쉽게 마이그레이션할 수 있습니다. [Web App Migration Assistant](https://www.movemetothecloud.net/)는 IIS 서버 설치를 분석하고, 앱 서비스로 마이그레이션할 수 있는 사이트를 식별하고, 마이그레이션할 수 없거나 플랫폼에서 지원되지 않는 요소를 강조 표시한 후, 웹 사이트 및 관련 데이터베이스를 Azure로 마이그레이션합니다.
+IIS(인터넷 정보 서비스) 6 이상을 실행하는 기존 웹 사이트를 [앱 서비스 웹 앱](http://go.microsoft.com/fwlink/?LinkId=529714)으로 쉽게 마이그레이션할 수 있습니다.
 
 >[AZURE.IMPORTANT]Windows Server 2003은 2015년 7월 14일에 지원이 종료됩니다. 현재 웹 사이트가 Windows Server 2003을 사용하는 IIS 서버에 있는 경우 웹 앱이 위험, 비용 및 충돌을 줄이면서 웹 사이트를 온라인으로 유지할 수 있는 방법이며, Web App Migration Assistant를 사용하면 마이그레이션 프로세스를 자동화할 수 있습니다.
+
+[Web App Migration Assistant](https://www.movemetothecloud.net/)는 IIS 서버 설치를 분석하고, 앱 서비스로 마이그레이션할 수 있는 사이트를 식별하고, 마이그레이션할 수 없거나 플랫폼에서 지원되지 않는 요소를 강조 표시한 후, 웹 사이트 및 관련 데이터베이스를 Azure로 마이그레이션합니다.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## 호환성 분석 중 확인하는 요소 ##
 Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 앱으로의 성공적인 마이그레이션을 방해할 수 있는 우려나 차단 문제의 잠재적인 원인을 식별하는 준비 보고서를 만듭니다. 알고 있어야 하는 몇 가지 주요 항목은 다음과 같습니다.
@@ -131,4 +136,4 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

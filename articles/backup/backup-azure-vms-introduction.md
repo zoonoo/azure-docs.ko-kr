@@ -3,7 +3,7 @@
 	description="Azure 백업 서비스를 사용하여 Azure에서 가상 컴퓨터를 백업하는 방법 소개"
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
@@ -122,4 +122,4 @@ Azure 가상 컴퓨터 백업을 시작하기 전에 Azure VM 에이전트가 �
 - [가상 컴퓨터 복원](backup-azure-restore-vms.md)
 - [가상 컴퓨터 백업 관리](backup-azure-manage-vms.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

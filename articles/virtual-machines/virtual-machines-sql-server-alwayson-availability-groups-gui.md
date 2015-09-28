@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Azure의 AlwaysOn 가용성 그룹 구성(GUI)"
+	pageTitle="Azure VM의 AlwaysOn 가용성 그룹 구성(GUI)"
 	description="Azure 가상 컴퓨터에서 AlwaysOn 가용성 그룹을 만듭니다. 이 자습서에서는 스크립트보다는 사용자 인터페이스 및 도구를 주로 사용합니다."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,9 +13,9 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/12/2015"
-	ms.author="jroth"/>
+	ms.author="jroth" />
 
-# Azure의 AlwaysOn 가용성 그룹 구성(GUI)
+# Azure VM의 AlwaysOn 가용성 그룹 구성(GUI)
 
 이 종단 간 자습서에서는 Azure 가상 컴퓨터에서 실행되는 SQL Server AlwaysOn을 사용하여 가용성 그룹을 구현하는 방법을 보여줍니다.
 
@@ -534,4 +534,4 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 
 Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -3,11 +3,11 @@
 Windows, Linux 또는 OSX를 실행하는 컴퓨터의 명령 프롬프트에서 Azure CLI를 사용하여 Azure 리소스를 관리할 수 있습니다. Azure CLI를 사용하여 VNet을 만들려면 다음 단계를 수행합니다.
 
 1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](xplat-cli.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
-2. 아래와 같이 **azure network vnet create** 명령을 실행하여 VNet과 서브넷을 만듭니다. CLI 명령의 출력을 확인합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
+2. 아래와 같이 **azure network vnet create** 명령을 실행하여 VNet과 서브넷을 만듭니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
 
 			azure network vnet create --vnet TestVNet -e 192.168.0.0 -i 16 -n FrontEnd -p 192.168.1.0 -r 24 -l "Central US"
 	
-	다음은 위의 명령에 대해 예상된 출력입니다.
+	예상 출력:
 
 			info:    Executing command network vnet create
 			+ Looking up network configuration
@@ -23,7 +23,7 @@ Windows, Linux 또는 OSX를 실행하는 컴퓨터의 명령 프롬프트에서
 	- **-r(또는 --subnet-cidr)**. 서브넷에 대한 CIDR 형식의 네트워크 마스크입니다. 이 시나리오에서는 *24*입니다.
 	- **-l(또는 --location)**. VNet을 만들 Azure 지역입니다. 이 시나리오에서는 *Central US*입니다.
 
-3. 아래와 같이 **azure network vnet subnet create** 명령을 실행하여 서브넷을 만듭니다. 명령의 출력을 확인합니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
+3. 아래와 같이 **azure network vnet subnet create** 명령을 실행하여 서브넷을 만듭니다. 출력 다음에 표시되는 목록은 사용되는 매개 변수를 설명합니다.
 
 			azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24
 	
@@ -65,4 +65,4 @@ Windows, Linux 또는 OSX를 실행하는 컴퓨터의 명령 프롬프트에서
 			data:
 			info:    network vnet show command OK
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

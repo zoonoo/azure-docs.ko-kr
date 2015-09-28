@@ -3,7 +3,7 @@
 	description="Azure에서 Windows를 실행하는 사용자 지정 가상 컴퓨터를 만드는 방법에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -16,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/11/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 #Azure에서 Windows를 실행하는 사용자 지정 가상 컴퓨터 만들기
 
@@ -32,6 +32,6 @@
 
 ##가상 컴퓨터를 만들려면
 
-[AZURE.INCLUDE [virtual-machines-create-windowsvm](../../includes/virtual-machines-create-windowsvm.md)]
+[AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

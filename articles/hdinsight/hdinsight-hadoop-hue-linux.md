@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="HDInsight Linux 클러스터에서 Hadoop으로 Hue 사용 | Microsoft Azure"
-	description="HDInsight Linux에서 Hadoop 클러스터로 Hue를 설치하고 사용하는 방법을 알아봅니다."
-	services="hdinsight"
-	documentationCenter=""
-	authors="nitinme"
-	manager="paulettm"
+	pageTitle="HDInsight Linux 클러스터에서 Hadoop으로 Hue 사용 | Microsoft Azure" 
+	description="HDInsight Linux에서 Hadoop 클러스터로 Hue를 설치하고 사용하는 방법을 알아봅니다." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="nitinme" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/21/2015"
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
 	ms.author="nitinme"/>
 
 # HDInsight Hadoop 클러스터에 Hue 설치 및 사용
@@ -36,23 +36,25 @@ Hue는 Hadoop 클러스터와 상호 작용하는 데 사용되는 웹 응용 �
 
 [https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh) 스크립트 작업을 사용하여 HDInsight 클러스터에서 Hue를 설치합니다. 이 섹션에서는 Azure 포털을 사용하여 클러스터를 프로비전할 때 스크립트를 사용하는 방법에 대한 지침을 제공합니다.
 
-> [AZURE.NOTE]또한 이 스크립트를 사용하여 클러스터를 만드는 데 Azure PowerShell 또는 HDInsight.NET SDK를 사용할 수 있습니다. 이 방법을 사용하는 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
+> [AZURE.NOTE]또한 이 스크립트를 사용하여 클러스터를 만드는 데 Azure PowerShell 또는 HDInsight.NET SDK를 사용할 수도 있습니다. 이 방법을 사용하는 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
-1. [Linux에서 HDInsight 프로비전 클러스터](hdinsight-provision-linux-clusters.md#portal)의 단계를 사용하여 클러스터를 프로비전하기 시작하지만 프로비전을 완료하지 마세요.
+1. [Linux에서 HDInsight 클러스터 프로비전](hdinsight-hadoop-provision-linux-clusters.md#portal)의 단계를 사용하여 클러스터를 프로비전하기 시작하지만 프로비전을 완료하지 마세요.
+
+	> [AZURE.NOTE]HDInsight 클러스터에 Hue를 설치하려면 권장 헤드 노드 크기는 A4(8개 코어, 14GB 메모리) 이상입니다.
 
 2. **선택적 구성** 블레이드에서 **스크립트 동작**을 선택하고 아래 정보를 제공합니다.
 
-	* __이름__: 스크립트 작업에 이름을 입력합니다.
+	* __이름__: 스크립트 동작의 이름을 입력합니다.
 	* __스크립트 URI__: https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh
-	* __헤드__:이 옵션 선택
-	* __작업자__:이 빈칸을 비워둡니다.
-	* __ZOOKEEPER__:이 빈칸을 비워둡니다.
-	* __매개 변수__: 스크립트는 클러스터 관리자 암호를 매개 변수로 예상합니다. 단일 따옴표 안에 암호를 지정합니다.
+	* __헤드__: 이 옵션을 선택합니다.
+	* __작업자__: 비워둡니다.
+	* __ZOOKEEPER__: 비워둡니다.
+	* __매개 변수__: 스크립트는 **클러스터 관리자 암호**를 매개 변수로 예상합니다. 클러스터를 프로비전하는 동안 지정한 암호입니다. 작은따옴표 안에 암호를 지정해야 합니다.
 
 
-3. **스크립트 동작**의 아래 쪽에서 **선택** 단추를 사용하여 구성을 저장합니다. 마지막으로 **선택적 구성** 블레이드의 아래 쪽에서 **선택** 단추를 사용하여 선택적 구성 정보를 저장합니다.
+3. **스크립트 동작**의 아래쪽에서 **선택** 단추를 사용하여 구성을 저장합니다. 마지막으로 **선택적 구성** 블레이드의 아래쪽에서 **선택** 단추를 사용하여 선택적 구성 정보를 저장합니다.
 
-4. [Linux에서 HDInsight 클러스터 프로비전](hdinsight-provision-linux-clusters.md#portal)에서 설명한 대로 클러스터를 계속 프로비전합니다.
+4. [Linux에서 HDInsight 클러스터 프로비전](hdinsight-hadoop-provision-linux-clusters.md#portal)에 설명된 대로 클러스터를 계속 프로비전합니다.
 
 ## HDInsight 클러스터로 Hue 사용
 
@@ -62,12 +64,12 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
 
 1. 데스크톱 컴퓨터에서 SSH 터널링을 사용하도록 설정하고 Firefox 웹 브라우저를 구성하여 SSH 터널을 사용합니다. 터널링을 구성하는 동안 포트 8888 이외의 포트를 사용합니다.
 
-	* Linux 컴퓨터에서 SSH 터널링을 사용하는 설정에 대한 지침은 [Linux, Unix, 또는 OS X의 HDInsight에서 Linux 기반 Hadoop로 SSH 사용](hdinsight-linux-ambari-ssh-tunnel.md#usessh)을 참조하세요.
-	* Windows 컴퓨터에서 SSH 터널링을 사용하는 설정에 대한 지침은 [Windows의 HDInsight에서 Linux 기반 Hadoop로 SSH 사용](hdinsight-linux-ambari-ssh-tunnel.md#useputty)을 참조하세요.
+	* Linux 컴퓨터에서 SSH 터널링을 사용하도록 설정하는 방법에 대한 지침은 [Linux, Unix, 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-linux-ambari-ssh-tunnel.md#usessh)을 참조하세요.
+	* Windows 컴퓨터에서 SSH 터널링을 사용하도록 설정하는 방법에 대한 지침은 [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-linux-ambari-ssh-tunnel.md#useputty)을 참조하세요.
 
 	실행 중인 PuTTY 세션을 유지합니다.
  
-2. 사용자 컴퓨터에서 구성된 FoxyProxy와 함게 Firefox 웹 브라우저를 사용하여 http://headnode0:8888에서 Hue 포털을 시작합니다. 처음으로 로그인 할 때 Hue 포털에 로그인할 계정을 만들라는 메시지가 표시됩니다. 여기에서 지정한 자격 증명은 포털로 제한되며 클러스터를 프로비전하는 동안 지정한 관리자 또는 SSH 사용자 자격 증명과 관련이 없습니다.
+2. 사용자 컴퓨터에서 구성된 FoxyProxy와 함께 Firefox 웹 브라우저를 사용하여 http://headnode0:8888에서 Hue 포털을 시작합니다. 처음으로 로그인 할 때 Hue 포털에 로그인할 계정을 만들라는 메시지가 표시됩니다. 여기에서 지정한 자격 증명은 포털로 제한되며 클러스터를 프로비전하는 동안 지정한 관리자 또는 SSH 사용자 자격 증명과 관련이 없습니다.
 
 	![Hue 포털에 로그인](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Login.png "Hue 포털에 자격 증명 지정")
 
@@ -77,23 +79,23 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
 
 	![Hive 사용](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.png "Hive 사용")
 
-2. **지원** 탭의 **데이터베이스**에서 **hivesampletable**이 표시되어야 합니다.. HDInsight에서 모든 Hadoop 클러스터로 제공되는 예제 테이블입니다. 스크린 캡처에 표시된 것처럼 오른쪽 창에서 예제 쿼리를 입력하면 **결과** 탭에서 출력이 표시됩니다.
+2. **지원** 탭의 **데이터베이스** 아래에 **hivesampletable**이 표시되어야 합니다. HDInsight에서 모든 Hadoop 클러스터로 제공되는 예제 테이블입니다. 스크린 캡처에 표시된 것처럼 오른쪽 창에 샘플 쿼리를 입력하면 **결과** 탭에서 출력이 표시됩니다.
 
 	![Hive 쿼리 실행](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.Hive.Query.png "Hive 쿼리 실행")
 
-	**차트** 탭을 사용하여 결과를 시각적으로 표시할 수 있습니다.
+	**차트** 탭을 사용하여 결과를 시각적으로 표시할 수도 있습니다.
 
 ### 클러스터 저장소 찾아보기
 
-1. Hue 포털에서 메뉴 모음의 오른쪽 위 모서리에서 **파일 브라우저**를 클릭합니다.
+1. Hue 포털에서 메뉴 모음의 오른쪽 위에 있는 **파일 브라우저**를 클릭합니다.
 
-2. 기본적으로 **/user/myuser** 디렉터리에서 파일 브라우저를 엽니다. 경로에서 사용자 디렉터리 바로 앞 슬래시를 클릭하여 클러스터와 연결된 Azure 저장소 컨테이너의 루트로 이동합니다.
+2. 기본적으로 **/user/myuser** 디렉터리에서 파일 브라우저가 열립니다. 경로에서 사용자 디렉터리 바로 앞 슬래시를 클릭하여 클러스터와 연결된 Azure 저장소 컨테이너의 루트로 이동합니다.
 
 	![파일 브라우저 사용](./media/hdinsight-hadoop-hue-linux/HDI.Hue.Portal.File.Browser.png "파일 브라우저 사용")
 
-3. 파일 또는 폴더를 마우스 오른쪽 단추로 클릭하여 사용 가능한 작업을 참조하세요. 오른쪽 구석에서 **업로드** 단추를 사용하여 현재 디렉터리에 파일을 업로드합니다. **새로 만들기** 단추를 사용하여 새 파일 또는 디렉터리를 만듭니다.
+3. 파일 또는 폴더를 마우스 오른쪽 단추로 클릭하여 사용 가능한 작업을 참조하세요. 현재 디렉터리에 파일을 업로드하려면 오른쪽 구석에 있는 **업로드** 단추를 사용합니다. 새 파일 또는 디렉터리를 만들려면 **새로 만들기** 단추를 사용합니다.
 
-> [AZURE.NOTE]Hue 파일 브라우저는 HDInsight 클러스터와 연결된 기본 컨테이너의 콘텐츠만을 표시할 수 있습니다. 클러스터와 연결된 모든 추가 저장소 계정/컨테이너는 파일 브라우저를 사용하여 액세스할 수 없습니다. 그러나 클러스터와 관련된 추가 컨테이너는 항상 Hive 작업에 액세스할 수 있습니다. 예를 들어 하이브 편집기에 명령 `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net`을 입력하는 경우 추가 컨테이너의 내용도 볼 수 있습니다. 이 명령에서 **newcontainer**는 클러스터와 연결된 기본 컨테이너가 아닙니다.
+> [AZURE.NOTE]Hue 파일 브라우저는 HDInsight 클러스터와 연결된 기본 컨테이너의 콘텐츠만을 표시할 수 있습니다. 클러스터와 연결된 모든 추가 저장소 계정/컨테이너는 파일 브라우저를 사용하여 액세스할 수 없습니다. 그러나 클러스터와 관련된 추가 컨테이너는 항상 Hive 작업에 액세스할 수 있습니다. 예를 들어 하이브 편집기에 `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` 명령을 입력하는 경우 추가 컨테이너의 내용도 볼 수 있습니다. 이 명령에서 **newcontainer**는 클러스터와 연결된 기본 컨테이너가 아닙니다.
 
 
 ## 중요 고려 사항
@@ -112,7 +114,7 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
 
 	이는 알려진 문제 때문입니다. 해결 방법으로 Ambari를 수정하여 활성 리소스 관리자가 HEADNODE0에서 실행되도록 합니다.
 
-5.	`wasb://`을 사용하여 HDInsight 클러스터가 Azure 저장소를 사용하는 동안 Hue는 WebHDFS를 이해합니다. 따라서 스크립트 동작에 사용할 사용자 지정 스크립트는 WASB와 통신을 위한 WebHDFS와 호환 가능한 서비스인 WebWasb를 설치합니다. 따라서 Hue 포털이 HDFS가 제대로 있다고 하더라도(**파일 브라우저**로 마우스를 이동할 때처럼) WASB로 해석되어야 합니다.
+5.	HDInsight 클러스터가 `wasb://`를 통해 Azure 저장소를 사용하는 동안 Hue는 WebHDFS를 이해합니다. 따라서 스크립트 동작에 사용할 사용자 지정 스크립트는 WASB와 통신을 위한 WebHDFS와 호환 가능한 서비스인 WebWasb를 설치합니다. 따라서 Hue 포털에서 HDFS가 구현되어 있다고 표시해도(예: **파일 브라우저**를 마우스로 가리키는 경우) WASB로 해석해야 합니다.
 
 
 ## 다음 단계
@@ -131,4 +133,4 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

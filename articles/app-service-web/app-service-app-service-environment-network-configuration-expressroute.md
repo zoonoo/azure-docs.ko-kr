@@ -1,25 +1,29 @@
 <properties 
-	pageTitle="Express 경로를 사용하기 위한 네트워크 구성 세부 정보"
-	description="가상 네트워크에서 앱 서비스 환경을 실행하기 위해 네트워크 구성 세부 정보를 Express 경로 회로에 연결합니다."
-	services="app-service\web"
-	documentationCenter=""
-	authors="stefsch"
-	manager="nirma"
+	pageTitle="Express 경로를 사용하기 위한 네트워크 구성 세부 정보" 
+	description="가상 네트워크에서 앱 서비스 환경을 실행하기 위해 네트워크 구성 세부 정보를 Express 경로 회로에 연결합니다." 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="stefsch" 
+	manager="nirma" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.service="app-service" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
 	ms.author="stefsch"/>
 
 # Express 경로를 사용하는 앱 서비스 환경에 대한 네트워크 구성 세부 정보 
 
 ## 개요 ##
-고객은 [Azure Express 경로][ExpressRoute] 회로를 가상 네트워크 인프라로 연결 할 수 있습니다. 따라서 Azure로 온-프레미스 네트워크를 확장합니다. 앱 서비스 환경은 [가상 네트워크][virtualnetwork]인프라의 서브넷에서 만들수 있습니다. 다음 앱 서비스 환경에서 실행 중인 앱은 Express 경로 연결을 통해서만 액세스할 수 있는 백엔드 리소스에 대한 보안 연결을 설정할 수 있습니다.
+고객은 [Azure Express 경로][ExpressRoute] 회로를 가상 네트워크 인프라로 연결 할 수 있습니다. 따라서 Azure로 온-프레미스 네트워크를 확장합니다. 앱 서비스 환경은 [가상 네트워크][virtualnetwork]인프라의 서브넷에서 만들 수 있습니다. 다음 앱 서비스 환경에서 실행 중인 앱은 Express 경로 연결을 통해서만 액세스할 수 있는 백엔드 리소스에 대한 보안 연결을 설정할 수 있습니다.
+
+**참고:** "v2" 가상 네트워크에는 앱 서비스 환경을 만들 수 없습니다. 앱 서비스 환경은 현재 클래식 "v1" 가상 네트워크에서만 지원됩니다.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## 필요한 네트워크 연결 ##
 Express 루트에 연결된 가상 네트워크에서 처음에 충족되지 않는 앱 서비스 환경에 대한 네트워크 연결 요구 사항이 있습니다.
@@ -27,10 +31,11 @@ Express 루트에 연결된 가상 네트워크에서 처음에 충족되지 않
 앱 서비스 환경은 기능을 제대로 작동시키기 위해 다음 사항을 전부 요구합니다.
 
 
--  앱 서비스 환경처럼 동일한 지역에 위치한 Azure 저장소 및 SQL 데이터베이스 리소스 모두에 대한 아웃바운드 네트워크 연결. 네트워크 경로는 내부 회사 프록시를 통과할 수 없는 이유는, 통과하게 되면 아웃바운드 네트워크 트래픽의 효과적인 NAT 주소가 변경 될수 있기 때문입니다. Azure 저장소와 SQL 데이터베이스 긑점에 연결된 앱 서비스 환경의 아웃바운드 네트워크 트래픽의 NAT 주소 변경은 연결 실패를 초래합니다.
+-  전세계 Azure 저장소에 대한 아웃바운드 네트워크 연결 및 앱 서비스 환경과 동일한 지역에 있는 SQL DB 리소스에 대한 연결. 네트워크 경로는 내부 회사 프록시를 통과할 수 없는 이유는, 통과하게 되면 아웃바운드 네트워크 트래픽의 효과적인 NAT 주소가 변경 될수 있기 때문입니다. Azure 저장소와 SQL 데이터베이스 긑점에 연결된 앱 서비스 환경의 아웃바운드 네트워크 트래픽의 NAT 주소 변경은 연결 실패를 초래합니다.
 -  DNS 구성에 대한 가상 네트워크는 **.file.core.windows.net*, **.blob.core.windows.net* 및 **.database.windows.net*과 같은 Azure 제어 도메인 내에서 끝점을 해결할 수 있어야 합니다.
 -  가상 네트워크의 DNS 구성은 앱 서비스 환경이 생성될 때마다 안정적으로 유지되어야 하며, 재구성 및 앱 서비스 환경 규모 변경 동안에도 마찬가지입니다.   
--  앱 서비스 환경에 대한 포트를 필요로 하는 인바운드 네티워크는 [문서][requiredports] 내에서 설명한 항목들을 허용해야 합니다.
+-  사용자 지정 DNS 서버가 VPN 게이트웨이의 반대쪽 끝에 있는 경우 DNS 서버에 연결하고 사용할 수 있어야 합니다. 
+-  이 [문서][requiredports]에 설명된 대로 앱 서비스 환경에 필요한 포트에 대한 인바운드 네트워크 액세스가 허용되어야 합니다.
 
 DNS 요구 사항은 가상 네트워크의 유효한 DNS 구성을 확인하여 충족시킬 수 있습니다.
 
@@ -54,7 +59,7 @@ DNS 요구 사항은 가상 네트워크의 유효한 DNS 구성을 확인하여
 1. [Azure 다운로드 페이지][AzureDownloads]에서 가장 최신 Azure Powershell을 설치합니다(2015년 6월 이후 버전). "명령줄 도구"> “설치”링크> Windows PowerShell은 최신 Powershell cmdletsfmf 설치합니다.
 
 2. 앱 서비스 환경에 의해 배타적 사용으로 만들어진 고유한 서브넷을 권장합니다. UDRL이 오직 앱 서비스 환경에 대한 아웃바운드 트래픽만을 여는 서브넷에 적용되는지 확인합니다.
-3. **중요**: 다음 구성단계를 수행한 **후**까지는 앱 서비스 환경을 배포하지 않습니다. 아웃바운드 네트워크 연결이 앱 서비스 환경을 배포하기 전에 사용할 수 있는지 확인합니다.
+3. **중요**: 다음 구성 단계를 수행하기 **전**에는 앱 서비스 환경을 배포하지 마세요. 아웃바운드 네트워크 연결이 앱 서비스 환경을 배포하기 전에 사용할 수 있는지 확인합니다.
 
 **1 단계: 명명된 경로 테이블 만들기**
 
@@ -77,9 +82,9 @@ DNS 요구 사항은 가상 네트워크의 유효한 DNS 구성을 확인하여
     Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 9' -AddressPrefix 191.0.0.0/8 -NextHopType Internet
 
 
-Azure에 의해 사용되고 있는 CIDR 범위의 포괄적이고 업데이트된 목록에 대해서는 [Microsoft 다운로드 센터][DownloadCenterAddressRanges]에서 모든 범위를 포함한 Xml 파일을 다운로드할 수 있습니다.
+Azure에서 사용 중인 CIDR 범위의 포괄적이고 업데이트된 목록을 보려면 [Microsoft 다운로드 센터][DownloadCenterAddressRanges]에서 모든 범위를 포함한 XML 파일을 다운로드할 수 있습니다.
 
-**참고:**일부 지점의 약식된 0.0.0.0/0의 CIDR 약칭은 *AddressPrefix*매개 변수로 사용할 수 있습니다. 이 약칭은 "모든 인터넷 주소"와 같습니다. 이제 개발자가 CIDR 범위의 broad set 대신 앱 서비스 환경이 배포된 지역 안에서 사용 가능한 모든 Azure 주소 범위를 사용해야 합니다.
+**참고:** *AddressPrefix* 매개 변수에 사용할 수 있도록 조만간 0.0.0.0/0의 CIDR 약식 표현이 제공될 예정입니다. 이 약칭은 "모든 인터넷 주소"와 같습니다. 지금은 개발자가 가능한 모든 Azure 주소 범위를 포함하는 광범위한 CIDR 범위를 사용해야 합니다.
 
 **3 단계: 앱 서비스 환경에 포함된 서브넷에 경로 테이블 연결**
 
@@ -96,7 +101,7 @@ Azure에 의해 사용되고 있는 CIDR 범위의 포괄적이고 업데이트�
 - Azure 끝점의 아웃 바운드 트래픽은 Express 경로 회로 아래로 흐르지 않습니다.
 - Azure 끝점에 대한 DNS 조회를 적절하게 확인합니다. 
 
-위의 단계가 확인되면 앱 서비스 환경을 만드는 진행할 수 있습니다!
+위의 단계가 확인되면 가상 컴퓨터를 삭제하고 앱 서비스 환경을 만들 수 있습니다.
 
 ## 시작
 
@@ -121,4 +126,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 
 <!-- IMAGES -->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

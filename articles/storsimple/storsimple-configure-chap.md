@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 장치 | Microsoft Azure에 대한 CHAP 구성"
-	description="StorSimple 장치에 CHAP(Challenge Handshake 인증 프로토콜)를 구성하는 방법을 설명합니다."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="StorSimple 장치에 CHAP(Challenge Handshake 인증 프로토콜)를 구성하는 방법을 설명합니다."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="TBD"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # StorSimple 장치에 대한 CHAP 구성
 
@@ -188,6 +188,7 @@ CHAP 구성이 올바르지 않은 경우 **인증 실패** 오류 메시지가 
 
 ## 다음 단계
 
-[StorSimple 보안](storsimple-security.md)에 대해 자세히 알아봅니다.
+- [StorSimple 보안](storsimple-security.md)에 대해 자세히 알아봅니다.
+- [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="네트워크 리소스 공급자"
-	description="네트워크 리소스 공급자"
-	services="virtual-network"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="adinah"
-	editor="tysonn"/>
+   pageTitle="네트워크 리소스 공급자 개요 | Microsoft Azure"
+   description="Azure 리소스 관리자의 새로운 네트워크 리소스 공급자에 대해 알아봅니다."
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="adinah"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/23/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/14/2015"
+   ms.author="telmos" />
 
 # 네트워크 리소스 공급자
 현대 비즈니스의 성공에 있어서 가장 필요한 것은 대규모 네트워크 인식 응용 프로그램을 신속하고 유연하고 안전하고 반복 가능한 방법으로 작성하여 관리할 수 있는 기능입니다. ARM(Azure 리소스 관리자)을 사용하면 그런 응용 프로그램을 리소스 그룹에서 단일 리소스 컬렉션으로 만들 수 있습니다. 이러한 리소스는 ARM 아래의 다양한 리소스 공급자를 통해 관리됩니다.
@@ -231,9 +231,9 @@ NIC를 다음 네트워크 리소스에 연결할 수도 있습니다.
 - 부하 분산 장치
 
 ## 가상 네트워크 및 서브넷
-VNET(가상 네트워크)과 서브넷을 사용하여 Azure에서 실행 중인 작업에 대한 보안 경계를 정의할 수 있습니다. VNET은 주소 공간(CIDR 블록이라고도 함)에 따라 구분됩니다.
+VNET(가상 네트워크)과 서브넷을 사용하여 Azure에서 실행 중인 워크로드에 대한 보안 경계를 정의할 수 있습니다. VNET은 주소 공간(CIDR 블록이라고도 함)에 따라 구분됩니다.
 
-서브넷은 VNET의 자식 리소스이며, IP 주소 접두사를 사용하여 CIDR 블록 내의 주소 공간 세그먼트를 정의하는 데 도움이 됩니다. 다양한 작업을 실행하는 VM은 서브넷 경계 내에서 작동해야 합니다.
+서브넷은 VNET의 자식 리소스이며, IP 주소 접두사를 사용하여 CIDR 블록 내의 주소 공간 세그먼트를 정의하는 데 도움이 됩니다. 다양한 워크로드를 실행하는 VM은 서브넷 경계 내에서 작동해야 합니다.
 
 ![단일 VM의 NIC](./media/resource-groups-networking/Figure4.png)
 
@@ -291,7 +291,7 @@ VNET을 다음 네트워크 리소스와 연결할 수도 있습니다.
 - **IP 할당 방법** - 예약된 IP 또는 동적 IP를 할당합니다. 
 
 ## NSG(네트워크 보안 그룹)
-NSG 리소스를 사용하면 허용 및 거부 규칙을 구현하여 작업에 대한 보안 경계를 만들 수 있습니다. NIC 수준(VM 인스턴스 수준) 또는 서브넷 수준(VM 그룹)에서 그런 규칙을 적용할 수 있습니다.
+NSG 리소스를 사용하면 허용 및 거부 규칙을 구현하여 워크로드에 대한 보안 경계를 만들 수 있습니다. NIC 수준(VM 인스턴스 수준) 또는 서브넷 수준(VM 그룹)에서 그런 규칙을 적용할 수 있습니다.
 
 NSG 리소스의 키 속성은 다음과 같습니다.
 
@@ -316,7 +316,7 @@ VPN 게이트웨이 리소스를 사용하여 온-프레미스 데이터 센터�
  
 - **지점 및 사이트 간** - 컴퓨터에서 VPN 클라이언트를 사용하여 VNET에 호스트된 Azure 리소스에 안전하게 액세스할 수 있습니다. 
 - **다중 사이트 연결** - 온-프레미스 데이터 센터에서 VNET에 실행 중인 리소스에 안전하게 연결할 수 있습니다. 
-- **VNET 간** - 동일한 지역 내의 Azure VNET 간이나 지역 간에 안전하게 연결하여 지리적 복제 기능을 사용하여 작업을 빌드할 수 있습니다.
+- **VNET 간** - 동일한 지역 내의 Azure VNET 간이나 지역 간에 안전하게 연결하여 지리적 복제 기능을 사용하여 워크로드를 빌드할 수 있습니다.
 
 VPN 게이트웨이의 키 속성은 다음과 같습니다.
  
@@ -392,4 +392,4 @@ PowerShell, AzureCLI를 사용하거나 GitHub에서 배포를 클릭하여 템�
 
 [템플릿 배포](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

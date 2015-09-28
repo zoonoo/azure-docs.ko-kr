@@ -1,23 +1,25 @@
 <properties 
-	pageTitle="Office 365 DirSync 테스트 환경 | Microsoft Azure"
-	description="IT 전문가 또는 개발 테스트용 하이브리드 클라우드에서 Office 365 디렉터리 동기화(DirSync) 서버를 구성하는 방법에 대해 알아봅니다."
-	services="virtual-network"
-	documentationCenter=""
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	pageTitle="Office 365 DirSync 테스트 환경 | Microsoft Azure" 
+	description="IT 전문가 또는 개발 테스트용 하이브리드 클라우드에서 Office 365 디렉터리 동기화(DirSync) 서버를 구성하는 방법에 대해 알아봅니다." 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/10/2015" 
 	ms.author="josephd"/>
 
 # 테스트용 하이브리드 클라우드에 Office 365 디렉터리 동기화(DirSync) 설치
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 이 항목에서는 Microsoft Azure에서 호스트되는 암호 동기화 사용 Office 365 디렉터리 동기화(DirSync)를 테스트하기 위한 하이브리드 클라우드 환경을 만드는 과정을 안내합니다. 다음은 결과 구성입니다.
 
@@ -58,7 +60,7 @@
 
 Office 365 FastTrack 평가판을 시작하려면 가상 회사 이름 및 Microsoft 계정이 필요합니다. Contoso라는 회사 이름의 변형을 회사 이름으로 사용하는 것이 좋습니다. 이는 Microsoft 샘플 콘텐츠에서 사용되는 가상 회사이지만 필수 사항은 아닙니다.
 
-새 Microsoft 계정에 등록합니다. **http://outlook.com**로 이동하여 user123@outlook.com과 같이 전자 메일 주소로 계정을 생성합니다. 이 계정을 사용하여 Office 365 FastTrack 평가판에 등록합니다.
+새 Microsoft 계정에 등록합니다. ****http://outlook.com**로 이동하여 user123@outlook.com과 같이 전자 메일 주소로 계정을 생성합니다. 이 계정을 사용하여 Office 365 FastTrack 평가판에 등록합니다.
 
 그런 다음 새 Office 365 FastTrack 평가판에 등록합니다.
 
@@ -82,13 +84,13 @@ Office 365 FastTrack 평가판을 시작하려면 가상 회사 이름 및 Micro
 먼저 로컬 컴퓨터의 Azure PowerShell 명령 프롬프트에서 다음 명령을 사용하여 DS1용 Azure 가상 컴퓨터를 만듭니다. 이러한 명령을 실행하기 전에 변수 값을 작성하고 < and > 문자를 제거합니다.
 
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
-	$cred1=Get-Credential –Message "Type the name and password of the local administrator account for DS1."
-	$cred2=Get-Credential –UserName "CORP\User1" –Message "Now type the password for the CORP\User1 account."
+	$cred1=Get-Credential â€“Message "Type the name and password of the local administrator account for DS1."
+	$cred2=Get-Credential â€“UserName "CORP\User1" â€“Message "Now type the password for the CORP\User1 account."
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DS1 -InstanceSize Medium -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -AdminUsername $cred1.GetNetworkCredential().Username -Password $cred1.GetNetworkCredential().Password -WindowsDomain -Domain "CORP" -DomainUserName "User1" -DomainPassword $cred2.GetNetworkCredential().Password -JoinDomain "corp.contoso.com"
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
+	New-AzureVM â€“ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
 그런 다음 DS1 가상 컴퓨터에 연결합니다.
 
@@ -197,4 +199,4 @@ CLIENT1의 **Active Directory 동기화 설정 및 관리 페이지**에서 이 
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

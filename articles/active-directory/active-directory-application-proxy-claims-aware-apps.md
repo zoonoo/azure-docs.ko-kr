@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="stevenpo"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 
@@ -42,15 +42,11 @@
 1. **ADFS 관리**를 엽니다.
 2. **신뢰 당사자 트러스트**로 이동하여 응용 프로그램 프록시로 게시하고자 하는 앱을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
 
-![신뢰 당사자 트러스트 앱 이름을 마우스 오른쪽 단추로 클릭 - 스크린샷][1]
+![신뢰 당사자 트러스트 앱 이름을 마우스 오른쪽 단추로 클릭 - 스크린샷](./media/active-directory-application-proxy-claims-aware-apps/appproxyrelyingpartytrust.png)
 
 3. **끝점** 탭에 있는 **끝점 유형** 아래에서 **WS-페더레이션**을 선택합니다.
 4. **신뢰할 수 있는 URL** 아래에 **외부 URL** 아래에 있는 응용 프로그램 프록시에 입력한 URL을 입력하고 **확인**을 클릭합니다.
 
-![끝점 추가 - 신뢰할 수 있는 URL 값 설정 - 스크린샷][2]
+![끝점 추가 - 신뢰할 수 있는 URL 값 설정 - 스크린샷](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)
 
-<!--image references-->
-[1]: ./media/active-directory-application-proxy-claims-aware-apps/AppDropdown.jpg
-[2]: ./media/active-directory-application-proxy-claims-aware-apps/AddEndpoint.jpg
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

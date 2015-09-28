@@ -1,11 +1,11 @@
 <properties 
-	pageTitle="Azure의 AlwaysOn 가용성 그룹(PowerShell) 구성"
+	pageTitle="Azure VM의 AlwaysOn 가용성 그룹 구성(PowerShell)"
 	description="PowerShell을 사용하여 Azure에서 AlwaysOn 가용성 그룹을 만듭니다."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,9 +13,9 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/14/2015"
-	ms.author="jroth"/>
+	ms.author="jroth" />
 
-# Azure의 AlwaysOn 가용성 그룹(PowerShell) 구성
+# Azure VM의 AlwaysOn 가용성 그룹 구성(PowerShell)
 
 >[AZURE.NOTE]동일한 시나리오의 GUI 기반 자습서는 [Azure의 AlwaysOn 가용성 그룹 구성(GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md)을 참조하세요.
 
@@ -623,4 +623,4 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 
 Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

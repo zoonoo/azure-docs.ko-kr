@@ -1,25 +1,28 @@
 <properties
    pageTitle="공존할 수 있는 Express 경로 및 사이트 간 VPN 연결구성 | Microsoft Azure"
-	description="이 자습서에서는 Express 경로와 사이트 간 VPN 연결을 공존할 수 있도록 구성하는 과정을 안내합니다."
-	documentationCenter="na"
-	services="expressroute"
-	authors="cherylmc"
-	manager="carolz"
-	editor="tysonn"/>
+   description="이 문서에서는 공존할 수 있는 Express 경로와 사이트 간 VPN 연결을 구성하는 과정을 안내합니다."
+   documentationCenter="na"
+   services="expressroute"
+   authors="cherylmc"
+   manager="carolz"
+   editor=""
+   tags="azure-service-management"/>
 <tags
    ms.service="expressroute"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/05/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/16/2015"
+   ms.author="cherylmc"/>
 
 # 공존하는 Azure Express 경로 및 사이트 간 VPN 연결 구성
 
-이제 Express 경로와 사이트 간 VPN을 동일한 가상 네트워크에 연결할 수 있습니다. 두 가지 시나리오와 두 가지 구성 절차 중에서 선택할 수 있습니다.
+Express 경로와 사이트 간 VPN을 동일한 가상 네트워크에 연결할 수 있습니다. 공존하는 연결을 사용하려는 두 가지 시나리오가 있습니다. 시나리오 1에서는 Express 경로를 활성 링크로 사용하고 사이트 간 연결을 백업 연결로 사용합니다. 시나리오 2에서는 두 연결이 모두 활성화됩니다.
 
-## 시나리오
+이 문서의 단계는 클래식 배포 모델을 사용하는 VNet에 적용됩니다. 리소스 관리자 배포 모델을 사용하는 VNet에는 이러한 유형의 공존 연결을 아직 사용할 수 없습니다.
+
+
 
 ### 시나리오 1
 
@@ -36,22 +39,22 @@
 ![공존](media/expressroute-coexist/scenario2.jpg)
 
 
-## 만들기 및 구성
+## 구성 절차 선택
 
 연결이 공존하도록 구성하기 위해 선택하는 서로 다른 두 절차가 있습니다. 연결할 기존 가상 네트워크가 있는지, 아니면 새 가상 네트워크를 만들 것인지에 따라 구성 절차를 선택합니다.
 
 - **새 가상 네트워크와 함께 사용하는 연결을 만듭니다.**
 
-	가상 네트워크가 아직 없는 경우 이 절차에서는 새 가상 네트워크를 만들고 새 Express 경로 및 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 구성 하려면 다음 단계에 따라 [새 가상 네트워크 및 연결을 만듭니다](#create-a-new-virtual-network-and-connections-that-coexist).
+	가상 네트워크가 아직 없는 경우 이 절차에서는 새 가상 네트워크를 만들고 새 Express 경로 및 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 구성하려면 다음 단계에 따라 [공존 연결이 있는 새 VNet을 만듭니다](#create-a-new-vnet-with-coexisting-connections).
 
 - **공존하는 연결에 맞게 기존 가상 네트워크 구성:**
 
-	기존 사이트 간 VPN 또는 Express 경로에 연결된 가상 네트워크가 이미 있을 수 있습니다. [기존 가상 네트워크에 대해 함께 사용하는 연결 구성](#configure-connections-that-coexist-for-your-existing-virtual-network) 절차에서는 게이트웨이를 삭제한 다음 새 Express 경로 및 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 새 연결을 만들 때 지정된 순서대로 단계를 완료해야 합니다. 게이트웨이 및 연결을 만들 때 다른 문서의 지침을 사용하지 마세요.
+	기존 사이트 간 VPN 또는 Express 경로에 연결된 가상 네트워크가 이미 있을 수 있습니다. [기존 가상 네트워크에 대해 함께 사용하는 연결 구성](#configure-coexisting-connections-for-an-existing-vnet) 절차에서는 게이트웨이를 삭제한 다음 새 Express 경로 및 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 새 연결을 만들 때 지정된 순서대로 단계를 완료해야 합니다. 게이트웨이 및 연결을 만들 때 다른 문서의 지침을 사용하지 마세요.
 
 	이 절차에서 함께 사용할 수 있는 연결을 만들려면 게이트웨이를 삭제한 다음 공존할 수 있는 새 게이트웨이를 구성해야 합니다. 이 경우 게이트웨이 및 연결을 삭제하고 다시 만드는 동안 크로스-프레미스 연결을 위한 가동 중지 시간이 발생하지만 VM 또는 서비스를 새 가상 네트워크로 마이그레이션할 필요는 없습니다. VM 및 서비스는 게이트웨이를 구성하는 동안 부하 분산 장치를 통해 계속 통신할 수 있습니다(이렇게 구성된 경우).
 
 
-## 참고 사항 및 제한 사항
+### 참고 사항 및 제한 사항
 
 - 사이트 간 VPN을 통해 연결된 로컬 네트워크와 Express 경로를 통해 연결된 로컬 네트워크 간에는 Azure를 통해 라우팅할 수 없습니다.
 - 지점 및 사이트 간 VPN을 Express 경로에 연결된 동일한 VNet에 연결할 수 없습니다. 동일한 VNet에 대해 지점 및 사이트간 VPN과 Express 경로를 함께 사용할 수 없습니다.
@@ -64,16 +67,16 @@
 	- [EXP(Exchange 공급자)를 통해 Express 경로 연결 구성](expressroute-configuring-exps.md)
 
 
-## 새 가상 네트워크와 함께 사용하는 연결을 만듭니다.
+## 공존하는 연결을 사용하여 새 VNet 만들기
 
 이 절차는 가상 네트워크 만들기 및 함께 사용하는 사이트 간 및 Express 경로 연결을 만드는 방법을 안내합니다.
 
 1. PowerShell cmdlet의 최신 버전이 있는지 확인합니다. [다운로드 페이지](http://azure.microsoft.com/downloads/)의 PowerShell 섹션에서 최신 PowerShell cmdlet을 다운로드하여 설치할 수 있습니다.
-2. 가상 네트워크의 스키마를 만듭니다. 네트워크 구성 파일 작업에 대한 자세한 내용은 [네트워크 구성 파일을 사용하여 가상 네트워크 구성](../virtual-network/virtual-networks-using-network-configuration-file.md)을 참조하세요. 구성 스키마에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 참조하세요.
+2. 가상 네트워크의 스키마를 만듭니다. 네트워크 구성 파일 작업에 대한 자세한 내용은 [네트워크 구성 파일을 사용하여 VNet을 만드는 방법](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal)을 참조하세요. 구성 스키마에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 참조하세요.
 
 	스키마를 만들 때 다음 값을 사용해야 합니다.
 
-	- 가상 네트워크의 게이트웨이 서브넷은 /27(또는 더 짧은 접두사)이어야 합니다.
+	- 가상 네트워크에 대한 게이트웨이 서브넷의 네트워크 접두사 길이는 27 이하(/26, /25 등)여야 합니다.
 	- 게이트웨이 연결 유형은 "전용"입니다.
 
 		      <VirtualNetworkSite name="MyAzureVNET" Location="Central US">
@@ -173,7 +176,7 @@
 	`New-AzureVirtualNetworkGatewayConnection -connectedEntityId <local-network-gateway-id> -gatewayConnectionName Azure2Local -gatewayConnectionType IPsec -sharedKey abc123 -virtualNetworkGatewayId <azure-s2s-vpn-gateway-id>`
 
 
-## 기존 가상 네트워크에 대해 함께 사용하는 연결 구성
+## 기존 VNet에 대한 공존 연결 구성
 
 Express 경로 또는 사이트 간 VPN 연결을 통해 연결된 기존 가상 네트워크가 있는 경우 두 연결 모두를 기존 게이트웨이에 연결하려면 먼저 기존 게이트웨이를 삭제해야 합니다. 이 구성에서 작업하는 동안에는 로컬 프레미스에서 게이트웨이를 통한 가상 네트워크 연결이 손실됩니다.
 
@@ -189,7 +192,7 @@ Express 경로 또는 사이트 간 VPN 연결을 통해 연결된 기존 가상
 2. 가상 네트워크 스키마를 내보냅니다. 다음 PowerShell cmdlet(사용자 고유의 값으로 대체)을 사용합니다.
 
 	`Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”`
-3. 게이트웨이 서브넷이 /27(또는 더 짧은 접두사)이 되도록 네트워크 구성 파일 스키마를 편집합니다. 다음 예제를 참조하세요. 네트워크 구성 파일 작업에 대한 자세한 내용은 [네트워크 구성 파일을 사용하여 가상 네트워크 구성](../virtual-network/virtual-networks-using-network-configuration-file.md)을 참조하세요. 구성 스키마에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 참조하세요.
+3. 게이트웨이 서브넷이 /27(또는 더 짧은 접두사)이 되도록 네트워크 구성 파일 스키마를 편집합니다. 다음 예제를 참조하세요. 네트워크 구성 파일 작업에 대한 자세한 내용은 [네트워크 구성 파일을 사용하여 VNet을 만드는 방법](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal)을 참조하세요. 구성 스키마에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 참조하세요.
 
 
           <Subnet name="GatewaySubnet">
@@ -204,7 +207,7 @@ Express 경로 또는 사이트 간 VPN 연결을 통해 연결된 기존 가상
 		            </LocalNetworkSiteRef>
 		          </ConnectionsToLocalNetwork>
 		        </Gateway>
-5. 이제 게이트웨이가 없는 VNet이 설정됩니다. 이 문서의 **3단계**, [새 가상 네트워크 및 연결 만들기](#create-a-new-virtual-network-and-connections-that-coexist)를 계속 진행하여 새 게이트웨이를 만들고 연결을 완료할 수 있습니다.
+5. 이제 게이트웨이가 없는 VNet이 설정됩니다. 이 문서의 **3단계**, [공존하는 연결을 사용하여 새 VNet 만들기](#create-a-new-vnet-with-coexisting-connections)를 계속 진행하여 새 게이트웨이를 만들고 연결을 완료할 수 있습니다.
 
 
 
@@ -214,4 +217,4 @@ Express 경로에 대해 자세히 알아봅니다. [Express 경로 개요](expr
 
 VPN 게이트웨이에 대해 자세히 알아봅니다. [VPN 게이트웨이 정보](../vpn-gateway/vpn-gateway-about-vpngateways.md)를 참조하세요.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

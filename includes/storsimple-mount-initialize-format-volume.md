@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### 볼륨을 탑재, 초기화 및 포맷하려면
 
@@ -27,7 +28,11 @@
   3. 64KB 할당 단위 크기를 지정합니다. 이 할당 단위 크기는 StorSimple 솔루션에서 사용되는 중복 제거 알고리즘과 효율적으로 연동됩니다.
   4. 빠른 포맷을 수행합니다.
 
+![동영상 사용 가능](./media/storsimple-mount-initialize-format-volume/Video_icon.png) **동영상 사용 가능**
+
+StorSimple 볼륨을 탑재, 초기화 및 포맷하는 방법을 보여 주는 동영상을 시청하려면 [여기](http://azure.microsoft.com/documentation/videos/mount-initialize-and-format-a-storsimple-volume/)를 클릭하세요.
+
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

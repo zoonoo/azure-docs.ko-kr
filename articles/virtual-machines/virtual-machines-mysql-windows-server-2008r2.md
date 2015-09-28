@@ -3,7 +3,7 @@
 	description="Windows Server 2012 R2를 실행하는 Azure 가상 컴퓨터를 만든 다음 해당 가상 컴퓨터에서 MySQL 데이터베이스를 설치 및 구성하는 방법에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/10/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 
 # Azure에서 Windows Server 2012 R2를 실행하는 가상 컴퓨터에 MySQL 설치
@@ -128,4 +128,4 @@ Azure 가상 컴퓨터에서 실행되는 MySQL Server 서비스에 대한 원�
 
 MySQL에 대한 자세한 내용은 [MySQL 설명서](http://dev.mysql.com/doc/)를 참조하세요.
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

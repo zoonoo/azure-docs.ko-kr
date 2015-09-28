@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Operational Insights에 대해 지원되는 구성
@@ -29,13 +29,13 @@ System Center 2012 R2 또는 System Center 2012 SP1 R2의 Operations Manager에�
 Operational Insights를 연결된 서비스로 사용하려면 다음과 같은 필수 조건이 필요합니다.
 
 
-- System Center 2012 SP1 Operations Manager와 Operational Insights 간의 통합을 위해 [Operational Insights Connector for Operations Manager](https://www.microsoft.com/ko-kr/download/details.aspx?id=38199)에 포함된 업데이트된 관리 팩이 필요합니다. [Operational Insights Connector for Operations Manager](https://www.microsoft.com/ko-kr/download/details.aspx?id=38199)에서 관리 팩을 다운로드하고 설치할 수 있습니다.
+- System Center 2012 SP1 Operations Manager와 Operational Insights 간의 통합을 위해 [Operational Insights Connector for Operations Manager](https://www.microsoft.com/ko-KR/download/details.aspx?id=38199)에 포함된 업데이트된 관리 팩이 필요합니다. [Operational Insights Connector for Operations Manager](https://www.microsoft.com/ko-KR/download/details.aspx?id=38199)에서 관리 팩을 다운로드하고 설치할 수 있습니다.
 
 - System Center 2012 SP1: Operations Manager 업데이트 롤업 6(업데이트 롤업 7 선호). 이 업데이트는 연결된 서비스 시나리오로 Operational Insights의 관리 서버, 에이전트 및 운영 콘솔에 적용되어야 합니다.
 
 - System Center 2012 R2: Operations Manager 업데이트 롤업 2(업데이트 롤업 3 선호). 이 업데이트는 연결된 서비스 시나리오로 Operational Insights의 관리 서버, 에이전트 및 운영 콘솔에 적용되어야 합니다.
 
-- 용량 관리 데이터를 보려면 Virtual Machine Manager(VMM)과의 Operations Manager 연결을 사용하도록 설정해야 합니다. 시스템 연결에 대한 자세한 내용은 [Operations Manager와 VMM을 연결하는 방법](https://technet.microsoft.com/ko-kr/library/hh882396.aspx)을 참조하세요.
+- 용량 관리 데이터를 보려면 Virtual Machine Manager(VMM)과의 Operations Manager 연결을 사용하도록 설정해야 합니다. 시스템 연결에 대한 자세한 내용은 [Operations Manager와 VMM을 연결하는 방법](https://technet.microsoft.com/ko-KR/library/hh882396.aspx)을 참조하세요.
 
 설치 및 구성 지침은 [Operational Insights 경고 보기](http://go.microsoft.com/fwlink/?LinkID=293793)를 참조하세요.
 
@@ -48,11 +48,11 @@ Operations Manager 에이전트는 다양한 컴퓨터에서 지원됩니다. �
 
 ### Operations Manager에 대한 필수 소프트웨어
 
-용량 관리 데이터를 보려면 VMM과의 Operations Manager 연결을 사용하도록 설정해야 합니다. 시스템 연결에 대한 자세한 내용은 [Operations Manager와 VMM을 연결하는 방법](https://technet.microsoft.com/ko-kr/library/hh882396.aspx)을 참조하세요.
+용량 관리 데이터를 보려면 VMM과의 Operations Manager 연결을 사용하도록 설정해야 합니다. 시스템 연결에 대한 자세한 내용은 [Operations Manager와 VMM을 연결하는 방법](https://technet.microsoft.com/ko-KR/library/hh882396.aspx)을 참조하세요.
 
 ## Operational Insights에 직접 연결하는 에이전트
 
-서비스에 직접 연결하는 데 사용되는 에이전트는 Microsoft Monitoring Agent입니다. 해당 시스템 요구 사항은 [Microsoft 다운로드 센터](https://www.microsoft.com/ko-kr/download/details.aspx?id=40316&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True) 페이지에 나와 있습니다.
+서비스에 직접 연결하는 데 사용되는 에이전트는 Microsoft Monitoring Agent입니다. 해당 시스템 요구 사항은 [Microsoft 다운로드 센터](https://www.microsoft.com/ko-KR/download/details.aspx?id=40316&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True) 페이지에 나와 있습니다.
 
 ## 브라우저
 
@@ -100,4 +100,4 @@ SQL Server의 경우 분석에 대해 다음과 같은 32비트 및 64비트 버
 
 또한 WOW64 구현에서 실행하는 경우 SQL Server 32비트 버전이 지원됩니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

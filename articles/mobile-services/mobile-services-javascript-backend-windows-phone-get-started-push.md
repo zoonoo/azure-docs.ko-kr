@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="모바일 서비스 앱에 푸시 알림 추가(Windows 스토어) | Microsoft Azure" 
-	description="Azure 모바일 서비스와 알림 허브를 사용하여 Windows 스토어 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다." 
+	pageTitle="모바일 서비스 앱에 푸시 알림 추가(Windows Phone) | Microsoft Azure" 
+	description="Azure 모바일 서비스와 알림 허브를 사용하여 Windows Phone 앱에 푸시 알림을 보내는 방법을 알아봅니다." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/11/2015" 
+	ms.date="09/14/2015" 
 	ms.author="glenga"/>
 
 
@@ -118,7 +118,7 @@
 
 	이렇게 하면 푸시 알림을 보낼 수 있도록 모바일 서비스가 인증되지 않은 모드에서 MPNS에 연결됩니다.
 
-	>[AZURE.NOTE]이 자습서에서는 인증되지 않은 모드로 MPNS를 사용합니다. 이 모드에서 MPNS는 장치 채널로 전송할 수 있는 알림 수를 제한합니다. 이 제한을 제거하려면 **업로드**를 클릭하고 인증서를 선택하여 인증서를 생성 및 업로드해야 합니다. 인증서 생성에 대한 자세한 내용은 [Windows Phone의 푸시 알림을 보내도록 인증된 웹 서비스 설정]을 참조하십시오.
+	>[AZURE.NOTE]이 자습서에서는 인증되지 않은 모드로 MPNS를 사용합니다. 이 모드에서 MPNS는 장치 채널로 전송할 수 있는 알림 수를 제한합니다. 이 제한을 제거하려면 **업로드**를 클릭하고 인증서를 선택하여 인증서를 생성 및 업로드해야 합니다. 인증서 생성에 대한 자세한 내용은 [Windows Phone의 푸시 알림을 보내도록 인증된 웹 서비스 설정]을 참조하세요.
 
 ##<a id="test"></a> 앱에서 푸시 알림 테스트
 
@@ -180,4 +180,4 @@
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

@@ -1,14 +1,12 @@
-# Azure 앱 서비스에서 GIT를 사용하여 연속 배포
-
 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)는 BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial, TFS와 같은 소스 코드 제어 및 리포지토리 도구에서 웹 앱에 대한 지속적인 배포를 지원합니다. 이러한 도구를 사용하여 응용 프로그램의 콘텐츠 및 코드를 관리한 후 원할 때 쉽고 빠르게 Azure 웹 앱에 변경 내용을 적용할 수 있습니다.
 
-이 문서에서는 Git를 사용하여 로컬 컴퓨터에서 웹 앱으로 바로 게시하는 방법(Azure에서는 이 게시 방법을 **로컬 Git**라고도 함)에 대해 배우게 됩니다. 또한 BitBucket, CodePlex, Dropbox, GitHub 또는 Mercurial과 같은 리포지토리 사이트에서 지속적으로 배포할 수 있도록 하는 방법에 대해서도 배우게 됩니다. TFS를 사용하여 지속적으로 배포하는 방법에 대한 내용은 [Visual Studio Online을 사용하여 Azure에 지속적으로 전송](영문)을 참조하십시오.
+이 문서에서는 Git를 사용하여 로컬 컴퓨터에서 웹 앱으로 바로 게시하는 방법(Azure에서는 이 게시 방법을 **로컬 Git**라고도 함)에 대해 배우게 됩니다. 또한 BitBucket, CodePlex, Dropbox, GitHub 또는 Mercurial과 같은 리포지토리 사이트에서 지속적으로 배포할 수 있도록 하는 방법에 대해서도 배우게 됩니다. TFS를 사용하여 지속적으로 배포하는 방법에 대한 내용은 [Visual Studio Online을 사용하여 Azure에 지속적으로 전송](영문)을 참조하세요.
 
 > [AZURE.NOTE]이 문서에 설명되어 있는 대부분의 Git 명령은 [Mac 및 Linux용 Azure 명령줄 도구](/develop/nodejs/how-to-guides/command-line-tools/)를 사용하여 웹 앱을 만드는 경우 자동으로 수행됩니다.
 
 ## <a id="Step1"></a>1단계: Git 설치
 
-Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. 운영 체제 특정 배포 및 설치 지침은 [Git 설치]를 참조하십시오.
+Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. 운영 체제 특정 배포 및 설치 지침은 [Git 설치]를 참조하세요.
 
 > [AZURE.NOTE]일부 운영 체제에서는 Git의 명령줄과 GUI 버전을 둘 다 사용할 수 있습니다. 이 문서에서 제공하는 지침은 명령줄 버전을 사용합니다.
 
@@ -82,11 +80,11 @@ Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. �
 
 	![](./media/publishing-with-git/azure3-repo-details.png)
 
-	**Git URL**은 로컬 리포지토리로(부터) 배포할 원격 참조입니다. 다음 단계에서 이 URL을 사용합니다.
+	**Git URL**은 로컬 리포지토리로부터 배포할 원격 참조입니다. 다음 단계에서 이 URL을 사용합니다.
 
 1. 앞서 만든 index.html 파일을 포함하는 로컬 Git 리포지토리의 루트에 있는지 명령줄을 사용하여 확인합니다.
 
-2. `git remote`을(를) 사용하여 1단계의 **Git URL**에 나열된 원격 참조를 추가합니다. 명령은 다음과 유사합니다.
+2. `git remote`를 사용하여 1단계의 **Git URL**에 나열된 원격 참조를 추가합니다. 명령은 다음과 유사합니다.
 
 		git remote add azure https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git
 
@@ -116,7 +114,7 @@ Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. �
 
 	![](./media/publishing-with-git/azure4-deployed.png)
 
-2. 웹앱 블레이드 위쪽에 있는 **URL** 아래에서 링크를 클릭하여 **index.html**이 배포되었는지 확인합니다. 'Hello Git!'가 포함된 페이지가 나타납니다.
+2. 웹앱 블레이드 맨 위에 있는 **URL** 아래의 링크를 클릭하여 **index.html**이 배포되었는지 확인합니다. 'Hello Git!'가 포함된 페이지가 나타납니다.
 
 	!['Hello Git!'가 포함된 웹 페이지][hello-git]
 
@@ -136,7 +134,7 @@ Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. �
 
 두 가지 방법 모두 수행하면 프로젝트가 웹 앱에 배포되지만, 한 프로젝트에 여러 명이 함께 작업하는 경우에 누가 최근에 업데이트했든 상관없이 항상 최신 버전이 게시되도록 하려는 경우 지속적인 배포 방법이 유용합니다. 또한 지속적인 배포는 위에 언급한 도구 중 하나를 응용 프로그램의 중앙 리포지토리로 사용하는 경우에 유용합니다.
 
-GitHub, CodePlex 또는 BitBucket에서 파일을 배포하려면 로컬 프로젝트를 이러한 서비스 중 하나에 게시해야 합니다. 이러한 서비스에 프로젝트를 게시하는 방법에 대한 자세한 내용은 [Create a Repo (GitHub)], [Using Git with CodePlex], [Create a Repo (BitBucket)], [Using Dropbox to Share Git Repositories] 또는 [Quick Start - Mercurial]을 참조하십시오.
+GitHub, CodePlex 또는 BitBucket에서 파일을 배포하려면 로컬 프로젝트를 이러한 서비스 중 하나에 게시해야 합니다. 이러한 서비스에 프로젝트를 게시하는 방법에 대한 자세한 내용은 [Create a Repo (GitHub)], [Using Git with CodePlex], [Create a Repo (BitBucket)], [Using Dropbox to Share Git Repositories] 또는 [Quick Start - Mercurial]을 참조하세요.
 
 1. 먼저 지속적으로 배포하는 데 사용될 선택한 리포지토리에 웹 앱 파일을 넣습니다.
 
@@ -300,4 +298,4 @@ Azure 앱 서비스에서 웹 앱에 Visual Studio 솔루션을 푸시하는 것
 [Using Dropbox to Share Git Repositories]: https://gist.github.com/trey/2722927
 [Visual Studio Online을 사용하여 Azure에 지속적으로 전송]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="terrylan"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 # Azure AD 응용 프로그램 프록시 사용
@@ -72,5 +72,6 @@ Microsoft Azure AD Application Proxy를 사용하면 SharePoint 사이트, Outlo
 
 * [조직으로 Azure 등록](..sign-up-organization.md)
 * [Azure ID](..fundamentals-identity.md)
+* [응용 프로그램 프록시를 사용하여 응용 프로그램 게시](active-directory-application-proxy-publish.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

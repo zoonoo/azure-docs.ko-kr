@@ -3,7 +3,7 @@
 	description="Azure PowerShell을 사용하여 Azure에서 Linux 기반 가상 컴퓨터를 만들고 미리 구성하는 방법에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/09/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Azure PowerShell을 사용하여 Linux 기반 가상 컴퓨터 만들기 및 미리 구성
 
@@ -260,4 +260,4 @@ Linux 기반 가상 컴퓨터에 대한 추가 사전 구성 옵션은 [Add-Azur
 
 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

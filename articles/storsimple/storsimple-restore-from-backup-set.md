@@ -1,19 +1,19 @@
 <properties 
    pageTitle="백업에서 StorSimple 볼륨 복원 | Microsoft Azure"
-	description="StorSimple 관리자 서비스 백업 카탈로그 페이지를 사용하여 백업 세트에서 StorSimple 볼륨을 복원하는 방법을 설명합니다."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="StorSimple 관리자 서비스 백업 카탈로그 페이지를 사용하여 백업 세트에서 StorSimple 볼륨을 복원하는 방법을 설명합니다."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/28/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="v-sharos" />
 
 # 백업 세트에서 StorSimple 볼륨 복원
 
@@ -78,8 +78,14 @@
 
 8. 복원이 완료되면 볼륨의 내용을 백업의 볼륨으로 바뀌는 것을 확인할 수 있습니다.
 
+![동영상 사용 가능](./media/storsimple-restore-from-backup-set/Video_icon.png) **동영상 사용 가능**
+
+StorSimple에서 클론 및 복원 기능을 사용하여 삭제된 파일을 복구하는 방법을 보여 주는 동영상을 시청하려면 [여기](http://azure.microsoft.com/documentation/videos/storsimple-recover-deleted-files-with-storsimple/)를 클릭하세요.
+
 ## 다음 단계
 
-[StorSimple 볼륨 관리](storsimple-manage-volumes.md) 방법을 알아봅니다.
+- [StorSimple 볼륨을 관리](storsimple-manage-volumes.md)하는 방법을 알아봅니다.
 
-<!---HONumber=September15_HO1-->
+- [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
+
+<!---HONumber=Sept15_HO3-->

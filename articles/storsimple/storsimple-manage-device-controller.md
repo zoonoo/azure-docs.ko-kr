@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 장치 컨트롤러 관리 | Microsoft Azure"
-	description="StorSimple 장치 컨트롤러를 중지, 다시 시작, 종료 또는 다시 설정하는 방법을 알아봅니다."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="StorSimple 장치 컨트롤러를 중지, 다시 시작, 종료 또는 다시 설정하는 방법을 알아봅니다."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # StorSimple 장치 컨트롤러 관리
 
@@ -220,6 +220,8 @@ Microsoft Azure StorSimple 장치를 공장 기본 설정으로 다시 설정하
 
 ## 다음 단계
 
-StorSimple 장치 컨트롤러에 이 자습서에 나열된 절차를 사용하여 해결할 수 없는 문제가 발생할 경우 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
+- StorSimple 장치 컨트롤러에서 이 자습서에 나열된 절차를 사용하여 해결할 수 없는 문제가 발생할 경우 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
 
-<!---HONumber=September15_HO1-->
+- StorSimple Manager 서비스를 사용하는 방법을 자세히 알아보려면 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md)로 이동하세요.
+
+<!---HONumber=Sept15_HO3-->

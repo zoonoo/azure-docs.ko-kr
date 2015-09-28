@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="Publish-WebApplicationWebSite (Windows PowerShell 스크립트)"
-	description="Azure 웹 사이트에 웹 프로젝트를 게시하는 방법에 대해 알아봅니다. 없는 경우 이 스크립트는 Azure 구독에 필요한 리소스를 만듭니다."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
-<tags 
+   description="Azure 웹 사이트에 웹 프로젝트를 게시하는 방법에 대해 알아봅니다. 없는 경우 이 스크립트는 Azure 구독에 필요한 리소스를 만듭니다."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
+<tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/13/2015"
+   ms.author="kempb" />
 
 # Publish-WebApplicationWebSite (Windows PowerShell 스크립트)
 
@@ -22,13 +22,13 @@
 Azure 웹 사이트에 웹 프로젝트를 게시합니다. 없는 경우 스크립트는 Azure 구독에 필요한 리소스를 만듭니다.
 
 	Publish-WebApplicationWebSite
-	–Configuration <configuration> 
+	–Configuration <configuration>
 	-SubscriptionName <subscriptionName>
 	-WebDeployPackage <packageName>
 	-DatabaseServerPassword @{Name = "name"; Password = "password"}
 	-SendHostMessagesToOutput
 	-Verbose
-	
+
 
 ## 구성
 
@@ -68,14 +68,14 @@ Azure 웹 사이트에 웹 프로젝트를 게시합니다. 없는 경우 스크
 |기본값|없음|
 |Accept Pipeline Input?|false|
 |Accept Wildcard Characters?|false|
-	
+
 ## DatabaseServerPassword
 
 Azure에서 SQL 데이터베이스의 사용자 이름 및 암호입니다.
 
 |매개 변수|기본값|
-|Aliases|없음|
 |---|---|
+|Aliases|없음|
 |Required?|false|
 |Position|named|
 |기본값|없음|
@@ -129,4 +129,4 @@ JSON 구성 파일은 배포될 내용의 세부 정보를 지정합니다. 해�
 
 [Publish-WebApplicationVM (Windows PowerShell 스크립트)](https://msdn.microsoft.com/library/azure/dn689112.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

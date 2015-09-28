@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="DocumentDB SQL을 사용한 쿼리 | Microsoft Azure" 
-	description="NoSQL 문서 데이터베이스 서비스인 DocumentDB는 명시적 스키마를 사용하거나 보조 인덱스를 만들지 않고도 계층 JSON 문서에 대해 SQL 스타일 문법을 사용하여 쿼리를 지원합니다." 
+	pageTitle="DocumentDB 데이터베이스에 대한 SQL 쿼리 – 쿼리 SQL | Microsoft Azure" 
+	description="DocumentDB에서 자동 인덱싱을 위해 계층적 JSON 문서에 대한 SQL 쿼리를 지원하는 방법을 알아봅니다. 스키마가 없는 SQL 쿼리 데이터베이스 환경이 제공됩니다." 
+	keywords="Query database, sql queries, sql query, structured query language, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="arramac" 
@@ -16,7 +17,7 @@
 	ms.date="08/13/2015" 
 	ms.author="mimig"/>
 
-# DocumentDB 쿼리
+# DocumentDB 내의 SQL 쿼리
 Microsoft Azure DocumentDB는 계층적 JSON 문서에 대해 SQL(구조적 쿼리 언어)을 사용한 문서 쿼리를 지원합니다. DocumentDB는 스키마가 없습니다. DocumentDB는 데이터베이스 엔진 내에 직접 JSON 데이터 모델을 커밋하므로 명시적 스키마나 보조 인덱스 생성을 요구하지 않고 JSON 문서의 자동 인덱싱을 제공합니다.
 
 DocumentDB용 쿼리 언어를 설계할 때 다음 두 가지 목표를 고려했습니다.
@@ -30,9 +31,9 @@ DocumentDB용 쿼리 언어를 설계할 때 다음 두 가지 목표를 고려�
 
 > [AZURE.VIDEO dataexposedqueryingdocumentdb]
 
-그런 다음 이 문서로 돌아와 몇 가지 간단한 JSON 문서와 쿼리를 연습하세요.
+그런 다음 이 문서로 돌아와 몇 가지 간단한 JSON 문서와 SQL 명령을 연습하세요.
 
-## 시작
+## DocumentDB에서 SQL(구조적 쿼리 언어) 명령 시작
 DocumentDB SQL 작동 방식을 살펴보기 위해 몇 개의 간단한 JSON 문서로 시작하고 몇 개의 단순한 쿼리를 연습하겠습니다. 두 가족에 대한 다음 두 개의 JSON 문서를 고려해 보세요. DocumentDB를 사용하면 스키마나 보조 인덱스를 명시적으로 만들 필요가 없습니다. DocumentDB 컬렉션에 JSON 문서를 삽입한 후 쿼리하면 됩니다. 다음은 Andersen 가족, 부모, 자녀(및 애완 동물), 주소 및 등록 정보에 대한 간단한 JSON 문서입니다. 이 문서에는 문자열, 숫자, 부울, 배열 및 중첩 속성이 있습니다.
 
 **문서**
@@ -157,7 +158,7 @@ DocumentDB SQL 작동 방식을 살펴보기 위해 몇 개의 간단한 JSON �
 지금까지 확인한 예제를 통해 DocumentDB 쿼리 언어의 몇 가지 중요한 측면을 살펴보겠습니다.
  
 -	DocumentDB SQL은 JSON 값에 대해 작동하므로 행과 열 대신 트리 모양의 엔터티를 다룹니다. 따라서 이 언어를 사용하면 임의 깊이의 트리 노드를 참조할 수 있습니다(예:`Node1.Node2.Node3…..Nodem`). 이는 `<table>.<column>`의 두 부분을 참조하는 관계형 SQL과 유사합니다.   
--	이 언어는 스키마 없는 데이터로 작업합니다. 따라서 형식 시스템을 동적으로 바인딩해야 합니다. 문서에 따라 동일한 식이 다른 형식을 생성할 수 있습니다. 쿼리 결과는 유효한 JSON 값이지만 고정 스키마가 아닐 수 있습니다.  
+-	구조적 쿼리 언어는 스키마 없는 데이터로 작업합니다. 따라서 형식 시스템을 동적으로 바인딩해야 합니다. 문서에 따라 동일한 식이 다른 형식을 생성할 수 있습니다. 쿼리 결과는 유효한 JSON 값이지만 고정 스키마가 아닐 수 있습니다.  
 -	DocumentDB는 엄격한 JSON 문서만 지원합니다. 즉, 형식 시스템과 식이 JSON 형식만 처리하도록 제한됩니다. 자세한 내용은 [JSON 사양](http://www.json.org/)을 참조하세요.  
 -	DocumentDB 컬렉션은 JSON 문서의 스키마 없는 컨테이너입니다. 컬렉션의 문서 내 및 문서 간 데이터 엔터티의 관계는 기본 키 및 외래 키 관계가 아니라 포함을 통해 암시적으로 캡처됩니다. 이것은 이 문서의 뒷부분에서 설명하는 문서 내 조인과 관련해서 주의할 중요한 측면입니다.
 
@@ -173,7 +174,7 @@ DocumentDB SQL 문법을 시작하기 전에 DocumentDB의 인덱싱 설계를 �
 
 -	효율적이고 풍부한 계층적 관계형 쿼리 지원: 인덱스는 계층적 관계형 프로젝션 지원을 포함하여 DocumentDB 쿼리 언어를 효율적으로 지원합니다.
 
--	지속적인 쓰기 볼륨에서도 일관성 있는 쿼리 지원: 일관성 있는 쿼리와 더불어 높은 쓰기 처리량 작업을 위해 지속적인 쓰기 볼륨에서도 인덱스가 온라인에서 효율적으로 증분 업데이트됩니다. 일관성 있는 인덱스 업데이트는 사용자가 문서 서비스를 구성한 일관성 수준으로 쿼리를 처리하는 데 중요합니다.
+-	지속적인 쓰기 볼륨에서도 일관성 있는 쿼리 지원: 일관성 있는 쿼리와 더불어 높은 쓰기 처리량 워크로드를 위해 지속적인 쓰기 볼륨에서도 인덱스가 온라인에서 효율적으로 증분 업데이트됩니다. 일관성 있는 인덱스 업데이트는 사용자가 문서 서비스를 구성한 일관성 수준으로 쿼리를 처리하는 데 중요합니다.
 
 -	다중 테넌트 지원: 테넌트의 리소스 거버넌스를 위한 예약 기반 모델을 고려하여 복제본당 할당된 시스템 리소스(CPU, 메모리, 초당 입출력 작업 수) 예산 내에서 인덱스 업데이트가 수행됩니다.
 
@@ -182,7 +183,7 @@ DocumentDB SQL 문법을 시작하기 전에 DocumentDB의 인덱싱 설계를 �
 컬렉션에 대한 인덱싱 정책을 구성하는 방법을 보여 주는 샘플은 MSDN에서 [DocumentDB 샘플](https://github.com/Azure/azure-documentdb-net)을 참조하세요. 이제 DocumentDB SQL 문법의 세부 정보를 살펴보겠습니다.
 
 
-## DocumentDB 쿼리의 기본 사항
+## DocumentDB SQL 쿼리의 기본 사항
 ANSI-SQL 표준에 따라 모든 쿼리는 SELECT 절과 선택적 FROM 및 WHERE 절로 구성됩니다. 일반적으로 각 쿼리에 대해 FROM 절의 소스가 열거됩니다. 그런 다음 WHERE 절의 필터를 소스에 적용하여 JSON 문서의 하위 집합을 검색합니다. 마지막으로, SELECT 절을 사용하여 선택 목록에서 요청된 JSON 값을 프로젝션합니다.
     
     SELECT <select_list> 
@@ -296,7 +297,7 @@ WHERE 절(**`WHERE <filter_condition>`**)은 선택 사항입니다. 소스에�
 	WHERE c.grade >= 5     -- matching grades == 5
 
 
-단항 연산자 +,-, \~ 및 NOT도 지원되며 다음 예제에 표시된 대로 쿼리 내부에 사용할 수 있습니다.
+단항 연산자 +,-, ~ 및 NOT도 지원되며 다음 예제에 표시된 대로 쿼리 내부에 사용할 수 있습니다.
 
 	SELECT *
 	FROM Families.children[0] c
@@ -704,7 +705,7 @@ ANSI-SQL에서와 마찬가지로 쿼리하는 동안 선택적 Order By 절을 
 	  }
 	]
 	
-## 고급 개념
+## 고급 SQL 쿼리 데이터베이스 개념
 ### 반복
 JSON 배열 반복을 지원하기 위해 DocumentDB SQL의 **IN** 키워드를 통해 새 구문을 추가했습니다. FROM 소스에서 반복 지원을 제공합니다. 다음 예제로 시작하겠습니다.
 
@@ -1055,7 +1056,7 @@ DocumentDB SQL에서는 기존 SQL과 달리 실제로 데이터베이스에서 
 
 DocumentDB SQL은 JavaScript와 달리 암시적 변환을 수행하지 않습니다. 예를 들어 `SELECT * FROM Person p WHERE p.Age = 21`과 같은 쿼리는 Age 속성을 포함하고 값이 21인 문서에 일치됩니다. Age 속성이 문자열 "21" 또는 "021", "21.0", "0021", "00021" 등의 다른 무한 변형과 일치하는 다른 문서는 일치되지 않습니다. 이는 문자열 값이 암시적으로 숫자로 캐스팅되는 JavaScript와 대조됩니다(연산자 기준, 예: ==) 이 선택 항목은 DocumentDB SQL의 효율적인 인덱스 매핑에 중요합니다.
 
-## 매개 변수가 있는 SQL
+## 매개 변수가 있는 SQL 쿼리
 DocumentDB는 익숙한 @ 표기법으로 표현된 매개 변수가 있는 쿼리를 지원합니다. 매개 변수가 있는 SQL은 사용자 입력의 강력한 처리 및 이스케이프를 제공하여 SQL 주입을 통해 데이터가 실수로 노출되는 것을 방지합니다.
 
 예를 들어 성 및 주소 상태를 매개 변수로 사용하는 쿼리를 작성한 다음 사용자 입력에 따라 다양한 성 및 주소 상태 값에 대해 실행할 수 있습니다.
@@ -1487,7 +1488,7 @@ LINQ는 개체 스트림에 대한 쿼리로 계산을 표현하는 .NET 프로�
 
 아래 그림은 DocumentDB를 사용한 LINQ 쿼리를 지원하는 아키텍처를 보여 줍니다. 개발자는 DocumentDB 클라이언트를 사용하여 쿼리를 DocumentDB 쿼리 공급자로 보내는 **IQueryable** 개체를 만들 수 있습니다. 쿼리 공급자가 LINQ 쿼리를 DocumentDB 쿼리로 변환합니다. 그런 다음 JSON 형식으로 결과 집합을 검색하기 위해 쿼리가 DocumentDB 서버로 전달됩니다. 반환된 결과는 클라이언트 쪽에서 .NET 개체 스트림으로 역직렬화됩니다.
 
-![][1]
+![DocumentDB를 사용한 LINQ 쿼리를 지원하는 아키텍처][1]
  
 
 
@@ -1603,7 +1604,7 @@ DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑
 		new { first = 1, second = 2 }; //an anonymous type with 2 fields              
 		new int[] { 3, child.grade, 5 };
 
-### 쿼리 연산자
+### SQL 쿼리 연산자
 다음은 표준 LINQ 쿼리 연산자 중 일부가 DocumentDB 쿼리로 변환되는 방법을 보여 주는 몇 가지 예제입니다.
 
 #### Select 연산자
@@ -1692,7 +1693,7 @@ DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑
 	AND f.children[0].grade < 3
 
 
-### 복합 쿼리
+### 복합 SQL 쿼리
 위 연산자를 구성하여 보다 강력한 쿼리를 만들 수 있습니다. DocumentDB는 중첩 컬렉션을 지원하므로 해당 컴퍼지션을 연결하거나 중첩할 수 있습니다.
 
 #### 연결 
@@ -1797,7 +1798,7 @@ DocumentDB 쿼리 공급자는 LINQ 쿼리에서 DocumentDB SQL 쿼리로 매핑
 	WHERE c.familyName = f.parents[0].familyName
 
 
-## 쿼리 실행
+## SQL 쿼리 실행
 DocumentDB는 HTTP/HTTPS 요청을 수행할 수 있는 임의의 언어로 호출할 수 있는 REST API를 통해 리소스를 노출합니다. 또한 DocumentDB는 .NET, Node.js, JavaScript, Python 등 많이 사용되는 몇 개의 언어를 위한 프로그래밍 라이브러리를 제공합니다. REST API 및 다양한 라이브러리가 모두 SQL을 통한 쿼리를 지원합니다. .NET SDK는 SQL뿐 아니라 LINQ 쿼리도 지원합니다.
 
 다음 예제에서는 쿼리를 만들고 DocumentDB 데이터베이스 계정에 대해 제출하는 방법을 보여 줍니다.
@@ -2088,4 +2089,4 @@ DocumentDB는 저장 프로시저 및 트리거를 사용하여 컬렉션에 대
 [consistency-levels]: documentdb-consistency-levels.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

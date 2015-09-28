@@ -3,7 +3,7 @@
 	description="Azure에서 가상 컴퓨터의 기본 사항에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-resource-manager,azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/14/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 #Azure 가상 컴퓨터 정보
 
@@ -49,4 +49,4 @@ Azure 가상 컴퓨터에 대해 처음 알아보기 시작한 경우 [질문과
 [가상 컴퓨터]: #tellmevm
 [클라우드 서비스]: cloud-services-choose-me.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

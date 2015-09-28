@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자를 사용하여 StorSimple 장치 연결 및 관리
@@ -260,6 +260,7 @@ StorSimple 장치에서 오류가 발생하여 대기(장애 조치(failover)) �
 
 ## 다음 단계
 
-[StorSimple 스냅숏 관리자를 사용하여 볼륨 보기 및 관리](storsimple-snapshot-manager-manage-volumes.md)
+- [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
+- [StorSimple 스냅숏 관리자를 사용하여 볼륨을 보고 관리](storsimple-snapshot-manager-manage-volumes.md)하는 방법을 알아봅니다.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

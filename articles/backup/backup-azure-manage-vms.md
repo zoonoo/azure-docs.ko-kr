@@ -4,11 +4,11 @@
 	description="Azure 가상 컴퓨터를 관리하는 방법을 알아봅니다."
 	services="backup"
 	documentationCenter=""
-	authors="aashishr"
+	authors="trinadhk"
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/09/2015" ms.author="aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/09/2015" ms.author="aashishr"; "jimpark"; "trinadhk"/>
 
 # 가상 컴퓨터 관리
 
@@ -23,6 +23,8 @@
     ![가상 컴퓨터 백업](./media/backup-azure-manage-vms/backup-vmdetails.png)
 
 3. 가상 컴퓨터에 대한 백업 정책 설정을 보고 관리하려면 **정책** 탭을 클릭합니다.
+
+    ![가상 컴퓨터 정책](./media/backup-azure-manage-vms/manage-policy-settings.png)
 
     **백업 정책** 탭에는 기존 정책이 표시됩니다. 필요에 따라 수정할 수 있습니다. 새 정책을 만들어야 하는 경우 **정책** 페이지에서 **만들기**를 클릭합니다. 정책을 제거하려는 경우 해당 정책과 연결된 가상 컴퓨터가 없어야 합니다.
 
@@ -100,7 +102,7 @@
 
 다시 보호한 후 **보호 중지** 전에 복구 지점이 있는 경우 가상 컴퓨터의 보호 상태가 **보호됨**으로 바뀝니다.
 
-    ![Reprotected VM](./media/backup-azure-manage-vms/reprotected-status.png)
+  ![다시 보호된 VM](./media/backup-azure-manage-vms/reprotected-status.png)
 
 >[AZURE.NOTE]가상 컴퓨터를 다시 보호하는 경우 가상 컴퓨터가 처음에 보호된 정책과 다른 정책을 선택할 수 있습니다.
 
@@ -149,7 +151,9 @@
 ## 대시보드
 **대시보드** 페이지에서 Azure 가상 컴퓨터, 저장소 및 최근 24시간 동안의 관련 작업에 대한 정보를 검토할 수 있습니다. 백업 상태 및 연결된 백업 오류를 볼 수 있습니다.
 
-    ![Dashboard](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
+![대시보드](./media/backup-azure-manage-vms/dashboard-protectedvms.png)
+
+>[AZURE.NOTE]대시보드의 값은 24시간마다 한 번 새로 고쳐집니다.
 
 ## 작업 감사
 Azure 백업은 백업 자격 증명 모음에서 관리 작업이 무엇을 수행하는지 정확하게 볼 수 있도록고객에 의해 트리거된 백업 작업의 "작업 로그"를 검토합니다. 작업 로그를 사용하면 백업 작업에 대한 post-mortem 및 감사 지원이 가능합니다.
@@ -174,7 +178,7 @@ Azure 백업은 백업 자격 증명 모음에서 관리 작업이 무엇을 수
 
     ![작업 로그](./media/backup-azure-manage-vms/ops-logs.png)
 
-2. 필터에서 **백업**을 *형식*으로 선택하고 *서비스 이름*에서 자격 증명 모음을 지정하고 **제출**을 클릭합니다.
+2. 필터에서 **백업**을 *형식*으로 선택하고 *서비스 이름*에서 자격 증명 모음을 지정한 다음 **제출**을 클릭합니다.
 
     ![작업 로그 필터](./media/backup-azure-manage-vms/ops-logs-filter.png)
 
@@ -209,7 +213,7 @@ PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/su
 
 **OperationName**: EventName이 위에서 설명한 것처럼 "Microsoft.Backup/backupvault/<EventName>" 형식입니다.
 
-**상태**: 지원되는 값은 시작함, 성공함 및 실패함입니다. 정보를 Succeeded 상태에 대한 수준으로 유지하는 것이 좋습니다.
+**상태**: 지원되는 값은 시작함, 성공 및 실패입니다. 정보를 Succeeded 상태에 대한 수준으로 유지하는 것이 좋습니다.
 
 **하위 상태**: 백업 작업에 대한 상태와 동일합니다.
 
@@ -221,7 +225,7 @@ PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/su
 
 **설명**: 경고 규칙에 대한 설명입니다.
 
-**CustomEmails**: 경고 알림을 보내려는 사용자 지정 전자 메일 주소를 지정합니다.
+**CustomEmails**: 경고 알림을 보내려는 사용자 지정 메일 주소를 지정합니다.
 
 **SendToServiceOwners**: 이 옵션은 구독의 모든 관리자 및 공동 관리자에게 경고 알림을 보냅니다.
 
@@ -245,4 +249,4 @@ PS C:\> Add-AlertRule -Operator GreaterThanOrEqual -Threshold 1 -ResourceId '/su
 
 - [Azure VM 복원](backup-azure-restore-vms.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

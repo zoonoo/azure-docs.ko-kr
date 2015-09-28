@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 관리자 서비스 관리 | Microsoft Azure"
-	description="Azure 관리 포털에서 StorSimple 관리자 서비스를 사용하여 StorSimple 장치를 관리하는 방법을 알아봅니다."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Azure 관리 포털에서 StorSimple 관리자 서비스를 사용하여 StorSimple 장치를 관리하는 방법을 알아봅니다."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/11/2015"
+   ms.author="alkohli" />
 
 # StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리
 
@@ -89,7 +89,7 @@ StorSimple Manager 서비스 UI에 대한 탐색 기록이 다음 테이블에 �
 |장치 설정 수정</br>시간 설정 수정</br>DNS.md 설정 수정</br>네트워크 인터페이스 구성|StorSimple Manager 서비스 → 장치 → 구성|[StorSimple 장치에 대한 장치 구성 수정](storsimple-modify-device-config.md)|
 |웹 프록시 설정 보기|StorSimple Manager 서비스 → 장치 → 구성|[장치에 대한 웹 프록시 구성](storsimple-configure-web-proxy.md)|
 |장치 관리자 암호 수정</br>StorSimple 스냅숏 관리자 암호 수정|StorSimple Manager 서비스 → 장치 → 구성|[StorSimple 암호 변경](storsimple-change-passwords.md)|
-|원격 관리 구성|StorSimple Manager 서비스 → 장치 → 구성|[StorSimple 장치에 원격으로 연결](https://msdn.microsoft.com/library/azure/dn772393.aspx)|
+|원격 관리 구성|StorSimple Manager 서비스 → 장치 → 구성|[StorSimple 장치에 원격으로 연결](storsimple-remote-connect.md)|
 |경고 설정 구성|StorSimple Manager 서비스 → 장치 → 구성|[StorSimple 경고 보기 및 관리](storsimple-manage-alerts.md)|
 |StorSimple 장치에 대한 CHAP 구성|StorSimple Manager 서비스 → 장치 → 구성|[StorSimple 장치에 대한 CHAP 구성](storsimple-configure-chap.md)|
 |백업 정책 추가</br>일정 추가 또는 수정</br>백업 정책 삭제</br>수동 백업 수행</br>여러 볼륨 및 일정으로 사용자 지정 백업 정책 만들기|StorSimple Manager 서비스 → 장치 → 백업 정책|[백업 정책 관리](storsimple-manage-backup-policies.md)|
@@ -97,6 +97,10 @@ StorSimple Manager 서비스 UI에 대한 탐색 기록이 다음 테이블에 �
 |StorSimple 하드웨어 구성 요소</br>하드웨어 상태 모니터링</br>(위는 온-프레미스 장치용)에 대해 알아봅니다.|StorSimple Manager 서비스 → 장치 → 유지 관리|[하드웨어 구성 요소 모니터링](storsimple-monitor-hardware-status.md)|
 |지원 패키지 만들기|StorSimple Manager 서비스 → 장치 → 유지 관리|[지원 패키지 만들기 및 관리](storsimple-create-manage-support-package.md)|
 |소프트웨어 업데이트 설치|StorSimple Manager 서비스 → 장치 → 유지 관리|[장치 업데이트](storsimple-update-device.md)|
+
+![동영상 사용 가능](./media/storsimple-manager-service-administration/Video_icon.png) **동영상 사용 가능**
+
+StorSimple Manager 서비스 사용자 인터페이스를 안내하는 동영상을 시청하려면 [여기](http://azure.microsoft.com/documentation/videos/storsimple-manager-service-overview/)를 클릭하세요.
 
 ##다음 단계
 StorSimple 장치의 일상적인 작업 또는 해당 하드웨어 구성 요소 사용 시 발생하는 모든 문제는 다음을 참조하세요.
@@ -108,4 +112,4 @@ StorSimple 장치의 일상적인 작업 또는 해당 하드웨어 구성 요�
 
 -  [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

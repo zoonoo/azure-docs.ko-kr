@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Redis Cache 사용 방법"
-	description="Azure Redis Cache를 사용하여 Azure 응용 프로그램의 성능을 향상시키는 방법을 알아봅니다."
-	services="redis-cache"
-	documentationCenter=""
-	authors="steved0x"
-	manager="dwrede"
+	pageTitle="Azure Redis Cache 사용 방법" 
+	description="Azure Redis Cache를 사용하여 Azure 응용 프로그램의 성능을 향상시키는 방법을 알아봅니다." 
+	services="redis-cache,app-service" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cache"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="cache-redis"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="08/25/2015"
+	ms.service="cache" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="cache-redis" 
+	ms.devlang="dotnet" 
+	ms.topic="hero-article" 
+	ms.date="08/25/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache 사용 방법
@@ -367,4 +367,4 @@ NuGet 패키지는 필요한 어셈블리 참조를 다운로드 및 추가하�
 
 [Azure 무료 체험]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

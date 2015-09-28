@@ -1,4 +1,4 @@
-<properties title="Creating an Oracle WebLogic Server 12c and Oracle Database 12c virtual machine in Azure" pageTitle="Azure에서 Oracle WebLogic Server 12c 및 Oracle Database 12c 가상 컴퓨터 만들기" description="Oracle WebLogic Server 12c 및 Microsoft Azure에서 Windows Server 2012에서 실행 중인 Oracle Database 12c 이미지를 만드는 예제를 단계별로 설명합니다." services="virtual-machines" authors="bbenz" documentationCenter=""/>
+<properties pageTitle="Azure에서 Oracle WebLogic Server 12c 및 Oracle Database 12c 가상 컴퓨터 만들기" description="Oracle WebLogic Server 12c 및 Microsoft Azure에서 Windows Server 2012에서 실행 중인 Oracle Database 12c 이미지를 만드는 예제를 단계별로 설명합니다." services="virtual-machines" authors="bbenz" documentationCenter=""/>
 <tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 
 #Azure에서 Oracle WebLogic Server 12c 및 Oracle Database 12c 가상 컴퓨터 만들기
@@ -21,7 +21,7 @@
 
 7.	**가격 책정 계층**을 선택합니다. 권장 가격 책정 계층이 기본적으로 표시됩니다. 모든 구성 옵션을 보려면 오른쪽 위에서 **모두 보기**를 클릭합니다.
 
-8. 필요에 따라 선택적 구성을 설정합니다([Azure 가상 컴퓨터 구성 설정](https://msdn.microsoft.com/library/azure/dn763935.aspx) 참조). 다음 고려 사항을 따르세요.
+8. 필요에 따라 선택적 구성을 설정합니다. 다음 고려 사항을 따르세요.
 
 	a. 가상 컴퓨터 이름으로 새 저장소 계정을 만들려면 **저장소 계정**을 그대로 둡니다.
 
@@ -38,10 +38,10 @@
 
 ##이 가상 컴퓨터에서 호스트되는 데이터베이스 만들기
 
-**Azure에서 Oracle Database 12c 가상 컴퓨터를 사용하여 데이터베이스 만들기** 섹션으로 시작하는 [Azure에서 Oracle Database 12c 가상 컴퓨터 만들기](virtual-machines-creating-oracle-database-virtual-machine.md)의 지침을 따릅니다.
+**Azure에서 Oracle Database 12c 가상 컴퓨터를 사용하여 데이터베이스를 만들려면** 섹션으로 시작하는 [Azure에서 Oracle Database 12c 가상 컴퓨터 만들기](virtual-machines-creating-oracle-database-virtual-machine.md)의 지침을 따릅니다.
 
 ##이 가상 컴퓨터에서 호스트되는 Oracle WebLogic Server 12c를 구성하려면
-**Azure에서 Oracle WebLogic Server 12c 가상 컴퓨터 구성하려면** 섹션으로 시작하는 [Azure에서 Oracle WebLogic Server 12c 가상 컴퓨터 만들기](virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine.md)의 지침을 따릅니다. WebLogic Server 클러스터를 설정하려는 경우 [Azure에서 Oracle WebLogic Server 12c 만들기](virtual-machines-creating-oracle-webLogic-server-12c-cluster.md)도 참조하십시오.
+**Azure에서 Oracle WebLogic Server 12c 가상 컴퓨터를 구성하려면** 섹션으로 시작하는 [Azure에서 Oracle WebLogic Server 12c 가상 컴퓨터 만들기](virtual-machines-creating-oracle-webLogic-server-12c-virtual-machine.md)의 지침을 따릅니다. WebLogic Server 클러스터를 설정하려는 경우 [Azure에서 Oracle WebLogic Server 12c 만들기](virtual-machines-creating-oracle-webLogic-server-12c-cluster.md)도 참조하세요.
 
 ##추가 리소스
 [Oracle 가상 컴퓨터 이미지에 대한 기타 고려 사항](miscellaneous-considerations-for-oracle-virtual-machine-images-new-article.md)
@@ -54,4 +54,4 @@
 
 [Oracle 데이터베이스 2일 DBA 12c 릴리스 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

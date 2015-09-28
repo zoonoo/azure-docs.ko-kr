@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple Manager 서비스 배포 | Microsoft Azure"
-	description="관리 포털에서 StorSimple 관리자 서비스를 만들고 삭제하는 방법 및 서비스 등록 키를 관리하는 방법에 대해 설명합니다."
-	services="storsimple"
-	documentationCenter=""
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="관리 포털에서 StorSimple 관리자 서비스를 만들고 삭제하는 방법 및 서비스 등록 키를 관리하는 방법에 대해 설명합니다."
+   services="storsimple"
+   documentationCenter=""
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/02/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/14/2015"
+   ms.author="v-sharos" />
 
 # StorSimple 관리자 서비스 배포
 
@@ -107,10 +107,12 @@ StorSimple 장치를 배포하려는 경우 **빠른 생성** 옵션을 사용�
 
 ## 다음 단계
 
-[StorSimple 배포 프로세스에 대해 자세히 알아보기](storsimple-deployment-walkthrough.md)
+- [StorSimple 배포 프로세스](storsimple-deployment-walkthrough.md)에 대해 자세히 알아봅니다.
 
-[StorSimple 저장소 계정 관리에 대해 자세히 알아보기](storsimple-manage-storage-accounts.md)
+- [StorSimple 저장소 계정 관리](storsimple-manage-storage-accounts.md)에 대해 자세히 알아봅니다.
+
+- [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -1,30 +1,31 @@
 <properties 
-	pageTitle="DocumentDB에 대한 질문과 대답 | Microsoft Azure"
-	description="Azure DocumentDB, NoSQL 문서 데이터베이스 서비스에 관련된 질문과 대답을 제공합니다."
-	services="documentdb"
-	authors="mimig1"
-	manager="jhubbard"
-	editor="monicar"
+	pageTitle="DocumentDB 데이터베이스 질문 - 질문과 대답 | Microsoft Azure" 
+	description="Azure DocumentDB NoSql 문서 데이터베이스 서비스에 대한 질문과 대답을 가져옵니다. 용량, 성능 수준 및 크기 조정에 대한 데이터베이스 질문에 대답합니다." 
+	keywords="Database questions, frequently asked questions, documentdb, azure, Microsoft azure"
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="mimig"/>
 
 
 #DocumentDB에 대한 질문과 대답
 
-## Microsoft Azure DocumentDB 기본 사항
+## Microsoft Azure DocumentDB 기본 사항에 대한 데이터베이스 질문
 
 ### Microsoft Azure DocumentDB란 무엇인가요? 
 Microsoft Azure DocumentDB는 확장 가능성이 높은 NoSQL 문서 DaaS(Database-as-a-Service)로, Microsoft Azure의 성능과 범위로 지원되는 관리 플랫폼을 통해 스키마 제약이 없는 데이터에 대해 다양한 쿼리를 제공하고, 구성 가능하며 안정적인 성능을 제공하고, 신속한 개발을 지원합니다. 예측 가능한 처리량, 짧은 대기 시간 및 스키마 제약이 없는 데이터 모델이 핵심 요구 사항인 경우 DocumentDB는 웹 및 모바일 응용 프로그램의 적합한 솔루션입니다. DocumentDB는 네이티브 JSON 데이터 모델을 통해 스키마 유연성과 다양한 인덱싱을 제공하며, 통합된 JavaScript로 다중 문서 트랜잭션도 지원합니다.
   
-서비스 배포 및 사용에 대한 지침은 [DocumentDB 설명서 페이지](http://azure.microsoft.com/documentation/services/documentdb/)를 참조하세요.
+이 서비스 배포 및 사용에 대한 데이터베이스 질문, 대답 및 지침은 [DocumentDB 설명서 페이지](http://azure.microsoft.com/documentation/services/documentdb/)를 참조하세요.
 
 ### DocumentDB는 어떤 종류의 데이터베이스인가요?
 DocumentDB는 JSON 형식으로 데이터를 저장하는 NoSQL 문서 지향 데이터베이스입니다. DocumentDB는 다양한 DocumentDB [SQL 쿼리 문법](documentdb-sql-query.md)을 통해 쿼리할 수 있는 자체 포함된 중첩 데이터 구조를 지원합니다. DocumentDB는 [저장 프로시저, 트리거 및 사용자 정의 함수](documentdb-programming.md)를 통해 서버 쪽 JavaScript의 고성능 트랜잭션 처리를 제공합니다. 또한 데이터베이스는 연결된 [성능 수준](documentdb-performance-levels.md)으로 개발자가 조정할 수 있는 일관성 수준을 지원합니다.
@@ -75,7 +76,7 @@ Microsoft Azure DocumentDB는 [Azure Preview 포털][azure-portal]에 있습니�
 ### 사용자 및 사용 권한을 어떻게 설정하나요?
 [DocumentDB SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 중 하나를 사용하거나 [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 통해 사용자 및 사용 권한을 만들 수 있습니다.
 
-## Microsoft Azure DocumentDB에 대해 개발
+## Microsoft Azure DocumentDB에 대한 개발과 관련된 데이터베이스 질문
 
 ### DocumentDB에 대해 어떻게 개발을 시작하나요?
 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx)는 .NET, Python, Node.js, JavaScript 및 Java용으로 제공됩니다. 또한 개발자는 [RESTful HTTP API](https://msdn.microsoft.com/library/azure/dn781481.aspx)를 사용하여 다양한 플랫폼 및 언어의 DocumentDB 리소스를 조작할 수 있습니다.
@@ -111,4 +112,4 @@ DocumentDB에 문서를 일괄 삽입하는 세 가지 방법이 있습니다.
 [query]: documentdb-sql-query.md
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

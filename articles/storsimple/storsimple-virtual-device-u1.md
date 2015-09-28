@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 가상 장치 업데이트 1 | Microsoft Azure"
-	description="Microsoft Azure 가상 네트워크에서 StorSimple 가상 장치를 만들고 배포 및 관리하는 방법을 알아봅니다. StorSimple 업데이트 1에 적용됩니다."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="Microsoft Azure 가상 네트워크에서 StorSimple 가상 장치를 만들고 배포 및 관리하는 방법을 알아봅니다. StorSimple 업데이트 1에 적용됩니다."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="09/02/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="09/16/2015"
+   ms.author="alkohli" />
 
 # Azure에서 StorSimple 가상 장치 배포 및 관리
 
@@ -122,27 +122,28 @@ StorSimple 가상 장치를 사용하는 경우 다음 보안 고려 사항을 �
 
 2. **장치** 페이지로 이동합니다. **장치** 페이지 맨 아래의 **가상 장치 만들기**를 클릭합니다.
 
-3. **가상 장치 만들기 대화 상자**에서 다음을 지정합니다.
+3. **가상 장치 만들기** 대화 상자에서 다음 정보를 지정합니다.
+
+     ![StorSimple 가상 장치 만들기](./media/storsimple-virtual-device-u1/StorSimple_CreateVirtualDevice1.png)
 
 	1. **이름** – 가상 장치에 대한 고유 이름입니다.
 
-
 	2. **버전** - 가상 장치의 버전을 선택합니다. 이 서비스에 등록된 물리적 장치의 업데이트 1 이상만 있는 경우에는 이 옵션이 없습니다. 이 필드는 서비스에 등록된 물리적 장치의 사전 업데이트 1 및 업데이트 1이 조합된 경우에만 표시됩니다. 지정된 가상 장치의 버전은 장애 조치 또는 복제할 수 있는 물리적 장치를 결정합니다. 이는 적합한 가상 장치 버전을 만드는 데에 중요합니다. 선택:
 
-	   - GA 릴리스 또는 업데이트 0.1~0.3와 함께 물리적 장치에서 장애 조치 또는 DR하는 경우 버전 업데이트 0.3을 선택합니다. 
-	   - 업데이트 1 이상과 함께 물리적 장치에서 장애 조치 또는 복제하는 경우 버전 업데이트 1을 선택합니다. 
-
+	   - GA 릴리스 또는 업데이트 0.1-0.3을 사용하여 물리적 장치에서 장애 조치(Failover) 또는 DR하는 경우 버전 업데이트 0.3을 선택합니다. 
+	   - 업데이트 1 이상을 사용하여 물리적 장치에서 장애 조치(Failover) 또는 복제하는 경우 버전 업데이트 1을 선택합니다. 
  
 	3. **가상 네트워크** –이 가상 장치에 사용하려는 가상 네트워크의 이름입니다.
 
 	4. **서브넷** – 가상 장치에 사용하기 위한 가상 네트워크의 서브넷입니다.
 
 	5. **가상 장치를 만들기 위한 저장소 계정** – 프로비전하는 동안 가상 장치의 이미지를 저장하는데 사용할 저장소 계정입니다. 이 저장소 계정은 가상 장치 및 가상 네트워크와 동일한 지역에 있어야 합니다. 물리적 장치나 가상 장치에서 데이터 저장소에 대해 사용되어서는 안됩니다. 기본적으로 새 저장소 계정은 이 용도로 만들어집니다. 그러나 이 용도에 적합한 저장소 계정을 이미 알고 있는 경우 목록에서 선택할 수 있습니다.
-	
 
     >[AZURE.NOTE]가상 장치는 Azure 저장소 계정으로만 동작할 수 있습니다. Amazon, HP 및 OpenStack(물리적 장치에 지원됨)과 같은 기타 클라우드 서비스 공급자는 StorSimple 가상 장치를 지원하지 않습니다.
 	
-4. 가상 장치에 저장된 데이터를 Microsoft 데이터 센터에서 호스팅함을 이해했음을 표시하려면 확인 표시를 클릭합니다. 물리적 장치만 사용하는 경우, 암호화 키는 사용자 장치와 함께 유지되므로 Microsoft는 해독할 수 없습니다. 가상 장치를 사용하면 Microsoft Azure에 암호화 키와 암호 해독 키 모두가 저장됩니다. 자세한 내용은 [가상 장치를 사용하기 위한 보안 고려 사항](#security-considerations-for-using-a-virtual-device)을 참조하세요.
+4. 가상 장치에 저장된 데이터를 Microsoft 데이터 센터에서 호스팅함을 이해했음을 표시하려면 확인 표시를 클릭합니다. 물리적 장치만 사용하는 경우, 암호화 키가 사용자 장치에 유지되므로 Microsoft에서 암호를 해독할 수 없습니다. ![StorSimple 가상 장치 만들기 단계](./media/storsimple-virtual-device-u1/StorSimple_VirtualDeviceCreating1M.png)
+
+    가상 장치를 사용하면 Microsoft Azure에 암호화 키와 암호 해독 키 모두가 저장됩니다. 자세한 내용은 [가상 장치를 사용하기 위한 보안 고려 사항](#security-considerations-for-using-a-virtual-device)을 참조하세요.
 
 ### 가상 장치 구성 및 등록
 
@@ -150,16 +151,24 @@ StorSimple 가상 장치를 사용하는 경우 다음 보안 고려 사항을 �
 
 다음 단계에 따라 StorSimple 가상 장치를 구성하고 등록합니다.
 
-
 1. 장치 페이지에서 방금 만든 **StorSimple 가상 장치**를 선택합니다. 
 
 2. **장치 설치 완료**를 클릭합니다. 그러면 장치 구성 마법사가 시작됩니다.
+
+    ![장치 페이지에서 StorSimple 장치 설치 완료](./media/storsimple-virtual-device-u1/StorSimple_CompleteDeviceSetupSVA1M.png)
 
 3. **서비스 데이터 암호화 키**를 제공한 공간에 입력합니다.
 
 4. 지정된 길이 및 설정의 스냅숏 관리자 및 장치 관리자 암호를 입력합니다.
 
 5. 가상 장치의 초기 구성 및 등록을 완료하려면 확인 표시를 클릭합니다.
+
+    ![StorSimple 가상 장치 설정](./media/storsimple-virtual-device-u1/StorSimple_VirtualDeviceSettings1.png)
+
+구성 및 등록이 완료된 후에 장치가 온라인 상태가 됩니다. 장치가 온라인 상태로 전환되는 데 몇 분 정도 걸릴 수 있습니다.
+
+![StorSimple 가상 장치 온라인 단계](./media/storsimple-virtual-device-u1/StorSimple_VirtualDeviceOnline1M.png)
+
 
 ### 장치 구성 설정 수정
 
@@ -381,6 +390,6 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
 
 ## 다음 단계
 
-[백업 세트에서 StorSimple 볼륨을 복원](storsimple-restore-from-backup-set.md)하는 방법에 대해 알아봅니다.
+[백업 세트에서 StorSimple 볼륨을 복원](storsimple-restore-from-backup-set.md)하는 방법을 알아봅니다.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

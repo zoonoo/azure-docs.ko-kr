@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/09/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # StorSimple 관리자 서비스를 사용하여 볼륨 관리
@@ -43,7 +43,7 @@ StorSimple Manager 서비스는 단일 웹 인터페이스에서 StorSimple 솔�
 
 - **액세스** – 이 볼륨에 대한 액세스가 허용된 초기자(서버)를 지정합니다. 볼륨에 연결된 ACR(액세스 제어 레코드)의 구성원이 아닌 초기자는 해당 볼륨을 보지 못합니다.
 
-- **모니터링** – 볼륨을 모니터링 하는지 여부를 지정합니다. 볼륨이 만들어질 때 기본적으로 모니터링이 설정됩니다. 하지만 모니터링은 볼륨 복제본에 대해서는 해제됩니다. 볼륨에 대한 모니터링을 사용하려면 볼륨 모니터링의 지침을 따릅니다.
+- **모니터링** – 볼륨을 모니터링 하는지 여부를 지정합니다. 볼륨이 만들어질 때 기본적으로 모니터링이 설정됩니다. 하지만 모니터링은 볼륨 클론에 대해서는 해제됩니다. 볼륨에 대한 모니터링을 사용하려면 볼륨 모니터링의 지침을 따릅니다.
 
 다음은 볼륨과 관련된 가장 일반적인 작업입니다.
 
@@ -88,7 +88,10 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 
 볼륨을 확장하거나 볼륨에 액세스하는 호스트를 변경할 경우 볼륨을 수정합니다.
 
-> [AZURE.IMPORTANT]장치에서 볼륨 크기를 수정하는 경우 볼륨 크기를 호스트에서도 변경해야 합니다. 여기에 설명된 호스트 쪽 단계는 Windows Server 2012(2012R2)에 해당합니다. Linux 또는 다른 호스트 운영 체제에 대한 절차는 이와 다릅니다. 다른 운영 체제를 실행하는 호스트의 볼륨을 수정하는 경우 해당 호스트 운영 체제 지침을 참조하세요.
+> [AZURE.IMPORTANT]
+>
+> - 장치에서 볼륨 크기를 수정하는 경우 볼륨 크기를 호스트에서도 변경해야 합니다. 
+> - 여기에 설명된 호스트 쪽 단계는 Windows Server 2012(2012R2)에 해당합니다. Linux 또는 다른 호스트 운영 체제에 대한 절차는 이와 다릅니다. 다른 운영 체제를 실행하는 호스트의 볼륨을 수정하는 경우 해당 호스트 운영 체제 지침을 참조하세요. 
 
 ### 볼륨을 수정하려면
 
@@ -112,7 +115,7 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
  
     > [AZURE.NOTE]볼륨에 대해 **기본 백업 사용** 옵션을 변경할 수 없습니다.
 
-6. 확인 아이콘![확인 아이콘](./media/storsimple-manage-volumes/HCS_CheckIcon.png)을 클릭하여 변경 내용을 저장합니다. 포털에 볼륨 업데이트 중 메시지가 표시됩니다. 볼륨이 성공적으로 업데이트되면 성공 메시지가 표시됩니다.
+6. 확인 아이콘![check-icon](./media/storsimple-manage-volumes/HCS_CheckIcon.png)을 클릭하여 변경 내용을 저장합니다. 포털에 볼륨 업데이트 중 메시지가 표시됩니다. 볼륨이 성공적으로 업데이트되면 성공 메시지가 표시됩니다.
 
 7. 볼륨을 확장하는 경우 Windows 호스트 컴퓨터에서 다음 단계를 완료합니다.
 
@@ -120,6 +123,10 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
    2. **디스크 관리**를 마우스 오른쪽 단추로 클릭하고 **디스크 다시 검사**를 선택합니다.
    3. 디스크 목록에서 업데이트한 볼륨을 선택하고 마우스 오른쪽 단추를 클릭한 다음 **볼륨 확장**을 선택합니다. 볼륨 확장 마법사가 시작됩니다. **다음**을 클릭합니다.
    4. 기본값을 적용하여 마법사를 완료합니다. 마법사가 완료되면 볼륨에 증가된 크기가 표시되어야 합니다.
+
+![동영상 사용 가능](./media/storsimple-manage-volumes/Video_icon.png) **동영상 사용 가능**
+
+볼륨을 확장하는 방법을 보여 주는 동영상을 시청하려면 [여기](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume)를 클릭하세요.
 
 ## 볼륨을 오프라인으로 전환
 
@@ -172,7 +179,7 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 
 2. 볼륨이 있는 볼륨 컨테이너를 선택한 다음 볼륨 컨테이너를 클릭하여 **볼륨** 페이지에 액세스합니다.
 
-3. 이 컨테이너와 연결된 모든 볼륨은 테이블 형식으로 나열됩니다. 볼륨 또는 볼륨 복제본을 클릭하여 선택합니다.
+3. 이 컨테이너와 연결된 모든 볼륨은 테이블 형식으로 나열됩니다. 볼륨 또는 볼륨 클론을 클릭하여 선택합니다.
 
 4. 페이지 맨 아래에 있는 **수정**을 클릭합니다.
 
@@ -180,13 +187,12 @@ StorSimple 솔루션 배포 중 [볼륨을 만들었습니다](storsimple-deploy
 
     ![볼륨 기본 설정 수정](./media/storsimple-manage-volumes/HCS_MonitorVolumeM.png)
 
+
 ## 다음 단계
 
-[StorSimple 볼륨을 확장](http://azure.microsoft.com/documentation/videos/expand-a-storsimple-volume)하는 방법을 보여 주는 동영상을 시청합니다.
-
-[StorSimple 볼륨 복제](storsimple-clone-volume.md) 방법에 대해 배웁니다.
-
+- [StorSimple 볼륨 복제](storsimple-clone-volume.md) 방법에 대해 배웁니다.
+- [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

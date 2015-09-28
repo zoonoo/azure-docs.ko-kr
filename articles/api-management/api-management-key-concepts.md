@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="09/15/2015" 
 	ms.author="sdanie"/>
 
 #API 관리란?
@@ -114,4 +114,4 @@ API 관리 정책의 전체 목록을 보려면 [정책 참조][](영문)를 참
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -5,15 +5,15 @@
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/08/2015" 
+	ms.date="09/16/2015" 
 	ms.author="tdykstra"/>
 
 # Visual Studio를 사용하여 Azure 앱 서비스에서 웹 앱 문제 해결
@@ -21,6 +21,8 @@
 ## 개요
 
 이 자습서에서는 웹 앱을 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에서 실행할 때 디버그할 수 있도록 지원하는 Visual Studio 도구를 사용하여 원격으로 [디버그 모드](http://www.visualstudio.com/ko-kr/get-started/debug-your-app-vs.aspx)를 실행하는 방법 또는 응용 프로그램 로그 및 웹 서버 로그를 보는 방법을 보여 줍니다.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 다음 내용을 배웁니다.
 
@@ -55,9 +57,9 @@ Visual Studio를 사용하면 [Azure 포털](http://go.microsoft.com/fwlink/?Lin
 
 	Visual Studio에서 Azure 리소스에 연결하는 방법에 대한 자세한 내용은 [계정, 구독 및 관리 역할 관리](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert)를 참조하십시오.
 
-2. **서버 탐색기**에서 **Azure**를 확장한 후 **웹 앱**을 확장합니다.
+2. **서버 탐색기**에서 **Azure**를 확장한 후 **웹 서비스**를 확장합니다.
 
-3. [Azure 및 ASP.NET 시작][GetStarted]에서 만든 웹 앱의 노드를 마우스 오른쪽 단추로 클릭한 후 **설정 보기**를 클릭합니다.
+3. [Azure 및 ASP.NET 시작][GetStarted]에서 만든 웹 앱을 리소스 그룹을 확장한 후 웹 앱 노드를 마우스 오른쪽 단추로 클릭하고 **설정 보기**를 클릭합니다.
 
 	![서버 탐색기에서 설정 보기](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
@@ -69,7 +71,7 @@ Visual Studio를 사용하면 [Azure 포털](http://go.microsoft.com/fwlink/?Lin
    
 	이 창에 있는 응용 프로그램 설정 및 연결 문자열 상자에 대한 자세한 내용은 [Azure 웹 앱: 응용 프로그램 문자열 및 연결 문자열 작동 방식](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx)을 참조하세요.
 
-	이 창에서 지원하지 않는 웹 앱 관리 작업을 수행하려는 경우 **Full Web App Settings(전체 웹 앱 설정)**를 클릭하여 브라우저 창에서 관리 포털을 열 수 있습니다. 자세한 내용은 [웹 앱을 구성하는 방법](/ko-kr/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig)을 참조하세요
+	이 창에서 지원하지 않는 웹 앱 관리 작업을 수행하려는 경우 **관리 포털에서 열기**를 클릭하여 브라우저 창에서 Azure 미리보기 포털을 엽니다. 자세한 내용은 [웹 앱을 구성하는 방법](/ko-KR/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig)을 참조하세요
 
 ## <a name="remoteview"></a>서버 탐색기에서 웹 앱 파일 액세스
 
@@ -146,13 +148,13 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
 4. 배포를 마치고 브라우저에 웹 앱의 Azure URL이 열리면 브라우저를 닫습니다.
 
-5. Visual Studio 2013: **서버 탐색기**에서 **Azure**, **웹 앱**을 차례로 확장하고 웹 앱을 마우스 오른쪽 단추로 클릭한 다음 **디버거 연결**을 클릭합니다.
+5. Visual Studio 2013: **서버 탐색기**에서 웹 앱을 마우스 오른쪽 단추로 클릭한 다음 **디버거 연결**을 클릭합니다.
 
 	![디버거 연결](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
 	브라우저에 Azure에서 실행되는 홈 페이지가 자동으로 열립니다. Azure에서 디버깅용 서버를 설정할 때까지 약 20초 정도 기다려야 할 수 있습니다. 이 지연은 웹 앱에서 디버그 모드를 처음 실행하는 경우에만 발생합니다. 이후 48시간 내에 디버그를 다시 시작하면 지연이 발생하지 않습니다.
 
-6. Visual Studio 2012 Update 4:<a id="vs2012"></a>
+6. Visual Studio 2012 업데이트 4 이상의 경우:<a id="vs2012"></a>
 
 	* Azure 관리 포털에서 사용자 웹 앱의 **설정 > 응용 프로그램 설정**으로 이동하고 **디버깅** 섹션까지 아래로 스크롤합니다.
 
@@ -210,7 +212,7 @@ Web.config 파일을 편집하는 방법은 문제를 더 쉽게 해결할 수 �
 
 	Visual Studio에서 웹 및 WebJob 프로젝트를 배포하며 브라우저에서 웹 앱의 Azure URL이 열립니다.
 
-5. **서버 탐색기**에서 **Azure** > **웹 앱** > 사용자 웹 앱 > **WebJobs** > **연속**을 확장하고 **ContosoAdsWebJob**을 마우스 오른쪽 단추로 클릭합니다.
+5. **서버 탐색기**에서 **Azure > 웹 서비스 > 리소스 그룹 > 웹 앱 > WebJobs > 연속**을 확장하고 **ContosoAdsWebJob**을 마우스 오른쪽 단추로 클릭합니다.
 
 7. **디버거 연결**을 클릭합니다.
 
@@ -568,9 +570,9 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
     <!-- todo:screenshot of new portal if the VS page link goes to new portal -->
 	![로깅 구성](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configlogging.png)
 
-	웹 앱에 대한 관리 포털에서 **구성** 탭이 열립니다. 여기로 이동하는 또 다른 방법은 **웹 앱** 탭을 클릭하고 사용자의 웹 앱을 클릭한 후 **구성** 탭을 클릭하는 것입니다.
+	웹 앱의 Azure 포털에서 **구성** 탭이 열립니다.
 
-2. 관리 포털의 **구성** 탭에서 응용 프로그램 진단 섹션까지 아래로 스크롤한 후 **Application Logging (Table Storage)**을 **켜기**로 변경합니다.
+2. 포털의 **구성** 탭에서 응용 프로그램 진단 섹션까지 아래로 스크롤한 후 **Application Logging (Table Storage)**을 **켜기**로 변경합니다.
 
 3. **로깅 수준**을 **정보**로 변경합니다.
 
@@ -584,7 +586,7 @@ WebJob에서 응용 프로그램을 만드는 방법에 대한 자세한 내용�
 
 6. **Manage table storage for application diagnostics** 상자에서 확인 표시를 클릭하여 상자를 닫습니다.
 
-6. 관리 포털의 **구성** 탭에서 **저장**을 클릭합니다.
+6. 포털의 **구성** 탭에서 **저장**을 클릭합니다.
 
 7. 응용 프로그램 웹 앱이 표시되는 브라우저 창에서 **홈**을 클릭하고 **정보**를 클릭한 후 **연락처**를 클릭합니다.
 
@@ -636,15 +638,13 @@ Visual Studio를 사용하여 실패한 요청 추적을 사용하도록 설정�
 
 2. Visual Studio의 **Azure 웹 앱** 창에 있는 **구성** 탭에서 **관리 포털에서 열기**를 클릭합니다.
 
-3. 웹 앱에 대한 관리 포털 블레이드에서 **모든 설정 > 배포 자격 증명**을 클릭하고 **배포 자격 증명 재설정**을 클릭합니다.
-
-4. 새 사용자 이름 및 암호를 입력합니다.
+3. 웹 앱의 Azure 미리 보기 포털 블레이드에서 **설정 > 배포 자격 증명**을 클릭한 다음, 새 사용자 이름 및 암호를 입력합니다.
 
 	![새 FTP 사용자 이름 및 암호](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-enterftpcredentials.png)
 
-5. 관리 포털의 **대시보드** 탭에서 F5 키를 눌러 페이지를 새로 고치고 **Deployment / FTP User**가 표시될 때까지 아래로 스크롤합니다. 웹 앱 이름이 사용자 이름 앞에 있습니다. **여기에 표시된 것처럼 로그인할 때 앞에 웹 앱 이름이 있는 상태로 전체 사용자 이름을 사용해야 합니다.**
+	****로그인할 때, 앞에 웹 앱 이름이 있는 상태로 전체 사용자 이름을 사용해야 합니다. 예를 들어, 사용자 이름으로 "myid"를 입력하고 사이트가 "myexample"인 경우, "myexample\\myid"로 로그인합니다.
 
-5. 사용자 웹 앱에 대한 관리 포털 페이지의 **대시보드** 탭에서 **FTP 호스트 이름 **아래에 표시된 URL로 새 브라우저 창을 사용하여 이동합니다. **FTP 호스트 이름**은 **간략 상태** 섹션의 **Deployment / FTP User** 근처에 위치합니다.
+5. 새 브라우저 창에서, 사용자 웹 앱에 대한 **웹 앱** 포털 블레이드의 **FTP 호스트 이름 ** 또는 **FTPS 호스트 이름** 아래에 표시된 URL로 이동합니다.
 
 6. 이전에 만든 FTP 자격 증명을 사용하여 로그인합니다(사용자 이름 앞에 웹 앱 이름 포함).
 
@@ -754,14 +754,12 @@ Microsoft TechNet 웹 사이트에 포함된 [실패한 요청 추적 사용](ht
 
 웹 앱이 아닌 Azure 클라우드 서비스를 디버그하려면 [클라우드 서비스 디버깅](http://msdn.microsoft.com/library/windowsazure/ee405479.aspx)을 참조하세요.
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
-
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
-* 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
+* Azure 미리 보기 포털에서 Azure 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
 [GetStarted]: web-sites-dotnet-get-started.md
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

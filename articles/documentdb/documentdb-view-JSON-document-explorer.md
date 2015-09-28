@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="06/10/2015"
+	ms.date="09/09/2015"
 	ms.author="stbaro"/>
 
 # DocumentDB 문서 탐색기를 사용하여 JSON 문서 보기, 편집, 만들기 및 업로드 #
@@ -26,7 +26,7 @@
 -	웹 브라우저를 통해 DocumentDB 문서의 시스템 속성을 쉽게 보려면 어떻게 하나요?
 -	웹 브라우저를 통해 DocumentDB로 문서의 대량 수집을 쉽게 수행하려면 어떻게 하나요?
 
-##<a id="Launch"></a>문서 탐색기 실행 및 탐색##
+##<a id="Launch"></a>문서 탐색기 시작##
 
 문서 탐색기는 DocumentDB 계정, 데이터베이스 및 컬렉션 블레이드 중 하나에서 실행할 수 있습니다.
 
@@ -44,35 +44,6 @@
 
 	![문서 탐색기 스크린샷](./media/documentdb-view-JSON-document-explorer/documentexplorerinitial.png)
 
-3. 기본적으로 문서 탐색기는 선택한 컬렉션의 문서를 처음부터 최대 100개까지 만든 날짜 순으로 로드합니다. 문서 탐색기 블레이드 아래쪽에 있는 **추가 로드** 옵션을 선택하여 추가 문서(100개 일괄 처리)를 로드할 수 있습니다. 문서 탐색기 블레이드 위쪽에 있는 설정 명령을 클릭하면 기본 동작을 수정할 수 있습니다.
-
-	![문서 탐색기 설정 블레이드 스크린샷](./media/documentdb-view-JSON-document-explorer/documentexplorersettings.png)
-
-
-4. 설정 블레이드에서는 페이지당 반환되는 항목 수를 조정하고 문서 탐색기 표에서 일치하는 문서를 로드하는 WHERE 절을 제공할 수 있습니다. DocumentDB SQL 문법에 대한 자세한 내용은 [여기](documentdb-sql-query.md)를 참조하세요.
-
-	![문서 탐색기 설정 블레이드 스크린샷](./media/documentdb-view-JSON-document-explorer/documentexplorersettings2.png)
-
-	> [AZURE.NOTE]문서 탐색기 설정을 수정한 후에는 **새로 고침** 명령을 클릭해야 새 설정이 적용됩니다. 설정을 현재 브라우저 세션에서만 유지됩니다.
-	
-5. **데이터베이스** 및 **컬렉션** 드롭다운 목록 상자를 사용하면 문서 탐색기를 닫았다가 다시 실행할 필요 없이 현재 문서를 보고 있는 컬렉션을 쉽게 변경할 수 있습니다.
-
-5. 또한 문서 탐색기에서는 현재 로드된 문서 집합을 ID 속성별로 필터링할 수 있습니다. 필터 상자에 입력하면 됩니다.
-
-	![필터가 강조 표시된 문서 탐색기 스크린샷](./media/documentdb-view-JSON-document-explorer/documentexplorerfilter.png)
-
-	또한 문서 탐색기 목록의 결과는 제공된 기준에 따라 필터링됩니다.
-
-	![필터링된 결과가 표시된 문서 탐색기 스크린샷](./media/documentdb-view-JSON-document-explorer/documentexplorerfilterresults.png)
-
-
-	> [AZURE.IMPORTANT]문서 탐색기 필터 기능은 ***현재*** 로드된 문서 집합만 필터링하고 현재 선택한 컬렉션에 대해 쿼리를 수행하지 않습니다.
-
-6. 문서 탐색기에서 로드한 문서 목록을 새로 고치려면 블레이드 맨 위에 있는 **새로 고침** 명령을 클릭하면 됩니다.
-
-	![문서 탐색기 새로 고침 명령 스크린샷](./media/documentdb-view-JSON-document-explorer/documentexplorerrefresh.png)
-
-
 ##<a id="Create"></a>문서 탐색기를 사용하여 문서 보기, 만들기 및 편집##
 
 문서 탐색기를 사용하면 문서를 쉽게 만들고, 편집하고, 삭제할 수 있습니다.
@@ -87,7 +58,7 @@
 
 	> [AZURE.NOTE]"ID" 속성을 제공하지 않으면 문서 탐색기에서 ID 속성을 자동으로 추가하고 GUID를 ID 값으로 생성합니다.
 
-- JSON 파일, MongoDB, SQL Server, CSV 파일, Azure 테이블 저장소 또는 기타 DocumentDB 컬렉션의 데이터가 이미 있는 경우 DocumentDB의 [데이터 마이그레이션 도구](documentdb-import-data.md)를 사용하여 데이터를 신속하게 가져올 수 있습니다.
+- JSON 파일, MongoDB, SQL Server, CSV 파일, Azure 테이블 저장소 Amazon DynamoDB, HBase 또는 기타 DocumentDB 컬렉션의 데이터가 이미 있는 경우 DocumentDB의 [데이터 마이그레이션 도구](documentdb-import-data.md)를 사용하여 데이터를 신속하게 가져올 수 있습니다.
 
 - 기존 문서를 편집하려면 문서 탐색기에서 문서를 선택하고 적절하게 편집한 다음 **저장** 명령을 클릭하면 됩니다.
 
@@ -115,6 +86,38 @@
 
 	> [AZURE.NOTE]타임스탬프(\_ts) 속성은 내부적으로 epoch 시간으로 표시되지만 문서 탐색기에서는 이 값을 사람이 읽을 수 있는 GMT 형식으로 표시합니다.
 
+##<a id="Navigate"></a>문서 탐색기 탐색 옵션 및 고급 설정##
+
+문서 탐색기는 다양한 탐색 옵션 및 고급 설정을 지원합니다.
+
+1. 기본적으로 문서 탐색기는 선택한 컬렉션의 문서를 처음부터 최대 100개까지 만든 날짜 순으로 로드합니다. 문서 탐색기 블레이드 아래쪽에 있는 **추가 로드** 옵션을 선택하여 추가 문서(100개 일괄 처리)를 로드할 수 있습니다. 문서 탐색기 블레이드 위쪽에 있는 설정 명령을 클릭하면 기본 동작을 수정할 수 있습니다.
+
+	![문서 탐색기 설정 블레이드 스크린샷](./media/documentdb-view-JSON-document-explorer/documentexplorersettings.png)
+
+
+2. 설정 블레이드에서는 페이지당 반환되는 항목 수를 조정하고 문서 탐색기 표에서 일치하는 문서를 로드하는 WHERE 절을 제공할 수 있습니다. DocumentDB SQL 문법에 대한 자세한 내용은 [여기](documentdb-sql-query.md)를 참조하세요.
+
+	![문서 탐색기 설정 블레이드 스크린샷](./media/documentdb-view-JSON-document-explorer/documentexplorersettings2.png)
+
+	> [AZURE.NOTE]문서 탐색기 설정을 수정한 후에는 **새로 고침** 명령을 클릭해야 새 설정이 적용됩니다. 설정을 현재 브라우저 세션에서만 유지됩니다.
+	
+3. **데이터베이스** 및 **컬렉션** 드롭다운 목록 상자를 사용하면 문서 탐색기를 닫았다가 다시 실행할 필요 없이 현재 문서를 보고 있는 컬렉션을 쉽게 변경할 수 있습니다.
+
+4. 또한 문서 탐색기에서는 현재 로드된 문서 집합을 ID 속성별로 필터링할 수 있습니다. 필터 상자에 입력하면 됩니다.
+
+	![필터가 강조 표시된 문서 탐색기 스크린샷](./media/documentdb-view-JSON-document-explorer/documentexplorerfilter.png)
+
+	또한 문서 탐색기 목록의 결과는 제공된 기준에 따라 필터링됩니다.
+
+	![필터링된 결과가 표시된 문서 탐색기 스크린샷](./media/documentdb-view-JSON-document-explorer/documentexplorerfilterresults.png)
+
+
+	> [AZURE.IMPORTANT]문서 탐색기 필터 기능은 ***현재*** 로드된 문서 집합만 필터링하고 현재 선택한 컬렉션에 대해 쿼리를 수행하지 않습니다.
+
+5. 문서 탐색기에서 로드한 문서 목록을 새로 고치려면 블레이드 맨 위에 있는 **새로 고침** 명령을 클릭하면 됩니다.
+
+	![문서 탐색기 새로 고침 명령 스크린샷](./media/documentdb-view-JSON-document-explorer/documentexplorerrefresh.png)
+
 ##<a id="BulkAdd"></a>문서 탐색기를 사용하여 문서 일괄 추가##
 
 문서 탐색기는 하나 이상의 기존 JSON 문서의 대량 수집을 지원합니다.
@@ -137,7 +140,8 @@
 
 ##<a name="NextSteps"></a>다음 단계
 
-DocumentDB에 대해 자세히 알아보려면 [여기](http://azure.com/docdb)를 클릭하세요.
+- DocumentDB에 대해 자세히 알아보려면 [여기](http://azure.com/docdb)를 클릭하세요.
+
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

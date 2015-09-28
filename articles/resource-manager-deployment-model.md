@@ -1,20 +1,20 @@
 <properties
    pageTitle="리소스 관리자 및 클래식 배포 모델 간 차이점 이해"
-	description="리소스 관리자 배포 모델 및 기본(또는 서비스 관리) 배포 모델 간 차이점을 설명합니다."
-	services="azure-resource-manager"
-	documentationCenter="na"
-	authors="tfitzmac"
-	manager="wpickett"
-	editor=""/>
+   description="리소스 관리자 배포 모델 및 기본(또는 서비스 관리) 배포 모델 간 차이점을 설명합니다."
+   services="azure-resource-manager"
+   documentationCenter="na"
+   authors="tfitzmac"
+   manager="wpickett"
+   editor=""/>
 
 <tags
    ms.service="azure-resource-manager"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/20/2015"
-	ms.author="tomfitz"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="tomfitz"/>
 
 # 리소스 관리자 배포 및 클래식 배포 이해
 
@@ -101,7 +101,7 @@
 - 리소스에 태그를 적용하여 논리적으로 구독에서 모든 리소스를 구성할 수 있습니다.
 
 
-리소스 관리자 전에 클래식 배포를 통해 만든 모든 리소스는 리소스 그룹 내에서 존재하지 않습니다. 리소스 관리자를 추가할 때 모든 리소스는 기본 리소스 그룹에 소급 추가되었습니다. 이제 클래식 배포를 통해 리소스를 만들 경우, 배포 시 해당 리소스 그룹을 지정하지 않은 경우에도 리소스가 빈 리소스 그룹 내에서 자동으로 생성됩니다. 그러나 리소스 그룹 내에 존재한다 해도도 리소스 관리자 모델로 변환되었음을 의미하지는 않습니다. 클래식 배포를 통해 리소스를 만든 경우 기존 작업을 통해 계속 작업해야 합니다.
+리소스 관리자 전에 클래식 배포를 통해 만든 모든 리소스는 리소스 그룹 내에서 존재하지 않습니다. 리소스 관리자를 추가할 때 모든 리소스는 기본 리소스 그룹에 소급 추가되었습니다. 이제 클래식 배포를 통해 리소스를 만들 경우, 배포 시 해당 리소스 그룹을 지정하지 않은 경우에도 리소스가 해당 서비스에 대한 기본 리소스 그룹 내에서 자동으로 생성됩니다. 그러나 리소스 그룹 내에 존재한다 해도도 리소스 관리자 모델로 변환되었음을 의미하지는 않습니다. 가상 컴퓨터, 저장소 및 가상 네트워크의 경우 클래식 배포를 통해 리소스를 만든 경우 기존 작업을 통해 계속 작업해야 합니다.
 
 다른 리소스 그룹으로 리소스를 이동하고 기존 리소스 그룹에 새 리소스를 추가할 수 있습니다. 따라서 리소스 그룹은 리소스 관리자 및 클래식 배포를 통해 만든 리소스의 혼합을 포함할 수 있습니다. 리소스가 동일한 작업을 지원하지 않기 때문에 이러한 리소스 조합은 예기치 않은 결과를 만들 수 있습니다.
 
@@ -151,11 +151,11 @@
 
 전환, 계산, 저장소 및 네트워킹 리소스에 관한 자세한 내용은 [Azure 리소스 관리자에서 Azure 계산, 네트워크 및 저장소 공급자](./virtual-machines/virtual-machines-azurerm-versus-azuresm.md)를 참조하세요.
 
-여러 배포 모델에서 가상 네트워크 연결에 대한 자세한 내용은 [클래식 VNet을 새 VNet에 연결](./virtual-network/virtual-networks-arm-asm-s2s.md)을 참조하십시오.
+여러 배포 모델에서 가상 네트워크 연결에 대한 자세한 내용은 [클래식 VNet을 새 VNet에 연결](./virtual-network/virtual-networks-arm-asm-s2s.md)을 참조하세요.
 
 ## 다음 단계
 
-- 선언적 배포 템플릿 만들기에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하십시오.
-- 템플릿 배포에 대한 명령을 보려면 [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하십시오.
+- 선언적 배포 템플릿 만들기에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
+- 템플릿 배포에 대한 명령을 보려면 [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure RemoteApp의 클라우드 컬렉션을 만드는 방법"
-	description="Azure 클라우드에 데이터를 저장하는 Azure RemoteApp 배포를 만드는 방법에 대해 알아봅니다."
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"
+	pageTitle="Azure RemoteApp의 클라우드 컬렉션을 만드는 방법 | Microsoft Azure" 
+	description="Azure 클라우드에 데이터를 저장하는 Azure RemoteApp 배포를 만드는 방법에 대해 알아봅니다." 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
 	editor=""/>
 
 <tags 
-	ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.service="remoteapp" 
+	ms.workload="compute" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
 	ms.author="elizapo"/>
 
 # Azure RemoteApp의 클라우드 컬렉션을 만드는 방법
@@ -30,7 +30,7 @@
 5.	RemoteApp 앱을 게시합니다.
 6.	사용자 액세스를 구성합니다.
 
-**참고** *이 항목은 재작업 중입니다. 새 UI를 반영하도록 단계를 업데이트했지만 아직 전체 항목을 다시 게시할 수 없습니다. 인증 및 수집 옵션을 더 쉽게 파악할 수 있도록 몇 개의 문서를 새로 작성하고 있습니다. 잘 이해되지 않더라도 이미 이러한 사실을 알고 있으며 최대한 빨리 더 나은 정보를 제공하기 위해 노력 중임을 알아주세요. 감사합니다.*
+**참고** *이 항목은 재작업 중입니다. 새 UI를 반영하도록 단계를 업데이트했지만 아직 전체 항목을 다시 게시할 수 없습니다. 인증 및 수집 옵션을 더 쉽게 파악할 수 있도록 몇 개의 문서를 새로 작성하고 있습니다. 최대한 빨리 더 효과적인 정보를 제공해 드릴 예정이니 잘 모르는 내용이 있더라도 이해해 주시기 바랍니다. 감사합니다.*
 
 **시작하기 전에**
 
@@ -41,7 +41,7 @@
 - 이 프로세스에서는 구독의 일부로 제공된 템플릿 이미지 중 하나를 사용할 예정이거나 사용할 템플릿 이미지를 이미 업로드했다고 가정합니다. 다른 템플릿 이미지를 업로드해야 하는 경우 템플릿 이미지 페이지에서 그렇게 할 수 있습니다. 단지 **템플릿 이미지 업로드**를 클릭하고 마법사의 단계를 따르면 됩니다. 
 - Office 365 ProPlus 이미지를 사용하려고 하나요? [여기](remoteapp-officesubscription.md)에서 정보를 확인하세요.
 - 사용자 지정 앱이나 LOB 프로그램을 제공하려는 경우 새로운 [이미지](remoteapp-imageoptions.md)를 만든 다음 클라우드 컬렉션에서 사용합니다.
-- VNET에 연결해야 하는지 여부를 파악합니다. VNET에 연결하려는 경우 크기 조정 지침을 충족하는지와 RemoteApp에 연결할 수 있는지 확인합니다.
+- VNET에 연결해야 하는지 여부를 파악합니다. VNET에 연결하려는 경우 [크기 조정 지침](remoteapp-vnetsizing.md)을 충족하는지와 [RemoteApp에 연결할 수 있는지](remoteapp-vnet.md) 확인합니다. 자세한 내용을 보려면 [VNET 계획 문서](remoteapp-planvpn.md)를 확인하세요.
 - VNET을 사용하는 경우 로컬 Active Directory 도메인에 연결할지 여부를 결정합니다.
 
 ## 1단계: VNET과 관계 없이 클라우드 컬렉션 만들기##
@@ -62,7 +62,7 @@
 	
 	**중요:** 컬렉션을 프로비전하는 데 최대 30분 정도 걸릴 수 있습니다.
 
-RemoteApp 컬렉션을 만든 후에는 컬렉션의 이름을 두 번 클릭합니다. 그러면 **빠른 시작** 페이지가 나타나며 여기에서 컬렉션 구성을 완료합니다.
+RemoteApp 컬렉션을 만든 후에는 컬렉션의 이름을 두 번 클릭합니다. 그러면 **빠른 시작** 페이지가 나타나며, 여기서 컬렉션 구성을 완료합니다.
 
 다음 단계에 따라 **클라우드 + VNET 컬렉션**을 만듭니다.
 
@@ -109,4 +109,4 @@ RemoteApp 클라우드 컬렉션을 만들고 배포했습니다. 다음 단계�
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -1,25 +1,27 @@
 <properties 
-	pageTitle="Azure 앱 서비스에서 웹 앱 구성"
-	description="Azure 앱 서비스에서 웹 앱을 구성 하는 방법"
-	services="app-service\web"
-	documentationCenter=""
-	authors="erikre"
-	manager="wpickett"
-	editor="mollybos"/>
+	pageTitle="Azure 앱 서비스에서 웹 앱 구성" 
+	description="Azure 앱 서비스에서 웹 앱을 구성 하는 방법" 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="erikre" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="app-service" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/16/2015" 
 	ms.author="erikre"/>
 
 
 # Azure 앱 서비스에서 웹 앱 구성 #
 
 이 주제에서는 [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)을 사용하여 웹 앱을 구성하는 방법을 설명합니다.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## 응용 프로그램 설정
 
@@ -36,7 +38,7 @@
 **프레임워크 버전**. 앱에서 다음 프레임워크를 사용하는 경우 이러한 옵션을 설정합니다.
 
 - **.NET Framework**: .NET Framework 버전을 설정합니다. 
-- **PHP**: PHP 버전을 설정하거나 PHP를 사용하지 않으려면 **OFF **를 선택합니다.
+- **PHP**: PHP 버전을 설정하거나 **PHP**를 사용하지 않으려면 **OFF **를 선택합니다.
 - **Java**: Java 버전을 선택하거나 Java를 사용하지 않도록 **끄기**를 선택합니다. **웹 컨테이너** 옵션을 사용하여 Tomcat 및 Jetty 버전 사이에서 선택합니다.
 - **Python**: Python 버전을 설정하거나, Python을 사용하지 않도록 설정하려면 **끄기**를 선택합니다.
 
@@ -130,7 +132,7 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 ![](./media/web-sites-configure/configure03.png)
 
 
-전체 FTP 사용자 이름은 “app\\username”이며, 여기서 *app*은 사용자의 웹 앱 이름입니다. 사용자 이름은 **필수 항목** 아래 웹 앱 블레이드에 나열되어 있습니다.
+전체 FTP 사용자 이름은 “app\username”이며, 여기서 *app*은 사용자의 웹 앱 이름입니다. 사용자 이름은 **필수 항목** 아래 웹 앱 블레이드에 나열되어 있습니다.
 
 ![](./media/web-sites-configure/configure02.png)
 
@@ -176,4 +178,4 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

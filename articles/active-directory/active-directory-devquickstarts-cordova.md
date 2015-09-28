@@ -255,6 +255,5 @@ Graph API를 호출하는 데 필요한 허용 목록 플러그 인을 추가합
 [Azure AD를 사용하여 Node.js Web API 보안 유지 >>](active-directory-devquickstarts-webapi-nodejs.md)
 
 [AZURE.INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

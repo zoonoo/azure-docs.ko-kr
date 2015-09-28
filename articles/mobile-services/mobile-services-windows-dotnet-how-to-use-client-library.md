@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="08/18/2015" 
 	ms.author="glenga"/>
 
 # Azure 모바일 서비스용 .NET 클라이언트를 사용하는 방법
@@ -28,7 +28,7 @@
 
 ##<a name="setup"></a>설정 및 필수 조건
 
-이미 모바일 서비스 및 테이블을 만들었다고 가정합니다. 자세한 내용은 [테이블 만들기](http://go.microsoft.com/fwlink/?LinkId=298592)를 참조하십시오. 이 항목에 사용되는 코드에서 테이블은 이름이 `TodoItem`(이)고 `Id`, `Text` 및 `Complete` 열이 있습니다.
+이미 모바일 서비스 및 테이블을 만들었다고 가정합니다. 자세한 내용은 [테이블 만들기](http://go.microsoft.com/fwlink/?LinkId=298592)를 참조하세요. 이 항목에 사용되는 코드에서 테이블은 이름이 `TodoItem`(이)고 `Id`, `Text` 및 `Complete` 열이 있습니다.
 
 해당 형식화된 클라이언트 쪽 .NET 유형은 다음과 같습니다.
 
@@ -44,7 +44,7 @@
 		public bool Complete { get; set; }
 	}
 
-동적 스키마가 사용하도록 설정된 경우 Azure 모바일 서비스에서 삽입 또는 업데이트 요청의 개체를 기준으로 새 열을 자동으로 생성합니다. 자세한 내용은 [동적 스키마](http://go.microsoft.com/fwlink/?LinkId=296271)를 참조하십시오.
+동적 스키마가 사용하도록 설정된 경우 Azure 모바일 서비스에서 삽입 또는 업데이트 요청의 개체를 기준으로 새 열을 자동으로 생성합니다. 자세한 내용은 [동적 스키마](http://go.microsoft.com/fwlink/?LinkId=296271)를 참조하세요.
 
 ##<a name="create-client"></a>방법: 모바일 서비스 클라이언트 만들기
 
@@ -67,7 +67,7 @@
     IMobileServiceTable<TodoItem> todoTable =
 		client.GetTable<TodoItem>();
 
-형식화된 serialization 모델입니다. 아래의 <a href="#untyped">형식화되지 않은 serialization 모델</a>을 참조하십시오.
+형식화된 serialization 모델입니다. 아래의 <a href="#untyped">형식화되지 않은 serialization 모델</a>을 참조하세요.
 
 ##<a name="querying"></a>방법: 모바일 서비스에서 데이터 쿼리
 
@@ -79,7 +79,7 @@
 - [특정 열 선택]
 - [ID를 기준으로 데이터 조회]
 
->[AZURE.NOTE]모든 행이 반환되는 것을 방지하기 위해 서버 기반 페이지 크기가 적용됩니다. 그러면 대규모 데이터 집합에 대한 기본 요청이 서비스에 부정적인 영향을 미치지 않습니다. 50개가 넘는 행을 반환하려면 [페이지에서 데이터 반환]에서 설명하는 대로 `Take` 메서드를 사용하십시오.
+>[AZURE.NOTE]모든 행이 반환되는 것을 방지하기 위해 서버 기반 페이지 크기가 적용됩니다. 그러면 대규모 데이터 집합에 대한 기본 요청이 서비스에 부정적인 영향을 미치지 않습니다. 50개가 넘는 행을 반환하려면 [페이지에서 데이터 반환]에서 설명하는 대로 `Take` 메서드를 사용하세요.
 
 ### <a name="filtering"></a>방법: 반환된 데이터 필터링
 
@@ -219,7 +219,7 @@
 	jo.Add("Complete", false);
 	var inserted = await table.InsertAsync(jo);
 
-다음은 전자 메일 주소를 고유 문자열 id로 사용하는 예제입니다.
+다음은 메일 주소를 고유 문자열 id로 사용하는 예제입니다.
 
 	JObject jo = new JObject();
 	jo.Add("id", "myemail@emaildomain.com");
@@ -230,7 +230,7 @@
 
 ###ID 값으로 작업
 
-모바일 서비스는 테이블의 **id** 열에 대한 고유한 사용자 지정 문자열 값을 지원합니다. 이를 통해 응용 프로그램에서 전자 메일 주소 또는 사용자 이름과 같은 사용자 지정 값을 ID에 사용할 수 있습니다.
+모바일 서비스는 테이블의 **id** 열에 대한 고유한 사용자 지정 문자열 값을 지원합니다. 이를 통해 응용 프로그램에서 메일 주소 또는 사용자 이름과 같은 사용자 지정 값을 ID에 사용할 수 있습니다.
 
 문자열 ID는 다음과 같은 이점을 제공합니다.
 
@@ -240,7 +240,7 @@
 
 문자열 ID 값이 삽입된 레코드에 설정되지 않은 경우 모바일 서비스는 해당 ID에 대한 고유한 값을 생성합니다. `Guid.NewGuid()` 메서드를 사용하여 클라이언트 또는 .NET 모바일 백 엔드 서비스에서 고유한 ID 값을 생성할 수 있습니다. JavaScript 백 엔드 모바일 서비스에서 Guid를 생성하는 방법에 대해 알아보려면 [방법: 고유한 ID 값 생성](mobile-services-how-to-use-server-scripts.md#generate-guids)을 참조하세요.
 
-또한 테이블에 정수 ID를 사용할 수 있습니다. 정수 ID를 사용하려면 `mobile table create` 명령으로 `--integerId` 옵션을 사용하여 테이블을 만들어야 합니다. 이 명령은 Azure용 CLI(명령줄 인터페이스)와 함께 사용됩니다. CLI 사용에 대한 자세한 내용은 [모바일 서비스 테이블 관리 CLI](../virtual-machines-command-line-tools.md#Mobile_Tables)(영문)를 참조하십시오.
+또한 테이블에 정수 ID를 사용할 수 있습니다. 정수 ID를 사용하려면 `mobile table create` 명령으로 `--integerId` 옵션을 사용하여 테이블을 만들어야 합니다. 이 명령은 Azure용 CLI(명령줄 인터페이스)와 함께 사용됩니다. CLI 사용에 대한 자세한 내용은 [모바일 서비스 테이블 관리 CLI](../virtual-machines-command-line-tools.md#Mobile_Tables)(영문)를 참조하세요.
 
 ##<a name="modifying"></a>방법: 모바일 서비스의 데이터 수정
 
@@ -276,7 +276,7 @@
 
 ##<a name="#custom-api"></a>방법: 사용자 지정 API 호출
 
-사용자 지정 API는 삽입, 업데이트, 삭제 또는 읽기 작업에 매핑되지 않는 서버 기능을 노출하는 사용자 지정 끝점을 정의할 수 있게 합니다. 사용자 지정 API를 사용하면 HTTP 메시지 헤더 읽기와 설정 및 JSON 이외의 메시지 본문 형식 정의를 비롯하여 더 효율적으로 메시징을 제어할 수 있습니다. 모바일 서비스에서 사용자 지정 API를 만드는 방법을 비롯해 전체 예제를 확인하려면 [클라이언트에서 사용자 지정 API 호출]을 참조하십시오.
+사용자 지정 API는 삽입, 업데이트, 삭제 또는 읽기 작업에 매핑되지 않는 서버 기능을 노출하는 사용자 지정 끝점을 정의할 수 있게 합니다. 사용자 지정 API를 사용하면 HTTP 메시지 헤더 읽기와 설정 및 JSON 이외의 메시지 본문 형식 정의를 비롯하여 더 효율적으로 메시징을 제어할 수 있습니다. 모바일 서비스에서 사용자 지정 API를 만드는 방법의 예는 [방법: 사용자 지정 API 끝점 정의](mobile-services-dotnet-backend-define-custom-api.md)를 참조하세요.
 
 사용자 지정 API를 호출하려면 클라이언트에서 [InvokeApiAsync] 메서드 오버로드 중 하나를 호출합니다. 예를 들어 다음 코드 줄은 모바일 서비스의 **completeAll** API로 POST 요청을 보냅니다.
 
@@ -284,7 +284,7 @@
         .InvokeApiAsync<MarkAllResult>("completeAll",
         System.Net.Http.HttpMethod.Post, null);
 
-이 형식화된 메서드 호출을 실행하려면 **MarkAllResult** 반환 형식을 정의해야 합니다. 형식화된 메서드와 형식화되지 않은 메서드가 모두 지원됩니다. 이는 형식화되어 있고 페이로드를 보내지 않으며 쿼리 매개 변수가 없고 요청 헤더를 변경하지 않으므로 대체로 단순한 예제입니다. [InvokeApiAsync]의 보다 실질적인 예와 자세한 설명을 확인하려면 [Azure 모바일 서비스 클라이언트 SDK의 사용자 지정 API]를 참조하십시오.
+이 형식화된 메서드 호출을 실행하려면 **MarkAllResult** 반환 형식을 정의해야 합니다. 형식화된 메서드와 형식화되지 않은 메서드가 모두 지원됩니다. 이는 형식화되어 있고 페이로드를 보내지 않으며 쿼리 매개 변수가 없고 요청 헤더를 변경하지 않으므로 대체로 단순한 예제입니다. [InvokeApiAsync]의 보다 실질적인 예와 자세한 설명을 확인하려면 [Azure 모바일 서비스 클라이언트 SDK의 사용자 지정 API]를 참조하세요.
 
 ##방법: 푸시 알림 등록
 
@@ -395,7 +395,7 @@
 	}
 
 
-모바일 서비스에 낙관적 동시성을 사용하는 전체 예제는 [낙관적 동시성 자습서](영문)를 참조하십시오.
+모바일 서비스에 낙관적 동시성을 사용하는 전체 예제는 [낙관적 동시성 자습서](영문)를 참조하세요.
 
 
 ##<a name="binding"></a>방법: 모바일 서비스에서 사용자 인터페이스에 데이터 바인딩
@@ -470,13 +470,13 @@ ID 공급자를 등록하고 나면 공급자의 [MobileServiceAuthenticationPro
 
 Facebook 이외의 ID 공급자를 사용하는 경우 위의 [MobileServiceAuthenticationProvider] 값을 공급자에 대한 값으로 변경합니다.
 
-이 경우 모바일 서비스는 선택한 공급자의 로그인 페이지를 표시하고 ID 공급자 로그인 후 모바일 서비스 인증 토큰을 생성하여 OAuth 2.0 인증 흐름을 관리합니다. [LoginAsync 메서드]는 [MobileServiceUser]를 반환하며, 여기서 인증된 사용자의 [userId] 및 [MobileServiceAuthenticationToken]이 JWT(JSON 웹 토큰)로 제공됩니다. 이 토큰은 캐시했다가 만료될 때까지 다시 사용할 수 있습니다. 자세한 내용은 [인증 토큰 캐시]를 참조하십시오.
-
-> [AZURE.NOTE]**Windows 스토어 앱** Windows 스토어 앱 사용자를 인증하는 데 Microsoft 계정 로그인 공급자를 사용하는 경우 앱 패키지를 모바일 서비스에도 등록해야 합니다. 모바일 서비스에 Windows 스토어 앱 패키지 정보를 등록하는 경우 클라이언트에서 Single Sign-On 환경을 위해 Microsoft 계정 로그인 자격 증명을 다시 사용할 수 있습니다. 그렇지 않으면 로그인 메서드가 호출될 때마다 Microsoft 계정 로그인 사용자에게 로그인 프롬프트가 표시됩니다. Windows 스토어 앱 패키지를 등록하는 방법을 자세히 알아보려면 [Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank")을 참조하십시오. 패키지 정보가 모바일 서비스에 등록된 후에는 [useSingleSignOn](http://go.microsoft.com/fwlink/p/?LinkId=311594%20target="_blank") 매개 변수에서 자격 증명을 다시 사용하도록 **true** 값을 제공하여 _LoginAsync_ 메서드를 호출합니다.
+이 경우 모바일 서비스는 선택한 공급자의 로그인 페이지를 표시하고 ID 공급자 로그인 후 모바일 서비스 인증 토큰을 생성하여 OAuth 2.0 인증 흐름을 관리합니다. [LoginAsync 메서드]는 [MobileServiceUser]를 반환하며, 여기서 인증된 사용자의 [userId] 및 [MobileServiceAuthenticationToken]이 JWT(JSON 웹 토큰)로 제공됩니다. 이 토큰은 캐시했다가 만료될 때까지 다시 사용할 수 있습니다. 자세한 내용은 [인증 토큰 캐시]를 참조하세요.
 
 ###클라이언트 흐름
 
 앱이 독립적으로 ID 공급자에 연결한 후 반환된 토큰을 인증을 위해 모바일 서비스에 제공할 수도 있습니다. 이 클라이언트 흐름을 사용하면 단일 로그인 환경을 사용자에게 제공하거나 ID 공급자로부터 더 많은 사용자 데이터를 검색할 수 있습니다.
+
+####Facebook 또는 Google의 토큰을 사용한 단일 로그인
 
 가장 간소화된 형태로, 다음과 같은 Facebook 또는 Google용 코드 조각에 나온 대로 클라이언트 흐름을 사용할 수 있습니다.
 
@@ -511,13 +511,60 @@ Facebook 이외의 ID 공급자를 사용하는 경우 위의 [MobileServiceAuth
 		}
 	}
 
-Microsoft 계정을 사용하는 경우 다음과 같은 로그인을 사용합니다.
 
-	// Replace authentication_token_value with actual value of your Microsoft authentication token obtained through the Live SDK
-	user = await client
-		.LoginWithMicrosoftAccountAsync(authentication_token_value);
+####Live SDK와 함께 Microsoft 계정을 사용한 단일 로그인
 
-Microsoft 계정을 사용하여 단일 로그인 환경을 제공하는 방법을 보여 주는 예제는 "단일 로그인으로 앱 인증" 자습서([Windows 스토어](/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/)/[Windows Phone](/develop/mobile/tutorials/single-sign-on-wp8/))를 참조하십시오.
+사용자를 인증하려면 먼저 Microsoft 계정 개발자 센터에서 앱을 등록해야 합니다. 그런 다음 모바일 서비스와 이 등록을 연결해야 합니다. [Microsoft 계정 로그인을 사용하도록 앱 등록](mobile-services-how-to-register-microsoft-authentication.md)의 단계를 완료하여 Microsoft 계정 등록을 만들고 모바일 서비스에 연결합니다. Windows 스토어 및 Windows Phone 버전의 앱이 둘 다 있는 경우 Windows 스토어 버전을 먼저 등록합니다.
+
+다음 코드는 Live SDK를 사용하여 인증하고 반환된 토큰을 사용하여 모바일 서비스에 로그인합니다.
+
+	private LiveConnectSession session;
+ 	//private static string clientId = "<microsoft-account-client-id>";
+    private async System.Threading.Tasks.Task AuthenticateAsync()
+    {
+
+        // Get the URL the mobile service.
+        var serviceUrl = App.MobileService.ApplicationUri.AbsoluteUri;
+
+        // Create the authentication client for Windows Store using the mobile service URL.
+        LiveAuthClient liveIdClient = new LiveAuthClient(serviceUrl);
+        //// Create the authentication client for Windows Phone using the client ID of the registration.
+        //LiveAuthClient liveIdClient = new LiveAuthClient(clientId);
+
+        while (session == null)
+        {
+            // Request the authentication token from the Live authentication service.
+			// The wl.basic scope is requested.
+            LiveLoginResult result = await liveIdClient.LoginAsync(new string[] { "wl.basic" });
+            if (result.Status == LiveConnectSessionStatus.Connected)
+            {
+                session = result.Session;
+
+                // Get information about the logged-in user.
+                LiveConnectClient client = new LiveConnectClient(session);
+                LiveOperationResult meResult = await client.GetAsync("me");
+
+                // Use the Microsoft account auth token to sign in to Mobile Services.
+                MobileServiceUser loginResult = await App.MobileService
+                    .LoginWithMicrosoftAccountAsync(result.Session.AuthenticationToken);
+
+                // Display a personalized sign-in greeting.
+                string title = string.Format("Welcome {0}!", meResult.Result["first_name"]);
+                var message = string.Format("You are now logged in - {0}", loginResult.UserId);
+                var dialog = new MessageDialog(message, title);
+                dialog.Commands.Add(new UICommand("OK"));
+                await dialog.ShowAsync();
+            }
+            else
+            {
+                session = null;
+                var dialog = new MessageDialog("You must log in.", "Login Required");
+                dialog.Commands.Add(new UICommand("OK"));
+                await dialog.ShowAsync();
+            }
+        }
+    }
+
 
 ###<a name="caching"></a>인증 토큰 캐시
 일부 경우, 사용자가 처음으로 인증된 후에 login 메서드 호출을 방지할 수 있습니다. Windows 스토어 앱용 [PasswordVault]를 사용하여 사용자가 처음 로그인할 때 현재 사용자 ID를 캐시하고 이후에 매번 캐시에서 해당 사용자 ID가 이미 있는지 여부를 확인할 수 있습니다. 캐시가 비어 있는 경우에도 사용자가 로그인 프로세스를 거치도록 해야 합니다.
@@ -594,7 +641,7 @@ Windows Phone 앱의 경우 [ProtectedData] 클래스를 사용하여 데이터�
 	// Lookup untyped data using OData
 	JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$orderby=text");
 
-속성 모음처럼 사용할 수 있는 JSON 값이 반환됩니다. JToken 및 JSON.NET에 대한 자세한 내용은 [JSON.NET](http://json.codeplex.com/)(영문)을 참조하십시오.
+속성 모음처럼 사용할 수 있는 JSON 값이 반환됩니다. JToken 및 JSON.NET에 대한 자세한 내용은 [JSON.NET](http://json.codeplex.com/)(영문)을 참조하세요.
 
 ##<a name="unit-testing"></a>방법: 설계 단위 테스트
 
@@ -697,7 +744,7 @@ Windows Phone 앱의 경우 [ProtectedData] 클래스를 사용하여 데이터�
 [Take]: http://msdn.microsoft.com/library/windowsazure/dn250574.aspx
 [Fiddler]: http://www.telerik.com/fiddler
 [Azure 모바일 서비스 클라이언트 SDK의 사용자 지정 API]: http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx
-[클라이언트에서 사용자 지정 API 호출]: mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api.md
+[Call a custom API from the client]: mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api.md
 [InvokeApiAsync]: http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

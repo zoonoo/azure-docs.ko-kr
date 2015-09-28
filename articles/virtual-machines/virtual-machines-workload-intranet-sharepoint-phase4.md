@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/22/2015"
 	ms.author="josephd"/>
 
-# SharePoint 인트라넷 팜 작업 4단계: SharePoint 서버 구성
+# SharePoint 인트라넷 팜 워크로드 4단계: SharePoint 서버 구성
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 Azure 인프라 서비스에서 SQL Server AlwaysOn 가용성 그룹을 사용하여 인트라넷 전용 SharePoint 2013을 배포하는 이 단계에서는 SharePoint 팜의 응용 프로그램 및 웹 계층을 구축하고 SharePoint 구성 마법사를 사용하여 팜을 만듭니다.
 
@@ -96,7 +98,7 @@ Azure PowerShell 명령의 다음 블록을 사용하여 4개 SharePoint 서버�
 
 	New-AzureVM –ServiceName $serviceName -VMs $vm1 -VNetName $vnetName
 
-[원격 데스크톱 연결을 사용하여 가상 컴퓨터에 로그온](virtual-machines-workload-intranet-sharepoint-phase2.md#logon) 절차를 네 번(각 SharePoint 서버에 대해 한 번씩) 수행하여 [도메인]\\sp\_farm\_db 계정 자격 증명을 사용해 로그온합니다. [2단계: 도메인 컨트롤러 구성](virtual-machines-workload-intranet-sharepoint-phase2.md)에서 다음 자격 증명을 만들었습니다.
+[원격 데스크톱 연결을 사용하여 가상 컴퓨터에 로그온](virtual-machines-workload-intranet-sharepoint-phase2.md#logon) 절차를 네 번(각 SharePoint 서버에 대해 한 번씩) 수행하여 [도메인]\\sp\_farm\_db 계정 자격 증명으로 로그온합니다. 이러한 자격 증명은 [2단계: 도메인 컨트롤러 구성](virtual-machines-workload-intranet-sharepoint-phase2.md)에서 만들었습니다.
 
 [연결을 테스트하려면](virtual-machines-workload-intranet-sharepoint-phase2.md#testconn) 절차를 네 번(각 SharePoint 서버에 대해 한 번씩) 수행하여 조직 네트워크의 위치에 대한 연결을 테스트합니다.
 
@@ -104,7 +106,7 @@ Azure PowerShell 명령의 다음 블록을 사용하여 4개 SharePoint 서버�
 
 다음 단계를 수행하여 팜의 첫 번째 SharePoint 서버를 구성합니다.
 
-1.	첫 번째 SharePoint 응용 프로그램 서버의 바탕 화면에서 **SharePoint 2013 제품 구성 마법사**를 두 번 클릭합니다. 프로그램이 컴퓨터를 변경하도록 허용할지 묻는 메시지가 나타나면 **예**를 클릭합니다.
+1.	첫 번째 SharePoint 응용 프로그램 서버의 바탕 화면에서 **SharePoint 2013 제품 구성 마법사**를 두 번 클릭합니다. 프로그램이 컴퓨터를 변경할 수 있도록 허용할지 묻는 메시지가 나타나면 **예**를 클릭합니다.
 2.	**SharePoint 제품** 페이지에서 **다음**을 클릭합니다.
 3.	**SharePoint 제품 구성 마법사** 대화 상자가 나타나고 IIS 등의 서비스가 다시 시작되거나 다시 설정된다는 경고가 표시됩니다. **예**를 클릭합니다.
 4.	**서버 팜에 연결** 페이지에서 **새 서버 팜 만들기**를 클릭한 후 **다음**을 클릭합니다.
@@ -122,13 +124,13 @@ Azure PowerShell 명령의 다음 블록을 사용하여 4개 SharePoint 서버�
 
 두 번째 SharePoint 응용 프로그램 서버와 두 프런트 엔드 웹 서버에서 다음 절차를 수행합니다.
 
-1.	바탕 화면에서 **SharePoint 2013 제품 구성 마법사**를 두 번 클릭합니다. 프로그램이 컴퓨터를 변경하도록 허용할지 묻는 메시지가 나타나면 **예**를 클릭합니다.
+1.	바탕 화면에서 **SharePoint 2013 제품 구성 마법사**를 두 번 클릭합니다. 프로그램이 컴퓨터를 변경할 수 있도록 허용할지 묻는 메시지가 나타나면 **예**를 클릭합니다.
 2.	**SharePoint 제품** 페이지에서 **다음**을 클릭합니다.
 3.	**SharePoint 제품 구성 마법사** 대화 상자가 나타나고 IIS 등의 서비스가 다시 시작되거나 다시 설정된다는 경고가 표시됩니다. **예**를 클릭합니다.
 4.	**서버 팜에 연결** 페이지에서 **기존 서버 팜에 연결**을 클릭한 후 **다음**을 클릭합니다.
 5.	**구성 데이터베이스 설정 지정** 페이지에서 **데이터베이스 서버**에 주 데이터베이스 서버의 이름을 입력하고 **데이터베이스 이름 검색**을 클릭합니다.
 6.	데이터베이스 이름 목록에서 **SharePoint\_Config**를 클릭하고 **다음**을 클릭합니다.
-7.	**팜 보안 설정 지정** 페이지에서 이전 절차에서 입력했던 암호를 입력합니다. **다음**을 클릭합니다.
+7.	**팜 보안 설정 지정** 페이지에서 이전 절차의 암호를 입력합니다. **다음**을 클릭합니다.
 8.	**SharePoint 제품 구성 마법사 완료** 페이지가 표시됩니다. **다음**을 클릭합니다.
 9.	**구성 완료** 페이지에서 **마침**을 클릭합니다.
 
@@ -177,7 +179,7 @@ SharePoint 팜으로의 클라이언트 트래픽이 두 프런트 엔드 웹 �
 
 ## 다음 단계
 
-이 작업을 계속 구성하려면 [5단계: 가용성 그룹을 만들고 SharePoint 데이터베이스 추가](virtual-machines-workload-intranet-sharepoint-phase5.md)로 진행하세요.
+이 워크로드를 계속 구성하려면 [5단계: 가용성 그룹을 만들고 SharePoint 데이터베이스 추가](virtual-machines-workload-intranet-sharepoint-phase5.md)로 진행하세요.
 
 ## 추가 리소스
 
@@ -191,6 +193,6 @@ SharePoint 팜으로의 클라이언트 트래픽이 두 프런트 엔드 웹 �
 
 [Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-[Azure 인프라 서비스 작업: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
+[Azure 인프라 서비스 워크로드: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

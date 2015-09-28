@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/22/2015"
+	ms.date="09/10/2015"
 	ms.author="banders"/>
 
 # Operational Insights 보안
@@ -107,4 +107,4 @@ OMS 서비스에서 원시 데이터를 처리하면 처리된 집계 데이터�
 
 이전에 설정한 계정을 사용하여 OMS에 로그인할 수 있습니다. OMS와 OMS 서비스 간의 모든 트래픽이 보안 HTTPS 채널을 통해 전송됩니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

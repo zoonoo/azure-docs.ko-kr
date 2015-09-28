@@ -5,15 +5,15 @@
 	documentationCenter="" 
 	authors="naziml" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="09/15/2015" 
 	ms.author="naziml"/>
 
 # 웹앱에 대 한 TLS 상호 인증을 구성하는 방법
@@ -21,10 +21,12 @@
 ## 개요 ##
 다양 한 유형에 대 한 인증을 사용하여 Azure 웹앱에 대한 액세스를 제한할 수 있습니다. 이렇게 하는 한 가지 방법은 TLS/SSL을 통해 요청되면 클라이언트 인증서를 사용하여 인증하는 것입니다. 이 메커니즘은 TLS 상호 인증 또는 클라이언트 인증서 인증이라고 하고, 이 문서에서는 클라이언트 인증서 인증을 사용하여 웹앱을 설치하는 방법을 자세히 다룹니다.
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 ## 클라이언트 인증서 인증에 대 한 웹앱을 구성합니다. ##
 클라이언트 인증서를 요구하도록 웹앱을 설치하려면 웹앱에 대해 clientCertEnabled 사이트 설정을 추가하고 true로 설정합니다. 이 설정은 현재 포털의 관리환경을 통해 사용할 수 없으며, REST API를 사용하여 수행해야 합니다.
 
-[ARMClient 도구](https://github.com/projectkudu/ARMClient)를 사용하여 REST API 호출을 쉽게 만들수 있습니다. 이 도구를 사용하여 로그인 후 다음 명령을 실행 해야 합니다.
+[ARMClient 도구](https://github.com/projectkudu/ARMClient)를 사용하여 REST API 호출을 쉽게 만들 수 있습니다. 이 도구를 사용하여 로그인 후 다음 명령을 실행 해야 합니다.
 
     ARMClient PUT subscriptions/{Subscription Id}/resourcegroups/{Resource Group Name}/providers/Microsoft.Web/sites/{Website Name}?api-version=2015-04-01 @enableclientcert.json -verbose
     
@@ -177,4 +179,4 @@
         }
     }
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

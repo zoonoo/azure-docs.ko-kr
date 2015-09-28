@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="09/08/2015" 
+	ms.date="09/16/2015" 
 	ms.author="jeffstok"/>
 
 #Microsoft 스트림 분석 릴리스 정보
@@ -24,7 +24,7 @@
 
 제목|설명
 ---|---
-PowerBI 그룹에 대한 지원|다른 Power BI 사용자와 데이터 공유를 사용하려면 스트림 분석 작업으로 Power BI 계정 내부 그룹에 기록할 수 있습니다.
+PowerBI 그룹에 대한 지원|다른 Power BI 사용자와 데이터 공유를 사용할 수 있도록 이제 스트림 분석 작업에서 Power BI 계정 내의 [Power BI 그룹](stream-analytics-define-outputs.md#power-bi)에 쓸 수 있습니다.
 
 ## 스트림 분석의 2015/08/20 릴리스에 대한 정보 ##
 
@@ -43,8 +43,8 @@ PowerBI 그룹에 대한 지원|다른 Power BI 사용자와 데이터 공유를
 제목|설명
 ---|---
 Azure ID에서 분리된 Power BI 조직 ID|이 기능을 통해 모든 Azure 계정 유형의 ASA 작업에 대한 [Power BI 출력](stream-analytics-power-bi-dashboard.md)을 사용할 수 있습니다(Live ID 또는 조직 ID). 또한 Azure 계정에 대한 하나의 조직 ID를 포함하고 Power BI 출력 권한 부여를 위한 다른 하나를 사용할 수 있습니다.
-서비스 버스 큐 출력에 대한 지원|[서비스 버스 큐](stream-analytics-connect-data-event-outputs.md#service-bus-queues) 출력은 지금 스트림 분석 작업에서 사용할 수 있습니다.
-서비스 버스 토픽 출력에 대한 지원|[서비스 버스 토픽](stream-analytics-connect-data-event-outputs.md#service-bus-topics) 출력은 지금 스트림 분석 작업에서 사용할 수 있습니다.
+서비스 버스 큐 출력에 대한 지원|이제 스트림 분석 작업에서 [서비스 버스 큐](stream-analytics-connect-data-event-outputs.md#service-bus-queues) 출력을 사용할 수 있습니다.
+서비스 버스 토픽 출력에 대한 지원|이제 스트림 분석 작업에서 [서비스 버스 토픽](stream-analytics-connect-data-event-outputs.md#service-bus-topics) 출력을 사용할 수 있습니다.
 
 ## 스트림 분석의 2015/07/09 릴리스에 대한 정보 ##
 
@@ -92,4 +92,4 @@ PowerBI 데이터 집합은 하나의 테이블만 포함할 수 있습니다.|P
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -84,12 +84,16 @@ Azure 구독에 대한 PowerShell cmdlet을 실행 하려면 먼저 Azure 계정
     # Adding the account
     #
     Add-AzureAccount
+    
+    # Switch mode
+    #
     Switch-AzureMode -Name AzureResourceManager
 
     # Setting the variables
     #
     $SubscriptionName = 'YOUR_SUBSCRIPTION' 
-    $ResourceGroupName = 'YOUR_RESOURCE_GROUP' $ServerName = 'YOUR_SERVER' 
+    $ResourceGroupName = 'YOUR_RESOURCE_GROUP' 
+    $ServerName = 'YOUR_SERVER' 
     
     # Selecting the right subscription 
     # 
@@ -101,8 +105,7 @@ Azure 구독에 대한 PowerShell cmdlet을 실행 하려면 먼저 Azure 계정
     
     # Starting the upgrade process 
     #
-    Start-AzureSqlServerUpgrade -ResourceGroupName 
-    $ResourceGroupName -ServerName $ServerName -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
+    Start-AzureSqlServerUpgrade -ResourceGroupName $ResourceGroupName -ServerName $ServerName -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
 
 
 ## 사용자 지정 업그레이드 매핑
@@ -122,7 +125,8 @@ Azure 구독에 대한 PowerShell cmdlet을 실행 하려면 먼저 Azure 계정
 
 데이터베이스를 단일 데이터베이스로 업그레이드:
 
-    $databaseMap = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties  $databaseMap.Name = "DB2"
+    $databaseMap = New-Object -TypeName Microsoft.Azure.Management.Sql.Models.UpgradeDatabaseProperties  
+    $databaseMap.Name = "DB2"
     $databaseMap.TargetEdition = "Standard"
     $databaseMap.TargetServiceLevelObjective = "S0"
     Start-AzureSqlServerUpgrade –ResourceGroupName resourcegroup1 –ServerName server1 -Version 12.0 -DatabaseCollection($databaseMap) -ElasticPoolCollection ($elasticPool)
@@ -137,4 +141,4 @@ Azure 구독에 대한 PowerShell cmdlet을 실행 하려면 먼저 Azure 계정
 - [Azure SQL 데이터베이스 서비스 관리자 Cmdlet](https://msdn.microsoft.com/library/dn546726.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

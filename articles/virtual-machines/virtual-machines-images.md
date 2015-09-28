@@ -3,7 +3,7 @@
 	description="Azure에서 가상 컴퓨터와 함께 이미지를 사용하는 방법에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/13/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # 가상 컴퓨터에 대한 이미지 정보
 
@@ -57,4 +57,4 @@ Azure 구독에 사용할 수 있는 이미지를 관리 하려면 Mac, Linux �
 
 [Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

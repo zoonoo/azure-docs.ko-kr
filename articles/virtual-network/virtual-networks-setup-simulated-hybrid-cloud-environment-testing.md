@@ -1,23 +1,25 @@
 <properties 
-	pageTitle="시뮬레이션된 하이브리드 클라우드 테스트 환경 | Microsoft Azure"
-	description="Azure 가상 네트워크 두 개와 VNet 간 연결을 사용하여 IT 전문가 또는 개발 테스트용 시뮬레이션된 하이브리드 클라우드 환경을 만들어봅니다."
-	services="virtual-network"
-	documentationCenter=""
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	pageTitle="시뮬레이션된 하이브리드 클라우드 테스트 환경 | Microsoft Azure" 
+	description="Azure 가상 네트워크 두 개와 VNet 간 연결을 사용하여 IT 전문가 또는 개발 테스트용 시뮬레이션된 하이브리드 클라우드 환경을 만들어봅니다." 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-service-management"/>
 
 <tags 
-	ms.service="virtual-network"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/10/2015" 
 	ms.author="josephd"/>
 
 # 테스트용 시뮬레이션된 하이브리드 클라우드 환경 설정
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 이 항목에서는 별도의 Azure 가상 네트워크 두 개를 사용하여 Microsoft Azure에서 테스트용 시뮬레이션된 하이브리드 클라우드 환경을 만드는 과정을 안내합니다. 인터넷을 직접 연결할 수 없고 사용 가능한 공용 IP 주소가 없는 경우 [테스트용 하이브리드 클라우드 환경 설정](virtual-networks-setup-hybrid-cloud-environment-testing.md)의 대안으로 이 구성을 사용합니다. 다음은 결과 구성입니다.
 
@@ -55,8 +57,8 @@ Azure 구독이 아직 없는 경우 [Azure 평가판 사용](http://azure.micro
 
 	New-ADReplicationSite -Name "TestLab" 
 	New-ADReplicationSite -Name "TestVNET"
-	New-ADReplicationSubnet –Name "10.0.0.0/8" –Site "TestLab"
-	New-ADReplicationSubnet –Name "192.168.0.0/16" –Site "TestVNET"
+	New-ADReplicationSubnet â€“Name "10.0.0.0/8" â€“Site "TestLab"
+	New-ADReplicationSubnet â€“Name "192.168.0.0/16" â€“Site "TestVNET"
 
 다음은 현재 구성입니다.
 
@@ -142,7 +144,7 @@ VPN 장치 IP 주소 131.107.0.1 및 131.107.0.2는 두 가상 네트워크에 �
 그런 다음 동일한 값(Azure 관리 포털에서 확인한 TestLab 가상 네트워크의 키 값)을 사용하도록 두 게이트웨이의 사전 공유 키를 구성합니다. TestLab 사전 공유 키 값을 입력하여 로컬 컴퓨터의 Azure PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
 
 	$preSharedKey="<The preshared key for the TestLab virtual network>"
-	Set-AzureVNetGatewayKey -VNetName TestVNET -LocalNetworkSiteName TestLabLNet –SharedKey $preSharedKey
+	Set-AzureVNetGatewayKey -VNetName TestVNET -LocalNetworkSiteName TestLabLNet â€“SharedKey $preSharedKey
 
 그런 다음 로컬 컴퓨터의 Azure 관리 포털 네트워크 페이지에서 **TestLab** 가상 네트워크, **대시보드**를 차례로 클릭한 후 작업 표시줄에서 **연결**을 클릭합니다. TestLab 가상 네트워크 상태가 연결됨으로 표시될 때까지 기다립니다.
 
@@ -155,14 +157,14 @@ VPN 장치 IP 주소 131.107.0.1 및 131.107.0.2는 두 가상 네트워크에 �
 먼저 DC2용 Azure 가상 컴퓨터를 만듭니다. 로컬 컴퓨터의 Azure PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
 
 	$ServiceName="<Your cloud service name from Phase 2>"
-	$cred=Get-Credential –Message "Type the name and password of the local administrator account for DC2."
+	$cred=Get-Credential â€“Message "Type the name and password of the local administrator account for DC2."
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DC2 -InstanceSize Medium -ImageName $image
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $cred.GetNetworkCredential().Username -Password $cred.GetNetworkCredential().Password
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	$vm1 | Set-AzureStaticVNetIP -IPAddress 192.168.0.4
-	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles –LUN 0 -HostCaching None
-	New-AzureVM –ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
+	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles â€“LUN 0 -HostCaching None
+	New-AzureVM â€“ServiceName $ServiceName -VMs $vm1 -VNetName TestVNET
 
 그런 다음 새 DC2 가상 컴퓨터에 로그온합니다.
 
@@ -171,7 +173,7 @@ VPN 장치 IP 주소 131.107.0.1 및 131.107.0.2는 두 가상 네트워크에 �
 3.	DC2.rdp를 여는 대화 상자가 나타나면 **열기**를 클릭합니다.
 4.	원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **연결**을 클릭합니다.
 5.	자격 증명을 묻는 메시지가 나타나면 다음을 사용합니다.
-- 이름: **DC2**[로컬 관리자 계정 이름]
+- 이름: **DC2\**[로컬 관리자 계정 이름]
 - 암호: [로컬 관리자 계정 암호]
 6.	인증서를 참조하는 원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **예**를 클릭합니다.
 
@@ -268,9 +270,9 @@ Azure VPN 게이트웨이는 지속적인 비용이 발생하는 두 개의 Azur
 그런 다음 동일한 값(Azure 관리 포털에서 확인한 TestLab 가상 네트워크의 키 값)을 사용하도록 두 게이트웨이의 사전 공유 키를 구성합니다. TestLab 사전 공유 키 값을 입력하여 로컬 컴퓨터의 Azure PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
 
 	$preSharedKey="<The preshared key for the TestLab virtual network>"
-	Set-AzureVNetGatewayKey -VNetName TestVNET -LocalNetworkSiteName TestLabLNet –SharedKey $preSharedKey
+	Set-AzureVNetGatewayKey -VNetName TestVNET -LocalNetworkSiteName TestLabLNet â€“SharedKey $preSharedKey
 
 그런 다음 Azure 관리 포털의 네트워크 페이지에서 **TestLab** 가상 네트워크를 클릭한 후 작업 표시줄에서 **연결**을 클릭합니다. TestLab 가상 네트워크가 TestVNET 로컬 네트워크에 연결된 상태로 표시될 때까지 기다립니다.
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

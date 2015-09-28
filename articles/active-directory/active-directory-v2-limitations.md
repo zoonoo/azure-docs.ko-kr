@@ -1,5 +1,5 @@
 <properties
-	pageTitle="앱 모델 v2.0 | Microsoft Azure"
+	pageTitle="앱 모델 v2.0 제한 사항 | Microsoft Azure"
 	description="Azure AD v2.0 앱 모델의 제한 사항 목록입니다."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # 앱 모델 v2.0 미리 보기: 제한 사항
@@ -85,4 +85,4 @@ v2.0 앱 모델은 Open ID Connect 및 OAuth 2.0을 지원합니다. 그러나 �
 
 v2.0 앱 모델에서 지원되는 프로토콜 기능의 범위를 더 잘 이해하려면 [OpenID Connect 및 OAuth 2.0 프로토콜 참조](active-directory-v2-protocols.md)를 참조하세요.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

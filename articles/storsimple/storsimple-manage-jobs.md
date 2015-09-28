@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 작업 보기 및 관리 | Microsoft Azure"
-	description="StorSimple Manager 서비스 작업 페이지에 대해 설명하고 이 페이지를 사용하여 최근, 현재 및 예약된 백업 작업을 추적하는 방법을 설명합니다."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="StorSimple Manager 서비스 작업 페이지에 대해 설명하고 이 페이지를 사용하여 최근, 현재 및 예약된 백업 작업을 추적하는 방법을 설명합니다."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor=""/>
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/01/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 # StorSimple 관리자 서비스를 사용하여 StorSimple 작업 보기 및 관리
 
@@ -87,6 +87,8 @@
 
 ## 다음 단계
 
-[StorSimple 백업 정책을 관리하는 방법을 알아봅니다](storsimple-manage-backup-policies.md).
+- [StorSimple 백업 정책을 관리](storsimple-manage-backup-policies.md)하는 방법을 알아봅니다.
 
-<!---HONumber=September15_HO1-->
+- [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
+
+<!---HONumber=Sept15_HO3-->

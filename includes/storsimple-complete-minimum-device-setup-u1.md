@@ -1,4 +1,4 @@
-
+<!--author=alkohli last changed: 9/17/15-->
 
 #### 최소 StorSimple 장치 설치를 완료하려면
 
@@ -30,4 +30,4 @@
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

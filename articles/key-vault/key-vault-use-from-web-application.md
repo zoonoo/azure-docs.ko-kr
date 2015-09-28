@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="09/16/2015" 
 	ms.author="adhurwit"/>
 
 # 웹 응용 프로그램에서 Azure 주요 자격 증명 모음 사용 #
@@ -152,6 +152,11 @@ Azure 웹앱이 있는 경우 이제 Azure 포털에서 AppSettings의 실제 �
 	PS C:\> $adapp = New-AzureADApplication -DisplayName "KVWebApp" -HomePage "http://kvwebapp" -IdentifierUris "http://kvwebapp" -KeyValue $credValue -KeyType "AsymmetricX509Cert" -KeyUsage "Verify" -StartDate $now -EndDate $yearfromnow
 	
 	PS C:\> $sp = New-AzureADServicePrincipal -ApplicationId $adapp.ApplicationId
+	
+	PS C:\> Set-AzureKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName $sp.ServicePrincipalName -PermissionsToKeys all -ResourceGroupName 'contosorg'
+	
+	# get the thumbprint to use in your app settings
+	PS C:\>$x509.Thumbprint
 
 이러한 명령을 실행하면 Azure AD에서 응용 프로그램을 볼 수 있습니다. 먼저 응용 프로그램이 표시되지 않으면 "회사에서 사용하는 응용 프로그램" 대신 "회사에서 소유하고 있는 응용 프로그램"을 검색합니다.
 
@@ -238,4 +243,4 @@ StoreLocation은 LocalMachine이 아닌, CurrentUser입니다. 테스트 인증�
 [2]: ./media/key-vault-use-from-web-application/PortalAddCertificate.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

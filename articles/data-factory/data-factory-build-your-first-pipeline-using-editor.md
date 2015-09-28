@@ -12,7 +12,7 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="article"
+	ms.topic="article" 
 	ms.date="07/27/2015"
 	ms.author="spelluru"/>
 
@@ -96,7 +96,7 @@ Hive 스크립트를 실행하는데 사용될 주문형 HDInsight 클러스터�
 		    "typeProperties": {
 		      "version": "3.1",
 		      "clusterSize": 1,
-		      "timeToLive": "00:05:00",
+		      "timeToLive": "00:30:00",
 		      "jobsContainer": "adfjobs",
 		      "linkedServiceName": "StorageLinkedService"
 		    }
@@ -157,7 +157,7 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 	![새 파이프라인 단추](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 2. 아래 코드 조각을 복사하여 Draft-1 창에 붙여넣습니다.
 
-	> [AZURE.IMPORTANT] **storageaccountname**을 JSON의 저장소 계정 이름으로 변경합니다.
+	> [AZURE.IMPORTANT]**storageaccountname**을 JSON의 저장소 계정 이름으로 변경합니다.
 
 		{
 		  "name": "MyFirstPipeline",
@@ -233,4 +233,4 @@ Azure Blob 저장소에 저장된 데이터를 나타내는 출력 데이터 집
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-editor.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자를 사용하여 볼륨 보기 및 관리
@@ -225,7 +225,7 @@ StorSimple 스냅숏 관리자 **볼륨** 노드(**범위** 창)를 사용하여
 
 5. **디스크 선택** 페이지에서 **선택** 창의 **디스크 2**를 선택하고 **추가**를 클릭한 후 **다음**을 클릭합니다.
 
-6. **드라이브 문자 또는 경로를 할당하십시오** 페이지에서 기본값을 적용하고 **다음**을 클릭합니다.
+6. **드라이브 문자 또는 경로를 할당하세요** 페이지에서 기본값을 적용하고 **다음**을 클릭합니다.
 
 7. **볼륨 포맷** 페이지의 **할당 단위 크기** 상자에서 **64K**를 선택합니다. **빠른 포맷 실행** 확인란을 선택하고 **다음**을 클릭합니다.
 
@@ -265,9 +265,10 @@ StorSimple 스냅숏 관리자 **볼륨** 노드(**범위** 창)를 사용하여
 
 ## 다음 단계
 
-[StorSimple 스냅숏 관리자를 사용하여 볼륨 그룹 만들기 및 관리](storsimple-snapshot-manager-manage-volume-groups.md)
+- [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
+- [StorSimple 스냅숏 관리자를 사용하여 볼륨 그룹을 만들고 관리](storsimple-snapshot-manager-manage-volume-groups.md)하는 방법을 알아봅니다.
 
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

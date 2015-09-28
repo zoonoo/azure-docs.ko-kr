@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="rkarlin"
-	manager="terrylan"
+	manager="msStevenPo"
 	editor=""/>
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="09/09/2015"
 	ms.author="rkarlin"/>
 
 
 # Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시
 
-> [AZURE.NOTE]응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](https://msdn.microsoft.com/library/azure/dn532272.aspx)을 참조하세요.
+> [AZURE.NOTE]응용 프로그램 프록시는 Premium 또는 Basic 버전의 Azure Active Directory로 업그레이드하는 경우에만 사용할 수 있는 기능입니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-edition.md)을 참조하세요.
 
 Microsoft Azure AD 응용 프로그램 프록시를 사용하도록 설정하면 개인 네트워크 외부 사용자가 액세스할 수 있도록 하려면 응용 프로그램을 게시할 수 있습니다.
 
@@ -79,4 +79,4 @@ Azure Active Directory 응용 프로그램 프록시를 사용하여 응용 프�
 
 * [Kerberos 제한 위임 정보](http://technet.microsoft.com/library/cc995228.aspx)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

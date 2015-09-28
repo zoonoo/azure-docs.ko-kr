@@ -1,7 +1,5 @@
 <properties pageTitle="Azure에서 Oracle 데이터베이스 가상 컴퓨터 만들기" description="Microsoft Azure에서 Oracle 가상 컴퓨터를 만들고 Oracle 데이터베이스를 만드는 예를 단계별로 설명합니다." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz"/>
-
+<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
 #Azure에서 Oracle 데이터베이스 가상 컴퓨터 만들기
 다음 예제에서는 Azure에서 Windows Server 2012에서 실행되는 Microsoft에서 제공한 Oracle 데이터베이스 이미지에 따라 가상 컴퓨터(VM)를 만드는 방법을 보여줍니다. 두 단계가 있습니다. 먼저 VM을 만들고 VM 내에서 Oracle 데이터베이스를 만듭니다. 표시된 예제는 Oracle 데이터베이스 버전 12c지만 해당 단계는 버전 11g와 거의 동일합니다.
 
@@ -21,13 +19,13 @@
 
 7.	**가격 책정 계층**을 선택합니다. 권장 가격 책정 계층이 기본으로 표시됩니다. 모든 구성 옵션을 보려면 오른쪽 맨 위에서 **모두 보기**를 클릭합니다.
 
-8.	필요한 경우 다음의 고려 사항으로 [선택적 구성](https://msdn.microsoft.com/library/azure/dn763935.aspx)을 설정합니다.
+8.	다음 사항을 고려하여 필요에 따라 선택적 구성을 설정합니다.
 
 	a. VM 이름으로 새 저장소 계정을 만들려면 **저장소 계정**을 그대로 둡니다.
 
 	b. **가용성 집합**을 "구성되지 않음"으로 둡니다.
 
-	c. 이때 모든 **끝점**을 추가하지 마십시오.
+	c. 이때 **끝점**을 추가하지 마세요.
 
 9.	리소스 그룹을 선택하거나 만듭니다.
 
@@ -35,7 +33,7 @@
 
 11. **위치**를 선택합니다.
 
-12. **만들기**를 클릭하고 VM를 만드는 과정이 시작됩니다. VM가 **실행** 상태가 되면 다음 절차를 진행합니다.
+12. **만들기**를 클릭하고 VM을 만드는 과정이 시작됩니다. VM이 **실행** 상태가 되면 다음 절차를 진행합니다.
 
 
 ##Azure에서 Oracle 데이터베이스 VM을 사용하여 데이터베이스를 만들려면
@@ -46,7 +44,7 @@
 
 3.	로그인할 VM의 이름을 클릭합니다.
 
-4.	**Connect**를 클릭합니다.
+4.	**연결**을 클릭합니다.
 
 5.	VM에 연결해야 한다는 메시지에 응답합니다. 관리자 이름 및 암호를 묻는 메시지가 표시되면 VM를 만들 때 제공한 값을 사용하십시오.
 
@@ -166,7 +164,7 @@ Oracle 데이터베이스 엔터프라이즈 관리자에 대한 원격 액세�
 ##가장 많이 사용하는 옵션 및 고급 옵션 번들 구성
 **인기있는 옵션이 탑재된 Oracle 데이터베이스** 또는 **고급 옵션이 탑재된 Oracle 데이터베이스**을 선택한 경우, 다음 단계는 Oracle 설치에서 추가 기능을 구성하는 것입니다. 각각의 개별 구성 요소의 필요에 따라 구성이 다양할 수 있기 때문에 Windows에서의 설정을 위한 지침은 Oracle 설명서를 참조합니다.
 
-**인기있는 옵션이 탑재된 Oracle 데이터베이스**는 Oracle Database Enterprise Edition의 라이선스가 포함된 인스턴스 및 [분할](http://www.oracle.com/us/products/database/options/partitioning/overview/index.html), [활성 데이터 가드](http://www.oracle.com/us/products/database/options/active-data-guard/overview/index.html), [데이터베이스용 Oracle 튜닝 팩](http://docs.oracle.com/html/A86647_01/tun_ovw.htm), [데이터베이스용 Oracle 진단 팩](http://docs.oracle.com/cd/B28359_01/license.111/b28287/options.htm#CIHIHDDJ) 및 [데이터베이스용 Oracle 수명 주기 관리 팩](http://www.oracle.com/technetwork/oem/lifecycle-mgmt-495331.html)를 포함합니다.
+**인기있는 옵션이 탑재된 Oracle 데이터베이스**는 Oracle Database Enterprise Edition의 라이선스가 포함된 인스턴스 및 [분할](http://www.oracle.com/us/products/database/options/partitioning/overview/index.html), [활성 데이터 가드](http://www.oracle.com/us/products/database/options/active-data-guard/overview/index.html), [데이터베이스용 Oracle 튜닝 팩](http://docs.oracle.com/html/A86647_01/tun_ovw.htm), [데이터베이스용 Oracle 진단 팩](http://docs.oracle.com/cd/B28359_01/license.111/b28287/options.htm#CIHIHDDJ) 및 [데이터베이스용 Oracle 수명 주기 관리 팩](http://www.oracle.com/technetwork/oem/lifecycle-mgmt-495331.html)을 포함합니다.
 
 **고급 옵션이 탑재된 Oracle 데이터베이스**은 가장 많이 사용하는 옵션 번들에 있는 모든 옵션의 라이선스가 포함된 인스턴스를 비롯하여 [고급 압축](http://www.oracle.com/us/products/database/options/advanced-compression/overview/index.html), [고급 보안](http://www.oracle.com/us/products/database/options/advanced-security/overview/index.html), [레이블 보안](http://www.oracle.com/us/products/database/options/label-security/overview/index.html), [데이터베이스 자격 증명 모음](http://www.oracle.com/us/products/database/options/database-vault/overview/index.html), [고급 분석](http://www.oracle.com/us/products/database/options/advanced-analytics/overview/index.html), [OLAP](http://docs.oracle.com/cd/E11882_01/license.112/e47877/options.htm#CIHGDEEF), [공간 및 그래프](http://docs.oracle.com/cd/E11882_01/license.112/e47877/options.htm#CIHGDEEF), [메모리 내 데이터베이스 캐시](http://www.oracle.com/technetwork/products/timesten/overview/timesten-imdb-cache-101293.html), [데이터 마스킹 팩](http://docs.oracle.com/cd/E11882_01/license.112/e47877/options.htm#CHDGEEBB), 및 Oracle 테스트 데이터 관리 팩(데이터 마스킹 팩의 일부)을 포함합니다.
 
@@ -183,4 +181,4 @@ Oracle 데이터베이스 엔터프라이즈 관리자에 대한 원격 액세�
 
 -	[Oracle 데이터베이스 2일 DBA 12c 릴리스 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

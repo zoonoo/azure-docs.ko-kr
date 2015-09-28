@@ -1,23 +1,25 @@
 <properties 
-	pageTitle="LOB(기간 업무) 응용 프로그램 4단계 | Microsoft Azure"
-	description="Azure의 LOB(기간 업무) 응용 프로그램의 4단계에서 웹 서버를 만들고 LOB(기간 업무) 응용 프로그램을 로드합니다."
+	pageTitle="LOB(기간 업무) 응용 프로그램 4단계 | Microsoft Azure" 
+	description="Azure의 LOB(기간 업무) 응용 프로그램의 4단계에서 웹 서버를 만들고 LOB(기간 업무) 응용 프로그램을 로드합니다." 
 	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	services="virtual-machines" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
-# LOB(기간 업무) 응용 프로그램 작업 4단계: 웹 서버 구성
+# LOB(기간 업무) 응용 프로그램 워크로드 4단계: 웹 서버 구성
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 Azure 인프라 서비스의 고가용성 LOB(기간 업무) 응용 프로그램을 배포하는 이 단계에서는 웹 서버를 구축하여 LOB 응용 프로그램을 로드합니다.
 
@@ -34,7 +36,7 @@ Azure 인프라 서비스의 고가용성 LOB(기간 업무) 응용 프로그램
 	$testIP="<a chosen IP address from the subnet address space, Table S - Item 2 – Subnet address space column>"
 	Test-AzureStaticVNetIP –VNetName $vnet –IPAddress $testIP
 
-표시되는 Test-AzureStaticVNetIP 명령에서 **IsAvailable** 필드가 **True**이면 해당 IP 주소를 사용할 수 있습니다.
+Test-AzureStaticVNetIP 명령 표시에서 **IsAvailable** 필드가 **True**이면 해당 IP 주소를 사용할 수 있습니다.
 
 이 명령 사용하여 PowerShell의 리소스 관리자 모드로 다시 전환합니다.
 
@@ -66,7 +68,7 @@ PowerShell 명령의 다음 블록을 사용하여 두 웹 서버용 가상 컴�
 - 저장소 계정의 경우 표 ST
 - 가용성 집합의 경우 표 A
 
-[2단계](virtual-machines-workload-high-availability-LOB-application-phase2.md)에서 정의한 테이블 M과, [1단계](virtual-machines-workload-high-availability-LOB-application-phase1.md)에서 정의한 테이블 V, S, ST 및 A를 불러옵니다.
+표 M은 [2단계](virtual-machines-workload-high-availability-LOB-application-phase2.md)에서 정의했고 표 V, S, ST 및 A는 [1단계](virtual-machines-workload-high-availability-LOB-application-phase1.md)에서 정의했습니다.
 
 적절한 값을 모두 입력한 후 Azure PowerShell 프롬프트에서 완성된 블록을 실행합니다.
 
@@ -116,6 +118,8 @@ PowerShell 명령의 다음 블록을 사용하여 두 웹 서버용 가상 컴�
 	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
+> [AZURE.NOTE]이러한 가상 컴퓨터는 인트라넷 응용 프로그램용이므로 공용 IP 주소 또는 DNS 도메인 이름 레이블이 할당되지 않으며 인터넷에 노출되지 않습니다. 그러나 이는 Azure Preview 포털에서도 연결할 수 없음을 의미합니다. 가상 컴퓨터의 속성을 볼 때 **연결** 단추를 사용할 수 없습니다.
+
 원하는 원격 데스크톱 클라이언트를 사용하여 각 웹 서버 가상 컴퓨터에 대한 원격 데스크톱 연결을 만듭니다. 인트라넷 DNS 또는 컴퓨터 이름 및 로컬 관리자 계정의 자격 증명을 사용합니다.
 
 다음으로 각 웹 서버 가상 컴퓨터에 대해 Windows PowerShell 프롬프트에서 다음 명령을 사용하여 적합한 Active Directory 도메인과 연결합니다.
@@ -124,7 +128,7 @@ PowerShell 명령의 다음 블록을 사용하여 두 웹 서버용 가상 컴�
 	Add-Computer -DomainName $domName
 	Restart-Computer
 
-**Add-Computer** 명령을 입력한 후에는 반드시 도메인 계정 자격 증명을 제공해야 합니다.
+**Add-Computer** 명령을 입력한 후에는 도메인 계정 자격 증명을 제공해야 합니다.
 
 다시 시작된 후 로컬 관리자 권한이 있는 계정을 사용하여 다시 연결합니다.
 
@@ -154,7 +158,7 @@ PowerShell 명령의 다음 블록을 사용하여 두 웹 서버용 가상 컴�
 
 ## 다음 단계
 
-이 작업을 계속 구성하려면 [5단계: 가용성 그룹을 만들고 응용 프로그램 데이터베이스 추가](virtual-machines-workload-high-availability-LOB-application-phase5.md)로 진행하세요.
+이 워크로드를 계속 구성하려면 [5단계: 가용성 그룹을 만들고 응용 프로그램 데이터베이스 추가](virtual-machines-workload-high-availability-LOB-application-phase5.md)로 진행하세요.
 
 ## 추가 리소스
 
@@ -166,6 +170,6 @@ PowerShell 명령의 다음 블록을 사용하여 두 웹 서버용 가상 컴�
 
 [Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-[Azure 인프라 서비스 작업: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
+[Azure 인프라 서비스 워크로드: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

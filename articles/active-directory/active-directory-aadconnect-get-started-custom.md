@@ -24,7 +24,6 @@
 빠른 설치에 대한 자세한 내용은 [빠른 설치](active-directory-aadconnect.md#getting-started-with-azure-ad-connect)를 참조하세요. 디렉터리 동기화에서 Azure AD Connect로 업그레이드에 대한 내용은 [디렉터리 동기화를 Azure Active Directory 연결로 업그레이드](active-directory-aadconnect-dirsync-upgrade-get-started.md)를 참조하세요.
 
 
-
 ## 필요한 구성 요소 설치
 
 동기화 서비스를 설치할 때는 선택적 구성 섹션을 선택 취소된 채로 두면 됩니다. 그러면 Azure AD Connect에서 모든 사항이 자동 설정됩니다. SQL Server 2012 Express 설정, 적절한 그룹 만들기, 그룹에 권한 할당 등이 자동으로 설정됩니다. 기본값을 변경하려는 경우 다음 테이블을 참조하여 사용할 수 있는 선택적 구성 옵션을 이해할 수 있습니다.
@@ -81,11 +80,11 @@ ObjectSID 및 msExchangeMasterAccountSID|이 옵션은 계정 포리스트에서
 sAMAccountName 및 MailNickName|이 옵션은 사용자에 대한 로그인 ID를 찾을 수 있을 것으로 예상되는 특성에 연결합니다.
 나만의 특성|이 옵션을 사용하면 고유한 특성을 선택할 수 있습니다. **제한:** 메타버스에 이미 존재하는 특성을 선택할 수 있는지 확인합니다. 사용자 지정 특성을 선택하면 마법사를 완료할 수 없습니다.
 
-- **소스 앵커** -특성 sourceAnchor는 사용자 개체의 수명 동안 변경할 수 없는 특성입니다. Azure AD에서 사용자와 온-프레미스 사용자를 연결하는 기본 키입니다. 특성을 변경할 수 없으므로, 좋은 특성을 사용해야 합니다. 좋은 후보는 objectGUID입니다. 사용자 계정이 포리스트/도메인 간에 이동하지 않는 한 이 특성은 변경되지 않습니다. 포리스트 간에 계정을 이동하는 다중 포리스트 환경에서 employeeID가 있는 특성과 같은 다른 특성이 사용되어야 합니다. 피해야할 특성은 결혼하거나 약속을 변경한 경우 변경되는 특성입니다. @ 기호와 함께 특성을 사용할 수 없으므로 전자 메일 및 userPrincipalName을 사용할 수 없습니다. 특성은 대/소문자를 구분하므로 포리스트 간에 개체를 이동하는 경우 대/소문자를 유지해야 합니다. 이진 특성의 경우 값은 base64로 인코딩되지만 다른 특성 유형의 경우 인코딩되지 않은 상태로 유지됩니다. 페더레이션 시나리오 및 일부 Azure AD 인터페이스에서 이 특성은 immutableID라고도 합니다.
+- **소스 앵커** -특성 sourceAnchor는 사용자 개체의 수명 동안 변경할 수 없는 특성입니다. Azure AD에서 사용자와 온-프레미스 사용자를 연결하는 기본 키입니다. 특성을 변경할 수 없으므로, 좋은 특성을 사용해야 합니다. 좋은 후보는 objectGUID입니다. 사용자 계정이 포리스트/도메인 간에 이동하지 않는 한 이 특성은 변경되지 않습니다. 포리스트 간에 계정을 이동하는 다중 포리스트 환경에서 employeeID가 있는 특성과 같은 다른 특성이 사용되어야 합니다. 피해야할 특성은 결혼하거나 약속을 변경한 경우 변경되는 특성입니다. @ 기호와 함께 특성을 사용할 수 없으므로 메일 및 userPrincipalName을 사용할 수 없습니다. 특성은 대/소문자를 구분하므로 포리스트 간에 개체를 이동하는 경우 대/소문자를 유지해야 합니다. 이진 특성의 경우 값은 base64로 인코딩되지만 다른 특성 유형의 경우 인코딩되지 않은 상태로 유지됩니다. 페더레이션 시나리오 및 일부 Azure AD 인터페이스에서 이 특성은 immutableID라고도 합니다.
 
-- **UserPrincipalName** -특성 userPrincipalName은 Azure AD 및 Office 365에 로그인하는 경우 사용자가 사용하는 특성입니다. UPN-접미사로 알려진 사용된 도메인은 사용자가 동기화되기 전에 Azure AD에서 확인해야 합니다. 기본 특성 userPrincipalName을 유지하는 것이 좋습니다. 이 특성은 라우팅할 수 없고 확인할 수 없으며 전자 메일의 경우 로그인 ID를 보유하는 특성으로 다른 특성을 선택할 수 없습니다. **대체 ID**로도 알려져 있습니다. 대체 ID 특성 값은 RFC822 표준을 따라야 합니다. 대체 ID는 로그인 솔루션으로 암호 SSO 및 페더레이션 SSO 모두를 함께 사용할 수 있습니다.
+- **UserPrincipalName** -특성 userPrincipalName은 Azure AD 및 Office 365에 로그인하는 경우 사용자가 사용하는 특성입니다. UPN-접미사로 알려진 사용된 도메인은 사용자가 동기화되기 전에 Azure AD에서 확인해야 합니다. 기본 특성 userPrincipalName을 유지하는 것이 좋습니다. 이 특성은 라우팅할 수 없고 확인할 수 없으며 메일의 경우 로그인 ID를 보유하는 특성으로 다른 특성을 선택할 수 없습니다. **대체 ID**로도 알려져 있습니다. 대체 ID 특성 값은 RFC822 표준을 따라야 합니다. 대체 ID는 로그인 솔루션으로 암호 SSO 및 페더레이션 SSO 모두를 함께 사용할 수 있습니다.
 
->[AZURE.WARNING]대체 ID를 사용하면 모든 Office 365 작업 부하와 호환되지 않습니다. 자세한 내용은 [대체 로그인 ID 구성](https://technet.microsoft.com/library/dn659436.aspx.)을 참조하십시오.
+>[AZURE.WARNING]대체 ID를 사용하면 모든 Office 365 워크로드 부하와 호환되지 않습니다. 자세한 내용은 [대체 로그인 ID 구성](https://technet.microsoft.com/library/dn659436.aspx.)을 참조하세요.
 
 
 
@@ -174,7 +173,7 @@ PowerShell cmdlet을 실행하려면 먼저 가져와야 합니다.
 
 이 작업을 수행하려면 Active Directory 및 MSOnline PowerShell이 로컬에 설치되어 있어야 합니다.
 
-
+자세한 내용은 [Azure AD Connect에서 장치 쓰기 저장(writeback) 사용](active-directory-aadconnect-get-started-custom-device-writeback.md)을 참조하세요.
 
 ## 스테이징 모드
 스테이징 모드를 사용하여 기존 서버와 함께 병렬로 새 동기화 서버를 설정하는 프로세스가 가능합니다. 클라우드에서 한 디렉터리에 연결하는 한 동기화 서버에서만 지원됩니다. 하지만 DirSync를 실행하는 서버와 같은 다른 서버에서 이동하려는 경우, 스테이징 모드에서 Azure AD Connect를 사용할 수 있습니다. 활성화된 동기화 엔진이 데이터를 정상적으로 가져오고 동기화하지만, Azure AD로 아무것도 내보내지 않고 암호 동기화 및 암호 쓰기 저장을 해제합니다.
@@ -268,4 +267,4 @@ AD FS에 로그인하고 PSH를 사용하여 이렇게 구성하여 AD FS 로그
 	
 	Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.png"} –Illustration @{path=”c:\Contoso\illustration.png”}
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

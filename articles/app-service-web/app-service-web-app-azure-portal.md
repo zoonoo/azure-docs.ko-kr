@@ -8,17 +8,19 @@
 	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/17/2015"
+	ms.date="09/15/2015"
 	ms.author="jaime-espinosa"/>
 
 # Azure 포털 탐색을 위한 참조
 
 Azure 웹 사이트를 이제 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)이라고 합니다. 이러한 이름 변경을 반영하고 새 Azure 포털에 대한 지침을 제공하기 위해 모든 설명서를 업데이트 중입니다. 해당 프로세스가 완료될 때까지 이 문서를 새 Azure 포털의 웹앱 작업을 위한 가이드로 사용할 수 있습니다.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
  
 ## 이전 포털의 미래
 
@@ -86,4 +88,4 @@ Azure 웹 사이트를 이제 [앱 서비스 웹앱](http://go.microsoft.com/fwl
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [새 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

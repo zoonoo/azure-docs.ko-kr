@@ -3,7 +3,7 @@
 	description="데이터 디스크를 Azure 가상 컴퓨터에 연결하고 사용 가능하도록 초기화하는 방법에 대해 알아봅니다."
 	services="virtual-machines, storage"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/16/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법
 
@@ -59,4 +59,4 @@
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

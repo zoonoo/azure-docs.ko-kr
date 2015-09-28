@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 장애 조치(failover) 및 재해 복구 | Microsoft Azure"
-	description="자체적으로, 다른 실제 장치 또는 가상 장치로 StorSimple 장치의 장애를 조치하는 방법을 알아봅니다."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="adinah"
-	editor=""/>
+   description="자체적으로, 다른 실제 장치 또는 가상 장치로 StorSimple 장치의 장애를 조치하는 방법을 알아봅니다."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/28/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/14/2015"
+   ms.author="alkohli" />
 
 # StorSimple 장치에 대한 장애 조치 및 재해 복구
 
@@ -129,11 +129,16 @@ DR(재해 복구) 시나리오에서 기본 장치가 작동을 중지합니다.
 	
 	b. **볼륨 컨테이너** 페이지로 이동합니다. 이제 이전 장치의 볼륨과 함께 모든 볼륨 컨테이너가 나열됩니다.
 
+![동영상 사용 가능](./media/storsimple-device-failover-disaster-recovery/Video_icon.png) **동영상 사용 가능**
+
+장애 조치(Failover)된 물리적 장치를 클라우드의 가상 장치로 복원하는 방법을 보여 주는 동영상을 시청하려면 [여기](http://azure.microsoft.com/documentation/videos/storsimple-and-disaster-recovery/)를 클릭하세요.
+
 ## 비즈니스 연속성 재해 복구(BCDR)
 
 비즈니스 연속성 재해 복구(BCDR) 시나리오는 전체 Azure 데이터 센터의 작동이 중지되는 경우 발생합니다. StorSimple 관리자 서비스 및 연결된 StorSimple 장치에 영향을 줄 수 있습니다.
 
 재해가 발생하기 직전에 등록된 StorSimple 장치가 있으면 이러한 StorSimple 장치는 공장 재설정을 거쳐야 할 수도 있습니다. 재해가 발생한 후 StorSimple 장치가 오프라인으로 나타납니다. 포털에서 StorSimple 장치를 삭제하고 공장 재설정한 뒤에 새로 등록해야 합니다.
+
 
 ## 다음 단계
 
@@ -142,7 +147,7 @@ DR(재해 복구) 시나리오에서 기본 장치가 작동을 중지합니다.
 - [StorSimple 장치 비활성화](storsimple-deactivate-and-delete-device.md#deactivate-a-device)
 - [StorSimple 장치 삭제](storsimple-deactivate-and-delete-device.md#delete-a-device)
 
-StorSimple Manager 서비스를 사용하여 장치를 관리하는 방법에 대한 자세한 내용은 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md)로 이동하세요.
+StorSimple Manager 서비스를 사용하는 방법에 대한 자세한 내용을 보려면 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md)로 이동하세요.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

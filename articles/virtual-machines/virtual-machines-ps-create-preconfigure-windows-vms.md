@@ -3,7 +3,7 @@
 	description="Azure PowerShell을 사용하여 Azure에서 Windows 기반 가상 컴퓨터를 만들고 미리 구성하는 방법에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/10/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성
 
@@ -271,4 +271,4 @@ Active Directory 도메인 컨트롤러에 대해 $hcaching을 "None"으로 설�
 
 [리소스 관리자 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

@@ -74,10 +74,9 @@ TelemetryClient의 인스턴스를 생성합니다(웹 페이지의 JavaScript�
 
     private TelemetryClient telemetry = new TelemetryClient();
 
-웹 앱의 각 요청에 대해 또는 다른 앱의 각 세션에 대해 `TelemetryClient` 인스턴스를 하나만 사용하는 것이 좋습니다. `TelemetryClient.Context.User.Id` 같은 속성을 설정하여 사용자 및 세션을 추적할 수 있습니다. 이 정보는 인스턴스에서 보낸 모든 이벤트에 연결됩니다.
-
 TelemetryClient는 스레드로부터 안전합니다.
 
+앱의 각 모듈에 대해 `TelemetryClient` 인스턴스를 사용하는 것이 좋습니다. 예를 들어 웹 서비스에 들어오는 http 요청을 보고하는 `TelemetryClient` 하나가 있고 미들웨어 클래스에 비즈니스 논리 이벤트를 보고하는 다른 하나가 있을 수 있습니다. `TelemetryClient.Context.User.Id`와 같은 속성을 설정하여 사용자 및 세션을 추적하거나 `TelemetryClient.Context.Device.Id`를 설정하여 컴퓨터를 식별할 수 있습니다. 이 정보는 인스턴스에서 보낸 모든 이벤트에 연결됩니다.
 
 
 ## 이벤트 추적
@@ -901,4 +900,4 @@ ApplicationInsights.config에서:
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

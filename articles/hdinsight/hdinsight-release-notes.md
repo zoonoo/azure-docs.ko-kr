@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/09/2015"
+	ms.date="09/15/2015"
 	ms.author="nitinme"/>
 
 
@@ -1125,7 +1125,7 @@ Azure PowerShell 및 HDInsight SDK 오류 메시지: "*클러스터가 HTTP 서�
 	* zookeeper0
 	* zookeeper1
 	* zookeeper2
-* HBase 버전 지원 매트릭스가 업데이트됩니다. 프로덕션 HBase 작업에는 HDInsight 버전 3.1(HBase 버전 0.98)만 지원됩니다. 미리 보기에 사용 가능한 버전 3.0은 앞으로 지원되지 않습니다.
+* HBase 버전 지원 매트릭스가 업데이트됩니다. 프로덕션 HBase 워크로드에는 HDInsight 버전 3.1(HBase 버전 0.98)만 지원됩니다. 미리 보기에 사용 가능한 버전 3.0은 앞으로 지원되지 않습니다.
 
 ## 2014/8/15 이전에 만든 클러스터에 대한 참고 사항
 
@@ -1153,11 +1153,9 @@ HDInsight SDK 및 Azure PowerShell의 최신 버전에서는 이러한 호환성
 이 릴리스에는 HDInsight 서비스의 향상된 기능이 포함되어 있습니다.
 
 * **HDP 2.1 사용 가능**: HDP 3.1을 포함하는 HDInsight 2.1이 일반 공급되며 새로운 클러스터의 기본 버전입니다.
-* **HBase - Azure 포털 개선 사항**: 미리 보기에서 HBase 클러스터를 사용할 수 있습니다. 3번의 클릭으로 포털에서 HBase 클러스터를 만들 수 있습니다.
+* **HBase - Azure 포털 개선 사항**: 미리 보기에서 HBase 클러스터를 사용할 수 있습니다. 몇 번만 클릭하면 포털에서 HBase 클러스터를 만들 수 있습니다. 
 
-![](http://i.imgur.com/cmOl5fM.png)
-
-HBase에서는, 수백만 개의 끝점에서 들어오는 센서 및 원격 분석 데이터를 저장하는 서비스의 대형 데이터 집합을 사용하는 대화형 웹 사이트에서 HDInsight에 대한 여러 실시간 작업을 구성할 수 있습니다. 다음 단계는 Hadoop 작업으로 이러한 작업의 데이터를 분석하는 것이며, Azure PowerShell 및 Hive 클러스터 대시보드를 통해 HDInsight에서 수행할 수 있습니다.
+HBase에서는, 수백만 개의 끝점에서 들어오는 센서 및 원격 분석 데이터를 저장하는 서비스의 대형 데이터 집합을 사용하는 대화형 웹 사이트에서 HDInsight에 대한 여러 실시간 워크로드를 구성할 수 있습니다. 다음 단계는 Hadoop 작업으로 이러한 워크로드의 데이터를 분석하는 것이며, Azure PowerShell 및 Hive 클러스터 대시보드를 통해 HDInsight에서 수행할 수 있습니다.
 
 ### HDInsight 3.1에 사전 설치되는 Apache Mahout
 
@@ -1348,4 +1346,4 @@ HDInsight 버전 클러스터에 사용되는 HDP(Hortonworks Data Platform)에 
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

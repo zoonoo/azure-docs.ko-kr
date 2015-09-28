@@ -1,3 +1,5 @@
+<!--author=alkohli last changed: 9/16/15-->
+
 
 #### 장치에 전원 케이블을 연결하려면
 
@@ -41,4 +43,4 @@
     |8|EBOD 인클로저|
     |9|PDU|
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -1,6 +1,6 @@
 
 <properties
-    pageTitle="Azure RemoteApp과 함께 사용하기 위해 Azure VNET의 유효성을 검사"
+    pageTitle="Azure RemoteApp과 함께 사용하기 위해 Azure VNET의 유효성 검사 | Microsoft Azure"
     description="Azure VNET이 Azure RemoteApp과 함께 사용할 준비가 되었는지 확인하는 방법을 알아봅니다."
     services="remoteapp"
     documentationCenter=""
@@ -33,8 +33,9 @@ Azure VNET의 유효성을 검사하려면 다음을 수행합니다.
 
 종단간 하이브리드 컬렉션 워크플로에 대한 자세한 내용은 다음 문서를 참조하세요.
 
+- [Azure RemoteApp에 대한 가상 네트워크를 계획하는 방법](remoteapp-planvpn.md)
 - [하이브리드 컬렉션 만들기](remoteapp-create-hybrid-deployment.md)
 - [Azure RemoteApp 컬렉션을 Azure 가상 네트워크에 배포(ExpressRoute 지원 포함)](http://blogs.msdn.com/b/rds/archive/2015/04/23/deploy-azure-remoteapp-collection-to-your-azure-virtual-network-with-support-for-expressroute.aspx)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

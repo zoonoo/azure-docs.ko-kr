@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="09/11/2015"
 	ms.author="luisca"/>
 
 
@@ -135,7 +135,9 @@
 		 {"Score":0.7767222,"Id":"2"},
 		 {"Score":0.8988889,"Id":"3"}
 		],  
-		"Errors":[] 
+		"Errors":[
+		   {"Id": "4", Message:"Record cannot be null/empty"}
+		]
 	}
 
 
@@ -191,7 +193,9 @@
 		   {"KeyPhrases":["amazing build conference","interesting talks"],"Id":"2"},
 		   {"KeyPhrases":["hours","traffic","airport"],"Id":"3" }
 		],
-		"Errors":[ ]
+		"Errors":[
+		   {"Id": "4", Message:"Record cannot be null/empty"}
+		]
 	}
 
 ---
@@ -201,4 +205,4 @@
 시스템에 입력한 ID가 시스템에서 반환됩니다. 웹 서비스는 ID가 고유한지 검사하지 않습니다. 호출자가 고유성을 확인해야 합니다.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

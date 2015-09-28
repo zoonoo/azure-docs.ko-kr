@@ -121,6 +121,13 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 디버그 모드에서 실행할 때는 파이프라인을 통해 원격 분석이 신속하게 수행되므로 데이터가 몇 초 내에 표시됩니다. 앱을 배포할 때는 데이터가 더 천천히 누적됩니다.
 
+#### 서버에 게시한 후 데이터가 없나요?
+
+서버 방화벽에서 나가는 트래픽에 대해 다음 포트를 엽니다.
+
++ `dc.services.visualstudio.com:443`
++ `f5.services.visualstudio.com:443`
+
 
 #### 빌드 서버에 문제가 있나요?
 
@@ -130,13 +137,13 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 SDK에는 일부 데이터에 액세스할 경우 다음과 같은 도움이 필요 합니다. 특히 자동으로 데이터베이스, REST Api 및 기타 외부 구성 요소를 앱에서 호출을 측정하기 위해 이 추가 단계가 필요합니다. 종속성 메트릭은 성능 문제 진단을 도와줄 때 매우 유용합니다.
 
-이 단계를 사용하면 [성능 카운터의 보고](app-insights-web-monitor-performance.md#system-performance-counters)(예: CPU, 메모리, 네트워크 선점)도 가능합니다.
-
 #### 앱이 IIS 서버에서 실행되는 경우
 
 관리자 권한으로 서버에 로그인하고 [Application Insights 상태 모니터](http://go.microsoft.com/fwlink/?LinkId=506648)를 설치합니다.
 
-SDK로 빌드되지 않은 경우에도 상태 모니터를 사용하여 [이미 실행 중인 앱을 계측](app-insights-monitor-performance-live-website-now.md)할 수 있습니다.
+[방화벽에서 나가는 포트를 추가로 열어야](app-insights-monitor-performance-live-website-now.md#troubleshooting) 할 수도 있습니다.
+
+이 단계를 사용하면 [성능 카운터의 보고](app-insights-web-monitor-performance.md#system-performance-counters)(예: CPU, 메모리, 네트워크 선점)도 가능합니다.
 
 #### 앱이 Azure 웹앱인 경우
 
@@ -248,4 +255,4 @@ Visual Studio는 Application Insights에서 리소스를 만들고, SDK를 프�
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

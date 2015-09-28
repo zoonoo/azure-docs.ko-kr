@@ -1,29 +1,31 @@
 <properties 
-	pageTitle="LOB(기간 업무) 응용 프로그램 3단계 | Microsoft Azure"
-	description="Azure의 LOB(기간 업무) 응용 프로그램의 3단계에서 컴퓨터 및 SQL Server 클러스터를 만들고 가용성 그룹을 사용하도록 설정합니다."
+	pageTitle="LOB(기간 업무) 응용 프로그램 3단계 | Microsoft Azure" 
+	description="Azure의 LOB(기간 업무) 응용 프로그램의 3단계에서 컴퓨터 및 SQL Server 클러스터를 만들고 가용성 그룹을 사용하도록 설정합니다." 
 	documentationCenter=""
-	services="virtual-machines"
-	authors="JoeDavies-MSFT"
-	manager="timlt"
+	services="virtual-machines" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
 	editor=""
 	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/11/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="Windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/11/2015" 
 	ms.author="josephd"/>
 
 # 비즈니스 응용 프로그램 작업 라인 3단계: SQL Server 인프라 구성
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+
 Azure 인프라 서비스의 비즈니스 응용 프로그램 고가용성 라인 배포의 이 단계에서는 SQL 서버와 클러스터 주 노드 컴퓨터를 실행하는 두 대의 컴퓨터를 구성한 다음 Windows 서버 클러스터로 결합합니다.
 
-[4단계](virtual-machines-workload-high-availability-LOB-application-phase4.md)로 진행하기 전에 이 단계를 완료해야 합니다. 모든 단계는 [Azure에서 고가용성 비즈니스 응용 프로그램 가용성 라인 배포](virtual-machines-workload-high-availability-LOB-application-overview.md)를 참조하세요.
+[4단계](virtual-machines-workload-high-availability-LOB-application-phase4.md)로 진행하기 전에 이 단계를 완료해야 합니다. 모든 단계는 [Azure에서 고가용성 LOB(기간 업무) 응용 프로그램 배포](virtual-machines-workload-high-availability-LOB-application-overview.md)를 참조하세요.
 
-> [AZURE.NOTE]이 명령에서는 Azure 이미지 갤러리의 SQL 서버 이미지를 사용하며 SQL Server 라이선스 사용에 대해 지속적인 비용이 청구됩니다. Azure에서 가상 컴퓨터를 만들고 사용자 고유의 SQL Server 라이선스를 설치하는 것도 가능하지만 그 방법에 대해서는 여기서 다루지 않습니다.
+> [AZURE.NOTE]이 명령에서는 Azure 이미지 갤러리의 SQL Server 이미지를 사용하며 SQL Server 라이선스 사용에 대해 지속적인 비용이 청구됩니다. Azure에서 가상 컴퓨터를 만들고 사용자 고유의 SQL Server 라이선스를 설치할 수도 있지만 Azure 가상 컴퓨터를 포함하여 가상 컴퓨터에서 SQL Server 라이선스를 사용하려면 Software Assurance 및 License Mobility가 있어야 합니다. 가상 컴퓨터에 SQL Server를 설치하는 방법에 대한 자세한 내용은 [SQL Server 설치](https://msdn.microsoft.com/library/bb500469.aspx)를 참조하세요.
 
 ## Azure에서 SQL Server 클러스터 가상 컴퓨터 만들기
 
@@ -112,9 +114,11 @@ PowerShell 명령의 다음 블록을 사용하여 3개 서버용 가상 컴퓨�
 	$vm=Set-AzureVMOSDisk -VM $vm -Name "OSDisk" -VhdUri $osDiskUri -CreateOption fromImage
 	New-AzureVM -ResourceGroupName $rgName -Location $locName -VM $vm
 
+> [AZURE.NOTE]이러한 가상 컴퓨터는 인트라넷 응용 프로그램용이므로 공용 IP 주소 또는 DNS 도메인 이름 레이블이 할당되지 않으며 인터넷에 노출되지 않습니다. 그러나 이는 Azure Preview 포털에서도 연결할 수 없음을 의미합니다. 가상 컴퓨터의 속성을 볼 때 **연결** 단추를 사용할 수 없습니다. 원격 데스크톱 연결 액세서리 또는 다른 원격 데스크톱 도구를 통해 해당 개인 IP 주소 또는 인트라넷 DNS 이름을 사용하여 가상 컴퓨터에 연결합니다.
+
 ## SQL Server를 실행하는 컴퓨터를 구성합니다.
 
-SQL Server를 실행 중인 각각의 가상 컴퓨터에 대해 원하는 원격 데스크톱 클라이언트를 사용하여 최초의 도메인 컨트롤러 가상 컴퓨터에 대한 원격 데스크톱 연결을 만듭니다. 인트라넷 DNS 또는 컴퓨터 이름 및 로컬 관리자 계정의 자격 증명을 사용합니다.
+SQL Server를 실행하는 각 가상 컴퓨터에 대해 원하는 원격 데스크톱 클라이언트를 사용하여 원격 데스크톱 연결을 만듭니다. 인트라넷 DNS 또는 컴퓨터 이름 및 로컬 관리자 계정의 자격 증명을 사용합니다.
 
 SQL Server를 실행 중인 각각의 가상 컴퓨터에 대해 Windows PowerShell 에서 적합한 AD DS 도메인을 해당 명령과 연결합니다.
 
@@ -214,8 +218,8 @@ SQL Server AlwaysOn 가용성 그룹은 Windows Server의 WSFC(Windows Server �
 3.	왼쪽 창에서 **장애 조치(Failover) 클러스터 관리자**를 마우스 오른쪽 단추로 클릭하고 **클러스터 만들기**를 클릭합니다.
 4.	**시작하기 전에** 페이지에서 **다음**을 클릭합니다.
 5.	**서버 선택** 페이지에서 주 SQL Server 컴퓨터의 이름을 입력하고 **추가**, **다음**을 차례로 클릭합니다.
-6.	**유효성 검사 경고** 페이지에서 ** 아니요. 이 클러스터에 대한 Microsoft의 지원이 필요 없으므로 유효성 검사 테스트를 실행하지 않습니다. [다음]을 클릭하면 클러스터 만들기를 계속합니다.**를 클릭하고 **다음**을 클릭합니다.
-7.	**클러스터 관리 액세스 지점** 페이지의 **클러스터 이름** 텍스트 상자에 클러스터의 이름을 입력하고 **다음**을 클릭합니다.
+6.	**유효성 검사 경고** 페이지에서 **아니요. 이 클러스터에 대한 Microsoft의 지원이 필요 없으므로 유효성 검사 테스트를 실행하지 않습니다. [다음]을 클릭하면 클러스터 만들기를 계속합니다.**를 클릭하고 **다음**을 클릭합니다.
+7.	**클러스터 관리 액세스** 지점 페이지의 **클러스터 이름** 텍스트 상자에 클러스터의 이름을 입력하고 **다음**을 클릭합니다.
 8.	**확인** 페이지에서 **다음**을 클릭하여 클러스터 만들기를 시작합니다. 
 9.	**요약** 페이지에서 **마침**을 클릭합니다.
 10.	왼쪽 창에서 새 클러스터를 클릭합니다. 내용 창의 **클러스터 코어 리소스** 섹션에서 서버 클러스터 이름을 엽니다. **IP 주소** 리소스가 **실패** 상태로 표시됩니다. 클러스터에 컴퓨터 자체와 같은 IP 주소가 할당되므로 IP 주소 리소스는 온라인으로 설정할 수 없습니다. 따라서 주소가 중복됩니다. 
@@ -258,9 +262,9 @@ SQL Server에서 AlwaysOn 가용성 그룹을 사용하도록 설정하려면 �
 
 ## 추가 리소스
 
-[Azure에서 비즈니스 응용 프로그램 고가용성 라인 배포](virtual-machines-workload-high-availability-LOB-application-overview.md)를 참조하세요.
+[Azure에서 고가용성 LOB(기간 업무) 응용 프로그램 배포](virtual-machines-workload-high-availability-LOB-application-overview.md)
 
-[비즈니스 응용 프로그램 라인 아키텍처 청사진](http://msdn.microsoft.com/dn630664)
+[LOB(기간 업무) 응용 프로그램 아키텍처 청사진](http://msdn.microsoft.com/dn630664)
 
 [테스트를 위한 하이브리드 클라우드에서 웹 기반 LOB 응용 프로그램 설정](../virtual-network/virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
 
@@ -268,4 +272,4 @@ SQL Server에서 AlwaysOn 가용성 그룹을 사용하도록 설정하려면 �
 
 [Azure 인프라 서비스 작업: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

@@ -1,5 +1,4 @@
-
-
+<!--author=SharS last changed: 9/17/15-->
 
 ### 장치를 구성 및 등록하려면
 
@@ -37,7 +36,7 @@
 
       4. 선택적으로 웹 프록시 서버를 구성합니다.
 
-      >[AZURE.IMPORTANT]웹 프록시 구성은 선택 사항이지만 웹 프록시를 사용하면 여기서만 구성할 수 있습니다. 자세한 내용은 [장치에 웹 프록시 구성](https://msdn.microsoft.com/library/azure/dn764937.aspx)으로 이동합니다.
+      >[AZURE.IMPORTANT]웹 프록시 구성은 선택 사항이지만 웹 프록시를 사용하면 여기서만 구성할 수 있습니다. 자세한 내용은 [장치에 웹 프록시 구성](storsimple-configure-web-proxy.md)으로 이동합니다.
 
 6. 설치 마법사를 끝내려면 Ctrl + C를 누릅니다.
  
@@ -95,7 +94,7 @@
 
      `Set-CloudPlatform -AzureGovt_US`
 
-    확인 메시지가 표시됩니다. 기본값을 적용합니다(**Y**).
+    확인 메시지가 표시됩니다. 기본값(**Y**)을 적용합니다.
 
 11. 설치를 다시 시작하려면 다음 cmdlet을 실행합니다.
 
@@ -138,4 +137,4 @@
      
         
 
-<!-------HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

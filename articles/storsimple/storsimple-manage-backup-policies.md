@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 백업 정책 관리 | Microsoft Azure"
-	description="StorSimple Manager 서비스를 사용하여 수동 백업, 백업 일정 및 백업 보존을 만들고 관리하는 방법을 설명합니다."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="StorSimple Manager 서비스를 사용하여 수동 백업, 백업 일정 및 백업 보존을 만들고 관리하는 방법을 설명합니다."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor=""/>
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/27/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="v-sharos"/>
 
 # StorSimple 관리자 서비스를 사용하여 백업 정책 관리
 
@@ -49,9 +49,13 @@
 
 ## 백업 정책 추가
 
-자동 백업을 예약하려면 백업 정책을 추가합니다. StorSimple 장치에 대한 백업 정책을 추가하려면 관리 포털에서 다음 단계를 수행합니다. 정책를 추가한 후, 일정을 정의할 수 있습니다([일정 추가 또는 수정](#add-or-modify-a-schedule) 참조).
+자동 백업을 예약하려면 백업 정책을 추가합니다. StorSimple 장치에 대한 백업 정책을 추가하려면 관리 포털에서 다음 단계를 수행합니다. 정책을 추가한 후 일정을 정의할 수 있습니다([일정 추가 또는 수정](#add-or-modify-a-schedule) 참조).
 
 [AZURE.INCLUDE [storsimple-add-backup-policy](../../includes/storsimple-add-backup-policy.md)]
+
+![동영상 사용 가능](./media/storsimple-manage-backup-policies/Video_icon.png) **동영상 사용 가능**
+
+로컬 또는 클라우드 백업 정책을 만드는 방법을 보여 주는 동영상을 시청하려면 [여기](http://azure.microsoft.com/documentation/videos/create-storsimple-backup-policies/)를 클릭하세요.
 
 
 ## 일정 추가 또는 수정
@@ -82,6 +86,6 @@ StorSimple 장치에 대한 백업 정책을 삭제하려면 관리 포털에서
 
 ## 다음 단계
 
-[StorSimple 스냅숏 관리자를 사용하여 백업 작업을 보고 관리](storsimple-snapshot-manager-manage-backup-jobs.md)하는 방법을 알아봅니다.
+- [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

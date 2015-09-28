@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/23/2015"
 	ms.author="josephd"/>
 
 # Azure 리소스 관리자를 사용하는 기본 구성 테스트 환경
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다. [클래식 배포 모델](virtual-machines-base-configuration-test-environment.md)을 사용하여 이러한 리소스를 만들 수도 있습니다.
 
 이 문서는 리소스 관리자에서 만든 가상 컴퓨터를 사용하는 Microsoft Azure 가상 네트워크에서 기본 구성 테스트 환경을 만드는 방법에 관한 단계별 지침을 제공합니다.
 
@@ -52,14 +54,9 @@ Azure에서 Windows Server 2012 R2 기본 구성 테스트 환경의 Corpnet 서
 
 > [AZURE.NOTE]Azure의 가상 컴퓨터는 실행 중인 동안 지속적인 비용이 부과됩니다. 이 비용은 무료 평가판, MSDN 구독 또는 유료 구독에 대해 청구됩니다. 실행 중인 Azure 가상 컴퓨터의 비용에 대한 자세한 내용은 [가상 컴퓨터 가격 정보](http://azure.microsoft.com/pricing/details/virtual-machines/) 및 [Azure 가격 계산기](http://azure.microsoft.com/pricing/calculator/)를 참조하세요. 비용을 절감하려면 [Azure에서 테스트 환경 가상 컴퓨터의 비용 최소화](#costs)를 참조하세요.
 
-[AZURE.INCLUDE [resource-manager-pointer-to-service-management](../../includes/resource-manager-pointer-to-service-management.md)]
-
-- [기본 구성 테스트 환경](virtual-machines-base-configuration-test-environment.md)
-
-
 ## 1단계: 가상 네트워크 만들기
 
-첫째, 필요한 경우 [Azure PowerShell 설치 및 구성 방법](../install-configure-powershell.md) 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다. Azure PowerShell 프롬프트를 엽니다.
+첫째, 필요한 경우 [Azure PowerShell 설치 및 구성 방법](../install-configure-powershell.md)의 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다. Azure PowerShell 프롬프트를 엽니다.
 
 다음으로 이러한 명령을 사용하여 올바른 Azure 구독을 선택합니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
 
@@ -96,7 +93,7 @@ Azure에서 Windows Server 2012 R2 기본 구성 테스트 환경의 Corpnet 서
 	Switch-AzureMode AzureServiceManagement
 	Test-AzureName -Storage <Proposed storage account name>
 
-Test-AzureName 명령에서 **False**를 표시하는 경우 제안된 이름은 고유한 것입니다. 고유한 이름을 확인한 경우 다음 명령을 사용하여 Azure PowerShell을 다시 리소스 관리자 모드로 전환합니다.
+Test-AzureName 명령에서 **False**를 표시하는 경우 제안된 이름이 고유한 것입니다. 고유한 이름을 확인한 경우 다음 명령을 사용하여 Azure PowerShell을 다시 리소스 관리자 모드로 전환합니다.
 
 	Switch-AzureMode AzureResourceManager 
 
@@ -144,8 +141,8 @@ DC1은 corp.contoso.com AD DS(Active Directory 도메인 서비스) 도메인의
 
 그런 다음 DC1 가상 컴퓨터에 연결합니다.
 
-1.	Azure Preview 포털에서, 왼쪽 창에 있는 **모두 찾아보기**를 클릭하고, **찾아보기** 목록의 **가상 컴퓨터**를 클릭한 다음 **DC1** 가상 컴퓨터를 클릭합니다.  
-2.	**DC1**창에서, **연결**을 클릭합니다.
+1.	Azure Preview 포털의 왼쪽 창에서 **모두 찾아보기**를 클릭하고 **찾아보기** 목록에서 **가상 컴퓨터**를 클릭한 다음 **DC1** 가상 컴퓨터를 클릭합니다.  
+2.	**DC1**창에서 **연결**을 클릭합니다.
 3.	메시지가 나타나면 다운로드한 DC1.rdp 파일을 엽니다.
 4.	원격 데스크톱 연결 메시지 상자가 포함된 메시지가 나타나면 **연결**을 클릭합니다.
 5.	자격 증명을 묻는 메시지가 나타나면 다음을 사용합니다.
@@ -291,7 +288,7 @@ CLIENT1이 다시 시작되면 CORP\\User1 계정 이름 및 암호로 연결하
 4.	시작 화면에서 **Internet Explorer**를 클릭한 후 **확인**을 클릭합니다.
 5.	주소 표시줄에 ****http://app1.corp.contoso.com/**을 입력하고 Enter 키를 누릅니다. APP1에 대한 기본 IIS(인터넷 정보 서비스) 웹 페이지가 표시됩니다.
 6.	바탕 화면 작업 표시줄에서 파일 탐색기 아이콘을 클릭합니다.
-7.	주소 표시줄에 **\\\\app1\\Files**를 입력하고 Enter 키를 누릅니다.
+7.	주소 표시줄에 **\\\app1\\Files**를 입력하고 Enter 키를 누릅니다.
 8.	Files 공유 폴더의 내용이 포함된 폴더 창이 표시됩니다.
 9.	**Files** 공유 폴더 창에서 **Example.txt** 파일을 두 번 클릭합니다. Example.txt 파일의 내용이 표시됩니다.
 10.	**example.txt - 메모장** 및 **Files** 공유 폴더 창을 닫습니다.
@@ -336,4 +333,4 @@ Azure PowerShell을 사용하여 가상 컴퓨터를 순서대로 시작하려�
 	Start-AzureVM -ResourceGroupName $rgName -Name "APP1"
 	Start-AzureVM -ResourceGroupName $rgName -Name "CLIENT1"
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

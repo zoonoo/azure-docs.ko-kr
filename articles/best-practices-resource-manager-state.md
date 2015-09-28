@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="09/10/2015"
 	ms.author="mmercuri"/>
 
 # Azure 리소스 관리자 템플릿에서 상태 공유
@@ -32,52 +32,54 @@
 
 다음 예제에서는 데이터 컬렉션을 나타내기 위한 복잡한 개체를 포함하는 변수의 정의 방법을 보여 줍니다. 이 컬렉션은 가상 컴퓨터 크기, 네트워크 설정, 운영 체제 설정 및 가용성 설정에 사용되는 값을 정의합니다.
 
-    "tshirtSizeLarge": {
-      "vmSize": "Standard_A4",
-      "diskSize": 1023,
-      "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-16disk-resources.json')]",
-      "vmCount": 3,
-      "slaveCount": 2,
-      "storage": {
-        "name": "[parameters('storageAccountNamePrefix')]",
-        "count": 2,
-        "pool": "db",
-        "map": [0,1,1],
-        "jumpbox": 0
-      }
-    },
-    "osSettings": {
-      "scripts": [
-        "[concat(variables('templateBaseUrl'), 'install_postgresql.sh')]",
-        "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/shared_scripts/ubuntu/vm-disk-utils-0.1.sh"
-      ],
-      "imageReference": {
-				"publisher": "Canonical",
-        "offer": "UbuntuServer",
-        "sku": "14.04.2-LTS",
-        "version": "latest"
-      }
-    },
-    "networkSettings": {
-      "vnetName": "[parameters('virtualNetworkName')]",
-      "addressPrefix": "10.0.0.0/16",
-      "subnets": {
-        "dmz": {
-          "name": "dmz",
-          "prefix": "10.0.0.0/24",
-          "vnet": "[parameters('virtualNetworkName')]"
-        },
-        "data": {
-          "name": "data",
-          "prefix": "10.0.1.0/24",
-          "vnet": "[parameters('virtualNetworkName')]"
+    "variables": {
+      "tshirtSizeLarge": {
+        "vmSize": "Standard_A4",
+        "diskSize": 1023,
+        "vmTemplate": "[concat(variables('templateBaseUrl'), 'database-16disk-resources.json')]",
+        "vmCount": 3,
+        "slaveCount": 2,
+        "storage": {
+          "name": "[parameters('storageAccountNamePrefix')]",
+          "count": 2,
+          "pool": "db",
+          "map": [0,1,1],
+          "jumpbox": 0
         }
+      },
+      "osSettings": {
+        "scripts": [
+          "[concat(variables('templateBaseUrl'), 'install_postgresql.sh')]",
+          "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/shared_scripts/ubuntu/vm-disk-utils-0.1.sh"
+        ],
+        "imageReference": {
+	  "publisher": "Canonical",
+          "offer": "UbuntuServer",
+          "sku": "14.04.2-LTS",
+          "version": "latest"
+        }
+      },
+      "networkSettings": {
+        "vnetName": "[parameters('virtualNetworkName')]",
+        "addressPrefix": "10.0.0.0/16",
+        "subnets": {
+          "dmz": {
+            "name": "dmz",
+            "prefix": "10.0.0.0/24",
+            "vnet": "[parameters('virtualNetworkName')]"
+          },
+          "data": {
+            "name": "data",
+            "prefix": "10.0.1.0/24",
+            "vnet": "[parameters('virtualNetworkName')]"
+          }
+        }
+      },
+      "availabilitySetSettings": {
+        "name": "pgsqlAvailabilitySet",
+        "fdCount": 3,
+        "udCount": 5
       }
-    },
-    "availabilitySetSettings": {
-      "name": "pgsqlAvailabilitySet",
-      "fdCount": 3,
-      "udCount": 5
     }
 
 그런 다음 템플릿의 뒷부분에서 이러한 변수를 참조할 수 있습니다. 명명된 변수 및 해당 속성을 참조하는 기능이 구현되면 템플릿 구문이 단순화되며 컨텍스트를 쉽게 이해할 수 있습니다. 다음 예제에서는 위에 표시된 개체를 통해 값을 설정하여 배포할 리소스를 정의합니다. 예를 들어 디스크 크기 값은 `variables('tshirtSize').diskSize`에서 검색되지만 VM 크기는 `variables('tshirtSize').vmSize` 값을 검색하여 설정합니다. 또한 연결된 템플릿에 대한 URI는 `variables('tshirtSize').vmTemplate` 값으로 설정됩니다.
@@ -387,4 +389,4 @@ enableJumpbox | 제한된 목록에서 가져온 문자열(enabled/disabled) | �
 - [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)
 - [Azure 리소스 관리자 템플릿 함수](resource-group-template-functions.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

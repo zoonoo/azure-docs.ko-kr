@@ -12,8 +12,8 @@
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="07/27/2015"
+	ms.topic="get-started-article" 
+	ms.date="09/10/2015"
 	ms.author="spelluru"/>
 
 # Azure Data Factory를 사용하여 첫 번째 파이프라인 빌드
@@ -64,12 +64,10 @@ Hive 스크립트 실행 후에는 결과가 Azure Blob 저장소 컨테이너 *
 
 1. 메모장을 시작하고 다음 텍스트를 붙여 넣은 다음 사용자 하드 드라이브의 C:\\adfgettingstarted 폴더 에 **partitionweblogs.hql**로 저장합니다. 이 Hive 스크립트는 **WebLogsRaw** 및 **WebLogsPartitioned**라는 두 개의 외부 테이블을 만듭니다.
 
-	> [AZURE.IMPORTANT]마지막 줄에 있는 **storageaccountname**을 사용자의 저장소 계정 이름으로 변경합니다.
-
 		set hive.exec.dynamic.partition.mode=nonstrict;
-
+		
 		DROP TABLE IF EXISTS WebLogsRaw; 
-		CREATE EXTERNAL TABLE WebLogsRaw (
+		CREATE TABLE WebLogsRaw (
 		  date  date,
 		  time  string,
 		  ssitename string,
@@ -91,8 +89,9 @@ Hive 스크립트 실행 후에는 결과가 Azure Blob 저장소 컨테이너 *
 		)
 		ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 		LINES TERMINATED BY '\n' 
-		LOCATION '/HdiSamples/WebsiteLogSampleData/SampleLog/'
 		tblproperties ("skip.header.line.count"="2");
+		
+		LOAD DATA INPATH '/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log' OVERWRITE INTO TABLE WebLogsRaw;
 		
 		DROP TABLE IF EXISTS WebLogsPartitioned ; 
 		create external table WebLogsPartitioned (  
@@ -119,7 +118,7 @@ Hive 스크립트 실행 후에는 결과가 Azure Blob 저장소 컨테이너 *
 		ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
 		STORED AS TEXTFILE 
 		LOCATION '${hiveconf:partitionedtable}';
-
+		
 		INSERT INTO TABLE WebLogsPartitioned  PARTITION( year , month) 
 		SELECT
 		  date,
@@ -143,17 +142,16 @@ Hive 스크립트 실행 후에는 결과가 Azure Blob 저장소 컨테이너 *
 		  year(date),
 		  month(date)
 		FROM WebLogsRaw
-
-	 
+	
  
 2. 자습서에 대한 Azure 저장소를 준비하려면:
-	1. [최신 버전의 **AzCopy**](http://aka.ms/downloadazcopy) 또는 [최신 미리 보기 버전](http://aka.ms/downloadazcopypr)을 다운로드합니다. 유틸리티 사용에 대한 지침은 [AzCopy 사용 방법](../storage/storage-use-azcopy.md)을 참조하세요.
+	1. [최신 버전의 **AzCopy**](http://aka.ms/downloadazcopy) 또는 [최신 미리 보기 버전](http://aka.ms/downloadazcopypr)을 다운로드합니다. 유틸리티 사용 지침은 [AzCopy 사용 방법](../storage/storage-use-azcopy.md)을 참조하세요.
 	2. AzCopy 설치 후에는 명령 프롬프트에서 다음 명령을 실행하여 시스템 경로에 AzCopy를 추가할 수 있습니다. 
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
 	
 
-	3. c:\\adfgettingstarted 폴더로 이동하고 다음 명령을 실행하여 Hive .HQL 파일을 저장소 계정에 업로드합니다. **<StorageAccountName>**을 사용자의 저장소 계정으로 변경하고 **<Storage Key>**를 저장소 계정키로 변경합니다.
+	3. c:\\adfgettingstarted 폴더로 이동하고 다음 명령을 실행하여 Hive .HQL 파일을 저장소 계정에 업로드합니다. **StorageAccountName**을 해당 저장소 계정의 이름으로 바꾸고 **Storage Key**를 저장소 계정 키로 바꿉니다.
 
 			AzCopy /Source:. /Dest:https://<StorageAccountName>.blob.core.windows.net/script /DestKey:<Storage Key>
 	4. 파일 업로드가 완료되면 AzCopy에서 다음과 같은 출력이 표시됩니다.
@@ -171,9 +169,9 @@ Hive 스크립트 실행 후에는 결과가 Azure Blob 저장소 컨테이너 *
 
 - 맨 위의 [데이터 팩터리 편집기 사용](data-factory-build-your-first-pipeline-using-editor.md) 링크를 클릭하여 Azure 포털의 일부인 데이터 팩터리 편집기를 통해 자습서를 수행합니다.
 - 맨 위의 [PowerShell 사용](data-factory-build-your-first-pipeline-using-powershell.md) 링크를 클릭하여 Azure PowerShell을 통해 자습서를 수행합니다.
-- 맨 위의 [Visual Studio 사용](data-factory-build-your-first-pipeline-using-vs.md) 링크를 클릭하여 Visual Studio를 사용하여 자습서를 수행합니다. 
+- 맨 위의 [Visual Studio 사용](data-factory-build-your-first-pipeline-using-vs.md) 링크를 클릭하여 Visual Studio를 사용해서 자습서를 수행합니다. 
 
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

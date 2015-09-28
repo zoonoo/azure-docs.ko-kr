@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/13/2015" 
+	ms.date="09/09/2015" 
 	ms.author="awills"/>
  
 # Eclipse에서 Java를 사용하여 Application Insights 시작하기
@@ -108,13 +108,111 @@ HTML 파일의 헤드에 있는 코드 조각을 삽입 합니다.
 
 #### 클라이언트쪽 데이터 보기
 
-업데이트 된 웹 페이지를 열고 사용 합니다. 1\~2분 정도 기다린 후, Application Insights로 돌아가 사용량 블레이드를 새로 고침합니다.
+업데이트 된 웹 페이지를 열고 사용 합니다. 1~2분 정도 기다린 후, Application Insights로 돌아가 사용량 블레이드를 새로 고침합니다.
 
 페이지 보기, 사용자 및 세션 메트릭이 사용량 블레이드에 표시됩니다.
 
 ![세션, 사용자 및 페이지 보기](./media/app-insights-java-eclipse/appinsights-47usage-2.png)
 
 [클라이언트쪽 원격 분석 설정에 대해 자세히 알아봅니다.][usage]
+
+## 응용 프로그램 게시
+
+이제 서버에 앱을 게시하고, 사람들이 사용하게 한 다음 포털에 표시되는 원격 분석을 확인합니다.
+
+* 방화벽에서 응용 프로그램이 다음 포트에 원격 분석을 보내도록 허용하는지 확인합니다.
+
+ * dc.services.visualstudio.com:443
+ * dc.services.visualstudio.com:80
+ * f5.services.visualstudio.com:443
+ * f5.services.visualstudio.com:80
+
+
+* Windows 서버에 다음을 설치합니다.
+
+ * [Microsoft Visual C++ 재배포 가능 패키지](http://www.microsoft.com/download/details.aspx?id=40784)
+
+    (이를 통해 성능 카운터를 사용할 수 있게 됩니다.)
+
+## 예외 및 요청 실패
+
+처리되지 않은 예외는 자동으로 수집됩니다.
+
+![](./media/app-insights-java-get-started/21-exceptions.png)
+
+다른 예외에 대한 데이터를 수집하려면 다음 두 옵션을 사용합니다.
+
+* [사용자 코드에 TrackException에 대한 호출 삽입](app-insights-api-custom-events-metrics.md#track-exception) 
+* [서버에 Java 에이전트 설치](app-insights-java-agent.md) 감시 방법을 지정할 수 있습니다.
+
+
+## 메서드 호출 및 외부 종속성 모니터링
+
+[Java 에이전트를 설치](app-insights-java-agent.md)하여 지정된 내부 메서드 및 JDBC를 통해 수행한 호출을 타이밍 데이터와 함께 기록합니다.
+
+
+## 성능 카운터
+
+**서버** 타일을 클릭하면 다양한 성능 카운터가 표시됩니다.
+
+
+![](./media/app-insights-java-get-started/11-perf-counters.png)
+
+### 성능 카운터 수집 사용자 지정
+
+성능 카운터의 표준 집합 수집을 사용하지 않으려면 ApplicationInsights.xml 파일의 루트 노드 아래에 다음 코드를 추가합니다.
+
+    <PerformanceCounters>
+       <UseBuiltIn>False</UseBuiltIn>
+    </PerformanceCounters>
+
+### 추가 성능 카운터 수집
+
+추가 성능 카운터가 수집되도록 지정할 수 있습니다.
+
+#### JMX 카운터(Java 가상 컴퓨터를 통해 노출됨)
+
+    <PerformanceCounters>
+      <Jmx>
+        <Add objectName="java.lang:type=ClassLoading" attribute="TotalLoadedClassCount" displayName="Loaded Class Count"/>
+        <Add objectName="java.lang:type=Memory" attribute="HeapMemoryUsage.used" displayName="Heap Memory Usage-used" type="composite"/>
+      </Jmx>
+    </PerformanceCounters>
+
+*	`displayName` - Application Insights 포털에서 표시되는 이름입니다.
+*	`objectName` – JMX 개체 이름입니다.
+*	`attribute` - 가져올 JMX 개체 이름의 특성입니다.
+*	`type` (선택 사항) - JMX 개체 특성의 유형:
+ *	기본값: int 또는 long과 같은 단순 유형입니다.
+ *	`composite`: 성능 카운터 데이터는 'Attribute.Data' 형식입니다.
+ *	`tabular`: 성능 카운터 데이터는 표 행 형식입니다.
+
+
+
+#### Windows 성능 카운터
+
+각 [Windows 성능 카운터](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx)는 한 범주의 구성원입니다(필드가 클래스의 구성원인 것과 동일한 방식). 범주는 전역일 수 있으며, 번호 또는 이름이 지정된 인스턴스를 가질 수도 있습니다.
+
+    <PerformanceCounters>
+      <Windows>
+        <Add displayName="Process User Time" categoryName="Process" counterName="%User Time" instanceName="__SELF__" />
+        <Add displayName="Bytes Printed per Second" categoryName="Print Queue" counterName="Bytes Printed/sec" instanceName="Fax" />
+      </Windows>
+    </PerformanceCounters>
+
+*	displayName - Application Insights 포털에서 표시되는 이름입니다.
+*	categoryName – 이 성능 카운터와 관련된 성능 카운터 범주(성능 개체)입니다.
+*	counterName – 성능 카운터의 이름입니다.
+*	instanceName – 성능 카운터 범주 인스턴스입니다. 또는 범주가 단일 인스턴스를 포함하는 경우 빈 문자열("")의 이름입니다. categoryName이 프로세스이며 수입하려는 성능 카운터는 앱이 실행 중인 현재 JVM 프로세스에서 오는 경우, `"__SELF__"`을(를) 지정합니다.
+
+성능 카운터에서가 [메트릭 탐색기][metrics]에서 사용자 지정 메트릭으로 보입니다.
+
+![](./media/app-insights-java-get-started/12-custom-perfs.png)
+
+
+### Unix 성능 카운터
+
+* [Application Insights 플러그인과 함께 collectd를 설치](app-insights-java-collectd.md)하여 광범위한 시스템 및 네트워크 데이터를 얻습니다.
 
 ## 가용성 웹 테스트
 
@@ -169,4 +267,4 @@ Java 웹 응용 프로그램에 몇 줄의 코드를 삽입하여 이를 사용�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

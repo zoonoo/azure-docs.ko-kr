@@ -1,19 +1,19 @@
-<properties 
-                pageTitle="Azure Active Directory란?" 
-                description="Azure Active Directory를 사용하여 기존 온-프레미스 ID를 클라우드로 확장하거나 Azure AD 통합 응용 프로그램을 개발할 수 있습니다." 
-                services="active-directory" 
-                documentationCenter="" 
-                authors="markusvi" 
-                manager="swadhwa" 
+<properties
+                pageTitle="Azure Active Directory란?"
+                description="Azure Active Directory를 사용하여 기존 온-프레미스 ID를 클라우드로 확장하거나 Azure AD 통합 응용 프로그램을 개발할 수 있습니다."
+                services="active-directory"
+                documentationCenter=""
+                authors="markusvi"
+                manager="swadhwa"
                 editor=""/>
 
-<tags 
-                ms.service="active-directory" 
-                ms.workload="identity" 
-                ms.tgt_pltfrm="na" 
-                ms.devlang="na" 
-                ms.topic="article" 
-                ms.date="08/10/2015" 
+<tags
+                ms.service="active-directory"
+                ms.workload="identity"
+                ms.tgt_pltfrm="na"
+                ms.devlang="na"
+                ms.topic="article"
+                ms.date="08/10/2015"
                 ms.author="markusvi"/>
 
 
@@ -56,7 +56,7 @@ Azure AD의 다중 테넌트, 지리적으로 분산된 고가용성 디자인�
 
 -	신속하게 클라우드 서비스를 채택하여 Azure AD에서 자동화된 SaaS 앱 액세스 관리 및 프로비저닝 서비스 기능에서 제공하는 간단한 Single Sign-On 환경을 직원과 파트너에게 제공합니다.
 -	직원에게 전세계 클라우드 앱과 서비스에 액세스할 권한을 제공하고 직원이 어디서든 사용하려는 장치에서 작업해야 할 때마다 셀프 서비스 기능을 제공합니다.
--	회사의 소셜 미디어 계정에 대한 직원 및 공급 업체 액세스를 쉽고 안전하게 관리합니다. 
+-	회사의 소셜 미디어 계정에 대한 직원 및 공급 업체 액세스를 쉽고 안전하게 관리합니다.
 -	Azure AD 다단계 인증 및 조건부 액세스를 사용하여 응용 프로그램 보안을 개선합니다.
 -	일관된 셀프서비스 응용 프로그램 액세스 관리를 구현하여 비즈니스 소유자가 IT 비용 및 오버헤드를 줄이면서 신속하게 이동할 수 있도록 합니다.
 -	응용 프로그램 사용을 모니터링하고 보안 보고 및 모니터링을 통해 비즈니스를 고급 위협으로부터 보호합니다.
@@ -73,7 +73,7 @@ Azure AD의 다중 테넌트, 지리적으로 분산된 고가용성 디자인�
  - Azure AD 테넌트 시작 및 빠른 실행에 대한 팁과 요령에 대해서는 "Azure AD 시작"을 읽어 보세요.
 -	개발자인 경우:
  - Azure Active Directory <need link>에 대한 [개발자 가이드](https://msdn.microsoft.com/library/azure/ff800682.aspx)를 확인하세요.
- - [평가판 시작](https://azure.microsoft.com/trial/get-started-active-directory/) – 지금 무료 30일 평가판을 등록하고 Azure AD와 앱 통합을 시작하세요. 
+ - [평가판 시작](https://azure.microsoft.com/trial/get-started-active-directory/) – 지금 무료 30일 평가판을 등록하고 Azure AD와 앱 통합을 시작하세요.
 
 
 
@@ -104,4 +104,4 @@ Azure AD에 대한 자세한 내용을 알아볼 수 있도록 수많은 리소�
 
 - [조직 내에서 사용되고 있는 허용되지 않은 클라우드 앱을 검색하는 방법](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

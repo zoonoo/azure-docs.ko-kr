@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="08/18/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자 사용자 인터페이스
@@ -538,6 +538,7 @@ StorSimple 스냅숏 관리자는 MMC(Microsoft Management Console) 및 Windows 
  
 ## 다음 단계
 
-[StorSimple 스냅숏 관리자를 사용하여 장치를 연결 및 관리하는 방법을 알아봅니다](storsimple-snapshot-manager-manage-devices.md).
+- [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
+- [StorSimple 스냅숏 관리자를 사용하여 장치를 연결 및 관리하는 방법](storsimple-snapshot-manager-manage-devices.md)을 학습합니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

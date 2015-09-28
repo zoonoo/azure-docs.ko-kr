@@ -8,12 +8,12 @@
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/26/2015" 
+	ms.date="09/16/2015" 
 	ms.author="tdykstra"/>
 
 # WebJob으로 백그라운드 작업 실행
@@ -25,6 +25,8 @@
 이 문서에서는 [Azure 포털](http://go.microsoft.com/fwlink/?LinkId=529715)에서 웹 작업을 배포하는 방법을 보여줍니다. Visual Studio 또는 지속적인 전송 프로세스를 사용하여 배포하는 방법에 대한 자세한 내용은 [Azure 웹 작업을 웹 앱에 배포하는 방법](websites-dotnet-deploy-webjobs.md)을 참조하세요.
 
 Azure WebJobs SDK는 많은 웹 작업 프로그래밍 작업을 간소화합니다. 자세한 내용은 [WebJobs SDK 정의](websites-dotnet-webjobs-sdk.md)를 참조하세요.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="acceptablefiles"></a>스크립트 또는 프로그램에 허용 가능한 파일 형식
 
@@ -209,4 +211,4 @@ Azure 관리 포털에서 예약된 웹 작업을 만들 수 없지만 해당 �
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

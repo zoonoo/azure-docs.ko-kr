@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015"
+	ms.date="09/16/2015"
 	ms.author="juliako"/>
 
 #미디어 인코더 표준 형식 및 코덱
@@ -36,7 +36,20 @@ MP4(.mp4, .m4a, .m4v)/ISMV(.isma, .ismv)|예
 [DVR-MS(Microsoft Digital Video Recording)](https://msdn.microsoft.com/library/windows/desktop/dd692984)(.dvr-ms) |예 
 Matroska/WebM(.mkv) |예 
 WAVE/WAV(.wav) |예 
+QuickTime(.mov) |예
  
+###입력 컨테이너의 오디오 형식 
+
+미디어 인코더 표준은 입력 컨테이너에서 다음과 같은 오디오 형식의 전달을 지원합니다.
+
+- 인터리브 스테레오 오디오 또는 5.1 샘플을 포함하는 오디오 트랙이 있는 MXF, GXF 및 QuickTime 파일
+
+또는
+
+- 별도의 PCM 트랙으로 오디오가 전달되지만 파일 메타데이터에서 스테레오 또는 5.1에 대한 채널 매핑을 추론할 수 MXF, GXF 및 QuickTime 파일
+
+조만간 명시적/사용자 제공 채널 매핑도 지원될 예정입니다.
+
 
 ##입력 비디오 코덱
 
@@ -53,6 +66,13 @@ Canopus HQ/HQX |아니요
 Mpeg-4 2부 |예 
 [Theora](https://en.wikipedia.org/wiki/Theora) |예 
 압축되지 않은 YUV420 또는 mezzanine |예
+Apple ProRes 422 |예
+Apple ProRes 422 LT |예
+Apple ProRes 422 HQ |예
+Apple ProRes Proxy|예
+Apple ProRes 4444 |예
+Apple ProRes 4444 XQ |예
+
 
 
 ##입력 오디오 코덱
@@ -98,4 +118,4 @@ MPEG2-TS |H.264(High, Main 및 Baseline Profiles)|AAC-LC, HE-AAC v1, HE-AAC v2
 
 [미디어 인코더 표준으로 인코딩하는 방법](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

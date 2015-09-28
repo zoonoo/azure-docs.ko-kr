@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 백업 카탈로그 관리 | Microsoft Azure"
-	description="StorSimple 관리자 서비스 백업 카탈로그 페이지를 사용하여 볼륨에 대한 백업 세트를 나열, 선택 및 삭제하는 방법을 설명합니다."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="StorSimple 관리자 서비스 백업 카탈로그 페이지를 사용하여 볼륨에 대한 백업 세트를 나열, 선택 및 삭제하는 방법을 설명합니다."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/01/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/14/2015"
+   ms.author="v-sharos" />
 
 # StorSimple 관리자 서비스를 사용하여 백업 카탈로그 관리
 
@@ -113,6 +113,8 @@ StorSimple 관리자 서비스 **백업 카탈로그** 페이지는 수동 또�
 
 ## 다음 단계
 
-백업 카탈로그를 사용하여 [백업 세트에서 장치를 복원](storsimple-restore-from-backup-set.md)하는 방법을 알아봅니다.
+- 백업 카탈로그를 사용하여 [백업 세트에서 장치를 복원](storsimple-restore-from-backup-set.md)하는 방법을 알아봅니다.
 
-<!---HONumber=September15_HO1-->
+- [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
+
+<!---HONumber=Sept15_HO3-->

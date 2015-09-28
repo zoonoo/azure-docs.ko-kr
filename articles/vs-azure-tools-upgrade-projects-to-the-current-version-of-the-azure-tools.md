@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="프로젝트를 현재 버전의 Azure 도구로 업그레이드하는 방법"
-	description="Azure 프로젝트를 Visual Studio에서 현재 버전의 Azure 도구로 업그레이드하는 방법을 알아봅니다."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
-<tags 
+   description="Azure 프로젝트를 Visual Studio에서 현재 버전의 Azure 도구로 업그레이드하는 방법을 알아봅니다."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
+<tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="08/13/2015"
+   ms.author="kempb" />
 
 # 프로젝트를 현재 버전의 Visual Studio 용 Azure 도구로 업그레이드하는 방법
 
-##개요
+## 개요
 
 Azure 도구의 현재 릴리스 (또는 1.6 이후 버전인 이전 릴리스)를 설치한 후에 1.6 (2011년 11월) 버전 전에 Azure 도구를 사용하여 생성된 모든 프로젝트는 여는 즉시 자동으로 업그레이드됩니다. 도구의 1.6 버전 (2011년 11월) 릴리스를 사용하여 프로젝트를 생성하고 여전히 그 릴리스가 설치되어 있는 경우 이전 릴리스에서 해당 프로젝트를 열고 나중에 업그레이드 여부를 결정할 수 있습니다.
 
@@ -55,4 +55,4 @@ Azure 도구의 현재 릴리스 (또는 1.6 이후 버전인 이전 릴리스)�
 
 [Azure 도구 릴리스 기록](http://go.microsoft.com/fwlink/p/?LinkId=623548)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

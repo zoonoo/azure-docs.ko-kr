@@ -2,7 +2,7 @@
 	pageTitle="Java 웹 프로젝트에서 Application Insights 시작 | Microsoft Azure"
 	description="Application Insights로 Java 웹 사이트의 성능 및 사용량 모니터링"
 	services="application-insights"
-	documentationCenter="java"
+    documentationCenter="java"
 	authors="alancameronwills"
 	manager="douge"/>
 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="06/30/2015"
+	ms.date="09/09/2015"
 	ms.author="awills"/>
 
 # Java 웹 프로젝트에서 Application Insights 시작하기
@@ -206,19 +206,13 @@ Struts 구성 파일에 이 항목 추가(일반적으로 struts.xml 또는 stru
 
 (기본 스택에 정의된 인터셉터가 있는 경우 해당 인터셉터를 스택에 추가하면 됩니다.)
 
-## 5\. 서버에 설치
 
-Windows 서버에 다음을 설치합니다.
 
-* [Microsoft Visual C++ 재배포 가능 패키지](http://www.microsoft.com/download/details.aspx?id=40784)
-
-(이를 통해 성능 카운터를 사용할 수 있게 됩니다.)
-
-## 6\. 응용 프로그램 실행
+## 5\. 응용 프로그램 실행
 
 응용 프로그램을 디버그 모드로 개발 컴퓨터에서 실행하거나 서버에 게시합니다.
 
-## 7\. Application Insights에서 원격 분석 보기
+## 6\. Application Insights에서 원격 분석 보기
 
 [Microsoft Azure 포털](https://portal.azure.com)의 Application Insights 리소스로 돌아갑니다.
 
@@ -250,15 +244,34 @@ Application Insights는 MVC 응용 프로그램에 대한 HTTP 요청 형식을 
 
 이를 통해 요청 수와 같은 의미 있는 집계 및 요청에 대한 평균 실행 시간을 사용할 수 있습니다.
 
+
+## 5\. 서버에 앱 설치
+
+이제 서버에 앱을 게시하고, 사람들이 사용하게 한 다음 포털에 표시되는 원격 분석을 확인합니다.
+
+* 방화벽에서 응용 프로그램이 다음 포트에 원격 분석을 보내도록 허용하는지 확인합니다.
+
+ * dc.services.visualstudio.com:443
+ * dc.services.visualstudio.com:80
+ * f5.services.visualstudio.com:443
+ * f5.services.visualstudio.com:80
+
+
+* Windows 서버에 다음을 설치합니다.
+
+ * [Microsoft Visual C++ 재배포 가능 패키지](http://www.microsoft.com/download/details.aspx?id=40784)
+
+    (이를 통해 성능 카운터를 사용할 수 있게 됩니다.)
+
 ## 예외 및 요청 실패
 
-처리되지 않은 예외는 다음과 같이 수집됩니다.
+처리되지 않은 예외는 자동으로 수집됩니다.
 
 ![](./media/app-insights-java-get-started/21-exceptions.png)
 
 다른 예외에 대한 데이터를 수집하려면 다음 두 옵션을 사용합니다.
 
-* [사용자 코드에 TrackException에 대한 호출 삽입][apiexceptions]
+* [사용자 코드에 TrackException에 대한 호출 삽입][apiexceptions] 
 * [서버에 Java 에이전트 설치](app-insights-java-agent.md) 감시 방법을 지정할 수 있습니다.
 
 
@@ -349,6 +362,17 @@ Application Insights를 사용하여 Log4J, Logback 또는 다른 로깅 프레�
 * [이벤트 및 로그를 검색][diagnostic]하여 문제를 진단할 수 있습니다.
 
 
+## 가용성 웹 테스트
+
+Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 잘 실행되며 제대로 응답하는지 확인할 수 있습니다. 개요 블레이드에서 빈 웹 테스트 차트를 클릭하여 설치하면 공용 URL을 제공합니다.
+
+사이트가 다운되는 경우 응답 시간 차트는 물론 이메일 알림을 얻게 됩니다.
+
+![웹 테스트의 예](./media/app-insights-java-eclipse/appinsights-10webtestresult.png)
+
+[가용성 웹 테스트에 대한 자세히 알아봅니다.][availability]
+
+
 
 
 
@@ -370,4 +394,4 @@ Application Insights를 사용하여 Log4J, Logback 또는 다른 로깅 프레�
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

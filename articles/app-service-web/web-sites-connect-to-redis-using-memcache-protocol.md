@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Memcache 프로토콜을 통해 Redis Cache에 Azure 앱 서비스의 웹앱 연결 | Microsoft Azure"
+	pageTitle="Memcache 프로토콜을 통해 Redis Cache에 Azure 앱 서비스의 웹앱 연결 | Microsoft Azure"
 	description="Memcache 프로토콜을 사용하여 Redis Cache에 Azure 앱 서비스의 웹 앱 연결"
 	services="app-service\web"
 	documentationCenter="php"
@@ -8,12 +8,12 @@
 	editor="riande"/>
 
 <tags
-   ms.service="app-service-web"
+	ms.service="app-service"
 	ms.devlang="php"
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="windows"
 	ms.workload="web"
-	ms.date="06/30/2015"
+	ms.date="09/16/2015"
 	ms.author="cfowler"/>
 
 # Memcache 프로토콜을 통해 Redis Cache에 Azure 앱 서비스의 웹 앱 연결
@@ -21,6 +21,8 @@
 이 문서에서는 [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)의 WordPress 웹앱을 [Memcache][13] 프로토콜을 사용하는 [Azure Redis Cache][12]에 연결하는 방법에 대해 알아봅니다. 메모리 내 캐싱을 위해 Memcached 서버를 사용하는 기존 웹 앱이 있는 경우 이를 Azure 앱 서비스로 마이그레이션할 수 있으며 응용 프로그램 코드를 거의 또는 전혀 변경하지 않고 Microsoft Azure에서 자사 캐싱 솔루션을 사용할 수 있습니다. 또한 .NET, PHP, Node.js, Java 및 Python과 같은 대중적인 응용 프로그램 프레임워크를 사용하는 동안 메모리 내 캐싱을 위해 Azure Redis Cache를 사용하여 Azure 앱 서비스에서 매우 확장성 있는 배포 앱을 만들기 위해 기존의 Memcache 전문가를 활용할 수 있습니다.
 
 앱 서비스 웹 앱은 이 응용 프로그램 시나리오를 웹 앱 Memcache shim로 사용할 수 있으며, 이는 Azure Redis Cache로 호출되는 캐시를 위한 Memcache 프록시로 동작하는 로컬 Memcache 서버입니다. 이를 통해 앱이 Redis Cache로 데이터를 캐시하는 데 Memcache 프로토콜을 사용하여 통신할 수 있습니다. 이 Memcache shim은 프로토콜 단계에서 작업하므로 Memcache 프로토콜을 사용하여 통신하는 한 모든 응용 프로그램 또는 응용 프로그램 프레임워크에서 이를 사용할 수 있습니다.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## 필수 조건
 
@@ -94,9 +96,9 @@ Memcache 프로토콜을 읽어주는 응용 프로그램을 위해 Memcache 확
 
 ## Memcache WordPress 플러그인 설치
 
-> [AZURE.NOTE]WordPress.org에서도 [Memcached 개체 캐시 플러그 인](https://wordpress.org/plugins/memcached/)을 다운로드할 수 있습니다.
+> [AZURE.NOTE]WordPress.org에서 [Memcached 개체 캐시 플러그 인](https://wordpress.org/plugins/memcached/)을 다운로드할 수도 있습니다.
 
-WordPress 플러그 인 페이지에서 **새로 추가** 단추를 클릭합니다.
+WordPress 플러그 인 페이지에서 **새로 추가**를 클릭합니다.
 
 ![WordPress 플러그인 페이지](./media/web-sites-connect-to-redis-using-memcache-protocol/10-wordpress-plugin.png)
 
@@ -138,7 +140,7 @@ $memcached_servers = array(
 
 >[AZURE.NOTE]이 문서가 작성된 현재, Redis CLI는 SSL 연결을 지원하지 않습니다. 따라서 다음 단계가 필요합니다.
 
-Azure 포털에서 이 웹앱에 대해 만들어진 Redis Cache 인스턴스를 찾아봅니다. 캐시의 블레이드가 열리면 **설정** 아이콘을 클릭합니다.
+Azure 포털에서 이 웹앱에 대해 만들어진 Redis Cache 인스턴스를 찾아봅니다. 캐시 블레이드가 열리면 **설정** 아이콘을 클릭합니다.
 
 ![Azure Redis Cache 설정 단추](./media/web-sites-connect-to-redis-using-memcache-protocol/15-azure-redis-cache-settings-button.png)
 
@@ -196,4 +198,4 @@ redis-cli –h <hostname-for-redis-cache> –a <primary-key-for-redis-cache> –
 [12]: /services/cache/
 [13]: http://memcached.org
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

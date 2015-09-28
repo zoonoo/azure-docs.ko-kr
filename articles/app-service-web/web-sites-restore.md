@@ -8,21 +8,23 @@
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/03/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스에서 웹 앱 보안 복원
 
 이 문서에서는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714) 백업 기능을 사용하여 이전에 백업한 웹앱을 복원하는 방법을 보여 줍니다. 자세한 내용은 [앱 서비스 웹앱 백업](web-sites-backup.md)을 참조하세요.
 
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+
 웹 앱 복원 기능을 통해 요청 시 웹 앱을 이전 상태로 복원하거나 원본 웹 앱의 백업 중 하나를 기반으로 새 웹 웹을 만들 수 있습니다. 최신 버전과 병행하여 실행되는 웹 앱을 새로 만드는 것이 A/B를 테스트하는 데 유용할 수 있습니다.
 
-[Azure Preview 포털](http://portal.azure.com)의 **백업** 블레이드에서 사용할 수 있는 웹앱 복원 기능은 표준 및 프리미엄 모드에서만 사용할 수 있습니다. 표준 및 프리미엄 모드를 사용하는 앱의 크기 조정에 대한 자세한 내용은 [Azure 앱 서비스에서 웹앱 크기 조정](web-sites-scale.md)을 참조하세요. 프리미엄 모드를 사용하면 표준 모드에서 수행되는 것보다 더 많은 매일 백업이 수행됩니다.
+[Azure Preview 포털](http://portal.azure.com)의 **백업** 블레이드에서 사용할 수 있는 웹앱 복원 기능은 표준 및 프리미엄 모드에서만 제공됩니다. 표준 및 프리미엄 모드를 사용하는 앱의 크기 조정에 대한 자세한 내용은 [Azure 앱 서비스에서 웹앱 크기 조정](web-sites-scale.md)을 참조하세요. 프리미엄 모드를 사용하면 표준 모드에서 수행되는 것보다 더 많은 매일 백업이 수행됩니다.
 
 <a name="PreviousBackup"></a>
 ## 이전에 만든 백업에서 웹 앱을 복원하려면
@@ -96,4 +98,4 @@
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

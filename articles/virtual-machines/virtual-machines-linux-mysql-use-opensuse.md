@@ -3,7 +3,7 @@
 	description="Azure에서 가상 컴퓨터에 MySQL을 설치하는 방법에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/31/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Azure에서 OpenSUSE Linux를 실행하는 가상 컴퓨터에 MySQL 설치
 
@@ -38,4 +38,4 @@ MySQL에 대한 자세한 내용은 [MySQL 설명서][MySQLDocs]를 참조하세
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

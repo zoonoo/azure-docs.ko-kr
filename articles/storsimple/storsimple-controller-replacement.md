@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 장치 컨트롤러 교체 | Microsoft Azure"
-	description="StorSimple 장치에서 하나 또는 두 개의 컨트롤러 모듈을 모두 꺼내고 교체하는 방법을 설명합니다."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="StorSimple 장치에서 하나 또는 두 개의 컨트롤러 모듈을 모두 꺼내고 교체하는 방법을 설명합니다."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/10/2015"
+   ms.author="alkohli" />
 
 # StorSimple 장치의 컨트롤러 모듈 교체
 
@@ -32,14 +32,14 @@
 
 |사례|교체 시나리오|해당 절차|
 |:---|:-------------------|:-------------------|
-|1|한 컨트롤러는 실패 상태이고 다른 컨트롤러는 정상 활성 상태입니다.|[단일 컨트롤러 교체](#replace-a-single-controller)|
-|2|두 컨트롤러에서 모두 오류가 발생했으며 교체해야 합니다. 섀시, 디스크 및 디스크 엔클로저는 정상입니다.|[이중 컨트롤러 교체](#replace-both-controllers)|
+|1|한 컨트롤러는 실패 상태이고 다른 컨트롤러는 정상 활성 상태입니다.|[단일 컨트롤러 교체를 지원하는 논리](#single-controller-replacement-logic) 및 [교체 단계](#single-controller-replacement-steps)를 설명하는 [단일 컨트롤러 교체](#replace-a-single-controller)|
+|2|두 컨트롤러에서 모두 오류가 발생했으며 교체해야 합니다. 섀시, 디스크 및 디스크 엔클로저는 정상입니다.|[이중 컨트롤러 교체를 지원하는 논리](#dual-controller-replacement-logic) 및 [교체 단계](#dual-controller-replacement-steps)를 설명하는 [이중 컨트롤러 교체](#replace-both-controllers) |
 |3|동일한 장치 또는 서로 다른 장치의 컨트롤러를 교환합니다. 섀시, 디스크 및 디스크 엔클로저는 정상입니다.|슬롯 불일치 경고 메시지가 표시됩니다.|
-|4|한 컨트롤러는 없고 다른 컨트롤러에서는 오류가 발생합니다.|[이중 컨트롤러 교체](#replace-both-controllers)|
+|4|한 컨트롤러는 없고 다른 컨트롤러에서는 오류가 발생합니다.|[이중 컨트롤러 교체를 지원하는 논리](#dual-controller-replacement-logic) 및 [교체 단계](#dual-controller-replacement-steps)를 설명하는 [이중 컨트롤러 교체](#replace-both-controllers)|
 |5|하나 또는 두 개의 컨트롤러에서 모두 오류가 발생했습니다. 직렬 콘솔 또는 Windows PowerShell 원격을 통해 장치에 액세스할 수 없습니다.|수동 컨트롤러 교체 절차에 대해서는 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.|
 |6|컨트롤러의 빌드 버전이 서로 다르며, 다음과 같은 이유 때문일 수 있습니다.<ul><li>컨트롤러의 소프트웨어 버전이 서로 다릅니다.</li><li>컨트롤러의 펌웨어 버전이 서로 다릅니다.</li></ul>|컨트롤러 소프트웨어 버전이 서로 다른 경우 교체 논리에서 이를 감지하고 교체 컨트롤러의 소프트웨어 버전을 업데이트합니다.<br><br>컨트롤러 펌웨어 버전이 서로 다르고 이전 펌웨어 버전을 자동으로 업그레이드할 수 **없는** 경우 관리 포털에 경고 메시지가 표시됩니다. 업데이트를 검색하고 펌웨어 업데이트를 설치해야 합니다.</br></br>컨트롤러 펌웨어 버전이 서로 다르고 이전 펌웨어 버전을 자동으로 업그레이드할 수 있는 경우 컨트롤러 교체 논리에서 이를 감지하고 컨트롤러가 시작된 후 펌웨어가 자동으로 업데이트됩니다.|
 
-오류가 발생한 경우 컨트롤러 모듈을 꺼내야 합니다. 하나 또는 두 개의 컨트롤러 모듈에서 모두 오류가 발생할 수 있으며, 단일 컨트롤러 교체 또는 이중 컨트롤러 교체가 요구될 수 있습니다. 교체 절차는 다음을 참조하세요.
+오류가 발생한 경우 컨트롤러 모듈을 꺼내야 합니다. 하나 또는 두 개의 컨트롤러 모듈에서 모두 오류가 발생할 수 있으며, 단일 컨트롤러 교체 또는 이중 컨트롤러 교체가 요구될 수 있습니다. 교체 절차 및 지원 논리는 다음을 참조하세요.
 
 - [단일 컨트롤러 교체](#replace-a-single-controller)
 - [두 컨트롤러 모두 교체](#replace-both-controllers)
@@ -122,7 +122,7 @@ Microsoft Azure StorSimple 장치의 두 컨트롤러에서 모두 오류가 발
 
    3. 피어 컨트롤러가 실행 중이며 클러스터되었나요?
 							
-    이러한 조건이 모두 true가 아니면 컨트롤러가 최신 일별 백업을 찾습니다(S 드라이브의 **nonDOMstorage**에 있음). 컨트롤러가 백업에서 VHD의 최신 스냅숏을 복사합니다.
+    이러한 조건이 모두 true가 아니면 컨트롤러가 최근 매일 백업을 찾습니다(S 드라이브의 **nonDOMstorage**에 있음). 컨트롤러가 백업에서 VHD의 최신 스냅숏을 복사합니다.
 
 2. 슬롯 0의 컨트롤러가 스냅숏을 사용하여 자체 이미지를 작성합니다.
 
@@ -194,7 +194,7 @@ StorSimple 장치에서 결함이 있는 컨트롤러 모듈을 꺼내려면 다
 
 StorSimple 장치에서 결함이 있는 모듈을 꺼낸 후 팩터리 제공 컨트롤러 모듈을 설치하려면 다음 절차를 따르세요.
 
-### 컨트롤러 모듈을 설치하려면
+#### 컨트롤러 모듈을 설치하려면
 
 1. 인터페이스 커넥터에 손상된 부분이 있는지 확인합니다. 커넥터 핀이 손상되었거나 구부러진 경우 모듈을 설치하지 마세요.
 
@@ -266,4 +266,4 @@ StorSimple 장치에서 결함이 있는 모듈을 꺼낸 후 팩터리 제공 �
 
 [StorSimple 하드웨어 구성 요소 교체](storsimple-hardware-component-replacement.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

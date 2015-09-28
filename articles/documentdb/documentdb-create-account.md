@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="데이터베이스 계정 만들기 - 무료 평가판 | Microsoft Azure" 
-	description="Azure DocumentDB용 온라인 서비스 포털, JSON용 관리되는 NoSQL 문서 데이터베이스를 사용하여 데이터베이스 계정을 만드는 방법을 알아봅니다. 지금 무료 평가판을 사용해보세요."
+	description="Azure DocumentDB용 온라인 데이터베이스 작성자인 JSON용 관리되는 NoSQL 문서 데이터베이스를 사용하여 데이터베이스 계정을 만드는 방법을 알아봅니다. 지금 무료 평가판을 사용해보세요."
+	keywords="Free trial, online database creator, create a database, create database, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="" 
 	authors="mimig1" 
@@ -38,11 +39,11 @@ DocumentDB를 처음 사용하세요? Scott Hanselman 씨가 나오는 [이](htt
 
 컬렉션에 문서를 추가한 후에 [DocumentDB SQL](documentdb-sql-query.md)에서 Preview 포털에 있는 [쿼리 탐색기](documentdb-query-collections-query-explorer.md), [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 또는 [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx) 중 하나를 사용하여 문서에 대해 [쿼리를 실행](documentdb-sql-query.md#executing-queries)할 수 있습니다.
 
-DocumentDB에 대해 자세히 알아보려면 다음 리소스를 참조하십시오.
+DocumentDB에 대해 자세히 알아보려면 다음 리소스를 참조하세요.
 
 -	[DocumentDB 학습 지도](documentdb-learning-map.md)
 -	[DocumentDB 리소스 모델 및 개념](documentdb-resources.md)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

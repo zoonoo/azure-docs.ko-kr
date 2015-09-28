@@ -274,19 +274,19 @@ Blob을 SQL Server 콘텐츠 데이터베이스로 다시 이동한 후 다음 �
 1. 관리자 권한이 있는 계정을 사용하여 WFE(웹 프런트 엔드) 서버에 로그온합니다.
 2. SharePoint용 StorSimple 어댑터 설치 관리자를 두 번 클릭합니다. 설치 마법사가 시작됩니다.
 
-![설치 마법사](./media/storsimple-adapter-for-sharepoint/sasp2.png)
+    ![설치 마법사](./media/storsimple-adapter-for-sharepoint/sasp2.png)
 
 3. **다음**을 클릭합니다. 다음 페이지가 나타납니다.
 
-![설치 마법사 제거 페이지](./media/storsimple-adapter-for-sharepoint/sasp3.png)
+    ![설치 마법사 제거 페이지](./media/storsimple-adapter-for-sharepoint/sasp3.png)
 
 4. **제거**를 클릭하여 제거 프로세스를 선택합니다. 다음 페이지가 나타납니다.
 
-![설치 마법사 확인 페이지](./media/storsimple-adapter-for-sharepoint/sasp4.png)
+    ![설치 마법사 확인 페이지](./media/storsimple-adapter-for-sharepoint/sasp4.png)
 
 5. **제거**를 클릭하여 제거를 확인합니다. 다음 진행률 페이지가 나타납니다.
 
-![설치 마법사 진행률 페이지](./media/storsimple-adapter-for-sharepoint/sasp5.png)
+    ![설치 마법사 진행률 페이지](./media/storsimple-adapter-for-sharepoint/sasp5.png)
 
 6. 제거가 완료되면 마침 페이지가 나타납니다. **마침**을 클릭하여 설치 마법사를 닫습니다.
 
@@ -308,4 +308,4 @@ Blob을 SQL Server 콘텐츠 데이터베이스로 다시 이동한 후 다음 �
 [5]: https://technet.microsoft.com/library/ff628583(v=office.15).aspx
 [8]: https://technet.microsoft.com/ko-KR/library/ff943565.aspx
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Operational Insights와 함께 Operations Manager 사용 시 고려 사항
@@ -83,8 +83,8 @@ Operational Insights 배포를 계획할 때(특히 단일 관리 그룹을 통�
 
 에이전트의 개수|관리 그룹에 필요한 예상 공간
 ---|---
-5|\~2.5 MB(5개의 에이전트 x 100 KB 데이터/일 x 5일 = 2,500 KB)
-50|\~25 MB (50개의 에이전트 x 100 KB 데이터/일 x 5일 = 25,000 KB)
+5|~2.5 MB(5개의 에이전트 x 100 KB 데이터/일 x 5일 = 2,500 KB)
+50|~25 MB (50개의 에이전트 x 100 KB 데이터/일 x 5일 = 25,000 KB)
 
 ## Operational Insights에 대한 Operations Manager 실행 계정
 
@@ -215,4 +215,4 @@ Operations Manager에 Operational Insights를 연결할 때 계정을 설정하�
 
 다양한 지리적 위치에 있는 서버에서 데이터를 분석하려는 경우 위치 당 하나의 관리 그룹이 있는 것이 좋습니다. 에이전트에서 관리 그룹으로 데이터 전송의 성능을 향상시킬 수 있습니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

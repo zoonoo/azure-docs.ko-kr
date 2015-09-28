@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="PowerShell 사용한 Azure SQL 데이터베이스 리소스 관리" 
+	pageTitle="PowerShell을 사용하여 Azure SQL 데이터베이스 관리" 
 	description="PowerShell을 사용한 Azure SQL 데이터베이스 관리" 
 	services="sql-database" 
 	documentationCenter="" 
@@ -13,11 +13,16 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/28/2015" 
+	ms.date="09/11/2015" 
 	ms.author="vinsonyu"/>
 
-# PowerShell 사용한 Azure SQL 데이터베이스 리소스 관리
+# PowerShell을 사용하여 Azure SQL 데이터베이스 관리
 
+
+> [AZURE.SELECTOR]
+- [Azure Preview Portal](sql-database-manage-portal.md)
+- [SSMS](sql-database-manage-azure-ssms.md)
+- [PowerShell](sql-database-command-line-tools.md)
 
 이 항목에서는 Azure 리소스 관리자 cmdlet을 사용하여 많은 Azure SQL 데이터베이스 작업을 수행하기 위한 PowerShell 명령을 제공 합니다.
 
@@ -28,7 +33,7 @@ PowerShell cmdlet을 실행 하려면 Azure powershell을 설치 및 실행 해�
 
 [Microsoft 웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)를 실행하여 Azure PowerShell 모듈을 다운로드하고 설치할 수 있습니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 
-cmdlets를 만들고 관리할 수 있는 Azure SQL 데이터 베이스는 Azure 리소스 관리자 모듈에 있습니다. Azure PowerShell을 시작하면 Azure 모듈에 있는 cmdlet을 기본적으로 가져옵니다. Azure 리소스 관리자 모듈로 전환하려면 **Switch-azuremode** cmdlet을 사용합니다.
+cmdlets를 만들고 관리할 수 있는 Azure SQL 데이터 베이스는 Azure 리소스 관리자 모듈에 있습니다. Azure PowerShell을 시작하면 Azure 모듈에 있는 cmdlet을 기본적으로 가져옵니다. Azure 리소스 관리자 모듈로 전환하려면 **Switch-AzureMode** cmdlet을 사용합니다.
 
 	Switch-AzureMode -Name AzureResourceManager
 
@@ -40,7 +45,7 @@ cmdlets를 만들고 관리할 수 있는 Azure SQL 데이터 베이스는 Azure
 
 ## 자격 증명을 구성합니다.
 
-Azure 구독에 대한 PowerShell cmdlet을 실행 하려면 먼저 Azure 계정에 대한 액세스를 설정 해야 합니다. 다음을 실행하면 자격 증명을 입력할 수 있는 로그인 화면이 나타납니다. Azure 포털에 로그인할 때 사용한 것과 동일한 전자 메일과 암호를 사용합니다.
+Azure 구독에 대한 PowerShell cmdlet을 실행 하려면 먼저 Azure 계정에 대한 액세스를 설정 해야 합니다. 다음을 실행하면 자격 증명을 입력할 수 있는 로그인 화면이 나타납니다. Azure 포털에 로그인할 때 사용한 것과 동일한 메일과 암호를 사용합니다.
 
 	Add-AzureAccount
 
@@ -49,7 +54,7 @@ Azure 구독에 대한 PowerShell cmdlet을 실행 하려면 먼저 Azure 계정
 
 ## Azure 구독 선택
 
-사용하고 싶은 구독을 선택하려면 구독 ID(**-SubscriptionId**) 또는 구독 이름(**-SubscriptionName**)이 필요합니다. 이는 이전 단계에서 복사하거나, 또는 구독이 여러 개일 경우 **Get-AzureSubscription** cmdlet을 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다.
+사용할 구독을 선택하려면 구독 ID(**-SubscriptionId**) 또는 구독 이름(**-SubscriptionName**)이 필요합니다. 이는 이전 단계에서 복사하거나, 또는 구독이 여러 개일 경우 **Get-AzureSubscription** cmdlet을 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다.
 
 현재 구독을 설정 하 여 구독 정보로 다음 cmdlet을 실행 합니다.
 
@@ -72,7 +77,7 @@ Azure 구독에 대한 PowerShell cmdlet을 실행 하려면 먼저 Azure 계정
 
 ## 서버 만들기 
 
-새 V12 서버 사용을 만들려면 [New-AzureSqlServer](https://msdn.microsoft.com/library/mt163526.aspx)명령을 사용합니다. Server12을 서버 이름으로 바꿉니다 서버 이름은 Azure SQL Server에 대해 고유해야 하며, 그렇지 않으면 서버 이름이 이미 사용 중이라는 오류가 발생할 수 있습니다. 또한 이 명령을 완료하는 데 몇 분 정도 걸릴 수 있다는 점도 유의해야 합니다. 서버가 성공적으로 생성된 후 서버 세부 정보와 PowerShell 프롬프트가 표시됩니다. 명령을 편집하여 선택한 모든 유효한 위치를 사용할 수 있습니다.
+새 V12 서버를 만들려면 [New-AzureSqlServer](https://msdn.microsoft.com/library/mt163526.aspx)명령을 사용합니다. Server12을 서버 이름으로 바꿉니다 서버 이름은 Azure SQL Server에 대해 고유해야 하며, 그렇지 않으면 서버 이름이 이미 사용 중이라는 오류가 발생할 수 있습니다. 또한 이 명령을 완료하는 데 몇 분 정도 걸릴 수 있다는 점도 유의해야 합니다. 서버가 성공적으로 생성된 후 서버 세부 정보와 PowerShell 프롬프트가 표시됩니다. 명령을 편집하여 선택한 모든 유효한 위치를 사용할 수 있습니다.
 
 	New-AzureSqlServer -ResourceGroupName "resourcegroupJapanWest" -ServerName "server12" -Location "Japan West" -ServerVersion "12.0"
 
@@ -80,7 +85,7 @@ Azure 구독에 대한 PowerShell cmdlet을 실행 하려면 먼저 Azure 계정
 
 ## 서버 방화벽 규칙 만들기
 
-서버에 액세스하는 방화벽 규칙을 만들려면 [New-AzureSqlServerFirewallRule](https://msdn.microsoft.com/library/mt125953.aspx) 명령을 사용합니다. 다음 명령을 실행하여 시작 및 끝 IP 주소를 사용자 컴퓨터에 유효한 값으로 바꿉니다.
+서버에 액세스하기 위한 방화벽 규칙을 만들려면 [New-AzureSqlServerFirewallRule](https://msdn.microsoft.com/library/mt125953.aspx) 명령을 사용합니다. 다음 명령을 실행하여 시작 및 끝 IP 주소를 사용자 컴퓨터에 유효한 값으로 바꿉니다.
 
 서버에서 다른 Azure 서비스에 대한 액세스를 허용해야 하는 경우, 특별한 방화벽 규칙을 추가하고 모든 Azure 트래픽이 서버에 액세스할 수 있도록 하는 **-AllowAllAzureIPs** 스위치를 추가합니다.
 
@@ -137,4 +142,4 @@ Azure SQL 리소스를 다시 만들거나 유사한 리소스를 만들 경우 
 - [Azure SQL 데이터베이스 서비스 관리자 Cmdlet](https://msdn.microsoft.com/library/dn546726.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -1,3 +1,5 @@
+<!--author=SharS last changed: 9/17/15-->
+
 ### 1단계: 장치에 관리 포털에서 서비스 데이터 암호화 키를 변경할 권한 부여
 
 일반적으로 장치 관리자는 서비스 관리자가 장치에 서비스 데이터 암호화 키를 변경할 수 있는 권한을 부여하도록 요청합니다. 그러면 서비스 관리자는 장치에 키를 변경할 수 있는 권한을 부여합니다.
@@ -72,4 +74,4 @@
 
 3. [2단계: StorSimple용 Windows PowerShell을 사용하여 서비스 데이터 암호화 키 변경 시작](#to-initiate-the-service-data-encryption-key-change)에서 얻은 서비스 데이터 암호화 키를 제공합니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

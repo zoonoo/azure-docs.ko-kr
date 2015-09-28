@@ -2,23 +2,26 @@
 	pageTitle="Azure 앱 서비스 웹 앱 고급 구성 및 확장"
 	description="XDT(XML 문서 변환) 선언을 사용하여 Azure 앱 서비스 웹 앱에서 ApplicationHost.config 파일을 변환하고 개인 확장을 추가하여 사용자 지정 관리 작업을 사용하도록 설정할 수 있습니다."
 	authors="cephalin"
+	writer="cephalin"
 	editor="mollybos"
 	manager="wpickett"
 	services="app-service\web"
 	documentationCenter=""/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/06/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스 웹 앱 고급 구성 및 확장
 
 [XDT(XML 문서 변환)](http://msdn.microsoft.com/library/dd465326.aspx) 선언을 사용하여 Azure 앱 서비스의 웹앱에서 [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) 파일을 변환할 수 있습니다. XDT 선언을 사용하여 사용자 지정 웹 앱 관리 작업을 가능하게 하는 개인 확장을 추가할 수도 있습니다. 이 문서에는 웹 인터페이스를 통해 PHP 설정을 관리할 수 있는 샘플 PHP Manager 웹 앱 확장이 포함되어 있습니다.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ##<a id="transform"></a>ApplicationHost.config를 통한 고급 구성
 앱 서비스 플랫폼에서는 융통성 있게 웹 앱 구성을 제어할 수 있습니다. 앱 서비스에서 직접적인 편집에 표준 IIS ApplicationHost.config 구성 파일을 사용할 수 없지만, 이 플랫폼은 XDT(XML 문서 변환)를 기반으로 하여 선언적인 ApplicationHost.config 변환 모델을 지원합니다.
@@ -43,7 +46,7 @@
 
 변환 상태가 포함된 로그 파일 및 자세한 정보는 FTP 루트의 LogFiles\\Transform 아래에서 사용할 수 있습니다.
 
-추가 샘플은 [https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions)(영문)를 참조하십시오.
+추가 샘플은 [https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions)(영문)를 참조하세요.
 
 **참고**<br /> `system.webServer` 아래에 있는 모듈 목록의 요소를 제거하거나 요소의 순서를 바꿀 수 없지만 목록에 추가할 수는 있습니다.
 
@@ -179,4 +182,4 @@ applicationHost.config 파일에 웹 앱 확장을 등록하려면 확장 루트
 [TransformSiteSolEx]: ./media/web-sites-transform-extend/TransformSiteSolEx.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -1,32 +1,35 @@
 <properties
    pageTitle="Azure Active Directory와 응용 프로그램 통합 | Microsoft Azure"
-	description="Azure Active Directory(Azure AD)에서 응용 프로그램을 추가, 업데이트 또는 제거하는 방법을 보여줍니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor="mbaldwin"/>
+   description="Azure Active Directory(Azure AD)에서 응용 프로그램을 추가, 업데이트 또는 제거하는 방법을 보여줍니다."
+   services="active-directory"
+   documentationCenter=""
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor="mbaldwin" />
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/25/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="08/25/2015"
+   ms.author="mbaldwin" />
 
 # Azure Active Directory와 응용 프로그램 통합
+
+[AZURE.INCLUDE [active-directory-devguide](../../includes/active-directory-devguide.md)]
+
 엔터프라이즈 개발자 및 소프트웨어 SaaS(software-as-a-service) 공급자는 Azure AD(Azure Active directory)와 함께 통합되어 보안 로그인 및 해당 서비스에 대한 인증을 제공하는 상용 클라우드 서비스 또는 업무용 응용 프로그램 제품군을 개발할 수 있습니다. 응용 프로그램 또는 서비스를 Azure AD와 통합하려면 개발자가 먼저 Azure 관리 포털을 사용하여 Azure AD와 응용 프로그램에 대한 자세한 내용을 등록해야 합니다.
 
 이 문서에서는 Azure AD에서 응용 프로그램을 추가, 업데이트 또는 제거하는 방법을 보여줍니다. Azure AD와 통합할 수 있는 다양한 유형의 응용 프로그램, 웹 API 등과 같은 기타 리소스에 액세스하도록 응용 프로그램을 구성하는 방법에 대해 알아봅니다.
 
-앱 속성에 대한 추가 정보를 보려면 [응용 프로그램 개체 및 서비스 주체 개체](active-directory-application-objects.md)를 참조하고 Azure Active Directory로 응용 프로그램 개발 시 사용해야 하는 브랜딩 지침을 배우려면 [통합 앱에 대한 브랜드 지침](active-directory-branding-guidelines.md)을 참조하십시오.
+앱 속성에 대한 추가 정보를 보려면 [응용 프로그램 개체 및 서비스 사용자 개체](active-directory-application-objects.md)를 참조하고 Azure Active Directory로 응용 프로그램 개발 시 사용해야 하는 브랜딩 지침을 배우려면 [통합 앱에 대한 브랜드 지침](active-directory-branding-guidelines.md)을 참조하세요. 응용 프로그램 매니페스트는 [Azure Active Directory 응용 프로그램 매니페스트 이해](active-directory-application-manifest.md)에서 설명합니다.
 
 ## 응용 프로그램 추가
 
 Azure AD의 기능을 사용하려는 모든 응용 프로그램은 먼저 디렉터리에 등록되어야 합니다. 이 등록 프로세스는 응용 프로그램이 위치한 URL, 사용자가 인증된 후 회신을 보낼 URL, 앱을 식별하는 URI 등과 같이 응용 프로그램에 대한 Azure AD 세부 정보의 제공이 포함됩니다.
 
-Azure AD 내 사용자에 대해 로그인만 필요한 웹 응용 프로그램을 만든다면 아래 지침만 따르면 됩니다. 응용 프로그램에서 웹 API에 대한 액세스가 필요하며 사용자가 웹 API에 대한 액세스가 필요한 네이티브 응용 프로그램을 구축하거나 다중 테넌트 응용 프로그램을 만들고 싶다면 [응용 프로그램 업데이트](#updating-an-application) 섹션을 계속해서 읽으면서 응용 프로그램을 계속 구성해야 합니다.
+Azure AD 내 사용자에 대해 로그인만 필요한 웹 응용 프로그램을 만든다면 아래 지침만 따르면 됩니다. 응용 프로그램에 웹 API에 대한 액세스가 필요하거나, 웹 API에 액세스해야 하는 네이티브 응용 프로그램을 빌드 중이거나, 다중 테넌트 응용 프로그램을 만들려는 경우 응용 프로그램을 계속 구성하려면 이어서 [응용 프로그램 업데이트](#updating-an-application) 섹션을 읽어야 합니다.
 
 응용 프로그램을 다른 조직에서도 사용할 수 있게 하려면 응용 프로그램이 추가되었을 때 외부 액세스를 사용할 수 있게 해야 합니다.
 
@@ -50,7 +53,7 @@ Azure AD 내 사용자에 대해 로그인만 필요한 웹 응용 프로그램�
 
 ## 응용 프로그램 업데이트
 
-응용 프로그램이 Azure AD와 등록되면 웹 API에 액세스를 제공하도록 업데이트하고 다른 조직에서 사용할 수 있게 만드는 등, 기타 작업이 필요할 수도 있습니다. 이 섹션에서는 응용 프로그램을 추가로 구성 하는 방법을 설명합니다. Azure AD에서 인증이 작동하는 방식에 대한 자세한 내용은 [Azure AD에 대한 인증 시나리오](active-directory-authentication-scenarios.md)를 참조하십시오.
+응용 프로그램이 Azure AD와 등록되면 웹 API에 액세스를 제공하도록 업데이트하고 다른 조직에서 사용할 수 있게 만드는 등, 기타 작업이 필요할 수도 있습니다. 이 섹션에서는 응용 프로그램을 추가로 구성 하는 방법을 설명합니다. Azure AD에서 인증이 작동하는 방식에 대한 자세한 내용은 [Azure AD에 대한 인증 시나리오](active-directory-authentication-scenarios.md)를 참조하세요.
 
 ### 동의 프레임워크의 개요
 
@@ -58,7 +61,7 @@ Azure AD의 새로운 동의 프레임 워크를 사용하면 Azure AD에서 보
 
 동의 프레임워크는 공용 또는 기밀 클라이언트를 사용하여 인증 코드 부여 및 클라이언트 자격 증명 부여와 같은 다양한 흐름 및 OAuth 2.0을 기반으로 작성됩니다. OAuth 2.0을 사용하여 Azure AD는 전화기, 태블릿, 서버 또는 웹 응용 프로그램과 같은 다양한 유형의 클라이언트 응용 프로그램을 작성하고 필요한 리소스에 액세스할 수 잇습니다.
 
-동의 프레임워크에 대한 자세한 정보는 [Azure AD에서 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Azure AD 인증 시나리오](active-directory-authentication-scenarios.md) 및 Office 365의 항목[공통 동의 프레임워크를 사용하여 인증 및 권한 부여](https://msdn.microsoft.com/library/office/dn605895(v=office.15).aspx)를 참조하십시오.
+동의 프레임워크에 대한 자세한 정보는 [Azure AD의 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx), [Azure AD 인증 시나리오](active-directory-authentication-scenarios.md) 및 Office 365 항목 [일반적인 동의 프레임워크를 사용한 인증 및 권한 부여](https://msdn.microsoft.com/library/office/dn605895(v=office.15).aspx)를 참조하세요.
 
 #### 승인 환경 예
 
@@ -68,7 +71,7 @@ Azure AD의 새로운 동의 프레임 워크를 사용하면 Azure AD에서 보
 
     ![다른 응용 프로그램에 대한 권한](./media/active-directory-integrating-applications/permissions.png)
 
-1. 응용 프로그램의 사용 권한이 업데이트되었고 응용 프로그램이 실행 중이며 사용자가 처음으로 사용하는 것임을 고려하십시오. 응용 프로그램이 아직 액세스나 새로고침 토큰을 입수하지 않은 경우 응용 프로그램이 Azure AD의 권한 부여 끝점으로 이동하여 새로운 액세스와 새로고침 토큰을 얻는 데 사용할 수 있는 권한 부여 코드를 입수해야 합니다.
+1. 응용 프로그램의 사용 권한이 업데이트되었고 응용 프로그램이 실행 중이며 사용자가 처음으로 사용하는 것임을 고려하세요. 응용 프로그램이 아직 액세스나 새로고침 토큰을 입수하지 않은 경우 응용 프로그램이 Azure AD의 권한 부여 끝점으로 이동하여 새로운 액세스와 새로고침 토큰을 얻는 데 사용할 수 있는 권한 부여 코드를 입수해야 합니다.
 
 1. 사용자가 아직 인증되지 않았다면 Azure AD에 로그인하라는 메시지가 나타납니다.
 
@@ -78,7 +81,7 @@ Azure AD의 새로운 동의 프레임 워크를 사용하면 Azure AD에서 보
 
     ![사용자 동의 경험](./media/active-directory-integrating-applications/userconsent.png)
 
-1. 사용자가 동의를 부여하면 인증 코드가 응용 프로그램에 반환되며, 이것을 교환하여 액세스 토큰 및 새로고침 토큰을 획득할 수 있습니다. 이 흐름에 대한 자세한 내용은 [Azure AD 인증 시나리오](active-directory-authentication-scenarios.md)의 [웹 응용 프로그램-웹 API 섹션](active-directory-authentication-scenarios.md#web-application-to-web-api)을 참조하세요.
+1. 사용자가 동의를 부여하면 인증 코드가 응용 프로그램에 반환되며, 이것을 교환하여 액세스 토큰 및 새로고침 토큰을 획득할 수 있습니다. 이 흐름에 대한 자세한 내용은 [Azure AD 인증 시나리오](active-directory-authentication-scenarios.md)의 [웹 응용 프로그램-Web API 섹션](active-directory-authentication-scenarios.md#web-application-to-web-api)을 참조하세요.
 
 ### 다른 응용 프로그램에서 웹 API에 액세스
 
@@ -106,7 +109,7 @@ Azure AD의 새로운 동의 프레임 워크를 사용하면 Azure AD에서 보
 
 ### 다른 응용 프로그램에 웹 API에 노출
 
-사용 권한 범위를 다른 응용 프로그램 개발자에게 노출함으로써 웹 API를 개발하고 다른 조직이 사용할 수 있게 만들 수 있습니다. 올바르게 구성된 웹 API는 Graph API 및 Office 365 API와 같은 다른 Microsoft 웹 API와 마찬가지로 사용 가능합니다. 응용 프로그램의 ID 구성을 나타내는 JSON 파일인 응용 프로그램 매니페스트를 구성함으로써 웹 API가 사용 가능해집니다. Azure 관리 포털에서 해당 응용 프로그램으로 찾아가고 명령 모음에 있는 응용 프로그램 매니페스트 단추를 클릭하여 사용 권한 범위를 노출할 수 있습니다.
+사용 권한 범위를 다른 응용 프로그램 개발자에게 노출함으로써 웹 API를 개발하고 다른 조직이 사용할 수 있게 만들 수 있습니다. 올바르게 구성된 웹 API는 Graph API 및 Office 365 API와 같은 다른 Microsoft 웹 API와 마찬가지로 사용 가능합니다. 응용 프로그램의 ID 구성을 나타내는 JSON 파일인 [응용 프로그램 매니페스트](active-directory-application-manifest.md)를 구성하면 Web API를 사용할 수 있습니다. Azure 관리 포털에서 해당 응용 프로그램으로 찾아가고 명령 모음에 있는 응용 프로그램 매니페스트 단추를 클릭하여 사용 권한 범위를 노출할 수 있습니다. 자세한 내용은 [Azure Active Directory 응용 프로그램 매니페스트 이해](active-directory-application-manifest.md)를 참조하세요.
 
 #### 다른 응용 프로그램에 웹 API를 노출하려면
 
@@ -118,7 +121,7 @@ Azure AD의 새로운 동의 프레임 워크를 사용하면 Azure AD에서 보
 
 1. 명령 모음에서 매니페스트 관리 단추를 클릭하고 매니페스트 다운로드를 선택합니다.
 
-1. JSON 응용 프로그램 매니페스트 파일을 열고 다음 JSON 조각으로 "oauth2Permissions" 노드를 바꿉니다. 이 조각은 사용자 가장이라고 알려진 사용 권한 범위를 노출하는 방법의 예제입니다. 반드시 자신의 응용 프로그램용으로 텍스트 및 값을 변경하십시오.
+1. JSON 응용 프로그램 매니페스트 파일을 열고 다음 JSON 조각으로 "oauth2Permissions" 노드를 바꿉니다. 이 조각은 사용자 가장이라고 알려진 사용 권한 범위를 노출하는 방법의 예제입니다. 반드시 자신의 응용 프로그램용으로 텍스트 및 값을 변경하세요.
 
 		"oauth2Permissions": [
 		{
@@ -136,9 +139,9 @@ Azure AD의 새로운 동의 프레임 워크를 사용하면 Azure AD에서 보
 
     ID 값은 GUID 생성 도구를 사용하거나 프로그래밍 방식으로 만드는 새롭게 생성된 GUID여야 합니다. 이것은 웹 API에 의해 노출되는 사용 권한을 위한 고유한 식별자를 나타냅니다. 클라이언트가 웹 API에 대한 액세스를 요청하도록 적절하게 구성되고 웹 API를 호출하면 범위(scp) 클레임이 위 값으로 설정된 OAuth 2.0 JWT 토큰을 나타내며 이 경우에는 user\_impersonation입니다.
 
-	>[AZURE.NOTE]추가 사용 권한 범위를 나중에 필요한 대로 노출할 수 있습니다. 웹 API가 다양한 기능과 관련된 여러 사용 권한을 노출할 수도 있음을 고려하십시오. 이제 수신된 OAuth 2.0 JWT 토큰에서 범위(scp) 클레임을 사용하여 웹 API에 대한 액세스를 제어할 수 있습니다.
+	>[AZURE.NOTE]추가 사용 권한 범위를 나중에 필요한 대로 노출할 수 있습니다. 웹 API가 다양한 기능과 관련된 여러 사용 권한을 노출할 수도 있음을 고려하세요. 이제 수신된 OAuth 2.0 JWT 토큰에서 범위(scp) 클레임을 사용하여 웹 API에 대한 액세스를 제어할 수 있습니다.
 
-1. 업데이트된 JSON 파일을 저장하고 명령 모음에 있는 매니페스트 관리 단추를 클릭하고 매니페이스 업로드를 선택하고 업데이트된 매니페스트 파일을 찾아가서 선택하여 파일을 업로드할 수 있습니다. 파일이 업로드되면 웹 API가 이제 디렉토리 내 다른 응용 프로그램에 의해 사용되도록 구성됩니다.
+1. 업데이트된 JSON 파일을 저장하고 명령 모음에 있는 매니페스트 관리 단추를 클릭하고 매니페스트 업로드를 선택하고 업데이트된 매니페스트 파일을 찾아가서 선택하여 파일을 업로드할 수 있습니다. 파일이 업로드되면 웹 API가 이제 디렉토리 내 다른 응용 프로그램에 의해 사용되도록 구성됩니다.
 
 #### 웹 API가 디렉터리의 다른 응용 프로그램에 노출되었는지 확인하려면
 
@@ -175,7 +178,7 @@ Azure AD의 새로운 동의 프레임 워크를 사용하면 Azure AD에서 보
 |디렉터리 데이터 읽기|응용 프로그램이 사용자, 그룹 및 응용 프로그램과 같이 조직의 디렉터리에서 데이터를 읽을 수 있게 해줍니다.|위임 및 응용 프로그램 권한입니다. 관리자가 동의해야 합니다.|
 |디렉터리 데이터 읽기 및 쓰기|응용 프로그램이 사용자, 그룹 및 응용 프로그램과 같이 조직의 디렉터리에서 데이터를 읽고 쓰게 할 수 있게 해줍니다.|위임 및 응용 프로그램 권한입니다. 관리자가 동의해야 합니다.|
 
-Azure 관리 포털의 기존 사용자의 경우 다른 응용 프로그램 제어에 대한 새로운 사용 권한을 통해 읽기 디렉터리 데이터 및 읽기/쓰기 디렉터리 데이터 응용 프로그램 사용 권한을 설정하는 것은 이전 액세스 관리 마법사와 동일합니다. Office 365에 의해 노출되는 사용 권한 범위를 보려면 [공통 승인 프레임워크를 사용한 인증 및 권한 부여](https://msdn.microsoft.com/office/office365/howto/common-app-authentication-tasks) 항목을 참조하세요.
+Azure 관리 포털의 기존 사용자의 경우 다른 응용 프로그램 제어에 대한 새로운 사용 권한을 통해 읽기 디렉터리 데이터 및 읽기/쓰기 디렉터리 데이터 응용 프로그램 사용 권한을 설정하는 것은 이전 액세스 관리 마법사와 동일합니다. Office 365에 의해 노출되는 사용 권한 범위를 보려면 [일반적인 동의 프레임워크를 사용한 인증 및 권한 부여](https://msdn.microsoft.com/office/office365/howto/common-app-authentication-tasks) 항목을 참조하세요.
 
 >[AZURE.NOTE]현재 제한으로 인해 네이티브 클라이언트 응용 프로그램이 “조직의 디렉터리 액세스" 권한을 사용하는 경우 Azure AD 그래프 API만 호출할 수 있습니다. 이 제한은 웹 응용 프로그램에는 적용되지 않습니다.
 
@@ -189,7 +192,7 @@ Azure AD에 응용 프로그램을 추가하는 경우 조직 내의 사용자�
 
 고객이나 조직 외부의 파트너가 사용할 수 있는 응용 프로그램을 작성 중인 경우 Azure 관리 포털에서 응용 프로그램의 정의를 업데이트해야 합니다.
 
->[AZURE.NOTE]외부 액세스를 사용하도록 설정하면 응용 프로그램의 앱 ID URI가 확인된 도메인에 속하도록 보장해야 합니다. 또한 반환 URL이 https://로 시작해야 합니다. 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](active-directory-application-objects.md)를 참조하세요.
+>[AZURE.NOTE]외부 액세스를 사용하도록 설정하면 응용 프로그램의 앱 ID URI가 확인된 도메인에 속하도록 보장해야 합니다. 또한 반환 URL이 https://로 시작해야 합니다. 자세한 내용은 [응용 프로그램 개체 및 서비스 사용자 개체](active-directory-application-objects.md)를 참조하세요.
 
 ##### 외부 사용자의 앱 액세스를 허용하려면
 
@@ -207,7 +210,7 @@ Azure AD에 응용 프로그램을 추가하는 경우 조직 내의 사용자�
 
 ### 동의 프레임워크를 사용하여 액세스 부여
 
-동의 프레임워크를 사용하여 액세스를 부여하려면 클라이언트 응용 프로그램이 OAuth 2.0을 사용하여 권한 부여를 요청해야 합니다. [코드 샘플](https://github.com/AzureADSamples)은 웹 응용 프로그램, 네이티브 응용 프로그램 또는 서버/디먼 응용 프로그램이 어떻게 웹 API 호출을 위한 액세스 토큰 및 권한 부여 코드를 요청하는지 보여줍니다.
+동의 프레임워크를 사용하여 액세스를 부여하려면 클라이언트 응용 프로그램이 OAuth 2.0을 사용하여 권한 부여를 요청해야 합니다. [코드 샘플](https://github.com/AzureADSamples)은 웹 응용 프로그램, 네이티브 응용 프로그램 또는 서버/디먼 응용 프로그램이 어떻게 웹 API 호출을 위한 액세스 토큰 및 권한 부여 코드를 요청하는지를 보여 줍니다.
 
 웹 응용 프로그램이 사용자를 위해 등록 경험을 제공할 수도 있습니다. 등록 경험을 제공하는 경우 사용자가 등록(또는 로그인 버튼)을 클릭하면 브라우저가 Azure AD OAuth2.0 권한 부여 끝점 또는 OpenID Connect userinfo 끝점으로 리디렉션됩니다. 이러한 끝점은 id\_token을 검사하여 응용 프로그램이 새 사용자에 대한 정보를 얻을 수 있도록 지원합니다.
 
@@ -215,18 +218,18 @@ Azure AD에 응용 프로그램을 추가하는 경우 조직 내의 사용자�
 
 #### 단일 페이지 응용 프로그램에 OAuth 2.0 암시적 허용 사용
 
-SPA(단일 페이지 응용 프로그램)는 일반적으로 브라우저에서 실행되는 JavaScript 기반 프런트 엔드로 구성됩니다. 이러한 프런트 엔드는 응용 프로그램의 웹 API를 다시 호출하여 비즈니스 논리를 수행합니다. Azure AD에서 호스트되는 SPA의 경우, OAuth 2.0 암시적 허용을 사용하여 Azure AD에서 사용자를 인증하고, 응용 프로그램의 JavaScript 클라이언트에서 해당 백 엔드 웹 API로의 보안 호출을 사용할 수 있는 토큰을 가져옵니다. 사용자가 승인하면 이 동일한 인증 프로토콜을 사용하여 클라이언트와 응용 프로그램에 대해 구성된 다른 웹 API 리소스 간의 보안 호출을 위해 토큰을 가져올 수 있습니다. 기본적으로 응용 프로그램에 대해 OAuth 2.0 암시적 허용이 사용되지 않도록 설정됩니다. 응용 프로그램의 ID 구성을 나타내는 JSON 파일인 해당 응용 프로그램 매니페스트에서 `oauth2AllowImplicitFlow`”` 값을 설정하여 응용 프로그램에 대해 OAuth 2.0 암시적 허용을 사용하도록 설정할 수 있습니다.
+SPA(단일 페이지 응용 프로그램)는 일반적으로 브라우저에서 실행되는 JavaScript 기반 프런트 엔드로 구성됩니다. 이러한 프런트 엔드는 응용 프로그램의 웹 API를 다시 호출하여 비즈니스 논리를 수행합니다. Azure AD에서 호스트되는 SPA의 경우, OAuth 2.0 암시적 허용을 사용하여 Azure AD에서 사용자를 인증하고, 응용 프로그램의 JavaScript 클라이언트에서 해당 백 엔드 웹 API로의 보안 호출을 사용할 수 있는 토큰을 가져옵니다. 사용자가 승인하면 이 동일한 인증 프로토콜을 사용하여 클라이언트와 응용 프로그램에 대해 구성된 다른 웹 API 리소스 간의 보안 호출을 위해 토큰을 가져올 수 있습니다. 기본적으로 응용 프로그램에 대해 OAuth 2.0 암시적 허용이 사용되지 않도록 설정됩니다. 응용 프로그램의 ID 구성을 나타내는 JSON 파일인 해당 [응용 프로그램 매니페스트](active-directory-application-manifest.md)에서 `oauth2AllowImplicitFlow`”` 값을 설정하여 응용 프로그램에 대해 OAuth 2.0 암시적 허용을 사용하도록 설정할 수 있습니다.
 
 ##### OAuth 2.0 암시적 허용을 사용하도록 설정하려면
 
 1. Azure 관리 포털에 로그인합니다.
-1. 왼쪽 메뉴에 있는 **Active Directory** 아이콘을 클릭하고 원하는 디렉터리를 클릭합니다.
-1. 최상위 메뉴에서 **응용 프로그램**을 클릭하고 구성하려는 응용 프로그램을 클릭합니다. 빠른 시작 페이지가 단일 로그인 및 기타 구성 정보와 함께 나타납니다.
+1. 왼쪽 메뉴에서 **Active Directory** 아이콘을 클릭하고 원하는 디렉터리를 클릭합니다.
+1. 위쪽 메뉴에서 **응용 프로그램**을 클릭하고 구성하려는 응용 프로그램을 클릭합니다. 빠른 시작 페이지가 단일 로그인 및 기타 구성 정보와 함께 나타납니다.
 1. 명령 모음에서 **매니페스트 관리** 단추를 클릭하고 **매니페스트 다운로드**를 선택합니다. JSON 응용 프로그램 매니페스트 파일을 열고 "oauth2AllowImplicitFlow" 값 "true"로 설정합니다. 기본적으로 “false”입니다.
 
        "oauth2AllowImplicitFlow": true,
 
-1. 업데이트된 JSON 파일을 저장하고 명령 모음에 있는 **매니페스트 관리** 단추를 클릭하고 **매니페이스 업로드**를 선택한 후 업데이트된 매니페스트 파일을 찾아 선택하여 파일을 업로드할 수 있습니다. 업로드가 되면 웹 API는 이제 OAuth 2.0 암시적 허용을 사용하여 사용자를 인증하도록 구성된 것입니다.
+1. 업데이트된 JSON 파일을 저장한 다음 명령 모음에 있는 **매니페스트 관리** 단추를 클릭하고 **매니페스트 업로드**를 선택한 후 업데이트된 매니페스트 파일을 찾아 선택하여 업로드합니다. 업로드가 되면 웹 API는 이제 OAuth 2.0 암시적 허용을 사용하여 사용자를 인증하도록 구성된 것입니다.
 
 
 ### 액세스 권한 부여에 대한 레거시 경험
@@ -243,7 +246,7 @@ SPA(단일 페이지 응용 프로그램)는 일반적으로 브라우저에서 
 
 #### 외부 사용자에 대한 액세스를 허용하는 링크 작성(레거시)
 
-외부 사용자가 조직 계정을 사용하여 해당 앱에 등록할 수 있게 하려면 액세스 권한을 부여할 수 있는 Azure AD 상의 페이지로 연결되는 단추를 표시하도록 앱을 업데이트해야 합니다. 이 등록 버튼에 대한 브랜딩 지침은 [통합된 응용 프로그램에 대한 브랜딩 지침](active-directory-branding-guidelines.md) 항목에 있습니다. 사용자가 액세스 권한을 부여 또는 거부하면 Azure AD 권한 부여 액세스 페이지가 응답과 함께 브라우저를 해당 앱으로 다시 리디렉션합니다. 응용 프로그램 속성에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 원칙](active-directory-application-objects.md)을 참조하세요.
+외부 사용자가 조직 계정을 사용하여 해당 앱에 등록할 수 있게 하려면 액세스 권한을 부여할 수 있는 Azure AD 상의 페이지로 연결되는 단추를 표시하도록 앱을 업데이트해야 합니다. 이 등록 단추에 대한 브랜딩 지침은 [통합 응용 프로그램에 대한 브랜딩 지침](active-directory-branding-guidelines.md) 항목에서 설명합니다. 사용자가 액세스 권한을 부여 또는 거부하면 Azure AD 권한 부여 액세스 페이지가 응답과 함께 브라우저를 해당 앱으로 다시 리디렉션합니다. 응용 프로그램 속성에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 원칙](active-directory-application-objects.md)을 참조하세요.
 
 권한 부여 액세스 페이지는 Azure AD에서 생성하며, 관리 포털 내 앱의 구성 페이지에서 링크를 찾을 수 있습니다. 구성 페이지로 이동하려면 Azure AD 테넌트의 최상위 메뉴에 있는 응용 프로그램 링크를 클릭하고 구성하려는 앱을 클릭한 다음, 빠른 시작 페이지의 최상단 메뉴에서 구성을 클릭합니다.
 
@@ -252,7 +255,7 @@ SPA(단일 페이지 응용 프로그램)는 일반적으로 브라우저에서 
 |매개 변수|설명|
 |---|---|
 |clientid|필수입니다. 응용 프로그램 추가의 일부로 얻은 클라이언트 ID입니다.|
-|RequestedPermissions|선택 사항입니다. 응용 프로그램이 요청하는 액세스 수준으로 앱 액세스 권한을 부여하는 사용자에게 표시됩니다. 지정하지 않으면 요청된 액세스 수준이 단일 로그인만으로 기본 설정됩니다. 기타 옵션은 DirectoryReaders 및 DirectoryWriters입니다. 이러한 액세스 수준에 대한 자세한 내용은 응용 프로그램 액세스 수준을 참조하십시오.|
+|RequestedPermissions|선택 사항입니다. 응용 프로그램이 요청하는 액세스 수준으로 앱 액세스 권한을 부여하는 사용자에게 표시됩니다. 지정하지 않으면 요청된 액세스 수준이 단일 로그인만으로 기본 설정됩니다. 기타 옵션은 DirectoryReaders 및 DirectoryWriters입니다. 이러한 액세스 수준에 대한 자세한 내용은 응용 프로그램 액세스 수준을 참조하세요.|
 |ConsentReturnUrl|선택 사항입니다. 액세스 권한 부여 응답을 반환하고자 하는 URL입니다. 이 값은 URL 인코딩이어야 하며, 앱 정의에서 구성된 회신 URL과 동일한 도메인 하에 있어야 합니다. 공급되지 않으면 액세스 권한 부여 응답이 구성된 회신 URL로 리디렉션됩니다.|
 
 ConsentReturnUrl을 회신 URL과 별도로 지정하면 앱이 회신 URL(일반적으로 로그인을 위해 SAML 토큰을 처리)로부터 다른 URL에 대한 응답을 처리할 수 있는 별도의 논리를 구현할 수 있게 됩니다. ConsentReturnURL 인코딩된 URL에 추가 매개 변수를 지정할 수도 있습니다. 이러한 매개 변수는 리디렉션 시 해당 앱에 쿼리 문자열로 다시 전달됩니다. 이 메커니즘을 사용하여 추가 정보를 유지하거나 앱의 액세스 권한 요청을 Azure AD의 응답에 연결할 수 있습니다.
@@ -294,7 +297,7 @@ ConsentReturnUrl을 회신 URL과 별도로 지정하면 앱이 회신 URL(일�
 
 1. 키 아래에 있는 기간 선택 드롭다운 메뉴에서 1년 또는 2년을 선택하고 명령 모음에 있는 저장을 클릭합니다. 그러면 해당 응용 프로그램에 대해 새 암호 키가 생성됩니다. 이 새 암호 키를 복사합니다. 이 시점에서 응용 프로그램이 기존 및 새 키를 모두 사용하여 Azure AD에서 액세스 토큰을 가져올 수 있습니다.
 
-1. 해당 앱으로 돌아가서 새 암호 키를 사용하여 시작할 구성을 업데이트합니다. 이 업데이트를 실행해야 하는 예는 [Graph API를 사용하여 Azure AD 쿼리](https://msdn.microsoft.com/library/azure/dn151791.aspx)를 참조하세요.
+1. 해당 앱으로 돌아가서 새 암호 키를 사용하여 시작할 구성을 업데이트합니다. 이 업데이트를 수행해야 하는 위치의 예는 [Graph API를 사용하여 Azure AD 쿼리](https://msdn.microsoft.com/library/azure/dn151791.aspx)를 참조하세요.
 
 1. 이제 이 변경 사항을 프로덕션 환경에 걸쳐 구현해야 합니다. 먼저 하나의 서비스 노드에서 확인한 다음 나머지 전체로 확장합니다.
 
@@ -336,14 +339,16 @@ ConsentReturnUrl을 회신 URL과 별도로 지정하면 앱이 회신 URL(일�
 
 1. 확인 메시지에서 예를 클릭합니다.
 
-회사 관리자가 자사의 디렉터리에 대한 앱의 액세스 권한을 제거하기 위해서는(동의를 표시한 후에) 회사의 관리자가 Azure 구독이 있어야 Azure 관리 포털을 통해 액세스 권한을 제거할 수 있습니다. 또는 회사 관리자는 [Azure AD PowerShell Cmdlet](http://go.microsoft.com/fwlink/?LinkId=294151)을 사용하여 액세스 권한을 제거할 수 있습니다.
+회사 관리자가 자사의 디렉터리에 대한 앱의 액세스 권한을 제거하기 위해서는(동의를 표시한 후에) 회사의 관리자가 Azure 구독이 있어야 Azure 관리 포털을 통해 액세스 권한을 제거할 수 있습니다. 또는 회사 관리자는 [Azure AD PowerShell Cmdlet](http://go.microsoft.com/fwlink/?LinkId=294151)을 사용하여 액세스를 제거할 수 있습니다.
 
 ## 다음 단계
 
 - [통합 앱을 위한 브랜딩 지침](active-directory-branding-guidelines.md)을 참조하세요.
 
-- [응용 프로그램 개체 및 서비스 주체 개체](active-directory-application-objects.md)에 대해 알아보세요.
+- [응용 프로그램 개체 및 서비스 사용자 개체](active-directory-application-objects.md)에 대해 알아보세요.
+
+- [Azure Active Directory 응용 프로그램 매니페스트](active-directory-application-manifest.md) 이해
 
 - [Active Directory 개발자 가이드](active-directory-developer's guide.md) 방문
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/14/2015" 
 	ms.author="antonba"/>
 
 # 사용자 등록 및 제품 구독을 위임하는 방법
@@ -90,7 +90,7 @@
 1. 개발자는 API 관리 개발자 포털에서 제품을 선택하고 구독 단추를 클릭합니다.
 2. 브라우저가 위임 끝점으로 리디렉션됩니다.
 3. 위임 끝점에서 필요한 제품 구독 단계를 수행합니다. 이 단계는 사용자가 수행하며, 여기에는 청구 정보를 요청하는 다른 페이지로 리디렉션, 추가 질문 요청 또는 사용자 작업 없이 정보 저장 등이 포함될 수 있습니다.
-4. 성공하면 사용자가 처음 시작했던 API 관리 개발자 포털 페이지로 다시 리디렉션됩니다.
+
 
 이 기능을 사용하려면 **위임** 페이지에서 **제품 구독 위임**을 클릭합니다.
 
@@ -114,8 +114,6 @@
 3. **operation**에 요청된 작업의 유형(예: 청구, 추가 질문 등)을 기반으로 하여 제품 구독 처리를 수행합니다.
 
 4. 사용자의 제품 구독을 마치면 [제품 구독을 위해 REST API를 호출]하여 사용자가 API 관리 제품도 구독하도록 합니다.
-
-5. 요청을 받을 때 지정한 **returnUrl**로 사용자를 다시 리디렉션합니다.
 
 ## <a name="delegate-example-code"> </a>예제 코드 ##
 
@@ -168,4 +166,4 @@
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

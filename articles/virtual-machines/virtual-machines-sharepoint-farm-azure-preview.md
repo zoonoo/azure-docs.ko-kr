@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/07/2015"
 	ms.author="josephd"/>
 
 # SharePoint Server 팜
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 SharePoint Server 팜을 사용하여 Microsoft Azure 미리 보기 포털은 미리 구성된 SharePoint Server 2013 팜을 자동으로 생성합니다. 그러면 개발 및 테스팅 환경을 위해 기본 또는 고가용성 SharePoint 팜이 필요하거나 SharePoint Server 2013 을 조직의 협업 솔루션으로 평가하는 경우 상당한 시간이 줄어들 수 있습니다.
 
@@ -33,7 +35,7 @@ SharePoint Server 팜을 사용하여 Microsoft Azure 미리 보기 포털은 �
 
 이 팜 구성을 사용하여 SharePoint 팜에 대해 보다 과도한 클라이언트 부하, 외부 SharePoint 사이트의 고가용성 및 SQL Server AlwaysOn을 테스트할 수 있습니다. 또한 고가용성 환경에서 SharePoint app 개발에 이 구성을 사용할 수 있습니다.
 
-이러한 두 가지 팜에 대한 구성 세부 사항에 대해서는 [SharePoint 서버 팜 구성 세부 정보](virtual-machines-sharepoint-farm-config-azure-preview.md)를 참조하세요.
+이러한 두 가지 팜에 대한 구성 세부 정보는 [SharePoint 서버 팜 구성 세부 정보](virtual-machines-sharepoint-farm-config-azure-preview.md)를 참조하세요.
 
 > [AZURE.NOTE]Microsoft은 SharePoint Server 2016 IT Preview를 출시했습니다. 이 Preview를 보다 쉽게 설치하고 테스트하기 위해 SharePoint Server 2016 IT Preview 및 해당 필수 구성 요소가 미리 설치된 상태에서 Azure 가상 컴퓨터 갤러리 이미지를 사용할 수 있습니다. 자세한 내용은 [Azure에서 SharePoint Server 2016 IT Preview 테스트](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)를 참조하세요.
 
@@ -41,7 +43,7 @@ SharePoint Server 팜을 사용하여 Microsoft Azure 미리 보기 포털은 �
 
 SharePoint 팜으로 SharePoint Server 팜 템플릿을 만들려면 다음을 수행합니다.
 
-1. [Microsoft Azure 미리 보기 포털](https://portal.azure.com/)에서 **새로 만들기** > **컴퓨터** > **SharePoint 서버 팜**을 클릭합니다. **SharePoint 서버 팜**이 보이지 않으면 **새로 만들기** > **계산** > **마켓플레이스**를 클릭하고 **SharePoint**를 **연산 검색**에 입력한 다음 **SharePoint 서버 팜**을 클릭합니다. **SharePoint 서버 팜 ** 창에서, **만들기**를 클릭합니다.
+1. [Microsoft Azure 미리 보기 포털](https://portal.azure.com/)에서 **새로 만들기** > **컴퓨터** > **SharePoint 서버 팜**을 클릭합니다. **SharePoint 서버 팜**이 표시되지 않는 경우 **새로 만들기** > **계산** > **마켓플레이스**를 클릭하고 **계산 검색**에 **SharePoint**를 입력한 다음 **SharePoint 서버 팜**을 클릭합니다. **SharePoint 서버 팜 ** 창에서 **만들기**를 클릭합니다.
 2. **SharePoint 팜 만들기** 창에서 리소스 그룹의 이름을 입력합니다.
 3. 팜의 각 가상 컴퓨터에서 로컬 관리자 계정의 사용자 이름 및 암호를 입력합니다. 추측하기 어려운 이름 및 암호를 선택하고 기록한 다음 안전한 위치에 보관합니다.
 4. 고가용성 팜을 원하는 경우 **고가용성 사용**을 클릭합니다.
@@ -97,4 +99,4 @@ Azure Preview 포털의 SharePoint 서버 팜 기능은 클래식 배포 모델�
 
 [Azure 인프라 서비스에서 호스트되는 SharePoint 팜](virtual-machines-sharepoint-infrastructure-services.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

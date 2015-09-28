@@ -1,5 +1,5 @@
 
-## <a name="update-app"></a>iOS 앱에서 사용자 지정 API 호출
+### iOS 앱에서 사용자 지정 API 호출
 
 iOS 클라이언트에서 이 사용자 지정 API를 호출하려면 `MSClient invokeAPI` 메서드를 사용합니다. 이 메서드에는 두 버전이 있습니다. 하나는 JSON 형식 요청에 대한 메서드이고 하나는 다음과 같은 데이터 유형에 대한 메서드입니다.
 
@@ -34,4 +34,4 @@ iOS 클라이언트에서 이 사용자 지정 API를 호출하려면 `MSClient 
 	     completion:completion ];
 		
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

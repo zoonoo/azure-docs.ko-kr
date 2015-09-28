@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="Azure 모바일 서비스에서 되풀이 작업 예약" 
-	description="Azure 모바일 서비스 스케줄러를 사용하여 모바일 앱에 대한 작업을 예약합니다." 
+	pageTitle=".NET 백 엔드 모바일 서비스에서 백 엔드 작업 예약 | Microsoft Azure"
+	description="Azure 모바일 서비스의 스케줄러를 사용하여 일정에 따라 실행되는 .NET 백 엔드 작업을 정의할 수 있습니다."
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="ggailey777" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-multiple" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="07/21/2015" 
+	ms.date="09/14/2015" 
 	ms.author="glenga"/>
 
 # 모바일 서비스에서 되풀이 작업 예약 
 
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
-- [(Any | Javascript)](mobile-services-schedule-recurring-tasks.md)
+> [AZURE.SELECTOR]
+- [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [Javascript backend](mobile-services-schedule-recurring-tasks.md)
  
 이 항목에서는 관리 포털의 작업 스케줄러 기능을 사용하여 정의한 일정에 따라 실행되는 서버 스크립트 코드를 정의하는 방법을 보여 줍니다. 이 경우 스크립트는 원격 서비스(이 예에서는 Twitter)를 주기적으로 확인하여 결과를 새 테이블에 저장합니다. 예약할 수 있는 다른 정기 작업에는 다음이 포함됩니다.
 
@@ -30,7 +30,7 @@
 
 이 자습서에서는 작업 스케줄러를 사용하여, Twitter에서 트윗 데이터를 요청하고 트윗을 새 Updates 테이블에 저장하는 예약된 작업을 만드는 방법을 안내합니다.
 
->[AZURE.NOTE]이 자습서에서는 타사 LINQ to Twitter 라이브러리를 사용하여 OAuth 2.0에서 의 Twitter v1.1. API 액세스를 간소화합니다. 이 자습서를 완료하려면 LINQ to Twitter NuGet 패키지를 다운로드하여 설치해야 합니다. 자세한 내용은 [LINQ to Twitter CodePlex 프로젝트](영문)를 참조하십시오.
+>[AZURE.NOTE]이 자습서에서는 타사 LINQ to Twitter 라이브러리를 사용하여 OAuth 2.0에서 의 Twitter v1.1. API 액세스를 간소화합니다. 이 자습서를 완료하려면 LINQ to Twitter NuGet 패키지를 다운로드하여 설치해야 합니다. 자세한 내용은 [LINQ to Twitter CodePlex 프로젝트](영문)를 참조하세요.
 
 ##<a name="get-oauth-credentials"></a>Twitter v1.1 API 액세스 및 저장 자격 증명 등록
 
@@ -92,7 +92,7 @@
 
 	DbSet에 처음 액세스할 때 생성되는 Updates 테이블은 서비스에서 트윗 데이터를 저장하는 데 사용됩니다.
 
-	>[AZURE.NOTE]기본 데이터베이스 이니셜라이저를 사용할 경우 Entity Framework에서는 Code First 모델 정의에서 데이터 모델 변경이 감지될 때마다 데이터베이스를 삭제하고 다시 만듭니다. 이 데이터 모델을 변경하고 데이터베이스에서 기존 데이터를 유지하려면 Code First 마이그레이션을 사용해야 합니다. Azure에서는 SQL 데이터베이스에 대해 기본 이니셜라이저를 사용할 수 없습니다. 자세한 내용은 [Code First 마이그레이션을 사용하여 데이터 모델을 업데이트하는 방법](mobile-services-dotnet-backend-use-code-first-migrations.md)을 참조하십시오.
+	>[AZURE.NOTE]기본 데이터베이스 이니셜라이저를 사용할 경우 Entity Framework에서는 Code First 모델 정의에서 데이터 모델 변경이 감지될 때마다 데이터베이스를 삭제하고 다시 만듭니다. 이 데이터 모델을 변경하고 데이터베이스에서 기존 데이터를 유지하려면 Code First 마이그레이션을 사용해야 합니다. Azure에서는 SQL 데이터베이스에 대해 기본 이니셜라이저를 사용할 수 없습니다. 자세한 내용은 [Code First 마이그레이션을 사용하여 데이터 모델을 업데이트하는 방법](mobile-services-dotnet-backend-use-code-first-migrations.md)을 참조하세요.
 
 이제 Twitter에 액세스하고 새 Updates 테이블에 트윗 데이터를 저장하는 예약된 작업을 만듭니다.
 
@@ -300,4 +300,4 @@ Azure에 게시하고 포털에 등록하기 전에 로컬에서 작업 예약�
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [LINQ to Twitter CodePlex 프로젝트]: http://linqtotwitter.codeplex.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

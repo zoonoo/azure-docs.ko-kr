@@ -4,7 +4,7 @@
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자란?
@@ -144,8 +144,8 @@ StorSimple 스냅숏 관리자를 사용하여 차후의 백업 작업, 예약�
 
 ## 다음 단계
 
-[StorSimple 스냅숏 관리자 작업 및 워크플로에 대한 자세한 내용](storsimple-snapshot-manager-admin.md)
+- [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 자세히 알아봅니다.
 
-[StorSimple 스냅숏 관리자 다운로드](https://www.microsoft.com/download/details.aspx?id=44220)
+- [StorSimple 스냅숏 관리자](https://www.microsoft.com/download/details.aspx?id=44220)를 다운로드합니다.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -5,7 +5,7 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="09/01/2015"
-	ms.author="jroth"/>
+	ms.author="jroth" />
 
 # Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례
 
@@ -22,8 +22,6 @@
 이 항목에서는 Microsoft Azure 가상 컴퓨터의 SQL Server 성능을 최적화하기 위한 모범 사례를 제공합니다. Azure 가상 컴퓨터에서 SQL Server를 실행하는 동안 온-프레미스 서버 환경의 SQL Server에 적용할 수 있는 동일한 데이터베이스 성능 튜닝 옵션을 계속 사용하는 것이 좋습니다. 그러나 공용 클라우드의 관계형 데이터베이스 성능은 가상 컴퓨터의 크기 및 데이터 디스크의 구성과 같은 많은 요인에 따라 달라집니다.
 
 >[AZURE.NOTE]이 문서는 Azure VM의 SQL Server에 대해 최상의 성능을 얻는 데 초점을 맞춥니다. 작업이 적은 경우 아래 나열된 모든 최적화 사항이 필요하지 않을 수 있습니다. 이러한 권장 사항을 평가할 때 성능 요구 사항 및 작업 패턴을 고려하세요.
-
-이 항목에 대한 도우미 리소스의 경우 [다음 백서를 다운로드](http://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/Performance%20Guidance%20for%20SQL%20Server%20in%20Windows%20Azure%20Virtual%20Machines.docx)할 수 있습니다. 해당 백서의 정보는 일부 지역에서는 오래된 것입니다. 예를 들어 이 백서는 현재 최상의 성능 결과를 위해 권장되는 프리미엄 저장소를 도입하기 전에 작성되었습니다.
 
 ## 빠른 검사 목록
 
@@ -129,4 +127,4 @@ SQL Server 및 프리미엄 저장소에 대한 보다 자세한 내용은 문�
 
 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-sql-server-infrastructure-services.md)에서 다른 SQL Server 가상 컴퓨터 항목을 검토하세요.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

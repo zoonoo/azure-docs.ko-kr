@@ -5,15 +5,15 @@
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
-	editor="mollybos"/>
+	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/03/2015" 
+	ms.date="09/16/2015" 
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스에서 웹 앱을 백업
@@ -22,6 +22,8 @@
 [Azure 앱 서비스 웹 앱](http://go.microsoft.com/fwlink/?LinkId=529714)의 백업 및 복원 기능을 사용하여 수동 또는 자동으로 웹 앱 백업을 쉽게 만들 수 있습니다. 웹 앱을 이전 상태로 복원하거나 원본 앱의 백업 중 하나를 기반으로 새 웹 앱을 만들 수 있습니다.
 
 Azure 웹 앱을 백업에서 복원하는 방법에 대한 자세한 내용은 [웹 앱 복원](web-sites-restore.md)을 참조하세요.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 <a name="whatsbackedup"></a>
 ## 백업 대상 
@@ -40,7 +42,7 @@ Azure 웹 앱을 백업에서 복원하는 방법에 대한 자세한 내용은 
 
 * 백업 및 복원 기능은 사이트가 표준 모드에 있어야 합니다. 표준 모드를 사용하여 웹 앱을 확장하는 방법에 대한 자세한 내용은 [Azure 앱 서비스에서 웹 앱 확장](web-sites-scale.md)을 참조하세요. 프리미엄 모드에서는 표준 모드를 통해 매일 더 많은 수의 백업을 수행할 수 있습니다.
 
-* 백업 및 복원 기능에는 백업할 웹 앱과 동일한 구독에 속해야 하는 Azure 저장소 계정과 컨테이너가 있어야 합니다. 아직 저장소 계정이 없는 경우, [Azure Preview 포털](http://portal.azure.com)의 **백업** 블레이드에서 **저장소 계정**을 클릭한 다음 **저장소 계정** 및 **컨테이너**를 **대상** 블레이드에서 선택하여 계정을 하나 만들 수 있습니다. Azure 저장소 계정에 대한 자세한 내용은 이 문서의 끝에 있는 [링크](#moreaboutstorage)를 참조하십시오.
+* 백업 및 복원 기능에는 백업할 웹 앱과 동일한 구독에 속해야 하는 Azure 저장소 계정과 컨테이너가 있어야 합니다. 아직 저장소 계정이 없는 경우, [Azure Preview 포털](http://portal.azure.com)의 **백업** 블레이드에서 **저장소 계정**을 클릭한 다음 **대상** 블레이드에서 **저장소 계정** 및 **컨테이너**를 선택하여 새로 만들 수 있습니다. Azure 저장소 계정에 대한 자세한 내용은 이 문서의 끝에 있는 [링크](#moreaboutstorage)를 참조하세요.
 
 * 백업 및 복원 기능은 최대 10GB 웹 사이트 및 데이터베이스 콘텐츠를 지원합니다. 페이로드가 이 제한을 초과하기 때문에 백업 기능을 계속할 수 없는 경우, 작업 로그에 오류가 표시됩니다.
 
@@ -111,7 +113,7 @@ Azure 웹 앱을 백업에서 복원하는 방법에 대한 자세한 내용은 
 
 웹앱의 모든 것을 백업하고 싶지 않을 때도 있습니다. 다음은 몇 가지 예입니다.
 
--	오래된 블로그 게시물이나 이미지처럼 변하지 않는 정적인 콘텐츠가 포함된 웹앱을 [매주 백업 설정](web-sites-backup.md#configure-automated-backups)합니다.
+-	오래된 블로그 게시물이나 이미지처럼 변하지 않는 정적 콘텐츠가 포함된 웹앱의 [주별 백업을 설정](web-sites-backup.md#configure-automated-backups)합니다.
 -	웹앱에는 10GB 이상의 콘텐츠가 있습니다(한 번에 백업할 수 있는 최대 용량).
 -	로그 파일은 백업하지 않아도 됩니다.
 
@@ -119,7 +121,7 @@ Azure 웹 앱을 백업에서 복원하는 방법에 대한 자세한 내용은 
 
 ### 백업에서 파일 제외
 
-백업에서 파일 및 폴더를 제외하려면 웹앱의 wwwroot 폴더에 `_backup.filter` 파일을 만들고 제외하려는 파일 및 폴더 목록을 지정합니다. 이 곳은 [Kudu 콘솔](https://github.com/projectkudu/kudu/wiki/Kudu-console)을 통해 쉽게 액세스할 수 있습니다.
+백업에서 파일 및 폴더를 제외하려면 웹앱의 wwwroot 폴더에 `_backup.filter` 파일을 만들고 제외하려는 파일 및 폴더 목록을 지정합니다. 이 폴더는 [Kudu 콘솔](https://github.com/projectkudu/kudu/wiki/Kudu-console)을 통해 쉽게 액세스할 수 있습니다.
 
 웹앱에 지난 몇 년 동안의 로그 파일과 정적 이미지가 포함되어 있다고 가정해 보겠습니다. 이러한 항목들은 앞으로도 변하지 않습니다. 여러분은 오래된 이미지가 포함된 웹앱을 이미 완벽히 백업해두었습니다. 이제 매일 웹앱을 백업하려고 하지만 변경되지 않는 정적 이미지 파일 또는 로그 파일을 저장하는 비용은 지불하고 싶지 않습니다.
 
@@ -128,7 +130,7 @@ Azure 웹 앱을 백업에서 복원하는 방법에 대한 자세한 내용은 
 	
 다음 단계는 백업에서 이들 파일을 제외하는 방법을 보여줍니다.
 
-1. `http://{yourapp}.scm.azurewebsites.net/DebugConsole`(으)로 이동하여 백업에서 제외하고자 하는 폴더를 찾습니다. 이 예제에서는 해당 UI에 표시된 다음 파일 및 폴더를 제외하고자 합니다.
+1. `http://{yourapp}.scm.azurewebsites.net/DebugConsole`로 이동하여 백업에서 제외하려는 폴더를 찾습니다. 이 예제에서는 해당 UI에 표시된 다음 파일 및 폴더를 제외하고자 합니다.
 
 		D:\home\site\wwwroot\Logs
 		D:\home\LogFiles
@@ -138,13 +140,13 @@ Azure 웹 앱을 백업에서 복원하는 방법에 대한 자세한 내용은 
 
 	[AZURE.NOTE]마지막 줄은 개별 파일 및 폴더를 제외할 수 있음을 보여줍니다.
 
-2. `_backup.filter`(이)라고 이름의 파일을 만들어서 이 파일에 앞서 언급한 목록을 넣고 `D:\home`을(를) 제거합니다. 줄당 하나의 디렉터리 또는 파일을 나열하십시오. 파일의 내용은 다음과 같아야 합니다.
+2. `_backup.filter`라는 파일을 만들고 위 목록을 파일에 저장하지만 `D:\home`을 제거합니다. 줄당 하나의 디렉터리 또는 파일을 나열하세요. 파일의 내용은 다음과 같아야 합니다.
 
     \site\wwwroot\Logs \LogFiles \site\wwwroot\Images\2013 \site\wwwroot\Images\2014 \site\wwwroot\Images\brand.png
 
-3. [ftp](web-sites-deploy.md#ftp) 또는 기타 모든 방법을 사용하여 이 파일을 해당 사이트의 `D:\home\site\wwwroot` 디렉터리에 업로드합니다. 원한다면 `http://{yourapp}.scm.azurewebsites.net/DebugConsole`에 파일을 직접 만들어서 여기에 콘텐츠를 삽입할 수도 있습니다.
+3. [ftp](web-sites-deploy.md#ftp) 또는 다른 방법을 사용하여 이 파일을 해당 사이트의 `D:\home\site\wwwroot` 디렉터리에 업로드합니다. 필요한 경우 `http://{yourapp}.scm.azurewebsites.net/DebugConsole`에서 직접 파일을 만들고 콘텐츠를 삽입할 수도 있습니다.
 
-4. 이제 백업을 평소와 같이 [수동](#create-a-manual-backup) 또는 [자동](#configure-automated-backups)으로 실행합니다.
+4. 이제 평소와 같이 [수동](#create-a-manual-backup) 또는 [자동](#configure-automated-backups)으로 백업을 실행합니다.
 
 이제 `_backup.filter`에 지정된 모든 파일 및 폴더가 백업에서 제외됩니다. 이 예제에서는 로그 파일과 2013 및 2014 이미지 파일은 이제 더 이상 백업되지 않습니다. brand.png로 마찬가지입니다.
 
@@ -156,9 +158,9 @@ Azure 웹 앱을 백업에서 복원하는 방법에 대한 자세한 내용은 
 
 ## 백업 저장 방법
 
-웹앱에 대해 하나 이상의 백업을 수행한 후, 백업은 웹앱뿐만 아니라 저장소 계정의 **컨테이너** 블레이드에서 볼 수 있습니다. 저장소 계정에서, 각 백업은 백업 데이터가 포함된 .zip 파일과 그 .zip 파일 콘텐츠의 매니페스트가 포함된 .xml 파일로 구성되어 있습니다. 실제로 웹앱 복원을 수행하지 않고 백업에 액세스하고자 한다면 이들 파일의 압축을 풀고 찾아볼 수 있습니다.
+웹앱에 대해 하나 이상의 백업을 수행한 경우 웹앱뿐만 아니라 저장소 계정의 **컨테이너** 블레이드에도 백업이 표시됩니다. 저장소 계정에서, 각 백업은 백업 데이터가 포함된 .zip 파일과 그 .zip 파일 콘텐츠의 매니페스트가 포함된 .xml 파일로 구성되어 있습니다. 실제로 웹앱 복원을 수행하지 않고 백업에 액세스하고자 한다면 이들 파일의 압축을 풀고 찾아볼 수 있습니다.
 
-웹앱에 대한 데이터베이스 백업이 .zip 파일의 루트에 저장됩니다. SQL 데이터베이스의 경우 이 파일은 BACPAC 파일(파일 확장명 없음)이며, 가져올 수 있습니다. BACPAC 내보내기를 기반으로 새 SQL 데이터베이스를 만들려면 [새 사용자 데이터베이스 생성을 위해 BACPAC 파일 가져오기](http://technet.microsoft.com/library/hh710052.aspx)를 참조하세요.
+웹앱에 대한 데이터베이스 백업이 .zip 파일의 루트에 저장됩니다. SQL 데이터베이스의 경우 이 파일은 BACPAC 파일(파일 확장명 없음)이며, 가져올 수 있습니다. BACPAC 내보내기를 기반으로 하여 새 SQL 데이터베이스를 만들려면 [BACPAC 파일을 가져와 새 사용자 데이터베이스 만들기](http://technet.microsoft.com/library/hh710052.aspx)를 참조하세요.
 
 > [AZURE.WARNING]**websitebackups** 컨테이너에 있는 파일을 변경하면 백업이 잘못되어 복원할 수 없게 됩니다.
 
@@ -174,17 +176,17 @@ Azure 웹 앱을 백업에서 복원하는 방법에 대한 자세한 내용은 
 
 복원 전략은 다음과 유사해야 합니다.
  
--	웹앱에 대해 [스테이징 슬롯](web-sites-staged-publishing.md)을 생성합니다.
+-	웹앱에 대한 [스테이징 슬롯](web-sites-staged-publishing.md)을 만듭니다.
 -	스테이징 슬롯에서 웹앱의 전체 백업을 복원합니다.
 -	스테이징 슬롯에서도 전체 백업 복원 위에 최신 부분 백업을 복원합니다.
--	복원을 테스트하여 스테이징 앱이 올바르게 동작하는지 확인하십시오.
--	스테이징된 웹앱을 프로덕션 슬롯에 [스왑](web-sites-staged-publishing.md#Swap)합니다.
+-	복원을 테스트하여 스테이징 앱이 올바르게 동작하는지 확인하세요.
+-	스테이징된 웹앱을 프로덕션 슬롯에 [교환](web-sites-staged-publishing.md#Swap)합니다.
 
->[AZURE.NOTE]항상 복원 프로세스를 테스트합니다. 자세한 내용은 [매우 유용한 기능](http://axcient.com/blog/one-thing-can-derail-disaster-recovery-plan/)을 참조하세요. 예를 들어, [Ghost](https://ghost.org/)와 같은 특정 블로깅 플랫폼에서는 백업 중에 어떻게 동작하는지에 대해 명시적인 지침을 가지고 있습니다. 복원 프로세스를 테스트함으로써 장애나 재해에 의해 피해를 입기 전에 이러한 지침을 적용할 수 있습니다.
+>[AZURE.NOTE]항상 복원 프로세스를 테스트합니다. 자세한 내용은 [매우 유용한 기능](http://axcient.com/blog/one-thing-can-derail-disaster-recovery-plan/)을 참조하세요. 예를 들어 [Ghost](https://ghost.org/)와 같은 특정 블로깅 플랫폼에는 백업 중에 어떻게 동작하는지에 대해 명시적인 지침이 있습니다. 복원 프로세스를 테스트함으로써 장애나 재해에 의해 피해를 입기 전에 이러한 지침을 적용할 수 있습니다.
 
 <a name="nextsteps"></a>
 ## 다음 단계
-웹앱을 백업에서 복원하는 방법에 대한 자세한 내용은 [Azure 앱 서비스에서 웹 복원](web-sites-restore.md)을 참조하세요.
+백업에서 웹앱을 복원하는 방법에 대한 자세한 내용은 [Azure 앱 서비스에서 웹앱 복원](web-sites-restore.md)을 참조하세요.
 
 Azure에 등록하려면 [Microsoft Azure 무료 평가판](/pricing/free-trial/)을 참조하세요.
 
@@ -220,4 +222,4 @@ Azure에 등록하려면 [Microsoft Azure 무료 평가판](/pricing/free-trial/
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

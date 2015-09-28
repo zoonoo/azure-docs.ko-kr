@@ -3,7 +3,7 @@
 	description="Azure에서 가상 컴퓨터와 통신을 허용하도록 포털에서 끝점을 설정하는 방법에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/28/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 #가상 컴퓨터에 끝점을 설정하는 방법
 
@@ -96,4 +96,4 @@ Azure PowerShell cmdlet을 사용하여 이 작업을 설정하려면 [PowerShel
 
 [Azure 인프라 서비스를 위한 부하 분산](virtual-machines-load-balance.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

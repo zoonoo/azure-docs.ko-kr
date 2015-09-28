@@ -3,7 +3,7 @@
 	description="Azure 관리 포털 및 Azure PowerShell 명령을 사용하여 Azure에서 새 가상 컴퓨터 또는 기존 가상 컴퓨터에 대한 가용성 집합을 구성하는 단계를 설명합니다."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,9 +15,9 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/10/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
-#가상 컴퓨터의 가용성 집합을 구성하는 방법#
+# 가상 컴퓨터의 가용성 집합을 구성하는 방법
 
 가용성 집합을 사용하면 유지 관리 중과 같은 가동 중지 시간 동안에도 가상 컴퓨터를 계속 사용할 수 있습니다. 가용성 집합 내에 비슷하게 구성된 둘 이상의 가상 컴퓨터를 배치하면 가상 컴퓨터가 실행하는 서비스나 응용 프로그램의 가용성을 유지하는 데 필요한 중복성이 생성됩니다. 이 기능이 작동하는 방법에 대한 자세한 내용은 [가상 컴퓨터의 가용성 관리][]를 참조하세요.
 
@@ -95,9 +95,9 @@ Azure PowerShell 명령을 사용하려면 관리자 수준의 Azure PowerShell 
 
 >[AZURE.NOTE]가용성 집합에 추가하는 작업을 완료하기 위해 가상 컴퓨터를 다시 시작해야 할 수 있습니다.
 
-##추가 리소스
+## 추가 리소스
 
-[Azure 가상 컴퓨터 구성 설정 정보]
+[서비스 관리의 가상 컴퓨터 관련 문서]
 
 <!-- LINKS -->
 [옵션 1: 가상 컴퓨터와 가용성 집합을 동시에 만듭니다.]: #createset
@@ -107,6 +107,6 @@ Azure PowerShell 명령을 사용하려면 관리자 수준의 Azure PowerShell 
 [가상 컴퓨터의 가용성 관리]: virtual-machines-manage-availability.md
 [Windows를 실행하는 가상 컴퓨터 만들기]: virtual-machines-windows-tutorial.md
 [가상 네트워크 개요(영문)]: virtual-networks-overview.md
-[Azure 가상 컴퓨터 구성 설정 정보]: http://msdn.microsoft.com/library/azure/dn763935.aspx
+[서비스 관리의 가상 컴퓨터 관련 문서]: virtual-machines-service-management-articles.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

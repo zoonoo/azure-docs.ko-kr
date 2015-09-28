@@ -1,24 +1,38 @@
 <properties 
-   pageTitle="Azure 게스트 OS에 적용된 업데이트 목록 | Microsoft Azure"
-	description="게스트 OS 릴리스에 적용된 업데이트 목록"
-	services="cloud-services"
-	documentationCenter="na"
-	authors="yuemlu"
-	manager="markkie"
-	editor=""/>
+   pageTitle="Azure 게스트 OS에 적용된 업데이트 목록 | Microsoft Azure" 
+   description="게스트 OS 릴리스에 적용된 업데이트 목록" 
+   services="cloud-services" 
+   documentationCenter="na" 
+   authors="yuemlu" 
+   manager="markkie" 
+   editor=""/>
 
 <tags
    ms.service="cloud-services"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="08/24/2015"
-	ms.author="yuemlu"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="tbd" 
+   ms.date="09/14/2015"
+   ms.author="yuemlu"/>
 
 # Azure 게스트 OS 
 
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
+
+## 게스트 OS 9월
+
+| 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
+| MS15-093 | [3088903] | Internet Explorer용 보안 업데이트 | 4\.24, 3.31, 2.43 | 2015년 9월 8일 |
+| MS15-094 | [3089548] | Internet Explorer용 누적 보안 업데이트 | 4\.24, 3.31, 2.43 | 2015년 9월 8일 |
+| MS15-096 | [3072595] | Active Directory 서비스의 취약성으로 인한 서비스 거부 | 4\.24, 3.31, 2.43 | 2015년 9월 8일 |
+| MS15-097 | [3089656] | Microsoft 그래픽 구성 요소의 취약성으로 인한 권한 상승 | 4\.24, 3.31, 2.43 | 2015년 9월 8일 |
+| MS15-098 | [3089669] | Windows 필기장의 취약성으로 인한 원격 코드 실행 | 4\.24, 3.31, 2.43 | 2015년 9월 8일 |
+| MS15-101 | [3089662] | .NET Framework의 취약성으로 인한 권한 상승 | 4\.24, 3.31, 2.43 | 2015년 9월 8일 |
+| MS15-102 | [3089657] | Windows 작업 관리의 취약성으로 인한 권한 상승 | 4\.24, 3.31, 2.43 | 2015년 9월 8일 |
+| MS15-105 | [3091287] | Windows Hyper-V의 취약성으로 인한 보안 기능 우회 | 4\.24 | 2015년 9월 8일 |
+
 
 ## 게스트 OS 8월
 
@@ -69,7 +83,7 @@
 | ----------- | ------------------- | --------------------------------------------------------------------------- | ---------------- | --------------------- |
 | MS15-043 | [3049563] | Internet Explorer용 누적 보안 업데이트 | 4\.20, 3.27, 2.39 | 2015년 5월 12일 |
 | MS15-044 | [3057110] | Microsoft 글꼴 드라이버의 취약성으로 인한 원격 코드 실행 | 4\.20, 3.27, 2.39 | 2015년 5월 12일 |
-| MS15-045 | [3046002] | Windows Journal의 취약성으로 인한 원격 코드 실행 | 4\.20, 3.27, 2.39 | 2015년 5월 12일 |
+| MS15-045 | [3046002] | Windows 필기장의 취약성으로 인한 원격 코드 실행 | 4\.20, 3.27, 2.39 | 2015년 5월 12일 |
 | MS15-048 | [3057134] | .NET Framework의 취약성으로 인한 권한 상승 | 4\.20, 3.27, 2.39 | 2015년 5월 12일 |
 | MS15-050 | [3055642] | 서비스 제어 관리자의 취약성으로 인한 권한 상승 | 4\.20, 3.27, 2.39 | 2015년 5월 12일 |
 | MS15-051 | [3057191] | Windows 커널 모드 드라이버의 취약성으로 인한 권한 상승 | 4\.20, 3.27, 2.39 | 2015년 5월 12일 |
@@ -157,6 +171,16 @@
 | 해당 없음 | [2999802][2999802] | 점선 대신 실선이 Windows에서 인쇄됨 | 4\.15, 3.22, 2.34 | 2015년 1월 13일 |
 | 해당 없음 | [2896881][2896881] | Windows에서 로그온 프로세스 중 사용자에 대한 프린터를 매핑하도록 AddPrinterConnection VBScript 명령을 사용하는 경우 로그온에 오랜 시간이 걸림 | 4\.15, 3.22, 2.34 | 2015년 1월 13일 |
 
+
+[3088903]: http://support.microsoft.com/kb/3088903
+[3089548]: http://support.microsoft.com/kb/3089548
+[3072595]: http://support.microsoft.com/kb/3072595
+[3089656]: http://support.microsoft.com/kb/3089656
+[3089669]: http://support.microsoft.com/kb/3089669
+[3089657]: http://support.microsoft.com/kb/3089657
+[3091287]: http://support.microsoft.com/kb/3091287
+[3089662]: http://support.microsoft.com/kb/3089662
+
 [3082442]: http://support.microsoft.com/kb/3082442
 [3078662]: http://support.microsoft.com/kb/3078662
 [3080348]: http://support.microsoft.com/kb/3080348
@@ -184,7 +208,7 @@
 
 [MS15-034]: https://technet.microsoft.com/library/security/MS15-034
 
-[3042553]: https://support.microsoft.com/ko-kr/kb/3042553/
+[3042553]: https://support.microsoft.com/ko-KR/kb/3042553/
 
 [3034682]: http://support.microsoft.com/kb/3034682
 [3036220]: http://support.microsoft.com/kb/3036220
@@ -264,4 +288,4 @@
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-and-release-explanation
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

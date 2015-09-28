@@ -233,6 +233,12 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 
 최소한 삭제할 때에는 `id` 특성이 설정되어야 합니다.
 
+##<a name="#custom-api"></a>방법: 사용자 지정 API 호출
+
+사용자 지정 API는 삽입, 업데이트, 삭제 또는 읽기 작업에 매핑되지 않는 서버 기능을 노출하는 사용자 지정 끝점을 정의할 수 있게 합니다. 사용자 지정 API를 사용하면 HTTP 메시지 헤더 읽기와 설정 및 JSON 이외의 메시지 본문 형식 정의를 비롯하여 더 효율적으로 메시징을 제어할 수 있습니다. 모바일 서비스에서 사용자 지정 API를 만드는 방법의 예는 [방법: 사용자 지정 API 끝점 정의](mobile-services-dotnet-backend-define-custom-api.md)를 참조하세요.
+
+[AZURE.INCLUDE [mobile-services-ios-call-custom-api](../../includes/mobile-services-ios-call-custom-api.md)]
+
 
 ##<a name="authentication"></a>방법: 사용자 인증
 
@@ -326,4 +332,4 @@ Single Sign-On을 사용하도록 설정하거나 앱이 ID 공급자에게 직�
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [충돌 처리기]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -6,15 +6,15 @@
 	authors="HeidiSteen"
 	manager="mblythe"
 	editor=""
-	tags="azure-portal"/>
+    tags="azure-portal"/>
 
 <tags
 	ms.service="search"
 	ms.devlang="NA"
 	ms.workload="search"
-	ms.topic="article"
+	ms.topic="article" 
 	ms.tgt_pltfrm="na"
-	ms.date="08/19/2015"
+	ms.date="09/16/2015"
 	ms.author="heidist"/>
 
 #Azure 검색: 자습서, 비디오 데모 및 샘플
@@ -23,7 +23,7 @@
 
 ##데모 사이트
 
-[**Azure 검색을 위한 뉴욕시(NYC) 구직 포털 데모**](http://aka.ms/azjobsdemo)는 NYC 오픈 데이터 이니셔티브의 데이터를 사용하여 Azure 검색 기능을 설명하는 ASP.NET 웹 사이트입니다.
+[**Azure 검색을 위한 뉴욕시(NYC) 구직 포털 데모**](http://aka.ms/azjobsdemo)는 NYC 오픈 데이터 이니셔티브의 데이터를 사용하여 Azure 검색 기능을 설명하는 라이브 ASP.NET 웹 사이트입니다.
 
 [**앱 서비스 + Azure 검색 체험**](search-tryappservice.md)은 데이터, 작동하는 웹 응용 프로그램, 온라인으로 수정하여 다양한 검색 기능을 시험해 볼 수 있는 소스 코드가 포함된 1시간 짜리 Azure 검색 세션입니다.
 
@@ -64,21 +64,30 @@
 
 ##코드 샘플
 
-[****https://github.com/AzureSearch**](https://github.com/AzureSearch)는 Azure 검색 개발 팀에서 만든 코드 샘플이 포함된 Azure 검색의 GitHub 리포지토리입니다. 리포지토리에 포함된 내용을 찾아보거나 아래 링크를 클릭하여 특정 예로 직접 이동할 수 있습니다.
+[****https://github.com/liamca/AzureSearchDemos**](https://github.com/liamca/AzureSearchDemos)는 Liam Cavanagh가 만든 코드 샘플을 포함하는 GitHub 리포지토리입니다. 이 리포지토리에서 다음 예제를 찾을 수 있습니다.
+
+- [AdventureWorksWP8]()은 Windows Phone 앱입니다.
+- [AzSearchAutoScaleWeb](https://github.com/liamca/AzureSearchDemos/tree/master/AzSearchAutoScaleWeb) 
+- [BabyNameJS](https://github.com/liamca/AzureSearchDemos/tree/master/BabyNamesJS)는 자습서의 데이터를 제공하는 index.html 파일입니다.
+- [DotNetSample](https://github.com/liamca/AzureSearchDemos/tree/master/DotNetSample)은 Azure 검색용 ASP.NET MVC 응용 프로그램입니다.
+- [NYCJobs.NET](https://github.com/liamca/AzureSearchDemos/tree/master/NYCJobs.NET)은 NYCJobs 라이브 데모 사이트에 대한 소스 코드를 제공합니다.
+- [추천](https://github.com/liamca/AzureSearchDemos/tree/master/Recommendations)은 활성 데이터 팩터리, SQL 데이터베이스, Blob 저장소 및 HDInsight를 사용하여 제품을 함께 구입하는 빈도에 따라 제품을 추천합니다.
+
+[****https://github.com/AzureSearch**](https://github.com/AzureSearch)는 Azure 검색 개발 팀에서 만든 코드 샘플이 포함된 Azure 검색의 다른 GitHub 리포지토리입니다. 리포지토리에 포함된 내용을 찾아보거나 아래 링크를 클릭하여 특정 예로 직접 이동할 수 있습니다.
 
 - [**JavaIndexerDemo**](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)
 - [**NodeJSIndexerDemo**](https://github.com/AzureSearch/AzureSearchNodeJSIndexerDemo)
 - [**.NET-2015-02-28-샘플**](https://github.com/AzureSearch/.NET-2015-02-28-Sample)은 검색 작업에 .NET 클라이언트 라이브러리를 사용하는 ASP.NET MVC 5 응용 프로그램입니다.
 
-별도의 GitHub 리포지토리는 [**AzureSearch-Microsoft Virtual Academy 교육 자료**](https://github.com/MicrosoftLearning/AzureSearch-MVA)로 사용됩니다. 7개 부분 과정에서 사용되는 몇 가지 샘플을 포함합니다.
+[**AzureSearch-Microsoft Virtual Academy 교육 자료**](https://github.com/MicrosoftLearning/AzureSearch-MVA)에는 별도의 GitHub 리포지토리가 사용됩니다. 7개 부분 과정에서 사용되는 몇 가지 샘플을 포함합니다.
 
 CodePlex에서 공개 미리 보기 중에 현재 버전과 여전히 관련이 있는 여러 샘플을 찾을 수 있습니다.
 
 - [**관리 REST API 데모**](https://azuresearchmgmtapi.codeplex.com/)는 관리 REST API를 사용하는 Windows 콘솔 응용 프로그램입니다.
-- [**AdventureWorks 데모**](https://azuresearchadventureworksdemo.codeplex.com/) 는 ASP.NET MVC 4 응용 프로그램입니다.
-- [**Suggestions 데모**](https://azsearchsuggestions.codeplex.com/SourceControl/latest)는 ASP.NET MVC 4 응용 프로그램입니다.
+- [**AdventureWorks 데모**](https://azuresearchadventureworksdemo.codeplex.com/)는 ASP.NET MVC 4 응용 프로그램입니다.
+- [**제안 데모**](https://azsearchsuggestions.codeplex.com/SourceControl/latest)는 ASP.NET MVC 4 응용 프로그램입니다.
 - [**GeoSearch 샘플**](https://azuresearchgeospatial.codeplex.com/)은 ASP.NET MVC 4 응용 프로그램입니다.
-- [**Azure 검색 동기화 샘플에 대한 SQL Server**](http://sqlserver2azuresearch.codeplex.com/)는 포함된 로컬 데이터베이스에서 SQL Server 행 집합을 로드하는 Windows 콘솔 응용 프로그램입니다.
-- [**프로필 점수 매기기 데모**](https://azuresearchscoringprofiles.codeplex.com/)는 조정 검색 결과에 대한 프로필 점수 매기기를 정의, 실행 및 업데이트하는 Windows 콘솔 응용 프로그램입니다.
+- [**SQL Server와 Azure 검색의 동기화 샘플**](http://sqlserver2azuresearch.codeplex.com/)은 포함된 로컬 데이터베이스에서 SQL Server 행 집합을 로드하는 Windows 콘솔 응용 프로그램입니다.
+- [**점수 매기기 프로필 데모**](https://azuresearchscoringprofiles.codeplex.com/)는 검색 결과 조정을 위한 점수 매기기 프로필을 정의하고 실행하며 업데이트하는 Windows 콘솔 응용 프로그램입니다.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

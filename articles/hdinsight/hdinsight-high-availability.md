@@ -44,7 +44,7 @@ HDInsight를 사용하면 고객이 서로 다른 데이터 분석 작업을 위
 
 ZK([ZooKeeper](http://zookeeper.apache.org/)) 노드가 추가되었으며 헤드 노드의 리더 선택을 위해, 그리고 활성 헤드 노드(헤드 노드 0)가 비활성화될 때 보조 헤드 노드(헤드 노드 1)로 장애 조치(failover)될 때 작업자 노드 및 GW(게이트웨이)에서 알 수 있도록 하는 데 사용됩니다.
 
-![HDInsight Hadoop 구현의 매우 안정적인 헤드 노드의 다이어그램](http://i.imgur.com/jrUmrH4.png)
+![HDInsight Hadoop 구현의 매우 안정적인 헤드 노드의 다이어그램](./media/hdinsight-high-availability/hadoop.high.availability.architecture.diagram.png)
 
 
 
@@ -98,4 +98,4 @@ SDK의 경우에도 상황은 비슷합니다. SDK를 사용하는 클러스터�
 - [RDP를 사용하여 HDInsight 클러스터에 연결](hdinsight-administer-use-management-portal.md#rdp)
 - [HDInsight .NET SDK 사용](hdinsight-provision-clusters.md#sdk)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

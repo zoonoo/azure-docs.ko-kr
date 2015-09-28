@@ -65,7 +65,6 @@ Azure PowerShell의 경우, [Azure PowerShell을 사용하여 Linux 기반 가�
 [데이터 디스크 연결][]
 
 ## 추가 리소스
-[Azure VM 구성 설정 정보][]
 
 [기본 구성 테스트 환경][]
 
@@ -96,11 +95,10 @@ Azure PowerShell의 경우, [Azure PowerShell을 사용하여 Linux 기반 가�
 
 [데이터 디스크 연결]: virtual-machines-linux-how-to-attach-disk.md
 
-[Azure VM 구성 설정 정보]: http://msdn.microsoft.com/library/azure/dn763935.aspx
 [기본 구성 테스트 환경]: virtual-machines-base-configuration-test-environment.md
 [Azure 하이브리드 클라우드 테스트 환경]: virtual-machines-hybrid-cloud-test-environments.md
 
 [Linux를 실행하는 가상 컴퓨터 만들기]: virtual-machines-linux-tutorial.md
 [사용자 지정 가상 컴퓨터 만들기]: virtual-machines-create-custom.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="07/21/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Operational Insights의 데이터 검색
@@ -451,7 +451,7 @@ Type=PerfHourly  CounterName="% Processor Time"  InstanceName="_Total" | Measure
 
 Microsoft System Center Operations Manager에 익숙하다면 where 명령을 관리 팩 측면에서 생각할 수 있습니다. 예제가 규칙인 경우 쿼리의 첫번째 부분이 데이터 원본이고 where 명령은 조건 검색입니다.
 
-**내 대시보드**에서 컴퓨터 CPU가 과도하게 사용되는 경우 참조하는 모니터로서 쿼리를 타일로 사용할 수 있습니다. 대시보드에 대해 자세히 알려면 [Operational Insights 대시보드](operational-insights-use-dashboards)를 참조하세요. 또한 모바일 앱을 사용하여 대시보드를 만들고 사용할 수 있습니다. 자세한 내용은 [Azure Operational Insights 모바일 앱](http://www.windowsphone.com/ko-kr/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)을 참조하세요. 다음 이미지의 아래쪽 두 타일에서 목록을 표시한 모니터를 숫자로 볼 수 있습니다 . 기본적으로 항상 수는 0으로, 목록은 비어 있어야 합니다. 그렇지 않은 경우 경고 조건을 나타냅니다. 필요한 경우 이것을 사용하여 압력을 받는 컴퓨터를 볼 수 있습니다.
+**내 대시보드**에서 컴퓨터 CPU가 과도하게 사용되는 경우 참조하는 모니터로서 쿼리를 타일로 사용할 수 있습니다. 대시보드에 대해 자세히 알려면 [Operational Insights 대시보드](operational-insights-use-dashboards)를 참조하세요. 또한 모바일 앱을 사용하여 대시보드를 만들고 사용할 수 있습니다. 자세한 내용은 [Azure Operational Insights 모바일 앱](http://www.windowsphone.com/ko-KR/store/app/operational-insights/4823b935-83ce-466c-82bb-bd0a3f58d865)을 참조하세요. 다음 이미지의 아래쪽 두 타일에서 목록을 표시한 모니터를 숫자로 볼 수 있습니다 . 기본적으로 항상 수는 0으로, 목록은 비어 있어야 합니다. 그렇지 않은 경우 경고 조건을 나타냅니다. 필요한 경우 이것을 사용하여 압력을 받는 컴퓨터를 볼 수 있습니다.
 
 ![모바일 대시보드](./media/operational-insights-search/search-mobile.png)
 
@@ -615,7 +615,7 @@ Operational Insights에서 타임라인 차트/시간 선택기는 **TimeGenerat
 다음 테이블에서 지원되는 날짜/시간 단위를 나열합니다.
 
 날짜/시간 단위|설명
----|--- 
+---|---
 YEAR, YEARS|현재 연도를 반올림하거나 지정된 년 수 만큼 오프셋합니다.
 MONTH, MONTHS|현재 월을 반올림하거나 지정된 개월 수 만큼 오프셋합니다.
 DAY, DAYS, DATE|현재 날을 반올림하거나 지정된 일 수 만큼 오프셋합니다.
@@ -2049,4 +2049,4 @@ ObjectId로 PerfHourly를 그룹화하고 평균(평균)을 계산합니다.
 ## 기타 리소스
 Stefan Roth가 편리한 검색 치트 시트를 만들었습니다. 자세한 내용을 확인하고 치트 시트를 다운로드하려면 [블로그](http://stefanroth.net/2014/11/05/microsoft-azure-operational-insights-search-data-explorer-cheat-sheet/)를 확인하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

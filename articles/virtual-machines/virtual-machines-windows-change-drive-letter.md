@@ -3,7 +3,8 @@
 	description="Azure에서 Windows 기반 VM의 임시 디스크를 다시 매핑하는 방법에 대해 설명합니다."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn
+"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +16,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="05/27/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 #Windows 임시 디스크의 드라이브 문자를 변경하는 방법
 
@@ -65,4 +66,4 @@ D 드라이브에서 기존 데이터 디스크를 사용하려면 VHD를 저장
 
 [Storage]: ../storage-whatis-account.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

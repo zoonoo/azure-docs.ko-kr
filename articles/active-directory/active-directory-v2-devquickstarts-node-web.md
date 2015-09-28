@@ -1,5 +1,5 @@
 <properties
-	pageTitle="앱 모델 v2.0 | Microsoft Azure"
+	pageTitle="앱 모델 v2.0 Node.js 웹앱 | Microsoft Azure"
 	description="개인 Microsoft 계정과 회사 또는 학교 계정 둘 다로 사용자를 로그인하는 Node JS 웹앱을 빌드하는 방법입니다."
 	services="active-directory"
 	documentationCenter="nodejs"
@@ -10,10 +10,10 @@
 <tags
 	ms.service="active-directory"
 	ms.workload="identity"
-	ms.tgt_pltfrm="na"
+  ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.date="09/11/2015"
 	ms.author="brandwe"/>
 
 # 앱 모델 v2.0 미리 보기: nodeJS 웹앱에 로그인 추가
@@ -50,7 +50,7 @@ The completed application is provided at the end of this tutorial as well.
 - 앱에 대한 **웹** 플랫폼을 추가합니다.
 - 올바른 **리디렉션 URI**를 입력합니다. 리디렉션 URI는 인증 응답을 보내야 하는 Azure AD를 나타냅니다. 이 자습서에 대한 기본값은 `http://localhost:3000/auth/openid/return`입니다.
 
-## 2. pre Adicionar pré-requisitos ao seu diretório 디렉터리에 추가
+## 2. pre requisities를 디렉터리에 추가
 
 명령줄에서 루트 폴더가 없는 경우 디렉터리를 루트 폴더로 변경하고 다음 명령을 실행합니다.
 
@@ -417,4 +417,4 @@ exports.list = function(req, res){
 
 추가 리소스는 다음을 확인해보세요. - [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md) - [스택 오버플로 "azure-active-directory" 태그 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

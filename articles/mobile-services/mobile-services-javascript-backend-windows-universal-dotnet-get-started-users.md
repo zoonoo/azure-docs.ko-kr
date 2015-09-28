@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="인증 시작(Windows 스토어) | Microsoft Azure" 
+	pageTitle="유니버설 Windows 8.1 앱에 인증 추가 | Azure 모바일 서비스"
 	description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Windows 스토어 앱 사용자를 인증하는 방법을 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/14/2015" 
+	ms.date="09/14/2015" 
 	ms.author="glenga"/>
 
-# 모바일 서비스 앱에 인증 추가
+# 유니버설 Windows 8.1 앱에 인증 추가
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../../includes/mobile-services-selector-get-started-users.md)]
 
-이 항목에서는 범용 Windows 앱에서 Azure 모바일 서비스의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 모바일 서비스가 지원하는 ID 공급자를 사용하여 퀵 스타트 프로젝트에 인증을 추가합니다. 모바일 서비스에서 인증되고 권한이 부여된 후 사용자 ID 값이 표시됩니다.
+이 항목에서는 유니버설 Windows 8.1 앱에서 Azure 모바일 서비스의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 모바일 서비스가 지원하는 ID 공급자를 사용하여 퀵 스타트 프로젝트에 인증을 추가합니다. 모바일 서비스에서 인증되고 권한이 부여된 후 사용자 ID 값이 표시됩니다.
 
 이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 먼저 [모바일 서비스 시작] 또는 [기존 앱에 모바일 서비스 추가](mobile-services-javascript-backend-windows-universal-dotnet-get-started-data.md) 자습서를 완료해야 합니다.
 
@@ -84,4 +84,4 @@
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

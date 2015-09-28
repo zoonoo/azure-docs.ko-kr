@@ -1,19 +1,19 @@
 <properties
    pageTitle="온-프레미스 StorSimple 장치 배포 | Microsoft Azure"
-	description="StorSimple 장치 및 서비스를 배포하기 위한 단계 및 모범 사례를 설명합니다. Microsoft Azure StorSimple .3 이전 버전에 적용됩니다."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="adinah"
-	editor=""/>
+   description="StorSimple 장치 및 서비스를 배포하기 위한 단계 및 모범 사례를 설명합니다. Microsoft Azure StorSimple .3 이전 버전에 적용됩니다."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="adinah"
+   editor="" />
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/02/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/17/2015"
+   ms.author="alkohli" />
 
 # 온-프레미스 StorSimple 장치 배포
 
@@ -290,4 +290,4 @@ StorSimple 장치에서 단일 볼륨에 대한 주문형 수동 백업을 만�
 
 - [StorSimple 관리자 서비스](https://msdn.microsoft.com/library/azure/dn772396.aspx)를 사용하여 StorSimple 장치를 관리할 수 있습니다.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

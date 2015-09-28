@@ -1,3 +1,5 @@
+<!--author=SharS last changed: 9/16/15-->
+
 #### 볼륨 컨테이너를 삭제하려면
 
 1. **장치** 페이지에서 장치를 선택하고 두 번 클릭한 다음 **볼륨 컨테이너** 탭을 클릭합니다.
@@ -8,4 +10,4 @@
 
 볼륨 컨테이너에 연결된 볼륨이 있으면 먼저 [볼륨을 오프라인으로 전환](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline)의 단계를 따라 해당 볼륨을 오프라인으로 전환해야 합니다. 볼륨이 오프라인이 되면 삭제할 수 있습니다. 볼륨 컨테이너에 연결된 볼륨이 없으면 위에서 설명한 대로 볼륨 컨테이너를 삭제합니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

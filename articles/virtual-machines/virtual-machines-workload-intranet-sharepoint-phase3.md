@@ -11,17 +11,21 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
-# SharePoint 인트라넷 팜 작업 3단계: SQL Server 인프라 구성
+# SharePoint 인트라넷 팜 워크로드 3단계: SQL Server 인프라 구성
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 Azure 인프라 서비스에서 SQL Server AlwaysOn 가용성 그룹을 사용하여 인트라넷 전용 SharePoint 2013 팜을 배포하는 이 단계에서는 서비스 관리에서 두 SQL Server 컴퓨터와 클러스터 주 노드 컴퓨터를 만들고 구성한 다음 Windows Server 클러스터에 결합합니다.
 
 [4단계](virtual-machines-workload-intranet-sharepoint-phase4.md)로 진행하기 전에 이 단계를 완료해야 합니다. 전체 단계를 보려면 [Azure에서 SQL Server AlwaysOn 가용성 그룹을 사용하여 SharePoint 배포](virtual-machines-workload-intranet-sharepoint-overview.md)를 참조하세요.
+
+> [AZURE.NOTE]이 명령에서는 Azure 이미지 갤러리의 SQL Server 이미지를 사용하며 SQL Server 라이선스 사용에 대해 지속적인 비용이 청구됩니다. Azure에서 가상 컴퓨터를 만들고 사용자 고유의 SQL Server 라이선스를 설치할 수도 있지만 Azure 가상 컴퓨터를 포함하여 가상 컴퓨터에서 SQL Server 라이선스를 사용하려면 Software Assurance 및 License Mobility가 있어야 합니다. 가상 컴퓨터에 SQL Server를 설치하는 방법에 대한 자세한 내용은 [SQL Server 설치](https://msdn.microsoft.com/library/bb500469.aspx)를 참조하세요.
 
 ## Azure에서 SQL Server 클러스터 가상 컴퓨터 만들기
 
@@ -135,7 +139,7 @@ PowerShell 명령의 다음 블록을 사용하여 3개 서버용 가상 컴퓨�
 1.	시작 화면에서 **이 PC**를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 2.	**시스템** 창에서 **원격 설정**을 클릭합니다.
 3.	**원격 데스크톱** 섹션에서 **사용자 선택**을 클릭하고 **추가**를 클릭합니다.
-4.	**선택할 개체 이름을 입력하십시오**에 [도메인]**\\sp\_farm\_db**를 입력하고 **확인**을 세 번 클릭합니다.
+4.	**선택할 개체 이름을 입력하세요.**에 [도메인]**\\sp\_farm\_db**를 입력하고 **확인**을 세 번 클릭합니다.
 
 SQL Server에서는 클라이언트가 데이터베이스 서버에 액세스하는 데 사용하는 포트가 필요합니다. 또한 SQL Server Management Studio에 연결하고 고가용성 그룹을 관리하기 위한 포트도 필요합니다. 다음으로 관리자 수준 Windows PowerShell 명령 프롬프트에서 아래 명령을 두 번(각 SQL Server에 대해 한 번씩) 실행하여 SQL Server에 대한 인바운드 트래픽을 허용하는 방화벽 규칙을 추가합니다.
 
@@ -201,7 +205,7 @@ SQL Server에서 AlwaysOn 가용성 그룹을 사용하도록 설정하려면 �
 2.	시작 화면에서 **SQL Server 구성**을 입력한 다음 **SQL Server 구성 관리자**를 클릭합니다.
 3.	왼쪽 창에서 **SQL Server 서비스**를 클릭합니다.
 4.	내용 창에서 **SQL Server(MSSQLSERVER)**를 두 번 클릭합니다.
-5.	**SQL Server(MSSQLSERVER) 속성**에서 **AlwaysOn 고가용성** 탭을 클릭하고 **AlwaysOn 가용성 그룹 사용**을 선택한 후에 **적용**을 클릭하고 메시지가 표시되면 **확인**을 클릭합니다. 아직 속성 창을 닫지 마세요.
+5.	**SQL Server(MSSQLSERVER) 속성**에서 **AlwaysOn 고가용성** 탭을 클릭하고 **AlwaysOn 가용성 그룹 사용**을 선택한 다음 **적용**을 클릭하고 메시지가 표시되면 **확인**을 클릭합니다. 아직 속성 창을 닫지 마세요.
 6.	가상 컴퓨터 관리 가용성 탭을 클릭한 다음 **계정 이름**에 [도메인]**\\sqlservice**를 입력합니다. **암호** 및 **암호 확인**에 sqlservice 계정 암호를 입력하고 **확인**을 클릭합니다.
 7.	메시지 창에서 **예**를 클릭하여 SQL Server 서비스를 다시 시작합니다.
 8.	보조 SQL server에 로그온하여 이 프로세스를 반복합니다.
@@ -212,7 +216,7 @@ SQL Server에서 AlwaysOn 가용성 그룹을 사용하도록 설정하려면 �
 
 ## 다음 단계
 
-이 작업을 계속 구성하려면 [4단계: SharePoint 서버 구성](virtual-machines-workload-intranet-sharepoint-phase4.md)으로 진행하세요.
+이 워크로드를 계속 구성하려면 [4단계: SharePoint 서버 구성](virtual-machines-workload-intranet-sharepoint-phase4.md)으로 진행하세요.
 
 ## 추가 리소스
 
@@ -226,6 +230,6 @@ SQL Server에서 AlwaysOn 가용성 그룹을 사용하도록 설정하려면 �
 
 [Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-[Azure 인프라 서비스 작업: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
+[Azure 인프라 서비스 워크로드: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

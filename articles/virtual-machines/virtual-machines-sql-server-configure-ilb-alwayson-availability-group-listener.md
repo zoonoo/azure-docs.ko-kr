@@ -5,15 +5,15 @@
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
-	ms.date="08/11/2015"
-	ms.author="jroth"/>
+	ms.date="09/16/2015"
+	ms.author="jroth" />
 
 # Azure에서 AlwaysOn 가용성 그룹에 대한 ILB 수신기 구성
 
@@ -35,13 +35,11 @@ ILB를 사용하는 Azure에서는 가용성 그룹 수신기에 다음과 같�
 
 - 수신기는 클라우드 서비스 VIP 주소를또는 ILB(내부 부하 분산기) VIP 주소를 사용하도록 구성되기 때문에 클라우드당 하나의 가용성 그룹 수신기만 지원됩니다. Azure가 이제는 지정된 클라우드 서비스에서의 여러 VIP 주소 만들기를 지원하지만 이 제한 사항은 여전히 유효합니다.
 
->[AZURE.NOTE]이 자습서는 PowerShell을 사용하여 Azure 복제본을 포함하는 가용성 그룹에 대한 수신기를 만드는 데 중점을 둡니다. SSMS 또는 Transact-SQL을 사용 하여 수신기를 구성하는 방법에 대 한 자세한 내용은 [가용성 그룹 수신기 만들기 또는 구성](https://msdn.microsoft.com/library/hh213080.aspx)을 참조하세요.
-
 ## 수신기의 액세스 가능 여부 확인
 
 [AZURE.INCLUDE [ag-listener-accessibility](../../includes/virtual-machines-ag-listener-determine-accessibility.md)]
 
-이 문서에서는 **ILB(내부 부하 분산장치)**을 사용하는 수신기를 만드는 데 중점을 둡니다. 공개/외부 수신기를 만들 경우 [외부 수신기](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md) 설정 단계를 제공하는 이 문서의 버전을 참조하세요.
+이 문서에서는 **ILB(내부 부하 분산 장치)**를 사용하는 수신기를 만드는 데 중점을 둡니다. 공용/외부 수신기가 필요한 경우 [외부 수신기](virtual-machines-sql-server-configure-public-alwayson-availability-group-listener.md) 설정 단계를 제공하는 이 문서의 다른 버전을 참조하세요.
 
 ## 직접 서버 반환이 있는 부하 분산 VM 끝점 만들기
 
@@ -49,17 +47,17 @@ ILB의 경우 먼저 내부 부하 분산기를 만들어야 합니다. 이 작�
 
 [AZURE.INCLUDE [load-balanced-endpoints](../../includes/virtual-machines-ag-listener-load-balanced-endpoints.md)]
 
-1. **ILB**에는 고정 IP 주소를 할당해야 합니다. 먼저, 다음 명령을 실행하여 현재 VNet 구성의 검사합니다.
+1. **ILB**에 대해 고정 IP 주소를 할당해야 합니다. 먼저, 다음 명령을 실행하여 현재 VNet 구성의 검사합니다.
 
 		(Get-AzureVNetConfig).XMLConfiguration
 
-1. 복제본을 호스팅하는 VM이 포함된 서브넷의 **서브넷** 이름을 기억해 둡니다. 이 이름은 스크립트의 **$SubnetName** 매개 변수에서 사용됩니다.
+1. 복제본을 호스트하는 VM이 포함된 서브넷의 **서브넷** 이름을 적어 둡니다. 이 이름은 스크립트의 **$SubnetName** 매개 변수에서 사용됩니다.
 
-1. 그런 다음 복제본을 호스팅하는 VM이 들어 있는 서브넷의 **VirtualNetworkSite** 이름과 시작**AddressPrefix**를 기억해 둡니다. 두 값을 **Test-AzureStaticVNetIP** 명령으로 전달하고 **AvailableAddresses**를 조사하여 사용 가능한 IP 주소를 검색합니다. 예를 들어, VNet 이름이 *MyVNet*이고 서브넷 주소 범위가 *172.16.0.128*에서 시작한다면 다음 명령에서 사용 가능한 주소가 나열됩니다.
+1. 그런 다음 복제본을 호스트하는 VM이 포함된 서브넷의 **VirtualNetworkSite** 이름과 시작 **AddressPrefix**를 적어 둡니다. 두 값을 **Test-AzureStaticVNetIP** 명령에 전달하고 **AvailableAddresses**를 조사하여 사용 가능한 IP 주소를 검색합니다. 예를 들어 VNet 이름이 *MyVNet*이고 서브넷 주소 범위가 *172.16.0.128*에서 시작한다면 다음 명령을 통해 사용 가능한 주소를 나열할 수 있습니다.
 
 		(Test-AzureStaticVNetIP -VNetName "MyVNet"-IPAddress 172.16.0.128).AvailableAddresses
 
-1. 사용 가능한 주소 중 하나를 선택하고 다음 스크립트의 **$ILBStaticIP** 매개 변수에서 사용합니다.
+1. 사용 가능한 주소 중 하나를 선택하고 다음 스크립트의 **$ILBStaticIP** 매개 변수에 사용합니다.
 
 3. 아래의 PowerShell 스크립트를 텍스트 편집기에 복사하고 사용자 환경에 맞게 변수 값을 설정합니다(일부 매개 변수에 대한 기본값 제공). 선호도 그룹을 사용하는 기존 배포 그룹은 ILB를 추가할 수 없습니다. ILB 요구 사항에 대한 자세한 내용은 [내부 부하 분산 장치](../load-balancer/load-balancer-internal-overview.md)를 참조하세요. 또한 가용성 그룹에 Azure 지역에 걸쳐 있는 경우, 데이터센터에 있는 클라우드 서비스 및 노드에 대해 각각의 데이터센터에서 한 번씩 스크립트를 실행해야 합니다.
 
@@ -81,7 +79,7 @@ ILB의 경우 먼저 내부 부하 분산기를 만들어야 합니다. 이 작�
 
 1. 변수를 설정한 후에는 텍스트 편집기에서 해당 스크립트를 Azure PowerShell 세션에 복사하여 실행합니다. 프롬프트에 >>가 계속 표시되면 Enter를 다시 입력하여 스크립트 실행이 시작되도록 합니다. 참고:
 
->[AZURE.NOTE]Azure 관리 포털은 현재 내부 부하 분산 장치를 지원하지 않으므로 포털에서 ILB나 끝점이 표시되지 않습니다. 그러나**Get AzureEndpoint**를 부하 분산 장치에서 실행하면 내부 IP주소를 반환합니다. 그렇지 않은 경우 null을 반환합니다.
+>[AZURE.NOTE]Azure 관리 포털은 현재 내부 부하 분산 장치를 지원하지 않으므로 포털에서 ILB나 끝점이 표시되지 않습니다. 그러나 포털에서 부하 분산 장치를 실행하는 경우 **Get-AzureEndpoint**에서 내부 IP주소가 반환됩니다. 그렇지 않은 경우 null을 반환합니다.
 
 ## 필요한 경우 KB2854082가 설치되었는지 확인합니다.
 
@@ -135,4 +133,4 @@ ILB의 경우 먼저 내부 부하 분산기를 만들어야 합니다. 이 작�
 
 [AZURE.INCLUDE [Listener-Next-Steps](../../includes/virtual-machines-ag-listener-next-steps.md)]
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

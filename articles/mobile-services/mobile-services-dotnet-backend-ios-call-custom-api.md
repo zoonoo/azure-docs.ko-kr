@@ -1,5 +1,5 @@
 <properties
-	pageTitle="iOS 클라이언트에서 사용자 지정 API를 호출하는 방법"
+	pageTitle="iOS 클라이언트에서 사용자 지정 API를 호출하는 방법(.NET 백 엔드)"
 	description="사용자 지정 API를 정의한 다음 Azure 모바일 서비스를 사용하는 iOS 앱에서 이를 호출하는 방법에 대해 알아봅니다."
 	services="mobile-services"
 	documentationCenter="ios"
@@ -50,4 +50,4 @@
 [Get started with push notifications]: mobile-services-dotnet-backend-ios-get-started-push.md
 [Store server scripts in source control]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

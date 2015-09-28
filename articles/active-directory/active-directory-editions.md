@@ -114,7 +114,7 @@ Active Directory Premium 버전은 Azure Active Directory의 유료 버전이며
 - 권한이 부여된 ID 관리: 권한이 부여된 ID 관리는 서비스 수준 계약 및 규정 준수 요구 사항을 충족할 수 있도록 향상된 감독을 제공합니다.
 - 셀프서비스 응용 프로그램 요청: 관리자는 SaaS 앱의 목록을 제공하여 사용자가 사용할 앱을 선택하고 즉시 또는 승인 후 앱을 사용할 수 있습니다.
 - Azure 보고 API: Azure Active Directory의 모든 보안 보고서에 대한 데이터를 다른 모니터링 또는 SIEM 도구에 사용할 수 있습니다.
-
+- [Azure Active Directory B2C](http://azure.microsoft.com/services/active-directory-b2c/): 소비자와 직접 연결하려는 비즈니스의 증가하는 요구를 충족하도록 설계된 새롭고 포괄적인 대규모 클라우드 기반 소비자 디렉터리 및 ID/액세스 관리 서비스입니다.
 
 ## 다음 단계
 
@@ -122,4 +122,4 @@ Active Directory Premium 버전은 Azure Active Directory의 유료 버전이며
 - [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가하기](active-directory-add-company-branding.md)
 - [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

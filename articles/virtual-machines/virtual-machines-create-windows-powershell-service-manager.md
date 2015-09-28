@@ -3,7 +3,7 @@
 	description="Azure PowerShell을 사용하여 서비스 관리에서 새 Windows 기반 가상 컴퓨터를 신속하게 만들고 관리 기능을 수행할 수 있습니다."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/09/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 # Azure PowerShell을 사용하여 서비스 관리에서 Windows 기반 가상 컴퓨터 만들기 및 관리
 
@@ -209,4 +209,4 @@ Blob 저장소의 기존 .vhd 파일에서 데이터 디스크를 연결하려�
 
 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

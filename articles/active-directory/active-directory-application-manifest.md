@@ -17,6 +17,7 @@
    ms.author="dkershaw;bryanla"/>
 
 # Azure Active Directory 응용 프로그램 매니페스트 이해
+
 Azure Active Directory(AD)와 통합된 응용 프로그램은 Azure AD 테넌트로 등록되어 있어야 하며 이는 응용 프로그램에 영구 ID 구성을 제공합니다. 이 구성을 런타임 시 참조하며 Azure AD 통해 응용 프로그램에서 아웃소싱 및 브로커 인증/권한 부여를 허용하는 시나리오를 사용할 수 있습니다. Azure AD 응용 프로그램 모델에 대한 자세한 내용은 [응용 프로그램 추가, 업데이트 및 제거][ADD-UPD-RMV-APP] 문서를 참조하세요.
 
 ## 응용 프로그램의 ID 구성 업데이트
@@ -37,7 +38,7 @@ Azure Active Directory(AD)와 통합된 응용 프로그램은 Azure AD 테넌�
 - 알려진 클라이언트 응용 프로그램을 선언합니다.
 - Azure AD를 요청하여 로그인한 사용자에 대해 그룹 멤버 자격 문제를 제시합니다. 참고: 이를 구성하여 추가적으로 사용자의 디렉터리 역할 멤버 자격에 대한 문제를 제기할 수 있습니다. 구현 예제는 [AD 그룹을 사용하여 클라우드 응용 프로그램에서 권한 부여][AAD-GROUPS-FOR-AUTHORIZATION] 문서를 참조하세요.
 - 응용 프로그램이 OAuth 2.0 암시적 허용 흐름을 지원할 수 있습니다.(포함된 JavaScript 웹 페이지 또는 단일 페이지 응용 프로그램(SPA)에)
-- X509 인증서를 비밀 키로 사용할 수 있습니다. 구현 예제는 [Office 365에서 서비스 및 데몬 앱 빌드][O365-SERVICE-DAEMON-APPS] 문서를 참조하세요. 
+- X509 인증서를 비밀 키로 사용할 수 있습니다. 구현 예제는 [Office 365에서 서비스 및 데몬 앱 빌드][O365-SERVICE-DAEMON-APPS] 문서를 참조하세요.
 
 또한 응용 프로그램 매니페스트는 응용 프로그램 등록의 상태를 추적하는 좋은 방법을 제공합니다. JSON 형식에서 사용할 수 있기 때문에 파일 표시는 응용 프로그램의 소스 코드와 함께 소스 제어에 체크 인할 수 있습니다.
 
@@ -94,14 +95,14 @@ Azure Active Directory(AD)와 통합된 응용 프로그램은 Azure AD 테넌�
 
 <!--article references -->
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
-[ADD-UPD-RMV-APP]: https://msdn.microsoft.com/library/azure/dn132599.aspx
+[ADD-UPD-RMV-APP]: active-directory-integrating-applications.md
 [APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#ApplicationEntity
 [APPLICATION-ENTITY-OAUTH2-PERMISSION]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#OAuth2PermissionType
 [AZURE-PORTAL]: https://manage.windowsazure.com
-[GRAPH-API]: https://msdn.microsoft.com/library/azure/hh974476.aspx
+[GRAPH-API]: active-directory-graph-api.md
 [INTEGRATING-APPLICATIONS-AAD]: https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 장치 관리를 위한 PowerShell | Microsoft Azure"
-	description="StorSimple용 Windows PowerShell을 사용하여 StorSimple 장치를 관리하는 방법을 알아봅니다."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="StorSimple용 Windows PowerShell을 사용하여 StorSimple 장치를 관리하는 방법을 알아봅니다."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/28/2015"
-	ms.author="alkohli@microsoft.com"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="08/28/2015"
+   ms.author="alkohli@microsoft.com" />
 
 # StorSimple용 Windows PowerShell을 사용하여 장치 관리
 
@@ -24,6 +24,7 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 장치를 관리�
 이 문서에서는 이 인터페이스에 연결할 수 있는 방법을 포함하여 StorSimple용 Windows PowerShell 기능에 대해 설명하며 이 인터페이스를 사용하여 수행할 수 있는 단계별 절차 또는 워크플로에 대한 링크를 포함합니다. 워크플로에는 장치를 등록하고, 장치에서 네트워크 인터페이스를 구성하고, 장치가 유지 관리 모드에 있도록 요구하는 업데이트를 설치하고, 장치 상태를 변경하고, 발생할 수 있는 문제를 해결하는 방법이 포함됩니다.
 
 이 문서를 읽은 후 다음을 수행할 수 있습니다.
+
 
 - StorSimple용 Windows PowerShell을 사용하여 StorSimple 장치에 연결
 
@@ -66,7 +67,7 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 장치를 관리�
 
 다음 설정에서 선택할 수 있습니다.
 
-1. **모든 권한으로 로그인** 이 옵션을 사용하면 적절한 자격 증명으로 로컬 컨트롤러의 **SSAdminConsole** Runspace에 연결할 수 있습니다. 로컬 컨트롤러는 StorSimple 장치의 직렬 콘솔을 통해 현재 액세스하는 컨트롤러입니다. 이 옵션을 사용하여 Microsoft 지원에서 가능한 장치 문제를 해결하기 위해 무제한 Runspace(지원 세션)에 액세스하도록 허용할 수도 있습니다. 옵션 1을 사용하여 로그온한 후 특정 cmdlet을 실행하여 Microsoft 지원 엔지니어가 무제한 Runspace에 액세스하도록 허용할 수 있습니다. 자세한 내용은 [지원 세션 시작](storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple)을 참조하세요. 이 옵션은 로컬 컨트롤러의 Runspace에 연결합니다.
+1. **모든 권한으로 로그인** 이 옵션을 사용하면 적절한 자격 증명으로 로컬 컨트롤러의 **SSAdminConsole** Runspace에 연결할 수 있습니다. 로컬 컨트롤러는 StorSimple 장치의 직렬 콘솔을 통해 현재 액세스하는 컨트롤러입니다. 이 옵션을 사용하여 Microsoft 지원에서 가능한 장치 문제를 해결하기 위해 무제한 Runspace(지원 세션)에 액세스하도록 허용할 수도 있습니다. 옵션 1을 사용하여 로그온한 후 특정 cmdlet을 실행하여 Microsoft 지원 엔지니어가 무제한 Runspace에 액세스하도록 허용할 수 있습니다. 자세한 내용은 [지원 세션 시작](storsimple-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple)을 참조하세요.
 
 1. **모든 권한으로 피어 컨트롤러에 로그인** 이 옵션은 적절한 자격 증명으로 피어 컨트롤러의 **SSAdminConsole** Runspace에 연결할 수 있다는 점을 제외하고 옵션 1과 동일합니다. StorSimple 장치는 능동-수동 구성으로 두 개의 컨트롤러를 포함하는 고가용성 장치이기 때문에 피어는 직렬 콘솔을 통해 액세스하는 장치의 다른 컨트롤러를 가리킵니다. 옵션 1과 마찬가지로, 이 옵션을 사용하여 Microsoft 지원이 피어 컨트롤러의 무제한 Runspace에 액세스하도록 허용할 수도 있습니다.
 
@@ -154,7 +155,7 @@ StorSimple용 Windows PowerShell에 연결하는 방법을 결정하는 경우 �
 |장치 등록|[StorSimple용 Windows PowerShell을 사용하여 장치 구성 및 등록](storsimple-deployment-walkthrough.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |
 |웹 프록시 구성</br>웹 프록시 설정 보기|[StorSimple 장치에 대한 웹 프록시 구성](storsimple-configure-web-proxy.md)|
 |장치에서 DATA 0 네트워크 인터페이스 설정 수정|[StorSimple 장치에 대한 DATA 0 네트워크 인터페이스 수정](storsimple-modify-data-0.md)|
-|컨트롤러 중지 </br> 컨트롤러 다시 시작 또는 종료 </br> 장치 종료</br>장치를 공장 기본 설정으로 재설정|[장치 컨트롤러 관리](storsimple-manage-device-controller.md)|
+|컨트롤러 중지 </br> 컨트롤러 다시 시작 또는 종료 </br> 장치 종료</br>장치를 공장 기본 설정으로 초기화|[장치 컨트롤러 관리](storsimple-manage-device-controller.md)|
 |유지 관리 모드 업데이트 및 핫픽스 설치|[장치 업데이트](storsimple-update-device.md)|
 |유지 관리 모드 시작 </br>유지 관리 모드 종료|[StorSimple 장치 모드](storsimple-device-modes.md)|
 |지원 패키지 만들기</br>지원 패키지 암호 해독 및 편집|[지원 패키지 만들기 및 관리](storsimple-create-manage-support-package.md)|
@@ -173,7 +174,7 @@ StorSimple용 Windows PowerShell에서 cmdlet 도움말을 사용할 수 있습�
 
 - cmdlet 또는 함수에 대한 도움말을 보려면 다음 명령을 사용합니다. `Get-Help <cmdlet-name>`
 
-- cmdlet에 대한 온라인 도움말을 보려면 `-Online` 매개 변수로 이전 cmdlet을 사용합니다. `Get-Help <cmdlet-name> -Online`
+- cmdlet에 대한 온라인 도움말을 보려면 `-Online` 매개 변수와 함께 이전 cmdlet을 사용합니다. `Get-Help <cmdlet-name> -Online`
 
 - 전체 도움말을 보려면 –Full 매개 변수를 사용할 수 있습니다. 예제를 보려면 `–Examples` 매개 변수를 사용합니다.
 
@@ -197,4 +198,4 @@ Windows PowerShell 인터페이스에서 도움말을 쉽게 업데이트할 수
 ## 다음 단계
 위의 워크플로 중 하나를 수행할 때 StorSimple 장치에서 문제가 발생하는 경우 [StorSimple 배포 문제를 해결하는 도구](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments)를 참조하세요.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

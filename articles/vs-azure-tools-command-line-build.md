@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="Azure에 대한 명령줄 빌드 "
-	description="Azure에 대한 명령줄 빌드 "
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
-<tags 
+   description="Azure에 대한 명령줄 빌드 "
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
+<tags
    ms.service="multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Azure에 대한 명령줄 빌드
 
-##개요
+## 개요
 
 명령 프롬프트에서 MSBuild를 실행하 여 Azure 배포에 대한 패키지를 만들 수 있습니다. 디버깅, 스테이징 및 프로덕션에 대한 빌드를 구성하고 정의할 수 있으며 또한 빌드 프로세스의 일부를 자동화할 수 있습니다.
 
@@ -62,4 +62,4 @@ Microsoft Build Engine (MSBuild)를 사용 하여 Visual Studio가 설치되지 
 
 패키지를 빌드한 후에 Azure에 배포할 수 있습니다. 이 과정을 보여주는 자습서는 Azure 웹사이트를 참조합니다. 이 프로세스를 자동화하는 방법에 대한 정보는 [Azure의 클라우드 서비스에 대한 지속적인 전송](../cloud-services/cloud-services-dotnet-continuous-delivery)을 참조하십시오.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

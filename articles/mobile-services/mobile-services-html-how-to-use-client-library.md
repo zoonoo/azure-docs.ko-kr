@@ -16,7 +16,6 @@
 	ms.date="09/09/2015" 
 	ms.author="glenga"/>
 
-
 # Azure 모바일 서비스용 HTML/JavaScript 클라이언트를 사용하는 방법
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
@@ -159,7 +158,7 @@ Query 개체에 `where` 호출을 추가하고 매개 변수로 개체를 전달
        alert("Error: " + err);
     });
 
-`where`와(과) `orderBy`, `take` 및 `skip`을(를) 결합할 수 있습니다. 자세한 내용은 다음 섹션을 참조하십시오.
+`where`와(과) `orderBy`, `take` 및 `skip`을(를) 결합할 수 있습니다. 자세한 내용은 다음 섹션을 참조하세요.
 
 ### <a name="sorting"></a>방법: 반환된 데이터 정렬
 
@@ -257,7 +256,7 @@ Query 개체에 `where` 호출을 추가하고 매개 변수로 개체를 전달
 	    }, handleError);
 	}
 
->[AZURE.NOTE]원시 OData 쿼리 옵션 문자열을 `read` 함수에 제공하는 경우에는 쿼리 작성기 메서드를 같은 쿼리에서 사용할 수도 없습니다. 이 경우 전체 쿼리를 OData 쿼리 문자열로 작성해야 합니다. OData 시스템 쿼리 옵션에 대한 자세한 내용은 [OData 시스템 쿼리 옵션 참조]를 참조하십시오.
+>[AZURE.NOTE]원시 OData 쿼리 옵션 문자열을 `read` 함수에 제공하는 경우에는 쿼리 작성기 메서드를 같은 쿼리에서 사용할 수도 없습니다. 이 경우 전체 쿼리를 OData 쿼리 문자열로 작성해야 합니다. OData 시스템 쿼리 옵션에 대한 자세한 내용은 [OData 시스템 쿼리 옵션 참조]를 참조하세요.
 
 ##<a name="inserting"></a>방법: 모바일 서비스에 데이터 삽입
 
@@ -281,7 +280,7 @@ Query 개체에 `where` 호출을 추가하고 매개 변수로 개체를 전달
 
 ###ID 값으로 작업
 
-모바일 서비스는 테이블의 **id** 열에 대한 고유한 사용자 지정 문자열 값을 지원합니다. 이를 통해 응용 프로그램에서 전자 메일 주소 또는 사용자 이름과 같은 사용자 지정 값을 ID에 사용할 수 있습니다. 예를들어 다음 코드는 고유한 ID가 이메일 주소인 경우 새 항목을 JSON 개체로 삽입합니다.
+모바일 서비스는 테이블의 **id** 열에 대한 고유한 사용자 지정 문자열 값을 지원합니다. 이를 통해 응용 프로그램에서 메일 주소 또는 사용자 이름과 같은 사용자 지정 값을 ID에 사용할 수 있습니다. 예를들어 다음 코드는 고유한 ID가 이메일 주소인 경우 새 항목을 JSON 개체로 삽입합니다.
 
 	todoItemTable.insert({
 	   id: "myemail@domain.com",
@@ -297,7 +296,7 @@ Query 개체에 `where` 호출을 추가하고 매개 변수로 개체를 전달
 
 문자열 ID 값이 삽입된 레코드에 아직 설정되지 않은 경우 모바일 서비스는 해당 ID에 대한 고유한 값을 생성합니다. 클라이언트 또는 .NET 백 엔드에서 고유한 ID 값을 생성하는 방법에 대한 자세한 내용은 [방법: 고유한 ID 값 생성](mobile-services-how-to-use-server-scripts.md#generate-guids)을 참조하세요.
 
-또한 테이블에 정수 ID를 사용할 수 있습니다. 정수 ID를 사용하려면 `mobile table create` 명령으로 `--integerId` 옵션을 사용하여 테이블을 만들어야 합니다. 이 명령은 Azure용 CLI(명령줄 인터페이스)와 함께 사용됩니다. CLI 사용에 대한 자세한 내용은 [모바일 서비스 테이블 관리 CLI](../virtual-machines-command-line-tools.md#Mobile_Tables)(영문)를 참조하십시오.
+또한 테이블에 정수 ID를 사용할 수 있습니다. 정수 ID를 사용하려면 `mobile table create` 명령으로 `--integerId` 옵션을 사용하여 테이블을 만들어야 합니다. 이 명령은 Azure용 CLI(명령줄 인터페이스)와 함께 사용됩니다. CLI 사용에 대한 자세한 내용은 [모바일 서비스 테이블 관리 CLI](../virtual-machines-command-line-tools.md#Mobile_Tables)(영문)를 참조하세요.
 
 ##<a name="modifying"></a>방법: 모바일 서비스의 데이터 수정
 
@@ -363,11 +362,11 @@ Query 개체에 `where` 호출을 추가하고 매개 변수로 개체를 전달
 	   alert("Error: " + err);
 	});
 
-Windows 스토어 앱에서 쿼리 결과를 사용하여 [WinJS.Binding.List] 개체를 만들 수 있으며, 이 개체를 [ListView] 개체의 데이터 원본으로 바인딩할 수 있습니다. 자세한 내용은 [데이터 바인딩(JavaScript 및 HTML을 사용한 Windows 스토어 앱)](영문)을 참조하십시오.
+Windows 스토어 앱에서 쿼리 결과를 사용하여 [WinJS.Binding.List] 개체를 만들 수 있으며, 이 개체를 [ListView] 개체의 데이터 원본으로 바인딩할 수 있습니다. 자세한 내용은 [데이터 바인딩(JavaScript 및 HTML을 사용한 Windows 스토어 앱)](영문)을 참조하세요.
 
 ##<a name="#custom-api"></a>방법: 사용자 지정 API 호출
 
-사용자 지정 API는 삽입, 업데이트, 삭제 또는 읽기 작업에 매핑되지 않는 서버 기능을 노출하는 사용자 지정 끝점을 정의할 수 있게 합니다. 사용자 지정 API를 사용하면 HTTP 메시지 헤더 읽기와 설정 및 JSON 이외의 메시지 본문 형식 정의를 비롯하여 더 효율적으로 메시징을 제어할 수 있습니다. 모바일 서비스에서 사용자 지정 API를 만드는 방법을 비롯해 전체 예제를 확인하려면 [클라이언트에서 사용자 지정 API 호출]을 참조하십시오.
+사용자 지정 API는 삽입, 업데이트, 삭제 또는 읽기 작업에 매핑되지 않는 서버 기능을 노출하는 사용자 지정 끝점을 정의할 수 있게 합니다. 사용자 지정 API를 사용하면 HTTP 메시지 헤더 읽기와 설정 및 JSON 이외의 메시지 본문 형식 정의를 비롯하여 더 효율적으로 메시징을 제어할 수 있습니다. 모바일 서비스에서 사용자 지정 API를 만드는 방법의 예는 [방법: 사용자 지정 API 끝점 정의](mobile-services-dotnet-backend-define-custom-api.md)를 참조하세요.
 
 **MobileServiceClient**에서 [invokeApi](https://github.com/Azure/azure-mobile-services/blob/master/sdk/Javascript/src/MobileServiceClient.js#L337) 메서드를 호출하여 클라이언트에서 사용자 지정 API를 호출합니다. 예를 들어 다음 코드 줄은 모바일 서비스의 **completeAll** API로 POST 요청을 보냅니다.
 
@@ -410,9 +409,9 @@ ID 공급자를 등록하고 나면 공급자의 [MobileServiceAuthenticationPro
 
 Facebook 이외의 ID 공급자를 사용하는 경우 위의 `login` 메서드에 전달된 값을 `microsoftaccount`, `facebook`, `twitter`, `google` 또는 `windowsazureactivedirectory` 중 하나로 변경합니다.
 
-이 경우 모바일 서비스는 선택한 공급자의 로그인 페이지를 표시하고 ID 공급자 로그인 후 모바일 서비스 인증 토큰을 생성하여 OAuth 2.0 인증 흐름을 관리합니다. [login] 함수를 완료하면 사용자 ID와 모바일 서비스 인증 토큰을 각각 **userId** 및 **authenticationToken** 필드에 표시하는 JSON 개체(**user**)가 반환됩니다. 이 토큰은 캐시했다가 만료될 때까지 다시 사용할 수 있습니다. 자세한 내용은 [인증 토큰 캐시]를 참조하십시오.
+이 경우 모바일 서비스는 선택한 공급자의 로그인 페이지를 표시하고 ID 공급자 로그인 후 모바일 서비스 인증 토큰을 생성하여 OAuth 2.0 인증 흐름을 관리합니다. [login] 함수를 완료하면 사용자 ID와 모바일 서비스 인증 토큰을 각각 **userId** 및 **authenticationToken** 필드에 표시하는 JSON 개체(**user**)가 반환됩니다. 이 토큰은 캐시했다가 만료될 때까지 다시 사용할 수 있습니다. 자세한 내용은 [인증 토큰 캐시]를 참조하세요.
 
-> [AZURE.NOTE]**Windows 스토어 앱** Windows 스토어 앱 사용자를 인증하는 데 Microsoft 계정 로그인 공급자를 사용하는 경우 앱 패키지를 모바일 서비스에도 등록해야 합니다. 모바일 서비스에 Windows 스토어 앱 패키지 정보를 등록하는 경우 클라이언트에서 Single Sign-On 환경을 위해 Microsoft 계정 로그인 자격 증명을 다시 사용할 수 있습니다. 그렇지 않으면 로그인 메서드가 호출될 때마다 Microsoft 계정 로그인 사용자에게 로그인 프롬프트가 표시됩니다. Windows 스토어 앱 패키지를 등록하는 방법을 자세히 알아보려면 [Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank")을 참조하십시오. 패키지 정보가 모바일 서비스에 등록된 후에는 [useSingleSignOn](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") 매개 변수에서 자격 증명을 다시 사용하도록 **true** 값을 제공하여 *login* 메서드를 호출합니다.
+> [AZURE.NOTE]**Windows 스토어 앱** Windows 스토어 앱 사용자를 인증하는 데 Microsoft 계정 로그인 공급자를 사용하는 경우 앱 패키지를 모바일 서비스에도 등록해야 합니다. 모바일 서비스에 Windows 스토어 앱 패키지 정보를 등록하는 경우 클라이언트에서 Single Sign-On 환경을 위해 Microsoft 계정 로그인 자격 증명을 다시 사용할 수 있습니다. 그렇지 않으면 로그인 메서드가 호출될 때마다 Microsoft 계정 로그인 사용자에게 로그인 프롬프트가 표시됩니다. Windows 스토어 앱 패키지를 등록하는 방법을 자세히 알아보려면 [Microsoft 인증을 위해 Windows 스토어 앱 패키지 등록](/develop/mobile/how-to-guides/register-windows-store-app-package/%20target="_blank")을 참조하세요. 패키지 정보가 모바일 서비스에 등록된 후에는 [useSingleSignOn](http://go.microsoft.com/fwlink/p/?LinkId=322050%20target="_blank") 매개 변수에서 자격 증명을 다시 사용하도록 **true** 값을 제공하여 *login* 메서드를 호출합니다.
 
 ###클라이언트 흐름
 앱이 독립적으로 ID 공급자에 연결한 후 반환된 토큰을 인증을 위해 모바일 서비스에 제공할 수도 있습니다. 이 클라이언트 흐름을 사용하면 단일 로그인 환경을 사용자에게 제공하거나 ID 공급자로부터 더 많은 사용자 데이터를 검색할 수 있습니다.
@@ -431,7 +430,7 @@ Facebook 이외의 ID 공급자를 사용하는 경우 위의 `login` 메서드�
 	      });
 	});
 
-단순화된 이 예제는 [login] 함수를 호출하여 모바일 서비스에 제공된 토큰을 Live Connect에서 가져옵니다. Microsoft 계정을 사용하여 단일 로그인 환경을 제공하는 방법을 보여 주는 전체 예제는 [단일 로그인으로 앱 인증]을 참조하십시오.
+단순화된 이 예제는 [login] 함수를 호출하여 모바일 서비스에 제공된 토큰을 Live Connect에서 가져옵니다. Microsoft 계정을 사용하여 단일 로그인 환경을 제공하는 방법을 보여 주는 전체 예제는 [단일 로그인으로 앱 인증]을 참조하세요.
 
 클라이언트 인증을 위해 Facebook 또는 Google API를 사용할 때는 예제가 약간 달라집니다.
 
@@ -513,7 +512,7 @@ Facebook 이외의 ID 공급자를 사용하는 경우 위의 `login` 메서드�
 
 Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는 메커니즘을 제공합니다. 비동기 API 조작을 관리하는 추상적 개념입니다.
 
-`done` promise는 제공된 함수가 완료되거나 오류가 발생하면 곧바로 실행됩니다. `then` promise와 달리, 함수 내부에서 처리되지 않은 오류를 throw하며 처리기가 실행을 완료하고 나면 이 함수는 오류 상태의 promise로서 then으로부터 반환된 오류를 throw합니다. 자세한 내용은 [done](영문)을 참조하십시오.
+`done` promise는 제공된 함수가 완료되거나 오류가 발생하면 곧바로 실행됩니다. `then` promise와 달리, 함수 내부에서 처리되지 않은 오류를 throw하며 처리기가 실행을 완료하고 나면 이 함수는 오류 상태의 promise로서 then으로부터 반환된 오류를 throw합니다. 자세한 내용은 [done](영문)을 참조하세요.
 
 	promise.done(onComplete, onError);
 
@@ -526,7 +525,7 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 	   alert("Error: " + err);
 	});
 
-`then` promise와 `done` promise는 동일합니다. 하지만 `then` promise와 달리, `done`은(는) 함수 내부에서 처리되지 않은 오류를 반드시 throw합니다. `then`에 오류 처리기를 제공하지 않은 경우 연산에서 오류가 발생하면 오류가 throw되지 않고 대신 오류 상태의 promise가 반환됩니다. 자세한 내용은 [then](영문)을 참조하십시오.
+`then` promise와 `done` promise는 동일합니다. 하지만 `then` promise와 달리, `done`은(는) 함수 내부에서 처리되지 않은 오류를 반드시 throw합니다. `then`에 오류 처리기를 제공하지 않은 경우 연산에서 오류가 발생하면 오류가 throw되지 않고 대신 오류 상태의 promise가 반환됩니다. 자세한 내용은 [then](영문)을 참조하세요.
 
 	promise.then(onComplete, onError).done( /* Your success and error handlers */ );
 
@@ -539,7 +538,7 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 	   alert("Error: " + err);
 	});
 
-다양한 방법으로 promise를 사용할 수 있습니다. 이전 `then` 함수에서 반환되는 promise에 대해 `then` 또는 `done`을(를) 호출하는 방법으로 promise 연산을 연결할 수 있습니다. 연산의 중간 단계에는 `.then().then()`을 사용하고(예: `then`) 연산의 마지막 단계에는 `done`을(를) 사용합니다(예: `.then().then().done()`). `then`은(는) promise를 반환하기 때문에 여러 `then` 함수를 연결할 수 있습니다. undefined를 반환하기 때문에 두 개 이상의 `done` 메서드를 연결할 수 없습니다. [then과 done의 차이에 대해 자세히 알아보십시오](영문).
+다양한 방법으로 promise를 사용할 수 있습니다. 이전 `then` 함수에서 반환되는 promise에 대해 `then` 또는 `done`을(를) 호출하는 방법으로 promise 연산을 연결할 수 있습니다. 연산의 중간 단계에는 `.then().then()`을 사용하고(예: `then`) 연산의 마지막 단계에는 `done`을(를) 사용합니다(예: `.then().then().done()`). `then`은(는) promise를 반환하기 때문에 여러 `then` 함수를 연결할 수 있습니다. undefined를 반환하기 때문에 두 개 이상의 `done` 메서드를 연결할 수 없습니다. [then과 done의 차이에 대해 자세히 알아보세요](영문).
 
 	todoItemTable.insert({
 	   text: "foo"
@@ -593,7 +592,7 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 <!-- URLs. -->
 [then]: http://msdn.microsoft.com/library/windows/apps/br229728.aspx
 [done]: http://msdn.microsoft.com/library/windows/apps/hh701079.aspx
-[then과 done의 차이에 대해 자세히 알아보십시오]: http://msdn.microsoft.com/library/windows/apps/hh700334.aspx
+[then과 done의 차이에 대해 자세히 알아보세요]: http://msdn.microsoft.com/library/windows/apps/hh700334.aspx
 [how to handle errors in promises]: http://msdn.microsoft.com/library/windows/apps/hh700337.aspx
 
 [sessionStorage]: http://msdn.microsoft.com/library/cc197062(v=vs.85).aspx
@@ -605,7 +604,7 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 [단일 로그인으로 앱 인증]: mobile-services-windows-store-javascript-single-sign-on.md
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [OData 시스템 쿼리 옵션 참조]: http://go.microsoft.com/fwlink/p/?LinkId=444502
-[클라이언트에서 사용자 지정 API 호출]: mobile-services-html-call-custom-api.md
+[Call a custom API from the client]: mobile-services-html-call-custom-api.md
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

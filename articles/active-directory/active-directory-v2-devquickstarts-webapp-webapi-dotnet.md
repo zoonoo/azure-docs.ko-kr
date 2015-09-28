@@ -1,5 +1,5 @@
 <properties
-	pageTitle="앱 모델 v2.0 | Microsoft Azure"
+	pageTitle="앱 모델 v2.0 .NET 웹앱 | Microsoft Azure"
 	description="개인 Microsoft 계정과 회사 또는 학교 계정을 로그인에 사용하여 웹 서비스를 호출하는 .NET MVC 웹앱을 빌드하는 방법입니다."
 	services="active-directory"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # 앱 모델 v2.0 미리 보기: .NET 웹앱에서 Web API 호출
@@ -42,7 +42,7 @@ v2.0 앱 모델에서는 개인 Microsoft 계정과 회사 또는 학교 계정 
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
-또는 [.zip 형태의 전체 앱을 다운로드](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip) 또는 전체 앱을 복제할 수 있습니다：
+Alternatively, you can [download the completed app as a .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet/archive/complete.zip) or clone the completed app:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIdConnect-DotNet.git```
 
@@ -120,8 +120,8 @@ public void ConfigureAuth(IAppBuilder app)
 - 먼저 ADAL 미리 보기 버전을 설치합니다.
 
 ```PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoList-WebApp -IncludePrerelease```
--  또 다른 'using' 문을 ADAL용 'App_Start\Startup.Auth.cs' 파일에 추가합니다.
-- 이제 새 메서드인 'OnAuthorizationCodeReceived' 이벤트 처리기를 추가합니다. 이 처리기는 ADAL을 사용하여 할 일 목록 API에 대한 액세스 토큰을 가져오는 데 사용하며, 나중에 ADAL의 토큰 캐시에 토큰을 저장합니다：
+- And add another `using` statement to the `App_Start\Startup.Auth.cs` file for ADAL.
+- Now add a new method, the `OnAuthorizationCodeReceived` event handler.  This handler will use ADAL to acquire an access token to the To-Do List API, and will store the token in ADAL's token cache for later:
 
 ```C#
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
@@ -207,4 +207,4 @@ catch (AdalException ee)
 - [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md)
 - [스택 오버플로 "adal" 태그 >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

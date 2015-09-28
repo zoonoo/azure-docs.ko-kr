@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/06/2015"
+   ms.date="09/10/2015"
    ms.author="lauracr"/>
 
 # System Center Operations Manager에서 Operational Insights에 연결
@@ -46,4 +46,4 @@ Operations Manager를 사용하여 다음 작업을 모니터링하는 경우 Op
 
 [프록시 및 방화벽 설정 구성(선택 사항)](operational-insights-proxy-firewall.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

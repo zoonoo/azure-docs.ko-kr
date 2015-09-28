@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 # Operational Insights 계정 만들기 및 로그인
@@ -40,4 +40,4 @@ Operational Insights로 시작하는 방법에 대한 자세한 내용은 다음
 
 - [작업 영역 설정 및 구성](operational-insights-setup-workspace.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

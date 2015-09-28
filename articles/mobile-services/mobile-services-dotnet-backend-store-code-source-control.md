@@ -1,5 +1,5 @@
 <properties
-	pageTitle="소스 제어에 프로젝트 코드 저장 | Microsoft Azure"
+	pageTitle="소스 제어에 .NET 백 엔드 프로젝트 코드 저장 | Azure 모바일 서비스"
 	description="컴퓨터의 로컬 Git 리포지토리에 .NET 백 엔드 프로젝트를 저장하고 게시하는 방법에 대해 알아봅니다."
 	services="mobile-services"
 	documentationCenter=""
@@ -10,13 +10,13 @@
 <tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/15/2015"
 	ms.author="glenga"/>
 
-# 소스 제어에 프로젝트 코드 저장
+# 소스 제어에 모바일 서비스 프로젝트 코드 저장
 
 > [AZURE.SELECTOR-LIST (Platform | Backend)]
 - [(Any | .NET)](mobile-services-dotnet-backend-store-code-source-control.md)
@@ -32,7 +32,7 @@
 
 ##<a name="clone-repo"></a>Git을 설치하고 로컬 리포지토리 만들기
 
-1. 로컬 컴퓨터에 Git을 설치합니다.
+1. 로컬 컴퓨터에 Git을 설치합니다. 
 
 	Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. 운영 체제 특정 배포 및 설치 지침은 [Git 설치]를 참조하세요.
 
@@ -67,11 +67,11 @@
 2. packages.config 파일은 그대로 두고 NuGet 패키지 폴더를 모두 제거합니다.
 
 	모바일 서비스에서 packages.confign 파일을 기반으로 NuGet 패키지 파일을 자동으로 복원합니다. 패키지 디렉터리가 추가되지 않도록 .gitignore 파일을 정의할 수도 있습니다.
-
+ 
 3. Git 명령 프롬프트에서 새 스크립트 파일 추적을 시작하는 다음 명령을 입력합니다.
 
 		$ git add .
-
+	
 4. 변경 내용을 커밋하는 다음 명령을 입력합니다.
 
 		$ git commit -m "adding the .NET backend service project"
@@ -79,7 +79,7 @@
 5. 다음 명령을 입력하여 원격 리포지토리에 변경 내용을 업로드한 다음 자격 증명을 제공합니다.
 
 		$ git push origin master
-
+	
 	프로젝트가 모바일 서비스에 배포되고 패키지가 추가되고 서비스가 다시 시작되었음을 나타내는 일련의 명령이 표시됩니다.
 
 6. .NET 백 엔드 모바일 서비스의 URL을 찾으면 다음과 같이 표시됩니다.
@@ -102,4 +102,4 @@
 [Call a custom API from the client]: mobile-services-dotnet-backend-ios-call-custom-api.md
 [.NET 백 엔드 모바일 서비스에 대한 데이터 모델 변경 방법]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

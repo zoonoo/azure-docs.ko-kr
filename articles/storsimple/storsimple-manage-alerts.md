@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 알림 보기 및 관리 | Microsoft Azure"
-	description="StorSimple 경고 조건 및 심각도, 경고 알림을 구성하는 방법 및 StorSimple 관리자 서비스를 사용하여 경고를 관리하는 방법을 설명합니다."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="StorSimple 경고 조건 및 심각도, 경고 알림을 구성하는 방법 및 StorSimple 관리자 서비스를 사용하여 경고를 관리하는 방법을 설명합니다."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/01/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/15/2015"
+   ms.author="v-sharos" />
 
 # StorSimple 관리자 서비스를 사용하여 StorSimple 경고 보기 및 관리
 
@@ -49,13 +49,13 @@ StorSimple 장치는 다양한 조건에 대한 응답으로 경고를 생성합
 
 ## 경고 설정 구성
 
-각 StorSimple 장치에 대한 경고 조건을 전자 메일로 알림을 받을 것인지 여부를 선택할 수 있습니다. 또한 **다른 전자 메일 받는 사람** 상자에서 해당 전자 메일 주소를 입력하여 다른 경고 알림 받는 사람을 식별할 수 있으며 세미콜론으로 구분합니다.
+각 StorSimple 장치에 대한 경고 조건을 메일로 알림을 받을 것인지 여부를 선택할 수 있습니다. 또한 **다른 메일 받는 사람** 상자에서 해당 메일 주소를 입력하여 다른 경고 알림 받는 사람을 식별할 수 있으며 세미콜론으로 구분합니다.
 
->[AZURE.NOTE]장치 당 최대 20개의 전자 메일 주소를 입력할 수 있습니다.
+>[AZURE.NOTE]장치 당 최대 20개의 메일 주소를 입력할 수 있습니다.
 
-장치에 전자 메일 알림을 사용하도록 설정한 후에 알림 목록의 멤버는 중요한 경고가 발생할 때마다 전자 메일 메시지를 받게 됩니다. 메시지는 **storsimple-alerts-noreply@mail.windowsazure.com*에서 전송되며 경고 조건을 설명합니다. 받는 사람은 **구독 취소**를 클릭하여 메일 알림 목록에서 제거할 수 있습니다.
+장치에 메일 알림을 사용하도록 설정한 후에 알림 목록의 멤버는 중요한 경고가 발생할 때마다 메일 메시지를 받게 됩니다. 메시지는 **storsimple-alerts-noreply@mail.windowsazure.com*에서 전송되며 경고 조건을 설명합니다. 받는 사람은 **구독 취소**를 클릭하여 메일 알림 목록에서 제거할 수 있습니다.
 
-#### 장치에 경고하는 전자 메일 알림을 사용하려면
+#### 장치에 경고하는 메일 알림을 사용하려면
 
 1. 장치에 대해 **장치** > **구성**으로 이동합니다.
 
@@ -65,7 +65,7 @@ StorSimple 장치는 다양한 조건에 대한 응답으로 경고를 생성합
 
     2. 서비스 관리자 및 모든 공동 관리자가 경고 알림을 받기를 원하는 경우 **메일 서비스 관리자** 필드에서 **예**를 선택합니다.
 
-    3. **다른 메일 받는 사람** 필드에 경고 알림을 받을 다른 모든 받는 사람의 메일 주소를 입력합니다. **someone@somewhere.com* 형식으로 이름을 입력합니다. 세미콜론을 사용하여 전자 메일 주소를 구분합니다. 장치당 최대 20개의 메일 주소를 구성할 수 있습니다.
+    3. **다른 메일 받는 사람** 필드에 경고 알림을 받을 다른 모든 받는 사람의 메일 주소를 입력합니다. **someone@somewhere.com* 형식으로 이름을 입력합니다. 세미콜론을 사용하여 메일 주소를 구분합니다. 장치당 최대 20개의 메일 주소를 구성할 수 있습니다.
 
     ![경고 알림 구성 페이지](./media/storsimple-manage-alerts/HCS_AlertNotificationConfig.png)
 
@@ -73,7 +73,7 @@ StorSimple 장치는 다양한 조건에 대한 응답으로 경고를 생성합
 
 4. 다음과 같은 메시지가 나타나면 **확인**을 클릭합니다.
 
-    ![전송된 경고 테스트 알림 전자 메일](./media/storsimple-manage-alerts/HCS_AlertNotificationConfig3.png)
+    ![전송된 경고 테스트 알림 메일](./media/storsimple-manage-alerts/HCS_AlertNotificationConfig3.png)
 
     >[AZURE.NOTE]테스트 알림 메시지를 보낼 수 없는 경우 StorSimple 관리자 서비스가 적절한 메시지를 표시합니다. 트래픽 또는 다른 네트워크 문제로 인해 발생할 수 있습니다. **확인**을 클릭하고 몇 분 정도 기다렸다가 다시 테스트 알림 메시지를 보냅니다.
 
@@ -215,7 +215,7 @@ StorSimple 프로덕션 장치에서 클라우드 연결에 실패하면 장치 
 
 |경고 텍스트|이벤트|자세한 내용 / 권장 작업|
 |:---|:---|:---|
-|StorSimple 장치에서 보낸 테스트 메시지입니다. StorSimple 관리자에 의해 <*장치 이름*> 장치에 대한 경고 알림을 받는 사람으로 추가되었습니다.|경고 알림 전자 메일을 테스트합니다.|오류에서 이 메시지를 받으면 StorSimple 관리자에게 문의하세요.|
+|StorSimple 장치에서 보낸 테스트 메시지입니다. StorSimple 관리자에 의해 <*장치 이름*> 장치에 대한 경고 알림을 받는 사람으로 추가되었습니다.|경고 알림 메일을 테스트합니다.|오류에서 이 메시지를 받으면 StorSimple 관리자에게 문의하세요.|
 
 ### 업데이트 경고
 
@@ -231,6 +231,7 @@ StorSimple 프로덕션 장치에서 클라우드 연결에 실패하면 장치 
 
 ## 다음 단계
 
-[StorSimple 오류에 대해 자세히 알아봅니다](storsimple-troubleshoot-operational-device.md).
+- [StorSimple 오류](storsimple-troubleshoot-operational-device.md)에 대해 자세히 알아봅니다.
+- [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

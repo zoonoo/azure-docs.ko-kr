@@ -11,11 +11,11 @@
 
 <tags 
 	ms.service="cloud-services" 
-	ms.workload="tbd" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="05/27/2015" 
+	ms.date="09/14/2015" 
 	ms.author="patshea"/>
 
 # Visual Studio 프로파일러를 사용하여 Azure 계산 에뮬레이터에서 로컬로 클라우드 서비스의 성능 테스트
@@ -25,11 +25,8 @@
 이 문서에서는 에뮬레이터를 통해 로컬로 수행할 수 있는 CPU 샘플링 프로파일링 방법을 다룹니다. CPU 샘플링은 주입식이 아닌 프로파일링 방법입니다. 지정된 샘플링 간격마다 프로파일러가 호출 스택의 스냅숏을 만듭니다. 정해진 기간 동안 데이터가 수집되어 보고서에 표시됩니다. 이 프로파일링 방법은 계산이 많은 응용 프로그램에서 대부분의 CPU 작업이 수행되는 위치를 나타냅니다. 이 정보를 통해 응용 프로그램이 대부분의 시간을 보내는 "실행 부하 과다 경로"에 집중할 수 있습니다.
 
 
-## 필수 조건
 
-Visual Studio Premium 또는 Visual Studio Ultimate가 있는 경우에만 로컬에서 프로파일러를 실행할 수 있습니다.
-
-## <a name="step1"> </a> 1단계: 프로파일링을 위해 Visual Studio 구성
+## 1단계: 프로파일링을 위해 Visual Studio 구성
 
 먼저 프로파일링 시 유용할 수 있는 몇 가지 Visual Studio 구성 옵션이 있습니다. 프로파일링 보고서를 이해하려면 응용 프로그램용 기호(.pdb 파일) 및 시스템 라이브러리용 기호가 필요합니다. 사용 가능한 기호 서버를 참조하는 것이 좋습니다. Visual Studio의 **도구** 메뉴에서 **옵션**, **디버깅**, **기호**를 차례로 선택하면 됩니다. Microsoft 기호 서버가 **기호 파일(.pdb) 위치** 아래에 표시되는지 확인합니다. 추가 기호 파일이 있는 http://referencesource.microsoft.com/symbols를 참조할 수도 있습니다.
 
@@ -73,7 +70,7 @@ Visual Studio Premium 또는 Visual Studio Ultimate가 있는 경우에만 로�
 
 솔루션 구성을 **릴리스**로 설정하여 디버깅(Ctrl+F5) 없이 로컬에서 클라우드 서비스를 빌드하고 실행합니다. 그러면 로컬에서 응용 프로그램을 실행하기 위한 모든 파일 및 폴더가 생성되고 모든 시뮬레이터가 시작됩니다. 작업 표시줄에서 계산 에뮬레이터 UI를 시작하여 작업자 역할이 실행 중인지 확인합니다.
 
-## <a name="step2"> </a> 2단계: 프로세스에 연결
+## 2단계: 프로세스에 연결
 
 Visual Studio 2010 IDE에서 시작하여 응용 프로그램을 프로파일링하는 대신 실행 중인 프로세스에 프로파일러를 연결해야 합니다.
 
@@ -107,7 +104,7 @@ Visual Studio 2010 IDE에서 시작하여 응용 프로그램을 프로파일링
 
 ![][10]
 
-## <a name="step3"> </a> 3단계: 성능 보고서 보기
+## 3단계: 성능 보고서 보기
 
 응용 프로그램에 대한 성능 보고서가 표시됩니다.
 
@@ -126,7 +123,7 @@ Concatenate 메서드와 String.Concat가 실행 시간의 대부분을 사용�
 
 ![][14]
 
-## <a name="step4"> </a> 4단계: 변경 및 성능 비교
+## 4단계: 변경 및 성능 비교
 
 코드 변경 이전과 이후의 성능을 비교할 수도 있습니다. 실행 중인 프로세스를 중지하고 코드를 편집하여 문자열 연결 작업을 StringBuilder 사용으로 바꿉니다.
 
@@ -151,7 +148,7 @@ Concatenate 메서드와 String.Concat가 실행 시간의 대부분을 사용�
 
 축하합니다. 프로파일러를 시작했습니다.
 
-## <a name="troubleshooting"> </a> 문제 해결
+##  문제 해결
 
 - 릴리스 빌드를 프로파일링하고 있는지 확인하고 디버깅 없이 시작합니다.
 
@@ -165,17 +162,11 @@ Concatenate 메서드와 String.Concat가 실행 시간의 대부분을 사용�
 
 - 샘플링 시 "PRF0025: 수집한 데이터가 없습니다." 메시지가 표시되는 경우 연결한 프로세스에 CPU 작업이 있는지 확인합니다. 계산 작업을 수행하지 않는 응용 프로그램은 샘플링 데이터를 생성하지 않을 수 있습니다. 샘플링이 수행되기 전에 프로세스가 종료되었을 수도 있습니다. 프로파일링 중인 역할에 대한 Run 메서드가 종료되지 않았는지 확인합니다.
 
-## <a name="nextSteps"> </a> 다음 단계
+## 다음 단계
 
-에뮬레이터를 통한 Azure 이진 계측은 Visual Studio 프로파일러에서 지원되지 않지만 메모리 할당을 테스트하려는 경우 프로파일링 시 해당 옵션을 선택할 수 있습니다. 스레드가 잠금 경쟁에 시간을 낭비하는지 확인하는 데 유용한 동시성 프로파일링이나 응용 프로그램 계층 간, 특히 데이터 계층과 작업자 역할 간 상호 작용 시의 성능 문제를 추적하는 데 유용한 계층 상호 작용 프로파일링을 선택할 수도 있습니다. 앱에서 생성하는 데이터베이스 쿼리를 보고 프로파일링 데이터를 사용하여 데이터베이스 사용을 개선할 수 있습니다. 계층 상호 작용 프로파일링에 대한 자세한 내용은 [Visual Studio Team System 2010에서 계층 상호 작용 프로파일러 사용][3](영문)을 참조하세요.
+에뮬레이터를 통한 Azure 이진 계측은 Visual Studio 프로파일러에서 지원되지 않지만 메모리 할당을 테스트하려는 경우 프로파일링 시 해당 옵션을 선택할 수 있습니다. 스레드가 잠금 경쟁에 시간을 낭비하는지 확인하는 데 유용한 동시성 프로파일링이나 응용 프로그램 계층 간, 특히 데이터 계층과 작업자 역할 간 상호 작용 시의 성능 문제를 추적하는 데 유용한 계층 상호 작용 프로파일링을 선택할 수도 있습니다. 앱에서 생성하는 데이터베이스 쿼리를 보고 프로파일링 데이터를 사용하여 데이터베이스 사용을 개선할 수 있습니다. 계층 상호 작용 프로파일링에 대한 자세한 내용은 블로그 게시물 [Visual Studio Team System 2010에서 계층 상호 작용 프로파일러 사용][3](영문)을 참조하세요.
 
 
-[Step 1: Configure Visual Studio for Profiling]: #step1
-[Step 2: Attach to a Process]: #step2
-[Step 3: View Profiling Reports]: #step3
-[Step 4: Make Changes and Compare Performance]: #step4
-[Troubleshooting]: #troubleshooting
-[Next Steps]: #nextSteps
 
 [1]: http://msdn.microsoft.com/library/azure/hh369930.aspx
 [2]: http://msdn.microsoft.com/library/azure/hh411542.aspx
@@ -195,4 +186,4 @@ Concatenate 메서드와 String.Concat가 실행 시간의 대부분을 사용�
 [17]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

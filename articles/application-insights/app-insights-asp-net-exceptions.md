@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/11/2015" 
+	ms.date="09/10/2015" 
 	ms.author="awills"/>
  
 # Application Insights를 사용하여 ASP.NET 앱의 실패 및 예외 진단  
@@ -50,7 +50,7 @@ ASP.NET 앱을 모니터링하려면 응용 프로그램에 [Application Insight
 
 *종속성*은 응용 프로그램에서 일반적으로 REST API 또는 데이터베이스 연결을 통해 호출하는 서비스입니다. [Application Insights 상태 모니터][redfield]는 다양한 유형의 종속성 호출을 자동으로 모니터링하여 호출 기간과 성공 또는 실패 여부를 측정합니다.
 
-종속성 데이터를 얻으려면 IIS 서버에 [상태 모니터를 설치][redfield]하거나 또는 앱이 Azure 웹 앱인 경우 [Application Insights Extension][azure]을 사용해야 합니다. 둘 중 아무 방법이나 사용해도 됩니다.
+종속성 데이터를 얻으려면 IIS 서버에 [상태 모니터를 설치][redfield]하거나 또는 앱이 Azure 웹 앱인 경우 [Application Insights Extension][azure]을 사용해야 합니다.
 
 실패한 종속성 호출은 실패 블레이드에 표시되며, 요청 세부 정보 및 예외 세부 정보의 관련 항목 아래에서도 찾을 수 있습니다.
 
@@ -66,7 +66,7 @@ ASP.NET 앱을 모니터링하려면 응용 프로그램에 [Application Insight
 
 * [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event)는 일반적으로 사용 패턴 모니터링을 위해 사용되지만 진단 검색의 사용자 지정 이벤트에서도 전송하는 데이터를 표시합니다. 이벤트의 이름을 지정하고, [진단 검색을 필터링][diagnostic]할 수 있는 문자열 속성 및 숫자 메트릭 수를 수행할 수있습니다.
 * 사용자는 [TrackTrace()](app-insights-api-custom-events-metrics.md#track-trace)를 사용하여 POST 정보와 같은 긴데이터를 보낼 수있습니다.
-* [TrackException()](#exceptions)은 스택 추적을 보냅니다. [예외에 대해 자세히 알아보십시오](#exceptions).
+* [TrackException()](#exceptions)은 스택 추적을 보냅니다. [예외에 대해 자세히 알아보세요](#exceptions).
 * 사용자가 이미 Log4Net 또는 NLog와 같은 로깅 프레임워크를 사용하는 경우, 요청과 예외 데이터와 함께 진단 검색 안에서 [이러한 로그를 캡처][netlogs]하고 볼 수 있습니다.
 
 이러한 이벤트를 보려면, [검색][diagnostic]과 필터를 차례대로 열고 사용자 지정 이벤트, 추적 또는 예외를 선택 합니다.
@@ -426,7 +426,15 @@ WebApiConfig에서 서비스에 추가합니다.
 
 [샘플](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
+## 예외 성능 카운터
 
+서버에 [상태 모니터를 설치][redfield]한 경우 .NET에서 측정된 예외 속도 차트를 확인할 수 있습니다. 여기에는 처리된 .NET 예외와 처리되지 않은 .NET 예외가 모두 포함됩니다.
+
+메트릭 탐색기 블레이드를 열고 새 차트를 추가한 다음 성능 카운터 아래에 나열된 **예외 속도**를 선택합니다.
+
+.NET Framework는 간격의 예외 수를 계산하고 간격의 길이로 나누어 속도를 계산합니다.
+
+TrackException 보고서를 계산하여 Application Insights 포털에서 계산되는 '예외' 개수와는 다릅니다. 샘플링 간격이 다르며, SDK에서 처리된 예외 및 처리되지 않은 예외 둘 다에 대한 TrackException 보고서를 보내지 않습니다.
 
 <!--Link references-->
 
@@ -441,4 +449,4 @@ WebApiConfig에서 서비스에 추가합니다.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

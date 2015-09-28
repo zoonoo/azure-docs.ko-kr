@@ -93,11 +93,11 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 ### 1단계
 
-가상 네트워크 만들기:
+가상 네트워크의 서브넷을 만들고 변수 $backendSubnet에 할당합니다.
 
 	$backendSubnet = New-AzureVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
 
-가상 네트워크의 서브넷을 만들고 변수 $backendSubnet에 할당합니다.
+가상 네트워크 만들기:
 
 	$vnet= New-AzurevirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
 
@@ -111,7 +111,7 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 ### 1단계 
 
-들어오는 네트워크 트래픽 끝점이 될 서브넷 10.0.2.0/24에 대해 개인 IP 주소 10.0.2.6을 사용하여 프런트 엔드 IP 풀을 만듭니다.
+들어오는 네트워크 트래픽 끝점이 될 서브넷 10.0.2.0/24에 대해 개인 IP 주소 10.0.2.5를 사용하여 프런트 엔드 IP 풀을 만듭니다.
 
 	$frontendIP = New-AzureLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $backendSubnet.Id
 
@@ -245,4 +245,4 @@ Add-AzureVMNetworkInterface 명령을 사용하여 가상 컴퓨터에 NIC를 �
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

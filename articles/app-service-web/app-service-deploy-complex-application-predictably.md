@@ -5,15 +5,15 @@
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.date="09/15/2015"
 	ms.author="cephalin"/>
 
 
@@ -22,6 +22,8 @@
 이 자습서에서는 PowerShell 스크립팅과 JSON 리소스 그룹을 사용한 예측 가능한 방법으로 [Azure 앱 서비스](/services/app-service/) 내에서 [마이크로 서비스](https://en.wikipedia.org/wiki/Microservices)로 구성된 응용 프로그램의 프로비젼 및 배포하는 방법을 보여줍니다.
 
 고도로 분리된 마이크로 서비스로 구성된 고확장성 응용 프로그램을 프로비전 및 배포할 때 반복성과 예측 가능성이 관건입니다. [Azure 앱 서비스](/services/app-service/)는 웹앱, 모바일 앱, API 앱 및 논리 앱을 포함한 마이크로 서비스를 생성하게 해줍니다. [Azure 리소스 관리자](../resource-group-overview.md)는 데이터베이스와 소스 제어 설정과 같은 리소스 종속성과 함께 모든 마이크로 서비스를 하나의 유닛으로 관리할 수 있도록 해줍니다. 이제 JSON 템플릿과 간단한 PowerShell 스크립팅을 사용하여 이러한 응용 프로그램을 배포할 수 있습니다.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## 수행할 사항 ##
 
@@ -38,15 +40,15 @@
 
 ### Azure 리소스 관리자 템플릿(JSON) ###
  
-예를 들어, Azure 앱 서비스에서 웹 앱을 만들 때마다 Azure 리소스 관리자는 구성 요소 리소스와 함께 전체 리소스 그룹을 만들기 위해 JSON 템플릿을 사용합니다. [확장 가능한 WordPress](/marketplace/partners/wordpress/scalablewordpress/) 앱과 같이 [Azure 마켓플레이스](/marketplace)에서 복잡한 템플릿은 MySQL 데이터베이스, 저장소 계정, 앱 서비스 계획, 웹 앱 자체, 경고 규칙, 앱 설정, 자동 크기 조정 설정 및 기타를 포함할 수 있으며 PowerShell을 통해 이러한 모든 템플릿을 사용할 수 있습니다. 이러한 템플릿을 다운로드하고 사용는하 방법에 대한 정보는 [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하십시오..
+예를 들어, Azure 앱 서비스에서 웹 앱을 만들 때마다 Azure 리소스 관리자는 구성 요소 리소스와 함께 전체 리소스 그룹을 만들기 위해 JSON 템플릿을 사용합니다. [확장 가능한 WordPress](/marketplace/partners/wordpress/scalablewordpress/) 앱과 같이 [Azure 마켓플레이스](/marketplace)에서 복잡한 템플릿은 MySQL 데이터베이스, 저장소 계정, 앱 서비스 계획, 웹 앱 자체, 경고 규칙, 앱 설정, 자동 크기 조정 설정 및 기타를 포함할 수 있으며 PowerShell을 통해 이러한 모든 템플릿을 사용할 수 있습니다. 이러한 템플릿을 다운로드하고 사용는하 방법에 대한 정보는 [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)을 참조하세요..
 
-Azure 리소스 관리자 템플릿에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../resource-group-authoring-templates.md)를 참조하십시오.
+Azure 리소스 관리자 템플릿에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../resource-group-authoring-templates.md)를 참조하세요.
 
 ### Visual Studio용 Azure SDK 2.6 ###
 
 최신 SDK는 JSON 편집기에서 리소스 관리자 템플릿 지원에 향상된 기능을 포함합니다. 이것을 사용하여 신속하게 리소스 그룹 템플릿을 처음부터 만들고, 수정을 위한 기존 JSON 템플릿(예: 다운로드한 갤러리 템플릿)을 열고, 매개 변수 파일을 채우고, Azure 리소스 그룹 솔루션에서 직접 리소스 그룹을 배포할 수 있습니다.
 
-자세한 내용은 [Visual Studio용 Azure SDK 2.6](/blog/2015/04/29/announcing-the-azure-sdk-2-6-for-net/)을 참조하십시오.
+자세한 내용은 [Visual Studio용 Azure SDK 2.6](/blog/2015/04/29/announcing-the-azure-sdk-2-6-for-net/)을 참조하세요.
 
 ### Azure PowerShell 0.8.0 또는 이후 ###
 
@@ -78,7 +80,7 @@ Azure PowerShell 설치는 버전 0.8.0부터 Azure 모듈 외에도 Azure 리�
 
 	![](./media/app-service-deploy-complex-application-predictably/gettemplate-2-deployprogress.png)
 
-	UI는 앱이 이제 시작하기 때문에 먼저 탐색할 때 약간 느릴 수 있지만 완벽하게 작동하는 응용 프로그램임을 직접 확인하십시오.
+	UI는 앱이 이제 시작하기 때문에 먼저 탐색할 때 약간 느릴 수 있지만 완벽하게 작동하는 응용 프로그램임을 직접 확인하세요.
 
 5.	배포 페이지로 돌아와서 Azure Preview 포털에서 새 응용 프로그램을 보려면 **관리** 링크를 클릭합니다.
 
@@ -99,7 +101,7 @@ Azure 리소스 관리자의 자동화된 오케스트레이션이 설정한 모
 
 ## AZUREDEPLOY.JSON 검사(또는 편집) ##
 
-이제를 GitHub 리포지토리를 설정하는 방법에 대해 살펴보겠습니다. Azure.NET SDK에서 JSON 편집기를 사용할 수 있으므로 [Azure.NET SDK 2.6](/downloads/)를 아직 설치하지 않았다면 지금 설치하십시오.
+이제를 GitHub 리포지토리를 설정하는 방법에 대해 살펴보겠습니다. Azure.NET SDK에서 JSON 편집기를 사용할 수 있으므로 [Azure.NET SDK 2.6](/downloads/)를 아직 설치하지 않았다면 지금 설치하세요.
 
 1.	즐겨 찾는 git 도구를 사용하여 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 리포지토리를 복제합니다. 아래 스크린샷은 Visual Studio 2013의 팀 탐색기에서 이것을 보여줍니다.
 
@@ -113,7 +115,7 @@ JSON 형식의 모든 세부 정보를 설명하지 않겠지만 [더 리소스]
 
 ### 매개 변수 ###
 
-이러한 대부분의 매개 변수가 **Azure에 배포** 단추로 입력하려는 것임을 확인하려면 매개 변수 섹션을 살펴보십시오. **Azure에 배포** 버튼 뒤에 사이트는 azuredeploy.json에 정의된 매개 변수를 사용하는 입력 UI를 채웁니다. 이러한 매개 변수는 리소스 이름, 속성 값 등의 리소스 정의 전체에서 사용됩니다.
+이러한 대부분의 매개 변수가 **Azure에 배포** 단추로 입력하려는 것임을 확인하려면 매개 변수 섹션을 살펴보세요. **Azure에 배포** 버튼 뒤에 사이트는 azuredeploy.json에 정의된 매개 변수를 사용하는 입력 UI를 채웁니다. 이러한 매개 변수는 리소스 이름, 속성 값 등의 리소스 정의 전체에서 사용됩니다.
 
 ### 리소스 ###
 
@@ -141,7 +143,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 -	SQLServer 리소스에는 `type`에 각각 다른 값을 가진 두 중첩된 리소스가 있습니다.
 -	데이터베이스 및 방화벽 규칙이 정의된 `“resources”: […]` 내부의 중첩된 리소스가 루트 수준의 SQLServer 리소스의 리소스 ID를 지정 하는 `dependsOn` 요소입니다. 이는 Azure 리소스 관리자에게 다음과 같은 사실을 알려줍니다. "이 리소스를 만들기 전에 다른 리소스가 이미 존재해야 합니다. 그 다른 리소스가 템플릿에 정의된 경우 그 하나를 먼저 만듭니다".
 
-	>[AZURE.NOTE]`resourceId()` 함수를 사용하는 방법에 대 한 자세한 내용은 [Azure 리소스 관리자 템플릿 함수](../resource-group-template-functions.md)를 참조하십시오.
+	>[AZURE.NOTE]`resourceId()` 함수를 사용하는 방법에 대 한 자세한 내용은 [Azure 리소스 관리자 템플릿 함수](../resource-group-template-functions.md)를 참조하세요.
 
 -	`dependsOn` 요소의 효과로 Azure 리소스 관리자가 어떤 리소스를 동시에 만들 수 있고 어떤 리소스를 순차적으로 만들어야 하는지 알 수 있습니다.
 
@@ -204,7 +206,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 
 ## 리소스 그룹 템플릿을 직접 배포 ##
 
-**Azure에 배포** 단추는 유용하지만 GitHub에 azuredeploy.json를 이미 푸시한 경우에만 azuredeploy.json의 리소스 그룹 템플릿을 배포할 수 있습니다. 또한 Azure.NET SDK는 로컬 컴퓨터에서 직접 모든 JSON 템플릿 파일을 배포하는 도구를 제공 합니다. 이렇게 하려면 다음 단계를 수행하십시오.
+**Azure에 배포** 단추는 유용하지만 GitHub에 azuredeploy.json를 이미 푸시한 경우에만 azuredeploy.json의 리소스 그룹 템플릿을 배포할 수 있습니다. 또한 Azure.NET SDK는 로컬 컴퓨터에서 직접 모든 JSON 템플릿 파일을 배포하는 도구를 제공 합니다. 이렇게 하려면 다음 단계를 수행하세요.
 
 1.	Visual Studio에서 **파일** > **새로 만들기** > **프로젝트**를 클릭합니다.
 
@@ -286,7 +288,7 @@ DevOps에서 반복성 및 예측 가능성은 마이크로 서비스로 구성�
 
 ## 다음 단계 ##
 
-[agile 방법론을 적용하고 지속적으로 간단히 마이크로 서비스 응용 프로그램을 게시](app-service-agile-software-development.md)하는 방법을 알아봅시다.
+[agile 방법론을 적용하고 지속적으로 간단히 마이크로 서비스 응용 프로그램을 게시](app-service-agile-software-development.md)하는 방법을 알아봅니다.
 
 <a name="resources"></a>
 ## 추가 리소스 ##
@@ -303,4 +305,4 @@ DevOps에서 반복성 및 예측 가능성은 마이크로 서비스로 구성�
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

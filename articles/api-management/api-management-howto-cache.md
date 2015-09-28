@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure API 관리에서 캐싱을 추가하여 성능 향상"
+	pageTitle="Azure API 관리에서 캐싱을 추가하여 성능 향상 | Microsoft Azure"
 	description="대기 시간, 대역폭 사용 및 API 관리 서비스 호출에 대한 웹 서비스 부하를 개선하는 방법에 대해 알아봅니다."
 	services="api-management"
 	documentationCenter=""
@@ -12,7 +12,7 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
-	ms.topic="get-started-article" 
+	ms.topic="get-started-article"
 	ms.date="08/05/2015"
 	ms.author="sdanie"/>
 
@@ -21,7 +21,6 @@
 응답 캐싱을 위해 API 관리의 작업을 구성할 수 있습니다. 응답 캐싱은 그다지 사용되지 않는 데이터에 대한 API 대기 시간, 대역폭 사용량 및 웹 서비스 부하를 상당히 줄일 수 있습니다.
 
 이 가이드에서는 API에 대해 응답 캐싱을 추가하고 샘플 Echo API 작업에 대한 정책을 구성하는 방법을 보여 줍니다. 그런 다음 개발자 포털에서 작업을 호출하여 캐싱 작동을 확인할 수 있습니다.
-
 
 ## 필수 조건
 
@@ -37,15 +36,15 @@
 
 ![게시자 포털][api-management-management-console]
 
-왼쪽의 **API 관리** 메뉴에서 **API**를 클릭하고 **Echo API**를 클릭합니다.
+왼쪽의 **API 관리** 메뉴에서 **API**를 클릭한 다음 **Echo API**를 클릭합니다.
 
 ![Echo API][api-management-echo-api]
 
-**작업** 탭을 선택하고 **작업** 목록에서 **GET Resource(캐시됨)** 작업을 클릭합니다.
+**작업** 탭을 클릭한 다음 **작업** 목록에서 **GET Resource(캐시됨)** 작업을 클릭합니다.
 
 ![Echo API 작업][api-management-echo-api-operations]
 
-**캐싱** 탭을 선택하여 이 작업에 대한 캐싱 설정을 봅니다.
+**캐싱** 탭을 클릭하여 이 작업에 대한 캐싱 설정을 봅니다.
 
 ![캐싱 탭][api-management-caching-tab]
 
@@ -63,7 +62,7 @@
 
 **캐싱** 탭에서 작업에 대한 캐싱 설정을 구성한 경우 작업에 대한 캐싱 정책이 추가됩니다. 정책 편집기에서 이러한 정책을 보고 편집할 수 있습니다.
 
-왼쪽의 **API 관리** 메뉴에서 **정책**을 클릭하고 **작업** 드롭다운에서 **Echo API/GET Resource(캐시됨)**를 선택합니다.
+왼쪽의 **API 관리** 메뉴에서 **정책**을 클릭하고 **작업** 드롭다운 목록에서 **Echo API/GET Resource(캐시됨)**를 선택합니다.
 
 ![정책 범위 작업][api-management-operation-dropdown]
 
@@ -88,7 +87,7 @@
 		</outbound>
 	</policies>
 
->정책 편집기의 캐싱 정책 변경 내용은 작업의 **캐싱** 탭에 반영되며, 그 반대도 가능합니다.
+>[AZURE.NOTE]정책 편집기의 캐싱 정책 변경 내용은 작업의 **캐싱** 탭에 반영되며, 그 반대도 가능합니다.
 
 ## <a name="test-operation"> </a>작업 호출 및 캐싱 테스트
 
@@ -112,13 +111,13 @@
 
 **param1** 및 **param2**에 대한 기본값을 그대로 유지합니다.
 
-**구독 키** 드롭다운에서 원하는 키를 선택합니다. 계정에 구독이 하나만 있는 경우 이미 선택되어 있습니다.
+**구독 키** 드롭다운 목록에서 원하는 키를 선택합니다. 계정에 구독이 하나만 있는 경우 이미 선택되어 있습니다.
 
 **요청 헤더** 입력란에 **sampleheader:value1**을 입력합니다.
 
 **HTTP Get**을 클릭하고 응답 헤더를 기록합니다.
 
-**요청 헤더** 입력란에서 **sampleheader:value2**를 입력하고 **HTTP Get**을 클릭합니다.
+**요청 헤더** 입력란에 **sampleheader:value2**를 입력하고 **HTTP Get**을 클릭합니다.
 
 **sampleheader**의 값은 응답에서 여전히 **value1**입니다. 다른 값을 몇 가지 시도해도 첫 번째 호출에서 캐시된 응답이 반환됩니다.
 
@@ -148,17 +147,18 @@
 [Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
+[API 관리 서비스 인스턴스 만들기]: api-management-get-started.md
 [Azure API 관리 시작]: api-management-get-started.md
 [고급 API 구성 시작]: api-management-get-started-advanced.md
 
 [캐싱 정책]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 [API 관리 정책 참조]: https://msdn.microsoft.com/library/azure/dn894086.aspx
 
-[API 관리 서비스 인스턴스 만들기]: api-management-get-started.md#create-service-instance
+[Azure API 관리 시작]: api-management-get-started.md#create-service-instance
 
 [Configure an operation for caching]: #configure-caching
 [Review the caching policies]: #caching-policies
 [Call an operation and test the caching]: #test-operation
 [Next steps]: #next-steps
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -21,10 +21,12 @@
             <string>remote-notification</string>
         </array>
     ...
+    
+6. Xcode 7 및 iOS 9를 사용하는 경우 다음 단계를 추가로 수행해야 합니다. • 대상 > 빌드 설정 > Bitcode 사용을 예 또는 아니요로 설정 아래에서 **Bitcode 사용**을 **아니요**로 설정합니다. 위쪽 막대에서 모두를 선택해야 합니다. • 대상 > 해당 대상 이름 > 기능에서 **푸시 알림**을 사용하도록 설정합니다.
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push1.png
 [2]: ./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push2.png
 [3]: ./media/mobile-engagement-ios-silent-push/xcode-plist-add-silent-push3.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

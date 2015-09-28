@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 작성 | Microsoft Azure" 
+	pageTitle="DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 개발 | Microsoft Azure" 
 	description="DocumentDB와 .NET을 사용하여 할 일 모음 웹 응용 프로그램을 빌드하는 방법을 알아봅니다. Azure 웹 사이트에서 호스트되는 ASP.NET MVC 웹 응용 프로그램의 데이터를 저장하고 액세스합니다." 
+	keywords="Github, visual studio, web application development, application development, database tutorial, mvc applications, json data, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter=".net" 
 	authors="ryancrawcour" 
@@ -17,7 +18,7 @@
 	ms.date="07/24/2015" 
 	ms.author="ryancraw"/>
 
-#<a name="_Toc395809351"></a>DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 작성
+#<a name="_Toc395809351"></a>DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 개발
 
 Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼리할 수 있는 방법을 강조하기 위해 이 문서에서는 Azure DocumentDB를 사용하여 todo 모음 웹 응용 프로그램을 빌드하는 방법을 보여 주는 종합적인 연습을 제공합니다. 작업은 Azure DocumentDB에 JSON 문서로 저장됩니다.
 
@@ -27,11 +28,11 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 
 > [AZURE.TIP]이 자습서에서는 이전에 ASP.NET MVC 및 Azure 웹 사이트를 사용해 본 경험이 있다고 가정합니다. ASP.NET 또는 [필수 도구](#_Toc395637760)를 처음 사용하는 경우 [GitHub](https://github.com/Azure/azure-documentdb-net)에서 전체 [todo](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/todo) 자습서 프로젝트를 다운로드하고 [이 문서의 끝에 있는 지침](#GetProject)을 사용하여 이 프로젝트를 빌드하는 것이 좋습니다. 프로젝트를 빌드하고 나면 이 문서를 검토하여 프로젝트의 컨텍스트에서 코드를 이해할 수 있습니다.
 
-## <a name="_Toc395637760"></a>필수 조건
+## <a name="_Toc395637760"></a>이 데이터베이스 자습서의 필수 조건
 
 이 문서의 지침을 따르기 전에 다음이 있는지 확인해야 합니다.
 
-- 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](../../pricing/free-trial/)을 참조하십시오.
+- 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](../../pricing/free-trial/)을 참조하세요.
 - [Visual Studio 2013](http://www.visualstudio.com/) 업데이트 4 이상
 - Azure SDK for .NET 버전 2.5.1 이상([Microsoft 웹 플랫폼 설치 관리자][]를 통해 사용 가능)
 
@@ -64,7 +65,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 
   	**새 ASP.NET 프로젝트** 대화 상자가 나타납니다.
 
-  	![MVC 템플릿이 강조 표시되고 클라우드의 호스트 상자가 선택된 새 ASP.NET 프로젝트 대화 상자의 스크린샷](./media/documentdb-dotnet-application/image11.png)
+  	![MVC 응용 프로그램 템플릿이 강조 표시되고 클라우드의 호스트 상자가 선택된 새 ASP.NET 프로젝트 대화 상자의 스크린샷](./media/documentdb-dotnet-application/image11.png)
 
 5. 템플릿 창에서 **MVC**를 선택합니다.
 
@@ -84,13 +85,13 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 
 	모두 ASP.NET "Hello World" 응용 프로그램을 본 적이 있다고 확신하므로 프로젝트 로컬 실행은 건너뛰겠습니다. 바로 이 프로젝트에 DocumentDB를 추가하고 응용 프로그램을 작성하겠습니다.
 
-## <a name="_Toc395637767"></a>3단계: 프로젝트에 DocumentDB 추가
+## <a name="_Toc395637767"></a>3단계: 웹 응용 프로그램 프로젝트에 DocumentDB 추가
 
 이 솔루션에 필요한 대부분의 ASP.NET MVC 배관을 만들었으므로 이제 이 자습서의 실제 목적으로 돌아가 웹 응용 프로그램에 Azure DocumentDB를 추가해 보겠습니다.
 
 1. DocumentDB .NET SDK는 패키지되어 NuGet 패키지로 배포되며, Visual Studio에서 NuGet 패키지를 다운로드하려면 **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 클릭하여 Visual Studio에서 NuGet 패키지 관리자를 사용합니다.
 
-  	![NuGet 패키지 관리가 강조 표시된 솔루션 탐색기 내 프로젝트에 대한 마우스 오른쪽 클릭 옵션의 스크린샷](./media/documentdb-dotnet-application/image21.png)
+  	![NuGet 패키지 관리가 강조 표시된 솔루션 탐색기 내 웹 응용 프로그램 프로젝트에 대한 마우스 오른쪽 클릭 옵션의 스크린샷](./media/documentdb-dotnet-application/image21.png)
 
     **NuGet 패키지 관리** 대화 상자가 나타납니다.
 
@@ -106,7 +107,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 
 3. 패키지가 설치되고 나면 Visual Studio 솔루션은 Microsoft.Azure.Documents.Client 및 Newtonsoft.Json이라는 두 개의 새 참조가 추가된 상태로 다음과 유사합니다.
 
-  	![솔루션 탐색기에서 프로젝트에 추가된 두 참조의 스크린샷](./media/documentdb-dotnet-application/image22.png)
+  	![솔루션 탐색기에서 JSON 데이터 프로젝트에 추가된 두 참조의 스크린샷](./media/documentdb-dotnet-application/image22.png)
 
 
 ##<a name="_Toc395637763"></a>4단계: ASP.NET MVC 응용 프로그램 설정
@@ -118,7 +119,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 - [뷰 추가](#_Toc395637766).
 
 
-### <a name="_Toc395637764"></a>모델 추가
+### <a name="_Toc395637764"></a>JSON 데이터 모델 추가
 
 먼저 MVC의 **M**인 모델을 만들겠습니다.
 
@@ -178,7 +179,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 
 	파일을 만들고 나면 Visual Studio 솔루션은 **솔루션 탐색기**에 새 ItemController.cs 파일이 있는 상태로 다음과 유사합니다. 이전에 만든 새 Item.cs 파일도 표시됩니다.
 
-	![새 ItemController.cs 파일 및 Item.cs 파일이 강조 표시된 솔루션 탐색기의 스크린샷](./media/documentdb-dotnet-application/image16.png)
+	![Visual Studio 솔루션의 스크린샷 - 새 ItemController.cs 파일 및 Item.cs 파일이 강조 표시된 솔루션 탐색기](./media/documentdb-dotnet-application/image16.png)
 
 	나중에 돌아올 것이므로 ItemController.cs를 닫아도 됩니다.
 
@@ -195,14 +196,14 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 
 1. **솔루션 탐색기**에서 **Views** 폴더를 확장하고 앞에서 **ItemController**를 추가할 때 Visual Studio에서 만들어진 빈 **Item** 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**, **뷰**를 차례로 클릭합니다.
 
-	![뷰 추가 명령이 강조 표시된 항목 폴더를 보여 주는 솔루션 탐색기의 스크린샷](./media/documentdb-dotnet-application/image17.png)
+	![뷰 추가 명령이 강조 표시된 Visual Studio에서 만든 항목 폴더를 보여 주는 솔루션 탐색기의 스크린샷](./media/documentdb-dotnet-application/image17.png)
 
 2. **뷰 추가** 대화 상자에서 다음을 수행합니다.
 	- **뷰 이름** 상자에 ***Index***를 입력합니다.
 	- **템플릿** 상자에서 ***List***를 선택합니다.
 	- **모델 클래스** 상자에서 ***Item (todo.Models)***을 선택합니다.
 	- **데이터 컨텍스트 클래스** 상자를 빈 상태로 둡니다. 
-	- 레이아웃 페이지 상자에 ***\~/Views/Shared/\_Layout.cshtml***을 입력합니다.
+	- 레이아웃 페이지 상자에 ***~/Views/Shared/\_Layout.cshtml***을 입력합니다.
 	
 	![뷰 추가 대화 상자를 보여주는 스크린샷](./media/documentdb-dotnet-application/image18.png)
 
@@ -219,7 +220,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
     - **템플릿** 상자에서 ***Create***를 선택합니다.
     - **모델 클래스** 상자에서 ***Item (todo.Models)***을 선택합니다.
     - **데이터 컨텍스트 클래스** 상자를 빈 상태로 둡니다.
-    - 레이아웃 페이지 상자에 ***\~/Views/Shared/\_Layout.cshtml***을 입력합니다.
+    - 레이아웃 페이지 상자에 ***~/Views/Shared/\_Layout.cshtml***을 입력합니다.
     - **추가**를 클릭합니다.
 
 #### <a name="_Toc395888515"></a>항목 편집 뷰 추가
@@ -233,7 +234,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
     - **템플릿** 상자에서 ***Edit***를 선택합니다.
     - **모델 클래스** 상자에서 ***Item (todo.Models)***을 선택합니다.
     - **데이터 컨텍스트 클래스** 상자를 빈 상태로 둡니다. 
-    - 레이아웃 페이지 상자에 ***\~/Views/Shared/\_Layout.cshtml***을 입력합니다.
+    - 레이아웃 페이지 상자에 ***~/Views/Shared/\_Layout.cshtml***을 입력합니다.
     - **추가**를 클릭합니다.
 
 이 작업이 완료되면 나중에 이러한 뷰로 돌아올 것이므로 Visual Studio에서 모든 cshtml 문서를 닫습니다.
@@ -248,7 +249,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 - [항목 추가](#_Toc395637771).
 - [항목 편집](#_Toc395637772).
 
-### <a name="_Toc395637770"></a>완료되지 않은 항목 나열
+### <a name="_Toc395637770"></a>웹 응용 프로그램에서 완료되지 않은 항목 나열
 
 먼저 DocumentDB에 연결하고 이를 사용할 모든 논리가 포함된 클래스를 추가합니다. 이 자습서에서는 이 모든 논리를 DocumentDBRepository라는 리포지토리 클래스로 캡슐화합니다.
 
@@ -451,7 +452,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
 
 이 프로젝트를 지금 빌드하여 실행하면 이제 다음과 같이 표시됩니다.
 
-![이 자습서에서 만든 할 일 모음 웹 응용 프로그램의 스크린샷](./media/documentdb-dotnet-application/image23.png)
+![이 데이터베이스 자습서에서 만든 할 일 모음 웹 응용 프로그램의 스크린샷](./media/documentdb-dotnet-application/image23.png)
 
 ### <a name="_Toc395637771"></a>항목 추가
 
@@ -578,7 +579,7 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
 
 1. 디버그 모드에서 응용 프로그램을 빌드하려면 Visual Studio에서 F5 키를 누릅니다. 응용 프로그램이 빌드되고 앞에서 본 것처럼 빈 그리드 페이지가 포함된 상태로 브라우저가 시작되어야 합니다.
 
-	![이 자습서에서 만든 할 일 모음 웹 응용 프로그램의 스크린샷](./media/documentdb-dotnet-application/image24.png)
+	![이 데이터베이스 자습서에서 만든 할 일 모음 웹 응용 프로그램의 스크린샷](./media/documentdb-dotnet-application/image24.png)
 
 	이때 오류가 발생하면 코드를 [GitHub][]의 todo 자습서와 비교할 수 있습니다.
 
@@ -608,7 +609,7 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
 
 2. 사용자 자격 증명에 따라 모든 항목이 이미 구성되어 있어야 합니다. 실제로 Azure의 표시된 **대상 URL**에 웹 사이트가 이미 만들어져 있으므로 **게시**를 클릭하기만 하면 됩니다.
 
-    ![웹 게시 대화 상자의 스크린샷](./media/documentdb-dotnet-application/image29.png)
+    ![Visual Studio 웹 게시 대화 상자의 스크린샷](./media/documentdb-dotnet-application/image29.png)
 
 몇 초 후에 Visual Studio에서 웹 응용 프로그램 게시를 완료하고 브라우저를 시작하며, Azure에서 실행되는 작업 내용을 확인할 수 있습니다.
 
@@ -635,7 +636,7 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
 	
 	계정이 없는 경우 [데이터베이스 계정 만들기](documentdb-create-account.md)를 참조하여 계정을 설정합니다.
 
-	![활성 허브, DocumentDB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조키 값이 강조 표시된 DocumentDB 계정을 보여 주는 Azure Preview 포털의 스크린샷](media/documentdb-dotnet-application/keys.png)
+	![액티브 허브, DocumentDB 계정 블레이드의 키 단추 및 키 블레이드의 URI, PRIMARY KEY 및 SECONDARY KEY 값이 강조 표시된 DocumentDB 계정을 보여 주는 Azure Preview 포털의 스크린샷](media/documentdb-dotnet-application/keys.png)
 
 5. Web.config 파일에서 **endpoint** 및 **authKey** 키의 기본값을 업데이트합니다.
 
@@ -658,4 +659,4 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
 [ASP.NET MVC의 기본 CRUD 작업]: http://go.microsoft.com/fwlink/?LinkId=317598
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

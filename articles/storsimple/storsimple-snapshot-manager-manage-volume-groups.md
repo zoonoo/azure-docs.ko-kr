@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/04/2015"
+   ms.date="09/15/2015"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자를 사용하여 볼륨 그룹 만들기 및 관리
@@ -140,6 +140,7 @@
 
 ## 다음 단계
 
-[StorSimple 스냅숏 관리자를 사용하여 백업 정책을 만들고 관리합니다](storsimple-snapshot-manager-manage-backup-policies.md).
+- [StorSimple 스냅숏 관리자를 사용하여 StorSimple 솔루션을 관리](storsimple-snapshot-manager-admin.md)하는 방법을 알아봅니다.
+- [StorSimple 스냅숏 관리자를 사용하여 백업 정책을 만들고 관리](storsimple-snapshot-manager-manage-backup-policies.md)하는 방법을 알아봅니다.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

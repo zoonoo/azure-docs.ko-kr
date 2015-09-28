@@ -1,6 +1,7 @@
 <properties 
-	pageTitle="DocumentDB를 사용하여 Node.js 웹 응용 프로그램 빌드 | Microsoft Azure" 
-	description="Microsoft Azure DocumentDB를 사용하여 Azure 웹 사이트에 호스트된 Node.js Express 웹 응용 프로그램에 데이터를 저장하고 액세스하는 방법을 알아봅니다." 
+	pageTitle="Node.js 알아보기 - DocumentDB Node.js 자습서 | Microsoft Azure" 
+	description="Node.js에 대해 알아봅니다. 자습서에서는 Microsoft Azure DocumentDB를 사용하여 Azure 웹 사이트에 호스트된 Node.js Express 웹 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 설명합니다." 
+	keywords="Application development, database tutorial, learn node.js, node.js tutorial, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	documentationCenter="nodejs" 
 	authors="ryancrawcour" 
@@ -18,30 +19,30 @@
 
 # <a name="_Toc395783175"></a>DocumentDB를 사용하여 Node.js 응용 프로그램 빌드
 
-이 자습서에서는 Azure DocumentDB 서비스를 사용하여 Azure 웹 사이트에 호스트된 Node.js Express 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 보여 줍니다.
+이 Node.js 자습서에서는 Azure DocumentDB 서비스를 사용하여 Azure 웹 사이트에 호스트된 Node.js Express 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 보여 줍니다.
 
-먼저 Azure DocumentDB 데이터베이스 계정을 프로비전하는 방법을 보여 주는 다음 동영상을 보고 JSON 문서를 Node.js 응용 프로그램에 저장하는 것이 좋습니다.
+먼저 Azure DocumentDB 데이터베이스 계정을 프로비전하는 방법을 알아보는 다음 동영상을 보고 JSON 문서를 Node.js 응용 프로그램에 저장하는 것이 좋습니다.
 
 > [AZURE.VIDEO azure-demo-getting-started-with-azure-documentdb-on-nodejs-in-linux]
 
-그런 다음 이 문서로 돌아와서 다음 내용을 살펴보세요.
+그런 다음 이 Node.js 자습서로 돌아와서 다음 내용을 살펴보세요.
 
 - documentdb npm 모듈을 사용해서 DocumentDB를 사용하는 방법
 - Azure 웹 사이트에 웹 응용 프로그램을 배포하는 방법
 
-이 자습서를 따라 작업을 만들고, 검색하고, 완료할 수 있는 간단한 웹 기반 작업 관리 응용 프로그램을 작성합니다. 작업은 Azure DocumentDB에 JSON 문서로 저장됩니다.
+이 데이터베이스 자습서를 따라 작업을 만들고, 검색하고, 완료할 수 있는 간단한 웹 기반 작업 관리 응용 프로그램을 작성합니다. 작업은 Azure DocumentDB에 JSON 문서로 저장됩니다.
 
-![이 자습서에서 만든 My Todo List 응용 프로그램의 스크린샷](./media/documentdb-nodejs-application/image1.png)
+![이 Node.js 자습서에서 만든 My Todo List 응용 프로그램의 스크린샷](./media/documentdb-nodejs-application/image1.png)
 
 자습서를 완료할 시간이 없고 GitHub에서 전체 솔루션을 가져오려는 경우 [여기](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo)서 가져오세요.
 
 ## <a name="_Toc395783176"></a>필수 조건
 
-> [AZURE.TIP]이 자습서에서는 Node.js 및 Azure 웹 사이트를 이전에 사용해본 경험이 있다고 가정합니다.
+> [AZURE.TIP]이 Node.js 자습서에서는 Node.js 및 Azure 웹 사이트를 이전에 사용해본 경험이 있다고 가정합니다.
 
 이 문서의 지침을 따르기 전에 다음이 있는지 확인해야 합니다.
 
-- 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](../../pricing/free-trial/)을 참조하십시오.
+- 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](../../pricing/free-trial/)을 참조하세요.
 - [Node.js][] 버전 v0.10.29 이상
 - [Express 생성기](http://www.expressjs.com/starter/generator.html)(`npm install express-generator -g`를 통해 설치 가능)
 - [Git][]
@@ -54,9 +55,9 @@
 
 [AZURE.INCLUDE [documentdb-keys](../../includes/documentdb-keys.md)]
 
-## <a name="_Toc395783178"></a>2단계: 새 Node.js 응용 프로그램 만들기
+## <a name="_Toc395783178"></a>2단계: 새 Node.js 응용 프로그램을 만드는 방법 알아보기
 
-이제 [Express](http://expressjs.com/) 프레임워크를 사용해서 기본적인 Hello World Node.js 프로젝트를 만듭니다.
+이제 [Express](http://expressjs.com/) 프레임워크를 사용해서 기본적인 Hello World Node.js 프로젝트를 만드는 방법을 알아보겠습니다.
 
 1. 자주 사용하는 터미널을 엽니다.
 
@@ -75,7 +76,7 @@
 
 5. 브라우저에서 [http://localhost:3000](http://localhost:3000)으로 이동하여 새 응용 프로그램을 확인할 수 있습니다.
 
-	![브라우저 창에 표시된 Hello World 응용 프로그램의 스크린샷](./media/documentdb-nodejs-application/image12.png)
+	![Node.js 알아보기 - 브라우저 창에 표시된 Hello World 응용 프로그램의 스크린샷](./media/documentdb-nodejs-application/image12.png)
 
 ## <a name="_Toc395783179"></a>3단계: 추가 모듈 설치
 
@@ -535,7 +536,7 @@
 
 4. 작업을 완료하려면 완료 열의 확인란을 선택한 후 **작업 업데이트**를 클릭하면 됩니다.
 
-## <a name="_Toc395783182"></a>7단계: Azure 웹 사이트에 응용 프로그램 배포
+## <a name="_Toc395783182"></a>7단계: Azure 웹 사이트에 응용 프로그램 개발 프로젝트 배포
 
 1. 아직 Azure 웹 사이트에 대해 git 리포지토리를 사용하도록 설정하지 않은 경우 사용하도록 설정합니다. 작업 방법에 대한 자세한 내용은 [여기](../web-sites-publish-source-control-git.md#step4)서 확인할 수 있습니다.
 
@@ -559,4 +560,4 @@
   [Git]: http://git-scm.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

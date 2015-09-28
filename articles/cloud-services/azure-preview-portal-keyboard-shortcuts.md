@@ -4,7 +4,7 @@
    services="cloud-services"
    documentationCenter="dev-center-name"
    authors="curtand"
-   manager="terrylan"
+   manager="msStevenPo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="na"
-   ms.date="05/28/2015"
+   ms.date="09/10/2015"
    ms.author="curtand"/>
 
 # Azure 포털 바로 가기 키
@@ -49,6 +49,5 @@
 ## 다음 단계
 
 Azure 포털을 더 잘 이해하게 됩니다(http://azure.microsoft.com).
- 
 
-<!----HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd"
-   ms.date="07/21/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
 
@@ -31,8 +31,7 @@ Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/librar
 
 ### ARM 클라이언트를 사용하려면
 
-1. Windows용 열기 소스 컴퓨터 패키지 관리자인 [Chocolatey](https://chocolatey.org/)를 설치합니다.
-2. 관리자 권한으로 PowerShell 창을 열고 다음 명령을 실행합니다.
+1. Windows용 열기 소스 컴퓨터 패키지 관리자인 [Chocolatey](https://chocolatey.org/)를 설치합니다. 관리자 권한으로 명령 프롬프트 창을 열고 다음 명령을 실행합니다.
 
     ```
     @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
@@ -221,7 +220,7 @@ Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/librar
 |properties.displayName|**필수입니다**. 쿼리의 사용자 정의된 표시 이름입니다. Azure 리소스로 모델링되는 경우 이것은 태그입니다.|
 |properties.category|**필수입니다**. 쿼리의 사용자 정의된 범주입니다. Azure 리소스로 모델링되는 경우 이것은 태그입니다.|
 
->[AZURE.NOTE] Operational Insights 검색 API는 작업 영역에서 저장된 검색에 대해 폴링될 때 사용자가 만든 저장된 검색을 현재 반환합니다. API는 현재 솔루션에서 제공되는 저장된 검색을 반환하지 않습니다. 이 기능은 나중에 추가됩니다.
+>[AZURE.NOTE]Operational Insights 검색 API는 작업 영역에서 저장된 검색에 대해 폴링될 때 사용자가 만든 저장된 검색을 현재 반환합니다. API는 현재 솔루션에서 제공되는 저장된 검색을 반환하지 않습니다. 이 기능은 나중에 추가됩니다.
 
 ### 저장된 검색 삭제
 
@@ -346,4 +345,4 @@ Azure 리소스 관리자는 [Library for.NET](https://msdn.microsoft.com/librar
 
 위의 결과 접두사가 있고 추가된 오류 메시지를 포함합니다.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -1,20 +1,20 @@
-<properties 
+<properties
  pageTitle="클라우드 서비스에 적합한 크기"
-	description="Azure 클라우드 서비스 웹 및 작업자 역할에 대한 다양한 크기를 나열합니다."
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
-	editor=""/>
-<tags 
+ description="Azure 클라우드 서비스 웹 및 작업자 역할에 대한 다양한 크기를 나열합니다."
+ services="cloud-services"
+ documentationCenter=""
+ authors="Thraka"
+ manager="timlt"
+ editor=""/>
+<tags
  ms.service="cloud-services"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="09/01/2015"
-	ms.author="adegeo"/>
- 
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="tbd"
+ ms.date="09/14/2015"
+ ms.author="adegeo"/>
+
 # 클라우드 서비스에 적합한 크기
 
 이 항목에서는 클라우드 서비스 역할 인스턴스(웹 역할 및 작업자 역할)에서 사용 가능한 크기 및 옵션을 설명합니다. 또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다.
@@ -41,26 +41,26 @@ Azure 가상 컴퓨터 및 클라우드 서비스는 Azure에서 제공하는 �
 
 |크기|CPU<br>코어 수|메모리|디스크 크기|
 |---|---|---|---|
-|매우 작음|1|768 MB|OS = 게스트 OS 크기<br/>로컬 리소스 = 19GB<br/>앱 = 약 1.5GB|
-|작음|1|1\.75 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 224GB<br/>앱 = 약 1.5GB|
-|중간|2|3\.5 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 489GB<br/>앱 = 약 1.5GB|
-|큼|4|7 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 999GB<br/>앱 = 약 1.5GB|
-|매우 큼|8|14 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 2,039GB<br/>앱 = 약 1.5GB|
-|A5|2|14 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 489GB<br/>앱 = 약 1.5GB|
-|A6|4|28GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 999GB<br/>앱 = 약 1.5GB|
-|A7|8|56GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 2,039GB<br/>앱 = 약 1.5GB
-|A8|8|56GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 1.77TB<br/>앱 = 약 1.5GB<blockquote> 참고: 이 크기 사용에 대한 정보 및 고려 사항은 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적인 인스턴스</a>를 참조하세요.</blockquote>|
-|A9|16|112GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 1.77TB<br/>앱 = 약 1.5GB<blockquote> 참고: 이 크기 사용에 대한 정보 및 고려 사항은 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적인 인스턴스</a>를 참조하세요.</blockquote>|
-|A10|8|56GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 1.77TB<br/>앱 = 약 1.5GB<blockquote> 참고: 이 크기 사용에 대한 정보 및 고려 사항은 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적인 인스턴스</a>를 참조하세요.</blockquote>|
-|A11|16|112GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 1.77TB<br/>앱 = 약 1.5GB<blockquote> 참고: 이 크기 사용에 대한 정보 및 고려 사항은 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적인 인스턴스</a>를 참조하세요.</blockquote>|
-|Standard\_D1|1|3\.5 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 50GB<br/>앱 = 약 1.5GB|
-|Standard\_D2|2|7 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 100GB<br/>앱 = 약 1.5GB|
-|Standard\_D3|4|14 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 200GB<br/>앱 = 약 1.5GB|
-|Standard\_D4|8|28GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 400GB<br/>앱 = 약 1.5GB|
-|Standard\_D11|2|14 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 100GB<br/>앱 = 약 1.5GB|
-|Standard\_D12|4|28GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 200GB<br/>앱 = 약 1.5GB|
-|Standard\_D13|8|56GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 400GB<br/>앱 = 약 1.5GB|
-|Standard\_D14|16|112GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 800GB<br/>앱 = 약 1.5GB|
+|매우 작음|1|768 MB|OS = 게스트 OS 크기<br/>로컬 리소스 = 15384MB<br/>앱 = 약 1.5GB|
+|작음|1|1\.75 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 225304MB<br/>앱 = 약 1.5GB|
+|중간|2|3\.5 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 496664MB<br/>앱 = 약 1.5GB|
+|큼|4|7 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 1018904MB<br/>앱 = 약 1.5GB|
+|매우 큼|8|14 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 2083864MB<br/>앱 = 약 1.5GB|
+|A5|2|14 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 496664MB<br/>앱 = 약 1.5GB|
+|A6|4|28GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 1018904MB<br/>앱 = 약 1.5GB|
+|A7|8|56GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 2083864MB<br/>앱 = 약 1.5GB
+|A8|8|56GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 1856172MB<br/>앱 = 약 1.5GB<blockquote> 참고: 이 크기 사용에 대한 정보 및 고려 사항은 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적인 인스턴스</a>를 참조하세요.</blockquote>|
+|A9|16|112GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 1856172MB<br/>앱 = 약 1.5GB<blockquote> 참고: 이 크기 사용에 대한 정보 및 고려 사항은 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적인 인스턴스</a>를 참조하세요.</blockquote>|
+|A10|8|56GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 1856172MB<br/>앱 = 약 1.5GB<blockquote> 참고: 이 크기 사용에 대한 정보 및 고려 사항은 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적인 인스턴스</a>를 참조하세요.</blockquote>|
+|A11|16|112GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 1856172MB<br/>앱 = 약 1.5GB<blockquote> 참고: 이 크기 사용에 대한 정보 및 고려 사항은 <a href="http://go.microsoft.com/fwlink/p/?linkid=328042">A8, A9, A10 및 A11 계산 집약적인 인스턴스</a>를 참조하세요.</blockquote>|
+|Standard\_D1|1|3\.5 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 46104MB<br/>앱 = 약 1.5GB|
+|Standard\_D2|2|7 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 97304MB<br/>앱 = 약 1.5GB|
+|Standard\_D3|4|14 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 199704MB<br/>앱 = 약 1.5GB|
+|Standard\_D4|8|28GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 404504MB<br/>앱 = 약 1.5GB|
+|Standard\_D11|2|14 GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 97304MB<br/>앱 = 약 1.5GB|
+|Standard\_D12|4|28GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 199704MB<br/>앱 = 약 1.5GB|
+|Standard\_D13|8|56GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 404504MB<br/>앱 = 약 1.5GB|
+|Standard\_D14|16|112GB|OS = 게스트 OS 크기<br/>로컬 리소스 = 814104MB<br/>앱 = 약 1.5GB|
 
 ## 클라우드 서비스에 적합한 크기 구성
 
@@ -72,8 +72,10 @@ Azure 가상 컴퓨터 및 클라우드 서비스는 Azure에서 제공하는 �
     <WebRole name="WebRole1" vmsize="Small">
     …
     </WebRole>
+
+지정된 로컬 리소스 크기가 위의 표에 있는 최대 로컬 리소스 크기보다 작거나 같은지 확인합니다.
 ## 다음 단계
 
 [Azure용 클라우드 서비스 설정](https://msdn.microsoft.com/library/hh124108)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

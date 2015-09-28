@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="09/16/2015"
 	ms.author="juliako"/>
 
 #Azure 미디어 서비스를 사용하여 라이브 인코딩을 수행할 수 있는 채널 작업(미리 보기)
@@ -41,22 +41,13 @@ Azure 미디어 서비스에서 **채널**은 라이브 스트리밍 콘텐츠�
 
 ![라이브 워크플로][live-overview]
 
->[AZURE.NOTE]일부 데이터 센터에서는 Azure 미디어 서비스를 통한 라이브 인코딩을 지원하지 않습니다.
->
->Azure 관리 포털을 사용하여 채널을 만들 경우 두 가지 채널 인코딩 유형 옵션인 **없음** 및 **표준**을 사용할 수 있습니다. **없음** 옵션만 표시되면 데이터 센터에서 AMS를 통한 라이브 인코딩을 지원하지 않는 것입니다.
->
->.NET SDK 또는 REST API를 사용하고 있다면 확인하기 위해 다음과 같이 합니다.
->
->1. 인코딩 유형을 표준으로 설정하고 채널을 만들어 봅니다. 
->2. 반환된 결과가 *"이 지역에서는 라이브 인코딩이 지원되지 않습니다. EncodingType을 '없음'으로 설정해야 합니다."*라는 메시지가 포함된 HTTP 오류 코드 412(사전 조건 실패)인 경우 데이터 센터에서 라이브 인코딩을 지원하지 않습니다.
-
 
 ##항목 내용
 
 - [일반적인 라이브 스트리밍 시나리오](media-services-manage-live-encoder-enabled-channels.md#scenario) 개요
 - [채널 및 관련 구성 요소에 대한 설명](media-services-manage-live-encoder-enabled-channels.md#channel)
-- [고려 사항](media-services-manage-live-encoder-enabled-channels.md#considerations)
-- [라이브 스트리밍 관련 작업](media-services-manage-live-encoder-enabled-channels.md#tasks)
+- [고려 사항](media-services-manage-live-encoder-enabled-channels.md#Considerations)
+
 
 ##<a id="scenario"></a>일반적인 라이브 스트리밍 시나리오
 
@@ -397,6 +388,7 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 
 ##<a id="Considerations"></a>고려 사항
 
+- **표준** 인코딩 형식의 채널에서 입력 소스/기여도 피드 손실이 발생하는 경우 원본 비디오/오디오를 오류 슬레이트 및 대기로 바꿔 보완합니다. 채널은 입력/기여도 피드가 다시 시작될 때까지 계속 슬레이트를 내보냅니다. 라이브 채널을 2시간 이상 이러한 상태로 두지 않는 것이 좋습니다. 그 후에는 입력 다시 연결 시 채널의 동작이 보장되지 않으며 다시 설정 명령에 대한 응답 동작도 보장되지 않습니다. 채널을 중지하고 삭제한 후 새로 만들어야 합니다.
 - 채널 또는 연결된 프로그램이 실행 중인 동안에는 입력 프로토콜을 변경할 수 없습니다. 다른 프로토콜을 요청하는 경우 각각의 입력 프로토콜에 대한 개별 채널을 만들어야 합니다. 
 - 라이브 인코더를 다시 구성할 때마다 채널에 대해 **Reset** 메서드를 호출합니다. 채널을 다시 설정하기 전에 프로그램을 중단해야 합니다. 채널을 다시 설정한 후 프로그램을 다시 시작합니다. 
 - 채널이 실행 상태일 때만 중단할 수 있으며 채널의 모든 프로그램이 중단됩니다.
@@ -438,4 +430,4 @@ ENG와 같은 ISO 639-2를 따르는 오디오 스트림의 언어 식별자입�
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

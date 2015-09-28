@@ -1,23 +1,23 @@
 <properties 
    pageTitle="NSG(네트워크 보안 그룹)란?"
-	description="NSG(네트워크 보안 그룹)에 대해 알아봅니다."
-	services="virtual-network"
-	documentationCenter="na"
-	authors="telmosampaio"
-	manager="carolz"
-	editor="tysonn"/>
+   description="NSG(네트워크 보안 그룹)에 대해 알아봅니다."
+   services="virtual-network"
+   documentationCenter="na"
+   authors="telmosampaio"
+   manager="carolz"
+   editor="tysonn" />
 <tags 
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/13/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/13/2015"
+   ms.author="telmos" />
 
 # NSG(네트워크 보안 그룹)란?
 
-NSG를 사용하여 가상 네트워크에 있는 하나 이상의 VM(가상 컴퓨터) 인스턴스에 대한 트래픽을 제어할 수 있습니다. 네트워크 보안 그룹은 구독에 연결된 최상위 수준 개체입니다. NSG에는 VM 인스턴스에 대한 트래픽을 허용하거나 거부할 수 있는 액세스 제어 규칙이 포함되어 있습니다. NSG의 규칙은 언제든지 변경할 수 있으며, 변경 내용은 연결된 모든 인스턴스에 적용됩니다. NSG를 사용하려면 지역(위치)과 연결된 VNet이 있어야 합니다.
+NSG를 사용하여 가상 네트워크에 있는 하나 이상의 VM(가상 컴퓨터) 인스턴스에 대한 트래픽을 제어할 수 있습니다. NSG에는 트래픽 방향, 프로토콜, 원본 주소 및 포트, 대상 주소 및 포트에 따라 트래픽을 허용하거나 거부하는 액세스 제어 규칙이 포함되어 있습니다. NSG의 규칙은 언제든지 변경할 수 있으며, 변경 내용은 연결된 모든 인스턴스에 적용됩니다. NSG를 사용하려면 지역 VNet이 있어야 합니다.
 
 >[AZURE.WARNING]NSG는 선호도 그룹과 연결된 VNet과 호환되지 않습니다. 지역 VNet이 없는데 끝점에 대한 트래픽을 제어하려는 경우 [네트워크 ACL(액세스 제어 목록)란?](./virtual-networks-acl.md)을 참조하세요. [VNet을 지역 VNet에 마이그레이션](./virtual-networks-migrate-to-regional-vnet.md)할 수도 있습니다.
 
@@ -249,4 +249,4 @@ Azure의 일반적인 시나리오는 이러한 개체가 인터넷 엑세스에
 
 	Get-Command *azurenetworksecuritygroup*
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

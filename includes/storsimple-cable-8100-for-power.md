@@ -1,3 +1,4 @@
+<!--author=alkohli last changed: 9/16/15-->
 
 #### 전원을 케이블로 연결하려면
 
@@ -23,4 +24,4 @@
 
 4. 시스템의 전원을 켜려면 양쪽 PCM의 전원 스위치를 ON 위치로 누릅니다.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

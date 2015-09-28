@@ -38,6 +38,7 @@
 현재, 새 리소스 그룹 및 구독으로의 이동을 모두 지원하는 서비스는 다음과 같습니다.
 
 - API 관리
+- Azure DocumentDB
 - Azure 검색
 - Azure 웹앱(일부 [제한 사항](app-service-web/app-service-move-resources.md) 적용)
 - 데이터 팩터리
@@ -102,4 +103,4 @@
 - [Azure 포털을 사용하여 리소스 관리](azure-portal/resource-group-portal.md)
 - [태그를 사용하여 리소스 구성](./resource-group-using-tags.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

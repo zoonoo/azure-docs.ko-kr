@@ -3,7 +3,7 @@
 	description="Azure에서 가상 컴퓨터에서 디스크 분리에 대해 알아봅니다."
 	services="virtual-machines, storage"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-service-management"/>
@@ -15,7 +15,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/14/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 
 
@@ -29,4 +29,4 @@
 
 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](storage-windows-attach-disk.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

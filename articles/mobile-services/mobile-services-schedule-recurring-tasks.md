@@ -1,6 +1,6 @@
 <properties
-	pageTitle="스케줄러를 사용하여 백 엔드 작업 예약 | Microsoft Azure"
-	description="Azure 모바일 서비스 스케줄러를 사용하여 모바일 앱에 대한 작업을 예약합니다."
+	pageTitle="JavaScript 백 엔드 모바일 서비스에서 백 엔드 작업 예약 | Microsoft Azure"
+	description="Azure 모바일 서비스의 스케줄러를 사용하여 일정에 따라 실행되는 JavaScript 백 엔드 작업을 정의할 수 있습니다."
 	services="mobile-services"
 	documentationCenter=""
 	authors="ggailey777"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/14/2015"
 	ms.author="glenga"/>
 
 # 모바일 서비스에서 되풀이 작업 예약
 
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
-- [(Any | Javascript)](mobile-services-schedule-recurring-tasks.md)
+> [AZURE.SELECTOR]
+- [.NET backend](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [Javascript backend](mobile-services-schedule-recurring-tasks.md)
 
 이 항목에서는 관리 포털의 작업 스케줄러 기능을 사용하여 정의한 일정에 따라 실행되는 서버 스크립트 코드를 정의하는 방법을 보여 줍니다. 이 경우 스크립트는 원격 서비스(이 예에서는 Twitter)를 주기적으로 확인하여 결과를 새 테이블에 저장합니다. 예약할 수 있는 다른 정기 작업에는 다음이 포함됩니다.
 
@@ -166,4 +166,4 @@
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

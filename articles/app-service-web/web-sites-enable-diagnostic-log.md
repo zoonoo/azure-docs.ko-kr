@@ -5,15 +5,15 @@
 	documentationCenter=".net"
 	authors="cephalin"
 	manager="wpickett"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스에서 웹 앱에 대한 진단 로깅 설정
@@ -22,7 +22,9 @@
 
 Azure는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)을 디버그하는 데 도움이 되는 기본 제공 진단을 제공합니다. 이 문서에서는 진단 로그를 사용하도록 설정하는 방법, 응용 프로그램에 계측을 추가하는 방법 및 Azure에서 기록된 정보에 액세스하는 방법을 설명합니다.
 
-> [AZURE.NOTE]이 문서에서는 [Azure Preview 포털](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell 및 Azure 명령줄 인터페이스를 사용하여 진단 로그로 작업하는 방법을 사용합니다. Visual Studio를 사용하여 진단 로그로 작업하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 문제 해결](web-sites-dotnet-troubleshoot-visual-studio.md)을 참조하세요.
+이 문서에서는 [Azure Preview 포털](http://go.microsoft.com/fwlink/?LinkId=529715), Azure PowerShell 및 Azure 명령줄 인터페이스를 사용하여 진단 로그로 작업하는 방법을 사용합니다. Visual Studio를 사용하여 진단 로그로 작업하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 문제 해결](web-sites-dotnet-troubleshoot-visual-studio.md)을 참조하세요.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## <a name="whatisdiag"></a>웹 서버 진단 및 응용 프로그램 진단
 
@@ -53,13 +55,13 @@ Azure는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)�
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![로그 부분](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-**응용 프로그램 진단**을 활성화하면 **수준**도 선택하십시오. 이 설정을 통해 **정보**, **경고** 또는 **오류** 정보에 캡처된 정보를 필터링할 수 있습니다. 이를 **세부 정보 표시**로 설정하면 응용 프로그램에서 생성된 모든 정보가 로깅됩니다.
+**응용 프로그램 진단**을 사용하도록 설정하는 경우 **수준**도 선택합니다. 이 설정을 사용하면 캡처된 정보를 **정보**, **경고** 또는 **오류** 정보로 필터링할 수 있습니다. 이를 **세부 정보 표시**로 설정하면 응용 프로그램에서 생성된 모든 정보가 로깅됩니다.
 
 > [AZURE.NOTE]web.config 파일을 변경하는 것과 달리, 응용 프로그램 진단을 사용하도록 설정하거나 진단 로그 수준을 변경하면 응용 프로그램이 실행되는 앱 도메인이 재순환되지 않습니다.
 
 [Azure 포털](https://manage.windowsazure.com) 웹앱 **구성** 탭에서 **웹 서버 로깅**에 대해 **저장소** 또는 **파일 시스템**을 선택할 수 있습니다. **저장소**를 선택하면 저장소 계정을 선택하고 로그를 기록할 Blob 컨테이너를 선택할 수 있습니다. **사이트 진단**에 대한 기타 모든 로그는 파일 시스템에만 기록됩니다.
 
-[Azure 포털](https://manage.windowsazure.com) 웹앱 **구성** 탭에는 또한 응용 프로그램 진단을 위한 다음과 같은 추가 설정도 있습니다.
+[Azure 포털](https://manage.windowsazure.com) 웹앱 **구성** 탭에는 응용 프로그램 진단에 대한 다음과 같은 추가 설정도 있습니다.
 
 * **파일 시스템** - 웹 앱 파일 시스템에 응용 프로그램 진단 정보를 저장합니다. 이러한 파일은 FTP로 액세스하거나, Azure PowerShell 또는 Azure 명령줄 인터페이스(Azure CLI)를 사용하여 Zip 보관 파일로 다운로드할 수 있습니다.
 * **테이블 저장소** - 지정된 Azure 저장소 계정 및 테이블 이름에 응용 프로그램 진단 정보를 저장합니다.
@@ -72,7 +74,7 @@ Azure는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)�
 
 > [AZURE.NOTE]**테이블 저장소** 또는 **Blob 저장소**에 저장된 정보는 이러한 저장소 시스템에서 바로 작업할 수 있는 저장소 클라이언트 또는 응용 프로그램을 사용해서만 액세스할 수 있습니다. 예를 들어 Visual Studio 2013에는 테이블 또는 Blob 저장소를 탐색하는 데 사용할 수 있는 저장소 탐색기를 포함하고 있으며, HDInsight는 Blob 저장소에 저장된 데이터에 액세스하는 데 사용될 수 있습니다. 또한 [Azure SDK](/downloads/#) 중 하나를 사용하여 Azure 저장소에 액세스하는 응용 프로그램을 작성할 수도 있습니다.
 
-> [AZURE.NOTE]Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 사용하도록 설정할 수 있습니다. Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 이를 구성하지 않은 경우 [Azure PowerShell을 사용하는 방법](/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하십시오.
+> [AZURE.NOTE]Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 사용하도록 설정할 수 있습니다. Azure PowerShell을 설치하지 않았거나 Azure 구독을 사용하도록 이를 구성하지 않은 경우 [Azure PowerShell을 사용하는 방법](/develop/nodejs/how-to-guides/powershell-cmdlets/)(영문)을 참조하세요.
 
 ##<a name="download"></a> 방법: 로그 다운로드
 
@@ -92,7 +94,7 @@ Azure는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)�
 
 ### FTP
 
-FTP를 사용하여 진단 정보에 액세스하려면 [Azure 포털](https://manage.windowsazure.com)에서 웹앱의 **대시보드**를 방문합니다. **간략 상태** 섹션에서 **FTP Diagnostic Logs** 링크를 사용하여 FTP를 통해 로그 파일에 액세스할 수 있습니다. **Deployment/FTP User** 항목은 FTP 사이트에 액세스하는 데 사용해야 하는 사용자 이름을 나열합니다.
+FTP를 사용하여 진단 정보에 액세스하려면 [Azure 포털](https://manage.windowsazure.com)에서 웹앱의 **대시보드**로 이동하세요. **간략 상태** 섹션에서 **FTP Diagnostic Logs** 링크를 사용하여 FTP를 통해 로그 파일에 액세스할 수 있습니다. **Deployment/FTP User** 항목은 FTP 사이트에 액세스하는 데 사용해야 하는 사용자 이름을 나열합니다.
 
 > [AZURE.NOTE]**배포/FTP 사용자** 항목이 설정되지 않은 경우 또는 이 사용자의 암호를 잊은 경우 **대시보드**의 **간략 상태** 섹션에서 **Reset deployment credentials** 링크를 사용하여 새 사용자 및 암호를 만들 수 있습니다.
 
@@ -205,7 +207,7 @@ Timestamp|이벤트가 발생한 날짜 및 시간
 EventTickCount|이벤트가 발생한 날짜 및 시간(눈금 형식, 더 높은 정밀도)
 ApplicationName|웹 앱 이름
 수준|이벤트 수준(예: 오류, 경고, 정보)
-EventId|이 이벤트의 이벤트 ID<p><p>지정된 값이 없으면 0으로 기본 설정됨
+EventId|이 이벤트의 이벤트 ID<p><p>지정하지 않을 경우 0으로 기본 설정됨
 InstanceId|이벤트가 발생한 웹앱의 인스턴스
 Pid|프로세스 ID
 Tid|이벤트가 생성된 스레드의 스레드 ID
@@ -222,7 +224,7 @@ Level|이벤트 수준(예: 오류, 경고, 정보)
 ApplicationName|웹앱 이름
 InstanceId|이벤트가 발생한 웹앱의 인스턴스
 EventTickCount|이벤트가 발생한 날짜 및 시간(눈금 형식, 더 높은 정밀도)
-EventId|이 이벤트의 이벤트 ID<p><p>지정된 값이 없으면 0으로 기본 설정됨
+EventId|이 이벤트의 이벤트 ID<p><p>지정하지 않을 경우 0으로 기본 설정됨
 Pid|프로세스 ID
 Tid|이벤트가 생성된 스레드의 스레드 ID
 Message|이벤트 세부 정보 메시지
@@ -248,19 +250,19 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 
 웹 서버 로그는 [W3C 확장 로그 파일 형식](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)을 사용하여 서식이 지정됩니다. 이 정보는 텍스트 편집기를 사용하여 읽거나 [Log Parser](http://go.microsoft.com/fwlink/?LinkId=246619)와 같은 유틸리티를 사용하여 구문 분석할 수 있습니다.
 
-> [AZURE.NOTE]Azure 웹앱에서 생성된 로그는 __s-computername__, __s-ip__ 또는 __cs-버전__ 필드를 지원하지 않습니다.
+> [AZURE.NOTE]Azure 웹 앱에서 생성된 로그는 __s-computername__, __s-ip__ 또는 __cs-버전__ 필드를 지원하지 않습니다.
 
 ##<a name="nextsteps"></a> 다음 단계
 
-- [웹앱을 모니터링하는 방법](/ko-kr/manage/services/web-sites/how-to-monitor-websites/)
+- [웹앱을 모니터링하는 방법](/ko-KR/manage/services/web-sites/how-to-monitor-websites/)
 - [Visual Studio에서 Azure 웹앱 문제 해결](web-sites-dotnet-troubleshoot-visual-studio.md)
 - [HDInsight에서 웹앱 로그 분석](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
-> [AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> [AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

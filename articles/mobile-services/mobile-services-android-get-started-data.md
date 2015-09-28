@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="09/04/2015" 
+	ms.date="09/16/2015" 
 	ms.author="ricksal"/>
 
 # 기존 Android 앱에 모바일 서비스 추가(JavaScript 백 엔드)
@@ -156,4 +156,4 @@ Azure 모바일 서비스 Android SDK의 이전 버전에서 사용되는 샘플
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### Windows Server 호스트의 IQN을 가져오려면
 
@@ -9,4 +10,4 @@
 
 3. 이 문자열을 저장합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

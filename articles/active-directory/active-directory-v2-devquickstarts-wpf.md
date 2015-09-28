@@ -1,5 +1,5 @@
 <properties
-	pageTitle="앱 모델 v2.0 | Microsoft Azure"
+	pageTitle="앱 모델 v2.0 .NET 네이티브 앱 | Microsoft Azure"
 	description="개인 Microsoft 계정과 회사 또는 학교 계정 둘 다로 사용자를 로그인하는 .NET 네이티브 앱을 빌드하는 방법입니다."
 	services="active-directory"
 	documentationCenter=""
@@ -13,7 +13,7 @@
   ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="08/12/2015"
+	ms.date="09/11/2015"
 	ms.author="dastrock"/>
 
 # 앱 모델 v2.0 미리 보기: Windows 데스크톱 앱에 로그인 추가
@@ -51,7 +51,7 @@ v2.0 앱 모델에서는 개인 Microsoft 계정과 회사 또는 학교 계정 
 ## 2. ADAL 설치 및 구성
 앱을 Microsoft에 등록했으므로 ADAL을 설치하고 ID 관련 코드를 작성할 수 있습니다. ADAL이 v2.0 끝점과 통신할 수 있게 하려면 앱 등록에 대한 일부 정보를 제공해야 합니다.
 
--	먼저 패키지 관리자 콘솔을 사용하여 ADAL을 TodoListClient 프로젝트에 추가하세요.
+-    먼저 패키지 관리자 콘솔을 사용하여 ADAL을 TodoListClient 프로젝트에 추가하세요.
 
 ```
 PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TodoListClient -IncludePrerelease 
@@ -253,4 +253,4 @@ ADAL은 개인 및 회사 계정을 사용하여 공통 ID 기능을 앱에 쉽�
 
 추가 리소스는 다음을 확인해보세요. - [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md) - [스택 오버플로 "adal" 태그 >>](http://stackoverflow.com/questions/tagged/adal)
 
-<!-----HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

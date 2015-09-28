@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 지원 패키지 만들기 | Microsoft Azure"
-	description="StorSimple 장치용 지원 패키지를 만들고, 암호 해독 및 편집하는 방법을 알아봅니다."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="StorSimple 장치용 지원 패키지를 만들고, 암호 해독 및 편집하는 방법을 알아봅니다."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/15/2015"
+   ms.author="alkohli" />
 
 
 # StorSimple 지원 패키지 만들기 및 관리
@@ -35,7 +35,7 @@
 
 ## 관리 포털에서 지원 패키지 만들기
 
-StorSimple 관리 서비스에서 발생할 수 있는 문제를 해결하려면 관리 포털에서 서비스의 **유지 관리** 페이지를 통해 Microsoft 지원 사이트에 지원 패키지를 만들고 업로드할 수 있습니다. 업로드를 허용하려면 지원 패스 키를 제공해야 합니다. 지원 패스 키는 지원 엔지니어가 전자 메일로 제공해야 합니다. 암호화되지 않고 압축된 지원 패키지를 생성합니다.(.cab 파일) 이 패키지는 엔지니어가 패스 키를 제공하는 경우 지원 사이트에서 지원 엔지니어가 검색할 수 있습니다.
+StorSimple 관리 서비스에서 발생할 수 있는 문제를 해결하려면 관리 포털에서 서비스의 **유지 관리** 페이지를 통해 Microsoft 지원 사이트에 지원 패키지를 만들고 업로드할 수 있습니다. 업로드를 허용하려면 지원 패스 키를 제공해야 합니다. 지원 패스 키는 지원 엔지니어가 메일로 제공해야 합니다. 암호화되지 않고 압축된 지원 패키지를 생성합니다.(.cab 파일) 이 패키지는 엔지니어가 패스 키를 제공하는 경우 지원 사이트에서 지원 엔지니어가 검색할 수 있습니다.
 
 지원 패키지를 만들려면 관리 포털에서 다음 단계를 수행합니다.
 
@@ -49,7 +49,7 @@ StorSimple 관리 서비스에서 발생할 수 있는 문제를 해결하려면
 
 	![지원 패키지 만들기](./media/storsimple-create-manage-support-package/IC740923.png)
 											
-	- **지원 패스 키**를 제공합니다. 이 키는 Microsoft 지원 엔지니어가 전자 메일로 전송해야 합니다.
+	- **지원 패스 키**를 제공합니다. 이 키는 Microsoft 지원 엔지니어가 메일로 전송해야 합니다.
  	
 	- 동의를 제공하는 콤보 상자를 확인하여 **Microsoft 지원 사이트에 지원 패키지를 자동으로 업로드**합니다.
  	
@@ -196,6 +196,7 @@ Microsoft 지원 사이트에 업로드하기 전에 지원 패키지를 편집�
 
 ## 다음 단계
 
-[지원 패키지 및 장치 로그를 사용하여 장치 배포 문제 해결](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting) 방법을 알아봅니다.
+- [지원 패키지 및 장치 로그를 사용하여 장치 배포 문제를 해결](storsimple-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting)하는 방법을 알아봅니다. 
+- [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 알아봅니다.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

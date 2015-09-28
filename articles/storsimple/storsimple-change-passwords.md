@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="StorSimple 암호 변경 | Microsoft Azure"
-	description="StorSimple 관리자 서비스를 사용하여 StorSimple 스냅숏 관리자 및 장치 관리자 암호를 변경하는 방법에 대해 설명합니다."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   pageTitle="StorSimple 암호 변경 | Microsoft Azure" 
+   description="StorSimple 관리자 서비스를 사용하여 StorSimple 스냅숏 관리자 및 장치 관리자 암호를 변경하는 방법에 대해 설명합니다." 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="SharS" 
+   manager="carolz" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/31/2015"
-	ms.author="v-sharos@microsoft.com"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="09/15/2015"
+   ms.author="v-sharos@microsoft.com"/>
 
 # StorSimple 관리자 서비스를 사용하여 StorSimple 암호 변경
 
@@ -62,8 +62,10 @@ Windows PowerShell 인터페이스를 사용하여 StorSimple 장치에 액세�
 
 ## 다음 단계
 
-[StorSimple 보안에 대해 자세히 알아봅니다](storsimple-security.md).
+- [StorSimple 보안](storsimple-security.md)에 대해 자세히 알아봅니다.
 
-[장치 구성을 수정하는 방법에 대한 자세히 알아봅니다](storsimple-modify-device-config.md).
+- [장치 구성을 수정](storsimple-modify-device-config.md)하는 방법을 자세히 알아봅니다.
 
-<!---HONumber=September15_HO1-->
+- [StorSimple Manager 서비스를 사용하여 StorSimple 장치를 관리](storsimple-manager-service-administration.md)하는 방법을 자세히 알아봅니다.
+
+<!---HONumber=Sept15_HO3-->

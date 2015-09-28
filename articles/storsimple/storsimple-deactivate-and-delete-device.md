@@ -1,19 +1,19 @@
 <properties 
    pageTitle="StorSimple 장치 비활성화 및 삭제 | Microsoft Azure"
-	description="먼저 StorSimple 장치를 비활성화한 후 삭제하여 서비스에서 제거하는 방법을 설명합니다."
-	services="storsimple"
-	documentationCenter=""
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="먼저 StorSimple 장치를 비활성화한 후 삭제하여 서비스에서 제거하는 방법을 설명합니다."
+   services="storsimple"
+   documentationCenter=""
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="09/01/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="09/14/2015"
+   ms.author="v-sharos" />
 
 # StorSimple 장치 비활성화 및 삭제
 
@@ -87,8 +87,10 @@ StorSimple 가상 장치의 경우 비활성화하면 해당 가상 컴퓨터와
 장치를 삭제하는 데는 몇 분 정도 걸릴 수 있습니다.
 
 ## 다음 단계
-비활성화된 장치를 공장 기본 설정으로 재설정하려면 [장치를 공장 기본 설정으로 재설정](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings)으로 이동합니다.
+- 비활성화된 장치를 공장 기본 설정으로 복원하려면 [장치를 공장 기본 설정으로 초기화](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings)로 이동합니다.
 
-기술 지원을 받으려면 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
+- 기술 지원을 받으려면 [Microsoft 지원에 문의](storsimple-contact-microsoft-support.md)하세요.
 
-<!---HONumber=September15_HO1-->
+- StorSimple Manager 서비스를 사용하는 방법을 자세히 알아보려면 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md)로 이동하세요.
+
+<!---HONumber=Sept15_HO3-->

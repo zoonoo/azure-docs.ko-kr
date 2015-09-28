@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure Active Directory와 통합하는 방법"
-	description="Azure Active Directory와의 통합의 이점 및 리소스에 대한 설명입니다."
-	services="active-directory"
-	documentationCenter="dev-center-name"
-	authors="msmbaldwin"
-	manager="mbaldwin"
-	editor=""/>
+   description="Azure Active Directory와의 통합의 이점 및 리소스에 대한 설명입니다."
+   services="active-directory"
+   documentationCenter="dev-center-name"
+   authors="msmbaldwin"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="08/25/2015"
-	ms.author="mbaldwin"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="08/25/2015"
+   ms.author="mbaldwin"/>
 
 # Azure Active Directory와의 통합
 
@@ -34,9 +34,9 @@ Azure Active Directory는 클라우드 응용 프로그램에 대해 엔터프�
 
 ### 사용자 검색, 사용자 프로비전 관리, 응용 프로그램에 대한 액세스 제어
 
-**디렉터리에서 사용자를 찾습니다.** 다른 사람을 초대하거나 액세스 권한을 부여할 때 사용자가 메일 주소를 입력할 필요 없이 Graph API를 사용하면 조직에서 다른 사람을 검색하고 찾는 데 도움이 됩니다. 사용자는 조직 계층의 세부 정보 보기 등 친숙한 주소록 유형의 인터페이스를 사용하여 찾아볼 수 있습니다. [Graph API](https://msdn.microsoft.com/library/azure/hh974476.aspx)에 대해 자세히 알아보세요.
+**디렉터리에서 사용자를 찾습니다.** 다른 사람을 초대하거나 액세스 권한을 부여할 때 사용자가 메일 주소를 입력할 필요 없이 Graph API를 사용하면 조직에서 다른 사람을 검색하고 찾는 데 도움이 됩니다. 사용자는 조직 계층의 세부 정보 보기 등 친숙한 주소록 유형의 인터페이스를 사용하여 찾아볼 수 있습니다. [Graph API](active-directory-graph-api.md)에 대해 자세히 알아보세요.
 
-**Active Directory 그룹 및 고객이 이미 관리하는 메일 그룹을 다시 사용합니다.** Azure AD에는 고객이 이미 메일 배포에 사용하고 액세스를 관리하는 그룹이 포함되어 있습니다. 고객이 응용 프로그램에서 별도의 그룹 집합을 만들고 관리할 필요 없이 Graph API를 사용하여 그룹을 다시 사용하세요. 로그인 토큰의 응용 프로그램에 그룹 정보가 전송될 수도 있습니다. [Graph API](https://msdn.microsoft.com/library/azure/hh974476.aspx)에 대해 자세히 알아보세요.
+**Active Directory 그룹 및 고객이 이미 관리하는 메일 그룹을 다시 사용합니다.** Azure AD에는 고객이 이미 메일 배포에 사용하고 액세스를 관리하는 그룹이 포함되어 있습니다. 고객이 응용 프로그램에서 별도의 그룹 집합을 만들고 관리할 필요 없이 Graph API를 사용하여 그룹을 다시 사용하세요. 로그인 토큰의 응용 프로그램에 그룹 정보가 전송될 수도 있습니다. [Graph API](active-directory-graph-api.md)에 대해 자세히 알아보세요.
 
 **Azure AD를 사용하여 응용 프로그램에 대한 액세스 권한이 있는 사용자를 제어합니다.** Azure AD의 관리자 및 응용 프로그램 소유자는 응용 프로그램에 대한 액세스 권한을 특정 사용자 및 그룹에게 할당할 수 있습니다. Graph API를 사용하여 이 목록을 읽고 리소스의 프로비전 및 프로비전 해제와 응용 프로그램 내의 액세스를 제어할 수 있습니다.
 
@@ -72,7 +72,7 @@ Azure AD와 통합하면 추가 코드를 작성할 필요가 없다는 이점�
 
 **비정상적인 로그인 감지.** Azure AD는 의심스러운 활동을 감지하고 발생 가능한 문제를 IT 관리자에게 알리는 기계 학습 알고리즘을 사용하면서 하루 10억 개가 넘는 로그인을 처리합니다. Azure AD 로그인을 지원함으로써 응용 프로그램이 보호됩니다. [Azure Active Directory 액세스 보고서 보기](active-directory-view-access-usage-reports.md)에 대해 자세히 알아보세요.
 
-**조건부 액세스.** 관리자는 다단계 인증 외에도 특정 조건을 충족해야 사용자가 응용 프로그램에 로그인할 수 있도록 요구할 수 있습니다. 클라이언트 장치의 IP 주소 범위, 지정된 그룹의 멤버 자격, 액세스에 사용되는 장치의 상태 조건을 설정할 수 있습니다. [Azure Active Directory 조건부 액세스](https://msdn.microsoft.com/library/azure/dn906873.aspx)에 대해 자세히 알아보세요.
+**조건부 액세스.** 관리자는 다단계 인증 외에도 특정 조건을 충족해야 사용자가 응용 프로그램에 로그인할 수 있도록 요구할 수 있습니다. 클라이언트 장치의 IP 주소 범위, 지정된 그룹의 멤버 자격, 액세스에 사용되는 장치의 상태 조건을 설정할 수 있습니다. [Azure Active Directory 조건부 액세스](active-directory-conditional-access.md)에 대해 자세히 알아보세요.
 
 ### 손쉬운 배포
 
@@ -90,4 +90,4 @@ Azure AD와 통합하면 추가 코드를 작성할 필요가 없다는 이점�
 
 [Azure AD를 사용한 사용자 로그인](active-directory-authentication-scenarios.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

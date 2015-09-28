@@ -6,7 +6,7 @@
 
 3. **API 이름**에 _completeall_을 입력한 후 확인 단추를 클릭하여 새 API를 만듭니다.
 
-	> [AZURE.NOTE]기본 권한이 있는 사용자는 누구나 앱 키를 사용하여 사용자 지정 API를 호출할 수 있습니다. 그러나 응용 프로그램 키는 안전하게 배포되거나 저장되지 않을 수 있기 때문에 보안 자격 증명으로 간주되지 않습니다. 보안을 강화하기 위해 인증된 사용자에게만 액세스를 허용하는 것이 좋습니다.
+	> [AZURE.TIP]기본 권한이 있는 사용자는 누구나 앱 키를 사용하여 사용자 지정 API를 호출할 수 있습니다. 그러나 응용 프로그램 키는 안전하게 배포되거나 저장되지 않을 수 있기 때문에 보안 자격 증명으로 간주되지 않습니다. 보안을 강화하기 위해 인증된 사용자에게만 액세스를 허용하는 것이 좋습니다.
 
 4. API 테이블에서 **completeall**을 클릭합니다.
 
@@ -26,8 +26,7 @@
 		};
 
 
-
-> [AZURE.NOTE]<a href="http://go.microsoft.com/fwlink/p/?LinkId=309046" target="_blank">Express.js 라이브러리</a>를 사용하여 구현된 사용자 지정 API 함수에 <a href="http://msdn.microsoft.com/library/windowsazure/jj554218.aspx" target="_blank">request</a>와 <a href="http://msdn.microsoft.com/library/windowsazure/dn303373.aspx" target="_blank">response</a> 개체가 제공됩니다. 자세한 정보는 <a href="http://msdn.microsoft.com/library/windowsazure/dn280974.aspx" target="_blank">사용자 지정 API</a>를 참조하세요.
+> [AZURE.NOTE][Express.js 라이브러리](http://go.microsoft.com/fwlink/p/?LinkId=309046)를 사용하여 구현된 사용자 지정 API 함수에 [request](http://msdn.microsoft.com/library/windowsazure/jj554218.aspx)와 [response](http://msdn.microsoft.com/library/windowsazure/dn303373.aspx) 개체가 제공됩니다.
 
 <!-- Anchors. -->
 
@@ -36,4 +35,4 @@
 <!-- URLs. -->
 [mssql 개체]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

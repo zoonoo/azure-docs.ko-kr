@@ -1,13 +1,13 @@
 <properties
    pageTitle="Azure 백업 FAQ | Microsoft Azure"
-	description="Azure 백업 서비스에 대한 질문과 대답"
-	services="backup"
-	documentationCenter=""
-	authors="Jim-Parker"
-	manager="shreeshd"
-	editor=""/>
+   description="Azure 백업 서비스에 대한 질문과 대답"
+   services="backup"
+   documentationCenter=""
+   authors="Jim-Parker"
+   manager="shreeshd"
+   editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/26/2015" ms.author="giridham"; "arunak"; "jimpark"; "aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/26/2015" ms.author="trinadhk";"giridham"; "arunak"; "jimpark"; "aashishr"/>
 
 # Azure 백업 - FAQ
 다음은 Azure 백업에 대한 질문과 대답 목록입니다. Azure 백업에 대한 추가 질문이 있으면 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)으로 이동하여 질문을 게시하세요. 커뮤니티의 구성원이 답변을 얻는 데 도움을 줄 것입니다. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
@@ -40,7 +40,7 @@
 
 **Q6. 자격 증명 모음을 청구 엔터티로 고려해야 하나요?** <br/> A6. 각 자격 증명 모음에 대한 청구 명세서를 받을 수 있지만 청구 엔터티로 Azure 구독을 고려하는 것이 가장 좋습니다. 청구 엔터티는 모든 서비스에서 일관되며 더욱 쉽게 관리할 수 있습니다.
 
-**Q7. 각 자격 증명 모음에 대해 등록할 수 있는 서버/컴퓨터 수에 제한이 있나요?** <br/> A7. 예, 자격 증명 모음당 컴퓨터를 최대 50대까지 등록할 수 있습니다. 더 많은 컴퓨터를 등록해야 할 경우 새 자격 증명 모음을 만드세요.
+**Q7. 각 자격 증명 모음에 대해 등록할 수 있는 서버/컴퓨터 수에 제한이 있나요?** <br/> A7. 예, 자격 증명 모음당 컴퓨터를 최대 50대까지 등록할 수 있습니다. Azure IaaS 가상 컴퓨터에 대한 제한은 자격 증명 모음당 100개 VM입니다. 더 많은 컴퓨터를 등록해야 할 경우 새 자격 증명 모음을 만드세요.
 
 **Q8. 이 Windows 서버/클라이언트 또는 SCDPM 서버에서 백업할 수 있는 데이터의 양에 제한이 있나요?** <br/> A8. 번호
 
@@ -114,7 +114,7 @@
 |Microsoft Exchange|백업되는 Exchange 서버의 모든 Exchange 데이터베이스 합계|
 |BMR/시스템 상태|백업되는 컴퓨터의 각 개별 BMR 복사본 또는 시스템 상태|
 
-**Q2. 하루에 백업을 예약할 수 있는 횟수에 제한이 있나요?**<br/> A2. 예, Azure Backup은 Windows 서버/클라이언트를 통한 백업 복사본을 하루에 3개, SCDPM을 통한 백업 복사본을 하루에 2개 지원합니다.
+**Q2. 하루에 백업을 예약할 수 있는 횟수에 제한이 있나요?**<br/> A2. 예, Azure Backup은 Windows 서버/클라이언트를 통한 백업 복사본을 하루에 3개, SCDPM을 통한 백업 복사본을 하루에 2개, IaaS VM의 경우 하루에 한 번 지원합니다.
 
 **Q3. DPM과 Azure 백업(즉, DPM이 없는 Windows Server)의 백업 일정 정책에 차이가 있나요?** <br/> A3. 예. DPM을 사용하면 일별, 주별, 월별, 연도별 일정을 지정할 수 있고, (DPM이 없는) Windows Server에서는 일별, 주별 일정만 지정할 수 있습니다.
 
@@ -132,13 +132,9 @@
 
 **Q9. 각 복구 지점이 전체 지점과 같은 경우 총 청구 가능 백업 저장소에 영향을 주나요?**<br/> A9. 일반적인 장기 보존 지점 제품은 백업 데이터를 전체 지점으로 저장합니다. 이는 저장소를 비효율적으로 사용하지만 복원은 쉽고 빠릅니다. 증분 복사본은 저장소를 효율적으로 사용하지만 복구 시간에 영향을 주는 데이터 체인을 복원해야 합니다. Azure 백업의 고유한 저장소 아키텍처는 데이터를 빠르게 복원할 수 있게 최적화하여 저장하고 저장소 비용을 낮춰 두 가지 이점을 모두 제공합니다. 이 방법을 사용하면 송/수신 대역폭을 효율적으로 사용하고, 저장소를 최소한으로 유지하고, 복구하는 데 걸리는 시간을 최소한으로 유지할 수 있습니다.
 
-**Q10. 만들 수 있는 복구 지점의 수에 제한이 있나요?**<br/> A10. 2015년 4월을 기준으로 최대한 생성 가능한 복구 지점은 366개입니다. 366개 이내로 얼마든지 만들 수 있습니다. 예 - 아래 그림의 보존 정책을 더하면 354개가 됩니다. <br/>
+**Q10. 만들 수 있는 복구 지점의 수에 제한이 있나요?**<br/> A10. 아니요. 복구 지점에 대한 제한은 제거되었습니다. 필요한 개수만큼 복구 지점을 만들 수 있습니다.
 
-![보존 화면](./media/backup-azure-backup-faq/RetentionScreen1.png)
-
-**Q11. Microsoft에서 제한 개수를 366개에서 더 늘리면 에이전트를 업그레이드하거나 초기 백업을 다시 설정해야 하나요?** <br/> A11. 아니요, 서비스에 변경 사항이 생기면 소셜 미디어 창구(블로그, Azure 공지, 포털 등)를 통해 알려드립니다. 사용자의 요구 사항에 따라 보존 정책만 변경하면 됩니다.
-
-**Q12. 백업에 전송된 데이터의 양이 제가 백업한 데이터의 양과 같지 않은 이유는 무엇인가요?**<br/> A12. 백업된 모든 데이터는 압축 및 암호화된 후에 전송됩니다. 백업 데이터의 유형에 따라 데이터 크기가 30-40% 압축된다고 보시면 됩니다.
+**Q11. 백업에 전송된 데이터의 양이 제가 백업한 데이터의 양과 같지 않은 이유는 무엇인가요?**<br/> A11. 백업된 모든 데이터는 압축 및 암호화된 후에 전송됩니다. 백업 데이터의 유형에 따라 데이터 크기가 30-40% 압축된다고 보시면 됩니다.
 
 ## 복구
 **Q1. Azure에 백업된 데이터는 몇 번 복구할 수 있나요?**<br/> A1. Azure 백업에서 수행할 수 있는 복구 횟수에는 제한이 없습니다.
@@ -169,8 +165,8 @@
 
 	| 레지스트리 경로 | 레지스트리 키 | 값 |
 	| ------ | ------- | ------ |
-	| HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\Config | ScratchLocation | <i>새 캐시 폴더 위치</i> |
-	| HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\Windows Azure Backup\\Config\\CloudBackupProvider | ScratchLocation | <i>새 캐시 폴더 위치</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | <i>새 캐시 폴더 위치</i> |
+	| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | <i>새 캐시 폴더 위치</i> |
 
 
 + 관리자 권한 명령 프롬프트에서 아래 명령을 실행하여 OBEngine을 시작합니다.
@@ -179,4 +175,4 @@
 
 새 캐시 위치로 성공적으로 백업되면 원래 캐시 폴더를 제거할 수 있습니다.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

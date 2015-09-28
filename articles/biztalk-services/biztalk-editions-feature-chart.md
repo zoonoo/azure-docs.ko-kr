@@ -209,7 +209,7 @@ SLA(서비스 수준 계약)는 <a HREF="http://go.microsoft.com/fwlink/p/?LinkI
 #### BizTalk 장치란 무엇인가요?
 "장치"는 원자 수준의 Azure BizTalk 서비스 배포입니다. 각 버전에는 계산 용량 및 메모리가 다른 장치가 제공됩니다. 예를 들어 Basic 장치는 Developer 장치보다 계산 용량이 더 크고, Standard 장치는 Basic 장치보다 계산 용량이 더 크며 등등합니다. BizTalk 서비스를 확장할 때 장치로 확장합니다.
 
-#### BizTalk 서비스와 Azure BizTalk VM 간의 차이점은 무엇입니까?
+#### BizTalk 서비스와 Azure BizTalk VM 간의 차이점은 무엇인가요?
 BizTalk 서비스는 클라우드에서 통합 솔루션을 구축하는 데 진정한 PaaS(Platform-as-a-Service) 아키텍처를 제공합니다. PaaS 모델을 사용하여 응용 프로그램 논리에 완전히 초점을 맞추며 다음을 포함한 모든 인프라 관리는 Microsoft에 맡깁니다.
 
 - 가상 컴퓨터를 관리하거나 패치할 필요가 없습니다.
@@ -256,4 +256,4 @@ Azure 포털에서 Azure BizTalk 서비스를 만들려면 [BizTalk 서비스: A
 - [BizTalk 서비스: 발급자 이름 및 발급자 키](biztalk-issuer-name-issuer-key.md)<br/>
 - [Azure BizTalk 서비스 SDK로 시작하는 방법](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

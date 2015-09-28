@@ -4,16 +4,17 @@
 	services="app-service\web"
 	documentationCenter=""
 	authors="cephalin"
+	writer="cephalin"
 	manager="wpickett"
 	editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/03/2015"
+	ms.date="09/16/2015"
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스에서 웹 앱에 대한 스테이징 환경 설정
@@ -33,9 +34,10 @@
 
 - 프로덕션이 아닌 슬롯에 대해 크기 조정을 사용할 수 없습니다.
 
-- 연결된 리소스 관리는 프로덕션이 아닌 슬롯에 대해 지원되지 않습니다.
+- 연결된 리소스 관리는 프로덕션이 아닌 슬롯에 대해 지원되지 않습니다. 특별히 [Azure Preview 포털](http://go.microsoft.com/fwlink/?LinkId=529715)에서는 프로덕션이 아닌 슬롯을 다른 앱 서비스 계획으로 일시적으로 전환함으로써 프로덕션 슬롯에 미칠 수 있는 영향을 방지할 수 있습니다. 프로덕션 슬롯이 아닌 경우에는 두 슬롯을 교환하려면 프로덕션 슬롯과 같은 모드로 다시 한 번 공유해야 합니다.
 
-	> [AZURE.NOTE]특별히 [Azure Preview 포털](http://go.microsoft.com/fwlink/?LinkId=529715)에서는 프로덕션이 아닌 슬롯을 다른 앱 서비스 계획으로 일시적으로 전환함으로써 프로덕션 슬롯에 미칠 수 있는 영향을 방지할 수 있습니다. 프로덕션 슬롯이 아닌 경우에는 두 슬롯을 교환하려면 프로덕션 슬롯과 같은 모드로 다시 한 번 공유해야 합니다.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 <a name="Add"></a>
 ## 웹앱에 배포 슬롯 추가 ##
@@ -59,7 +61,7 @@
 
 	![구성 원본][MultipleConfigurationSources]
 
-5. **배포 슬롯** 블레이드에서 배포 슬롯을 클릭하여 다른 모든 웹앱과 마찬가지로 구성 및 메트릭 집합이 있는 슬롯의 블레이드를 엽니다. 배포 슬롯을 보고 있음을 나타내는 **your-web-app-name-deployment-slot-name**이 블레이드의 위쪽에 표시됩니다.
+5. **배포 슬롯** 블레이드에서 배포 슬롯을 클릭하여 다른 모든 웹앱과 마찬가지로 구성 및 메트릭 집합이 있는 슬롯의 블레이드를 엽니다. 배포 슬롯을 보고 있음을 나타내는 **your-web-app-name-deployment-slot-name**이 블레이드 맨 위에 표시됩니다.
 
 	![배포 슬롯 제목][StagingTitle]
 
@@ -127,7 +129,7 @@
 
 <a name="Rollback"></a>
 ## 교환 후 프로덕션 앱을 롤백하려면 ##
-슬롯 교환 후 프로덕션에서 오류가 발견되면 같은 두 슬롯을 즉시 교환하여 슬롯을 교환 전 상태로 롤백하십시오.
+슬롯 교환 후 프로덕션에서 오류가 발견되면 같은 두 슬롯을 즉시 교환하여 슬롯을 교환 전 상태로 롤백하세요.
 
 <a name="Delete"></a>
 ## 배포 슬롯을 삭제하려면##
@@ -259,4 +261,4 @@ Azure CLI는 Azure 작업을 위한 플랫폼 간 명령을 제공하며, 웹앱
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

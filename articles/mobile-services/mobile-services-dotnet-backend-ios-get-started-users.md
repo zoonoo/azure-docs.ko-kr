@@ -1,5 +1,5 @@
 <properties
-	pageTitle="기존 Azure 모바일 서비스 앱에 인증 추가(iOS) | Microsoft Azure"
+	pageTitle="기존 Azure 모바일 서비스 앱에 인증 추가(iOS) | .NET 백 엔드 | Microsoft Azure"
 	description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 iOS 앱 사용자를 인증하는 방법을 알아봅니다."
 	services="mobile-services"
 	documentationCenter="ios"
@@ -65,4 +65,4 @@ Xcode에서 프로젝트를 엽니다. **실행** 단추를 눌러 앱을 시작
 [Mobile Services .NET How-to Conceptual Reference]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

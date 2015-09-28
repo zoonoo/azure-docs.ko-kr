@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="동적 패키징 개요" 
-	description="이 항목에서는 동적 패키징에 대해 간략하게 설명합니다." 
-	authors="Juliako" 
-	manager="dwrede" 
-	editor="" 
-	services="media-services" 
+<properties
+	pageTitle="동적 패키징 개요"
+	description="이 항목에서는 동적 패키징에 대해 간략하게 설명합니다."
+	authors="Juliako"
+	manager="dwrede"
+	editor=""
+	services="media-services"
 	documentationCenter=""/>
 
-<tags 
-	ms.service="media-services" 
-	ms.workload="media" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/07/2015" 
+<tags
+	ms.service="media-services"
+	ms.workload="media"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/07/2015"
 	ms.author="juliako"/>
 
 
@@ -95,7 +95,7 @@ Microsoft Azure 미디어 서비스를 사용하여 많은 미디어 소스 파�
 다음과 같은 소스 파일 형식은 동적 패키징에서 지원하지 않습니다.
 
 - Dolby Digital Plus mp4 파일
-- Dolby Digital Plus 부드러운 파일.
+- Dolby Digital Plus 부드러운 파일. 
 
 
 ##미디어 서비스 학습 경로
@@ -105,6 +105,4 @@ Microsoft Azure 미디어 서비스를 사용하여 많은 미디어 소스 파�
 - [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
- 
-
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

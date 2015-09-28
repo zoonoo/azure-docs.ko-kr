@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sharepoint"
+	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
 	ms.author="josephd"/>
 
-# SharePoint 인트라넷 팜 작업 2단계: 도메인 컨트롤러 구성
+# SharePoint 인트라넷 팜 워크로드 2단계: 도메인 컨트롤러 구성
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 Azure 인프라 서비스의 SQL Server AlwaysOn 가용성 그룹을 사용하여 인트라넷 전용 SharePoint 2013 팜을 배포하는 이 단계에서는 서비스 관리에서 Azure 가상 네트워크의 도메인 컨트롤러 두 개를 구성합니다. 그런 다음 VPN 또는 Azure ExpressRoute 연결을 통해 인증 트래픽을 온-프레미스 네트워크로 전송하는 대신 Azure 가상 네트워크에서 SharePoint 팜 리소스에 대한 클라이언트 웹 요청을 인증할 수 있습니다.
 
@@ -41,7 +43,7 @@ Azure 인프라 서비스의 SQL Server AlwaysOn 가용성 그룹을 사용하�
 
 **표 M – Azure의 SharePoint 2013 인트라넷 팜용 가상 컴퓨터**
 
-전체 가상 컴퓨터 크기 목록은 [가상 컴퓨터 크기](virtual-machines-size-specs.md)를 참조하세요.
+전체 가상 컴퓨터 크기 목록은 [가상 컴퓨터의 크기](virtual-machines-size-specs.md)를 참조하세요.
 
 Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤러용 가상 컴퓨터를 만듭니다. < and > 문자를 제거하고 변수의 값을 지정합니다. 이 Azure PowerShell 명령 집합은 다음 표의 값을 사용합니다.
 
@@ -113,7 +115,7 @@ Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤
 5.	manage.windowsazure.com에서 ComputerName.rdp를 열거나 저장할지를 묻는 브라우저 대화 상자가 나타납니다. **열기**를 클릭합니다.
 6.	**원격 데스크톱 연결** 대화 상자에서 **연결**을 클릭합니다.
 7.	**Windows 보안** 대화 상자에서 **다른 계정 사용**을 클릭합니다.
-8.	**사용자 이름**에 VM의 이름 및 VM과 함께 만든 로컬 관리자 계정(로컬 컴퓨터 계정)의 사용자 이름을 입력합니다. *ComputerName**LocalAdministratorAccountName* 형식을 사용합니다.
+8.	**사용자 이름**에 VM의 이름 및 VM과 함께 만든 로컬 관리자 계정(로컬 컴퓨터 계정)의 사용자 이름을 입력합니다. *ComputerName*\*LocalAdministratorAccountName* 형식을 사용합니다.
 9.	**암호**에는 로컬 관리자 계정의 암호를 입력합니다.
 10.	**확인**을 클릭합니다.
 11.	**원격 데스크톱 연결** 대화 상자에서 **예**를 클릭합니다. 새 컴퓨터의 바탕 화면이 원격 데스크톱 세션 창에 표시됩니다.
@@ -125,9 +127,9 @@ Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤
 1.	Server Manager의 왼쪽 창에서 **파일 및 저장소 서비스**를 클릭한 다음 **디스크**를 클릭합니다.
 2.	내용 창의 **디스크** 그룹에서 **디스크 2**(**파티션**이 **알 수 없음**으로 설정됨)를 클릭합니다.
 3.	**작업**을 클릭한 후 **새 볼륨**을 클릭합니다.
-4.	새 볼륨 마법사를 **시작하기 전**에 페이지에서 **다음**을 클릭합니다.
+4.	새 볼륨 마법사의 **시작하기 전에** 페이지에서 **다음**을 클릭합니다.
 5.	**서버 및 디스크 선택** 페이지에서 **디스크 2**를 클릭하고 **다음**을 클릭합니다. 메시지가 표시되면 **확인**을 클릭합니다.
-6.	**볼륨 크기를 선택합니다** 페이지에서 **다음**을 클릭합니다.
+6.	**볼륨 크기 지정** 페이지에서 **다음**을 클릭합니다.
 7.	**드라이브 문자 또는 폴더에 할당** 페이지에서 **다음**을 클릭합니다.
 8.	**파일 시스템 설정 선택** 페이지에서 **다음**을 클릭합니다.
 9.	**선택 확인** 페이지에서 **만들기**를 클릭합니다.
@@ -230,7 +232,7 @@ SharePoint 팜에는 다음 사용자 계정이 필요합니다.
 
 ## 다음 단계
 
-이 작업을 계속 구성하려면 [3단계: SQL Server 인프라 구성](virtual-machines-workload-intranet-sharepoint-phase3.md)으로 진행하세요.
+이 워크로드를 계속 구성하려면 [3단계: SQL Server 인프라 구성](virtual-machines-workload-intranet-sharepoint-phase3.md)으로 진행하세요.
 
 ## 추가 리소스
 
@@ -244,6 +246,6 @@ SharePoint 팜에는 다음 사용자 계정이 필요합니다.
 
 [Azure 인프라 서비스 구현 지침](virtual-machines-infrastructure-services-implementation-guidelines.md)
 
-[Azure 인프라 서비스 작업: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
+[Azure 인프라 서비스 워크로드: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

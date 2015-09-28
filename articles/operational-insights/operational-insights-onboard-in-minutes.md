@@ -1,20 +1,20 @@
 <properties
     pageTitle="단 몇 분 만에 Operational Insights에 등록 | Microsoft Azure"
-	description="단 몇 분 만에 Azure Operational Insights를 시작할 수 있는 방법 알아보기"
-	services="operational-insights"
-	documentationCenter=""
-	authors="bandersmsft"
-	manager="jwhit"
-	editor=""/>
+    description="단 몇 분 만에 Azure Operational Insights를 시작할 수 있는 방법 알아보기"
+    services="operational-insights"
+    documentationCenter=""
+    authors="bandersmsft"
+    manager="jwhit"
+    editor=""/>
 
 <tags
     ms.service="operational-insights"
-	ms.workload="operational-insights"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="08/27/2015"
-	ms.author="banders"/>
+    ms.workload="operational-insights"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="hero-article"
+    ms.date="09/10/2015"
+    ms.author="banders"/>
 
 # 단 몇 분 만에 Azure Operational Insights에 등록
 
@@ -101,4 +101,4 @@ Operations Management Suite에 작업 관리자 연결은 [System Center Operati
 - [검색](operational-insights-search.md)을 익힙니다.
 - [대시보드](operational-insights-use-dashboards.md)를 사용하여 사용자 지정 검색을 저장하고 검색합니다.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

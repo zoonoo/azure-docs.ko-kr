@@ -1,30 +1,34 @@
 <properties 
-	pageTitle="앱 서비스 환경 소개"
-	description="모든 앱을 실행하기 위한 VNet 가입 보안 전용 확장 단위를 제공하는 앱 서비스 환경 기능에 대해 알아봅니다."
-	services="app-service\web"
-	documentationCenter=""
-	authors="ccompy"
-	manager="wpickett"
+	pageTitle="앱 서비스 환경 소개" 
+	description="모든 앱을 실행하기 위한 VNet 가입 보안 전용 확장 단위를 제공하는 앱 서비스 환경 기능에 대해 알아봅니다." 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="ccompy" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/31/2015"
-	ms.author="stefsh"/>
+	ms.service="app-service" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
+	ms.author="stefsch"/>
 
 # 앱 서비스 환경 소개
 
 ## 개요 ##
 앱 서비스 환경은 Azure 앱 서비스의 [프리미엄][PremiumTier] 서비스 계획 옵션으로, 모든 앱의 안전한 실행을 위해 완전히 격리된 전용 환경을 제공합니다. 여기에는 확장된 크기 조정 옵션과 함께 [웹 앱][WebApps], [모바일 앱][MobileApps], [API 앱][APIApps] 및 [논리 앱][LogicApps]이 포함됩니다.
 
-앱 서비스 환경의 계산 리소스는 사용자 앱을 실행하는 데에만 사용됩니다. 앱 서비스 환경은 항상 지역 가상 네트워크에 만들어지므로 앱에 네트워크 격리를 위한 새 옵션을 제공합니다. 또한 앱 서비스 환경은 앱을 실행하는 데 최대 50개의 계산 리소스를 사용할 수 있는 추가 크기 조정 옵션을 지원합니다. 앱 서비스 환경 외부에서는 앱을 호스트하는 데 사용할 수 있는 계산 리소스가 20개로 제한됩니다.
+앱 서비스 환경의 계산 리소스는 사용자 앱을 실행하는 데에만 사용됩니다. 앱 서비스 환경은 항상 지역 클래식 "v1" 가상 네트워크에 만들어지므로 앱에 네트워크 격리를 위한 새 옵션을 제공합니다. 또한 앱 서비스 환경은 앱을 실행하는 데 최대 50개의 계산 리소스를 사용할 수 있는 추가 크기 조정 옵션을 지원합니다. 앱 서비스 환경 외부에서는 앱을 호스트하는 데 사용할 수 있는 계산 리소스가 20개로 제한됩니다.
+
+[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## 가상 네트워크 지원 ##
-기존 지역 가상 네트워크 또는 새 지역 가상 네트워크에서 앱 서비스 환경을 만들 수 있습니다([가상 네트워크에 대 한 자세한 정보][MoreInfoOnVirtualNetworks]). 앱 서비스 환경은 항상 지역 가상 네트워크, 보다 정확히 말하자면 지역 가상 네트워크의 서브넷 내에 존재하므로 가상 네트워크의 보안 기능을 활용하여 인바운드 및 아웃바운드 네트워크 통신을 모두 제어할 수 있습니다.
+기존 지역 클래식 "v1" 가상 네트워크 또는 새 지역 클래식 "v1" 가상 네트워크에서 앱 서비스 환경을 만들 수 있습니다([가상 네트워크에 대한 자세한 정보][MoreInfoOnVirtualNetworks]). 앱 서비스 환경은 항상 지역 가상 네트워크, 보다 정확히 말하자면 지역 가상 네트워크의 서브넷 내에 존재하므로 가상 네트워크의 보안 기능을 활용하여 인바운드 및 아웃바운드 네트워크 통신을 모두 제어할 수 있습니다.
+
+**참고:** "v2" 가상 네트워크에는 앱 서비스 환경을 만들 수 없습니다.
 
 [네트워크 보안 그룹][NetworkSecurityGroups]을 사용하여 앱 서비스 환경이 있는 서브넷에 대한 인바운드 네트워크 통신을 제한할 수 있습니다. 이 옵션을 통해 웹 응용 프로그램 방화벽 및 SaaS 공급자와 같은 업스트림 장치 및 서비스 뒤에서 앱을 실행할 수 있습니다.
 
@@ -52,7 +56,7 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 
 앱 서비스 환경 네트워크 아키텍처의 개요는 [네트워크 아키텍처 개요][NetworkArchitectureOverview] 문서를 참조하세요.
 
-Express 경로로 앱 서비스 환경 사용에 대한 세부 정보는 [Express 경로 및 앱 서비스 환경][NetworkConfigDetailsForExpressRoute]에서 다음 기사를 참조하세요.
+Express 경로로 앱 서비스 환경을 사용하는 방법에 대한 자세한 내용은 [Express 경로 및 앱 서비스 환경][NetworkConfigDetailsForExpressRoute]에서 다음 문서를 참조하세요.
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -79,4 +83,4 @@ Express 경로로 앱 서비스 환경 사용에 대한 세부 정보는 [Expres
 
 <!-- IMAGES -->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

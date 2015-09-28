@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/15/2015" 
 	ms.author="sdanie"/>
 
 # Azure API 관리에서 상호 인증서 인증을 사용하여 백 엔드 서비스를 보호하는 방법
@@ -141,4 +141,4 @@ API 관리 REST API를 사용하여 인증서를 관리하는 방법에 대한 �
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

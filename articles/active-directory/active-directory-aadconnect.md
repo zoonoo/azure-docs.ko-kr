@@ -112,7 +112,7 @@ Azure Active Directory Connect는 기본 세 부분으로 구성됩니다. 이�
     		<defaultProxy>
       		<proxy
         	usesystemdefault="true"
-        	proxyaddress=http://<PROXYIP>:80"
+        	proxyaddress="http://<PROXYIP>:80"
         	bypassonlocal="true"
      		 />
     		</defaultProxy>
@@ -273,4 +273,4 @@ Azure AD Sync용으로 만들어진 설명서 중 일부는 Azure AD Connect에�
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

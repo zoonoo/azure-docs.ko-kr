@@ -3,7 +3,7 @@
    description="사용할 리소스 분산 장치에 대한 구성 서비스 설명에 대한 개요"
    services="service-fabric"
    documentationCenter=".net"
-   authors="GaugeField"
+   authors="masnider"
    manager="timlt"
    editor=""/>
 
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/03/2015"
+   ms.date="09/15/2015"
    ms.author="masnider"/>
 
 # 서비스 설명 개요
@@ -202,7 +202,9 @@ Task t = fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
    </StatefulService>
  </ServiceTemplates>
 ```
-코드 예제는 응용 프로그램 매니페스트를 통한 DefaultServices 정의를 보여줍니다.``` xml
+코드 예제는 응용 프로그램 매니페스트를 통한 DefaultServices 정의를 보여 줍니다.
+
+``` xml
 <DefaultServices>
   <Service Name="QueueServiceInstance">
     <StatefulService MinReplicaSetSize="3" ServiceTypeName="QueueService" TargetReplicaSetSize="3">
@@ -216,7 +218,7 @@ Task t = fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 </DefaultServices>
 ```
 
-코드를 통해 런타임 시 부하를 보고하도록 서비스에 명시되어 있지 않는 한 기본 부하 값이 업데이트되지 않기 때문에 이 값은 "용량 예약" 리소스 분산 모델을 더 많이 구현하는데 사용될 수 있습니다. 예를 들어, 작업이 몇 개의 사이즈 버킷으로 나뉘고 알려진 수의 작업 단위가 노드에 언제든 배치될 수 있다면 "단위"의 사용자 지정 메트릭이 생성될 수 있고 단위와 관련하여 노드 용량 및 서비스 기본 부하가 정의됩니다.
+코드를 통해 런타임 시 부하를 보고하도록 서비스에 명시되어 있지 않는 한 기본 부하 값이 업데이트되지 않기 때문에 이 값은 "용량 예약" 리소스 분산 모델을 더 많이 구현하는데 사용될 수 있습니다. 예를 들어, 워크로드가 몇 개의 사이즈 버킷으로 나뉘고 알려진 수의 작업 단위가 노드에 언제든 배치될 수 있다면 "단위"의 사용자 지정 메트릭이 생성될 수 있고 단위와 관련하여 노드 용량 및 서비스 기본 부하가 정의됩니다.
 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
@@ -229,4 +231,4 @@ Task t = fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 [Image3]: media/service-fabric-resource-balancer-service-description/MW.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO3-->

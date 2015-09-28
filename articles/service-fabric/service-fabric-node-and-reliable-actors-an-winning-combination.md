@@ -1,20 +1,20 @@
 <properties
    pageTitle="Node.js 및 신뢰할 수 있는 행위자 | Microsoft Azure"
-	description="신뢰할 수 있는 행위자를 사용하고 Azure 서비스 패브릭 플랫폼을 기반으로 실행하는 node.js Express 응용 프로그램을 작성하는 방법을 안내합니다."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="clca"
-	manager="timlt"
-	editor=""/>
+   description="신뢰할 수 있는 행위자를 사용하고 Azure 서비스 패브릭 플랫폼을 기반으로 실행하는 node.js Express 응용 프로그램을 작성하는 방법을 안내합니다."
+   services="service-fabric"
+   documentationCenter="nodejs"
+   authors="clca"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/17/2015"
-	ms.author="claudioc"/>
+   ms.devlang="nodejs"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/17/2015"
+   ms.author="claudioc"/>
 
 
 # Node.js 및 신뢰할 수 있는 행위자: 우세한 조합
@@ -224,4 +224,4 @@ public class Startup
 [9]: ./media/service-fabric-node-and-reliable-actors-app/application-project-reference.PNG
 [10]: ./media/service-fabric-node-and-reliable-actors-app/solution-deploy.PNG
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO3-->

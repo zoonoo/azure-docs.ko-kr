@@ -3,7 +3,7 @@
 	description="Windows 가상 컴퓨터를 만드는 다양한 방법을 나열하고 지침에 대한 링크를 제공합니다."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager,azure-service-management"/>
@@ -14,8 +14,8 @@
 	ms.topic="index-page"
 	ms.tgt_pltfrm="vm-windows"
 	ms.workload="infrastructure-services"
-	ms.date="07/15/2015"
-	ms.author="kathydav"/>
+	ms.date="09/15/2015"
+	ms.author="cynthn"/>
 
 # Windows 가상 컴퓨터를 만드는 다양한 방법
 
@@ -67,8 +67,6 @@ Azure PowerShell에 대해서는 [Azure PowerShell을 사용하여 Windows 가�
 [데이터 디스크 연결][]
 
 ## 추가 리소스
-[Azure 가상 컴퓨터 구성 설정 정보][]
-
 [기본 구성 테스트 환경][]
 
 [Azure 하이브리드 클라우드 테스트 환경][]
@@ -97,10 +95,8 @@ Azure PowerShell에 대해서는 [Azure PowerShell을 사용하여 Windows 가�
 
 [데이터 디스크 연결]: storage-windows-attach-disk.md
 
-[Azure 가상 컴퓨터 구성 설정 정보]: http://msdn.microsoft.com/library/azure/dn763935.aspx
-
 [기본 구성 테스트 환경]: virtual-machines-base-configuration-test-environment.md
 
 [Azure 하이브리드 클라우드 테스트 환경]: virtual-machines-hybrid-cloud-test-environments.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

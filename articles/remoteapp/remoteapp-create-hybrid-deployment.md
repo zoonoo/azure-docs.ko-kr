@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure RemoteApp용 하이브리드 컬렉션을 만드는 방법"
-	description="내부 네트워크에 연결되는 RemoteApp 배포를 만드는 방법에 대해 알아봅니다."
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"
+	pageTitle="Azure RemoteApp용 하이브리드 컬렉션을 만드는 방법 | Microsoft Azure" 
+	description="내부 네트워크에 연결되는 RemoteApp 배포를 만드는 방법에 대해 알아봅니다." 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
 	editor=""/>
 
 <tags 
-	ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.service="remoteapp" 
+	ms.workload="compute" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2015" 
 	ms.author="elizapo"/>
 
 # Azure RemoteApp용 하이브리드 컬렉션을 만드는 방법
@@ -29,7 +29,7 @@
 이 자습서에서는 하이브리드 컬렉션을 만드는 프로세스를 단계별로 안내합니다. 8가지 단계가 있습니다.
 
 1.	컬렉션에 사용할 [이미지](remoteapp-imageoptions.md)를 결정합니다. 사용자 지정 이미지를 만들거나 구독에 포함된 Microsoft 이미지 중 하나를 선택할 수 있습니다.
-2. 가상 네트워크를 설정합니다.
+2. 가상 네트워크를 설정합니다. [VNET 계획](remoteapp-planvpn.md) 및 [크기 조정](remoteapp-vnetsizing.md) 정보를 확인하세요.
 2.	RemoteApp 컬렉션을 만듭니다.
 2.	컬렉션을 로컬 도메인에 연결합니다.
 3.	템플릿 이미지를 컬렉션에 추가합니다.
@@ -55,7 +55,7 @@
 ## 1단계: 가상 네트워크를 설정합니다.
 기존 Azure 가상 네트워크를 사용하는 하이브리드 RemoteApp 컬렉션을 배포하거나 새 가상 네트워크를 만들 수 있습니다. 가상 네트워크를 사용하여 사용자는 RemoteApp 원격 리소스를 통해 로컬 네트워크의 데이터에 액세스할 수 있습니다. Azure 가상 네트워크를 사용하여 다른 Azure 서비스 및 해당 가상 네트워크에 배포된 가상 컴퓨터에 대한 직접 네트워크 액세스를 컬렉션에 제공합니다.
 
-VNET을 만들기 전에 [VNET 크기](remoteapp-vnetsizing.md) 정보를 검토해야 합니다.
+VNET을 만들기 전에 [VNET 계획](remoteapp-planvpn.md) 및 [VNET 크기](remoteapp-vnetsizing.md) 정보를 검토해야 합니다.
 
 ### Azure VNET을 만들고 Active Directory 배포에 조인
 
@@ -86,7 +86,7 @@ Azure 가상 컴퓨터 만들기 및 원격 데스크톱을 사용하여 연결�
 6. 도메인에 연결하도록 선택합니다.
 5. **RemoteApp 컬렉션 만들기**를 클릭합니다.
 
-RemoteApp 컬렉션을 만든 후에는 컬렉션의 이름을 두 번 클릭합니다. 그러면 **빠른 시작** 페이지가 나타나며 여기에서 컬렉션 구성을 완료합니다.
+RemoteApp 컬렉션을 만든 후에는 컬렉션의 이름을 두 번 클릭합니다. 그러면 **빠른 시작** 페이지가 나타나며, 여기서 컬렉션 구성을 완료합니다.
 
 ## 3단계: 로컬 도메인에 컬렉션 가입 ##
 
@@ -121,7 +121,7 @@ RemoteApp 앱은 사용자에게 제공하는 앱 또는 프로그램입니다. 
 
 사용자가 RemoteApp 앱에 액세스할 수 있으려면 사용자가 원격 데스크톱 클라이언트를 통해 액세스하는 사용 가능한 앱 목록인 최종 사용자 피드에 게시해야 합니다.
  
-RemoteApp 컬렉션에 여러 앱을 게시할 수 있습니다. RemoteApp 게시 페이지에서 **게시**를 클릭하여 앱을 추가합니다. 템플릿 이미지의 시작 메뉴에서 또는 앱의 템플릿 이미지에 경로를 지정하여 게시할 수 있습니다. 시작 메뉴에서 추가하도록 선택하는 경우 앱에 게시할 프로그램을 선택합니다. 앱의 경로를 제공하도록 선택한 경우 앱의 이름 및 템플릿 이미지에서 앱이 설치된 경로를 입력합니다.
+RemoteApp 컬렉션에 여러 앱을 게시할 수 있습니다. RemoteApp 게시 페이지에서 **게시**를 클릭하여 앱을 추가합니다. 템플릿 이미지의 **시작** 메뉴에서 또는 앱의 템플릿 이미지에 경로를 지정하여 게시할 수 있습니다. **시작** 메뉴에서 추가하도록 선택한 경우 추가할 프로그램을 선택합니다. 앱의 경로를 제공하도록 선택한 경우 앱의 이름 및 템플릿 이미지에서 앱이 설치된 경로를 입력합니다.
 
 ## 7단계: 사용자 액세스 구성 ##
 
@@ -146,4 +146,4 @@ RemoteApp 하이브리드 컬렉션을 성공적으로 만들고 배포했습니
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

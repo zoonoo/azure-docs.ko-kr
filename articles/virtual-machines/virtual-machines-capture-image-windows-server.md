@@ -3,7 +3,7 @@
 	description="Windows Server를 실행하는 Azure VM(가상 컴퓨터)의 이미지를 캡처하는 방법에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="KBDAzure"
+	authors="cynthn"
 	manager="timlt"
 	editor="tysonn"
 	tags="azure-service-management"/>
@@ -15,13 +15,13 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/16/2015"
-	ms.author="kathydav"/>
+	ms.author="cynthn"/>
 
 #Windows 가상 컴퓨터를 캡처하여 이미지로 사용하는 방법#
 
 이 문서에서는 Windows가 실행되는 Azure 가상 컴퓨터를 캡처하여 다른 가상 컴퓨터를 만들 때 이미지로 사용하는 방법을 소개합니다. 이 이미지에는 OS 디스크를 비롯해 가상 컴퓨터에 연결되는 모든 데이터 디스크가 포함됩니다. 네트워킹 구성은 포함되지 않으므로 템플릿을 사용하는 다른 가상 컴퓨터를 만들 때 구성해야 합니다.
 
-Azure에서는 이미지를 **내 이미지** 아래에 저장합니다. 사용자가 업로드한 모든 이미지도 이 위치에 저장됩니다. 이미지에 대한 자세한 내용은 [Azure의 가상 컴퓨터 이미지 정보][]를 참조하세요.
+Azure에서는 이미지를 **내 이미지** 아래에 저장합니다. 사용자가 업로드한 모든 이미지도 이 위치에 저장됩니다. 이미지에 대한 자세한 내용은 [가상 컴퓨터 이미지 정보](virtual-machines-images.md)를 참조하세요.
 
 ##시작하기 전에##
 
@@ -71,8 +71,6 @@ Azure에서는 이미지를 **내 이미지** 아래에 저장합니다. 사용�
 ##다음 단계##
 이제 이미지를 사용하여 가상 컴퓨터를 만들 수 있습니다. 이렇게 하려면 **갤러리에서** 메뉴 항목을 사용하여 가상 컴퓨터를 만들고 위에서 만든 이미지를 선택합니다. 자세한 내용은 [Windows를 실행하는 사용자 지정 가상 컴퓨터 만들기][]을 참조하세요.
 
-
-[Azure의 가상 컴퓨터 이미지 정보]: http://msdn.microsoft.com/library/azure/dn790290.aspx
 [Windows를 실행하는 사용자 지정 가상 컴퓨터 만들기]: virtual-machines-windows-create-custom.md
 [가상 컴퓨터에 데이터 디스크를 연결하는 방법]: storage-windows-attach-disk.md
 [Windows Server를 실행하는 가상 컴퓨터에 로그인하는 방법]: virtual-machines-log-on-windows-server.md
@@ -85,4 +83,4 @@ Azure에서는 이미지를 **내 이미지** 아래에 저장합니다. 사용�
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="인증된 사용자에게 푸시 알림 보내기"
+	pageTitle="iOS에서 인증된 사용자에게 푸시 알림 보내기(JavaScript 백 엔드)"
 	description="특정 사용자에게 푸시 알림을 보내는 방법에 대해 알아보기"
 	services="mobile-services,notification-hubs"
 	documentationCenter="ios"
@@ -73,4 +73,4 @@ function insert(item, user, request) {
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-ios-how-to-use-client-library.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

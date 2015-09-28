@@ -1,23 +1,23 @@
-<properties 
+<properties
    pageTitle="Visual Studio에서 클라우드 서비스를 게시하는 데 필요한 서비스 설정"
-	description="클라우드 및 저장소 계정 서비스를 설정하고 Azure 응용 프로그램을 구성하는 절차에 대해 알아봅니다."
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tglee"/>
-<tags 
+   description="클라우드 및 저장소 계정 서비스를 설정하고 Azure 응용 프로그램을 구성하는 절차에 대해 알아봅니다."
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tglee" />
+<tags
    ms.service="multiple"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="multiple"
-	ms.date="08/13/2015"
-	ms.author="kempb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="multiple"
+   ms.date="09/08/2015"
+   ms.author="kempb" />
 
 # Visual Studio에서 클라우드 서비스를 게시하는 데 필요한 서비스 설정
 
-##개요
+## 개요
 
 클라우드 서비스 프로젝트를 게시하기 전에 다음 서비스를 설정해야 합니다.
 
@@ -80,7 +80,7 @@ Azure에 클라우드 서비스를 게시하려면 먼저 Azure 환경에서 사
     - 지역 또는 선호도 그룹 (예: 미국 서부 또는 동아시아)입니다.
     - 저장소 계정에 대해 사용하려는 복제의 유형입니다 – 예: 지역 중복.
 
-1. 완료하면 **만들기**를 선택합니다. 서버 탐색기의 **저장소** 목록에 새 저장소 계정이 나타납니다.
+1. 완료되면 **만들기**를 선택합니다. 새 저장소 계정이 서버 탐색기의 **저장소** 목록에 나타납니다.
 
 ### Azure 관리 포털을 사용하여 저장소 계정을 만들려면
 
@@ -143,7 +143,7 @@ Azure에 클라우드 서비스를 게시하려면 먼저 Azure 환경에서 사
     1. 서비스가 저장소 계정에 액세스하는 방식을 결정하려면 다음 옵션 중 하나를 선택해야 합니다.
         - **HTTP 사용**. 표준 옵션입니다. 예: `http://<account name>.blob.core.windows.net`
         - 보안 연결을 위해 **HTTPS 사용**. 예: `https://<accountname>.blob.core.windows.net`
-        - 서비스 각각에 대해**사용자 지정 끝점 지정**. 그런 다음 특정 서비스에 대한 필드에 이러한 끝점을 입력할 수 있습니다. 
+        - 서비스 각각에 대해**사용자 지정 끝점 지정**. 그런 다음 특정 서비스에 대한 필드에 이러한 끝점을 입력할 수 있습니다.
 
         >[AZURE.NOTE]사용자 지정 끝점을 만들면 더 복잡한 연결 문자열을 만들 수 있습니다. 이 문자열 형식을 사용할 때 BLOB 서비스를 통해 저장소 계정에 등록한 사용자 지정 도메인 이름을 포함하는 저장소 서비스 끝점을 지정할 수 있습니다. 또한 공유 액세스 서명을 통해 단일 컨테이너의 BLOB 리소스에만 액세스를 부여할 수 있습니다. 사용자 지정 끝점을 만드는 방법에 대한 자세한 내용은 [Azure 저장소 연결 문자열 구성](https://azure.microsoft.com/documentation/articles/storage-configure-connection-string/)을 참조하세요.
 
@@ -153,4 +153,4 @@ Azure에 클라우드 서비스를 게시하려면 먼저 Azure 환경에서 사
 
 [Visual Studio에서 Azure 클라우드 서비스에 게시](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

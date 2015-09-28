@@ -1,19 +1,19 @@
 <properties 
    pageTitle="정부 포털에서 StorSimple 장치 배포 | Microsoft Azure"
-	description="Azure 정부 포털에서 StorSimple 업데이트 1 장치 및 서비스를 배포하기 위한 단계 및 모범 사례를 설명합니다."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   description="Azure 정부 포털에서 StorSimple 업데이트 1 장치 및 서비스를 배포하기 위한 단계 및 모범 사례를 설명합니다."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="09/02/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/17/2015"
+   ms.author="v-sharos" />
 
 # 정부 포털에서 온-프레미스 StorSimple 장치 배포
 
@@ -277,4 +277,4 @@ Linux 호스트에 연결된 StorSimple 도구에 대한 MPIO 설치 지침은 [
 [StorSimple 관리자 서비스](https://msdn.microsoft.com/library/azure/dn772396.aspx)를 사용하여 StorSimple 장치를 관리할 수 있습니다.
  
 
-<!-----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO3-->

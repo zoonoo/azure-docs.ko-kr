@@ -1,6 +1,7 @@
 <properties 
 	pageTitle="DocumentDB 리소스와 RESTful 상호 작용 | Microsoft Azure" 
-	description="HTTP 동사를 사용하여 Microsoft Azure DocumentDB 리소스와 함께 RESTful 상호 작용을 수행하는 방법을 알아봅니다." 
+	description="이 RESTful 웹 서비스 자습서의 HTTP 메서드를 검토합니다. HTTP 동사를 사용하여 Microsoft Azure DocumentDB 리소스와 함께 RESTful 상호 작용을 수행하는 방법을 알아봅니다."
+	keywords="http methods, restful services tutorial, restful web services tutorial, http verbs, documentdb, azure, Microsoft azure"
 	services="documentdb" 
 	authors="h0n" 
 	manager="jhubbard" 
@@ -16,11 +17,11 @@
 	ms.date="08/03/2015" 
 	ms.author="h0n"/>
 
-# DocumentDB 리소스와 RESTful 상호 작용 
+# RESTful 웹 서비스 자습서: DocumentDB 리소스와 RESTful 상호 작용 
 
 DocumentDB는 HTTP 메서드를 사용하여 DocumentDB 리소스를 만들고, 읽고, 바꾸고, 가져오고, 삭제하는 작업을 지원합니다.
 
-이 문서를 읽어 보면 다음을 알게 됩니다.
+이 RESTful 웹 서비스 자습서를 읽으면 다음 질문에 대답할 수 있습니다.
 
 - 표준 HTTP 메서드가 DocumentDB 리소스와 작동하는 방법
 - POST를 사용하여 새 리소스를 만드는 방법
@@ -39,13 +40,13 @@ DocumentDB 리소스는 다음 HTTP 동사 및 해당 표준 해석을 지원합
 
 >[AZURE.NOTE]앞으로 PATCH를 통해 선택적 업데이트를 추가로 지원할 예정입니다.
 
-다음 다이어그램에 표시된 대로, POST는 피드 리소스에 대해서만 실행할 수 있고 PUT 및 DELETE는 항목 리소스에 대해서만 실행할 수 있고 GET 및 HEAD는 피드 또는 항목 리소스에 대해서만 실행할 수 있습니다.
+다음 HTTP 동사 다이어그램에 표시된 대로, POST는 피드 리소스에 대해서만 실행할 수 있고 PUT 및 DELETE는 항목 리소스에 대해서만 실행할 수 있고 GET 및 HEAD는 피드 또는 항목 리소스에 대해서만 실행할 수 있습니다.
 
-![][1]
+![이 RESTful 서비스 자습서의 HTTP 동사 개요][1]
 
 **표준 HTTP 메서드를 사용한 조작 모델**
 
-## POST를 사용하여 새 리소스 만들기 
+## POST HTTP 메서드를 사용하여 새 리소스 만들기 
 조작 모델의 이해를 돕기 위해 새 리소스를 만드는 경우(INSERT라고도 함)를 고려해 보겠습니다. 새 리소스를 만들려면 리소스가 속하는 컨테이너 피드의 URI에 대해 리소스 표현을 요청 본문에 포함하여 HTTP POST 요청을 실행해야 합니다. 요청의 필수 속성은 리소스 id뿐입니다.
 
 예를 들어 새 데이터베이스를 만들려면 /dbs에 대해 (ID 속성을 고유한 이름으로 설정하여) 데이터베이스 리소스를 게시합니다. 마찬가지로, 새 컬렉션을 만들기 위해 */dbs/\_rid/colls/* 등에 대해 컬렉션 리소스를 게시할 수 있습니다. 응답에는 다른 리소스로 이동하는 데 사용할 수 있는 리소스의 *\_self* 링크를 비롯한 시스템 생성 속성이 있는 완전히 커밋된 리소스가 포함됩니다. 단순한 HTTP 기반 조작 모델의 예로, 클라이언트가 HTTP 요청을 실행하여 계정 내에 새 데이터베이스를 만들 수 있습니다.
@@ -74,7 +75,7 @@ The DocumentDB service responds with a successful response and a status code ind
 	}
 ```
   
-## POST를 사용하여 저장 프로시저 등록
+## POST HTTP 메서드를 사용하여 저장 프로시저 등록
 리소스를 만들고 실행하는 또 다른 예로, JavaScript로만 작성된 단순한 "HelloWorld" 저장 프로시저를 고려해 보세요.
 
 ```
@@ -125,7 +126,7 @@ DocumentDB 서비스가 성공 응답 및 저장 프로시저가 성공적으로
 	}
 ```
 
-## POST를 사용하여 저장 프로시저 실행
+## POST HTTP 메서드를 사용하여 저장 프로시저 실행
 마지막으로, 위의 예에서 저장 프로시저를 실행하려면 아래와 같이 저장 프로시저 리소스의 URI(/dbs/UoEi5w==/colls/UoEi5w+upwA=/sprocs/UoEi5w+upwABAAAAAAAAgA==/)에 대해 POST를 실행해야 합니다.
 
 	POST https://fabrikam.documents.azure.com/dbs/UoEi5w==/colls/UoEi5w+upwA=/sprocs/UoEi5w+upwABAAAAAAAAgA== HTTP/1.1
@@ -136,7 +137,7 @@ DocumentDB 서비스가 다음 응답으로 응답합니다.
 	
 	"Hello World"
 
-POST 동사는 새 리소스를 만들거나 저장 프로시저를 실행하거나 SQL 쿼리를 실행하는 데 사용됩니다. SQL 쿼리 실행을 보여 주기 위해 다음을 고려하세요.
+POST HTTP 동사는 새 리소스를 만들거나 저장 프로시저를 실행하거나 SQL 쿼리를 실행하는 데 사용됩니다. SQL 쿼리 실행을 보여 주기 위해 다음을 고려하세요.
 
 	POST https://fabrikam.documents.azure.com/dbs/UoEi5w==/colls/UoEi5w+upwA=/docs HTTP/1.1
 	...
@@ -162,7 +163,7 @@ POST 동사는 새 리소스를 만들거나 저장 프로시저를 실행하거
 ```
 
 
-## PUT, GET 및 DELETE 사용
+## PUT, GET 및 DELETE HTTP 동사 사용
 리소스 바꾸기 또는 읽기는 각각 리소스의 *\_self* 링크에 대한 PUT(유효한 요청 본문 포함) 및 GET 동사 실행에 해당합니다. 마찬가지로, 리소스 삭제는 리소스의 *\_self* 링크에 대한 DELETE 동사 실행에 해당합니다. DocumentDB의 리소스 모델에서 리소스를 계층적으로 구성하려면 소유자 리소스를 삭제할 경우 종속 리소스도 삭제되는 계단식 삭제를 지원해야 합니다. 종속 리소스가 소유자 리소스와 다른 노드에 분산될 수도 있으므로 삭제가 지연 발생할 수 있습니다. 가비지 수집 방식에 관계없이 리소스를 삭제하면 할당량이 즉시 해제되고 사용할 수 있게 됩니다. 참조 무결성은 시스템에서 유지합니다. 예를 들어 삭제된 데이터베이스에 컬렉션을 삽입하거나 더 이상 존재하지 않는 컬렉션의 문서를 바꾸거나 쿼리할 수 없습니다.
  
 리소스 피드에 대해 GET을 실행하거나 컬렉션을 쿼리하면 수백만 개의 항목이 반환될 수 있으므로 단일 왕복/요청 및 응답 교환의 일부로 서버가 구체화하는 것은 물론 클라이언트가 사용하는 것도 사실상 불가능합니다. 이 문제를 처리하기 위해 DocumentDB에서는 클라이언트가 큰 피드를 한 번에 한 페이지씩 넘길 수 있습니다. 클라이언트는 [x-ms-continuation] 응답 헤더를 커서로 사용하여 다음 페이지로 이동할 수 있습니다.
@@ -204,4 +205,4 @@ REST API를 사용하여 리소스 작업을 수행하는 방법에 대한 자�
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

@@ -146,7 +146,9 @@ Visual Studio용 서비스 패브릭 도구는 로컬 컴퓨터에서 디버깅�
 
 ## 다음 단계
 
-[서비스 패브릭 신뢰할 수 있는 행위자 소개](service-fabric-reliable-actors-introduction.md) [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx) [샘플 코드](https://github.com/Azure/servicefabric-samples)
+- [서비스 패브릭 신뢰할 수 있는 행위자 소개](service-fabric-reliable-actors-introduction.md)
+- [행위자 API 참조 설명서](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+- [샘플 코드](https://github.com/Azure/servicefabric-samples)
 
 
 <!--Image references-->
@@ -156,4 +158,4 @@ Visual Studio용 서비스 패브릭 도구는 로컬 컴퓨터에서 디버깅�
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->

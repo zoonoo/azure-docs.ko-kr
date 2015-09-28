@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### 수동 백업을 만들려면
 
@@ -21,4 +22,4 @@
 
   카탈로그에 표시되는 백업 세트의 목록에 백업이 나타납니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

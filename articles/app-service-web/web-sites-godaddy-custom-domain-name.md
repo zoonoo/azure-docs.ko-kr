@@ -5,27 +5,26 @@
 	documentationCenter=""
 	authors="erikre"
 	manager="wpickett"
-	editor=""/>
+	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-web"
+	ms.service="app-service"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.date="09/16/2015"
 	ms.author="erikre"/>
 
 # GoDaddy에서 직접 구입한 Azure 앱 서비스에서 사용자 지정 도메인 이름 구성
 
 [AZURE.INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
+[AZURE.INCLUDE [intro](../../includes/custom-dns-web-site-intro.md)]
+
+Azure 앱 서비스 웹앱을 통해 도메인을 구입한 경우 <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">웹앱 도메인 구입</a> 문서의 최종 단계를 참조하세요.
 
 [AZURE.INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
-
-> [AZURE.NOTE]Azure 앱 서비스 웹앱을 통해 도메인을 구입한 경우 <a href="/documentation/articles/custom-dns-web-site-buydomains-web-app" title="Web Apps" class="current">웹앱 도메인 구입</a> 문서의 최종 단계를 참조하세요.
-
-[AZURE.INCLUDE [intro](../../includes/custom-dns-web-site-intro.md)]
 
 이 문서에서는 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)을 사용하여 [GoDaddy](https://godaddy.com)에서 직접 구매한 사용자 지정 도메인 이름 사용에 대한 지침을 제공합니다.
 
@@ -35,7 +34,6 @@
 ##DNS 레코드 이해
 
 [AZURE.INCLUDE [understandingdns](../../includes/custom-dns-web-site-understanding-dns-raw.md)]
-
 
 <a name="bkmk_configurecname"></a>
 ## 사용자 지정 도메인에 대한 DNS 레코드 추가
@@ -89,4 +87,4 @@
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO3-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/10/2015" 
+	ms.date="09/15/2015" 
 	ms.author="genemi"/>
 
 
@@ -41,8 +41,8 @@ SQL 데이터베이스 V12에 대한 주요 목표는 Microsoft SQL Server 2014�
 
 
 - [CLR(Common Language Runtime) 어셈블리](http://msdn.microsoft.com/library/ms189524.aspx)
-- [OVER](http://msdn.microsoft.com/library/ms189461.aspx)를 포함한 [Window 함수](https://msdn.microsoft.com/library/bb934097.aspx) 
-- [XML 인덱스](https://msdn.microsoft.com/library/bb934097.aspx) 및 [선택적 XML 인덱스](http://msdn.microsoft.com/library/jj670104.aspx)
+- [OVER](http://msdn.microsoft.com/library/ms189461.aspx)를 포함한 [Window 함수](http://msdn.microsoft.com/library/bb934097.aspx) 
+- [XML 인덱스](http://msdn.microsoft.com/library/bb934097.aspx) 및 [선택적 XML 인덱스](http://msdn.microsoft.com/library/jj670104.aspx)
 - [변경 내용 추적](http://msdn.microsoft.com/library/bb933875.aspx)
 - [SELECT...INTO](http://msdn.microsoft.com/library/ms188029.aspx)
 - [전체 텍스트 검색](http://msdn.microsoft.com/library/ms142571.aspx)
@@ -59,7 +59,19 @@ V12에서 추가 비용 없이 25% 씩 모든 프리미엄 성능 수준에 할�
 
 - 메모리 내 [columnstore 인덱스](http://msdn.microsoft.com/library/gg492153.aspx)에 대한 지원.
 - [TRUNCATE TABLE](http://msdn.microsoft.com/library/ms177570.aspx)과 관련된 기능이 향상된 [행으로 테이블 분할](http://msdn.microsoft.com/library/ms187802.aspx)
-- 동적 관리 뷰[(DMV)](http://msdn.microsoft.com/library/ms188754.aspx)의 가용성 및 확장 이벤트[(XEvents)](https://msdn.microsoft.com/library/bb630282.aspx)로 모니터링을 돕고 성능을 튜닝합니다.
+- 성능 모니터링 및 튜닝에 도움이 되는 [DMV](http://msdn.microsoft.com/library/ms188754.aspx)(동적 관리 뷰) 사용 가능
+
+
+### 안정적인 성능
+
+
+Azure VM(가상 컴퓨터)에서 클라이언트가 실행되는 동안 클라이언트 프로그램이 SQL 데이터베이스 V12에 연결하는 경우 VM에서 다음 포트 범위를 열어야 합니다.
+
+- 11000-11999
+- 14000-14999
+
+
+SQL 데이터베이스 V12의 포트에 대한 자세한 내용을 보려면 [여기](sql-database-develop-direct-route-ports-adonet-v12.md)를 클릭하세요. SQL 데이터베이스 V12의 성능 개선 사항을 위해 해당 포트가 필요합니다.
 
 
 ## 클라우드 SaaS 공급 업체에 대한 향상된 지원
@@ -83,6 +95,8 @@ V12에서만 [탄력적 데이터베이스 풀](sql-database-elastic-pool.md)의
 - [포함된 데이터베이스](http://msdn.microsoft.com/library/azure/ff394108.aspx)
 - GRANT, DENY, REVOKE로 관리되는 [응용 프로그램 역할](http://msdn.microsoft.com/library/ms190998.aspx)
 - [투명한 데이터 암호화](http://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx)(TDE)
+- [Azure Active Directory 인증을 사용하여 SQL 데이터베이스에 연결](sql-database-aad-authentication.md)
+ - 이제 SQL 데이터베이스에서 Azure AD(Azure Active Directory)의 ID를 사용하여 SQL 데이터베이스에 연결하는 메커니즘인 Azure Active Directory 인증을 지원합니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 하나의 중앙 위치에서 관리할 수 있습니다.
 
 
 ## 복구가 필요한 경우 증가되는 비즈니스 연속성
@@ -98,7 +112,7 @@ V12는 대폭 개선된 복구 지점 목표(RPO) 및 예상된 복구 시간 (E
 | 활성 지역 복제 | • RPO < 5분.<br/>• ERT < 1시간. | • RPO < 5초.<br/>• ERT < 30초. |
 
 
-자세한 내용은 [SQL 데이터베이스 비즈니스 연속성](https://msdn.microsoft.com/library/azure/hh852669.aspx)을 참조하세요.
+자세한 내용은 [SQL 데이터베이스 비즈니스 연속성](http://msdn.microsoft.com/library/azure/hh852669.aspx)을 참조하세요.
 
 
 ## 지금 업그레이드하는 더 많은 이유
@@ -147,4 +161,4 @@ V12 논리 서버에만 V12 데이터베이스를 호스팅할 수 있습니다.
 
 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](http://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO3-->

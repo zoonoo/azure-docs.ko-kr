@@ -12,56 +12,114 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="07/02/2015"
+   ms.date="09/10/2015"
    ms.author="banders" />
 
-#Operational Insights 문제 해결
+# Operational Insights 문제 해결
 
 [AZURE.INCLUDE [operational-insights-note-moms](../../includes/operational-insights-note-moms.md)]
 
 다음 섹션의 정보를 사용하여 문제를 해결합니다. 발생한 문제가 이 문서에 없으면 [Operational Insights 팀 블로그](http://blogs.technet.com/b/momteam/archive/2014/05/29/advisor-error-3000-unable-to-register-to-the-advisor-service-amp-onboarding-troubleshooting-steps.aspx)를 방문해봅니다.
 
-## Operational Insights의 연결 진단 문제
+## SQL 평가를 통한 권한 문제 해결
+작업 관리 도구 모음(OMS)은 Microsoft Monitoring Agent 및 Operations Manager 관리 그룹을 사용하여 데이터를 수집하고 OMS 서비스로 데이터를 전송합니다. SQL Server와 같은 특정 작업은 도메인 계정과 같은 다른 보안 컨텍스트에서 데이터 수집을 실행하려면 작업 관련 권한이 필요합니다. Microsoft Monitoring Agent가 System Center Operations Manager를 통해 연결되어 있으며 데이터를 수집할 때 사용 권한 문제가 발생하는 경우 실행 계정을 구성하여 자격 증명 정보를 제공해야 합니다.
 
-Microsoft Azure Operational Insights는 클라우드로(부터) 이동한 데이터를 사용하기 때문에 연결 문제를 무력화할 수 있습니다. 다음 정보를 사용하여 연결 문제를 이해하고 해결합니다.
+SQL Server 관리 팩을 이미 사용 중인 경우 실행 계정에 대한 해당 Windows 계정을 사용해야 합니다.
+
+### 운영 콘솔에서 SQL 실행 계정을 구성하려면
+
+1. Operations Manager에서 운영 콘솔을 열고 **관리**를 클릭합니다.
+
+2. **실행 구성**에서 **프로필**을 클릭하고 **Microsoft System Center Advisor 실행 프로필**을 엽니다.
+
+3. **실행 계정** 페이지에서 **추가**를 클릭합니다.
+
+4. SQL Server에 필요한 자격 증명을 포함하는 Windows 실행 계정을 선택하거나 **새로 만들기**를 클릭하여 계정을 하나 만듭니다.
+
+    >[AZURE.NOTE]실행 계정 유형은 Windows이어야 합니다. 실행 계정은 SQL Server 인스턴스를 호스팅하는 모든 Windows 서버에서 로컬 관리자 그룹의 일부이어야 합니다.
+
+5. **Save**를 클릭합니다.
+
+6. SQL 평가에 실행 계정으로 필요한 최소 사용 권한을 부여하도록 각 SQL Server 인스턴스에서 다음 T-SQL 샘플을 수정한 다음 실행합니다. 그러나 실행 계정이 SQL Server 인스턴스에서 이미 sysadmin 서버 역할의 일부인 경우, 이 작업을 수행할 필요가 없습니다.
+
+```
+---
+    -- Replace <UserName> with the actual user name being used as Run As Account.
+    USE master
+
+    -- Create login for the user, comment this line if login is already created.
+    CREATE LOGIN [<UserName>] FROM WINDOWS
+
+    -- Grant permissions to user.
+    GRANT VIEW SERVER STATE TO [<UserName>]
+    GRANT VIEW ANY DEFINITION TO [<UserName>]
+    GRANT VIEW ANY DATABASE TO [<UserName>]
+
+    -- Add database user for all the databases on SQL Server Instance, this is required for connecting to individual databases.
+    -- NOTE: This command must be run anytime new databases are added to SQL Server instances.
+    EXEC sp_msforeachdb N'USE [?]; CREATE USER [<UserName>] FOR LOGIN [<UserName>];'
+
+```
+
+### To configure the SQL Run As account using Windows PowerShell
+Alternatively, you can use the following PowerShell script to set the SQL Run As account. Open a PowerShell window and run the following script after you’ve updated it with your information:
+
+```
+
+    import-module OperationsManager
+    New-SCOMManagementGroupConnection "<your management group name>"
+     
+    $profile = Get-SCOMRunAsProfile -DisplayName "Operational Insights SQL Assessment Run As Profile"
+    $account = Get-SCOMrunAsAccount | Where-Object {$_.Name -eq "<your run as account name>"}
+    Set-SCOMRunAsProfile -Action "Add" -Profile $Profile -Account $Account
+```
+After the PowerShell Script finishes executing, perform the T-SQL commands provided above.
+
+## Diagnose connection issues for Operational Insights
+
+Because Microsoft Azure Operational Insights relies on data that is moved to and from the cloud, connection issues can be crippling. Use the following information to understand and solve your connection issues.
 
 
-**오류 메시지:** 인터넷 연결을 검사했지만 Operational Insights 서비스에 대한 연결을 설정할 수 없습니다. 나중에 다시 시도하세요.
+**Error message:** The Internet connectivity was verified, but connection to Operational Insights service could not be established. Please try again later.
 
-**가능한 원인:** - Operational Insights 서비스는 유지 관리됩니다. Operational Insights 유지 관리가 완료될 때까지 기다립니다. - 네트워크가 Operational Insights를 차단했습니다. 네트워크 관리자에게 문의하고 Operational Insights에 대한 액세스를 요청하거나 다른 서버를 게이트웨이로 사용합니다.
+**Possible causes:**
+- The Operational Insights service is under maintenance. Wait until the Operational Insights maintenance is done.
+- Your network has blocked Operational Insights. Contact your network administrator and request access to Operational Insights, or use another server as your gateway.
 
-**오류 메시지:** 인터넷 연결을 설정할 수 없습니다. 프록시 설정을 확인합니다.
+**Error message:** Internet connection could not be established. Please check your proxy settings.
 
-**가능한 원인:** - 이 서버는 인터넷에 연결되지 않았습니다. 인터넷 연결 상태를 확인하고 서버를 인터넷에 연결합니다. - 프록시 설정이 올바르지 않습니다. 프록시 설정 또는 변경 방법에 대한 자세한 내용은 [프록시 및 방화벽 설정 구성](operational-insights-proxy-firewall.md)을 참조하십시오. - 프록시 서버에 인증이 필요합니다. 프록시 서버를 사용하도록 Operations Manager를 구성하는 방법에 대한 자세한 내용은 [프록시 및 방화벽 설정 구성](operational-insights-proxy-firewall.md)을 참조하세요.
+**Possible causes:**
+- This server is not connected to the Internet. Check the Internet connectivity status, and connect the server to the Internet.
+- The proxy setting is not correct. See [Configure proxy and firewall settings](operational-insights-proxy-firewall.md) for information about how to set or change your proxy settings.
+- The proxy server requires authentication. See [Configure proxy and firewall settings](operational-insights-proxy-firewall.md) to learn about how to configure Operations Manager to use a proxy server.
 
 
-## SQL Server 검색 문제 해결
+## Troubleshoot SQL Server discovery
 
-Microsoft SQL Server 2008 R2를 실행하고 Operations Manager 에이전트를 배포했음에도 불구하고 이 서버에 대한 경고가 나타나지 않으면 검색 문제가 있을 수 있습니다.
+If you are running Microsoft SQL Server 2008 R2, and despite deploying the Operations Manager agent, you do not see alerts for this server, you might have a discovery issue.
 
-문제가 발생하는 원인이 검색 문제인지 확인하려면 다음 두 문제를 확인합니다.
+To confirm if this is the source of your trouble, check for the following two issues:
 
-- Operations Manager 이벤트 로그에서 이벤트 ID 4001을 볼 수 있습니다. 이 이벤트는 잘못된 클래스를 나타냅니다.
+- In the Operations Manager event log, you see Event ID 4001. This event indicates that there is an invalid class.
 
-- SQL Server 구성 관리자에서 SQL Server 서비스를 볼 때 “원격 프로시저 호출에 실패했습니다.[0x0800706be]”라는 오류 메시지가 뜹니다.
+- In SQL Server Configuration Manager, when you view SQL Server Services, you see the error message, “The remote procedure call failed. [0x0800706be]”
 
-두 가지 문제 모두에 해당할 경우 SQL Server 2008 R2 서비스 팩 2를 설치해야 합니다. 이 서비스 팩을 다운로드하려면 Microsoft 다운로드 센터에서 [SQL Server 2008 R2 서비스 팩 2](http://go.microsoft.com/fwlink/?LinkId=271310)을 참조하십시오.
+If both issues are true, you need to install SQL Server 2008 R2 Service Pack 2. To download this service pack, see [SQL Server 2008 R2 Service Pack 2](http://go.microsoft.com/fwlink/?LinkId=271310) in the Microsoft Download Center.
 
-서비스 팩을 설치한 후 서버에 대한 Operational Insights 데이터가 24시간 내에 표시되어야 합니다.
+After you install the service pack, you should see Operational Insights data for the server within 24 hours.
 
-## Operational Insights로의 에이전트 또는 Operations Manager 데이터 흐름 문제 해결
+## Troubleshoot agents or Operations Manager data flow to Operational Insights
 
-다음 절차 세트는 Azure Operational Insights로 데이터를 보고하도록 구성된 직접 연결된 에이전트 또는 Operations Manager 배포 문제를 해결하는 데 도움이 되는 가이드입니다.
+The following set of procedures is meant as a guide to help you troubleshoot your directly-connected agents or Operations Manager deployments configured to report data to Azure Operational Insights.
 
-### 절차 1: Operations Manager 환경에 올바른 관리 팩을 다운로드하는 경우 유효성 검사
->[AZURE.NOTE]직접 에이전트를 사용하는 경우에만 다음 절차를 건너뛸 수 있습니다.
+### Procedure 1: Validate if the right Management Packs get downloaded to your Operations Manager Environment
+>[AZURE.NOTE] If you only use Direct Agent, you can skip to the next procedure.
 
-OpInsights 포털에서 사용 가능한 솔루션(이전의 인텔리전스 팩)에 따라 더 많은 또는 더 적은 MP가 표시됩니다. 이름으로 키워드 ‘관리자’ 또는 ‘인텔리전스’를 검색합니다. OpsMgr PowerShell을 사용하여 이 Mp에 대해 확인할 수 있습니다.
+Depending on which solutions (previously called intelligence packs) you have enabled from the OpInsights Portal will you see more or less of these MPs. Search for keyword ‘Advisor’ or ‘Intelligence’ in their name.
+You can check for these MPs using OpsMgr PowerShell:
 
 ```Powershell
-Get-SCOMManagementPack | where {$_.DisplayName -match 'Advisor'} | Select Name,Sealed,Version
-Get-SCOMManagementPack | where {$_.Name -match 'IntelligencePacks'} | Select Name,Sealed,Version
-```
+Get-SCOMManagementPack | where {$\_.DisplayName -match 'Advisor'} | Select Name,Sealed,Version Get-SCOMManagementPack | where {$\_.Name -match 'IntelligencePacks'} | Select Name,Sealed,Version ```
 
 >[AZURE.NOTE]용량 솔루션의 문제를 해결하는 경우 ‘용량’을 포함한 이름으로 *얼마나 많은* 관리 팩이 있는지 확인합니다. 동일한 MP 번들로 제공되는 동일한 표시 이름의 두 관리 팩(그러나 내부 ID는 다른)이 있습니다. 둘 중 하나는 가져올 수 없으며(VMM 종속성이 누락되는 경우가 많음) 다른 MP를 가져오지 않고 작업을 다시 시도하지 않습니다.
 
@@ -101,7 +159,7 @@ Get-SCOMManagementPack | where {$_.Name -match 'IntelligencePacks'} | Select Nam
 Operations Manager는 인증 인증서를 읽을 수 없습니다. 관리자 등록 마법사를 다시 실행하면 인증서/실행 계정을 수정합니다.
 
 ##### EventID 2132
-**권한이 없음**을 의미합니다. 인증서 및/또는 서비스 등록 문제가 발생할 수 있습니다. 인증서 및 실행 계정 문제를 해결하는 등록 마법사를 다시 실행하십시오. 또한 프록시가 예외를 허용하도록 설정되었는지 확인합니다. 자세한 내용은 [프록시 서버 구성](https://msdn.microsoft.com/library/azure/dn884643.aspx)을 참조하십시오.
+**권한이 없음**을 의미합니다. 인증서 및/또는 서비스 등록 문제가 발생할 수 있습니다. 인증서 및 실행 계정 문제를 해결하는 등록 마법사를 다시 실행하십시오. 또한 프록시가 예외를 허용하도록 설정되었는지 확인합니다. 자세한 내용은 [프록시 서버 구성](https://msdn.microsoft.com/library/azure/dn884643.aspx)을 참조하세요.
 
 ##### EventID 2129
 실패한 SSL 협상으로 인해 실패한 연결입니다. 시스템이 SSL가 아닌 TLS를 사용하도록 구성되었는지 확인합니다. Internet Explorer 또는 **고급** 옵션 또는 키 아래 Windows 레지스트리에서 chiper와 관련된 SSL 설정은 이 서버에서 이상할 수 있습니다.
@@ -130,7 +188,7 @@ DNS 이름 확인에 실패했습니다. 서버는 데이터를 전송하기로 
 모듈 충돌이 발생했습니다. **CollectInstanceSpace** 또는 **CollectTypeSpace**와 같은 이름의 워크플로에 대해 이 오류가 표시되면, 서버가 일부 구성 데이터를 보내는 데 문제가 있음을 의미합니다. 지속적으로 또는 ' 가끔 ' 발생 빈도에 따라 문제가 되거나 되지 않을 수 있습니다. 매시간보다 더 자주 발생하는 경우 분명 문제가 있습니다. 하루 한번 또는 두 번 이 작업이 실패하는 경우에만 복구할 수 있습니다. 모듈이 실제로 어떻게 실패하는지에 따라(자세한 내용은 설명해야 함) 온-프레미스 문제(예: DB 수집) 또는 클라우드로 보내는 문제가 될 수 있습니다. 네트워크 및 프록시 설정을 확인하십시오. 최악의 경우 health Service를 다시 시작해 봅니다.
 
 ##### EventID 4501
-모듈 "System.PublishDataToEndPoint" 충돌이 발생했습니다. 모듈 유형 "System.PublishDataToEndPoint"는 관리 그룹 "SCOMTEST"에서 id"{6B1D1BE8-EBB4-B425-08DC-2385C5930B04}"와 함께 인스턴스 "Operations Manager Management Group"에 대해 실행 중인 규칙 "Microsoft.SystemCenter.CollectAlertChangeDataToCloud"의 일부로서 실행된 오류 87L을 보고했습니다. 정확한 워크플로, 모듈 및 오류와 함께 이 오류가 더 이상 표시되지 *않아야* 합니다. *[이제 수정된](http://feedback.azure.com/forums/267889-azure-operational-insights/suggestions/6714689-alert-management-intelligence-pack-not-sending-ale) 버그에* 사용됩니다. 다시 이 오류가 나타나면 기본 Microsoft 지원 채널을 통해 보고합니다.
+모듈 "System.PublishDataToEndPoint" 충돌이 발생했습니다. 모듈 유형 "System.PublishDataToEndPoint"는 관리 그룹 "SCOMTEST"에서 id"{6B1D1BE8-EBB4-B425-08DC-2385C5930B04}"와 함께 인스턴스 "Operations Manager Management Group"에 대해 실행 중인 규칙 "Microsoft.SystemCenter.CollectAlertChangeDataToCloud"의 일부로서 실행된 오류 87L을 보고했습니다. 정확한 워크플로, 모듈 및 오류와 함께 이 오류가 더 이상 표시되지 *않아야* 합니다. [*이제 수정된* 버그에](http://feedback.azure.com/forums/267889-azure-operational-insights/suggestions/6714689-alert-management-intelligence-pack-not-sending-ale) 사용됩니다. 다시 이 오류가 나타나면 기본 Microsoft 지원 채널을 통해 보고합니다.
 
 
 ### 원본 '서비스 커넥터'에서 이벤트
@@ -145,4 +203,4 @@ OpInsights 포털의 개요 페이지에서 확인하여 작은 타일 **서버 
 
 이 페이지에는 솔루션에서 중단된 서비스에 전송된 데이터의 크기에 관한 계량 정보(로그 검색 인덱스를 사용하지 않지만 몇 시간마다 새로 고쳐짐)도 제공합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO3-->
