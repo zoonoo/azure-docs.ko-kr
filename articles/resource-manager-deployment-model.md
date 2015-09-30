@@ -46,7 +46,7 @@
 
         ![preview portal](./media/resource-manager-deployment-model/preview-portal.png)
 
-       계산, 저장, 네트워킹 리소스에 리소스 관리자를 사용할지 클래식 배포를 사용할지 선택할 수 있습니다. **리소스 관리자**를 선택합니다.
+        계산, 저장, 네트워킹 리소스에 리소스 관리자를 사용할지 클래식 배포를 사용할지 선택할 수 있습니다. **리소스 관리자**를 선택합니다.
 
         ![Resource Manager deployment](./media/resource-manager-deployment-model/select-resource-manager.png)
 
@@ -158,4 +158,4 @@
 - 선언적 배포 템플릿 만들기에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 템플릿 배포에 대한 명령을 보려면 [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!----HONumber=Sept15_HO3-->
+<!-----HONumber=Sept15_HO3-->
