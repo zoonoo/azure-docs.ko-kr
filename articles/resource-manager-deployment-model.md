@@ -158,4 +158,4 @@
 - 선언적 배포 템플릿 만들기에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 - 템플릿 배포에 대한 명령을 보려면 [Azure 리소스 관리자 템플릿으로 응용 프로그램 배포](resource-group-template-deploy.md)를 참조하세요.
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->
