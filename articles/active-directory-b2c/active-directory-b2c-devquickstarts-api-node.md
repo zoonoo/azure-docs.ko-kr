@@ -20,9 +20,11 @@
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
 
-> [AZURE.NOTE]이 문서는 Azure AD B2C를 사용하여 등록, 로그인 및 프로필 관리를 구현하는 방법을 다루지 않습니다. 사용자를 인증한 후에 웹 API를 호출하는 데 집중합니다. 아직 준비되지 않은 경우 [.NET 웹앱 시작 자습서](active-directory-b2c-devquickstarts-web-dotnet.md)로 시작하여 Azure AD B2C의 기본 사항에 대해 알아봅니다.
+> [AZURE.NOTE]
+	이 문서는 Azure AD B2C를 사용하여 등록, 로그인 및 프로필 관리를 구현하는 방법을 다루지 않습니다. 사용자를 인증한 후에 웹 API를 호출하는 데 집중합니다.
+아직 준비되지 않은 경우 [.NET 웹앱 시작 자습서](active-directory-b2c-devquickstarts-web-dotnet.md)로 시작하여 Azure AD B2C의 기본 사항에 대해 알아봅니다.
 
-> [AZURE.NOTE]이 샘플은 [iOS B2C 샘플 응용 프로그램](active-directory-b2c-devquickstarts-ios.md)에 연결되어 쓰여졌습니다. 이 연습을 먼저 수행한 다음 해당 샘플도 함께 수행하세요.
+> [AZURE.NOTE]	이 샘플은 [iOS B2C 샘플 응용 프로그램](active-directory-b2c-devquickstarts-ios.md)에 연결되어 쓰여졌습니다. 이 연습을 먼저 수행한 다음 해당 샘플도 함께 수행하세요.
 
 **Passport**는 Node.js에 대한 인증 미들웨어입니다. 매우 유연한 모듈식 Passport는 어떤 Express 기반 또는 Resitify 웹 응용 프로그램에도 원활하게 추가할 수 있습니다. 포괄적인 전략 모음이 사용자 이름 및 암호, Facebook, Twitter 등을 사용하는 인증을 지원합니다. Microsoft는 Microsoft Azure Active Directory에 대한 전략을 개발했습니다. 여기서는 이 모듈을 설치하고 Microsoft Azure Active Directory `passport-azure-ad` 플러그 인을 추가하겠습니다.
 
@@ -109,7 +111,21 @@ When using npm on some operating systems, you may receive an error of Error: EPE
 You may see something like this when installing Restify:
 
 ```Shell
-clang: error: no such file or directory: 'HD/azuread/node\_modules/restify/node\_modules/dtrace-provider/libusdt' make: *** [Release/DTraceProviderBindings.node] Error 1 gyp ERR! build error gyp ERR! stack Error: `make` failed with exit code: 2 gyp ERR! stack at ChildProcess.onExit (/usr/local/lib/node\_modules/npm/node\_modules/node-gyp/lib/build.js:267:23) gyp ERR! stack at ChildProcess.EventEmitter.emit (events.js:98:17) gyp ERR! stack at Process.ChildProcess.\_handle.onexit (child\_process.js:789:12) gyp ERR! System Darwin 13.1.0 gyp ERR! command "node" "/usr/local/lib/node\_modules/npm/node\_modules/node-gyp/bin/node-gyp.js" "rebuild" gyp ERR! cwd /Volumes/Development HD/azuread/node\_modules/restify/node\_modules/dtrace-provider gyp ERR! node -v v0.10.11 gyp ERR! node-gyp -v v0.10.0 gyp ERR! not ok npm WARN optional dep failed, continuing dtrace-provider@0.2.8 ```
+clang: error: no such file or directory: 'HD/azuread/node_modules/restify/node_modules/dtrace-provider/libusdt'
+make: *** [Release/DTraceProviderBindings.node] Error 1
+gyp ERR! build error
+gyp ERR! stack Error: `make` failed with exit code: 2
+gyp ERR! stack     at ChildProcess.onExit (/usr/local/lib/node_modules/npm/node_modules/node-gyp/lib/build.js:267:23)
+gyp ERR! stack     at ChildProcess.EventEmitter.emit (events.js:98:17)
+gyp ERR! stack     at Process.ChildProcess._handle.onexit (child_process.js:789:12)
+gyp ERR! System Darwin 13.1.0
+gyp ERR! command "node" "/usr/local/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js" "rebuild"
+gyp ERR! cwd /Volumes/Development HD/azuread/node_modules/restify/node_modules/dtrace-provider
+gyp ERR! node -v v0.10.11
+gyp ERR! node-gyp -v v0.10.0
+gyp ERR! not ok
+npm WARN optional dep failed, continuing dtrace-provider@0.2.8
+```
 
 
 Restify는 DTrace를 사용하여 REST 호출을 추적하는 강력한 메커니즘을 제공합니다. 그러나 대부분의 운영 체제에서는 DTrace를 사용할 수 없습니다. 이러한 오류는 무시해도 됩니다.
@@ -871,4 +887,4 @@ Restify 및 OAuth2를 사용하여 REST API를 구현하는 방법에 대한 정
 
 [B2C로 iOS를 사용하여 웹 API에 연결 >>](active-directory-b2c-devquickstarts-ios.md)
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->

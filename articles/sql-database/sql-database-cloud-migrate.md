@@ -33,7 +33,7 @@ Azure SQL 데이터베이스 V12는 SQL Server 2014 이후와 엔진 호환성�
 - 더 큰 데이터베이스의 경우 스키마와 데이터를 개별적으로 마이그레이션하여 최상의 성능을 얻습니다. SQL Server Management Studio 또는 Visual Studio를 사용하여 스키마를 데이터베이스 프로젝트로 추출하고 Azure SQL 데이터베이스를 만들기 위해 스키마를 배포할 수 있습니다. BCP를 사용하여 데이터를 추출한다음 병렬 스트림을 사용하여 Azure SQL 데이터베이스로 데이터를 가져오는 데 BCP를 사용할 수 있습니다. 대규모의 복잡한 데이터베이스를 마이그레이션하면 선택하는 방법에 관계 없이 많은 시간이 걸립니다.
 
 ### 옵션 1
-******SQL Server Management Studio를 사용하여 호환 가능한 데이터베이스 마이그레이션 ***
+***SQL Server Management Studio를 사용하여 호환 가능한 데이터베이스 마이그레이션 ***
 
 SQL Server Management Studio는 호환 가능한 온-프레미스 SQL Server 데이터베이스를 Azure SQL 데이터베이스에 마이그레이션하기 위한 두 가지 메서드를 제공합니다. Microsoft Azure SQL 데이터베이스 마법사에 데이터베이스 배포를 사용하거나 데이터베이스를 BACPAC 파일에 내보내면 가져와서 새 Azure SQL 데이터베이스를 만들 수 있습니다. 마법사는 Azure SQL 데이터베이스 V12 호환성의 유효성을 검사하고 BACPAC 파일에 스키마 및 데이터를 추출한 다음 지정된 Azure SQL 데이터베이스 인스턴스로 가져옵니다. 이 옵션을 사용하려면 [SSMS 사용](sql-database-migrate-ssms.md)을 참조하세요.
 
@@ -72,4 +72,4 @@ Visual Studio 2013 업데이트 4 이상이 포함된 [최신 Visual Studio용 S
 | 오류가 있는 경우 출력 변경을 위한 프로비전이 없습니다. 원본 스키마가 호환되어야 합니다. | 사용 가능한 Visual Studio용 SSDT의 전체 기능. 스키마는 오프라인으로 변경됩니다. | Azure에서 응용 프로그램 유효성 검사가 수행됩니다. 스키마 변경 없이 마이그레이션되는 경우 최소화해야 합니다. | 데이터베이스를 Azure에 배포하기 전에 SQL Server에서 응용 프로그램 유효성 검사를 수행할 수 있습니다. |
 | 간단히 하나 또는 두 단계의 프로세스로 쉽게 구성할 수 있습니다. | 더 복잡한 여러 단계의 프로세스(스키마만 배포하는 경우에 더 간단)입니다. |
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->

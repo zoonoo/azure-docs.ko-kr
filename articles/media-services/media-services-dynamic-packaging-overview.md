@@ -38,7 +38,7 @@ Microsoft Azure 미디어 서비스를 사용하여 많은 미디어 소스 파�
 
 ##일반적인 시나리오
 
-1. 입력 파일(mezzanine 파일이라고 함)을 업로드합니다. H.264, MP4 또는 WMV를 예로 들 수 있습니다(지원되는 형식의 목록은 미디어 서비스 인코더에서 지원하는 형식 참조).
+1. 입력 파일(mezzanine 파일이라고 함)을 업로드합니다. H.264, MP4 또는 WMV를 예로 들 수 있습니다(지원되는 형식의 목록은 [미디어 서비스 인코더에서 지원하는 형식](media-services-azure-media-encoder-formats) 참조).
  
 1. mezzanine 파일을 H.264 MP4 적응 비트 전송률 집합으로 인코딩합니다.
  
@@ -105,4 +105,4 @@ Microsoft Azure 미디어 서비스를 사용하여 많은 미디어 소스 파�
 - [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->

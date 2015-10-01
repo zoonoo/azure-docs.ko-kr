@@ -41,7 +41,7 @@
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs.git```
 
-The completed application is provided at the end of this tutorial as well.
+전체 응용 프로그램은 이 자습서 마지막 부분에서도 제공됩니다.
 
 ## 1. 앱 등록
 [apps.dev.microsoft.com](https://apps.dev.microsoft.com)에서 새 앱을 만들거나 다음 [자세한 단계](active-directory-v2-app-registration.md)를 따르세요.  다음을 수행해야 합니다.
@@ -72,23 +72,24 @@ The completed application is provided at the end of this tutorial as well.
 - `npm install passport-azure-ad`
 
 
-This will install the libraries that passport-azure-ad depend on.
+이는 passport-azure-ad가 의존하는 라이브러리를 설치합니다.
 
-## 3. Set up your app to use the passport-node-js strategy
-Here, we'll configure the Express middleware to use the OpenID Connect authentication protocol.  Passport will be used to issue sign-in and sign-out requests, manage the user's session, and get information about the user, amongst other things.
+## 3. passport-node-js 전략을 사용하도록 앱을 설정합니다.
+여기서는 OpenID Connect 인증 프로토콜을 사용하도록 Express 미들웨어를 구성합니다. passport는 로그인 및 로그아웃 요청을 실행하고, 사용자의 세션을 관리하고, 사용자에 대한 정보를 가져오는 데 사용됩니다.
 
--	To begin, open the `config.js` file in the root of the project, and enter your app's configuration values in the `exports.creds` section.
-    -	The `clientID:` is the **Application Id** assigned to your app in the registration portal.
-    -	The `returnURL` is the **Redirect URI** you entered in the portal.
-    - The `clientSecret` is the secret you generated in the portal.
+-	먼저 프로젝트의 루트에서 `config.js` 파일을 열고 `exports.creds` 섹션에 앱의 구성 값을 입력합니다.
+    -	`clientID:`는 등록 포털에서 앱에 할당된 **응용 프로그램 ID**입니다.
+    -	`returnURL`는 포털에서 입력한 **리디렉션 URI**입니다.
+    - `clientSecret`는 포털에서 생성한 암호입니다.
 
-- Next open `app.js` file in the root of the proejct and add the follwing call to invoke the `OIDCStrategy` strategy that comes with `passport-azure-ad`
+- 그 다음 프로젝트의 루트에 있는 `app.js` 파일을 열고 `passport-azure-ad`과 함께 제공되는 `OIDCStrategy` 전략을 불러오기 위해 다음 호출을 추가합니다.
 
 
 ```JavaScript
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
 
-// Add some logging var log = bunyan.createLogger({ name: 'Microsoft OIDC Example Web Application' }); ```
+// Add some logging var log = bunyan.createLogger({ name: 'Microsoft OIDC Example Web Application' }); 
+```
 
 - 그런 후에 방금 참조한 전략을 사용하여 로그인 요청을 처리합니다.
 
@@ -417,4 +418,4 @@ exports.list = function(req, res){
 
 추가 리소스는 다음을 확인해보세요. - [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md) - [스택 오버플로 "azure-active-directory" 태그 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->

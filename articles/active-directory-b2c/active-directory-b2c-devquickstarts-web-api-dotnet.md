@@ -89,7 +89,22 @@ In order for the `TaskWebApp` to communicate with Azure AD B2C, there are a few 
 `web.config` file in the root of the project and replace the values in the `<appSettings>` section.  These values will be used throughout the web app.
 
 ```
-<appSettings> <add key="webpages:Version" value="3.0.0.0" /> <add key="webpages:Enabled" value="false" /> <add key="ClientValidationEnabled" value="true" /> <add key="UnobtrusiveJavaScriptEnabled" value="true" /> <add key="ida:Tenant" value="{Enter the name of your B2C directory, e.g. contoso.onmicrosoft.com}" /> <add key="ida:ClientId" value="{Enter the Application Id assinged to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609}" /> <add key="ida:ClientSecret" value="{Enter the Application Secret you created in the Azure portal, e.g. yGNYWwypRS4Sj1oYXd0443n}" /> <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}{1}{2}" /> <add key="ida:RedirectUri" value="https://localhost:44316/" /> <add key="ida:SignUpPolicyId" value="[Enter your sign up policy name, e.g.g b2c_1_sign_up" /> <add key="ida:SignInPolicyId" value="[Enter your sign in policy name, e.g. b2c_1_sign_in]" /> <add key="ida:UserProfilePolicyId" value="[Enter your edit profile policy name, e.g. b2c_1_profile_edit" /> <add key="api:TaskServiceUrl" value="https://localhost:44332/" /> </appSettings> ```
+<appSettings>
+    <add key="webpages:Version" value="3.0.0.0" />
+    <add key="webpages:Enabled" value="false" />
+    <add key="ClientValidationEnabled" value="true" />
+    <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+    <add key="ida:Tenant" value="{Enter the name of your B2C directory, e.g. contoso.onmicrosoft.com}" />
+    <add key="ida:ClientId" value="{Enter the Application Id assinged to your app by the Azure portal, e.g.580e250c-8f26-49d0-bee8-1c078add1609}" />
+    <add key="ida:ClientSecret" value="{Enter the Application Secret you created in the Azure portal, e.g. yGNYWwypRS4Sj1oYXd0443n}" />
+    <add key="ida:AadInstance" value="https://login.microsoftonline.com/{0}{1}{2}" />
+    <add key="ida:RedirectUri" value="https://localhost:44316/" />
+    <add key="ida:SignUpPolicyId" value="[Enter your sign up policy name, e.g.g b2c_1_sign_up" />
+    <add key="ida:SignInPolicyId" value="[Enter your sign in policy name, e.g. b2c_1_sign_in]" />
+    <add key="ida:UserProfilePolicyId" value="[Enter your edit profile policy name, e.g. b2c_1_profile_edit" />
+    <add key="api:TaskServiceUrl" value="https://localhost:44332/" />
+</appSettings>
+```     
 
 또한 로그인 정책 이름을 제공해야 하는 곳에 두 개의 `[PolicyAuthorize]` 데코레이터가 있습니다. 사용자 인증이 필요한 앱에서 사용자가 페이지에 액세스하려고 할 때 특정 정책을 호출하는 데 `[PolicyAuthorize]` 특성을 사용합니다.
 
@@ -365,4 +380,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->

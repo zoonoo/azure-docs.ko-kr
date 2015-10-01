@@ -54,7 +54,9 @@ Preview 포털을 사용하여 리소스 관리자 배포 모드에서 VM을 만
 
 6. teh **설정** 블레이드에서 다음 속성이 아래 값으로 설정되어 있는지 확인하고 **확인**을 클릭합니다.
 
-	-**저장소 계정**: *vnetstorage* - **네트워크**: *TestVNet* - **서브넷**: *FrontEnd*
+	-**저장소 계정**: *vnetstorage*
+	- **네트워크**: *TestVNet*
+	- **서브넷**: *FrontEnd*
 
 	![크기 선택 블레이드](./media/virtual-networks-static-ip-arm-pportal/figure05.png)
 
@@ -95,4 +97,4 @@ Preview 포털을 사용하여 리소스 관리자 배포 모드에서 VM을 만
 - [ILPIP(인스턴스 수준 공용 IP)](../virtual-networks-instance-level-public-ip) 주소에 대해 알아봅니다.
 - [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 참조합니다.
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->
