@@ -43,4 +43,4 @@ NSG당 NSG 규칙 | 200
 
 이러한 제한을 늘려야 하는 경우 지원에 문의하세요.
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=Sept15_HO1-->

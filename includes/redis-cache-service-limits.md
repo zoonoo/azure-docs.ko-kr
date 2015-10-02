@@ -9,4 +9,4 @@ Azure Redis Cache 제한 및 크기는 각 가격 책정 계층에 따라 다릅
 
 Azure Redis Cache 구성 제한에 대한 정보는 [기본 Redis 서버 구성](redis-cache/cache-configure.md#default-redis-server-configuration)을 참조하세요.
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=Sept15_HO1-->

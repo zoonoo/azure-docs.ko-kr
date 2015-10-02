@@ -60,12 +60,12 @@
    
     	![StorSimple Devices page](./media/storsimple-configure-and-register-device-u1/HCS_DevicesPageM_U1-include.png) 
   
-        If the device status is **Offline**, wait for a couple of minutes for the device to come online. 
-      
-        If the device is still offline after a few minutes, then you need to make sure that your firewall network was configured as described in the [network requirements for your StorSimple device](../articles/storsimple/storsimple-system-requirements.md). 
-
-		If you do not have HTTP 1.1 support, check port 9354 to make sure that it is open for outbound communication. This port is used for communication between the StorSimple Manager service and your StorSimple device.
+	장치 상태가 **오프라인**이면 장치가 온라인 상태가 될 때까지 몇 분 정도 기다립니다.
+	      
+	몇분 후 장치가 여전히 오프라인 상태인 경우, [StorSimple 장치에 대한 네트워크 요구 사항](../articles/storsimple/storsimple-system-requirements.md)에 설명된 대로 방화벽 네트워크가 구성되었는지 확인해야 합니다.
+	
+	HTTP 1.1이 지원되지 않는 경우 포트 9354가 아웃바운드 통신을 위해 열려 있는지 확인합니다. 이 포트는 StorSimple Manager 서비스와 StorSimple 장치 간의 통신에 사용됩니다.
      
        
 
-<!---HONumber=Sept15_HO3-->
+<!----HONumber=Sept15_HO3-->

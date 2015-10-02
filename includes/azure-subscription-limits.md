@@ -16,4 +16,4 @@
 
 <sup>1</sup>매우 작은 인스턴스는 부분 코어를 사용하더라도 코어 제한에 대해 하나의 코어로 계산됩니다.
 
-<!---HONumber=September15_HO1-->
+<!----HONumber=Sept15_HO1-->
