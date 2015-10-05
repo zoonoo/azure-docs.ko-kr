@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: FAQ
@@ -105,4 +105,4 @@ Azure AD B2C에서 [이 지원 항목](active-directory-b2c-support.md)을 확�
 
 또한 현재 [미리 보기 제한, 제한 사항 및 제약 조건](active-directory-b2c-limitations.md)을 검토하려 합니다.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/26/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # SQL 데이터 웨어하우스의 동시성 및 워크로드 관리
@@ -139,19 +139,49 @@ SQL 데이터 웨어하우스에서는 데이터베이스 역할을 사용하여
 - INSERT-SELECT
 - UPDATE
 - 삭제
-- SELECT(단독으로 DMV를 쿼리하지 않는 경우)
+- SELECT(사용자 테이블을 쿼리하는 경우)
 - ALTER INDEX REBUILD
 - ALTER INDEX REORGANIZE
 - ALTER TABLE REBUILD
-- CREATE CLUSTERED INDEX
+- CREATE INDEX
 - CREATE CLUSTERED COLUMNSTORE INDEX
 - CREATE TABLE AS SELECT 
 - 데이터 로드 
+- DMS(데이터 이동 서비스)에서 수행하는 데이터 이동 작업
+
+다음 문은 리소스 클래스를 인식하지 **않습니다**.
+
+- CREATE TABLE
+- ALTER TABLE ... SWITCH PARTITION 
+- ALTER TABLE ... SPLIT PARTITION 
+- ALTER TABLE ... MERGE PARTITION 
+- DROP TABLE
+- ALTER INDEX DISABLE
+- DROP INDEX
+- CREATE STATISTICS
+- UPDATE STATISTICS
+- DROP STATISTICS
+- TRUNCATE TABLE
+- ALTER AUTHORIZATION
+- CREATE LOGIN
+- CREATE USER
+- ALTER USER
+- DROP USER
+- CREATE PROCEDURE
+- ALTER PROCEDURE
+- DROP PROCEDURE
+- CREATE VIEW
+- DROP VIEW
+- INSERT VALUES
+- SELECT(시스템 뷰와 DMV에서)
+- EXPLAIN
+- DBCC
 
 <!--
 Removed as these two are not confirmed / supported under SQLDW
 - CREATE REMOTE TABLE AS SELECT
-- CREATE EXTERNAL TABLE AS SELECT 
+- CREATE EXTERNAL TABLE AS SELECT
+- REDISTRIBUTE 
 -->
 > [AZURE.NOTE]동적 관리 뷰 및 카탈로그 뷰에 대해 단독으로 실행되는 `SELECT` 쿼리가 리소스 클래스에서 제어되지 **않는다는** 점에 대해 자세히 알아보는 것도 중요합니다.
 
@@ -185,7 +215,8 @@ SQL 데이터 웨어하우스 내부의 작업 관리는 약간 더 복잡합니
 
 따라서 예를 들어, DW500이 SQL 데이터 웨어하우스에 대한 현재 DWU 설정인 경우 활성 워크로드 그룹이 다음과 같이 리소스 클래스에 매핑됩니다.
 
-| 리소스 클래스 | 워크로드 그룹 | 사용된 동시성 슬롯 수 | Importance |
+| 리소스 클래스 | 워크로드 그룹 | 사용된 동시성 슬롯 수 | 중요도  
+ |
 | :------------- | :------------- | :---------------------   | :--------- |
 | smallrc | SloDWGroupC00 | 1 | 중간 |
 | mediumrc | SloDWGroupC02 | 4 | 중간 |
@@ -265,7 +296,7 @@ SQL 데이터 웨어하우스 데이터베이스에 대한 연결을 열고 다�
 CREATE USER newperson FOR LOGIN newperson
 ```
 
-사용자에게 전체 권한을 부여해야 합니다. 아래 예에서는 SQL 데이터 웨어하우스 데이터베이스에 대한 `CONTROL`을 부여합니다. 데이터베이스 수준에서 `CONTROL`은 SQL Server의 db\_owner에 해당합니다.
+사용자에게 전체 권한을 부여해야 합니다. 아래 예제에서는 SQL 데이터 웨어하우스 데이터베이스에 대한 `CONTROL` 권한을 부여합니다. 데이터베이스 수준의 `CONTROL` 권한은 SQL Server의 db\_owner에 해당합니다.
 
 ```
 GRANT CONTROL ON DATABASE::MySQLDW to newperson
@@ -418,8 +449,8 @@ FROM	sys.dm_pdw_wait_stats w
 [개발 개요]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리]: https://msdn.microsoft.com/ko-kr/library/azure/ee336235.aspx
+[Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리]: https://msdn.microsoft.com/ko-KR/library/azure/ee336235.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

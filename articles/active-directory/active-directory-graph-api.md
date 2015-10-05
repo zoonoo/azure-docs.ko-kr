@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Active Directory Graph API"
+   pageTitle="Azure Active Directory Graph API | Microsoft Azure"
    description="REST API 끝점을 통해 Azure AD에 프로그래밍 방식으로 액세스할 수 있도록 해주는 Graph API에 대한 개요 및 빠른 시작 가이드입니다."
    services="active-directory"
    documentationCenter=""
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/08/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin" />
 
 # Azure Active Directory Graph API
@@ -66,4 +66,4 @@ Graph API는 많은 응용 프로그램 시나리오를 사용할 수 있습니�
 
 [Azure Active Directory 개발자 가이드](active-directory-developers-guide.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,23 @@
-<properties title="Configuring Oracle Data Guard for Azure" pageTitle="Azure용 Oracle Data Guard 구성하기" description="고가용성 및 재해복구에 대한 Azure 가상 컴퓨터의 Oracle Data Guard 설치 및 구현을 단계별로 설명합니다." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties
+	pageTitle="VM에서 Oracle 데이터 가드 구성 | Microsoft Azure"
+	description="고가용성 및 재해복구에 대한 Azure 가상 컴퓨터의 Oracle Data Guard 설치 및 구현을 단계별로 설명합니다."
+	services="virtual-machines"
+	authors="bbenz"
+	documentationCenter=""
+	tags="azure-service-management"/>
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
+	ms.workload="infrastructure-services"
+	ms.date="06/22/2015"
+	ms.author="bbenz" />
+
 #Azure용 Oracle Data Guard 구성하기
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 만든 리소스를 관리하는 방법을 설명합니다.
+
 이 자습서에서는 고가용성 및 재해 복구를 위해 Azure 가상 컴퓨터 환경에서 Oracle Data Guard를 설정 및 구현하는 방법에 대해 설명합니다. 이 자습서에서는 비 RAC Oracle 데이터베이스에 대한 단방향 복제에 초점을 맞춥니다.
 
 Oracle Data Guard는 Oracle 데이터베이스에 대한 데이터 보호 및 재해 복구를 지원합니다. 재해 복구, 데이터 보호 및 전체 Oracle 데이터베이스에 대한 고가용성을 위한 간편하고 성능이 뛰어난 드롭인 솔루션입니다.
@@ -77,17 +94,17 @@ Oracle 데이터베이스 및 Oracle Data Guard의 후속 릴리스에서 구현
 - SQL*Plus 명령 프롬프트에서 SYSDBA 역할이 있는 SYS 사용자로 데이터베이스에 연결하고 다음 문을 실행하여 데이터베이스의 이름을 봅니다.
 
 		SQL> select name from v$database;
-		
+
 		The result will display like the following:
-		
+
 		NAME
 		---------
 		TEST
 - 그런 다음 dba\_data\_files 시스템 뷰에서 데이터베이스 파일의 이름을 쿼리합니다.
 
-		SQL> select file_name from dba_data_files; 
-		FILE_NAME 
-		------------------------------------------------------------------------------- 
+		SQL> select file_name from dba_data_files;
+		FILE_NAME
+		-------------------------------------------------------------------------------
 		C:\ <YourLocalFolder>\TEST\USERS01.DBF
 		C:\ <YourLocalFolder>\TEST\UNDOTBS01.DBF
 		C:\ <YourLocalFolder>\TEST\SYSAUX01.DBF
@@ -142,8 +159,8 @@ Machine1의 SQL*PLUS 명령 프롬프트에서 다음 문을 실행합니다. v$
 	3         ONLINE  C:<YourLocalFolder>\TEST\REDO03.LOG               NO
 	2         ONLINE  C:<YourLocalFolder>\TEST\REDO02.LOG               NO
 	1         ONLINE  C:<YourLocalFolder>\TEST\REDO01.LOG               NO
-	Next, query the v$log system view, displays log file information from the control file. 
-	SQL> select bytes from v$log; 
+	Next, query the v$log system view, displays log file information from the control file.
+	SQL> select bytes from v$log;
 	BYTES
 	----------
 	52428800
@@ -182,7 +199,7 @@ Machine1의 SQL*PLUS 명령 프롬프트에서 다음 문을 실행합니다. v$
 먼저, sysdba로 로그인합니다. Windows 명령 프롬프트에서 다음을 실행합니다.
 
 	sqlplus /nolog
-	
+
 	connect / as sysdba
 
 그런 다음 SQL*PLUS 명령 프롬프트에서 데이터베이스를 종료합니다.
@@ -205,13 +222,13 @@ Machine1의 SQL*PLUS 명령 프롬프트에서 다음 문을 실행합니다. v$
 
 이어서 다음을 실행합니다.
 
-	SQL> alter database archivelog; 
+	SQL> alter database archivelog;
 	Database altered.
 
 Open 절로 Alter database 문을 실행하여 데이터베이스의 일반 사용이 가능하도록 합니다.
 
 	SQL> alter database open;
-	
+
 	Database altered.
 
 #### 주 데이터베이스 초기화 매개 변수 설정
@@ -224,16 +241,16 @@ INIT.ORA 파일의 매개 변수를 사용하여 Data Guard 환경을 제어할 
 	File created.
 
 다음으로 대기 매개 변수를 추가하려면 pfile을 편집해야 합니다. 이를 위해서 %ORACLE\_HOME%\\database의 해당 위치에서 INITTEST.ORA를 엽니다. 다음으로 INITTEST.ora 파일에 다음 문을 추가합니다. INIT.ORA 파일에 대한 명명 규칙은 INIT<YourDatabaseName>.ORA입니다.
-	
-	db_name='TEST' 
-	db_unique_name='TEST' 
+
+	db_name='TEST'
+	db_unique_name='TEST'
 	LOG_ARCHIVE_CONFIG='DG_CONFIG=(TEST,TEST_STBY)'
 	LOG_ARCHIVE_DEST_1= 'LOCATION=C:\OracleDatabase\archive   VALID_FOR=(ALL_LOGFILES,ALL_ROLES) DB_UNIQUE_NAME=TEST'
 	LOG_ARCHIVE_DEST_2= 'SERVICE=TEST_STBY LGWR ASYNC VALID_FOR=(ONLINE_LOGFILES,PRIMARY_ROLE) DB_UNIQUE_NAME=TEST_STBY'
 	LOG_ARCHIVE_DEST_STATE_1=ENABLE
-	LOG_ARCHIVE_DEST_STATE_2=ENABLE 
-	REMOTE_LOGIN_PASSWORDFILE=EXCLUSIVE 
-	LOG_ARCHIVE_FORMAT=%t_%s_%r.arc 
+	LOG_ARCHIVE_DEST_STATE_2=ENABLE
+	REMOTE_LOGIN_PASSWORDFILE=EXCLUSIVE
+	LOG_ARCHIVE_FORMAT=%t_%s_%r.arc
 	LOG_ARCHIVE_MAX_PROCESSES=30
 	# Standby role parameters --------------------------------------------------------------------
 	fal_server=TEST_STBY
@@ -251,11 +268,11 @@ INIT.ORA 파일의 매개 변수를 사용하여 Data Guard 환경을 제어할 
 먼저, 데이터베이스를 종료합니다.
 
 	SQL> shutdown immediate;
-	
+
 	Database closed.
-	
+
 	Database dismounted.
-	
+
 	ORACLE instance shut down.
 
 다음으로 startup nomount 명령을 다음과 같이 실행합니다.
@@ -277,7 +294,7 @@ INIT.ORA 파일의 매개 변수를 사용하여 Data Guard 환경을 제어할 
 그런 다음 데이터베이스를 종료합니다.
 
 	SQL> shutdown immediate;
-	
+
 	ORA-01507: database not mounted
 
 그리고 startup 명령을 사용하여 인스턴스를 시작합니다.
@@ -322,18 +339,18 @@ INIT.ORA 파일의 매개 변수를 사용하여 Data Guard 환경을 제어할 
 ### 1\. 대기 데이터베이스에 대한 초기화 매개 변수 파일 준비
 
 이 섹션에서는 대기 데이터베이스에 대한 초기화 매개 변수 파일을 준비하는 방법을 설명합니다. 이를 위해서는 먼저 Machine1에서 Machine2로 INITTEST.ORA 파일을 수동으로 복사합니다. 두 컴퓨터에서 모두 %ORACLE\_HOME%\\database 폴더의 INITTEST.ORA 파일을 볼 수 있어야 합니다. 그런 다음 아래 지정된 대로 대기 역할 설정을 위해 Machine2에서 INITTEST.ORA 파일을 수정합니다.
-	
+
 	db_name='TEST'
 	db_unique_name='TEST_STBY'
 	db_create_file_dest='c:\OracleDatabase\oradata\test_stby’
 	db_file_name_convert=’TEST’,’TEST_STBY’
 	log_file_name_convert='TEST','TEST_STBY'
-	
-	
+
+
 	job_queue_processes=10
 	LOG_ARCHIVE_CONFIG='DG_CONFIG=(TEST,TEST_STBY)'
 	LOG_ARCHIVE_DEST_1='LOCATION=c:\OracleDatabase\TEST_STBY\archives VALID_FOR=(ALL_LOGFILES,ALL_ROLES) DB_UNIQUE_NAME=’TEST'
-	LOG_ARCHIVE_DEST_2='SERVICE=TEST LGWR ASYNC VALID_FOR=(ONLINE_LOGFILES,PRIMARY_ROLE) 
+	LOG_ARCHIVE_DEST_2='SERVICE=TEST LGWR ASYNC VALID_FOR=(ONLINE_LOGFILES,PRIMARY_ROLE)
 	LOG_ARCHIVE_DEST_STATE_1='ENABLE'
 	LOG_ARCHIVE_DEST_STATE_2='ENABLE'
 	LOG_ARCHIVE_FORMAT='%t_%s_%r.arc'
@@ -359,9 +376,9 @@ INIT.ORA 파일의 매개 변수를 사용하여 Data Guard 환경을 제어할 
 Machine1에 원격 데스크톱을 설정하고 아래 지정된 대로 listener.ora 파일을 편집합니다. listener.ora 파일을 편집할 때에는 항상 여는 괄호와 닫는 괄호가 항상 동일한 열에 배열되도록 합니다. c:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\NETWORK\\ADMIN\\ 폴더에서 listener.ora 파일을 찾을 수 있습니다.
 
 	# listener.ora Network Configuration File: C:\OracleDatabase\product\11.2.0\dbhome_1\network\admin\listener.ora
-	
+
 	# Generated by Oracle configuration tools.
-	
+
 	SID_LIST_LISTENER =
 	  (SID_LIST =
 	    (SID_DESC =
@@ -371,7 +388,7 @@ Machine1에 원격 데스크톱을 설정하고 아래 지정된 대로 listener
 	      (ENVS = "EXTPROC_DLLS=ONLY:C:\OracleDatabase\product\11.2.0\dbhome_1\bin\oraclr11.dll")
 	    )
 	  )
-	
+
 	LISTENER =
 	  (DESCRIPTION_LIST =
 	    (DESCRIPTION =
@@ -381,9 +398,9 @@ Machine1에 원격 데스크톱을 설정하고 아래 지정된 대로 listener
 	  )
 
 이어서 Machine2에 원격 데스크톱을 설정하고 다음과 같이 listener.ora 파일을 편집합니다. # listener.ora Network Configuration File: C:\\OracleDatabase\\product\\11.2.0\\dbhome\_1\\network\\admin\\listener.ora
-	
+
 	# Generated by Oracle configuration tools.
-	
+
 	SID_LIST_LISTENER =
 	  (SID_LIST =
 	    (SID_DESC =
@@ -393,7 +410,7 @@ Machine1에 원격 데스크톱을 설정하고 아래 지정된 대로 listener
 	      (ENVS = "EXTPROC_DLLS=ONLY:C:\OracleDatabase\product\11.2.0\dbhome_1\bin\oraclr11.dll")
 	    )
 	  )
-	
+
 	LISTENER =
 	  (DESCRIPTION_LIST =
 	    (DESCRIPTION =
@@ -416,7 +433,7 @@ Machine1에 원격 데스크톱을 설정하고 아래 지정된 대로 tnsnames
 	      (SERVICE_NAME = test)
 	    )
 	  )
-	
+
 	TEST_STBY =
 	  (DESCRIPTION =
 	    (ADDRESS_LIST =
@@ -428,7 +445,7 @@ Machine1에 원격 데스크톱을 설정하고 아래 지정된 대로 tnsnames
 	  )
 
 Machine2에 원격 데스크톱을 설정하고 다음과 같이 tnsnames.ora 파일을 편집합니다.
-	
+
 	TEST =
 	  (DESCRIPTION =
 	    (ADDRESS_LIST =
@@ -438,7 +455,7 @@ Machine2에 원격 데스크톱을 설정하고 다음과 같이 tnsnames.ora �
 	      (SERVICE_NAME = test)
 	    )
 	  )
-	
+
 	TEST_STBY =
 	  (DESCRIPTION =
 	    (ADDRESS_LIST =
@@ -455,7 +472,7 @@ Machine2에 원격 데스크톱을 설정하고 다음과 같이 tnsnames.ora �
 기본 및 대기 가상 컴퓨터에서 모두 새 Windows 명령 프롬프트를 열고 다음 문을 실행합니다.
 
 	C:\Users\DBAdmin>tnsping test
-	
+
 	TNS Ping Utility for 64-bit Windows: Version 11.2.0.1.0 - Production on 14-NOV-2013 06:29:08
 	Copyright (c) 1997, 2010, Oracle.  All rights reserved.
 	Used parameter files:
@@ -464,10 +481,10 @@ Machine2에 원격 데스크톱을 설정하고 다음과 같이 tnsnames.ora �
 	Attempting to contact (DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = MACHINE1)(PORT = 1521))) (CONNECT_DATA = (SER
 	VICE_NAME = test)))
 	OK (0 msec)
-	
+
 
 	C:\Users\DBAdmin>tnsping test_stby
-	
+
 	TNS Ping Utility for 64-bit Windows: Version 11.2.0.1.0 - Production on 14-NOV-2013 06:29:16
 	Copyright (c) 1997, 2010, Oracle.  All rights reserved.
 	Used parameter files:
@@ -493,10 +510,10 @@ Machine2에 원격 데스크톱을 설정하고 다음과 같이 tnsnames.ora �
 다음과 같이 데이터베이스를 시작합니다.
 
 	SQL>shutdown immediate;
-	
+
 	SQL>startup nomount
 	ORACLE instance started.
-	
+
 	Total System Global Area  747417600 bytes
 	Fixed Size                  2179496 bytes
 	Variable Size             473960024 bytes
@@ -512,7 +529,7 @@ RMAN(복구 관리자 유틸리티)을 사용하여 주 데이터베이스의 �
 >[AZURE.IMPORTANT]대기 서버 컴퓨터에는 아직 데이터베이스가 없기 때문에 운영 체제 인증을 사용하지 않습니다.
 
 	C:\> RMAN TARGET sys/password@test AUXILIARY sys/password@test_STBY
-	
+
 	RMAN>DUPLICATE TARGET DATABASE
 	  FOR STANDBY
 	  FROM ACTIVE DATABASE
@@ -545,15 +562,15 @@ SQL*PLUS 명령 프롬프트를 열고 다음과 같이 대기 가상 컴퓨터 
 SQL*PLUS 명령 프롬프트 창을 열고 대기 가상 컴퓨터(Machine2)에서 보관된 다시 실행 로그를 확인합니다.
 
 	SQL> show parameters db_unique_name;
-	
+
 	NAME                                TYPE       VALUE
 	------------------------------------ ----------- ------------------------------
 	db_unique_name                      string     TEST_STBY
-	
+
 	SQL> SELECT NAME FROM V$DATABASE
-	
+
 	SQL> SELECT SEQUENCE#, FIRST_TIME, NEXT_TIME, APPLIED FROM V$ARCHIVED_LOG ORDER BY SEQUENCE#;
-	
+
 	SEQUENCE# FIRST_TIM NEXT_TIM APPLIED
 	----------------  ---------------  --------------- ------------
 	45                    23-FEB-14   23-FEB-14   YES
@@ -565,9 +582,9 @@ SQL*PLUS 명령 프롬프트 창을 열고 대기 가상 컴퓨터(Machine2)에�
 
 SQL*PLUS 명령 프롬프트 창을 열고 기본 컴퓨터(Machine1)에서 logfiles을 전환합니다.
 
-	SQL> alter system switch logfile; 
+	SQL> alter system switch logfile;
 	System altered.
-	
+
 	SQL> archive log list
 	Database log mode              Archive Mode
 	Automatic archival             Enabled
@@ -579,14 +596,14 @@ SQL*PLUS 명령 프롬프트 창을 열고 기본 컴퓨터(Machine1)에서 logf
 대기 가상 컴퓨터(Machine2)에서 보관된 다시 실행 로그를 확인합니다.
 
 	SQL> SELECT SEQUENCE#, FIRST_TIME, NEXT_TIME, APPLIED FROM V$ARCHIVED_LOG ORDER BY SEQUENCE#;
-	
+
 	SEQUENCE# FIRST_TIM NEXT_TIM APPLIED
 	----------------  ---------------  --------------- ------------
 	45                    23-FEB-14   23-FEB-14   YES
 	46                    23-FEB-14   23-FEB-14   YES
 	47                    23-FEB-14   23-FEB-14   YES
 	48                    23-FEB-14   23-FEB-14   YES
-	
+
 	49                    23-FEB-14   23-FEB-14   YES
 	50                    23-FEB-14   23-FEB-14   IN-MEMORY
 
@@ -607,4 +624,4 @@ SQL*PLUS 명령 프롬프트 창을 열고 기본 컴퓨터(Machine1)에서 logf
 ##추가 리소스
 [Azure용 Oracle 가상 컴퓨터 이미지](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

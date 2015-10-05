@@ -1,17 +1,17 @@
 <properties
-	pageTitle="Windows 가상 컴퓨터에 대한 원격 데스크톱 서비스 또는 암호를 다시 설정하는 방법"
-	description="Azure Preview 포털 또는 PowerShell 명령을 사용하여 Windows 가상 컴퓨터에 대한 원격 데스크톱 서비스 또는 로컬 관리자 암호를 신속하게 재설정합니다."
+	pageTitle="Windows VM에서 암호 또는 원격 데스크톱 다시 설정 | Microsoft Azure"
+	description="리소스 관리자 배포 모델을 사용하여 만든 Windows VM에서 관리자 암호 또는 원격 데스크톱 서비스를 다시 설정합니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
@@ -19,18 +19,18 @@
 
 # Windows 가상 컴퓨터에 대한 원격 데스크톱 서비스 또는 암호를 다시 설정하는 방법
 
-암호를 잊었거나 원격 데스크톱 서비스 구성의 문제로 Windows 가상 컴퓨터에 연결할 수 없는 경우 Azure Preview 포털이나 VMAccess 확장을 사용하여 로컬 관리자 암호를 재설정하거나 원격 데스크톱 서비스 구성을 재설정합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 만든 가상 컴퓨터에 대해 설명합니다.
 
-> [AZURE.NOTE]이 문서는 Azure 리소스 관리자에서 만든 가상 컴퓨터에 적용되지 않습니다.
+암호를 잊었거나 원격 데스크톱 서비스 구성의 문제로 Windows 가상 컴퓨터에 연결할 수 없는 경우 Azure Preview 포털이나 VMAccess 확장을 사용하여 로컬 관리자 암호를 재설정하거나 원격 데스크톱 서비스 구성을 재설정합니다.
 
 ## Preview 포털
 
-[Preview 포털](https://portal.azure.com)에서 원격 데스크톱 서비스를 재설정하려면 **모두 찾아보기** > **가상 컴퓨터(클래식)** > *Windows 가상 컴퓨터* > **원격 액세스 재설정**을 클릭합니다. 다음 페이지가 나타납니다.
+[Preview 포털](https://portal.azure.com)에서 원격 데스크톱 서비스를 다시 설정하려면 **모두 찾아보기** > **가상 컴퓨터(클래식)** > *Windows 가상 컴퓨터* > **원격 액세스 다시 설정**을 클릭합니다. 다음 페이지가 나타납니다.
 
 
 ![](./media/virtual-machines-windows-reset-password/Portal-RDP-Reset-Windows.png)
 
-[Preview 포털](https://portal.azure.com)에서 로컬 관리자 계정의 이름과 암호를 재설정하려면 **모두 찾아보기** > **가상 컴퓨터(클래식)** > *Windows 가상 컴퓨터* > **모든 설정** > **암호 재설정**을 클릭합니다. 다음 페이지가 나타납니다.
+[Preview 포털](https://portal.azure.com)에서 로컬 관리자 계정의 이름과 암호를 다시 설정하려면 **모두 찾아보기** > **가상 컴퓨터(클래식)** > *Windows 가상 컴퓨터* > **모든 설정** > **암호 다시 설정**을 클릭합니다. 다음 페이지가 나타납니다.
 
 ![](./media/virtual-machines-windows-reset-password/Portal-PW-Reset-Windows.png)
 
@@ -39,7 +39,7 @@
 
 이 작업을 수행하려면 다음이 필요합니다.
 
-- Azure PowerShell 모듈, 버전 0.8.5 이상. **Get-Module azure | format-table version** 명령을 사용하여 설치한 Azure PowerShell의 버전을 확인할 수 있습니다. 지침 및 최신 버전으로 연결되는 링크를 보려면 [Azure PowerShell을 설치 및 구성하는 방법](http://go.microsoft.com/fwlink/p/?linkid=320552&clcid=0x409)을 참조하세요.
+- Azure PowerShell 모듈, 버전 0.8.5 이상. **Get-Module azure | format-table version** 명령을 사용하여 설치한 Azure PowerShell의 버전을 확인할 수 있습니다. 지침 및 최신 버전에 대한 링크를 보려면 [Azure PowerShell을 설치 및 구성하는 방법](http://go.microsoft.com/fwlink/p/?linkid=320552&clcid=0x409)을 참조하세요.
 - 새 로컬 관리자 계정 암호입니다. 원격 데스크톱 서비스 구성을 다시 설정하려는 경우 필요하지 않습니다.
 - VM 에이전트.
 
@@ -60,7 +60,7 @@ Azure 포털을 사용하여 가상 컴퓨터를 만든 경우 다음 추가 명
 
 	$vm.GetInstance().ProvisionGuestAgent = $true
 
-이 명령은 다음 섹션에서 **Set-AzureVMExtension** 명령을 실행할 때 "IaaS VM Access 확장을 설정하기 전에 VM 개체에서 게스트 에이전트 프로비전을 사용하도록 설정해야 합니다" 오류를 방지합니다.
+이 명령은 다음 섹션에서 **Set-AzureVMExtension** 명령을 실행할 때 “IaaS VM Access 확장을 설정하기 전에 VM 개체에서 게스트 에이전트 프로비전을 사용하도록 설정해야 합니다” 오류를 방지합니다.
 
 이제 다음 작업을 수행할 수 있습니다.
 
@@ -113,4 +113,4 @@ Azure IaaS(Windows) 진단 패키지를 실행할 수 없거나 실행해도 문
 
 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Azure WebJobs SDK 정의
@@ -104,4 +104,4 @@ Azure 저장소 큐, 테이블, Blob 또는 서비스 버스 큐를 직접 사�
 WebJobs SDK에 대한 자세한 내용은 [Azure WebJobs 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure에서 Linux VHD 만들기 및 업로드"
-	description="Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다."
+	pageTitle="Linux VHD 만들기 및 업로드 | Microsoft Azure"
+	description="클래식 배포 모델을 사용하여 Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드합니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -18,6 +18,8 @@
 	ms.author="dkshir"/>
 
 # Linux 운영 체제가 포함된 가상 하드 디스크 만들기 및 업로드
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 VHD를 업로드하는 방법을 설명합니다.
 
 이 문서에서는 VHD(가상 하드 디스크)를 생성 및 업로드하고 이를 Azure에서 가상 컴퓨터를 만들기 위한 고유한 이미지로 사용하는 방법을 소개합니다. 또한 이 이미지를 기반으로 여러 개의 가상 컴퓨터를 만들 수 있도록 운영 체제를 준비하는 방법을 살펴봅니다. 이 문서는 클래식 배포 모델을 사용하여 만든 가상 컴퓨터를 참조합니다.
 
@@ -77,7 +79,7 @@ Azure AD 메서드를 사용한 로그인:
 
 	메시지가 표시되면 사용자 이름 및 암호를 입력합니다.
 
-**또는** PublishSettings 파일을 대신 사용하려면:
+**또는 ** PublishSettings 파일을 대신 사용합니다.
 
 1. Azure CLI 창 열기
 
@@ -110,7 +112,7 @@ Azure AD 메서드를 사용한 로그인:
 
 	메시지가 표시되면 조직 사용자 ID와 암호를 입력합니다.
 
-또는 PublishSettings 파일을 대신 사용합니다.
+**또는** PublishSettings 파일을 대신 사용합니다.
 
 1. Azure PowerShell 창을 엽니다.
 
@@ -159,4 +161,4 @@ VHD 파일을 업로드할 저장소 계정이 필요합니다. 기존 계정을
 [Step 2: Prepare the connection to Azure]: #connect
 [Step 3: Upload the image to Azure]: #upload
 
-<!----HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # 내 클라우드 서비스 프로젝트(Visual Studio Azure 저장소 연결 서비스)의 변경 내용
 
@@ -43,4 +43,4 @@ Azure Storage NuGet 패키지가 Visual Studio 프로젝트에 추가되었습�
 - **ServiceConfiguration.Cloud.cscfg**
 - **ServiceConfiguration.Local.cscfg**
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

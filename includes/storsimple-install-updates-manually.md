@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### 관리 포털을 통해 정기적인 업데이트를 설치하려면
 
@@ -11,4 +12,4 @@
 
     업데이트가 성공적으로 설치되면 알림이 표시됩니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

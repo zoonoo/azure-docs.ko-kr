@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="dotnet" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스의 ASP.NET API 앱에서 SaaS 플랫폼에 연결
@@ -425,7 +425,7 @@ API 앱이 Dropbox API를 호출할 수 있게 하려면 API 앱과 Dropbox 개�
 
 ![](./media/app-service-api-dotnet-connect-to-saas/http405.png)
 
-클라이언트가 비 SSL HTTP POST 요청을 시도하고, 게이트웨이가 *https://*으로 리디렉션하고, 이러한 리디렉션으로 인해 GET 요청을 발생하므로 405 메서드가 허용되지 않음 오류가 수신됩니다. 동의 링크를 검색하기 위한 URL은 POST 요청만 허용합니다.
+클라이언트가 비 SSL HTTP POST 요청을 시도하고, 게이트웨이가 **https://*으로 리디렉션하고, 이러한 리디렉션으로 인해 GET 요청을 발생하므로 405 메서드가 허용되지 않음 오류가 수신됩니다. 동의 링크를 검색하기 위한 URL은 POST 요청만 허용합니다.
 
 ### <a id="400"></a>Dropbox 로그인 페이지 대신 HTTP 오류 400 표시
 
@@ -452,4 +452,4 @@ SaaS 플랫폼에 연결되는 API 앱을 코딩 및 구성하는 방법을 살�
 [Azure preview portal]: https://portal.azure.com/
 [Azure portal]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

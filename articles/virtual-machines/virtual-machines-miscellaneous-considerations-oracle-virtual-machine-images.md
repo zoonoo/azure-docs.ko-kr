@@ -1,22 +1,24 @@
-<properties 
-pageTitle="Oracle 가상 컴퓨터 이미지에 대한 기타 고려 사항"
-	description="Azure에서 Oracle 가상 컴퓨터를 배포하기 전 추가 고려 사항에 대해 알아봅니다."
-	services="virtual-machines"
-	documentationCenter=""
-	manager=""
-	authors="bbenz"
-	tags=""/>
+<properties
+pageTitle="Oracle VM 이미지를 사용하기 위한 고려 사항 | Microsoft Azure"
+description="배포하기 전에 Azure Windows Server에서 Oracle VM에 대해 지원되는 구성 및 제한 사항에 대해 알아봅니다."
+services="virtual-machines"
+documentationCenter=""
+manager=""
+authors="bbenz"
+tags="azure-service-management"/>
 
 <tags
 ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="06/22/2015"
-	ms.author="bbenz"/>
+ms.devlang="na"
+ms.topic="article"
+ms.tgt_pltfrm="vm-windows"
+ms.workload="infrastructure-services"
+ms.date="06/22/2015"
+ms.author="bbenz" />
 
 #Oracle 가상 컴퓨터 이미지에 대한 기타 고려 사항
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+
 이 문서는 운영 체제로 Windows Server와 함께 Microsoft에 의해 제공되는 Azure에서의 Oracle 가상 컴퓨터에 대한 고려 상황을 다룹니다.
 
 -  Oracle Database 가상 컴퓨터 이미지
@@ -30,7 +32,7 @@ Azure는 Oracle 데이터베이스의 Oracle Real Application Clusters (RAC)를 
 
 ### 고정 내부 IP 주소 없음
 
-Azure는 각 가상 컴퓨터에 내부 IP 주소를 할당합니다. 가상 컴퓨터가 가상 네트워크의 일부가 아닌 경우 가상 컴퓨터의 IP 주소는 동적이며 가상 컴퓨터를 다시 시작한 후에 변경될 수 있습니다. Oracle 데이터베이스는 정적 IP 주소가 필요하기 때문에 문제가 발생할 수 있습니다. 이 문제를 방지하려면, Azure 가상 네트워크에 가상 컴퓨터를 추가하는 것이 좋습니다. 자세한 내용은 [가상 네트워크](http://azure.microsoft.com/documentation/services/virtual-network/) 및 [Azure에서 가상 네트워크 만들기](create-virtual-network.md)를 참조하십시오.
+Azure는 각 가상 컴퓨터에 내부 IP 주소를 할당합니다. 가상 컴퓨터가 가상 네트워크의 일부가 아닌 경우 가상 컴퓨터의 IP 주소는 동적이며 가상 컴퓨터를 다시 시작한 후에 변경될 수 있습니다. Oracle 데이터베이스는 정적 IP 주소가 필요하기 때문에 문제가 발생할 수 있습니다. 이 문제를 방지하려면, Azure 가상 네트워크에 가상 컴퓨터를 추가하는 것이 좋습니다. 자세한 내용은 [가상 네트워크](http://azure.microsoft.com/documentation/services/virtual-network/) 및 [Azure에서 가상 네트워크 만들기](create-virtual-network.md)를 참조하세요.
 
 ### 연결된 디스크 구성 옵션
 
@@ -38,13 +40,13 @@ Azure는 각 가상 컴퓨터에 내부 IP 주소를 할당합니다. 가상 컴
 
 연결된 디스크는 Azure Blob 저장소 서비스에 의존합니다. 각 디스크는 이론적으로 최대 초당 500 입력/출력 작업(IOPS)을 할 수 있습니다. 연결된 디스크의 성능은 초기에 최적화되지 않을 수 있으며, IOPS 성능은 약 60-90분의 연속적인 “굽기” 기간 후 크게 향상될 수 있습니다. 디스크가 이후에 유휴 상태로 남아 있으면, IOPS 성능은 다른 굽기 연속 작업 때까지 저하될 수 있습니다. 간단히 말해, 더 많은 디스크 활동은, 최적화된 IOPS 성능에 접근할 가능성이 높습니다.
 
-가상 컴퓨터에 단일 디스크를 연결하고 데이터 파일을 해당 디스크에 저장하는 가장 단순한 접근법이지만 이 접근법은 성능에 있어서도 가장 제한을 받습니다. 대신, 여러개의 연결된 디스크를 사용하여 데이터베이스를 분산시킨 후, Oracle 자동 저장소 관리(ASM)를 사용하면 효과적으로 IOPS 성능 향상을 개선할 수 있습니다. 자세한 내용은 [Oracle 자동 저장소 개요](http://www.oracle.com/technetwork/database/index-100339.html)를 참조하십시오. 운영 체제 수준에서 여러 디스크의 스트라이프를 사용할 수도 있지만, 그러한 접근법은 IOPS 성능 향상에 있어 알려진 바가 없기 때문에 권장되지 않습니다.
+가상 컴퓨터에 단일 디스크를 연결하고 데이터 파일을 해당 디스크에 저장하는 가장 단순한 접근법이지만 이 접근법은 성능에 있어서도 가장 제한을 받습니다. 대신, 여러개의 연결된 디스크를 사용하여 데이터베이스를 분산시킨 후, Oracle 자동 저장소 관리(ASM)를 사용하면 효과적으로 IOPS 성능 향상을 개선할 수 있습니다. 자세한 내용은 [Oracle 자동 저장소 개요](http://www.oracle.com/technetwork/database/index-100339.html)를 참조하세요. 운영 체제 수준에서 여러 디스크의 스트라이프를 사용할 수도 있지만, 그러한 접근법은 IOPS 성능 향상에 있어 알려진 바가 없기 때문에 권장되지 않습니다.
 
 읽기 작업의 성능 또는 데이터베이스에 대한 쓰기 작업에 우선 순위를 지정하려는 여부에 따라 여러 디스크를 연결하기 위한 두 가지 방법을 고려해야 합니다.
 
-- **자체적으로 Oracle ASM**은 쓰기 작업 성능이 향상될 가능성이 높지만, Windows Server 2012 저장소 풀을 사용하는 방법과 대비해 볼 때, 읽기 작업에 대한 IOPS는 더 낮습니다. 다음 그림은 이 정렬을 논리적으로 보여줍니다.![](media/virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images/image2.png)
+- **자체적인 Oracle ASM**을 사용하면 Windows Server 2012 저장소 풀을 사용하는 방법과 비교하여 쓰기 작업 성능은 향상되지만 읽기 작업에 대한 IOPS는 더 낮을 가능성이 큽니다. 다음 그림은 이 정렬을 논리적으로 보여 줍니다. ![](media/virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images/image2.png)
 
-- **Windows Server 2012 저장소 풀과 Oracle ASM**은 데이터베이스가 주로 읽기 작업을 수행하거나, 사용자가 쓰기 작업에 비해 읽기 작업 성능에 가치를 두는 경우, 읽기 작업에서 더 나은 IOPS 성능을 나타낼 가능성이 높습니다. Windows Server 2012 운영 체제에 기초한 이미지가 요구됩니다. 저장소 풀에 대한 자세한 내용은 [독립 실행형 서버에서 저장소 공간 배포](http://technet.microsoft.com/library/jj822938.aspx)를 참조하십시오. 이 정렬에서, 연결된 디스크의 두개의 하위 집합 중 처음 것은, 두 개의 저장소 풀 볼륨에 물리적 디스크로 “스트라이프" 처리된 것이며, 두 번째 것은 ASM 디스크 그룹에 추가된 볼륨입니다. 다음 그림은 이 정렬을 논리적으로 보여줍니다.
+- 데이터베이스가 주로 읽기 작업을 수행하거나 사용자가 쓰기 작업에 비해 읽기 작업의 성능을 중시할 경우 **Windows Server 2012 저장소 풀을 포함하는 Oracle ASM**을 사용하면 읽기 작업 IOPS 성능이 향상될 가능성이 큽니다. Windows Server 2012 운영 체제에 기초한 이미지가 요구됩니다. 저장소 풀에 대한 자세한 내용은 [독립 실행형 서버에 저장소 공간 배포](http://technet.microsoft.com/library/jj822938.aspx)를 참조하세요. 이 정렬에서, 연결된 디스크의 두개의 하위 집합 중 처음 것은, 두 개의 저장소 풀 볼륨에 물리적 디스크로 “스트라이프" 처리된 것이며, 두 번째 것은 ASM 디스크 그룹에 추가된 볼륨입니다. 다음 그림은 이 정렬을 논리적으로 보여줍니다.
 
 	![](media/virtual-machines-miscellaneous-considerations-oracle-virtual-machine-images/image3.png)
 
@@ -54,21 +56,21 @@ Azure는 각 가상 컴퓨터에 내부 IP 주소를 할당합니다. 가상 컴
 
 Azure 가상 컴퓨터에서 Oracle 데이터베이스를 사용할 때, 사용자는 모든 가동 중지 시간을 방지하기 위해 높은 가용성과 재해 복구 솔루션을 구현하는 일을 담당합니다. 또한 사용자 고유의 데이터와 응용 프로그램 백업을 담당해야 합니다.
 
-Azure에서 Oracle Database Enterprise Edition(RAC 없음)에 대한 높은 가용성 및 재해 복구는 두 대의 가상 컴퓨터에서 [데이터 가드, 활성 데이터 가드](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html), 또는 [Oracle 골든 게이트](http://www.oracle.com/technetwork/middleware/goldengate)를 사용하여 수행할 수 있습니다. 두 대의 가상 컴퓨터는영구적인 개인 IP 주소를 통해 서로 액세스 할 수 있도록 [클라우드 서비스](cloud-services-connect-virtual-machine.md) 및 동일한 [가상 네트워크](http://azure.microsoft.com/documentation/services/virtual-network/)에 위치해야 합니다. 또한, Azure이 개별 장애 도메인 및 업그레이드 도메인에 가상 컴퓨터를 배치할 수 있도록 동일한 [가용성 집합](manage-availability-virtual-machines.md)에 VM을 배치하는 것이 좋습니다. 참고 동일한 클라우드 서비스에서 오직 가상 컴퓨터만 동일한 가용성 집합에 참여할 수 있습니다. 각 가상 컴퓨터에는 최소 2GB의 메모리 및 5GB의 디스크 공간이 있어야 합니다.
+Azure에서 Oracle Database Enterprise Edition(RAC 제외)에 대한 고가용성 및 재해 복구는 두 가상 컴퓨터에 있는 두 개의 데이터베이스와 함께 [Data Guard, Active Data Guard](http://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html) 또는 [Oracle Golden Gate](http://www.oracle.com/technetwork/middleware/goldengate)를 사용하여 수행할 수 있습니다. 두 가상 컴퓨터는 영구적인 개인 IP 주소를 통해 서로 액세스할 수 있도록 동일한 [클라우드 서비스](cloud-services-connect-virtual-machine.md) 및 동일한 [가상 네트워크](http://azure.microsoft.com/documentation/services/virtual-network/)에 있어야 합니다. 또한 Azure가 개별 장애 도메인 및 업그레이드 도메인에 가상 컴퓨터를 배치할 수 있도록 동일한 [가용성 집합](manage-availability-virtual-machines.md)에 VM을 배치하는 것이 좋습니다. 참고 동일한 클라우드 서비스에서 오직 가상 컴퓨터만 동일한 가용성 집합에 참여할 수 있습니다. 각 가상 컴퓨터에는 최소 2GB의 메모리 및 5GB의 디스크 공간이 있어야 합니다.
 
-Oracle 데이터 가드로, 가상 컴퓨터에서 주 데이터베이스, 또 다른 가상 컴퓨터에서 보조(대기) 데이터 베이스에서 고가용성을 얻을 수 있으며, 양 데이터베이스 간에 단방향 복제를 설정할 수 있습니다. 결과는 해당 데이터 베이스의 복사본에 대한 읽기 엑세스입니다. Oracle 골든 게이트로, 두 개의 데이터베이스 간의 양방향 복제를 구성할 수 있습니다. 이러한 도구를 사용하여 사용자의 데이터 베이스에 대한 고가용성 솔루션을 설정하는 방법을 알아보려면 Oracle 웹사이트에서 [활성 데이터 가드](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) 및 [GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html)문서 를 참조하십시오. 데이터 베이스의 복사본에 대한 읽기-쓰기 액세스 권한이 필요한 경우, [Oracle 활성 데이터 가드](http://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html)를 사용할 수 있습니다.
+Oracle 데이터 가드로, 가상 컴퓨터에서 주 데이터베이스, 또 다른 가상 컴퓨터에서 보조(대기) 데이터 베이스에서 고가용성을 얻을 수 있으며, 양 데이터베이스 간에 단방향 복제를 설정할 수 있습니다. 결과는 해당 데이터 베이스의 복사본에 대한 읽기 엑세스입니다. Oracle 골든 게이트로, 두 개의 데이터베이스 간의 양방향 복제를 구성할 수 있습니다. 이러한 도구를 사용하여 데이터베이스에 대한 고가용성 솔루션을 설정하는 방법을 알아보려면 Oracle 웹 사이트에서 [Active Data Guard](http://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) 및 [GoldenGate](http://docs.oracle.com/goldengate/1212/gg-winux/index.html) 설명서를 참조하세요. 데이터베이스의 복사본에 대한 읽기-쓰기 권한이 필요한 경우 [Oracle Active Data Guard](http://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html)를 사용할 수 있습니다.
 
 ##Oracle WebLogic Server 가상 컴퓨터 이미지
 
 -  **클러스터링은 Enterprise Edition에서만 지원됩니다.** WeblLogic 서버(특별히, 운영 체제로 Windows Server를 사용하는)의 Microsoft 라이선스 이미지를 사용하는 경우, WebLogic Server의 Enterprise Edition을 사용할 때만 WebLogic 클러스터링을 사용할 수 잇는 라이선스가 부여됩니다. WebLogic Server Standard Edition으로 클러스터링을 사용하지 마십시오.
 
--  **연결 시간 제한:** 사용자의 응용 프로그램이 다른 Azure 클라우드 서비스(예: 데이터베이스 계층 서비스)의 공용 끝접에 대한 연결에 의존하는 경우, Azure는 비활성 4분후에 이러한 열려있는 연결을 닫을 수 있습니다. 이는 연결이 제한 이상으로 비활성되어 더이상 유효하지 않을 수 있기 때문에 연결 풀에 의존하는 기능 및 응용 프로그램에 영향을 줄 수 있습니다. 사용자의 응용 프로그램에 영향을 미치는 경우 연결 풀에 대한 “유지" 로직을 사용하도록 설정하는 것이 좋습니다.
+-  **연결 시간 제한:** 응용 프로그램이 다른 Azure 클라우드 서비스(예: 데이터베이스 계층 서비스)의 공용 끝점에 대한 연결을 사용하는 경우 4분간 활동이 없을 경우 Azure에서 열려 있는 연결을 닫을 수 있습니다. 이는 연결이 제한 이상으로 비활성되어 더이상 유효하지 않을 수 있기 때문에 연결 풀에 의존하는 기능 및 응용 프로그램에 영향을 줄 수 있습니다. 사용자의 응용 프로그램에 영향을 미치는 경우 연결 풀에 대한 “유지" 로직을 사용하도록 설정하는 것이 좋습니다.
 
-	끝점이 사용자의 Azure 클라우드 서비스 배포(예컨대 WebLogic 가상 컴퓨터와 같은 *동일한* 클라우드 서비스 내에서 독립 실행형 데이터베이스 가상 컴퓨터)에 대해 *내부*인 경우, 해당 연결은 직접적이며 Azure 부하 분산 장치에 의존하지 않으므로, 연결 제한 시간이 적용되지 않습니다.
+	끝점이 Azure 클라우드 서비스 배포(예: WebLogic 가상 컴퓨터와 *동일한* 클라우드 서비스 내의 독립 실행형 데이터베이스 가상 컴퓨터) *내부*에 있는 경우 해당 연결은 직접적이며 Azure 부하 분산 장치를 사용하지 않으므로 연결 시간 제한이 적용되지 않습니다.
 
 -  **UDP 멀티 캐스트는 지원되지 않습니다.** Azure는 UDP 유니캐스트를 지원하지만 멀티 캐스팅 및 브로드캐스팅은 지원하지 않습니다. WebLogic 서버는 Azure UDP 유니캐스 기능에 의존할 수 있습니다. UDP 유니캐스트에 의존하는 최상의 결과를 위해, WebLogic 클러스터 크기를 정적으로 유지하거나 클러스터에 포함된 서버는 10개 이하로 유지하는 것이 좋습니다.
 
--  **WebLogic Server는 T3 액세스(예: Enterprise JavaBeans를 사용할 때)에 대해 공용 및 개인 포트가 동일한 것으로 예상합니다.** **SLWLS**로 명명된 클라우드 서비스에서 두 대 또는 그 이상으로 구성된 WebLogic Server 클러스터 상에서 실행되고 있는 서비스 계층(EJB)에서 다중 계층 시나리오를 고려해 보세요. 다른 클라우드 서비스에 있는 클라이언트 계층은 서비스 계층에서 EJB 호출을 시도하는 간단한 Java 프로그램을 실행합니다. 서비스 계층을 부하 분산하는 작업이 필요하므로, 부하 분산된 공용 끝점은 WebLogic Server 클러스터에 있는 가상 컴퓨터에 대해 생성될 필요가 있습니다. 끝점에 대해 지정한 개인 포트가 공용 포트와 다른 경우(예: 7006:7008), 다음과 같은 오류가 발생합니다.
+-  **WebLogic Server는 T3 액세스(예: Enterprise JavaBeans를 사용할 때)에 대해 공용 및 개인 포트가 동일한 것으로 예상합니다.** **SLWLS**라는 클라우드 서비스에 있는, 둘 이상의 관리되는 서버로 구성된 WebLogic Server 클러스터에서 서비스 계층(EJB) 응용 프로그램이 실행되는 다중 계층 시나리오를 고려해 보세요. 다른 클라우드 서비스에 있는 클라이언트 계층은 서비스 계층에서 EJB 호출을 시도하는 간단한 Java 프로그램을 실행합니다. 서비스 계층을 부하 분산하는 작업이 필요하므로, 부하 분산된 공용 끝점은 WebLogic Server 클러스터에 있는 가상 컴퓨터에 대해 생성될 필요가 있습니다. 끝점에 대해 지정한 개인 포트가 공용 포트와 다른 경우(예: 7006:7008), 다음과 같은 오류가 발생합니다.
 
 		[java] javax.naming.CommunicationException [Root exception is java.net.ConnectException: t3://example.cloudapp.net:7006:
 
@@ -84,7 +86,7 @@ Oracle 데이터 가드로, 가상 컴퓨터에서 주 데이터베이스, 또 �
 
 			-Dweblogic.rjvm.enableprotocolswitch=true
 
-관련된 정보는, KB 자료 문서 <http://support.oracle.com>.의 **860340.1**를 참조하십시오.
+관련 정보는 <http://support.oracle.com>에서 KB 문서 **860340.1**을 참조하세요.
 
 -  **동적 클러스터링 및 부하 분산 제한** WebLogic 서버에서 동적 클러스터를 사용하고 Azure에서 단일, 공용 부하 분산 끝점을 통해 노출한다고 가정해 보세요. 이 작업은 각 관리 서버(범위에서 동적으로 할당되지 않은)에 대해 고정된 포트 번호를 사용하고 관리자가 추적하는 서버(가상 컴퓨터 하나당 하나 이상의 관리 서버를 둘 수 없습니다)보다 더 많은 관리 서버를 시작하지 않는 한 수행될 수 있습니다. 사용자의 구성이 가상 컴퓨터 개수 보다 많은 WebLogic 서버가 시작되고 있는 결과를 낳게 되면(즉, 여러 개의 WebLogic server의 인스턴스가 동일한 가상 컴퓨터를 공유), 주어진 포트 번호에 바인딩하는 인스턴스 서버는 WebLogic 서버 중 하나 이상이 될 수 없으므로, 해당 가상 컴퓨터에서 나머지는 실패합니다.
 
@@ -103,4 +105,4 @@ Oracle 데이터 가드로, 가상 컴퓨터에서 주 데이터베이스, 또 �
 ##추가 리소스
 [Azure용 Oracle 가상 컴퓨터 이미지 ](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

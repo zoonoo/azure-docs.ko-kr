@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="WebJob SDK를 사용하여 Azure 큐 저장소로 작업하는 방법"
-	description="WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법에 대해 알아봅니다. 큐 만들기 및 삭제, 큐 메시지 삽입, 미리 보기, 가져오기 및 삭제 등의 작업을 알아봅니다."
-	services="app-service\web, storage"
-	documentationCenter=".net"
-	authors="tdykstra"
-	manager="wpickett"
+	pageTitle="WebJob SDK를 사용하여 Azure 큐 저장소로 작업하는 방법" 
+	description="WebJobs SDK를 사용하여 Azure 큐 저장소로 작업하는 방법에 대해 알아봅니다. 큐 만들기 및 삭제, 큐 메시지 삽입, 미리 보기, 가져오기 및 삭제 등의 작업을 알아봅니다." 
+	services="app-service\web, storage" 
+	documentationCenter=".net" 
+	authors="tdykstra" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # WebJob SDK를 사용하여 Azure 큐 저장소로 작업하는 방법
@@ -586,4 +586,4 @@ Azure Blob에서 응용 프로그램 로그는 다음과 같습니다. 2014-09-2
 이 가이드에서는 Azure 큐 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure WebJob 및 WebJob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJob 권장 리소스](http://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

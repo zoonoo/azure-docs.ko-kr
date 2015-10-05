@@ -14,7 +14,7 @@
 	ms.devlang="na" 
 	ms.topic="article" 
 	ms.date="09/03/2015" 
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Azure Active Directory 및 Visual Studio 연결 서비스 시작(WebApi 프로젝트)
 
@@ -29,4 +29,4 @@
 [Azure Active Directory에 대한 자세한 정보](http://azure.microsoft.com/services/active-directory/)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

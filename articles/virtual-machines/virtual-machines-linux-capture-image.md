@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Linux를 실행하는 가상 컴퓨터의 이미지 캡처"
-	description="Linux를 실행하는 Azure VM(가상 컴퓨터)의 이미지를 캡처하는 방법에 대해 알아봅니다."
+	pageTitle="Linux VM의 이미지 캡처 | Microsoft Azure"
+	description="클래식 배포 모델을 사용하여 만든, Linux를 실행하는 Azure VM(가상 컴퓨터)의 이미지를 캡처하는 방법을 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -20,9 +20,11 @@
 
 # Linux 가상 컴퓨터를 캡처하여 템플릿으로 사용하는 방법
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 이미지를 캡처하는 방법을 설명합니다.
+
 이 문서에서는 Linux가 실행되는 Azure 가상 컴퓨터를 캡처하여 다른 가상 컴퓨터를 만들 때 템플릿처럼 사용하는 방법을 소개합니다. 이 템플릿에는 OS 디스크를 비롯해 가상 컴퓨터에 연결된 데이터 디스크가 포함됩니다. 네트워킹 구성은 포함되지 않으므로 템플릿을 사용하는 다른 가상 컴퓨터를 만들 때 구성해야 합니다.
 
-Azure에서는 이 템플릿이 이미지로 취급되고 **이미지**에 저장됩니다. 이 위치에 업로드한 이미지도 저장됩니다. 이미지에 대한 자세한 내용은 [Azure의 가상 컴퓨터 이미지 정보][]를 참조하세요.
+Azure에서는 이 템플릿을 이미지로 처리하고 **이미지**에 저장합니다. 이 위치에 업로드한 이미지도 저장됩니다. 이미지에 대한 자세한 내용은 [Azure의 가상 컴퓨터 이미지 정보][]를 참조하세요.
 
 ## 시작하기 전에
 
@@ -56,7 +58,7 @@ Azure에서는 이 템플릿이 이미지로 취급되고 **이미지**에 저�
 4. **Exit**를 입력하여 SSH 클라이언트를 닫습니다.
 
 
-	>[AZURE.NOTE]다음 단계에서는 이미 클라이언트 컴퓨터에 [Azure CLI를 설치](../xplat-cli-install.md)한 것으로 가정합니다. 아래의 모든 단계는 [관리 포털][]에서 수행할 수도 있습니다.
+	>[AZURE.NOTE]다음 단계에서는 클라이언트 컴퓨터에 이미 [Azure CLI를 설치](../xplat-cli-install.md)했다고 가정합니다. 아래의 모든 단계는 [관리 포털][]에서도 수행할 수 있습니다.
 
 5. 클라이언트 컴퓨터에서 Azure CLI를 열고 Azure 구독에 로그인합니다. 자세한 내용은 [Azure CLI에서 Azure 구독에 연결](../xplat-cli-connect.md)을 참조하세요.
 
@@ -74,7 +76,7 @@ Azure에서는 이 템플릿이 이미지로 취급되고 **이미지**에 저�
 
 	`azure vm capture -t <your-virtual-machine-name> <new-image-name>`
 
-	_new-image-name_에 원하는 이미지 이름을 입력합니다. 이 명령은 일반화된 OS 이미지를 만듭니다. `-t` 하위 명령은 원래 가상 컴퓨터를 삭제합니다.
+	_new-image-name_ 대신 원하는 이미지 이름을 입력합니다. 이 명령은 일반화된 OS 이미지를 만듭니다. `-t` 하위 명령은 원래 가상 컴퓨터를 삭제합니다.
 
 9.	이제 새 가상 컴퓨터를 구성하는 데 사용할 수 있는 이미지 목록에서 새 이미지를 사용할 수 있습니다. 다음 명령을 사용하여 볼 수 있습니다.
 
@@ -86,7 +88,7 @@ Azure에서는 이 템플릿이 이미지로 취급되고 **이미지**에 저�
 
 
 ## 다음 단계
-가상 컴퓨터를 만들기 위한 템플릿으로 사용할 이미지가 마련됩니다. Azure CLI 명령 `azure vm create`를 사용하여 방금 만든 이미지 이름을 제공할 수 있습니다. 명령에 대한 자세한 내용은 [서비스 관리 API에서 Azure CLI 사용](virtual-machines-command-line-tools.md)을 참조하세요. 또는 [관리 포털][]에서 **갤러리에서** 방법을 사용하여 사용자 지정 가상 컴퓨터를 만들고 위에서 만든 이미지를 선택할 수 있습니다. 자세한 내용은 [사용자 지정 가상 컴퓨터를 만드는 방법][]을 참조하세요.
+가상 컴퓨터를 만들기 위한 템플릿으로 사용할 이미지가 마련됩니다. Azure CLI 명령 `azure vm create`를 사용하고 방금 만든 이미지 이름을 제공할 수 있습니다. 명령에 대한 자세한 내용은 [서비스 관리 API에서 Azure CLI 사용](virtual-machines-command-line-tools.md)을 참조하세요. 또는 [관리 포털][]에서 **갤러리에서** 방법을 사용하여 사용자 지정 가상 컴퓨터를 만들고 위에서 만든 이미지를 선택할 수 있습니다. 자세한 내용은 [사용자 지정 가상 컴퓨터를 만드는 방법][]을 참조하세요.
 
 **참고 항목:** [Azure Linux 에이전트 사용자 가이드](virtual-machines-linux-agent-user-guide.md)
 
@@ -97,4 +99,4 @@ Azure에서는 이 템플릿이 이미지로 취급되고 **이미지**에 저�
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [Linux를 실행하는 가상 컴퓨터를 만드는 방법]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

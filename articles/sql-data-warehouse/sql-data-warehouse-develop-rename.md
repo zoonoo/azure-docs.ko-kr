@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/26/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # SQL 데이터 웨어하우스의 이름 바꾸기
@@ -75,9 +75,9 @@ ALTER SCHEMA dbo TRANSFER OBJECT::product.item;
 [개발 개요]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[KILL]: https://msdn.microsoft.com/ko-kr/library/ms173730.aspx
+[KILL]: https://msdn.microsoft.com/KO-KR/library/ms173730.aspx
 
 <!--Other Web references-->
 [Azure management portal]: http://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

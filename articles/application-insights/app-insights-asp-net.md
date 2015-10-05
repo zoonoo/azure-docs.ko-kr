@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
 
 
@@ -156,20 +156,33 @@ SDK 서버와 동일한 계측 키를 가진 SDK 클라이언트를 구성하는
 + `dc.services.visualstudio.com:443`
 + `f5.services.visualstudio.com:443`
 
-### 개발, 테스트 및 릴리스를 위한 별도 리소스를 유지합니다.
 
-주요 응용 프로그램에서, 원격 분석 데이터를 디버깅, 테스트, 프로덕션에서 [별도 리소스](app-insights-separate-resources.md)로 보내는 것을 권장합니다.
+## 개발, 테스트 및 릴리스
 
+주요 응용 프로그램의 경우 서로 다른 스탬프(디버깅, 테스트, 프로덕션 빌드)의 원격 분석 데이터를 [별도 리소스](app-insights-separate-resources.md)로 보내는 것이 좋습니다.
+
+## 응용 프로그램 버전 추적
+
+빌드 프로세스에서 `buildinfo.config`가 생성되었는지 확인합니다. .csproj 파일에서 다음을 추가합니다.
+
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup> 
+```
+
+빌드 정보가 있는 경우 Application Insights 웹 모듈에서 원격 분석의 모든 항목에 **응용 프로그램 버전**을 속성으로 자동으로 추가합니다. 이렇게 하면 [진단 검색][diagnostic]을 수행하거나 [메트릭을 탐색][metrics]할 때 버전을 기준으로 필터링할 수 있습니다.
 
 
 
 ## 종속성 추적 및 시스템 성능 카운터 추가
 
-[종속성 메트릭](app-insights-dependencies.md)은 성능 문제 진단을 도와줄 때 매우 유용합니다. 앱에서 데이터베이스, REST API 및 다른 외부 구성 요소로 온 호출을 측정합니다.
+[종속성 메트릭](app-insights-dependencies.md)은 성능 문제를 진단하는 데 유용할 수 있습니다. 앱에서 데이터베이스, REST API 및 다른 외부 구성 요소로 온 호출을 측정합니다.
 
 ![](./media/app-insights-asp-net/04-dependencies.png)
 
-이 단계를 사용하면 [성능 카운터의 보고](app-insights-web-monitor-performance.md#system-performance-counters)(예: CPU, 메모리, 네트워크 선점)도 가능합니다.
+이 단계를 수행하면 [성능 카운터의 보고](app-insights-web-monitor-performance.md#system-performance-counters)(예: CPU, 메모리, 네트워크 선점)도 가능합니다.
 
 #### 앱이 IIS 서버에서 실행되는 경우
 
@@ -191,7 +204,7 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 ## 가용성 웹 테스트
 
-[웹 테스트 설정][availability]으로 응용 프로그램의 라이브 상태 및 응답성을 외부에서 테스트할 수 있습니다.
+[웹 테스트를 설정][availability]하여 응용 프로그램의 라이브 상태 및 응답성을 외부에서 테스트할 수 있습니다.
 
 
 ![](./media/app-insights-asp-net/appinsights-10webtestresult.png)
@@ -235,4 +248,4 @@ ApplicationInsights.config에 대한 사용자 지정을 변경한 경우, 업�
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

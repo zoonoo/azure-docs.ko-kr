@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="정보 얻기: Azure AD 암호 관리 보고서 | Microsoft Azure" 
-	description="이 문서에서는 사용자의 조직에서 암호 관리 작업에 대한 정보를 얻기 위해 보고서를 사용하는 방법을 설명합니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+<properties
+	pageTitle="정보 얻기: Azure AD 암호 관리 보고서 | Microsoft Azure"
+	description="이 문서에서는 사용자의 조직에서 암호 관리 작업에 대한 정보를 얻기 위해 보고서를 사용하는 방법을 설명합니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # 암호 관리 보고서와 함께 Operational Insights를 얻는 방법
@@ -106,14 +106,14 @@
 ### 세부 정보 열에 대해 허용되는 값
 다음은 암호 재설정 활동 보고서를 사용하는 경우 예상할 수 있는 결과 형식 목록입니다.
 
-세부 정보 | 결과 형식 
+세부 정보 | 결과 형식
 ----|----
 사용자가 전자 메일 확인 옵션을 완료한 후 중단함 | Abandoned
-사용자가 모바일 SMS 확인 옵션을 완료한 후 중단함|Abandoned 
-사용자가 모바일 음성 통화 확인 옵션을 완료한 후 중단함 | Abandoned 
+사용자가 모바일 SMS 확인 옵션을 완료한 후 중단함|Abandoned
+사용자가 모바일 음성 통화 확인 옵션을 완료한 후 중단함 | Abandoned
 사용자가 사무실 음성 통화 확인 옵션을 완료한 후 중단함 | Abandoned
-사용자가 보안 질문 옵션을 완료한 후 중단함|Abandoned 
-사용자가 사용자 ID를 입력한 후 중단함| Abandoned 
+사용자가 보안 질문 옵션을 완료한 후 중단함|Abandoned
+사용자가 사용자 ID를 입력한 후 중단함| Abandoned
 사용자가 전자 메일 확인 옵션을 시작한 후 중단함|Abandoned
 사용자가 모바일 SMS 확인 옵션을 시작한 후 중단함|Abandoned
 사용자가 모바일 음성 통화 확인 옵션을 시작한 후 중단함|Abandoned
@@ -141,7 +141,7 @@
 온-프레미스 암호 재설정 서비스에 접근할 수 없습니다. 동기화 컴퓨터의 이벤트 로그를 확인합니다.|Failed
 사용자의 온-프레미스 암호를 재설정하는 중에 문제가 발생했습니다. 동기화 컴퓨터의 이벤트 로그를 확인합니다. | Failed
 이 사용자는 암호 재설정 사용자 그룹의 멤버가 아닙니다. 이를 해결하려면 해당 그룹에 이 사용자를 추가합니다.|Failed
-암호 재설정은 이 테넌트에 대해 완전히 비활성화되었습니다. 이를 해결하려면 [여기](http://aka.ms/ssprtroubleshoot)를 참조하세요. | Failed 
+암호 재설정은 이 테넌트에 대해 완전히 비활성화되었습니다. 이를 해결하려면 [여기](http://aka.ms/ssprtroubleshoot)를 참조하세요. | Failed
 사용자가 성공적으로 암호를 재설정함|Succeeded
 
 **추가 리소스**
@@ -162,6 +162,5 @@
 [001]: ./media/active-directory-passwords-get-insights/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-get-insights/002.jpg "Image_002.jpg"
 [003]: ./media/active-directory-passwords-get-insights/003.jpg "Image_003.jpg"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

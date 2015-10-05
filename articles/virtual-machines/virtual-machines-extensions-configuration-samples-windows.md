@@ -1,26 +1,29 @@
 <properties
-   pageTitle="Azure VM 확장에 대한 샘플 구성 | Microsoft Azure"
+   pageTitle="Windows VM 확장에 대한 샘플 구성 | Microsoft Azure"
    description="확장으로 템플릿 작성에 대한 샘플 구성"
    services="virtual-machines"
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
    ms.devlang="na"
    ms.topic="article"
-   ms.tgt_pltfrm="na"
+   ms.tgt_pltfrm="vm-windows"
    ms.workload="infrastructure-services"
    ms.date="09/01/2015"
    ms.author="kundanap"/>
 
 # Azure Windows VM 확장 구성 샘플
 
-이 문서에서는 Azure IaaS Windows VM에 대해 Azure VM 확장을 구성하기 위한 샘플 구성을 제공합니다.
+이 문서에서는 Windows VM에 대해 Azure VM 확장을 구성하기 위한 샘플 구성을 제공합니다.
 
-이러한 확장에 대해 자세히 알아보려면 [Azure VM 확장 개요](https://msdn.microsoft.com/library/azure/dn606311.aspx)를 클릭하세요.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+
+이러한 확장에 대해 자세히 알아보려면 [Azure VM 확장 개요](https://msdn.microsoft.com/library/azure/dn606311.aspx)를 클릭합니다.
 
 확장 템플릿 작성에 대해 자세히 알아보려면 [확장 템플릿 작성](virtual-machines-extensions-authoring-templates.md)을 클릭하세요.
 
@@ -302,4 +305,4 @@
 
 [Windows VM의 사용자 지정 스크립트 확장](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/201-list-storage-keys-windows-vm/azuredeploy.json/)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -1,21 +1,21 @@
 <properties
    pageTitle="Azure SQL 데이터베이스 보안 지침 및 제한 사항 | Microsoft Azure"
-	description="Microsoft Azure SQL 데이터베이스 지침 및 보안과 관련된 제한 사항을 알아봅니다."
-	services="sql-database"
-	documentationCenter=""
-	authors="BYHAM"
-	manager="jeffreyg"
-	editor=""
-	tags=""/>
+   description="Microsoft Azure SQL 데이터베이스 지침 및 보안과 관련된 제한 사항을 알아봅니다."
+   services="sql-database"
+   documentationCenter=""
+   authors="BYHAM"
+   manager="jeffreyg"
+   editor=""
+   tags=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-management"
-	ms.date="08/20/2015"
-	ms.author="rickbyh"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="data-management"
+   ms.date="08/20/2015"
+   ms.author="rickbyh"/>
 
 # Azure SQL 데이터베이스 보안 지침 및 제한 사항
 
@@ -45,9 +45,9 @@ SQLCMD이 SQL Server 2008부터 SQL 데이터베이스를 지원했지만 SQL Se
 
 ## 인증
 
-SQL 데이터베이스는 SQL Server 인증만 지원합니다. Windows 인증(통합 보안)은 지원하지 않습니다. 사용자는 SQL 데이터베이스에 연결할 때마다 자격 증명(로그인 및 암호)을 제공해야 합니다. SQL Server 인증에 대한 자세한 내용은 SQL Server 온라인 설명서에서 [인증 모드 선택](https://msdn.microsoft.com/library/ms144284.aspx)을 참조하세요.
+Active Directory 인증(통합된 보안)은 SQL 데이터베이스 V12에서 미리 보기로 사용할 수 있습니다. AD 인증 구성에 대한 자세한 내용은 [Azure Active Directory 인증을 사용하여 SQL 데이터베이스에 연결](sql-database-aad-authentication.md)을 참조하세요. 미리 보기를 사용하지 않는 경우 사용자는 SQL 데이터베이스에 연결할 때마다 자격 증명(로그인 및 암호)을 제공해야 합니다. SQL Server 인증에 대한 자세한 내용은 SQL Server 온라인 설명서에서 [인증 모드 선택](https://msdn.microsoft.com/library/ms144284.aspx)을 참조하세요.
 
-[SQL 데이터베이스 V12](sql-database-v12-whats-new.md)를 사용하면 사용자는 포함된 데이터베이스 사용자를 사용하여 데이터베이스에서 인증할 수 있습니다. 자세한 내용은[ 포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](https://msdn.microsoft.com/library/ff929188.aspx), [CREATE USER(Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx) 및 [포함된 데이터베이스](https://technet.microsoft.com/library/ff929071.aspx)를 참조하세요.
+[SQL 데이터베이스 V12](sql-database-v12-whats-new.md) 사용자를 사용하면 포함된 데이터베이스 사용자를 사용하여 데이터베이스에서 인증할 수 있습니다. 자세한 내용은[ 포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](https://msdn.microsoft.com/library/ff929188.aspx), [CREATE USER(Transact-SQL)](https://technet.microsoft.com/library/ms173463.aspx) 및 [포함된 데이터베이스](https://technet.microsoft.com/library/ff929071.aspx)를 참조하세요.
 
 > [AZURE.NOTE]Microsoft는 포함된 데이터베이스 사용자를 사용하여 확장성을 향상하는 것을 권장합니다.
 
@@ -111,4 +111,4 @@ GO
 
 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리](sql-database-manage-logins.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

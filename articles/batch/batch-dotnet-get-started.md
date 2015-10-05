@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-compute"
-	ms.date="07/21/2015"
+	ms.date="09/23/2015"
 	ms.author="yidingz"/>
 
 # .NET용 Azure 배치 라이브러리 시작(영문)  
@@ -205,14 +205,14 @@ Blob 저장소에 대한 자세한 내용은 [.NET에서 Blob 저장소를 사�
 
 2. Azure Batch 서비스에 대한 호출을 수행하는 데 필요한 자격 증명을 설정하는 Main에 다음 코드를 추가합니다.
 
-			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("https://[account-name].[region].batch.azure.com", "[account-name]", "[account-key]");
+			BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials("[account-url]", "[account-name]", "[account-key]");
 			BatchClient client = BatchClient.Open(cred);
 
-	다음 값을 바꿉니다.
+	대괄호로 묶인 값을 배치 계정과 관련된 값으로 바꿉니다. 각 값은 [Azure Preview 포털](https://portal.azure.com)에서 확인할 수 있습니다. 이러한 값을 찾으려면 [Azure Preview 포털](https://portal.azure.com)에 로그인하고 다음을 수행합니다.
 
-	- **[account-name]** - 이전에 만든 배치 계정의 이름으로 바꿉니다.
-	- **[region]** - 계정이 있는 지역으로 바꿉니다. 사용 가능한 지역을 찾으려면 [Azure 지역](http://azure.microsoft.com/regions/)을 참조하세요.
-	- **[account-key]** - 배치 계정의 기본 키로 바꿉니다.
+	- **[account-name]** - **배치 계정**을 클릭하고 이전에 만든 배치 계정을 선택합니다.
+	- **[account-url]** - 배치 계정 블레이드 내에서 **속성** > **URL**을 클릭합니다.
+	- **[account-key]** - 배치 계정 블레이드 내에서 **속성** > **키** > **기본 액세스 키**를 클릭합니다.
 
 3.	풀을 만드는 Program 클래스에 다음 메서드를 추가합니다.
 
@@ -339,7 +339,7 @@ Blob 저장소에 대한 자세한 내용은 [.NET에서 Blob 저장소를 사�
 		}
 
 
-	**[account-name]** - 이전에 만든 저장소 계정의 이름으로 바꿔야 합니다. 이전 예제에서 **[account-name]**의 네 인스턴스 모두를 업데이트합니다.
+	**[account-name]** - 이전에 만든 저장소 계정의 이름으로 바꿔야 합니다. 이전 예제에서 **[account-name]**의 네 인스턴스를 모두 업데이트합니다.
 
 
 2. 방금 추가한 메서드를 호출하는 Main에 다음 코드를 추가합니다.
@@ -495,4 +495,4 @@ Azure에서 리소스에 대한 요금이 부과되므로 리소스가 더 이�
 
 2. 일부 응용 프로그램은 많은 양의 데이터를 생성하여 처리하기가 어려울 수 있습니다. 이 문제를 해결하는 한 가지 방법은 [효율적인 목록 쿼리](batch-efficient-list-queries.md)를 사용하는 것입니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

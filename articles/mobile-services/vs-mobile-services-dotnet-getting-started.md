@@ -1,5 +1,5 @@
 <properties
-	pageTitle=""
+	pageTitle="Visual Studio .NET 모바일 서비스 프로젝트 시작하기(연결 서비스) | Microsoft Azure"
 	description="Visual Studio .NET 프로젝트에서 Azure 모바일 서비스를 시작하는 방법을 알아봅니다."
 	services="mobile-services"
 	documentationCenter=""
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vs-getting-started"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
-	ms.author="patshea123"/>
+	ms.date="09/17/2015" 
+	ms.author="patshea"/>
 
 # 모바일 서비스 시작(.NET 프로젝트)
 
@@ -85,4 +85,4 @@
 
 [모바일 서비스에 대한 자세한 정보](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

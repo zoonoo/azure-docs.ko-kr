@@ -1,6 +1,6 @@
 <properties
 	pageTitle="방법: 방화벽 설정 구성 | Microsoft Azure"
-	description="Azure SQL 데이터베이스에 액세스하는 IP 주소에 대한 방화벽을 구성합니다."
+	description="Azure SQL 데이터베이스에 액세스하는 IP 주소에 대한 방화벽을 구성하는 방법을 알아봅니다."
 	services="sql-database"
 	documentationCenter=""
 	authors="BYHAM"
@@ -23,7 +23,7 @@
 
 Microsoft Azure SQL 데이터베이스 서버와 데이터베이스에 대한 연결을 허용 하도록 방화벽 규칙을 사용 합니다. 선택적으로 데이터베이스에 대한 액세스를 허용 하도록 Azure SQL 데이터베이스 서버에서 master 데이터베이스 또는 사용자 데이터베이스에 대한 서버 수준 및 데이터베이스 수준 방화벽 설정을 정의할 수 있습니다.
 
-**중요** Azure에서 응용 프로그램 데이터베이스 서버에 연결할 수 있도록 Azure 연결을 설정 해야 합니다. 방화벽 규칙 및 Azure의 연결을 사용하도록 설정 하는 방법에 대한 자세한 내용은 [Azure SQL 데이터베이스 방화벽](sql-database-firewall-configure.md)을 참조하세요.
+> [AZURE.IMPORTANT]Azure에서 응용 프로그램 데이터베이스 서버에 연결할 수 있게 하려면 Azure 연결을 사용하도록 설정해야 합니다. 방화벽 규칙 및 Azure에 연결할 수 있도록 설정하는 방법에 대한 자세한 내용은 [Azure SQL 데이터베이스 방화벽](sql-database-firewall-configure.md)을 참조하세요. Azure 클라우드 경계 내에서 연결하는 경우 일부 TCP 포트를 추가로 열어야 할 수도 있습니다. 자세한 내용은 [ADO.NET 4.5 및 SQL 데이터베이스 V12에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)의 **SQL 데이터베이스의 V12: 내부 vs 외부** 섹션을 참조하세요.
 
 
 ## 서버 수준 방화벽 규칙
@@ -47,7 +47,7 @@ Microsoft Azure SQL 데이터베이스 서버와 데이터베이스에 대한 �
 	*  추가 IP 주소를 추가 하려면 규칙 이름, 시작 IP 주소 및 끝 IP 주소를 입력 합니다.
 	*  기존 규칙을 수정 하려면 규칙의 필드 중 하나를 클릭 후 변경 합니다.
 	*  기존 규칙을 삭제 하려면 행의 끝에서 X가 나타날 때까지 규칙 위로 가져갑니다. 규칙을 제거 하려면 X를 클릭 합니다.
-5. 변경 내용을 저장하려면 페이지 아래쪽에서 **저장**을 클릭합니다.
+5. 변경 내용을 저장하려면 페이지 맨 아래에서 **저장**을 클릭합니다.
 
 ## Transact-SQL을 통해 서버 수준 방화벽 규칙 관리
 
@@ -67,7 +67,7 @@ Microsoft Azure SQL 데이터베이스 서버와 데이터베이스에 대한 �
  
 		EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
  
-## 서버 수준 방화벽 규칙을 통해 서버 수준 방화벽 규칙 관리
+## Azure PowerShell을 통해 서버 수준 방화벽 규칙 관리
 1. Azure PowerShell을 시작합니다.
 2. Azure PowerShell을 사용하여 서버 수준 방화벽 규칙을 생성, 업데이트, 삭제할 수 있습니다. 
 
@@ -83,7 +83,7 @@ Microsoft Azure SQL 데이터베이스 서버와 데이터베이스에 대한 �
 
 		Remove-AzureSqlDatabaseServerFirewallRule –RuleName ContosoFirewallRule –ServerName Contoso
  
-## REST API 통해 서버 수준 방화벽 규칙 관리
+## REST API를 통해 서버 수준 방화벽 규칙 관리
 1. 관리 인증된 REST API를 통해 방화벽 규칙 관리하기. 더 자세한 정보는 관리인증 서비스 관리 요청을 참조합니다.
 2. REST API를 사용하여 서버 수준 규칙을 생성, 업데이트, 삭제 할 수 있습니다.
 
@@ -141,4 +141,4 @@ Microsoft Azure SQL 데이터베이스 서버와 데이터베이스에 대한 �
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

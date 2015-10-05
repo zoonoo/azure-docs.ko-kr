@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="" 
+	pageTitle="Visual Studio 연결 서비스를 사용하여 Javascript 앱에 모바일 서비스를 추가할 경우 발생하는 상황" 
 	description="Visual Studio에서 Azure 모바일 서비스 프로젝트의 변경 사항을 설명합니다." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="07/02/2015" 
 	ms.author="patshea"/>
 
-# 내 프로젝트에서 무엇이 변경되었습니까?
+# 연결 서비스를 사용하여 모바일 서비스를 추가하면 내 Visual Studio Azure Javascript 프로젝트는 어떻게 되나요?
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-mobile-services-javascript-getting-started.md)
@@ -46,4 +46,4 @@
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -4,8 +4,8 @@
 	services="app-service\api"
 	documentationCenter="nodejs"
 	authors="pkefal"
-	manager=""
-	editor=""/>
+  manager="" 
+  editor=""/>
 
 <tags
 	ms.service="app-service-api"
@@ -18,13 +18,19 @@
 
 # Azure 앱 서비스에서 Node.js API 앱 빌드 및 배포
 
+> [AZURE.SELECTOR]
+- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
+- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+- [Node.js](app-service-api-nodejs-api-app.md)
+- [Java](app-service-api-java-api-app.md)
+
 이 자습서에서는 [Node.js](http://nodejs.org) 응용 프로그램을 만들고 [Git](http://git-scm.com)를 사용하여 Azure 앱 서비스 API 앱에 배포하는 방법을 보여 줍니다. 이 자습서의 지침은 Node를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다.
 
 아래 스크린샷은 완성된 응용 프로그램을 보여 줍니다.
 
 ![][sample-api-app-page]
 
-> [AZURE.NOTE]또한 Azure 앱 서비스에서 Node.js API 앱을 빌드하고 배포하기 위해 Visual Studio 코드를 사용할 수 있습니다. Visual Studio 코드 및 Node.js에 대한 자세한 내용은 [Visual Studio 코드](http://code.visualstudio.com/Docs/) 및 [노드 응용 프로그램 개발](http://code.visualstudio.com//Docs/nodejs)을 참조하세요.
+> [AZURE.NOTE]또한 Azure 앱 서비스에서 Node.js API 앱을 빌드하고 배포하기 위해 Visual Studio 코드를 사용할 수 있습니다. Visual Studio 코드 및 Node.js에 대한 자세한 내용은 [Visual Studio 코드](http://code.visualstudio.com/Docs/) 및 [노드 응용 프로그램 개발](http://code.visualstudio.com//Docs/nodejs)을 참조하십시오.
 
 ## Azure Preview 포털에서 API 앱 만들기
 
@@ -243,4 +249,4 @@ API 앱 백 엔드를 사용하는 Node.js 웹 응용 프로그램을 Azure에 �
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

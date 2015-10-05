@@ -3,7 +3,7 @@
 	description="Java 코드에서 Azure SQL 데이터베이스를 사용하는 방법에 대해 알아봅니다." 
 	services="sql-database" 
 	documentationCenter="java" 
-	authors="rmcmurray" 
+	authors="MightyPen" 
 	manager="jeffreyg" 
 	editor="jimbe"/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
-	ms.author="robmcm"/>
+	ms.date="09/22/2015" 
+	ms.author="genemi"/>
 
 # Java에서 Azure SQL 데이터베이스를 사용하는 방법
 
@@ -698,6 +698,8 @@ Azure 배포 내 Java에서 SQL 데이터베이스를 사용하려면, 위에 �
 
 Microsoft JDBC Driver for SQL Server에 대한 자세한 내용은 [JDBC 드라이버 개요](http://msdn.microsoft.com/library/ms378749.aspx)(영문)를 참조하세요. SQL 데이터베이스에 대한 자세한 내용은 [SQL 데이터베이스 개요](http://msdn.microsoft.com/library/windowsazure/ee336241.aspx)(영문)를 참조하세요.
 
+자세한 내용은 [Java개발자 센터](/develop/java/)를 참조하세요.
+
 [Concepts]: #concepts
 [Prerequisites]: #prerequisites
 [Creating an Azure SQL Database]: #create_db
@@ -726,4 +728,4 @@ Microsoft JDBC Driver for SQL Server에 대한 자세한 내용은 [JDBC 드라�
 [allowed_ips_dialog]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

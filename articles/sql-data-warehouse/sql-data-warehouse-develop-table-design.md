@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # SQL 데이터 웨어하우스의 테이블 디자인 #
@@ -123,8 +123,8 @@ OR  y.[is_user_defined] = 1
 
 SQL 데이터 웨어하우스에 데이터를 배포하는 두 가지 선택 방법이 있습니다.
 
-1. 단일 열에서 해싱 값을 기본으로 하는 데이터 배포
-2. 데이터를 균등하지만 임의로 배포  
+1. 데이터를 균등하지만 임의로 배포 
+2. 단일 열에서 해싱 값을 기본으로 하는 데이터 배포
 
 데이터 분포는 테이블 수준에서 결정됩니다. 모든 테이블이 분포됩니다. SQL 데이터 웨어하우스 데이터베이스의 각 테이블에 대한 분포를 할당합니다.
 
@@ -306,4 +306,4 @@ SQL 데이터 웨어하우스는 이 기능을 사용하지 않거나 지원하�
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

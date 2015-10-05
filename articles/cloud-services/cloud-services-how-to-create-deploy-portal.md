@@ -1,6 +1,6 @@
 <properties
-	pageTitle="클라우드 서비스를 만들고 배포하는 방법 | Microsoft Azure"
-	description="Azure에서 빨리 만들기 방법을 사용하여 클라우드 서비스를 만들고 배포하는 방법에 대해 알아봅니다."
+	pageTitle="클라우드 서비스를 만들고 배포하는 방법(Preview 포털) | Microsoft Azure"
+	description="Azure에서 빨리 만들기 방법을 사용하여 클라우드 서비스를 만들고 배포하는 방법에 대해 알아봅니다. 이러한 예제는 Azure Preview 포털을 사용합니다."
 	services="cloud-services"
 	documentationCenter=""
 	authors="Thraka"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -107,4 +107,11 @@ Azure에서 응용 프로그램을 클라우드 서비스로 배포하려면 다
 
 [TFSTutorialForCloudService]: http://go.microsoft.com/fwlink/?LinkID=251796&clcid=0x409
 
-<!---HONumber=August15_HO8-->
+## 다음 단계
+
+* [클라우드 서비스의 일반 구성](cloud-services-how-to-configure-portal.md)
+* [사용자 지정 도메인 이름](cloud-services-custom-domain-name-portal.md)을 구성합니다.
+* [클라우드 서비스를 관리합니다](cloud-services-how-to-manage-portal.md).
+* [SSL 인증서](cloud-services-configure-ssl-certificate-portal.md)를 구성합니다.
+
+<!---HONumber=Sept15_HO4-->

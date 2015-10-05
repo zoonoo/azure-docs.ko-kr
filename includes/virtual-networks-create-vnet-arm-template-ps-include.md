@@ -13,7 +13,7 @@ PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 
 	>[AZURE.WARNING]Switch-AzureMode cmdlet은 곧 더 이상 사용되지 않습니다. 이 경우 모든 리소스 관리자 cmdlet의 이름이 바뀝니다.
 
-3. 필요한 경우 **New-AzureResourceGroup** cmdlet을 실행하여 새 리소스 그룹을 만듭니다. 아래 명령은 *미국 중부* Azure 지역에서 *TestRG*라는 리소스 그룹을 만듭니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md/#resource-groups)를 참조하세요.
+3. 필요한 경우 **New-AzureResourceGroup** cmdlet을 실행하여 새 리소스 그룹을 만듭니다. 아래 명령은 *미국 중부* Azure 지역에서 *TestRG*라는 리소스 그룹을 만듭니다. 리소스 그룹에 대한 자세한 내용은 [Azure 리소스 관리자 개요](resource-group-overview.md)를 참조하세요.
 
 		New-AzureResourceGroup -Name TestRG -Location centralus
 		
@@ -101,4 +101,4 @@ PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 		                      }
 		                    ]
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

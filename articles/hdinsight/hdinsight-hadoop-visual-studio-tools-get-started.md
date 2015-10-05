@@ -15,7 +15,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="09/03/2015"
+	ms.date="09/21/2015"
 	ms.author="jgao"/>
 
 # HDInsight용 Visual Studio Hadoop 도구를 사용하여 Hive 쿼리 실행 시작
@@ -35,7 +35,6 @@ Visual Studio용 HDInsight 도구를 사용하여 HDInsight 클러스터에 연�
 
 	- Windows 8.1, Windows 8 또는 Windows 7
 	- Visual Studio(다음 버전 중 하나)
-		- Visual Studio 2012 Professional/Premium/Ultimate [업데이트 4](http://www.microsoft.com/download/details.aspx?id=39305)
 		- Visual Studio 2013 Community/Professional/Premium/Ultimate [업데이트 4](https://www.microsoft.com/download/details.aspx?id=44921)
 		- Visual Studio 2015(Community/Enterprise)
 
@@ -44,12 +43,14 @@ Visual Studio용 HDInsight 도구를 사용하여 HDInsight 클러스터에 연�
 
 ## Visual Studio용 HDInsight 도구 설치
 
-Visual Studio용 HDInsight 도구는 Microsoft Azure SDK for .NET 버전 2.5.1 이상과 함께 제공됩니다. [웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/?LinkId=255386)를 사용하여 설치할 수 있습니다. 사용 중인 Visual Studio 버전과 일치하는 버전을 선택해야 합니다. 이 Hadoop 도구 패키지는 Microsoft Hive ODBC 드라이버(32비트 및 64비트)도 설치합니다.
+Visual Studio용 HDInsight 도구 및 Microsoft Hive ODBC 드라이버는 Microsoft Azure SDK for .NET 버전 2.5.1 이상과 함께 제공됩니다. [웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/?LinkId=255386)를 사용하여 설치할 수 있습니다. 사용 중인 Visual Studio 버전과 일치하는 버전을 선택해야 합니다. Visual Studio가 설치되어 있지 않은 경우 [웹 플랫폼 설치 관리자](http://go.microsoft.com/fwlink/?LinkId=255386) 또는 다음 링크를 사용하여 최신 Visual Studio Community 및 Azure SDK를 설치할 수 있습니다.
+
+- [Visual Studio Community 2015 및 Microsoft Azure SDK](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2015CommunityAzurePack.appids) 
+- [Visual Studio Community 2013 및 Microsoft Azure SDK](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VS2013CommunityAzurePack.appids) 
+- [Microsoft Azure SDK for .NET(VS 2015)](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2015AzurePack.appids) 
+- [Microsoft Azure SDK for .NET(VS 2013)](https://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/VWDOrVs2013AzurePack.appids) 
 
 ![Hadoop 도구: Visual Studio용 HDInsight 도구 웹 플랫폼 설치 관리자][1]
-
-
->[AZURE.NOTE]Visual Studio 2015 또는 2012가 있고 Azure SDK 2.5를 설치한 경우 최신 버전을 설치하기 전에 이전 버전을 수동으로 제거해야 합니다. Visual Studio 2013은 직접 업데이트를 지원합니다.
 
 ## Azure 구독에 연결
 Visual Studio용 HDInsight 도구를 사용하면 HDInsight 클러스터에 연결하고, 기본적인 관리 작업을 수행하고, Hive 쿼리를 실행할 수 있습니다.
@@ -89,7 +90,7 @@ Azure 구독에 연결한 후에는 다음을 수행할 수 있습니다.
 ![Visual Studio용 HDInsight 도구 서버 탐색기 클러스터 목록][2]
 
 ## HIVE 쿼리 실행
-[Apache Hive][apache.hive]는 Hadoop을 기반으로 하는 데이터 웨어하우스 인프라로, 데이터 요약, 쿼리 및 분석 기능을 제공합니다. Visual Studio용 HDInsight 도구를 사용하면 Visual Studio에서 Hive 쿼리를 실행할 수 있습니다. Hive에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용][hdinsight.hive]을 참조하십시오.
+[Apache Hive][apache.hive]는 Hadoop을 기반으로 하는 데이터 웨어하우스 인프라로, 데이터 요약, 쿼리 및 분석 기능을 제공합니다. Visual Studio용 HDInsight 도구를 사용하면 Visual Studio에서 Hive 쿼리를 실행할 수 있습니다. Hive에 대한 자세한 내용은 [HDInsight와 함께 Hive 사용][hdinsight.hive]을 참조하세요.
 
 HDInsight 클러스터에 대해 Hive 스크립트를 테스트하려면 많은 시간이 걸립니다. 몇 분 이상 걸릴 수 있습니다. Visual Studio용 HDInsight 도구는 로컬로 라이브 클러스터에 연결하지 않고 Hive 스크립트의 유효성 검사를 할 수 있습니다.
 
@@ -181,7 +182,7 @@ Hive 작업에 대한 작업 쿼리, 작업 출력, 작업 로그 및 Yarn 로�
 
 ### Tez Hive 작업 성능 그래프
 
-HDInsight Visual Studio Tools는 Tez 실행 엔진이 실행한 Hive 작업에 대한 성능 그래프를 보여 줍니다. Tez 사용에 대한 정보는 [HDInsight의 Hive 사용][hdinsight.hive]을 참조하세요. Visual Studio에서 Hive 작업을 제출하면 Visual Studio가 작업이 완료될 때 그래프를 보여줍니다. 최신 작업 상태를 가져오려면 **새로 고침** 단추를 클릭해야 할 수 있습니다.
+HDInsight Visual Studio Tools는 Tez 실행 엔진이 실행한 Hive 작업에 대한 성능 그래프를 보여 줍니다. Tez를 사용하도록 설정하는 방법에 대한 자세한 내용은 [HDInsight에서 Hive 사용][hdinsight.hive]을 참조하세요. Visual Studio에서 Hive 작업을 제출하면 Visual Studio가 작업이 완료될 때 그래프를 보여줍니다. 최신 작업 상태를 가져오기 위해 **새로 고침** 단추를 클릭해야 할 수도 있습니다.
 
 > [AZURE.NOTE]이 기능은 HDInsight 클러스터의 3.2.4.593 상위 버전에서만 사용할 수 있으며 완료된 작업에 대해서만 동작할 수 있습니다. Windows 및 Linux 기반 클러스터 모두에 대해 동작합니다.
 
@@ -236,4 +237,4 @@ Visual Studio용 HDInsight 도구는 Pig 스크립트를 만들어 HDInsight 클
 
 [apache.hive]: http://hive.apache.org
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

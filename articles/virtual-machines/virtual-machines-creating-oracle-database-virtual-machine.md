@@ -1,6 +1,24 @@
-<properties pageTitle="Azure에서 Oracle 데이터베이스 가상 컴퓨터 만들기" description="Microsoft Azure에서 Oracle 가상 컴퓨터를 만들고 Oracle 데이터베이스를 만드는 예를 단계별로 설명합니다." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
-#Azure에서 Oracle 데이터베이스 가상 컴퓨터 만들기
+<properties 
+	pageTitle="Azure 포털을 사용하여 Oracle 데이터베이스 VM 만들기 | Microsoft Azure" 
+	description="클래식 배포 모델 및 Azure 미리 보기 포털을 통해 Oracle 데이터베이스를 사용하여 가상 컴퓨터를 만드는 방법에 알아봅니다." 
+	services="virtual-machines" 
+	authors="bbenz" 
+	documentationCenter=""
+	tags="azure-service-management"/>
+	
+<tags 
+	ms.service="virtual-machines" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="Windows" 
+	ms.workload="infrastructure-services" 
+	ms.date="06/22/2015" 
+	ms.author="bbenz" />
+	
+#Azure에서 Oracle 데이터베이스 가상 컴퓨터를 만들기
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+
 다음 예제에서는 Azure에서 Windows Server 2012에서 실행되는 Microsoft에서 제공한 Oracle 데이터베이스 이미지에 따라 가상 컴퓨터(VM)를 만드는 방법을 보여줍니다. 두 단계가 있습니다. 먼저 VM을 만들고 VM 내에서 Oracle 데이터베이스를 만듭니다. 표시된 예제는 Oracle 데이터베이스 버전 12c지만 해당 단계는 버전 11g와 거의 동일합니다.
 
 ##Azure에서 Oracle 데이터베이스 VM 만들기
@@ -23,9 +41,9 @@
 
 	a. VM 이름으로 새 저장소 계정을 만들려면 **저장소 계정**을 그대로 둡니다.
 
-	b. **가용성 집합**을 "구성되지 않음"으로 둡니다.
+	b. **가용성 집합**을 “구성되지 않음“으로 둡니다.
 
-	c. 이때 **끝점**을 추가하지 마세요.
+	c. 이때 모든 **끝점**을 추가하지 마십시오.
 
 9.	리소스 그룹을 선택하거나 만듭니다.
 
@@ -44,29 +62,29 @@
 
 3.	로그인할 VM의 이름을 클릭합니다.
 
-4.	**연결**을 클릭합니다.
+4.	**Connect**를 클릭합니다.
 
 5.	VM에 연결해야 한다는 메시지에 응답합니다. 관리자 이름 및 암호를 묻는 메시지가 표시되면 VM를 만들 때 제공한 값을 사용하십시오.
 
 6.	VM의 컴퓨터 이름으로 설정된 해당 값으로 **ORACLE\_HOSTNAME**이라는 환경 변수를 만듭니다. 다음 단계를 이용하여 환경 변수를 만들 수 있습니다.
 
-	a.	Windows에서 **시작**을 클릭하고 **제어판**을 입력하여 **제어판** 아이콘, **시스템 및 보안**, **시스템**, **고급 시스템 설정**을 차례로 클릭합니다.
+	a. Windows에서 **시작**을 클릭하고 **제어판**을 입력하여 **제어판** 아이콘, **시스템 및 보안**, **시스템**, **고급 시스템 설정**을 차례로 클릭합니다.
 
-	b.	**고급** 탭을 클릭한 다음 **환경 변수**를 클릭합니다.
+	b. **고급** 탭을 클릭한 다음 **환경 변수**를 클릭합니다.
 
-	c.	**시스템 변수** 섹션에서 **새로 만들기**를 클릭하여 변수를 만듭니다.
+	c. **시스템 변수** 섹션에서 **새로 만들기**를 클릭하여 변수를 만듭니다.
 
-	d.	**새 시스템 변수** 대화 상자에서 변수 이름에 **ORACLE\_HOSTNAME**을 입력하고 값으로 VM의 컴퓨터 이름을 입력합니다. 컴퓨터 이름을 확인하려면 명령 프롬프트를 열고 **SET COMPUTERNAME**을 실행합니다(해당 명령의 출력에는 컴퓨터 이름이 포함됨).
+	d. **새 시스템 변수** 대화 상자에서 변수 이름에 **ORACLE\_HOSTNAME**을 입력하고 값으로 VM의 컴퓨터 이름을 입력합니다. 컴퓨터 이름을 확인하려면 명령 프롬프트를 열고 **SET COMPUTERNAME**을 실행합니다(해당 명령의 출력에는 컴퓨터 이름이 포함됨).
 
-	e.	**확인**을 클릭하여 새 환경 변수를 저장하고 **새 시스템 변수** 대화 상자를 닫습니다.
+	e. **확인**을 클릭하여 새 환경 변수를 저장하고 **새 시스템 변수** 대화 상자를 닫습니다.
 
-	f.	제어판에서 열려 있던 다른 대화 상자를 닫습니다.
+	f. 제어판에서 열려 있던 다른 대화 상자를 닫습니다.
 
 7.	Windows에서 **시작**을 클릭한 다음 **데이터베이스 구성 도우미**를 입력합니다. **데이터베이스 구성 도우미** 아이콘을 클릭합니다.
 
 8.	**데이터베이스 구성 도우미** 마법사에서 각 대화 상자 단계마다 필요한 값을 제공합니다.
 
-	a.	**1단계:** **데이터베이스 만들기**를 클릭하고 **다음**을 클릭합니다.
+	a. **1단계:** **데이터베이스 만들기**를 클릭하고 **다음**을 클릭합니다.
 
 		![](media/virtual-machines-creating-oracle-database-virtual-machine/image5.png)
 
@@ -110,7 +128,7 @@
 
 		**lsnrctl start**
 
-> [AZURE.NOTE] **lsnrctl 상태**를 실행하여 수신기의 상태를 확인할 수 있습니다. 수신기를 종료하려는 경우 **lsnrctl 중지**를 실행합니다.
+> [AZURE.NOTE]**lsnrctl 상태**를 실행하여 수신기의 상태를 확인할 수 있습니다. 수신기를 종료하려는 경우 **lsnrctl 중지**를 실행합니다.
 
 ### 가상 컴퓨터의 방화벽에서 1521 포트 열기
 
@@ -159,7 +177,7 @@
 ##Oracle 데이터베이스 엔터프라이즈 관리자의 원격 액세스를 사용하도록 설정
 Oracle 데이터베이스 엔터프라이즈 관리자에 대한 원격 액세스를 사용하도록 설정하려는 경우, 방화벽에서 5500 포트를 열고 Azure 포털에서 5500에 대한 가상 컴퓨터 끝점을 만듭니다(1521 포트를 열고 1521에 대한 끝점을 만들기 위해 이전의 단계 사용). 그런 다음 원격 컴퓨터에서 Oracle 엔터프라이즈 관리자를 실행하기 위해 `http://<<unique_domain_name>>:5500/em`의 양식에 URL로 브라우저를 엽니다.
 
-> [AZURE.NOTE] **가상 컴퓨터**를 클릭한 다음 Oracle 데이터베이스를 실행하기 위해 사용 중인 가상 컴퓨터를 선택하여 [Azure 포털](https://ms.portal.azure.com/) 내에서 *\<\<unique\_domain\_name\>\>* 에 대한 값을 확인할 수 있습니다.
+> [AZURE.NOTE]**가상 컴퓨터**를 클릭한 다음 Oracle 데이터베이스를 실행하기 위해 사용 중인 가상 컴퓨터를 선택하여 [Azure 포털](https://ms.portal.azure.com/) 내에서 *<<unique\_domain\_name>>*에 대한 값을 확인할 수 있습니다.
 
 ##가장 많이 사용하는 옵션 및 고급 옵션 번들 구성
 **인기있는 옵션이 탑재된 Oracle 데이터베이스** 또는 **고급 옵션이 탑재된 Oracle 데이터베이스**을 선택한 경우, 다음 단계는 Oracle 설치에서 추가 기능을 구성하는 것입니다. 각각의 개별 구성 요소의 필요에 따라 구성이 다양할 수 있기 때문에 Windows에서의 설정을 위한 지침은 Oracle 설명서를 참조합니다.
@@ -181,4 +199,4 @@ Oracle 데이터베이스 엔터프라이즈 관리자에 대한 원격 액세�
 
 -	[Oracle 데이터베이스 2일 DBA 12c 릴리스 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

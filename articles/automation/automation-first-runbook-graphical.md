@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="08/13/2015"
+	ms.date="09/17/2015"
 	ms.author="bwren"/>
 
 
@@ -21,9 +21,9 @@
 
 > [AZURE.SELECTOR]
 - [Graphical](automation-first-runbook-graphical.md)
-- [Textual](automation-first-runbook-textual.md)
+- [PowerShell Workflow](automation-first-runbook-textual.md)
 
-이 자습서는 Azure 자동화에서 [그래픽 Runbook](automation-graphical-authoring-intro.md)을 만드는 과정을 안내합니다. 런북 작업의 상태를 추적하는 방법을 설명하는 동안 테스트하고 게시할 단순한 런북부터 시작하겠습니다. 그 다음, 런북을 실제로 Azure 리소스 관리를 통해 수정합니다. 이 경우에는 Azure 가상 컴퓨터를 가동합니다. 그리고 runbook 매개 변수 및 조건부 링크를 추가하여 runbook을 더욱 강력히 만듭니다.
+이 자습서는 Azure 자동화에서 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks)을 만드는 과정을 안내합니다. 런북 작업의 상태를 추적하는 방법을 설명하는 동안 테스트하고 게시할 단순한 런북부터 시작하겠습니다. 그 다음, 런북을 실제로 Azure 리소스 관리를 통해 수정합니다. 이 경우에는 Azure 가상 컴퓨터를 가동합니다. 그리고 runbook 매개 변수 및 조건부 링크를 추가하여 runbook을 더욱 강력히 만듭니다.
 
 ## 필수 조건
 
@@ -76,7 +76,7 @@
 
 1. **게시**를 클릭하여 Runbook을 게시한 다음 확인 메시지가 표시되면 **예**를 클릭합니다.<br>![게시](media/automation-first-runbook-graphical/runbook-edit-toolbar-publish.png)
 2. **Runbook** 창의 Runbook을 보기 위해 왼쪽으로 스크롤하면 **작성 상태**가 **게시됨**으로 표시됩니다.
-3. 오른쪽으로 다시 스크롤하면 **MyFirstRunbook** 창이 표시됩니다. 위쪽에 표시되는 옵션을 사용하여 Runbook을 시작하거나, 미래의 특정 시간에 시작하도록 예약하거나, [webhook](automation-webhooks.md)을 생성하여 HTTP 호출을 통해 시작할 수 있게 할 수 있습니다. 
+3. 오른쪽으로 다시 스크롤하면 **MyFirstRunbook** 창이 표시됩니다. 위쪽에 표시되는 옵션을 사용하여 Runbook을 시작하거나, 미래의 특정 시간에 시작하도록 예약하거나, [webhook](automation-webhooks.md)을 생성하여 HTTP 호출을 통해 시작할 수 있습니다. 
 4. 여기서는 Runbook을 시작하기만 하면 되므로 **시작**을 클릭하고 확인 메시지가 표시되면 **예**를 클릭합니다.<br>![Runbook 시작](media/automation-first-runbook-graphical/runbook-toolbar-start.png)
 5. 우리가 방금 만들었던 runbook작업에 대한 작업 창이 열립니다. 창을 닫을 수 있지만, 이 경우에는 작업의 진행 상황을 보기 위해 열어둡니다.
 6.  작업 상태가 **작업 요약**에 표시되며 Runbook을 테스트할 때의 상태와 일치합니다.<br>![작업 요약](media/automation-first-runbook-graphical/job-pane-summary.png)
@@ -165,8 +165,8 @@
 ## 관련된 문서
 
 - [Azure 자동화에서 그래픽 작성](automation-graphical-authoring-intro.md)
-- [내 첫 번째 텍스트 Runbook](automation-first-runbook-textual.md)
+- [내 첫 번째 PowerShell 워크플로 Runbook](automation-first-runbook-textual.md)
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

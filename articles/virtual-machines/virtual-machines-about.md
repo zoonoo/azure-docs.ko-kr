@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 가상 컴퓨터 정보"
+	pageTitle="Azure 가상 컴퓨터 정보 | Microsoft Azure"
 	description="Azure에서 가상 컴퓨터의 기본 사항에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,7 +17,9 @@
 	ms.date="07/14/2015"
 	ms.author="cynthn"/>
 
-#Azure 가상 컴퓨터 정보
+#두 배포 모델을 사용하여 만든 Azure 가상 컴퓨터 정보
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델 및 클래식 배포 모델을 사용하여 만든 리소스에 대해 설명합니다.
 
 Azure 가상 컴퓨터는 Azure가 제공하는 여러 유형의 확장성 있는 주문형 컴퓨팅 리소스 중 하나입니다. 일반적으로 다른 선택 항목을 제공하기 보다 계산 환경을 통해 더 많이 제어해야 하는 경우 다른 옵션 대신 가상 컴퓨터를 선택합니다.
 
@@ -41,12 +43,12 @@ Azure 가상 컴퓨터는 Azure가 제공하는 여러 유형의 확장성 있�
 
 [Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-choices-create-vm.md)
 
-Azure 가상 컴퓨터에 대해 처음 알아보기 시작한 경우 [질문과 대답](virtual-machines-questions.md)도 확인해야 합니다.
+Azure 가상 컴퓨터에 대해 잘 모르는 경우 [질문과 대답](virtual-machines-questions.md)도 확인해야 합니다.
 
 
 <!--links-->
-[앱 서비스]: app-service-choose-me.md
-[가상 컴퓨터]: #tellmevm
-[클라우드 서비스]: cloud-services-choose-me.md
+[App Service]: app-service-choose-me.md
+[Virtual Machines]: #tellmevm
+[Cloud Services]: cloud-services-choose-me.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

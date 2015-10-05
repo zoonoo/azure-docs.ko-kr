@@ -1,29 +1,31 @@
 <properties 
-	pageTitle="Data Factory - Data Factory 및 기계 학습을 사용하여 예측 파이프라인 만들기 | Microsoft Azure"
-	description="Azure Data Factory 및 Azure 기계 학습을 사용하여 예측 파이프라인을 만드는 방법을 설명합니다."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Data Factory - Data Factory 및 기계 학습을 사용하여 예측 파이프라인 만들기 | Microsoft Azure" 
+	description="Azure Data Factory 및 Azure 기계 학습을 사용하여 예측 파이프라인을 만드는 방법을 설명합니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/04/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory 및 Azure 기계 학습을 사용하여 예측 파이프라인 만들기 
 ## 개요
 
+> [AZURE.NOTE]새 기계 학습 배치 실행 활동에 대한 자세한 내용은 이 문서보다 더 유연하게 배치 평가 활동을 제공하는 [Azure 기계 학습 배치 실행 작업을 사용하여 예측 파이프라인 만들기](data-factory-azure-ml-batch-execution-activity.md)를 참조하세요.
+
 Azure 데이터 팩터리를 사용하면 예측 분석을 위해 게시된 [Azure 기계 학습][azure-machine-learning] 웹 서비스를 활용하는 파이프라인을 쉽게 만들 수 있습니다. 그러면 Azure 데이터 팩터리를 사용 하여 데이터 이동 및 처리를 오케스트레이션한 다음 Azure 기계 학습을 사용하는 일괄 처리를 수행할 수 있습니다. 이를 위해 다음을 수행해야 합니다.
 
 1. **AzureMLBatchScoring** 활동을 사용합니다.
-2. 일괄 처리 실행 API에 대한 **요청 URI**입니다. 웹 서비스 페이지(아래 참조)에서 **일괄 처리 실행** 링크를 클릭하여 요청 URI를 찾을 수 있습니다.
-3. 게시된 기계 학습 웹 서비스를 위한 **API 키** 게시한 웹 서비스를 클릭하여 이 정보를 찾을 수 있습니다. 
+2. 배치 실행 API에 대한 **요청 URI**. 웹 서비스 페이지(아래 참조)에서 **배치 실행** 링크를 클릭하여 요청 URI를 찾을 수 있습니다.
+3. 게시된 기계 학습 웹 서비스를 위한 **API 키**. 게시한 웹 서비스를 클릭하여 이 정보를 찾을 수 있습니다. 
 
 	![기계 학습 대시보드][machine-learning-dashboard]
 
@@ -198,7 +200,7 @@ ADF(Azure Data Factory) 파이프라인에서 게시된 Azure 기계 학습 웹 
 
 	"typeProperties": {
     	"webServiceParameters": {
-    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \'{0:yyyy-MM-dd HH:mm:ss}\'', Time.AddHours(WindowStart, 0))"
+    	   "Database query": "$$Text.Format('SELECT * FROM myTable WHERE timeColumn = \\'{0:yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(WindowStart, 0))"
     	}
   	}
  
@@ -228,7 +230,7 @@ Azure SQL 판독기와 마찬가지로, Azure SQL 기록기의 속성도 웹 서
 
 | 출력/입력 | 입력이 Azure SQL임 | 입력이 Azure Blob임 |
 | ------------ | ------------------ | ------------------- |
-| 출력이 Azure SQL임 | <p>데이터 팩터리 서비스는 입력 연결된 서비스의 연결 문자열 정보를 사용하여 "Database server name", "Database name", "Server user account name", "Server user account password"라는 이름으로 웹 서비스 매개 변수를 생성합니다. Azure 기계 학습 스튜디오에서는 웹 서비스 매개 변수에 이러한 기본 이름을 사용해야 합니다.</p><p>Azure 기계 학습 모델의 Azure SQL 판독기 및 Azure SQL 기록기가 위에서 언급한 동일한 웹 서비스 매개 변수를 공유하는 경우 아무 문제도 없습니다. 동일한 웹 서비스 매개 변수를 공유하지 않는 경우, 예를 들어 Azure SQL 기록기가 매개 변수 이름으로 Database server name1, Database name1, Server user account name1, Server user account password1(끝에 '1' 포함)을 사용하는 경우 작업 JSON의 webServiceParameters 섹션에서 이러한 출력 웹 서비스 매개 변수의 값을 전달해야 합니다.</p><p>작업 JSON의 webServiceParameters 섹션을 사용하여 다른 웹 서비스 매개 변수에 대한 값을 전달할 수 있습니다.</p> | <p>데이터 팩터리 서비스는 출력 연결된 서비스의 연결 문자열 정보를 사용하여 "Database server name", "Database name", "Server user account name", "Server user account password"라는 이름으로 웹 서비스 매개 변수를 생성합니다. Azure 기계 학습 스튜디오에서는 웹 서비스 매개 변수에 이러한 기본 이름을 사용해야 합니다.</p><p>작업 JSON의 webServiceParameters 섹션을 사용하여 다른 웹 서비스 매개 변수에 대한 값을 전달할 수 있습니다. <p>입력 Blob이 입력 위치로 사용됩니다.</p> |
+| 출력이 Azure SQL임 | <p>데이터 팩터리 서비스는 INPUT 연결된 서비스의 연결 문자열 정보를 사용하여 "데이터베이스 서버 이름", "데이터베이스 이름", "서버 사용자 계정 이름", "서버 사용자 계정 암호"라는 이름으로 웹 서비스 매개 변수를 생성합니다. Azure 기계 학습 스튜디오에서는 웹 서비스 매개 변수에 이러한 기본 이름을 사용해야 합니다.</p><p>Azure 기계 학습 모델의 Azure SQL 판독기 및 Azure SQL 기록기가 위에서 언급한 동일한 웹 서비스 매개 변수를 공유하는 경우 아무 문제도 없습니다. 동일한 웹 서비스 매개 변수를 공유하지 않는 경우, 예를 들어 Azure SQL 기록기가 매개 변수 이름으로 Database server name1, Database name1, Server user account name1, Server user account password1(끝에 '1' 포함)을 사용하는 경우 작업 JSON의 webServiceParameters 섹션에서 이러한 출력 웹 서비스 매개 변수의 값을 전달해야 합니다.</p><p>작업 JSON의 webServiceParameters 섹션을 사용하여 다른 웹 서비스 매개 변수에 대한 값을 전달할 수 있습니다.</p> | <p>데이터 팩터리 서비스는 출력 연결된 서비스의 연결 문자열 정보를 사용하여 "Database server name", "Database name", "Server user account name", "Server user account password"라는 이름으로 웹 서비스 매개 변수를 생성합니다. Azure 기계 학습 스튜디오에서는 웹 서비스 매개 변수에 이러한 기본 이름을 사용해야 합니다.</p><p>작업 JSON의 webServiceParameters 섹션을 사용하여 다른 웹 서비스 매개 변수에 대한 값을 전달할 수 있습니다. <p>입력 Blob이 입력 위치로 사용됩니다.</p> |
 |출력이 Azure Blob임 | 데이터 팩터리 서비스는 INPUT 연결된 서비스의 연결 문자열 정보를 사용하여 "데이터베이스 서버 이름", "데이터베이스 이름", "서버 사용자 계정 이름", "서버 사용자 계정 암호"라는 이름으로 웹 서비스 매개 변수를 생성합니다. Azure 기계 학습 스튜디오에서는 웹 서비스 매개 변수에 이러한 기본 이름을 사용해야 합니다. | <p>작업 JSON의 webServiceParameters 섹션을 사용하여 웹 서비스 매개 변수에 대한 값을 전달해야 합니다.</p><p>Blob이 입력 및 출력 위치로 사용됩니다.</p> |
     
 
@@ -238,7 +240,7 @@ Azure SQL 판독기와 마찬가지로, Azure SQL 기록기의 속성도 웹 서
 
 #### 원본인 Azure Blob
 
-Azure 기계 학습 실험에서 판독기 모듈을 사용하는 경우 입력으로 Azure Blob를 지정할 수 있습니다. Azure blob 저장소에 있는 파일은 HDInsight에서 실행되는 Pig 및 Hive 스크립트에서 생성되는 출력 파일(예: 000000\_0)일 수 있습니다. 판독기 모듈을 사용하면 아래와 같이 파일을 포함하는 컨테이너/폴더를 가리키는 판독기 모듈의 **컨테이너, 디렉터리 또는 blob에 대한 경로** 속성을 구성하여 (확장명이 없는) 파일을 읽을 수 있습니다. **컨테이너/폴더에 있는 모든 파일을 지정하는(예를 들어data/aggregateddata/year=2014/month-6/*)** 별표(즉, *)는 실험의 일부로 읽어야 합니다.
+Azure 기계 학습 실험에서 판독기 모듈을 사용하는 경우 입력으로 Azure Blob를 지정할 수 있습니다. Azure blob 저장소에 있는 파일은 HDInsight에서 실행되는 Pig 및 Hive 스크립트에서 생성되는 출력 파일(예: 000000\_0)일 수 있습니다. 판독기 모듈을 사용하면 아래와 같이 파일을 포함하는 컨테이너/폴더를 가리키는 판독기 모듈의 **컨테이너, 디렉터리 또는 Blob에 대한 경로** 속성을 구성하여(확장명이 없는) 파일을 읽을 수 있습니다. **컨테이너/폴더에 있는 모든 파일을 지정하는(예를 들어data/aggregateddata/year=2014/month-6/*)** 별표(즉, *)는 실험의 일부로 읽어야 합니다.
 
 ![Azure Blob 속성](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 
@@ -300,7 +302,7 @@ Azure 기계 학습 실험에서 판독기 모듈을 사용하는 경우 입력�
 - 기록기 매개 변수('1' 접미사가 있는 매개 변수)는 데이터 팩터리 서비스에 의해 자동으로 채워지지 않습니다. 따라서 작업 JSON의 **webServiceParameters** 섹션에서 이러한 매개 변수의 값을 지정해야 합니다.  
 - **고객 ID**, **점수가 매겨진 레이블** 및 **점수가 매겨진 확률**은 쉼표로 구분된 열로 저장됩니다. 
 - 이 예제의 **데이터 테이블 이름**은 출력 데이터베이스의 테이블에 해당합니다.
-- **시작** 및 **끝** 모두는 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항입니다. **end** 속성 값을 지정하지 않는 경우 "**start + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **end** 속성 값으로 **9999-09-09**를 지정합니다. JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](https://msdn.microsoft.com/library/dn835050.aspx)를 참조하세요.
+- **시작** 및 **끝** 모두는 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항입니다. **end** 속성 값을 지정하지 않는 경우 "**start + 48 hours**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **end** 속성 값으로 **9999-09-09**를 지정합니다. JSON 속성에 대한 자세한 내용은 [JSON 스크립트 참조](https://msdn.microsoft.com/library/dn835050.aspx)를 참조하세요.
 
 
 
@@ -313,4 +315,4 @@ Azure 기계 학습 실험에서 판독기 모듈을 사용하는 경우 입력�
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

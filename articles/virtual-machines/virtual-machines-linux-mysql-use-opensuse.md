@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure에서 OpenSUSE Linux를 실행하는 가상 컴퓨터에 MySQL 설치"
+	pageTitle="Microsoft Azure에서 OpenSUSE Linux VM에 MySQL 설치"
 	description="Azure에서 가상 컴퓨터에 MySQL을 설치하는 방법에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
@@ -38,4 +38,4 @@ MySQL에 대한 자세한 내용은 [MySQL 설명서][MySQLDocs]를 참조하세
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

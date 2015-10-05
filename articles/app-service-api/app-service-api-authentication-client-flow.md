@@ -96,7 +96,9 @@ API 앱에서 검색하는 연락처 정보 표시에 대한 섹션을 추가하
 
 	* 새로 만드는 대신 이미 만든 AAD 응용 프로그램을 사용합니다.
  
-	* AAD 응용 프로그램에 대해 이미 가지고 있는 **앱 ID URI**를 그대로 유지합니다. (추가 정보 파일에 지정된 형식에 대해 바꾸지 마십시오.)
+	* AAD 응용 프로그램에 대해 이미 가지고 있는 **앱 ID URI**를 그대로 유지합니다. (추가 정보 파일에 지정된 형식에 대해 바꾸지 마세요.)
+	
+	* 지시에 따라 다른 AAD 응용 프로그램 설정을 변경합니다. 특히, 로그온 및 회신 URL을 샘플 앱의 기준 URL로 설정합니다.
 
 웹앱 및 API 앱 모두에 동일한 AAD 액세스를 사용할 수 있도록 API 앱에 대해 만든 동일한 앱 ID URI를 유지하고 있습니다. 추가 정보에 정의된 형식에 대해 앱 ID URI를 변경한 경우에는 웹 앱에 대한 엑세스에는 작동하지만 API 앱에 대해서는 작동하지 않습니다. 게이트웨이에서는 게이트웨이에 "/login/aad"를 더한 API ID URI에 대한 토큰이 예상되므로 Zumo 게이트웨이를 가져오기 위해 API 앱 게이트웨이에 대한 AAD 토큰을 전달할 수 없습니다.
 
@@ -104,19 +106,17 @@ API 앱에서 검색하는 연락처 정보 표시에 대한 섹션을 추가하
 
 이 섹션에서는 API 앱 호출에 형식화 된 인터페이스에 대해 자동으로 생성된 코드를 추가 합니다.
 
-8.	Visual studio **솔루션 탐색기**에서 WebApp-GroupClaims-DotNet 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가 > Azure API 앱 클라이언트**를 클릭합니다.
+8.	Visual Studio **솔루션 탐색기**에서 WebApp-GroupClaims-DotNet 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가 > Azure API 앱 클라이언트**를 클릭합니다.
 
-9.	**Microsoft Azure API 앱 클라이언트 추가 ** 대화 상자에서 AAD를 사용하여 보호된 API 앱을 선택합니다.
+9.	**Microsoft Azure API 앱 클라이언트 추가 ** 대화 상자에서 AAD를 사용하여 보안된 API 앱을 선택합니다.
 
 	코드 생성이 완료되고 나면 **솔루션 탐색기**에 API 앱의 이름으로 만들어진 새 폴더가 표시됩니다. 이 폴더에는 클라이언트 클래스 및 데이터 모델을 구현하는 코드가 들어 있습니다.
 
-	![](./media/app-service-api-authentication-client-flow/aboutpagestart.png)
-
-10. *ContactsList/ContactsExtensions.cs*: `Task.Factory.StartNew` 에서 `System.Threading.Tasks.Task.Factory.StartNew`까지 두 인스턴스를 변경에 생성된 코드에 의해 발생하는 모호한 참조를 수정합니다.
+10. *ContactsList/ContactsExtensions.cs*에서 생성된 코드에 의해 발생하는 모호한 참조 수정: `Task.Factory.StartNew`의 두 인스턴스를 `System.Threading.Tasks.Task.Factory.StartNew`로 변경합니다.
  
 ## Zumo 토큰에 대해 AAD 토큰을 교환하는 코드를 추가합니다.
 
-1.	Homecontroller.cs에서 `using` 앱 서비스 SDK 및 JSON serializer에 대한 문을 추가합니다.
+1.	HomeController.cs에서 앱 서비스 SDK 및 JSON 직렬 변환기에 대해 `using` 문을 추가합니다.
 
 		using Microsoft.Azure.AppService;
 		using Newtonsoft.Json.Linq;
@@ -152,16 +152,16 @@ API 앱에서 검색하는 연락처 정보 표시에 대한 섹션을 추가하
 		    return appServiceClient;
 		}
 
-	이 코드에서는 `ConfigHelper.Authority` "https://login.microsoftonline.com/{테넌트}"로 확인됩니다. 예: "https://login.microsoftonline.com/contoso.onmicrosoft.com"
+	이 코드에서 `ConfigHelper.Authority`는 "https://login.microsoftonline.com/{사용자 테넌트}"로 확인됩니다(예: "https://login.microsoftonline.com/contoso.onmicrosoft.com").
 
-2.	API 앱을 호출하는 `About` 방법의 끝에 있는 `return View()` 문 바로 앞에 즉시 코드를 추가합니다. (다음 단계에서 `About` 반환된 데이터를 표시하는 보기에 코드를 추가합니다.)
+2.	`About` 메서드의 끝에 있는 `return View()` 문 바로 앞에 API 앱을 호출하는 코드를 추가합니다. 다음 단계에서는 반환된 데이터를 표시하는 코드를 `About` 뷰에 추가합니다.
 
 		var appServiceClient = await GetAppServiceClient();
 		var client = appServiceClient.CreateContactsList();
 		var contacts = client.Contacts.Get();
 		ViewData["contacts"] = contacts;
 
-3. *Views/Home/About.cshtml*에서, 연락처 정보를 표시 하는 `h2`머리글 뒤에 즉시 코드를 추가합니다.
+3. *Views/Home/About.cshtml*에서 `h2` 제목 바로 뒤에 연락처 정보를 표시하는 코드를 추가합니다.
 
 		<h3>Contacts</h3>
 		<table class="table table-striped table-bordered table-condensed table-hover">
@@ -181,7 +181,7 @@ API 앱에서 검색하는 연락처 정보 표시에 대한 섹션을 추가하
 		</table>
 
 
-3. 응용 프로그램 Web.config 파일에서 `<assemblyBinding>` 태그를 연 후 다음의 바인딩 리디렉션을 추가합니다.
+3. 응용 프로그램 Web.config 파일에서 여는 `<assemblyBinding>` 태그 뒤에 다음 바인딩 리디렉션을 추가합니다.
 
 		<dependentAssembly>
 		  <assemblyIdentity name="System.Net.Http.Primitives" publicKeyToken="b03f5f7f11d50a3a" culture="neutral"/>
@@ -190,13 +190,13 @@ API 앱에서 검색하는 연락처 정보 표시에 대한 섹션을 추가하
 
 	이 바인딩 리디렉션을 하지 않으면 앱 서비스 SDK 버전에 System.Net.Http.Primitives 버전 1.5.0.0 에 대한 종속성이 포함되지만 프로젝트에 의해 사용되는 버전은 4.2.28.0 이기 때문에 앱은 작동하지 않습니다.
  
-3. [추가 정보 파일](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/)의 **이 샘플을 Azure에 배포** 지침에 따릅니다.
+3. [추가 정보 파일](https://github.com/AzureADSamples/WebApp-GroupClaims-DotNet/)에서 **Azure에 이 샘플 배포**의 지침을 따릅니다.
 
 5. 앱을 실행합니다.
 
 	![](./media/app-service-api-authentication-client-flow/homepage.png)
 
-6. **로그인**을 클릭한 다음 이 응용 프로그램에 대해 사용 중인 AAD 도메인에서 사용자의 자격 증명을 입력합니다.
+6. **로그인**을 클릭한 다음 이 응용 프로그램에 사용 중인 AAD 도메인에 있는 사용자의 자격 증명을 입력합니다.
 
 	![](./media/app-service-api-authentication-client-flow/signedin.png)
 
@@ -218,13 +218,13 @@ API 앱에서 검색하는 연락처 정보 표시에 대한 섹션을 추가하
 
 ## 승인
 
-이 자습서를 개발하는 데 도움을 주신 Govind S. Yadav ([@govindsyadav](https://twitter.com/govindsyadav))께 감사드립니다.
+이 자습서를 개발하는 데 도움을 주신 Govind S. Yadav([@govindsyadav](https://twitter.com/govindsyadav))님께 감사드립니다.
 
 ## 다음 단계
 
-앱 서비스 API 앱에 대해 클라이언트 흐름 인증하는 방법을 살펴보았습니다. API 앱에서 인증을 사용하는 방법에 대한 자세한 내용은 [API 앱 및 모바일 앱 인증](../app-service/app-service-authentication-overview.md)을 참조하세요.
+앱 서비스 API 앱에 대해 클라이언트 흐름 인증하는 방법을 살펴보았습니다. API 앱에서 인증을 처리하는 다른 방법에 대한 자세한 내용은 [API 앱 및 모바일 앱 인증](../app-service/app-service-authentication-overview.md)을 참조하세요.
 
 [Azure 포털]: https://manage.windowsazure.com/
 [Azure 미리 보기 포털]: https://portal.azure.com/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

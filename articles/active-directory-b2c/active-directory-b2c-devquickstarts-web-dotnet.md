@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 # Azure AD B2C 미리 보기: .NET 웹앱 빌드
@@ -36,12 +36,14 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 - `https://localhost:44316/`을 **회신 URL**로 입력 - 이 코드 샘플에 대한 기본 URL입니다.
 - 앱에 할당된 **응용 프로그램 ID**를 적복사합니다. 곧 필요합니다.
 
+    > [AZURE.IMPORTANT][Azure 포털](https://manage.windowsazure.com/)의 **응용 프로그램** 탭에 등록된 응용 프로그램은 사용할 수 없습니다.
+
 ## 3\. 정책 만들기
 
-Azure AD B2C에서 모든 사용자 환경을[**정책**](active-directory-b2c-reference-policies.md)에서 정의합니다. 이 코드 샘플은 등록, 로그인 및 편집 프로필 등 세 가지 ID 환경을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)에서 설명한 대로 각 형식에 하나의 정책을 만들어야 합니다. 세 가지 정책을 만들 때 다음을 확인합니다.
+Azure AD B2C에서 모든 사용자 환경은 [**정책**](active-directory-b2c-reference-policies.md)에 의해 정의됩니다. 이 코드 샘플은 등록, 로그인 및 편집 프로필 등 세 가지 ID 환경을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)에서 설명한 대로 각 형식의 정책을 하나씩 만들어야 합니다. 세 가지 정책을 만들 때 다음을 확인합니다.
 
-- ID 공급자 블레이드에서 **사용자 ID 등록** 또는 **전자 메일 등록**을 선택합니다.
-- 등록 정책에서 **표시 이름** 및 다른 몇가지 등록 특성을 선택합니다.
+- ID 공급자 블레이드에서 **사용자 ID 등록** 또는 **메일 등록**을 선택합니다.
+- 등록 정책에서 **표시 이름** 및 다른 몇 가지 등록 특성을 선택합니다.
 - 모든 정책에서 **표시 이름** 클레임을 응용 프로그램으로 선택합니다. 물론 다른 클레임을 선택할 수 있습니다.
 - 각 정책을 만든 후에 **이름**을 복사합니다. 접두사`b2c_1_`가 있어야 합니다. 이러한 정책 이름이 곧 필요합니다. 
 
@@ -49,15 +51,15 @@ Azure AD B2C에서 모든 사용자 환경을[**정책**](active-directory-b2c-r
 
 ## 4\. 코드 다운로드 및 인증 구성
 
-이 샘플에 대한 코드는 [GitHub에서](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet) 유지 관리됩니다. 진행하면서 샘플을 빌드하려면 [골격 프로젝트를 .zip으로 다운로드](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip)하거나 골격을 복제합니다.
+이 샘플에 대한 코드는 [GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet)에서 유지 관리됩니다. 진행하면서 샘플을 빌드하려면 [기본 프로젝트를 .zip으로 다운로드](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/skeleton.zip)하거나 기본 프로젝트를 복제합니다.
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet.git
 ```
 
-또한 완성된 샘플은 [.zip으로 사용할 수 있거나](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip) 동일한 리포지토리의 `complete`분기에 사용할 수 있습니다.
+완성된 샘플도 [.zip으로 다운로드하거나](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip) 동일한 리포지토리의 `complete` 분기에서 사용할 수 있습니다.
 
-샘플 코드를 다운로드하면 Visual Studio `.sln` 파일을 열어 시작합니다.
+샘플 코드를 다운로드했으면 Visual Studio `.sln` 파일을 열어 시작합니다.
 
 앱은 HTTP 인증 요청을 전송하여 Azure AD B2C와 통신하며 이는 요청의 일부로 실행하고자 하는 정책을 지정합니다. .NET 웹 응용 프로그램의 경우 Microsoft의 OWIN 라이브러리를 사용하여 OpenID Connect 인증 요청, 정책 실행, 사용자의 세션 관리 등을 보낼 수 있습니다.
 
@@ -69,7 +71,7 @@ PM> Install-Package Microsoft.Owin.Security.Cookies
 PM> Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
-다음으로 프로젝트의 루트에서 `web.config` 파일을 열고 `<appSettings>` 섹션에 앱의 구성 값을 입력합니다.
+프로젝트 루트에 있는 `web.config` 파일을 열고 `<appSettings>` 섹션에 앱의 구성 값을 입력합니다.
 
 ```
 <configuration>
@@ -89,7 +91,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 ...
 ```
 
-이제 "OWIN 시작 클래스"를 `Startup.cs`라는 프로젝트에 추가합니다. 프로젝트 --> **추가** --> **새 항목** --> "OWIN" 검색을 마우스 오른쪽 단추로 클릭합니다. 클래스 선언을 이미 다른 파일에서 이 클래스의 일부를 구현했던 `public partial class Startup`으로 변경합니다. OWIN 미들웨어는 앱이 시작할 때 `Configuration(...)` 메서드를 호출합니다. 이 메서드에서 앱에 인증을 설정하는 ConfigureAuth(...)을 호출합니다.
+이제 `Startup.cs`라는 프로젝트에 “OWIN 시작 클래스”를 추가합니다. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** --> **새 항목**을 클릭한 다음 "OWIN"을 검색합니다. 클래스 선언을 이미 다른 파일에서 이 클래스의 일부를 구현했던 `public partial class Startup`으로 변경합니다. OWIN 미들웨어는 앱이 시작될 때 `Configuration(...)` 메서드를 호출합니다. 이 메서드에서 앱에 대한 인증을 설정할 ConfigureAuth(...)를 호출합니다.
 
 ```C#
 // Startup.cs
@@ -227,7 +229,7 @@ public void Profile()
 }
 ```
 
-또한 사용자가 로그인하지 않은 경우 컨트롤러에서 사용자 지정 `PolicyAuthorize` 태그를 사용하여 특정 정책이 실행하는 요청을 합니다. `Controllers\HomeController.cs`를 열고 클레임 컨트롤러에 `[PolicyAuthorize]` 태그를 추가합니다. 사용자 고유의 로그인 정책에 포함된 예제 정책을 교체합니다.
+컨트롤러에서 사용자 지정 `PolicyAuthorize` 태그를 사용하여 사용자가 로그인하지 않은 경우 특정 정책이 실행되도록 할 수도 있습니다. `Controllers\HomeController.cs`를 열고 클레임 컨트롤러에 `[PolicyAuthorize]` 태그를 추가합니다. 사용자 고유의 로그인 정책에 포함된 예제 정책을 교체합니다.
 
 ```C#
 // Controllers\HomeController.cs
@@ -258,7 +260,7 @@ public void SignOut()
 }
 ```
 
-기본적으로 OWIN은 `AuthenticationProperties`에서 지정된 정책을 Azure AD로 보내지 않습니다. 하지만 OWIN이 `RedirectToIdentityProvider` 알림에서 생성한 요청을 편집할 수 있습니다. `App_Start\Startup.Auth.cs`에서 이 알림을 사용하여 정책의 메타데이터에서 각 정책에 올바른 끝점을 인출할 수 있습니다. 이렇게 하면 앱이 실행하려는 각 정책에 대해 Azure AD로 올바른 요청을 보냅니다.
+기본적으로 OWIN은 `AuthenticationProperties`에서 지정된 정책을 Azure AD로 보내지 않습니다. 하지만 `RedirectToIdentityProvider` 알림에서 OWIN이 생성한 요청을 편집할 수 있습니다. `App_Start\Startup.Auth.cs`에 있는 이 알림을 사용하여 정책의 메타데이터에서 각 정책에 올바른 끝점을 가져옵니다. 이렇게 하면 앱이 실행하려는 각 정책에 대해 Azure AD로 올바른 요청을 보냅니다.
 
 ```C#
 // App_Start\Startup.Auth.cs
@@ -300,11 +302,11 @@ public ActionResult Claims()
 
 ## 7\. 샘플 앱 실행
 
-마지막으로 앱을 빌드하고 실행합니다. 전자 메일 주소 또는 사용자 이름을 사용하여 앱에 등록합니다. 로그아웃했다가 동알한 사용자로 다시 로그인합니다. 해당 사용자의 프로필을 편집합니다. 로그아웃했다가 다른 사용자로 등록합니다. **클레임** 탭에 표시된 정보가 어떻게 정책에 구성한 정보에 해당하는지살펴보세요.
+마지막으로 앱을 빌드하고 실행합니다. 전자 메일 주소 또는 사용자 이름을 사용하여 앱에 등록합니다. 로그아웃했다가 동알한 사용자로 다시 로그인합니다. 해당 사용자의 프로필을 편집합니다. 로그아웃했다가 다른 사용자로 등록합니다. **클레임** 탭에 표시되는 정보가 정책에 구성한 정보와 어떻게 일치하는지 확인합니다.
 
 ## 8\. 소셜 IDP 추가
 
-현재 앱은 **로컬 계정**으로 사용자 등록 및 로그인을 지원합니다 - 계정은 사용자 이름 및 암호와 함께 B2C 디렉터리에 저장되었습니다. Azure AD B2C으로 코드를 전혀 변경하지 않고 다른 **ID 공급자**, 또는 UDP에 대한 지원을 추가할 수 있습니다.
+현재 앱은 **로컬 계정**, 즉 사용자 이름 및 암호와 함께 B2C 디렉터리에 저장된 계정을 사용한 사용자 등록 및 로그인만 지원합니다. Azure AD B2C를 사용하면 코드를 변경하지 않고도 다른 **ID 공급자**, 즉 IDP에 대한 지원을 추가할 수 있습니다.
 
 소셜 IDP를 앱에 추가하려면 이 문서 중에서 한두 개의 상세한 지침을 수행하여 시작합니다. 지원하려는 각 IDP의 경우 해당 시스템에서 응용 프로그램을 등록하고 클라이언트 ID를 얻어야 합니다.
 
@@ -313,11 +315,11 @@ public ActionResult Claims()
 - [Amazon을 IDP로 설정](active-directory-b2c-setup-amzn-app.md)
 - [LinkedIn을 IDP로 설정](active-directory-b2c-setup-li-app.md) 
 
-ID 공급자를 B2C 디렉터리에 추가한 경우 다시 돌아가서 세 가지 정책을 각각 편집하여 [정책 참조 문서](active-directory-b2c-reference-policies.md)에서 설명한 대로 새 IDP를 포함해야 합니다. 정책을 저장한 후에 앱을 다시 실행합니다. ID 환경 각각에서 로그인 및 등록으로 추가된 새 IDP가 표시되어야 합니다.
+B2C 디렉터리에 ID 공급자를 추가한 경우 다시 돌아가 [정책 참조 문서](active-directory-b2c-reference-policies.md)에서 설명한 대로 새 IDP를 포함하도록 세 가지 정책을 각각 편집해야 합니다. 정책을 저장한 후에 앱을 다시 실행합니다. ID 환경 각각에서 로그인 및 등록으로 추가된 새 IDP가 표시되어야 합니다.
 
 정책을 자유롭게 실험하고 샘플 앱에서 영향을 확인할 수 있습니다. IDP를 추가/제거하고 응용 프로그램 클레임을 조작하며 특성 등록을 변경합니다. 어떻게 정책, 인증 요청 및 OWIN을 모두 함께 연결하는지 이해할 수 있을 때까지 실험해 보세요.
 
-참조를 위해 완성된 샘플(사용자 구성 값 제외)이 [여기서 .zip으로 제공](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip)되거나 GitHub에서 복제할 수 있습니다.
+참고로 완성된 샘플(사용자 구성 값 제외)은 여기([)에서 .zip으로 다운로드](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet/archive/complete.zip)하거나 GitHub에서 복제할 수 있습니다.
 
 ```
 git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIdConnect-DotNet.git
@@ -335,4 +337,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

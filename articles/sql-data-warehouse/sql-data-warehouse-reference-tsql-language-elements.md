@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/23/2015"
+   ms.date="09/22/2015"
    ms.author="barbkess"/>
 
 # 언어 요소
@@ -49,8 +49,8 @@
 ## 연산자
 - [\+ (추가)](https://msdn.microsoft.com/library/ms178565.aspx)
 - [\+ (문자열 연결)](https://msdn.microsoft.com/library/ms177561.aspx)
-- [\- (음수)](https://msdn.microsoft.com/library/ms189480.aspx)
-- [\- (빼기)](https://msdn.microsoft.com/library/ms189518.aspx)
+- [- (음수)](https://msdn.microsoft.com/library/ms189480.aspx)
+- [- (빼기)](https://msdn.microsoft.com/library/ms189518.aspx)
 - [* (곱하기)](https://msdn.microsoft.com/library/ms176019.aspx)
 - [/ (나누기)](https://msdn.microsoft.com/library/ms175009.aspx)
 - [모듈로](https://msdn.microsoft.com/library/ms190279.aspx)
@@ -78,7 +78,7 @@
 - [& (비트 AND)](https://msdn.microsoft.com/library/ms174965.aspx)
 - [| (비트 OR)](https://msdn.microsoft.com/library/ms186714.aspx)
 - [^ (비트 단독 OR)](https://msdn.microsoft.com/library/ms190277.aspx)
-- [\~ (비트 NOT)](https://msdn.microsoft.com/library/ms173468.aspx)
+- [~ (비트 NOT)](https://msdn.microsoft.com/library/ms173468.aspx)
 - [^= (비트 단독 OR 같음)](https://msdn.microsoft.com/library/cc627413.aspx)
 - |= (비트 OR 같음)
 - ? |= (비트 AND 같음)
@@ -290,4 +290,4 @@
 
 <!--MSDN references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

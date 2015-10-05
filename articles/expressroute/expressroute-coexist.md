@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/16/2015"
+   ms.date="09/17/2015"
    ms.author="cherylmc"/>
 
 # 공존하는 Azure Express 경로 및 사이트 간 VPN 연결 구성
@@ -150,7 +150,10 @@ Express 경로와 사이트 간 VPN을 동일한 가상 네트워크에 연결�
 
 	다음 샘플(사용자 고유의 값으로 대체)을 사용합니다.
 
-	`New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <local-network- gateway-public-IP> -AddressSpace <local-network-address-space>`
+	`New-AzureLocalNetworkGateway -Gatewayname MyLocalNetwork -IpAddress <MyLocalGatewayIp> -AddressSpace <MyLocalNetworkAddress>`
+
+	> [AZURE.IMPORTANT]로컬 네트워크에 여러 경로가 있는 경우 모두 배열로 전달할 수 있습니다. $MyLocalNetworkAddress = @("10.1.2.0/24","10.1.3.0/24","10.2.1.0/24")
+
 
 	게이트웨이 ID와 공용 IP를 비롯한 가상 네트워크 게이트웨이 설정을 검색하려면 `Get-AzureVirtualNetworkGateway` cmdlet을 사용합니다. 다음 예제를 참조하세요.
 
@@ -192,7 +195,7 @@ Express 경로 또는 사이트 간 VPN 연결을 통해 연결된 기존 가상
 2. 가상 네트워크 스키마를 내보냅니다. 다음 PowerShell cmdlet(사용자 고유의 값으로 대체)을 사용합니다.
 
 	`Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”`
-3. 게이트웨이 서브넷이 /27(또는 더 짧은 접두사)이 되도록 네트워크 구성 파일 스키마를 편집합니다. 다음 예제를 참조하세요. 네트워크 구성 파일 작업에 대한 자세한 내용은 [네트워크 구성 파일을 사용하여 VNet을 만드는 방법](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal)을 참조하세요. 구성 스키마에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 참조하세요.
+3. 게이트웨이 서브넷이 /27이나 그보다 작도록(/26, /25 등) 네트워크 구성 파일 스키마를 편집합니다. 다음 예제를 참조하세요. 네트워크 구성 파일 작업에 대한 자세한 내용은 [네트워크 구성 파일을 사용하여 VNet을 만드는 방법](../virtual-network/virtual-networks-create-vnet-classic-portal.md#how-to-create-a-vnet-using-a-network-config-file-in-the-azure-portal)을 참조하세요. 구성 스키마에 대한 자세한 내용은 [Azure 가상 네트워크 구성 스키마](https://msdn.microsoft.com/library/azure/jj157100.aspx)를 참조하세요.
 
 
           <Subnet name="GatewaySubnet">
@@ -217,4 +220,4 @@ Express 경로에 대해 자세히 알아봅니다. [Express 경로 개요](expr
 
 VPN 게이트웨이에 대해 자세히 알아봅니다. [VPN 게이트웨이 정보](../vpn-gateway/vpn-gateway-about-vpngateways.md)를 참조하세요.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

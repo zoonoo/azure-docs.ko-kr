@@ -13,7 +13,7 @@
  ms.topic="article"
  ms.tgt_pltfrm="na"
  ms.workload="big-data"
- ms.date="07/06/2015"
+ ms.date="09/23/2015"
  ms.author="larryfr"/>
 
 # HDInsight에서 Apache Hadoop을 사용하여 Scalding MapReduce 작업 개발
@@ -290,4 +290,4 @@ Scalding을 사용하여 HDInsight용 MapRedcue 작업을 만드는 방법을 �
 
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

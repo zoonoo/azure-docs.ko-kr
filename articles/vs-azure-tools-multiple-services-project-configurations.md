@@ -1,19 +1,19 @@
-<properties 
+<properties
    pageTitle="여러 서비스 구성을 사용하여 Azure 프로젝트 구성"
-	description="여러 서비스 구성을 사용하여 Azure 프로젝트 구성"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="kempb"
-	manager="douge"
-	editor="tlee"/>
-<tags 
+   description="여러 서비스 구성을 사용하여 Azure 프로젝트 구성"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="kempb"
+   manager="douge"
+   editor="tlee" />
+<tags
    ms.service="multiple"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/24/2015"
-	ms.author="kempb"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="08/24/2015"
+   ms.author="kempb" />
 
 # Azure 프로젝트 구성
 
@@ -85,7 +85,7 @@ Azure 저장소 서비스에 대해 서비스를 테스트할 준비가 되었�
 
 ## 로컬 저장소 페이지
 
-**로컬 저장소** 속성 페이지를 사용하여 역할에 대한 하나 이상의 로컬 저장소 리소스를 예약할 수 있습니다. 로컬 저장소 리소스는 역할의 인스턴스가 실행 중인 Azure 가상 컴퓨터의 파일 시스템에서 예약된 디렉터리입니다. 로컬 저장소 리소스와 함께 작업하는 방법에 대한 자세한 내용은 [로컬 저장소 리소스 구성](https://msdn.microsoft.com/library/azure/ee758708.aspx)을 참조하세요.
+**로컬 저장소** 속성 페이지를 사용하여 역할에 대한 하나 이상의 로컬 저장소 리소스를 예약할 수 있습니다. 로컬 저장소 리소스는 역할의 인스턴스가 실행 중인 Azure 가상 컴퓨터의 파일 시스템에서 예약된 디렉터리입니다. 로컬 저장소 리소스를 사용하는 방법에 대한 자세한 내용은 [로컬 저장소 리소스 구성](../cloud-services/cloud-services-configure-local-storage-resources.md)을 참조하세요.
 
 ## 인증서 페이지
 
@@ -114,4 +114,4 @@ Azure 저장소 서비스에 대해 서비스를 테스트할 준비가 되었�
 
 [Microsoft Visual Studio용 Azure 도구](https://msdn.microsoft.com/library/azure/ee405484.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

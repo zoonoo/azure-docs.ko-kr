@@ -19,6 +19,8 @@
 
 # 계산, 네트워크 및 저장소 .NET 라이브러리를 사용하여 Azure 리소스를 배포합니다.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 관리하는 방법을 설명합니다.
+
 이 자습서에서는 계산, 저장소 및 네트워크 .NET 라이브러리에서 사용할 수 있는 클라이언트 중 일부를 사용하여 Microsoft Azure의 리소스를 만들고 삭제하는 방법을 보여줍니다. 또한 Azure Active Directory를 사용하여 Azure 리소스 관리자에 요청을 인증하는 방법을 보여줍니다.
 
 [AZURE.INCLUDE [free-trial-note](../../includes/free-trial-note.md)]
@@ -27,7 +29,7 @@
 
 - [Visual Studio](http://msdn.microsoft.com/library/dd831853.aspx)
 - [Azure 저장소 계정](../storage-create-storage-account.md)
-- [Windows Management Framework 3.0](http://www.microsoft.com/ko-kr/download/details.aspx?id=34595) 또는 [Windows Management Framework 4.0](http://www.microsoft.com/ko-kr/download/details.aspx?id=40855)
+- [Windows Management Framework 3.0](http://www.microsoft.com/ko-KR/download/details.aspx?id=34595) 또는 [Windows Management Framework 4.0](http://www.microsoft.com/ko-KR/download/details.aspx?id=40855)
 - [Azure PowerShell](../install-configure-powershell.md)
 
 이러한 단계를 수행하려면 약 30분이 걸립니다.
@@ -388,4 +390,4 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 
 	![AD 응용 프로그램 만들기](./media/virtual-machines-arm-deployment/crpportal.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

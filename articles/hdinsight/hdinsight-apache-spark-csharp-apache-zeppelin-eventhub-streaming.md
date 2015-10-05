@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/31/2015" 
+	ms.date="09/23/2015" 
 	ms.author="nitinme"/>
 
 
@@ -74,6 +74,22 @@ Spark 스트리밍는 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
 
 이 섹션에서는 [Zeppelin](https://zeppelin.incubator.apache.org) 노트북을 만들어 HDInsight의 이벤트 허브에서 Spark 클러스터로 메시지를 수신합니다.
 
+### 리소스를 스트리밍 응용 프로그램용 Zeppelin에 할당
+
+Zeppelin을 사용하여 스트리밍 응용 프로그램을 만드는 동안 다음 고려 사항을 확인합니다.
+
+* **이벤트 허브 파티션 및 Zeppelin에 할당된 코어**입니다. 이전 단계에서 일부 파티션이 있는 이벤트 허브를 만들었습니다. 아래에서 만든 Zeppelin 스트리밍 응용 프로그램에서 같은 수의 파티션을 다시 지정합니다. Zeppelin을 사용하여 이벤트 허브에서 데이터를 성공적으로 스트리밍하려면 Zeppelin에 할당할 코어 수는 이벤트 허브에 있는 파티션 수의 두 배여야 합니다.
+* **Zeppelin에 할당될 코어의 최소 수**입니다. 아래에서 만든 스트리밍 응용 프로그램에서 응용 프로그램에서 스트리밍되는 메시지를 저장하는 임시 테이블을 만듭니다. 그런 다음 Spark SQL 문을 사용하여 이 임시 테이블에서 메시지를 읽습니다. Spark SQL 문을 성공적으로 실행하려면 Zeppelin에 할당된 최소 두 개의 코어가 있어야 합니다.
+
+위의 두 가직 요구 사항을 결합하면 다음을 얻게 됩니다.
+
+* Zeppelin에 할당해야 하는 코어의 최소 수는 2입니다.
+* 할당된 코어 수는 항상 이벤트 허브에 있는 파티션 수의 두 배여야 합니다. 
+
+Spark 클러스터의 리소스를 할당하는 방법에 대한 지침은 [HDInsight에 Apache Spark 클러스터에 대한 리소스 관리](hdinsight-apache-spark-resource-manager.md)를 참조하세요.
+
+### Zeppelin을 사용하여 스트리밍 응용 프로그램 만들기
+
 1. [Azure Preview 포털](https://ms.portal.azure.com/)의 시작 보드에서 Spark 클러스터 타일을 클릭합니다(Spark 클러스터를 시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
 
 2. Zeppelin 노트북을 시작합니다. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Zeppelin 노트북**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다. 열리는 페이지의 지시에 따라 노트북을 시작합니다.
@@ -89,6 +105,8 @@ Spark 스트리밍는 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
 	![Zeppelin 노트북 상태](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.NewNote.Connected.png "Zeppelin Notebook 상태")
 
 4. 새 Notebook에서 기본적으로 만들어지는 빈 단락에 다음 코드 조각을 붙여넣고 이벤트 허브 구성을 사용하여 자리 표시자를 바꿉니다. 이 조각에서는 이벤트 허브에서 스트림을 제공하고 이 스트림을 **mytemptable**라는 임시 테이블로 등록합니다. 다음 섹션에서 발신자 응용 프로그램을 시작하겠습니다. 그런 다음 테이블에서 직접 데이터를 읽을 수 있습니다.
+
+	> [AZURE.NOTE]아래 코드 조각에서 **eventhubs.checkpoint.dir**은 기본 저장소 컨테이너에 디렉터리를 설정해야 합니다. 디렉터리가 없는 경우 스트리밍 응용 프로그램이 디렉터리를 만듭니다. 전체 경로를 "**wasb://container@storageaccount.blob.core.windows.net/mycheckpointdir/**"와 같은 디렉터리 또는 상대 경로를 "**/mycheckpointdir**"와 같은 디렉터리에 지정할 수 있습니다.
 
 		import org.apache.spark.streaming.{Seconds, StreamingContext}
 		import org.apache.spark.streaming.eventhubs.EventHubsUtils
@@ -117,7 +135,7 @@ Spark 스트리밍는 핵심 Spark API를 확장하여 뛰어난 확장성, 높�
 
 ##<a name="runapps"></a>응용 프로그램 실행
 
-1. Zeppelin Notebook에서 조각을 사용하여 단락을 실행합니다. **Shift + Enter** 또는 오른쪽 위 모서리에 있는 **재생** 단추를 누릅니다.
+1. Zeppelin Notebook에서 조각을 사용하여 단락을 실행합니다. **SHIFT + ENTER** 또는 오른쪽 위 모서리에 있는 **재생** 단추를 누릅니다.
 
 	단락의 오른쪽 모서리 상태가 준비, 보류 중, 실행 중, 완료 순서로 진행됩니다. 출력은 같은 단락 하단에 표시됩니다. 스크린샷은 다음과 같습니다.
 
@@ -170,4 +188,4 @@ HDInsight에서 Spark 클러스터로 스트리밍 데이터를 받으려면 Zep
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

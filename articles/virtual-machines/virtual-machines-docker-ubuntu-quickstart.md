@@ -18,23 +18,19 @@
 
 # Azure Marketplace에서 Docker를 신속하게 시작하는 방법
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+
 [Docker] 사용을 가장 빠르게 시작하려면 Azure Marketplace로 이동해 [MSOpenTech]와 함께 [Canonical]에서 만든 **Ubuntu Server의 Docker** 이미지 템플릿을 사용하여 VM을 만듭니다. 그러면 Ubuntu Server VM이 생성되고 Azure에 미리 설치되어 실행 중인 **최신** Docker 엔진과 함께 [Docker VM 확장](virtual-machines-docker-vm-extension.md)이 자동으로 설치됩니다.
 
 SSH를 사용하여 VM에 즉시 연결할 수 있으며, 아무 작업도 수행하지 않고 Docker 작업을 직접 수행할 수 있습니다.
 
 > [AZURE.NOTE]Azure Marketplace 템플릿을 통해 만든 VM은 원격 Docker 클라이언트에서 관리하는 데 필요한 Docker 원격 API를 호스트하지 않습니다. 이 VM에서 원격으로 Docker Host를 제어하도록 하려면 [HTTPS를 사용하여 Docker 실행](https://docs.docker.com/articles/https/)을 참조하거나 [Azure 포털에서 Docker VM 확장 사용](virtual-machines-docker-with-portal.md) 또는 [Azure CLI에서 Docker VM 확장 사용](virtual-machines-docker-with-xplat-cli.md)의 단계를 따르세요. 전문적인 지식이 있는 경우 Github에서 [Windows Docker Client](https://github.com/ahmetalpbalkan/Docker.DotNet)를 빌드하여 시도해 볼 수 있습니다(또는 [nuget](https://www.nuget.org/packages/Docker.DotNet/)에서 작업).
 
-항목 내용
-
-- [포털에 로그온]
-- [Canonical 및 MSOpenTech의 Docker 이미지를 사용하여 VM 만들기]
-- [SSH를 사용하여 연결]
-
-## <a id='logon'>포털에 로그온</a>
+## 포털 로그온
 
 Azure 계정이 있으면 간단합니다. [Azure 계정을 무료로 받는 것도 간단합니다](http://azure.microsoft.com/pricing/free-trial/)!
 
-## <a id='createvm'>Canonical 및 MSOpenTech의 Docker 이미지를 사용하여 VM 만들기</a>
+## Canonical 및 MSOpenTech의 Docker 이미지를 사용하여 VM 만들기
 
 1. 이제 로그온했으므로 왼쪽 아래에서 **새로 만들기**를 클릭하여 새 VM 이미지를 만듭니다. 배너에 적절한 이미지가 즉시 표시될 수도 있습니다.
 
@@ -52,7 +48,7 @@ Azure 계정이 있으면 간단합니다. [Azure 계정을 무료로 받는 것
 
 > ![포털에서 실행되는 Docker 이미지](./media/virtual-machines-docker-ubuntu-quickstart/DockerUbuntuRunning.png)
 
-## <a id='havingfun'>SSH를 사용하여 연결</a>
+## SSH를 사용하여 연결
 
 이제 시작해 보세요. SSH를 사용하여 VM에 즉시 연결할 수 있습니다.
 
@@ -68,9 +64,9 @@ Docker 명령을 실행해 보세요. 이 Azure VM의 기본 구성에는 **`sud
 [Docker] 사용을 시작합니다!
 
 <!--Anchors-->
-[포털에 로그온]: #logon
-[Canonical 및 MSOpenTech의 Docker 이미지를 사용하여 VM 만들기]: #createvm
-[SSH를 사용하여 연결]: #havingfun
+[Log on to the Portal]: #logon
+[Create a VM with the Docker Image from Canonical and MSOpenTech]: #createvm
+[Connect with SSH and Have Fun]: #havingfun
 [Next steps]: #next-steps
 
 
@@ -81,4 +77,4 @@ Docker 명령을 실행해 보세요. 이 Azure VM의 기본 구성에는 **`sud
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

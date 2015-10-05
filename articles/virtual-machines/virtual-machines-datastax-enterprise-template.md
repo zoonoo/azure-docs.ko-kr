@@ -3,7 +3,7 @@
 	description="Azure PowerShell 또는 Azure CLI 및 리소스 관리자 템플릿을 사용하여 Ubuntu VM에 새 DataStax Enterprise 클러스터를 쉽게 배포할 수 있는 방법을 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="karthmut"
+	authors="scoriani"
 	manager="timlt"
 	editor="tysonn"/> <!-- In pageTitle, to follow corporate style (sentence-case caps), s/b lowercase "template", correct? This matches what is used later in article too. Also, precede first mention of "Azure" with "Microsoft" --> <tags
 	ms.service="virtual-machines"
@@ -12,7 +12,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="04/29/2015"
-	ms.author="karthmut"/>
+	ms.author="scoriani"/>
 
 # 리소스 관리자 템플릿을 사용하는 Ubuntu의 DataStax Enterprise
 
@@ -498,4 +498,4 @@ vm-disk-utils-0.1.sh는 azure-quickstart-tempates github 리포지토리 내 sha
 
 자세한 내용은 [Azure 리소스 관리자 템플릿 언어](../resource-group-authoring-templates.md)를 참조하세요.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

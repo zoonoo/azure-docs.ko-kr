@@ -9,11 +9,11 @@
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # Azure AD에서 암호 관리하기
@@ -48,4 +48,4 @@
 - [Azure AD에서 사용자 만들기 또는 편집](active-directory-create-users.md)
 - [Azure AD에서 그룹 관리](active-directory-manage-groups.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

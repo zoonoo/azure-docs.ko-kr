@@ -4,7 +4,7 @@
    services="active-directory"
    documentationCenter=""
    authors="curtand"
-   manager="swadhwa"
+   manager="stevenpo"
    editor=""/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/16/2015"
+   ms.date="09/21/2015"
    ms.author="curtand"/>
 
 # 여러 Azure AD 디렉터리 추가 및 관리
@@ -40,4 +40,4 @@ Azure 관리 포털에서 Azure AD 디렉터리를 추가하려면 왼쪽의 Act
 
 Azure AD 라이선스 문제 및 모범 사례에 대한 광범위한 개요는 [Azure Active Directory 라이선스란?](active-directory-licensing-what-is.md)을 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

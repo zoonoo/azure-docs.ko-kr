@@ -1,7 +1,7 @@
 <properties
-	pageTitle="Windows 가상 컴퓨터에서 디스크 분리 | Microsoft Azure"
-	description="Azure에서 가상 컴퓨터에서 디스크 분리에 대해 알아봅니다."
-	services="virtual-machines, storage"
+	pageTitle="Windows VM에서 디스크 분리 | Microsoft Azure"
+	description="클래식 배포 모델을 사용하는 Azure의 가상 컴퓨터에서 디스크를 분리하는 방법을 알아봅니다."
+	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
 	manager="timlt"
@@ -21,6 +21,9 @@
 
 # Windows 가상 컴퓨터에서 디스크를 분리하는 방법
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 디스크를 분리하는 방법을 설명합니다.
+
+
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-windows-linux.md)]
 
 ## 추가 리소스
@@ -29,4 +32,4 @@
 
 [Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법](storage-windows-attach-disk.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

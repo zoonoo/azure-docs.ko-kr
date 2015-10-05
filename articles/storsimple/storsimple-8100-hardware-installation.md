@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/16/2015"
+   ms.date="09/23/2015"
    ms.author="alkohli" />
 
 # StorSimple 8100 장치 개봉, 랙 탑재, 케이블 연결
@@ -233,7 +233,7 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
     3. DATA 0 포트와 기본 LAN(인터넷에 연결된 네트워크) 의도한 역할에 따라 다른 데이터 포트를 네트워크의 SAN/iSCSI LAN(VLAN) 세그먼트에 연결할 수 있습니다.
 
     최소한 하나의 네트워크 인터페이스를 클라우드 액세스에, 하나는 iSCSI용으로 구성하세요. 높은 수준의 가용성과 성능을 위해 각 컨트롤러에서 네트워크 인터페이스 두 쌍을 구성하세요. 네트워크 케이블 연결에 대해서는 다음 다이어그램을 참조하세요. (최소 네트워크 구성은 파란색 실선으로 표시 됩니다. 높은 가용성과 성능을 위해 필요한 추가 구성을 점선으로 표시했습니다.)
-
+	
     ![네트워크에 2U 장치를 케이블로 연결](./media/storsimple-8100-hardware-installation/HCSCableYour2UDeviceforNetwork.png)
 
     **장치에 네트워크 케이블 연결**
@@ -275,4 +275,4 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 이제 [온-프레미스 StorSimple 장치를 배포 및 구성](storsimple-deployment-walkthrough.md)할 준비가 되었습니다.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

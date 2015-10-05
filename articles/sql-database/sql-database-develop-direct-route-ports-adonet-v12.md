@@ -114,4 +114,10 @@ Azure 클라이언트 컴퓨터에 있는 11000-11999 및 14000-14999 범위의 
 
 - [SQL 데이터베이스 연결: 링크, 모범 사례, 설계 지침](sql-database-connect-central-recommendations.md)
 
-<!---HONumber=Sept15_HO3-->
+
+- [Azure SQL 데이터베이스 방화벽](sql-database-firewall-configure.md)
+
+
+- [방법: SQL 데이터베이스에서 방화벽 설정 구성](sql-database-configure-firewall-settings.md)
+
+<!---HONumber=Sept15_HO4-->

@@ -3,7 +3,7 @@
    description="리소스 분산 장치에서 노드 버퍼 백분율 역할에 대한 개요"
    services="service-fabric"
    documentationCenter=".net"
-   authors="abhic"
+   authors="GaugeField"
    manager="timlt"
    editor=""/>
 
@@ -13,8 +13,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="04/27/2015"
-   ms.author="abhic"/>
+   ms.date="09/03/2015"
+   ms.author="masnider"/>
 
 # 노드 버퍼 백분율 개요
 
@@ -47,4 +47,4 @@
 자세한 내용: [리소스 분산 아키텍처](service-fabric-resource-balancer-architecture.md)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

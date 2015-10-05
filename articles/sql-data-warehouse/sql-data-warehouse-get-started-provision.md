@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # 시작: SQL 데이터 웨어하우스에 프로비전 #
@@ -161,6 +161,8 @@ Azure 포털의 왼쪽 위에는 새로 만들기 단추가 있습니다. 새로
 1. 데이터 웨어하우스를 [연결 및 쿼리][]합니다.
 2. [샘플 데이터]를 로드합니다.
 
+	> [AZURE.NOTE]이 문서를 보다 개선하려고 합니다. "이 문서가 도움이 되었나요?"란 질문에 "아니요"를 선택한 경우 누락된 사항이나 문서 개선 방법에 대한 제안 사항을 간략하게 입력해 주세요. 미리 감사드립니다.
+
 <!--Image references-->
 
 
@@ -172,4 +174,4 @@ Azure 포털의 왼쪽 위에는 새로 만들기 단추가 있습니다. 새로
 [무료 평가판]: https://azure.microsoft.com/ko-KR/pricing/free-trial/
 [Azure 포털]: https://portal.azure.com/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

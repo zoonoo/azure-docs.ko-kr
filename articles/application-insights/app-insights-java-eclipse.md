@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/09/2015" 
+	ms.date="09/16/2015" 
 	ms.author="awills"/>
  
 # Eclipse에서 Java를 사용하여 Application Insights 시작하기
@@ -22,7 +22,7 @@ Application Insights SDK가 Java 웹 응용 프로그램에서 원격 분석을 
 
 ## 필수 조건
 
-현재 플러그인은 Eclipse에서 동적 웹 프로젝트를 위해 동작합니다. ([다른 유형의 Java 프로젝트에 Application Insights를 추가합니다][java].)
+현재 플러그 인은 Eclipse에서 Maven 프로젝트 및 동적 웹 프로젝트에 대해 작동합니다. ([다른 유형의 Java 프로젝트에 Application Insights를 추가합니다][java].)
 
 필요한 사항:
 
@@ -46,29 +46,20 @@ Application Insights SDK가 Java 웹 응용 프로그램에서 원격 분석을 
 
 각 Java 프로젝트에 대한 나머지 단계를 따릅니다.
 
-## Application Insights 계측 키 가져오기
+## Azure에서 Application Insights 리소스 만들기
 
-사용량 및 성능 분석은 Azure 웹 포털의 Azure 리소스에 표시됩니다. 이 단계에서는 응용 프로그램에 대한 Azure 리소스를 설정합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+2. 
 
-1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인합니다. ([Azure 구독](http://azure.microsoft.com/)이 필요합니다.)
-2. 새 Application Insights 리소스 만들기
+## 프로젝트에 Application Insights 추가
 
-    ![\+를 클릭하고 Application Insights 선택](./media/app-insights-java-eclipse/01-create.png)
-3. Java 웹 응용 프로그램에 대한 응용 프로그램 종류를 설정합니다.
+1. Java 웹 프로젝트의 상황에 맞는 메뉴에서 Application Insights를 추가합니다.
 
-    ![이름을 채우고 Java 웹 앱을 선택하여 만들기 클릭](./media/app-insights-java-eclipse/02-create.png)
-4. 새 리소스의 계측 키를 찾습니다. Eclipse에서 프로젝트에 이를 붙여넣어야 합니다.
+    ![새 리소스 개요에서 속성을 클릭하고 계측 키 복사](./media/app-insights-java-eclipse/02-context-menu.png)
 
-    ![새 리소스 개요에서 속성을 클릭하고 계측 키 복사](./media/app-insights-java-eclipse/03-key.png)
-
-## Java 프로젝트에 SDK 추가
-
-1. 웹 프로젝트의 상황에 맞는 메뉴에서 Application Insights를 추가합니다.
-
-    ![새 리소스 개요에서 속성을 클릭하고 계측 키 복사](./media/app-insights-java-eclipse/4-addai.png)
 2. Azure 포털에서 가져온 계측 키를 붙여넣습니다.
 
-    ![새 리소스 개요에서 속성을 클릭하고 계측 키 복사](./media/app-insights-java-eclipse/5-config.png)
+    ![새 리소스 개요에서 속성을 클릭하고 계측 키 복사](./media/app-insights-java-eclipse/03-ikey.png)
 
 
 키는 원격 분석의 모든 항목과 함께 전송되고 리소스에서 표시하도록 Application Insights에 알려줍니다.
@@ -148,7 +139,7 @@ HTML 파일의 헤드에 있는 코드 조각을 삽입 합니다.
 
 ## 메서드 호출 및 외부 종속성 모니터링
 
-[Java 에이전트를 설치](app-insights-java-agent.md)하여 지정된 내부 메서드 및 JDBC를 통해 수행한 호출을 타이밍 데이터와 함께 기록합니다.
+[Java 에이전트를 설치](app-insights-java-agent.md)하여 지정된 내부 메서드 및 JDBC를 통해 수행한 호출을 타이밍 데이터와 함께 기록할 수 있습니다.
 
 
 ## 성능 카운터
@@ -212,7 +203,7 @@ HTML 파일의 헤드에 있는 코드 조각을 삽입 합니다.
 
 ### Unix 성능 카운터
 
-* [Application Insights 플러그인과 함께 collectd를 설치](app-insights-java-collectd.md)하여 광범위한 시스템 및 네트워크 데이터를 얻습니다.
+* [Application Insights 플러그 인과 함께 collectd를 설치](app-insights-java-collectd.md)하여 광범위한 시스템 및 네트워크 데이터를 얻을 수 있습니다.
 
 ## 가용성 웹 테스트
 
@@ -267,4 +258,4 @@ Java 웹 응용 프로그램에 몇 줄의 코드를 삽입하여 이를 사용�
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

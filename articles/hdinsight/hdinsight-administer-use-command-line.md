@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/08/2015"
+	ms.date="09/17/2015"
 	ms.author="jgao"/>
 
 # Azure 명령줄 인터페이스(Azure CLI)를 사용하여 HDInsight에서 Hadoop 클러스터 관리
@@ -160,4 +160,4 @@ Azure Preview 포털을 사용하여 정보를 얻는 방법에 대한 자세한
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
 [image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/HDI.CLIListClusters.png "클러스터 나열 및 표시"
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

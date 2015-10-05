@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Visual Studio를 사용하여 웹 프로젝트용 가상 컴퓨터 만들기"
+	pageTitle="Visual Studio를 사용하여 웹 프로젝트용 VM 만들기 | Microsoft Azure"
 	description="웹 사이트용 가상 컴퓨터를 만드는 방법에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
@@ -68,4 +68,4 @@ Azure 웹 사이트용 웹 프로젝트를 만들면 Azure에서 가상 컴퓨�
 [4]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_SolutionExplorer.png
 [5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_Create_VM_Connect.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

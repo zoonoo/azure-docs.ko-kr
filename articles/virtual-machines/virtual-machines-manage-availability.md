@@ -1,11 +1,12 @@
 <properties
-	pageTitle="가상 컴퓨터의 가용성 관리 | Microsoft Azure"
+	pageTitle="VM의 가용성 관리 | Microsoft Azure"
 	description="여러 가상 컴퓨터를 사용하여 Azure 응용 프로그램의 고가용성을 유지하는 방법에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="kenazk"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -16,7 +17,7 @@
 	ms.date="07/23/2015"
 	ms.author="kenazk"/>
 
-#가상 컴퓨터의 가용성 관리
+# 가상 컴퓨터의 가용성 관리
 
 ## 계획된 유지 관리 및 계획되지 않은 유지 관리 이해
 가상 컴퓨터의 가용성에 영향을 줄 수 있는 두 가지 유형의 Microsoft Azure Platform 이벤트인 계획된 유지 관리와 계획되지 않은 유지 관리가 있습니다.
@@ -69,4 +70,4 @@ Azure 부하 분산 장치를 가용성 집합과 결합하여 응용 프로그�
 [가용성 집합에서 단일 인스턴스 가상 컴퓨터 방지]: #avoid-single-instance-virtual-machines-in-availability-sets
 [가상 컴퓨터의 가용성 집합을 구성하는 방법]: virtual-machines-how-to-configure-availability.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

@@ -114,6 +114,8 @@ Application Insights는 [다양한 플랫폼][platforms]에서 라이브 앱을 
 
 HTTP 요청에 대한 서버의 응답이 5분 이상 평균 1초보다 느린 경우 전자 메일로 알립니다. Application Insights 리소스의 이름이 IceCreamWebApp이며 리소스 그룹 Fabrikam 내에 있습니다. 제가 Azure 구독의 소유자입니다.
 
+GUID는 구독 ID입니다(응용 프로그램의 계측 키 아님).
+
     Add-AlertRule -Name "slow responses" `
      -Description "email me if the server responds slowly" `
      -ResourceGroup "Fabrikam" `
@@ -140,7 +142,7 @@ HTTP 요청에 대한 서버의 응답이 5분 이상 평균 1초보다 느린 �
      -CustomEmails "satish@fabrikam.com","lei@fabrikam.com" `
      -Location "East US" -RuleType Metric
 
-동일한 규칙을 TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개 변수](app-insights-api-custom-events-metrics.md#properties)를 사용하여 보고하는 메트릭에 사용할 수 있습니다.
+TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개 변수](app-insights-api-custom-events-metrics.md#properties)를 사용하여 보고된 메트릭에도 동일한 규칙을 사용할 수 있습니다.
 
 #### 메트릭 이름
 
@@ -167,9 +169,16 @@ HTTP 요청에 대한 서버의 응답이 5분 이상 평균 1초보다 느린 �
 `request.rate`|요청 속도|응용 프로그램에 전송된 모든 요청의 속도(초)입니다.
 `requestFailed.count`|실패한 요청|응답 코드가 400 이상인 HTTP 요청의 개수입니다. 
 `view.count`|페이지 보기|웹 페이지에 대한 클라이언트 사용자 요청의 수입니다. 가상 트래픽은 필터링됩니다.
-{사용자 지정 메트릭 이름}|{사용자의 메트릭 이름}|메트릭 값은 [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric) 또는 [추적 호출의 측정 매개 변수](app-insights-api-custom-events-metrics.md#properties)로 보고됩니다.
+{사용자 지정 메트릭 이름}|{사용자의 메트릭 이름}|메트릭 값은 [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric)에 의해 또는 [추적 호출의 측정 매개 변수](app-insights-api-custom-events-metrics.md#properties)에 보고됩니다.
 
-   
+다음과 같은 다양한 원격 분석 모듈에서 메트릭이 전송됩니다.
+
+메트릭 그룹 | 수집기 모듈
+---|---
+basicExceptionBrowser,<br/>clientPerformance,<br/>view | [브라우저 JavaScript](app-insights-javascript.md)
+performanceCounter | [성능](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3)
+remoteDependencyFailed| [종속성](app-insights-configuration-with-applicationinsights-config.md#nuget-package-1)
+request,<br/>requestFailed|[서버 요청](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2)
 
 
 <!--Link references-->
@@ -182,4 +191,4 @@ HTTP 요청에 대한 서버의 응답이 5분 이상 평균 1초보다 느린 �
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

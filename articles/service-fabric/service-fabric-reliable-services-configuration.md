@@ -1,20 +1,20 @@
 <properties
    pageTitle="상태 저장 신뢰할 수 있는 서비스 구성"
-	description="서비스 패브릭에서 상태 저장 신뢰할 수 있는 서비스를 구성하는 방법을 알아봅니다."
-	services="Service-Fabric"
-	documentationCenter=".net"
-	authors="sumukhs"
-	manager="anuragg"
-	editor=""/>
+   description="서비스 패브릭에서 상태 저장 신뢰할 수 있는 서비스를 구성하는 방법을 알아봅니다."
+   services="Service-Fabric"
+   documentationCenter=".net"
+   authors="sumukhs"
+   manager="anuragg"
+   editor=""/>
 
 <tags
    ms.service="Service-Fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="sumukhs"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="sumukhs"/>
 
 # 상태 저장 신뢰할 수 있는 서비스 구성
 상태 저장 신뢰할 수 있는 서비스의 기본 구성은 응용 프로그램의 각 서비스에 대한 Visual Studio 패키지 루트의 "Config" 폴더에 생성된 "settings.xml" 파일을 변경하여 수정할 수 있습니다.
@@ -28,9 +28,6 @@
 
 ### 섹션 이름
 ReplicatorSecurityConfig
-
-### 구성 이름
-[복제 보안](../service-fabric/service-fabric-replication-security.md) 참조
 
 ## 복제자 구성
 복제자 구성은 상태를 로컬로 복제하고 유지하여 상태 저장 신뢰할 수 있는 서비스의 상태를 매우 안정적으로 만드는 일을 담당하는 복제자를 구성하는 데 사용됩니다. 기본 구성은 Visual Studio 템플릿에 의해 생성되며 충분해야 합니다. 이 섹션에서는 복제자 조정에 사용할 수 있는 추가 구성에 대해 설명합니다.
@@ -89,6 +86,5 @@ OptimizeForLocalSSD 설정은 전용 로그 파일에 대한 준비를 취소하
 MaxRecordSizeInKB는 복제자가 로그 파일에 쓸 수 있는 레코드의 최대 크기를 정의합니다. 그러나 대부분의 경우 기본 1024KB 레코드 크기가 최적이지만 서비스에서 더 큰 데이터 항목이 상태 정보의 일부가 되도록 할 경우 이 값을 늘려야 할 수 있습니다. MaxRecordSizeInKB를 1024보다 작은 값으로 설정하면 작은 레코드만 작은 레코드에 필요한 공간을 사용하므로 이점이 적습니다. 이 값은 드문 경우에만 변경해야 합니다.
 
 SharedLogId 및 SharedLogPath 설정은 항상 함께 사용되며, 서비스가 노드에 대한 기본 공유 로그에서 별도의 공유 로그를 사용하도록 허용합니다. 최상의 효율성을 위해 최대한 많은 서비스가 동일한 공유 로그를 지정해야 합니다. 헤드 이동 경합이 감소하도록 공유 로그 파일에만 사용되는 디스크에 공유 로그 파일을 배치해야 합니다. 이 값은 드문 경우에만 변경해야 합니다.
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

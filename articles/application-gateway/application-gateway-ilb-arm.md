@@ -12,7 +12,7 @@
    ms.topic="hero-article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="08/07/2015"
+   ms.date="09/21/2015"
    ms.author="joaoma"/>
 
 
@@ -97,16 +97,22 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 ### 1단계	
 	
-	$subnet = New-AzureVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
+	$subnetconfig = New-AzureVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 
 주소 범위 10.0.0.0/24를 가상 네트워크를 만드는 데 사용할 서브넷 변수에 할당합니다.
 
 ### 2단계
 	
-	$vnet = New-AzurevirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet
+	$vnet = New-AzurevirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
 
 접두사 10.0.0.0/16과 서브넷 10.0.0.0/24를 사용하여 미국 서부 지역에 대해 리소스 그룹 "appw-rg"에서 "appgwvnet"이라는 가상 네트워크를 만듭니다.
 	
+### 3단계
+
+	$subnet=$vnet.subnets[0]
+
+다음 단계를 위해 $subnet 변수에 서브넷 개체를 할당합니다.
+ 
 
 ## 응용 프로그램 게이트웨이 구성 개체 만들기
 
@@ -168,7 +174,6 @@ ILB에 대해 "frontendport01"이라는 프런트 엔드 IP 포트를 구성합�
 
 
 
-
 ## 게이트웨이 시작
 
 게이트웨이가 구성되면, `Start-AzureApplicationGateway` cmdlet을 사용하여 게이트웨이를 시작합니다. 응용 프로그램 게이트웨이에 대한 청구는 게이트웨이가 성공적으로 작동된 후 시작합니다.
@@ -201,11 +206,11 @@ ILB에 대해 "frontendport01"이라는 프런트 엔드 IP 포트를 구성합�
 
 ## 응용 프로그램 게이트웨이 상태 확인
 
-`Get-AzureApplicationGateway` cmdlet을 사용하여 게이트웨이의 상태를 확인합니다. *Start-AzureApplicationGateway*가 이전 단계에서 성공한 경우, 상태가 *실행 중*이어야 하고, Vip와 DNS 이름은 유효한 항목이어야 합니다.
+`Get-AzureApplicationGateway` cmdlet을 사용하여 게이트웨이의 상태를 확인합니다. *Start-AzureApplicationGateway*가 이전 단계에서 성공한 경우 상태가 *실행 중*이어야 하고, Vip와 DnsName에 유효한 항목이 있어야 합니다.
 
-이 샘플은 작동되어 실행 중이고 `http://<generated-dns-name>.cloudapp.net`로 보낸 트래픽을 사용할 준비가 되어 있는 응용 프로그램 게이트웨이를 보여 줍니다.
+이 샘플은 작동되어 실행 중이고 `http://<generated-dns-name>.cloudapp.net`으로 전송된 트래픽을 받아들일 준비가 된 응용 프로그램 게이트웨이를 보여 줍니다.
 
-	PS C:\> Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName app-rg
+	PS C:\> Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 	VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway 
 	VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
@@ -228,13 +233,13 @@ ILB에 대해 "frontendport01"이라는 프런트 엔드 IP 포트를 구성합�
 2. `Remove-AzureApplicationGateway` cmdlet을 사용하여 게이트웨이를 제거합니다.
 3. `Get-AzureApplicationGateway` cmdlet을 사용하여 게이트웨이가 제거되었는지 확인합니다.
 
-이 샘플의 첫째 줄에는 `Stop-AzureApplicationGateway` cmdlet이 먼저 표시되고 그 다음에 출력이 표시됩니다.
+이 샘플의 첫째 줄에는 `Stop-AzureApplicationGateway` cmdlet이 표시되고 그다음에 출력이 표시됩니다.
 
 ### 1단계
 
 게이트웨이 응용 프로그램 개체를 가져오고 "$getgw" 변수에 연결합니다.
  
-	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName app-rg
+	$getgw =  Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 ### 2단계
 	 
@@ -248,10 +253,10 @@ ILB에 대해 "frontendport01"이라는 프런트 엔드 IP 포트를 구성합�
 	----       ----------------     ------------                             ----
 	Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 
-응용 프로그램 게이트웨이가 중지 상태가 되면 `Remove-AzureApplicationGateway` cmdlet을 사용하여 서비스를 제거합니다.
+응용 프로그램 게이트웨이가 중지됨 상태이면 `Remove-AzureApplicationGateway` cmdlet을 사용하여 서비스를 제거합니다.
 
 
-	PS C:\> Remove-AzureApplicationGateway -Name $appgwName -ResourceGroupName $rgname -Force
+	PS C:\> Remove-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Force
 
 	VERBOSE: 10:49:34 PM - Begin Operation: Remove-AzureApplicationGateway 
 	VERBOSE: 10:50:36 PM - Completed Operation: Remove-AzureApplicationGateway
@@ -262,10 +267,10 @@ ILB에 대해 "frontendport01"이라는 프런트 엔드 IP 포트를 구성합�
 >[AZURE.NOTE]'-force' 스위치를 사용하여 제거 확인 메시지가 표시되지 않도록 할 수 있습니다.
 >
 
-서비스가 제거되었는지 확인하려면 `Get-AzureApplicationGateway` cmdlet을 사용합니다. 이 단계는 필요 하지 않습니다.
+서비스가 제거되었는지 확인하려면 `Get-AzureApplicationGateway` cmdlet을 사용할 수 있습니다. 이 단계는 필요 하지 않습니다.
 
 
-	PS C:\>Get-AzureApplicationGateway -Name appgwtest-ResourceGroupName app-rg
+	PS C:\>Get-AzureApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 
 	VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway 
 
@@ -274,13 +279,13 @@ ILB에 대해 "frontendport01"이라는 프런트 엔드 IP 포트를 구성합�
 
 ## 다음 단계
 
-SSL 오프로드를 구성하려는 경우, [SSL 오프로드를 위한 응용 프로그램 게이트웨이 구성](application-gateway-ssl.md)을 참조하세요.
+SSL 오프로드를 구성하려는 경우 [SSL 오프로드에 대한 응용 프로그램 게이트웨이 구성](application-gateway-ssl.md)을 참조하세요.
 
-ILB에서 사용되도록 응용 프로그램 게이트웨이를 구성하려면 [ILB(내부 부하 분산 장치)를 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-ilb.md)를 참조하세요.
+ILB에 사용하기 위해 응용 프로그램 게이트웨이를 구성하려는 경우 [ILB(내부 부하 분산 장치)를 사용하여 응용 프로그램 게이트웨이 만들기](application-gateway-ilb.md)를 참조하세요.
 
 보다 자세한 내용을 원한다면 일반적 부하 분산 옵션을 참조:
 
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

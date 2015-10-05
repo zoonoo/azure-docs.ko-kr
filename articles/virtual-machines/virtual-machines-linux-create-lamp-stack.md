@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Microsoft Azure를 사용하여 LAMP 스택을 만드는 방법"
+	pageTitle="Azure를 사용하여 LAMP 스택 만들기 | Microsoft Azure"
 	description="Linux를 실행하는 Azure VM(가상 컴퓨터)에서 Microsoft Azure를 사용하여 LAMP 스택을 만드는 방법에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="NingKuang"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -20,6 +21,8 @@
 
 "LAMP" 스택은 일반적으로 함께 설치되어 서버가 동적 웹 사이트와 웹 응용 프로그램을 호스트할 수 있게 해주는 오픈 소스 소프트웨어 그룹입니다. 이 용어는 실제로 Apache 웹 서버가 있는 Linux 운영 체제를 나타내는 약어입니다. 사이트 데이터는 MySQL 데이터베이스에 저장되고 동적 콘텐츠는 PHP에 의해 처리됩니다.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델 또는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+
 이 가이드에서는 Linux 이미지에 설치된 LAMP 스택을 가져와서 Microsoft Azure에 배포합니다.
 
 다음 내용을 배웁니다.
@@ -32,7 +35,7 @@
 
 가상 컴퓨터가 이미 있는 경우 다른 Linux 배포에 LAMP 스택을 설치하는 방법에 대한 기본 사항을 확인하려면 이 항목 외에 [Azure에서 Linux 가상 컴퓨터에 LAMP 스택 설치를 참조하세요.](virtual-machines-linux-install-lamp-stack.md).
 
-Azure 마켓플레이스에서 미리 구성된 LAMP 이미지를 배포할 수도 있습니다. 다음 10분 비디오에서는 Azure 마켓플레이스에서 미리 빌드된 LAMP 이미지를 배포하는 방법을 소개합니다(Azure VM의 LAMP 스택](https://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman))).
+Azure 마켓플레이스에서 미리 구성된 LAMP 이미지를 배포할 수도 있습니다. 다음 10분 비디오에서는 Azure 마켓플레이스에서 미리 빌드된 LAMP 이미지를 배포하는 방법을 소개합니다[Azure VM의 LAMP 스택](https://channel9.msdn.com/Shows/Azure-Friday/LAMP-stack-on-Azure-VMs-with-Guy-Bowerman).
 
 ##1단계: 이미지 만들기
 이 단계에서는 Linux 이미지를 사용하여 Azure에 가상 컴퓨터를 만듭니다.
@@ -42,7 +45,7 @@ SSH는 시스템 관리자에게 중요한 도구입니다. 그러나 사용자�
 
 SSH 인증 키를 생성하려면 다음 단계를 수행합니다.
 
--	다음 위치에서 puttygen을 다운로드하여 설치합니다. [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/)
+-	다음 위치에서 puttygen을 다운로드하여 설치합니다. [http://www.chiark.greenend.org.uk/~sgtatham/](http://www.chiark.greenend.org.uk/~sgtatham/)putty/download.html
 -	puttygen.exe를 실행합니다.
 -	**생성**을 클릭하여 키를 생성합니다. 프로세스에서 마우스를 창의 빈 영역 위로 이동하여 임의성을 늘릴 수 있습니다. ![][1]
 -	생성 프로세스 후 Puttygen.exe에서 생성된 키를 표시합니다. 예: ![][2]
@@ -110,7 +113,7 @@ Azure 포털에서 **찾아보기 -> 가상 컴퓨터**를 클릭한 다음 직�
 
 ![][9]
 
-왼쪽 창에서 **연결 -> SSH -> 인증**을 클릭한 다음 **찾아보기**를 클릭하여 1단계에서 puttygen에 의해 생성된 개인 키가 포함된 **privateKey.ppk** 파일의 위치를 지정합니다. 다음은 예제입니다.
+왼쪽 창에서 **연결 -> SSH -> 인증**을 클릭한 다음 **찾아보기**를 클릭하여 1단계: 이미지 만들기에서 puttygen에 의해 생성된 개인 키가 포함된 **privateKey.ppk** 파일의 위치를 지정합니다. 다음은 예제입니다.
 
 ![][10]
 
@@ -141,6 +144,7 @@ Apache를 설치하려면 터미널을 열고 다음 명령을 실행합니다.
 설치가 완료되면 다음 명령을 사용하여 Apache를 시작합니다.
 
 	sudo service httpd start
+
 ####Apache 테스트
 Apache가 성공적으로 설치되었는지 확인하려면 Apache 서버의 DNS 이름을 찾습니다(이 문서의 예제 URL에서는, http://lampdemo.cloudapp.net/)). 페이지에 "It works!"라는 단어가 표시되어야 합니다. ![][14]
 
@@ -275,7 +279,7 @@ tasksel을 사용하여 LAMP 스택에 필요한 소프트웨어를 설치합니
 		sudo apt-get install tasksel
 		sudo tasksel install lamp-server
 
-마법사를 계속 진행하고 **MySQL 루트 암호를 선택합니다**.
+마법사를 계속 진행하고 **MySQL 루트 암호**를 선택합니다.
 
 ![][15]
 
@@ -345,7 +349,7 @@ LAMP 스택이 성공적으로 설정되면 Apache 웹 서버(가상 컴퓨터)�
 		sudo chgrp lampappgroup /var/www/html/  # Change the ownership to group lampappgroup
 		sudo chmod g+w /var/www/html/                 # grant write permission to group lampappgroup
 
-	>[AZURE.NOTE] /var/www/html/에서 파일을 수정하려는 경우 다시 로그인해야 할 수도 있습니다.
+	>[AZURE.NOTE]/var/www/html/에서 파일을 수정하려는 경우 다시 로그인해야 할 수도 있습니다.
 -	SFTP 클라이언트(예: FileZilla)를 사용하여 가상 컴퓨터의 DNS 이름(예: lampdemo.cloudapp.net)에 연결한 다음 /**var/www/html**로 이동하여 사이트를 게시합니다.![][18]
 
 
@@ -450,6 +454,5 @@ LAMP 스택이 성공적으로 설정되면 Apache 웹 서버(가상 컴퓨터)�
 [16]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-16.png
 [17]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-17.png
 [18]: ./media/virtual-machines-linux-create-lamp-stack/virtual-machines-linux-create-lamp-stack-18.jpg
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

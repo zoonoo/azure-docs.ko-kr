@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Mac, Linux 및 Windows | Microsoft Azure용 Azure CLI를 사용하여 Azure VM 관리"
-   description="Mac, Linux 및 Windows용 Azure CLI를 사용하여 Azure VM을 생성, 관리 및 삭제하는 방법을 설명합니다."
+   pageTitle="Azure CLI를 사용하여 Azure VM 관리 | Microsoft Azure"
+   description="Mac, Linux 및 Windows용 Azure CLI를 사용하여 Azure VM을 관리하는 방법을 설명합니다."
    services="virtual-machines"
    documentationCenter="virtual-machines"
    authors="dlepow"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-service-management"/>
 
    <tags
    ms.service="virtual-machines"
@@ -17,6 +18,8 @@
    ms.author="danlep"/>
 
 # Mac, Linux 및 Windows용 Azure CLI를 사용하여 가상 컴퓨터 관리
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 만든 리소스를 관리하는 방법을 설명합니다. [리소스 관리자 배포 모델](virtual-machines-how-to-automate-azure-resource-manager.md)을 사용하여 만든 리소스를 관리할 수도 있습니다.
 
 VM을 관리하기 위해 일상적으로 수행하는 많은 작업을 Azure CLI를 사용하여 자동화할 수 있습니다. 이 문서에서는 더 간단한 작업에 대한 예제 명령과 보다 복잡한 작업에 대한 명령을 보여 주는 문서에 대한 링크를 제공합니다.
 
@@ -79,6 +82,5 @@ JSON 문서로 $vm 변수에 출력을 저장하려면 다음을 실행합니다
 ## 다음 단계
 
 **arm** 모드의 Azure CLI 사용에 대한 더 많은 예제는 [Azure 리소스 관리에 Mac, Linux 및 Windows용 Microsoft Azure CLI 사용](../xplat-cli-resource-manager.md)을 참조하세요. Azure 리소스 및 해당 개념에 대한 자세한 내용은 [Azure 리소스 관리자 개요](../resource-group-overview.md)를 참조하세요.
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

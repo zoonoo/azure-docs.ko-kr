@@ -12,7 +12,7 @@ ms.service="virtual-machines"
  ms.topic="article"
  ms.tgt_pltfrm="vm-multiple"
  ms.workload="infrastructure-services"
- ms.date="03/10/2015"
+ ms.date="09/22/2015"
  ms.author="rasquill"/>
  
 #가상 컴퓨터 에이전트 및 확장 정보
@@ -62,4 +62,4 @@ VM 에이전트는 다음과 같은 상황에서 사용됩니다.
 
 이러한 작업에 대한 자세한 내용은 [Azure VM 확장 추가, 찾기, 업데이트 및 제거](virtual-machines-extensions-install.md)를 참조하세요.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/24/2015"
+   ms.date="09/22/2015"
    ms.author="barbkess;JRJ@BigBangData.co.uk;mausher;nicw"/>
 
 # 성능 및 확장 개요
@@ -77,4 +77,4 @@ SQL 데이터 웨어하우스는 여러 노드에 걸쳐 집계되는 계산 리
 
 <!--Other web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

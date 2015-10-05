@@ -43,7 +43,8 @@ Azure AD에 장치를 조인시키려면
 > [AZURE.NOTE]Windows 기본 환경에서 온-프레미스 Active Directory 도메인 조인은 지원되지 않습니다. 따라서 PC를 도메인에 조인시키려는 경우 "로컬 계정을 사용하여 Windows 설치" 링크를 선택해야 합니다. 그런 다음 이전에 수행한 대로 PC 설정에서 도메인에 조인시킬 수 있습니다.
 
 ## 추가 정보
+* [Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장](active-directory-azureadjoin-overview.md)
 * [Azure AD 조인에 대한 사용 시나리오에 대해 알아보기](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

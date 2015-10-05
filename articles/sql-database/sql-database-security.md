@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services" 
-   ms.date="07/14/2015"
+   ms.date="09/22/2015"
    ms.author="thmullan;jackr"/>
 
 
@@ -34,19 +34,28 @@ Azure SQL 데이터베이스에 대한 모든 연결은 데이터베이스로/�
 
 ## 인증
 
-인증은 데이터베이스에 연결할 때 사용자의 ID를 증명하는 방법을 가리킵니다. SQL 데이터베이스는 현재 사용자 이름 및 암호를 사용한 SQL 인증을 지원합니다.
+인증은 데이터베이스에 연결할 때 사용자의 ID를 증명하는 방법을 가리킵니다. SQL 데이터베이스는 두 가지 인증 유형을 지원합니다.
 
-데이터베이스의 논리 서버를 만들 때 사용자 이름 및 암호를 사용하여 "서버 관리자" 로그인을 지정했습니다. 이러한 자격 증명을 사용하면 해당 서버의 모든 데이터베이스에 데이터베이스 소유자 또는 "dbo"로 인증할 수 있습니다.
+ - 사용자 이름 및 암호를 사용하는 **SQL 인증**
+ - Azure Active Directory에서 관리되는 ID를 사용하고 관리되고 통합된 도메인에서 지원되는 **Azure Active Directory 인증**
 
-그러나 가장 좋은 방법은 응용 프로그램이 다른 계정을 사용하여 인증하는 것입니다. 이 방법을 사용하면 응용 프로그램에 부여되는 사용 권한을 제한하여 응용 프로그램 코드가 SQL 삽입 공격에 취약한 경우 악의적인 활동의 위험을 줄일 수 있습니다. 응용 프로그램을 통해 사용자 이름과 암호로 단일 데이터베이스에 직접 인증할 수 있는 [포함된 데이터베이스 사용자](https://msdn.microsoft.com/library/ff929188)를 만드는 것이 좋습니다. 서버 관리자 로그인으로 사용자 데이터베이스에 연결되어 있는 동안 다음 T-SQL을 실행하여 포함된 데이터베이스 사용자를 만들 수 있습니다.
+데이터베이스의 논리 서버를 만들 때 사용자 이름 및 암호를 사용하여 "서버 관리자" 로그인을 지정했습니다. 이러한 자격 증명을 사용하면 해당 서버의 모든 데이터베이스에 데이터베이스 소유자 또는 "dbo"로 인증할 수 있습니다. Azure Active Directory 인증을 사용하려는 경우 Azure AD 사용자 및 그룹을 허용하는 "Azure AD 관리자"라는 다른 서버 관리자를 만들어야 합니다. 이 관리자는 일반 서버 관리자가 할 수 있는 모든 작업을 수행할 수도 있습니다. Azure AD 관리자를 만들어 Azure Active Directory 인증을 활성화하는 방법에 대한 연습은 [Azure Active Directory 인증을 사용하여 SQL 데이터베이스에 연결](sql-database-aad-authentication.md)을 참조하세요.
+
+가장 좋은 방법은 응용 프로그램이 다른 계정을 사용하여 인증하는 것입니다. 이 방법을 사용하면 응용 프로그램에 부여되는 사용 권한을 제한하여 응용 프로그램 코드가 SQL 삽입 공격에 취약한 경우 악의적인 활동의 위험을 줄일 수 있습니다. 응용 프로그램을 통해 단일 데이터베이스에 직접 인증할 수 있는 [포함된 데이터베이스 사용자](https://msdn.microsoft.com/library/ff929188)를 만드는 것이 좋습니다. 서버 관리자 로그인으로 사용자 데이터베이스에 연결되어 있는 동안 다음 T-SQL을 실행하여 SQL 인증을 사용하는 포함된 데이터베이스 사용자를 만들 수 있습니다.
 
 ```
-CREATE USER ApplicationUser WITH PASSWORD = 'strong_password';
+CREATE USER ApplicationUser WITH PASSWORD = 'strong_password'; -- SQL Authentication
 ```
 
-데이터베이스에 연결하려면 응용 프로그램의 연결 문자열에 서버 관리자 로그인 대신 사용자 이름과 암호를 지정해야 합니다.
+Azure AD 관리자를 만든 경우 Azure AD 관리자로 사용자 데이터베이스에 연결되어 있는 동안 다음 T-SQL을 실행하여 Azure Active Directory 인증을 사용하는 포함된 데이터베이스 사용자를 만들 수 있습니다.
 
-SQL 데이터베이스 인증에 대한 자세한 내용은 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리](https://msdn.microsoft.com/library/ee336235)를 참조하세요.
+```
+CREATE USER [Azure_AD_principal_name | Azure_AD_group_display_name] FROM EXTERNAL PROVIDER; -- Azure Active Directory Authentication
+```
+
+두 경우 데이터베이스에 연결하려면 응용 프로그램의 연결 문자열에 서버 관리자 로그인 대신 해당 사용자 자격 증명을 지정해야 합니다.
+
+SQL 데이터베이스 인증에 대한 자세한 내용은 [Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리](sql-database-manage-logins.md)를 참조하세요.
 
 
 ## 권한 부여
@@ -98,4 +107,4 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 위의 기능 및 응용 프로그램이 다양한 보안 규정 준수 요구 사항을 충족하도록 도울 수 있는 기능 외에도 Azure SQL 데이터베이스는 정기적인 감사에 참여하고 여러 규정 준수 표준에 대해 인증받았습니다. 자세한 내용은 [Microsoft Azure 보안 센터](http://azure.microsoft.com/support/trust-center/)를 참조하세요. 여기서 최신 [SQL 데이터베이스 규정 준수 인증서](http://azure.microsoft.com/support/trust-center/services/) 목록을 찾을 수 있습니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,21 +1,21 @@
 <properties
    	pageTitle="HDInsight에서 Linux에 Hadoop, HBase 또는 Storm 클러스터 프로비전 | Microsoft Azure"
-	description="관리 포털, 명령줄 및.NET SDK를 사용하여 Linux 기반 HDInsight의 Hadoop 클러스터를 프로비전하는 방법을 알아봅니다."
-	services="hdinsight"
-	documentationCenter=""
-	authors="nitinme"
-	manager="paulettm"
-	editor="cgronlun"
+   	description="관리 포털, 명령줄 및.NET SDK를 사용하여 Linux 기반 HDInsight의 Hadoop 클러스터를 프로비전하는 방법을 알아봅니다."
+   	services="hdinsight"
+   	documentationCenter=""
+   	authors="nitinme"
+   	manager="paulettm"
+   	editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
    	ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/21/2015"
-	ms.author="nitinme"/>
+   	ms.devlang="na"
+   	ms.topic="article"
+   	ms.tgt_pltfrm="na"
+   	ms.workload="big-data"
+   	ms.date="09/21/2015"
+   	ms.author="nitinme"/>
 
 
 #사용자 지정 옵션을 사용하여 HDInsight의 Hadoop Linux 클러스터 프로비전을 참조하세요.
@@ -61,8 +61,9 @@ HDInsight 클러스터를 프로비전할 때는 Hive용 Metastore를 포함할 
 
 ### 스크립트 작업을 사용하여 클러스터 사용자 지정
 
-프로비전하는 동안 스크립트를 사용하여 추가 구성 요소를 설치하거나 클러스터 구성을 사용자 지정할 수 있습니다. 해당 스크립트는 **스크립트 동작**을 통해 호출됩니다. 스크립트 동작은 Preview 포털, HDInsight Windows PowerShell cmdlet 또는 HDInsight .NET SDK에서 사용할 수 있는 구성 옵션입니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
+프로비전하는 동안 스크립트를 사용하여 추가 구성 요소를 설치하거나 클러스터 구성을 사용자 지정할 수 있습니다. 이러한 스크립트는 **스크립트 동작**을 통해 호출됩니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
+> [AZURE.IMPORTANT]클러스터 노드 이미지가 다시 설치된 후에 이러한 구성 요소를 사용할 수 없기 때문에 클러스터를 프로비전한 후에 추가 구성 요소를 추가하도록 지원하지 않습니다. 스크립트 동작을 통해 설치된 구성 요소는 프로세스를 이미지한 일부로 다시 설치됩니다.
 
 ### Azure 가상 네트워크 사용
 
@@ -100,10 +101,11 @@ HDInsight 클러스터를 프로비전할 때는 Hive용 Metastore를 포함할 
 
 Windows 기반 컴퓨터와 Linux 컴퓨터에서 HDInsight Hadoop Linux 클러스터를 프로비전할 수 있습니다. 다음 표에서 서로 다른 운영 체제에서 사용할 수 있는 프로비전 옵션에 대한 정보를 제공하고 각각에 대한 지침을 연결합니다.
 
-다음 운영 체제를 실행하는 컴퓨터에서 LINUX 클러스터 프로비전| Azure 포털 사용 | Azure PowerShell 사용 | .NET SDK 사용
------------------| ------------------------| -------------------| ---------- | ---------
-Linux| [여기](#portal)를 클릭 | 해당 없음 | 해당 없음
-Windows | [여기](#portal)를 클릭 | [여기](#powershell)를 클릭 | [여기](#sdk)를 클릭
+다음 운영 체제를 실행하는 컴퓨터에서 LINUX 클러스터 프로비전 | Azure 포털 사용 | Azure CLI 사용 | Azure PowerShell 사용 | .NET SDK 사용
+-----------------| --------| ------------------------| -------------------| ---------- | ---------
+Linux| [여기](#portal)를 클릭 | [여기](#cli)를 클릭 | 해당 없음 | 해당 없음
+Mac OS X | [여기](#portal)를 클릭 | [여기](#cli)를 클릭 | 해당 없음 | 해당 없음
+Windows | [여기](#portal)를 클릭 | [여기](#cli)를 클릭 | [여기](#powershell)를 클릭 | [여기](#sdk)를 클릭
 
 ### <a id="portal"></a> Azure 포털 사용
 
@@ -119,10 +121,10 @@ HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시
 
     ![Azure 미리 보기 포털에서 새 클러스터 만들기](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.1.png "Azure 미리 보기 포털에서 새 클러스터 만들기")
 
-3. **클러스터 이름**을 입력하고 **클러스터 유형**으로 **Hadoop**를 선택하고 **클러스터 운영 체제** 드롭다운에서 **Ubuntu**를 선택합니다. 클러스터 이름을 사용할 수 있는 경우 클러스터 이름 옆에 녹색 확인 표시가 나타납니다.
+3. **클러스터 이름**을 입력하고 **클러스터 형식**으로 **Hadoop**을 선택하고 **클러스터 운영 체제** 드롭다운에서 **Ubuntu**를 선택합니다. 클러스터 이름을 사용할 수 있는 경우 클러스터 이름 옆에 녹색 확인 표시가 나타납니다.
 
 
-	> [AZURE.NOTE]HBase 또는 Storm 클러스터를 프로비전하려면 **클러스터 유형** 드롭다운 목록에서 적절한 값을 선택합니다.
+	> [AZURE.NOTE]HBase 또는 Storm 클러스터를 프로비전하려면 **클러스터 형식** 드롭다운 목록에서 적절한 값을 선택합니다.
 
 
 	![클러스터 이름 및 유형 입력](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.2.png "클러스터 이름 및 유형 입력")
@@ -149,7 +151,7 @@ HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시
 
 	현재 HDInsight 클러스터의 데이터 원본으로 Azure 저장소 계정을 선택할 수 있습니다. 다음을 사용하여 **데이터 원본** 블레이드의 항목을 이해합니다.
 
-	- **선택 방법**: 모든 구독에서 저장소 계정을 찾을 수 있도록 하려면 이 항목을 **모든 구독에서**로 설정합니다. 기존 저장소 계정의 **저장소 이름** 및 **액세스 키**를 입력하려면 이 항목을 **액세스 키**로 설정합니다.
+	- **선택 방법**: 모든 구독에서 저장소 계정을 찾을 수 있도록 하려면 이 항목을 **모든 구독에서**로 설정합니다. 기존 저장소 계정의 **저장소 이름** 및 **선택키**를 입력하려면 이 항목을 **선택키**로 설정합니다.
 
 	- **저장소 계정 선택/새로 만들기**: 클러스터와 연결할 기존 저장소 계정을 찾아 선택하려면 **저장소 계정 선택**을 클릭합니다. 또는 새 저장소 계정을 만들려면 **새로 만들기**를 클릭합니다. 저장소 계정의 이름을 입력할 때 나타나는 필드를 사용합니다. 이름을 사용할 수 있는 경우 녹색 확인 표시가 나타납니다.
 
@@ -161,7 +163,7 @@ HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시
 
 	**선택**을 클릭하여 데이터 원본 구성을 저장합니다.
 
-8. **노드 가격 책정 계층**을 클릭하여 이 클러스터에 대해 생성될 노드에 대한 정보를 표시합니다. 클러스터에 필요한 작업자 노드 수를 설정합니다. 클러스터의 예상 비용이 블레이드 내에 표시됩니다.
+8. **노드 가격 책정 계층**을 클릭하여 이 클러스터에 대해 만들어질 노드에 대한 정보를 표시합니다. 클러스터에 필요한 작업자 노드 수를 설정합니다. 클러스터의 예상 비용이 블레이드 내에 표시됩니다.
 
 	![노드 가격 책정 계층 블레이드](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.5.png "클러스터 노드 수 지정")
 
@@ -213,7 +215,7 @@ HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시
 
 	다음을 사용하여 이 블레이드의 위쪽과 **필수** 섹션에 있는 아이콘을 이해합니다.
 
-	* **설정** 및 **모든 설정**: 클러스터의 자세한 구정 정보에 액세스할 수 있는 클러스터의 **설정** 블레이드를 표시합니다.
+	* **설정** 및 **모든 설정**: 클러스터의 자세한 구성 정보에 액세스할 수 있는 클러스터의 **설정** 블레이드를 표시합니다.
 
 	* **대시보드**, **클러스터 대시보드** 및 **URL**: 이러한 항목을 통해 클러스터에서 작업을 실행하기 위한 웹 포털인 클러스터 대시보드에 액세스할 수 있습니다.
 
@@ -221,17 +223,81 @@ HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시
 
 	* **삭제**: HDInsight 클러스터를 삭제합니다.
 
-	* **빠른 시작**(![구름과 벼락 아이콘 = 빠른 시작](./media/hdinsight-hadoop-provision-linux-clusters/quickstart.png)): HDInsight를 사용하여 시작하는 데 도움이 되는 정보를 표시합니다.
+	* **빠른 시작(![구름과 벼락 아이콘 = 빠른 시작](./media/hdinsight-hadoop-provision-linux-clusters/quickstart.png))**: HDInsight를 사용하여 시작하는 데 도움이 되는 정보를 표시합니다.
 
-	* **사용자**(![사용자 아이콘](./media/hdinsight-hadoop-provision-linux-clusters/users.png)): Azure 구독의 다른 사용자에 대해 이 클러스터의 _포털 관리_ 권한을 설정할 수 있습니다.
+	* **사용자(![사용자 아이콘](./media/hdinsight-hadoop-provision-linux-clusters/users.png))**: Azure 구독의 다른 사용자에 대해 이 클러스터의 _포털 관리_ 권한을 설정할 수 있습니다.
 
 		> [AZURE.IMPORTANT]이는 _오직_ Azure Preview 포털에서 이 클러스터에 대한 액세스 및 권한에만 영향을 미치며, HDInsight 클러스터에 연결하거나 작업을 제출할 수 있는 사용자에게는 영향을 미치지 않습니다.
 
-	* **태그**(![태그 아이콘](./media/hdinsight-hadoop-provision-linux-clusters/tags.png)): 태그를 사용하면 클라우드 서비스의 사용자 지정 분류를 정의하기 위한 키/값 쌍을 설정할 수 있습니다. 예를 들어 __project__라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.
+	* **태그(![태그 아이콘](./media/hdinsight-hadoop-provision-linux-clusters/tags.png))**: 태그를 사용하면 클라우드 서비스의 사용자 지정 분류를 정의하기 위한 키/값 쌍을 설정할 수 있습니다. 예를 들어 __project__라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.
 
+### <a id="cli"></a> Azure CLI 사용
 
+Azure CLI는 Azure 서비스를 관리할 수 있도록 하는 크로스 플랫폼 명령줄 유틸리티입니다. Azure 리소스 관리 템플릿과 함께 사용하여 HDInsight 클러스터를 연결된 저장소 계정 및 기타 서비스와 함께 프로비전할 수 있습니다.
+
+Azure 리소스 관리 템플릿은 __리소스 그룹__ 및 그 안에 모든 리소스를 설명하는 JSON 문서입니다.(예: HDInsight) 이 템플릿 기반 접근 방식을 사용하면 HDInsight에 필요한 모든 리소스를 하나의 템플릿에 정의하고 그룹에 변경 내용을 적용하는 __배포__를 통해 그룹에 대한 변경 내용을 전체적으로 관리할 수 있습니다.
+
+다음 단계는 Azure CLI 및 템플릿을 사용하여 새 HDInsight 클러스터를 만드는 과정을 안내합니다.
+
+1. 아직 설치되지 않은 경우 [Azure CLI 설치 및 구성](../xplat-cli.md) 문서의 단계를 수행합니다.
+
+2. 명령줄, 터미널 또는 셸에서 다음 명령을 사용하여 Azure 구독을 인증합니다.
+
+        azure login
+
+    사용자 이름 및 암호를 제공하라는 메시지가 표시됩니다. 여러 Azure 구독이 있는 경우 `azure account set <subscriptionname>`을 사용하여 Azure CLI 명령을 사용하는 구독을 설정할 수 있습니다.
+
+3. 다음 명령을 사용하여 Azure 리소스 관리자 모드로 전환합니다.
+
+        azure config mode arm
+
+4. HDInsight 클러스터에 대한 템플릿을 만듭니다. 다음은 기본 예제 템플릿 일부입니다.
+
+    * [SSH 공개 키를 사용하는 Linux 기반 클러스터](https://github.com/matt1883/azure-quickstart-templates/tree/master/hdinsight-linux-sshpublickey)
+    * [SSH 계정에 암호를 사용하는 Linux 기반 클러스터](https://github.com/matt1883/azure-quickstart-templates/tree/master/hdinsight-linux-sshpassword)
+
+    또한 이러한 템플릿은 모두 HDInsight에서 사용되는 기본 Azure 저장소 계정을 만듭니다.
+
+    필요한 파일은 __azuredeploy.json__ 및 __azuredeploy.parameters.json__입니다.
+
+5. 편집기에서 __azuredeploy.parameters.json__를 열고 `parameters` 섹션에서 항목에 대한 값을 제공합니다.
+
+    * __위치__: 리소스가 생성된 데이터 센터입니다. 허용되는 위치의 목록에 __azuredeploy.json__ 파일에서 `location` 섹션을 확인할 수 있습니다.
+    * __clusterName__: HDInsight 클러스터의 이름입니다. 이 이름은 고유해야 합니다. 아니면 배포가 실패합니다.
+    * __clusterStorageAccountName__: HDInsight 클러스터에 생성되는 Azure 저장소 계정의 이름입니다. 이 이름은 고유해야 합니다. 아니면 배포가 실패합니다.
+    * __clusterLoginPassword__: 클러스터 관리자 사용자의 암호입니다. 클러스터에서 웹 사이트 및 REST 서비스에 액세스하는 데 사용되기 때문에 안전한 암호여야 합니다.
+    * __sshUserName__: 클러스터에 만들 첫번째 SSH 사용자의 이름입니다. 이 계정을 사용하여 클러스터에 원격으로 액세스하는 데 SSH를 사용합니다. 이름은 고유해야 하며 클러스터에서 이미 사용 중인 계정의 이름을 쓸 수 없습니다. 잘못된 이름은 루트, storm 및 hbase를 포함합니다.
+    * __sshPublicKey__: SSH 공개키를 필요로 하는 템플릿을 사용하는 경우 이 줄에서 공용 키를 추가해야 합니다. 공용 키로 생성하고 작업하는 자세한 내용은 다음 문서를 참조하세요.
+
+        * [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
+        * [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+
+    * __sshPassword__: SSH 암호를 필요로 하는 템플릿을 사용하는 경우 이 줄에 암호를 추가해야 합니다.
+
+    작업을 완료하면 파일을 저장하고 닫습니다.
+
+5. 다음을 사용하여 빈 리소스 그룹을 만듭니다. __RESOURCEGROUPNAME__을 이 그룹에 사용하려는 이름으로 바꿉니다. __위치__를 그룹을 만들어야 하는 데이터 센터로 바꿉니다.
+
+        azure group create RESOURCEGROUPNAME LOCATION
+    
+    > [AZURE.NOTE]위치 이름이 공백을 포함하는 경우 이중 따옴표로 묶습니다. 예를 들어 "미국 중남부"입니다.
+
+6. 다음 명령을 사용하여 이 리소스 그룹에 초기 배포를 만듭니다. __PATHTOTEMPLATE__를 __azuredeploy.json__ 템플릿 파일에 대한 경로로 바꿉니다. __PATHTOPARAMETERSFILE__를 __azuredeploy.parameters.json__ 파일에 대한 경로로 바꿉니다. __RESOURCEGROUPNAME__를 이전 단계에서 만든 그룹의 이름으로 바꿉니다.
+
+        azure group deployment create -f PATHTOTEMPLATE -e PATHTOPARAMETERSFILE -g RESOURCEGROUPNAME -n InitialDeployment
+
+    배포가 수락되면 `group deployment create command ok`과 유사한 메시지가 나타납니다.
+
+7. 배포를 완료하려면 약 15분 정도의 시간이 걸릴 수 있습니다. 다음 명령을 사용하여 배포에 대한 정보를 볼 수 있습니다. __RESOURCEGROUPNAME__를 이전 단계에서 사용한 리소스 그룹의 이름으로 바꿉니다.
+
+        azure group log show -l RESOURCEGROUPNAME
+
+    배포 중에 오류가 발생하는 경우 다음 명령을 사용하여 오류에 대한 자세한 정보를 얻을 수 있습니다.
+
+        azure group log show -l -v RESOURCEGROUPNAME
 
 ### <a id="powershell"></a> Azure PowerShell 사용
+
 Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 및 자동화하기 위해 사용할 수 있는 강력한 스크립팅 환경입니다. 이 섹션에서는 Azure PowerShell을 사용하여 HDInsight 클러스터를 프로비전하는 방법에 대한 지침을 제공합니다. HDInsight Windows PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](../install-configure-powershell.md)을 참조하세요. HDInsight에서 Azure PowerShell을 사용하는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 HDInsight 관리](hdinsight-administer-use-powershell.md)를 참조하세요. HDInsight Windows PowerShell cmdlet의 목록은 [HDInsight cmdlet 참조](https://msdn.microsoft.com/library/azure/dn858087.aspx)를 참조하세요.
 
 
@@ -312,146 +378,138 @@ Linux 클러스터를 프로비전하기 위해 설정해야 하는 두 가지 �
 
 ![HDI.CLI.Provision][image-hdi-ps-provision]
 
+
+
 ###<a id="sdk"></a> HDInsight .NET SDK 사용
 HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다. 아래 지침에 따라 Visual Studio 콘솔 응용 프로그램을 만들고 클러스터를 만들기 위한 코드를 붙여 넣으세요.
 
 **Visual Studio 콘솔 응용 프로그램을 만들려면**
 
-1. Visual Studio 2013을 엽니다.
+1. Visual Studio 2013 또는 2015 열기
 
 2. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
 
 3. **새 프로젝트**에서 다음 값을 입력하거나 선택합니다.
 
-	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-<tr>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">속성</th>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">값</th></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Category</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Templates/Visual C#/Windows</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Template</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Console Application</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Name</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">CreateHDICluster</td></tr>
-</table>
+	|속성|값|
+	|--------|-----|
+	|Template|Templates/Visual C#/Windows/Console Application|
+	|이름|CreateHDICluster|
 
 4. **확인**을 클릭하여 프로젝트를 만듭니다.
 
-5. **도구** 메뉴에서 **Nuget 패키지 관리자**를 클릭한 다음 **솔루션의 Nuget 패키지 관리**를 클릭합니다. 대화 상자 내의 검색 텍스트 상자에서 **HDInsight**를 검색합니다. 표시되는 결과에서 다음을 설치합니다.
+5. **도구** 메뉴에서 **Nuget 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다.
 
-	 * Microsoft.Azure.Management.HDInsight
-	 * Microsoft.Azure.Management.HDInsight.Job
+6. 콘솔에서 다음 명령을 실행하여 패키지를 설치합니다.
 
-	Azure 인증을 검색하고 표시되는 결과에서 **Microsoft.Azure.Common.Authentication**을 설치합니다.
+		Install-Package Microsoft.Azure.Common.Authentication -pre
+		Install-Package Microsoft.Azure.Management.HDInsight -Pre
+
+	.NET 라이브러리 및 이에 대한 참조가 현재 Visual Studio 프로젝트에 추가됩니다.
 
 6. 솔루션 탐색기에서 **Program.cs**를 두 번 클릭하여 열고 다음 코드를 붙여 넣은 후 변수 값을 제공합니다.
 
-
-        using System;
-		using System.Collections.Generic;
-		using System.Diagnostics;
-		using System.Linq;
-		using System.Security;
-		using System.Text;
-		using System.Threading.Tasks;
-		using Hyak.Common;
 		using Microsoft.Azure;
 		using Microsoft.Azure.Common.Authentication;
+		using Microsoft.Azure.Common.Authentication.Factories;
 		using Microsoft.Azure.Common.Authentication.Models;
 		using Microsoft.Azure.Management.HDInsight;
-		using Microsoft.Azure.Management.HDInsight.Job;
-		using Microsoft.Azure.Management.HDInsight.Job.Models;
 		using Microsoft.Azure.Management.HDInsight.Models;
-		using Newtonsoft.Json;
-
 
 		namespace CreateHDICluster
 		{
 		    internal class Program
 		    {
-		        private static ProfileClient _profileClient;
-		        private static SubscriptionCloudCredentials _cloudCredentials;
 		        private static HDInsightManagementClient _hdiManagementClient;
+		
+		        private static Guid SubscriptionId = new Guid("<AZURE SUBSCRIPTION ID>");
+		        private const string ResourceGroupName = "<AZURE RESOURCEGROUP NAME>";
 
-		        private static Guid SubscriptionId = new Guid("<SubscriptionID>");
-		        private const string ResourceGroupName = "<ResourceGroupName>";
-		        private const string ExistingStorageName = "<storageaccountname>.blob.core.windows.net";
-		        private const string ExistingStorageKey = "<account key>";
-		        private const string ExistingContainer = "<container name>";
-		        private const string NewClusterName = "<cluster name>";
-		        private const int NewClusterNumNodes = <number of nodes>;
-		        private const string NewClusterLocation = "<location>";		//should be same as the storage account
-		        private const OSType NewClusterOsType = OSType.Linux;
-		        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+		        private const string NewClusterName = "<HDINSIGHT CLUSTER NAME>";
+		        private const int NewClusterNumNodes = <NUMBER OF NODES>;
+		        private const string NewClusterLocation = "<LOCATION>";  // Must match the Azure Storage account location
 		        private const string NewClusterVersion = "3.2";
-		        private const string NewClusterUsername = "admin";
-		        private const string NewClusterPassword = "<password>";
-				private const string NewClusterSshUserName = "sshuser";
-        		private const string NewClusterSshPublicKey = "<ssh public key>";
+		        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+		        private const OSType NewClusterOSType = OSType.Windows;
 
+		        private const string ExistingStorageName = "<STORAGE ACCOUNT NAME>.blob.core.windows.net";
+		        private const string ExistingStorageKey = "<STORAGE ACCOUNT KEY>";
+		        private const string ExistingContainer = "<DEFAULT CONTAINER NAME>"; 
+
+		        private const string NewClusterUsername = "admin";
+		        private const string NewClusterPassword = "<HTTP USER PASSWORD>";
+
+		        private const string NewClusterSshUserName = "sshuser";
+		        private const string NewClusterSshPublicKey = @"---- BEGIN SSH2 PUBLIC KEY ----
+					Comment: ""rsa-key-20150731""
+					AAAAB3NzaC1yc2EAAAABJQAAAQEA4QiCRLqT7fnmUA5OhYWZNlZo6lLaY1c+IRsp
+					gmPCsJVGQLu6O1wqcxRqiKk7keYq8bP5s30v6bIljsLZYTnyReNUa5LtFw7eauGr
+					yVt3Pve6ejfWELhbVpi0iq8uJNFA9VvRkz8IP1JmjC5jsdnJhzQZtgkIrdn3w0e6
+					WVfu15kKyY8YAiynVbdV51EB0SZaSLdMZkZQ81xi4DDtCZD7qvdtWEFwLa+EHdkd
+					pzO36Mtev5XvseLQqzXzZ6aVBdlXoppGHXkoGHAMNOtEWRXpAUtEccjpATsaZhQR
+					zZdZlzHduhM10ofS4YOYBADt9JohporbQVHM5w6qUhIgyiPo7w==
+					---- END SSH2 PUBLIC KEY ----"; //replace the public key with your own
+		
 		        private static void Main(string[] args)
 		        {
-		            System.Console.WriteLine("Start cluster provisioning");
-
-		            _profileClient = GetProfile();
-		            _cloudCredentials = GetCloudCredentials();
-		            _hdiManagementClient = new HDInsightManagementClient(_cloudCredentials);
-
-		            System.Console.WriteLine(String.Format("Creating the cluster {0}...", NewClusterName));
+		            var tokenCreds = GetTokenCloudCredentials();
+		            var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
+		
+		            _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
+		
 		            CreateCluster();
-		            System.Console.WriteLine("Done. Press any key to continue.");
-		            System.Console.ReadKey(true);
 		        }
-
+		
+		        public static SubscriptionCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
+		        {
+		            var authFactory = new AuthenticationFactory();
+		
+		            var account = new AzureAccount { Type = AzureAccount.AccountType.User };
+		
+		            if (username != null && password != null)
+		                account.Id = username;
+		
+		            var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
+		
+		            var accessToken =
+		                authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto)
+		                    .AccessToken;
+		
+		            return new TokenCloudCredentials(accessToken);
+		        }
+		
+		        public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(SubscriptionCloudCredentials creds, Guid subId)
+		        {
+		            return new TokenCloudCredentials(subId.ToString(), ((TokenCloudCredentials)creds).Token);
+		        }
+		
+		
 		        private static void CreateCluster()
 		        {
 		            var parameters = new ClusterCreateParameters
 		            {
 		                ClusterSizeInNodes = NewClusterNumNodes,
-		                UserName = NewClusterUsername,
-		                Password = NewClusterPassword,
 		                Location = NewClusterLocation,
+		                ClusterType = NewClusterType,
+		                OSType = NewClusterOSType,
+		                Version = NewClusterVersion,
+
 		                DefaultStorageAccountName = ExistingStorageName,
 		                DefaultStorageAccountKey = ExistingStorageKey,
 		                DefaultStorageContainer = ExistingContainer,
-		                ClusterType = NewClusterType,
-		                OSType = NewClusterOsType,
-						SshUserName = NewClusterSshUserName,
+
+		                UserName = NewClusterUsername,
+		                Password = NewClusterPassword,
+		                SshUserName = NewClusterSshUserName,
                 		SshPublicKey = NewClusterSshPublicKey
 		            };
-
+		
 		            _hdiManagementClient.Clusters.Create(ResourceGroupName, NewClusterName, parameters);
 		        }
-
-		        private static ProfileClient GetProfile(string username = null, SecureString password = null)
-		        {
-		            var profileClient = new ProfileClient(new AzureProfile());
-		            var env = profileClient.GetEnvironmentOrDefault(EnvironmentName.AzureCloud);
-		            var acct = new AzureAccount { Type = AzureAccount.AccountType.User };
-
-		            if (username != null && password != null)
-		                acct.Id = username;
-
-		            profileClient.AddAccountAndLoadSubscriptions(acct, env, password);
-
-		            return profileClient;
-		        }
-
-		        private static SubscriptionCloudCredentials GetCloudCredentials()
-		        {
-		            var sub = _profileClient.Profile.Subscriptions.Values.FirstOrDefault(s => s.Id.Equals(SubscriptionId));
-
-		            Debug.Assert(sub != null, "subscription != null");
-		            _profileClient.SetSubscriptionAsDefault(sub.Id, sub.Account);
-
-		            return AzureSession.AuthenticationFactory.GetSubscriptionCloudCredentials(_profileClient.Profile.Context);
-		        }
-
-		    }
+			}
 		}
+		
+10. 클래스 멤버 값을 대체합니다.
 
 7. **F5** 키를 눌러 응용 프로그램을 실행합니다. 콘솔 창이 열리고 응용 프로그램의 상태가 표시되며 또한 Azure 계정 자격 증명을 입력하라는 메시지가 표시됩니다. HDInsight 클러스터를 만들려면 몇 분정도 걸릴 수 있습니다.
 
@@ -516,4 +574,4 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "HDInsight에서 Sqoop 사용"
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

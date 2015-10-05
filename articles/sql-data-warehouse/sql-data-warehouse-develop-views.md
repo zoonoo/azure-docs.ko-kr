@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
  
@@ -69,4 +69,4 @@ SQL 데이터 웨어하우스의 뷰는 메타데이터 전용입니다.
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

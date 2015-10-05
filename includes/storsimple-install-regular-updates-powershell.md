@@ -1,4 +1,4 @@
-
+<!--author=SharS last changed: 9/17/15-->
 
 #### StorSimple용 Windows PowerShell을 통해 정기적인 업데이트를 설치하려면
 
@@ -21,4 +21,4 @@
 > - 이 명령은 정기적인 업데이트에만 적용됩니다. 컨트롤러 하나에서만 이 명령을 실행하면 두 컨트롤러가 모두 업데이트됩니다. 
 > - 업데이트 프로세스 중에 컨트롤러 장애 조치(failover)가 수행되지만 시스템 가용성이나 작업에는 영향이 없습니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

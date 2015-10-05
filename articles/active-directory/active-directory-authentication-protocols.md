@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Active Directory 인증 프로토콜"
+   pageTitle="Azure Active Directory 인증 프로토콜 | Microsoft Azure"
    description="Azure AD(Active Directory)에서 지원되는 인증 프로토콜 개요"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/02/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # Azure Active Directory 인증 프로토콜
@@ -55,4 +55,4 @@ Azure AD(Azure Active Directory)는 가장 널리 사용되는 다수의 인증 
 
 [Active Directory 코드 샘플](active-directory-code-samples.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

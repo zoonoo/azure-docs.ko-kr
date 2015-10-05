@@ -1,20 +1,12 @@
 <properties
-   pageTitle="Azure 백업을 사용하여 테이프 인프라 대체 | Microsoft Azure"
-   description="Azure 백업이 Azure에서 데이터를 백업하고 복원할 수 있도록 하는 테이프와 같은 의미 체계를 제공하는 방법을 알아봅니다"
+   pageTitle="Azure 백업을 사용하여 테이프 인프라 대체ㅣMicrosoft Azure"
+   description="Azure 백업이 Azure에서 데이터를 백업하고 복원할 수 있도록 하는 테이프와 같은 의미 체계를 제공하는 방법을 알아봅니다."
    services="backup"
    documentationCenter=""
    authors="Jim-Parker"
    manager="jwhit"
    editor=""/>
-<tags
-   ms.service="backup"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="storage-backup-recovery"
-   ms.date="07/01/2015"
-   ms.author="jimpark"; "aashishr"/>
-
+<tags  ms.service="backup" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="storage-backup-recovery" ms.date="09/22/2015" ms.author="jimpark"; "aashishr"; "sammehta"/>
 
 # Azure 백업을 사용하여 테이프 인프라 대체
 Azure 백업 및 System Center Data Protection Manager 고객은 다음을 수행할 수 있습니다. 조직이 원하는 가장 적합한 데이터 백업 일정 - 백업 데이터를 장기간 보관 - Azure를 장기간 보존의 일부로 (테이프 대신) 필요한 만큼 만듭니다.
@@ -55,6 +47,8 @@ Azure 백업 및 System Center Data Protection Manager 고객은 다음을 수�
 
 복구 지점의 총 수는 56개입니다.
 
+> [AZURE.NOTE]Azure 백업은 복구 지점 개수에 대한 제한이 없습니다.
+
 ## 고급 구성
 위 화면에서 **수정**을 클릭하면 보존 일정을 더 유연하게 지정할 수 있습니다.
 
@@ -66,4 +60,4 @@ Azure 백업에 대한 자세한 내용은 참조
 - [Azure 백업 소개](backup-introduction-to-azure-backup.md)
 - [Azure 백업 시도](backup-try-azure-backup-in-10-mins)
 
-<!-----HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

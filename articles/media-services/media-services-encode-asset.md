@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"  
+	ms.date="09/23/2015"  
 	ms.author="juliako"/>
 
 #Azure 주문형 미디어 인코더 개요 및 비교
@@ -70,13 +70,13 @@ Azure 미디어 인코더에 비해 더 입력 및 출력 형식과 코덱을 �
 
 ###입력 및 출력 메타데이터
 
-인코더 입력 메타데이터는 [여기](http://msdn.microsoft.com/library/azure/dn783120.aspx)(Azure 미디어 인코더와 같음)에서 설명합니다.
+인코더 입력 메타데이터는 [여기](http://msdn.microsoft.com/library/azure/dn783120.aspx)에서 설명합니다.
 
-인코더 출력 메타데이터는 [여기](http://msdn.microsoft.com/library/azure/dn783217.aspx)(Azure 미디어 인코더와 같음)에서 설명합니다.
+인코더 출력 메타데이터는 [여기](http://msdn.microsoft.com/library/azure/dn783217.aspx)에서 설명합니다.
 
 ###미리 보기
 
-현재 지원되지 않습니다.
+미리 보기를 생성하는 방법에 대한 자세한 내용은 [미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법](media-services-dotnet-generate-thumbnail-with-mes.md)을 참조하세요.
 
 ###오디오 및/또는 비디오 오버레이
 
@@ -102,7 +102,7 @@ Azure 미디어 인코더는 미디어 서비스에서 지원하는 인코더 �
 
 ###기본 설정
 
-Azure 미디어 인코더는 [여기](https://msdn.microsoft.com/library/azure/dn619392.aspx)에서 설명한 인코더 기본 설정 중 하나를 사용하여 구성됩니다. [여기](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/Azure%20Media%20Encoder)에서 실제 Azure 미디어 인코더 기본 설정 파일을 가져올 수도 있습니다.
+Azure 미디어 인코더는 [여기](https://msdn.microsoft.com/library/azure/dn619392.aspx)서 설명하는 인코더 기본 설정 중 하나를 사용하여 구성됩니다. [여기](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/Azure%20Media%20Encoder)서 실제 Azure 미디어 인코더 기본 설정 파일을 가져올 수도 있습니다.
 
 ###입력 및 출력 메타데이터
 
@@ -112,7 +112,7 @@ Azure 미디어 인코더는 [여기](https://msdn.microsoft.com/library/azure/d
 
 ###미리 보기
 
-[미리 보기 만들기](https://msdn.microsoft.com/library/azure/Dn673581.aspx)
+[미리 보기 만들기](https://msdn.microsoft.com/library/hh973624.aspx)
 
 ###오디오 및/또는 비디오 오버레이
 
@@ -127,14 +127,16 @@ Azure 미디어 인코더는 [여기](https://msdn.microsoft.com/library/azure/d
 [Dolby Digital Plus를 사용하여 미디어 인코딩](media-services-encode-with-dolby-digital-plus.md)
 
 ##미디어 인코더 Premium 워크플로
-	
+
+###개요
+
+[Azure 미디어 서비스의 프리미엄 인코딩 소개](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+
+###사용 방법
+
 미디어 인코더 Premium 워크플로는 복잡한 워크플로를 사용하여 구성됩니다. 워크플로 파일은 [Workflow Designer](media-services-workflow-designer.md) 도구를 사용하여 만들고 업데이트할 수 있습니다.
 
-자세한 내용은 다음을 참조하세요.
-
-- [Azure 미디어 서비스의 프리미엄 인코딩 소개](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
-- [Azure 미디어 서비스의 프리미엄 인코딩 사용 방법](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
-
+[Azure 미디어 서비스의 프리미엄 인코딩 사용 방법](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 
 ##<a id="compare_encoders"></a>인코더 비교
 
@@ -254,4 +256,4 @@ Windows Media 오디오|아니요|예|예
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

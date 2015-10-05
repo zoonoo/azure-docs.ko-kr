@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="" 
-	description="Cordova 프로젝트에서 Azure 모바일 서비스를 시작하기 위해 수행할 수 있는 첫 단계에 대해 설명합니다." 
+	pageTitle="Cordova 모바일 서비스 프로젝트 시작하기(Visual Studio 연결 서비스)" 
+	description="Visual Studio 연결 서비스를 사용하여 Cordova 프로젝트를 Azure 모바일 서비스에 연결한 다음 할 수 있는 첫 번째 단계에 대해 설명합니다." 
 	services="mobile-services" 
 	documentationCenter="" 
 	authors="patshea123" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="09/17/2015" 
 	ms.author="patshea"/>
 
 # 모바일 서비스 시작(Cordova 프로젝트)
@@ -94,4 +94,4 @@ where 메서드를 사용하여 쿼리를 수정할 수 있습니다. 다음은 
 
 [모바일 서비스에 대한 자세한 정보](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

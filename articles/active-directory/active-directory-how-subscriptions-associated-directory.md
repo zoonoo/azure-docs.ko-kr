@@ -1,19 +1,19 @@
 <properties
-	pageTitle="Azure 구독과 Azure AD의 연관 관계"
+	pageTitle="Azure 구독과 Azure AD의 연관 관계 | Microsoft Azure"
 	description="Microsoft Azure 로그인 및 Azure 구독과 Azure AD 간의 관계와 같은 관련 문제에 대한 항목입니다."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/14/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # Azure 구독과 Azure AD의 연관 관계
@@ -67,7 +67,7 @@ Azure AD는 디렉터리 및 ID 관련 기능을 관리하는 다른 관리 역�
 
 역할을 모두 담당할 수 있지만 그럴 필요는 없습니다. 사용자는 디렉터리 전역 관리자 역할에 할당될 수 있지만 Azure 구독의 공동 관리자 또는 서비스 관리자로 할당될 수는 없습니다. 구독의 관리자가 아니어도 사용자는 관리 포털에 로그인할 수 없습니다. 하지만 Azure AD PowerShell 또는 Office 365 관리 센터와 같은 다른 도구를 사용하여 디렉터리 관리 작업을 수행할 수 있습니다.
 
-### 현재 사용자 계정으로 디렉터리를 관리할 수 없는 이유
+## 현재 사용자 계정으로 디렉터리를 관리할 수 없는 이유
 
 사용자가 Azure 구독에 등록하기 전에 회사 또는 학교 계정을 사용하여 관리 포털에 로그인할 경우도 있습니다. 이 경우에 사용자는 해당 계정에 대한 구독이 없다는 메시지를 받게 됩니다. 메시지에는 무료 평가판 구독을 시작할 수 있는 링크가 포함됩니다.
 
@@ -124,4 +124,4 @@ Azure에 등록하기 전에 Office 365에 등록했다고 가정해 보겠습�
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Azure Redis 캐시 구성 방법"
-	description="Azure Redis 캐시에 대한 기본 Redis 구성을 이해하고 Azure Redis 캐시 인스턴스를 구성하는 방법을 알아봅니다."
-	services="redis-cache"
-	documentationCenter="na"
-	authors="steved0x"
-	manager="dwrede"
-	editor="tysonn"/>
+   description="Azure Redis 캐시에 대한 기본 Redis 구성을 이해하고 Azure Redis 캐시 인스턴스를 구성하는 방법을 알아봅니다."
+   services="redis-cache"
+   documentationCenter="na"
+   authors="steved0x"
+   manager="dwrede"
+   editor="tysonn" />
 <tags 
    ms.service="cache"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="cache-redis"
-	ms.workload="tbd"
-	ms.date="09/03/2015"
-	ms.author="sdanie"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="cache-redis"
+   ms.workload="tbd"
+   ms.date="09/22/2015"
+   ms.author="sdanie" />
 
 # Azure Redis 캐시 구성 방법
 
@@ -170,4 +170,4 @@ Azure Redis Cache에 대해 사용할 수 없도록 설정된 Redis 명령 목�
 ## 다음 단계
 -	Redis 명령을 사용하는 방법은 [어떻게 Redis 명령을 실행할 수 있나요?](cache-faq.md#how-can-i-run-redis-commands)를 참조하세요.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기"
+	pageTitle="PowerShell을 사용하여 기본 모드 보고서 서버로 VM 만들기 | Microsoft Azure"
 	description="이 항목에서는 Azure 가상 컴퓨터에서 SQL Server Reporting Services 기본 모드 보고서 서버의 배포 및 구성에 대해 설명하고 안내합니다."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" 
+	tags="azure-service-management"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,9 +14,11 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/19/2015"
-	ms.author="jroth"/>
+	ms.author="jroth" />
 
 # PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 이 항목에서는 Azure 가상 컴퓨터에서 SQL Server Reporting Services 기본 모드 보고서 서버의 배포 및 구성에 대해 설명하고 안내합니다. 이 문서의 단계는 가상 컴퓨터 및 Windows PowerShell 스크립트를 만드는 수동 단계를 조합하여 VM에서 Reporting Services를 구성합니다. 구성 스크립트에는 HTTP 또는 HTTPS에 대해 방화벽 포트를 여는 작업이 포함되어 있습니다.
 
@@ -511,7 +514,7 @@ Windows PowerShell을 사용하여 보고서 서버를 구성하려면 다음 �
 
 			dir cert:\LocalMachine -rec | Select-Object * | where {$_.issuer -like "*cloudapp*" -and $_.pspath -like "*root*"} | select dnsnamelist, thumbprint, issuer
 
-		출력은 다음과 유사합니다. 스크립트가 빈 줄을 반환하면 VM에서 인증서가 구성되지 않은 것입니다. 예를 보려면 [가상 컴퓨터의 자체 서명된 인증서를 사용하려면](#to-use-the-virtual-machines-self-signed-certificate)을 참조하세요.
+		출력은 다음과 유사합니다. 스크립트가 빈 줄을 반환하면 VM에서 인증서가 구성되지 않은 것입니다. 예를 보려면 [가상 컴퓨터의 자체 서명된 인증서를 사용하려면](#to-use-the-virtual-machines-self-signed-certificate) 섹션을 참조하세요.
 	
 	또는
 	
@@ -561,7 +564,7 @@ PowerShell 스크립트를 실행하여 보고서 서버를 구성하지 않으�
 
 1. VM의 시작 메뉴에서 **Reporting Services**를 입력하고 **Reporting Services 구성 관리자**를 엽니다.
 
-1. **서버 이름** 및 **보고서 서버 인스턴스**의 기본값을 그대로 둡니다. **Connect**를 클릭합니다.
+1. **서버 이름** 및 **보고서 서버 인스턴스**의 기본값을 그대로 둡니다. **연결**을 클릭합니다.
 
 1. 왼쪽 창에서 **웹 서비스 URL**을 클릭합니다.
 
@@ -611,7 +614,7 @@ HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립
 
 		New-NetFirewallRule -DisplayName “Report Server (TCP on port 443)” -Direction Inbound –Protocol TCP –LocalPort 443
 
-1. 명령이 완료되면 **Ok**기 명령 프롬프트에 표시됩니다.
+1. 명령이 완료되면 **Ok**가 명령 프롬프트에 표시됩니다.
 
 포트가 열렸는지 확인하려면 Windows PowerShell 창을 열고 다음 명령을 실행합니다.
 
@@ -701,4 +704,4 @@ HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립
 
 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-sql-server-infrastructure-services.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

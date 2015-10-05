@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Azure VM 확장 오류 문제 해결"
+   pageTitle="Azure VM 확장 오류 문제 해결 | Microsoft Azure"
    description="Azure VM 확장 오류 문제 해결에 대해 자세히 알아봅니다."
    services="virtual-machines"
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
@@ -18,9 +19,12 @@
 
 # Azure VM 확장 오류 문제 해결
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델 사용에 대해 설명합니다.
+
 ## Azure 리소스 관리자 템플릿 개요
 
 Azure 리소스 관리자 템플릿을 사용하면 Json 언어에서 리소스 간의 종속성을 정의하여 Azure IaaS 인프라를 선언적으로 지정할 수 있습니다.
+
 
 [확장 템플릿 작성](virtual-machines-extensions-authoring-templates.md) 문서를 클릭하여 확장을 사용하기 위한 템플릿을 작성하는 방법을 자세히 알아봅니다.
 
@@ -80,4 +84,4 @@ Azure Powershell:
 
 확장이 제거되면 템플릿을 다시 실행하여 VM에서 스크립트를 실행할 수 있습니다.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

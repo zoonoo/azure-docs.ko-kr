@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 
@@ -343,4 +343,4 @@ B2CGraphClient를 사용하여 B2C 디렉터리에 정의된 사용자 지정 �
 
 B2C 디렉터리에서 Graph API를 사용하여 수행하려는 작업에 대한 질문이나 요청이 있는 경우 말씀하세요. 문서에 의견을 남기거나 코드 샘플 GitHub 리포지토리에 문제를 제출하세요.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

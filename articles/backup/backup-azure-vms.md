@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="09/14/2015" ms.author="trinadhk"; "aashishr"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="hero-article" ms.date="09/24/2015" ms.author="trinadhk"; "aashishr"; "jimpark"/>
 
 
 # Azure 가상 컴퓨터 백업
@@ -194,7 +194,7 @@ Azure 백업 서비스는 초기 백업 작업에 대한 백업 작업을 만듭
 대부분의 시간은 데이터를 읽고 쓰는 데 사용되지만, VM을 백업하는 데 소요되는 총 시간에는 다음과 같은 기타 작업도 포함됩니다.
 
 1. [백업 확장 설치 또는 업데이트](backup-azure-vms.md#offline-vms)하는 데 소요되는 시간
-2. 큐 대기 시간: 서비스는 다수의 고객으로부터 백업을 처리하기 때문에, 백업 작업은 즉시 시작되지 않을 수 있습니다. 한 VM의 평균 대기 시간은 15-30분입니다.
+2. 큐 대기 시간: 백업 서비스는 여러 고객의 백업을 처리하기 때문에 백업 작업이 즉시 시작되지 않을 수도 있습니다. 사용량이 많은 시간에는 처리되는 백업 수로 인해 대기 시간이 최대 8시간까지 연장될 수 있습니다. 그러나 일별 백업 정책의 경우 총 VM 백업 시간은 24시간 미만입니다.
 
 ## 문제 해결
 가상 컴퓨터 백업 도중 발생하는 오류에 대한 해결 방법의 전체 목록을 가져옵니다.
@@ -207,4 +207,4 @@ Azure 백업 시작하기에 대해 자세히 알아보려면 다음을 참조�
 - [가상 컴퓨터 복원](backup-azure-restore-vms.md)
 - [가상 컴퓨터 관리](backup-azure-manage-vms.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

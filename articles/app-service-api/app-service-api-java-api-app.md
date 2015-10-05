@@ -18,6 +18,12 @@
 
 # Azure 앱 서비스에서 Java API 앱 빌드 및 배포
 
+> [AZURE.SELECTOR]
+- [.NET - Visual Studio 2015](app-service-dotnet-create-api-app.md)
+- [.NET - Visual Studio Code](app-service-create-aspnet-api-app-using-vscode.md)
+- [Node.js](app-service-api-nodejs-api-app.md)
+- [Java](app-service-api-java-api-app.md)
+
 이 자습서에서는 Java 응용 프로그램을 만들고 [Git](http://git-scm.com)를 사용하여 Azure 앱 서비스 API 앱에 배포하는 방법을 보여 줍니다. 이 자습서의 지침은 Java를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다. 또한 이 자습서에서는 [Gradle](https://gradle.org)을 사용하여 Java 응용 프로그램에 대한 빌드 자동화 및 패키지 종속성 확인을 사용하도록 설정합니다. 마지막으로, [RESTEasy](http://resteasy.jboss.org/)를 사용하여 [JaxRS](https://jax-rs-spec.java.net/) 사양을 완전히 구현하는 RESTful 서비스를 만듭니다.
 
 다음은 완성된 응용 프로그램의 스크린샷입니다.
@@ -270,4 +276,4 @@ API 앱 백 엔드를 사용하는 Java 웹 응용 프로그램을 Azure에 배�
 [api-definition-blade]: ./media/app-service-api-java-api-app/apidefblade.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

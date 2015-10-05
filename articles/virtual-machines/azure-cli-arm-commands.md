@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용 | Microsoft Azure"
-	description="Mac, Linux 및 Windows용 Azure CLI 를 사용하여 arm 모드에서 Azure 리소스를 관리하는 방법을 알아봅니다."
+	pageTitle="리소스 관리자에서 Azure CLI 사용 | Microsoft Azure"
+	description="Mac, Linux 및 Windows용 Azure CLI를 사용하여 리소스 관리자 배포 모드에서 Azure 리소스를 관리하는 방법을 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-mangaer"/>
 
 <tags
 	ms.service="multiple"
@@ -16,7 +17,10 @@
 	ms.date="06/09/2015"
 	ms.author="danlep"/>
 
-# Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용
+# Azure 리소스 관리자에서 Mac, Linux 및 Windows용 Azure CLI 사용
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다. [클래식 배포 모델](virtual-machines-command-line-tools.md)을 사용하여 리소스를 만들 수도 있습니다.
+
 
 이 항목에서는 **arm** 모드에서 Azure CLI(Azure 명령줄 인터페이스)를 사용하여 Mac, Linux 및 Windows 컴퓨터의 명령줄에서 서비스를 생성, 관리 및 삭제하는 방법에 대해 설명합니다. Azure SDK의 다양한 라이브러리와 Azure 포털을 사용하여 PowerShell과 동일한 작업을 수행할 수 있습니다.
 
@@ -24,9 +28,9 @@ Azure 리소스 관리를 사용하면 단일 배포 가능한 단위로 가상 
 
 ## 명령적 접근법 및 선언적 접근법
 
-Azure CLI의 **arm** 모드는 [서비스 관리 모드(**asm**)](../virtual-machines-command-line-tools.md)와 마찬가지로 명령줄에서 명령적으로 리소스를 만들 수 있는 명령을 제공합니다. 예를 들어 `azure group create <groupname> <location>`을 입력하는 경우 Azure에 리소스 그룹을 만들도록 요청하는 것이고, `azure group deployment create <resourcegroup> <deploymentname>`은 Azure에 원하는 개수의 항목 배포를 만들고 그룹에 배치하도록 명령하는 것입니다. 각 리소스 유형에는 명령적 명령이 있으므로 이러한 명령을 함께 연쇄하여 매우 복잡한 배포를 만들 수 있습니다.
+Azure CLI의 **arm** 모드는 **asm**([서비스 관리 모드](../virtual-machines-command-line-tools.md))과 마찬가지로 명령줄에서 명령을 통해 리소스를 만들 수 있는 명령을 제공합니다. 예를 들어 `azure group create <groupname> <location>`을 입력하는 경우 Azure에 리소스 그룹을 만들도록 요청하는 것이고, `azure group deployment create <resourcegroup> <deploymentname>`은 Azure에 원하는 개수의 항목 배포를 만들고 그룹에 배치하도록 명령하는 것입니다. 각 리소스 유형에는 명령적 명령이 있으므로 이러한 명령을 함께 연쇄하여 매우 복잡한 배포를 만들 수 있습니다.
 
-그러나 리소스 그룹을 설명하는 리소스 그룹 _템플릿_을 사용하는 것은 거의 모든 용도의 거의 모든 개수의 리소스에 대한 복잡한 배포를 자동화할 수 있는 훨씬 더 강력한 선언적 접근법입니다. 템플릿을 사용할 때 유일한 명령적 명령은 하나를 배포하는 것입니다. 템플릿, 리소스 및 리소스 그룹에 대한 일반적인 개요는 [Azure 리소스 그룹 개요](resource-groups-overview)를 참조하십시오.
+그러나 리소스 그룹을 설명하는 리소스 그룹 _템플릿_을 사용하는 것은 거의 모든 용도의 거의 모든 개수의 리소스에 대한 복잡한 배포를 자동화할 수 있는 훨씬 더 강력한 선언적 접근법입니다. 템플릿을 사용할 때 유일한 명령적 명령은 하나를 배포하는 것입니다. 템플릿, 리소스 및 리소스 그룹에 대한 일반적인 개요는 [Azure 리소스 그룹 개요](resource-groups-overview)를 참조하세요.
 
 > [AZURE.NOTE]아래와 명령줄에 나와 있는 명령별 옵션 외에도 요청 옵션 및 상태 코드와 같은 자세한 출력을 표시하는 데 사용할 수 있는 세 가지 옵션이 있습니다. -v 매개 변수는 자세한 정보를 출력하고 -vv 매개 변수는 훨씬 더 자세한 정보를 출력합니다. --json 옵션은 원시 json 형식으로 결과를 출력하며 스크립팅 시나리오에 매우 유용합니다.
 >
@@ -1735,6 +1739,5 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다. 
 	vm image list-offers [options] <location> <publisher>
 	vm image list-skus [options] <location> <publisher> <offer>
 	vm image list [options] <location> <publisher> [offer] [sku]
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

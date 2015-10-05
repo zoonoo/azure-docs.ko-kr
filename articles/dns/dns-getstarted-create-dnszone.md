@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure DNS 시작 | Microsoft Azure"
-   description="Azure DNS에 대한 DNS 영역을 만드는 방법을 알아봅니다. DNS 도메인 호스팅을 시작하기 위해 첫 번째 DNS 영역을 만드는 단계별 가이드입니다."
+   description="Azure DNS에 대한 DNS 영역을 만드는 방법을 알아봅니다. PowerShell을 사용하여 DNS 도메인 호스팅을 시작하기 위해 첫 번째 DNS 영역을 만드는 단계별 가이드입니다."
    services="dns"
    documentationCenter="na"
    authors="joaoma"
@@ -13,10 +13,10 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/02/2015"
+   ms.date="09/22/2015"
    ms.author="joaoma"/>
 
-# Azure DNS 시작
+# Powershell을 사용한 Azure DNS 시작
 
 
 > [AZURE.SELECTOR]
@@ -155,4 +155,4 @@ Azure DNS에서 새 영역을 사용하도록 도메인을 아직 위임하지 �
 [레코드 집합 및 레코드 만들기 시작](dns-getstarted-create-recordset.md)<BR> [DNS 영역을 관리하는 방법](dns-operations-dnszones.md)<BR> [DNS 레코드를 관리하는 방법](dns-operations-recordsets.md)<BR> [.NET SDK로 Azure 작업 자동화](dns-sdk.md)<BR> [Azure DNS REST API 참조](https://msdn.microsoft.com/library/azure/mt163862.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

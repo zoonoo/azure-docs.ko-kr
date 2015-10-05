@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure SQL 간 데이터 이동 | Azure Data Factory"
-	description="Azure Data Factory를 사용하여 Azure SQL 데이터베이스 간 데이터를 이동하는 방법에 대해 알아봅니다."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Azure SQL 간 데이터 이동 | Azure Data Factory" 
+	description="Azure Data Factory를 사용하여 Azure SQL 데이터베이스 간 데이터를 이동하는 방법에 대해 알아봅니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory를 사용하여 Azure SQL 간 데이터 이동
@@ -474,4 +474,4 @@ Azure SQL, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식�
 
 	 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

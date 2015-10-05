@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="08/05/2015"
+	ms.date="09/17/2015"
 	ms.author="awills"/>
 
 # Application Insights: 언어 및 플랫폼
@@ -42,6 +42,7 @@
 + [Android](https://github.com/Microsoft/ApplicationInsights-Android)
 + [Azure 웹 앱 및 VM](../insights-perf-analytics.md)
 + [Azure 클라우드 서비스](app-insights-cloudservices.md)&#151;웹 및 작업자 역할 둘 다 포함
++ [Microsoft Dynamics CRM Online](app-insights-sample-mscrm.md)
 + [iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 + [J2EE](app-insights-java-get-started.md)
 + [J2EE - 이미 라이브 상태](app-insights-java-live.md)
@@ -78,4 +79,4 @@
 
 <!--Link references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="모범 사례: Azure AD 암호 관리 | Microsoft Azure" 
-	description="배포 및 사용 모범 사례, 샘플 최종 사용자 설명서 및 Azure Active Directory에서 암호 관리에 대한 교육 가이드입니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+<properties
+	pageTitle="모범 사례: Azure AD 암호 관리 | Microsoft Azure"
+	description="배포 및 사용 모범 사례, 샘플 최종 사용자 설명서 및 Azure Active Directory에서 암호 관리에 대한 교육 가이드입니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # 암호 관리 배포 및 사용자 교육
@@ -98,12 +98,12 @@ AAD Connect 또는 Windows PowerShell을 통해 설정할 수 있는 속성을 �
 1.	[Azure 관리 포털](https://manage.windowsazure.com)의 **Active Directory 확장**에서 사용자 디렉터리로 이동합니다.
 2.	**사용자** 탭을 클릭합니다.
 3.	목록에서 관심 있는 사용자를 선택합니다.
-4.	첫 번째 탭에서 암호 재설정을 사용하는 속성으로 사용될 수 있는 **대체 전자 메일**을 찾습니다. 
+4.	첫 번째 탭에서 암호 재설정을 사용하는 속성으로 사용될 수 있는 **대체 전자 메일**을 찾습니다.
 
     ![][005]
 
 5.	**작업 정보** 탭을 클릭합니다.
-6.	이 페이지에서 **사무실 전화**, **휴대폰**, **인증 전화** 및 **인증 전자 메일**을 찾습니다. 사용자가 자신의 암호를 다시 설정할 수 있도록 이 속성을 설정할 수도 있습니다. 
+6.	이 페이지에서 **사무실 전화**, **휴대폰**, **인증 전화** 및 **인증 전자 메일**을 찾습니다. 사용자가 자신의 암호를 다시 설정할 수 있도록 이 속성을 설정할 수도 있습니다.
 
     ![][006]
 
@@ -136,6 +136,5 @@ AAD Connect 또는 Windows PowerShell을 통해 설정할 수 있는 속성을 �
 [004]: ./media/active-directory-passwords-best-practices/004.jpg "Image_004.jpg"
 [005]: ./media/active-directory-passwords-best-practices/005.jpg "Image_005.jpg"
 [006]: ./media/active-directory-passwords-best-practices/006.jpg "Image_006.jpg"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

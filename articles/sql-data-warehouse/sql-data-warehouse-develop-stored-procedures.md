@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/22/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # SQL 데이터 웨어하우스의 저장된 프로시저 
@@ -90,8 +90,8 @@ SQL 데이터 웨어하우스에서 구현되지 않은 TRANSACT-SQL 저장된 �
 [개발 개요]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[nest level]: https://msdn.microsoft.com/ko-kr/library/ms187371.aspx
+[nest level]: https://msdn.microsoft.com/KO-KR/library/ms187371.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

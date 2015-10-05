@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Azure에서 호스트되는 웹 사이트에서 ReportViewer 사용"
+	pageTitle="웹 사이트에서 ReportViewer 사용 | Microsoft Azure"
 	description="이 항목에서는 Microsoft Azure 가상 컴퓨터에 저장된 보고서를 표시하는 Visual Studio ReportViewer 컨트롤을 사용하여 Microsoft Azure 웹 사이트를 빌드하는 방법에 대해 설명합니다."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" 
+	tags="azure-service-management" />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,9 +14,11 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/19/2015"
-	ms.author="jroth"/>
+	ms.author="jroth" />
 
 # Azure에서 호스트되는 웹 사이트에서 ReportViewer 사용
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 Microsoft Azure 가상 컴퓨터에 저장된 보고서를 표시하는 Visual Studio ReportViewer 컨트롤과 함께 Microsoft Azure 웹 사이트를 빌드할 수 있습니다. ReportViewer 컨트롤은 ASP.NET 웹 응용 프로그램 템플릿을 사용하여 빌드하는 웹 응용 프로그램에 있습니다.
 
@@ -31,9 +34,9 @@ Microsoft Azure 웹 사이트에 ReportViewer를 통합하려면 다음 작업�
 
 ## 필수 조건
 
-[Azure 가상 컴퓨터의 SQL Server Business Intelligence](virtual-machines-sql-server-business-intelligence.md)의 "일반 권장 사항 및 모범 사례" 섹션을 검토합니다.
+[Azure 가상 컴퓨터의 SQL Server Business Intelligence](virtual-machines-sql-server-business-intelligence.md)에서 "일반 권장 사항 및 모범 사례" 섹션을 검토합니다.
 
->[AZURE.NOTE]ReportViewer 컨트롤은 Visual Studio Standard Edition 이상 버전과 함께 제공됩니다. Web Developer Express Edition을 사용하려면 [MICROSOFT REPORT VIEWER 2012 런타임](https://www.microsoft.com/download/details.aspx?id=35747)을 설치하여 ReportViewer 런타임 기능을 사용해야 합니다.
+>[AZURE.NOTE]ReportViewer 컨트롤은 Visual Studio Standard Edition 이상 버전과 함께 제공됩니다. Web Developer Express Edition을 사용하는 경우 ReportViewer 런타임 기능을 사용하려면 [MICROSOFT REPORT VIEWER 2012 런타임](https://www.microsoft.com/download/details.aspx?id=35747)을 설치해야 합니다.
 >
 >로컬 처리 모드에서 구성된 ReportViewer는 Microsoft Azure에서 지원되지 않습니다.
 
@@ -51,11 +54,11 @@ ASP.NET 응용 프로그램 온-프레미스를 호스트할 때 ReportViewer �
 
 ### Microsoft.ReportViewer.Common에 대한 참조를 추가하려면
 
-- 프로젝트의 **참조** 노드를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 선택하고 .NET 탭에서 어셈블리를 선택하고 **확인**을 클릭합니다.
+- 프로젝트의 **참조** 노드를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 선택한 다음 .NET 탭에서 어셈블리를 선택하고 **확인**을 클릭합니다.
 
 ### ASP.NET 응용 프로그램에서 어셈블리를 로컬로 액세스할 수 있도록 하려면
 
-1. **참조** 폴더에서 Microsoft.ReportViewer.Common 어셈블리를 클릭하여 해당 속성이 속성 창에 표시되도록 합니다.
+1. **참조** 폴더에서 Microsoft.ReportViewer.Common 어셈블리를 클릭하여 해당 속성을 속성 창에 표시합니다.
 
 1. 속성 창에서 **로컬 복사**를 True로 설정합니다.
 
@@ -69,7 +72,7 @@ ASP.NET 응용 프로그램 온-프레미스를 호스트할 때 ReportViewer �
 
 1. **다운로드**를 클릭하여 ReportViewerLP.exe의 다운로드를 시작합니다.
 
-1. ReportViewerLP.exe를 다운로드한 후 **실행**을 클릭하여 즉시 설치하거나 **저장**을 클릭하여 컴퓨터에 저장합니다. **저장**을 클릭할 때 파일을 저장할 폴더의 이름을 기억해 두세요.
+1. ReportViewerLP.exe를 다운로드한 후 **실행**을 클릭하여 즉시 설치하거나 **저장**을 클릭하여 컴퓨터에 저장합니다. **저장**을 클릭하는 경우 파일을 저장하는 폴더의 이름을 기억해 두세요.
 
 1. 파일을 저장한 폴더를 찾습니다. ReportViewerLP.exe를 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 클릭한 다음 **예**를 클릭합니다.
 
@@ -89,7 +92,7 @@ ReportViewer는 적절한 자격 증명을 사용하여 보고서 서버로 인�
 
 ## Azure에 ASP.NET 웹 응용 프로그램 게시
 
-Azure에 ASP.NET 웹 응용 프로그램 게시에 대한 지침은 [Visual Studio에서 Azure에 웹 응용 프로그램 마이그레이션 및 게시 방법](https://msdn.microsoft.com/library/azure/hh420322.aspx) 및 [웹앱 및 ASP.NET 시작](../app-service-web/web-sites-dotnet-get-started.md)을 참조하세요.
+Azure에 ASP.NET 웹 응용 프로그램을 게시하기 위한 지침은 [Visual Studio에서 Azure에 웹 응용 프로그램 마이그레이션 및 게시 방법](https://msdn.microsoft.com/library/azure/hh420322.aspx) 및 [웹앱 및 ASP.NET 시작](../app-service-web/web-sites-dotnet-get-started.md)을 참조하세요.
 
 >[AZURE.IMPORTANT]Azure 배포 프로젝트 추가 또는 Azure 클라우드 서비스 프로젝트 추가 명령이 솔루션 탐색기의 바로 가기 메뉴에 나타나지 않으면 프로젝트에 대한 대상 프레임워크를 .NET Framework 4로 변경해야 할 수 있습니다.
 >
@@ -105,4 +108,4 @@ Azure에 ASP.NET 웹 응용 프로그램 게시에 대한 지침은 [Visual Stud
 
 [Reporting Services 보고서 뷰어 컨트롤 및 Microsoft Azure 가상 컴퓨터 기반 보고서 서버](http://download.microsoft.com/download/2/2/0/220DE2F1-8AB3-474D-8F8B-C998F7C56B5D/Reporting%20Services%20report%20viewer%20control%20and%20Azure%20VM%20based%20report%20servers.docx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

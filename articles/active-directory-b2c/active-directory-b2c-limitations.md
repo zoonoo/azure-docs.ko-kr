@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: 제한 사항
@@ -26,13 +26,9 @@
 
 [Azure AD B2C 디렉터리를 만드는](active-directory-b2c-get-started) 동안 발생할 수 있다고 알려진 문제가 있습니다. 지침은 이 [문서](active-directory-b2c-support-create-directory.md)를 확인합니다.
 
-## 로컬 계정 로그인 페이지에서 브랜딩 문제
+## 확인 메일 및 셀프 서비스 암호 재설정 페이지의 브랜딩 문제
 
-로컬 계정 로그인 페이지에서 기본 템플릿은 "Microsoft Azure" 브랜딩 요소를 포함합니다. 이 문제 해결을 위한 작업이 활발히 진행되고 있습니다. [회사 브랜딩 기능](./active-directory/active-directory-add-company-branding.md)을 사용하여 이 페이지에서 브랜딩을 변경할 수 있습니다.
-
-## 로컬 계정 로그아웃에서 발행하는 문제점
-
-현재 로컬 계정 로그아웃이 작동하지 않습니다. 이 문제 해결을 위한 작업이 활발히 진행되고 있습니다. 해결하려면 브라우저를 닫거나 쿠키의 선택을 취소합니다.
+기본 확인 메일 및 셀프 서비스 암호 재설정 페이지에는 "Microsoft" 및 "Azure" 브랜드 요소가 포함되어 있습니다. 이러한 요소는 앞으로 제거될 예정입니다. 이러한 브랜딩 요소가 표시되지 않도록 [회사 브랜딩 기능](./active-directory/active-directory-add-company-branding.md)을 사용하여 해당 페이지의 브랜딩을 변경할 수 있습니다.
 
 ## 프로덕션 응용 프로그램에 대한 지원
 
@@ -40,7 +36,7 @@ Azure AD B2C와 통합된 응용 프로그램은 프로덕션 수준 응용 프�
 
 ## 응용 프로그램에 대한 제한 사항
 
-다음과 같은 응용 프로그램의 형식은 현재 Azure AD B2C 미리 보기에서 지원되지 않습니다. 지원되는 응용 프로그램의 형식에 대한 설명은 [이 문서](active-directory-b2c-apps)를 참조하세요.
+다음과 같은 응용 프로그램의 형식은 현재 Azure AD B2C 미리 보기에서 지원되지 않습니다. 지원되는 응용 프로그램 종류에 대한 설명은 [이 문서](active-directory-b2c-apps)를 참조하세요.
 
 ### 단일 페이지 응용 프로그램(Javascript)
 
@@ -66,20 +62,20 @@ Azure AD B2C 미리 보기는 OpenID Connect 및 OAuth 2.0을 지원합니다. �
 
 ## 토큰에 대한 제한 사항
 
-Azure AD B2C 미리 보기에서 발급된 토큰은 대부분 JSON 웹 토큰, 즉 JWT로 구현됩니다. 그러나 JWT에 포함된 일부 정보("클레임"이라고 함)는 부족하거나 누락되었습니다. 일부 예제는 "sub" 및 "preferred\_username" 클레임을 포함합니다. 미리 보기하는 동안 여기서 상당히 변경될 것을 예상해야 합니다. Azure AD B2C 서비스에서 현재 내보내진 토큰을 보다 잘 이해하려면 [참조 토큰](active-directory-b2c-tokens.md)를 자세히 읽습니다.
+Azure AD B2C 미리 보기에서 발급된 토큰은 대부분 JSON 웹 토큰, 즉 JWT로 구현됩니다. 그러나 JWT에 포함된 일부 정보("클레임"이라고 함)는 부족하거나 누락되었습니다. 일부 예제는 "sub" 및 "preferred\_username" 클레임을 포함합니다. 미리 보기하는 동안 여기서 상당히 변경될 것을 예상해야 합니다. Azure AD B2C 서비스에서 현재 내보내는 토큰을 더 잘 이해하려면 [토큰 참조](active-directory-b2c-tokens.md)를 읽어보세요.
 
 ## Azure 포털에서 사용자 관리에 발생하는 문제
 
-B2C 기능은 Azure Preview 포털에 액세스할 수 있습니다. 그러나 Azure 포털을 사용하여 사용자 관리를 포함하한 다른 디렉터리 기능에 액세스할 수 있습니다. 현재 Azure Preview 포털에서 사용자 관리에 발생하는 알려진 두어 가지 문제가 있습니다.(**사용자** 탭)
+B2C 기능은 Azure Preview 포털에 액세스할 수 있습니다. 그러나 Azure 포털을 사용하여 사용자 관리를 포함하한 다른 디렉터리 기능에 액세스할 수 있습니다. 현재 Azure Preview 포털의 사용자 관리(**사용자** 탭)와 관련해서 알려진 몇 가지 문제가 있습니다.
 
-- 로컬 계정 사용자의 경우(즉, 전자 메일 주소 및 암호 또는 사용자 이름 및 암호로 등록한 소비자) **사용자 이름** 필드는 등록하는 동안 사용된 로그인 식별자(전자 메일 주소 또는 사용자 이름)에 해당하지 않습니다. 즉, Azure 포털에 표시되는 필드가 실제로 사용자 계정 이름(UPN)이기 때문에 B2C 시나리오에서 사용하지 않습니다. 로컬 계정의 로그인 식별자를 보려면 [Graph Explorer](https://graphexplorer.cloudapp.net/)에서 사용자 개체를 찾습니다. 소셜 계정 사용자와 동일한 문제를 찾을 수 있지만(즉, Facebook, Google + 등으로 등록된 소비자) 이 경우 이야기할 로그인 식별자가 없습니다.
+- 로컬 계정 사용자(즉, 메일 주소 및 암호 또는 사용자 이름 및 암호로 등록한 소비자)의 경우 **사용자 이름** 필드가 등록할 때 사용한 로그인 식별자(메일 주소 또는 사용자 이름)와 일치하지 않습니다. 즉, Azure 포털에 표시되는 필드가 실제로 사용자 계정 이름(UPN)이기 때문에 B2C 시나리오에서 사용하지 않습니다. 로컬 계정의 로그인 식별자를 보려면 [Graph Explorer](https://graphexplorer.cloudapp.net/)에서 사용자 개체를 찾습니다. 소셜 계정 사용자와 동일한 문제를 찾을 수 있지만(즉, Facebook, Google + 등으로 등록된 소비자) 이 경우 이야기할 로그인 식별자가 없습니다.
 
     ![로컬 계정 - UPN](./media/active-directory-b2c-limitations/limitations-user-mgmt.png)
 
-- 로컬 계정 사용자의 경우 필드를 편집하고 **프로필** 탭에 변경 사항을 저장할 수 없습니다. 이 문제는 곧 해결됩니다.
+- 로컬 계정 사용자의 경우 **프로필** 탭에서 필드를 편집하고 변경 내용을 저장할 수 없습니다. 이 문제는 곧 해결됩니다.
 
 ## Azure AD B2C 디렉터리의 삭제에 대한 제한 사항
 
 Azure 포털에서 Azure AD B2C 디렉터리는 삭제할 수 없습니다.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

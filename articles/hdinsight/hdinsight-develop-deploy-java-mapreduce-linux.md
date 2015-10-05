@@ -270,6 +270,8 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 - [HDInsight에서 Pig 사용][hdinsight-use-pig]
 - [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
 
+또한 자세한 내용은 [Java개발자 센터](/develop/java/)를 참조하세요.
+
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
@@ -298,4 +300,4 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

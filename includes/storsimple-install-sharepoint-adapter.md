@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### SharePoint용 StorSimple 어댑터를 설치하려면
 
@@ -17,7 +18,7 @@
 
     ![StorSimple 어댑터 설정 확인 페이지](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Confirm_Setup-include.png)
 
-6. **완료**를 클릭하여 설치 마법사를 닫습니다.
+6. **마침**을 클릭하여 설치 마법사를 닫습니다.
 
     ![StorSimple 어댑터 설정 완료 페이지](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup_finish-include.png)
 
@@ -25,4 +26,4 @@
 
 8. 다음 단계, [RBS 구성](#configure-rbs)으로 이동합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

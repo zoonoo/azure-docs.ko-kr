@@ -1,19 +1,19 @@
 <properties 
    pageTitle="응용 프로그램 게이트웨이 소개 | Microsoft Azure"
-	description="이 페이지는 게이트웨이 크기, HTTP 부하 분산, 쿠키 기반의 세션 선호도, 및 SSL 오프로드를 비롯하여 응용 프로그램 게이트웨이 서비스 계층 7 부하 분산의 개요를 제공합니다."
-	documentationCenter="na"
-	services="application-gateway"
-	authors="joaoma"
-	manager="jdial"
-	editor="tysonn"/>
+   description="이 페이지는 게이트웨이 크기, HTTP 부하 분산, 쿠키 기반의 세션 선호도, 및 SSL 오프로드를 비롯하여 응용 프로그램 게이트웨이 서비스 계층 7 부하 분산의 개요를 제공합니다."
+   documentationCenter="na"
+   services="application-gateway"
+   authors="joaoma"
+   manager="jdial"
+   editor="tysonn"/>
 <tags 
    ms.service="application-gateway"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/23/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article" 
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="08/23/2015"
+   ms.author="joaoma"/>
 
 # 응용 프로그램 게이트웨이란?
 
@@ -36,7 +36,10 @@ Azure는 전송 수준(TCP/UDP)에서 작동하며 앱 게이트웨이 서비스
 
 응용 프로그램 게이트웨이는 가상 컴퓨터, 클라우드 서비스, 웹앱 또는 외부 IP 주소인 해당 구성에 따라 HTTP 트래픽을 라우팅합니다.
 
-아래 다이어그램에서는 응용 프로그램 게이트웨이에 대한 트래픽 흐름 방식을 설명합니다. ![응용 프로그램 게이트웨이2](./media/application-gateway-introduction/appgateway2.png)
+아래 다이어그램에서는 응용 프로그램 게이트웨이에 대한 트래픽 흐름 방식을 설명합니다.
+
+ 
+![응용 프로그램 게이트웨이2](./media/application-gateway-introduction/appgateway2.png)
 
 HTTP 계층 7 부하 분산은 다음에 유용합니다.
 
@@ -61,4 +64,4 @@ HTTP 계층 7 부하 분산은 다음에 유용합니다.
 
 SSL 오프로드를 구성 합니다. [응용 프로그램 게이트웨이를 사용하여 SSL 오프로드 구성](application-gateway-ssl.md)을 참조하세요.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

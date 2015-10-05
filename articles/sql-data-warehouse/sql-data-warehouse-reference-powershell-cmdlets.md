@@ -1,20 +1,20 @@
 <properties
    pageTitle="SQL 데이터 웨어하우스에서 cmdlet 시작"
-	description="PowerShell cmdlet을 사용하여 SQL 데이터 웨어하우스 일시 중단 후 다시 시작"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="sidneyh"
-	manager="jhubbard"
-	editor=""/>
+   description="PowerShell cmdlet을 사용하여 SQL 데이터 웨어하우스 일시 중단 후 다시 시작"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="sidneyh"
+   manager="jhubbard"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="08/28/2015"
-	ms.author="twounder;sidneyh;barbkess"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/22/2015"
+   ms.author="twounder;sidneyh;barbkess"/>
 
 # Azure 데이터 웨어하우스 cmdlet 및 REST API 시작
 
@@ -111,4 +111,4 @@ RestorePointCreationDate |백업 스냅숏 시간(restorePointType = DISCRETE인
 [yah]: http://search.yahoo.com/
 [msn]: http://search.msn.com/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

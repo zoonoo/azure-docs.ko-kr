@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Data Factory 파이프라인 모니터링 및 관리"
-	description="Azure 관리 포털과 Azure PowerShell을 사용하여 사용자가 만든 Azure Data Factory와 파이프라인을 모니터링하고 관리하는 방법에 대해 알아봅니다."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Azure Data Factory 파이프라인 모니터링 및 관리" 
+	description="Azure 관리 포털과 Azure PowerShell을 사용하여 사용자가 만든 Azure Data Factory와 파이프라인을 모니터링하고 관리하는 방법에 대해 알아봅니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/27/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="07/27/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory 파이프라인 모니터링 및 관리
@@ -287,6 +287,10 @@ Azure 이벤트는 Azure 리소스에서 일어나는 일에 대한 유용한 �
 
 특정 오류에 대한 경고를 표시하지 않으려면 위의 JSON 정의에서 **subStatus**를 제거할 수 있습니다.
 
+위의 예제에서는 구독의 모든 데이터 팩터리에 대해 경고를 설정합니다. 특정 데이터 팩터리에 대해 경고를 설정하려는 경우 아래와 같이 **dataSource** 블록에서 데이터 팩터리 **resourceUri**를 지정할 수 있습니다.
+
+	"resourceUri" : "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/DATAFACTORIES/<dataFactoryName>"
+
 다음 테이블은 사용 가능한 작업 및 상태(및 하위 상태) 목록을 제공합니다.
 
 작업 이름 | 상태 | 하위 상태
@@ -341,7 +345,7 @@ OnDemandClusterDeleted | Succeeded
 
 ![작업](./media/data-factory-monitor-manage-pipelines/operations.png)
 
-Powershell을 사용하여 경고 설정을 보려면 다음과 같은 명령을 실행한 후 생성된 모든 경고를 확인합니다. **microsoft.insights/alertrules** 리소스 형식과 함께 메트릭과 이벤트에 대한 경고 설정이 표시됩니다.
+Powershell을 사용하여 경고 설정을 보려면 다음과 같은 명령을 실행한 후 생성된 모든 경고를 확인합니다. 리소스 종류를 **microsoft.insights/alertrules**로 지정하여 메트릭과 이벤트에 대해 설정된 경고가 모두 표시됩니다.
 
 	Get-AzureResourceGroup -Name $resourceGroupName
 
@@ -371,7 +375,7 @@ Powershell을 사용하여 경고 설정을 보려면 다음과 같은 명령을
 
 **모니터링** -> **메트릭** -> **진단 설정** -> **진단**
 
-**진단** 블레이드에서 **켜기**를 클릭하고 저장소 계정을 선택하고 저장합니다.
+**진단** 블레이드에서 **켜기**를 클릭하고 저장소 계정을 선택한 다음 저장합니다.
 
 ![메트릭 사용](./media/data-factory-monitor-manage-pipelines/enable-metrics.png)
 
@@ -382,7 +386,7 @@ Powershell을 사용하여 경고 설정을 보려면 다음과 같은 명령을
 
 메트릭에 대한 경고를 설정하려면 데이터 팩터리 블레이드에서 **모니터링** -> **메트릭** -> **경고 추가** -> **경고 규칙 추가**를 클릭합니다.
 
-경고 규칙의 세부 사항을 채우고 전자 메일을 지정한 후 **확인**을 클릭합니다.
+경고 규칙에 대한 세부 정보를 입력하고 메일을 지정한 다음 **확인**을 클릭합니다.
 
 
 ![메트릭에 대한 경고 설정](./media/data-factory-monitor-manage-pipelines/setting-up-alerts-on-metrics.png)
@@ -443,7 +447,7 @@ Powershell을 사용하여 경고 설정을 보려면 다음과 같은 명령을
  
 위 샘플의 subscriptionId, resourceGroupName, dataFactoryName을 적절한 값으로 변경합니다.
 
-*metricName*은 지금부터 값 2개, FailedRuns 및 SuccessfulRuns를 지원합니다.
+현재 *metricName*은 FailedRuns 및 SuccessfulRuns의 두 가지 값을 지원합니다.
 
 **경고 배포:**
 
@@ -471,4 +475,4 @@ Powershell을 사용하여 경고 설정을 보려면 다음과 같은 명령을
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-monitor-manage-pipelines.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

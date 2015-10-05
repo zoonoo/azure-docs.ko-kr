@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure AD를 사용하여 학습할 수 있는 다음 단계는 무엇입니까?"
-	description="Azure AD를 사용하는 고급 작업을 다룹니다."
+	pageTitle="Azure Active Directory를 사용하여 학습할 수 있는 다음 단계는 무엇입니까?"
+	description="암호 관리, 사용자 관리, 그룹 관리, Azure Active Directory를 사용한 조건부 액세스 등과 같은 고급 작업"
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="terrylan"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,13 +13,13 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
+	ms.date="09/21/2015"
 	ms.author="curtand"/>
 
 # Azure AD를 사용하여 학습할 수 있는 다음 단계는 무엇입니까?
 
 
-###이 항목에 대한 다른 문서
+### 이 항목에 대한 다른 문서
 [Azure AD란?](active-directory-whatis.md)<br> [작동 원리](active-directory-works.md)<br> [시작](active-directory-get-started.md)<br> [다음 단계](active-directory-next-steps.md)<br> [자세한 정보](active-directory-learn-map.md)
 
 ## Azure AD에서 사용자 관리하기
@@ -41,4 +41,4 @@ Azure AD 장치 등록은 사용자가 로그인할 때 장치를 인증하는 �
 * [Azure ID](fundamentals-identity.md)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="Android에서 데이터 작업 시작(JavaScript 백 엔드) | Microsoft Azure" 
-	description="모바일 서비스를 사용하여 Android 앱에서 데이터를 활용하는 방법에 대해 알아봅니다(JavaScript 백 엔드)." 
-	services="mobile-services" 
-	documentationCenter="android" 
-	authors="RickSaling" 
-	manager="dwrede" 
+<properties
+	pageTitle="Android에서 데이터 작업 시작(JavaScript 백 엔드) | Microsoft Azure"
+	description="모바일 서비스를 사용하여 Android 앱에서 데이터를 활용하는 방법에 대해 알아봅니다(JavaScript 백 엔드)."
+	services="mobile-services"
+	documentationCenter="android"
+	authors="RickSaling"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
-	ms.devlang="java" 
-	ms.topic="article" 
-	ms.date="09/16/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-android"
+	ms.devlang="java"
+	ms.topic="article"
+	ms.date="09/23/2015"
 	ms.author="ricksal"/>
 
 # 기존 Android 앱에 모바일 서비스 추가(JavaScript 백 엔드)
@@ -46,6 +46,10 @@
 
 - [Azure 모바일 서비스 Android SDK]
 - Android SDK를 포함하는 <a  href="https://developer.android.com/sdk/index.html" target="_blank">Android Studio 통합 개발 환경</a> 및 Android 4.2 이상 버전. 다운로드한 GetStartedWithData 프로젝트에는 Android 4.2 이후 버전이 필요합니다. 하지만 모바일 서비스 SDK에 필요한 Android는 2.2 이상 버전이면 됩니다.
+
+## 샘플 코드
+
+완료된 원본 코드를 확인하려면 <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/AndroidStudio">여기</a>로 이동합니다.
 
 ## GetStartedWithData 프로젝트 다운로드
 
@@ -87,25 +91,18 @@
 4. **데이터** 탭을 클릭한 후 **찾아보기**를 클릭합니다.
 
    	![][9]
-  
+
    	이제 **TodoItem** 테이블에 모바일 서비스에서 생성된 일부 값을 가진 데이터가 포함되었으며 해당 열이 앱의 TodoItem 클래스와 일치하도록 테이블에 자동으로 추가되었습니다.
 
 이제 Android용 **데이터 시작** 자습서를 마쳤습니다.
 
 ## 문제 해결
 
-###Android SDK 버전 확인
+### Android SDK 버전 확인
 
 [AZURE.INCLUDE [SDK 확인](../../includes/mobile-services-verify-android-sdk-version.md)]
 
 
-## 이전 코드 버전
-
-이 자습서의 Eclipse 버전을 참조하려면 [Eclipse를 사용하여 데이터 시작](mobile-services-android-get-started-data-ec.md)으로 이동하세요.
-
-Eclipse 프로젝트의 완료된 소스 코드 버전을 보려면 <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/Android">여기</a>로 이동합니다.
-
-Azure 모바일 서비스 Android SDK의 이전 버전에서 사용되는 샘플 파일은 [여기](http://go.microsoft.com/fwlink/p/?LinkID=282122)에서 얻을 수 있습니다.
 
 ## 다음 단계
 
@@ -145,7 +142,6 @@ Azure 모바일 서비스 Android SDK의 이전 버전에서 사용되는 샘플
 [페이징을 사용하여 쿼리 구체화]: /develop/mobile/tutorials/add-paging-to-data-android
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-android
 [Get started with data]: /develop/mobile/tutorials/get-started-with-data-android
-[Get started with data (Eclipse)]: /documentation/articles/mobile-services-android-get-started-data-EC/
 [인증 시작]: /develop/mobile/tutorials/get-started-with-users-android
 [푸시 알림 시작]: /develop/mobile/tutorials/get-started-with-push-android
 
@@ -154,6 +150,5 @@ Azure 모바일 서비스 Android SDK의 이전 버전에서 사용되는 샘플
 [Azure 모바일 서비스 Android SDK]: http://aka.ms/Iajk6q
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
- 
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

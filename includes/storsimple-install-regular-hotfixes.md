@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### StorSimple용 Windows PowerShell을 통해 정기적인 핫픽스를 설치하려면
 
@@ -18,4 +19,4 @@
 
 5. 확인하라는 메시지가 표시됩니다. **Y**를 입력하여 핫픽스 설치를 진행합니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

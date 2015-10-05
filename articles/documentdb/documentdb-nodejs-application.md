@@ -34,7 +34,7 @@
 
 ![이 Node.js 자습서에서 만든 My Todo List 응용 프로그램의 스크린샷](./media/documentdb-nodejs-application/image1.png)
 
-자습서를 완료할 시간이 없고 GitHub에서 전체 솔루션을 가져오려는 경우 [여기](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo)서 가져오세요.
+자습서를 완료할 시간이 없고 전체 솔루션을 가져오려는 경우 [GitHub][]에서 전체 샘플 솔루션을 구할 수 있습니다.
 
 ## <a name="_Toc395783176"></a>필수 조건
 
@@ -554,10 +554,13 @@
 
 축하합니다. 지금까지 Azure DocumentDB를 사용하여 첫 Node.js Express 웹 응용 프로그램을 작성하고 Azure 웹 사이트에 게시했습니다.
 
-[여기](https://github.com/Azure/azure-documentdb-node/tree/master/tutorial/todo)서 전체 참조 응용 프로그램의 소스 코드를 다운로드할 수 있습니다.
+[GitHub][]에서 전체 참조 응용 프로그램의 소스 코드를 다운로드할 수 있습니다.
 
-  [Node.js]: http://nodejs.org/
-  [Git]: http://git-scm.com/
+자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/)를 참조하세요.
+
+[Node.js]: http://nodejs.org/
+[Git]: http://git-scm.com/
+[Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

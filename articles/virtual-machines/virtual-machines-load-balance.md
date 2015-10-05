@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 인프라 서비스를 위한 부하 분산"
+	pageTitle="인프라 서비스를 위한 부하 분산 | Microsoft Azure"
 	description="Azure에서 지원되는 부하 분산의 서로 다른 두 형식, 클라우드 서비스에 대해 부하 분산 장치 및 클라이언트 트래픽에 대해 Azure 트래픽 관리자를 설명 합니다."
 	services="virtual-machines"
 	documentationCenter=""
@@ -10,7 +10,7 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/21/2015"
@@ -18,6 +18,7 @@
 
 
 # Azure 인프라 서비스를 위한 부하 분산#
+
 
 Azure 인프라 서비스에 사용할 수 있는 두 가지 수준의 부하 분산이 있습니다.
 
@@ -83,4 +84,4 @@ Azure 부하 분산과 마찬가지로 내부 부하 분산 집합을 구성함�
 
 <!-- LINKS -->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

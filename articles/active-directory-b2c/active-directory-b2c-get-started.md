@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C Preview: Azure AD B2C 디렉터리 만드는 방법
@@ -67,4 +67,4 @@ Azure Active Directory(AD) B2C를 사용하여 시작하려면 아래에 설명�
 
 [Azure AD B2C로 응용 프로그램 등록 및 빠른 시작 응용 프로그램 빌드](active-directory-b2c-app-registration.md)로 이동합니다.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

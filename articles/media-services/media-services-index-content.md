@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Azure 미디어 인덱서를 사용하여 미디어 파일 인덱싱" 
-	description="Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 캡션 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 이 항목에서는 미디어 인덱서를 사용하는 방법을 보여 줍니다." 
+	description="Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 자막 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 이 항목에서는 미디어 인덱서를 사용하는 방법을 보여 줍니다." 
 	services="media-services" 
 	documentationCenter="" 
 	authors="Juliako" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"   
+	ms.date="09/21/2015"   
 	ms.author="juliako"/>
 
 
@@ -24,24 +24,23 @@
 - [.NET](media-services-index-content.md)
 
 
-Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 캡션 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 하나의 미디어 파일 또는 일괄 처리에서 여러 미디어 파일을 처리할 수 있습니다.
+Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 가능하게 만들고 선택 자막 및 키워드용 전체 텍스트 기록을 생성할 수 있습니다. 하나의 미디어 파일 또는 일괄 처리에서 여러 미디어 파일을 처리할 수 있습니다.
 
 >[AZURE.IMPORTANT]콘텐츠를 인덱싱할 때, 음성이 매우 분명한(배경 음악, 소음, 효과 또는 마이크 소음) 미디어 파일을 사용해야 합니다. 적절한 콘텐츠의 예: 회의, 강의 또는 프레젠테이션 녹음. 인덱싱에 적합하지 않을 수 있는 콘텐츠: 영화, TV 프로그램, 오디오 및 사운드 효과가 혼합된 콘텐츠, 배경 소음(기계 소음)이 들어간 녹음 품질이 좋지 않은 콘텐츠.
 
 
-인덱싱 작업은 모든 인덱싱 파일에 대해 네 개의 출력을 생성합니다.
+인덱싱 작업은 다음 출력을 생성합니다.
 
-- SAMI 형식의 선택 캡션 파일.
-- TTML(Timed Text Markup Language) 형식의 선택 캡션 파일.
+- **SAMI**, **TTML** 및 **WebVTT** 형식의 선택 자막 파일.
 
-	SAMI과 TTML 둘 다 Recognizability라는 태그를 포함합니다. 이 태그는 원본 비디오의 음성 인지 방식에 따라 인덱싱 작업에 점수를 냅니다. 유용성을 위해 화면 출력 파일에 Recognizability 값을 사용할 수 있습니다. 낮은 점수는 오디오 품질로 인해 결과가 좋지 않음을 의미합니다.
+	선택 자막 파일은 Recognizability라는 태그를 포함합니다. 이 태그는 원본 동영상의 음성을 인식할 수 있는 정도에 따라 인덱싱 작업을 평가합니다. 유용성을 위해 화면 출력 파일에 Recognizability 값을 사용할 수 있습니다. 낮은 점수는 오디오 품질로 인해 결과가 좋지 않음을 의미합니다.
 - 키워드 파일(XML).
 - SQL server에서 사용할 AIB(오디오 인덱싱 Blob) 파일.
 	
 	자세한 내용은 [Azure 미디어 인덱서 및 SQL Server에서 AIB 파일 사용](http://azure.microsoft.com/blog/2014/11/03/using-aib-files-with-azure-media-indexer-and-sql-server/)(영문)을 참조하세요.
 
 
-이 항목에서는 **자산을 인덱싱**하고 **여러 파일을 인덱싱**하는 인덱싱 작업을 만드는 방법을 보여 줍니다.
+이 항목에서는 **자산을 인덱싱**하고 **여러 파일 색인을 인덱싱**하는 인덱싱 작업을 만드는 방법을 보여 줍니다.
 
 최신 Azure 미디어 인덱서 업데이트는 [미디어 서비스 블로그](http://azure.microsoft.com/blog/topics/media-services/)(영문)를 참조하세요.
 
@@ -158,17 +157,17 @@ Azure 미디어 인덱서를 사용하면 미디어 파일 콘텐츠를 검색 �
 AIB(Audio Indexing Blob) 파일은 전체 텍스트 검색을 사용하는 Microsoft SQL에서 검색할 수 있는 이진 파일입니다. AIB 파일은 더 풍부한 검색 환경을 허용하여 각각의 단어에 대체 항목을 포함하기 때문에 단일 캡션 파일보다 훨씬 강력합니다.
 <br/>
 <br/>
-Microsoft SQL server 2008 이상을 실행하는 컴퓨터에서 Indexer SQL 추가 기능을 설치해야 합니다. Microsoft SQL server의 전체 텍스트 검색을 사용하는 AIB 검색은 WAMI에 의해 생성된 선택 캡션 파일을 검색할 때보다 훨씬 정교한 검색 결과를 제공합니다. 선택 캡션 파일은 오디오의 각 세그먼트에 가장 신뢰성이 높은 단어를 포함하지만 AIB는 사운드가 유사한 대체 단어를 포함하기 때문입니다. 음성 단어 검색이 가장 중요한 경우, Microsoft SQL Server와 함께 AIB를 사용하는 것이 좋습니다.
+Microsoft SQL server 2008 이상을 실행하는 컴퓨터에서 Indexer SQL 추가 기능을 설치해야 합니다. Microsoft SQL server의 전체 텍스트 검색을 사용하는 AIB 검색은 WAMI에 의해 생성된 선택 자막 파일을 검색할 때보다 훨씬 정교한 검색 결과를 제공합니다. 선택 자막 파일은 오디오의 각 세그먼트에 가장 신뢰성이 높은 단어를 포함하지만 AIB는 사운드가 유사한 대체 단어를 포함하기 때문입니다. 음성 단어 검색이 가장 중요한 경우, Microsoft SQL Server와 함께 AIB를 사용하는 것이 좋습니다.
 <br/><br/>
 추가 기능을 다운로드하려면 <a href="http://aka.ms/indexersql">Azure 미디어 인덱서 SQL 추가 기능</a>을 클릭합니다.
 <br/><br/>
-선택 캡션에 기반한 비디오 및 키워드 XML 파일을 간단하게 인덱스하기 위해 Apache Lucene/Solr와 같은 기타 검색 엔진을 활용할 수도 있습니다. 하지만 이는 검색 결과의 정확성이 떨어집니다.</td></tr>
+선택 자막에 기반한 비디오 및 키워드 XML 파일을 간단하게 인덱스하기 위해 Apache Lucene/Solr와 같은 기타 검색 엔진을 활용할 수도 있습니다. 하지만 이는 검색 결과의 정확성이 떨어집니다.</td></tr>
 <tr><td>InputFileName.smi<br/>InputFileName.ttml</td>
-<td>SAMI 및 TTML 형식의 CC(선택 캡션) 파일.
+<td>SAMI, TTML 및 WebVTT 형식의 CC(선택 자막) 파일.
 <br/><br/>
 청각 장애가 있는 사용자가 액세스할 수 있는 오디오 및 비디오 파일을 만드는 데 사용할 수 있습니다.
 <br/><br/>
-SAMI과 TTML 둘 다 <b>Recognizability</b>라는 태그를 포함합니다. 이 태그는 원본 비디오의 음성 인지 방식에 따라 인덱싱 작업에 점수를 냅니다. 유용성을 위해 화면 출력 파일에 <b>Recognizability</b> 값을 사용할 수 있습니다. 낮은 점수는 오디오 품질로 인해 결과가 좋지 않음을 의미합니다.</td></tr>
+선택 자막 파일은 <b>Recognizability</b>라는 태그를 포함합니다. 이 태그는 원본 동영상의 음성을 인식할 수 있는 정도에 따라 인덱싱 작업을 평가합니다. 유용성을 위해 화면 출력 파일에 <b>Recognizability</b> 값을 사용할 수 있습니다. 낮은 점수는 오디오 품질로 인해 결과가 좋지 않음을 의미합니다.</td></tr>
 <tr><td>InputFileName.kw.xml</td>
 <td>키워드 파일.
 <br/><br/>
@@ -261,7 +260,7 @@ SAMI과 TTML 둘 다 <b>Recognizability</b>라는 태그를 포함합니다. 이
 
 ###출력 파일
 
-하나 이상의 입력 미디어 파일이 있을 때, WAMI는 ‘JobResult.txt’라는 작업 출력을 위한 매니페스트 파일을 생성합니다. 각각의 입력 미디어 파일의 경우, AIB, SAMI, TTML 및 키워드 파일의 결과는 아래 나열된 대로 순차적으로 번호가 매겨집니다.
+하나 이상의 입력 미디어 파일이 있을 때, WAMI는 ‘JobResult.txt’라는 작업 출력을 위한 매니페스트 파일을 생성합니다. 각각의 입력 미디어 파일에 대한 결과로 생성되는 AIB, SAMI, TTML, WebVTT 및 키워드 파일은 아래와 같이 순차적으로 번호가 매겨집니다.
 
 출력 파일 설명은 [출력 파일](#output_files)을 참조하세요.
 
@@ -292,7 +291,7 @@ Error: 이 미디어 파일이 성공적으로 인덱스되었음을 나타냅�
 <tr><td>Media_1.aib </td>
 <td>File #0 - 오디오 인덱싱 blob 파일.</td></tr>
 <tr><td>Media_1.smi<br/>Media_1.ttml</td>
-<td>File #0 - SAMI 및 TTML 형식의 CC(선택 캡션) 파일.</td></tr>
+<td>파일 #0 - SAMI, TTML 및 WebVTT 형식의 CC(선택 자막) 파일.</td></tr>
 <tr><td>Media_1.kw.xml</td>
 <td>File #0 - 키워드 파일.</td></tr>
 <tr><td>Media_2.aib </td>
@@ -306,7 +305,7 @@ Error: 이 미디어 파일이 성공적으로 인덱스되었음을 나타냅�
 모든 입력 미디어 파일이 성공적으로 인덱스되지 않은 경우, 오류 코드 4000으로 인덱싱 작업이 실패합니다. 자세한 내용은 [오류 코드](#error_codes)를 참조하세요.
 
 
-동일한 출력(성공된 작업)이 생성됩니다. 출력 매니페스트 파일을 참조하여 오류 열 값에 따라 실패한 입력 파일을 알아볼 수 있습니다. 실패한 입력 파일의 경우, AIB, SAMI, TTML 및 키워드 파일의 결과가 생성되지 않습니다.
+동일한 출력(성공된 작업)이 생성됩니다. 출력 매니페스트 파일을 참조하여 오류 열 값에 따라 실패한 입력 파일을 알아볼 수 있습니다. 실패한 입력 파일의 경우 AIB, SAMI, TTML, WebVTT 및 키워드 파일이 결과로 생성되지 않습니다.
 
 
 ### <a id="error_codes"></a>오류 코드
@@ -355,4 +354,4 @@ Error: 이 미디어 파일이 성공적으로 인덱스되었음을 나타냅�
 
 <!-- URLs. -->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

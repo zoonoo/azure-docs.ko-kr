@@ -1,20 +1,20 @@
 <properties
    pageTitle="마이그레이션: 데이터 웨어하우스 마이그레이션 유틸리티 | Microsoft Azure"
-	description="SQL 데이터 웨어하우스로 마이그레이션합니다."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="lodipalm"
-	manager="barbkess"
-	editor=""/>
+   description="SQL 데이터 웨어하우스로 마이그레이션합니다."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="lodipalm"
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="08/13/2015"
-	ms.author="lodipalm"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/22/2015"
+   ms.author="lodipalm"/>
 
 
 #데이터 웨어하우스 마이그레이션 유틸리티(미리 보기)
@@ -57,4 +57,4 @@
 [개발]: https://azure.microsoft.com/ko-KR/documentation/articles/sql-data-warehouse-overview-develop/
 [여기]: https://migrhoststorage.blob.core.windows.net/sqldwsample/DataWarehouseMigrationUtility.zip
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

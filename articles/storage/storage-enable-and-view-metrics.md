@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="저장소 분석" 
-	description="Blob, 큐, 테이블 및 파일 서비스의 동시성을 관리하는 방법에 대해 알아봅니다." 
+	pageTitle="Azure 포털에서 저장소 메트릭 활성화 | Microsoft Azure" 
+	description="Blob, 큐, 테이블 및 파일 서비스의 저장소 메트릭을 활성화하는 방법에 대해 알아봅니다." 
 	services="storage" 
 	documentationCenter="" 
 	authors="tamram" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="09/04/2015" 
 	ms.author="tamram"/>
 
 # 저장소 메트릭 설정 및 메트릭 데이터 보기
@@ -192,4 +192,4 @@ CloudBlobClient, CloudQueueClient 및 CloudTableClient 클래스에는 모두 Se
 [저장소 로깅 사용 및 로그 데이터 액세스](https://msdn.microsoft.com/library/dn782840.aspx)
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

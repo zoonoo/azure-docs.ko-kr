@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/28/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
 
 # 사용자 지정 이벤트 및 메트릭용 Application Insights API 
@@ -696,7 +696,10 @@ telemetryItem에서 사용할 수 있는 사용자 지정이 아닌 속성의 �
 
     telemetry.Flush();
 
-함수는 방식입니다.
+    // Allow some time for flushing before shutdown.
+    System.Threading.Thread.Sleep(1000);
+
+함수는 비동기적입니다.
 
 
 
@@ -900,4 +903,4 @@ ApplicationInsights.config에서:
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

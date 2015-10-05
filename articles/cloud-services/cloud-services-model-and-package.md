@@ -1,18 +1,18 @@
-<properties 
-    pageTitle="Azure의 클라우드 서비스 모델 및 패키지 정의" 
-    description="Azure의 클라우드 서비스 모델(.csdef,.cscfg) 및 패키지(.cspkg)에 대해 설명합니다." 
-    services="cloud-services" 
-    documentationCenter="" 
-    authors="Thraka" 
-    manager="timlt" 
+<properties
+    pageTitle="Azure의 클라우드 서비스 모델 및 패키지 정의"
+    description="Azure의 클라우드 서비스 모델(.csdef,.cscfg) 및 패키지(.cspkg)에 대해 설명합니다."
+    services="cloud-services"
+    documentationCenter=""
+    authors="Thraka"
+    manager="timlt"
     editor=""/>
-<tags 
-    ms.service="cloud-services" 
-    ms.workload="tbd" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="07/06/2015" 
+<tags
+    ms.service="cloud-services"
+    ms.workload="tbd"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.date="07/06/2015"
     ms.author="adegeo"/>
 
 # 클라우드 서비스 모델 정의 및 패키지 방법
@@ -24,7 +24,7 @@ Azure에서 클라우드 서비스가 실행 중이면 **ServiceConfig.cscfg** �
 
 * [ServiceDefinition.csdef](#csdef) 및 [ServiceConfig.cscfg](#cscfg) 파일에 대해 자세하게 알고 싶습니다.
 * 이미 내용을 알고 있으므로 무엇을 구성할 수 있는지에 대한 [몇 가지 예](#next-steps)를 보여 주세요.
-* [ServicePackage.cspkg](#cspkg)를 만들려고 합니다. 
+* [ServicePackage.cspkg](#cspkg)를 만들려고 합니다.
 * Visual Studio를 사용하여 다음 작업을 수행하려고 합니다.
     * [새 클라우드 서비스 만들기][vs_create]
     * [기존 클라우드 서비스 재구성][vs_reconfigure]
@@ -253,7 +253,7 @@ Azure는 웹 역할에 하나의 진입점만 허용합니다. 즉, 하나의 IP
 
 <!--
 * [Configure Sizes for Cloud Services](!!!!!https://msdn.microsoft.com/library/azure/ee814754.aspx)  
-* [Configure Local Storage Resources](!!!!!https://msdn.microsoft.com/library/azure/ee758708.aspx)
+* [Configure Local Storage Resources](!!!!!https://azure.microsoft.com/documentation/articles/cloud-services-configure-local-storage-resources/)
 -->
 
 * [클라우드 서비스 인스턴스에 대해 원격 데스크톱 설정][remotedesktop]
@@ -269,9 +269,9 @@ Visual Studio를 사용하여 다음 작업을 수행하려고 합니다.
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop.md
-[vs_remote]: https://msdn.microsoft.com/ko-kr/library/gg443832.aspx
-[vs_deploy]: https://msdn.microsoft.com/ko-kr/library/ee460772.aspx
+[vs_remote]: https://msdn.microsoft.com/ko-KR/library/gg443832.aspx
+[vs_deploy]: https://msdn.microsoft.com/ko-KR/library/ee460772.aspx
 [vs_reconfigure]: https://msdn.microsoft.com/library/ee405486.aspx
-[vs_create]: https://msdn.microsoft.com/ko-kr/library/ee405487.aspx
+[vs_create]: https://msdn.microsoft.com/ko-KR/library/ee405487.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

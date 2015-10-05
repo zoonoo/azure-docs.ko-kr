@@ -13,7 +13,7 @@
   	ms.tgt_pltfrm="na"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="brandwe"/>
 
 # B2C 미리 보기: node.js를 사용하여 Web API 보안 유지
@@ -58,15 +58,18 @@ follow [these instructions](active-directory-b2c-app-registration.md).  Be sure 
 - Create an **Application Secret** for your application and copy it down.  You will need it shortly.
 - Copy down the **Application ID** that is assigned to your app.  You will also need it shortly.
 
+    > [AZURE.IMPORTANT]
+    You cannot use applications registered in the **Applications** tab on the [Azure Portal](https://manage.windowsazure.com/) for this.
+
 ## 3. Create your policies
 
-In Azure AD B2C, every user experience is defined by a [**policy**](active-directory-b2c-reference-policies.md).  This app contains three 
-identity experiences - sign-up, sign-in, and sign-in with Facebook.  You will need to create one policy of each type, as described in the 
+In Azure AD B2C, every user experience is defined by a [**policy**](active-directory-b2c-reference-policies.md).  This app contains three
+identity experiences - sign-up, sign-in, and sign-in with Facebook.  You will need to create one policy of each type, as described in the
 [policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).  When creating your three policies, be sure to:
 
 - Choose the **Display Name** and a few other sign-up attributes in your sign-up policy.
 - Choose the **Display Name** and **Object ID** application claims in every policy.  You can choose other claims as well.
-- Copy down the **Name** of each policy after you create it.  It should have the prefix `b2c_1_`.  You'll need those policy names shortly. 
+- Copy down the **Name** of each policy after you create it.  It should have the prefix `b2c_1_`.  You'll need those policy names shortly.
 
 Once you have your three policies successfully created, you're ready to build your app.
 
@@ -264,7 +267,7 @@ var bunyan = require('bunyan');
 var restify = require('restify');
 var config = require('./config');
 var passport = require('passport');
-var OIDCBearerStrategy = require('passport-azure-ad').OIDCStrategy;
+var OIDCBearerStrategy = require('passport-azure-ad').BearerStategy;
 ```
 
 파일을 저장합니다. 잠시 후에 이 파일로 다시 돌아갈 것입니다.
@@ -284,11 +287,10 @@ var OIDCBearerStrategy = require('passport-azure-ad').OIDCStrategy;
 // Don't commit this file to your public repos. This config is for first-run
 exports.creds = {
 mongoose_auth_local: 'mongodb://localhost/tasklist', // Your mongo auth uri goes here
-issuer: 'https://sts.windows.net/**<your application id>**/',
-audience: '<your redirect URI>',
+audience: '<your audience URI>',
 identityMetadata: 'https://login.microsoftonline.com/common/.well-known/openid-configuration' // For using Microsoft you should never need to change this.
 tenantName:'<tenant name>',
-policyName:'<policy>',
+policyName:'b2c_1_<sign in policy name>',
 };
 
 ```
@@ -297,16 +299,16 @@ policyName:'<policy>',
 
 *IdentityMetadata*: passport-azure-ad는 여기서 IdP에 대한 구성 데이터와 JWT 토큰의 유효성을 검사할 키를 찾습니다. Azure Active Directory를 사용하는 경우 이 값을 변경하지 않는 것이 좋습니다.
 
-*audience*: 포털에서의 리디렉션 URI입니다. 샘플은 다음을 사용합니다. `http://localhost/TodoListService`
+*audience*: 해당 서비스를 식별하는 포털의 URI입니다. 샘플은 다음을 사용합니다. `http://localhost/TodoListService`
 
-*tenantName*: 테넌트 이름입니다.(예: contoso.microsoftonline.com)
+*tenantName*: 해당 테넌트 이름입니다(예: contoso.onmicrosoft.com).
 
-*policyName*: 서버에 들어오는 토큰의 유효성을 검사하려는 정책입니다. 클라이언트 응용 프로그램에서 사용한 것과 동일한 정책이어야 합니다.
+*policyName*: 서버로 들어오는 토큰의 유효성을 검사하려는 정책입니다. 클라이언트 응용 프로그램에서 로그인에 사용하는 것과 동일한 정책이어야 합니다.
 
-> [AZURE.NOTE]키는 자주 롤링됩니다. 항상 "openid\_keys" URL에서 끌어오고 있으며 앱에서 인터넷에 액세스할 수 있는지 확인하세요.
+> [AZURE.NOTE]이 B2C 미리 보기에서는 클라이언트와 서버 설치 둘 다에서 동일한 정책을 사용합니다. 이미 연습 단계를 진행하고 이러한 정책을 만든 경우에는 다시 작업을 수행하지 않아도 됩니다. 이 연습 단계를 마쳤으므로 이 사이트에서 클라이언트 연습을 진행할 때 새 정책을 설정할 필요가 없습니다.
 
 
-## 11: server.js 파일에 구성 추가
+## 13: server.js 파일에 구성 추가
 
 응용 프로그램에서 방금 만든 구성 파일로부터 이러한 값을 읽어야 합니다. 이를 위해 응용 프로그램에 필수 리소스로 .config 파일을 추가하고 전역 변수를 config.js 문서의 변수로 설정합니다.
 
@@ -341,7 +343,7 @@ name: 'Microsoft Azure Active Directory Sample'
 });
 ```
 
-## 12단계: Moongoose를 사용하여 MongoDB 모델 및 스키마 정보 추가
+## 14단계: Moongoose를 사용하여 MongoDB 모델 및 스키마 정보 추가
 
 이제 이러한 세 개의 파일이 하나의 REST API 서비스에 통합되었으므로 이러한 모든 준비 과정을 마무리할 때가 되었습니다.
 
@@ -402,7 +404,7 @@ var Task = mongoose.model('Task');
 ```
 코드에서 알 수 있듯이 스키마를 만든 다음, ***Routes***를 정의할 때 코드 전체에서 데이터를 저장하는 데 사용할 모델 개체를 만듭니다.
 
-## 13단계: Task REST API 서버에 대한 경로 추가
+## 15단계: Task REST API 서버에 대한 경로 추가
 
 작업할 데이터베이스 모델이 준비되었으므로 REST API 서버에 사용할 경로를 추가하겠습니다.
 
@@ -579,7 +581,7 @@ util.inherits(TaskNotFoundError, restify.RestError);
 ```
 
 
-## 14단계: 서버 만들기
+## 16단계: 서버 만들기
 
 데이터베이스를 정의했으며 경로가 올바르게 지정되었으므로 마지막으로 호출을 관리하는 서버 인스턴스를 추가할 것입니다.
 
@@ -616,7 +618,7 @@ server.use(restify.bodyParser({
 mapParams: true
 }));
 ```
-## 15: 경로 추가(지금은 인증 없이)
+## 17단계: 서버에 경로 추가(지금은 인증 없이)
 
 ```Javascript
 /// Now the real handlers. Here we just CRUD
@@ -667,7 +669,7 @@ consoleMessage += '\n !!! why not try a $curl -isS %s | json to get some ideas? 
 consoleMessage += '+++++++++++++++++++++++++++++++++++++++++++++++++++++ \n\n';
 });
 ```
-## 16: OAuth 지원을 추가하기 전에 서버를 실행하겠습니다.
+## 18: OAuth 지원을 추가하기 전에 서버를 실행하겠습니다.
 
 인증을 추가하기 전에 서버 테스트
 
@@ -728,7 +730,7 @@ Hello
 
 **MongoDB를 사용하는 REST API 서버가 완료되었습니다.**
 
-## 17: REST API 서버에 인증 추가
+## 19: REST API 서버에 인증 추가
 
 작동하는 REST API를 만들었으므로 이제 Azure AD에서 유용하게 사용할 수 있게 만들어 보겠습니다.
 
@@ -736,7 +738,7 @@ Hello
 
 `cd azuread`
 
-### 1: passport-azure-ad에 포함된 oidcbearerstrategy 사용
+### 1: passport-azure-ad에 포함된 OIDCBearerStrategy 사용
 
 지금까지 권한 부여 없이 일반적인 REST TODO 서버를 빌드했습니다. 이 지점에서 통합 작업을 시작합니다.
 
@@ -749,9 +751,9 @@ server.use(passport.initialize()); // Starts passport
 server.use(passport.session()); // Provides session support
 ```
 
-> [AZURE.TIP]API를 작성하는 경우 항상 사용자가 스푸핑할 수 없는 토큰의 고유한 항목에 데이터를 연결해야 합니다. 이 서버는 TODO 항목을 저장할 때 "owner" 필드에 넣은 토큰의 사용자 구독 ID(token.sub라고 함)를 기준으로 항목을 저장합니다. 이렇게 하면 해당 사용자만 자신의 TODO에 액세스할 수 있고 다른 사용자는 입력된 TODO에 액세스할 수 없습니다. API에 "owner"가 노출되지 않으므로 외부 사용자가 인증된 경우에도 다른 사용자의 TODO를 요청할 수 있습니다.
+> [AZURE.TIP]API를 작성하는 경우 항상 사용자가 스푸핑할 수 없는 토큰의 고유한 항목에 데이터를 연결해야 합니다. 이 서버는 TODO 항목을 저장할 때 "owner" 필드에 넣은 토큰(token.oid를 통해 호출됨)의 사용자 개체 ID를 기준으로 항목을 저장합니다. 이렇게 하면 해당 사용자만 자신의 TODO에 액세스할 수 있고 다른 사용자는 입력된 TODO에 액세스할 수 없습니다. API에 "owner"가 노출되지 않으므로 외부 사용자가 인증된 경우에도 다른 사용자의 TODO를 요청할 수 있습니다.
 
-다음에는 passport-azure-ad에 포함된 Open ID Connect 전달자 전략을 사용하겠습니다. 지금은 코드만 살펴보고 곧 설명하겠습니다. 위에서 붙여넣은 코드 뒤에 이 코드를 넣습니다.
+다음에는 passport-azure-ad에 포함된 전달자 전략을 사용하겠습니다. 지금은 코드만 살펴보고 곧 설명하겠습니다. 위에서 붙여넣은 코드 뒤에 이 코드를 넣습니다.
 
 ```Javascript
 /**
@@ -807,34 +809,34 @@ Passport는 모든 전략 작성자가 준수하는 유사한 패턴을 모든 �
 서버 코드에서 경로를 편집하여 좀더 흥미로운 작업을 수행해 보겠습니다.
 
 ```Javascript
-server.get('/tasks', passport.authenticate('oidc-bearer', {
+server.get('/tasks', passport.authenticate('oauth-bearer', {
 session: false
 }), listTasks);
-server.get('/tasks', passport.authenticate('oidc-bearer', {
+server.get('/tasks', passport.authenticate('oauth-bearer', {
 session: false
 }), listTasks);
-server.get('/tasks/:owner', passport.authenticate('oidc-bearer', {
+server.get('/tasks/:owner', passport.authenticate('oauth-bearer', {
 session: false
 }), getTask);
-server.head('/tasks/:owner', passport.authenticate('oidc-bearer', {
+server.head('/tasks/:owner', passport.authenticate('oauth-bearer', {
 session: false
 }), getTask);
-server.post('/tasks/:owner/:task', passport.authenticate('oidc-bearer', {
+server.post('/tasks/:owner/:task', passport.authenticate('oauth-bearer', {
 session: false
 }), createTask);
-server.post('/tasks', passport.authenticate('oidc-bearer', {
+server.post('/tasks', passport.authenticate('oauth-bearer', {
 session: false
 }), createTask);
-server.del('/tasks/:owner/:task', passport.authenticate('oidc-bearer', {
+server.del('/tasks/:owner/:task', passport.authenticate('oauth-bearer', {
 session: false
 }), removeTask);
-server.del('/tasks/:owner', passport.authenticate('oidc-bearer', {
+server.del('/tasks/:owner', passport.authenticate('oauth-bearer', {
 session: false
 }), removeTask);
-server.del('/tasks', passport.authenticate('oidc-bearer', {
+server.del('/tasks', passport.authenticate('oauth-bearer', {
 session: false
 }), removeTask);
-server.del('/tasks', passport.authenticate('oidc-bearer', {
+server.del('/tasks', passport.authenticate('oauth-bearer', {
 session: false
 }), removeAll, function respond(req, res, next) {
 res.send(204);
@@ -876,7 +878,7 @@ OAuth2 호환 클라이언트를 사용하지 않고 이 서버로 수행할 수
 
 Restify 및 OAuth2를 사용하여 REST API를 구현하는 방법에 대한 정보만 원한다면 지금까지 제공된 코드만으로도 서비스를 계속 개발하고 이 예제의 빌드 방법을 계속 배울 수 있습니다.
 
-참조를 위해 완성된 샘플(사용자 구성 값 제외)이 [여기서 .zip으로 제공](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/complete.zip)되거나 GitHub에서 복제할 수 있습니다.
+참고로 완성된 샘플(사용자 구성 값 제외)은 여기([)에서 .zip으로 다운로드](https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs/archive/complete.zip)하거나 GitHub에서 복제할 수 있습니다.
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git```
 
@@ -887,4 +889,4 @@ Restify 및 OAuth2를 사용하여 REST API를 구현하는 방법에 대한 정
 
 [B2C로 iOS를 사용하여 웹 API에 연결 >>](active-directory-b2c-devquickstarts-ios.md)
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

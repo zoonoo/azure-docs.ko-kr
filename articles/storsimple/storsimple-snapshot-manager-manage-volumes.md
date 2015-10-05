@@ -1,6 +1,6 @@
 <properties 
    pageTitle="StorSimple 스냅숏 관리자 및 볼륨 | Microsoft Azure"
-   description="StorSimple 스냅숏 관리자 MMC 스냅인을 사용하여 볼륨을 보고 관리하는 방법을 설명합니다."
+   description="StorSimple 스냅숏 관리자 MMC 스냅인을 사용하여 볼륨을 보고 관리하고 백업을 구성하는 방법을 설명합니다."
    services="storsimple"
    documentationCenter="NA"
    authors="SharS"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/15/2015"
+   ms.date="09/21/2015"
    ms.author="v-sharos" />
 
 # StorSimple 스냅숏 관리자를 사용하여 볼륨 보기 및 관리
@@ -24,8 +24,6 @@ StorSimple 스냅숏 관리자 **볼륨** 노드(**범위** 창)를 사용하여
 지원되는 볼륨에 대한 자세한 내용은 [여러 볼륨 유형에 대한 지원](storsimple-what-is-snapshot-manager.md#support-for-multiple-volume-types)을 참조하세요.
 
 ![결과 창의 볼륨 목록](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Volume_node.png)
-
-**그림 1: StorSimple 스냅숏 관리자 볼륨 노드**
 
 또한 **볼륨** 노드를 사용하면 StorSimple 스냅숏 관리자에서 검색한 후에도 볼륨을 다시 검사하거나 삭제할 수 있습니다.
 
@@ -187,9 +185,9 @@ StorSimple 스냅숏 관리자 **볼륨** 노드(**범위** 창)를 사용하여
 
 다음 단계를 완료하여 동적 미러 볼륨에 대한 백업을 구성할 수 있습니다.
 
-- 1단계: 디스크 관리를 사용하여 동적 미러 볼륨 만들기 
+- 1단계: 디스크 관리를 사용하여 동적 미러 볼륨 만듭니다. 
 
-- 2단계: StorSimple 스냅숏 관리자를 사용하여 백업 구성
+- 2단계: StorSimple 스냅숏 관리자를 사용하여 백업 구성합니다.
 
 ### 필수 조건
 
@@ -271,4 +269,4 @@ StorSimple 스냅숏 관리자 **볼륨** 노드(**범위** 창)를 사용하여
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

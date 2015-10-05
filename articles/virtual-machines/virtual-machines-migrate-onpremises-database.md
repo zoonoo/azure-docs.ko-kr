@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Azure 가상 컴퓨터에서 SQL Server로 데이터베이스 마이그레이션"
+	pageTitle="VM에서 SQL Server로 데이터베이스 마이그레이션 | Mirosoft Azure"
 	description="온-프레미스 사용자 데이터베이스를 Azure 가상 컴퓨터에서 SQL Server로 마이그레이션하는 방법에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="carlrabeler"
 	manager="jeffreyg"
-	editor=""/>
-
+	editor=""
+	tags="azure-service-management" />
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
@@ -18,6 +18,8 @@
 
 
 # Azure VM에서 SQL Server로 데이터베이스 마이그레이션
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 Azure VM에서 온-프레미스 SQL Server 사용자 데이터베이스를 SQL Server로 마이그레이션하는 메서드가 많이 있습니다. 이 문서는 다양한 메서드를 간략하게 설명하고 다양한 시나리오에 맞는 최상의 메서드를 추천하고 **Microsoft Azure VM에 SQL Server 데이터베이스 배포** 마법사를 사용하는 과정을 안내하는 [자습서](#azure-vm-deployment-wizard-tutorial)를 포함합니다.
 
@@ -55,7 +57,7 @@ Azure VM에서 온-프레미스 SQL Server 사용자 데이터베이스를 SQL S
 
 ## Azure VM 배포 마법사 자습서
 
-Microsoft SQL Server Management Studio에서 **Microsoft Azure VM에 SQL Server 데이터베이스 배포** 마법사를 사용하여 SQL Server 2005, SQL Server 2008, SQL Server 2008 R2, SQL Server 2012, SQL Server 2014, 또는 SQL Server 2016 온-프레미스 사용자 데이터베이스(최대 1TB)를 Azure 가상 컴퓨터의 SQL Server 2014 또는 SQL Server 2016으로 마이그레이션합니다. 이 마법사를 사용하여 사용자 데이터베이스를 기존 Azure 가상 컴퓨터에 마이그레이션하거나 마이그레이션 과정에서 마법사에 의해 생성된 SQL Server가 있는 Azure VM에 마이그레이션합니다. 데이터베이스를 최신 버전의 SQL Server로 마이그레이션하는 경우 데이터베이스는 이 과정에서 자동으로 업그레이드됩니다.
+Microsoft SQL Server Management Studio에서 **Microsoft Azure VM에 SQL Server 데이터베이스 배포** 마법사를 사용하여 SQL Server 2005, SQL Server 2008, SQL Server 2008 R2, SQL Server 2012, SQL Server 2014 또는 SQL Server 2016 온-프레미스 사용자 데이터베이스(최대 1TB)를 Azure 가상 컴퓨터의 SQL Server 2014 또는 SQL Server 2016으로 마이그레이션합니다. 이 마법사를 사용하여 사용자 데이터베이스를 기존 Azure 가상 컴퓨터에 마이그레이션하거나 마이그레이션 과정에서 마법사에 의해 생성된 SQL Server가 있는 Azure VM에 마이그레이션합니다. 데이터베이스를 최신 버전의 SQL Server로 마이그레이션하는 경우 데이터베이스는 이 과정에서 자동으로 업그레이드됩니다.
 
 ### 최신 버전의 Microsoft Azure 가상 컴퓨터에 SQL Server 데이터베이스 배포 마법사 사용
 
@@ -165,4 +167,4 @@ SQL Server 2016에서 SQL Server 2016으로 마이그레이션하면서 백업 �
 
 Azure 가상 컴퓨터의 SQL Server 실행에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

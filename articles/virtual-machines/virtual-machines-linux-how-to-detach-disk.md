@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure의 Linux 가상 컴퓨터에서 디스크 분리"
+	pageTitle="Linux VM에서 디스크 분리 | Microsoft Azure"
 	description="클래식 배포 모델을 사용하여 만든 Azure 가상 컴퓨터에서 데이터 디스크를 분리하는 방법을 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
@@ -19,6 +19,7 @@
 
 # Linux 가상 컴퓨터에서 디스크를 분리하는 방법
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 디스크를 제거하는 방법을 설명합니다.
 
 [AZURE.INCLUDE [howto-detach-disk-windows-linux](../../includes/howto-detach-disk-linux.md)]
 
@@ -28,4 +29,4 @@
 
 [서비스 관리 API에서 Azure CLI 사용](virtual-machines-command-line-tools.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

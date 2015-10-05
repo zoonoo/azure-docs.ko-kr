@@ -1,5 +1,5 @@
 <properties
-   pageTitle="응용 프로그램 개체 및 서비스 주체 개체"
+   pageTitle="응용 프로그램 개체 및 서비스 주체 개체 | Microsoft Azure"
    description="응용 프로그램 개체 및 Azure Active Directory의 ServicePrincipal 개체 간의 관계에 대한 설명"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/08/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 
@@ -85,4 +85,4 @@ Azure 관리 포털에서 앱을 등록할 때 두 개체는 디렉터리 테넌
 
 ##
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

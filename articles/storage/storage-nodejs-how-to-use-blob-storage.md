@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Node.js에서 Blob 저장소를 사용하는 방법 | Microsoft Azure"
+	pageTitle="Node.js에서 Blob 저장소를 사용하는 방법 | Microsoft Azure";"
 	description="Azure Blob 서비스를 사용하여 Blob 콘텐츠를 업로드, 다운로드, 나열 및 삭제하는 방법을 알아봅니다. 샘플은 Node.js로 작성되었습니다."
 	services="storage"
 	documentationCenter="nodejs"
@@ -24,7 +24,7 @@
 
 ## 개요
 
-이 문서에서는 Azure Blob 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Node.js API를 사용하여 작성되었습니다. Blob **업로드**, **나열**, **다운로드** 및 **삭제** 시나리오를 다룹니다.
+이 문서에서는 Azure Blob 서비스를 사용하여 일반 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Node.js API를 사용하여 작성되었습니다. 여기서 다루는 시나리오는 Blob을 업로드, 나열, 다운로드 및 삭제하는 방법을 포함합니다.
 
 [AZURE.INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -32,7 +32,7 @@
 
 ## Node.js 응용 프로그램 만들기
 
-빈 Node.js 응용 프로그램을 만듭니다. Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기], [Node.js 클라우드 서비스][Node.js Cloud Service](Windows PowerShell 사용) 또는 [WebMatrix를 사용하는 웹 사이트]를 참조하세요.
+Node.js 응용 프로그램을 만드는 방법에 대한 지침은 [Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포], [Node.js 클라우드 서비스][Node.js Cloud Service](Windows PowerShell 사용) 또는 [WebMatrix를 사용하는 웹앱]을 참조하세요.
 
 ## 저장소에 액세스하도록 응용 프로그램 구성
 
@@ -67,7 +67,7 @@ Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편�
 
 Azure 모듈은 및 또는 환경 변수를 읽고 `AZURE_STORAGE_ACCOUNT``AZURE_STORAGE_ACCESS_KEY`Azure 저장소 계정에 연결하는 데 `AZURE_STORAGE_CONNECTION_STRING`필요한 정보를 확인합니다. 이러한 환경 변수가 설정되어 있지 않은 경우 **createBlobService**를 호출할 때 계정 정보를 지정해야 합니다.
 
-Azure 웹 사이트의 관리 포털에서 환경 변수를 설정하는 방법에 대한 예는 [Node.js 웹 응용 프로그램 및 저장소]를 참조하세요.
+Azure 웹앱의 Azure 포털에서 환경 변수를 설정하는 방법에 대한 예제는 [Node.js 웹 응용 프로그램 및 저장소]를 참조하세요.
 
 ## 컨테이너 만들기
 
@@ -75,7 +75,7 @@ Azure 웹 사이트의 관리 포털에서 환경 변수를 설정하는 방법�
 
     var blobSvc = azure.createBlobService();
 
-> [AZURE.NOTE]**createBlobServiceAnonymous**를 사용하고 호스트 주소를 제공하여 익명으로 Blob에 액세스할 수 있습니다. 예: `var blobSvc = azure.createBlobServiceAnonymous('https://myblob.blob.core.windows.net/');`
+> [AZURE.NOTE]**createBlobServiceAnonymous**를 사용하고 호스트 주소를 제공하여 익명으로 Blob에 액세스할 수 있습니다. 예를 들면 `var blobSvc = azure.createBlobServiceAnonymous('https://myblob.blob.core.windows.net/');`를 사용합니다.
 
 [AZURE.INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 
@@ -250,7 +250,7 @@ ETag 조건은 선택적인 `options.accessConditions` 매개 변수를 사용�
 	  }
 	});
 
-ETag를 사용하는 경우의 일반적인 패턴:
+ETag를 사용하는 경우 일반적인 패턴:
 
 1. create, list 또는 get 작업의 결과로 ETag를 얻습니다.
 
@@ -268,21 +268,21 @@ ETag를 사용하는 경우의 일반적인 패턴:
 	  }
 	});
 
-**myblob**의 후속 작업에서는 매개 `options.leaseId`변수를 제공해야 합니다. 임대 ID는 **acquireLease**에서와 `result.id`마찬가지로 반환됩니다.
+**myblob**의 후속 작업에서는 `options.leaseId` 매개 변수를 제공해야 합니다. 임대 ID는 **acquireLease**에서 `result.id`(으)로 반환됩니다.
 
-> [AZURE.NOTE]기본적으로 임대 기간은 무한입니다. 15초에서 60초까지의 유한한 기간을 지정하려면 `options.leaseDuration`매개 변수를 제공합니다.
+> [AZURE.NOTE]기본적으로 임대 기간은 무한입니다. 15초에서 60초까지의 유한한 기간을 지정하려면 `options.leaseDuration` 매개 변수를 제공합니다.
 
 임대를 제거하려면 **releaseLease**를 사용합니다. 임대를 중단하면서 원래 기간이 만료될 때까지 다른 사람이 새 임대를 얻지 못하게 하려면 **breakLease**를 사용합니다.
 
 ## 공유 액세스 서명 작업
 
-SAS(공유 액세스 서명)는 저장소 계정 이름이나 키를 제공하지 않으면서 Blob 및 컨테이너에 세분화된 액세스 권한을 안전하게 제공하는 방법입니다. SAS는 모바일 앱에서 Blob에 액세스하는 경우와 같이 데이터에 대해 제한된 액세스를 제공하는 경우에 자주 사용합니다.
+SAS(공유 액세스 서명)는 저장소 계정 이름이나 키를 제공하지 않으면서 Blob 및 컨테이너에 세분화된 액세스 권한을 안전하게 제공하는 방법입니다. 공유 액세스 서명은 모바일 앱에서 Blob에 액세스하는 경우와 같이 데이터에 대해 제한된 액세스를 제공하는 경우에 자주 사용합니다.
 
-> [AZURE.NOTE]Blob에 대해 익명 액세스를 허용할 수도 있지만 SAS에서 더 잘 제어된 액세스를 제공할 수 있으므로 SAS를 생성해야 합니다.
+> [AZURE.NOTE]Blob에 대해 익명 액세스를 허용할 수도 있지만 공유 액세스 서명에서 더 잘 제어된 액세스를 제공할 수 있으므로 SAS를 생성해야 합니다.
 
-클라우드 기반 서비스와 같이 신뢰할 수 있는 응용 프로그램에서는 **BlobService**의 **generateSharedAccessSignature**를 사용하여 SAS를 생성하고 모바일 앱과 같은 신뢰할 수 없거나 신뢰가 약한 응용 프로그램에 제공합니다. SAS는 SAS가 유효한 시작 및 종료 날짜와 SAS 소유자에게 부여되는 액세스 수준을 설명하는 정책을 사용하여 생성됩니다.
+클라우드 기반 서비스와 같이 신뢰할 수 있는 응용 프로그램에서는 **BlobService**의 **generateSharedAccessSignature**를 사용하여 공유 액세스 서명을 생성하고 모바일 앱과 같은 신뢰할 수 없거나 신뢰가 약한 응용 프로그램에 제공합니다. 공유 액세스 서명은 공유 액세스 서명이 유효한 시작 및 종료 날짜와 공유 액세스 서명 소유자에게 부여되는 액세스 수준을 설명하는 정책을 사용하여 생성됩니다.
 
-다음 코드 예제에서는 SAS 소유자가 **myblob** Blob에서 읽기 작업을 수행할 수 있도록 허용하며 만든 후 100분이 지나면 만료되는 새 공유 액세스 정책을 생성합니다.
+다음 코드 예제에서는 공유 액세스 서명 소유자가 **myblob** Blob에서 읽기 작업을 수행할 수 있도록 허용하며 만든 후 100분이 지나면 만료되는 새 공유 액세스 정책을 생성합니다.
 
 	var startDate = new Date();
 	var expiryDate = new Date(startDate);
@@ -300,9 +300,9 @@ SAS(공유 액세스 서명)는 저장소 계정 이름이나 키를 제공하�
 	var blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', 'myblob', sharedAccessPolicy);
 	var host = blobSvc.host;
 
-SAS 소유자가 컨테이너에 액세스할 때 필요하므로 호스트 정보도 제공해야 합니다.
+공유 액세스 서명 소유자가 컨테이너에 액세스할 때 필요하므로 호스트 정보도 제공해야 합니다.
 
-그러고 나면 클라이언트 응용 프로그램에서 **BlobServiceWithSAS**에 SAS를 사용하여 Blob에 대한 작업을 수행합니다. 다음에서는 **myblob**에 대한 정보를 가져옵니다.
+그러고 나면 클라이언트 응용 프로그램에서 **BlobServiceWithSAS**에 공유 액세스 서명을 사용하여 Blob에 대한 작업을 수행합니다. 다음에서는 **myblob**에 대한 정보를 가져옵니다.
 
 	var sharedBlobSvc = azure.createBlobServiceWithSas(host, blobSAS);
 	sharedBlobSvc.getBlobProperties('mycontainer', 'myblob', function (error, result, response) {
@@ -311,7 +311,7 @@ SAS 소유자가 컨테이너에 액세스할 때 필요하므로 호스트 정�
 	  }
 	});
 
-SAS가 읽기 권한만으로 생성되었기 때문에 Blob을 수정하려고 하면 오류가 반환됩니다.
+Blob를 수정하려고 하는 경우 공유 액세스 서명이 읽기 전용 액세스로 생성되었으므로 오류가 반환됩니다.
 
 ### 액세스 제어 목록
 
@@ -352,29 +352,30 @@ ACL은 각 정책에 ID가 연결된 액세스 정책 배열을 사용하여 구
 	  }
 	});
 
-ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습니다. 다음 코드 예제에서는 'user2'에 대해 새 SAS를 만듭니다.
+ACL이 설정되고 나면 정책의 ID를 기반으로 공유 액세스 서명을 만들 수 있습니다. 다음 코드 예제에서는 ‘user2'에 대한 새 공유 액세스 서명을 만듭니다.
 
 	blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 
 ## 다음 단계
 
-이제 Blob 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업을 수행하는 방법을 알아보세요.
+자세한 내용은 다음 리소스를 참조하세요.
 
--   [Azure Storage SDK for Node API Reference][]를 읽어보세요.
--   다음 MSDN 참조를 확인하세요. [Azure에 데이터 저장 및 액세스][]
--   [Azure 저장소 팀 블로그][](영문)를 방문하세요.
--   GitHub에서 [Azure Storage SDK for Node][] 리포지토리를 방문하세요.
+-   [Node용 Azure 저장소 SDK API 참조][]
+-   MSDN 참조: [Azure에 데이터 저장 및 액세스][]
+-   [Azure 저장소 팀 블로그][]
+-   GitHub의 [Azure Storage SDK for Node][] 리포지토리
+-   [Node.js 개발자 센터](/develop/nodejs/)
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
-[Node.js 응용 프로그램을 만들어 Azure 웹 사이트에 배포하기]: /develop/nodejs/tutorials/create-a-website-(mac)/
+[Create and deploy a Node.js application to an Azure Web Site]: /develop/nodejs/tutorials/create-a-website-(mac)/
 [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
 [Node.js 웹 응용 프로그램 및 저장소]: ../storage-nodejs-use-table-storage-web-site.md
-[WebMatrix를 사용하는 웹 사이트]: ../web-sites-nodejs-use-webmatrix.md
-[using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-[Azure Management Portal]: http://manage.windowsazure.com
+[WebMatrix를 사용하는 웹앱]: ../web-sites-nodejs-use-webmatrix.md
+[Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+[Azure portal]: http://manage.windowsazure.com
 [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
 [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
-[Azure Storage SDK for Node API Reference]: http://dl.windowsazure.com/nodestoragedocs/index.html
+[Node용 Azure 저장소 SDK API 참조]: http://dl.windowsazure.com/nodestoragedocs/index.html
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

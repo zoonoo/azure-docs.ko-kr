@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/11/2015"
+   ms.date="09/22/2015"
    ms.author="mbaldwin" />
 
 # Azure 주요 자격 증명 모음 개발자 가이드
@@ -55,11 +55,11 @@ Azure 주요 자격 증명 모음 키 및 비밀은 다음 문서에 설명되�
 
 - [PowerShell을 사용하여 주요 자격 증명 모음 만들기 및 관리](key-vault-get-started.md)
 - [CLI를 사용하여 주요 자격 증명 모음 만들기 및 관리](key-vault-manage-with-cli.md)
-- [Azure 주요 자격 증명 모음용으로 HSM 보호 키를 생성하여 전송하는 방법](https://msdn.microsoft.com/library/azure/dn903624.aspx)
+- [Azure 주요 자격 증명 모음용으로 HSM 보호 키를 생성하여 전송하는 방법](key-vault-hsm-protected-keys.md)
 - [키 및 비밀 정보](https://msdn.microsoft.com/library/azure/dn903623.aspx)
 
 ## 참고 항목
 
 - [Azure 주요 자격 증명 모음 코드 샘플](http://www.microsoft.com/download/details.aspx?id=45343)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

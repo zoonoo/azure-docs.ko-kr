@@ -1,8 +1,7 @@
 <properties 
-	pageTitle="탄력적 데이터베이스 작업 개요" 
-	description="탄력적 데이터베이스 작업 서비스를 설명합니다." 
-	services="sql-database" 
-	documentationCenter=""  
+	pageTitle="PowerShell을 사용하여 탄력적 데이터베이스 작업 만들기 및 관리" 
+	description="Azure SQL 데이터베이스 풀을 관리하는데 사용되는 PowerShell" 
+	services="sql-database" documentationCenter=""  
 	manager="jeffreyg" 
 	authors="ddove"/>
 
@@ -12,7 +11,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="09/17/2015" 
 	ms.author="ddove; sidneyh" />
 
 # PowerShell을 사용하여 SQL 데이터베이스 탄력적 데이터베이스 작업 만들기 및 관리(미리 보기)
@@ -674,4 +673,4 @@ JobTaskExecution 개체에는 Message 속성과 함께 Lifecycle 주기에 대�
 [2]: ./media/sql-database-elastic-jobs-powershell/portal.png
 <!--anchors-->
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Windows Server VHD를 만들어서 Azure에 업로드"
-	description="Windows Server 운영 체제가 포함된 VHD(가상 하드 디스크)를 Azure에서 만들고 업로드하는 방법에 대해 알아봅니다."
+	pageTitle="Powershell을 사용하여 Windows Server VHD를 만들고 Azure에 업로드"
+	description="클래식 배포 모델 및 Azure Powershell을 사용하여 Windows Server 기반 가상 하드 디스크(VHD)를 만들고 업로드하는 방법에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -198,4 +198,4 @@ Add-AzureVhd cmdlet에 대한 자세한 내용은 [Add-AzureVhd](http://msdn.mic
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

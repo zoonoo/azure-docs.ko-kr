@@ -1,8 +1,8 @@
 <properties
-   pageTitle="Azure 포털 바로 가기 키"
+   pageTitle="Azure 포털 바로 가기 키 | Microsoft Azure"
    description="이 문서는 Azure 포털에서 작동하는 바로 가기 키의 최신 목록입니다. 개별 서비스에는 특수화된 자신의 바로 가기 키가 있을 수 있습니다."
    services="cloud-services"
-   documentationCenter="dev-center-name"
+   documentationCenter=""
    authors="curtand"
    manager="msStevenPo"
    editor=""/>
@@ -50,4 +50,4 @@
 
 Azure 포털을 더 잘 이해하게 됩니다(http://azure.microsoft.com).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="09/23/2015"
 	ms.author="awills"/>
 
 
@@ -133,6 +133,21 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 [이 문제 해결 항목](app-insights-troubleshoot-faq.md#NuGetBuild)을 참조하세요.
 
+
+## 응용 프로그램 버전 추적
+
+빌드 프로세스에서 `buildinfo.config`가 생성되었는지 확인합니다. .csproj 파일에서 다음을 추가합니다.
+
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup> 
+```
+
+빌드 정보가 있는 경우 Application Insights 웹 모듈에서 원격 분석의 모든 항목에 **응용 프로그램 버전**을 속성으로 자동으로 추가합니다. 이렇게 하면 [진단 검색][diagnostic]을 수행하거나 [메트릭을 탐색][metrics]할 때 버전을 기준으로 필터링할 수 있습니다.
+
+
 ## 5\. 종속성 추적 및 성능 카운터 추가
 
 SDK에는 일부 데이터에 액세스할 경우 다음과 같은 도움이 필요 합니다. 특히 자동으로 데이터베이스, REST Api 및 기타 외부 구성 요소를 앱에서 호출을 측정하기 위해 이 추가 단계가 필요합니다. 종속성 메트릭은 성능 문제 진단을 도와줄 때 매우 유용합니다.
@@ -143,7 +158,7 @@ SDK에는 일부 데이터에 액세스할 경우 다음과 같은 도움이 필
 
 [방화벽에서 나가는 포트를 추가로 열어야](app-insights-monitor-performance-live-website-now.md#troubleshooting) 할 수도 있습니다.
 
-이 단계를 사용하면 [성능 카운터의 보고](app-insights-web-monitor-performance.md#system-performance-counters)(예: CPU, 메모리, 네트워크 선점)도 가능합니다.
+이 단계를 수행하면 [성능 카운터의 보고](app-insights-web-monitor-performance.md#system-performance-counters)(예: CPU, 메모리, 네트워크 선점)도 가능합니다.
 
 #### 앱이 Azure 웹앱인 경우
 
@@ -156,6 +171,8 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 #### Azure 클라우드 서비스 프로젝트 만들기인 경우
 
 [웹 및 작업자 역할에 스크립트 추가](app-insights-cloudservices.md)
+
+
 
 ## 6\. 클라이언트쪽 모니터링을 추가 합니다.
 
@@ -175,7 +192,7 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 #### 클라이언트가 장치 앱인 경우
 
-응용 프로그램이 휴대폰 또는 기타 장치 등의 클라이언트에 서비스를 제공하는 경우 사용자의 장치 앱에 [적절한 SDK](app-insights-platforms.md)를 추가하세요.
+응용 프로그램이 휴대폰 또는 기타 장치 등의 클라이언트에 서비스를 제공하는 경우 사용자의 장치 앱에 [적절한 SDK](app-insights-platforms.md)를 추가합니다.
 
 SDK 서버와 동일한 계측 키를 가진 SDK 클라이언트를 구성하는 경우 함께 볼 수 있도록 두 스트림은 통합 됩니다.
 
@@ -196,7 +213,7 @@ SDK 서버와 동일한 계측 키를 가진 SDK 클라이언트를 구성하는
 
 #### 새 프로젝트의 경우
 
-Visual Studio에서 새 프로젝트를 만들 때 **Application Insights 추가**가 선택되었는지 확인합니다.
+Visual Studio에서 새 프로젝트를 만드는 경우 **Application Insights 추가**가 선택되었는지 확인합니다.
 
 
 ![ASP.NET 프로젝트 만들기](./media/app-insights-start-monitoring-app-health-usage/appinsights-01-vsnewp1.png)
@@ -255,4 +272,4 @@ Visual Studio는 Application Insights에서 리소스를 만들고, SDK를 프�
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

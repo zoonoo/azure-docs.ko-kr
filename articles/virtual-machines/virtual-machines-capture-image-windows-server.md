@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Windows Server를 실행하는 가상 컴퓨터의 이미지 캡처"
-	description="Windows Server를 실행하는 Azure VM(가상 컴퓨터)의 이미지를 캡처하는 방법에 대해 알아봅니다."
+	pageTitle="Windows VM의 이미지 캡처 | Microsoft Azure"
+	description="클래식 배포 모델을 사용하여 만든 Windows 가상 컴퓨터의 이미지를 캡처합니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,9 @@
 	ms.date="07/16/2015"
 	ms.author="cynthn"/>
 
-#Windows 가상 컴퓨터를 캡처하여 이미지로 사용하는 방법#
+#클래식 배포 모델을 사용하여 만든 Windows 가상 컴퓨터의 이미지를 캡처합니다.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 이 문서에서는 Windows가 실행되는 Azure 가상 컴퓨터를 캡처하여 다른 가상 컴퓨터를 만들 때 이미지로 사용하는 방법을 소개합니다. 이 이미지에는 OS 디스크를 비롯해 가상 컴퓨터에 연결되는 모든 데이터 디스크가 포함됩니다. 네트워킹 구성은 포함되지 않으므로 템플릿을 사용하는 다른 가상 컴퓨터를 만들 때 구성해야 합니다.
 
@@ -83,4 +85,4 @@ Azure에서는 이미지를 **내 이미지** 아래에 저장합니다. 사용�
 [Image capture successful]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Use the captured image]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

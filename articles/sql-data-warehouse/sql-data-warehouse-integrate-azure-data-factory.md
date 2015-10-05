@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/23/2015"
    ms.author="lodipalm"/>
 
 # SQL 데이터 웨어하우스와 함께 Azure 데이터 팩터리 사용
@@ -30,8 +30,6 @@ Azure 데이터 팩터리는 온-프레미스 원본 및 다른 Azure 서비스 
 + IaaS의 SQL Server
 
 데이터 복사 활동을 설정하는 방법에 대한 정보는 [Azure 데이터 팩터리를 사용하여 데이터 복사][]를 참조하세요.
-
-> [AZURE.NOTE]이때에는 SQL 데이터 웨어하우스의 nullable이 아닌 열로 데이터를 전송하는 데 Azure 데이터 팩터리를 사용할 수 없습니다.
 
 ## 저장 프로시저
  데이터 전송을 예약하는 데 사용할 수 있는 동일한 방법으로 Azure 데이터 팩터리는 저장 프로시저의 실행을 오케스트레이션하는 데도 사용될 수 있습니다. 이렇게 하면 더 복잡한 파이프라인을 만들 수 있으며 Azure 데이터 팩터리 기능을 확장하여 SQL 데이터 웨어하우스의 컴퓨팅 기능을 활용할 수 있습니다.
@@ -51,6 +49,6 @@ Azure 데이터 팩터리는 온-프레미스 원본 및 다른 Azure 서비스 
 
 <!--Other Web references-->
 [Azure 데이터 팩터리 설명서]: https://azure.microsoft.com/documentation/services/data-factory/
-[Azure 데이터 팩터리를 사용하여 데이터 복사]: https://azure.microsoft.com/ko-KR/documentation/articles/data-factory-data-movement-activities/
+[Azure 데이터 팩터리를 사용하여 데이터 복사]: https://azure.microsoft.com/KO-KR/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

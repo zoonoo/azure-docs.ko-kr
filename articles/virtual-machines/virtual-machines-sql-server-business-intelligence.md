@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Azure 가상 컴퓨터의 SQL Server Business Intelligence"
-	description="이 항목에서는 Azure VM(가상 컴퓨터)에서 실행 중인 SQL Server에 사용할 수 있는 BI(비즈니스 인텔리전스) 기능에 대해 설명합니다."
+	pageTitle="SQL Server 비즈니스 인텔리전스 | Microsoft Azure"
+	description="이 항목에서는 클래식 배포 모델로 만든 리소스를 사용하고 Azure VM(가상 컴퓨터)에서 실행 중인 SQL Server에 사용할 수 있는 BI(비즈니스 인텔리전스) 기능에 대해 설명합니다."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" 
+	tags="azure-service-management"/>
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,9 +14,11 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/19/2015"
-	ms.author="jroth"/>
+	ms.author="jroth" />
 
 # Azure 가상 컴퓨터의 SQL Server Business Intelligence
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 사용하는 방법을 설명합니다.
  
 Microsoft Azure 가상 컴퓨터 갤러리에는 SQL Server 설치가 포함된 이미지가 들어 있습니다. 갤러리 이미지에서 지원되는 SQL Server 버전은 온-프레미스 컴퓨터와 가상 컴퓨터에 설치할 수 있는 동일한 설치 파일입니다. 이 항목은 가상 컴퓨터가 프로비전된 후 필요한 구성 단계 및 이미지에 설치된 SQL Server BI(비즈니스 인텔리전스) 기능을 요약합니다. 이 항목은 BI 기능에 대해 지원되는 배포 토폴로지 및 모범 사례도 설명합니다.
 
@@ -35,7 +38,7 @@ Microsoft Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함�
 
 ![Azure VM 갤러리의 SQL 이미지](./media/virtual-machines-sql-server-business-intelligence/IC741367.png)
 
-![PowerShell](./media/virtual-machines-sql-server-business-intelligence/IC660119.gif) 다음 PowerShell 스크립트는 ImageName에 “SQL-Server”가 포함된 Azure 이미지 목록을 반환합니다.
+![PowerShell](./media/virtual-machines-sql-server-business-intelligence/IC660119.gif) 다음 PowerShell 스크립트는 ImageName에 "SQL-Server"가 포함된 Azure 이미지 목록을 반환합니다.
 
 	# assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "settings" menu in Microsoft Azure Management Portal
 	
@@ -294,7 +297,7 @@ Azure 가상 컴퓨터에 연결하는 데 다음과 같은 두 가지 일반적
 	
 	1. 관리 인증서를 만들고 설치합니다.
 	
-	1. AzureVHD cmdlet [Windows Server VHD 만들기 및 Azure에 업로드](virtual-machines-create-upload-vhd-windows-server.md)를 사용하여 VHD 파일을 Azure에 업로드합니다.
+	1. Add-AzureVHD cmdlet [Windows Server VHD 만들기 및 Azure에 업로드](virtual-machines-create-upload-vhd-windows-server.md)를 사용하여 VHD 파일을 Azure에 업로드합니다.
 	
 	1. 가상 컴퓨터에 디스크를 연결합니다.
 
@@ -427,4 +430,4 @@ Analysis Services의 **명명된 인스턴스**의 경우 포트 액세스를 �
 
 - [PowerShell을 사용한 Azure SQL 데이터베이스 관리](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

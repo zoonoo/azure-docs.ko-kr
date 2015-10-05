@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="timwieman"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,6 +19,8 @@
 
 # 리소스 관리자 템플릿을 사용하는 Redis 클러스터
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 Redis 클러스터를 만드는 방법을 설명합니다.
+
 Redis는 오픈 소스 키-값 캐시 및 저장소이며, 키에는 문자열, 해시, 목록, 집합, 정렬된 집합 등의 데이터 구조가 포함될 수 있습니다. Redis는 이러한 데이터 유형에 대한 소규모 작업 집합을 지원합니다. Redis 버전 3.0이 릴리스되면서 이제는 안정적인 최신 Redis 버전에서 Redis 클러스터를 사용할 수 있게 되었습니다. Redis 클러스터는 데이터가 여러 Redis 노드로 자동 분할되는 분산형 Redis 구현으로, 노드 하위 집합에서 오류가 발생해도 작업을 계속 진행할 수 있는 기능이 제공됩니다.
 
 Microsoft Azure Redis Cache는 Microsoft에서 관리하는 전용 Redis 캐시 서비스지만 모든 Microsoft Azure 고객이 Azure Redis Cache를 사용해야 하는 것은 아닙니다. 즉, 자체 Azure 배포 환경 내의 서브넷에 Redis 캐시를 보관하는 고객도 있고 모든 Redis 기능을 완전하게 활용이 가능하도록 Linux 가상 컴퓨터에서 자체 Redis 서버를 호스팅하려는 고객도 있습니다.
@@ -26,7 +29,7 @@ Microsoft Azure Redis Cache는 Microsoft에서 관리하는 전용 Redis 캐시 
 
 Redis 클러스터는 서브넷에서 생성되므로 공용 IP를 사용하여 Redis 클러스터에 액세스할 수는 없습니다. 배포 프로세스의 일부로 "점프 상자"를 선택적으로 배포할 수 있습니다. 이 "점프 상자"는 서브넷에도 배포된 Ubuntu VM이지만 SSH할 수 있는 열린 SSH 포트로 공용 IP 주소를 *노출합니다*. 그런 다음 "점프 상자"에서, 서브넷에 있는 모든 Redis VM에 대해 SSH를 실행할 수 있습니다.
 
-이 템플릿은 “T셔츠 크기" 개념을 사용하여 “Small", “Medium" 또는 “Large"로 Redis 클러스터 설정을 지정합니다. Azure Resource Manager 템플릿 언어가 보다 동적인 템플릿 크기 지정 방법을 지원하는 경우 해당 설정을 변경하여 Redis 클러스터 마스터 노드와 슬레이브 노드의 수, VM 크기 등을 지정할 수 있습니다. 현재는 azuredeploy.json 파일의 `tshirtSizeSmall`, `tshirtSizeMedium`, 및 `tshirtSizeLarge` 변수에 정의된 마스터와 슬레이브의 수 및 VM 크기를 확인할 수 있습니다.
+이 템플릿은 “T셔츠 크기" 개념을 사용하여 “Small", “Medium" 또는 “Large"로 Redis 클러스터 설정을 지정합니다. Azure Resource Manager 템플릿 언어가 보다 동적인 템플릿 크기 지정 방법을 지원하는 경우 해당 설정을 변경하여 Redis 클러스터 마스터 노드와 슬레이브 노드의 수, VM 크기 등을 지정할 수 있습니다. 지금은 azuredeploy.json 파일의 `tshirtSizeSmall`, `tshirtSizeMedium` 및 `tshirtSizeLarge` 변수에 정의된 마스터와 슬레이브의 개수 및 VM 크기를 확인할 수 있습니다.
 
 “M” T셔츠 크기의 Redis 클러스터 템플릿을 사용하면 다음과 같은 구성을 만들 수 있습니다.
 
@@ -348,7 +351,7 @@ New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -T
 
 - 왼쪽 탐색 모음에서 **찾아보기**를 클릭한 다음 아래로 스크롤하여 **리소스 그룹**을 클릭합니다.
 - 방금 만든 리소스 그룹을 선택하면, “리소스 그룹" 블레이드가 나타납니다.
-- **모니터링** 섹션에서, "이벤트" 막대 그래프를 선택합니다. 그러면 배포에 대한 이벤트가 표시됩니다.
+- **모니터링** 섹션에서 "이벤트" 막대 그래프를 선택합니다. 그러면 배포에 대한 이벤트가 표시됩니다.
 - 개별 이벤트를 클릭하면 템플릿을 대신해 수행된 각 개별 작업에 대한 세부 정보를 볼 수 있습니다.
 
 테스트 후 이 리소스 그룹과 모든 해당 리소스(저장소 계정, 가상 컴퓨터 및 가상 네트워크)를 제거해야 하는 경우 다음 명령을 사용합니다.
@@ -455,7 +458,7 @@ $webclient.DownloadFile($url,$filePath)
 
 `vmStorageAccountContainerName` 및 `vmStorageAccountDomain` 변수는 간단한 이름/값 변수의 예입니다. `vnetID`는 `resourceId` 및 `parameters` 함수를 사용하여 런타임에 계산되는 변수의 예입니다. `machineSettings`는 JSON 개체 `osImageReference`를 `machineSettings` 변수에 중첩하여 이러한 개념을 확장합니다. `vmScripts`에는 JSON 배열 `scriptsToDownload`가 포함되며, 이 배열은 `concat` 및 `variables` 함수를 사용하여 런타임에 계산됩니다.
 
-Redis 클러스터 배포의 크기를 사용자 지정하려는 경우 azuredeploy.json 템플릿에서 `tshirtSizeSmall`, `tshirtSizeMedium`, 및 `tshirtSizeLarge` 변수의 속성을 변경할 수 있습니다.
+Redis 클러스터 배포의 크기를 사용자 지정하려는 경우 azuredeploy.json 템플릿에서 `tshirtSizeSmall`, `tshirtSizeMedium` 및 `tshirtSizeLarge` 변수의 속성을 변경할 수 있습니다.
 
 ```json
 "tshirtSizeSmall": {
@@ -491,7 +494,7 @@ Redis 클러스터 배포의 크기를 사용자 지정하려는 경우 azuredep
 
 ### "resources" 섹션
 
-"resources" 섹션에서 대부분의 작업이 수행됩니다. 이 섹션 내부를 신중하게 찾으면, 두 가지 다른 경우를 즉시 식별할 수 있습니다. 첫번째는 기본 일정 내에서 상주하는 배포를 호출하는 형식`Microsoft.Resources/deployments`의 정의된 요소입니다. 그리고 두 번째는 매개 변수 집합을 입력으로 전달하여 호출하려는 연결된 템플릿 파일을 지정할 수 있도록 하는 `templateLink` 속성 및 관련 `contentVersion` 속성입니다. 이러한 사항은 다음 템플릿 코드 조각에서 확인할 수 있습니다.
+"resources" 섹션에서 대부분의 작업이 수행됩니다. 이 섹션 내부를 신중하게 찾으면, 두 가지 다른 경우를 즉시 식별할 수 있습니다. 첫 번째는 기본 배포 내에 중첩된 배포를 호출하는 `Microsoft.Resources/deployments` 형식의 정의된 요소입니다. 그리고 두 번째는 매개 변수 집합을 입력으로 전달하여 호출하려는 연결된 템플릿 파일을 지정할 수 있도록 하는 `templateLink` 속성 및 관련 `contentVersion` 속성입니다. 이러한 사항은 다음 템플릿 코드 조각에서 확인할 수 있습니다.
 
 ```json
 {
@@ -525,11 +528,11 @@ Redis 클러스터 배포의 크기를 사용자 지정하려는 경우 azuredep
 
 - **shared-resource.json**: 배포에서 공유할 모든 리소스의 정의를 포함합니다. 예를 들어 VM의 OS 디스크, 가상 네트워크 및 가용성 집합을 저장하는 데 사용되는 저장소 계정이 여기에 속합니다.
 - **jumpbox resources.json**: "점프 상자" VM 및 모든 관련 리소스(예: 환경에 대한 SSH를 실행하는 데 사용되는 입력 끝점, 공용 IP 주소, 네트워크 인터페이스)를 배포합니다.
-- **node-resources.json**: 모든 Redis 클러스터 노드 VM 및 연결된 리소스(네트워크 어댑터, 개인 IP 등)를 배포합니다. 또한 이 템플릿은 각 노드에 Redis를 물리적으로 설치 및 설정하기 위해 VM 확장(Linux용 사용자 지정 스크립트)을 배포하고 bash 스크립트를 호출합니다. 호출할 스크립트는 `commandToExecute` 속성의 `machineSettings` 파라미터에서 이 템플릿으로 전달됩니다. Redis 클러스터 노드 중 하나를 제외한 모든 노드를 병렬로 배포하고 스크립팅할 수 있습니다. Redis 클러스터 설정은 노드 하나에서만 실행할 수 있으며 모든 노드에서 Redis 서버를 실행한 후에 설정을 수행해야 하므로 노드 하나는 끝까지 남겨 두어야 합니다. 따라서 실행할 스크립트가 이 템플릿으로 전달됩니다. 마지막 노드는 Redis 서버를 설치할 뿐 아니라 Redis 클러스터도 설정하는 약간 다른 스크립트를 실행해야 하기 때문입니다.
+- **node-resources.json**: 모든 Redis 클러스터 노드 VM 및 연결된 리소스(네트워크 어댑터, 개인 IP 등)를 배포합니다. 또한 이 템플릿은 각 노드에 Redis를 물리적으로 설치 및 설정하기 위해 VM 확장(Linux용 사용자 지정 스크립트)을 배포하고 bash 스크립트를 호출합니다. 호출할 스크립트는 `commandToExecute` 속성의 `machineSettings` 매개 변수를 통해 이 템플릿에 전달됩니다. Redis 클러스터 노드 중 하나를 제외한 모든 노드를 병렬로 배포하고 스크립팅할 수 있습니다. Redis 클러스터 설정은 노드 하나에서만 실행할 수 있으며 모든 노드에서 Redis 서버를 실행한 후에 설정을 수행해야 하므로 노드 하나는 끝까지 남겨 두어야 합니다. 따라서 실행할 스크립트가 이 템플릿으로 전달됩니다. 마지막 노드는 Redis 서버를 설치할 뿐 아니라 Redis 클러스터도 설정하는 약간 다른 스크립트를 실행해야 하기 때문입니다.
 
-이 마지막 템플릿, 즉 node-resources.json은 템플릿 개발 관점에서 가장 흥미로운 항목 중 하나이므로 사용 *방법*을 좀 더 자세히 살펴보겠습니다. 한 가지 중요한 개념은 단일 템플릿 파일에서 단일 리소스 유형의 여러 복사본을 배포하고 각 인스턴스에 대해 필요한 설정의 고유 값을 설정하는 방법입니다. 이 개념은 **리소스 루핑**이라고 합니다.
+이 마지막 템플릿, 즉 node-resources.json은 템플릿 개발 관점에서 가장 흥미로운 항목 중 하나이므로 사용 *방법*을 좀더 자세히 살펴보겠습니다. 한 가지 중요한 개념은 단일 템플릿 파일에서 단일 리소스 유형의 여러 복사본을 배포하고 각 인스턴스에 대해 필요한 설정의 고유 값을 설정하는 방법입니다. 이 개념을 **리소스 루핑**이라고 합니다.
 
-node-resources.json은 기본 azuredeploy.json 파일 내에서 호출하면 `copy`요소를 사용하여 일종의 루프를 만드는 리소스 내에서 호출됩니다. `copy` 요소를 사용하는 리소스는 `copy` 요소의 `count` 매개 변수에 지정된 횟수만큼 자체적으로 “복사"됩니다. 배포된 리소스의 여러 인스턴스 간에 고유한 값을 지정하는 데 필요한 모든 설정의 경우 **copyindex()** 함수를 사용하여 해당 특정 리소스 루프 만들기에서 현재 인덱스를 나타내는 숫자 값을 가져올 수 있습니다. 다음 azuredeploy.json 코드 조각에서는 Redis 클러스터 노드에 대해 작성되는 여러 VM에 이 개념이 적용됨을 확인할 수 있습니다.
+node-resources.json은 기본 azuredeploy.json 파일 내에서 호출할 경우 `copy` 요소를 사용하여 일종의 루프를 만드는 리소스 내에서 호출됩니다. `copy` 요소를 사용하는 리소스는 `copy` 요소의 `count` 매개 변수에 지정된 횟수만큼 자체적으로 “복사"됩니다. 배포된 리소스의 여러 인스턴스 간에 고유한 값을 지정하는 데 필요한 모든 설정의 경우 **copyindex()** 함수를 사용하여 해당 특정 리소스 루프 만들기에서 현재 인덱스를 나타내는 숫자 값을 가져올 수 있습니다. 다음 azuredeploy.json 코드 조각에서는 Redis 클러스터 노드에 대해 작성되는 여러 VM에 이 개념이 적용됨을 확인할 수 있습니다.
 
 ```json
 {
@@ -580,7 +583,7 @@ node-resources.json은 기본 azuredeploy.json 파일 내에서 호출하면 `co
 
 리소스 만들기의 또 다른 중요한 개념은 `dependsOn` JSON 배열에서 볼 수 있는 것처럼 리소스 간의 종속성 및 우선 순위를 지정하는 기능입니다. 이 특정 템플릿에서는 Redis 클러스터 노드가 먼저 작성되는 공유 리소스에 종속된다는 사실을 확인할 수 있습니다.
 
-앞에서 설명한 것처럼 Redis 클러스터의 다른 모든 노드가 프로비전되고 모든 노드에서 Redis 서버가 실행될 때까지 기다린 후에 마지막 노드를 프로비전해야 합니다. 이렇게 하려면 azuredeploy.json에서 위 템플릿 코드 조각의 `memberNodesLoop`라는 `copy` 루프를 사용하는 `lastnode-resources`리소스를 포함합니다. `memberNodesLoop`의 프로비전을 완료되면, `lastnode-resources`을 프로비전할 수 있습니다.
+앞에서 설명한 것처럼 Redis 클러스터의 다른 모든 노드가 프로비전되고 모든 노드에서 Redis 서버가 실행될 때까지 기다린 후에 마지막 노드를 프로비전해야 합니다. 이렇게 하려면 azuredeploy.json에서 위 템플릿 코드 조각의 `memberNodesLoop`라는 `copy` 루프를 사용하는 `lastnode-resources` 리소스를 포함합니다. `memberNodesLoop` 프로비저닝이 완료되면 `lastnode-resources`를 프로비전할 수 있습니다.
 
 ```json
 {
@@ -627,7 +630,7 @@ node-resources.json은 기본 azuredeploy.json 파일 내에서 호출하면 `co
 
 `lastnode-resources` 리소스는 연결된 템플릿에 약간 다른 `machineSettings.commandToExecute`를 전달합니다. 마지막 노드의 경우 설치된 Redis 서버뿐 아니라 Redis 클러스터를 설정하는 스크립트를 호출해야 하며, 이 호출은 모든 Redis 서버가 작동 및 실행된 후에만 수행해야 하기 때문입니다.
 
-또 다른 흥미로운 조각은 `CustomScriptForLinux` VM 확장과 관련된 조각입니다. 이러한 확장은 별도의 리소스 유형으로 설치되며 각 클러스터 노드에 대한 종속성이 적용됩니다. 여기서는 이 확장을 사용하여 각 VM 노드에서 Redis를 설치 및 설정합니다. 이러한 확장을 사용하는 node-resources.json 템플릿의 코드 조각을 살펴보겠습니다.
+또 다른 흥미로운 코드 조각은 `CustomScriptForLinux` VM 확장과 관련된 조각입니다. 이러한 확장은 별도의 리소스 유형으로 설치되며 각 클러스터 노드에 대한 종속성이 적용됩니다. 여기서는 이 확장을 사용하여 각 VM 노드에서 Redis를 설치 및 설정합니다. 이러한 확장을 사용하는 node-resources.json 템플릿의 코드 조각을 살펴보겠습니다.
 
 ```json
 {
@@ -650,7 +653,7 @@ node-resources.json은 기본 azuredeploy.json 파일 내에서 호출하면 `co
 }
 ```
 
-이 리소스는 이미 배포 중인 리소스에 종속된 것을 확인할 수 있습니다 (`Microsoft.Compute/virtualMachines/vmMember<X>`은 `<X>`이 `machineSettings.machineIndex` 매개변수인 위치에서 **copyindex() ** 함수를 사용하여 이 스크립트로 전달된 VM의 인덱스입니다).
+이 리소스는 이미 배포 중인 리소스 VM(`Microsoft.Compute/virtualMachines/vmMember<X>`, 여기서 `<X>`는 **copyindex() ** 함수를 사용하여 이 스크립트로 전달된 VM의 인덱스인 `machineSettings.machineIndex` 매개 변수임)에 종속된 것을 확인할 수 있습니다.
 
 이 배포에 포함된 다른 파일을 알면 Azure 리소스 관리자 템플릿을 활용하여 모든 기술을 기반으로 하는 다중 노드 솔루션에 대한 복잡한 배포 전략을 구성 및 오케스트레이션하는 데 필요한 모든 세부 정보 및 모범 사례를 이해할 수 있습니다. 필수 사항은 아니지만 다음 다이어그램에 강조 표시된 대로 템플릿 파일을 구성하는 것이 좋습니다.
 
@@ -666,4 +669,4 @@ node-resources.json은 기본 azuredeploy.json 파일 내에서 호출하면 `co
 
 자세한 내용은 [Azure 리소스 관리자 템플릿 언어](../resource-group-authoring-templates.md)를 참조하세요.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -1,9 +1,10 @@
 <properties 
 	pageTitle="Java 서비스 버스 API와 함께 AMQP 1.0을 사용하는 방법 | Microsoft Azure" 
-	description="Azure 서비스 버스 및 AMQP(Advanced Message Queuing Protocol) 1.0과 함께 JMS(Java Message Service)를 사용하는 방법에 대해 알아봅니다." 
+	description="Azure 서비스 버스 및 AMQP(Advanced Message Queuing Protocol) 1.0과 함께 JMS(Java Message Service)를 사용하는 방법." 
 	services="service-bus" 
 	documentationCenter="java" 
 	authors="sethmanheim" 
+	writer="sethm" 
 	manager="timlt" 
 	editor=""/>
 
@@ -35,7 +36,7 @@ AMQP(Advanced Message Queuing Protocol) 1.0은 강력한 크로스 플랫폼 메
 
 ## AMQP 1.0 JMS 클라이언트 라이브러리 다운로드
 
-최신 버전의 Apache Qpid JMS AMQP 1.0 클라이언트 라이브러리를 다운로드할 위치에 대한 자세한 내용은 [http://people.apache.org/\~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html)을 참조하세요.
+최신 버전의 Apache Qpid JMS AMQP 1.0 클라이언트 라이브러리를 다운로드할 위치에 대한 자세한 내용은 [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html)을 참조하세요.
 
 서비스 버스를 사용하여 JMS 응용 프로그램을 빌드 및 실행할 때 Apache Qpid JMS AMQP 1.0 배포 보관에 포함된 다음 JAR 파일 4개를 Java CLASSPATH에 추가해야 합니다.
 
@@ -335,7 +336,10 @@ exit
 * [서비스 버스 .NET API와 함께 AMQP 1.0을 사용하는 방법](service-bus-dotnet-advanced-message-queuing.md)
 * [서비스 버스 AMQP 1.0 개발자 가이드](http://msdn.microsoft.com/library/jj841071.aspx)
 * [서비스 버스 큐를 사용하는 방법](service-bus-dotnet-how-to-use-queues.md)
+* [Java 개발자 센터](/develop/java/).
+
+
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: Azure Active Directory B2C에 대 한 지원 요청을 제출하는 방법
@@ -50,4 +50,4 @@
 
 ![지원 - 구독이 없음](./media/active-directory-b2c-support/support-no-sub.png)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

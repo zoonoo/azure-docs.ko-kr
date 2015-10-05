@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Azure에서 3노드 Deis 클러스터 배포"
+   pageTitle="3노드 Deis 클러스터 배포 | Microsoft Azure"
    description="이 문서에서는 Azure 리소스 관리자 템플릿을 사용하여 Azure에서 3노드 Deis 클러스터를 만드는 방법을 설명합니다."
    services="virtual-machines"
    documentationCenter=""
    authors="HaishiBai"
    manager="larar"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
@@ -20,7 +21,9 @@
 
 이 문서는 Azure에서 [Deis](http://deis.io/) 클러스터를 프로비전하는 과정을 단계별로 안내합니다. 새로 프로비전된 클러스터에서 배포 및 샘플 **이동** 응용 프로그램 확장에 필요한 인증서를 만드는 모든 단계를 다룹니다.
 
-다음 다이어그램에서는 배포된 시스템의 아키텍처를 보여줍니다. 시스템 관리자는 **deis** 및 **deisctl** 같은 Deis 도구를 사용하여 클러스터를 관리합니다. 연결은 클러스터의 멤버 노드 중 하나에 연결을 전달하는 Azure 부하 분산 장치를 통해 설정됩니다. 클라이언트도 부하 분산 장치를 통해 배포된 응용 프로그램을 액세스합니다. 이 경우 부하 분산 장치는 트래픽을 Deis 라우터 메시에 전달합니다. 이렇게 하면 트래픽을 클러스터에서 호스트되는 해당 Docker 컨테이너에 추가로 라우트합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+
+다음 다이어그램에서는 배포된 시스템의 아키텍처를 보여줍니다. 시스템 관리자는 **deis** 및 **deisctl**과 같은 Deis 도구를 사용하여 클러스터를 관리합니다. 연결은 클러스터의 멤버 노드 중 하나에 연결을 전달하는 Azure 부하 분산 장치를 통해 설정됩니다. 클라이언트도 부하 분산 장치를 통해 배포된 응용 프로그램을 액세스합니다. 이 경우 부하 분산 장치는 트래픽을 Deis 라우터 메시에 전달합니다. 이렇게 하면 트래픽을 클러스터에서 호스트되는 해당 Docker 컨테이너에 추가로 라우트합니다.
 
   ![배포된 Desis 클러스터의 아키텍처 다이어그램](media/virtual-machines-deis-cluster/architecture-overview.png)
 
@@ -28,17 +31,17 @@
 
  * 활성 Azure 구독. 없는 경우 [azure.com](https://azure.microsoft.com)에서 무료 평가판을 얻을 수 있습니다.
  * Azure 리소스 그룹을 사용할 회사 또는 학교 ID. 개인 계정이 있고 Microsoft ID로 로그인하는 경우 [개인 계정에서 회사 ID를 만들어야](resource-group-create-work-id-from-personal.md) 합니다.
- * 클라이언트 운영 체제에 따라 [Azure PowerShell](powershell-install-configure.md) 또는 [Mac, Linux 및 Windows용 Azure CLI](xplat-cli-install.md).
+ * 클라이언트 운영 체제에 따라 [Azure PowerShell](powershell-install-configure.md) 또는 [Mac, Linux 및 Windows용 Azure CLI](xplat-cli-install.md)
  * [OpenSSL](https://www.openssl.org/). OpenSSL은 필요한 인증서를 생성하는 데 사용됩니다.
- * [Git Bash](https://git-scm.com/) 같은 Git 클라이언트.
+ * [Git Bash](https://git-scm.com/)와 같은 Git 클라이언트
  * 샘플 응용 프로그램을 테스트하려면 DNS 서버도 필요합니다. 모든 DNS 서버 또는 와일드 카드 A 레코드를 지원하는 서비스를 사용할 수 있습니다.
  * Deis 클라이언트 도구를 실행할 컴퓨터. 로컬 컴퓨터 또는 가상 컴퓨터 중 하나를 사용할 수 있습니다. 거의 모든 Linux 배포판에서 이러한 도구를 실행할 수는 있지만 다음 지침은 Ubuntu를 사용합니다.
 
 ## 클러스터 프로비전
 
-이 섹션에서는 공개 소스 리포지토리 [azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)에서 [Azure 리소스 관리자](../resource-group-overview.md) 템플릿을 사용합니다. 우선 템플릿을 복사합니다. 그런 다음 인증에 대해 새 SSH 키 쌍을 만듭니다. 그런 다음 클러스터에 대해 새 식별자를 구성합니다. 마지막으로 클러스터를 프로비전하는 셸 스크립트 또는 PowerShell 스크립트를 사용합니다.
+이 섹션에서는 오픈 소스 리포지토리 [azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates)의 [Azure 리소스 관리자](../resource-group-overview.md) 템플릿을 사용합니다. 우선 템플릿을 복사합니다. 그런 다음 인증에 대해 새 SSH 키 쌍을 만듭니다. 그런 다음 클러스터에 대해 새 식별자를 구성합니다. 마지막으로 클러스터를 프로비전하는 셸 스크립트 또는 PowerShell 스크립트를 사용합니다.
 
-1. 리포지토리 복제: [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
+1. [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates) 리포지토리를 복제합니다.
 
         git clone https://github.com/Azure/azure-quickstart-templates
 
@@ -54,12 +57,12 @@
 
         openssl req -x509 -days 365 -new -key [your private key file] -out [cert file to be generated]
 
-5. 다음처럼 보이는 새 클러스터 토큰을 생성하려면 [https://discovery.etcd.io/new](https://discovery.etcd.io/new)으로 이동:
+5. [https://discovery.etcd.io/new](https://discovery.etcd.io/new)로 이동하여 다음과 같이 표시되는 새 클러스터 토큰을 생성합니다.
 
         https://discovery.etcd.io/6a28e078895c5ec737174db2419bb2f3
-<br /> 각 CoreOS 클러스터에는 이 무료 서비스에서 고유한 토큰이 있어야 합니다. 자세한 내용은 [CoreOS 설명서](https://coreos.com/docs/cluster-management/setup/cluster-discovery/)를 참조하십시오.
+<br /> 각 CoreOS 클러스터에 이 무료 서비스의 고유한 토큰이 있어야 합니다. 자세한 내용은 [CoreOS 설명서](https://coreos.com/docs/cluster-management/setup/cluster-discovery/)를 참조하세요.
 
-6. **cloud-config.yaml** 파일을 수정하여 기존 **검색** 토큰을 새 토큰으로 대치:
+6. **cloud-config.yaml** 파일을 수정하여 기존 **검색** 토큰을 새 토큰으로 바꿉니다.
 
         #cloud-config
         ---
@@ -70,11 +73,11 @@
             discovery: https://discovery.etcd.io/3973057f670770a7628f917d58c2208a
         ...
 
-7. **azuredeploy-parameters.json** 파일 수정: 4단계에서 만든 인증서를 텍스트 편집기에서 엽니다. `----BEGIN CERTIFICATE-----` 및 `-----END CERTIFICATE-----` 사이의 모든 텍스트를 **sshKeyData** 매개 변수로 복사합니다(모든 새 줄 문자를 제거해야 합니다).
+7. **azuredeploy-parameters.json** 파일을 수정합니다. 4단계에서 만든 인증서를 텍스트 편집기에서 엽니다. `----BEGIN CERTIFICATE-----` 및 `-----END CERTIFICATE-----` 사이의 모든 텍스트를 **sshKeyData** 매개 변수로 복사합니다(모든 줄 바꿈 문자를 제거해야 함).
 
 8. **newStorageAccountName** 매개 변수를 수정합니다. VM OS 디스크의 저장소 계정입니다. 이 계정 이름은 전역적으로 고유해야 합니다.
 
-9. **publicDomainName** 매개 변수를 수정합니다. 이는 부하 분산 장치 공용 IP와 연결된 DNS 이름의 일부가 됩니다. 최종 FQDN은 _[이 매개 변수의 값]_._[지역]_.cloudapp.azure.com의 형식을 가집니다. 예를 들어, 이름을 deishbai32로 지정하고 리소스 그룹이 미국 서부 지역인 경우 부하 분산 장치에 대해 최종 FQDN은 deishbai32.westus.cloudapp.azure.com이 됩니다.
+9. **publicDomainName** 매개 변수를 수정합니다. 이는 부하 분산 장치 공용 IP와 연결된 DNS 이름의 일부가 됩니다. 최종 FQDN은 _[이 매개 변수의 값]_._[지역]_.cloudapp.azure.com 형식입니다. 예를 들어, 이름을 deishbai32로 지정하고 리소스 그룹이 미국 서부 지역인 경우 부하 분산 장치에 대해 최종 FQDN은 deishbai32.westus.cloudapp.azure.com이 됩니다.
 
 10. 매개 변수 파일을 저장합니다. 그런 다음 Azure PowerShell을 사용하여 클러스터를 프로비전할 수 있습니다.
 
@@ -92,7 +95,7 @@
 
 ## 클라이언트 설치
 
-Deis 클러스터를 제어하기 위해 **deisctl**이 필요합니다. deisctl은 모든 클러스터 노드에서 자동으로 설치되지만 별도의 관리 컴퓨터에서 deisctl를 사용하는 것이 좋습니다. 또한 모든 노드는 개인 IP 주소만으로 구성되기 때문에, 공용 IP가 있는 부하 분산 장치를 통해 SSH 터널을 사용해야 노드 컴퓨터에 연결할 수 있습니다. Ubuntu 물리적 또는 가상 컴퓨터에서 deisctl을 설정하는 단계는 다음과 같습니다.
+Deis 클러스터를 제어하려면 **deisctl**이 필요합니다. deisctl은 모든 클러스터 노드에서 자동으로 설치되지만 별도의 관리 컴퓨터에서 deisctl를 사용하는 것이 좋습니다. 또한 모든 노드는 개인 IP 주소만으로 구성되기 때문에, 공용 IP가 있는 부하 분산 장치를 통해 SSH 터널을 사용해야 노드 컴퓨터에 연결할 수 있습니다. Ubuntu 물리적 또는 가상 컴퓨터에서 deisctl을 설정하는 단계는 다음과 같습니다.
 
 1. deisctl 설치:mkdir deis
 
@@ -124,9 +127,9 @@ Deis 클러스터를 제어하기 위해 **deisctl**이 필요합니다. deisctl
     deisctl install platform
     deisctl start platform
 
-> [AZURE.NOTE]플랫폼을 시작하는 시간이 오래 걸립니다(10 분 정도). 특히, 작성기 서비스를 시작 하면 시간이 오래 걸릴 수 있습니다. 성공하기 위해 몇 번의 시도를 할 수도 있습니다. 작업이 중지하는 것처럼 보이는 경우 `ctrl+c`을 입력하여 명령의 실행을 중단하고 다시 시도해보십시오.
+> [AZURE.NOTE]플랫폼을 시작하는 시간이 오래 걸립니다(10 분 정도). 특히, 작성기 서비스를 시작 하면 시간이 오래 걸릴 수 있습니다. 성공하기까지 여러 번 시도해야 하는 경우도 있습니다. 작업이 중지된 것처럼 보이는 경우 `ctrl+c`를 입력하여 명령 실행을 중단하고 다시 시도합니다.
 
-모든 서비스가 실행 중인 경우 `deisctl list`을 사용하여 확인할 수 있습니다.
+`deisctl list`를 사용하여 모든 서비스가 실행되고 있는지 확인할 수 있습니다.
 
     deisctl list
     UNIT                            MACHINE                 LOAD    ACTIVE          SUB
@@ -162,7 +165,7 @@ Deis 클러스터를 제어하기 위해 **deisctl**이 필요합니다. deisctl
 
 ## Hello World 응용 프로그램 배포 및 확장
 
-다음 단계는 "Hello World" 이동 응용 프로그램을 클러스터에 배포하는 방법을 보여줍니다. 단계는 [Deis 설명서](http://docs.deis.io/en/latest/using_deis/using-dockerfiles/#using-dockerfiles)에 따릅니다.
+다음 단계는 "Hello World" 이동 응용 프로그램을 클러스터에 배포하는 방법을 보여줍니다. 단계는 [Deis 설명서](http://docs.deis.io/en/latest/using_deis/using-dockerfiles/#using-dockerfiles)를 기반으로 합니다.
 
 1. 라우팅 메시를 제대로 작동하려면 부하 분산 장치의 공용 IP를 가리키는 도메인에 대한 와일드카드 A 레코드를 해야 합니다. 다음 스크린샷은 GoDaddy에서 샘플 도메인 등록에 대한 A 레코드를 보여줍니다.
 
@@ -197,7 +200,7 @@ Deis 클러스터를 제어하기 위해 **deisctl**이 필요합니다. deisctl
         deis create
         git push deis master
 <p />
-8. Git push가 빌드 및 배포되도록 Docker 이미지를 트리거합니다. 이 작업은 시간이 몇 분 걸립니다. 경험으로는 보통 10단계(개인 저장소에 이미지 푸시하기)가 중단될 수 있습니다. 이 경우에 프로세스를 중지하고 응용 프로그램을 제거하기 위해 `deis apps:destroy –a <application name>`을 사용하여 응용 프로그램을 제거하고 다시 시도할 수 있습니다. `deis apps:list`를 사용하여 응용 프로그램 이름을 알아낼 수 있습니다. 모두 작동하는 경우 명령 출력의 끝에 다음과 같이 나타납니다.
+8. Git push가 빌드 및 배포되도록 Docker 이미지를 트리거합니다. 이 작업은 시간이 몇 분 걸립니다. 경험으로는 보통 10단계(개인 저장소에 이미지 푸시하기)가 중단될 수 있습니다. 이 경우 프로세스를 중지하고 `deis apps:destroy –a <application name>`을 사용하여 응용 프로그램을 제거한 후 다시 시도할 수 있습니다. `deis apps:list`를 사용하여 응용 프로그램 이름을 확인할 수 있습니다. 모두 작동하는 경우 명령 출력의 끝에 다음과 같이 나타납니다.
 
         -----> Launching...
                done, lambda-underdog:v2 deployed to Deis
@@ -248,10 +251,10 @@ Deis 클러스터를 제어하기 위해 **deisctl**이 필요합니다. deisctl
 
 이 문서는 Azure 리소스 관리자 템플릿을 사용하여 Azure에서 새 Deis 클러스터를 프로비전하는 모든 과정을 단계별로 안내합니다. 템플릿은 배포된 응용 프로그램에 대해 부하 분산 및 연결 도구에 중복성을 지원합니다. 템플릿은 또한 멤버 노드에서 공용 IP를 사용하는 것을 방지합니다. 이렇게 하면 중요한 공용 IP 리소스를 저장하고 호스트 응용 프로그램에 보다 안전한 환경을 제공합니다. 자세한 내용은 다음 문서를 참조하세요.
 
-[Azure 리소스 관리자 개요][resource-group-overview] [Azure CLI를 사용하는 방법][azure-command-line-tools] [Azure 리소스 관리자와 함께 Azure PowerShell 사용하기][powershell-azure-resource-manager]
+[Azure 리소스 관리자 개요][resource-group-overview] [Azure CLI를 사용하는 방법][azure-command-line-tools] [Azure 리소스 관리자에서 Azure PowerShell 사용][powershell-azure-resource-manager]
 
 [azure-command-line-tools]: ../xplat-cli.md
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

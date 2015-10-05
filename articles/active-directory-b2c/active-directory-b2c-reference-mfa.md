@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: 소비자 지향 응용 프로그램에서 Multi-Factor Authentication 사용
@@ -53,4 +53,4 @@ Multi-Factor Authentication 단계를 수행하기 전에 디렉터리에서 소
 
 소비자가 (소셜 또는 로컬 계정을 사용하여)로그인할 때 확인된 전화번호가 소비자 계정에 연결된 경우 확인하도록 요청을 받습니다. 전화 번호가 연결되지 않으면 소비자에게 번호를 제공하고 확인하도록 요청합니다. 검증이 성공하면 휴대폰 번호가 나중에 사용하도록 소비자 계정에 연결됩니다.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

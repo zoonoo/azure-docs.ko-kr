@@ -1,36 +1,39 @@
 <properties
-   pageTitle="Windows의 사용자 지정 스크립트 확장 | Microsoft Azure"
-	description="Windows에서 사용자 지정 스크립트 확장을 사용하여 Azure 가상 컴퓨터 구성 작업 자동화"
-	services="virtual-machines"
-	documentationCenter=""
-	authors="kundanap"
-	manager="timlt"
-	editor=""/>
+   pageTitle="Windows VM의 사용자 지정 스크립트 확장 | Microsoft Azure"
+   description="사용자 지정 스크립트 확장을 통해 원격 Windows VM에서 PowerShell 스크립트를 실행하여 Azure VM 구성 작업을 자동화합니다."
+   services="virtual-machines"
+   documentationCenter=""
+   authors="kundanap"
+   manager="timlt"
+   editor=""
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/06/2015"
-	ms.author="kundanap"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-windows"
+   ms.workload="infrastructure-services"
+   ms.date="08/06/2015"
+   ms.author="kundanap"/>
 
-# Windows용 사용자 지정 스크립트 확장
+# Windows 가상 컴퓨터용 사용자 지정 스크립트 확장
 
-이 문서에서는 Azure PowerShell cmdlet을 사용하여 Windows에서 사용자 지정 스크립트 확장을 사용하는 방법을 간략하게 설명합니다.
+이 문서에서는 Azure PowerShell cmdlet을 통해 Windows VM에서 사용자 지정 스크립트 확장을 사용하는 방법을 간략하게 설명합니다.
 
+VM(가상 컴퓨터) 확장은 VM의 기능을 확장하기 위해 Microsoft 및 신뢰할 수 있는 타사 게시자가 작성하는 기능입니다. VM 확장의 개요는 [Azure VM 확장 및 기능](virtual-machines-extensions-features.md)을 참조하세요.
 
-VM(가상 컴퓨터) 확장은 VM의 기능을 확장하기 위해 Microsoft 및 신뢰할 수 있는 타사 게시자가 작성하는 기능입니다. VM 확장의 개요는 <a href="https://msdn.microsoft.com/library/azure/dn606311.aspx" target="_blank">Azure VM 확장 프로그램 및 기능</a>을 참조하세요.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다. [리소스 관리자 배포 모델](virtual-machines-extensions-customscript%20-with%20template.md)을 사용하여 리소스를 만들 수도 있습니다.
+
 
 ## 사용자 지정 스크립트 확장 개요
 
-Windows용 사용자 지정 스크립트 확장을 사용하면 원격 VM에 로그인하지 않고도 해당 가상 컴퓨터에서 PowerShell 스크립트를 실행할 수 있습니다. 스크립트는 VM을 프로비전한 이후에 실행할 수도 있고 VM 수명 주기 중에 언제든지 실행할 수 있으며 VM에서 추가 포트를 열 필요가 없습니다. 사용자 지정 스크립트 확장은 VM 프로비전된 후에 작업에서 추가 소프트웨어를 실행, 설치 및 구성할 때 가장 흔히 사용됩니다.
+Windows용 사용자 지정 스크립트 확장을 사용하면 로그인하지 않고도 원격 VM에서 PowerShell 스크립트를 실행할 수 있습니다. 스크립트는 VM을 프로비전한 이후에 실행할 수도 있고 VM 수명 주기 중에 언제든지 실행할 수 있으며 VM에서 추가 포트를 열 필요가 없습니다. 사용자 지정 스크립트 확장은 VM 프로비전된 후에 작업에서 추가 소프트웨어를 실행, 설치 및 구성할 때 가장 흔히 사용됩니다.
 
 ### 사용자 지정 스크립트 확장을 실행하기 위한 필수 조건
 
-1. <a href="http://azure.microsoft.com/downloads" target="_blank">여기</a>에서 Azure PowerShell Cmdlets 버전 0.8.0 이후를 설치합니다.
-2. 기존 VM에서 스크립트를 실행하려는 경우, VM에서 VM 에이전트를 사용하도록 설정되어 있는지 확인하고, 사용하도록 설정되어 있지 않으면 이 <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">문서</a>의 지침에 따라 설치합니다.
+1. <a href="http://azure.microsoft.com/downloads" target="_blank">여기</a>서 Azure PowerShell cmdlet 버전 0.8.0 이상을 설치합니다.
+2. 기존 VM에서 스크립트를 실행하는 경우 VM에서 VM 에이전트를 사용할 수 있는지 확인합니다. 사용할 수 없는 경우 이 <a href="https://msdn.microsoft.com/library/azure/dn832621.aspx" target="_blank">문서</a>의 지침에 따라 설치합니다.
 3. VM에서 실행할 스크립트를 Azure 저장소에 업로드합니다. 단일 컨테이너 또는 여러 저장소 컨테이너의 스크립트를 업로드할 수 있습니다.
 4. 확장을 통해 시작되는 엔트리 스크립트가 다른 스크립트를 시작하는 방식으로 스크립트를 작성해야 합니다.
 
@@ -38,7 +41,7 @@ Windows용 사용자 지정 스크립트 확장을 사용하면 원격 VM에 로
 
 ### 기본 컨테이너에 파일 업로드
 
-구독 기본 계정의 저장소 컨테이너에 스크립트가 있는 경우 다음 예제는 VM에서 해당 스크립트를 실행하는 방법을 보여 줍니다. ContainerName에 스크립트를 업로드합니다. **Get-AzureSubscription –Default** cmdlet를 사용하여 기본 저장소 계정을 확인할 수 있습니다.
+구독 기본 계정의 저장소 컨테이너에 스크립트가 있는 경우 다음 예제는 VM에서 해당 스크립트를 실행하는 방법을 보여 줍니다. ContainerName에 스크립트를 업로드합니다. **Get-AzureSubscription –Default** 명령을 사용하여 기본 저장소 계정을 확인할 수 있습니다.
 
 다음 예제에서는 새 VM을 만들지만 기존 VM에서도 동일한 시나리오를 실행할 수 있습니다.
 
@@ -81,11 +84,11 @@ Windows용 사용자 지정 스크립트 확장을 사용하면 원격 VM에 로
 
       get-azureVM -ServiceName KPTRDemo -Name KPTRDemo | Set-AzureVMCustomScriptExtension -Uninstall | Update-AzureVM
 
-### 템플릿에 사용자 지정 스크립트 확장 사용
+### 템플릿과 함께 사용자 지정 스크립트 확장 사용
 
-사용자 지정 스크립트 확장을 템플릿에 사용하는 방법을 확인하려면 [여기](virtual-machines-extensions-customscript -with template.md) 문서를 클릭하세요.
+템플릿과 함께 사용자 지정 스크립트 확장을 사용하는 방법을 알아보려면  [이](virtual-machines-extensions-customscript -with template.md) 설명서 를 참조하세요.
 
 <!--Image references-->
 [5]: ./media/virtual-machines-extensions-customscript/addcse.png
 
-<!------HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

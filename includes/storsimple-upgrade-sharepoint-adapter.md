@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="SharePoint용 StorSimple 어댑터 업그레이드 | Microsoft Azure"
-   description="SharePoint를 업그레이드한 다음 SharePoint 용 StorSimple 어댑터의 새 버전을 설치하는 방법을 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="carolz"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/03/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 ### SharePoint 2010에서 SharePoint 2013으로 업그레이드한 다음 SharePoint용 StorSomple 어댑터 설치
 
@@ -37,7 +22,7 @@
 >
 >- 어댑터를 다시 설치할 때까지 이전에 구체화된 콘텐츠를 사용할 수 없습니다.
 >
->- 하지만, SharePoint 용 StorSimple 어댑터의 이전 버전을 제거한 후 새 버전을 설치 하기 전에 사이트에 업로드된 모든 콘텐츠는 콘텐츠 데이터베이스에 저장됩니다. 새 어댑터를 설치한 후 해당 콘텐츠를 StorSimple 장치로 이동해야 합니다. 또는 SharePoint에 포함된 Microsoft` RBS Migrate()` PowerShell cmdlet을 사용하여 콘텐츠를 마이그레이션할 수 있습니다. 자세한 내용은 [RBS로 또는 RBS에서 콘텐츠 마이그레이션](https://technet.microsoft.com/library/ff628255.aspx)을 참조하세요.
+>- 하지만, SharePoint 용 StorSimple 어댑터의 이전 버전을 제거한 후 새 버전을 설치 하기 전에 사이트에 업로드된 모든 콘텐츠는 콘텐츠 데이터베이스에 저장됩니다. 새 어댑터를 설치한 후 해당 콘텐츠를 StorSimple 장치로 이동해야 합니다. 또는 SharePoint에 포함된 Microsoft` RBS Migrate()` PowerShell cmdlet을 사용하여 콘텐츠를 마이그레이션할 수 있습니다. 자세한 내용은 [RBS에서 콘텐츠 마이그레이션](https://technet.microsoft.com/library/ff628255.aspx)을 참조하세요.
 
 
 #### SharePoint용 StorSimple 어댑터를 업그레이드하려면 
@@ -48,4 +33,4 @@
  
 2. SharePoint용 새 StorSimple 어댑터 설치 새 어댑터는 이전에 사용하도록 설정하거나 RBS에 대해 사용하지 않도록 설정하는 콘텐츠 데이터베이스를 자동으로 인식하여 이전 설정을 사용합니다.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

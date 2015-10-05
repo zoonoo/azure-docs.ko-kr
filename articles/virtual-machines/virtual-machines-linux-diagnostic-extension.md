@@ -1,22 +1,22 @@
 
 <properties
-		pageTitle="Linux 진단 확장을 사용하여 Linux VM의 성능 및 진단 데이터 모니터링 | Microsoft Azure"
-	description="Linux 진단 확장을 사용하여 Linux VM의 성능 및 진단 데이터를 모니터링하는 방법을 배웁니다."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="NingKuang"
-	manager="timlt"
-	editor=""
-	tags=""/>
+		pageTitle="VM 확장을 사용하여 Linux VM 모니터링 | Microsoft Azure"
+		description="Linux 진단 확장을 사용하여 Azure Linux VM의 성능 및 진단 데이터를 모니터링하는 방법을 알아봅니다."
+		services="virtual-machines"
+		documentationCenter=""
+  		authors="NingKuang"
+		manager="timlt"
+		editor=""
+  		tags="azure-service-management"/>
 
 <tags
 		ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/20/2015"
-	ms.author="Ning"/>
+		ms.workload="infrastructure-services"
+		ms.tgt_pltfrm="vm-linux"
+		ms.devlang="na"
+		ms.topic="article"
+		ms.date="07/20/2015"
+		ms.author="Ning"/>
 
 
 # Linux 진단 확장을 사용하여 Linux VM의 성능 및 진단 데이터 모니터링
@@ -35,10 +35,12 @@ Linux 진단 확장을 통해 사용자는 다음과 같은 기능으로 Microso
 - 이 [문서](https://scx.codeplex.com/wikipage?title=xplatproviders")에 지정된 모든 시스템 데이터입니다.
 - 사용자가 지정한 로그 파일
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 관리하는 방법을 설명합니다.
+
 ## 확장을 사용하도록 설정하는 방법
 [Azure 포털](https://ms.portal.azure.com/#), Azure PowerShell 또는 Azure CLI 스크립트를 통해 확장을 사용하도록 설정할 수 있습니다.
 
-Azure 포털에서 직접 시스템 및 성능 데이터를 보고 구성하려면 다음 [단계](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "Windows 블로그의 URL")를 수행합니다.
+Azure 포털에서 직접 시스템 및 성능 데이터를 보고 구성하려면 다음 [단계](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/ "Windows 블로그의 URL")를 따르세요.
 
 
 이 문서에서는 Azure CLI 명령을 통해 확장을 사용하도록 설정하고 구성하는 과정을 중점적으로 다룹니다. 이 옵션을 통해 저장소 테이블에서 데이터를 직접 읽고 볼 수 있습니다.
@@ -46,7 +48,7 @@ Azure 포털에서 직접 시스템 및 성능 데이터를 보고 구성하려�
 
 ## 필수 조건
 - Microsoft Azure Linux 에이전트 버전 2.0.6 이상. 대부분의 Azure VM Linux 갤러리 이미지에는 2.0.6 이후 버전이 포함되어 있습니다. **WAAgent -version**을 실행하여 VM에 설치된 버전을 확인할 수 있습니다. VM 2.0.6보다 이전 버전을 실행하는 경우 다음 [지침](https://github.com/Azure/WALinuxAgent "지침")을 따라 이를 업데이트할 수 있습니다.
-- [Azure CLI](./xplat-cli.md)입니다. [이 지침](./xplat-cli-install.md)을 따라 컴퓨터에 Azure CLI 환경을 설치합니다. Azure CLI가 설치되었으면 명령줄 인터페이스(Bash, 터미널, 명령 프롬프트)에서 **azure** 명령을 사용하여 Azure CLI 명령에 액세스할 수 있습니다. 예를 들어 자세한 사용법은 **azure vm 확장 세트 -도움말**을 실행하고 **azure 로그인**을 실행하여 Azure에 로그인하며 **azure vm 목록**을 실행하여 Azure에 있는 모든 가상 컴퓨터를 나열합니다.
+- [Azure CLI](./xplat-cli.md). [이 지침](./xplat-cli-install.md)에 따라 컴퓨터에 Azure CLI 환경을 설치합니다. Azure CLI가 설치되었으면 명령줄 인터페이스(Bash, 터미널, 명령 프롬프트)에서 **azure** 명령을 사용하여 Azure CLI 명령에 액세스할 수 있습니다. 예를 들어 자세한 사용법을 확인하려면 **azure vm extension set --help**를 실행하고, Azure에 로그인하려면 **azure login**을 실행하고, Azure에 있는 모든 가상 컴퓨터를 나열하려면 **azure vm list**를 실행합니다.
 - 데이터를 저장할 저장소 계정입니다. 데이터를 저장소에 업로드하려면 이전에 생성된 저장소 계정 이름과 선택키가 있어야 합니다.
 
 
@@ -124,7 +126,7 @@ Azure 포털에서 직접 시스템 및 성능 데이터를 보고 구성하려�
 
 
 ## 데이터 검토
-성능 및 진단 데이터는 Azure 저장소 테이블에 저장됩니다. [이 문서](storage-ruby-how-to-use-table-storage.md)를 검토하여 Azure CLI 스크립트를 사용하는 저장소 테이블의 데이터에 액세스하는 방법을 알아봅니다.
+성능 및 진단 데이터는 Azure 저장소 테이블에 저장됩니다. [이 문서](storage-ruby-how-to-use-table-storage.md)를 검토하여 Azure CLI 스크립트를 통해 저장소 테이블의 데이터에 액세스하는 방법을 알아봅니다.
 
 또한 다음 UI 도구를 사용하여 데이터에 액세스할 수 있습니다.
 
@@ -141,4 +143,4 @@ Azure 포털에서 직접 시스템 및 성능 데이터를 보고 구성하려�
 - 버전 2.0의 경우 스크립팅을 통해 Rsyslog 정보 및 고객이 지정한 로그 파일에만 액세스할 수 있습니다.
 - 버전 2.0의 경우 먼저 스크립트를 통해 Linux 진단 확장을 사용하도록 설정하면 Azure 포털에서 데이터를 볼 수 없습니다. 먼저 포털에서 확장을 사용하도록 설정하면 스크립트가 계속 작동합니다.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

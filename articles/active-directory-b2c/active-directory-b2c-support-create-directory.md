@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure AD 디렉터리 또는 Azure AD B2C 디렉터리 만들기 - 문제 및 해결 방법
@@ -34,4 +34,4 @@ Azure AD 디렉터리를 한 번에 만들 수 없으면 다시 시도하세요.
 	- 방금 만든 디렉터리를 삭제하고 다시 시도합니다.
 - 위 해결 방법이 작동하지 않으면 지원에 문의합니다. Azure AD B2C에 대한 지원 요청을 작성하는 방법은 [이 문서](active-directory-b2c-support.md)를 읽습니다.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

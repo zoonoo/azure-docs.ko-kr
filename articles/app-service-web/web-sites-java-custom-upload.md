@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure에 사용자 지정 Java 웹 앱 업로드"
-	description="이 자습서에서는 Azure 앱 서비스 웹 앱에 사용자 지정 Java 웹 앱을 업로드하는 방법을 보여줍니다."
-	services="app-service\web"
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
+	pageTitle="Azure에 사용자 지정 Java 웹 앱 업로드" 
+	description="이 자습서에서는 Azure 앱 서비스 웹 앱에 사용자 지정 Java 웹 앱을 업로드하는 방법을 보여줍니다." 
+	services="app-service\web" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 # Azure에 사용자 지정 Java 웹 앱 업로드
@@ -106,7 +106,7 @@ Java 기반 웹 앱은 IIS(인터넷 정보 서비스) 기반 웹 응용 프로�
 Tomcat 쪽에서 변경해야 할 몇 가지 구성이 있습니다. 다음을 설정하도록 server.xml을 편집해야 합니다.
 
 -	종료 포트 = -1
--	HTTP 커넥터 포트 = {port.http}
+-	HTTP 커넥터 포트 = ${port.http}
 -	HTTP 커넥터 주소 = "127.0.0.1"
 -	HTTPS 및 AJP 커넥터를 주석으로 처리
 -	또한 catalina.properties 파일에서 `java.net.preferIPv4Stack=true`를 추가하여 IPv4 설정도 지정할 수 있음
@@ -227,7 +227,11 @@ tomcat-7.0.40 폴더와 동일한 디렉터리 수준에서 다음 내용을 포
 
 이러한 내용을 변경하면 Liferay를 실행하는 웹 앱을 다시 시작한 후 http://yourwebapp를 엽니다. Liferay 포털은 웹 앱 루트에서 사용할 수 있습니다.
 
+## 다음 단계
+
 Liferay에 대한 자세한 내용은 [http://www.liferay.com](http://www.liferay.com)을 참조하세요.
+
+Java에 대한 자세한 내용은 [Java개발자 센터](/develop/java/)를 참조하세요.
 
 [AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
@@ -237,4 +241,4 @@ Liferay에 대한 자세한 내용은 [http://www.liferay.com](http://www.lifera
 <!-- External Links -->
 [Azure 앱 서비스]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -1,113 +1,127 @@
 <properties 
    pageTitle="Express 경로 소개 | Microsoft Azure"
-	description="이 페이지에서는 Express 경로 연결의 작동 방식, exchange 공급자 및 네트워크 서비스 공급자 사용, Express 경로 공용, 개인 및 Microsoft 피어링 등 Express 경로 서비스에 대한 개요를 제공합니다."
-	documentationCenter="na"
-	services="expressroute"
-	authors="cherylmc"
-	manager="carolz"
-	editor=""/>
+   description="이 페이지는 Express 경로 연결의 작동 방식을 포함하여 Express 경로 서비스에 대한 개요를 제공합니다."
+   documentationCenter="na"
+   services="expressroute"
+   authors="cherylmc"
+   manager="carolz"
+   editor=""/>
 <tags 
    ms.service="expressroute"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/25/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article" 
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="09/22/2015"
+   ms.author="cherylmc"/>
 
 # Express 경로 기술 개요
 
-Microsoft Azure Express 경로를 사용하면 온-프레미스 또는 공동 배치 환경의 인프라와 Microsoft 데이터 센터 간에 개인 연결을 만들 수 있습니다. Express 경로를 사용하면 Express 경로 파트너 공동 배치 기능으로 Microsoft Azure 및 Office 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정하거나, 기존 WAN 네트워크(예: 네트워크 서비스 공급자에서 제공된 MPLS VPN)에서 직접 연결할 수 있습니다.
- 
-Express 경로 연결은 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다. 경우에 따라 온-프레미스 네트워크와 Azure 간 데이터 전송에 Express 경로 연결을 사용하면 상당한 비용 혜택을 얻을 수도 있습니다. 이미 온-프레미스 네트워크에서 Azure로 크로스 프레미스 연결을 설정한 경우, 가상 네트워크를 그대로 유지 하면서 Express 경로 연결로 마이그레이션할 수 있습니다.
-
-자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
-
-## Express 경로 연결은 어떻게 작동하나요?
-
-WAN을 Microsoft 클라우드 서비스에 연결하려면, 전용 회로를 주문하고 연결 공급자를 통해 활성화해야 합니다. 두 연결 공급자 유형을 직접 exchange 공급자(EXP)를 통한 계층 3 또는 네트워크 서비스 공급자(NSP)를 통한 계층 3에서 선택할 수 있습니다. WAN과 Microsoft 클라우드 간 하나 또는 두 유형의 연결을 사용하도록 선택할 수 있습니다.
-
-## Exchange 공급자 및 네트워크 서비스 공급자
-Express 경로 공급자는 네트워크 서비스 공급자(NSP) 및 Exchange 공급자(EXP)로 분류됩니다.
-
-![](./media/expressroute-introduction/expressroute-nsp-exp.png)
-
-
-| |**Exchange 공급자**|**네트워크 서비스 공급자**|
-|---|---|---|
-|**일반적인 연결 모델**| 지점 간 이더넷 연결 또는 클라우드 exchange에서의 연결 | telco VPN을 통한 모든 연결 |
-|**지원되는 대역폭**|200Mbps, 500Mbps, 1Gbps 및 10Gbps|10Mbps, 50Mbps, 100Mbps, 500Mbps, 1Gbps|
-|**연결 공급자**|[Exchange 공급자](expressroute-locations.md)|[네트워크 서비스 공급자](expressroute-locations.md)|
-|**라우팅**|CE(Customer Edge) 라우터와의 직접적인 BGP 세션| telco와의 BGP 세션|
-|**가격**|[EXP 가격](http://azure.microsoft.com/pricing/details/expressroute/)|[NSP 가격](http://azure.microsoft.com/pricing/details/expressroute/)|
-
-### EXP(Exchange 공급자)
-Equinix 및 TeleCity 그룹과 같은 클라우드 exchange 서비스 공급자 및 Cole 및 Level 3와 같은 지점 간 연결 서비스 공급자와 파트너 관계로, 고객의 프레미스와 Azure 간의 연결을 제공합니다. 200Mbps에서 10Gbps까지 회로 대역폭(200Mbps, 500Mbps, 1Gbps and 10Gbps)을 제공합니다.
-
-Exchange 공급자를 통해 직접 계층 3 연결을 사용하려는 경우, 이 중 3 가지 방법으로 수행할 수 있습니다.
-
-- 서비스를 제공하는 위치에서 Equinix의 클라우드 Exchange 또는 TeleCity의 클라우드 IX와 같은 클라우드 exchange를 함께 배치할 수 있습니다. 이러한 경우 중복 연결을 클라우드 exchange에 주문합니다. 
-- Level 3와 같은 공급자를 통해 데이터 센터와 Microsoft 간에 이더넷 회로를 설치할 수 있습니다. 
-- 로컬 연결 공급자와 작업하여 가장 가까운 exchange 공급자 시설에 중복 연결을 얻고 클라우드 exchange에 연결할 수 있습니다.
-
-중복 연결로 SLA에 대한 요구 사항을 충족하도록 요청할 수 있습니다. Microsoft edge에 직접 연결을 지원하지 않습니다. 전용 회로는 이더넷 공급자 또는 로컬 클라우드 exchange를 통해 항상 활성화됩니다. Microsoft와 네트워크 간의 계층 2 연결을 설정하는 동안 계층 2 도메인을 확장 지원하지 않습니다. 계층 3 연결을 설정하도록 edge 라우터와 Microsoft edge 라우터 사이의 중복 라우팅 세션을 설정합니다.
-
-구성 및 실제 예에 대한 자세한 내용은 [Exchange 공급자를 통해 Express 경로 연결 구성](expressroute-configuring-exps.md)의 단계별 지침을 따릅니다.
-
-
-### NSP(네트워크 서비스 공급자)
-
-AT&T 및 British Telecom과 같은 Telcos와 파트너로 WAN과 Azure 간의 연결을 제공합니다. 10Mbps에서 1Gbps까지 회로 대역폭(10Mbps, 50Mbps, 100Mbps, 500Mbps, 1Gbps)을 제공합니다.
-
-네트워크 서비스 공급자 중 하나에서 VPN 서비스를 사용하는 경우, 새 하드웨어를 배포하거나 기존 네트워크에 대한 주요 구성을 변경하지 않고 Azure로 네트워크를 확장할 수 있습니다.
-
-구성 및 실제 예에 대한 자세한 내용은 [네트워크 서비스 공급자를 통해 Express 경로 연결 구성](expressroute-configuring-nsps.md)의 단계별 지침을 따릅니다.
-
-## Express 경로 피어링
-아래 그림에는 WAN 및 Microsoft 간 연결의 논리적 표현을 제공합니다. 연결 공급자(NSP/EXP)를 통해 WAN을 Microsoft에 연결하려면 *전용 회로*를 주문해야 합니다. 전용 회로는 연결 공급자를 통해 WAN과 Microsoft 간의 논리적 연결을 나타냅니다. 여러 전용 회로를 주문할 수 있으며, 각각은 동일하거나 다른 지역에 있을 수 있고 다른 서비스 공급자를 통해 WAN에 연결할 수 있습니다.
+Microsoft Azure Express 경로를 사용하면 연결 공급자에서 쉽게 처리된 전용 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. Express 경로를 사용하면 Microsoft Azure, Office 365, CRM Online과 같은 Microsoft 클라우드 서비스에 대한 연결을 설정하거나, 공동 배치 시설에서 연결 공급자를 통해 임의의(IP VPN) 네트워크, 지점간 이더넷 네트워크 또는 가상 간 연결에서 연결할 수 있습니다. Express 경로 연결은 공용 인터넷을 통해 이동하지 않습니다. 이 기능을 사용하면 Express 경로 연결은 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다.
 
 ![](./media/expressroute-introduction/expressroute-basic.png)
 
-전용 회로에는 공용, 개인 및 Microsoft와 연관된 여러 라우팅 도메인이 있습니다. 각 라우팅 도메인은 고가용성을 위해 활성-활성 또는 loadsharing 구성으로 라우터 쌍에 동일하게 구성됩니다.
+**주요 이점은 다음과 같습니다.**
 
-![](./media/expressroute-introduction/expressroute-peerings.png)
+- 연결 공급자를 통한 온-프레미스 네트워크와 Microsoft 클라우드 간의 3계층 연결입니다. 임의의(IPVPN) 네트워크, 지점간 이더넷 연결, 이더넷 Exchange로 가상 간 연결을 통해 연결할 수 있습니다.
+- 모든 지정학적 지역에 걸쳐 Microsoft 클라우드 서비스에 연결합니다.
+- Express 경로 프리미엄 추가 기능으로 모든 지역에 걸쳐 Microsoft 서비스에 전역 연결합니다.
+- 업계 표준 프로토콜을 통해 네트워크와 Microsoft 간의 동적 라우팅입니다.(BGP)
+- 높은 안정성을 위한 모든 피어링 위치의 기본 중복성입니다.
+- 연결 가동 시간 [SLA](http://azure.microsoft.com/support/legal/sla/)입니다.
+- 비즈니스용 Skype와 같은 특수한 응용 프로그램에 대한 서비스의 여러 클래스에 대 한 QoS 및 지원입니다.
 
+자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-### 개인 피어링
-Azure 계산 서비스, 즉 가상 컴퓨 (IaaS) 및 가상 네트워크 내에 배포된 클라우드 서비스(PaaS)는 개인 피어링 도메인을 통해 연결될 수 있습니다. 개인 피어링 도메인은 Microsoft Azure로의 핵심 네트워크의 신뢰할 수 있는 확장으로 간주됩니다. 핵심 네트워크 및 Azure Vnet(가상 네트워크) 간의 양방향 연결을 설정할 수 있습니다. 이렇게 하면 개인 IP 주소에서 가상 컴퓨터와 클라우드 서비스에 직접 연결할 수 있습니다.
+## Express 경로를 사용하여 Microsoft에 네트워크를 어떻게 연결하나요?
 
-둘 이상의 가상 네트워크를 개인 피어링 도메인에 연결할 수 있습니다. 제한 및 제한 사항에 대한 내용은 [FAQ 페이지](expressroute-faqs.md)를 검토하세요.
-  
+세 가지 방법으로 온-프레미스 네트워크와 Microsoft 클라우드 간에 연결을 만들 수 있습니다.
 
-### 공용 피어링
-Azure 저장소, SQL 데이터베이스 및 웹사이트와 같은 서비스는 공용 IP 주소에 제공됩니다. 공용 피어링 라우팅 도메인을 통해 공용 IP 주소(클라우드 서비스의 VIP 포함)에서 호스팅되는 서비스에 개인적으로 연결할 수 있습니다. 인터넷을 통해 연결하지 않고도 공용 피어링 도메인을 엑스트라넷에 연결하고 WAN에서 해당 공용 IP 주소의 모든 Azure 서비스에 연결할 수 있습니다. 연결은 항상 사용자의 WAN에서 Microsoft Azure 서비스로 시작됩니다. Microsoft Azure 서비스가 라우팅 도메인을 통해 네트워크로의 연결을 시작할 수 없습니다. 공용 피어링을 사용하도록 설정하면 모든 Azure 서비스에 연결할 수 있습니다. Microsoft에서 경로를 보급하는 서비스는 사용자가 선택할 수 없습니다. [Microsoft Azure 데이터 센터 IP 범위](http://www.microsoft.com/download/details.aspx?id=41653) 페이지에서 이 피어링을 통해 보급하는 접두사 목록을 검토할 수 있습니다. 필요한 경로만 이용하도록 네트워크 내에 사용자 지정 경로 필터를 정의할 수 있습니다.
+1. **클라우드 Exchange에 배치합니다.** 클라우드 Exchange를 사용하여 설비에 공존하는 경우 공동 배치 공급자의 이더넷 Exchange를 통해 Microsoft 클라우드로 가상 간 연결을 나열할 수 있습니다. 공동 배치 공급자는 공동 시설의 인프라와 Microsoft 클라우드 간에 2계층 간 연결 또는 관리된 3계층 간 연결을 제공할 수 있습니다.
+2.	**지점 간 이더넷 연결입니다.** 지점 간 이더넷 연결을 통해 온-프레미스 데이터 센터/사무소를 Microsoft 클라우드에 연결할 수 있습니다. 지점 간 이더넷 공급자는 사이트와 Microsoft 클라우드 간에 2계층 연결 또는 관리된 3계층 연결을 제공합니다.
+3.	**임의(IPVPN)의 네트워크입니다.** Microsoft 클라우드로 WAN을 통합할 수 있습니다. IPVPN 공급자(일반적으로 MPLS VPN)는 지사 및 데이터 센터 간에 임의의 연결을 제공합니다. Microsoft 클라우드는 다른 지사와 마찬가지로 보이도록 WAN에 상호 연결될 수 있습니다. WAN 공급자는 일반적으로 관리된 3계층 연결을 제공합니다.
 
-공용 피어링 라우팅 도메인을 통해 지원 서비스에 대한 자세한 내용은 [FAQ 페이지](expressroute-faqs.md)를 검토하세요.
+![](./media/expressroute-introduction/expressroute-connectivitymodels.png)
+
+Express 경로 기능 및 특징은 위의 모든 연결 모델에 걸쳐 동일합니다. 연결 공급자는 위 목록에서 하나 이상의 연결 모델을 제공할 수 있습니다. 연결 공급자로 작업하여 사용자에게 적합한 다양한 모델을 선택할 수 있습니다.
+
+## Express 경로 기능
+
+Express 경로는 다음 기능 및 특성을 지원합니다.
+
+### 3계층 연결
+
+Microsoft에서는 업계 표준 동적 라우팅 프로토콜(BGP)을 사용하여 온-프레미스 네트워크, Azure의 인스턴스 및 Microsoft 공용 주소 간에 경로를 교환합니다. 다른 트래픽 프로필에 네트워크를 사용하여 여러 BGP 세션을 설정합니다. [Express 경로 회로 및 라우팅 도메인](expressroute-circuit-peerings.md) 문서에서 자세한 정보를 찾을 수 있습니다.
+
+### 중복
+
+각 Express 경로 회로는 연결 공급자/네트워크 Edge에서 두 가지 Microsoft Enterprise Edge 라우터(MSEE)에 두 개의 연결로 구성됩니다. Microsoft는 MSEE 각각에 하나의 연결 공급자/사용자 쪽에서 이중 BGP 연결이 필요합니다. 종단에 중복 장치/이더넷 회로를 배포하지 않도록 선택할 수도 있습니다. 그러나 연결 공급자는 중복 장치를 사용하여 연결이 중복 방식으로 Microsoft에 넘겨지도록 합니다. 중복 3계층 연결 구성은 [SLA](http://azure.microsoft.com/support/legal/sla/)가 유효한 경우 요구됩니다.
+
+### Microsoft 클라우드 서비스에 연결
+
+Express 경로 연결을 사용하면 다음 서비스에 액세스할 수 있습니다.
+
+- Microsoft Azure 서비스
+- Microsoft Office 365 서비스
+- Microsoft CRM Online 서비스(출시 예정) 
  
-### Microsoft 피어링
-Microsoft 피어링을 통해 다른 모든 Microsoft 온라인 서비스(예: Office 365 서비스)에 대해 연결됩니다. Microsoft 피어링 라우팅 도메인을 통해 WAN 및 Microsoft 클라우드 서비스 간의 양방향 연결을 설정합니다. 사용자 또는 연결 공급자가 소유하는 공용 IP 주소에 대해서만 Microsoft 클라우드 서비스에 연결 해야 하고 정의하는 모든 규칙을 따라야 합니다. 자세한 내용은 [Express 경로 필수 구성 요소](expressroute-prerequisites.md) 페이지를 검토하세요.
+Express 경로를 통해 지원되는 서비스에 대한 자세한 목록은 [Express 경로 FAQ](expressroute-faqs.md) 페이지를 방문할 수 있습니다.
 
-지원 서비스, 비용 및 구성 세부 정보에 대한 자세한 내용은 [FAQ 페이지](expressroute-faqs.md)를 참조하세요. Microsoft 피어링이 지원하는 연결 공급자의 목록에 대한 정보는 [Express 경로 위치](expressroute-locations.md) 페이지를 검토하세요.
+### 모든 지정학적 지역에 연결
 
+[피어링 위치](expressroute-locations.md) 중 하나의 Microsoft에 연결할 수 있고 모든 지정학적 지역에 액세스합니다.
 
-다음 표에서 3개의 라우팅 도메인을 비교합니다.
+예를 들어 Express 경로를 통해 암스테르담의 Microsoft에 연결하는 경우 북유럽 및 서유럽에서 호스팅되는 모든 Microsoft 클라우드 서비스에 액세스합니다. 지정학적 지역, 연관된 Microsoft 클라우드 지역 및 해당 Express 경로 피어링 위치의 개요는 [Express 경로 파트너와 피어링 위치](expressroute-locations.md) 문서를 참조합니다.
 
-||**개인 피어링**|**공용 피어링**|**Microsoft 피어링**|
-|---|---|---|---|
-|**최대. # 피어링 지원되는 접두사**|기본은 4000, Express 경로 프리미엄에서는 10,000|기본은 4000, Express 경로 프리미엄에서는 10,000|200|
-|**지원되는 IP 주소 범위**|WAN 내 유효한 IPv4 주소|사용자나 연결 공급자가 소유한 공용 IPv4 주소|사용자나 연결 공급자가 소유한 공용 IPv4 주소|
-|**AS 번호 요구 사항**|개인 및 공용 AS 번호 . 고객은 자신의 공용 AS 번호를 소유해야 합니다. | 개인 및 공용 AS 번호. 고객은 자신의 공용 AS 번호를 소유해야 합니다. | 공용 AS 번호만. 소유권의 유효성을 검사하려면 라우팅 레지스트리에 대해 AS 번호의 유효성을 검사해야 합니다. |
-|**라우팅 인터페이스 IP 주소**|RFC1918 및 공용 IP 주소|고객에게 등록된 공용 IP 주소 / 라우팅 레지스트리의 NSP.| 고객에게 등록된 공용 IP 주소 / 라우팅 레지스트리의 NSP.|
-|**MD5 해시 지원**| 예|예|예|
+### Express 경로 프리미엄 추가 기능으로 전역 연결
 
-자신의 전용 회로의 일부로 하나 이상의 라우팅 도메인을 사용하도록 선택할 수 있습니다. 단일 라우팅 도메인으로 수집하려는 경우 모든 라우팅 도메인을 동일 VPN(NSP 경우)에 넣도록 선택할 수 있습니다. 위의 다이어그램과 유사한 다른 라우팅 도메인에도 넣습니다. 개인 피어링이 직접 핵심 네트워크에 연결되고 공용 및 Microsoft 피어링 링크가 엑스트라넷에 연결되는 것이 권장 구성입니다.
- 
-3개의 모든 피어링 세션을 선택하는 경우, 3쌍의 BGP 세션(각 피어링 형식에 대해 한 쌍)이 있어야 합니다. BGP 세션 쌍은 항상 사용 가능한 링크를 제공합니다. EXP를 통해 연결하는 경우, 사용자가 라우팅을 구성하고 관리합니다(EXP가 라우팅을 관리하도록 제공하지 않는 경우). NSP를 통해 연결하도록 선택한 경우, 라우팅 관리에 NSP를 사용할 수 있습니다. Express 경로를 설정하기 위한 워크플로 검토하여 자세히 알아볼 수 있습니다.
+Express 경로 프리미엄 부가 기능을 사용하여 지정학적 경계를 넘어 연결을 확장할 수 있습니다. 예를 들어 Express 경로를 통해 암스테르담의 Microsoft로 연결하는 경우 전세계 모든 지역에서 호스팅되는 모든 Microsoft 클라우드 서비스에 액세스합니다.(국가별 클라우드는 제외됨) 북유럽 및 서유럽 지역에 액세스하는 것과 동일한 방법으로 남아메리카 또는 오스트레일리아에서 배포된 서비스에 액세스할 수 있습니다.
 
+### 다양한 연결 파트너 에코시스템
+
+Express 경로에서는 연결 공급자 및 SI 파트너의 에코시스템이 지속적으로 성장합니다. 최신 정보는 [Express 경로 공급자 및 위치](expressroute-locations.md) 문서를 참조할 수 있습니다.
+
+### 국가별 클라우드에 연결
+
+Microsoft는 특별한 지리학적 지역 및 고객 세그먼트에 격리된 클라우드 환경을 작동합니다. 국가별 클라우드 및 공급자의 목록은 [Express 경로 공급자 및 위치](expressroute-locations.md) 페이지를 참조합니다.
+
+### 지원되는 대역폭 옵션
+
+다양한 범위의 대역폭에 대해 Express 경로 회로를 구입할 수 있습니다. 지원되는 대역폭 목록이 아래에 나열됩니다. 연결 공급자를 확인하여 제공하는 지원되는 대역폭 목록을 확인합니다.
+
+- 50Mbps
+- 100Mbps
+- 200Mbps
+- 500Mbps
+- 1Gbps
+- 2Gbps
+- 5Gbps
+- 10Gbps
+
+### 대역폭의 동적 크기 조정
+
+연결을 종료하지 않고 Express 경로 회로 대역폭을 증가시키는 기능이 있습니다.(최상의 노력으로)
+
+### 유연한 청구 모델
+
+사용자에게 적합한 청구 모델을 선택할 수 있습니다. 아래에 나열된 청구 모델 중에서 선택합니다. 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md) 페이지를 참조하세요.
+
+- **무제한 데이터**입니다. Express 경로 회로는 월별 요금이 청구되며 모든 인바운드 및 아웃바운드 데이터 전송은 무료로 포함됩니다. 
+- **데이터 요금**입니다. Express 경로 회로는 월별 요금이 청구됩니다. 모든 인바운드 데이터 전송은 무료로 제공됩니다. 아웃 바운드 데이터 전송은 데이터 전송량 GB 당 요금이 부과됩니다. 데이터 전송 속도는 지역에 따라 다릅니다.
+- **Express 경로 프리미엄 추가 기능**입니다. Express 경로 프리미엄이 Express 경로 회로에 대한 추가 기능입니다. Express 경로 프리미엄 추가 기능에서는 다음과 같은 기능을 제공합니다. 
+	- Azure 공용 및 Azure 개인 피어링에 대한 경로 제한은 4,000개의 경로에서 10,000개의 경로로 증가됩니다.
+	- 서비스에 대한 전역 연결입니다. 모든 지역에서 만든 Express 경로 회로(국가별 클라우드 제외)는 전세계의 다른 지역에 걸쳐 리소스에 액세스합니다. 예를 들어 서유럽에서 만든 가상 네트워크는 실리콘밸리에 프로비전된 Express 경로 회로를 통해 액세스될 수 있습니다.
+	- Express 경로 회로 당 VNet 링크의 횟수는 회로의 대역폭에 따라 10에서 큰 제한으로 증가합니다.
 
 ## 다음 단계
 
-- 서비스 공급자를 찾습니다. [Express 경로 서비스 공급자 및 위치](expressroute-locations.md)를 참조하세요.
-- Express 경로 연결을 구성합니다. 지침은 [네트워크 서비스 공급자를 통해 Express 경로 연결 구성](expressroute-configuring-nsps.md) 또는 [Exchange 공급자를 통해 Express 경로 연결 구성](expressroute-configuring-exps.md)을 참조하세요. 
+- Express 경로 연결 및 라우팅 도메인에 대해 알아봅니다. [Express 경로 회로 및 라우팅 도메인](expressroute-circuit-peerings.md)을 참조하세요.
+- 서비스 공급자를 찾습니다. [Express 경로 파트너 및 피어링 위치](expressroute-locations.md)를 확인하세요.
+- 모든 필수 조건이 충족되었는지 확인합니다. [Express 경로 필수 조건](expressroute-prerequisites.md)을 참조하세요.
+- [라우팅](expressroute-routing.md), [NAT](expressroute-nat.md) 및 [QoS](expressroute-qos.md)에 대한 요구 사항을 참조합니다.
+- Express 경로 연결을 구성합니다.
+	- [Express 경로 회로 만들기](expressroute-howto-circuit-classic.md)
+	- [라우팅 구성](expressroute-howto-routing-classic.md)
+	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

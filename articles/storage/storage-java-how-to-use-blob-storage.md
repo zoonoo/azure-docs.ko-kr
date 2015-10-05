@@ -258,6 +258,8 @@ Blob을 삭제하려면 Blob 참조를 가져온 후 **deleteIfExists**를 호�
 - [Azure 저장소 REST API][]
 - [Azure 저장소 팀 블로그][]
 
+자세한 내용은 [Java개발자 센터](/develop/java/)를 참조하세요.
+
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Java용 Azure Storage SDK]: https://github.com/azure/azure-storage-java
 [Java용 Azure 저장소 SDK]: https://github.com/azure/azure-storage-java
@@ -267,4 +269,4 @@ Blob을 삭제하려면 Blob 참조를 가져온 후 **deleteIfExists**를 호�
 [Azure 저장소 REST API]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

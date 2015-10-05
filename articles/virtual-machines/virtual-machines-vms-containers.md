@@ -1,35 +1,40 @@
 <properties 
-	pageTitle="Azure 가상 컴퓨터 및 컨테이너"
-	description="가상 컴퓨터, Docker, Linux 컨테이너 및 Azure에서 함께 사용할 때 각각의 활용 방법에 대해 설명합니다. 이 활용 방법에는 각각의 장점과 각 접근 방법을 사용하기에 가장 좋은 시나리오가 포함되어 있습니다."
-	services="virtual-machines"
-	documentationCenter="virtual-machines"
-	authors="squillace"
-	manager="timlt"/>
+	pageTitle="Azure 가상 컴퓨터 및 컨테이너 | Microsoft Azure" 
+	description="가상 컴퓨터, Docker, Linux 컨테이너 및 Azure에서 함께 사용할 때 각각의 활용 방법에 대해 설명합니다. 이 활용 방법에는 각각의 장점과 각 접근 방법을 사용하기에 가장 좋은 시나리오가 포함되어 있습니다." 
+	services="virtual-machines" 
+	documentationCenter="virtual-machines" 
+	authors="squillace" 
+	manager="timlt"
+	tags="azure-resource-manager,azure-service-management" 
+/>
 	
 
 <tags 
-	ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="infrastructure"
-	ms.workload="infrastructure"
-	ms.date="07/02/2015"
-	ms.author="rasquill"/>
+	ms.service="virtual-machines" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="infrastructure" 
+	ms.workload="infrastructure" 
+	ms.date="07/02/2015" 
+	ms.author="rasquill" 
+/>
 
 <!--The next line, with one pound sign at the beginning, is the page title-->
 # Azure 가상 컴퓨터 및 컨테이너
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Azure는 뛰어난 클라우드 솔루션을 제공합니다. 이 솔루션은 물리적 컴퓨터 하드웨어의 에뮬레이션에 기반한 가상 컴퓨터에 구축되어 물리적 하드웨어보다 소프트웨어가 빠르게 구축되고 리소스 통합이 훨씬 원활하게 수행됩니다. 지난 수년 동안 Linux 컨테이너 기술은 컨테이너 및 Docker 생태계에 대한 [Docker](https://www.docker.com) 접근 방식에 힘입어 분산 소프트웨어의 개발 및 관리 방식을 크게 확장시켰습니다. 컨테이너의 응용 프로그램 코드가 호스트 Azure VM 및 동일 VM 내 다른 컨테이너와 분리되어 있기 때문에 더욱 민첩하게 응용 프로그램을 개발 및 배포할 수 있는 것입니다.
 
 **이러한 알려진 기능 외에** Azure에서는 *새로운* 기능을 통해 더 큰 Docker의 혜택을 제공합니다.
 
 - [수많은](virtual-machines-docker-with-xplat-cli.md) [다양한](virtual-machines-docker-with-portal.md) [방법들](virtual-machines-docker-ubuntu-quickstart.md)로 컨테이너용 [Docker 호스트를 ](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) 상황에 맞게 생성
-- [Azure 리소스 관리자](resource-group-overview.md) 및 [리소스 그룹 템플릿](resource-group-authoring-templates.md)으로 복잡한 분산 응용 프로그램을 간단하게 배포하고 업데이트할 수 있습니다
+- [Azure 리소스 관리자](resource-group-overview.md) 및 [리소스 그룹 템플릿](resource-group-authoring-templates.md)으로 복잡한 분산 응용 프로그램을 간단하게 배포하고 업데이트
 - 여러 독점 및 공개 소스 구성 관리 도구와 통합
 
 Azure상에서는 VM 및 Linux 컨테이너를 프로그래밍하여 생성할 수 있습니다. 즉, VM 및 컨테이너 *오케스트레이션* 도구를 사용하여 VM(가상 컴퓨터) 그룹을 생성하고 Linux 컨테이너 및 곧 출시될 [Windows Server 컨테이너](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview) 내에 응용 프로그램을 배포할 수 있습니다.
 
-이 문서는 상위 수준에서 이러한 개념들을 논의할 뿐만 아니라, Azure상의 컨테이너 및 클러스터 사용에 대한 수많은 상세 정보, 자습서, 제품 링크를 담고 있습니다. 개념에 대해 모두 알고 있고 링크만 필요한 경우 [바로 여기](#tools-for-working-with-containers)에서 확인하실 수습니다.
+이 문서는 상위 수준에서 이러한 개념들을 논의할 뿐만 아니라, Azure상의 컨테이너 및 클러스터 사용에 대한 수많은 상세 정보, 자습서, 제품 링크를 담고 있습니다. 개념에 대해 모두 알고 있고 링크만 필요한 경우 [바로 여기](#tools-for-working-with-containers)에서 확인하실 수 있습니다.
 
 ## 가상 컴퓨터와 컨테이너의 차이
 
@@ -142,7 +147,7 @@ Docker는 그 자체에 VM 생성 도구([Docker 컴퓨터](virtual-machines-doc
 
 Linux에서 배포한 [CoreOS](virtual-machines-linux-coreos-how-to.md)는 최적화된 공간을 차지하고 Docker를 지원하며 [rkt](https://github.com/coreos/rkt)라 불리는 자체 컨테이너 시스템을 가지고 있으며 [fleet](virtual-machines-linux-coreos-fleet-get-started.md)라 불리는 컨테이너 그룹 관리 도구도 제공합니다.
 
-또다른 인기 Linux 제품인 Ubuntu는 Docker를 매우 적극적으로 지원하며 [Linux(LXC 스타일) 클러스터](https://help.ubuntu.com/lts/serverguide/lxc.html)도 지원합니다.
+또 다른 인기 Linux 제품인 Ubuntu는 Docker를 매우 적극적으로 지원하며 [Linux(LXC 스타일) 클러스터](https://help.ubuntu.com/lts/serverguide/lxc.html)도 지원합니다.
 
 ## Azure VM 및 컨테이너와 호환되는 도구
 
@@ -187,7 +192,7 @@ Microsoft Azure의 Docker:
 - [Azure에서 swarm과 함께 Docker를 사용하는 방법](virtual-machines-docker-swarm.md)
 - [Azure 가상 컴퓨터에서 Docker 및 Compose 시작](virtual-machines-docker-compose-quickstart.md)
 - [Azure 리소스 그룹 템플릿을 사용하여 Azure에서 신속하게 Docker 호스트 생성](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)
-- 컨테이너 내 응용 프로그램을 [기본적으로 지원`compose`](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys)
+- 컨테이너 내 응용 프로그램에 대해 [`compose`를 기본적으로 지원](https://github.com/Azure/azure-docker-extension#11-public-configuration-keys)
 - [Azure에서 Docker 개인 레지스트리 구현](virtual-machines-docker-registry-on-azure-blob-storage.md)
 
 Linux 배포 도구 및 Azure 예시:
@@ -227,11 +232,11 @@ Linux 배포 도구 및 Azure 예시:
 
 ## 다음 단계
 
-[Docker](https://www.docker.com) 및 [Windows Server 컨테이너](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview)를 보십시오.
+[Docker](https://www.docker.com) 및 [Windows Server 컨테이너](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview)를 확인하세요.
 
 <!--Anchors-->
 [microservices]: http://martinfowler.com/articles/microservices.html
 [마이크로 서비스]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

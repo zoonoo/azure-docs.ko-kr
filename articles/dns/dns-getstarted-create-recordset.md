@@ -1,20 +1,20 @@
 <properties
    pageTitle="DNS 영역에 대한 레코드 집합 및 레코드 만들기 | Microsoft Azure"
-	description="Azure DNS에 대한 호스트 레코드를 만드는 방법입니다. PowerShell을 사용하여 레코드 집합 및 레코드를 설정합니다."
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="Adinah"
-	editor=""/>
+   description="Azure DNS에 대한 호스트 레코드를 만드는 방법입니다. PowerShell을 사용하여 레코드 집합 및 레코드를 설정합니다."
+   services="dns"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="Adinah"
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/12/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/22/2015"
+   ms.author="joaoma"/>
 
 
 # DNS 레코드 만들기
@@ -124,4 +124,4 @@ nslookup 또는 다른 DNS 도구를 사용하여 새 레코드 집합을 쿼리
 [.NET SDK로 Azure 작업 자동화](dns-sdk.md)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

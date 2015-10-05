@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="tbd" 
-	ms.date="04/21/2015"
+	ms.date="09/17/2015"
 	ms.author="himad"/>
 
 
@@ -38,7 +38,7 @@ Azure 기계 학습을 사용하면 게시된 웹 서비스에 대한 여러 끝
 - 맨 아래에 있는 **끝점 추가** 단추를 클릭합니다. 이름 및 설명을 입력하고 이 웹 서비스에 이름이 같은 다른 끝점이 없는지 확인합니다. 특별한 요구 사항이 없는 경우 제한 수준을 해당 기본값으로 그대로 둡니다. 제한에 대해 자세히 알아보려면 [API 끝점 확장](machine-learning-scaling-endpoints.md)을 참조하세요. ![끝점 만들기](./media/machine-learning-create-endpoint/figure-4.png)
 
 
-끝점이 만들어지면 동기 API, 일괄 처리 API 및 Excel 워크시트를 통해 끝점을 사용할 수 있습니다. 기계 학습 웹 서비스를 사용하는 방법에 대한 자세한 내용은 [게시된 Azure 기계 학습 웹 서비스를 사용하는 방법](machine-learning-consume-web-services.md)을 참조하세요.
+끝점이 만들어지면 동기 API, 일괄 처리 API 및 Excel 워크시트를 통해 끝점을 사용할 수 있습니다. 또한 이 UI 통해 끝점을 추가하는 것 외에도 끝점 관리 API를 사용하여 프로그래밍 방식으로 끝점을 추가할 수 있습니다. 기계 학습 웹 서비스를 사용하는 방법에 대한 자세한 내용은 [게시된 Azure 기계 학습 웹 서비스를 사용하는 방법](machine-learning-consume-web-services.md)을 참조하세요.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

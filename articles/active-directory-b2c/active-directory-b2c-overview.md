@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: 응용 프로그램에 등록 및 로그인
@@ -62,4 +62,4 @@ Azure Active Directory B2C는 미리 보기에 있습니다. 이 시간 동안 �
 - [Azure Active Directory B2C FAQ](active-directory-b2c-faqs.md)
 - [Azure Active Directory B2C에 대 한 지원 요청 제출](active-directory-b2c-support.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -5,7 +5,8 @@
    documentationCenter=""
    authors="kundanap"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
@@ -17,6 +18,8 @@
    ms.author="kundanap"/>
 
 # VM 확장을 사용하여 Azure 리소스 관리자 템플릿 작성
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델 사용에 대해 설명합니다.
 
 ## Azure 리소스 관리자 템플릿 개요
 
@@ -85,4 +88,4 @@ VM 확장으로 템플릿을 완벽하게 완료하려면 다음 VM 템플릿을
 
 템플릿을 제작한 후에 Azure CLI 또는 Azure Powershell를 사용하여 배포할 수 있습니다.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

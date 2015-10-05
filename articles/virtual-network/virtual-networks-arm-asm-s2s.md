@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/14/2015"
+   ms.date="09/18/2015"
    ms.author="telmos" />
 
 # 새 VNet에 클래식 VNet 연결
@@ -363,4 +363,4 @@ ARM VNet(vnet02)에 대해 만든 게이트웨이의 IP 주소를 사용하도�
 - [ARM에 대한 NRP(네트워크 리소스 공급자)](../resource-groups-networking.md)에 대해 자세히 알아봅니다.
 - [클래식 VNet과 ARM VNet 간의 S2S VPN 연결을 만드는](../virtual-networks-arm-asm-s2s-howto.md) 방법에 대한 일반적인 지침을 살펴봅니다.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

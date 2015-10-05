@@ -13,8 +13,9 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/09/2015"
+   ms.date="09/22/2015"
    ms.author="barbkess;twounder;JRJ@BigBangData.co.uk;"/>
+
 
 # Azure SQL 데이터 웨어하우스란?
 
@@ -78,4 +79,4 @@ SQL 데이터 웨어하우스는 몇 초 만에 쉽게 배포됩니다. 이 서�
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

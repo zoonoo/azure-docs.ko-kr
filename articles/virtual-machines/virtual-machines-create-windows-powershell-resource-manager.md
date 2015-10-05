@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="davidmu1"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,11 +19,9 @@
 
 # Azure 리소스 관리자 및 PowerShell을 사용하여 Windows 가상 컴퓨터 만들기
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다. [클래식 배포 모델](virtual-machines-create-windows-powershell-service-manager.md)을 사용하여 리소스를 만들 수도 있습니다.
+
 이 항목에서는 Azure 리소스 관리자 및 PowerShell을 사용하여 Windows 기반 Azure 가상 컴퓨터를 빠르게 만드는 방법을 설명합니다.
-
-[AZURE.INCLUDE [resource-manager-pointer-to-service-management](../../includes/resource-manager-pointer-to-service-management.md)]
-
-- [PowerShell 및 Azure 서비스 관리를 사용하여 Windows 가상 컴퓨터 만들기](virtual-machines-create-windows-powershell-service-manager.md)
 
 ## Windows 가상 컴퓨터 만들기
 
@@ -142,4 +141,4 @@ Azure 데이터 센터의 위치를 지정해야 합니다. Azure 데이터 센�
 
 [Azure PowerShell을 설치 및 구성하는 방법](install-configure-powershell.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

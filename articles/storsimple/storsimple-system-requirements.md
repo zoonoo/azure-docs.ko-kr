@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="StorSimple 시스템 요구 사항 | Microsoft Azure"
-	description="소프트웨어, 고가용성 및 Azure StorSimple 솔루션을 위한 네트워킹에 대한 시스템 요구 사항 및 모범 사례를 설명합니다."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   pageTitle="StorSimple 시스템 요구 사항 | Microsoft Azure" 
+   description="소프트웨어, 고가용성 및 Azure StorSimple 솔루션을 위한 네트워킹에 대한 시스템 요구 사항 및 모범 사례를 설명합니다." 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="alkohli" 
+   manager="carolz" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/26/2015"
-	ms.author="alkohli"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="09/21/2015"
+   ms.author="alkohli"/>
 
 # StorSimple 소프트웨어, 높은 가용성 및 네트워킹 요구 사항
 
@@ -154,7 +154,8 @@ StorSimple 장치는 잠긴 장치입니다. 하지만 iSCSI, 클라우드 또�
 | UDP 123(NTP) | 아웃 | WAN | 일부 경우에는 메모를 참조하십시오. |이 포트는 인터넷 기반 NTP 서버로 사용하는 경우에만 필요합니다. |
 | TCP 9354 | 아웃 | WAN | 일부 경우에는 메모를 참조하십시오. |아웃 바운드 포트는 StorSimple 관리자 서비스에서 장치와의 통신에 사용됩니다. 이 포트는 현재 네트워크가 인터넷 연결에 HTTP 1.1 사용이 지원되지 않는 경우에 필요합니다. 예를 들어 HTTP 1.0 기반의 프록시 서버를 사용하는 경우.<br> 프록시 서버를 통해 연결하는 경우 자세한 정보는 [서비스 버스 요구 사항](https://msdn.microsoft.com/library/azure/ee706729.aspx)을 참조하세요. |
 | 3260(iSCSI) | 그런 다음 | LAN | 아니요 | 이 포트는 iSCSI를 통해 데이터에 액세스하는 데 사용됩니다.|
-| 5985 | 그런 다음 | LAN | 아니요 | 인바운드 포트는 StorSimple 장치와의 통신을 위해 StorSimple 스냅숏 관리자가 사용합니다.<br>이 포트는 HTTP 또는 HTTPS를 통해 StorSimple에 대해 Windows PowerShell에 원격으로 연결할 때에도 사용됩니다. |
+| 5985 | 그런 다음 | LAN | 아니요 | 인바운드 포트는 StorSimple 장치와의 통신을 위해 StorSimple 스냅숏 관리자가 사용합니다.<br>이 포트는 HTTP를 통해 StorSimple에 대해 Windows PowerShell에 원격으로 연결할 때에도 사용됩니다. |
+| 5986 | 그런 다음 | LAN | 아니요 | 이 포트는 HTTPS를 통해 StorSimple에 대해 Windows PowerShell에 원격으로 연결할 때 사용됩니다. |
 
 <sup>1</sup> 인바운드 포트는 공용 인터넷에서 열릴 필요가 없습니다.
 
@@ -194,4 +195,4 @@ StorSimple 솔루션의 최적의 성능을 위해 위의 네트워킹 요구 �
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

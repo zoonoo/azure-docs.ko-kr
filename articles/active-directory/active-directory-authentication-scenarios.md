@@ -1,6 +1,6 @@
 
 <properties
-   pageTitle="Azure AD의 인증 시나리오"
+   pageTitle="Azure AD의 인증 시나리오 | Microsoft Azure"
    description="AAD(Azure Active Directory)에 대한 5개의 가장 일반적인 인증 시나리오 개요"
    services="active-directory"
    documentationCenter="dev-center-name"
@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/02/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # Azure AD의 인증 시나리오
@@ -468,4 +468,4 @@ AD 인증 라이브러리를 사용하는 경우 아래에서 설명하는 브�
 
 [Azure AD의 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -1,10 +1,10 @@
-<properties 
-   pageTitle="Azure 키 자격 증명 모음 서비스 제한 사항" 
-   description="Azure 키 자격 증명 모음에 대한 서비스 제한 사항 알아보기" 
+<properties
+   pageTitle="Azure 키 자격 증명 모음 서비스 제한 사항 | Microsoft Azure"
+   description="Azure 키 자격 증명 모음에 대한 서비스 제한 사항을 알아봅니다."
    documentationCenter="dev-center-name"
    services="key-vault"  
    authors="msmbaldwin" 
-   manager="mbaldwin" 
+   manager="mbaldwin"
    editor=""/>
 
 <tags
@@ -12,14 +12,14 @@
    ms.devlang="na"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.workload="identity" 
-   ms.date="07/06/2015"
+   ms.workload="identity"
+   ms.date="09/22/2015"
    ms.author="mbaldwin"/>
 
 # Azure 키 자격 증명 모음 서비스 제한 사항
 
 이들은 Azure 키 자격 증명 모음에 대 한 서비스 제한 사항입니다.
 
-[AZURE.INCLUDE [키 자격 증명 모음 제한 사항](../../includes/key-vault-limits.md)]
+[AZURE.INCLUDE [key-vault-limits](../../includes/key-vault-limits.md)]
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

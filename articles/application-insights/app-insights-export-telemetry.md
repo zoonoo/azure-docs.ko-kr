@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Application Insights에서 원격 분석 내보내기
@@ -22,6 +22,19 @@
 연속 내보내기는 무료 평가 기간에 사용할 수 있고 [표준 및 프리미엄 요금제](http://azure.microsoft.com/pricing/details/application-insights/)에서 확인할 수 있습니다.
 
 (단순히 메트릭에서 보거나 블레이드를 검색할 내용의 [일회성 내보내기](app-insights-metrics-explorer.md#export-to-excel)를 수행하려면 블레이드 맨 위의 내보내기를 클릭합니다.)
+
+## 저장소 계정 만들기
+
+"클래식" 저장소 계정이 없는 경우 지금 만듭니다.
+
+
+1. [Azure 포털](https://portal.azure.com)에서 구독에 “클래식" 저장소 계정을 만듭니다.
+
+    ![Azure 포털에서 새로 만들기, 데이터, 저장소 선택](./media/app-insights-export-telemetry/030.png)
+
+2. 컨테이너 만들기
+
+    ![새 저장소에서 컨테이너를 선택하고 컨테이너 타일, 추가를 차례로 클릭합니다.](./media/app-insights-export-telemetry/040.png)
 
 ## <a name="setup"></a> 연속 내보내기 설정
 
@@ -66,7 +79,7 @@ Application Insights 포털의 응용 프로그램 개요 블레이드에서 연
 
 포털에서 직접 저장소를 검사할 수 있습니다. **찾아보기**를 클릭하고 저장소 계정을 선택한 후 **컨테이너**를 엽니다.
 
-Visual Studio에서 Azure 저장소를 검사하려면 **보기**, **클라우드 탐색기**를 엽니다. 해당 메뉴 명령이 없는 경우 Azure SDK를 설치해야 합니다. **새 프로젝트** 대화 상자를 열고 Visual C#/클라우드를 확장한 다음 **Microsoft Azure SDK for .NET 가져오기**를 선택합니다.
+Visual Studio에서 Azure 저장소를 검사하려면 **보기**, **클라우드 탐색기**를 차례로 엽니다. 해당 메뉴 명령이 없는 경우 Azure SDK를 설치해야 합니다. **새 프로젝트** 대화 상자를 열고 Visual C#/클라우드를 확장한 다음 **Microsoft Azure SDK for .NET 가져오기**를 선택합니다.
 
 blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입니다. Application Insights 리소스 이름, 계측 키, 원격 분석 유형/날짜/시간에서 파생된 각 파일의 URI입니다. 리소스 이름은 모두 소문자이고 계측 키에서 대시를 생략합니다.
 
@@ -130,7 +143,7 @@ blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입�
 
 ## Power BI에 내보내기
 
-[Microsoft Power BI](https://powerbi.microsoft.com/)는 여러 소스의 정보를 같이 가져올 수 있는 기능과 함께 풍부하고 다양한 시각적으로 데이터를 표시합니다. Application Insights에서 Power BI까지 앱의 성능 및 사용에 대한 원격 분석 데이터를 스트리밍할 수 있습니다.
+[Microsoft Power BI](https://powerbi.microsoft.com/)는 여러 소스의 정보를 같이 가져올 수 있는 기능과 함께 풍부하고 다양한 시각적 개체로 데이터를 표시합니다. Application Insights에서 Power BI까지 앱의 성능 및 사용에 대한 원격 분석 데이터를 스트리밍할 수 있습니다.
 
 [Power BI에 Application Insights를 스트림](app-insights-export-power-bi.md)
 
@@ -204,4 +217,4 @@ blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입�
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

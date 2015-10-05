@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="모바일 서비스를 사용하여 Blob 저장소에 이미지 업로드(Android) | 모바일 서비스"
 	description="모바일 서비스를 사용하여 Azure 저장소에 이미지를 업로드하고 Android 앱에서 이미지에 액세스하는 방법에 대해 알아봅니다."
 	services="mobile-services"
@@ -7,13 +7,13 @@
 	manager="dwrede"
 	editor=""/>
 
-<tags 
+<tags
 	ms.service="mobile-services"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="09/18/2015"
 	ms.author="ricksal"/>
 
 # Android 장치에서 Azure 저장소에 이미지 업로드
@@ -47,7 +47,8 @@
 
 클라이언트 앱 내에서 Azure 저장소 서비스에 데이터를 업로드하는 데 필요한 자격 증명을 저장하는 것은 안전하지 않습니다. 대신 이러한 자격 증명을 모바일 서비스에 저장하고, 이를 통해 새로운 이미지 업로드에 권한을 부여하는 SAS(공유 액세스 서명)를 생성해야 합니다. 만료 기간이 5분인 자격 증명, SAS는 모바일 서비스에 의해 클라이언트 앱으로 안전하게 반환됩니다. 그러면 앱은 이 임시 자격 증명을 사용하여 이미지를 업로드합니다. 자세한 내용은 [공유 액세스 서명, 1부: SAS 모델 이해](storage-dotnet-shared-access-signature-part-1.md)를 참조하세요.
 
->[AZURE.NOTE] [Here](https://github.com/Azure/mobile-services-samples/tree/master/UploadImages)은 해당 앱의 완료된 클라이언트 소스 코드 부분입니다.
+## 코드 샘플
+[여기](https://github.com/Azure/mobile-services-samples/tree/master/UploadImages)는 해당 앱의 완료된 클라이언트 원본 코드 부분입니다. 실행하려면 이 자습서의 모바일 서비스 백 엔드 부분을 완료해야 합니다.
 
 ## 관리 포털에서 등록된 삽입 스크립트 업데이트
 
@@ -130,7 +131,7 @@
 	    static final int REQUEST_TAKE_PHOTO = 1;
 	    public Uri mPhotoFileUri = null;
 	    public File mPhotoFile = null;
-		
+
 	    public void takePicture(View view) {
 	        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 	        // Ensure that there's a camera activity to handle the intent
@@ -161,14 +162,14 @@
 	     */
 	    @com.google.gson.annotations.SerializedName("imageUri")
 	    private String mImageUri;
-	
+
 	    /**
 	     * Returns the item ImageUri
 	     */
 	    public String getImageUri() {
 	        return mImageUri;
 	    }
-	
+
 	    /**
 	     * Sets the item ImageUri
 	     *
@@ -178,20 +179,20 @@
 	    public final void setImageUri(String ImageUri) {
 	        mImageUri = ImageUri;
 	    }
-	
+
 	    /**
 	     * ContainerName - like a directory, holds blobs
 	     */
 	    @com.google.gson.annotations.SerializedName("containerName")
 	    private String mContainerName;
-	
+
 	    /**
 	     * Returns the item ContainerName
 	     */
 	    public String getContainerName() {
 	        return mContainerName;
 	    }
-	
+
 	    /**
 	     * Sets the item ContainerName
 	     *
@@ -201,20 +202,20 @@
 	    public final void setContainerName(String ContainerName) {
 	        mContainerName = ContainerName;
 	    }
-	
+
 	    /**
 	     *  ResourceName
 	     */
 	    @com.google.gson.annotations.SerializedName("resourceName")
 	    private String mResourceName;
-	
+
 	    /**
 	     * Returns the item ResourceName
 	     */
 	    public String getResourceName() {
 	        return mResourceName;
 	    }
-	
+
 	    /**
 	     * Sets the item ResourceName
 	     *
@@ -224,20 +225,20 @@
 	    public final void setResourceName(String ResourceName) {
 	        mResourceName = ResourceName;
 	    }
-	
+
 	    /**
 	     *  SasQueryString - permission to write to storage
 	     */
 	    @com.google.gson.annotations.SerializedName("sasQueryString")
 	    private String mSasQueryString;
-	
+
 	    /**
 	     * Returns the item SasQueryString
 	     */
 	    public String getSasQueryString() {
 	        return mSasQueryString;
 	    }
-	
+
 	    /**
 	     * Sets the item SasQueryString
 	     *
@@ -297,19 +298,19 @@
 	        if (mClient == null) {
 	            return;
 	        }
-	
+
 	        // Create a new item
 	        final ToDoItem item = new ToDoItem();
-	
+
 	        item.setText(mTextNewToDo.getText().toString());
 	        item.setComplete(false);
 	        item.setContainerName("todoitemimages");
-	
+
 	        // Use a unigue GUID to avoid collisions.
 	        UUID uuid = UUID.randomUUID();
 	        String uuidInString = uuid.toString();
 	        item.setResourceName(uuidInString);
-	
+
 	        // Send the item to be inserted. When blob properties are set this
 	        // generates an SAS in the response.
 	        AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>(){
@@ -317,23 +318,23 @@
 	            protected Void doInBackground(Void... params) {
 	                try {
 		                    final ToDoItem entity = addItemInTable(item);
-		
+
 		                    // If we have a returned SAS, then upload the blob.
 		                    if (entity.getSasQueryString() != null) {
-		
+
 	                       // Get the URI generated that contains the SAS
 	                        // and extract the storage credentials.
-	                        StorageCredentials cred = 
+	                        StorageCredentials cred =
 								new StorageCredentialsSharedAccessSignature(entity.getSasQueryString());
 	                        URI imageUri = new URI(entity.getImageUri());
-	
+
 	                        // Upload the new image as a BLOB from a stream.
 	                        CloudBlockBlob blobFromSASCredential =
 	                                new CloudBlockBlob(imageUri, cred);
-	
+
 	                        blobFromSASCredential.uploadFromFile(mPhotoFileUri.getPath());
   	                    }
-	
+
 	                    runOnUiThread(new Runnable() {
 	                        @Override
 	                        public void run() {
@@ -348,17 +349,17 @@
 	                return null;
 	            }
 	        };
-	
+
 	        runAsyncTask(task);
-	
+
 	        mTextNewToDo.setText("");
 	    }
-	
+
 
 이 코드는 모바일 서비스에 새 TodoItem을 삽입하기 위한 요청을 보냅니다. 응답은 로컬 저장소에서 Azure 저장소의 Blob로 이미지를 업로드하는 데 사용되는 SAS를 포함하고 있습니다.
 
 
-## 이미지 업로드 테스트 
+## 이미지 업로드 테스트
 
 1. Android Studio에서 **실행**을 누릅니다. 대화 상자에서 사용할 장치를 선택합니다.
 
@@ -380,7 +381,7 @@
 이제 모바일 서비스를 Blob 서비스와 통합하여 이미지를 안전하게 업로드할 수 있게 되었으므로 몇 가지 기타 백엔드 서비스 및 통합 항목을 확인해보십시오.
 
 + [SendGrid로 모바일 서비스에서 메일 보내기]
- 
+
   SendGrid 전자 메일 서비스를 사용해 모바일 서비스에 전자 메일 기능을 추가하는 방법에 대해 알아보십시오. 이 항목에서는 SendGrid를 사용해 전자 메일을 보내기 위해 서버 쪽 스크립트를 추가하는 방법에 대해 설명합니다.
 
 + [모바일 서비스에서 백 엔드 작업 예약]
@@ -390,12 +391,12 @@
 + [모바일 서비스 서버 스크립트 참조]
 
   서버 스크립트를 사용하여 서버 쪽 작업을 수행하고 기타 Azure 구성 요소 및 외부 리소스와 통합하는 방법을 안내하는 참조 항목입니다.
- 
+
 + [모바일 서비스 .NET 방법 개념 참조]
 
   모바일 서비스를 .NET과 함께 사용하는 방법에 대해 알아보십시오.
-  
- 
+
+
 <!-- Anchors. -->
 [Install the Storage Client library]: #install-storage-client
 [Update the client app to capture images]: #add-select-images
@@ -420,6 +421,5 @@
 [Azure Storage Client library for Store apps]: http://go.microsoft.com/fwlink/p/?LinkId=276866
 [모바일 서비스 .NET 방법 개념 참조]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [App settings]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
- 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

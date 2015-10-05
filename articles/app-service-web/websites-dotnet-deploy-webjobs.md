@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="06/29/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Visual Studio를 사용하여 WebJob 배포
@@ -200,4 +200,4 @@ WebJob 프로젝트 자체를 배포하려면 **솔루션 탐색기**에서 이 
 * Azure 미리 보기 포털에서 Azure 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

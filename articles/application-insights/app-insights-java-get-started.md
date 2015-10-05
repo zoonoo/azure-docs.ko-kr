@@ -271,7 +271,7 @@ Application Insights는 MVC 응용 프로그램에 대한 HTTP 요청 형식을 
 
 다른 예외에 대한 데이터를 수집하려면 다음 두 옵션을 사용합니다.
 
-* [사용자 코드에 TrackException에 대한 호출 삽입][apiexceptions] 
+* [사용자 코드에 trackException()에 대한 호출 삽입][apiexceptions] 
 * [서버에 Java 에이전트 설치](app-insights-java-agent.md) 감시 방법을 지정할 수 있습니다.
 
 
@@ -381,7 +381,9 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 
 [Java 문제 해결](app-insights-java-troubleshoot.md)
 
+## 다음 단계
 
+자세한 내용은 [Java 개발자 센터](/develop/java/)를 참조하세요.
 
 <!--Link references-->
 
@@ -394,4 +396,4 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

@@ -1,24 +1,27 @@
-<properties 
-	pageTitle="Microsoft Azure를 사용하여 Linux 가상 컴퓨터에 Tomcat7을 설치하는 방법" 
-	description="Linux를 실행하는 Azure VM(가상 컴퓨터)에서 Microsoft Azure를 사용하여 Tomcat7을 설치하는 방법에 대해 알아봅니다." 
-	services="virtual-machines" 
-	documentationCenter="" 
-	authors="NingKuang" 
-	manager="timlt" 
-	editor="tysonn"/>
+<properties
+	pageTitle="Linux VM에서 Apache Tomcat 설정 | Microsoft Azure"
+	description="Linux를 실행하는 Azure VM(가상 컴퓨터)을 사용하여 Apache Tomcat7을 설정하는 방법에 대해 알아봅니다."
+	services="virtual-machines"
+	documentationCenter=""
+	authors="NingKuang"
+	manager="timlt"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/21/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="infrastructure-services"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="05/21/2015"
 	ms.author="ningk"/>
 
-#Microsoft Azure를 사용하여 Linux 가상 컴퓨터에 Tomcat7을 설치하는 방법 
+#Microsoft Azure를 사용하여 Linux 가상 컴퓨터에 Tomcat7을 설치하는 방법
 
 Apache Tomcat(또는 간단히 Tomcat, 이전에는 Jakarta Tomcat이라고도 함)은 ASF(Apache Software Foundation)에서 개발한 오픈 소스 웹 서버 및 서블릿 컨테이너입니다. Tomcat은 Sun Microsystems의 Java Servlet 및 JSP(JavaServer Pages) 사양을 구현하며, Java 코드를 실행할 순수 Java HTTP 웹 서버 환경을 제공합니다. 가장 단순한 구성의 경우 Tomcat은 단일 운영 체제 프로세스로 실행됩니다. 이 프로세스에서는 JVM(Java Virtual Machine)을 실행합니다. 브라우저에서 Tomcat으로 전송되는 모든 HTTP 요청은 Tomcat 프로세스에서 별도의 스레드로 처리됩니다.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 이 가이드에서는 Linux 이미지에 tomcat7을 설치하여 Microsoft Azure에서 배포합니다.
 
@@ -46,20 +49,20 @@ SSH는 시스템 관리자에게 중요한 도구입니다. 그러나 사람이 
 
 SSH 인증 키를 생성하려면 다음 단계를 수행합니다.
 
-1.	다음 위치에서 puttygen 다운로드 및 설치: [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 
+1.	다음 위치에서 puttygen 다운로드 및 설치: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 2.	PUTTYGEN.EXE를 실행합니다.
 3.	**생성**을 클릭하여 키를 생성합니다. 프로세스에서 마우스를 창의 빈 영역 위로 이동하여 임의성을 늘릴 수 있습니다. ![][1]
 4.	생성 프로세스 후 Puttygen.exe에서 생성된 키를 표시합니다. 예: ![][2]
 5.	**키**에서 공개 키를 선택하여 복사하고 publicKey.pem 파일에 저장합니다. 저장된 공개 키의 파일 형식은 원하는 공개 키와 다르므로 **공개 키 저장**을 클릭하지 마세요.
-6.	**개인 키 저장**을 클릭하고 privateKey.ppk 파일에 저장합니다. 
+6.	**개인 키 저장**을 클릭하고 privateKey.ppk 파일에 저장합니다.
 
 ###2단계: Azure 미리 보기 포털에서 이미지 만들기
 [Azure 미리 보기 포털](https://portal.azure.com/)의 작업 표시줄에서 **새로 만들기**를 클릭한 후 요구에 따라 Linux 이미지를 선택하여 이미지를 만듭니다. 다음 예제에서는 Ubuntu 14.04 이미지를 사용합니다. ![][3]
- 
+
 **호스트 이름**에서 사용자와 인터넷 클라이언트가 이 가상 컴퓨터에 액세스하는 데 사용할 URL의 이름을 지정합니다. DNS 이름의 마지막 부분(예: tomcatdemo)을 정의하면 Azure에서 URL을 tomcatdemo.cloudapp.net으로 생성합니다.
 
 **SSH 인증 키**에서 puttygen에 의해 생성된 공개 키가 포함된 **publicKey.pem** 파일의 키 값을 복사합니다. ![][4]
-  
+
 필요에 따라 다른 설정을 구성하고 만들기를 클릭합니다.
 
 ##2단계: Tomcat7에 대해 가상 컴퓨터 준비
@@ -70,15 +73,15 @@ Azure의 끝점은 프로토콜(TCP 또는 UDP)과 공용 및 개인 포트로 �
 tomcat이 수신 대기하는 기본 포트 번호는 TCP 포트 8080입니다. Azure 끝점에서 이 포트를 열면 사용자 및 다른 인터넷 클라이언트가 tomcat 페이지에 액세스할 수 있습니다.
 
 1.	Azure 미리 보기 포털에서 **찾아보기** -> **가상 컴퓨터**를 클릭한 다음 직접 만든 가상 컴퓨터를 클릭합니다. ![][5]
-2.	가상 컴퓨터에 끝점을 추가하려면 **끝점** 확인란을 클릭합니다. ![][6] 
+2.	가상 컴퓨터에 끝점을 추가하려면 **끝점** 확인란을 클릭합니다. ![][6]
 3.	**추가**를 클릭합니다.  
 	1.	**끝점**의 경우, 끝점에 끝점 이름을 입력하고 **공용 포트**에 80을 입력합니다.  
-	  
+
 		80으로 설정하는 경우 tomcat에 액세스할 수 있게 해주는 URL에 포트 번호를 포함할 필요가 없습니다. 예: http://tomcatdemo.cloudapp.net.
 
 		다른 값(예: 81)으로 설정한 경우에는 tomcat에 액세스하기 위한 URL에 포트 번호를 추가해야 합니다. 예: http://tomcatdemo.cloudapp.net:81/.
 	2.	개인 포트에 8080을 입력합니다. 기본적으로 tomcat은 TCP 포트 8080에서 수신 대기합니다. tomcat의 기본 수신 대기 포트를 변경한 경우 개인 포트를 tomcat 수신 대기 포트와 같도록 업데이트해야 합니다. ![][7]
- 
+
 4.	**확인**을 클릭하여 가상 컴퓨터에 끝점을 추가합니다.
 
 
@@ -89,13 +92,13 @@ tomcat이 수신 대기하는 기본 포트 번호는 TCP 포트 8080입니다. 
 먼저 Azure 미리 보기 포털에서 가상 컴퓨터의 DNS 이름을 가져옵니다. **찾아보기** -> **가상 컴퓨터** -> 가상 컴퓨터의 이름 -> **속성**을 클릭한 다음 **속성** 타일의 **도메인 이름** 필드를 확인합니다.
 
 **SSH** 필드에서 SSH 연결의 포트 번호를 가져옵니다. 다음은 예제입니다. ![][8]
- 
+
 [여기](http://www.putty.org/)에서 Putty를 다운로드합니다
 
 다운로드한 후 실행 파일 PUTTY.EXE를 클릭합니다. 가상 컴퓨터의 속성에서 가져온 호스트 이름과 포트 번호를 사용하여 기본 옵션을 구성합니다. 다음은 예제입니다. ![][9]
- 
+
 왼쪽 창에서 **연결** -> **SSH** -> **인증**을 클릭한 다음 **찾아보기**를 클릭하여 단계 1에서 puttygen에 의해 생성된 개인 키가 포함된 **privateKey.ppk** 파일의 위치를 지정합니다. 다음은 예제입니다. ![][10]
- 
+
 **열기**를 클릭합니다. 메시지 상자에 경고 메시지가 표시될 수도 있습니다. DNS 이름과 포트 번호를 올바르게 구성한 경우 **예**를 클릭합니다. ![][11]
 
 
@@ -179,7 +182,7 @@ tomcat7 서버를 설치하면 자동으로 시작됩니다. 다음 명령을 �
 
 tomcat7을 중지하려면 다음을 실행합니다.
 
-	sudo /etc/init.d/tomcat7 stop 
+	sudo /etc/init.d/tomcat7 stop
 
 tomcat7의 상태를 보려면:
 
@@ -205,7 +208,7 @@ tomcat 서비스를 다시 시작하려면：
 브라우저를 열고 URL **http://<your tomcat server DNS name>/manager/html**을 입력합니다. 이 문서의 예제에 나와 있는 URL은 http://tomcatexample.cloudapp.net/manager/html입니다.
 
 연결되면 다음과 유사한 페이지가 표시됩니다. ![][18]
- 
+
 ##일반적인 문제
 
 ###인터넷에서 Tomcat 및 Moodle이 있는 가상 컴퓨터에 액세스할 수 없음
@@ -213,7 +216,7 @@ tomcat 서비스를 다시 시작하려면：
 -	**증상** Tomcat이 실행되고 있지만 브라우저에서 Tomcat 기본 페이지를 볼 수 없습니다.
 -	**가능한 근본 원인**   
 	1.	Tomcat 수신 대기 포트가 Tomcat 트래픽에 대한 가상 컴퓨터 끝점의 개인 포트와 다릅니다.  
-	
+
 		공용 포트 및 개인 포트 끝점 설정을 검사하고 개인 포트가 Tomcat 수신 대기 포트와 같은지 확인합니다. 가상 컴퓨터에 대한 끝점 구성 지침은 1단계: 이미지 만들기를 참조하세요.
 
 		Tomcat 수신 대기 포트를 확인하려면 /etc/httpd/conf/httpd.conf(Red Hat 릴리스) 또는 /etc/tomcat7/server.xml(Debian 릴리스)을 엽니다. 기본적으로 Tomcat 수신 대기 포트는 8080입니다. 다음은 예제입니다.
@@ -237,9 +240,9 @@ tomcat 서비스를 다시 시작하려면：
 
 -	**해결 방법**
 	1. Tomcat 수신 대기 포트가 가상 컴퓨터의 트래픽에 대한 끝점의 개인 포트와 다른 경우 개인 포트를 Tomcat 수신 대기 포트와 동일하게 변경해야 합니다.   
-	
+
 	2.	방화벽/iptables로 인해 문제가 발생한 경우 /etc/sysconfig/iptables에 다음 줄을 추가합니다.
-	
+
 			-A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
 			-A INPUT -p tcp -m tcp --dport 443 -j ACCEPT  
 
@@ -269,7 +272,7 @@ tomcat 서비스를 다시 시작하려면：
 
 		sudo chown azureuser -R /var/lib/tomcat7/webapps
 
-	\-R 옵션을 사용하여 디렉터리 내의 모든 파일에 대해서도 권한을 적용합니다.
+	-R 옵션을 사용하여 디렉터리 내의 모든 파일에 대해서도 권한을 적용합니다.
 
 	이 명령은 디렉터리에서도 작동합니다. -R 옵션은 디렉터리 내의 모든 파일과 디렉터리에 대해 권한을 변경합니다. 다음은 예제입니다.
 
@@ -301,6 +304,5 @@ tomcat 서비스를 다시 시작하려면：
 [16]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-16.png
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

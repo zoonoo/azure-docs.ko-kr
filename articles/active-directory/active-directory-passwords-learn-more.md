@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="자세한 정보: Azure AD 암호 관리 | Microsoft Azure" 
-	description="암호 쓰기 저장의 작동 원리, 암호 쓰기 저장 보안, 암호 재설정 포털의 작동 원리, 암호 재설정에서 사용되는 데이터를 포함하여 Azure AD 암호 관리에 대한 고급 항목을 제공합니다." 
-	services="active-directory" 
-	documentationCenter="" 
-	authors="asteen" 
-	manager="kbrint" 
+<properties
+	pageTitle="자세한 정보: Azure AD 암호 관리 | Microsoft Azure"
+	description="암호 쓰기 저장의 작동 원리, 암호 쓰기 저장 보안, 암호 재설정 포털의 작동 원리, 암호 재설정에서 사용되는 데이터를 포함하여 Azure AD 암호 관리에 대한 고급 항목을 제공합니다."
+	services="active-directory"
+	documentationCenter=""
+	authors="asteen"
+	manager="kbrint"
 	editor="billmath"/>
 
-<tags 
-	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="06/08/2015" 
+<tags
+	ms.service="active-directory"
+	ms.workload="identity"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/18/2015" 
 	ms.author="asteen"/>
 
 # 암호 관리에 대한 자세한 정보
@@ -280,6 +280,5 @@
 
 [001]: ./media/active-directory-passwords-learn-more/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-learn-more/002.jpg "Image_002.jpg"
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

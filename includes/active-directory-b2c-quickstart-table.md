@@ -5,6 +5,6 @@
 | Windows 유니버설 앱 등록 및 로그인 추가(출시 예정) | [Node JS 웹앱 등록 및 로그인 추가](active-directory-b2c-devquickstarts-web-node.md) | [OpenID Connect를 사용하는 웹앱](active-directory-b2c-reference-oidc.md) |
 | Windows 데스크톱 앱 등록 및 로그인 추가(출시 예정) | [.NET 웹 API 보안](active-directory-b2c-devquickstarts-api-dotnet.md) | OpenID Connect를 사용하는 단일 페이지 앱(출시 예정)
 | | [NodeJS 웹 API 보안](active-directory-b2c-devquickstarts-api-node.md) | 서버 쪽 데몬(출시 예정) |
-| | [.NET 웹앱에서 Web API 호출](active-directory-b2c-web-api-dotnet.md) | 서버 쪽 데몬(출시 예정) |
+| | [.NET 웹앱에서 Web API 호출](active-directory-b2c-devquickstarts-web-api-dotnet.md) | 서버 쪽 데몬(출시 예정) |
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

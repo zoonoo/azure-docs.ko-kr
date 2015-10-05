@@ -162,4 +162,4 @@ Azure AD 디렉터리는 설계상 격리되어 있습니다. 디렉터리 간�
 ## 다음 단계
 이러한 시나리오에 대해 Azure AD Connect를 설치하는 방법을 알아보려면 [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)를 참조하세요. Azure AD Connect Sync를 위한 구성에 대해 자세한 내용을 보려면 [Azure AD Connect Sync](active-directory-aadconnectsync-whatis.md)를 참조하세요.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

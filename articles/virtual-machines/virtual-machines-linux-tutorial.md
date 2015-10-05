@@ -1,12 +1,12 @@
 <properties
-	pageTitle="Azure에서 Linux를 실행하는 가상 컴퓨터 만들기"
-	description="Azure의 이미지를 사용하여 Linux를 실행하는 Azure VM(가상 컴퓨터)을 만드는 방법에 대해 알아봅니다."
+	pageTitle="Linux를 실행하는 가상 컴퓨터 만들기 | Microsoft Azure"
+	description="Azure 및 Azure 명령줄 인터페이스에서 이미지를 사용하여 Linux를 실행하는 Azure VM(가상 컴퓨터)을 만드는 방법을 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
 	editor="tysonn"
-	tags="azure-resource-management" />
+	tags="azure-resource-manager" />
 
 <tags
 	ms.service="virtual-machines"
@@ -37,9 +37,9 @@ Linux를 실행하는 Azure 가상 컴퓨터(VM) 만들기는 명령줄 또는 �
 
 첫 번째 단계는 [Azure CLI 설치](../xplat-cli-install.md)입니다.
 
-좋습니다. 이제 `azure config mode arm`를 입력하여 리소스 관리 모드에 있는 지 확인합니다.
+좋습니다. 이제 `azure config mode arm`을 입력하여 리소스 관리자 모드인지 확인합니다.
 
-훨씬 낫습니다. 이제 `azure login`를 입력하고 나타나는 메시지에 따라 회사 또는 학교 ID로 로그인합니다.
+훨씬 낫습니다. 이제 `azure login`를 입력하여 [회사 또는 학교 ID로 로그인](../xplat-cli-connect.md#use-the-log-in-method)한 다음 프롬프트에 따릅니다.
 
 > [AZURE.NOTE]로그인 오류가 나타나면, [개인 Microsoft 계정에서 회사 또는 학교 ID를 만들어야](resource-group-create-work-id-from-personal.md) 할 수 있습니다.
 
@@ -305,4 +305,4 @@ Azure의 Linux에 대한 자세한 내용은 다음 을 참조하세요.
 
 - [Azure의 Linux용 Docker 가상 컴퓨터 확장](virtual-machines-docker-vm-extension.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

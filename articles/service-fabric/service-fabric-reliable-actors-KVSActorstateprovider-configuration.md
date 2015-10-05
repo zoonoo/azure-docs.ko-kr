@@ -1,20 +1,20 @@
 <properties
    pageTitle="서비스 패브릭의 신뢰할 수 있는 행위자 KVSActorStateProvider 구성의 개요"
-	description="'KVSActorStateProvider' 형식의 서비스 패브릭 상태 저장 행위자를 구성하는 방법에 대해 알아봅니다."
-	services="Service-Fabric"
-	documentationCenter=".net"
-	authors="sumukhs"
-	manager="anuragg"
-	editor=""/>
+   description="'KVSActorStateProvider' 형식의 서비스 패브릭 상태 저장 행위자를 구성하는 방법에 대해 알아봅니다."
+   services="Service-Fabric"
+   documentationCenter=".net"
+   authors="sumukhs"
+   manager="anuragg"
+   editor=""/>
 
 <tags
    ms.service="Service-Fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="sumukhs"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="sumukhs"/>
 
 # 신뢰할 수 있는 행위자 구성 - KVSActorStateProvider
 KVSActorStateProvider의 기본 구성은 해당 지정된 행위자에 대해 Visual Studio 패키지 루트의 "Config" 폴더에 생성된 "settings.xml" 파일을 변경하여 수정할 수 있습니다.
@@ -27,8 +27,6 @@ KVSActorStateProvider의 기본 구성은 해당 지정된 행위자에 대해 V
 복제자 보안 구성은 복제하는 동안 사용되는 통신 채널을 보호하는 데 사용됩니다. 따라서 서비스는 서로의 복제 트래픽을 볼 수 없으므로 항상 사용 가능하게 설정한 데이터를 안전하게 보호할 수 없습니다. 기본적으로 빈 보안 구성 섹션에서는 복제 보안이 사용되지 않습니다.
 ### 섹션 이름
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
-### 구성 이름
-[복제 보안](../service-fabric/service-fabric-replication-security.md) 참조
 
 ## 복제자 구성
 복제자 구성은 행위자 상태 제공자의 상태를 매우 안정적으로 만드는 작업을 담당하는 복제자를 구성하는 데 사용됩니다. 기본 구성은 Visual Studio 템플릿에 의해 생성되며 충분해야 합니다. 이 섹션에서는 복제자 조정에 사용할 수 있는 추가 구성에 대해 설명합니다.
@@ -82,6 +80,5 @@ KVSActorStateProvider의 기본 구성은 해당 지정된 행위자에 대해 V
 ## 설명
 
 BatchAcknowledgementInterval은 복제 대기 시간을 제어합니다. '0' 값은 처리량을 희생하여 가장 낮은 대기 시간을 제공합니다(더 많은 승인 메시지를 보내고 처리해야 하므로 각각에 포함된 승인은 적음). BatchAcknowledgementInterval의 값이 클수록 전체적인 복제 처리량은 높아지고 작업 대기 시간은 더욱 길어집니다. 이 값은 트랜잭션 커밋의 대기 시간으로 직접 변환됩니다.
- 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

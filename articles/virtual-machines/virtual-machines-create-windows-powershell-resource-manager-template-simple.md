@@ -1,5 +1,5 @@
 <properties
-	pageTitle="리소스 관리자 템플릿 및 PowerShell을 사용하여 Windows 가상 컴퓨터 만들기"
+	pageTitle="ARM 템플릿을 사용하여 VM 만들기 | Microsoft Azure"
 	description="리소스 관리자 템플릿 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터를 만들 수 있습니다."
 	services="virtual-machines"
 	documentationCenter=""
@@ -11,13 +11,15 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="07/28/2015"
 	ms.author="davidmu"/>
 
 # 리소스 관리자 템플릿 및 PowerShell을 사용하여 Windows 가상 컴퓨터 만들기
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다. 클래식 배포 모델을 사용하여 이 리소스를 만들 수 없습니다.
 
 Azure PowerShell과 함께 리소스 관리자 템플릿을 사용하여 새 Windows 기반 Azure VM(가상 컴퓨터)을 쉽게 만들 수 있습니다. 이 템플릿은 새 리소스 그룹에 단일 서브넷이 있는 새 가상 네트워크에서 Windows를 실행하는 단일 가상 컴퓨터를 만듭니다.
 
@@ -103,4 +105,4 @@ Azure 배포 이름, 리소스 그룹 이름 및 Azure 데이터 센터 위치�
 
 [Azure PowerShell을 설치 및 구성하는 방법](install-configure-powershell.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

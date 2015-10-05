@@ -72,7 +72,7 @@ Azure AD의 다중 테넌트, 지리적으로 분산된 고가용성 디자인�
  - [사용해 보기](https://azure.microsoft.com/trial/get-started-active-directory/) - 지금 무료 30일 평가판에 등록하면 이 링크를 사용하여 5분 내에 첫 번째 클라우드 솔루션을 배포할 수 있습니다.
  - Azure AD 테넌트 시작 및 빠른 실행에 대한 팁과 요령에 대해서는 "Azure AD 시작"을 읽어 보세요.
 -	개발자인 경우:
- - Azure Active Directory <need link>에 대한 [개발자 가이드](https://msdn.microsoft.com/library/azure/ff800682.aspx)를 확인하세요.
+ - Azure Active Directory에 대한 [개발자 가이드](active-directory-developers-guide.md)를 확인하세요. 
  - [평가판 시작](https://azure.microsoft.com/trial/get-started-active-directory/) – 지금 무료 30일 평가판을 등록하고 Azure AD와 앱 통합을 시작하세요.
 
 
@@ -104,4 +104,4 @@ Azure AD에 대한 자세한 내용을 알아볼 수 있도록 수많은 리소�
 
 - [조직 내에서 사용되고 있는 허용되지 않은 클라우드 앱을 검색하는 방법](active-directory-cloudappdiscovery-whatis.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

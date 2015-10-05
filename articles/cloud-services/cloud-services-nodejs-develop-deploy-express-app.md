@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Express를 사용하여 웹앱 빌드(Node.js) | Microsoft Azure"
-	description="클라우드 서비스 자습서를 기반으로 웹앱을 빌드하고 Express 모듈 사용 방법을 보여 주는 자습서입니다."
-	services="cloud-services"
-	documentationCenter="nodejs"
-	authors="MikeWasson"
-	manager="wpickett"
+	pageTitle="Express를 사용하여 웹앱 빌드(Node.js) | Microsoft Azure" 
+	description="클라우드 서비스 자습서를 기반으로 웹앱을 빌드하고 Express 모듈 사용 방법을 보여 주는 자습서입니다." 
+	services="cloud-services" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="nodejs"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/01/2015" 
 	ms.author="mwasson"/>
 
 
@@ -128,6 +128,9 @@ Azure PowerShell 창에서 **Publish-AzureServiceProject** cmdlet을 사용하�
 
 ![Express 페이지를 표시하는 웹 브라우저입니다. URL은 현재 Azure에서 호스트되어 있음을 나타냅니다.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
+## 다음 단계
+
+자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/)를 참조하세요.
 
   [Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
   [Express]: http://expressjs.com/
@@ -135,4 +138,4 @@ Azure PowerShell 창에서 **Publish-AzureServiceProject** cmdlet을 사용하�
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

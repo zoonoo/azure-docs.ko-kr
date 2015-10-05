@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/25/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # 데이터 마이그레이션
@@ -191,7 +191,7 @@ PolyBase 사용한 데이터 로드에 대해 자세히 알려면 [PolyBase를 �
 
 [프로덕션 버전]: http://aka.ms/downloadazcopy/
 [미리 보기 버전]: http://aka.ms/downloadazcopypr/
-[ADO.NET 대상 어댑터]: https://msdn.microsoft.com/ko-kr/library/bb934041.aspx
-[SSIS 설명서]: https://msdn.microsoft.com/ko-kr/library/ms141026.aspx
+[ADO.NET 대상 어댑터]: https://msdn.microsoft.com/KO-KR/library/bb934041.aspx
+[SSIS 설명서]: https://msdn.microsoft.com/KO-KR/library/ms141026.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

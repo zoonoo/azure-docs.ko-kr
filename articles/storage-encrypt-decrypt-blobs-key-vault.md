@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure 키 자격 증명 모음을 사용하여 Microsoft Azure 저장소에서 Blob 암호화 및 해독"
+   pageTitle="Azure 키 자격 증명 모음을 사용하여 Microsoft Azure 저장소에서 Blob 암호화 및 해독 | Microsoft Azure"
    description="이 자습서에서는 Azure 키 자격 증명 모음과 함께 Microsoft Azure 저장소에 대 한 클라이언트 쪽 암호화를 사용하여 Blob를 암호화 및 암호 해독하는 방법을 단계별로 안내합니다."
    services="storage"
    documentationCenter=""
@@ -20,13 +20,13 @@
 
 ## 소개
  
-이 자습서에서는 현재 미리 보기의 Azure 키 자격 증명 모음과 함께 현재 미리 보기의 클라이언트 쪽 저장소 암호화를 이용하는 방법을 설명합니다. 이러한 기술을 사용하여 콘솔 응용 프로그램에서 Blob를 암호화하고 해독하는 방법을 단계별로 안내 합니다.
+이 자습서에서는 Azure 키 자격 증명 모음과 함께 클라이언트 쪽 저장소 암호화를 사용하는 방법을 설명합니다. 이러한 기술을 사용하여 콘솔 응용 프로그램에서 Blob를 암호화하고 해독하는 방법을 단계별로 안내 합니다.
 
 **예상 완료 시간:** 20분
 
 Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모음이란?](key-vault/key-vault-whatis.md)을 참조하세요.
 
-Azure 저장소에 대한 클라이언트 쪽 암호화의 개요 정보는 [Microsoft Azure 저장소에 대한 클라이언트 쪽 암호화 - 미리 보기](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview.aspx)를 참조하세요.
+Azure 저장소에 대한 클라이언트 쪽 암호화의 개요 정보는 [Microsoft Azure 저장소에 대한 클라이언트 쪽 암호화 시작](storage-client-side-encryption.md)을 참조하세요.
 
 
 ## 필수 조건
@@ -38,25 +38,25 @@ Azure 저장소에 대한 클라이언트 쪽 암호화의 개요 정보는 [Mic
 - Azure PowerShell 
 
 
-## 클라이언트 쪽 암호화 프로세스의 개요
+## 클라이언트 쪽 암호화 개요
 
-Microsoft Azure 저장소에 대한 클라이언트 쪽 암호화의 개요는 [http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/29/getting-started-with-client-side-encryption-for-microsoft-azure-storage.aspx](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/29/getting-started-with-client-side-encryption-for-microsoft-azure-storage.aspx "Microsoft Azure 저장소용 클라이언트 쪽 암호화 시작")를 참조하세요.
+Azure 저장소에 대한 클라이언트 쪽 암호화의 개요는 [Microsoft Azure 저장소에 대한 클라이언트 쪽 암호화 시작](storage-client-side-encryption.md)을 참조하세요.
 
-해당 블로그 게시물에서 설명한 대로 프로세스는 다음과 같습니다.
+클라이언트 쪽 암호화의 작동 원리에 대한 간단한 설명은 다음과 같습니다.
 
 1. Azure 저장소 클라이언트 SDK는 1회용 대칭 키인 콘텐츠 암호화 키(CEK)를 생성합니다.
-2. 사용자 데이터는 이 CEK를 사용하여 암호화됩니다.
-3. 그런 다음 키 암호화 KEK를 사용하여 CEK를 래핑(암호화)합니다. KEK는 키 식별자로 식별되고 비대칭 키 쌍 또는 대칭 키일 수 있으며 로컬로 관리되거나 Azure 키 자격 증명 모음에 저장됩니다. 저장소 클라이언트 자체는 KEK에 액세스할 수 없습니다. 단지 키 자격 증명 모음에서 제공되는 키 래핑 알고리즘을 호출할 뿐입니다. 사용자는 원하는 경우 키 래핑/래핑 해제를 위해 사용자 지정 공급자를 사용하도록 선택할 수 있습니다.
+2. 고객 데이터는 이 CEK를 사용하여 암호화됩니다.
+3. 그런 다음 키 암호화 KEK를 사용하여 CEK를 래핑(암호화)합니다. KEK는 키 식별자로 식별되고 비대칭 키 쌍 또는 대칭 키일 수 있으며 로컬로 관리되거나 Azure 키 자격 증명 모음에 저장됩니다. 저장소 클라이언트 자체는 KEK에 액세스할 수 없습니다. 단지 키 자격 증명 모음에서 제공되는 키 래핑 알고리즘을 호출할 뿐입니다. 고객은 원하는 경우 키 래핑/래핑 해제를 위해 사용자 지정 공급자를 사용하도록 선택할 수 있습니다.
 4. 그런 다음 암호화된 데이터를 Azure 저장소 서비스에 업로드합니다.
 
 
 ## Azure 키 자격 증명 모음 설정
-이 자습서를 계속하려면 자습서에 요약된 다음을 수행해야 합니다. [Azure 키 자격 증명 모음 시작](key-vault/key-vault-get-started.md)
+이 자습서를 계속하려면 자습서 [Azure 키 자격 증명 모음 시작](key-vault/key-vault-get-started.md)에 요약된 다음 단계를 수행해야 합니다.
 
-- 키 자격 증명 모음 만들기
-- 키 또는 암호를 키 자격 증명 모음에 추가
-- Azure Active Directory에 응용 프로그램 등록
-- 응용 프로그램에 키 또는 암호를 사용하도록 권한 부여
+- 키 자격 증명 모음을 만듭니다.
+- 키 또는 암호를 키 자격 증명 모음에 추가합니다.
+- Azure Active Directory에 응용 프로그램을 등록합니다.
+- 키 또는 암호를 사용하여 응용 프로그램에 권한을 부여합니다.
 
 Azure Active directory를 사용하여 응용 프로그램을 등록하는 경우 생성된 ClientID 및 ClientSecret를 메모합니다.
 
@@ -69,15 +69,13 @@ Visual Studio에서 새 콘솔 응용 프로그램을 만듭니다.
 
 패키지 관리자 콘솔에서 필요한 Nuget 패키지를 추가합니다.
 
-	// Note that this is the preview version for Azure Storage
-	Install-Package WindowsAzure.Storage -Pre
+	Install-Package WindowsAzure.Storage 
 
-	// This is the latest stable release for ADAL
+	// This is the latest stable release for ADAL.
 	Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.16.204221202
 
-	// These are currently only available in preview
-	Install-Package Microsoft.Azure.KeyVault -Pre
-	Install-Package Microsoft.Azure.KeyVault.Extensions -Pre
+	Install-Package Microsoft.Azure.KeyVault 
+	Install-Package Microsoft.Azure.KeyVault.Extensions 
 
 
 AppSettings를 App.Config에 추가합니다.
@@ -90,7 +88,7 @@ AppSettings를 App.Config에 추가합니다.
     	<add key="container" value="stuff"/>
 	</appSettings>
 
-다음과 같은 using 문을 추가하고 System.Configuration에 대한 참조를 프로젝트에 추가해야 합니다.
+다음 `using` 문을 추가하고 System.Configuration에 대한 참조를 프로젝트에 추가해야 합니다.
 
 	using Microsoft.IdentityModel.Clients.ActiveDirectory;
 	using System.Configuration;
@@ -120,11 +118,11 @@ AppSettings를 App.Config에 추가합니다.
 	    return result.AccessToken;
 	}
 
-## 사용자의 프로그램에서 저장소 및 키 자격 증명 모음 액세스 
+## 사용자의 프로그램에서 저장소 및 키 자격 증명 모음 액세스
 
-Main() 함수에 다음 코드를 추가합니다.
+Main 함수에 다음 코드를 추가합니다.
 
-	// This is standard code to interact with Blob Storage
+	// This is standard code to interact with Blob storage.
 	StorageCredentials creds = new StorageCredentials(
 		ConfigurationManager.AppSettings["accountName"],
        	ConfigurationManager.AppSettings["accountKey"]);
@@ -133,8 +131,8 @@ Main() 함수에 다음 코드를 추가합니다.
 	CloudBlobContainer contain = client.GetContainerReference(ConfigurationManager.AppSettings["container"]);
 	contain.CreateIfNotExists();
 
-	// The Resolver object is used to interact with Key Vault for Azure Storage
-	// This is where the GetToken method from above is used
+	// The Resolver object is used to interact with Key Vault for Azure Storage.
+	// This is where the GetToken method from above is used.
 	KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 
 
@@ -148,12 +146,12 @@ Main() 함수에 다음 코드를 추가합니다.
 
 
 ## Blob 암호화 및 업로드
-Blob를 암호화하고 Azure 저장소 계정에 업로드하는 다음과 같은 코드를 추가합니다. 사용되는 ResolveKeyAsync 메서드는 IKey를 반환합니다.
+Blob을 암호화하고 Azure 저장소 계정에 업로드하는 다음과 같은 코드를 추가합니다. 사용되는 **ResolveKeyAsync** 메서드는 IKey를 반환합니다.
 
 	
-	// Retrieve the key that you created previously
-	// The IKey that is returned here is an RsaKey
-	// Remember that we used the names contosokeyvault and testrsakey1
+	// Retrieve the key that you created previously.
+	// The IKey that is returned here is an RsaKey.
+	// Remember that we used the names contosokeyvault and testrsakey1.
     var rsa = cloudResolver.ResolveKeyAsync("https://contosokeyvault.vault.azure.net/keys/TestRSAKey1", CancellationToken.None).GetAwaiter().GetResult();
 
 
@@ -161,15 +159,15 @@ Blob를 암호화하고 Azure 저장소 계정에 업로드하는 다음과 같�
 	BlobEncryptionPolicy policy = new BlobEncryptionPolicy(rsa, null);
 	BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
 
-	// Reference a block blob
+	// Reference a block blob.
 	CloudBlockBlob blob = contain.GetBlockBlobReference("MyFile.txt");
 
-	// Upload using the UploadFromStream method
+	// Upload using the UploadFromStream method.
 	using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
 		blob.UploadFromStream(stream, stream.Length, null, options, null);
 
 
-다음은 키 자격 증명에 저장된 키와 함께 클라이언트 쪽 암호화를 사용하여 암호화한 Blob에 대한 현재 Azure 관리 포털의 스크린숏입니다. KeyId 속성은 키 암호화 키(KEK) 역할을 하는 키 자격 증명 모음의 키에 대한 URI입니다. EncryptedKey 속성은 콘텐츠 암호화 키(CEK)의 암호화된 버전을 포함하고 있습니다.
+다음은 키 자격 증명에 저장된 키와 함께 클라이언트 쪽 암호화를 사용하여 암호화한 Blob에 대한 현재 Azure 포털의 스크린숏입니다. **KeyId** 속성은 키 KEK 역할을 하는 키 자격 증명 모음의 키에 대한 URI입니다. **EncryptedKey** 속성은 CEK의 암호화된 버전을 포함하고 있습니다.
 
 ![암호화 메타 데이터를 포함하고 있는 Blob 메타데이터를 보여 주는 스크린샷][1]
 
@@ -178,14 +176,14 @@ Blob를 암호화하고 Azure 저장소 계정에 업로드하는 다음과 같�
 
 
 ## Blob 암호 해독 및 다운로드
-암호 해독은 실제로 확인 프로그램 클래스가 합리적인 경우입니다. 암호화에 사용되는 키의 ID는 해당 메타 데이터의 Blob와 연결되므로 키를 검색하고 키와 Blob 사이의 연결을 기억할 이유가 없습니다. 다만 키가 키 자격 증명 모음에 남아 있는지 확인하기만 하면 됩니다.
+암호 해독은 실제로 확인 프로그램 클래스가 합리적인 경우입니다. 암호화에 사용되는 키의 ID는 해당 메타 데이터의 Blob과 연결되므로 키를 검색하고 키와 Blob 사이의 연결을 기억할 이유가 없습니다. 다만 키가 키 자격 증명 모음에 남아 있는지 확인하기만 하면 됩니다.
 
-RSA 키의 개인 키는 키 자격 증명 모음에 남아 있으므로 해독을 실행하려면 CEC(콘텐츠 암호화 키)를 포함하고 있는 Blob 메타데이터의 암호화 키를 해독하기 위해 키 자격 증명 모음에 보냅니다.
+RSA 키의 개인 키는 키 자격 증명 모음에 남아 있으므로 해독을 실행하려면 CEK를 포함하고 있는 Blob 메타데이터의 암호화 키를 해독하기 위해 키 자격 증명 모음에 보냅니다.
 
 방금 업로드한 Blob을 암호 해독하려면 다음을 추가합니다.
 
-	// In this case we will not pass a key and only pass the resolver because 
-	// 	this policy will only be used for downloading / decrypting
+	// In this case, we will not pass a key and only pass the resolver because
+	// this policy will only be used for downloading / decrypting.
 	BlobEncryptionPolicy policy = new BlobEncryptionPolicy(null, cloudResolver);
 	BlobRequestOptions options = new BlobRequestOptions() { EncryptionPolicy = policy };
 
@@ -208,13 +206,13 @@ RSA 키의 개인 키는 키 자격 증명 모음에 남아 있으므로 해독�
 
 	// Here we are making a 128-bit key so we have 16 characters. 
 	// 	The characters are in the ASCII range of UTF8 so they are
-	//	each 1 byte. 16 x 8 = 128
+	//	each 1 byte. 16 x 8 = 128.
 	$key = "qwertyuiopasdfgh"
 	$b = [System.Text.Encoding]::UTF8.GetBytes($key)
 	$enc = [System.Convert]::ToBase64String($b)
 	$secretvalue = ConvertTo-SecureString $enc -AsPlainText -Force
 
-	// substitute the VaultName and Name in this command
+	// Substitute the VaultName and Name in this command.
 	$secret = Set-AzureKeyVaultSecret -VaultName 'ContoseKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
 
 사용자의 콘솔 응용 프로그램에서는 전과 동일한 호출을 사용하여 이 암호를 검색할 수 있습니다.
@@ -237,4 +235,4 @@ Microsoft Azure 저장소에 관한 최신 정보를 보려면 [Microsoft Azure 
 <!--Image references-->
 [1]: ./media/storage-encrypt-decrypt-blobs-key-vault/blobmetadata.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

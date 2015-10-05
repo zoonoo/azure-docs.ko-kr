@@ -1,6 +1,6 @@
 <properties 
-	pageTitle="클라우드 서비스를 관리하는 방법 | Microsoft Azure" 
-	description="Azure Preview 포털에서 클라우드 서비스를 관리하는 방법에 대해 알아봅니다." 
+	pageTitle="클라우드 서비스를 관리하는 방법(Preview 포털) | Microsoft Azure" 
+	description="Azure Preview 포털에서 클라우드 서비스를 관리하는 방법에 대해 알아봅니다. 이러한 예제는 Azure Preview 포털을 사용합니다." 
 	services="cloud-services" 
 	documentationCenter="" 
 	authors="Thraka" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -106,4 +106,11 @@ Azure Preview 포털에서는 현재 Azure 포털에서와 같이 리소스를 �
 
 [Azure Preview 포털]: https://portal.azure.com
 
-<!---HONumber=August15_HO7-->
+## 다음 단계
+
+* [클라우드 서비스의 일반 구성](cloud-services-how-to-configure-portal.md)
+* [클라우드 서비스를 배포](cloud-services-how-to-create-deploy-portal.md)하는 방법을 알아봅니다.
+* [사용자 지정 도메인 이름](cloud-services-custom-domain-name-portal.md)을 구성합니다.
+* [SSL 인증서](cloud-services-configure-ssl-certificate-portal.md)를 구성합니다.
+
+<!---HONumber=Sept15_HO4-->

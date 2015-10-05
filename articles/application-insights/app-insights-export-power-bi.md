@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/08/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # Application Insights 데이터의 Power BI 보기
@@ -42,13 +42,13 @@ Noam Ben Zeev는 이 기사에서 설명한 내용을 보여줍니다.
 
 연속 내보내기는 항상 Azure 저장소 계정에 데이터를 출력하므로 저장소를 먼저 만들어야 합니다.
 
-1. [Azure 포털](https://portal.azure.com)에서 구독에 저장소 계정을 만듭니다.
+1. [Azure 포털](https://portal.azure.com)에서 구독에 “클래식" 저장소 계정을 만듭니다.
 
     ![Azure 포털에서 새로 만들기, 데이터, 저장소 선택](./media/app-insights-export-power-bi/030.png)
 
 2. 컨테이너 만들기
 
-    ![새 저장소에서 컨테이너를 선택한 다음 추가 선택](./media/app-insights-export-power-bi/040.png)
+    ![새 저장소에서 컨테이너를 선택하고 컨테이너 타일, 추가를 차례로 클릭합니다.](./media/app-insights-export-power-bi/040.png)
 
 3. 저장소 액세스 키 복사
 
@@ -239,4 +239,4 @@ Noam Ben Zeev는 Power BI를 내보내는 방법을 보여줍니다.
 * [Application Insights](app-insights-overview.md)
 * [추가 샘플 및 연습](app-insights-code-samples.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

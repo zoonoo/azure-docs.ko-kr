@@ -30,4 +30,4 @@ ST\_WITHIN 쿼리에서 다각형 인수의 최대 점 수* |16
 
 별표(*)가 표시된 할당량은 [Azure 지원부에 문의하여 조정할 수 있습니다](../articles/documentdb/documentdb-increase-limits.md).
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

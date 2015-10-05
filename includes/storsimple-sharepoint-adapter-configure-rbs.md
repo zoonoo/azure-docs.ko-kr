@@ -1,4 +1,4 @@
-
+<!--author=SharS last changed: 9/17/15-->
 
 >[AZURE.NOTE]SharePoint RBS용 StorSimple 어댑터 구성을 변경하면, Domain Admins 그룹에 속하는 사용자 계정으로 로그온해야 합니다. 또한 중앙 관리와 같은 호스트에서 실행 되는 브라우저에서 구성 페이지에 액세스해야 합니다.
 
@@ -10,15 +10,15 @@
 
     ![StorSimple 어댑터 구성](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS1-include.png)
 
-3. **StorSimple 어댑터 구성** 페이지에서:
+3. **StorSimple 어댑터 구성** 페이지에서 다음을 수행합니다.
 
-    1. **경로 편집 사용** 확인란이 선택되어야 합니다.
+    1. **경로 편집 사용** 확인란이 선택되었는지 확인합니다.
 
     2. 텍스트 상자에 BLOB 저장소의 UNC(범용 명명 규칙) 경로를 입력합니다.
 
           >[AZURE.NOTE]BLOB 저장소 볼륨은 StorSimple 장치에 구성된 iSCSI 볼륨에서 호스팅해야 합니다.
 
-    3. 원격 저장소에 대해 구성하려는 각 콘텐츠 데이터베이스 아래 **사용** 단추를 클릭합니다.
+    3. 원격 저장소에 대해 구성하려는 각 콘텐츠 데이터베이스 아래에 있는 **사용** 단추를 클릭합니다.
 
           >[AZURE.NOTE]BLOB 저장소가 공유되고 모든 WFE(웹 프런트 엔드) 서버에서 연결 가능해야 하며, SharePoint 서버 팜에 대해 구성된 사용자 계정에 공유 액세스 권한이 있어야 합니다.
 
@@ -36,7 +36,7 @@
  
 4. 구성 확인:
 
-    1. SharePoint 중앙 관리 웹사이트에 로그온하고 **StorSimple 어댑터 구성** 페이지로 이동합니다.
+    1. SharePoint 중앙 관리 웹 사이트에 로그온하고 **StorSimple 어댑터 구성** 페이지로 이동합니다.
 
     2. 구성 세부 정보를 확인하고 입력한 설정과 일치하는지 확인합니다.
 
@@ -99,9 +99,9 @@
 
        >[AZURE.WARNING]RBS를 사용하도록 설정하지 않은 경우, 콘텐츠 데이터베이스를 StorSimple 장치로 이동하지 않는 것이 좋습니다. 테스트되지 않은 구성입니다.
  
-9. 다음 단계, [가비지 수집 구성](#configure-garbage-collection)으로 이동합니다.
+9. 다음 단계인 [가비지 수집 구성](#configure-garbage-collection)으로 이동합니다.
 
 [6]: https://technet.microsoft.com/library/ff628254(v=office.15).aspx
 [7]: https://technet.microsoft.com/library/ff628255(v=office.14).aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

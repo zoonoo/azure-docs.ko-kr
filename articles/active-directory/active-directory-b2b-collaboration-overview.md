@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Active Directory B2B 공동 작업"
-   description="Azure Active Directory B2B 공동 작업을 사용하여 비즈니스 파트너가 회사 응용 프로그램에 액세스"
+   description="Azure Active Directory B2B 공동 작업을 사용하면 비즈니스 파트너가 각 사용자를 단일 Azure AD 계정으로 나타내어 회사 응용 프로그램에 액세스할 수 있습니다."
    services="active-directory"
    documentationCenter=""
    authors="curtand"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/16/2015"
+   ms.date="09/17/2015"
    ms.author="curtand"/>
 
 # Azure Active Directory B2B 공동 작업
@@ -48,18 +48,18 @@ B2B 공동 작업의 작동 원리에 대해 자세한 것은 [이 비디오](ht
 
 ## CSV 파일 형식
 
-CSV 파일은 다음과 같은 형식을 따릅니다.
+CSV 파일은 다음과 같은 형식을 따릅니다. 하나 이상의 옵션을 지정하지 않는 경우에도 필요한 모든 쉼표를 추가합니다.
 
-**전자 메일:** 초대된 사용자에 대한 전자 메일 주소입니다.<br/> **DisplayName:** 초대된 사용자에 대 한 표시 이름입니다.(일반적으로 성 및 이름)<br/> **InviteAppID:** 전자 메일 초대 및 수락 페이지를 브랜딩하기 위해 사용하는 응용 프로그램에 대한 ID입니다.<br/> **InviteReplyURL:** 초대 수락 후에 초대된 사용자를 안내하는 URL입니다. 이것은 회사 관련 URL이어야 합니다. (예: [*contoso.my.salesforce.com*](http://contoso.my.salesforce.com/))<br/> **InviteAppResources:** 응용 프로그램이 사용자를 할당할 수 있는 AppID입니다. AppID는 사용자를 추가하려는 그룹에 대한 `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId`<br/> **InviteGroupResources:** ObjectID를 호출하여 검색할 수 있습니다. 초대된 사용자가 조직에 문의하려는 경우 ObjectID는 전자 메일 초대에 포함할 `Get-MsolGroup | fl DisplayName, ObjectId`<br/> **InviteContactUsUrl:**"문의처" URL을 호출하여 검색할 수 있습니다.<br/>
+**전자 메일:** 초대된 사용자에 대한 전자 메일 주소입니다.<br/> **DisplayName:** 초대된 사용자에 대 한 표시 이름입니다.(일반적으로 성 및 이름)<br/> **InviteAppID:** 전자 메일 초대 및 수락 페이지를 브랜딩하기 위해 사용하는 응용 프로그램에 대한 ID입니다.<br/> **InviteReplyURL:** 초대 수락 후에 초대된 사용자를 안내하는 URL입니다. 회사 관련 URL(예: [*contoso.my.salesforce.com*](http://contoso.my.salesforce.com/))이어야 합니다. 이 선택적 필드를 지정하지 않으면 초대 회사의 액세스 패널 URL이 생성됩니다(이 URL은 `https://account.activedirectory.windowsazure.com/applications/default.aspx?tenantId=<TenantID>` 형식임).<br/> **InviteAppResources:** 응용 프로그램이 사용자를 할당할 수 있는 AppID입니다. AppID는 사용자를 추가하려는 그룹에 대한 `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId`<br/> **InviteGroupResources:** ObjectID를 호출하여 검색할 수 있습니다. 초대받은 사용자가 조직에 문의하려는 경우 메일 초대에 포함할 `Get-MsolGroup | fl DisplayName, ObjectId`<br/> **InviteContactUsUrl:** "문의처" URL을 호출하여 ObjectID를 검색할 수 있습니다.<br/>
 
 ## 샘플 CSV 파일
 다음은 용도에 맞게 수정할 수 있는 샘플 CSV입니다. 선호하는 파일 이름으로 저장하되 '.csv' 파일 확장이 있는지 확인합니다.
 
 ```
 Email,DisplayName,InviteAppID,InviteReplyUrl,InviteAppResources,InviteGroupResources,InviteContactUsUrl
-wharp@contoso.com,Walter Harp,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/<br/>
-jsmith@contoso.com,Jeff Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/<br/>
+wharp@contoso.com,Walter Harp,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
+jsmith@contoso.com,Jeff Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
 bsmith@contoso.com,Ben Smith,cd3ed3de-93ee-400b-8b19-b61ef44a0f29,http://azure.microsoft.com/services/active-directory/,,,http://azure.microsoft.com/services/active-directory/
 ```
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

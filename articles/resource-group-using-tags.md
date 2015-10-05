@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="태그를 사용하여 Azure 리소스 구성" 
-	description="태그를 적용하여 대금 청구 및 관리를 위해 리소스를 구성하는 방법을 보여 줍니다." 
-	services="azure-resource-manager" 
-	documentationCenter="" 
+<properties
+	pageTitle="태그를 사용하여 Azure 리소스 구성"
+	description="태그를 적용하여 대금 청구 및 관리를 위해 리소스를 구성하는 방법을 보여 줍니다."
+	services="azure-resource-manager"
+	documentationCenter=""
 	authors="tfitzmac"
-	manager="wpickett" 
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="azure-resource-manager" 
-	ms.workload="multiple" 
-	ms.tgt_pltfrm="AzurePortal" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/04/2015" 
+<tags
+	ms.service="azure-resource-manager"
+	ms.workload="multiple"
+	ms.tgt_pltfrm="AzurePortal"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/04/2015"
 	ms.author="tomfitz"/>
 
 
@@ -25,7 +25,7 @@
 
 리소스 또는 리소스 그룹에 추가한 각 태그는 구독 전체의 분류에 자동으로 추가됩니다. 나중에 리소스에 태그를 지정할 때 사용하려는 태그 이름 및 값으로 구독을 위한 분류를 미리 채울 수도 있습니다.
 
-> [AZURE.NOTE]리소스 관리자 작업을 지원하는 리소스에만 태그를 적용할 수 있습니다. 기존 배포 모델을 통해(예: Azure 포털 또는[서비스 관리 API](https://msdn.microsoft.com/library/azure/dn948465.aspx)를 통해) 가상 컴퓨터, 가상 네트워크 또는 저장소를 만든 경우, 해당 리소스에 태그를 적용할 수 없습니다. 태그 지정을 지원하기 위해서는 리소스 관리자를 통해 이러한 리소스를 다시 배포해야 합니다. 다른 모든 리소스는 태그 지정을 지원합니다.
+> [AZURE.NOTE]리소스 관리자 작업을 지원하는 리소스에만 태그를 적용할 수 있습니다. 기존 배포 모델을 통해(예: Azure 포털 또는[서비스 관리 API](../services/api-management/)를 통해) 가상 컴퓨터, 가상 네트워크 또는 저장소를 만든 경우, 해당 리소스에 태그를 적용할 수 없습니다. 태그 지정을 지원하기 위해서는 리소스 관리자를 통해 이러한 리소스를 다시 배포해야 합니다. 다른 모든 리소스는 태그 지정을 지원합니다.
 
 
 ## 미리 보기 포털의 태그
@@ -154,8 +154,5 @@ PowerShell을 사용하여 구독 내의 모든 태그 목록을 가져오려면
 - 리소스 배포 시 Azure PowerShell 사용에 대한 소개는 [Azure 리소스 관리자와 함께 Azure PowerShell 사용](./powershell-azure-resource-manager.md)을 참조하세요.
 - 리소스 배포 시 Azure CLI 사용에 대한 소개는 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](./xplat-cli-azure-resource-manager.md)을 참조하세요.
 - Preview 포털 사용에 대한 소개는 [Azure Preview 포털을 사용하여 Azure 리소스 관리](./resource-group-portal.md)를 참조하세요.  
-  
 
-  
-
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

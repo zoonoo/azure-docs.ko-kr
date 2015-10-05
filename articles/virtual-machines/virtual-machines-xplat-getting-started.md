@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Azure CLI를 사용하여 Azure 가상 컴퓨터를 만드는 방법 | Microsoft Azure"
+   pageTitle="Azure CLI를 사용하여 Azure VM을 만드는 방법 | Microsoft Azure"
    description="이 항목에서는 모든 플랫폼에서 Azure CLI를 설치하고, Azure CLI를 사용하여 Azure 계정에 연결하고, Azure CLI에서 VM을 만드는 방법을 설명합니다."
    services="virtual-machines"
-   documentationCenter="virtual-machines"
+   documentationCenter=""
    authors="dlepow"
    manager="timlt"
-   editor="tysonn"/>
+   editor="tysonn"
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
@@ -17,6 +18,9 @@
    ms.author="danlep"/>
 
 # Azure CLI(Azure 명령줄 인터페이스)를 사용하여 VM 만들기
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다. [리소스 관리자 배포 모델](virtual-machines-deploy-rmtemplates-azure-cli.md)을 사용하여 리소스를 만들 수도 있습니다.
+
 Azure CLI를 사용하면 어떤 플랫폼에서나 Azure 인프라를 효율적으로 관리할 수 있습니다.
 
 그러나 Azure CLI를 설치하고 Azure 구독만 생성한다고 해서 VM을 즉시 만들 수는 없습니다. 따라서 이 문서에서는 VM을 만드는 단계를 설명합니다. Azure 계정이 없으면 [무료 계정](http://azure.microsoft.com/pricing/free-trial/)을 만드세요.
@@ -43,7 +47,7 @@ VM을 만들 때는 먼저 이미지를 선택하거나 업로드하고 `azure v
 
     여기서 이미지를 선택한 다음 `show` 명령을 사용하여 해당 속성을 보다 자세하게 확인할 수 있습니다.
 
-        azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ko-kr-30GB
+        azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ko-KR-30GB
 
 2. VM 이미지를 선택한 다음 `vm create` 명령을 사용하여 이미지를 만듭니다. 이 명령에는 많은 옵션이 있으며, `help` 명령을 사용하면 목록을 표시할 수 있습니다.
 
@@ -59,7 +63,7 @@ VM을 만들 때는 먼저 이미지를 선택하거나 업로드하고 `azure v
 
     The Linux example below creates a VM in West US, opens the default SSH port 22 (the -e argument), and creates a user called `myadminuser`:
 
-        azure vm create -e -l "West US"  my-new-cli-vm b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ko-kr-30GB "myadminuser" "myAdm1n@passwd"
+        azure vm create -e -l "West US"  my-new-cli-vm b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ko-KR-30GB "myadminuser" "myAdm1n@passwd"
 
 ## 다음 단계
 
@@ -74,4 +78,4 @@ VM에서 작업을 수행해 봅니다.
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

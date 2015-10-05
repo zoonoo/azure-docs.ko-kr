@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 #  Azure Active Directory B2C 미리 보기: 사용자 지정 특성을 사용하여 소비자에 대한 정보를 수집
@@ -46,4 +46,4 @@ Azure Active Directory(AD) B2C 디렉터리는 지정된 이름, 성, 도시, �
 
 정책에서 "지금 실행" 기능을 사용하여 고객 환경을 확인할 수 있습니다. 이제 소비자를 등록하는 동안 수집되는 특성의 목록에서 "ShoeSize"을 표시되고 응용 프로그램으로 다시 전송되는 토큰에 표시되야 합니다.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

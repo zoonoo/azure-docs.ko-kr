@@ -1,6 +1,7 @@
-<properties 
-	pageTitle="최신 탄력적 데이터베이스 클라이언트 라이브러리로 업그레이드" 
-	description="PowerShell 및 C#을 사용한 업그레이드 지침" 
+<properties
+	
+	pageTitle="Upgrade to the latest elastic database client library" 
+	description="Upgrade apps and libraries using Nuget" 
 	services="sql-database" 
 	documentationCenter="" 
 	manager="jeffreyg" 
@@ -12,23 +13,25 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="05/17/2015" 
+	ms.date="09/22/2015" 
 	ms.author="sidneyh" />
 
 # 최신 탄력적 데이터베이스 클라이언트 라이브러리로 업그레이드
 
 탄력적 데이터베이스 클라이언트 라이브러리의 새 버전은 Visual Studio의 NuGetPackage Manager 인터페이스와 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)을 통해 제공됩니다. 업그레이드에는 클라이언트 라이브러리의 새 기능 지원 및 버그 수정이 포함됩니다.
 
+새 라이브러리를 사용하여 응용 프로그램을 다시 빌드하고 새로운 기능을 지원하도록 Azure SQL 데이터베이스에 저장된 기존 분할된 데이터베이스 맵 관리자 메타데이터를 변경합니다.
+
+이러한 단계를 순서대로 수행하면 메타데이터 개체를 업데이트할 때 클라이언트 라이브러리의 이전 버전이 환경에 더 이상 포함되어 있지 않으므로 업그레이드 후에 이전 버전 메타데이터 개체가 생성되지 않습니다.
+
 ## 업그레이드 단계
-
-업그레이드를 수행하려면 새 라이브러리를 사용하여 응용 프로그램을 다시 빌드해야 할 뿐 아니라 새로운 기능을 지원하도록 Azure SQL 데이터베이스에 저장된 기존 분할된 데이터베이스 맵 관리자 메타데이터도 변경해야 합니다.
-
-응용 프로그램, 분할된 데이터베이스 맵 관리자 데이터베이스 및 각 분할의 로컬 분할된 데이터베이스 맵 관리자 메타데이터를 업그레이드하려면 아래 순서대로 수행합니다. 이 순서대로 업그레이드 단계를 수행하면 메타데이터 개체를 업데이트할 때 클라이언트 라이브러리의 이전 버전이 환경에 더 이상 포함되어 있지 않으므로 업그레이드 후에 이전 버전 메타데이터 개체가 작성되지 않습니다.
 
 **1. 응용 프로그램을 업그레이드합니다.** Visual Studio에서 라이브러리를 사용하는 모든 개발 프로젝트에 최신 클라이언트 라이브러리 버전을 다운로드하고 해당 버전을 참조하도록 지정한 다음 프로젝트를 다시 빌드하고 배포합니다.
 
  * Visual Studio 솔루션에서 **도구** --> **NuGet 패키지 관리자** --> **솔루션용 NuGet 패키지 관리**를 선택합니다. 
- * 왼쪽 패널에서 **업데이트**를 선택한 다음 창에 표시되는 **Azure SQL 데이터베이스 탄력적인 확장 클라이언트 라이브러리** 패키지에서 **업데이트** 단추를 선택합니다. ![Nuget 패키지 업그레이드][1]
+ * (Visual Studio 2013) 왼쪽 패널에서 **업데이트**를 선택한 다음 창에 표시되는 **Azure SQL 데이터베이스 탄력적인 확장 클라이언트 라이브러리** 패키지에서 **업데이트** 단추를 선택합니다.
+ * (Visual Studio 2015) 필터 상자를 **업그레이드 가능**으로 설정합니다. 업데이트할 패키지를 선택하고 **업데이트** 단추를 클릭합니다.
+	
  
  * 빌드와 배포를 수행합니다.
 
@@ -94,4 +97,4 @@ ShardMapManager를 열고 모든 분할에서 반복 실행한 다음, 다음 �
 [1]: ./media/sql-database-elastic-scale-upgrade-client-library/nuget-upgrade.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

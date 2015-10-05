@@ -1,12 +1,13 @@
-<properties 
-	pageTitle="Azure VM의 AlwaysOn 가용성 그룹 구성(GUI)"
-	description="Azure 가상 컴퓨터에서 AlwaysOn 가용성 그룹을 만듭니다. 이 자습서에서는 스크립트보다는 사용자 인터페이스 및 도구를 주로 사용합니다."
+<properties
+	pageTitle="AlwaysOn 가용성 그룹 구성(GUI) | Microsoft Azure"
+	description="Azure 가상 컴퓨터로 AlwaysOn 가용성 그룹을 만듭니다. 이 자습서에서는 스크립트보다는 사용자 인터페이스 및 도구를 주로 사용합니다."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
-<tags 
+	editor="monicar"
+	tags="azure-service-management" />
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
@@ -16,6 +17,14 @@
 	ms.author="jroth" />
 
 # Azure VM의 AlwaysOn 가용성 그룹 구성(GUI)
+
+> [AZURE.SELECTOR]
+- [Portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
+- [PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
+
+<br/>
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 이 종단 간 자습서에서는 Azure 가상 컴퓨터에서 실행되는 SQL Server AlwaysOn을 사용하여 가용성 그룹을 구현하는 방법을 보여줍니다.
 
@@ -45,7 +54,7 @@
 
 - GUI를 사용하여 가상 컴퓨터 갤러리에서 SQL Server VM을 프로비전하는 방법을 이미 알고 있습니다. 자세한 내용은 [Azure에서 SQL Server 가상 컴퓨터 프로비전](virtual-machines-provision-sql-server.md)을 참조하세요.
 
-- AlwaysOn 가용성 그룹을 확실하게 이해하고 있습니다. 자세한 내용은 [AlwaysOn 가용성 그룹 구성(SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
+- AlwaysOn 가용성 그룹을 확실하게 이해하고 있습니다. 자세한 내용은 [AlwaysOn 가용성 그룹(SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx)을 참조하세요.
 
 >[AZURE.NOTE]SharePoint와 AlwaysOn 가용성 그룹을 사용하는 것에 관심이 있는 경우 [SharePoint 2013에 대해 SQL Server 2012 AlwaysOn 가용성 그룹 구성](https://technet.microsoft.com/library/jj715261.aspx)을 참조하세요.
 
@@ -57,7 +66,7 @@
 
 	![포털에서 새로 만들기 클릭](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665511.gif)
 
-1. 아래와 같이 **네트워크 서비스**를 클릭한 다음 **가상 네트워크**, **사용자 지정 만들기**를 차례로 클릭합니다.
+1. **네트워크 서비스**를 클릭한 다음 **가상 네트워크**, **사용자 지정 만들기**를 차례로 클릭합니다.
 
 	![가상 네트워크 만들기](./media/virtual-machines-sql-server-alwayson-availability-groups-gui/IC665512.gif)
 
@@ -160,7 +169,7 @@
 
 1. **확인**을 클릭하여 **Install** 사용자를 만듭니다. 이 계정이 장애 조치(Failover) 클러스터 및 가용성 그룹을 구성하는 데 사용됩니다.
 
-1. 동일한 단계로 **CORP\\SQLSvc1** 및 **CORP\\SQLSvc2**의 추가 사용자 2개를 만듭니다. 이러한 계정은 SQL Server 인스턴스에 사용됩니다. 다음으로 WSFC(Windows Service Failover Clustering)를 구성하는 데 필요한 권한인 **CORP\\Install**을 부여합니다.
+1. 동일한 단계로 **CORP\\SQLSvc1** 및 **CORP\\SQLSvc2**의 추가 사용자 2개를 만듭니다. 이러한 계정은 SQL Server 인스턴스에 사용됩니다. 다음으로 WSFC(Windows Service Failover Clustering)를 구성하는 데 필요한 권한인 **CORP\\Install**을 부여해야 합니다.
 
 1. **Active Directory 관리 센터**의 왼쪽 창에서 **corp(로컬)**을 선택합니다. 다음으로 오른쪽 **작업** 창에서 **속성**을 클릭합니다.
 
@@ -355,7 +364,7 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 
 - AlwaysOn 가용성 그룹 기능 사용
 
-- SQL Server 서비스 계정을 각각 **CORP\\SQLSvc1** 및 **CORP\\SQLSvc2**로 변경
+- SQL Server 서비스 계정을 **CORP\\SQLSvc1** 및 **CORP\\SQLSvc2**로 각각 변경
 
 이 작업은 순서와 관계없이 수행할 수 있습니다. 하지만 아래 단계는 순서대로 진행합니다. **ContosoSQL1** 및 **ContosoSQL2** 모두에 대해 다음 단계를 따릅니다.
 
@@ -372,11 +381,11 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 1. **NT AUTHORITY\\System** 로그인을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 
 1. 로컬 서버에 대한 **보안 개체** 페이지에서 다음 사용 권한에 대해 **권한 부여**를 선택하고 **확인**을 클릭합니다.
-	
+
 	- 가용성 그룹 변경
-	
+
 	- SQL 연결
-	
+
 	- 서버 상태 보기
 
 1. 다음으로 기본 SQL Server 인스턴스에 **sysadmin** 역할로 **CORP\\Install**을 추가합니다. **개체 탐색기**에서 **로그인**을 마우스 오른쪽 단추로 클릭하고 **새 로그인**을 클릭합니다.
@@ -530,8 +539,8 @@ SQL Server VM이 프로비전되어 실행 중이지만 기본 옵션으로 SQL 
 >[AZURE.WARNING]장애 조치(Failover) 클러스터 관리자에서 가용성 그룹으로 장애 조치를 시도하지 마세요. 모든 장애 조치(Failover) 작업은 SSMS의 **AlwaysOn 대시보드**에서 수행해야 합니다. 자세한 내용은 [가용성 그룹에서 WSFC 장애 조치(Failover) 클러스터 관리자 사용에 대한 제한 사항](https://msdn.microsoft.com/library/ff929171.aspx)을 참조하세요.
 
 ## 다음 단계
-이제 Azure에서 가용성 그룹을 만들어 SQL Server AlwaysOn을 성공적으로 구현했습니다. 이 가용성 그룹에 대한 수신기를 구성하려면 [Azure에서 AlwaysOn 가용성 그룹을 위해 ILB 수신기 구성](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)을 참조하세요.
+이제 Azure에서 가용성 그룹을 만들어 SQL Server AlwaysOn을 성공적으로 구현했습니다. 이 가용성 그룹에 대한 수신기를 구성하려면 [Azure에서 AlwaysOn 가용성 그룹에 대한 ILB 수신기 구성](virtual-machines-sql-server-configure-ilb-alwayson-availability-group-listener.md)을 참조하세요.
 
 Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

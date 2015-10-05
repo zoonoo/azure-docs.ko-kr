@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # 큐 저장소 및 Visual Studio 연결 서비스 시작(ASP.NET 5)
 
@@ -185,4 +185,4 @@ ASP.NET 5 프로젝트의 큐에 액세스하려면 Azure 큐 저장소에 액�
 
 [AZURE.INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

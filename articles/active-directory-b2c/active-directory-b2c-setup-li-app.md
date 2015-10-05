@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory(AD) B2C 미리 보기: 고객에게 LinkedIn 계정으로 등록 및 로그인 제공
@@ -52,4 +52,4 @@ Azure Active Directory(AD) B2C에서 LinkedIn을 ID 공급자로 사용하려면
 6. **이 ID 공급자 설정**을 클릭하고 이전에 만든 LinkedIn 응용 프로그램의 **클라이언트 ID** 및 **클라이언트 암호**를 입력합니다.
 7. **확인** 및 **만들기**를 차례로 클릭하여 LinkedIn 구성을 저장합니다.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

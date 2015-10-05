@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 가상 컴퓨터에 사용자 지정 데이터 삽입"
+	pageTitle="가상 컴퓨터에 사용자 지정 데이터 삽입 | Microsoft Azure"
 	description="이 항목에서는 인스턴스를 만들 때 Azure 가상 컴퓨터에 사용자 지정 데이터를 삽입하는 방법과 Windows 또는 Linux에서 사용자 지정 데이터를 찾는 방법에 대해 설명합니다."
 	services="virtual-machines"
 	documentationCenter=""
@@ -20,7 +20,11 @@
 
 #Azure 가상 컴퓨터에 사용자 지정 데이터 삽입
 
-프로비전 중에 Azure 가상 컴퓨터에 스크립트 또는 기타 데이터를 삽입하는 경우는 운영 체제가 Windows이든, Linux 배포판이든 상관없이 아주 일반적인 시나리오입니다. 이 항목에서는 이러한 방법에 대해 설명합니다.
+프로비전 중에 Azure 가상 컴퓨터에 스크립트 또는 기타 데이터를 삽입하는 경우는 운영 체제가 Windows이든, Linux 배포판이든 상관없이 아주 일반적인 시나리오입니다.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+
+이 항목에서는 이러한 방법에 대해 설명합니다.
 
 - 프로비전 중에 Azure 가상 컴퓨터에 데이터 삽입
 
@@ -32,7 +36,7 @@
 
 ## Azure 가상 컴퓨터에 사용자 지정 데이터 삽입
 
-이 기능은 현재 [Azure 명령줄 인터페이스](https://github.com/Azure/azure-xplat-cli)에서만 지원됩니다. `azure vm create` 명령에 대한 옵션 중 어떤 것도 사용할 수 있지만 다음에서는 기본적인 한 가지 접근 방법만 보여 줍니다.
+이 기능은 현재 [Azure 명령줄 인터페이스](https://github.com/Azure/azure-xplat-cli)에서만 지원됩니다. `azure vm create` 명령에 대한 모든 옵션을 사용할 수 있지만 다음 예제에서는 한 가지 기본적인 방법을 보여 줍니다.
 
 ```
     PASSWORD='AcceptablePassword -- more than 8 chars, a cap, a num, a special'
@@ -78,4 +82,4 @@ Azure 가상 컴퓨터를 CoreOS 또는 Ubuntu 이미지에서 온 경우, Custo
 
 [Azure 명령줄 인터페이스](https://github.com/Azure/azure-sdk-tools-xplat)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

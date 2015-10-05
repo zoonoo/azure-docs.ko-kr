@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure의 CoreOS에서 fleet 시작"
-	description="Azure의 CoreOS Linux 가상 컴퓨터에서 Fleet 및 Docker를 사용하는 방법에 대한 기본적인 예제를 제공합니다."
+	pageTitle="CoreOS에서 Fleet 시작 | Microsoft Azure"
+	description="Azure의 클래식 배포 모델을 사용하여 만든 CoreOS Linux 가상 컴퓨터에서 Fleet 및 Docker를 사용하는 방법의 기본적인 예를 제공합니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dlepow"
@@ -19,9 +19,11 @@
 
 # Azure의 CoreOS에서 fleet 시작
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 관리하는 방법을 설명합니다.
+
 이 문서에서는 [CoreOS] 가상 컴퓨터 클러스터에서 [fleet](https://github.com/coreos/fleet) 및 [Docker](https://www.docker.com/)를 사용하여 응용 프로그램을 실행하는 두 가지 간단한 예제를 설명합니다.
 
-이러한 예제를 사용하려면 먼저 [Azure에서 CoreOS를 사용하는 방법]에 설명된 대로 3노드 CoreOS 클러스터를 설정하십시오. 완료되면 CoreOS 배포의 매우 기본적인 요소를 이해하고 작동하는 클러스터 및 클라이언트 컴퓨터를 가지게 됩니다. 우리는 이러한 예제에서 정확히 똑같은 클러스터 이름을 사용할 것입니다. 또한 이 예제에서는 사용자가 로컬 Linux 호스트를 사용하여 **fleetctl** 명령을 사용한다고 가정합니다.
+이러한 예제를 사용하려면 먼저 [Azure에서 CoreOS를 사용하는 방법]에 설명된 대로 3노드 CoreOS 클러스터를 설정하십시오. 완료되면 CoreOS 배포의 매우 기본적인 요소를 이해하고 작동하는 클러스터 및 클라이언트 컴퓨터를 가지게 됩니다. 우리는 이러한 예제에서 정확히 똑같은 클러스터 이름을 사용할 것입니다. 또한 이 예제에서는 사용자가 로컬 Linux 호스트를 사용하여 **fleetctl** 명령을 실행한다고 가정합니다.
 
 
 
@@ -91,7 +93,7 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload helloworld.service
 
 CoreOS, Docker 및 **fleet** 사용 시 한 가지 이점은 가용성이 높은 방식으로 손쉽게 서비스를 실행할 수 있다는 것입니다. 이 예제에서는 Apache 웹 서버를 실행하는 동일한 컨테이너 3개로 구성된 서비스를 배포합니다. 컨테이너는 클러스터의 세 VM에서 실행됩니다. 이 예제는 [fleet로 컨테이너 시작]과 유사하며 [CoreOS Apache Docker Hub 이미지]를 사용합니다.
 
->[AZURE.IMPORTANT]가용성이 높은 Apache 서버를 실행하려면 가상 컴퓨터(공용 포트 80, 개인 포트 80)에서 부하 분산된 HTTP 끝점을 구성해야 합니다. 이렇게 하려면 Azure 포털 또는 **azure vm endpoint** 명령을 사용하여 CoreOS 클러스터를 만들어야 합니다. 자세한 내용은 [부하 분산된 집합 구성]을 참조하십시오.
+>[AZURE.IMPORTANT]가용성이 높은 Apache 서버를 실행하려면 가상 컴퓨터(공용 포트 80, 개인 포트 80)에서 부하 분산된 HTTP 끝점을 구성해야 합니다. CoreOS 클러스터를 만든 후 Azure 포털 또는 **azure vm endpoint** 명령을 사용하여 이 작업을 수행할 수 있습니다. 자세한 내용은 [부하 분산된 집합 구성]을 참조하십시오.
 
 클라이언트 컴퓨터에서 원하는 텍스트 편집기를 사용하여 apache@.service라는 이름의 **systemd** 템플릿 단위 파일을 만드십시오. 이 템플릿은 apache@1.service, apache@2.service 및 apache@3.service라고 명명된 세 가지 개별 인스턴스를 시작하는 데 사용됩니다.
 
@@ -152,9 +154,9 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload apache@{1,2,3}.service
 
 * 이렇게 하면 Azure에서 3노드 CoreOS 클러스터로 더 많은 작업을 시도할 수 있습니다. 더 복잡한 클러스터를 만들고 Docker를 사용하여 더 흥미로운 응용 프로그램을 만드는 방법을 살펴보려면 [Tim Park의 CoreOS 자습서], [Patrick Chanezon의 CoreOS 자습서], [Docker] 설명서 및 [CoreOS 개요]를 읽어보십시오.
 
-* Azure 리소스 관리자에서 Fleet 및 CoreOS를 시작하려면 이 [빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/)을 사용해 보세요.
+* Azure 리소스 관리자에서 Fleet 및 CoreOS를 시작하려면 이 [빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/coreos-with-fleet-multivm/)을 사용합니다.
 
-* Azure의 Linux VM에서 공개 소스 환경을 사용하는 방법에 대한 자세한 내용은 [Azure에서 Linux 및 공개 소스 컴퓨팅]을 참조하십시오.
+* Azure Linux VM에서 오픈 소스 환경을 사용하는 방법에 대한 자세한 내용은 [Azure의 오픈 소스 컴퓨팅 및 Linux]를 참조하세요.
 
 <!--Link references-->
 [Azure Command-Line Interface (Azure)]: ../xplat-cli.md
@@ -171,6 +173,6 @@ fleetctl --tunnel coreos-cluster.cloudapp.net:22 unload apache@{1,2,3}.service
 [단위 파일]: https://coreos.com/docs/launching-containers/launching/fleet-unit-files/
 [BusyBox Docker Hub 이미지]: https://registry.hub.docker.com/_/busybox/
 [CoreOS Apache Docker Hub 이미지]: https://registry.hub.docker.com/u/coreos/apache/
-[Azure에서 Linux 및 공개 소스 컴퓨팅]: virtual-machines-linux-opensource.md
+[Azure의 오픈 소스 컴퓨팅 및 Linux]: virtual-machines-linux-opensource.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

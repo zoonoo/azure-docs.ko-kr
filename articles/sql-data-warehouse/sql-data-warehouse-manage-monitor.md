@@ -1,38 +1,24 @@
 <properties
    pageTitle="DMV를 사용하여 작업 모니터링 | Microsoft Azure"
-	description="DMV를 사용하여 작업을 모니터링하는 방법을 알아봅니다."
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="sahaj08"
-	manager="barbkess"
-	editor=""/>
+   description="DMV를 사용하여 작업을 모니터링하는 방법을 알아봅니다."
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="sahaj08"
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="08/06/2015"
-	ms.author="sahajs"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/22/2015"
+   ms.author="sahajs"/>
 
 # DMV를 사용하여 작업 모니터링
 
 이 문서에서는 DMV(동적 관리 뷰)를 사용하여 작업을 모니터링하고 Azure SQL 데이터 웨어하우스의 쿼리 실행을 조사하는 방법을 설명합니다.
-
-
-
-
-## 권한
-
-SQL 데이터 웨어하우스에서 동적 관리 뷰를 쿼리하려면 **VIEW DATABASE STATE** 권한이 있어야 합니다. **VIEW DATABASE STATE** 권한은 현재 데이터베이스 내의 모든 개체에 대한 정보를 반환합니다. 특정 데이터베이스 사용자에게 **VIEW DATABASE STATE** 권한을 부여하려면 다음 쿼리를 실행합니다.
-
-```
-
-GRANT VIEW DATABASE STATE TO database_user;
-
-```
-
 
 
 
@@ -137,8 +123,8 @@ ORDER BY step_index;
 
 장기 실행 쿼리 단계의 *operation\_type* 열을 확인합니다.
 
-- **SQL 작업**에 OnOperation, RemoteOperation, ReturnOperation 등의 4a 단계를 진행합니다.
-- **데이터 이동 작업**에 ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation 등의 4b 단계를 진행합니다.
+- OnOperation, RemoteOperation, ReturnOperation 등의 **SQL 작업**에 대해 4a단계를 진행합니다.
+- ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation 등의 **데이터 이동 작업**에 대해 4b단계를 진행합니다.
 
 
 
@@ -186,7 +172,7 @@ WHERE request_id = 'QID33209' AND step_index = 2;
 ```
 
 - *total\_elapsed\_time* 열을 검사하여 특정 배포에서 데이터 이동 시간이 다른 배포보다 오래 걸리는지 확인합니다. 
-- 장기 실행 배포에 대한 *rows\_processed* 열을 검사하여 해당 배포에서 이동되는 행 수가 다른 배포보다 훨씬 큰지 확인합니다. 이는 쿼리에 데이터 기울이기가 있음을 보여 줍니다.
+- 장기 실행 배포의 경우 *rows\_processed* 열을 검사하여 해당 배포에서 이동되는 행 수가 다른 배포보다 훨씬 큰지 확인합니다. 이는 쿼리에 데이터 기울이기가 있음을 보여 줍니다.
 
 
 
@@ -217,4 +203,4 @@ SQL 데이터 웨어하우스 관리에 대한 자세한 팁은 [관리 개요][
 
 <!--MSDN references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

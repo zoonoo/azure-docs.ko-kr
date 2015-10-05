@@ -1,8 +1,8 @@
 <properties 
-	pageTitle="" 
-	description="Cordova에서 Azure 모바일 서비스 프로젝트의 변경 사항을 설명합니다." 
+	pageTitle="내 Cordova 프로젝트(Visual Studio 연결된 서비스)의 변경 내용 | Microsoft Azure" 
+	description="Visual Studio 연결된 서비스를 사용하여 Azure 모바일 서비스를 추가한 후 Azure Cordova 프로젝트의 변경 내용에 대해 설명합니다." 
 	services="mobile-services" 
-	documentationCenter="" 
+	documentationCenter="na" 
 	authors="patshea123" 
 	manager="douge" 
 	editor=""/>
@@ -10,13 +10,13 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="NA" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="08/12/2015" 
+	ms.date="09/17/2015" 
 	ms.author="patshea"/>
 
-# 내 프로젝트에서 무엇이 변경되었습니까?
+# Visual Studio 연결된 서비스를 사용하여 Azure 모바일 서비스를 추가한 후 내 Azure Cordova 프로젝트의 변경 내용
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-mobile-services-cordova-getting-started.md)
@@ -39,4 +39,4 @@
 
 [모바일 서비스에 대한 자세한 정보](http://azure.microsoft.com/documentation/services/mobile-services/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

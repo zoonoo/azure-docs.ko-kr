@@ -1,20 +1,20 @@
 <properties
-	pageTitle="액세스 및 사용 보고서 보기"
-	description="액세스 및 사용 보고서를 사용하여 조직 디렉터리의 무결성 및 보안을 보는 방법에 대해 설명하는 항목입니다."
+	pageTitle="액세스 및 사용 보고서 보기 | Microsoft Azure"
+	description="액세스 및 사용 보고서를 사용하여 조직 디렉터리의 무결성 및 보안을 보는 방법에 대해 설명합니다."
 	services="active-directory"
 	documentationCenter=""
 	authors="kenhoff"
-	manager="TerryLan"
-	editor="LisaToft"/>
+	manager="stevenpo"
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
-	ms.workload="infrastructure-services"
+	ms.workload="identity"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
-	ms.author="kenhoff;Justinha"/>
+	ms.date="09/21/2015"
+	ms.author="kenhoff;Justinha;curtand"/>
 
 # 액세스 및 사용 보고서 보기
 
@@ -90,12 +90,6 @@ Azure 관리 포털에서 보고서는 다음과 같은 방식으로 분류되�
 |	가장 활동적인 RMS 사용자 | | |	RMS만 해당 |
 |	RMS 장치 사용 | | |	RMS만 해당 |
 |	RMS 사용 응용 프로그램 사용 현황 | | |	RMS만 해당 |
-
-
-
-
-
-
 
 
 
@@ -274,6 +268,6 @@ Azure AD의 보고 알림에 대한 자세한 내용은 [Azure Active Directory 
 ## 다음 단계
 
 - [Azure Active Directory Premium 시작](active-directory-get-started-premium.md)
-- [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가](active-directory-add-company-branding.md)
+- [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가하기](active-directory-add-company-branding.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

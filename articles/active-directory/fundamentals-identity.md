@@ -1,10 +1,10 @@
 <properties
-	pageTitle="Azure ID"
+	pageTitle="Azure ID | Microsoft Azure"
 	description="Azure에서 Active Directory를 사용하는 방법에 대해 알아봅니다."
 	services="active-directory"
 	documentationCenter=".net"
-	authors="TerryLanfear"
-	manager="terrylan"
+	authors="curtand"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/02/2015"
-	ms.author="terrylan"/>
+	ms.date="09/22/2015"
+	ms.author="curtand"/>
 
 
 # Azure ID 관리의 기초
@@ -24,6 +24,5 @@
 
 
 [AZURE.INCLUDE [ID](../../includes/identity.md)]
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

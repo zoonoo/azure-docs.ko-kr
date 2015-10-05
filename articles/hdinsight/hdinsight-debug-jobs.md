@@ -1,5 +1,5 @@
 <properties
-	pageTitle="HDInsight에서 Hadoop 디버그: 오류 메시지 | Microsoft Azure"
+	pageTitle="HDInsight에서 Hadoop 디버그: 로그 보기 및 오류 메시지 해석 | Microsoft Azure"
 	description="PowerShell을 사용하여 HDInsight를 관리할 때 표시될 수 있는 오류 메시지와 복구를 위해 수행할 수 있는 단계에 대해 알아봅니다."
 	services="hdinsight"
 	tags="azure-portal"
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/22/2015"
 	ms.author="jgao"/>
 
-# HDInsight에서 Hadoop 디버그: 오류 메시지 해석
+# HDInsight에서 Hadoop 디버그: 로그 보기 및 오류 메시지 해석
 
 이 문서의 항목별 오류 메시지를 통해 Azure HDInsight의 Hadoop 사용자는 Azure PowerShell을 사용하여 서비스를 관리할 때 발생할 수 있는 가능한 오류 상태에 대해 이해할 수 있으며, 오류를 복구하기 위해 수행할 수 있는 단계에 대해 도움을 받을 수 있습니다.
 
@@ -25,12 +25,40 @@
 
 ![HDInsight 미리 보기 포털 오류 메시지][image-hdi-debugging-error-messages-portal]
 
-Azure PowerShell 또는 미리 보기 포털에서 사용자에게 표시될 수 있는 오류가 [HDInsight 오류](#hdinsight-error-messages) 섹션에 사전순 이름별로 나열되어 있으며, 오류에 대한 다음 정보를 제공하는 [오류 설명 및 완화](#discription-mitigation-errors) 섹션의 항목과 연결되어 있습니다.
+오류가 Azure HDInsight에 특정되는 상황에서 오류가 무엇인지 이해하는 것이 좋습니다. [HDInsight 오류 코드](#hdi-error-codes)를 참조하여 각종 오류 코드 및 이를 수정하는 방법을 이해합니다. 일부 상황에서 Hadoop 로그 자체에 액세스하려고 할 수도 있습니다. 지금 Azure Preview 포털에서 직접 수행할 수 있습니다.
+
+## 클러스터 상태 및 작업 로그 보기
+
+* **Hadoop UI에 액세스**합니다. Azure Preview 포털에서 HDInsight 클러스터 이름을 클릭하여 클러스터 블레이드를 엽니다. 클러스터 블레이드에서 **대시보드**를 클릭합니다.
+
+	![클러스터 대시보드 시작](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard.png)
+  
+	메시지가 표시되면 클러스터 관리자 자격 증명을 입력합니다. 열리는 쿼리 콘솔에서 **Hadoop UI**를 클릭합니다.
+
+	![Hadoop UI 시작](./media/hdinsight-debug-jobs/hdi-debug-launch-dashboard-hadoop-ui.png)
+
+* **Yarn UI에 액세스**합니다. Azure Preview 포털에서 HDInsight 클러스터 이름을 클릭하여 클러스터 블레이드를 엽니다. 클러스터 블레이드에서 **대시보드**를 클릭합니다. 메시지가 표시되면 클러스터 관리자 자격 증명을 입력합니다. 열리는 쿼리 콘솔에서 **YARN UI**를 클릭합니다.
+
+	YARN UI를 사용하여 다음을 수행할 수 있습니다.
+
+	* **클러스터 상태를 가져옵니다**. 왼쪽 창에서 **클러스터**를 확장하고 **정보**를 클릭합니다. 이 현재 클러스터는 전체 할당된 메모리, 사용된 코어, 클러스터 리소스 관리자의 상태, 클러스터 버전 등을 자세히 설명합니다.
+
+		![클러스터 대시보드 시작](./media/hdinsight-debug-jobs/hdi-debug-yarn-cluster-state.png)
+
+	* **노드 상태를 가져옵니다**. 왼쪽 창에서 **클러스터**를 확장하고 **노드**를 클릭합니다. 클러스터의 모든 노드, 각 노드의 HTTP 주소, 각 노드에 할당된 리소스 등을 나열합니다.
+
+	* **작업 상태를 모니터링**합니다. 왼쪽 창에서 **클러스터**를 확장하고 **응용 프로그램**을 클릭하여 클러스터의 모든 작업을 나열합니다. 특정 상태(새로움, 제출됨, 실행 중과 같은)에 있는 작업을 확인하려면 **응용 프로그램**에서 적절한 링크를 클릭합니다. 더 자세한 내용을 보려면 작업 이름을 클릭하여 출력, 로그 등을 비롯하여 작업에 대해 자세히 확인할 수 있습니다.
+
+* **HBase UI에 액세스**합니다. Azure Preview 포털에서 HDInsight HBase 클러스터 이름을 클릭하여 클러스터 블레이드를 엽니다. 클러스터 블레이드에서 **대시보드**를 클릭합니다. 메시지가 표시되면 클러스터 관리자 자격 증명을 입력합니다. 열리는 쿼리 콘솔에서 **HBase UI**를 클릭합니다.
+
+## <a id="hdi-error-codes"></a>HDInsight 오류 코드
+
+Azure PowerShell 또는 Preview 포털에서 발생할 수 있는 오류는 아래에서 사전순으로 나열됩니다. 오류는 오류에 대한 다음 정보를 제공하는 [오류 설명 및 완화](#discription-mitigation-errors) 섹션에서 항목에 차례로 링크됩니다.
 
 - **설명**: 사용자에게 표시되는 오류 메시지
 - **해결 방법**: 오류를 복구하기 위해 수행할 수 있는 단계입니다.
 
-###HDInsight 오류 코드
+
 
 - [AtleastOneSqlMetastoreMustBeProvided](#AtleastOneSqlMetastoreMustBeProvided)
 - [AzureRegionNotSupported](#AzureRegionNotSupported)
@@ -272,4 +300,4 @@ Azure PowerShell 또는 미리 보기 포털에서 사용자에게 표시될 수
 
 [image-hdi-debugging-error-messages-portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

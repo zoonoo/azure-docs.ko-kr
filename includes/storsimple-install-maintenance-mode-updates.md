@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### StorSimple용 Windows PowerShell을 통해 유지 관리 모드 업데이트를 설치하려면
 
@@ -21,8 +22,8 @@
 	
 	`RunInProgress`가 `True`이면 업데이트가 아직 진행 중입니다. `RunInProgress`가 `False`이면 업데이트가 완료된 것입니다.
 
-7. 업데이트가 현재 컨트롤러에 설치되고 다시 시작된 경우 다른 컨트롤러에 연결하여 1\~6단계를 수행합니다.
+7. 업데이트가 현재 컨트롤러에 설치되고 다시 시작된 경우 다른 컨트롤러에 연결하여 1~6단계를 수행합니다.
 
 8. 두 컨트롤러를 모두 업데이트한 후 유지 관리 모드를 종료합니다. 지침은 [4단계: 유지 관리 모드 종료](storsimple-update-device.md#step4)를 참조하세요.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

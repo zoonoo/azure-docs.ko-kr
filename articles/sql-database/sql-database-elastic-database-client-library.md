@@ -44,6 +44,8 @@
 
 분할-병합 도구 사용에 대한 지침은 [분할-병합 도구 개요](sql-database-elastic-scale-overview-split-and-merge.md)를 참조하세요.
 
+[탄력적 데이터베이스 클라이언트 라이브러리는 이제 소스가 공개되었습니다!](http://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/)
+
 
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
@@ -51,4 +53,4 @@
 <!--Image references-->
 [1]: ./media/sql-database-elastic-database-client-library/glossary.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="SQL 데이터 웨어하우스의 테이블 파티션 | Microsoft Azure"
-	description="솔루션 개발을 위한 Azure SQL 데이터 웨어하우스의 테이블 파티션을 위한 팁"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="jrowlandjones"
-	manager="barbkess"
-	editor=""/>
+   description="솔루션 개발을 위한 Azure SQL 데이터 웨어하우스의 테이블 파티션을 위한 팁"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="jrowlandjones"
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="06/22/2015"
-	ms.author="JRJ@BigBangData.co.uk;barbkess"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/22/2015"
+   ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # SQL 데이터 웨어하우스의 테이블 파티션
 
@@ -326,4 +326,4 @@ SQL 데이터 웨어하우스로 데이터베이스 스키마를 성공적으로
 
 <!-- Other web references -->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -1,33 +1,36 @@
-<properties 
-   pageTitle="FreeBSD VHD를 만들어서 Azure에 업로드"
-	description="FreeBSD 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="KylieLiang"
-	manager="timlt"
-	editor=""/>
+<properties
+   pageTitle="FreeBSD VM 이미지 만들기 및 업로드 | Microsoft Azure"
+   description="FreeBSD 운영 체제가 포함된 VHD(가상 하드 디스크)를 만들고 업로드하여 Azure 가상 컴퓨터를 만드는 방법을 알아봅니다."
+   services="virtual-machines"
+   documentationCenter=""
+   authors="KylieLiang"
+   manager="timlt"
+   editor=""
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-linux"
-	ms.workload="infrastructure-services"
-	ms.date="05/19/2015"
-	ms.author="kyliel"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-linux"
+   ms.workload="infrastructure-services"
+   ms.date="05/19/2015"
+   ms.author="kyliel"/>
 
-# FreeBSD VHD를 만들어서 Azure에 업로드 
+# FreeBSD VHD를 만들어서 Azure에 업로드
 
 이 문서에서는 FreeBSD 운영 체제가 포함된 VHD(가상 하드 디스크)를 생성 및 업로드하고 이를 Azure에서 가상 컴퓨터(VM)를 만들기 위한 고유한 이미지로 사용하는 방법을 소개합니다.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 ##필수 조건##
 이 문서에서는 사용자에게 다음 항목이 있다고 가정합니다.
 
-- **Azure 구독** - 없는 경우에는 몇 분 만에 계정을 만들 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요. 그렇지 않으면 [무료 평가판 계정 만들기](http://azure.microsoft.com/pricing/free-trial/)를 참조하세요.  
+- **Azure 구독** - 없는 경우 몇 분 만에 계정을 만들 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요. 그렇지 않으면 [무료 평가판 계정 만들기](http://azure.microsoft.com/pricing/free-trial/)를 참조하세요.  
 
-- **Azure PowerShell 도구** - Microsoft Azure PowerShell 모듈이 설치되고 구독을 사용하도록 구성되어 있어야 합니다. 모듈을 다운로드하려면 [Azure 다운로드](http://azure.microsoft.com/downloads/)를 참조하세요. 모듈 설치 및 구성에 대한 자습서는 여기에서 확인할 수 있습니다. [Azure Downloads](http://azure.microsoft.com/downloads/) cmdlet을 사용하여 VHD를 업로드합니다.
+- **Azure PowerShell 도구** - Microsoft Azure PowerShell 모듈이 설치되고 구독을 사용하도록 구성되어 있어야 합니다. 모듈을 다운로드하려면 [Azure 다운로드](http://azure.microsoft.com/downloads/)를 참조하십시오. 모듈 설치 및 구성에 대한 자습서는 여기에서 확인할 수 있습니다. [Azure Downloads](http://azure.microsoft.com/downloads/) cmdlet을 사용하여 VHD를 업로드합니다.
 
-- **.vhd 파일에 설치된 FreeBSD 운영 체제** - 가상 하드 디스크에 지원되는 FreeBSD 운영 체제를 설치했습니다. 다양한 도구를 사용하여 .vhd 파일을 만들 수 있습니다. 예를 들어 Hyper-V와 같은 가상화 솔루션을 사용하여 .vhd 파일을 만들고 운영 체제를 설치할 수 있습니다. 자세한 내용은 [Hyper-V 역할 설치 및 가상 시스템 구성](http://technet.microsoft.com/library/hh846766.aspx)을 참조하세요.
+- **.vhd 파일에 설치된 FreeBSD 운영 체제** - 가상 하드 디스크에 지원되는 FreeBSD 운영 체제를 설치했습니다. 다양한 도구를 사용하여 .vhd 파일을 만들 수 있습니다. 예를 들어 Hyper-V와 같은 가상화 솔루션을 사용하여 .vhd 파일을 만들고 운영 체제를 설치할 수 있습니다. 자세한 내용은 [Hyper-V 역할 설치 및 가상 시스템 구성](http://technet.microsoft.com/library/hh846766.aspx)을 참조하십시오.
 
 > [AZURE.NOTE]새 VHDX 형식은 Azure에서 지원되지 않습니다. Hyper-V 관리자 또는 [convert-vhd](https://technet.microsoft.com/library/hh848454.aspx) cmdlet을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다.
 
@@ -48,9 +51,9 @@ FreeBSD 운영 체제를 설치한 가상 컴퓨터에서 다음 절차를 완�
 
     SSH는 디스크에서 설치 후 기본적으로 사용됩니다. 그렇지 않은 경우 또는 FreeBSD VHD를 직접 사용하는 경우 다음을 입력합니다.
 
-		# echo 'sshd_enable="YES"' >> /etc/rc.conf 
-		# ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key 
-		# ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key 
+		# echo 'sshd_enable="YES"' >> /etc/rc.conf
+		# ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
+		# ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
 		# service sshd restart
 
 3. **직렬 콘솔 설치**
@@ -73,7 +76,7 @@ FreeBSD 운영 체제를 설치한 가상 컴퓨터에서 다음 절차를 완�
 
     5\.2 **wget 설치**
 
-		# pkg install wget 
+		# pkg install wget
 
 6. **Azure 에이전트 설치**
 
@@ -111,11 +114,11 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 	![저장소 계정 빠른 생성](./media/virtual-machines-freebsd-create-upload-vhd/Storage-quick-create.png)
 
 4. 다음과 같이 필드를 채웁니다.
-	
+
 	- **URL**에서 저장소 계정의 URL에 사용할 하위 도메인 이름을 입력합니다. 이 입력에는 3-24자의 소문자와 숫자를 사용할 수 있습니다. 이 이름은 구독에 대한 Blob, 큐 또는 테이블 리소스의 주소를 지정하는 데 사용되는 URL 내의 호스트 이름이 됩니다.
-			
+
 	- 저장소 계정의 **위치 또는 선호도 그룹**을 선택합니다. 선호도 그룹을 사용하면 클라우드 서비스와 저장소를 동일한 데이터 센터에 배치할 수 있습니다.
-		 
+
 	- 저장소 계정에 **지역에서 복제**를 사용할지 여부를 결정합니다. 지역에서 복제는 기본적으로 설정되어 있습니다. 이 옵션을 사용하면 추가 비용 없이 보조 위치로 데이터를 복제하므로 기본 위치에서 심각한 장애가 발생하는 경우 저장소에서 보조 위치로 장애 조치(Failover)할 수 있습니다. 보조 위치는 자동으로 할당되며 변경될 수 없습니다. 법적 필요 또는 조직 정책에 따라 클라우드 기반 저장소의 위치를 더 엄격하게 제어해야 하는 경우 지역에서 복제를 해제할 수 있습니다. 그러나 나중에 지역에서 복제를 설정하는 경우 기존 데이터를 대체 위치로 복제하는 데 일회성 데이터 전송 요금이 청구됩니다. 지역에서 복제를 사용하지 않는 저장소 서비스는 할인하여 제공됩니다. 저장소 계정의 지역에서 복제를 관리하는 방법에 대한 자세한 내용은 [저장소 계정 만들기, 관리 또는 삭제](../storage-create-storage-account/#replication-options)에서 확인할 수 있습니다.
 
 	![저장소 계정 세부 정보 입력](./media/virtual-machines-freebsd-create-upload-vhd/Storage-create-account.png)
@@ -148,7 +151,7 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 1. Azure PowerShell 콘솔을 엽니다.
 
 2. 다음 명령을 입력합니다. `Add-AzureAccount`
-	
+
 	이 명령은 직장 또는 학교 계정으로 로그인할 수 있는 로그인 창을 엽니다.
 
 	![PowerShell 창](./media/virtual-machines-freebsd-create-upload-vhd/add_azureaccount.png)
@@ -157,7 +160,7 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 
 ###인증서 방법 사용
 
-1. Azure PowerShell 콘솔을 엽니다. 
+1. Azure PowerShell 콘솔을 엽니다.
 
 2. 다음을 입력합니다. `Get-AzurePublishSettingsFile`
 
@@ -171,8 +174,8 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 
 	여기서 `<PathToFile>`은 .publishsettings 파일의 전체 경로입니다.
 
-   자세한 내용은 [Microsoft Azure Cmdlets 시작](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)(영문)을 참조하세요.
-	
+   자세한 내용은 [Microsoft Azure Cmdlets 시작](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)(영문)을 참조하십시오.
+
    PowerShell을 설치하고 구성하는 방법에 대한 자세한 내용은 [Microsoft Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)을 참조하세요.
 
 ## 4단계: .vhd 파일 업로드 ##
@@ -204,6 +207,5 @@ Azure에서 가상 컴퓨터를 만드는 데 사용할 수 있도록 .vhd 파�
 4. 프로비전이 완료되면 FreeBSD VM이 Azure에서 실행됩니다.
 
 	![azure의 freebsd 이미지](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
- 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

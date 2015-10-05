@@ -1,48 +1,53 @@
 <properties
    pageTitle="샘플 데이터를 SQL 데이터 웨어하우스에 로드 | Microsoft Azure"
-	description="앰플 데이터를 SQL 데이터 웨어하우스에 로드"
-	services="sql-data-warehouse"
-	documentationCenter="NA"
-	authors="lodipalm"
-	manager="barbkess"
-	editor=""/>
+   description="샘플 데이터를 SQL 데이터 웨어하우스에 로드"
+   services="sql-data-warehouse"
+   documentationCenter="NA"
+   authors="lodipalm"
+   manager="barbkess"
+   editor=""/>
 
 <tags
    ms.service="sql-data-warehouse"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="data-services"
-	ms.date="08/05/2015"
-	ms.author="lodipalm;barbkess"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="data-services"
+   ms.date="09/23/2015"
+   ms.author="lodipalm;barbkess"/>
 
 #SQL 데이터 웨어하우스로 샘플 데이터를 로드
 
-이제 SQL 데이터 웨어하우스 인스턴스를 설치하였음으로, 일부 데이터를 쉽게 로드할 수 있습니다. 다음은 데이터베이스에 AdventureWorksPDW2012라는 데이터 집합을 만드는데 도움이 됩니다. 이 데이터 집합은 AdventureWorks라는 가상 회사의 샘플 데이터 웨어하우스 구조를 모델링합니다. 아래의 단계에 따라 BCP를 설치해야합니다. 현재 BCP가 설치되어있지 않은경우, [SQL Server용 Microsoft 명령줄 유틸리티][]를 설치하십시오.
+SQL 데이터 웨어하우스 인스턴스를 만드는 동안 일부 샘플 데이터를 쉽게 로드할 수 있습니다. 프로비전하는 동안 이 단계를 놓친 경우 [샘플 데이터를 수동으로 로드][]할 수도 있습니다.
 
-1. [샘플 데이터 스크립트][]를 다운로드하도록 클릭하여 시작합니다.
+다음은 AdventureWorksDW를 데이터베이스에 로드할 수 방법의 간략한 보기를 제공합니다. 이 데이터 집합은 회사에 대한 판매 및 고객을 나타내는 데이터가 있는 AdventureWorks라는 가상 회사의 샘플 데이터 웨어하우스 구조를 모델링합니다.
 
-2. 파일을 다운로드한 후, AdventureWorksPDW2012.zip 파일의 내용을 추출하고 새 AdventureWorksPDW2012 폴더를 엽니다.
+## 생성 중 샘플 데이터 추가
+다음 단계를 수행하여 배포하는 동안 샘플 데이터가 SQL 데이터 웨어하우스에 로드되는지 확인할 수 있습니다.
 
-3. Aw\_create.bat 파일을 편집하고 파일의 위에 다음 값을 설정합니다.
+1. '+ 새로 만들기', ‘데이터 및 저장소'를 차례로 클릭하거나 Marketplace에서 'SQL 데이터 웨어하우스'를 검색하여 [Azure 포털][]에서 SQL 데이터 웨어하우스를 찾아 생성 프로세스를 시작합니다. 
+ 
+2. 프로세스가 시작되면 '원본 선택' 옵션을 클릭하고 '샘플'로 설정합니다. 새 서버를 만들지 않은 경우 만드는데 사용하고 있는 서버에 대한 로그인을 제공하라는 메시지가 표시됩니다.
 
-   a. **서버**: b에 있는 SQL 데이터 웨어하우스의 완벽히 조건에 충족된 서버 이름입니다.
 
-   b. **사용자**: 위 서버 c의 사용자입니다.
-   
-   c. **암호**: d에 로그인하는 제공된 서버의 암호입니다.
-   
-   d. **데이터베이스**: 데이터를 로드하려는 SQL 데이터 웨어하우스 인스턴스의 이름입니다.
-   
-   '='와 이러한 매개 변수 사이에 공백이 없는지 확인합니다.
-   
+> [AZURE.NOTE]샘플 데이터를 인스턴스에 로드하기 위해 Azure 서비스를 활성화하여 서버에 액세스해야 합니다(새 서버를 만들 때 기본으로 해야 함). 이렇게 하지 않으면 로드가 실패하지만 여전히 [샘플 데이터를 수동으로 로드][]할 수 있습니다.
 
-4. 데이터베이스가 위치한 디렉토리에서 aw\_create.bat를 실행합니다. 이것은 스키마를 만들고 BCP를 사용하여 모든 테이블안에 데이터를 로드합니다.
 
+##Power BI를 사용하여 Adventureworks 분석
+
+샘플 데이터 집합을 사용하는 것은 Power BI를 시작하기 위한 좋은 방법이 될 수 있습니다. 샘플 데이터를 로드한 후 Azure 포털에서 ‘Power BI에서 열기’ 단추를 클릭하거나 [Power BI][]로 이동하고 [SQL 데이터 웨어하우스에 연결][]하여 SQL 데이터 웨어하우스에 대한 연결을 열 수 있습니다. 연결 후 데이터 웨어하우스와 동일한 이름을 가진 새 데이터 집합을 만들어야 합니다. 분석을 쉽게 수행할 수 있도록 회사의 판매 분석에 핵심적인 매트릭 중 몇 가지가 있는 'AggregateSales'라는 보기를 만들었습니다. 이 보기의 이름을 클릭하여 확장하고 포함하는 열을 볼 수 있으며 다음 단계를 수행하여 일부 빠른 시각화를 만들 수 있습니다.
+
+1. 시작하려면 'PostalCode' 및 'SalesAmount' 열을 클릭하여 모든 판매의 지도를 쉽게 만들 수 있습니다. Power BI는 이를 지리적 데이터로 자동으로 인식하고 지도에 배치합니다. 
+
+2. 이제 판매 막대 그래프를 만들고자 하는 경우 'SalesAmount' 열을 클릭하면 Power BI는 자동으로 판매 막대 그래프를 만듭니다. 'CustomerIncome' 차트를 'AggregateSales'의 왼쪽 '축' 영역으로 끌어 고객 수입 대괄호로 판매를 표시하여 추가 깊이를 추가할 수 있습니다.
+
+3. 마지막으로 판매 타임라인을 만들려는 경우 'SalesAmount', 'OrderDate' 및 '꺾은선형 차트'('시각화' 아래 둘째 줄에서 첫 번째 아이콘)를 클릭하면 됩니다.
+
+왼쪽 위 모서리에 있는 ‘저장’ 단추를 클릭하고 시각화를 보고서로 저장하여 언제든지 진행률을 저장할 수 있습니다.
 
 ## 샘플을 연결하고 쿼리하기
 
-[연결 및 쿼리][] 설명서에서 설명한대로 Visual Studio와 SSDT를 사용하여 데이터베이스에 연결할 수 있습니다. 이제 SQL 데이터 웨어하우스 내의 일부 샘플 데이터를 로드했고, 시작하기위해 몇 가지 쿼리를 신속하게 실행할 수 있습니다.
+전통적인 방법으로 샘플 데이터를 분석할 수도 있습니다. [연결 및 쿼리][] 설명서에서 설명한대로 Visual Studio의 SQL Server 데이터 도구를 사용하여 데이터베이스에 연결할 수 있습니다. 이제 SQL 데이터 웨어하우스 내의 일부 샘플 데이터를 로드했고, 시작하기 위해 몇 가지 쿼리를 신속하게 실행할 수 있습니다.
 
 직원의 모든 정보를 가져오는 간단한 select 문을 실행할 수 있습니다.
 
@@ -65,6 +70,8 @@
 
 사실, SQL 데이터 웨어하우스는 SQL Server에서 사용되는 대부분의 T-SQL 구문을 지원하며, [마이그레이션 코드][] 설명서에 일부 차이점을 찾을 수 있습니다.
 
+
+
 ## 다음 단계
 이제 샘플 데이터로 [개발][],[로드][] 또는 [마이그레이션][]할 준비 시간을 드리겠습니다.
 
@@ -76,11 +83,15 @@
 [로드]: https://azure.microsoft.com/ko-KR/documentation/articles/sql-data-warehouse-overview-load/
 [연결 및 쿼리]: https://azure.microsoft.com/ko-KR/documentation/articles/sql-data-warehouse-get-started-connect-query/
 [마이그레이션 코드]: https://azure.microsoft.com/ko-KR/documentation/articles/sql-data-warehouse-migrate-code/
+[샘플 데이터를 수동으로 로드]: https://azure.microsoft.com/ko-KR/documentation/articles/sql-data-warehouse-get-started-manually-load-samples/
+[Azure 포털]: portal.azure.com
+[Power BI]: www.powerbi.com
+[SQL 데이터 웨어하우스에 연결]: https://azure.microsoft.com/ko-KR/documentation/articles/sql-data-warehouse-integrate-power-bi/
 
 <!--MSDN references-->
-[SQL Server용 Microsoft 명령줄 유틸리티]: http://www.microsoft.com/ko-KR/download/details.aspx?id=36433
+[Microsoft Command Line Utilities for SQL Server]: http://www.microsoft.com/ko-KR/download/details.aspx?id=36433
 
 <!--Other Web references-->
-[샘플 데이터 스크립트]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
+[Sample Data Scripts]: https://migrhoststorage.blob.core.windows.net/sqldwsample/AdventureWorksPDW2012.zip
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

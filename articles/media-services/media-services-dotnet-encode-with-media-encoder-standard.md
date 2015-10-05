@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"    
+	ms.date="09/20/2015"    
 	ms.author="juliako"/>
 
 
@@ -22,8 +22,6 @@
 인코딩 작업은 미디어 서비스에서 가장 일반적인 처리 작업 중 하나입니다. 인코딩 작업을 만들어 한 인코딩에서 다른 인코딩으로 미디어 파일을 변환합니다. 인코딩할 때는 미디어 서비스 기본 제공 미디어 인코더를 사용할 수 있습니다. 또한 미디어 서비스 파트너가 제공하는 인코더를 사용할 수도 있습니다. 타사 인코더는 Azure 마켓플레이스를 통해 사용할 수 있습니다.
 
 이 항목에서는 .NET을 사용하여 미디어 인코더 표준에서 자산을 인코딩하는 방법을 보여줍니다. 미디어 인코더 표준은 [여기](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)에서 설명한 인코더 기본 설정 중 하나를 사용하여 구성됩니다.
-
->[AZURE.NOTE]현재 릴리스의 미디어 프로세서에서는 인코딩 기본 설정으로 전체 XML 또는 JSON 문자열을 전달해야 합니다. 빠른 시일 내에 서비스 업데이트를 통해 "H264 Multiple Bitrate 720p"처럼 이름 지정된 문자열로 전달이 지원될 예정입니다.
 
 항상 mezzanine 파일을 적응 비트 전송률 MP4 집합으로 인코딩한 다음 [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하여 원하는 형식으로 집합을 변환하는 것이 좋습니다. 동적 패키징을 이용하려면 먼저 콘텐츠를 배달할 계획인 스트리밍 끝점에 대한 주문형 스트리밍 단위를 하나 이상 가져와야 합니다. 자세한 내용은 [미디어 서비스 크기를 조정하는 방법](media-services-manage-origins.md#scale_streaming_endpoints)을 참조하세요.
 
@@ -35,7 +33,7 @@
 
 - 인코딩 작업을 만듭니다.
 - 미디어 인코더 표준 인코더에 대한 참조를 가져옵니다.
-- [여기](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409) 표시된 기본 설정 중 하나에서 기본 설정 XML을 로드합니다.
+- "H264 여러 비트 전송률 720p" 기본 설정을 사용하도록 지정합니다. [여기](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409)서 모든 기본 설정을 확인할 수 있습니다. [이](https://msdn.microsoft.com/library/mt269962.aspx) 항목에서 이러한 기본 설정이 따라야 하는 스키마를 검사할 수도 있습니다.
 - 작업에 단일 인코딩을 추가합니다. 
 - 인코딩할 입력 자산을 지정합니다.
 - 인코딩된 자산을 포함할 출력 자산을 만듭니다.
@@ -50,13 +48,12 @@
 		    // processor to use for the specific task.
 		    IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 		
-		    // Load the XML (or JSON) from the local file
-		    string configuration = File.ReadAllText(pathToLocalPresetFile);
-		
-		    // Create a task
-		    ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
+
+		    // Create a task with the encoding details, using a string preset.
+		    // In this case "H264 Multiple Bitrate 720p" preset is used.
+		    ITask task = job.Tasks.AddNew("My encoding task",
 		        processor,
-		        configuration,
+		        "H264 Multiple Bitrate 720p",
 		        TaskOptions.None);
 		
 		    // Specify the input asset to be encoded.
@@ -126,6 +123,6 @@
 
 ##참고 항목 
 
-[미디어 서비스 인코딩 개요](media-services-encode-asset.md)
+[.NET과 함께 미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법](media-services-dotnet-generate-thumbnail-with-mes.md) [미디어 서비스 인코딩 개요](media-services-encode-asset.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

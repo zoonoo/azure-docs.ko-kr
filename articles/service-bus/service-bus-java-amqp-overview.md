@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="서비스 버스 AMQP 개요(Java) | Microsoft Azure" 
-	description="Azure에서 AMQP(Advanced Message Queuing Protocol) 1.0을 사용하는 방법에 대해 알아봅니다." 
+	description="Azure에서 AMQP(Advanced Message Queuing Protocol) 1.0과 함께 Java를 사용하는 방법을 알아봅니다." 
 	services="service-bus" 
 	documentationCenter="java" 
 	authors="sethmanheim" 
@@ -99,4 +99,4 @@ AMQP 1.0은 2008년 이래로 기술 공급업체와 최종 사용자 업체를 
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

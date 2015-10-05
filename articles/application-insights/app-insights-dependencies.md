@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="09/17/2015" 
 	ms.author="awills"/>
  
 # Application Insights에서 종속성 문제 진단
@@ -48,7 +48,7 @@
 플랫폼 | 설치
 ---|---
 IIS 서버 | [상태 모니터](app-insights-monitor-performance-live-website-now.md)
-Azure 웹앱 | [Application Insights 확장](../insights-perf-analytics.md)
+Azure 웹앱 | [Application Insights 확장](../azure-portal/insights-perf-analytics.md)
 Java 웹 서버 | [Java 웹앱](app-insights-java-agent.md)
 
 IIS 서버용 상태 모니터는 Application Insights SDK를 사용하여 소스 프로젝트를 다시 빌드할 필요가 없습니다.
@@ -129,4 +129,4 @@ IIS 서버용 상태 모니터는 Application Insights SDK를 사용하여 소�
 
 <!--Link references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="HDInsight의Apache Spark 클러스터 프로비전 | Microsoft Azure"
-	description="Azure 포털, Azure PowerShell, 명령줄 또는 HDInsight .NET SDK를 사용하여 Azure HDInsight용 Spark 클러스터를 프로비전하는 방법에 대해 알아봅니다."
-	services="hdinsight"
-	documentationCenter=""
-	authors="nitinme"
-	manager="paulettm"
-	editor="cgronlun"
-	tags="azure-portal"/>
+   description="Azure 포털, Azure PowerShell, 명령줄 또는 HDInsight .NET SDK를 사용하여 Azure HDInsight용 Spark 클러스터를 프로비전하는 방법에 대해 알아봅니다."
+   services="hdinsight"
+   documentationCenter=""
+   authors="nitinme"
+   manager="paulettm"
+   editor="cgronlun"
+   tags="azure-portal"/>
 <tags
     ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/17/2015"
-	ms.author="nitinme"/>
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="big-data"
+    ms.date="09/22/2015"
+    ms.author="nitinme"/>
 
 # 사용자 지정 옵션을 사용하여 HDInsight의Apache Spark 클러스터 프로비전
 
@@ -85,7 +85,7 @@ HDInsight에서 Spark 클러스터는 Azure Blob 저장소 컨테이너를 기�
 
     ![Azure 미리 보기 포털에서 새 클러스터 만들기](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.1.png "Azure 미리 보기 포털에서 새 클러스터 만들기")
 
-3. **클러스터 이름**을 입력하고 **클러스터 유형**으로 **Hadoop**을 선택하고 **클러스터 운영 체제** 드롭다운에서 **Windows Server 2012 R2 Datacenter**를 선택합니다. 클러스터 이름을 사용할 수 있는 경우 클러스터 이름 옆에 녹색 확인 표시가 나타납니다.
+3. **클러스터 이름**을 입력하고 **클러스터 형식**으로 **Spark**을 선택하고 **클러스터 운영 체제** 드롭다운에서 **Windows Server 2012 R2 Datacenter**를 선택합니다. 클러스터 이름을 사용할 수 있는 경우 클러스터 이름 옆에 녹색 확인 표시가 나타납니다.
 
 	![클러스터 이름 및 유형 입력](./media/hdinsight-apache-spark-provision-clusters/HDI.CreateCluster.2.png "클러스터 이름 및 유형 입력")
 
@@ -437,4 +437,4 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "HDInsight에서 Sqoop 사용"
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -1,3 +1,4 @@
+<!--author=SharS last changed: 9/17/15-->
 
 #### StorSimple용 Windows PowerShell을 통해 유지 관리 모드 핫픽스를 설치하려면
 
@@ -17,4 +18,4 @@
 
 6. 핫픽스를 적용한 후 유지 관리 모드를 종료합니다. 지침은 [4단계: 유지 관리 모드 종료](storsimple-update-device.md#step4)를 참조하세요.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

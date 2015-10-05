@@ -1,11 +1,12 @@
 <properties
 	pageTitle="Django를 사용하는 Python 웹 앱 | Microsoft Azure"
-	description="Azure에서 Windows Server 2012 R2 Datacenter 가상 컴퓨터를 사용하여 Django 기반 웹사이트를 호스트하는 방법을 설명하는 자습서입니다."
+	description="이 자습서에서는 클래식 배포 모델로 만든 Windows Server 2012 R2 Datacenter 가상 컴퓨터를 사용하여 Azure에서 Django 기반 웹 사이트를 호스트하는 방법을 설명합니다."
 	services="virtual-machines"
 	documentationCenter="python"
 	authors="huguesv"
 	manager="wpickett"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 
 <tags 
@@ -18,11 +19,15 @@
 	ms.author="huvalo"/>
 
 
+# Windows Server VM의 Django Hello World 웹 응용 프로그램
 
+> [AZURE.SELECTOR]
+- [Windows](virtual-machines-python-django-web-app-windows-server.md)
+- [Mac/Linux](virtual-machines-python-django-web-app-linux.md)
 
-# Django Hello World 웹 응용 프로그램
+<br>
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/develop/python/tutorials/web-app-with-django/" title="Windows" class="current">Windows</a><a href="/develop/python/tutorials/django-hello-world-(maclinux)/" title="MacLinux">Mac/Linux</a></div>
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 이 자습서에서는 Microsoft Azure에서 Windows Server 가상 컴퓨터를 사용하여 Django 기반 웹 사이트를 호스트하는 방법을 설명합니다. 이 자습서에서는 이전에 Azure를 사용한 경험이 없다고 가정합니다. 이 자습서를 완료하면 클라우드에서 Django 기반 응용 프로그램을 실행할 수 있게 됩니다.
 
@@ -41,7 +46,7 @@
 
 ## Django를 호스트하기 위해 Azure 가상 컴퓨터 만들기 및 구성
 
-1. [여기](virtual-machines-windows-tutorial-classic-portal.md)에 나와 있는 지침에 따라 Windows Server 2012 R2 Datacenter 배포판의 Azure 가상 컴퓨터를 만듭니다.
+1. [여기](virtual-machines-windows-tutorial-classic-portal.md)에 나와 있는 지침에 따라 Windows Server 2012 R2 Datacenter 배포의 Azure 가상 컴퓨터를 만듭니다.
 
 1. 웹을 통해 들어오는 포트 80 트래픽을 가상 컴퓨터의 포트 80으로 보내도록 Azure에 지시합니다.
  - Azure 포털에서 새로 만든 가상 컴퓨터로 이동하고 **끝점** 탭을 클릭합니다.
@@ -52,11 +57,11 @@
 
 **중요:** 아래에 설명된 모든 지침에서는 가상 컴퓨터에 올바로 로그인했고 로컬 컴퓨터가 아니라 가상 컴퓨터에서 명령을 실행하는 것으로 가정합니다.
 
-## <a id="setup"></a>Python, Django, WFastCGI 설치
+## <a id="setup"> </a>Python, Django, WFastCGI 설치
 
 **참고:** Internet Explorer를 사용하여 다운로드하려면 IE ESC 설정을 구성해야 할 수도 있습니다(시작/관리 도구/서버 관리자/로컬 서버에서 **IE 보안 강화 구성**을 클릭하고 끄기로 설정).
 
-1. [python.org][]에서 최신 Python 2.7 또는3.4를 설치합니다.
+1. [python.org][]에서 최신 Python 2.7 또는 3.4를 설치합니다.
 1. pip를 사용하여 wfastcgi 및 django 패키지를 설치합니다.
 
     Python 2.7의 경우 다음 명령을 사용합니다.
@@ -125,7 +130,7 @@
 
         c:\python34\scripts\wfastcgi-enable
 
-1. *C:\\inetpub\\wwwroot\\helloworld*에 web.config 파일을 만듭니다. `scriptProcessor` 특성의 값은 이전 단계에서의 출력과 일치해야 합니다. [wfastcgi][] 설정에 대한 자세한 내용은 pypi의 wfastcgi 페이지를 참조하십시오.
+1. *C:\\inetpub\\wwwroot\\helloworld*에 web.config 파일을 만듭니다. `scriptProcessor` 특성의 값은 이전 단계의 출력과 일치해야 합니다. wfastcgi 설정에 대한 자세한 내용은 pypi의 [wfastcgi][] 페이지를 참조하세요.
 
     Python 2.7:
 
@@ -178,4 +183,4 @@
 [python.org]: https://www.python.org/downloads/
 [wfastcgi]: https://pypi.python.org/pypi/wfastcgi
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

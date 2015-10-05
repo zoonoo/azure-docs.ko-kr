@@ -18,6 +18,14 @@
 
 # Azure 앱 서비스에서 Node.js 웹 앱 빌드 및 만들기
 
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
+
 이 자습서에서는 [Node][nodejs.org] 응용 프로그램을 만들고 [Git]를 사용하여 [Azure 앱 서비스의 웹앱 기능](http://go.microsoft.com/fwlink/?LinkId=529714)에 배포하는 방법을 보여 줍니다. 이 자습서의 지침은 Node를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다.
 
 아래에는 완성된 응용 프로그램의 스크린샷이 표시되어 있습니다.
@@ -60,7 +68,7 @@
 	![][setup-git-publishing]
 
 
-10. **배포 자격 증명** 부분을 클릭합니다(아래 빨간색의 밑줄). 사용자 이름 및 암호를 만듭니다. **Save**를 클릭합니다. 이전에 웹앱에 대한 게시를 사용하도록 설정한 경우 이 단계를 수행하지 않아도 됩니다.
+10. **배포 자격 증명** 부분을 클릭합니다(아래 빨간색의 밑줄). 사용자 이름 및 암호를 만듭니다. **저장**을 클릭합니다. 이전에 웹앱에 대한 게시를 사용하도록 설정한 경우 이 단계를 수행하지 않아도 됩니다.
 
 	![][deployment-credentials]
 
@@ -71,7 +79,7 @@
 
 ##로컬에서 응용 프로그램 빌드 및 테스트
 
-이 섹션에서는 **nodejs.org**의 'hello world' 예가 포함된 [server.js] 파일을 만들겠습니다. 이 예는 원본 예에서 수정된 것으로, Azure 웹 앱에서 실행되는 경우의 수신 포트로 process.env.PORT가 추가되었습니다.
+이 섹션에서는 [nodejs.org]의 'Hello World' 예제가 포함된 **server.js** 파일을 만들겠습니다. 이 예는 원본 예에서 수정된 것으로, Azure 웹 앱에서 실행되는 경우의 수신 포트로 process.env.PORT가 추가되었습니다.
 
 1. 텍스트 편집기를 사용하여 **server.js**라는 새 파일을 **helloworld** 디렉터리에 만듭니다. **helloworld** 디렉터리가 없으면 디렉터리를 만듭니다.
 
@@ -151,7 +159,7 @@
 
 4. **배포**에서 선택하여 이전 배포로 되돌릴 수 있습니다.
 
->[AZURE.NOTE]Azure 계정에 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 웹앱을 즉시 만들 수 있습니다.
+>[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 웹앱을 즉시 만들 수 있습니다.
 
 ##다음 단계
 
@@ -168,6 +176,7 @@ Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에
 
 * [Azure PowerShell](../install-configure-powershell.md)
 * [Azure 명령줄 인터페이스](../xplat-cli.md)
+* [Node.js 개발자 센터](/develop/nodejs/)
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스 및 기존 Azure 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)를 참조하세요.
@@ -175,7 +184,6 @@ Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에
 
 
 [nodejs.org]: http://nodejs.org
-[server.js]: http://nodejs.org
 [Git]: http://git-scm.com
 
 
@@ -198,4 +206,4 @@ Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에
 
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

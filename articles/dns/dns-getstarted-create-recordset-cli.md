@@ -1,23 +1,23 @@
 <properties
-   pageTitle="DNS 영역에 대한 레코드 집합 및 레코드 만들기 | Microsoft Azure"
-	description="Azure DNS에 대한 호스트 레코드를 만드는 방법입니다. PowerShell 또는 CLI를 사용하여 레코드 집합 및 레코드를 설정합니다."
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="Adinah"
-	editor=""/>
+   pageTitle="CLI를 사용하여 DNS 영역에 대한 레코드 집합 및 레코드 만들기 | Microsoft Azure"
+   description="Azure DNS에 대한 호스트 레코드를 만드는 방법입니다. CLI를 사용하여 레코드 집합 및 레코드를 설정합니다."
+   services="dns"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="Adinah"
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/22/2015"
+   ms.author="joaoma"/>
 
 
-# DNS 레코드 만들기
+# CLI를 사용하여 DNS 레코드 만들기
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-getstarted-create-recordset-cli.md)
@@ -52,14 +52,14 @@ Time-to-Live, 즉 TTL은 각 레코드가 다시 쿼리되기 전에 클라이�
 
 
 
-## CLI를 사용하여 레코드 집합 및 레코드 만들기
+## 레코드 집합 및 레코드 만들기 
 
 다음 예제에서는 레코드 집합 및 레코드를 만드는 방법을 보여 줍니다. DNS 'A' 레코드 유형을 사용하며, 다른 레코드 유형의 경우 [DNS 레코드를 관리하는 방법](dns-operations-recordsets-cli.md)을 참조하세요.
 
 
 ### 1단계
 
-CLI를 사용하여 레코드 집합 만들기:
+레코드 집합 만들기:
 
 	Usage: network dns record-set create <resource-group> <dns-zone-name> <name> <type> <ttl>
 
@@ -122,4 +122,4 @@ nslookup 또는 다른 DNS 도구를 사용하여 새 레코드 집합을 쿼리
 [.NET SDK로 Azure 작업 자동화](dns-sdk.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -1,33 +1,26 @@
 <properties
    pageTitle="Azure 검색 서비스 REST API 버전 2015-02-28-Preview | Microsoft Azure"
-	description="Azure 검색 서비스 REST API 버전 2015-02-28-Preview에는 자연어 분석기 및 moreLikeThis 검색과 같은 실험적 기능이 포함되어 있습니다."
-	services="search"
-	documentationCenter="na"
-	authors="HeidiSteen"
-	manager="mblythe"
-	editor=""/>
+   description="Azure 검색 서비스 REST API 버전 2015-02-28-Preview에는 자연어 분석기 및 moreLikeThis 검색과 같은 실험적 기능이 포함되어 있습니다."
+   services="search"
+   documentationCenter="na"
+   authors="HeidiSteen"
+   manager="mblythe"
+   editor=""/>
 
 <tags
    ms.service="search"
-	ms.devlang="rest-api"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="search"
-	ms.date="08/25/2015"
-	ms.author="heidist"/>
+   ms.devlang="rest-api"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="search"
+   ms.date="09/22/2015"
+   ms.author="heidist"/>
 
 # Azure 검색 서비스 REST API: 버전 2015-02-28-Preview
 
 이 문서는 `api-version=2015-02-28-Preview`에 대한 참조 설명서입니다. 이 미리 보기는 다음과 같은 실험적 기능을 제공하여 현재 일반적으로 사용할 수 있는 버전인 [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx)을 확장합니다.
 
-- Microsoft의 [자연어 처리기](#LanguageSupport)(Office 및 Bing에서 사용하는 것과 같음)는 쿼리 결과에 대한 정확도를 높이고 더 많은 언어를 제공합니다.
 - `moreLikeThis`는 [검색 작업](#SearchDocs)에서 다른 특정 문서와 관련된 다른 문서를 찾는 데 사용되는 쿼리 매개 변수입니다.
-- GET 구문에 대한 POST 대안은 [검색](#SearchDocs) 및 [제안](#Suggestions) API에서 모두 사용되며, 전체 URL 길이가 8KB를 초과할 때 유용합니다.
-
-`2015-02-28-Preview`의 몇 가지 추가 기능에 대해서는 별도로 설명합니다. 내용은 다음과 같습니다.
-
-- [점수 매기기 프로필](search-api-scoring-profiles-2015-02-28-preview.md)
-- [인덱서](search-api-indexers-2015-02-28-preview.md)
 
 Azure 검색 서비스는 여러 버전으로 제공됩니다. 자세한 내용은 [검색 서비스 버전 관리](http://msdn.microsoft.com/library/azure/dn864560.aspx)를 참조하세요.
 
@@ -136,7 +129,7 @@ HTTP POST 또는 PUT 요청을 사용하여 Azure 검색 서비스 내에서 새
 
 인덱스를 만들면 저장되고 검색 작업에서 사용되는 문서의 구조가 결정됩니다. 인덱스에 데이터를 입력하는 작업은 별도로 수행해야 합니다. 이 단계에는 [인덱서](https://msdn.microsoft.com/library/azure/mt183328.aspx)(지원되는 데이터 원본에 사용 가능)를 사용하거나 [문서 추가, 업데이트 또는 삭제](https://msdn.microsoft.com/library/azure/dn798930.aspx) 작업을 수행할 수 있습니다. 문서를 게시하면 반전된 인덱스가 생성됩니다.
 
-**참고**: 허용되는 최대 인덱스 수는 가격 책정 계층에 따라 다릅니다. 무료 서비스에서는 인덱스를 3개까지 사용할 수 있으며 표준 서비스에서는 검색 서비스당 인덱스 50개를 만들 수 있습니다. 자세한 내용은 [한도 및 제약 조건](http://msdn.microsoft.com/library/azure/dn798934.aspx)을 참조하세요.
+**참고**: 허용되는 최대 인덱스 수는 가격 책정 계층에 따라 다릅니다. 무료 서비스에서는 인덱스를 3개까지 사용할 수 있으며 표준 서비스에서는 검색 서비스당 인덱스 50개를 만들 수 있습니다. 자세한 내용은 [서비스 제한](search-limits-quota-capacity.md)을 참조하세요.
 
 **요청**
 
@@ -633,7 +626,7 @@ Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는
         {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false},
         {"name": "baseRate", "type": "Edm.Double"},
         {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer"="fr.lucene"},
+	    {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, analyzer="fr.lucene"},
         {"name": "hotelName", "type": "Edm.String"},
         {"name": "category", "type": "Edm.String"},
         {"name": "tags", "type": "Collection(Edm.String)"},
@@ -1729,4 +1722,4 @@ POST의 경우:
       "suggesterName": "sg"
     }
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

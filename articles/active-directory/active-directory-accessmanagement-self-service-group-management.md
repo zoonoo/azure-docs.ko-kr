@@ -1,10 +1,10 @@
 <properties
 	pageTitle="셀프 서비스 응용 프로그램 액세스 관리를 위한 Azure AD 설정| Microsoft Azure"
-	description="Azure AD에서 그룹을 관리하는 방법을 설명하는 항목입니다."
+	description="사용자가 Microsoft Azure AD(Active Directory)에서 보안 그룹을 만들고 관리할 수 있으며 보안 그룹 멤버 자격을 요청할 수 있도록 하는 셀프 서비스 그룹 관리 개요"
 	services="active-directory"
 	documentationCenter=""
     authors="femila"
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor=""
 	tags="azure-classic-portal"/>
 
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/13/2015"
+	ms.date="09/21/2015"
 	ms.author="femila"/>
 
 #셀프 서비스 응용 프로그램 액세스 관리를 위해 Azure AD 설정
@@ -49,4 +49,4 @@ Azure 관리 포털의 구성 탭에서 위임된 그룹 관리 스위치를 사
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

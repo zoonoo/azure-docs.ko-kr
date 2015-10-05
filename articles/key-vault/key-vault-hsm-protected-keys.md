@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="09/11/2015"
+	ms.date="09/18/2015"
 	ms.author="cabailey"/>
 #Azure 주요 자격 증명 모음에 대해 HSM 보호된 키를 생성하고 전송하는 방법
 
@@ -106,6 +106,7 @@ Microsoft 다운로드 센터로 이동하여 해당 지역에 대한 [Azure 주
 |아시아|KeyVault-BYOK-Tools-AsiaPacific.zip|0C76967B3AC76687E4EA47EB96174EE6B25AB24E3114E28A90D9B93A2E6ABF6E|
 |라틴 아메리카|KeyVault-BYOK-Tools-LatinAmerica.zip|B38015990D4D1E522B8367FF78E78E0234BF9592663470426088C44C3CAAAF48|
 |일본|KeyVault-BYOK-Tools-Japan.zip|DB512CD9472FDE2FD610522847DF05E4D7CD49A296EE4A2DD74D43626624A113|
+|오스트레일리아|KeyVault-BYOK-Tools-Australia.zip|8EBC69E58E809A67C036B50BB4F1130411AD87A7464E0D61A9E993C797915967|
 
 다운로드한 BYOK 도구 집합의 무결성을 확인하려면 Azure PowerShell 세션에서 [Get-FileHash](https://technet.microsoft.com/library/dn520872.aspx) cmdlet을 사용합니다.
 
@@ -188,6 +189,9 @@ USB 드라이브 또는 기타 휴대용 저장소에서 BYOK 도구 집합 패�
 	- 일본:
 
 			python verifykeypackage.py -k BYOK-KEK-pkg-JPN-1 -w BYOK-SecurityWorld-pkg-JPN-1
+	- 오스트레일리아:
+
+			python verifykeypackage.py -k BYOK-KEK-pkg-AUS-1 -w BYOK-SecurityWorld-pkg-AUS-1
 
 	>[AZURE.TIP]Thales 소프트웨어에는 %NFAST\_HOME%\\python\\bin에 python이 포함되어 있습니다.
 	
@@ -242,6 +246,9 @@ Thales **generatekey** 프로그램을 사용하여 키를 생성합니다.
 - 일본:
 
 		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-JPN-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-JPN-1
+- 오스트레일리아:
+
+		KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1
 
 이 명령을 실행할 때 *contosokey*를 [키 생성](#step-3-generate-your-key) 단계의 **3.3단계: 새 키 만들기**에서 지정한 값과 동일한 값으로 바꿉니다.
 
@@ -280,6 +287,9 @@ Thales **generatekey** 프로그램을 사용하여 키를 생성합니다.
 - 일본:
 
 		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-JPN-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-JPN-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+- 오스트레일리아:
+
+		KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-AUS-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-AUS-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 
 이 명령을 실행할 때 다음 지침을 사용합니다.
 
@@ -307,4 +317,4 @@ USB 드라이브 또는 기타 휴대용 저장소를 사용하여 인터넷에 
 
 이제 주요 자격 증명 모음에서 이 HSM 보호된 키를 사용할 수 있습니다. 자세한 내용은 [Azure 주요 자격 증명 모음 시작](key-vault-get-started.md) 자습서에서 **HSM(하드웨어 보안 모듈)을 사용하려는 경우**를 참조하세요.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

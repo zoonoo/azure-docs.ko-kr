@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Linux 가상 컴퓨터를 만드는 다양한 방법"
-	description="Linux 가상 컴퓨터를 만드는 다른 방법을 나열하고 지침에 대한 링크를 제공합니다."
+	pageTitle="Linux VM을 만드는 다양한 방법 | Microsoft Azure"
+	description="Azure에 Linux 가상 컴퓨터를 만드는 다른 방법을 나열하고 추가 지침에 대한 링크를 제공합니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -101,4 +101,4 @@ Azure PowerShell의 경우, [Azure PowerShell을 사용하여 Linux 기반 가�
 [Linux를 실행하는 가상 컴퓨터 만들기]: virtual-machines-linux-tutorial.md
 [사용자 지정 가상 컴퓨터 만들기]: virtual-machines-create-custom.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

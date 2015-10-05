@@ -12,7 +12,7 @@ ms.service="search"
 ms.devlang="rest-api" 
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="07/08/2015" 
+ms.date="09/21/2015" 
 ms.author="heidist" />
 
 #인덱서 작업(Azure 검색 서비스 REST API: 2015-02-28-Preview)
@@ -40,7 +40,7 @@ ms.author="heidist" />
 
 향후 추가 데이터 원본에 대한 지원을 추가할 예정입니다. 이러한 의사 결정의 우선 순위를 지정하는 데 도움이 되도록 [Azure 검색 사용자 의견 포럼](http://feedback.azure.com/forums/263029-azure-search)에서 사용자 의견을 제공해 주시기 바랍니다.
 
-인덱서 및 데이터 원본 리소스와 관련된 최대 제한은 [제한 및 제약 조건](https://msdn.microsoft.com/library/azure/dn798934.aspx)을 참조하세요.
+인덱서 및 데이터 원본 리소스와 관련된 최대 제한은 [서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.
 
 ## 일반적인 사용 흐름
 
@@ -775,4 +775,4 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 </tr>
 </table>
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

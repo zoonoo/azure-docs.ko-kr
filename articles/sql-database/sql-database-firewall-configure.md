@@ -1,21 +1,21 @@
 <properties
    pageTitle="Azure SQL Database 방화벽 | Microsoft Azure"
-	description="Microsoft Azure SQL Database 방화벽을 구성하는 방법."
-	services="sql-database"
-	documentationCenter=""
-	authors="BYHAM"
-	manager="jeffreyg"
-	editor=""
-	tags=""/>
+   description="Microsoft Azure SQL Database 방화벽을 구성하는 방법."
+   services="sql-database"
+   documentationCenter=""
+   authors="BYHAM"
+   manager="jeffreyg"
+   editor=""
+   tags=""/>
 
 <tags
    ms.service="sql-database"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-management"
-	ms.date="08/04/2015"
-	ms.author="rickbyh"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="data-management"
+   ms.date="08/04/2015"
+   ms.author="rickbyh"/>
 
 # Azure SQL 데이터베이스 방화벽
 
@@ -114,15 +114,15 @@ Azure 관리 포털 외에도 Transact-SQL, REST API 및 Azure PowerShell을 사
 
 Microsoft Azure SQL 데이터베이스 서비스로의 연결이 예상대로 작동되지 않는 경우 다음 사항을 고려하세요.
 
-- **로컬 방화벽 구성:** 컴퓨터가 Azure SQL 데이터베이스로 액세스하기 전에, TCP port 1433에 대한 방화벽 예외를 컴퓨터에 만들어야 할 수도 있습니다. 
+- **로컬 방화벽 구성:** 컴퓨터가 Azure SQL 데이터베이스로 액세스하기 전에, TCP port 1433에 대한 방화벽 예외를 컴퓨터에 만들어야 할 수도 있습니다. Azure 클라우드 경계 내에서 연결하는 경우 포트를 추가로 열어야 할 수도 있습니다. 자세한 내용은 [ADO.NET 4.5 및 SQL 데이터베이스 V12에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)의 **SQL 데이터베이스의 V12: 내부 vs 외부** 섹션을 참조하세요.
 
 - **NAT(Network Address Translation):** NAT로 인해 Azure SQL 데이터베이스로 연결할 때 컴퓨터에서 사용하는 IP 주소는 컴퓨터 IP 구성 설정에서 나타나는 IP 주소와 다를 수도 있습니다. 컴퓨터가 Azure에 연결할 때 사용하는 IP 주소를 보려면, 관리 포털에 로그인하고 데이터베이스를 호스트하는 서버의 **구성** 탭을 탐색합니다. **허용된 IP 주소** 섹션에 **현재 클라이언트 IP 주소**가 표시됩니다. **허용된 IP 주소**에 **추가**를 클릭하여 이 컴퓨터가 서버에 액세스할 수 있도록 합니다.
 
 - **허용 목록의 변경사항이 아직 적용되지 않았습니다.** Azure SQL 데이터베이스 방화벽 구성에 변경 내용이 적용되려면 최대 5분 정도 걸릴 수 있습니다.
 
-- **로그인이 올바르지 않거나 암호가 올바르지 않습니다.** 로그인이 Azure SQL 데이터베이스 서버에 대한 권한이 없거나 암호가 틀렸을 경우, Azure SQL 데이터베이스 서버에 대한 연결이 거부됩니다. 방화벽 설정은 클라이언트에게 서버에 연결을 시도할 수 있는 기회를 제공합니다. 각 클라이언트는 꼭 필요한 보안 자격 증명을 제공해야 합니다. 로그인 준비에 대한 자세한 내용은 Azure SQL Database에서 데이터베이스, 로그인, 사용자 관리를 참조하세요.
+- **로그인이 올바르지 않거나 암호가 올바르지 않습니다.** 로그인에 Azure SQL 데이터베이스 서버에 대한 권한이 없거나 사용한 암호가 틀렸을 경우 Azure SQL 데이터베이스 서버에 대한 연결이 거부됩니다. 방화벽 설정은 클라이언트에게 서버에 연결을 시도할 수 있는 기회를 제공합니다. 각 클라이언트는 꼭 필요한 보안 자격 증명을 제공해야 합니다. 로그인 준비에 대한 자세한 내용은 Azure SQL Database에서 데이터베이스, 로그인, 사용자 관리를 참조하세요.
 
-- **동적 IP 주소:** 동적 IP 주소를 통해 인터넷이 연결되어 있고 방화벽을 통과하는 데 문제가 있는 경우 다음 해결 방법 중 하나를 시도할 수 있습니다.
+- **동적 IP 주소:** 동적 IP 주소를 통해 인터넷에 연결되어 있고 방화벽을 통과하는 데 문제가 있는 경우 다음 해결 방법 중 하나를 시도할 수 있습니다.
 
  - 인터넷 서비스 공급자(ISP)는 Azure SQL Database 서버에 연결될 클라이언트에 할당된 IP 주소 범위를 요청하고, 방화벽 규칙에 따라 IP 주소 범위를 추가합니다.
 
@@ -135,4 +135,4 @@ Microsoft Azure SQL 데이터베이스 서비스로의 연결이 예상대로 �
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

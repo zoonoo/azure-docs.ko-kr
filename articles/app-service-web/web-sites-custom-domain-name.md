@@ -130,7 +130,7 @@ A 레코드를 만들면 웹 앱에서 특수 CNAME 레코드도 필요하며, �
 
 ## 다음 단계
 
-자세한 내용은 [Azure DNS 시작](../dns/dns-getstarted-create-dnszone) 및 [Azure DNS로 도메인 위임](../dns/dns-domain-delegation)을 참조하세요.
+자세한 내용은 [Azure DNS 시작](../dns/dns-getstarted-create-dnszone.md) 및 [Azure DNS로 도메인 위임](../dns/dns-domain-delegation.md)을 참조하세요.
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
@@ -147,4 +147,4 @@ A 레코드를 만들면 웹 앱에서 특수 CNAME 레코드도 필요하며, �
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

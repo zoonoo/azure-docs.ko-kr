@@ -1,6 +1,6 @@
 <properties
-   pageTitle="Azure에서 가상 컴퓨터에 태그를 지정하는 방법"
-   description="Azure에서 가상 컴퓨터에 태그를 지정하는 방법에 대한 자세한 정보"
+   pageTitle="VM에 태그를 지정하는 방법 | Microsoft Azure"
+   description="리소스 관리자 배포 모델을 사용하여 만든 Azure 가상 컴퓨터에 태그를 지정하는 방법을 알아봅니다."
    services="virtual-machines"
    documentationCenter=""
    authors="mmccrory"
@@ -18,6 +18,8 @@
    ms.author="dkshir;memccror"/>
 
 # Azure에서 가상 컴퓨터에 태그를 지정하는 방법
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 만든 가상 컴퓨터에 태그를 지정하는 방법을 설명합니다.
 
 이 문서에서는 Azure 리소스 관리자를 통해 Azure의 가상 컴퓨터에 태그를 지정하는 다양한 방법에 대해 설명합니다. 태그는 리소스 또는 리소스 그룹에 직접 배치할 수 있는 사용자 정의 키/값 쌍입니다. Azure는 현재 리소스 및 리소스 그룹당 최대 15개의 태그를 지원합니다. 태그를 만들 때 리소스에 배치하거나 기존 리소스에 추가할 수 있습니다. 태그는 Azure 리소스 관리자를 통해 생성된 리소스에 대해서만 지원됩니다.
 
@@ -42,7 +44,7 @@
 
 편집을 마친 후 선택한 태그와 함께 템플릿 파일을 저장합니다.
 
-이어서 **매개 변수 편집** 섹션에서 태그의 값을 채울 수 있습니다.
+이어서 **매개 변수 편집** 섹션에서 태그의 값을 입력할 수 있습니다.
 
 ![Azure 포털에서 태그 편집](./media/virtual-machines-tagging-arm/edit-tags-in-azure-portal.png)
 
@@ -138,7 +140,7 @@ Azure CLI를 통해 이미 생성된 리소스에 대한 태그 지정도 지원
 
         azure vm show -g MyResourceGroup -n MyVM
 
-PowerShell과 달리 이미 태그를 포함하는 리소스에 태그를 추가하는 경우 `azure vm set` 명령을 사용하기 모든 태그(이전 및 새 태그)를 지정할 필요가 없습니다. 대신,이 명령을 사용하여 리소스에 태그를 추가할 수 있습니다. Azure CLI를 통해 새 VM 태그를 추가하기 위해 태그 매개 변수 **-t**와 함께 `azure vm set` 명령을 사용할 수 있습니다.
+PowerShell과 달리 이미 태그를 포함하는 리소스에 태그를 추가하는 경우 `azure vm set` 명령을 사용하기 모든 태그(이전 및 새 태그)를 지정할 필요가 없습니다. 대신,이 명령을 사용하여 리소스에 태그를 추가할 수 있습니다. Azure CLI를 통해 새 VM 태그를 추가하려면 태그 매개 변수 **-t**와 함께 `azure vm set` 명령을 사용할 수 있습니다.
 
         azure vm set -g MyResourceGroup -n MyVM –t myNewTagName1=myNewTagValue1;myNewTagName2=myNewTagValue2
 
@@ -180,11 +182,11 @@ Azure 리소스 관리자를 통해 계산, 네트워크 및 저장소 리소스
 
 
 [Azure 리소스 관리자를 사용하여 PowerShell 환경]: ../powershell-azure-resource-manager.md
-[Azure 리소스 Cmdlet]: https://msdn.microsoft.com/ko-kr/library/azure/dn757692.aspx
+[Azure 리소스 Cmdlet]: https://msdn.microsoft.com/ko-KR/library/azure/dn757692.aspx
 [Azure CLI 환경]: ./xplat-cli-azure-resource-manager.md
 [Azure 리소스 관리자 개요]: ../resource-group-overview.md
 [태그를 사용하여 Azure 리소스 구성]: ../resource-group-using-tags.md
 [Azure 청구서 이해]: ../billing-understand-your-bill.md
 [Microsoft Azure 리소스 소비에 대한 통찰력 얻기]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

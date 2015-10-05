@@ -1,19 +1,21 @@
 <properties 
-	pageTitle="Azure에서 SQL Server 가상 컴퓨터 프로비전"
-	description="이 자습서에서는 Azure에서 SQL Server VM을 만들고 구성하는 방법에 대해 설명합니다."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"/>
+	pageTitle="SQL Server 가상 컴퓨터 프로비전 | Microsoft Azure" 
+	description="이 자습서에서는 Azure에서 SQL Server VM을 만들고 구성하는 방법에 대해 설명합니다." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="rothja" 
+	manager="jeffreyg" 
+	editor="monicar"
+	tags="azure-service-management"
+	/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows-sql-server" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="jroth"/>
 
 # Azure에서 SQL Server 가상 컴퓨터 프로비전
@@ -23,6 +25,8 @@
 - [PowerShell](virtual-machines-sql-server-create-vm-with-powershell.md)
 
 ## 개요
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개의 이미지가 있습니다. 갤러리에서 가상 컴퓨터 이미지 중 하나를 선택하고 몇 번의 클릭으로 Azure 환경에 가상 컴퓨터를 프로비전할 수 있습니다.
 
@@ -45,9 +49,9 @@ Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개
 
 Azure에서 지원되는 SQL Server 이미지에 관한 최신 정보는 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
->[AZURE.NOTE]플랫폼 이미지인 SQL Server 평가 버전을 사용하여 만든 가상 컴퓨터가 있는 경우 갤러리에서 분당 유료 버전 이미지로 업그레이드할 수 없습니다. 두 가지 옵션 중에서 선택할 수 있습니다.
+>[AZURE.NOTE] 플랫폼 이미지인 SQL Server 평가 버전을 사용하여 만든 가상 컴퓨터가 있는 경우 갤러리에서 분당 유료 버전 이미지로 업그레이드할 수 없습니다. 두 가지 옵션 중에서 선택할 수 있습니다.
 >
-> - 갤러리에서 분당 유료 SQL Server 버전을 사용하여 새 가상 컴퓨터를 만들고 [Azure VM에서 SQL Server로 데이터베이스 마이그레이션](virtual-machines-migrate-onpremises-database)의 단계를 따라 이 새 가상 컴퓨터에 데이터베이스 파일을 마이그레이션할 수 있습니다.
+> - 갤러리에서 분당 유료 SQL Server 버전을 사용하여 새 가상 컴퓨터를 만들고 [Azure VM에서 SQL Server로 데이터베이스 마이그레이션](virtual-machines-migrate-onpremises-database)의 단계에 따라 데이터베이스 파일을 이 새로운 가상 컴퓨터로 마이그레이션할 수 있습니다.
 > - 또는 [다른 버전의 SQL Server로 업그레이드](https://msdn.microsoft.com/library/cc707783.aspx)의 단계를 수행하여 [Azure에서 Software Assurance를 통한 라이선스 이동](http://azure.microsoft.com/pricing/license-mobility/) 계약에 따라 SQL Server 평가판 버전의 기존 인스턴스를 다른 버전의 SQL Server로 업그레이드할 수 있습니다. 라이선스가 부여된 SQL Server를 구입하는 방법에 대한 자세한 내용은 [SQL Server 구매 방법](http://www.microsoft.com/sqlserver/get-sql-server/how-to-buy.aspx)(영문)을 참조하십시오.
 
 4. 첫 번째 **가상 컴퓨터 구성** 페이지에서 다음 정보를 입력합니다.
@@ -60,7 +64,7 @@ Azure에서 지원되는 SQL Server 이미지에 관한 최신 정보는 [Azure 
 
 	![VM 구성](./media/virtual-machines-provision-sql-server/4VM-Config.png)
 
-	>[AZURE.NOTE]가상 컴퓨터의 크기는 프로비전 중 지정합니다.
+	>[AZURE.NOTE] 가상 컴퓨터의 크기는 프로비전 중 지정합니다.
  	>
 	> - A2는 프로덕션 작업용으로 권장되는 최소 크기입니다. 
     > - SQL Server Enterprise Edition을 사용할 경우 가상 컴퓨터의 최소 권장 크기는 A3입니다.
@@ -154,4 +158,4 @@ Management Studio를 사용하여 Azure 가상 컴퓨터에서 실행 중인 SQL
 
 - [Azure 가상 컴퓨터의 SQL Server에 대한 응용 프로그램 패턴 및 개발 전략](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

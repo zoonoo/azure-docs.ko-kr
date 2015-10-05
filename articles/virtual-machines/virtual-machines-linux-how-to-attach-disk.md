@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure에서 Linux를 실행하는 가상 컴퓨터에 디스크 연결"
-	description="데이터 디스크를 Azure 가상 컴퓨터에 연결하고 사용 가능하도록 초기화하는 방법에 대해 알아봅니다."
+	pageTitle="Linux VM에 디스크 연결 | Microsoft Azure"
+	description="Azure에서 실행되는 Linux 가상 컴퓨터에 데이터 디스크를 연결하고 사용 가능하도록 초기화하는 방법을 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -19,9 +19,11 @@
 
 # Linux 가상 컴퓨터에 데이터 디스크를 연결하는 방법
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 디스크를 연결하는 방법을 설명합니다.
+
 빈 디스크와 데이터가 포함된 디스크를 모두 연결할 수 있습니다. 두 경우 모두, 디스크는 실제로 Azure 저장소 계정에 상주하는 .vhd 파일입니다. 또한 두 경우 모두 디스크를 연결한 후 초기화를 해야 사용 준비가 완료됩니다. 이 문서는 클래식 배포 모델을 사용하여 만든 가상 컴퓨터를 참조합니다.
 
-> [AZURE.NOTE]모범 사례는 별도 디스크를 하나 이상 사용하여 가상 컴퓨터의 데이터를 저장하는 것입니다. Azure 가상 컴퓨터를 만들면 운영 체제 디스크와 임시 디스크가 있습니다. **임시 디스크를 데이터 저장에 사용하지 마세요.** 이름이 의미하는 것과 같이 D 드라이브는 임시 저장소만 제공합니다. Azure 저장소에 상주하지 않으므로 중복성이나 백업을 제공하지 않습니다. 임시 디스크는 일반적으로 Azure Linux 에이전트에 의해 관리되며 **/mnt/resource**(또는 Ubuntu 이미지의 **/mnt**)에 자동으로 탑재됩니다. 반면, 데이터 디스크 이름은 `/dev/sdc`처럼 Linux 커널로 지정할 수 있으며 사용자가 해당 리소스에 대한 파티셔닝, 포맷, 마운팅을 수행해야 합니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드][Agent]를 참조하십시오.
+> [AZURE.NOTE]모범 사례는 별도 디스크를 하나 이상 사용하여 가상 컴퓨터의 데이터를 저장하는 것입니다. Azure 가상 컴퓨터를 만들면 운영 체제 디스크와 임시 디스크가 있습니다. **임시 디스크를 데이터 저장에 사용하지 마세요.** 이름이 의미하는 것과 같이 D 드라이브는 임시 저장소만 제공합니다. Azure 저장소에 상주하지 않으므로 중복성이나 백업을 제공하지 않습니다. 임시 디스크는 일반적으로 Azure Linux 에이전트에 의해 관리되며 **/mnt/resource**(또는 Ubuntu 이미지의 **/mnt**)에 자동으로 탑재됩니다. 반면, 데이터 디스크 이름은 Linux 커널에서 `/dev/sdc`와 같이 지정될 수 있으며 사용자가 이 리소스를 분할, 포맷 및 탑재해야 합니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드][Agent]를 참조하십시오.
 
 [AZURE.INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-linux.md)]
 
@@ -45,7 +47,7 @@
 
 	또는
 
-	b) `lsscsi` 명령을 사용하여 장치 id를 확인합니다. `lsscsi`는 `yum install lsscsi`(Red Hat 기반 배포) 또는 `apt-get install lsscsi`(Debian 기반 배포)를 통해 설치할 수 있습니다. _lun_ 또는 **논리 단위 번호**를 사용하여 찾는 디스크를 확인할 수 있습니다. 예를 들어, 연결한 디스크에 대한 _lun_은 `azure vm disk list <virtual-machine>`에서 다음과 같이 쉽게 확인할 수 있습니다.
+	b) `lsscsi` 명령을 사용하여 장치 ID를 확인합니다. `lsscsi`는 `yum install lsscsi`(Red Hat 기반 배포) 또는 `apt-get install lsscsi`(Debian 기반 배포)를 통해 설치할 수 있습니다. _lun_, 즉 **논리 단위 번호**를 사용하여 원하는 디스크를 찾을 수 있습니다. 예를 들어 연결한 디스크의 _lun_은 `azure vm disk list <virtual-machine>`에서 다음과 같이 쉽게 확인할 수 있습니다.
 
 			~$ azure vm disk list ubuntuVMasm
 			info:    Executing command vm disk list
@@ -83,7 +85,7 @@
 
 	![새 장치 만들기](./media/virtual-machines-linux-how-to-attach-disk/DiskPartition.png)
 
-5. 프롬프트가 표시되면 **p**를 입력하여 파티션을 주 파티션으로 설정하고, **1**을 입력하여 첫 번째 파티션으로 설정한 다음 enter를 입력하여 실린더에 대한 기본값을 적용합니다.
+5. 프롬프트가 표시되면 **p**를 입력하여 파티션을 주 파티션으로 설정하고, **1**을 입력하여 첫 번째 파티션으로 설정한 다음 Enter 키를 눌러 실린더에 대한 기본값을 적용합니다.
 
 
 	![파티션 만들기](./media/virtual-machines-linux-how-to-attach-disk/DiskCylinder.png)
@@ -171,4 +173,4 @@
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

@@ -1,11 +1,12 @@
 <properties
-	pageTitle="IPython Notebook | Microsoft Azure"
-	description="Linux 또는 Windows VM(가상 컴퓨터)을 사용하여 Azure에 IPython Notebook를 배포하는 방법을 보여 주는 자습서입니다."
-	services="virtual-machines"
+	pageTitle="IPython Notebook 만들기 | Microsoft Azure"
+	description="클래식 배포 모델을 사용하여 만든 Azure Linux 또는 Windows 가상 컴퓨터에 IPython Notebook을 배포하는 방법을 알아봅니다."
+	services="virtua-lmachines"
 	documentationCenter="python"
 	authors="huguesv"
 	manager="wpickett"
-	editor=""/>
+	editor=""
+	tags=“azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -16,8 +17,9 @@
 	ms.date="05/20/2015"
 	ms.author="huvalo"/>
 
-
 # Azure의 IPython Notebook
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 만든 가상 컴퓨터에 노트북을 배포하는 방법을 설명합니다.
 
 [IPython 프로젝트](http://ipython.org)(영문)는 강력한 대화형 셸, 고성능의 사용하기 쉬운 병렬 라이브러리 및 웹 기반 환경을 포함하는 과학적 컴퓨팅을 위한 도구 모음인 IPython Notebook을 제공합니다. Notebook은 코드 실행과 라이브 계산 문서를 결합하는 대화형 컴퓨팅 작업 환경을 제공합니다. 이러한 노트북 파일에는 임의 텍스트, 수식, 입력 코드, 결과, 그래픽, 비디오를 비롯하여 최신 웹 브라우저에서 표시할 수 있는 기타 모든 미디어가 포함될 수 있습니다.
 
@@ -49,7 +51,7 @@ Python을 처음 접하며 재미있는 대화형 환경에서 이를 배우려�
 
 ![스크린샷](./media/virtual-machines-python-ipython-notebook/ipy-azure-linux-005.png)
 
-이 단계 이후에는 **끝점** 대시보드 탭이 다음 스크린샷과 같이 표시됩니다.
+이 단계를 마치면 **끝점** 대시보드 탭이 다음 스크린샷과 같이 표시됩니다.
 
 ![스크린샷](./media/virtual-machines-python-ipython-notebook/ipy-azure-linux-006.png)
 
@@ -205,7 +207,7 @@ Windows에서는 다음 명령을 사용합니다.
 
 ![스크린샷](./media/virtual-machines-python-ipython-notebook/ipy-notebook-002.png)
 
-**New Notebook** 단추를 클릭하는 경우 다음과 같이 열린 페이지가 표시됩니다.
+**New Notebook** 단추를 클릭하는 경우 다음과 같은 여는 페이지가 표시됩니다.
 
 ![스크린샷](./media/virtual-machines-python-ipython-notebook/ipy-notebook-003.png)
 
@@ -270,4 +272,4 @@ IPython Notebook은 Azure에서 Python 에코시스템의 기능에 대화형으
 [Python 2.7]: http://www.python.org/download
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

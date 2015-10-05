@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Redis Cache를 모니터링하는 방법"
-	description="Azure Redis Cache 인스턴스의 상태와 성능을 모니터링하는 방법을 알아봅니다."
-	services="redis-cache"
-	documentationCenter=""
-	authors="steved0x"
-	manager="dwrede"
+	pageTitle="Azure Redis Cache를 모니터링하는 방법" 
+	description="Azure Redis Cache 인스턴스의 상태와 성능을 모니터링하는 방법을 알아봅니다." 
+	services="redis-cache" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cache"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="cache-redis"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="cache" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="cache-redis" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache를 모니터링하는 방법
@@ -24,7 +24,7 @@ Azure Redis Cache에서는 캐시 인스턴스를 모니터링하기 위한 몇 
 
 캐시 메트릭은 Redis [INFO](http://redis.io/commands/info) 명령을 사용하여 수집됩니다. 각 캐시 메트릭에 사용되는 다양한 INFO 명령에 대한 자세한 내용은 [사용 가능한 메트릭 및 보고 간격](#available-metrics-and-reporting-intervals)을 참조하세요.
 
-캐시 메트릭을 보려면 [Azure 미리 보기 포털](https://portal.azure.com)에서 캐시 인스턴스를 [찾으세요](https://msdn.microsoft.com/library/azure/cbe6d113-7bdc-4664-a59d-ff0df6f4e214#CacheSettings). Azure Redis Cache 인스턴스 메트릭은 **Redis Cache** 블레이드에서 액세스합니다.
+캐시 메트릭을 보려면 [Azure Preview 포털](https://portal.azure.com)에서 캐시 인스턴스를 [찾습니다](cache-configure.md). Azure Redis Cache 인스턴스 메트릭은 **Redis Cache** 블레이드에서 액세스합니다.
 
 ![모니터][redis-cache-monitor-overview]
 
@@ -52,15 +52,13 @@ Azure Redis Cache에서는 진단 데이터를 저장소 계정에 저장하는 
 
 **저장소 계정** 오른쪽의 화살표를 클릭하여 진단 데이터를 저장할 저장소 계정을 선택합니다. 최상의 성능을 위해 캐시와 동일한 지역의 저장소 계정을 선택합니다.
 
-**보존(일)** 드롭다운을 사용하여 진단 데이터의 보존 기간을 선택합니다. 목록 맨 위의 텍스트 상자에 원하는 일수를 입력할 수도 있습니다.
-
 진단 설정이 구성되면 **저장**을 클릭하여 구성을 저장합니다. 변경 사항이 적용되는 데 다소 시간이 걸릴 수 있습니다.
 
 >[AZURE.IMPORTANT]동일한 지역 및 구독의 캐시는 동일한 진단 저장소 계정을 공유하며 구성이 변경되면 해당 지역에 있는 구독의 모든 캐시에 적용됩니다.
 
-저장된 메트릭을 보려면 `WADMetrics`로 시작하는 이름의 테이블을 저장소 계정에서 검사합니다. 미리 보기 포털 외부에 저장된 메트릭에 액세스하는 방법에 대한 자세한 내용은 [Redis Cache 모니터링 데이터 액세스](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) 샘플을 참조하세요.
+저장된 메트릭을 보려면 `WADMetrics`로 시작하는 이름의 테이블을 저장소 계정에서 검사합니다. Preview 포털 외부에 저장된 메트릭에 액세스하는 방법에 대한 자세한 내용은 [Redis Cache 모니터링 데이터 액세스](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) 샘플을 참조하세요.
 
->[AZURE.NOTE]선택한 저장소 계정에 저장된 메트릭만 미리 보기 포털에 표시됩니다. 저장소 계정을 변경하는 경우 이전에 구성된 저장소 계정의 데이터는 계속 다운로드할 수 있으나 미리 보기 포털에 표시되지 않으며 보존 기간이 지나도 삭제되지 않습니다.
+>[AZURE.NOTE]선택한 저장소 계정에 저장된 메트릭만 미리 보기 포털에 표시됩니다. 저장소 계정을 변경하는 경우 이전에 구성된 저장소 계정의 데이터는 계속 다운로드할 수 있으나 Preview 포털에 표시되지 않습니다.
 
 ## 사용 가능한 메트릭 및 보고 간격
 
@@ -80,7 +78,7 @@ Azure Redis Cache에서는 진단 데이터를 저장소 계정에 저장하는 
 | 설정 | 지정한 보고 간격 동안 캐시에 수행된 설정 작업의 수입니다. 이 값은 모든 Redis INFO 명령 `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange` 및 `cmdstat_setnx` 값의 합계입니다. |
 | 총 작업 | 지정한 보고 간격 동안 캐시 서버에서 처리한 총 명령 수입니다. 이 값은 Redis INFO `total_commands_processed` 명령에 매핑됩니다. Azure Redis Cache가 pub/sub에만 사용되는 경우 `Cache Hits`, `Cache Misses`, `Gets` 또는 `Sets`에 대한 메트릭은 없으나 pub/sub 작업의 캐시 사용량을 반영하는 `Total Operations` 메트릭은 있습니다. |
 | 사용된 메모리 | 지정한 보고 간격 동안 사용된 캐시 메모리의 양(MB)입니다. 이 값은 Redis INFO `used_memory` 명령에 매핑됩니다. |
-| CPU | 지정한 보고 간격 동안의 Azure Redis Cache 서버 CPU 사용률(%)입니다. 이 값은 운영 체제 `\Processor(_Total)% Processor Time` 성능 카운터에 매핑됩니다. |
+| CPU | 지정한 보고 간격 동안의 Azure Redis Cache 서버 CPU 사용률(%)입니다. 이 값은 운영 체제 `\Processor(_Total)\% Processor Time` 성능 카운터에 매핑됩니다. |
 | 캐시 읽기 | 지정한 보고 간격 동안 캐시에서 읽은 데이터의 양(KB/s)입니다. 이 값은 캐시를 호스트하는 가상 컴퓨터를 지원하는 네트워크 인터페이스 카드에서 가져오며 Redis에 특정한 값이 아닙니다. |
 | 캐시 쓰기 | 지정한 보고 간격 동안 캐시에 쓴 데이터의 양(KB/s)입니다. 이 값은 캐시를 호스트하는 가상 컴퓨터를 지원하는 네트워크 인터페이스 카드에서 가져오며 Redis에 특정한 값이 아닙니다. |
 
@@ -221,4 +219,4 @@ Azure의 경고에 대한 자세한 내용은 [경고 알림 받기](../azure-po
 
 [redis-cache-add-alert]: ./media/cache-how-to-monitor/redis-cache-add-alert.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="신뢰할 수 있는 서비스 프로그래밍 모델 고급 사용법"
-	description="서비스에 유연성을 더해주는 서비스 패브릭의 신뢰할 수 있는 서비스 프로그래밍 모델 고급 사용법에 대해 알아보세요."
-	services="Service-Fabric"
-	documentationCenter=".net"
-	authors="jessebenson"
-	manager="timlt"
-	editor="masnider"/>
+   description="서비스에 유연성을 더해주는 서비스 패브릭의 신뢰할 수 있는 서비스 프로그래밍 모델 고급 사용법에 대해 알아보세요."
+   services="Service-Fabric"
+   documentationCenter=".net"
+   authors="jessebenson"
+   manager="timlt"
+   editor="masnider"/>
 
 <tags
    ms.service="Service-Fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/26/2015"
-	ms.author="jesseb"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="08/26/2015"
+   ms.author="jesseb"/>
 
 # 신뢰할 수 있는 서비스 프로그래밍 모델 고급 사용법
 서비스 패브릭은 신뢰할 수 있는 상태 비저장 및 상태 저장 서비스의 작성과 관리를 단순화합니다. 이 가이드는 서비스에 대한 더 많은 제어와 유연성을 확보할 수 있는 신뢰할 수 있는 서비스 프로그래밍 모델의 고급 사용법에 대해 설명합니다. 이 가이드를 읽기 전에 [신뢰할 수 있는 서비스 프로그래밍 모델](service-fabric-reliable-services-introduction.md)에 대해 숙지하세요.
@@ -59,7 +59,4 @@ StatefulService 기본 클래스는 대부분의 상태 저장 서비스에 충�
 
 - [배치 제약 조건 개요](service-fabric-placement-constraint.md)
 
-- [Azure 서비스 패브릭에서 상태 저장 서비스의 복제 트래픽 보호](service-fabric-replication-security.md)
- 
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

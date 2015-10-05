@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/16/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # WebJob으로 백그라운드 작업 실행
@@ -211,4 +211,4 @@ Azure 관리 포털에서 예약된 웹 작업을 만들 수 없지만 해당 �
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

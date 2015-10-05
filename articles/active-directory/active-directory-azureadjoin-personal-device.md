@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/02/2015"
+	ms.date="09/21/2015"
 	ms.author="femila"/>
 
 # 개인 장치를 조직에 조인
@@ -31,8 +31,8 @@ Windows 10 장치를 조직에 조인하려면
 9.	페더레이션 사용자의 경우, Windows 로그인 화면으로 이동하고 자격 증명을 입력해야 합니다.
 
 ## 추가 정보
-* [Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장](active-directory-azureadjoin-user-upgrade.md)
+* [Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장](active-directory-azureadjoin-overview.md)
 * [Azure AD 조인에 대한 사용 시나리오와 배포 고려 사항에 알아보기](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

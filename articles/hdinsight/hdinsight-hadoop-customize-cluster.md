@@ -92,7 +92,9 @@ HDInsight 서비스에서 사용할 수 있는 오픈 소스 구성 요소에는
 
 기본 제공 구성 요소는 완전히 지원되며, Microsoft 지원에서 이러한 구성 요소와 관련된 문제를 해결하는 데 도움을 드릴 것입니다.
 
-사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. 지원을 통해 문제를 해결하거나 해당 기술에 대한 전문 지식이 있는, 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요구할 수 있습니다. 예를 들어, <a href ="https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight" target="_blank">HDInsight용 MSDN 포럼</a> 및 <a href="http://stackoverflow.com" target="_blank">스택 오버플로</a>와 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 <a href="http://apache.org" target="_blank">Apache.org</a>에 프로젝트 사이트가 있습니다(예: <a href="http://hadoop.apache.org/" target="_blank">Hadoop</a> 및 <a href="http://spark.apache.org/" target="_blank">Spark</a>).
+> [AZURE.WARNING]HDInsight 클러스터와 함께 제공된 구성 요소는 완전히 지원되며 Microsoft 지원에서 이러한 구성 요소와 관련된 문제를 해결하는 데 도움을 드릴 것입니다.
+>
+> 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. 지원을 통해 문제를 해결하거나 해당 기술에 대한 전문 지식이 있는, 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요구할 수 있습니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/ko-KR/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [http://apache.org](http://apache.org)에 프로젝트 사이트가 있습니다(예: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/)).
 
 HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방법을 제공합니다. 구성 요소가 클러스터에 설치되고 사용되는 방법과 상관없이, 동일한 수준의 지원이 적용됩니다. 다음은 HDInsight 클러스터에서 사용자 지정 구성 요소를 사용할 수 있는 가장 일반적인 방법의 목록입니다.
 
@@ -111,8 +113,8 @@ HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방
 - [HDInsight용 스크립트 작업 스크립트 개발][hdinsight-write-script]
 - [HDInsight 클러스터에서 Spark 설치 및 사용][hdinsight-install-spark]
 - [HDInsight 클러스터에서 R 설치 및 사용][hdinsight-install-r]
-- [HDInsight 클러스터에서 Solr 설치 및 사용](hdinsight-hadoop-solr-install.md)
-- [HDInsight 클러스터에서 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install.md)
+- [HDInsight 클러스터에 Solr을 설치 및 사용합니다](hdinsight-hadoop-solr-install.md).
+- [HDInsight 클러스터에 Giraph를 설치 및 사용합니다](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts.md
@@ -123,4 +125,4 @@ HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "클러스터 프로 비전 중의 단계"
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

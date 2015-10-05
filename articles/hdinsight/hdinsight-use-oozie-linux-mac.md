@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/24/2015"
+	ms.date="09/23/2015"
 	ms.author="larryfr"/>
 
 
@@ -48,9 +48,9 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로/코디네이션 시�
 
 1. Hive 동작은 HiveQL을 실행하여 HDInsight에 포함된 **hivesampletable**에서 레코드를 추출합니다. 데이터의 각 행은 특정 모바일 장치에서의 방문을 설명합니다. 레코드 형식은 다음과 유사하게 표시됩니다.
 
-		8       18:54:20        ko-kr   Android Samsung SCH-i500        California     United States    13.9204007      0       0
-		23      19:19:44        ko-kr   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
-		23      19:19:46        ko-kr   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
+		8       18:54:20        KO-KR   Android Samsung SCH-i500        California     United States    13.9204007      0       0
+		23      19:19:44        KO-KR   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
+		23      19:19:46        KO-KR   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
 
 	이 문서에서 사용된 Hive 스크립트는 각 플랫폼(예: Android 또는 iPhone)에 대한 총 방문 횟수를 계산하여 새 Hive 테이블에 저장합니다.
 
@@ -62,7 +62,7 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로/코디네이션 시�
 
 ##작업 디렉터리 만들기
 
-Oozie에는 작업을 같은 디렉터리에 저장하는 데 사용되는 리소스가 필요합니다. 이 예제는 **wasb:///tutorials/useoozie**를 사용합니다. 다음 명령을 사용하여 이 디렉터리와 이 워크플로에서 만든 새 Hive 테이블을 유지할 data 디렉터리를 만듭니다.
+Oozie에는 작업을 같은 디렉터리에 저장하는 데 사용되는 리소스가 필요합니다. 이 예제는 ****wasb:///tutorials/useoozie**를 사용합니다. 다음 명령을 사용하여 이 디렉터리와 이 워크플로에서 만든 새 Hive 테이블을 유지할 data 디렉터리를 만듭니다.
 
 	hadoop fs -mkdir -p /tutorials/useoozie/data
 
@@ -216,7 +216,7 @@ Oozie 워크플로 정의는 hPDL(XML 프로세스 정의 언어)로 작성되�
         data:    Server Name i1qwc540ts
         info:    sql server create command OK
 
-    > [AZURE.IMPORTANT]이 명령에서 반환되는 서버 이름(위 예제의 경우 **i1qwc540ts**)을 기록해 둡니다. 이것은 생성된 SQL 데이터베이스 서버의 짧은 이름입니다. 완전히 정규화된 도메인 이름(FQDN)은 **&lt;shortname&gt;.database.windows.net**입니다. 위 예제의 경우 FQDN은 **i1qwc540ts.database.windows.net**입니다.
+    > [AZURE.IMPORTANT]이 명령에서 반환되는 서버 이름(위 예제의 경우 \*\*i1qwc540ts\*\*)을 기록해 둡니다. 이것은 생성된 SQL 데이터베이스 서버의 짧은 이름입니다. 완전히 정규화된 도메인 이름(FQDN)은 **&lt;shortname&gt;.database.windows.net**입니다. 위 예제의 경우 FQDN은 **i1qwc540ts.database.windows.net**입니다.
 
 2. 다음 명령을 사용하여 SQL 데이터베이스 서버에서 **oozietest**라는 이름의 데이터베이스를 생성합니다.
 
@@ -715,7 +715,7 @@ Oozie UI를 사용하면 Oozie 로그뿐 아니라 Hive 쿼리와 같은 MapRedu
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: powershell-install-configure.md
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-script]: https://technet.microsoft.com/ko-kr/library/ee176961.aspx
+[powershell-script]: https://technet.microsoft.com/KO-KR/library/ee176961.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
@@ -725,4 +725,4 @@ Oozie UI를 사용하면 Oozie 로그뿐 아니라 Hive 쿼리와 같은 MapRedu
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

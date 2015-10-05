@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성"
-	description="Azure PowerShell을 사용하여 Azure에서 Windows 기반 가상 컴퓨터를 만들고 미리 구성하는 방법에 대해 알아봅니다."
+	pageTitle="VM 만들기 및 미리 구성 | Microsoft Azure"
+	description="클래식 배포 모델 및 PowerShell을 사용하여 Windows 가상 컴퓨터를 만들고 미리 구성합니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -11,25 +11,26 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="06/10/2015"
 	ms.author="cynthn"/>
 
-# Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성
+# 클래식 배포 모델 및 PowerShell을 사용하여 Windows 가상 컴퓨터 만들기 및 미리 구성
 
 > [AZURE.SELECTOR]
-- [Azure preview portal](virtual-machines-windows-tutorial.md)
-- [Azure portal](virtual-machines-windows-tutorial-classic-portal.md)
-- [PowerShell: Resource Manager deployment](virtual-machines-deploy-rmtemplates-powershell.md)
-- [PowerShell: Classic deployment](virtual-machines-ps-create-preconfigure-windows-vms.md)
+- [Portal](virtual-machines-windows-tutorial-classic-portal.md)
+
+<br>
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다. [리소스 관리자 배포 모델](virtual-machines-deploy-rmtemplates-powershell.md)을 사용하여 리소스를 만들 수도 있습니다.
 
 다음 단계에서는 구성 요소 접근 방식을 사용하여 Windows 기반 Azure 가상 컴퓨터를 만들고 미리 구성하는 Azure PowerShell 명령 집합을 사용자 지정하는 방법을 보여 줍니다. 이 프로세스를 사용하여 새 Windows 기반 가상 컴퓨터에 대한 명령 집합을 신속하게 만들고 기존 배포를 확장하거나, 사용자 지정 개발/테스트 또는 IT 전문가 환경을 신속하게 빌드하는 여러 명령 집합을 만들 수 있습니다.
 
 다음 단계에서는 빈 칸 채우기 접근 방식에 따라 Azure PowerShell 명령 집합을 만듭니다. 이 접근 방식은 PowerShell을 처음 접하거나 성공적인 구성을 위해 지정할 값만 알기를 원하는 경우에 유용할 수 있습니다. 고급 PowerShell 사용자는 명령을 가져와 고유한 변수 값("$"로 시작하는 줄)을 대체할 수 있습니다.
 
-Linux 기반 가상 컴퓨터에 대한 관련 항목은 [Azure PowerShell을 사용하여 Linux 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)을 참조하세요.
+Linux 기반 가상 컴퓨터에 대한 관련 항목은 [Azure PowerShell을 사용하여 Linux 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-linux-vms.md)을 참조하세요.
 
 [AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
 
@@ -176,7 +177,7 @@ Active Directory 도메인 컨트롤러에 대해 $hcaching을 "None"으로 설�
 이 가상 컴퓨터 또는 이와 유사한 가상 컴퓨터를 다시 만들려는 경우 다음과 같이 할 수 있습니다.
 
 - 이 명령 집합을 PowerShell 스크립트 파일(*.ps1)로 저장
-- Azure 관리 포털의 **자동화** 섹션에서 이 명령을 Azure 자동화 Runbook으로 저장
+- Azure 관리 포털의 **자동화** 섹션에서 이 명령 집합을 Azure 자동화 Runbook으로 저장합니다.
 
 ## <a id="examples"></a>예제
 
@@ -271,4 +272,4 @@ Active Directory 도메인 컨트롤러에 대해 $hcaching을 "None"으로 설�
 
 [리소스 관리자 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

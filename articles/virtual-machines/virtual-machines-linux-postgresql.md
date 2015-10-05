@@ -1,36 +1,39 @@
 <properties
-	pageTitle="Linux를 실행하는 Microsoft Azure 가상 컴퓨터에서 PostgreSQL 설치 및 구성 | Microsoft Azure"
-	description="Azure의 Linux 가상 컴퓨터에서 PostgreSQL을 설치하고 구성하는 방법을 알아봅니다."
+	pageTitle="Linux VM에서 PostgreSQL 설정 | Microsoft Azure"
+	description="Azure Linux 가상 컴퓨터에 PostgreSQL을 설치하고 구성하는 방법을 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="SuperScottz"
 	manager="timlt"
 	editor=""
-	tags=""/>
+ 	tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm="linux"
+	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
 	ms.date="08/10/2015"
 	ms.author="mingzhan"/>
 
 
-#Azure에서 PostgreSQL 설치 및 구성
+# Azure에서 PostgreSQL 설치 및 구성
 
 PostgreSQL은 Oracle 및 DB2와 유사한 고급 오픈 소스 데이터베이스입니다. 전체 ACID 규정 준수, 신뢰할 수 있는 트랜잭션 처리 및 다중 버전 동시성 제어와 같은 엔터프라이즈 기능이 포함됩니다. 또한 ANSI SQL 및 SQL/MED(Oracle, MySQL, MongoDB 등에 대한 외부 데이터 래퍼 포함)와 같은 표준을 지원합니다. 12개 이상의 프로시저 언어, GIN 및 GiST 인덱스, 공간 데이터 지원 및 JSON에 대한 여러 NoSQL 같은 기능 또는 키 값 기반 응용 프로그램에 대한 지원을 통해 확장성을 높일 수 있습니다.
 
 이 문서에서는 Linux를 실행하는 Azure 가상 컴퓨터에서 PostgreSQL을 설치 및 구성하는 방법을 알아봅니다.
 
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델 또는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+
+## PostgreSQL 설치
+
 > [AZURE.NOTE]이 자습서를 완료하려면 Linux를 실행하는 Azure 가상 컴퓨터가 이미 있어야 합니다. 계속하기 전에 Linux VM을 생성하고 설정하려면 [Azure Linux VM 자습서](virtual-machines-linux-tutorial.md)를 참조하세요.
 
 이 경우 PostgreSQL 포트로 포트 1999를 사용하세요.
 
-## PostgreSQL 설치
-
-PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 사용하는 경우 [Azure에서 Linux와 함께 SSH를 사용하는 방법](virtual-machines-linux-use-ssh-key.md)을 참조하여 Linux VM에 연결하기 위해 PuTTY를 사용하는 방법을 배웁니다.
+PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 사용하는 경우 [Azure에서 Linux와 함께 SSH를 사용하는 방법](virtual-machines-linux-use-ssh-key.md)을 참조하여 PuTTY를 통해 Linux VM에 연결하는 방법을 알아봅니다.
 
 1. 다음 명령을 실행하여 루트(관리자)로 전환합니다.
 
@@ -82,7 +85,7 @@ PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 
 
 		# mkdir -p /opt/pgsql_data
 
-3. 루트가 아닌 사용자를 만들고 해당 사용자의 프로필을 수정합니다. 그런 다음 이 새 사용자(이 예에서는 *postgres*임)로 전환합니다.
+3. 루트가 아닌 사용자를 만들고 해당 사용자의 프로필을 수정합니다. 그런 다음 이 새 사용자(이 예제에서는 *postgres*임)로 전환합니다.
 
 		# useradd postgres
 
@@ -142,7 +145,7 @@ PuTTY를 통해 생성한 Linux VM에 연결합니다. Azure Linux VM을 처음 
 
 	# cp linux /etc/init.d/postgresql
 
-/Etc/init.d/postgresql 파일에서 두 변수를 수정합니다. Thhe 접두사가 PostgreSQL의 설치 경로인 **/opt/pgsql**로 설정됩니다. PGDATA가 PostgreSQL의 데이터 저장소 경로인 **/opt/pgsql\_data**로 설정됩니다.
+/Etc/init.d/postgresql 파일에서 두 변수를 수정합니다. 접두사가 PostgreSQL의 설치 경로인 **/opt/pgsql**로 설정됩니다. PGDATA가 PostgreSQL의 데이터 저장소 경로인 **/opt/pgsql\_data**로 설정됩니다.
 
 	# sed -i '32s#usr/local#opt#' /etc/init.d/postgresql
 
@@ -249,6 +252,6 @@ Postgres 데이터베이스를 만듭니다.
 
 
 ##PostgreSQL에 대한 자세한 정보 얻기
-Azure Linux VM에서 PostgreSQL의 설치를 완료하면 Azure에서 사용하여 즐길 수 있습니다. PostgreSQL에 대한 자세한 내용은 [PostgreSQL 웹 사이트](http://www.postgresql.org/)를 방문하세요.
+Azure Linux VM에서 PostgreSQL의 설치를 완료하면 Azure에서 사용하여 즐길 수 있습니다. PostgreSQL에 대해 자세히 알아보려면 [PostgreSQL 웹 사이트](http://www.postgresql.org/)를 방문하세요.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

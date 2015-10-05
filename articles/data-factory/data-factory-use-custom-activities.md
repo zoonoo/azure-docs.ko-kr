@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Data Factory 파이프라인에서 사용자 지정 작업 사용"
-	description="사용자 지정 작업을 만들고 Azure Data Factory 파이프라인에서 사용하는 방법에 대해 알아봅니다."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Azure Data Factory 파이프라인에서 사용자 지정 작업 사용" 
+	description="사용자 지정 작업을 만들고 Azure Data Factory 파이프라인에서 사용하는 방법에 대해 알아봅니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/28/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
@@ -53,7 +53,7 @@ Azure Data Factory는 파이프라인에서 데이터를 이동 및 처리하는
 
 4. Azure 저장소 NuGet 패키지를 프로젝트로 가져옵니다.
 
-		Install-Package Azure.Storage
+		Install-Package Azure.Storage -Version 4.3.0 
 
 5. 다음 **using** 문을 프로젝트의 원본 파일에 추가합니다.
 
@@ -244,7 +244,18 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 	4. **version** 속성에 대해 사용할 HDInsight 버전을 지정합니다. 이 속성을 제외하면 최신 버전이 사용됩니다.  
 	5. **linkedServiceName**에 대해 시작 자습서에서 만든 **StorageLinkedService**를 지정합니다. 
 
-		{ "name": "HDInsightOnDemandLinkedService", "properties": { "type": "HDInsightOnDemand", "typeProperties": { "clusterSize": "1", "timeToLive": "00:05:00", "version": "3.1", "linkedServiceName": "StorageLinkedService" } } }
+			{
+			  "name": "HDInsightOnDemandLinkedService",
+			  "properties": {
+			    "type": "HDInsightOnDemand",
+			    "typeProperties": {
+			      "clusterSize": "1",
+			      "timeToLive": "00:05:00",
+			      "version": "3.1",
+			      "linkedServiceName": "StorageLinkedService"
+			    }
+			  }
+			}
 
 2. 명령 모음에서 **배포**를 클릭하여 연결된 서비스를 배포합니다.
    
@@ -405,6 +416,7 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 		    "type": "AzureBatch",
 		    "typeProperties": {
 		      "accountName": "<Azure Batch account name>",
+			  "batchUri": "https://<region>.batch.azure.com",
 		      "accessKey": "<Azure Batch account key>",
 		      "poolName": "<Azure Batch pool name>",
 		      "linkedServiceName": "<Specify associated storage linked service reference here>"
@@ -412,11 +424,10 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 		  }
 		}
 
-	> [AZURE.NOTE]**accountName** 속성의 배치 계정의 이름에 "**.<지역 이름**"을 추가합니다. 예: "mybatchaccount.eastus". 다른 방법은 아래와 같이 batchUri 끝점을 지정하는 것입니다.
+	> [AZURE.IMPORTANT]**Azure 배치 계정 블레이드**의 **URL**은 accountname.region.batch.azure.com 형식을 사용합니다. JSON **batchUri** 속성의 경우 URL에서 **"accountname."을 제거**하고 **accountName** JSON 속성에 대해 **accountname**을 사용해야 합니다.
+	  
+	**poolName** 속성의 경우 풀 이름 대신 풀 ID를 지정할 수도 있습니다.
 
-		accountName: "adfteam",
-		batchUri: "https://eastus.batch.azure.com",
- 
 	이러한 속성에 대한 설명은 [Azure 배치 연결된 서비스 MSDN 토픽](https://msdn.microsoft.com/library/mt163609.aspx)을 참조하세요.
 
 2.  데이터 팩터리 편집기에서 연습에서 만든 파이프라인에 대한 JSON 정의를 열고 **HDInsightLinkedService**를 **AzureBatchLinkedService**로 바꿉니다.
@@ -429,7 +440,7 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 
 ## 참고 항목
 
-[Azure Data Factory 업데이트: Azure 배치를 사용하여 ADF 사용자 지정 .NET 작업 실행](http://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/)
+[Azure 데이터 팩터리 업데이트: Azure 배치를 사용하여 ADF 사용자 지정 .NET 작업 실행](http://azure.microsoft.com/blog/2015/05/01/azure-data-factory-updates-execute-adf-custom-net-activities-using-azure-batch/)
 
 [batch-net-library]: ../batch/batch-dotnet-get-started.md
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
@@ -467,4 +478,4 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

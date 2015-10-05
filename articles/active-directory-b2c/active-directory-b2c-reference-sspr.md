@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: 소비자를 위해 셀프 서비스 암호 재설정 설정
@@ -36,4 +36,4 @@
 
 > [AZURE.NOTE]셀프 서비스 암호 재설정 페이지는 [회사 브랜딩 기능](active-directory-add-company-branding.md)을 사용하여 사용자 지정할 수 있습니다.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

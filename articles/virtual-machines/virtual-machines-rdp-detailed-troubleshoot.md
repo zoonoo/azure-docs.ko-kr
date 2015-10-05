@@ -53,8 +53,8 @@
 자세한 문제 해결을 계속하기 전에 다음 단계를 수행합니다.
 
 - Azure 포털 또는 Azure Preview 포털에서 가상 컴퓨터의 상태 확인
-- [가상 컴퓨터 다시 시작](https://msdn.microsoft.com/library/azure/dn763934.aspx)
-- [가상 컴퓨터 크기 조정](https://msdn.microsoft.com/library/dn168976.aspx)
+- 가상 컴퓨터 다시 시작
+- [가상 컴퓨터 크기 조정](virtual-machines-size-specs.md)
 
 이 단계를 수행한 후 원격 데스크톱 연결을 다시 시도합니다.
 
@@ -106,7 +106,7 @@
 
 ![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_3.png)
 
-> [AZURE.NOTE]리소스 관리자에서 만든 가상 컴퓨터의 경우, [소스 4: 네트워크 보안 그룹](#nsgs)으로 건너뜁니다.
+> [AZURE.NOTE]리소스 관리자에서 만든 가상 컴퓨터의 경우 [소스 4: 네트워크 보안 그룹](#nsgs)으로 건너뜁니다.
 
 동일한 클라우드 서비스 또는 가상 네트워크에 다른 가상 컴퓨터가 없는 경우, 새 가상 컴퓨터를 손쉽게 만들 수 있습니다. 자세한 내용은 [Azure에서 Windows를 실행하는 가상 컴퓨터 만들기](virtual-machines-windows-tutorial.md)를 참조하세요. 테스트가 완료되면 추가한 가상 컴퓨터를 삭제합니다.
 
@@ -115,13 +115,13 @@
 - 대상 가상 컴퓨터의 원격 데스크톱 트래픽에 대 한 끝점 구성. 끝점의 개인 TCP 포트는 가상 컴퓨터에서 원격 데스크톱 서비스를 수신하는 TCP 포트(기본값 3389)와 일치해야 합니다.
 - 대상 가상 컴퓨터의 원격 데스크톱 트래픽 끝점에 대한 ACL. ACL은 인터넷에서 들어오는 트래픽을 원본 IP 주소에 따라 허용 또는 거부하도록 지정하는 데 사용됩니다. ACL이 잘못 구성될 경우 끝점에 원격 데스크톱 트래픽이 들어오지 못할 수 있습니다. ACL을 살펴보고 프록시 또는 다른 에지 서버의 공용 IP 주소에서 들어오는 트래픽이 허용되어 있는지 확인하세요. 자세한 내용은 [네트워크 ACL(액세스 제어 목록)이란?](../virtual-network/virtual-networks-acl.md)을 참조하세요.
 
-문제의 발생지인 끝점을 제거하려면 현재 끝점을 제거하고 새 끝점을 만든 후 외부 포트 번호에 49152-65535 범위의 임의 포트를 선택합니다. 자세한 내용은 [가상 컴퓨터로 끝점을 설정하는 방법](virtual-machines-set-up-endpoints.md)을 참조하세요.
+문제의 발생지인 끝점을 제거하려면 현재 끝점을 제거하고 새 끝점을 만든 후 외부 포트 번호에 49152-65535 범위의 임의 포트를 선택합니다. 자세한 내용은 [가상 컴퓨터에 끝점을 설정하는 방법](virtual-machines-set-up-endpoints.md)을 참조하세요.
 
 ### <a id="nsgs"></a>발생지 4: 네트워크 보안 그룹
 
 네트워크 보안 그룹은 허용되는 인바운드 및 아웃바운드 트래픽을 더 세부적으로 제어하는 데 사용됩니다. Azure 가상 네트워크의 서브넷 및 클라우드 서비스에 적용되는 규칙을 만들 수 있습니다. 네트워크 보안 그룹 규칙을 살펴보고 인터넷에서 들어오는 원격 데스크톱 트래픽이 허용되어 있는지 확인하세요.
 
-자세한 내용은 [네트워크 보안 그룹(NSG)은 무엇입니까?](../virtual-network/virtual-networks-nsg.md)를 참조하세요.
+자세한 내용은 [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)을 참조하세요.
 
 ### 발생지 5: Windows 기반 Azure 가상 컴퓨터
 
@@ -129,7 +129,7 @@
 
 ![](./media/virtual-machines-rdp-detailed-troubleshoot/tshootrdp_5.png)
 
-[기본적인 원격 데스크톱 문제 해결 문서](virtual-machines-troubleshoot-remote-desktop-connections.md)에서는 [Azure IaaS(Windows) 진단 패키지](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)를 사용하는 방법을 설명합니다. 이 진단 패키지로 **Azure VM에 대한 RDP 연결(다시 부팅 필요)** 문제를 해결할 수 없는 경우 [이 문서](virtual-machines-windows-reset-password.md)의 지침에 따라 가상 컴퓨터에서 원격 데스크톱 서비스 서비스를 다시 설정합니다. 그러면
+[기본적인 원격 데스크톱 문제 해결 문서](virtual-machines-troubleshoot-remote-desktop-connections.md)에서는 [Azure IaaS(Windows) 진단 패키지](https://home.diagnostics.support.microsoft.com/SelfHelp?knowledgebaseArticleFilter=2976864)를 사용하는 방법을 설명합니다. 이 진단 패키지로 **Azure VM에 대한 RDP 연결(다시 부팅 필요)** 문제를 해결할 수 없는 경우 [이 문서](virtual-machines-windows-reset-password.md)의 지침에 따라 가상 컴퓨터에서 RDP(원격 데스크톱 서비스) 서비스를 다시 설정합니다. 그러면
 
 - "원격 데스크톱" Windows 방화벽 기본 규칙(TCP 포트 3389)이 활성화됩니다.
 - HKLM\\System\\CurrentControlSet\\Control\\Terminal Server\\fDenyTSConnections 레지스트리 값이 0으로 설정되어 원격 데스크톱 연결이 활성화됩니다.
@@ -147,7 +147,7 @@
 
 다음으로, Azure PowerShell 명령 프롬프트를 열고 현재 폴더를 **InstallWinRMCertAzureVM.ps1** 스크립트 파일 위치로 변경합니다. Azure PowerShell 스크립트를 실행하려면 올바른 실행 정책을 설정해야 합니다. 현재 정책 수준을 지정하려면 **Get-ExecutionPolicy** 명령을 실행합니다. 적절한 수준을 설정하는 방법에 대한 자세한 내용은 [Set-ExecutionPolicy](https://technet.microsoft.com/library/hh849812.aspx)를 참조하세요.
 
-다음으로, Azure 구독 이름, 클라우드 서비스 이름 및 해당 가상 컴퓨터 이름(< and > 문자 제거)을 입력한 다음 이러한 명령을 실행합니다.
+Azure 구독 이름, 클라우드 서비스 이름 및 해당 가상 컴퓨터 이름(< and > 문자 제거)을 입력하고 이러한 명령을 실행합니다.
 
 	$subscr="<Name of your Azure subscription>"
 	$serviceName="<Name of the cloud service that contains the target virtual machine>"
@@ -205,4 +205,4 @@ Azure 가상 컴퓨터에 대한 원격 데스크톱 끝점도 TCP 포트 3398�
 
 [Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결](virtual-machines-troubleshoot-access-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

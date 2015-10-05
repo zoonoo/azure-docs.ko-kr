@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Blob 간 데이터 이동 | Azure Data Factory"
-	description="Azure Data Factory를 사용하여 Azure Blob 저장소 간 데이터를 이동하는 방법에 대해 알아봅니다."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Azure Blob 간 데이터 이동 | Azure Data Factory" 
+	description="Azure Data Factory를 사용하여 Azure Blob 저장소 간 데이터를 이동하는 방법에 대해 알아봅니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory를 사용하여 Azure Blob 간 데이터 이동
@@ -472,6 +472,7 @@ Hive 테이블에서 Avro 형식을 사용하려면 [Apache Hive의 자습서](h
 | -------- | ----------- | -------------- | -------- | 
 | treatEmptyAsNull | Null 또는 빈 문자열을 null 값으로 처리할지 여부를 지정합니다. | TRUE<br/>FALSE | 아니요 |
 | skipHeaderLineCount | 건너뛰어야 하는 줄 수를 나타냅니다. 입력 데이터 집합이 **TextFormat**을 사용하는 경우에만 해당합니다. | 0에서 Max. 사이의 정수입니다. | 아니요 | 
+| recursive | 하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. | True(기본값), False | 아니요 | 
 
 
 **BlobSink**는 **typeProperties** 섹션에서 다음 속성을 지원합니다.
@@ -479,6 +480,8 @@ Hive 테이블에서 Avro 형식을 사용하려면 [Apache Hive의 자습서](h
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- |
 | blobWriterAddHeader | 열 정의의 헤더를 추가할지를 지정합니다. | TRUE<br/>FALSE(기본값) | 아니요 |
+| copyBehavior | 원본이 BlobSource 또는 FileSystem인 경우 복사 동작을 정의합니다. | <p>CopyBehavior 속성에 대한 세 가지 가능한 값이 있습니다. </p><ul><li>**PreserveHierarchy:** 대상 폴더의 파일 계층 구조를 유지합니다. 즉, 원본 폴더에 대한 원본 파일의 상대 경로가 대상 폴더에 대한 대상 파일의 상대 경로와 동일합니다.</li><li>**FlattenHierarchy:** 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준이 됩니다. 대상 파일은 자동 생성된 이름을 갖습니다. </li><li>**MergeFiles:** 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 파일/Blob 이름이 지정된 경우 지정된 이름이 병합된 파일 이름이 됩니다. 그렇지 않으면 자동 생성된 파일 이름이 병합된 파일 이름이 됩니다.</li></ul> | 아니요 |
+
 
 
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
@@ -492,4 +495,4 @@ Hive 테이블에서 Avro 형식을 사용하려면 [Apache Hive의 자습서](h
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-azure-blob-connector.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

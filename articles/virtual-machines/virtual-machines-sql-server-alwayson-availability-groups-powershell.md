@@ -1,12 +1,13 @@
-<properties 
-	pageTitle="Azure VM의 AlwaysOn 가용성 그룹 구성(PowerShell)"
-	description="PowerShell을 사용하여 Azure에서 AlwaysOn 가용성 그룹을 만듭니다."
+<properties
+	pageTitle="Azure VM의 AlwaysOn 가용성 그룹 구성 | Microsoft Azure"
+	description="이 자습서에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, PowerShell을 사용하여 Azure에 AlwaysOn 가용성 그룹을 만듭니다."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
-<tags 
+	editor="monicar"
+	tags="azure-service-management" />
+<tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
@@ -17,7 +18,13 @@
 
 # Azure VM의 AlwaysOn 가용성 그룹 구성(PowerShell)
 
->[AZURE.NOTE]동일한 시나리오의 GUI 기반 자습서는 [Azure의 AlwaysOn 가용성 그룹 구성(GUI)](virtual-machines-sql-server-alwayson-availability-groups-gui.md)을 참조하세요.
+> [AZURE.SELECTOR]
+- [Portal](virtual-machines-sql-server-alwayson-availability-groups-gui.md)
+- [PowerShell](virtual-machines-sql-server-alwayson-availability-groups-powershell.md)
+
+<br/>
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQL Server 시스템 비용 절감을 지원합니다. 이 자습서에서는 Azure 환경 안에서 SQL Server AlwaysOn 종단 간을 사용하여 가용성 그룹을 구현하는 방법을 보여줍니다. 자습서 마지막에서 Azure의 SQL Server AlwaysOn 솔루션은 다음 요소로 구성됩니다.
 
@@ -49,10 +56,10 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 
 		Import-Module "C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\Azure\Azure.psd1"
 		Get-AzurePublishSettingsFile
-		Import-AzurePublishSettingsFile <publishsettingsfilepath> 
+		Import-AzurePublishSettingsFile <publishsettingsfilepath>
 
-	**Get AzurePublishgSettingsFile** 명령은 Azure에서의 관리 인증서를 자동으로 생성하여 사용자 컴퓨터에 다운로드합니다. 브라우저가 자동으로 열리고 Azure 구독에 대해 Microsoft 계정 자격 증명을 입력하라는 메시지가 표시됩니다. 다운로드한 **.publishsettings** 파일에는 Azure 구독 관리에 필요한 모든 정보가 들어 있습니다. 이 파일을 로컬 디렉터리에 저장한 후 **Import-azurepublishsettingsfile** 명령을 사용하여 가져옵니다.
-	
+	**Get-AzurePublishgSettingsFile** 명령은 Azure에서의 관리 인증서를 자동으로 생성하여 사용자 컴퓨터에 다운로드합니다. 브라우저가 자동으로 열리고 Azure 구독에 대해 Microsoft 계정 자격 증명을 입력하라는 메시지가 표시됩니다. 다운로드한 **.publishsettings** 파일에는 Azure 구독 관리에 필요한 모든 정보가 들어 있습니다. 이 파일을 로컬 디렉터리에 저장한 후 **Import-AzurePublishSettingsFile** 명령을 사용하여 가져옵니다.
+
 	>[AZURE.NOTE]publishsettings 파일에는 Azure 구독 및 서비스를 관리하는 데 사용되는 자격 증명(인코딩 해제)이 포함되어 있습니다. 이 파일의 보안을 유지하는 가장 좋은 방법은 소스 디렉터리 밖(예: 라이브러리\\문서 폴더)에 임시로 파일을 저장한 다음 일단 가져오기가 완료되면 삭제하는 것입니다. 악의적인 사용자가 publishsettings 파일에 액세스할 경우 Azure 서비스를 편집, 생성 및 삭제할 수 있습니다.
 
 1. 클라우드 IT 인프라를 만드는 데 사용할 여러 변수를 정의합니다.
@@ -69,20 +76,20 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 		$winImageName = (Get-AzureVMImage | where {$_.Label -like "Windows Server 2008 R2 SP1*"} | sort PublishedDate -Descending)[0].ImageName
 		$sqlImageName = (Get-AzureVMImage | where {$_.Label -like "SQL Server 2012 SP1 Enterprise*"} | sort PublishedDate -Descending)[0].ImageName
 		$dcServerName = "ContosoDC"
-		$dcServiceName = "<uniqueservicename>" 
+		$dcServiceName = "<uniqueservicename>"
 		$availabilitySetName = "SQLHADR"
-		$vmAdminUser = "AzureAdmin" 
-		$vmAdminPassword = "Contoso!000" 
+		$vmAdminUser = "AzureAdmin"
+		$vmAdminPassword = "Contoso!000"
 		$workingDir = "c:\scripts"
 
 	명령이 나중에 성공적으로 실행되려면 다음에 주의해야 합니다.
-	
-	- **$storageAccountName** 및 **$dcServiceName** 변수는 인터넷에서 각각 클라우드 저장소 계정 및 클라우스 서버를 식별하는 데 사용되므로 고유해야 합니다.
-	
+
+	- **$storageAccountName** 및 **$dcServiceName** 변수는 인터넷에서 각각 클라우드 저장소 계정 및 클라우드 서버를 식별하는 데 사용되므로 고유해야 합니다.
+
 	- **$affinityGroupName** 및 **$virtualNetworkName** 변수에 지정된 이름은 나중에 사용하게 될 가상 네트워크 구성 문서에서 구성됩니다.
-	
+
 	- **$sqlImageName**은 SQL Server 2012 Service Pack 1 Enterprise Edition을 포함하는 VM 이미지의 업데이트된 이름을 지정합니다.
-	
+
 	- 간단히 하기 위해 이 자습서에서는 전체적으로 **Contoso!000** 암호를 사용합니다.
 
 1. 선호도 그룹을 만듭니다.
@@ -126,7 +133,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 		New-AzureStorageAccount `
 			-StorageAccountName $storageAccountName `
 			-Label $storageAccountLabel `
-			-AffinityGroup $affinityGroupName 
+			-AffinityGroup $affinityGroupName
 		Set-AzureSubscription `
 			-SubscriptionName (Get-AzureSubscription).SubscriptionName `
 			-CurrentStorageAccount $storageAccountName
@@ -138,7 +145,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 			-InstanceSize Medium `
 			-ImageName $winImageName `
 			-MediaLocation "$storageAccountContainer$dcServerName.vhd" `
-			-DiskLabel "OS" | 
+			-DiskLabel "OS" |
 			Add-AzureProvisioningConfig `
 				-Windows `
 				-DisableAutomaticUpdates `
@@ -150,26 +157,26 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 					-VNetName $virtualNetworkName
 
 	이러한 일련의 파이프 명령은 다음 작업을 수행하게 됩니다.
-	
+
 	- **New-AzureVMConfig**는 VM 구성을 만듭니다.
-	
+
 	- **Add-AzureProvisioningConfig**는 독립 실행형 Windows 서버의 구성 매개 변수를 제공합니다.
-	
+
 	- **Add-azuredatadisk**는 Active Directory 저장에 사용할 데이터 디스크를 추가하며 캐싱 옵션은 None입니다.
-	
-	- **New-AzureVM**은 새 클라우스 서비스를 만들고 새 클라우드 서비스에 새 Azure VM을 만듭니다.
+
+	- **New-AzureVM**은 새 클라우드 서비스를 만들고 새 클라우드 서비스에 새 Azure VM을 만듭니다.
 
 1. 새 VM의 완전하게 프로비전될 때까지 기다린 다음 작업 디렉터리에 원격 데스크톱 파일을 다운로드합니다. 새 Azure VM은 프로비전에 시간이 오래 걸리므로 while 루프가 새 VM이 사용 준비가 될 때까지 지속적으로 VM을 폴링합니다.
 
 		$VMStatus = Get-AzureVM -ServiceName $dcServiceName -Name $dcServerName
-		
+
 		While ($VMStatus.InstanceStatus -ne "ReadyRole")
 		{
 		    write-host "Waiting for " $VMStatus.Name "... Current Status = " $VMStatus.InstanceStatus
 		    Start-Sleep -Seconds 15
 		    $VMStatus = Get-AzureVM -ServiceName $dcServiceName -Name $dcServerName
 		}
-		
+
 		Get-AzureRemoteDesktopFile `
 		    -ServiceName $dcServiceName `
 		    -Name $dcServerName `
@@ -242,7 +249,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 		$corp = Get-ADObject -Identity "DC=corp,DC=contoso,DC=com"
 		$acl = Get-Acl $corp
 		$acl.AddAccessRule($ace1)
-		Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl 
+		Set-Acl -Path "DC=corp,DC=contoso,DC=com" -AclObject $acl
 
 	위에서 지정한 GUID는 컴퓨터 개체 유형의 GUID입니다. WSFC 클러스터에서 Active Directory 개체를 만들기 위해 **CORP\\Install** 계정에는 **모든 속성 읽기** 및 **컴퓨터 개체 만들기** 권한이 필요합니다. **모든 속성 읽기** 권한은 이미 CORP\\Install에 기본적으로 부여되어 있으므로 명시적으로 부여하지 않아도 됩니다. WSFC 클러스터를 만드는 데 필요한 권한에 대한 자세한 내용은 [장애 조치 클러스터 단계별 가이드: Active Directory의 계정 구성](https://technet.microsoft.com/library/cc731002%28v=WS.10%29.aspx)을 참조하세요.
 
@@ -273,7 +280,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 			-ImageName $winImageName `
 			-MediaLocation "$storageAccountContainer$quorumServerName.vhd" `
 			-AvailabilitySetName $availabilitySetName `
-			-DiskLabel "OS" | 
+			-DiskLabel "OS" |
 			Add-AzureProvisioningConfig `
 				-WindowsDomain `
 				-AdminUserName $vmAdminUser `
@@ -292,14 +299,14 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 						-DnsSettings $dnsSettings
 
 	위의 명령과 관련하여 다음에 유의합니다.
-	
-	- **New-azurevmconfig**는 원하는 가용성 집합 이름으로 VM 구성을 만듭니다. 이후의 VM은 동일한 가용성 집합에 연결할 수 있게 같은 가용성 집합 이름으로 만들어집니다.
-	
+
+	- **New-AzureVMConfig**는 원하는 가용성 집합 이름으로 VM 구성을 만듭니다. 이후의 VM은 동일한 가용성 집합에 연결할 수 있게 같은 가용성 집합 이름으로 만들어집니다.
+
 	- **Add-AzureProvisioningConfig**는 VM을 사용자가 만든 Active Directory 도메인에 연결합니다.
-	
+
 	- **Set-AzureSubnet**은 백 서브넷에 VM을 배치합니다.
-	
-	- **New-AzureVM**은 새 클라우스 서비스를 만들고 새 클라우드 서비스에 새 Azure VM을 만듭니다. **DnsSettings** 매개 변수는 새 클라우드 서비스에서 서버의 DNS 서버가 IP 주소 **10.10.0.4**를 갖도록 지정합니다. 이 주소는 DC 서버의 IP 주소입니다. 이 매개 변수는 클라우드 서비스의 새 VM을 성공적으로 Active Directory 도메인에 연결하기 위해 필요합니다. 이 매개 변수가 없으면 VM이 프로비전된 후 DC 서버를 DNS 서버로 사용하도록 VM에서 IPv4 설정을 수동으로 설정하고 VM을 Active Directory 도메인에 연결해야 합니다.
+
+	- **New-AzureVM**은 새 클라우드 서비스를 만들고 새 클라우드 서비스에 새 Azure VM을 만듭니다. **DnsSettings** 매개 변수는 새 클라우드 서비스에서 서버의 DNS 서버가 IP 주소 **10.10.0.4**를 갖도록 지정합니다. 이 주소는 DC 서버의 IP 주소입니다. 이 매개 변수는 클라우드 서비스의 새 VM을 성공적으로 Active Directory 도메인에 연결하기 위해 필요합니다. 이 매개 변수가 없으면 VM이 프로비전된 후 DC 서버를 DNS 서버로 사용하도록 VM에서 IPv4 설정을 수동으로 설정하고 VM을 Active Directory 도메인에 연결해야 합니다.
 
 1. 다음 파이프 명령을 실행하여 이름이 **ContosoSQL1** 및 **ContosoSQL2**인 SQL Server VM을 만듭니다.
 
@@ -311,7 +318,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 		    -MediaLocation "$storageAccountContainer$sql1ServerName.vhd" `
 		    -AvailabilitySetName $availabilitySetName `
 		    -HostCaching "ReadOnly" `
-		    -DiskLabel "OS" | 
+		    -DiskLabel "OS" |
 		    Add-AzureProvisioningConfig `
 		        -WindowsDomain `
 		        -AdminUserName $vmAdminUser `
@@ -327,10 +334,10 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 		                -Name "SQL" `
 		                -Protocol "tcp" `
 		                -PublicPort 1 `
-		                -LocalPort 1433 | 
+		                -LocalPort 1433 |
 		                New-AzureVM `
 		                    -ServiceName $sqlServiceName
-		
+
 		# Create ContosoSQL2...
 		New-AzureVMConfig `
 		    -Name $sql2ServerName `
@@ -339,7 +346,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 		    -MediaLocation "$storageAccountContainer$sql2ServerName.vhd" `
 		    -AvailabilitySetName $availabilitySetName `
 		    -HostCaching "ReadOnly" `
-		    -DiskLabel "OS" | 
+		    -DiskLabel "OS" |
 		    Add-AzureProvisioningConfig `
 		        -WindowsDomain `
 		        -AdminUserName $vmAdminUser `
@@ -355,20 +362,20 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 		                -Name "SQL" `
 		                -Protocol "tcp" `
 		                -PublicPort 2 `
-		                -LocalPort 1433 | 
+		                -LocalPort 1433 |
 		                New-AzureVM `
 		                    -ServiceName $sqlServiceName
 
 	위의 명령과 관련하여 다음에 유의합니다.
 
-	- **New-AzureVMConfig**는 DC 서버와 동일한 가용성 집합 이름을 사용 하며 가상 컴퓨터 갤러리에서는 SQL Server 2012 Service Pack 1 Enterprise Edition 이미지를 사용합니다. 또한 운영 체제 디스크를 읽기 캐싱 전용(쓰기 캐싱 없음)으로 설정합니다. VM에 연결한 별도의 데이터 디스크에 데이터베이스 파일을 마이그레이션하고 읽기 또는 쓰기 캐싱 없이 구성합니다. 그러나 운영 체제 디스크에서는 읽기 캐싱을 제거할 수 없으므로 운영 체제 디스크에서 쓰기 캐싱을 제거하는 것이 차선책입니다.
-	
+	- **New-AzureVMConfig**는 DC 서버와 동일한 가용성 집합 이름을 사용하며 가상 컴퓨터 갤러리에서는 SQL Server 2012 Service Pack 1 Enterprise Edition 이미지를 사용합니다. 또한 운영 체제 디스크를 읽기 캐싱 전용(쓰기 캐싱 없음)으로 설정합니다. VM에 연결한 별도의 데이터 디스크에 데이터베이스 파일을 마이그레이션하고 읽기 또는 쓰기 캐싱 없이 구성합니다. 그러나 운영 체제 디스크에서는 읽기 캐싱을 제거할 수 없으므로 운영 체제 디스크에서 쓰기 캐싱을 제거하는 것이 차선책입니다.
+
 	- **Add-AzureProvisioningConfig**는 VM을 사용자가 만든 Active Directory 도메인에 연결합니다.
-	
+
 	- **Set-AzureSubnet**은 백 서브넷에 VM을 배치합니다.
-	
+
 	- **Add-AzureEndpoint**는 클라이언트 응용 프로그램이 인터넷의 SQL Server 서비스 인스턴스에 액세스할 수 있게 액세스 끝점을 추가합니다. ContosoSQL1 및 ContosoSQL2에 다른 포트가 제공됩니다.
-	
+
 	- **New-AzureVM**은 ContosoQuorum과 동일한 클라우드 서비스에 새 SQL Server VM을 만듭니다. VM을 동일한 가용성 집합에 포함하려면 동일한 클라우드 서비스에 VM을 배치해야 해야 합니다.
 
 1. 각 VM의 완전하게 프로비전될 때까지 기다린 다음 작업 디렉터리에 해당하는 원격 데스크톱 파일을 다운로드합니다. For 루프가 3개의 새 VM을 순환하고 각 VM에 대해 최상위 중괄호 안의 명령을 실행합니다.
@@ -376,7 +383,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 		Foreach ($VM in $VMs = Get-AzureVM -ServiceName $sqlServiceName)
 		{
 		    write-host "Waiting for " $VM.Name "..."
-		
+
 		    # Loop until the VM status is "ReadyRole"
 		    While ($VM.InstanceStatus -ne "ReadyRole")
 		    {
@@ -384,9 +391,9 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 		        Start-Sleep -Seconds 15
 		        $VM = Get-AzureVM -ServiceName $VM.ServiceName -Name $VM.InstanceName
 		    }
-		
+
 		    write-host "  Current Status = " $VM.InstanceStatus
-		
+
 		    # Download remote desktop file
 		    Get-AzureRemoteDesktopFile -ServiceName $VM.ServiceName -Name $VM.InstanceName -LocalPath "$workingDir$($VM.InstanceName).rdp"
 		}
@@ -406,9 +413,9 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 - (ContosoSQL1 및 ContosoSQL2만) **NT AUTHORITY\\System**을 다음 권한이 있는 로그인으로 추가해야 합니다.
 
 	- 가용성 그룹 변경
-	
+
 	- SQL 연결
-	
+
 	- 서버 상태 보기
 
 - (ContosoSQL1 및 ContosoSQL2만) **TCP** 프로토콜은 이미 SQL Server VM에서 사용하도록 설정되었습니다. 그래도 SQL Server의 원격 액세스를 위해 방화벽을 열어야 합니다.
@@ -468,7 +475,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 1. 위에서 설명한 3개의 권한이 있는 로그인으로 **NT AUTHORITY\\System**을 추가합니다.
 
 		Invoke-SqlCmd -Query "CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS" -ServerInstance "."
-		Invoke-SqlCmd -Query "GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "." 
+		Invoke-SqlCmd -Query "GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
 		Invoke-SqlCmd -Query "GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
 		Invoke-SqlCmd -Query "GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM] AS SA" -ServerInstance "."
 
@@ -515,7 +522,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 		$svc1 = Get-Service -ComputerName $server1 -Name 'MSSQLSERVER'
 		$svc1.Stop()
 		$svc1.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
-		$svc1.Start(); 
+		$svc1.Start();
 		$svc1.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
 
 1. ContosoSQL2의 SQL Server 서비스 계정을 CORP\\SQLSvc2로 변경합니다.
@@ -525,7 +532,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 		$svc2 = Get-Service -ComputerName $server2 -Name 'MSSQLSERVER'
 		$svc2.Stop()
 		$svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
-		$svc2.Start(); 
+		$svc2.Start();
 		$svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
 
 1. [Azure VM에서 AlwaysOn 가용성 그룹의 WSFC 클러스터 만들기](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)에서 **CreateAzureFailoverCluster.ps1**을 로컬 작업 디렉터리로 다운로드합니다. 이 스크립트를 사용하면 작동 가능한 WSFC 클러스터를 만들 수 있습니다. WSFC가 Azure 네트워크와 상호 작용하는 방식에 대한 중요 정보는 [Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)를 참조하세요.
@@ -545,7 +552,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 		    -NoServiceRestart
 		$svc2.Stop()
 		$svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
-		$svc2.Start(); 
+		$svc2.Start();
 		$svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
 
 1. 백업 디렉터리를 만들고 SQL Server 서비스 계정에 대한 권한을 부여합니다. 보조 복제본에서 가용성 데이터베이스를 준비할 때 이 디렉터리를 사용하게 됩니다.
@@ -555,7 +562,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 		net share backup=$backup "/grant:$acct1,FULL" "/grant:$acct2,FULL"
 		icacls.exe "$backup" /grant:r ("$acct1" + ":(OI)(CI)F") ("$acct2" + ":(OI)(CI)F")
 
-1. **ContosoSQL1**에 이름이 **MyDB1**인 데이터베이스를 만들고 전체 백업과 로그 백업을 모두 만든 다음 **WITH NORECOVERY ** 옵션을 사용하여 해당 백업을**ContosoSQL2**에 복원합니다.
+1. **ContosoSQL1**에 이름이 **MyDB1**인 데이터베이스를 만들고 전체 백업과 로그 백업을 모두 만든 다음 **WITH NORECOVERY ** 옵션을 사용하여 해당 백업을 **ContosoSQL2**에 복원합니다.
 
 		Invoke-SqlCmd -Query "CREATE database $db"
 		Backup-SqlDatabase -Database $db -BackupFile "$backupShare\db.bak" -ServerInstance $server1
@@ -565,21 +572,21 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 
 1. SQL Server VM에 가용성 그룹 끝점을 만들고 끝점에 적합한 권한을 설정합니다.
 
-		$endpoint = 
+		$endpoint =
 		    New-SqlHadrEndpoint MyMirroringEndpoint `
 		    -Port 5022 `
 		    -Path "SQLSERVER:\SQL\$server1\Default"
 		Set-SqlHadrEndpoint `
 		    -InputObject $endpoint `
 		    -State "Started"
-		$endpoint = 
+		$endpoint =
 		    New-SqlHadrEndpoint MyMirroringEndpoint `
 		    -Port 5022 `
 		    -Path "SQLSERVER:\SQL\$server2\Default"
 		Set-SqlHadrEndpoint `
 		    -InputObject $endpoint `
 		    -State "Started"
-		
+
 		Invoke-SqlCmd -Query "CREATE LOGIN [$acct2] FROM WINDOWS" -ServerInstance $server1
 		Invoke-SqlCmd -Query "GRANT CONNECT ON ENDPOINT::[MyMirroringEndpoint] TO [$acct2]" -ServerInstance $server1
 		Invoke-SqlCmd -Query "CREATE LOGIN [$acct1] FROM WINDOWS" -ServerInstance $server2
@@ -587,7 +594,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 
 1. 가용성 복제본을 만듭니다.
 
-		$primaryReplica = 
+		$primaryReplica =
 		    New-SqlAvailabilityReplica `
 		    -Name $server1 `
 		    -EndpointURL "TCP://$server1.corp.contoso.com:5022" `
@@ -595,7 +602,7 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 		    -FailoverMode "Automatic" `
 		    -Version 11 `
 		    -AsTemplate
-		$secondaryReplica = 
+		$secondaryReplica =
 		    New-SqlAvailabilityReplica `
 		    -Name $server2 `
 		    -EndpointURL "TCP://$server2.corp.contoso.com:5022" `
@@ -623,4 +630,4 @@ Azure 가상 컴퓨터(VM)는 데이터베이스 관리자들의 고가용성 SQ
 
 Azure에서 SQL Server를 사용하는 방법에 대한 기타 정보는 [Azure 가상 컴퓨터의 SQL Server](../articles/virtual-machines/virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

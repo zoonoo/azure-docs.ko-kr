@@ -13,10 +13,12 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure-services"
-	ms.date="05/22/2015"
+	ms.date="09/22/2015"
 	ms.author="rasquill"/>
 
 # Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장 사용
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 이 항목에서는 모든 플랫폼에서 Azure CLI의 서비스 관리(asm) 모드에서 Docker VM 확장을 사용하여 VM을 만드는 방법을 설명합니다. [Docker](https://www.docker.com/)는 공유 리소스의 데이터와 계산을 격리시키는 한 가지 방법으로 가상 컴퓨터 대신 [Linux 컨테이너](http://en.wikipedia.org/wiki/LXC)를 사용하는 가장 많이 사용되는 가상화 방법 중 하나입니다. [Azure Linux 에이전트](virtual-machines-linux-agent-user-guide.md)에 대한 Docker VM 확장을 사용하여 Azure에 응용 프로그램의 컨테이너를 개수에 제한없이 호스트하는 Docker VM을 만들 수 있습니다. 컨테이너와 해당 이점에 대한 간략한 설명을 확인하려면 [Docker 요약 화이트보드](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard)를 참조하세요.
 
@@ -25,7 +27,7 @@
 + [Azure용 컨테이너 및 컨테이너 관리 리소스]
 + [다음 단계]
 
-## <a id='How to use the Docker VM Extension with Azure'>Azure와 함께 Docker VM 확장을 사용하는 방법</a>
+##Azure와 함께 Docker VM 확장을 사용하는 방법
 Azure와 함께 Docker VM 확장을 사용하려면 [Azure 명령줄 인터페이스](https://github.com/Azure/azure-sdk-tools-xplat)(Azure CLI) 0.8.6 이상 버전을 설치해야 합니다(이 문서를 작성할 당시 현재 버전은 0.8.10임). Mac, Linux 및 Windows에 Azure CLI를 설치할 수 있습니다.
 
 
@@ -63,10 +65,10 @@ Bash 또는 터미널 세션에서 다음 Azure CLI 명령을 사용하여 VM �
 
 `azure vm image list | grep Ubuntu-14_04`
 
-`b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-ko-kr-30GB`와 같은 이미지 이름 중 하나를 선택한 후에 다음 명령을 사용하여 해당 이미지를 사용하는 새 VM을 만듭니다.
+`b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-KO-KR-30GB`와 같은 이미지 이름 중 하나를 선택한 후에 다음 명령을 사용하여 해당 이미지를 사용하는 새 VM을 만듭니다.
 
 ```
-azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-ko-kr-30GB" <username> <password>
+azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04-LTS-amd64-server-20140724-KO-KR-30GB" <username> <password>
 ```
 
 설명:
@@ -139,4 +141,4 @@ Docker VM을 만드는 것뿐만 아니라 `azure vm docker create` 명령은 Do
 [Docker 사용자 가이드]: https://docs.docker.com/userguide/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

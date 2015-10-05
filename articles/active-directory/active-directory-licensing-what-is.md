@@ -1,20 +1,20 @@
 <properties
    pageTitle="Microsoft Azure Active Directory 라이선스란? | Microsoft Azure"
-	description="Office 365, Microsoft Intune 및 Azure Active Directory Premium 및 Basic 버전을 포함하여, Microsoft Azure AD 라이선스에 대한 설명, 작동 방법, 시작하는 방법 및 모범 사례"
-	services="active-directory"
-	documentationCenter=""
-	authors="curtand"
-	manager="swadhwa"
-	editor=""/>
+   description="Office 365, Microsoft Intune 및 Azure Active Directory Premium 및 Basic 버전을 포함하여, Microsoft Azure AD 라이선스에 대한 설명, 작동 방법, 시작하는 방법 및 모범 사례"
+   services="active-directory"
+   documentationCenter=""
+   authors="curtand"
+   manager="stevenpo"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="07/16/2015"
-	ms.author="curtand"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="09/21/2015"
+   ms.author="curtand"/>
 
 # Microsoft Azure Active Directory 라이선스란?
 
@@ -131,4 +131,4 @@ Office 365 포털을 통해 평가판을 셀프 서비스로 확장할 수 있�
 - [Azure Multi-Factor Authentication](multi-factor-authentication.md)
 - [Azure AD Premium 라이선스 직접 구매](http://aka.ms/buyaadp)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

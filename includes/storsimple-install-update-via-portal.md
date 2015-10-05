@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="Azure 관리 포털에서 업데이트 1.2 설치"
-   description="관리 포털을 사용하여 StorSimple 8000 시리즈 업데이트 1.2를 설치하는 방법을 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/08/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 #### 관리 포털에서 업데이트 1.2를 설치하려면
 
@@ -80,4 +65,4 @@
 
 > [AZURE.NOTE]특정 인스턴스에서는 유지 관리 모드 업데이트가 장치에 성공적으로 적용된 후 유지 관리 모드 업데이트를 사용할 수 있음을 나타내는 메시지가 최대 24시간 동안 표시될 수 있습니다.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

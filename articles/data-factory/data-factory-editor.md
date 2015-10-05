@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/07/2015" 
+	ms.date="09/22/2015" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리 편집기
@@ -221,4 +221,4 @@ Azure 데이터 팩터리 엔터티(연결 서비스, 테이블 또는 파이프
 [clone-datafactory-entity]: ./media/data-factory-editor/clone-datafactory-entity.png
 [add-activity-options]: ./media/data-factory-editor/add-activity-options.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

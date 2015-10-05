@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="09/04/2015"
+	ms.date="09/22/2015"
 	ms.author="dastrock"/>
 
 # Azure AD B2C 미리 보기: Windows 데스크톱 앱 빌드
@@ -36,14 +36,16 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 - **리디렉션 URI** `urn:ietf:wg:oauth:2.0:oob`를 복사 - 이 코드 샘플에 대한 기본 URL입니다.
 - 앱에 할당된 **응용 프로그램 ID**를 적복사합니다. 곧 필요합니다.
 
+    > [AZURE.IMPORTANT][Azure 포털](https://manage.windowsazure.com/)의 **응용 프로그램** 탭에 등록된 응용 프로그램은 사용할 수 없습니다.
+
 ## 3\. 정책 만들기
 
 Azure AD B2C에서 모든 사용자 환경을[**정책**](active-directory-b2c-reference-policies.md)에서 정의합니다. 이 코드 샘플은 등록, 로그인 및 편집 프로필 등 세 가지 ID 환경을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)에서 설명한 대로 각 형식에 하나의 정책을 만들어야 합니다. 세 가지 정책을 만들 때 다음을 확인합니다.
 
-- ID 공급자 블레이드에서 **사용자 ID 등록** 또는 **전자 메일 등록**을 선택합니다.
+- ID 공급자 블레이드에서 **사용자 ID 등록** 또는 **메일 등록**을 선택합니다.
 - 등록 정책에서 **표시 이름** 및 다른 몇가지 등록 특성을 선택합니다.
 - 모든 정책에서 **표시 이름** 및 **개체 ID** 클레임을 응용 프로그램 클레임으로 선택합니다. 물론 다른 클레임을 선택할 수 있습니다.
-- 각 정책을 만든 후에 **이름**을 복사합니다. 접두사`b2c_1_`가 있어야 합니다. 이러한 정책 이름이 곧 필요합니다. 
+- 각 정책을 만든 후에 **이름**을 복사합니다. 접두사 `b2c_1_`이 있어야 합니다. 이러한 정책 이름이 곧 필요합니다. 
 
 세 가지 정책을 성공적으로 만들었다면 앱을 빌드할 준비가 되었습니다.
 
@@ -55,13 +57,13 @@ Azure AD B2C에서 모든 사용자 환경을[**정책**](active-directory-b2c-r
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git
 ```
 
-또한 완성된 앱은 [.zip으로 사용할 수 있거나](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) 동일한 리포지토리의 `complete`분기에 사용할 수 있습니다.
+완성된 앱도 [.zip으로 다운로드하거나](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) 동일한 리포지토리의 `complete` 분기에서 사용할 수 있습니다.
 
-샘플 코드를 다운로드하면 Visual Studio `.sln` 파일을 열어 시작합니다. 솔루션에 `TaskClient` 프로젝트와 `TaskService` 프로젝트라는 두 프로젝트가 있음을 알 수 있습니다. `TaskClient`는 사용자와 상호 작용하는 WPF 데스크톱 응용 프로그램입니다. `TaskService`는 각 사용자의 할 일 모음을 저장하는 앱의 백 엔드 웹 API입니다. 이 경우 하나의 논리 응용 프로그램을 구성하기 때문에 `TaskClient`과 `TaskService` 모두는 단일 **응용 프로그램 ID**에서 표현됩니다.
+샘플 코드를 다운로드하면 Visual Studio `.sln` 파일을 열어 시작합니다. 솔루션에 `TaskClient` 프로젝트와 `TaskService` 프로젝트라는 두 프로젝트가 있는 것을 확인합니다. `TaskClient`는 사용자와 상호 작용하는 WPF 데스크톱 응용 프로그램입니다. `TaskService`는 각 사용자의 할 일 모음을 저장하는 앱의 백 엔드 웹 API입니다. 이 경우 하나의 논리 응용 프로그램을 구성하기 때문에 `TaskClient`과 `TaskService` 모두는 단일 **응용 프로그램 ID**에서 표현됩니다.
 
 ## 5\. 작업 서비스 구성
 
-`TaskService`이 `TaskClient`에서 요청을 받으면 유효한 액세스 토큰에 대해 확인하여 요청을 인증합니다. 액세스 토큰의 유효성을 검사하기 위해 응용 프로그램에 대한 정보와 함께 `TaskService`을 제공해야 합니다. `TaskService`프로젝트에서 프로젝트의 루트에서 `web.config` 파일을 열고 `<appSettings>` 섹션의 값을 바꿉니다.
+`TaskService`는 `TaskClient`의 요청을 받을 경우 유효한 액세스 토큰을 검사하여 요청을 인증합니다. 액세스 토큰의 유효성을 검사하려면 앱에 대한 일부 정보를 `TaskService`에 제공해야 합니다. `TaskService` 프로젝트에서 프로젝트 루트에 있는 `web.config` 파일을 열고 `<appSettings>` 섹션의 값을 바꿉니다.
 
 ```
 <appSettings>
@@ -92,7 +94,7 @@ PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory
 ```
 
 #### B2C 세부 정보 입력
-파일 `Globals.cs`을 열고 사용자 고유의 속성 값 각각을 바꿉니다. 이 클래스는 `TaskClient` 전반에서 일반적으로 사용되는 값인 참조에 사용됩니다.
+`Globals.cs` 파일을 열고 각각의 속성 값을 사용자 고유의 값으로 바꿉니다. 이 클래스는 일반적으로 사용되는 값을 참조하기 위해 `TaskClient` 전반에 사용됩니다.
 
 ```C#
 public static class Globals
@@ -217,7 +219,7 @@ private async void EditProfile(object sender, RoutedEventArgs e)
 이 모든 경우에 ADAL은 `AuthenticationResult`에서 토큰을 반환하거나 예외를 throw 합니다. ADAL에서 토큰을 가져올 때마다 `AuthenticationResult.UserInfo` 개체를 사용하여 UI와 같은 앱의 사용자 데이터를 업데이트합니다. 또한 ADAL는 응용 프로그램의 다른 부분에 사용하기 위해 토큰을 캐시합니다.
 
 ## 7\. API 호출
-ADAL을 사용하여 정책을 실행하고 토큰을 가져옵니다. 그러나 많은 경우 정책을 실행하지 않고 기존의 캐시된 토큰을 확인하려 합니다. 이러한 한 가지 경우는 앱이 `TaskService`에서 사용자의 할 일 모음을 인출하려고 할 때입니다. 이렇게 하려면 `clientId`을 다시 한 번 범위 매개 변수로 사용하여 동일한 `authContext.AcquireTokenAsync(...)` 메서드를 사용할 수 있지만 이번에는 `PromptBehavior.Never`를 사용합니다.
+ADAL을 사용하여 정책을 실행하고 토큰을 가져옵니다. 그러나 많은 경우 정책을 실행하지 않고 기존의 캐시된 토큰을 확인하려 합니다. 이러한 한 가지 경우는 앱이 `TaskService`에서 사용자의 할 일 모음을 가져오려고 할 때입니다. 이렇게 하려면 `clientId`을 다시 한 번 범위 매개 변수로 사용하여 동일한 `authContext.AcquireTokenAsync(...)` 메서드를 사용할 수 있지만 이번에는 `PromptBehavior.Never`를 사용합니다.
 
 ```C#
 private async void GetTodoList()
@@ -267,7 +269,7 @@ private async void GetTodoList()
 	...
 ```
 
-`AcquireTokenAsync(...)`에 대한 호출이 성공하고 캐시에 토큰이 발견되면 HTTP 요청의 `Authorization` 헤더에 토큰을 추가할 수 있습니다. 그래서 `TaskService`은 요청을 인증하여 사용자의 할 일 모음을 읽을 수 있습니다.
+`AcquireTokenAsync(...)`에 대한 호출이 성공하고 캐시에 토큰이 발견되면 HTTP 요청의 `Authorization` 헤더에 토큰을 추가할 수 있습니다. 따라서 `TaskService`은 요청을 인증하여 사용자의 할 일 모음을 읽을 수 있습니다.
 
 ```C#
 	...
@@ -305,11 +307,11 @@ private void SignOut(object sender, RoutedEventArgs e)
 
 ## 9\. 샘플 앱 실행
 
-마지막으로 `TaskClient` 및 `TaskService` 모두를 빌드 및 실행합니다. 전자 메일 주소 또는 사용자 이름을 사용하여 앱에 등록합니다. 로그아웃했다가 동알한 사용자로 다시 로그인합니다. 해당 사용자의 프로필을 편집합니다. 로그아웃했다가 다른 사용자로 등록합니다.
+마지막으로, `TaskClient` 및 `TaskService` 둘 다를 빌드 및 실행합니다. 전자 메일 주소 또는 사용자 이름을 사용하여 앱에 등록합니다. 로그아웃했다가 동알한 사용자로 다시 로그인합니다. 해당 사용자의 프로필을 편집합니다. 로그아웃했다가 다른 사용자로 등록합니다.
 
 ## 10\. 소셜 IDP 추가
 
-현재 앱은 **로컬 계정**으로 사용자 등록 및 로그인을 지원합니다 - 계정은 사용자 이름 및 암호와 함께 B2C 디렉터리에 저장되었습니다. Azure AD B2C으로 코드를 전혀 변경하지 않고 다른 **ID 공급자**, 또는 UDP에 대한 지원을 추가할 수 있습니다.
+현재 앱은 **로컬 계정**, 즉 사용자 이름 및 암호와 함께 B2C 디렉터리에 저장된 계정을 사용한 사용자 등록 및 로그인만 지원합니다. Azure AD B2C를 사용하면 코드를 변경하지 않고도 다른 **ID 공급자**, 즉 IDP에 대한 지원을 추가할 수 있습니다.
 
 소셜 IDP를 앱에 추가하려면 이 문서 중에서 한두 개의 상세한 지침을 수행하여 시작합니다. 지원하려는 각 IDP의 경우 해당 시스템에서 응용 프로그램을 등록하고 클라이언트 ID를 얻어야 합니다.
 
@@ -318,7 +320,7 @@ private void SignOut(object sender, RoutedEventArgs e)
 - [Amazon을 IDP로 설정](active-directory-b2c-setup-amzn-app.md)
 - [LinkedIn을 IDP로 설정](active-directory-b2c-setup-li-app.md) 
 
-ID 공급자를 B2C 디렉터리에 추가한 경우 다시 돌아가서 세 가지 정책을 각각 편집하여 [정책 참조 문서](active-directory-b2c-reference-policies.md)에서 설명한 대로 새 IDP를 포함해야 합니다. 정책을 저장한 후에 앱을 다시 실행합니다. ID 환경 각각에서 로그인 및 등록으로 추가된 새 IDP가 표시되어야 합니다.
+B2C 디렉터리에 ID 공급자를 추가한 경우 다시 돌아가 [정책 참조 문서](active-directory-b2c-reference-policies.md)에서 설명한 대로 새 IDP를 포함하도록 세 가지 정책을 각각 편집해야 합니다. 정책을 저장한 후에 앱을 다시 실행합니다. ID 환경 각각에서 로그인 및 등록으로 추가된 새 IDP가 표시되어야 합니다.
 
 정책을 자유롭게 실험하고 샘플 앱에서 영향을 확인할 수 있습니다. IDP를 추가/제거하고 응용 프로그램 클레임을 조작하며 특성 등록을 변경합니다. 어떻게 정책, 인증 요청 및 ADAL을 모두 함께 연결하는지 이해할 수 있을 때까지 실험해 보세요.
 
@@ -338,4 +340,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!----HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

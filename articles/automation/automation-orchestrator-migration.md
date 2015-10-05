@@ -12,13 +12,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/18/2015"
+   ms.date="09/17/2015"
    ms.author="bwren" />
 
 
 # Orchestrator에서 Azure 자동화로 마이그레이션
 
-[System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx)의 Runbook은 특별히 Orchestrator용으로 작성된 통합 팩의 활동을 기반으로 하는 반면, Azure 자동화의 Runbook은 Windows PowerShell 워크플로를 기반으로 합니다. Azure 자동화의 그래픽 Runbook은 해당 활동이 PowerShell cmdlet, 자식 Runbook 및 자산을 나타내는 Orchestrator Runbook과 모양이 유사합니다.
+[System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx)의 Runbook은 특별히 Orchestrator용으로 작성된 통합 팩의 활동을 기반으로 하는 반면, Azure 자동화의 Runbook은 Windows PowerShell 워크플로를 기반으로 합니다. Azure 자동화의 [그래픽 Runbook](automation-runbook-types#graphical-runbooks)은 해당 활동이 PowerShell cmdlet, 자식 Runbook 및 자산을 나타내는 Orchestrator Runbook과 모양이 유사합니다.
 
 [System Center Orchestrator Migration Toolkit](http://www.microsoft.com/download/details.aspx?id=47323&WT.mc_id=rss_alldownloads_all)에는 Orchestrator의 Runbook을 Azure 자동화로 변환하는 데 도움이 되는 도구가 포함되어 있습니다. Runbook 자체를 변환하는 것 외에 Runbook에서 사용하는 활동이 포함된 통합 팩을 Windows PowerShell cmdlet이 포함된 통합 모듈로 변환해야 합니다.
 
@@ -71,7 +71,7 @@ Microsoft에서는 System Center 구성 요소 및 기타 제품을 자동화하
 
 ## Runbook Converter(출시 예정)
 
-이 도구는 Orchestrator Runbook을 Azure 자동화로 가져올 수 있는 그래픽 Runbook으로 변환합니다. 이 도구에 대한 자세한 내용은 출시될 경우 여기에서 제공됩니다.
+이 도구는 Orchestrator Runbook을 Azure 자동화로 가져올 수 있는 [그래픽 Runbook](automation-runbook-types.md#graph-runbooks)으로 변환합니다. 이 도구에 대한 자세한 내용은 출시될 경우 여기에서 제공됩니다.
 
 ## 관련된 문서
 
@@ -81,4 +81,4 @@ Microsoft에서는 System Center 구성 요소 및 기타 제품을 자동화하
 - [Orchestrator Standard Activities](http://technet.microsoft.com/library/hh403832.aspx)
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/05/2015"
+   ms.date="09/22/2015"
    ms.author="lvargas;twounder;barbkess"/>
 
 # SQL 데이터 웨어하우스 미리 보기 기대치
@@ -49,7 +49,7 @@ SQL 데이터 웨어하우스는 지리적으로 중복된 Blob을 사용하여 
 
 ### 백업
 
-Azure SQL 데이터 웨어하우스는 Azure 저장소 스냅숏을 사용하여 4시간마다 모든 데이터를 백업합니다. 이러한 스냅숏은 7일 동안 유지됩니다. 이를 통해 지난 7일 내에 최대 42개의 특정 시점까지, 마지막 스냅숏 작업 시까지 데이터를 복원할 수 있습니다. GA를 통해 보존 기간을 지정하도록 할 것입니다. PowerShell 또는 REST API를 사용하여 스냅숏으로부터 데이터를 복원할 수 있습니다.
+Azure SQL 데이터 웨어하우스는 Azure 저장소 스냅숏을 사용하여 적어도 8시간마다 모든 데이터를 백업합니다. 이러한 스냅숏은 7일 동안 유지됩니다. 이를 통해 지난 7일 내에 적어도 21개의 특정 시점까지, 마지막 스냅숏 작업 시까지 데이터를 복원할 수 있습니다. PowerShell 또는 REST API를 사용하여 스냅숏으로부터 데이터를 복원할 수 있습니다.
 
 스냅숏은 지역별 오류(재해 복구) 시 추가된 복구 기능을 위해 원격 Azure 지역에 비동기적으로 복사됩니다.
 
@@ -78,4 +78,4 @@ Azure SQL 데이터 웨어하우스는 중요한 수정 사항을 설치하기 �
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

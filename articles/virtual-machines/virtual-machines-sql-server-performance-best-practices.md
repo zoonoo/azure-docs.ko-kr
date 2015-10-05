@@ -1,11 +1,13 @@
 <properties 
-	pageTitle="Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례"
+	pageTitle="SQL Server에 대한 성능 모범 사례 | Microsoft Azure"
 	description="Microsoft Azure VM에서 SQL Server 성능을 최적화하기 위한 모범 사례를 제공합니다."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar" />
+	editor="monicar" 
+	tags="azure-service-management" />
+	
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -16,6 +18,8 @@
 	ms.author="jroth" />
 
 # Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 ## 개요
 
@@ -127,4 +131,4 @@ SQL Server 및 프리미엄 저장소에 대한 보다 자세한 내용은 문�
 
 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-sql-server-infrastructure-services.md)에서 다른 SQL Server 가상 컴퓨터 항목을 검토하세요.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

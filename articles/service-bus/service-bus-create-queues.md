@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="서비스 버스 큐를 사용하는 응용 프로그램 만들기 | Microsoft Azure"
+   pageTitle="서비스 버스 큐를 사용하는 응용 프로그램 작성 | Microsoft Azure"
    description="서비스 버스를 사용하는 간단한 큐 기반 응용 프로그램을 작성하는 방법"
    services="service-bus"
    documentationCenter="na"
@@ -160,4 +160,4 @@ catch (Exception e)
 
 이제 큐의 기본 사항을 학습했으므로 서비스 버스 조정된 메시징의 게시/구독 기능을 사용하여 이 논의를 계속하려면 [서비스 버스 토픽 및 구독을 사용하는 응용 프로그램 만들기](service-bus-create-topics-subscriptions.md)를 참조하세요.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

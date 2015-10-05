@@ -6,7 +6,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="objectivec"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="09/22/2015"
 	ms.author="brandwe"/>
 
 # Azure AD B2C 미리 보기: iOS 응용 프로그램에서 Web API 호출하기
@@ -34,7 +34,11 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 - 응용 프로그램에 **응용 프로그램 암호**를 만들고 복사합니다. 곧 필요합니다.
 - 앱에 할당된 **응용 프로그램 ID**를 적복사합니다. 또한 곧 필요합니다.
 
+    > [AZURE.IMPORTANT][Azure 포털](https://manage.windowsazure.com/)의 **응용 프로그램** 탭에 등록된 응용 프로그램은 사용할 수 없습니다.
+
 ## 3\. 정책 만들기
+
+> [AZURE.NOTE]이 B2C 미리 보기에서는 클라이언트와 서버 설치 둘 다에서 동일한 정책을 사용합니다. 이미 연습 단계를 진행하고 이러한 정책을 만든 경우에는 다시 작업을 수행하지 않아도 됩니다. 응용 프로그램의 요구 사항과 일치하는 경우 포털에서 이전에 만든 정책을 다시 사용할 수 있습니다.
 
 Azure AD B2C에서 모든 사용자 환경을[**정책**](active-directory-b2c-reference-policies.md)에서 정의합니다. 이 앱은 등록, 로그인 및 Facebook으로 로그인 등 세 가지 ID 환경을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)에서 설명한 대로 각 형식에 하나의 정책을 만들어야 합니다. 세 가지 정책을 만들 때 다음을 확인합니다.
 
@@ -54,9 +58,9 @@ Azure AD B2C에서 모든 사용자 환경을[**정책**](active-directory-b2c-r
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS.git
 ```
 
-> [AZURE.NOTE]**이 자습서를 완료하려면 골격을 다운로드해야 합니다.** iOS에서 완벽하게 작동하는 응용 프로그램 구현의 복잡성으로 인해 다음 자습서를 완료하면 **골격**은 실행할 UX 코드를 실행합니다. 개발자를 위한 시간 절약 측정입니다. UX 코드는 B2C를 iOS 응용 프로그램에 추가하는 항목과 밀접한 관련이 없습니다.
+> [AZURE.NOTE]**이 자습서를 완료하려면 골격을 다운로드해야 합니다.** iOS에서 완벽하게 작동하는 응용 프로그램을 구현하는 것이 복잡하기 때문에 다음 자습서를 완료하면 실행될 UX 코드가 **골격**에 포함되어 있습니다. 개발자를 위한 시간 절약 측정입니다. UX 코드는 B2C를 iOS 응용 프로그램에 추가하는 항목과 밀접한 관련이 없습니다.
 
-또한 완성된 앱은 [.zip으로 사용할 수 있거나](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip) 동일한 리포지토리의 `complete`분기에 사용할 수 있습니다.
+완성된 앱도 [.zip으로 다운로드하거나](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip) 동일한 리포지토리의 `complete` 분기에서 사용할 수 있습니다.
 
 
 이제 cocoapods를 사용하여 podfile를 로드합니다. 로드하려는 새 XCode 작업 영역을 만듭니다. Cocoapods가 없다면 [cocoapods를 설치하는 웹 사이트](https://cocoapods.org)를 방문하세요.
@@ -105,7 +109,7 @@ iOS 작업 앱이 Azure AD B2C와 통신하도록 하기 위해 제공해야 할
 
 ## 6\. 액세스 토큰을 가져오고 작업 API를 호출합니다.
 
-이 섹션은 Microsoft의 라이브러리 및 프레임워크를 사용하여 웹앱에서 OAuth 2.0 토큰 교환을 완료하는 방법을 보여줍니다. **권한 부여 코드** 및 **액세스 토큰**에 익숙하지 않은 경우 [OAuth 2.0 프로토콜 참조](active-directory-b2c-reference-protocols.md)를 가볍게 읽어 보는 것이 좋습니다.
+이 섹션은 Microsoft의 라이브러리 및 프레임워크를 사용하여 웹앱에서 OAuth 2.0 토큰 교환을 완료하는 방법을 보여줍니다. **인증 코드** 및 **액세스 토큰**에 익숙하지 않은 경우 [OAuth 2.0 프로토콜 참조](active-directory-b2c-reference-protocols.md)를 가볍게 읽어 보는 것이 좋습니다.
 
 #### 사용할 메서드로 헤더 파일을 만듭니다.
 
@@ -215,7 +219,7 @@ UI에 개체를 저장하기 위한 빠른 코드가 완료됩니다. 작업 서
 
 이제 모든 작업이 `samplesWebAPIConnector.m`에서 수행됩니다.
 
-우선 `samplesWebAPIConnector.h` 헤더 파일에서 작성하는 `doPolicy()` 구현을 만들어 보겠습니다.
+우선 `samplesWebAPIConnector.h` 헤더 파일에서 작성한 `doPolicy()` 구현을 만들어 보겠습니다.
 
 ```
 +(void) doPolicy:(samplesPolicyData *)policy
@@ -293,7 +297,7 @@ completionBlock:(void (^) (ADProfileInfo* userInfo, NSError* error)) completionB
 
 GitHub에서 골격을 다운로드한 경우 샘플 응용 프로그램에 도움이 되는 여러 가지가 이미 준비되었음을 표시합니다. `get(Claims|Token)With<verb>ClearningCache`의 패턴을 따릅니다. 목표 C 규칙을 사용하여 영어와 같이 읽습니다. 예를 들어 "제공한 추가 매개 변수로 토큰을 가져오고 캐시를 지웁니다." `getTokenWithExtraParamsClearingCache()`입니다. 아주 간단합니다.
 
-"제공한 정책으로 클레임 및 토큰을 가져오고 캐시를 지우지 않습니다." 또는 `getClaimsWithPolicyClearingCache`을 작성합니다. 항상 ADAL에서 토큰을 다시 가져오므로 "클레임 및 토큰"을 메서드에서 지정할 필요가 없습니다. 그러나 클레임을 구문 분석하는 오버헤드 없이 토큰이 필요하므로 골격에서 `getTokenWithPolicyClearingCache`이라는 클레임 없이 메서드를 제공했습니다.
+"제공한 정책으로 클레임 및 토큰을 가져오고 캐시를 지우지 않습니다." 또는 `getClaimsWithPolicyClearingCache`을 작성합니다. 항상 ADAL에서 토큰을 다시 가져오므로 "클레임 및 토큰"을 메서드에서 지정할 필요가 없습니다. 그러나 클레임을 구문 분석하는 오버헤드 없이 토큰이 필요한 경우도 있으므로 골격에서 `getTokenWithPolicyClearingCache`이라는 클레임 없이 메서드를 제공했습니다.
 
 이제 이 코드를 작성해 보겠습니다.
 
@@ -362,7 +366,7 @@ GitHub에서 골격을 다운로드한 경우 샘플 응용 프로그램에 도�
 
 호출이 상당히 단순하다는 점을 알 수 있습니다.
 
-**범위** - 서버에서 사용자 로그인에 대해 요청하려는 서버에 전달하는 범위입니다. B2C 미리 보기의 경우 client\_id를 전달합니다. 그러나 나중에 범위를 읽도록 변경됩니다. 이 문서는 업데이트 됩니다. **addtionalScopes** - 응용 프로그램에 사용하려는 추가 범위입니다. 나중에 **clientId**에 사용됩니다. 포털에서 가져온 응용 프로그램 ID입니다. **redirectURI** - 토큰이 다시 게시될 리디렉션입니다. **식별자** - 사용자를 식별하는 방법으로 캐시에 사용할 수 있는 토큰이 있는지 또는 항상 다른 토큰에 서버를 요청하는지를 확인할 수 있습니다. `ADUserIdentifier`이라는 형식에 전달되며 ID로 사용하려는 것을 지정할 수 있습니다 사용자 이름을 사용해야 합니다. **promptBehavior** - 더 이상 사용되지 않으며 AD\_PROMPT\_ALWAYS가 되어야 합니다. **extraQueryParameters** - URL로 인코딩된 형식인 서버에 전달하려는 추가 데이터입니다. **정책** - 호출하는 정책입니다. 이 연습에 대한 중요한 부분을 게시합니다.
+**scopes** - 서버에서 사용자 로그인에 대해 요청하려는 서버에 전달하는 범위입니다. B2C 미리 보기의 경우 client\_id를 전달합니다. 그러나 나중에 범위를 읽도록 변경됩니다. 이 문서는 업데이트 됩니다. **addtionalScopes** - 응용 프로그램에 사용하려는 추가 범위입니다. 나중에 사용됩니다. **clientId** - 포털에서 가져온 응용 프로그램 ID입니다. **redirectURI** - 토큰이 다시 게시될 리디렉션입니다. **identifier** - 사용자를 식별하는 방법으로 캐시에 사용할 수 있는 토큰이 있는지 또는 항상 다른 토큰에 서버를 요청하는지를 확인할 수 있습니다. `ADUserIdentifier`이라는 형식에 전달되며 ID로 사용하려는 것을 지정할 수 있습니다 사용자 이름을 사용해야 합니다. **promptBehavior** - 더 이상 사용되지 않으며 AD\_PROMPT\_ALWAYS가 되어야 합니다. **extraQueryParameters** - URL로 인코딩된 형식인 서버에 전달하려는 추가 데이터입니다. **정책** - 호출하는 정책입니다. 이 연습에 대한 중요한 부분을 게시합니다.
 
 토큰 및 프로필 정보가 있는 `ADAuthenticationResult`을 전달한 completionBlock에서 확인할 수 있습니다.(호출에 성공한 경우)
 
@@ -482,7 +486,7 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock;
 }
 ```
 
-볼 수 있듯이 Web URI가 필요하고 토큰을 HTTP의 `Bearer` 헤더를 사용하여 추가한 다음 반환합니다. `getTokenClearingCache` API를 호출하며 처음에는 이상한 보일 수 있지만 이 호출을 사용하여 캐시에서 토큰을 가져오고 토큰이 여전히 유효한지 확인합니다.(getToken*은 ADAL을 요청하여 이를 수행함) 각 호출에 이 코드를 사용합니다. 이제으로 추가 작업 메서드를 만드는 데로 돌아가겠습니다.
+표시된 바와 같이 Web URI가 필요하고 토큰을 HTTP의 `Bearer` 헤더를 사용하여 추가한 다음 반환합니다. `getTokenClearingCache` API를 호출하며 처음에는 이상한 보일 수 있지만 이 호출을 사용하여 캐시에서 토큰을 가져오고 토큰이 여전히 유효한지 확인합니다.(getToken* 호출은 ADAL을 요청하여 이를 수행함) 각 호출에 이 코드를 사용합니다. 이제으로 추가 작업 메서드를 만드는 데로 돌아가겠습니다.
 
 `addTask`을 작성해 보겠습니다.
 
@@ -646,4 +650,4 @@ API 가 받는 액세스 토큰에서 사용자의 ID를 추출하므로 API에 
 
 [B2C 앱의 UX 사용자 지정 >>]()
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

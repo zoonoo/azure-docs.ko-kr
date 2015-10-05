@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/22/2015"
+	ms.date="09/22/2015"
 	ms.author="cabailey"/>
 
 # Azure 주요 자격 증명 모음 시작 #
@@ -179,7 +179,7 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
 
 
 	Set-AzureKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
-	
+
 자격 증명 모음에서 기밀 정보를 읽기 위해 동일한 응용 프로그램에 권한을 부여하려면 다음을 실행합니다.
 
 
@@ -242,6 +242,6 @@ Azure 주요 자격 증명 모음을 관리하는 데 유용한 기타 명령은
 
 Azure 키 자격 증명 모음에 대한 Windows PowerShell cmdlet의 목록은 [Azure 키 자격 증명 모음 Cmdlet](https://msdn.microsoft.com/library/azure/dn868052.aspx)을 참조하세요.
 
-프로그래밍 참조는 MSDN의 Microsoft Azure 문서 라이브러리에서 [주요 자격 증명 모음](https://msdn.microsoft.com/library/azure/dn903625.aspx)을 참조하세요.
+프로그래밍 참조는 [Azure 주요 자격 증명 모음 개발자 가이드](key-vault-developers-guide.md)를 참조하세요.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

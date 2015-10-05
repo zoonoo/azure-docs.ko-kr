@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Java CA 저장소에 인증서 추가 | Microsoft Azure"
-	description="Java CA(인증 기관) 인증서(cacerts) 저장소에 Twilio 서비스 또는 Azure 서비스 버스용 CA 인증서를 추가하는 방법에 대해 알아봅니다."
-	services=""
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
+	pageTitle="Java CA 저장소에 인증서 추가 | Microsoft Azure" 
+	description="Java CA(인증 기관) 인증서(cacerts) 저장소에 Twilio 서비스 또는 Azure 서비스 버스용 CA 인증서를 추가하는 방법에 대해 알아봅니다." 
+	services="" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="08/31/2015"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="08/31/2015" 
 	ms.author="robmcm"/>
 
 # Java CA 인증서 저장소에 인증서 추가
@@ -50,6 +50,10 @@ Baltimore 인증서가 cacerts 저장소에 이미 설치되어 있을 수도 �
 
 Baltimore CyberTrust Root를 추가해야 하는 경우 일련 번호 02:00:00:b9 및 SHA1 지문 d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74가 포함되어 있습니다. <https://cacert.omniroot.com/bc2025.crt>에서 다운로드하고 확장명이 **.cer**인 로컬 파일에 저장한 후 위와 같이 **keytool**을 사용하여 가져올 수 있습니다.
 
+## 다음 단계
+
 Azure에서 사용되는 루트 인증서에 대한 자세한 내용은 [Azure 루트 인증서 마이그레이션](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx)(영문)을 참조하세요.
 
-<!---HONumber=September15_HO1-->
+Java에 대한 자세한 내용은 [Java개발자 센터](/develop/java/)를 참조하세요.
+
+<!---HONumber=Sept15_HO4-->

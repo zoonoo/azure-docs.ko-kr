@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="DNS 영역에 대한 작업 | Microsoft Azure"
-	description="Azure Powershell cmdlet 또는 CLI를 사용하여 DNS 영역을 관리할 수 있습니다. Azure DNS에서 DNS 영역을 업데이트, 삭제 및 만드는 방법입니다."
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="Adinah"
-	editor=""/>
+   pageTitle="DNS 영역에 대한 작업 | Microsoft Azure" 
+   description="Azure Powershell을 사용하여 DNS 영역을 관리할 수 있습니다. Azure DNS에서 DNS 영역을 업데이트, 삭제 및 만드는 방법입니다." 
+   services="dns" 
+   documentationCenter="na" 
+   authors="joaoma" 
+   manager="Adinah" 
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/12/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="09/22/2015"
+   ms.author="joaoma"/>
 
-# DNS 영역을 관리하는 방법
+# PowerShell을 사용하여 DNS 영역을 관리하는 방법
 
 > [AZURE.SELECTOR]
 - [Azure CLI](dns-operations-dnszones-cli.md)
@@ -108,4 +108,4 @@ Get-AzureDnsZone에서 $zone 개체를 사용하여 영역을 지정합니다.
 
 [.NET SDK로 작업 자동화](dns-sdk.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

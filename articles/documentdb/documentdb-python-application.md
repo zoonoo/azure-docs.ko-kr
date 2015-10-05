@@ -14,7 +14,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="python"
     ms.topic="hero-article"
-    ms.date="09/03/2015"
+    ms.date="09/21/2015"
     ms.author="ryancraw"/>
 
 # DocumentDB를 사용한 Python Flask 웹 응용 프로그램 개발
@@ -352,4 +352,4 @@ templates 폴더 아래에 다음 html 파일을 추가합니다. create.html, r
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

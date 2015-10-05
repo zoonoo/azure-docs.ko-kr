@@ -1,11 +1,11 @@
 
 <properties
 	pageTitle="특성을 사용하여 고급 규칙 만들기| Microsoft Azure"
-	description="보안 그룹 관리에 대한 고급 방법과 이러한 그룹을 사용하여 리소스에 대한 액세스를 관리하는 방법입니다."
+	description="지원되는 식 규칙 연산자 및 매개 변수를 포함하는 그룹에 대한 고급 규칙 만들기"
 	services="active-directory"
 	documentationCenter=""
 	authors="femila"
-	manager="swadhwa"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 
@@ -124,7 +124,7 @@ Azure 관리 포털을 사용하면 그룹의 동적 멤버 자격을 사용하�
 | passwordPolicies | None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword | (user.passwordPolicies -eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName | 임의의 문자열 값 또는 $null입니다. | (user.physicalDeliveryOfficeName -eq "value") |
 | postalCode | 임의의 문자열 값 또는 $null입니다. | (user.postalCode -eq "value") |
-| preferredLanguage | ISO 639-1 코드 | (user.preferredLanguage -eq "ko-kr") |
+| preferredLanguage | ISO 639-1 코드 | (user.preferredLanguage -eq "ko-KR") |
 | sipProxyAddress | 임의의 문자열 값 또는 $null입니다. | (user.sipProxyAddress -eq "value") |
 | state | 임의의 문자열 값 또는 $null입니다. | (user.state -eq "value") |
 | streetAddress | 임의의 문자열 값 또는 $null입니다. | (user.streetAddress -eq "value") |
@@ -168,4 +168,4 @@ Azure 관리 포털을 사용하면 그룹의 동적 멤버 자격을 사용하�
 
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

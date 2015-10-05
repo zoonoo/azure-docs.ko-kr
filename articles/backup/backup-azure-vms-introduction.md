@@ -7,7 +7,7 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/09/2015" ms.author="trinadhk";"aashishr";"jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2015" ms.author="trinadhk";"aashishr";"jimpark"/>
 
 # Azure 가상 컴퓨터 백업
 
@@ -111,7 +111,7 @@ Azure 가상 컴퓨터 백업을 시작하기 전에 Azure VM 에이전트가 �
 - Azure 백업 서비스를 사용하는 가상 컴퓨터 백업은 선택한 운영 체제 버전에 대해서만 지원됩니다.
   - **Linux**: Azure 인증 배포 목록은 [여기](../virtual-machines-linux-endorsed-distributions.md)서 확인할 수 있습니다. 가상 컴퓨터에서 VM 에이전트를 사용할 수 있는 한 기타 Bring-Your-Own-Linux 배포도 작동합니다.
   - **Windows Server**: Windows Server 2008 R2 이전 버전은 지원되지 않습니다.
-- 다중 DC 구성의 일부인 도메인 컨트롤러 VM 복원은 PowerShell을 통해서만 지원됩니다. [다중 DC 도메인 컨트롤러 복원](backup-azure-restore-vms.md#multiple-dcs)에 대해 자세히 알아보세요.
+- 다중 DC 구성의 일부인 도메인 컨트롤러 VM 복원은 PowerShell을 통해서만 지원됩니다. [다중 DC 도메인 컨트롤러 복원](backup-azure-restore-vms.md#restoring-domain-controller-vms)에 대해 자세히 알아보세요.
 
 포함되었으면 하는 기능이 있는 경우 [의견을 보내 주세요](http://aka.ms/azurebackup_feedback).
 
@@ -122,4 +122,4 @@ Azure 가상 컴퓨터 백업을 시작하기 전에 Azure VM 에이전트가 �
 - [가상 컴퓨터 복원](backup-azure-restore-vms.md)
 - [가상 컴퓨터 백업 관리](backup-azure-manage-vms.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

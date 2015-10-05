@@ -1,12 +1,12 @@
 <properties
  pageTitle="A8, A9, A10 및 A11 인스턴스 정보 | Microsoft Azure"
- description="Azure A8, A9, A10 및 A11 계산 집약적 인스턴스 사용에 관한 배경 정보와 고려사항을 얻습니다."
+ description="가상 컴퓨터 및 클라우드 서비스에 대한 Azure A8, A9, A10 및 A11 계산 집약적 크기 사용에 관한 배경 정보와 고려사항을 얻습니다."
  services="virtual-machines, cloud-services"
  documentationCenter=""
  authors="dlepow"
  manager="timlt"
  editor=""
- tags="azure-resource-manager, azure-service-management"/>
+ tags="azure-resource-manager,azure-service-management"/>
 <tags
 ms.service="virtual-machines"
  ms.devlang="na"
@@ -17,6 +17,8 @@ ms.service="virtual-machines"
  ms.author="danlep"/>
 
 # A8, A9, A10 및 A11 계산 집약적 인스턴스 정보
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서는 리소스 관리자 배포 모델 또는 클래식 배포 모델을 사용하여 리소스를 만드는 방법에 적용됩니다.
 
 이 문서는 *계산 집약적* 인스턴스로 알려진 Azure A8, A9, A10 및 A11 인스턴스에 대한 고려사항과 배경 정보를 제공합니다. 이러한 인스턴스의 주요 기능은 다음과 같습니다.
 
@@ -131,4 +133,4 @@ MPI | MS-MPI 2012 R2 이상, 독립 실행형 또는 HPC Pack 2012 R2 이상을 
 * Azure RDMA 네트워크에 액세스할 수 있는 A8 및 A9 인스턴스를 포함한 Linux 기반 클러스터를 배포 및 구성하려면 [MPI 응용 프로그램을 실행하도록 Linux RDMA 클러스터 설정](virtual-machines-linux-cluster-rdma.md)을 참조하세요.
 * Windows에서 HPC Pack을 사용하여 A8 및 A9 인스턴스 배포 및 사용을 시작하려면 [A8 및 A9 계산 집약적 인스턴스: HPC Pack을 사용한 빠른 시작](https://msdn.microsoft.com/library/azure/dn594431.aspx) 및 [A8 및 A9 인스턴스에서 MPI 응용 프로그램 실행](https://msdn.microsoft.com/library/azure/dn592104.aspx)을 참조하세요.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -21,7 +21,6 @@
 
 - [응용 프로그램 수명 주기](service-fabric-application-lifecycle.md)
 - [서비스 패브릭 탐색기를 사용하여 클러스터 시각화](service-fabric-visualizing-your-cluster.md)
-- [상태 저장 서비스의 복제 트래픽 보호](service-fabric-replication-security.md)
 
 ## 응용 프로그램 패키지 작성, 배포 및 제거
 다음 항목에서는 응용 프로그램의 패키지를 작성하고 배포하는 방법과 서비스 패브릭 응용 프로그램 모델에 대해 설명합니다.
@@ -41,13 +40,12 @@
 - [고급 항목](service-fabric-application-upgrade-advanced.md)
 - [응용 프로그램 업그레이드 실패 문제 해결](service-fabric-application-upgrade-troubleshooting.md)
 - [응용 프로그램 업그레이드 자습서/연습](service-fabric-application-upgrade-tutorial.md)
-- [서비스 패브릭 응용 프로그램 업그레이드: 데이터 Serialization](service-fabric-application-upgrade-data-serialization.md) 
+- [서비스 패브릭 응용 프로그램 업그레이드: 데이터 Serialization](service-fabric-application-upgrade-data-serialization.md)
 
 ## 응용 프로그램 서비스 크기 조정 및 분할
 다음 문서에서는 크기 조정 및 분할에 대해 설명합니다.
 
 - [서비스 패브릭 서비스 분할](service-fabric-concepts-partitioning.md)
 - [서비스 패브릭 응용 프로그램 크기 조정](service-fabric-concepts-scalability.md)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

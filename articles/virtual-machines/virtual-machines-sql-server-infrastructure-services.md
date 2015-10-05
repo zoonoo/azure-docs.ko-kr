@@ -1,22 +1,25 @@
 <properties 
-	pageTitle="Azure VM의 SQL Server 개요"
-	description="이 문서에서는 Azure IaaS 가상 컴퓨터에서 호스트되는 SQL Server에 대한 개요를 제공합니다. 여기에는 세부 콘텐츠에 대한 링크가 포함되어 있습니다."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="rothja"
+	pageTitle="가상 컴퓨터의 SQL Server 개요 | Microsoft Azure"
+	description="이 문서에서는 Azure 가상 컴퓨터에서 호스트되는 SQL Server에 대한 개요를 제공합니다. 여기에는 세부 콘텐츠에 대한 링크가 포함되어 있습니다." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="rothja" 
 	manager="jeffreyg"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
+	ms.workload="infrastructure-services" 
 	ms.date="09/01/2015"
 	ms.author="jroth"/>
 
 # Azure 가상 컴퓨터의 SQL Server 개요
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 ## 시작
 AlwaysOn 가용성 그룹 및 Azure 가상 네트워크를 사용하여 단일 데이터베이스 서버에서 다중 컴퓨터 구성에 이르는 다양한 구성으로 [Azure 가상 컴퓨터의 SQL Server](http://azure.microsoft.com/services/virtual-machines/sql-server/)를 호스트할 수 있습니다.
@@ -27,7 +30,7 @@ Azure에서 SQL Server 가상 컴퓨터를 만들려면 먼저 Azure 플랫폼 �
 
 ### 단일 VM에 SQL Server 인스턴스 배포
 
-구독에 등록한 후 Azure에서 SQL Server 가상 컴퓨터를 배포하는 가장 쉬운 방법은 [Azure 관리 포털에서 SQL Server 컴퓨터 갤러리 이미지를 프로비전](virtual-machines-provision-sql-server.md)하는 것입니다. 이러한 이미지에는 VM 가격에 포함된 SQL Server의 라이선스가 포함되어 있습니다.
+구독을 등록한 후 Azure에서 SQL Server 가상 컴퓨터를 배포하는 가장 쉬운 방법은 [Azure 관리 포털에서 SQL Server 컴퓨터 갤러리 이미지를 프로비전](virtual-machines-provision-sql-server.md)하는 것입니다. 이러한 이미지에는 VM 가격에 포함된 SQL Server의 라이선스가 포함되어 있습니다.
 
 다음 표에서는 가상 컴퓨터 갤러리의 사용 가능한 SQL Server 이미지의 매트릭스를 제공합니다.
 
@@ -41,7 +44,7 @@ Azure에서 SQL Server 가상 컴퓨터를 만들려면 먼저 Azure 플랫폼 �
 |SQL Server 2014 SP1|Windows Server 2012 R2|Enterprise, Standard, Web|
 |SQL Server 2016 CTP|Windows Server 2012 R2|평가|
 
->[AZURE.NOTE]데이터 웨어하우징 및 트랜잭션 작업에 대한 가상 컴퓨터 갤러리 이미지(위에 표시되지 않음)는 사용되지 않으며 갤러리에서 곧 제거될 예정입니다. 앞의 표에 있는 표준 이미지를 사용하고 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-sql-server-performance-best-practices.md)의 권장 사항에 따라 특정 워크로드에 대해 성능을 최적화하세요.
+>[AZURE.NOTE]데이터 웨어하우징 및 트랜잭션 작업에 대한 가상 컴퓨터 갤러리 이미지(위에 표시되지 않음)는 사용되지 않으며 갤러리에서 곧 제거될 예정입니다. 앞의 표에 있는 표준 이미지를 사용하고 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-sql-server-performance-best-practices.md)의 권장 사항에 따라 특정 작업에 대해 성능을 최적화하세요.
 
 미리 구성된 이미지뿐 아니라 사전 설치된 SQL Server 없이 [Azure 가상 컴퓨터 만들기](virtual-machines-windows-tutorial.md)를 수행할 수도 있습니다. 라이선스가 있다면 어떤 SQL Server 인스턴스든 설치할 수 있습니다. Azure 가상 컴퓨터에서 SQL Server를 실행하기 위해 [Azure에서 Software Assurance를 통한 라이선스 이동](http://azure.microsoft.com/pricing/license-mobility/)을 사용하여 라이선스를 Azure로 마이그레이션합니다. 이 시나리오에서는 가상 컴퓨터와 관련된 Azure 계산 및 저장소 [비용](http://azure.microsoft.com/pricing/details/virtual-machines)에 대해서만 지불합니다.
 
@@ -53,7 +56,7 @@ Azure에서 SQL Server 가상 컴퓨터를 만들려면 먼저 Azure 플랫폼 �
 
 ### 데이터 마이그레이션
 
-SQL Server 가상 컴퓨터를 준비하고 실행한 후 기존 데이터베이스를 컴퓨터로 마이그레이션할 수도 있습니다. 여러 가지 기술이 있지만 SQL Server Management Studio의 배포 마법사는 대부분의 시나리오에 적합합니다. 시나리오에 대한 설명 및 마법사에 대한 자습서는 [Azure VM의 SQL Server로 데이터베이스 마이그레이션](virtual-machines-migrate-onpremises-database.md)을 참조하세요.
+SQL Server 가상 컴퓨터를 준비하고 실행한 후 기존 데이터베이스를 컴퓨터로 마이그레이션할 수도 있습니다. 여러 가지 기술이 있지만 SQL Server Management Studio의 배포 마법사는 대부분의 시나리오에 적합합니다. 시나리오에 대한 설명 및 마법사 자습서는 [Azure VM에서 SQL Server로 데이터베이스 마이그레이션](virtual-machines-migrate-onpremises-database.md)을 참조하세요.
 
 ## 고가용성
 
@@ -69,7 +72,7 @@ SQL Server 가상 컴퓨터를 준비하고 실행한 후 기존 데이터베이
 다른 고가용성 고려 사항은 [Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions.md)를 참조하세요.
 
 ## 백업 및 복원
-온-프레미스 데이터베이스의 경우 Azure는 SQL Server 백업 파일을 저장하는 보조 데이터 센터의 역할을 할 수 있습니다. 백업 및 복원 옵션의 개요는 [Azure 가상 컴퓨터에서 SQL Server의 백업 및 복원](virtual-machines-sql-server-backup-and-restore.md)을 참조하세요.
+온-프레미스 데이터베이스의 경우 Azure는 SQL Server 백업 파일을 저장하는 보조 데이터 센터의 역할을 할 수 있습니다. 백업 및 복원 옵션에 대한 개요는 [Azure 가상 컴퓨터에서 SQL Server 백업 및 복원](virtual-machines-sql-server-backup-and-restore.md)을 참조하세요.
 
 [URL에 대한 SQL Server 백업](https://msdn.microsoft.com/library/dn435916.aspx)에서는 Azure 백업 파일을 Azure Blob 저장소에 저장합니다. [SQL Server 관리되는 백업](https://msdn.microsoft.com/library/dn449496.aspx)에서는 Azure에서의 백업 및 보존을 예약할 수 있습니다. 온-프레미스 SQL Server 인스턴스 또는 Azure VM에서 실행되는 SQL Server에서 이러한 서비스를 사용할 수 있습니다. 또한 Azure VM에서는 SQL Server에 대한 [자동화된 백업](virtual-machines-sql-server-automated-backup.md) 및 [자동화된 패치 적용](virtual-machines-sql-server-automated-patching.md)을 활용할 수 있습니다.
 
@@ -128,7 +131,7 @@ SQL Server 가상 컴퓨터를 준비하고 실행한 후 기존 데이터베이
 
 ### CEIP(사용자 환경 개선 프로그램)
 
-[CEIP(사용자 환경 개선 프로그램)](https://technet.microsoft.com/library/cc730757.aspx)를 사용하도록 설정되었습니다. SQL Server 오류 및 사용 보고 유틸리티를 사용하여 CEIP를 사용하지 않도록 설정할 수 있습니다. SQL Server 오류 및 사용 보고 유틸리티를 시작하려면 시작 메뉴에서 모든 프로그램, Microsoft SQL Server 버전, 구성 도구, SQL Server 오류 및 사용 보고를 순서대로 클릭합니다. CEIP를 사용하도록 설정된 SQL Server의 인스턴스를 사용하지 않으려면 해당 가상 컴퓨터 이미지를 Azure에 배포하는 것을 고려할 수도 있습니다. 자세한 내용은 [Windows Server 운영 체제가 포함된 가상 하드 디스크 만들기 및 업로드](virtual-machines-create-upload-vhd-windows-server.md)를 참조하세요.
+[CEIP(사용자 환경 개선 프로그램)](https://technet.microsoft.com/library/cc730757.aspx)는 사용하도록 설정되어 있습니다. SQL Server 오류 및 사용 보고 유틸리티를 사용하여 CEIP를 사용하지 않도록 설정할 수 있습니다. SQL Server 오류 및 사용 보고 유틸리티를 시작하려면 시작 메뉴에서 모든 프로그램, Microsoft SQL Server 버전, 구성 도구, SQL Server 오류 및 사용 보고를 순서대로 클릭합니다. CEIP를 사용하도록 설정된 SQL Server의 인스턴스를 사용하지 않으려면 해당 가상 컴퓨터 이미지를 Azure에 배포하는 것을 고려할 수도 있습니다. 자세한 내용은 [Windows Server 운영 체제가 포함된 가상 하드 디스크 만들기 및 업로드](virtual-machines-create-upload-vhd-windows-server.md)를 참조하세요.
 
 ## 플랫폼 제공 SQL Server 이미지에서 SQL Server 설치 프로그램 실행
 
@@ -144,4 +147,4 @@ SQL Server 가상 컴퓨터를 준비하고 실행한 후 기존 데이터베이
 - [Azure 가상 컴퓨터의 SQL Server에 대한 응용 프로그램 패턴 및 개발 전략](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 - [Azure 가상 컴퓨터](virtual-machines-about.md) 
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

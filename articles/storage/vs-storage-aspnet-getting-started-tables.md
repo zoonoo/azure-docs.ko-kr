@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # 테이블 저장소 및 Visual Studio 연결 서비스 시작(ASP.NET)
 > [AZURE.SELECTOR]
@@ -167,4 +167,4 @@ Azure 테이블을 만들려면 이전 코드에 **CreateIfNotExistsAsync()**에
 
 [AZURE.INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

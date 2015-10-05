@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="07/24/2015"
+   ms.date="09/23/2015"
    ms.author="larryfr"/>
 
 #Ambari를 사용하여 HDInsight 클러스터 관리(미리 보기)
@@ -69,7 +69,7 @@ Ambari 웹 UI는 **https://&lt;clustername>.azurehdinsight.net**에서 만든 �
 
 * **Alerts** - 정보, 경고 및 중요한 알림에 대한 로그입니다.
 
-* **Admin** - 설치되었거나 클러스터, 서비스 계정 정보 및 Kerberos 보안에 추가할 수 있는 소프트웨어 스택/서비스입니다.
+* **Admin** - 클러스터에 설치된 소프트웨어 스택/서비스, 서비스 계정 정보 및 Kerberos 보안입니다.
 
 * **Admin 단추** - Ambari 관리, 사용자 설정 및 로그 아웃입니다.
 
@@ -191,27 +191,12 @@ Linux 기반 HDInsight 미리 보기 중에는 사용자, 그룹 및 사용 권�
 
 ###<a id="service"></a>Services
 
-**Dashboard** 또는 **Services** 페이지에서 서비스 목록의 아래쪽에 있는 **Actions** 단추를 사용하여 새 서비스를 추가하거나 모든 서비스를 중지 및 시작합니다.
+**대시보드** 또는 **서비스** 페이지에서 서비스 목록 맨 아래에 있는 **작업** 단추를 사용하여 모든 서비스를 중지 및 시작합니다.
 
 ![서비스 작업](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
-다음은 서비스를 추가하는 일반적인 단계입니다.
+> [AZURE.WARNING]이 메뉴에 __서비스 추가__가 나열되어 있지만 HDInsight 클러스터에 서비스를 추가하는 데 사용하면 안 됩니다. 클러스터를 프로비전하는 동안 스크립트 작업을 사용하여 새 서비스를 추가해야 합니다. 스크립트 작업에 대한 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
-1. **Dashboard** 또는 **Services** 페이지에서 **Actions** 단추를 사용하여 **Add Service**를 선택합니다.
-
-2. **Add Service Wizard**에서 추가할 서비스를 선택한 다음 **Next**를 클릭합니다.
-
-	![서비스 추가](./media/hdinsight-hadoop-manage-ambari/add-service.png)
-
-3. 서비스에 대한 구성 정보를 제공하는 마법사를 계속 진행합니다. 구성 요구 사항에 대한 자세한 내용은 추가하는 특정 서비스에 대한 설명서를 참조하세요.
-
-4. **Review** 페이지에서 구성 정보를 **Print**하거나 클러스터에 서비스를 **Deploy**할 수 있습니다.
-
-5. 서비스를 배포한 후에는 **Install, Start and Test** 페이지에 서비스 설치 및 테스트 진행률 정보가 표시됩니다. **Status**가 녹색이면 **Next**를 선택합니다.
-
-	![설치, 시작 및 테스트 페이지의 이미지](./media/hdinsight-hadoop-manage-ambari/install-start-test.png)
-
-6. **Summary** 페이지에는 설치 프로세스의 요약 및 수행해야 하는 가능한 모든 작업(예: 다른 서비스 다시 시작)이 표시됩니다. **Complete**를 선택하여 마법사를 종료합니다.
 
 **Actions** 단추는 모든 서비스를 다시 시작할 수 있는 반면, 특정 서비스를 시작하거나 중지, 다시 시작하려는 경우가 많습니다. 다음 단계를 사용하여 개별 서비스에서 작업을 수행할 수 있습니다.
 
@@ -247,8 +232,8 @@ Ambari 웹은 관리 및 모니터링 도구를 만드는데 활용할 수 있�
 
 * **IP 주소** - 클러스터가 Azure 가상 네트워크의 구성원이 아니면 클러스터 외부에서 클러스터 내부의 호스트에 대해 반환되는 주소에 액세스할 수 없습니다. 하지만 네트워크 외부가 아니라면 가상 네트워크의 다른 구성원은 액세스할 수 있습니다.
 
-* **일부 기능은 사용할 수 없음** - HDInsight 클라우드 서비스에 의해 관리되는 일부 Ambari 기능(예: 클러스터에서 호스트 추가 또는 제거)은 사용할 수 없도록 설정됩니다. Linux 기반 HDInsight의 미리 보기 중에는 다른 기능이 완벽하게 구현되지 않습니다.
+* **일부 기능은 사용할 수 없음** - HDInsight 클라우드 서비스에 의해 관리되는 일부 Ambari 기능(예: 클러스터에서 호스트 추가 또는 제거 또는 새 서비스 추가)은 사용할 수 없습니다. Linux 기반 HDInsight의 미리 보기 중에는 다른 기능이 완벽하게 구현되지 않습니다.
 
 REST API의 모든 참조 문서를 보려면 [Ambari API 참조 V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)을 참조하세요.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

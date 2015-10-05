@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure에서 사용자 지정 가상 컴퓨터 만들기"
-	description="Azure에서 사용자 지정 가상 컴퓨터를 만드는 방법에 대해 알아봅니다."
+	pageTitle="사용자 지정 가상 컴퓨터 만들기 | Microsoft Azure"
+	description="클래식 배포 모델을 사용하여 Azure 포털에서 사용자 지정 가상 컴퓨터를 만드는 방법을 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -11,7 +11,7 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/11/2015"
@@ -19,7 +19,11 @@
 
 #사용자 지정 가상 컴퓨터를 만드는 방법
 
-*사용자 지정* 가상 컴퓨터란 **갤러리에서** 옵션을 사용하여 만드는 가상 컴퓨터를 말하는데, 이는 **빠른 생성** 옵션보다 사용할 수 있는 구성 옵션이 더 많기 때문입니다. 이러한 옵션에는 다음이 포함됩니다.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+
+
+*사용자 지정* 가상 컴퓨터란 단순히 **갤러리에서** 옵션을 사용하여 만든 가상 컴퓨터를 의미하며, **빠른 생성** 옵션보다 사용할 수 있는 구성 옵션이 더 많기 때문입니다. 이러한 옵션에는 다음이 포함됩니다.
 
 - 가상 네트워크에 가상 컴퓨터 연결
 - 맬웨어 방지 등, Azure Virtual Machine Agent 및 Azure Virtual Machine Extensions 설치
@@ -31,4 +35,4 @@
 
 [AZURE.INCLUDE [virtual-machines-create-WindowsVM](../../includes/virtual-machines-create-windowsvm.md)]
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

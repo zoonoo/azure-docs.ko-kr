@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="06/03/2015" 
+	ms.date="08/14/2015" 
 	ms.author="robmcm"/>
 
 #Java용 Azure SDK 다운로드
@@ -22,4 +22,8 @@
 
 [AZURE.INCLUDE [download\_eclipse](../includes/download_eclipse.md)]
 
-<!---HONumber=August15_HO6-->
+## 다음 단계
+
+자세한 내용은 [Java개발자 센터](/develop/java/)를 참조하세요.
+
+<!---HONumber=Sept15_HO4-->

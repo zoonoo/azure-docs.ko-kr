@@ -1,24 +1,27 @@
 <properties 
-	pageTitle="SQL Server IaaS 에이전트 확장"
-	description="SQL Server 에이전트 확장 및 아직 자동으로 설치되지 않은 에이전트를 설치하는 방법을 설명합니다. 에이전트 확장을 통해 Azure의 클라우드에서 SQL Server를 실행하는 가상 컴퓨터에서 자동화 기능을 사용할 수 있습니다."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="jeffgoll"
+	pageTitle="SQL Server IaaS 에이전트 확장 | Microsoft Azure" 
+	description="이 항목 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, Azure에서 SQL Server를 실행하는 VM이 자동화 기능을 사용할 수 있게 해주는 SQL Server 에이전트 확장에 대해 설명합니다." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="jeffgoll" 
 	manager="jeffreyg"
-	editor=""/>
+   editor="monicar"    
+   tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
+	ms.workload="infrastructure-services" 
 	ms.date="06/17/2015"
 	ms.author="jeffreyg"/>
 
 # SQL Server IaaS 에이전트 확장
 
 이 확장을 통해 Azure 가상 컴퓨터의 SQL Server에서 이 문서에 나열된 특정 서비스를 사용할 수 있습니다. 해당 서비스는 설치된 확장과 함께 사용해야 합니다. 이 확장은 Azure Preview 포털에서 SQL Server 갤러리 이미지에 대해 자동으로 설치됩니다. 해당 확장은 Azure VM 게스트 에이전트가 설치된 모든 SQL Server VM에 설치할 수 있습니다.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 사용하는 방법을 설명합니다.
  
 ## 필수 조건
 Powershell cmdlet 사용의 요구 사항:
@@ -74,4 +77,4 @@ VM에서 이 확장을 제거하려는 경우 다음 Azure Powershell cmdlet을 
 ### 구문
 Remove-AzureVMSqlServerExtension -VM <IPersistentVM> [<CommonParameters>]
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

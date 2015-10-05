@@ -18,7 +18,8 @@
 	ms.author="danlep"/>
 
 # 서비스 관리의 가상 컴퓨터 관련 문서
-이는 Azure 서비스 관리에서 가상 컴퓨터 작업에 대한 문서의 목록입니다. 새 배포의 경우 Azure 리소스 관리자 기반 가상 컴퓨터 및 기타 리소스를 사용하는 것이 좋습니다. 리소스 관리자의 장점에 대한 설명은 [Azure 리소스 관리자에 통합된 Azure 계산, 네트워크 및 저장소 공급자](virtual-machines-azurerm-versus-azuresm.md)를 참조하세요.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 관리하는 방법을 설명합니다.
 
 ## 시작
 
@@ -150,4 +151,4 @@
 
 [Azure 서비스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](virtual-machines-command-line-tools.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

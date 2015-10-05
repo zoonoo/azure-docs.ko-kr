@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/24/2015"
+   ms.date="09/22/2015"
    ms.author="mausher;nicw;barbkess;JRJ@BigBangData.co.uk;"/>
 
 # SQL 데이터 웨어하우스 관리 도구
@@ -43,10 +43,10 @@ SQL 데이터 웨어하우스에 대한 지원이 포함된 [SQL Server Data Too
 [연결]: sql-data-warehouse-develop-connections.md
 
 <!--MSDN references-->
-[SQL Server Data Tools]: https://msdn.microsoft.com/ko-kr/library/mt204009.aspx
-[Visual Studio의 SSDT]: https://msdn.microsoft.com/ko-kr/library/mt204009.aspx
+[SQL Server Data Tools]: https://msdn.microsoft.com/KO-KR/library/mt204009.aspx
+[Visual Studio의 SSDT]: https://msdn.microsoft.com/KO-KR/library/mt204009.aspx
 
 <!--Other web references-->
 [Azure 포털]: http://portal.azure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

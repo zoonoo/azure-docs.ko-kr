@@ -1,6 +1,6 @@
 <properties
-   pageTitle="SQL 데이터 웨어하우스용 솔루션 개발 | Microsoft Azure"
-   description="Azure SQL 데이터 웨어하우스를 사용하여 솔루션을 구축하기 위한 개발 기술 및 모범 사례"
+   pageTitle="SQL 데이터 웨어하우스 개발을 위한 디자인 결정 및 코딩 기술 | Microsoft Azure"
+   description="SQL 데이터 웨어하우스에 대한 개발 개념, 디자인 결정, 권장 사항 및 코딩 기술입니다."
    services="sql-data-warehouse"
    documentationCenter="NA"
    authors="jrowlandjones"
@@ -13,14 +13,14 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/25/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
-# SQL 데이터 웨어하우스용 솔루션 개발
+# SQL 데이터 웨어하우스에 대한 디자인 결정 및 코딩 기술
 
-SQL 데이터 웨어하우스에 대한 개발 원칙, 모범 사례 및 코딩 기술의 이해에 도움이 필요하다면 개발 문서를 살펴보십시오.
+SQL 데이터 웨어하우스에 대한 주요 디자인 결정, 권장 사항 및 코딩 기술을 더 잘 이해하려면 이러한 개발 문서를 살펴보세요.
 
-## 주요 개념
+## 주요 디자인 결정
 다음 문서는 SQL 데이터 웨어하우스를 사용하여 분산된 데이터 웨어하우스를 개발하기 위해 이해해야 하는 일부 주요 개념과 설계 결정을 요약합니다.
 
 - [연결][]
@@ -33,8 +33,8 @@ SQL 데이터 웨어하우스에 대한 개발 원칙, 모범 사례 및 코딩 
 - [CTAS][]
 - [통계][]
 
-## 개발 기술
-이들 문서는 SQL 데이터 웨어하우스를 사용하여 솔루션을 개발하기 위한 구체적인 코딩 기술, 팁 및 모범 사례를 요약합니다.
+## 개발 권장 사항 및 코딩 기술
+이러한 문서에는 SQL 데이터 웨어하우스 개발을 위한 구체적인 코딩 기술, 팁 및 권장 사항이 요약되어 있습니다.
 
 - [저장 프로시저][]
 - [레이블][]
@@ -48,7 +48,7 @@ SQL 데이터 웨어하우스에 대한 개발 원칙, 모범 사례 및 코딩 
 - [변수 할당][]
 
 ## 다음 단계
-개발 문서들을 살펴본 후에는 [Transact-SQL 참조][] 페이지에서 SQL 데이터 웨어하우스에 대해 지원되는 구문에 대한 자세한 내용을 보십시오.
+개발 문서들을 살펴본 후에는 [Transact-SQL 참조][] 페이지에서 SQL 데이터 웨어하우스에 대해 지원되는 구문에 대한 자세한 내용을 보세요.
 
 <!--Image references-->
 
@@ -79,4 +79,4 @@ SQL 데이터 웨어하우스에 대한 개발 원칙, 모범 사례 및 코딩 
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

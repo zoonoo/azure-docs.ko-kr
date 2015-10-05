@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="옵션 2: Azure 관리 포털을 사용하여 업데이트 1.2 적용"
-   description="StorSimple 8000 시리즈 업데이트 1.2를 설치하기 위해 관리 포털을 사용하는 방법에 대해 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/08/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 #### Azure 관리 포털에서 업데이트 1.2를 설치하려면
 
@@ -27,4 +12,4 @@
 
 7. 이제 [관리 포털을 사용하여 업데이트 1.2를 설치](#use-the-management-portal-to-install-update-1)할 수 있습니다. 이 절차의 3단계부터 지침을 따릅니다. 모든 업데이트를 설치한 후에는 사용하지 않도록 설정한 네트워크 인터페이스를 다시 사용하도록 설정할 수 있습니다.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

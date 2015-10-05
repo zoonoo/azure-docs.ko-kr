@@ -1,11 +1,12 @@
 <properties
-   pageTitle="응용 프로그램 프레임워크"
+   pageTitle="응용 프로그램 프레임워크 | Microsoft Azure"
    description="ARM(Azure 리소스 관리자)에서 템플릿을 사용하여 일반적인 응용 프로그램 프레임워크를 만드는 방법을 설명합니다. LAMP 스택, SharePoint 및 SQL Server를 예로 들 수 있습니다."
    services="virtual-machines"
    documentationCenter="virtual-machines"
    authors="squillace"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager" />
 
 <tags
    ms.service="virtual-machines"
@@ -19,6 +20,8 @@
 # 템플릿을 사용하여 응용 프로그램 프레임워크 만들기
 
 다음 템플릿을 사용하여 유용한 항목을 신속하게 만들 수 있습니다.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 | Template | 설명 | 템플릿 보기 | 즉시 배포 |
 |:---|:---|:---:|:---:|
@@ -49,4 +52,4 @@
 
 [Azure 리소스 관리자](../resource-group-template-deploy.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

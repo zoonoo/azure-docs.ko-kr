@@ -60,17 +60,17 @@ Azure 스트림 분석 입력은 데이터 원본에 대한 연결로 정의됩�
 
 | 속성 | 설명 |
 |------------------------------|--------------------------------------------------------------------|
-| System.EventProcessedUtcTime | 이벤트가 스트림 분석으로 처리되는 날짜 및 시간입니다. |
-| System.EventEnqueuedUtcTime | 이벤트 허브에서 이벤트를 받은 날짜 및 시간입니다. |
-| System.PartitionId | 입력 어댑터의 0부터 시작하는 파티션 ID |
+| EventProcessedUtcTime | 이벤트가 스트림 분석으로 처리되는 날짜 및 시간입니다. |
+| EventEnqueuedUtcTime | 이벤트 허브에서 이벤트를 받은 날짜 및 시간입니다. |
+| PartitionId | 입력 어댑터의 0부터 시작하는 파티션 ID |
 
 예를 들어 다음과 같은 쿼리를 작성할 수 있습니다.
 
 
     SELECT
-    	System. EventProcessedUtcTime,
-    	System. EventEnqueuedUtcTime,
-    	System.PartitionId
+    	EventProcessedUtcTime,
+    	EventEnqueuedUtcTime,
+    	PartitionId
     FROM Input
 
 ## Blob 저장소 데이터 스트림 입력 만들기
@@ -91,7 +91,7 @@ Azure 스트림 분석 입력은 데이터 원본에 대한 연결로 정의됩�
 </tr>
 <tr>
 <td>입력 별칭</td>
-<td>이 입력을 참조하도록 작업 쿼리에서 사용될 친숙한 이름입니다.</td>
+<td>이 입력을 참조하도록 작업 쿼리에서 사용할 친숙한 이름입니다.</td>
 </tr>
 <tr>
 <td>저장소 계정</td>
@@ -136,23 +136,23 @@ Azure 스트림 분석 입력은 데이터 원본에 대한 연결로 정의됩�
 
 | 속성 | 설명 |
 |--------------------------------|--------------------------------------------------------------------|
-| System.BlobName | 이 이벤트가 발생한 입력 Blob의 이름입니다. |
-| System.EventProcessedUtcTime | 이벤트가 스트림 분석으로 처리되는 날짜 및 시간입니다. |
-| System.BlobLastModifiedUtcTime | Blob이 마지막으로 수정된 날짜 및 시간 |
-| System.PartitionId | 입력 어댑터의 0부터 시작하는 파티션 ID |
+| BlobName | 이 이벤트가 발생한 입력 Blob의 이름입니다. |
+| EventProcessedUtcTime | 이벤트가 스트림 분석으로 처리되는 날짜 및 시간입니다. |
+| BlobLastModifiedUtcTime | Blob이 마지막으로 수정된 날짜 및 시간 |
+| PartitionId | 입력 어댑터의 0부터 시작하는 파티션 ID |
 
 예를 들어 다음과 같은 쿼리를 작성할 수 있습니다.
 
 
     SELECT
-    	System.BlobName,
-    	System.EventProcessedUtcTime,
-    	System.BlobLastModifiedUtcTime
+    	BlobName,
+    	EventProcessedUtcTime,
+    	BlobLastModifiedUtcTime
     FROM Input
 
 
 ## 도움말 보기
-추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요할 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/KO-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## 다음 단계
 사물 인터넷에서 발생한 데이터에 대한 스트리밍 분석용 관리 서비스, 스트림 분석에 대해 소개하였습니다. 이 서비스에 대해 자세히 알아보려면 다음을 참조하세요.
@@ -170,4 +170,4 @@ Azure 스트림 분석 입력은 데이터 원본에 대한 연결로 정의됩�
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

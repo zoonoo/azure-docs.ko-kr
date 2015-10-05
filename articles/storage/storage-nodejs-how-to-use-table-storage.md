@@ -1,13 +1,13 @@
-<properties 
-	pageTitle="Node.js에서 테이블 저장소를 사용하는 방법 | Microsoft Azure";"
-	description="Azure에서 테이블 저장소 서비스를 사용하는 방법을 알아봅니다. 코드 샘플은 Node.js API를 사용하여 작성되었습니다."
+<properties
+	pageTitle="Node.js에서 Azure 테이블 저장소를 사용하는 방법 | Microsoft Azure"
+	description="Azure 테이블 저장소를 사용하는 방법을 알아봅니다. 코드 샘플은 Node.js API를 사용하여 작성되었습니다."
 	services="storage"
 	documentationCenter="nodejs"
 	authors="MikeWasson"
 	manager="wpickett"
 	editor=""/>
 
-<tags 
+<tags
 	ms.service="storage"
 	ms.workload="storage"
 	ms.tgt_pltfrm="na"
@@ -17,7 +17,7 @@
 	ms.author="mwasson"/>
 
 
-# Node.js에서 테이블 저장소를 사용하는 방법
+# Node.js에서 Azure 테이블 저장소를 사용하는 방법
 
 [AZURE.INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 
@@ -28,9 +28,9 @@
 
 이 항목의 코드 예제에서는 Node.js 응용 프로그램이 이미 있다고 가정합니다. Azure에서 Node.js 응용 프로그램을 만드는 방법에 대한 자세한 내용은 다음 항목을 참조하세요.
 
-- [Node.js 웹 사이트 빌드 및 Azure에 배포][Create and deploy a Node.js application to an Azure Web Site]
-- [WebMatrix를 사용하여 Node.js 웹 사이트 빌드 및 Azure에 배포][Web Site with WebMatrix]
-- [Node.js 응용 프로그램 빌드 및 Azure 클라우드 서비스에 배포][Node.js Cloud Service](Windows PowerShell 사용)
+- [Node.js 웹 사이트 빌드 및 Azure에 배포](Node.js 응용 프로그램 생성 및 Azure 웹 사이트에 배포)
+- [WebMatrix를 사용하여 Node.js 웹 사이트 빌드 및 Azure에 배포](WebMatrix를 사용하여 Node.js 응용 프로그램 생성 및 배포)
+- [Node.js 응용 프로그램 빌드 및 Azure 클라우드 서비스에 배포](Node.js 클라우드 서비스)(Windows PowerShell 사용)
 
 
 [AZURE.INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
@@ -71,7 +71,7 @@ Azure 저장소를 사용하려면 저장소 REST 서비스와 통신하는 편�
 
 Azure 모듈은 AZURE\_STORAGE\_ACCOUNT 및 AZURE\_STORAGE\_ACCESS\_KEY, 또는 AZURE\_STORAGE\_CONNECTION\_STRING 환경 변수를 읽고 Azure 저장소 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되어 있지 않은 경우 **TableService**를 호출할 때 계정 정보를 지정해야 합니다.
 
-Azure 웹 사이트의 관리 포털에서 환경 변수를 설정하는 방법에 대한 예는 [Node.js 웹 응용 프로그램 및 저장소]를 참조하세요.
+Azure 웹 사이트의 Azure 포털에서 환경 변수를 설정하는 방법에 대한 예제는 [Node.js 웹 응용 프로그램 및 저장소]를 참조하세요.
 
 ## 테이블 만들기
 
@@ -87,7 +87,7 @@ Azure 웹 사이트의 관리 포털에서 환경 변수를 설정하는 방법�
 		}
 	});
 
-새 테이블이 만들어지면`true`가 되고`false` 테이블이 이미 있을 경우`result`입니다.`response`에는 요청에 대한 정보가 포함됩니다.
+새 테이블이 만들어지면 `result`는 `true`가 되고, 테이블이 이미 있으면 `false`가 됩니다. `response`에는 요청에 대한 정보가 포함됩니다.
 
 ### 필터
 
@@ -118,7 +118,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 다음은 엔터티를 정의하는 경우의 예입니다. **dueDate**는 **Edm.DateTime** 유형으로 정의됩니다. 형식 지정은 선택적이며 지정하지 않을 경우 유형이 유추됩니다.
 
-	var task = { 
+	var task = {
 	  PartitionKey: {'_':'hometasks'},
 	  RowKey: {'_': '1'},
 	  description: {'_':'take out the trash'},
@@ -176,15 +176,15 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
     });
 
 > [AZURE.NOTE]기본적으로는 엔터티를 업데이트할 때 업데이트할 데이터를 다른 프로세서에서 이전에 수정했는지 확인하지 않습니다. 동시 업데이트를 지원하려면:
-> 
+>
 > 1. 업데이트할 개체의 ETag를 가져옵니다. 모든 엔터티 관련 작업에서의 `response`일부로 반환되며 `response['.metadata'].etag`를 통해 검색할 수 있습니다.
-> 
+>
 > 2. 엔터티에서 업데이트 작업을 수행할 때 이전에 검색한 ETag 정보를 새 엔터티에 추가합니다. 예:
-> 
+>
 >     `entity2['.metadata'].etag = currentEtag;`
 >    
 > 3. 업데이트 작업을 수행합니다. ETag 값을 검색한 후에 응용 프로그램의 다른 인스턴스 등에서 엔터티가 수정된 경우에는 요청에 지정된 업데이트 조건이 충족되지 않았다는 내용`error`의가 반환됩니다.
-    
+
 **updateEntity** 및 **mergeEntity**를 사용할 때 업데이트 중인 엔터티가 없는 경우 업데이트 작업이 실패합니다. 따라서 엔터티의 존재 여부에 상관없이 엔터티를 저장하려면 **insertOrReplaceEntity** 또는 **insertOrMergeEntity**를 사용합니다.
 
 `result`업데이트 작업이 성공할 경우에는 업데이트된 엔터티의 **Etag**가 포함됩니다.
@@ -195,13 +195,13 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
  다음 예제에서는 두 엔터티를 일괄적으로 제출하는 방법을 보여 줍니다.
 
-    var task1 = { 
+    var task1 = {
 	  PartitionKey: {'_':'hometasks'},
 	  RowKey: {'_': '1'},
 	  description: {'_':'Take out the trash'},
 	  dueDate: {'_':new Date(2015, 6, 20)}
 	};
-	var task2 = { 
+	var task2 = {
 	  PartitionKey: {'_':'hometasks'},
 	  RowKey: {'_': '2'},
 	  description: {'_':'Wash the dishes'},
@@ -209,7 +209,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 	};
 
 	var batch = new azure.TableBatch();
-	
+
 	batch.insertEntity(task1, {echoContent: true});
 	batch.insertEntity(task2, {echoContent: true});
 
@@ -291,7 +291,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 파티션 및 행 키를 사용하여 엔터티를 삭제할 수 있습니다. 이 예제에서 **task1** 개체는 삭제할 엔터티의 **RowKey** 및 **PartitionKey** 값을 포함합니다. 그런 다음 개체는 **deleteEntity** 메서드에 전달됩니다.
 
-	var task = { 
+	var task = {
 	  PartitionKey: {'_':'hometasks'},
 	  RowKey: {'_': '1'}
 	};
@@ -320,7 +320,7 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 많은 양의 결과를 얻기 위해 테이블을 쿼리하는 경우 연속 토큰을 찾습니다. 당신이 인식하지 못한 쿼리에 대한 사용 가능한 많은 양의 데이터가 있을 경우 연속토큰의 유무를 인식하지 못하도록 작성하지마세요.
 
-연속 토큰이 있을 경우 쿼리하는 엔터티가 `continuationToken` 속성을 설정할 때 결과 개체가 반환됩니다. 그 다음 파티션 및 테이블 엔터티 간에 이동을 계속하기 위해 쿼리를 수행 할 경우 이것을 사용할 수 있습니다.
+연속 토큰이 있을 경우 `continuationToken` 속성을 설정하는 엔터티를 쿼리하는 동안 결과 개체가 반환됩니다. 그 다음 파티션 및 테이블 엔터티 간에 이동을 계속하기 위해 쿼리를 수행 할 경우 이것을 사용할 수 있습니다.
 
 쿼리할 때, 쿼리개체 인스턴스와 콜백 기능간에 연속토큰 매개 변수가 제공될 수 있습니다.
 
@@ -349,7 +349,7 @@ dc.table.queryEntities(tableName,
 
 SAS(공유 액세스 서명)는 저장소 계정 이름이나 키를 제공하지 않으면서 테이블에 세분화된 액세스 권한을 안전하게 제공하는 방법입니다. SAS는 모바일 앱에서 레코드를 쿼리하는 경우와 같이 데이터에 대해 제한된 액세스를 제공하는 경우에 자주 사용합니다.
 
-클라우드 기반 서비스와 같이 신뢰할 수 있는 응용 프로그램에서는 **TableService**의 **generateSharedAccessSignature**를 사용하여 SAS를 생성하고 신뢰할 수 없거나 신뢰가 약한 응용 프로그램에 제공합니다. 예를 들면 모바일 앱이 여기에 해당됩니다. SAS는 SAS가 유효한 시작 및 종료 날짜와 SAS 소유자에게 부여되는 액세스 수준을 설명하는 정책을 사용하여 생성됩니다.
+클라우드 기반 서비스와 같이 신뢰할 수 있는 응용 프로그램에서는 **TableService**의 **generateSharedAccessSignature**를 사용하여 SAS를 생성하고 모바일 앱과 같은 신뢰할 수 없거나 신뢰가 약한 응용 프로그램에 제공합니다. SAS는 SAS가 유효한 시작 및 종료 날짜와 SAS 소유자에게 부여되는 액세스 수준을 설명하는 정책을 사용하여 생성됩니다.
 
 다음 예에서는 SAS 소유자가 테이블을 쿼리('r')할 수 있도록 허용하며 만든 후 100분이 지나면 만료되는 새 공유 액세스 정책을 생성합니다.
 
@@ -357,7 +357,7 @@ SAS(공유 액세스 서명)는 저장소 계정 이름이나 키를 제공하�
 	var expiryDate = new Date(startDate);
 	expiryDate.setMinutes(startDate.getMinutes() + 100);
 	startDate.setMinutes(startDate.getMinutes() - 100);
-		
+
 	var sharedAccessPolicy = {
 	  AccessPolicy: {
 	    Permissions: azure.TableUtilities.SharedAccessPermissions.QUERY,
@@ -376,7 +376,7 @@ SAS 소유자가 테이블에 액세스할 때 필요하므로 호스트 정보�
 	var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
 	var query = azure.TableQuery()
 	  .where('PartitionKey eq ?', 'hometasks');
-		
+
 	sharedTableService.queryEntities(query, null, function(error, result, response) {
 	  if(!error) {
 		// result contains the entities
@@ -430,24 +430,24 @@ ACL이 설정되고 나면 정책의 ID를 기반으로 SAS를 만들 수 있습
 
 ## 다음 단계
 
-이제 테이블 저장소의 기본 사항을 배웠으므로 다음 링크를 따라 좀 더 복잡한 저장소 작업을 수행하는 방법을 알아보세요.
+자세한 내용은 다음 리소스를 참조하세요.
 
--   다음 MSDN 참조를 확인하세요. [Azure에 데이터 저장 및 액세스][].
--   [Azure 저장소 팀 블로그][](영문)를 방문하세요.
--   GitHub에서 [Azure Storage SDK for Node][] 리포지토리를 방문하세요.
+-   MSDN 참조: [Azure에 데이터 저장 및 액세스][]
+-   [Azure 저장소 팀 블로그][]
+-   GitHub의 [Azure Storage SDK for Node][] 리포지토리
+-   [Node.js 개발자 센터](/develop/nodejs/)
 
   [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
   [OData.org]: http://www.odata.org/
-  [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-  [Azure Management Portal]: http://manage.windowsazure.com
+  [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+  [Azure portal]: http://manage.windowsazure.com
 
   [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
   [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/library/azure/gg433040.aspx
   [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Web Site with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
+  [Website with WebMatrix]: ../web-sites-nodejs-use-webmatrix.md
   [Node.js Cloud Service with Storage]: ../storage-nodejs-use-table-storage-cloud-service-app.md
   [Node.js 웹 응용 프로그램 및 저장소]: ../storage-nodejs-use-table-storage-web-site.md
-  [Create and deploy a Node.js application to an Azure Web Site]: ../web-sites-nodejs-develop-deploy-mac.md
- 
+  [Create and deploy a Node.js application to an Azure website]: ../web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

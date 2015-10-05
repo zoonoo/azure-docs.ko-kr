@@ -61,6 +61,9 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 이 코드 샘플은 연결 문자열을 사용하여 `Connection` 개체를 만듭니다. 연결 문자열은 [Azure Preview 포털](http://portal.azure.com/)을 사용하여 찾을 수 있습니다. 연결 문자열 찾기에 대한 자세한 내용은 [처음으로 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하세요.
 
 
+> [AZURE.NOTE]JTDS JDBC 드라이버. JTDS JDBC 드라이버를 사용하는 경우 연결 문자열의 URL에 "ssl=require"를 추가해야 하며, JVM "-Djsse.enableCBCProtection=false"에 대해 다음 옵션을 설정해야 합니다. 이 JVM 옵션은 보안 취약성에 대한 픽스를 사용하지 않도록 설정하므로 이 옵션을 설정하기 전에 관련된 위험을 이해해야 합니다.
+
+
 ## Java 코드 샘플
 
 
@@ -223,6 +226,8 @@ Could this instead be a #tempPerson table, so that the Java code sample could be
 			+ resultSet.getString(3));
 	}
 
- 
+## 다음 단계
 
-<!---HONumber=August15_HO6-->
+자세한 내용은 [Java개발자 센터](/develop/java/)를 참조하세요.
+
+<!---HONumber=Sept15_HO4-->

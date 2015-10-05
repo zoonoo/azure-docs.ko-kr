@@ -1,22 +1,27 @@
 <properties 
-	pageTitle="자습서: Azure에서 클라우드 전용 가상 네트워크 만들기"
-	description="이 자습서에서는 클라우드 전용 Azure 가상 네트워크 예제를 만드는 방법에 대해 알아봅니다."
-	services="virtual-machines, virtual-network"
-	documentationCenter=""
-	authors="cherylmc"
-	manager="adinah"
-	editor=""/>
+	pageTitle="클라우드 전용 가상 네트워크 만들기 | Microsoft Azure" 
+	description="이 자습서에서는 클라우드 전용 Azure 가상 네트워크 예제를 만드는 방법에 대해 알아봅니다." 
+	services="virtual-machines, virtual-network" 
+	documentationCenter="" 
+	authors="cherylmc" 
+	manager="adinah" 
+	editor=""
+	tags="azure-resource-manager"/>
 
 <tags 
-	ms.service="virtual-network"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2015"
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/17/2015" 
 	ms.author="cherylmc"/>
 
 # 자습서: Azure에서 클라우드 전용 가상 네트워크 만들기
+
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+
 
 이 자습서에서는 Azure 관리 포털에서 두 개의 서브넷이 포함된 예제 클라우드 전용 Azure 가상 네트워크를 만드는 단계를 연습합니다. 결과 가상 네트워크는 다음과 같습니다.
 
@@ -118,4 +123,4 @@
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

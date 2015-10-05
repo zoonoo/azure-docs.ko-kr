@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Azure Active Directory의 전용 그룹 | Microsoft Azure" 
-	description="Azure AD에서 그룹을 관리하는 방법을 설명하는 항목입니다." 
+	description="Azure AD의 전용 그룹에 대한 개요 및 생성 방법" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -28,9 +28,7 @@ Azure Active Directory에서는 자동으로 전용 그룹이 생성되며 전�
 다음은 Azure Active Directory에 대한 추가 정보를 제공하는 몇 가지 항목입니다.
 
 * [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](active-directory-manage-groups.md)
-
 * [Azure Active Directory란?](active-directory-whatis.md)
-
 * [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

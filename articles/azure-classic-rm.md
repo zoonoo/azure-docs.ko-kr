@@ -1,21 +1,21 @@
 <properties
    pageTitle="리소스 관리자 및 서비스 관리(클래식) 배포 모드 | Azure"
-	description="리소스 관리자 및 클래식 배포 모델 간 차이점 이해"
-	services="virtual-network"
-	documentationCenter=""
-	authors="telmosampaio"
-	manager="carolz"
-	editor=""
-	tags="azure-resource-manager,azure-service-management"/>
+   description="리소스 관리자 및 클래식 배포 모델 간 차이점 이해"
+   services="virtual-network"
+   documentationCenter=""
+   authors="telmosampaio"
+   manager="carolz"
+   editor=""
+   tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-network"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/14/2015"
-	ms.author="telmos"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/14/2015"
+   ms.author="telmos"/>
 
 # Azure 배포 모델
 
@@ -65,7 +65,7 @@ CLI를 사용하여 Windows, OS X 또는 Linux 컴퓨터에서 Azure 리소스�
 ## 다음 단계
 
 - [리소스 관리자](/resource-group-overview.md)에 대해 알아봅니다.
-- [템플릿 설계](/best-practices-resource-manager-design-templates/md) 방법을 알아봅니다.
-- [모범 사례](best-practices-resource-manager-examples.md) 사용
+- [템플릿 설계](/best-practices-resource-manager-design-templates.md) 방법을 알아봅니다.
+- [모범 사례](/best-practices-resource-manager-examples.md) 사용
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -1,17 +1,18 @@
 <properties
-	pageTitle="Ubuntu 리소스 관리자 템플릿의 Spark"
-	description="Azure PowerShell 또는 Azure CLI 및 리소스 관리자 템플릿을 사용하여 Ubuntu VM에 새 Spark 클러스터를 쉽게 배포할 수 있는 방법을 알아봅니다."
+	pageTitle="Ubuntu 리소스 관리자 템플릿의 Spark | Microsoft Azure"
+	description="Azure PowerShell 또는 Azure CLI 및 리소스 관리자 템플릿을 사용하여 Ubuntu VM에 새 Spark 클러스터를 배포할 수 있는 방법입니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="paolosalvatori"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows"
+	ms.tgt_pltfrm="vm-linux"
 	ms.workload="multiple"
 	ms.date="05/16/2015"
 	ms.author="paolosalvatori"/>
@@ -20,7 +21,10 @@
 
 Apache Spark는 대규모 데이터 처리를 위한 고속 엔진입니다. Spark는 순환 데이터 흐름 및 메모리 내 컴퓨팅을 지원하는 고급 DAG 실행 엔진을 포함하며, HDFS, Spark, HBase, S3 등 다양한 데이터 원본에 액세스할 수 있습니다.
 
-Spark는 Mesos 또는 YARN 클러스터 관리자를 실행할 뿐만 아니라 간단한 독립 실행형 배포 모드를 제공합니다. 이 자습서에서는 [Azure PowerShell](../powershell-install-configure.md) 또는 [Azure CLI](../xplat-cli.md)를 통해 Azure 리소스 관리자 템플릿을 사용하여 Ubuntu VM에 Spark 클러스터를 배포하는 방법을 단계별로 안내합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 배포하는 방법을 설명합니다. 클래식 배포 모델을 사용하여 이 리소스를 배포할 수 없습니다.
+
+
+Spark는 Mesos 또는 YARN 클러스터 관리자를 실행할 뿐만 아니라 간단한 독립 실행형 배포 모드를 제공합니다. 이 자습서에서는 [Azure PowerShell](../powershell-install-configure.md) 또는 [Azure CLI](../xplat-cli.md)를 통해 샘플 Azure 리소스 관리자 템플릿을 사용하여 Ubuntu VM에 Spark 클러스터를 배포하는 방법을 단계별로 안내합니다.
 
 이 템플릿은 Ubuntu 가상 컴퓨터에 Spark 클러스터를 배포합니다. 또한 이 템플릿은 설치에 필요한 저장소 계정, 가상 네트워크, 가용성 집합, 공용 IP 주소 및 네트워크 인터페이스를 프로비전합니다. Spark 클러스터는 서브넷에서 생성되므로 공용 IP를 사용하여 Spark 클러스터에 액세스할 수 없습니다. 배포 과정에서, "점프 상자"를 선택적으로 배포할 수 있습니다. 이 "점프 상자"는 서브넷에도 배포된 Ubuntu VM이지만 연결할 수 있는 열린 SSH 포트로 공용 IP 주소를 노출*합니다*. 그런 다음 "점프 상자"에서, 서브넷에 있는 모든 Spark VM에 대해 SSH를 실행할 수 있습니다.
 
@@ -381,7 +385,7 @@ Parameters        :
 
 - 왼쪽 탐색 모음에서 **찾아보기**를 클릭한 다음 아래로 스크롤하여 **리소스 그룹**을 클릭합니다.
 - 방금 만든 리소스 그룹을 클릭하면 “리소스 그룹" 블레이드가 나타납니다.
-- "리소스 그룹” 블레이드의 **모니터링** 파트에서 **이벤트** 막대 그래프를 클릭하면 배포에 대한 이벤트를 확인할 수 있습니다.
+- "리소스 그룹" 블레이드의 **모니터링** 파트에서 **이벤트** 막대 그래프를 클릭하면 배포에 대한 이벤트를 확인할 수 있습니다.
 - 개별 이벤트를 클릭하면 템플릿을 대신해 수행된 개별 작업에 대한 세부 정보를 볼 수 있습니다.
 
 ![portal-events](media/virtual-machines-spark-template/portal-events.png)
@@ -544,7 +548,7 @@ Spark 클러스터 배포의 크기를 사용자 지정하려는 경우 azuredep
 
 이 마지막 템플릿, 즉 azuredeploy.json은 템플릿 개발 관점에서 가장 흥미로운 항목 중 하나이므로 사용 *방법*을 좀 더 자세히 살펴보겠습니다. 한 가지 중요한 개념은 단일 템플릿 파일에서 단일 리소스 유형의 여러 복사본을 배포하고 각 인스턴스에 대해 필요한 설정의 고유 값을 설정하는 방법입니다. 이 개념을 **리소스 루핑**이라고 합니다.
 
-**copy** 요소를 사용하는 리소스는 **copy** 요소의 **count** 매개 변수에 지정된 횟수만큼 자체적으로 “복사"됩니다. 배포된 리소스의 여러 인스턴스 간에 고유한 값을 지정하는 데 필요한 모든 설정의 경우 **copyindex()** 함수를 사용하여 해당 특정 리소스 루프 만들기에서 현재 인덱스를 나타내는 숫자 값을 가져올 수 있습니다. azuredeploy.json의 다음 조각에서, Spark 클러스터에 대해 생성 중인 여러 네트워크 어댑터, VM 및 VM 확장에 이 개념이 적용된 것을 볼 수 있습니다.
+**copy** 요소를 사용하는 리소스는 **copy** 요소의 **count** 매개 변수에 지정된 횟수만큼 자체적으로 "복사"됩니다. 배포된 리소스의 여러 인스턴스 간에 고유한 값을 지정하는 데 필요한 모든 설정의 경우 **copyindex()** 함수를 사용하여 해당 특정 리소스 루프 만들기에서 현재 인덱스를 나타내는 숫자 값을 가져올 수 있습니다. azuredeploy.json의 다음 조각에서, Spark 클러스터에 대해 생성 중인 여러 네트워크 어댑터, VM 및 VM 확장에 이 개념이 적용된 것을 볼 수 있습니다.
 
 ```json
 {
@@ -843,4 +847,4 @@ Spark 클러스터 배포의 크기를 사용자 지정하려는 경우 azuredep
 
 [템플릿 배포 문제를 해결](resource-group-deploy-debug.md)합니다.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

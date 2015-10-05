@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="09/03/2015"
-	ms.author="patshea123"/>
+	ms.author="patshea"/>
 
 # Azure 테이블 저장소 및 Visual Studio 연결된 서비스를 시작하는 방법
 
@@ -211,4 +211,4 @@ Azure 테이블을 만들려면 **CreateIfNotExistsAsync()**에 대한 호출을
 
 [AZURE.INCLUDE [vs-storage-dotnet-blobs-next-steps](../../includes/vs-storage-dotnet-blobs-next-steps.md)]
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

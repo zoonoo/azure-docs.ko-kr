@@ -1,19 +1,20 @@
-<properties 
-	pageTitle="Azure에서 Linux VM을 사용하여 Ruby on Rails 웹 앱 호스트" 
-	description="Azure에서 Linux 가상 컴퓨터를 사용하여 Ruby on Rails 기반 웹 사이트를 호스트하는 방법에 대해 알아봅니다." 
-	services="virtual-machines" 
-	documentationCenter="ruby" 
-	authors="MikeWasson" 
-	manager="wpickett" 
-	editor=""/>
+<properties
+	pageTitle="Linux VM에서 Ruby on Rails 웹 사이트 호스트 | Microsoft Azure"
+	description="Azure에서 Linux 가상 컴퓨터를 사용하여 Ruby on Rails 기반 웹 사이트를 설정 및 호스트하는 방법에 대해 알아봅니다."
+	services="virtual-machines"
+	documentationCenter="ruby"
+	authors="MikeWasson"
+	manager="wpickett"
+	editor=""
+	tags="azure-service-management"/>
 
-<tags 
-	ms.service="virtual-machines" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="vm-linux" 
-	ms.devlang="ruby" 
-	ms.topic="article" 
-	ms.date="06/09/2015" 
+<tags
+	ms.service="virtual-machines"
+	ms.workload="web"
+	ms.tgt_pltfrm="vm-linux"
+	ms.devlang="ruby"
+	ms.topic="article"
+	ms.date="06/09/2015"
 	ms.author="mwasson"/>
 
 
@@ -25,6 +26,8 @@
 이 자습서에서는 Azure에서 Linux 가상 컴퓨터를 사용하여 Ruby on Rails 웹 사이트를 호스트하는 방법을 보여줍니다.
 
 이 자습서의 내용은 Ubuntu Server 14.04 LTS를 사용하여 유효성이 검사되었습니다. 다른 Linux 배포를 사용하는 경우, Rails를 설치하는 단계를 수정해야 합니다.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 ## Azure VM 만들기
 
@@ -50,8 +53,8 @@ VM이 프로비전된 후, 다음 명령을 실행하여 SSH 끝점을 가져올
 
 ## Rails에 Ruby 설치
 
-1. SSH를 사용하여 VM에 연결합니다. 
-	
+1. SSH를 사용하여 VM에 연결합니다.
+
 2. SSH 세션에서 다음 명령을 사용하여 VM에 Ruby를 설치합니다.
 
 		sudo apt-get update -y
@@ -68,7 +71,7 @@ VM이 프로비전된 후, 다음 명령을 실행하여 SSH 끝점을 가져올
 
 		sudo gem install rails --no-rdoc --no-ri
 
-	\--no-rdoc 및 --no-ri 플래그를 사용하여 설명서 설치를 건너뜁니다. 이 방법이 더 빠릅니다.
+	--no-rdoc 및 --no-ri 플래그를 사용하여 설명서 설치를 건너뜁니다. 이 방법이 더 빠릅니다.
 
 ## 앱 만들기 및 실행
 
@@ -170,6 +173,5 @@ Ruby 응용 프로그램에서 Azure 서비스를 사용하려면 다음을 참�
 [new-endpoint]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
 
 [new-endpoint1]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint1.png
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

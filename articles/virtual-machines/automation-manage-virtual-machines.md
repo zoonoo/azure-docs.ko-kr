@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 자동화를 사용하여 Azure 가상 컴퓨터를 관리합니다."
+	pageTitle="Azure 자동화를 사용하여 VM 관리 | Microsoft Azure"
 	description="Azure 자동화 서비스를 사용하여 대규모 Azure 가상 컴퓨터를 관리하는 방법을 알아봅니다."
 	services="virtual-machines, automation"
 	documentationCenter=""
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/20/2015"
+	ms.date="08/11/2015"
 	ms.author="jolevy"/>
 
 
@@ -21,6 +21,8 @@
 #Azure 자동화를 사용하여 Azure 가상 컴퓨터 관리
 
 이 가이드에서는 Azure 자동화 서비스 및 이 서비스를 사용하여 Azure 가상 컴퓨터 관리를 간소화하는 방법을 소개합니다.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ## Azure 자동화 정의
 
@@ -42,4 +44,4 @@ Azure 자동화의 기본 사항과 Azure 자동화를 사용하여 Azure 가상
 
 [Azure 자동화 시작하기](../automation-create-runbook-from-samples.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

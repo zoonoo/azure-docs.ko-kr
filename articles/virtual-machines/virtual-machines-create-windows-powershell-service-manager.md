@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure PowerShell을 사용하여 서비스 관리에서 Windows 가상 컴퓨터 만들기 및 관리"
-	description="Azure PowerShell을 사용하여 서비스 관리에서 새 Windows 기반 가상 컴퓨터를 신속하게 만들고 관리 기능을 수행할 수 있습니다."
+	pageTitle="Azure PowerShell을 사용하여 Windows VM 만들기 및 관리 | Microsoft Azure"
+	description="클래식 배포 모델을 사용하여 Azure PowerShell에서 Windows 가상 컴퓨터를 만들고 관리합니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,13 +17,13 @@
 	ms.date="07/09/2015"
 	ms.author="cynthn"/>
 
-# Azure PowerShell을 사용하여 서비스 관리에서 Windows 기반 가상 컴퓨터 만들기 및 관리
+# Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기 및 관리
 
-이 항목에서는 Azure PowerShell을 사용하여 서비스 관리에서 Windows 기반 Azure 가상 컴퓨터를 빠르게 만들고 관리하는 방법을 설명합니다.
+이 문서에서는 Azure PowerShell을 사용하여 Windows 가상 컴퓨터를 만들고 관리하는 방법을 설명합니다.
 
-[AZURE.INCLUDE [service-management-pointer-to-resource-manager](../../includes/service-management-pointer-to-resource-manager.md)]
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 Windows VM을 만드는 방법을 설명합니다. [리소스 관리자 배포 모델](virtual-machines-deploy-rmtemplates-powershell.md)을 사용하여 Windows VM을 만들 수도 있습니다.
 
-- [Azure 리소스 관리자 템플릿 및 PowerShell을 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines-deploy-rmtemplates-powershell.md)
+
 
 ## Azure PowerShell 설정
 
@@ -43,7 +43,7 @@ Microsoft Azure 로그인 대화 상자에서 Azure 계정의 전자 메일 주�
 
 	Get-AzureSubscription | sort SubscriptionName | Select SubscriptionName
 
-이제 < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 구독 이름으로 바꾸고 다음 명령을 실행합니다.
+이제 < and > 문자를 포함하여 따옴표 안의 모든 내용을 올바른 구독 이름으로 바꾸고 다음 명령을 실행합니다.
 
 	$subscrName="<subscription name>"
 	Select-AzureSubscription -SubscriptionName $subscrName –Current
@@ -74,7 +74,7 @@ Microsoft Azure 로그인 대화 상자에서 Azure 계정의 전자 메일 주�
 
 다음으로, 클라우드 서비스가 필요합니다. 기존 클라우드 서비스가 없는 경우 새로 만들어야 합니다. 문자, 숫자 및 하이픈만 포함된 고유한 이름을 선택해야 합니다. 필드의 첫 번째 및 마지막 문자는 문자 또는 숫자여야 합니다.
 
-예를 들어 이름을 TestCS-*UniqueSequence*로 지정할 수 있습니다(여기서 *UniqueSequence*는 조직의 약어). 예를 들어 조직의 이름이 Tailspin Toys인 경우 클라우드 서비스 이름을 TestCS-Tailspin으로 지정할 수 있습니다.
+예를 들어 이름을 TestCS-*UniqueSequence*로 지정할 수 있습니다(여기서 *UniqueSequence*는 조직의 약어임). 예를 들어 조직의 이름이 Tailspin Toys인 경우 클라우드 서비스 이름을 TestCS-Tailspin으로 지정할 수 있습니다.
 
 로컬 컴퓨터에서 다음 Azure PowerShell 명령을 사용하여 이름의 고유성을 테스트할 수 있습니다.
 
@@ -180,7 +180,7 @@ VM에 대한 정보를 가져오려면 이 명령을 실행하고 < and > 문자
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 ## 데이터 디스크 연결
-이 작업에는 몇 단계가 필요합니다. 먼저 **Add-AzureDataDisk** cmdlet를 사용하여 $vm 개체에 디스크를 추가합니다. 그런 다음 Update-AzureVM cmdlet를 사용하여 VM의 구성을 업데이트합니다.
+이 작업에는 몇 단계가 필요합니다. 먼저 **Add-AzureDataDisk** cmdlet을 사용하여 $vm 개체에 디스크를 추가합니다. 그런 다음 Update-AzureVM cmdlet를 사용하여 VM의 구성을 업데이트합니다.
 
 또한 새 디스크를 연결할지 데이터를 포함하는 디스크를 연결할지를 결정해야 합니다. 새 디스크의 경우 명령에서 .vhd 파일을 만들고 동일한 명령으로 디스크를 연결합니다.
 
@@ -209,4 +209,4 @@ Blob 저장소의 기존 .vhd 파일에서 데이터 디스크를 연결하려�
 
 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

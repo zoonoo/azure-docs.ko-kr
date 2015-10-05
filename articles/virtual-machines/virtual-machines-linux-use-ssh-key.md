@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="SSH를 사용하여 Azure의 Linux 가상 컴퓨터에 연결" 
+	pageTitle="SSH를 사용하여 Linux 가상 컴퓨터에 연결 | Microsoft Azure" 
 	description="SSH 키를 생성하여 Azure에서 Linux 가상 컴퓨터에 사용하는 방법에 대해 알아봅니다." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -17,6 +18,8 @@
 	ms.author="szark"/>
 
 #Azure에서 Linux와 함께 SSH를 사용하는 방법
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 현재 버전의 Azure 관리 포털은 X509 인증서에 캡슐화된 SSH 공개 키만 허용합니다. SSH 키를 생성하고 Azure에 사용하려면 아래 단계를 따르세요.
 
@@ -133,7 +136,7 @@ Windows용 `openssl`을 포함하는 다양한 유틸리티가 있습니다. 다
 
 ## Putty용 PPK 만들기 ##
 
-1. 다음 위치에서 Puttygen 다운로드 및 설치: [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1. 다음 위치에서 Puttygen 다운로드 및 설치: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
 2. Puttygen은 앞에서 만든 개인 키(`myPrivateKey.key`)를 읽지 못할 수도 있습니다. 이 경우 다음 명령을 실행하여 해당 키를 Puttygen이 이해할 수 있는 RSA 개인 키로 변환합니다.
 
@@ -163,7 +166,7 @@ Windows용 `openssl`을 포함하는 다양한 유틸리티가 있습니다. 다
 
 ## Putty를 사용하여 Linux 컴퓨터에 연결 ##
 
-1.	다음 위치에서 putty 다운로드 및 설치: [http://www.chiark.greenend.org.uk/\~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1.	다음 위치에서 putty 다운로드 및 설치: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 2.	putty.exe를 실행합니다.
 3.	관리 포털의 IP를 사용하여 호스트 이름을 입력합니다.
 
@@ -176,4 +179,4 @@ Windows용 `openssl`을 포함하는 다양한 유틸리티가 있습니다. 다
 5.	**열기**를 클릭하여 가상 컴퓨터에 연결합니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

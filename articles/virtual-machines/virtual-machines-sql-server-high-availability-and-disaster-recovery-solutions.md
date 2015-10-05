@@ -1,19 +1,20 @@
 <properties 
-   pageTitle="Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구"
-	description="Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 다양한 유형의 HADR 전략을 설명합니다."
-	services="virtual-machines"
-	documentationCenter="na"
-	authors="rothja"
-	manager="jeffreyg"
-	editor="monicar"/>
+   pageTitle="SQL Server에 대한 고가용성 및 재해 복구 | Microsoft Azure"
+   description="이 자습서는 클래식 배포 모델로 만든 리소스를 사용하고 Azure 가상 컴퓨터에서 실행되는 SQL Server에 대한 다양한 유형의 HADR 전략을 설명합니다."
+   services="virtual-machines"
+   documentationCenter="na"
+   authors="rothja"
+   manager="jeffreyg"
+   editor="monicar" 
+   tags="azure-service-management"/>
 <tags 
    ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows-sql-server"
-	ms.workload="infrastructure-services"
-	ms.date="08/17/2015"
-	ms.author="jroth"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="vm-windows-sql-server"
+   ms.workload="infrastructure-services"
+   ms.date="08/17/2015"
+   ms.author="jroth" />
 
 # Azure 가상 컴퓨터의 SQL Server에 대한 고가용성 및 재해 복구
 
@@ -21,11 +22,13 @@
 
 Microsoft Azure 가상 컴퓨터(VM)에 SQL Server를 설치하여 사용하면 고가용성 및 재해 복구(HADR) 데이터베이스 솔루션의 비용을 절감하는 데 도움이 됩니다. 대부분의 SQL Server HADR 솔루션은 Azure 가상 컴퓨터에서 지원됩니다. Azure 전용으로도, 하이브리드 솔루션으로도 사용 가능합니다. Azure 전용 솔루션에서는 HADR 시스템 전체가 Azure에서 실행됩니다. 하이브리드 구성에서는 솔루션의 일부가 Azure에서 실행되고 나머지 부분은 조직의 온-프레미스에서 실행됩니다. Azure 환경은 유연하게 제공되므로 사용 중인 SQL Server 데이터베이스 시스템의 예산과 HADR 요구 사항에 맞게 Azure로 부분적으로만 이동하거나 완전히 이동할 수도 있습니다.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+
 ## HADR 솔루션의 필요성 이해
 
 데이터베이스 시스템에 서비스 수준 계약(SLA)이 필요한 HADR 기능을 도입하는 것은 여러분의 선택입니다. Azure는 클라우드 서비스를 위한 서비스 복구 및 가상 컴퓨터에 대한 오류 복구 감지와 같은 고가용성 메커니즘을 제공하기는 하지만, 이를 통해 원하는 SLA를 충족할 수 있다는 보장은 없습니다. 이러한 메커니즘은 VVM의 고가용성을 보호하기는 하지만 VM에서 실행되는 SQL Server의 고가용성을 보호하지는 않습니다. VM이 온라인 상태이고 정상인 경우에도 SQL Server에 문제가 생길 수 있습니다. 또한 Azure가 제공하는 고가용성 메커니즘을 사용해도 소프트웨어를 사용한 복구나 하드웨어 고장, 운영 체제 업그레이드와 같은 경우에는 VM이 가동 중지될 수 있습니다.
 
-지역 복제라는 기능으로 구현되는 Azure의 GRS(지역 중복 저장)도 데이터베이스의 적절한 재해 복구 솔루션이 되지 못할 수 있습니다. 지역 복제는 데이터를 비동기 방식으로 전송하기 때문에, 재해 발생 시 최근 업데이트 내용이 손실될 수 있습니다. 지역 복제의 제한 사항에 대한 자세한 내용은 [지역 복제는 별도의 디스크에 저장된 데이터 및 로그 파일에 대해 지원되지 않음](#geo-replication-support) 섹션에 설명되어 있습니다.
+지역 복제라는 기능으로 구현되는 Azure의 GRS(지역 중복 저장)도 데이터베이스의 적절한 재해 복구 솔루션이 되지 못할 수 있습니다. 지역 복제는 데이터를 비동기 방식으로 전송하기 때문에, 재해 발생 시 최근 업데이트 내용이 손실될 수 있습니다. 지역에서 복제의 제한 사항에 대한 자세한 내용은 [지역에서 복제는 별도의 디스크에 저장된 데이터 및 로그 파일에 대해 지원되지 않음](#geo-replication-support) 섹션에 설명되어 있습니다.
 
 ## HADR 배포 아키텍처
 
@@ -132,15 +135,15 @@ Azure 디스크의 지역 복제는 동일한 데이터베이스의 로그 파�
 
 ## 다음 단계
 
-SQL Server가 포함된 Azure 가상 컴퓨터를 만들어야 한다면 [Azure에 SQL Server 가상 컴퓨터 프로비저닝](virtual-machines-provision-sql-server.md)을 참조하세요.
+SQL Server가 포함된 Azure 가상 컴퓨터를 만들어야 한다면 [Azure에 SQL Server 가상 컴퓨터 프로비전](virtual-machines-provision-sql-server.md)을 참조하세요.
 
 Azure VM에서 실행되는 SQL Server에서 최상의 성능을 얻으려면 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-sql-server-performance-best-practices.md)의 지침을 참조하세요.
 
-Azure VM에서 SQL Server 실행에 관련된 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
+Azure VM에서의 SQL Server 실행에 관한 다른 항목은 [Azure 가상 컴퓨터의 SQL Server](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
 ### 기타 리소스:
 
 - [Azure에 새 Active Directory 포리스트 설치](../active-directory/active-directory-new-forest-virtual-machine.md)
 - [Azure VM에서 AlwaysOn 가용성 그룹을 위한 WSFC 클러스터 만들기](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

@@ -163,10 +163,11 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
 
 ## 다음 단계
 
-이제 서비스 버스 큐의 기본 사항을 익혔으므로 다음 링크를 따라 자세히 알아보세요.
+자세한 내용은 다음 리소스를 참조하세요.
 
--   [큐, 토픽 및 구독][]을 참조하세요.
--   GitHub에서 [Azure SDK for Node][] 리포지토리를 방문하십시오.
+-   [큐, 토픽 및 구독][]
+-   GitHub의 [Azure SDK for Node][] 리포지토리
+-   [Node.js 개발자 센터](/develop/nodejs/)
 
   [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
   [다음 단계]: #next-steps
@@ -189,4 +190,4 @@ Azure SDK for Node.js에는 재시도 논리를 구현하는 두 필터 **Expone
   [Node.js 웹 응용 프로그램 및 저장소]: ../storage/storage-nodejs-how-to-use-table-storage.md
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

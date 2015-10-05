@@ -14,10 +14,11 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="05/24/2015"
+   ms.date="09/22/2015"
    ms.author="rasquill"/>
 
 # Docker 및 swarm을 사용하는 방법
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 이 항목에서는 [docker](https://www.docker.com/)와 [swarm](https://github.com/docker/swarm)을 사용하여 Azure에서 swarm으로 관리되는 클러스터를 만드는 매우 간단한 방법을 설명합니다. 여기서는 Azure에서 가상 컴퓨터 4대를 만드는데, 그 중 하나는 swarm 관리자로 사용되고 나머지 3대는 Docker 호스트 클러스터에 포함됩니다. 작업을 완료한 후에는 swarm을 사용하여 클러스터를 확인한 다음 클러스터에서 Docker 사용을 시작할 수 있습니다. 또한 이 항목의 Azure CLI 호출은 서비스 관리(asm) 모드를 사용합니다.
 
@@ -134,4 +135,4 @@ swarm에서 직접 코드를 실행해 보세요. 관련 지침은 [https://gith
 [docker-machine-azure]: virtual-machines-docker-machine.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

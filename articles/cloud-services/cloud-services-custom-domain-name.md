@@ -1,5 +1,5 @@
 <properties
-	pageTitle="클라우드 서비스에서 사용자 지정 도메인 이름 구성"
+	pageTitle="클라우드 서비스에서 사용자 지정 도메인 이름 구성| Microsoft Azure"
 	description="DNS 설정을 구성하여 사용자 지정 도메인에서 Azure 응용 프로그램이나 도메인을 표시하는 방법을 알아봅니다."
 	services="cloud-services"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 # Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성
@@ -145,8 +145,14 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
 
 ## 다음 단계
 
--   [클라우드 서비스를 관리하는 방법](cloud-services-how-to-manage.md)
--   [CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법](http://msdn.microsoft.com/library/windowsazure/gg680307.aspx)
+* [클라우드 서비스를 관리하는 방법](cloud-services-how-to-manage.md)
+* [CDN 콘텐츠를 사용자 지정 도메인에 매핑하는 방법](cdn-map-content-to-custom-domain.md)
+* [클라우드 서비스의 일반 구성](cloud-services-how-to-configure.md)
+* [클라우드 서비스를 배포](cloud-services-how-to-create-deploy.md)하는 방법을 알아봅니다.
+* [SSL 인증서](cloud-services-configure-ssl-certificate.md)를 구성합니다.
+
+
+
 
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
@@ -159,4 +165,4 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
  
 
-<!--------HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

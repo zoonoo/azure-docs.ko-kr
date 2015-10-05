@@ -1,10 +1,10 @@
 <properties 
-	pageTitle="첫 실행 경험을 통해 Azure AD에서 새 장치 설정 | Microsoft Azure" 
-	description="첫 실행 경험 동안 사용자가 Azure AD 조인을 설정하는 방법에 대해 설명하는 항목입니다." 
+	pageTitle="Microsoft Passport 개요 및 이 새 인증 기반 인증에 대한 세부 정보.| Microsoft Azure" 
+	description="첫 실행 경험동안 사용자가 Azure AD 조인을 설정하는 방법에 대해 설명하는 항목입니다." 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
-	manager="swadhwa" 
+	manager="stevenpo" 
 	editor=""/>
 
 <tags 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/02/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 # Microsoft Passport를 통해 암호 없이 ID 인증
@@ -66,7 +66,7 @@ Microsoft Passport 인증 수명 주기 ![](./media/active-directory-azureadjoin
 
 ## 추가 정보
 
-* [Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장](active-directory-azureadjoin-user-upgrade.md)
+* [Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장](active-directory-azureadjoin-overview.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

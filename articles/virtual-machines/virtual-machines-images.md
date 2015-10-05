@@ -1,5 +1,5 @@
 <properties
-	pageTitle="가상 컴퓨터에 대한 이미지 정보"
+	pageTitle="가상 컴퓨터에 대한 이미지 정보 | Microsoft Azure"
 	description="Azure에서 가상 컴퓨터와 함께 이미지를 사용하는 방법에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
@@ -11,7 +11,7 @@
 <tags
 	ms.service="virtual-machines"
 	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
+	ms.tgt_pltfrm="vm-multiple"
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="08/13/2015"
@@ -57,4 +57,4 @@ Azure 구독에 사용할 수 있는 이미지를 관리 하려면 Mac, Linux �
 
 [Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

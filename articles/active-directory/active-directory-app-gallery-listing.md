@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램 나열"
-   description="Azure Active Directory의 개발자 중심 리소스에 대한 포괄적인 가이드"
+   description="Azure Active Directory 갤러리에서 Single Sign-On을 지원하는 응용 프로그램을 나열하는 방법 | Microsoft Azure"
    services="active-directory"
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/30/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 
@@ -56,6 +56,5 @@
 > 응용 프로그램 연결 큰 아이콘(PNG 파일, 215x215px, 단색 배경):
 >
 > 응용 프로그램 연결 로고(PNG 파일, 150x122px, 투명 배경색):
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

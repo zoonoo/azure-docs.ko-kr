@@ -13,12 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="vm-linux"
    ms.workload="infrastructure"
-   ms.date="05/25/2015"
+   ms.date="09/22/2015"
    ms.author="rasquill"/>
 
 # Azure에서 docker-machine을 사용하는 방법
 
 이 항목에서는 [Docker](https://www.docker.com/)를 [Machine](https://github.com/docker/machine) 및 [Azure CLI](https://github.com/Azure/azure-xplat-cli)와 함께 사용하여 Ubuntu를 실행하는 컴퓨터에서 Linux 컨테이너를 빠르고 쉽게 관리하기 위한 Azure 가상 컴퓨터를 만드는 방법을 설명합니다. 이 자습서에서는 설명을 위해 [busybox Docker 허브 이미지](https://registry.hub.docker.com/_/busybox/)와 [nginx Docker 허브 이미지](https://registry.hub.docker.com/_/nginx/)를 배포하고 웹 요청을 nginx 컨테이너로 라우팅하도록 컨테이너를 구성하는 방법을 보여 줍니다. (다른 플랫폼용으로 이러한 지침을 수정하는 방법에 대한 설명은 Docker **machine** 설명서에서 확인할 수 있습니다.)
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+
 
 이 자습서의 작업을 완료하려면 다음의 몇 가지 필수 구성 요소를 준비해야 합니다. 즉, 다음 항목을 설치해야 합니다.
 
@@ -210,4 +213,4 @@ Docker가 컨테이너 포트 80을 VM 포트 49153에 할당했음을 확인할
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="클라우드 서비스를 구성하는 방법 | Microsoft Azure"
-	description="Azure에서 클라우드 서비스를 구성하는 방법에 대해 알아봅니다. 또한 클라우드 서비스 구성을 업데이트하고 역할 인스턴스에 대한 원격 액세스를 구성하는 방법도 알아봅니다."
-	services="cloud-services"
-	documentationCenter=""
-	authors="Thraka"
-	manager="timlt"
+	pageTitle="클라우드 서비스를 구성하는 방법 | Microsoft Azure" 
+	description="Azure에서 클라우드 서비스를 구성하는 방법에 대해 알아봅니다. 또한 클라우드 서비스 구성을 업데이트하고 역할 인스턴스에 대한 원격 액세스를 구성하는 방법도 알아봅니다." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="Thraka" 
+	manager="timlt" 
 	editor=""/>
 
 <tags 
-	ms.service="cloud-services"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/29/2015"
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -78,8 +78,12 @@ Azure는 각 역할에 둘 이상의 역할 인스턴스가 있는 경우에만 
     4. **확인**(확인 표시)을 클릭합니다.
 
 
-## 추가 리소스
+## 다음 단계
 
-[Azure 클라우드 서비스의 역할에 대해 원격 데스크톱 연결 사용](cloud-services-role-enable-remote-desktop.md)
+* [클라우드 서비스를 배포](cloud-services-how-to-create-deploy.md)하는 방법을 알아봅니다.
+* [사용자 지정 도메인 이름](cloud-services-custom-domain-name.md)을 구성합니다.
+* [클라우드 서비스를 관리합니다](cloud-services-how-to-manage.md).
+* [Azure 클라우드 서비스의 역할에 대해 원격 데스크톱 연결 사용](cloud-services-role-enable-remote-desktop.md)
+* [SSL 인증서](cloud-services-configure-ssl-certificate.md)를 구성합니다.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

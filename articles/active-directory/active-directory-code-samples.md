@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Azure Active Directory 코드 샘플"
+   pageTitle="Azure Active Directory 코드 샘플 | Microsoft Azure"
    description="시나리오별로 구성된 Azure Active Directory 코드 샘플의 인덱스입니다."
    services="active-directory"
    documentationCenter="dev-center-name"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="07/30/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # Azure Active Directory 코드 샘플
@@ -151,4 +151,4 @@ PHP | [Azure AD Graph API용 PHP 샘플 앱](http://code.msdn.microsoft.com/PHP-
 
 [OAuth 및 Active Directory Federation Services를 사용하여 최신 응용 프로그램 개발](http://msdn.microsoft.com/library/dn633593.aspx)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

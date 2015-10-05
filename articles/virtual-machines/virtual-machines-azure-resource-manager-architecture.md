@@ -1,12 +1,12 @@
 <properties
-   pageTitle="Azure 리소스 관리자 아키텍처"
-	description="리소스 관리자의 아키텍처 및 계산, 네트워크 및 저장소 리소스 공급자 간의 관계에 대해 알아봅니다."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+   pageTitle="Azure 리소스 관리자 아키텍처 | Microsoft Azure"
+   description="리소스 관리자의 아키텍처 및 계산, 네트워크 및 저장소 리소스 공급자 간의 관계에 대해 알아봅니다."
+   services="virtual-machines"
+   documentationCenter=""
+   authors="davidmu1"
+   manager="timlt"
+   editor=""
+   tags="azure-resource-manager,azure-service-management"/>
 
 <tags
 	ms.service="azure-resource-manager"
@@ -18,6 +18,8 @@
 	ms.author="davidmu"/>
 
 # Azure 리소스 관리자 아키텍처
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 이 문서에서는 인프라 기반 응용 프로그램 및 워크로드를 만들기 위한 서비스 관리 및 리소스 관리자 아키텍처의 개요를 제공합니다.
 
@@ -79,4 +81,4 @@ Azure 리소스 관리자의 경우, 리소스 공급자는 사용자가 필요�
 
 [Azure 리소스 관리자 개요](resource-group-overview.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

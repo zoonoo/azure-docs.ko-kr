@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Azure 가상 컴퓨터에 대한 자주 묻는 질문과 대답"
-	description="Azure 가상 컴퓨터에 대해 가장 일반적인 질문 중 일부에 대한 답변을 제공합니다."
+	pageTitle="VM에 대한 질문과 대답 | Microsoft Azure"
+	description="클래식 배포 모델을 사용하여 만든 Azure 가상 컴퓨터에 대해 가장 일반적인 질문 중 일부에 대한 답변을 제공합니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,9 +17,11 @@
 	ms.date="07/17/2015"
 	ms.author="cynthn"/>
 
-# Azure 가상 컴퓨터 FAQ
+# 클래식 배포 모델을 사용하여 만든 Azure 가상 컴퓨터에 대한 질문과 대답
 
-이 문서에서는 포럼, 뉴스 그룹 및 다른 문서의 의견 뿐만 Azure VM 지원 팀의 입력 내용을 기반으로 Azure 가상 컴퓨터에 대해 사용자가 질문한 몇 가지 일반적인 질문들을 다룰 것입니다. 기본적인 정보를 다루기 위해 [가상 컴퓨터에 대하여](virtual-machines-about.md)로 시작하겠습니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 만든 리소스에 대한 질문에 대답하는 방법을 설명합니다.
+
+이 문서에서는 포럼, 뉴스 그룹 및 다른 문서의 의견뿐만 Azure VM 지원 팀의 입력 내용을 기반으로 클래식 배포 모델을 사용하여 만든 Azure 가상 컴퓨터에 대해 사용자가 질문한 몇 가지 일반적인 질문들을 다룰 것입니다. 기본적인 정보를 다루기 위해 [가상 컴퓨터에 대하여](virtual-machines-about.md)로 시작하겠습니다.
 
 ## Azure VM에서 무엇을 실행할 수 있습니까?
 
@@ -27,9 +29,9 @@
 
 서버 소프트웨어 용으로, 다양한 Linux 배포판 및 호스트의 다양한 서버 작업과 서비스 뿐만 아니라 Windows Server의 최신 버전을 실행할 수 있습니다. 지원 세부 사항은, 다음을 참조하세요:
 
-• Windows VM의 경우--[Azure 가상 컴퓨터에 대한 Microsoft 서버 소프트웨어 지원](http://go.microsoft.com/fwlink/p/?LinkId=393550)
+• Windows VM의 경우 -- [Azure 가상 컴퓨터에 대한 Microsoft 서버 소프트웨어 지원](http://go.microsoft.com/fwlink/p/?LinkId=393550)
 
-• Linux VM의 경우--[Azure의 Linux - 보증 배포판](http://go.microsoft.com/fwlink/p/?LinkId=393551)
+• Linux VM의 경우 -- [Azure의 Linux - 보증 배포판](http://go.microsoft.com/fwlink/p/?LinkId=393551)
 
 Windows 클라이언트 이미지를 사용할 수 있는, Windows 7 및 Windows 8.1의 특정 버전은 MSDN Azure 혜택 구독자와 MSDN 개발 및 테스트 종량제 구독자가 개발 및 테스트 작업을 위해 사용할 수 있습니다. 지침과 제한 사항을 포함한 자세한 내용은 [MSDN 구독자를 위한 Windows 클라이언트 이미지](http://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/)를 참조하세요.
 
@@ -41,7 +43,7 @@ Azure 저장소 계정은 운영 체제 디스크 및 모든 데이터 디스크
 
 ## 어떤 가상 하드 디스크 유형을 사용할 수 있습니까?
 
-Azure는 고정된 VHD-포맷 가상 하드 디스크를 지원합니다. Azure에서 VHDX-포맷 디스크를 사용하기 원하는 경우 Hyper-V 관리자 [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656)를 사용하여 변환하세요. 작업을 수행한 후, 가상 컴퓨터와 사용할 수 있도록 Azure의 저장소 계정에 VHD를 업로드 하기 위해 [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet(서비스 관리 모드)를 사용합니다. cmdlet은 동적 VHD를 고정된 VHD로 변환하지만 VHDX를 VHD로 변환하지 않습니다.
+Azure는 고정된 VHD-포맷 가상 하드 디스크를 지원합니다. Azure에서 VHDX-포맷 디스크를 사용하기 원하는 경우 Hyper-V 관리자 [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656)를 사용하여 변환하세요. 작업을 수행한 후, 가상 컴퓨터와 사용할 수 있도록 Azure의 저장소 계정에 VHD를 업로드하기 위해 [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet(서비스 관리 모드)를 사용합니다. cmdlet은 동적 VHD를 고정된 VHD로 변환하지만 VHDX를 VHD로 변환하지 않습니다.
 
 - Linux 지침에 대한 내용은 [Linux 운영 체제를 포함하는 가상 하드 디스크 만들기 및 업로드](virtual-machines-linux-create-upload-vhd.md)를 참조하세요.
 
@@ -70,7 +72,7 @@ Linux VM에 대한 SSH(보안셸) 또는 Windows VM에 대한 원격 데스크�
 - [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-log-on-windows-server.md) 서버가 원격 데스크톱 서비스 세션 호스트로 구성되지 않으면 최대 2개의 동시 연결이 지원됩니다.  
 - [Linux를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-linux-how-to-log-on.md) 기본적으로, SSH는 최대 10개의 동시 연결을 허용합니다. 구성 파일을 편집하여 이 수를 늘릴 수 있습니다.
 
-원격 데스크 톱 또는 SSH 문제가 있는 경우, 문제를 해결하는데 도움이 되는 [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) 확장을 사용하세요. Windows VM에 대한 추가 옵션은 다음과 같습니다.
+원격 데스크톱 또는 SSH 문제가 있는 경우, 문제를 해결하는데 도움이 되는 [VMAccess](http://go.microsoft.com/fwlink/p/?LinkId=396856) 확장을 설치 및 사용하세요. Windows VM에 대한 추가 옵션은 다음과 같습니다.
 
 - Azure Preview 포털에서 VM을 찾은 다음 명령 모음에서 **원격 액세스 다시 설정**을 클릭합니다.
 - [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-troubleshoot-remote-desktop-connections.md)을 검토합니다.
@@ -133,7 +135,7 @@ VM 상태가 실행 중이거나 정지되면 요금이 부과되지만, VM 상�
 
 ## Azure는 유지관리를 위해 내 VM을 다시 부팅합니까?
 
-일반적으로, 사용자가 필요할 때마다 자신의 VM을 시작하고 정지하고 다시 시작할 수 있습니다. 자세한 내용은 [Azure VM 시작, 중지 및 다시 시작 정보](https://msdn.microsoft.com/library/azure/dn763934.aspx)를 참조하세요. Azure는 때때로 Azure 데이터 센터에서 일반, 계획된 유지 관리 업데이트의 일부로서 사용자의 VM을 다시 시작합니다. Azure가 사용자의 VM에 영향을 주는 심각한 하드웨어 문제를 감지할 때 계획되지 않은 유지 관리 이벤트가 발생할 수 있습니다. 계획되지 않은 이벤트에 대해, Azure는 VM을 정상 호스트에 마이그레이션 하고 해당 VM을 다시 시작합니다.
+일반적으로, 사용자가 필요할 때마다 자신의 VM을 시작하고 정지하고 다시 시작할 수 있습니다. Azure는 때때로 Azure 데이터 센터에서 일반, 계획된 유지 관리 업데이트의 일부로서 사용자의 VM을 다시 시작합니다. Azure가 사용자의 VM에 영향을 주는 심각한 하드웨어 문제를 감지할 때 계획되지 않은 유지 관리 이벤트가 발생할 수 있습니다. 계획되지 않은 이벤트에 대해, Azure는 VM을 정상 호스트에 마이그레이션 하고 해당 VM을 다시 시작합니다.
 
 모든 독립 실행형 VM(VM은 가용성 집합의 일부가 아니라는 의미)에 대해, 업데이트를 하는 동안 VM이 다시 시작될 수 있기 때문에, Azure는 계획된 유지 관리 시행 시기 기준 적어도 한 주 전에 구독의 서비스 관리자에게 e-mail로 알립니다. VM에서 실행 중인 응용 프로그램에서 가동 중지 시간이 발생할 수 있습니다.
 
@@ -149,4 +151,4 @@ VM 상태가 실행 중이거나 정지되면 요금이 부과되지만, VM 상�
 
 [Windows 가상 컴퓨터를 만드는 다양한 방법](virtual-machines-windows-choices-create-vm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

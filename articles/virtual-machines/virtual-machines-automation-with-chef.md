@@ -1,18 +1,19 @@
 <properties
-   pageTitle="Chef를 사용하여 Azure 가상 컴퓨터 배포 자동화"
-	description="Chef를 사용하여 Azure 가상 컴퓨터 자동화의 기술에 대해 알아봅니다."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="diegoviso"
-	manager="timlt"
-	editor=""/>
+   pageTitle="Chef를 사용하여 Azure 가상 컴퓨터 배포 | Microsoft Azure"
+   description="Chef를 사용하여 자동화된 가상 컴퓨터 배포 및 Microsoft Azure에서 구성하는 방법에 알아봅니다."
+   services="virtual-machines"
+   documentationCenter=""
+   authors="diegoviso"
+   manager="timlt"
+   tags="azure-service-management,azure-resource-manager"
+   editor=""/>
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/19/2015"
-	ms.author="diviso"/>
+ms.tgt_pltfrm="vm-multiple"
+ms.devlang="na"
+ms.topic="article"
+ms.date="05/19/2015"
+ms.author="diviso"/>
 
 # Chef를 사용하여 Azure 가상 컴퓨터 배포 자동화
 
@@ -236,4 +237,4 @@ C:\\chef\\cookbooks\\webserver\\recipes\\default.rb를 수정하고 다음 줄�
 
 <!--Link references-->
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

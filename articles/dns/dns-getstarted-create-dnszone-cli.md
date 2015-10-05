@@ -1,22 +1,22 @@
 <properties
-   pageTitle="Azure DNS 시작 | Microsoft Azure"
-	description="Azure DNS에 대한 DNS 영역을 만들고 PowerShell 또는 CLI를 사용하여 DNS 도메인 호스팅을 시작하는 방법을 단계별로 알아봅니다."
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="adinah"
-	editor=""/>
+   pageTitle="CLI를 사용한 Azure DNS 시작 | Microsoft Azure"
+   description="Azure DNS에 대한 DNS 영역을 만들고 CLI를 사용하여 DNS 도메인 호스팅을 시작하는 방법을 단계별로 알아봅니다."
+   services="dns"
+   documentationCenter="na"
+   authors="joaoma"
+   manager="adinah"
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="09/02/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="hero-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/22/2015"
+   ms.author="joaoma"/>
 
-# Azure DNS 시작
+# CLI를 사용한 Azure DNS 시작
 
 
 
@@ -173,4 +173,4 @@ Azure DNS 서비스는 Microsoft.Network 리소스 공급자에 의해 관리됩
 
 [레코드 집합 및 레코드 만들기 시작](dns-getstarted-create-recordset-cli.md)<BR> [DNS 영역을 관리하는 방법](dns-operations-dnszones-cli.md)<BR> [DNS 레코드를 관리하는 방법](dns-operations-recordsets-cli.md)<BR> [.NET SDK로 Azure 작업 자동화](dns-sdk.md)<BR> [Azure DNS REST API 참조](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -1,11 +1,13 @@
 <properties 
-	pageTitle="Azure에서 Linux를 실행하는 가상 컴퓨터에 소프트웨어 RAID 구성" 
+	pageTitle="Linux를 실행하는 가상 컴퓨터에 소프트웨어 RAID 구성 | Microsoft Azure" 
 	description="mdadm을 사용하여 Azure에서 Linux에 대해 RAID를 구성하는 방법에 대해 알아봅니다." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
+	writer="szark" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tag="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -21,9 +23,10 @@
 # Linux에서 소프트웨어 RAID 구성
 Azure에서 Linux 가상 컴퓨터의 소프트웨어 RAID를 사용하여 연결된 여러 데이터 디스크를 단일 RAID 장치로 나타내는 것이 일반적인 시나리오입니다. 일반적으로 이 시나리오는 단일 디스크만 사용하는 경우와 비교하여 성능을 개선하고 처리량을 향상하기 위해 사용할 수 있습니다.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 ## 데이터 디스크 연결
-RAID 장치를 구성하는 데 일반적으로 두 개 이상의 빈 데이터 디스크가 필요합니다. 이 문서에서는 Linux 가상 컴퓨터에 데이터 디스크를 연결하는 방법은 자세히 다루지 않습니다. Azure에서 빈 데이터 디스크를 Linux 가상 컴퓨터에 연결하는 방법에 대한 자세한 내용은 Microsoft Azure 문서 [디스크 연결](storage-windows-attach-disk.md#attachempty)을 참조하십시오.
+RAID 장치를 구성하는 데 일반적으로 두 개 이상의 빈 데이터 디스크가 필요합니다. 이 문서에서는 Linux 가상 컴퓨터에 데이터 디스크를 연결하는 방법은 자세히 다루지 않습니다. Azure에서 빈 데이터 디스크를 Linux 가상 컴퓨터에 연결하는 방법에 대한 자세한 내용은 Microsoft Azure 문서 [디스크 연결](storage-windows-attach-disk.md#attachempty)을 참조하세요.
 
 >[AZURE.NOTE]ExtraSmall VM 크기는 가상 컴퓨터에 연결된 2개 이상의 데이터 디스크를 지원하지 않습니다. VM 크기 및 지원되는 데이터 디스크 수에 대한 자세한 내용은 [Microsoft Azure를 위한 가상 컴퓨터 및 클라우드 서비스 크기](https://msdn.microsoft.com/library/azure/dn197896.aspx)를 참조하세요.
 
@@ -178,4 +181,4 @@ RAID 장치를 구성하는 데 일반적으로 두 개 이상의 빈 데이터 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

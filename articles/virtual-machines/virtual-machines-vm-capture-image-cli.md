@@ -3,7 +3,7 @@
 	description="Linux를 실행하는 Azure VM(가상 컴퓨터)의 이미지를 캡처하는 방법에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="karthmut"
+	authors="madhana"
 	manager="timlt"
 	editor="tysonn"/>
 
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="article"
 	ms.date="02/20/2015"
-	ms.author="karthmut"/>
+	ms.author="madhana"/>
 
 
 
@@ -162,4 +162,4 @@ Azure에서는 이 템플릿이 이미지로 처리되며 이미지 목록에 �
 [가상 컴퓨터에 데이터 디스크를 연결하는 방법]: storage-windows-attach-disk.md
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

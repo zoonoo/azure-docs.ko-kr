@@ -1,5 +1,5 @@
  <properties
-   pageTitle="지원되는 토큰 및 클레임 유형"
+   pageTitle="지원되는 토큰 및 클레임 유형 | Microsoft Azure"
    description="AAD(Azure Active Directory)에서 발급하는 SAML 2.0 및 JWT(JSON 웹 토큰)를 이해하고 평가하기 위한 가이드입니다."
    documentationCenter="dev-center-name"
    authors="msmbaldwin"
@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="08/12/2015"
+   ms.date="09/17/2015"
    ms.author="mbaldwin"/>
 
 # 지원되는 토큰 및 클레임 유형
@@ -201,7 +201,8 @@ JWT 토큰에서 토큰의 범위는 scp 클레임에 지정됩니다.
 
     "scp": "user_impersonation"
 
-### Subject
+### 제목  
+
 
 토큰의 주체는 응용 프로그램 사용자처럼 토큰에서 정보를 어설션하는 보안 주체입니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 따라서 예를 들어 리소스 액세스에 토큰을 사용할 때 이 값을 사용하면 안전하게 인증 검사를 수행할 수 있습니다. Azure AD에서 발급하는 토큰에는 항상 주체가 있기 때문에 이 값을 일반 용도의 인증 시스템에 사용하는 것이 좋습니다.
 
@@ -412,4 +413,4 @@ JWT 토큰에서 사용자 계정 이름은 upn 클레임에 표시됩니다.
 
 [Azure Active Directory 인증 프로토콜](https://msdn.microsoft.com/library/azure/dn151124.aspx)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Sept15_HO4-->

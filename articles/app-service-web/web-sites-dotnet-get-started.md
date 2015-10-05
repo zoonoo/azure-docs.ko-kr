@@ -18,6 +18,14 @@
 
 # Azure 앱 서비스에서 ASP.NET 웹 응용 프로그램 만들기
 
+> [AZURE.SELECTOR]
+- [.Net](web-sites-dotnet-get-started.md)
+- [Node.js](web-sites-nodejs-develop-deploy-mac.md)
+- [Java](web-sites-java-get-started.md)
+- [PHP - Git](web-sites-php-mysql-deploy-use-git.md)
+- [PHP - FTP](web-sites-php-mysql-deploy-use-ftp.md)
+- [Python](web-sites-python-ptvs-django-mysql.md)
+
 ## 개요
 
 이 자습서에서는 Visual Studio 2015 또는 Visual Studio 2013을 사용하여 ASP.NET 웹 응용 프로그램을 만들고 [Azure 앱 서비스의 웹앱](app-service-web-overview.md)에 배포하는 방법을 보여줍니다. 이 자습서에서는 이전에 Azure 또는 ASP.NET을 사용한 경험이 없다고 가정합니다. 이 자습서를 완료하면 클라우드에서 간단한 웹 응용 프로그램을 실행할 수 있습니다.
@@ -48,7 +56,7 @@
 
 [AZURE.INCLUDE [install-sdk-2015-2013](../../includes/install-sdk-2015-2013.md)]
 
-## ASP.NET 웹 응용 프로그램 만들기
+## 프로젝트 및 웹앱 만들기
 
 첫 번째 단계는 Visual Studio의 웹 프로젝트와 Azure App Service의 웹앱을 만드는 것입니다. 이 작업을 마치면 프로젝트를 인터넷에서 사용할 수 있게 웹앱에 배포합니다.
 
@@ -144,7 +152,11 @@
 
 	![웹앱이 생성됨](./media/web-sites-dotnet-get-started/siteinse.png)
 
-## Azure에 응용 프로그램 배포
+## 웹앱에 프로젝트 배포
+
+이 섹션에서는 다이어그램의 2단계에 나와 있는 설명과 같이 웹앱에 웹 프로젝트를 배포합니다.
+
+![만들기 및 배포](./media/web-sites-dotnet-get-started/Create_App.png)
 
 7. **Azure 앱 서비스 작업** 창에서 **지금 이 웹앱에 MyExample 게시**를 클릭합니다.
 
@@ -299,4 +311,4 @@
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스 및 기존 Azure 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)를 참조하세요.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [Azure 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
-<!-----HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

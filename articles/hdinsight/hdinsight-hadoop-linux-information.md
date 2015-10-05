@@ -200,11 +200,12 @@ HDInsight 클러스터 크기 조정에 대한 자세한 내용은 다음을 참
 
 ## Hue(또는 다른 Hadoop 구성 요소)를 어떻게 설치합니까?
 
-HDInsight는 관리되는 서비스로 문제가 발견되면 클러스터의 노드가 자동으로 소멸되고 다시 프로비전됩니다. 이 때문에 클러스터 노드에 구성 요소를 수동으로 설치하는 것은 좋지 않습니다.
+HDInsight는 관리되는 서비스로 문제가 발견되면 클러스터의 노드가 자동으로 소멸되고 다시 프로비전됩니다. 이 때문에 클러스터 노드에 프로그램을 수동으로 직접 설치하는 것은 좋지 않습니다. 대신 다음을 설치해야 하는 경우 [HDInsight 스크립트 동작](hdinsight-hadoop-customize-cluster.md)을 사용합니다.
 
-대신 [HDInsight 스크립트 작업](hdinsight-hadoop-customize-cluster.md)을 사용합니다.
+* Spark 또는 Hue와 같은 서비스 또는 웹 사이트입니다.
+* 클러스터의 여러 노드에 대해 구성 변경을 필요로 하는 구성 요소입니다. 예를 들어 필수 환경 변수, 로깅 디렉터리 만들기 또는 구성 파일 만들기입니다.
 
-스크립트 작업은 클러스터가 프로비전되는 동안 실행되는 Bash 스크립트이며 클러스터에 추가 구성 요소를 설치하는데 사용할 수 있습니다. 다음 구성 요소를 설치하기 위한 예제 스크립트가 제공됩니다.
+스크립트 작업은 클러스터가 프로비전되는 동안 실행되는 Bash 스크립트이며 클러스터에 추가 구성 요소를 설치 및 구성하는 데 사용할 수 있습니다. 다음 구성 요소를 설치하기 위한 예제 스크립트가 제공됩니다.
 
 * [Hue](hdinsight-hadoop-hue-linux.md)
 * [Giraph](hdinsight-hadoop-giraph-install-linux.md)
@@ -214,10 +215,28 @@ HDInsight는 관리되는 서비스로 문제가 발견되면 클러스터의 �
 
 사용자 고유의 스크립트 작업 개발에 대한 정보는 [HDInsight를 사용하여 스크립트 작업 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
 
+###Jar 파일
+
+일부 Hadoop 기술은 MapReduce 작업의 일부로 또는 Pig 또는 Hive 내부에서 사용되는 함수를 포함하는 자체 포함된 jar 파일에 제공됩니다. 스크립트 동작을 사용하여 설치할 수 있는 반면 종종 설치가 필요하지 않고 프로비전한 후에 클러스터에 업로드하고 직접 사용할 수 있습니다. 구성 요소를 클러스터의 이미지로 다시 설치하려는 경우 WASB에 jar 파일을 저장할 수 있습니다.
+
+예를 들어 [DataFu](http://datafu.incubator.apache.org/)의 최신 버전을 사용하려는 경우 프로젝트가 포함된 jar을 다운로드하고 HDInsight 클러스터에 업로드할 수 있습니다. 그런 다음 Pig 또는 Hive를 사용하는 방법에 대한 DataFu 설명서를 수행합니다.
+
+> [AZURE.IMPORTANT]독립 실행형 jar 파일인 구성 요소 일부는 HDInsight와 함께 제공되지만 경로에 있지 않습니다. 특정 구성 요소를 찾으려면 다음을 사용하여 클러스터에서 검색할 수 있습니다.
+>
+> ```find / -name *componentname*.jar 2>/dev/null```
+>
+> 이렇게 하면 jar 파일에 일치하는 경로를 반환합니다.
+
+클러스터가 구성 요소의 버전을 독립 실행형 jar 파일로 제공하지만 다른 버전을 사용하려는 경우 클러스터에 새 버전의 구성 요소를 업로드하고 작업에 사용해 볼 수 있습니다.
+
+> [AZURE.WARNING]HDInsight 클러스터와 함께 제공된 구성 요소는 완전히 지원되며 Microsoft 지원에서 이러한 구성 요소와 관련된 문제를 해결하는 데 도움을 드릴 것입니다.
+>
+> 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. 지원을 통해 문제를 해결하거나 해당 기술에 대한 전문 지식이 있는, 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요구할 수 있습니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/ko-KR/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [http://apache.org](http://apache.org)에 프로젝트 사이트가 있습니다.(예: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/))
+
 ## 다음 단계
 
 * [HDInsight에서 Hive 사용](hdinsight-use-hive.md)
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

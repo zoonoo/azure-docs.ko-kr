@@ -1,22 +1,22 @@
 <properties 
-   pageTitle="Azure DNS에서 DNS 레코드 집합 및 레코드 관리 | Microsoft Azure"
-	description="Azure DNS에서 도메인을 호스트하는 경우 Azure DNS에서 DNS 레코드 집합 및 레코드를 관리합니다. 레코드 집합 및 레코드 작업에 대한 모든 PowerShell 명령입니다."
-	services="dns"
-	documentationCenter="na"
-	authors="joaoma"
-	manager="Adinah"
-	editor=""/>
+   pageTitle="Azure DNS에서 DNS 레코드 집합 및 레코드 관리 | Microsoft Azure" 
+   description="Azure DNS에서 도메인을 호스트하는 경우 Azure DNS에서 DNS 레코드 집합 및 레코드를 관리합니다. 레코드 집합 및 레코드 작업에 대한 모든 PowerShell 명령입니다." 
+   services="dns" 
+   documentationCenter="na" 
+   authors="joaoma" 
+   manager="Adinah" 
+   editor=""/>
 
 <tags
    ms.service="dns"
-	ms.devlang="en"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/02/2015"
-	ms.author="joaoma"/>
+   ms.devlang="en"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="09/22/2015"
+   ms.author="joaoma"/>
 
-# DNS 레코드를 관리하는 방법
+# PowerShell을 사용하여 DNS 레코드를 관리하는 방법
 
 
 > [AZURE.SELECTOR]
@@ -271,4 +271,4 @@ Remove-AzureDnsRecordSet cmdlet을 사용하여 레코드 집합을 삭제할 �
 [레코드 집합 및 레코드 만들기 시작](../dns-getstarted-create-recordset)<BR> [DNS 영역에 대한 작업 수행](../dns-operations-dnszones)<BR> [.NET SDK로 작업 자동화](../dns-sdk)
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

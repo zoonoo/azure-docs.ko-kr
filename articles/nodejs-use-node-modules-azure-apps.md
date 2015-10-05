@@ -68,6 +68,8 @@ Azure 웹 사이트는 일부 네이티브 모듈을 지원하지 않으며 매�
 
 이제 Azure에서 Node.js 모듈을 사용하는 방법을 익혔습니다. [Node.js 버전 지정], [Node.js 웹 사이트 빌드 및 배포] 방법 및 [Mac 및 Linux에서 Azure 명령줄 인터페이스를 사용하는 방법]을 알아보겠습니다.
 
+자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/)를 참조하십시오.
+
 [Node.js 버전 지정]: nodejs-specify-node-version-azure-apps.md
 [Mac 및 Linux에서 Azure 명령줄 인터페이스를 사용하는 방법]: xplat-cli.md
 [Node.js 웹 사이트 빌드 및 배포]: web-sites-nodejs-develop-deploy-mac.md
@@ -76,4 +78,4 @@ Azure 웹 사이트는 일부 네이티브 모듈을 지원하지 않으며 매�
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Kudu를 사용하는 사용자 지정 웹 사이트 배포 스크립트]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

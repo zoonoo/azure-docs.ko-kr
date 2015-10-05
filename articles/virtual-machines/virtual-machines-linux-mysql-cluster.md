@@ -1,11 +1,12 @@
 <properties
-	pageTitle="부하 분산 집합을 사용하여 Linux에서 MySQL 클러스터화"
-	description="MySQL을 예로 사용하여 Azure에서 부하 분산된 고가용성 Linux 클러스터를 설정하는 패턴을 보여 주는 문서입니다."
+	pageTitle="부하 분산된 집합으로 MySQL 클러스터화 | Microsoft Azure"
+	description="Azure에서 클래식 배포 모델을 사용하여 만든 부하 분산된 고가용성 Linux MySQL 클러스터 설정"
 	services="virtual-machines"
 	documentationCenter=""
 	authors="bureado"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,16 +19,7 @@
 
 # 부하 분산 집합을 사용하여 Linux에서 MySQL 클러스터화
 
-* [준비](#getting-ready)
-* [클러스터 설정](#setting-up-the-cluster)
-* [MySQL 설정](#setting-up-mysql)
-* [Corosync 설정](#setting-up-corosync)
-* [Pacemaker 설정](#setting-up-pacemaker)
-* [테스트](#testing)
-* [STONITH](#stonith)
-* [제한 사항](#limitations)
-
-## 소개
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 이 문서는 Microsoft Azure에서 고가용성 Linux 기반 서비스를 배포하고 MySQL Server 고가용성 기능을 기반으로 활용하기 위한 다양한 접근 방법을 알아보고 보여 주기 위한 것입니다. 이 접근 방법을 보여 주는 비디오는 [채널 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL)(영문)에서 사용할 수 있습니다.
 
@@ -346,6 +338,5 @@ Pacemaker를 처음 설치할 때는 구성이 다음과 같이 단순합니다.
 - 부하 분산 장치가 응답하는 데 5초 이상 필요하므로 응용 프로그램은 클러스터를 인식할 수 있어야 하고 시간 제한을 좀 더 허용해야 합니다. 앱 내 큐, 쿼리 미들웨어 등의 다른 아키텍처도 도움이 될 수 있습니다.
 - 동일한 간격으로 쓰기가 수행되고 캐시가 메모리 손실을 최소화할만큼 자주 디스크에 플러시되도록 하기 위해 MySQL 튜닝이 필요합니다.
 - 쓰기 성능은 DRBD가 장치 복제에 사용하는 메커니즘인 가상 스위치의 VM 상호 연결에 따라 좌우됩니다.
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

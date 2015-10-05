@@ -174,6 +174,9 @@ QueueInfo에는 큐의 속성을 조정하는 데 사용할 수 있는 메서드
 
 지금까지 서비스 버스 큐의 기본 사항에 대해 알아보았습니다. 자세한 내용은 [큐, 토픽 및 구독][]을 참조하세요.
 
+자세한 내용은 [Java개발자 센터](/develop/java/)를 참조하세요.
+
+
   [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
   [Java용 Azure SDK]: http://azure.microsoft.com/develop/java/
   [Eclipse용 Azure Toolkit]: https://msdn.microsoft.com/ko-KR/library/azure/hh694271.aspx
@@ -190,4 +193,4 @@ QueueInfo에는 큐의 속성을 조정하는 데 사용할 수 있는 메서드
   [큐, 토픽 및 구독]: service-bus-queues-topics-subscriptions.md
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

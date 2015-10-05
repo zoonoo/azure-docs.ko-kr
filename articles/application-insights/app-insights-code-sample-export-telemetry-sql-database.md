@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="연습: 작업자 역할을 사용하여 Application Insights에서 SQL로 내보내기"
-	description="연속 내보내기 기능을 사용하여 Application Insights에서 원격 분석에 대한 자체 분석을 코딩합니다."
-	services="application-insights"
-	documentationCenter=""
-	authors="mazharmicrosoft"
+	pageTitle="연습: 작업자 역할을 사용하여 Application Insights에서 SQL로 내보내기" 
+	description="연속 내보내기 기능을 사용하여 Application Insights에서 원격 분석에 대한 자체 분석을 코딩합니다." 
+	services="application-insights" 
+    documentationCenter=""
+	authors="mazharmicrosoft" 
 	manager="douge"/>
 
 <tags 
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # 연습: 작업자 역할을 사용하여 Application Insights에서 SQL로 내보내기
@@ -51,13 +51,13 @@
 
 ## Azure에서 저장소 만들기
 
-1. [Azure 포털][portal]에서 구독에 저장소 계정을 만듭니다.
+1. [Azure 포털][portal]에서 구독에 “클래식" 저장소 계정을 만듭니다.
 
     ![Azure 포털에서 새로 만들기, 데이터, 저장소 선택](./media/app-insights-code-sample-export-telemetry-sql-database/040-store.png)
 
 2. 컨테이너 만들기
 
-    ![새 저장소에서 컨테이너를 선택한 다음 추가 선택](./media/app-insights-code-sample-export-telemetry-sql-database/050-container.png)
+    ![새 저장소에서 컨테이너를 선택하고 컨테이너 타일, 추가를 차례로 클릭합니다.](./media/app-insights-code-sample-export-telemetry-sql-database/050-container.png)
 
 
 ## Azure 저장소로 연속 내보내기 시작
@@ -539,4 +539,4 @@ PageView에 대해 생성되는 테이블의 스키마입니다.
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

@@ -1,11 +1,13 @@
 <properties
- pageTitle="가상 컴퓨터 확장 및 특징 정보 | Microsoft Azure"
- description="다양한 가상 컴퓨터 확장을 연결 및 기본 관리 등, 제공 또는 향상 대상별로 그룹화하여 설명합니다."
+ pageTitle="가상 컴퓨터 확장 및 기능 | Microsoft Azure"
+ description="확장이 제공하거나 개선하는 기능별로 그룹화하여 Azure 가상 컴퓨터에 사용할 수 있는 확장을 알아봅니다."
  services="virtual-machines"
  documentationCenter=""
  authors="squillace"
  manager="timlt"
- editor=""/>
+ editor=""
+ tags="azure-service-management,azure-resource-manager"/>
+
 <tags
  ms.service="virtual-machines"
  ms.devlang="na"
@@ -17,11 +19,14 @@
 #가상 컴퓨터 확장 및 기능 정보
 Microsoft Azure에서는 Azure Virtual Machine에서의 생산성을 높이는 데 활용할 수 있는 보안, 런타임, 디버깅, 관리 및 기타 기능을 구현하기 위해 Microsoft와 신뢰할 수 있는 타 공급업체가 구축한 VM 확장을 제공합니다. 이 항목에서는 Windows 및 Linux 가상 컴퓨터 모두에 제공되는 Azure VM 확장의 다양한 기능을 설명하고 각 기능에 대한 관련 문서를 안내합니다.
 
-VM 에이전트에 대한 세부 정보와 VM 확장 지원 방법은 [VM 에이전트 및 VM 확장 기능 개요](https://msdn.microsoft.com/library/dn832621.aspx)를 참조하십시오.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델 또는 클래식 배포 모델을 사용하여 만든 리소스에 대해 설명합니다.
+
+
+VM 에이전트 및 VM 확장을 지원하기 위한 VM 에이전트의 작동 방식에 대한 자세한 내용은 [VM 에이전트 및 VM 확장 개요](https://msdn.microsoft.com/library/dn832621.aspx)를 참조하세요.
 
 ##Azure VM 확장
 
-VM 확장은 VM에서 사용하려는 대부분의 중요 기능을 구현합니다. 여기에는 암호 재설정, RDP 구성 등을 비롯한 많은 기본 기능이 포함됩니다. 지속적으로 새로운 확장이 추가되고 있으므로 Azure에서 VM이 지원 가능한 기능의 수도 지속적으로 증가하고 있습니다. 기본적으로 이미지 갤러리에서 VM을 만들 때 **IaaSDiagnostics**(현재 Windows VM만 해당), **VMAccess** 및 **BGInfo** 등, 몇 가지 기본 VM 확장이 설치됩니다. 그러나 기능 업데이트 및 새 확장의 연속성으로 인해 특정 시간에 Windows와 Linux 모두에서 모든 확장이 구현되는 것은 아닙니다.
+VM 확장은 VM에서 사용하려는 대부분의 중요 기능을 구현합니다. 여기에는 암호 재설정, RDP 구성 등을 비롯한 많은 기본 기능이 포함됩니다. 지속적으로 새로운 확장이 추가되고 있으므로 Azure에서 VM이 지원 가능한 기능의 수도 지속적으로 증가하고 있습니다. 기본적으로 이미지 갤러리에서 VM을 만들 때 **IaaSDiagnostics**(현재 Windows VM만 해당), **VMAccess** 및 **BGInfo**를 비롯한 여러 가지 기본 VM 확장이 설치됩니다. 그러나 기능 업데이트 및 새 확장의 연속성으로 인해 특정 시간에 Windows와 Linux 모두에서 모든 확장이 구현되는 것은 아닙니다.
 
 ##연결 및 기본 관리
 
@@ -44,11 +49,11 @@ VM 확장은 VM에서 사용하려는 대부분의 중요 기능을 구현합니
 |**CentosChefClient**|||
 |**ChefClient**|Windows에서 Chef 클라이언트를 만듭니다. 아래 DSC 확장을 사용할 수도 있습니다.|[Chef 및 Microsoft Azure](https://www.getchef.com/solutions/azure/)|
 |**LinuxChefClient**|||
-|**DockerExtension**|원격 Docker 명령을 지원하기 위해 Docker 데몬을 설치합니다.|[Docker 가상 컴퓨터 확장을 사용하는 방법](virtual-machines-docker-vm-extension.md) 더 자세한 정보는 [Docker VM 확장 사용자 가이드](https://github.com/Azure/azure-docker-extension/blob/master/README.md)를 참조하십시오.|
+|**DockerExtension**|원격 Docker 명령을 지원하기 위해 Docker 데몬을 설치합니다.|[Docker 가상 컴퓨터 확장을 사용하는 방법](virtual-machines-docker-vm-extension.md)자세한 내용은 [Docker VM 확장 사용자 가이드](https://github.com/Azure/azure-docker-extension/blob/master/README.md)를 참조하세요.|
 |**DSC**|PowerShell DSC(Desired State Configuration) 확장|[Azure PowerShell DSC(Desired State Configuration) 확장](http://blogs.msdn.com/b/powershell/archive/2014/08/07/introducing-the-azure-powershell-dsc-desired-state-configuration-extension.aspx)|
 |**PuppetEnterpriseAgent**|Puppet Enterprise의 기능을 구현합니다. |[Azure에서의 Puppet](http://puppetlabs.com/solutions/microsoft)|
 |**CustomScriptExtension**(Windows)**CustomScriptForLinux**(Linux)|시작 시 또는 실행 중에 언제든 VM에서 사용자 지정 스크립트를 호출합니다.|[사용자 지정 스크립트 확장](https://msdn.microsoft.com/library/dn781373.aspx)[Linux](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)|
-|**AzureCATExtensionHandler**|**IaaSDiagnostics**에서 수집한 진단 데이터와 몇 가지 다른 데이터 소스(예: [Azure 저장소 분석 메트릭스](https://msdn.microsoft.com/library/azure/hh343270.aspx))를 소비하고, SAP 호스트 제어 프로세스에서 소비하는 데 적합하도록 집계된 데이터 집합으로 변환합니다.|[SAP용 Azure Enhanced Monitoring](http://azure.microsoft.com/blog/2014/06/04/azure-enhanced-monitoring-for-sap/)|
+|**AzureCATExtensionHandler**|**IaaSDiagnostics**와 몇 가지 다른 데이터 원본(예: [Azure 저장소 분석 메트릭](https://msdn.microsoft.com/library/azure/hh343270.aspx))에서 수집한 진단 데이터를 사용하고 SAP 호스트 제어 프로세스에서 사용하는 데 적합한 집계 데이터 집합으로 변환합니다.|[SAP용 Azure Enhanced Monitoring](http://azure.microsoft.com/blog/2014/06/04/azure-enhanced-monitoring-for-sap/)|
 
 ##보안 및 보호
 
@@ -69,9 +74,9 @@ VM 확장은 VM에서 사용하려는 대부분의 중요 기능을 구현합니
 
 |**VM 확장 이름**|기능 설명|추가 정보|
 |---|---|---|
-|**AzureVmLogCollector**|필요에 따라 **AzureVMLogCollector** 확장을 사용하면 원격 VM 로그온 없이도 하나 이상의 클라우드 서비스 VM(웹 역할 및 작업자 역할 모두)에서 일회성 로그 수집을 수행하고 수집한 파일을 Azure 저장소 계정으로 보낼 수 있습니다. |[AzureLogCollector 확장](https://msdn.microsoft.com/library/dn927183.aspx)|
-|**IaaSDiagnostics**|Azure Diagnostics를 사용하거나 사용하지 않도록 지정하고 구성하며, **AzureCATExtensionHandler**에서 SAP 모니터링을 지원하기 위해서도 사용됩니다.|[Azure Diagnostics 확장을 통한Microsoft Azure 가상 컴퓨터 모니터링](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)|
-|**OSPatchingForLinux**|Azure VM 관리자를 사용하여 사용자 지정 구성으로 VM OS 업데이트를 자동화합니다. OS 패치 업데이트 시기 및 빈도 지정, 설치할 패치 지정, 업데이트 후 재부팅 동작 구성 등, OSPatching 확장을 사용하여 가상 컴퓨터에 대한 OS 업데이트를 구성할 수 있습니다.|[OS 패치 확장 블로그 게시물](http://azure.microsoft.com/blog/2014/10/23/automate-linux-vm-os-updates-using-ospatching-extension/). [OS 패치 확장](https://github.com/Azure/azure-linux-extensions)에서 Github에 대한 Readme와 소스도 참조하십시오.|
+|**AzureVmLogCollector**|필요에 따라 **AzureVMLogCollector** 확장을 사용하여 VM에 원격으로 로그온하지 않고 웹 역할 및 작업자 역할 둘 다로 하나 이상의 클라우드 서비스 VM에서 일회성 로그 수집을 수행하고 수집한 파일을 Azure 저장소 계정으로 보낼 수 있습니다. |[AzureLogCollector 확장](https://msdn.microsoft.com/library/dn927183.aspx)|
+|**IaaSDiagnostics**|Azure 진단을 사용하거나 사용하지 않도록 설정 및 구성하며, **AzureCATExtensionHandler**에서 SAP 모니터링을 지원하는 데도 사용됩니다.|[Azure Diagnostics 확장을 통한Microsoft Azure 가상 컴퓨터 모니터링](http://azure.microsoft.com/blog/2014/09/02/windows-azure-virtual-machine-monitoring-with-wad-extension/)|
+|**OSPatchingForLinux**|Azure VM 관리자를 사용하여 사용자 지정 구성으로 VM OS 업데이트를 자동화합니다. OS 패치 업데이트 시기 및 빈도 지정, 설치할 패치 지정, 업데이트 후 재부팅 동작 구성 등, OSPatching 확장을 사용하여 가상 컴퓨터에 대한 OS 업데이트를 구성할 수 있습니다.|[OS 패치 확장 블로그 게시물](http://azure.microsoft.com/blog/2014/10/23/automate-linux-vm-os-updates-using-ospatching-extension/). Github의 [OS 패치 확장](https://github.com/Azure/azure-linux-extensions)에서 Readme와 소스도 참조하세요.|
 
 ##개발 및 디버깅
 
@@ -96,4 +101,4 @@ VM 확장은 VM에서 사용하려는 대부분의 중요 기능을 구현합니
 |**BGInfo**|RDP를 사용할 때 바탕 화면에 서버에 대한 유용한 통합 정보를 표시합니다.|[BGInfo 확장](https://msdn.microsoft.com/library/dn606289.aspx)|
 |**HpcVmDrivers**|Windows Server 2012 R2 또는 Windows Server 2012를 실행하는 크기가 A8 또는 A9인 VM에서 RDMA(원격 직접 메모리 액세스) 네트워크 장치 드라이버를 설치, 구성 및 유지 관리합니다. 병렬 MPI 응용 프로그램을 실행할 때 클러스터형 A8 또는 A9 VM에서 RDMA 네트워크를 사용하도록 설정합니다.|[A8, A9, A10 및 A11 계산 집약적 인스턴스 정보](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

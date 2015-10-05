@@ -1,19 +1,4 @@
-<properties 
-   pageTitle="옵션 1: StorSimple용 Windows PowerShell을 사용하여 업데이트 1.2 설치"
-   description="StorSimple용 Windows PowerShell을 사용하여 StorSimple 8000 시리즈 업데이트 1.2를 설치하는 방법을 설명합니다."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="SharS"
-   manager="adinah"
-   editor="tysonn" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="TBD"
-   ms.date="09/09/2015"
-   ms.author="v-sharos" />
+<!--author=SharS last changed: 9/17/15-->
 
 #### StorSimple용 Windows PowerShell을 통해 업데이트 1.2를 설치하려면
 
@@ -118,7 +103,7 @@
 
 10. 디스크 펌웨어 업데이트가 성공적으로 적용되고 장치가 유지 관리 모드를 종료한 후 관리 포털로 돌아갑니다. 유지 관리 모드 업데이트는 24시간이 경과할 때까지 포털에서 업데이트되지 않습니다. 관리 포털에서 나머지 무중단 업데이트를 적용하기 전에 기다려야 할 수도 있습니다.
 
-11. 업데이트를 적용할 준비가 되면 **유지 관리** 페이지로 이동한 다음 페이지의 맨 아래에서**업데이트 검색**을 클릭합니다. 업데이트를 사용할 수 있으면 알림이 표시되며, 여기에는 드라이버 및 Windows 업데이트가 포함됩니다. **업데이트 설치**를 클릭하여 설치를 시작합니다. 모든 업데이트가 성공적으로 설치되면 완료되었습니다.
+11. 업데이트를 적용할 준비가 되면 **유지 관리** 페이지로 이동한 다음 페이지의 맨 아래에서 **업데이트 검색**을 클릭합니다. 업데이트를 사용할 수 있으면 알림이 표시되며, 여기에는 드라이버 및 Windows 업데이트가 포함됩니다. **업데이트 설치**를 클릭하여 설치를 시작합니다. 모든 업데이트가 성공적으로 설치되면 완료되었습니다.
 
 
 
@@ -127,4 +112,4 @@
  
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

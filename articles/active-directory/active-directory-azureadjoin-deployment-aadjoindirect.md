@@ -1,6 +1,6 @@
 <properties 
 	pageTitle="Azure AD 조인에 대한 사용 시나리오와 배포 고려 사항 | Microsoft Azure" 
-	description="관리자가 최종 사용자(직원, 학생, 다른 사용자)를 위해 Azure AD 조인을 설정하는 방법을 설명하는 항목입니다." 
+	description="Azure AD Join에서 사용할 수 있는 다른 배포 시나리오 나열 및 설명" 
 	services="active-directory" 
 	documentationCenter="" 
 	authors="femila" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/02/2015" 
+	ms.date="09/21/2015" 
 	ms.author="femila"/>
 
 # Azure AD 연결에 대한 사용 시나리오와 배포 고려 사항 
@@ -82,7 +82,7 @@ Azure AD 연결은 현재 클라우드에서 업무용 ID를 작동 및 관리�
 
 
 ## 추가 정보
-* [Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장](active-directory-azureadjoin-user-upgrade.md)
+* [Azure Active Directory 조인을 통해 클라우드 기능을 Windows 10 장치로 확장](active-directory-azureadjoin-overview.md)
 * [Azure AD 조인 설정](active-directory-azureadjoin-setup.md)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

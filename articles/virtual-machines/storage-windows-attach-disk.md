@@ -1,6 +1,6 @@
 <properties
-	pageTitle="가상 컴퓨터에 디스크 연결 | Microsoft Azure"
-	description="데이터 디스크를 Azure 가상 컴퓨터에 연결하고 사용 가능하도록 초기화하는 방법에 대해 알아봅니다."
+	pageTitle="VM에 디스크 연결 | Microsoft Azure"
+	description="클래식 배포 모델을 사용하여 만든 가상 컴퓨터에 데이터 디스크를 연결하고 초기화합니다."
 	services="virtual-machines, storage"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,9 @@
 	ms.date="07/16/2015"
 	ms.author="cynthn"/>
 
-# Windows 가상 컴퓨터에 데이터 디스크를 연결하는 방법
+# 클래식 배포 모델을 사용하여 만든 Windows 가상 컴퓨터에 데이터 디스크 연결
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다. [리소스 관리자 배포 모델](virtual-machines-attach-disk-preview.md)을 사용하여 리소스를 만들 수도 있습니다.
 
 빈 디스크와 데이터가 포함된 디스크를 모두 연결할 수 있습니다. 두 경우 모두, 디스크는 실제로 Azure 저장소 계정에 상주하는 .vhd 파일입니다. 또한 두 경우 모두 디스크를 연결한 후 초기화를 해야 사용 준비가 완료됩니다.
 
@@ -59,4 +61,4 @@
 
 [logon]: virtual-machines-log-on-windows-server.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

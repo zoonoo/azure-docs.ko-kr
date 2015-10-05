@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/30/2015" 
+	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
 # Azure 앱 서비스에서 API 앱 및 모바일 앱 인증
@@ -208,10 +208,10 @@ Azure에서 [ASP.NET Identity](http://www.asp.net/identity) 또는 [Thinktecture
 * [iOS 앱에 인증 추가](../app-service-mobile/app-service-mobile-dotnet-backend-ios-get-started-users-preview.md)
 * [Xamarin.iOS 앱에 인증 추가](../app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-users-preview.md)
 * [Xamarin Android 앱에 인증 추가](../app-service-mobile/app-service-mobile-dotnet-backend-xamarin-android-get-started-users-preview.md)
-* [Windows 앱에 인증 추가](../app-service-mobile/app-service-mobile-dotnet-backend-windows-store-get-started-users-preview.md)
+* [Windows 앱에 인증 추가](../app-service-mobile/app-service-mobile-dotnet-backend-windows-store-dotnet-get-started-users-preview.md)
 
 ### <a id="maobo"></a>보호된 리소스에 대한 모바일 앱 대신 호출
 
 * [모바일 앱에서 액세스 토큰 가져오기 및 SharePoint API 호출](../app-service-mobile/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise.md#obtain-token)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

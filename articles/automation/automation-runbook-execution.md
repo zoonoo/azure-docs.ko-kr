@@ -1,26 +1,32 @@
 <properties
    pageTitle="Azure 자동화에서 Runbook 실행"
-	description="Azure 자동화의 Runbook이 처리되는 방법에 대한 자세한 내용을 설명합니다."
-	services="automation"
-	documentationCenter=""
-	authors="bwren"
-	manager="stevenka"
-	editor="tysonn"/>
+   description="Azure 자동화의 Runbook이 처리되는 방법에 대한 자세한 내용을 설명합니다."
+   services="automation"
+   documentationCenter=""
+   authors="bwren"
+   manager="stevenka"
+   editor="tysonn" />
 <tags
    ms.service="automation"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="07/22/2015"
-	ms.author="bwren"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="09/17/2015"
+   ms.author="bwren" />
 
 # Azure 자동화에서 Runbook 실행
 
 
 Azure 자동화에서 Runbook을 시작하면 작업이 생성됩니다. 작업은 Runbook의 단일 실행 인스턴스입니다. 각 작업을 실행하기 위해 Azure 자동화 작업자가 할당됩니다. 작업자는 여러 Azure 계정에서 공유하지만 여러 자동화 계정의 작업은 서로 격리됩니다. 사용자는 작업에 대한 요청을 처리할 작업자를 제어할 수 없습니다. 단일 Runbook에서 동시에 여러 작업을 실행할 수 있습니다. Azure 포털에서 Runbook 목록을 확인하면 각 Runbook에 대해 시작된 마지막 작업의 상태가 나열됩니다. 각 Runbook에 대한 작업 목록을 확인하여 각 작업의 상태를 추적할 수 있습니다. 다양한 작업 상태에 대한 설명은 [작업 상태](#job-statuses)를 참조하세요.
 
-![작업 상태](./media/automation-runbook-execution/job-statuses.png)
+다음 다이어그램은 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks) 및 [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)에 대한 Runbook 작업의 수명 주기를 보여 줍니다.
+
+![작업 상태 - PowerShell 워크플로](./media/automation-runbook-execution/job-statuses.png)
+
+다음 다이어그램은 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks)에 대한 Runbook 작업의 수명 주기를 보여 줍니다.
+
+![작업 상태 - PowerShell 스크립트](./media/automation-runbook-execution/job-statuses-script.png)
 
 
 Azure 구독에 연결하면 작업에서 Azure 리소스에 액세스할 수 있습니다. 단, 공용 클라우드에서 액세스할 수 있는 데이터 센터의 리소스에만 액세스할 수 있습니다.
@@ -32,7 +38,7 @@ Azure 구독에 연결하면 작업에서 Azure 리소스에 액세스할 수 �
 | 상태| 설명|
 |:---|:---|
 |Completed|작업이 완료되었습니다.|
-|Failed|작업이 오류와 함께 종료되었습니다.|
+|Failed| [그래픽 및 PowerShell 워크플로 Runbook](automation-runbook-types.md)의 경우 Runbook을 컴파일하지 못했습니다. [PowerShell 스크립트 Runbook](automation-runbook-types.md)의 경우 Runbook을 시작하지 못했거나 작업에서 예외가 발생했습니다. |
 |Failed, waiting for resources|작업이 [공평 분배](#fairshare) 한도에 세 번 도달했기 때문에 실패했고 매번 동일한 검사점 또는 Runbook의 처음부터 시작되었습니다.|
 |Queued|작업이 시작될 수 있도록 자동화 작업자의 리소스가 사용 가능한 상태가 되기를 기다리고 있습니다.|
 |Starting|작업이 작업자에게 할당되었으며 시스템이 시작하는 중입니다.|
@@ -41,8 +47,8 @@ Azure 구독에 연결하면 작업에서 Azure 리소스에 액세스할 수 �
 |Running, waiting for resources|작업이 [공평 분배](#fairshare) 한도에 도달했기 때문에 언로드되었습니다. 잠시 후 마지막 검사점에서 작업이 다시 시작됩니다.|
 |중지|작업이 완료되기 전에 사용자에 의해 중지되었습니다.|
 |중지 중|시스템이 작업을 중지하는 중입니다.|
-|일시 중단|작업이 Runbook의 사용자, 시스템 또는 명령에 의해 일시 중단되었습니다. 일시 중단된 작업은 다시 시작할 수 있으며, 마지막 검사점에서 다시 시작되거나, 검사점이 없을 경우 Runbook의 처음부터 다시 시작됩니다. Runbook은 예외적인 경우에만 시스템에 의해 일시 중단됩니다. 기본적으로 ErrorActionPreference는 **Continue**로 설정되며, 이는 오류 발생 시 작업이 계속 실행된다는 의미입니다. 이 기본 설정 변수가 **Stop**으로 설정된 경우 오류 발생 시 작업이 일시 중단됩니다.|
-|Suspending|시스템이 사용자의 요청에 따라 작업을 일시 중단하려고 합니다. Runbook의 다음 검사점에 도달해야만 Runbook을 일시 중단할 수 있습니다. 이미 마지막 검사점을 지난 경우 완료되어야만 일시 중단할 수 있습니다.|
+|일시 중단|작업이 Runbook의 사용자, 시스템 또는 명령에 의해 일시 중단되었습니다. 일시 중단된 작업은 다시 시작할 수 있으며, 마지막 검사점에서 다시 시작되거나, 검사점이 없을 경우 Runbook의 처음부터 다시 시작됩니다. Runbook은 예외적인 경우에만 시스템에 의해 일시 중단됩니다. 기본적으로 ErrorActionPreference는 **Continue**로 설정되며, 이는 오류 발생 시 작업이 계속 실행된다는 의미입니다. 이 기본 설정 변수가 **Stop**으로 설정된 경우 오류 발생 시 작업이 일시 중단됩니다. [그래픽 및 PowerShell 워크플로 Runbook](automation-runbook-types.md)에만 적용됩니다.|
+|Suspending|시스템이 사용자의 요청에 따라 작업을 일시 중단하려고 합니다. Runbook의 다음 검사점에 도달해야만 Runbook을 일시 중단할 수 있습니다. 이미 마지막 검사점을 지난 경우 완료되어야만 일시 중단할 수 있습니다. [그래픽 및 PowerShell 워크플로 Runbook](automation-runbook-types.md)에만 적용됩니다.|
 
 ## Azure 관리 포털을 사용하여 작업 상태 보기
 
@@ -103,4 +109,4 @@ Runbook을 만들 때 두 검사점 간의 모든 활동을 실행할 시간을 
 
 - [Azure 자동화에서 Runbook 시작](automation-starting-a-runbook.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

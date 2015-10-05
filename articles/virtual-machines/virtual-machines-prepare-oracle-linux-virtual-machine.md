@@ -1,6 +1,25 @@
-<properties pageTitle="Azure용 Oracle Linux 가상 컴퓨터 준비" description="Microsoft Azure에서 Linux를 실행하는 Oracle 가상 컴퓨터의 구성을 단계별로 설명합니다." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties 
+pageTitle="Azure용 Oracle Linux 가상 컴퓨터 준비 | Microsoft Azure" 
+description="Microsoft Azure에서 Linux를 실행하는 Oracle 가상 컴퓨터의 구성 과정을 단계별로 설명합니다." 
+services="virtual-machines" 
+authors="bbenz" 
+documentationCenter="virtual-machines"
+tags="azure-service-management,azure-resource-manager"
+/>
+
+<tags 
+ms.service="virtual-machines" 
+ms.devlang="na" 
+ms.topic="article" 
+ms.tgt_pltfrm="vm-linux" 
+ms.workload="infrastructure-services" 
+ms.date="06/22/2015" 
+ms.author="bbenz" />
+
 #Azure용 Oracle Linux 가상 컴퓨터 준비
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서는 리소스 관리자 배포 모델 또는 클래식 배포 모델을 사용하여 만든 VM에 적용됩니다.
+
 -   [Azure용 Oracle Linux 6.4 이상 가상 컴퓨터 준비](virtual-machines-linux-create-upload-vhd-oracle.md)
 
 -   [Azure용 Oracle Linux 7.0 이상 가상 컴퓨터 준비](virtual-machines-linux-create-upload-vhd-oracle.md)
@@ -37,7 +56,7 @@
 
 	>[AZURE.NOTE]패키지가 아직 설치되어 있지 않은 경우 이 명령이 실패하고 오류 메시지가 표시됩니다. 예상된 동작입니다.
 
-4. 다음 텍스트가 포함된**network** 파일을 /etc/sysconfig/ 디렉터리에 만듭니다.
+4. 다음 텍스트가 포함된 **network**파일을 /etc/sysconfig/ 디렉터리에 만듭니다.
 
 	`NETWORKING=yes` `HOSTNAME=localhost.localdomain`
 
@@ -77,7 +96,7 @@
 
 	모든 로그를 직렬 포트로 보내려는 클라우드 환경에서는 그래픽 및 자동 부팅 기능이 효율적이지 않습니다.
 
-	원하는 경우에는 `crashkernel` 옵션을 구성한 상태로 유지할 수도 있지만 이 매개 변수를 사용하는 경우 VM에서 사용 가능한 메모리의 양이 128MB 이상 감소하므로 VM 크기가 작은 경우 문제가 될 수 있습니다.
+	필요에 따라 `crashkernel` 옵션을 구성된 상태로 유지할 수도 있지만 이 매개 변수를 사용하는 경우 VM에서 사용 가능한 메모리의 양이 128MB 이상 감소하므로 VM 크기가 작은 경우 문제가 될 수 있습니다.
 
 10.  SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다. 보통 SSH 서버는 기본적으로 이와 같이 구성되어 있습니다.
 
@@ -133,7 +152,7 @@ Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle 
 		NETWORKING=yes
 		HOSTNAME=localhost.localdomain
 
-4.  다음 텍스트가 포함된**ifcfg-eth0** 파일을 /etc/sysconfig/network-scripts/ 디렉터리에 만듭니다.
+4.  다음 텍스트가 포함된 **ifcfg-eth0** 파일을 /etc/sysconfig/network-scripts/ 디렉터리에 만듭니다.
 
 		DEVICE=eth0
 		ONBOOT=yes
@@ -172,7 +191,7 @@ Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle 
 
 	모든 로그를 직렬 포트로 보내려는 클라우드 환경에서는 그래픽 및 자동 부팅 기능이 효율적이지 않습니다.
 
-	원하는 경우에는 `crashkernel` 옵션을 구성한 상태로 유지할 수도 있지만 이 매개 변수를 사용하는 경우 VM에서 사용 가능한 메모리의 양이 128MB 이상 감소하므로 VM 크기가 작은 경우 문제가 될 수 있습니다.
+	필요에 따라 `crashkernel` 옵션을 구성된 상태로 유지할 수도 있지만 이 매개 변수를 사용하는 경우 VM에서 사용 가능한 메모리의 양이 128MB 이상 감소하므로 VM 크기가 작은 경우 문제가 될 수 있습니다.
 
 10.  "/etc/default/grub" 편집을 완료한 후에는 다음 명령을 실행하여 grub 구성을 다시 빌드합니다.
 
@@ -202,4 +221,4 @@ Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle 
 
 15.  Hyper-V 관리자에서 **작업 -> 종료**를 클릭합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

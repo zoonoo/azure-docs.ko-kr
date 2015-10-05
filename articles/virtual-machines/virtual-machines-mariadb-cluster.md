@@ -5,7 +5,8 @@
 	documentationCenter=""
 	authors="sabbour"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,7 +19,9 @@
 
 # MariaDB(MySQL) 클러스터 - Azure 자습서
 
-<p>Azure 가상 컴퓨터의 고가용성 환경에서 작업하기 위해 강력하고 확장성이 크며 신뢰할 수 있는 MySQL의 드롭인 대체 기능인 [MariaDB](https://mariadb.org/en/about/)의 다중 마스터 [Galera](http://galeracluster.com/products/) 클러스터를 만드는 중입니다.</p>
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 MariaDB 클러스터를 만드는 방법을 설명합니다.
+
+Azure 가상 컴퓨터의 고가용성 환경에서 작업하기 위해 강력하고 확장성 있으며 신뢰할 수 있는 MySQL의 드롭인 대체 기능인 [MariaDB](https://mariadb.org/en/about/)의 다중 마스터 [Galera](http://galeracluster.com/products/) 클러스터를 만드는 중입니다.
 
 ## 아키텍처 개요
 
@@ -368,6 +371,5 @@ Azure CLI를 사용하여 컴퓨터에서 아래 명령을 실행합니다. 명�
 [Azure Linux VM에서 MySQL 성능 최적화 및 테스트]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
 [Azure CLI 도구의 문제 #1268]: https://github.com/Azure/azure-xplat-cli/issues/1268
 [Linux에서 MySQL을 클러스터링하는 다른 방법]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

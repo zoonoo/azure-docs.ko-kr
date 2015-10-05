@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure 데이터 팩터리에서 MapReduce 프로그램 호출"
-	description="Azure HDInsight 클러스터에서 Azure 데이터 팩터리의 MapReduce 프로그램을 실행하여 데이터를 처리하는 방법을 알아봅니다."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Azure 데이터 팩터리에서 MapReduce 프로그램 호출" 
+	description="Azure HDInsight 클러스터에서 Azure 데이터 팩터리의 MapReduce 프로그램을 실행하여 데이터를 처리하는 방법을 알아봅니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/31/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/22/2015" 
 	ms.author="spelluru"/>
 
 # 데이터 팩터리에서 MapReduce 프로그램 호출
@@ -32,7 +32,7 @@ HDInsight 작업에 대한 JSON 정의에서 다음을 수행합니다:
 3. **className** 속성에 대한 클래스 이름을 지정합니다.
 4. **jarFilePath **속성의 JAR 파일 경로(파일 이름 포함)를 지정합니다.
 5. **jarLinkedService** 속성의 JAR 파일이 포함된 Azure Blob 저장소를 참조하는 연결된 서비스를 지정합니다.   
-6. **arguments** 섹션에 MapReduce 프로그램의 모든 인수를 지정합니다. 
+6. **arguments** 섹션에 MapReduce 프로그램의 모든 인수를 지정합니다. 런타임에 MapReduce 프레임워크의 몇 개 인수(예: mapreduce.job.tags)가 추가로 표시됩니다. MapReduce 인수와 사용자 인수를 구분하려면 다음 예제와 같이 옵션과 값을 둘 다 인수로 사용하는 것이 좋습니다(-s, --input, --output 등은 바로 뒤에 해당 값이 있는 옵션임).
 
  
 
@@ -102,4 +102,4 @@ HDInsight 작업과 MapReduce 변환을 사용하는 샘플은 [GitHub의 데이
 [Azure Portal]: http://portal.azure.com
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Sept15_HO4-->

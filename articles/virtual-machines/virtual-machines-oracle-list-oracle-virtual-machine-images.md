@@ -1,23 +1,18 @@
-<properties title="List of Oracle virtual machine images"
-pageTitle="Oracle 가상 컴퓨터 이미지 목록"
-description="Azure 갤러리의 Oracle 이미지 목록을 가져오고 이미지 한 개를 기반으로 하여 Oracle 가상 컴퓨터를 만드는 방법을 알아봅니다."
-services="virtual-machines"
-documentationCenter=""
-authors="bbenz"
-manager=""
-editor=""
-tags=""/>
+<properties" pageTitle="title="Oracle VM 이미지 목록 | Microsoft Azure" description="Azure 갤러리의 Oracle 이미지 목록을 가져오고 이미지 한 개를 기반으로 하여 Oracle 가상 컴퓨터를 만드는 방법을 알아봅니다." services="virtual-machines" documentationCenter="" authors="bbenz" manager="" editor="" tags="azure-service-management, azure-resource-manager"/>
 
 <tags
 ms.service="virtual-machines"
 ms.devlang="na"
 ms.topic="article"
-ms.tgt_pltfrm="na"
+ms.tgt_pltfrm="vm-multiple"
 ms.workload="infrastructure-services"
 ms.date="06/22/2015"
 ms.author="bbenz" />
 
 #Oracle 가상 컴퓨터 이미지 목록
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델 또는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+
 Oracle 이미지에 따라 가상 컴퓨터를 만들려면 [Azure 포털](https://ms.portal.azure.com/)에 로그인하고 **마켓플레이스**, **계산**을 차례로 클릭한 다음 검색 상자에 **Oracle**을 입력합니다. 이미지를 선택하고 지침에 따라 Microsoft Azure에서 이미지를 설정합니다. [Azure 포털](https://ms.portal.azure.com/)의 Microsoft 제공 Oracle 이미지는 Windows에서 실행되고 Oracle 제공 Oracle 이미지는 Oracle Linux에서 실행됩니다.
 
 ![](media/virtual-machines-oracle-list-oracle-virtual-machine-images/image1.png)
@@ -67,4 +62,4 @@ Oracle 이미지에 따라 가상 컴퓨터를 만들려면 [Azure 포털](https
 
 [Oracle 가상 컴퓨터 이미지 - 기타 고려 사항](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

@@ -1,11 +1,11 @@
 <properties
-	pageTitle="Azure의 셀프 서비스 등록이란?"
+	pageTitle="Azure의 셀프 서비스 등록이란? | Microsoft Azure"
 	description="Azure의 셀프 서비스 등록, 등록 프로세스 관리 방법 및 등록 방법에 대한 개요입니다."
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
 	manager="stevenpo"
-	editor="LisaToft"/>
+	editor=""/>
 
 <tags
 	ms.service="active-directory"
@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="identity"
-	ms.date="08/14/2015" 
+	ms.date="09/21/2015"
 	ms.author="stevenpo"/>
 
 
@@ -30,43 +30,41 @@
 
 ## 용어 및 정의
 
-+ **셀프 서비스 등록**: 사용자가 클라우드 서비스에 등록하고 자신의 메일 도메인을 기반으로 Azure Active Directory에 ID를 자동 생성하는 방법입니다.
++ **셀프 서비스 등록**: 사용자가 클라우드 서비스에 등록하고 해당 메일 도메인을 기반으로 Azure AD(Active Directory)에 ID가 자동으로 생성되게 하는 방법입니다.
 + **관리되지 않는 Azure 테넌트**: ID가 생성되는 디렉터리입니다. 관리되지 않는 테넌트는 전역 관리자가 없는 디렉터리입니다.
 + **메일로 확인된 사용자**: Azure AD의 사용자 계정의 한 유형입니다. 셀프 서비스 제공 사항에 등록한 후 자동으로 생성된 ID를 갖는 사용자를 메일로 확인된 사용자라고 합니다. 메일로 확인된 사용자는 creationmethod=EmailVerified로 태그가 지정된 디렉터리의 일반 멤버입니다.
 
-## 고객 환경
-
-### 사용자 환경
+## 사용자 환경
 
 예를 들어 있는 메일이 Dan@BellowsCollege.com인 사용자가 메일을 통해 중요한 파일을 받는다고 가정해 보겠습니다. 파일은 Azure Rights Management(Azure RMS)로 보호되었습니다. 하지만 Dan의 조직인 Bellows College는 Azure RMS에 등록하지 않았으며 Active Directory RMS도 배포하지 않았습니다. 이 경우 Dan은 보호된 파일을 읽기 위해 개인용 RMS 무료 구독에 등록할 수 있습니다.
 
 Dan이 이 셀프 서비스 제공 사항에 등록하는 BellowsCollege.com 메일 주소를 가진 첫 번째 사용자인 경우에는 Azure AD에서 BellowsCollege.com에 대해 관리되지 않는 테넌트가 생성됩니다. BellowsCollege.com 도메인의 다른 사용자가 이 제공 사항 또는 비슷한 셀프 서비스 제공 사항에 등록하는 경우 이 사용자도 Azure에서 동일한 관리되지 않는 테넌트에 생성된 메일로 확인된 사용자 계정을 갖게 됩니다.
 
-### 관리자 환경
+## 관리자 환경
 
 관리되지 않는 Azure 테넌트의 DNS 도메인 이름을 소유한 관리자는 소유권을 증명한 후 테넌트를 인수하거나 병합할 수 있습니다. 다음 섹션에서 관리자 환경을 보다 자세히 설명하지만 요약 내용은 다음과 같습니다.
 
 - 관리되지 않는 Azure 테넌트를 인수하면 관리되지 않는 테넌트의 전역 관리자가 됩니다. 이를 내부 인수라고도 합니다.
 - 관리되지 않는 Azure 테넌트를 병합하고 관리되지 않는 테넌트의 DNS 도메인 이름을 관리되는 Azure 테넌트에 추가하여 사용자에서 리소스로 매핑되면 사용자가 중단 없이 서비스에 계속 액세스할 수 있습니다. 이를 외부 인수라고도 합니다.
 
-### Microsoft Azure 디렉터리에서 만들어지는 것이 무엇입니까?
+## Azure Active Directory에 생성되는 것은 무엇인가요?
 
 #### 테넌트
 
-- 도메인의 Azure 테넌트가 만들어지며 도메인당 하나의 테넌트가 만들어집니다.
-- Azure 테넌트 디렉터리에는 전역 관리자가 없습니다.
+- 도메인에 대한 Azure Active Directory 테넌트가 도메인당 테넌트 하나씩 생성됩니다.
+- Azure AD 테넌트 디렉터리에는 전역 관리자가 없습니다.
 
 #### 사용자
 
-- 등록하는 사용자마다 Azure 테넌트에 사용자 개체가 생성됩니다.
+- 등록하는 사용자마다 Azure AD 테넌트에 사용자 개체가 생성됩니다.
 - 각 사용자 개체는 바이럴로 표시됩니다.
 - 각 사용자는 등록한 서비스에 대한 액세스 권한을 받습니다.
 
-### 소유한 도메인의 셀프 서비스 Azure 테넌트를 어떻게 요구하나요?
+### 소유한 도메인에 대한 셀프 서비스 Azure AD 테넌트를 어떻게 요구하나요?
 
-도메인 유효성 검사를 수행하여 셀프 서비스 Azure 테넌트를 요구할 수 있습니다. 도메인 유효성 검사는 DNS 레코드를 만들어 도메인 소유권을 증명합니다.
+도메인 유효성 검사를 수행하여 셀프 서비스 Azure AD 테넌트를 요구할 수 있습니다. 도메인 유효성 검사는 DNS 레코드를 만들어 도메인 소유권을 증명합니다.
 
-Azure 테넌트의 DNS 인수를 수행하는 데는 다음 두 가지 방법이 있습니다.
+Azure AD 테넌트의 DNS 인수를 수행하는 방법에는 다음 두 가지가 있습니다.
 
 - 내부 인수(관리자가 관리되지 않는 Azure 테넌트를 검색하여 관리되는 테넌트로 바꾸려고 함)
 - 외부 인수(관리자가 새 도메인을 관리되는 Azure 테넌트에 추가하려고 함)
@@ -234,4 +232,4 @@ Bellows College의 IT 관리자가 셀프 서비스 제공 사항에 등록한 �
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Sept15_HO4-->

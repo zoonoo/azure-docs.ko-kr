@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Azure에서 Oracle Linux VHD 만들기 및 업로드" 
+	pageTitle="Oracle Linux VHD 만들기 및 업로드 | Microsoft Azure" 
 	description="Oracle Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -17,6 +18,8 @@
 	ms.author="szark"/>
 
 # Azure용 Oracle Linux 가상 컴퓨터 준비
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 - [Azure용 Oracle Linux 6.4 이상 가상 컴퓨터 준비](#oracle6)
 - [Azure용 Oracle Linux 7.0 이상 가상 컴퓨터 준비](#oracle7)
@@ -227,4 +230,4 @@ Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle 
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

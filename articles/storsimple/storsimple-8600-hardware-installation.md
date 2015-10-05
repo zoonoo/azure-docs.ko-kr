@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/16/2015"
+   ms.date="09/23/2015"
    ms.author="alkohli" />
 
 # StorSimple 8600 장치 개봉, 랙 탑재, 케이블 연결
@@ -204,7 +204,7 @@ EBOD 인클로저의 탑재가 완료되면 동일한 단계를 따라 기본 �
 
 처음으로 이 장치를 설정할 때 SAS 케이블 연결을 먼저 수행한 다음 전원 케이블 연결에 대한 단계를 완료합니다.
 
-[AZURE.INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-sas-cable-8600.md)]
+[AZURE.INCLUDE [storsimple-cable-8600-for-SAS](../../includes/storsimple-sas-cable-8600.md)]
 
 [AZURE.INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-cable-8600-for-power.md)]
 
@@ -289,4 +289,4 @@ H, I | 호스트(예: 파일 서버)
 이제 [온-프레미스 StorSimple 장치를 배포 및 구성](storsimple-deployment-walkthrough.md)할 준비가 되었습니다.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Sept15_HO4-->

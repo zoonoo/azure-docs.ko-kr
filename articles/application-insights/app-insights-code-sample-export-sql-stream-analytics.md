@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/31/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
  
 # 연습: 스트림 분석을 사용하여 Application Insights에서 SQL로 내보내기
@@ -59,13 +59,13 @@
 
 연속 내보내기는 항상 Azure 저장소 계정에 데이터를 출력하므로 저장소를 먼저 만들어야 합니다.
 
-1. [Azure 포털][portal]에서 구독에 저장소 계정을 만듭니다.
+1. [Azure 포털][portal]에서 구독에 “클래식" 저장소 계정을 만듭니다.
 
-    ![Azure 포털에서 새로 만들기, 데이터, 저장소 선택](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
+    ![Azure 포털에서 새로 만들기, 데이터, 저장소를 선택합니다. 클래식을 선택하고 만들기를 선택합니다. 저장소 이름을 제공합니다.](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
 
 2. 컨테이너 만들기
 
-    ![새 저장소에서 컨테이너를 선택한 다음 추가 선택](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
+    ![새 저장소에서 컨테이너를 선택하고 컨테이너 타일, 추가를 차례로 클릭합니다.](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
 
 3. 저장소 액세스 키 복사
 
@@ -314,4 +314,4 @@ SQL 데이터베이스를 지정합니다.
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="media" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"   
+	ms.date="09/20/2015"   
 	ms.author="juliako"/>
 
 
@@ -25,6 +25,7 @@
 
 - [현재 알려진 문제](#issues)
 - [REST API 버전 기록](#rest_version_history)
+- [2015년 9월 릴리스](#september_changes_15)
 - [2015년 8월 릴리스](#august_changes_15)
 - [2015년 7월 릴리스](#july_changes_15)
 - [2015년 6월 릴리스](#june_changes_15)
@@ -73,6 +74,16 @@ SDK의 미디어 서비스 개체는 직렬화할 수 없으며, 결과적으로
 
 미디어 서비스 REST API 버전 기록에 대한 자세한 내용은 [Azure 미디어 서비스 REST API 참조]를 참조하세요.
 
+##<a id="september_changes_15"></a>2015년 9월 릴리스 
+
+- 이제 AMS에서 Widevine 모듈식 DRM 기술을 사용하여 VOD(Video-On-Demand)와 라이브 스트림 둘 다를 보호하는 기능을 제공합니다. 다음 배달 서비스 파트너를 사용하여 Widevine 라이선스를 배달할 수 있습니다. [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/). 자세한 내용은 [이 블로그](http://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)를 참조하세요.
+
+	[AMS .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/)(버전 3.5.1부터 시작) 또는 REST API를 통해 Widevine을 사용하도록 AssetDeliveryConfiguration을 구성할 수 있습니다.
+
+- AMS에서 Apple ProRes 동영상 지원을 추가했습니다. 이제 Apple ProRes 또는 기타 코덱을 사용하는 QuickTime 원본 동영상 파일을 업로드할 수 있습니다. 자세한 내용은 [이 블로그](http://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/)를 참조하세요.
+
+- 이제 미디어 인코더 표준을 사용하여 하위 클리핑 및 라이브 보관 추출을 수행할 수 있습니다. 자세한 내용은 [이 블로그](http://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)를 참조하세요.
+
 ##<a id="august_changes_15"></a>2015년 8월 릴리스
 
 - Azure Media Services SDK for Java V0.8.0 릴리스 및 새로운 샘플이 제공됩니다. 자세한 내용은 다음을 참조하세요.
@@ -86,7 +97,7 @@ SDK의 미디어 서비스 개체는 직렬화할 수 없으며, 결과적으로
 
 - 미디어 인코더 표준의 일반 공급 발표 자세한 내용은 [이 블로그 게시물](http://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)을 참조하세요.
 
-	미디어 인코더 표준은 [이](http://go.microsoft.com/fwlink/?LinkId=618336) 섹션에 설명된 기본 설정을 사용합니다. 4k 인코드에 대한 기본 설정을 사용하는 경우 **프리미엄** 예약 단위 형식을 가져와야 합니다. 자세한 내용은 [인코딩 크기를 조정하는 방법](media-services-portal-encoding-units)을 참조하세요.
+	미디어 인코더 표준은 [이](http://go.microsoft.com/fwlink/?LinkId=618336) 섹션에 설명된 기본 설정을 사용합니다. 4k 인코드에 기본 설정을 사용하는 경우 **프리미엄** 예약 단위 형식을 가져와야 합니다. 자세한 내용은 [인코딩 크기를 조정하는 방법](media-services-portal-encoding-units)을 참조하세요.
 - Azure 미디어 서비스 및 플레이어의 라이브 실시간 캡션. 자세한 내용은 [이 블로그 게시물](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)을 참조하세요.
 
 ###미디어 서비스 .NET SDK 업데이트
@@ -581,4 +592,4 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 [미디어 서비스 작업 알림 처리]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Sept15_HO4-->

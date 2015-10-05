@@ -1,11 +1,12 @@
 <properties 
-	pageTitle="Azure에서 Linux용 사용자 이름 선택" 
+	pageTitle="Linux용 사용자 이름 선택 | Microsoft Azure" 
 	description="Azure에서 Linux 가상 컴퓨터의 사용자 이름을 선택하는 방법에 대해 알아봅니다." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
 	manager="timlt" 
-	editor=""/>
+	editor=""
+	tags="azure-service-management,azure-resource-manager" />
 
 <tags 
 	ms.service="virtual-machines" 
@@ -248,4 +249,4 @@ Azure에서 Linux 가상 컴퓨터를 프로비전할 때는 나중에 VM 로그
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

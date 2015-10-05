@@ -3,8 +3,9 @@
 	description="이 자습서에서는 CLI를 사용하여 키 자격 증명 모음의 일반 작업을 자동화하는 방법을 설명합니다."
 	services="key-vault"
 	documentationCenter=""
-	authors="msmbaldwin"
-	manager="mbaldwin"tags="azure-resource-manager"/>
+	authors="BrucePerlerMS"
+	manager="mbaldwin"
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="key-vault"
@@ -12,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/25/2015"
+	ms.date="09/22/2015"
 	ms.author="bruceper"/>
 
 # CLI를 사용하여 키 자격 증명 모음 관리 #
@@ -185,7 +186,7 @@ Azure Active Directory에 응용 프로그램을 등록하려면:
 예를 들어, 자격 증명 모음 이름은 ContosoKeyVault이고 권한을 부여하려는 응용 프로그램에 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed의 클라이언트 ID가 있고 자격 증명 모음에 있는 키로 서명하고 암호 해제하도록 응용 프로그램을 인증하려면, 다음을 실행합니다.
 
     azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-keys '[“decrypt”,”sign”]'
-    
+
 자격 증명 모음에서 기밀 정보를 읽기 위해 동일한 응용 프로그램에 권한을 부여하려면 다음을 실행합니다.
 
 	azure keyvault set-policy --vault-name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --perm-to-secrets '["Get"]'
@@ -212,7 +213,7 @@ keyvault를 만들 때 'sku' 매개 변수를 추가합니다.
 
     azure keyvault key import --vault-name 'ContosoKeyVaultHSM' --key-name 'ContosoFirstHSMKey' --byok-file './ITByok.byok' --destination 'HSM'
 
-이 BYOK 패키지를 생성하는 방법에 대한 자세한 내용은 [Azure 키 자격 증명 모음과 HSM-보호된 키를 사용하는 방법](https://msdn.microsoft.com/library/azure/dn903624.aspx)을 참조하세요.
+이 BYOK 패키지를 생성하는 방법에 대한 자세한 내용은 [Azure 키 자격 증명 모음과 HSM-보호된 키를 사용하는 방법](key-vault-hsm-protected-keys.md)을 참조하세요.
 
 
 ## 키 자격 증명 모음 및 연결된 키와 비밀 삭제
@@ -253,6 +254,6 @@ Azure 키 자격 증명 모음을 관리하는 데 유용할 수 있는 다른 �
 
 ## 다음 단계
 
-프로그래밍 참조의 경우, [Azure 키 자격 증명 모음 REST API 참조](https://msdn.microsoft.com/library/azure/dn903609.aspx) 및 [Azure 키 자격 증명 모음 C# 클라이언트 API 참조](https://msdn.microsoft.com/library/azure/dn903628.aspx)를 참조하세요.
+프로그래밍 참조는 [Azure 주요 자격 증명 모음 개발자 가이드](key-vault-developers-guide.md)를 참조하세요.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

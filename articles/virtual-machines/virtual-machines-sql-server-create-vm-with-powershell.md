@@ -1,11 +1,13 @@
 <properties 
-	pageTitle="Azure에서 SQL Server 가상 컴퓨터 만들기(PowerShell)"
+	pageTitle="PowerShell에서 SQL Server 가상 컴퓨터 만들기 | Microsoft Azure"
 	description="SQL Server 가상 컴퓨터 갤러리 이미지를 사용하여 Azure VM을 만드는 단계 및 PowerShell 스크립트를 제공합니다."
 	services="virtual-machines"
 	documentationCenter="na"
 	authors="rothja"
 	manager="jeffreyg"
-	editor="monicar"/>
+	editor="monicar" 
+	tags="azure-service-management"
+	 />
 <tags 
 	ms.service="virtual-machines"
 	ms.devlang="na"
@@ -13,7 +15,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.workload="infrastructure-services"
 	ms.date="08/26/2015"
-	ms.author="jroth"/>
+	ms.author="jroth" />
 
 # Azure에서 SQL Server 가상 컴퓨터 만들기(PowerShell)
 
@@ -25,7 +27,7 @@
 
 이 문서에서는 PowerShell cmdlet을 사용하여 Azure에서 SQL Server 가상 컴퓨터를 만드는 방법에 대한 단계를 제공합니다.
 
->[AZURE.NOTE]이 문서는 서비스 관리에 만든 가상 컴퓨터를 위한 것이며 이는 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-vms.md) 항목에 있는 보다 일반적인 단계의 SQL Server별 확장입니다. 서비스 관리 대신 PowerShell에서 리소스 관리자를 사용하여 SQL Server 가상 컴퓨터를 만들려면 [리소스 관리자 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md) 항목의 리소스 관리자 VM에 대한 일반적인 지침을 참조하세요.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다. PowerShell에서 리소스 관리자를 사용하여 SQL Server 가상 컴퓨터를 만들려면 [리소스 관리자 및 Azure PowerShell을 사용하여 Windows 가상 컴퓨터 만들기 및 미리 구성](virtual-machines-ps-create-preconfigure-windows-resource-manager-vms.md) 항목에서 리소스 관리자 VM에 대한 일반적인 지침을 참조하세요.
 
 ## PowerShell 설치 및 구성
 
@@ -76,7 +78,7 @@ SQL Server 가상 컴퓨터를 특정 Azure 지역에 있는 클라우드 서비
 
 		Get-AzureVMImage | where { $_.ImageFamily -like "SQL*" } | select ImageFamily -Unique | Sort-Object -Property ImageFamily
 
-1. 가상 컴퓨터 이미지 패밀리를 찾으면 해당 패밀리에 여러 개의 게시된 이미지가 있을 수 있습니다. 다음 스크립트를 사용하여 선택한 이미지 패밀리에 대한 최신 게시된 가상 컴퓨터 이미지 이름을 찾습니다(예: **Windows Server 2012 R2의 SQL Server 2014 SP1 Enterprise**).
+1. 가상 컴퓨터 이미지 패밀리를 찾으면 해당 패밀리에 여러 개의 게시된 이미지가 있을 수 있습니다. 다음 스크립트를 사용하여 선택한 이미지 패밀리에 대해 게시된 최신 가상 컴퓨터 이미지 이름을 찾습니다(예: **Windows Server 2012 R2의 SQL Server 2014 SP1 Enterprise**).
 
 		$family="<ImageFamily value>"
 		$image=Get-AzureVMImage | where { $_.ImageFamily -eq $family } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
@@ -112,7 +114,7 @@ SQL Server 가상 컴퓨터를 특정 Azure 지역에 있는 클라우드 서비
 
 ## PowerShell 스크립트 예
 
-다음 스크립트는 **Windows Server 2012 R2의 SQL Server 2014 SP1 Enterprise** 가상 컴퓨터를 만드는 전체 스크립트 예입니다. 이 스크립트를 사용하는 경우 이 항목의 이전 단계를 기반으로 하여 초기 변수를 사용자 지정해야 합니다.
+다음 스크립트는 **Windows Server 2012 R2의 SQL Server 2014 SP1 Enterprise** 가상 컴퓨터를 만드는 전체 스크립트의 예를 제공합니다. 이 스크립트를 사용하는 경우 이 항목의 이전 단계를 기반으로 하여 초기 변수를 사용자 지정해야 합니다.
 
 	# Customize these variables based on your settings and requirements:
 	$dcLocation = "East US"
@@ -159,11 +161,11 @@ SQL Server 가상 컴퓨터를 특정 Azure 지역에 있는 클라우드 서비
 
 ## 원격 액세스를 위한 SQL Server 컴퓨터 구성 완료
 
-원격 데스크톱을 사용하여 컴퓨터에 로그온 한 후 [Azure VM에서 SQL Server 연결을 구성하기 위한 단계](virtual-machines-sql-server-connectivity.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)의 지침에 따라 SQL Server를 구성합니다.
+원격 데스크톱을 사용하여 컴퓨터에 로그온한 후 [Azure VM에서 SQL Server 연결을 구성하기 위한 단계](virtual-machines-sql-server-connectivity.md#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)의 지침에 따라 SQL Server를 구성합니다.
 
 ## 다음 단계
 
-PowerShell을 사용하여 가상 컴퓨터를 프로비전하는 추가 지침을 [가상 컴퓨터 설명서](virtual-machines-ps-create-preconfigure-windows-vms.md)에서 찾을 수 있습니다. SQL Server 및 프리미엄 저장소에 관련된 추가 스크립트는 [가상 컴퓨터에서 SQL Server와 함께 Azure 프리미엄 저장소 사용](virtual-machines-sql-server-use-premium-storage.md)을 참조하세요.
+[가상 컴퓨터 설명서](virtual-machines-ps-create-preconfigure-windows-vms.md)에서 PowerShell을 사용하여 가상 컴퓨터를 프로비전하는 추가 지침을 찾을 수 있습니다. SQL Server 및 프리미엄 저장소에 관련된 추가 스크립트는 [가상 컴퓨터의 SQL Server에서 Azure 프리미엄 저장소 사용](virtual-machines-sql-server-use-premium-storage.md)을 참조하세요.
 
 대부분의 경우 다음 단계는 이 새로운 SQL Server VM에 데이터베이스를 마이그레이션하는 것입니다. 데이터베이스 마이그레이션 지침은 [Azure VM에서 SQL Server로 데이터베이스 마이그레이션](virtual-machines-migrate-onpremises-database.md)을 참조하세요.
 
@@ -171,4 +173,4 @@ PowerShell을 사용하여 가상 컴퓨터를 프로비전하는 추가 지침�
 
 이러한 리소스 외에도 [Azure 가상 컴퓨터에서 SQL Server 실행과 관련된 기타 항목](virtual-machines-sql-server-infrastructure-services.md)을 확인하는 것이 좋습니다.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Sept15_HO4-->

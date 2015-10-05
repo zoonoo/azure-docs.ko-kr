@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/10/2015"
+   ms.date="09/04/2015"
    ms.author="bwren" />
 
 # Azure 자동화에서 그래픽 작성
@@ -61,6 +61,17 @@ Azure 자동화의 모든 Runbook은 Windows PowerShell 워크플로입니다. �
 테스트 컨트롤은 그래픽 편집기를 처음 시작할 때 표시되지 않습니다. 대화형으로 [그래픽 Runbook을 테스트](#graphical-runbook-procedures)할 때 열립니다.
 
 ## 그래픽 Runbook 절차 
+
+### 그래픽 Runbook 내보내기 및 가져오기
+
+게시된 버전의 그래픽 Runbook만 내보낼 수 있습니다. Runbook이 아직 게시되지 않은 경우 **게시된 항목 내보내기** 단추를 사용할 수 없습니다. **게시된 항목 내보내기** 단추를 클릭하면 Runbook이 로컬 컴퓨터에 다운로드됩니다. 파일 이름은 *graphrunbook* 확장명이 추가된 Runbook 이름과 일치합니다.
+
+![게시된 항목 내보내기](media/automation-graphical-authoring-intro/runbook-export.png)
+
+Runbook을 추가할 때 **가져오기** 옵션을 선택하여 그래픽 Runbook 파일을 가져올 수 있습니다. 가져올 파일을 선택할 때 동일한 **이름**을 유지하거나 새 이름을 제공할 수 있습니다.
+
+![Runbook 가져오기](media/automation-graphical-authoring-intro/runbook-import.png)
+
 
 ### 그래픽 Runbook 테스트
 
@@ -280,4 +291,4 @@ Runbook 도구 모음에서 **입력 및 출력** 단추를 클릭하여 Runbook
 - [자동화 자산](http://msdn.microsoft.com/library/azure/dn939988.aspx)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->

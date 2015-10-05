@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/01/2015"
+	ms.date="09/22/2015"
 	ms.author="adegeo"/>
 
 
@@ -156,6 +156,12 @@ Azure 포털 **클라우드 서비스** 영역에서 서비스 역할 또는 배
 
 > [AZURE.NOTE]클라우드 서비스에 대해 자세한 모니터링이 구성되어 있는 경우, 클라우드 서비스를 삭제해도 Azure는 저장소 계정에서 모니터링 데이터를 삭제하지 않습니다. 이 데이터를 수동으로 삭제해야 합니다. 메트릭 테이블이 있는 위치에 대한 자세한 내용은 <a href="http://azure.microsoft.com/documentation/articles/cloud-services-how-to-monitor/">클라우드 서비스를 모니터링하는 방법</a>에서 "방법: 관리 포털 외부에서 자세한 모니터링 데이터 액세스"를 참조하세요.
 
- 
 
-<!---HONumber=August15_HO7-->
+## 다음 단계
+
+ * [클라우드 서비스의 일반 구성](cloud-services-how-to-configure.md)
+* [클라우드 서비스를 배포](cloud-services-how-to-create-deploy.md)하는 방법을 알아봅니다.
+* [사용자 지정 도메인 이름](cloud-services-custom-domain-name.md)을 구성합니다.
+* [SSL 인증서](cloud-services-configure-ssl-certificate.md)를 구성합니다.
+
+<!---HONumber=Sept15_HO4-->

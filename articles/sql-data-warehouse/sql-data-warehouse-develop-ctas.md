@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="06/26/2015"
+   ms.date="09/22/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # SQL 데이터 웨어하우스의 CTAS(Create Table As Select)
@@ -359,8 +359,8 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 [개발 개요]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[CTAS]: https://msdnstage.redmond.corp.microsoft.com/ko-kr/library/mt204041.aspx
+[CTAS]: https://msdn.microsoft.com/KO-KR/library/mt204041.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Sept15_HO4-->
