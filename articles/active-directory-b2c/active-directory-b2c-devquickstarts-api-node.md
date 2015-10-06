@@ -38,80 +38,80 @@
 
 ```git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-nodejs.git```
 
-The completed application is provided at the end of this tutorial as well.
+전체 응용 프로그램은 이 자습서 마지막 부분에서도 제공됩니다.
 
-> [AZURE.WARNING] 	For our B2C Preview you must use the same client ID/Application ID and policies for both the Web-API task server and the client that connects to it. This is true for our iOS and Android tutorials. If you have previously created an application in either of those quickstarts, please use those values instead of creating new ones below.
+> [AZURE.WARNING] 	B2C 미리 보기에서 Web-API 작업 서버와 이 서버에 연결되는 클라이언트에 대해 동일한 클라이언트 ID/응용 프로그램 ID 및 정책을 사용해야 합니다. 이것은 iOS 및 Android 자습서에 대해 적용됩니다. 이전에 이러한 빠른 시작 중 하나에서 응용 프로그램을 만든 경우, 아래와 같이 새로 만드는 대신 이 값을 사용합니다.
 
 
-## 1. Get an Azure AD B2C directory
+## 1. Azure AD B2C 디렉터리 가져오기
 
-Before you can use Azure AD B2C, you must create a directory, or tenant.  A directory is a container for all your users, apps, groups, and so on.  If you don't have
-one already, go [create a B2C directory](active-directory-b2c-get-started.md) before moving on.
+Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어야 합니다. 디렉터리는 모든 사용자, 앱, 그룹 등을 위한 컨테이너입니다. 디렉터리가 없는 경우 
+넘어가기 전에 [B2C 디렉터리 만들기](active-directory-b2c-get-started.md)로 이동합니다.
 
-## 2. Create an application
+## 2. 응용 프로그램 만들기
 
-Now you need to create an app in your B2C directory, which gives Azure AD some information that it needs to securely communicate with your app.  Both the client app and web API will be represented by a single **Application ID** in this case, since they comprise one logical app.  To create an app,
-follow [these instructions](active-directory-b2c-app-registration.md).  Be sure to
+이제 B2C 디렉터리에 앱을 만들어야 하며 Azure AD가 앱과 안전하게 통신해야 한다는 일부 정보를 제공합니다. 이 경우 하나의 논리 앱을 구성하기 때문에 클라이언트 앱과 Web API 모두는 단일 **응용 프로그램 ID**에서 표현됩니다. 앱을
+만들려면 [다음 지침](active-directory-b2c-app-registration.md)에 따릅니다. 반드시
 
-- Include a **web app/web api** in the application
-- Enter `http://localhost/TodoListService` as a **Reply URL** - it is the default URL for this code sample.
-- Create an **Application Secret** for your application and copy it down.  You will need it shortly.
-- Copy down the **Application ID** that is assigned to your app.  You will also need it shortly.
+- 응용 프로그램에서 **웹앱/Web API** 포함
+- `http://localhost/TodoListService`을 **회신 URL**로 입력 - 이 코드 샘플에 대한 기본 URL입니다.
+- 응용 프로그램에 **응용 프로그램 암호**를 만들고 복사합니다. 곧 필요합니다.
+- 앱에 할당된 **응용 프로그램 ID**를 복사합니다. 또한 곧 필요합니다.
 
     > [AZURE.IMPORTANT]
-    You cannot use applications registered in the **Applications** tab on the [Azure Portal](https://manage.windowsazure.com/) for this.
+    [Azure 포털](https://manage.windowsazure.com/)의 **응용 프로그램** 탭에 등록된 응용 프로그램은 사용할 수 없습니다.
 
-## 3. Create your policies
+## 3\. 정책 만들기
 
-In Azure AD B2C, every user experience is defined by a [**policy**](active-directory-b2c-reference-policies.md).  This app contains three
-identity experiences - sign-up, sign-in, and sign-in with Facebook.  You will need to create one policy of each type, as described in the
-[policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy).  When creating your three policies, be sure to:
+Azure AD B2C에서 모든 사용자 환경을[**정책**](active-directory-b2c-reference-policies.md)  에서 정의합니다. 이 앱은 등록, 
+로그인 및 Facebook으로 로그인 등 세 가지 ID 환경을 포함합니다.
+[정책 참조 문서](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)에서 설명한 대로 각 형식에 하나의 정책을 만들어야 합니다. 세 가지 정책을 만들 때 다음을 확인합니다.
 
-- Choose the **Display Name** and a few other sign-up attributes in your sign-up policy.
-- Choose the **Display Name** and **Object ID** application claims in every policy.  You can choose other claims as well.
-- Copy down the **Name** of each policy after you create it.  It should have the prefix `b2c_1_`.  You'll need those policy names shortly.
+- 등록 정책에서 **표시 이름** 및 다른 몇가지 등록 특성을 선택합니다.
+- 모든 정책에서 **표시 이름** 및 **개체 ID** 응용 프로그램 클레임을 선택합니다. 물론 다른 클레임을 선택할 수 있습니다.
+- 각 정책을 만든 후에 **이름**을 복사합니다. 접두사 `b2c_1_`이 있어야 합니다. 이러한 정책 이름이 곧 필요합니다.
 
-Once you have your three policies successfully created, you're ready to build your app.
+세 가지 정책을 성공적으로 만들었다면 앱을 빌드할 준비가 되었습니다.
 
-Note that this article does not cover how to use the policies you just created.  If you want to learn about how policies work in Azure AD B2C,
-you should start with the [.NET Web App getting started tutorial](active-directory-b2c-devquickstarts-web-dotnet.md).
+이 문서는 방금 만든 정책을 사용하는 방법을 다루지 않습니다. Azure AD B2C
+에서 정책 작동 방법을 알아보지 못했다면 [.NET 웹앱 시작 자습서](active-directory-b2c-devquickstarts-web-dotnet.md)로 시작해야 합니다.
 
-## 4: Download node.js for your platform
-To successfully use this sample, you must have a working installation of Node.js.
+## 4단계: 사용자 플랫폼을 위한 node.js 다운로드
+이 샘플을 사용하려면 작동하는 Node.js 설치가 있어야 합니다.
 
-Install Node.js from [http://nodejs.org](http://nodejs.org).
+[http://nodejs.org](http://nodejs.org)에서 Node.js를 설치합니다.
 
-## 5: Install MongoDB on to your platform
+## 5단계: 사용 중인 플랫폼에 MongoDB 설치
 
-To successfully use this sample, you must have a working installation of MongoDB. We will use MongoDB to make our REST API persistant across server instances.
+이 샘플을 사용하려면 작동하는 MongoDB 설치가 있어야 합니다. MongoDB를 사용하여 REST API가 서버 인스턴스 간에 지속되도록 할 것입니다.
 
-Install MongoDB from [http://mongodb.org](http://www.mongodb.org).
+[http://mongodb.org](http://www.mongodb.org)에서 MongoDB를 설치합니다.
 
-> [AZURE.NOTE] This walkthrough assumes that you use the default installation and server endpoints for MongoDB, which at the time of this writing is: mongodb://localhost
+> [AZURE.NOTE]이 연습에서는 연습 과정을 작성할 때의 MongoDB에 대한 기본 설치 및 서버 끝점인 mongodb://localhost를 사용한다고 가정합니다.
 
-## 6: Install the Restify modules in to your Web API
+## 6단계: Web API에 Restify 모듈 설치
 
-We will be using Resitfy to build our REST API. Restify is a minimal and flexible Node.js application framework derived from Express that has a robust set of features for building REST APIs on top of Connect.
+Resitfy를 사용하여 REST API를 작성할 것입니다. Restify는 Connect 위에 REST API를 구축하기 위한 강력한 기능 집합이 있는 Express에서 파생된 유연한 최소 Node.js 응용 프로그램 프레임워크입니다.
 
-### Install Restify
+### Restify 설치
 
-From the command-line, change directories to the azuread directory. If the **azuread** directory does not exist, create it.
+명령줄에서 디렉터리를 azuread 디렉터리로 변경합니다. **azuread** 디렉터리가 없으면 만듭니다.
 
-`cd azuread` - or- `mkdir azuread;`
+`cd azuread` 또는 `mkdir azuread;`
 
-Type the following command:
+다음 명령을 입력합니다.
 
 `npm install restify`
 
-This command installs Restify.
+이 명령은 Restify를 설치합니다.
 
-#### Did you get an error?
+#### 오류가 발생했나요?
 
-When using npm on some operating systems, you may receive an error of Error: EPERM, chmod '/usr/local/bin/..' and a request to try running the account as an administrator. If this occurs, use the sudo command to run npm at a higher privilege level.
+일부 운영 체제에서 rpm을 사용할 때 Error: EPERM, chmod '/usr/local/bin/..' 오류 메시지와 관리자 계정으로 실행하라는 요청이 표시될 수 있습니다. 이런 경우 sudo 명령을 사용하여 더 높은 권한 수준으로 npm을 실행하세요.
 
-#### Did you get an error regarding DTrace?
+#### DTrace 관련 오류가 발생했나요?
 
-You may see something like this when installing Restify:
+Restify를 설치할 때 다음과 같은 내용이 표시될 수 있습니다.
 
 ```Shell
 clang: error: no such file or directory: 'HD/azuread/node_modules/restify/node_modules/dtrace-provider/libusdt'
