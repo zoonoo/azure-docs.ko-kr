@@ -78,7 +78,7 @@ FTPS에 대한 자세한 내용은 [File Transfer Protocol](http://en.wikipedia.
 
 Azure 플랫폼 보안에 대한 자세한 내용, **보안 인시던트 또는 남용** 보고 또는 사이트에 대한 **침입 테스트** 수행 계획을 Microsoft에 알리는 방법에 대한 자세한 내용은 [Microsoft Azure 보안 센터](http://azure.microsoft.com/support/trust-center/security/)의 보안 섹션을 참조하세요.
 
-웹 앱의 **web.config** 또는 **applicationhost.config** 파일에 대한 자세한 내용은 [Azure 앱 서비스 웹￼ 앱에서 잠금 해제된 구성 옵션](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)을 참조하세요.
+웹 앱의 **web.config** 또는 **applicationhost.config** 파일에 대한 자세한 내용은 [Azure 앱 서비스 웹 앱에서 잠금 해제된 구성 옵션](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)을 참조하세요.
 
 공격을 감지하는 데 유용할 수 있는 웹앱의 로깅 정보에 대한 자세한 내용은 [진단 로깅 사용](web-sites-enable-diagnostic-log.md)을 참조하세요.
 
