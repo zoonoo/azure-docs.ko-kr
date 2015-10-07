@@ -44,7 +44,10 @@ GRANT VIEW DATABASE STATE TO database_user;
 다음 쿼리는 데이터베이스 크기(MB)를 반환합니다.
 
 ```
--- 데이터베이스의 크기를 계산합니다. SELECT SUM(reserved\_page\_count)*8.0/1024 FROM sys.dm\_db\_partition\_stats; GO 
+-- 데이터베이스의 크기를 계산합니다. 
+SELECT SUM(reserved\_page\_count)*8.0/1024
+FROM sys.dm\_db\_partition\_stats;
+GO
 ```
 
 다음 쿼리는 데이터베이스의 개별 개체 크기(MB)를 반환합니다.
@@ -134,4 +137,4 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 
 [SQL 데이터베이스 소개](sql-database-technical-overview.md)
 
-<!----HONumber=Sept15_HO3-->
+<!-----HONumber=Sept15_HO3-->
