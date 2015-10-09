@@ -425,7 +425,7 @@ API 앱이 Dropbox API를 호출할 수 있게 하려면 API 앱과 Dropbox 개�
 
 ![](./media/app-service-api-dotnet-connect-to-saas/http405.png)
 
-클라이언트가 비 SSL HTTP POST 요청을 시도하고, 게이트웨이가 **https://*으로 리디렉션하고, 이러한 리디렉션으로 인해 GET 요청을 발생하므로 405 메서드가 허용되지 않음 오류가 수신됩니다. 동의 링크를 검색하기 위한 URL은 POST 요청만 허용합니다.
+클라이언트가 비 SSL HTTP POST 요청을 시도하고, 게이트웨이가 *https://*으로 리디렉션하고, 이러한 리디렉션으로 인해 GET 요청을 발생하므로 405 메서드가 허용되지 않음 오류가 수신됩니다. 동의 링크를 검색하기 위한 URL은 POST 요청만 허용합니다.
 
 ### <a id="400"></a>Dropbox 로그인 페이지 대신 HTTP 오류 400 표시
 
@@ -449,7 +449,7 @@ Dropbox 로그인 이후에 나타나는 리디렉션 URL은 다음과 같을 �
 
 SaaS 플랫폼에 연결되는 API 앱을 코딩 및 구성하는 방법을 살펴보았습니다. API 앱에서 인증을 처리하는 방법에 대한 다른 자습서로 연결되는 링크를 보려면 [API 앱 및 모바일 앱에 대한 인증 - 다음 단계](../app-service/app-service-authentication-overview.md#next-steps)를 참조하세요.
 
-[Azure preview portal]: https://portal.azure.com/
-[Azure portal]: https://manage.windowsazure.com/
+[Azure Preview 포털]: https://portal.azure.com/
+[Azure 포털]: https://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO4-->
+<!----HONumber=Sept15_HO4-->
