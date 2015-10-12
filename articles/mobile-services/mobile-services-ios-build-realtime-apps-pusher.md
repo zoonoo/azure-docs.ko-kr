@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/28/2015" 
 	ms.author="donnam"/>
 
 
@@ -440,4 +440,4 @@ Pusher는 모바일 서비스처럼 실시간 앱을 쉽게 빌드할 수 있게
 
 [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

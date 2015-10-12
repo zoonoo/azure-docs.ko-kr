@@ -13,20 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="09/28/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: 응용 프로그램에 등록 및 로그인
 
 **Azure Active Directory B2C**는 소비자 지향 웹 및 모바일 응용 프로그램을 위한 포괄적인 클라우드 ID 관리 솔루션입니다. 수 억개의 소비자 ID로 확장되는 고가용성 글로벌 서비스입니다. 엔터프라이즈급 보안 플랫폼에 기반하여 Azure Active Directory B2C는 응용 프로그램, 비즈니스 및 소비자를 보호합니다.
 
-이전에 소비자를 응용 프로그램에 등록 및 로그인시키려는 응용 프로그램 개발자는 온-프레미스 데이터베이스 또는 시스템을 사용하고 모든 ID 관리 코드를 스스로 작성해야 했습니다. Azure Active Directory B2C는 개발자에게 표준 기반 플랫폼 및 확장할 수 있는 정책의 다양한 집합으로 소비자 ID 관리를 응용 프로그램에 통합하는 더 나은 방법을 제공합니다. Azure Active Directory B2C를 사용하면 소비자는 기존 소셜 계정(Facebook, Google, Amazon, LinkedIn)을 사용하거나 새 자격 증명(전자 메일 주소 및 암호 또는 사용자 이름 및 암호)을 만들어서 응용 프로그램을 등록할 수 있습니다. 후자를 "로컬 계정"이라고 합니다.
+이전에는 고객을 응용 프로그램에 가입 및 로그인하게 하고자 했던 응용 프로그램 개발자들이 자체 코드를 작성했습니다. 또한 온-프레미스 데이터베이스나 시스템을 사용하여 사용자 이름과 암호를 저장했습니다. Azure Active Directory B2C는 개발자에게 안전한 표준 기반 플랫폼 및 확장할 수 있는 정책의 다양한 집합으로 소비자 ID 관리를 응용 프로그램에 통합하는 더 나은 방법을 제공합니다. Azure Active Directory B2C를 사용하면 소비자는 기존 소셜 계정(Facebook, Google, Amazon, LinkedIn)을 사용하거나 새 자격 증명(전자 메일 주소 및 암호 또는 사용자 이름 및 암호)을 만들어서 응용 프로그램을 등록할 수 있습니다. 후자를 "로컬 계정"이라고 합니다.
 
 Azure Active Directory B2C는 미리 보기에 있습니다. 이 시간 동안 작업을 시도할 때 여러분의 의견 및 경험을 듣고자 합니다. 사용자 의견에 기반하여 주요 서비스를 향상시키기 위해 주요 내용을 변경할 수 있습니다. 이 기간 동안 미리 보기를 사용하여 프로덕션 응용 프로그램을 릴리스하면 안됩니다. [사용자 음성](http://feedback.azure.com/forums/169401-azure-active-directory)을 사용하여 의견을 보내주세요.
 
 ## 시작하기
 
-소비자 등록 및 로그인을 수락하는 응용 프로그램을 만들려면 먼저 Azure Active Directory B2C 디렉터리를 사용하여 등록해야 합니다. 이 [문서](active-directory-b2c-get-started.md)에서 설명한 단계를 사용하여 고유의 디렉터리를 가져옵니다.
+소비자 등록 및 로그인을 수락하는 응용 프로그램을 만들려면 먼저 Azure Active Directory B2C 테넌트를 사용하여 등록해야 합니다. 이 [문서](active-directory-b2c-get-started.md)에서 설명한 단계를 사용하여 고유의 테넌트를 가져옵니다.
 
 [OAuth 2.0](active-directory-b2c-protocols.md#oauth2-authorization-code-flow) 또는 [Open ID 연결](active-directory-b2c-protocols.md#openid-connect-sign-in-flow)을 사용하여 프로토콜 메시지를 직접 보내도록 선택하거나 작업을 수행하는 라이브러리를 사용하여 Azure Active Directory B2C 서비스에 대해 응용 프로그램을 작성할 수 있습니다.(아래에서 즐겨 찾는 플랫폼을 선택하고 시작함)
 
@@ -48,7 +48,7 @@ Azure Active Directory B2C는 미리 보기에 있습니다. 이 시간 동안 �
 - [소비자 지향 응용 프로그램에서 Multi-Factor Authentication을 사용합니다.](active-directory-b2c-reference-mfa.md)
 - [소비자를 위해 셀프 서비스 암호 재설정을 설정합니다.](active-directory-b2c-reference-sspr.md)
 - Azure Active Directory B2C에서 제공하는 [등록, 로그인 및 다른 소비자 지향 페이지의 모양과 느낌을 사용자 지정](active-directory-b2c-reference-ui-customization.md)합니다.
-- Azure Active Directory B2C 디렉터리에서 [Azure Active Directory Graph API를 사용하여 프로그래밍 방식으로 소비자를 만들고 읽고 업데이트 및 삭제](active-directory-b2c-devquickstarts-graph-dotnet.md)합니다.
+- Azure Active Directory B2C 테넌트에서 [Azure Active Directory Graph API를 사용하여 프로그래밍 방식으로 소비자를 만들고 읽고 업데이트 및 삭제](active-directory-b2c-devquickstarts-graph-dotnet.md)합니다.
 
 ## 참조
 
@@ -57,9 +57,9 @@ Azure Active Directory B2C는 미리 보기에 있습니다. 이 시간 동안 �
 - [azure-active-directory](http://stackoverflow.com/questions/tagged/azure-active-directory) 또는 [adal](http://stackoverflow.com/questions/tagged/adal) 태그를 사용하여 스택 오버플로에 대한 도움말을 봅니다.
 - [사용자 음성](http://feedback.azure.com/forums/169401-azure-active-directory)을 사용하여 미리 보기에 대한 의견을 보내주십시오. 사용자의 의견을 듣고 싶습니다! 게시물의 제목에 "AzureADB2C:" 구문을 사용해야 찾을 수 있습니다.
 - Azure Active Directory B2C는 "앱 모델 v2.0"이라고 하는 응용 프로그램 등록 모델을 사용하여 산업 표준 프로토콜, OpenID Connect 및 OAuth 2.0을 지원합니다.
-  - [앱 모델 v2.0 프로토콜 참조](active-directory-b2c-protocols.md)
-  - [앱 모델 v2.0 토큰 참조](active-directory-b2c-tokens.md)
+  - [앱 모델 v2.0 프로토콜 참조](active-directory-b2c-reference-protocols.md)
+  - [앱 모델 v2.0 토큰 참조](active-directory-b2c-reference-tokens.md)
 - [Azure Active Directory B2C FAQ](active-directory-b2c-faqs.md)
 - [Azure Active Directory B2C에 대 한 지원 요청 제출](active-directory-b2c-support.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

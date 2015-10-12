@@ -120,4 +120,4 @@ BGP 프로비전 상태를 사용하면 Microsoft Edge에서 BGP 세션을 사�
 	- [라우팅 구성](expressroute-howto-routing-classic.md)
 	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

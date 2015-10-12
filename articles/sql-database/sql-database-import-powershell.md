@@ -150,4 +150,4 @@ Blob 이름은 데이터베이스를 만들려는 기존 .bacpac 파일의 이�
 - [재해 복구 연습](sql-database-disaster-recovery-drills.md)
 - [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

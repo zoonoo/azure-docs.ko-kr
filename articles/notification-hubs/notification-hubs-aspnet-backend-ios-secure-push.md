@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/24/2015"
 	ms.author="wesmc"/>
 
 #Azure 알림 허브 보안 푸시
@@ -158,4 +158,4 @@ Microsoft Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

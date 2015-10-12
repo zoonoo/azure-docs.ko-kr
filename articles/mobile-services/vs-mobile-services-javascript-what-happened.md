@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="NA" 
 	ms.devlang="JavaScript" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="09/23/2015" 
 	ms.author="patshea"/>
 
-# 연결 서비스를 사용하여 모바일 서비스를 추가하면 내 Visual Studio Azure Javascript 프로젝트는 어떻게 되나요?
+# 연결 Visual Studio 서비스를 사용하여 Azure 모바일 서비스를 추가하면 내 Javascript 프로젝트는 어떻게 되나요?
 
 > [AZURE.SELECTOR]
 > - [Getting Started](vs-mobile-services-javascript-getting-started.md)
@@ -46,4 +46,4 @@
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -15,7 +15,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/05/2015"
+   ms.date="08/12/2015"
    ms.author="larryfr"/>
 
 
@@ -23,7 +23,13 @@
 
 Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시간 계산 시스템입니다. Microsoft Azure HDInsight의 Storm을 사용하여 실시간 빅 데이터 분석을 수행하는 클라우드 기반 Storm 클러스터를 만들 수 있습니다.
 
-[AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal-nolink.md)]
+[AZURE.INCLUDE [Preview 포털](../../includes/hdinsight-azure-preview-portal.md)]
+
+* [Apache Storm 자습서: Storm Starter 샘플을 사용하여 HDInsight에서 빅 데이터 분석 시작](hdinsight-apache-storm-tutorial-get-started-v1.md)
+
+   
+
+> [AZURE.NOTE]이 문서의 단계는 Windows 기반 HDInsight 클러스터를 만듭니다. HDInsight 클러스터에서 Linux 기반 Storm을 만드는 단계에 대해서는 [Apache Storm 자습서: HDInsight에서 데이터 분석을 사용하여 Storm Starter 샘플 시작](hdinsight-apache-storm-tutorial-get-started-linux.md)을 참조하세요.
 
 ## 필수 조건
 
@@ -61,7 +67,7 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 
 	현재 HDInsight 클러스터의 데이터 원본으로 Azure 저장소 계정을 선택할 수 있습니다. 다음을 사용하여 __데이터 원본__ 블레이드의 항목을 이해합니다.
 
-	- __선택 방법__: 구독에서 저장소 계정을 찾을 수 있도록 하려면 이 항목을 __From all subscriptions(모든 구독에서)__로 설정합니다. 기존 저장소 계정의 __저장소 이름__ 및 __선택키__를 입력하려면 __선택키__로 설정합니다.
+	- __선택 방법__: 구독에서 저장소 계정을 찾을 수 있도록 하려면 이 항목을 __From all subscriptions__(모든 구독에서)로 설정합니다. 기존 저장소 계정의 __저장소 이름__ 및 __선택키__를 입력하려면 __선택키__로 설정합니다.
 
 	- __새로 만들기__: 새 저장소 계정을 만들려면 사용합니다. 저장소 계정의 이름을 입력할 때 나타나는 필드를 사용합니다. 이름을 사용할 수 있는 경우 녹색 확인 표시가 나타납니다.
 
@@ -79,7 +85,7 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 
 	__선택__을 사용하여 __노드 가격 책정 계층__ 정보를 저장합니다.
 
-8. __선택적 구성__을 선택합니다. 이 블레이드를 사용하여 클러스터 버전을 선택하고 __가상 네트워크__에 가입, Hive 및 Oozie의 데이터를 유지하기 위한 __외부 Metastore__ 설정 등 기타 선택적 설정을 구성할 수 있습니다.
+8. __선택적 구성__을 선택합니다. 이 블레이드를 사용하여 클러스터 버전을 선택하고 __가상 네트워크__에 가입 또는 Hive 및 Oozie의 데이터를 유지하기 위한 __외부 Metastore__ 설정 등 기타 선택적 설정을 구성할 수 있습니다.
 
 	![선택적 구성 블레이드](./media/hdinsight-apache-storm-tutorial-get-started/optionalconfiguration.png)
 
@@ -89,7 +95,7 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 	| ------------------ | --------------------- |
 	| ![시작 보드에 표시기 프로비전](./media/hdinsight-apache-storm-tutorial-get-started/provisioning.png) | ![프로비전된 클러스터 타일](./media/hdinsight-apache-storm-tutorial-get-started/provisioned.png) |
 
-	> [AZURE.NOTE]클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 __알림__ 항목을 사용하여 프로비전 프로세스를 확인하세요.
+	> [AZURE.NOTE]클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 __알림__ 항목을 사용하여 프로비전 프로세스를 확인합니다.
 
 ## HDInsight에서 Storm Starter 샘플 실행
 
@@ -201,7 +207,7 @@ Storm UI를 사용하여 토폴로지를 모니터링할 수 있습니다.
 
 ### 토폴로지 중지
 
-단어 개수 토폴로지에 대한 **토폴로지 요약** 페이지로 돌아가 **토폴로지 동작** 섹션에서 **중단**을 선택합니다. 메시지가 표시되면 토폴로지를 중지하기 전에 대기할 시간(초)으로 10을 입력합니다. 제한 시간이 지난 후에는 대시보드의 **Storm UI** 섹션을 방문한 경우 토폴로지가 더 이상 표시되지 않습니다.
+단어 개수 토폴로지에 대한 **토폴로지 요약** 페이지로 돌아가 **토폴로지 동작** 섹션에서 **중단**을 선택합니다. 메시지가 표시되면 토폴로지를 중지하기 전에 대기할 시간(초)으로 10을 입력합니다. 시간 제한이 지난 후에는 대시보드의 **Storm UI** 섹션을 방문한 경우 토폴로지가 더 이상 표시되지 않습니다.
 
 ## 요약
 
@@ -239,4 +245,4 @@ Storm UI를 사용하여 토폴로지를 모니터링할 수 있습니다.
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

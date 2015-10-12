@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="09/23/2015" 
 	ms.author="tamram"/>
 
 # 개발 및 테스트에 Azure 저장소 에뮬레이터 사용
@@ -228,4 +228,4 @@ Azure 저장소 계정에 리소스 주소를 지정하는 경우 다음의 체�
 
 - 이제 Azure 저장소 서비스의 2013-08-15 버전이 완벽 하게 지원됩니다. (이전에 이 버전은 저장소 에뮬레이터 버전 2.2.1 미리 보기에서만 지원되었습니다.)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

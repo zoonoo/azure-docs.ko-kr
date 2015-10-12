@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="09/28/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # SQL 데이터 웨어하우스의 테이블 파티션
@@ -106,6 +106,7 @@ FROM    sys.dm_pdw_nodes_resource_governor_workload_groups	wg
 JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools	rp ON wg.[pool_id] = rp.[pool_id]
 WHERE   wg.[name] like 'SloDWGroup%'
 AND     rp.[name]    = 'SloDWPool'
+;
 ```
 
 > [AZURE.NOTE]초대형 리소스 클래스에서 제공하는 메모리를 초과하는 파티션의 크기는 피합니다. 이 그림을 초과하여 파티션을 확대하는 경우, 최적의 압축 상태가 아닌 메모리 부족의 위험이 있습니다.
@@ -116,7 +117,7 @@ AND     rp.[name]    = 'SloDWPool'
 ### 데이터를 포함하는 파티션을 분할하는 방법
 데이터가 이미 들어 있는 파티션을 분할 하는 가장 효율적인 방법은 `CTAS` 문을 사용하는 것입니다. 분할된 테이블이 CCL(clustered columnstore)인 경우 테이블 파티션이 비어 있어야 분할될 수 있습니다.
 
-다음은 최종 파티션에 하나의 행을 포함하는 샘플 분할된 columnstore 테이블입니다.
+다음은 각 파티션에 하나의 행을 포함하는 샘플 분할된 columnstore 테이블입니다.
 
 ```
 CREATE TABLE [dbo].[FactInternetSales]
@@ -141,9 +142,12 @@ WITH
 ;
 
 INSERT INTO dbo.FactInternetSales
-VALUES (1,20010101,1,1,1,1,1,1)
+VALUES (1,19990101,1,1,1,1,1,1);
+INSERT INTO dbo.FactInternetSales
+VALUES (1,20000101,1,1,1,1,1,1);
 
-CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSales(OrderDateKey)
+
+CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSales(OrderDateKey);
 ```
 
 > [AZURE.NOTE]통계 개체를 만들어 해당 테이블 메타데이터가 보다 정확함을 확인합니다. 통계 작성을 생략하는 경우 SQL 데이터 웨어하우스는 기본값을 사용합니다. 통계에 대한 자세한 내용은 [통계][]를 검토하세요.
@@ -162,12 +166,13 @@ JOIN    sys.schemas    s    ON    t.[schema_id]   = s.[schema_id]
 JOIN    sys.indexes    i    ON    p.[object_id]   = i.[object_Id]
                             AND   p.[index_Id]    = i.[index_Id]
 WHERE t.[name] = 'FactInternetSales'
+;
 ```
 
 이 테이블을 분할하는 경우 오류가 발생합니다.
 
 ```
-ALTER TABLE FactInternetSales SPLIT RANGE (20020101)
+ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
 파티션이 비어 있어 Msg 35346, 수준 15, 상태 1, 44행 ALTER PARTITION 문의 SPLIT 절이 실패했습니다. Columnstore 인덱스가 테이블에 있는 경우 빈 파티션만 분할할 수 있습니다. ALTER PARTITION 문을 실행한 다음 ALTER PARTITION 완료된 후에 Columnstore 인덱스를 다시 작성하기 전에 Columnstore 인덱스를 비활성화하는 것이 좋습니다.
@@ -175,52 +180,54 @@ ALTER TABLE FactInternetSales SPLIT RANGE (20020101)
 그러나 `CTAS`를 사용하여 데이터를 저장할 새 테이블을 만듭니다.
 
 ```
-CREATE TABLE dbo.FactInternetSales_20010101
+CREATE TABLE dbo.FactInternetSales_20000101
     WITH    (   DISTRIBUTION = HASH(ProductKey)
             ,   CLUSTERED COLUMNSTORE INDEX
             ,   PARTITION   (   [OrderDateKey] RANGE RIGHT FOR VALUES
-                                (20010101
+                                (20000101
                                 )
                             )
             )
 AS
 SELECT *
-FROM	FactInternetSales
-WHERE	1=2
+FROM    FactInternetSales
+WHERE   1=2
+;
 ```
 
 파티션 경계가 정렬되므로 전환이 허용됩니다. 이후에 나눌 수 있는 빈 파티션이 있는 원본 테이블이 남습니다.
 
 ```
-ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20010101 PARTITION 2
+ALTER TABLE FactInternetSales SWITCH PARTITION 2 TO  FactInternetSales_20000101 PARTITION 2;
 
-ALTER TABLE FactInternetSales SPLIT RANGE (20020101)
+ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
 `CTAS`를 사용하여 새 파티션 경계에 데이터를 정렬하고 데이터를 다시 기본 테이블로 전환하는 것이 남았습니다.
 
 ```
-CREATE TABLE [dbo].[FactInternetSales_20010101_20020101]
+CREATE TABLE [dbo].[FactInternetSales_20000101_20010101]
     WITH    (   DISTRIBUTION = HASH([ProductKey])
             ,   CLUSTERED COLUMNSTORE INDEX
             ,   PARTITION   (   [OrderDateKey] RANGE RIGHT FOR VALUES
-                                (20010101,20020101
+                                (20000101,20010101
                                 )
                             )
             )
 AS
 SELECT  *
-FROM	[dbo].[FactInternetSales_20010101]
-WHERE	[OrderDateKey] >= 20010101
-AND     [OrderDateKey] <  20020101
+FROM    [dbo].[FactInternetSales_20000101]
+WHERE   [OrderDateKey] >= 20000101
+AND     [OrderDateKey] <  20010101
+;
 
-ALTER TABLE FactInternetSales_20010101_20020101 SWITCH PARTITION 3 TO  FactInternetSales PARTITION 3
+ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.FactInternetSales PARTITION 2;
 ```
 
 데이터의 이동을 완료한 후에 각 분할에 있는 데이터의 새 배포를 정확히 반영되도록 대상 테이블에서 통계를 새로 고치는 것이 좋습니다.
 
 ```
-UPDATE STATISTICS [dbo].[FactInternetSales]
+UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
 ### 소스 제어를 분할하는 테이블
@@ -280,11 +287,11 @@ FROM    (
 -- Iterate over the partition boundaries and split the table
 
 DECLARE @c INT = (SELECT COUNT(*) FROM #partitions)
-,       @i INT = 1                     --iterator for while loop
-,       @q NVARCHAR(4000)              --query
-,       @p NVARCHAR(20)     = N''      --partition_number
-,       @s NVARCHAR(128)    = N'dbo'   --schema
-,       @t NVARCHAR(128)    = N'table' --table
+,       @i INT = 1                                 --iterator for while loop
+,       @q NVARCHAR(4000)                          --query
+,       @p NVARCHAR(20)     = N''                  --partition_number
+,       @s NVARCHAR(128)    = N'dbo'               --schema
+,       @t NVARCHAR(128)    = N'FactInternetSales' --table
 ;
 
 WHILE @i <= @c
@@ -326,4 +333,4 @@ SQL 데이터 웨어하우스로 데이터베이스 스키마를 성공적으로
 
 <!-- Other web references -->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -32,7 +32,7 @@
 ## VM을 만들 때 정적 개인 IP 주소를 지정하는 방법
 *192.168.1.101*의 정적 개인 IP 주소를 사용하여 *TestVNet*이라는 VNet의 *FrontEnd* 서브넷에 *DNS01*이라는 VM을 만들려면 다음 단계를 따르세요.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](xplat-cli.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](xplat-cli-install.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 
 2. 아래와 같이 **azure config mode** 명령을 실행하여 리소스 관리자 모드로 전환합니다.
 
@@ -264,4 +264,4 @@
 - [ILPIP(인스턴스 수준 공용 IP)](../virtual-networks-instance-level-public-ip) 주소에 대해 알아봅니다.
 - [예약된 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)를 참조합니다.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -338,7 +338,7 @@ Azure CLI는 기본 VM 크기로 가상 컴퓨터를 만듭니다. 또한 저장
 [signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/library/jj573650#createAzureTenant
 [portal]: https://manage.windowsazure.com/
-[clisetup]: ../xplat-cli.md
+[clisetup]: ../xplat-cli-install.md
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -1,20 +1,20 @@
 <properties 
-	pageTitle="Azure 앱 서비스를 사용하여 Xamarin.iOS 앱에 푸시 알림 추가"
-	description="Azure 앱 서비스를 사용하여Xamarin.iOS 앱에 푸시 알림을 전송하는 방법을 알아봅니다."
-	services="app-service\mobile"
-	documentationCenter="xamarin"
+	pageTitle="Azure 앱 서비스를 사용하여 Xamarin.iOS 앱에 푸시 알림 추가" 
+	description="Azure 앱 서비스를 사용하여Xamarin.iOS 앱에 푸시 알림을 전송하는 방법을 알아봅니다." 
+	services="app-service\mobile" 
+	documentationCenter="xamarin" 
 	authors="wesmc7777"
-	manager="dwrede"
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-xamarin-ios"
-	ms.devlang="dotnet"
+	ms.service="app-service-mobile" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="dotnet" 
 	ms.topic="article"
-	ms.date="08/22/2015"
-	ms.author="yuaxu"/>
+	ms.date="08/22/2015" 
+	ms.author="wesmc"/>
 
 # Xamarin.iOS 앱에 푸시 알림 추가
 
@@ -193,12 +193,12 @@
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[Get started with Mobile Services]: /ko-KR/develop/mobile/tutorials/get-started-xamarin-ios
-[Get started with data]: /ko-KR/develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[Get started with authentication]: /ko-KR/develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[Get started with push notifications]: /ko-KR/develop/mobile/tutorials/get-started-with-push-xamarin-ios
-[Push notifications to app users]: /ko-KR/develop/mobile/tutorials/push-notifications-to-users-ios
-[Authorize users with scripts]: /ko-KR/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
+[Get started with Mobile Services]: /ko-kr/develop/mobile/tutorials/get-started-xamarin-ios
+[Get started with data]: /ko-kr/develop/mobile/tutorials/get-started-with-data-xamarin-ios
+[Get started with authentication]: /ko-kr/develop/mobile/tutorials/get-started-with-users-xamarin-ios
+[Get started with push notifications]: /ko-kr/develop/mobile/tutorials/get-started-with-push-xamarin-ios
+[Push notifications to app users]: /ko-kr/develop/mobile/tutorials/push-notifications-to-users-ios
+[Authorize users with scripts]: /ko-kr/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
 [Xamarin Device Provisioning]: http://developer.xamarin.com/guides/ios/getting_started/installation/device_provisioning/
 [Windows에서 Xamarin.iOS 설치]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
@@ -210,4 +210,4 @@
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service-api"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="hero-article"
@@ -50,4 +50,4 @@
 
 이제 API 앱을 배포할 준비가 되었으며 [API 앱 배포](app-service-dotnet-deploy-api-app.md) 자습서에 따라 API 앱을 배포할 수 있습니다.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

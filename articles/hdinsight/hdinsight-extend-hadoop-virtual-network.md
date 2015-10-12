@@ -22,6 +22,8 @@
 Azure 가상 네트워크를 사용하면 SQL Server와 같은 내부 리소스에 통합하기 위해 또는 클라우드의 리소스 간의 안전한 개인 네트워크를 만드는 Hadoop 솔루션을 확장할 수 있습니다.
 
 > [AZURE.NOTE]HDInsight에서는 선호도 기반 Azure 가상 네트워크를 지원하지 않습니다. HDInsight를 사용할 때는 위치 기반 가상 네트워크를 사용해야 합니다.
+>
+> 현재(2015년 8월 25일) Azure 가상 네트워크에서 하나의 Linux 기반 HDInsight 클러스터만 프로비전할 수 있습니다.
 
 ##<a id="whatis"></a>Azure 가상 네트워크란?
 
@@ -62,6 +64,10 @@ Azure 가상 네트워크를 사용하면 SQL Server와 같은 내부 리소스�
 > Azure HDInsight는 위치 기반 가상 네트워크만 지원하며 현재 선호도 그룹을 기반으로 하는 가상 네트워크와는 연동되지 않습니다.
 >
 > 각 클러스터에 단일 서브넷을 지정하는 것이 좋습니다.
+>
+> Linux 기반 HDInsight로 v1(클래식) Azure 가상 네트워크를 사용할 수 없습니다. 가상 네트워크가 v2(Azure 리소스 관리자)여야만 Azure Preview 포털에서 HDInsight 클러스터를 생성하는 동안 옵션으로 나열되거나 Azure CLI 또는 Azure PowerShell에서 클러스터를 만들 때 사용할 수 있습니다.
+>
+> v1 네트워크에 리소스가 있고 HDInsight가 가상 네트워크를 통해 이러한 리소스에 직접 액세스할 수 있도록 하려면 v2 가상 네트워크를 v1 가상 네트워크에 연결하는 방법에 대한 정보를 [클래식 VNet을 새 VNet에 연결](../virtual-network/virtual-networks-arm-asm-s2s.md)에서 참조하세요. 이 연결이 설정되면 v2 가상 네트워크에 HDInsight 클러스터를 만들 수 있습니다.
 
 가상 네트워크에서 HDInsight 클러스터를 프로비전하는 방법에 대한 자세한 내용은 [HDInsight에서 Hadoop 클러스터 프로비전](hdinsight-provision-clusters.md)을 참조하세요.
 
@@ -165,12 +171,10 @@ HDInsight에서 서비스에 액세스하는 문제가 발생하는 경우 네�
 
 * [HDInsight에서 Storm 및 HBase를 사용하여 센서 데이터 분석](hdinsight-storm-sensor-data-analysis.md) - 가상 네트워크에서 Storm 및 HBase 클러스터를 구성하는 방법과 Storm에서 HBase로 데이터를 원격으로 작성하는 방법을 보여 줍니다.
 
-* [Azure 가상 네트워크의 HBase 클러스터 프로비전](hdinsight-hbase-provision-vnet.md) - Azure 가상 네트워크에서 HBase 클러스터를 프로비전하는 방법에 대한 정보를 제공합니다.
+* [HDInsight에서 Hadoop 클러스터 프로비전](hdinsight-hadoop-provision-linux-clusters.md) - Azure 가상 네트워크를 사용하는 정보를 포함하여 Hadoop 클러스터를 프로비전하는 방법에 대한 정보를 제공합니다.
 
-* [HDInsight에서 Hadoop 클러스터 프로비전](hdinsight-provision-clusters.md) - Azure 가상 네트워크를 사용하는 정보를 포함하여 Hadoop 클러스터를 프로비전하는 방법에 대한 정보를 제공합니다.
-
-* [HDInsight에서 Hadoop과 함께 Sqoop 사용](hdinsight-use-sqoop.md) - Sqoop을 사용하여 가상 네트워크를 통해 SQL Server로 데이터를 전송하는 방법에 대한 정보를 제공합니다.
+* [HDInsight에서 Hadoop과 함께 Sqoop 사용](hdinsight-use-sqoop-mac-linux.md) - Sqoop을 사용하여 가상 네트워크를 통해 SQL Server로 데이터를 전송하는 방법에 대한 정보를 제공합니다.
 
 Azure 가상 네트워크에 대한 자세한 내용은 [Azure 가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)(영문)를 참조하세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

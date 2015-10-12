@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="09/03/2015"
+   ms.date="09/29/2015"
    ms.author="jgao"/>
 
 # HDInsight에서 Hadoop 클러스터 프로비전
@@ -64,18 +64,18 @@ HDInsight 클러스터 프로비전에 대한 계획을 세우는 방법에 대�
 
 - **클러스터 유형** 및 **클러스터 크기(데이터 노드라고도 함)**
 
-	HDInsight를 사용하면 고객이 서로 다른 데이터 분석 워크로드를 위한 다양한 클러스터 형식을 배포할 수 있습니다. 현재 제공되는 클러스터 형식은 다음과 같습니다.
+	HDInsight를 사용하면 고객이 서로 다른 데이터 분석 작업을 위한 다양한 클러스터 형식을 배포할 수 있습니다. 현재 제공되는 클러스터 형식은 다음과 같습니다.
 
-	- Hadoop 클러스터: 쿼리 및 분석 워크로드용
-	- HBase 클러스터: NoSQL 워크로드용
-	- Storm 클러스터: 실시간 이벤트 처리 워크로드용
-	- Spark 클러스터(미리 보기): 메모리 내 처리, 대화형 쿼리, 스트림 및 기계 학습 워크로드용
+	- Hadoop 클러스터: 쿼리 및 분석 작업용
+	- HBase 클러스터: NoSQL 작업용
+	- Storm 클러스터: 실시간 이벤트 처리 작업용
+	- Spark 클러스터(미리 보기): 메모리 내 처리, 대화형 쿼리, 스트림 및 기계 학습 작업용
 
 	![HDInsight 클러스터](./media/hdinsight-provision-clusters/hdinsight.clusters.png)
 
 	> [AZURE.NOTE]*Azure HDInsight 클러스터*는 *HDInsight의 Hadoop 클러스터* 또는 *HDInsight 클러스터*라고도 합니다. 경우에 따라 *Hadoop 클러스터*로도 사용됩니다. 이들은 모두 Microsoft Azure 환경에서 호스트되는 Hadoop 클러스터를 말합니다.
 
-	지정된 클러스터 형식 내의 다양한 노드에 대해 다양한 역할이 있으므로 고객이 지정된 역할에서 워크로드 세부 정보에 적절하게 노드 크기를 조정할 수 있습니다. 예를 들어, Hadoop 클러스터에는 수행되는 분석 유형이 메모리 집약적인 경우 대량 메모리로 프로비전된 작업자 노드가 있을 수 있습니다.
+	지정된 클러스터 형식 내의 다양한 노드에 대해 다양한 역할이 있으므로 고객이 지정된 역할에서 작업 세부 정보에 적절하게 노드 크기를 조정할 수 있습니다. 예를 들어, Hadoop 클러스터에는 수행되는 분석 유형이 메모리 집약적인 경우 대량 메모리로 프로비전된 작업자 노드가 있을 수 있습니다.
 
 	![HDInsight Hadoop 클러스터 역할](./media/hdinsight-provision-clusters/HDInsight.Hadoop.roles.png)
 
@@ -395,22 +395,16 @@ Azure PowerShell을 사용하여 HDInsight 클러스터를 프로비전하려면
 - HDInsight 클러스터 만들기
 
 
-		# Use the new Azure Resource Manager mode
-		Switch-AzureMode AzureResourceManager
+		# Sign in
+		Add-AzureAccount
 
 		###########################################
 		# Create required items, if none exist
 		###########################################
 
-		# Sign in
-		Add-AzureAccount
-
 		# Select the subscription to use
 		$subscriptionName = "<SubscriptionName>"        # Provide your Subscription Name
 		Select-AzureSubscription -SubscriptionName $subscriptionName
-
-		# Register your subscription to use HDInsight
-		Register-AzureProvider -ProviderNamespace "Microsoft.HDInsight" -Force
 
 		# Create an Azure Resource Group
 		$resourceGroupName = "<ResourceGroupName>"      # Provide a Resource Group name
@@ -423,7 +417,7 @@ Azure PowerShell을 사용하여 HDInsight 클러스터를 프로비전하려면
 
 		# Create an Azure Blob Storage container
 		$containerName = "<ContainerName>"              # Provide a container name
-		$storageAccountKey = Get-AzureStorageAccountKey -Name $storageAccountName -ResourceGroupName $resourceGroupName | %{ $_.Key1 }
+		$storageAccountKey = Get-AzureStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName | %{ $_.Key1 }
 		$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 		New-AzureStorageContainer -Name $containerName -Context $destContext
 
@@ -446,8 +440,16 @@ Azure PowerShell을 사용하여 HDInsight 클러스터를 프로비전하려면
 		$location = Get-AzureStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName | %{$_.Location}
 
 		# Create a new HDInsight cluster
-		New-AzureHDInsightCluster -ClusterName $clusterName -ResourceGroupName $resourceGroupName -HttpCredential $credentials -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainer $containerName  -ClusterSizeInNodes $clusterNodes -ClusterType Hadoop
-
+		New-AzureHDInsightCluster -ResourceGroupName $resourceGroupName `
+									-ClusterName $clusterName `
+									-Location $location `
+									-ClusterSizeInNodes $clusterNodes `
+									-ClusterType Hadoop `
+									-OSType Windows `
+									-HttpCredential $credentials `
+									-DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" `
+									-DefaultStorageAccountKey $storageAccountKey `
+									-DefaultStorageContainer $containerName  
 
 	![HDI.CLI.Provision](./media/hdinsight-provision-clusters/HDI.ps.provision.png)
 
@@ -604,7 +606,7 @@ SSIS(SQL Server Integration Services)를 사용하여 HDInsight 클러스터를 
 
 
 ##<a id="nextsteps"></a> 다음 단계
-이 문서에서는 HDInsight 클러스터를 프로비전하는 여러 가지 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 HDInsight 클러스터를 프로비전하는 여러 가지 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하십시오.
 
 * [Azure HDInsight 시작](hdinsight-get-started.md) - HDInsight 클러스터를 시작하는 방법을 알아봅니다.
 * [HDInsight에서 Sqoop 사용](hdinsight-use-sqoop.md) - HDInsight와 SQL 데이터베이스 또는 SQL Server 간에 데이터를 복사하는 방법을 알아봅니다.
@@ -776,9 +778,9 @@ SSIS(SQL Server Integration Services)를 사용하여 HDInsight 클러스터를 
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-preview-portal]: https://manage.windowsazure.com
-[connectionmanager]: http://msdn.microsoft.com/ko-KR/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/ko-KR/library/mt146770(v=sql.120).aspx
-[ssisclustercreate]: http://msdn.microsoft.com/ko-KR/library/mt146774(v=sql.120).aspx
-[ssisclusterdelete]: http://msdn.microsoft.com/ko-KR/library/mt146778(v=sql.120).aspx
+[connectionmanager]: http://msdn.microsoft.com/ko-kr/library/mt146773(v=sql.120).aspx
+[ssispack]: http://msdn.microsoft.com/ko-kr/library/mt146770(v=sql.120).aspx
+[ssisclustercreate]: http://msdn.microsoft.com/ko-kr/library/mt146774(v=sql.120).aspx
+[ssisclusterdelete]: http://msdn.microsoft.com/ko-kr/library/mt146778(v=sql.120).aspx
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

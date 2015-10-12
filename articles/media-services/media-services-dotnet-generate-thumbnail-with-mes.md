@@ -366,4 +366,4 @@
 
 [미디어 서비스 인코딩 개요](media-services-encode-asset.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

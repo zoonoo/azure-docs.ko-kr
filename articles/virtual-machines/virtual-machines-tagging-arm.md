@@ -182,11 +182,11 @@ Azure 리소스 관리자를 통해 계산, 네트워크 및 저장소 리소스
 
 
 [Azure 리소스 관리자를 사용하여 PowerShell 환경]: ../powershell-azure-resource-manager.md
-[Azure 리소스 Cmdlet]: https://msdn.microsoft.com/ko-KR/library/azure/dn757692.aspx
+[Azure 리소스 Cmdlet]: https://msdn.microsoft.com/ko-kr/library/azure/dn757692.aspx
 [Azure CLI 환경]: ./xplat-cli-azure-resource-manager.md
 [Azure 리소스 관리자 개요]: ../resource-group-overview.md
 [태그를 사용하여 Azure 리소스 구성]: ../resource-group-using-tags.md
 [Azure 청구서 이해]: ../billing-understand-your-bill.md
 [Microsoft Azure 리소스 소비에 대한 통찰력 얻기]: ../billing-usage-rate-card-overview.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

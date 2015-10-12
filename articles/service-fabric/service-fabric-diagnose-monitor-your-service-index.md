@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="08/04/2015"
+   ms.date="09/25/2015"
    ms.author="ryanwi"/>
 
 # 서비스 패브릭 서비스 진단 및 모니터링
@@ -21,8 +21,7 @@
 
 - [로컬에서 서비스를 모니터링 및 진단하는 방법](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 - [서비스 패브릭 응용 프로그램에 대한 Application Insights 설정](service-fabric-diagnostics-application-insights-setup.md)
-- [응용 프로그램 업그레이드 오류 문제 해결](service-fabric-application-upgrade-troubleshooting.md)
-- [실패한 모니터링되는 응용 프로그램 업그레이드 문제 해결](../service-fabric-application-monitored-upgrade-troubleshooting.md)
+- [응용 프로그램 업그레이드 실패 문제 해결](service-fabric-application-upgrade-troubleshooting.md)
 - [신뢰할 수 있는 행위자에 대한 진단 및 성능 모니터링](service-fabric-reliable-actors-diagnostics.md)
 - [신뢰할 수 있는 서비스에 대한 진단 및 성능 모니터링](service-fabric-reliable-services-diagnostics.md)
 
@@ -38,6 +37,5 @@
 - [서비스 패브릭 상태 보고 보는 방법](service-fabric-view-entities-aggregated-health.md)
 - [문제 해결을 위한 시스템 상태 보고서 사용](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 - [사용자 지정 서비스 패브릭 상태 보고서 추가](service-fabric-report-health.md)
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

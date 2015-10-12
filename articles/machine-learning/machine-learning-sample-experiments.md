@@ -12,16 +12,16 @@
     ms.workload="data-services"
     ms.tgt_pltfrm="na"
     ms.devlang="na"
-    ms.topic="get-started-article" 
-    ms.date="06/29/2015"
+    ms.topic="get-started-article"
+    ms.date="09/28/2015"
     ms.author="chhavib;olgali"/>
 
 # 샘플 실험을 사용하여 새 실험 만들기
-실험을 만들려는 경우 기계 학습 팀 샘플 실험 및 기계 학습 커뮤니티에서 공유된 실험에서 예를 찾아보세요. [갤러리](http://gallery.azureml.net/)에서 실험에 대한 질문을 하거나 의견을 게시할 수도 있습니다.
+실험을 만들려는 경우 기계 학습 팀 샘플 실험 및 기계 학습 커뮤니티에서 공유된 실험에서 예를 찾아보세요. [Cortana Analytics 갤러리](http://gallery.azureml.net/)에서 실험에 대한 질문을 하거나 의견을 게시할 수도 있습니다.
 
 [AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## 갤러리 찾아보기
+## Cortana Analytics 갤러리 찾아보기
 1. [갤러리](http://gallery.azureml.net/)로 이동합니다.
 2. **추세 실험** 또는 **Microsoft 샘플**로 이동하여 찾습니다.
 3. 검색 및 필터를 사용하여 결과 범위를 좁힙니다. ![](./media/machine-learning-sample-experiments/image1.png) 
@@ -38,6 +38,5 @@
 - [샘플 R 실험 검토](machine-learning-r-csharp-web-service-examples.md)
 - [웹 서비스 API 만들기](machine-learning-publish-a-machine-learning-web-service.md)
 - [바로 사용할 수 있는 응용 프로그램 찾아보기](https://datamarket.azure.com/browse?query=machine+learning)
- 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

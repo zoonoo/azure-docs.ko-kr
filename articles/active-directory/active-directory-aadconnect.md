@@ -59,14 +59,14 @@ Azure AD Connect를 사용하여 시작하려면 [Azure AD Connect 다운로드]
 ## Azure AD Connect 작동 방법
 
 
-Azure Active Directory Connect는 기본 세 부분으로 구성됩니다. 이러한 주요 부분은 동기화 서비스, 선택적 Active Directory Federation Services 부분, [Azure AD Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx)를 사용하여 수행하는 모니터링 부분입니다.
+Azure Active Directory Connect는 기본 세 부분으로 구성됩니다. 이러한 주요 부분은 동기화 서비스, 선택적 Active Directory Federation Services 부분, [Azure AD Connect Health](active-directory-aadconnect-health.md)를 사용하여 수행하는 모니터링 부분입니다.
 
 
 <center>![Azure AD Connect Stack](./media/active-directory-aadconnect-how-it-works/AADConnectStack2.png) </center>
 
 - 동기화 - 이 부분은 이전에 DirSync 및 AAD 동기화로 릴리스된 구성 요소와 기능으로 이루어집니다. 사용자 및 그룹 생성을 담당하는 부분입니다. 또한 온-프레미스 환경의 사용자 및 그룹에 대한 정보가 클라우드 내의 정보와 일치하도록 만들기도 합니다.
 - AD FS - Azure AD Connect의 선택적 부분이며 온-프레미스 AD FS 인프라를 사용하여 하이브리드 환경을 설정하는 데 사용할 수 있습니다. 이 부분은 조직에서 도메인 가입 SSO, AD 로그인 정책 강화, 스마트 카드나 타사 MFA 등이 포함된 복잡한 배포를 처리하는 데 사용할 수 있습니다. SSO 구성에 대한 자세한 내용은 [Single Sign On을 사용한 DirSync](https://msdn.microsoft.com/library/azure/dn441213.aspx)를 참조하세요.
-- 상태 모니터링 - AD FS를 사용하는 복잡한 배포의 경우 Azure AD Connect Health는 페더레이션 서버에 대한 강력한 모니터링을 제공하고Azure 포털에서 이 활동을 볼 수 있는 중앙 위치를 제공할 수 있습니다. 자세한 내용은 [Azure Active Directory Connect Health](https://msdn.microsoft.com/library/azure/dn906722.aspx)를 참조하세요.
+- 상태 모니터링 - AD FS를 사용하는 복잡한 배포의 경우 Azure AD Connect Health는 페더레이션 서버에 대한 강력한 모니터링을 제공하고Azure 포털에서 이 활동을 볼 수 있는 중앙 위치를 제공할 수 있습니다. 자세한 내용은 [Azure Active Directory Connect Health](active-directory-aadconnect-health.md)를 참조하세요.
 
 
 ### Azure AD Connect 지원 구성 요소
@@ -273,4 +273,4 @@ Azure AD Sync용으로 만들어진 설명서 중 일부는 Azure AD Connect에�
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

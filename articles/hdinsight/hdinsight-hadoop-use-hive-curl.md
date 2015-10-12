@@ -1,21 +1,21 @@
 <properties
    pageTitle="HDInsight에서 Curl과 Hadoop Hive 사용 | Microsoft Azure"
-	description="원격으로 Curl을 사용하여 HDInsight에 Pig 작업을 제출하는 방법에 대해 알아봅니다."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
+   description="원격으로 Curl을 사용하여 HDInsight에 Pig 작업을 제출하는 방법에 대해 알아봅니다."
+   services="hdinsight"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
+   editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/28/2015"
-	ms.author="larryfr"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="08/28/2015"
+   ms.author="larryfr"/>
 
 #Curl을 사용하여 HDInsight에서 Hadoop으로 Hive 쿼리 실행
 
@@ -116,7 +116,7 @@ Curl은 실행, 모니터링 및 Hive 쿼리 검색 결과를 원시 HTTP 요청
 
 4. 작업 상태가 **SUCCEEDED**로 변경되면 Azure Blob 저장소에서 작업 결과를 검색할 수 있습니다. 쿼리와 함께 전달된 `statusdir` 매개 변수에는 출력 파일의 위치(이 예의 경우 ****wasb:///example/curl**)가 포함됩니다. HDInsight 클러스터에서 사용하는 기본 저장소 컨테이너의 **example/curl** 디렉터리에 작업의 출력을 저장합니다.
 
-    [Mac, Linux 및 Windows용 Azure CLI](xplat-cli.md)를 사용하여 이러한 파일을 나열하고 다운로드할 수 있습니다. 예를 들어 **example/curl**에 파일을 나열하려면 다음 명령을 사용합니다.
+    [Mac, Linux 및 Windows용 Azure CLI](xplat-cli-install.md)를 사용하여 이러한 파일을 나열하고 다운로드할 수 있습니다. 예를 들어 **example/curl**에 파일을 나열하려면 다음 명령을 사용합니다.
 
 		azure storage blob list <container-name> example/curl
 
@@ -194,4 +194,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

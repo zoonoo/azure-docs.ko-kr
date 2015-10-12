@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="09/30/2015" 
 	ms.author="juliako"/>
 
 
-#관리 포털을 사용하여 단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 만들기(미리 보기)
+#관리 포털을 사용하여 단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 만들기 
 
 > [AZURE.SELECTOR]
 - [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -140,7 +140,7 @@ IP 주소가 지정되지 않고 정의된 규칙이 없는 경우 IP 주소가 
 
 ![standard4][standard4]
 
->[AZURE.NOTE]현재 미리 보기로 제공됩니다. 채널 시작에는 최대 30분까지 걸릴 수 있습니다. 채널 다시 설정에는 최대 5분까지 걸릴 수 있습니다.
+>[AZURE.NOTE]현재 채널 시작에는 30분 이상 걸릴 수 있습니다. 채널 다시 설정에는 최대 5분까지 걸릴 수 있습니다.
 
 채널을 만든 후 **인코더** 탭을 선택하여 채널 구성을 볼 수 있습니다. 광고와 슬레이트도 관리할 수 있습니다.
 
@@ -266,4 +266,4 @@ MPEG DASH 스트리밍 URL을 작성하려면 URL에 (format=mpd-time-csf)를 �
 [standard4]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard4.png
 [standard5]: ./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel-standard_encode.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

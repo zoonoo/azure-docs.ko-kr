@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Azure 앱 서비스에서 웹 앱 보안 복원" 
 	description="백업에서 웹앱을 복원하는 방법에 대해 알아봅니다." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -98,4 +98,4 @@
 [OperationDetails]: ./media/web-sites-restore/13OperationDetails.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

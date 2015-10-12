@@ -93,6 +93,7 @@ public void ConfigureAuth(IAppBuilder app)
 									 Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
 									 RedirectUri = redirectUri,
 									 Scope = "openid",
+									 ResponseType = "id_token",
 									 PostLogoutRedirectUri = redirectUri,
 									 TokenValidationParameters = new TokenValidationParameters
 									 {
@@ -207,4 +208,4 @@ public ActionResult About()
 - [앱 모델 v2.0 미리 보기 >>](active-directory-appmodel-v2-overview.md) 
 - [스택 오버플로 "azure-active-directory" 태그 >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

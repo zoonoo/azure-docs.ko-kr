@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/27/2015"
+	ms.date="09/27/2015"
 	ms.author="selcint"/>
 
 # Azure 저장소와 함께 Azure PowerShell 사용
@@ -595,9 +595,9 @@ Azure 큐 서비스에 대한 명명 규칙에 대해서는 [큐 및 메타데�
     $Queue.CloudQueue.DeleteMessage($QueueMessage)
 
 ## Azure 파일 공유 및 파일을 관리하는 방법
-Azure 파일 저장소는 표준 SMB 2.1 프로토콜을 사용하여 응용 프로그램을 위한 공유 저장소를 제공합니다. Microsoft Azure 가상 컴퓨터 및 클라우드 서비스는 탑재된 공유를 통해 여러 응용 프로그램 구성 요소에서 파일 데이터를 공유할 수 있으며 온-프레미스 응용 프로그램은 파일 저장소 API 또는 Azure PowerShell을 통해 공유의 파일 데이터에 액세스할 수 있습니다.
+Azure 파일 저장소는 표준 SMB 프로토콜을 사용하여 응용 프로그램을 위한 공유 저장소를 제공합니다. Microsoft Azure 가상 컴퓨터 및 클라우드 서비스는 탑재된 공유를 통해 여러 응용 프로그램 구성 요소에서 파일 데이터를 공유할 수 있으며 온-프레미스 응용 프로그램은 파일 저장소 API 또는 Azure PowerShell을 통해 공유의 파일 데이터에 액세스할 수 있습니다.
 
-Azure 파일 저장소에 대한 자세한 내용은 [Azure 파일 저장소를 사용하는 방법](storage-dotnet-how-to-use-files.md)(영문) 및 [파일 서비스 REST API](http://msdn.microsoft.com/library/azure/dn167006.aspx)를 참조하세요.
+Azure 파일 저장소에 대한 자세한 내용은 [Windows에서 Azure 파일 저장소를 사용하는 방법](storage-dotnet-how-to-use-files.md)(영문) 및 [파일 서비스 REST API](http://msdn.microsoft.com/library/azure/dn167006.aspx)를 참조하세요.
 
 ## 저장소 분석을 설정 및 쿼리하는 방법
 [Azure 저장소 분석](storage-analytics.md)을 통해 Azure 저장소 계정에서 메트릭(저장소 메트릭)을 수집하고 저장소 계정에 전송된 요청에 대한 데이터(저장소 로깅)를 기록할 수 있습니다. 저장소 메트릭을 사용하여 저장소 계정의 상태를 모니터링하고, 저장소 로깅을 사용하여 저장소 계정에 대한 문제를 진단 및 해결할 수 있습니다. 기본적으로 저장소 메트릭은 저장소 서비스에 대해 사용되지 않습니다. Azure 관리 포털이나 Windows PowerShell을 사용하여 또는 저장소 API를 통해 프로그래밍 방식으로 모니터링을 사용하도록 설정할 수 있습니다. 저장소 로깅은 서버 쪽에서 발생하며, 이를 통해 저장소 계정의 성공한 요청 및 실패한 요청에 대한 세부 정보를 기록할 수 있습니다. 이러한 로그를 사용하여 테이블, 큐 및 Blob에 대한 읽기, 쓰기 및 삭제 작업뿐만 아니라 실패한 요청의 이유에 대한 세부 정보를 볼 수 있습니다.
@@ -736,4 +736,4 @@ AzureChinaCloud와 함께 Azure 저장소를 사용하려면 AzureChinaCloud와 
 [Next Steps]: #next
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

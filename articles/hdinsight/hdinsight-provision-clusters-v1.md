@@ -445,7 +445,7 @@ HDInsight 클러스터를 프로비전하는 다른 옵션은 Azure CLI입니다
 - **Node.js SDK** - <a href="https://www.npmjs.com/package/azure-mgmt-hdinsight" target="_blank">https://www.npmjs.com/package/azure-mgmt-hdinsight</a>
 - **Azure CLI** - <a href="https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz" target="_blank">https://github.com/azure/azure-xplat-cli/archive/hdinsight-February-18-2015.tar.gz</a>  
 
-Azure CLI 사용 방법에 대한 일반적인 설명은 [Mac, Linux 및 Windows용 Azure CLI](../xplat-cli.md)를 참조하세요.
+Azure CLI 사용 방법에 대한 일반적인 설명은 [Mac, Linux 및 Windows용 Azure CLI](../xplat-cli-install.md)를 참조하세요.
 
 아래 지침에서는 Linux 및 Windows에서 Azure CLI를 설치하는 방법 및 명령줄을 사용하여 클러스터를 프로비전하는 방법을 안내합니다.
 
@@ -810,4 +810,4 @@ Visual Studio에 응용 프로그램이 열려 있을 때 **F5**를 눌러 응�
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-management-portal]: https://manage.windowsazure.com
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

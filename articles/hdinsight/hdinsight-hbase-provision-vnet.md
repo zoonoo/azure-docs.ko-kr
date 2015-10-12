@@ -1,6 +1,7 @@
 <properties
 	pageTitle="가상 네트워크에 HBase 클러스터 프로비전 | Microsoft Azure"
 	description="Azure HDInsight에서 HBase 사용 시작 Azure 가상 네트워크에 HDInsight HBase 클러스터를 만드는 방법을 알아봅니다."
+	keywords=""
 	services="hdinsight,virtual-network"
 	documentationCenter=""
 	authors="mumian"
@@ -9,14 +10,14 @@
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/12/2015"
-	ms.author="jgao"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="08/12/2015"
+   ms.author="jgao"/>
 
-# Azure 가상 네트워크에 HBase 클러스터 프로비전
+# Azure 가상 네트워크에 HBase 클러스터 프로비전 
 
 [Azure 가상 네트워크][1]에서 Azure HDInsight HBase 클러스터를 만드는 방법에 대해 알아봅니다.
 
@@ -77,7 +78,9 @@ HBase 클러스터를 프로비전하기 전에 Azure 가상 네트워크가 있
 2. **새로 만들기**, **네트워킹** 및 **가상 네트워크**를 차례로 클릭합니다.
 3. **배포 모델 선택**에서 **클래식**을 선택한 다음 **만들기**를 클릭합니다.
 
-	>[AZURE.NOTE]Windows 기반 HDInsight 클러스터는 클래식 가상 네트워크에만 배포될 수 있습니다.
+	> [AZURE.NOTE]HDInsight로 v1(클래식) Azure 가상 네트워크를 사용할 수 없습니다. 가상 네트워크가 v2(Azure 리소스 관리자)여야만 Azure Preview 포털에서 HDInsight 클러스터를 생성하는 동안 옵션으로 나열되거나 Azure CLI 또는 Azure PowerShell에서 클러스터를 만들 때 사용할 수 있습니다.
+> 
+> v1 네트워크에 리소스가 있고 HDInsight가 가상 네트워크를 통해 이러한 리소스에 직접 액세스할 수 있도록 하려면 v2 가상 네트워크를 v1 가상 네트워크에 연결하는 방법에 대한 정보를 [클래식 VNet을 새 VNet에 연결](../virtual-network/virtual-networks-arm-asm-s2s.md)에서 참조하세요. 이 연결이 설정되면 v2 가상 네트워크에 HDInsight 클러스터를 만들 수 있습니다.
 
 4. 다음 값을 입력하거나 선택합니다.
 
@@ -116,14 +119,14 @@ DNS 서버는 선택 사항이지만 반드시 필요한 경우도 있습니다.
 
   - **클러스터 이름**: 클러스터의 이름을 입력합니다. 이름을 사용할 수 있는 경우 클러스터 이름 옆에 녹색 확인 표시가 나타납니다.
   - **클러스터 유형**: **HBase**를 선택합니다.
-  - **클러스터 운영 체제**: **Windows Server 2012 R2 Datacenter**를 선택합니다.
+  - **클러스터 운영 체제**: **Windows Server 2012 R2 데이터 센터**를 선택합니다.
   - **구독**: 이 클러스터를 프로비전하는 데 사용할 Azure 구독을 선택합니다.
   - **리소스 그룹**: 자습서의 앞부분에서 만든 리소스 그룹을 선택합니다.
   - **자격 증명**: Hadoop 사용자(HTTP 사용자)의 사용자 이름 및 암호를 구성합니다. 클러스터에 원격 데스크톱을 사용하도록 설정하는 경우 원격 데스크톱 사용자의 사용자 이름 및 암호와 계정 만료 날짜를 구성해야 합니다. 아래쪽의 **선택**을 클릭하여 변경 내용을 저장합니다.
   - **데이터 원본**: 클러스터의 기본 파일 시스템으로 사용할 기존 Azure 저장소 계정을 선택하거나 새 Azure 저장소 계정을 만듭니다. 기본 컨테이너의 기본 이름은 클러스터 이름입니다. 또한 저장소 계정의 위치는 클러스터의 위치를 결정합니다.
-  - **노드 가격 책정 계층**: 학습 또는 평가 목적을 위해서는 지역 노드 1개를 선택하여 비용을 최소화합니다.
+  - **노드 가격 책정 계층**: 학습 또는 평가 목적을 위해서 지역 노드 1개를 선택하여 비용을 최소화합니다.
 
-  	- **선택 방법**: 모든 구독에서 저장소 계정을 찾을 수 있도록 하려면 이 항목을 **From all subscriptions(모든 구독에서)**로 설정합니다. 기존 저장소 계정의 **저장소 이름** 및 **액세스 키**를 입력하려면 이 항목을 **액세스 키**로 설정합니다.
+  	- **선택 방법**: 모든 구독에서 저장소 계정을 찾을 수 있도록 하려면 이 항목을 **From all subscriptions(모든 구독에서)**로 설정합니다. 기존 저장소 계정의 **저장소 이름** 및 **선택키**를 입력하려면 이 항목을 **선택키**로 설정합니다.
   	- **저장소 계정 선택/새로 만들기**: 클러스터와 연결할 기존 저장소 계정을 찾아 선택하려면 **저장소 계정 선택**을 클릭합니다. 또는 새 저장소 계정을 만들려면 **새로 만들기**를 클릭합니다. 저장소 계정의 이름을 입력할 때 나타나는 필드를 사용합니다. 이름을 사용할 수 있는 경우 녹색 확인 표시가 나타납니다.
     - **기본 컨테이너 선택**: 클러스터에 사용할 기본 컨테이너의 이름을 입력하려면 이 항목을 사용합니다. 여기에 아무 이름이나 입력할 수 있지만, 컨테이너가 이 특정 클러스터에 사용됨을 쉽게 인식할 수 있도록 클러스터와 같은 이름을 사용하는 것이 좋습니다.
   	- **위치**: 저장소 계정이 있거나 저장소 계정을 만들 지역입니다. 이 위치는 클러스터 위치를 결정합니다. 클러스터와 해당 기본 저장소 계정은 같은 Azure 데이터 센터에 공동 배치되어야 합니다.
@@ -379,4 +382,6 @@ Java 응용 프로그램에서 이 정보를 사용하려는 경우 [Maven을 �
 [img-provision-cluster-page1]: ./media/hdinsight-hbase-provision-vnet/hbasewizard1.png "새 HBase 클러스터에 대한 프로비전 정보"
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "스크립트 작업을 사용하여 HBase 클러스터 사용자 지정"
 
-<!---HONumber=August15_HO9-->
+[azure-preview-portal]: https://portal.azure.com
+
+<!---HONumber=Oct15_HO1-->

@@ -64,8 +64,6 @@ Azure 리소스 관리자는 다양한 리소스 공급자를 사용하여 리�
 
 [AZURE.INCLUDE [virtual-networks-nrp-lb-include](../../includes/virtual-networks-nrp-lb-include.md)]
 
-[AZURE.INCLUDE [virtual-networks-nrp-appgw-include](../../includes/virtual-networks-nrp-lb-include.md)]
-
 [AZURE.INCLUDE [virtual-networks-nrp-vpn-include](../../includes/virtual-networks-nrp-vpn-include.md)]
 
 [AZURE.INCLUDE [virtual-networks-nrp-dns-include](../../includes/virtual-networks-nrp-dns-include.md)]
@@ -272,4 +270,4 @@ PowerShell, AzureCLI를 사용하거나 GitHub에서 배포를 클릭하여 템�
 
 [템플릿 배포](https://msdn.microsoft.com/library/azure/dn790549.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

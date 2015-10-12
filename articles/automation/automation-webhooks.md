@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/04/2015"
-   ms.author="bwren" />
+   ms.date="09/28/2015"
+   ms.author="bwren;sngun"/>
 
 # Azure 자동화 Webhook
 
@@ -146,7 +146,7 @@ Runbook에는 요청 본문에 JSON으로 서식이 지정된 가상 컴퓨터�
 			
 			# Collect individual headers. VMList converted from JSON.
 			$From = $WebhookHeaders.From
-			$VMList = (ConvertFrom-Json -InputObject $WebhookBody).VirtualMachines
+			$VMList = ConvertFrom-Json -InputObject $WebhookBody
 			Write-Output "Runbook started from webhook $WebhookName by $From."
 			
 			# Authenticate to Azure resources
@@ -165,11 +165,93 @@ Runbook에는 요청 본문에 JSON으로 서식이 지정된 가상 컴퓨터�
 		} 
 	}
 
-	
+
+## Azure 경고에 답하여 Runbook 시작
+
+Webhook 지원 Runbook을 사용하여 [Azure 경고](Azure-portal/insights-receive-alert-notifications.md)에 대처할 수 있습니다. Azure 경고를 통해 성능, 가용성 및 사용량 등의 통계를 수집하여 Azure의 리소스를 모니터링할 수 있습니다. 모니터링 메트릭이나 이벤트를 기반으로 Azure 리소스에 대한 경고를 받을 수 있습니다. 지정한 메트릭의 값이 할당된 임계값을 초과하거나 구성된 이벤트가 트리거된 경우 서비스 관리자나 공동 관리자에게 알림을 보내 경고를 해결하도록 합니다. 메트릭과 이벤트에 대한 자세한 내용은 [Azure 경고](Azure-portal/insights-receive-alert-notifications.md)를 참조하세요.
+
+Azure 경고를 알림 시스템으로 사용하는 것 외에도 알림에 대한 응답으로 Runbook을 실행할 수 있습니다. Azure 자동화는 Azure 경고를 통해 Webhook 지원 Rubbook을 실행하는 기능을 제공합니다. 메트릭이 구성된 임계값을 초과할 경우 경고 규칙이 활성화되고 그에 따라 Runbook을 실행하는 자동화 Webhook을 트리거합니다.
+
+![Webhook](media/automation-webhooks/webhook-alert.jpg)
+
+### 경고 컨텍스트
+
+가상 컴퓨터, CPU 사용률 등의 Azure 리소스를 주요한 성능 메트릭 중 하나로 고려해야 합니다. CPU 사용률이 100%이거나 장기간 특정 수준 이상이면 가상 컴퓨터를 다시 시작하여 문제를 해결하고자 할 수 있습니다. 이 문제는 가상 컴퓨터에 대한 규칙 경고를 구성하여 해결할 수 있으며 이 규칙에서는 CPU 백분율을 메트릭으로 적용합니다. 여기서 CPU 백분율은 단순한 예일 뿐이며 Azure 리소스에 대해 많은 다른 메트릭을 구성할 수 있습니다. 가상 컴퓨터를 다시 시작하는 것은 문제를 해결하기 위한 조치로, Runbook이 다른 조치를 취하도록 구성할 수 있습니다.
+
+이 경고 규칙이 활성화되고 Webhook 지원 Runbook이 트리거되면 Runbook의 컨텍스트에서 경고를 보냅니다. [경고 컨텍스트](Azure-portal/insights-receive-alert-notifications.md)는 **SubscriptionID**, **ResourceGroupName**, **ResourceName**, **ResourceType**, **ResourceId** 및 **타임스탬프** 등, Runbook이 조치를 취할 리소스를 파악하는 데 필요한 세부 정보를 포함합니다. 경고 컨텍스트는 **WebhookData**의 본문 부분에 포함되며 **Webhook.RequestBody** 속성으로 액세스할 수 있습니다.
+
+
+### 예
+
+구독에서 Azure 가상 컴퓨터를 만들고 [CPU 백분율 메트릭 모니터링을 위한 경고](Azure-portal/insights-receive-alert-notifications.md)에 연결합니다. 경고를 만들 때, Webhook을 만들 때 생성된 Webhook URL로 Webhook 필드를 입력할 수 있습니다.
+
+다음 Rubbook 샘플은 경고 규칙이 활성화되었을 때 트리거되며 Runbook이 조치를 취할 리소스를 파악하는 데 필요한 경고 컨텍스트 매개 변수를 모읍니다.
+
+	workflow Invoke-RunbookUsingAlerts
+	{
+	    param (  	
+	        [object]$WebhookData 
+	    ) 
+
+	    # If runbook was called from Webhook, WebhookData will not be null.
+	    if ($WebhookData -ne $null) {   
+	        # Collect properties of WebhookData. 
+	        $WebhookName    =   $WebhookData.WebhookName 
+	        $WebhookBody    =   $WebhookData.RequestBody 
+	        $WebhookHeaders =   $WebhookData.RequestHeader 
+
+	        # Outputs information on the webhook name that called This 
+	        Write-Output "This runbook was started from webhook $WebhookName." 
+
+	        
+			# Obtain the WebhookBody containing the AlertContext 
+			$WebhookBody = (ConvertFrom-Json -InputObject $WebhookBody) 
+	        Write-Output "`nWEBHOOK BODY" 
+	        Write-Output "=============" 
+	        Write-Output $WebhookBody 
+
+	        # Obtain the AlertContext     
+	        $AlertContext = [object]$WebhookBody.context
+
+	        # Some selected AlertContext information 
+	        Write-Output "`nALERT CONTEXT DATA" 
+	        Write-Output "===================" 
+	        Write-Output $AlertContext.name 
+	        Write-Output $AlertContext.subscriptionId 
+	        Write-Output $AlertContext.resourceGroupName 
+	        Write-Output $AlertContext.resourceName 
+	        Write-Output $AlertContext.resourceType 
+	        Write-Output $AlertContext.resourceId 
+	        Write-Output $AlertContext.timestamp 
+
+	    	# Act on the AlertContext data, in our case restarting the VM. 
+	    	# Authenticate to your Azure subscription using Organization ID to be able to restart that Virtual Machine. 
+	        $cred = Get-AutomationPSCredential -Name "MyAzureCredential" 
+	        Add-AzureAccount -Credential $cred 
+	        Select-AzureSubscription -subscriptionName "Visual Studio Ultimate with MSDN" 
+	      
+	        #Check the status property of the VM
+	        Write-Output "Status of VM before taking action"
+	        Get-AzureVM -Name $AlertContext.resourceName -ServiceName $AlertContext.resourceName
+	        Write-Output "Restarting VM"
+
+	        # Restart the VM by passing VM name and Service name which are same in this case
+	        Restart-AzureVM -ServiceName $AlertContext.resourceName -Name $AlertContext.resourceName 
+	        Write-Output "Status of VM after alert is active and takes action"
+	        Get-AzureVM -Name $AlertContext.resourceName -ServiceName $AlertContext.resourceName
+	    } 
+	    else  
+	    { 
+	        Write-Error "This runbook is meant to only be started from a webhook."  
+	    }  
+	}
+
+ 
 
 ## 관련된 문서
 
 - [Runbook 시작](automation-starting-a-runbook.md)
-- [Runbook 작업의 상태 보기](automation-viewing-the-status-of-a-runbook-job.md) 
+- [Runbook 작업의 상태 보기](automation-viewing-the-status-of-a-runbook-job.md)
+- [Azure 자동화를 사용하여 Azure 경고에서 조치 취하기](https://azure.microsoft.com/blog/using-azure-automation-to-take-actions-on-azure-alerts/)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

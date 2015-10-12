@@ -1,8 +1,6 @@
 <properties
-    title="Azure SQL Database elastic database query overview"
     pageTitle="Azure SQL 탄력적 데이터베이스 쿼리 미리보기"
-    description="탄력적 쿼리 기능 개요"
-    metaKeywords="azure sql database elastic database queries"
+    description="탄력적 쿼리 기능 개요"    
     services="sql-database"
     documentationCenter=""  
     manager="jeffreyg"
@@ -15,7 +13,7 @@
     ms.devlang="na"
     ms.topic="article"
     ms.date="07/09/2015"
-    ms.author="sidneyh" />
+    ms.author="sidneyh;torsteng" />
 
 # Azure SQL 탄력적 데이터베이스 쿼리 (미리보기) 개요.
 
@@ -81,7 +79,7 @@
 탄력적 데이터베이스 쿼리 기능은 4 개의 DDL 문을 사용합니다. 일반적으로 응용 프로그램 변경의 스키마가 변경될 때 DDL문이 사용될 경우는 한번 아니면 거의 없습니다.
 
 *    [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
-*    [자격 증명 만들기](https://msdn.microsoft.com/library/ms189522.aspx)
+*    [데이터베이스 범위 자격 증명 만들기](https://msdn.microsoft.com/library/mt270260.aspx)
 *    [외부 데이터 원본 만들기/삭제](https://msdn.microsoft.com/library/dn935022.aspx)
 *    [외부 테이블 만들기/삭제](https://msdn.microsoft.com/library/dn935021.aspx)
 
@@ -100,7 +98,7 @@
 
 마스터 키 및 자격 증명을 삭제 하려면 다음 구문을 사용할 수 있습니다.
 
-    DROP CREDENTIAL <credential_name> ON DATABASE;
+    DROP DATABASE SCOPED CREDENTIAL <credential_name>;
     DROP MASTER KEY;  
 
 ### 외부 데이터 원본
@@ -267,4 +265,4 @@ Disqus 또는 Stackoverflow 경험에 대한 의견을 공유 하십시오. 모�
 
 <!--anchors-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

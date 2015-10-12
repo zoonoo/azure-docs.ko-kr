@@ -259,7 +259,15 @@ Blob은 미디어 서비스 계정에 연결된 저장소 계정 또는 미디�
 		            try
 		            {
 		                Console.WriteLine(string.Format("Copy blob '{0}' to '{1}'", sourceBlob.Uri, destinationBlob.Uri));
-		                destinationBlob.StartCopyFromBlob(new Uri(sourceBlob.Uri.AbsoluteUri + signature));
+		                destinationBlob.StartCopy(sourceBlob.Uri);
+
+	                    while (destinationBlob.CopyState.Status == CopyStatus.Pending)
+	                    {
+	                        Thread.Sleep(10000);
+	                    }
+	
+	                    Console.WriteLine("Final Copy status = " + destinationBlob.CopyState.Status);
+
 		            }
 		            catch (Exception ex)
 		            {
@@ -293,4 +301,4 @@ Blob은 미디어 서비스 계정에 연결된 저장소 계정 또는 미디�
 - [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

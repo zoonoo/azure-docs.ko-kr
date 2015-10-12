@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="08/12/2015" 
 	ms.author="larryfr"/>
 
 #HDInsight의 Hive를 사용하여 비행 지연 데이터 분석
 
-Linux 기반 HDInsight(미리 보기)에서 Hive를 사용하여 비행 지연 데이터를 분석한 다음 Sqoop을 사용하여 Azure SQL 데이터베이스에 데이터를 내보내는 방법에 대해 알아봅니다
+Linux 기반 HDInsight에서 Hive를 사용하여 비행 지연 데이터를 분석한 다음 Sqoop을 사용하여 Azure SQL 데이터베이스에 데이터를 내보내는 방법에 대해 알아봅니다
 
 > [AZURE.NOTE]Windows 기반 HDInsight 클러스터(예: Python 및 Hive)와 함께 이 문서의 개별 항목을 사용할 수 있지만 이 문서의 여러 단계는 Linux 기반 클러스터와 관련이 있습니다. Windows 기반 클러스터를 사용하는 단계는 [HDInsight에서 Hive를 사용하여 비행 지연 데이터 분석](hdinsight-analyze-flight-delay-data.md)을 참조하세요.
 
@@ -33,7 +33,7 @@ Linux 기반 HDInsight(미리 보기)에서 Hive를 사용하여 비행 지연 �
 
 - __Azure SQL 데이터베이스__. Azure SQL 데이터베이스를 대상 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우, [Azure SQL 데이터베이스를 만들도록 구성하는 방법](../sql-database/sql-database-create-configure.md)을 참조하세요.
 
-- __Azure CLI__. Azure CLI를 설치하지 않은 경우 자세한 단계는 [Azure CLI 설치 및 구성](../xplat-cli.md)을 참조하세요.
+- __Azure CLI__. Azure CLI를 설치하지 않은 경우 자세한 단계는 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하세요.
 
 
 ##비행 데이터 다운로드
@@ -305,4 +305,4 @@ Linux 기반 HDInsight(미리 보기)에서 Hive를 사용하여 비행 지연 �
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

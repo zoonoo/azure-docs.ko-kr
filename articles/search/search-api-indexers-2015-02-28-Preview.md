@@ -12,14 +12,14 @@ ms.service="search"
 ms.devlang="rest-api" 
 ms.workload="search" ms.topic="article"  
 ms.tgt_pltfrm="na" 
-ms.date="09/21/2015" 
+ms.date="09/29/2015" 
 ms.author="heidist" />
 
-#인덱서 작업(Azure 검색 서비스 REST API: 2015-02-28-Preview)
+#인덱서 작업(Azure 검색 서비스 REST API: 2015-02-28-Preview)#
 
-> [AZURE.NOTE]이 문서에서는 [2015-02-28-Preview](search-api-2015-02-28-preview.md)의 인덱서를 설명합니다. [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173)에 설명된 `2015-02-28` 버전과 여기에 설명된 `2015-02-28-Preview` 버전 간의 차이점은 미리 보기에서는 [인덱서 만들기](#CreateIndexer)에 설명된 것처럼 *fieldMappings*를 제공한다는 것뿐입니다.
+> [AZURE.NOTE]이 문서에서는 [2015-02-28-Preview](./search-api-2015-02-28-preview)의 인덱서를 설명합니다. 현재 [MSDN](http://go.mirosoft.com/fwlink/p/?LinkID=528173)에 설명된 `2015-02-28` 버전과 여기에 설명된 `2015-02-28-Preview` 버전 간의 차이는 없습니다. 이 API가 변경되지 않은 경우에도 이 문서를 제공하는 이유는 `2015-02-28-Preview`에 대한 전체 설명서 집합을 제공하기 위한 것입니다.
 
-## 개요
+## 개요 ##
 
 코드를 작성하여 데이터를 인덱싱하지 않고도 일부 일반적인 데이터 원본과 Azure 검색을 직접 통합할 수 있습니다. 이를 설정하기 위해 Azure 검색 API를 호출하여 **인덱서** 및 **데이터 원본**을 만들고 관리할 수 있습니다.
 
@@ -42,7 +42,7 @@ ms.author="heidist" />
 
 인덱서 및 데이터 원본 리소스와 관련된 최대 제한은 [서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.
 
-## 일반적인 사용 흐름
+## 일반적인 사용 흐름 ##
 
 지정된 `data source` 또는 `indexer` 리소스에 대한 간단한 HTTP 요청(POST, GET, PUT, DELETE)을 통해 인덱서 및 데이터 원본을 만들고 관리할 수 있습니다.
 
@@ -63,9 +63,9 @@ ms.author="heidist" />
 <!-- MSDN has 2 art files plus a API topic link list -->
 
 
-## 데이터 원본 만들기
+## 데이터 원본 만들기 ##
 
-HTTP POST 요청을 사용하여 Azure 검색 서비스 내에 새 데이터 원본을 만들 수 있습니다.
+Azure 검색에서 데이터 원본은 인덱서와 함께 사용되며 대상 인덱스의 임시 또는 예약된 데이터 새로 고침에 대한 연결 정보를 제공합니다. HTTP POST 요청을 사용하여 Azure 검색 서비스 내에 새 데이터 원본을 만들 수 있습니다.
 	
     POST https://[service name].search.windows.net/datasources?api-version=[api-version]
     Content-Type: application/json
@@ -75,7 +75,7 @@ HTTP POST 요청을 사용하여 Azure 검색 서비스 내에 새 데이터 원
 
     PUT https://[service name].search.windows.net/datasources/[datasource name]?api-version=[api-version]
 
-**참고**: 허용되는 최대 데이터 원본 수는 가격 책정 계층에 따라 다릅니다. 무료 서비스에서는 데이터 원본을 3개까지 사용할 수 있으며 표준 서비스에서는 50개까지 사용할 수 있습니다. 자세한 내용은 [한도 및 제약 조건](https://msdn.microsoft.com/library/azure/dn798934.aspx)을 참조하세요.
+**참고**: 허용되는 최대 데이터 원본 수는 가격 책정 계층에 따라 다릅니다. 무료 서비스에서는 데이터 원본을 3개까지 사용할 수 있으며 표준 서비스에서는 50개까지 사용할 수 있습니다. 자세한 내용은 [서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.
 
 **요청**
 
@@ -125,7 +125,8 @@ HTTP POST 요청을 사용하여 Azure 검색 서비스 내에 새 데이터 원
 		
 - `container`:
 	- 필수 `name` 속성은 인덱싱할 테이블/보기(Azure SQL 데이터 원본의 경우) 또는 컬렉션(DocumentDB 데이터 원본의 경우)을 지정합니다. 
-	- DocumentDB 데이터 원본은 선택적 `query` 속성도 지원합니다. 이 속성을 사용하면 Azure 검색에서 인덱싱할 수 있는 플랫 스키마로 임의 JSON 문서 레이아웃을 평면화하는 쿼리를 지정할 수 있습니다.   
+	- SQL 데이터 원본의 경우 컨테이너가 테이블 또는 뷰 이름만으로 구성되도록 dbo. 같은 구성표 접두사를 생략합니다.
+	- DocumentDB 데이터 원본은 선택적 `query` 속성을 지원합니다. 이 속성을 사용하면 Azure 검색에서 인덱싱할 수 있는 플랫 스키마로 임의 JSON 문서 레이아웃을 평면화하는 쿼리를 지정할 수 있습니다.   
 - 아래에 선택적 `dataChangeDetectionPolicy` 및 `dataDeletionDetectionPolicy`에 대한 설명이 나와 있습니다.
 
 <a name="DataChangeDetectionPolicies"></a> **데이터 변경 검색 정책**
@@ -211,7 +212,7 @@ SQL 통합 변경 내용 추적 정책을 사용할 때는 별도의 데이터 �
 요청이 성공적으로 실행되면 '201 생성됨'이 반환됩니다.
 
 <a name="UpdateDataSource"></a>
-## 데이터 원본 업데이트
+## 데이터 원본 업데이트 ##
 
 HTTP PUT 요청을 사용하여 기존 데이터 원본을 업데이트할 수 있습니다. 요청 URI에서 업데이트할 데이터 원본의 이름을 지정합니다.
 
@@ -230,7 +231,7 @@ HTTP PUT 요청을 사용하여 기존 데이터 원본을 업데이트할 수 �
 **참고:** 기존 데이터 원본의 경우 일부 속성을 업데이트할 수 없습니다. 예를 들어 기존 데이터 원본의 형식은 변경할 수 없습니다.
 
 <a name="ListDataSource"></a>
-## 데이터 원본 나열
+## 데이터 원본 나열 ##
 
 **데이터 원본 나열** 작업은 Azure 검색 서비스에 있는 데이터 원본의 목록을 반환합니다.
 
@@ -269,7 +270,7 @@ HTTP PUT 요청을 사용하여 기존 데이터 원본을 업데이트할 수 �
 이 기술은 검색 서비스에 많은 데이터 원본이 있는 경우 대역폭을 절감하는 데 유용합니다.
 
 <a name="GetDataSource"></a>
-## 데이터 원본 가져오기
+## 데이터 원본 가져오기 ##
 
 **데이터 원본 가져오기** 작업은 Azure 검색에서 데이터 원본 정의를 가져옵니다.
 
@@ -304,7 +305,7 @@ HTTP PUT 요청을 사용하여 기존 데이터 원본을 업데이트할 수 �
 **참고** 이 API를 호출할 때는 `Accept` 요청 헤더를 `application/json;odata.metadata=none`으로 설정하지 마세요. 이렇게 설정하면 `@odata.type` 특성이 응답에서 생략되며, 서로 다른 유형의 데이터 변경 및 데이터 삭제 검색 정책을 구분할 수 없습니다.
 
 <a name="DeleteDataSource"></a>
-## 데이터 원본 삭제
+## 데이터 원본 삭제 ##
 
 **데이터 원본 삭제** 작업은 Azure 검색 서비스에서 데이터 원본을 제거합니다.
 
@@ -322,7 +323,7 @@ HTTP PUT 요청을 사용하여 기존 데이터 원본을 업데이트할 수 �
 상태 코드: 응답에 성공하면 ‘204 콘텐츠 없음’이 반환됩니다.
 
 <a name="CreateIndexer"></a>
-## 인덱서 만들기
+## 인덱서 만들기 ##
 
 HTTP POST 요청을 사용하여 Azure 검색 서비스 내에서 새 인덱서를 만들 수 있습니다.
 	
@@ -334,7 +335,7 @@ HTTP POST 요청을 사용하여 Azure 검색 서비스 내에서 새 인덱서�
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=[api-version]
 
-**참고**: 허용되는 최대 인덱서 수는 가격 책정 계층에 따라 다릅니다. 무료 서비스에서는 인덱서를 3개까지 사용할 수 있으며 표준 서비스에서는 50개까지 사용할 수 있습니다. 자세한 내용은 [한도 및 제약 조건](https://msdn.microsoft.com/library/azure/dn798934.aspx)을 참조하세요.
+**참고**: 허용되는 최대 인덱서 수는 가격 책정 계층에 따라 다릅니다. 무료 서비스에서는 인덱서를 3개까지 사용할 수 있으며 표준 서비스에서는 50개까지 사용할 수 있습니다. 자세한 내용은 [서비스 제한](search-limits-quotas-capacity.md)을 참조하세요.
 
 `api-version`은 필수 사항입니다. 현재 버전은 `2015-02-28`입니다. [Azure 검색 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx)에서는 대체 버전에 대한 세부 정보 및 추가 정보를 제공합니다.
 
@@ -355,14 +356,15 @@ HTTP POST 요청을 사용하여 Azure 검색 서비스 내에서 새 인덱서�
         "targetIndexName" : "Required. The name of an existing index",
         "schedule" : { Optional. See Indexing Schedule below. },
         "parameters" : { Optional. See Indexing Parameters below. },
-        "fieldMappings" : { Optional. See Field Mappings below. }
+        "fieldMappings" : { Optional. See Field Mappings below. },
+        "disabled" : Optional boolean value indicating whether the indexer is disabled. False by default.  
 	}
 
 **인덱서 일정**
 
 인덱서는 선택적으로 일정을 지정할 수 있습니다. 일정이 제공된 경우, 인덱서가 일정에 따라 주기적으로 실행됩니다. 일정은 다음과 같은 특성을 갖습니다.
 
-- `interval`: 필수 사항입니다. 인덱서 실행 간격 또는 기간을 지정하는 기간 값입니다. 허용되는 가장 작은 간격은 5분이고 가장 긴 간격은 1일입니다. 형식은 XSD "dayTimeDuration" 값([ISO 8601 기간](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 값의 제한된 하위 집합)이어야 합니다. 해당 패턴은 `P(nD)(T(nH)(nM))`입니다. 예를 들어 15분 간격이면 `PT15M`, 2시간 간격이면 `PT2H`입니다. 
+- `interval`: 필수 사항입니다. 인덱서 실행 간격 또는 기간을 지정하는 기간 값입니다. 허용되는 가장 작은 간격은 5분이고 가장 긴 간격은 1일입니다. 형식은 XSD "dayTimeDuration" 값([ISO 8601 기간](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 값의 제한된 하위 집합)이어야 합니다. 해당 패턴은 `P[nD][T[nH][nM]]`입니다. 예를 들어 15분 간격이면 `PT15M`, 2시간 간격이면 `PT2H`입니다. 
 
 - `startTime`: 필수 사항입니다. 인덱서 실행을 시작해야 하는 UTC 날짜/시간입니다.
 
@@ -401,7 +403,7 @@ HTTP POST 요청을 사용하여 Azure 검색 서비스 내에서 새 인덱서�
 
 예를 들어 원본 필드에 `["red", "white", "blue"]` 문자열이 포함된 경우 `Collection(Edm.String)` 형식의 대상 필드는 세 개의 값 `"red"`, `"white"` 및 `"blue"`로 채워집니다.
 
-참고: `targetFieldName` 속성은 선택 사항입니다. 비워 둘 경우 `sourceFieldName` 값이 사용됩니다.
+`targetFieldName` 속성은 선택 사항입니다. 비워 둘 경우 `sourceFieldName` 값이 사용됩니다.
 
 <a name="CreateIndexerRequestExamples"></a> **요청 본문 예제**
 
@@ -422,7 +424,7 @@ HTTP POST 요청을 사용하여 Azure 검색 서비스 내에서 새 인덱서�
 
 
 <a name="UpdateIndexer"></a>
-## 인덱서 업데이트
+## 인덱서 업데이트 ##
 
 HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습니다. 요청 URI에서 업데이트할 인덱서의 이름을 지정합니다.
 
@@ -444,7 +446,7 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 
 
 <a name="ListIndexers"></a>
-## 인덱서 나열
+## 인덱서 나열 ##
 
 **인덱서 나열** 작업은 Azure 검색 서비스의 인덱서 목록을 반환합니다.
 
@@ -487,7 +489,7 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 
 
 <a name="GetIndexer"></a>
-## 인덱서 가져오기
+## 인덱서 가져오기 ##
 
 **인덱서 가져오기** 작업은 Azure 검색에서 인덱서 정의를 가져옵니다.
 
@@ -515,7 +517,7 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 
 
 <a name="DeleteIndexer"></a>
-## 인덱서 삭제
+## 인덱서 삭제 ##
 
 **인덱서 삭제** 작업은 Azure 검색 서비스에서 인덱서를 제거합니다.
 
@@ -533,7 +535,7 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 상태 코드: 응답에 성공하면 ‘204 콘텐츠 없음’이 반환됩니다.
 
 <a name="RunIndexer"></a>
-## 인덱서 실행
+## 인덱서 실행 ##
 
 인덱서를 일정에 따라 주기적으로 실행할 수 있을 뿐 아니라 **인덱서 실행** 작업을 통해 요청 시에 호출할 수도 있습니다.
 
@@ -549,7 +551,7 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 상태 코드: 응답에 성공하면 ‘202 수락됨'이 반환됩니다.
 
 <a name="GetIndexerStatus"></a>
-## 인덱서 상태 가져오기
+## 인덱서 상태 가져오기 ##
 
 **인덱서 상태 가져오기** 작업은 인덱서의 현재 상태 및 실행 기록을 검색합니다.
 
@@ -617,7 +619,7 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 
 - `endTime`: 이 실행이 종료된 시간(UTC)입니다. 계속 실행 중인 경우에는 이 값이 설정되지 않은 것입니다.
 
-- `errors`: 항목 수준 오류(있는 경우)의 목록입니다.
+- `errors`: 항목 수준 오류(있는 경우)의 목록입니다. 각 항목은 문서 키(`key` 속성) 및 오류 메시지(`errorMessage` 속성)를 포함하고 있습니다.
 
 - `itemsProcessed`: 이 실행 중에 인덱서에서 인덱싱하려고 한 데이터 원본 항목(예: 테이블 행)의 수입니다.
 
@@ -635,15 +637,14 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 
 - `inProgress`: 인덱서 실행이 진행 중임을 나타냅니다.
 
-- `transientFailure`: 인덱서 실행에 실패했음을 나타냅니다. 자세한 내용은 `errorMessage` 속성을 참조하세요. 실행에 실패한 경우 사용자가 직접 문제를 해결해야 할 수도 있고 그렇지 않을 수도 있습니다. 예를 들어
-- 데이터 원본과 대상 인덱스 간의 스키마 비호환성을 해결하려면 사용자가 작업을 수행해야 하지만 일시적인 데이터 원본 가동 중지 시간의 경우에는 사용자가 작업을 수행할 필요가 없습니다. 인덱서 호출은 일정(있는 경우)에 따라 계속 진행됩니다. 
+- `transientFailure`: 인덱서 실행에 실패했음을 나타냅니다. 자세한 내용은 `errorMessage` 속성을 참조하세요. 실패하면 해결하기 위해 사람이 개입해야(예를 들어 데이터 원본과 대상 인덱스 사이의 구성표 비호환성 해결) 할 수도 있고 그렇지 않을 수도 있는 반면에, 임시 데이터 원본의 가동 중지 시간은 그렇지 않습니다. 인덱서 호출은 일정(있는 경우)에 따라 계속 진행됩니다.
 
 - `persistentFailure`: 사용자가 작업을 수행해야 방식에서 인덱서 오류가 발생했음을 나타냅니다. 이 상태에서는 예약된 인덱서 실행이 중지됩니다. 문제를 해결한 후 인덱서 다시 설정API를 사용하여 예약된 실행을 다시 시작합니다.
 
 - `reset`: 인덱서 다시 설정 API(아래 참조) 호출을 통해 인덱서가 다시 설정되었음을 나타냅니다.
 
 <a name="ResetIndexer"></a>
-## 인덱서 다시 설정
+## 인덱서 다시 설정 ##
 
 **인덱서 다시 설정** 작업은 인덱서와 관련된 변경 내용 추적 상태를 다시 설정합니다. 그러면 데이터 원본 스키마가 변경된 등의 경우 인덱스를 처음부터 다시 트리거하거나 인덱서와 연결된 데이터 원본의 데이터 변경 검색 정책을 변경할 수 있습니다.
 
@@ -658,7 +659,7 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 
 상태 코드: 응답에 성공하면 ‘204 콘텐츠 없음'이 반환됩니다.
 
-## SQL 데이터 형식과 Azure 검색 데이터 형식 사이의 매핑
+## SQL 데이터 형식과 Azure 검색 데이터 형식 사이의 매핑 ##
 
 <table style="font-size:12">
 <tr>
@@ -725,7 +726,7 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 </tr>
 </table>
 
-## JSON 데이터 형식과 Azure 검색 데이터 형식 사이의 매핑
+## JSON 데이터 형식과 Azure 검색 데이터 형식 사이의 매핑 ##
 
 <table style="font-size:12">
 <tr>
@@ -775,4 +776,4 @@ HTTP PUT 요청을 사용하여 기존 인덱서를 업데이트할 수 있습�
 </tr>
 </table>
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

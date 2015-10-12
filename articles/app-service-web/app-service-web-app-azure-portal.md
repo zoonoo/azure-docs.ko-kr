@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Azure 포털 탐색을 위한 참조"
 	description="앱 서비스 웹에 대한 사용자 환경과 관련해서 관리 포털과 Azure 포털 간의 차이점을 알아봅니다."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="jaime-espinosa"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -88,4 +88,4 @@ Azure 웹 사이트를 이제 [앱 서비스 웹앱](http://go.microsoft.com/fwl
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [새 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

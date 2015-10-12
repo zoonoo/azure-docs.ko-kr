@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="앱 서비스 환경을 구성하는 방법" 
 	description="앱 서비스 환경 구성, 관리 및 모니터링" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="stefsch" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -133,4 +133,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

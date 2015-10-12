@@ -14,7 +14,7 @@
     ms.topic="article"
     ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="08/10/2015"
+	ms.date="09/28/2015"
 	ms.author="brohrer;garye" />
 
 # Microsoft Azure 기계 학습을 위한 알고리즘 선택 방법
@@ -35,7 +35,7 @@
 
 차트에서 "For *&lt;path label&gt;* use *&lt;algorithm&gt;*."로 표시된 경로와 알고리즘 레이블을 확인합니다. 예를 들어, "For *speed* use *two class logistic regression*."과 같습니다. 경우에 따라 두 개 이상의 분기가 적용됩니다. 완벽하게 맞는 것이 없는 경우도 있습니다. 경험에 기반한 권장 방법으로 제공되는 것이므로 정확하지 않은 것에 대해 걱정하지 않아도 됩니다. 수많은 데이터 과학자가 최적의 알고리즘을 찾는 가장 확실한 방법은 모든 알고리즘을 시도해보는 것이라고 말합니다.
 
-다음은 동일한 데이터에 대해 여러 알고리즘을 시도하고 그 결과를 비교하는 실험에 대한 [Azure 기계 학습 갤러리](http://gallery.azureml.net/)의 예제입니다. [다중 클래스 분류자 비교: 문자 인식](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
+다음은 동일한 데이터에 대해 여러 알고리즘을 시도하고 그 결과를 비교하는 실험에 대한 [Cortana Analytics 갤러리](http://gallery.azureml.net/)의 예제입니다. [다중 클래스 분류자 비교: 문자 인식](http://gallery.azureml.net/Details/a635502fc98b402a890efe21cec65b92).
 
 ## 기계 학습의 다양한 특징
 
@@ -222,4 +222,4 @@ Azure 기계 학습에는 [Vowpal Wabbit](https://msdn.microsoft.com/library/azu
 [9]: ./media/machine-learning-algorithm-choice/image9.png
 [10]: ./media/machine-learning-algorithm-choice/image10.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

@@ -20,18 +20,18 @@
 
 [보안 경계 모범 사례 페이지로 돌아가기][HOME]
 
-이 예제에서는 방화벽이 포함된 DMZ, 4개의 Windows Server, 사용자 정의 라우팅, IP 전달, 네트워크 보안 그룹을 만듭니다. 또한 각 단계를 자세히 이해할 수 있도록 각각의 관련 명령에 대해 안내합니다. 또한 트래픽 시나리오 섹션에서는 DMZ에서 방어 계층을 진행하는 방법에 대한 심층적인 단계별 설명을 제공합니다. 마지막으로, 참조 섹션에서는 다양한 시나리오를 사용하여 테스트 및 실험하기 위한 환경을 구축하는 전체 코드와 지침을 제공합니다.
+이 예제에서는 방화벽이 포함된 DMZ, 4개의 Windows Server, 사용자 정의 라우팅, IP 전달, 네트워크 보안 그룹을 만듭니다. 또한 각 단계를 자세히 이해할 수 있도록 각각의 관련 명령에 대해 안내합니다. 트래픽 시나리오 섹션에서는 DMZ에서 방어 계층을 진행하는 방법에 대한 심층적인 단계별 설명도 제공합니다. 마지막으로, 참조 섹션에서는 다양한 시나리오를 사용하여 테스트 및 실험하기 위한 환경을 구축하는 전체 코드와 지침을 제공합니다.
 
 ![NVA, NSG, UDR을 사용하는 양방향 DMZ][1]
 
 ## 환경 설정
-이 예제는 다음을 포함하는 구독을 제공합니다.
+이 예에서는 다음을 포함하는 구독이 있습니다.
 
 - 세 클라우드 서비스: "SecSvc001", "FrontEnd001", "BackEnd001"
 - "SecNet", "FrontEnd", "BackEnd"의 세 서브넷을 포함하는 가상 네트워크 "CorpNetwork"
 - 네트워크 가상 어플라이언스(이 예제의 경우 SecNet 서브넷에 연결된 방화벽)
-- 응용 프로그램 웹 서버("IIS01")를 나타내는 Windows Server
-- 응용 프로그램 백 엔드 서버("AppVM01", "AppVM02")를 나타내는 두 Windows Server
+- 응용 프로그램 웹 서버("IIS01")를 나타내는 Windows 서버
+- 응용 프로그램 백 엔드 서버("AppVM01", "AppVM02")를 나타내는 두 Windows 서버
 - DNS 서버("DNS01")를 나타내는 Windows Server
 
 아래 참조 섹션에는 위에서 설명한 대부분의 환경을 빌드할 PowerShell 스크립트가 나와 있습니다. VM 및 가상 네트워크 구축은 예제 스크립트로 수행하지만 이 문서에서는 자세히 설명하지 않습니다.
@@ -80,7 +80,7 @@ VNETLocal은 항상 특정 네트워크의 VNet의 주소 접두사로 정의됩
 2.	"VPNGateway" = 동적 네트워크 프로토콜에서 추가한 동적 경로(하이브리드 네트워크와 함께 사용할 경우 BGP). 이러한 경로는 동적 프로토콜에서 피어 네트워크의 변경 사항을 자동으로 반영하면서 시간에 따라 바뀔 수 있습니다.
 3.	"Default" = 위의 경로 테이블에 나와 있는 시스템 경로, 로컬 VNet, 정적 항목.
 
->[AZURE.NOTE]UDR(사용자 정의 라우팅) 및 ExpressRoute을 사용할 경우 Azure Virtual Gateway에 사용된 동적 라우팅의 복잡성으로 인해 제한이 있습니다. ExpressRoute 연결을 제공하는 Azure Gateway와 통신하는 서브넷은 UDR을 적용하지 않아야 합니다. 또한 Azure Gateway는 다른 UDR 경계 서브넷에 대한 NextHop 장치가 될 수 없습니다. UDR 및 ExpressRoute를 완전히 통합하는 기능은 향후 Azure 릴리스에서 지원됩니다.
+>[AZURE.NOTE]UDR(사용자 정의 라우팅) 및 ExpressRoute을 사용할 경우 Azure Virtual Gateway에 사용된 동적 라우팅의 복잡성으로 인해 제한이 있습니다. Express 경로 연결을 제공하는 Azure 게이트웨이와 통신하는 서브넷은 UDR을 적용하지 않아야 합니다. 또한 Azure 게이트웨이는 다른 UDR 경계 서브넷에 대한 NextHop 장치가 될 수 없습니다. UDR 및 ExpressRoute를 완전히 통합하는 기능은 향후 Azure 릴리스에서 지원됩니다.
 
 #### 로컬 경로 만들기
 
@@ -941,4 +941,4 @@ PowerShell 스크립트 파일에 전체 스크립트를 저장합니다. 네트
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

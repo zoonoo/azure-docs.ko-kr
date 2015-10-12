@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Azure 앱 서비스에서 웹 앱 구성" 
 	description="Azure 앱 서비스에서 웹 앱을 구성 하는 방법" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="erikre" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -178,4 +178,4 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

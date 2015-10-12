@@ -1,10 +1,10 @@
 <properties 
    pageTitle="StorSimple 시스템 제한 | Microsoft Azure"
-   description="StorSimple 구성 요소 및 연결에 대한 시스템 제한 및 권장 크기에 대해 설명합니다."
+   description="StorSimple 8000 시리즈 구성 요소 및 연결에 대한 시스템 제한 및 권장 크기에 대해 설명합니다."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
-   manager="adinah"
+   manager="carolz"
    editor="" />
 <tags 
    ms.service="storsimple"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="09/28/2015"
    ms.author="alkohli" />
 
 # StorSimple 시스템 제한
@@ -27,4 +27,4 @@ StorSimple는 데이터 센터에 대해 확장 가능하고 유연한 저장소
 
 [StorSimple 시스템 요구 사항](storsimple-system-requirements.md)을 검토하십시오.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/18/2015" 
+	ms.date="09/28/2015" 
 	ms.author="wesmc"/>
 
 # 모바일 서비스에서 일시 삭제 사용
@@ -163,4 +163,4 @@ JavaScript 백 엔드 모바일 서비스와 예약된 작업에 대해 자세�
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

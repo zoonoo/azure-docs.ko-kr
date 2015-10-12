@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/30/2015"
+	ms.date="10/01/2015"
 	ms.author="markusvi"/>
 
 
@@ -45,7 +45,7 @@ Halogen Software와의 Azure AD 통합을 구성하려면 다음 항목이 필�
 
  
 ## 시나리오 설명
-이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다. <br> 이 자습서에 설명된 시나리오는 다음 세 가지 주요 구성 요소로 이루어져 있습니다.
+이 자습서는 테스트 환경에서 Azure AD Single Sign-on을 테스트하는 데 도움을 주기 위해 제공되었습니다. <br> 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Halogen Software 추가 
 2. Azure AD Single Sign-on 구성 및 테스트
@@ -221,4 +221,4 @@ Halogen Software에서 Azure AD Single Sign-on을 구성하고 테스트하려�
 [300]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_300.png
 [301]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_301.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

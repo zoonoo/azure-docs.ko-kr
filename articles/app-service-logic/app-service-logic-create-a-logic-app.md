@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service-logic"
-	ms.workload="integration"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
@@ -21,8 +21,8 @@
 | 빠른 참조 |
 | --------------- |
 | [논리 앱 정의 언어](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
-| [논리 앱 커넥터 문서](https://azure.microsoft.com/ko-KR/documentation/articles/app-service-logic-connectors-list/) |
-| [논리 앱 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=azurelogicapps) |
+| [논리 앱 커넥터 문서](https://azure.microsoft.com/ko-kr/documentation/articles/app-service-logic-connectors-list/) |
+| [논리 앱 포럼](https://social.msdn.microsoft.com/Forums/ko-kr/home?forum=azurelogicapps) |
 
 이 항목에서는 단 몇 분 안에 [앱 서비스 논리 앱](app-service-logic-what-are-logic-apps.md)을 시작할 수 있는 방법을 보여줍니다. 관심이 있는 일련의 트윗을 Dropbox 폴더로 전달할 수 있는 워크플로 단계별로 안내합니다.
 
@@ -184,4 +184,4 @@ Twitter 커넥터는 이제 워크플로의 일부입니다.
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [논리 앱 기능 사용]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

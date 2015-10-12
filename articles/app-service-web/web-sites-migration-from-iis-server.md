@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Azure 앱 서비스에서 엔터프라이즈 웹 앱 마이그레이션" 
 	description="Web App Migration Assistant를 사용하여 기존 IIS 웹 사이트를 Azure 앱 서비스 웹 앱으로 신속하게 마이그레이션하는 방법을 보여 줍니다." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	writer="cephalin" 
@@ -10,7 +10,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -136,4 +136,4 @@ Migration Assistant에서는 온-프레미스 IIS에서 Azure 앱 서비스 웹 
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

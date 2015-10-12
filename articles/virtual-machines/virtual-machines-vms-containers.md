@@ -28,7 +28,7 @@ Azure는 뛰어난 클라우드 솔루션을 제공합니다. 이 솔루션은 �
 
 **이러한 알려진 기능 외에** Azure에서는 *새로운* 기능을 통해 더 큰 Docker의 혜택을 제공합니다.
 
-- [수많은](virtual-machines-docker-with-xplat-cli.md) [다양한](virtual-machines-docker-with-portal.md) [방법들](virtual-machines-docker-ubuntu-quickstart.md)로 컨테이너용 [Docker 호스트를 ](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) 상황에 맞게 생성
+- [수많은](virtual-machines-docker-with-xplat-cli-install.md) [다양한](virtual-machines-docker-with-portal.md) [방법들](virtual-machines-docker-ubuntu-quickstart.md)로 컨테이너용 [Docker 호스트를 ](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu) 상황에 맞게 생성
 - [Azure 리소스 관리자](resource-group-overview.md) 및 [리소스 그룹 템플릿](resource-group-authoring-templates.md)으로 복잡한 분산 응용 프로그램을 간단하게 배포하고 업데이트
 - 여러 독점 및 공개 소스 구성 관리 도구와 통합
 
@@ -120,7 +120,7 @@ IT 및 운영 전문가 역시 컨테이너 및 가상 컴퓨터를 조합하여
 
 이 시점에서 설계자, 개발자, 또는 IT 운영 전문가라면 "이걸 다 자동화할 수 있다니 진정한 DCaaS(Data-Center-As-A-Service)야!"라고 할지도 모르겠습니다.
 
-맞습니다. 가능합니다. 수많은 시스템이 있고 그 중 상당수를 이미 사용하고 계실지도 모르며 [Windows용 CustomScriptingExtension](https://msdn.microsoft.com/library/azure/dn781373.aspx) 또는 [Linux용 CustomScriptingExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)을 주로 사용해서 Azure VM의 그룹들을 관리하고 사용자 지정 코드를 스크립트로 주입할 수도 있습니다. 이미 사용하고 있겠지만 [이러한 방식으로](virtual-machines-create-multi-vm-deployment-xplat-cli.md) PowerShell 또는 Azure CLI 스크립트를 사용하여 Azure를 배포할 수 있습니다.
+맞습니다. 가능합니다. 수많은 시스템이 있고 그 중 상당수를 이미 사용하고 계실지도 모르며 [Windows용 CustomScriptingExtension](https://msdn.microsoft.com/library/azure/dn781373.aspx) 또는 [Linux용 CustomScriptingExtension](http://azure.microsoft.com/blog/2014/08/20/automate-linux-vm-customization-tasks-using-customscript-extension/)을 주로 사용해서 Azure VM의 그룹들을 관리하고 사용자 지정 코드를 스크립트로 주입할 수도 있습니다. 이미 사용하고 있겠지만 [이러한 방식으로](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md) PowerShell 또는 Azure CLI 스크립트를 사용하여 Azure를 배포할 수 있습니다.
 
 이런 기능들은 [Puppet](https://puppetlabs.com/) 및 [Chef](https://www.chef.io/) 같은 도구들로 마이그레이션하여 VM 생성 및 구성을 규모에 맞추어 자동화하는 데 사용되기도 합니다. (Azure에서 이러한 도구를 사용하는 방법에 대한 링크는 [여기](#tools-for-working-with-containers)에서 확인하실 수 있습니다.)
 
@@ -185,7 +185,7 @@ Microsoft Azure의 Docker:
 
 - [Azure의 Linux용 Docker VM 확장](virtual-machines-docker-vm-extension.md)
 - [Azure Docker VM 확장 프로그램 사용자 가이드](https://github.com/Azure/azure-docker-extension/blob/master/README.md)
-- [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장 사용](virtual-machines-docker-with-xplat-cli.md)
+- [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장 사용](virtual-machines-docker-with-xplat-cli-install.md)
 - [Azure 미리 보기 포털에서 Docker VM 확장 사용](virtual-machines-docker-with-portal.md)
 - [Azure 마켓플레이스에서 신속하게 Docker 시작](virtual-machines-docker-ubuntu-quickstart.md)
 - [Azure에서 docker-machine을 사용하는 방법](virtual-machines-docker-machine.md)
@@ -239,4 +239,4 @@ Linux 배포 도구 및 Azure 예시:
 [마이크로 서비스]: http://martinfowler.com/articles/microservices.html
 <!--Image references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

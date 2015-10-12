@@ -1,0 +1,113 @@
+<properties
+	pageTitle="Linux에서 Azure 파일 저장소 사용 방법 | Microsoft Azure"
+        description="클라우드에서 파일 공유를 만들고 Azure VM 또는 Linux에서 실행 중인 온-프레미스 응용 프로그램에서 탑재합니다."
+        services="storage"
+        documentationCenter="na"
+        authors="jutang"
+        manager="jahogg"
+        editor="" />
+
+<tags ms.service="storage"
+      ms.workload="storage"
+      ms.tgt_pltfrm="na"
+      ms.devlang="na"
+      ms.topic="article"
+      ms.date="09/28/2015"
+      ms.author="jutang;tamram" />
+
+
+# Linux에서 Azure 파일 저장소 사용 방법 
+
+## 개요
+
+Azure 파일 저장소는 표준 SMB 프로토콜을 사용하여 클라우드에서 파일 공유를 제공합니다. 파일 저장소는 이제 일반적으로 사용 가능하며 SMB 3.0과 SMB 2.1을 모두 지원합니다.
+
+Azure Preview 포털, Azure 저장소 PowerShell cmdlet, Azure 저장소 클라이언트 라이브러리 또는 Azure 저장소 REST API를 사용하여 Azure 파일 공유를 만들 수 있습니다. 또한 파일 공유는 SMB 공유이므로, 익숙한 표준 파일 시스템 API를 통해 파일 공유에 액세스할 수 있습니다.
+
+Azure에서 실행 중인 응용 프로그램은 쉽게 Azure 가상 컴퓨터에서 파일 공유를 탑재할 수 있습니다. 최신 릴리스 파일 저장소를 사용하면 SMB 3.0을 지원하는 온-프레미스 응용 프로그램에서 파일 공유를 탑재할 수도 있습니다.
+
+Linux SMB 클라이언트는 아직 암호화를 지원하지 않으므로, Linux에서 파일 공유를 탑재하려면 여전히 클라이언트가 파일 공유와 동일한 Azure 지역에 있어야 합니다. 그러나 Linux에 대한 암호화 지원은 SMB 기능을 담당하는 Linux 개발자의 로드맵상에 있습니다. 향후 암호화를 지원하는 Linux 배포판은 어디에서나 Azure 파일 공유를 탑재할 수 있게 됩니다.
+
+## 사용할 Linux 배포판 ##
+
+Azure에서 Linux 가상 컴퓨터를 만들 때 SMB 2.1 이상을 지원하는 Linux 이미지를 Azure 이미지 갤러리에서 지정할 수 있습니다. 다음은 권장되는 Linux 이미지의 목록입니다.
+
+- Ubuntu Server 14.04	
+- Ubuntu Server 15.04	
+- CentOS 7.1	
+- Open SUSE 13.2	
+- SUSE Linux Enterprise Server 12
+- SUSE Linux Enterprise Server 12(Premium 이미지)
+
+## 파일 공유 탑재 ##
+
+Linux를 실행하는 가상 컴퓨터에서 파일 공유를 탑재하려면 사용 중인 배포판에 기본 제공 클라이언트가 없는 경우 SMB/CIFS 클라이언트를 설치해야 할 수 있습니다. 다음은 선택한 한 가지 cifs-utils를 설치하는 Ubuntu의 명령입니다.
+
+    sudo apt-get install cifs-utils
+
+그런 다음 탑재 지점(mkdir mymountpoint)을 만들고 다음과 비슷한 탑재 명령을 실행해야 합니다.
+
+     sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename ./mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+
+또한 /etc/fstab에서 공유를 탑재하는 설정을 추가할 수도 있습니다.
+
+여기서 0777은 모든 사용자에게 실행/읽기/쓰기 권한을 부여하는 디렉터리/파일 사용 권한 코드를 나타냅니다. Linux 파일 사용 권한 문서 다음에 이 코드를 다른 파일 사용 권한 코드와 바꿀 수 있습니다.
+ 
+또한 다시 부팅 후에 탑재된 파일 공유를 유지하기 위해 /etc/fstab에서 아래와 같은 설정을 추가할 수 있습니다.
+
+    //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username= myaccountname,password= StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+
+다음은 구체적인 예입니다.
+
+Azure 마켓플레이스에서 사용할 수 있는 Linux 이미지 Ubuntu Server 15.04를 사용하여 Azure VM을 만든 경우에는 다음과 같이 파일을 탑재할 수 있습니다.
+
+    azureuser@azureconubuntu:~$ sudo apt-get install apt-file
+    azureuser@azureconubuntu:~$ sudo mkdir /mnt/mountpoint
+    azureuser@azureconubuntu:~$ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    azureuser@azureconubuntu:~$ df -h /mnt/mountpoint
+    Filesystem  Size  Used Avail Use% Mounted on
+    //myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
+
+CentOS 7.1을 사용하는 경우 다음과 같이 파일을 탑재할 수 있습니다.
+
+    [azureuser@AzureconCent ~]$ sudo yum install samba-client samba-common cifs-utils
+    [azureuser@AzureconCent ~]$ sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    [azureuser@AzureconCent ~]$ df -h /mnt/mountpoint
+    Filesystem  Size  Used Avail Use% Mounted on
+    //myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
+
+Open SUSE 13.2를 사용하는 경우 다음과 같이 파일을 탑재할 수 있습니다.
+
+    azureuser@AzureconSuse:~> sudo zypper install samba*  
+    azureuser@AzureconSuse:~> sudo mkdir /mnt/mountpoint
+    azureuser@AzureconSuse:~> sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mountpoint -o vers=3.0,user=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    azureuser@AzureconSuse:~> df -h /mnt/mountpoint
+    Filesystem  Size  Used Avail Use% Mounted on
+    //myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
+
+
+## 다음 단계
+
+Azure 파일 저장소에 대한 자세한 내용은 다음 링크를 참조합니다.
+
+### 개념 문서
+
+- [Windows에서 Azure 파일 저장소 사용 방법](storage-dotnet-how-to-use-files.md)
+
+### 파일 저장소용 도구 지원
+
+- [Microsoft Azure 저장소와 함께 AzCopy를 사용하는 방법](storage-use-azcopy.md)
+- [Azure 저장소에서 Azure CLI 사용](storage-azure-cli.md#create-and-manage-file-shares)
+
+### 참조
+
+- [파일 서비스 REST API 참조](http://msdn.microsoft.com/library/azure/dn167006.aspx)
+
+### 블로그 게시물
+
+- [Azure 파일 저장소 일반적으로 사용 가능](http://go.microsoft.com/fwlink/?LinkID=626728&clcid=0x409)(영문)
+- [Azure 파일 저장소 자세히 알아보기](http://go.microsoft.com/fwlink/?LinkID=626729&clcid=0x409) 
+- [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+- [Microsoft Azure 파일에 대한 연결 유지](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+
+<!---HONumber=Oct15_HO1-->

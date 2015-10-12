@@ -95,7 +95,10 @@ HDInsight 클러스터를 프로비전할 때는 Hive용 Metastore를 포함할 
 > 각 클러스터에 단일 서브넷을 지정하는 것이 좋습니다.
 >
 > 현재(2015년 8월 25일) Azure 가상 네트워크에서 하나의 Linux 기반 클러스터만 프로비전할 수 있습니다.
-
+>
+> Linux 기반 HDInsight로 v1(클래식) Azure 가상 네트워크를 사용할 수 없습니다. 가상 네트워크가 v2(Azure 리소스 관리자)여야만 Azure Preview 포털에서 HDInsight 클러스터를 생성하는 동안 옵션으로 나열되거나 Azure CLI 또는 Azure PowerShell에서 클러스터를 만들 때 사용할 수 있습니다.
+>
+> v1 네트워크에 리소스가 있고 HDInsight가 가상 네트워크를 통해 이러한 리소스에 직접 액세스할 수 있도록 하려면 v2 가상 네트워크를 v1 가상 네트워크에 연결하는 방법에 대한 정보를 [클래식 VNet을 새 VNet에 연결](../virtual-network/virtual-networks-arm-asm-s2s.md)에서 참조하세요. 이 연결이 설정되면 v2 가상 네트워크에 HDInsight 클러스터를 만들 수 있습니다.
 
 ## <a id="options"></a> HDInsight Linux 클러스터 프로비전에 대한 옵션
 
@@ -151,7 +154,7 @@ HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시
 
 	현재 HDInsight 클러스터의 데이터 원본으로 Azure 저장소 계정을 선택할 수 있습니다. 다음을 사용하여 **데이터 원본** 블레이드의 항목을 이해합니다.
 
-	- **선택 방법**: 모든 구독에서 저장소 계정을 찾을 수 있도록 하려면 이 항목을 **모든 구독에서**로 설정합니다. 기존 저장소 계정의 **저장소 이름** 및 **선택키**를 입력하려면 이 항목을 **선택키**로 설정합니다.
+	- **선택 방법**: 모든 구독에서 저장소 계정을 찾을 수 있도록 하려면 이 항목을 **From all subscriptions(모든 구독에서)**로 설정합니다. 기존 저장소 계정의 **저장소 이름** 및 **선택키**를 입력하려면 이 항목을 **선택키**로 설정합니다.
 
 	- **저장소 계정 선택/새로 만들기**: 클러스터와 연결할 기존 저장소 계정을 찾아 선택하려면 **저장소 계정 선택**을 클릭합니다. 또는 새 저장소 계정을 만들려면 **새로 만들기**를 클릭합니다. 저장소 계정의 이름을 입력할 때 나타나는 필드를 사용합니다. 이름을 사용할 수 있는 경우 녹색 확인 표시가 나타납니다.
 
@@ -169,7 +172,7 @@ HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시
 
 	**선택**을 클릭하여 노드 가격 책정 구성을 저장합니다.
 
-9. **옵션 구성**을 클릭하여 클러스터 버전을 선택하고 **가상 네트워크**에 가입, Hive 및 Oozie의 데이터를 유지하기 위한 **외부 Metastore** 설정 등 기타 선택적 설정을 구성하고 스크립트 동작을 사용하여 사용자 지정 구성 요소를 설치하기 위해 클러스터를 사용자 지정하거나 클러스터에 추가 저장소 계정을 사용합니다.
+9. **옵션 구성**을 클릭하여 클러스터 버전을 선택하고 **가상 네트워크**에 가입, Hive 및 Oozie의 데이터를 유지하기 위한 **외부 Metastore** 설정 등 기타 선택적 설정을 구성하며 스크립트 동작을 사용하여 사용자 지정 구성 요소를 설치하기 위해 클러스터를 사용자 지정하거나 클러스터에 추가 저장소 계정을 사용합니다.
 
 	* **HDInsight 버전** 드롭다운을 클릭하고 클러스터에 사용할 버전을 선택합니다. 자세한 내용은 [HDInsight 클러스터 버전](hdinsight-component-versioning.md)을 참조하세요.
 
@@ -181,7 +184,7 @@ HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시
     	>[AZURE.NOTE]Windows 기반 HDInsight 클러스터는 클래식 가상 네트워크에만 배치될 수 있습니다.
 
 
-	* **외부 Metastore**를 클릭하여 클러스터와 연결된 Hive 및 Oozie 메타데이터를 저장하는 데 사용할 SQL 데이터베이스를 지정합니다.
+	* **외부 Metastore**를 클릭하여 클러스터와 연결된 Hive 및 Oozie 메타데이터를 저장하는데 사용할 SQL 데이터베이스를 지정합니다.
 
 		![사용자 지정 Metastore 블레이드](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.7.png "외부 Metastore 지정")
 
@@ -223,13 +226,13 @@ HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시
 
 	* **삭제**: HDInsight 클러스터를 삭제합니다.
 
-	* **빠른 시작(![구름과 벼락 아이콘 = 빠른 시작](./media/hdinsight-hadoop-provision-linux-clusters/quickstart.png))**: HDInsight를 사용하여 시작하는 데 도움이 되는 정보를 표시합니다.
+	* **빠른 시작**(![구름과 벼락 아이콘 = 빠른 시작](./media/hdinsight-hadoop-provision-linux-clusters/quickstart.png)): HDInsight를 사용하여 시작하는 데 도움이 되는 정보를 표시합니다.
 
-	* **사용자(![사용자 아이콘](./media/hdinsight-hadoop-provision-linux-clusters/users.png))**: Azure 구독의 다른 사용자에 대해 이 클러스터의 _포털 관리_ 권한을 설정할 수 있습니다.
+	* **사용자**(![사용자 아이콘](./media/hdinsight-hadoop-provision-linux-clusters/users.png)): Azure 구독의 다른 사용자에 대해 이 클러스터의 _포털 관리_ 권한을 설정할 수 있습니다.
 
 		> [AZURE.IMPORTANT]이는 _오직_ Azure Preview 포털에서 이 클러스터에 대한 액세스 및 권한에만 영향을 미치며, HDInsight 클러스터에 연결하거나 작업을 제출할 수 있는 사용자에게는 영향을 미치지 않습니다.
 
-	* **태그(![태그 아이콘](./media/hdinsight-hadoop-provision-linux-clusters/tags.png))**: 태그를 사용하면 클라우드 서비스의 사용자 지정 분류를 정의하기 위한 키/값 쌍을 설정할 수 있습니다. 예를 들어 __project__라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.
+	* **태그**(![태그 아이콘](./media/hdinsight-hadoop-provision-linux-clusters/tags.png)): 태그를 사용하면 클라우드 서비스의 사용자 지정 분류를 정의하기 위한 키/값 쌍을 설정할 수 있습니다. 예를 들어 __project__라는 키를 만든 다음 특정 프로젝트와 연결된 모든 서비스에 공통 값을 사용할 수 있습니다.
 
 ### <a id="cli"></a> Azure CLI 사용
 
@@ -239,7 +242,7 @@ Azure 리소스 관리 템플릿은 __리소스 그룹__ 및 그 안에 모든 �
 
 다음 단계는 Azure CLI 및 템플릿을 사용하여 새 HDInsight 클러스터를 만드는 과정을 안내합니다.
 
-1. 아직 설치되지 않은 경우 [Azure CLI 설치 및 구성](../xplat-cli.md) 문서의 단계를 수행합니다.
+1. 아직 설치되지 않은 경우 [Azure CLI 설치 및 구성](../xplat-cli-install.md) 문서의 단계를 수행합니다.
 
 2. 명령줄, 터미널 또는 셸에서 다음 명령을 사용하여 Azure 구독을 인증합니다.
 
@@ -386,20 +389,14 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 **Visual Studio 콘솔 응용 프로그램을 만들려면**
 
 1. Visual Studio 2013 또는 2015 열기
-
-2. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
-
-3. **새 프로젝트**에서 다음 값을 입력하거나 선택합니다.
+2. 다음 설정으로 새 Visual Studio 프로젝트를 만듭니다.
 
 	|속성|값|
 	|--------|-----|
 	|Template|Templates/Visual C#/Windows/Console Application|
 	|이름|CreateHDICluster|
 
-4. **확인**을 클릭하여 프로젝트를 만듭니다.
-
 5. **도구** 메뉴에서 **Nuget 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다.
-
 6. 콘솔에서 다음 명령을 실행하여 패키지를 설치합니다.
 
 		Install-Package Microsoft.Azure.Common.Authentication -pre
@@ -574,4 +571,4 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "HDInsight에서 Sqoop 사용"
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

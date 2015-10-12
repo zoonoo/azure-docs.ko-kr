@@ -45,9 +45,11 @@ Microsoft는 오랫동안 개인 정보 보호를 위해 노력해 왔으며 개
 
 ###다음 단계:
 
+[모범 사례 및 사용자의 Mobile Engagement를 만드는 프로세스](mobile-engagement-getting-started-best-practices.md)
+
 [시작(마케터)](mobile-engagement-define-your-mobile-engagement-strategy.md)
 
 [시작(개발자)](/documentation/services/mobile-engagement/)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

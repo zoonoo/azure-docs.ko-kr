@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Azure RemoteApp이란?" 
+	pageTitle="Azure RemoteApp란? | Microsoft Azure" 
 	description="Azure RemoteApp에 대해 알아봅니다." 
 	services="remoteapp" 
 	documentationCenter="" 
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="08/05/2015" 
+	ms.date="09/28/2015" 
 	ms.author="elizapo"/>
 
 # Azure RemoteApp이란?
 
 Azure RemoteApp은 원격 데스크톱 서비스가 지원하는 온-프레미스 Microsoft RemoteApp 프로그램의 기능을 Azure에 제공합니다. Azure RemoteApp은 다양한 여러 사용자 장치에서 안전하게 원격으로 응용 프로그램에 액세스하는 데 도움이 됩니다.
 
-RemoteApp을 Azure로 이동하면 복잡한 온-프레미스 구성에 대해 염려하지 않고 Azure의 저장소, 확장성 및 글로벌 환경을 활용할 수 있습니다. 비즈니스 용도에 가장 적합한 앱을 만드는 것과 같은 더 중요한 문제에 전념할 수 있도록 Microsoft에서 Azure를 유지 관리하여 안정성을 제공합니다. Azure RemoteApp의 또 다른 이점은 액세스 가능성입니다. 사용자가 Windows, iOS, Mac OS X 및 Android 장치에서 RemoteApp 프로그램에 액세스할 수 있습니다. 사용자는 선호하는 환경에서 앱을 사용할 수 있고 관리자는 Azure 관리 포털을 사용하여 해당 앱을 관리합니다.
+Azure RemoteApp를 사용하면 거의 모든 장치의 사용자와도 앱 및 리소스를 공유할 수 있습니다. 우리는 사용자의 앱을 클라우드에서 호스팅하므로 하드웨어 및 크기 조정을 사용자 요구에 충족하도록 관리합니다. 우리가 해야 하는 일은 게시가 공유하려고 하는 앱을 업로드한 다음 사용자가 해당 앱을 사용하도록 하는 것이 전부입니다. [사용자는 자신의 장치를 유지](remoteapp-clients.md)하는 반면에, 게시자는 Azure 포털을 통해 모든 항목을 관리합니다. 회사 자격 증명을 사용하는 옵션도 있으므로 앱과 데이터의 보안을 확보할 수 있습니다.
 
 RemoteApp에 대한 자세한 내용을 읽거나 이미 확신을 가진 경우 [지금 사용해 보세요](http://azure.microsoft.com/services/remoteapp/).
 
@@ -31,43 +31,25 @@ Azure RemoteApp은 [Microsoft 가상 데스크톱 인프라](http://www.microsof
 **신규!** Azure RemoteApp에 대해 더 알아보고 싶으세요? 아니면 RemoteApp을 확인할 준비가 되셨나요? 매주 열리는 [전문가에게 물어보세요. 웹 세미나](https://azureinfo.microsoft.com/AzureRemoteAppAskTheExperts-Registration-Page.html?ls=Website)에 참여해 보세요.
 
 ## RemoteApp 컬렉션
-다음과 같은 두 가지 종류의 RemoteApp 컬렉션이 있습니다.
+다음과 같은 두 가지 종류의 [Azure RemoteApp 컬렉션](remoteapp-collections.md)이 있습니다.
 
 
-- **클라우드 컬렉션**은 Azure 클라우드에 호스트되며 프로그램에 대한 모든 데이터를 저장합니다. 사용자는 Microsoft 계정이나 Azure Active Directory와 동기화 또는 페더레이션된 회사 자격 증명으로 로그인하여 앱에 액세스할 수 있습니다.
+- **클라우드 컬렉션**은 클라우드에 호스트되며 프로그램에 대한 데이터를 저장합니다. 사용자는 Microsoft 계정이나 Azure Active Directory와 동기화 또는 페더레이션된 회사 자격 증명으로 로그인하여 앱에 액세스할 수 있습니다.
+
+	공유하려는 응용 프로그램이 회사의 사설 네트워크에 있는 리소스에 연결(예: VPN 장치를 통해)할 필요가 없는 경우 클라우드 컬렉션을 선택합니다. 응용 프로그램이 인터넷, OneDrive 또는 Azure의 리소스를 사용하는 경우 클라우드 컬렉션이 적합합니다. 가장 빨리 만들 수 있는 컬렉션이기도 합니다.
+
 - **하이브리드 컬렉션**은 Azure 클라우드에 호스트되고 데이터를 저장하지만 사용자가 로컬 네트워크에 저장된 데이터 및 리소스에 액세스할 수 있게 합니다. 사용자는 Azure Active Directory와 동기화 또는 페더레이션된 회사 자격 증명으로 로그인하여 앱에 액세스할 수 있습니다.
 
-### 클라우드 컬렉션
+	회사의 사설 네트워크에 있는 리소스에 연결해야 할 경우 하이브리드 컬렉션을 선택합니다. 예를 들어 응용 프로그램에서 다음에 액세스해야 하는 경우가 있습니다.
 
-[클라우드 RemoteApp 컬렉션](remoteapp-create-cloud-deployment.md)은 클라우드에서 응용 프로그램을 호스트하는 독립 실행형 방법을 제공합니다. 클라우드 컬렉션은 로컬 네트워크에 연결하지 않고 Azure 클라우드에만 있습니다.
+	- 인트라넷에 위치한 파일 서버
+	- Quicken
+	- 방화벽 뒤에 있는 데이터베이스
 
-RemoteApp 평가판의 일부로, 사전 설치되어 사용자와 공유할 수 있는 Office 365 ProPlus 또는 Office 2013 앱을 제공합니다. 사용 가능한 소프트웨어를 이용하도록 선택한 경우 서비스를 빠르게 프로비전할 수 있습니다.
+	일반적으로 클라우드로 옮길 수 없는 많은 양의 리소스가 사설 네트워크에 있는 대규모 회사에 유용합니다.
 
-Office와 함께 클라우드 컬렉션을 사용할 경우 서비스가 빌드된 운영 체제 및 앱이 정기적인 업데이트를 통해 항상 최신 상태로 유지되며 Microsoft 맬웨어 방지 프로그램 끝점 보호를 통해 지속적으로 보호된다는 추가 장점이 있습니다. 최종 사용자는 Microsoft 계정 또는 회사 자격 증명을 사용하여 응용 프로그램에 액세스합니다. 관리자는 누가 어떤 앱에 액세스할 수 있어야 하는지만 파악하면 됩니다.
+다양한 컬렉션에 네트워크를 포함한 다양한 옵션이 있으므로 가장 적합한 [컬렉션](remoteapp-collections.md)을 알아낼 수 있습니다.
 
-클라우드 컬렉션을 만들어 사용자를 위해 사용자 지정 응용 프로그램 또는 응용 프로그램 집합을 공유할 수도 있습니다. 이렇게 하려면 [사용자 지정 이미지를 만들고](remoteapp-imageoptions.md)(앱을 RemoteApp에 게시하는 데 사용) 컬렉션을 만들 때 Office 2013 이미지 대신 해당 이미지를 선택하면 됩니다.
-
-#### 클라우드를 선택하는 경우
-
-공유하려는 응용 프로그램이 회사의 사설 네트워크에 있는 리소스에 연결(예: VPN 장치를 통해)할 필요가 없는 경우 클라우드 컬렉션을 선택합니다. 응용 프로그램이 인터넷, OneDrive 또는 Azure의 리소스를 사용하는 경우 클라우드 컬렉션이 적합합니다. 가장 빨리 만들 수 있는 컬렉션이기도 합니다.
-
-
-### 하이브리드 컬렉션
-[하이브리드 RemoteApp 컬렉션](remoteapp-create-hybrid-deployment.md)을 사용하면 사용자 지정 응용 프로그램 집합을 사용자에게 제공하고 로컬 네트워크의 데이터와 리소스에 액세스하도록 할 수 있습니다. 클라우드 컬렉션과 함께 사용되는 사용자 지정 이미지와 달리 하이브리드 컬렉션용으로 만든 이미지는 도메인에 가입된 환경에서 앱을 실행하고 로컬 네트워크와 데이터에 대한 모든 권한을 부여합니다.
-
-Active Directory와 Azure Active Directory가 통합되므로(DirSync 사용) 사용자가 회사 자격 증명을 사용하여 앱과 데이터에 액세스할 수 있습니다. Active Directory에서 회사 계정을 사용할 경우 회사 정책을 클라우드로 가져와 RemoteApp을 통해 제공하는 앱을 제어할 수 있습니다.
-
-RD 세션 호스트 역할 서비스가 포함된 Windows Server 2012 R2에서 템플릿 이미지를 빌드하는 한 사용자에 대해 게시할 수 있는 앱에 대한 제한이 거의 없습니다. 해당 템플릿 이미지 환경에서 앱이 제대로 작동하지 않는 경우 최종 사용자가 RemoteApp을 통해 액세스할 수 있습니다.
-
-#### 하이브리드를 선택하는 경우
-
-회사의 사설 네트워크에 있는 리소스에 연결해야 할 경우 하이브리드 컬렉션을 선택합니다. 예를 들어 응용 프로그램에서 다음에 액세스해야 하는 경우가 있습니다.
-
-- 인트라넷에 위치한 파일 서버
-- Quicken
-- 방화벽 뒤에 있는 데이터베이스
-
-일반적으로 클라우드로 옮길 수 없는 많은 양의 리소스가 사설 네트워크에 있는 대규모 회사에 유용합니다.
 
 ### 컬렉션 업데이트
 하이브리드 컬렉션과 클라우드 컬렉션 간의 주요 차이점 중 하나는 소프트웨어 업데이트가 처리되는 방식입니다. 사전 설치된 Office 365 ProPlus 또는 Office 2013 이미지를 사용하는 클라우드 컬렉션의 경우 업데이트에 대해 염려하지 않아도 됩니다. 서비스가 자체적으로 유지 관리되며 지속적으로 앱과 운영 체제의 업데이트를 출시합니다.
@@ -86,6 +68,7 @@ Azure RemoteApp은 Windows 및 Windows RT용 RemoteApp 클라이언트 앱과 Ma
 ## 다음 단계
 지금 사용해 보세요! 다음은 RemoteApp를 시작하는 데 도움이 되는 문서입니다.
 
+- [Azure RemoteApp에 필요한 컬렉션의 종류는 무엇입니까?](remoteapp-collections.md)
 - [RemoteApp 이미지 만들기](remoteapp-imageoptions.md)
 - [RemoteApp의 클라우드 컬렉션을 만드는 방법](remoteapp-create-cloud-deployment.md)
 - [RemoteApp의 하이브리드 컬렉션을 만드는 방법](remoteapp-create-hybrid-deployment.md)
@@ -94,4 +77,4 @@ Azure RemoteApp은 Windows 및 Windows RT용 RemoteApp 클라이언트 앱과 Ma
 - [Azure RemoteApp FAQ](remoteapp-faq.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

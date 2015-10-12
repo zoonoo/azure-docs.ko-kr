@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-xamarin-android"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="06/09/2015"
-	ms.author="yuaxu;wesmc"/>
+	ms.date="09/24/2015"
+	ms.author="wesmc"/>
 
 # 알림 허브 시작
 
@@ -38,7 +38,7 @@
 
 이 자습서를 완료해야 다른 모든 Xamarin.Android 앱용 알림 허브 자습서를 진행할 수 있습니다.
 
-> [AZURE.IMPORTANT]이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-android-get-started%2F)을 참조하세요.
+> [AZURE.IMPORTANT]이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-android-get-started%2F)을 참조하세요.
 
 ##<a name="register"></a>Google Cloud Messaging 사용
 
@@ -497,4 +497,4 @@ Microsoft는.NET 플랫폼에서 알림을 보내기 위한 Azure 서비스 버�
 [Google Cloud Messaging 클라이언트 구성 요소]: http://components.xamarin.com/view/GCMClient/
 [Azure 메시징 구성 요소]: http://components.xamarin.com/view/azure-messaging
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

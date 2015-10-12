@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Azure 앱 서비스 웹앱에서 Python 구성" 
 	description="이 자습서에서는 Azure 앱 서비스 웹앱에서 기본 WSGI(Web Server Gateway Interface) 규격 Python 응용 프로그램을 제작 및 구성하는 옵션을 설명합니다." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="python" 
 	tags="python"
 	authors="huguesv" 
@@ -9,8 +9,8 @@
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
@@ -371,7 +371,11 @@ URL 내의 위치와 다른 디스크 위치에서 파일을 제공하도록 규
 
 [AZURE.INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
->[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+## 다음 단계
+
+자세한 내용은 [Python 개발자 센터](/develop/python/)를 참조하세요.
+
+>[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
@@ -383,4 +387,4 @@ URL 내의 위치와 다른 디스크 위치에서 파일을 제공하도록 규
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

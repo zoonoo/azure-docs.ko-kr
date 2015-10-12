@@ -1,15 +1,15 @@
 <properties
 	pageTitle="하이브리드 연결을 사용하여 Azure 모바일 앱을 온-프레미스 SQL Server에 연결 | Microsoft Azure"
 	description="하이브리드 연결을 사용하여 앱 서비스 모바일 앱에서 온-프레미스 SQL Server에 연결하는 방법에 대해 알아봅니다."
-	services="app-service\mobile"
+	services="app-service"
 	documentationCenter=""
 	authors="ggailey777"
 	manager="dwrede"
 	editor=""/>
 
 <tags
-	ms.service="app-service-mobile"
-	ms.workload="mobile"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="get-started-article"
@@ -164,4 +164,4 @@
 [Azure Management Portal]: http://go.microsoft.com/fwlink/p/?linkid=213885
 [Get started with Mobile Services]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

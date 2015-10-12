@@ -8,7 +8,7 @@
 	editor="jimbe"/>
 
 <tags
-	ms.service="app-service"
+	ms.service="app-service-web"
 	ms.workload="web"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
@@ -93,4 +93,4 @@ ASE에서 웹앱을 실행하고 ASP를 관리하기 위해 고려해야 하는 
 [HowtoConfigureASE]: http://azure.microsoft.com/documentation/articles/app-service-web-configure-an-app-service-environment
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

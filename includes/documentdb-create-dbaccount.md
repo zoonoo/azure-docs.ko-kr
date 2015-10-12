@@ -9,12 +9,13 @@
 
 
 	- **ID** 상자에 DocumentDB 계정을 식별하기 위한 이름을 입력합니다. **ID**의 유효성이 검사되면 **ID** 상자에 녹색 확인 표시가 나타납니다. **ID** 값은 URI 내의 호스트 이름이 됩니다. **ID**는 소문자, 숫자 및 '-' 문자만 포함할 수 있으며, 3자에서 50자 사이여야 합니다. 선택한 끝점 이름에 *documents.azure.com*이 추가되고, 그 결과가 DocumentDB 계정 끝점이 됩니다.
+	
 
 	- DocumentDB는 단일 표준 계정 계층을 지원하므로 **계정 계층** 렌즈가 잠깁니다. 자세한 내용은 [DocumentDB 가격](http://go.microsoft.com/fwlink/p/?LinkID=402317&clcid=0x409)을 참조하세요.
-
-	- **리소스 그룹**에서 DocumentDB 계정에 대한 리소스 그룹을 선택하거나 만듭니다. 기본적으로 새 리소스 그룹이 생성됩니다. 그러나 DocumentDB 계정을 추가할 기존 리소스 그룹을 선택할 수 있습니다. 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](resource-group-portal.md)를 참조하세요.
-
+	
 	- **구독**에서 DocumentDB 계정에 사용할 Azure 구독을 선택합니다. 계정에 구독이 하나뿐인 경우 해당 계정이 기본적으로 선택됩니다.
+
+	- **리소스 그룹**에서 DocumentDB 계정에 대한 리소스 그룹을 선택하거나 만듭니다. 기본적으로 새 리소스 그룹이 생성됩니다. 그러나 DocumentDB 계정을 추가할 기존 리소스 그룹을 선택할 수 있습니다. 자세한 내용은 [Azure Preview 포털을 사용하여 Azure 리소스 관리](resource-group-portal.md)를 참조하세요.
  
 	- **위치**를 사용하여 DocumentDB 계정을 호스트하는 지리적 위치를 지정합니다.
 
@@ -34,4 +35,4 @@
 [Next steps]: #NextSteps
 [documentdb-manage]: ../articles/documentdb/documentdb-manage.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

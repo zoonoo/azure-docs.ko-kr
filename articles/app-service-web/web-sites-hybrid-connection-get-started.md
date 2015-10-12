@@ -1,15 +1,15 @@
 <properties 
 	pageTitle="Azure 앱 서비스에서 하이브리드 연결을 사용하여 온-프레미스 리소스에 액세스" 
 	description="Azure 앱 서비스의 웹 앱과 정적 TCP 포트를 사용하는 온-프레미스 리소스 간의 연결 만들기" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -207,4 +207,4 @@ The error indicates it couldn't find the type, not the instance.
 [HCStatusConnected]: ./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

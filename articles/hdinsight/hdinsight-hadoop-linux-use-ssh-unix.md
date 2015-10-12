@@ -35,7 +35,7 @@
 
 또는
 
-* [Mac, Linux 및 Windows용 Azure CLI](../xplat-cli.md)
+* [Mac, Linux 및 Windows용 Azure CLI](../xplat-cli-install.md)
 
 ##SSH 정의
 
@@ -242,4 +242,4 @@ SSH 터널의 생성 및 사용에 대한 자세한 내용은 [SSH 터널링을 
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

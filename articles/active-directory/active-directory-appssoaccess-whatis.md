@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="09/28/2015"
 	ms.author="asmalser-msft"/>
 
 #Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?
@@ -80,7 +80,7 @@ Azure AD는 HTML 기반 로그인 페이지가 있는 모든 클라우드 기반
 
 암호 기반 SSO의 경우 최종 사용자 브라우저는 다음 중 하나일 수 있습니다.
 
-- Internet Explorer 8, 9 및 10 - Windows 7 이상
+- Internet Explorer 8, 9 및 10 -- Windows 7 이상([IE 확장 배포 가이드](active-directory-saas-ie-group-policy.md) 참조)
 - Chrome - Windows 7 이상 및 Mac OS X 이상
 - Firefox 26.0 이상 - Windows XP SP2 이상 및 Mac OS X 10.6 이상
 
@@ -220,4 +220,4 @@ Azure AD는 또한 암호 기반 Single Sign-On, 기존 Single Sign-On 및 페�
 [5]: ./media/active-directory-appssoaccess-whatis/workdaymobile.png
 [6]: ./media/active-directory-appssoaccess-whatis/deeplink.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

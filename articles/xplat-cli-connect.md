@@ -128,7 +128,7 @@ Azure 구독이 여러 개 있는 경우 Azure에 연결하면 자격 증명과 
 
 Azure CLI와 함께 기본값이 아닌 구독을 사용하지만 현재 기본값을 변경하지 않으려는 경우 해당 명령에 대히 `--subscription` 옵션을 사용하고 작업에 사용할 구독의 이름을 제공할 수 있습니다.
 
-Azure 구독에 연결하게 되면 Azure CLI 명령을 사용하여 시작할 수 있습니다. 자세한 내용은 [Azure를 사용하는 방법](xplat-cli.md)을 참조하십시오.
+Azure 구독에 연결하게 되면 Azure CLI 명령을 사용하여 시작할 수 있습니다. 자세한 내용은 [Azure를 사용하는 방법](xplat-cli-install.md)을 참조하십시오.
 
 ## CLI 설정 저장소
 
@@ -159,4 +159,4 @@ Azure 구독에 연결하게 되면 Azure CLI 명령을 사용하여 시작할 �
 [cliasm]: virtual-machines/virtual-machines-command-line-tools.md
 [cliarm]: virtual-machines/xplat-cli-azure-resource-manager.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

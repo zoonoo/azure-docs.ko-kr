@@ -33,7 +33,7 @@
 + Visual Studio 2013
 + [MicrosoftAzure.MobileEngagement] Nuget 패키지
 
-> [AZURE.IMPORTANT]이 자습서를 완료해야 다른 모든 Windows 유니버설 앱용 Mobile Engagement 자습서를 진행할 수 있습니다. 완료하려면 - 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-KR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+> [AZURE.IMPORTANT]이 자습서를 완료해야 다른 모든 Windows 유니버설 앱용 Mobile Engagement 자습서를 진행할 수 있습니다. 완료하려면 - 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
 ##<a id="setup-azme"></a>Windows 유니버설 앱용 Mobile Engagement 설정
 
@@ -159,6 +159,8 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
 1. 앱을 Windows 스토어 앱에 연결하여 **패키지 SID(보안 식별자)** 및 **비밀 키**(클라이언트 암호)를 가져와야 합니다. [Windows 스토어 개발자 센터]에서 앱을 만들 수 있으며, 그런 다음 Visual Studio에서 **스토어와 앱 연결**을 사용해야 합니다.
 
+	![][7]
+
 2. Mobile Engagement 포털의 **설정**으로 이동하여 왼쪽의 **네이티브 푸시** 섹션을 클릭합니다.
 
 3. **편집** 단추를 클릭하여 아래와 같이 **패키지 SID(보안 식별자)** 및 **비밀 키**를 입력합니다.
@@ -178,10 +180,11 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [Windows 유니버설 앱 - 오버레이 통합]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 
 <!-- Images. -->
-[1]: ./media/mobile-engagement-windows-store-dotnet-get-started/UniversalAppCreation.png
+[1]: ./media/mobile-engagement-windows-store-dotnet-get-started/universal-app-creation.png
 [2]: ./media/mobile-engagement-windows-store-dotnet-get-started/manifest-capabilities.png
 [3]: ./media/mobile-engagement-windows-store-dotnet-get-started/add-connection-info.png
 [5]: ./media/mobile-engagement-windows-store-dotnet-get-started/manifest-toast.png
 [6]: ./media/mobile-engagement-windows-store-dotnet-get-started/enter-credentials.png
+[7]: ./media/mobile-engagement-windows-store-dotnet-get-started/associate-app-store.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

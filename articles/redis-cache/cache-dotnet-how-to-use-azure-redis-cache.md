@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="08/25/2015" 
+	ms.date="09/30/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache 사용 방법
@@ -25,10 +25,11 @@
 
 Microsoft Azure Redis Cache는 많이 사용되는 오픈 소스 Redis Cache를 기반으로 합니다. Microsoft에서 관리하는 안전한 전용 Redis Cache에 액세스할 수 있게 합니다. Azure Redis 캐시를 사용하여 만들어진 캐시는 Microsoft Azure 내의 모든 응용 프로그램에서 액세스할 수 있습니다.
 
-Microsoft Azure Redis 캐시는 두 개의 계층으로 사용할 수 있습니다.
+Microsoft Azure Redis 캐시는 다음 계층에서 사용할 수 있습니다.
 
 -	**기본** – 단일 노드. 최대 53GB까지 여러 개의 크기
 -	**표준** – 2노드 주/복제본. 최대 53GB까지 여러 개의 크기 99.9% SLA
+-	**프리미엄** – 현재 미리 보기 상태입니다. 최대 10개 분할 데이터베이스와 2노드 주/복제본 6GB에서 530GB에 이르는 다양한 크기(자세한 내용 문의). 모든 표준 계층 기능과 추가적인 [Redis 클러스터](cache-how-to-premium-clustering.md), [Redis 지속성](cache-how-to-premium-persistence.md) 및 [Azure 가상 네트워크](cache-how-to-premium-vnet.md) 지원이 포함됩니다. 미리 보기 기간 동안 SLA는 없습니다.
 
 각 계층은 기능과 가격이 다릅니다. 기능에 대해서는 이 가이드의 뒷부분에서 다룹니다. 가격에 대한 자세한 내용은 [캐시 가격 정보][]를 참조하세요.
 
@@ -57,7 +58,7 @@ Azure Redis 캐시를 시작하기는 쉽습니다. 먼저 캐시를 프로비�
 
 **DNS 이름** - 캐시 끝점에 사용할 하위 도메인 이름을 입력합니다. 끝점은 6~20자 사이의 문자열이어야 하며, 소문자와 숫자만 포함할 수 있고, 문자로 시작해야 합니다.
 
-**가격 계층**을 사용하여 원하는 캐시 크기 및 기능을 선택합니다. **기본** 캐시에는 최대 53GB까지 여러 크기를 가진 단일 노드가 있습니다. **표준** 캐시에는 SLA가 99.9%이며 최대 53GB까지 여러 크기를 가진 2노드 주/복제본 구성이 있습니다.
+**가격 계층**을 사용하여 원하는 캐시 크기 및 기능을 선택합니다.
 
 **리소스 그룹**에서 캐시에 대한 리소스 그룹을 선택하거나 만듭니다.
 
@@ -367,4 +368,4 @@ NuGet 패키지는 필요한 어셈블리 참조를 다운로드 및 추가하�
 
 [Azure 무료 체험]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

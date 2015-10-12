@@ -253,8 +253,8 @@ Deis 클러스터를 제어하려면 **deisctl**이 필요합니다. deisctl은 
 
 [Azure 리소스 관리자 개요][resource-group-overview] [Azure CLI를 사용하는 방법][azure-command-line-tools] [Azure 리소스 관리자에서 Azure PowerShell 사용][powershell-azure-resource-manager]
 
-[azure-command-line-tools]: ../xplat-cli.md
+[azure-command-line-tools]: ../xplat-cli-install.md
 [resource-group-overview]: ../resource-group-overview.md
 [powershell-azure-resource-manager]: ../powershell-azure-resource-manager.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

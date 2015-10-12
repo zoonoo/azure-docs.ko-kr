@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Redis Cache FAQ"
-	description="Azure Redis Cache에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다."
-	services="redis-cache"
-	documentationCenter=""
-	authors="steved0x"
-	manager="dwrede"
+	pageTitle="Azure Redis Cache FAQ" 
+	description="Azure Redis Cache에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다." 
+	services="redis-cache" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
 	editor=""/>
 
 <tags 
-	ms.service="cache"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="cache-redis"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="cache" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="cache-redis" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/30/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache FAQ
@@ -22,31 +22,43 @@ Azure Redis Cache에 대한 일반적인 질문과 대답, 패턴 및 모범 사
 
 <a name="cache-size"></a>
 ## 어떤 Redis Cache 제품 및 크기를 사용해야 하나요?
-
 각 Azure Redis Cache 제품은 서로 다른 수준의 **크기**, **대역폭**, **고가용성** 및 **SLA** 옵션을 제공합니다.
 
--	기본 SKU - 단일 노드, 복제 또는 SLA 없음, 캐시 크기 250MB에서 53GB 사이
--	표준 SKU - 자동 복제 기능이 있는 주/보조 노드, 99.9% SLA, 캐시 크기 250MB에서 53GB 사이
+캐시 제품을 선택할 때는 다음을 고려해야 합니다.
 
-고가용성을 원하는 경우 99.9% SLA를 제공하는 표준 캐시 제품을 선택합니다. 개발 및 프로토타입이나 SLA가 필요하지 않은 시나리오의 경우 기본 제품이 적합할 수 있습니다.
+-	**메모리**: 기본 및 표준 계층에서 250MB-53GB를 제공합니다. 프리미엄 계층은 [요청 시](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase) 추가적으로 사용 가능한 최대 530GB를 제공합니다. 자세한 내용은 [Azure Redis Cache 가격 책정](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요.
+-	**네트워크 성능**: 높은 처리량이 필요한 워크로드가 있는 경우 프리미엄 계층이 표준이나 기본에 비해 더 높은 대역폭을 제공합니다. 또한 각 계층 안에서는 캐시를 호스팅하는 기본 VM으로 인해 캐시 크기가 클수록 대역폭이 큽니다. 자세한 내용은 다음 표를 참조하세요.
+-	**처리량**: 프리미엄 계층은 사용 가능한 최대 처리량을 제공합니다. 캐시 서버 또는 클라이언트가 대역폭 제한에 도달하면 클라이언트 측에서 시간 초과가 수신됩니다. 자세한 내용은 다음 표를 참조하세요.
+-	**높은 가용성/SLA**: Azure Redis Cache는 표준/프리미엄(미리 보기 기간 이후까지 프리미엄에 대한 SLA 없음) 99.9% 이상의 시간에서 캐시를 사용할 수 있도록 보장합니다. SLA에 대한 자세한 내용은 [ Azure Redis Cache 가격 책정](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요. SLA에서는 캐시 끝점에 대한 연결만 다룹니다. SLA는 데이터 손실로부터의 보호는 다루지 않습니다. 데이터 손실에 대한 복원력을 늘리기 위해 프리미엄 계층에서 Redis 데이터 지속성 기능을 사용하는 것이 좋습니다.
+-	**Redis 데이터 지속성**: 프리미엄 계층을 사용하면 Azure 저장소 계정에서 캐시 데이터를 유지할 수 있습니다. 기본/표준 캐시에서 모든 데이터는 메모리에만 저장됩니다. 기본 인프라의 경우 문제는 잠재적인 데이터 손실이 있을 수 있다는 점입니다. 데이터 손실에 대한 복원력을 늘리기 위해 프리미엄 계층에서 Redis 데이터 지속성 기능을 사용하는 것이 좋습니다. Azure Redis Cache는 Redis 지속성에서 RDB 및 AOF(출시 예정) 옵션을 제공합니다. 자세한 내용은 [프리미엄 Azure Redis Cache에 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)을 참조하세요.
+-	**Redis 클러스터**: 53GB보다 큰 캐시를 만들거나 여러 Redis 노드에서 데이터를 분할하려는 경우 프리미엄 계층에서 사용 가능한 Redis 클러스터링을 사용할 수 있습니다. 각 노드는 고가용성을 위해 주/복제본 캐시 쌍으로 구성됩니다. 자세한 내용은 [프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)을 참조하세요.
+-	**보안 및 네트워크 격리 향상**: Azure 가상 네트워크(VNET) 배포는 Azure Redis Cache의 보안과 격리를 강화하며 액세스를 추가적으로 제한하기 위한 서브넷, 액세스 제어 정책 및 기타 기능을 제공합니다. 자세한 내용은 [프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법](cache-how-to-premium-vnet.md)을 참조하세요.
+-	**Redis 구성**: 표준과 프리미엄 계층에서 Redis Keyspace 알림을 구성할 수 있습니다.
+-	**최대 클라이언트 연결 수**: 프리미엄 계층은 더 큰 캐시에 대해 더 많은 수의 연결과, Redis에 연결 가능한 최대 클라이언트 수를 제공합니다. [자세한 내용은 가격 책정 페이지를 참조하세요.](TODO)
+-	**Redis 서버에 대한 전용 코어**: 프리미엄 계층에서는 모든 캐시 크기에 Redis 전용 코어가 있습니다. 기본/표준 계층에서는 C1 크기 이상에 Redis 서버 전용 코어가 있습니다.
+-	**Redis는 단일 스레드**이므로 3개 이상의 코어를 사용해도 2개 코어만 사용하는 경우에 비해 추가적인 이점이 없지만 VM 크기가 더 크면 일반적으로 작은 크기보다 대역폭이 더 큽니다. 캐시 서버 또는 클라이언트가 대역폭 제한에 도달하면 클라이언트 쪽에 시간 초과가 수신됩니다.
+-	**성능 향상**: 프리미엄 계층의 캐시는 더 빠른 프로세서가 포함되고 기본 또는 표준 계층에 비해 더 나은 성능을 제공하는 하드웨어에 배포됩니다. 프리미엄 계층 캐시는 처리량은 더 높고 대기 시간은 더 짧습니다.
 
-캐시 크기 및 대역폭은 대략 캐시를 호스트하는 가상 컴퓨터의 크기와 대역폭에 매핑됩니다. 기본 및 표준 제품 둘 다의 250MB 크기는 공유 코어를 사용하여 호스트되는 매우 작은(A0) 가상 컴퓨터에 호스트되고, 다른 크기는 전용 코어를 사용하여 호스트됩니다. 1GB 캐시 크기는 운영 체제와 Redis Cache 둘 다를 서비스하는 데 사용되는 전용 가상 코어 1개가 있는 작은(A1) 가상 컴퓨터 크기에 호스트됩니다. 더 큰 캐시 크기는 여러 개의 전용 가상 코어가 있는 더 큰 VM 인스턴스에서 호스트됩니다.
+다음 표에서는 Azure Redis Cache 끝점에 대해 Iaas VM에서 `redis-benchmark.exe`를 사용하는 다양한 크기의 표준 및 프리미엄 캐시를 테스트하는 동안 관찰되는 최대 대역폭 크기를 보여 줍니다. 이러한 값은 보장되지 않으며 해당 수치에 대한 SLA는 없지만 일반적인 수치입니다. 응용 프로그램에 적합한 캐시 크기를 확인하려면 사용자 고유의 응용 프로그램을 부하 테스트해야 합니다.
 
-캐시의 처리량이 높은 경우 캐시가 전용 코어를 사용하여 실행되도록 1GB 이상 크기를 선택합니다. 1GB 캐시 크기는 1개의 코어 가상 컴퓨터에서 호스트됩니다. 이 코어는 OS와 캐시 둘 다를 서비스하는 데 사용됩니다. 1GB보다 큰 캐시는 여러 개의 코어가 있는 가상 컴퓨터에서 실행되며, Redis Cache는 OS와 공유되지 않는 전용 코어를 사용합니다.
+이 표를 통해 다음과 같은 결론을 내릴 수 있습니다. - 동일한 캐시 크기의 처리량은 스탠다드 계층에 비해 프리미엄이 더 높습니다. 예: 6GB 캐시의 경우 C3가 49K인데 비해 P1의 처리량은 140K RPS입니다. - Redis 클러스터링에서는 클러스터의 분할된 데이터베이스(노드) 수를 늘리면 선형적으로 처리량이 증대합니다. 예: P4 클러스터를 10개의 분할된 데이터베이스로 늘리면 가용 처리량은 250K *10 = 250만 RPS입니다. - 더 큰 크기에 대한 처리량은 스탠다드 계층에 비해 프리미엄 계층에서 더 높습니다.
 
-**Redis는 단일 스레드**이므로 3개 이상의 코어를 사용해도 2개 코어만 사용하는 경우에 비해 추가적인 이점이 없지만 **VM 크기가 더 크면 일반적으로 작은 크기보다 대역폭이 더 큽니다**. 캐시 서버 또는 클라이언트가 대역폭 제한에 도달하면 클라이언트 쪽에 시간 초과가 수신됩니다.
+| 가격 책정 계층 | 크기 | 사용 가능한 대역 (Mbps) | 1KB 키 크기 |
+|----------------------|--------|----------------------------|--------------------------------|
+| **표준 캐시 크기** | &nbsp; | &nbsp; | **초당 요청 수(RPS)** |
+| C0 | 250MB | 5 | 600 |
+| C1 | 1 GB | 100 | 12200 |
+| C2 | 2\.5GB | 200 | 24000 |
+| C3 | 6GB | 400 | 49000 |
+| C4 | 13GB | 500 | 61000 |
+| C5 | 26GB | 1000 | 115000 |
+| C6 | 53GB | 2000 | 150000 |
+| **프리미엄 캐시 크기** | &nbsp; | &nbsp; | **초당 요청 수(RPS), 분할된 데이터베이스당** |
+| P1 | 6GB | 1000 | 140000 |
+| P2 | 13GB | 2000 | 220000 |
+| P3 | 26GB | 2000 | 220000 |
+| P4 | 53GB | 4000 | 250000 |
 
-다음 표에서는 Azure Redis Cache 끝점에 대해 Iaas VM에서 `redis-benchmark.exe`를 사용하여 다양한 크기의 Azure Redis Cache를 테스트하는 동안 관찰되는 최대 대역폭 크기를 보여 줍니다. 이러한 값은 보장되지 않으며 해당 수치에 대한 SLA는 없지만 일반적인 수치입니다. 응용 프로그램에 적합한 캐시 크기를 확인하려면 사용자 고유의 응용 프로그램을 부하 테스트해야 합니다.
-
-캐시 이름|캐시 크기|Get/초(1KB 값의 단순 GET 호출)|대역폭(MBit/초)
----|---|---|---
-C0|250MB|610|5
-C1|1 GB|12,200|100
-C2|2\.5GB|24,300|200
-C3|6GB|48,875|400
-C4|13GB|61,350|500
-C5|26GB|112,275|1000
-C6|53GB|153,219|1000+
 
 `redis-benchmark.exe`와 같은 Redis 도구 다운로드에 대한 지침은 [어떻게 Redis 명령을 실행할 수 있나요?](#cache-commands) 섹션을 참조하세요.
 
@@ -68,7 +80,7 @@ Azure Redis Cache 가격에 대해서는 [여기](http://azure.microsoft.com/pri
 <a name="cache-monitor"></a>
 ## 내 캐시의 상태 및 성능을 모니터링하려면 어떻게 해야 하나요?
 
-[Azure 미리 보기 포털](https://portal.azure.com)에서 Microsoft Azure Redis Cache 인스턴스를 모니터링할 수 있습니다. 메트릭을 보고, 메트릭 차트를 시작 보드에 고정하고, 모니터링 차트의 날짜 및 시간 범위를 사용자 지정하고, 차트에서 메트릭을 추가 및 제거하고, 특정 조건이 충족될 경우의 경고를 설정할 수 있습니다. 이러한 도구는 Azure Redis Cache 인스턴스의 상태를 모니터링할 수 있게 해주며 캐싱 응용 프로그램 관리에 도움이 됩니다. 캐시 모니터링에 대한 자세한 내용은 [Azure Redis Cache 모니터링](https://msdn.microsoft.com/library/azure/dn763945.aspx)을 참조하세요.
+[Azure Preview 포털](https://portal.azure.com)에서 Microsoft Azure Redis 캐시 인스턴스를 모니터링할 수 있습니다. 메트릭을 보고, 메트릭 차트를 시작 보드에 고정하고, 모니터링 차트의 날짜 및 시간 범위를 사용자 지정하고, 차트에서 메트릭을 추가 및 제거하고, 특정 조건이 충족될 경우의 경고를 설정할 수 있습니다. 이러한 도구는 Azure Redis Cache 인스턴스의 상태를 모니터링할 수 있게 해주며 캐싱 응용 프로그램 관리에 도움이 됩니다. 캐시 모니터링에 대한 자세한 내용은 [Azure Redis Cache 모니터링](https://msdn.microsoft.com/library/azure/dn763945.aspx)을 참조하세요.
 
 <a name="cache-disconnect"></a>
 ## 내 클라이언트가 캐시에서 연결이 끊어진 것은 무엇 때문인가요?
@@ -153,7 +165,7 @@ Redis 도구 다운로드에 대한 지침은 [어떻게 Redis 명령을 실행�
 
 [Azure Redis Cache에서 지원되지 않는 Redis 명령](cache-configure.md#redis-commands-not-supported-in-azure-redis-cache)에 나열된 명령을 제외하고, [Redis 명령](http://redis.io/commands#)에 나열된 모든 명령을 사용할 수 있습니다. Redis 명령을 실행하는 옵션은 여러 가지가 있습니다.
 
--	표준 캐시를 사용하는 경우는 [Redis 콘솔](cache-configure.md#redis-console)을 사용하여 Redis 명령을 실행할 수 있습니다. 이 방법은 미리 보기 포털에서 Redis 명령을 안전하게 실행하는 방법입니다.
+-	표준 또는 프리미엄 캐시를 사용하는 경우 [Redis 콘솔](cache-configure.md#redis-console)을 사용하여 Redis 명령을 실행할 수 있습니다. 이 방법은 미리 보기 포털에서 Redis 명령을 안전하게 실행하는 방법입니다.
 -	Redis 명령줄 도구를 사용할 수도 있습니다. 이 도구를 사용하려면 다음 단계를 수행합니다.
 	-	[Redis 명령줄 도구](https://github.com/MSOpenTech/redis/releases/download/win-2.8.19.1/redis-2.8.19.zip)를 다운로드합니다.
 	-	`redis-cli.exe`를 사용하여 캐시에 연결합니다. 다음 예제와 같이 -h 스위치를 사용하여 캐시 끝점을 전달하고 -a를 사용하여 키를 전달합니다.
@@ -175,4 +187,4 @@ Microsoft Azure Redis Cache는 많이 사용되는 오픈 소스 Redis Cache를 
 
 클라이언트마다 다르기 때문에 MSDN에 하나의 중앙 집중식 클래스 참조는 없습니다. 대신, 각 클라이언트가 자체 참조 설명서를 유지 관리합니다. 참조 설명서 외에도 Azure.com의 [Redis Cache 설명서](http://azure.microsoft.com/documentatgion/services/redis-cache/) 페이지에는 다양한 언어 및 캐시 클라이언트를 사용하여 Azure Redis Cache를 시작하는 방법을 보여 주는 여러 자습서가 있습니다.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

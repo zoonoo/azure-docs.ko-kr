@@ -37,7 +37,7 @@ Azure에서 Linux VM을 만들 때 도움이 필요하면 [Linux를 실행하는
 
 설치 명령은 Ubuntu를 가정하지만 지원되는 Linux 배포한에 대한 설치를 조정할 수 있습니다.
 
-script-vm VM에는 Azure CLI가 설치되어 있어야 하며 Azure에 대한 정상적인 연결이 설정되어 있어야 합니다. 도움이 필요하면 [Azure 명령줄 인터페이스 설치 및 구성](../xplat-cli.md)을 참조하세요
+script-vm VM에는 Azure CLI가 설치되어 있어야 하며 Azure에 대한 정상적인 연결이 설정되어 있어야 합니다. 도움이 필요하면 [Azure 명령줄 인터페이스 설치 및 구성](../xplat-cli-install.md)을 참조하세요
 
 ## 스크립트 업로드
 
@@ -109,4 +109,4 @@ Azure CLI, Linux 및 CustomScript 확장을 위한 일부 추가 리소스는 �
 
 [Azure에서 Linux 및 오픈 소스 컴퓨팅](virtual-machines-linux-opensource.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

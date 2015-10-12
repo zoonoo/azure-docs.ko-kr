@@ -105,4 +105,4 @@ Oracle 데이터 가드로, 가상 컴퓨터에서 주 데이터베이스, 또 �
 ##추가 리소스
 [Azure용 Oracle 가상 컴퓨터 이미지 ](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

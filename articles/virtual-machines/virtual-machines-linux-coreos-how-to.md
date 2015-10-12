@@ -102,7 +102,7 @@ cloud-config 파일에 대한 전체 정보는 CoreOS 설명서의 [cloud-config
 ### 새로운 CoreOS VM을 만들려면 Azure CLI를 사용합니다
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
-1. [Azure 명령줄 인터페이스 (Azure CLI)]를 아직 설치하지 않은 경우, 설치하고, 회사 또는 학교 ID를 사용하여 로그인 하거나 .publishsettings 파일을 다운로드 한 다음 계정으로 가져옵니다.
+1. [Azure 명령줄 인터페이스(Azure CLI)]를 설치하고(아직 설치하지 않은 경우) 회사 또는 학교 ID를 사용하여 로그인 하거나 .publishsettings 파일을 다운로드한 다음 사용자 계정으로 가져옵니다.
 2. CoreOS 이미지를 찾습니다. 언제든 사용 가능한 이미지를 찾으려면 `azure vm image list | grep CoreOS`를 입력하고 다음과 유사한 결과 목록을 확인해야 합니다.
 
 	데이터:2b171e93f07c4903bcad35bda10acf22\_\_CoreOS-Stable-522.6.0 Public Linux
@@ -198,8 +198,7 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 
 
 <!--Link references-->
-[Azure 명령줄 인터페이스 (Azure CLI)]: ../xplat-cli.md
-[Azure 명령줄 인터페이스(Azure CLI)]: ../xplat-cli.md
+[Azure 명령줄 인터페이스(Azure CLI)]: ../xplat-cli-install.md
 [CoreOS]: https://coreos.com/
 [CoreOS 개요]: https://coreos.com/using-coreos/
 [Azure의 CoreOS]: https://coreos.com/docs/running-coreos/cloud-providers/azure/
@@ -209,4 +208,4 @@ azure vm create --custom-data=cloud-config.yaml --ssh=22 --ssh-cert=./myCert.pem
 [YAML]: http://yaml.org/
 [Azure의 CoreOS에서 Fleet 시작]: virtual-machines-linux-coreos-fleet-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

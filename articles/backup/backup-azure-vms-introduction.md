@@ -122,4 +122,4 @@ Azure 가상 컴퓨터 백업을 시작하기 전에 Azure VM 에이전트가 �
 - [가상 컴퓨터 복원](backup-azure-restore-vms.md)
 - [가상 컴퓨터 백업 관리](backup-azure-manage-vms.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

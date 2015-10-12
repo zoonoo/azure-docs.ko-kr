@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Azure 앱 서비스에서 사용자 지정 도메인 이름 구성"
 	description="Azure 앱 서비스에서 웹 앱으로 사용자 지정 도메인 이름을 사용하는 방법에 대해 알아봅니다."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="MikeWasson"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -147,4 +147,4 @@ A 레코드를 만들면 웹 앱에서 특수 CNAME 레코드도 필요하며, �
 [subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

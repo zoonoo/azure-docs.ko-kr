@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="identity"
-   ms.date="09/17/2015"
+   ms.date="09/24/2015"
    ms.author="mbaldwin"/>
 
 # Azure Active Directory와의 통합
@@ -76,7 +76,7 @@ Azure AD와 통합하면 추가 코드를 작성할 필요가 없다는 이점�
 
 ### 손쉬운 배포
 
-**산업 표준 프로토콜.** Microsoft는 산업 표준을 지원합니다. Azure AD는 SAML 2.0, OpenID Connect 1.0, OAuth 2.0, Ws-federation 1.2 인증 프로토콜을 지원합니다. Graph API는 OData 4.0을 따릅니다. 응용 프로그램이 페더레이션된 로그인에 대해 이미 SAML 2.0 또는 OpenID Connect 1.0 프로토콜을 지원하는 경우 Azure AD 지원을 추가하는 것은 간단합니다. [Azure AD 지원 인증 프로토콜](../authentication-protocols.md)에 대해 자세히 알아보세요.
+**산업 표준 프로토콜.** Microsoft는 산업 표준을 지원합니다. Azure AD는 SAML 2.0, OpenID Connect 1.0, OAuth 2.0, Ws-federation 1.2 인증 프로토콜을 지원합니다. Graph API는 OData 4.0을 따릅니다. 응용 프로그램이 페더레이션된 로그인에 대해 이미 SAML 2.0 또는 OpenID Connect 1.0 프로토콜을 지원하는 경우 Azure AD 지원을 추가하는 것은 간단합니다. [Azure AD 지원 인증 프로토콜](active-directory-authentication-protocols.md)에 대해 자세히 알아보세요.
 
 **오픈 소스 라이브러리.** Microsoft는 인기 있는 언어 및 플랫폼에 대해 개발에 박차를 가하기 위해 완벽하게 지원되는 오픈 소스 라이브러리를 제공합니다. 소스 코드는 Apache 2.0에 따라 사용이 허가되며, 원하는 대로 소스 코드를 분기하여 프로젝트에 다시 제공할 수 있습니다. [Azure AD 인증 라이브러리](active-directory-authentication-libraries.md)에 대해 자세히 알아보세요.
 
@@ -90,4 +90,4 @@ Azure AD와 통합하면 추가 코드를 작성할 필요가 없다는 이점�
 
 [Azure AD를 사용한 사용자 로그인](active-directory-authentication-scenarios.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

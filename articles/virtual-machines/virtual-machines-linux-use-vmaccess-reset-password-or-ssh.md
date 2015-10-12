@@ -37,7 +37,7 @@
 다음이 필요합니다.
 
 - Microsoft Azure Linux 에이전트 버전2.0.5 이상. 가상 컴퓨터 갤러리에 있는 대부분의 Linux 이미지에는 버전 2.0.5가 포함되어 있습니다. 설치된 버전을 확인하려면 **waagent -version**을 실행합니다. 에이전트를 업데이트하려면 [Azure Linux 에이전트 사용자 가이드]의 지침을 따릅니다.
-- Azure CLI(명령줄 인터페이스) Azure CLI 설정에 대한 자세한 내용은 [Azure 명령줄 인터페이스 설치 및 구성](../xplat-cli.md)을 참조하세요.
+- Azure CLI(명령줄 인터페이스) Azure CLI 설정에 대한 자세한 내용은 [Azure 명령줄 인터페이스 설치 및 구성](../xplat-cli-install.md)을 참조하세요.
 - Azure PowerShell. Set-AzureVMExtension cmdlet의 명령을 사용하여 VMAccessForLinux 확장을 자동으로 로드 및 구성할 수 있습니다. Azure PowerShell 설치에 대한 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법]을 참조하세요.
 - 새 암호 또는 SSH 키 집합(둘 중 하나를 다시 설정하려는 경우). SSH 구성을 다시 설정하려는 경우에는 필요 없습니다.
 
@@ -263,4 +263,4 @@ VMAccess 확장 상태를 표시하려면, 다음 명령을 실행합니다.
 [Azure VM 확장 및 기능]: http://msdn.microsoft.com/library/azure/dn606311.aspx
 [RDP 또는 SSH를 사용하여 Azure 가상 컴퓨터에 연결]: http://msdn.microsoft.com/library/azure/dn535788.aspx
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

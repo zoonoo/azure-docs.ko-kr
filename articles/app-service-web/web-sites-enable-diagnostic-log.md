@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Azure 앱 서비스에서 웹앱에 대한 진단 로깅 설정"
 	description="진단 로그를 사용하도록 설정하는 방법, 응용 프로그램에 계측을 추가하는 방법 및 Azure에서 기록된 정보에 액세스하는 방법에 대해 알아봅니다."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=".net"
 	authors="cephalin"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -116,7 +116,7 @@ Azure 명령줄 인터페이스를 사용하여 로그 파일을 다운로드하
 
 이 명령을 실행하면 'webappname'이라는 웹 앱의 로그가 현재 디렉터리의 **diagnostics.zip**이라는 파일에 저장됩니다.
 
-> [AZURE.NOTE]Azure 명령줄 인터페이스를 설치하지 않았거나 Azure 구독을 사용하도록 Azure 명령줄 도구를 구성하지 않은 경우 [Azure CLI 사용 방법](../xplat-cli.md)을 참조하세요.
+> [AZURE.NOTE]Azure 명령줄 인터페이스를 설치하지 않았거나 Azure 구독을 사용하도록 Azure 명령줄 도구를 구성하지 않은 경우 [Azure CLI 사용 방법](../xplat-cli-install.md)을 참조하세요.
 
 ## 방법: Application Insights에서 로그 보기
 
@@ -175,7 +175,7 @@ HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변�
 
 	azure site log tail webappname --path http
 
-> [AZURE.NOTE]Azure 명령줄 인터페이스를 설치하지 않았거나 Azure 구독을 사용하도록 Azure 명령줄 인터페이스를 구성하지 않은 경우 [Azure 명령줄 인터페이스 사용 방법](../xplat-cli.md)을 참조하세요.
+> [AZURE.NOTE]Azure 명령줄 인터페이스를 설치하지 않았거나 Azure 구독을 사용하도록 Azure 명령줄 인터페이스를 구성하지 않은 경우 [Azure 명령줄 인터페이스 사용 방법](../xplat-cli-install.md)을 참조하세요.
 
 ##<a name="understandlogs"></a> 방법: 진단 로그 이해
 
@@ -254,7 +254,7 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 
 ##<a name="nextsteps"></a> 다음 단계
 
-- [웹앱을 모니터링하는 방법](/ko-KR/manage/services/web-sites/how-to-monitor-websites/)
+- [웹앱을 모니터링하는 방법](/ko-kr/manage/services/web-sites/how-to-monitor-websites/)
 - [Visual Studio에서 Azure 웹앱 문제 해결](web-sites-dotnet-troubleshoot-visual-studio.md)
 - [HDInsight에서 웹앱 로그 분석](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
@@ -265,4 +265,4 @@ Blob에 저장된 데이터는 다음과 비슷합니다.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

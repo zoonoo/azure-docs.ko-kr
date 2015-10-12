@@ -24,8 +24,7 @@
 
 소비자 등록 및 로그인을 수락하는 응용 프로그램을 만들려면 먼저 Azure Active Directory B2C 디렉터리를 사용하여 등록해야 합니다. [여기](active-directory-b2c-get-started.md)서 설명한 단계를 사용하여 고유의 디렉터리를 가져옵니다. 해당 문서의 모든 단계를 수행하면 시작 보드에 고정된 B2C 기능 블레이드가 있어야 합니다.
 
-    > [AZURE.IMPORTANT]
-    You cannot use applications registered in the **Applications** tab on the [Azure Portal](https://manage.windowsazure.com/) for this.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## B2C 기능 블레이드로 이동
 
@@ -46,7 +45,7 @@
 ## 응용 프로그램 등록
 
 1. Azure Preview 포털의 B2C 기능 블레이드에서 **응용 프로그램**을 클릭합니다.
-2. 블레이드 맨 위에 있는 **+추가**를 클릭합니다.
+2. 블레이드의 위쪽에서 **+추가**를 클릭합니다.
 3. 응용 프로그램 **이름**은 고객에게 응용 프로그램을 설명합니다. 예를 들어 "Contoso B2C 앱"을 입력합니다.
 4. 웹 기반 응용 프로그램을 작성하는 경우 **웹앱/웹 API 포함** 스위치를 **예**로 전환합니다. **회신 URL**은 Azure AD B2C에서 사용자 응용 프로그램이 요청한 토큰을 반환하는 끝점입니다. 예를 들어 `https://localhost:44321/`을 입력합니다. 응용 프로그램이 보안을 유지해야 하는 서버 쪽 구성 요소(API)를 포함하는 경우 **키 생성** 단추를 클릭하여 **응용 프로그램 암호**도 만들고 복사하는 것이 좋습니다.
 
@@ -62,4 +61,4 @@ Azure AD B2C로 등록된 응용 프로그램이 있다면 작동할 빠른 시�
 
 [AZURE.INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-b2c-quickstart-table.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

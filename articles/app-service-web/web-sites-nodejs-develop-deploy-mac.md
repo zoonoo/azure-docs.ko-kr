@@ -106,8 +106,8 @@
 
 		git init
 
-	> [AZURE.NOTE]**Git 명령을 사용할 수 없는 경우**
-	[Git](http://git-scm.com/%20target="_blank)는 Azure 웹 사이트를 배포하는 데 사용할 수 있는 분산된 버전 제어 시스템입니다. 플랫폼별 설치 지침은 [Git 다운로드 페이지](http://git-scm.com/download%20target="_blank")(영문)를 참조하십시오.
+	> [AZURE.NOTE]Git 명령을 사용할 수 없는 경우 
+	[Git](http://git-scm.com/%20target="_blank)는 Azure 웹 사이트를 배포하는 데 사용할 수 있는 분산된 버전 제어 시스템입니다. 플랫폼별 설치 지침은 [Git 다운로드 페이지](http://git-scm.com/download%20target="_blank")(영문)를 참조하세요.
 
 2. 다음 명령을 사용하여 리포지토리에 파일을 추가합니다.
 
@@ -163,7 +163,7 @@
 
 ##다음 단계
 
-이 문서의 단계에 따라 Azure 포털을 사용하여 웹앱을 만들 수 있지만 [Azure 명령줄 인터페이스](../xplat-cli.md)를 사용하여 동일한 작업을 수행할 수도 있습니다.
+이 문서의 단계에 따라 Azure 포털을 사용하여 웹앱을 만들 수 있지만 [Azure 명령줄 인터페이스](../xplat-cli-install.md)를 사용하여 동일한 작업을 수행할 수도 있습니다.
 
 Node.js는 응용 프로그램에 사용될 수 있는 풍부한 모듈 에코시스템을 제공합니다. 웹앱에서 모듈을 사용하는 방법에 대한 자세한 내용은 [Azure 응용 프로그램에 Node.js 모듈 사용](../nodejs-use-node-modules-azure-apps.md)을 참조하세요.
 
@@ -175,7 +175,7 @@ Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에
 ##추가 리소스
 
 * [Azure PowerShell](../install-configure-powershell.md)
-* [Azure 명령줄 인터페이스](../xplat-cli.md)
+* [Azure 명령줄 인터페이스](../xplat-cli-install.md)
 * [Node.js 개발자 센터](/develop/nodejs/)
 
 ## 변경된 내용
@@ -206,4 +206,4 @@ Azure에 제공되는 Node.js 버전에 대한 정보 및 응용 프로그램에
 
 [git-url]: ./media/web-sites-nodejs-develop-deploy-mac/git-url.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

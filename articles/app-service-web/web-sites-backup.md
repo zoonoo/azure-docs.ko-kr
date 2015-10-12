@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Azure 앱 서비스에서 웹 앱을 백업" 
 	description="Azure 앱 서비스에서 웹 앱의 백업을 만드는 방법에 대해 알아봅니다" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -222,4 +222,4 @@ Azure에 등록하려면 [Microsoft Azure 무료 평가판](/pricing/free-trial/
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

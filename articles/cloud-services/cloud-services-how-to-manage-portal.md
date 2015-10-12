@@ -113,4 +113,4 @@ Azure Preview 포털에서는 현재 Azure 포털에서와 같이 리소스를 �
 * [사용자 지정 도메인 이름](cloud-services-custom-domain-name-portal.md)을 구성합니다.
 * [SSL 인증서](cloud-services-configure-ssl-certificate-portal.md)를 구성합니다.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -79,4 +79,4 @@ SQL 데이터 웨어하우스에 대한 주요 디자인 결정, 권장 사항 �
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

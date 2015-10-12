@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="SQL 데이터베이스를 사용하는 웹앱을 프로비전" 
 	description="SQL 데이터베이스가 포함된 웹앱을 배포하는 Azure 리소스 관리자 템플릿을 사용합니다." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -41,7 +41,7 @@
 
 배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
 
-[![Azure에 배포](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)로 바꿉니다.
+[![Azure에 배포](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)로 바꿉니다.
 
 ## 지정할 매개변수
 
@@ -452,4 +452,4 @@
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

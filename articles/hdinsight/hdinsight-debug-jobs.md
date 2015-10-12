@@ -300,4 +300,4 @@ Azure PowerShell 또는 Preview 포털에서 발생할 수 있는 오류는 아�
 
 [image-hdi-debugging-error-messages-portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

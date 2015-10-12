@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/25/2015"
+	ms.date="09/25/2015"
 	ms.author="yuaxu"/>
 
 # 특정 사용자에게 크로스 플랫폼 알림 전송
@@ -112,4 +112,4 @@
 [푸시 알림 시작]: app-service-mobile-dotnet-backend-xamarin-ios-get-started-push-preview.md
 [템플릿]: https://msdn.microsoft.com/ko-kr/library/dn530748.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

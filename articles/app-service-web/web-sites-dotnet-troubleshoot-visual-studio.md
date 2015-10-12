@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Visual Studio를 사용하여 Azure 앱 서비스에서 웹 앱 문제 해결" 
 	description="Visual Studio 2013에서 기본 제공되는 원격 디버깅, 추적 및 로깅 도구를 사용하여 Azure 웹 앱 문제를 해결하는 방법에 대해 알아봅니다." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
@@ -71,7 +71,7 @@ Visual Studio를 사용하면 [Azure 포털](http://go.microsoft.com/fwlink/?Lin
    
 	이 창에 있는 응용 프로그램 설정 및 연결 문자열 상자에 대한 자세한 내용은 [Azure 웹 앱: 응용 프로그램 문자열 및 연결 문자열 작동 방식](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx)을 참조하세요.
 
-	이 창에서 지원하지 않는 웹 앱 관리 작업을 수행하려는 경우 **관리 포털에서 열기**를 클릭하여 브라우저 창에서 Azure 미리보기 포털을 엽니다. 자세한 내용은 [웹 앱을 구성하는 방법](/ko-KR/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig)을 참조하세요
+	이 창에서 지원하지 않는 웹 앱 관리 작업을 수행하려는 경우 **관리 포털에서 열기**를 클릭하여 브라우저 창에서 Azure 미리보기 포털을 엽니다. 자세한 내용은 [웹 앱을 구성하는 방법](/ko-kr/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig)을 참조하세요
 
 ## <a name="remoteview"></a>서버 탐색기에서 웹 앱 파일 액세스
 
@@ -762,4 +762,4 @@ Microsoft TechNet 웹 사이트에 포함된 [실패한 요청 추적 사용](ht
 [GetStartedWJ]: websites-dotnet-webjobs-sdk.md
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

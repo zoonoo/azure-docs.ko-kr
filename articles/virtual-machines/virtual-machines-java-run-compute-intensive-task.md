@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/03/2015"
+	ms.date="09/22/2015"
 	ms.author="robmcm"/>
 
 # 가상 컴퓨터에서 Java로 계산 집약적인 작업을 실행하는 방법
@@ -519,4 +519,4 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 [default_key]: ./media/virtual-machines-java-run-compute-intensive-task/SvcBusQueues_07_DefaultKey.jpg
 [add_ca_cert]: ../java-add-certificate-ca-store.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -461,6 +461,17 @@ SDK에서 대부분의 예외를 자동으로 catch하므로 항상 TrackExcepti
     }
 ```
 
+ASP.NET 웹 MVC 응용 프로그램에서의 예:
+
+*Razor*
+
+        @if (Request.IsAuthenticated)
+        {
+            <script>
+                appInsights.setAuthenticatedUserContext("@User.Identity.Name".replace(/[,;=| ]+/g, "_"));
+            </script>
+        }
+
 사용자의 실제 로그인 이름을 사용할 필요는 없습니다. 해당 사용자에게 고유한 ID이기만 하면 됩니다. 공백이나 `,;=|` 문자를 포함할 수 없습니다.
 
 사용자 ID도 세션 쿠키에 설정되고 서버로 전송됩니다. 서버 SDK가 설치된 경우 인증된 사용자 ID가 클라이언트 및 서버 원격 분석 둘 다에 대한 컨텍스트 속성의 일부로 전송되므로 필터링하여 검색할 수 있습니다.
@@ -470,7 +481,9 @@ SDK에서 대부분의 예외를 자동으로 catch하므로 항상 TrackExcepti
 
       appInsights.setAuthenticatedUserContext(validatedId, accountId);
 
-[메트릭 탐색기](app-insights-metrics-explorer.md)에서 **인증된 사용자** 및 **계정** 차트를 만들 수 있습니다.
+[메트릭 탐색기](app-insights-metrics-explorer.md)에서 **사용자, 인증** 및 **사용자 계정**을 계산하는 차트를 만들 수 있습니다.
+
+특정 사용자 이름과 계정으로 클라이언트 데이터 지점을 [검색][diagnostic]할 수도 있습니다.
 
 
 ## <a name="defaults"></a>선택한 사용자 지정 원격 분석에 대한 기본값 설정
@@ -699,7 +712,7 @@ telemetryItem에서 사용할 수 있는 사용자 지정이 아닌 속성의 �
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
 
-함수는 비동기적입니다.
+함수는 메모리 내 채널에서 비동기 상태이지만 [영구 채널](app-insights-windows-desktop.md#persistence-channel)을 사용하도록 선택하면 동기 상태가 됩니다.
 
 
 
@@ -903,4 +916,4 @@ ApplicationInsights.config에서:
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

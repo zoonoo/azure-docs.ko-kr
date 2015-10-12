@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Azure 가상 네트워크에 웹 앱 통합" 
 	description="신규 또는 기존 Azure 가상 네트워크에 Azure 앱 서비스의 Azure 웹 앱을 연결하는 방법을 보여 줍니다." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -109,4 +109,4 @@ DNS를 가상 네트워크에 추가하거나 사이트 간 VPN을 네트워크�
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

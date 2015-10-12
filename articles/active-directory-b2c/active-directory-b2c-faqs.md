@@ -75,7 +75,7 @@ Azure AD Graph API를 사용([여기](active-directory-b2c-devquickstarts-graph-
 
 ### Azure AD B2C는 SharePoint 온-프레미스 2016 또는 이전과 함께 작동합니까?
 
-현재는 아닙니다. Azure AD B2C는 SAML 1.1 토큰을 지원하지 않습니다.
+현재는 아닙니다. Azure AD B2C는 SP 온-프레미스 요구에 따라 구축된 포털/전자상거래 응용 프로그램의 SAML 1.1 토큰을 지원하지 않습니다. Azure AD B2C는 Sharepoint 외부 파트너 공유 시나리오에 해당하지 않습니다. 대신 [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx)를 참조하세요.
 
 ### Azure AD B2C이 제공하는 보고 및 감사 기능은 무엇입니까? Azure AD Premium과 동일합니까?
 
@@ -105,4 +105,4 @@ Azure AD B2C에서 [이 지원 항목](active-directory-b2c-support.md)을 확�
 
 또한 현재 [미리 보기 제한, 제한 사항 및 제약 조건](active-directory-b2c-limitations.md)을 검토하려 합니다.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

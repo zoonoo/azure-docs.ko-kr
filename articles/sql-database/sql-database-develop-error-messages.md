@@ -242,4 +242,4 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 - [Azure SQL 데이터베이스 일반 지침 및 제한 사항](http://msdn.microsoft.com/library/azure/ee336245.aspx)
 - [리소스 관리](http://msdn.microsoft.com/library/azure/dn338083.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

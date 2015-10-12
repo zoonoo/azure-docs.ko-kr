@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="08/24/2015"
+   ms.date="09/30/2015"
    ms.author="kempb" />
 
 # Visual Studio에서 Azure 가상 컴퓨터 만들기 및 관리
@@ -61,15 +61,15 @@ Visual Studio에서 서버 탐색기를 사용하여 Azure에 가상 컴퓨터�
 
     원격 데스크톱을 사용하여 컴퓨터에 로그인하기 위해 새 이름과 암호를 사용하므로 잊어버리지 않도록 기록해 두는 것이 좋습니다. Visual Studio에 Azure 가상 컴퓨터를 만든 후 [Azure 관리 포털](http://go.microsoft.com/fwlink/?LinkID=253103)에서 크기 및 다른 설정을 변경할 수 있습니다.
 
-   >[AZURE.NOTE]더 큰 크기의 가상 컴퓨터를 선택하면 추가 요금이 부과될 수 있습니다. 자세한 내용은 [가상 컴퓨터 가격 정보](http://azure.microsoft.com/pricing/details/virtual-machines/)를 참조하세요.
+        >[AZURE.NOTE] If you choose larger sizes for the virtual machine, extra charges may apply. See [Virtual Machines Pricing Details](http://azure.microsoft.com/pricing/details/virtual-machines/) for more information.
 
-1. Visual Studio에서 만든 가상 컴퓨터는 클라우드 서비스를 필요로 합니다. **클라우드 서비스 설정** 페이지에서, 가상 컴퓨터에 대한 클라우드 서비스를 선택하거나 또는, 클라우드 서비스가 아직 없거나 새로운 것을 사용하려는 경우 드롭다운 목록에서 **< 새로 만들기... >**를 선택합니다. 저장소 계정도 필요하므로 **저장소 계정** 드롭다운 목록 상자에서 저장소 계정을 선택 (또는 새로운 저장소 계정을 생성)합니다. 자세한 내용은 [Microsoft Azure 저장소 소개](./storage/storage-introduction/)를 참조하세요.
+1. Visual Studio에서 만든 가상 컴퓨터는 클라우드 서비스를 필요로 합니다. **클라우드 서비스 설정** 페이지에서, 가상 컴퓨터에 대한 클라우드 서비스를 선택하거나 또는 클라우드 서비스가 아직 없거나 새로운 것을 사용하려는 경우 드롭다운 목록에서 **<새로 만들기...>**를 선택합니다. 저장소 계정도 필요하므로 **저장소 계정** 드롭다운 목록 상자에서 저장소 계정을 선택 (또는 새로운 저장소 계정을 생성)합니다. 자세한 내용은 [Microsoft Azure 저장소 소개](./storage/storage-introduction/)를 참조하세요.
 
 1. 가상 네트워크를 지정하려는 경우 (선택 사항) 가상 네트워크 및 서브넷 드롭다운 목록 상자에서 선택합니다.
 
     가용성 집합의 멤버인 가상 컴퓨터는 각기 다른 장애 도메인에 배포됩니다. 자세한 내용은 [Azure 가상 네트워크](http://www.windowsazure.com/services/virtual-network/)를 참조하세요.
 
-1. 가상 컴퓨터가 가용성 집합에 속하기 원하는 경우 (역시 선택 사항) **가용성 집합 지정** 확인란을 선택한 후 드롭다운 목록 상자에서 가용성 집합을 선택합니다. 완료되면 **다음** 단추를 선택합니다.
+1. 가상 컴퓨터를 가용성 집합에 포함시키려는 경우(선택 사항) **가용성 집합 지정** 확인란을 선택한 후 드롭다운 목록 상자에서 가용성 집합을 선택합니다. 완료되면 **다음** 단추를 선택합니다.
 
     가용성 집합에 가상 컴퓨터를 추가하면 네트워크 오류, 로컬 디스크 하드웨어 오류 및 계획된 가동 중지 시간 중에도 응용 프로그램을 사용하는데 도움이 됩니다. 가상 네트워크, 서브넷 및 가용성 집합을 만들려면 [Azure 관리 포털](http://go.microsoft.com/fwlink/?LinkID=253103)을 사용해야 합니다. 자세한 내용은 [가상 컴퓨터의 가용성 관리](http://www.windowsazure.com/documentation/articles/manage-availability-virtual-machines/)를 참조하세요.
 
@@ -83,7 +83,7 @@ Visual Studio에서 서버 탐색기를 사용하여 Azure에 가상 컴퓨터�
 
 1. 가상 컴퓨터 설정 구성을 마친 후 **만들기** 단추를 선택하여 가상 컴퓨터를 만듭니다.
 
-    Azure가 가상 컴퓨터를 만들면 **Azure 활동 로그**는 가상 컴퓨터 만들기 작업의 진행률을 보여줍니다.
+    Azure가 가상 컴퓨터를 만들면 **Azure 활동 로그**는 가상 컴퓨터 만들기 작업의 진행률을 보여 줍니다.
 
     ![가상 컴퓨터 활동 로그 - 진행 중입니다.](./media/vs-azure-tools-virtual-machines-create-manage/IC744138.png)
 
@@ -111,7 +111,7 @@ Visual Studio에서 서버 탐색기를 사용하여 Azure에 가상 컴퓨터�
 
 ### 가상 컴퓨터 설정 보기 또는 변경
 
-1. 서버 탐색기의 선택의 **Azure 가상 컴퓨터** 노드에서 가상 컴퓨터를 선택합니다.
+1. 서버 탐색기의 **Azure 가상 컴퓨터** 노드에서 가상 컴퓨터를 선택합니다.
 
 1. 바로 가기 메뉴에서 **구성**을 선택하여 가상 컴퓨터 구성 페이지를 확인합니다.
 
@@ -125,7 +125,7 @@ Visual Studio에서 서버 탐색기를 사용하여 Azure에 가상 컴퓨터�
 
 ### 가상 컴퓨터 검사점을 만들려면
 
-1. 서버 탐색기의 선택의 **Azure 가상 컴퓨터** 노드에서 가상 컴퓨터를 선택합니다.
+1. 서버 탐색기의 **Azure 가상 컴퓨터** 노드에서 가상 컴퓨터를 선택합니다.
 
 1. 바로 가기 메뉴에서 **구성**을 선택하여 가상 컴퓨터 구성 페이지를 확인합니다.
 
@@ -139,13 +139,13 @@ Visual Studio에서 서버 탐색기를 사용하여 Azure에 가상 컴퓨터�
 
 1. 이미지 레이블 및 설명을 제공합니다. 기본 레이블 및 설명이 제공되지만 원하는 경우 덮어쓸 수 있습니다.
 
-1. 이 가상 컴퓨터에 이미 Sysprep를 실행하는 경우 **가상 컴퓨터에서 Sysprep를 실행했습니다** 상자를 선택합니다.
+1. 이 가상 컴퓨터에 이미 Sysprep을 실행하는 경우 **가상 컴퓨터에서 Sysprep을 실행했습니다** 상자를 선택합니다.
 
     Sysprep은 특별히 가상 컴퓨터 버전의 Windows에서 시스템 특정 데이터를 제거하는 도구로, 해당 데이터를 다른 사람이 사용할 수 있는 템플릿으로 만듭니다. 자세한 내용은 [템플릿으로 사용할 Windows 가상 컴퓨터를 캡처하는 방법](http://azure.microsoft.com/documentation/articles/virtual-machines-capture-image-windows-server/)을 참조하세요.
 
 1. 구성과 캡처 설정을 마친 후 **캡처** 단추를 선택하여 검사점을 만듭니다.
 
-    Azure가 검사점을 만들면 **Azure 활동 로그**는 작업의 진행률을 보여줍니다.
+    Azure가 검사점을 만들면 **Azure 활동 로그**는 작업의 진행률을 보여 줍니다.
 
     ![가상 컴퓨터 검사점 캡처하기](./media/vs-azure-tools-virtual-machines-create-manage/IC744144.png)
 
@@ -157,7 +157,7 @@ Visual Studio에서 서버 탐색기를 사용하여 Azure에 가상 컴퓨터�
 
 ### 가상 컴퓨터를 이전에 저장된 상태로 복원하려면
 
-- [단계별 작업: PowerShell - 2부를 사용하여 Microsoft Azure 가상 컴퓨터의 클라우드 복원 수행](http://blogs.technet.com/b/keithmayer/archive/2014/02/04/step-by-step-perform-cloud-restores-of-windows-azure-virtual-machines-using-powershell-part-2.aspx) 에 설명된 단계를 진행합니다.
+- [단계별 작업: PowerShell - 2부를 사용하여 Microsoft Azure 가상 컴퓨터의 클라우드 복원 수행](http://blogs.technet.com/b/keithmayer/archive/2014/02/04/step-by-step-perform-cloud-restores-of-windows-azure-virtual-machines-using-powershell-part-2.aspx)에 설명된 단계를 진행합니다.
 
 ### 검사점을 삭제하려면
 
@@ -171,10 +171,10 @@ Visual Studio에서 서버 탐색기를 사용하여 Azure에 가상 컴퓨터�
 
 1. 서버 탐색기의 **Azure 가상 컴퓨터** 노드에서 종료하려는 가상 컴퓨터를 선택합니다.
 
-1. 바로 가기 메뉴에서 **종료** 명령을 선택하거나, 또는 **구성**을 선택하여 가상 컴퓨터 구성 페이지를 확인한 후 **종료** 단추를 선택합니다.
+1. 바로 가기 메뉴에서 **종료** 명령을 선택하거나 또는 **구성**을 선택하여 가상 컴퓨터 구성 페이지를 확인한 후 **종료** 단추를 선택합니다.
 
 ## 다음 단계
 
 가상 컴퓨터를 만드는 방법을 자세히 알아보려면 [Linux를 실행하는 가상 컴퓨터 만들기](virtual-machines-linux-tutorial.md) 및 [Azure Preview 포털에서 Windows를 실행하는 가상 컴퓨터 만들기](virtual-machines-windows-tutorial.md)를 참조하세요.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

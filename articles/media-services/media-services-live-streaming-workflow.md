@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"  
+	ms.date="09/28/2015"  
 	ms.author="juliako"/>
 
 
@@ -46,7 +46,6 @@ Azure 미디어 서비스에서 **Channel**, **Program**, and **StreamingEndpoin
 
 - 온-프레미스 라이브 인코더는 단일 비트 전송률 스트림을 RTP(MPEG-TS), RTMP 또는 부드러운 스트리밍(조각화된 MP4) 형식의 하나로 미디어 서비스를 통해 라이브 인코딩을 수행할 수 있는 채널에 전송합니다. 그러면 채널은 들어오는 단일 비트 전송률 스트림을 다중 비트 전송률(적응) 비디오 스트림으로 라이브 인코딩합니다. 요청된 경우 미디어 서비스는 고객에게 스트림을 배달합니다.
 
-	미디어 서비스를 사용하여 라이브 스트림을 인코딩하는 기능은 **미리 보기**로 제공됩니다.
 - 온-프레미스 라이브 인코더가 다중 비트 전송률 **RTMP** 또는 **부드러운 스트리밍**(조각화된 MP4)을 채널에 보냅니다. 다중 비트 전송률 부드러운 스트리밍을 출력하는 라이브 인코더인 Elemental, Envivio, Cisco를 사용할 수 있습니다. RTMP를 출력하는 라이브 인코더는 Adobe Flash Live, Telestream Wirecast 및 Tricaster 트랜스코더입니다. 수집된 스트림은 어떠한 추가적인 처리 없이 **채널**을 통과합니다. 또한 라이브 인코더는 라이브 인코딩이 사용되지 않는 채널에 단일 비트 전송률 스트림을 전송할 수 있지만 이 방법은 권장되지 않습니다. 요청된 경우 미디어 서비스는 고객에게 스트림을 배달합니다.
 
 
@@ -92,4 +91,4 @@ Azure 미디어 서비스에서 **Channel**, **Program**, and **StreamingEndpoin
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

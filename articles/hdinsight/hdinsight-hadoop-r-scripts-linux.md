@@ -101,7 +101,6 @@ HDFS 및 MapReduce와의 통합을 제공하는다음 RHadoop 패키지도 설�
 		ints = to.dfs(1:100)
 		calc = mapreduce(input = ints, map = function(k, v) cbind(v, 2*v))
 
-
 	첫 번째 줄은 MapReduce 작업에 사용되는 RHadoop 라이브러리 rmr2를 호출합니다.
 
 	두 번째 줄은 1-100의 값을 생성한 다음 `to.dfs`를 사용하여 Hadoop 파일 시스템에 저장합니다.
@@ -149,4 +148,4 @@ HDFS 및 MapReduce와의 통합을 제공하는다음 RHadoop 패키지도 설�
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

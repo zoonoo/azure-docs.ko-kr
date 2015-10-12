@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure에서 Flask를 사용하여 웹앱 만들기"
-	description="Azure에서 Python 웹앱을 실행하는 방법을 소개하는 자습서입니다."
-	services="app-service\web"
+	pageTitle="Azure에서 Flask를 사용하여 웹앱 만들기" 
+	description="Azure에서 Python 웹앱을 실행하는 방법을 소개하는 자습서입니다." 
+	services="app-service\web" 
 	documentationCenter="python"
 	tags="python"
-	authors="huguesv"
-	manager="wpickett"
+	authors="huguesv" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
 	ms.date="08/30/2015"
 	ms.author="huguesv"/>
 
@@ -377,6 +377,8 @@ Azure 테이블 저장소 및 MongoDB에 대한 자세한 정보:
 - [Azure의 Flask 및 MongoDB와 Python Tools for Visual Studio]
 - [Azure의 Flask 및 Azure 테이블 저장소와 Python Tools for Visual Studio]
 
+자세한 내용을 보려면 [Python 개발자 센터](/develop/python/)도 참조하세요.
+
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
@@ -399,4 +401,4 @@ Azure 테이블 저장소 및 MongoDB에 대한 자세한 정보:
 [Flask 설명서]: http://flask.pocoo.org/
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

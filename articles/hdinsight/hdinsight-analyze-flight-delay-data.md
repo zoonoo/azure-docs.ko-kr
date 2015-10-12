@@ -13,12 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="08/12/2015"
 	ms.author="jgao"/>
 
 #HDInsight의 Hive를 사용하여 비행 지연 데이터 분석
 
 Hive에서는 대규모 데이터의 요약, 쿼리, 분석에 적용할 수 있는 SQL 스타일 스크립트 언어인 *[HiveQL][hadoop-hiveql]*을 통해 Hadoop MapReduce 작업을 실행할 수 있습니다.
+
+> [AZURE.NOTE]이 문서의 단계에는 Windows 기반 HDInsight 클러스터가 필요합니다. Linux 기반 클러스터를 사용하는 단계는 [HDInsight에서 Hive를 사용하여 비행 지연 데이터 분석(Linux)](hdinsight-analyze-flight-delay-data-linux.md)을 참조하세요.
 
 Azure HDInsight의 주요 이점 중 하나는 데이터 저장소와 계산 기능을 분리할 수 있다는 것입니다. HDInsight는 데이터 저장소로 Azure Blob 저장소를 사용합니다. 일반적인 MapReduce 프로세스는 다음의 세 부분으로 구분할 수 있습니다.
 
@@ -879,4 +881,4 @@ HiveQL 명령의 전체 목록을 보려면 [Hive 데이터 정의 언어][hadoo
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

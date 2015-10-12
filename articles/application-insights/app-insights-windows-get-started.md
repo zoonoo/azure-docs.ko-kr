@@ -184,7 +184,7 @@ Visual Studio를 사용하여 설치 단계를 수행하려면 Windows Phone, Wi
 
 **새 프로젝트** 대화 상자에서 **Application Insights**를 선택합니다.
 
-로그인할지 묻는 메시지가 표시되면 Azure 계정의 자격 증명을 사용합니다(Visual Studio Online 계정과 별개).
+로그인이 요청되면 자신의 Azure 계정에 대한 자격 증명을 사용합니다.
 
 ![](./media/app-insights-windows-get-started/appinsights-d21-new.png)
 
@@ -232,4 +232,4 @@ Visual Studio를 사용하여 설치 단계를 수행하려면 Windows Phone, Wi
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

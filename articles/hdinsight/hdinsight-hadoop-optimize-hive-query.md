@@ -6,7 +6,7 @@
    authors="rashimg"
    manager="mwinkle"
    editor="cgronlun"
-	tags="azure-portal"/>
+   tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
@@ -22,7 +22,9 @@
 
 기본적으로 Hadoop 클러스터는 성능을 위해 최적화되지 않습니다. 이 문서에서는 쿼리에 적용할 수 있는 가장 일반적인 Hive 성능 최적화 방법 중 몇가지를 설명합니다.
 
+
 [AZURE.INCLUDE [preview-portal](../../includes/hdinsight-azure-preview-portal.md)]
+
 
 * [HDInsight에서 Hadoop에 대한 Hive 쿼리 최적화](hdinsight-hadoop-optimize-hive-query-v1.md)
 
@@ -59,7 +61,7 @@ HDInsight에서 지원하는 다른 가상 컴퓨터에 대한 자세한 정보�
 
 	set hive.execution.engine=tez;
 
-Tez는 프로 비전 시간에 사용할 수 있어야 합니다. 다음은 Tez을 사용한 Hadoop 클러스터를 프로비전하기 위한 샘플 Azure PowerShell 스크립트입니다.
+Windows 기반 HDInsight 클러스터의 경우 프로비전하는 시점에 Tez를 설정해야 합니다. 다음은 Tez을 사용한 Hadoop 클러스터를 프로비전하기 위한 샘플 Azure PowerShell 스크립트입니다.
 
 
 	$clusterName = "[HDInsightClusterName]"
@@ -83,6 +85,10 @@ Tez는 프로 비전 시간에 사용할 수 있어야 합니다. 다음은 Tez�
 	Set-AzureHDInsightDefaultStorage -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" -StorageAccountKey $defaultStorageAccountKey -StorageContainerName $defaultStorageContainerName |
 	Add-AzureHDInsightConfigValues -Hive $hiveConfig |
 	New-AzureHDInsightCluster -Name $clusterName -Location $location -Credential $hdiCredential
+
+    
+> [AZURE.NOTE]Linux 기반 HDInsight 클러스터는 Tez를 기본적으로 사용합니다.
+    
 
 ## Hive 분할
 
@@ -220,4 +226,4 @@ ORC 형식에 대한 자세한 내용은 [여기](https://cwiki.apache.org/confl
 [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
 [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

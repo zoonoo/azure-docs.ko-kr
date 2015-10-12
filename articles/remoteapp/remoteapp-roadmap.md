@@ -1,5 +1,5 @@
 <properties
-    pageTitle="Azure RemoteApp의 예정된 기능"
+    pageTitle="Azure RemoteApp에서 제공되는 사항 | Microsoft Azure"
     description="Azure RemoteApp에 대한 새로운 기능이 제공되는 시기에 대해 알아봅니다."
     services="remoteapp"
     documentationCenter=""
@@ -12,7 +12,7 @@
     ms.tgt_pltfrm="NA"
     ms.devlang="NA"
     ms.topic="article"
-    ms.date="08/12/2015"
+    ms.date="09/29/2015"
     ms.author="elizapo" />
 
 # Azure RemoteApp의 예정된 기능
@@ -28,7 +28,9 @@ Microsoft는 고객의 의견에 따라 Azure RemoteApp을 개선하기 위해 �
 |Express 경로([피드백](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/5933123-existing-virtual-network-does-not-appear-when-tryi))| |X| | |
 |새로운 [Azure Preview 포털](http://azure.microsoft.com/overview/preview-portal/)에서 Azure RemoteApp 사용 가능| | | |X|
 |Azure RemoteApp Preview용 Windows 10 범용 응용 프로그램| | |X| |
-|특정 사용자에게 개별 응용 프로그램을 게시하는 기능([피드백](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec))| | |X| |
+|특정 사용자에게 개별 응용 프로그램을 게시하는 기능 - **공용 미리 보기**([피드백](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6067043-allow-the-ability-to-publish-specific-apps-to-spec))| | ||X|
+|Windows 클라이언트 재배포 가능 MSI 패키지([피드백](http://feedback.azure.com/forums/247748-azure-remoteapp/suggestions/6627191-client-deployment-provide-an-msi-package-to-allo))| | ||X|
+
 
 올해 초 추가된 다른 개선 사항:
 
@@ -39,4 +41,4 @@ Microsoft는 고객의 의견에 따라 Azure RemoteApp을 개선하기 위해 �
 - 오스트레일리아 데이터 센터의 가용성
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

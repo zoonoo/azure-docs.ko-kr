@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="09/29/2015"
 	ms.author="liviodlc"/>
 
 #Azure Active Directory에서 페더레이션된 Single Sign-On에 대한 인증서 관리
@@ -26,7 +26,7 @@
 
 ##페더레이션 인증서에 대한 만료 날짜를 사용자 지정하는 방법
 
-기본적으로 인증서는 2년 후에 만료되도록 설정됩니다. 다음 단계를 수행하여 인증서에 대한 다른 만료 날짜를 선택할 수 있습니다. 포함된 스크린샷에서는 예제를 위해 ServiceNow를 사용하지만 이러한 단계는 페더레이션된 모든 SaaS 앱에 적용할 수 있습니다.
+기본적으로 인증서는 2년 후에 만료되도록 설정됩니다. 다음 단계를 수행하여 인증서에 대한 다른 만료 날짜를 선택할 수 있습니다. 포함된 스크린샷에서는 예제를 위해 Salesforce를 사용하지만 이러한 단계는 페더레이션된 모든 SaaS 앱에 적용할 수 있습니다.
 
 1. Azure Active Directory에서 응용 프로그램에 대한 빠른 시작 페이지의 **Single Sign-On 구성**을 클릭합니다.
 
@@ -76,8 +76,6 @@
 
 	![다운로드한 다음 인증서 업로드](./media/active-directory-sso-certs/renew-config-app.PNG)
 
-##참고 항목
+[AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-[Azure AD에서 응용 프로그램 액세스 및 Single Sign-On](active-directory-appssoaccess-whatis.md)
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

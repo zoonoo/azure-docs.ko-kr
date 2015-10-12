@@ -295,6 +295,9 @@ Blob을 삭제하려면 컨테이너 이름 및 Blob 이름을 **BlobRestProxy->
 - <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/BlockBlobExample.php>에서 PHP 블록 Blob 예를 참조하세요.
 - <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>에서 PHP 페이지 Blob 예를 참조하세요.
 
+자세한 내용은 [PHP 개발자 센터](/develop/php/)도 참조하세요.
+
+
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [Storing and accessing data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [container-acl]: http://msdn.microsoft.com/library/azure/dd179391.aspx
@@ -304,4 +307,4 @@ Blob을 삭제하려면 컨테이너 이름 및 Blob 이름을 **BlobRestProxy->
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

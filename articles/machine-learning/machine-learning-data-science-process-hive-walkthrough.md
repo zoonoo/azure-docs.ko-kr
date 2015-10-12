@@ -1,22 +1,22 @@
-<properties 
+<properties
 	pageTitle="고급 분석 프로세스 및 기술 작동: Hadoop 클러스터 사용 | Microsoft Azure"
 	description="HDInsight Hadoop 클러스터를 사용하는 종단 간 시나리오에 ADAPT(고급 분석 처리 및 기술)를 사용하여 공개적으로 사용 가능한 데이터 집합으로 모델을 빌드 및 배포합니다."
 	services="machine-learning,hdinsight"
 	documentationCenter=""
 	authors="bradsev"
 	manager="paulettm"
-	editor="cgronlun"/>
+	editor="cgronlun" />
 
-<tags 
+<tags
 	ms.service="machine-learning"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="hangzh;bradsev"/>
+	ms.date="09/28/2015"
+	ms.author="hangzh;bradsev" />
 
-                
+
 # 고급 분석 프로세스 및 기술 작동: HDInsight Hadoop 클러스터 사용
 
 이 연습에서는 [Azure HDInsight Hadoop 클러스터](http://azure.microsoft.com/services/hdinsight/)를 사용하는 종단 간 시나리오에서 ADAPT(고급 분석 처리 및 기술)를 사용하여 공개적으로 사용 가능한 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합에서 데이터를 저장, 탐색, 기능 설계 및 다운 샘플링합니다. 데이터의 모델은 이진/다중 클래스 분류 및 회귀 예측 작업을 처리하기 위해 Azure 기계 학습으로 빌드됩니다.
@@ -63,7 +63,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 		Class 1 : tip_amount > $0
 
 2. **다중 클래스 분류**: 여정에 대해 지불된 팁 금액의 범위를 예측합니다. *tip\_amount*를 5개의 bin 또는 클래스로 나눕니다.
-	
+
 		Class 0 : tip_amount = $0
 		Class 1 : tip_amount > $0 and tip_amount <= $5
 		Class 2 : tip_amount > $5 and tip_amount <= $10
@@ -75,7 +75,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 
 ## <a name="setup"></a>고급 분석용 HDInsight Hadoop 클러스터 설정
 
->[AZURE.NOTE] 이는 일반적으로 **관리자** 작업입니다.
+>[AZURE.NOTE]이는 일반적으로 **관리자** 작업입니다.
 
 다음 세 단계를 통해 HDInsight 클러스터를 사용하는 고급 분석용 Azure 환경을 설정할 수 있습니다.
 
@@ -84,14 +84,14 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 2. [고급 분석 프로세스 및 기술을 위한 Azure HDInsight Hadoop 클러스터 사용자 지정](machine-learning-data-science-customize-hadoop-cluster.md). 이 단계에서는 모든 노드에 64비트 Anaconda Python 2.7이 설치된 Azure HDInsight Hadoop 클러스터를 만듭니다. HDInsight 클러스터 사용자 지정하는 동안 기억해야 할 중요한 두 단계가 있습니다.
 
 	* HDInsight 클러스터를 만들 때 1단계에서 만든 저장소 계정을 연결해야 합니다. 이 저장소 계정은 클러스터 내에서 처리되는 데이터에 액세스하는 데 사용됩니다.
-	
+
 	* 클러스터를 만든 후에는 클러스터의 헤드 노드에 대한 원격 액세스를 활성화합니다. **구성** 탭으로 이동하여 **원격 사용**을 클릭합니다. 이 단계에서는 원격 로그인에 사용되는 사용자 자격 증명을 지정합니다.
 
 3. [Azure 기계 학습 작업 영역 만들기](machine-learning-create-workspace.md): 이 Azure 기계 학습 작업 영역은 기계 학습 모델을 빌드하는 데 사용됩니다. 이 작업은 초기 데이터 탐색을 완료하고 HDInsight 클러스터를 사용하여 다운 샘플링한 후 처리됩니다.
 
 ## <a name="getdata"></a>공용 원본에서 데이터 가져오기
 
->[AZURE.NOTE] 이는 일반적으로 **관리자** 작업입니다.
+>[AZURE.NOTE]이는 일반적으로 **관리자** 작업입니다.
 
 해당 공용 위치에서 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합을 가져오려면 [Azure Blob 저장소에서 데이터 이동](machine-learning-data-science-move-azure-blob.md)에 설명된 방법 중 하나를 사용하여 데이터를 컴퓨터에 복사하면 됩니다.
 
@@ -99,7 +99,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 
 1. 명령 프롬프트 창에서 *<path_to_data_folder>*를 원하는 대상으로 바꿔 다음 AzCopy 명령을 실행합니다.
 
-		
+
 		"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
 2. 복사가 완료되면 총 24개의 압축된 파일이 선택한 데이터 폴더에 생성됩니다. 로컬 컴퓨터에서 동일한 디렉터리에 다운로드한 파일의 압축을 풉니다. 압축을 푼 파일이 있는 폴더를 적어 둡니다. 이 폴더를 *<path\_to\_unzipped\_data\_files>*라고 합니다.
@@ -107,7 +107,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 
 ## <a name="upload"></a>Azure HDInsight Hadoop 클러스터의 기본 컨테이너에 데이터 업로드
 
->[AZURE.NOTE] 이는 일반적으로 **관리자** 작업입니다.
+>[AZURE.NOTE]이는 일반적으로 **관리자** 작업입니다.
 
 다음 AzCopy 명령에서 다음 매개 변수를 Hadoop 클러스터를 만들고 데이터 파일의 압축을 풀 때 지정한 실제 값으로 바꿉니다.
 
@@ -130,7 +130,7 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 
 ## <a name="#download-hql-files"></a>Hadoop 클러스터의 헤드 노드에 로그인하여 예비 데이터 분석 준비
 
->[AZURE.NOTE] 이는 일반적으로 **관리자** 작업입니다.
+>[AZURE.NOTE]이는 일반적으로 **관리자** 작업입니다.
 
 예비 데이터 분석 및 데이터 다운 샘플링을 위해 클러스터의 헤드 노드에 액세스하려면 [Hadoop 클러스터의 헤드 노드 액세스](machine-learning-data-science-customize-hadoop-cluster.md#headnode)에 설명된 절차를 따릅니다.
 
@@ -146,16 +146,16 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_licence 및
 
 ## <a name="#hive-db-tables"></a>월별로 분할된 Hive 데이터베이스 및 테이블 만들기
 
->[AZURE.NOTE] 이는 일반적으로 **관리자** 작업입니다.
+>[AZURE.NOTE]이는 일반적으로 **관리자** 작업입니다.
 
 이제 NYC taxi 데이터 집합에 대한 Hive 테이블을 만들 준비가 완료되었습니다. Hadoop 클러스터 헤드 노드의 바탕 화면에서 ***Hadoop Command Line***을 열고 명령을 입력하여 Hive 디렉터리를 입력합니다.
 
     cd %hive_home%\bin
 
->[AZURE.NOTE] **이 연습의 모든 Hive 명령은 위의 Hive bin/ 디렉터리 프롬프트에서 실행합니다. 경로 문제가 자동으로 해결됩니다. "Hive 디렉터리 프롬프트", "Hive bin/ 디렉터리 프롬프트" 및 "Hadoop Command Line"은 이 연습에서 상호 교환적으로 사용되는 용어입니다.**
+>[AZURE.NOTE]**이 연습의 모든 Hive 명령은 위의 Hive bin/ 디렉터리 프롬프트에서 실행합니다. 경로 문제가 자동으로 해결됩니다. "Hive 디렉터리 프롬프트", "Hive bin/ 디렉터리 프롬프트" 및 "Hadoop Command Line"은 이 연습에서 상호 교환적으로 사용되는 용어입니다.**
 
 Hive 디렉터리 프롬프트에서 헤드 노드의 Hadoop 명령줄에 다음 명령을 입력하여 Hive 데이터베이스 및 테이블을 만드는 Hive 쿼리를 제출합니다.
-	
+
 	hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
 
 다음은 Hive 데이터베이스 ***nyctaxidb***와 테이블 ***trip*** 및 ***fare***를 만드는 ***C:\\temp\\sample\_hive\_create\_db\_and\_tables.hql*** 파일의 콘텐츠입니다.
@@ -163,52 +163,52 @@ Hive 디렉터리 프롬프트에서 헤드 노드의 Hadoop 명령줄에 다음
 	create database if not exists nyctaxidb;
 
 	create external table if not exists nyctaxidb.trip
-	( 
-	    medallion string, 
+	(
+	    medallion string,
 	    hack_license string,
-	    vendor_id string, 
-	    rate_code string, 
-	    store_and_fwd_flag string, 
-	    pickup_datetime string, 
-	    dropoff_datetime string, 
-	    passenger_count int, 
-	    trip_time_in_secs double, 
-	    trip_distance double, 
-	    pickup_longitude double, 
-	    pickup_latitude double, 
-	    dropoff_longitude double, 
+	    vendor_id string,
+	    rate_code string,
+	    store_and_fwd_flag string,
+	    pickup_datetime string,
+	    dropoff_datetime string,
+	    passenger_count int,
+	    trip_time_in_secs double,
+	    trip_distance double,
+	    pickup_longitude double,
+	    pickup_latitude double,
+	    dropoff_longitude double,
 	    dropoff_latitude double)  
-	PARTITIONED BY (month int) 
+	PARTITIONED BY (month int)
 	ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\n'
 	STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/trip' TBLPROPERTIES('skip.header.line.count'='1');
 
-	create external table if not exists nyctaxidb.fare 
-	( 
-	    medallion string, 
-	    hack_license string, 
-	    vendor_id string, 
-	    pickup_datetime string, 
-	    payment_type string, 
-	    fare_amount double, 
+	create external table if not exists nyctaxidb.fare
+	(
+	    medallion string,
+	    hack_license string,
+	    vendor_id string,
+	    pickup_datetime string,
+	    payment_type string,
+	    fare_amount double,
 	    surcharge double,
 	    mta_tax double,
 	    tip_amount double,
 	    tolls_amount double,
 	    total_amount double)
-	PARTITIONED BY (month int) 
+	PARTITIONED BY (month int)
 	ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' lines terminated by '\n'
 	STORED AS TEXTFILE LOCATION 'wasb:///nyctaxidbdata/fare' TBLPROPERTIES('skip.header.line.count'='1');
 
 이 Hive 스크립트는 두 개의 테이블을 만듭니다.
 
-* "trip" 테이블은 각 승객의 여정 세부 정보(운전 기사 정보, 승차 시간, 여정 거리 및 시간)를 포함합니다. 
+* "trip" 테이블은 각 승객의 여정 세부 정보(운전 기사 정보, 승차 시간, 여정 거리 및 시간)를 포함합니다.
 * "fare" 테이블은 요금 세부 정보(요금 금액, 팁 금액, 통행료 및 추가 요금)를 포함합니다.
 
 이러한 절차에 대한 도움이 필요하거나 다른 방법을 조사하려는 경우 [Hadoop 명령줄에서 직접 Hive 쿼리 제출](machine-learning-data-science-process-hive-tables.md#submit) 섹션을 참조하세요.
 
 ## <a name="#load-data"></a>분할된 Hive 테이블에 데이터 로드
 
->[AZURE.NOTE] 이는 일반적으로 **관리자** 작업입니다.
+>[AZURE.NOTE]이는 일반적으로 **관리자** 작업입니다.
 
 NYC taxi 데이터 집합에는 처리 및 쿼리 시간을 단축하기 위해 사용하는 월별 자연 분할 기능이 있습니다. 아래의 PowerShell 명령(**Hadoop 명령줄**을 사용하여 Hive 디렉터리에서 실행)은 월별로 분할된 "trip" 및 "fare" Hive 테이블에 데이터를 로드합니다.
 
@@ -227,10 +227,10 @@ HDInsight Hadoop 클러스터에서 만든 데이터베이스를 Hadoop 명령�
 
 	hive -e "show databases;"
 
-### <a name="#show-tables"></a>nyctaxidb 데이터베이스에서 Hive 테이블 표시 
-	
+### <a name="#show-tables"></a>nyctaxidb 데이터베이스에서 Hive 테이블 표시
+
 nyctaxidb 데이터베이스에서 테이블을 표시하려면 Hadoop 명령줄에서 다음 명령을 실행합니다.
-	
+
 	hive -e "show tables in nyctaxidb;"
 
 아래 명령을 실행하여 테이블이 분할되었는지 확인할 수 있습니다.
@@ -252,7 +252,7 @@ nyctaxidb 데이터베이스에서 테이블을 표시하려면 Hadoop 명령줄
 	month=8
 	month=9
 	Time taken: 2.075 seconds, Fetched: 12 row(s)
-	
+
 마찬가지로 아래 명령을 실행하여 fare 테이블이 분할되었는지 확인할 수 있습니다.
 
 	hive -e "show partitions nyctaxidb.fare;"
@@ -272,10 +272,10 @@ nyctaxidb 데이터베이스에서 테이블을 표시하려면 Hadoop 명령줄
 	month=8
 	month=9
 	Time taken: 1.887 seconds, Fetched: 12 row(s)
-   
+
 ## <a name="#explore-hive"></a>Hive에서 데이터 탐색 및 기능 엔지니어링
 
->[AZURE.NOTE] 이는 일반적으로 **데이터 과학자** 작업입니다.
+>[AZURE.NOTE]이는 일반적으로 **데이터 과학자** 작업입니다.
 
 Hive 테이블에 로드된 데이터에 대한 데이터 탐색 및 기능 엔지니어링 작업은 Hive 쿼리를 사용하여 수행할 수 있습니다. 다음은 이 섹션에서 설명할 이러한 작업의 예입니다.
 
@@ -287,16 +287,16 @@ Hive 테이블에 로드된 데이터에 대한 데이터 탐색 및 기능 엔�
 
 ### 탐색: trip 테이블의 상위 10개 레코드 보기
 
->[AZURE.NOTE] 이는 일반적으로 **데이터 과학자** 작업입니다.
+>[AZURE.NOTE]이는 일반적으로 **데이터 과학자** 작업입니다.
 
 데이터 모양을 보려면 각 테이블에서 10개의 레코드를 살펴봅니다. Hadoop 명령줄 콘솔의 Hive 디렉터리 프롬프트에서 다음 두 쿼리를 따로 실행하여 레코드를 검사합니다.
 
 첫째 달의 "trip" 테이블에서 상위 10개의 레코드를 가져오려면
 
 	hive -e "select * from nyctaxidb.trip where month=1 limit 10;"
-    
+
 첫째 달의 "fare" 테이블에서 상위 10개의 레코드를 가져오려면
-	
+
 	hive -e "select * from nyctaxidb.fare where month=1 limit 10;"
 
 보기 편하도록 레코드를 파일로 저장하는 것이 유용한 경우가 많습니다. 위 쿼리를 약간 변경하면 다음 작업이 수행됩니다.
@@ -305,10 +305,10 @@ Hive 테이블에 로드된 데이터에 대한 데이터 탐색 및 기능 엔�
 
 ### 탐색: 각 12개 파티션의 각 레코드 수 보기
 
->[AZURE.NOTE] 이는 일반적으로 **데이터 과학자** 작업입니다.
+>[AZURE.NOTE]이는 일반적으로 **데이터 과학자** 작업입니다.
 
 연간 여정 수가 어떻게 다른지 확인하려는 것입니다. 월별로 그룹화를 통해 이 여정 분포를 볼 수 있습니다.
-	
+
 	hive -e "select month, count(*) from nyctaxidb.trip group by month;"
 
 출력은 다음과 같습니다.
@@ -373,7 +373,7 @@ Hive 디렉터리 프롬프트에서 아래 명령을 사용하여 fare 데이�
 
 ### 탐색: medallion별 여정 분포
 
->[AZURE.NOTE] 이는 일반적으로 **데이터 과학자** 작업입니다.
+>[AZURE.NOTE]이는 일반적으로 **데이터 과학자** 작업입니다.
 
 이 예제에서는 지정된 기간 내의 여정이 100개가 넘는 medallion(택시 번호)을 식별합니다. 쿼리는 파티션 변수 **month**의 영향을 받기 때문에 테이블을 분할하면 쿼리 성능이 개선됩니다. 쿼리 결과는 `C:\temp` 헤드 노드의 로컬 파일 queryoutput.tsv에 작성됩니다.
 
@@ -385,7 +385,7 @@ Hive 디렉터리 프롬프트에서 아래 명령을 사용하여 fare 데이�
 	FROM nyctaxidb.fare
 	WHERE month<=3
 	GROUP BY medallion
-	HAVING med_count > 100 
+	HAVING med_count > 100
 	ORDER BY med_count desc;
 
 NYC taxi 데이터 집합의 medallion은 고유한 택시를 식별합니다. 특정 기간에 특정 여정 수를 초과하는 택시를 조회하여 "운행량이 많은" 택시를 식별할 수 있습니다. 다음 예제에서는 첫 3개월 동안 여정 수가 100건이 넘는 택시를 식별하여 쿼리 결과를 로컬 파일 C:\\temp\\queryoutput.tsv에 저장합니다.
@@ -396,7 +396,7 @@ NYC taxi 데이터 집합의 medallion은 고유한 택시를 식별합니다. �
 	FROM nyctaxidb.fare
 	WHERE month<=3
 	GROUP BY medallion
-	HAVING med_count > 100 
+	HAVING med_count > 100
 	ORDER BY med_count desc;
 
 Hive 디렉터리 프롬프트에서 아래 명령을 실행합니다.
@@ -405,12 +405,12 @@ Hive 디렉터리 프롬프트에서 아래 명령을 실행합니다.
 
 ### 탐색: medallion 및 hack\_license별 여정 분포
 
->[AZURE.NOTE] 이는 일반적으로 **데이터 과학자** 작업입니다.
+>[AZURE.NOTE]이는 일반적으로 **데이터 과학자** 작업입니다.
 
 데이터 집합을 탐색할 때 값 그룹의 동시 발생 횟수를 조사하는 경우가 많습니다. 이 섹션에서는 택시와 운전 기사에 대해 이 작업을 수행하는 방법에 대한 예제를 제공합니다.
 
 *sample\_hive\_trip\_count\_by\_medallion\_license.hql* 파일은 "medallion" 및 "hack\_license"에서 fare 데이터 집합을 그룹화하고 각 조합의 개수를 반환합니다. 내용은 다음과 같습니다.
-	
+
     SELECT medallion, hack_license, COUNT(*) as trip_count
 	FROM nyctaxidb.fare
 	WHERE month=1
@@ -428,7 +428,7 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 
 ### 탐색: 잘못된 경도/위도 레코드를 확인하여 데이터 품질 평가
 
->[AZURE.NOTE] 이는 일반적으로 **데이터 과학자** 작업입니다.
+>[AZURE.NOTE]이는 일반적으로 **데이터 과학자** 작업입니다.
 
 예비 데이터 분석의 일반적인 목적은 유효하지 않거나 잘못된 레코드를 걸러내는 것입니다. 이 섹션의 예제에서는 위도 또는 경도 필드에 NYC 영역 밖의 값이 포함되어 있는지 여부를 확인합니다. 이러한 레코드에는 잘못된 경도-위도 값이 있을 수 있기 때문에 모델링에 사용할 데이터에서 이를 제거하려고 합니다.
 
@@ -455,12 +455,12 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 [예측 작업의 예제](machine-learning-data-science-process-hive-walkthrough.md#mltasks) 섹션에 설명된 이진 분류 문제의 경우 팁 제공 여부를 아는 것이 유용합니다. 이 팁 분포는 이진입니다.
 
 * tip given(Class 1, tip\_amount > $0)  
-* no tip(Class 0, tip\_amount = $0). 
+* no tip(Class 0, tip\_amount = $0).
 
 아래에 표시된 *sample\_hive\_tipped\_frequencies.hql* 파일에서 이 작업을 수행합니다.
 
-    SELECT tipped, COUNT(*) AS tip_freq 
-    FROM 
+    SELECT tipped, COUNT(*) AS tip_freq
+    FROM
     (
         SELECT if(tip_amount > 0, 1, 0) as tipped, tip_amount
         FROM nyctaxidb.fare
@@ -478,12 +478,12 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 
 [예측 작업의 예제](machine-learning-data-science-process-hive-walkthrough.md#mltasks) 섹션에 설명된 다중 클래스 분류 문제의 경우 이 데이터 집합은 제공된 팁 금액을 예측할 수 있는 자연 분류 기능을 제공합니다. bin을 사용하여 쿼리에서 팁 범위를 정의할 수 있습니다. 여러 팁 범위에 대한 클래스 분포를 가져오려면 *sample\_hive\_tip\_range\_frequencies.hql* 파일을 사용합니다. 내용은 다음과 같습니다.
 
-	SELECT tip_class, COUNT(*) AS tip_freq 
-    FROM 
+	SELECT tip_class, COUNT(*) AS tip_freq
+    FROM
     (
-        SELECT if(tip_amount=0, 0, 
-            if(tip_amount>0 and tip_amount<=5, 1, 
-            if(tip_amount>5 and tip_amount<=10, 2, 
+        SELECT if(tip_amount=0, 0,
+            if(tip_amount>0 and tip_amount<=5, 1,
+            if(tip_amount>5 and tip_amount<=10, 2,
             if(tip_amount>10 and tip_amount<=20, 3, 4)))) as tip_class, tip_amount
         FROM nyctaxidb.fare
     )tc
@@ -503,7 +503,7 @@ Hadoop 명령줄 콘솔에서 다음 명령을 실행합니다.
 
     set R=3959;
     set pi=radians(180);
-	
+
 	insert overwrite directory 'wasb:///queryoutputdir'
 
     select pickup_longitude, pickup_latitude, dropoff_longitude, dropoff_latitude, trip_distance, trip_time_in_secs,
@@ -512,9 +512,9 @@ Hadoop 명령줄 콘솔에서 다음 명령을 실행합니다.
      *cos(dropoff_latitude*${hiveconf:pi}/180)*pow(sin((dropoff_longitude-pickup_longitude)*${hiveconf:pi}/180/2),2)))
      /sqrt(pow(sin((dropoff_latitude-pickup_latitude)*${hiveconf:pi}/180/2),2)
      +cos(pickup_latitude*${hiveconf:pi}/180)*cos(dropoff_latitude*${hiveconf:pi}/180)*
-     pow(sin((dropoff_longitude-pickup_longitude)*${hiveconf:pi}/180/2),2))) as direct_distance 
-    from nyctaxidb.trip 
-    where month=1 
+     pow(sin((dropoff_longitude-pickup_longitude)*${hiveconf:pi}/180/2),2))) as direct_distance
+    from nyctaxidb.trip
+    where month=1
     and pickup_longitude between -90 and -30
     and pickup_latitude between 30 and 90
     and dropoff_longitude between -90 and -30
@@ -563,7 +563,7 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 그런 다음 이 쿼리는 쿼리 결과가 Azure 기계 학습 스튜디오에 적합하도록 데이터를 다운 샘플링합니다. 원래 데이터 집합의 약 1%만 스튜디오로 가져옵니다.
 
 다음은 Azure 기계 학습에서 모델 빌드를 위한 데이터를 준비하는 *sample\_hive\_prepare\_for\_aml\_full.hql* 파일의 내용입니다.
-		
+
 		set R = 3959;
 	    set pi=radians(180);
 
@@ -604,8 +604,8 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 		--- now insert contents of the join into the above internal table
 
     	insert overwrite table nyctaxidb.nyctaxi_downsampled_dataset
-    	select 
-        t.medallion, 
+    	select
+        t.medallion,
         t.hack_license,
         t.vendor_id,
         t.rate_code,
@@ -623,12 +623,12 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
         t.dropoff_longitude,
         t.dropoff_latitude,
 		t.direct_distance,
-        f.payment_type, 
-        f.fare_amount, 
-        f.surcharge, 
-        f.mta_tax, 
-        f.tip_amount, 
-        f.tolls_amount, 
+        f.payment_type,
+        f.fare_amount,
+        f.surcharge,
+        f.mta_tax,
+        f.tip_amount,
+        f.tolls_amount,
         f.total_amount,
         if(tip_amount>0,1,0) as tipped,
         if(tip_amount=0,0,
@@ -638,8 +638,8 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 
     	from
     	(
-        select 
-		medallion, 
+        select
+		medallion,
         hack_license,
         vendor_id,
         rate_code,
@@ -668,19 +668,19 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
         )t
         join
         (
-        select 
-        medallion, 
-        hack_license, 
-        vendor_id, 
-        pickup_datetime, 
-        payment_type, 
-        fare_amount, 
-        surcharge, 
-        mta_tax, 
-        tip_amount, 
-        tolls_amount, 
+        select
+        medallion,
+        hack_license,
+        vendor_id,
+        pickup_datetime,
+        payment_type,
+        fare_amount,
+        surcharge,
+        mta_tax,
+        tip_amount,
+        tolls_amount,
         total_amount
-        from nyctaxidb.fare 
+        from nyctaxidb.fare
         )f
         on t.medallion=f.medallion and t.hack_license=f.hack_license and t.pickup_datetime=f.pickup_datetime
         where t.sample_key<=0.01
@@ -719,7 +719,7 @@ Hive 디렉터리 프롬프트에서 다음 명령을 실행합니다.
 
 다음은 Hive 쿼리 및 [판독기][reader] 모듈의 스냅숏입니다.
 
-![](http://i.imgur.com/1eTYf52.png)
+![](./media/machine-learning-data-science-process-hive-walkthrough/1eTYf52.png)
 
 다운 샘플링된 데이터는 기본 컨테이너에 있으므로 Azure 기계 학습의 결과 Hive 쿼리는 매우 단순하며 "SELECT * FROM nyctaxidb.nyctaxi\_downsampled\_data"입니다.
 
@@ -737,17 +737,17 @@ a. 이 문제의 경우 대상(또는 클래스) 레이블은 "tipped"입니다.
 
 아래 스냅숏은 주어진 여정에 대해 팁이 지불되었는지 여부를 예측하는 실험을 보여 줍니다.
 
-![](http://i.imgur.com/QGxRz5A.png)
+![](./media/machine-learning-data-science-process-hive-walkthrough/QGxRz5A.png)
 
 b. 이 실험의 경우 대상 레이블 분포는 약 1:1입니다.
 
 아래 스냅숏은 이진 분류 문제에 대한 팁 클래스 레이블의 분포를 보여 줍니다.
 
-![](http://i.imgur.com/9mM4jlD.png)
+![](./media/machine-learning-data-science-process-hive-walkthrough/9mM4jlD.png)
 
 결과적으로, 아래 그림에 표시된 것처럼 AUC는 0.987입니다.
 
-![](http://i.imgur.com/8JDT0F8.png)
+![](./media/machine-learning-data-science-process-hive-walkthrough/8JDT0F8.png)
 
 **2. 다중 클래스 분류**: 이전에 정의된 클래스를 사용하여 여정에 대해 지불된 팁 금액 범위를 예측합니다.
 
@@ -757,15 +757,15 @@ a. 이 문제의 경우 대상(또는 클래스) 레이블은 5개 값(0,1,2,3,4
 
 아래 스냅숏은 팁이 속할 수 있는 bin을 예측하는 실험을 보여 줍니다(Class 0: tip = $0, class 1 : tip > $0 and tip <= $5, Class 2 : tip > $5 and tip <= $10, Class 3 : tip > $10 and tip <= $20, Class 4 : tip > $20).
 
-![](http://i.imgur.com/5ztv0n0.png)
+![](./media/machine-learning-data-science-process-hive-walkthrough/5ztv0n0.png)
 
 실제 테스트 클래스 분포는 다음과 같습니다. Class 0과 Class 1은 우세한 반면, 다른 클래스는 희박합니다.
 
-![](http://i.imgur.com/Vy1FUKa.png)
+![](./media/machine-learning-data-science-process-hive-walkthrough/Vy1FUKa.png)
 
 b. 이 실험에서는 혼동 행렬을 사용하여 예측 정확도를 확인합니다. 다음과 같습니다.
 
-![](http://i.imgur.com/cxFmErM.png)
+![](./media/machine-learning-data-science-process-hive-walkthrough/cxFmErM.png)
 
 우세한 클래스의 클래스 정확도는 매우 좋지만 희박한 클래스에서 "학습"하는 것은 좋지 않습니다.
 
@@ -778,15 +778,15 @@ a. 이 문제의 경우 대상(또는 클래스) 레이블은 "tip\_amount"입�
 
 아래 스냅숏에서는 주어진 팁 금액을 예측하는 실험을 보여 줍니다.
 
-![](http://i.imgur.com/11TZWgV.png)
+![](./media/machine-learning-data-science-process-hive-walkthrough/11TZWgV.png)
 
 b. 회귀 문제의 경우 예측의 제곱된 오류, 결정 계수 등을 확인하여 예측 정확도를 측정합니다. 아래와 같이 표시됩니다.
 
-![](http://i.imgur.com/Jat9mrz.png)
+![](./media/machine-learning-data-science-process-hive-walkthrough/Jat9mrz.png)
 
 결정 계수가 0.709인데, 이는 분산의 약 71%가 모델 계수로 설명됨을 의미합니다.
 
-**중요:** Azure 기계 학습 및 이를 사용하고 액세스하는 방법에 대한 자세한 내용은 [기계 학습이란?](machine-learning-what-is-machine-learning.md)을 참조하세요. Azure 기계 학습의 다양한 기계 학습 실험을 활용하는 데 매우 유용한 리소스는 [갤러리](https://gallery.azureml.net/)입니다. 갤러리에는 다양한 실험이 있으며, Azure 기계 학습의 광범위한 기능을 소개합니다.
+**중요:** Azure 기계 학습 및 이를 사용하고 액세스하는 방법에 대한 자세한 내용은 [기계 학습이란?](machine-learning-what-is-machine-learning.md)을 참조하세요. Azure 기계 학습의 다양한 기계 학습 실험을 활용하는 데 매우 유용한 리소스는 [Cortana Analytics 갤러리](https://gallery.azureml.net/)입니다. 갤러리에는 다양한 실험이 있으며, Azure 기계 학습의 광범위한 기능을 소개합니다.
 
 ## 라이선스 정보
 
@@ -794,9 +794,9 @@ b. 회귀 문제의 경우 예측의 제곱된 오류, 결정 계수 등을 확�
 
 ## 참조
 
-•	[Andrés Monroy NYC 택시 왕복 다운로드 페이지](http://www.andresmh.com/nyctaxitrips/)  
-•	[Chris Whong FOILing NYC 택시 여정 데이터](http://chriswhong.com/open-data/foil_nyc_taxi/)   
-•	[NYC 택시 및 리무진 수수료 연구 및 통계](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
+• [Andrés Monroy NYC 택시 왕복 다운로드 페이지](http://www.andresmh.com/nyctaxitrips/)  
+• [Chris Whong FOILing NYC 택시 여정 데이터](http://chriswhong.com/open-data/foil_nyc_taxi/)  
+• [NYC 택시 및 리무진 수수료 연구 및 통계](https://www1.nyc.gov/html/tlc/html/about/statistics.shtml)
 
 
 [2]: ./media/machine-learning-data-science-process-hive-walkthrough/output-hive-results-3.png
@@ -809,6 +809,5 @@ b. 회귀 문제의 경우 예측의 제곱된 오류, 결정 계수 등을 확�
 <!-- Module References -->
 [project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [reader]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
- 
 
-<!-----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

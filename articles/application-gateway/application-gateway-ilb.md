@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services" 
-   ms.date="06/30/2015"
+   ms.date="09/29/2015"
    ms.author="joaoma"/>
 
 # 내부 부하 분산 장치 (ILB)를 사용하여 응용 프로그램 게이트웨이 만들기
@@ -212,4 +212,4 @@
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

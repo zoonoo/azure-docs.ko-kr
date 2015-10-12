@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Azure 앱 서비스에서 웹 앱 크기 조정" 
 	description="자동 크기 조정을 포함하여 Azure 앱 서비스에서 웹앱을 확장 및 축소하는 방법을 알아봅니다." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -201,4 +201,4 @@ Azure 웹 앱 크기를 확장하려면 두 가지 관련 작업을 수행해야
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/16/2015"
+	ms.date="09/23/2015"
 	ms.author="tamram"/>
 
 
@@ -25,7 +25,7 @@ Azure 저장소 계정은 Azure 저장소의 Azure Blob, 큐, 테이블 및 파�
 
 저장소 계정에는 다음과 같은 두 종류가 있습니다.
 
-- 표준 저장소 계정에는 Blob, 테이블 및 큐 저장소가 포함됩니다. 파일 저장소는 [Azure 미리 보기 페이지](http://azure.microsoft.com/services/preview/)를 통한 요청으로 사용할 수 있습니다.
+- 표준 저장소 계정에는 Blob, 테이블, 큐 및 파일 저장소가 포함됩니다. 
 - 프리미엄 저장소 계정은 현재 Azure 가상 컴퓨터 디스크만 지원합니다. 프리미엄 저장소의 자세한 개요는 [프리미엄 저장소: Azure 가상 컴퓨터 작업을 위한 고성능 저장소](storage-premium-storage-preview-portal.md)를 참조하세요.
 
 ## 저장소 계정 사용 비용
@@ -63,9 +63,14 @@ Azure 저장소 사용 비용은 저장소 계정에 따라 청구됩니다. 저
 
 	저장소 계정을 만들 때 선호도 그룹을 선택해야 합니다. 기존 계정을 선호도 그룹으로 이동할 수 없습니다. 선호도 그룹에 대한 자세한 내용은 아래의 [선호도 그룹과 서비스 공동 배치](#service-co-location-with-an-affinity-group)를 참조하세요.
 
+	>[AZURE.IMPORTANT]구독할 수 있는 위치를 확인하려면 [공급자 나열](https://msdn.microsoft.com/library/azure/dn790524.aspx) 작업을 호출하면 됩니다. PowerShell의 공급자를 나열하려면 [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx)을 호출합니다. .NET에서는 ProviderOperationsExtensions 클래스의 [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) 메서드를 사용합니다.
+	>
+	>또한 어떤 지역에서 어떤 서비스가 가능한지에 대한 자세한 정보는 [Azure 지역](https://azure.microsoft.com/ko-kr/regions/#services)을 참조하세요.
+
+
 5. Azure 구독이 두 개 이상인 경우 **구독** 필드가 표시됩니다. **구독**에서 저장소 계정을 사용할 Azure 구독을 입력합니다.
 
-6. **복제**에서 저장소 계정에 원하는 복제 수준을 선택합니다. 권장되는 복제 옵션은 지역 중복 복제이며, 데이터에 최대 내구성을 제공합니다. Azure 저장소 복제 옵션에 대한 자세한 내용은 아래의 [저장소 계정 복제](storage-redundancy.md)를 참조하세요.
+6. **복제**에서 저장소 계정에 원하는 복제 수준을 선택합니다. 권장되는 복제 옵션은 지역 중복 복제이며, 데이터에 최대 내구성을 제공합니다. Azure 저장소 복제 옵션에 대한 자세한 내용은 아래의 [Azure 저장소 복제](storage-redundancy.md)를 참조하세요.
 
 6. **Create Storage Account**를 클릭합니다.
 
@@ -136,7 +141,7 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 
 1. 저장소 계정의 보조 액세스 키를 참조하도록 응용 프로그램 코드의 연결 문자열을 업데이트합니다.
 
-2. 저장소 계정의 기본 액세스 키를 다시 생성합니다. [Azure 포털](http://manage.windowsazure.com)의 대시보드 또는 **구성** 페이지에서 **키 관리**를 클릭합니다. 기본 액세스 키 아래의 **다시 생성**을 클릭하고 **예**를 클릭하여 새 키 생성을 확인합니다.
+2. 저장소 계정의 기본 액세스 키를 다시 생성합니다. [Azure 포털](http://manage.windowsazure.com)의 대시보드 또는 **구성** 페이지에서 **키 관리**를 클릭합니다. 기본 선택키 아래의 **다시 생성**을 클릭하고 **예**를 클릭하여 새 키 생성을 확인합니다.
 
 3. 새 기본 액세스 키를 참조하도록 코드의 연결 문자열을 업데이트합니다.
 
@@ -166,4 +171,4 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 
 - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문)를 방문하세요.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

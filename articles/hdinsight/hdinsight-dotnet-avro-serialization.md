@@ -22,6 +22,7 @@
 
 이 항목에서는 <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro 라이브러리</a>를 사용하여 개체 및 기타 데이터 구조를 메모리, 데이터베이스 또는 파일에 보관하기 위해 바이트의 스트림으로 직렬화하는 방법과 역직렬화하여 원본 개체를 복구하는 방법을 보여 줍니다.
 
+[AZURE.INCLUDE [windows-only](../../includes/hdinsight-windows-only.md)]
 
 ##<a name="apacheAvro"></a>Apache Avro
 <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a>는 Microsoft. NET 환경을 위한 Apache Avro 데이터 직렬화 시스템을 구현합니다. Apache Avro는 직렬화를 위한 압축 이진 데이터 교환 형식을 제공합니다. 또한 <a href="http://www.json.org" target="_blank">JSON</a>을 사용하여 언어 상호 운용성을 따르는 언어 중립적 스키마를 정의합니다. 한 언어로 직렬화된 데이터는 다른 언어로 읽을 수 있습니다. 현재 C, C++, C#, Java, PHP, Python 및 Ruby가 지원됩니다. 이 형식에 대한 자세한 내용은 <a href="http://avro.apache.org/docs/current/spec.html" target="_blank">Apache Avro 사양</a>(영문)에서 확인할 수 있습니다. 현재 Microsoft Avro 라이브러리 버전에서는 이 사양의 RPC(원격 프로시저 호출)를 지원하지 않습니다.
@@ -1404,4 +1405,4 @@ JSON 스키마를 C# 형식으로 변환하는 동안 코드 생성 유틸리티
 [deflate-100]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.100).aspx
 [deflate-110]: http://msdn.microsoft.com/library/system.io.compression.deflatestream(v=vs.110).aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

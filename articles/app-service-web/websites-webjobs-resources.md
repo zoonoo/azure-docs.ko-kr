@@ -1,15 +1,15 @@
 <properties 
 	pageTitle="Azure WebJobs 설명서 리소스" 
 	description="Azure WebJobs 및 Azure WebJobs SDK를 사용하는 방법에 대해 설명하는 권장 리소스입니다." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -142,4 +142,4 @@ Azure 포털의 WebJob 대시보드는 WebJob 내의 개별 함수를 호출하�
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

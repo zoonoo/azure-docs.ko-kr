@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="앱 서비스 환경으로의 인바운드 트래픽을 제어하는 방법" 
 	description="앱 서비스 환경으로의 인바운드 트래픽을 제어하도록 네트워크 보안 규칙을 구성하는 방법에 알아봅니다." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="ccompy" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -134,4 +134,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 
 <!-- IMAGES -->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

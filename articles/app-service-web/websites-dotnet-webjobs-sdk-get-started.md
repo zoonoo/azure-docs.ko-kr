@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service-web"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
@@ -828,4 +828,4 @@ https://{webappname}.scm.azurewebsites.net/azurejobs/#/functions
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 * Azure 포털에서 Azure Preview 포털로의 변경에 대한 지침은 [Preview 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

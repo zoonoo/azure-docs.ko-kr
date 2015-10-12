@@ -24,7 +24,7 @@ Apache Spark는 대규모 데이터 처리를 위한 고속 엔진입니다. Spa
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 배포하는 방법을 설명합니다. 클래식 배포 모델을 사용하여 이 리소스를 배포할 수 없습니다.
 
 
-Spark는 Mesos 또는 YARN 클러스터 관리자를 실행할 뿐만 아니라 간단한 독립 실행형 배포 모드를 제공합니다. 이 자습서에서는 [Azure PowerShell](../powershell-install-configure.md) 또는 [Azure CLI](../xplat-cli.md)를 통해 샘플 Azure 리소스 관리자 템플릿을 사용하여 Ubuntu VM에 Spark 클러스터를 배포하는 방법을 단계별로 안내합니다.
+Spark는 Mesos 또는 YARN 클러스터 관리자를 실행할 뿐만 아니라 간단한 독립 실행형 배포 모드를 제공합니다. 이 자습서는 샘플 Azure 리소스 관리자 템플릿을 사용하여 [Azure PowerShell](../powershell-install-configure.md) 또는 [Azure CLI](../xplat-cli-install.md)를 통해 Ubuntu VM에 Spark 클러스터를 배포하는 방법을 안내합니다.
 
 이 템플릿은 Ubuntu 가상 컴퓨터에 Spark 클러스터를 배포합니다. 또한 이 템플릿은 설치에 필요한 저장소 계정, 가상 네트워크, 가용성 집합, 공용 IP 주소 및 네트워크 인터페이스를 프로비전합니다. Spark 클러스터는 서브넷에서 생성되므로 공용 IP를 사용하여 Spark 클러스터에 액세스할 수 없습니다. 배포 과정에서, "점프 상자"를 선택적으로 배포할 수 있습니다. 이 "점프 상자"는 서브넷에도 배포된 Ubuntu VM이지만 연결할 수 있는 열린 SSH 포트로 공용 IP 주소를 노출*합니다*. 그런 다음 "점프 상자"에서, 서브넷에 있는 모든 Spark VM에 대해 SSH를 실행할 수 있습니다.
 
@@ -847,4 +847,4 @@ Spark 클러스터 배포의 크기를 사용자 지정하려는 경우 azuredep
 
 [템플릿 배포 문제를 해결](resource-group-deploy-debug.md)합니다.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

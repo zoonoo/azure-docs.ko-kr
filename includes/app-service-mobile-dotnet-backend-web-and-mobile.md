@@ -64,10 +64,6 @@
 
     ![Xamarin 모바일 앱의 보기](./media/app-service-mobile-dotnet-backend-web-and-mobile/xamarin-ios-quickstart-device.png)
 
-## 다음 단계
-
-이 샘플에서 웹 사이트 및 모바일 클라이언트를 모두 포함하는 앱에 대한 동일한 기본 데이터베이스를 사용하는 방법을 살펴보았습니다. 여기에서는, 간단하게 동일한 데이터베이스를 공유할 수 있으므로 두 클라이언트에서 다시 사용하고 싶은 백엔드에 비즈니스 논리가 없었습니다. 이후 자습서에서는 웹 API에 비즈니스 논리를 추가하고 모바일 앱 백엔드 코드에서 해당 논리를 다시 사용하는 방법을 배웁니다.
-
 ## 변경된 내용
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스와 이 서비스가 기존 Azure 서비스에 미치는 영향](http://go.microsoft.com/fwlink/?LinkId=529714)을 참조하세요.
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
@@ -78,4 +74,4 @@
 [모바일 앱 만들기]: ../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 [모바일 앱을 만들기]: ../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

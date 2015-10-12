@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="StorSimple 구성 요소는 무엇인가요? | Microsoft Azure"
-	description="StorSimple 장치, 가상 장치, 서비스 및 관리 기술에 대해 설명하고 솔루션에서 사용하는 주요 용어를 정의합니다."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="AdinaH"
-	editor=""/>
+   pageTitle="StorSimple 구성 요소는 무엇인가요? | Microsoft Azure" 
+   description="StorSimple 장치, 가상 장치, 서비스 및 관리 기술에 대해 설명하고 솔루션에서 사용하는 주요 용어를 정의합니다." 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="SharS" 
+   manager="AdinaH" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/26/2015"
-	ms.author="v-sharos"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="08/26/2015"
+   ms.author="v-sharos"/>
 
 
 # StorSimple 구성 요소는 무엇이며 어떻게 작동하나요? 
@@ -53,7 +53,7 @@ StorSimple 가상 장치(StorSimple 가상 어플라이언스라고 하는)는 A
 - 가상 장치는 인터페이스가 하나만 있는 반면 물리적 장치에는 6개의 네트워크 인터페이스가 있습니다. 
 - 별도의 작업이 아닌 장치 구성 중 가상 장치를 등록합니다.
 - 가상 장치에서 서비스 데이터 암호화 키를 다시 생성할 수 없습니다. 키 롤오버 중 물리적 장치에서 키를 다시 생성한 다음 새 키로 가상 장치를 업데이트합니다.
-- 가상 장치에 업데이트를 적용해야 하는 경우 일부 작동 중단 시간이 발생할 수 있습니다. 물리적 StorSimple 장치에는 발생하지 않습니다.
+- 현재 가상 장치에 업데이트를 적용할 수 없도록 설정되어 있습니다. 최신 버전의 가상 장치가 필요할 경우 새 가장 장치를 만들고 볼륨 컨테이너를 새 가상 장치로 장애 조치(failover)합니다.
 
 클라우드 개발 및 테스트 시나리오와 같은 물리적 장치를 사용할 수 없는 재해 복구 시나리오에는 StorSimple 가상 장치를 사용하는 것이 좋습니다.
 
@@ -226,4 +226,4 @@ Microsoft Azure StorSimple 솔루션을 배포하기 전에 다음 용어와 정
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

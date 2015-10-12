@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/29/2015" 
+	ms.date="09/29/2015" 
 	ms.author="spelluru"/>
 
 # 데이터 이동 활동
@@ -24,19 +24,20 @@
 
 | **원본** | **싱크** |
 | ------ | ---- |
-| [Azure Blob](data-factory-azure-blob-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, 온-프레미스 SQL Server, IaaS의 SQL Server, Azure DocumentDB, 온-프레미스 파일 시스템 |
-| [Azure 테이블](data-factory-azure-table-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, 온-프레미스 SQL Server, IaaS의 SQL Server, Azure DocumentDB |
-| [Azure SQL 데이터베이스](data-factory-azure-sql-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, 온-프레미스 SQL Server, IaaS의 SQL Server, Azure DocumentDB |
-| [Azure DocumentDB](data-factory-azure-documentdb-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스 |
-| [IaaS의 SQL Server](data-factory-sqlserver-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, 온-프레미스 SQL Server, IaaS의 SQL Server |
-| [온-프레미스 파일 시스템](data-factory-onprem-file-system-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, 온-프레미스 SQL Server, IaaS의 SQL Server, 온-프레미스 파일 시스템 |
-| [온-프레미스 SQL Server](data-factory-sqlserver-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, 온-프레미스 SQL Server, IaaS의 SQL Server |
-| [온-프레미스 Oracle 데이터베이스](data-factory-onprem-oracle-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, 온-프레미스 SQL Server, IaaS의 SQL Server |
-| [온-프레미스 MySQL 데이터베이스](data-factory-onprem-mysql-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, 온-프레미스 SQL Server, IaaS의 SQL Server |
-| [온-프레미스 DB2 데이터베이스](data-factory-onprem-db2-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, 온-프레미스 SQL Server, IaaS의 SQL Server |
-| [온-프레미스 Teradata 데이터베이스](data-factory-onprem-teradata-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, 온-프레미스 SQL Server, IaaS의 SQL Server |
-| [온-프레미스 Sybase 데이터베이스](data-factory-onprem-sybase-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, 온-프레미스 SQL Server, IaaS의 SQL Server |
-| [온-프레미스 PostgreSQL 데이터베이스](data-factory-onprem-postgresql-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, 온-프레미스 SQL Server, IaaS의 SQL Server |
+| [Azure Blob](data-factory-azure-blob-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, 온-프레미스 SQL Server, IaaS의 SQL Server, Azure DocumentDB, 온-프레미스 파일 시스템 |
+| [Azure 테이블](data-factory-azure-table-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, 온-프레미스 SQL Server, IaaS의 SQL Server, Azure DocumentDB |
+| [Azure SQL 데이터베이스](data-factory-azure-sql-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, 온-프레미스 SQL Server, IaaS의 SQL Server, Azure DocumentDB |
+| [Azure SQL 데이터 웨어하우스](data-factory-azure-sql-data-warehouse-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, 온-프레미스 SQL Server, IaaS의 SQL Server, Azure DocumentDB |
+| [Azure DocumentDB](data-factory-azure-documentdb-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스 |
+| [IaaS의 SQL Server](data-factory-sqlserver-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, 온-프레미스 SQL Server, IaaS의 SQL Server |
+| [온-프레미스 파일 시스템](data-factory-onprem-file-system-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, 온-프레미스 SQL Server, IaaS의 SQL Server, 온-프레미스 파일 시스템 |
+| [온-프레미스 SQL Server](data-factory-sqlserver-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, 온-프레미스 SQL Server, IaaS의 SQL Server |
+| [온-프레미스 Oracle 데이터베이스](data-factory-onprem-oracle-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, 온-프레미스 SQL Server, IaaS의 SQL Server |
+| [온-프레미스 MySQL 데이터베이스](data-factory-onprem-mysql-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, 온-프레미스 SQL Server, IaaS의 SQL Server |
+| [온-프레미스 DB2 데이터베이스](data-factory-onprem-db2-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, 온-프레미스 SQL Server, IaaS의 SQL Server |
+| [온-프레미스 Teradata 데이터베이스](data-factory-onprem-teradata-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, 온-프레미스 SQL Server, IaaS의 SQL Server |
+| [온-프레미스 Sybase 데이터베이스](data-factory-onprem-sybase-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, 온-프레미스 SQL Server, IaaS의 SQL Server |
+| [온-프레미스 PostgreSQL 데이터베이스](data-factory-onprem-postgresql-connector.md) | Azure Blob, Azure 테이블, Azure SQL 데이터베이스, Azure SQL 데이터 웨어하우스, 온-프레미스 SQL Server, IaaS의 SQL Server |
 
 ## <a name="copyactivity"></a>복사 작업
 복사 작업은 하나의 입력 데이터 집합(**원본**)을 가지고 한 출력 데이터 집합 (**싱크**)에 활동 구성 당 데이터를 복사합니다. 데이터 복사는 작업에 지정된 일정에 따라 일괄 처리 방식으로 수행됩니다.
@@ -97,4 +98,4 @@
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-data-movement-activities.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

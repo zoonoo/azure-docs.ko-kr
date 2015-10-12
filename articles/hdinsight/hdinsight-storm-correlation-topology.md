@@ -1,27 +1,29 @@
 <properties
  pageTitle="HDInsight에서 Storm 및 HBase를 사용하여 시간 별로 이벤트의 상관 관계 지정"
-	description="HDInsight에서 Storm 및 HBase를 사용함으로써 다른 시간에 도착하는 이벤트의 상관관계를 지정하는 방법에 대해 알아봅니다."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
+ description="HDInsight에서 Storm 및 HBase를 사용함으로써 다른 시간에 도착하는 이벤트의 상관관계를 지정하는 방법에 대해 알아봅니다."
+ services="hdinsight"
+ documentationCenter=""
+ authors="Blackmist"
+ manager="paulettm"
+ editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
  ms.service="hdinsight"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="09/02/2015"
-	ms.author="larryfr"/>
+ ms.devlang="dotnet"
+ ms.topic="article"
+ ms.tgt_pltfrm="na"
+ ms.workload="big-data"
+ ms.date="09/02/2015"
+ ms.author="larryfr"/>
 
 # HDInsight에서 Storm 및 HBase를 사용하여 시간 별로 이벤트의 상관 관계 지정
 
 Apache Storm으로 영구적인 데이터 저장소를 사용하여 다른 시간에 도착하는 데이터 항목의 상관 관계를 지정할 수 있습니다. 예를 들어, 사용자 세션에 대한 로그인 및 로그아웃 이벤트를 연결하여 세션이 얼마나 지속되었는지 계산할 수 있습니다.
 
 이 문서에서는 사용자 세션에 대한 로그인 및 로그아웃 이벤트를 추적하는 기본 C# 스톰 토폴로지를 만드는 방법을 배우고 세션의 지속 시간을 계산합니다. 토폴로지는 영구 데이터 저장소로 HBase를 사용합니다. HBase는 또한 기록 데이터에 대해 배치 쿼리를 수행시켜서 특정 기간에 얼마나 많은 사용자 세션이 시작 또는 종료했는지와 같은 추가적인 통찰력을 생성해줍니다.
+
+[AZURE.INCLUDE [windows-only](../../includes/hdinsight-windows-only.md)]
 
 ## 필수 조건
 
@@ -198,4 +200,4 @@ END 이벤트의 검색은 START 이벤트의 검색과 동일하게 동작합�
 더 많은 Storm 예제는 [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)를 참조하십시오.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

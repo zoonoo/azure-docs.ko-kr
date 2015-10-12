@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="10/01/2015"
 	ms.author="krisragh"/>
 
 # 인증된 사용자에게 푸시 알림 보내기
@@ -73,4 +73,4 @@ function insert(item, user, request) {
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-ios-how-to-use-client-library.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

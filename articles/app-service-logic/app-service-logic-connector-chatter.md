@@ -1,20 +1,20 @@
 <properties
    pageTitle="논리 앱에서 Chatter 커넥터 사용 | Microsoft Azure 앱 서비스"
-	description="Chatter 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""/>
+   description="Chatter 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="sameerch"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="sameerch"/>
 
 
 # Chatter 커넥터 시작 및 논리 앱에 추가 
@@ -70,21 +70,23 @@ API 앱을 만들고 나면 이제 Chatter 커넥터를 논리 앱에서 트리�
 	![][9]
 
 
-유사한 방식으로 흐름에서 "메시지 게시" 동작을 선택하여 메시지를 게시하도록 Chatter 동작을 사용할 수 있습니다. 다음과 같이 "메시지 게시" 동작에 대한 입력 속성을 구성합니다.  
-	- **메시지 텍스트** - 게시할 메시지의 텍스트내용입니다.
-	- **그룹 ID** - 새 메시지를 게시할 그룹의 ID를 지정합니다. 그룹 ID를 제공하지 않는 경우 사용자의 피드로 게시됩니다.
-	- 	**파일 이름** - 이 메시지에 첨부될 파일 이름입니다.
-	- 	**콘텐츠 데이터** - 첨부 파일의 콘텐츠 데이터입니다.
-	- 	**콘텐츠 형식** - 첨부 파일의 콘텐츠 형식입니다.
-	- 	**콘텐츠 전송 인코딩** - 첨부 파일의 콘텐츠 전송 인코딩(“없음”|”base64”)입니다.
-	- 	**멘션** - 이 메시지에 태그된 다양한 사용자 이름입니다.
-	- 	**해시 태그** - 메시지와 함께 게시될 다양한 해시 태그입니다.
+유사한 방식으로 흐름에서 "메시지 게시" 동작을 선택하여 메시지를 게시하도록 Chatter 동작을 사용할 수 있습니다. "메시지 게시" 동작에 대한 입력 속성을 다음과 같이 구성합니다. 
+	- **메시지 텍스트** - 게시할 메시지의 텍스트 내용 
+	- **그룹 ID** - 새 메시지가 게시될 그룹의 ID를 지정합니다. 그룹 ID를 제공하지 않으면 메시지가 사용자의 피드에 게시됩니다.
+	- 	**파일 이름** - 이 메시지와 함께 첨부될 파일의 이름 
+	- 	**콘텐츠 데이터** - 첨부 파일의 콘텐츠 데이터 
+	- 	**콘텐츠 형식** - 첨부 파일의 콘텐츠 형식 
+	- 	**콘텐츠 전송 인코딩** - 첨부 파일의 콘텐츠 전송 인코딩("none" | " base64 ") 
+	- 	**멘션** - 이 메시지에 태깅할 사용자 이름 
+	- 	**해시 태그** - 메시지와 함께 게시될 해시 태그
 
 ![][10]
 ![][11]
 
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
+
+>[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
@@ -104,4 +106,4 @@ API 앱을 만들고 나면 이제 Chatter 커넥터를 논리 앱에서 트리�
 [10]: ./media/app-service-logic-connector-chatter/img10.PNG
 [11]: ./media/app-service-logic-connector-chatter/img11.PNG
 
-<!----HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

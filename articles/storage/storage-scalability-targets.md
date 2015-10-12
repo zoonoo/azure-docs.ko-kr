@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="storage"
-   ms.date="08/07/2015"
+   ms.date="09/27/2015"
    ms.author="tamram" />
 
 # Azure 저장소 확장성 및 성능 목표
@@ -76,4 +76,4 @@ Azure 저장소(blob, 메시지, 엔터티 및 파일)에 저장 된 데이터�
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

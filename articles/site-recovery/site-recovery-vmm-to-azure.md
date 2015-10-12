@@ -351,4 +351,4 @@ Azure 대상 네트워크를 지정하지 않고 Azure로 보호되도록 설정
 <LI>궁금한 사항은 <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Azure 복구 서비스 포럼</a>을 참조하세요.</LI> </UL>
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -14,6 +14,6 @@
  
 이제 모바일 서비스와 앱이 인증 공급자를 사용하도록 둘 다 구성되었습니다. 지원하려는 각 추가 ID 공급자에 대해 이 모든 단계를 선택적으로 반복할 수 있습니다.
 
-    > [AZURE.IMPORTANT] Verify that you've set the correct redirect URI on your identity provider's developer site. As described in the linked instructions for each provider above, the redirect URI may be different for a .NET backend service vs. for a JavaScript backend service. An incorrectly configured redirect URI may result in the login screen not being displayed properly and the app malfunctioning in unexpected ways.
+> [AZURE.IMPORTANT]ID 공급자의 개발자 사이트에서 올바른 리디렉션 URI를 설정했는지 확인합니다. 위의 각 공급자에 대한 링크된 지침에 설명된 대로, 리디렉션 URI는 .NET 백 엔드 서비스와 JavaScript 백 엔드 서비스가 서로 다를 수 있습니다. 리디렉션 URI가 잘못 구성되면 로그인 화면이 제대로 표시되지 않고 앱이 예상치 못한 방식으로 잘못 작동할 수 있습니다.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

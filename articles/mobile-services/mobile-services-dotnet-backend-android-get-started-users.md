@@ -3,7 +3,7 @@
 	description="모바일 서비스를 사용하여 Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Windows 스토어 앱 사용자를 인증하는 방법을 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="android" 
-	authors="mattchenderson" 
+	authors="RickSaling" 
 	manager="dwrede" 
 	editor=""/>
 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android" 
 	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="06/13/2015" 
+	ms.date="09/24/2015" 
 	ms.author="ricksal"/>
 
 # 모바일 서비스 Android 앱에 인증 추가
@@ -86,4 +86,4 @@
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

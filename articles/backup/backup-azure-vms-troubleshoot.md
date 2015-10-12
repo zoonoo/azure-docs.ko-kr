@@ -7,10 +7,10 @@
 	manager="shreeshd"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/14/2015" ms.author="trinadhk";"aashishr"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2015" ms.author="trinadhk";"aashishr"/>
 
 
-# 문제 해결
+# Azure 가상 컴퓨터 백업 문제 해결
 아래 표에 나열된 정보를 참조하여 Azure 백업을 사용하는 동안 발생하는 오류를 해결할 수 있습니다.
 
 ## 검색
@@ -89,7 +89,7 @@ Windows VM의 경우
 
 Linux VM의 경우
 
-- github에서 최신 [Linux 에이전트](https://github.com/Azure/WALinuxAgent)를 설치합니다. 
+- github에서 최신 [Linux 에이전트](https://github.com/Azure/WALinuxAgent)를 설치합니다.
 - [VM 속성을 업데이트](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)하여 에이전트가 설치되었다고 표시합니다.
 
 
@@ -100,7 +100,7 @@ Windows VM의 경우
 
 Linux VM의 경우
 
-- [Linux VM 에이전트 업데이트](../virtual-machines-linux-update-agent.md)의 지침을 따르세요. 
+- [Linux VM 에이전트 업데이트](../virtual-machines-linux-update-agent.md)의 지침을 따르세요.
 
 
 ### VM 에이전트 설치의 유효성 검사
@@ -123,4 +123,4 @@ Windows VM에서 VM 에이전트 버전을 확인하는 방법
 1. 허용 목록에 추가할 [Azure datacenter IP](https://msdn.microsoft.com/library/azure/dn175718.aspx) 목록을 가져옵니다.
 2. [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) commandlet을 사용하여 IP 차단을 해제합니다. 관리자 권한 PowerShell 창(관리자 권한으로 실행)을 통해 Azure VM 내에서 이 commandlet을 실행합니다.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

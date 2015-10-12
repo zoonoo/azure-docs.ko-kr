@@ -1,20 +1,20 @@
 <properties
    pageTitle="서비스 패브릭 서비스 개발"
-	description="신뢰할 수 있는 행위자나 신뢰할 수 있는 서비스 프로그래밍 모델을 사용하여 서비스 패브릭 서비스를 개발하는 방법을 이해할 수 있도록 도와 주는 개념 정보 및 자습서입니다."
-	services="service-fabric"
-	documentationCenter=".net"
-	authors="rwike77"
-	manager="timlt"
-	editor=""/>
+   description="신뢰할 수 있는 행위자나 신뢰할 수 있는 서비스 프로그래밍 모델을 사용하여 서비스 패브릭 서비스를 개발하는 방법을 이해할 수 있도록 도와 주는 개념 정보 및 자습서입니다."
+   services="service-fabric"
+   documentationCenter=".net"
+   authors="rwike77"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="service-fabric"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="NA"
-	ms.date="08/20/2015"
-	ms.author="ryanwi"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="NA"
+   ms.date="09/25/2015"
+   ms.author="ryanwi"/>
 
 # 서비스 패브릭 서비스 개발
 이 페이지에는 서비스 패브릭 서비스를 개발하는 방법을 배울 수 있는 자습서와 개요 및 개념 관련 문서에 대한 링크가 있습니다. 서비스 패브릭은 서비스 빌드에 대해 신뢰할 수 있는 작업자 API 및 신뢰할 수 있는 서비스 API라는 두 가지 높은 수준의 프로그래밍 모델을 제공합니다. 동일한 서비스 패브릭 코어에서 둘 모두 빌드하면 동시성, 분할 및 통신의 측면에서 단순성과 유연성 사이에서 서로 다르게 균형을 유지합니다. 이는 두 모델을 이해하는 데 유용하므로 응용 프로그램 내의 특정 서비스에 대해 적절한 프레임을 선택할 수 있습니다.
@@ -30,6 +30,7 @@
 - [행위자 수명 주기 및 가비지 수집](service-fabric-reliable-actors-lifecycle.md)
 - [패브릭 행위자가 서비스 패브릭 플랫폼을 사용하는 방법](service-fabric-reliable-actors-platform.md)
 - [Azure 서비스 패브릭 행위자 형식 직렬화에 대한 참고 사항](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
+- [Node.js 및 신뢰할 수 있는 행위자](service-fabric-node-and-reliable-actors-an-winning-combination.md)
 
 행위자와의 통신은 다음에서 설명합니다.
 
@@ -69,7 +70,6 @@
 신뢰할 수 있는 서비스는 단순하고 강력한 최고 수준의 프로그래밍 모델을 제공하여 응용 프로그램에 중요한 내용을 나타낼 수 있도록 합니다. 자세한 내용은 다음을 참조하십시오.
 
 - [신뢰할 수 있는 서비스로 시작하기](service-fabric-reliable-services-quick-start.md)
-- [프로그래밍 모델 개요](../service-fabric-reliable-services-service-overview.md)  
 - [아키텍처](service-fabric-reliable-services-platform-architecture.md)
 - [신뢰할 수 있는 컬렉션](service-fabric-reliable-services-reliable-collections.md)
 - [상태 저장 신뢰할 수 있는 서비스 구성](../Service-Fabric/service-fabric-reliable-services-configuration.md)
@@ -87,4 +87,4 @@
 
 - [상태 저장 신뢰할 수 있는 서비스 진단](service-fabric-reliable-services-diagnostics.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

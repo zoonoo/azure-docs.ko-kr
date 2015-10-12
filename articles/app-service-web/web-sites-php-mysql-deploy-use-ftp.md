@@ -272,6 +272,9 @@
 
 `index.php` 및 `createtable.php`를 모두 업로드한 후 **http://[site 이름].azurewebsites.net/createtable.php**로 이동하여 응용 프로그램용 MySQL 테이블을 만든 다음 **http://[site 이름].azurewebsites.net/index.php**로 이동하여 응용 프로그램을 사용하기 시작합니다.
  
+## 다음 단계
+
+자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
 
 [install-php]: http://www.php.net/manual/en/install.php
 [install-mysql]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
@@ -297,4 +300,4 @@
 [download-publish-profile]: ./media/web-sites-php-mysql-deploy-use-ftp/download_publish_profile_3.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

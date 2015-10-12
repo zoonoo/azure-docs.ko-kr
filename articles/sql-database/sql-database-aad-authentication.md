@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/14/2015"
+   ms.date="09/28/2015"
    ms.author="rick.byham@microsoft.com"/>
 
 # Azure Active Directory 인증을 사용한 SQL Database 연결 
@@ -67,9 +67,7 @@ Azure SQL 데이터베이스에 포함된 된 데이터베이스 사용자를 �
 
 Azure SQL Server에서 다음 Azure Active Directory 멤버를 프로비전할 수 있습니다.  
 - 네이티브 멤버: 관리되는 도메인 또는 고객 도메인의 Azure AD에서 만든 멤버. 자세한 내용은 [Azure AD에 고유한 도메인 이름 추가](active-directory-add-domain.md)를 참조하세요.  
-- 페더레이션된 도메인 멤버: 페더레이션된 도메인의 Azure AD에서 만든 멤버입니다. 자세한 내용은 [이제 Microsoft Azure에서 Windows Server Active Directory와의 페더레이션 지원](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)을 참조하세요.  
-- 네이티브 또는 페더레이션된 도메인인 멤버로, Azure Active Directory에서 가져온 멤버  
-- 보안 그룹으로 만들어진 Active Directory 그룹
+- 페더레이션된 도메인 멤버: 페더레이션된 도메인의 Azure AD에서 만든 멤버입니다. 자세한 내용은 [이제 Microsoft Azure에서 Windows Server Active Directory와의 페더레이션 지원](http://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)을 참조하세요. - 네이티브 또는 페더레이션된 도메인인 멤버로, Azure Active Directory에서 가져온 멤버. - 보안 그룹으로 만들어진 Active Directory 그룹.
 
 Microsoft 계정(예: outlook.com, hotmail.com, live.com) 또는 다른 게스트 계정(예: gmail.com, yahoo.com)은 지원되지 않습니다. 계정 및 암호를 사용하여 [https://login.live.com](https://login.live.com)에 로그인할 수 있는 경우 Azure SQL 데이터베이스에 대한 Azure AD 인증에 지원되지 않는 Microsoft 계정을 사용하는 것입니다.
 
@@ -146,7 +144,7 @@ Azure Active Directory 인증은 최신 SQL 데이터베이스 V12에서 지원�
 3. **설정** 블레이드에서 **Active Directory 관리자(미리 보기)**를 클릭하고 미리 보기 조항에 동의합니다.
 4. **Active Directory 관리자(미리 보기)** 블레이드에서 검토를 클릭하고 **확인**을 클릭하여 미리 보기 조건에 동의합니다.
 5. **Active Directory 관리자(미리 보기)** 블레이드에서 **Active Directory 관리**를 클릭한 다음 위쪽의 **관리자 설정**을 클릭합니다.
-6. **관리자 추가** 블레이드에서 사용자를 검색하고 관리자가 될 사용자 또는 그룹을 선택한 다음 **선택**을 클릭합니다. Active Directory 관리 블레이드에 해당 Active Directory에 모든 멤버와 그룹이 표시됩니다. 회색으로 표시된 사용자나 그룹은 Azure AD 관리자로 지원되지 않기 때문에 선택할 수 없습니다. 위의 **Azure AD 기능 및 제한 사항**에서 지원되는 관리자 목록을 참조하세요.
+6. **관리자 추가** 블레이드에서 사용자를 검색하고 관리자가 될 사용자 또는 그룹을 선택한 다음 **선택**을 클릭합니다. Active Directory 관리 블레이드에 해당 Active Directory에 모든 멤버와 그룹이 표시됩니다. 회색으로 표시된 사용자나 그룹은 Azure AD 관리자로 지원되지 않기 때문에 선택할 수 없습니다. 위의 **Azure AD 기능 및 제한 사항**에서 지원되는 관리자 목록을 참조하세요. 역할 기반 액세스 제어(RBAC)는 포털에만 적용되며 SQL Server에 전파되지 않습니다.
 7. **Active directory 관리자** 블레이드 위쪽에서 **저장**을 클릭합니다. ![관리자 선택][10]
 
 	관리자 변경 과정에는 몇 분 정도 소요될 수 있습니다. 그런 다음 새 관리자가 **Active Directory 관리자** 상자에 표시됩니다.
@@ -213,7 +211,7 @@ Remove-AzureSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" 
 ### 도구
 
 - [SQL Server 2016 Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) 또는 [Visual Studio 2015용 SQL Server 데이터 도구](https://msdn.microsoft.com/library/mt204009.aspx)를 설치하면 .NET Framework 4.6 요구 사항에 부합합니다. 
-- SSMS이 x86 버전의 **ADALSQL.DLL**을 설치합니다. 
+- SSMS이 x86 버전의 **ADALSQL.DLL**을 설치합니다. (이때 SSMS는 설치 후 다시 부팅해야 한다는 프롬프트를 표시하지 않습니다. 이 문제는 미래의 CTP에서 해결되어야 합니다.)
 - SSDT가 amd64 버전의 **ADALSQL.DLL**을 설치합니다. Azure AD 인증은 SSDT에서 부분적으로만 지원됩니다.
 - [Visual Studio 다운로드](https://www.visualstudio.com/downloads/download-visual-studio-vs)의 최신 Visual Studio는 .NET Framework 4.6 요구 사항을 만족하지만, 필요한 amd64 버전의 **ADALSQL. DLL**을 설치하지 않습니다.
 
@@ -221,7 +219,7 @@ Remove-AzureSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" 
 
 ### 포함된 데이터베이스 사용자 정보
 
-Azure Active Directory 인증에는 포함된 데이터베이스 사용자로 만들데이터베이스 사용자가 필요합니다. Azure AD ID를 기반으로 하는 포함된 데이터베이스 사용자는 마스터 데이터베이스에 로그인이 없는 데이터베이스 사용자이며, 데이터베이스와 연결된 Azure AD 디렉터리의 ID에 매핑됩니다. Azure AD ID는 개별 사용자 계정 또는 그룹일 수 있습니다. 포함된 데이터베이스 사용자에 대한 자세한 내용은 [포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](https://msdn.microsoft.com/library/ff929188.aspx)를 참조하세요.
+Azure Active Directory 인증에는 포함된 데이터베이스 사용자로 만들데이터베이스 사용자가 필요합니다. Azure AD ID를 기반으로 하는 포함된 데이터베이스 사용자는 마스터 데이터베이스에 로그인이 없는 데이터베이스 사용자이며, 데이터베이스와 연결된 Azure AD 디렉터리의 ID에 매핑됩니다. Azure AD ID는 개별 사용자 계정 또는 그룹일 수 있습니다. 포함된 데이터베이스 사용자에 대한 자세한 내용은 [포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](https://msdn.microsoft.com/library/ff929188.aspx)를 참조하세요. 포털을 사용하여 데이터베이스 사용자(관리자 예상)를 만들 수 없으며 RBAC 역할은 SQL Server에 전파되지 않습니다.
 
 ### SQL Server Management Studio를 사용하여 사용자 데이터베이스에 연결합니다.
  
@@ -326,4 +324,4 @@ Azure AD 인증과 관련한 특정 코드 예제는 MSDN의 [SQL Server 보안 
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

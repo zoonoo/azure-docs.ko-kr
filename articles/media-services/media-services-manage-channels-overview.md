@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="09/28/2015" 
 	ms.author="juliako"/>
 
 #온-프레미스 인코더에서 다중 비트 전송률 라이브 스트림을 받는 채널 작업
@@ -266,4 +266,4 @@ SCTE-35|디지털 신호 시스템이 큐 광고 삽입에 사용됩니다. 다�
 [live-overview]: ./media/media-services-manage-channels-overview/media-services-live-streaming-current.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

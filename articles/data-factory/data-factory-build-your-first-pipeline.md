@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/22/2015"
+	ms.date="09/29/2015"
 	ms.author="spelluru"/>
 
 # Azure Data Factory를 사용하여 첫 번째 파이프라인 빌드
@@ -154,7 +154,7 @@ Hive 스크립트 실행 후에는 결과가 Azure Blob 저장소 컨테이너 *
 
 			AzCopy /Source:. /Dest:https://<StorageAccountName>.blob.core.windows.net/script /DestKey:<Storage Key>
 
-		> [AZURE.NOTE]위의 명령은 Azure Blob 저장소에 이름이 **script**인 컨테어니를 만들고컨테이너에서 **partitionweblogs.hql** 파일을 복사합니다.
+		> [AZURE.NOTE]위의 명령은 Azure Blob 저장소에 이름이 **script**인 컨테이너를 만들고로컬 드라이브의 **partitionweblogs.hql** 파일을 BLOB 컨테이너에 복사합니다.
 	>
 	5. 파일 업로드가 완료되면 AzCopy에서 다음과 같은 출력이 표시됩니다.
 	
@@ -176,4 +176,4 @@ Hive 스크립트 실행 후에는 결과가 Azure Blob 저장소 컨테이너 *
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

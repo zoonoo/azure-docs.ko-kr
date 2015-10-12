@@ -34,6 +34,8 @@ HDInsight의 Apache Storm은 Azure 환경에 통합된 관리되는 클러스터
 * 사용자가 선택한 언어 사용: **Java**, **C#** 및 **Python**으로 작성된 Storm 구성 요소 지원
 
 	* 혼합 프로그래밍 언어 지원: Java를 사용하여 데이터를 읽은 다음 C#을 사용하여 처리
+	
+		> [AZURE.NOTE]C# 토폴로지는 Windows 기반 HDInsight 클러스터에서만 지원됩니다.
 
 	* **Trident** Java 인터페이스를 사용하여 "정확히 한 번"의 메시지 처리, "트랜잭션" 데이터 저장소 지속성 및 일반 스트림 분석 작업 집합을 지원하는 Storm 토폴로지 만들기
 
@@ -51,13 +53,17 @@ Storm 사용을 시작하려면 [HDInsight에서 Storm 시작][gettingstarted]�
 
 새 HDInsight Storm 클러스터를 몇 분 내에 프로비전할 수 있습니다. 클러스터 이름, 크기, 관리자 계정 및 저장소 계정을 지정합니다. Azure에서 샘플 토폴로지 및 웹 관리 대시보드가 포함된 클러스터를 만듭니다.
 
-> [AZURE.NOTE] [Azure CLI](../xplat-cli.md) 또는 [Azure PowerShell](../powershell-install-configure.md)을 사용하여 Storm 클러스터를 프로비전할 수도 있습니다.
+> [AZURE.NOTE][Azure CLI](../xplat-cli-install.md) 또는 [Azure PowerShell](../powershell-install-configure.md)을 사용하여 Storm 클러스터를 프로비전할 수도 있습니다.
 
 요청을 제출한 후 15분 이내에 새 Storm 클러스터가 실행되고 첫 번째 실시간 분석 파이프라인에 사용할 수 있는 준비가 완료됩니다.
 
 ###사용 편의성
 
-Visual Studio를 사용하는 경우 Visual Studio용 HDInsight 도구를 통해 C# 및 하이브리드 C#/Java 토폴로지를 만든 다음 HDInsight의 Storm 클러스터에 제출할 수 있습니다.
+__HDInsight 클러스터의 Linux 기반 Storm의 경우__ SSH를 사용하여 클러스터에 연결하고 `storm` 명령을 사용하여 토폴로지를 시작하고 관리할 수 있습니다. 또한 Ambari를 사용하여 Storm 서비스를 모니터링하고 Storm UI를 사용하여 실행되고 있는 토폴로지를 모니터링하고 관리할 수 있습니다.
+
+Linux 기반 Storm 클러스터에 대한 자세한 내용은 [Linux 기반 HDInsight에서 Apache Storm 시작](hdinsight-apache-storm-tutorial-get-started-linux.md)을 참조하세요.
+
+__HDInsight 클러스터의 Windows 기반 Storm의 경우__ Visual Studio용 HDInsight 도구를 사용하면 C# 및 하이브리드 C#/Java 토폴로지를 만들 수 있고 HDInsight 클러스터의 Storm에 제출할 수 있습니다.
 
 ![Storm 프로젝트 만들기](./media/hdinsight-storm-overview/createproject.png)
 
@@ -75,7 +81,11 @@ Visual Studio용 HDInsight 도구에 대한 자세한 내용은 [Visual Studio�
 
 Storm 대시보드 사용에 대한 자세한 내용은 [HDInsight에서 Apache Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology.md)를 참조하세요.
 
-**이벤트 허브 Spout**를 통해 HDInsight의 Storm을 Azure 이벤트 허브와 쉽게 통합할 수도 있습니다. 각 Storm 클러스터(**%STORM\_HOME%\\examples\\eventhubspout\\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**)에서 이 Spout를 사용할 수 있습니다. Storm 토폴로지에서 이 Spout를 사용하는 예제는 [이벤트 허브 시작](service-bus-event-hubs-c-storm-getstarted.MD) 및 [Storm 및 HBase를 사용하여 센서 데이터 분석](hdinsight-storm-sensor-data-analysis.MD)을 참조하세요.
+**이벤트 허브 Spout**를 통해 HDInsight의 Storm을 Azure 이벤트 허브와 쉽게 통합할 수도 있습니다. 각 Storm 클러스터(**%STORM\_HOME%\\examples\\eventhubspout\\eventhubs-storm-spout-0.9-jar-with-dependencies.jar**)에서 이 Spout를 사용할 수 있습니다. Storm 토폴로지에서의 spout 사용 예제는 다음 문서를 참조하세요.
+
+* [Azure 이벤트 허브를 사용하는 C# 토폴로지 개발](hdinsight-storm-develop-csharp-event-hub-topology.md)
+
+* [Azure 이벤트 허브를 사용하는 Java 토폴로지 개발](hdinsight-storm-develop-java-event-hub-topology.md)
 
 ###안정성
 
@@ -154,7 +164,9 @@ Visual Studio용 HDInsight 도구를 통해 .NET 개발자는 C#으로 토폴로
 
 Trident에 대한 자세한 내용은 apache.org에서 [Trident 자습서](https://storm.incubator.apache.org/documentation/Trident-tutorial.html)를 참조하세요.
 
-원시 Java 및 Trident 토폴로지의 예제는 HDInsight Storm 클러스터의 **%storm\_home%\\contrib\\storm-starter** 디렉터리를 참조하세요.
+Java 및 Trident 토폴로지의 예제는 [예제 Storm 토폴로지 목록](hdinsight-storm-example-topology.md) 또는 HDInsight 클러스터의 storm 스타터 예제를 참조하세요.
+
+Storm 스타터 예제는 Linux 기반 클러스터에서는 \_\_ /usr/hdp/current/storm-client/contrib/storm-starter\_\_ 디렉터리에 있고, Windows 기반 클러스터에서는 **%storm\_home%\\contrib\\storm-starter** 디렉터리에 있습니다.
 
 ##몇 가지 일반적인 개발 패턴
 
@@ -205,6 +217,6 @@ HDInsight의 Apache Storm을 사용한 실시간 분석 솔루션에 대해 자�
 [stormtrident]: https://storm.incubator.apache.org/documentation/Trident-API-Overview.html
 [samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
 [apachetutorial]: https://storm.incubator.apache.org/documentation/Tutorial.html
-[gettingstarted]: ../hdinsight-storm-getting-started.md
+[gettingstarted]: hdinsight-apache-storm-tutorial-get-started-linux.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

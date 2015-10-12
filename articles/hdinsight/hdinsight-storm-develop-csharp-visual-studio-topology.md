@@ -23,6 +23,8 @@ Visual Studio에 HDInsight 도구를 사용하여 C# Storm 토폴로지를 만�
 
 또한 C# 및 Java 구성 요소를 사용하는 하이브리드 토폴로지를 만드는 방법에 대해서도 배웁니다.
 
+[AZURE.INCLUDE [windows-only](../../includes/hdinsight-windows-only.md)]
+
 ##필수 조건
 
 -	다음과 같은 Visual Studio 버전 중 하나
@@ -39,7 +41,7 @@ Visual Studio에 HDInsight 도구를 사용하여 C# Storm 토폴로지를 만�
 
     > [AZURE.NOTE]Visual Studio용 HDInsight 도구는 Visual Studio Express에서 지원되지 않습니다.
 
--	HDInsight 클러스터의 Apache Storm: [HDInsight에서 Apache Storm 시작](hdinsight-storm-getting-started.md)을 참조하세요.
+-	HDInsight 클러스터의 Apache Storm: 클러스터를 만드는 단계는 [HDInsight에서 Apache Storm 시작](hdinsight-storm-getting-started.md)을 참조하세요.
 
 	> [AZURE.NOTE]현재 Visual Studio용 HDInsight 도구는 HDInsight 버전 3.2 클러스터의 Storm만 지원합니다.
 
@@ -436,7 +438,7 @@ Visual Studio용 HDInsight 도구를 사용하여 일부 구성 요소는 C#이�
 
 -	Spout 또는 Bolt에 대한 Java 클래스의 새 인스턴스를 만들려면 **JavaComponentConstructor**를 사용해야 합니다.
 
--	Java 개체에서 JSON으로 Java 구성 요소의 데이터 입출력을 직렬화하려면 **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer**를 사용해야 합니다.
+-	Java 개체에서 JSON으로 Java 구성 요소의 데이터 입/출력을 직렬화하려면 **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer**를 사용해야 합니다.
 
 -	서버에 토폴로지를 제출할 때 **Java 파일 경로**를 지정하려면 **추가 구성** 옵션을 사용해야 합니다. 지정된 경로는 Java 클래스를 포함하는 JAR 파일이 들어 있는 디렉터리여야 합니다.
 
@@ -454,13 +456,13 @@ SCP.Net 버전 0.9.4.203은 이벤트 허브 spout(이벤트 허브로부터 읽
 
 SCP.NET의 최신 릴리스는 NuGet을 통해 패키지 업그레이드를 지원합니다. 새 업데이트를 사용할 수 있을 때 업그레이드 알림을 받게 됩니다. 업그레이드를 수동으로 확인하려면 다음 단계를 수행합니다.
 
-1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 선택합니다.
+1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
 
-2. 패키지 관리자에서 **업데이트**를 선택합니다. 사용할 수 있는 업데이트가 나열됩니다. 패키지에 대한 **업데이트** 단추를 클릭하여 설치합니다.
+2. 패키지 관리자에서 **업데이트**를 선택합니다. 사용할 수 있는 업데이트가 나열됩니다. 패키지에 **업데이트** 단추를 클릭하여 설치합니다.
 
 > [AZURE.IMPORTANT]패키지 업데이트에 대해 NuGet을 사용하지 않은 SCP.NET의 이전 버전으로 프로젝트를 만든 경우 다음 단계를 수행하여 새 버전으로 업데이트해야 합니다.
 >
-> 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **NuGet 패키지 관리**를 선택합니다.
+> 1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **NuGet 패키지 관리**를 선택합니다.
 > 2. **검색** 필드를 사용하여 검색한 다음 **Microsoft.SCP.Net.SDK**를 프로젝트에 추가합니다.
 
 ##문제 해결
@@ -656,4 +658,4 @@ HDInsight 사용 방법 및 HDInsight의 Storm에 대한 추가 샘플은 다음
 
 -	[HDInsight에서 HBase 시작](../hdinsight-hbase-get-started.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

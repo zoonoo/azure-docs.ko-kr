@@ -49,4 +49,4 @@
 	- [라우팅 구성](expressroute-howto-routing-classic.md)
 	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

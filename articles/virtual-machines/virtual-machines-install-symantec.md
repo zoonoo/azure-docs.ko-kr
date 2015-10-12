@@ -97,4 +97,4 @@ Symantec 보안 확장이 설치되고 최신 상태인지 확인하려면 다�
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

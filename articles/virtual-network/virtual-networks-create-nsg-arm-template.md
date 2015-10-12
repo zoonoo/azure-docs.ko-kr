@@ -153,7 +153,7 @@ PowerShell을 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 
 Azure CLI를 사용하여 ARM 템플릿을 배포하려면 아래 단계를 따르세요.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](xplat-cli.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](xplat-cli-install.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 2. 아래와 같이 **azure config mode** 명령을 실행하여 리소스 관리자 모드로 전환합니다.
 
 		azure config mode arm
@@ -188,4 +188,4 @@ Azure CLI를 사용하여 ARM 템플릿을 배포하려면 아래 단계를 따�
 	- **-f(또는 --template-file)**. ARM 템플릿 파일에 대한 경로입니다.
 	- **-e(또는 --parameters-file)**. ARM 매개 변수 파일에 대한 경로입니다.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
+	ms.date="09/23/2015" 
 	ms.author="awills"/>
 
 # Azure 웹앱 성능 모니터링
@@ -21,7 +21,7 @@
 
 Azure는 *확장*을 활용하여 응용 프로그램 성능 모니터링(또는 *APM*)을 지원합니다. 이 확장은 응용 프로그램에 설치되며 데이터를 수집하고 모니터링 서비스로 다시 보고합니다.
 
-Application Insights 및 New Relic은 사용할 수 있는 두 가지 성능 모니터링 확장 프로그램입니다. New Relic을 사용하려면 런타임에 에이전트를 설치해야 합니다. Application Insights를 사용하려면 SDK로 코드를 다시 빌드해야 합니다. 또한 추가 데이터에 액세스를 제공하는 확장 프로그램을 설치할 수도 있습니다. SDK를 통해 앱의 사용과 성능을 보다 자세하게 모니터링하기 위한 코드를 작성할 수 있습니다.
+Application Insights 및 New Relic은 사용할 수 있는 두 가지 성능 모니터링 확장 프로그램입니다. 프로그램을 사용하려면 런타임에 에이전트를 설치해야 합니다. 또한 Application Insights와 함께 SDK를 사용하여 코드를 작성하는 옵션이 있습니다. SDK를 통해 앱의 사용과 성능을 보다 자세하게 모니터링하기 위한 코드를 작성할 수 있습니다.
 
 ## 확장 사용
 
@@ -37,9 +37,9 @@ Application Insights 및 New Relic은 사용할 수 있는 두 가지 성능 모
 
 ![분석 타일을 클릭합니다.](./media/insights-perf-analytics/10-vm1.png)
 
-### Application Insights의 경우: SDK로 다시 빌드
+### Application Insights에 대한 옵션: SDK로 다시 빌드
 
-Application Insights는 SDK를 앱에 설치하면 작동합니다.
+Application Insights는 앱에 SDK를 설치하여 더 자세한 원격 분석을 제공할 수 있습니다.
 
 Visual Studio에서 프로젝트에 Application Insights SDK를 추가합니다.
 
@@ -83,4 +83,4 @@ SDK는 API를 제공하므로 [사용자 지정 원격 분석을 작성하여](.
 * 페이지가 다운된 경우 이를 찾을 수 있도록 Application Insights를 사용하여 [웹 페이지의 가용성 및 응답성을 모니터링](../app-insights-monitor-web-app-availability.md)합니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

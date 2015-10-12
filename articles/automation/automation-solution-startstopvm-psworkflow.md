@@ -1,19 +1,19 @@
 <properties 
-   pageTitle="Azure 자동화로 가상 컴퓨터 시작 및 중지 - PowerShell 워크플로 | Microsoft Azure"
-   description="기존 가상 컴퓨터를 시작 또는 중지하기 위한 runbook을 포함하는 Azure 자동화 솔루션의 그래픽 버전"
-   services="automation"
-   documentationCenter=""
-   authors="bwren"
-   manager="stevenka"
-   editor="tysonn" />
+	pageTitle="Azure 자동화로 가상 컴퓨터 시작 및 중지 - PowerShell 워크플로 | Microsoft Azure"
+	description="기존 가상 컴퓨터를 시작 또는 중지하기 위한 runbook을 포함하는 Azure 자동화 솔루션의 그래픽 버전"
+	services="automation"
+	documentationCenter=""
+	authors="bwren"
+	manager="stevenka"
+	editor="tysonn" />
 <tags 
-   ms.service="automation"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="09/17/2015"
-   ms.author="bwren" />
+	ms.service="automation"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="09/25/2015"
+	ms.author="bwren" />
 
 # Azure 자동화 솔루션 - 가상 컴퓨터 시작 및 중지
 
@@ -53,7 +53,7 @@ Runbook은 설명 및 필수 자산을 포함하는 주석 처리된 도움말 �
 Runbook은 적절한 값으로 생성하고 채워야 하는 다음 자산을 필요로 합니다.
 
 | 자산 형식 | 자산 이름 | 설명 |
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | 자격 증명 | AzureCredential | Azure 구독에서 가상 컴퓨터를 시작 및 중지할 권한이 있는 계정에 대한 자격 증명을 포함합니다. **Add-AzureAccount** 활동의 **Credential** 매개 변수에 다른 자격 증명 자산을 지정할 수도 있습니다. |
 | 변수 | AzureSubscriptionId | Azure 구독의 구독 ID를 포함합니다. |
 
@@ -64,7 +64,7 @@ Runbook은 적절한 값으로 생성하고 채워야 하는 다음 자산을 �
 각 Runbook에는 다음과 같은 매개 변수가 있습니다. 모든 필수 매개 변수에 대한 값을 제공해야 하며 요구 사항에 따라 다른 매개 변수에 대한 값을 선택적으로 제공할 수 있습니다.
 
 | 매개 변수 | 형식 | 필수 | 설명 |
-|:---|:---|:---|
+|:---|:---|:---|:---|
 | ServiceName | string | 아니요 | 값이 제공되면 해당 서비스 이름의 모든 가상 컴퓨터가 시작되거나 중지됩니다. 값이 제공되지 않으면 Azure 구독의 모든 기존 가상 컴퓨터가 시작되거나 중지됩니다. |
 | AzureSubscriptionIdAssetName | string | 아니요 | Azure 구독의 구독 ID를 포함하는 [변수 자산](#installing-the-solution)의 이름을 포함합니다. 값을 지정하지 않으면 *AzureSubscriptionId*가 사용됩니다. |
 | AzureCredentialAssetName | string | 아니요 | 사용할 Runbook에 대한 자격 증명을 포함하는 [자격 증명 자산](#installing-the-solution)의 이름을 포함합니다. 값을 지정하지 않으면 *AzureCredential*이 사용됩니다. |
@@ -193,4 +193,4 @@ Runbook과 작업할 가상 컴퓨터를 검색하도록 **Get-AzureVM**이 사�
 - [Azure 자동화의 자식 runbook](automation-child-runbooks.md) 
 - [Azure 자동화에서 Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

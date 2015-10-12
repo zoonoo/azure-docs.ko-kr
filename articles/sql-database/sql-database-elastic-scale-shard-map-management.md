@@ -106,6 +106,7 @@
         // for privileges on both the GSM and the shards themselves.
     } 
  
+대신 Powershell을 사용하여 새 분할된 데이터베이스 맵 관리자를 만들 수 있습니다. [여기](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)에 예제가 있습니다.
 
 ### 분할된 데이터베이스 맵 관리 자격 증명
 
@@ -199,7 +200,7 @@
             } 
         } 
  
-또는 PowerShell 스크립트를 사용하여 동일한 결과를 얻을 수 있습니다.
+또는 PowerShell 스크립트를 사용하여 동일한 결과를 얻을 수 있습니다. [여기](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)에 일부 샘플 PowerShell 예제가 있습니다.
 
 분할된 데이터베이스 맵이 채워진 후에는 해당 맵에 대한 작업을 수행하도록 데이터 액세스 응용 프로그램을 생성하거나 조정할 수 있습니다. **맵 레이아웃**을 변경해야 할 때까지는 맵을 다시 채우거나 조작할 필요가 없습니다.
 
@@ -252,4 +253,4 @@
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

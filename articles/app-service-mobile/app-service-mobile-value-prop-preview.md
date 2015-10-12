@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service-mobile"
-	ms.workload="mobile"
+	ms.workload="na"
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.devlang="na"
 	ms.topic="article"
@@ -57,4 +57,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [JavaScript backend version]: ../mobile-services-ios-get-started.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

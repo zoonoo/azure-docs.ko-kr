@@ -1,15 +1,15 @@
 <properties
 	pageTitle="Azure 앱 서비스를 사용하여 Agile 소프트웨어 개발"
 	description="agile 소프트웨어 개발을 지원하는 Azure 앱 서비스를 사용하여 고확장성 복합 응용 프로그램을 만드는 법을 배웁니다."
-	services="app-service\web,app-service\api,app-service\mobile"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
 	editor=""/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -277,8 +277,8 @@ Agile 소프트웨어 개발은 Azure를 응용 프로그램 플랫폼으로 채
 -	[Git 분기-기본 분기 및 병합](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 -	[David Ebbo의 블로그](http://blog.davidebbo.com/)
 -	[Azure PowerShell](powershell-install-configure.md)
--	[Azure 플랫폼간 명령줄 도구](xplat-cli.md)
+-	[Azure 플랫폼간 명령줄 도구](xplat-cli-install.md)
 -	[Azure AD에서 사용자 만들기 또는 편집](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[프로젝트 Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

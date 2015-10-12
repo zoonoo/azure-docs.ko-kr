@@ -93,9 +93,9 @@ Azure는 Node.js의 기본 버전을 여러 개 제공하지만 기본적으로 
 
 자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/)를 참조하십시오.
 
-[Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법]: xplat-cli.md
-[Azure 명령줄 도구]: xplat-cli.md
+[Mac 및 Linux에서 Azure 명령줄 도구를 사용하는 방법]: xplat-cli-install.md
+[Azure 명령줄 도구]: xplat-cli-install.md
 [모듈 작업]: nodejs-use-node-modules-azure-apps.md
 [Node.js 웹 사이트 빌드 및 배포]: web-sites-nodejs-develop-deploy-mac.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

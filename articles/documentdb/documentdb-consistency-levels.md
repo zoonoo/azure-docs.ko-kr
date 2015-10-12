@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/25/2015" 
+	ms.date="09/25/2015" 
 	ms.author="mimig"/>
 
 # 일관성 수준을 사용하여 DocumentDB에서 가용성 및 성능 최대화
@@ -56,15 +56,13 @@
 
 ### 데이터베이스 일관성 수준 변경
 
-1.  [Azure Preview 포털](https://portal.azure.com/)에서 **모두 찾아보기**를 클릭합니다.
+1.  [Azure preview 포털](https://portal.azure.com/)의 점프 모음에서 **DocumentDB 계정**을 클릭합니다.
 
-2.  **모두 찾아보기** 블레이드에서 **DocumentDB 계정**을 클릭합니다.
+2. **DocumentDB 계정** 블레이드에서 수정할 데이터베이스 계정을 선택합니다.
 
-3. **DocumentDB 계정** 블레이드에서 수정할 데이터베이스 계정을 선택합니다.
+3. 계정 블레이드에 있는 **구성** 렌즈에서 **기본 일관성** 타일을 클릭합니다.
 
-4. 계정 블레이드에 있는 **구성** 렌즈에서 **기본 일관성** 타일을 클릭합니다.
-
-5. 새 일관성 수준을 선택하고 **저장**을 클릭합니다.
+4. **기본 일관성** 블레이드에서 새 일관성 수준을 선택하고 **저장**을 클릭합니다.
 
 	![기본 일관성 타일, 일관성 설정 및 저장 단추를 강조 표시하는 스크린샷](./media/documentdb-consistency-levels/database-consistency-level.png)
 
@@ -90,4 +88,4 @@
 -	Werner Vogels. 최종 일관성 - 재고되었습니다. [http://allthingsdistributed.com/2008/12/eventually\_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

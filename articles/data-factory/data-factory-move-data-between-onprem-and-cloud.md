@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Data Factory를 사용하여 온-프레미스 및 클라우드 간 데이터 이동"
-	description="데이터 관리 게이트웨이 및 Azure Data Factory를 사용하여 온-프레미스와 클라우드 간에 데이터 이동을 알아봅니다."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Azure Data Factory를 사용하여 온-프레미스 및 클라우드 간 데이터 이동" 
+	description="데이터 관리 게이트웨이 및 Azure Data Factory를 사용하여 온-프레미스와 클라우드 간에 데이터 이동을 알아봅니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/29/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/24/2015" 
 	ms.author="spelluru"/>
 
 # 온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동
@@ -105,7 +105,7 @@ MSI 설치는 게이트웨이 컴퓨터에 인바운드 포트에 대한 Windows
 
 	Azure Data Factory 이름은 전역적으로 고유해야 합니다. **데이터 팩터리 이름 “ADFTutorialOnPremDF”를 사용할 수 없습니다.** 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: yournameADFTutorialOnPremDF) 다시 만듭니다. 이 자습서의 나머지 단계를 수행하는 동안 ADFTutorialOnPremDF 대신에 이 이름을 사용합니다.
 
-9. 왼쪽의 **알림** 허브를 클릭하고 만들기 프로세스에서 제공하는 알림을 찾습니다. **알림** 블레이드가 열려 있으면 **X**를 클릭하여 닫습니다.
+9. 만들기 프로세스 중 다음 이미지에서처럼 제목 표시줄의 **알림** 단추를 클릭하여 알림을 검색합니다. 다시 클릭하면 알림 창이 닫힙니다.
 
 	![알림 허브](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNotificationsHub.png)
 
@@ -114,15 +114,13 @@ MSI 설치는 게이트웨이 컴퓨터에 인바운드 포트에 대한 Windows
 	![데이터 팩터리 홈 페이지](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDataFactoryHomePage.png)
 
 ### 2단계: 데이터 관리 게이트웨이 만들기
-5.	**ADFTutorialOnPremDF**의 **데이터 팩터리** 블레이드에서 **연결된 서비스**를 클릭합니다. 
+5. **데이터 팩터리** 블레이드에서 **작성자 및 배포** 타일을 클릭하여 데이터 팩터리에 대한 **편집기**를 시작합니다.
 
-	![데이터 팩터리 홈 페이지](./media/data-factory-move-data-between-onprem-and-cloud/DataFactoryHomePage.png)
+	![작성 및 배포 타일](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png) 
+6.	데이터 팩터리 편집기에서 도구 모음의 **...(말줄임표)**를 클릭한 다음 **새 데이터 케이트웨이**를 클릭합니다. 
 
-2.	**연결된 서비스** 블레이드에서 **+ 데이터 게이트웨이**를 클릭합니다.
-
-	![연결된 서비스 - 게이트웨이 추가 단추](./media/data-factory-move-data-between-onprem-and-cloud/OnPremLinkedServicesAddGaewayButton.png)
-
-2. **만들기** 블레이드에서 **adftutorialgateway**를 **이름**으로 입력하고 **확인**을 클릭합니다.
+	![도구 모음의 새 데이터 게이트웨이](./media/data-factory-move-data-between-onprem-and-cloud/NewDataGateway.png)
+2. **만들기** 블레이드에서 **adftutorialgateway**를 **이름**으로 입력하고 **확인**을 클릭합니다. 	
 
 	![게이트웨이 만들기 블레이드](./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png)
 
@@ -140,82 +138,72 @@ MSI 설치는 게이트웨이 컴퓨터에 인바운드 포트에 대한 Windows
 
 	>[AZURE.NOTE]데이터 관리 게이트웨이를 성공적으로 설치 및 구성하려면 로컬 컴퓨터의 관리자여야 합니다. 데이터 관리 게이트웨이 사용자 로컬 Windows 그룹에 사용자를 더 추가할 수 있습니다. 이 그룹의 구성원은 데이터 관리 게이트웨이 구성 관리자 도구를 사용하여 게이트웨이를 구성할 수 있습니다.
 
-4. 왼쪽의 **알림** 허브를 클릭합니다. **알림** 블레이드에서 **'adftutorialgateway'에 대한 Express 설정 성공** 메시지가 표시될 때까지 대기합니다.
-
-	![Express 설치 성공](./media/data-factory-move-data-between-onprem-and-cloud/express-setup-succeeded.png)
-6. **만들기** 블레이드, **새 데이터 게이트웨이** 블레이드에서 차례로 **확인**을 클릭합니다.
-6. **연결된 서비스** 블레이드(오른쪽 위 모퉁이의 **X**키를 눌러)를 닫고 **연결된 서비스** 블레이드를 다시 열어 최신 상태의 게이트웨이를 확인합니다. 
-7. 게이트웨이의 **상태**가 **온라인**인지 확인합니다. 
-
-	![게이트웨이 상태](./media/data-factory-move-data-between-onprem-and-cloud/gateway-status.png)
-
-5. 컴퓨터에서 **Microsoft 데이터 관리 게이트웨이 구성 관리자** 응용프로그램을 시작합니다.
+5. 몇 분 정도 기다리면 컴퓨터에서 **데이터 관리 게이트웨이 구성 관리자** 응용프로그램이 시작됩니다. **검색** 창에서 **데이터 관리 게이트웨이**를 입력하여 이 유틸리티에 액세스합니다. **C:\\Program Files\\Microsoft Data Management Gateway\\1.0\\Shared** 폴더에서 **ConfigManager.exe** 실행 파일을 찾을 수도 있습니다.
 
 	![게이트웨이 구성 관리자](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
 
 6. 값이 다음과 같이 설정될 때까지 기다립니다.
-	1. 서비스 **상태**가 **Started**로 설정되지 않은 경우 **서비스 시작**을 클릭하여 서비스를 시작하고 다른 필드가 새로 고쳐질 때까지 잠시 기다립니다.
+	1. **상태**가 **Started**로 설정됩니다.
 	2. **게이트웨이 이름**이 **adftutorialgateway**로 설정됩니다.
 	3. **인스턴스 이름**이 **adftutorialgateway**로 설정됩니다.
-	4. **게이트웨이 키 상태**가 **Registered**로 설정됩니다.
+	4. **등록**이 **Registered**로 설정됩니다.
 	5. 맨 아래 상태 표시줄에 **Connected to Data Management Gateway Cloud Service(데이터 관리 게이트웨이 클라우드 서비스에 연결됨)**와 함께 **녹색 확인 표시**가 나타납니다.
-	
-7. **인증서**로 전환합니다. 이 탭에 지정된 인증서는 포털에서 지정한 온-프레미스 데이터 저장소에 대한 자격 증명을 암호화/해독하는 데 사용됩니다. **변경**을 클릭하여 사용자 고유의 인증서 대신 사용합니다. 기본적으로 게이트웨이는 데이터 팩터리 서비스에서 자동으로 생성되는 인증서를 사용합니다.
+
+8. **인증서**로 전환합니다. 이 탭에 지정된 인증서는 포털에서 지정한 온-프레미스 데이터 저장소에 대한 자격 증명을 암호화/해독하는 데 사용됩니다. **변경**을 클릭하여 그 대신 사용자 고유의 인증서를 사용합니다. 기본적으로 게이트웨이는 데이터 팩터리 서비스에서 자동으로 생성되는 인증서를 사용합니다.
 
 	![게이트웨이 인증서 구성](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
-
-8. 포털에서 **연결된 서비스** 블레이드에서 게이트웨이 **상태**가 **Good**인지 확인합니다.
-
+9. Azure 포털에서 **구성** 블레이드, **새 데이터 게이트웨이** 블레이드에서 차례로 **확인**을 클릭합니다.
+6. 왼쪽 트리의 **데이터 게이트웨이** 아래 **adftutorialgateway**가 표시되어야 합니다. 이 항목을 클릭하면 연결된 JSON이 나타납니다. 
+	
 
 ### 2단계: 연결된 서비스 만들기 
-이 단계에서는 2개의 연결된 서비스 **StorageLinkedService** 및 **SqlServerLinkedService**를 만듭니다. **SqlServerLinkedService**는 온-프레미스 SQL Server 데이터베이스를 연결하고 **StorageLinkedService** 연결된 서비스는 Azure Blob 저장소를 **ADFTutorialDataFactory**에 연결합니다. 이 연습의 뒷부분에서는 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 파이프라인을 만듭니다.
+이 단계에서는 2개의 연결된 서비스 **StorageLinkedService** 및 **SqlServerLinkedService**를 만듭니다. **SqlServerLinkedService**는 온-프레미스 SQL Server 데이터베이스를 연결하며 **StorageLinkedService** 연결 서비스는 Azure Blob 저장소를 데이터 팩터리에 연결합니다. 이 연습의 뒷부분에서는 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 파이프라인을 만듭니다.
 
 #### 온-프레미스 SQL Server 데이터베이스에 연결된 서비스 추가
-1.	**연결된 서비스** 블레이드의 명령 모음에서 **새로운 데이터 저장소**를 클릭합니다.
-2.	**이름**에 **SqlServerLinkedService**를 입력합니다. 
-2.	**형식** 옆에 화살표를 클릭하고**SQL 서버**를 선택합니다.
+1.	**데이터 팩터리 편집기**의 도구 모음에서 **새 데이터 저장소**를 클릭하고 **SQL Server**를 선택합니다. 
 
-	![새 데이터 저장소 만들기](./media/data-factory-move-data-between-onprem-and-cloud/new-data-store.png)
-3.	**형식** 설정에서 자세한 설정을 수행해야 합니다.
-4.	**데이터 게이트웨이** 설정의 경우 방금 만든 게이트웨이를 선택합니다. 
+	![새로운 SQL Server 연결 서비스](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png) 
+3.	**JSON 편집기**에서 다음을 수행합니다. 
+	1. **gatewayName**에 **adftutorialgateway**를 지정합니다.	
+	2. Windows 인증을 사용하는 경우
+		1. **connectionString**에서 
+			1. **통합 보안**을 **true**로 설정합니다.
+			2. 데이터베이스 **서버 이름**과 **데이터베이스 이름**을 지정합니다. 
+			2. **사용자 ID** 및 **암호**를 제거합니다. 
+		3. **userName** 및 **암호** 속성에 사용자 이름과 암호를 지정합니다.
+		
+				"typeProperties": {
+            		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;",
+            		"gatewayName": "adftutorialgateway",
+            		"userName": "<Specify user name if you are using Windows Authentication>",
+            		"password": "<Specify password for the user account>"
+        		}
 
-	![SQL 서버 설정](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-settings.png)
-4.	**서버** 설정에 데이터베이스 서버의 이름을 입력합니다.
-5.	**데이터베이스** 설정에 데이터베이스의 이름을 입력합니다.
-6.	**자격 증명** 옆에 화살표를 클릭합니다.
+	4. SQL 인증을 사용하는 경우
+		1. **connectionString**에 데이터베이스 **서버 이름**, **데이터베이스 이름**, **사용자 ID** 및**암호**를 지정합니다.       
+		2. 마지막 두 JSON 속성, 즉 **userName** 및 **password**를 JSON에서 제거합니다.
+		3. **gatewayName** 속성 값을 지정하는 행의 마지막에서 **,(쉼표)**를 제거합니다. 
 
-	![자격 증명 블레이드](./media/data-factory-move-data-between-onprem-and-cloud/credentials-dialog.png)
-7.	**자격 증명** 블레이드에서 **자격 증명을 안전하게 설정하려면 여기를 클릭하세요**를 클릭합니다.
-8.	**자격 증명 설정** 대화 상자에서 다음을 수행합니다.
-
-	![자격 증명 대화 상자 설정](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png)
-	1.	데이터 팩터리 서비스가 사용하려는 **인증**을 선택하여 데이터베이스에 연결합니다. 
-	2.	**USERNAME** 설정에 대한 데이터베이스에 액세스할 수 있는 사용자의 이름을 입력합니다. 
-	3.	**PASSWORD** 설정에 대해 사용자 암호를 입력합니다. 
-	4.	**확인**을 클릭하여 대화 상자를 닫습니다. 
-4. **확인**을 클릭하여 **자격 증명** 블레이드를 닫습니다. 
-5. **새 데이터 저장소** 블레이드에서 **확인**을 클릭합니다. 	
-6. **SqlServerLinkedService**의 상태가 연결된 서비스 블레이드에서 온라인으로 설정되었는지 확인합니다.
-	![SQL Server 연결된 서비스 상태](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
-
-자격 증명 설정에 대한 자세한 내용은 [자격 증명 및 보안 설정](#setting-credentials-and-security) 섹션을 참조하세요.
+				"typeProperties": {
+            		"connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
+	           		"gatewayName": "<Name of the gateway that the Data Factory service should use to connect to the on-premises SQL Server database>"
+    		    }
+	   
+2.	명령 모음에서 **배포**를 클릭하여 SQL Server 연결 서비스를 배포합니다.
 
 #### Azure 저장소 계정에 대한 연결된 서비스 추가
  
-1. **연결된 서비스** 블레이드의 도구 모음에서 **새로운 데이터 저장소**를 클릭합니다. 
-2. **이름** 필드에 **StorageLinkedService**를 입력합니다. 
-3. **형식** 옆에 화살표를 클릭하고**Azure 저장소**를 선택합니다.
-4. **형식** 설정 아래에 **계정 이름** 및 **계정 키**의 새로운 필드가 표시됩니다. 
-3. **계정 이름**에 Azure 저장소 계정의 이름을 입력합니다.
-4. **계정 키**에 Azure 저장소 계정의 키를 입력합니다. 
-5. **확인**을 클릭하여 대화 상자를 닫습니다. 
-
+1. **데이터 팩터리 편집기**의 명령 모음에서 **새 데이터 집합**을 클릭하고 **Azure 저장소**를 클릭합니다.
+2. **계정 이름**에 Azure 저장소 계정의 이름을 입력합니다.
+3. **계정 키**에 Azure 저장소 계정의 키를 입력합니다.
+4. **배포**를 클릭하여 **StorageLinkedService**를 배포합니다.
+   
  
 ### 3단계: 입력 및 출력 데이터 집합 만들기
 이 단계에서는 복사 작업(온-프레미스 SQL Server 데이터베이스 = > Azure Blob 저장소)의 입력 및 출력 데이터를 나타내는 입력 및 출력 데이터 집합을 만듭니다. 데이터 집합 또는 테이블(사각형 데이터 집합)을 만들려면 먼저 다음을 수행해야 합니다(자세한 단계는 목록 다음에 나옴).
 
 - 데이터 팩터리에 연결된 서비스로 추가한 SQL Server 데이터베이스에서 **emp**라는 테이블을 만들고 테이블에 몇 가지 샘플 항목을 삽입합니다.
-- 데이터 팩터리에 연결된 서비스로 추가한 Azure blob 저장소 계정에서 **adftutorial**로 명명된 blob 컨테이너를 만듭니다.
+- 데이터 팩터리에 연결된 서비스로 추가한 Azure BLOB 저장소 계정에서 **adftutorial**로 명명된 BLOB 컨테이너를 만듭니다.
 
 ### 자습서에 필요한 온-프레미스 SQL Server 준비
 
@@ -242,10 +230,7 @@ MSI 설치는 게이트웨이 컴퓨터에 인바운드 포트에 대한 Windows
 
 ### 입력 테이블 만들기
 
-1.	**데이터 팩터리** 블레이드에서 **작성자 및 배포** 타일을 클릭하여 데이터 팩터리에 대한 **편집기**를 시작합니다.
-
-	![작성 및 배포 타일](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png) 
-1. **데이터 팩터리 편집기**의 명령 모음에서 **새 데이터 집합**을 클릭하고 **온-프레미스 SQL**을 클릭합니다. 
+1. **데이터 팩터리 편집기**의 명령 모음에서 **새 데이터 집합**을 클릭하고 **SQL Server 테이블**을 클릭합니다. 
 2.	오른쪽 창의 JSON을 다음 텍스트로 바꿉니다.    
 
 		{
@@ -309,7 +294,7 @@ MSI 설치는 게이트웨이 컴퓨터에 인바운드 포트에 대한 Windows
   
 	다음 사항에 유의하세요.
 	
-	- **type**을 **AzureBlob**으로 설정합니다.
+	- **type**을 **AzureBlob**로 설정합니다.
 	- **linkedServiceName**을 **StorageLinkedService**(2단계에서 만든 연결된 서비스)로 설정합니다.
 	- **folderPath**를 **adftutorial/outfromonpremdf**로 설정합니다. 여기서 outfromonpremdf는 adftutorial 컨테이너의 폴더입니다. **adftutorial** 컨테이너만 만들면 됩니다.
 	- **availability**는 **hourly**(**frequency**는 **hour**로, **interval**은 **1**로 설정)로 설정됩니다. 데이터 팩터리 서비스는 Azure SQL 데이터베이스의 **emp** 테이블에 출력 데이터 조각을 1시간마다 생성합니다. 
@@ -392,16 +377,16 @@ MSI 설치는 게이트웨이 컴퓨터에 인바운드 포트에 대한 Windows
 
 	다음 사항에 유의하세요.
  
-	- activities 섹션에는 **type**이 **Copy**로 설정된 작업 하나밖에 없습니다.
+	- Activities 섹션에는 **type**이 **Copy**로 설정된 작업 하나밖에 없습니다.
 	- 작업에 대한 **입력**을 **EmpOnPremSQLTable**로 설정하고 작업에 대한 **출력**을 **OutputBlobTable**로 설정합니다.
 	- **transformation** 섹션에서 **SqlSource**를 **source type**으로 지정하고 **BlobSink**를 **sink type**으로 지정합니다.
 - **SqlSource**의 **sqlReaderQuery** 속성에 대해 SQL 쿼리 **select * from emp**를 지정합니다.
 
 	**start** 속성 값을 현재 날짜로 바꾸고 **end** 값을 다음 날짜로 바꿉니다. start 및 end 날짜/시간은 둘 다 [ISO 형식](http://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예: 2014-10-14T16:32:41Z. **end** 시간은 선택 사항이지만 이 자습서에서는 사용합니다.
 	
-	**end** 속성 값을 지정하지 않는 경우 "**start + 48시간**"으로 계산됩니다. 파이프라인을 무기한 실행하려면 **end** 속성 값으로 **9/9/9999**를 지정합니다.
+	**end** 속성 값을 지정하지 않는 경우 "**start + 48 hours**"로 계산됩니다. 파이프라인을 무기한 실행하려면 **end** 속성 값으로 **9/9/9999**를 지정합니다.
 	
-	각 Azure Data Factory 테이블에 대해 정의된 **가용성** 속성을 기준으로 데이터 조각이 처리되는 기간이 정의됩니다.
+	각 Azure 데이터 팩터리 테이블에 대해 정의된 **가용성** 속성을 기준으로 데이터 조각이 처리되는 기간이 정의됩니다.
 	
 	위의 예에서는 각 데이터 조각이 1시간마다 생성되므로 24개 데이터 조각이 있게 됩니다.
 	
@@ -462,8 +447,8 @@ MSI 설치는 게이트웨이 컴퓨터에 인바운드 포트에 대한 Windows
 
 	![활동 실행 세부 정보 블레이드][image-data-factory-activity-run-details]
 
-11. **X**를 클릭하여
-12. **ADFTutorialOnPremDF**에 대한 홈 블레이드로 돌아갈 때까지 모든 블레이드를 닫습니다.
+11. **X**를 클릭하여 모든 블레이드를닫아
+12. **ADFTutorialOnPremDF**의 홈 블레이드로 돌아갑니다.
 14. (선택 사항) **파이프라인**을 클릭하고 **ADFTutorialOnPremDF**를 클릭한 다음 입력 테이블(**Consumed**) 또는 출력 테이블(**Produced**)을 드릴스루합니다.
 15. **Azure 저장소 탐색기**와 같은 도구를 사용하여 출력을 확인합니다.
 
@@ -471,6 +456,32 @@ MSI 설치는 게이트웨이 컴퓨터에 인바운드 포트에 대한 Windows
 
 
 ## 자격 증명 및 보안 설정
+
+데이터 팩터리 편집기를 사용하는 대신 연결된 서비스 블레이드를 사용하여 SQL Server 연결 서비스를 만들 수도 있습니다.
+ 
+3.	데이터 팩터리 홈 페이지에서 **연결된 서비스** 타일을 클릭합니다. 
+4.	**연결된 서비스** 블레이드의 명령 모음에서 **새 데이터 저장소**를 클릭합니다. 
+4.	**이름**에 **SqlServerLinkedService**를 입력합니다. 
+2.	**형식** 옆에 화살표를 클릭하고**SQL Server**를 선택합니다.
+
+	![새 데이터 저장소 만들기](./media/data-factory-move-data-between-onprem-and-cloud/new-data-store.png)
+3.	**형식** 설정에서 자세한 설정을 수행해야 합니다.
+4.	**데이터 게이트웨이** 설정의 경우 방금 만든 게이트웨이를 선택합니다. 
+
+	![SQL 서버 설정](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-settings.png)
+4.	**서버** 설정에 데이터베이스 서버의 이름을 입력합니다.
+5.	**데이터베이스** 설정에 데이터베이스의 이름을 입력합니다.
+6.	**자격 증명** 옆의 화살표를 클릭합니다.
+
+	![자격 증명 블레이드](./media/data-factory-move-data-between-onprem-and-cloud/credentials-dialog.png)
+7.	**자격 증명** 블레이드에서 **자격 증명을 안전하게 설정하려면 여기를 클릭하세요**를 클릭합니다.
+8.	**자격 증명 설정** 대화 상자에서 다음을 수행합니다.
+
+	![자격 증명 대화 상자 설정](./media/data-factory-move-data-between-onprem-and-cloud/setting-credentials-dialog.png) 1. 데이터 팩터리 서비스가 데이터베이스 연결에 사용할 **인증**을 선택합니다. 2. **USERNAME** 설정에 대해 데이터베이스에 액세스할 수 있는 사용자의 이름을 입력합니다. 3. **PASSWORD** 설정에 대해 사용자 암호를 입력합니다. 4. **확인**을 클릭하여 대화 상자를 닫습니다. 
+4. **확인**을 클릭하여 **자격 증명** 블레이드를 닫습니다. 
+5. **새 데이터 저장소** 블레이드에서 **확인**을 클릭합니다. 	
+6. **SqlServerLinkedService**의 상태가 연결된 서비스 블레이드에서 온라인으로 설정되었는지 확인합니다.![SQL Server 연결된 서비스 상태](./media/data-factory-move-data-between-onprem-and-cloud/sql-server-linked-service-status.png)
+
 게이트웨이 컴퓨터와 다른 컴퓨터에서 포털에 액세스하는 경우 자격 증명 관리자 응용프로그램이 게이트웨이 컴퓨터에 연결할 수 있는지 확인해야 합니다. 응용프로그램이 게이트웨이 컴퓨터에 연결할 수 없는 경우, 데이터 원본에 대한 자격 증명을 설정하고 데이터 원본에 대한 연결을 테스트할 수 없습니다.
 
 Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램을 사용하여 온-프레미스 데이터 원본에 대한 자격 증명을 설정하는 경우 포털은 게이트웨이 컴퓨터에서 데이터 관리 게이트웨이 구성 관리자의 인증서 탭에 지정한 인증서를 사용하여 자격 증명을 암호화합니다.
@@ -488,7 +499,7 @@ Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램을 사�
 이 섹션에서는 Azure PowerShell cmdlet을 사용하여 게이트웨이를 만들고 등록하는 방법에 대해 설명합니다.
 
 1. **Azure PowerShell**을 관리자 모드로 시작합니다. 
-2. Azure Data Factory cmdlet은 **AzureResourceManager** 모드에서 사용할 수 있습니다. 다음 명령을 실행하여 **AzureResourceManager** 모드로 전환합니다.     
+2. Azure 데이터 팩터리 cmdlet은 **AzureResourceManager** 모드에서 사용할 수 있습니다. 다음 명령을 실행하여 **AzureResourceManager** 모드로 전환합니다.     
 
         switch-azuremode AzureResourceManager
 
@@ -567,4 +578,4 @@ Azure 포털에서 시작된 "자격 증명 설정" 응용 프로그램을 사�
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-move-data-between-onprem-and-cloud.md)을 통해 의견을 보내주세요.
 
-<!-----HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

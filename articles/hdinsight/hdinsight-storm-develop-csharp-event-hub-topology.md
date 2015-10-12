@@ -1,20 +1,20 @@
 <properties
    pageTitle="HDInsight의 Storm으로 이벤트 허브에서 이벤트 처리 | Microsoft Azure"
-	description="Visual Studio용 HDInsight 도구를 사용하여 Visual Studio에서 만든 C# Storm 토폴로지로 이벤트 허브 데이터를 처리하는 방법에 대해 알아봅니다."
-	services="hdinsight,notification hubs"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"/>
+   description="Visual Studio용 HDInsight 도구를 사용하여 Visual Studio에서 만든 C# Storm 토폴로지로 이벤트 허브 데이터를 처리하는 방법에 대해 알아봅니다."
+   services="hdinsight,notification hubs"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
+   editor="cgronlun"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="09/02/2015"
-	ms.author="larryfr"/>
+   ms.devlang="dotnet"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="09/02/2015"
+   ms.author="larryfr"/>
 
 # HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리
 
@@ -25,6 +25,8 @@ Azure 이벤트 허브를 사용하면 웹 사이트, 앱 및 장치에서 대�
 * **EventHubWriter**: 무작위로 데이터를 생성하여 이벤트 허브에 기록합니다.
 
 * **EventHubReader**: 이벤트 허브에서 데이터를 읽어 Azure 테이블 저장소에 저장합니다.
+
+[AZURE.NOTE]이 문서의 단계는 Windows 기반 HDInsight 클러스터에만 적용됩니다. Linux 기반 또는 Windows 기반 클러스터로 작동하는 이 프로젝트의 Java 버전의 경우 [HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리(Java)](hdinsight-storm-develop-java-event-hub-topology.md)를 참조하세요.
 
 ## 필수 조건
 
@@ -555,4 +557,4 @@ EventHubSpout는 해당 상태의 검사점을 큐에서 읽은 메시지의 현
 * [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

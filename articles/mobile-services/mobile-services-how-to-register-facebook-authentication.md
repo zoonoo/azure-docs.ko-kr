@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Facebook 인증 등록 | Microsoft Azure" 
+	pageTitle="Facebook 인증 등록 - Azure 모바일 서비스" 
 	description="Azure 모바일 서비스 앱에서 Facebook 인증을 사용하는 방법에 대해 알아봅니다." 
 	services="mobile-services" 
 	documentationCenter="" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="06/27/2015" 
+	ms.date="09/25/2015" 
 	ms.author="glenga"/>
 
 # 모바일 서비스에 Facebook 인증을 사용하기 위해 앱 등록
@@ -22,11 +22,11 @@
 
 이 토픽에서는 Facebook을 사용하여 Azure 모바일 서비스에 인증할 수 있도록 앱을 등록하는 방법을 보여 줍니다.
 
->[AZURE.NOTE]이 자습서에서는 플랫폼에 구애받지 않는 확장 가능한 모바일 응용 프로그램을 손쉽게 빌드할 수 있도록 하는 솔루션인 [Azure 모바일 서비스]에 대해 다룹니다. 모바일 서비스를 사용하면 데이터 동기화, 사용자 인증, 푸시 알림 보내기 작업을 간편하게 수행할 수 있습니다. 이 페이지는 <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started-users/">인증 시작</a> 자습서를 보완하는 역할을 하며, 사용자를 앱에 기록하는 방법을 설명합니다. 모바일 서비스를 처음 사용하는 경우 <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/">모바일 서비스 시작</a> 자습서를 완료하는 것이 좋습니다.
+>[AZURE.NOTE]이 자습서에서는 플랫폼에 구애받지 않는 확장 가능한 모바일 응용 프로그램을 손쉽게 빌드할 수 있도록 하는 솔루션인 [Azure 모바일 서비스]에 대해 다룹니다. 모바일 서비스를 사용하면 데이터 동기화, 사용자 인증, 푸시 알림 보내기 작업을 간편하게 수행할 수 있습니다. 이 페이지는 [인증 시작](mobile-services-ios-get-started-users.md) 자습서를 보완하는 역할을 하며, 사용자를 앱에 기록하는 방법을 설명합니다. 모바일 서비스를 처음 사용하는 경우 [모바일 서비스 시작](mobile-services-ios-get-started.md) 자습서를 완료하는 것이 좋습니다.
 	
-이 토픽의 절차를 완료하려면 검증된 전자 메일 주소와 휴대폰 번호가 포함된 Facebook 계정이 있어야 합니다. 새 Facebook 계정을 만들려면 <a href="http://go.microsoft.com/fwlink/p/?LinkId=268285" target="_blank">facebook.com</a>으로 이동하세요.
+이 토픽의 절차를 완료하려면 검증된 전자 메일 주소와 휴대폰 번호가 포함된 Facebook 계정이 있어야 합니다. 새 Facebook 계정을 만들려면 [facebook.com](http://go.microsoft.com/fwlink/p/?LinkId=268285)으로 이동하십시오.
 
-1. <a href="http://go.microsoft.com/fwlink/p/?LinkId=268286" target="_blank">Facebook 개발자</a> 웹 사이트로 이동한 다음 Facebook 계정 자격 증명으로 로그인합니다.
+1. [Facebook 개발자](http://go.microsoft.com/fwlink/p/?LinkId=268285) 웹 사이트로 이동한 다음 Facebook 계정 자격 증명으로 로그인합니다.
 
 2. (선택 사항) 아직 등록하지 않은 경우 **My Apps**, **Register as a Developer**를 차례로 클릭하고 정책에 동의한 후 등록 단계를 따릅니다.
 
@@ -73,4 +73,4 @@
 [Azure 모바일 서비스]: http://azure.microsoft.com/services/mobile-services/
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

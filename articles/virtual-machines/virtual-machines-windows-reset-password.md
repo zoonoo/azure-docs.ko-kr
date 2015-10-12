@@ -113,4 +113,4 @@ Azure IaaS(Windows) 진단 패키지를 실행할 수 없거나 실행해도 문
 
 [Windows 기반 Azure 가상 컴퓨터에 대한 원격 데스크톱 연결 문제 해결](virtual-machines-troubleshoot-remote-desktop-connections.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

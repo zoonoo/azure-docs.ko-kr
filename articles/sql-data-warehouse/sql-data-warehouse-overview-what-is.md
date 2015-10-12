@@ -79,4 +79,4 @@ SQL 데이터 웨어하우스는 몇 초 만에 쉽게 배포됩니다. 이 서�
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

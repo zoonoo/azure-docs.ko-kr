@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="dlepow"
 	manager="timlt"
-	editor=""f/>
+	editor=""/>
 
 <tags
 	ms.service="cloud-services"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
+	ms.date="09/29/2015"
 	ms.author="danlep"/>
 
 
@@ -24,7 +24,7 @@
 
 이 자습서에서는 Azure의 확장 가능한 주문형 계산 리소스를 사용하여 계산이 많이 사용되는 응용 프로그램을 실행하는 방법을 보여 줍니다. 이 방법을 클러스터 "클라우드로 버스트"라고도 합니다.
 
-이 자습서는 이전에 계산 클러스터나 HPC 팩을 사용한 경험이 없다고 가정합니다. 데모를 위해 하이브리드 계산 클러스터를 신속하게 배포하도록 도와주는 역할만 합니다. 하이브리드 HPC 팩 클러스터를 프로덕션 환경에 대규모로 배포하는 단계와 고려 사항은 [자세한 지침](http://go.microsoft.com/fwlink/p/?LinkID=200493)을 참조하십시오. Azure에서 전체 HPC 팩 클러스터를 설정하려면 [Azure VM의 Microsoft HPC 팩](http://go.microsoft.com/fwlink/p/?linkid=330375)을 참조하세요.
+이 자습서는 이전에 계산 클러스터나 HPC 팩을 사용한 경험이 없다고 가정합니다. 데모를 위해 하이브리드 계산 클러스터를 신속하게 배포하도록 도와주는 역할만 합니다. 하이브리드 HPC 팩 클러스터를 프로덕션 환경에 대규모로 배포하는 단계와 고려 사항은 [자세한 지침](http://go.microsoft.com/fwlink/p/?LinkID=200493)을 참조하십시오. Azure에서 전체 HPC 팩 클러스터를 설정하려면 [Azure의 Microsoft HPC 팩](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)을 참조하세요.
 
 >[AZURE.NOTE]Azure는 각 작업에 적합한 [다양한 크기](../virtual-machines/virtual-machines-size-specs.md)를 계산 리소스에 제공합니다. 예를 들어 A8 및 A9 인스턴스는 특정 HPC 응용 프로그램에 필요한 낮은 대기 시간, 높은 처리량의 응용 프로그램 네트워크 액세스와 고성능을 결합합니다. [A8, A9, A10 및 A11 계산 집약적인 인스턴스 정보](../virtual-machines/virtual-machines-a8-a9-a10-a11-specs.md)를 참조하세요.
 
@@ -306,7 +306,7 @@ HPC 팩 **clusrun** 명령을 사용하여 하나 이상의 클러스터 노드�
 
 * [HPC Pack 2012 R2 및 HPC Pack 2012](http://go.microsoft.com/fwlink/p/?LinkID=263697)
 * [Microsoft HPC Pack을 사용하여 Azure로 전환](http://go.microsoft.com/fwlink/p/?LinkID=200493)
-* [Azure VM의 Microsoft HPC 팩](http://go.microsoft.com/fwlink/p/?linkid=330375)
+* [Azure에서 Microsoft HPC 팩을 사용하는 HPC 클러스터 옵션](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)
 * [Azure에서의 큰 계산: 배치 및 HPC(고성능 컴퓨팅)에 대한 기술 리소스](big-compute-resources.md)
 
 
@@ -347,4 +347,4 @@ HPC 팩 **clusrun** 명령을 사용하여 하나 이상의 클러스터 노드�
 [stop_node4]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/stop_node4.png
 [view_instances2]: ./media/cloud-services-setup-hybrid-hpcpack-cluster/view_instances2.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

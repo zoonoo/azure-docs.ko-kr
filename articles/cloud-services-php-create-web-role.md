@@ -198,6 +198,10 @@ Azure 에뮬레이터는 클라우드에 배포하기 전에 Azure 응용 프로
 
 응용 프로그램을 게시하려면 먼저 **Import-PublishSettingsFile** cmdlet을 사용하여 게시 설정을 가져와야 합니다. 그런 다음 [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) cmdlet을 사용하여 응용 프로그램을 게시합니다. 로그인에 대한 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](powershell-install-configure.md)을 참조하세요.
 
+## 다음 단계
+
+자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
+
 [PHP용 Azure SDK]: /develop/php/common-tasks/download-php-sdk/
 [install ps and emulators]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
 [서비스 정의(.csdef)]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
@@ -207,4 +211,4 @@ Azure 에뮬레이터는 클라우드에 배포하기 전에 Azure 응용 프로
 [sqlsrv drivers]: http://php.net/sqlsrv
 [sqlncli.msi x64 설치 관리자]: http://go.microsoft.com/fwlink/?LinkID=239648
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

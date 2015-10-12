@@ -1,20 +1,20 @@
 <properties
    pageTitle="논리 앱에서 HTTP Listener 및 커넥터 사용 | Microsoft Azure 앱 서비스"
-	description="HTTP Listener 및 HTTP 동작 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""/>
+   description="HTTP Listener 및 HTTP 동작 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="prkumar"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="prkumar"/>
 
 
 # HTTP Listener 및 HTTP 동작 시작 및 논리 앱에 추가
@@ -72,6 +72,8 @@ HTTP 동작의 출력은 헤더 및 본문이며, 다른 동작 및 커넥터의
 
 커넥터의 성능 통계를 검토하고 보안을 제어할 수 있습니다. [기본 제공 API 앱 및 커넥터 관리 및 모니터링](app-service-logic-monitor-your-connectors.md)을 참조하세요.
 
+> [AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+
 <!--Image references-->
 [1]: ./media/app-service-logic-connector-http/1.png
 [2]: ./media/app-service-logic-connector-http/2.png
@@ -84,4 +86,4 @@ HTTP 동작의 출력은 헤더 및 본문이며, 다른 동작 및 커넥터의
 [9]: ./media/app-service-logic-connector-http/9.png
 [10]: ./media/app-service-logic-connector-http/10.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

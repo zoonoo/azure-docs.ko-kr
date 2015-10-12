@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-multiple"
 	ms.topic="article"
 	ms.devlang="dotnet"
-	ms.date="07/02/2015"
+	ms.date="10/01/2015"
 	ms.author="krisragh"/>
 
 # 모바일 서비스에서 사용자의 서비스 쪽 권한 부여
@@ -42,10 +42,10 @@
 
 		// Get the logged in user
 		var currentUser = User as ServiceUser;
-	
+
 		// Set the user ID on the item
 		item.UserId = currentUser.Id;
-	
+
 	이 코드는 TodoItem 테이블에 삽입되기 전에 인증된 사용자의 사용자 ID를 항목에 추가합니다.
 
 3. **GetAllTodoItems** 메서드를 찾아 기존 **return** 문을 다음 코드 줄로 바꿉니다.
@@ -54,7 +54,7 @@
 		var currentUser = User as ServiceUser;
 
 		return Query().Where(todo => todo.UserId == currentUser.Id);
-		
+
 	이 쿼리는 반환된 TodoItem 개체를 필터링하여 각 사용자가 자신이 삽입한 항목만 수신하도록 합니다.
 
 4. Azure에 모바일 서비스 프로젝트를 다시 게시합니다.
@@ -78,6 +78,5 @@
 
 <!-- URLs. -->
 [기존 모바일 서비스 앱에 인증 추가]: mobile-services-dotnet-backend-ios-get-started-users.md
- 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

@@ -144,4 +144,4 @@ BACPAC은 데이터베이스 스키마 및 데이터를 포함하는 .bacpac 파
 - [재해 복구 연습](sql-database-disaster-recovery-drills.md)
 - [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포"
 	description="PowerShell 스크립팅과 JSON 리소스 그룹을 사용한 예측 가능한 방법으로 Azure 앱 서비스 내에서 마이크로 서비스로 구성된 응용 프로그램을 배포하는 방법을 배워봅시다."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -305,4 +305,4 @@ DevOps에서 반복성 및 예측 가능성은 마이크로 서비스로 구성�
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

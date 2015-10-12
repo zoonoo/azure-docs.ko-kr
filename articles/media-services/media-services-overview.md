@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="09/28/2015"
 	ms.author="juliako"/>
 
 #Azure 미디어 서비스 개요 및 일반적인 시나리오
@@ -22,12 +22,9 @@ Microsoft Azure 미디어 서비스는 개발자가 확장 가능한 미디어 �
 
 전체 미디어 서비스를 사용하여 종단 간 워크플로를 작성할 수 있습니다. 또한 워크플로의 일부에 타사 구성 요소를 사용하도록 선택할 수 있습니다. 예를 들어 타사 인코더를 사용하여 인코딩합니다. 그런 다음 미디어 서비스를 사용하여 업로드, 보호, 패키징 및 배달합니다.
 
-
-다음 포스터는 미디어 만들기부터 소비까지의 Azure 미디어 서비스 워크플로를 보여 줍니다. 포스터는 [Azure 미디어 서비스 포스터](http://www.microsoft.com/download/details.aspx?id=38195)에서 다운로드할 수 있습니다.
-
-![개요][overview]
-
 콘텐츠를 라이브로 스트리밍하고 주문 시 콘텐츠를 배달하도록 선택할 수 있습니다. 이 항목에서는 [라이브](media-services-overview.md#live_scenarios) 또는[주문 시](media-services-overview.md#vod_scenarios) 콘텐츠를 배달하는 일반적인 시나리오를 보여줍니다. 이 항목은 관련 항목으로도 연결됩니다.
+
+## SDK 및 도구 
 
 미디어 서비스 솔루션을 빌드하려면 다음을 사용할 수 있습니다.
 
@@ -43,6 +40,10 @@ Microsoft Azure 미디어 서비스는 개발자가 확장 가능한 미디어 �
 - [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
+##포스터
+
+
+[여기서](http://azure.microsoft.com/documentation/infographics/media-services/) 미디어 만들기부터 소비까지의 AMS 워크플로를 표시하는 Azure 미디어 서비스 포스터를 볼 수 있습니다.
 
 ##필수 조건
 
@@ -152,7 +153,7 @@ Azure 미디어 서비스 사용을 시작하려면 다음이 있어야 합니�
 
 콘텐츠를 고객에게 배달할 때는 서로 다른 네트워크 조건에 따라 다양한 장치에 고화질 영상을 제공하는 것이 목표입니다. 품질 및 네트워크 상태를 관리하려면 라이브 인코더를 사용하여 사용자의 스트림을 다중 비트 전송률(적응 비트 전송률) 비디오 스트림으로 인코딩합니다. 여러 장치에서 스트리밍을 관리하려면 미디어 서비스 [동적 패키징](media-services-dynamic-packaging-overview.md)을 사용하여 스트림을 여러 프로토콜로 동적으로 다시 패키징합니다. 미디어 서비스에서 지원하는 적응 비트 전송률 스트리밍 기술은 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍, MPEG DASH 및 HDS(Adobe PrimeTime/Access 정식 사용자만 해당)입니다.
 
-Azure 미디어 서비스에서 **채널**, **프로그램** 및 **스트리밍 끝점**은 수집, 형식 지정, DVR, 보안, 확장성 및 중복성을 포함한 라이브 스트리밍 기능 전반을 처리합니다.
+Azure 미디어 서비스에서 **Channel**, **Program**, and **StreamingEndpoint**는 수집, 형식 지정, DVR, 보안, 확장성 및 중복성을 포함한 라이브 스트리밍 기능 전반을 처리합니다.
 
 **채널**은 라이브 스트리밍 콘텐츠를 처리하기 위한 파이프라인을 나타냅니다. 현재 채널은 다음 방식으로 라이브 입력 스트림을 수신할 수 있습니다.
 
@@ -226,4 +227,4 @@ Azure 미디어 서비스는 iOS 장치, Android 장치, Windows, Windows Phone,
 [live-overview2]: ./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

@@ -324,4 +324,4 @@ Express 경로 회로 서비스 공급자 프로비전 상태를 사용할 경�
 - [Express 경로 라우팅 구성(회로 피어링 관리)](expressroute-howto-routing-classic.md)
 - [가상 네트워크를 Express 경로 회로에 연결](expresssroute-howto-linkvnet-classic.md) 
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

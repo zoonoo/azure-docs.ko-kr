@@ -165,4 +165,4 @@ Microsoft는 설정한 BGP 커뮤니티 값을 준수하지 않습니다. 피어
 	- [라우팅 구성](expressroute-howto-routing-classic.md)
 	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

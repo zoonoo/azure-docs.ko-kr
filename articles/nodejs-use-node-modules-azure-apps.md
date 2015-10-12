@@ -71,11 +71,11 @@ Azure 웹 사이트는 일부 네이티브 모듈을 지원하지 않으며 매�
 자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/)를 참조하십시오.
 
 [Node.js 버전 지정]: nodejs-specify-node-version-azure-apps.md
-[Mac 및 Linux에서 Azure 명령줄 인터페이스를 사용하는 방법]: xplat-cli.md
+[Mac 및 Linux에서 Azure 명령줄 인터페이스를 사용하는 방법]: xplat-cli-install.md
 [Node.js 웹 사이트 빌드 및 배포]: web-sites-nodejs-develop-deploy-mac.md
 [Node.js Web Application with Storage on MongoDB (MongoLab)]: store-mongolab-web-sites-nodejs-store-data-mongodb.md
 [Publishing with Git]: web-sites-publish-source-control.md
 [Build and deploy a Node.js application to an Azure Cloud Service]: cloud-services-nodejs-develop-deploy-app.md
 [Kudu를 사용하는 사용자 지정 웹 사이트 배포 스크립트]: /documentation/videos/custom-web-site-deployment-scripts-with-kudu/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

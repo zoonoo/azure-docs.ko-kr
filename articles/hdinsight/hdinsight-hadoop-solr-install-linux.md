@@ -19,7 +19,6 @@
 
 # HDInsight Hadoop 클러스터에서 Solr 설치 및 사용
 
-
 이 항목에서는 Azure HDInsight에서 스크립트 작업을 사용하여 Solr을 설치하는 방법에 대해 알아봅니다. Solr은 강력한 검색 플랫폼으로서 Hadoop에서 관리하는 데이터에 대한 엔터프라이즈 수준의 검색 기능을 제공합니다. HDInsight 클러스터에 Solr을 설치한 후에는 Solr을 사용하여 데이터를 검색하는 방법도 알아봅니다.
 
 > [AZURE.NOTE]이 문서의 단계에는 Linux 기반 HDInsight 클러스터가 필요합니다. Windows 기반 클러스터와 함께 Solr을 사용한 작업에 대한 자세한 내용은 [HDInsight Hadoop 클러스터(Windows)에 Solr 설치 및 사용](hdinsight-hadoop-solr-install.md)을 참조하세요.
@@ -62,7 +61,7 @@ HDInsight 클러스터에 Solr을 설치하는 샘플 스크립트는 읽기 전
 
 ## <a name="usesolr"></a>HDInsight에서 Solr을 사용하는 방법
 
-###인덱싱 데이터
+### 인덱싱 데이터
 
 데이터 파일로 Solr을 인덱싱하는 것부터 시작해야 합니다. 그런 다음 인덱싱한 데이터에 대해 Solr을 사용하여 검색 쿼리를 실행할 수 있습니다. 다음 단계를 사용하여 일부 예제 데이터를 Solr에 추가하고 쿼리할 수 있습니다.
 
@@ -153,7 +152,7 @@ HDInsight 클러스터에 Solr을 설치하는 샘플 스크립트는 읽기 전
 			    ]
 			  }
 
-###Solr 대시보드 사용
+### Solr 대시보드 사용
 
 Solr 대시보드는 웹 브라우저를 통해 Solr로 작업할 수 있는 웹 UI입니다. Solr 대시보드는 HDInsight 클러스터에서 인터넷에 직접 드러나지 않지만 SSH 터널을 사용하여 액세스되어야 합니다. SSH 터널의 사용에 대한 자세한 내용은 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
@@ -229,7 +228,7 @@ SSH 터널을 설정하면 다음 단계를 수행하여 Solr 대시보드를 �
 			    ]
 			  }
 
-###Solr 시작 및 중지
+### Solr 시작 및 중지
 
 Solr를 수동으로 중지하거나 시작해야 하는 경우 다음 명령을 사용합니다.
 
@@ -237,8 +236,7 @@ Solr를 수동으로 중지하거나 시작해야 하는 경우 다음 명령을
 
 	sudo start solr
 
-
-##인덱싱된 데이터 백업
+## 인덱싱된 데이터 백업
 
 Solr 클러스터 노드에서 인덱싱된 데이터를 Azure Blob 저장소에 백업하는 것이 좋습니다. 이렇게 하려면 다음 단계를 수행합니다.
 
@@ -276,7 +274,7 @@ Solr 클러스터 노드에서 인덱싱된 데이터를 Azure Blob 저장소에
 Solr 백업 및 복원 작업에 대한 자세한 내용은 [SolrCores의 백업 생성 및 복원](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups+of+SolrCores)을 참조하세요.
 
 
-## 참고 항목##
+## 참고 항목
 
 - [HDInsight 클러스터에서 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md)입니다. Hue는 HDInsight 클러스터에 기본 저장소를 찾을 뿐만 아니라 Pig 및 Hive 작업을 쉽게 작성, 실행 및 저장하는 웹 UI입니다.
 
@@ -291,11 +289,9 @@ Solr 백업 및 복원 작업에 대한 자세한 내용은 [SolrCores의 백업
 
 
 
-
-
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

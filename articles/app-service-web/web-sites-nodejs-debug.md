@@ -120,11 +120,11 @@ Node.js 버전의 응용 프로그램 지정에 대한 자세한 내용은 [Azur
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [IISNode 추가 정보]: https://github.com/tjanczuk/iisnode#readme
-[How to Use The Azure Command-Line Interface]: ../xplat-cli.md
+[How to Use The Azure Command-Line Interface]: ../xplat-cli-install.md
 [Azure 응용 프로그램에 Node.js 모듈 사용]: ../nodejs-use-node-modules-azure-apps.md
 [Azure 응용 프로그램에서 Node.js 버전 지정]: ../nodejs-specify-node-version-azure-apps.md
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

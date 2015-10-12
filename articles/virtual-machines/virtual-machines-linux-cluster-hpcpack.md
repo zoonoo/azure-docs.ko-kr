@@ -1,20 +1,20 @@
 <properties
  pageTitle="HPC 팩 클러스터의 Linux 계산 VM 사용 | Microsoft Azure"
-	description="Windows Server를 실행하는 헤드 노드와 Linux 계산 노드를 포함하는 HPC Pack 클러스터의 Azure 배포를 스크립팅하는 방법을 알아봅니다."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+ description="Windows Server를 실행하는 헤드 노드와 Linux 계산 노드를 포함하는 HPC Pack 클러스터의 Azure 배포를 스크립팅하는 방법을 알아봅니다."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="dlepow"
+ manager="timlt"
+ editor=""
+ tags="azure-service-management"/>
 <tags
  ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.workload="big-compute"
-	ms.date="09/01/2015"
-	ms.author="danlep"/>
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-multiple"
+ ms.workload="big-compute"
+ ms.date="09/01/2015"
+ ms.author="danlep"/>
 
 # Azure에서 HPC Pack 클러스터의 Linux 계산 노드 시작
 
@@ -43,7 +43,7 @@ HPC Pack 클러스터 배포 옵션에 대한 개요는 [HPC Pack 2012 R2 및 HP
 * **코어 할당량** - 멀티 코어 VM 크기를 사용하여 여러 클러스터 노드를 배포하려는 경우 특히 코어 할당량을 늘려야 할 수 있습니다. 이 문서의 예제에서는 24개 이상의 코어가 필요합니다. 할당량을 늘리려면 무료로 [온라인 고객 지원 요청을 개설](http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)합니다.
 
 ### 구성 파일 만들기
-HPC Pack IaaS 배포 스크립트는 HPC 클러스터의 인프라를 설명하는 XML 구성 파일을 입력으로 사용합니다. Linux 계산 노드 2개와 헤드 노드 1개로 구성된 작은 클러스터를 배포하려면 다음 샘플 구성 파일에 해당 환경의 값을 대체합니다. 구성 파일에 대한 자세한 내용은 스크립트 폴더 또는 [스크립트 설명서](https://msdn.microsoft.com/library/azure/dn864734.aspx)에 있는 Manual.rtf 파일을 참조하세요.
+HPC Pack IaaS 배포 스크립트는 HPC 클러스터의 인프라를 설명하는 XML 구성 파일을 입력으로 사용합니다. Linux 계산 노드 2개와 헤드 노드 1개로 구성된 작은 클러스터를 배포하려면 다음 샘플 구성 파일에 해당 환경의 값을 대체합니다. 구성 파일에 대한 자세한 내용은 스크립트 폴더의 Manual.rtf 파일과 [HPC 팩 IaaS 배포 스크립트를 사용하여 HPC 클러스터 만들기](virtual-machines-hpcpack-cluster-powershell-script.md)를 참조하세요.
 
 ```
 <?xml version="1.0" encoding="utf-8" ?>
@@ -310,4 +310,4 @@ HPC Pack **clusrun** 도구를 사용하여 명령 창 또는 HPC 클러스터 �
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

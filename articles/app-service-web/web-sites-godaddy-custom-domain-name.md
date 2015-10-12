@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Azure 앱 서비스에 대한 사용자 지정 도메인 이름 구성(GoDaddy)"
 	description="Azure 웹 앱에서 GoDaddy의 도메인 이름을 사용하는 방법에 대해 알아봅니다."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="erikre"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -87,4 +87,4 @@ Azure 앱 서비스 웹앱을 통해 도메인을 구입한 경우 <a href="/doc
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

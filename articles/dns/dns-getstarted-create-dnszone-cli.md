@@ -173,4 +173,4 @@ Azure DNS 서비스는 Microsoft.Network 리소스 공급자에 의해 관리됩
 
 [레코드 집합 및 레코드 만들기 시작](dns-getstarted-create-recordset-cli.md)<BR> [DNS 영역을 관리하는 방법](dns-operations-dnszones-cli.md)<BR> [DNS 레코드를 관리하는 방법](dns-operations-recordsets-cli.md)<BR> [.NET SDK로 Azure 작업 자동화](dns-sdk.md)<BR> [Azure DNS REST API 참조](https://msdn.microsoft.com/library/azure/mt163862.aspx)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

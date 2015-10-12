@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
 	ms.topic="get-started-article"
-	ms.date="08/11/2015"
+	ms.date="09/24/2015"
 	ms.author="glenga"/>
 
 
@@ -65,13 +65,11 @@ CORS(크로스-원본 리소스 공유)는 웹 기반 앱이 어느 도메인 �
  
 		Install-Package Microsoft.AspNet.WebApi.Cors  
 
-	백 엔드에 필요한 CORS 지원을 설치합니다.
-
-2. App\_Start/WebApiConfig.cs 프로젝트 파일을 열고, 명령문을 사용하여 다음을 추가합니다.
+2. App\_Start/Startup.MobileApp.cs 프로젝트 파일을 열고, 명령문을 사용하여 다음을 추가합니다.
 
 		using System.Web.Http.Cors;
 
-3. 다음으로, **HttpConfiguration**이 만들어진 후 다음 코드를 **WebApiConfig.Register** 메소드에 추가합니다.
+3. 다음으로, **HttpConfiguration**(*config*)이 만들어진 후 다음 코드를 **Startup.ConfigureMobileApp** 메소드에 추가합니다.
 
         // Enable CORS support for localhost port 8000, all headers and methods.
         var cors = new EnableCorsAttribute("http://localhost:8000", "*", "*");
@@ -121,4 +119,4 @@ CORS(크로스-원본 리소스 공유)는 웹 기반 앱이 어느 도메인 �
 [Visual Studio Community 2013]: https://www.visualstudio.com/downloads
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

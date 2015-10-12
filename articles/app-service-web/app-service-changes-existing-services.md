@@ -5,12 +5,12 @@
 	writer="yochayk" 
 	editor="yochayk" 
 	manager="nirma" 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=""/>
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -93,4 +93,4 @@
 자세한 내용은 [앱 서비스 설명서](http://azure.microsoft.com/documentation/services/app-service/)를 참조하세요.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

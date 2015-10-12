@@ -20,6 +20,8 @@
 
 HDInsight의 Apache Storm을 사용하여 Azure 이벤트 허브에서 센서 데이터를 처리하고, D3.js를 통해 이를 시각화하는 방법에 대해 알아봅니다. 또한 이 문서에서는 Azure 가상 네트워크를 사용하여 HDInsight의 Storm을 HDInsight의 HBase와 연결하고 토폴로지의 데이터를 HBase에 저장하는 방법에 대해서도 설명합니다.
 
+> [AZURE.NOTE]이 문서에 있는 정보는 HDInsight 클러스터에 Windows 기반 Storm 사용에 기반합니다. HDInsight의 Linux 기반 Storm에서 Azure 이벤트 허브를 사용하는 작업에 대한 정보는 [HDInsight의 Storm으로 Azure 이벤트 허브에서 이벤트 처리](hdinsight-storm-develop-java-event-hub-topology.md)를 참조하세요.
+
 ## 필수 조건
 
 * Azure 구독. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
@@ -420,4 +422,4 @@ Storm 클러스터에서 토폴로지를 시작하고 데이터를 처리한 경
 
 [azure-portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

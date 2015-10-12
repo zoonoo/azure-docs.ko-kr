@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/22/2015"
 	ms.author="jgao"/>
 
 #HDInsight에서 Hadoop과 Sqoop 사용(Windows)
@@ -67,7 +67,7 @@ HDInsight 클러스터에서 지원되는 Sqoop 버전을 보려면 [HDInsight�
 
 	> [AZURE.NOTE]HDInsight는 위치 기반 가상 네트워크만 지원하며 현재 선호도 그룹 기반 가상 네트워크와는 연동되지 않습니다.
 
-	* 가상 네트워크를 만들고 구성하려면 [가상 네트워크 구성 작업](http://msdn.microsoft.com/library/azure/jj156206.aspx)을 참조하세요.
+	* 가상 네트워크를 만들고 구성하려면 [가상 네트워크 구성 작업](../services/virtual-machines/)을 참조하세요.
 
 		* 데이터 센터에서 SQL Server를 사용할 때는 가상 네트워크를 *사이트 간* 또는 *지점 및 사이트 간*으로 구성해야 합니다.
 
@@ -522,14 +522,14 @@ Azure SQL 데이터베이스 또는 SQL Server에 테이블 두 개를 만듭니
 	            X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
 	            JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
 
-	            // Submit the Hive job
+	            // Submit the Sqoop job
 	            var jobClient = JobSubmissionClientFactory.Connect(creds);
 	            JobCreationResults jobResults = jobClient.CreateSqoopJob(sqoopJobDefinition);
 
 	            // Wait for the job to complete
 	            WaitForJobCompletion(jobResults, jobClient);
 
-	            // Print the Hive job output
+	            // Print the Sqoop job output
 	            System.IO.Stream stream = jobClient.GetJobErrorLogs(jobResults.JobId);
 
 	            StreamReader reader = new StreamReader(stream);
@@ -648,4 +648,4 @@ Azure SQL 데이터베이스 또는 SQL Server에 테이블 두 개를 만듭니
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

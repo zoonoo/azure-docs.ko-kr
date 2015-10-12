@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="스크립트 작업을 사용하여 Hadoop 클러스터에 Spark 설치 | Microsoft Azure"
-	description="Spark를 사용하여 HDInsight 클러스터를 사용자 지정하는 방법에 대해 알아봅니다. 스크립트를 사용하여 Spark를 설치하려면 스크립트 작업 구성 옵션을 사용하게 됩니다."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
+	pageTitle="스크립트 작업을 사용하여 Hadoop 클러스터에 Spark 설치 | Microsoft Azure" 
+	description="Spark를 사용하여 HDInsight 클러스터를 사용자 지정하는 방법에 대해 알아봅니다. 스크립트를 사용하여 Spark를 설치하려면 스크립트 작업 구성 옵션을 사용하게 됩니다." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="Blackmist" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/20/2015"
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/01/2015" 
 	ms.author="larryfr"/>
 
 # HDInsight Hadoop 클러스터에서 Spark 설치 및 사용
@@ -33,17 +33,17 @@ Spark를 사용하여 기존 디스크 기반 데이터 처리를 수행할 수�
 
 ## <a name="whatis"></a>설치할 수 있는 Spark 버전
 
-이 항목에서는 스크립트 작업 사용자 지정 스크립트를 사용하여 HDInsight 클러스터에 Spark를 설치합니다. 이 스크립트는 Spark 1.3.1을 설치합니다.
+이 항목에서는 스크립트 작업 사용자 지정 스크립트를 사용하여 HDInsight 클러스터에 Spark를 설치합니다. 이 스크립트는 Spark 1.5.0을 설치합니다.
 
 이 스크립트를 수정하거나 사용자 고유의 스크립트를 만들어 다른 버전의 Spark를 설치할 수 있습니다.
 
 ## 스크립트가 수행하는 작업
 
-이 스크립트는 Spark 1.3.1을 `/usr/hdp/current/spark`에 설치합니다.
+이 스크립트는 Spark 1.5.0을 `/usr/hdp/current/spark`에 설치합니다.
 
 ## <a name="install"></a>스크립트 동작을 사용하여 Spark 설치
 
-HDInsight 클러스터에 Spark를 설치하는 샘플 스크립트는 읽기 전용 Azure 저장소 Blob([https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh))에서 다운로드할 수 있습니다. 이 섹션에서는 Azure 포털을 사용하여 클러스터를 프로비전하면서 샘플 스크립트를 사용하는 방법에 대한 지침을 제공합니다.
+HDInsight 클러스터에 Spark를 설치하는 샘플 스크립트는 읽기 전용 Azure 저장소 Blob([https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh))에서 다운로드할 수 있습니다. 이 섹션에서는 Azure 포털을 사용하여 클러스터를 프로비전하면서 샘플 스크립트를 사용하는 방법에 대한 지침을 제공합니다.
 
 > [AZURE.NOTE]또한 이 스크립트를 사용하여 클러스터를 만드는 데 Azure PowerShell 또는 HDInsight.NET SDK를 사용할 수도 있습니다. 이 방법을 사용하는 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
@@ -52,7 +52,7 @@ HDInsight 클러스터에 Spark를 설치하는 샘플 스크립트는 읽기 �
 2. **선택적 구성** 블레이드에서 **스크립트 동작**을 선택하고 아래 정보를 제공합니다.
 
 	* __NAME__: 스크립트 작업의 이름을 입력합니다.
-	* __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh
+	* __SCRIPT URI__: https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh
 	* __HEAD__: 이 옵션 선택
 	* __WORKER__:이 옵션 선택
 	* __ZOOKEEPER__: Zookeeper 노드에 설치하려면 이 옵션을 선택합니다.
@@ -131,9 +131,9 @@ Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), Hi
 
 6. 다음과 유사한 출력이 표시됩니다.
 
-		[820,11:35:17,ko-KR,Android,HTC,Inspire 4G,Louisiana,UnitedStates, 2.7383836,0,1]
-		[1055,17:24:08,ko-KR,Android,HTC,Incredible,Ohio,United States,18.0894738,0,0]
-		[1067,03:42:29,ko-KR,Windows Phone,HTC,HD7,District Of Columbia,United States,null,0,0]
+		[820,11:35:17,ko-kr,Android,HTC,Inspire 4G,Louisiana,UnitedStates, 2.7383836,0,1]
+		[1055,17:24:08,ko-kr,Android,HTC,Incredible,Ohio,United States,18.0894738,0,0]
+		[1067,03:42:29,ko-kr,Windows Phone,HTC,HD7,District Of Columbia,United States,null,0,0]
 
 7. :q 입력하여 Scala 프롬프트를 종료합니다.
 
@@ -235,4 +235,4 @@ Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), Hi
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

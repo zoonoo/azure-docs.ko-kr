@@ -276,7 +276,7 @@ Azure 앱 서비스에서 웹 앱에 Visual Studio 솔루션을 푸시하는 것
 [Git website]: http://git-scm.com
 [Git 설치]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [Azure용 PowerShell 사용 방법]: ../articles/install-configure-powershell.md
-[Mac 및 Linux용 Azure 명령줄 도구를 사용하는 방법]: ../articles/xplat-cli.md
+[Mac 및 Linux용 Azure 명령줄 도구를 사용하는 방법]: ../articles/xplat-cli-install.md
 [Git 설명서]: http://git-scm.com/documentation
 
 [portal-select-website]: ./media/publishing-with-git/git-select-website.png
@@ -298,4 +298,4 @@ Azure 앱 서비스에서 웹 앱에 Visual Studio 솔루션을 푸시하는 것
 [Using Dropbox to Share Git Repositories]: https://gist.github.com/trey/2722927
 [Visual Studio Online을 사용하여 Azure에 지속적으로 전송]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

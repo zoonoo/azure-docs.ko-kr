@@ -12,8 +12,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="08/11/2015"
-   ms.author="bwren" />
+   ms.date="09/28/2015"
+   ms.author="bwren;sngun"/>
 
 # Azure 자동화에서 Runbook 시작
 
@@ -49,7 +49,6 @@
   </td>
  </tr>
  <tr>
- <tr>
   <td><a href="http://msdn.microsoft.com/library/azure/mt163849.aspx">Azure 자동화 API</a></td>
   <td>
    <ul>
@@ -62,7 +61,6 @@
   </td>
  </tr>
  <tr>
- <tr>
   <td><a href="http://azure.microsoft.com/documentation/articles/automation-webhooks/">Webhook</a></td>
   <td>
    <ul>
@@ -74,6 +72,16 @@
   </td>
  </tr>
  <tr>
+  <td><a href="http://azure.microsoft.com/documentation/articles/automation-webhooks/">Azure 경고에 응답</a></td>
+  <td>
+   <ul>
+    <li>Azure 경고에 답하여 Runbook을 시작합니다.</li>
+    <li>Runbook에 대한 Webhook과 경고 링크를 구성합니다.</li>
+    <li>URL의 보안 토큰으로 인증</li>
+    <li>현재 메트릭에서만 경고를 지원합니다</li>
+   </ul>
+  </td>
+ </tr>
  <tr>
   <td><a href="http://azure.microsoft.com/documentation/articles/automation-scheduling-a-runbook">일정</a></td>
   <td>
@@ -232,4 +240,4 @@ user 매개 변수에 다음 텍스트를 사용할 수 있습니다.
 
 - [다른 Runbook에서 Runbook 시작](http://msdn.microsoft.com/library/azure/dn857355.aspx) 
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

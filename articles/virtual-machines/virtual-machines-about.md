@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Azure 가상 컴퓨터 정보 | Microsoft Azure"
-	description="Azure에서 가상 컴퓨터의 기본 사항에 대해 알아봅니다."
+	description="두 배포 모델을 사용하여 Azure의 가상 컴퓨터에 대한 기본 사항에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="cynthn"
@@ -17,7 +17,7 @@
 	ms.date="07/14/2015"
 	ms.author="cynthn"/>
 
-#두 배포 모델을 사용하여 만든 Azure 가상 컴퓨터 정보
+#Azure 가상 컴퓨터 정보 
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델 및 클래식 배포 모델을 사용하여 만든 리소스에 대해 설명합니다.
 
@@ -51,4 +51,4 @@ Azure 가상 컴퓨터에 대해 잘 모르는 경우 [질문과 대답](virtual
 [가상 컴퓨터]: #tellmevm
 [클라우드 서비스]: cloud-services-choose-me.md
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

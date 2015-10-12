@@ -36,22 +36,24 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 - 웹앱의 경우 **리디렉션 Uri** `https://localhost:44316/`를 사용합니다. 이 코드 샘플에 대한 웹앱 클라이언트의 기본 위치입니다.
 - 앱에 할당된 **응용 프로그램 ID**를 적복사합니다. 곧 필요합니다.
 
-     >[AZURE.IMPORTANT][Azure 포털](https://manage.windowsazure.com/)의 **응용 프로그램** 탭에 등록된 응용 프로그램은 사용할 수 없습니다.
+ [AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3\. 정책 만들기
 
-Azure AD B2C에서 모든 사용자 환경은 [**정책**](active-directory-b2c-reference-policies.md)에 의해 정의됩니다. 이 코드 샘플의 클라이언트는 등록, 로그인 및 편집 프로필 등 세 가지 ID 환경을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)에서 설명한 대로 각 형식의 정책을 하나씩 만들어야 합니다. 세 가지 정책을 만들 때 다음을 확인합니다.
+Azure AD B2C에서 모든 사용자 환경은 [**정책**](active-directory-b2c-reference-policies.md)에 의해 정의됩니다. 이 코드 샘플의 클라이언트는 등록, 로그인 및 편집 프로필 등 세 가지 ID 환경을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)에서 설명한 대로 각 형식에 하나의 정책을 만들어야 합니다. 세 가지 정책을 만들 때 다음을 확인합니다.
 
 - ID 공급자 블레이드에서 **사용자 ID 등록** 또는 **메일 등록** 중 하나를 선택합니다.
 - 등록 정책에서 **표시 이름** 및 다른 몇 가지 등록 특성을 선택합니다.
 - 모든 정책에서 **표시 이름** 및 **개체 ID** 클레임을 응용 프로그램 클레임으로 선택합니다. 물론 다른 클레임을 선택할 수 있습니다.
-- 각 정책을 만든 후에 **이름**을 복사합니다. 접두사`b2c_1_`가 있어야 합니다. 이러한 정책 이름이 곧 필요합니다. 
+- 각 정책을 만든 후에 **이름**을 복사합니다. 이러한 정책 이름이 곧 필요합니다. 
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 세 가지 정책을 성공적으로 만들었다면 앱을 빌드할 준비가 되었습니다.
 
 ## 4\. 코드 다운로드
 
-이 자습서에 대한 코드는 [GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet)에서 유지 관리됩니다. 진행하면서 샘플을 빌드하려면 [기본 프로젝트를 .zip으로 다운로드](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip)하거나 기본 프로젝트를 복제합니다.
+이 자습서에 대한 코드는 [GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet)에서 유지 관리됩니다. 진행하면서 샘플을 빌드하려면 [골격 프로젝트를 .zip으로 다운로드](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/skeleton.zip)하거나 골격을 복제합니다.
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet.git
@@ -59,11 +61,11 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-Dot
 
 완성된 앱도 [.zip으로 다운로드하거나](https://github.com/AzureADQuickStarts/B2C-WebAPI-DotNet/archive/complete.zip) 동일한 리포지토리의 `complete` 분기에서 사용할 수 있습니다.
 
-샘플 코드를 다운로드했으면 Visual Studio `.sln` 파일을 열어 시작합니다. 솔루션에 `TaskWebApp` 프로젝트와 `TaskService` 프로젝트라는 두 프로젝트가 있는 것을 확인합니다. `TaskWebApp`은 사용자가 조작하는 MVC 웹 응용 프로그램입니다. `TaskService`는 각 사용자의 할 일 모음을 저장하는 앱의 백 엔드 Web API입니다.
+샘플 코드를 다운로드하면 Visual Studio `.sln` 파일을 열어 시작합니다. 솔루션에 `TaskWebApp` 프로젝트와 `TaskService` 프로젝트라는 두 프로젝트가 있는 것을 확인합니다. `TaskWebApp`은 사용자가 상호 작용하는 MVC 웹 응용 프로그램입니다. `TaskService`는 각 사용자의 할 일 모음을 저장하는 앱의 백 엔드 Web API입니다.
 
 ## 5\. 작업 웹앱 구성
 
-사용자가 `TaskWebApp`을 조작하는 경우 클라이언트는 Azure AD로 요청을 보내고 `TaskService` Web API를 호출하는 데 사용할 수 있는 토큰을 받습니다. 사용자를 로그인하고 토큰을 가져오려면 앱에 대한 일부 정보를 `TaskWebApp`에 제공해야 합니다. `TaskWebApp` 프로젝트에서 프로젝트 루트에 있는 `web.config` 파일을 열고 `<appSettings>` 섹션의 값을 바꿉니다.
+사용자가 `TaskWebApp`을 조작할 때 클라이언트는 Azure AD로 요청을 보내고 `TaskService` Web API를 호출하는 데 사용할 수 있는 토큰을 받습니다. 사용자를 로그인하고 토큰을 가져오려면 앱에 대한 일부 정보를 `TaskWebApp`에 제공해야 합니다. `TaskWebApp` 프로젝트에서 프로젝트 루트에 있는 `web.config` 파일을 열고 `<appSettings>` 섹션의 값을 바꿉니다.
 
 ```
 <appSettings>
@@ -82,6 +84,8 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-Dot
     <add key="api:TaskServiceUrl" value="https://localhost:44332/" />
 </appSettings>
 ```
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 로그인 정책 이름을 제공해야 하는 두 개의 `[PolicyAuthorize]` 데코레이터도 있습니다. 사용자가 인증이 필요한 앱의 페이지에 액세스하려고 하면 `[PolicyAuthorize]` 특성이 특정 정책을 호출하는 데 사용됩니다.
 
@@ -183,7 +187,7 @@ public partial class Startup
 ```
 
 #### 작업 컨트롤러 보호
-이제 앱이 OAuth 2.0 인증을 사용하도록 구성되었으므로 작업 컨트롤러에 `[Authorize]` 태그를 추가하기만 하면 Web API 보안을 유지할 수 있습니다. 할 일 모음 조작이 발생하는 컨트롤러이므로 클래스 수준에서 전체 컨트롤러를 보호합니다. 보다 세부적으로 제어하기 위해 개별 작업에 `[Authorize]` 태그를 추가할 수도 있습니다.
+이제 앱이 OAuth 2.0 인증을 사용하도록 구성되었으므로 작업 컨트롤러에 `[Authorize]` 태그를 추가하기만 하면 Web API 보안을 유지할 수 있습니다. 할 일 모음 조작이 발생하는 컨트롤러이므로 클래스 수준에서 전체 컨트롤러를 보호합니다. 보다 세분화한 제어를 위해 개별 작업에 `[Authorize]` 태그를 추가할 수도 있습니다.
 
 ```C#
 // Controllers\TasksController.cs
@@ -196,7 +200,7 @@ public class TasksController : ApiController
 ```
 
 #### 토큰에서 사용자 정보 가져오기
-`TaskController`는 데이터베이스에 작업을 저장하며, 여기서 각 작업에는 작업을 "소유"하는 연결된 사용자가 있습니다. 소유자는 사용자의 **개체 ID**로 식별됩니다. 모든 정책에서 개체 ID를 응용 프로그램 클레임으로 추가해야 했던 것은 이 때문입니다.
+`TaskController`는 데이터베이스에 작업을 저장하며, 여기서 각 작업에는 작업을 "소유"하는 연결된 사용자가 있습니다. 소유자는 사용자의 **개체 ID**로 식별됩니다. 모든 정책에서 개체 ID를 응용 프로그램 클레임으로 추가해야 했던 이유는 이 때문입니다.
 
 ```C#
 // Controllers\TasksController.cs
@@ -232,4 +236,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -1,6 +1,7 @@
 <properties
 	pageTitle="HBase 자습서: Hadoop 및 HBase로 시작 | Microsoft Azure"
 	description="HDInsight에서 Hadoop을 통해 Apache HBase 사용을 시작하려면 이 HBase 자습서를 따르세요. HBase 셸에서 테이블을 만들고 Hive를 사용하여 쿼리합니다."
+	keywords="apache hbase,hbase,hbase shell,hbase tutorial"
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
@@ -26,9 +27,11 @@ HDInsight에서 HBase 클러스터를 프로비전하고, HBase 테이블을 만
 
 * [HBase 자습서: HDInsight에서 Hadoop을 통해 HBase 사용 시작을 참조하세요.](hdinsight-hbase-tutorial-get-started-v1.md)
 
-> [AZURE.NOTE]HBase(버전 0.98.0)는 HDInsight의 HDInsight 3.1 클러스터에서만 사용할 수 있습니다(Apache Hadoop 및 YARN 2.4.0 기준). 버전 정보는 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능][hdinsight-versions](영문)을 참조하세요.
+> [AZURE.NOTE]이 문서에 있는 정보는 Windows 기반 HDInsight 클러스터에 지정됩니다. Linux 기반 클러스터 사용에 대한 정보는 [hdinsight-hbase-tutorial-get-started-linux.md)를 참조하세요.
+>
+> Windows 기반 HDInsight의 HBase(버전 0.98.0)는 HDInsight 3.1 클러스터에서만 사용할 수 있습니다.(Apache Hadoop 및 YARN 2.4.0 기준) 버전 정보는 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능][hdinsight-versions](영문)을 참조하세요.
 
-**필수 구성 요소**
+##필수 조건
 
 이 HBase 자습서를 시작하기 전에 다음이 있어야 합니다.
 
@@ -329,4 +332,4 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 프로비
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

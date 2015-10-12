@@ -210,7 +210,7 @@ Windows 가상 컴퓨터에서는 포트 3389를 끝점으로 추가하여 나�
 
 **-c, --connect**는 호스팅 서비스에서 이미 만들어진 배포 내에 가상 컴퓨터를 만듭니다. -vmname을 이 옵션과 함께 사용하지 않는 경우 새 가상 컴퓨터의 이름이 자동으로 생성됩니다.<br /> **-n, --vm-name** 가상 컴퓨터의 이름을 지정합니다. 이 매개 변수는 기본적으로 호스팅 서비스 이름을 가져옵니다. -vmname을 지정하지 않은 경우 새 가상 컴퓨터의 이름은 &lt;service-name>&lt;id>로 생성되며, 여기서 &lt;id>는 서비스에 1을 더한 기존 가상 컴퓨터의 번호입니다. 예를 들어 이 명령을 사용하여 기존 가상 컴퓨터가 하나인 호스팅 서비스 MyService에 새 가상 컴퓨터를 추가할 경우 새 가상 컴퓨터의 이름은 MyService2입니다.<br /> **-u, --blob-url** 가상 컴퓨터 시스템 디스크를 생성할 대상 Blob 저장소 URL을 지정합니다. <br /> **-z, --vm-size** 가상 컴퓨터의 크기를 지정합니다. 유효한 값은 다음과 같습니다. "ExtraSmall", "Small", "Medium", "Large", "ExtraLarge", "A5", "A6", "A7", "A8", "A9", "A10", "A11", "Basic\_A0", "Basic\_A1", "Basic\_A2", "Basic\_A3", "Basic\_A4", "Standard\_D1", "Standard\_D2", "Standard\_D3", "Standard\_D4", "Standard\_D11", "Standard\_D12", "Standard\_D13", "Standard\_D14", "Standard\_DS1", "Standard\_DS2", "Standard\_DS3", "Standard\_DS4", "Standard\_DS11", "Standard\_DS12", "Standard\_DS13", "Standard\_DS14", "Standard\_G1", "Standard\_G2", "Standard\_G3", "Standard\_G4", "Standard\_G55". 기본값은 "Small"입니다. <br /> **-r** RDP 연결을 Windows 가상 컴퓨터에 추가합니다. <br /> **-e, --ssh** SSH 연결을 Windows 가상 컴퓨터에 추가합니다. <br /> **-t, --ssh-cert** SSH 인증서를 지정합니다. <br /> **-s** 구독 <br /> **-o, --community** 지정된 이미지는 커뮤니티 이미지입니다. <br /> **-w** 가상 네트워크 이름 <br/> **-l,--location**은 위치를 지정합니다(예: "미국 중 북부"). <br /> **-a, --affinity-group**은 선호도 그룹을 지정합니다.<br /> **-w, --virtual-network-name** 새 가상 컴퓨터에 추가할 가상 네트워크를 지정합니다. 가상 네트워크를 설정하고 Azure 포털에서 관리할 수 있습니다.<br /> **-b, --subnet-names** 가상 컴퓨터를 할당할 서브넷 이름을 지정합니다.
 
-이 예에서 MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-ko-KR-30GB는 플랫폼에서 제공되는 이미지입니다. 운영 체제 이미지에 대한 자세한 내용은 vm 이미지 목록을 참조하십시오.
+이 예에서 MSFT\_\_Win2K8R2SP1-120514-1520-141205-01-ko-kr-30GB는 플랫폼에서 제공되는 이미지입니다. 운영 체제 이미지에 대한 자세한 내용은 vm 이미지 목록을 참조하십시오.
 
 	~$ azure vm create my-vm-name MSFT__Windows-Server-2008-R2-SP1.11-29-2011 username --location "West US" -r
 	info:   Executing command vm create
@@ -422,15 +422,15 @@ info:   vm shutdown command OK
 	~$ azure vm image list
 	data:   Name                                                                   Category   OS
 	data:   ---------------------------------------------------------------------  ---------  -------
-	data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-ko-KR-30GB.vhd   Canonical  Linux
+	data:   CANONICAL__Canonical-Ubuntu-12-04-20120519-2012-05-19-ko-kr-30GB.vhd   Canonical  Linux
 	data:   MSFT__Windows-Server-2008-R2-SP1.11-29-2011                            Microsoft  Windows
 	data:   MSFT__Windows-Server-2008-R2-SP1-with-SQL-Server-2012-Eval.11-29-2011  Microsoft  Windows
-	data:   MSFT__Windows-Server-8-Beta.ko-KR.30GB.2012-03-22                      Microsoft  Windows
+	data:   MSFT__Windows-Server-8-Beta.ko-kr.30GB.2012-03-22                      Microsoft  Windows
 	data:   MSFT__Windows-Server-8-Beta.2-17-2012                                  Microsoft  Windows
-	data:   MSFT__Windows-Server-2008-R2-SP1.ko-KR.30GB.2012-3-22                  Microsoft  Windows
-	data:   OpenLogic__OpenLogic-CentOS-62-20120509-ko-KR-30GB.vhd                 OpenLogic  Linux
-	data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-ko-KR-30GB.vhd       SUSE       Linux
-	data:   SUSE__OpenSUSE64121-03192012-ko-KR-15GB.vhd                            SUSE       Linux
+	data:   MSFT__Windows-Server-2008-R2-SP1.ko-kr.30GB.2012-3-22                  Microsoft  Windows
+	data:   OpenLogic__OpenLogic-CentOS-62-20120509-ko-kr-30GB.vhd                 OpenLogic  Linux
+	data:   SUSE__SUSE-Linux-Enterprise-Server-11SP2-20120521-ko-kr-30GB.vhd       SUSE       Linux
+	data:   SUSE__OpenSUSE64121-03192012-ko-kr-15GB.vhd                            SUSE       Linux
 	data:   WIN2K8-R2-WINRM                                                        User       Windows
 	info:   vm image list command OK
 
@@ -501,7 +501,7 @@ azure vm disk detach 명령을 사용하여 데이터 디스크를 분리할 경
 	data:   LogicalDiskSizeInGB "30"
 	data:   MediaLink "http://mystorageaccount.blob.core.azure-preview.com/vhd-store/mycentos-cb39b8223b01f95c.vhd"
 	data:   Name "mycentos-mycentos-0-20120524070008"
-	data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-ko-KR-30GB.vhd"
+	data:   SourceImageName "OpenLogic__OpenLogic-CentOS-62-20120509-ko-kr-30GB.vhd"
 	info:   vm disk show command OK
 
 **vm disk list [options] [vm-name]**
@@ -2348,4 +2348,4 @@ DNS 서버 항목을 네트워크 구성에서 제거합니다.
 	+ Deleting the DNS server entry dns-4 ( 77.88.99.11 )
 	info:    network dnsserver unregister command OK
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

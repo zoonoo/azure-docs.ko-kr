@@ -7,6 +7,7 @@
    manager="paulettm"
    editor="cgronlun"
    tags="azure-portal"/>
+
 <tags
     ms.service="hdinsight"
     ms.devlang="na"
@@ -433,8 +434,8 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 [powershell-install-configure]: ../install-configure-powershell/
 
 
-
+[azure-preview-portal]: https://portal.azure.com
 
 [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "HDInsight에서 Sqoop 사용"
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

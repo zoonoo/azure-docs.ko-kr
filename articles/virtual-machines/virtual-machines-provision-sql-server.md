@@ -37,6 +37,8 @@ Azure 가상 컴퓨터 갤러리에는 Microsoft SQL Server가 포함된 몇 개
 * [다른 컴퓨터의 SQL Server Management Studio를 사용하여 가상 컴퓨터에 연결하는 구성 단계 완료](#SSMS)
 * [다음 단계](#Optional)
 
+>[AZURE.NOTE]이 문서에서는 기존 Azure 관리 포털을 사용하여 SQL Server VM을 프로비전하는 방법에 대해 설명합니다. 그러나 [새 포털](https://manage.windowsazure.com)에서도 SQL Server VM을 만들고 관리할 수 있습니다. 새 포털에는 몇 가지 이점(예: 기본적으로 프리미엄 저장소 사용) 및 다른 옵션(예: 자동화된 패치, 자동화된 백업, AlwaysOn 구성)이 있습니다. 이후의 콘텐츠는 단계별 지침을 설명합니다.
+
 ##<a id="Provision">갤러리에서 SQL Server 가상 컴퓨터 프로비전</a>
 
 1. 사용자 계정을 사용하여 [Azure 관리 포털](http://manage.windowsazure.com)에 로그인합니다. Azure 계정이 없는 경우 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 방문하십시오.
@@ -66,13 +68,8 @@ Azure에서 지원되는 SQL Server 이미지에 관한 최신 정보는 [Azure 
 
 	>[AZURE.NOTE] 가상 컴퓨터의 크기는 프로비전 중 지정합니다.
  	>
-	> - A2는 프로덕션 작업용으로 권장되는 최소 크기입니다. 
-    > - SQL Server Enterprise Edition을 사용할 경우 가상 컴퓨터의 최소 권장 크기는 A3입니다.
-    > - SQL Server Enterprise Edition을 사용할 경우 A3 이상을 선택합니다.
-   	> - 트랜잭션 작업 이미지에 최적화된 SQL Server 2012 또는 2014 Enterprise를 사용할 때는 A4 이상을 선택합니다.  
-   	> - 데이터 웨어하우징 이미지에 최적화된 SQL Server 2012 또는 2014 Enterprise를 사용할 때는 A7 이상을 선택합니다. 
-   	> - 최상의 성능을 위해 프리미엄 저장소와 DS2 또는 DS3을 사용합니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-sql-server-performance-best-practices.md)를 참조하세요.
-   	> - 선택한 크기는 구성할 수 있는 데이터 디스크 수를 제한합니다. 사용 가능한 가상 컴퓨터 크기 및 가상 컴퓨터에 연결할 수 있는 데이터 디스크 수에 대한 최신 정보는 [Azure의 가상 컴퓨터 크기](virtual-machines-size-specs.md)를 참조하십시오.
+	> - 프로덕션 작업의 경우 최소 권장 크기를 가진 프리미엄 저장소(SQL Server Enterprise Edition의 경우 **DS3**, SQL Server Standard Edition의 경우 **DS2**)를 사용하는 것이 좋습니다. 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server에 대한 성능 모범 사례](virtual-machines-sql-server-performance-best-practices.md)를 참조하세요.
+	> - 선택한 크기는 구성할 수 있는 데이터 디스크 수를 제한합니다. 사용 가능한 가상 컴퓨터 크기 및 가상 컴퓨터에 연결할 수 있는 데이터 디스크 수에 대한 최신 정보는 [Azure의 가상 컴퓨터 크기](virtual-machines-size-specs.md)를 참조하십시오.
 
 5. VM 구성 세부 정보를 입력한 후 오른쪽 아래에 있는 다음 화살표를 클릭하여 계속합니다.
 
@@ -158,4 +155,4 @@ Management Studio를 사용하여 Azure 가상 컴퓨터에서 실행 중인 SQL
 
 - [Azure 가상 컴퓨터의 SQL Server에 대한 응용 프로그램 패턴 및 개발 전략](virtual-machines-sql-server-application-patterns-and-development-strategies.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

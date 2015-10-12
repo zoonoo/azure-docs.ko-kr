@@ -1,46 +1,47 @@
 <properties 
-	pageTitle="인증 및 SQL DB를 사용하여 ASP.NET MVC 앱을 만들고 Azure 앱 서비스에 배포"
-	description="SQL 데이터베이스 백엔드로 ASP.NET MVC 5 앱을 개발하고, 인증 및 권한 부여를 추가하고 Azure에 배포하는 방법에 알아봅니다."
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="Rick-Anderson"
-	manager="wpickett"
+	pageTitle="인증 및 SQL DB를 사용하여 ASP.NET MVC 앱을 만들고 Azure 앱 서비스에 배포" 
+	description="SQL 데이터베이스 백엔드로 ASP.NET MVC 5 앱을 개발하고, 인증 및 권한 부여를 추가하고 Azure에 배포하는 방법에 알아봅니다." 
+	services="app-service\web" 
+	documentationCenter=".net" 
+	authors="Rick-Anderson" 
+	writer="Rick-Anderson" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="08/07/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/30/2015" 
 	ms.author="riande"/>
-
-
 
 # 인증 및 SQL DB를 사용하여 ASP.NET MVC 앱을 만들고 Azure 앱 서비스에 배포
 
-이 자습서는 사용자가 Facebook 또는 Google 자격 증명을 사용하여 로그인할 수 있는 보안 ASP.NET MVC 5 웹앱을 빌드하는 방법을 보여 줍니다. 또한 응용 프로그램을 [앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에 배포합니다.
+이 자습서는 사용자가 Facebook 또는 Google 자격 증명을 사용하여 로그인할 수 있는 보안 ASP.NET MVC 5 웹앱을 빌드하는 방법을 보여 줍니다. 이 앱은 데이터베이스 액세스를 위해 ADO.NET Entity Framework를 사용하는 간단한 연락처 목록입니다. [Azure 앱 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)에 앱을 배포합니다.
 
-Azure 계정은 무료로 개설할 수 있으며, Visual Studio 2013이 아직 없는 경우 SDK에서 Web Express용 Visual Studio 2013을 자동으로 설치합니다. Azure용 개발을 무료로 시작할 수 있습니다.
-
-이 자습서에서는 이전에 Azure를 사용한 경험이 없다고 가정합니다. 이 자습서를 완료하면 클라우드에서 클라우드 데이터베이스를 사용하는 보안 데이터 기반 웹 응용 프로그램을 실행할 수 있습니다.
-
-다음 내용을 배웁니다.
-
-* 보안 ASP.NET MVC 5 프로젝트를 만들고 Azure 앱 서비스의 [앱 서비스 웹 앱](http://go.microsoft.com/fwlink/?LinkId=529714)에 게시하는 방법.
-* [OAuth](http://oauth.net/ "http://oauth.net/") 및 ASP.NET 멤버 자격 데이터베이스를 사용하여 응용 프로그램 보안을 유지하는 방법.
-* SQL 데이터베이스를 사용하여 Azure에 데이터를 저장하는 방법
-
-ASP.NET MVC 5에서 빌드되고 데이터베이스 액세스에 ADO.NET Entity Framework를 사용하는 간단한 연락처 목록 웹앱을 빌드합니다. 다음 그림은 완성된 응용 프로그램에 대한 로그인 페이지를 보여 줍니다.
+이 자습서를 완료하면 클라우드에서 클라우드 데이터베이스를 사용하는 보안 데이터 기반 웹 응용 프로그램을 실행할 수 있습니다. 다음 그림은 완성된 응용 프로그램에 대한 로그인 페이지를 보여 줍니다.
 
 ![로그인 페이지][rxb]
 
->[AZURE.NOTE]위의 스크린샷에 예쁜 소셜 로그인 단추를 만들려면 [ASP.NET MVC 5에 대한 예쁜 소셜 로그인 단추](http://www.jerriepelser.com/blog/pretty-social-login-buttons-for-asp-net-mvc-5)(영문)라는 블로그 게시물을 참조하세요.
+다음 내용을 배웁니다.
 
->[AZURE.NOTE]이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](../ko-KR/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](../ko-KR/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
+* Visual Studio에서 보안 ASP.NET MVC 5 웹 프로젝트를 만드는 방법
+* Google 또는 Facebook 계정 자격 증명을 사용하여 로그온하는 사용자를 인증하고 권한을 부여([OAuth 2.0](http://oauth.net/2 "http://oauth.net/2")을 사용한 소셜 공급자 인증)하는 방법
+* 응용 프로그램에서 관리되는 데이터베이스에 등록하는 사용자를 인증하고 권한을 부여([ASP.NET Identity](http://asp.net/identity/) 사용한 로컬 인증)하는 방법
+* ADO.NET Entity Framework 6 Code First를 사용하여 SQL 데이터베이스에서 데이터를 읽고 쓰는 방법
+* Entity Framework Code First 마이그레이션을 사용하여 데이터베이스를 배포하는 방법
+* Azure SQL 데이터베이스를 사용하여 클라우드에서 관계형 데이터를 저장하는 방법
+* Azure 앱 서비스에서 데이터베이스를 사용하는 웹 프로젝트를 [웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)에 배포하는 방법
 
->Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹 앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+>[AZURE.NOTE]긴 자습서입니다. Azure 앱 서비스 및 Visual Studio 웹 프로젝트에 대한 간략한 소개를 보려면 [Azure 앱 서비스에서 ASP.NET 웹앱 만들기](web-sites-dotnet-get-started.md)를 참조하세요.
+>
+>Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려면 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동합니다. 앱 서비스에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+
+## 필수 조건
+
+이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](../ko-kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](../ko-kr/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
 
 개발 환경 설정을 설정하려면 [Visual Studio 2013 업데이트 4](http://go.microsoft.com/fwlink/?LinkId=390521) 이상 및 최신 버전의 [Visual Studio 2013 용 Azure SDK](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409)를 설치해야 합니다. 이 문서는 Visual Studio 업데이트 4 및 SDK 2.5.1에 대해 작성되었습니다.
 
@@ -247,7 +248,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 	![스캐폴드 추가 대화 상자](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/rr6.png)
 
 
-1. **모델 클래스** 드롭다운 상자에서 **Contact(ContactManager.Models)**를 선택합니다. 아래 이미지를 참조하십시오.
+1. **모델 클래스** 드롭다운 상자에서 **Contact(ContactManager.Models)**를 선택합니다. 아래 이미지를 참조하세요.
 1. **데이터 컨텍스트 클래스**에서 **ApplicationDbContext(ContactManager.Models)**를 선택합니다. **ApplicationDbContext**는 멤버 자격 DB 및 연락처 데이터 둘 다에 사용됩니다.
 1. **컨트롤러 이름** 입력란에 컨트롤러 이름으로 "CmController"를 입력합니다. 
 
@@ -334,7 +335,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
                 );
         }
 
-	이 코드는 연락처 정보를 사용하여 데이터베이스를 초기화(시드)합니다. 데이터베이스 시드에 대한 자세한 내용은 [EF(Entity Framework) DB 시드 및 디버그](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx)(영문)를 참조하십시오.
+	이 코드는 연락처 정보를 사용하여 데이터베이스를 초기화(시드)합니다. 데이터베이스 시드에 대한 자세한 내용은 [EF(Entity Framework) DB 시드 및 디버그](http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx)(영문)를 참조하세요.
 
 
 6. **패키지 관리자 콘솔**에서 다음 명령을 입력합니다.
@@ -360,6 +361,8 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 자습서에서는 인증 외에도 역할을 사용하여 권한 부여를 구현합니다. *canEdit* 역할에 추가한 사용자만 데이터를 변경할 수 있습니다(즉, 연락처 만들기, 편집 또는 삭제).
 
 내 자습서 [Facebook, Twitter, LinkedIn 및 Google OAuth2 Sign-on을 사용한 MVC 5 앱](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on#goog)(영문)에서 **OAuth 2용 Google 앱을 만들어 OAuth2용 Google 앱 설정**의 지침을 따릅니다. 앱을 실행 및 테스트하여 Google 인증으로 로그온할 수 있는지 확인합니다.
+
+공급자 특정 아이콘을 사용하여 소셜 로그인 단추를 만들려는 경우 [ASP.NET MVC 5의 소셜 로그인 단추](http://www.jerriepelser.com/blog/pretty-social-login-buttons-for-asp-net-mvc-5)(영문)을 참조하세요.
 
 ## 멤버 자격 API 사용
 이 섹션에서는 멤버 자격 데이터베이스에 로컬 사용자와 *canEdit* 역할을 추가합니다. *canEdit* 역할의 사용자만 데이터를 편집할 수 있습니다. 수행할 수 있는 작업으로 역할의 이름을 지정하는 것이 모범 사례이므로 *admin* 역할보다 *canEdit*를 사용하는 것이 좋습니다. 응용 프로그램이 발전함에 따라 설명이 부족한 *superAdmin*보다 *canDeleteMembers* 등의 새 역할을 추가할 수 있습니다.
@@ -463,7 +466,7 @@ ASP.NET MVC 스캐폴딩 기능은 CRUD(만들기, 읽기, 업데이트 및 삭�
 
 이 섹션에서는 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 특성을 적용하여 작업 메서드에 대한 액세스를 제한합니다. 익명 사용자는 home 컨트롤러의 **인덱스** 작업 메서드만 볼 수 있습니다. 등록된 사용자는 연락처 데이터(Cm 컨트롤러의 **인덱스** 및 **세부 정보** 페이지), 정보 및 연락처 페이지를 볼 수 있습니다. *canEdit* 역할의 사용자만 데이터를 변경하는 작업 메서드에 액세스할 수 있습니다.
 
-1. 응용 프로그램에 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 필터와 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 필터를 추가합니다. 또 다른 방법은 각 컨트롤러에 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 특성과 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 특성을 추가하는 것이지만 전체 응용 프로그램에 적용하는 것이 보안상 더 좋은 모범 사례입니다. 전체적으로 추가하면 새로 추가된 모든 컨트롤러와 작업 메서드가 자동으로 보호되므로 따로 적용할 필요가 없습니다. 자세한 내용은 [ASP.NET MVC 앱 및 새 AllowAnonymous 특성 보안 유지](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)(영문)를 참조하십시오. *App\_Start\\FilterConfig.cs* 파일을 열고 *RegisterGlobalFilters* 메서드를 다음 내용(두 개의 필터 추가)으로 바꿉니다.
+1. 응용 프로그램에 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 필터와 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 필터를 추가합니다. 또 다른 방법은 각 컨트롤러에 [Authorize](http://msdn.microsoft.com/library/system.web.mvc.authorizeattribute.aspx) 특성과 [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 특성을 추가하는 것이지만 전체 응용 프로그램에 적용하는 것이 보안상 더 좋은 모범 사례입니다. 전체적으로 추가하면 새로 추가된 모든 컨트롤러와 작업 메서드가 자동으로 보호되므로 따로 적용할 필요가 없습니다. 자세한 내용은 [ASP.NET MVC 앱 및 새 AllowAnonymous 특성 보안 유지](http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx)(영문)를 참조하세요. *App\_Start\\FilterConfig.cs* 파일을 열고 *RegisterGlobalFilters* 메서드를 다음 내용(두 개의 필터 추가)으로 바꿉니다.
 
 		public static void
 		RegisterGlobalFilters(GlobalFilterCollection filters)
@@ -646,7 +649,7 @@ Google 계정 정보의 이름과 성을 채우지 않은 경우 NullReferenceEx
 4.	[Facebook과 Google OAuth2를 사용하여 ASP.NET MVC 5 앱 만들기](http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on)(영문) 여기에는 사용자 등록 DB에 프로필 데이터를 추가하는 방법 및 Facebook을 인증 공급자로 사용하는 방법에 대한 지침이 포함됩니다.
 5.	[ASP.NET MVC 5 시작](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 
-To enable the social login buttons 이 자습서의 맨 위에 표시된 소셜 로그인 단추를 사용하도록 설정하려면 [ASP.NET MVC 5의 소셜 로그인 단추](http://www.beabigrockstar.com/pretty-social-login-buttons-for-asp-net-mvc-5/)(영문)를 참조하십시오.
+To enable the social login buttons 이 자습서의 맨 위에 표시된 소셜 로그인 단추를 사용하도록 설정하려면 [ASP.NET MVC 5의 소셜 로그인 단추](http://www.beabigrockstar.com/pretty-social-login-buttons-for-asp-net-mvc-5/)(영문)를 참조하세요.
 
 Tom Dykstra의 뛰어난 [EF 및 MVC 시작](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)에서는 고급 MVC 및 EF 프로그래밍을 보여 줍니다.
 
@@ -717,4 +720,4 @@ Tom Dykstra의 뛰어난 [EF 및 MVC 시작](http://www.asp.net/mvc/tutorials/ge
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

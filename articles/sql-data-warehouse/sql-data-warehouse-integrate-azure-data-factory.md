@@ -29,26 +29,26 @@ Azure 데이터 팩터리는 온-프레미스 원본 및 다른 Azure 서비스 
 + 온-프레미스 SQL Server
 + IaaS의 SQL Server
 
-데이터 복사 활동을 설정하는 방법에 대한 정보는 [Azure 데이터 팩터리를 사용하여 데이터 복사][]를 참조하세요.
+데이터 복사 활동을 설정하는 방법에 대한 정보는 [Azure 데이터 팩터리를 사용하여 데이터 복사](../data-factory/data-factory-data-movement-activities.md)를 참조하세요.
 
 ## 저장 프로시저
  데이터 전송을 예약하는 데 사용할 수 있는 동일한 방법으로 Azure 데이터 팩터리는 저장 프로시저의 실행을 오케스트레이션하는 데도 사용될 수 있습니다. 이렇게 하면 더 복잡한 파이프라인을 만들 수 있으며 Azure 데이터 팩터리 기능을 확장하여 SQL 데이터 웨어하우스의 컴퓨팅 기능을 활용할 수 있습니다.
 
 ## 다음 단계
-통합 개요는 [SQL 데이터 웨어하우스 통합 개요][]를 참조하세요. 더 많은 개발 팁은 [SQL 데이터 웨어하우스 개발 개요][]를 참조하세요.
+통합 개요는 [SQL 데이터 웨어하우스 통합 개요](sql-data-warehouse-overview-integrate.md)를 참조하세요. 더 많은 개발 팁은 [SQL 데이터 웨어하우스 개발 개요](sql-data-warehouse-overview-develop.md)를 참조하세요.
 
 <!--Image references-->
 
 <!--Article references-->
 
-[Copy data with Azure Data Factory]: ./data-factory-data-movement-activities/#copyactivity
-[SQL 데이터 웨어하우스 개발 개요]: ./sql-data-warehouse-overview-develop/
-[SQL 데이터 웨어하우스 통합 개요]: ./sql-data-warehouse-overview-integration/
+[Copy data with Azure Data Factory]: https://azure.microsoft.com/ko-kr/documentation/articles/data-factory-azure-sql-connector/
+[SQL Data Warehouse development overview]: https://azure.microsoft.com/ko-kr/documentation/articles/sql-data-warehouse-overview-develop/
+[SQL Data Warehouse integration overview]: https://azure.microsoft.com/ko-kr/documentation/articles/sql-data-warehouse-overview-integrate/
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 [Azure 데이터 팩터리 설명서]: https://azure.microsoft.com/documentation/services/data-factory/
-[Azure 데이터 팩터리를 사용하여 데이터 복사]: https://azure.microsoft.com/KO-KR/documentation/articles/data-factory-data-movement-activities/
+[Copy data with Azure Data Factory]: https://azure.microsoft.com/ko-kr/documentation/articles/data-factory-data-movement-activities/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 포털에 대한 HDInsight 문서 인덱스 | Microsoft Azure"
-	description="Azure 포털에서 HDInsight에 대한 문서 링크를 포함하는 인덱스 페이지입니다. HDInsight의 새 Hadoop 클러스터에는 Azure Preview 포털을 사용하는 것이 좋습니다."
-	services="hdinsight"
-	documentationCenter="na"
-	authors="cjgronlund"
-	manager="pablissima"
-	editor=""/>
+   description="Azure 포털에서 HDInsight에 대한 문서 링크를 포함하는 인덱스 페이지입니다. HDInsight의 새 Hadoop 클러스터에는 Azure Preview 포털을 사용하는 것이 좋습니다."
+   services="hdinsight"
+   documentationCenter="na"
+   authors="cjgronlund"
+   manager="pablissima"
+   editor=""/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="index-page"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/17/2015"
-	ms.author="cjgronlund"/>
+   ms.devlang="na"
+   ms.topic="index-page"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="08/17/2015"
+   ms.author="cjgronlund"/>
 
 # Azure 포털에 대한 HDInsight 문서 인덱스
 
@@ -102,6 +102,7 @@ Azure Preview 포털에서 네이티브 Apache Spark 사용에 대한 문서를 
 * [Hadoop과 함께 Apache Mahout을 사용하여 영화 추천 생성](hdinsight-mahout.md)
 * [학습 경로: 고급 분석 솔루션 구축](machine-learning-data-science-how-to-create-machine-learning-service.md)
 * [학습 경로: 고급 데이터 처리](machine-learning-data-science-advanced-data-processing.md)
+* [HDInsight 및 기계 학습으로 Taxi Trips 예측](machine-learning-data-science-process-hive-walkthrough.md)
 
 ## 확장성
 
@@ -132,4 +133,4 @@ Azure Preview 포털에서 네이티브 Apache Spark 사용에 대한 문서를 
 * [오류 메시지 해석](hdinsight-debug-jobs.md)
 * [포럼에서 도움말 보기](https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

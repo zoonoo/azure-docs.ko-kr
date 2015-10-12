@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-dotnet" 
 	ms.devlang="objective-c" 
 	ms.topic="article" 
-	ms.date="06/23/2015"
+	ms.date="09/25/2015"
 	ms.author="yuaxu"/>
 
 # 특정 사용자에게 크로스 플랫폼 알림 전송
@@ -106,4 +106,4 @@
 [템플릿]: https://msdn.microsoft.com/ko-kr/library/dn530748.aspx
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

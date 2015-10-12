@@ -54,7 +54,7 @@
 
 해결책:
 
-+ 올바른 Azure 계정의 로그인 자격 증명을 제공했는지 확인하세요. 이전 버전의 도구에서, 새 프로젝트 대화 상자에 표시되는 Microsoft Azure 자격 증명은 Visual Studio의 오른쪽 위에 표시되는 Visual Studio Online 자격 증명과 다를 수 있습니다.
++ 올바른 Azure 계정의 로그인 자격 증명을 제공했는지 확인하세요. 이전 버전의 도구에서, 새 프로젝트 대화 상자에 표시되는 Microsoft Azure 자격 증명은 Visual Studio의 오른쪽 위에 표시되는 자격 증명과 다를 수 있습니다.
 + 브라우저에서 [Azure 포털](https://portal.azure.com)에 대한 액세스 권한이 있는지 확인합니다. 설정을 열고 제한이 있는지 확인합니다.
 + [Application Insights를 기존 프로젝트에 추가][start]\: 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 "Application Insights 추가"를 선택합니다.
 + 여전히 작동하지 않는 경우 [수동 절차](app-insights-start-monitoring-app-health-usage.md)에 따라 포털에서 리소스에 추가한 다음 SDK를 프로젝트에 추가합니다. 
@@ -189,15 +189,10 @@ Dc.services.visualstudio.com에 https POST 호출을 릴레이할 수 있는 프
 아니요! Azure 서비스의 상태를 보여 줍니다. 웹 테스트 결과를 확인하려면 찾아보기 > Application Insights > (응용 프로그램)을 선택한 후 웹 테스트 결과를 살펴봅니다.
 
 
-#### <a name="q07"></a>내 응용 프로그램에 Application Insights 추가를 사용하고 Application Insights 포털을 열 경우 스크린샷과 완전히 다르게 보입니다.
-
-Visual Studio Online 버전에 연결되는 [이전 버전의 Application Insights SDK](http://msdn.microsoft.com/library/dn793604.aspx)를 사용하고 있을 가능성이 있습니다.
-
-스크린샷의 도움말 페이지는 Visual Studio 2013 업데이트 3 또는 이후에서 이미 전환되어 제공되는 [Microsoft Azure 미리 보기용 Application Insights][start]입니다.
 
 #### <a name="data"></a>데이터가 포털에 얼마나 오래 보존되나요? 안전한가요?
 
-[데이터 보존 및 개인 정보][data]를 살펴보세요.
+[데이터 보존 및 개인 정보][data]를 살펴보십시오.
 
 ## 로깅
 
@@ -235,7 +230,7 @@ Application Insights 리소스를 만드는 [PowerShell script 스크립트를 �
 
 ## 추가 대답
 
-* [Application Insights 포럼](https://social.msdn.microsoft.com/Forums/vstudio/ko-KR/home?forum=ApplicationInsights)
+* [Application Insights 포럼](https://social.msdn.microsoft.com/Forums/vstudio/ko-kr/home?forum=ApplicationInsights)
 
 
 <!--Link references-->
@@ -248,4 +243,4 @@ Application Insights 리소스를 만드는 [PowerShell script 스크립트를 �
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

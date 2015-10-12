@@ -68,4 +68,4 @@ Azure 웹 사이트용 웹 프로젝트를 만들면 Azure에서 가상 컴퓨�
 [4]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/CreateVM_SolutionExplorer.png
 [5]: ./media/virtual-machines-dotnet-create-visual-studio-powershell/VS_Create_VM_Connect.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

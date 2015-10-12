@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="05/28/2015" 
+	ms.date="09/28/2015" 
 	ms.author="tamram;selcint"/>
 
 # 5분 만에 Azure 저장소 시작 
@@ -107,4 +107,4 @@ Azure 저장소에 대한 자세한 내용은 다음 리소스를 참조하세�
 [Image1]: ./media/storage-getting-started-guide/QuickStart.png
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

@@ -71,8 +71,8 @@ Azure SQL 데이터베이스에는 현재 2000 DTU의 논리 서버당 DTU 할�
 
 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)
 
-[Azure SQL 데이터베이스 서비스 계층 및 성능 수준](https://msdn.microsoft.com/library/azure/dn741336.aspx)
+[Azure SQL 데이터베이스 서비스 계층 및 성능 수준](sql-database-service-tiers.md)
 
 [SQL 데이터베이스 클라이언트 프로그램에 대한 오류 메시지](sql-database-develop-error-messages.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

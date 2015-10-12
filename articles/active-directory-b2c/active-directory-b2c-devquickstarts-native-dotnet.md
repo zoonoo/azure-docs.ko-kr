@@ -36,16 +36,18 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 - **리디렉션 URI** `urn:ietf:wg:oauth:2.0:oob`를 복사 - 이 코드 샘플에 대한 기본 URL입니다.
 - 앱에 할당된 **응용 프로그램 ID**를 적복사합니다. 곧 필요합니다.
 
-    > [AZURE.IMPORTANT][Azure 포털](https://manage.windowsazure.com/)의 **응용 프로그램** 탭에 등록된 응용 프로그램은 사용할 수 없습니다.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3\. 정책 만들기
 
-Azure AD B2C에서 모든 사용자 환경을[**정책**](active-directory-b2c-reference-policies.md)에서 정의합니다. 이 코드 샘플은 등록, 로그인 및 편집 프로필 등 세 가지 ID 환경을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)에서 설명한 대로 각 형식에 하나의 정책을 만들어야 합니다. 세 가지 정책을 만들 때 다음을 확인합니다.
+Azure AD B2C에서 모든 사용자 환경은 [**정책**](active-directory-b2c-reference-policies.md)에 의해 정의됩니다. 이 코드 샘플은 등록, 로그인 및 편집 프로필 등 세 가지 ID 환경을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)에서 설명한 대로 각 형식에 하나의 정책을 만들어야 합니다. 세 가지 정책을 만들 때 다음을 확인합니다.
 
 - ID 공급자 블레이드에서 **사용자 ID 등록** 또는 **메일 등록**을 선택합니다.
-- 등록 정책에서 **표시 이름** 및 다른 몇가지 등록 특성을 선택합니다.
+- 등록 정책에서 **표시 이름** 및 다른 몇 가지 등록 특성을 선택합니다.
 - 모든 정책에서 **표시 이름** 및 **개체 ID** 클레임을 응용 프로그램 클레임으로 선택합니다. 물론 다른 클레임을 선택할 수 있습니다.
-- 각 정책을 만든 후에 **이름**을 복사합니다. 접두사 `b2c_1_`이 있어야 합니다. 이러한 정책 이름이 곧 필요합니다. 
+- 각 정책을 만든 후에 **이름**을 복사합니다. 접두사 `b2c_1_`가 있어야 합니다. 이러한 정책 이름이 곧 필요합니다.
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 세 가지 정책을 성공적으로 만들었다면 앱을 빌드할 준비가 되었습니다.
 
@@ -59,7 +61,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
 
 완성된 앱도 [.zip으로 다운로드하거나](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip) 동일한 리포지토리의 `complete` 분기에서 사용할 수 있습니다.
 
-샘플 코드를 다운로드하면 Visual Studio `.sln` 파일을 열어 시작합니다. 솔루션에 `TaskClient` 프로젝트와 `TaskService` 프로젝트라는 두 프로젝트가 있는 것을 확인합니다. `TaskClient`는 사용자와 상호 작용하는 WPF 데스크톱 응용 프로그램입니다. `TaskService`는 각 사용자의 할 일 모음을 저장하는 앱의 백 엔드 웹 API입니다. 이 경우 하나의 논리 응용 프로그램을 구성하기 때문에 `TaskClient`과 `TaskService` 모두는 단일 **응용 프로그램 ID**에서 표현됩니다.
+샘플 코드를 다운로드하면 Visual Studio `.sln` 파일을 열어 시작합니다. 솔루션에 `TaskClient` 프로젝트와 `TaskService` 프로젝트라는 두 프로젝트가 있는 것을 확인합니다. `TaskClient`는 사용자와 상호 작용하는 WPF 데스크톱 응용 프로그램입니다. `TaskService`는 각 사용자의 할 일 모음을 저장하는 앱의 백 엔드 Web API입니다. 이 경우 하나의 논리 응용 프로그램을 구성하기 때문에 `TaskClient`과 `TaskService` 모두는 단일 **응용 프로그램 ID**에서 표현됩니다.
 
 ## 5\. 작업 서비스 구성
 
@@ -76,15 +78,14 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
     <add key="ida:ClientId" value="{Enter the Application ID assigned to your app by the Azure Portal}" />
     <add key="ida:PolicyId" value="{Enter the name of one of the policies you created, like `b2c_1_my_sign_in_policy`}" />
   </appSettings>
-  ```
+```
+  
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-Web API가 Azure AD B2C를 사용하여 요청을 안전하게 인증하는 방법을 알아보려면
-[Web API 시작 문서](active-directory-b2c-devquickstarts-api-dotnet.md)를 확인하세요.
+Web API가 Azure AD B2C를 사용하여 요청을 안전하게 인증하는 방법을 알아보려면 [Web API 시작 문서](active-directory-b2c-devquickstarts-api-dotnet.md)를 확인하세요.
 
 ## 6\. 정책 실행
-이제 `TaskService`에서 요청을 인증할 준비가 되었으므로 `TaskClient`를 구현할 수 있습니다. 앱은 HTTP 인증 요청을 전송하여 Azure AD B2C와 통신하며 이는 요청의 일부로 실행하고자 하는 정책을 지정합니다. 
-.NET 데스크톱 응용 프로그램의 경우 **ADAL(Active Directory 인증 라이브러리)**
-을 사용하여 OAuth 2.0 인증 메시지를 보내고 정책을 실행하고 Web API를 호출하기 위한 토큰을 가져올 수 있습니다.
+이제 `TaskService`에서 요청을 인증할 준비가 되었으므로 `TaskClient`를 구현할 수 있습니다. 앱은 HTTP 인증 요청을 전송하여 Azure AD B2C와 통신하며 이는 요청의 일부로 실행하고자 하는 정책을 지정합니다. .NET 데스크톱 응용 프로그램의 경우 **ADAL(Active Directory 인증 라이브러리)**을 사용하여 OAuth 2.0 인증 메시지를 보내고 정책을 실행하고 Web API를 호출하기 위한 토큰을 가져올 수 있습니다.
 
 #### ADAL 설치
 Visual Studio 패키지 관리자 콘솔을 사용하여 ADAL을 TaskClient 프로젝트에 추가하여 시작합니다.
@@ -112,9 +113,11 @@ public static class Globals
 }
 ``` 
 
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
+
 
 #### AuthenticationContext 만들기
-ADAL의 기본 클래스는 `AuthenticationContext`입니다. - B2C 디렉터리와 앱의 연결을 나타냅니다. 앱을 시작하면 `MainWindow.xaml.cs`에서 `AuthenticationContext`의 인스턴스를 만들며 이는 창 전체에서 사용할 수 있습니다.
+ADAL의 기본 클래스는 `AuthenticationContext`입니다. B2C 디렉터리와 앱의 연결을 나타냅니다. 앱을 시작하면 `MainWindow.xaml.cs`에서 `AuthenticationContext`의 인스턴스를 만들며 이는 창 전체에서 사용할 수 있습니다.
 
 ```C#
 public partial class MainWindow : Window
@@ -340,4 +343,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

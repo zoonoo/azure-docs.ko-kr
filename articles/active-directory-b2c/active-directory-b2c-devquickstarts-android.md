@@ -14,10 +14,13 @@
 Azure AD B2C를 사용하여 몇가지 간단한 단계에서 강력한 셀프 서비스 ID 관리 기능을 Android 앱 및 Web API에 추가할 수 있습니다. 이 문서에서는 OAuth 2.0 전달자 토큰을 사용하여 node.js Web API를 호출하는 Android "할 일 목록" 앱을 만드는 방법을 보여줍니다. Android 앱 및 Web API는 Azure AD B2C를 사용하여 사용자 ID를 관리하고 사용자를 인증합니다.
 
 [AZURE.INCLUDE [active-directory-b2c-preview-note](../../includes/active-directory-b2c-preview-note.md)]
-	
+
+ 	
 > [AZURE.NOTE]이 빠른 시작이 완벽하게 작동하기 위해 B2C를 사용하여 Azure AD에서 Web API를 보호하는 필수 구성 요소를 포함합니다. .Net 및 node.js 모두에 사용할 수 있도록 만들었습니다. 이 연습에서는 node.js Web API 샘플 구성되었다고 가정합니다. [Node.js 자습서에 대한 Azure AD B2C Web API](active-directory-b2c-devquickstarts-api-node.md)를 참조하세요.
 
+ 
 > [AZURE.NOTE]이 문서는 Azure AD B2C를 사용하여 등록, 로그인 및 프로필 관리를 구현하는 방법을 다루지 않습니다. 사용자를 인증한 후에 Web API를 호출하는 데 집중합니다. 아직 준비되지 않은 경우 [.NET 웹앱 시작 자습서](active-directory-b2c-devquickstarts-web-dotnet.md)로 시작하여 Azure AD B2C의 기본 사항에 대해 알아봅니다.
+
 
 보호된 리소스에 액세스해야 하는 Android 클라이언트의 경우 Azure AD는 Active Directory 인증 라이브러리 또는 ADAL을 제공합니다. ADAL의 유일한 용도는 앱이 쉽게 액세스 토큰을 가져오도록 하는 것입니다. 액세스 토큰을 얼마나 쉽게 가져올 수 있는지 보여 주기 위해 다음을 수행하는 Android To-Do List 응용 프로그램을 빌드해 보겠습니다.
 
@@ -40,21 +43,23 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 - 응용 프로그램에 **응용 프로그램 암호**를 만들고 복사합니다. 곧 필요합니다.
 - 앱에 할당된 **응용 프로그램 ID**를 적복사합니다. 또한 곧 필요합니다.
 
-    > [AZURE.IMPORTANT][Azure 포털](https://manage.windowsazure.com/)의 **응용 프로그램** 탭에 등록된 응용 프로그램은 사용할 수 없습니다.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ### 3단계: 정책 만들기
 
-> [AZURE.NOTE]이 B2C 미리 보기에서는 클라이언트와 서버 설치 둘 다에서 동일한 정책을 사용합니다. 이미 연습 단계를 진행하고 이러한 정책을 만든 경우에는 다시 작업을 수행하지 않아도 됩니다. 응용 프로그램의 요구 사항과 일치하는 경우 포털에서 이전에 만든 정책을 다시 사용할 수 있습니다.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-Azure AD B2C에서 모든 사용자 환경을[**정책**](active-directory-b2c-reference-policies.md)에서 정의합니다. 이 앱은 등록, 로그인 및 Facebook으로 로그인 등 세 가지 ID 환경을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)에서 설명한 대로 각 형식에 하나의 정책을 만들어야 합니다. 세 가지 정책을 만들 때 다음을 확인합니다.
+Azure AD B2C에서 모든 사용자 환경은 [**정책**](active-directory-b2c-reference-policies.md)에 의해 정의됩니다. 이 앱은 등록, 로그인 및 Facebook으로 로그인 등 세 가지 ID 환경을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)에서 설명한 대로 각 형식에 하나의 정책을 만들어야 합니다. 세 가지 정책을 만들 때 다음을 확인합니다.
 
-- 등록 정책에서 **표시 이름** 및 다른 몇가지 등록 특성을 선택합니다.
+- 등록 정책에서 **표시 이름** 및 다른 몇 가지 등록 특성을 선택합니다.
 - 모든 정책에서 **표시 이름** 및 **개체 ID** 응용 프로그램 클레임을 선택합니다. 물론 다른 클레임을 선택할 수 있습니다.
-- 각 정책을 만든 후에 **이름**을 복사합니다. 접두사 `b2c_1_`이 있어야 합니다. 이러한 정책 이름이 곧 필요합니다. 
+- 각 정책을 만든 후에 **이름**을 복사합니다. 접두사 `b2c_1_`가 있어야 합니다. 이러한 정책 이름이 곧 필요합니다. 
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 세 가지 정책을 성공적으로 만들었다면 앱을 빌드할 준비가 되었습니다.
 
-이 문서는 방금 만든 정책을 사용하는 방법을 다루지 않습니다. Azure AD B2C에서 정책 작동 방법을 알아보지 못했다면 [.NET 웹앱 시작 자습서](active-directory-b2c-devquickstarts-web-dotnet.md)로 시작해야 합니다.
+이 문서는 방금 만든 정책을 사용하는 방법을 다루지 않습니다. Azure AD B2C에서 정책 작동 방법을 알아보려면 [.NET 웹앱 시작 자습서](active-directory-b2c-devquickstarts-web-dotnet.md)로 시작해야 합니다.
 
 ### 4단계: 코드 다운로드
 
@@ -72,7 +77,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
 Maven으로 빌드하려면 최상위 수준에서 pom.xml을 사용할 수 있습니다.
 
 
-  * [Android용 maven 설정을 위한 필수 구성 요소 섹션](https://github.com/MSOpenTech/azure-activedirectory-library-for-android/wiki/Setting-up-maven-environment-for-Android)의 단계를 수행합니다.
+  * [Android용 maven 설정을 위한 필수 조건 섹션](https://github.com/MSOpenTech/azure-activedirectory-library-for-android/wiki/Setting-up-maven-environment-for-Android)의 단계를 수행합니다.
   * SDK 21을 사용하여 에뮬레이터 설치
   * 리포지토리를 복제한 루트 폴더로 이동합니다.
   * mvn clean install 명령을 실행합니다.
@@ -116,7 +121,7 @@ dependencies {
 
 ####옵션 2: Maven 통해 aar 가져오기
 
-Eclipse의 m2e 플러그 인을 사용하는 경우 `pom.xml` 파일에 대한 종속성을 지정할 수 있습니다.
+Eclipse의 m2e 플러그 인을 사용하는 경우 `pom.xml` 파일에서 종속성을 지정할 수 있습니다.
 
 ```xml
 <dependency>
@@ -141,7 +146,7 @@ git를 통해 SDK 소스 코드를 가져오려면 다음을 입력합니다.
 
 Android 프로젝트를 구성하기 위해 위 B2C 포털에서 설정한 구성을 사용합니다.
 
-`helpes/Constants.java` 파일을 열고 다음에 대한 값을 입력합니다.
+`helpes/Constants.java`를 열고 다음에 대한 값을 입력합니다.
 
 ```
 
@@ -253,7 +258,7 @@ Android에 사용할 Intents()를 포함하여 응용 프로그램의 레이아�
 
 표시된 바와 같이 5개의 사용할 활동을 정의합니다.
 
-**AuthenticationActivity** - ADAL에서 비롯되며 로그인 Webview를 제공합니다.
+**AuthenticationActivity** - ADAL에서 비롯되며 로그인 webview를 제공합니다.
 
 **LoginActivity** - 로그인 정책과 각 정책에 대한 단추를 표시합니다.
 
@@ -352,7 +357,7 @@ public class LoginActivity extends Activity {
 
 
 ```
-지금까지 자체 활동을 참조로 extras 매개 변수를 사용하여 ToDoActivity Intent(토큰이 필요할 때 ADAL을 호출하는)를 호출하는 단추를 만들었습니다. extras 매개 변수는 `intent.putExtra()` 메서드에 의해 전달됩니다. 여기에 `Constants.java`에 지정한 것과 같이 "thePolicy"를 정의합니다. 이렇게 하면 인증을 하는 동안 호출할 정책을 Intent에 알릴 수 있습니다.
+지금까지 자체 활동을 참조로 extras 매개 변수를 사용하여 ToDoActivity Intent(토큰이 필요할 때 ADAL을 호출하는)를 호출하는 단추를 만들었습니다. extra 매개 변수는 `intent.putExtra()` 메서드로 전달됩니다. 여기서 `Constants.java`에서 지정한 것과 같이 "thePolicy"를 정의합니다. 이렇게 하면 인증을 하는 동안 호출할 정책을 Intent에 알릴 수 있습니다.
 
 ### 9단계: 설정 활동 만들기
 
@@ -750,7 +755,7 @@ public class ToDoActivity extends Activity {
 
 다음으로, 작업 API에 대한 인증을 호출하는 동안 토큰만 가지게 되는 일부 도우미 메서드를 만들어 보겠습니다.
 
-`ToDoActivity.java`라는 ** 동일한 파일에서**
+`ToDoActivity.java`라는 **동일한 파일에서**
 
 ```
     private void getToken(final AuthenticationCallback callback) {
@@ -764,7 +769,7 @@ public class ToDoActivity extends Activity {
     }
 ```
 
-글로벌 CONSTANTS에 AuthenticationResult(토큰을 포함하는)를 “설정”하고 “가져올” 메서드를 추가해보겠니다. `ToDoActivity.java`의 흐름에 **sResult**를 사용하더라도 다른 활동은 수행할 토큰에 대한 액세스를 갖지 못하기 때문에(`AddTaskActivity.java`에서 작업 추가와 같이) 이것이 필요합니다.
+글로벌 CONSTANTS에 AuthenticationResult(토큰을 포함하는)를 “설정”하고 “가져올” 메서드를 추가해보겠습니다. `ToDoActivity.java`의 흐름에 **sResult**를 사용하더라도 다른 활동은 수행할 토큰에 대해 액세스할 수 없기 때문에(`AddTaskActivity.java`에서 작업 추가와 같이) 이것이 필요합니다.
 
 ```
 
@@ -807,7 +812,7 @@ Android용 ADAL은 **UserIdentifier** 개체의 형태로 사용자를 나타냅
 
 쿠키를 지우고 AuthenticationCallback을 제공하는데 도움이 되는 도우미 메서드를 작성할 필요가 있습니다. 이것은 ToDo 활동을 호출할 때 반드시 빈 상태가 되도록 하기 위해 샘플에 대해서만 사용됩니다.
 
-`ToDoActivity.java`라는 ** 동일한 파일에서**
+`ToDoActivity.java`라는 **동일한 파일에서**
 
 ```
 
@@ -834,9 +839,9 @@ Android용 ADAL은 **UserIdentifier** 개체의 형태로 사용자를 나타냅
 
 `getTasks`는 서버의 작업을 나타내는 배열을 제공합니다.
 
-우선 `getTask`을 작성해 보겠습니다.
+우선 `getTask`를 작성해 보겠습니다.
 
-`ToDoActivity.java`라는 ** 동일한 파일에서**
+`ToDoActivity.java`라는 **동일한 파일에서**
 
 ```
     private void getTasks() {
@@ -862,7 +867,7 @@ Android용 ADAL은 **UserIdentifier** 개체의 형태로 사용자를 나타냅
  
  처음 실행에서 테이블을 초기화하는 메서드를 작성해보겠습니다.
  
- `ToDoActivity.java`라는 ** 동일한 파일에서**
+ `ToDoActivity.java`라는 **동일한 파일에서**
  
 ```
     private void initAppTables() {
@@ -884,18 +889,9 @@ Android용 ADAL은 **UserIdentifier** 개체의 형태로 사용자를 나타냅
  
  연결할 끝점 URL을 생성해야 합니다. 동일한 클래스 파일에서 이를 수행해보겠습니다.
  
- `ToDoActivity.java`라는 ** 동일한 파일에서**
+ `ToDoActivity.java`라는 **동일한 파일에서**
  
-```
-    private URL getEndpointUrl() {
-        URL endpoint = null;
-        try {
-            endpoint = new URL(Constants.SERVICE_URL);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        return endpoint;
-    }
+ ``` private URL getEndpointUrl() { URL endpoint = null; try { endpoint = new URL(Constants.SERVICE\_URL); } catch (MalformedURLException e) { e.printStackTrace(); } return endpoint; }
 
  ```
 
@@ -904,11 +900,11 @@ Android용 ADAL은 **UserIdentifier** 개체의 형태로 사용자를 나타냅
 
 ### 15단계: UX 메서드 작성
 
-Android는 앱 작동을 위해 일부 콜백 처리가 필요합니다. 이들은 `createAndShowDialog` 및 `onResume()`입니다. 앞에서 Android 코드를 작성했다면 이 역시 매우 간단하고 친숙합니다.
+Android는 앱 작동을 위해 일부 콜백 처리가 필요합니다. 이는 `createAndShowDialog` 및 `onResume()`입니다. 앞에서 Android 코드를 작성했다면 이 역시 매우 간단하고 친숙합니다.
 
 지금 작성해 보겠습니다.
 
-`ToDoActivity.java`라는 ** 동일한 파일에서**
+`ToDoActivity.java`라는 **동일한 파일에서**
 
 ```
     @Override
@@ -926,7 +922,7 @@ Android는 앱 작동을 위해 일부 콜백 처리가 필요합니다. 이들�
 
 그리고 대화 콜백을 관리합니다.
 
-`ToDoActivity.java`라는 ** 동일한 파일에서**
+`ToDoActivity.java`라는 **동일한 파일에서**
 
 
 ```
@@ -968,26 +964,21 @@ API 가 받는 액세스 토큰에서 사용자의 ID를 추출하므로 API에 
 
 참조를 위해 완성된 샘플이 [여기서 .zip으로 제공](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip)되거나 GitHub에서 복제할 수 있습니다.
 
+```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android```
+
+
+### Important Information
+
+
+#### Encryption
+
+ADAL encrypts the tokens and store in SharedPreferences by default. You can look at the StorageHelper class to see the details. Android introduced AndroidKeyStore for 4.3(API18) secure storage of private keys. ADAL uses that for API18 and above. If you want to use ADAL for lower SDK versions, you need to provide secret key at AuthenticationSettings.INSTANCE.setSecretKey
+
+#### Session cookies in Webview
+
+Android webview does not clear session cookies after app is closed. You can handle this with sample code below:
 ```
-git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-Android
-```
-
-
-### 중요 정보
-
-
-#### 암호화
-
-ADAL은 기본적으로 토큰을 암호화한 후 SharedPreferences에 저장합니다. StorageHelper 클래스를 확인하여 세부 정보를 볼 수 있습니다. Android에서는 개인 키의 보안 저장소인 4.3(API18)용 AndroidKeyStore를 도입했습니다. ADAL은 API18 이상에 이 저장소를 사용합니다. 더 낮은 SDK 버전에 ADAL을 사용하려는 경우 AuthenticationSettings.INSTANCE.setSecretKey에서 비밀 키를 제공해야 합니다.
-
-#### Webview의 세션 쿠키
-
-앱이 닫힌 후에 Android webview가 세션 쿠키를 지우지 않습니다. 아래 샘플 코드로 이 문제를 처리할 수 있습니다. ```
-CookieSyncManager.createInstance(getApplicationContext());
-CookieManager cookieManager = CookieManager.getInstance();
-cookieManager.removeSessionCookie();
-CookieSyncManager.getInstance().sync();
-``` 쿠키에 대한 추가 정보: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
+CookieSyncManager.createInstance(getApplicationContext()); CookieManager cookieManager = CookieManager.getInstance(); cookieManager.removeSessionCookie(); CookieSyncManager.getInstance().sync(); ``` More about cookies: http://developer.android.com/reference/android/webkit/CookieSyncManager.html
  
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

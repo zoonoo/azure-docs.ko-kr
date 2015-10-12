@@ -6,7 +6,7 @@
 	authors="dsk-2015"
 	manager="timlt"
 	editor=""
-	tags="azure-service-management,azure-resource-manager"/>
+	tags="top-support-issue,azure-service-management,azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -112,4 +112,4 @@ Windows 기반 가상 컴퓨터에서, 방화벽 규칙이 사용자의 응용 �
 
 [Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

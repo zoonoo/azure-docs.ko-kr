@@ -1,19 +1,19 @@
 <properties 
-    pageTitle="StorSimple 8000 릴리스 버전 릴리스 정보 | Microsoft Azure"
-    description="2014년 7월 Microsoft Azure StorSimple 릴리스에 대한 새 기능, 미해결 문제 및 해결 방법을 설명합니다."
-    services="storsimple"
-    documentationCenter="NA"
-    authors="SharS"
-    manager="carolz"
-    editor="" />
+   pageTitle="StorSimple 8000 릴리스 버전 릴리스 정보 | Microsoft Azure"
+   description="2014년 7월 Microsoft Azure StorSimple 릴리스에 대한 새 기능, 미해결 문제 및 해결 방법을 설명합니다."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="SharS"
+   manager="carolz"
+   editor="" />
  <tags 
-    ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="09/04/2015"
-    ms.author="v-sharos" />
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/04/2015"
+   ms.author="v-sharos" />
 
 # StorSimple 8000 시리즈 릴리스 버전 릴리스 정보-2014 년 7 월 
 
@@ -42,4 +42,4 @@
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

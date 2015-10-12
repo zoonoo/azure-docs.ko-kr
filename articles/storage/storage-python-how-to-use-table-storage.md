@@ -136,9 +136,12 @@
 -   다음 MSDN 참조를 확인하세요. [Azure 저장소][].
 -   [Azure 저장소 팀 블로그][](영문)를 방문하세요.
 
+자세한 내용을 보려면 [Python 개발자 센터](/develop/python/)도 참조하세요.
+
+
 [Azure 저장소]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 [Python Azure 패키지]: https://pypi.python.org/pypi/azure
 [Python Azure 저장소 패키지]: https://pypi.python.org/pypi/azure-storage
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

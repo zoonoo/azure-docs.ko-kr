@@ -467,4 +467,4 @@ Java를 사용하여 Storm 토폴로지를 만드는 방법을 배웠으므로 �
 
 Storm 토폴로지에 대한 추가 예제는 [HDInsight의 Storm에 대한 예제 토폴로지](hdinsight-storm-example-topology.md)를 참조하세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

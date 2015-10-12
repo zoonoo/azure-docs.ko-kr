@@ -95,11 +95,11 @@ SQL 데이터베이스에서 [IDENTITY](https://msdn.microsoft.com/library/ms186
 이 코드 예제는 다음과 같은 트랜잭션의 사용법을 보여줍니다.
 
 
-\-트랜잭션 시작
+-트랜잭션 시작
 
-\-데이터 행 삽입
+-데이터 행 삽입
 
-\-트랜잭션을 롤백하여 삽입 취소
+-트랜잭션을 롤백하여 삽입 취소
 
 
 	import pymssql
@@ -109,7 +109,10 @@ SQL 데이터베이스에서 [IDENTITY](https://msdn.microsoft.com/library/ms186
 	cursor.execute("INSERT SalesLT.Product (Name, ProductNumber, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('SQL Server Express New', 'SQLEXPRESS New', 0, 0, CURRENT_TIMESTAMP)")
 	cnxn.rollback()
 
+## 다음 단계
+
+자세한 내용은 [Python 개발자 센터](/develop/python/)를 참조하세요.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

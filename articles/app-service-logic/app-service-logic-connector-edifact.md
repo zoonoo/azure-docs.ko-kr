@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="논리 앱에서 BizTalk Edifact 커넥터 사용 | Microsoft Azure 앱 서비스"
-	description="BizTalk Edifact 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="rajeshramabathiran"
-	manager="dwrede"
-	editor=""/>
+   pageTitle="논리 앱에서 BizTalk Edifact 커넥터 사용 | Microsoft Azure 앱 서비스" 
+   description="BizTalk Edifact 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법" 
+   services="app-service\logic" 
+   documentationCenter=".net,nodejs,java" 
+   authors="rajeshramabathiran" 
+   manager="dwrede" 
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="rajram"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration" 
+   ms.date="08/23/2015"
+   ms.author="rajram"/>
 
 # BizTalk Edifact 커넥터 시작 및 논리 앱에 추가  
 Edifact 서비스를 사용하여 B2B 커뮤니케이션에서 Edifact 프로토콜을 통해 메시지를 주고받을 수 있습니다. Edifact는 일반적으로 ASC(공인 표준 위원회) Edifact라고도 하며 여러 산업에서 널리 사용됩니다.
@@ -56,7 +56,7 @@ Edifact 커넥터는 트리거 또는 작업으로 사용할 수 있습니다.
 ![작업 목록][8]
 - Edifact 커넥터는 여러 작업을 지원합니다. *인코딩*을 선택합니다.  
 ![입력 인코딩][9]
-- 작업에 대한 입력 제공 및 구성  
+- 동작에 대한 입력을 제공하고 구성합니다.  
 ![구성된 인코딩][10]
 
 	매개 변수|형식|매개 변수에 대한 설명
@@ -78,6 +78,8 @@ Segment Terminator Suffix|string|세그먼트 마침 표시 접미사
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 흐름에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
+>[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+
 [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
 커넥터의 성능 통계를 검토하고 보안을 제어할 수 있습니다. [API 앱 및 커넥터를 관리 및 모니터링](../app-service-api/app-service-api-manage-in-portal.md)을 참조하세요.
@@ -95,4 +97,4 @@ Segment Terminator Suffix|string|세그먼트 마침 표시 접미사
 [9]: ./media/app-service-logic-connector-edifact/EncodeInput.PNG
 [10]: ./media/app-service-logic-connector-edifact/EncodeConfigured.PNG
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

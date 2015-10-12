@@ -258,8 +258,9 @@ IPython Notebook은 Azure에서 Python 에코시스템의 기능에 대화형으
 
 또한 IPython의 핵심 기능은 [Python Tools for Visual Studio][](PTVS)(영문)를 통해 Visual Studio 내에서도 사용할 수 있습니다. PTVS는 Microsoft의 무료 오픈 소스 플러그 인으로, IntelliSense, 디버깅, 프로파일링, 병렬 컴퓨팅 통합 등 고급 편집기 기능을 포함하는 고급 Python 개발 환경으로 Visual Studio를 전환해 줍니다.
 
+## 다음 단계
 
-
+자세한 내용은 [Python 개발자 센터](/develop/python/)를 참조하세요.
 
 [Tornado]: http://www.tornadoweb.org/ "Tornado"
 [PyZMQ]: https://github.com/zeromq/pyzmq "PyZMQ"
@@ -272,4 +273,4 @@ IPython Notebook은 Azure에서 Python 에코시스템의 기능에 대화형으
 [Python 2.7]: http://www.python.org/download
 [OpenSSL]: http://slproweb.com/products/Win32OpenSSL.html
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

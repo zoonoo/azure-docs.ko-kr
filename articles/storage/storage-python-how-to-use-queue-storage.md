@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Python에서 큐 저장소를 사용하는 방법 | Microsoft Azure"
-	description="Azure 큐 서비스를 사용하여 Python에서 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다.";"
-	services="storage"
-	documentationCenter="python"
-	authors="emgerner-msft"
-	manager="wpickett"
+	pageTitle="Python에서 큐 저장소를 사용하는 방법 | Microsoft Azure" 
+	description="Azure 큐 서비스를 사용하여 Python에서 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다.";" 
+	services="storage" 
+	documentationCenter="python" 
+	authors="emgerner-msft" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="python"
-	ms.topic="article"
-	ms.date="08/25/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="08/25/2015" 
 	ms.author="emgerner"/>
 
 # Python에서 큐 저장소를 사용하는 방법
@@ -107,10 +107,12 @@
 -   다음 MSDN 참조를 확인하세요. [Azure에 데이터 저장 및 액세스][]
 -   [Azure 저장소 팀 블로그][](영문)를 방문하세요.
 
+자세한 내용을 보려면 [Python 개발자 센터](/develop/python/)도 참조하세요.
+
 [Azure에 데이터 저장 및 액세스]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Azure 저장소 팀 블로그]: http://blogs.msdn.com/b/windowsazurestorage/
 [Python Azure 패키지]: https://pypi.python.org/pypi/azure
 [Python Azure 저장소 패키지]: https://pypi.python.org/pypi/azure-storage
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

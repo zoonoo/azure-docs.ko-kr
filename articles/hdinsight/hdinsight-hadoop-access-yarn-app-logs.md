@@ -24,6 +24,7 @@
   1. HDInsight 클러스터에서 제네릭 응용 프로그램 기록 서버를 사용하도록 설정되었습니다. 이 서버는 YARN Timeline Server 내의 구성 요소로, 완료된 응용 프로그램에 대한 제네릭 정보의 저장 및 검색을 처리합니다.
   2. 클러스터에서 실행한 응용 프로그램을 프로그래밍 방식으로 열거하고 발생하는 응용 프로그램 문제를 디버깅하기 위해 관련 응용 프로그램 또는 컨테이너별 로그(일반 텍스트)를 다운로드하는 데 Azure HDInsight .Net SDK의 API를 사용할 수 있습니다.
 
+> [AZURE.NOTE]이 문서의 정보는 Windows 기반 HDInsight 클러스터에만 적용됩니다. Linux 기반 HDInsight 클러스터에서 YARN 로그 액세스에 대한 정보는 [HDInsight의 Linux 기반 Hadoop에 대한 YARN 응용 프로그램 로그 액세스](hdinsight-hadoop-access-yarn-app-logs-linux.md)를 참조하세요.
 
 ## 필수 조건
 
@@ -173,4 +174,4 @@ YARN은 여러 프로그래밍 모델(예: MapReduce)을 지원하여 리소스 
 [binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
 [YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

@@ -45,7 +45,7 @@ BACPAC은 데이터베이스 스키마 및 데이터를 포함하는 .bacpac 파
 
 .bacpac 파일로 내보낼 데이터베이스에 대한 SQL 데이터베이스 블레이드를 엽니다.
 
-1.	[Azure Preview 포털](https//:portal.azure.com)로 이동합니다.
+1.	[Azure Preview 포털](https://portal.azure.com)로 이동합니다.
 2.	**모두 찾아보기**를 클릭합니다.
 3.	**SQL 데이터베이스**를 클릭합니다.
 2.	BACPAC으로 내보낼 데이터베이스를 클릭합니다.
@@ -101,4 +101,4 @@ BACPAC은 데이터베이스 스키마 및 데이터를 포함하는 .bacpac 파
 [4]: ./media/sql-database-export/export-status.png
 [5]: ./media/sql-database-export/bacpac-details.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

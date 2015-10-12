@@ -34,9 +34,11 @@
 + [Mobile Engagement iOS SDK]
 + Apple 개발자 센터에서 가져올 수 있는 푸시 알림 인증서(.p12)
 
+> [AZURE.NOTE]이 자습서에서는 Swift 버전 2.0을 사용합니다.
+
 이 자습서를 완료해야 다른 모든 iOS 앱용 Mobile Engagement 자습서를 진행할 수 있습니다.
 
-> [AZURE.IMPORTANT]iOS 앱용 다른 모든 Mobile Engagement 자습서를 사용하기 전에 이 자습서를 완료해야 하며, 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-KR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+> [AZURE.IMPORTANT]iOS 앱용 다른 모든 Mobile Engagement 자습서를 사용하기 전에 이 자습서를 완료해야 하며, 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
 ##<a id="setup-azme"></a>iOS 앱용 Mobile Engagement 설정
 
@@ -74,11 +76,10 @@
 
 	![][4]
 
-8. AzME Objective-C 코드를 Swift 코드에 노출하도록 Bridging 헤더 파일을 편집하고 다음 import를 추가합니다.
+8. Mobile Engagement Objective-C 코드를 Swift 코드에 노출하도록 Bridging 헤더 파일을 편집하고 다음 import를 추가합니다.
 
 		/* Mobile Engagement Agent */
 		#import "AEModule.h"
-		#import "AEPushDelegate.h"
 		#import "AEPushMessage.h"
 		#import "AEStorage.h"
 		#import "EngagementAgent.h"
@@ -87,6 +88,8 @@
 		#import "AEIdfaProvider.h"
 
 9. 빌드 설정에서 Swift 컴파일러 - 코드 생성 아래의 Objective-C Bridging 헤더 빌드 설정에 이 헤더에 대한 경로가 있는지 확인합니다. 다음은 경로 예입니다. **$(SRCROOT)/MySuperApp/MySuperApp-Bridging-Header.h(경로에 따라 다름)**
+
+	![][6]
 
 10. Azure 포털의 앱 *연결 정보* 페이지로 돌아가서 연결 문자열을 복사합니다.
 
@@ -105,13 +108,9 @@
 
 데이터 보내기를 시작하고 사용자가 활성 상태인지 확인하려면 Mobile Engagement 백 엔드에 화면(활동)을 하나 이상 보내야 합니다.
 
-1. **ViewController.h** 파일을 열고 **EngagementViewController.h**를 가져옵니다.
+1. **ViewController.swift** 파일을 열고 **ViewController**의 기본 클래스를 **EngagementViewController**가 되도록 바꿉니다.
 
-    `# import "EngagementViewController.h"`
-
-2. 이제 **ViewController** 인터페이스의 상위 클래스를 **EngagementViewController**로 바꿉니다.
-
-	`@interface ViewController : EngagementViewController`
+	`class ViewController : EngagementViewController {`
 
 ##<a id="monitor"></a>실시간 모니터링과 앱 연결
 
@@ -132,10 +131,9 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 3. SDK를 추출한 폴더로 이동합니다.
 4. `EngagementReach` 폴더를 선택합니다.
 5. 추가를 클릭합니다.
-6. AzME Objective-C Reach 헤더를 노출하도록 Bridging 헤더 파일을 편집하고 다음 import를 추가합니다.
+6. Mobile Engagement Objective-C Reach 헤더를 노출하도록 Bridging 헤더 파일을 편집하고 다음 import를 추가합니다.
 
 		/* Mobile Engagement Reach */
-		#import "AE_TBXML.h"
 		#import "AEAnnouncementViewController.h"
 		#import "AEAutorotateView.h"
 		#import "AEContentViewController.h"
@@ -154,6 +152,7 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 		#import "AEReachModule.h"
 		#import "AEReachNotifAnnouncement.h"
 		#import "AEReachPoll.h"
+		#import "AEReachPollQuestion.h"
 		#import "AEViewControllerUtil.h"
 		#import "AEWebAnnouncementJsBridge.h"
 
@@ -171,16 +170,16 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 ###앱이 APNS 푸시 알림을 받을 수 있도록 설정
 1. 다음 줄을 `didFinishLaunchingWithOptions` 메서드에 추가합니다.
 
-		if application.respondsToSelector("registerUserNotificationSettings:")
+		/* Ask user to receive push notifications */
+		if #available(iOS 8.0, *)
 		{
-			application.registerUserNotificationSettings(UIUserNotificationSettings(
-			forTypes: (UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound),
-			categories: nil))
-			application.registerForRemoteNotifications()
+		   let settings = UIUserNotificationSettings(forTypes: [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound], categories: nil)
+		   application.registerUserNotificationSettings(settings)
+		   application.registerForRemoteNotifications()
 		}
 		else
 		{
-			application.registerForRemoteNotificationTypes(UIRemoteNotificationType.Alert | UIRemoteNotificationType.Badge | UIRemoteNotificationType.Sound)
+		   application.registerForRemoteNotificationTypes([UIRemoteNotificationType.Alert, UIRemoteNotificationType.Badge, UIRemoteNotificationType.Sound])
 		}
 
 2. 다음과 같이 `didRegisterForRemoteNotificationsWithDeviceToken` 메서드를 추가합니다.
@@ -209,5 +208,6 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [3]: ./media/mobile-engagement-ios-get-started/xcode-build-phases.png
 [4]: ./media/mobile-engagement-ios-swift-get-started/add-header-file.png
 [5]: ./media/mobile-engagement-ios-get-started/app-connection-info-page.png
+[6]: ./media/mobile-engagement-ios-swift-get-started/add-bridging-header.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -41,6 +41,7 @@
                             (new Range<long>(300, 400), shard2, MappingStatus.Online)); 
 
 
+대신 Powershell을 사용하여 새 분할된 데이터베이스 맵 관리자를 만들 수 있습니다. [여기](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db)에 예제가 있습니다.
 ## 기존 범위의 빈 부분에 대해 분할된 데이터베이스를 추가하기  
 
 특정 범위를 분할된 데이터베이스에 이미 매핑했으며 데이터를 일부분 추가했는데 그 이후에 들어오는 데이터는 다른 분할된 데이터베이스로 이동하려는 경우가 있을 수 있습니다. 일 범위로 데이터베이스를 분할했으며 분할된 데이터베이스에 이미 50일을 할당했는데 24일째부터는 추가 데이터를 다른 분할된 데이터베이스에 저장하려는 경우를 예로 들 수 있습니다. 탄력적 데이터베이스의 [분할-합병 도구](sql-database-elastic-scale-overview-split-and-merge.md)는 이 작업을 수행할 수는 있지만 25, 50 범위의 데이터, 즉 25일째부터 50일째까지의 데이터가 없는 경우와 같이 데이터를 이동할 필요가 없는 경우에는 분할된 데이터베이스 맵 관리 API를 직접 사용하여 이 작업 전체를 수행할 수 있습니다.
@@ -78,4 +79,4 @@
 [AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

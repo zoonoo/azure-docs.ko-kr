@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -59,4 +59,4 @@ Azure 앱 서비스를 사용하면 언어를 선택하는 것만큼 쉽습니�
 지금 무료로 [새로운 웹앱을 만드세요](http://go.microsoft.com/fwlink/?LinkId=523751). 신용 카드는 필요하지 않으며 약정이나 수고도 필요하지 않습니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

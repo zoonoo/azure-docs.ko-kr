@@ -20,7 +20,7 @@
 
 > [AZURE.SELECTOR]
 - [Windows PowerShell](role-based-access-control-powershell.md)
-- [Azure CLI](role-based-access-control-xplat-cli.md)
+- [Azure CLI](role-based-access-control-xplat-cli-install.md)
 
 
 Azure 포털 및 Azure 리소스 관리자 API의 RBAC(역할 기반 액세스 제어)를 사용하면 세밀한 수준에서 구독에 대한 액세스를 관리할 수 있습니다. 이 기능을 통해 특정 범위에서 Active Directory 사용자, 그룹 또는 서비스 사용자에게 일부 역할을 할당하여 액세스 권한을 부여할 수 있습니다.
@@ -161,7 +161,7 @@ Windows PowerShell을 사용하여 역할 기반 액세스 제어를 관리하�
 - [Azure 블로그](http://blogs.msdn.com/windowsazure): Azure의 새로운 기능에 대해 알아봅니다.
 - [Windows PowerShell 블로그](http://blogs.msdn.com/powershell): Windows PowerShell의 새로운 기능에 대해 알아봅니다.
 - ["Hey, Scripting Guy!" 블로그](http://blogs.technet.com/b/heyscriptingguy/): Windows PowerShell 커뮤니티에서 실제 팁과 요령을 확인합니다.
-- [Azure CLI를 사용하여 역할 기반 액세스 제어 구성](role-based-access-control-xplat-cli.md)
+- [Azure CLI를 사용하여 역할 기반 액세스 제어 구성](role-based-access-control-xplat-cli-install.md)
 - [역할 기반 액세스 제어 문제 해결](role-based-access-control-troubleshooting.md)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

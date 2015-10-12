@@ -1,7 +1,17 @@
+<properties services="virtual-machines" title="Setting up Azure CLI for service management" authors="squillace" solutions="" manager="timlt" editor="tysonn" />
+
+<tags
+   ms.service="virtual-machine"
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="linux"
+   ms.workload="infrastructure"
+   ms.date="04/13/2015"
+   ms.author="rasquill" />
 
 ## Azure CLI 사용
 
-다음 단계에서는 최신 버전 및 적절한 구독에서 Azure CLI를 쉽게 사용할 수 있도록 도와줍니다. 먼저 Azure CLI를 설치하고 계정에 연결해야 하는 경우 [Azure CLI(Azure 명령줄 인터페이스)](xplat-cli.md)를 참조하세요.
+다음 단계에서는 최신 버전 및 적절한 구독에서 Azure CLI를 쉽게 사용할 수 있도록 도와줍니다. 먼저 Azure CLI를 설치하고 계정에 연결해야 하는 경우 [Azure CLI(Azure 명령줄 인터페이스)](xplat-cli-install.md)를 참조하세요.
 
 ### 1단계: Azure CLI 버전 업데이트
 
@@ -24,4 +34,4 @@ Azure CLI의 버전을 업데이트하려면 [Azure CLI](https://github.com/Azur
 
 > [AZURE.NOTE]Azure 계정이 아직 없지만 MSDN 구독이 있는 경우 [여기에서 MSDN 구독자 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하여 무료 Azure 크레딧을 받거나 무료 계정을 사용할 수 있습니다. 둘 중 하나가 Azure 액세스에 작동합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

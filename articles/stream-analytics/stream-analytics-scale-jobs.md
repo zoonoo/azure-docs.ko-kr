@@ -1,6 +1,7 @@
 <properties
 	pageTitle="처리량을 높이기 위한 스트림 분석 작업 규모 지정 | Microsoft Azure"
 	description="입력 파티션을 구성하고, 쿼리 정의를 조정하고, 작업 스트리밍 단위를 설정하여 스트림 분석 작업의 크기를 조정하는 방법을 알아봅니다."
+	keywords="analytics jobs,data stream,data streaming"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="data-services"
-	ms.date="08/04/2015"
+	ms.date="09/29/2015"
 	ms.author="jeffstok"/>
 
 # 처리량을 높이기 위한 Azure 스트림 분석 작업 규모 지정 #
@@ -153,6 +154,9 @@ SU(스트리밍 단위)는 Azure 스트림 분석 작업을 실행하는 리소�
 
 ![Azure 스트림 분석 스트림 단위 규모 지정][img.stream.analytics.streaming.units.scale]
 
+Azure Preview 포털의 설정에서 크기 조정 설정을 액세스할 수 있습니다.
+
+![Azure Preview 포털 스트림 분석 구성][img.stream.analytics.preview.portal.settings.scale]
 
 ## 작업 성능 모니터링 ##
 
@@ -228,7 +232,7 @@ SU(스트리밍 단위)는 Azure 스트림 분석 작업을 실행하는 리소�
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## 도움말 보기 ##
-추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-kr/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 
 ## 다음 단계 ##
@@ -246,6 +250,7 @@ SU(스트리밍 단위)는 Azure 스트림 분석 작업을 실행하는 리소�
 [img.stream.analytics.configure.scale]: ./media/stream-analytics-scale-jobs/StreamAnalytics.configure.scale.png
 [img.stream.analytics.perfgraph]: ./media/stream-analytics-scale-jobs/perf.png
 [img.stream.analytics.streaming.units.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsStreamingUnitsExample.jpg
+[img.stream.analytics.preview.portal.settings.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings.png
 
 <!--Link references-->
 
@@ -260,4 +265,4 @@ SU(스트리밍 단위)는 Azure 스트림 분석 작업을 실행하는 리소�
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

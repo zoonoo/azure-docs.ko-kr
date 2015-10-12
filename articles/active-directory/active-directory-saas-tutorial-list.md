@@ -20,7 +20,7 @@
 
 Azure Active Directory와 모든 클라우드(SaaS) 응용 프로그램을 쉽게 통합할 수 있도록 하기 위해 필요한 구성 단계를 각각 보여주는 자습서의 컬렉션을 개발했습니다.
 
-Azure AD에 미리 통합된 포괄적인 SaaS Apps 목록에 대해서는 [Active Directory 마켓플레이스](https://azure.microsoft.com/ko-KR/marketplace/active-directory/)를 참조하세요.
+Azure AD에 미리 통합된 포괄적인 SaaS Apps 목록에 대해서는 [Active Directory 마켓플레이스](https://azure.microsoft.com/ko-kr/marketplace/active-directory/)를 참조하세요.
 
 ##자습서 목록
 
@@ -55,7 +55,6 @@ Azure AD에 미리 통합된 포괄적인 SaaS Apps 목록에 대해서는 [Acti
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Clarizen.jpg)| [Clarizen](https://go.microsoft.com/fwLink/?LinkID=403229&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Clever.jpg)| [Clever](https://go.microsoft.com/fwLink/?LinkID=530228&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_ClickTime.jpg)| [ClickTime](https://go.microsoft.com/fwLink/?LinkID=403236&clcid=0x409)|
-| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_CloudBees.jpg)| [CloudBees](https://go.microsoft.com/fwLink/?LinkID=403228&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_CloudPassage.jpg)| [CloudPassage](https://go.microsoft.com/fwLink/?LinkID=512732&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Concur.jpg)| [Concur](https://go.microsoft.com/fwLink/?LinkID=309575&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Coupa.jpg)| [Coupa](https://go.microsoft.com/fwLink/?LinkID=510267&clcid=0x409)|
@@ -160,8 +159,6 @@ Azure AD에 미리 통합된 포괄적인 SaaS Apps 목록에 대해서는 [Acti
 
 
 
-
-
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

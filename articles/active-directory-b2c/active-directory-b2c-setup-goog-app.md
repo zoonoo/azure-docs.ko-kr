@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/22/2015"
+	ms.date="09/28/2015"
 	ms.author="swkrish"/>
 
 # Azure Active Directory B2C 미리 보기: 고객에게 Google+ 계정으로 등록 및 로그인 제공
@@ -41,19 +41,19 @@ Azure Active Directory(AD) B2C에서 Google+을 ID 공급자로 사용하려면 
     ![G+ - OAuth 동의 화면](./media/active-directory-b2c-setup-goog-app/google-consent-screen.png)
 
 6. **응용 프로그램 형식**에서 **웹 응용 프로그램**을 선택합니다.
-7. 응용 프로그램에 **이름**을 제공하고 **권한이 부여된 리디렉션 URI** 필드의 [https://login.microsoftonline.com](https://login.microsoftonline.com) 및 **권한이 부여된 리디렉션 URI** 필드의 [https://login.microsoftonline.com/te/{directory}/oauth2/authresp](https://login.microsoftonline.com/te/{directory}/oauth2/authresp)를 입력합니다. 해당 필드는 **{directory}**을 디렉터리의 이름으로 교체합니다.(예: contosob2c.onmicrosoft.com) **만들기**를 클릭합니다.
+7. 응용 프로그램에 **이름**을 제공하고 **권한이 부여된 리디렉션 URI** 필드의 [https://login.microsoftonline.com](https://login.microsoftonline.com) 및 **권한이 부여된 리디렉션 URI** 필드의 [https://login.microsoftonline.com/te/{tenant}/oauth2/authresp](https://login.microsoftonline.com/te/{tenant}/oauth2/authresp)를 입력합니다. 해당 필드는 **{directory}**을 테넌트의 이름으로 교체합니다.(예: contosob2c.onmicrosoft.com) **만들기**를 클릭합니다.
 
-    > [AZURE.NOTE]**{directory}** 값은 대/소문자를 구분합니다.
+    > [AZURE.NOTE]**{tenant}** 값은 대/소문자를 구분합니다.
 
     ![G+ - 클라이언트 ID 만들기](./media/active-directory-b2c-setup-goog-app/google-create-client-id.png)
 
-8. **클라이언트 ID** 및 **클라이언트 암호** 값을 복사합니다. 디렉터리에서 Google+를 ID 공급자로 구성하려면 둘 모두가 필요합니다.
+8. **클라이언트 ID** 및 **클라이언트 암호** 값을 복사합니다. 테넌트에서 Google+를 ID 공급자로 구성하려면 둘 모두가 필요합니다.
 
     > [AZURE.NOTE]**클라이언트 암호**는 중요한 보안 자격 증명입니다.
 
     ![G+ - 클라이언트 암호](./media/active-directory-b2c-setup-goog-app/google-client-secret.png)
 
-## 디렉터리에서 Google+를 ID 공급자로 구성
+## 테넌트에서 Google+를 ID 공급자로 구성
 
 1. [Azure Preview 포털의 B2C 기능 블레이드로 이동합니다.](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade)
 2. B2C 기능 블레이드에서 **소셜 ID 공급자**를 클릭합니다.
@@ -63,4 +63,4 @@ Azure Active Directory(AD) B2C에서 Google+을 ID 공급자로 사용하려면 
 6. **이 ID 공급자 설정**을 클릭하고 이전에 만든 Google+ 응용 프로그램의 **클라이언트 ID** 및 **클라이언트 암호**를 입력합니다.
 7. **확인** 및 **만들기**를 차례로 클릭하여 Google+ 구성을 저장합니다.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

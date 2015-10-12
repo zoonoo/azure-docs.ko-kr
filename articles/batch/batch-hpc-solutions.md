@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="big-compute"
-   ms.date="07/01/2015"
+   ms.date="09/29/2015"
    ms.author="danlep"/>
 
 # 배치 및 HPC 솔루션
@@ -164,11 +164,11 @@ Azure 자동화 도구를 사용하여 필요한 용량을 만들기 위해서 A
 
 >[AZURE.NOTE]서비스(IaaS)로 인프라를 제공하는 공용 클라우드에서 실행하기 위한 추가 요구 사항 및 모범 사례에 대한 온-프레미스 클러스터 솔루션 및 응용 프로그램은 공급 업체에 확인하십시오.
 
-예를 들어, 다음의 간략한 그림에 표현된 것처럼 Azure 인프라 서비스 가상 컴퓨터 (IaaS)의 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029)으로 Windows Server 기반 HPC 클러스터를 만들어 워크로드를 실행할 수 있습니다. 클러스터 사용자는 클라이언트 컴퓨터에서 실행되는 표준 HPC 팩 작업 제출 도구를 통해 클라우드 클러스터에 안전하게 작업을 제출할 수 있습니다. 세부 정보 및 배포 옵션에 대해서는 [Azure Vm의 Microsoft HPC Pack](https://msdn.microsoft.com/library/azure/dn518135.aspx)을 참조하세요.
+예를 들어, 다음의 간략한 그림에 표현된 것처럼 Azure 인프라 서비스 가상 컴퓨터(IaaS)의 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029)으로 HPC 클러스터를 만들어 워크로드를 실행할 수 있습니다. 클러스터 사용자는 클라이언트 컴퓨터에서 실행되는 표준 HPC 팩 작업 제출 도구를 통해 클라우드 클러스터에 안전하게 작업을 제출할 수 있습니다. [Azure에서 Microsoft HPC 팩을 사용하는 HPC 클러스터 옵션](../virtual-machines/virtual-machines-hpcpack-cluster-options.md)을 참조하세요.
 
 ![IaaS에서 클러스터][iaas_cluster]
 
-**자동 배포** - 많은 수의 Windows Server 또는 Linux Vm를 배포하는 경우 표준 또는 사용자 지정 VM 이미지와 [Azure 명령줄 인터페이스](../xplat-cli.md) 또는 [Azure PowerShell](../powershell-install-configure.md)와 같은 Azure 자동화 도구를 사용할 수 있습니다. 예를 들면 다음과 같습니다.
+**자동 배포** - 많은 수의 Windows Server 또는 Linux Vm를 배포하는 경우 표준 또는 사용자 지정 VM 이미지와 [Azure 명령줄 인터페이스](../xplat-cli-install.md) 또는 [Azure PowerShell](../powershell-install-configure.md)와 같은 Azure 자동화 도구를 사용할 수 있습니다. 예를 들면 다음과 같습니다.
 
 * Azure 인프라 서비스에서 HPC 팩 클러스터를 배포하려면 클라이언트 컴퓨터에서 [Azure PowerShell 스크립트](https://msdn.microsoft.com/library/azure/dn864734.aspx)를 실행할 수 있습니다. 이 스크립트는 사전에 HPC Pack을 설치하여 Windows Server VM 이미지를 사용합니다. Azure PowerShell 또는 Azure CLI 로 Azure [퀵스타트 템플릿](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)을 사용하여 HPC 팩 클러스터를 배포할 수 있습니다.
 
@@ -222,4 +222,4 @@ Azure 자동화 도구를 사용하여 필요한 용량을 만들기 위해서 A
 [burst_cluster]: ./media/batch-hpc-solutions/burst_cluster.png
 [batch_proc]: ./media/batch-hpc-solutions/batch_proc.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

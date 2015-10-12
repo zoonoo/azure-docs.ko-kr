@@ -43,25 +43,25 @@ HDInsight는 빅 데이터 분석을 위해 가장 많이 사용되는 솔루션
 
 Azure HDInsight에서는 **Linux** 또는 **Windows**를 기본 OS로 사용하여 클라우드에 Hadoop 클러스터를 배포하고 프로비저닝합니다.
 
-* **Linux용 HDInsight(미리 보기)** - Ubuntu의 Hadoop 클러스터. Linux 또는 Unix에 익숙하거나, 기존 Linux 기반 Hadoop 솔루션에서 마이그레이션하거나, Linux 기반으로 작성된 Hadoop 에코 시스템 구성 요소와 쉽게 통합하려는 경우에 사용합니다.
+* **Linux용 HDInsight** - Ubuntu용 Hadoop 클러스터 Linux 또는 Unix에 익숙하거나, 기존 Linux 기반 Hadoop 솔루션에서 마이그레이션하거나, Linux 기반으로 작성된 Hadoop 에코 시스템 구성 요소와 쉽게 통합하려는 경우에 사용합니다.
 
-* **Windows용 HDInsight** -Windows 서버용 Hadoop 클러스터. Windows에 익숙하거나, 기존 Windows 기반 Hadoop 솔루션에서 마이그레이션하거나, .NET 또는 다른 Windows 기능과 통합하려는 경우에 사용합니다.
+* **Windows용 HDInsight** -Windows 서버용 Hadoop 클러스터. Windows에 익숙하거나 기존 Windows 기반 Hadoop 솔루션에서 마이그레이션하거나 또는 클러스터에서 .NET 또는 다른 Windows 전용 기술을 사용하려는 경우에 사용합니다.
 
 다음 테이블에서 둘을 비교합니다.
 
 범주 | Linux에서 Hadoop | Windows에서 Hadoop
 ---------| -------------------| --------------------
 **클러스터 OS** | Ubuntu 12.04 장기 지원(LTS) | Windows Server 2012 R2
-**클러스터 유형** | Hadoop은 | Hadoop, HBase, Storm
-**배포**웹사이트를 | Azure 포털, Azure CLI, Azure PowerShell | Azure 포털, Azure CLI, Azure PowerShell, HDInsight .NET SDK
+**클러스터 유형** | Hadoop, HBase, Storm | Hadoop, HBase, Storm
+**배포**웹사이트를 | Azure Preview 포털, Azure CLI, Azure PowerShell | Azure 포털, Azure Preview 포털, Azure CLI, Azure PowerShell, HDInsight .NET SDK
 **클러스터 UI** | Ambari | 클러스터 대시보드
-**원격 액세스** | SSH(secure Shell) | 원격 데스크톱 프로토콜(RDP)
+**원격 액세스** | SSH(보안 Shell), REST API, ODBC, JDBC | RDP(원격 데스크톱 프로토콜), REST API, ODBC, JDBC
 
 
 
 ### Hadoop, HBase, Storm, Spark 및 사용자 지정된 클러스터
 
-HDInsight는 Hadoop, HBase, Storm 및 Spark에 대한 클러스터 구성을 제공합니다. 또는 <a href="http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-customize-cluster/" target="_blank">스크립트 작업으로 클러스터를 사용자 지정</a>할 수 있습니다.
+HDInsight는 Hadoop, HBase 또는 Storm에 대한 클러스터 구성을 제공합니다. 또는 [스크립트 작업으로 클러스터를 사용자 지정할](hdinsight-hadoop-customize-cluster-linux.md) 수 있습니다.
 
 * **Hadoop**("쿼리" 워크로드): 데이터를 병렬로 처리하고 분석하도록 [HDFS](#HDFS)를 통해 신뢰할 수 있는 데이터 저장소와 간단한 [MapReduce](#mapreduce) 프로그래밍 모델을 제공합니다.
 
@@ -69,13 +69,33 @@ HDInsight는 Hadoop, HBase, Storm 및 Spark에 대한 클러스터 구성을 제
 
 * **<a  target="_blank" href="https://storm.incubator.apache.org/">Apache Storm</a>**("스팀" 워크로드): 대규모 데이터 스트림을 빠르게 처리하기 위한 분산형 실시간 계산 시스템입니다. HDInsight에서 관리 클러스터로 제공됩니다. [Storm 및 Hadoop을 사용하여 실시간 센서 데이터 분석](hdinsight-storm-sensor-data-analysis.md)을 참조하세요.
 
-* **<a  target="_blank" href="http://spark.apache.org/">Apache Spark</a>**: 메모리 내 처리를 지원하여 빅 데이터 분석 응용 프로그램의 성능을 향상시키는 오픈 소스 병렬 처리 프레임워크입니다. [Azure HDInsight에서 Apache Spark](hdinsight-apache-spark-overview.md)를 참조하세요.
+#### 예제 사용자 지정 스크립트
+
+스크립트 작업은 클러스터가 프로비전되는 동안 실행되는 스크립트이며 클러스터에 추가 구성 요소를 설치하는 데 사용할 수 있습니다. Windows 기반 HDInsight 클러스터의 경우에는 PowerShell 스크립트가 이에 해당합니다. Linux 기반 클러스터의 경우에는 Bash 스크립트가 해당합니다.
+
+다음은 HDInsight 팀에서 제공하는 예제 스크립트입니다.
+
+* [Hue](hdinsight-hadoop-hue-linux.md)
+
+	> [AZURE.NOTE]Hue 스크립트는 Linux 기반 클러스터에 대해서만 사용할 수 있습니다.
+	
+* [Giraph](hdinsight-hadoop-giraph-install-linux.md)
+
+* [R](hdinsight-hadoop-r-scripts-linux.md)
+
+* [Solr](hdinsight-hadoop-solr-install-linux.md)
+
+* [Spark](hdinsight-hadoop-spark-install-linux.md)
+
+사용자 고유의 스크립트 작업 개발에 대한 정보는 [HDInsight를 사용하여 스크립트 작업 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
 
 ## Hadoop의 구성 요소는 무엇인가요?
 
 이전의 전체 구성 외에도 다음과 같은 개별 구성 요소가 HDInsight 클러스터에 포함되어 있습니다.
 
 * **[Ambari](#ambari)**: 클러스터 프로비전, 관리 및 모니터링.
+
+	> [AZURE.NOTE]Windows 기반 HDInsight 클러스터에 대해서는 Ambari REST API의 하위 집합만 제공됩니다.
 
 * **[Avro](#avro)**(Microsoft .NET Library for Avro): Microsoft .NET 환경을 위한 데이터 직렬화.
 
@@ -101,7 +121,9 @@ HDInsight는 Hadoop, HBase, Storm 및 Spark에 대한 클러스터 구성을 제
 
 ###<a name="ambari"></a>Ambari
 
-Apache Ambari는 Apache Hadoop 클러스터를 프로비전하고 관리 및 모니터링합니다. Hadoop의 복잡성을 숨기고 클러스터 작업을 단순화하는 직관적인 연산자 도구 모음 및 강력한 API 집합이 포함되어 있습니다. [Ambari를 사용하여 HDInsight 클러스터링 관리](hdinsight-hadoop-manage-ambari.md)(Linux만 해당), [Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링](hdinsight-monitor-use-ambari-api.md) 및 <a target="_blank" href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md">Apache Ambari API 참조</a>를 참조하세요.
+Apache Ambari는 Apache Hadoop 클러스터를 프로비전하고 관리 및 모니터링합니다. Hadoop의 복잡성을 숨기고 클러스터 작업을 단순화하는 직관적인 연산자 도구 모음 및 강력한 API 집합이 포함되어 있습니다. Linux 기반 HDInsight 클러스터는 Ambari 웹 UI와 Ambari REST API 둘 다 제공하는 반면 Windows 기반 클러스터는 REST API의 하위 집합을 제공합니다.
+
+[Ambari를 사용하여 HDInsight 클러스터링 관리](hdinsight-hadoop-manage-ambari.md)(Linux만 해당), [Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링](hdinsight-monitor-use-ambari-api.md) 및 <a target="_blank" href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md">Apache Ambari API 참조</a>를 참조하세요.
 
 ### <a name="avro"></a>Avro (Microsoft .NET Library for Avro)
 
@@ -153,11 +175,11 @@ MapReduce에 대한 자세한 내용은 Hadoop Wiki에서 <a target="_blank" hre
 
 HDInsight의 Hadoop은 Azure 클라우드 에코시스템의 일부분으로 다음과 같은 여러 가지 이점을 제공합니다.
 
-* Hadoop 클러스터 자동 프로비저닝 수동으로 Hadoop 클러스터를 구성하는 것보다 HDInsight 클러스터를 만들기가 훨씬 쉽습니다. 자세한 내용은 [HDInsight에서 Hadoop 클러스터 프로비전](hdinsight-provision-clusters.md)을 참조하세요.
+* Hadoop 클러스터 자동 프로비저닝 수동으로 Hadoop 클러스터를 구성하는 것보다 HDInsight 클러스터를 만들기가 훨씬 쉽습니다. 자세한 내용은 [HDInsight에서 Hadoop 클러스터 프로비전](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
 
 * 최신 Hadoop 구성 요소. 자세한 내용은 [HDInsight에서 제공하는 Hadoop 클러스터 버전의 새로운 기능][component-versioning]을 참조하세요.
 
-* 클러스터의 고가용성 및 안정성. 자세한 내용은 [HDInsight에서 Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability.md)을 참조하세요.
+* 클러스터의 고가용성 및 안정성. 자세한 내용은 [HDInsight에서 Hadoop 클러스터의 가용성 및 안정성](hdinsight-high-availability-linux.md)을 참조하세요.
 
 * Hadoop 호환 옵션인 Azure Blob 저장소를 통한 효율적이고 경제적인 데이터 저장. 자세한 내용은 [HDInsight에서 Hadoop과 Azure Blob 저장소 사용](hdinsight-hadoop-use-blob-storage.md)을 참조하세요.
 
@@ -175,11 +197,15 @@ HDInsight의 Hadoop이 제공하는 이점에 대한 자세한 내용은 [HDInsi
 아래 리소스를 사용하여 HDInsight의 Hadoop과 빅 데이터 분석에 대한 이 소개를 확장합니다.
 
 
-### Linux용 HDInsight(미리 보기)
+### Linux용 HDInsight
+
+* [HDInsight 설명서](http://azure.microsoft.com/documentation/services/hdinsight/): 문서, 비디오 및 추가 리소스에 대한 링크가 있는 Azure HDInsight용 설명서 페이지입니다.
 
 * [Linux에서 HDInsight 시작](hdinsight-hadoop-linux-tutorial-get-started.md): Linux에 HDInsight Hadoop 클러스터를 프로비전하고 샘플 Hive 쿼리를 실행하는 데 관한 빠른 시작 자습서입니다.
 
-* [사용자 지정 옵션을 사용하여 Linux에 HDInsight 프로비전](hdinsight-hadoop-provision-linux-clusters.md): Azure 포털, Azure CLI 또는 Azure PowerShell을 통해 사용자 지정 옵션을 사용하여 Linux에서 HDInsight Hadoop 클러스터를 프로비전하는 방법에 대해 알아봅니다.
+* [HDInsight에서 Linux 기반 Storm 시작](hdinsight-apache-storm-tutorial-get-started-linux.md): HDInsight 클러스터에서 Storm을 프로비전하고 샘플 Storm 토폴로지를 실행하는 데 대한 빠른 시작 자습서입니다.
+
+* [Linux에서 HDInsight 프로비전](hdinsight-hadoop-provision-linux-clusters.md): Azure 포털, Azure CLI 또는 Azure PowerShell을 통해 Linux에서 HDInsight Hadoop 클러스터를 프로비전하는 방법에 대해 알아봅니다.
 
 * [Linux에서 HDInsight 작업](hdinsight-hadoop-linux-information.md): Azure에 프로비전된 Hadoop Linux 클러스터 작업에 대한 간단한 팁을 얻습니다.
 
@@ -248,4 +274,4 @@ HDInsight의 Hadoop이 제공하는 이점에 대한 자세한 내용은 [HDInsi
 [zookeeper]: http://zookeeper.apache.org/
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

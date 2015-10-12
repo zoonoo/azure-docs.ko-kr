@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="powershell"
    ms.workload="TBD" 
-   ms.date="09/16/2015"
+   ms.date="09/24/2015"
    ms.author="coreyp"/>
 
 # Azure 자동화 DSC 개요 #
@@ -137,11 +137,11 @@ Azure 자동화 DSC는 현재 [Azure 리소스 관리자 PowerShell 모듈](http
 
 - `Register-AzureAutomationDscNode`, `Set-AzureVMExtension`을 사용하여 Azure 자동화 DSC를 사용한 관리를 위해 Azure VM을 온보딩하거나, Azure Preview 포털에서 Azure 자동화 DSC VM을 확장할 때, Azure 자동화의 DSC 노드로 VM이 나타날 때까지 최대 1시간 정도 걸립니다. 이것은 Azure 자동화 DSC의 VM을 온보드하기 위해 필요한 Azure VM DSC 확장에 의한 VM의 Windows 관리 프레임워크 5.0의 설치 때문에 꼭 필요한 일입니다.
 
-- 노드 등록에는 Azure 자동화 DSC에 대한 특정 노드의 인증에 사용하도록 인증서를 자동으로 처리하는(사후 등록) 노드가 관련됩니다. 이 인증서는 작성 1년 후에 만료되며 현재 PS DSC 끌어오기 프로토콜에는 인증서의 만료가 가까워질 때 새 인증서를 발급할 메서드가 없습니다. 때문에 노드를 일년의 기한 후에, WMF 차기 버전에 이 프로토콜이 구현될 때까지(잘된다면 지금부터 1년 이내에) Azure 자동화 DSC에 등록할 필요가 있습니다.
+- 등록 후에는 1년 후 만료되는 인증에 대해 각 노드가 자동으로 고유의 인증서를 협상합니다. 현재 PowerShell DSC 등록 프로토콜이 만료가 임박한 인증서를 자동으로 갱신할 수 없으므로 1년 기한 후 노드를 다시 등록해야 합니다. 다시 등록하기 전에 각 노드가 Windows Management Framework 5.0 RTM을 실행 중인지 확인합니다. 노드의 인증 인증서가 만료되고 노드가 다시 등록되지 않은 경우, 노드가 Azure 자동화와 통신할 수 없으며 '응답 없음'으로 표시됩니다. 재등록은 노드를 처음 등록할 때와 같은 방식으로 수행됩니다. 노드 만료 시점으로부터 90일 안이나, 인증서 만료 이후에 재등록을 수행하면 새 인증서를 생성하여 사용하게 됩니다.
 
 ##관련 문서##
 
 - [Azure 자동화 DSC cmdlets](https://msdn.microsoft.com/library/mt244122.aspx)
 - [Azure 자동화 DSC 가격 책정](http://azure.microsoft.com/pricing/details/automation/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

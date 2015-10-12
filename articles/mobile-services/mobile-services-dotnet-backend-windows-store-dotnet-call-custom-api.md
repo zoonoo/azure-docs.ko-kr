@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/28/2015"
 	ms.author="glenga"/>
 
 # 클라이언트에서 사용자 지정 API 호출
@@ -61,4 +61,4 @@
 [정기 알림을 지원하는 사용자 지정 API 정의]: mobile-services-windows-store-dotnet-create-pull-notifications.md
 [원본 제어에 서버 스크립트 저장]: mobile-services-store-scripts-source-control.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

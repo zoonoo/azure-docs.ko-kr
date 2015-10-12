@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/24/2015"
 	ms.author="wesmc"/>
 
 #Azure 알림 허브 사용자에게 알림
@@ -465,4 +465,4 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 [3]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-registered.png
 [4]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-enter-msg.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

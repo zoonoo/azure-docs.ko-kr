@@ -1,18 +1,18 @@
 <properties 
 	pageTitle="Visual Studio를 사용하여 WebJob 배포" 
 	description="Visual Studio를 사용하여 Azure 앱 서비스에 Azure WebJob를 배포하는 방법에 대해 알아봅니다." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tdykstra" 
 	manager="wpickett" 
 	editor="jimbe"/>
 
 <tags 
-	ms.service="app-service-web" 
+	ms.service="app-service" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.date="09/22/2015" 
 	ms.author="tdykstra"/>
 
@@ -200,4 +200,4 @@ WebJob 프로젝트 자체를 배포하려면 **솔루션 탐색기**에서 이 
 * Azure 미리 보기 포털에서 Azure 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

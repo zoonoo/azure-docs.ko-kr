@@ -67,7 +67,7 @@ Azure 포털뿐 아니라 HDInsight 관리에 사용할 수 있는 기타 도구
 
 	![클러스터 자격 증명 블레이드](./media/hdinsight-administer-use-portal-linux/clustercredentials.png)
     
-    > [AZURE.NOTE]SSH는 명령줄을 사용하여 HDInsight 클러스터에 원격으로 액세스하는데 사용됩니다. 사용자 이름 및 암호 또는 여기에 사용되는 공용 키는 SSH 통해 클러스터에 연결할 때 사용됩니다. 또한 모든 HDInsight 클러스터 노드에 대해 사용자 계정을 생성하므로 SSH 사용자 이름은 고유해야 합니다. 다음은 클러스터에서 서비스에 의해 사용하도록 예약된 계정 이름 중 일부이며 SSH 사용자 이름으로 __사용해서는 안됩니다__.
+    > [AZURE.NOTE]SSH는 명령줄을 사용하여 HDInsight 클러스터에 원격으로 액세스하는 데 사용됩니다. 사용자 이름 및 암호 또는 여기에 사용되는 공용 키는 SSH 통해 클러스터에 연결할 때 사용됩니다. 또한 모든 HDInsight 클러스터 노드에 대해 사용자 계정을 생성하므로 SSH 사용자 이름은 고유해야 합니다. 다음은 클러스터에서 서비스에 의해 사용하도록 예약된 계정 이름 중 일부이며 SSH 사용자 이름으로 __사용해서는 안됩니다__.
     >
     > root, hdiuser, storm, hbase, ubuntu, zookeeper, hdfs, yarn, mapred, hbase, hive, oozie, falcon, sqoop, admin, tez, hcat, hdinsight-zookeeper.
 
@@ -95,7 +95,9 @@ Azure 포털뿐 아니라 HDInsight 관리에 사용할 수 있는 기타 도구
 
 	- __선택__: 데이터 원본 구성을 저장하려면 이 항목을 사용합니다.
 
+	
 8. __노드 가격 책정 계층__을 선택하여 이 클러스터에 대해 만들어질 노드에 대한 정보를 표시합니다. 기본적으로 작업자 노드 수는 __4__로 설정됩니다.
+
 
 	클러스터의 예상 비용이 이 블레이드의 맨 아래에 표시됩니다.
 
@@ -114,8 +116,12 @@ Azure 포털뿐 아니라 HDInsight 관리에 사용할 수 있는 기타 도구
 		> [AZURE.IMPORTANT]HDInsight 구성에서 새 네트워크를 만들 수 없으므로 HDInsight 클러스터를 만들기 전에 Azure 가상 네트워크를 만들어야 합니다.
 		>
 		> 현재(2015/8/25) 하나의 Linux 기반 HDInsight 클러스터만 Azure 가상 네트워크에 있을 수 있다는 제한 사항이 있습니다.
+        >
+        > Linux 기반 HDInsight와 함께 v1(클래식) Azure 가상 네트워크를 사용할 수 없습니다. 가상 네트워크는 v2(Azure 리소스 관리자)가 되어야만 Azure Preview 포털에서 HDInsight 클러스터를 만드는 과정 중 옵션으로 나열되거나 Azure CLI 또는 Azure PowerShell에서 클러스터를 만들 때 사용될 수 있습니다.
+        >
+        > v1 네트워크에 리소스가 있고 HDInsight가 가상 네트워크를 통해 이러한 리소스에 직접 액세스할 수 있도록 하려면 [클래식 VNet을 새 VNet에 연결](../virtual-network/virtual-networks-arm-asm-s2s.md)을 참조하여 v2 가상 네트워크를 v1 가상 네트워크에 연결하는 방법에 대한 정보를 확인하세요. 이 연결이 설정되면 v2 가상 네트워크에 HDInsight 클러스터를 만들 수 있습니다.
 
-	* __스크립트 동작__: 프로비전 중 HDInsight 클러스터를 사용자 지정하는 Bash 스크립트를 지정할 수 있습니다. 예를 들어 [색상을 설치하는 스크립트](hdinsight-hadoop-hue-linux.md)(Hadoop과 함께 작업하기 위한 그래픽 클라이언트)가 있습니다. 스크립트 동작에 대한 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
+	* __스크립트 동작__: 프로비전 중 HDInsight 클러스터를 사용자 지정하는 Bash 스크립트를 지정할 수 있습니다. 예를 들어 [Hue를 설치하는 스크립트](hdinsight-hadoop-hue-linux.md)(Hadoop과 함께 작업하기 위한 그래픽 클라이언트)가 있습니다. 스크립트 동작에 대한 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
 	* __Azure 저장소 키__: 추가 저장소 계정을 HDInsight 서버와 연결할 수 있습니다.
 
@@ -129,7 +135,7 @@ Azure 포털뿐 아니라 HDInsight 관리에 사용할 수 있는 기타 도구
 	| ------------------ | --------------------- |
 	| ![시작 보드에 표시기 프로비전](./media/hdinsight-administer-use-portal-linux/provisioning.png) | ![프로비전된 클러스터 타일](./media/hdinsight-administer-use-portal-linux/provisioned.png) |
 
-	> [AZURE.NOTE]클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 __알림__ 항목을 사용하여 프로비전 프로세스를 확인하세요.
+	> [AZURE.NOTE]클러스터를 만드는데 약간의 시간이 걸리며, 일반적으로 약 15분이 소요됩니다. 시작 보드에 있는 타일 또는 페이지 왼쪽에 있는 __알림__ 항목을 사용하여 프로비전 프로세스를 확인합니다.
 
 ## 클러스터 관리
 
@@ -139,7 +145,7 @@ Azure 미리 보기 포털에서 클러스터를 선택하면 이름, 리소스 
 
 다음을 사용하여 이 블레이드의 위쪽과 __필수__ 및 __빠른 링크__ 섹션에 있는 아이콘을 이해합니다.
 
-* __설정__ 및 __모든 설정__: 클러스터의 자세한 구성 정보에 액세스할 수 있는 클러스터의 __설정__ 블레이드를 표시합니다.
+* __설정__ 및 __모든 설정__: 클러스터의 자세한 구성 정보에 액세스할 수 있도록 하는 클러스터의 __설정__ 블레이드를 표시합니다.
 
 * __대시보드__, __클러스터 대시보드__ 및 __URL__: 이러한 항목을 통해 Linux 기반 클러스터용 Ambari 웹인 클러스터 대시보드에 액세스할 수 있습니다.
 
@@ -189,4 +195,4 @@ HDInsight 클러스터 블레이드의 __사용량__ 섹션은 해당 클러스�
 
 [preview-portal]: https://portal.azure.com
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

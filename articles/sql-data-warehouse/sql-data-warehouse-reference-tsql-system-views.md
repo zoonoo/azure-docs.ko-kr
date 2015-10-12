@@ -270,4 +270,4 @@ SQL 데이터 웨어하우스는 Microsoft의 MPP 기술을 기반으로 하므�
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

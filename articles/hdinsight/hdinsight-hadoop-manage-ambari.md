@@ -33,11 +33,7 @@ Ambari는 Linux 기반 HDInsight 클러스터를 기본으로 제공합니다. W
 
 > [AZURE.NOTE]클러스터의 Ambari는 인터넷을 통해 직접 액세스할 수 있지만 Ambari 웹 UI의 일부 링크(예: JobTracker)는 인터넷에 노출되지 않습니다. 따라서 클러스터 헤드 노드로 웹 트래픽을 프록시하는 데 SSH(보안 셸) 터널을 사용하지 않는 경우, 이러한 기능에 액세스 하려고 하면 "서버를 찾을 수 없음" 오류가 발생합니다.
 
-다음 문서를 사용하여 로컬 컴퓨터의 포트에서 클러스터로 SSH 터널을 만듭니다.
-
-* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Linux, Unix 또는 OS X에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용</a>: `ssh` 명령을 사용하여 SSH 터널을 만드는 단계
-
-* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용</a> - PuTTY를 사용하여 SSH 터널을 만드는 단계
+Ambari로 작업하기 위해 SSH 터널 생성에 대한 정보는 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
 ##Ambari 웹 UI
 
@@ -141,11 +137,7 @@ Ambari는 많은 경고를 보여주며 다음 상태 중 하나입니다.
 
 > [AZURE.NOTE]서비스에 대한 **Quick Links** 링크를 선택한 경우 SSL(Secure Sockets Layer) 터널을 사용하여 클러스터에 대한 웹 트래픽을 프록시하지 않으면 "server not found" 오류가 반환됩니다. 이 정보를 표시하는 데 사용되는 웹 응용 프로그램이 인터넷에 노출되지 않기 때문입니다.
 >
-> HDInsight와 함께 SSL 터널 사용에 대한 내용은 다음 중 하나를 참조하세요..
->
-> * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Linux, Unix 또는 OS X에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용</a> - `ssh` 명령을 사용하여 SSH 터널을 만드는 단계
->
->* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Windows에서 HDInsight의 Linux 기반 Hadoop과 SSH 사용</a> - PuTTY를 사용하여 SSH 터널을 만드는 단계
+> HDInsight로 SSL 터널 사용에 대한 정보는 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
 ##관리
 
@@ -236,4 +228,4 @@ Ambari 웹은 관리 및 모니터링 도구를 만드는데 활용할 수 있�
 
 REST API의 모든 참조 문서를 보려면 [Ambari API 참조 V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)을 참조하세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

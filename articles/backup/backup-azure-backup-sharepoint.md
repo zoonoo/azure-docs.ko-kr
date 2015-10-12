@@ -226,4 +226,4 @@ Q: SharePoint가 SQL AlwaysOn을 사용하여 구성된 경우 SharePoint 데이
 - [System Center 2012-Data Protection Manager의 릴리스](https://technet.microsoft.com/library/jj860415.aspx)를 검토하세요
 - [System Center 2012 s p 1의 Data Protection Manager에 대한 릴리스 정보](https://technet.microsoft.com/library/jj860394.aspx)를 검토하세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

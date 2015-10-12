@@ -239,4 +239,4 @@ Noam Ben Zeev는 Power BI를 내보내는 방법을 보여줍니다.
 * [Application Insights](app-insights-overview.md)
 * [추가 샘플 및 연습](app-insights-code-samples.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -134,6 +134,22 @@ Tomcat의 경우와 마찬가지로 고객이 고유한 Jetty 인스턴스를 �
 
 start.ini에서 `java.net.preferIPv4Stack=true`를 설정하도록 Jetty 구성을 변경해야 합니다.
 
+### Springboot
+Springboot 응용 프로그램을 실행하려면 JAR 또는 WAR 파일을 업로드하고 다음 web.config 파일을 추가해야 합니다. web.config 파일은 wwwroot 폴더에 저장됩니다. web.config에서 인수가 JAR 파일을 가리키도록 조정합니다. 다음 예제에서 JAR 파일은 wwwroot 폴더에도 있습니다.
+
+	<?xml version="1.0" encoding="UTF-8"?>
+	<configuration>
+	  <system.webServer>
+	    <handlers>
+	      <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
+	    </handlers>
+	    <httpPlatform processPath="%JAVA_HOME%\bin\java.exe"
+	        arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar ";%HOME%\site\wwwroot\my-web-project.jar";">
+	    </httpPlatform>
+	  </system.webServer>
+	</configuration>
+
+
 ### Hudson
 
 이 테스트에서는 구성을 설정하는 데 Hudson 3.1.2 war 및 기본 Tomcat 7.0.50 인스턴스를 사용하지만 UI는 사용하지 않습니다. Hudson이 소프트웨어 빌드 도구이므로 웹 앱에서 **AlwaysOn** 플래그를 설정할 수 있는 전용 인스턴스에 Hudson을 설치하는 것이 좋습니다.
@@ -179,7 +195,7 @@ start.ini에서 `java.net.preferIPv4Stack=true`를 설정하도록 Jetty 구성�
 
 8. 설정을 저장합니다. Hudson을 구성하였으므로 이제 사용할 준비가 되었습니다.
 
-Hudson에 대한 자세한 내용은 [http://hudson-ci.org](http://hudson-ci.org)를 참조하세요.
+Hudson에 대한 자세한 내용은 [http://hudson-ci.org](http://hudson-ci.org)를 참조하십시오.
 
 ### Liferay
 
@@ -241,4 +257,4 @@ Java에 대한 자세한 내용은 [Java개발자 센터](/develop/java/)를 참
 <!-- External Links -->
 [Azure 앱 서비스]: http://go.microsoft.com/fwlink/?LinkId=529714
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

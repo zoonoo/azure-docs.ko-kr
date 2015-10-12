@@ -1,5 +1,5 @@
 <properties
-	pageTitle="PHP에서 큐 저장소를 사용하는 방법 | Microsoft Azure&quot;"
+	pageTitle="PHP에서 큐 저장소를 사용하는 방법 | Microsoft Azure";"
 	description="Azure 큐 저장소를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다. 샘플은 PHP로 작성되었습니다."
 	documentationCenter="php"
 	services="storage"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="PHP"
 	ms.topic="article"
-	ms.date="07/29/2015"
+	ms.date="09/23/2015"
 	ms.author="tomfitz"/>
 
 # PHP에서 큐 저장소를 사용하는 방법
@@ -378,9 +378,11 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 - 다음 MSDN 참조를 확인하세요. [Azure 저장소](http://msdn.microsoft.com/library/azure/gg433040.aspx).
 - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문)를 방문하세요.
 
+자세한 내용은 [PHP 개발자 센터](/develop/php/)도 참조하세요.
+
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Management Portal]: http://manage.windowsazure.com/
 [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

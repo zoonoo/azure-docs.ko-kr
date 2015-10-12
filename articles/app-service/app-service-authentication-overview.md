@@ -214,4 +214,4 @@ Azure에서 [ASP.NET Identity](http://www.asp.net/identity) 또는 [Thinktecture
 
 * [모바일 앱에서 액세스 토큰 가져오기 및 SharePoint API 호출](../app-service-mobile/app-service-mobile-dotnet-backend-get-started-connect-to-enterprise.md#obtain-token)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

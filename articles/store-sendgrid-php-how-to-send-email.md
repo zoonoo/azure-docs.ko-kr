@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="SendGrid 메일 서비스를 사용하는 방법(PHP) | Microsoft Azure"
-	description="Azure에서 SendGrid 메일 서비스를 사용하여 메일을 보내는 방법을 알아봅니다. 코드 샘플은 PHP로 작성되었습니다."
-	documentationCenter="php"
-	services=""
-	manager="sendgrid"
-	editor="mollybos"
+	pageTitle="SendGrid 메일 서비스를 사용하는 방법(PHP) | Microsoft Azure" 
+	description="Azure에서 SendGrid 메일 서비스를 사용하여 메일을 보내는 방법을 알아봅니다. 코드 샘플은 PHP로 작성되었습니다." 
+	documentationCenter="php" 
+	services="" 
+	manager="sendgrid" 
+	editor="mollybos" 
 	authors="thinkingserious"/>
 
 <tags 
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="PHP"
-	ms.topic="article"
-	ms.date="10/30/2014"
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
 	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com"/>
 # PHP에서 SendGrid 메일 서비스를 사용하는 방법
 
@@ -390,6 +390,9 @@ SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으�
 -   SendGrid PHP 라이브러리: <https://github.com/sendgrid/sendgrid-php>
 -   Azure 고객을 위한 SendGrid 특가 제공: <https://sendgrid.com/windowsazure.html>
 
+자세한 내용은 [PHP 개발자 센터](/develop/php/)도 참조하세요.
+
+
   [https://sendgrid.com]: https://sendgrid.com
   [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
   [special offer]: https://www.sendgrid.com/windowsazure.html
@@ -401,4 +404,4 @@ SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으�
   [sendgrid-php 라이브러리]: https://github.com/sendgrid/sendgrid-php/tree/v2.1.1
   [Composer]: https://getcomposer.org/download/
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

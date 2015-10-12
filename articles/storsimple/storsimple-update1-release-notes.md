@@ -1,19 +1,19 @@
 <properties 
-    pageTitle="StorSimple 8000 시리즈 업데이트 1.2 릴리스 정보 | Microsoft Azure"
-    description="StorSimple 8000 시리즈 업데이트 1.2의 새로운 기능, 문제 및 해결 방법을 설명합니다."
-    services="storsimple"
-    documentationCenter="NA"
-    authors="alkohli"
-    manager="carolz"
-    editor="" />
+   pageTitle="StorSimple 8000 시리즈 업데이트 1.2 릴리스 정보 | Microsoft Azure"
+   description="StorSimple 8000 시리즈 업데이트 1.2의 새로운 기능, 문제 및 해결 방법을 설명합니다."
+   services="storsimple"
+   documentationCenter="NA"
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
  <tags 
-    ms.service="storsimple"
-    ms.devlang="NA"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"
-    ms.workload="TBD"
-    ms.date="09/09/2015"
-    ms.author="alkohli" />
+   ms.service="storsimple"
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD"
+   ms.date="09/09/2015"
+   ms.author="alkohli" />
 
 # StorSimple 8000 시리즈 업데이트 1.2 릴리스 정보  
 
@@ -124,4 +124,4 @@ StorSimple 솔루션에 업데이트를 배포하기 전에 릴리스 정보에 
 - [장치에 업데이트 1.2를 설치합니다](storsimple-install-update-1.md).
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

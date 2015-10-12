@@ -21,7 +21,7 @@
 
 [AZURE.INCLUDE [pig-선택기](../../includes/hdinsight-maven-mapreduce-selector.md)]
 
-이 문서에서는 Apache Maven을 사용하여 MapReduce 응용 프로그램을 만든 다음 HDInsight 클러스터의 Linux 기반 Hadoop에서 배포하고 실행하는 과정을 안내합니다.
+이 문서에서는 Apache Maven을 사용하여 MapReduce 응용 프로그램을 만든 다음 HDInsight 클러스터의 Linux 기반 Hadoop에서 배포하고 실행하는 과정을 안내합니다. HDInsight 클러스터에서 Windows 기반 Hadoop 사용에 대한 정보는 [HDInsight에서 Hadoop용 Java MapReduce 프로그램 개발(Windows)](hdinsight-develop-deploy-java-mapreduce.md)을 참조하세요.
 
 ##<a name="prerequisites"></a>필수 조건
 
@@ -33,7 +33,7 @@
 
 - **Azure 구독**: [Azure 무료 평가판 받기](get-azure-free-trial-for-testing-hadoop-in-hdinsight.md)를 참조하세요.
 
-- **Azure CLI**: 자세한 내용은 [Azure CLI 설치 및 구성](../xplat-cli.md)을 참조하세요.
+- **Azure CLI**: 자세한 내용은 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하세요.
 
 ##환경 변수 구성
 
@@ -88,9 +88,9 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 		  <scope>provided</scope>
 		</dependency>
 
-	이 코드를 통해 Maven은 프로젝트에 특정 버전(<version>에 나열됨)의 라이브러리(<artifactId> 내에 나열됨)가 필요하다는 것을 인식합니다. 컴파일 시간에 이 파일이 기본 Maven 리포지토리에서 다운로드됩니다. [Maven 리포지토리 검색](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar)을 사용하여 자세한 정보를 볼 수 있습니다.
+	이 코드를 통해 Maven은 프로젝트에 특정 버전(&lt;version>에 나열됨)의 라이브러리(&lt;artifactId> 내에 나열됨)가 필요하다는 것을 인식합니다. 컴파일 시간에 이 파일이 기본 Maven 리포지토리에서 다운로드됩니다. [Maven 리포지토리 검색](http://search.maven.org/#artifactdetails%7Corg.apache.hadoop%7Chadoop-mapreduce-examples%7C2.5.1%7Cjar)을 사용하여 자세한 정보를 볼 수 있습니다.
 
-	`<scope>provided</scope>`는 이러한 종속성은 런타임에 HDInsight 클러스터에서 제공되므로 응용 프로그램과 함께 패키징해서는 안 된다는 점을 Maven에 알려 줍니다.
+	`<scope>provided</scope>`는 이러한 종속성이 런타임에 HDInsight 클러스터에서 제공되므로 응용 프로그램과 함께 패키징해서는 안 된다는 점을 Maven에 알려 줍니다.
 
 2. __pom.xml__ 파일에 다음을 추가합니다. 이 코드는 파일의 `<project>...</project>` 태그 내에 있어야 합니다. 예를 들어`</dependencies>`과 `</project>` 사이에 있어야 합니다.
 
@@ -126,7 +126,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
   		  </plugins>
 	    </build>
 
-	첫 번째 플러그 인은 응용 프로그램에 필요한 종속성을 포함하는 uberjar(fatjar이라고도 함)을 빌드하는 데 사용되는 [Maven Shade Plugin](http://maven.apache.org/plugins/maven-shade-plugin/)을 구성합니다. 또한 일부 시스템에서 문제를 일으킬 수 있는 jar 패키지 내 라이선스 중복을 방지합니다.
+	첫 번째 플러그 인은 [Maven Shade Plugin](http://maven.apache.org/plugins/maven-shade-plugin/)을 구성하고 이는 응용 프로그램에 필요한 종속성을 포함하는 uberjar(fatjar이라고도 함)을 빌드하는 데 사용됩니다. 또한 일부 시스템에서 문제를 일으킬 수 있는 jar 패키지 내 라이선스 중복을 방지합니다.
 
 	두 번째 플러그 인은 이 응용 프로그램에 필요한 Java 버전을 HDInsight 클러스터에서 사용되는 버전으로 설정하는 데 사용되는 Maven 컴파일러를 구성합니다.
 
@@ -213,7 +213,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 ##응용 프로그램 빌드
 
-1. __wordcountjava__ 디렉터리로 변경합니다(아직 이동하지 않은 경우).
+1. 아직 수행하지 않은 경우 __wordcountjava__ 디렉터리로 변경합니다.
 
 2. 다음 명령을 사용하여 응용 프로그램을 포함하는 JAR 파일을 빌드합니다.
 
@@ -223,7 +223,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 
 3. 명령이 완료되면 __wordcountjava/target__ 디렉터리에 __wordcountjava-1.0-SNAPSHOT.jar__라는 파일이 포함됩니다.
 
-	> [AZURE.NOTE]__wordcountjava-1.0-SNAPSHOT.jar__ 파일은 는 WordCount 작업뿐만 아니라 런타임에 작업에서 필요로 하는 종속성을 포함하는 uberjar입니다.
+	> [AZURE.NOTE]__wordcountjava-1.0-SNAPSHOT.jar__ 파일은 WordCount 작업 뿐만 아니라 런타임 시 작업에서 필요로 하는 종속성을 포함하는 uberjar입니다.
 
 
 ##<a id="upload"></a>jar 업로드
@@ -270,7 +270,7 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 - [HDInsight에서 Pig 사용][hdinsight-use-pig]
 - [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)
 
-또한 자세한 내용은 [Java개발자 센터](/develop/java/)를 참조하세요.
+자세한 내용은 [Java 개발자 센터](/develop/java/)를 참조하세요.
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -300,4 +300,4 @@ Java 및 JDK를 설치할 때 다음 환경 변수를 설정할 수 있습니다
 [image-emulator-wordcount-compile]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Compile-Java-MapReduce.png
 [image-emulator-wordcount-run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

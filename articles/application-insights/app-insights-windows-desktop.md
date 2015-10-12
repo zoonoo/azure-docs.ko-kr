@@ -200,12 +200,14 @@ TrackMetric 또는 TrackEvent의 측정 매개 변수를 사용한 경우 [메�
     ``` 
 3. 앱을 닫기 전에 `telemetryClient.Flush()`을 사용하여 데이터를 포털로 전송하거나 파일에 저장합니다.
 
+    Flush()는 지속성 채널에서 동기 상태이지만 타 채널에서는 비동기 상태입니다.
+
  
 지속성 채널은 응용 프로그램에서 생성된 이벤트 수가 상대적으로 작고 연결이 자주 신뢰할 수 없는 장치 시나리오에 최적화됩니다. 이 채널은 신뢰할 수 있는 디스크의 저장소에 먼저 이벤트를 쓰고 전송하려 합니다.
 
 #### 예
 
-처리되지 않은 예외를 모니터링하려는 경우를 가정해 보겠습니다. `UnhandledException` 이벤트에 구독합니다. 콜백에서 플러시에 호출을 포함하여 원격 분석이 유지되도록 합니다.
+처리되지 않은 예외를 모니터링하려는 경우를 가정해 보겠습니다. `UnhandledException` 이벤트를 구독합니다. 콜백에서 플러시에 호출을 포함하여 원격 분석이 유지되도록 합니다.
  
 ```C# 
 
@@ -297,4 +299,4 @@ namespace ConsoleApplication1
 [CoreNuGet]: https://www.nuget.org/packages/Microsoft.ApplicationInsights
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

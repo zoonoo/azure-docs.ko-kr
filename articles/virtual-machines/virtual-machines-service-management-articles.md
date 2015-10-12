@@ -41,7 +41,7 @@
 
 [Azure CLI(Azure 명령줄 인터페이스)를 사용하여 VM 만들기](virtual-machines-xplat-getting-started.md)
 
-[Azure CLI를 사용하여 여러 VM 배포 만들기](virtual-machines-create-multi-vm-deployment-xplat-cli.md)
+[Azure CLI를 사용하여 여러 VM 배포 만들기](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md)
 
 ## 계획
 
@@ -95,7 +95,7 @@
 
 [Cassandra](virtual-machines-linux-nodejs-running-cassandra.md)
 
-[Docker](virtual-machines-docker-with-xplat-cli.md)
+[Docker](virtual-machines-docker-with-xplat-cli-install.md)
 
 [Exchange Server](https://technet.microsoft.com/library/jj619301.aspx)
 
@@ -151,4 +151,4 @@
 
 [Azure 서비스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](virtual-machines-command-line-tools.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

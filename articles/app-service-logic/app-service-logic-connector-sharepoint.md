@@ -1,20 +1,20 @@
 <properties
    pageTitle="논리 앱에서 SharePoint 커넥터 사용 | Microsoft Azure 앱 서비스"
-	description="SharePoint 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""/>
+   description="SharePoint 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="sameerch"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="sameerch"/>
 
 # SharePoint 커넥터 시작 및 논리 앱에 추가
 SharePoint Server 또는 SharePoint Online에 연결하여 문서를 관리하고 목록을 나열합니다. 문서에 대해 만들기, 업데이트, 가져오기 및 삭제와 같은 다양한 작업을 수행하고 항목을 나열할 수 있습니다. 온-프레미스 SharePoint 서버를 사용할 경우 서비스 버스 연결 문자열을 커넥터 구성의 일부로 입력하고, 온-프레미스 수신기 에이전트를 설치하여 서버에 연결할 수 있습니다.
@@ -59,7 +59,7 @@ SharePoint Online 커넥터 및 SharePoint Server 커넥터 갤러리 앱은 Sha
 문서 라이브러리/목록 상대 URL | 예 | 문서 라이브러리 입력/SharePoint 사이트 URL에 상대적이며 커넥터에서 수정할 수 있는 URL을 입력합니다. 예를 들어 *목록/작업, 공유 문서*를 입력합니다.
 서비스 버스 연결 문자열 | 아니요 | 온-프레미스에 연결할 경우 서비스 버스 릴레이 연결 문자열을 입력합니다.<br/><br/>[하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md)<br/>[서비스 버스 가격](http://azure.microsoft.com/pricing/details/service-bus/)
 
-5. 완료되면 패키지 설정은 다음과 유사합니다.
+5. 완료되면 패키지 설정은 다음과 유사합니다.  
 	![][2]
 
 작업을 완료하면 이제 동일한 리소스 그룹에서 논리 앱을 만들어 SharePoint Server 커넥터를 사용할 수 있습니다.
@@ -464,6 +464,8 @@ ItemID | 예 | 목록 항목의 ItemId입니다.
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
+>[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+
 [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
 커넥터의 성능 통계를 검토하고 보안을 제어할 수 있습니다. [API 앱 및 커넥터를 관리 및 모니터링](app-service-api-manage-in-portal.md)을 참조하세요.
@@ -478,4 +480,4 @@ ItemID | 예 | 목록 항목의 ItemId입니다.
 [6]: ./media/app-service-logic-connector-sharepoint/image_5.png
 [7]: ./media/app-service-logic-connector-sharepoint/image_6.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

@@ -28,7 +28,7 @@
 
 이 문서에서는 PowerShell을 사용하여 SQL 데이터베이스의 서비스 계층 및 성능 수준을 변경하는 방법을 보여 줍니다.
 
-[SQL 데이터베이스 Web/Business 데이터베이스를 새 서비스 계층으로 업그레이드](sql-database-upgrade-new-service-tiers.md) 및 [Azure SQL 데이터베이스 서비스 계층 및 성능 수준](https://msdn.microsoft.com/library/azure/dn741336.aspx)의 정보를 사용하여 Azure SQL 데이터베이스에 대해 적절한 서비스 계층 및 성능 수준을 결정합니다.
+[SQL 데이터베이스 Web/Business 데이터베이스를 새 서비스 계층으로 업그레이드](sql-database-upgrade-new-service-tiers.md) 및 [Azure SQL 데이터베이스 서비스 계층 및 성능 수준](sql-database-service-tiers.md)의 정보를 사용하여 Azure SQL 데이터베이스에 대해 적절한 서비스 계층 및 성능 수준을 결정합니다.
 
 > [AZURE.IMPORTANT]SQL 데이터베이스의 서비스 계층 및 성능 수준 변경은 온라인 작업입니다. 즉, 데이터베이스가 온라인 상태이 고 전체 작업 중에 가동 중지 시간 없이 사용할 수 있습니다.
 
@@ -134,4 +134,4 @@ Azure SQL 데이터베이스의 서비스 계층을 변경하는 Cmdlet은 Azure
 - [비즈니스 연속성 개요](sql-database-business-continuity.md)
 - [SQL 데이터베이스 설명서](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

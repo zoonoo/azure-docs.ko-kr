@@ -224,4 +224,4 @@ Azure SQL 데이터베이스에서는 **conn.beginTransactions** 메소드가 �
 
 자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/)를 참조하십시오.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

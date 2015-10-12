@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="javascript"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/28/2015" 
 	ms.author="glenga"/>
 
 
@@ -26,7 +26,7 @@
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-javascript-get-started-data%2F)을 참조하십시오.
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-javascript-get-started-data%2F)을 참조하십시오.
 * Visual Studio 2013에서는 Windows 스토어 앱을 모바일 서비스에 쉽게 연결할 수 있도록 합니다.
 
 ##GetStartedWithData 프로젝트 다운로드
@@ -140,4 +140,4 @@
 [개발자 코드 샘플 사이트]: http://go.microsoft.com/fwlink/p/?LinkId=328660
 [Mobile Services HTML/JavaScript How-to Conceptual Reference]: mobile-services-html-how-to-use-client-library.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

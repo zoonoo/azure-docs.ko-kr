@@ -39,23 +39,25 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 - 응용 프로그램에 **응용 프로그램 암호**를 만들고 복사합니다. 곧 필요합니다.
 - 앱에 할당된 **응용 프로그램 ID**를 적복사합니다. 또한 곧 필요합니다.
 
-    > [AZURE.IMPORTANT][Azure 포털](https://manage.windowsazure.com/)의 **응용 프로그램** 탭에 등록된 응용 프로그램은 사용할 수 없습니다.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## 3\. 정책 만들기
 
-Azure AD B2C에서 모든 사용자 환경은 [**정책**](active-directory-b2c-reference-policies.md)에 의해 정의됩니다. 이 웹앱은 등록, 로그인 및 편집 프로필 등 세 가지 ID 환경을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)에서 설명한 대로 각 형식의 정책을 하나씩 만들어야 합니다. 세 가지 정책을 만들 때 다음을 확인합니다.
+Azure AD B2C에서 모든 사용자 환경은 [**정책**](active-directory-b2c-reference-policies.md)에 의해 정의됩니다. 이 웹앱은 등록, 로그인 및 편집 프로필 등 세 가지 ID 환경을 포함합니다. [정책 참조 문서](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy)에서 설명한 대로 각 형식에 하나의 정책을 만들어야 합니다. 세 가지 정책을 만들 때 다음을 확인합니다.
 
-- 등록 정책에서 **표시 이름** 및 다른 몇가지 등록 특성을 선택합니다.
+- 등록 정책에서 **표시 이름** 및 다른 몇 가지 등록 특성을 선택합니다.
 - 모든 정책에서 **표시 이름** 및 **개체 ID** 응용 프로그램 클레임을 선택합니다. 물론 다른 클레임을 선택할 수 있습니다.
-- 각 정책을 만든 후에 **이름**을 적어둡니다. 접두사 `b2c_1_`이 있어야 합니다. 이러한 정책 이름이 곧 필요합니다. 
+- 각 정책을 만든 후에 **이름**을 복사합니다. 접두사 `b2c_1_`가 있어야 합니다. 이러한 정책 이름이 곧 필요합니다.
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 세 가지 정책을 성공적으로 만들었다면 앱을 빌드할 준비가 되었습니다.
 
-이 문서는 방금 만든 정책을 사용하는 방법을 다루지 않습니다. Azure AD B2C에서 정책이 작동하는 방식을 알아보려면 [.NET 웹앱 시작 자습서](active-directory-b2c-devquickstarts-web-dotnet.md)에서 시작해야 합니다.
+이 문서는 방금 만든 정책을 사용하는 방법을 다루지 않습니다. Azure AD B2C에서 정책 작동 방법을 알아보려면 [.NET 웹앱 시작 자습서](active-directory-b2c-devquickstarts-web-dotnet.md)로 시작해야 합니다.
 
 ## 4\. 코드 다운로드
 
-이 자습서에 대한 코드는 [GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet)에서 유지 관리됩니다. 진행하면서 샘플을 빌드하려면 [기본 프로젝트를 .zip으로 다운로드](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/skeleton.zip)하거나 기본 프로젝트를 복제합니다.
+이 자습서에 대한 코드는 [GitHub](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet)에서 유지 관리됩니다. 진행하면서 샘플을 빌드하려면 [골격 프로젝트를 .zip으로 다운로드](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/skeleton.zip)하거나 골격을 복제합니다.
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git
@@ -63,7 +65,7 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-Web
 
 완성된 앱도 [.zip으로 다운로드하거나](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip) 동일한 리포지토리의 `complete` 분기에서 사용할 수 있습니다.
 
-샘플 코드를 다운로드했으면 Visual Studio `.sln` 파일을 열어 시작합니다. 솔루션에 `TaskWebApp` 프로젝트와 `TaskService` 프로젝트라는 두 프로젝트가 있는 것을 확인합니다. `TaskWebApp`은 사용자가 조작하는 WPF 웹앱 프런트 엔드입니다. `TaskService`는 각 사용자의 할 일 모음을 저장하는 앱의 백 엔드 Web API입니다.
+샘플 코드를 다운로드하면 Visual Studio `.sln` 파일을 열어 시작합니다. 솔루션에 `TaskWebApp` 프로젝트와 `TaskService` 프로젝트라는 두 프로젝트가 있는 것을 확인합니다. `TaskWebApp`은 사용자가 조작하는 WPF 웹앱 프런트 엔드입니다. `TaskService`는 각 사용자의 할 일 모음을 저장하는 앱의 백 엔드 Web API입니다.
 
 ## 5\. 작업 서비스 구성
 
@@ -80,15 +82,16 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-Web
     <add key="ida:ClientId" value="{Enter the Application ID assigned to your app by the Azure Portal}" />
     <add key="ida:PolicyId" value="{Enter the name of one of the policies you created, like `b2c_1_my_sign_in_policy`}" />
 </appSettings>
-  ```
+```
+  
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
-이 문서는 `TaskService` 보안에 대한 세부 정보는 포함하지 않습니다. Web API가 Azure AD B2C를 사용하여 요청을 안전하게 인증하는 방법을 알아보려면
-[Web API 시작 문서](active-directory-b2c-devquickstarts-api-dotnet.md)를 확인하세요.
 
-## 6. 작업 웹앱 구성
+이 문서에서는 `TaskService` 보안에 대한 세부 정보를 다루지 않습니다. Web API가 Azure AD B2C를 사용하여 요청을 안전하게 인증하는 방법을 알아보려면 [Web API 시작 문서](active-directory-b2c-devquickstarts-api-dotnet.md)를 확인하세요.
 
-`TaskWebApp`이 Azure AD B2C와 통신하려면 제공해야 하는 몇 가지 공통 매개 변수가 있습니다. `TaskWebApp` 프로젝트에서 프로젝트의 루트에 있는 
-`web.config` 파일을 열고 `<appSettings>` 섹션의 값을 바꿉니다. 이러한 값은 웹앱 전체에서 사용됩니다.
+## 6\. 작업 웹앱 구성
+
+`TaskWebApp`이 Azure AD B2C와 통신하려면 제공해야 하는 몇 가지 일반 매개 변수가 있습니다. `TaskWebApp` 프로젝트에서 프로젝트의 루트에 있는 `web.config` 파일을 열고 `<appSettings>` 섹션의 값을 바꿉니다. 이러한 값은 웹앱 전체에서 사용됩니다.
 
 ```
 <appSettings>
@@ -107,6 +110,8 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebApp-Web
     <add key="api:TaskServiceUrl" value="https://localhost:44332/" />
 </appSettings>
 ```     
+
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 로그인 정책 이름을 제공해야 하는 두 개의 `[PolicyAuthorize]` 데코레이터도 있습니다. 사용자가 인증이 필요한 앱의 페이지에 액세스하려고 하면 `[PolicyAuthorize]` 특성이 특정 정책을 호출하는 데 사용됩니다.
 
@@ -208,7 +213,7 @@ public partial class Startup
 
 이제 웹앱은 B2C 디렉토리를 사용하여 사용자에게 권한을 부여하고 Azure AD에서 권한 부여 코드를 다시 받도록 구성됩니다. 다음 단계는 Azure AD의 액세스 토큰에 대해 이 권한 부여 코드를 교환합니다.
 
-.NET 웹앱이 Azure AD에서 액세스 토큰을 가져와야 할 때마다 **ADAL(Active Directory 인증 라이브러리)**를 사용할 수 있습니다. 이 프로세스에 ADAL을 사용할 필요는 없지만 ADAL을 사용하면 OAuth 2.0 인증 메시지 보내기, 캐싱 및 토큰 새로 고침과 같은 많은 세부 정보를 쉽게 처리할 수 있습니다.
+.NET 웹앱이 Azure AD에서 액세스 토큰을 가져와야 할 때마다 **ADAL(Active Directory 인증 라이브러리)**을 사용할 수 있습니다. 이 프로세스에 ADAL을 사용할 필요는 없지만 ADAL을 사용하면 OAuth 2.0 인증 메시지 보내기, 캐싱 및 토큰 새로 고침과 같은 많은 세부 정보를 쉽게 처리할 수 있습니다.
 
 먼저 패키지 관리자 콘솔을 사용하여 `TaskWebApp` 프로젝트에 ADAL을 한 번 더 설치합니다.
 
@@ -216,7 +221,7 @@ public partial class Startup
 PM> Install-Package Microsoft.Experimental.IdentityModel.Clients.ActiveDirectory -ProjectName TaskWebApp -IncludePrerelease
 ```
 
-이제 ADAL에 권한 부여 코드를 전달 해야 사용자에게 토큰을 가져올 수 있습니다. OWIN OpenID Connect 미들웨어는 이 권한 부여 코드를 사용하여 사용자에게 알림을 제공합니다. 알림은 앱이 Azure AD에서 권한 부여 코드를 받을 때마다 발생합니다. `App_Start\Startup.Auth.cs`에서 ADAL을 사용하여 `OnAuthorizationCodeReceived` 알림 처리기를 구현합니다.
+이제 ADAL에 권한 부여 코드를 전달 해야 사용자에게 토큰을 가져올 수 있습니다. OWIN OpenID Connect 미들웨어는 이 권한 부여 코드를 사용하여 사용자에게 알림을 제공합니다. 알림은 앱이 Azure AD에서 권한 부여 코드를 받을 때마다 발생합니다. `App_Start\Startup.Auth.cs`에 ADAL을 사용하여 `OnAuthorizationCodeReceived` 알림 처리기를 구현합니다.
 
 ```C#
 // App_Start\Startup.Auth.cs
@@ -366,7 +371,7 @@ public void SignOut()
 
 마지막으로, `TaskClient` 및 `TaskService` 둘 다를 빌드 및 실행합니다. 앱에 등록 또는 로그인하고 로그인된 사용자에 대한 작업을 만듭니다. 해당 사용자에 대한 작업을 만들면서 로그아웃하고 다른 사용자 권한으로 다시 로그인합니다. API 가 받는 액세스 토큰에서 사용자의 ID를 추출하므로 API에 사용자 당 작업이 저장됩니다.
 
-참고로 완성된 샘플은 여기([)에서 .zip으로 다운로드](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip)하거나 GitHub에서 복제할 수 있습니다.
+참조를 위해 완성된 샘플이 [여기서 .zip으로 제공](https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet/archive/complete.zip)되거나 GitHub에서 복제할 수 있습니다.
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-WebApp-WebAPI-OpenIDConnect-DotNet.git```
 
@@ -382,4 +387,4 @@ You can now move onto more advanced B2C topics.  You may want to try:
 
 -->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -22,6 +22,7 @@
 
 가격 정보 및 각 서비스 계층에 포함된 항목의 목록은 [Azure 앱 서비스 가격](http://azure.microsoft.com/pricing/details/app-service/)을 참조하세요.
 
+> [AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 표준 커넥터
 다음 표에는 표준 커넥터에서 사용할 수 있는, Microsoft에서 만든 사용 가능한 모든 커넥터 및 API 앱이 나열되어 있습니다.
@@ -93,4 +94,4 @@ MQ | Windows 운영 체제를 실행하는 IBM WebSphere MQ Server 버전 8, 온
 
 [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md) [Azure 앱 서비스에서 하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md) [기본 제공 API 앱 및 커넥터 관리 및 모니터링](app-service-logic-monitor-your-connectors.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

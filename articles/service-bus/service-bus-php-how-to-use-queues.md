@@ -200,6 +200,8 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 
 지금까지 서비스 버스 큐의 기본 사항에 대해 알아보았습니다. 자세한 내용은 [큐, 토픽 및 구독][]을 참조하세요.
 
+자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
+
 [Service Bus Queue Diagram]: ../../../DevCenter/Java/Media/SvcBusQueues_01_FlowDiagram.jpg
 [Azure Management Portal]: http://manage.windowsazure.com/
 [Service Bus Node screenshot]: ../../../DevCenter/Java/Media/SvcBusQueues_02_SvcBusNode.jpg
@@ -213,4 +215,4 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/28/2015"
 	ms.author="jgao"/>
 
 
@@ -62,7 +62,7 @@ Microsoft는 Azure Blob 저장소에서 작업할 다음 유틸리티를 제공�
 
 Azure CLI는 Azure 서비스를 관리할 수 있도록 하는 크로스 플랫폼 도구입니다. Azure Blob 저장소에 데이터를 업로드하려면 다음 단계를 사용합니다:
 
-1. [Mac, Linux 및 Windows용 Azure CLI의 설치 및 구성](../xplat-cli.md)
+1. [Mac, Linux 및 Windows용 Azure CLI의 설치 및 구성](../xplat-cli-install.md)
 
 2. 명령 프롬프트, bash 또는 다른 셸을 열고 다음을 사용하여 Azure 구독을 인증합니다.
 
@@ -178,7 +178,7 @@ Azure 저장소를 사용하기 위한 그래픽 인터페이스를 제공하는
 
 | 클라이언트 | Linux | OS X | Windows |
 | ------ |:-----:|:----:|:-------:|
-| [Azure 저장소 탐색기](http://azurestorageexplorer.codeplex.com/) | | | ✔ |
+| [Azure 저장소 탐색기](http://storageexplorer.com/) | ✔ | ✔ | ✔ |
 | [클라우드 저장소 스튜디오 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | | ✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | | ✔ |
 | [Azure 탐색기](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | | ✔ |
@@ -187,29 +187,27 @@ Azure 저장소를 사용하기 위한 그래픽 인터페이스를 제공하는
 
 ###<a id="storageexplorer"></a>Azure 저장소 탐색기
 
-*Azure 저장소 탐색기*는 Azure 저장소의 데이터를 검사하고 변경하기 위한 유용한 도구로서 CodePlex: [Azure 저장소 탐색기](http://azurestorageexplorer.codeplex.com/ "Azure 저장소 탐색기")에서 무료로 다운로드할 수 있습니다.
+*Azure 저장소 탐색기*는 Blob의 데이터를 검사하고 변경하는 데 유용한 도구입니다. [http://storageexplorer.com/](http://storageexplorer.com/)에서 다운로드할 수 있는 무료 오픈 소스 도구입니다. 소스 코드도 이 링크에서 사용할 수 있습니다.
 
 이 도구를 사용하기 전에 Azure 저장소 계정 이름과 계정 키를 알아야 합니다. 더 자세한 정보를 얻을 지침을 보려면 [저장소 계정 생성, 관리 또는 삭제][azure-create-storage-account]에서 "방법: 저장소 액세스 키 보기, 복사 및 다시 생성” 섹션을 참조하세요.
 
-1. Azure 저장소 탐색기를 실행합니다.
+1. Azure 저장소 탐색기를 실행합니다. 저장소 탐색기를 처음 실행하는 경우 ___\_저장소 계정 이름__ 및 __저장소 계정 키__라는 메시지가 표시됩니다. 이전에 실행한 적이 있는 경우 __추가__ 단추를 사용하여 새 저장소 계정 이름과 키를 추가합니다.
+
+    HDinsight 클러스터에서 사용하는 저장소 계정에 대한 이름과 키를 입력한 다음 __저장 및 열기__를 선택합니다.
 
 	![HDI.AzureStorageExplorer][image-azure-storage-explorer]
 
-2. **계정 추가**를 클릭합니다. Azure 저장소 탐색기에 계정을 추가한 후에는 이 단계를 다시 수행할 필요가 없습니다.
+5. 인터페이스 왼쪽의 컨테이너 목록에서 HDInsight 클러스터와 연결된 컨테이너의 이름을 클릭합니다. 기본적으로 HDInsight 클러스터의 이름이지만 클러스터를 만들 때 특정 이름을 입력한 경우에는 다를 수 있습니다.
 
-	![HDI.ASEAddAccount][image-ase-addaccount]
+6. 도구 모음에서 업로드 아이콘을 선택합니다.
 
-3. **저장소 계정 이름** 및 **저장소 계정 키**를 입력한 다음 **저장소 계정 추가**를 클릭합니다. 저장소 계정을 여러 개 추가할 수 있으며 각 계정은 각 탭에 표시됩니다.
+    ![업로드 아이콘이 강조 표시된 도구 모음](./media/hdinsight-upload-data/toolbar.png)
 
-4. **저장소 형식**에서 **Blob**을 선택합니다.
+7. 업로드할 파일을 지정한 다음 **열기**를 클릭합니다. 메시지가 표시되면 __업로드__를 선택하여 저장소 컨테이너의 루트에 파일을 업로드합니다. 특정 경로에 파일을 업로드하려는 경우 __대상__ 필드에서 경로를 입력하고 __업로드__를 선택합니다.
 
-	![HDI.ASEBlob][image-ase-blob]
-
-5. **컨테이너**에서 HDInsight 클러스터에 연결된 컨테이너 이름을 클릭합니다. HDInsight 클러스터를 만들 때 컨테이너를 지정해야 합니다. 그렇게 하지 않은 경우 클러스터 만들기 과정에서 자동으로 생성됩니다.
-
-6. **Blob**에서 **업로드**를 클릭합니다.
-
-7. 업로드할 파일을 지정한 다음 **열기**를 클릭합니다.
+    ![파일 업로드 대화 상자](./media/hdinsight-upload-data/fileupload.png)
+    
+    파일 업로드가 완료되면 HDInsight 클러스터의 작업에서 사용할 수 있습니다.
 
 ##Azure Blob 저장소를 로컬 드라이브로 탑재
 
@@ -280,11 +278,11 @@ Azure SDK 설치에 대한 자세한 내용은 [Azure 다운로드](http://azure
 
 [Powershell-install-configure]: ../powershell-install-configure.md
 
-[azurecli]: ../xplat-cli.md
+[azurecli]: ../xplat-cli-install.md
 
 
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

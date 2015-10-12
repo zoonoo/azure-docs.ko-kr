@@ -20,7 +20,7 @@ DataStax는 항상 작동하고 민첩하며 원하는 규모로 예측 가능�
 
 >[AZURE.NOTE]Community 버전과 달리 DataStax 엔터프라이즈를 배포하기 위해 템플릿 배포 중에 매개 변수로 전달하는 유효한 DataStax 계정(사용자 이름 및 암호)이 있어야 합니다. 아직 계정이 없는 경우 계정 설정을 위해 [Datastax](http://www.datastax.com) 웹 사이트에 방문하세요.
 
-Azure 마켓플레이스에서 이미 제공되는 것 외에도, 이제 [Azure PowerShell](../powershell-install-configure.md) 또는 [Azure CLI](../xplat-cli.md)를 통해 리소스 관리자 템플릿 배포를 사용하여 Ubuntu VM에서 새 Datastax Enterprise 클러스터를 쉽게 배포할 수 있습니다.
+Azure 마켓플레이스에서 이미 제공되는 것 외에도, 이제 [Azure PowerShell](../powershell-install-configure.md) 또는 [Azure CLI](../xplat-cli-install.md)를 통해 리소스 관리자 템플릿 배포를 사용하여 Ubuntu VM에서 새 Datastax Enterprise 클러스터를 쉽게 배포할 수 있습니다.
 
 이 템플릿을 기반으로 새로 배포되는 클러스터에는 다음 다이어그램에 설명된 토폴로지가 구축됩니다. 물론 제공된 템플릿을 사용자 지정하여 다른 토폴리지를 쉽게 실현할 수도 있습니다.
 
@@ -498,4 +498,4 @@ vm-disk-utils-0.1.sh는 azure-quickstart-tempates github 리포지토리 내 sha
 
 자세한 내용은 [Azure 리소스 관리자 템플릿 언어](../resource-group-authoring-templates.md)를 참조하세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

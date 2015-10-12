@@ -406,7 +406,7 @@ Windows 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [W
 
 서비스 관리의 기본 사항을 배웠으므로 이제 [Azure Python SDK에 대한 전체 API 참조 설명서](http://azure-sdk-for-python.readthedocs.org/en/documentation/index.html)에 액세스하고 쉽게 복잡한 작업을 수행하여 Python 응용 프로그램을 관리할 수 있습니다.
 
-
+자세한 내용은 [Python 개발자 센터](/develop/python/)를 참조하세요.
 
 [What is Service Management]: #WhatIs
 [Concepts]: #Concepts
@@ -445,4 +445,4 @@ Windows 가상 컴퓨터를 캡처하는 방법에 대한 자세한 내용은 [W
 [Virtual Machines]: http://msdn.microsoft.com/library/windowsazure/jj156003.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-phone"
 	ms.devlang="dotnet"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/28/2015"
 	ms.author="glenga"/>
 
 # 모바일 서비스를 사용하여 Azure 저장소에 이미지 업로드
@@ -78,4 +78,4 @@ SAS를 사용하여 앱에서 Blob 저장소에 이미지를 업로드하려면 
 [Mobile Services .NET How-to Conceptual Reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Windows Phone SDK 8.0]: http://www.microsoft.com/download/details.aspx?id=35471
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="09/29/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
@@ -53,7 +53,7 @@ Azure Data Factory는 파이프라인에서 데이터를 이동 및 처리하는
 
 4. Azure 저장소 NuGet 패키지를 프로젝트로 가져옵니다.
 
-		Install-Package Azure.Storage -Version 4.3.0 
+		Install-Package Azure.Storage
 
 5. 다음 **using** 문을 프로젝트의 원본 파일에 추가합니다.
 
@@ -478,4 +478,4 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

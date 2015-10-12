@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="09/25/2015"
 	ms.author="jgao"/>
 
 
@@ -49,11 +49,13 @@ Excel용 파워 쿼리 추가 기능을 사용하면 HDInsight 클러스터에�
 
 2. 비어 있는 새 통합 문서를 만듭니다.
 
-3. **파워 쿼리** 메뉴를 클릭하고 **기타 원본**을 클릭한 후 **Azure HDInsight에서**를 클릭합니다.
+3. **파워 쿼리** 메뉴를 클릭하고 **Azure에서**를 클릭한 후 **Microsoft Azure HDInsight에서**를 클릭합니다.
 
 	![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
 
-	참고: **파워 쿼리** 메뉴가 표시되지 않는 경우 **파일** > **옵션** > **추가 기능**으로 이동하여 페이지 아래쪽에 있는 드롭다운 **관리** 상자에서 **COM 추가 기능**을 선택합니다. **이동...** 단추를 선택하고 Excel용 파워 쿼리 추가 기능에 해당하는 상자가 선택되어 있는지 확인합니다.
+	**참고**: **파워 쿼리** 메뉴가 표시되지 않는 경우 **파일** > **옵션** > **추가 기능**으로 이동하여 페이지 아래쪽에 있는 드롭다운 **관리** 상자에서 **COM 추가 기능**을 선택합니다. **이동...** 단추를 선택하고 Excel용 파워 쿼리 추가 기능에 해당하는 상자가 선택되어 있는지 확인합니다.
+
+	**참고:** 또한 파워 쿼리를 사용하면 **기타 원본에서**를 클릭하여 HDFS에서 데이터를 가져올 수 있습니다.
 
 3. **계정 이름**으로 클러스터와 연결된 Azure Blob 저장소 계정을 입력한 다음 **확인**을 클릭합니다.
 
@@ -86,4 +88,4 @@ Excel용 파워 쿼리 추가 기능을 사용하면 HDInsight 클러스터에�
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

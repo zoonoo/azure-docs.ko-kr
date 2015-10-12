@@ -27,11 +27,11 @@ Azure CLI를 사용하면 어떤 플랫폼에서나 Azure 인프라를 효율적
 
 ## Azure CLI 설치
 
-[Azure CLI 설치](../xplat-cli.md#install) 지침을 따르세요.
+[Azure CLI 설치](../xplat-cli-install.md#install) 지침을 따르세요.
 
 ## Azure CLI를 사용하여 Azure에 연결
 
-Azure CLI 설치를 개인 Azure 계정이나 회사 또는 학교 Azure 계정에 연결할 수 있습니다. 각 계정 사용 시의 차이점과 선택 가능한 항목을 확인하려면 [Azure 구독에 연결하는 방법](../xplat-cli.md#configure)을 참조하세요.
+Azure CLI 설치를 개인 Azure 계정이나 회사 또는 학교 Azure 계정에 연결할 수 있습니다. 각 계정 사용 시의 차이점과 선택 가능한 항목을 확인하려면 [Azure 구독에 연결하는 방법](../xplat-cli-install.md#configure)을 참조하세요.
 
 ## Azure에서 VM 작성 및 연결
 
@@ -47,7 +47,7 @@ VM을 만들 때는 먼저 이미지를 선택하거나 업로드하고 `azure v
 
     여기서 이미지를 선택한 다음 `show` 명령을 사용하여 해당 속성을 보다 자세하게 확인할 수 있습니다.
 
-        azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ko-KR-30GB
+        azure vm image show b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ko-kr-30GB
 
 2. VM 이미지를 선택한 다음 `vm create` 명령을 사용하여 이미지를 만듭니다. 이 명령에는 많은 옵션이 있으며, `help` 명령을 사용하면 목록을 표시할 수 있습니다.
 
@@ -63,7 +63,7 @@ VM을 만들 때는 먼저 이미지를 선택하거나 업로드하고 `azure v
 
     The Linux example below creates a VM in West US, opens the default SSH port 22 (the -e argument), and creates a user called `myadminuser`:
 
-        azure vm create -e -l "West US"  my-new-cli-vm b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ko-KR-30GB "myadminuser" "myAdm1n@passwd"
+        azure vm create -e -l "West US"  my-new-cli-vm b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-ko-kr-30GB "myadminuser" "myAdm1n@passwd"
 
 ## 다음 단계
 
@@ -78,4 +78,4 @@ VM에서 작업을 수행해 봅니다.
 <!--Image references-->
 [5]: ./media/markdown-template-for-new-articles/octocats.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

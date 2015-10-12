@@ -56,7 +56,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **서비스 공급자** |**Microsoft Azure** | **Office 365** | **위치** |
 |-----------------------|--------------------|----------------|---------------|
 | **[Aryaka Networks](http://www.aryaka.com/)** | 지원됨 | 지원되지 않음 | 실리콘밸리, 싱가포르, 워싱턴 DC |
-| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | 지원됨 | 지원됨 | 암스테르담+, 런던+, 댈러스, 실리콘밸리, 워싱턴 DC |
+| **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** | 지원됨 | 서비스 예정 | 암스테르담+, 런던+, 댈러스, 실리콘밸리, 워싱턴 DC |
 | **[British Telecom](http://www.globalservices.bt.com/uk/en/news/bt_to_provide_connectivity_to_microsoft_azure)** | 지원됨 | 지원됨 | 암스테르담, 런던, 실리콘밸리+, 워싱턴 DC |
 |**China Telecom Global** | 서비스 예정 | 지원되지 않음 | 홍콩+ |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** | 지원됨 | 지원되지 않음 | 암스테르담, 런던 |
@@ -77,7 +77,7 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** | 지원됨 | 지원됨 | 암스테르담, 첸나이+, 홍콩, 런던, 뭄바이+, 싱가포르 |
 | **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** | 지원됨 | 지원됨 | 암스테르담, 런던 |
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** | 지원됨 | 지원되지 않음 | 멜버른+, 시드니 |
-| **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** | 지원됨 | 지원됨 | 런던, 홍콩, 실리콘밸리, 워싱턴 DC |
+| **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** | 지원됨 | 지원됨 | 런던, 홍콩, 실리콘밸리, 워싱턴 DC |
 | **[Zayo Group](http://www.zayo.com/)** | 지원됨 | 지원되지 않음 | 워싱턴 DC |
 
  **+**는 서비스 예정을 나타냄
@@ -127,4 +127,4 @@ Express 경로는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 �
 - Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 - 모든 필수 조건이 충족되었는지 확인합니다. [Express 경로 필수 조건](expressroute-prerequisites.md)을 참조하세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -1,6 +1,7 @@
 <properties
 	pageTitle="HDFS 호환 가능 Blob 저장소에서 데이터 쿼리 | Microsoft Azure"
 	description="HDInsight에서는 Blob 저장소를 HDFS용 빅 데이터 저장소로 사용합니다. Blob 저장소에서 데이터를 쿼리하고 분석을 위해 결과를 저장하는 방법에 대해 알아봅니다."
+	keywords="blob storage,hdfs,structured data,unstructured data"
 	services="hdinsight,storage"
 	documentationCenter=""
 	tags="azure-portal"
@@ -100,7 +101,7 @@ Preview 포털에서 HDInsight 클러스터를 프로비전할 때 기존 저장
 
 ###Azure CLI 사용
 
-[Azure CLI를 설치 및 구성한](../xplat-cli.md) 경우, 다음 명령을 사용하여 저장소 계정 및 컨테이너를 사용할 수 있습니다.
+[Azure CLI를 설치 및 구성한](../xplat-cli-install.md) 경우, 다음 명령을 사용하여 저장소 계정 및 컨테이너를 사용할 수 있습니다.
 
 	azure storage account create <storageaccountname> --type LRS
 
@@ -315,4 +316,4 @@ URI 체계는암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SS
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-hadoop-use-blob-storage/HDI.CustomCreateStorageAccount.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

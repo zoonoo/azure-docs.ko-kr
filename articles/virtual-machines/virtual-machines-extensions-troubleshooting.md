@@ -6,7 +6,7 @@
    authors="kundanap"
    manager="timlt"
    editor=""
-   tags="azure-resource-manager"/>
+   tags="top-support-issue,azure-resource-manager"/>
 
 <tags
    ms.service="virtual-machines"
@@ -84,4 +84,4 @@ Azure Powershell:
 
 확장이 제거되면 템플릿을 다시 실행하여 VM에서 스크립트를 실행할 수 있습니다.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

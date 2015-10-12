@@ -1,20 +1,20 @@
 <properties
    pageTitle="논리 앱에서 SQL 커넥터 사용 | Microsoft Azure 앱 서비스"
-	description="SQL 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""/>
+   description="SQL 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="anuragdalmia"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="sameerch"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="sameerch"/>
 
 
 # Microsoft SQL 커넥터 시작 및 논리 앱에 추가
@@ -127,6 +127,8 @@ Where 절 | <ul><li>연산자: AND, OR, =, <>, <, <=, >, >= 및 LIKE</li><li>여
 
 앱 서비스는 하이브리드 구성 관리자를 사용하여 온-프레미스 시스템에 안전하게 연결합니다. 커넥터가 온-프레미스 SQL Server을 사용하는 경우 하이브리드 연결 관리자가 필요합니다.
 
+> [AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+
 [하이브리드 연결 관리자 사용](app-service-logic-hybrid-connection-manager.md)을 참조하세요.
 
 
@@ -149,4 +151,4 @@ Where 절 | <ul><li>연산자: AND, OR, =, <>, <, <=, >, >= 및 LIKE</li><li>여
 [11]: ./media/app-service-logic-connector-sql/LogicApp7.png
 [12]: ./media/app-service-logic-connector-sql/LogicApp8.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

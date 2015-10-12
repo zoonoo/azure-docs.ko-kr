@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Microsoft Azure DocumentDB 소개 - 무료 평가판 | Microsoft Azure"
-	description="Azure DocumentDB, NoSQL 문서 데이터베이스 및 클라우드와 모바일 응용 프로그램에서 DocumentDB를 활용하는 방법을 알아봅니다. DocumentDB에서 데이터를 관리하는 방법과 응용 프로그램 개발에 DocumentDB를 사용하는 방법에 대해서도 살펴봅니다."
-	services="documentdb"
-	authors="mimig1"
-	manager="jhubbard"
-	editor="monicar"
+	pageTitle="Microsoft Azure DocumentDB 소개 - 무료 평가판 | Microsoft Azure" 
+	description="Azure DocumentDB, NoSQL 문서 데이터베이스 및 클라우드와 모바일 응용 프로그램에서 DocumentDB를 활용하는 방법을 알아봅니다. DocumentDB에서 데이터를 관리하는 방법과 응용 프로그램 개발에 DocumentDB를 사용하는 방법에 대해서도 살펴봅니다." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
 	documentationCenter=""/>
 
 <tags 
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/25/2015" 
 	ms.author="mimig"/>
 
 # Microsoft Azure DocumentDB 소개
@@ -110,4 +110,4 @@ Azure 계정이 없는 경우
 [1]: ./media/documentdb-introduction/resources1.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Azure 앱 서비스에서 웹 앱 모니터링"
 	description="관리 포털을 사용하여 Azure 앱 서비스에서 웹 앱을 모니터링 하는 방법에 알아봅니다."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -279,4 +279,4 @@ Azure PowerShell에서 **Set-AzureWebsite** cmdlet을 사용해서도 진단을 
 [vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

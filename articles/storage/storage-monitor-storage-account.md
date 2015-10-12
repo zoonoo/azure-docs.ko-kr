@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/03/2015"
+	ms.date="09/27/2015"
 	ms.author="tamram"/>
 
 # Azure 포털에서 저장소 계정 모니터링
@@ -24,16 +24,16 @@ Azure 포털에서 저장소 계정을 모니터링할 수 있습니다. 포털�
 
 > [AZURE.NOTE]Azure 포털에서 모니터링 데이터를 검사하면 추가 비용이 발생할 수 있습니다. 자세한 내용은 <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">저장소 분석 및 청구</a>를 참조하십시오.<br />
 
-> Azure 파일 서비스는 현재 저장소 분석을 지원하지 않습니다.
+> Azure 파일 저장소는 현재 저장소 분석 메트릭을 지원하지만 아직 로깅을 지원하지 않습니다. [Azure Preview 포털](https://ms.portal.azure.com)을 통해 Azure 파일 저장소의 메트릭을 사용하도록 설정할 수 있습니다.
 
 > 저장소 분석 및 기타 도구를 사용하여 Azure 저장소 관련 문제를 식별, 진단 및 해결하는 방법에 대한 자세한 지침은 [Microsoft Azure 저장소 모니터링, 진단 및 문제 해결](../storage-monitoring-diagnosing-troubleshooting/)을 참조하세요.
 
 
 ## 방법: 저장소 계정에 대한 모니터링 구성
 
-1. [Azure 포털](https://manage.windowsazure.com/)에서 **저장소**를 클릭한 후 대시보드를 열 저장소 계정 이름을 클릭합니다.
+1. [Azure 관리 포털](https://manage.windowsazure.com/)에서 **저장소**를 클릭한 후 대시보드를 열 저장소 계정 이름을 클릭합니다.
 
-2. **구성**을 클릭하고 Blob, 테이블 및 큐 서비스의 **모니터링** 설정까지 아래로 스크롤합니다.
+2. **구성**을 클릭하고 Blob, 테이블 및 큐 서비스의 **모니터링** 설정이 표시될 때까지 아래로 스크롤합니다.
 
 	![모니터링 옵션](./media/storage-monitor-storage-account/Storage_MonitoringOptions.png)
 
@@ -142,7 +142,7 @@ Azure 포털에서 저장소 계정을 모니터링할 수 있습니다. 포털�
 
 1. [Azure 포털](https://manage.windowsazure.com/)에서 **저장소**를 클릭한 후 대시보드를 열 저장소 계정 이름을 클릭합니다.
 
-2. **구성**을 클릭하고 키보드의 아래쪽 화살표를 사용하여 **기록**까지 아래로 스크롤합니다.
+2. **구성**을 클릭하고 키보드의 아래쪽 화살표를 사용하여 **로깅**이 표시될 때까지 아래로 스크롤합니다.
 
 	![저장소 로깅](./media/storage-monitor-storage-account/Storage_LoggingOptions.png)
 
@@ -157,4 +157,4 @@ Azure 포털에서 저장소 계정을 모니터링할 수 있습니다. 포털�
 
 진단 로그는 저장소 계정의 이름이 $logs인 Blob 컨테이너에 저장됩니다. $logs 컨테이너 액세스에 대한 자세한 내용은 [저장소 분석 로깅 정보](http://msdn.microsoft.com/library/azure/hh343262.aspx)를 참조하십시오.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

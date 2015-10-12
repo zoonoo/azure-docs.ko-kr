@@ -8,7 +8,7 @@
 	editor=""/>
 
 <tags 
-	ms.service="app-service" 
+	ms.service="app-service-mobile" 
 	ms.workload="mobile" 
 	ms.tgt_pltfrm="mobile" 
 	ms.devlang="dotnet" 
@@ -145,4 +145,4 @@
 [플랫폼 간 푸시 알림 전송]: app-service-mobile-dotnet-backend-xamarin-ios-push-notifications-to-user-preview.md
 [.NET 서버 SDK를 사용하는 방법]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

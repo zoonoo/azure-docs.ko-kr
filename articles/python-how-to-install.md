@@ -171,7 +171,7 @@ Azure 웹 사이트 개발 및 게시에 대한 자세한 내용은 [Django를 �
 * [IPython - Python용 고급 REPL/Notebook][]
 * [Azure의 IPython Notebook][]
 * [GitHub의 Python Tools for Visual Studio][]
-
+* [Python 개발자 센터](/develop/python/)
 
 [지속성 분석 Python 배포]: http://continuum.io
 [Enthought Python 배포]: http://www.enthought.com
@@ -205,4 +205,4 @@ Azure 웹 사이트 개발 및 게시에 대한 자세한 내용은 [Django를 �
 [큐 저장소]: storage-python-how-to-use-queue-storage.md
 [Blob 저장소]: storage-python-how-to-use-blob-storage.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

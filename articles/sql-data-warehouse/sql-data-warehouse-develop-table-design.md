@@ -102,7 +102,7 @@ OR  y.[is_user_defined] = 1
 - **geography**, varbinary 형식 사용
 - **hierarchyid**, 네이티브가 아닌 CLR 형식
 - 텍스트 기반이 varchar/nvarchar를 사용하는 경우 **image**, **text**, **ntext**(작을수록 더 좋음)
-- **nvarchar(max)**, 더 나은 성능을 위해 varchar(4000) 이하 사용
+- **nvarchar(max)**, 더 나은 성능을 위해 nvarchar(4000) 이하 사용
 - **numeric**, decimal 사용
 - **sql\_variant**, 열을 강력한 형식의 열로 분할
 - **sysname**, nvarchar(128) 사용
@@ -306,4 +306,4 @@ SQL 데이터 웨어하우스는 이 기능을 사용하지 않거나 지원하�
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

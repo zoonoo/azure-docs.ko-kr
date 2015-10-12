@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/08/2015" 
+	ms.date="09/23/2015" 
 	ms.author="tamram"/>
 
 # Azure 저장소 연결 문자열 구성
@@ -122,4 +122,4 @@ Blob 서비스에 사용할 사용자 지정 도메인 이름을 등록한 경�
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

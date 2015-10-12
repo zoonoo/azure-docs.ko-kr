@@ -4,7 +4,7 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="spelluru"
-	manager="jhubbard"
+	manager="JennieHubbard"
 	editor=""/>
 
 <tags
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/08/2015"
-	ms.author="spelluru"/>
+	ms.date="09/24/2015"
+	ms.author="jhubbard"/>
 
 
 #Azure SQL 데이터 동기화 시작(미리 보기)
@@ -40,7 +40,7 @@
 
 
 ## 2단계: 클라이언트 에이전트 추가
-이 단계는 온-프레미스 SQL Server 데이터베이스를 동기화 그룹에 포함하려는 경우에만 필요합니다. SQL 데이터베이스 인스턴스만 있는 경우 4단계: 동기화 그룹 만들기로 건너뛸 수 있습니다.
+이 단계는 온-프레미스 SQL Server 데이터베이스를 동기화 그룹에 포함하려는 경우에만 필요합니다. 동기화 그룹에 SQL 데이터베이스 인스턴스만 있는 경우 4단계로 건너뛸 수 있습니다.
 
 <a id="InstallRequiredSoftware"></a>
 ### 2a단계: 필수 소프트웨어 설치
@@ -202,4 +202,4 @@ SQL 데이터베이스와 SQL 데이터 동기화에 대한 자세한 내용은 
 
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

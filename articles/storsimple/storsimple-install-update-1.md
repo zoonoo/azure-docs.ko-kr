@@ -1,6 +1,6 @@
 <properties 
    pageTitle="StorSimple 장치에 업데이트 1.2 설치 | Microsoft Azure"
-   description="장치에서 StorSimple 8000 시리즈 업데이트 1.2를 설치하는 방법에 대해 설명합니다."
+   description="StorSimple 8000 시리즈 장치에서 StorSimple 8000 시리즈 업데이트 1.2를 설치하는 방법에 대해 설명합니다."
    services="storsimple"
    documentationCenter="NA"
    authors="alkohli"
@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="TBD"
-   ms.date="09/17/2015"
+   ms.date="09/28/2015"
    ms.author="alkohli" />
 
 # StorSimple 장치에 업데이트 1.2 설치
@@ -153,4 +153,4 @@
 
 [업데이트 1.2 릴리스](storsimple-update1-release-notes.md)에 대해 자세히 알아봅니다.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

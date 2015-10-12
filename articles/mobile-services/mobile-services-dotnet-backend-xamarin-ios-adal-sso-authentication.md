@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-xamarin-ios" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/19/2015" 
+	ms.date="09/28/2015" 
 	ms.author="mahender"/>
 
 # Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증
@@ -141,4 +141,4 @@
 [Xamarin 확장]: http://xamarin.com/visual-studio
 [Xamarin Studio]: http://xamarin.com/download
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

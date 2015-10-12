@@ -1,5 +1,6 @@
 <properties 
 	pageTitle="Xamarin.Android용 모바일 서비스 시작" 
+	writer="craigd" 
 	description="Xamarin.Android 앱에서 Azure 모바일 서비스를 사용하는 방법에 대해 알아봅니다." 
 	documentationCenter="xamarin" 
 	authors="lindydonna" 
@@ -13,8 +14,8 @@
 	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/09/2015" 
-	ms.author="lindydonna"/>
+	ms.date="09/25/2015" 
+	ms.author="donnam"/>
 
 # <a name="getting-started"></a>모바일 서비스 시작
 
@@ -136,4 +137,4 @@
 [Management Portal]: https://manage.windowsazure.com/
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

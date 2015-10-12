@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Azure 앱 서비스에서 웹 앱에 대한 스테이징 환경 설정"
 	description="Azure 앱 서비스에서 웹앱에 대한 준비된 개시를 사용하는 방법에 대해 알아봅니다."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	writer="cephalin"
@@ -10,11 +10,11 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.date="09/21/2015"
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스에서 웹 앱에 대한 스테이징 환경 설정
@@ -127,6 +127,11 @@
 
 3. 해당 배포 슬롯에 코드 푸시를 실행합니다. 자동 교환은 짧은 시간 후에 발생하며 업데이트는 대상 슬롯의 URL에 반영됩니다.
 
+<a name="Multi-Phase"></a>
+## 웹앱에 대해 다단계 교환 사용 ##
+
+다단계 교환은 연결 문자열 같은 슬롯에 맞도록 설계된 구성 요소의 컨텍스트에서 유효성 검사를 단순화하기 위해 사용할 수 있습니다. 이러한 경우 교환 대상에서 교환 원본으로 이러한 구성 요소를 적용하고 교환이 실제로 적용되기 전에 유효성을 검사하는 데 유용할 수 있습니다. 교환 대상 구성 요소가 교환 원본에 적용되면 사용 가능한 작업이 교환을 완료하거나 교환 원본에 대한 원래 구성으로 되돌아가 교환이 취소되는 효과도 있습니다. 다단계 교환에 사용 가능한 Azure PowerShell cmdlet 샘플은 배포 슬롯 섹션에 대한 Azure PowerShell cmdlet에 포함되어 있습니다.
+
 <a name="Rollback"></a>
 ## 교환 후 프로덕션 앱을 롤백하려면 ##
 슬롯 교환 후 프로덕션에서 오류가 발견되면 같은 두 슬롯을 즉시 교환하여 슬롯을 교환 전 상태로 롤백하세요.
@@ -147,49 +152,43 @@ Azure PowerShell은 Windows PowerShell을 통해 Azure를 관리하기 위한 cm
 
 - Azure PowerShell을 설치 및 구성하는 방법과 Azure 구독에 Azure PowerShell을 인증하는 방법에 대한 자세한 내용은 [Microsoft Azure PowerShell 설치 및 구성 방법](../install-configure-powershell.md)을 참조하세요.  
 
-- PowerShell에서 Azure 앱 서비스에 사용할 수 있는 cmdlet을 나열하려면 `help AzureWebsite`를 호출합니다.
+- PowerShell cmdlet용 새 Azure 리소스 관리자 모드를 사용하려면 다음으로 시작합니다.`Switch-AzureMode -Name AzureResourceManager`
 
 ----------
 
-### Get-AzureWebsite
-다음 예에서와 같이 **Get-AzureWebsite** cmdlet은 현재 구독의 Azure 웹앱 관련 정보를 제공합니다.
+### 웹앱 만들기
 
-`Get-AzureWebsite webappslotstest`
-
-----------
-
-### New-AzureWebsite
-**New-AzureWebsite** cmdlet을 사용하여 웹앱 및 슬롯 모두의 이름을 지정하면 배포 슬롯을 만들 수 있습니다. 다음 예에서와 같이 배포 슬롯을 만드는 웹 앱과 동일한 영역을 나타낼 수도 있습니다.
-
-`New-AzureWebsite webappslotstest -Slot staging -Location "West US"`
+`New-AzureWebApp -ResourceGroupName [resource group name] -Name [web app name] -Location [location] -AppServicePlan [app service plan name]`
 
 ----------
 
-### Publish-AzureWebsiteProject
-다음 예에서와 같이 콘텐츠 배포에 **Publish-AzureWebsiteProject** cmdlet을 사용할 수 있습니다.
+### 웹앱에 대한 배포 슬롯 만들기
 
-`Publish-AzureWebsiteProject -Name webappslotstest -Slot staging -Package [path].zip`
-
-----------
-
-### Show-AzureWebsite
-콘텐츠 및 구성 업데이트를 새 슬롯에 적용한 후 다음 예에서와 같이 **Show-AzureWebsite** cmdlet을 사용하여 슬롯으로 이동한 후 업데이트의 유효성을 검사할 수 있습니다.
-
-`Show-AzureWebsite -Name webappslotstest -Slot staging`
+`New-AzureWebApp -ResourceGroupName [resource group name] -Name [web app name] -SlotName [deployment slot name] -Location [location] -AppServicePlan [app service plan name]`
 
 ----------
 
-### Switch-AzureWebsiteSlot
-다음 예에서와 같이 **Switch-AzureWebsiteSlot** cmdlet은 교환 작업을 수행하여 업데이트된 배포 슬롯을 프로덕션 사이트로 만들 수 있습니다. 이때 프로덕션 앱에는 중단 시간이나 콜드 부팅이 발생하지 않습니다.
+### 다단계 교환 시작 및 대상 슬롯 구성을 원본 슬롯에 적용
 
-`Switch-AzureWebsiteSlot -Name webappslotstest`
+`$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}` `Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action applySlotConfig -Parameters $ParametersObject -ApiVersion 2015-07-01`
 
 ----------
 
-### Remove-AzureWebsite
-배포 슬롯이 더 이상 필요하지 않은 경우 다음 예에서와 같이 **Remove-AzureWebsite** cmdlet을 사용하여 삭제할 수 있습니다.
+### 다단계 스왑의 첫 번째 단계 되돌리기 및 원본 슬롯 구성 복원
 
-`Remove-AzureWebsite -Name webappslotstest -Slot staging`
+`Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action resetSlotConfig -ApiVersion 2015-07-01`
+
+----------
+
+### 배포 슬롯 교환
+
+`$ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}` `Invoke-AzureResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [web app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01`
+
+----------
+
+### 배포 슬롯 삭제
+
+`Remove-AzureResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [web app name]/[slot name] -ApiVersion 2015-07-01`
 
 ----------
 
@@ -200,7 +199,7 @@ Azure PowerShell은 Windows PowerShell을 통해 Azure를 관리하기 위한 cm
 
 Azure CLI는 Azure 작업을 위한 플랫폼 간 명령을 제공하며, 웹앱 배포 슬롯을 관리하는 기능을 지원합니다.
 
-- Azure CLI 설치 및 구성 지침과 Azure CLI를 Azure 구독에 연결하는 방법에 대한 자세한 내용은 [Azure CLI 설치 및 구성](../xplat-cli.md)을 참조하세요.
+- Azure CLI 설치 및 구성 지침과 Azure CLI를 Azure 구독에 연결하는 방법에 대한 자세한 내용은 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하세요.
 
 -  Azure CLI에서 Azure 앱 서비스에 사용할 수 있는 명령을 나열하려면 `azure site -h`를 호출합니다.
 
@@ -261,4 +260,4 @@ Azure CLI는 Azure 작업을 위한 플랫폼 간 명령을 제공하며, 웹앱
 [SlotSettings]: ./media/web-sites-staged-publishing/SlotSetting.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

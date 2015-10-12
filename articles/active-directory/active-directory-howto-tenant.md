@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="07/02/2015"
+	ms.date="09/28/2015"
 	ms.author="dastrock"/>
 
 # Azure Active Directory 테넌트를 얻는 방법
@@ -65,4 +65,4 @@ Azure AD 사용자가 응용 프로그램에 로그인하도록 허용하려면 
 
 Azure 등록 과정의 일부로 신용 카드 정보를 제공해야 합니다. 믿고 진행할 수 있습니다. Azure AD에서의 응용 프로그램 게시 및 새 테넌트 만들기에 대한 비용은 청구되지 않습니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="10/01/2015"
 	ms.author="krisragh"/>
 
 # Azure 모바일 서비스에 iOS 클라이언트 라이브러리를 사용하는 방법
@@ -332,4 +332,4 @@ Single Sign-On을 사용하도록 설정하거나 앱이 ID 공급자에게 직�
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [충돌 처리기]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

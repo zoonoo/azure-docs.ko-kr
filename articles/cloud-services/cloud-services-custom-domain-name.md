@@ -23,7 +23,7 @@
 - [Azure Preview Portal](cloud-services-custom-domain-name-portal.md)
 
 
-클라우드 서비스를 만들면 Azure에서 cloudapp.net의 하위 도메인에 할당됩니다. 예를 들어 클라우드 서비스의 이름이 "contoso"인 경우 사용자가 http://&lt;*contoso*>.cloudapp.net과 같은 URL에서 응용 프로그램에 액세스할 수 있습니다. Azure는 가상 IP 주소도 할당합니다.
+클라우드 서비스를 만들면 Azure에서 cloudapp.net의 하위 도메인에 할당됩니다. 예를 들어 클라우드 서비스의 이름이 "contoso"인 경우 사용자가 http://contoso.cloudapp.net과 같은 URL에서 응용 프로그램에 액세스 할 수 있습니다. Azure는 가상 IP 주소도 할당합니다.
 
 그러나 contoso.com 등의 고유한 도메인 이름에도 응용 프로그램을 표시할 수 있습니다. 이 문서에서는 클라우드 서비스 웹 역할에 대해 사용자 지정 도메인 이름을 예약 또는 구성하는 방법에 대해 설명합니다.
 
@@ -165,4 +165,4 @@ A 레코드를 만들려면 먼저 클라우드 서비스의 가상 IP 주소를
 [csurl]: ./media/cloud-services-custom-domain-name/csurl.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

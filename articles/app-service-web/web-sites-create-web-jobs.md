@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="WebJob으로 백그라운드 작업 실행" 
 	description="Azure 웹 앱에서 백그라운드 작업을 실행하는 방법에 대해 알아봅니다." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tdykstra" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -211,4 +211,4 @@ Azure 관리 포털에서 예약된 웹 작업을 만들 수 없지만 해당 �
 [JobActionPageInScheduler]: ./media/web-sites-create-web-jobs/33JobActionPageInScheduler.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

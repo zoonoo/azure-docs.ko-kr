@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Express 경로를 사용하기 위한 네트워크 구성 세부 정보" 
 	description="가상 네트워크에서 앱 서비스 환경을 실행하기 위해 네트워크 구성 세부 정보를 Express 경로 회로에 연결합니다." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="stefsch" 
 	manager="nirma" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -126,4 +126,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 
 <!-- IMAGES -->
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

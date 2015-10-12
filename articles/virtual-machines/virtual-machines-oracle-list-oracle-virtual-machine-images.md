@@ -62,4 +62,4 @@ Oracle 이미지에 따라 가상 컴퓨터를 만들려면 [Azure 포털](https
 
 [Oracle 가상 컴퓨터 이미지 - 기타 고려 사항](#miscellaneous-considerations-for-oracle-virtual-machine-images-new-article)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -40,6 +40,8 @@ B2C 디렉터리의 경우 Graph API와 통신하는 두 가지의 기본적인 
 
 이제 B2C 디렉터리가 있으므로 Azure AD Powershell Cmdlet을 사용하여 서비스 응용 프로그램을 만들어야 합니다. 우선 [Microsoft Online Services 로그인 도우미](http://go.microsoft.com/fwlink/?LinkID=286152)를 다운로드 및 설치합니다. 그런 다음 [Windows Powershell 용 64비트 Azure Active Directory 모듈](http://go.microsoft.com/fwlink/p/?linkid=236297)을 다운로드 및 설치합니다.
 
+> [AZURE.NOTE]B2C 디렉터리에서 Graph API를 사용하려면 이러한 지침에 따라 PowerShell을 사용하여 전용 응용 프로그램을 등록해야 합니다. Azure 포털에 등록한 기존 B2C 응용 프로그램을 다시 사용할 수 없습니다. 이는 조만간(이 문서를 업데이트하는 시점) 제거될 Azure AD B2C 미리 보기의 제한 사항입니다.
+
 Powershell 모듈을 설치한 후에 Powershell을 열고 B2C 디렉터리에 연결합니다. `Get-Credential`을 실행한 후에 사용자 이름 및 암호라는 메시지가 표시됩니다. B2C 디렉터리 관리자 계정의 해당 사항을 입력합니다.
 
 ```
@@ -77,9 +79,9 @@ EndDate               : 9/2/2016 1:33:09 AM
 Usage                 : Verify
 ```
 
-응용 프로그램을 만들기에 성공하면 위와 같은 응용 프로그램의 일부 속성을 인쇄해야 합니다. `ObjectId` 및 `AppPrincipalId` 모두가 필요하므로 해당 값을 복사합니다.
+응용 프로그램을 만들기에 성공하면 위와 같은 응용 프로그램의 일부 속성을 인쇄해야 합니다. `ObjectId` 및 `AppPrincipalId` 둘 다 필요하므로 해당 값을 복사합니다.
 
-B2C 디렉터리에 응용 프로그램을 만들었으므로 CRUD 작업을 수행할 사용자에게 필요한 사용 권한을 할당해야 합니다. 응용 프로그램에 디렉터리 읽기 권한자(사용자 읽기의 경우), 디렉터리 작성자(사용자 만들기 및 업데이트의 경우) 및 사용자 계정 관리자(사용자 삭제의 경우) 등의 세 가지 다른 역할을 할당해야 합니다. 이러한 역할은 잘 알려진 식별자이므로 `-RoleMemberObjectId` 매개 변수를 위에서 `ObjectId`로 대체하는 아래의 명령을 실행할 수 있습니다. 모든 디렉터리 역할의 목록을 보려면 `Get-MsolRole`을 실행합니다.
+B2C 디렉터리에 응용 프로그램을 만들었으므로 CRUD 작업을 수행할 사용자에게 필요한 사용 권한을 할당해야 합니다. 응용 프로그램에 디렉터리 읽기 권한자(사용자 읽기의 경우), 디렉터리 작성자(사용자 만들기 및 업데이트의 경우) 및 사용자 계정 관리자(사용자 삭제의 경우) 등의 세 가지 다른 역할을 할당해야 합니다. 이러한 역할에는 잘 알려진 식별자가 있으므로 아래 명령을 실행하여 `-RoleMemberObjectId` 매개 변수를 위의 `ObjectId`로 대체할 수 있습니다. 모든 디렉터리 역할의 목록을 보려면 `Get-MsolRole`을 실행합니다.
 
 ```
 > Add-MsolRoleMember -RoleObjectId 88d8e3e3-8f55-4a1e-953a-9b9898b8876b -RoleMemberObjectId <Your-ObjectId> -RoleMemberType servicePrincipal
@@ -107,11 +109,13 @@ Visual Studio에서 `B2CGraphClient\B2CGraphClient.sln` Visual Studio 솔루션�
 </appSettings>
 ```
 
-이제 마우스 `B2CGraphClient` 솔루션을 오른쪽 단추로 클릭하고 샘플을 다시 빌드합니다. 성공하면 있어야 `B2CGraphClient\bin\Debug`에서 실행 가능한 `B2C.exe`를 찾을 수 있어야 합니다.
+[AZURE.INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
+
+이제 `B2CGraphClient` 솔루션을 마우스 오른쪽 단추로 클릭하고 샘플을 다시 빌드합니다. 성공하면 `B2CGraphClient\bin\Debug`에 있는 실행 가능한 `B2C.exe`를 찾을 수 있어야 합니다.
 
 ## Graph API를 사용하는 사용자 CRUD
 
-B2CGraphClient를 사용하려면 cmd Windows 명령 프롬프트 및 cd를 `Debug` 디렉터리에 엽니다. `B2C Help` 명령을 실행합니다.
+B2CGraphClient를 사용하려면 cmd Windows 명령 프롬프트를 열고 `Debug` 디렉터리로 cd 명령을 수행합니다. `B2C Help` 명령을 실행합니다.
 
 ```
 > cd B2CGraphClient\bin\Debug
@@ -145,7 +149,7 @@ public B2CGraphClient(string clientId, string clientSecret, string tenant)
 }
 ```
 
-예시로 `B2C Get-User` 명령을 사용합니다. `Get-User`이 추가 입력 없이 호출되면 CLI이 `B2CGraphClient.GetAllUsers(...)` 메서드를 호출합니다. 이 메서드는 `B2CGraphClient.SendGraphGetRequest(...)`를 호출하며 이는 Graph API에 HTTP 가져오기 요청을 제출합니다. 가져오기 요청을 보내기 전에 먼저 ADAL을 사용하여 액세스 토큰을 가져옵니다.
+`B2C Get-User` 명령을 예로 사용해 보겠습니다. `Get-User`이 추가 입력 없이 호출되면 CLI가 `B2CGraphClient.GetAllUsers(...)` 메서드를 호출합니다. 이 메서드는 `B2CGraphClient.SendGraphGetRequest(...)`를 호출하며 이는 Graph API에 HTTP GET 요청을 제출합니다. 가져오기 요청을 보내기 전에 먼저 ADAL을 사용하여 액세스 토큰을 가져옵니다.
 
 ```C#
 public async Task<string> SendGraphGetRequest(string api, string query)
@@ -158,11 +162,11 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 
 ```
 
-여기서 볼 수 있듯이 수는 ADAL의 `AuthenticationContext.AcquireToken(...)` 메서드를 호출하여 Graph API에 액세스 토큰을 가져올 수 있습니다. ADAL은 응용 프로그램의 ID를 나타내는 access\_token을 반환합니다.
+여기서 볼 수 있듯이 ADAL의 `AuthenticationContext.AcquireToken(...)` 메서드를 호출하여 Graph API에 대한 액세스 토큰을 가져올 수 있습니다. ADAL은 응용 프로그램의 ID를 나타내는 access\_token을 반환합니다.
 
 ### 사용자 읽기
 
-Graph API에서 사용자의 목록을 가져오거나 특정 사용자를 가져오는 경우 `/users` 끝점에 HTTP 가져오기 요청을 보낼 수 있습니다. 디렉터리의 모든 사용자에 대한 요청은 다음과 같습니다.
+Graph API에서 사용자의 목록을 가져오거나 특정 사용자를 가져오려는 경우 `/users` 끝점에 HTTP GET 요청을 보낼 수 있습니다. 디렉터리의 모든 사용자에 대한 요청은 다음과 같습니다.
 
 ```
 GET https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=beta
@@ -208,7 +212,7 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 		
 ### 소비자 사용자 계정 만들기 
 
-B2C 디렉터리에 사용자 계정을 만들 경우 `/users` 끝점에 HTTP 게시 요청을 보낼 수 있습니다.
+B2C 디렉터리에 사용자 계정을 만들 경우 `/users` 끝점에 HTTP POST 요청을 보낼 수 있습니다.
 
 ```
 POST https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=beta
@@ -232,11 +236,12 @@ Content-Length: 338
 	"passwordProfile": {
 		"password": "P@ssword!",
 		"forceChangePasswordNextLogin": false   // always set to false
-	}
+	},
+	"passwordPolicies": "DisablePasswordExpiration"
 }
 ```
 
-위의 요청에 포함된 각각의 속성은 소비자 사용자를 만들기 위해 필요합니다. 그림에 `//` 주석이 포함됩니다. 실제 요청에 포함하지 마십시오.
+위의 요청에 포함된 각각의 속성은 소비자 사용자를 만들기 위해 필요합니다. 일러스트레이션에 `//` 주석이 포함되었습니다. 실제 요청에 포함하지 마세요.
 
 작업에서 이 요청을 보려면 다음 명령 중 하나를 실행합니다.
 
@@ -250,7 +255,7 @@ Content-Length: 338
 이 POST 요청이 `B2CGraphClient.SendGraphPostRequest(...)`에서 어떻게 작성되는지 다음에서 확인할 수 있습니다.
 
 - 액세스 토큰을 요청의 `Authorization` 헤더에 연결합니다.
-- `api-version=beta`을 설정합니다.
+- `api-version=beta`를 설정합니다.
 - 요청 본문에 JSON 사용자 개체를 포함합니다.
 
 ### 소비자 사용자 계정 업데이트
@@ -328,7 +333,7 @@ B2CGraphClient를 사용하여 B2C 디렉터리에 정의된 사용자 지정 �
 }
 ```
 
-`extension_55dc0861f9a44eb999e0a8a872204adb_Jersey_Number` 와 같은 전체 이름을 사용자 개체의 속성으로 사용할 수 있습니다. 단순히 `.json` 파일을 새 속성, 속성에 대한 값으로 업데이트하고 실행합니다.
+`extension_55dc0861f9a44eb999e0a8a872204adb_Jersey_Number`와 같은 전체 이름을 사용자 개체의 속성으로 사용할 수 있습니다. 단순히 `.json` 파일을 새 속성, 속성에 대한 값으로 업데이트하고 실행합니다.
 
 ```
 > B2C Update-User <object-id-of-user> <path-to-json-file>
@@ -343,4 +348,4 @@ B2CGraphClient를 사용하여 B2C 디렉터리에 정의된 사용자 지정 �
 
 B2C 디렉터리에서 Graph API를 사용하여 수행하려는 작업에 대한 질문이나 요청이 있는 경우 말씀하세요. 문서에 의견을 남기거나 코드 샘플 GitHub 리포지토리에 문제를 제출하세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

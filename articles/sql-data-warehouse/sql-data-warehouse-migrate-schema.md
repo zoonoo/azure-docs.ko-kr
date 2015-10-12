@@ -108,7 +108,7 @@ OR  y.[is_user_defined] = 1
 - **geography**, varbinary 형식 사용
 - **hierarchyid**, 이 CLR 유형이 지원되지 않음
 - **image**, **text**, **ntext**, varchar/nvarchar 사용(작을 수록 더 좋음)
-- **nvarchar(max)**, 더 나은 성능을 위해 varchar(4000) 이하 사용
+- **nvarchar(max)**, 더 나은 성능을 위해 nvarchar(4000) 이하 사용
 - **numeric**, decimal 사용
 - **sql\_variant**, 열을 강력한 형식의 열로 분할
 - **sysname**, nvarchar(128) 사용
@@ -145,4 +145,4 @@ SQLDW로 데이터베이스 스키마를 성공적으로 마이그레이션한 �
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

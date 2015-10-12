@@ -82,11 +82,13 @@ HDInsight 클러스터에 Solr을 설치하는 샘플 스크립트는 읽기 전
 	post.jar 유틸리티는 두 개의 샘플 문서 **solr.xml** 및 **monitor.xml**로 Solr을 인덱싱합니다. post.jar 유틸리티와 샘플 문서는 Solr 설치에서 사용할 수 있습니다.
 
 3. **Solr 대시보드를 사용하여 인덱싱된 문서 내에서 검색**합니다. HDInsight 클러스터에 대한 RDP 세션에서 Internet Explorer를 열고 ****http://headnodehost:8983/solr/#/**에서 Solr 대시보드를 실행합니다. 왼쪽 창의 **Core Selector** 드롭다운에서 **collection1**을 선택하고, 그 안에서 **Query**를 클릭합니다. 한 예로, Solr의 모든 문서를 선택하고 반환하려면 다음 값을 제공하세요.
-	1. **q** 텍스트 상자에 ***:***을 입력합니다. 이렇게 하면 Solr에서 인덱싱되는 문서는 모두 반환됩니다. 문서 내에서 특정 문자열을 검색하려는 경우 여기에 해당 문자열을 입력할 수 있습니다.
-	2. **wt** 텍스트 상자에서 출력 형식을 선택합니다. 기본값은 **json**입니다. **Execute Query**를 클릭합니다.
 
-		![스크립트 작업을 사용하여 클러스터 사용자 지정](./media/hdinsight-hadoop-solr-install/hdi-solr-dashboard-query.png "Solr 대시보드에서 쿼리 실행")
+	* **q** 텍스트 상자에 ***:***을 입력합니다. 이렇게 하면 Solr에서 인덱싱되는 문서는 모두 반환됩니다. 문서 내에서 특정 문자열을 검색하려는 경우 여기에 해당 문자열을 입력할 수 있습니다.
+	
+	* **wt** 텍스트 상자에서 출력 형식을 선택합니다. 기본값은 **json**입니다. **Execute Query**를 클릭합니다.
 
+	![스크립트 작업을 사용하여 클러스터 사용자 지정](./media/hdinsight-hadoop-solr-install/hdi-solr-dashboard-query.png "Solr 대시보드에서 쿼리 실행")
+	
 	출력에는 Solr 인덱싱에 사용되는 두 문서가 반환됩니다. 출력은 다음과 유사합니다.
 
 			"response": {
@@ -168,11 +170,11 @@ HDInsight 클러스터에 Solr을 설치하는 샘플 스크립트는 읽기 전
 		이 명령은 스냅숏을 클러스터와 연결된 기본 저장소 계정 내의 컨테이너 아래에 있는 /example/data/에 복사합니다.
 
 
-## 참고 항목##
+## 참고 항목
+
 - [HDInsight 클러스터에서 Spark 설치 및 사용][hdinsight-install-spark]. 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에서 Spark를 설치합니다. Spark는 메모리 내 처리를 지원하여 빅데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다.
 - [HDInsight 클러스터에 R 설치][hdinsight-install-r]. 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에서 R을 설치합니다. R은 통계 계산을 위한 오픈 소스 언어 및 환경입니다. 수백 개의 기본 제공 통계 함수와 기능 및 개체 지향 프로그래밍의 측면을 결합하는 고유한 프로그래밍 언어를 제공합니다. 또한 광범위한 그래픽 기능도 제공합니다.
 - [HDInsight 클러스터에 Giraph 설치](hdinsight-hadoop-giraph-install.md). 클러스터 사용자 지정을 사용하여 HDInsight Hadoop 클러스터에 Giraph를 설치합니다. Giraph를 통해 Hadoop을 사용하여 그래프 처리를 수행할 수 있으며, Azure HDInsight에서 이를 사용할 수도 있습니다.
-
 
 
 [powershell-install-configure]: ../install-configure-powershell.md
@@ -181,4 +183,4 @@ HDInsight 클러스터에 Solr을 설치하는 샘플 스크립트는 읽기 전
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

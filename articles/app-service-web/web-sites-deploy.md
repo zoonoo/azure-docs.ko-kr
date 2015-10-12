@@ -1,15 +1,15 @@
 <properties
 	pageTitle="Azure 앱 서비스에서 웹 앱 배포"
 	description="웹 앱 배포에 사용할 수 있는 방법에 대해 알아봅니다."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="tdykstra"
 	manager="wpickett"
 	editor="mollybos"/>
 
 <tags
-	ms.service="app-service-web"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -20,60 +20,37 @@
 
 ## 개요
 
-사용자 고유의 콘텐츠를 [앱 서비스 웹 앱](http://go.microsoft.com/fwlink/?LinkId=529714)에 배포하기 위한 여러 옵션이 있습니다. 이 항목에서는 각 옵션에 대해 간략하게 설명하고 자세한 정보 링크를 제공합니다.
-
-
-###<a name="cloud"></a>클라우드에 호스트된 소스 제어 시스템에서 배포
+이 항목에서는 사용자 고유의 콘텐츠를 [앱 서비스 웹앱](http://go.microsoft.com/fwlink/?LinkId=529714)에 배포하기 위한 옵션에 대한 간략한 개요를 제공합니다.
 
 웹 앱을 배포하는 가장 좋은 방법은 [지속적인 전송 워크플로](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery)를 [소스 제어 시스템](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control)에 설정하는 것입니다. 자동화는 개발 프로세스를 더 효율적으로 만들 뿐만 아니라 백업 및 복원 프로세스의 관리 가능성과 안정성도 높일 수 있습니다.
 
-아직 소스 제어를 설정하지 않은 경우 가장 쉽게 시작하는 방법은 클라우드에 호스트된 소스 제어 시스템을 사용하는 것입니다.
+클라우드에 호스트된 원본 제어 시스템에서 배포에 대한 자세한 내용은 이 문서의 뒷부분에 나오는 다음 섹션을 참조하세요.
 
 * [Visual Studio Online](#vso)
 * [Git를 사용하는 리포지토리 웹 사이트](#git)
 * [Mercurial을 사용하는 리포지토리 웹 사이트](#mercurial)
 * [Dropbox](#dropbox)
 
-###<a name="ide"></a>IDE에서 배포
-
-[Visual Studio](http://www.visualstudio.com/) 및 [WebMatrix](http://www.microsoft.com/web/webmatrix/)는 웹 개발에 사용할 수 있는 Microsoft IDE(통합 개발 환경)입니다. 모두 웹 앱을 쉽게 배포할 수 있는 기본 기능을 제공합니다. 두 가지 모두 [웹 배포](http://www.iis.net/downloads/microsoft/web-deploy)(영문)를 사용하여 데이터베이스 배포 및 연결 문자열 변경과 같은 더 많은 배포 관련 작업을 자동화할 수 있습니다. 또한 [FTP 또는 FTPS](http://en.wikipedia.org/wiki/File_Transfer_Protocol)(영문)를 사용하여 배포할 수도 있습니다.
-
-WebMatrix는 신속하게 설치하고 쉽게 배울 수 있지만, Visual Studio는 Azure 웹 앱 작업을 위한 더 많은 기능을 제공합니다. Visual Studio IDE 내에서 웹 앱을 만들고, 중지하고, 시작하고 삭제할 수 있으며 실시간으로 생성되는 로그를 볼 수 있으며, 원격 디버그 등을 수행할 수도 있습니다. Visual Studio는 또한 [Visual Studio Online](#vso), [Team Foundation Server](#tfs), [Git 리포지토리](#git)와 같은 소스 제어 시스템과 통합됩니다.
-
-* [Visual Studio](#vs)
-* [WebMatrix](#webmatrix)
-
-###<a name="ftp"></a>FTP 유틸리티를 사용하여 배포
-
-사용하는 IDE와 관계없이, [FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol)를 사용하여 콘텐츠를 앱에 배포하여 파일을 복사할 수도 있습니다. 웹 앱용 FTP 자격 증명을 만들기가 쉬우며 Internet Explorer와 같은 브라우저 및 [FileZilla](https://filezilla-project.org/)와 같은 모든 기능을 갖춘 무료 유틸리티를 포함하여 FTP와 작동하는 모든 응용 프로그램에서 이 자격 증명을 사용할 수 있습니다. 웹 앱은 보다 안전한 FTPS 프로토콜도 지원합니다.
-
-FTP 유틸리티를 사용하여 웹 앱의 파일을 Azure에 쉽게 복사할 수 있지만, 이 유틸리티는 데이터베이스 배포 또는 연결 문자열 변경과 같은 관련 배포 작업을 자동으로 처리하거나 조정하지 않습니다. 또한 많은 FTP 도구는 변경되지 않은 파일의 복사를 건너뛰기 위해 원본 파일과 대상 파일을 비교하는 과정을 거치지 않습니다. 대규모 앱의 경우 항상 모든 파일을 복사한다면 사소한 업데이트 시에도 항상 모든 파일이 복사되기 때문에 배포 시간이 길어질 수 있습니다.
-
-###<a name="onpremises"></a>온-프레미스 소스 제어 시스템에서 배포
-
-온-프레미스(클라우드에 호스트되지 않음) 리포지토리에서 TFS, Git 또는 Mercurial을 사용 중인 경우 리포지토리에서 웹 앱에 바로 배포할 수 있습니다.
+온-프레미스 원본 제어 시스템에서 배포에 대한 자세한 내용은 이 문서의 뒷부분에 나오는 다음 섹션을 참조하세요.
 
 * [Team Foundation Server(TFS)](#tfs)
 * [온-프레미스 Git 또는 Mercurial 리포지토리](#onpremises)
 
-###<a name="commandline"></a>명령줄 도구 및 Azure REST 관리 API를 사용하여 배포
+또한 명령줄 도구를 사용하여 배포를 자동화할 수 있습니다. 명령줄 도구를 사용하여 배포하는 방법에 대한 자세한 내용은 이 문서의 뒷부분에 나오는 다음 섹션을 참조하세요.
 
-개발 워크플로를 자동화하는 것이 항상 가장 좋습니다. 하지만 소스 제어 시스템에서 바로 자동화할 수 없는 경우에는 명령줄 도구를 사용하여 수동으로 설정할 수 있습니다. 이렇게 하려면 일반적으로 두 개 이상의 도구나 프레임워크를 사용해야 합니다. 배포에 콘텐츠 복사뿐만 아니라 사이트 관리 기능 수행도 필요한 경우가 많기 때문입니다.
-
-REST 관리 API 및 API 작업을 더 수월하게 만드는 몇 가지 프레임워크가 제공되는 Azure는 배포를 위해 수행해야 할 사이트 관리 작업을 간소화합니다.
-
-* [FTP](#ftp)
 * [MSBuild](#msbuild)
-* [FTP 스크립트](#ftp2)
+* [FTP 도구 및 스크립트](#ftp)
 * [Windows PowerShell](#powershell)
 * [.NET 관리 API](#api)
 * [Azure 명령줄 인터페이스(Azure CLI)](#cli)
 * [웹 배포 명령줄](#webdeploy)
  
-###<a name="octopus"></a>Octopus 배포
+경우에 따라 IDE(통합 개발 환경)에서 더 편리하게 배포할 수 있습니다. IDE에서 배포에 대한 자세한 내용은 이 문서의 뒷부분에 나오는 다음 섹션을 참조하세요.
 
-웹 서비스 웹앱에서 [Octopus 배포](http://en.wikipedia.org/wiki/Octopus_Deploy)를 사용할 수 있습니다. 자세한 내용은 참조 [Azure 웹사이트에 ASP.NET 응용 프로그램 배포](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites)를 참조하세요.
+* [Visual Studio](#vs)
+* [WebMatrix](#webmatrix)
 
+다른 배포 옵션은 [Octopus 배포](http://en.wikipedia.org/wiki/Octopus_Deploy) 같은 클라우드 기반 서비스를 사용하는 것입니다. 자세한 내용은 참조 [Azure 웹사이트에 ASP.NET 응용 프로그램 배포](https://octopusdeploy.com/blog/deploy-aspnet-applications-to-azure-websites)를 참조하세요.
 
 ##<a name="vso"></a>Visual Studio Online
 
@@ -154,7 +131,6 @@ Azure에서는 해당 위치에서 배포하기 위해 Git 또는 Mercurial을 �
 * [Git, Mercurial 및 Dropbox의 Azure 포럼](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azuregit)(영문).
 * [하나의 Git 리포지토리에서 Azure에 두 웹 사이트 배포](http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx)(영문). Scott Hanselman의 블로그 게시물입니다.
 
-
 ##<a name="msbuild"></a>MSBuild
 
 개발하는 데 [Visual Studio IDE](#vs)를 사용하는 경우 [MSBuild](http://msbuildbook.com/)를 사용하면 IDE에서 할 수 있는 모든 작업을 자동화할 수 있습니다. 파일을 복사하는 데 [웹 배포](#webdeploy) 또는 [FTP/FTPS](#ftp)를 사용하도록 MSBuild를 구성할 수 있습니다. 웹 배포는 데이터베이스 배포와 같은 다른 많은 배포 관련 작업을 자동화할 수도 있습니다.
@@ -164,9 +140,11 @@ MSBuild를 사용한 명령줄 배포에 대한 자세한 내용은 다음 리�
 * [Visual Studio를 사용한 ASP.NET 웹 배포: 명령줄 배포](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment) Visual Studio를 사용하여 Azure에 배포하는 방법에 대한 자습서 시리즈의 열 번째 문서입니다. Visual Studio에서 게시 프로필을 설정한 후 명령줄을 사용하여 배포하는 방법을 보여 줍니다.
 * [Microsoft 빌드 엔진 내: MSBuild 및 Team Foundation Build 사용](http://msbuildbook.com/). 배포에 MSBuild를 사용하는 방법에 대한 장이 포함된 하드 카피 책자입니다.
 
-##<a name="ftp2"></a>FTP 스크립트
+##<a name="ftp"></a>FTP 도구 및 스크립트
 
-웹 앱의 [FTP/FTPS](http://en.wikipedia.org/wiki/File_Transfer_Protocol) 자격 증명을 쉽게 만들 수 있으며, FTP 일괄 스크립트에 이 자격 증명을 사용할 수 있습니다.
+[FTP](http://en.wikipedia.org/wiki/File_Transfer_Protocol)를 사용하여 콘텐츠를 앱에 배포하면 파일을 복사할 수 있습니다. 웹앱용 FTP 자격 증명을 만들기가 쉬우며 Internet Explorer와 같은 브라우저 및 [FileZilla](https://filezilla-project.org/)와 같은 모든 기능을 갖춘 무료 유틸리티를 포함하여 FTP와 작동하는 스크립트 또는 응용 프로그램에서 이 자격 증명을 사용할 수 있습니다. 웹 앱은 보다 안전한 FTPS 프로토콜도 지원합니다.
+
+FTP 유틸리티를 사용하여 웹 앱의 파일을 Azure에 쉽게 복사할 수 있지만, 이 유틸리티는 데이터베이스 배포 또는 연결 문자열 변경과 같은 관련 배포 작업을 자동으로 처리하거나 조정하지 않습니다. 또한 많은 FTP 도구는 변경되지 않은 파일의 복사를 건너뛰기 위해 원본 파일과 대상 파일을 비교하는 과정을 거치지 않습니다. 대규모 앱의 경우 항상 모든 파일을 복사한다면 사소한 업데이트 시에도 항상 모든 파일이 복사되기 때문에 배포 시간이 길어질 수 있습니다.
 
 자세한 내용은 다음 리소스를 참조하십시오.
 
@@ -227,4 +205,4 @@ Azure의 역할 기반 액세스 제어를 사용하여 웹 앱 배포에 대한
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

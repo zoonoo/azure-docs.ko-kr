@@ -128,23 +128,19 @@ SSH를 통해 헤드 노드에 연결된 동안에는 **/var/log**에서 로그 
 
 ###Ambari
 
-> [AZURE.NOTE]Ambari를 통해 로그 파일에 액세스하려면 SSH 터널이 필요합니다. 개별 서비스의 웹 사이트는 인터넷에서 공개적으로 노출되지 않기 때문입니다. SSH 터널 사용에 대한 자세한 내용은 다음 중 하나를 참조하세요.
->
-> * [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md#tunnel)
->
-> * [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
+> [AZURE.NOTE]Ambari를 통해 로그 파일에 액세스하려면 SSH 터널이 필요합니다. 개별 서비스의 웹 사이트는 인터넷에서 공개적으로 노출되지 않기 때문입니다. SSH 터널의 사용에 대한 정보는 [SSH 터널링을 사용하여 Ambari 웹 UI, ResourceManager, JobHistory, NameNode, Oozie, 및 기타 웹 UI에 액세스](hdinsight-linux-ambari-ssh-tunnel.md)를 참조하세요.
 
-Ambari 웹 UI에서 로그를 볼 서비스(예: YARN)를 선택한 다음 **빠른 연결**을 사용하여 로그를 볼 헤드 노드를 선택합니다.
+Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택한 다음 **빠른 연결**을 사용하여 로그를 볼 헤드 노드를 선택합니다.
 
 ![빠른 연결을 사용하여 로그 보기](./media/hdinsight-high-availability-linux/viewlogs.png)
 
 ## 헤드 노드의 크기를 구성하는 방법 ##
 
-헤드 노드의 크기는 클러스터를 만들 때만 선택할 수 있습니다. 헤드 노드의 기본 크기는 **A3**이며 A3은 코어 4개, 7GB 메모리 및 로컬 저장소 285GB를 제공합니다. [HDInsight 가격 페이지](http://azure.microsoft.com/pricing/details/hdinsight/)에서 HDInsight에 사용할 수 있는 다양한 VM 크기(각각의 코어, 메모리 및 로컬 저장소 포함)의 목록을 찾을 수 있습니다.
+헤드 노드의 크기는 클러스터를 만들 때만 선택할 수 있습니다. 헤드 노드의 기본 크기는 **A3**이며 코어 4개, 7GB 메모리 및 로컬 저장소 285GB를 제공합니다. [HDInsight 가격 책정 페이지](http://azure.microsoft.com/pricing/details/hdinsight/)에서 HDInsight에 사용할 수 있는 다양한 VM 크기(각각의 코어, 메모리 및 로컬 저장소 포함)의 목록을 찾을 수 있습니다.
 
 새 클러스터를 만들 때 노드 크기를 지정할 수 있습니다. 다음은 [Azure Preview 포털][preview-portal], [Azure PowerShell][azure-powershell] 및 [Azure CLI][azure-cli]를 사용하여 크기를 지정하는 방법에 대한 정보를 제공합니다.
 
-* **Azure Preview 포털**: 새 클러스터를 만들 때 클러스터의 헤드 및 데이터(작업자) 노드의 크기(가격 책정 계층)를 설정하는 옵션이 제공됩니다.
+* **Azure Preview 포털**: 새 클러스터를 만들 때 클러스터의 헤드 및 데이터(작업자) 노드 크기(가격 책정 계층)를 설정하는 옵션이 제공됩니다.
 
 	![노드 크기 선택이 포함된 클러스터 만들기 마법사의 이미지](./media/hdinsight-high-availability-linux/headnodesize.png)
 
@@ -158,7 +154,7 @@ Ambari 웹 UI에서 로그를 볼 서비스(예: YARN)를 선택한 다음 **빠
 
 - [Ambari REST 참조](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 
-- [Azure CLI 설치 및 구성](../xplat-cli.md)
+- [Azure CLI 설치 및 구성](../xplat-cli-install.md)
 
 - [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)
 
@@ -168,6 +164,6 @@ Ambari 웹 UI에서 로그를 볼 서비스(예: YARN)를 선택한 다음 **빠
 
 [preview-portal]: https://portal.azure.com/
 [azure-powershell]: ../powershell-install-configure.md
-[azure-cli]: ../xplat-cli.md
+[azure-cli]: ../xplat-cli-install.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

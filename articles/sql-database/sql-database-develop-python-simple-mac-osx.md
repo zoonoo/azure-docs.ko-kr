@@ -24,7 +24,7 @@
 [AZURE.INCLUDE [sql-database-develop-includes-selector-language-platform-depth](../../includes/sql-database-develop-includes-selector-language-platform-depth.md)]
 
 
-이 항목에서는 Python으로 작성된 코드 샘플을 제시합니다. 이 샘플은 Mac 컴퓨터에서 실행됩니다. 이 샘플에서는 **pymssql** 드라이버를 사용하여 Azure SQL 데이터베이스에 연결합니다.
+이 항목에서는 Python으로 작성된 코드 샘플을 제시합니다. 이 샘플은 Mac 컴퓨터에서 실행됩니다. 이 샘플에서는 **pymssql** 드라이버를 사용하여 Azure SQL 데이터베이스에 연결합니다. 또한 이 설명서를 보충하려면 [Mac에서 Python으로 시작하기](https://www.youtube.com/watch?v=OMpugPTwnTI) 비디오를 사용하세요.
 
 
 ## 요구 사항
@@ -83,7 +83,7 @@ SQL 데이터베이스에 연결하는 데 [pymssql.connect](http://pymssql.org/
 
 ## 행을 삽입하고, 매개 변수를 전달하며, 생성된 기본 키를 검색합니다.
 
-SQL 데이터베이스에서 [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) 속성 및 [SEQUENECE](https://msdn.microsoft.com/library/ff878058.aspx) 개체를 사용하여 [기본 키](https://msdn.microsoft.com/library/ms179610.aspx) 값을 자동으로 생성할 수 있습니다.
+SQL 데이터베이스에서 [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) 속성 및 [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) 개체를 사용하여 [기본 키 값](https://msdn.microsoft.com/library/ms179610.aspx)을 자동으로 생성할 수 있습니다.
 
 
 	import pymssql
@@ -102,11 +102,11 @@ SQL 데이터베이스에서 [IDENTITY](https://msdn.microsoft.com/library/ms186
 이 코드 예제는 다음과 같은 트랜잭션의 사용법을 보여줍니다.
 
 
-\-트랜잭션 시작
+-트랜잭션 시작
 
-\-데이터 행 삽입
+-데이터 행 삽입
 
-\-트랜잭션을 롤백하여 삽입 취소
+-트랜잭션을 롤백하여 삽입 취소
 
 
 	import pymssql
@@ -118,4 +118,4 @@ SQL 데이터베이스에서 [IDENTITY](https://msdn.microsoft.com/library/ms186
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

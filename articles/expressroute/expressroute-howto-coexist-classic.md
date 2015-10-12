@@ -210,4 +210,4 @@ Express 경로 또는 사이트 간 VPN 연결을 통해 연결된 기존 가상
 
 Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -74,4 +74,4 @@ Azure 복구 서비스 에이전트</p><p>HTTPS를 통해 사이트 복구에 �
 이 개요를 마친 후 [모범 사례를 읽어보고](site-recovery-best-practices.md) 배포 계획을 시작합니다.
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

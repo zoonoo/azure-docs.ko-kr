@@ -90,4 +90,4 @@ Microsoft 피어링을 통해 다른 모든 Microsoft 온라인 서비스(예: O
 	- [라우팅(회로 피어링) 구성](expressroute-howto-routing-classic.md)
 	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!----HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

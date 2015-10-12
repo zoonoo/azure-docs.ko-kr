@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Microsoft Azure 저장소용 클라이언트측 암호화| Microsoft Azure"
-	description=".NET용 Azure 저장소 클라이언트 라이브러리는 Azure 저장소 응용 프로그램의 보안을 최대화하기 위해 클라이언트 쪽 암호화 및 Azure 키 자격 증명 모음과의 통합을 지원합니다."
-	services="storage"
-	documentationCenter=".net"
-	authors="tamram"
-	manager="carolz"
+	pageTitle="Microsoft Azure 저장소용 .NET을 사용하는 클라이언트 쪽 암호화 | Microsoft Azure" 
+	description=".NET용 Azure 저장소 클라이언트 라이브러리는 Azure 저장소 응용 프로그램의 보안을 최대화하기 위해 클라이언트 쪽 암호화 및 Azure 키 자격 증명 모음과의 통합을 지원합니다." 
+	services="storage" 
+	documentationCenter=".net" 
+	authors="tamram" 
+	manager="carolz" 
 	editor=""/>
 
 <tags 
-	ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/21/2015"
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/29/2015" 
 	ms.author="tamram"/>
 
 
@@ -22,6 +22,8 @@
 ## 개요
 
 [.NET용 Azure 저장소 클라이언트 라이브러리](https://www.nuget.org/packages/WindowsAzure.Storage)는 Azure 저장소에 업로드하기 전에 클라이언트 응용 프로그램 내부에서 데이터를 암호화하고 클라이언트로 다운로드하는 동안 데이터 암호를 해독하는 기능을 지원합니다. 라이브러리 또한 저장소 계정 키 관리를 위해 Azure [키 자격 증명 모음](http://azure.microsoft.com/services/key-vault/)과의 통합을 지원합니다.
+
+Java를 사용하는 클라이언트 쪽 암호화는 [Microsoft Azure용 Java를 사용하는 클라이언트 쪽 암호화](storage-client-side-encryption-java.md)를 참조하세요.
 
 ## 봉투(Envelope) 기술을 통해 암호화 및 암호 해독
 
@@ -50,7 +52,7 @@
 
 ## 암호화 메커니즘
 
-저장소 클라이언트 라이브러리는 사용자 데이터를 암호화 하기위해 [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용합니다. 특히, AES를 이용한 [암호 블록 체인 (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) 모드입니다. 각 서비스는 하는 일이 각각 다르므로 여기서 이것들을 살펴볼 것입니다.
+저장소 클라이언트 라이브러리는 사용자 데이터를 암호화하기 위해 [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용합니다. 특히, AES를 이용한 [CBC(암호화 블록 체인)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) 모드입니다. 각 서비스는 하는 일이 각각 다르므로 여기서 이것들을 살펴볼 것입니다.
 
 ### Blob
 
@@ -60,9 +62,9 @@
 
 > [AZURE.WARNING]blob에 대해 고유 메타데이터를 편집하거나 업로드 할 경우, 메타데이타가 유지되는지 확인하세요. 이 메타 데이터 없이 새 메타 데이터를 업로드 하는 경우에는 래핑된 CEK, IV 및 기타 메타 데이터가 손실 되고 blob 콘텐츠를 절대로 다시 검색할 수 없습니다.
 
-전체 blob의 콘텐츠 검색을 포함하는 암호화 blob 다운로드는 **DownloadTo*** / * * BlobReadStream * * 편리한 메서드를 사용하세요. 래핑된 CEK는 IV (blob 메타 데이터로 저장된 경우)와 함께 암호해독되고 사용되어 지며 해독된 데이터가 사용자에게 돌아갑니다.
+전체 BLOB의 콘텐츠 검색을 포함하는 암호화 BLOB 다운로드는 **DownloadTo***/**BlobReadStream** 편리한 메서드를 사용하세요. 래핑된 CEK는 IV (blob 메타 데이터로 저장된 경우)와 함께 암호해독되고 사용되어 지며 해독된 데이터가 사용자에게 돌아갑니다.
 
-암호화된 blob 내에서 임의의 범위를 다운로드할 경우(**DownloadRange*** 메서드) 요청된 범위를 성공적으로 암호 해독하는 데 사용되는 소량의 추가 데이터를 얻기 위해 사용자가 제공하는 범위가 조정됩니다.
+암호화된 BLOB 내에서 임의의 범위를 다운로드할 경우(**DownloadRange*** 메서드) 요청된 범위를 성공적으로 암호 해독하는 데 사용되는 소량의 추가 데이터를 얻기 위해 사용자가 제공하는 범위가 조정됩니다.
 
 이 스키마를 사용하여 모든 blob 유형(블록 blob, 페이지 blob 및 추가 blob)을 암호화/암호 해독할 수 있습니다.
 
@@ -103,7 +105,7 @@
 
 ## Azure 키 자격 증명 모음
 
-Azure 키 자격 증명 모음은 클라우드 응용 프로그램 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. Azure 키 자격 증명 모음을 사용하여, 사용자는 키와 비밀(예: 인증 키, 저장소 계정 키, 데이터 암호화 키, PFX 파일 및 암호)을 암호화하여 하드웨어 보안 모듈(HSM)로 보호된 키를 사용합니다. 자세한 내용은 [Azure 키 자격증명 모음이란?](../articles/key-vault-whatis.md)을 참조하세요.
+Azure 키 자격 증명 모음은 클라우드 응용 프로그램 및 서비스에서 사용되는 암호화 키 및 비밀을 보호하는데 도움이 됩니다. Azure 키 자격 증명 모음을 사용하여, 사용자는 키와 비밀(예: 인증 키, 저장소 계정 키, 데이터 암호화 키, PFX 파일 및 암호)을 암호화하여 하드웨어 보안 모듈(HSM)로 보호된 키를 사용합니다. 자세한 내용은 [Azure 주요 자격 증명 모음이란?](../articles/key-vault-whatis.md)을 참조하세요.
 
 저장소 클라이언트 라이브러리는 Azure 내에서 키를 관리 하기 위한 공통 프레임 워크를 제공 하기 위해 키 자격 증명 모음 핵심 라이브러리를 사용 합니다. 사용자는 또한 키 자격 증명 모음 확장 라이브러리를 사용하여 추가적인 이점을 제공을 받습니다. 이 확장 라이브러리는 간단하고 원활한 대칭/RSA 로컬 및 집계와 캐싱같은 클라우드 키 공급자 관련 유용한 기능을 제공합니다. .
 
@@ -121,7 +123,7 @@ Azure 키 자격 증명 모음은 클라우드 응용 프로그램 및 서비스
 2. 비밀의 기본 식별자를 현재 버전의 암호화에 대한 암호를 풀기 위해 매개변수로 사용하고 이 정보를 로컬로 캐시합니다. CachingKeyResolver를 사용합니다. 사용자는 자체 캐싱 논리가 구현되지 않는 것을 예상합니다.
 3. 암호화 정책을 생성하는 동안 캐싱 확인자를 입력으로 사용합니다.
 
-키 자격 증명 모음 사용법에 대한 자세한 내용은 [암호화 코드 샘플](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples)에서 찾을 있습니다.
+주요 자격 증명 모음 사용법에 대한 자세한 내용은 [암호화 코드 샘플](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples)에서 찾을 있습니다.
 
 ## 모범 사례
 
@@ -144,11 +146,11 @@ EncryptionPolicy 개체를 만드는 동안 사용자만 키를 공급 (IKey 구
 	- 키 확인자는 키를 가져오기 위해 지정된 경우 호출됩니다. 확인자를 지정 하 고 키 식별자에 대한 매핑이 없는 경우, 오류가 전달됩니다.
 	- 확인자는 지정하지 않고 키는 지정한 경우 해당 식별자가 필요한 키 식별자와 일치하는 경우 키가 사용됩니다. 식별자가 일치하지 않으면 오류가 throw됩니다.
 
-[암호화 샘플](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples)은 키 자격 증명 모음 통합과 함께 blob, 큐 및 테이블에 대한 보다 자세한 종단 간 시나리오를 보여 줍니다.
+[암호화 샘플](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples)은 주요 자격 증명 모음 통합과 함께 BLOB, 큐 및 테이블에 대한 보다 자세한 종단 간 시나리오를 보여 줍니다.
 
 ### RequireEncryption 모드
 
-사용자는 모든 업로드 및 다운로드를 암호화해야 할 경우 작업 모드를 선택적으로 사용하도록 설정할 수 있습니다. 이 모드에서는 클라이언트에서 암호화 정책 없이 데이터를 업로드하거나 서비스에서 암호화되지 않은 데이터를 다운로드하려고 하면 실패합니다. 요청 옵션 개체의 **RequireEncryption** 속성이 이 동작을 제어합니다. 응용 프로그램이 Azure 저장소에 저장된 모든 개체를 암호화하는 경우 서비스 클라이언트 개체에 대한 기본 요청 옵션에서 **RequireEncryption** 속성을 설정할 수 있습니다. 예를 들어 모든 blob 작업에 대한 암호화가 해당 클라이언트 개체를 통해 수행되도록 하려면 **CloudBlobClient.DefaultRequestOptions.RequireEncryption**을 **true**로 설정합니다.
+사용자는 모든 업로드 및 다운로드를 암호화해야 할 경우 작업 모드를 선택적으로 사용하도록 설정할 수 있습니다. 이 모드에서는 클라이언트에서 암호화 정책 없이 데이터를 업로드하거나 서비스에서 암호화되지 않은 데이터를 다운로드하려고 하면 실패합니다. 요청 옵션 개체의 **RequireEncryption** 속성이 이 동작을 제어합니다. 응용 프로그램이 Azure 저장소에 저장된 모든 개체를 암호화하는 경우 서비스 클라이언트 개체에 대한 기본 요청 옵션에서 **RequireEncryption** 속성을 설정할 수 있습니다. 예를 들어 모든 BLOB 작업에 대한 암호화가 해당 클라이언트 개체를 통해 수행되도록 하려면 **CloudBlobClient.DefaultRequestOptions.RequireEncryption**을 **true**로 설정합니다.
 
 ### Blob 서비스 암호화
 
@@ -240,6 +242,6 @@ EncryptionPolicy 개체를 만드는 동안 사용자만 키를 공급 (IKey 구
 
 ## 다음 단계
 
-[Azure Storage Client Library for .NET NuGet 패키지](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0) 다운로드, GitHub에서 [Azure Storage Client Library for .NET 소스 코드](https://github.com/Azure/azure-storage-net) 다운로드, [코어](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [클라이언트](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) 및 [확장](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 패키지에서 Azure 키 자격 증명 모음 NuGet 다운로드, [Azure 키 자격 증명 모음 설명서](../articles/key-vault-whatis.md) 방문
+[.NET용 Azure 저장소 클라이언트 라이브러리 NuGet 패키지](http://www.nuget.org/packages/WindowsAzure.Storage/5.0.0) 다운로드, GitHub에서 [.NET용 Azure 저장소 클라이언트 라이브러리 소스 코드](https://github.com/Azure/azure-storage-net) 다운로드, [코어](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Core/), [클라이언트](http://www.nuget.org/packages/Microsoft.Azure.KeyVault/) 및 [확장](http://www.nuget.org/packages/Microsoft.Azure.KeyVault.Extensions/) 패키지에서 Azure 주요 자격 증명 모음 NuGet 다운로드, [Azure 주요 자격 증명 모음 설명서](../articles/key-vault-whatis.md) 방문
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

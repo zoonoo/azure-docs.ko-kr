@@ -90,8 +90,8 @@ SQL 데이터 웨어하우스에서 구현되지 않은 TRANSACT-SQL 저장된 �
 [개발 개요]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[nest level]: https://msdn.microsoft.com/KO-KR/library/ms187371.aspx
+[nest level]: https://msdn.microsoft.com/ko-kr/library/ms187371.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -290,4 +290,4 @@ Scalding을 사용하여 HDInsight용 MapRedcue 작업을 만드는 방법을 �
 
 * [HDInsight에서 MapReduce 작업 사용](hdinsight-use-mapreduce.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

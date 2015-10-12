@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service-logic"
-	ms.workload="integration"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
@@ -75,4 +75,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [templates]: app-service-logic-use-logic-app-templates.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

@@ -112,4 +112,4 @@ SQL 데이터 웨어하우스에는 트랜잭션과 관련된 몇 가지 기타 
 
 <!--Other Web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

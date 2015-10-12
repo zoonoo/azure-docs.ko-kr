@@ -179,7 +179,7 @@ QueueInfo에는 큐의 속성을 조정하는 데 사용할 수 있는 메서드
 
   [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
   [Java용 Azure SDK]: http://azure.microsoft.com/develop/java/
-  [Eclipse용 Azure Toolkit]: https://msdn.microsoft.com/ko-KR/library/azure/hh694271.aspx
+  [Eclipse용 Azure Toolkit]: https://msdn.microsoft.com/ko-kr/library/azure/hh694271.aspx
   [What are Service Bus Queues?]: #what-are-service-bus-queues
   [Create a Service Namespace]: #create-a-service-namespace
   [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
@@ -193,4 +193,4 @@ QueueInfo에는 큐의 속성을 조정하는 데 사용할 수 있는 메서드
   [큐, 토픽 및 구독]: service-bus-queues-topics-subscriptions.md
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

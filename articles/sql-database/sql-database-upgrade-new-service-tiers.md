@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="SQL 데이터베이스 Web 또는 Business 데이터베이스를 새 서비스 계층으로 업그레이드"
-	description="Azure SQL 데이터베이스 Web 또는 Business 데이터베이스를 새 Azure SQL 서비스 기본, 표준 및 프리미엄 서비스 계층/성능 수준으로 업그레이드합니다."
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jeffreyg"
+	pageTitle="SQL 데이터베이스 Web 또는 Business 데이터베이스를 새 서비스 계층으로 업그레이드" 
+	description="Azure SQL 데이터베이스 Web 또는 Business 데이터베이스를 새 Azure SQL 서비스 기본, 표준 및 프리미엄 서비스 계층/성능 수준으로 업그레이드합니다." 
+	services="sql-database" 
+	documentationCenter="" 
+	authors="stevestein" 
+	manager="jeffreyg" 
 	editor=""/>
 
 <tags 
 	ms.service="sql-database"
 	ms.devlang="NA"
-	ms.date="06/18/2015"
-	ms.author="sstein"
-	ms.workload="data-management"
-	ms.topic="article"
+	ms.date="06/18/2015" 
+	ms.author="sstein" 
+	ms.workload="data-management" 
+	ms.topic="article" 
 	ms.tgt_pltfrm="NA"/>
 
 
@@ -29,7 +29,7 @@ Azure SQL Web 및 Business 데이터베이스는 더 이상 사용되지 않으�
 
 <p> Azure Web 및 Business SQL 데이터베이스는 데이터베이스에 예약된 리소스 용량 없이 공유 다중 테넌트 환경에서 실행됩니다. 이 공유 리소스 환경 내에 있는 다른 데이터베이스의 작업이 성능에 영향을 줄 수 있습니다. 지정된 시점의 리소스 가용성은 시스템에서 동시에 실행되는 다른 작업에 따라 달라집니다. 이로 인해 데이터베이스 응용 프로그램 성능이 매우 가변적이며 예측할 수 없습니다. 이와 같은 예측할 수 없는 성능은 관리하기가 어려우므로 더 예측 가능한 성능을 원한다는 고객 의견이 많았습니다.
 
-이 의견을 수렴하여 Azure SQL 데이터베이스 서비스는 예측 가능한 성능과 비즈니스 지속성 및 보안을 위한 여러 새로운 기능을 제공하는 새 데이터베이스 서비스 계층[(기본, 표준 및 프리미엄)](http://msdn.microsoft.com/library/dn741340.aspx)을 도입했습니다. 이러한 새 서비스 계층은 환경에서 실행 중인 다른 고객 작업에 관계없이 데이터베이스 작업에 지정된 수준의 리소스를 제공하도록 설계되었습니다. 이로 인해 예측 가능한 성능 동작이 발생합니다.
+이 의견을 수렴하여 Azure SQL 데이터베이스 서비스는 예측 가능한 성능과 비즈니스 지속성 및 보안을 위한 여러 새로운 기능을 제공하는 새 데이터베이스 서비스 계층[(기본, 표준 및 프리미엄)](sql-database-service-tiers.md)을 도입했습니다. 이러한 새 서비스 계층은 환경에서 실행 중인 다른 고객 작업에 관계없이 데이터베이스 작업에 지정된 수준의 리소스를 제공하도록 설계되었습니다. 이로 인해 예측 가능한 성능 동작이 발생합니다.
 
 이러한 변경과 더불어 현재 Web 및 Business(W/B) 데이터베이스에 가장 적합한 새 서비스 계층을 평가하고 결정하는 방법 및 실제 업그레이드 프로세스에 대한 질문이 제기되었습니다.
 
@@ -73,10 +73,8 @@ Web 또는 Business 데이터베이스를 새 서비스 계층으로 업그레�
 
 | 문서 | 설명 |
 |:--|:--|
-|[Azure SQL 데이터베이스 서비스 계층(Edition)](http://msdn.microsoft.com/library/azure/dn741340.aspx)| Basic, Standard 및 Premium 서비스 계층에 대한 개요를 제공합니다.|
-|[Azure SQL 데이터베이스 서비스 계층 및 성능 수준](http://msdn.microsoft.com/library/dn741336.aspx)| 각 서비스 계층의 메트릭과 기능 및 관리 포털과 DVM을 사용하여 데이터베이스 사용량을 모니터링하는 방법을 설명합니다. |
-|[서비스 계층 간의 차이](http://msdn.microsoft.com/library/dn369873.aspx#Different)| 각 서비스 계층 간의 자세한 차이점과 특정 계층을 선택하는 몇 가지 이유를 설명합니다. |
-|[Azure SQL 데이터베이스 비즈니스 연속성](http://msdn.microsoft.com/library/azure/hh852669.aspx)|무중단 업무 방식과 각 서비스 계층에서 제공되는 재해 복구 기능(특정 시점 복원, 지역에서 복원, 지역에서 복제)에 대해 자세히 설명합니다.|
+|[Azure SQL 데이터베이스 서비스 계층 및 성능 수준](sql-database-service-tiers.md)| 각 서비스 계층의 개요, 메트릭 및 기능 및 관리 포털과 DVM을 사용하여 데이터베이스 사용량을 모니터링하는 방법을 설명합니다. |
+|[Azure SQL 데이터베이스 비즈니스 연속성](sql-database-business-continuity.md)|무중단 업무 방식과 각 서비스 계층에서 제공되는 재해 복구 기능(특정 시점 복원, 지역에서 복원, 지역에서 복제)에 대해 자세히 설명합니다.|
 |[SQL 데이터베이스 가격](http://azure.microsoft.com/pricing/details/sql-database/)|각 서비스 계층 및 성능 수준의 자세한 가격 정보를 제공합니다.|
 
 <br>
@@ -156,7 +154,7 @@ Web 및 Business 계층에 대해 [sys.resource_stats](https://msdn.microsoft.co
 
 S2 데이터베이스 수준의 DTU 사용 정보를 통해 새 계층 데이터베이스 측면에서 Web 및 Business 데이터베이스의 현재 사용을 정규화하고 더 적합한 위치를 확인할 수 있습니다. 예를 들어 평균 DTU 사용률 값이 80%이면 데이터베이스가 S2 성능에서 데이터베이스 한도의 80% 비율로 DTU를 사용하고 있음을 나타냅니다. **sys.resource_stats** 뷰에 100%보다 큰 값이 표시되는 경우 S2보다 높은 성능 계층이 필요한 것입니다. 예를 들어 최대 DTU 백분율 값이 300%로 표시된다고 가정해 보겠습니다. 이 경우 S2에서 사용 가능한 것보다 리소스를 3배 더 사용하고 있음을 나타냅니다. 적합한 시작 크기를 결정하려면 S2에서 사용 가능한 DTU(50개 DTU)를 다음 상위 크기인 S3/P1 = 100개 DTU(S2의 200%) 및 P2 = 200개 DTU(S2의 400%)와 비교합니다. 최대 백분율이 S2의 300%이므로 P2에서 시작하여 다시 테스트하는 것이 좋습니다.
 
-DTU 사용률과 작업에 필요한 최대 버전에 따라 데이터베이스 작업에 가장 적합한 서비스 계층 및 성능 수준을 결정할 수 있습니다. 관련 수치는 다양한 [성능 수준](http://msdn.microsoft.com/library/azure/dn741336.aspx)의 상대적인 DTU 기능 및 DTU 백분율을 통해 표시됩니다. 다음은 Web/Business 리소스 사용률과 동등한 새 계층 서비스 수준 간의 매핑을 제공하는 표입니다.
+DTU 사용률과 작업에 필요한 최대 버전에 따라 데이터베이스 작업에 가장 적합한 서비스 계층 및 성능 수준을 결정할 수 있습니다. 관련 수치는 다양한 [성능 수준](sql-database-service-tiers.md)의 상대적인 DTU 기능 및 DTU 백분율을 통해 표시됩니다. 다음은 Web/Business 리소스 사용률과 동등한 새 계층 서비스 수준 간의 매핑을 제공하는 표입니다.
 
 ![리소스 사용][4]
 
@@ -301,11 +299,10 @@ Azure SQL 데이터베이스 서비스는 Web/Business 데이터베이스 작업
 
 
 <!--Image references-->
-[1]: ./media/sql-database-upgrade-new-service-tiers/service-tier-features.png
 [2]: ./media/sql-database-upgrade-new-service-tiers/portal-dtus.JPG
 [3]: ./media/sql-database-upgrade-new-service-tiers/web-business-noisy-neighbor.png
 [4]: ./media/sql-database-upgrade-new-service-tiers/resource_consumption.png
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

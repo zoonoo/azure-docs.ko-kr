@@ -1,5 +1,5 @@
 <properties   
-	pageTitle="BizTalk 서비스에 BizTalk Server EDI 솔루션 마이그레이션: 기술 가이드"
+	pageTitle="BizTalk 서비스에 BizTalk 서버 EDI 솔루션 마이그레이션 기술 가이드 | Microsoft Azure"
 	description="MABS(Microsoft Azure BizTalk 서비스)에 EDI를 마이그레이션 "
 	services="biztalk-services"
 	documentationCenter="na"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="09/24/2015"
 	ms.author="mandia"/>
 
 
@@ -142,4 +142,4 @@ Microsoft Azure BizTalk 서비스는 많은 기능을 추가하기 위해 중요
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

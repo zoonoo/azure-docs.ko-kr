@@ -13,8 +13,9 @@
 	ms.tgt_pltfrm="ios"
 	ms.devlang="objective-c"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="09/24/2015"
 	ms.author="wesmc"/>
+
 # 알림 허브를 사용하여 iOS 장치로 지역화된 속보 보내기
 
 > [AZURE.SELECTOR]
@@ -220,4 +221,4 @@ MainStoryboard\_iPhone.storyboard에서 지원되는 3가지 언어 즉 영어, 
 [알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
 [iOS용 알림 허브 방법]: http://msdn.microsoft.com/library/jj927168.aspx
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

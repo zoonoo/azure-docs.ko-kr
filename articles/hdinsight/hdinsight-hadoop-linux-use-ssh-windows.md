@@ -35,7 +35,7 @@
 
 또는
 
-* [Mac, Linux 및 Windows용 Azure CLI](../xplat-cli.md)
+* [Mac, Linux 및 Windows용 Azure CLI](../xplat-cli-install.md)
 
 ##SSH 정의
 
@@ -109,7 +109,7 @@ Linux 기반 HDInsight 클러스터를 만들 때 이전에 생성한 공개 키
 
 ###Mac, Linux 및 Windows용 Azure 명령줄 인터페이스
 
-[Mac, Linux 및 Windows용 Azure CLI](../xplat-cli.md)를 사용하여 `azure hdinsight cluster create` 명령을 통해 새 클러스터를 만들 수 있습니다.
+[Mac, Linux 및 Windows용 Azure CLI](../xplat-cli-install.md)를 사용하여 `azure hdinsight cluster create` 명령을 통해 새 클러스터를 만들 수 있습니다.
 
 이 명령 사용에 대한 자세한 내용은 [사용자 지정 옵션을 사용하여 HDInsight의 Hadoop Linux 클러스터 프로비전](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
 
@@ -233,4 +233,4 @@ SSH 터널의 생성 및 사용에 대한 자세한 내용은 [SSH 터널링을 
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

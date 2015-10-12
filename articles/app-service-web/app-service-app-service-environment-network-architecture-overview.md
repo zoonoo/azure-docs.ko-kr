@@ -1,15 +1,15 @@
 <properties 
 	pageTitle="앱 서비스 환경의 네트워크 아키텍처 개요" 
 	description="앱 서비스 환경의 네트워크 토폴로지의 아키텍처 개요입니다." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="stefsch" 
 	manager="wpickett" 
 	editor=""/>
 
 <tags 
-	ms.service="app-service-web" 
-	ms.workload="web" 
+	ms.service="app-service" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -79,4 +79,4 @@
 [GeneralNetworkFlows]: ./media/app-service-app-service-environment-network-architecture-overview/NetworkOverview-1.png
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

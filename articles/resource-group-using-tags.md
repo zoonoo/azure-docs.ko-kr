@@ -155,4 +155,4 @@ PowerShell을 사용하여 구독 내의 모든 태그 목록을 가져오려면
 - 리소스 배포 시 Azure CLI 사용에 대한 소개는 [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](./xplat-cli-azure-resource-manager.md)을 참조하세요.
 - Preview 포털 사용에 대한 소개는 [Azure Preview 포털을 사용하여 Azure 리소스 관리](./resource-group-portal.md)를 참조하세요.  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

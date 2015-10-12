@@ -40,13 +40,13 @@ HDInsight 클러스터에서 지원되는 Sqoop 버전을 보려면 [HDInsight�
 
 - **워크스테이션**: SSH 클라이언트가 있는 컴퓨터입니다.
 
-- **Azure CLI**: 자세한 내용은 [Azure CLI 설치 및 구성](../xplat-cli.md)을 참조하십시오.
+- **Azure CLI**: 자세한 내용은 [Azure CLI 설치 및 구성](../xplat-cli-install.md)을 참조하십시오.
 
 - **Linux 기반 HDInsight 클러스터**: 클러스터 프로비전에 대한 자세한 내용은 [HDInsight 사용 시작](hdinsight-hadoop-linux-tutorial-get-started.md) 또는 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요.
 
 - **Azure SQL 데이터베이스**: 이 문서는 예제 SQL 데이터베이스를 만드는 지침을 제공합니다. SQL 데이터베이스에 대한 자세한 내용은 [Azure SQL 데이터베이스를 사용하여 시작][sqldatabase-get-started]을 참조하십시오.
 
-* **SQL Server**: 이 문서 내의 단계들은 또한 일부 수정 후 SQL Server와 함께 사용할 수도 있습니다. 이 문서를 SQL Server와 함께 사용 시 고유한 요구 사항에 대한 자세한 내용은 [SQL Server 사용](#using-sql-server) 섹션을 참조하십시오.
+* **SQL Server**: 이 문서의 단계도 SQL Server로 일부 수정하여 사용할 수 있습니다. 그러나 HDInsight 클러스터 및 SQL Server가 동일한 Azure 가상 네트워크에 있어야 합니다. 이 문서를 SQL Server와 함께 사용 시 고유한 요구 사항에 대한 자세한 내용은 [SQL Server 사용](#using-sql-server) 섹션을 참조하십시오.
 
 ##시나리오 이해
 
@@ -264,4 +264,4 @@ HDInsight 클러스터는 일부 샘플 데이터와 함께 제공됩니다. **w
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

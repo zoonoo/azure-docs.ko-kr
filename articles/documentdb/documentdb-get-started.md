@@ -228,6 +228,7 @@ DocumentDB 계정에 연결하여 **DocumentClient** 클래스의 인스턴스�
 	        IsRegistered = true
 	    };
 	
+	    // id based routing for the first argument, "dbs/FamilyRegistry/colls/FamilyCollection"
 	    await client.CreateDocumentAsync("dbs/" + database.Id + "/colls/" + documentCollection.Id, andersonFamily);
 	}
 
@@ -266,6 +267,7 @@ DocumentDB 계정에 연결하여 **DocumentClient** 클래스의 인스턴스�
             IsRegistered = false
         };
 
+        // id based routing for the first argument, "dbs/FamilyRegistry/colls/FamilyCollection"
         await client.CreateDocumentAsync("dbs/" + database.Id + "/colls/" + documentCollection.Id, wakefieldFamily);
 	}
 
@@ -278,7 +280,7 @@ DocumentDB 계정에 연결하여 **DocumentClient** 클래스의 인스턴스�
 DocumentDB는 각 컬렉션에 저장된 JSON 문서에 대해 다양한 [쿼리](documentdb-sql-query.md)를 지원합니다. 다음 샘플 코드는 DocumentDB SQL 구문뿐 아니라 LINQ를 사용하는 다양한 쿼리를 보여 줍니다. 이러한 쿼리는 이전 단계에서 삽입한 문서에 대해 실행할 수 있습니다. 이러한 쿼리를 **GetStartedDemo** 비동기 메서드에 추가합니다.
 
     // Query the documents using DocumentDB SQL for the Andersen family.
-    var families = client.CreateDocumentQuery(documentCollection.DocumentsLink,
+    var families = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id,
         "SELECT * " +
         "FROM Families f " +
         "WHERE f.id = "AndersenFamily"");
@@ -290,7 +292,7 @@ DocumentDB는 각 컬렉션에 저장된 JSON 문서에 대해 다양한 [쿼리
 
     // Query the documents using LINQ for the Andersen family.
     families =
-        from f in client.CreateDocumentQuery(documentCollection.DocumentsLink)
+        from f in client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id)
         where f.Id == "AndersenFamily"
         select f;
 
@@ -300,7 +302,7 @@ DocumentDB는 각 컬렉션에 저장된 JSON 문서에 대해 다양한 [쿼리
     }
 
     // Query the documents using LINQ lambdas for the Andersen family.
-    families = client.CreateDocumentQuery(documentCollection.DocumentsLink)
+    families = client.CreateDocumentQuery("dbs/" + database.Id + "/colls/" + documentCollection.Id)
         .Where(f => f.Id == "AndersenFamily")
         .Select(f => f);
 
@@ -472,4 +474,4 @@ Visual Studio에서 DocumentDB .NET SDK에 대한 참조를 복원하려면 솔�
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

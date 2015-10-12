@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-	ms.date="07/19/2015"
+	ms.date="09/23/2015"
     ms.author="tamram"/>
 
 # C++에서 테이블 저장소를 사용하는 방법
@@ -414,4 +414,4 @@ Azure 저장소 에뮬레이터를 시작하려면 **시작** 단추를 클릭�
 -	[C++용 Storage Client Library 참조](http://azure.github.io/azure-storage-cpp)(영문)
 -	[Azure 저장소 설명서](http://azure.microsoft.com/documentation/services/storage/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -7,9 +7,9 @@
 	manager="jwhit"
 	editor=""/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="07/16/2015" ms.author="sammehta"; "jimpark"/>
+<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2015" ms.author="sammehta"; "jimpark"/>
 
-# Azure DPM 백업 소개
+# DPM을 통해 Azure에서 워크로드 백업 준비
 
 이 문서에서는 Microsoft Azure 백업을 사용하여 System Center Data Protection Manager(DPM) 서버와 워크로드를 보호하는 방법을 소개합니다. 이 문서를 읽어 보면 다음을 이해하게 됩니다.
 
@@ -60,7 +60,7 @@ DPM 데이터를 백업하기 위해 다음과 같이 Azure 백업을 준비합�
 - Azure 백업에 저장된 데이터는 “테이프에 복사” 옵션으로 복구할 수 없습니다.
 - Azure 백업 기능을 사용할 수 있는 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. [Azure 백업 가격 정책](https://azure.microsoft.com/pricing/details/backup/)을 읽어보십시오.
 - Azure 백업을 사용하려면 백업하고자 하는 서버에 Azure 백업 에이전트를 설치해야 합니다. 각 서버에는 캐시 위치로 최소한 2.5GB의 사용 가능한 로컬 저장소 공간이 있어야 합니다(캐시 위치로 15GB의 사용 가능한 로컬 저장소 공간이 있는 것이 바람직합니다).
-- 데이터는 Azure 자격 증명 모음 저장소에 저장됩니다. Azure 백업 자격 증명 모음에 백업할 수 있는 데이터의 양에는 제한이 없지만 데이터 원본(예를 들면 가상 컴퓨터 또는 데이터베이스)의 크기는 1.65TB를 초과해서는 안 됩니다.
+- 데이터는 Azure 자격 증명 모음 저장소에 저장됩니다. Azure 백업 자격 증명 모음에 백업할 수 있는 데이터의 양에는 제한이 없지만 데이터 원본(예를 들면 가상 컴퓨터 또는 데이터베이스)의 크기는 54400GB를 초과해서는 안 됩니다.
 
 다음 파일 형식은 Azure에 대한 백업을 지원합니다.
 
@@ -81,4 +81,4 @@ DPM 데이터를 백업하기 위해 다음과 같이 Azure 백업을 준비합�
 
 >[AZURE.NOTE]System Center 2012 DPM SP1부터는 DPM으로 보호되는 워크로드를 Microsoft Azure 백업을 사용하여 Azure에 백업할 수 있습니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="09/27/2015" 
 	ms.author="juliako"/>
 
 
@@ -84,6 +84,8 @@
 
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
 
+
+
 **Apple HLS(HTTP 라이브 스트리밍) V4 형식**
 
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
@@ -96,6 +98,11 @@
 	
 	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
+**오디오 전용 필터로 Apple HTTP 라이브 스트리밍(HLS) 포맷**
+
+기본적으로 오디오 전용 트랙은 HLS 매니페스트에 포함되어 있습니다. 셀룰러 네트워크에 대한 Apple 스토어 인증이 필요합니다. 이 경우 클라이언트가 충분한 대역폭이 없거나 2G 이상으로 연결되지 않은 경우 오디오 전용 재생으로 전환합니다. 버퍼링 없이 지속적인 스트리밍을 유지할 수 있도록 하지만 비디오가 없는 단점이 있습니다. 그러나 일부 시나리오에서 플레이어 버퍼링은 오디오 전용보다 선호될 수 있습니다. 오디오 전용 트랙을 제거하려는 경우 URL에 추가하고(오디오 전용=false) 제거할 수 있습니다.
+
+	http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
 **부드러운 스트리밍 형식**
 
@@ -179,4 +186,4 @@
 [저장소 키를 롤링 후 미디어 서비스 로케이터를 업데이트합니다.](media-services-roll-storage-access-keys.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

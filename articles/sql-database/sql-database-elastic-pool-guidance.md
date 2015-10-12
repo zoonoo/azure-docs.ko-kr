@@ -435,4 +435,4 @@ STA는 기존 서버에 탄력적 데이터베이스 풀을 추가할 때 Previe
 [2]: ./media/sql-database-elastic-pool-guidance/four-databases.png
 [3]: ./media/sql-database-elastic-pool-guidance/twenty-databases.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

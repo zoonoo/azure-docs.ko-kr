@@ -1,19 +1,19 @@
 <properties
     pageTitle="Azure 저장소에서 Azure CLI 사용 | Microsoft Azure"
-	description="Azure 저장소에서 Azure 명령줄 인터페이스(Azure CLI)를 사용하여 저장소 계정을 만들어 관리하고 Azure blob과 파일 작업을 수행하는 방법에 대해 알아봅니다."
-	services="storage"
-	documentationCenter="na"
-	authors="tamram"
-	manager="jdial"/>
+    description="Azure 저장소에서 Azure 명령줄 인터페이스(Azure CLI)를 사용하여 저장소 계정을 만들어 관리하고 Azure blob과 파일 작업을 수행하는 방법에 대해 알아봅니다."
+    services="storage"
+    documentationCenter="na"
+    authors="tamram"
+    manager="jdial"/>
 
 <tags
     ms.service="storage"
-	ms.workload="storage"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2015"
-	ms.author="chungli;jiyang;yaxia;tamram"/>
+    ms.workload="storage"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="article" 
+    ms.date="09/28/2015"
+    ms.author="chungli;jiyang;yaxia;tamram"/>
 
 # Azure 저장소에서 Azure CLI 사용
 
@@ -21,7 +21,7 @@
 
 Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령 집합을 제공합니다. 다양한 데이터 액세스 기능 뿐만 아니라 Azure 관리 포털에 있는 동일한 기능을 대부분 제공합니다.
 
-이 가이드에서는 [Azure CLI(명령줄 인터페이스 Azure)](../xplat-cli.md)을 사용하여 Azure 저장소와 다양한 개발 및 관리 작업을 수행할 수 있는 방법을 설명합니다. 이 가이드를 사용하기 전에 최신 Azure CLI를 다운로드 및 설치하거나, 최신 버전으로 업그레이드하는 것이 좋습니다.
+이 가이드에서는 [Azure CLI(명령줄 인터페이스 Azure)](../xplat-cli-install.md)을 사용하여 Azure 저장소와 다양한 개발 및 관리 작업을 수행할 수 있는 방법을 설명합니다. 이 가이드를 사용하기 전에 최신 Azure CLI를 다운로드 및 설치하거나, 최신 버전으로 업그레이드하는 것이 좋습니다.
 
 이 가이드에서는 Azure 저장소의 기본 개념을 이해하고 있다고 가정합니다. 이 가이드는 Azure 저장소에서 Azure CLI를 사용하는 방법을 보여주는 몇 가지 스크립트를 제공합니다. 각 스크립트를 실행하기 전에 구성에 따라 스크립트 변수를 업데이트 해야 합니다.
 
@@ -94,7 +94,7 @@ Azure 구독에 대한 자세한 내용은 [계정, 구독 및 관리 역할 관
 
 ### Azure 구독에 연결
 
-대부분의 저장소 명령이 Azure 구독 없이 작동하지만 Azure CLI에서 구독에 연결하는 것이 좋습니다. 구독과 함께 작동하도록 Azure CLI를 구성하려면 [Azure 구독에 연결하는 방법](../xplat-cli.md#how-to-connect-to-your-azure-subscription)의.단계에 따르세요.
+대부분의 저장소 명령이 Azure 구독 없이 작동하지만 Azure CLI에서 구독에 연결하는 것이 좋습니다. 구독과 함께 작동하도록 Azure CLI를 구성하려면 [Azure 구독에 연결하는 방법](../xplat-cli-install.md#how-to-connect-to-your-azure-subscription)의.단계에 따르십시오.
 
 ### 새 저장소 계정 만들기
 
@@ -169,13 +169,11 @@ Blob을 삭제하려면 아래 명령을 사용하세요.
 
 ## 파일 공유 만들기 및 관리
 
-Azure 파일 저장소는 표준 SMB 2.1 프로토콜을 사용하여 응용 프로그램을 위한 공유 저장소를 제공합니다. Microsoft Azure 가상 컴퓨터 및 클라우드 서비스는 탑재된 공유를 통해 응용 프로그램 구성 요소 간에 파일 데이터를 공유할 수 있습니다. Azure CLI를 통해 파일 공유 및 파일 데이터를 관리할 수 있습니다. Azure 파일 저장소에 대한 자세한 내용은 [PowerShell 및 .NET에서 Azure 파일 저장소를 사용하는 방법(영문)](storage-dotnet-how-to-use-files)을 참조하세요.
-
-> [AZURE.NOTE]Azure 파일 저장소는 현재 미리 보기에 있습니다. 미리 보기에 대한 액세스 권한을 요청하려면 [Microsoft Azure 미리 보기 페이지](/services/preview/)로 이동한 후 **Azure 파일**에 대한 액세스를 요청하세요. 요청이 승인되면 파일 저장소 미리 보기에 액세스할 수 있다는 알림이 제공됩니다. 그러면 파일 저장소에 액세스하기 위한 저장소 계정을 만들 수 있습니다.
+Azure 파일 저장소는 표준 SMB 프로토콜을 사용하여 응용 프로그램을 위한 공유 저장소를 제공합니다. Microsoft Azure 가상 컴퓨터 및 클라우드 서비스 그리고 온-프레미스 응용 프로그램은 탑재된 공유를 통해 파일 데이터를 공유할 수 있습니다. Azure CLI를 통해 파일 공유 및 파일 데이터를 관리할 수 있습니다. Azure 파일 저장소에 대한 자세한 내용은 [Windows에서 Azure 파일 저장소 사용 방법](storage-dotnet-how-to-use-files) 또는 [Linux에서 Azure 파일 저장소 사용 방법](storage-how-to-use-files-linux.md)을 참조하세요.
 
 ### 파일 공유 만들기
 
-Azure에서 Azure 파일 공유는 SMB 2.1 파일 공유입니다. 모든 디렉터리 및 파일을 파일 공유에서 만들어야 합니다. 계정에 포함할 수 있는 공유 수에는 제한이 없으며, 공유에 저장할 수 있는 파일 수에는 저장소 계정의 최대 용량 한도까지 제한이 없습니다. 다음 예제에서는 **myshare**라는 파일 공유를 만듭니다.
+Azure에서 Azure 파일 공유는 SMB 파일 공유입니다. 모든 디렉터리 및 파일을 파일 공유에서 만들어야 합니다. 계정에 포함할 수 있는 공유 수에는 제한이 없으며, 공유에 저장할 수 있는 파일 수에는 저장소 계정의 최대 용량 한도까지 제한이 없습니다. 다음 예제에서는 **myshare**라는 파일 공유를 만듭니다.
 
         azure storage share create myshare
 
@@ -224,4 +222,4 @@ Azure CLI 버전 0.9.8부터 파일을 다른 파일로, 파일을 Blob으로 �
 [Image1]: ./media/storage-azure-cli/azure_command.png
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

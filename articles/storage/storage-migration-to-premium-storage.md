@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na"
     ms.devlang="na"
     ms.topic="article"
-    ms.date="07/06/2015"
+    ms.date="09/23/2015"
     ms.author="tamram"/>
 
 
@@ -63,7 +63,7 @@ VM에서 사용할 수 있는 디스크에는 세 종류가 있으며 각 종류
 |:--|:---|
 |디스크 용량: 35TB<br />스냅숏 용량: 10TB|인바운드+아웃바운드에 대해 초당 최대 50기가비트|
 
-프리미엄 저장소 사양에 대한 자세한 내용은 [프리미엄 저장소를 사용하는 경우 확장성 및 성능 목표 ](storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whko-KRing-premium-storage)를 참조하세요.
+프리미엄 저장소 사양에 대한 자세한 내용은 [프리미엄 저장소를 사용하는 경우 확장성 및 성능 목표 ](storage-premium-storage-preview-portal.md#scalability-and-performance-targets-whko-kring-premium-storage)를 참조하세요.
 
 #### 추가 데이터 디스크
 사용자 워크로드에 따라 추가 데이터 디스크가 VM에 필요한 경우를 결정합니다. VM에 여러 영구 데이터 디스크를 연결할 수 있습니다. 필요한 경우, 볼륨의 성능과 용량을 늘리도록 디스크에 걸쳐 스트라이핑 할 수 있습니다. [저장소 공간](http://technet.microsoft.com/library/hh831739.aspx)을 사용하여 프리미엄 저장소 데이터 디스크를 스트라이프하는 경우, 사용되는 각 디스크에 대해 하나의 열로 구성해야 합니다. 그렇지 않은 경우, 디스크에서의 고르지 못한 트래픽 분배로 스트라이프 볼륨의 전반적인 성능이 예상보다 저하될 수 있습니다. Linux VM의 경우, *mdadm* 유틸리티를 사용하여 동일한 작업을 수행할 수 있습니다. 자세한 내용은 [Linux에서 소프트웨어 RAID 구성](../virtual-machines-linux-configure-raid.md) 문서를 참조하세요.
@@ -315,4 +315,4 @@ Azure 저장소 및 Azure 가상 컴퓨터에 대한 자세한 내용을 보려�
 [2]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]: ./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure SQL 데이터 웨어하우스 간 데이터 이동 | Azure 데이터 팩터리"
-	description="Azure 데이터 팩터리를 사용하여 Azure SQL 데이터 웨어하우스 간 데이터를 이동하는 방법에 대해 알아봅니다."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Azure SQL 데이터 웨어하우스 간 데이터 이동 | Azure 데이터 팩터리" 
+	description="Azure 데이터 팩터리를 사용하여 Azure SQL 데이터 웨어하우스 간 데이터를 이동하는 방법에 대해 알아봅니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/29/2015" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리를 사용하여 Azure SQL 데이터 웨어하우스 간 데이터 이동
@@ -172,7 +172,7 @@
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlDWSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm}\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm}\'', WindowStart, WindowEnd)"
+	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -372,7 +372,7 @@
 속성 | 설명 | 필수
 -------- | ----------- | --------
 type | 형식 속성은 **AzureSqlDW**으로 설정되어야 합니다. | 예
-**connectionString** | connectionString 속성에 대한 Azure SQL 데이터베이스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. | 예
+**connectionString** | connectionString 속성에 대한 Azure SQL 데이터 웨어하우스 인스턴스에 연결하는 데 필요한 정보를 지정합니다. | 예
 
 참고: [Azure SQL 데이터베이스 방화벽](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)을 구성해야 합니다. 데이터베이스 서버를 구성하여 [Azure 서비스가 서버에 액세스할 수 있도록](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) 해야 합니다. 또한 Azure SQL 데이터 웨어하우스에 데이터를 복사하는 경우 데이터 팩터리 게이트웨이 컴퓨터에 대 한 적절 한 IP 주소 범위를 구성 해야 데이터 소스 온-프레미스에서에서 Azure 등 외부에서 보내는 데이터를 Azure SQL 데이터 웨어하우스에 합니다.
 
@@ -394,22 +394,63 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 
 반면 작업의 typeProperties 섹션에서 사용할 수 있는 속성은 각 작업 형식에 따라 다르며 복사 작업의 경우 속성은 원본 및 싱크의 형식에 따라 다릅니다.
 
+### SqlDWSource
 원본이 **SqlDWSource** 형식인 복사 작업의 경우 **typeProperties** 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- |
-| sqlReaderQuery | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | SQL 쿼리 문자열. 예를 들어 MyTable에서 *를 선택합니다. 실행되는 SQL 문을 지정하지 않으면 MyTable 중에서 선택합니다. | 아니요 |
+| sqlReaderQuery | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | SQL 쿼리 문자열. 예: select * from MyTable. 지정하지 않은 경우 SQL 문 실행: MyTable의 **JSON 테이블 구조 섹션에 정의된 열**을 선택합니다. | 아니요 |
+| sqlReaderStoredProcedureName | 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. | 저장 프로시저의 이름입니다. | 아니요 |
+| sqlReaderStoredProcedureParameters | 저장 프로시저에 대한 매개 변수입니다. | 이름/값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아니요 |
 
+#### SqlDWSource 예제
+
+    "source": {
+        "type": "SqlDWSource",
+        "sqlReaderStoredProcedureName": "CopyTestSrcStoredProcedureWithParameters",
+        "storedProcedureParameters": {
+            "stringData": { "value": "str3" },
+            "id": { "value": "$$Text.Format('{0:yyyy}', SliceStart)", "type": "Int"}
+        }
+    }
+
+**저장 프로시저 정의:**
+
+	CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
+	(
+		@stringData varchar(20),
+		@id int
+	)
+	AS
+	SET NOCOUNT ON;
+	BEGIN
+	     select *
+	     from dbo.UnitTestSrcTable
+	     where dbo.UnitTestSrcTable.stringData != stringData
+	    and dbo.UnitTestSrcTable.id != id
+	END
+	GO
+ 
+
+### SqlDWSink
 **SqlDWSink**는 다음 속성을 지원합니다.
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- |
-| sqlWriterStoredProcedureName | 대상 테이블에 데이터를 upsert(업데이트/삽입)하기 위해 사용자가 지정한 저장 프로시저 이름입니다. | 저장 프로시저의 이름입니다. | 아니요 |
-| sqlWriterTableType | 위의 저장 프로시저에서 사용할 사용자가 지정한 테이블 형식 이름입니다. 복사 작업을 사용하면 이 테이블 형식으로 임시 테이블에서 사용할 수 있는 데이터를 이동시킵니다. 그러면 저장 프로시저 코드가 복사되는 데이터를 기존 데이터와 병합할 수 있습니다. | 테이블 유형 이름 | 아니요 |
 | writeBatchSize | 버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 | Integer(단위 = 행 수). | 아니요(기본값 = 10000) |
 | writeBatchTimeout | 시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. | (단위 = timespan) 예: "00:30:00"(30분). | 아니요 | 
-| sqlWriterCleanupScript | 사용자는 데이터의 특정 조각을 정리할 수 있도록 실행하는 복사 작업에 쿼리를 지정했습니다. 자세한 내용은 아래 반복성 섹션을 참조하십시오. | 쿼리 문입니다. | 아니요 |
-| sliceIdentifierColumnName | 사용자는 자동 생성된 조각 식별자로 채워진 복사 작업에 열 이름을 지정하여 다시 실행하는 경우 특정 조각의 데이터를 정리하는 데 사용합니다. 자세한 내용은 아래 반복성 섹션을 참조하십시오. | 이진(32) 데이터 형식이 있는 열의 열 이름입니다. | 아니요 |
+| sqlWriterCleanupScript | 사용자는 데이터의 특정 조각을 정리할 수 있도록 실행하는 복사 작업에 쿼리를 지정했습니다. 자세한 내용은 아래 반복성 섹션을 참조하세요. | 쿼리 문입니다. | 아니요 |
+| sliceIdentifierColumnName | 사용자는 자동 생성된 조각 식별자로 채워진 복사 작업에 열 이름을 지정하여 다시 실행하는 경우 특정 조각의 데이터를 정리하는 데 사용합니다. 자세한 내용은 아래 반복성 섹션을 참조하세요. | 이진(32) 데이터 형식이 있는 열의 열 이름입니다. | 아니요 |
+
+#### SqlDWSink 예제
+
+
+    "sink": {
+        "type": "SqlDWSink",
+        "writeBatchSize": 1000000,
+        "writeBatchTimeout": "00:05:00",
+    }
+
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -424,7 +465,7 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 
 SQL Azure, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식에서 .NET 유형에 그리고 그 반대로 다음 매핑을 사용합니다.
 
-매핑은 [ADO.NET에 대한 SQL Server 데이터 형식 매핑](https://msdn.microsoft.com/library/cc716729.aspx)과 같습니다.
+매핑은 [MyTableADO.NET에 대한 SQL Server 데이터 형식](https://msdn.microsoft.com/library/cc716729.aspx) 매핑과 같습니다.
 
 | SQL Server 데이터베이스 엔진 형식 | .NET Framework 형식 |
 | ------------------------------- | ------------------- |
@@ -467,4 +508,4 @@ SQL Azure, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식�
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

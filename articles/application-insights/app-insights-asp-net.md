@@ -57,7 +57,7 @@ Visual Studio에서 새 프로젝트를 만들 때 Application Insights를 선�
 
 #### 설치 옵션
 
-프로젝트를 처음 만드는 경우 Microsoft Azure 미리 보기에 로그인하거나 등록하라는 메시지가 표시됩니다. 해당 계정은 Visual Studio Online 계정과는 별개입니다.
+처음 연 경우 Microsoft Azure에 로그인하거나 등록하라는 메시지가 표시됩니다.
 
 이 앱이 더 큰 응용 프로그램의 일부인 경우, **구성 설정**을 사용하여 다른 구성 요소와 동일한 리소스 그룹에 넣고자 할 수 있습니다.
 
@@ -248,4 +248,4 @@ ApplicationInsights.config에 대한 사용자 지정을 변경한 경우, 업�
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

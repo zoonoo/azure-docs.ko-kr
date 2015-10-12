@@ -105,7 +105,9 @@ Azure PowerShell 사용 방법에 대한 내용은 [Azure PowerShell 사용 방�
 
 Azure CLI는 Azure 웹 사이트 및 Azure 가상 컴퓨터와 같은 Azure 서비스를 배포 및 관리하기 위한 명령 집합입니다. Azure CLI를 설치하는 방법에 대한 자세한 내용은 [Azure CLI 설치](xplat-cli-install.md)를 참조하세요.
 
+## 다음 단계
 
+자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
 
 
 [install-php]: http://www.php.net/manual/en/install.php
@@ -128,4 +130,4 @@ Azure CLI는 Azure 웹 사이트 및 Azure 가상 컴퓨터와 같은 Azure 서�
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

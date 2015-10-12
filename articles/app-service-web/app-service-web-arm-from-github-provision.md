@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="GitHub 리포지토리에 연결된 웹앱 배포" 
 	description="Azure 리소스 관리자 템플릿을 사용하여 GitHub 리포지토리에서 프로젝트가 포함된 웹앱을 배포합니다." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter="" 
 	authors="tfitzmac" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
@@ -32,7 +32,7 @@
 
 배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
 
-[![Azure에 배포](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)로 바꿉니다.
+[![Azure에 배포](./media/app-service-web-arm-from-github-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)로 바꿉니다.
 
 ## 매개 변수
 
@@ -110,4 +110,4 @@ GitHub의 프로젝트에 연결된 웹앱 만들기
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

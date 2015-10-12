@@ -66,9 +66,9 @@ HDInsight 플랫폼의 몇 가지 두드러진 기능은 다음과 같습니다.
 
 - **Storm** - 이제 Azure HDInsight용 Storm은 일반적으로 사용 가능하며, 몇 분 안에 몇 번의 클릭만으로 빠르고 쉽게 실시간 분석을 배포할 수 있습니다. Azure HDInsight용 Apache Storm은 수백만 개의 이벤트를 안정적으로 처리할 수 있는 분석 플랫폼에 액세스할 수 있게 하는 Apache Hadoop 에코 시스템의 오픈 소스 프로젝트입니다. 이제 Hadoop 사용자는 과거 이벤트에 대한 통찰력과 함께 이벤트 발생에 따른 통찰력을 얻을 수 있습니다. Microsoft는 기본적으로 Visual Studio와 통합되어 있으므로, 개발자가 Storm을 쉽게 조작할 수 있습니다. 이제 Visual Studio에서 Storm 토폴로지를 개발, 배포 및 디버깅할 수 있습니다.
 
-- **Linux용 HDInsight(미리 보기)** - Azure HDInsight에서는 Linux(Ubuntu) 가상 컴퓨터(VM)에서 실행되는 Hadoop 클러스터를 프로비저닝하는 옵션을 제공합니다. Linux 또는 Unix에 익숙하거나, 기존 Linux 기반 Hadoop 솔루션에서 마이그레이션하거나, Linux 기반으로 작성된 Hadoop 에코 시스템 구성 요소와 쉽게 통합하려는 경우에 이 옵션을 사용할 수 있습니다. Azure Preview 포털, Azure CLI 또는 HDInsight .NET SDK(Windows만 해당)를 사용하여 Windows 또는 Linux가 실행 중인 클라이언트 컴퓨터에서 Linux용 HDInsight 클러스터를 프로비전할 수 있습니다.
+- **Linux용 HDInsight** - Azure HDInsight에서는 Linux(Ubuntu) 가상 컴퓨터(VM)에서 실행되는 Hadoop 클러스터를 프로비전하는 옵션을 제공합니다. Linux 또는 Unix에 익숙하거나, 기존 Linux 기반 Hadoop 솔루션에서 마이그레이션하거나, Linux 기반으로 작성된 Hadoop 에코 시스템 구성 요소와 쉽게 통합하려는 경우에 이 옵션을 사용할 수 있습니다. Azure Preview 포털, Azure CLI 또는 HDInsight .NET SDK(Windows만 해당)를 사용하여 Windows 또는 Linux가 실행 중인 클라이언트 컴퓨터에서 Linux용 HDInsight 클러스터를 프로비전할 수 있습니다.
 
-- **추가 VM 크기** - 이제 HDInsight 클러스터는 더 많은 VM 유형과 크기로 사용할 수 있습니다. 이제 HDInsight 클러스터는 일반적인 용도로 빌드된 A2 \~ A7 크기(반도체 드라이브(SSD) 기능을 제공하는 D-Series 노드와 60% 더 빠른 프로세서) 및 빠른 네트워킹을 위해 InfiniBand를 지원하는 A8 및 A9 크기를 활용할 수 있습니다. Azure HDInsight용 Apache HBase 고객은 D-Series의 더 큰 메모리 구성을 이용하여 성능을 향상시킬 수 있습니다. Azure HDInsight용 Apache Storm 고객은 더 큰 참조 데이터 세트를 로드하기 위한 추가 메모리와 처리량 향상을 위한 더 빠른 CPU도 이용할 수 있습니다.
+- **추가 VM 크기** - 이제 HDInsight 클러스터는 더 많은 VM 유형과 크기로 사용할 수 있습니다. 이제 HDInsight 클러스터는 일반적인 용도로 빌드된 A2 ~ A7 크기(반도체 드라이브(SSD) 기능을 제공하는 D-Series 노드와 60% 더 빠른 프로세서) 및 빠른 네트워킹을 위해 InfiniBand를 지원하는 A8 및 A9 크기를 활용할 수 있습니다. Azure HDInsight용 Apache HBase 고객은 D-Series의 더 큰 메모리 구성을 이용하여 성능을 향상시킬 수 있습니다. Azure HDInsight용 Apache Storm 고객은 더 큰 참조 데이터 세트를 로드하기 위한 추가 메모리와 처리량 향상을 위한 더 빠른 CPU도 이용할 수 있습니다.
 
 - **클러스터 크기 조정** - 클러스터 크기 조정을 사용하면 HDInsight 클러스터를 삭제하거나 다시 작성하지 않고 실행 중인 HDInsight 클러스터의 노드 수를 변경할 수 있습니다. 현재로서는 Hadoop 쿼리와 Apache Storm에만 이 기능이 있지만 Apache HBase에도 곧 이 기능이 제공될 예정입니다.
 
@@ -162,4 +162,4 @@ SLA는 "지원 기간" 면에서 정의됩니다. 지원 기간은 Microsoft 고
 
 [zookeeper]: http://zookeeper.apache.org/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

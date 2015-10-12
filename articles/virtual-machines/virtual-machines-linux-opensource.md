@@ -114,7 +114,7 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
 
 ## 기본 사항
 
-1. [기본 사항: Azure 명령줄 인터페이스(Azure CLI)](../xplat-cli.md)
+1. [기본 사항: Azure 명령줄 인터페이스(Azure CLI)](../xplat-cli-install.md)
 4. [기본 사항: 인증서 사용 및 관리](http://msdn.microsoft.com/library/azure/gg981929.aspx)
 5. [기본 사항: Linux 사용자 이름 선택](virtual-machines-linux-usernames.md)
 6. [기본 사항: Azure 포털을 사용하여 Linux VM에 로그온](virtual-machines-linux-how-to-log-on.md)
@@ -131,7 +131,7 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
 17. [기본 사항: Cloud-init에서 사용할 VM에 사용자 지정 데이터 주입](virtual-machines-how-to-inject-custom-data.md)
 18. [기본 사항 블로그: 12단계에서 Azure에서 고가용성 Linux 빌드](http://blogs.technet.com/b/keithmayer/archive/2014/10/03/quick-start-guide-building-highly-available-linux-servers-in-the-cloud-on-microsoft-azure.aspx)
 19. [기본 사항 블로그: Azure CLI, node.js, jhawk를 사용하여 Azure에서 Linux 프로비전 자동화](http://blogs.technet.com/b/keithmayer/archive/2014/11/24/step-by-step-automated-provisioning-for-linux-in-the-cloud-with-microsoft-azure-xplat-cli-json-and-node-js-part-1.aspx)
-19. [Azure CLI를 사용하여 여러 VM 배포 만들기](virtual-machines-create-multi-vm-deployment-../xplat-cli.md)
+19. [Azure CLI를 사용하여 여러 VM 배포 만들기](virtual-machines-create-multi-vm-deployment-../xplat-cli-install.md)
 20. [기본 사항: Azure Docker VM 확장](virtual-machines-docker-vm-extension.md)
 23. [Azure 서비스 관리 REST API](https://msdn.microsoft.com/library/azure/ee460799.aspx) 참조
 24. [Azure에서 GlusterFS](http://dastouri.azurewebsites.net/gluster-on-azure-part-1/)
@@ -181,7 +181,7 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
 
 이 섹션을 찾아서 신속하게 채웁니다. 제안 사항이 있을 경우 PR을 보내거나 아래 주석에서 남겨주세요.
 
-1. [Azure CLI를 사용하여 여러 VM 배포 만들기](virtual-machines-create-multi-vm-deployment-../xplat-cli.md)
+1. [Azure CLI를 사용하여 여러 VM 배포 만들기](virtual-machines-create-multi-vm-deployment-../xplat-cli-install.md)
 2. [Patrick Chanezon의 Azure Linux Github 리포지토리](https://github.com/chanezon/azure-linux)
 3. [비디오: **usbip**을 사용하여 Linux의 온-프레미스 USB 데이터를 Azure로 이동하는 방법](http://channel9.msdn.com/Blogs/Open/On-premises-USB-devices-on-Linux-on-Azure-via-usbip)
 4. [비디오: fernapp을 사용하여 브라우저에서 Azure의 Linux 기반 GUI에 액세스](http://channel9.msdn.com/Blogs/Open/Accessing-Linux-based-GUI-on-Azure-over-browser-with-fernapp)
@@ -258,7 +258,7 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
 
 1. Docker
 	- [Azure의 Linux용 Docker VM 확장](virtual-machines-docker-vm-extension.md)
-	- [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장 사용](virtual-machines-docker-with-../xplat-cli.md)
+	- [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장 사용](virtual-machines-docker-with-../xplat-cli-install.md)
 	- [Azure 미리 보기 포털에서 Docker VM 확장 사용](virtual-machines-docker-with-portal.md)
 	- [Azure 마켓플레이스에서 신속하게 Docker 시작](virtual-machines-docker-ubuntu-quickstart.md)
 	- [Azure에서 docker-machine을 사용하는 방법](virtual-machines-docker-machine.md)
@@ -307,4 +307,4 @@ CoreOS는 사용자 지정에 대한 제어 수준이 뛰어난 순수 계산용
 [How to use docker-machine on Azure]: virtual-machines-docker-machine.md
 [How to use docker with swarm on Azure]: virtual-machines-docker-swarm.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

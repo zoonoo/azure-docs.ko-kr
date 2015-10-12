@@ -1,20 +1,20 @@
 <properties
  pageTitle="Linux VM에 Microsoft HPC 팩과 NAMD | Microsoft Azure"
-	description="Azure에서 Microsoft HPC 팩을 배포하고 여러 Linux 계산 노드에서 charmrun으로 NAMD 시뮬레이션을 실행합니다."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""
-	tags="azure-service-management"/>
+ description="Azure에서 Microsoft HPC 팩을 배포하고 여러 Linux 계산 노드에서 charmrun으로 NAMD 시뮬레이션을 실행합니다."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="dlepow"
+ manager="timlt"
+ editor=""
+ tags="azure-service-management"/>
 <tags
 ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-linux"
-	ms.workload="big-compute"
-	ms.date="09/02/2015"
-	ms.author="danlep"/>
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-linux"
+ ms.workload="big-compute"
+ ms.date="09/02/2015"
+ ms.author="danlep"/>
 
 # Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 NAMD 실행
 
@@ -54,17 +54,17 @@ Microsoft HPC 팩에서는 MPI 응용 프로그램을 포함한 다양한 대규
         <VMName>CentOS66HN</VMName>
         <ServiceName>MyHPCService</ServiceName>
         <VMSize>Large</VMSize>
-    <EnableRESTAPI />
-    <EnableWebPortal />
-  </HeadNode>
-  <LinuxComputeNodes>
-    <VMNamePattern>CentOS66LN-%00%</VMNamePattern>
-    <ServiceName>MyLnxCNService</ServiceName>
-    <VMSize>Large</VMSize>
-    <NodeCount>4</NodeCount>
-    <ImageName>5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-66-20150325</ImageName>
-  </LinuxComputeNodes>
-</IaaSClusterConfig>
+        <EnableRESTAPI />
+        <EnableWebPortal />
+      </HeadNode>
+      <LinuxComputeNodes>
+        <VMNamePattern>CentOS66LN-%00%</VMNamePattern>
+        <ServiceName>MyLnxCNService</ServiceName>
+        <VMSize>Large</VMSize>
+        <NodeCount>4</NodeCount>
+        <ImageName>5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-66-20150325</ImageName>
+      </LinuxComputeNodes>
+    </IaaSClusterConfig>    
 ```
 
 
@@ -404,4 +404,4 @@ a8lxTKnZCsRXU1HexqZs+DSc+30tz50bNqLdido/l5B4EJnQP03ciO0=
 [task_details]: ./media/virtual-machines-linux-cluster-hpcpack-namd/task_details.png
 [vmd_view]: ./media/virtual-machines-linux-cluster-hpcpack-namd/vmd_view.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

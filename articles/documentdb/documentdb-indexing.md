@@ -67,4 +67,4 @@ DocumentDB의 인덱싱은 다중 테넌트를 처리하고 저장소 효율성�
 - [여기](documentdb-indexing-policies.md)서 DocumentDB 인덱스를 사용자 지정하는 방법을 알아보세요.
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

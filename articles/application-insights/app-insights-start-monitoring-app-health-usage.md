@@ -148,9 +148,11 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 빌드 정보가 있는 경우 Application Insights 웹 모듈에서 원격 분석의 모든 항목에 **응용 프로그램 버전**을 속성으로 자동으로 추가합니다. 이렇게 하면 [진단 검색][diagnostic]을 수행하거나 [메트릭을 탐색][metrics]할 때 버전을 기준으로 필터링할 수 있습니다.
 
 
-## 5\. 종속성 추적 및 성능 카운터 추가
+## 5\. 종속성 추적(및 IIS 성능 카운터 추가)
 
 SDK에는 일부 데이터에 액세스할 경우 다음과 같은 도움이 필요 합니다. 특히 자동으로 데이터베이스, REST Api 및 기타 외부 구성 요소를 앱에서 호출을 측정하기 위해 이 추가 단계가 필요합니다. 종속성 메트릭은 성능 문제 진단을 도와줄 때 매우 유용합니다.
+
+또한 자체 IIS 서버에서 실행 중인 경우 이 단계에서 시스템 성능 카운터가 [메트릭 탐색기](app-insights-metrics-explorer.md)에 표시되도록 합니다.
 
 #### 앱이 IIS 서버에서 실행되는 경우
 
@@ -166,7 +168,6 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 ![웹앱에서 설정, 확장, 추가, Application Insights](./media/app-insights-start-monitoring-app-health-usage/05-extend.png)
 
-(확장은 SDK로 빌드되어 Azure에 게시된 앱만 보조해 줍니다. 상태 모니터와는 달리, 기존 응용 프로그램을 계측할 수 없습니다.)
 
 #### Azure 클라우드 서비스 프로젝트 만들기인 경우
 
@@ -192,7 +193,7 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 #### 클라이언트가 장치 앱인 경우
 
-응용 프로그램이 휴대폰 또는 기타 장치 등의 클라이언트에 서비스를 제공하는 경우 사용자의 장치 앱에 [적절한 SDK](app-insights-platforms.md)를 추가합니다.
+응용 프로그램이 휴대폰 또는 기타 장치 등의 클라이언트에 서비스를 제공하는 경우 사용자의 장치 앱에 [적절한 SDK](app-insights-platforms.md)를 추가하세요.
 
 SDK 서버와 동일한 계측 키를 가진 SDK 클라이언트를 구성하는 경우 함께 볼 수 있도록 두 스트림은 통합 됩니다.
 
@@ -234,7 +235,7 @@ Visual Studio는 Application Insights에서 리소스를 만들고, SDK를 프�
 
 #### 설치 옵션
 
-프로젝트를 처음 만드는 경우 Microsoft Azure Preview에 로그인하거나 등록하라는 메시지가 표시됩니다. 해당 계정은 Visual Studio Online 계정과는 별개입니다.
+프로젝트를 처음 만드는 경우 Microsoft Azure Preview에 로그인하거나 등록하라는 메시지가 표시됩니다.
 
 이 앱이 더 큰 응용 프로그램의 일부인 경우, **구성 설정**을 사용하여 다른 구성 요소와 동일한 리스소 그룹에 넣고자 할 수 있습니다.
 
@@ -272,4 +273,4 @@ Visual Studio는 Application Insights에서 리소스를 만들고, SDK를 프�
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

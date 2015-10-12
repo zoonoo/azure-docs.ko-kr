@@ -1,20 +1,21 @@
 <properties 
-	pageTitle="Python 기계 학습 스크립트 실행 | Microsoft Azure"
-	description="Azure 기계 학습에서 Python 스크립트를 지원하는 데 기본이 되는 디자인 원칙 및 기본 사용 시나리오, 기능 및 제한 사항을 간략히 설명합니다."
+	pageTitle="Python 기계 학습 스크립트 실행 | Microsoft Azure" 
+	description="Azure 기계 학습에서 Python 스크립트를 지원하는 데 기본이 되는 디자인 원칙 및 기본 사용 시나리오, 기능 및 제한 사항을 간략히 설명합니다." 
+	keywords="python machine learning,pandas,python pandas,python scripts, execute python scripts"
 	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="paulettm"
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
 	editor="cgronlun"/>
 
 <tags 
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/30/2015"
-	ms.author="bradsev"/>
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/30/2015" 
+	ms.author="bradsev" />
 
 
 # Azure 기계 학습 스튜디오에서 Python 기계 학습 스크립트 실행
@@ -164,10 +165,13 @@ Azure 기계 학습에 설치된 Anaconda 환경에는 NumPy, SciPy 및 Scikits-
 
 향후 몇 개월 동안 [Python 스크립트 실행][execute-python-script] 모듈에 추가 기능(예: Python의 모듈을 학습하고 운영화하는 기능 및 Azure 기계 학습 스튜디오에서의 코드 개발 및 디버깅 지원 향상)을 제공할 것으로 기대합니다.
 
+## 다음 단계
+
+자세한 내용은 [Python 개발자 센터](/develop/python/)를 참조하세요.
 
 <!-- Module References -->
 [execute-python-script]: https://msdn.microsoft.com/library/azure/cdb56f95-7f4c-404d-bde7-5bb972e6f232/
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO1-->

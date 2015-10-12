@@ -32,7 +32,7 @@
 
     ![Azure 포털에서 새로 만들기, 데이터, 저장소 선택](./media/app-insights-export-telemetry/030.png)
 
-2. 컨테이너 만들기
+2. 컨테이너를 만듭니다.
 
     ![새 저장소에서 컨테이너를 선택하고 컨테이너 타일, 추가를 차례로 클릭합니다.](./media/app-insights-export-telemetry/040.png)
 
@@ -217,4 +217,4 @@ blob 저장소를 열면 blob 파일 집합이 포함된 컨테이너가 보입�
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

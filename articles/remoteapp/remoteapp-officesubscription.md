@@ -13,7 +13,7 @@
     ms.tgt_pltfrm="na" 
     ms.devlang="na" 
     ms.topic="article" 
-    ms.date="09/09/2015" 
+    ms.date="09/24/2015" 
     ms.author="elizapo" />
 
 
@@ -25,6 +25,9 @@ Azure RemoteApp에서 기존 Office 365 구독을 사용하여 클라우드에�
 ## Office 365 구독을 사용하여 Azure RemoteApp에서 Office 응용 프로그램을 실행할 수 있습니까?
 
 예! 사실상, Office 365 구독의 사용은 Office 응용 프로그램을 Azure RemoteApp로 전환하는 유일한 방법입니다.
+
+(참고: 사용자의 Azure RemoteApp 배포가 호스팅 파트너에 의해 제공되는 경우 해당 파트너는 [서시브 공급자 Service Provider 라이선스 약관](http://www.microsoft.com/ko-kr/Licensing/licensing-programs/spla-program.aspx)을 기반으로 Office 사용권을 제공할 수 있습니다.)
+
 
 Office 365 구독의 가장 큰 장점은 Azure 클라우드를 포함하여 다양한 플랫폼과 환경에 동일한 사용자 라이선스를 사용하도록 한다는 점입니다. Azure RemoteApp에서 Office 응용 프로그램을 사용하는 경우 추가 라이선스를 구입하거나 어떤 특별한 방식으로 기존 라이선스를 구성할 필요가 없습니다. [Office 365 ProPlus](https://technet.microsoft.com/library/Gg702619.aspx)를 포함하는 Office 365 구독만 필요합니다.
 
@@ -84,8 +87,8 @@ Office 365 ProPlus를 포함하는 컬렉션에 사용자 지정 이미지를 �
 그래서 구성 파일에 다음 줄이 포함되어야 합니다.
 	
 		<Display Level="NONE" AcceptEULA="TRUE" />
-		<Propery Name="SharedComputerLicensing" Value="1" />
-		<Updated Enabled="FALSE" />
+		<Property Name="SharedComputerLicensing" Value="1" />
+		<Updates Enabled="FALSE" />
 
 ## 그래서 어떻게 Office 365 ProPlus로 이미지를 업데이트할 수 있나요?
 
@@ -117,4 +120,4 @@ Office 365 ProPlus를 포함하는 컬렉션에 사용자 지정 이미지를 �
 - [Office 배포 도구를 사용하여 Office 365 ProPlus 배포 및 업데이트](https://channel9.msdn.com/Events/Ignite/2015/BRK3168)(동영상)
 - [Office 365 ProPlus에 대한 업데이트 설정 구성](https://technet.microsoft.com/library/dn761708.aspx)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

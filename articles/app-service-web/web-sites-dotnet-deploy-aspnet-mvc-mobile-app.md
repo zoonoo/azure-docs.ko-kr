@@ -1,7 +1,7 @@
 <properties 
 	pageTitle="Azure 앱 서비스에 ASP.NET MVC 5 모바일 웹 앱 배포" 
 	description="ASP.NET MVC 5 웹 응용 프로그램에서 모바일 기능을 사용하여 Azure 앱 서비스에 웹 앱을 배포하는 방법에 대해 설명하는 자습서입니다." 
-	services="app-service\web" 
+	services="app-service" 
 	documentationCenter=".net" 
 	authors="cephalin" 
 	manager="wpickett" 
@@ -9,7 +9,7 @@
 
 <tags 
 	ms.service="app-service" 
-	ms.workload="web" 
+	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
@@ -617,4 +617,4 @@ Bootstrap은 ASP.NET MVC 5 전용이 아니므로 어떤 웹 응용 프로그램
 [SessionByCodeFixed3-644]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionByCode-Fixed-3-644.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

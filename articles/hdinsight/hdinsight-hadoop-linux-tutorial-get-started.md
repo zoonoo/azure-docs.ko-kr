@@ -14,54 +14,49 @@
    	ms.topic="hero-article"
    	ms.tgt_pltfrm="na"
    	ms.workload="big-data"
-   	ms.date="08/07/2015"
+   	ms.date="08/21/2015"
    	ms.author="nitinme"/>
 
-# Hadoop 자습서: Linux의 HDInsight에서 Hive와 Hadoop 사용 시작(미리 보기)
+# Hadoop 자습서: Linux의 HDInsight에서 Hive와 Hadoop 사용 시작
 
 > [AZURE.SELECTOR]
 - [Windows](hdinsight-hadoop-tutorial-get-started-windows.md)
 - [Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
 
-이 Hadoop 자습서는 Linux에서 Hadoop 클러스터를 프로비전하고 Hive 쿼리를 실행하는 방법을 표시하여 Linux의 Azure HDInsight에서 신속하게 시작할 수 있도록 합니다.
+이 문서는 Linux 기반 Hadoop 클러스터를 만들고 SSH(보안 셸)를 사용하여 클러스터에 연결한 다음 클러스터에 포함된 예제 데이터에 대해 다음 Hive 쿼리를 실행하는 방법을 표시함으로써 Linux에서 Azure HDInsight를 빠르게 시작할 수 있습니다.
 
-
-> [AZURE.NOTE]Hadoop과 빅 데이터를 처음 사용하는 경우 <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510086" target="_blank">MapReduce</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510087" target="_blank">HDFS(Hadoop Distributed File System)</a> 및 <a href="http://go.microsoft.com/fwlink/?LinkId=510085" target="_blank">Hive</a> 용어에 대해 자세히 알아볼 수 있습니다. HDInsight를 통해 Azure에서 Hadoop을 사용하도록 설정하는 방법을 이해하려면 [HDInsight의 Hadoop 소개](hdinsight-hadoop-introduction.md)(영문)를 참조하세요.
-
-
-## 이 자습서의 목표 
-
-구조화되지 않은 대량의 데이터 집합이 있고 쿼리를 실행하여 의미 있는 일부 정보를 추출하려고 한다면 해당 방법은 다음과 같습니다.
-
-   ![Hadoop 자습서 단계: 저장소 계정 만들기, Hadoop 클러스터 프로 비전, Hive로 데이터를 쿼리.](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.Linux.GetStartedFlow.png)
-
+> [AZURE.NOTE]Hadoop과 빅 데이터를 처음 사용하는 경우 [Apache Hadoop](http://go.microsoft.com/fwlink/?LinkId=510084), [MapReduce](http://go.microsoft.com/fwlink/?LinkId=510086), [Hadoop Distributed File System(HDFS)](http://go.microsoft.com/fwlink/?LinkId=510087) 및 [Hive](http://go.microsoft.com/fwlink/?LinkId=510085) 용어에 대해 자세히 알아볼 수 있습니다. HDInsight를 통해 Azure에서 Hadoop을 사용하도록 설정하는 방법을 이해하려면 [HDInsight의 Hadoop 소개](hdinsight-hadoop-introduction.md)(영문)를 참조하세요.
 
 ## 필수 조건
 
 이 Hadoop용 Linux 자습서를 시작하기 전에 다음이 있어야 합니다.
 
-- **Azure 구독**. [Azure 무료 평가판](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-- **SSH(보안 셸) 키**. 암호 대신 키가 있는 SSH를 사용하여 Linux 클러스터에 원격으로 연결하려는 경우 키를 사용하는 방법이 더 안전하므로 권장됩니다. SSH 키를 생성하는 방법에 대한 지침은 다음 문서를 참조하세요.
-	-  Linux 컴퓨터 - [Linux, Unix 또는 OS X에서 Linux 기반 HDInsight(Hadoop)와 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
-	-  Windows 컴퓨터 - [Windows에서 Linux 기반 HDInsight(Hadoop)와 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
+- **Azure 구독**: [Azure 무료 평가판 받기](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)를 참조하세요.
 
-**예상 완료 시간:** 30분
+- **SSH(보안 셸) 클라이언트**: Linux, Unix 및 OS X 시스템은 `ssh` 명령을 통해 SSH 클라이언트를 제공합니다. Windows 시스템의 경우 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)를 사용하는 것이 좋습니다.
+
+    > [AZURE.NOTE]이 문서의 단계는 SSH가 모든 클라이언트 운영 체제에 사용할 수 있기에 SSH를 사용하여 HDInsight 클러스터에 연결합니다. Visual Studio 또는 REST API에 대한 HDInsight 도구를 사용하는 것과 같이 HDInsight 클러스터에 연결하는 다른 방법은 이 문서의 [다음 단계](#nextsteps) 섹션에서 Hive, Pig 및 MapReduce 링크를 참조하세요.
+    
+- **SSH(보안 셸) 키**(선택 사항): 암호 또는 공개 키를 사용하여 클러스터에 연결할 때 사용되는 SSH 계정을 보호할 수 있습니다. 키를 사용하는 방법이 더 안전하므로 권장되지만 추가 설치를 필요로 합니다. HDInsight로 SSH 키를 생성하고 사용하는 방법에 대한 지침은 다음 문서를 참조하세요.
+
+	-  Linux 컴퓨터 - [Linux, Unix 또는 OS X에서 Linux 기반 HDInsight(Hadoop)와 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
+    
+	-  Windows 컴퓨터 - [Windows에서 Linux 기반 HDInsight(Hadoop)와 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 ## <a name="provision"></a>Linux에서 HDInsight 클러스터 프로비전
 
-클러스터를 프로비전할 때는 Hadoop과 관련 응용 프로그램을 포함하는 Azure 계산 리소스를 프로비전합니다. 이 섹션에서는 HDInsight 버전 3.2 클러스터를 프로비전합니다. 다른 버전용 Hadoop 클러스터를 만들 수도 있습니다. 지침에 대해서는 [사용자 지정 옵션을 사용하여 HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요. HDInsight 버전 및 해당 SLA에 대한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md)를 참조하세요.
+클러스터를 프로비전할 때는 Hadoop서비스 및 리소스를 포함하는 Azure 계산 리소스를 만듭니다. 이 섹션에서는 Hadoop 버전 2.2를 포함하는 HDInsight 버전 3.2 클러스터를 프로비전합니다. HDInsight 버전 및 해당 SLA에 대한 내용은 [HDInsight 구성 요소 버전 관리](hdinsight-component-versioning.md)를 참조하세요. HDInsight 클러스터 만들기에 대한 더 자세한 내용은 [사용자 옵션을 사용한 HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요.
 
 >[AZURE.NOTE]Windows Server 운영 체제를 실행하는 Hadoop 클러스터를 만들 수도 있습니다. 자세한 내용은 [Windows에서 HDInsight 시작](hdinsight-hadoop-tutorial-get-started-windows.md)을 참조하세요.
 
-
-**HDInsight 클러스터를 프로비전하려면**
+다음 단계에 따라 새 클러스터를 만듭니다.
 
 1. [Azure 미리 보기 포털](https://ms.portal.azure.com/)에 로그인합니다.
 2. **새로 만들기**, **데이터 분석** 및 **HDInsight**를 차례로 클릭합니다.
 
-    ![Azure Preview 포털에서 새 클러스터 만들기](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.1.png "Azure 미리 보기 포털에서 새 클러스터 만들기")
+    ![Azure 미리 보기 포털에서 새 클러스터 만들기](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.1.png "Azure 미리 보기 포털에서 새 클러스터 만들기")
 
-3. **클러스터 이름**을 입력하고 **클러스터 유형**으로 **Hadoop**을 선택하고 **클러스터 운영 체제** 드롭다운에서 **Ubuntu**를 선택합니다. 클러스터 이름을 사용할 수 있는 경우 클러스터 이름 옆에 녹색 확인 표시가 나타납니다.
+3. **클러스터 이름**을 입력하고 **클러스터 형식**으로 **Hadoop**을 선택하고 **클러스터 운영 체제** 드롭다운에서 **Ubuntu**를 선택합니다. 클러스터 이름을 사용할 수 있는 경우 클러스터 이름 옆에 녹색 확인 표시가 나타납니다.
 
 	![클러스터 이름 및 유형 입력](./media/hdinsight-hadoop-linux-tutorial-get-started/HDI.CreateCluster.2.png "클러스터 이름 및 유형 입력")
 
@@ -91,7 +86,7 @@
 
 	현재 HDInsight 클러스터의 데이터 원본으로 Azure 저장소 계정을 선택할 수 있습니다. 다음을 사용하여 **데이터 원본** 블레이드의 항목을 이해합니다.
 
-	- **선택 방법**: 모든 구독에서 저장소 계정을 찾을 수 있도록 하려면 이 항목을 **모든 구독에서**로 설정합니다. 기존 저장소 계정의 **저장소 이름** 및 **액세스 키**를 입력하려면 이 항목을 **액세스 키**로 설정합니다.
+	- **선택 방법**: 모든 구독에서 저장소 계정을 찾을 수 있도록 하려면 이 항목을 **From all subscriptions(모든 구독에서)**로 설정합니다. 기존 저장소 계정의 **저장소 이름** 및 **선택키**를 입력하려면 이 항목을 **선택키**로 설정합니다.
 
 	- **저장소 계정 선택/새로 만들기**: 클러스터와 연결할 기존 저장소 계정을 찾아 선택하려면 **저장소 계정 선택**을 클릭합니다. 또는 새 저장소 계정을 만들려면 **새로 만들기**를 클릭합니다. 저장소 계정의 이름을 입력할 때 나타나는 필드를 사용합니다. 이름을 사용할 수 있는 경우 녹색 확인 표시가 나타납니다.
 
@@ -119,19 +114,11 @@
 
 프로비전이 완료되면 시작 보드에서 클러스터 타일을 클릭하여 클러스터 블레이드를 시작합니다.
 
-## <a name="hivequery"></a>클러스터에서 Hive 작업 제출
-HDInsight Linux 클러스터를 프로비전했으므로 다음 단계는 Hive 작업을 실행하여 HDInsight 클러스터와 함께 제공되는 샘플 데이터(sample.log)를 쿼리하는 것입니다. 샘플 데이터에는 추적, 경고, 정보, 오류 등의 로그 정보가 포함되어 있습니다. 이 데이터를 쿼리하여 특정 심각도의 모든 오류 로그를 검색할 수 있습니다. HDInsight Linux 클러스터에서 Hive 쿼리를 실행하려면 다음 단계를 수행해야 합니다.
-
-- Linux 클러스터에 연결합니다.
-- Hive 작업 실행
-
-
-
-### 클러스터에 연결하려면
+## <a name="connect"></a>클러스터에 연결
 
 Linux 컴퓨터 또는 Windows 기반 컴퓨터(SSH 사용)에서 Linux의 HDInsight 클러스터에 연결할 수 있습니다.
 
-**Linux 컴퓨터에 연결하려면**
+###Linux 컴퓨터에 연결하려면
 
 1. 터미널을 열고 다음 명령을 실행합니다.
 
@@ -146,9 +133,9 @@ Linux 컴퓨터 또는 Windows 기반 컴퓨터(SSH 사용)에서 Linux의 HDIns
 		hdiuser@headnode-0:~$
 
 
-**Windows 기반 컴퓨터에서 연결하려면**
+###Windows 기반 컴퓨터에서 연결하려면
 
-1. Windows 기반 클라이언트용 <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">PuTTY</a>를 다운로드합니다.
+1. Windows 기반 클라이언트용 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)를 다운로드합니다.
 
 2. PuTTY를 엽니다. **Category**에서 **Session**을 클릭합니다. **Basic options for your PuTTY session** 화면에서 **Host Name (or IP address)** 필드에 HDInsight 서버의 SSH 주소를 입력합니다. SSH 주소는 클러스터 이름과 그 뒤의 **-ssh.azurehdinsight.net**으로 구성됩니다. 예를 들면 **myhdinsightcluster-ssh.azurehdinsight.net**과 같습니다.
 
@@ -160,7 +147,7 @@ Linux 컴퓨터 또는 Windows 기반 컴퓨터(SSH 사용)에서 Linux의 HDIns
 
 		hdiuser@headnode-0:~$
 
-### Hive 작업을 실행하려면
+##<a name="hivequery"></a>Hive 쿼리 실행
 
 SSH를 통해 클러스터에 연결한 후에는 다음 명령을 사용하여 Hive 쿼리를 실행합니다.
 
@@ -241,33 +228,36 @@ SSH를 통해 클러스터에 연결한 후에는 다음 명령을 사용하여 
 	반환된 데이터는 모두 해당 [ERROR] 로그에 해당합니다.
 
 ## <a name="nextsteps"></a>다음 단계
-이 Linux 자습서에서는 HDInsight를 사용하여 Linux에서 Hadoop 클러스터를 프로비전하는 방법과 SSH를 사용하여 Hive 쿼리를 실행하는 방법을 배웠습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-- [Ambari를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md): Linux 기반 HDInsight 클러스터에서는 Hadoop 서비스의 관리 및 모니터링에 Ambari를 사용합니다. Ambari 웹 UI는 https://CLUSTERNAME.azurehdinsight.net의 각 클러스터에서 사용할 수 있습니다.
+이 문서에서는 Azure Preview 포털을 사용하여 Linux 기반 HDInsight 클러스터를 만들고, SSH를 사용하여 클러스터에 연결하는 방법과 기본 Hive 쿼리를 수행하는 방법을 배웠습니다.
 
-	> [AZURE.IMPORTANT]인터넷을 통해 Ambari 웹의 많은 섹션에 직접 액세스할 수 있지만, 리소스 관리자 또는 작업 기록과 같은 Hadoop 서비스의 웹 UI에는 SSH 터널을 사용해야 합니다. HDInsight에서 SSH 터널을 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
-	>
-	> * [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md#tunnel)
-	> * [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel)
+HDInsight를 사용해서 데이터를 분석하는 데 대한 자세한 내용은 다음을 참조하세요.
 
-- [사용자 지정 옵션을 사용하여 Linux에서 HDInsight 프로비전](hdinsight-hadoop-provision-linux-clusters.md): HDInsight 클러스터를 프로비전하는 방법에 대한 자세한 내용을 알아봅니다.
+- Visual Studio에서 Hive 쿼리를 수행 하는 방법을 비롯하여 HDInsight로 Hive를 사용하는 데 대한 자세한 내용은 [HDInsight로 Hive 사용][hdinsight-use-hive]을 참조하세요.
 
-- [Linux에서 HDInsight 작업](hdinsight-hadoop-linux-information.md): 이미 Linux 플랫폼의 Hadoop에 대해 잘 알고 있는 경우 이 문서는 다음과 같은 Azure 관련 정보에 대한 지침을 제공합니다.
+- 데이터를 변환하는 데 사용되는 언어인 Pig에 대해 알아보려면 [HDInsight로 Pig 사용][hdinsight-use-pig]을 참조하세요.
+
+- Hadoop에서 데이터를 처리하는 프로그램을 작성하는 방법인 MapReduce에 대해 알아보려면 [HDInsight로 MapReduce 사용][hdinsight-use-mapreduce]을 참조하세요.
+
+- Visual Studio에 HDInsight Tools를 사용하여 HDInsight의 데이터를 분석하는 방법에 대해 알아보려면 [HDInsight용 Visual Studio Hadoop 도구를 사용하여 시작](hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
+
+사용자 고유의 데이터로 작업을 시작하고 HDInsight이 데이터를 저장하는 방법과 HDInsight로 데이터를 가져오는 방법에 대해 더 알아보려면 다음을 참조하세요.
+
+- HDInsight에서 Azure Blob 저장소를 만드는 방법에 대한 자세한 내용은 [HDInsight에서 Azure Blob 저장소 사용](hdinsight-use-blob-storage.md)을 참조하세요.
+
+- 데이터를 HDInsight로 업로드하는 방법에 대한 정보는 [HDInsight에 데이터 업로드][hdinsight-upload-data]를 참조하십시오.
+
+HDInsight 클러스터를 만들거나 관리하는 방법에 대해 자세히 알아보려면 다음을 참조하세요.
+
+- Linux 기반 HDInsight 클러스터 관리에 대해 알아보려면 [Ambari를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
+
+- HDInsight 클러스터를 만들 때 선택하는 옵션에 대해 자세히 알아보려면 [사용자 지정 옵션을 사용하여 Linux에 HDInsight 프로비전](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
+
+- Linux 및 Hadoop를 사용하는 것이 익숙하지만 HDInsight에서 Hadoop에 대한 구체적인 정보를 알아보려면 [Linux에서 HDInsight로 작업](hdinsight-hadoop-linux-information.md)을 참조하세요. 다음과 같은 정보를 제공합니다.
 
 	* 클러스터에서 호스트되는 서비스(예: Ambari 및 WebHCat)의 URL
 	* 로컬 파일 시스템의 Hadoop 파일 및 예제의 위치
 	* 기본 데이터 저장소로 HDFS 대신 Azure 저장소(WASB) 사용
-
-- Hive에 대한 자세한 내용을 확인하거나 Pig 및 MapReduce에 대해 알아보려면 다음을 참조하세요.
-
-	- [HDInsight와 함께 MapReduce 사용][hdinsight-use-mapreduce]
-	- [HDInsight에서 Hive 사용][hdinsight-use-hive]
-	- [HDInsight에서 Pig 사용][hdinsight-use-pig]
-
-- HDInsight 클러스터에 사용되는 Azure 저장소의 작업 방법에 대한 자세한 내용은 다음을 참조하세요.
-
-	- [HDInsight에서 Azure Blob 저장소 사용](../hdinsight-use-blob-storage.md)
-	- [HDInsight에 데이터 업로드][hdinsight-upload-data]
 
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
@@ -292,4 +282,4 @@ SSH를 통해 클러스터에 연결한 후에는 다음 명령을 사용하여 
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows/HDI.GettingStarted.PowerQuery.ImportData2.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

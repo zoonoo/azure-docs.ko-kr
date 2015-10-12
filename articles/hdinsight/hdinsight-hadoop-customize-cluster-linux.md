@@ -51,7 +51,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 **Solr 설치** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. [HDInsight 클러스터에서 Solr 설치 및 사용](hdinsight-hadoop-solr-install-linux.md)을 참조하세요.
 **Giraph 설치** | https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. [HDInsight 클러스터에서 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install-linux.md)을 참조하세요.
 
-##Azure Preview 포털에서 스크립트 작업 사용
+## Azure Preview 포털에서 스크립트 작업 사용
 
 1. [사용자 지정 옵션을 사용하여 클러스터를 프로비전](hdinsight-provision-clusters.md#portal)에서 설명된 대로 클러스터 프로비전을 시작합니다.
 
@@ -70,7 +70,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 3. **선택**을 클릭하여 스크립트 작업 구성을 저장하고 클러스터 프로비전을 계속합니다.
 
-##Azure 리소스 관리자 템플릿에서 스크립트 작업 사용
+## Azure 리소스 관리자 템플릿에서 스크립트 작업 사용
 
 이 섹션에서 Azure 리소스 관리자(ARM) 템플릿을 사용하여 HDInsight 클러스터를 프로비전하고 클러스터에서 사용자 지정 구성 요소(이 예에서는 R)를 설치하는 스크립트 작업을 사용할 수 있습니다. 이 섹션에서는 스크립트 작업을 사용하여 클러스터를 프로비전하는 샘플 ARM 템플릿을 제공합니다.
 
@@ -165,7 +165,6 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 		                "osType": "Linux",
 		                "clusterDefinition": {
 		                    "kind": "hadoop",
-
 		                    "configurations": {
 		                        "gateway": {
 		                            "restAuthCredential.isEnabled": true,
@@ -239,8 +238,6 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 		    }
 		}
 
-
-
 2. Azure PowerShell을 시작하고 Azure 계정에 로그인합니다. 자격 증명을 제공하면 사용자 계정에 대한 정보가 반환됩니다.
 
 		Add-AzureAccount
@@ -297,7 +294,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 		Get-AzureResourceGroupLog -ResourceGroup myresourcegroup -Status Failed -DetailedOutput
 
-##Azure PowerShell에서 스크립트 작업 사용
+## Azure PowerShell에서 스크립트 작업 사용
 
 이 섹션에서는 스크립트 작업을 통해 스크립트를 호출하여 클러스터를 사용자 지정하는 **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** cmdlet을 사용합니다. 계속하기 전에 Azure PowerShell을 설치 및 구성했는지 확인하세요. HDInsight PowerShell cmdlet을 실행하도록 워크스테이션을 구성하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성](../powershell-install-configure.md)을 참조하세요.
 
@@ -346,15 +343,14 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 메시지가 나타나면 클러스터에 대한 자격 증명을 입력합니다. 클러스터가 생성되는 데 몇 분 정도 걸릴 수 있습니다.
 
-##HDInsight.NET SDK에서 스크립트 작업 사용
+## HDInsight.NET SDK에서 스크립트 작업 사용
 
 HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작업하도록 지원하는 클라이언트 라이브러리를 제공합니다. 다음 단계는 스크립트를 사용하여 HDInsight.NET SDK에서 클러스터를 사용자 지정하는 방법을 보여줍니다.
-
 
 > [AZURE.IMPORTANT]먼저 자체 서명 인증서를 만들어 워크스테이션에 설치한 다음 Azure 구독에 업로드해야 합니다. 관련 지침은 [자체 서명된 인증서 만들기](http://go.microsoft.com/fwlink/?LinkId=511138)를 참조하세요.
 
 
-###Visual Studio 프로젝트 만들기
+### Visual Studio 프로젝트 만들기
 
 1. Visual Studio 2013 또는 2015 열기
 
@@ -441,7 +437,7 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
 
 11. 응용 프로그램에 대한 변경 내용을 저장하고 솔루션을 빌드합니다.
 
-###응용 프로그램 실행
+### 응용 프로그램 실행
 
 Azure PowerShell 콘솔을 열고 프로젝트를 저장한 위치로 이동하고 프로젝트 내의 \\bin\\debug 디렉터리로 이동한 후 다음 명령을 실행합니다.
 
@@ -461,7 +457,7 @@ HDInsight 서비스에서 사용할 수 있는 오픈 소스 구성 요소에는
 
 > [AZURE.WARNING]HDInsight 클러스터와 함께 제공된 구성 요소는 완전히 지원되며 Microsoft 지원에서 이러한 구성 요소와 관련된 문제를 해결하는 데 도움을 드릴 것입니다.
 >
-> 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. 지원을 통해 문제를 해결하거나 해당 기술에 대한 전문 지식이 있는, 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요구할 수 있습니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/ko-KR/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [http://apache.org](http://apache.org)에 프로젝트 사이트가 있습니다(예: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/)).
+> 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. 지원을 통해 문제를 해결하거나 해당 기술에 대한 전문 지식이 있는, 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요구할 수 있습니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/ko-kr/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [http://apache.org](http://apache.org)에 프로젝트 사이트가 있습니다(예: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/)).
 
 HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방법을 제공합니다. 구성 요소가 클러스터에 설치되고 사용되는 방법과 상관없이, 동일한 수준의 지원이 적용됩니다. 다음은 HDInsight 클러스터에서 사용자 지정 구성 요소를 사용할 수 있는 가장 일반적인 방법의 목록입니다.
 
@@ -471,7 +467,7 @@ HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방
 
 3. 샘플 - 인기 있는 사용자 지정 구성 요소의 경우, Microsoft와 다른 사람들이 이러한 구성 요소를 HDInsight 클러스터에서 어떻게 사용할 수 있는지에 대한 샘플을 제공할 수 있습니다. 이러한 샘플은 지원 없이 제공됩니다.
 
-##문제 해결
+## 문제 해결
 
 Ambari 웹 UI를 사용하여 클러스터를 프로비전하는 동안 스크립트에서 기록된 정보를 볼 수 있습니다.
 
@@ -503,4 +499,4 @@ Ambari 웹 UI를 사용하여 클러스터를 프로비전하는 동안 스크�
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "클러스터 프로 비전 중의 단계"
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

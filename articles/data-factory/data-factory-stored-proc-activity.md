@@ -1,24 +1,24 @@
 <properties 
-	pageTitle="SQL Server 저장 프로시저 작업"
-	description="SQL Server 저장 프로시저 작업을 사용하여 데이터 팩터리 파이프라인으로 Azure SQL 데이터베이스에서 저장 프로시저를 호출해보겠습니다."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="SQL Server 저장 프로시저 작업" 
+	description="SQL Server 저장 프로시저 작업을 사용하여 데이터 팩터리 파이프라인으로 Azure SQL 데이터베이스 또는 Azure SQL 데이터 웨어하우스에서 저장 프로시저를 호출하는 방법을 알아봅니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/30/2015" 
 	ms.author="spelluru"/>
 
 # SQL Server 저장 프로시저 작업
 
-데이터 팩터리 [파이프라인](data-factory-create-pipelines.md)에서 SQL Server 저장 프로시저 작업을 사용하여 **Azure SQL** 데이터베이스에서 저장 프로시저를 호출할 수 있습니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 문서에서 작성합니다.
+데이터 팩터리 [파이프라인](data-factory-create-pipelines.md)에서 SQL Server 저장 프로시저 작업을 사용하여 **Azure SQL 데이터베이스** 또는 **Azure SQL 데이터 웨어하우스**에서 저장 프로시저를 호출할 수 있습니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 문서에서 작성합니다.
 
 ## 구문
 	{
@@ -46,8 +46,8 @@ name | 작업의 이름 | 예
 description | 작업이 무엇에 사용되는지 설명하는 텍스트입니다. | 아니요
 type | SqlServerStoredProcedure | 예
 inputs | 실행할 저장 프로시저 작업에 사용할 수 있어야 하는 데이터 집합입니다('Ready' 상태). 저장 프로시저 활동에 대한 입력은 이 활동을 다른 사용자와 연결할 때 종속성 관리 역할로만 제공됩니다. 저장 프로시저에서 입력 데이터 집합을 매개 변수로 사용할 수 없습니다. | 아니요
-outputs | 저장 프로시저 작업에서 생성하는 출력 데이터 집합입니다. 출력 테이블은 Azure SQL 데이터베이스를 데이터 팩터리에 연결하는 연결된 서비스를 사용해야 합니다. 저장 프로시저 작업에서 출력은 저장 프로시저 작업의 결과를 전달하는 방법으로 제공할 수 있으며 또는 이 활동을 다른 사용자와 연결할 때 종속성 관리 역할로 제공할 수 있습니다. | 예
-storedProcedureName | 출력 테이블에서 사용하는 연결된 서비스로 표시되는 Azure SQL 데이터베이스의 저장 프로시저 이름을 지정합니다. | 예
+outputs | 저장 프로시저 작업에서 생성하는 출력 데이터 집합입니다. 출력 테이블은 Azure SQL 데이터베이스 또는 Azure SQL 데이터 웨어하우스를 데이터 팩터리에 연결하는 연결된 서비스를 사용해야 합니다. 저장 프로시저 작업에서 출력은 저장 프로시저 작업의 결과를 전달하는 방법으로 제공할 수 있으며 또는 이 활동을 다른 사용자와 연결할 때 종속성 관리 역할로 제공할 수 있습니다. | 예
+storedProcedureName | 출력 테이블에서 사용하는 연결된 서비스로 표시되는 Azure SQL 데이터베이스 또는 Azure SQL 데이터 웨어하우스의 저장 프로시저 이름을 지정합니다. | 예
 storedProcedureParameters | 저장 프로시저 매개 변수의 값을 지정합니다. | 아니요
 
 ## 예
@@ -73,10 +73,10 @@ Datetime | 해당 ID가 생성된 날짜 및 시간
 
 데이터 팩터리 파이프라인에서 이 저장 프로시저를 실행하려면 다음을 수행해야 합니다.
 
-1.	저장 프로시저를 실행해야 하는 Azure SQL 데이터베이스의 연결 문자열에 등록할 [연결된 서비스](data-factory-azure-sql-connector.md/#azure-sql-linked-service-properties)를 만듭니다.
+1.	[연결된 서비스](data-factory-azure-sql-connector.md/#azure-sql-linked-service-properties)를 만들어 저장 프로시저를 실행해야 하는 Azure SQL 데이터베이스의 연결 문자열에 등록합니다.
 2.	Azure SQL 데이터베이스의 출력 테이블을 가리키는 [데이터 집합](data-factory-azure-sql-connector.md/#azure-sql-dataset-type-properties)을 만듭니다. 이 sprocsampleout 데이터 집합을 호출해보겠습니다 이 데이터 집합은 1단계의 연결된 서비스를 참조해야 합니다. 
 3.	Azure SQL 데이터베이스에서 저장 프로시저를 만듭니다.
-4.	아래 [파이프라인](data-factory-azure-sql-connector.md/#azure-sql-copy-activity-type-properties)을 SqlServerStoredProcedure 활동과 함께 만들어 Azure SQL 데이터베이스에서 저장 프로시저를 호출합니다.
+4.	SqlServerStoredProcedure 활동으로 아래 [파이프라인](data-factory-azure-sql-connector.md/#azure-sql-copy-activity-type-properties)을 만들어 Azure SQL 데이터베이스에서 저장 프로시저를 호출합니다.
 
 		{
 		    "name": "SprocActivitySamplePipeline",
@@ -132,4 +132,4 @@ Datetime | 해당 ID가 생성된 날짜 및 시간
 		}
 	}
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

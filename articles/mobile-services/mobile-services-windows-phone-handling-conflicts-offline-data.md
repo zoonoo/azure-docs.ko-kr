@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="mobile-windows-phone" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="06/15/2015" 
-	ms.author="wesmc"/>
+	ms.date="09/24/2015" 
+	ms.author="ricksal"/>
 
 
 # 모바일 서비스에서 오프라인 데이터 동기화를 사용하여 충돌 처리
@@ -240,4 +240,4 @@ JavaScript 백 엔드 모바일 서비스에 대해 **TodoWithDate**라는 새 �
 [Get started with data]: mobile-services-windows-phone-get-started-data.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

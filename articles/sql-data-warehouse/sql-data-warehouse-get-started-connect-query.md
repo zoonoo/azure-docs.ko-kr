@@ -184,4 +184,4 @@ Sqlcmd 대한 추가 정보는 [sqlcmd 설명서](https://msdn.microsoft.com/lib
 [샘플 데이터를 로드]: ./sql-data-warehouse-get-started-load-samples.md
 [코드를 개발]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

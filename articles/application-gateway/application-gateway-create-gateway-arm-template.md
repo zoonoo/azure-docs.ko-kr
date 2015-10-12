@@ -183,7 +183,7 @@ github에서 VNet 및 두 개의 서브넷을 만들기 위한 기존 ARM 템플
 
 Azure CLI를 사용하여 다운로드한 ARM 템플릿을 배포하려면 다음 단계를 수행합니다.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](xplat-cli.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](xplat-cli-install.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 2. 아래와 같이 **azure config mode** 명령을 실행하여 리소스 관리자 모드로 전환합니다.
 
 		azure config mode arm
@@ -276,4 +276,4 @@ ILB에서 사용되도록 응용 프로그램 게이트웨이를 구성하려면
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

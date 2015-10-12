@@ -17,11 +17,13 @@
    ms.date="09/23/2015"
    ms.author="larryfr"/>
 
-#HDInsight에서 Apache Storm 토폴로지 배포 및 관리
+#Windows 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리
 
 Storm 대시보드를 사용하면 사용자의 웹 브라우저를 사용하는 HDInsight 클러스터에 Apache Storm 토폴로지를 쉽게 배포 및 실행할 수 있습니다. 실행 중인 토폴로지를 모니터링 및 관리하기 위해 대시보드를 사용할 수도 있습니다. Visual Studio를 사용하는 경우 Visual Studio용 HDInsight 도구는 Visual Studio에서 유사한 기능을 제공합니다.
 
 Storm 대시보드와 HDInsight 도구의 Storm 기능은 사용자 고유의 모니터링 및 관리 솔루션을 만들기 위해 사용할 수 있는 Storm REST API를 필요로 합니다.
+
+> [AZURE.IMPORTANT]이 문서의 단계에는 HDInsight 클러스터의 Windows 기반 Storm이 필요합니다. Linux 기반 클러스터를 사용하는 방법은 [Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리](hdinsight-storm-deploy-monitor-topology-linux.md)를 참조하세요
 
 ##필수 조건
 
@@ -177,4 +179,4 @@ Storm 대시보드를 사용하여 토폴로지를 배포 및 모니터링하는
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor-topology/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor-topology/storm-ui-summary.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

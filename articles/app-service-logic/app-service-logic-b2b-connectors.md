@@ -191,6 +191,7 @@ Microsoft Azure 앱 서비스는 이러한 B2B API 앱에서 사용할 수 있�
 
 4. **확인**을 선택하여 변경 내용을 저장합니다.
 
+>[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 
 ## 추가 B2B 리소스
 
@@ -205,4 +206,4 @@ Microsoft Azure 앱 서비스는 이러한 B2B API 앱에서 사용할 수 있�
 
 [커넥터 및 API 앱 목록](app-service-logic-connectors-list.md)<br/><br/> [커넥터 및 BizTalk API 앱 정의](app-service-logic-what-are-biztalk-api-apps.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO1-->

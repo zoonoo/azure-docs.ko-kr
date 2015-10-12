@@ -1,7 +1,7 @@
 <properties
 	pageTitle="Azure 앱 서비스에서 웹 앱 보안 유지"
 	description="Azure 웹앱의 보안을 유지하는 방법에 대해 알아봅니다."
-	services="app-service\web"
+	services="app-service"
 	documentationCenter=""
 	authors="cephalin"
 	manager="wpickett"
@@ -9,7 +9,7 @@
 
 <tags
 	ms.service="app-service"
-	ms.workload="web"
+	ms.workload="na"
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
@@ -78,7 +78,7 @@ FTPS에 대한 자세한 내용은 [File Transfer Protocol](http://en.wikipedia.
 
 Azure 플랫폼 보안에 대한 자세한 내용, **보안 인시던트 또는 남용** 보고 또는 사이트에 대한 **침입 테스트** 수행 계획을 Microsoft에 알리는 방법에 대한 자세한 내용은 [Microsoft Azure 보안 센터](http://azure.microsoft.com/support/trust-center/security/)의 보안 섹션을 참조하세요.
 
-웹 앱의 **web.config** 또는 **applicationhost.config** 파일에 대한 자세한 내용은 [Azure 앱 서비스 웹 앱에서 잠금 해제된 구성 옵션](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)을 참조하세요.
+웹 앱의 **web.config** 또는 **applicationhost.config** 파일에 대한 자세한 내용은 [Azure 앱 서비스 웹￼ 앱에서 잠금 해제된 구성 옵션](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)을 참조하세요.
 
 공격을 감지하는 데 유용할 수 있는 웹앱의 로깅 정보에 대한 자세한 내용은 [진단 로깅 사용](web-sites-enable-diagnostic-log.md)을 참조하세요.
 
@@ -88,4 +88,4 @@ Azure 플랫폼 보안에 대한 자세한 내용, **보안 인시던트 또는 
 * 이전 포털에서 새 포털로의 변경에 대한 지침은 [미리 보기 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

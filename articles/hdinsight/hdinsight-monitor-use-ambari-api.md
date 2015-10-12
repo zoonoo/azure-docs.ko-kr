@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/25/2015"
 	ms.author="jgao"/>
 
 # Ambari API를 사용하여 HDInsight에서 Hadoop 클러스터 모니터링
@@ -23,7 +23,7 @@ Ambari API를 사용하여 HDInsight 클러스터 버전 3.1 및 2.1을 모니�
 
 > [AZURE.NOTE]이 문서의 정보는 주로 Windows 기반 HDInsight 클러스터에 대한 것이며 Ambari REST API의 읽기 전용 버전을 제공합니다. Linux 기반 클러스터는 [Ambari를 사용하여 Hadoop 클러스터 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 
-## <a id="whatisambari"></a> Ambari 정의
+## Ambari 정의
 
 [Apache Ambari][ambari-home]는 Apache Hadoop 클러스터를 프로비전, 관리 및 모니터링하는 데 사용됩니다. Hadoop의 복잡성을 숨기고 클러스터 작업을 단순화하는 직관적인 연산자 도구 모음 및 강력한 API 집합이 포함되어 있습니다. API에 대한 자세한 내용은 [Ambari API 참조][ambari-api-reference]를 참조하세요.
 
@@ -31,7 +31,7 @@ Ambari API를 사용하여 HDInsight 클러스터 버전 3.1 및 2.1을 모니�
 HDInsight는 현재 Ambari 모니터링 기능만 지원합니다. Ambari API 1.0은 HDInsight 클러스터 버전 3.0 및 2.1 클러스터에서만 지원됩니다. 이 문서에서는 HDInsight 버전 3.1 및 2.1 클러스터에서 Ambari API에 액세스하는 방법에 대해 설명합니다. 두 버전 간의 가장 큰 차이점은 작업 기록 서버와 같은 새 기능이 도입되면서 일부 구성 요소가 변경되었다는 것입니다.
 
 
-##<a id="prerequisites"></a>필수 조건
+**필수 구성 요소**
 
 이 자습서를 시작하기 전에 다음이 있어야 합니다.
 
@@ -54,7 +54,7 @@ HDInsight 클러스터 이름|$clusterName||HDInsight 클러스터의 이름입�
 
 
 
-##<a id="jumpstart"></a>신속한 시작
+## 신속한 시작
 
 Ambari를 사용하여 HDInsight 클러스터를 모니터링하는 몇 가지 방법이 있습니다.
 
@@ -121,9 +121,9 @@ Ambari를 사용하여 HDInsight 클러스터를 모니터링하는 몇 가지 �
 
 **2014/10/8 릴리스**:
 
-Ambari 끝점 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}"을 사용할 때 *host_name* 필드에서 호스트 이름만이 아니라 노드의 FQDN(정규화된 도메인 이름)을 반환합니다. 2014/10/8 릴리스 이전 버전에서는 이 예제가 "**headnode0**"만 반환했습니다. 2014/10/8 릴리스부터는 위의 예제에 나와 있는 것처럼 FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**"이 반환됩니다. 이 변경은 HBase, Hadoop 등의 여러 클러스터 유형을 VNET(가상 네트워크) 하나에 배포할 수 있는 시나리오를 원활하게 수행하기 위해 필요한 작업이었습니다. 예를 들어 Hadoop의 백 엔드 플랫폼으로 HBase를 사용하는 등의 경우 이 변경이 적용됩니다.
+Ambari 끝점 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}"을 사용할 때 *host\_name* 필드에서 호스트 이름만이 아니라 노드의 FQDN(정규화된 도메인 이름)을 반환합니다. 10/8/2014 릴리스 이전 버전에서는 이 예가 "**headnode0**"만 반환했습니다. 10/8/2014 릴리스부터는 위의 예에 나와 있는 것처럼 FQDN "**headnode0.{ClusterDNS}.azurehdinsight.net**"이 반환됩니다. 이 변경은 HBase, Hadoop 등의 여러 클러스터 유형을 VNET(가상 네트워크) 하나에 배포할 수 있는 시나리오를 원활하게 수행하기 위해 필요한 작업이었습니다. 예를 들어 Hadoop의 백 엔드 플랫폼으로 HBase를 사용하는 등의 경우 이 변경이 적용됩니다.
 
-##<a id="monitor"></a>Ambari 모니터링 API
+## Ambari 모니터링 API
 
 다음 테이블은 가장 일반적으로 사용되는 Ambari 모니터링 API 호출을 나열합니다. API에 대한 자세한 내용은 [Ambari API 참조][ambari-api-reference]를 참조하세요.
 
@@ -143,7 +143,7 @@ Ambari 끝점 "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{c
 구성 정보 가져오기|`/api/v1/clusters/&lt;ClusterName&gt;.azurehdinsight.net/configurations?type=&lt;ConfigType&gt;&tag=&lt;VersionName&gt;`|구성 유형: core-site, hdfs-site, mapred-site, hive-site
 
 
-##<a id="nextsteps"></a>다음 단계
+##다음 단계
 
 Ambari 모니터링 API 호출을 사용하는 방법을 알아보았습니다. 자세한 내용은 다음을 참조하세요.
 
@@ -175,4 +175,4 @@ Ambari 모니터링 API 호출을 사용하는 방법을 알아보았습니다. 
 
 [img-jobtracker-output]: ./media/hdinsight-monitor-use-ambari-api/hdi.ambari.monitor.jobtracker.output.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

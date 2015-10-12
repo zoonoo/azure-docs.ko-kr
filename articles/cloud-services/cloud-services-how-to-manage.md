@@ -164,4 +164,4 @@ Azure 포털 **클라우드 서비스** 영역에서 서비스 역할 또는 배
 * [사용자 지정 도메인 이름](cloud-services-custom-domain-name.md)을 구성합니다.
 * [SSL 인증서](cloud-services-configure-ssl-certificate.md)를 구성합니다.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

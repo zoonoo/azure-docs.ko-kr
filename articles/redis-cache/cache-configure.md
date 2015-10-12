@@ -12,16 +12,18 @@
    ms.topic="article"
    ms.tgt_pltfrm="cache-redis"
    ms.workload="tbd"
-   ms.date="09/22/2015"
+   ms.date="09/30/2015"
    ms.author="sdanie" />
 
 # Azure Redis 캐시 구성 방법
 
 이 항목에서는 Azure Redis 캐시 인스턴스에 대한 구성을 검토하고 업데이트하는 방법과 Azure Redis 캐시 인스턴스에 대한 기본 Redis 서버 구성을 살펴봅니다.
 
+>[AZURE.NOTE]Azure Redis Cache 프리미엄 계층은 현재 미리 보기 상태입니다. 미리 보기 기간 동안 프리미엄 기능은 캐시 생성 프로세스 중에만 구성할 수 있습니다. 프리미엄 캐시 기능 사용에 대한 자세한 내용은 [프리미엄 Azure Redis Cache에 지속성을 구성하는 방법](cache-how-to-premium-persistence.md), [프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md) 및 [프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법](cache-how-to-premium-vnet.md)을 참조하세요.
+
 ## Redis 캐시 설정 구성
 
-캐시는 [Azure 미리 보기 포털](https://portal.azure.com)의 **찾아보기** 블레이드를 사용하여 액세스할 수 있습니다.
+캐시는 [Azure Preview 포털](https://portal.azure.com)의 **찾아보기** 블레이드를 사용하여 액세스할 수 있습니다.
 
 ![Azure Redis 캐시 찾아보기 블레이드](./media/cache-configure/IC796920.png)
 
@@ -45,7 +47,7 @@
 
 ## 액세스 키
 
-**액세스 키**를 클릭하여 캐시에 대한 액세스 키를 보거나 생성할 수 있습니다. 이러한 키는 클라이언트가 캐시에 연결할 때 **속성** 블레이드에서 호스트 이름 및 포트와 함께 사용됩니다.
+**선택키**를 클릭하여 캐시에 대한 선택키를 보거나 다시 생성할 수 있습니다. 이러한 키는 클라이언트가 캐시에 연결할 때 **속성** 블레이드에서 호스트 이름 및 포트와 함께 사용됩니다.
 
 ![Redis 캐시 액세스 키](./media/cache-configure/IC808315.png)
 
@@ -88,7 +90,7 @@ Maxmemory 정책에 대한 자세한 내용은 [제거 정책](http://redis.io/t
 
 **maxmemory-reserved** 설정은 장애 조치(failover) 중 복제와 같은 비캐시 작업을 위해 예약되는 메모리의 양을 MB 단위로 구성합니다. 조각화 비율이 높을 때 사용할 수도 있습니다. 이 값을 설정하면 부하가 달라져도 Redis 서버 환경이 더 일관되도록 할 수 있습니다. 이 값은 쓰기 작업이 많은 워크로드에 더 높게 설정되어야 합니다. 이러한 작업을 위해 메모리가 예약된 경우 이는 캐시된 데이터의 저장에는 사용할 수 없습니다.
 
->[AZURE.IMPORTANT]**maxmemory-reserved** 설정은 표준 캐시에만 사용할 수 있습니다.
+>[AZURE.IMPORTANT]**maxmemory-reserved** 설정은 표준 및 프리미엄 캐시에만 사용할 수 있습니다.
 
 ## Keyspace 알림(고급 설정)
 
@@ -96,15 +98,15 @@ Maxmemory 정책에 대한 자세한 내용은 [제거 정책](http://redis.io/t
 
 ![Redis 캐시 고급 설정](./media/cache-configure/IC808319.png)
 
->[AZURE.IMPORTANT]Keyspace 알림과 **notify-keyspace-events** 설정은 표준 캐시에만 사용할 수 있습니다.
+>[AZURE.IMPORTANT]Keyspace 알림과 **notify-keyspace-events** 설정은 표준 및 프리미엄 캐시에만 사용할 수 있습니다.
 
-자세한 내용은 [Redis Keyspace 알림](http://redis.io/topics/notifications)을 참조하세요. 샘플 코드는 [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) 파일의 [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 샘플을 참조하세요.
+자세한 내용은 [Redis Keyspace 알림](http://redis.io/topics/notifications)을 참조하세요. 샘플 코드는 [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 샘플의 [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) 파일을 참조하세요.
 
 ## 사용자 및 태그
 
 ![Redis 캐시 사용자 및 태그](./media/cache-configure/IC808320.png)
 
-조직이 액세스 관리에 필요한 요구 사항을 간단하면서도 정밀하게 충족할 수 있도록 미리 보기 포털의 **사용자** 섹션에서 RBAC(역할 기반 액세스 제어)를 지원합니다. 자세한 내용은 [Azure 미리 보기 포털의 역할 기반 액세스 제어](http://go.microsoft.com/fwlink/?LinkId=512803)를 참조하세요.
+조직이 액세스 관리에 필요한 요구 사항을 간단하면서도 정밀하게 충족할 수 있도록 미리 보기 포털의 **사용자** 섹션에서 RBAC(역할 기반 액세스 제어)를 지원합니다. 자세한 내용은 [Azure Preview 포털의 역할 기반 액세스 제어](http://go.microsoft.com/fwlink/?LinkId=512803)를 참조하세요.
 
 **태그** 섹션은 리소스 구성에 도움이 됩니다. 자세한 내용은 [태그를 사용하여 Azure 리소스 구성](../resource-group-using-tags.md)을 참조하세요.
 
@@ -130,13 +132,19 @@ Maxmemory 정책에 대한 자세한 내용은 [제거 정책](http://redis.io/t
 
 <sup>1</sup>`maxclients`은 Azure Redis Cache 가격 책정 계층마다 다릅니다.
 
--	C0(250MB) 캐시 - 최대 256개 연결
--	C1(1GB) 캐시 - 최대 1,000개 연결
--	C2(2.5GB) 캐시 - 최대 2,000개 연결
--	C3(6GB) 캐시 - 최대 5,000개 연결
--	C4(13GB) 캐시 - 최대 10,000개 연결
--	C5(26GB) 캐시 - 최대 15,000개 연결
--	C6(53GB) 캐시 - 최대 20,000개 연결
+-	기본 및 표준 캐시
+	-	C0(250MB) 캐시 - 최대 256개 연결
+	-	C1(1GB) 캐시 - 최대 1,000개 연결
+	-	C2(2.5GB) 캐시 - 최대 2,000개 연결
+	-	C3(6GB) 캐시 - 최대 5,000개 연결
+	-	C4(13GB) 캐시 - 최대 10,000개 연결
+	-	C5(26GB) 캐시 - 최대 15,000개 연결
+	-	C6(53GB) 캐시 - 최대 20,000개 연결
+-	프리미엄 캐시
+	-	P1(6GB - 60GB) - 최대 7,500개 연결
+	-	P2(13GB - 130GB) - 최대 15,000개 연결
+	-	P3(26GB - 260GB) - 최대 30,000개 연결
+	-	P4(53GB - 530GB) - 최대 40,000개 연결
 
 ## Azure Redis Cache에서 지원되지 않는 Redis 명령
 
@@ -155,11 +163,11 @@ Redis 명령에 대한 자세한 내용은 [http://redis.io/commands](http://red
 
 ## Redis 콘솔
 
-표준 캐시에서 사용할 수 있는 **Redis 콘솔**을 사용하면 Azure Redis Cache 인스턴스에 대해 안전하게 명령을 실행할 수 있습니다. Redis 콘솔에 액세스하려면 **Redis 캐시** 블레이드에서 **콘솔**을 클릭합니다.
+표준 및 프리미엄 캐시에서 사용할 수 있는 **Redis 콘솔**을 사용하면 Azure Redis Cache 인스턴스에 대해 안전하게 명령을 실행할 수 있습니다. Redis 콘솔에 액세스하려면 **Redis 캐시** 블레이드에서 **콘솔**을 클릭합니다.
 
 ![Redis 콘솔](./media/cache-configure/redis-console-menu.png)
 
->[AZURE.IMPORTANT]Redis 콘솔은 표준 캐시에서만 사용할 수 있습니다.
+>[AZURE.IMPORTANT]Redis 콘솔은 표준 및 프리미엄 캐시에서만 사용할 수 있습니다.
 
 캐시 인스턴스에 대해 명령을 실행하려면 원하는 명령을 콘솔에 입력하면 됩니다.
 
@@ -170,4 +178,4 @@ Azure Redis Cache에 대해 사용할 수 없도록 설정된 Redis 명령 목�
 ## 다음 단계
 -	Redis 명령을 사용하는 방법은 [어떻게 Redis 명령을 실행할 수 있나요?](cache-faq.md#how-can-i-run-redis-commands)를 참조하세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

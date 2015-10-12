@@ -14,7 +14,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management"
-   ms.date="09/08/2015"
+   ms.date="09/25/2015"
    ms.author="rickbyh"/>
 
 # Azure SQL 데이터베이스에서 데이터베이스 및 로그인 관리
@@ -140,7 +140,7 @@ CREATE DATABASE database1;
 
 > [AZURE.NOTE]로그인을 만들 때 강력한 암호를 사용해야 합니다. 자세한 내용은 [강력한 암호](https://msdn.microsoft.com/library/ms161962.aspx)를 참조하십시오.
 
-이 다음 예제에서는 로그인 **login1**에 해당하는 데이터베이스 **database1**에 **login1User**라는 데이터베이스 사용자를 만드는 방법을 보여줍니다.
+이 다음 예제에서는 로그인 **login1**에 해당하는 데이터베이스 **database1**에 **login1User**라는 데이터베이스 사용자를 만드는 방법을 보여줍니다. 다음 예제를 실행하려면 해당 데이터베이스에서 **ALTER ANY USER** 권한으로 로그인을 사용하여 먼저 database1에 대한 새 연결을 만들어야 합니다. **db\_owner** 역할의 멤버로 연결하는 사용자는 데이터베이스를 만든 로그인 등과 같은 권한을 갖습니다.
 
 ```
 -- Establish a new connection to the database1 database
@@ -169,4 +169,4 @@ SELECT * FROM sys.databases;
 
 [Azure SQL 데이터베이스 보안 지침 및 제한 사항](sql-database-security-guidelines.md) [Azure Active Directory 인증을 사용하여 SQL 데이터베이스에 연결](sql-database-aad-authentication.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO1-->

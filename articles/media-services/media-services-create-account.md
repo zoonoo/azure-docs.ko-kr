@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/07/2015"  
+	ms.date="09/28/2015"  
 	ms.author="juliako"/>
 
 
@@ -78,7 +78,7 @@ Azure 포털을 통해 Azure 미디어 서비스 계정을 신속하게 만들 �
 
 - [.NET SDK를 사용한 VoD(주문형 비디오) 콘텐츠 제공 시작](media-services-dotnet-get-started.md)
 
-- [.NET SDK를 사용하여 단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 만들기(미리 보기)](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+- [.NET SDK를 사용하여 단일 비트 전송률에서 다중 비트 전송률 스트림으로 라이브 인코딩을 수행하는 채널 만들기](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
 <!-- Reusable paths. -->
 
@@ -92,4 +92,4 @@ Azure 포털을 통해 Azure 미디어 서비스 계정을 신속하게 만들 �
 
   [Azure 포털]: http://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO1-->

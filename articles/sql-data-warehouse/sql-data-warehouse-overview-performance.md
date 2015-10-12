@@ -77,4 +77,4 @@ SQL 데이터 웨어하우스는 여러 노드에 걸쳐 집계되는 계산 리
 
 <!--Other web references-->
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -1,31 +1,31 @@
 <properties 
-   pageTitle="StorSimple 정의 | Microsoft Azure"
-	description="StorSimple 데이터 관리 및 보호 프로세스, 이점 및 아키텍처에 대해 설명하고 StorSimple 구성 요소를 소개합니다."
-	services="storsimple"
-	documentationCenter="NA"
-	authors="SharS"
-	manager="carolz"
-	editor=""/>
+   pageTitle="StorSimple 정의 | Microsoft Azure" 
+   description="StorSimple 데이터 관리 및 보호 프로세스, 이점 및 아키텍처에 대해 설명하고 StorSimple 구성 요소를 소개합니다." 
+   services="storsimple" 
+   documentationCenter="NA" 
+   authors="SharS" 
+   manager="carolz" 
+   editor=""/>
 
 <tags
    ms.service="storsimple"
-	ms.devlang="NA"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"
-	ms.workload="TBD"
-	ms.date="08/26/2015"
-	ms.author="v-sharos@microsoft.com"/>
+   ms.devlang="NA"
+   ms.topic="article"
+   ms.tgt_pltfrm="NA"
+   ms.workload="TBD" 
+   ms.date="09/25/2015"
+   ms.author="v-sharos@microsoft.com"/>
 
 # StorSimple 8000 시리즈: 하이브리드 클라우드 저장소 솔루션 
 
 ## 개요
 
-Microsoft Azure StorSimple은 다양한 문제 및 엔터프라이즈 저장소 및 데이터 보호와 관련된 비용을 제거하는 효과적이고, 비용면에서 효율적인 관리 솔루션입니다. 소유 장치(Microsoft Azure StorSimple 장치), 클라우드 서비스와의 통합 및 관리 도구 집합을 사용하여 클라우드 저장소를 비롯한 모든 엔터프라이즈 저장소의 원활한 뷰를 제공합니다.
+Microsoft Azure StorSimple은 다양한 문제 및 엔터프라이즈 저장소 및 데이터 보호와 관련된 비용을 제거하는 효과적이고, 비용 효율적이며, 관리가 용이한 SAN 솔루션입니다. 소유 장치(Microsoft Azure StorSimple 장치)를 사용하고, 클라우드 서비스와 통합되며, 클라우드 저장소를 비롯한 모든 엔터프라이즈 저장소의 원활한 뷰를 위한 관리 도구 집합을 제공합니다.
 
 StorSimple은 저장소 계층화를 사용하여 다양한 저장소 미디어에 저장된 데이터를 관리합니다. 현재 작업 집합은 SSD(반도체 드라이브)에 온-프레미스로 저장되고, 자주 사용하지 않는 데이터는 HDD(하드 디스크 드라이브)에 저장되고, 보관 데이터는 클라우드에 푸시됩니다. 또한 StorSimple은 중복 제거 및 압축을 사용하여 데이터가 사용하는 저장소 크기를 줄입니다. 저장소 계층화 프로세스는 다음과 같이 수행됩니다.
 
 1. 시스템 관리자가 Microsoft Azure 클라우드 저장소 계정을 설정합니다.
-2. 관리자는 직렬 콘솔과 Azure 관리 포털에서 실행되는 StorSimple Manager 서비스를 사용하여 장치 및 파일 서버를 구성하고 볼륨 및 데이터 보호 정책을 만듭니다. 온-프레미스 파일 서버가 iSCSI(Internet Small Computer System Interface)를 사용하여 StorSimple 장치에 액세스합니다.
+2. 관리자는 직렬 콘솔과 Azure 관리 포털에서 실행되는 StorSimple Manager 서비스를 사용하여 장치를 구성하고 볼륨 및 데이터 보호 정책을 만듭니다. 온-프레미스 컴퓨터(예: 파일 서버)가 iSCSI(Internet Small Computer System Interface)를 사용하여 StorSimple 장치에 액세스합니다.
 3. 처음에 StorSimple은 장치의 빠른 SSD 계층에 데이터를 저장합니다.
 4. SSD 계층이 용량에 가까워지면 StorSimple에서 가장 오래된 데이터 블록을 중복 제거 및 압축하고 HDD 계층으로 이동합니다.
 5. HDD 계층이 용량에 가까워지면 StorSimple에서 가장 오래된 데이터 블록을 암호화하고 HTTPS를 통해 Microsoft Azure 저장소 계정으로 안전하게 보냅니다.
@@ -57,7 +57,7 @@ Microsoft Azure StorSimple은 다음과 같은 이점을 제공합니다.
 Microsoft Azure StorSimple 솔루션에는 다음 구성 요소가 포함됩니다.
 
 - **Microsoft Azure StorSimple 장치** – SSD(반도체 드라이브) 및 HDD(하드 디스크 드라이브)가 포함된 온-프레미스 하이브리드 저장소 배열로, 중복 컨트롤러 및 자동 장애 조치 기능을 함께 제공합니다. 컨트롤러는 현재 사용되는(또는 핫) 데이터를 로컬 저장소(장치 또는 온-프레미스 서버)에 배치하고 덜 자주 사용되는 데이터는 클라우드로 이동하여 저장소 계층화를 관리합니다.
-- **StorSimple 가상 장치** – StorSimple 가상 어플라이언스라고도 하며, 물리적 하이브리드 저장 장치의 아키텍처와 기능을 복제하는 StorSimple 장치의 소프트웨어 버전입니다. StorSimple 가상 장치는 Azure 가상 컴퓨터의 단일 노드에서 실행됩니다. 가상 장치는 테스트 및 소규모 파일럿 시나리오에 사용하기에 적합합니다. 온-프레미스 서버나 StorSimple 장치에서 StorSimple 가상 장치를 만들 수 없습니다.
+- **StorSimple 가상 장치** – StorSimple 가상 어플라이언스라고도 하며, 물리적 하이브리드 저장 장치의 아키텍처와 대부분의 기능을 복제하는 StorSimple 장치의 소프트웨어 버전입니다. StorSimple 가상 장치는 Azure 가상 컴퓨터의 단일 노드에서 실행됩니다. 가상 장치는 테스트 및 소규모 파일럿 시나리오에 사용하기에 적합합니다. 온-프레미스 서버나 StorSimple 장치에서 StorSimple 가상 장치를 만들 수 없습니다.
 - **StorSimple용 Windows PowerShell** – StorSimple 장치를 관리하는 데 사용할 수 있는 명령줄 인터페이스입니다. StorSimple용 Windows PowerShell에는 StorSimple 장치를 등록하고, 장치에서 네트워크 인터페이스를 구성하고 특정 형식의 업데이트를 설치하고, 지원 세션에 액세스하여 장치 문제를 해결하고 장치 상태를 변경할 수 있는 기능이 있습니다. 직렬 콘솔에 연결하거나 Windows PowerShell 원격 기능을 사용하여 StorSimple용 Windows PowerShell에 액세스할 수 있습니다.
 - **Azure PowerShell StorSimple cmdlet** – 명령줄에서 서비스 수준 작업 및 마이그레이션 작업을 자동화할 수 있도록 하는 Windows PowerShell cmdlet 모음입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [cmdlet 참조](https://msdn.microsoft.com/library/dn920427.aspx)를 참조하세요.
 - **StorSimple Manager 서비스** – 단일 웹 인터페이스에서 StorSimple 장치 또는 StorSimple 가상 장치를 관리할 수 있는 Azure 관리 포털의 확장입니다. StorSimple Manager 서비스를 사용하여 서비스를 만들고 관리하고, 장치를 보고 관리하고, 경고를 보고, 볼륨을 관리하고 백업 정책 및 백업 카탈로그를 보고 관리할 수 있습니다.
@@ -73,4 +73,4 @@ Microsoft Azure StorSimple 솔루션에는 다음 구성 요소가 포함됩니�
 
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

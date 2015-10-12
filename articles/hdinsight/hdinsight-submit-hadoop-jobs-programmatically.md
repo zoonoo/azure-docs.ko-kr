@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/28/2015"
+	ms.date="09/22/2015"
 	ms.author="jgao"/>
 
 # HDInsight에서 Hadoop 작업 제출
@@ -453,11 +453,11 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
 Visual Studio에 응용 프로그램이 열려 있을 때 **F5**를 눌러 응용 프로그램을 실행합니다. 콘솔 창이 열리고 응용 프로그램의 상태 및 응용 프로그램 출력이 표시됩니다.
 
 ##HDInsight .NET SDK를 사용하여 Hadoop 스트리밍 작업 제출
-HDInsight 클러스터는 C\#으로 개발된 단어 수 계산 Hadoop 스트림 프로그램과 함께 제공됩니다. 매퍼 프로그램은 */example/apps/cat.exe*이고 reduce 프로그램은 */example/apps/wc.exe*입니다. 이 세션에서는 단어 개수 샘플을 실행하는 .NET 응용 프로그램을 만드는 방법에 대해 알아봅니다.
+HDInsight 클러스터는 C#으로 개발된 단어 수 계산 Hadoop 스트림 프로그램과 함께 제공됩니다. 매퍼 프로그램은 */example/apps/cat.exe*이고 reduce 프로그램은 */example/apps/wc.exe*입니다. 이 세션에서는 단어 개수 샘플을 실행하는 .NET 응용 프로그램을 만드는 방법에 대해 알아봅니다.
 
 MapReduce 작업 제출을 위한 .Net 응용 프로그램을 만드는 방법에 대한 자세한 내용은 [HDInsight .NET SDK를 사용하여 MapReduce 작업 제출](#mapreduce-sdk)을 참조하세요.
 
-Hadoop 스트리밍 작업 개발 및 배포에 대한 자세한 내용은 [HDInsight용 C#Hadoop 스트리밍 프로그램 개발][hdinsight-develop-streaming-jobs]을 참조하세요.
+Hadoop 스트리밍 작업 개발 및 배포에 대한 자세한 내용은 [HDInsight용 C# Hadoop 스트리밍 프로그램 개발][hdinsight-develop-streaming-jobs]을 참조하세요.
 
 	using System;
 	using System.Collections.Generic;
@@ -569,132 +569,101 @@ SDK를 사용하여 HDInsight 클러스터를 프로비전하려면 다음 절�
 
 **Visual Studio 콘솔 응용 프로그램을 만들려면**
 
-1. Visual Studio를 엽니다.
+1. Visual Studio 2013 또는 2015 열기
 
-2. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
+2. 다음 설정으로 새 프로젝트를 만듭니다.
 
-3. **새 프로젝트**에서 다음 값을 입력하거나 선택합니다.
+	|속성|값|
+	|--------|-----|
+	|Template|Templates/Visual C#/Windows/Console Application|
+	|이름|SubmitHiveJob|
 
-	<table style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse;">
-<tr>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">속성</th>
-<th style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; width:90px; padding-left:5px; padding-right:5px;">값</th></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Category</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px; padding-right:5px;">Templates/Visual C#/Windows</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Template</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Console Application</td></tr>
-<tr>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">Name</td>
-<td style="border-color: #c6c6c6; border-width: 2px; border-style: solid; border-collapse: collapse; padding-left:5px;">SubmitHiveJob</td></tr>
-</table>
+3. **도구** 메뉴에서 **Nuget 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다.
+4. 콘솔에서 다음 명령을 실행하여 패키지를 설치합니다.
 
-4. **확인**을 클릭하여 프로젝트를 만듭니다.
+		Install-Package Microsoft.Azure.Common.Authentication -pre
+		Install-Package Microsoft.Azure.Management.HDInsight -Pre
+		Install-Package Microsoft.Azure.Management.HDInsight.Job -Pre
 
+	.NET 라이브러리 및 이에 대한 참조가 현재 Visual Studio 프로젝트에 추가됩니다.
 
-5. **도구** 메뉴에서 **라이브러리 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다.
+5. 솔루션 탐색기에서 **Program.cs**를 두 번 클릭하여 열고 다음 코드를 붙여 넣은 후 변수 값을 제공합니다.
 
-6. 콘솔에서 다음 명령을 실행하여 패키지를 설치합니다.
+		using System.Collections.Generic;
+		using System.Linq;
+		using Microsoft.Azure.Management.HDInsight.Job;
+		using Microsoft.Azure.Management.HDInsight.Job.Models;
+		using Hyak.Common;
+		
+		namespace SubmitHiveJob
+		{
+		    class Program
+		    {
+		        private static HDInsightJobManagementClient _hdiJobManagementClient;
+		
+		        private const string ExistingClusterName = "<HDINSIGHT CLUSTER NAME>";
+		        private const string ExistingClusterUri = ExistingClusterName + ".azurehdinsight.net";
+		
+		        private const string ExistingClusterUsername = "<HDINSIGHT HTTP USER NAME>";  //The default name is admin.
+		        private const string ExistingClusterPassword = "<HDINSIGHT HTTP USER PASSWORD>";
+		
+		        private static void Main(string[] args)
+		        {
+		
+		            var clusterCredentials = new BasicAuthenticationCloudCredentials { Username = ExistingClusterUsername, Password = ExistingClusterPassword };
+		            _hdiJobManagementClient = new HDInsightJobManagementClient(ExistingClusterUri, clusterCredentials);
+		
+		            SubmitHiveJob();
+		        }
+		
+		        private static void SubmitHiveJob()
+		        {
+		            Dictionary<string, string> defines = new Dictionary<string, string> { { "hive.execution.engine", "ravi" }, { "hive.exec.reducers.max", "1" } };
+		            List<string> args = new List<string> { { "argA" }, { "argB" } };
+		            var parameters = new HiveJobSubmissionParameters
+		            {
+		                UserName = ExistingClusterUsername,
+		                Query = "SHOW TABLES",
+		                Defines = ConvertDefinesToString(defines),
+		                Arguments = ConvertArgsToString(args)
+		            };
+		
+		            System.Console.WriteLine("Submitting the Hive job to the cluster...");
+		            var response = _hdiJobManagementClient.JobManagement.SubmitHiveJob(parameters);
+		            System.Console.WriteLine("Validating that the response is as expected...");
+		            System.Console.WriteLine("Response status code is " + response.StatusCode);
+		            System.Console.WriteLine("Validating the response object...");
+		            System.Console.WriteLine("JobId is " + response.JobSubmissionJsonResponse.Id);
+		            System.Console.WriteLine("Press ENTER to continue ...");
+		            System.Console.ReadLine();
+		        }
+		
+		        private static string ConvertDefinesToString(Dictionary<string, string> defines)
+		        {
+		            if (defines.Count == 0)
+		            {
+		                return null;
+		            }
+		
+		            return string.Join("&define=", defines.Select(x => x.Key + "%3D" + x.Value).ToArray());
+		        }
+		        private static string ConvertArgsToString(List<string> args)
+		        {
+		            if (args.Count == 0)
+		            {
+		                return null;
+		            }
+		
+		            return string.Join("&arg=", args.ToArray());
+		        }
+		    }
+		}
 
-		Install-Package Microsoft.WindowsAzure.Management.HDInsight
-
-
-	.NET 라이브러리 및 이에 대한 참조가 현재의 Visual Studio 프로젝트에 추가됩니다.
-
-7. **솔루션 탐색기**에서 **Program.cs**를 두 번 클릭하여 엽니다.
-
-8. 파일 맨 위에 다음 **using** 문을 추가합니다:
-
-		using System.IO;
-		using System.Threading;
-		using System.Security.Cryptography.X509Certificates;
-
-		using Microsoft.WindowsAzure.Management.HDInsight;
-		using Microsoft.Hadoop.Client;
-
-9. 클래스에 다음의 함수 정의를 추가합니다. 이 함수는 Hadoop 작업의 완료를 기다리는 데 사용됩니다.
-
-        private static void WaitForJobCompletion(JobCreationResults jobResults, IJobSubmissionClient client)
-        {
-            JobDetails jobInProgress = client.GetJob(jobResults.JobId);
-            while (jobInProgress.StatusCode != JobStatusCode.Completed && jobInProgress.StatusCode != JobStatusCode.Failed)
-            {
-                jobInProgress = client.GetJob(jobInProgress.JobId);
-                Thread.Sleep(TimeSpan.FromSeconds(10));
-            }
-        }
-
-10. **Main()** 함수에서 다음 코드를 붙여넣습니다:
-
-		// Set the variables
-		string subscriptionID = "<Azure subscription ID>";
-		string clusterName = "<HDInsight cluster name>";
-		string certFriendlyName = "<certificate friendly name>";
-
-
-	이러한 모든 변수를 프로그램에 대해 설정해야 합니다. 시스템 관리자로부터 Azure 구독 ID를 얻을 수 있습니다.
-
-	인증서에 대한 정보는 [Azure용 관리 인증서 만들기 및 업로드][azure-certificate]를 참조하세요. 인증서를 구성하는 손쉬운 방법은 **Get-AzurePublishSettingsFile** 및 **Import-AzurePublishSettingsFile** Azure PowerShell cmdlet을 실행하는 것입니다. 그러면 관리 인증서가 자동으로 생성되어 업로드됩니다. 이러한 cmdlet을 실행한 후 워크스테이션에서 **certmgr.msc**를 열고, **Personal** > **Certificates**를 확장하여 인증서를 찾을 수 있습니다. PowerShell cmdlet으로 만든 인증서에는 **발급 대상** 및 **발급자** 필드 모두에 사용할 수 있는 Azure Tools가 있습니다.
-
-11. **Main()** 함수에서 다음 코드를 추가하여 Hive 작업을 정의합니다:
-
-        // define the Hive job
-        HiveJobCreateParameters hiveJobDefinition = new HiveJobCreateParameters()
-        {
-            JobName = "show tables job",
-            StatusFolder = "/ShowTableStatusFolder",
-            Query = "show tables;"
-        };
-
-	**File** 매개 변수를 사용하여 HDFS에서 HiveQL 스크립트 파일을 지정할 수도 있습니다. 예를 들어:
-
-        // define the Hive job
-        HiveJobCreateParameters hiveJobDefinition = new HiveJobCreateParameters()
-        {
-            JobName = "show tables job",
-            StatusFolder = "/ShowTableStatusFolder",
-            File = "/user/admin/showtables.hql"
-        };
-
-
-12. **Main()** 함수에서 다음 코드를 추가하여 **JobSubmissionCertificateCredential** 개체를 만듭니다:
-
-        // Get the certificate object from certificate store using the friendly name to identify it
-        X509Store store = new X509Store();
-        store.Open(OpenFlags.ReadOnly);
-        X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.FriendlyName == certFriendlyName);
-        JobSubmissionCertificateCredential creds = new JobSubmissionCertificateCredential(new Guid(subscriptionID), cert, clusterName);
-
-13. **Main()** 함수에서 다음 코드를 추가하여 작업을 실행하고 작업이 완료되기를 기다립니다:
-
-        // Submit the Hive job
-        var jobClient = JobSubmissionClientFactory.Connect(creds);
-        JobCreationResults jobResults = jobClient.CreateHiveJob(hiveJobDefinition);
-
-        // Wait for the job to complete
-        WaitForJobCompletion(jobResults, jobClient);
-
-14. **Main()** 함수에서 다음 코드를 추가하여 Hive 작업 출력을 인쇄합니다:
-
-        // Print the Hive job output
-        System.IO.Stream stream = jobClient.GetJobOutput(jobResults.JobId);
-
-        StreamReader reader = new StreamReader(stream);
-        Console.WriteLine(reader.ReadToEnd());
-
-        Console.WriteLine("Press ENTER to continue.");
-        Console.ReadLine();
-
-**응용 프로그램을 실행하려면**
-
-Visual Studio에 응용 프로그램이 열려 있을 때 **F5**를 눌러 응용 프로그램을 실행합니다. 콘솔 창이 열리고 응용 프로그램의 상태가 표시되며 다음과 같이 출력되어야 합니다.
-
-	hivesampletable
+6. **F5** 키를 눌러 응용 프로그램을 실행합니다.
 
 ##Visual Studio용 HDInsight 도구를 사용하여 작업 제출
 
-Visual Studio용 HDInsight 도구를 사용하여 Hive 쿼리 및 Pig 스크립트를 실행할 수 있습니다. [HDInsight용 Visual Studio Hadoop 도구를 사용 시작](hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
+Visual Studio용 HDInsight 도구를 사용하여 Hive 쿼리 및 Pig 스크립트를 실행할 수 있습니다. [HDInsight용 Visual Studio Hadoop 도구를 사용하기 시작](hdinsight-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
 
 
 ##다음 단계
@@ -731,4 +700,4 @@ Visual Studio용 HDInsight 도구를 사용하여 Hive 쿼리 및 Pig 스크립�
 
 [apache-hive]: http://hive.apache.org/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO1-->

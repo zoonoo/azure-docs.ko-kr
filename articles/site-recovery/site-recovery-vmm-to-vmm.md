@@ -388,4 +388,4 @@ VMM 서버의 공급자는 서비스에서 이벤트에 대한 알림을 받고 
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

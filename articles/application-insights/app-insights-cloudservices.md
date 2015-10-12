@@ -4,7 +4,7 @@
    services="application-insights"
    documentationCenter=""
    authors="soubhagyadash"
-   manager="victormu"
+   manager="douge"
    editor="alancameronwills"/>
 
 <tags
@@ -13,7 +13,7 @@
    ms.tgt_pltfrm="ibiza"
    ms.topic="article"
    ms.workload="tbd"
-   ms.date="06/17/2015"
+   ms.date="09/30/2015"
    ms.author="sdash"/>
 
 # Azure 클라우드 서비스용 Application Insights
@@ -65,20 +65,32 @@ Application Insights 리소스는 원격 분석 데이터를 분석하고 표시
 
 3. Application Insights 리소스에 데이터를 보내도록 SDK를 구성합니다.
 
-    `ApplicationInsights.config`를 열고 이 줄을 삽입합니다.
+    `ServiceConfiguration.Cloud.cscfg` 파일에서 구성 설정으로 계측 키를 설정합니다. ([샘플 코드](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg)).
+ 
+    ```XML
+     
+    <Role name="WorkerRoleA"> 
+      <Setting name="Telemetry.AI.InstrumentationKey" value="YOUR IKEY" /> 
+    </Role>
+    ```
+ 
+    적합한 시작 함수에서 구성 설정의 계측 키를 설정합니다.
 
-    `<InstrumentationKey>` *복사한 계측 키* `</InstrumentationKey>`
+    ```C#
 
-    Application Insights 리소스에서 복사한 계측 키를 사용합니다.
+     TelemetryConfiguration.Active.InstrumentationKey = RoleEnvironment.GetConfigurationSettingValue("Telemetry.AI.InstrumentationKey");
+    ```
 
-4. 항상 출력 디렉토리에 복사되도록 ApplicationInsights.config 파일을 설정합니다. 작업자 역할에만 필요합니다.
+    응용 프로그램에서 각 역할에 대해 이 작업을 수행합니다. 예제 참조:
+ 
+ * [웹 역할](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Global.asax.cs#L27)
+ * [작업자 역할](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
+ * [웹 페이지](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13)   
 
+4. 항상 출력 디렉토리에 복사되도록 ApplicationInsights.config 파일을 설정합니다. 
 
-또는 코드에서 계측 키(iKey)를 설정할 수 있습니다. Azure 서비스 구성(CSCFG) 설정을 사용하여 해당 환경에 대한 계측 키를 관리하려는 경우 유용합니다. [샘플 응용 프로그램](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService)은 iKey를 설정하는 방법을 보여줍니다.
+    .config 파일에서 해당 위치에 계측 키를 배치할지 묻는 메시지가 표시됩니다. 그러나 클라우드 응용 프로그램의 경우에는 .cscfg 파일에서 설정하는 것이 좋습니다. 그래야 포털에서 역할이 정확하게 식별됩니다.
 
-* [웹 역할](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Global.asax.cs#L27)
-* [작업자 역할](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L232)
-* [웹 페이지](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13)
 
 ## SDK를 사용하여 원격 분석 보고
 ### 보고서 요청
@@ -196,4 +208,4 @@ Application Insights 포털에서 표시된 예는 다음과 같습니다.
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

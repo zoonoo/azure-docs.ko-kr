@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="연습: 작업자 역할을 사용하여 Application Insights에서 SQL로 내보내기" 
+	pageTitle="코드 샘플: Application Insights에서 내보낸 데이터 구문 분석" 
 	description="연속 내보내기 기능을 사용하여 Application Insights에서 원격 분석에 대한 자체 분석을 코딩합니다." 
 	services="application-insights" 
     documentationCenter=""
@@ -12,12 +12,12 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="09/28/2015" 
 	ms.author="awills"/>
  
-# 연습: 작업자 역할을 사용하여 Application Insights에서 SQL로 내보내기
+# 코드 샘플: Application Insights에서 내보낸 데이터 구문 분석
 
-이 문서에서는 [연속 내보내기][export] 및 적은 양의 코드를 사용하여 [Visual Studio Application Insights][start]에서 Azure SQL 데이터베이스로 원격 분석을 이동하는 방법을 보여줍니다.
+이 문서에서는 Application Insights에서 내보낸 JSON 데이터를 처리하는 방법을 보여줍니다. 예를 들어, [연속 내보내기][export]를 통해 [Visual Studio Application Insights][start]에서 Azure SQL 데이터베이스로 원격 분석을 이동하는 방법을 보여줍니다. 이 작업은 [스트림 분석](app-insights-code-sample-export-sql-stream-analytics.md)을 통해서도 수행할 수 있지만 여기서의 목표는 코드를 보여주는 것입니다.
 
 연속 내보내기는 원격 분석을 JSON 형식으로 Azure 저장소로 이동하므로, JSON 개체를 구문 분석하고 데이터베이스 테이블에 행을 만드는 코드를 작성해 보겠습니다.
 
@@ -51,7 +51,9 @@
 
 ## Azure에서 저장소 만들기
 
-1. [Azure 포털][portal]에서 구독에 “클래식" 저장소 계정을 만듭니다.
+Application Insights의 데이터는 항상 JSON 형식으로 Azure 저장소 계정으로 내보냅니다. 이 저장소로부터 코드가 데이터를 읽어옵니다.
+
+1. [Azure 포털][portal]에서 구독에 "클래식" 저장소 계정을 만듭니다.
 
     ![Azure 포털에서 새로 만들기, 데이터, 저장소 선택](./media/app-insights-code-sample-export-telemetry-sql-database/040-store.png)
 
@@ -93,6 +95,8 @@
 
 ## Azure SQL 데이터베이스 만들기
 
+이 예에서는 데이터베이스에 데이터를 밀어넣을 코드를 작성합니다.
+
 다시 한 번 [Azure 포털][portal]의 구독에서 시작하여 데이터를 쓸 데이터베이스(그리고 아직 없는 경우 새 서버도 포함)를 만듭니다.
 
 ![새로 만들기, 데이터, SQL](./media/app-insights-code-sample-export-telemetry-sql-database/090-sql.png)
@@ -106,9 +110,9 @@
 
 ## 작업자 역할 만들기 
 
-이제 내보낸 Blob에서 JSON을 구문 분석하고 데이터베이스에서 레코드를 만드는 [코드](https://sesitai.codeplex.com/)를 작성할 수 있습니다. 저장소 내보내기와 데이터베이스는 모두 Azure에 있으므로 Azure 작업자 역할에서 코드를 실행할 것입니다.
+이제 내보낸 Blob에서 JSON을 구문 분석하고 데이터베이스에서 레코드를 만드는 [몇 가지 코드](https://sesitai.codeplex.com/)를 작성할 수 있습니다. 저장소 내보내기와 데이터베이스는 모두 Azure에 있으므로 Azure 작업자 역할에서 코드를 실행할 것입니다.
 
-이 코드는 JSON에 표시되는 어떤 속성도 자동으로 추출합니다. 속성의 설명은 [데이터 모델 내보내기](app-insights-export-data-model.md)를 참조하세요.
+이 코드는 JSON에 표시되는 어떤 속성도 자동으로 추출합니다. 속성 설명은 [데이터 모델 내보내기](app-insights-export-data-model.md)를 참조하세요.
 
 
 #### 작업자 역할 프로젝트 만들기
@@ -539,4 +543,4 @@ PageView에 대해 생성되는 테이블의 스키마입니다.
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

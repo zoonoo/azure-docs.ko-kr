@@ -96,7 +96,7 @@ HPC Pack IaaS 배포 스크립트는 HPC Pack 클러스터를 배포하는 다�
 
 **구성 파일 만들기**
 
- HPC Pack IaaS 배포 스크립트는 HPC 클러스터의 인프라를 설명하는 XML 구성 파일을 입력으로 사용합니다. Microsoft Excel을 포함하는 컴퓨터 노드 이미지에서 만든 컴퓨터 노드 18개와 헤드 노드 1개로 구성된 클러스터를 배포하려면 다음 샘플 구성 파일에 해당 환경의 값을 대체합니다. 구성 파일에 대한 자세한 내용은 스크립트 폴더 또는 [스크립트 설명서](https://msdn.microsoft.com/library/azure/dn864734.aspx)에 있는 Manual.rtf 파일을 참조하세요.
+ HPC Pack IaaS 배포 스크립트는 HPC 클러스터의 인프라를 설명하는 XML 구성 파일을 입력으로 사용합니다. Microsoft Excel을 포함하는 컴퓨터 노드 이미지에서 만든 컴퓨터 노드 18개와 헤드 노드 1개로 구성된 클러스터를 배포하려면 다음 샘플 구성 파일에 해당 환경의 값을 대체합니다. 구성 파일에 대한 자세한 내용은 스크립트 폴더의 Manual.rtf 파일과 [HPC 팩 IaaS 배포 스크립트를 사용하여 HPC 클러스터 만들기](virtual-machines-hpcpack-cluster-powershell-script.md)를 참조하세요.
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -230,7 +230,7 @@ Azure의 HPC Pack 클러스터에서 실행할 Excel 통합 문서를 오프로�
 ```
 4.	전체 [HPC Pack 2012 R2 업데이트 2 설치](http://www.microsoft.com/download/details.aspx?id=47755)를 다운로드하고 HPC Pack 클라이언트를 설치하거나 [HPC Pack 2012 R2 업데이트 2 클라이언트 유틸리티](https://www.microsoft.com/download/details.aspx?id=47754) 및 사용자 컴퓨터에 적절한 Visual C++ 2010 재배포 가능 패키지([x64](http://www.microsoft.com/download/details.aspx?id=14632)[x86](https://www.microsoft.com/download/details.aspx?id=5555))를 다운로드 및 설치합니다.
 
-5.	이 예제에서는 [여기](https://www.microsoft.com/ko-KR/download/details.aspx?id=2939)서 다운로드할 수 있는 ConvertiblePricing\_Complete.xlsb라는 샘플 Excel 통합 문서를 사용합니다.
+5.	이 예제에서는 [여기](https://www.microsoft.com/ko-kr/download/details.aspx?id=2939)서 다운로드할 수 있는 ConvertiblePricing\_Complete.xlsb라는 샘플 Excel 통합 문서를 사용합니다.
 
 6.	D:\\Excel\\Run과 같은 작업 폴더에 Excel 통합 문서를 복사합니다.
 
@@ -267,7 +267,7 @@ Azure의 HPC Pack 클러스터에서 실행할 Excel 통합 문서를 오프로�
 
 Excel UDF를 실행하려면 앞의 1-3단계에 따라 클라이언트 컴퓨터를 설정합니다. Excel UDF의 경우 컴퓨터 노드에 Excel 응용 프로그램이 설치되어 있을 필요가 없으므로 Excel이 포함된 컴퓨터 노드 이미지 대신 1단계에서 일반 컴퓨터 노드 이미지를 선택할 수 있습니다.
 
->[AZURE.NOTE]Excel 2010 및 2013 클러스터 커넥터 대화 상자에는 34자 제한이 있습니다. 전체 클러스터 이름이 더 긴 경우(예: hpcexcelhn01.southeastasia.cloudapp.azure.com) 대화 상자에 맞지 않습니다. 문제 해결 방법은 클라이언트 컴퓨터의 SOA 세션 API에 업데이트 2 QFE KB3085833([여기](http://www.microsoft.com/ko-KR/download/details.aspx?id=48725)에서 다운로드)을 적용한 다음 컴퓨터를 긴 클러스터 이름 값으로(예: *CCP\_IAASHN*) 넓은 변수를 설정하고 클러스터 헤드 노드 이름으로 대화 상자에 *%CCP\_IAASHN%*를 입력합니다.
+>[AZURE.NOTE]Excel 2010 및 2013 클러스터 커넥터 대화 상자에는 34자 제한이 있습니다. 전체 클러스터 이름이 더 긴 경우(예: hpcexcelhn01.southeastasia.cloudapp.azure.com) 대화 상자에 맞지 않습니다. 문제 해결 방법은 클라이언트 컴퓨터의 SOA 세션 API에 업데이트 2 QFE KB3085833([여기](http://www.microsoft.com/ko-kr/download/details.aspx?id=48725)에서 다운로드)을 적용한 다음 컴퓨터를 긴 클러스터 이름 값으로(예: *CCP\_IAASHN*) 넓은 변수를 설정하고 클러스터 헤드 노드 이름으로 대화 상자에 *%CCP\_IAASHN%*를 입력합니다.
 
 클러스터가 배포된 후 다음 단계를 계속 진행하여 샘플 기본 제공 Excel UDF를 실행합니다. 사용자 지정 Excel UDF의 경우 다음 [리소스](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx)를 참조하여 XLL을 빌드하고 IaaS 클러스터에 배포하세요.
 
@@ -384,4 +384,4 @@ NetTcp 바인딩을 사용하려면 구성이 온-프레미스 클러스터에 �
 [endpoint]: ./media/virtual-machines-excel-cluster-hpcpack/endpoint.png
 [udf]: ./media/virtual-machines-excel-cluster-hpcpack/udf.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

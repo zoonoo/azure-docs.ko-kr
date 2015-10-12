@@ -95,7 +95,7 @@
 	    "type": "AzureBlob",
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}/",
 	      "partitionedBy": [
 	        {
 	          "name": "Year",
@@ -239,7 +239,7 @@
 	    "type": "AzureBlob",
 	    "linkedServiceName": "StorageLinkedService",
 	    "typeProperties": {
-	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}",
+	      "folderPath": "mycontainer/myfolder/yearno={Year}/monthno={Month}/dayno={Day}/",
 	      "fileName": "{Hour}.csv",
 	      "partitionedBy": [
 	        {
@@ -393,21 +393,74 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 
 반면 작업의 typeProperties 섹션에서 사용할 수 있는 속성은 각 작업 형식에 따라 다르며 복사 작업의 경우 속성은 원본 및 싱크의 형식에 따라 다릅니다.
 
+### SqlSource
+
 원본이 **SqlSource** 형식인 복사 작업의 경우 **typeProperties** 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- |
 | sqlReaderQuery | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | SQL 쿼리 문자열입니다. 예: select * from MyTable. 지정하지 않는 경우 실행되는 SQL 문: select from MyTable. | 아니요 |
+| sqlReaderStoredProcedureName | 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. | 저장 프로시저의 이름입니다. | 아니요 |
+| storedProcedureParameters | 저장 프로시저에 대한 매개 변수입니다. | 이름/값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아니요 | 
+
+### SqlSource 예제
+
+    "source": {
+        "type": "SqlSource",
+        "sqlReaderStoredProcedureName": "CopyTestSrcStoredProcedureWithParameters",
+        "storedProcedureParameters": {
+            "stringData": { "value": "str3" },
+            "id": { "value": "$$Text.Format('{0:yyyy}', SliceStart)", "type": "Int"}
+        }
+    }
+
+**저장 프로시저 정의:**
+
+	CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
+	(
+		@stringData varchar(20),
+		@id int
+	)
+	AS
+	SET NOCOUNT ON;
+	BEGIN
+	     select *
+	     from dbo.UnitTestSrcTable
+	     where dbo.UnitTestSrcTable.stringData != stringData
+	    and dbo.UnitTestSrcTable.id != id
+	END
+	GO
+
+
+### SqlSink 
 
 **SqlSink**는 다음 속성을 지원합니다.
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- |
-| sqlWriterStoredProcedureName | 대상 테이블에 데이터를 upsert(업데이트/삽입)하기 위해 사용자가 지정한 저장 프로시저 이름입니다. | 저장 프로시저의 이름입니다. | 아니요 |
-| sqlWriterTableType | 위의 저장 프로시저에서 사용할 사용자가 지정한 테이블 형식 이름입니다. 복사 작업을 사용하면 이 테이블 형식으로 임시 테이블에서 사용할 수 있는 데이터를 이동시킵니다. 그러면 저장 프로시저 코드가 복사되는 데이터를 기존 데이터와 병합할 수 있습니다. | 테이블 유형 이름 | 아니요 |
 | writeBatchTimeout | 시간이 초과되기 전에 완료하려는 배치 삽입 작업을 위한 대기 시간입니다. | (단위 = timespan) 예: "00:30:00"(30분). | 아니요 | 
+| writeBatchSize | 버퍼 크기가 writeBatchSize에 도달하는 경우 SQL 테이블에 데이터 삽입 | Integer(단위 = 행 수). | 아니요(기본값 = 10000)
 | sqlWriterCleanupScript | 사용자는 데이터의 특정 조각을 정리할 수 있도록 실행하는 복사 작업에 쿼리를 지정했습니다. 자세한 내용은 아래 반복성 섹션을 참조하세요. | 쿼리 문입니다. | 아니요 |
 | sliceIdentifierColumnName | 사용자는 자동 생성된 조각 식별자로 채워진 복사 작업에 열 이름을 지정하여 다시 실행하는 경우 특정 조각의 데이터를 정리하는 데 사용합니다. 자세한 내용은 아래 반복성 섹션을 참조하세요. | 이진(32) 데이터 형식이 있는 열의 열 이름입니다. | 아니요 |
+| sqlWriterStoredProcedureName | 대상 테이블에 대한 데이터 Upsert(업데이트/삽입)를 수행하는 저장 프로시저의 이름입니다. | 저장 프로시저의 이름입니다. | 아니요 |
+| storedProcedureParameters | 저장 프로시저에 대한 매개 변수입니다. | 이름/값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아니요 | 
+| sqlWriterTableType | 위의 저장 프로시저에서 사용할 사용자가 지정한 테이블 형식 이름입니다. 복사 작업을 사용하면 이 테이블 형식으로 임시 테이블에서 사용할 수 있는 데이터를 이동시킵니다. 그러면 저장 프로시저 코드가 복사되는 데이터를 기존 데이터와 병합할 수 있습니다. | 테이블 유형 이름 | 아니요 |
+
+#### SqlSink 예제
+
+    "sink": {
+        "type": "SqlSink",
+        "writeBatchSize": 1000000,
+        "writeBatchTimeout": "00:05:00",
+        "sqlWriterStoredProcedureName": "CopyTestStoredProcedureWithParameters",
+        "sqlWriterTableType": "CopyTestTableType",
+        "storedProcedureParameters": {
+            "id": { "value": "1", "type": "Int" },
+            "stringData": { "value": "str1" },
+            "decimalData": { "value": "1", "type": "Decimal" }
+        }
+    }
+
 
 [AZURE.INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -474,4 +527,4 @@ Azure SQL, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식�
 
 	 
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -41,4 +41,4 @@ Azure 기계 학습을 사용하면 게시된 웹 서비스에 대한 여러 끝
 끝점이 만들어지면 동기 API, 일괄 처리 API 및 Excel 워크시트를 통해 끝점을 사용할 수 있습니다. 또한 이 UI 통해 끝점을 추가하는 것 외에도 끝점 관리 API를 사용하여 프로그래밍 방식으로 끝점을 추가할 수 있습니다. 기계 학습 웹 서비스를 사용하는 방법에 대한 자세한 내용은 [게시된 Azure 기계 학습 웹 서비스를 사용하는 방법](machine-learning-consume-web-services.md)을 참조하세요.
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

@@ -1,20 +1,20 @@
 <properties 
-   pageTitle="논리 앱에서 Azure 저장소 Blob 커넥터 사용 | Microsoft Azure 앱 서비스"
-	description="Azure 저장소 Blob 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="anuragdalmia"
-	manager="dwrede"
-	editor=""/>
+   pageTitle="논리 앱에서 Azure 저장소 Blob 커넥터 사용 | Microsoft Azure 앱 서비스" 
+   description="Azure 저장소 Blob 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법" 
+   services="app-service\logic" 
+   documentationCenter=".net,nodejs,java" 
+   authors="anuragdalmia" 
+   manager="dwrede" 
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="rajram"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration" 
+   ms.date="08/23/2015"
+   ms.author="rajram"/>
    
 # Azure 저장소 Blob 커넥터 시작 및 논리 앱에 추가 
 Azure Storage Blob에 연결하여 Blob 컨테이너의 Blob을 업로드, 다운로드 및 삭제할 수 있습니다. 커넥터는 논리 앱에서 "워크플로"의 일부로 사용됩니다.
@@ -85,6 +85,8 @@ Content를 원하는 값으로 설정할 수 있습니다. 식은 논리 앱 트
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
+>[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+
 [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
 커넥터의 성능 통계를 검토하고 보안을 제어할 수 있습니다. [기본 제공 API 앱 및 커넥터 관리 및 모니터링](app-service-logic-monitor-your-connectors.md)을 참조하세요.
@@ -102,4 +104,4 @@ Content를 원하는 값으로 설정할 수 있습니다. 식은 논리 앱 트
 [11]: ./media/app-service-logic-connector-azurestorageblob/BasicInputsUploadBlob.PNG
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

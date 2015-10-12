@@ -1,20 +1,20 @@
 <properties
    pageTitle="논리 앱에서 Box 커넥터 사용 | Microsoft Azure 앱 서비스"
-	description="Box 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
-	services="app-service\logic"
-	documentationCenter=".net,nodejs,java"
-	authors="rajeshramabathiran"
-	manager="dwrede"
-	editor=""/>
+   description="Box 커넥터 또는 API 앱을 만들어서 구성하고 Azure 앱 서비스의 논리 앱에서 사용하는 방법"
+   services="app-service\logic"
+   documentationCenter=".net,nodejs,java"
+   authors="rajeshramabathiran"
+   manager="dwrede"
+   editor=""/>
 
 <tags
    ms.service="app-service-logic"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/23/2015"
-	ms.author="andalmia"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration"
+   ms.date="08/23/2015"
+   ms.author="andalmia"/>
 
 # Box 커넥터 시작 및 논리 앱에 추가 
 Box에 연결하여 파일을 가져오고, 업로드, 삭제 등을 수행합니다. 커넥터는 논리 앱에서 "워크플로"의 일부로 사용됩니다.
@@ -94,6 +94,8 @@ API 앱을 만들고 나면 이제 Box 커넥터를 논리 앱의 동작으로 �
 ## 커넥터의 추가 기능
 이제 커넥터를 만들었으므로 논리 앱을 사용하여 비즈니스 워크플로에 추가할 수 있습니다. [논리 앱 정의](app-service-logic-what-are-logic-apps.md)를 참조하세요.
 
+>[AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 논리 앱을 시작하려는 경우 [논리 앱 평가](https://tryappservice.azure.com/?appservice=logic)로 이동합니다. 앱 서비스에서 즉시 단기 스타터 논리 앱을 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+
 [커넥터 및 API 앱 참조](http://go.microsoft.com/fwlink/p/?LinkId=529766)의 Swagger REST API 참조를 봅니다.
 
 커넥터의 성능 통계를 검토하고 보안을 제어할 수 있습니다. [기본 제공 API 앱 및 커넥터 관리 및 모니터링](app-service-logic-monitor-your-connectors.md)을 참조하세요.
@@ -105,4 +107,4 @@ API 앱을 만들고 나면 이제 Box 커넥터를 논리 앱의 동작으로 �
 [4]: ./media/app-service-logic-connector-box/image_3.jpg
 [5]: ./media/app-service-logic-connector-box/image_4.jpg
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO1-->

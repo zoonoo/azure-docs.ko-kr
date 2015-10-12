@@ -2,20 +2,20 @@
 <properties
 	pageTitle="논리 앱용 API 앱 향상"
 	description="이 문서에서는 논리 앱을 깔끔하게 작업할 API 앱을 데코레이트하는 방법을 보여줍니다."
-	services="app-service\api"
+	services="app-service"
 	documentationCenter=".net"
 	authors="sameerch"
 	manager="wpickett"
 	editor="jimbe"/>
 
 <tags
-	ms.service="app-service-api"
-	ms.workload="web"
+	ms.service="app-service"
+	ms.workload="na"
 	ms.tgt_pltfrm="dotnet"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/09/2015"
-	ms.author="sameerch;guayan;tarcher"/>
+	ms.date="09/29/2015"
+	ms.author="sameerch"/>
 
 # 논리 앱용 API 앱 향상 #
 
@@ -235,4 +235,4 @@ Visual Studio를 사용하여 개발하기 위해 일반적으로 [XML 설명](h
 이 문서에서는 논리 앱 디자이너에서 사용되는 경우 API 앱의 사용자 환경을 개선하는 방법을 살펴보았습니다. 모범 사례로, 모든 작업(동작 및 트리거) 매개 변수 및 속성에 대한 적절하고 친숙한 이름을 제공하는 것이 좋습니다. 또한 5개 이하의 기본 작업을 제공하는 것이 좋습니다. 입력된 매개 변수에 대해 기본 속성 개수를 4개 이하로 제한하도록 권장하고 속성에 대해서는 5개 이하로 권장합니다. 사용자의 작업 및 속성의 나머지 부분은 고급으로 표시해야 합니다.
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO1-->

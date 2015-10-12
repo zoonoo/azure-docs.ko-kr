@@ -239,4 +239,4 @@ Remove-AzureDnsRecordSet cmdlet을 사용하여 레코드 집합을 삭제할 �
 [레코드 집합 및 레코드 만들기 시작](dns-getstarted-create-recordset-cli.md)<BR> [DNS 영역에 대한 작업 수행](dns-operations-dnszones-cli.md)<BR> [.NET SDK로 작업 자동화](dns-sdk.md)
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->

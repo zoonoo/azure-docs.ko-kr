@@ -150,7 +150,7 @@ VS2013(Visual Studio 2013)을 사용하여 Azure SQL 데이터베이스에 연�
 - 온라인 또는 오프라인으로 데이터베이스 개발
 
 
-대신 완전한 기능을 갖춘 무료 버전의 VS2013인 [Visual Studio Community 2013](https://www.visualstudio.com/ko-KR/news/vs2013-community-vs.aspx/)에 연결할 수 있습니다.
+대신 완전한 기능을 갖춘 무료 버전의 VS2013인 [Visual Studio Community 2013](https://www.visualstudio.com/ko-kr/news/vs2013-community-vs.aspx/)에 연결할 수 있습니다.
 
 
 이전 Azure 포털의 데이터베이스 페이지에서 **Visual Studio에서 열기**를 클릭하여 Azure SQL 데이터베이스에 연결할 컴퓨터에서 VS2013을 시작할 수 있습니다.
@@ -254,4 +254,4 @@ Stop- cmdlet은 취소를 의미하는 것으로, 일시 중지가 아닙니다.
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO1-->
