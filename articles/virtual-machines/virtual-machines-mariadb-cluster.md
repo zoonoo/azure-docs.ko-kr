@@ -373,4 +373,4 @@ Azure CLI를 사용하여 컴퓨터에서 아래 명령을 실행합니다. 명�
 [Azure CLI 도구의 문제 #1268]: https://github.com/Azure/azure-xplat-cli/issues/1268
 [Linux에서 MySQL을 클러스터링하는 다른 방법]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
 
-<!----HONumber=Sept15_HO4-->
+<!-----HONumber=Sept15_HO4-->
