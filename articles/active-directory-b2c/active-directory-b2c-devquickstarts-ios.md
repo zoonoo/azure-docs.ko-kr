@@ -642,7 +642,9 @@ API 가 받는 액세스 토큰에서 사용자의 ID를 추출하므로 API에 
 
 참조를 위해 완성된 샘플이 [여기서 .zip으로 제공](https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS/archive/complete.zip)되거나 GitHub에서 복제할 수 있습니다.
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS```
+```
+git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-iOS
+```
 
 ## 다음 단계
 
@@ -652,4 +654,4 @@ API 가 받는 액세스 토큰에서 사용자의 ID를 추출하므로 API에 
 
 [B2C 앱의 UX 사용자 지정 >>]()
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->
