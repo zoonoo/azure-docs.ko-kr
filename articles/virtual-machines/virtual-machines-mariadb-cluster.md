@@ -35,7 +35,7 @@ Azure 가상 컴퓨터의 고가용성 환경에서 작업하기 위해 강력�
 
 ![아키텍처](./media/virtual-machines-mariadb-cluster/Setup.png)
 
-> [AZURE.NOTE] 이 항목에서는 [Azure CLI] 도구를 사용하므로 도구를 다운로드하고 지침에 따라 Azure 구독에 연결해야 합니다. Azure CLI에서 사용 가능한 명령에 대한 참조가 필요한 경우 이 [Azure CLI 명령 참조] 링크를 확인합니다. 또한 [인증에 사용할 SSH 키를 만들고] **.pem 파일 위치**를 적어 두어야 합니다.
+> [AZURE.NOTE]  이 항목에서는 [Azure CLI] 도구를 사용하므로 도구를 다운로드하고 지침에 따라 Azure 구독에 연결해야 합니다. Azure CLI에서 사용 가능한 명령에 대한 참조가 필요한 경우 이 [Azure CLI 명령 참조] 링크를 확인합니다. 또한 [인증에 사용할 SSH 키를 만들고] **.pem 파일 위치**를 적어 두어야 합니다.
 
 
 ## 템플릿 만들기
@@ -228,7 +228,9 @@ Azure 가상 컴퓨터의 고가용성 환경에서 작업하기 위해 강력�
 11. 포털을 통해 VM을 캡처합니다. (현재 [Azure CLI 도구의 문제 #1268]은 Azure CLI 도구에서 캡처된 이미지가 연결된 데이터 디스크를 캡처하지 않는다는 사실을 설명합니다.)
 
 	- 포털을 통해 시스템을 종료합니다.
-    - 캡처를 클릭하고 이미지 이름을 **mariadb-galera-image**로 지정한 다음 설명을 입력하고 "I have run waagent(waagent를 실행했습니다.)"를 선택합니다. ![가상 컴퓨터 캡처](./media/virtual-machines-mariadb-cluster/Capture.png) ![가상 컴퓨터 캡처](./media/virtual-machines-mariadb-cluster/Capture2.PNG)
+    - 캡처를 클릭하고 이미지 이름을 **mariadb-galera-image**로 지정한 다음 설명을 입력하고 "I have run waagent(waagent를 실행했습니다.)"를 선택합니다.
+	![가상 컴퓨터 캡처](./media/virtual-machines-mariadb-cluster/Capture.png)
+	![가상 컴퓨터 캡처](./media/virtual-machines-mariadb-cluster/Capture2.PNG)
 
 ## 클러스터 만들기
 
@@ -300,7 +302,8 @@ Azure 가상 컴퓨터의 고가용성 환경에서 작업하기 위해 강력�
 
 이제 Azure 부하 분산 장치를 사용하여 3개 노드 간에 요청을 분산시킵니다.
 
-Azure CLI를 사용하여 컴퓨터에서 아래 명령을 실행합니다. 명령 매개 변수 구조는 다음과 같습니다. `azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
+Azure CLI를 사용하여 컴퓨터에서 아래 명령을 실행합니다.
+명령 매개 변수 구조는 다음과 같습니다. `azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
 
 	azure vm endpoint create-multiple mariadb1 3306:3306:tcp:false:MySQL:tcp:3306
     azure vm endpoint create-multiple mariadb2 3306:3306:tcp:false:MySQL:tcp:3306
@@ -373,4 +376,4 @@ Azure CLI를 사용하여 컴퓨터에서 아래 명령을 실행합니다. 명�
 [Azure CLI 도구의 문제 #1268]: https://github.com/Azure/azure-xplat-cli/issues/1268
 [Linux에서 MySQL을 클러스터링하는 다른 방법]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
 
-<!-----HONumber=Sept15_HO4-->
+<!------HONumber=Sept15_HO4-->
