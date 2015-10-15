@@ -48,7 +48,7 @@ Azure 테이블 서비스 API를 사용하려면 다음을 수행해야 합니�
 
 다음 예제에서는 자동 로더 파일을 포함하고 **ServicesBuilder** 클래스를 참조하는 방법을 보여 줍니다.
 
-> [AZURE.NOTE]이 예제 및 이 문서의 다른 예제에서는 Azure용 PHP 클라이언트 라이브러리를 작성기를 통해 설치했다고 가정합니다. 라이브러리를 수동으로 또는 PEAR 패키지로 설치한 경우 <code>WindowsAzure.php</code> 자동 로더 파일을 참조해야 합니다.
+> [AZURE.NOTE] 이 예제 및 이 문서의 다른 예제에서는 Azure용 PHP 클라이언트 라이브러리를 작성기를 통해 설치했다고 가정합니다. 라이브러리를 수동으로 또는 PEAR 패키지로 설치한 경우 <code>WindowsAzure.php</code> 자동 로더 파일을 참조해야 합니다.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
@@ -480,4 +480,4 @@ Azure 서비스 클라이언트를 만들려면 **ServicesBuilder** 클래스를
 [filters]: http://msdn.microsoft.com/library/azure/dd894031.aspx
 [entity-group-transactions]: http://msdn.microsoft.com/library/azure/dd894038.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->
