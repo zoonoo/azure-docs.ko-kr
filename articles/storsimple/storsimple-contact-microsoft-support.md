@@ -1,23 +1,28 @@
 <properties 
    pageTitle="Microsoft 지원 문의 | Microsoft Azure"
-	description="StorSimple 장치에서 지원 요청을 만들고 지원 세션을 시작하는 방법을 알아봅니다."
-	services="storsimple"
-	documentationCenter=""
-	authors="alkohli"
-	manager="carolz"
-	editor=""/>
+   description="StorSimple 장치에서 지원 요청을 만들고 지원 세션을 시작하는 방법을 알아봅니다."
+   services="storsimple"
+   documentationCenter=""
+   authors="alkohli"
+   manager="carolz"
+   editor="" />
 <tags 
    ms.service="storsimple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/31/2015"
-	ms.author="alkohli"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="na"
+   ms.date="10/06/2015"
+   ms.author="alkohli" />
 
 # Microsoft 지원에 문의
 
-Microsoft Azure StorSimple 솔루션에 문제가 발생하는 경우 기술 지원을 위해 서비스 요청을 할 수 있습니다. 지원 엔지니어와 함께 온라인 세션에서 StorSimple 장치에 지원 세션을 시작해야 할 수도 있습니다. 이 문서는 StorSimple 장치의 Windows PowerShell 인터페이스에서 지원 요청을 만들고 지원 세션을 시작하는 과정을 안내합니다.
+Microsoft Azure StorSimple 솔루션에 문제가 발생하는 경우 기술 지원을 위해 서비스 요청을 할 수 있습니다. 지원 엔지니어와 함께 온라인 세션에서 StorSimple 장치에 지원 세션을 시작해야 할 수도 있습니다. 이 문서에서는 다음을 안내합니다.
+
+- 지원 요청을 만드는 방법
+- StorSimple 장치의 Windows PowerShell 인터페이스에서 지원 세션을 시작하는 방법
+
+지원 요청을 만들기 전에 [StorSimple 8000 시리즈 지원 SLA 및 정보](https://msdn.microsoft.com/library/mt433077.aspx)를 검토하십시오.
 
 ## 지원 요청 만들기
 
@@ -29,7 +34,7 @@ Microsoft Azure StorSimple 솔루션에 문제가 발생하는 경우 기술 지
 
 	![ManagementPortal을 통한 MS 지원 문의](./media/storsimple-contact-microsoft-support/IC777286.png)
 
-2. **Microsoft 지원에 문의** 대화 상자에서
+2. **Microsoft 지원에 문의** 대화 상자에서:
 
 	1. 드롭다운 목록에서 StorSimple 관리자 서비스와 관련된 대상 **구독**을 선택합니다. **지원 유형**을 **기술**로 지정합니다. 기술 지원을 사용하도록 설정하기 위해 유료 지원 계획이 필요합니다.
 
@@ -71,4 +76,4 @@ StorSimple 장치에서 발생할 수 있는 문제를 해결하려면 Microsoft
 
 > [AZURE.IMPORTANT]`Disable-HcsSupportAccess`를 실행하여 지원 액세스를 비활성화할 수 있습니다. StorSimple 장치는 세션이 시작된 8시간 후에 지원 액세스를 비활성화하려고 합니다. 지원 세션을 시작한 후에 StorSimple 장치 자격 증명을 변경하는 것이 좋습니다.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -28,7 +28,7 @@
 + 활성 Google 계정.
 + [Google Cloud Messaging 클라이언트 구성 요소]. 자습서에 이 구성 요소가 추가됩니다.
 
-[모바일 서비스 시작] 또는 [기존 앱에 모바일 서비스 추가]를 완료하면 프로젝트에 [Xamarin.Android] 및 [Azure 모바일 서비스] 구성 요소가 설치되어 있어야 합니다.
+[모바일 서비스 시작]을 완료했다면 프로젝트에 [Xamarin.Android] 및 [Azure 모바일 서비스 구성 요소]가 설치되어 있을 것입니다.
 
 ##<a id="register"></a>Google Cloud Messaging 사용
 
@@ -65,8 +65,6 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 
 다음 항목에서 모바일 서비스 및 알림 허브에 대해 알아보세요.
 
-* [기존 앱에 모바일 서비스 추가] <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법을 자세히 알아봅니다.
-
 * [인증 시작](mobile-services-android-get-started-users.md) <br/>모바일 서비스를 사용하여 서로 다른 계정 유형의 앱 사용자를 인증하는 방법에 대해 알아봅니다.
 
 * [알림 허브 정의](../notification-hubs-overview.md) <br/>모든 주요 클라이언트 플랫폼에 걸쳐 알림 허브가 앱에 알림을 전달하는 방법에 대해 알아봅니다.
@@ -79,11 +77,10 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 
 <!-- URLs. -->
 [모바일 서비스 시작]: mobile-services-ios-get-started.md
-[기존 앱에 모바일 서비스 추가]: mobile-services-android-get-started-data.md
 
 [Google Cloud Messaging 클라이언트 구성 요소]: http://components.xamarin.com/view/GCMClient/
 [Xamarin.Android]: http://xamarin.com/download/
-[Azure 모바일 서비스]: http://components.xamarin.com/view/azure-mobile-services/
+[Azure 모바일 서비스 구성 요소]: http://components.xamarin.com/view/azure-mobile-services/
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

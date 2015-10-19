@@ -41,7 +41,7 @@
 
 ## 필수 조건
 
-이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](../ko-kr/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](../ko-kr/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
+이 자습서를 완료하려면 Microsoft Azure 계정이 필요합니다. 계정이 없는 경우 [MSDN 구독자 혜택을 활성화](../ko-KR/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)하거나 [무료 평가판을 등록](../ko-KR/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다.
 
 개발 환경 설정을 설정하려면 [Visual Studio 2013 업데이트 4](http://go.microsoft.com/fwlink/?LinkId=390521) 이상 및 최신 버전의 [Visual Studio 2013 용 Azure SDK](http://go.microsoft.com/fwlink/?linkid=324322&clcid=0x409)를 설치해야 합니다. 이 문서는 Visual Studio 업데이트 4 및 SDK 2.5.1에 대해 작성되었습니다.
 
@@ -97,7 +97,7 @@
 		
 		</head>
 		<body>
-		    <div class="navbar navbar-inverase navbar-fixed-top">
+		    <div class="navbar navbar-inverse navbar-fixed-top">
 		        <div class="container">
 		            <div class="navbar-header">
 		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -212,7 +212,7 @@ Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 �
 
 	![새 항목 추가 대화 상자][adddb002]
 
-3. Contacts.cs 파일 내용을 다음 코드로 바꿉니다.
+3. Contact.cs 파일 내용을 다음 코드로 바꿉니다.
 
         using System.ComponentModel.DataAnnotations;
         using System.Globalization;
@@ -230,7 +230,7 @@ Azure에 배포할 응용 프로그램을 만들기 위해 지금 수행해야 �
                 public string Email { get; set; }
             }
         }
-**Contacts** 클래스는 각 연락처에 대해 저장할 데이터와 데이터베이스에 필요한 기본 키 *ContactID*를 정의합니다.
+**Contact** 클래스는 각 연락처에 대해 저장할 데이터와 데이터베이스에 필요한 기본 키 *ContactID*를 정의합니다.
 
 ### 앱 사용자가 연락처 작업을 수행할 수 있는 웹 페이지 만들기
 
@@ -720,4 +720,4 @@ Tom Dykstra의 뛰어난 [EF 및 MVC 시작](http://www.asp.net/mvc/tutorials/ge
 [ImportPublishSettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ImportPublishSettings.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

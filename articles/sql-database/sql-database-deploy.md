@@ -3,7 +3,7 @@
 	description="SQL Server 2016 Management Studio에서 마법사를 사용하여 Azure SQL 데이터베이스에 SQL Server 데이터베이스를 배포 합니다." 
 	services="sql-database" 
 	documentationCenter="" 
-	authors="sidneyh" 
+	authors="CarlRabeler" 
 	manager="jeffreyg" 
 	editor=""/>
 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/17/2015" 
-	ms.author="sidneyh"/>
+	ms.date="10/08/2015" 
+	ms.author="carlrab"/>
 
 
 # Azure SQL 데이터베이스에 SQL Server 데이터베이스를 배포하는 방법에 대해 알아봅니다.
@@ -593,4 +593,4 @@ SQL Server Management Studio에서 이러한 스크립트를 실행하여 school
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

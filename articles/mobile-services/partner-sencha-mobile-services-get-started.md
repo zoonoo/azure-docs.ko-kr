@@ -12,17 +12,19 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-sencha"
 	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="08/18/2015"
+	ms.topic="get-started-article"
+	ms.date="10/09/2015"
 	ms.author="glenga"/>
 
 # <a name="getting-started"> </a>모바일 서비스 및 Sencha Touch 시작
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 ##개요
 
-이 자습서에서는 Sencha Touch 응용 프로그램에서 Azure 모바일 서비스를 활용하는 방법을 보여 줍니다. 관리 포털을 통해 정의하는 모바일 서비스를 활용하며 Sencha Touch를 사용하는 간단한 To Do List 앱을 만듭니다. 이 자습서는 JavaScript에 대해 잘 이해하고 있으며 Sencha Touch 프레임워크에 익숙한 중급 및 고급 웹 응용 프로그램 개발자를 대상으로 합니다.
+이 자습서에서는 Sencha Touch 응용 프로그램에서 Azure 모바일 서비스를 활용하는 방법을 보여 줍니다. 관리 포털을 통해 정의하는 모바일 서비스를 활용하며 Sencha Touch를 사용하는 간단한 *To Do List* 앱을 만듭니다. 이 자습서는 JavaScript에 대해 잘 이해하고 있으며 Sencha Touch 프레임워크에 익숙한 중급 및 고급 웹 응용 프로그램 개발자를 대상으로 합니다.
 
 동영상을 시청하려는 경우 이 클립은 이 자습서와 동일한 단계를 따릅니다. 비디오에서는 Arthur Kay가 Azure 모바일 서비스 백 엔드를 사용하여 Sencha Touch 응용 프로그램을 빌드하는 방법을 설명합니다.
 
@@ -708,7 +710,10 @@ Sencha Touch 저장소는 다양한 방식으로 레코드를 표시할 수 있�
 
 Sencha Touch 시작에 대한 자세한 내용을 보려면 전체 [가이드](http://docs.sencha.com/touch/#!/guide)(영문)를 방문하십시오.
 
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
+
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

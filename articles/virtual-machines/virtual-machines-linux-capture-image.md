@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Linux VM의 이미지 캡처 | Microsoft Azure"
-	description="클래식 배포 모델을 사용하여 만든, Linux를 실행하는 Azure VM(가상 컴퓨터)의 이미지를 캡처하는 방법을 알아봅니다."
+	description="클래식 배포 모델을 사용하여 만든, Linux 기반 Azure VM(가상 컴퓨터)의 이미지를 캡처하는 방법을 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -99,4 +99,4 @@ Azure에서는 이 템플릿을 이미지로 처리하고 **이미지**에 저�
 [How to Attach a Data Disk to a Virtual Machine]: storage-windows-attach-disk.md
 [Linux를 실행하는 가상 컴퓨터를 만드는 방법]: virtual-machines-linux-tutorial.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

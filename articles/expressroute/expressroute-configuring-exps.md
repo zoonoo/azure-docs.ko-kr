@@ -12,7 +12,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/28/2015"
+   ms.date="09/28/2015"
    ms.author="cherylmc"/>
 
 #  Exchange 공급자를 통해 Express 경로 연결 구성
@@ -231,4 +231,4 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자�
 
 - Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

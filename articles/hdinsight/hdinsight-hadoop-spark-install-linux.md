@@ -22,7 +22,6 @@
 
 > [AZURE.NOTE]HDInsight는 클러스터 유형으로 Spark를 제공하여 Hadoop 클러스터를 수정하지 않고 Spark를 직접 프로비전할 수 있습니다. 그러나 현재는 Windows 기반 클러스터로 제한됩니다. Spark 클러스터 유형을 사용하여 Spark 버전 1.3.1과 함께 Windows 기반 HDInsight 버전 3.2 클러스터를 얻습니다. 자세한 내용은 [HDInsight에서 Apache Spark 시작](hdinsight-apache-spark-zeppelin-notebook-jupyter-spark-sql.md)을 참조하세요.
 
-
 ## <a name="whatis"></a>Spark란?
 
 <a href="http://spark.apache.org/docs/latest/index.html" target="_blank">Apache Spark</a>는 메모리 내 처리를 지원하여 빅데이터 분석 응용 프로그램의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다. Spark는 메모리 내 계산 기능을 지원하여 기계 학습 및 그래프 계산의 반복 알고리즘에 적합합니다.
@@ -33,21 +32,21 @@ Spark를 사용하여 기존 디스크 기반 데이터 처리를 수행할 수�
 
 ## <a name="whatis"></a>설치할 수 있는 Spark 버전
 
-이 항목에서는 스크립트 작업 사용자 지정 스크립트를 사용하여 HDInsight 클러스터에 Spark를 설치합니다. 이 스크립트는 Spark 1.5.0을 설치합니다.
+이 항목에서는 스크립트 작업 사용자 지정 스크립트를 사용하여 HDInsight 클러스터에 Spark를 설치합니다. 이 스크립트는 Spark 1.5.1을 설치합니다.
 
 이 스크립트를 수정하거나 사용자 고유의 스크립트를 만들어 다른 버전의 Spark를 설치할 수 있습니다.
 
 ## 스크립트가 수행하는 작업
 
-이 스크립트는 Spark 1.5.0을 `/usr/hdp/current/spark`에 설치합니다.
+이 스크립트는 Spark 1.5.1을 `/usr/hdp/current/spark`에 설치합니다.
 
 ## <a name="install"></a>스크립트 동작을 사용하여 Spark 설치
 
-HDInsight 클러스터에 Spark를 설치하는 샘플 스크립트는 읽기 전용 Azure 저장소 Blob([https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh))에서 다운로드할 수 있습니다. 이 섹션에서는 Azure 포털을 사용하여 클러스터를 프로비전하면서 샘플 스크립트를 사용하는 방법에 대한 지침을 제공합니다.
+HDInsight 클러스터에 Spark를 설치하는 샘플 스크립트는 읽기 전용 Azure 저장소 Blob([https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh](https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh))에서 다운로드할 수 있습니다. 이 섹션에서는 Azure 포털을 사용하여 클러스터를 만들면서 샘플 스크립트를 사용하는 방법에 대한 지침을 제공합니다.
 
 > [AZURE.NOTE]또한 이 스크립트를 사용하여 클러스터를 만드는 데 Azure PowerShell 또는 HDInsight.NET SDK를 사용할 수도 있습니다. 이 방법을 사용하는 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
-1. [Linux 기반 HDInsight 클러스터 프로비전](hdinsight-provision-linux-clusters.md#portal)의 단계를 사용하여 클러스터를 프로비전하되, 완료하지는 않도록 합니다.
+1. [Linux 기반 HDInsight 클러스터 만들기](hdinsight-provision-linux-clusters.md#portal)의 단계를 사용하여 클러스터를 만들기 시작하지만 완료하지 마세요.
 
 2. **선택적 구성** 블레이드에서 **스크립트 동작**을 선택하고 아래 정보를 제공합니다.
 
@@ -60,11 +59,11 @@ HDInsight 클러스터에 Spark를 설치하는 샘플 스크립트는 읽기 �
 
 3. **스크립트 동작**의 아래 쪽에서 **선택** 단추를 사용하여 구성을 저장합니다. 마지막으로 **선택적 구성** 블레이드의 아래 쪽에서 **선택** 단추를 사용하여 선택적 구성 정보를 저장합니다.
 
-4. [Linux 기반 HDInsight 클러스터 프로비전](hdinsight-provision-linux-clusters.md#portal)에서 설명한 대로 클러스터를 계속 프로비전합니다.
+4. [Linux 기반 HDInsight 클러스터 만들기](hdinsight-provision-linux-clusters.md#portal)에서 설명한 대로 클러스터를 계속 프로비전합니다.
 
 ## <a name="usespark"></a>HDInsight에서 Spark를 사용하는 방법
 
-Spark는 Scala, Python 및 Java의 API를 제공합니다. 대화형 Spark 셸을 사용하여 Spark 쿼리를 실행할 수도 있습니다. 클러스터 프로비전이 완료되면 다음을 사용하여 HDInsight 클러스터에 연결합니다.
+Spark는 Scala, Python 및 Java의 API를 제공합니다. 대화형 Spark 셸을 사용하여 Spark 쿼리를 실행할 수도 있습니다. 클러스터 만들기가 완료되면 다음을 사용하여 HDInsight 클러스터에 연결합니다.
 
 	ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 	
@@ -109,7 +108,7 @@ HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음�
 
 ###<a name="sparksql"></a>Spark 셸을 사용하여 Spark SQL 쿼리 실행
 
-Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), HiveQL 또는 Scala로 표현된 관계형 쿼리를 실행할 수 있습니다. 이 섹션에서는 Spark를 사용하여 샘플 Hive 테이블에서 Hive 쿼리를 실행하는 방법을 알아봅니다. 이 섹션에서 사용하는 Hive 테이블(**hivesampletable**이라고 함)은 클러스터를 프로비전하면 기본적으로 사용할 수 있습니다.
+Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), HiveQL 또는 Scala로 표현된 관계형 쿼리를 실행할 수 있습니다. 이 섹션에서는 Spark를 사용하여 샘플 Hive 테이블에서 Hive 쿼리를 실행하는 방법을 알아봅니다. 이 섹션에서 사용하는 Hive 테이블(**hivesampletable**이라고 함)은 클러스터를 만들 때 기본적으로 사용할 수 있습니다.
 
 1. 다음 명령을 실행하여 Spark 셸을 시작합니다.
 
@@ -131,9 +130,9 @@ Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), Hi
 
 6. 다음과 유사한 출력이 표시됩니다.
 
-		[820,11:35:17,ko-kr,Android,HTC,Inspire 4G,Louisiana,UnitedStates, 2.7383836,0,1]
-		[1055,17:24:08,ko-kr,Android,HTC,Incredible,Ohio,United States,18.0894738,0,0]
-		[1067,03:42:29,ko-kr,Windows Phone,HTC,HD7,District Of Columbia,United States,null,0,0]
+		[820,11:35:17,ko-KR,Android,HTC,Inspire 4G,Louisiana,UnitedStates, 2.7383836,0,1]
+		[1055,17:24:08,ko-KR,Android,HTC,Incredible,Ohio,United States,18.0894738,0,0]
+		[1067,03:42:29,ko-KR,Windows Phone,HTC,HD7,District Of Columbia,United States,null,0,0]
 
 7. :q 입력하여 Scala 프롬프트를 종료합니다.
 
@@ -235,4 +234,4 @@ Spark SQL을 사용하면 Spark를 사용하여 SQL(구조적 쿼리 언어), Hi
 [powershell-install-configure]: ../install-configure-powershell.md
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

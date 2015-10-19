@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/22/2015" 
+	ms.date="10/06/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache를 모니터링하는 방법
@@ -64,6 +64,8 @@ Azure Redis Cache에서는 진단 데이터를 저장소 계정에 저장하는 
 
 캐시 메트릭은 **지난 시간**, **오늘**, **지난 주** 및 **사용자 지정**을 비롯한 몇 가지 보고 간격을 사용하여 보고됩니다. 각 메트릭 차트의 **메트릭** 블레이드에는 차트의 각 메트릭에 대한 평균값, 최소값 및 최대값이 표시되고 일부 메트릭의 경우 보고 간격에 대한 총계가 표시됩니다.
 
+각 메트릭은 두 가지 버전을 포함합니다. 하나의 메트릭은 전체 캐시 및 [클러스터](cache-how-to-premium-clustering.md)를 사용하는 캐시에 대한 성능을 측정합니다. 이름에 `(Shard 0-9)`을 포함하는 메트릭의 차기 버전은 캐시에서 단일 분할에 대한 성능을 측정합니다. 예를 들어 캐시에 4개의 분할이 있는 경우 `Cache Hits`은 전체 캐시에 대한 총 적중 수이고 `Cache Hits (Shard 3)`는 캐시의 해당 분할에 대한 적중입니다.
+
 >[AZURE.NOTE]활성 클라이언트 응용 프로그램이 연결되어 있지 않아서 캐시가 유휴 상태인 경우에도 연결된 클라이언트, 메모리 사용, 수행 중인 작업 등 일부 캐시 활동이 나타날 수 있습니다. Azure Redis Cache 인스턴스 작업 중에는 이러한 활동이 일반적으로 나타납니다.
 
 | 메트릭 | 설명 |
@@ -77,7 +79,8 @@ Azure Redis Cache에서는 진단 데이터를 저장소 계정에 저장하는 
 | Redis 서버 부하 | Redis 서버가 작업을 처리하는 중이며 유휴 상태로 메시지를 대기하고 있지 않은 주기 비율입니다. 이 카운터가 100이 되면 Redis 서버가 성능 한계에 도달하여 CPU가 더 빨리 작업을 처리할 수 없습니다. Redis 서버 부하가 높으면 클라이언트에 시간 제한 예외가 표시됩니다. 이 경우 강화나 여러 캐시로의 데이터 분할을 고려해야 합니다. |
 | 설정 | 지정한 보고 간격 동안 캐시에 수행된 설정 작업의 수입니다. 이 값은 모든 Redis INFO 명령 `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange` 및 `cmdstat_setnx` 값의 합계입니다. |
 | 총 작업 | 지정한 보고 간격 동안 캐시 서버에서 처리한 총 명령 수입니다. 이 값은 Redis INFO `total_commands_processed` 명령에 매핑됩니다. Azure Redis Cache가 pub/sub에만 사용되는 경우 `Cache Hits`, `Cache Misses`, `Gets` 또는 `Sets`에 대한 메트릭은 없으나 pub/sub 작업의 캐시 사용량을 반영하는 `Total Operations` 메트릭은 있습니다. |
-| 사용된 메모리 | 지정한 보고 간격 동안 사용된 캐시 메모리의 양(MB)입니다. 이 값은 Redis INFO `used_memory` 명령에 매핑됩니다. |
+| 사용된 메모리 | 지정한 보고 간격 동안 캐시의 키/값 쌍에 사용된 캐시 메모리의 양(MB)입니다. 이 값은 Redis INFO `used_memory` 명령에 매핑됩니다. 메타데이터 또는 조각화를 포함하지 않습니다. |
+| 사용된 메모리 RSS | 조각화 및 메타데이터를 포함하여 지정한 보고 간격 동안 사용된 캐시 메모리의 양(MB)입니다. 이 값은 Redis INFO `used_memory_rss` 명령에 매핑됩니다. |
 | CPU | 지정한 보고 간격 동안의 Azure Redis Cache 서버 CPU 사용률(%)입니다. 이 값은 운영 체제 `\Processor(_Total)\% Processor Time` 성능 카운터에 매핑됩니다. |
 | 캐시 읽기 | 지정한 보고 간격 동안 캐시에서 읽은 데이터의 양(KB/s)입니다. 이 값은 캐시를 호스트하는 가상 컴퓨터를 지원하는 네트워크 인터페이스 카드에서 가져오며 Redis에 특정한 값이 아닙니다. |
 | 캐시 쓰기 | 지정한 보고 간격 동안 캐시에 쓴 데이터의 양(KB/s)입니다. 이 값은 캐시를 호스트하는 가상 컴퓨터를 지원하는 네트워크 인터페이스 카드에서 가져오며 Redis에 특정한 값이 아닙니다. |
@@ -219,4 +222,4 @@ Azure의 경고에 대한 자세한 내용은 [경고 알림 받기](../azure-po
 
 [redis-cache-add-alert]: ./media/cache-how-to-monitor/redis-cache-add-alert.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

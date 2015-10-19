@@ -4,7 +4,7 @@
    description="서비스 패브릭 신뢰할 수 있는 행위자는 HTTPS, MQTT 또는 AMQP 등의 다중 전송을 지원하는 메시징 시스템 프런트 엔드를 결합한 후 개별 장치를 나타내는 행위자와 통신하는 시스템에서 사용하는 주요 구성 요소(중간 계층)입니다."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # 신뢰할 수 있는 행위자 디자인 패턴: 사물 인터넷
 장치 및 클라우드 서비스에서의 기술적 향상과 함께 IoT(사물 인터넷)가 새로운 추세가 되면서 개발자는 시스템 개발에 필요한 핵심 구성 요소를 검토하기 시작했습니다. 다음 다이어그램에서는 서비스 패브릭 신뢰할 수 있는 행위자를 사용한 주요 시나리오를 보여 줍니다.
@@ -217,4 +217,4 @@ Sending an engineer to repair/replace devices in Richmond
 [1]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-1.png
 [2]: ./media/service-fabric-reliable-actors-pattern-internet-of-things/internet-of-things-2.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

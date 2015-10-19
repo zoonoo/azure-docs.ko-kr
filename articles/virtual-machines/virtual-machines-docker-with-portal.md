@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Azure에서 Linux용 Docker VM 확장 사용"
-	description="Docker 및 Azure 가상 컴퓨터 확장에 대해 설명하고, Azure CLI를 사용하여 명령줄에서 Docker 호스트인 가상 컴퓨터를 Azure에 프로그래밍 방식으로 만드는 방법을 안내합니다."
+	pageTitle="Linux용 Docker VM 확장 사용 | Microsoft Azure"
+	description="Docker 및 Azure 가상 컴퓨터 확장에 대해 설명하고, 클래식 배포 모델에서 Azure CLI를 사용하는 Docker 호스트인 Azure 가상 컴퓨터를 만드는 방법을 안내합니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
-	editor="tysonn"/>
+	editor="tysonn"
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -19,9 +20,9 @@
 
 # Azure 포털에서 Docker VM 확장 사용
 
-[Docker](https://www.docker.com/)는 공유 리소스의 데이터와 계산을 격리시키는 한 가지 방법으로 가상 컴퓨터 대신 [Linux 컨테이너](http://en.wikipedia.org/wiki/LXC)를 사용하는 가장 많이 사용되는 가상화 방법 중 하나입니다. [Azure Linux 에이전트]에서 관리되는 Docker VM 확장을 사용하여 Azure에 응용 프로그램의 컨테이너를 개수에 제한 없이 호스트하는 Docker VM을 만들 수 있습니다.
-
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+
+[Docker](https://www.docker.com/)는 공유 리소스의 데이터와 계산을 격리시키는 한 가지 방법으로 가상 컴퓨터 대신 [Linux 컨테이너](http://en.wikipedia.org/wiki/LXC)를 사용하는 가장 많이 사용되는 가상화 방법 중 하나입니다. [Azure Linux 에이전트]에서 관리되는 Docker VM 확장을 사용하여 Azure에 응용 프로그램의 컨테이너를 개수에 제한 없이 호스트하는 Docker VM을 만들 수 있습니다.
 
 > [AZURE.NOTE]이 항목에서는 Azure 포털에서 Docker VM을 만드는 방법을 설명합니다. 명령줄에서 Docker VM을 만드는 방법을 확인하려면 [Azure 명령줄 인터페이스(Azure CLI)에서 Docker VM 확장을 사용하는 방법]을 참조하세요. 컨테이너와 해당 이점에 대한 간략한 설명을 확인하려면 [Docker 요약 화이트보드](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard)를 참조하세요.
 
@@ -144,6 +145,5 @@ WARNING: No swap limit support
 
 [https를 사용하여 Docker 실행]: http://docs.docker.com/articles/https/
 [Docker 사용자 가이드]: https://docs.docker.com/userguide/
- 
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

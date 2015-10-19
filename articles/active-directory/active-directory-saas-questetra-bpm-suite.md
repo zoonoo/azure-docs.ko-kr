@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/15/2015"
+	ms.date="10/02/2015"
 	ms.author="markusvi"/>
 
 
@@ -75,13 +75,13 @@ Single Sign-On이 작동하려면 Azure AD는 Questetra BPM Suite를 사용하�
  
 Questetra BPM Suite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 단계를 완료해야 합니다.
 
-1. **[Azure AD Single Sign-On 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+1. **[Azure AD Single Sign-on 구성](#configuring-azure-ad-single-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
 2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-4. **[Questetra BPM Suite 테스트 사용자 만들기](#creating-a-halogen-software-test-user)** - Britta Simon이라는 Azure AD 사용자와 연결된 Questetra BPM Suite 사용자를 만듭니다.
+4. **[Questetra BPM Suite 테스트 사용자 만들기](#creating-a-questetra-bpm-suite-test-user)** - Britta Simon이라는 Azure AD 사용자와 연결된 Questetra BPM Suite 사용자를 만듭니다.
 5. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
-### Azure AD Single Sign-on 구성
+### Azure AD Single Sign-On 구성
 
 이 섹션에서는 Azure AD 포털에서 Azure AD Single Sign-On을 사용하도록 설정하고 Questetra BPM Suite에서 Single Sign-On을 구성하는 방법을 설명합니다.<br>
 
@@ -103,9 +103,9 @@ Questetra BPM Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
  
     a. **Questetra BPM Suite** 회사 사이트의 SP 정보 섹션에서 **ACS URL**을 복사한 다음 **Sign On URL** 텍스트 상자에 붙여 넣습니다.
 
-    b. **Questetra BPM Suite** 회사 사이트의 SP 정보 섹션에서 **Entity ID**를 복사한 다음 **발급자 URL** 텍스트 상자와 **회신 URL** 텍스트 상자에 붙여 넣습니다.
+    b. **Questetra BPM Suite** 회사 사이트의 SP 정보 섹션에서 **Entity ID**를 복사한 다음 **발급자 URL** 텍스트 상자에 붙여 넣습니다.
 
-    c. **Questetra BPM Suite** 회사 사이트의 SP 정보 섹션에서 **Entity ID**를 복사한 다음 **회신 URL** 텍스트 상자와 **회신 URL** 텍스트 상자에 붙여 넣습니다.
+    c. **Questetra BPM Suite** 회사 사이트의 SP 정보 섹션에서 **ACS URL**을 복사한 다음 **회신 URL** 텍스트 상자에 붙여 넣습니다.
 
     d. **다음**을 클릭합니다.
 
@@ -115,13 +115,13 @@ Questetra BPM Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
 8. **Questetra BPM Suite** 회사 사이트에서 다음 단계를 수행 합니다. <br><br>![Single Sign-On 구성][15]
 
-    a. **Enable Single Sign-On**을 선택합니다.
+    a. **Single Sign-On 사용**을 선택합니다.
      
     b. Azure 포털에서 **발급자 URL** 값을 복사한 다음 **Entity ID** 텍스트 상자에 붙여 넣습니다.
 
-    c. Azure 포털에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **Sign-in page URL** 텍스트 상자에 붙여 넣습니다.
+    c. Azure 포털에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **로그인 페이지 URL** 텍스트 상자에 붙여 넣습니다.
 
-    d. Azure 포털에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **Sign-out page URL** 텍스트 상자에 붙여 넣습니다.
+    d. Azure 포털에서 **Single Sign-On 서비스 URL** 값을 복사한 다음 **로그아웃 페이지 URL** 텍스트 상자에 붙여 넣습니다.
 
     e. **NameID format** 텍스트 상자에 **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**를 입력합니다.
 
@@ -130,15 +130,15 @@ Questetra BPM Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
     >[AZURE.TIP]자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하세요.
 
-    g. Base-64로 인코딩된 인증서를 메모장에서 열고 내용을 클립보드에 복사한 다음 **Validation certificate** 텍스트 상자에 붙여넣습니다.
+    g. Base-64로 인코딩된 인증서를 메모장에서 열고 내용을 클립보드에 복사한 다음 **인증서 유효성 검사** 텍스트 상자에 붙여넣습니다.
 
     h. **Save**를 클릭합니다.
 
 
-9. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.<br><br> ![Azure AD Connect의 정의][17]
+9. Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.<br><br>![Azure AD Connect의 정의][17]
 
 
-10. **Single Sign-On 확인** 페이지에서 **완료**를 클릭합니다. <br><br>![Azure AD Connect의 정의][18]
+10. **Single Sign-on 확인** 페이지에서 **완료**를 클릭합니다. <br><br>![Azure AD Connect의 정의][18]
 
 
 
@@ -154,11 +154,11 @@ Questetra BPM Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
 3. 사용자 목록을 표시하려면 위쪽의 메뉴에서 **사용자**를 클릭합니다. <br><br>![Azure AD 테스트 사용자 만들기][101]
 
-4. **사용자 추가** 대화 상자를 열려면 아래쪽의 도구 모음에서 **사용자 추가**를 클릭합니다. <br><br>![Azure AD 테스트 사용자 만들기][102]
+4. **사용자 추가** 대화 상자를 열려면 아래쪽의 도구 모음에서 **사용자 추가**를 클릭합니다.<br><br>![Azure AD 테스트 사용자 만들기][102]
 
-5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다. <br><br>![Azure AD 테스트 사용자 만들기][103]
+5. **이 사용자에 대한 정보 입력** 대화 상자 페이지에서 다음 단계를 수행합니다.<br><br>![Azure AD 테스트 사용자 만들기][103]
  
-    a. **사용자 유형**에서 **조직의 새 사용자**를 선택합니다.
+    a. **사용자 형식**에서 **조직의 새 사용자**를 선택합니다.
   
     b. 사용자 이름 **텍스트 상자**에 **BrittaSimon**을 입력합니다.
 
@@ -189,16 +189,16 @@ Questetra BPM Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 **Questetra BPM Suite에서 Britta Simon이라는 사용자를 만들려면 다음 단계를 수행합니다.**
 
 1.	Questetra BPM Suite 회사 사이트에 관리자 권한으로 로그온합니다.
-2.	**System Settings > User List > New User**로 이동합니다. 
-3.	New User 대화 상자에서 다음 단계를 수행합니다. <br><br>![테스트 사용자 만들기][300] 
+2.	**시스템 설정 > 사용자 목록 > 새 사용자**로 이동합니다. 
+3.	새 사용자 대화 상자에서 다음 단계를 수행합니다. <br><br>![테스트 사용자 만들기][300] 
 
-    a. **Name** 텍스트 상자에 Britta 사용자의 Azure AD 내 사용자 이름을 입력합니다.
+    a. **이름** 텍스트 상자에 Azure AD 내에서 Britta의 사용자 이름을 입력합니다.
 
-    b. **Email** 텍스트 상자에 Britta 사용자의 Azure AD 내 사용자 이름을 입력합니다.
+    b. **메일** 텍스트 상자에 Azure AD 내에서 Britta의 사용자 이름을 입력합니다.
 
-    c. **Password** 텍스트 상자에 암호를 입력합니다.
+    c. **암호** 텍스트 상자에 암호를 입력합니다.
 
-4.	**Add new user**를 클릭합니다.
+4.	**새 사용자 추가**를 클릭합니다.
 
 
 
@@ -210,15 +210,15 @@ Questetra BPM Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
 1. Azure 포털에서 응용 프로그램 보기를 열려면 디렉터리 보기의 최상위 메뉴에서 **응용 프로그램**을 클릭합니다.<br><br>![Azure AD Connect의 정의][201]
 2. 응용 프로그램 목록에서 **Questetra BPM Suite**를 선택합니다. <br><br>![Azure AD Connect의 정의][205]
-1. 위쪽의 메뉴에서 **사용자**를 클릭합니다.<br><br>![Azure AD Connect의 정의][202]
-1. 사용자 목록에서 **Britta Simon**을 선택합니다. <br><br>![Azure AD Connect의 정의][203]
-2. 아래쪽 도구 모음에서 **할당**을 클릭합니다. <br><br>![Azure AD Connect의 정의][204]
+1. 위쪽의 메뉴에서 **사용자**를 클릭합니다.<br> <br>![Azure AD Connect의 정의][202]
+1. 사용자 목록에서 **Britta Simon**을 선택합니다.<br><br>![Azure AD Connect의 정의][203]
+2. 아래쪽 도구 모음에서 **할당**을 클릭합니다.<br><br>![Azure AD Connect의 정의][204]
 
 
 
 ### Single Sign-On 테스트
 
-이 섹션에서는 액세스 창을 사용하여 Azure AD Single Sign-On 구성을 테스트하는 방법을 설명합니다.<br> 액세스 패널에서 Questetra BPM Suite 타일을 클릭하면 Questetra BPM Suite 응용 프로그램에 자동으로 로그온됩니다.
+이 섹션의 목적은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하는 것입니다.<br> 액세스 패널에서 Questetra BPM Suite 타일을 클릭하면 Questetra BPM Suite 응용 프로그램에 자동으로 로그온됩니다.
 
 
 ## 추가 리소스
@@ -265,4 +265,4 @@ Questetra BPM Suite에서 Azure AD Single Sign-On을 구성하고 테스트하�
 
 [300]: ./media/active-directory-saas-questetra-bpm-suite/questera_bpm_suite_11.png
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

@@ -13,14 +13,17 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/06/2015"
    ms.author="sahajs"/>
 
 # SQL 데이터 웨어하우스와 함께 Azure 기계 학습 사용
 
 Azure 기계 학습은 SQL 데이터 웨어하우스의 데이터에 대해 예측 모델을 만드는 데 사용할 수 있는 완전한 관리 예측 분석 서비스로, 사용할 준비가 된 웹 서비스로 게시할 수 있습니다. [Azure에서 기계 학습 소개][]를 읽어 예측 분석의 기본 사항 및 기계 학습에 대해 알 수 있습니다. 그런 다음 [실험 만들기 자습서][]를 사용하여 기계 학습 모델을.만들고, 훈련하고, 점수를 매기고 테스트하는 방법에 대해 알 수 있습니다.
 
-이 문서에서 [Azure 기계 학습 스튜디오][]를 사용하여 데이터베이스에서 데이터를 읽어, 예측 모델을 만들고 훈련하고 점수를 매겨 데이터를 데이터베이스에 쓰는 방법에 대해 배웁니다.
+이 문서에서는 [Azure 기계 학습 스튜디오][]를 사용하여 다음을 수행하는 방법에 대해 알아봅니다.
+
+- 데이터베이스에서 데이터를 읽어, 예측 모델을 만들고 훈련하고 점수 매기기
+- 데이터베이스에 데이터 쓰기 
 
 
 ## SQL 데이터 웨어하우스에서 데이터 읽기
@@ -72,8 +75,13 @@ FROM dbo.DimProduct;
 
 ## 모델 만들기, 훈련 및 점수 매기기
 
-이제 이 데이터 집합을 사용하여 다음을 수행할 수 있습니다. 모델 만들기: 데이터를 처리하고 기능 정의 - 모델 훈련: 학습 알고리즘 선택 및 적용 - 모델 점수 매기기 및 테스트: 새 자전거 가격을 예측
-	
+이제 이 데이터 집합을 사용하여 다음을 수행할 수 있습니다.
+
+- 모델 만들기: 데이터 처리 및 기능 정의
+- 모델 교육: 학습 알고리즘 선택 및 적용
+- 모델 점수 매기기 및 테스트: 새 자전거 가격 예측
+ 
+
 ![][model]
 
 기계 학습 모델을.만들고, 훈련하고, 점수를 매기고 테스트하는 방법에 대해 알려면 [실험 만들기 자습서][]를 사용합니다.
@@ -130,8 +138,8 @@ FROM dbo.DimProduct;
 
 [SQL 데이터 웨어하우스 개발 개요]: ./sql-data-warehouse-overview-develop/
 [SQL 데이터 웨어하우스 통합 개요]: ./sql-data-warehouse-overview-integration/
-[실험 만들기 자습서]: ./machine-learning-create-experiment/
-[Azure에서 기계 학습 소개]: ./machine-learning-what-is-machine-learning/
+[실험 만들기 자습서]: https://azure.microsoft.com/ko-KR/documentation/articles/machine-learning-create-experiment/
+[Azure에서 기계 학습 소개]: https://azure.microsoft.com/ko-KR/documentation/articles/machine-learning-what-is-machine-learning/
 [Azure 기계 학습 스튜디오]: https://studio.azureml.net/Home
 [Azure 포털]: https://portal.azure.com/
 
@@ -141,4 +149,4 @@ FROM dbo.DimProduct;
 
 [Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

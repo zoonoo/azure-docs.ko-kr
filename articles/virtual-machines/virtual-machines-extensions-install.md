@@ -1,21 +1,25 @@
-<properties 
+<properties
  pageTitle="가상 컴퓨터 확장 관리 | Microsoft Azure"
-	description="확장 추가, 찾기, 업데이트 및 제거 방법을 설명합니다."
-	services="virtual-machines"
-	documentationCenter=""
-	authors="squillace"
-	manager="timlt"
-	editor=""/>
-<tags 
+ description="클래식 배포 모델에서 Azure 가상 컴퓨터에 대한 확장을 추가, 찾기, 업데이트 및 제거하는 방법에 대해 설명합니다."
+ services="virtual-machines"
+ documentationCenter=""
+ authors="squillace"
+ manager="timlt"
+ editor=""
+ tags="azure-service-management"/>
+<tags
  ms.service="virtual-machines"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-multiple"
-	ms.workload="infrastructure-services"
-	ms.date="08/25/2015"
-	ms.author="rasquill"/>
+ ms.devlang="na"
+ ms.topic="article"
+ ms.tgt_pltfrm="vm-multiple"
+ ms.workload="infrastructure-services"
+ ms.date="08/25/2015"
+ ms.author="rasquill"/>
 #가상 컴퓨터 확장 관리
 Azure의 Windows 또는 Linux 가상 컴퓨터에서 VM 확장의 찾기, 추가, 수정 또는 제거 방법을 설명합니다.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 확장을 관리하는 방법을 설명합니다.
+
 
 ##VM 확장 사용
 
@@ -26,7 +30,7 @@ Azure VM 확장은 Azure VM의 타 프로그램 작업을 지원하거나(예: *
 가장 일반적인 작업은 다음과 같습니다.
 
 1.  사용 가능한 확장 찾기
-    
+
 2.  로드된 확장 업데이트
 
 3.  확장 추가
@@ -53,7 +57,7 @@ Azure VM 확장(지원하는 기능별 전체 확장 목록은 [Azure VM 확장 
 -   가상 컴퓨터의 경우 [Get-AzureVMAvailableExtension](https://msdn.microsoft.com/library/azure/dn722480.aspx) cmdlet을 사용할 수 있습니다.
 
      예를 들어, 다음 코드 예제에서는 PowerShell을 사용하여 **IaaSDiagnostics** 확장에 대한 정보를 나열하는 방법을 나타냅니다.
-    
+
         PS C:\PowerShell> Get-AzureVMAvailableExtension -ExtensionName IaaSDiagnostics
         VERBOSE: 5:09:01 PM - Begin Operation: Get-AzureVMAvailableExtension
         VERBOSE: 5:09:06 PM - Completed Operation: Get-AzureVMAvailableExtension
@@ -131,10 +135,10 @@ REST Api를 사용하여 사용 가능한 확장 목록을 검색할 때 해당 
 
 확장에서 공용 또는 개인 매개 변수 구성의 필요 여부를 파악하기 위해 다음 REST API를 사용할 수 있습니다.
 
--   웹 역할 또는 작업자 역할 인스턴스의 경우**PublicConfigurationSchema** 및**PrivateConfigurationSchema** 요소에 [사용 가능한 확장 나열](https://msdn.microsoft.com/library/dn169559.aspx) 작업으로부터의 응답에 있는 정보가 포함됩니다.
+-   웹 역할 또는 작업자 역할 인스턴스의 경우 **PublicConfigurationSchema** 및**PrivateConfigurationSchema** 요소에 [사용 가능한 확장 나열](https://msdn.microsoft.com/library/dn169559.aspx) 작업으로부터의 응답에 있는 정보가 포함됩니다.
 
--   가상 컴퓨터 인스턴스의 경우**PublicConfigurationSchema** 및**PrivateConfigurationSchema** 요소에 [사용 가능한 확장 나열](https://msdn.microsoft.com/library/dn495441.aspx) 작업으로부터의 응답에 있는 정보가 포함됩니다.
+-   가상 컴퓨터 인스턴스의 경우 **PublicConfigurationSchema** 및**PrivateConfigurationSchema** 요소에 [사용 가능한 확장 나열](https://msdn.microsoft.com/library/dn495441.aspx) 작업으로부터의 응답에 있는 정보가 포함됩니다.
 
->[AZURE.NOTE]확장은 JSON으로 정의된 구성을 사용할 수도 있습니다. 이러한 유형의 확장을 사용할 때는 만**SampleConfig** 요소만 사용됩니다.
+>[AZURE.NOTE]확장은 JSON으로 정의된 구성을 사용할 수도 있습니다. 이러한 유형의 확장을 사용할 때는 **SampleConfig** 요소만 사용됩니다.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

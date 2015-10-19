@@ -24,11 +24,11 @@
 
 아래 샘플은 다음을 보여줍니다.
 
-1. [AzureSqlDatabase](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties) 형식의 연결된 서비스입니다.
+1. [AzureSqlDatabase](#azure-sql-linked-service-properties) 형식의 연결된 서비스입니다.
 2. [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 형식의 연결된 서비스입니다. 
-3. [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다. 
+3. [AzureSqlTable](#azure-sql-dataset-type-properties) 형식의 입력 [데이터 집합](data-factory-create-datasets.md)입니다. 
 4. [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 형식의 출력 [데이터 집합](data-factory-create-datasets.md)입니다.
-4. [SqlSource](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
+4. [SqlSource](#azure-sql-copy-activity-type-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
 
 샘플은 Azure SQL 데이터베이스의 테이블에서 blob로 매시간 시계열에 속한 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
@@ -44,6 +44,8 @@
 	  }
 	}
 
+연결된 서비스에서 지원하는 속성의 목록은 [Azure SQL 연결된 서비스](#azure-sql-linked-service-properties) 섹션을 참조하세요.
+
 **Azure Blob 저장소 연결된 서비스**
 
 	{
@@ -55,6 +57,8 @@
 	    }
 	  }
 	}
+
+연결된 서비스에서 지원하는 속성의 목록은 [Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 문서를 참조하세요.
 
 **Azure SQL 입력 데이터 집합**
 
@@ -84,6 +88,8 @@
 	    }
 	  }
 	}
+
+데이터 집합 형식에서 지원하는 속성의 목록은 [Azure SQL 데이터 집합 형식 속성](#azure-sql-dataset-type-properties) 섹션을 참조하세요.
 
 **Azure Blob 출력 데이터 집합**
 
@@ -143,6 +149,8 @@
 	  }
 	}
 
+데이터 집합 형식에서 지원하는 속성의 목록은 [Azure Blob 데이터 집합 형식 속성](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 섹션을 참조하세요.
+
 **복사 작업을 포함하는 파이프라인**
 
 파이프라인은 위의 입력 및 출력 데이터 집합을 사용하도록 구성된 복사 작업을 포함하고 매시간 실행하도록 예약됩니다. 파이프라인 JSON 정의에서 **원본** 형식은 **SqlSource**로 설정되고 **싱크** 형식은 **BlobSink**로 설정됩니다. **SqlReaderQuery** 속성에 지정된 SQL 쿼리는 과거 한 시간에서 복사할 데이터를 선택합니다.
@@ -192,6 +200,16 @@
 	   }
 	}
 
+> [AZURE.NOTE]위의 예에서 **sqlReaderQuery**는 SqlSource에 지정됩니다. 복사 작업은 데이터를 가져오는 Azure SQL 데이터베이스 원본에 대해 이 쿼리를 실행합니다.
+>  
+> 또는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장된 프로시저를 지정할 수 있습니다.(저장된 프로시저가 매개 변수를 사용하는 경우)
+>  
+> sqlReaderQuery 또는 sqlReaderStoredProcedureName 중 하나를 지정하지 않으면 JSON 데이터 집합의 구조 섹션에 정의된 열은 쿼리를 작성하는 데 사용되어 Azure SQL 데이터베이스에 대해 실행합니다.(mytable에서 column1, column2 선택) 데이터 집합 정의에 구조가 없는 경우 모든 열은 테이블에서 선택됩니다.
+
+
+SqlSource 및 BlobSink에서 지원하는 속성 목록은 [Sql 원본](#sqlsource) 섹션 및 [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)을 참조하세요.
+
+
 ## 샘플: Azure Blob에서 Azure SQL로 데이터 복사
 
 아래 샘플은 다음을 보여줍니다.
@@ -217,6 +235,8 @@
 	  }
 	}
 
+연결된 서비스에서 지원하는 속성의 목록은 [Azure SQL 연결된 서비스](#azure-sql-linked-service-properties) 섹션을 참조하세요.
+
 **Azure Blob 저장소 연결된 서비스**
 
 	{
@@ -228,6 +248,8 @@
 	    }
 	  }
 	}
+
+연결된 서비스에서 지원하는 속성의 목록은 [Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) 문서를 참조하세요.
 
 **Azure Blob 입력 데이터 집합**
 
@@ -296,6 +318,8 @@
 	  }
 	}
 
+데이터 집합 형식에서 지원하는 속성의 목록은 [Azure Blob 데이터 집합 형식 속성](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) 섹션을 참조하세요.
+
 **Azure SQL 출력 데이터 집합**
 
 샘플은 Azure SQL의 "MyTable"이라는 테이블에 데이터를 복사합니다. Blob CSV 파일을 포함하려 하면 같은 수의 열을 사용하여 Azure SQL의 테이블을 만들어야 합니다. 새 행은 매시간 테이블에 추가됩니다.
@@ -314,6 +338,8 @@
 	    }
 	  }
 	}
+
+데이터 집합 형식에서 지원하는 속성의 목록은 [Azure SQL 데이터 집합 형식 속성](#azure-sql-dataset-type-properties) 섹션을 참조하세요.
 
 **복사 작업을 포함하는 파이프라인**
 
@@ -364,6 +390,9 @@
 	   }
 	}
 
+SqlSink 및 BlobSource에서 지원하는 속성 목록은 [Sql Sink](#sqlsink) 섹션 및 [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties)을 참조하세요.
+
+
 ## Azure SQL 연결된 서비스 속성
 
 다음 테이블은 Azure SQL 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
@@ -377,7 +406,7 @@
 
 ## Azure SQL 데이터 집합 형식 속성
 
-데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다.(SQL Azure, Azure Blob, Azure 테이블 등)
+데이터 집합 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합 만들기](data-factory-create-datasets.md) 문서를 참조하십시오. 구조, 가용성 및 JSON 데이터 집합의 정책과 같은 섹션이 모든 데이터 집합 형식에 대해 유사합니다.(SQL Azure, Azure Blob, Azure 테이블 등)
 
 typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데이터 저장소에 있는 데이터의 위치에 대한 정보를 제공합니다. **AzureSqlTable** 데이터 집합 형식의 데이터 집합에 대한 **typeProperties** 섹션에는 다음 속성이 있습니다.
 
@@ -401,7 +430,13 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 | -------- | ----------- | -------------- | -------- |
 | sqlReaderQuery | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | SQL 쿼리 문자열입니다. 예: select * from MyTable. 지정하지 않는 경우 실행되는 SQL 문: select from MyTable. | 아니요 |
 | sqlReaderStoredProcedureName | 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. | 저장 프로시저의 이름입니다. | 아니요 |
-| storedProcedureParameters | 저장 프로시저에 대한 매개 변수입니다. | 이름/값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아니요 | 
+| storedProcedureParameters | 저장 프로시저에 대한 매개 변수입니다. | 이름/값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아니요 |
+
+**sqlReaderQuery**이 SqlSource에 지정되면 복사 작업은 데이터를 가져오는 Azure SQL 데이터베이스 원본에 대해 이 쿼리를 실행합니다.
+
+또는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장된 프로시저를 지정할 수 있습니다.(저장된 프로시저가 매개 변수를 사용하는 경우)
+
+sqlReaderQuery 또는 sqlReaderStoredProcedureName 중 하나를 지정하지 않으면 JSON 데이터 집합의 구조 섹션에 정의된 열은 쿼리를 작성하는 데 사용되어 Azure SQL 데이터베이스에 대해 실행합니다.(mytable에서 column1, column2 선택) 데이터 집합 정의에 구조가 없는 경우 모든 열은 테이블에서 선택됩니다.
 
 ### SqlSource 예제
 
@@ -527,4 +562,4 @@ Azure SQL, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식�
 
 	 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

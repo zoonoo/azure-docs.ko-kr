@@ -1,5 +1,5 @@
 <properties
-	pageTitle="서비스 버스 릴레이된 메시징"
+	pageTitle="서비스 버스 릴레이된 메시징 개요 | Microsoft Azure"
 	description="서비스 버스 릴레이 개요"
 	services="service-bus"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article"
-	ms.date="06/04/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 
@@ -33,10 +33,10 @@ WCF “릴레이” 바인딩 모음을 사용하여 온-프레미스 서비스�
 
 서비스 버스 릴레이에 대한 자세한 내용은 다음 항목을 참조하세요.
 
-- [Azure 서비스 버스 아키텍처 개요](fundamentals-service-bus-hybrid-solutions.md)
+- [Azure 서비스 버스 아키텍처 개요](service-bus-fundamentals-hybrid-solutions.md)
 
 - [서비스 버스 릴레이 서비스를 사용하는 방법](service-bus-dotnet-how-to-use-relay.md)
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

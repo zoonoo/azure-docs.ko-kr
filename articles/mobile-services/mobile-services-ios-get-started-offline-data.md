@@ -261,7 +261,6 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 
 
 [Get started with Mobile Services]: mobile-services-ios-get-started.md
-[Get started with data]: mobile-services-ios-get-started-data.md
 [모바일 서비스에 대한 오프라인 지원을 통해 충돌 처리]: mobile-services-ios-handling-conflicts-offline-data.md
 [Soft Delete]: mobile-services-using-soft-delete.md
 [일시 삭제]: mobile-services-using-soft-delete.md
@@ -271,4 +270,4 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 
 [모바일 서비스 퀵 스타트 자습서]: mobile-services-ios-get-started.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

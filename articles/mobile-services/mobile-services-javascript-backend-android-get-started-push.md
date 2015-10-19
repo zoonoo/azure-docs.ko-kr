@@ -5,6 +5,7 @@
 	services="mobile-services, notification-hubs"
 	documentationCenter="android"
 	authors="RickSaling"
+	writer="ricksal"
 	manager="dwrede"
 	editor=""/>
 
@@ -14,7 +15,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/16/2015"
+	ms.date="10/06/2015"
 	ms.author="ricksal"/>
 
 
@@ -30,15 +31,18 @@
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
-##<a id="register"></a>Google Cloud Messaging 사용
+## 샘플 코드
+완료된 원본 코드를 확인하려면 [여기](https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPush)로 이동합니다.
+
+## Google Cloud Messaging 사용
 
 [AZURE.INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
 
-##<a id="configure"></a>푸시 요청을 전송하도록 모바일 서비스 구성
+## 푸시 요청을 전송하도록 모바일 서비스 구성
 
 [AZURE.INCLUDE [mobile-services-android-configure-push](../../includes/mobile-services-android-configure-push.md)]
 
-##<a id="add-push"></a>앱에 푸시 알림 추가
+## 앱에 푸시 알림 추가
 
 
 
@@ -55,12 +59,12 @@
 [AZURE.INCLUDE [mobile-services-android-getting-started-with-push](../../includes/mobile-services-android-getting-started-with-push.md)]
 
 
-##<a id="update-scripts"></a>관리 포털에서 등록된 삽입 스크립트 업데이트
+## 관리 포털에서 등록된 삽입 스크립트 업데이트
 
 [AZURE.INCLUDE [mobile-services-javascript-backend-android-push-insert-script](../../includes/mobile-services-javascript-backend-android-push-insert-script.md)]
 
 
-##<a id="test"></a>앱에서 푸시 알림 테스트
+## 앱에서 푸시 알림 테스트
 
 USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에서 가상 장치를 사용하여 앱을 테스트할 수 있습니다.
 
@@ -97,23 +101,9 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 
 [AZURE.INCLUDE [SDK 확인](../../includes/mobile-services-verify-android-sdk-version.md)]
 
-
-## 이전 코드 버전
-
-이 자습서의 Eclipse 버전을 참조하려면 [푸시 알림 시작(Eclipse)]으로 이동하세요.
-
-
-<!--
-To see a completed version of the source code in an Eclipse project, go <a href="https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithData/Android">here</a>.
--->
-
-
-## <a name="next-steps"> </a>다음 단계
+## 다음 단계
 
 <!---This tutorial demonstrated the basics of enabling an Android app to use Mobile Services and Notification Hubs to send push notifications. Next, consider completing the next tutorial, [Send push notifications to authenticated users], which shows how to use tags to send push notifications from a Mobile Service to only an authenticated user.
-
-+ [Send push notifications to authenticated users]
-	<br/>Learn how to use tags to send push notifications from a Mobile Service to only an authenticated user.
 
 + [Send broadcast notifications to subscribers]
 	<br/>Learn how users can register and receive push notifications for categories they're interested in.
@@ -123,8 +113,6 @@ To see a completed version of the source code in an Eclipse project, go <a href=
 -->
 
 다음 항목에서 모바일 서비스 및 알림 허브에 대해 알아보세요.
-
-* [데이터 시작] <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법을 자세히 알아봅니다.
 
 * [인증 시작] <br/>모바일 서비스를 사용하여 서로 다른 계정 유형의 앱 사용자를 인증하는 방법에 대해 알아봅니다.
 
@@ -149,11 +137,9 @@ To see a completed version of the source code in an Eclipse project, go <a href=
 
 
 <!-- URLs. -->
-[푸시 알림 시작(Eclipse)]: mobile-services-javascript-backend-android-get-started-push-ec.md
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Get started with Mobile Services]: mobile-services-android-get-started.md
-[데이터 시작]: mobile-services-android-get-started-data.md
 [인증 시작]: mobile-services-android-get-started-users.md
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-js
 [Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-js
@@ -166,11 +152,8 @@ To see a completed version of the source code in an Eclipse project, go <a href=
 [gcm object]: http://go.microsoft.com/fwlink/p/?LinkId=282645
 
 [모바일 서비스 서버 스크립트 참조]: http://go.microsoft.com/fwlink/?LinkId=262293
-
-[Send push notifications to authenticated users]: mobile-services-javascript-backend-android-push-notifications-app-users.md
-
 [알림 허브 정의]: ../notification-hubs-overview.md
 [Send broadcast notifications to subscribers]: ../notification-hubs-android-send-breaking-news.md
 [Send template-based notifications to subscribers]: ../notification-hubs-android-send-localized-breaking-news.md
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

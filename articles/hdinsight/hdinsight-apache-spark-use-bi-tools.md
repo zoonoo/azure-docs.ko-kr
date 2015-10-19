@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/03/2015" 
+	ms.date="09/30/2015" 
 	ms.author="nitinme"/>
 
 
@@ -40,11 +40,15 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 
 데이터를 하이브 테이블로 저장한 후에는 다음 섹션에서 Power BI 및 Tableau와 같은 BI 도구를 사용하여 하이브 테이블에 연결합니다.
 
-1. [Azure Preview 포털](https://ms.portal.azure.com/)의 시작 보드에서 Spark 클러스터 타일을 클릭합니다(Spark 클러스터를 시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다. 
- 
-2. [Jupyter](https://jupyter.org) 노트북을 시작합니다. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Jupyter 노트북**을 클릭합니다. 메시지가 표시되면 Spark 클러스터에 대한 관리자 자격 증명을 입력합니다.
+1. [Azure Preview 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터 타일을 클릭합니다.(Spark 클러스터를 시작 보드에 고정한 경우) **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
 
-2. 새 노트북을 만듭니다. **새로 만들기**를 클릭한 후 **Python 2**를 클릭합니다.
+2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Jupyter Notebook**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
+
+	> [AZURE.NOTE]또한 브라우저에서 다음 URL을 열어 클러스터에 대한 Jupyter Notebook에 접근할 수 있습니다. __CLUSTERNAME__을 클러스터의 이름으로 바꿉니다.
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/jupyter`
+
+2. 새 Notebook을 만듭니다. **새로 만들기**를 클릭한 후 **Python 2**를 클릭합니다.
 
 	![새 Jupyter 노트북 만들기](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Note.Jupyter.CreateNotebook.png "새 Jupyter 노트북 만들기")
 
@@ -62,7 +66,7 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 		sc = SparkContext('spark://headnodehost:7077', 'pyspark')
 		hiveCtx = HiveContext(sc)
 
-	Jupyter에서 작업을 실행할 때마다, 웹 브라우저 창 제목에 노트북 제목과 함께 **(사용 중)** 상태가 표시됩니다. 또한 오른쪽 위 모서리에 있는 **Python 2** 텍스트 옆에 단색 원도 표시됩니다. 작업이 완료되면 속이 빈 원으로 변경됩니다.
+	Jupyter에서 작업을 실행할 때마다, 웹 브라우저 창 제목에 Notebook 제목과 함께 **(사용 중)** 상태가 표시됩니다. 또한 오른쪽 위 모서리에 있는 **Python 2** 텍스트 옆에 단색 원도 표시됩니다. 작업이 완료되면 속이 빈 원으로 변경됩니다.
 
 	 ![Jupyter 노트북 작업의 상태](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Jupyter.Job.Status.png "Jupyter 노트북 작업의 상태")
 
@@ -83,7 +87,7 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 		hvacTable.registerAsTable("hvactemptable")
 		hvacTable.saveAsTable("hvac")
 
-5. 테이블이 성공적으로 만들어졌는지 확인합니다. 노트북의 빈 셀에서 다음 코드 조각을 복사하고 **SHIFT + ENTER**를 누릅니다.
+5. 테이블이 성공적으로 만들어졌는지 확인합니다. Notebook의 빈 셀에서 다음 코드 조각을 복사하고 **SHIFT + ENTER**를 누릅니다.
 
 		hiveCtx.sql("SHOW TABLES").show()
 
@@ -96,11 +100,11 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 
 	**isTemporary** 열 아래 false를 포함하는 테이블만 Metastore에 저장되는 하이브 테이블이며, BI 도구에서 액세스 가능합니다. 이 자습서에서는 방금 만든 **hvac** 테이블에 연결합니다.
 
-6. 테이블에 원하는 데이터가 들어 있는지 확인합니다. 노트북의 빈 셀에서 다음 코드 조각을 복사하고 **SHIFT + ENTER**를 누릅니다.
+6. 테이블에 원하는 데이터가 들어 있는지 확인합니다. Notebook의 빈 셀에서 다음 코드 조각을 복사하고 **SHIFT + ENTER**를 누릅니다.
 
 		hiveCtx.sql("SELECT * FROM hvac LIMIT 10").show()
 	
-7. 이제 커널을 다시 시작하여 노트북을 끝낼 수 있습니다. 상단 메뉴 모음에서 **커널**을 클릭하고 **다시 시작**을 클릭한 후 프롬프트에서 **다시 시작**을 한 번 더 클릭합니다.
+7. 이제 커널을 다시 시작하여 노트북을 끝낼 수 있습니다. 상단 메뉴 모음에서 **커널**을 클릭하고 **다시 시작**을 클릭한 다음 프롬프트에서 **다시 시작**을 한 번 더 클릭합니다.
 
 	![Jupyter 커널 다시 시작](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Jupyter.Restart.Kernel.png "Jupyter 커널 다시 시작")
 
@@ -162,7 +166,7 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 
 	![스키마 찾기](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Find.Schema.png "스키마 찾기")
 
-4. **테이블** 필드에서 **찾기** 아이콘을 다시 클릭하면 클러스터에 사용 가능한 모든 하이브 테이블이 나열됩니다. 이전에 노트북을 사용하여 만든 **hvac** 테이블이 표시됩니다.
+4. **테이블** 필드에서 **찾기** 아이콘을 다시 클릭하면 클러스터에 사용 가능한 모든 하이브 테이블이 나열됩니다. 이전에 Notebook을 사용하여 만든 **hvac** 테이블이 표시됩니다.
 
 	![테이블 찾기](./media/hdinsight-apache-spark-use-bi-tools/HDI.Spark.Tableau.Find.Table.png "테이블 찾기")
 
@@ -208,4 +212,4 @@ Azure HDInsight에서 Apache Spark를 사용하여 다음을 수행하는 방법
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

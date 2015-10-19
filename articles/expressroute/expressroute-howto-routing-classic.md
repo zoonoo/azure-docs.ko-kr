@@ -13,7 +13,7 @@
    ms.topic="article" 
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="09/22/2015"
+   ms.date="10/02/2015"
    ms.author="cherylmc"/>
 
 # Express 경로 라우팅 구성 만들기 및 수정
@@ -27,9 +27,9 @@
 
 - Azure PowerShell 모듈의 최신 버전이 필요합니다. [Azure 다운로드 페이지](http://azure.microsoft.com/downloads)의 PowerShell 섹션에서 최신 PowerShell 모듈을 다운로드할 수 있습니다. 컴퓨터를 구성하여 Azure PowerShell 모듈을 사용하는 방법에 대한 단계별 지침은 [Azure PowerShell 설치 및 구성 방법](../powershell-install-configure.md) 페이지의 지침을 수행합니다. 
 - 구성을 시작 하기 전에 [필수 구성 요소](expressroute-prerequisites.md) 페이지, [라우팅 요구 사항](expressroute-routing.md) 페이지 및 [워크플로](expressroute-workflows.md) 페이지를 검토했는지 확인합니다.
-- 활성화된 Express 경로 회로가 있어야 합니다. 아래 지침을 계속 수행하기 전에 [Express 경로 회로 만들기](expressroute-howto-circuit-classic.md)의 지침을 수행하고 연결 공급자에서 회로를 사용하도록 설정합니다. Express 경로 회로는 아래에 설명한 cmdlet을 실행할 수 있도록 프로비전되고 활성화된 상태여야 합니다.
+- 활성화된 Express 경로 회로가 있어야 합니다. 지침을 수행하여 [Express 경로 회로를 만들고](expressroute-howto-circuit-classic.md) 진행하기 전에 연결 공급자에서 회로를 사용하도록 설정합니다. Express 경로 회로는 아래에 설명한 cmdlet을 실행할 수 있도록 프로비전되고 활성화된 상태여야 합니다.
 
->[AZURE.IMPORTANT]이 지침은 2계층 연결 서비스를 제공하는 서비스 공급자를 사용하여 만든 회로에만 적용됩니다. 관리된 3계층 서비스(일반적으로 IPVPN)를 제공하는 서비스 공급자를 사용하는 경우 연결 공급자는 사용자를 위해 라우팅을 구성하고 관리합니다. 이러한 경우에 피어링을 만들거나 관리할 수 없습니다.
+>[AZURE.IMPORTANT]이 지침은 2계층 연결 서비스를 제공하는 서비스 공급자를 사용하여 만든 회로에만 적용됩니다. 관리된 3계층 서비스(일반적으로 MPLS와 같은 IPVPN)를 제공하는 서비스 공급자를 사용하는 경우 연결 공급자는 사용자를 위해 라우팅을 구성하고 관리합니다. 이러한 경우에 피어링을 만들거나 관리할 수 없습니다.
 
 Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 구성할 수 있습니다.(개인, Azure 공용 Azure 및 Microsoft) 선택한 순서로 피어링을 구성할 수 있습니다. 그러나 각 피어링의 구성을 한 번에 하나 씩 완료하도록 해야 합니다.
 
@@ -39,7 +39,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 ### Azure 개인 피어링 만들기
 
-1. **ExpressRoute에 대한 PowerShell 모듈을 가져옵니다.**
+1. **Express 경로에 대한 PowerShell 모듈을 가져옵니다.**
 	
 	Express 경로 cmdlet을 사용하려면 Azure와 Express 경로 모듈을 PowerShell 세션으로 가져와야 합니다. 다음 명령을 실행하여 PowerShell 세션으로 Azure 및 Express 경로 모듈을 가져옵니다.
 
@@ -131,7 +131,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 ### Azure 공용 피어링 만들기
 
-1. **ExpressRoute에 대한 PowerShell 모듈을 가져옵니다.**
+1. **Express 경로에 대한 PowerShell 모듈을 가져옵니다.**
 	
 	Express 경로 cmdlet을 사용하려면 Azure와 Express 경로 모듈을 PowerShell 세션으로 가져와야 합니다. 다음 명령을 실행하여 PowerShell 세션으로 Azure 및 Express 경로 모듈을 가져옵니다.
 
@@ -224,7 +224,7 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 ### Microsoft 피어링 만들기
 
-1. **ExpressRoute에 대한 PowerShell 모듈을 가져옵니다.**
+1. **Express 경로에 대한 PowerShell 모듈을 가져옵니다.**
 	
 	Express 경로 cmdlet을 사용하려면 Azure와 Express 경로 모듈을 PowerShell 세션으로 가져와야 합니다. 다음 명령을 실행하여 PowerShell 세션으로 Azure 및 Express 경로 모듈을 가져옵니다.
 
@@ -258,16 +258,16 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 4. **회로에 Microsoft 피어링 구성**
 
-	더 진행하기 전에 다음 정보가 있는지 확인합니다.
+	진행하기 전에 다음 정보가 있는지 확인합니다.
 
 	- 기본 링크에 대한 /30 서브넷입니다. 사용자가 소유하고 RIR/IRR에 등록된 유효한 공용 IPv4 접두사여야 합니다.
 	- 보조 링크에 대한 /30 서브넷입니다. 사용자가 소유하고 RIR/IRR에 등록된 유효한 공용 IPv4 접두사여야 합니다.
 	- 피어링을 설정할 유효한 VLAN ID입니다. 회로에 다른 피어링이 동일한 VLAN ID를 사용하지 않는지 확인합니다.
 	- 피어링에 대한 AS 숫자입니다. 2바이트 및 4바이트 AS 번호를 모두 사용할 수 있습니다. 공용 AS 번호만 사용해야 합니다. AS 번호를 소유해야 합니다.
-	- **보급된 접두사:** BGP 세션을 통해 보급하려는 모든 접두사 목록을 제공해야 합니다. 공용 IP 주소 접두사만 수락됩니다. 접두사 집합을 보내려는 경우에 쉼표로 구분 된 목록을 보낼 수 있습니다. 이 접두사는 RIR/IRR에 등록되어야 합니다.
-	- **고객 ASN:** 피어링 AS 숫자에 등록된 광고 접두사인 경우 등록된 AS 번호를 지정할 수 있습니다. **선택 사항입니다**.
-	- **라우팅 레지스트리 이름:** AS 번호 및 접두사가 등록된 RIR/ IRR를 지정할 수 있습니다.
-	- 하나를 사용하기로 선택한 경우 MD5 해시를 사용합니다. **선택 사항입니다**.
+	- 보급된 접두사: BGP 세션을 통해 보급하려는 모든 접두사 목록을 제공해야 합니다. 공용 IP 주소 접두사만 수락됩니다. 접두사 집합을 보내려는 경우에 쉼표로 구분 된 목록을 보낼 수 있습니다. 이 접두사는 RIR/IRR에 등록되어야 합니다.
+	- 고객 ASN: 피어링 AS 숫자에 등록되지 않은 광고 접두사인 경우 등록된 AS 번호를 지정할 수 있습니다. **선택 사항입니다**.
+	- 라우팅 레지스트리 이름: AS 번호 및 접두사가 등록된 RIR/ IRR를 지정할 수 있습니다.
+	- 하나를 사용하기로 선택한 경우 MD5 해시를 사용합니다. **선택 사항입니다.**
 	
 	다음 cmdlet을 실행하여 회로에 Microsoft 피어링를 구성할 수 있습니다.
 
@@ -308,6 +308,8 @@ Express 경로 회로에 한 가지, 두 가지 또는 세 가지 피어링을 �
 
 ## 다음 단계
 
-회로 피어링에 대한 자세한 내용은 [Express 경로 회로 및 라우팅 도메인](expressroute-circuit-peerings.md)을 참조하세요.
+-  다음으로 [VNet을 Express 경로 회로에 연결합니다.](expressroute-howto-linkvnet-classic.md)
+-  워크플로에 대한 자세한 내용은 [Express 경로 워크플로](expressroute-workflows.md)를 참조하세요.
+-  회로 피어링에 대한 자세한 내용은 [Express 경로 회로 및 라우팅 도메인](expressroute-circuit-peerings.md)을 참조하세요.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

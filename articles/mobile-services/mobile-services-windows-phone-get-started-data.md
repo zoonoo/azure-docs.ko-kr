@@ -19,7 +19,7 @@
 
 # 기존 앱에 모바일 서비스 추가
 
-[AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../../includes/mobile-services-selector-get-started-data-legacy.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
 ##개요
 
@@ -193,4 +193,4 @@
 [개발자 코드 샘플 사이트]: http://go.microsoft.com/fwlink/p/?LinkId=271146
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

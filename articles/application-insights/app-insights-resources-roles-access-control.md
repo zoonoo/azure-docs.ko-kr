@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="ronmart"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/21/2015" 
+	ms.date="10/01/2015" 
 	ms.author="awills"/>
  
 # Application Insights에서 리소스, 역할 및 액세스 제어
@@ -38,7 +38,6 @@
 
     
     ![찾아보기, 리소스 그룹을 차례로 선택한 다음 그룹을 선택합니다.](./media/app-insights-resources-roles-access-control/11-group.png)
-
 
 * [**구독**](https://manage.windowsazure.com) - Application Insights 또는 다른 Azure 리소스를 사용하려면 Azure 구독에 로그인합니다. 모든 리소스 그룹이 하나의 Azure 구독에 속해 있습니다. 이 구독에서 가격 패키지를 선택합니다. 구독이 조직 구독인 경우 멤버 및 멤버의 액세스 권한을 선택합니다.
 * [**Microsoft 계정**][account] - Microsoft Azure 구독, XBox Live, Outlook.com 및 기타 Microsoft 서비스에 로그인할 때 사용하는 사용자 이름과 암호입니다.
@@ -111,4 +110,4 @@ Application Insights 구성 요소 참여자 | Application Insights 리소스, �
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

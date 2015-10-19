@@ -4,7 +4,7 @@
    description="상태 저장 행위자를 사용하여 서비스 호출 간에 상태를 유지 관리하고 이전 서비스 결과를 캐시하는 서비스 패브릭 신뢰할 수 있는 행위자 디자인 패턴입니다. 상태는 지속적이거나 일시적일 수 있습니다."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -15,7 +15,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # 신뢰할 수 있는 행위자 디자인 패턴: 상태 저장 서비스 컴퍼지션
 개발자들은 엔터프라이즈 환경에서 N 계층 상태 비저장 서비스를 빌드하는 데 지난 10년 반을 보냈습니다. 데이터베이스를 기반으로 서비스를 빌드하고, 다른 서비스를 기반으로 더 높은 수준의 서비스를 빌드하고, 이러한 서비스를 조정하는 오케스트레이션 엔진과 메시지 중심 미들웨어를 빌드했습니다. 사용자 작업량이 증가하면서 더 많은 상호 작용을 요구하든 또는 규모를 요구하든 상관 없이, 상태 비저장 서비스 중심 아키텍처에서 약점이 나타나기 시작했습니다.
@@ -91,4 +91,4 @@ User 23이 로그인할 때 아직 활성화되어 있지 않으면 사용자 �
 [2]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-stateful-service-composition/stateful-service-composition-3.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

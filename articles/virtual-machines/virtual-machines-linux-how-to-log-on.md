@@ -1,11 +1,12 @@
 <properties
-	pageTitle="Azure에서 Linux를 실행하는 가상 컴퓨터에 로그온"
+	pageTitle="Azure에서 Linux VM에 로그온 | Microsoft Azure"
 	description="SSH(Secure Shell) 클라이언트를 사용하여 Linux를 실행하는 Azure 가상 컴퓨터에 로그온하는 방법에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="squillace"
 	manager="timlt"
-	editor=""/>
+	editor=""
+	tags="azure-service-management"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -20,6 +21,8 @@
 
 
 #Linux를 실행하는 가상 컴퓨터에 로그온하는 방법 #
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서는 클래식 배포 모델을 사용하여 만든 가상 컴퓨터를 사용하는 방법에 대해 다룹니다. [리소스 관리자 배포 모델](virtual-machines-linux-tutorial-portal-rm.md)을 사용하여 만든 가상 컴퓨터에 대해 유사한 단계를 따를 수 있습니다.
 
 Linux 운영 체제를 실행하는 가상 컴퓨터의 경우 SSH(보안 셸) 클라이언트를 사용하여 로그온합니다.
 
@@ -53,4 +56,4 @@ Linux 운영 체제를 실행하는 가상 컴퓨터의 경우 SSH(보안 셸) �
 <!-- LINKS -->
 [Linux 가상 컴퓨터에 대한 암호 또는 SSH를 재설정하는 방법]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

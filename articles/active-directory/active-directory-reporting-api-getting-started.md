@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure AD Reporting API 시작하기"
-	description="Azure Active Directory Reporting API를 시작하는 방법"
-	services="active-directory"
-	documentationCenter=""
-	authors="kenhoff"
-	manager="mbaldwin"
-	editor=""/>
+   description="Azure Active Directory Reporting API를 시작하는 방법"
+   services="active-directory"
+   documentationCenter=""
+   authors="kenhoff"
+   manager="mbaldwin"
+   editor=""/>
 
 <tags
    ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="07/17/2015"
-	ms.author="kenhoff;yossib"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="identity"
+   ms.date="07/17/2015"
+   ms.author="kenhoff;yossib"/>
 
 
 # Azure AD Reporting API 시작하기
@@ -157,10 +157,15 @@ $ClientID, $ClientSecret, $tenantdomain을 "Azure AD에서 액세스 위임"의 
 
 스크립트는 사용 가능한 모든 보고서 목록을 반환하고 PowerShell 창에 AccountProvisioningEvents 보고서의 출력을 JSON 형식으로 반환합니다. 또한 JSON, 텍스트, XML 형식으로 동일한 출력 내용을 가진 파일도 만듭니다. 다른 보고서의 데이터를 반환하도록 스크립트를 수정하는 시도 및 필요 없는 출력 형식을 주석으로 처리할 수 있습니다.
 
+## 참고
+
+- Azure AD Reporting API에서 (OData 페이지 매김을 사용하여) 반환되는 이벤트의 수가 제한됩니다.
+	- 데이터 보고에서 보존 제한은 [보존 정책 보고](active-directory-reporting-retention.md)를 확인하세요.
+
 
 ## 다음 단계
 - 사용 가능한 보안, 감사 및 작업 보고서는 [Azure AD 보안, 감사 및 작업 보고서](active-directory-view-access-usage-reports.md) 확인
 - 감사 보고서에 대한 자세한 내용은 [Azure AD 감사 보고서 이벤트](active-directory-reporting-audit-events.md) 참조
 - Graph API REST 서비스에 대한 자세한 내용은 [Azure AD 보고서 및 이벤트(미리 보기)](https://msdn.microsoft.com/library/azure/mt126081.aspx) 참조
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

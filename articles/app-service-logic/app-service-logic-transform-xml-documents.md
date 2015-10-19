@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="10/01/2015"
 	ms.author="anuragdalmia"/>
 
 #BizTalk 변환
@@ -22,7 +22,7 @@
 ## 개요
 간단히 설명하면 BizTalk 변환 API 앱은 데이터를 한 형식에서 다른 형식으로 변환합니다. 예를 들어 구매 주문에서 배송 및 청구 주소를 가져와 송장 문서에 삽입할 수 있습니다. 또는 *YearMonthDay* 형식의 현재 날짜가 포함된 들어오는 메시지가 있을 수 있습니다. 날짜를 *MonthDayYear* 형식으로 변경하려고 합니다.
 
-Microsoft Azure 앱 서비스의 변환 API 앱을 사용하여 이 작업을 할 수 있습니다. 변환 또는 맵은 원본 XML 스키마(입력)와 대상 XML 스키마(출력)로 구성됩니다. 다양한 기본 제공 함수를 사용하여 문자열 조작, 조건부 할당, 산술 식, 날짜 시간 포맷터, 루핑 구문 등을 비롯한 데이터를 조작하거나 제어할 수 있습니다.
+Microsoft Azure 앱 서비스의 변환 API 앱을 사용하여 이 작업을 할 수 있습니다. 맵으로 알려진 변환은 원본 XML 스키마(입력)와 대상 XML 스키마(출력)로 구성됩니다. 다양한 기본 제공 함수를 사용하여 문자열 조작, 조건부 할당, 산술 식, 날짜 시간 포맷터, 루핑 구문 등을 비롯한 데이터를 조작하거나 제어할 수 있습니다.
 
 맵은 Visual Studio에서 [Microsoft Azure BizTalk 서비스 SDK](http://www.microsoft.com/download/details.aspx?id=39087)를 사용하여 만들어집니다. 맵 생성과 테스트가 완료되면 맵(.trfm)을 BizTalk 변환 API 앱으로 업로드합니다.
 
@@ -116,4 +116,4 @@ API 앱 통계 페이지에서 SQL, SAP 및 SharePoint와 같은 커넥터에 �
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

@@ -327,8 +327,8 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
     //Simulate a logging operation by writing text data and byte data to the end of the append blob.
     for (int i = 0; i < numBlocks; i++)
     {
-        appendBlob.AppendText(String.Format("Timestamp: {0} \tLog Entry: {1}{2}",
-            DateTime.Now.ToUniversalTime().ToString(), bytes[i], Environment.NewLine));
+        appendBlob.AppendText(String.Format("Timestamp: {0:u} \tLog Entry: {1}{2}",
+            DateTime.UtcNow, bytes[i], Environment.NewLine));
     }
 
     //Read the append blob to the console window.
@@ -353,4 +353,4 @@ Blob을 삭제하려면 먼저 Blob 참조를 가져온 다음 **Delete** 메서
   [REST API reference]: http://msdn.microsoft.com/library/azure/dd179355
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

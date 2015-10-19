@@ -7,7 +7,14 @@
 	manager="jwhit"
 	editor="tysonn"/>
 
-<tags ms.service="backup" ms.workload="storage-backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/13/2015" ms.author="jimpark"; "aashishr"/>
+<tags
+	ms.service="backup"
+	ms.workload="storage-backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="10/05/2015"
+	ms.author="jimpark; aashishr; giridham"/>
 
 
 # Azure 백업 자격 증명 모음 및 서버 관리
@@ -37,11 +44,14 @@
 
 ![삭제된 서버](./media/backup-azure-manage-windows-server/RS_deletedserver.png)
 
-여기서 다음 작업을 수행할 수 있습니다. - **다시 등록 허용** - 서버에 대해 이 옵션이 선택된 경우 에이전트에서 **등록 마법사**를 사용하여 백업 저장소에 서버를 다시 등록할 수 있습니다. 인증서 오류로 인해 또는 서버를 다시 빌드해야 한 경우 다시 등록해야 할 수도 있습니다. 다시 등록은 서버 이름 당 한 번만 허용됩니다. - **삭제** - 백업 저장소에서 서버를 삭제합니다. 서버와 관련해서 저장된 모든 데이터가 즉시 삭제됩니다.
+여기서 다음 작업을 수행할 수 있습니다.
+
+- **다시 등록 허용** - 서버에 이 옵션이 선택된 경우 에이전트에서 **등록 마법사**를 사용하여 백업 저장소에 서버를 다시 등록할 수 있습니다. 인증서 오류로 인해 또는 서버를 다시 빌드해야 한 경우 다시 등록해야 할 수도 있습니다.
+- **삭제** - 백업 저장소에서 서버를 삭제합니다. 서버와 관련해서 저장된 모든 데이터가 즉시 삭제됩니다.
 
 ## 다음 단계
 - [Azure에서 Windows Server 또는 Windows 클라이언트 복원](backup-azure-restore-windows-server.md)
 - Azure 백업에 대한 자세한 내용은 [Azure 백업 개요](backup-introduction-to-azure-backup.md)를 참조하세요.
 - [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하세요.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

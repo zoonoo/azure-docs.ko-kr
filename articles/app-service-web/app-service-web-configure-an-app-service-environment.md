@@ -20,7 +20,7 @@
 
 ## 개요 ##
 
-앱 서비스 환경은 미리 보기에서 제공되는 새로운 프리미엄 계층 기능입니다. 새 크기 조정 및 네트워크 액세스 기능을 제공합니다. 이 새 크기 조정 기능을 통해 Azure 앱 서비스의 인스턴스를 VNET에 배치할 수 있습니다. ASE(앱 서비스 환경) 기능을 잘 모르는 경우 [앱 서비스 환경 정의](app-service-app-service-environment-intro.md)문서 를 참조하세요. ASE를 만드는 방법에 대한 자세한 내용은 [앱 서비스 환경을 만드는 방법](app-service-web-how-to-create-an-app-service-environment.md) 문서를 참조하세요.
+앱 서비스 환경은 새로운 확장 및 네트워크 액세스 기능을 제공하는 Azure 앱 서비스의 새로운 프리미엄 계층 기능입니다. 이 새 크기 조정 기능을 통해 Azure 앱 서비스의 인스턴스를 VNET에 배치할 수 있습니다. ASE(앱 서비스 환경) 기능을 잘 모르는 경우 [앱 서비스 환경 정의](app-service-app-service-environment-intro.md) 문서를 참조하세요. ASE를 만드는 방법에 대한 자세한 내용은 [앱 서비스 환경을 만드는 방법](app-service-web-how-to-create-an-app-service-environment.md) 문서를 참조하세요.
 
 앱 서비스 환경은 크게 몇 가지 주요 구성 요소로 이루어져 있습니다.
 
@@ -98,7 +98,7 @@
  
 VNET 관리는 일반적인 가상 네트워크 UI를 통해 수행됩니다.
 
-이 기능은 Azure 앱 서비스를 VNET에 두기 때문에 ASE에서 호스트되는 앱이 ExpressRoute 또는 사이트 간 VPN을 통해 사용할 수 있는 리소스에 직접 액세스할 수 있습니다. 앱 서비스 환경 내의 앱은 추가 네트워킹 기능 없이도 앱 서비스 환경을 호스트하는 VNET에서 사용할 수 있는 리소스에 액세스할 수 있습니다.
+이 기능은 Azure 앱 서비스를 VNET에 두기 때문에 ASE에서 호스트되는 앱이 Express 경로 또는 사이트 간 VPN을 통해 사용할 수 있는 리소스에 직접 액세스할 수 있습니다. 앱 서비스 환경 내의 앱은 추가 네트워킹 기능 없이도 앱 서비스 환경을 호스트하는 VNET에서 사용할 수 있는 리소스에 액세스할 수 있습니다.
 
 또한 필요한 경우 네트워크 보안 그룹을 사용하여 액세스를 제어할 수도 있습니다. 이 기능을 사용하면 제한하려는 IP 주소로만 앱 서비스 환경을 잠글 수 있습니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [앱 서비스 환경에서 인바운드 트래픽을 제어하는 방법](app-service-app-service-environment-control-inbound-traffic.md)을 참조하세요.
 
@@ -133,4 +133,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

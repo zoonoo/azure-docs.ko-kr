@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/07/2015"
+	ms.date="10/05/2015"
 	ms.author="juliako"/>
 
 #.NET을 사용한 미디어 서비스 개발 
@@ -27,10 +27,10 @@
 
 ##필수 조건
 
--   신규 또는 기존 Azure 구독의 미디어 서비스 계정. [미디어 서비스 계정을 만드는 방법](media-services-create-account.md)(영문)을 참조하십시오.
--   운영 체제: Windows 7, Windows 2008 R2 또는 Windows 8.
+-   신규 또는 기존 Azure 구독의 미디어 서비스 계정. [미디어 서비스 계정을 만드는 방법](media-services-create-account.md)(영문)을 참조하세요.
+-   운영 체제: Windows 10, Windows 7, Windows 2008 R2 또는 Windows 8.
 -   .NET Framework 4.5.
--   Visual Studio 2013, Visual Studio 2012 또는 Visual Studio 2010 SP1(Professional, Premium, Ultimate 또는 Express) 
+-    Visual Studio 2015, Visual Studio 2013, Visual Studio 2012 또는 Visual Studio 2010 SP1(Professional, Premium, Ultimate 또는 Express). 
   
 
 ##Visual Studio 프로젝트 만들기 및 구성 
@@ -75,15 +75,9 @@
 	**계정 이름** 및 **계정 키** 정보를 얻으려면 **Azure 관리 포털**을 열고, 미디어 서비스 계정을 선택한 후 **키 관리** 단추를 클릭합니다.
 
 
-	<pre><code>
-&lt;configuration>
-    &lt;appSettings>
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-    &lt;/appSettings>
-&lt;/configuration>
-</code></pre>
-
+	<configuration> ... <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
+	  
+	</configuration>
 
 5. 다음 코드를 사용하여 Program.cs 파일의 앞부분에 있는 기존 using 문을 덮어씁니다.
 
@@ -108,4 +102,4 @@
 - [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

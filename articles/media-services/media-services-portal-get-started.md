@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Azure 포털을 사용한 VoD(주문형 비디오) 제공 시작 | Microsoft Azure"
+	pageTitle="Azure 포털을 사용한 주문형 콘텐츠 제공 시작 | Microsoft Azure"
 	description="이 자습서에서는 Azure 포털을 사용한 Azure 미디어 서비스로 VoD(주문형 비디오) 콘텐츠 배달 응용 프로그램을 구현하는 단계를 안내합니다."
 	services="media-services"
 	documentationCenter=""
@@ -11,13 +11,14 @@
 	ms.service="media-services"
 	ms.workload="media"
 	ms.tgt_pltfrm="na"
-	ms.devlang="ne"
+	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/18/2015"
+	ms.date="10/05/2015"
 	ms.author="juliako"/>
 
 
-# Azure 포털을 사용한 VoD(주문형 비디오) 제공 시작
+# Azure 포털을 사용한 주문형 콘텐츠 제공 시작
+
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
@@ -222,12 +223,18 @@ Azure 포털에서는 비디오를 테스트하는 데 사용할 수 있는 콘�
 
 
 
-##미디어 서비스 학습 경로
+##다음 단계
+
+###미디어 서비스 학습 경로
 
 여기서 AMS 학습 경로를 볼 수 있습니다.
 
 - [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+### 다른 정보를 찾으시나요?
+
+이 항목이 예상했던 사항을 포함하지 않거나 누락한 경우 또는 일부가 사용자 요구를 충족하지 않은 경우 아래 Disqus 스레드를 사용하여 피드백을 주시기 바랍니다.
 
 ### 추가 리소스
 - <a href="http://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-101-Get-your-video-online-now-">Azure 미디어 서비스 101 - 지금 온라인으로 비디오 받기!</a>
@@ -254,4 +261,4 @@ Azure 포털에서는 비디오를 테스트하는 데 사용할 수 있는 콘�
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

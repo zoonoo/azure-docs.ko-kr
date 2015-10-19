@@ -1,21 +1,21 @@
 <properties
    pageTitle="HDInsight에서 Hadoop Hive와 SSH 사용 | Microsoft Azure"
-	description="SSH를 사용하여 HDInsight의 Hadoop 클러스터에 연결하고 Hive 명령줄 인터페이스를 사용하여 Hive 쿼리를 대화형으로 제출하는 방법을 배웁니다."
-	services="hdinsight"
-	documentationCenter=""
-	authors="Blackmist"
-	manager="paulettm"
-	editor="cgronlun"
+   description="SSH를 사용하여 HDInsight의 Hadoop 클러스터에 연결하고 Hive 명령줄 인터페이스를 사용하여 Hive 쿼리를 대화형으로 제출하는 방법을 배웁니다."
+   services="hdinsight"
+   documentationCenter=""
+   authors="Blackmist"
+   manager="paulettm"
+   editor="cgronlun"
 	tags="azure-portal"/>
 
 <tags
    ms.service="hdinsight"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="08/28/2015"
-	ms.author="larryfr"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="big-data"
+   ms.date="08/28/2015"
+   ms.author="larryfr"/>
 
 #SSH 사용하는 HDInsight에서 Hadoop과 Hive 사용
 
@@ -23,7 +23,7 @@
 
 이 문서에서는 SSH(Secure Shell)를 사용하여 Azure HDInsight 클러스터의 Hadoop에 연결한 다음 Hive CLI(명령줄 인터페이스)를 사용하여 Hive 쿼리를 대화형으로 제출하는 방법을 배웁니다.
 
-> [AZURE.NOTE]Linux 기반 Hadoop 서버를 익숙하게 사용하지만 HDInsight는 처음인 경우 [HDInsight의 Linux 기반 Hadoop에 대해 알아야 할 정보](hdinsight-hadoop-linux-information.md)를 참조하세요.
+> [AZURE.IMPORTANT]Hive 명령을 Linux 기반 HDInsight 클러스터에서 사용할 수 있지만 Beeline을 사용하는 것이 좋습니다. Beeline은 하이브를 사용하기 위한 최신 클라이언트이고 HDInsight 클러스터에 포함됩니다. 사용에 대한 자세한 내용은 [Beeline을 사용하여 HDInsight에서 Hadoop과 Hive 사용](hdinsight-hadoop-use-hive-beeline.md)을 참조하세요.
 
 ##<a id="prereq"></a>필수 조건
 
@@ -147,4 +147,4 @@ HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

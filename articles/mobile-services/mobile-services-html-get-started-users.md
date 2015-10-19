@@ -131,11 +131,10 @@
 
 <!-- URLs. -->
 [모바일 서비스 시작]: mobile-services-html-get-started.md
-[Get started with data]: mobile-services-html-get-started-data.md
 [스크립트를 통해 사용자 권한 부여]: mobile-services-javascript-backend-service-side-authorization.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [모바일 서비스 HTML/JavaScript 방법 개념 참조]: mobile-services-html-how-to-use-client-library.md
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

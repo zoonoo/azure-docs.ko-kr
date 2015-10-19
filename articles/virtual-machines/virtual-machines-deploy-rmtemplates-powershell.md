@@ -1,5 +1,5 @@
 <properties
-	pageTitle="리소스 관리자 및 PowerShell을 사용하여 Azure 가상 컴퓨터 관리 | Microsoft Azure"
+	pageTitle="Azure 리소스 관리자 VM 관리 | Microsoft Azure"
 	description="Azure 리소스 관리자 템플릿 및 PowerShell을 사용하여 가상 컴퓨터 관리"
 	services="virtual-machines"
 	documentationCenter=""
@@ -379,4 +379,4 @@ JSON 파일의 **parameters** 섹션에 매개 변수의 값을 제공하라는 
 
 [가상 컴퓨터 설명서](http://azure.microsoft.com/documentation/services/virtual-machines/)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

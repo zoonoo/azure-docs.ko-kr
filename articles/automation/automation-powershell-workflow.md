@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/06/2015"
+   ms.date="10/01/2015"
    ms.author="bwren" />
 
 # Windows PowerShell 워크플로 학습
@@ -249,4 +249,4 @@ Windows PowerShell 워크플로의 한 가지 장점은 일반적인 스크립�
 
 - [Windows PowerShell 워크플로 시작](http://technet.microsoft.com/library/jj134242.aspx) 
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

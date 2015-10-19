@@ -3,7 +3,7 @@
    description="서비스 패브릭 신뢰할 수 있는 행위자 프로그래밍 모델 소개"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # 서비스 패브릭 신뢰할 수 있는 행위자 소개
 신뢰할 수 있는 서비스 API는 [신뢰할 수 있는 서비스 API](service-fabric-reliable-services-introduction.md)와 함께 [서비스 패브릭](service-fabric-technical-overview.md)에서 제공한 두 개의 수준 높은 프레임워크 중 하나입니다.
@@ -198,4 +198,4 @@ public interface IVoicemailBoxActor : IActor
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-introduction/concurrency.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/25/2015"
+	ms.date="10/06/2015"
 	ms.author="stefsch"/>
 
 # 앱 서비스 환경 소개
@@ -29,6 +29,10 @@
 고객은 단일 Azure 지역 내뿐만 아니라 여러 Azure 지역에 걸쳐서 여러 앱 서비스 환경을 만들 수 있습니다. 따라서 앱 서비스 환경은 높은 RPS 작업을 지원하여 상태가 없는 응용 프로그램 계층을 수평적으로 확장하는 데 적합합니다.
 
 앱 서비스 환경은 단일 고객의 응용 프로그램만을 실행하도록 격리되며 항상 가상 네트워크에 배포됩니다. 고객은 인바운드 및 아웃바운드 응용 프로그램 네트워크 트래픽 둘 다에 대해 세밀하게 제어할 수 있고 응용 프로그램은 가상 네트워크를 통해 온-프레미스 회사 리소스에 고속 보안 연결을 설정할 수 있습니다.
+
+앱 서비스 환경이 어떻게 높은 확장성을 사용하고 네트워크 액세스를 보호할 수 있는지에 대한 개요는 앱 서비스 환경에서 [AzureCon 심층 분석][AzureConDeepDive]을 참조하세요.
+
+여러 앱 서비스 환경을 사용하는 수평 확장에 대한 심층 분석은 [지역 분산 앱 메모리 공간][GeodistributedAppFootprint]을 설정하는 방법에 대한 문서를 참조하세요.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -48,11 +52,11 @@
 앱 서비스 환경에서 지원되는 사용 가능한 계산 리소스 크기에 대한 자세한 내용은 [앱 서비스 가격][AppServicePricing] 페이지에서 프리미엄 가격 계층의 앱 서비스 환경에 사용 가능한 옵션을 참조하세요.
 
 ## 가상 네트워크 지원 ##
-기존 지역 클래식 "v1" 가상 네트워크 또는 새 지역 클래식 "v1" 가상 네트워크에서 앱 서비스 환경을 만들 수 있습니다([가상 네트워크에 대한 자세한 정보][MoreInfoOnVirtualNetworks]). 앱 서비스 환경은 항상 지역 가상 네트워크, 보다 정확히 말하자면 지역 가상 네트워크의 서브넷 내에 존재하므로 가상 네트워크의 보안 기능을 활용하여 인바운드 및 아웃바운드 네트워크 통신을 모두 제어할 수 있습니다.
+기존 지역 클래식 "v1" 가상 네트워크 또는 새 지역 클래식 "v1" 가상 네트워크에서 앱 서비스 환경을 만들 수 있습니다.([가상 네트워크에 대한 자세한 정보][MoreInfoOnVirtualNetworks]) 앱 서비스 환경은 항상 지역 가상 네트워크, 보다 정확히 말하자면 지역 가상 네트워크의 서브넷 내에 존재하므로 가상 네트워크의 보안 기능을 활용하여 인바운드 및 아웃바운드 네트워크 통신을 모두 제어할 수 있습니다.
 
 [네트워크 보안 그룹][NetworkSecurityGroups]을 사용하여 앱 서비스 환경이 있는 서브넷에 대한 인바운드 네트워크 통신을 제한할 수 있습니다. 이 옵션을 통해 웹 응용 프로그램 방화벽 및 SaaS 공급자와 같은 업스트림 장치 및 서비스 뒤에서 앱을 실행할 수 있습니다.
 
-또한 앱에서는 내부 데이터베이스 및 웹 서비스와 같은 회사 리소스에 자주 액세스해야 합니다. 일반적인 접근 방법은 Azure 가상 네트워크 내에서 이동하는 내부 네트워크 트래픽에만 이러한 끝점을 사용할 수 있도록 하는 것입니다. 앱 서비스 환경이 내부 서비스와 동일한 가상 네트워크에 가입되면 해당 환경에서 실행되는 앱은 [사이트 간][SiteToSite] 및 [Azure ExpressRoute][ExpressRoute] 연결을 통해 도달할 수 있는 끝점을 비롯하여 내부 서비스에 액세스할 수 있게 됩니다.
+또한 앱에서는 내부 데이터베이스 및 웹 서비스와 같은 회사 리소스에 자주 액세스해야 합니다. 일반적인 접근 방법은 Azure 가상 네트워크 내에서 이동하는 내부 네트워크 트래픽에만 이러한 끝점을 사용할 수 있도록 하는 것입니다. 앱 서비스 환경이 내부 서비스와 동일한 가상 네트워크에 가입되면 해당 환경에서 실행되는 앱은 [사이트 간][SiteToSite] 및 [Azure Express 경로][ExpressRoute] 연결을 통해 도달할 수 있는 끝점을 비롯하여 내부 서비스에 액세스할 수 있게 됩니다.
 
 앱 서비스 환경이 가상 네트워크 및 온-프레미스 네트워크와 함께 작동하는 방법에 대한 자세한 내용은 [네트워크 구조][NetworkArchitectureOverview], [인바운드 트래픽 제어][ControllingInboundTraffic] 및 [백 엔드에 안전하게 연결][SecurelyConnectingToBackends]에 대한 문서를 참조하세요.
 
@@ -83,6 +87,8 @@ Express 경로로 앱 서비스 환경을 사용하는 방법에 대한 자세�
 [MobileApps]: http://azure.microsoft.com/documentation/articles/app-service-mobile-value-prop-preview/
 [APIApps]: http://azure.microsoft.com/documentation/articles/app-service-api-apps-why-best-platform/
 [LogicApps]: http://azure.microsoft.com/documentation/articles/app-service-logic-what-are-logic-apps/
+[AzureConDeepDive]: https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/
+[GeodistributedAppFootprint]: https://azure.microsoft.com/documentation/articles/app-service-app-service-environment-geo-distributed-scale/
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
@@ -95,4 +101,4 @@ Express 경로로 앱 서비스 환경을 사용하는 방법에 대한 자세�
 
 <!-- IMAGES -->
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

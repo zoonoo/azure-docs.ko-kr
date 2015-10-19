@@ -41,6 +41,8 @@ PowerShell 명령의 다음 블록을 사용하여 3개 서버용 가상 컴퓨�
 
 [2단계](virtual-machines-workload-high-availability-LOB-application-phase2.md)에서 정의한 테이블 M과, [1단계](virtual-machines-workload-high-availability-LOB-application-phase1.md)에서 정의한 테이블 V, S, ST 및 A를 불러옵니다.
 
+> [AZURE.NOTE]이 문서에서는 Azure PowerShell 버전 1.0.0 *미만*의 명령을 포함합니다. **Get-Module azure | format-table version** 명령으로 Azure PowerShell의 버전을 확인할 수 있습니다. 이 문서의 Azure PowerShell 명령 블록은 Azure PowerShell 버전 1.0.0 이상에서 새 cmdlet을 지원하도록 테스트 및 업데이트 중입니다. 기다려 주셔서 감사합니다.
+
 적절한 값을 모두 입력한 후 Azure PowerShell 프롬프트에서 완성된 블록을 실행합니다.
 
 	# Set up subscription and key variables
@@ -173,7 +175,7 @@ Add-Computer 명령을 입력한 후에는 반드시 도메인 계정 자격 증
 1.	시작 화면에서 **이 PC**를 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
 2.	**시스템** 창에서 **원격 설정**을 클릭합니다.
 3.	**원격 데스크톱** 섹션에서 **사용자 선택**을 클릭하고 **추가**를 클릭합니다.
-4.	**선택할 개체 이름을 입력하십시오**에 [domain]**\\sqladmin**를 입력한 다음 **확인**을 세 번 클릭합니다.
+4.	**선택할 개체 이름을 입력하십시오**에 [도메인]**\\sqladmin**을 입력한 다음 **확인**을 세 번 클릭합니다.
 
 SQL Server 서비스에서는 클라이언트가 데이터베이스 서버에 액세스하는 데 사용하는 포트가 필요합니다. 또한 SQL Server Management Studio에 연결하고 고가용성 그룹을 관리하기 위한 포트도 필요합니다. 다음으로 관리자 수준 Windows PowerShell 명령 프롬프트에서 다음 명령을 두 번(각 SQL Server 가상 컴퓨터에 대해 한 번씩) 실행하여 이 유형의 인바운드 트래픽을 허용하는 방화벽 규칙을 추가합니다.
 
@@ -232,7 +234,7 @@ SQL Server AlwaysOn 가용성 그룹은 Windows Server의 WSFC(Windows Server �
 17.	나머지 노드를 클러스터에 추가하려면 왼쪽 창에서 클러스터 이름을 마우스 오른쪽 단추로 클릭하고 **노드 추가**를 클릭합니다.
 18.	**시작하기 전에** 페이지에서 **다음**을 클릭합니다. 
 19.	**서버 선택** 페이지에서 이름을 입력한 다음 **추가**를 클릭하여 보조 SQL Server와 클러스터 주 노드를 모두 클러스터에 추가합니다. 두 컴퓨터를 추가한 후 **다음**을 클릭합니다. 컴퓨터를 추가할 수 없으며 “원격 레지스트리가 실행 중이 아님" 오류 메시지가 표시되면 다음을 수행합니다. 컴퓨터에 로그온한 다음 서비스 스냅인(services.msc)을 열고 원격 레지스트리를 사용하도록 설정합니다. 자세한 내용은 [원격 레지스트리 서비스에 연결할 수 없음](http://technet.microsoft.com/library/bb266998.aspx)을 참조하세요. 
-20.	**유효성 검사** 경고 페이지에서 **아니요. 이 클러스터에 대한 Microsoft의 지원이 필요 없으므로 유효성 검사 테스트를 실행하지 않습니다. [다음]을 클릭하면 클러스터 만들기를 계속합니다.**를 클릭하고 **다음**을 클릭합니다. 
+20.	**유효성 검사 경고** 페이지에서 **아니요. 이 클러스터에 대한 Microsoft의 지원이 필요 없으므로 유효성 검사 테스트를 실행하지 않습니다. [다음]을 클릭하면 클러스터 만들기를 계속합니다.**를 클릭하고 **다음**을 클릭합니다. 
 21.	**확인** 페이지에서 **다음**을 클릭합니다.
 22.	**요약** 페이지에서 **마침**을 클릭합니다.
 23.	왼쪽 창에서 **노드**를 클릭합니다. 세 컴퓨터가 모두 표시됩니다.
@@ -272,4 +274,4 @@ SQL Server에서 AlwaysOn 가용성 그룹을 사용하도록 설정하려면 �
 
 [Azure 인프라 서비스 작업: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

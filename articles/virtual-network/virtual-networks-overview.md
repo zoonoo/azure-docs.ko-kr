@@ -93,4 +93,4 @@ Azure에서 부하 분산에 대한 자세한 내용은 [부하 분산 장치 �
 - [공용 IP 주소 예약](../virtual-networks-reserved-public-ip.md).
 - [사용자 정의 경로 및 IP 전달](virtual-networks-udr-overview.md)에 대해 알아보기.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

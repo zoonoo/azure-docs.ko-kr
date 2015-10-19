@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="10/05/2015"
 	ms.author="josephd"/>
 
 # SharePoint Server 팜
@@ -52,7 +52,8 @@ SharePoint 팜으로 SharePoint Server 팜 템플릿을 만들려면 다음을 �
 7. SharePoint 서버를 구성하려면 화살표를 클릭합니다. 호스트 이름 접두사(기본값은 리소스 그룹 이름), SharePoint 서버의 크기(기본값은 A2), SharePoint 사용자 계정(기본값은 sp\_setup) 및 암호, SharePoint 팜 계정 이름(기본값은 sp\_farm) 및 암호, SharePoint 팜 암호를 지정할 수 있습니다. 기본값은 SharePoint 사용자 계정, 팜 계정 및 암호에 대해 관리자 암호를 사용하는 것입니다.
 8. 가상 네트워크, 저장소 계정 또는 진단을 위한 선택적 구성을 구성하려면 해당 화살표를 클릭합니다.
 9. 구독을 지정하려면 화살표를 클릭합니다.
-10. 완료하면 **만들기**를 클릭합니다.
+10. Azure 위치를 지정하려면 화살표를 클릭합니다.
+11. 완료하면 **만들기**를 클릭합니다.
 
 > [AZURE.NOTE]도메인 컨트롤러는 기본적으로 Active Directory 관리 도구를 설치하지 않습니다. 설치하려면 도메인 컨트롤러 가상 컴퓨터에서 관리자 수준의 Windows PowerShell 명령 프롬프트에서 **Install-WindowsFeature AD-Domain-Services -IncludeManagementTools** 명령을 실행합니다.
 
@@ -81,9 +82,8 @@ SharePoint 팜은 인터넷 연결 클라이언트 컴퓨터에 대해 SharePoin
 
 참고:
 
-- Azure 미리 보기 포털은 지정된 구독 내에서 이러한 가상 컴퓨터를 만듭니다.
 - Azure 미리 보기 포털은 인터넷 연결 웹 서비스를 사용하는 클라우드 전용 가상 네트워크에서 이러한 팜을 모두 만듭니다. 조직 네트워크에 대한 사이트 간 VPN 또는 ExpressRoute 연결은 없습니다.
-- 원격 데스크톱 연결을 통해 이 서버를 관리할 수 있습니다. 자세한 내용은 [Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법](virtual-machines-log-on-windows-server.md)을 참조하세요.
+- 원격 데스크톱 연결을 통해 이 서버를 관리할 수 있습니다. 자세한 내용은 참조 [가상 컴퓨터에 로그온](virtual-machines-windows-tutorial.md#log-on-to-the-virtual-machine)을 참조하세요.
 
 ## Azure 리소스 관리자
 
@@ -93,10 +93,8 @@ Azure Preview 포털의 SharePoint 서버 팜 기능은 클래식 배포 모델�
 
 [SharePoint 서버 팜 구성 세부 정보](virtual-machines-sharepoint-farm-config-azure-preview.md)
 
-[Azure 인프라 서비스의 SharePoint](http://msdn.microsoft.com/library/azure/dn275955.aspx)
+[Azure 인프라 서비스에서 호스트되는 SharePoint 팜](virtual-machines-sharepoint-infrastructure-services.md)
 
 [테스트용 하이브리드 클라우드에 SharePoint 인트라넷 팜 설치](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-[Azure 인프라 서비스에서 호스트되는 SharePoint 팜](virtual-machines-sharepoint-infrastructure-services.md)
-
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

@@ -1,26 +1,26 @@
 <properties
-   pageTitle="Azure AD | Microsoft Azure와 SaaS App 통합에 대한 자습서 목록"
-   description="여러 타사 SaaS 응용 프로그램에 대한 Azure Active Directory Single Sign-On을 구성하는 방법에 대한 자습서입니다."
-   services="active-directory"
-   documentationCenter=""
-   authors="markusvi"
-   manager="stevenpo"
-   editor=""/>
+    pageTitle="Azure AD | Microsoft Azure와 SaaS App 통합에 대한 자습서 목록"
+    description="여러 타사 SaaS 응용 프로그램에 대한 Azure Active Directory Single Sign-On을 구성하는 방법에 대한 자습서입니다."
+    services="active-directory"
+    documentationCenter=""
+    authors="markusvi"
+    manager="stevenpo"
+    editor=""/>
 
 <tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/22/2015"
-   ms.author="markvi"/>
+    ms.service="active-directory"
+    ms.devlang="na"
+    ms.topic="article"
+    ms.tgt_pltfrm="na"
+    ms.workload="identity"
+    ms.date="10/06/2015"
+    ms.author="markvi"/>
 
 #Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록
 
 Azure Active Directory와 모든 클라우드(SaaS) 응용 프로그램을 쉽게 통합할 수 있도록 하기 위해 필요한 구성 단계를 각각 보여주는 자습서의 컬렉션을 개발했습니다.
 
-Azure AD에 미리 통합된 포괄적인 SaaS Apps 목록에 대해서는 [Active Directory 마켓플레이스](https://azure.microsoft.com/ko-kr/marketplace/active-directory/)를 참조하세요.
+Azure AD에 미리 통합된 포괄적인 SaaS Apps 목록에 대해서는 [Active Directory 마켓플레이스](https://azure.microsoft.com/ko-KR/marketplace/active-directory/)를 참조하세요.
 
 ##자습서 목록
 
@@ -33,6 +33,7 @@ Azure AD에 미리 통합된 포괄적인 SaaS Apps 목록에 대해서는 [Acti
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_AdobeEchoSign.jpg)| [Adobe EchoSign](https://go.microsoft.com/fwLink/?LinkID=403262&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Aha.jpg)| [Aha!](https://go.microsoft.com/fwLink/?LinkID=530230&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Airwatch.jpg)| [AirWatch](https://go.microsoft.com/fwLink/?LinkID=522560&clcid=0x409)|
+| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Alcumus.jpg)| [Alcumus 정보 교환](https://go.microsoft.com/fwLink/?LinkID=530244&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_AmazonWebServices.jpg)| [Amazon 웹 서비스(AWS)](https://go.microsoft.com/fwLink/?LinkID=512725&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_AnswerHub.jpg)| [AnswerHub](https://go.microsoft.com/fwLink/?LinkID=403241&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_AppDynamics.jpg)| [AppDynamics](https://go.microsoft.com/fwLink/?LinkID=512728&clcid=0x409)|
@@ -57,9 +58,11 @@ Azure AD에 미리 통합된 포괄적인 SaaS Apps 목록에 대해서는 [Acti
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_ClickTime.jpg)| [ClickTime](https://go.microsoft.com/fwLink/?LinkID=403236&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_CloudPassage.jpg)| [CloudPassage](https://go.microsoft.com/fwLink/?LinkID=512732&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Concur.jpg)| [Concur](https://go.microsoft.com/fwLink/?LinkID=309575&clcid=0x409)|
-| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Coupa.jpg)| [Coupa](https://go.microsoft.com/fwLink/?LinkID=510267&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_CornerstoneOnDemand.jpg)| [Cornerstone OnDemand](https://go.microsoft.com/fwLink/?LinkID=512745&clcid=0x409)|
+| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Coupa.jpg)| [Coupa](https://go.microsoft.com/fwLink/?LinkID=510267&clcid=0x409)|
+| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_CSStars.jpg)| [CS Stars](https://go.microsoft.com/fwLink/?LinkID=530245&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Directions.jpg)| [Directions on Microsoft](https://go.microsoft.com/fwLink/?LinkID=522557&clcid=0x409)|
+| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_DocuSign.jpg)| [DocuSign](https://go.microsoft.com/fwLink/?LinkID=403254&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Dropbox.jpg)| [Dropbox for Business](https://go.microsoft.com/fwLink/?LinkID=309581&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Druva.jpg)| [Druva](https://go.microsoft.com/fwLink/?LinkID=530221&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_eBuilder.jpg)| [e-Builder](https://go.microsoft.com/fwLink/?LinkID=510261&clcid=0x409)|
@@ -90,9 +93,9 @@ Azure AD에 미리 통합된 포괄적인 SaaS Apps 목록에 대해서는 [Acti
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_LogicMonitor.jpg)| [LogicMonitor](https://go.microsoft.com/fwLink/?LinkID=403233&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Lucidchart.jpg)| [Lucidchart](https://go.microsoft.com/fwLink/?LinkID=522563&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Lynda.com.jpg)| [Lynda.com](https://go.microsoft.com/fwLink/?LinkID=522548&clcid=0x409)|
-| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Mindflash.jpg)| [Mindflash](https://go.microsoft.com/fwLink/?LinkID=512723&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Mimecast.jpg)| [Mimecast Admin Console](https://go.microsoft.com/fwLink/?LinkID=512747&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Mimecast.jpg)| [Mimecast Personal Portal](https://go.microsoft.com/fwLink/?LinkID=522549&clcid=0x409)|
+| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Mindflash.jpg)| [Mindflash](https://go.microsoft.com/fwLink/?LinkID=512723&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_MozyEnterprise.jpg)| [Mozy Enterprise](https://go.microsoft.com/fwLink/?LinkID=510239&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_NetDocuments.jpg)| [NetDocuments](https://go.microsoft.com/fwLink/?LinkID=403244&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_NetSuite.jpg)| [Netsuite](https://go.microsoft.com/fwLink/?LinkID=403239&clcid=0x409)|
@@ -112,8 +115,8 @@ Azure AD에 미리 통합된 포괄적인 SaaS Apps 목록에 대해서는 [Acti
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Replicon.jpg)| [Replicon](https://go.microsoft.com/fwLink/?LinkID=403243&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_RightAnswers.jpg)| [RightAnswers](https://go.microsoft.com/fwLink/?LinkID=530239&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_RunMyProcess.jpg)| [RunMyProcess](https://go.microsoft.com/fwLink/?LinkID=403246&clcid=0x409)|
-| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Salesforce.jpg)| [Salesforce](https://go.microsoft.com/fwLink/?LinkID=286017&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Salesforce.jpg)| [Salesforce Sandbox](https://go.microsoft.com/fwLink/?LinkID=521879&clcid=0x409)|
+| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Salesforce.jpg)| [Salesforce](https://go.microsoft.com/fwLink/?LinkID=286017&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Samanage.jpg)| [Samanage](https://go.microsoft.com/fwLink/?LinkID=510241&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_SapHanaCloudPlatform.jpg)| [SAP HANA Cloud Platform](https://go.microsoft.com/fwLink/?LinkID=530219&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_SCCLifeCycle.jpg)| [SCC LifeCycle](https://go.microsoft.com/fwLink/?LinkID=530218&clcid=0x409)|
@@ -144,21 +147,24 @@ Azure AD에 미리 통합된 포괄적인 SaaS Apps 목록에 대해서는 [Acti
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Veracode.jpg)| [Veracode](https://go.microsoft.com/fwLink/?LinkID=530231&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Wikispace.jpg)| [Wikispaces](https://go.microsoft.com/fwLink/?LinkID=403223&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Work.jpg)| [Work.com](https://go.microsoft.com/fwLink/?LinkID=510259&clcid=0x409)|
-| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Workday.jpg)| [Workday](https://go.microsoft.com/fwLink/?LinkID=286020&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Workday.jpg)| [Workday 인바운드 동기화](https://msdn.microsoft.com/library/azure/dn762434.aspx)|
+| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Workday.jpg)| [Workday](https://go.microsoft.com/fwLink/?LinkID=286020&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_xMattersOnDemand.jpg)| [xMatters OnDemand](https://go.microsoft.com/fwLink/?LinkID=403231&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Zendesk.jpg)| [Zendesk](https://go.microsoft.com/fwLink/?LinkID=403255&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_ZohoMail.jpg)| [Zoho Mail](https://go.microsoft.com/fwLink/?LinkID=403220&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Zoom.jpg)| [Zoom](https://go.microsoft.com/fwLink/?LinkID=403225&clcid=0x409)|
-| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.jpg)| [Zscaler](https://go.microsoft.com/fwLink/?LinkID=510254&clcid=0x409)|
-| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.jpg)| [Zscaler ZSCloud](https://go.microsoft.com/fwLink/?LinkID=512735&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.jpg)| [Zscaler Beta](https://go.microsoft.com/fwLink/?LinkID=512736&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.jpg)| [Zscaler One](https://go.microsoft.com/fwLink/?LinkID=512737&clcid=0x409)|
 | ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.jpg)| [Zscaler Two](https://go.microsoft.com/fwLink/?LinkID=512734&clcid=0x409)|
+| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.jpg)| [Zscaler ZSCloud](https://go.microsoft.com/fwLink/?LinkID=512735&clcid=0x409)|
+| ![로고](./media/active-directory-saas-tutorial-list/SaaSApp_Zscaler.jpg)| [Zscaler](https://go.microsoft.com/fwLink/?LinkID=510254&clcid=0x409)|
+
+
+
 
 
 
 
 [AZURE.INCLUDE [saas-toc](../../includes/active-directory-saas-toc.md)]
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

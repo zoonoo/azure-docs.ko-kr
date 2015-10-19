@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="06/24/2015" 
+	ms.date="10/01/2015" 
 	ms.author="tomfitz"/>
 
 
@@ -154,4 +154,4 @@ Azure 웹 앱에서는 웹 앱에 도메인을 무제한으로 추가할 수 있
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

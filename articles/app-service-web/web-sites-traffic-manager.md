@@ -1,19 +1,20 @@
 <properties 
-	pageTitle="Azure 트래픽 관리자를 사용하여 Azure 웹 앱 트래픽 제어"
-	description="이 문서에서는 Azure 웹앱과 관련된 Azure 트래픽 관리자의 요약 정보를 제공합니다."
-	services="app-service\web"
-	documentationCenter=""
-	authors="cephalin"
-	manager="wpickett"
+	pageTitle="Azure 트래픽 관리자를 사용하여 Azure 웹 앱 트래픽 제어" 
+	description="이 문서에서는 Azure 웹앱과 관련된 Azure 트래픽 관리자의 요약 정보를 제공합니다." 
+	services="app-service\web" 
+	documentationCenter="" 
+	authors="cephalin" 
+	writer="cephalin" 
+	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="app-service-web"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/02/2015"
+	ms.service="app-service-web" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
 
 # Azure 트래픽 관리자를 사용하여 Azure 웹 앱 트래픽 제어
@@ -62,4 +63,4 @@ Azure 트래픽 관리자의 부하 분산에 대한 자세한 내용은 [트래
 웹앱에서 트래픽 관리자를 사용하는 방법에 대한 자세한 내용은 블로그 게시물 [Azure 웹 사이트에서 Azure 트래픽 관리자 사용](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) 및 [이제 Azure 트래픽 관리자를 Azure 웹 사이트와 통합할 수 있음](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/)을 참조하세요.
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

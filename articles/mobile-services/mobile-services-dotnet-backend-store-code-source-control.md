@@ -18,13 +18,13 @@
 
 # 소스 제어에 모바일 서비스 프로젝트 코드 저장
 
-> [AZURE.SELECTOR-LIST (Platform | Backend)]
-- [(Any | .NET)](mobile-services-dotnet-backend-store-code-source-control.md)
-- [(Any | Javascript)](mobile-services-store-scripts-source-control.md)
+> [AZURE.SELECTOR]
+- [.NET backend](mobile-services-dotnet-backend-store-code-source-control.md)
+- [Javascript backend](mobile-services-store-scripts-source-control.md)
 
 이 항목에서는 Azure 모바일 서비스에서 제공하는 소스 제어를 사용하여 .NET 백 엔드 서비스 프로젝트를 저장하는 방법을 보여 줍니다. 프로젝트를 게시하려면 로컬 Git 리포지토리에서 프로덕션 모바일 서비스로 업로드하면 됩니다.
 
-이 자습서를 완료하려면 기존에 [모바일 서비스 시작] 또는 [기존 앱에 모바일 서비스 추가] 자습서를 완료하여 모바일 서비스를 만들었어야 합니다.
+이 자습서를 완료하려면 [모바일 서비스 시작] 자습서를 완료하여 모바일 서비스를 만들어 둬야 합니다.
 
 ##<a name="enable-source-control"></a>모바일 서비스에서 소스 제어를 사용하도록 설정
 
@@ -32,12 +32,11 @@
 
 ##<a name="clone-repo"></a>Git을 설치하고 로컬 리포지토리 만들기
 
-1. 로컬 컴퓨터에 Git을 설치합니다. 
+1. 로컬 컴퓨터에 Git을 설치합니다.
 
-	Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. 운영 체제 특정 배포 및 설치 지침은 [Git 설치]를 참조하세요.
+	Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. 운영 체제 특정 배포 및 설치 지침은 [Git 설치]를 참조하십시오.
 
-	> [AZURE.NOTE]
-	> 일부 운영 체제에서는 Git의 명령줄과 GUI 버전을 둘 다 사용할 수 있습니다. 이 문서에서 제공하는 지침은 명령줄 버전을 사용합니다.
+	> [AZURE.NOTE]일부 운영 체제에서는 Git의 명령줄과 GUI 버전을 둘 다 사용할 수 있습니다. 이 문서에서 제공하는 지침은 명령줄 버전을 사용합니다.
 
 2. **GitBash**(Windows) 또는 **Bash**(Unix Shell)와 같은 명령줄을 엽니다. OS X 시스템에서는 **터미널** 응용 프로그램을 통해 명령줄에 액세스할 수 있습니다.
 
@@ -67,11 +66,11 @@
 2. packages.config 파일은 그대로 두고 NuGet 패키지 폴더를 모두 제거합니다.
 
 	모바일 서비스에서 packages.confign 파일을 기반으로 NuGet 패키지 파일을 자동으로 복원합니다. 패키지 디렉터리가 추가되지 않도록 .gitignore 파일을 정의할 수도 있습니다.
- 
+
 3. Git 명령 프롬프트에서 새 스크립트 파일 추적을 시작하는 다음 명령을 입력합니다.
 
 		$ git add .
-	
+
 4. 변경 내용을 커밋하는 다음 명령을 입력합니다.
 
 		$ git commit -m "adding the .NET backend service project"
@@ -79,7 +78,7 @@
 5. 다음 명령을 입력하여 원격 리포지토리에 변경 내용을 업로드한 다음 자격 증명을 제공합니다.
 
 		$ git push origin master
-	
+
 	프로젝트가 모바일 서비스에 배포되고 패키지가 추가되고 서비스가 다시 시작되었음을 나타내는 일련의 명령이 표시됩니다.
 
 6. .NET 백 엔드 모바일 서비스의 URL을 찾으면 다음과 같이 표시됩니다.
@@ -97,9 +96,7 @@
 [Source control]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Git 설치]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [모바일 서비스 시작]: mobile-services-dotnet-backend-ios-get-started.md
-[기존 앱에 모바일 서비스 추가]: mobile-services-dotnet-backend-ios-get-started-data.md
-[Azure 관리 포털]: https://manage.windowsazure.com/
-[Call a custom API from the client]: mobile-services-dotnet-backend-ios-call-custom-api.md
+[Azure Management Portal]: https://manage.windowsazure.com/
 [.NET 백 엔드 모바일 서비스에 대한 데이터 모델 변경 방법]: mobile-services-dotnet-backend-how-to-use-code-first-migrations.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

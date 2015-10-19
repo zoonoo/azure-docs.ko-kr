@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="06/16/2015" 
+	ms.date="10/05/2015" 
 	ms.author="arramac"/>
 
 # .NET SDK를 사용하여 DocumentDB의 데이터를 분할하는 방법
@@ -167,4 +167,4 @@ DocumentDB는 다음 몇 가지 이유로 클라이언트 쪽 분할을 지원�
 * [성능 팁에 대한 DocumentDB 블로그](http://azure.microsoft.com/blog/2015/01/20/performance-tips-for-azure-documentdb-part-1-2/)
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

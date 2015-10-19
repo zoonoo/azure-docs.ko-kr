@@ -15,7 +15,7 @@
 
 > [AZURE.NOTE]웹 사이트 배포를 위해 Visual Studio [Azure SDK](http://azure.microsoft.com/downloads/)를 설치했는지 확인합니다.
 
-1. Visual Studio 또는 Visual Studio Express를 시작합니다.
+1. Visual Studio 또는 Visual Studio Express를 시작합니다. **서버 탐색기**를 클릭하고 Azure 계정에 로그인합니다. 계정에 웹 사이트 리소스를 만들려면 Visual Studio에 로그인해야 합니다.
 2. Visual Studio에서 **파일**을 클릭한 후 **새로 만들기**, **프로젝트**를 클릭하고 **템플릿**, **Visual C#**을 확장한 다음 **웹** 및 **ASP.NET 웹 응용프로그램**을 클릭하고 **AppBackend**라는 이름을 입력한 후 **확인**을 클릭합니다. 
 	
 	![][B1]
@@ -24,7 +24,7 @@
 
 	![][B2]
 
-4. **Azure 사이트 구성** 대화 상자에서 이 프로젝트에 사용할 구독, 지역 및 데이터베이스를 선택합니다. 사용자 계정의 암호를 입력하고 **확인**을 클릭하여 프로젝트를 만듭니다.
+4. **Microsoft Azure 웹 앱** 대화 상자에서 구독 및 이미 만들어둔 **앱 서비스 계획**을 선택합니다. **새 앱 서비스 계획 만들기**를 선택하고 대화 상자에서 만들 수도 있습니다. 이 자습서를 위해 데이터베이스는 필요하지 않습니다. 앱 서비스 계획을 선택한 후 **확인**을 클릭하여 프로젝트를 만듭니다.
 
 	![][B5]
 
@@ -36,7 +36,7 @@
 
 
 
-1. 솔루션 탐색기에서 **AppBackend** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **클래스**를 차례로 클릭합니다. 새 클래스의 이름을 **AuthenticationTestHandler.cs**로 지정하고 **추가**를 클릭하여 클래스를 생성합니다. 이 클래스는 *기본 인증*을 사용하여 사용자를 인증하는 데 사용됩니다. 앱은 모든 인증 체계를 사용할 수 있습니다.
+1. 솔루션 탐색기에서 **AppBackend** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가**, **클래스**를 차례로 클릭합니다. 새 클래스의 이름을 **AuthenticationTestHandler.cs**로 지정하고 **추가**를 클릭하여 클래스를 생성합니다. 이 클래스는 간단히 하기 위해 *기본 인증*을 사용하여 사용자를 인증하는 데 사용됩니다. 앱은 모든 인증 체계를 사용할 수 있습니다.
 
 2. AuthenticationTestHandler.cs에 다음 `using` 문을 추가합니다.
 
@@ -48,9 +48,11 @@
 
 3. AuthenticationTestHandler.cs에서 `AuthenticationTestHandler` 클래스 정의를 다음으로 바꿉니다.
 
-	이 처리기는 *Authorization* 헤더가 포함된 모든 요청을 처리합니다. 요청에서 *기본* 인증을 사용하는 경우 사용자 이름 문자열이 암호 문자열과 일치하면 백 엔드에서 권한이 부여됩니다. 그렇지 않으면 요청이 거부됩니다. 이는 실제 인증 및 권한 부여 방법이 아닙니다. 이 자습서를 위한 매우 간단한 예제일 뿐입니다.
+	이 처리기는 다음 세 조건이 모두 참일 때 요청에 권한을 부여합니다. * 요청이 *권한 부여* 헤더에 포함되었습니다. * 요청이 *기본* 인증을 사용합니다. * 사용자 이름 문자열 및 암호 문자열이 동일한 문자열입니다.
 
-	요청 메시지가 `AuthenticationTestHandler`에 의해 인증되고 권한이 부여되면 [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx)의 현재 요청에 기본 인증 사용자가 연결됩니다. HttpContext의 사용자 정보는 다른 컨트롤러(RegisterController)에서 알림 등록 요청에 [태그](https://msdn.microsoft.com/library/azure/dn530749.aspx)를 추가하는 데 사용됩니다.
+	그렇지 않으면 요청이 거부됩니다. 이는 실제 인증 및 권한 부여 방법이 아닙니다. 이 자습서를 위한 매우 간단한 예제일 뿐입니다.
+
+	요청 메시지가 `AuthenticationTestHandler`에 의해 인증되고 권한이 부여되면 [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx)의 현재 요청에 기본 인증 사용자가 연결됩니다. HttpContext의 사용자 정보는 나중에 다른 컨트롤러(RegisterController)에서 알림 등록 요청에 [태그](https://msdn.microsoft.com/library/azure/dn530749.aspx)를 추가하는 데 사용됩니다.
 
 		public class AuthenticationTestHandler : DelegatingHandler
 	    {
@@ -118,7 +120,7 @@
 
 2. 왼쪽에서 **온라인**을 클릭하고 **검색** 상자에서 **Microsoft.Azure.NotificationHubs**를 검색합니다.
 
-3. 결과 목록에서 **Microsoft Azure 알림 허브 서비스 관리 라이브러리**를 클릭한 후 **설치**를 클릭합니다. 설치를 완료한 다음, NuGet 패키지 관리자 창을 닫습니다.
+3. 결과 목록에서 **Microsoft Azure 알림 허브**를 클릭한 다음 **설치**를 클릭합니다. 설치를 완료한 다음, NuGet 패키지 관리자 창을 닫습니다.
 
 	그러면 <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet 패키지</a>를 사용하는 Azure 알림 허브 SDK에 대한 참조가 추가됩니다.
 
@@ -139,13 +141,14 @@
             public NotificationHubClient Hub { get; set; }
 
             private Notifications() {
-                Hub = NotificationHubClient.CreateClientFromConnectionString("<conn string with full access>", "<hub name>");
+                Hub = NotificationHubClient.CreateClientFromConnectionString("<your hub's DefaultFullSharedAccessSignature>", 
+																			 "<hub name>");
             }
         }
 
 
 
-7. 그런 다음 **RegisterController** 컨트롤러를 새로 만듭니다. 솔루션 탐색기에서 **Controllers** 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**와 **컨트롤러**를 차례로 클릭합니다. **웹 API 2 컨트롤러 -- 비어 있음** 항목을 클릭한 다음 **추가**를 클릭합니다. 새 클래스 이름을 **RegisterController**로 지정한 다음 **추가**를 다시 클릭하여 컨트롤러를 생성합니다.
+7. 다음으로 **RegisterController**라는 새 컨트롤러를 만듭니다. 솔루션 탐색기에서 **Controllers** 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**와 **컨트롤러**를 차례로 클릭합니다. **웹 API 2 컨트롤러 -- 비어 있음** 항목을 클릭한 다음 **추가**를 클릭합니다. 새 클래스 이름을 **RegisterController**로 지정한 다음 **추가**를 다시 클릭하여 컨트롤러를 생성합니다.
 
 	![][B7]
 
@@ -153,10 +156,10 @@
 
 8. RegiterController.cs에 다음 `using` 문을 추가합니다.
 
-        using Microsoft.ServiceBus.Notifications;
+        using Microsoft.Azure.NotificationHubs;
+		using Microsoft.Azure.NotificationHubs.Messaging;
         using AppBackend.Models;
         using System.Threading.Tasks;
-        using Microsoft.ServiceBus.Messaging;
         using System.Web;
 
 9. 다음 코드를 `RegisterController` 클래스 정의 내에 추가합니다. 이 코드에서 HttpContext에 연결된 사용자에 대한 사용자 태그를 추가합니다. 이 사용자는 추가한 메시지 필터 `AuthenticationTestHandler`에 의해 인증되고 HttpContext에 연결되었습니다. 또한 선택적인 검사를 추가하여 사용자에게 요청된 태그에 등록할 수 있는 권한이 있는지 확인합니다.
@@ -291,7 +294,7 @@
             userTag[0] = "username:" + to_tag;
             userTag[1] = "from:" + user;
 
-            Microsoft.ServiceBus.Notifications.NotificationOutcome outcome = null;
+            Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;
             HttpStatusCode ret = HttpStatusCode.InternalServerError;
 
             switch (pns.ToLower())
@@ -316,8 +319,8 @@
 
             if (outcome != null)
             {
-                if (!((outcome.State == Microsoft.ServiceBus.Notifications.NotificationOutcomeState.Abandoned) ||
-                    (outcome.State == Microsoft.ServiceBus.Notifications.NotificationOutcomeState.Unknown)))
+                if (!((outcome.State == Microsoft.Azure.NotificationHubs.NotificationOutcomeState.Abandoned) ||
+                    (outcome.State == Microsoft.Azure.NotificationHubs.NotificationOutcomeState.Unknown)))
                 {
                     ret = HttpStatusCode.OK;
                 }
@@ -333,11 +336,11 @@
 
 1. 이제 모든 장치에서 액세스할 수 있도록 이 앱을 Azure 웹 사이트에 배포합니다. **AppBackend** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
-2. Azure 웹 사이트를 게시 대상으로 선택합니다.
+2. 게시 대상으로 **Microsoft Azure 웹 앱**을 선택합니다.
 
     ![][B15]
 
-3. Azure 계정으로 로그인하고 기존 또는 새로운 웹 사이트를 선택합니다.
+3. Azure 계정으로 로그인하고 기존 또는 새로운 웹 앱을 선택합니다.
 
     ![][B16]
 
@@ -359,4 +362,4 @@
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

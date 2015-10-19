@@ -139,9 +139,8 @@ SendGrid의 .NET 클래스 라이브러리는 **SendGridMail**이라고 합니�
     // Create an Web transport for sending email.
     var transportWeb = new Web(credentials);
 
-    // Send the email.
-    // You can also use the **DeliverAsync** method, which returns an awaitable task.
-    transportWeb.Deliver(myMessage);
+    // Send the email, which returns an awaitable task.
+    transportWeb.DeliverAsync(myMessage);
 
 ## 방법: 첨부 파일 추가
 
@@ -240,4 +239,4 @@ SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으�
   [클라우드 기반 전자 메일 서비스]: https://sendgrid.com/transactional-email
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

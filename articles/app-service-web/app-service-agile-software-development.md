@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/24/2015"
+	ms.date="09/24/2015"
 	ms.author="cephalin"/>
 
 
@@ -281,4 +281,4 @@ Agile 소프트웨어 개발은 Azure를 응용 프로그램 플랫폼으로 채
 -	[Azure AD에서 사용자 만들기 또는 편집](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 -	[프로젝트 Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

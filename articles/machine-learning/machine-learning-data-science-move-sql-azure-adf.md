@@ -1,20 +1,22 @@
-<properties 
+<properties
 	pageTitle="Azure 데이터 팩터리를 사용하여 온-프레미스 SQL Server에서 SQL Azure로 데이터 이동 | Azure"
 	description="온-프레미스와 클라우드의 데이터베이스 간에 데이터를 매일 이동하는 두 데이터 마이그레이션 활동으로 구성된 ADF 파이프라인을 설정합니다."
 	services="machine-learning"
 	documentationCenter=""
 	authors="fashah"
 	manager="jacob.spoelstra"
-	editor=""/>
+	editor=""
+	videoId=""
+	scriptId="" />
 
-<tags 
+<tags
 	ms.service="machine-learning"
 	ms.workload="data-services"
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/10/2015"
-	ms.author="fashah;bradsev"/>
+	ms.date="10/06/2015"
+	ms.author="fashah;bradsev" />
 
 
 # Azure 데이터 팩터리를 사용하여 온-프레미스 SQL server에서 SQL Azure로 데이터 이동
@@ -33,7 +35,7 @@ ADF와 함께 기존 데이터 처리 서비스는 가용성이 높고 클라우
 
 온-프레미스 SQL 데이터베이스와 클라우드의 Azure SQL 데이터베이스 간에 데이터를 매일 이동하는 두 데이터 마이그레이션 활동으로 구성된 ADF 파이프라인을 설정합니다. 두 활동은 다음과 같습니다.
 
-* 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소 계정으로 데이터 복사 
+* 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소 계정으로 데이터 복사
 * Azure Blob 저장소 계정에서 Azure SQL 데이터베이스로 데이터 복사
 
 **참조**: 여기에 표시된 단계는 ADF 팀에서 제공한 보다 자세한 자습서인 [파이프라인에서 온-프레미스 데이터를 사용할 수 있도록 설정](data-factory-use-onpremises-datasources.md)에서 도입한 것이며 해당 항목의 관련 섹션에 대한 참조는 필요한 경우 제공됩니다.
@@ -49,10 +51,10 @@ ADF와 함께 기존 데이터 처리 서비스는 가용성이 높고 클라우
 
 > [AZURE.NOTE]이 절차에서는 [Azure Preview 포털](https://ms.portal.azure.com/)을 사용합니다.
 
-##<a name="upload-data"></a>온-프레미스 SQL Server에 데이터 업로드 
+##<a name="upload-data"></a>온-프레미스 SQL Server에 데이터 업로드
 
 [NYC Taxi 데이터 집합](http://chriswhong.com/open-data/foil_nyc_taxi/)을 사용하여 마이그레이션 프로세스를 시연합니다. 해당 게시물에서 설명한 것처럼 NYC Taxi 데이터 집합은 Azure blob 저장소 [여기](http://www.andresmh.com/nyctaxitrips/)에서 제공됩니다. 데이터에는 두 개 파일이 있습니다. trip\_data.csv 파일에는 여정 세부 정보가 들어 있고 trip\_far.csv 파일에는 각 여정에 대한 요금 세부 정보가 들어 있습니다. 이러한 파일의 샘플 및 설명은 [NYC Taxi Trips 데이터 집합 설명](machine-learning-data-science-process-sql-walkthrough.md#dataset)에 제공됩니다.
- 
+
 
 자신의 데이터 집합에 여기에 제공된 절차를 도입하거나 NYC Taxi 데이터 집합을 사용하여 설명된 대로 단계를 따릅니다. NYC Taxi 데이터 집합을 온-프레미스 SQL Server 데이터베이스에 업로드하려면 [SQL Server 데이터베이스로 대량 데이터 가져오기](machine-learning-data-science-process-sql-walkthrough.md#dbload)에 설명된 절차를 따릅니다. 이러한 지침은 Azure 가상 컴퓨터의 SQL Server에 대한 내용이지만 온-프레미스 SQL Server로 업로드하는 절차는 동일합니다.
 
@@ -67,7 +69,7 @@ Azure 데이터 팩터리의 파이프라인에서 온-프레미스 SQL Server�
 데이터 관리 게이트웨이에 대한 설정 지침 및 자세한 내용은 [파이프라인에서 온-프레미스 데이터를 사용할 수 있도록 설정](data-factory-use-onpremises-datasources.md)을 참조하세요.
 
 
-## <a name="adflinkedservices"></a>데이터 리소스에 연결할 연결된 서비스 만들기 
+## <a name="adflinkedservices"></a>데이터 리소스에 연결할 연결된 서비스 만들기
 
 연결된 서비스는 Azure 데이터 팩터리가 데이터 리소스에 연결하기 위해 필요한 정보를 정의합니다. 연결된 서비스를 만들기 위한 단계별 절차가 [연결된 서비스 만들기](data-factory-use-onpremises-datasources.md#step-2-create-linked-services)에 제공됩니다.
 
@@ -92,11 +94,11 @@ Azure SQL 데이터베이스에 대한 연결된 서비스를 만들려면 Azure
 
 다음 스크립트 기반 프로시저로 데이터 집합의 구조, 위치 및 가용성을 지정하는 테이블을 만듭니다. 테이블을 정의하는 데 JSON 파일이 사용됩니다. 이러한 파일의 구조에 대한 자세한 내용은 [데이터 집합](data-factory-create-datasets.md)을 참조하세요.
 
-> [AZURE.NOTE][New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) cmdlet을 실행하기 전에 `Switch-AzureMode -Name AzureResourceManager` 및 `Add-AzureAccount` cmdlet을 실행하여 Azure PowerShell cmdlet이 사용 가능하며 명령 실행을 위해 적합한 Azure 구독이 선택되었는지 확인해야 합니다. 이러한 cmdlet에 대한 설명서는 [Switch-AzureMode](https://msdn.microsoft.com/library/dn722470.aspx) 및 [Add-AzureAccoun](https://msdn.microsoft.com/library/azure/dn790372.aspx)를 참조하세요.
- 
+> [AZURE.NOTE][New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) cmdlet을 실행하기 전에 `Add-AzureAccount` cmdlet을 실행하여 명령 실행을 위해 Azure 구독을 선택했는지 확인해야 합니다. 이 cmdlet의 설명서는 [Add-azureaccount](https://msdn.microsoft.com/library/azure/dn790372.aspx)를 참조하세요.
+
 테이블에서 JSON 기반 정의는 다음 이름을 사용합니다.
 
-* 온-프레미스 SQL server에서 **테이블 이름**은 *nyctaxi\_data*입니다.
+* 온 프레미스 SEL 서버의 **테이블 이름**은 *nyctaxi\_data*임
 * Azure Blob 저장소 계정에서 **컨테이너 이름**은 *containername*입니다.  
 
 이 ADF 파이프라인에는 3개의 테이블 정의가 필요합니다.
@@ -121,7 +123,7 @@ Azure SQL 데이터베이스에 대한 연결된 서비스를 만들려면 Azure
 		    	"tableName": "nyctaxi_data",
 		    	"linkedServiceName": "adfonpremsql"
 		    	},
-		    	"availability": 
+		    	"availability":
 		    	{
 		    	"frequency": "Day",
 		    	"interval": 1,   
@@ -131,7 +133,7 @@ Azure SQL 데이터베이스에 대한 연결된 서비스를 만들려면 Azure
 		    	"retryTimeout": "00:10:00",
 		    	"maximumRetry": 3
 		    	}
-		    	
+
 		    	}
 	    	}
     	}
@@ -149,7 +151,7 @@ Azure SQL 데이터베이스에 대한 연결된 서비스를 만들려면 Azure
 		    "name": "OutputBlobTable",
 		    "properties":
 		    {
-			    "location": 
+			    "location":
 			    {
 			    "type": "AzureBlobLocation",
 			    "folderPath": "containername",
@@ -160,14 +162,14 @@ Azure SQL 데이터베이스에 대한 연결된 서비스를 만들려면 Azure
 			    },
 			    "linkedServiceName": "adfds"
 			    },
-			    "availability": 
+			    "availability":
 			    {
 			    "frequency": "Day",
 			    "interval": 1
 			    }
 		    }
 	    }
- 
+
 테이블의 JSON 정의를 *bloboutputtabledef.json*이라는 파일로 복사하고 알려진 위치에 저장합니다(여기서는 *C:\\temp\\bloboutputtabledef.json*으로 간주). 다음 Azure PowerShell cmdlet을 사용하여 ADF에 테이블을 만듭니다.
 
 	New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json  
@@ -190,14 +192,14 @@ SQL Azure 출력에 대한 테이블 정의가 다음과 같습니다(이 스키
 	            "tableName": "your_db_name",
 	            "linkedServiceName": "adfdssqlazure_linked_servicename"
 	        },
-	        "availability": 
+	        "availability":
 	        {
 	            "frequency": "Day",
 	            "interval": 1            
 	        }
 	    }
 	}
-  
+
 테이블의 JSON 정의를 *AzureSqlTable.json*이라는 파일로 복사하고 알려진 위치에 저장합니다(여기서는 *C:\\temp\\AzureSqlTable.json*으로 간주). 다음 Azure PowerShell cmdlet을 사용하여 ADF에 테이블을 만듭니다.
 
 	New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json  
@@ -212,7 +214,7 @@ SQL Azure 출력에 대한 테이블 정의가 다음과 같습니다(이 스키
 > [AZURE.NOTE]다음 절차에서는 Azure PowerShell을 사용하여 ADF 파이프라인을 정의하고 만듭니다. 그러나 이러한 작업은 Azure 미리 보기 포털을 사용해서도 수행할 수 있습니다. 자세한 내용은 [파이프라인 만들기 및 실행](data-factory-use-onpremises-datasources.md#step-4-create-and-run-a-pipeline)을 참조하세요.
 
 위에 제공된 테이블 정의를 사용하여 ADF에 대한 파이프라인 정의는 다음과 같이 지정됩니다.
-    
+
 		{
 		    "name": "AMLDSProcessPipeline",
 		    "properties":
@@ -246,7 +248,7 @@ SQL Azure 출력에 대한 테이블 정의가 다음과 같습니다(이 스키
 		                    "retry": 0,
 		                    "timeout": "01:00:00"
 		                }       
-		
+
 		             },
 
 					{
@@ -254,7 +256,7 @@ SQL Azure 출력에 대한 테이블 정의가 다음과 같습니다(이 스키
 						"description": "Push data to Sql Azure",		
 						"type": "CopyActivity",
 						"inputs": [ {"name": "OutputBlobTable"} ],
-						"outputs": [ {"name": "OutputSQLAzureTable"} ],	
+						"outputs": [ {"name": "OutputSQLAzureTable"} ],
 						"transformation":
 						{
 							"source":
@@ -282,16 +284,16 @@ SQL Azure 출력에 대한 테이블 정의가 다음과 같습니다(이 스키
 
 파이프라인의 이 JSON 정의를 *pipelinedef.json*이라는 파일로 복사하고 알려진 위치에 저장합니다(여기서는 *C:\\temp\\pipelinedef.json*으로 간주). 다음 Azure PowerShell cmdlet을 사용하여 ADF에 파이프라인을 만듭니다.
 
-	New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json 
+	New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 
 Azure 포털의 ADF에서 다음과 같이 파이프라인이 표시되는지 확인합니다(다이어그램을 클릭할 때).
 
-![](http://i.imgur.com/DJP1kji.png)
+![](media/machine-learning-data-science-move-sql-azure-adf/DJP1kji.png)
 
 ##<a name="adf-pipeline-start"></a>파이프라인 시작
 이제 다음 명령을 사용하여 파이프라인을 실행할 수 있습니다.
 
-	Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp -StartDateTime startdateZ –EndDateTime enddateZ –Name AMLDSProcessPipeline 
+	Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp -StartDateTime startdateZ –EndDateTime enddateZ –Name AMLDSProcessPipeline
 
 *startdate* 및 *enddate* 매개 변수 값을 파이프라인을 실행할 실제 날짜로 바꿔야 합니다.
 
@@ -299,4 +301,4 @@ Azure 포털의 ADF에서 다음과 같이 파이프라인이 표시되는지 �
 
 데이터를 증분 방식으로 파이프하는 ADF 제공 기능을 활용하지 않았습니다. 이 작업을 수행하는 방법 및 ADF에서 제공하는 기타 기능에 대한 자세한 내용은 [ADF 설명서](http://azure.microsoft.com/services/data-factory/)를 참조하세요.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="10/07/2015" 
 	ms.author="awills"/>
  
 # 연습: 스트림 분석을 사용하여 Application Insights에서 SQL로 내보내기
@@ -258,7 +258,7 @@ Application Insights 리소스의 이름 및 iKey를 가져오려면 해당 개�
       ,A.context.location.province as province
       ,A.context.location.city as city
     INTO
-      AIOuput
+      AIOutput
     FROM AIinput A
     CROSS APPLY GetElements(A.[view]) as flat
 
@@ -314,4 +314,4 @@ SQL 데이터베이스를 지정합니다.
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

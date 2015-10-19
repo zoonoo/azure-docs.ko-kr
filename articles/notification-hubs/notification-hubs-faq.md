@@ -47,13 +47,13 @@
 Apple iOS, Android, Windows 유니버설/Windows Phone, Kindle, Android China(Baidu 제공), Xamarin(iOS/Android), Chrome 앱 플랫폼 등으로 알림을 보낼 수 있습니다. 이러한 플랫폼용 단계별 시작 자습서는 [NH - 시작 자습서]에서 제공됩니다.
 
 ###3\. 문자 메시지/전자 메일/웹 알림이 지원되나요?
-알림 허브는 기본적으로 위에 나와 있는 플랫폼을 사용하여 모바일 앱에 알림을 보내는 데 사용됩니다. 따라서 전자 메일이나 문자 메시지를 보내는 기능은 제공되지 않습니다. 그러나 이러한 기능을 제공하는 타사 플랫폼을 알림 허브와 통합하여 Azure 모바일 서비스를 사용해 네이티브 푸시 알림을 보낼 수는 있습니다. 예를 들어 Azure 모바일 서비스를 사용하여 문자 메시지 알림을 보내는 방법에 대해 [모바일 서비스에서 문자 메시지 보내기] 자습서에서 설명합니다. 브라우저 내 푸시 알림 기능도 기본적으로 제공되지 않습니다. 원하는 고객은 SignalR을 사용하여 이 기능을 구현할 수 있습니다. Google Chrome 브라우저에서 작동하는 Chrome 앱으로 푸시 알림을 보내는 방법을 설명하는 자습서도 제공됩니다. [Chrome 앱 자습서]를 참조하십시오.
+알림 허브는 기본적으로 위에 나와 있는 플랫폼을 사용하여 모바일 앱에 알림을 보내는 데 사용됩니다. 따라서 전자 메일이나 문자 메시지를 보내는 기능은 제공되지 않습니다. 그러나 이러한 기능을 제공하는 타사 플랫폼을 알림 허브와 통합하여 Azure 모바일 서비스를 사용해 네이티브 푸시 알림을 보낼 수는 있습니다. 브라우저 내 푸시 알림 기능도 기본적으로 제공되지 않습니다. 원하는 고객은 SignalR을 사용하여 이 기능을 구현할 수 있습니다. Google Chrome 브라우저에서 작동하는 Chrome 앱으로 푸시 알림을 보내는 방법을 설명하는 자습서도 제공됩니다. [Chrome 앱 자습서]를 참조하세요.
 
 ###4\. Azure 모바일 서비스와 Azure 알림 허브 간에는 어떤 관련성이 있으며 이 두 항목은 각각 어떤 경우에 사용해야 하나요?
-기존 모바일 앱 백 엔드가 있으며 푸시 알림을 보내는 기능만 추가하려는 경우 Azure 알림 허브를 사용해야 합니다. 모바일 앱 백 엔드를 처음부터 설정하려면 Azure 모바일 서비스를 사용하는 것이 좋습니다. Azure 모바일 서비스는 모바일 앱 백 엔드에서 푸시 알림을 쉽게 보낼 수 있도록 알림 허브를 자동으로 프로비전합니다. Azure 모바일 서비스 가격에는 알림 허브의 기본 요금이 포함되며, 푸시 사용량이 기본으로 포함된 푸시를 초과하는 경우에만 요금을 지불하면 됩니다. 자세한 내용은 [모바일 서비스 가격]을 참조하십시오.
+기존 모바일 앱 백 엔드가 있으며 푸시 알림을 보내는 기능만 추가하려는 경우 Azure 알림 허브를 사용해야 합니다. 모바일 앱 백 엔드를 처음부터 설정하려면 Azure 모바일 서비스를 사용하는 것이 좋습니다. Azure 모바일 서비스는 모바일 앱 백 엔드에서 푸시 알림을 쉽게 보낼 수 있도록 알림 허브를 자동으로 프로비전합니다. Azure 모바일 서비스 가격에는 알림 허브의 기본 요금이 포함되며, 푸시 사용량이 기본으로 포함된 푸시를 초과하는 경우에만 요금을 지불하면 됩니다. 자세한 내용은 [모바일 서비스 가격]을 참조하세요.
 
 ###5\. 지원 가능한 장치 수는 몇 대인가요?
-기본 및 표준 계층에서는 알림을 받을 수 있는 활성 장치 수에 제한이 없습니다. 자세한 내용은 [알림 허브 가격]을 참조하십시오.
+기본 및 표준 계층에서는 알림을 받을 수 있는 활성 장치 수에 제한이 없습니다. 자세한 내용은 [알림 허브 가격]을 참조하세요.
 
 ###6\. 보낼 수 있는 푸시 알림 수는 몇 개인가요?
 고객들은 Azure 알림 허브를 사용하여 매일 수백만 건의 푸시 알림을 보내고 있습니다. 즉, 알림 허브를 확장하기 위해 별도의 작업을 수행할 필요가 없습니다. 시스템에서 전송되는 알림 수에 따라 알림 허브가 자동으로 확장되기 때문입니다. 가격은 전송되는 푸시 알림에 따라 변경되지 않습니다.
@@ -119,7 +119,6 @@ Azure 알림 허브에서는 Azure 관리 포털의 원격 분석 데이터를 �
 [사례 연구 - 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [NH - REST API]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [NH - 시작 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[모바일 서비스에서 문자 메시지 보내기]: http://azure.microsoft.com/documentation/articles/partner-twilio-mobile-services-how-to-use-voice-sms/
 [Chrome 앱 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
 [모바일 서비스 가격]: http://azure.microsoft.com/pricing/details/mobile-services/
 [백 엔드 등록 지침]: https://msdn.microsoft.com/library/azure/dn743807.aspx
@@ -131,4 +130,4 @@ Azure 알림 허브에서는 Azure 관리 포털의 원격 분석 데이터를 �
 [NH - 메트릭 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [등록 내보내기/가져오기]: https://msdn.microsoft.com/library/dn790624.aspx
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

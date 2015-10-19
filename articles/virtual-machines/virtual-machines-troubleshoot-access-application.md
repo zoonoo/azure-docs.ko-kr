@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/01/2015"
+	ms.date="10/05/2015"
 	ms.author="dkshir"/>
 
 # Azure 가상 컴퓨터에서 실행 중인 응용 프로그램에 대한 액세스 문제 해결
@@ -112,4 +112,4 @@ Windows 기반 가상 컴퓨터에서, 방화벽 규칙이 사용자의 응용 �
 
 [Linux 기반 Azure 가상 컴퓨터에 SSH(보안 셸) 연결 문제 해결](virtual-machines-troubleshoot-ssh-connections.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

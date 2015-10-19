@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows-store" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/14/2015" 
+	ms.date="10/06/2015" 
 	ms.author="glenga"/>
 
 # 유니버설 Windows 8.1 앱에 인증 추가
@@ -22,11 +22,9 @@
 
 이 항목에서는 유니버설 Windows 8.1 앱에서 Azure 모바일 서비스의 사용자를 인증하는 방법을 보여 줍니다. 이 자습서에서는 모바일 서비스가 지원하는 ID 공급자를 사용하여 퀵 스타트 프로젝트에 인증을 추가합니다. 모바일 서비스에서 인증되고 권한이 부여된 후 사용자 ID 값이 표시됩니다.
 
-이 자습서는 모바일 서비스 퀵 스타트를 기반으로 합니다. 먼저 [모바일 서비스 시작] 또는 [기존 앱에 모바일 서비스 추가](mobile-services-javascript-backend-windows-universal-dotnet-get-started-data.md) 자습서를 완료해야 합니다.
+이 자습서는 모바일 서비스 quickstart를 기반으로 합니다. 먼저 [모바일 서비스 시작] 자습서를 완료해야 합니다.
 
 >[AZURE.NOTE]이 자습서에서는 Windows 스토어 및 Windows Phone 스토어 8.1 앱에서 사용자를 인증하는 방법을 보여 줍니다. Windows Phone 8.0 또는 Windows Phone Silverlight 8.1 앱의 경우 [모바일 서비스에서 인증 시작](mobile-services-windows-phone-get-started-users.md) 버전을 참조하세요.
-
->이 자습서에서는 다양한 ID 공급자를 사용하여 서비스 관리 인증 흐름을 보여 줍니다. 이 방법은 간편하게 구성할 수 있으며 여러 공급자를 지원합니다. 대신 Windows 스토어 앱의 라이브 SDK를 사용하는 클라이언트 관리 흐름을 사용하려면 [Microsoft 계정을 사용하여 클라이언트 관리 인증으로 Windows 스토어 앱 인증](mobile-services-windows-store-dotnet-single-sign-on.md) 항목을 참조하세요.
 
 ##<a name="register"></a> 인증을 위해 앱 등록 및 모바일 서비스 구성
 
@@ -73,15 +71,13 @@
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
 
 [모바일 서비스 시작]: mobile-services-javascript-backend-windows-store-dotnet-get-started.md
-[Get started with data]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-data.md
 [Get started with authentication]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-users.md
 [Get started with push notifications]: ../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md
 [Authorize users with scripts]: ../mobile-services-windows-store-dotnet-authorize-users-in-scripts.md
-[JavaScript and HTML]: mobile-services-windows-store-javascript-get-started-users.md
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [모바일 서비스 .NET 방법 개념 참조]: mobile-services-windows-dotnet-how-to-use-client-library.md
 [Register your Windows Store app package for Microsoft authentication]: ../mobile-services-how-to-register-store-app-package-microsoft-authentication.md
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

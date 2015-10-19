@@ -28,7 +28,7 @@
 
 ### IoT Suite 프로비전
 
-미리 구성된 원격 모니터링 솔루션을 아직 프로비전하지 않은 경우 [여기](www.internetofyourthings.com)에서 프로비전할 수 있습니다.
+미리 구성된 원격 모니터링 솔루션을 아직 프로비전하지 않은 경우 [여기](http://www.microsoft.com/ko-KR/server-cloud/internet-of-things/getting-started.aspx)에서 프로비전할 수 있습니다.
 
 
 ### 원격 모니터링 솔루션에서 장치 프로비전
@@ -149,7 +149,7 @@ Note: if you have already provisioned a device on your solution, you can skip th
 
 - 이더넷 케이블을 사용하여 보드를 네트워크에 연결합니다. 이 단계는 샘플이 인터넷 액세스에 의존하므로 필요합니다.
 
-- 마이크로 USB 케이블을 사용하여 장치를 컴퓨터에 연결합니다. "시작" 섹션의 [여기](https://developer.mbed.org/platforms/IBMEthernetKit/)의 그림과 같이 케이블을 장치에서 올바른 USB 포트에 연결해야 합니다.
+- 마이크로 USB 케이블을 사용하여 장치를 컴퓨터에 연결합니다. "시작" 섹션의 [여기](https://developer.mbed.org/platforms/frdm-k64f/)의 그림과 같이 케이블을 장치에서 올바른 USB 포트에 연결해야 합니다.
 
 - [mbed handbook의 지침](https://developer.mbed.org/handbook/SerialPC)을 따라 개발 컴퓨터에서 장치의 직렬 연결을 설정합니다. Windows에 있는 경우 [여기](http://developer.mbed.org/handbook/Windows-serial-configuration#1-download-the-mbed-windows-serial-port)에 있는 Windows 직렬 포트 드라이버를 설치합니다.
 
@@ -199,9 +199,8 @@ mbed 프로젝트 만들기 및 샘플 코드 가져오기
 
 - PuTTY와 같은 SSH 클라이언트 응용 프로그램을 사용하여 장치에 연결합니다. Windows 장치 관리자를 확인하여 장치가 사용하는 직렬 포트를 확인할 수 있습니다.
 
-	![][10]
 
-- PuTTY에서 **직렬** 연결 유형을 클릭합니다. 장치는 115200에서 연결할 가능성이 크므로 **속도** 상자에 해당 값을 입력합니다. 그런 다음 **열기**를 클릭합니다.
+- PuTTY에서 **직렬** 연결 형식을 클릭합니다. 장치는 115200에서 연결할 가능성이 크므로 **속도** 상자에 해당 값을 입력합니다. 그런 다음 **열기**를 클릭합니다.
 
 	![][11]
 
@@ -293,7 +292,8 @@ node .
 - 실행하려는 명령을 선택합니다. 이 경우 장치가 설정된 온도를 변경하려고 하므로 "온도 설정"을 선택합니다. 해당 명령을 선택하고 온도 값을 선택합니다. 명령 전송을 클릭하고 새 온도를 장치에 밀어 넣습니다. 참고: 명령 기록에서 명령의 결과가 "보류 중"으로 표시됩니다. 단순화하기 위해 이 샘플은 IoT Hub에 응답하도록 장치의 어떠한 논리도 구현하지 않았습니다. 솔루션을 확장하여 수행할 수 있습니다.
 
 	![][14]
-- 대시보드로 돌아가서 업데이트된 데이터가 들어오는지 확인합니다. 온도에서 업데이트된 통계 및 원격 분석 기록에서 표시되고 있는 새로운 데이터가 표시됩니다. ![][15]
+- 대시보드로 돌아가서 업데이트된 데이터가 들어오는지 확인합니다. 온도에서 업데이트된 통계 및 원격 분석 기록에서 표시되고 있는 새로운 데이터가 표시됩니다.
+
 
 
 
@@ -305,8 +305,8 @@ node .
 [18]: ./media/iot-suite-connecting-devices/suite10.png
 
 
-## 솔루션 확장
+## 다음 단계
 
-이 샘플의 기능을 확장하는 방법은 다양합니다. 실제 센서를 장치에 연결하여 실제 날짜를 보내고 명령을 구현하고 기능을 제어합니다. 원격 모니터링 솔루션을 확장하는 방법에 대한 자세한 내용은 지침을 사용하세요.
+이 샘플의 기능을 확장하는 방법은 실제 센서를 장치에 연결하여 실제 날짜를 보내고 명령을 구현하고 기능을 제어하는 등 다양합니다. 원격 모니터링 솔루션을 확장하는 방법에 대한 자세한 내용은 [지침](articles/iot-suite/iot-suite-guidance-on-customizing-preconfigured-solutions.md)을 사용하세요.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

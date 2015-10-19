@@ -1,6 +1,6 @@
 <properties
-	pageTitle=".NET SDK를 사용한 VoD(주문형 비디오) 콘텐츠 제공 시작"
-	description="이 자습서에서는 .NET을 사용한 Azure 미디어 서비스로 VoD(주문형 비디오) 콘텐츠 배달 응용 프로그램을 구현하는 단계를 안내합니다."
+	pageTitle=".NET SDK를 사용한 주문형 콘텐츠 제공 시작"
+	description="이 자습서에서는 .NET을 사용한 Azure 미디어 서비스로 주문형 콘텐츠 배달 응용 프로그램을 구현하는 단계를 안내합니다."
 	services="media-services"
 	documentationCenter=""
 	authors="Juliako"
@@ -13,17 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/18/2015"
+	ms.date="10/05/2015"
 	ms.author="juliako"/>
 
 
-# .NET SDK를 사용한 VoD(주문형 비디오) 콘텐츠 제공 시작
+# .NET SDK를 사용한 주문형 콘텐츠 제공 시작
 
 [AZURE.INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 
->[AZURE.NOTE]
-> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+>[AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
 이 자습서에서는 Azure Media Services(AMS) SDK for .NET를 사용하여 VoD(주문형 비디오) 콘텐츠 배달 응용 프로그램을 구현하는 단계를 안내합니다.
 
@@ -35,7 +34,7 @@ Media Services SDK for .NET을 사용하여 개발을 시작하려면 다음 필
 
 - 운영 체제: Windows 8 이상, Windows 2008 R2, Windows 7
 - .NET Framework 4.5 또는 .NET Framework 4.0
-- Visual Studio 2013, Visual Studio 2012, Visual Studio 2010 SP1(Professional, Premium, Ultimate 또는 Express)
+- Visual Studio 2010 SP1(Professional, Premium, Ultimate 또는 Express) 이상.
 
 
 다음 작업은 이 빠른 시작에 표시됩니다.
@@ -119,14 +118,9 @@ Azure 미디어 서비스 작업 시 가장 일반적인 시나리오 중 하나
 
 4. App.config 파일을 열고(기본적으로 추가되지 않은 경우 프로젝트에 파일 추가) *appSettings* 섹션을 파일에 추가합니다. Azure 미디어 서비스 계정 이름 및 계정 키의 값을 다음 예제와 같이 설정합니다. 계정 이름 및 키 정보를 얻으려면 Azure 포털을 열고 미디어 서비스 계정을 선택한 다음 **키 관리** 단추를 클릭합니다.
 
-	 <pre><code>
-&lt;configuration>
-    &lt;appSettings>
-	&lt;add key="MediaServicesAccountName" value="Media-Services-Account-Name" />
-    	&lt;add key="MediaServicesAccountKey" value="Media-Services-Account-Key" />
-    &lt;/appSettings>
-&lt;/configuration>
-</code></pre>
+	<configuration> ... <appSettings> <add key="MediaServicesAccountName" value="Media-Services-Account-Name" /> <add key="MediaServicesAccountKey" value="Media-Services-Account-Key" /> </appSettings>
+	  
+	</configuration>이온&gt; </code></pre>
 
 5. Program.cs 파일의 앞부분에 있는 기존 **using** 문을 다음 코드로 덮어씁니다.
 
@@ -419,13 +413,18 @@ MPEG DASH
 점진적 다운로드를 테스트하려면 Internet Explorer, Chrome, Safari 등의 브라우저에 URL을 붙여넣습니다.
 
 
+##다음 단계
 
-##미디어 서비스 학습 경로
+###미디어 서비스 학습 경로
 
 여기서 AMS 학습 경로를 볼 수 있습니다.
 
 - [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+### 다른 정보를 찾으시나요?
+
+이 항목이 예상했던 사항을 포함하지 않거나 누락한 경우 또는 일부가 사용자 요구를 충족하지 않은 경우 아래 Disqus 스레드를 사용하여 피드백을 주시기 바랍니다.
 
 
 <!-- Anchors. -->
@@ -435,4 +434,4 @@ MPEG DASH
   [Web Platform Installer]: http://go.microsoft.com/fwlink/?linkid=255386
   [Portal]: http://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

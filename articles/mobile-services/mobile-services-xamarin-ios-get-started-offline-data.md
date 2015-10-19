@@ -1,18 +1,18 @@
 <properties 
-	pageTitle="모바일 서비스에서 오프라인 데이터 사용(Xamarin iOS) | Microsoft Azure"
-	description="Azure 모바일 서비스를 사용하여 Xamarin iOS 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법에 대해 알아봅니다."
-	documentationCenter="xamarin"
-	authors="lindydonna"
-	editor="wesmc"
-	manager="dwrede"
+	pageTitle="모바일 서비스에서 오프라인 데이터 사용(Xamarin iOS) | Microsoft Azure" 
+	description="Azure 모바일 서비스를 사용하여 Xamarin iOS 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법에 대해 알아봅니다." 
+	documentationCenter="xamarin" 
+	authors="lindydonna" 
+	editor="wesmc" 
+	manager="dwrede" 
 	services="mobile-services"/>
 
 <tags 
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="article"
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
 	ms.date="07/01/2015"
 	ms.author="donnam"/>
 
@@ -175,7 +175,6 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 <!-- URLs. -->
 [모바일 서비스에 대한 오프라인 지원을 통해 충돌 처리]: ../mobile-services-xamarin-ios-handling-conflicts-offline-data.md
 [모바일 서비스에서 오프라인 데이터 동기화를 사용하여 충돌 처리]: ../mobile-services-xamarin-ios-handling-conflicts-offline-data.md
-[Get started with data]: mobile-services-ios-get-started-data.md
 [모바일 서비스 시작]: mobile-services-ios-get-started.md
 [Azure 모바일 서비스용 Xamarin Component 클라이언트를 사용하는 방법]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [일시 삭제]: mobile-services-using-soft-delete.md
@@ -184,4 +183,4 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 [Xamarin 확장]: http://xamarin.com/visual-studio
  
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

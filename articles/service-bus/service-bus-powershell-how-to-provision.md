@@ -1,5 +1,5 @@
 <properties
-	pageTitle="PowerShell을 사용하여 서비스 버스 관리"
+	pageTitle="PowerShell을 사용하여 서비스 버스 관리 | Microsoft Azure"
 	description=".NET 대신 PowerShelll 스크립트를 사용하여 서비스 버스 관리"
 	services="service-bus"
 	documentationCenter=".net"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="06/18/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 # PowerShell을 사용하여 서비스 버스 관리
@@ -45,8 +45,7 @@ Microsoft Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어 �
 
 PowerShell 스크립트에서 이러한 단계는 다음과 같이 구현됩니다.
 
-```powershell
-
+```
 try
 {
     # WARNING: Make sure to reference the latest version of Microsoft.ServiceBus.dll
@@ -63,12 +62,11 @@ catch [System.Exception]
 {
     Write-Error("Could not add the Microsoft.ServiceBus.dll assembly to the script. Make sure you build the solution before running the provisioning script.")
 }
-
 ```
 
 ## 서비스 버스 네임스페이스 프로비전
 
-두 PowerShell cmdlet은 서비스 버스 네임스페이스 작업을 지원합니다. .NET SDK API 대신 [Get-AzureSBNamespace] 및 [New-AzureSBNamespace]를 사용할 수 있습니다.
+두 PowerShell cmdlet은 서비스 버스 네임스페이스 작업을 지원합니다. .NET SDK API 대신 [Get-AzureSBNamespace][] 및 [New-AzureSBNamespace][]를 사용할 수 있습니다.
 
 이 예제에서는 스크립트에 `$Namespace`과(와) `$Location`(이)라는 몇 가지 로컬 변수를 만듭니다.
 
@@ -84,8 +82,7 @@ catch [System.Exception]
 2. 네임스페이스가 있으면 발견된 항목을 보고합니다.
 3. 네임스페이스가 없으면 만든 다음 새로 만든 네임스페이스를 검색합니다.
 
-	``` powershell
-	
+	```
 	$Namespace = "MyServiceBusNS"
 	$Location = "West US"
 	
@@ -105,10 +102,9 @@ catch [System.Exception]
 	    $CurrentNamespace = Get-AzureSBNamespace -Name $Namespace
 	    Write-Host "The [$Namespace] namespace in the [$Location] region has been successfully created."
 	}
-
 	```
 
-다른 서비스 버스 엔터티를 프로비전하려면 SDK에서 `NamespaceManager` 클래스의 인스턴스를 만듭니다. [Get-AzureSBAuthorizationRule] cmdlet을 사용하면 연결 문자열을 제공하는 데 사용되는 권한 부여 규칙을 검색할 수 있습니다. 여기서는 `NamespaceManager` 인스턴스에 대한 참조를 `$NamespaceManager` 변수에 저장합니다. 나중에 스크립트에 `$NamespaceManager`를 사용하여 다른 엔터티를 프로비전합니다.
+다른 서비스 버스 엔터티를 프로비전하려면 SDK에서 [NamespaceManager][] 클래스의 인스턴스를 만듭니다. [Get-AzureSBAuthorizationRule][] cmdlet을 사용하면 연결 문자열을 제공하는 데 사용되는 권한 부여 규칙을 검색할 수 있습니다. 여기서는 `NamespaceManager` 인스턴스에 대한 참조를 `$NamespaceManager` 변수에 저장합니다. 나중에 스크립트에 `$NamespaceManager`를 사용하여 다른 엔터티를 프로비전합니다.
 
 ``` powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
@@ -120,7 +116,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 
 ## 다른 서비스 버스 엔터티 프로비전
 
-큐, 토픽, 이벤트 허브와 같은 다른 엔터티를 프로비전하려는 경우 [서비스 버스용 .NET API]를 사용합니다. 이 문서에서는 이벤트 허브에 대해서만 중점적으로 설명하지만 다른 엔터티에 대해 수행하는 단계도 비슷합니다. 뿐만 아니라 다른 엔터티를 비롯한 보다 자세한 예제도 이 문서 끝부분에 참조용으로 나와 있습니다.
+큐, 토픽, 이벤트 허브와 같은 다른 엔터티를 프로비전하려는 경우 [서비스 버스용 .NET API][]를 사용합니다. 이 문서에서는 이벤트 허브에 대해서만 중점적으로 설명하지만 다른 엔터티에 대해 수행하는 단계도 비슷합니다. 뿐만 아니라 다른 엔터티를 비롯한 보다 자세한 예제도 이 문서 끝부분에 참조용으로 나와 있습니다.
 
 이 스크립트 부분에서는 로컬 변수를 4개 더 만듭니다. 이러한 변수는 `EventHubDescription` 개체를 인스턴스화하는 데 사용됩니다. 이 스크립트는 다음을 수행합니다.
 
@@ -128,8 +124,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 2. 해당 이벤트 허브가 없으면 `EventHubDescription`을(를) 만든 다음 `NamespaceManager` 클래스의 `CreateEventHubIfNotExists` 메서드에 전달합니다.
 3. 이벤트 허브를 사용할 수 있음을 확인한 후 `ConsumerGroupDescription` 및 `NamespaceManager`을(를) 사용하여 소비자 그룹을 만듭니다.
 
-	``` powershell
-		
+	```
 	$Path  = "MyEventHub"
 	$PartitionCount = 12
 	$MessageRetentionInDays = 7
@@ -170,7 +165,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 - [PowerShell 스크립트를 사용하여 서비스 버스 큐, 토픽 및 구독을 만드는 방법](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 - [PowerShell 스크립트를 사용하여 서비스 버스 네임스페이스 및 이벤트 허브를 만드는 방법](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
-[서비스 버스 PowerShell 스크립트](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)에서 즉시 사용 가능한 스크립트도 다운로드할 수 있습니다.
+[서비스 버스 PowerShell 스크립트](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)에서 즉시 사용 가능한 스크립트도 다운로드할 수 있습니다.
 
 <!--Link references-->
 [구매 옵션]: http://azure.microsoft.com/pricing/purchase-options/
@@ -181,7 +176,7 @@ Write-Output "NamespaceManager object for the [$Namespace] namespace has been su
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-[서비스 버스용 .NET API]: https://msdn.microsoft.com/library/microsoft.servicebus.aspx
- 
+[서비스 버스용 .NET API]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
+[NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

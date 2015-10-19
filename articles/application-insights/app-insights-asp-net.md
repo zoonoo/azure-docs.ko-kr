@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="10/05/2015" 
 	ms.author="awills"/>
 
 
@@ -64,7 +64,7 @@ Visual Studio에서 새 프로젝트를 만들 때 Application Insights를 선�
 
 ####<a name="land"></a> ‘Application Insights 추가'에서 무엇을 했나요?
 
-명령은 다음 단계를 수행했습니다(원하는 경우 수동으로 수행 가능).
+명령은 다음 단계를 수행했습니다.(원하는 경우 [수동으로 수행](app-insights-start-monitoring-app-health-usage.md) 가능)
 
 * [Azure 포털][portal]에 Application Insights 리소스를 만듭니다. 이곳에서 사용자의 데이터를 볼 수 있습니다. 리소스를 식별하는 *계측 키*를 검색합니다.
 * 프로젝트에 Application Insights 웹 SDK NuGet 패키지를 추가합니다. Visual Studio에서 보려면 프로젝트를 마우스 오른쪽 단추로 클릭하고 NuGet 패키지 관리를 선택합니다.
@@ -99,8 +99,9 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 #### 데이터가 없나요?
 
-* [검색][diagnostic] 타일을 열고 개별 이벤트를 봅니다.
+* 올바른 작업을 보고 있는지 확인하세요. [Azure 포털](https://portal.azure.com)에 로그인하고 "찾아보기 >", "Application Insights"를 클릭한 다음 앱을 선택합니다.
 * 응용 프로그램을 사용하여 여러 페이지를 열어 원격 분석을 생성해 봅니다.
+* [검색][diagnostic] 블레이드를 열고 개별 이벤트를 봅니다. 경우에 따라 이벤트가 메트릭 파이프라인을 통해 들어오려면 시간이 약간 더 걸립니다.
 * 몇 초 정도 기다렸다가 새로고침을 클릭합니다.
 * [문제 해결][qna]을 참조하세요.
 
@@ -111,15 +112,13 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 ## 브라우저 모니터링 추가
 
-브라우저 또는 클라이언트쪽 모니터링은 사용자, 세션, 페이지 보기 및 브라우저에서 발생하는 충돌 혹은 예외에 데이터를 제공합니다.
+브라우저 모니터링은 사용자, 세션, 페이지 보기 및 브라우저에서 발생하는 충돌 혹은 예외에 데이터를 제공합니다.
 
 ![새로 만들기, 개발자 서비스, Application Insights를 선택합니다.](./media/app-insights-asp-net/16-page-views.png)
 
 사용자는 응용 프로그램과 사용자의 고객이 함께 작동하는지 추적하는 코드를 오른쪽 아래의 클릭과 키 입력 세부 수준에서 작성할 수 있습니다.
 
-#### 클라이언트가 웹 브라우저인 경우
-
-앱을 웹 페이지에 표시하는 경우, 모든 페이지에 JavaScript 코드 조각을 추가합니다. Application Insights 리소스에서 코드를 가져옵니다.
+모든 페이지에 JavaScript 코드 조각을 추가합니다. Application Insights 리소스에서 코드를 가져옵니다.
 
 ![웹앱에서, 빠른 시작을 열고 '내 웹 페이지를 모니터링하는 코드를 얻기'를 클릭합니다.](./media/app-insights-asp-net/02-monitor-web-page.png)
 
@@ -127,11 +126,6 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 [웹 페이지 추적에 대해 더 알아보기](app-insights-web-track-usage.md)
 
-#### 클라이언트가 장치 앱인 경우
-
-응용 프로그램이 휴대폰 또는 기타 장치 등의 클라이언트에 서비스를 제공하는 경우 사용자의 장치 앱에 [적절한 SDK](app-insights-platforms.md)를 추가하세요.
-
-SDK 서버와 동일한 계측 키를 가진 SDK 클라이언트를 구성하는 경우 함께 볼 수 있도록 두 스트림은 통합됩니다.
 
 ## 사용 추적
 
@@ -196,7 +190,7 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 ![웹앱에서 설정, 확장, 추가, Application Insights](./media/app-insights-asp-net/05-extend.png)
 
-(확장은 SDK로 빌드된 앱만 보조해 줍니다. 상태 모니터와는 달리, 기존 응용 프로그램을 계측할 수 없습니다.)
+(또한 앱에 SDK를 설치하지 않았더라도 확장을 이미 살아있는 앱에 추가할 수 있습니다.)
 
 #### Azure 클라우드 서비스 역할을 모니터링하려면
 
@@ -248,4 +242,4 @@ ApplicationInsights.config에 대한 사용자 지정을 변경한 경우, 업�
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

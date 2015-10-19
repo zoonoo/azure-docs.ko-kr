@@ -1,20 +1,20 @@
 <properties 
    pageTitle="Nsp를 사용하여 Express 경로 구성"
-	description="이 자습서에서는 NSPs를 통한 Express 경로 설정 과정을 안내합니다."
-	documentationCenter="na"
-	services="expressroute"
-	authors="cherylmc"
-	manager="adinah"
-	editor="tysonn"/>
+   description="이 자습서에서는 NSPs를 통한 Express 경로 설정 과정을 안내합니다."
+   documentationCenter="na"
+   services="expressroute"
+   authors="cherylmc"
+   manager="adinah"
+   editor="tysonn"/>
 
 <tags 
    ms.service="expressroute"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="06/29/2015"
-	ms.author="cherylmc"/>
+   ms.devlang="na"
+   ms.topic="article" 
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services" 
+   ms.date="09/29/2015"
+   ms.author="cherylmc"/>
 
 #  네트워크 서비스 공급자를 통해 Express 경로 연결 구성
 
@@ -150,4 +150,4 @@ Azure PowerShell은 Azure에서 작업의 배포와 관리를 제어하고 자�
 		
 		Provisioned 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

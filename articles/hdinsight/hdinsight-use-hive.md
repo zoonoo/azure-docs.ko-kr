@@ -1,6 +1,7 @@
 <properties
 	pageTitle="Hive의 정의 및 HiveQL을 사용하는 방법을 알아봅니다 | Microsoft Azure"
 	description="Apache Hive 정보 및 HDInsight에서 Hadoop와 Apache Hive를 사용하는 방법을 알아봅니다. Hive 작업을 실행하고 HiveQL을 사용하여 Apache log4j 샘플 파일을 분석하는 방법을 선택합니다."
+	keywords="hiveql,what is hive"
 	services="hdinsight"
 	documentationCenter=""
 	authors="Blackmist"
@@ -14,7 +15,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/28/2015"
+	ms.date="10/05/2015"
 	ms.author="larryfr"/>
 
 # 샘플 Apache log4j 파일 분석을 위해 HDInsight에서 Hadoop와 함께 Hive 및 HiveQL 사용
@@ -97,15 +98,13 @@ Azure Blob 저장소가 HDInsight의 기본 저장소이므로 HiveQL의 **/exam
 
 ##<a id="usetez"></a>성능 개선을 위해 Tez 사용
 
-[Apache Tez](http://tez.apache.org)는 Hive와 같이 데이터를 많이 사용하는 응용 프로그램을 큰 규모에서도 훨씬 더 효율적으로 실행할 수 있는 프레임워크입니다. HDInsight의 최신 릴리스에서는 Hive를 Tez에서 실행할 수 있습니다.
+[Apache Tez](http://tez.apache.org)는 Hive와 같이 데이터를 많이 사용하는 응용 프로그램을 큰 규모에서도 훨씬 더 효율적으로 실행할 수 있는 프레임워크입니다. HDInsight의 최신 릴리스에서는 Hive를 Tez에서 실행할 수 있습니다. Tez는 Linux 기반 HDInsight 클러스터에 대해 기본값으로 사용할 수 있습니다.
 
-Tez는 현재 Windows 기반 HDInsight 클러스터에 대해 기본적으로 꺼져 있으며 사용하도록 설정해야 합니다. Tez를 사용하려면 Hive 쿼리에 대해 다음 값을 설정해야 합니다:
-
-	set hive.execution.engine=tez;
-
-이 값을 쿼리 시작 부분에 배치하여 쿼리별로 제출할 수 있습니다. 클러스터를 만들 때 구성 값을 설정하여 클러스터에 대해 이 기능을 기본적으로 설정할 수도 있습니다. 자세한 내용은 [HDInsight 클러스터 프로비전](hdinsight-provision-clusters.md)에서 확인할 수 있습니다.
-
-Tez는 Linux 기반 HDInsight 클러스터에 대해 기본값으로 켜져 있습니다.
+> [AZURE.NOTE]Tez는 현재 Windows 기반 HDInsight 클러스터에 대해 기본적으로 꺼져 있으며 사용하도록 설정해야 합니다. Tez를 사용하려면 Hive 쿼리에 대해 다음 값을 설정해야 합니다:
+>
+> ```set hive.execution.engine=tez;```
+>
+>이 값을 쿼리 시작 부분에 배치하여 쿼리별로 제출할 수 있습니다. 클러스터를 만들 때 구성 값을 설정하여 클러스터에 대해 이 기능을 기본적으로 설정할 수도 있습니다. 자세한 내용은 [HDInsight 클러스터 프로비전](hdinsight-provision-clusters.md)에서 확인할 수 있습니다.
 
 [Tez의 Hive 디자인 문서](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez)에는 선택 가능한 구현 및 튜닝 구성과 관련한 여러 세부 정보가 포함되어 있습니다.
 
@@ -114,9 +113,10 @@ Tez는 Linux 기반 HDInsight 클러스터에 대해 기본값으로 켜져 있�
 
 HDInsight는 다양한 메서드를 사용하여 HiveQL 작업을 실행할 수 있습니다. 어떤 메서드가 적합한지 결정하는 다음 테이블을 사용하여 연습할 수 있는 링크를 따르세요.
 
-| 원하는 경우 **이것을 사용**하세요... | ...**대화형** 셸 | ...**일괄** 처리 | ...**클러스터 운영 체제**로 | ...**클라이언트 운영 체제**에서 |
+| 원하는 경우 **이것을 사용**하세요... | ...**대화형** 셸 | ...**배치** 처리 | ...**클러스터 운영 체제**로 | ...**클라이언트 운영 체제**에서 |
 |:--------------------------------------------------------------------------------|:---------------------------:|:-----------------------:|:------------------------------------------|:-----------------------------------------|
-| [SSH](hdinsight-hadoop-use-hive-ssh.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X, 또는 Windows |
+| [Beeline 명령(SSH 세션에서)](hdinsight-hadoop-use-hive-beeline.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X, 또는 Windows |
+| [Hive 명령(SSH 세션에서)](hdinsight-hadoop-use-hive-ssh.md) | ✔ | ✔ | Linux | Linux, Unix, Mac OS X, 또는 Windows |
 | [Curl](hdinsight-hadoop-use-hive-curl.md) | &nbsp; | ✔ | Linux 또는or Windows | Linux, Unix, Mac OS X, 또는 Windows |
 | [쿼리 콘솔e](hdinsight-hadoop-use-hive-query-console.md) | &nbsp; | ✔ | Windows | 브라우저 기반 |
 | [Visual Studio용 HDInsight 도구](hdinsight-hadoop-use-hive-visual-studio.md) | &nbsp; | ✔ | Linux 또는or Windows | Windows |
@@ -183,4 +183,4 @@ SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 �
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

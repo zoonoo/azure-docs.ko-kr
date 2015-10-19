@@ -1,6 +1,6 @@
 <properties
 	pageTitle=".NET 다중 계층 응용 프로그램 | Microsoft Azure"
-	description="Azure에서 서비스 버스 큐를 사용하여 계층 간에 통신하는 다중 계층 응용 프로그램을 개발하는 데 도움이 되는 자습서입니다. .NET 샘플을 제공합니다."
+	description="Azure에서 서비스 버스 큐를 사용하여 계층 간에 통신하는 다중 계층 응용 프로그램을 개발하는 데 도움이 되는 .NET 자습서입니다."
 	services="service-bus"
 	documentationCenter=".net"
 	authors="sethmanheim"
@@ -13,14 +13,14 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="07/02/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 # Azure 서비스 버스 큐를 사용하는 .NET 다중 계층 응용 프로그램
 
 ## 소개
 
-Visual Studio 2013 및 무료로 제공되는 Azure SDK for .NET을 사용하면 Microsoft Azure용 개발이 간단합니다. 아직 Visual Studio 2013이 없는 경우 SDK에서 Visual Studio Express를 자동으로 설치하므로 Azure용 개발을 무료로 시작할 수 있습니다. 이 문서에서는 이전에 Azure를 사용한 경험이 없는 사람을 대상으로 합니다. 이 자습서를 완료하면 로컬 환경에서 실행되는 여러 Azure 리소스를 사용하고 다중 계층 응용 프로그램의 작동 방식을 보여 주는 응용 프로그램을 갖게 됩니다.
+Visual Studio 및 무료로 제공되는 Azure SDK for .NET을 사용하면 Microsoft Azure용 개발이 간단합니다. 아직 Visual Studio가 없는 경우 SDK에서 Visual Studio Express를 자동으로 설치하므로 Azure용 개발을 무료로 시작할 수 있습니다. 이 문서에서는 이전에 Azure를 사용한 경험이 없는 사람을 대상으로 합니다. 이 자습서를 완료하면 로컬 환경에서 실행되는 여러 Azure 리소스를 사용하고 다중 계층 응용 프로그램의 작동 방식을 보여 주는 응용 프로그램을 갖게 됩니다.
 
 다음 내용을 배웁니다.
 
@@ -55,7 +55,7 @@ Visual Studio 2013 및 무료로 제공되는 Azure SDK for .NET을 사용하면
 
 -   **부하 평준화.** 많은 응용 프로그램에서 시스템 부하는 시간에 따라 다르지만 각 작업 단위에 필요한 처리 시간은 일반적으로 일정합니다. 큐를 사용한 메시지 생산자와 소비자 조정은 최대 부하가 아닌 평균 부하를 수용하려면 소비 응용 프로그램(작업자)만 프로비전해야 함을 의미합니다. 수신 부하가 변경됨에 따라 큐의 깊이가 증가하고 축소됩니다. 따라서 응용 프로그램 부하를 제공하는 데 필요한 인프라의 크기와 관련하여 비용이 직접적으로 절약됩니다.
 
--   **부하 분산.** 부하가 증가하면 뷰에서 읽을 작업자 프로세스가 더 추가될 수 있습니다. 각 메시지는 하나의 작업자 프로세스를 통해서만 처리됩니다. 또한 이 가져오기 기반 부하 분산에서는 작업자 컴퓨터가 최대 속도로 메시지를 가져올 때 처리 능력이 다른 경우에도 작업자 컴퓨터의 최적 사용률을 허용합니다. 이 패턴을 종종 경쟁 소비자 패턴이라고 합니다.
+-   **부하 분산.** 부하가 증가하면 뷰에서 읽을 작업자 프로세스가 더 추가될 수 있습니다. 각 메시지는 하나의 작업자 프로세스를 통해서만 처리됩니다. 또한 이 가져오기 기반 부하 분산에서는 작업자 컴퓨터가 최대 속도로 메시지를 가져올 때 처리 능력이 다른 경우에도 작업자 컴퓨터의 최적 사용률을 허용합니다. 이 패턴을 종종 *경쟁 소비자* 패턴이라고 합니다.
 
     ![][2]
 
@@ -85,13 +85,11 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
 
 ## 서비스 버스 네임스페이스 설정
 
-다음 단계에서는 서비스 네임스페이스를 만들고 SAS(공유 액세스 서명) 키를 얻습니다. 서비스 네임스페이스는 서비스 버스를 통해 노출되는 각 응용 프로그램에 대한 응용 프로그램 경계를 제공합니다. SAS 키는 서비스 네임스페이스가 만들어질 때 시스템에 의해 자동으로 생성됩니다. 서비스 네임스페이스 및 SAS 키 조합은 서비스 버스에 자격 증명을 제공하여 응용 프로그램에 대한 액세스를 인증합니다.
-
-> [AZURE.NOTE]Visual Studio 서버 탐색기를 사용하여 네임스페이스 및 서비스 버스 메시징 엔터티를 관리할 수도 있지만 Azure 포털 내에서는 새 네임스페이스를 만들 수만 있습니다.
+다음 단계에서는 서비스 네임스페이스를 만들고 SAS(공유 액세스 서명) 키를 얻습니다. 네임스페이스는 서비스 버스를 통해 노출되는 각 응용 프로그램에 대한 응용 프로그램 경계를 제공합니다. SAS 키는 서비스 네임스페이스가 만들어질 때 시스템에 의해 자동으로 생성됩니다. 네임스페이스 및 SAS 키 조합은 서비스 버스에 자격 증명을 제공하여 응용 프로그램에 대한 액세스를 인증합니다.
 
 ### Azure 포털을 사용하여 네임스페이스 설정
 
-1.  [Azure 포털][]에 로그인합니다.
+1.  [Azure 포털][]에 로그온합니다.
 
 2.  Azure 포털의 왼쪽 탐색 창에서 **서비스 버스**를 클릭합니다.
 
@@ -107,7 +105,7 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
 
     > [AZURE.IMPORTANT]응용 프로그램을 배포하도록 선택할 지역과 **같은 지역**을 선택합니다. 그러면 최상의 성능을 얻을 수 있습니다.
 
-6.  확인 표시를 클릭합니다. 이제 시스템이 서비스 네임스페이스를 만들고 사용하도록 설정합니다. 시스템이 계정에 대한 리소스를 프로비전하는 동안 몇 분 정도 기다려야 할 수도 있습니다.
+6.  확인 확인 표시를 클릭합니다. 이제 시스템이 서비스 네임스페이스를 만들고 사용하도록 설정합니다. 시스템이 계정에 대한 리소스를 프로비전하는 동안 몇 분 정도 기다려야 할 수도 있습니다.
 
 	![][27]
 
@@ -127,7 +125,7 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
 
 ## 웹 역할 만들기
 
-이 섹션에서는 응용 프로그램의 프런트 엔드를 빌드합니다. 먼저 응용 프로그램에서 표시하는 다양한 페이지를 만듭니다. 그런 다음 서비스 버스 큐에 항목을 제출하고 큐에 대한 상태 정보를 표시하는 코드를 추가합니다.
+이 섹션에서는 응용 프로그램의 프런트 엔드를 빌드합니다. 응용 프로그램에서 표시하는 다양한 페이지를 만듭니다. 그런 다음 서비스 버스 큐에 항목을 제출하고 큐에 대한 상태 정보를 표시하는 코드를 추가합니다.
 
 ### 프로젝트 만들기
 
@@ -155,7 +153,7 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
 
 6.  **솔루션 탐색기**에서 **참조**를 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 관리** 또는 **라이브러리 패키지 참조 추가**를 클릭합니다.
 
-7.  대화 상자의 왼쪽에서 **온라인**을 선택합니다. "**서비스 버스**"를 검색하고 **Microsoft Azure 서비스 버스** 항목을 선택합니다. 그런 다음 설치를 완료하고 이 대화 상자를 닫습니다.
+7.  대화 상자의 왼쪽에서 **온라인**을 선택합니다. “**서비스 버스**"를 검색하고 **Microsoft Azure 서비스 버스** 항목을 선택합니다. 그런 다음 설치를 완료하고 이 대화 상자를 닫습니다.
 
     ![][13]
 
@@ -247,7 +245,7 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
 
 7.  **추가**를 클릭합니다.
 
-8.  이제 응용 프로그램의 표시 이름을 변경합니다. **솔루션 탐색기**에서 **Views\\Shared\\\_Layout.cshtml** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
+8.  이제 응용 프로그램의 표시 이름을 변경합니다. **솔루션 탐색기**에서 **Views\\Shared\\_Layout.cshtml** 파일을 두 번 클릭하여 Visual Studio 편집기에서 엽니다.
 
 9.  **내 ASP.NET 응용 프로그램**과 일치하는 모든 항목을 **LITWARE 제품**으로 바꿉니다.
 
@@ -331,7 +329,7 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
             }
         }
 
-    참고로 이 자습서의 뒷부분에서는 **네임스페이스** 이름 및 SAS 키 값을 구성 파일에 저장하는 방법을 알아봅니다.
+    이 자습서의 뒷부분에서 **네임스페이스** 이름 및 SAS 키 값을 구성 파일에 저장하는 방법을 알아봅니다.
 
 4.  이제 **Initialize** 메서드가 호출되는지 확인합니다. **솔루션 탐색기**에서 **Global.asax\\Global.asax.cs**를 두 번 클릭합니다.
 
@@ -381,13 +379,13 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
 
 ## 클라우드 구성 관리자
 
-**Microsoft.WindowsAzure.Configuration.CloudConfigurationManager** 클래스의 **GetSettings** 메서드를 사용하여 플랫폼의 구성 저장소에서 구성 설정을 읽을 수 있습니다. 예를 들어 코드가 웹 또는 작업자 역할에서 실행되는 경우 **GetSettings** 메서드는 ServiceConfiguration.cscfg 파일을 읽고, 코드가 표준 콘솔 앱에서 실행되는 경우 **GetSettings** 메서드는 app.config 파일을 읽습니다.
+[Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][] 클래스의 [GetSetting][] 메서드를 사용하여 플랫폼의 구성 저장소에서 구성 설정을 읽을 수 있습니다. 예를 들어 코드가 웹 또는 작업자 역할에서 실행되는 경우 [GetSetting][] 메서드는 ServiceConfiguration.cscfg 파일을 읽고, 코드가 표준 콘솔 앱에서 실행되는 경우 [GetSetting][] 메서드는 app.config 파일을 읽습니다.
 
-서비스 버스 네임스페이스에 대한 연결 문자열을 구성 파일에 저장한 경우 **GetSettings** 메서드를 사용하여 **NamespaceMananger** 개체를 인스턴스화하는 데 사용할 수 있는 연결 문자열을 읽을 수 있습니다. **NamespaceMananger** 인스턴스를 사용하여 서비스 버스 네임스페이스를 프로그래밍 방식으로 구성할 수 있습니다. 동일한 연결 문자열을 사용하여 메시지 보내기 및 받기와 같은 런타임 작업을 수행하는 데 사용할 수 있는 클라이언트 개체(예: **QueueClient**, **TopicClient** 및 **EventHubClient** 개체)를 인스턴스화할 수 있습니다.
+서비스 버스 네임스페이스에 대한 연결 문자열을 구성 파일에 저장한 경우 [GetSetting][] 메서드를 사용하여 [NamespaceMananger][] 개체를 인스턴스화하는 데 사용할 수 있는 연결 문자열을 읽을 수 있습니다. [NamespaceMananger][] 인스턴스를 사용하여 서비스 버스 네임스페이스를 프로그래밍 방식으로 구성할 수 있습니다. 동일한 연결 문자열을 사용하여 메시지 보내기 및 받기와 같은 런타임 작업을 수행하는 데 사용할 수 있는 클라이언트 개체(예: [QueueClient][], [TopicClient][] 및 [EventHubClient][] 개체)를 인스턴스화할 수 있습니다.
 
 ### 연결 문자열
 
-클라이언트(예: 서비스 버스 **QueueClient**)를 인스턴스화하려면 구성 정보를 연결 문자열로 나타낼 수 있습니다. 클라이언트 쪽에는 해당 연결 문자열을 사용하여 해당 클라이언트 유형을 인스턴스화하는 `CreateFromConnectionString()` 메서드가 있습니다. 예를 들어 다음과 같은 구성 섹션에서
+클라이언트(예: 서비스 버스 [QueueClient][])를 인스턴스화하려면 구성 정보를 연결 문자열로 나타낼 수 있습니다. 클라이언트 쪽에는 해당 연결 문자열을 사용하여 해당 클라이언트 유형을 인스턴스화하는 `CreateFromConnectionString()` 메서드가 있습니다. 예를 들어 다음과 같은 구성 섹션에서
 
 	<ConfigurationSettings>
     ...
@@ -412,7 +410,7 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
 	// Initialize the connection to Service Bus queue.
 	Client = QueueClient.CreateFromConnectionString(connectionString, QueueName);
 
-다음 섹션의 코드에서는 **CloudConfigurationManager** 클래스를 사용합니다.
+다음 섹션의 코드에서는 [CloudConfigurationManager][Microsoft.WindowsAzure.Configuration.CloudConfigurationManager] 클래스를 사용합니다.
 
 ## 작업자 역할 만들기
 
@@ -446,7 +444,7 @@ Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 다운로�
 
 10. **FrontendWebRole\\Models**의 하위 폴더로 이동하고 **OnlineOrder.cs**를 두 번 클릭하여 이 프로젝트에 추가합니다.
 
-11. 다음 코드와 같이, **WorkerRole.cs**의 **QueueName** 변수 값을 `"ProcessingQueue"`에서 `"OrdersQueue"`로 바꿉니다.
+11. **WorkerRole.cs**에서 다음 코드와 같이, **WorkerRole.cs**의 **QueueName** 변수 값을 `"ProcessingQueue"`에서 `"OrdersQueue"`로 바꿉니다.
 
 		// The name of your queue.
 		const string QueueName = "OrdersQueue";
@@ -491,7 +489,7 @@ Azure 클라우드 서비스가 아닌 Azure 웹 사이트에서 다중 계층 �
 
 3. 프런트 엔드와 백 엔드를 별도로 테스트하거나 별도의 Visual Studio 인스턴스에서 둘 다를 동시에 실행할 수 있습니다.
 
-Azure 웹 사이트에 프런트 엔드를 배포하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 ASP.NET 웹 응용 프로그램 배포](http://azure.microsoft.com/develop/net/tutorials/get-started/)를 참조하세요. Azure 클라우드 서비스에 백 엔드를 배포하는 방법에 대한 자세한 내용은 [저장소 테이블, 큐 및 Blob을 사용하는 .NET 다중 계층 응용 프로그램][mutitierstorage]을 참조하세요.
+Azure 웹 사이트에 프런트 엔드를 배포하는 방법에 대한 자세한 내용은 [Azure 앱 서비스에서 ASP.NET 웹 응용 프로그램 만들기](../app-service-web/web-sites-dotnet-get-started.md)를 참조하세요. Azure 클라우드 서비스에 백 엔드를 배포하는 방법에 대한 자세한 내용은 [저장소 테이블, 큐 및 Blob을 사용하는 .NET 다중 계층 응용 프로그램][mutitierstorage]을 참조하세요.
 
 
   [0]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
@@ -502,6 +500,15 @@ Azure 웹 사이트에 프런트 엔드를 배포하는 방법에 대한 자세�
   [3]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-3.png
 
 
+  [GetSetting]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.getsetting.aspx
+  [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudconfigurationmanager.aspx
+  [NamespaceMananger]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
+
+  [QueueClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx
+
+  [TopicClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.topicclient.aspx
+
+  [EventHubClient]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventhubclient.aspx
 
   [Azure portal]: http://manage.windowsazure.com
   [Azure 포털]: http://manage.windowsazure.com
@@ -530,7 +537,7 @@ Azure 웹 사이트에 프런트 엔드를 배포하는 방법에 대한 자세�
   [30]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-09.png
   [31]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/sb-queues-06.png
   [32]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-41.png
-  [33]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-4-2-WebPI.png
+  [33]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-42-webpi.png
   [35]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/multi-web-45.png
   [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx
   [sbwacom]: /documentation/services/service-bus/
@@ -538,4 +545,4 @@ Azure 웹 사이트에 프런트 엔드를 배포하는 방법에 대한 자세�
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

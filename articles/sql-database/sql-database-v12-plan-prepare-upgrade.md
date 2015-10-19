@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="10/01/2015"
 	ms.author="genemi"/>
 
 
@@ -33,8 +33,7 @@
 | 제목 및 링크 | 내용 설명 |
 | :--- | :--- |
 | [SQL 데이터베이스 V12의 새로운 기능](sql-database-v12-whats-new.md) | V12에서 Microsoft SQL Server를 사용하여 Azure SQL 데이터베이스에서 더욱 완벽한 패리티를 구현하는 방법에 대해 설명합니다. |
-| [연습: 최신 SQL 데이터베이스 업데이트 V12 등록](sql-database-v12-sign-up.md) | Azure SQL 데이터베이스를 V12로 업그레이드하려는 경우 수행해야 하는 단계에 대해 설명합니다. |
-| [SQL 데이터베이스 업데이트 V12에서 데이터베이스 만들기](sql-database-create.md) | 버전 V12에서 새 Azure SQL 데이터베이스를 만들 수 있는 방법을 설명합니다. 빈 데이터베이스 이외의 다양한 옵션에 대해 설명합니다. |
+| [SQL 데이터베이스 V12에서 데이터베이스 만들기](sql-database-get-started.md) | 버전 V12에서 새 Azure SQL 데이터베이스를 만들 수 있는 방법을 설명합니다. 빈 데이터베이스 이외의 다양한 옵션에 대해 설명합니다. |
 
 
 ## 미리 계획
@@ -50,7 +49,7 @@
 
 - 12\.0.2000.8*(또는 좀 더 높은 버전, V12)*
 - 11\.0.9228.18*(V11)*
- - 때로 v11은 SAWA v2라고 언급 됐습니다.
+ - 때로 V11은 SAWA v2라고 언급됐습니다.
 
 ### 서비스 계층 계획
 
@@ -60,9 +59,9 @@ V12부터 Azure SQL 데이터베이스는 기본, 표준 및 프리미엄이라�
 
 기본, 표준 및 프리미엄 서비스 계층에 대한 자세한 내용은 다음을 참조하세요.
 
-
+- [SQL 데이터베이스 서비스 계층](sql-database-service-tiers.md)
 - [SQL 데이터베이스 Web/Business 데이터베이스를 새 서비스 계층으로 업그레이드](sql-database-upgrade-new-service-tiers.md)
-- [Azure SQL 데이터베이스 가격](http://azure.microsoft.com/pricing/details/sql-database/)
+
 
 
 ### 지역에서 복제 구성 검토
@@ -150,7 +149,7 @@ VS2013(Visual Studio 2013)을 사용하여 Azure SQL 데이터베이스에 연�
 - 온라인 또는 오프라인으로 데이터베이스 개발
 
 
-대신 완전한 기능을 갖춘 무료 버전의 VS2013인 [Visual Studio Community 2013](https://www.visualstudio.com/ko-kr/news/vs2013-community-vs.aspx/)에 연결할 수 있습니다.
+대신 완전한 기능을 갖춘 무료 버전의 VS2013인 [Visual Studio Community 2013](https://www.visualstudio.com/ko-KR/news/vs2013-community-vs.aspx/)에 연결할 수 있습니다.
 
 
 이전 Azure 포털의 데이터베이스 페이지에서 **Visual Studio에서 열기**를 클릭하여 Azure SQL 데이터베이스에 연결할 컴퓨터에서 VS2013을 시작할 수 있습니다.
@@ -254,4 +253,4 @@ Stop- cmdlet은 취소를 의미하는 것으로, 일시 중지가 아닙니다.
 [Subheading 1]: #subheading-1
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -3,7 +3,7 @@
    description="이 자습서는 서비스 패브릭의 신뢰할 수 있는 서비스를 사용하여 표준 HelloWorld 서비스를 생성, 디버깅 및 배포하는 과정을 단계별로 안내합니다."
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # 신뢰할 수 있는 행위자: 표준 HelloWorld 연습 시나리오
 이 문서는 서비스 패브릭의 신뢰할 수 있는 행위자에 대한 기본 개념을 설명하고 Visual Studio에서 간단한 HelloWorld 응용 프로그램을 생성, 디버깅 및 배포하는 과정을 안내합니다.
@@ -158,4 +158,4 @@ Visual Studio용 서비스 패브릭 도구는 로컬 컴퓨터에서 디버깅�
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/19/2015" 
+	ms.date="09/30/2015" 
 	ms.author="nitinme"/>
 
 # 개요: Azure HDInsight에서 Apache Spark 
@@ -41,12 +41,12 @@ Azure HDInsight는 완전히 관리되는 Spark 서비스를 제공합니다. HD
 | 기능 | 설명 |
 |-------------------------------------|-------------------|
 | 프로비전 편의성 | Azure 관리 포털, Azure PowerShell 또는 HDInsight .NET SDK를 사용하여 몇 분만에 HDInsight에서 새 Spark 클러스터를 프로비전할 수 있습니다. [HDInsight에서 Spark 클러스터 프로비전](hdinsight-apache-spark-provision-clusters.md)을 참조하세요. |
-| 사용 편의성 | HDInsight 클러스터의 Spark에는 미리 구성된 Zeppelin 및 Jupyter 노트북이 포함되어 있으며 대화형 데이터 처리 및 시각화에 사용할 수 있습니다. 클러스터 대시보드에서 이러한 노트북을 시작하여 Spark 클러스터에 대해 직접 사용할 수 있습니다.|
+| 사용 편의성 | HDInsight 클러스터의 Spark에는 미리 구성된 Zeppelin 및 Jupyter 노트북이 포함되어 있으며 대화형 데이터 처리 및 시각화에 사용할 수 있습니다. 이러한 Notebook에 대한 URL은 https://CLUSTERNAME.azurehdinsight.net/zeppelin 및 https://CLUSTERNAME.azurehdinsight.net/jupyter입니다. __CLUSTERNAME__을 HDInsight 클러스터의 이름으로 바꿉니다.|
 | REST API | HDInsight의 Spark에는 Spark 작업 서버가 포함되어 있습니다. 이 서버는 사용자가 실행 중인 작업을 원격으로 제출하고 모니터링할 수 있도록 해주는 REST API 서버입니다. |
 | 동시 쿼리 | HDInsight에서 Spark는 동시 쿼리를 지원합니다. 이를 통해 한 사용자의 여러 개 쿼리 또는 여러 사용자 및 응용 프로그램의 여러 개 쿼리에서 동일한 클러스터 리소스를 공유할 수 있습니다. |
 | SSD에서 캐시 | 클러스터 노드에 연결된 메모리 또는 SSD에서 데이터를 캐시하도록 선택할 수 있습니다. 메모리에서 캐시하면 최고의 쿼리 성능을 제공하지만 리소스가 많이 들 수 있습니다. SSD에서 캐시하면 메모리에서 전체 데이터 집합에 맞게 필요한 크기의 클러스터를 만들 필요 없이 쿼리 성능 향상을 위한 훌륭한 옵션을 제공합니다.|
 | Azure 서비스와의 통합 | HDInsight에서 Spark는 Azure 이벤트 허브에 대한 커넥터와 함께 제공됩니다. 고객은 [Kafka](http://kafka.apache.org/) 외에, 이미 Spark에서 제공하는 이벤트 허브를 사용하여 스트리밍 응용 프로그램을 빌드할 수 있습니다. |
-| BI 도구와의 통합 | HDInsight에서 Spark는 데이터 분석을 위해 [Power BI](http://www.powerbi.com/) 및 [Tableau](http://www.tableau.com/products/desktop)와 같은 인기 있는 BI 도구에 대한 커넥터를 제공합니다.|
+| BI 도구와의 통합 | HDInsight에서 Spark는 데이터 분석을 위해 [Power BI](http://www.powerbi.com/) 및 [Tableau](http://www.tableau.com/products/desktop)와 같은 인기 있는 BI 도구에 커넥터를 제공합니다.|
 | 미리 로드된 Anaconda 라이브러리 | HDInsight에서 Spark 클러스터는 미리 설치된 Anaconda 라이브러리와 함께 제공됩니다. [Anaconda](http://docs.continuum.io/anaconda/)는 기계 학습, 데이터 분석, 시각화 등을 위해 약 200개의 라이브러리를 제공합니다.|
 | 확장성 | 만드는 동안 클러스터의 노드 수를 지정할 수 있지만 작업과 일치하도록 클러스터를 확장하거나 축소할 수도 있습니다. 모든 HDInsight 클러스터를 통해 클러스터의 노드 수를 변경할 수 있습니다. 또한 Spark 클러스터는 모든 데이터가 Azure Blob 저장소에 저장되므로 데이터 손실 없이 삭제될 수 있습니다. |
 | 24/7 지원 | HDInsight에서 Spark는 엔터프라이즈 수준 24/7 지원 및 가동 시간 99.9%의 SLA와 함께 제공됩니다.|
@@ -100,4 +100,4 @@ HDInsight에서 Spark에는 기본적으로 클러스터에서 사용할 수 있
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->
