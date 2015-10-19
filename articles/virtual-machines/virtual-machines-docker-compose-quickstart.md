@@ -59,9 +59,18 @@ docker-compose 1.3.2
 
 VM에 작업 디렉터리를 만들고 원하는 텍스트 편집기를 사용하여 `docker-compose.yml`를 만듭니다. 간단한 예제를 실행하려면 파일에 다음 텍스트를 복사합니다. 이 구성은 [DockerHub 레지스트리](https://registry.hub.docker.com/_/wordpress/)의 이미지를 사용하여 WordPress(오픈 소스 블로깅 및 콘텐츠 관리 시스템) 및 연결된 백 엔드 MariaDB SQL 데이터베이스를 설치합니다.
 
- ``` wordpress: image: wordpress links: - db:mysql ports: - 8080:80
+ ```
+ wordpress:
+  image: wordpress
+  links:
+    - db:mysql
+  ports:
+    - 8080:80
 
-db: image: mariadb environment: MYSQL\_ROOT\_PASSWORD: <your password>
+db:
+  image: mariadb
+  environment:
+    MYSQL_ROOT_PASSWORD: <your password>
 
 ```
 
@@ -77,7 +86,9 @@ $ docker-compose up -d
 This starts the Docker containers specified in `docker-compose.yml`. You'll see output similar to:
 
 ```
-Creating wordpress\_db\_1... Creating wordpress\_wordpress\_1... ```
+Creating wordpress_db_1...
+Creating wordpress_wordpress_1...
+```
 
 >[AZURE.NOTE]백그라운드에서 계속 실행되도록 **-d** 옵션을 시작에서 사용해야 합니다.
 
@@ -109,7 +120,8 @@ $ azure vm endpoint create <machine-name> 80 8080
 
 * 다중 컨테이너 앱 빌드 및 배포에 대한 더 많은 예제는 [Compose CLI 참조](http://docs.docker.com/compose/cli/) 및 [사용자 가이드](http://docs.docker.com/compose/)를 참조하세요.
 * Azure 리소스 관리자 템플릿, 사용자 자신의 템플릿 또는 [커뮤니티](http://azure.microsoft.com/documentation/templates/)에서 배포된 템플릿을 사용하여, Azure VM을 Docker로 배포하고 Compose로 응용 프로그램을 설정합니다. 예를 들어 [Docker를 사용한 WordPress 블로그 배포](https://azure.microsoft.com/documentation/templates/docker-wordpress-mysql/) 템플릿은 Docker 및 Compose를 사용하여 Ubuntu VM에 MySQL 백 엔드와 함께 WordPress를 신속하게 배포합니다.
-* [Docker Swarm](virtual-machines-docker-swarm.md) 클러스터와 Docker Compose 통합을 시도합니다. 시나리오는 [Docker Compose/Swarm 통합](https://github.com/docker/compose/blob/master/SWARM.md)을 참조하세요.
+* [Docker Swarm](virtual-machines-docker-swarm.md) 클러스터와 Docker Compose 통합을 시도합니다. 시나리오는
+[Docker Compose/Swarm 통합](https://github.com/docker/compose/blob/master/SWARM.md)을 참조하세요.
 
 <!--Image references-->
 

@@ -188,7 +188,7 @@ HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시
 
 		![사용자 지정 Metastore 블레이드](./media/hdinsight-hadoop-provision-linux-clusters/HDI.CreateCluster.7.png "외부 Metastore 지정")
 
-		**Use an existing SQL DB for Hive metadata(Hive 메타데이터에 기존 SQL DB 사용)**에 대해 **예**를 클릭하고 SQL 데이터베이스를 선택한 다음 데이터베이스의 사용자 이름/암호를 입력합니다. **Use an existing SQL DB for Oozie metadata(Oozie 메타데이터에 기존 SQL DB 사용)**를 원하는 경우 이러한 단계를 반복합니다. **옵션 구성** 블레이드로 돌아갈 때까지 **선택**을 클릭합니다.
+		**Hive 메타데이터에 기존 SQL DB 사용**에 대해 **예**를 클릭하고 SQL 데이터베이스를 선택한 다음 데이터베이스의 사용자 이름/암호를 입력합니다. **Oozie 메타데이터에 기존 SQL DB 사용**를 원하는 경우 이러한 단계를 반복합니다. **옵션 구성** 블레이드로 돌아갈 때까지 **선택**을 클릭합니다.
 
 		>[AZURE.NOTE]메타스토어에 사용되는 Azure SQL 데이터베이스는 Azure HDInsight를 비롯한 다른 Azure 서비스로의 연결을 허용해야 합니다. Azure SQL 데이터베이스 대시보드의 오른쪽에서 서버 이름을 클릭합니다. 이 서버는 SQL 데이터베이스 인스턴스가 실행되는 서버입니다. 서버 보기에서 **구성**을 클릭하고 **Azure 서비스**에 대해 **예**를 클릭한 다음 **저장**을 클릭합니다.
 
@@ -226,7 +226,7 @@ HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시
 
 	* **삭제**: HDInsight 클러스터를 삭제합니다.
 
-	* **빠른 시작**(![구름과 벼락 아이콘 = 빠른 시작](./media/hdinsight-hadoop-provision-linux-clusters/quickstart.png)): HDInsight를 사용하여 시작하는 데 도움이 되는 정보를 표시합니다.
+	* **빠른 시작(![구름과 벼락 아이콘 = 빠른 시작](./media/hdinsight-hadoop-provision-linux-clusters/quickstart.png))**: HDInsight를 사용하여 시작하는 데 도움이 되는 정보를 표시합니다.
 
 	* **사용자**(![사용자 아이콘](./media/hdinsight-hadoop-provision-linux-clusters/users.png)): Azure 구독의 다른 사용자에 대해 이 클러스터의 _포털 관리_ 권한을 설정할 수 있습니다.
 
