@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="10/07/2015" 
 	ms.author="awills"/>
  
 # Application Insights를 사용하여 ASP.NET 앱의 실패 및 예외 진단  
@@ -418,11 +418,10 @@ WebApiConfig에서 서비스에 추가합니다.
 
     namespace WcfService4
     {
-        [ServiceContract]
         [AiLogException]
-        public interface IService1
-        {
-     ...
+        public class Service1 : IService1 
+        { 
+         ...
 
 [샘플](https://github.com/AppInsightsSamples/WCFUnhandledExceptions)
 
@@ -449,4 +448,4 @@ TrackException 보고서를 계산하여 Application Insights 포털에서 계�
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

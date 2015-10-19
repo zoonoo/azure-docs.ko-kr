@@ -29,8 +29,6 @@
 이 자습서에서는 Azure 모바일 서비스의 오프라인 기능을 지원하도록 [모바일 서비스 시작] 자습서의 범용 앱 프로젝트를 업데이트합니다. 그런 다음 연결이 끊긴 오프라인 시나리오에서 데이터를 추가하고, 해당 항목을 온라인 데이터베이스와 동기화한 후 Azure 관리 포털에 로그인하여 앱을 실행할 때 수행된 데이터 변경 사항을 확인합니다.
 
 >[AZURE.NOTE]이 자습서는 Windows 스토어 앱에서 모바일 서비스를 통해 Azure를 사용하여 데이터를 저장하고 검색할 수 있는 방법을 더욱 잘 이해할 수 있도록 돕기 위한 것입니다. 모바일 서비스를 처음 사용하는 경우 먼저 [모바일 서비스 시작] 자습서를 완료하는 것이 좋습니다.
->
->Visual Studio 2012용 이전 Windows Phone 8 자습서도 [Visual Studio 2012용 Windows Phone 8 자습서]에서 계속 사용할 수 있습니다.
 
 ##필수 조건 
 
@@ -253,7 +251,6 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 [Next Steps]: #next-steps
 
 <!-- Images -->
-[0]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-todoitem-data-browse.png
 [1]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png
 [2]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-sqlitestore-nuget.png
 [6]: ./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-data-browse.png
@@ -271,11 +268,9 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 [TodoList 오프라인 샘플]: http://go.microsoft.com/fwlink/?LinkId=394777
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
 [Getting Started]: ../mobile-services-dotnet-backend-windows-phone-get-started.md
-[Get started with data]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [모바일 서비스 시작]: ../mobile-services-windows-store-get-started.md
 [Windows 8.1용 SQLite]: http://go.microsoft.com/fwlink/?LinkId=394776
 [Windows Phone 8.1용 SQLite]: http://go.microsoft.com/fwlink/?LinkId=397953
-[Visual Studio 2012용 Windows Phone 8 자습서]: mobile-services-windows-phone-get-started-offline-data.md
 [Soft Delete]: mobile-services-using-soft-delete.md
 [일시 삭제]: mobile-services-using-soft-delete.md
 
@@ -284,4 +279,4 @@ Azure 모바일 서비스의 오프라인 기능을 사용하면 오프라인에
 [SQLite store nuget]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="multiple"
 	ms.topic="article" 
-	ms.date="07/01/2015"
+	ms.date="08/01/2015"
 	ms.author="glenga"/>
 
 
@@ -613,6 +613,6 @@ AutoMapper가 이제 개체를 다른 개체에 매핑합니다. 이름이 일�
 
     }
 
-다음 단계에서는 서비스에 액세스하기 위한 클라이언트 앱을 작성할 수 있습니다. 자세한 내용은 [기존 앱에 모바일 서비스 추가](mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data.md#update-the-app-to-use-the-mobile-service)를 참조하세요.
+다음 단계에서는 서비스에 액세스하기 위한 클라이언트 앱을 작성할 수 있습니다.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

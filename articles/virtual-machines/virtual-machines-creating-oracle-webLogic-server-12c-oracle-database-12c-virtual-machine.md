@@ -1,9 +1,26 @@
-<properties pageTitle="Azure에서 Oracle WebLogic Server 12c 및 Oracle Database 12c 가상 컴퓨터 만들기" description="Oracle WebLogic Server 12c 및 Microsoft Azure에서 Windows Server 2012에서 실행 중인 Oracle Database 12c 이미지를 만드는 예제를 단계별로 설명합니다." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties
+	pageTitle="Oracle WebLogic Server 및 데이터베이스 VM | Microsoft Azure"
+	description="리소스 관리자 배포 모델을 사용하여 Windows Server 2012에서 실행 중인 Oracle WebLogic Server 12c 및 Oracle Database 12c Azure 이미지를 만듭니다."
+	services="virtual-machines"
+	authors="bbenz"
+	documentationCenter=""
+	tags="azure-resource-manager"/>
+
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="vm-windows"
+	ms.workload="infrastructure-services"
+	ms.date="06/22/2015"
+	ms.author="bbenz" />
 
 #Azure에서 Oracle WebLogic Server 12c 및 Oracle Database 12c 가상 컴퓨터 만들기
 
 이 문서에서는 Azure에서 Windows Server 2012에서 실행되는 Microsoft에서 제공한 Oracle WebLogic Server 12c 및 Oracle Database 12c 이미지에 따라 가상 컴퓨터를 만드는 방법을 보여 줍니다.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서는 리소스 관리자 배포 모델을 사용하여 Oracle WebLogic Server 및 데이터베이스를 만드는 내용에 대해 설명합니다.
+
 
 ##Azure에서 Oracle WebLogic Server 12c 및 Oracle Database 12c 가상 컴퓨터 만들기
 
@@ -54,4 +71,4 @@
 
 [Oracle 데이터베이스 2일 DBA 12c 릴리스 1](http://docs.oracle.com/cd/E16655_01/server.121/e17643/toc.htm)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="AES-128 동적 암호화 및 키 배달 서비스 사용"
+	pageTitle="AES-128 동적 암호화 및 키 전달 서비스 사용"
 	description="Microsoft Azure 미디어 서비스를 사용하면 AES 128비트 암호화 키로 암호화된 콘텐츠를 배달할 수 있습니다. 미디어 서비스는 권한 있는 사용자에게 암호화 키를 제공하는 키 배달 서비스도 제공합니다. 이 항목에서는 AES-128로 동적으로 암호화하는 방법과 키 배달 서비스를 사용하는 방법을 보여 줍니다."
 	services="media-services"
 	documentationCenter=""
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article" 
-	ms.date="09/16/2015"
+	ms.date="10/07/2015"
 	ms.author="juliako"/>
 
-#AES-128 동적 암호화 및 키 배달 서비스 사용
+#AES-128 동적 암호화 및 키 전달 서비스 사용
 
 > [AZURE.SELECTOR]
 - [.NET](media-services-protect-with-aes128.md)
@@ -66,81 +66,13 @@ Microsoft Azure 미디어 서비스를 사용하면 128 비트 암호화 키를 
 
 관리, 인코딩 및 비디오 스트림을 수행하려면 먼저 콘텐츠를 Microsoft Azure 미디어 서비스에 업로드해야 합니다. 업로드되면 이후 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전하게 저장됩니다.
 
-다음 코드 조각은 자산을 만들고 지정된 파일을 자산에 업로드하는 방법을 보여 줍니다.
-	
-	static public IAsset UploadFileAndCreateAsset(string singleFilePath)
-	{
-	    if(!File.Exists(singleFilePath))
-	    {
-	        Console.WriteLine("File does not exist.");
-	        return null;
-	    }
-	
-	    var assetName = Path.GetFileNameWithoutExtension(singleFilePath);
-	    IAsset inputAsset = _context.Assets.Create(assetName, AssetCreationOptions.StorageEncrypted);
-	
-	    var assetFile = inputAsset.AssetFiles.Create(Path.GetFileName(singleFilePath));
-	
-	    Console.WriteLine("Created assetFile {0}", assetFile.Name);
-	
-	    var policy = _context.AccessPolicies.Create(
-	                            assetName,
-	                            TimeSpan.FromDays(30),
-	                            AccessPermissions.Write | AccessPermissions.List);
-	
-	    var locator = _context.Locators.CreateLocator(LocatorType.Sas, inputAsset, policy);
-	
-	    Console.WriteLine("Upload {0}", assetFile.Name);
-	
-	    assetFile.Upload(singleFilePath);
-	    Console.WriteLine("Done uploading {0}", assetFile.Name);
-	
-	    locator.Delete();
-	    policy.Delete();
-	
-	    return inputAsset;
-	}
+자세한 내용은 [미디어 서비스 계정에 파일 업로드](media-services-dotnet-upload-files.md)를 참조하세요.
 
 ##<a id="encode_asset"></a>파일이 들어 있는 자산을 적응 비트 전송률 MP4 집합으로 인코딩
 
 동적 암호화를 사용하는 경우 다중 비트 전송률 MP4 파일 또는 다중 비트 전송률 부드러운 스트리밍 원본 파일의 집합이 포함된 자산을 만들기만 하면 됩니다. 이렇게 하면 매니페스트 또는 조각 요청의 지정된 형식에 따라 주문형 스트리밍 서버는 사용자가 선택한 프로토콜로 스트림을 받을 수 있도록 합니다. 따라서 사용자는 단일 저장소 형식으로 파일을 저장하고 해당 파일에 대한 요금을 지불하기만 하면 되며, 미디어 서비스에서 클라이언트의 요청에 따라 적절한 응답을 작성하고 제공합니다. 자세한 내용은 [동적 패키징 개요](media-services-dynamic-packaging-overview.md) 항목을 참조하세요.
 
-다음 코드 조각은 적응 비트 전송률 MP4 집합으로 자산을 인코딩하는 방법을 보여줍니다.
-	
-	static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset inputAsset)
-	{
-	    var encodingPreset = "H264 Adaptive Bitrate MP4 Set 720p";
-	
-	    IJob job = _context.Jobs.Create(String.Format("Encoding into Mp4 {0} to {1}",
-	                            inputAsset.Name,
-	                            encodingPreset));
-	
-	    var mediaProcessors = 
-	        _context.MediaProcessors.Where(p => p.Name.Contains("Media Encoder")).ToList();
-	
-	    var latestMediaProcessor = 
-	        mediaProcessors.OrderBy(mp => new Version(mp.Version)).LastOrDefault();
-	
-	
-	
-	    ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
-	    encodeTask.InputAssets.Add(inputAsset);
-	    encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset), AssetCreationOptions.StorageEncrypted);
-	
-	    job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-	    job.Submit();
-	    job.GetExecutionProgressTask(CancellationToken.None).Wait();
-	
-	    return job.OutputMediaAssets[0];
-	}
-	
-	static private void JobStateChanged(object sender, JobStateChangedEventArgs e)
-	{
-	    Console.WriteLine(string.Format("{0}\n  State: {1}\n  Time: {2}\n\n",
-	        ((IJob)sender).Name,
-	        e.CurrentState,
-	        DateTime.UtcNow.ToString(@"yyyy_M_d__hh_mm_ss")));
-	}
+인코딩하는 방법에 관한 지침은 [미디어 인코더 표준를 사용하여 자산을 인코딩하는 방법](media-services-dotnet-encode-with-media-encoder-standard.md)을 참조하세요.
 
 ##<a id="create_contentkey"></a>콘텐츠 키를 만들어 인코딩된 자산에 연결
 
@@ -148,7 +80,7 @@ Microsoft Azure 미디어 서비스를 사용하면 128 비트 암호화 키를 
 
 자세한 내용은 [콘텐츠 키 만들기](media-services-dotnet-create-contentkey.md)를 참조하세요.
 
-##<a id="configure_key_auth_policy"></a>콘텐츠 키의 권한 부여 정책 구성
+##<a id="configure_key_auth_policy"></a>콘텐츠 키의 인증 정책을 구성합니다.
 
 미디어 서비스는 키를 요청 하는 사용자를 인증 하는 여러 방법을 지원합니다. 콘텐츠 키 권한 부여 정책은 사용자가 구성해야 하며 이 키를 클라이언트에 배달하기 위해서는 해당 클라이언트(플레이어)를 충족시켜야 합니다. 콘텐츠 키 권한 부여 정책에는 열기, 토큰 제한 또는 IP 제한과 같은 하나 이상의 권한 부여 제한이 있을 수 있습니다.
 
@@ -671,4 +603,4 @@ HLS의 경우 루트 매니페스트는 세그먼트 파일로 나뉩니다.
 - [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="서비스 버스 큐를 사용하는 방법(Java) | Microsoft Azure"
+	pageTitle="Java와 함께 서비스 버스 큐를 사용하는 방법 | Microsoft Azure"
 	description="Azure에서 서비스 버스 큐를 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Java로 작성되었습니다."
 	services="service-bus"
 	documentationCenter="java"
@@ -13,27 +13,32 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/19/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 # 서비스 버스 큐를 사용하는 방법
 
-이 가이드에서는 서비스 버스 큐를 사용하는 방법을 설명합니다. 샘플은 Java로 작성되었으며 [Java용 Azure SDK][](영문)를 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기**, **메시지 보내기 및 받기**, **큐 삭제** 등이 포함됩니다.
+이 문서에서는 서비스 버스 큐를 사용하는 방법을 설명합니다. 샘플은 Java로 작성되었으며 [Java용 Azure SDK][](영문)를 사용합니다. 여기서 다루는 시나리오에는 **큐 만들기**, **메시지 보내기 및 받기**, **큐 삭제** 등이 포함됩니다.
 
 [AZURE.INCLUDE [service-bus-java-how-to-create-queue](../../includes/service-bus-java-how-to-create-queue.md)]
 
 ## 서비스 버스를 사용하도록 응용 프로그램 구성
-이 샘플을 빌드하기 전에 [Azure SDK for Java][]를 설치했는지 확인하세요. Eclipse를 사용하는 경우 Azure SDK for Java를 포함하고 있는 [Eclipse용 Azure Toolkit][]를 설치할 수 있습니다. 그런 다음 **Java용 Microsoft Azure 라이브러리**를 프로젝트에 추가할 수 있습니다.![](media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
-Java 파일 맨 위에 다음 import 문을 추가합니다.
+이 샘플을 빌드하기 전에 [Azure SDK for Java][]를 설치했는지 확인하세요. Eclipse를 사용하는 경우 Azure SDK for Java를 포함하고 있는 [Eclipse용 Azure Toolkit][]를 설치할 수 있습니다. 그런 다음 **Java용 Microsoft Azure 라이브러리**를 프로젝트에 추가할 수 있습니다.
 
-	// Include the following imports to use Service Bus APIs
-	import com.microsoft.windowsazure.services.servicebus.*;
-	import com.microsoft.windowsazure.services.servicebus.models.*;
-	import com.microsoft.windowsazure.core.*;
-	import javax.xml.datatype.*;
+![](media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
-## 큐를 만드는 방법
+Java 파일 맨 위에 다음 `import` 문을 추가합니다.
+
+```
+// Include the following imports to use Service Bus APIs
+import com.microsoft.windowsazure.services.servicebus.*;
+import com.microsoft.windowsazure.services.servicebus.models.*;
+import com.microsoft.windowsazure.core.*;
+import javax.xml.datatype.*;
+```
+
+## 큐 만들기
 
 **ServiceBusContract** 클래스를 통해 서비스 버스 큐에 대한 관리 작업을 수행할 수 있습니다. **ServiceBusContract** 개체는 관리에 필요한 SAS 토큰 사용 권한을 캡슐화하는 적합한 구성으로 생성되며, Azure와의 통신 지점은 **ServiceBusContract** 클래스뿐입니다.
 
@@ -60,7 +65,7 @@ Java 파일 맨 위에 다음 import 문을 추가합니다.
         System.exit(-1);
     }
 
-QueueInfo에는 큐의 속성을 조정하는 데 사용할 수 있는 메서드가 있습니다. 예를 들어 큐에 전송되는 메시지에 적용할 기본 "TTL(Time-To-Live)" 값을 설정할 수 있습니다. 다음 예제에서는 최대 크기가 5GB인 "TestQueue" 큐를 만드는 방법을 보여 줍니다.
+**QueueInfo**에는 큐의 속성을 조정하는 데 사용할 수 있는 메서드가 있습니다. 예를 들어 큐에 전송되는 메시지에 적용할 기본 TTL(Time-To-Live) 값을 설정할 수 있습니다. 다음 예제에서는 최대 크기가 5GB인 `TestQueue` 큐를 만드는 방법을 보여 줍니다.
 
     long maxSizeInMegabytes = 5120;
     QueueInfo queueInfo = new QueueInfo("TestQueue");
@@ -69,9 +74,9 @@ QueueInfo에는 큐의 속성을 조정하는 데 사용할 수 있는 메서드
 
 **ServiceBusContract** 개체의 **listQueues** 메서드를 사용하여 서비스 네임스페이스 내에 지정된 이름의 큐가 이미 있는지 확인할 수 있습니다.
 
-## 큐에 메시지를 보내는 방법
+## 큐에 메시지 보내기
 
-서비스 버스 큐에 메시지를 보내기 위해 응용 프로그램은 **ServiceBusContract** 개체를 얻습니다. 아래 코드는 위의 "HowToSample" 서비스 네임스페이스 내에서 만든 "TestQueue" 큐에 대한 메시지를 보내는 방법을 보여 줍니다.
+서비스 버스 큐에 메시지를 보내기 위해 응용 프로그램은 **ServiceBusContract** 개체를 얻습니다. 다음 코드는 위에서 `HowToSample` 네임스페이스 내에서 이전에 만든 `TestQueue` 큐에 대한 메시지를 보내는 방법을 보여 줍니다.
 
     try
     {
@@ -85,9 +90,9 @@ QueueInfo에는 큐의 속성을 조정하는 데 사용할 수 있는 메서드
         System.exit(-1);
     }
 
-서비스 버스 큐로 보내고 받은 메시지는 **BrokeredMessage** 클래스 인스턴스입니다. **BrokeredMessage** 개체에는 표준 속성 집합(예: **getLabel**, **getTimeToLive**, **setLabel** 및 **setTimeToLive**), 응용 프로그램별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 임의 응용 프로그램 데이터 본문이 있습니다. 응용 프로그램은 **BrokeredMessage** 생성자에 직렬화 가능 개체를 전달하여 메시지 본문을 설정할 수 있으며, 적절한 직렬 변환기가 개체를 직렬화하는 데 사용됩니다. 또는 **java.IO.InputStream**을 제공할 수 있습니다.
+서비스 버스 큐로 보내고 받은 메시지는 [BrokeredMessage][] 클래스 인스턴스입니다. [BrokeredMessage][] 개체에는 표준 속성 집합(예: [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) 및 [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), 응용 프로그램별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 임의 응용 프로그램 데이터 본문이 있습니다. 응용 프로그램은 [BrokeredMessage][] 생성자에 직렬화 가능 개체를 전달하여 메시지 본문을 설정할 수 있으며, 적절한 직렬 변환기가 개체를 직렬화하는 데 사용됩니다. 또는 **java.IO.InputStream** 개체를 제공할 수 있습니다.
 
-다음 예제는 위의 코드 조각에서 얻은 "TestQueue" **MessageSender**에 테스트 메시지 5개를 보내는 방법을 보여 줍니다.
+다음 예제에서는 이전 코드 조각에서 얻은 `TestQueue` **MessageSender**에 테스트 메시지 5개를 보내는 방법을 보여 줍니다.
 
     for (int i=0; i<5; i++)
     {
@@ -101,7 +106,7 @@ QueueInfo에는 큐의 속성을 조정하는 데 사용할 수 있는 메서드
 
 서비스 버스 큐는 256KB의 최대 메시지 크기를 지원합니다(표준 및 사용자 지정 응용 프로그램 속성이 포함된 헤더의 최대 크기는 64KB임). 한 큐에 저장되는 메시지 수에는 제한이 없지만 한 큐에 저장되는 총 메시지 크기는 제한됩니다. 이 큐 크기는 생성 시 정의되며 상한이 5GB입니다.
 
-## 큐에서 메시지를 받는 방법
+## 큐에서 메시지 받기
 
 큐에서 메시지를 받는 기본 방법은 **ServiceBusContract** 개체를 사용하는 것입니다. 받은 메시지는 **ReceiveAndDelete** 및 **PeekLock**의 두 가지 모드로 작동할 수 있습니다.
 
@@ -109,7 +114,7 @@ QueueInfo에는 큐의 속성을 조정하는 데 사용할 수 있는 메서드
 
 **PeekLock** 모드에서는 수신이 2단계 작업이므로 메시지 누락이 허용되지 않는 응용 프로그램을 지원할 수 있습니다. 서비스 버스는 요청을 받으면 소비할 다음 메시지를 찾아서 다른 소비자가 수신할 수 없도록 잠근 후 응용 프로그램에 반환합니다. 응용 프로그램은 메시지 처리를 완료하거나 추가 처리를 위해 안전하게 저장한 후 수신된 메시지에 대해 **Delete**를 호출하여 수신 프로세스의 두 번째 단계를 완료합니다. 서비스 버스는 **Delete** 호출을 확인한 후 메시지를 이용되는 것으로 표시하고 큐에서 제거합니다.
 
-아래 예제에서는 **PeekLock** 모드(기본 모드 아님)를 사용하여 메시지를 받고 처리하는 방법을 보여 줍니다. 아래 예제는 무한 루프를 만들고 메시지가 "TestQueue"에 도착하면 처리합니다.
+다음 예제에서는 **PeekLock** 모드(기본 모드가 아닌)를 사용하여 메시지를 받고 처리하는 방법을 보여 줍니다. 아래 예제는 무한 루프를 만들고 메시지가 "TestQueue"에 도착하면 처리합니다.
 
     	try
 	{
@@ -179,18 +184,9 @@ QueueInfo에는 큐의 속성을 조정하는 데 사용할 수 있는 메서드
 
   [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
   [Java용 Azure SDK]: http://azure.microsoft.com/develop/java/
-  [Eclipse용 Azure Toolkit]: https://msdn.microsoft.com/ko-kr/library/azure/hh694271.aspx
-  [What are Service Bus Queues?]: #what-are-service-bus-queues
-  [Create a Service Namespace]: #create-a-service-namespace
-  [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
-  [Configure Your Application to Use Service Bus]: #bkmk_ConfigApp
-  [How to: Create a Security Token Provider]: #bkmk_HowToCreateQueue
-  [How to: Send Messages to a Queue]: #bkmk_HowToSendMsgs
-  [How to: Receive Messages from a Queue]: #bkmk_HowToReceiveMsgs
-  [How to: Handle Application Crashes and Unreadable Messages]: #bkmk_HowToHandleAppCrashes
-  [Next Steps]: #bkmk_NextSteps
+  [Eclipse용 Azure Toolkit]: https://msdn.microsoft.com/library/azure/hh694271.aspx
   [Azure Management Portal]: http://manage.windowsazure.com/
   [큐, 토픽 및 구독]: service-bus-queues-topics-subscriptions.md
- 
+  [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

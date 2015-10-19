@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="vm-linux"
 	ms.workload="infrastructure"
-	ms.date="05/20/2015"
+	ms.date="10/04/2015"
 	ms.author="rasquill"/>
 
 # Azure Marketplace에서 Docker를 신속하게 시작하는 방법
@@ -24,7 +24,7 @@
 
 SSH를 사용하여 VM에 즉시 연결할 수 있으며, 아무 작업도 수행하지 않고 Docker 작업을 직접 수행할 수 있습니다.
 
-> [AZURE.NOTE]Azure Marketplace 템플릿을 통해 만든 VM은 원격 Docker 클라이언트에서 관리하는 데 필요한 Docker 원격 API를 호스트하지 않습니다. 이 VM에서 원격으로 Docker Host를 제어하도록 하려면 [HTTPS를 사용하여 Docker 실행](https://docs.docker.com/articles/https/)을 참조하거나 [Azure 포털에서 Docker VM 확장 사용](virtual-machines-docker-with-portal.md) 또는 [Azure CLI에서 Docker VM 확장 사용](virtual-machines-docker-with-xplat-cli-install.md)의 단계를 따르세요. 전문적인 지식이 있는 경우 Github에서 [Windows Docker Client](https://github.com/ahmetalpbalkan/Docker.DotNet)를 빌드하여 시도해 볼 수 있습니다(또는 [nuget](https://www.nuget.org/packages/Docker.DotNet/)에서 작업).
+> [AZURE.NOTE]Azure Marketplace 템플릿을 통해 만든 VM은 원격 Docker 클라이언트에서 관리하는 데 필요한 Docker 원격 API를 호스트하지 않습니다. 이 VM에서 원격으로 Docker Host를 제어하도록 하려면 [HTTPS를 사용하여 Docker 실행](https://docs.docker.com/articles/https/)을 참조하거나 [Azure 포털에서 Docker VM 확장 사용](virtual-machines-docker-with-portal.md) 또는 [Azure CLI에서 Docker VM 확장 사용](virtual-machines-docker-with-xplat-cli-install.md)의 단계를 따르세요. <!-- --> Windows에서 Azure Docker VM을 자동화하려는 경우 [Docker Toolbox를 설치](https://docs.docker.com/installation/windows/)하거나 [Chocolatey에서](https://chocolatey.org/packages/docker) Docker.exe를 받을 수 있습니다.
 
 ## 포털 로그온
 
@@ -40,7 +40,7 @@ Azure 계정이 있으면 간단합니다. [Azure 계정을 무료로 받는 것
 
 > ![이미지 갤러리에서 이미지 찾기](./media/virtual-machines-docker-ubuntu-quickstart/DockerOnUbuntuServerMSOpenTech.png)
 
-3. 인스턴스의 사용자 이름 및 암호 또는 **.pem** 파일을 제공해 인증서를 사용하여 SSH를 사용하도록 설정합니다. 아래 그림에서는 사용자 이름과 암호 조합을 지정합니다. 그런 다음 아래쪽에 있는 **만들기**를 누릅니다.
+3. 인스턴스의 사용자 이름 및 암호 또는 **.pub** 파일의 내용(ssh-rsa 형식)을 제공해 인증서를 사용하여 SSH를 사용하도록 설정합니다. 아래 그림에서는 사용자 이름과 암호 조합을 지정합니다. 그런 다음 아래쪽에 있는 **만들기**를 누릅니다.
 
 > ![vm 인스턴스 구성](./media/virtual-machines-docker-ubuntu-quickstart/CreateVMDockerUbuntuPwd.png)
 
@@ -77,4 +77,4 @@ Docker 명령을 실행해 보세요. 이 Azure VM의 기본 구성에는 **`sud
 [MSOpenTech]: http://msopentech.com/
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

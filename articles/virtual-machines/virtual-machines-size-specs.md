@@ -1,5 +1,5 @@
 <properties
- pageTitle="가상 컴퓨터 크기"
+ pageTitle="가상 컴퓨터 크기 | Microsoft Azure"
  description="가상 컴퓨터 및 해당 용량에 대한 다양한 크기를 나열합니다."
  services="virtual-machines"
  documentationCenter=""
@@ -49,7 +49,7 @@ Azure 가상 컴퓨터 및 클라우드 서비스는 Azure에서 제공하는 �
 
 *   SQL Server Enterprise Edition을 사용하는 경우 4 또는 8 CPU 코어가 있는 가상 컴퓨터를 선택합니다.
 
-*   Azure 데이터 센터의 일부 물리적 호스트는 A5 – A11과 같은 큰 크기의 가상 컴퓨터를 지원하지 않을 수 있습니다. 결과적으로, 기존 가상 컴퓨터의 크기를 새 크기로 조정, 2013년 4월 16일 이전에 만든 가상 네트워크에서 새 가상 컴퓨터 만들기 또는 새 가상 컴퓨터를 기존 클라우드 서비스에 추가할 때 **가상 컴퓨터를 구성하지 못했습니다<machine name>** 또는 **가상 컴퓨터를 만들지 못했습니다<machine name>**라는 오류 메시지가 표시될 수 있습니다. 각 배포 시나리오의 해결 방법에 대한 지원 포럼에서 [오류: "가상 컴퓨터를 구성하지 못했습니다."](https://social.msdn.microsoft.com/Forums/ko-kr/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) 항목을 참조하세요.
+*   Azure 데이터 센터의 일부 물리적 호스트는 A5 – A11과 같은 큰 크기의 가상 컴퓨터를 지원하지 않을 수 있습니다. 결과적으로, 기존 가상 컴퓨터의 크기를 새 크기로 조정, 2013년 4월 16일 이전에 만든 가상 네트워크에서 새 가상 컴퓨터 만들기 또는 새 가상 컴퓨터를 기존 클라우드 서비스에 추가할 때 **가상 컴퓨터를 구성하지 못했습니다<machine name>** 또는 **가상 컴퓨터를 만들지 못했습니다<machine name>**라는 오류 메시지가 표시될 수 있습니다. 각 배포 시나리오의 해결 방법에 대한 지원 포럼에서 [오류: "가상 컴퓨터를 구성하지 못했습니다."](https://social.msdn.microsoft.com/Forums/ko-KR/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows) 항목을 참조하세요.
 
 *   A8/A10 및 A9/A11 가상 컴퓨터 크기는 용량이 동일합니다. A8 및 A9 가상 컴퓨터 인스턴스에는 가상 컴퓨터 간의 빠른 통신을 위해 RDMA(원격 직접 메모리 액세스) 네트워크에 연결되는 추가 네트워크 어댑터가 포함됩니다. A8 및 A9 인스턴스는 MPI(메시지 전달 인터페이스)를 사용하는 응용 프로그램 등을 실행하는 동안 노드 간에 지속적이고 대기 시간이 짧은 통신이 필요한 고성능 컴퓨팅 응용 프로그램을 위해 설계되었습니다. A10 및 A11 가상 컴퓨터 인스턴스에는 추가 네트워크 어댑터가 포함되지 않습니다. A10 및 A11 인스턴스는 노드 간에 지속적이고 대기 시간이 짧은 통신을 필요로 하지 않는 고성능 컴퓨팅 응용 프로그램을 위해 설계되었으며 파라메트릭 또는 병렬 응용 프로그램으로 알려져 있습니다.
 
@@ -85,7 +85,7 @@ Azure 가상 컴퓨터 및 클라우드 서비스는 Azure에서 제공하는 �
 
 |크기 – Azure 포털\\cmdlet 및 API|CPU 코어|메모리|최대 디스크 크기 – 가상 컴퓨터|최대 데이터 디스크(각 1023GB)|최대 IOPS(디스크당 500)|
 |---|---|---|---|---|---|
-|A0\\ 매우 작음|1|768 MB|<p>OS = 1023GB</p><p>임시 = 20GB</p>|1|1x500|
+|A0\\ExtraSmall|1|768 MB|<p>OS = 1023GB</p><p>임시 = 20GB</p>|1|1x500|
 |A1\\작음|1|1\.75 GB|<p>OS = 1023GB</p><p>임시 = 70GB</p>|2|2x500|
 |A2\\중간|2|3\.5 GB|<p>OS = 1023GB</p><p>임시 = 135GB</p>|4|4x500|
 |A3\\큼|4|7 GB|<p>OS = 1023GB</p><p>임시 = 285GB</p>|8|8x500|
@@ -167,4 +167,4 @@ Azure 가상 컴퓨터 및 클라우드 서비스는 Azure에서 제공하는 �
 
 [A8, A9, A10 및 A11 계산 집약적인 인스턴스 정보](virtual-machines-a8-a9-a10-a11-specs.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

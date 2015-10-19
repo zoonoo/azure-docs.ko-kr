@@ -105,7 +105,6 @@
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
 [모바일 서비스 시작]: mobile-services-ios-get-started.md
-[Get started with data]: mobile-services-ios-get-started-data.md
 [Get started with authentication]: mobile-services-ios-get-started-users.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [apns 개체]: http://go.microsoft.com/fwlink/p/?LinkId=272333
@@ -118,4 +117,4 @@
 [Send template-based notifications to subscribers]: ../notification-hubs-ios-send-localized-breaking-news.md
 [Mobile Services Objective-C how-to conceptual reference]: mobile-services-windows-dotnet-how-to-use-client-library.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

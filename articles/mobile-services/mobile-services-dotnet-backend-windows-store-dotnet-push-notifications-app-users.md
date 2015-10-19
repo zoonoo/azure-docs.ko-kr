@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="인증된 사용자에게 푸시 알림 보내기(유니버설 Windows 8.1) | Microsoft Azure" 
+	pageTitle="인증된 사용자에게 푸시 알림 보내기(유니버설 Windows 8.1) | Azure 모바일 서비스" 
 	description="Azure 모바일 서비스를 사용하여 유니버설 Windows 8.1 앱을 실행하는 특정 인증된 사용자에게 푸시 알림을 보내는 방법에 대해 알아봅니다." 
 	services="mobile-services,notification-hubs" 
 	documentationCenter="windows" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="07/01/2015" 
+	ms.date="10/05/2015" 
 	ms.author="glenga"/>
 
 # 인증된 사용자에게 푸시 알림 보내기
@@ -30,9 +30,9 @@
 
 이 자습서를 시작하려면 먼저 다음 모바일 서비스 자습서를 완료해야 합니다.
 
-+ [인증 시작]<br/>TodoList 샘플 앱에 로그인 요구 사항을 추가합니다.
++ [인증 시작] TodoList 샘플 앱에 로그인 요구 사항을 추가합니다.
 
-+ [푸시 알림 시작]<br/>알림 허브를 사용하여 푸시 알림에 맞게 TodoList 샘플 앱을 구성합니다.
++ [푸시 알림 시작] 알림 허브를 사용하여 푸시 알림에 맞게 TodoList 샘플 앱을 구성합니다.
 
 두 자습서를 모두 완료한 다음에는 인증되지 않은 사용자가 모바일 서비스의 푸시 알림을 등록할 수 없도록 방지할 수 있습니다.
 
@@ -66,4 +66,4 @@
 
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

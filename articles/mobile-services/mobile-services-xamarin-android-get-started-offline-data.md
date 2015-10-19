@@ -161,7 +161,6 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 <!-- URLs. -->
 [모바일 서비스에 대한 오프라인 지원을 통해 충돌 처리]: mobile-services-windows-store-dotnet-handling-conflicts-offline-data.md
 [모바일 서비스에서 오프라인 데이터 동기화를 사용하여 충돌 처리]: mobile-services-windows-store-dotnet-handling-conflicts-offline-data.md
-[Get started with data]: mobile-services-android-get-started-data.md
 [모바일 서비스 시작]: mobile-services-android-get-started.md
 [Azure 모바일 서비스용 Xamarin Component 클라이언트를 사용하는 방법]: partner-xamarin-mobile-services-how-to-use-client-library.md
 [일시 삭제]: mobile-services-using-soft-delete.md
@@ -173,4 +172,4 @@ Azure 모바일 서비스의 오프라인 동기화를 사용하면 최종 사�
 [NuGet Addin for Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

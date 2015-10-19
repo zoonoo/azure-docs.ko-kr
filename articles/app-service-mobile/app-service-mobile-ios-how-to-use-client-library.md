@@ -1,14 +1,14 @@
 <properties
 	pageTitle="Azure 모바일 앱에 iOS SDK를 사용하는 방법"
 	description="Azure 모바일 앱에 iOS SDK를 사용하는 방법"
-	services="mobile-services"
+	services="app-service\mobile"
 	documentationCenter="ios"
 	authors="krisragh"
 	manager="dwrede"
 	editor=""/>
 
 <tags
-	ms.service="mobile-services"
+	ms.service="app-service-mobile"
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
@@ -249,4 +249,4 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [충돌 처리기]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

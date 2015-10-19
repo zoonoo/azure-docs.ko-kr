@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="06/30/2015"
+	ms.date="10/01/2015"
 	ms.author="ricksal"/>
 
 # Android 모바일 서비스 앱에 오프라인 데이터 동기화 추가
@@ -33,7 +33,6 @@
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../../includes/mobile-services-android-prerequisites.md)]
 
-
 ## 오프라인 동기화를 지원하도록 앱 업데이트
 
 오프라인 동기화를 통해 장치의 **SQL Light** 데이터베이스 일부인 *동기화 테이블*에서 읽고 씁니다(*IMobileServiceSyncTable* 인터페이스 사용).
@@ -48,14 +47,14 @@
 2. 다음 **import** 문을 *ToDoActivity.java*에 추가합니다.
 
 		import java.util.Map;
-		
+
 		import android.widget.Toast;
-		
-		import com.microsoft.windowsazure.mobileservices.table.query.Query; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncContext; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncTable; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.ColumnDataType; 
-		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.SQLiteLocalStore; 
+
+		import com.microsoft.windowsazure.mobileservices.table.query.Query;
+		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncContext;
+		import com.microsoft.windowsazure.mobileservices.table.sync.MobileServiceSyncTable;
+		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.ColumnDataType;
+		import com.microsoft.windowsazure.mobileservices.table.sync.localstore.SQLiteLocalStore;
 
 3. `ToDoActivity` 클래스 위쪽 근처에서 `mToDoTable` 변수 선언을 `MobileServiceTable<ToDoItem>` 클래스에서 `MobileServiceSyncTable<ToDoItem>` 클래스로 변경합니다.
 
@@ -109,7 +108,7 @@
 		public void syncAsync(){
 			if (isNetworkAvailable()) {
 				new AsyncTask<Void, Void, Void>() {
-	
+
 					@Override
 					protected Void doInBackground(Void... params) {
 						try {
@@ -136,7 +135,7 @@
 	이렇게 하면 시작 시 장치가 Azure 테이블과 동기화됩니다. 그렇지 않으면 로컬 저장소의 마지막 오프라인 콘텐츠가 표시됩니다.
 
 
- 
+
 9. 이 쿼리를 사용하도록 `refreshItemsFromTable` 메서드에서 코드를 업데이트합니다(`try` 블록 내부의 첫 번째 코드 줄).
 
 		final MobileServiceList<ToDoItem> result = mToDoTable.read(mPullQuery).get();
@@ -162,8 +161,8 @@
 
 다음 시나리오를 테스트해 보세요.
 
-1. 장치에서 몇 가지 새 항목을 추가하고, 
-2. 항목이 포털에 표시되지 않는지 확인하고, 
+1. 장치에서 몇 가지 새 항목을 추가하고,
+2. 항목이 포털에 표시되지 않는지 확인하고,
 3. **새로 고침**을 눌러서 항목이 표시되는지 확인합니다.
 4. 포털에서 항목을 변경하거나 추가하고 **새로 고침**을 눌러서 변경 내용이 장치에 나타나는지 확인합니다.
 
@@ -212,7 +211,6 @@ One thing which is important to point out: if there are pending changes in the l
 
 
 [Get started with Mobile Services]: mobile-services-android-get-started.md
-[Get started with data]: mobile-services-android-get-started-data.md
 [Handling Conflicts with Offline Support for Mobile Services]: mobile-services-android-handling-conflicts-offline-data.md
 [Soft Delete]: mobile-services-using-soft-delete.md
 
@@ -221,4 +219,4 @@ One thing which is important to point out: if there are pending changes in the l
 
 [모바일 서비스 빠른 시작 자습서]: mobile-services-android-get-started.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

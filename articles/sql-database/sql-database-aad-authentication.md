@@ -19,7 +19,7 @@
 
 # Azure Active Directory 인증을 사용한 SQL Database 연결 
 
-Azure Active Directory 인증은 Azure Azure AD(Azure Active Directory)의 ID를 사용하여 Microsoft Azure SQL 데이터베이스에 연결하는 메커니즘입니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 하나의 중앙 위치에서 관리할 수 있습니다. 중앙 ID 관리는 SQL 데이터베이스 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다. 이점은 다음과 같습니다.
+Azure Active Directory 인증은 Azure AD(Azure Active Directory)의 ID를 사용하여 Microsoft Azure SQL 데이터베이스에 연결하는 메커니즘입니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 하나의 중앙 위치에서 관리할 수 있습니다. 중앙 ID 관리는 SQL 데이터베이스 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다. 이점은 다음과 같습니다.
 
 - SQL Server 인증에 대한 대안을 제공합니다.
 - 데이터베이스 서버 전체에서 사용자 ID의 확산을 중지합니다.
@@ -99,7 +99,7 @@ Azure Active Directory 인증은 최신 SQL 데이터베이스 V12에서 지원�
 
 데이터베이스가 SQL 데이터베이스 V12에서 호스팅되지 않을 경우 [ SQL 데이터베이스 V12로 업그레이드 계획 및 준비](sql-database-v12-plan-prepare-upgrade.md)를 참조하고 Azure 포털을 방문하여 데이터베이스를 SQL 데이터베이스 V12로 마이그레이션합니다.
 
-또는 [SQL 데이터베이스 업데이트에서 데이터베이스 만들기](sql-database-create.md)의 단계에 따라 SQL 데이터베이스 V12에 새 데이터베이스를 만들 수 있습니다. **팁**: 새 데이터베이스에 대한 구독을 선택하기 전에 다음 단계를 확인합니다.
+또는 [첫 번째 Azure SQL 데이터베이스 만들기](sql-database-get-started.md)에 나열된 단계에 따라 SQL 데이터베이스 V12에 새 데이터베이스를 만들 수 있습니다. **팁**: 새 데이터베이스에 대한 구독을 선택하기 전에 다음 단계를 확인합니다.
 
 ## 3\. 옵션: 현재 Azure 구독과 연결된 Active Directory를 연결하거나 변경합니다.
 
@@ -232,7 +232,7 @@ Azure AD 관리자가 제대로 설정되었는지 확인하려면 Azure AD 관�
 페더레이션된 도메인의 Azure Active Directory 자격 증명을 사용하여 Windows에 로그인한 경우 이 방법을 사용합니다.
 
 1. Management Studio를 시작하고, **데이터베이스 엔진 연결**(또는 **서버에 연결**) 대화 상자의 **인증** 상자에서 **Active Directory 통합 인증**을 선택합니다. 연결에 대한 기존 자격 증명이 있으므로 암호 입력이 필요하지 않습니다.
-2. **옵션** 단추를 클릭하고 **연결 속성** 페이지의 **연결할 데이터베이스** 상자에서 연결하려는 사용자 데이터베이스의 이름을 입력합니다.
+2. **옵션** 단추를 클릭하고 **연결 속성** 페이지의 **데이터베이스에 연결** 상자에서 연결하려는 사용자 데이터베이스의 이름을 입력합니다.
 
 #### Active Directory 암호 인증을 사용하여 연결 
 
@@ -291,7 +291,7 @@ Azure Active Directory 인증에서는 Azure AD ID를 사용하여 데이터베�
 	SqlConnection conn = new SqlConnection(ConnectionString);
 	conn.Open();
 
-연결 키워드 ``Integrated Security=True``은 Azure SQL 데이터베이스 연결에 지원되지 않습니다.
+연결 문자열 키워드 ``Integrated Security=True``은 Azure SQL 데이터베이스 연결에 지원되지 않습니다.
 
 ### 7\.2. Azure AD 사용자 이름 및 암호로 연결 
 통합 인증 및 Azure AD ID를 사용하여 데이터베이스에 연결하려면 인증 키워드가 Active Directory 암호로 설정되어 있고 연결 문자열에 사용자 ID/UID 및 암호/PWS 키워드와 값이 포함되어 있어야 합니다. 다음 C# 코드 예제에서는 ADO.NET을 사용합니다.
@@ -324,4 +324,4 @@ Azure AD 인증과 관련한 특정 코드 예제는 MSDN의 [SQL Server 보안 
 [9]: ./media/sql-database-aad-authentication/9ad-settings.png
 [10]: ./media/sql-database-aad-authentication/10choose-admin.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

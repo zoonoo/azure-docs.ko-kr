@@ -226,7 +226,7 @@ HDInsight 클러스터는 Azure Blob 저장소 컨테이너를 기본 파일 시
 
 	* **삭제**: HDInsight 클러스터를 삭제합니다.
 
-	* **빠른 시작**(![구름과 벼락 아이콘 = 빠른 시작](./media/hdinsight-hadoop-provision-linux-clusters/quickstart.png)): HDInsight를 사용하여 시작하는 데 도움이 되는 정보를 표시합니다.
+	* **빠른 시작(![구름과 벼락 아이콘 = 빠른 시작](./media/hdinsight-hadoop-provision-linux-clusters/quickstart.png))**: HDInsight를 사용하여 시작하는 데 도움이 되는 정보를 표시합니다.
 
 	* **사용자**(![사용자 아이콘](./media/hdinsight-hadoop-provision-linux-clusters/users.png)): Azure 구독의 다른 사용자에 대해 이 클러스터의 _포털 관리_ 권한을 설정할 수 있습니다.
 
@@ -386,7 +386,7 @@ Linux 클러스터를 프로비전하기 위해 설정해야 하는 두 가지 �
 ###<a id="sdk"></a> HDInsight .NET SDK 사용
 HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 쉽게 작업하도록 지원하는 .NET 클라이언트 라이브러리를 제공합니다. 아래 지침에 따라 Visual Studio 콘솔 응용 프로그램을 만들고 클러스터를 만들기 위한 코드를 붙여 넣으세요.
 
-**Visual Studio 콘솔 응용 프로그램을 만들려면**
+**C# Visual Studio 콘솔 응용 프로그램을 만들려면**
 
 1. Visual Studio 2013 또는 2015 열기
 2. 다음 설정으로 새 Visual Studio 프로젝트를 만듭니다.
@@ -406,6 +406,8 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 
 6. 솔루션 탐색기에서 **Program.cs**를 두 번 클릭하여 열고 다음 코드를 붙여 넣은 후 변수 값을 제공합니다.
 
+		using System;
+		using System.Security;
 		using Microsoft.Azure;
 		using Microsoft.Azure.Common.Authentication;
 		using Microsoft.Azure.Common.Authentication.Factories;
@@ -512,7 +514,7 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 
 
 
-##<a id="nextsteps"></a> 다음 단계
+## 다음 단계
 이 문서에서는 Linux에서 HDInsight Hadoop 클러스터를 프로비전하는 여러 가지 방법에 대해 알아보았습니다. 자세한 내용은 다음 문서를 참조하십시오.
 
 - [Linux에서 HDInsight 작업](hdinsight-hadoop-linux-information.md): Linux에서 HDInsight 클러스터 관련 작업의 미묘한 차이를 알 수 있습니다.
@@ -571,4 +573,4 @@ HDInsight .NET SDK는 .NET Framework 응용 프로그램에서 HDInsight로 더 
 
   [89e2276a]: /documentation/articles/hdinsight-use-sqoop/ "HDInsight에서 Sqoop 사용"
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -3,7 +3,7 @@
    description="서비스 패브릭의 신뢰할 수 있는 행위자 상태 및 인터페이스를 정의하는 데 사용할 수 있는 직렬화 가능 클래스를 정의하기 위한 기본 요구 사항 설명"
    services="service-fabric"
    documentationCenter=".net"
-   authors="clca"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/11/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # 서비스 패브릭 신뢰할 수 있는 행위자 형식 직렬화에 대한 참고 사항
 
@@ -82,4 +82,4 @@ public class VoicemailBox
 
 ```
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

@@ -1,6 +1,7 @@
 <properties
 	pageTitle="비교: Apache Storm 및 Azure 스트림 분석 | Microsoft Azure"
 	description="실시간 Twitter 정서 분석에 대한 스트림 분석을 사용하는 방법에 대해 알아봅니다. 이벤트 생성부터 라이브 대시보드의 데이터에 이르는 단계별 지침이 포함되어 있습니다."
+	keywords="real-time twitter,sentiment analysis,social media analysis,social media analytics tools"
 	services="stream-analytics"
 	documentationCenter=""
 	authors="jeffstokes72"
@@ -13,7 +14,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="big-data"
-	ms.date="08/13/2015"
+	ms.date="10/05/2015"
 	ms.author="jeffstok"/>
 
 # Apache Storm 및 Azure 스트림 분석 비교 #
@@ -123,7 +124,7 @@
                     스트림 분석은 처리되는 데이터 볼륨 및 스트리밍 단위(작업이 실행되는 시간 당)의 수에 따라 가격이 책정됩니다.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/ko-kr/pricing/details/stream-analytics/">자세한 가격 정보는 여기를 참조하세요.</a>
+                    <a href="http://azure.microsoft.com/pricing/details/stream-analytics/">자세한 가격 정보는 여기를 참조하세요.</a>
                 </p>
             </td>
             <td width="246" valign="top">
@@ -131,7 +132,7 @@
                     HDInsight의 Apache Storm의 경우 구매 단위는 클러스터 기반이며 클러스터 실행 되는 시간, 독립적으로 배포 하는 작업을 기준으로 요금이 청구 됩니다.
                 </p>
                 <p>
-                    <a href="http://azure.microsoft.com/ko-kr/pricing/details/hdinsight/">자세한 가격 정보는 여기를 참조하세요.</a>
+                    <a href="http://azure.microsoft.com/pricing/details/hdinsight/">자세한 가격 정보는 여기를 참조하세요.</a>
                 </p>
             </td>
         </tr>
@@ -589,4 +590,4 @@
     </tbody>
 </table>
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

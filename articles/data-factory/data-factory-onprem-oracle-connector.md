@@ -1,22 +1,22 @@
 <properties 
-	pageTitle="Oracle 간 데이터 이동 | Azure 데이터 팩터리"
-	description="Azure 데이터 팩터리를 사용하여 온-프레미스 Oracle 데이터베이스 간 데이터를 이동하는 방법에 대해 알아봅니다."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Oracle에서 데이터 이동 | Azure 데이터 팩터리" 
+	description="Azure 데이터 팩터리를 사용하여 온-프레미스 Oracle 데이터베이스 간 데이터를 이동하는 방법에 대해 알아봅니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/26/2015" 
 	ms.author="spelluru"/>
 
-# Azure 데이터 팩터리를 사용하여 온-프레미스 Oracle로 데이터 이동 
+# Azure 데이터 팩터리를 사용하여 온-프레미스 Oracle에서 데이터 이동 
 
 이 문서에서는 데이터 팩터리를 사용하여 Oracle에서 다른 데이터 저장소로 데이터를 이동하는 방법에 대해 간략하게 설명합니다. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 작성합니다.
 
@@ -177,7 +177,7 @@
 	        "typeProperties": {
 	          "source": {
 	            "type": "OracleSource",
-	            "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \'{0:yyyy-MM-dd HH:mm}\' AND timestampcolumn < \'{1:yyyy-MM-dd HH:mm}\'', WindowStart, WindowEnd)"
+	            "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -274,4 +274,4 @@ XML | 문자열
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

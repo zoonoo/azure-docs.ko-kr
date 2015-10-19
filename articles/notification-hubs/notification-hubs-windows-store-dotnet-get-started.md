@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="09/30/2015"
+	ms.date="10/05/2015"
 	ms.author="wesmc"/>
 
 # Windows 스토어 앱에 대한 알림 허브 시작
@@ -26,6 +26,9 @@
 
 이 자습서에서는 알림 허브를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다. 알림 허브를 사용하여 장치의 특정 사용자 및 그룹을 처리하는 방법을 알아보려면 다음 자습서도 함께 완료해야 합니다.
 
+이 자습서에 대해 완료된 코드는 GitHub의 [여기](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal)서 찾을 수 있습니다.
+
+
 
 ##필수 조건
 
@@ -35,7 +38,7 @@
 
 + 활성 Windows 스토어 계정
 
-+ 활성 Azure 계정 <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F)을 참조하세요.
++ 활성 Azure 계정 <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fnotification-hubs-windows-store-dotnet-get-started%2F)을 참조하세요.
 
 이 자습서를 완료해야 다른 모든 Windows 스토어 앱용 알림 허브 자습서를 진행할 수 있습니다.
 
@@ -173,13 +176,37 @@ Windows 스토어 앱으로 푸시 알림을 보내려면 앱을 Windows 스토�
 
    	![][19]
 
-9. (옵션) 이전 단계를 반복하여 다른 프로젝트를 실행합니다.
+9. (선택 사항) 이전 단계를 반복하여 Windows Phone 프로젝트를 실행하고 앱을 Windows Phone 장치에 등록합니다.
+
+
 
 이제 앱에서 알림을 받을 수 있습니다.
 
-##백 엔드에서 알림 보내기
+##알림 보내기 
 
-<a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 인터페이스</a>를 통해 모든 백 엔드에서 알림 허브를 사용하여 알림을 보낼 수 있습니다. 이 자습서에서는 .NET 콘솔 응용 프로그램을 사용하여 알림을 보냅니다. 알림 허브와 통합된 Azure 모바일 서비스 백 엔드에서 알림을 보내는 방법에 대한 예는 "모바일 서비스에서 푸시 알림 시작"([.NET 백 엔드](../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [JavaScript 백 엔드](../mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md))을 참조하세요. REST API를 사용하여 알림을 보내는 방법에 대한 예는 "Java/PHP에서 알림 허브를 사용하는 방법"([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md))을 참조하세요.
+아래 화면과 같이 알림 허브의 디버그 탭을 통해 Azure 포털에서 알림을 보내서 앱의 알림 수신을 테스트할 수 있습니다.
+
+![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-debug.png)
+
+푸시 알림은 일반적으로 호환 라이브러리를 사용하는 모바일 서비스 또는 ASP.NET과 같은 백 엔드 서비스에서 전송됩니다. 백 엔드에 라이브러리를 사용할 수 없는 경우 직접 REST API를 사용하여 알림 메시지를 보낼 수도 있습니다.
+
+이 자습서에서는 과정을 단순하게 유지하고 백엔드 서비스 대신 콘솔 응용 프로그램에서 알림 허브에 .NET SDK를 사용하여 알림을 보내서 클라이언트 앱의 테스트만 보여 줍니다. ASP.NET 백엔드에서 알림을 보내기 위한 다음 단계로 [알림 허브를 사용하여 사용자에게 알림을 푸시]하는 것이 좋습니다. 그러나 다음 접근 방식을 사용하여 알림을 보낼 수 있습니다.
+
+* **REST 인터페이스**: [REST 인터페이스](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx)를 사용하여 백엔드 플랫폼에서 알림을 지원할 수 있습니다.
+
+* **Microsoft Azure 알림 허브.NET SDK**: Visual Studio용 Nuget 패키지 관리자에서 [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)를 실행합니다.
+
+* **Node.js** : [Node.js에서 알림 허브 사용 방법](notification-hubs-nodejs-how-to-use-notification-hubs.md).
+
+* **Azure 모바일 서비스**: 알림 허브와 통합된 Azure 모바일 서비스 백 엔드에서 알림을 보내는 방법에 대한 예는 "모바일 서비스에서 푸시 알림 시작"([.NET 백 엔드](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md) | [JavaScript backend](../mobile-services/mobile-services-javascript-backend-windows-store-dotnet-get-started-push.md))을 참조하세요.
+
+* **Java / PHP**: REST API를 사용하여 알림을 보내는 방법에 대한 예는 "Java/PHP에서 알림 허브를 사용하는 방법"([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md))을 참조하세요.
+
+
+### 콘솔 앱에서 알림 보내기
+
+
+.NET 콘솔 응용 프로그램을 사용하여 알림을 보내려면 다음 단계를 수행합니다.
 
 1. 솔루션을 마우스 오른쪽 단추로 클릭하고, **추가** 및 **새 프로젝트...**를 선택한 후에 **Visual C#** 아래에서 **Windows** 및 **콘솔 응용 프로그램**을 클릭하고 **확인**을 클릭합니다.
 
@@ -233,7 +260,12 @@ MSDN의 [알림 카탈로그], [타일 카탈로그] 및 [배지 개요] 항목�
 
 ##다음 단계
 
-이 간단한 예제에서는 모든 Windows 장치로 브로드캐스트 알림을 보냈습니다. 특정 사용자를 대상으로 하려면 [알림 허브를 사용하여 사용자에게 알림 푸시](영문) 자습서를 참조하세요. 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기](영문)를 참조하세요. 알림 허브에 대한 자세한 내용은 [알림 허브 지침]을 참조하세요.
+이 간단한 예제에서는 포털 또는 콘솔 앱을 사용하여 모든 Windows 장치로 브로드캐스트 알림을 보냈습니다. 다음 단계로 [알림 허브를 사용하여 사용자에게 알림 푸시] 자습서를 수행하는 것이 좋습니다. 이 자습서는 특정 사용자를 대상으로 ASP.NET 백엔드에서 알림을 보내는 방법을 보여 줍니다.
+
+사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기](영문)를 참조하십시오. 알림 허브에 대한 더 일반적인 정보를 알아보려면 [알림 허브 지침]을 참조하세요.
+
+
+
 
 
 
@@ -261,10 +293,11 @@ MSDN의 [알림 카탈로그], [타일 카탈로그] 및 [배지 개요] 항목�
 [알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
 
 [알림 허브를 사용하여 사용자에게 알림 푸시]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
+[알림 허브를 사용하여 사용자에게 알림을 푸시]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
 [알림 카탈로그]: http://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [타일 카탈로그]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [배지 개요]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

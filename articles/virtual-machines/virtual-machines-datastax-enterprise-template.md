@@ -1,5 +1,5 @@
 <properties
-	pageTitle="리소스 관리자 템플릿을 사용하는 Ubuntu의 DataStax Enterprise"
+	pageTitle="리소스 관리자 템플릿을 사용하는 Ubuntu의 DataStax Enterprise | Microsoft Azure"
 	description="Azure PowerShell 또는 Azure CLI 및 리소스 관리자 템플릿을 사용하여 Ubuntu VM에 새 DataStax Enterprise 클러스터를 쉽게 배포할 수 있는 방법을 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,6 +17,8 @@
 	ms.author="scoriani"/>
 
 # 리소스 관리자 템플릿을 사용하는 Ubuntu의 DataStax Enterprise
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 DataStax는 항상 작동하고 민첩하며 원하는 규모로 예측 가능하게 확장할 수 있는 상업적으로 지원되며 엔터프라이즈 지원이 되는 NoSQL 분산 데이터베이스 기술인 Apache Cassandra™를 기반으로 하는 솔루션을 개발 및 제공하는 업계 선도 업체입니다. DataStax는 Enterprise(DSE)와 Community(DSC) 유형을 모두 제공합니다. Community 버전에서 제공하는 기능 외에도 Datastax Enterprise는 메모리 내 컴퓨팅, 엔터프라이즈 수준의 보안, 빠르고 강력한 통합 분석 및 엔터프라이즈 관리와 같은 기능이 있는 제품 인증된 Cassandra입니다.
 
@@ -391,7 +393,7 @@ azuredeploy.json의 "parameters" 섹션은 이 템플릿에 데이터를 입력�
 
 이 마지막 템플릿은 템플릿 사용 방법은 템플릿 개발 관점에서 가장 흥미로운 것 중 하나이므로 좀 더 자세히 살펴보겠습니다. 한 가지 중요한 개념은 단일 템플릿 파일에서 단일 리소스 유형의 여러 복사본을 배포하고 각 인스턴스에 대해 필요한 설정의 고유 값을 설정하는 방법입니다. 이 개념을 리소스 루핑이라고 합니다.
 
-기본 azuredeploy.json 파일 내에서 ephemeral-nodes-resources.json을 호출하면 nodeCount라는 매개 변수가 매개 변수 목록의 일부로 제공됩니다. 자식 템플릿 내에서 nodeCount(클러스터에 배포할 노드 수)는 다음 예제에 강조 표시된 것처럼 여러 복사본으로 배포해야 하는 각 리소스의 **“copy”** 요소 내에 사용됩니다. 배포된 리소스의 여러 인스턴스 간에 고유한 값을 지정하는 데 필요한 모든 설정의 경우 **copyindex()** 함수를 사용하여 해당 특정 리소스 루프 만들기에서 현재 인덱스를 나타내는 숫자 값을 가져올 수 있습니다. 다음 예제에서는 Datastax Enterprise 클러스터 노드에 대해 작성되는 여러 VM에 이 개념이 적용됨을 확인할 수 있습니다.
+기본 azuredeploy.json 파일 내에서 ephemeral-nodes-resources.json을 호출하면 nodeCount라는 매개 변수가 매개 변수 목록의 일부로 제공됩니다. 자식 템플릿 내에서 nodeCount(클러스터에 배포할 노드 수)는 다음 예제에 강조 표시된 것처럼 여러 복사본으로 배포해야 하는 각 리소스의 **"copy"** 요소 내에 사용됩니다. 배포된 리소스의 여러 인스턴스 간에 고유한 값을 지정하는 데 필요한 모든 설정의 경우 **copyindex()** 함수를 사용하여 해당 특정 리소스 루프 만들기에서 현재 인덱스를 나타내는 숫자 값을 가져올 수 있습니다. 다음 예제에서는 Datastax Enterprise 클러스터 노드에 대해 작성되는 여러 VM에 이 개념이 적용됨을 확인할 수 있습니다.
 
 			   {
 			      "apiVersion": "2015-05-01-preview",
@@ -458,7 +460,7 @@ azuredeploy.json의 "parameters" 섹션은 이 템플릿에 데이터를 입력�
 
 	bash vm-disk-utils-0.1.sh
 
-vm-disk-utils-0.1.sh는 azure-quickstart-tempates github 리포지토리 내 shared_scripts\ubuntu 폴더의 일부이며, 디스크 탑재, 포맷 및 스트라이프에 매우 유용한 함수를 포함하고 있습니다. 이러한 함수는 리포지토리의 모든 템플릿에서 사용할 수 있습니다.
+vm-disk-utils-0.1.sh는 azure-quickstart-tempates github 리포지토리 내 shared\_scripts\\ubuntu 폴더의 일부이며, 디스크 탑재, 포맷 및 스트라이프에 매우 유용한 함수를 포함하고 있습니다. 이러한 함수는 리포지토리의 모든 템플릿에서 사용할 수 있습니다.
 
 또 다른 흥미로운 조각은 CustomScriptForLinux VM 확장과 관련된 조각입니다. 이러한 확장은 별도의 리소스 유형으로 설치되며 각 클러스터 노드(및 OpsCenter 인스턴스)에 대한 종속성이 적용됩니다. 가상 컴퓨터에 대해 설명하는 동일한 리소스 루핑 메커니즘을 활용합니다.
 
@@ -500,4 +502,4 @@ vm-disk-utils-0.1.sh는 azure-quickstart-tempates github 리포지토리 내 sha
 
 자세한 내용은 [Azure 리소스 관리자 템플릿 언어](../resource-group-authoring-templates.md)를 참조하세요.
 
-<!----HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

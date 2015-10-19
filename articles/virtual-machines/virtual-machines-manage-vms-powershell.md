@@ -19,9 +19,11 @@
 
 # Azure PowerShell을 사용하여 가상 컴퓨터 관리
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+
 Azure PowerShell cmdlet을 사용하여 매일 VM을 관리하기 위해 수행하는 많은 작업을 자동화할 수 있습니다. 이 문서에서는 더 간단한 작업에 대한 예제 명령과 보다 복잡한 작업에 대한 명령을 보여 주는 문서에 대한 링크를 제공합니다.
 
->[AZURE.NOTE]Azure PowerShell을 아직 설치 및 구성하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](../install-configure-powershell.md) 글에서 지침을 확인할 수 있습니다.
+>[AZURE.NOTE]Azure PowerShell을 아직 설치 및 구성하지 않은 경우 [Azure PowerShell 설치 및 구성 방법](../install-configure-powershell.md) 문서에서 지침을 확인할 수 있습니다.
 
 ## 예제 명령을 사용하는 방법
 명령의 일부 텍스트는 환경에 적합한 텍스트로 바꿔야 합니다. < and > 기호는 바꿔야 하는 텍스트를 나타냅니다. 텍스트를 바꾸는 경우 기호는 제거하고 따옴표는 그대로 남겨 두세요.
@@ -64,7 +66,7 @@ VM에 대한 정보를 가져오려면 이 명령을 실행하고 < and > 문자
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 ## 데이터 디스크 연결
-이 작업에는 몇 단계가 필요합니다. 먼저, ****Add-AzureDataDisk**** cmdlet를 사용하여 $vm 개체에 디스크를 추가합니다. 그런 다음 **Update-AzureVM** cmdlet를 사용하여 VM의 구성을 업데이트합니다.
+이 작업에는 몇 단계가 필요합니다. 먼저, ****Add-AzureDataDisk**** cmdlet를 사용하여 $vm 개체에 디스크를 추가합니다. 그런 다음 **Update-AzureVM** cmdlet을 사용하여 VM의 구성을 업데이트합니다.
 
 또한 새 디스크를 연결할지 데이터를 포함하는 디스크를 연결할지를 결정해야 합니다. 새 디스크의 경우 이 명령은 .vhd 파일을 만들고 디스크를 연결합니다.
 
@@ -94,4 +96,4 @@ Azure에서 새 Windows 기반 가상 컴퓨터를 만들려면 [Azure PowerShel
 - 기존 부하 분산 집합의 구성원으로 만들기
 - 고정 IP 주소로 만들기
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

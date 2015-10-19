@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="서비스 버스 AMQP 개요 | Microsoft Azure"
-	description="Azure에서 AMQP(Advanced Message Queuing Protocol) 1.0을 사용하는 방법에 대해 알아봅니다."
-	services="service-bus"
-	documentationCenter=".net"
-	authors="sethmanheim"
-	manager="timlt"
+	pageTitle="서비스 버스 AMQP 개요 | Microsoft Azure" 
+	description="Azure에서 AMQP(Advanced Message Queuing Protocol) 1.0을 사용하는 방법에 대해 알아봅니다." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
 	editor="mattshel"/>
 
 <tags 
-	ms.service="service-bus"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="na"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.date="07/21/2015"
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="10/05/2015" 
 	ms.author="sethm"/>
 
 
@@ -81,21 +81,28 @@ AMQP 1.0은 2008년 이래로 기술 공급업체와 최종 사용자 업체를 
 
 **그림 2: AMQP 1.0 클라이언트 라이브러리 표**
 
-서비스 버스로 이러한 라이브러리를 가져오고 사용하는 방법에 대한 자세한 내용은 [서비스 버스 AMQP 개발자 가이드][]를 참조하세요. 자세한 내용은 아래 "참조" 섹션을 참조하세요.
-
 ## 요약
 
 *    AMQP 1.0은 여러 플랫폼 간에 상호 운용되는 하이브리드 응용 프로그램을 만들 수 있는 안정적인 개방형 메시징 프로토콜입니다. AMQP 1.0은 OASIS 표준입니다.
 *    이제 Azure 서비스 버스와 Windows Server용 서비스 버스(서비스 버스 1.1)에서 모두 AMQP 1.0이 지원됩니다. 가격은 기존 프로토콜과 같습니다.
 
-## 참조
+## 다음 단계
 
-*    [서비스 버스 .NET API와 함께 AMQP 1.0을 사용하는 방법](http://aka.ms/lym3vk)
-*    [서비스 버스 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법](http://aka.ms/ll1fm3)
-*    [서비스 버스 AMQP 개발자 가이드](http://msdn.microsoft.com/library/jj841071.aspx)
-*    [OASIS AMQP(Advanced Message Queuing Protocol) 버전 1.0 사양](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
+자세히 알아볼 준비가 되셨습니까? 다음 링크를 방문하세요.
 
-[0]: ./media/service-bus-amqp-overview/Example1.png
-[서비스 버스 AMQP 개발자 가이드]: http://msdn.microsoft.com/library/jj841071.aspx
+- [AMQP를 사용하여 .NET에서 서비스 버스 사용]
+- [AMQP를 사용하여 Java에서 서비스 버스 사용]
+- [AMQP를 사용하여 Python에서 서비스 버스 사용]
+- [AMQP를 사용하여 PHP에서 서비스 버스 사용]
+- [Azure Linux VM에 Apache Qpid Proton-C 설치]
+- [Windows Server용 서비스 버스의 AMQP]
 
-<!---HONumber=August15_HO9-->
+[0]: ./media/service-bus-amqp-overview/service-bus-amqp-1.png
+[AMQP를 사용하여 .NET에서 서비스 버스 사용]: service-bus-amqp-dotnet.md
+[AMQP를 사용하여 Java에서 서비스 버스 사용]: service-bus-amqp-java.md
+[AMQP를 사용하여 Python에서 서비스 버스 사용]: service-bus-amqp-python.md
+[AMQP를 사용하여 PHP에서 서비스 버스 사용]: service-bus-amqp-php.md
+[Azure Linux VM에 Apache Qpid Proton-C 설치]: service-bus-amqp-apache.md
+[Windows Server용 서비스 버스의 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
+
+<!---HONumber=Oct15_HO2-->

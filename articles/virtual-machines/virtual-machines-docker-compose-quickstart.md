@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Azure 가상 컴퓨터에서 Docker 및 Compose 시작"
-   description="Azure에서 Compose 및 Docker 작업을 간략히 소개"
+   pageTitle="가상 컴퓨터에서 Docker 및 Compose | Microsoft Azure"
+   description="Azure 가상 컴퓨터에서 Compose 및 Docker 작업을 간략히 소개"
    services="virtual-machines"
    documentationCenter=""
    authors="dlepow"
    manager="timlt"
-   editor=""/>
+   editor=""
+   tags="azure-resource-manager,azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
@@ -19,6 +20,8 @@
 # Azure 가상 컴퓨터에서 Docker 및 Compose 시작
 
 이 문서에서는 Docker 및[Compose](http://github.com/docker/compose)를 사용하여 Azure의 Linux 가상 컴퓨터에서 복잡한 응용 프로그램을 정의 및 실행하는 방법을 보여줍니다. Compose(*Fig*에 대한 후속)를 사용하면 간단한 텍스트 파일을 사용하여 여러 Docker 컨테이너로 구성된 응용 프로그램을 정의할 수 있습니다. 그런 다음 VM에서 실행할 수 있는 모든 작업을 수행하는 단일 명령에서 응용 프로그램을 스핀업합니다. 그 예로, 이 문서에서는 백 엔드 MariaDB SQL 데이터베이스로 WordPress 블로그를 신속하게 설정하는 방법을 보여주지만 Compose를 사용하여 좀더 복잡한 응용 프로그램을 설정할 수도 있습니다.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서는 리소스 관리자 및 클래식 배포 모델을 모두 사용하여 만드는 가상 컴퓨터에 적용됩니다.
 
 Docker 및 컨테이너를 처음 사용하는 경우는 [Docker 요약 화이트보드](http://azure.microsoft.com/documentation/videos/docker-high-level-whiteboard/)를 참조하세요.
 
@@ -124,4 +127,4 @@ $ azure vm endpoint create <machine-name> 80 8080
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/28/2015"
+	ms.date="10/01/2015"
 	ms.author="markvi"/>
 
 # Azure Active Directory 버전
@@ -56,9 +56,9 @@ Active Directory Premium 버전은 Azure Active Directory의 유료 버전이며
 
     자세한 내용은 [Azure Multi-Factor Authentication 정의](multi-factor-authentication.md)를 참조하세요.
 
-- **MIM(Microsoft ID 관리자)** - Premium 버전에는 온-프레미스 네트워크에서 MIM 서버(및 CAL)를 사용하여 어떤 하이브리드 ID 솔루션 조합도 지원할 수 있는 권한을 부여하는 옵션이 포함되어 있습니다. 이 옵션은 Azure Active Directory에 직접 동기화하려는 다른 유형의 온-프레미스 디렉터리 및 데이터베이스가 있을 때 아주 유용합니다. 사용할 수 있는 FIM 서버 수에는 제한이 없지만 MIM CAL은 Azure Active Directory Premium 사용자 라이선스 할당에 따라 부여됩니다.
+- **Microsoft ID 관리자** - Premium 버전에는 온-프레미스 네트워크에서 MIM 서버(및 CAL)를 사용하여 어떤 하이브리드 ID 솔루션 조합도 지원할 수 있는 권한을 부여하는 옵션이 포함되어 있습니다. 이 옵션은 Azure Active Directory에 직접 동기화하려는 다른 유형의 온-프레미스 디렉터리 및 데이터베이스가 있을 때 아주 유용합니다. 사용할 수 있는 MIM 서버 수에는 제한이 없지만 MIM CAL은 Azure Active Directory Premium 사용자 라이선스 할당에 따라 부여됩니다.
 
-    자세한 내용은 [MIM 2010 R2 배포](https://www.microsoft.com/server-cloud/products/forefront-identity-manager/features.aspx)를 참조하세요.
+    자세한 내용은 [Microsoft ID 관리자](http://www.microsoft.com/ko-KR/server-cloud/products/microsoft-identity-manager/default.aspx)를 참조하세요.
 
 - **99.9%의 엔터프라이즈 SLA** - Azure Active Directory Premium 서비스에 대해 99.9% 이상의 가용성을 보장합니다.
 
@@ -150,7 +150,7 @@ Active Directory Premium 버전은 Azure Active Directory의 유료 버전이며
 	</tr>
 	<tr>
 		<td>
-		<p>사용자 기반 응용 프로그램 액세스 관리 및 프로 비전</p>
+		<p>사용자 기반 응용 프로그램 액세스 관리 및 프로비전</p>
 		</td>
 		<td>
 		<p>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img id="2b05dce3-938f-4168-9b8f-1f4398cbdb9b" alt="검사 목록" src="./media/active-directory-editions/ic195031.png" title="검사 목록" xmlns="" /></p>
@@ -396,7 +396,7 @@ Active Directory Premium 버전은 Azure Active Directory의 유료 버전이며
 	<tr>
 		<td>
 		<p>
-		<a href="https://msdn.microsoft.com/ko-kr/library/azure/dn906722.aspx">Azure Active Directory Connect Health</a>: 온-프레미스 Active Directory 인프라의 상태를 모니터링하고 사용 현황 분석을 가져옵니다.</p>
+		<a href="https://msdn.microsoft.com/ko-KR/library/azure/dn906722.aspx">Azure Active Directory Connect Health</a>: 온-프레미스 Active Directory 인프라의 상태를 모니터링하고 사용 현황 분석을 가져옵니다.</p>
 		</td>
 		<td>
 		<p></p>
@@ -450,4 +450,4 @@ Active Directory Premium 버전은 Azure Active Directory의 유료 버전이며
 - [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가하기](active-directory-add-company-branding.md)
 - [액세스 및 사용 보고서 보기](active-directory-view-access-usage-reports.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

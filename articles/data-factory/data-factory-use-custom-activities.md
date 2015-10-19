@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/29/2015" 
+	ms.date="10/06/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
@@ -60,6 +60,7 @@ Azure Data Factory는 파이프라인에서 데이터를 이동 및 처리하는
 		using System.IO;
 		using System.Globalization;
 		using System.Diagnostics;
+		using System.Linq;
 	
 		using Microsoft.Azure.Management.DataFactories.Models;
 		using Microsoft.Azure.Management.DataFactories.Runtime;
@@ -77,10 +78,9 @@ Azure Data Factory는 파이프라인에서 데이터를 이동 및 처리하는
 
 8. **IDotNetActivity** 인터페이스의 **Execute** 메서드를 **MyDotNetActivity** 클래스에 구현(추가)하고 다음 샘플 코드를 메서드에 복사합니다.
 
-
 	다음 샘플 코드에서는 입력 Blob의 줄 수를 계산하고 출력 Blob에 Blob 경로, Blob의 줄 수, 작업이 실행된 컴퓨터, 현재 날짜-시간 등과 같은 내용을 생성합니다.
 
-        public IDictionary<string, string> Execute(IEnumerable<LinkedService> linkedServices, IEnumerable<Table> tables, Activity activity, IActivityLogger logger)
+		public IDictionary<string, string> Execute(IEnumerable<LinkedService> linkedServices, IEnumerable<Dataset> datasets, Activity activity, IActivityLogger logger)
         {
             IDictionary<string, string> extendedProperties = ((DotNetActivity)activity.TypeProperties).ExtendedProperties;
 
@@ -88,13 +88,12 @@ Azure Data Factory는 파이프라인에서 데이터를 이동 및 처리하는
             CustomDataset inputLocation;
             AzureBlobDataset outputLocation;
 
-            Table inputTable = tables.Single(table => table.Name == activity.Inputs.Single().Name);
-            inputLocation = inputTable.Properties.TypeProperties as CustomDataset;
+            Dataset inputDataset = datasets.Single(dataset => dataset.Name == activity.Inputs.Single().Name);
+            inputLocation = inputDataset.Properties.TypeProperties as CustomDataset;
 
-			// using First method instead of Single since we are using the same 
-			// Azure Storage linked service for input and output. 
-            inputLinkedService = linkedServices.First(linkedService => linkedService.Name == inputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
-
+            // using First method instead of Single since we are using the same 
+            // Azure Storage linked service for input and output. 
+            inputLinkedService = linkedServices.First(linkedService => linkedService.Name == inputDataset.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
 
             string output = string.Empty;
 
@@ -107,7 +106,7 @@ Azure Data Factory는 파이프라인에서 데이터를 이동 및 처리하는
             }
 
             string connectionString = GetConnectionString(inputLinkedService);
-            string folderPath = GetFolderPath(inputTable);
+            string folderPath = GetFolderPath(inputDataset);
 
             logger.Write("Reading blob from: {0}", folderPath);
 
@@ -159,12 +158,12 @@ Azure Data Factory는 파이프라인에서 데이터를 이동 및 처리하는
 
             } while (continuationToken != null);
 
-            Table outputTable = tables.Single(table => table.Name == activity.Outputs.Single().Name);
-            outputLocation = outputTable.Properties.TypeProperties as AzureBlobDataset;
-            outputLinkedService = linkedServices.First(linkedService => linkedService.Name == outputTable.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
+            Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
+            outputLocation = outputDataset.Properties.TypeProperties as AzureBlobDataset;
+            outputLinkedService = linkedServices.First(linkedService => linkedService.Name == outputDataset.Properties.LinkedServiceName).Properties.TypeProperties as AzureStorageLinkedService;
 
             connectionString = GetConnectionString(outputLinkedService);
-            folderPath = GetFolderPath(outputTable);
+            folderPath = GetFolderPath(outputDataset);
 
             logger.Write("Writing blob to: {0}", folderPath);
 
@@ -192,8 +191,7 @@ Azure Data Factory는 파이프라인에서 데이터를 이동 및 처리하는
             return asset.ConnectionString;
         }
 
-        
-        private static string GetFolderPath(Table dataArtifact)
+        private static string GetFolderPath(Dataset dataArtifact)
         {
             if (dataArtifact == null || dataArtifact.Properties == null)
             {
@@ -478,4 +476,4 @@ Azure Data Factory 서비스는 주문형 클러스터 만들기를 지원하며
 [image-data-factory-azure-batch-tasks]: ./media/data-factory-use-custom-activities/AzureBatchTasks.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

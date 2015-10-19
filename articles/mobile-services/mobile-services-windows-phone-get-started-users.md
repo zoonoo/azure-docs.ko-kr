@@ -30,7 +30,7 @@
 
 이 자습서는 모바일 서비스 quickstart를 기반으로 합니다. 먼저 [기존 앱에 모바일 서비스 추가] 자습서도 완료해야 합니다.
 
->[AZURE.NOTE]이 자습서는 다양한 ID 공급자를 사용하여 모바일 서비스에서 관리하는 인증 흐름을 보여 줍니다. 이 방법은 간편하게 구성할 수 있으며 여러 공급자를 지원합니다. 대신 Live Connect와 클라이언트 관리 인증을 함께 사용하고 Windows Phone 앱에서 Single Sign-On을 제공하려면 [Live Connect를 사용한 Windows Phone 앱의 Single Sign-On] 항목을 참조하십시오. 클라이언트 관리 인증을 사용하면 앱에서 ID 공급자를 통해 유지 관리되는 추가적인 사용자 데이터에 액세스할 수 있게 됩니다. 서버 스크립트에서 **user.getIdentities()** 함수를 호출하여 모바일 서비스에서 동일한 사용자 데이터를 가져올 수 있습니다. 자세한 내용은 [이 게시물](http://go.microsoft.com/fwlink/p/?LinkId=506605)을 참조하십시오.
+>[AZURE.NOTE]이 자습서는 다양한 ID 공급자를 사용하여 모바일 서비스에서 관리하는 인증 흐름을 보여 줍니다. 이 방법은 간편하게 구성할 수 있으며 여러 공급자를 지원합니다. 클라이언트 관리 인증을 사용하면 앱에서 ID 공급자를 통해 유지 관리되는 추가적인 사용자 데이터에 액세스할 수 있게 됩니다. 서버 스크립트에서 **user.getIdentities()** 함수를 호출하여 모바일 서비스에서 동일한 사용자 데이터를 가져올 수 있습니다. 자세한 내용은 [이 게시물](http://go.microsoft.com/fwlink/p/?LinkId=506605)을 참조하십시오.
 
 ##<a name="register"></a>인증을 위해 앱 등록 및 모바일 서비스 구성
 
@@ -77,7 +77,6 @@
 [기존 앱에 모바일 서비스 추가]: mobile-services-windows-phone-get-started-data.md
 [Authorize users with scripts]: ../mobile-services-windows-phone-authorize-users-in-scripts.md
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Live Connect를 사용한 Windows Phone 앱의 Single Sign-On]: mobile-services-windows-phone-single-sign-on.md
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

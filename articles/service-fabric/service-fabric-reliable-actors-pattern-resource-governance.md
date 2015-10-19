@@ -3,7 +3,7 @@
    description="서비스 패브릭 행위자를 사용하여 규모를 확장해야 하지만 제한된 리소스를 사용해야 하는 응용 프로그램을 모델링할 수 있는 방법에 대한 패턴 디자인"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/11/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # 신뢰할 수 있는 행위자 디자인 패턴: 리소스 관리
 이 패턴 및 관련 시나리오에서는 즉시 크기 조정할 수 없거나 대규모 응용 프로그램 및 데이터를 클라우드로 전송하려는 경우, 리소스를 온-프레미스 또는 클라우드에서 제한한 개발자(엔터프라이즈 등)가 쉽게 알 수 있습니다.
@@ -417,4 +417,4 @@ public class EventWriter : Actor<EventWriterState>, IEventWriter
 [2]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch2.png
 [3]: ./media/service-fabric-reliable-actors-pattern-resource-governance/resourcegovernance_arch3.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

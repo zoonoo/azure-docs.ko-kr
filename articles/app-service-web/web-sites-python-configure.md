@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="04/15/2015" 
+	ms.date="09/29/2015" 
 	ms.author="huguesv"/>
 
 
@@ -137,8 +137,8 @@ Python 2.7용 예제 `web.config`:
       <system.webServer>
         <modules runAllManagedModulesForAllRequests="true" />
         <handlers>
-          <remove name="Python273_via_FastCGI" />
-          <remove name="Python340_via_FastCGI" />
+          <remove name="Python27_via_FastCGI" />
+          <remove name="Python34_via_FastCGI" />
           <add name="Python FastCGI"
                path="handler.fcgi"
                verb="*"
@@ -157,6 +157,7 @@ Python 2.7용 예제 `web.config`:
             <rule name="Configure Python" stopProcessing="true">
               <match url="(.*)" ignoreCase="false" />
               <conditions>
+                <add input="{REQUEST_URI}" pattern="^/static/.*" ignoreCase="true" negate="true" />
               </conditions>
               <action type="Rewrite"
                       url="handler.fcgi/{R:1}"
@@ -186,8 +187,8 @@ Python 3.4용 예제 `web.config`:
       <system.webServer>
         <modules runAllManagedModulesForAllRequests="true" />
         <handlers>
-          <remove name="Python273_via_FastCGI" />
-          <remove name="Python340_via_FastCGI" />
+          <remove name="Python27_via_FastCGI" />
+          <remove name="Python34_via_FastCGI" />
           <add name="Python FastCGI"
                path="handler.fcgi"
                verb="*"
@@ -206,6 +207,7 @@ Python 3.4용 예제 `web.config`:
             <rule name="Configure Python" stopProcessing="true">
               <match url="(.*)" ignoreCase="false" />
               <conditions>
+                <add input="{REQUEST_URI}" pattern="^/static/.*" ignoreCase="true" negate="true" />
               </conditions>
               <action type="Rewrite" url="handler.fcgi/{R:1}" appendQueryString="true" />
             </rule>
@@ -218,13 +220,6 @@ Python 3.4용 예제 `web.config`:
 정적 파일은 성능 향상을 위해 Python 코드를 거치지 않고 웹 서버에서 직접 처리됩니다.
 
 위 예제에서 디스크에 있는 정적 파일의 위치는 URL 내의 위치와 일치해야 합니다. 이는 `http://pythonapp.azurewebsites.net/static/site.css`에 대한 요청 시 `\static\site.css`에서 디스크의 파일이 제공됨을 의미합니다.
-
-URL 내의 위치와 다른 디스크 위치에서 파일을 제공하도록 규칙 `Static Files`을 구성할 수 있습니다. 다음 규칙 정의에서는 `http://pythonapp.azurewebsites.net/static/site.css`에 대한 요청 시 `\static\site.css` 대신 `\FlaskWebProject\static\site.css`의 디스크의 파일이 제공됩니다.
-
-    <rule name="Static Files" stopProcessing="true">
-      <match url="^/static/.*" ignoreCase="true" />
-      <action type="Rewrite" url="^/FlaskWebProject/static/.*" appendQueryString="true" />
-    </rule>
 
 `WSGI_ALT_VIRTUALENV_HANDLER`는 지정한 WSGI 처리기의 위치입니다. 위 예제에서는 처리기가 루트 폴더의 `app.py`에 있는 `wsgi_app`이라는 함수이므로 `app.wsgi_app`입니다.
 
@@ -254,6 +249,7 @@ URL 내의 위치와 다른 디스크 위치에서 파일을 제공하도록 규
     import datetime
     import os
     import sys
+    import traceback
 
     if sys.version_info[0] == 3:
         def to_str(value):
@@ -294,20 +290,22 @@ URL 내의 위치와 다른 디스크 위치에서 파일을 제공하도록 규
 
     def get_wsgi_handler(handler_name):
         if not handler_name:
-            raise Exception('WSGI_HANDLER env var must be set')
-        
+            raise Exception('WSGI_ALT_VIRTUALENV_HANDLER env var must be set')
+    
         if not isinstance(handler_name, str):
             handler_name = to_str(handler_name)
-
+    
         module_name, _, callable_name = handler_name.rpartition('.')
         should_call = callable_name.endswith('()')
         callable_name = callable_name[:-2] if should_call else callable_name
         name_list = [(callable_name, should_call)]
         handler = None
+        last_tb = ''
 
         while module_name:
             try:
                 handler = __import__(module_name, fromlist=[name_list[0][0]])
+                last_tb = ''
                 for name, should_call in name_list:
                     handler = getattr(handler, name)
                     if should_call:
@@ -319,10 +317,11 @@ URL 내의 위치와 다른 디스크 위치에서 파일을 제공하도록 규
                 callable_name = callable_name[:-2] if should_call else callable_name
                 name_list.insert(0, (callable_name, should_call))
                 handler = None
-
+                last_tb = ': ' + traceback.format_exc()
+    
         if handler is None:
-            raise ValueError('"%s" could not be imported' % handler_name)
-
+            raise ValueError('"%s" could not be imported%s' % (handler_name, last_tb))
+    
         return handler
 
     activate_this = os.getenv('WSGI_ALT_VIRTUALENV_ACTIVATE_THIS')
@@ -343,9 +342,9 @@ URL 내의 위치와 다른 디스크 위치에서 파일을 제공하도록 규
         import site
         sys.executable = activate_this
         old_sys_path, sys.path = sys.path, []
-        
+    
         site.main()
-        
+    
         sys.path.insert(0, '')
         for item in old_sys_path:
             if item not in sys.path:
@@ -387,4 +386,4 @@ URL 내의 위치와 다른 디스크 위치에서 파일을 제공하도록 규
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

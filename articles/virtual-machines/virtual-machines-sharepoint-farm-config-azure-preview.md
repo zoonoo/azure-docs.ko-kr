@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="10/05/2015"
 	ms.author="josephd"/>
 
 
@@ -113,7 +113,7 @@ SharePoint 서버 팜은 미리 구성된 SharePoint Server 2013 팜을 자동�
 -	데이터베이스 서버:
 	-	가상 컴퓨터 이미지: Windows Server 2012 R2의 SQL Server 2014 RTM Enterprise
 	-	호스트 이름 접두사: 초기 구성 중에 지정됩니다.
-	-	크기: 데이터베이스 서버의 경우 A5(기본값), 파일 공유 감시의 경우 A0(기본값)
+	-	크기: 데이터베이스 서버의 경우 A5(기본값), 파일 공유 감시(SQL0)의 경우 A0(기본값)
 	-	데이터베이스 액세스 계정 이름: 초기 구성 중에 지정됩니다.
 	-	데이터베이스 액세스 계정 암호: 초기 구성 중에 지정됩니다.
 	-	SQL Server 서비스 계정 이름: sqlservice(기본값)
@@ -137,8 +137,8 @@ Azure Preview 포털의 SharePoint 서버 팜 기능은 서비스 관리에서 �
 
 [SharePoint 서버 팜](virtual-machines-sharepoint-farm-azure-preview.md)
 
-[Azure 가상 컴퓨터의 SharePoint](http://msdn.microsoft.com/library/azure/dn275955.aspx)
+[Azure 인프라 서비스에서 호스트되는 SharePoint 팜](virtual-machines-sharepoint-infrastructure-services.md)
 
 [테스트용 하이브리드 클라우드에 SharePoint 인트라넷 팜 설치](../virtual-network/virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

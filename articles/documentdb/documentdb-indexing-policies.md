@@ -14,7 +14,7 @@
     ms.topic="article" 
     ms.tgt_pltfrm="na" 
     ms.workload="data-services" 
-    ms.date="08/03/2015" 
+    ms.date="10/05/2015" 
     ms.author="mimig"/>
 
 
@@ -541,7 +541,7 @@ DocumentDB는 점 데이터 형식에 지정할 수 있는 공간 인덱스 종�
 
 기본적으로, 쿼리를 처리하는 데 검색이 필요할 수 있음을 알리기 위한 범위 인덱스가 없는 경우(자릿수) >=와 같은 범위 연산자로 쿼리에 대한 오류가 반환됩니다. REST API의 x-ms-documentdb-enable-scans 헤더를 사용하거나 .NET SDK의 EnableScanInQuery 요청 옵션을 사용하여 범위 인덱스 없이 범위 쿼리를 수행할 수 있습니다. DocumentDB가 필터링하는 데 인덱스를 사용할 수 있는 쿼리에 다른 필터가 있는 경우, 오류가 반환되지 않습니다.
 
-공간 쿼리에 대해서도 동일한 규칙이 적용됩니다. 기본적으로 공간 인덱스가 없는 경우 공간 쿼리에 대해 오류가 반환됩니다. x-ms-documentdb-enable-scan/EnableScanInQuery를 사용하여 스캔으로 수행할 수 있습니다.
+공간 쿼리에 대해서도 동일한 규칙이 적용됩니다. 기본적으로 공간 인덱스가 없고 인덱스에서 제공될 수 있는 다른 필터가 없는 경우 공간 쿼리에 오류가 반환됩니다. x-ms-documentdb-enable-scan/EnableScanInQuery를 사용하여 스캔으로 수행할 수 있습니다.
 
 #### 인덱스 전체 자릿수
 
@@ -664,6 +664,8 @@ DocumentDB를 사용하면 즉석에서 컬렉션의 인덱싱 정책을 변경�
 - 쿼리 성능을 향상시키거나 저장소 소비를 줄일 인덱싱 정밀도를 조정합니다.
 
 >[AZURE.NOTE]ReplaceDocumentCollectionAsync를 사용하여 인덱싱 정책을 수정하려면 NET SDK의 1.3.0 이상의 버전이 필요합니다.
+>
+> 인덱스 변환을 성공적으로 완료하려면 컬렉션에 사용할 수 있는 충분한 저장 공간이 있는지 확인해야 합니다. 컬렉션이 해당 저장소 할당량에 도달하면 인덱스 변환은 중단됩니다. 저장소 공간을 사용할 수 있게 되면 예를 들어 일부 문서를 삭제하는 경우 인덱스 변환은 자동으로 다시 시작됩니다
 
 ## 성능 튜닝
 
@@ -767,4 +769,4 @@ DocumentDB API는 사용된 인덱스 저장소와 같은 성능 메트릭에 �
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

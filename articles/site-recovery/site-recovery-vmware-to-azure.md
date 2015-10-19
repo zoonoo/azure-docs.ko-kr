@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/04/2015"
+	ms.date="10/07/2015"
 	ms.author="raynew"/>
 
 # 온-프레미스 VMware 가상 컴퓨터 또는 물리적 서버와 Azure 간의 보호 설정
@@ -140,7 +140,7 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 마스터 대상 서버의 용량 계획은 다음에 따라 달라집니다.
 
 - Azure 저장소의 성능 및 제한 사항
-	- 표준 계층 VM에 대해 자주 활용되는 디스크의 최대 수는 단일 저장소 계정에서 약 40(디스크당 20,000/500 IOPS)입니다. 자세한 내용은 [標準的なストレージ アカウントのスケーラビリティ ターゲット](../storage/storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts) 자세한 내용은. 마찬가지로 프리미엄 저장소 계정에 대한 자세한 내용은 [프리미엄 저장소 계정의 확장성 목표](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts)를 참조하세요
+	- 표준 계층 VM에 대해 자주 활용되는 디스크의 최대 수는 단일 저장소 계정에서 약 40(디스크당 20,000/500 IOPS)입니다. 자세한 내용은 [표준 저장소 계정의 확장성 목표](../storage/storage-scalability-targets.md#scalability-targets-for-standard-storage-accounts)를 참조하세요. 마찬가지로 프리미엄 저장소 계정에 대한 자세한 내용은 [프리미엄 저장소 계정의 확장성 목표](../storage/storage-scalability-targets.md#scalability-targets-for-premium-storage-accounts)를 참조하세요.
 -	일일 데이터 변경률 
 -	보존 볼륨 저장소.
 
@@ -164,7 +164,7 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 **Azure 저장소** | <p>복제 데이터를 저장하려면 Azure 저장소 계정이 필요합니다.</p><p>계정은 [표준 지역 중복 저장소 계정](../storage/storage-redundancy.md#geo-redundant-storage) 또는 [프리미엄 저장소 계정](../storage/storage-premium-storage-preview-portal.md)이어야 합니다.</p><p>Azure Site Recovery 서비스와 동일한 하위 지역에 있어야 하며 동일한 구독에 연결되어야 합니다.</p><p>자세히 알아보려면 [Microsoft Azure 저장소 소개](../storage/storage-introduction.md)를 참조하세요.</p>
 **Azure 가상 네트워크** | 구성 서버와 마스터 대상 서버를 배포할 Azure 가상 네트워크가 필요합니다. 이 네트워크는 Azure Site Recovery 자격 증명 모음과 동일한 구독 및 지역에 있어야 합니다. Express 경로 또는 VPN 연결을 통해 데이터를 복제하려는 경우 Azure 가상 네트워크가 Express 경로 연결 또는 사이트 간 VPN을 통해 온-프레미스 네트워크에 연결되어야 합니다.
 **Azure 리소스** | 모든 구성 요소를 배포하기에 충분한 Azure 리소스가 있는지 확인합니다. [Azure 구독 제한](../azure-subscription-service-limits.md)을 참조하세요.
-**Azure 가상 컴퓨터** | <p>보호하려는 가상 컴퓨터가 [Azure 필수 구성 요소](site-recovery-best-practices.md)를 준수해야 합니다.</p><p>**디스크 수**—단일 보호 서버에서 최대 31개 디스크가 지원됩니다.</p><p>**디스크 크기**—개별 디스크 용량은 1023GB보다 클 수 없습니다.</p><p>**클러스터링**—클러스터링된 서버는 지원되지 않습니다.</p><p>**부팅**—UEFI(Unified Extensible Firmware Interface)/EFI(Extensible Firmware Interface) 부팅은 지원되지 않습니다.</p><p>**볼륨**—Bitlocker 암호화된 볼륨은 지원되지 않습니다.</p><p> **서버 이름**—이름은 1\~63자(문자, 숫자, 하이픈)를 포함해야 합니다. 이름은 문자나 숫자로 시작하고 문자나 숫자로 끝나야 합니다. 컴퓨터가 보호된 후 Azure 이름을 수정할 수 있습니다.</p>
+**Azure 가상 컴퓨터** | <p>보호하려는 가상 컴퓨터가 [Azure 필수 구성 요소](site-recovery-best-practices.md)를 준수해야 합니다.</p><p>**디스크 수**—단일 보호 서버에서 최대 31개 디스크가 지원됩니다.</p><p>**디스크 크기**—개별 디스크 용량은 1023GB보다 클 수 없습니다.</p><p>**클러스터링**—클러스터링된 서버는 지원되지 않습니다.</p><p>**부팅**—UEFI(Unified Extensible Firmware Interface)/EFI(Extensible Firmware Interface) 부팅은 지원되지 않습니다.</p><p>**볼륨**—Bitlocker 암호화된 볼륨은 지원되지 않습니다.</p><p> **서버 이름**—이름은 1~63자(문자, 숫자, 하이픈)를 포함해야 합니다. 이름은 문자나 숫자로 시작하고 문자나 숫자로 끝나야 합니다. 컴퓨터가 보호된 후 Azure 이름을 수정할 수 있습니다.</p>
 **구성 서버** | <p>Azure Site Recovery Windows Server 2012 R2 갤러리 이미지를 기반으로 하는 표준 A3 가상 컴퓨터가 구성 서버 구독에 만들어집니다. 새 클라우드 서비스에 첫 번째 인스턴스로 만들어집니다. 구성 서버에 대해 연결 유형으로 공용 인터넷을 선택하는 경우 클라우드 서비스는 예약된 공용 IP 주소를 사용하여 만들어집니다.</p><p>설치 경로는 영어 문자로만 이루어져야 합니다.</p>
 **마스터 대상 서버** | <p>Azure 가상 컴퓨터, 표준 A4, D14 또는 DS4.</p><p>설치 경로는 영어 문자로만 입력해야 합니다. 예를 들어 Linux를 실행하는 마스터 대상 서버의 경로는 **/usr/local/ASR**이어야 합니다.</p></p>
 **프로세스 서버** | <p>최신 업데이트를 설치한 Windows Server 2012 R2를 실행하는 물리적 컴퓨터나 가상 컴퓨터에 프로세스 서버를 배포할 수 있습니다. C:/에 설치합니다.</p><p>보호할 컴퓨터와 동일한 네트워크 및 서브넷에 서버를 배치하는 것이 좋습니다.</p><p>프로세스 서버에 VMware vSphere CLI 5.5.0을 설치합니다. ESXi 호스트에서 실행되는 가상 컴퓨터 또는 vCenter 서버로 관리하는 가상 컴퓨터를 검색하려면 프로세스 서버에 VMware vSphere CLI 구성 요소가 필요합니다.</p><p>설치 경로는 영어 문자로만 입력해야 합니다.</p>
@@ -637,7 +637,7 @@ Site Recovery는 다양한 [배포 시나리오](site-recovery-overview.md)에�
 
     ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i 104.40.75.37 -p 62519 -s y -c https -P passphrase.txt
 
->[AZURE.NOTE] 이미 적절한 버전의 모바일 서비스를 실행 중인 보호 그룹에 컴퓨터를 추가하면 푸시 설치가 생략됩니다.
+>[AZURE.NOTE]이미 적절한 버전의 모바일 서비스를 실행 중인 보호 그룹에 컴퓨터를 추가하면 푸시 설치가 생략됩니다.
 
 
 ## 단계 9: 보호 사용
@@ -762,14 +762,14 @@ Azure에서 실행 중인 컴퓨터를 장애 조치(Failover)한 다음 온-프
 
 ## 타사 소프트웨어 통지 및 정보
 
-Do Not Translate or Localize
+번역 또는 지역화 금지
 
-The software and firmware running in the Microsoft product or service is based on or incorporates material from the projects listed below (collectively, “Third Party Code”).  Microsoft is the not original author of the Third Party Code.  The original copyright notice and license, under which Microsoft received such Third Party Code, are set forth below.
+Microsoft 제품이나 서비스에서 실행되는 소프트웨어와 펌웨어는 아래 나열된 프로젝트의 자료(총체적으로 "타사 코드")를 기반으로 하거나 통합합니다. Microsoft는 타사 코드의 원래 작성자가 아닙니다. Microsoft가 이러한 타사 코드를 받을 때 적용된 원래 저작권 표시 및 라이선스는 아래에 명시되어 있습니다.
 
-The information in Section A is regarding Third Party Code components from the projects listed below. Such licenses and information are provided for informational purposes only.  This Third Party Code is being relicensed to you by Microsoft under Microsoft's software licensing terms for the Microsoft product or service.  
+섹션 A의 정보는 아래 나열된 프로젝트의 타사 코드 구성 요소와 관련된 것입니다. 해당 라이선스와 정보는 정보 제공 목적으로만 제공됩니다. 이 타사 코드는 Microsoft 제품 또는 서비스에 대한 Microsoft 소프트웨어 사용 조건에 의거하여 Microsoft에 의해 사용이 재허용됩니다.
 
-The information in Section B is regarding Third Party Code components that are being made available to you by Microsoft under the original licensing terms.
+섹션 B의 정보는 원래 사용 조건에 의거하여 Microsoft에서 제공하는 타사 구성 요소와 관련된 것입니다.
 
-The complete file may be found on the [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=529428). Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
+전체 파일은 [Microsoft 다운로드 센터](http://go.microsoft.com/fwlink/?LinkId=529428)에서 확인할 수 있습니다. Microsoft에서 명시적으로 부여하지 않은 모든 권한은 묵시적, 금반언적 또는 기타 어떠한 방식에 의해서든 Microsoft가 보유합니다.
 
-<!------HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

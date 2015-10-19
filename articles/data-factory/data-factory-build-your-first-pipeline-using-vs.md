@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article" 
-	ms.date="08/18/2015"
+	ms.date="10/06/2015"
 	ms.author="spelluru"/>
 
 # Visual Studio를 사용하여 첫 번째 Azure Data Factory 파이프라인 빌드
@@ -33,11 +33,13 @@
 
 이 문서는 Azure Data Factory 서비스에 대한 개념적 개요를 제공하지 않습니다. 서비스에 대한 자세한 개요는 [Azure Data Factory 소개](data-factory-introduction.md) 문서를 참조하세요.
 
+> [AZURE.IMPORTANT][자습서 개요](data-factory-build-your-first-pipeline.md) 문서를 살펴보고 이 자습서를 수행하기 전에 필수 단계를 완료합니다.
+
 ## 연습: Visual Studio를 사용하여 데이터 팩터리 엔터티 만들기 및 배포 
 
 ### 필수 구성 요소
 
-컴퓨터에 Visual Studio 2013이 설치되어 있어야 합니다. Visual Studio 2013용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](http://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013 설치**를 클릭합니다.
+컴퓨터에 Visual Studio 2013이 설치되어 있어야 합니다. Visual Studio 2013용 Azure SDK를 다운로드합니다. [Azure 다운로드 페이지](http://azure.microsoft.com/downloads/)로 이동하고 **.NET** 섹션에서 **VS 2013 설치**를 클릭합니다. - Visual Studio 2013 --> Tools --> Updates --> Visual Studio 갤러리로 이동하고 거기서 "Azure 데이터 팩터리용 Visual Studio 도구" 플러그인 항목에서 "업데이트"를 클릭하여 "Azure 데이터 팩터리용 Visual Studio 도구"를 최신 버전으로 업데이트합니다.
 
 
 ### Visual Studio 프로젝트 만들기 
@@ -235,4 +237,4 @@ Azure Preview 포털을 사용하여 이 자습서에서 만든 파이프라인 
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline-using-vs.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

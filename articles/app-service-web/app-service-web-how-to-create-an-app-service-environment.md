@@ -18,7 +18,7 @@
 
 # 앱 서비스 환경을 만드는 방법 #
 
-ASE(앱 서비스 환경)는 현재 미리 보기로 제공되는 Azure 앱 서비스의 프리미엄 서비스 옵션입니다. 다중 테넌트 스탬프에서 사용할 수 없는 향상된 구성 기능을 제공합니다. 앱 서비스 환경에서 제공되는 기능에 대한 자세한 내용은 [앱 서비스 환경 정의][WhatisASE] 설명서를 참조하세요.
+앱 서비스 환경(ASE)은 다중 테넌트 스탬프에서 사용할 수 없는 향상된 구성 기능을 제공하는 Azure 앱 서비스의 프리미엄 서비스 옵션입니다. 앱 서비스 환경에서 제공되는 기능에 대한 자세한 내용은 [앱 서비스 환경 정의][WhatisASE] 설명서를 참조하세요.
 
 [AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -145,4 +145,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

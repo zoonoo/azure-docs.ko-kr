@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/24/2015"
+	ms.date="10/01/2015"
 	ms.author="jhubbard"/>
 
 
@@ -195,11 +195,11 @@ Azure SQL 데이터 동기화에서는 동기화할 테이블과 열을 선택�
 ## 다음 단계
 SQL 데이터베이스와 SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
 
-* [MSDN Library의 SQL 데이터 동기화 콘텐츠](https://msdn.microsoft.com/library/azure/hh456371.aspx)
+* [SQL 데이터 동기화 기술 설명서 다운로드](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)
 * [SQL 데이터베이스 개요](sql-database-technical-overview.md)
 * [데이터베이스 수명 주기 관리](https://msdn.microsoft.com/library/jj907294.aspx)
  
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -1,29 +1,29 @@
 <properties 
    pageTitle="이벤트 허브 API 개요"
-	description="주요 이벤트 허브 .NET 클라이언트 API의 일부 요약입니다."
-	services="event-hubs"
-	documentationCenter="na"
-	authors="sethmanheim"
-	manager="timlt"
-	editor=""/>
+   description="주요 이벤트 허브 .NET 클라이언트 API의 일부 요약입니다."
+   services="event-hubs"
+   documentationCenter="na"
+   authors="sethmanheim"
+   manager="timlt"
+   editor="" />
 <tags 
    ms.service="event-hubs"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="tbd"
-	ms.date="07/10/2015"
-	ms.author="sethm"/>
+   ms.devlang="na"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="tbd"
+   ms.date="07/10/2015"
+   ms.author="sethm" />
 
 # 이벤트 허브 API 개요
 
 이 문서는 키 이벤트 허브 .NET 클라이언트 API의 일부를 요약합니다. 관리와 런타임 API 등 두 가지 범주가 있습니다. 런타임 API는 메시지를 주고받는 데 필요한 모든 작업으로 구성됩니다. 관리 작업을 사용하면 엔터티를 만들고 업데이트 및 삭제하여 이벤트 허브 엔터티 상태를 관리할 수 있습니다.
 
-모니터링 시나리오는 관리 및 런타임 모두에 사용됩니다. .NET API에 대한 자세한 참조 설명서는[.NET 클래스 라이브러리](https://msdn.microsoft.com/library/jj933431.aspx)및[EventProcessorHost API](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.aspx) 참조를 참조하십시오.
+모니터링 시나리오는 관리 및 런타임 모두에 사용됩니다. .NET API에 대한 자세한 참조 설명서는[.NET 클래스 라이브러리](https://msdn.microsoft.com/library/azure/jj933431.aspx)및[EventProcessorHost API](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.aspx) 참조를 참조하십시오.
 
 ## 관리 API
 
-다음 관리 작업을 수행하려면 서비스 버스 네임 스페이스에 대한 **관리** 권한이 있어야 합니다.
+다음 관리 작업을 수행하려면 서비스 버스 네임스페이스에 대한 **관리** 권한이 있어야 합니다.
 
 ### 생성
 
@@ -50,7 +50,7 @@ namespaceManager.UpdateEventHubAsync(ehd).Wait();
 ### 삭제
 
 ```
-namespaceManager.DeleteEventHubAsync("event hub name").Wait();
+namespaceManager.DeleteEventHubAsync("Event Hub name").Wait();
 ```
 
 ## 런타임 API
@@ -59,7 +59,7 @@ namespaceManager.DeleteEventHubAsync("event hub name").Wait();
 
 ```
 // EventHubClient model (uses implicit factory instance, so all links on same connection)
-EventHubClient eventHubClient = EventHubClient.Create("event hub name");
+EventHubClient eventHubClient = EventHubClient.Create("Event Hub name");
 ```
 
 ### 메시지 게시
@@ -131,7 +131,7 @@ EventProcessorHost host = new EventProcessorHost(WorkerName, EventHubName, defau
 host.UnregisterEventProcessorAsync().Wait();   
 ```
 
-[IEventProcessor](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.ieventprocessor.aspx)인터페이스는 다음과 같이 정의됩니다.
+[IEventProcessor](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ieventprocessor.aspx)인터페이스는 다음과 같이 정의됩니다.
 
 ```
 public class SimpleEventProcessor : IEventProcessor
@@ -184,7 +184,7 @@ public class SimpleEventProcessor : IEventProcessor
 
 .NET API 참조는 다음과 같습니다.
 
-- [서비스 버스 및 이벤트 허브 .NET API 참조](https://msdn.microsoft.com/library/jj933424.aspx)
-- [이벤트 프로세서 호스트 API 참조](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventprocessorhost.aspx)
+- [서비스 버스 및 이벤트 허브 .NET API 참조](https://msdn.microsoft.com/library/azure/jj933424.aspx)
+- [이벤트 프로세서 호스트 API 참조](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost.aspx)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

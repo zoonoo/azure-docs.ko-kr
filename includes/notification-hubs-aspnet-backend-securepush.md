@@ -61,7 +61,7 @@
             var usernameTag = "username:" + HttpContext.Current.User.Identity.Name;
 
             // windows
-            var rawNotificationToBeSent = new Microsoft.ServiceBus.Notifications.WindowsNotification(secureNotificationInTheBackend.Id.ToString(),
+            var rawNotificationToBeSent = new Microsoft.Azure.NotificationHubs.WindowsNotification(secureNotificationInTheBackend.Id.ToString(),
                             new Dictionary<string, string> {
                                 {"X-WNS-Type", "wns/raw"}
                             });
@@ -84,4 +84,4 @@
 
 24. Azure 웹 사이트를 게시 대상으로 선택합니다. Azure 계정으로 로그인하여 기존 또는 새로운 웹 사이트를 선택하며, **연결** 탭의 **대상 URL** 속성을 기록합니다. 이 자습서의 뒷부분에서 이 URL을 *백 엔드 끝점*이라고 합니다. **게시**를 클릭합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

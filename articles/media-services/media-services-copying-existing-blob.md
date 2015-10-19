@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/07/2015" 
+	ms.date="10/05/2015" 
 	ms.author="juliako"/>
 
 #기존 Blob을 미디어 서비스 자산에 복사
@@ -27,9 +27,9 @@ Blob은 미디어 서비스 계정에 연결된 저장소 계정 또는 미디�
 ##필수 조건
 
 - 신규 또는 기존 Azure 구독의 미디어 서비스 계정 2개. [미디어 서비스 계정을 만드는 방법](media-services-create-account.md)(영문)을 참조하십시오.
-- 운영 체제: Windows 7, Windows 2008 R2 또는 Windows 8.
+- 운영 체제: Windows 10, Windows 7, Windows 2008 R2 또는 Windows 8.
 - .NET Framework 4.5.
-- Visual Studio 2013, Visual Studio 2012 또는 Visual Studio 2010 SP1(Professional, Premium, Ultimate 또는 Express).
+- Visual Studio 2010 SP1(Professional, Premium, Ultimate 또는 Express) 이상.
 
 ##프로젝트 설정
 
@@ -173,7 +173,7 @@ Blob은 미디어 서비스 계정에 연결된 저장소 계정 또는 미디�
 		    static public IAsset CreateAssetFromExistingBlobs(CloudBlobContainer mediaBlobContainer)
 		    {
 		        // Create a new asset. 
-		        IAsset asset = _context.Assets.Create("Burrito_" + Guid.NewGuid(), AssetCreationOptions.None);
+		        IAsset asset = _context.Assets.Create("CopyBlob_" + Guid.NewGuid(), AssetCreationOptions.None);
 		
 		        IAccessPolicy writePolicy = _context.AccessPolicies.Create("writePolicy", TimeSpan.FromHours(24), AccessPermissions.Write);
 		        ILocator destinationLocator = _context.Locators.CreateLocator(LocatorType.Sas, asset, writePolicy);
@@ -241,40 +241,49 @@ Blob은 미디어 서비스 계정에 연결된 저장소 계정 또는 미디�
 		    /// <param name="sourceBlob">The source container.</param>
 		    /// <param name="destinationContainer">The destination container.</param>
 		    static private void CopyBlob(ICloudBlob sourceBlob, CloudBlobContainer destinationContainer)
-		    {
-		        var signature = sourceBlob.GetSharedAccessSignature(new SharedAccessBlobPolicy
-		        {
-		            Permissions = SharedAccessBlobPermissions.Read,
-		            SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24)
-		        });
-		
-		        ICloudBlob destinationBlob = destinationContainer.GetBlockBlobReference(sourceBlob.Name);
-		
-		        if (destinationBlob.Exists())
-		        {
-		            Console.WriteLine(string.Format("Destination blob '{0}' already exists. Skipping.", destinationBlob.Uri));
-		        }
-		        else
-		        {
-		            try
-		            {
-		                Console.WriteLine(string.Format("Copy blob '{0}' to '{1}'", sourceBlob.Uri, destinationBlob.Uri));
-		                destinationBlob.StartCopy(sourceBlob.Uri);
+            {
+                var signature = sourceBlob.GetSharedAccessSignature(new SharedAccessBlobPolicy
+                {
+                    Permissions = SharedAccessBlobPermissions.Read,
+                    SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24)
+                });
 
-	                    while (destinationBlob.CopyState.Status == CopyStatus.Pending)
-	                    {
-	                        Thread.Sleep(10000);
-	                    }
-	
-	                    Console.WriteLine("Final Copy status = " + destinationBlob.CopyState.Status);
+                ICloudBlob destinationBlob = destinationContainer.GetBlockBlobReference(sourceBlob.Name);
 
-		            }
-		            catch (Exception ex)
-		            {
-		                Console.WriteLine(string.Format("Error copying blob '{0}': {1}", sourceBlob.Name, ex.Message));
-		            }
-		        }
-		    }
+                if (destinationBlob.Exists())
+                {
+                    Console.WriteLine(string.Format("Destination blob '{0}' already exists. Skipping.", destinationBlob.Uri));
+                }
+                else
+                {
+                    try
+                    {
+                        Console.WriteLine(string.Format("Copy blob '{0}' to '{1}'", sourceBlob.Uri, destinationBlob.Uri));
+                        destinationBlob.StartCopyFromBlob(new Uri(sourceBlob.Uri.AbsoluteUri + signature));
+
+
+                        while (true)
+                        {
+                            // The StartCopyFromBlob is an async operation, 
+                            // so we want to check if the copy operation is completed before proceeding. 
+                            // To do that, we call FetchAttributes on the blob and check the CopyStatus. 
+                            destinationBlob.FetchAttributes();
+                            if (destinationBlob.CopyState.Status != CopyStatus.Pending)
+                            {
+                                break;
+                            }
+                            //It's still not completed. So wait for some time.
+                            System.Threading.Thread.Sleep(1000);
+                        }
+
+                        Console.WriteLine("Final blob copy status = " + destinationBlob.CopyState.Status);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(string.Format("Error copying blob '{0}': {1}", sourceBlob.Name, ex.Message));
+                    }
+                }
+            }
 		
 		    /// <summary>
 		    /// Sets a file with the .ism extension as a primary file.
@@ -301,4 +310,4 @@ Blob은 미디어 서비스 계정에 연결된 저장소 계정 또는 미디�
 - [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

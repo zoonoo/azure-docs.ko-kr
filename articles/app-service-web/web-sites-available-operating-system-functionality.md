@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/02/2015" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
 
 # Azure 앱 서비스 웹 앱의 운영 제체 기능 #
@@ -111,4 +111,4 @@ Azure의 웹 응용 프로그램에서 사용할 수 없는 진단 로깅 및 �
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

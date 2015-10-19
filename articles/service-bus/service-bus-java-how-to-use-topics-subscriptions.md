@@ -1,5 +1,5 @@
 <properties
-	pageTitle="서비스 버스 토픽을 사용하는 방법(Java) | Microsoft Azure"
+	pageTitle="Java와 함께 서비스 버스 토픽을 사용하는 방법 | Microsoft Azure"
 	description="Azure에서 서비스 버스 토픽 및 구독을 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Java 응용 프로그램용으로 작성되었습니다."
 	services="service-bus"
 	documentationCenter="java"
@@ -13,17 +13,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="Java"
 	ms.topic="article"
-	ms.date="06/19/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
-# 서비스 버스 토픽/구독을 사용하는 방법
+# 서비스 버스 토픽 및 구독을 사용하는 방법
 
 이 가이드에서는 서비스 버스 토픽과 구독을 사용하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure SDK][](영문)를 사용합니다. 여기서 다루는 시나리오에는 **토픽 및 구독 만들기**, **구독 필터 만들기**, **토픽에 메시지 보내기**, **구독에서 메시지 받기**, **토픽 및 구독 삭제** 등이 포함됩니다.
 
 [AZURE.INCLUDE [service-bus-java-how-to-create-topic](../../includes/service-bus-java-how-to-create-topic.md)]
 
 ## 서비스 버스를 사용하도록 응용 프로그램 구성
-이 샘플을 빌드하기 전에 [Azure SDK for Java][]를 설치했는지 확인하세요. Eclipse를 사용하는 경우 Azure SDK for Java를 포함하고 있는 [Eclipse용 Azure Toolkit][]를 설치할 수 있습니다. 그런 다음 **Java용 Microsoft Azure 라이브러리**를 프로젝트에 추가할 수 있습니다.![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
+
+이 샘플을 빌드하기 전에 [Azure SDK for Java][]를 설치했는지 확인하세요. Eclipse를 사용하는 경우 Azure SDK for Java를 포함하고 있는 [Eclipse용 Azure Toolkit][]를 설치할 수 있습니다. 그런 다음 **Java용 Microsoft Azure 라이브러리**를 프로젝트에 추가할 수 있습니다.
+
+![](media/service-bus-java-how-to-use-topics-subscriptions/eclipselibs.png)
 
 Java 파일 맨 위에 다음 import 문을 추가합니다.
 
@@ -35,11 +38,11 @@ Java 파일 맨 위에 다음 import 문을 추가합니다.
 
 Java용 Azure 라이브러리를 빌드 경로에 추가하고 프로젝트 배포 어셈블리에 포함합니다.
 
-## 토픽을 만드는 방법
+## 토픽 만들기
 
 **ServiceBusContract** 클래스를 통해 서비스 버스 토픽에 대한 관리 작업을 수행할 수 있습니다. **ServiceBusContract** 개체는 관리에 필요한 SAS 토큰 사용 권한을 캡슐화하는 적합한 구성으로 생성되며, Azure와의 통신 지점은 **ServiceBusContract** 클래스뿐입니다.
 
-**ServiceBusService** 클래스는 토픽을 만들고 열거 및 삭제하기 위한 메서드를 제공합니다. 아래 예제에서는 **ServiceBusService** 개체를 사용하여 "HowToSample" 네임스페이스로 "TestTopic" 토픽을 만드는 방법을 보여 줍니다.
+**ServiceBusService** 클래스는 토픽을 만들고 열거 및 삭제하기 위한 메서드를 제공합니다. 다음 예제에서는 **ServiceBusService** 개체를 사용하여 `HowToSample` 네임스페이스로 `TestTopic` 토픽을 만드는 방법을 보여 줍니다.
 
     Configuration config =
     	ServiceBusConfiguration.configureWithSASAuthentication(
@@ -61,7 +64,7 @@ Java용 Azure 라이브러리를 빌드 경로에 추가하고 프로젝트 배�
 		System.exit(-1);
 	}
 
-**TopicInfo**에는 토픽의 속성을 조정하는 데 사용할 수 있는 메서드가 있습니다. 예를 들어 토픽에 전송되는 메시지에 적용할 기본 "TTL(Time-To-Live)" 값을 설정할 수 있습니다. 다음 예제에서는 최대 크기가 5GB인 "TestTopic" 토픽을 만드는 방법을 보여 줍니다.
+**TopicInfo**에는 토픽의 속성을 조정하는 데 사용할 수 있는 메서드가 있습니다. 예를 들어 토픽에 전송되는 메시지에 적용할 기본 TTL(Time-To-Live) 값을 설정할 수 있습니다. 다음 예제에서는 최대 크기가 5GB인 `TestTopic` 토픽을 만드는 방법을 보여 줍니다.
 
     long maxSizeInMegabytes = 5120;  
 	TopicInfo topicInfo = new TopicInfo("TestTopic");  
@@ -70,9 +73,9 @@ Java용 Azure 라이브러리를 빌드 경로에 추가하고 프로젝트 배�
 
 **ServiceBusContract** 개체의 **listTopics** 메서드를 사용하여 서비스 네임스페이스 내에 지정된 이름의 토픽이 이미 있는지 확인할 수 있습니다.
 
-## 구독을 만드는 방법
+## 구독 만들기
 
-토픽 구독은 **ServiceBusService** 클래스로도 만들 수 있습니다. 구독에는 이름이 지정되며, 구독의 가상 큐에 전달되는 메시지 집합을 제한하는 선택적 필터가 있을 수 있습니다.
+토픽에 대한 구독은 **ServiceBusService** 클래스로도 만들 수 있습니다. 구독에는 이름이 지정되며, 구독의 가상 큐에 전달되는 메시지 집합을 제한하는 선택적 필터가 있을 수 있습니다.
 
 ### 기본(MatchAll) 필터를 사용하여 구독 만들기
 
@@ -86,9 +89,9 @@ Java용 Azure 라이브러리를 빌드 경로에 추가하고 프로젝트 배�
 
 토픽에 전송된 메시지 중 특정 토픽 구독 내에 나타나야 하는 메시지의 범위를 지정하는 필터를 설정할 수도 있습니다.
 
-구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 **SqlFilter**입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SQL 필터와 함께 사용할 수 있는 식에 대한 자세한 내용은 SqlFilter.SqlExpression 구문을 참조하세요.
+구독에서 지원하는 가장 유연한 유형의 필터는 SQL92 하위 집합을 구현하는 [SqlFilter][]입니다. SQL 필터는 토픽에 게시된 메시지의 속성에 적용됩니다. SQL 필터와 함께 사용할 수 있는 식에 대한 자세한 내용은 [SqlFilter.SqlExpression][] 구문을 참조하십시오.
 
-아래 예제에서는 사용자 지정 **MessageNumber** 속성이 3보다 큰 메시지만 선택하는 **SqlFilter**를 사용하여 "HighMessages"라는 구독을 만듭니다.
+다음 예제에서는 사용자 지정 **MessageNumber** 속성이 3보다 큰 메시지만 선택하는 [SqlFilter][] 개체를 사용하여 `HighMessages`(이)라는 구독을 만듭니다.
 
     // Create a "HighMessages" filtered subscription  
 	SubscriptionInfo subInfo = new SubscriptionInfo("HighMessages");
@@ -101,7 +104,7 @@ Java용 Azure 라이브러리를 빌드 경로에 추가하고 프로젝트 배�
     // Delete the default rule, otherwise the new rule won't be invoked.
     service.deleteRule("TestTopic", "HighMessages", "$Default");
 
-마찬가지로, 다음 예제에서는 MessageNumber 속성이 3보다 작거나 같은 메시지만 선택하는 SqlFilter를 사용하여 "LowMessages"라는 구독을 만듭니다.
+마찬가지로, 다음 예제에서는 **messagenumber** 속성이 3보다 작거나 같은 메시지만 선택하는 [SqlFilter][] 개체를 사용하여 `LowMessages`(이)라는 구독을 만듭니다.
 
     // Create a "LowMessages" filtered subscription
 	SubscriptionInfo subInfo = new SubscriptionInfo("LowMessages");
@@ -115,18 +118,18 @@ Java용 Azure 라이브러리를 빌드 경로에 추가하고 프로젝트 배�
     service.deleteRule("TestTopic", "LowMessages", "$Default");
 
 
-이제 "TestTopic"으로 메시지를 보내는 경우 "AllMessages" 토픽 구독을 구독하는 수신자에게는 항상 배달되고, "HighMessages" 및 "LowMessages" 토픽 구독을 구독하는 수신자에게는 메시지 내용에 따라 선택적으로 배달됩니다.
+이제 `TestTopic`(으)로 메시지를 보내는 경우 `AllMessages` 구독을 구독하는 수신자에게는 항상 배달되고, `HighMessages` 및 `LowMessages` 구독을 구독하는 수신자에게는 메시지 내용에 따라 선택적으로 배달됩니다.
 
-## 토픽에 메시지를 보내는 방법
+## 토픽에 메시지 보내기
 
-서비스 버스 토픽에 메시지를 보내기 위해 응용 프로그램은 **ServiceBusContract** 개체를 얻습니다. 아래 코드는 위의 "HowToSample" 서비스 네임스페이스 내에서 만든 "TestTopic" 토픽에 대한 메시지를 보내는 방법을 보여 줍니다.
+서비스 버스 토픽에 메시지를 보내기 위해 응용 프로그램은 **ServiceBusContract** 개체를 얻습니다. 다음 코드는 위에서 `HowToSample` 서비스 네임스페이스 내에서 이전에 만든 `TestTopic` 항목에 메시지를 보내는 방법을 보여 줍니다.
 
     BrokeredMessage message = new BrokeredMessage("MyMessage");
     service.sendTopicMessage("TestTopic", message);
 
-서비스 버스 토픽으로 전송된 메시지는 **BrokeredMessage** 클래스 인스턴스입니다. **BrokeredMessage** 개체에는 표준 메서드 집합(예: **setLabel** 및 **TimeToLive**), 응용 프로그램별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 임의 응용 프로그램 데이터 본문이 있습니다. 응용 프로그램은 **BrokeredMessage** 생성자에 직렬화된 개체를 전달하여 메시지 본문을 설정할 수 있으며, 적절한 **DataContractSerializer**가 개체를 직렬화하는 데 사용됩니다. 또는 **java.io.InputStream**을 제공할 수 있습니다.
+서비스 버스 토픽으로 전송된 메시지는 [BrokeredMessage][] 클래스 인스턴스입니다. [BrokeredMessage][]* 개체에는 표준 메서드 집합(예: **setLabel** 및 **TimeToLive**), 응용 프로그램별 사용자 지정 속성을 저장하는 데 사용되는 사전 및 임의 응용 프로그램 데이터 본문이 있습니다. 응용 프로그램은 [BrokeredMessage][] 생성자에 직렬화된 개체를 전달하여 메시지 본문을 설정할 수 있으며, 적절한 **DataContractSerializer**가 개체를 직렬화하는 데 사용됩니다. 또는 **java.io.InputStream**을 제공할 수 있습니다.
 
-다음 예제는 위의 코드 조각에서 얻은 "TestTopic" **MessageSender**에 테스트 메시지 5개를 보내는 방법을 보여 줍니다. 루프가 반복될 때마다 각 메시지의 **MessageNumber** 속성 값이 어떻게 달라지는지 확인합니다(메시지를 수신하는 구독 결정).
+다음 예제는 위의 코드 조각에서 얻은 `TestTopic` **MessageSender**에 테스트 메시지 5개를 보내는 방법을 보여 줍니다. 루프가 반복될 때마다 각 메시지의 **MessageNumber** 속성 값이 어떻게 달라지는지 확인합니다(메시지를 수신하는 구독 결정).
 
     for (int i=0; i<5; i++)  {
        	// Create message, passing a string message for the body
@@ -208,7 +211,7 @@ Java용 Azure 라이브러리를 빌드 경로에 추가하고 프로젝트 배�
 
 응용 프로그램이 메시지를 처리한 후 **deleteMessage** 요청이 실행되기 전에 크래시되는 경우 다시 시작될 때 메시지가 응용 프로그램에 다시 배달됩니다. 이를 **최소 한 번 이상 처리**라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 응용 프로그램 개발자가 중복 메시지 배달을 처리하는 논리를 응용 프로그램에 추가해야 합니다. 이 경우 대체로 배달 시도 간에 일정하게 유지되는 메시지의 **getMessageId** 메서드를 사용합니다.
 
-## 토픽 및 구독을 삭제하는 방법
+## 토픽 및 구독 삭제
 
 토픽 및 구독을 삭제하는 기본 방법은 **ServiceBusContract** 개체를 사용하는 것입니다. 토픽을 삭제하면 토픽에 등록된 모든 구독도 삭제됩니다. 구독을 개별적으로 삭제할 수도 있습니다.
 
@@ -227,25 +230,10 @@ Java용 Azure 라이브러리를 빌드 경로에 추가하고 프로젝트 배�
   [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
   [Java용 Azure SDK]: http://azure.microsoft.com/develop/java/
   [Eclipse용 Azure Toolkit]: https://msdn.microsoft.com/ko-KR/library/azure/hh694271.aspx
-  [What are Service Bus Topics and Subscriptions?]: #what-are-service-bus-topics
-  [Create a Service Namespace]: #create-a-service-namespace
-  [Obtain the Default Management Credentials for the Namespace]: #obtain-default-credentials
-  [Configure Your Application to Use Service Bus]: #bkmk_ConfigYourApp
-  [How to: Create a Topic]: #bkmk_HowToCreateTopic
-  [How to: Create Subscriptions]: #bkmk_HowToCreateSubscrip
-  [How to: Send Messages to a Topic]: #bkmk_HowToSendMsgs
-  [How to: Receive Messages from a Subscription]: #bkmk_HowToReceiveMsgs
-  [How to: Handle Application Crashes and Unreadable Messages]: #bkmk_HowToHandleAppCrash
-  [How to: Delete Topics and Subscriptions]: #bkmk_HowToDeleteTopics
-  [Next Steps]: #bkmk_NextSteps
-  [Service Bus Topics diagram]: ../../../DevCenter/Java/Media/SvcBusTopics_01_FlowDiagram.jpg
-  [Azure Management Portal]: http://manage.windowsazure.com/
-  [Service Bus Node screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-03.png
-  [Create a New Namespace ]: ../../../DevCenter/dotNet/Media/sb-queues-04.png
-  [Namespace List screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-05.png
-  [Properties Pane screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-06.png
-  [Default Key screenshot]: ../../../DevCenter/dotNet/Media/sb-queues-07.png
+  [Azure portal]: http://manage.windowsazure.com/
   [서비스 버스 큐, 토픽 및 구독]: service-bus-queues-topics-subscriptions.md
- 
+  [SqlFilter]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx
+  [SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+  [BrokeredMessage]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Powershell을 사용하여 Windows Server VHD를 만들고 Azure에 업로드"
+	pageTitle="Powershell을 사용하여 Windows Server VHD를 만들고 업로드 | Microsoft Azure"
 	description="클래식 배포 모델 및 Azure Powershell을 사용하여 Windows Server 기반 가상 하드 디스크(VHD)를 만들고 업로드하는 방법에 대해 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
@@ -17,11 +17,15 @@
 	ms.date="09/10/2015"
 	ms.author="cynthn"/>
 
-# Windows Server VHD를 만들어서 Azure에 업로드#
+# Windows Server VHD를 만들어서 Azure에 업로드
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
 
 이 문서에서는 운영 체제가 설치된 VHD(가상 하드 디스크)를 업로드하여 이미지로 사용하고 해당 이미지를 기반으로 가상 컴퓨터를 만드는 방법을 보여 줍니다. Microsoft Azure의 디스크 및 VHD에 대한 자세한 내용은 [가상 컴퓨터용 디스크 및 VHD에 대하여](virtual-machines-disks-vhds.md)를 참조하세요.
 
-## 필수 조건##
+
+
+## 필수 조건
 
 이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
 
@@ -29,11 +33,11 @@
 
 2. **Microsoft Azure PowerShell** - Microsoft Azure PowerShell 모듈이 설치되고 구독을 사용하도록 구성되어 있어야 합니다. 모듈을 다운로드하려면 [Microsoft Azure 다운로드](http://azure.microsoft.com/downloads/)(영문)를 참조하십시오. 모듈 설치 및 구성에 대한 자습서는 [여기](../powershell-install-configure.md)에서 확인할 수 있습니다. [Add-AzureVHD](http://msdn.microsoft.com/library/azure/dn495173.aspx) cmdlet을 사용하여 VHD를 업로드합니다.
 
-3. **.vhd 파일에 저장되고 가상 컴퓨터에 연결된 지원되는 Windows 운영 체제** - .vhd 파일을 만들 수 있는 여러 가지 도구가 있습니다. 예를 들어 Hyper-V를 사용하여 가상 컴퓨터를 만들고 운영 체제를 설치할 수 있습니다. 자세한 내용은 [Hyper-V 역할 설치 및 가상 시스템 구성](http://technet.microsoft.com/library/hh846766.aspx)을 참조하십시오. 운영 체제에 대한 자세한 내용은 [Microsoft Azure 가상 컴퓨터에 대한 Microsoft 서버 소프트웨어 지원](http://go.microsoft.com/fwlink/p/?LinkId=393550)을 참조하세요.
+3. **.vhd 파일에 저장되고 가상 컴퓨터에 연결된 지원되는 Windows 운영 체제** - .vhd 파일을 만들 수 있는 여러 가지 도구가 있습니다. 예를 들어 Hyper-V를 사용하여 가상 컴퓨터를 만들고 운영 체제를 설치할 수 있습니다. 자세한 내용은 [Hyper-V 역할 설치 및 가상 컴퓨터 구성](http://technet.microsoft.com/library/hh846766.aspx)을 참조하세요. 운영 체제에 대한 자세한 내용은 [Microsoft Azure 가상 컴퓨터에 대한 Microsoft 서버 소프트웨어 지원](http://go.microsoft.com/fwlink/p/?LinkId=393550)을 참조하세요.
 
-> [AZURE.IMPORTANT]VHDX 형식은 Microsoft Azure에서 지원되지 않습니다. Hyper-V 관리자 또는 [Convert-VHD cmdlet](http://technet.microsoft.com/library/hh848454.aspx)을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다. 자세한 내용은 이 [blogpost](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx)를 참조하세요.
+> [AZURE.IMPORTANT]VHDX 형식은 Microsoft Azure에서 지원되지 않습니다. Hyper-V 관리자 또는 [Convert-VHD cmdlet](http://technet.microsoft.com/library/hh848454.aspx)을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다. 자세한 내용은 이 [블로그 게시물](http://blogs.msdn.com/b/virtual_pc_guy/archive/2012/10/03/using-powershell-to-convert-a-vhd-to-a-vhdx.aspx)을 참조하세요.
 
-## 1 단계: VHD 준비 ##
+## 1 단계: VHD 준비 
 
 Azure에 VHD를 업로드하기 전에 Sysprep 도구를 사용하여 일반화해야 합니다. 그러면 VHD가 이미지로 사용하도록 준비됩니다. Sysprep에 대한 자세한 내용은 [Sysprep 사용 방법: 소개](http://technet.microsoft.com/library/bb457073.aspx)를 참조하세요.
 
@@ -55,7 +59,7 @@ Azure에 VHD를 업로드하기 전에 Sysprep 도구를 사용하여 일반화�
 
 6.  **확인**을 클릭합니다.
 
-## 2단계: Azure 저장소 계정에서 정보 만들기 또는 가져오기##
+## 2단계: Azure 저장소 계정에서 정보 만들기 또는 가져오기
 
 .vhd 파일을 업로드할 장소가 있도록 Azure에 저장소 계정이 필요합니다. 이 단계는 계정을 만들거나 기존 계정에서 필요한 정보를 가져오는 방법을 보여줍니다.
 
@@ -103,7 +107,7 @@ Azure에 VHD를 업로드하기 전에 Sysprep 도구를 사용하여 일반화�
 
 3.	저장소 계정의 이름을 클릭한 다음 **대시보드**를 클릭합니다.
 
-4.	대시보드의 **서비스** 아래에서 Blob URL 위로마우스를 이동하고 클립보드 아이콘을 클릭하여 URL을 복사한 다음 붙여넣고 저장합니다. VHD를 업로드하는 명령을 만들 때 이 방법을 사용합니다.
+4.	대시보드의 **서비스** 아래에서 Blob URL 위로 마우스를 이동하고 클립보드 아이콘을 클릭하여 URL을 복사한 다음 붙여넣고 저장합니다. VHD를 업로드하는 명령을 만들 때 이 방법을 사용합니다.
 
 ## 3단계: Azure PowerShell에서 구독에 연결
 
@@ -145,7 +149,7 @@ Azure에 VHD를 업로드하기 전에 Sysprep 도구를 사용하여 일반화�
 
 	`Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>`
 
-	여기서: - **BlobStorageURL**는 저장소 계정의 URL - **YourImagesFolder**는 is이미지를 저장할 Blob 내의 컨테이너 - **VHDName**은 포털이 가상 하드 디스크를 식별하기 위해 표시하게 할 이름 - **PathToVHDFile**은 .vhd 파일의 전체 경로 및 이름
+	여기서: - **BlobStorageURL**는 저장소 계정의 URL - **YourImagesFolder**는 이미지를 저장할 Blob 저장소 내의 컨테이너 - **VHDName**은 포털이 가상 하드 디스크를 식별하기 위해 표시하게 할 이름 - **PathToVHDFile**은 .vhd 파일의 전체 경로 및 이름
 
 	![PowerShell Add-AzureVHD](./media/virtual-machines-create-upload-vhd-windows-server/powershell_upload_vhd.png)
 
@@ -153,7 +157,7 @@ Add-AzureVhd cmdlet에 대한 자세한 내용은 [Add-AzureVhd](http://msdn.mic
 
 ## 5단계: 사용자 지정 이미지 목록에 이미지 추가
 
-> [AZURE.TIP]포털을 사용하여 이미지를 추가하는 대신 Azure PowerShell을 사용하려면 **Add-AzureVMImage** Cmdlet을 사용합니다. 예:
+> [AZURE.TIP]포털을 사용하여 이미지를 추가하는 대신 Azure PowerShell을 사용하려면 **Add-AzureVMImage** cmdlet을 사용합니다. 예:
 
 >	`Add-AzureVMImage -ImageName <ImageName> -MediaLocation <VHDLocation> -OS <OSType>`
 
@@ -198,4 +202,4 @@ Add-AzureVhd cmdlet에 대한 자세한 내용은 [Add-AzureVhd](http://msdn.mic
 [Step 3: Prepare the connection to Azure]: #prepAzure
 [Step 4: Upload the .vhd file]: #upload
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

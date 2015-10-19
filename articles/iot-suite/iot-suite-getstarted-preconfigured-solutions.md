@@ -13,7 +13,7 @@
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
      ms.workload="tbd"
-     ms.date="09/08/2015"
+     ms.date="09/29/2015"
      ms.author="araguila"/>
 
 # 미리 구성된 loT 솔루션 시작
@@ -22,17 +22,17 @@
 
 미리 구성된 Azure IoT Suite 솔루션은 다양한 Azure IoT 서비스를 연결하여 IoT(사물 인터넷) 비즈니스 시나리오를 만족하는 종단간 솔루션을 예로 보여 줍니다.
 
-이 자습서는 미리 구성된 솔루션, 원격 모니터링을 프로비전하는 방법을 보여 줍니다. 또한 미리 구성된 원격 모니터링 솔루션의 기본 기능을 확인하는 방법을 보여 줍니다.
+이 자습서는 미리 구성된 솔루션인 **원격 모니터링**을 프로비전하는 방법을 보여 줍니다. 또한 미리 구성된 원격 모니터링 솔루션의 기본 기능을 확인하는 방법을 보여 줍니다.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 -   활성 Azure 구독.
 
-    계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험][]을 참조하세요.
+    계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][]을 참조하세요.
 
 ## 미리 구성된 원격 모니터링 솔루션 프로비전
 
-1.  <https://azureiotsuite.com>에 로그온하고 **+**를 클릭하여 새 솔루션을 만듭니다.
+1.  https://www.azureiotsuite.com에 로그온하고 **+**를 클릭하여 새 솔루션을 만듭니다.
 
 2.  솔루션 형식으로 **원격 모니터링**을 선택합니다.
 
@@ -60,7 +60,7 @@
 
 1.  선택한 시뮬레이션된 장치에 대한 장치 세부 정보 창에서 **명령 전송**을 클릭합니다.
 
-2.  명령 드롭다운에서 **PingDevice**를 선택합니다.
+2.  명령 목록에서 **PingDevice**를 선택합니다.
 
 3.  **명령 전송**을 클릭합니다.
 
@@ -84,13 +84,13 @@
 
 ## 솔루션 규칙 보기 및 편집
 
-1.  **솔루션 대시보드**의 **경보 기록**을 확인합니다.
+1.  **솔루션 대시보드**의 **경보 기록**을 참고합니다.
 
 2.  이러한 경보는 **규칙**에서 지정된 규칙 출력 **AlarmTemp**에 의해 트리거됩니다.
 
 3.  왼쪽 메뉴에서 **규칙**을 클릭하여 해당 솔루션에 대한 규칙으로 이동합니다.
 
-4.  프로비전 시 이미 사용하도록 설정된 하나의 규칙이 표시됩니다.
+4.  프로비전할 때 이미 사용하도록 설정된 하나의 규칙이 표시됩니다.
 
 5.  규칙 목록에서 **규칙**을 클릭하여 관련된 규칙 속성을 봅니다.
 
@@ -106,10 +106,13 @@
 
 이제 미리 구성된 작업 솔루션을 구축했으므로 다음 시나리오 이동할 수 있습니다.
 
--   미리 구성된 솔루션 사용자 지정에 대한 지침
+-   [미리 구성된 솔루션 사용자 지정에 대한 지침][]
 
--   IoT Suite 개요
+-   [IoT Suite 개요][]
 
-[Azure 무료 체험]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F%20target=
+[Azure 무료 평가판]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F%20target=
 
-<!---HONumber=Oct15_HO1-->
+[미리 구성된 솔루션 사용자 지정에 대한 지침]: https://azure.microsoft.com/documentation/articles/iot-suite-guidance-on-customizing-preconfigured-solutions/
+[IoT Suite 개요]: https://azure.microsoft.com/documentation/articles/iot-suite-overview/
+
+<!---HONumber=Oct15_HO2-->

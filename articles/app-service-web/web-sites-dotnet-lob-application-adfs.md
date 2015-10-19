@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="07/07/2015" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
 
 # AD FS 인증을 통해 Azure 앱 서비스에서 .NET MVC 웹 앱 만들기
@@ -357,4 +357,4 @@ Azure 앱 서비스 웹앱은 다음의 두 가지 방법으로 온-프레미스
  
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

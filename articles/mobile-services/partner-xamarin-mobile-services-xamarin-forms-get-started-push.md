@@ -13,8 +13,8 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="mobile-xamarin"
 	ms.workload="mobile"
-	ms.date="06/10/2015"
-	ms.author="normesta"/>
+	ms.date="10/05/2015"
+	ms.author="wesmc"/>
 
 # Xamarin.Forms 앱에 푸시 알림 추가
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
@@ -293,7 +293,7 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
             const string template = "{"aps":{"alert":"$(message)"}}";
 
             var expiryDate = DateTime.Now.AddDays(90).ToString
-                (System.Globalization.CultureInfo.CreateSpecificCulture("ko-KR"));
+                (System.Globalization.CultureInfo.CreateSpecificCulture("KO-KR"));
 
             var push = client.GetPush();
 
@@ -364,7 +364,7 @@ APNS에 앱을 등록하고 프로젝트를 구성했으면 APNS와 통합되도
 
 1. **실행** 단추를 눌러 프로젝트를 빌드하고 iOS 지원 장치에서 앱을 시작한 다음, **확인**을 클릭하여 푸시 알림을 수락합니다.
 
-   >[AZURE.NOTE]앱에서 푸시 알림을 명시적으로 수락해야 합니다. This request only occurs the first time that the app runs.
+   >[AZURE.NOTE]앱에서 푸시 알림을 명시적으로 수락해야 합니다. 이 요청은 앱이 처음 실행될 때만 발생합니다.
 
 2. 앱에서 **추가** 단추를 클릭하고 작업 제목을 추가한 후 **저장** 단추를 클릭합니다. 
 
@@ -846,4 +846,4 @@ USB 케이블로 Android 휴대폰을 직접 연결하거나 에뮬레이터에�
 [전체 Xamarin.Forms Azure 푸시 알림 샘플]: https://github.com/Azure/mobile-services-samples/tree/master/GettingStartedWithPushXamarinForms
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="08/05/2015"
+	ms.date="10/07/2015"
 	ms.author="lauraa"/>
 
 # 성능 및 확장성 테스트: 온-프레미스 간
@@ -64,7 +64,7 @@ Hyper-V 복제본은 디스크 성능을 최적화하기 위해 기본 서버의
 
 ![기본 결과](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744914.png)
 
-Hyper-V 복제본에는 최소 CPU 오버헤드가 있습니다. Graph에서 볼 수 있듯이 복제 오버헤드는 2\~3% 범위 이내입니다.
+Hyper-V 복제본에는 최소 CPU 오버헤드가 있습니다. Graph에서 볼 수 있듯이 복제 오버헤드는 2~3% 범위 이내입니다.
 
 ![기본 결과](./media/site-recovery-performance-and-scaling-testing-on-premises-to-on-premises/IC744915.png)
 
@@ -104,7 +104,7 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 
 ### 결론
 
-결과는 Hyper-V 복제본과 관련하여 Azure Site Recovery가 대량 클러스터에 대해 최소한의 오버헤드로 확장 가능함을 명백하게 보여줍니다. Azure Site Recovery는 간단한 배포, 복제, 관리 및 모니터링을 제공합니다. Hyper-V 복제본은 성공적인 복제 크기 조정에 대해 필요한 인프라를 제공합니다. 최적의 배포 계획을 위해 [Hyper-V Replica Capacity Planner](https://www.microsoft.com/ko-kr/download/details.aspx?id=39057)를 다운로드하는 것이 좋습니다.
+결과는 Hyper-V 복제본과 관련하여 Azure Site Recovery가 대량 클러스터에 대해 최소한의 오버헤드로 확장 가능함을 명백하게 보여줍니다. Azure Site Recovery는 간단한 배포, 복제, 관리 및 모니터링을 제공합니다. Hyper-V 복제본은 성공적인 복제 크기 조정에 대해 필요한 인프라를 제공합니다. 최적의 배포 계획을 위해 [Hyper-V Replica Capacity Planner](https://www.microsoft.com/KO-KR/download/details.aspx?id=39057)를 다운로드하는 것이 좋습니다.
 
 ## 테스트 배포 환경
 
@@ -208,4 +208,4 @@ ASR의 배포를 시작하려면:
 - [단일 VMM 서버로 보호 설정](site-recovery-single-vmm.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

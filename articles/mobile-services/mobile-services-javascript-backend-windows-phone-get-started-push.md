@@ -140,8 +140,6 @@
 
 이 자습서에서는 Windows 스토어 앱에서 모바일 서비스 및 알림 허브를 사용하여 푸시 알림을 보내도록 설정하기 위한 기본 사항에 대해 설명했습니다. 이후에는 다음 자습서 중 하나를 완료하는 것이 좋습니다.
 
-+ [인증된 사용자에게 푸시 알림 보내기](mobile-services-javascript-backend-windows-phone-push-notifications-app-users.md) <br/>태그를 사용하여 모바일 서비스에서 인증된 사용자에게만 푸시 알림을 보내는 방법에 대해 알아봅니다.
-
 + [구독자에게 브로드캐스트 알림 보내기](../notification-hubs-windows-phone-send-breaking-news.md) <br/>관심이 있는 범주에 대해 푸시 알림을 등록하고 받아보는 방법에 대해 알아봅니다.
 
 + [구독자에게 플랫폼을 알 수 없는 알림 보내기](../notification-hubs-aspnet-cross-platform-notify-users.md) <br/>백 엔드에 플랫폼 전용 페이로드를 마련할 필요 없이 템플릿을 사용하여 모바일 서비스에서 푸시 알림을 보내는 방법에 대해 알아봅니다.
@@ -180,4 +178,4 @@
 
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

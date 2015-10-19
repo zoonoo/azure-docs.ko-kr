@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-linux"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="05/15/2015"
+	ms.date="10/05/2015"
 	ms.author="szarkos"/>
 
 # <a id="nonendorsed"> </a>보증되지 않는 배포에 대한 정보 #
@@ -191,4 +191,4 @@ Azure에서 Linux 가상 컴퓨터를 올바르게 프로비전하려면 [Azure 
 
 - 그런 다음 가상 컴퓨터를 종료하고 VHD를 Azure에 업로드해야 합니다.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

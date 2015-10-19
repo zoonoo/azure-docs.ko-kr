@@ -3,7 +3,7 @@
    description="웹 기반 응용 프로그램에서 캐싱 인프라로 신뢰할 수 있는 행위자를 사용하는 방법에 대한 패턴 디자인"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/05/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # 신뢰할 수 있는 행위자 디자인 패턴: 스마트 캐시
 웹 계층, 캐싱 계층, 저장소 계층 및 경우에 따라 작업자 계층을 조합하는 방식은 오늘날의 응용 프로그램에서 거의 표준에 가깝습니다. 일반적으로 캐싱 계층은 성능에 중요하며, 사실상 여러 계층 자체로 구성될 수 있습니다 . 많은 캐시가 간단한 키-값 쌍이며 [Redis](http://redis.io)처럼 캐시로 사용되는 다른 시스템이 훨씬 다양한 의미 체계를 제공합니다. 여전히, 특별한 부분에서 캐싱 계층은 의미 체계에 제한이 있으며 무엇 보다도 아직 관리해야 하는 또 다른 계층입니다. 그 대신, 로컬 변수에 개체의 상태가 유지되고 이러한 개체를 지속형 저장소에 자동으로 스냅숏하거나 유지할 수 있다면 어떨까요? 또한 해당 문제와 관련하여, 목록, 정렬된 집합, 큐 및 기타 사용자 지정 형식 등 다양한 컬렉션은 멤버 변수와 메서드를 모델링하기만 하면 됩니다.
@@ -302,4 +302,4 @@ public Task RefreshRates()
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-pattern-smart-cache/smartcache-arch.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

@@ -14,20 +14,20 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="08/21/2015"
+	ms.date="10/02/2015"
 	ms.author="larryfr"/>
 
-# 스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정
+# 스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정(Linux)
 
-HDInsight는 사용자 지정 스크립트(프로비전 프로세스 중 클러스터에서 수행할 사용자 지정 정의)를 호출하는 **스크립트 작업**이라는 구성 옵션을 제공합니다. 이 스크립트를 사용하여 클러스터에 추가 소프트웨어를 설치하거나 클러스터에서 응용 프로그램의 구성을 변경할 수 있습니다.
+HDInsight는 사용자 지정 스크립트를 호출하는 **스크립트 작업**이라는 구성 옵션을 제공하며 이는 만들기 프로세스 중 클러스터에서 수행할 사용자 지정을 정의합니다. 이 스크립트를 사용하여 클러스터에 추가 소프트웨어를 설치하거나 클러스터에서 응용 프로그램의 구성을 변경할 수 있습니다.
 
 > [AZURE.NOTE]이 문서에 있는 정보는 Linux 기반 HDInsight 클러스터에 지정됩니다. Windows 기반 클러스터에 지정된 이 문서의 버전은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정(Windows)](hdinsight-hadoop-customize-cluster.md)을 참조하세요.
 
-## 클러스터 프로비전 프로세스의 스크립트 작업
+## 클러스터 만들기 프로세스의 스크립트 작업
 
-스크립트 작업은 클러스터를 만드는 프로세스 동안에만 사용됩니다. 다음 다이어그램에서는 프로비전 프로세스 중 스크립트 작업을 실행할 때를 보여 줍니다.
+스크립트 작업은 클러스터를 만드는 프로세스 동안에만 사용됩니다. 다음 다이어그램에서는 만들기 프로세스 중 스크립트 작업을 실행할 때를 보여줍니다.
 
-![HDInsight 클러스터 사용자 지정 및 클러스터 프로비저닝 중의 단계][img-hdi-cluster-states]
+![HDInsight 클러스터 사용자 지정 및 클러스터 만드는 동안의 단계][img-hdi-cluster-states]
 
 HDInsight를 구성하는 동안 스크립트를 실행합니다. 이 단계에서 스크립트는 클러스터의 지정된 모든 노드에서 병렬 및 루트 권한으로 실행됩니다.
 
@@ -46,14 +46,14 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 이름 | 스크립트
 ----- | -----
 **Hue 설치** | https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/install-hue-uber-v01.sh. [HDInsight 클러스터에서 Hue 설치 및 사용](hdinsight-hadoop-hue-linux.md)을 참조하세요.
-**Spark 설치** | https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv01/spark-installer-v01.sh. [HDInsight 클러스터에서 Spark 설치 및 사용](hdinsight-hadoop-spark-install-linux.md)을 참조하세요.
+**Spark 설치** | https://hdiconfigactions.blob.core.windows.net/linuxsparkconfigactionv02/spark-installer-v02.sh. [HDInsight 클러스터에서 Spark 설치 및 사용](hdinsight-hadoop-spark-install-linux.md)을 참조하세요.
 **R 설치** | https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh. [HDInsight 클러스터에서 R 설치 및 사용](hdinsight-hadoop-r-scripts-linux.md)을 참조하세요.
 **Solr 설치** | https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh. [HDInsight 클러스터에서 Solr 설치 및 사용](hdinsight-hadoop-solr-install-linux.md)을 참조하세요.
 **Giraph 설치** | https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh. [HDInsight 클러스터에서 Giraph 설치 및 사용](hdinsight-hadoop-giraph-install-linux.md)을 참조하세요.
 
 ## Azure Preview 포털에서 스크립트 작업 사용
 
-1. [사용자 지정 옵션을 사용하여 클러스터를 프로비전](hdinsight-provision-clusters.md#portal)에서 설명된 대로 클러스터 프로비전을 시작합니다.
+1. [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-provision-clusters.md#portal)에서 설명한 대로 클러스터를 만들기 시작합니다.
 
 2. 아래와 같이, __선택적 구성__의 **스크립트 작업** 블레이드에 대해 **스크립트 작업 추가**를 클릭하여 스크립트 작업에 대한 세부 정보를 제공합니다.
 
@@ -68,11 +68,11 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 	ENTER 키를 누르고 두 개 이상의 스크립트 작업을 추가하여 클러스터에 여러 구성 요소를 설치할 수 있습니다.
 
-3. **선택**을 클릭하여 스크립트 작업 구성을 저장하고 클러스터 프로비전을 계속합니다.
+3. **선택**을 클릭하여 스크립트 작업 구성을 저장하고 계속 클러스터를 만듭니다.
 
 ## Azure 리소스 관리자 템플릿에서 스크립트 작업 사용
 
-이 섹션에서 Azure 리소스 관리자(ARM) 템플릿을 사용하여 HDInsight 클러스터를 프로비전하고 클러스터에서 사용자 지정 구성 요소(이 예에서는 R)를 설치하는 스크립트 작업을 사용할 수 있습니다. 이 섹션에서는 스크립트 작업을 사용하여 클러스터를 프로비전하는 샘플 ARM 템플릿을 제공합니다.
+이 섹션에서 Azure 리소스 관리자(ARM) 템플릿을 사용하여 HDInsight 클러스터를 만들고 클러스터에서 사용자 지정 구성 요소(이 예에서는 R)를 설치하는 스크립트 작업을 사용할 수 있습니다. 이 섹션에서는 스크립트 작업을 사용하여 클러스터를 만드는 샘플 ARM 템플릿을 제공합니다.
 
 ### 시작하기 전에
 
@@ -80,7 +80,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 * ARM 템플릿을 만드는 방법에 대한 지침은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 * 이전에 리소스 관리자에서 Azure PowerShell을 사용하지 않은 경우 [Azure 리소스 관리자와 함께 Azure PowerShell 사용](powershell-azure-resource-manager)을 참조하세요.
 
-### 스크립트 동작을 사용하여 클러스터 프로비전
+### 스크립트 작업을 사용하여 클러스터 만들기
 
 1. 다음 템플릿을 컴퓨터의 위치에 복사합니다. 이 템플릿은 헤드 노트에 R뿐만 아니라 클러스터에 작업자를 설치합니다. 또한 JSON 템플릿이 유효한지 확인할 수 있습니다. 템플릿 콘텐츠를 [JSONLint](http://jsonlint.com/), 즉, 온라인 JSON 유효성 검사기 도구에 붙여 넣습니다.
 
@@ -337,7 +337,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 	| 매개 변수 | 스크립트에 필요한 매개 변수입니다. |
 	| Uri | 실행되는 스크립트의 URI를 지정합니다. |
 
-4. 마지막으로 클러스터를 프로비전합니다.
+4. 끝으로, 클러스터를 만듭니다.
 
 		New-AzureHDInsightCluster -Config $config -Name $clusterName -Location $location -Version $version
 
@@ -352,98 +352,125 @@ HDInsight .NET SDK는 .NET 응용 프로그램에서 HDInsight로 더 쉽게 작
 
 ### Visual Studio 프로젝트 만들기
 
-1. Visual Studio 2013 또는 2015 열기
 
-2. **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
+1. Visual Studio를 사용하여 C# 콘솔 응용 프로그램을 만듭니다.
+2. NuGet **패키지 관리자 콘솔**에서 다음 명령을 실행합니다.
 
-3. **새 프로젝트**에서 다음 값을 입력하거나 선택합니다.
+		Install-Package Microsoft.Azure.Common.Authentication -pre
+		Install-Package Microsoft.Azure.Management.HDInsight -Pre
 
-	| 속성 | 값 |
-	| -------- | ----- |
-	| Category | Templates/Visual C#/Windows |
-	| Template | Console Application |
-	| 이름 | ScriptActionCluster |
+	.NET 라이브러리 및 이에 대한 참조가 현재 Visual Studio 프로젝트에 추가됩니다.
 
-4. **확인**을 클릭하여 프로젝트를 만듭니다.
+3. **Program.cs**를 열고 다음 using 문을 추가합니다.
 
-5. **도구** 메뉴에서 **Nuget 패키지 관리자**, **패키지 관리자 콘솔**을 차례로 클릭합니다.
+		using System;
+		using System.Security;
+		using Microsoft.Azure;
+		using Microsoft.Azure.Common.Authentication;
+		using Microsoft.Azure.Common.Authentication.Factories;
+		using Microsoft.Azure.Common.Authentication.Models;
+		using Microsoft.Azure.Management.HDInsight;
+		using Microsoft.Azure.Management.HDInsight.Models;
 
-6. 콘솔에서 다음 명령을 실행하여 패키지를 설치합니다.
+4. 클래스의 코드를 다음과 같이 바꿉니다.
 
-		Install-Package Microsoft.WindowsAzure.Management.HDInsight
+        private static HDInsightManagementClient _hdiManagementClient;
 
-	.NET 라이브러리 및 이에 대한 참조가 현재의 Visual Studio 프로젝트에 추가됩니다.
+        private static Guid SubscriptionId = new Guid("<AZURE SUBSCRIPTION ID>");
+        private const string ResourceGroupName = "<AZURE RESOURCEGROUP NAME>";
 
-7. **솔루션 탐색기**에서 **Program.cs**를 두 번 클릭하여 엽니다.
+        private const string NewClusterName = "<HDINSIGHT CLUSTER NAME>";
+        private const int NewClusterNumNodes = <NUMBER OF NODES>;
+        private const string NewClusterLocation = "<LOCATION>";  // Must match the Azure Storage account location
+        private const string NewClusterVersion = "3.2";
+        private const HDInsightClusterType NewClusterType = HDInsightClusterType.Hadoop;
+        private const OSType NewClusterOSType = OSType.Windows;
 
-8. 파일 맨 위에 다음 **using** 문을 추가합니다.
+        private const string ExistingStorageName = "<STORAGE ACCOUNT NAME>.blob.core.windows.net";
+        private const string ExistingStorageKey = "<STORAGE ACCOUNT KEY>";
+        private const string ExistingContainer = "<DEFAULT CONTAINER NAME>"; 
 
-		using System.Security.Cryptography.X509Certificates;
-		using Microsoft.WindowsAzure.Management.HDInsight;
-		using Microsoft.WindowsAzure.Management.HDInsight.ClusterProvisioning;
-		using Microsoft.WindowsAzure.Management.HDInsight.Framework.Logging;
+        private const string NewClusterUsername = "admin";
+        private const string NewClusterPassword = "<HTTP USER PASSWORD>";
 
-9. **Main()** 함수에서 다음 코드를 붙여넣고 변수 값을 지정합니다.
+        private const string NewClusterSshUserName = "sshuser";
+        private const string NewClusterSshPublicKey = @"---- BEGIN SSH2 PUBLIC KEY ----
+			Comment: ""rsa-key-20150731""
+			AAAAB3NzaC1yc2EAAAABJQAAAQEA4QiCRLqT7fnmUA5OhYWZNlZo6lLaY1c+IRsp
+			gmPCsJVGQLu6O1wqcxRqiKk7keYq8bP5s30v6bIljsLZYTnyReNUa5LtFw7eauGr
+			yVt3Pve6ejfWELhbVpi0iq8uJNFA9VvRkz8IP1JmjC5jsdnJhzQZtgkIrdn3w0e6
+			WVfu15kKyY8YAiynVbdV51EB0SZaSLdMZkZQ81xi4DDtCZD7qvdtWEFwLa+EHdkd
+			pzO36Mtev5XvseLQqzXzZ6aVBdlXoppGHXkoGHAMNOtEWRXpAUtEccjpATsaZhQR
+			zZdZlzHduhM10ofS4YOYBADt9JohporbQVHM5w6qUhIgyiPo7w==
+			---- END SSH2 PUBLIC KEY ----"; //replace the public key with your own
 
-        var clusterName = args[0];
-
-        // PROVIDE VALUES FOR THE VARIABLES
-        string thumbprint = "<CertificateThumbprint>";  
-        string subscriptionId = "<AzureSubscriptionID>";
-        string location = "<MicrosoftDataCenterLocation>";
-        string storageaccountname = "<AzureStorageAccountName>.blob.core.windows.net";
-        string storageaccountkey = "<AzureStorageAccountKey>";
-        string username = "<HDInsightUsername>";
-        string password = "<HDInsightUserPassword>";
-        int clustersize = <NumberOfNodesInTheCluster>;
-
-        // PROVIDE THE CERTIFICATE THUMBPRINT TO RETRIEVE THE CERTIFICATE FROM THE CERTIFICATE STORE
-        X509Store store = new X509Store();
-        store.Open(OpenFlags.ReadOnly);
-        X509Certificate2 cert = store.Certificates.Cast<X509Certificate2>().First(item => item.Thumbprint == thumbprint);
-
-        // CREATE AN HDINSIGHT CLIENT OBJECT
-        HDInsightCertificateCredential creds = new HDInsightCertificateCredential(new Guid(subscriptionId), cert);
-        var client = HDInsightClient.Connect(creds);
-		client.IgnoreSslErrors = true;
-
-        // PROVIDE THE CLUSTER INFORMATION
-		var clusterInfo = new ClusterCreateParameters()
+        private static void Main(string[] args)
         {
-            Name = clusterName,
-            Location = location,
-            DefaultStorageAccountName = storageaccountname,
-            DefaultStorageAccountKey = storageaccountkey,
-            DefaultStorageContainer = clusterName,
-            UserName = username,
-            Password = password,
-            ClusterSizeInNodes = clustersize,
-            Version = "3.1"
-        };
+            var tokenCreds = GetTokenCloudCredentials();
+            var subCloudCredentials = GetSubscriptionCloudCredentials(tokenCreds, SubscriptionId);
 
-10. **Main()** 함수에 다음 코드를 추가합니다. 이 코드는 스크립트 동작을 호출합니다. 이 예제에서 클러스터에 R을 설치하는 스크립트입니다.
+            _hdiManagementClient = new HDInsightManagementClient(subCloudCredentials);
 
-		// ADD THE SCRIPT ACTION TO INSTALL R
+            CreateCluster();
+        }
 
-        clusterInfo.ConfigActions.Add(new ScriptAction(
-            "Install R",
-            new ClusterNodeType[] { ClusterNodeType.HeadNode, ClusterNodeType.DataNode },
-            new Uri("https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh"), null
-            ));
+        public static SubscriptionCloudCredentials GetTokenCloudCredentials(string username = null, SecureString password = null)
+        {
+            var authFactory = new AuthenticationFactory();
 
-11. 끝으로, 클러스터를 만듭니다.
+            var account = new AzureAccount { Type = AzureAccount.AccountType.User };
 
-		client.CreateCluster(clusterInfo);
+            if (username != null && password != null)
+                account.Id = username;
 
-11. 응용 프로그램에 대한 변경 내용을 저장하고 솔루션을 빌드합니다.
+            var env = AzureEnvironment.PublicEnvironments[EnvironmentName.AzureCloud];
 
-### 응용 프로그램 실행
+            var accessToken =
+                authFactory.Authenticate(account, env, AuthenticationFactory.CommonAdTenant, password, ShowDialog.Auto)
+                    .AccessToken;
 
-Azure PowerShell 콘솔을 열고 프로젝트를 저장한 위치로 이동하고 프로젝트 내의 \\bin\\debug 디렉터리로 이동한 후 다음 명령을 실행합니다.
+            return new TokenCloudCredentials(accessToken);
+        }
 
-	.\ScriptActionCluster <cluster-name>
+        public static SubscriptionCloudCredentials GetSubscriptionCloudCredentials(SubscriptionCloudCredentials creds, Guid subId)
+        {
+            return new TokenCloudCredentials(subId.ToString(), ((TokenCloudCredentials)creds).Token);
+        }
 
-클러스터 이름을 제공하고 ENTER 키를 눌러 클러스터를 프로비전합니다.
+
+        private static void CreateCluster()
+        {
+            var parameters = new ClusterCreateParameters
+            {
+                ClusterSizeInNodes = NewClusterNumNodes,
+                Location = NewClusterLocation,
+                ClusterType = NewClusterType,
+                OSType = NewClusterOSType,
+                Version = NewClusterVersion,
+
+                DefaultStorageAccountName = ExistingStorageName,
+                DefaultStorageAccountKey = ExistingStorageKey,
+                DefaultStorageContainer = ExistingContainer,
+
+                UserName = NewClusterUsername,
+                Password = NewClusterPassword,
+                SshUserName = NewClusterSshUserName,
+        		SshPublicKey = NewClusterSshPublicKey
+            };
+
+            ScriptAction rScriptAction = new ScriptAction("Install R",
+                new Uri("https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh"), "");
+
+            parameters.ScriptActions.Add(ClusterNodeType.HeadNode,new System.Collections.Generic.List<ScriptAction> { rScriptAction});
+            parameters.ScriptActions.Add(ClusterNodeType.WorkerNode, new System.Collections.Generic.List<ScriptAction> { rScriptAction });
+
+            _hdiManagementClient.Clusters.Create(ResourceGroupName, NewClusterName, parameters);
+        }
+		
+6. 클래스 멤버 값을 대체합니다.
+
+7. **F5** 키를 눌러 응용 프로그램을 실행합니다. 콘솔 창이 열리고 응용 프로그램의 상태가 표시되며 또한 Azure 계정 자격 증명을 입력하라는 메시지가 표시됩니다. HDInsight 클러스터를 만들려면 몇 분정도 걸릴 수 있습니다.
+
 
 ## HDInsight 클러스터에서 사용하는 오픈 소스 소프트웨어 지원
 
@@ -457,7 +484,7 @@ HDInsight 서비스에서 사용할 수 있는 오픈 소스 구성 요소에는
 
 > [AZURE.WARNING]HDInsight 클러스터와 함께 제공된 구성 요소는 완전히 지원되며 Microsoft 지원에서 이러한 구성 요소와 관련된 문제를 해결하는 데 도움을 드릴 것입니다.
 >
-> 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. 지원을 통해 문제를 해결하거나 해당 기술에 대한 전문 지식이 있는, 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요구할 수 있습니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/ko-kr/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [http://apache.org](http://apache.org)에 프로젝트 사이트가 있습니다(예: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/)).
+> 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. 지원을 통해 문제를 해결하거나 해당 기술에 대한 전문 지식이 있는, 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요구할 수 있습니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/ko-KR/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [http://apache.org](http://apache.org)에 프로젝트 사이트가 있습니다(예: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/)).
 
 HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방법을 제공합니다. 구성 요소가 클러스터에 설치되고 사용되는 방법과 상관없이, 동일한 수준의 지원이 적용됩니다. 다음은 HDInsight 클러스터에서 사용자 지정 구성 요소를 사용할 수 있는 가장 일반적인 방법의 목록입니다.
 
@@ -469,7 +496,7 @@ HDInsight 서비스는 사용자 지정 구성 요소를 사용하는 여러 방
 
 ## 문제 해결
 
-Ambari 웹 UI를 사용하여 클러스터를 프로비전하는 동안 스크립트에서 기록된 정보를 볼 수 있습니다.
+Ambari 웹 UI를 사용하여 클러스터를 만드는 동안 스크립트에서 기록된 정보를 볼 수 있습니다.
 
 1. 브라우저에서 https://CLUSTERNAME.azurehdinsight.net으로 이동합니다. CLUSTERNAME은 HDInsight 클러스터 이름을 바꿉니다.
 
@@ -497,6 +524,6 @@ Ambari 웹 UI를 사용하여 클러스터를 프로비전하는 동안 스크�
 
 
 
-[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "클러스터 프로 비전 중의 단계"
+[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "클러스터를 만드는 동안의 단계"
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

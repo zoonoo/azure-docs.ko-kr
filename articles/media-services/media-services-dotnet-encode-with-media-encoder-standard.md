@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/20/2015"    
+	ms.date="10/07/2015"    
 	ms.author="juliako"/>
 
 
@@ -40,7 +40,7 @@
 - 작업 진행 상태를 확인할 이벤트 처리기를 추가합니다.
 - 작업을 제출합니다.
 		
-		static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset, string pathToLocalPresetFile)
+		static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
 		{
 		    // Declare a new job.
 		    IJob job = _context.Jobs.Create("Media Encoder Standard Job");
@@ -125,4 +125,4 @@
 
 [.NET과 함께 미디어 인코더 표준을 사용하여 미리 보기를 생성하는 방법](media-services-dotnet-generate-thumbnail-with-mes.md) [미디어 서비스 인코딩 개요](media-services-encode-asset.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

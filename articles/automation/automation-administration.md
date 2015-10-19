@@ -12,7 +12,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="infrastructure-services"
-   ms.date="07/06/2015"
+   ms.date="10/01/2015"
    ms.author="bwren" />
 
 # Azure 자동화 관리
@@ -60,4 +60,4 @@ Azure 자동화에서는 [자산](https://msdn.microsoft.com/library/dn939988.as
 
 Azure 자동화에서는 인증서를 내보낼 수 없습니다. Azure 외부에서 인증서를 사용할 수 있는지 확인해야 합니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

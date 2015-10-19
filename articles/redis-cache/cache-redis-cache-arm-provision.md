@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/15/2015" 
+	ms.date="10/02/2015" 
 	ms.author="tomfitz"/>
 
 # 템플릿을 사용하여 Redis Cache 만들기
@@ -26,13 +26,15 @@
 
 전체 템플릿은 [Redis Cache 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json)을 참조하세요.
 
+>[AZURE.NOTE]새 [프리미엄 계층](cache-premium-tier-intro.md)에 대한 ARM 템플릿이 제공될 예정입니다. 최신 템플릿을 확인하려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 및 `Redis Cache`에 대한 검색을 참조하세요.
+
 ## 배포할 내용
 
 이 템플릿에서 진단 데이터에 기존 저장소 계정을 사용하는 Azure Redis Cache를 배포합니다.
 
 배포를 자동으로 실행하려면 다음 단추를 클릭합니다.
 
-[![Azure에 배포](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)로 바꿉니다.
+[![Azure에 배포](./media/cache-redis-cache-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)로 바꿉니다.
 
 ## 매개 변수
 
@@ -129,4 +131,4 @@ Azure Redis Cache를 만듭니다.
 
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

@@ -33,7 +33,7 @@
 + Visual Studio 2013
 + [MicrosoftAzure.MobileEngagement] Nuget 패키지
 
-> [AZURE.IMPORTANT]이 자습서를 완료해야 다른 모든 Windows 유니버설 앱용 Mobile Engagement 자습서를 진행할 수 있습니다. 완료하려면 - 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+> [AZURE.IMPORTANT]이 자습서를 완료해야 다른 모든 Windows 유니버설 앱용 Mobile Engagement 자습서를 진행할 수 있습니다. 완료하려면 - 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-KR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
 ##<a id="setup-azme"></a>Windows 유니버설 앱용 Mobile Engagement 설정
 
@@ -103,21 +103,21 @@
 
 데이터 보내기를 시작하고 사용자가 활성 상태인지 확인하려면 Mobile Engagement 백 엔드에 화면(활동)을 하나 이상 보내야 합니다.
 
-1. 	**MainPage.xaml.cs**에서 `using` 문을 추가합니다.
+1. 	**MainPage.xaml.cs**에서 다음 `using` 문을 추가합니다.
 
-		using Microsoft.Azure.Engagement;
+		using Microsoft.Azure.Engagement.Overlay;
 
-2. **MainPage**의 기본 클래스를 **Page**에서 **EngagementPage**로 바꿉니다.
+2. **MainPage**의 기본 클래스를 **Page**에서 **EngagementPageOverlay**로 바꿉니다.
 
-		class MainPage : EngagementPage
+		class MainPage : EngagementPageOverlay
 
 3. 파일 `MainPage.xaml`에서:
 
 	a. 다음 줄을 네임스페이스 선언에 추가합니다.
 
-		xmlns:engagement="using:Microsoft.Azure.Engagement"
+		xmlns:engagement="using:Microsoft.Azure.Engagement.Overlay"
 
-	b. XML 태그 이름의 **Page**를 **engagement:EngagementPage**로 바꿉니다.
+	b. XML 태그 이름의 **Page**를 **engagement:EngagementPageOverlay**로 바꿉니다.
 	
 > [AZURE.IMPORTANT]페이지가 `OnNavigatedTo` 메서드를 재정의하는 경우에는 `base.OnNavigatedTo(e)`을(를) 호출해야 합니다. 그렇지 않으면 활동이 보고되지 않습니다. `EngagementPage`은(는) `OnNavigatedTo` 메서드 내에서 `StartActivity`을(를) 호출합니다. 이 작업은 기본 템플릿에 `OnNavigatedTo` 메서드가 있는 Windows Phone 프로젝트에서 특히 중요합니다.
 
@@ -171,13 +171,15 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 
 [AZURE.INCLUDE [Windows 푸시 캠페인 만들기](../../includes/mobile-engagement-windows-push-campaign.md)]
 
-이제 장치의 캠페인에서 이 알림 메시지를 볼 수 있으며, 이 알림 메시지를 보려면 앱을 닫아야 합니다. 앱이 실행 중인 경우에는 알림 메시지를 받을 수 있도록 하기 위해 캠페인을 활성화하기 전에 몇 분 동안 닫아야 합니다. 앱 내부의 알림을 통합하여 앱을 열었을 때 알림이 표시되도록 하려는 경우에는 [Windows 유니버설 앱 - 오버레이 통합]을 참조하세요.
+앱이 실행 중이면 앱 내 알림이 표시되며 그렇지 않고 앱이 닫힌 경우 토스트 알림이 표시됩니다. 앱 내 알림이 표시되지만 토스트 알림이 표시되지 않고 앱을 Visual Studio의 디버그 모드에서 실행 중인 경우 도구 모음의 **수명 주기 이벤트 -> 일시 중단**을 시도하여 앱이 실제로 일시 중단되었는지 확인해야 합니다. Visual Studio에서 응용 프로그램을 디버깅하는 동안 홈 단추를 클릭한 경우 일시 중단되지 않을 수 있으며 알림이 앱 내 알림으로 표시되어 있는 동안 토스트 알림이 표시되지 않을 수 있습니다.
+
+![][8]
 
 <!-- URLs. -->
 [Mobile Engagement Windows Universal SDK documentation]: ../mobile-engagement-windows-store-integrate-engagement/
 [MicrosoftAzure.MobileEngagement]: http://go.microsoft.com/?linkid=9864592
 [Windows 스토어 개발자 센터]: http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409
-[Windows 유니버설 앱 - 오버레이 통합]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
+[Windows Universal Apps - Overlay integration]: ../mobile-engagement-windows-store-integrate-engagement-reach/#overlay-integration
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-windows-store-dotnet-get-started/universal-app-creation.png
@@ -186,5 +188,6 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [5]: ./media/mobile-engagement-windows-store-dotnet-get-started/manifest-toast.png
 [6]: ./media/mobile-engagement-windows-store-dotnet-get-started/enter-credentials.png
 [7]: ./media/mobile-engagement-windows-store-dotnet-get-started/associate-app-store.png
+[8]: ./media/mobile-engagement-windows-store-dotnet-get-started/vs-suspend.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

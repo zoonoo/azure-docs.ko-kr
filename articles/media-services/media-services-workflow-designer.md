@@ -20,7 +20,7 @@
 #워크플로 디자이너와 고급 인코딩 워크플로 만들기
 
 ##개요
-**Workflow Designer**는 **미디어 인코더 Premium 워크플로**를 사용하여 인코딩할 워크플로/그래프를 생성하는 데 사용되는 독립 실행형 도구입니다.
+**Workflow Designer**는 **미디어 인코더 Premium 워크플로**를 사용하여 인코딩할 워크플로를 설계하고 만드는 데 사용되는 Windows 데스크톱 도구입니다.
 
 이 도구를 사용하여 [기존 워크플로](media-services-workflow-designer.md#existing_workflows)를 수정할 수도 있습니다.
 
@@ -79,4 +79,4 @@
 
 [Azure Premium 인코더 워크플로 디자이너 교육 비디오](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

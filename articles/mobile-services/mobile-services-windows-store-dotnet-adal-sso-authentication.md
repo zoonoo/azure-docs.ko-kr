@@ -35,7 +35,7 @@
 이 자습서를 사용하려면 다음이 필요합니다.
 
 * Windows 8.1에서 실행 중인 Visual Studio 2013
-* [모바일 서비스 시작] 또는 [데이터 시작] 자습서 완료
+* [모바일 서비스 시작] 자습서 완료
 * Microsoft Azure 모바일 서비스 SDK NuGet 패키지
 * Active Directory 인증 라이브러리 NuGet 패키지
 
@@ -213,8 +213,7 @@ Azure Active Directory에 앱을 등록하려면 Windows 스토어에 앱을 연
 [Azure Active Directory에 등록하는 방법]: mobile-services-how-to-register-active-directory-authentication.md
 [Active Directory]: https://manage.windowsazure.com/
 [Azure 관리 포털]: https://manage.windowsazure.com/
-[데이터 시작]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [모바일 서비스 시작]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Windows 개발자 센터 대시보드]: http://go.microsoft.com/fwlink/p/?LinkID=266734
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/16/2015"
+	ms.date="10/02/2015"
 	ms.author="carlrab"/>
 
 
@@ -51,7 +51,7 @@ Azure VM에서 온-프레미스 SQL Server 사용자 데이터베이스를 SQL S
 | [Microsoft Azure 가상 컴퓨터에 SQL Server 데이터베이스 배포 마법사 사용](#azure-vm-deployment-wizard-tutorial) | SQL Server 2005 이상 | SQL Server 2014 이상 | > 1TB | 가장 신속하고 간단한 메서드, Azure 가상 컴퓨터에서 새로운 또는 기존 SQL Server 인스턴스로 마이그레이션이 가능한 모든 경우에 사용 |
 | [압축을 사용하여 온-프레미스 백업을 수행하고 Azure 가상 컴퓨터에 백업 파일을 수동으로 복사](#backup-to-file-and-copy-to-vm-and-restore) | SQL Server 2005 이상 | SQL Server 2005 이상 | [Azure VM 저장소 제한](https://azure.microsoft.com/ko-KR/documentation/articles/azure-subscription-service-limits/) | 대상 데이터베이스 버전이 SQL Server 2012 SP1 CU2 미만이거나 데이터베이스 백업 크기가 1TB(SQL Server 2016의 경우 12.8TB)를 초과하는 경우와 같이 마법사를 사용할 수 없는 경우에만 사용 |
 | [URL에 백업을 수행하고 URL에서 Azure 가상 컴퓨터로 복원](#backup-to-url-and-restore) | SQL Server 2012 SP1 CU2 이상 | SQL Server 2012 SP1 CU2 이상 | > 1TB(SQL Server 2016의 경우 < 12.8TB) | 일반적으로 [URL에 백업](https://msdn.microsoft.com/library/dn435916.aspx)을 사용하는 것이 마법사를 사용하는 것과 성능 면에서 동등하지만 그만큼 쉽지는 않음 |
-| [데이터와 로그 파일을 분리하여 Azure Blob 저장소에 복사한 후 URL로 Azure 가상 컴퓨터의 SQL Server에 첨부](#detach-and-copy-to-url-and-attach-from-url) | SQL Server 2005 이상 | SQL Server 2014 이상 | [Azure VM 저장소 제한](https://azure.microsoft.com/ko-KR/documentation/articles/azure-subscription-service-limits/) | 특히 매우 큰 데이터베이스에 대해 Azure VM에서 [Azure Blob 저장소 서비스를 사용하여 파일을 저장](https://msdn.microsoft.com/library/dn385720.aspx)하면서 데이터베이스 파일을 SQL Server에 첨부하는 경우에 사용 |
+| [데이터와 로그 파일을 분리하여 Azure Blob 저장소에 복사한 후 URL로 Azure 가상 컴퓨터의 SQL Server에 첨부](#detach-and-copy-to-url-and-attach-from-url) | SQL Server 2005 이상 | SQL Server 2014 이상 | [Azure VM 저장소 제한](https://azure.microsoft.com/ko-KR/documentation/articles/azure-subscription-service-limits/) | 특히 매우 큰 데이터베이스에 대해 [Azure Blob 저장소 서비스를 사용하여 파일을 저장](https://msdn.microsoft.com/library/dn385720.aspx)하고 Azure VM에서 실행되는 SQL Server에 연결하려는 경우 이 메서드를 사용합니다. |
 | [온-프레미스 컴퓨터를 Hyper-V VHD로 변환하고 Azure Blob 저장소에 업로드한 후 업로드된 VHD를 사용하여 새 가상 컴퓨터 배포](#convert-to-vm-and-upload-to-url-and-deploy-as-new-vm) | SQL Server 2005 이상 | SQL Server 2005 이상 | [Azure VM 저장소 제한](https://azure.microsoft.com/ko-KR/documentation/articles/azure-subscription-service-limits/) | [자체 SQL Server 라이선스를 소유](../data-management-azure-sql-database-and-sql-server-iaas/)하는 경우, 이전 버전의 SQL Server에서 실행되는 데이터베이스를 마이그레이션하는 경우, 또는 다른 사용자 데이터베이스 및/또는 시스템 데이터베이스에 종속되는 데이터베이스 마이그레이션의 일부로 시스템과 사용자 데이터베이스를 함께 마이그레이션하는 경우에 사용합니다. |
 | [Windows 가져오기/내보내기 서비스를 사용하여 하드 드라이브 제공](#ship-hard-drive) | SQL Server 2005 이상 | SQL Server 2005 이상 | [Azure VM 저장소 제한](https://azure.microsoft.com/ko-KR/documentation/articles/azure-subscription-service-limits/) | 매우 큰 데이터베이스에 사용하는 경우와 같이 수동 복사 메서드가 너무 느린 경우 [Windows 가져오기/내보내기 서비스](../storage-import-export-service/)를 사용 |
 
@@ -167,4 +167,4 @@ SQL Server 2016에서 SQL Server 2016으로 마이그레이션하면서 백업 �
 
 Azure 가상 컴퓨터의 SQL Server 실행에 대한 자세한 내용은 [Azure 가상 컴퓨터의 SQL Server 개요](virtual-machines-sql-server-infrastructure-services.md)를 참조하세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

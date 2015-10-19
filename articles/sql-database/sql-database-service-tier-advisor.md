@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="data-management" 
-   ms.date="09/22/2015"
+   ms.date="10/02/2015"
    ms.author="sstein"/>
 
 # SQL 데이터베이스 가격 책정 계층 권장 사항
@@ -27,12 +27,16 @@
 
 - [SQL 데이터베이스의 서비스 계층 및 성능 수준(가격 책정 계층) 변경](sql-database-scale-up.md)
 - [Azure SQL Server를 V12로 업그레이드](sql-database-v12-upgrade.md)
+- V12 서버로 찾아보기 - 데이터베이스가 [탄력적인 데이터베이스 풀에서 활용](sql-database-elastic-pool-portal.md#recommended-elastic-database-pools)할 수 있는 경우 서버 블레이드는 권장된 풀을 나타내는 메시지를 표시합니다. 권장되는 풀을 만들려면 메시지를 클릭합니다.
 - [탄력적 데이터베이스 풀 생성](sql-database-elastic-pool.md#elastic-database-pool-pricing-tier-recommendations)
+
+
+
 
 
 ## 개요
 
-SQL 데이터베이스 서비스는 SQL 데이터베이스의 과거 리소스 사용량을 평가하여 현재 성능 및 기능 요구 사항을 분석합니다. 또한 허용 가능한 최소 서비스 계층은 데이터베이스 크기에 따라 결정되며 [비즈니스 연속성](https://msdn.microsoft.com/library/azure/hh852669.aspx) 기능이 사용됩니다.
+SQL 데이터베이스 서비스는 SQL 데이터베이스의 과거 리소스 사용량을 평가하여 현재 성능 및 기능 요구 사항을 분석합니다. 또한 허용 가능한 최소 서비스 계층은 데이터베이스 크기에 따라 결정되며 [비즈니스 연속성](sql-database-business-continuity.md) 기능이 사용됩니다.
 
 이 정보를 분석하여 데이터베이스의 일반적인 작업을 실행하고 현재 기능 집합을 유지 관리하는 데 가장 적합한 서비스 계층 및 성능 수준을 추천해 줍니다.
 
@@ -55,9 +59,8 @@ SQL 데이터베이스 서비스는 SQL 데이터베이스의 과거 리소스 �
 기존 Web 또는 Business 데이터베이스를 선택하고 **가격 책정 계층** 타일을 클릭하여 가격 책정 계층 권장 사항을 가져옵니다. 가격 책정 계층 권장 사항은 [Azure SQL Server를 V12로 업그레이드](sql-database-v12-upgrade.md)하는 경우에도 제공됩니다.
 
 1. [Azure 미리 보기 포털](https://portal.azure.com/)에 로그인합니다.
-2. 왼쪽 메뉴에서 **찾아보기**를 클릭합니다.
-3. **찾아보기** 블레이드에서 **SQL 데이터베이스**를 클릭합니다.
-4. **SQL 데이터베이스** 블레이드에서, 서비스에서 분석할 데이터베이스를 클릭합니다.
+2. **찾아보기** > **SQL 데이터베이스**를 클릭합니다.
+4. **SQL 데이터베이스** 블레이드에서 다음에 대한 권장 사항을 보려면 데이터베이스를 클릭합니다.
 
     ![데이터베이스 선택][1]
 
@@ -97,4 +100,4 @@ SQL 데이터베이스 서비스는 SQL 데이터베이스의 과거 리소스 �
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

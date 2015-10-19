@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="HTML 클라이언트를 사용하는 방법 | Microsoft Azure" 
-	description="Azure 모바일 서비스에 HTML 클라이언트를 사용하는 방법에 대해 알아봅니다." 
-	services="mobile-services" 
-	documentationCenter="" 
-	authors="ggailey777" 
-	manager="dwrede" 
+<properties
+	pageTitle="HTML 클라이언트를 사용하는 방법 | Microsoft Azure"
+	description="Azure 모바일 서비스에 HTML 클라이언트를 사용하는 방법에 대해 알아봅니다."
+	services="mobile-services"
+	documentationCenter=""
+	authors="ggailey777"
+	manager="dwrede"
 	editor=""/>
 
-<tags 
-	ms.service="mobile-services" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-html" 
-	ms.devlang="javascript" 
-	ms.topic="article" 
-	ms.date="09/24/2015" 
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm="mobile-html"
+	ms.devlang="javascript"
+	ms.topic="article"
+	ms.date="09/24/2015"
 	ms.author="glenga"/>
 
 # Azure 모바일 서비스용 HTML/JavaScript 클라이언트를 사용하는 방법
@@ -43,7 +43,7 @@
 	var MobileServiceClient = WindowsAzure.MobileServiceClient;
     var client = new MobileServiceClient('AppUrl', 'AppKey');
 
-자리 표시자 `AppUrl`을(를) 모바일 서비스의 응용 프로그램 URL 및 응용 프로그램 키가 있는 `AppKey`(으)로 바꿔야 합니다. 모바일 서비스에 대한 응용 프로그램 URL 및 응용 프로그램 키를 가져오는 방법에 대해 알아보려면 [기존 앱에 모바일 서비스 추가](mobile-services-html-get-started-data.md) 자습서를 참조하세요.
+자리 표시자 `AppUrl`을(를) 모바일 서비스의 응용 프로그램 URL로 바꾸고 `AppKey`을(를) [Azure 포털](http://manage.windowsazure.com/)에서 가져오는 응용 프로그램 키로 바꿔야 합니다.
 
 >[AZURE.IMPORTANT]응용 프로그램 키는 모바일 서비스에 대한 임의 요청을 필터링하기 위한 것이며 응용 프로그램과 함께 배포됩니다. 이 키는 암호화되지 않으므로 안전하다고 볼 수 없습니다. 모바일 서비스 데이터를 안전하게 유지하려면 액세스를 허용하기 전에 사용자를 인증해야 합니다. 자세한 내용은 [방법: 사용자 인증](#authentication)을 참조하세요.
 
@@ -364,7 +364,7 @@ Query 개체에 `where` 호출을 추가하고 매개 변수로 개체를 전달
 
 Windows 스토어 앱에서 쿼리 결과를 사용하여 [WinJS.Binding.List] 개체를 만들 수 있으며, 이 개체를 [ListView] 개체의 데이터 원본으로 바인딩할 수 있습니다. 자세한 내용은 [데이터 바인딩(JavaScript 및 HTML을 사용한 Windows 스토어 앱)](영문)을 참조하세요.
 
-##<a name="#custom-api"></a>방법: 사용자 지정 API 호출
+##<a name="custom-api"></a>방법: 사용자 지정 API 호출
 
 사용자 지정 API는 삽입, 업데이트, 삭제 또는 읽기 작업에 매핑되지 않는 서버 기능을 노출하는 사용자 지정 끝점을 정의할 수 있게 합니다. 사용자 지정 API를 사용하면 HTTP 메시지 헤더 읽기와 설정 및 JSON 이외의 메시지 본문 형식 정의를 비롯하여 더 효율적으로 메시징을 제어할 수 있습니다. 모바일 서비스에서 사용자 지정 API를 만드는 방법의 예는 [방법: 사용자 지정 API 끝점 정의](mobile-services-dotnet-backend-define-custom-api.md)를 참조하세요.
 
@@ -381,7 +381,7 @@ Windows 스토어 앱에서 쿼리 결과를 사용하여 [WinJS.Binding.List] �
         alert(error.message);
     });
 
- 
+
 **invokeApi**의 보다 실질적인 예와 자세한 설명을 확인하려면 [Azure 모바일 서비스 클라이언트 SDK의 사용자 지정 API](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx)를 참조하세요.
 
 ##<a name="authentication"></a>방법: 사용자 인증
@@ -465,7 +465,7 @@ Facebook 이외의 ID 공급자를 사용하는 경우 위의 `login` 메서드�
 					mobileClient.login(result.session.authentication_token)
 				]).done(function (results) {
 					// Build the welcome message from the Microsoft account info.
-					var profile = results[0];                            
+					var profile = results[0];
 					var title = "Welcome " + profile.first_name + "!";
 					var message = "You are now logged in as: "
 						+ mobileClient.currentUser.userId;
@@ -474,7 +474,7 @@ Facebook 이외의 ID 공급자를 사용하는 경우 위의 `login` 메서드�
 						// Reload items from the mobile service.
 						refreshTodoItems();
 					}).done(complete);
-					
+
 				}, function (error) {
 
 				});
@@ -662,10 +662,7 @@ Promise는 완료할 작업을 아직 계산되지 않은 값으로 예약하는
 [ListView]: http://msdn.microsoft.com/library/windows/apps/br211837.aspx
 [데이터 바인딩(JavaScript 및 HTML을 사용한 Windows 스토어 앱)]: http://msdn.microsoft.com/library/windows/apps/hh758311.aspx
 [login]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/Javascript/src/MobileServiceClient.js#L301
-[Authenticate your app with single sign-in]: mobile-services-windows-store-javascript-single-sign-on.md
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [OData 시스템 쿼리 옵션 참조]: http://go.microsoft.com/fwlink/p/?LinkId=444502
-[Call a custom API from the client]: mobile-services-html-call-custom-api.md
- 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

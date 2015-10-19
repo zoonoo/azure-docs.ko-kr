@@ -4,7 +4,7 @@
 	services="application-insights" 
     documentationCenter=""
 	authors="alancameronwills" 
-	manager="keboyd"/>
+	manager="douge"/>
 
 <tags 
 	ms.service="application-insights" 
@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="04/02/2015" 
+	ms.date="10/07/2015" 
 	ms.author="awills"/>
  
 # Application Insights에서 ASP.NET에 대한 로그, 예외 및 사용자 지정 진단
@@ -290,9 +290,9 @@ Application Insights를 설치하지 않고 로깅 어댑터 Nuget 패키지를 
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-get-started.md
-[track]: app-insights-custom-events-metrics-api.md
+[track]: app-insights-api-custom-events-metrics.md
 [usage]: app-insights-web-track-usage.md
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

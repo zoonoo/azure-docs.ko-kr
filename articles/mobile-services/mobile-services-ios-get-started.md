@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="07/28/2015"
+	ms.date="10/05/2015"
 	ms.author="krisragh"/>
 
 # <a name="getting-started"> </a>모바일 서비스 시작
@@ -24,7 +24,7 @@
 
 이 자습서에서는 새 모바일 서비스와 새 모바일 서비스에 앱 데이터를 저장하는 간단한 _할 일 모음_ 앱을 둘 다 만듭니다. 만드는 모바일 서비스는 서버 쪽 비즈니스 논리에 JavaScript를 사용합니다. .NET에서 서버 쪽 비즈니스 논리로 모바일 서비스를 만들려면 이 항목의 [.NET 백 엔드 버전]을 참조하세요.
 
-> [AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 Azure 평가판을 등록하고 [평가판 사용 기간이 끝난 후에도 계속 사용할 수 있는 무료 모바일 서비스](http://azure.microsoft.com/pricing/details/mobile-services/)를 사용할 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F%20 target="\_blank")을 참조하세요.
+> [AZURE.NOTE]이 자습서를 완료하려면 Azure 계정이 필요합니다. 계정이 없는 경우 Azure 평가판을 등록하고 [평가판 사용 기간이 끝난 후에도 계속 사용할 수 있는 무료 모바일 서비스](http://azure.microsoft.com/pricing/details/mobile-services/)를 사용할 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F%20)을 참조하세요.
 
 ## <a name="create-new-service"> </a>새 모바일 서비스 만들기
 
@@ -51,8 +51,6 @@
 ## <a name="next-steps"> </a>다음 단계
 모바일 서비스에서 중요한 추가 작업을 수행하는 방법에 대해 알아봅니다.
 
-* [기존 앱에 모바일 서비스 추가] <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법을 자세히 알아봅니다.
-
 * [오프라인 데이터 동기화 시작] <br/>오프라인 데이터 동기화를 활용하여 응답성과 견고성이 뛰어난 앱을 제작하는 방법을 알아봅니다.
 
 * [기존 앱에 인증 추가] <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
@@ -77,7 +75,6 @@
 
 
 <!-- URLs. -->
-[기존 앱에 모바일 서비스 추가]: mobile-services-dotnet-backend-ios-get-started-data.md
 [오프라인 데이터 동기화 시작]: mobile-services-ios-get-started-offline-data.md
 [기존 앱에 인증 추가]: mobile-services-dotnet-backend-ios-get-started-users.md
 [기존 앱에 푸시 알림 추가]: mobile-services-dotnet-backend-ios-get-started-push.md
@@ -88,4 +85,4 @@
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [.NET 백 엔드 버전]: mobile-services-dotnet-backend-ios-get-started.md
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/06/2015" 
 	ms.author="sdanie"/>
 
 # 프리미엄 Azure Redis Cache에 Redis 클러스터링을 구성하는 방법
@@ -56,11 +56,30 @@ Azure에서 Redis 클러스터는 각각의 분할된 데이터베이스가 복�
 
 ![클러스터링][redis-cache-clustering-selected]
 
-캐시가 생성되면 캐시에 연결하여 비 클러스터 캐시처럼 사용할 수 있으며 Redis가 데이터를 캐시 분할 데이터베이스 전체에 배포합니다.
+캐시가 생성되면 캐시에 연결하여 비 클러스터 캐시처럼 사용할 수 있으며 Redis가 데이터를 캐시 분할 데이터베이스 전체에 배포합니다. 진단을 [사용](cache-how-to-monitor.md#enable-cache-diagnostics)하면 메트릭은 각 분할에 대해 개별적으로 캡처되며 Redis Cache 블레이드에서 [볼](cache-how-to-monitor.md) 수 있습니다.
 
 ## 클러스터링 FAQ
 
 다음 목록에는 Azure Redis Cache 클러스터링에 대해 일반적으로 묻는 질문과 답변이 들어 있습니다.
+
+## 클라이언트 응용 프로그램에 변경 사항이 필요하여 클러스터링을 사용해야 합니까?
+
+-	클러스터링 사용하는 경우 데이터베이스 0만을 사용할 수 있습니다. 클라이언트 응용 프로그램이 여러 데이터베이스를 사용하고 0이 아닌 데이터베이스에 읽기 또는 쓰기를 시도 하는 경우 다음과 같은 예외가 throw됩니다. `Unhandled Exception: StackExchange.Redis.RedisConnectionException: ProtocolFailure on GET --->` `StackExchange.Redis.RedisCommandException: Multiple databases are not supported on this server; cannot switch to database: 6`
+-	[StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/)를 사용하는 경우 1.0.481 이상을 사용해야 합니다. 클러스터링을 사용하지 않는 캐시에 연결할 때와 동일한 [끝점, 포트 및 키](cache-configure.md#properties)를 사용하여 캐시에 연결합니다. 유일한 차이점은 데이터베이스 0에 모든 읽기 및 쓰기를 수행해야 한다는 점입니다.
+	-	다른 클라이언트는 다른 요구 사항이 있을 수 있습니다. [모든 Redis 클라이언트가 클러스터링을 지원하나요?](#do-all-redis-clients-support-clustering)를 참조하세요.
+-	응용 프로그램이 단일 명령으로 배치되는 다중 키 작업을 사용하면 동일한 분할에 모든 키가 위치해야 합니다. 그러려면 [클러스터에서 키를 분산하는 방법](#how-are-keys-distributed-in-a-cluster)을 참조하세요.
+-	Redis ASP.NET 세션 상태 제공자를 사용하는 경우 2.0.0 이상을 사용해야 합니다. [Redis ASP.NET 세션 상태 및 출력 캐싱 공급자와 함께 클러스터링을 사용할 수 있습니까?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)를 참조하세요.
+
+## 클러스터에서 키를 분산하는 방법
+
+Redis 단위당 [키 배포 모델](http://redis.io/topics/cluster-spec#keys-distribution-model) 설명서: 키 공간은 16384 슬롯으로 분할됩니다. 각 키는 이러한 슬롯 중 하나에 해시되고 할당되며 클러스터의 노드에 분산됩니다. 키의 어느 부분이 해시되는지 구성하여 여러 키가 해시 태그를 사용하여 동일한 분할에 위치하도록 합니다.
+
+-	해시 태그가 있는 키 - 키의 모든 부분이 `{` 및 `}`로 묶인 경우 키의 해당 부분에만 키의 해시 슬롯을 결정하는 용도로 해시됩니다. 예를 들어 다음 3개의 키는 동일한 분할에 위치합니다. 이름의 `key` 부분이 해시되기 때문에 `{key}1`, `{key}2`, 및 `{key}3`입니다. 키 해시 태그 사양의 전체 목록은 [키 해시 태그](http://redis.io/topics/cluster-spec#keys-hash-tags)를 참조하세요.
+-	해시 태그 없는 키 - 전체 키 이름은 해시하는 데 사용됩니다. 그러면 캐시의 분할에 통계적으로 균일하게 배포됩니다.
+
+최상의 성능 및 처리량의 경우 키를 고르게 분산하는 것이 좋습니다. 해시 태그로 키를 사용하는 경우 키가 균등하게 분산되도록 하는 것은 응용 프로그램이 담당합니다.
+
+자세한 내용은 [키 배포 모델](http://redis.io/topics/cluster-spec#keys-distribution-model), [Redis 클러스터 데이터 분할](http://redis.io/topics/cluster-tutorial#redis-cluster-data-sharding) 및 [키 해시 태그](http://redis.io/topics/cluster-spec#keys-hash-tags)를 참조하세요.
 
 ## 만들 수 있는 최대 캐시 크기는?
 
@@ -98,9 +117,16 @@ SSL에서는 `1300N`을 `1500N`으로 대체합니다.
 
 클러스터링은 프리미엄 캐시에만 사용할 수 있습니다.
 
-## 다음 단계
+## Redis ASP.NET 세션 상태 및 출력 캐싱 공급자와 함께 클러스터링을 사용할 수 있습니까?
 
-다른 프리미엄 캐시 기능의 사용 방법은 [프리미엄 Azure Redis Cache에 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)과 [프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법](cache-how-to-premium-vnet.md)을 참조하세요.
+-	**Redis 출력 캐시 공급자** - 변경이 필요하지 않습니다.
+-	**Redis 세션 상태 제공자** -클러스터링을 사용하기 위해 [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.0 이상을 사용하지 않으면 예외가 throw됩니다. 주요 변경 내용입니다. 자세한 내용은 [v2.0.0 주요 변경 세부 사항](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details)을 참조하세요.
+
+## 다음 단계
+더 많은 프리미엄 캐시 기능을 사용하는 방법에 대해 알아봅니다.
+
+-	[프리미엄 Azure Redis Cache에 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)
+-	[프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법](cache-how-to-premium-vnet.md)
   
 <!-- IMAGES -->
 
@@ -120,4 +146,4 @@ SSL에서는 `1300N`을 `1500N`으로 대체합니다.
 
 [redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

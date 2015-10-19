@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/10/2015" 
+	ms.date="10/07/2015" 
 	ms.author="tomfitz"/>
 
 # 리소스 관리자로 작업 감사
@@ -26,15 +26,15 @@ Azure PowerShell, Azure CLI, REST API 또는 Azure 미리 보기 포털을 통�
 
 ## PowerShell
 
-로그 항목을 검색하려면 **Get AzureResourceGroupLog** 명령을 실행합니다. 항목의 목록을 필터링하는 추가 매개 변수를 제공합니다.
+로그 항목을 검색하려면 **Get-AzureRmLog** 명령(또는 1.0보다 이전 버전 PowerShell의 경우 **Get-AzureResourceGroupLog**)을 실행합니다. 항목의 목록을 필터링하는 추가 매개 변수를 제공합니다.
 
 다음 예제에서는 솔루션의 수명 주기 동안 수행하는 작업을 조사하는 감사 로그를 사용하는 방법을 보여 줍니다. 작업이 발생한 시점과 요청한 사용자를 볼 수 있습니다.
 
-    PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00
 
 지정한 시작 시간에 따라 이전 명령은 해당 리소스 그룹에 대한 긴 목록 작업을 반환할 수 있습니다. 검색 조건을 제공하여 찾고자 하는 결과를 필터링할 수 있습니다. 예를 들어 웹 응용 프로그램이 중지된 방법을 조사하려는 경우 다음 명령을 실행하고 중지 작업이 someone@example.com(으)로 수행된 것을 볼 수 있습니다.
 
-    PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
 
     Authorization     :
                         Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
@@ -54,11 +54,11 @@ Azure PowerShell, Azure CLI, REST API 또는 Azure 미리 보기 포털을 통�
 
 다음 예제에서는 지정된 시작 시간 후에 실패된 작업을 확인합니다. 또한 **DetailedOutput** 매개 변수를 포함하여 오류 메시지를 참조합니다.
 
-    PS C:\> Get-AzureResourceGroupLog -ResourceGroup ExampleGroup -StartTime 2015-08-27T12:00 -Status Failed –DetailedOutput
+    PS C:\> Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-27T12:00 -Status Failed –DetailedOutput
     
 이 명령이 너무 많은 항목 및 속성을 반환하는 경우 **properties** 속성을 검색하여 감사에 집중할 수 있습니다.
 
-    PS C:\> (Get-AzureResourceGroupLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
+    PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties
 
     Content
     -------
@@ -68,7 +68,7 @@ Azure PowerShell, Azure CLI, REST API 또는 Azure 미리 보기 포털을 통�
 
 또한 상태 메시지를 보고 결과를 더욱 구체화할 수 있습니다.
 
-    PS C:\> (Get-AzureResourceGroupLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
+    PS C:\> (Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json
 
     Code       : Conflict
     Message    : Website with given name mysite already exists.
@@ -151,4 +151,4 @@ Azure PowerShell, Azure CLI, REST API 또는 Azure 미리 보기 포털을 통�
 - 서비스 주체에게 액세스를 부여하는 방법에 대한 내용은 [Azure 리소스 관리자를 사용하여 서비스 사용자 인증](resource-group-authenticate-service-principal.md)을 참조하세요.
 - 모든 사용자에 대한 리소스의 작업 방법에 대한 내용은 [Azure 리소스 관리자를 사용하여 리소스 잠그기](resource-group-lock-resources.md)를 참조하세요.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

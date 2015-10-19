@@ -17,11 +17,7 @@
 	ms.author="yuaxu"/>
 
 # PHP에서 알림 허브를 사용하는 방법
-> [AZURE.SELECTOR] 
-- [Java](notification-hubs-php-backend-how-to.md)
-- [PHP](notification-hubs-python-backend-how-to.md)
-- [Python](notification-hubs-nodejs-how-to-use-notification-hubs.md)
-- [Node.js](notification-hubs-nodejs-how-to-use-notification-hubs.md)
+[AZURE.INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
 MSDN 항목 [알림 허브 REST API](http://msdn.microsoft.com/library/dn223264.aspx)에 설명된 대로 알림 허브 REST 인터페이스를 사용하여 Java/PHP/Ruby 백 엔드에서 모든 알림 허브 기능에 액세스할 수 있습니다.
 
@@ -260,4 +256,4 @@ iOS 기본 알림을 보내려면 다음을 수행합니다.
 [시작 자습서]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

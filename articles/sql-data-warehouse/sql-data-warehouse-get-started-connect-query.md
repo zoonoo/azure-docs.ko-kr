@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="NA"
    ms.workload="data-services"
-   ms.date="09/22/2015"
+   ms.date="10/01/2015"
    ms.author="JRJ@BigBangData.co.uk;barbkess"/>
 
 # 시작: Azure SQL 데이터 웨어하우스에 연결
@@ -179,9 +179,9 @@ Sqlcmd 대한 추가 정보는 [sqlcmd 설명서](https://msdn.microsoft.com/lib
 	쿼리를 실행하려면 녹색 화살표를 클릭하거나 다음 바로 가기를 사용합니다. `CTRL`+`SHIFT`+`F5`
 
 ## 다음 단계 ##
-이제 연결 및 쿼리할 수 있으므로 [샘플 데이터를 로드][]하거나 [코드를 개발][]해 보세요.
+이제 연결 및 쿼리할 수 있으므로 [샘플 데이터를 로드][]해 보세요.
 
 [샘플 데이터를 로드]: ./sql-data-warehouse-get-started-load-samples.md
-[코드를 개발]: ./articles/sql-data-warehouse-overview-develop/
+[developing code]: ./articles/sql-data-warehouse-overview-develop/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -72,4 +72,4 @@ Microsoft Azure 포털, PowerShell, C#을 사용하여 몇 분 안에 탄력적 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-pool/databases.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

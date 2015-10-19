@@ -89,8 +89,12 @@ SDK의 미디어 서비스 개체는 직렬화할 수 없으며, 결과적으로
 	- 이제 오디오 전용 필터로 Apple HTTP 라이브 스트리밍(HLS) 포맷을 사용할 수 있습니다. 이 업데이트를 통해 오디오 전용 트랙을 URL에 지정하여(audio-only=false) 제거할 수 있습니다.
 	- 자산에 대한 필터를 정의할 때 이제는 단일 URL에 여러(최대 3개) 필터를 조합할 수 있습니다.
 
+	자세한 내용은 [이](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support) 블로그를 참조하세요.
+
 - AMS는 이제 HLS v4에 I-프레임을 지원합니다. I-프레임 지원은 빨리 감기와 되감기 작업을 최적화합니다. 기본적으로 모든 HLS v4 출력은 I-프레임 재생 목록(EXT-X-I-FRAME-STREAM-INF)를 포함합니다.
  
+	자세한 내용은 [이](http://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support) 블로그를 참조하세요.
+
 ##<a id="august_changes_15"></a>2015년 8월 릴리스
 
 - Azure Media Services SDK for Java V0.8.0 릴리스 및 새로운 샘플이 제공됩니다. 자세한 내용은 다음을 참조하세요.
@@ -599,4 +603,4 @@ Azure 미디어 서비스 .NET SDK Extensions는 코드를 단순화하고 Azure
 [미디어 서비스 작업 알림 처리]: http://msdn.microsoft.com/library/azure/dn261241.aspx
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

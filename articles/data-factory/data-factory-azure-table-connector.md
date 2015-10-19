@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/26/2015" 
+	ms.date="10/06/2015" 
 	ms.author="spelluru"/>
 
 # Azure 데이터 팩터리를 사용하여 Azure 테이블 간 데이터 이동
@@ -384,6 +384,26 @@ azureTableInsertType | Azure 테이블에 데이터를 삽입하는 모드입니
 writeBatchSize | WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다. | 1에서 100 사이의 정수(단위 = 행 수) | 아니요(기본값 = 100) 
 writeBatchTimeout | WriteBatchSize 또는 writeBatchTimeout에 도달하면 Azure 테이블에 데이터를 삽입합니다. | (단위 = timespan)샘플: “00:20:00” (20분) | No (기본적으로 저장소 클라이언트 기본 시간 제한 값인 90초로 설정)
 
+### azureTablePartitionKeyName
+대상 열을 azureTablePartitionKeyName으로 사용할 수 있기 전에 JSON 속성 변환기를 사용하여 원본 열을 대상 열에 매핑해야 합니다.
+
+다음 예제에서 원본 열 DivisionID은 대상 열 DivisionID에 매핑됩니다.
+
+	"translator": {
+		"type": "TabularTranslator",
+		"columnMappings": "DivisionID: DivisionID, FirstName: FirstName, LastName: LastName"
+	} 
+
+EmpID는 파티션 키로 지정됩니다.
+
+	"sink": {
+		"type": "AzureTableSink",
+		"azureTablePartitionKeyName": "DivisionID",
+		"writeBatchSize": 100,
+		"writeBatchTimeout": "01:00:00"
+	}
+
+
 [AZURE.INCLUDE [data-factory-structure-for-rectangualr-datasets](../../includes/data-factory-structure-for-rectangualr-datasets.md)]
 
 ### Azure 테이블에 대한 형식 매핑
@@ -484,4 +504,4 @@ lastlogindate | Edm.DateTime
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -209,7 +209,6 @@
 
 6. 위에서 만든 NSG를 *BackEnd* 서브넷에 연결합니다.
 
-		$vnet = Get-AzureVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 		Set-AzureVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd `
 			-AddressPrefix 192.168.2.0/24 -NetworkSecurityGroup $nsg
 
@@ -236,4 +235,4 @@
                         "ProvisioningState": "Succeeded"
                       }
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

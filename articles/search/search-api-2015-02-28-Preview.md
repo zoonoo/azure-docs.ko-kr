@@ -1,6 +1,6 @@
 <properties
    pageTitle="Azure 검색 서비스 REST API 버전 2015-02-28-Preview | Microsoft Azure"
-   description="Azure 검색 서비스 REST API 버전 2015-02-28-Preview에는 자연어 분석기 및 moreLikeThis 검색과 같은 실험적 기능이 포함되어 있습니다."
+   description="Azure 검색 서비스 REST API 버전 2015-02-28-Preview에는 Lucene 쿼리 구문 및 moreLikeThis 검색 같은 실험적 기능이 포함되어 있습니다."
    services="search"
    documentationCenter="na"
    authors="HeidiSteen"
@@ -13,20 +13,26 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="search"
-   ms.date="09/22/2015"
+   ms.date="10/01/2015"
    ms.author="heidist"/>
 
 # Azure 검색 서비스 REST API: 버전 2015-02-28-Preview
 
 이 문서는 `api-version=2015-02-28-Preview`에 대한 참조 설명서입니다. 이 미리 보기는 다음과 같은 실험적 기능을 제공하여 현재 일반적으로 사용할 수 있는 버전인 [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx)을 확장합니다.
 
-- `moreLikeThis`는 [검색 작업](#SearchDocs)에서 다른 특정 문서와 관련된 다른 문서를 찾는 데 사용되는 쿼리 매개 변수입니다.
+- [Lucene 쿼리 구문](https://msdn.microsoft.com/library/azure/mt589323.aspx)은 [검색 작업](#SearchDocs)에 queryType 매개 변수를 지정할 수 있는 [Lucene 쿼리 파서](https://lucene.apache.org/core/4_10_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)의 구현입니다.
+- `moreLikeThis`은(는) [검색 작업](#SearchDocs)에서 또 다른 특정 문서와 관련된 다른 문서를 찾는 데 사용되는 쿼리 매개 변수입니다.
+
+`2015-02-28-Preview`의 몇 가지 추가 기능에 대해서는 별도로 설명합니다. 내용은 다음과 같습니다.
+
+- [점수 매기기 프로필](search-api-scoring-profiles-2015-02-28-preview.md)
+- [인덱서](search-api-indexers-2015-02-28-preview.md)
 
 Azure 검색 서비스는 여러 버전으로 제공됩니다. 자세한 내용은 [검색 서비스 버전 관리](http://msdn.microsoft.com/library/azure/dn864560.aspx)를 참조하세요.
 
 ##이 문서의 API
 
-Azure 검색 서비스 API는 엔터티 조회에 대한 두 가지 구문, 즉 [간단한](https://msdn.microsoft.com/library/dn798920.aspx) OData 구문과 대체 OData 구문을 지원합니다(자세한 내용은 [OData 지원(Azure 검색 API)](http://msdn.microsoft.com/library/azure/dn798932.aspx)을 참조하세요). 다음 목록에서는 간단한 구문을 보여 줍니다.
+Azure 검색 서비스 API는 API 작업을 위한 두 URL 구문, 즉 simple 및 OData(자세한 내용은 [OData(Azure 검색 API)](http://msdn.microsoft.com/library/azure/dn798932.aspx)를 참조하세요). 다음 목록에서는 간단한 구문을 보여 줍니다.
 
 [인덱스 만들기](#CreateIndex)
 
@@ -129,7 +135,7 @@ HTTP POST 또는 PUT 요청을 사용하여 Azure 검색 서비스 내에서 새
 
 인덱스를 만들면 저장되고 검색 작업에서 사용되는 문서의 구조가 결정됩니다. 인덱스에 데이터를 입력하는 작업은 별도로 수행해야 합니다. 이 단계에는 [인덱서](https://msdn.microsoft.com/library/azure/mt183328.aspx)(지원되는 데이터 원본에 사용 가능)를 사용하거나 [문서 추가, 업데이트 또는 삭제](https://msdn.microsoft.com/library/azure/dn798930.aspx) 작업을 수행할 수 있습니다. 문서를 게시하면 반전된 인덱스가 생성됩니다.
 
-**참고**: 허용되는 최대 인덱스 수는 가격 책정 계층에 따라 다릅니다. 무료 서비스에서는 인덱스를 3개까지 사용할 수 있으며 표준 서비스에서는 검색 서비스당 인덱스 50개를 만들 수 있습니다. 자세한 내용은 [서비스 제한](search-limits-quota-capacity.md)을 참조하세요.
+**참고**: 허용되는 최대 인덱스 수는 가격 책정 계층에 따라 다릅니다. 무료 서비스에서는 인덱스를 3개까지 사용할 수 있으며 표준 서비스에서는 검색 서비스당 인덱스 50개를 만들 수 있습니다. 자세한 내용은 [한도 및 제약 조건](http://msdn.microsoft.com/library/azure/dn798934.aspx)을 참조하세요.
 
 **요청**
 
@@ -697,7 +703,7 @@ Azure 검색에서 제안 기능은 검색 상자에 입력한 부분 문자열 
 		  ]
 		}
 
-> [AZURE.NOTE]Azure 검색의 공개 미리 보기 버전을 사용하는 경우에는 3~25자 사이의 짧은 문자열에 대해서만 접두사 제안을 지원했던 이전 부울 속성 `"suggestions": false` 대신 `suggesters`가 사용됩니다. 이 속성 대신 제공되는 `suggesters`는 필드 내용 시작 부분이나 중간에서 일치하는 용어를 찾는 중위 일치 기능을 지원하므로 검색 문자열을 잘못 입력해도 올바른 결과가 반환될 확률이 높아집니다. 일반적으로 사용 가능한 릴리스를 포함하여 이것이 현재 제안 API의 유일한 구현입니다. `api-version=2014-07-31-Preview`에 도입되었던 이전 `suggestions` 속성도 해당 버전에서는 계속 작동하지만 Azure 검색의 `2015-02-28` 이후 버전에서는 작동하지 않습니다.
+> [AZURE.NOTE]Azure 검색의 공개 미리 보기 버전을 사용하는 경우에는 3~25자 사이의 짧은 문자열에 대해서만 접두사 제안을 지원했던 이전 부울 속성 `"suggestions": false` 대신 `suggesters`가 사용됩니다. 이 속성 대신 제공되는 `suggesters`는 필드 내용 시작 부분이나 중간에서 일치하는 용어를 찾는 중위 일치 기능을 지원하므로 검색 문자열을 잘못 입력해도 올바른 결과가 반환될 확률이 높아집니다. 일반적으로 사용 가능한 릴리스를 포함하여 이것이 현재 제안 API의 유일한 구현입니다. `api-version=2014-07-31-Preview`에 도입되었던 이전 `suggestions` 속성도 해당 버전에서는 계속 작동하지만 Azure 검색의 `2015-02-28` 이상 버전에서는 작동하지 않습니다.
 
 <a name="UpdateIndex"></a>
 ## 인덱스 업데이트
@@ -1168,15 +1174,19 @@ URL 인코딩은 위 쿼리 매개 변수에만 권장됩니다. 실수로 전�
 
 `searchFields=[string]`(선택) - 지정한 텍스트를 검색할 쉼표로 구분된 필드 이름의 목록입니다. 대상 필드는 `searchable`로 표시되어야 합니다.
 
+`queryType=simple|full` (선택 사항, 기본값 `simple`) - "simple"로 설정하면 +, * 및 “” 등과 같은 기호에 허용되는 단순 쿼리 언어를 사용하여 검색 텍스트가 해석됩니다. 쿼리는 기본적으로 각 문서의 모든 검색 가능 필드(또는 `searchFields`에 나타난 필드)에 걸쳐 평가됩니다. 쿼리 유형을 `full`(으)로 설정하면 필드별 및 가중치 적용 검색에 허용되는 Lucene 쿼리 언어를 사용하여 검색 텍스트가 해석됩니다. 검색 구문에 대한 구체적인 사항은 [단순 쿼리 구문](https://msdn.microsoft.com/library/dn798920.aspx) 및 [Lucene 쿼리 구문](https://msdn.microsoft.com/library/azure/mt589323.aspx)을 참조하세요.
+ 
+> [AZURE.NOTE]Lucene 쿼리 언어의 범위 검색은 유사한 기능을 제공하는 $filter를 위해 지원되지 않습니다.
+
 `moreLikeThis=[key]`(선택) **중요:** 이 기능은 `2015-02-28-Preview`에서만 사용할 수 있습니다. 텍스트 검색 매개 변수 `search=[string]`이 포함된 쿼리에는 이 옵션을 사용할 수 없습니다. `moreLikeThis` 매개 변수는 문서 키로 지정된 문서와 유사한 문서를 찾습니다. 검색 요청이 `moreLikeThis`를 통해 이루어진 경우에는 원본 문서에서 용어의 빈도 및 희귀성에 따라 검색 용어 목록이 생성됩니다. 그런 다음 이러한 용어가 요청에 사용됩니다. `searchFields`가 검색되는 필드를 제한하는 데 사용되지 않은 한 기본적으로 모든 `searchable` 필드의 내용이 고려됩니다.
 
-`$skip=#`(선택) - 건너뛸 검색 결과 수입니다. 100,000보다 클 수 없습니다. 문서를 순차적으로 검색하려는 경우 이 제한으로 인해 `$skip`을 사용할 수 없다면 대신 전체 정렬된 키에서 `$orderby`를 사용하고 범위 쿼리에 `$filter`를 사용하는 것이 좋습니다.
+`$skip=#`(선택 사항) - 건너뛸 검색 결과 수입니다. 100,000보다 클 수 없습니다. 문서를 순차적으로 검색하려는 경우 이 제한으로 인해 `$skip`을 사용할 수 없다면 대신 전체 정렬된 키에서 `$orderby`를 사용하고 범위 쿼리에 `$filter`를 사용하는 것이 좋습니다.
 
 > [AZURE.NOTE]POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `$skip` 대신 `skip`입니다.
 
-`$top=#`(선택) - 검색할 검색 결과 수입니다. 검색 결과의 클라이언트쪽 페이징을 구현하기 위해 `$skip`과 함께 사용할 수 있습니다.
+`$top=#`(선택 사항) - 검색할 검색 결과 수입니다. 검색 결과의 클라이언트쪽 페이징을 구현하기 위해 `$skip`과 함께 사용할 수 있습니다.
 
-> [AZURE.NOTE]Azure 검색은 ***서버쪽 페이징***을 사용하여 쿼리가 한 번에 너무 많은 문서를 검색하지 못하도록 합니다. 기본 페이지 크기는 50이고 최대 페이지 크기는 1000입니다. 따라서 `$top`을 지정하지 않으면 기본적으로 **검색**에서 최대 50개를 반환합니다. 결과가 50개를 초과하면 응답에는 최대 50개의 결과가 표시된 다음 페이지를 가져올 수 있는 정보가 포함됩니다([아래 예제](#SearchResponse)의 `@odata.nextLink` 및 `@search.nextPageParameters` 참조). 비슷하게 `$top`에 1000보다 큰 값을 지정한 경우 1000개가 넘는 결과가 있으면 최대 1000개의 결과가 표시된 다음 페이지를 가져올 수 있는 정보와 함께 처음 1000개의 결과만 반환됩니다.
+> [AZURE.NOTE]Azure 검색은 ***서버쪽 페이징***을 사용하여 쿼리가 한 번에 너무 많은 문서를 검색하지 못하도록 합니다. 기본 페이지 크기는 50이고 최대 페이지 크기는 1000입니다. 따라서 `$top`을(를) 지정하지 않으면 기본적으로 **검색**에서 최대 50개를 반환합니다. 결과가 50개를 초과하면 응답에는 최대 50개의 결과가 표시된 다음 페이지를 가져올 수 있는 정보가 포함됩니다([아래 예제](#SearchResponse)의 `@odata.nextLink` 및 `@search.nextPageParameters` 참조). 비슷하게 `$top`에 1000보다 큰 값을 지정한 경우 1000개가 넘는 결과가 있으면 최대 1000개의 결과가 표시된 다음 페이지를 가져올 수 있는 정보와 함께 처음 1000개의 결과만 반환됩니다.
 
 > [AZURE.NOTE]POST를 사용하여 **검색**을 호출하는 경우 이 매개 변수의 이름은 `$top` 대신 `top`입니다.
 
@@ -1476,6 +1486,16 @@ POST의 경우:
 
 위에서 `searchMode=all`의 사용에 주의하세요. 이 매개 변수를 포함하면 기본값 `searchMode=any`가 재정의되어 `-motel`이 "OR NOT" 대신 "AND NOT"을 의미하게 됩니다. `searchMode=all`을 사용하지 않으면 검색 결과를 제한하는 것이 아니라 확장하는 "OR NOT"을 가져오므로 일부 사용자에게 직관적으로 보이지 않을 수 있습니다.
 
+15) [Lucene 쿼리 구문](http://lucene.apache.org/core/4_10_4/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview)을 사용하여 인덱스에서 문서를 찾습니다. 이 쿼리는 범주 필드에 “예산"이라는 용어가 포함된 호텔 및 “최근 혁신된" 문구가 포함된 모든 검색 가능 필드를 반환합니다. 용어 boost 값(3)의 결과로 "최근 혁신된" 문구가 포함된 문서가 더 높은 순위가 됩니다.
+
+    GET /indexes/hotels/docs?search=category:budget AND "recently renovated"^3&searchMode=all&api-version=2015-02-28-Preview&querytype=full
+
+    POST /indexes/hotels/docs/search?api-version=2015-02-28-Preview
+    {
+      "search": "category:budget AND "recently renovated"^3",
+      "queryType": "full",
+      "searchMode": "all"
+    }
 
 <a name="LookupAPI"></a>
 ##문서 조회
@@ -1722,4 +1742,4 @@ POST의 경우:
       "suggesterName": "sg"
     }
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

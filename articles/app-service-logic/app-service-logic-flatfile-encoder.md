@@ -13,15 +13,15 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="07/01/2015"
+   ms.date="10/01/2015"
    ms.author="rajram"/>
 
 # BizTalk 플랫 파일 인코더
 
-BizTalk Flat File Encode Decode 커넥터는 플랫 파일 데이터(예: excel, csv)와 XML 데이터 간의 앱 상호 운용성을 지원합니다. 지정된 플랫 파일 인스턴스를 XML로 변환하거나 그 반대로 변환할 수 있습니다.
+BizTalk 플랫 파일 인코더 커넥터를 사용하여 플랫 파일 데이터(예: excel, csv)와 XML 데이터 간을 상호 운용합니다. 지정된 플랫 파일 인스턴스를 XML로 변환하거나 그 반대로 변환할 수 있습니다.
 
 ##BizTalk 플랫 파일 인코더 사용
-1. BizTalk 플랫 파일 인코더를 사용하려면 먼저 BizTalk 플랫 파일 인코더 API 앱의 인스턴스를 만들어야 합니다. 이 작업은 논리 앱을 만드는 동안 인라인으로 수행하거나 Azure Marketplace에서 BizTalk 플랫 파일 인코더 API 앱을 선택하여 수행할 수 있습니다.
+BizTalk 플랫 파일 인코더를 사용하려면 먼저 BizTalk 플랫 파일 인코더 API 앱의 인스턴스를 만들어야 합니다. 이 작업은 논리 앱을 만드는 동안 인라인으로 수행하거나 Azure Marketplace에서 BizTalk 플랫 파일 인코더 API 앱을 선택하여 수행할 수 있습니다.
 
 ###BizTalk 플랫 파일 인코더 구성
 BizTalk 플랫 파일 인코더는 스키마를 해당 구성의 일부로 사용합니다. 사용자는 Azure 포털에서 직접 API 앱을 시작하거나 디자이너 화면에 API 앱을 두 번 클릭하여 API 앱 구성 블레이드를 시작할 수 있습니다.
@@ -74,4 +74,4 @@ Input Xml|string|입력 Xml 내용
 [6]: ./media/app-service-logic-flatfile-encoder/FlatFileEncoder.XmlToFlatFile.PNG
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

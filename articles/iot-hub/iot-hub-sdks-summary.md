@@ -43,7 +43,7 @@ Microsoft Azure IoT 서비스 SDK에는 장치와 보안을 관리하기 위해 
 
 - [Node.js용 Azure IoT 서비스 SDK][]
 
-## API 참조 설명서
+## 온라인 API 참조 설명서
 
 다음은 Azure IoT 장치 라이브러리용 온라인 API 참조 설명서에 대한 링크 목록입니다.
 
@@ -73,4 +73,4 @@ Microsoft Azure IoT 서비스 SDK에는 장치와 보안을 관리하기 위해 
 [Node.js용 Microsoft Azure IoT 장치 SDK]: http://azure.github.io/azure-iot-sdks/node/api_reference/index.html
 [IoT Hub REST]: https://msdn.microsoft.com/library/mt548492.aspx
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

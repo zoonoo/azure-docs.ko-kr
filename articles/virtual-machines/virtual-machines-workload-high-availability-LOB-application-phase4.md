@@ -29,6 +29,8 @@ Azure 인프라 서비스의 고가용성 LOB(기간 업무) 응용 프로그램
 
 두 웹 서버 가상 컴퓨터에 ASP.NET 응용 프로그램 또는 Windows Server 2012 R2에서 IIS(Internet Information Services) 8이 호스팅할 수 있는 구형 응용 프로그램을 배포할 수 있습니다.
 
+> [AZURE.NOTE]이 문서에서는 Azure PowerShell 버전 1.0.0 *미만*의 명령을 포함합니다. **Get-Module azure | format-table version** 명령으로 Azure PowerShell의 버전을 확인할 수 있습니다. 이 문서의 Azure PowerShell 명령 블록은 Azure PowerShell 버전 1.0.0 이상에서 새 cmdlet을 지원하도록 테스트 및 업데이트 중입니다. 기다려 주셔서 감사합니다.
+
 먼저 Azure가 두 웹 서버에서 클라이언트 트래픽을 LOB(기간 업무) 응용 프로그램에 균등하게 배분하도록 내부 부하 분산을 구성합니다. 이렇게 하려면 Azure 가상 네트워크에 할당한 서브넷 주소 공간으로부터 할당되는 자체 IP 주소와 이름으로 구성되는 내부 부하 분산 인스턴스를 지정해야 합니다. 내부 부하 분산 장치에 대해 선택한 IP 주소를 사용할 수 있는지를 확인하려면 Azure PowerShell 프롬프트에서 다음 명령을 사용합니다. 변수의 값을 지정하고 < and > 문자를 제거합니다.
 
 	Switch-AzureMode AzureServiceManagement
@@ -36,7 +38,7 @@ Azure 인프라 서비스의 고가용성 LOB(기간 업무) 응용 프로그램
 	$testIP="<a chosen IP address from the subnet address space, Table S - Item 2 – Subnet address space column>"
 	Test-AzureStaticVNetIP –VNetName $vnet –IPAddress $testIP
 
-Test-AzureStaticVNetIP 명령 표시에서 **IsAvailable** 필드가 **True**이면 해당 IP 주소를 사용할 수 있습니다.
+표시되는 Test-AzureStaticVNetIP 명령에서 **IsAvailable** 필드가 **True**이면 해당 IP 주소를 사용할 수 있습니다.
 
 이 명령 사용하여 PowerShell의 리소스 관리자 모드로 다시 전환합니다.
 
@@ -68,7 +70,7 @@ PowerShell 명령의 다음 블록을 사용하여 두 웹 서버용 가상 컴�
 - 저장소 계정의 경우 표 ST
 - 가용성 집합의 경우 표 A
 
-표 M은 [2단계](virtual-machines-workload-high-availability-LOB-application-phase2.md)에서 정의했고 표 V, S, ST 및 A는 [1단계](virtual-machines-workload-high-availability-LOB-application-phase1.md)에서 정의했습니다.
+[2단계](virtual-machines-workload-high-availability-LOB-application-phase2.md)에서 정의한 테이블 M과, [1단계](virtual-machines-workload-high-availability-LOB-application-phase1.md)에서 정의한 테이블 V, S, ST 및 A를 불러옵니다.
 
 적절한 값을 모두 입력한 후 Azure PowerShell 프롬프트에서 완성된 블록을 실행합니다.
 
@@ -128,7 +130,7 @@ PowerShell 명령의 다음 블록을 사용하여 두 웹 서버용 가상 컴�
 	Add-Computer -DomainName $domName
 	Restart-Computer
 
-**Add-Computer** 명령을 입력한 후에는 도메인 계정 자격 증명을 제공해야 합니다.
+**Add-Computer** 명령을 입력한 후에는 반드시 도메인 계정 자격 증명을 제공해야 합니다.
 
 다시 시작된 후 로컬 관리자 권한이 있는 계정을 사용하여 다시 연결합니다.
 
@@ -172,4 +174,4 @@ PowerShell 명령의 다음 블록을 사용하여 두 웹 서버용 가상 컴�
 
 [Azure 인프라 서비스 워크로드: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

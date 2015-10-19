@@ -70,10 +70,10 @@ API 앱은 RESTful 웹 API 개발, 배포, 게시, 사용 및 관리를 위한 �
 
 API 앱을 시작하려면 [API 앱 만들기 자습서](app-service-dotnet-create-api-app.md)를 따르세요.
 
-API 앱의 알려진 문제 목록을 보려면 [이 MSDN 포럼 게시물](https://social.msdn.microsoft.com/Forums/en-US/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps)을 참조하세요.
+API 앱의 알려진 문제 목록을 보려면 [이 MSDN 포럼 게시물](https://social.msdn.microsoft.com/Forums/ko-KR/7f8b42f2-ac0d-48b8-a35e-3b4934e1c25e/api-app-known-issues?forum=AzureAPIApps)을 참조하세요.
 
 Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스](../app-service/app-service-value-prop-what-is.md)를 참조하세요.
 
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

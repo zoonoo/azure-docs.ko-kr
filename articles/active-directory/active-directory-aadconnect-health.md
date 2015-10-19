@@ -1,4 +1,4 @@
-<properties 
+<properties
 	pageTitle="클라우드에서 온-프레미스 ID 인프라 모니터링"
 	description="사용되는 항목 및 이유를 설명하는 Azure AD Connect 상태 페이지입니다."
 	services="active-directory"
@@ -7,7 +7,7 @@
 	manager="stevenpo"
 	editor="curtand"/>
 
-<tags 
+<tags
 	ms.service="active-directory"
 	ms.workload="identity"
 	ms.tgt_pltfrm="na"
@@ -70,7 +70,7 @@ Azure AD Connect Health 포털을 사용하여 경고, 성능 모니터링 및 �
 ![Azure AD Connect Health 포털](./media/active-directory-aadconnect-health/portal2.png)
 
 - **빠른 시작** – 이 항목을 선택하면 빠른 시작 블레이드가 열립니다. 여기에서 도구 가져오기를 선택하여 Azure AD Connect Health Agent를 다운로드하고, 설명서에 액세스하고, 피드백을 제공할 수 있습니다.
-- **Active Directory Federation Services** – Azure AD Connect Health에서 현재 모니터링하는 모든 AD FS 서비스를 나타냅니다. 인스턴스 중 하나를 선택하면, 서비스 인스턴스에 대한 정보가 포함된 블레이드가 열립니다. 개요, 속성, 경고, 모니터링 및 사용 현황 분석이 이러한 정보에 포함됩니다. 
+- **Active Directory Federation Services** – Azure AD Connect Health에서 현재 모니터링하는 모든 AD FS 서비스를 나타냅니다. 인스턴스 중 하나를 선택하면, 서비스 인스턴스에 대한 정보가 포함된 블레이드가 열립니다. 개요, 속성, 경고, 모니터링 및 사용 현황 분석이 이러한 정보에 포함됩니다.
 - 구성 – 여기에서는 다음 옵션을 켜거나 끌 수 있습니다.
 <ol>
 1. 자동으로 Azure AD Connect Health Agent를 최신 버전으로 업데이트하는 자동 업데이트 - Azure AD Connect Health Agent의 최신 버전을 사용할 수 있게 되면 자동으로 업데이트됩니다. 이 옵션은 기본적으로 사용하도록 설정되어 있습니다.
@@ -95,9 +95,10 @@ Azure AD Connect Health 포털을 사용하여 경고, 성능 모니터링 및 �
 | 요구 사항 | 설명|
 | ----------- | ---------- |
 |각 대상 서버에 설치된 Azure AD Connect Health Agent| Azure AD Connect Health는 포털에 표시되는 데이터를 제공하기 위해 대상 서버에 에이전트를 설치할 것을 요구합니다. </br></br>예를 들어, AD FS 온-프레미스 인프라에서 데이터를 얻기 위해 에이전트는 AD FS 서버에 설치되어야 합니다. 여기에는 AD FS 프록시 서버와 웹 응용 프로그램 프록시 서버가 포함됩니다. </br></br>에이전트 설치에 대한 자세한 내용은 [Azure AD Connect Health 에이전트 설치](active-directory-aadconnect-health-agent-install.md)를 참조하십시오.</br></br>**중요:** 에이전트를 설치할 때 사용하는 계정은 필히 작업 또는 조직 계정이어야 하며 Microsoft 계정은 사용할 수 없습니다. 자세한 내용은 [조직으로 Azure 등록](sign-up-organization.md)을 참조하십시오.|
-|Azure 서비스 끝점에 대한 아웃바운드 연결|에이전트는 설치 및 런타임 중에 아래 나열된 Azure AD Connect Health 서비스 끝점에 연결되어야 합니다. 아웃바운드 연결을 차단하는 경우 다음 항목이 허용 목록에 추가되어 있는지 확인합니다.</br></br><li>&#42;.servicebus.windows.net - Port: 5671</li><li>https://&#42;.adhybridhealth.azure.com/</li><li>https://&#42;.table.core.windows.net/</li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
-|에이전트를 실행하는 서버의 방화벽 포트| 에이전트가 Azure AD Health 서비스 끝점과 통신하기 위해 다음 방화벽 포트를 열어놓아야 합니다.</br></br><li>TCP/UDP port 80</li><li>TCP/UDP port 443</li>
-|IE 보안 강화를 사용하는 경우 다음 웹 사이트 허용|에이전트가 설치될 서버에서 IE 보안 강화를 사용하도록 설정되어 있는 경우 다음 웹 사이트를 허용해야 합니다.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Azure Active Directory에 의해 신뢰할 수 있는 조직의 페더레이션 서버의 예:https://sts.contoso.com</li> 
+|Azure 서비스 끝점에 대한 아웃바운드 연결|에이전트는 설치 및 런타임 중에 아래 나열된 Azure AD Connect Health 서비스 끝점에 연결되어야 합니다. 아웃바운드 연결을 차단하는 경우 다음 항목이 허용 목록에 추가되어 있는지 확인합니다.</br></br><li>**new**: &#42;.blob.core.windows.net </li><li>**new**: &#42;.queue.core.windows.net</li><li>&#42;.servicebus.windows.net - Port: 5671</li><li>https://&#42;.adhybridhealth.azure.com/</li><li>https://&#42;.table.core.windows.net/</li><li>https://policykeyservice.dc.ad.msft.net/</li><li>https://login.windows.net</li><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li> |
+|에이전트를 실행하는 서버의 방화벽 포트| 에이전트가 Azure AD Health 서비스 끝점과 통신하기 위해 다음 방화벽 포트를 열어놓아야 합니다.</br></br><li>TCP/UDP port 80</li><li>TCP/UDP port 443</li><li>TCP/UDP port 5671</li>
+
+|IE 보안 강화를 사용하는 경우 다음 웹 사이트 허용|에이전트가 설치될 서버에서 IE 보안 강화를 사용하도록 설정되어 있는 경우 다음 웹 사이트를 허용해야 합니다.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Azure Active Directory에 의해 신뢰할 수 있는 조직의 페더레이션 서버의 예는 다음과 같습니다.https://sts.contoso.com</li>
 
 ## 에이전트 다운로드
 
@@ -111,7 +112,4 @@ Azure AD Connect Health를 사용하여 시작하려면 [Azure AD Connect Health
 * [AD FS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adfs.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 
-
- 
-
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

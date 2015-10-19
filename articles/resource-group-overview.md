@@ -13,7 +13,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="na"
-   ms.date="09/09/2015"
+   ms.date="10/02/2015"
    ms.author="tomfitz"/>
 
 # Azure 리소스 관리자 개요
@@ -83,6 +83,8 @@ Marketplace에서 솔루션을 만들 때 솔루션에 자동으로 배포 템�
 
 템플릿을 구성하는 방법에 대한 지침은 [Azure 리소스 관리자 템플릿 설계의 모범 사례](best-practices-resource-manager-design-templates.md)를 참조하세요.
 
+다른 환경에 솔루션 배포에 관한 지침은 [Microsoft Azure의 개발 및 테스트 환경](solution-dev-test-environments-preview-portal.md)을 참조하세요.
+
 ## 태그
 
 리소스 관리자는 관리 또는 청구에 대한 요구 사항에 따라 리소스를 분류할 수 있는 태그 지정 기능을 제공합니다. 리소스 그룹 및 리소스의 복잡한 컬렉션이 있고 이러한 자산에 가장 적합한 방식으로 시각화할 필요가 있을 때 태그를 사용할 수 있습니다. 예를 들어 조직에서 비슷한 역할을 제공하거나 동일한 부서에 속한 리소스를 태그로 지정할 수 있습니다.
@@ -129,4 +131,4 @@ REST API에 대한 정보는 [Azure 리소스 관리자 REST API 참조](https:/
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

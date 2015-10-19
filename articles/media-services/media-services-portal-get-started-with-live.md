@@ -190,12 +190,19 @@ MPEG DASH 스트리밍 URL을 작성하려면 URL에 (format=mpd-time-csf)를 �
 - 라이브 이벤트의 보관 파일을 주문형 스트림으로 계속 제공하지 않으려면 스트리밍 끝점을 중지할 수 있습니다. 채널이 중지된 상태이면 채널에 대한 요금이 발생하지 않습니다.
 
 
-##미디어 서비스 학습 경로
+##다음 단계
+
+###미디어 서비스 학습 경로
 
 여기서 AMS 학습 경로를 볼 수 있습니다.
 
 - [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+
+### 다른 정보를 찾으시나요?
+
+이 항목이 예상했던 사항을 포함하지 않거나 누락한 경우 또는 일부가 사용자 요구를 충족하지 않은 경우 아래 Disqus 스레드를 사용하여 피드백을 주시기 바랍니다.
+
 
 ## 추가 리소스
 - [Azure 관리 포털을 사용하여 라이브 스트리밍 시작](http://azure.microsoft.com/blog/getting-started-with-live-streaming-using-the-azure-management-portal/)
@@ -205,4 +212,4 @@ MPEG DASH 스트리밍 URL을 작성하려면 URL에 (format=mpd-time-csf)를 �
 
 <!-- Images -->
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

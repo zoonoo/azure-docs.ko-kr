@@ -13,7 +13,7 @@
 	ms.topic="article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery" 
-	ms.date="08/05/2015" 
+	ms.date="10/07/2015" 
 	ms.author="raynew"/>
 
 # 사이트 복구에서 장애 조치
@@ -282,4 +282,4 @@ Active Directory 복사본 생성 및 테스트 환경에 테스트 DHCP 및 DNS
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

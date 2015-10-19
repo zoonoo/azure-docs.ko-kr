@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="07/06/2015" 
+	ms.date="10/01/2015" 
 	ms.author="stefsch"/>
 
 # 앱 서비스 환경의 네트워크 아키텍처 개요
@@ -40,7 +40,9 @@
 ## 아웃 바운드 네트워크 주소 ##
 앱 서비스 환경이 아웃바운드를 호출하는 경우, IP 주소는 항상 아웃바운드 호출과 연관이 있습니다. 특정 IP 주소는 끝점 호출이 이 가상 네트워크 토폴로지 내에 있는지 혹은 밖에 있는지에 따라서 달라집니다.
 
-끝점이 가상 네트워크 토폴로지 **외부**에서 호출된 경우, 아웃바운드 주소(즉, 아웃바운드 NAT 주소)는 앱 서비스 환경의 공용 VIP로 사용된 것입니다. 앱 서비스 환경에 대한 포털 사용자 인터페이스에서 이 주소를 찾을 수 있습니다 (참고: 보류 중인 UX).
+끝점이 가상 네트워크 토폴로지 **외부**에서 호출된 경우, 아웃바운드 주소(즉, 아웃바운드 NAT 주소)는 앱 서비스 환경의 공용 VIP로 사용된 것입니다. 속성 블레이드의 앱 서비스 환경에 대한 포털 사용자 인터페이스에서 이 주소를 찾을 수 있습니다.
+ 
+![아웃 바운드 IP 주소][OutboundIPAddress]
 
 이 주소는 앱 서비스 환경의 앱 생성 및 앱 주소상의 *nslookup* 수행을 통해 결정됩니다. 결과 IP 주소는 공용 VIP, 앱 서비스 환경의 아웃바운드 NAT 주소 둘다 해당됩니다.
 
@@ -60,9 +62,13 @@
 ## 앱 서비스 환경 간의 호출 ##
 동일 가상 네트워크의 여러 앱 서비스 환경에 배포하고 다른 앱 서비스 환경에서 다른 앱 서비스 환경으로 아웃바운드 호출을 작성하는 경우 더 복잡한 시나리오가 발생할 수 있습니다. 이러한 종류의 크로스 앱 서비스 환경 호출은 "Internet" 호출로도 처리됩니다.
 
-192\.23.1.2의 아웃 바운드 IP 주소를 가진 위의 앱 서비스 환경을 사용하는 예제로, 앱 서비스 환경에서 실행 중인 앱이 동일한 가상 네트워크에 있는 두번째 앱 서비스 환경에서 실행 중인 앱에 아웃 바운드 호출을 수행하는 경우, 두번째 앱 서비스 환경에 도착하는 아웃 바운드 호출은 192.23.1.2(즉, 첫번째 앱 서비스 환경의 서브넷 주소 범위가 아닌)에서 발생한 것으로 표시됩니다.
+다음 다이어그램은 두 번째 앱 서비스 환경(예: 내부 백 엔드 API 앱은 인터넷에서 액세스할 수 있도록 하지 않았음)에서 앱을 호출하는 하나의 앱 서비스 환경에서 앱으로 계층화된 아키텍처의 예를 보여줍니다.(예: "프런트 도어" 웹앱)
 
-다른 앱 서비스 환경 간의 호출이 "Internet" 호출로 처리되더라도, 두 앱 서비스 환경이 모두 동일한 Azure 지역에 있으면 네트워크 트래픽은 지역 Azure 네트워크에 그대로 유지되며 물리적으로 공용 인터넷을 통해 이동하지 않습니다. 결과적으로 192.23.1.2에서의 인바운드 호출을 허용하도록 두번째 앱 서비스 환경의 서브넷에서 네트워크 보안 그룹을 사용하여, 앱 서비스 환경 간의 보안 통신을 유지할 수 있습니다.
+![앱 서비스 환경 간의 호출][CallsBetweenAppServiceEnvironments]
+
+위의 예제에서 앱 서비스 환경 "ASE One"에는 192.23.1.2의 아웃 바운드 IP 주소가 있습니다. 앱 서비스 환경에서 실행되는 앱이 동일한 가상 네트워크에 위치한 두 번째 앱 서비스 환경("ASE Two")에서 실행 중인 앱에 아웃 바운드 호출을 하면 아웃 바운드 호출은 "인터넷" 호출로 처리됩니다. 결과적으로 두 번째 앱 서비스 환경에 도착하는 네트워크 트래픽은 192.23.1.2에서 만들어진 것입니다.(즉, 첫 번째 앱 서비스 환경의 서브넷 주소 범위가 아님)
+
+다른 앱 서비스 환경 간의 호출이 "Internet" 호출로 처리되더라도, 두 앱 서비스 환경이 모두 동일한 Azure 지역에 있으면 네트워크 트래픽은 지역 Azure 네트워크에 그대로 유지되며 물리적으로 공용 인터넷을 통해 이동하지 않습니다. 결과적으로 첫 번째 앱 서비스 환경(아웃바운드 IP 주소는 192.23.1.2임)에서의 인바운드 호출을 허용하도록 두번째 앱 서비스 환경의 서브넷에서 네트워크 보안 그룹을 사용하여, 앱 서비스 환경 간의 보안 통신을 유지할 수 있습니다.
 
 ## 추가 링크 및 정보 ##
 앱 서비스 환경에서 사용된 인바운드 포트의 세부 정보 및 인바운드 트래픽 제어를 위한 네트워크 보안 그룹 사용은 [여기][controllinginboundtraffic]에서 사용 가능합니다.
@@ -77,6 +83,8 @@
 
 <!-- IMAGES -->
 [GeneralNetworkFlows]: ./media/app-service-app-service-environment-network-architecture-overview/NetworkOverview-1.png
+[OutboundIPAddress]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundIPAddress-1.png
 [OutboundNetworkAddresses]: ./media/app-service-app-service-environment-network-architecture-overview/OutboundNetworkAddresses-1.png
+[CallsBetweenAppServiceEnvironments]: ./media/app-service-app-service-environment-network-architecture-overview/CallsBetweenEnvironments-1.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->
