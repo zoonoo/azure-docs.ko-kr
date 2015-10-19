@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.date="10/05/2015"
 	ms.author="josephd"/>
 
 
@@ -58,7 +58,7 @@ Azure 가상 컴퓨터는 .NET, Node.js, Java 및 PHP에 대한 공식적인 지
 
 ## 프로비전 프로세스
 
-Azure의 이미지 갤러리는 미리 구성된 사용 가능한 가상 컴퓨터의 목록을 제공합니다. 사용자는 SharePoint Server, SQL Server, Windows Server 및 기타 ISO/VHD를 이미지 갤러리에 게시할 수 있습니다. 가상 컴퓨터 만들기를 간소화하기 위해 기본 이미지를 만들어 라이브러리에 게시했습니다. 권한 있는 사용자는 이러한 이미지를 사용하여 원하는 가상 컴퓨터를 생성할 수 있습니다. 자세한 내용을 보려면 [Azure Preview 포털에서 Windows를 실행하는 가상 컴퓨터 만들기](virtual-machines-windows-tutorial.md)로 이동하세요. 그림 1은 Azure 포털에서 가상 컴퓨터를 만드는 기본 단계를 보여 줍니다.
+Azure의 이미지 갤러리는 미리 구성된 사용 가능한 가상 컴퓨터의 목록을 제공합니다. 사용자는 SharePoint Server, SQL Server, Windows Server 및 기타 ISO/VHD를 이미지 갤러리에 게시할 수 있습니다. 가상 컴퓨터 만들기를 간소화하기 위해 기본 이미지를 만들어 라이브러리에 게시했습니다. 권한 있는 사용자는 이러한 이미지를 사용하여 원하는 가상 컴퓨터를 생성할 수 있습니다. 자세한 내용을 보려면 [Azure 포털에서 Windows를 실행하는 가상 컴퓨터 만들기](virtual-machines-windows-tutorial-classic-portal.md)로 이동합니다. 그림 1은 Azure 포털에서 가상 컴퓨터를 만드는 기본 단계를 보여 줍니다.
 
 ![azure-sharepoint-wp-13](./media/virtual-machines-deploy-sharepoint-2010/azure-sharepoint-wp-2.png)
 
@@ -222,7 +222,7 @@ BI 구성 요소 배포를 확장하려면 PowerPivot, Power View, Excel Service
 Azure에서 BI 환경을 확장하려면 다음 단계를 따르세요.
 
 1. 프로비전:
-	- Azure 가상 네트워크를 사용하여 온-프레미스와 Azure 간 VPN 연결을 프로비전합니다. 자세한 내용은 [가상 네트워크 개요(영문)](http://msdn.microsoft.com/library/jj156007.aspx)로 이동합니다.
+	- Azure 가상 네트워크를 사용하여 온-프레미스와 Azure 간 VPN 연결을 프로비전합니다. 자세한 내용을 보려면 [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)(영문)로 이동합니다.
 	- Azure 포털을 사용하여 이미지 라이브러리의 기존 이미지에서 새 가상 컴퓨터를 프로비전합니다. SharePoint Server 또는 SQL Server BI 워크로드 이미지를 이미지 갤러리에 업로드할 수 있으며, 권한 있는 사용자는 해당 BI 구성 요소 가상 컴퓨터를 선택하여 확장된 환경을 빌드할 수 있습니다.
 2. 설치: 
 	- 조직에 SharePoint Server 또는 SQL Server BI 구성 요소의 미리 빌드된 이미지가 없는 경우 원격 데스크톱 연결을 사용하여 SharePoint Server 및 SQL Server를 가상 컴퓨터에 설치합니다.
@@ -261,7 +261,7 @@ Azure에서 완전히 사용자 지정된 SharePoint 웹 사이트를 구현하�
 	- 가상 컴퓨터에서 SQL Server를 구성합니다. 자세한 내용을 보려면 [SysPrep을 사용하여 SQL Server 설치](http://msdn.microsoft.com/library/ee210664.aspx)로 이동하세요.
 	- 새로 만든 Active Directory 도메인에 가상 컴퓨터를 가입합니다.
 3. 다중 서버 SharePoint 팜 배포:
-	- 가상 네트워크를 만듭니다. 자세한 내용을 보려면 [가상 네트워크 개요](http://msdn.microsoft.com/library/jj156007.aspx)(영문)로 이동하세요.
+	- 가상 네트워크를 만듭니다. 자세한 내용을 보려면 [가상 네트워크 개요](../virtual-network/virtual-networks-overview.md)(영문)로 이동합니다.
 	- SharePoint 가상 컴퓨터를 배포할 때 프로비전하는 동안 로컬 Active Directory 상자의 DNS 주소를 사용할 수 있도록 SharePoint Server에 입력한 서브넷을 기록해 놓아야 합니다.
 	- Azure 포털을 사용하여 가상 컴퓨터를 만듭니다.
 	- 이 가상 컴퓨터에 SharePoint Server를 설치하고 재사용 가능 이미지를 생성합니다. SharePoint Server 설치에 대한 자세한 내용을 보려면 [Windows PowerShell을 사용하여 SharePoint Server 2010 설치 및 구성](http://technet.microsoft.com/library/cc262839.aspx) 또는 [CodePlex: AutoSPInstaller](http://autospinstaller.codeplex.com/)로 이동하세요.
@@ -287,4 +287,4 @@ Azure 가상 컴퓨터에서 SharePoint Server를 성공적으로 배포하려�
 
 [Azure에서 SharePoint Server 2016 IT Preview 테스트](http://azure.microsoft.com/blog/test-sharepoint-server-2016-it-preview-4/)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

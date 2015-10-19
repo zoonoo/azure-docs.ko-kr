@@ -44,7 +44,7 @@ Azure 구성 요소 구성을 시작하기 전에 다음 표에 필요한 정보
 5\. | VNet 주소 공간 | 단일 개인 주소 접두사로 정의되는 가상 네트워크의 주소 공간입니다. 이 주소 공간은 IT 부서에서 확인할 수 있습니다. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 6\. | 가상 네트워크에 대한 첫 번째 DNS 서버 | 가상 네트워크 서브넷의 주소 공간에 사용 가능한 네 번째 IP 주소(표 S 참조). 이 주소는 IT 부서에서 확인할 수 있습니다. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 7\. | 가상 네트워크에 대한 두 번째 DNS 서버 | 가상 네트워크의 두 번째 서브넷 주소 공간에 사용 가능한 다섯 번째 IP 주소(표 S 참조). 이 주소는 IT 부서에서 확인할 수 있습니다. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-8\. | IPsec 공유 키 | 사이트 간 VPM 연결의 양 측을 인증하는 데 사용되는 임의의 128자 영숫자 문자열입니다. 이 키 값은 IT 또는 보안 부서에서 확인할 수 있습니다. | \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+8\. | IPsec 공유 키 | 사이트 간 VPN 연결의 양 측을 인증하는 데 사용되는 임의의 32자 영숫자 문자열입니다. 이 키 값은 IT 또는 보안 부서에서 확인할 수 있습니다. 또는 [IPsec 미리 공유한 키에 대한 임의 문자열 만들기](http://social.technet.microsoft.com/wiki/contents/articles/32330.create-a-random-string-for-an-ipsec-preshared-key.aspx)를 참조하세요.| \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 
 **표 V: 크로스-프레미스 가상 네트워크 구성**
@@ -86,11 +86,9 @@ Azure 구성 요소 구성을 시작하기 전에 다음 표에 필요한 정보
 
 **표 L: 로컬 네트워크의 주소 접두사**
 
-다음으로 Azure PowerShell 버전 0.9.5 이상을 설치해야 합니다. Azure PowerShell의 버전을 확인하려면 이 명령을 실행합니다.
+> [AZURE.NOTE]이 문서에서는 Azure PowerShell 버전 0.9.5 이상, 버전 1.0.0 *미만*의 명령을 포함합니다. **Get-Module azure | format-table version** 명령으로 Azure PowerShell의 버전을 확인할 수 있습니다. 이 문서의 Azure PowerShell 명령 블록은 Azure PowerShell 버전 1.0.0 이상에서 새 cmdlet을 지원하도록 테스트 및 업데이트 중입니다. 기다려 주셔서 감사합니다.
 
-	Get-Module azure | format-table version
-
-최신 버전의 Azure PowerShell을 설치해야 하는 경우 **제어판 - 프로그램 및 기능**을 사용하여 현재 버전을 제거합니다. 그런 다음 [Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)의 지침을 사용하여 로컬 컴퓨터에 Azure PowerShell을 설치합니다. Azure PowerShell 프롬프트를 엽니다.
+Azure PowerShell 프롬프트를 엽니다.
 
 먼저 다음 명령을 사용하여 올바른 Azure 구독을 선택합니다. < and > 문자를 포함하여 따옴표 안의 모든 항목을 올바른 이름으로 바꿉니다.
 
@@ -237,7 +235,7 @@ Test-AzureName 명령에서 **False**를 표시하는 경우 제안된 이름이
 
 ## 다음 단계
 
-이 워크로드를 계속 구성하려면 [2단계: 도메인 컨트롤러 구성](virtual-machines-workload-high-availability-LOB-application-phase2.md)으로 진행하세요.
+이 작업을 계속 구성하려면 [2단계: 도메인 컨트롤러 구성](virtual-machines-workload-high-availability-LOB-application-phase2.md)으로 진행하세요.
 
 ## 추가 리소스
 
@@ -251,4 +249,4 @@ Test-AzureName 명령에서 **False**를 표시하는 경우 제안된 이름이
 
 [Azure 인프라 서비스 워크로드: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

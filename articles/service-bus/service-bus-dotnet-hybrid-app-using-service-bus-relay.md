@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="06/02/2015"
+	ms.date="10/07/2015"
 	ms.author="sethm"/>
 
 # Azure 서비스 버스 릴레이를 사용하는 .NET 온-프레미스/클라우드 하이브리드 응용 프로그램
@@ -551,8 +551,7 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 
 
 서비스 버스에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
-* [Azure 서비스 버스][sbmsdn]  
-* [서비스 버스 사용 방법][sbwacom]  
+* [Azure 서비스 버스][sbwacom]  
 * [서비스 버스 큐를 사용하는 방법][sbwacomqhowto]  
 
 
@@ -561,7 +560,7 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 
   [도구 및 SDK 가져오기]: http://go.microsoft.com/fwlink/?LinkId=271920
   [NuGet]: http://nuget.org
   [2]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-3.png
-  [3]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-4-2-WebPI.png
+  [3]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-42-webpi.png
 
 
   [Azure 포털]: http://manage.windowsazure.com
@@ -607,9 +606,8 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 
   [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
   [45]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-web-45.png
 
-  [sbmsdn]: http://msdn.microsoft.com/library/azure/ee732537.aspx
   [sbwacom]: /documentation/services/service-bus/
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

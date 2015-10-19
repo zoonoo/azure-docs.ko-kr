@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/30/2015" 
+	ms.date="10/01/2015" 
 	ms.author="sdanie"/>
 
 # 프리미엄 Azure Redis Cache에 가상 네트워크 지원을 구성하는 방법
@@ -26,7 +26,7 @@ Azure Redis Cache 프리미엄 계층에는 클러스터링, 지속성 및 가�
 >[AZURE.NOTE]Azure Redis Cache 프리미엄 계층은 현재 미리 보기 상태입니다.
 
 ## VNET을 사용하는 이유
-[Azure 가상 네트워크(VNET)](https://azure.microsoft.com/ko-kr/services/virtual-network/) 배포는 Azure Redis Cache의 보안과 격리를 강화하며 Azure Redis Cache에 대한 액세스를 추가적으로 제한하기 위한 서브넷, 액세스 제어 정책 및 기타 기능을 제공합니다.
+[Azure 가상 네트워크(VNET)](https://azure.microsoft.com/ko-KR/services/virtual-network/) 배포는 Azure Redis Cache의 보안과 격리를 강화하며 Azure Redis Cache에 대한 액세스를 추가적으로 제한하기 위한 서브넷, 액세스 제어 정책 및 기타 기능을 제공합니다.
 
 ## 가상 네트워크 지원
 가상 네트워크(VNET) 지원은 캐시를 만드는 중에 **새 Redis 캐시** 블레이드에 구성됩니다. 캐시를 만들려면 [Azure Preview 포털](https://portal.azure.com)에 로그인하고 **새로 만들기** -> **데이터 + 저장소** > **Redis 캐시**를 클릭합니다.
@@ -72,15 +72,17 @@ Azure Redis Cache VNET 통합은 **가상 네트워크** 블레이드에 구성�
 -	서브넷 내에서 Redis 역할 인스턴스 VM이 서로 통신하는 것을 차단합니다. Redis 역할 인스턴스는 사용되는 포트에서 TCP를 사용하여 서로 통신하도록 허용해야 합니다. 이 내용은 변경될 수 있으나 최소한 Redis CSDEF 파일에서 모든 포트가 사용된다고 가정할 수 있습니다.
 -	Azure 부하 분산 장치가 TCP/HTTP 포트 16001에서 Redis VM에 연결하는 것을 차단합니다. Azure Redis Cache는 기본 Azure 부하 분산 장치 프로브를 사용하여 어떤 역할 인스턴스가 실행 중인지 판단합니다. 기본 부하 분산 장치 프로브는 포트 16001에서 Azure 게스트 에이전트를 Ping하여 작동합니다. 이 Ping에 응답한 역할 인스턴스만 ILB에서 전달한 트래픽을 수신하는 순서에 배치됩니다. 포트가 차단되어 Ping이 실패함에 따라 순서에 인스턴스가 없는 경우 ILB는 들어오는 TCP 연결을 수락하지 않게 됩니다.
 -	SSL 공용 키 유효성 검사에 사용되는 클라이언트 응용 프로그램의 웹 트래픽을 차단합니다. Redis 클라이언트(가상 네트워크 내)가 포트 6380을 사용하여 Redis에 연결하고 SSL 서버 인증을 수행하기 위해 CA 인증서와 인증서 해지 목록을 다운로드하려면 공용 인터넷에 대한 HTTP 트래픽을 수행할 수 있어야 합니다.
--	Azure 부하 분산 장치가 포트 1300x (13000, 13001 등) 또는 1500x (15000, 15001 등)에서 TCP를 통해 클러스터 내의 Redis VM에 연결하는 것을 차단합니다. 이 포트를 열려면 부하 분산 장치 프로브를 통해 csdef 파일에서 VNET을 구성해야 합니다. Azure 부하 분산 장치는 NSG에서 허용되어야 합니다. 기본 NSG는 AZURE\_LOADBALANCER 태그를 사용하여 이를 수행합니다. Azure 부하 분산 장치에는 단일 고정 IP 주소 168.63.126.16이 있습니다. 자세한 내용은 [NSG(네트워크 보안 그룹)란?](..\virtual-network\virtual-networks-nsg.md)을 참조하세요.
+-	Azure 부하 분산 장치가 포트 1300x (13000, 13001 등) 또는 1500x (15000, 15001 등)에서 TCP를 통해 클러스터 내의 Redis VM에 연결하는 것을 차단합니다. 이 포트를 열려면 부하 분산 장치 프로브를 통해 csdef 파일에서 VNET을 구성해야 합니다. Azure 부하 분산 장치는 NSG에서 허용되어야 합니다. 기본 NSG는 AZURE\_LOADBALANCER 태그를 사용하여 이를 수행합니다. Azure 부하 분산 장치에는 단일 고정 IP 주소 168.63.126.16이 있습니다. 자세한 내용은 [NSG(네트워크 보안 그룹)란?](../virtual-network/virtual-networks-nsg.md)을 참조하세요.
 
 ## 표준 또는 기본 캐시에 VNET을 사용할 수 있나요?
 
 VNET은 프리미엄 캐시에만 사용할 수 있습니다.
 
 ## 다음 단계
+더 많은 프리미엄 캐시 기능을 사용하는 방법에 대해 알아봅니다.
 
-다른 프리미엄 캐시 기능의 사용 방법은 [프리미엄 Azure Redis Cache에 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)과 [프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)을 참조하세요.
+-	[프리미엄 Azure Redis Cache에 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)
+-	[프리미엄 Azure Redis Cache에 클러스터링을 구성하는 방법](cache-how-to-premium-clustering.md)
 
 
 
@@ -101,4 +103,4 @@ VNET은 프리미엄 캐시에만 사용할 수 있습니다.
 
 [redis-cache-vnet-subnet]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-subnet.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

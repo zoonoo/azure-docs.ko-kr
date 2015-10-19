@@ -14,12 +14,12 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-multiple"
 	ms.workload="infrastructure-services"
-	ms.date="07/28/2015"
+	ms.date="10/01/2015"
 	ms.author="danlep"/>
 
 # 서비스 관리의 가상 컴퓨터 관련 문서
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 관리하는 방법을 설명합니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]클래식 배포 모델을 사용하여 리소스를 만들고 관리하는 방법에 대한 문서 목록입니다.
 
 ## 시작
 
@@ -39,7 +39,7 @@
 
 [Azure PowerShell을 사용하여 Windows 기반 가상 컴퓨터 만들기 및 관리](virtual-machines-create-windows-powershell-service-manager.md)
 
-[Azure CLI(Azure 명령줄 인터페이스)를 사용하여 VM 만들기](virtual-machines-xplat-getting-started.md)
+[Azure CLI(Azure 명령줄 인터페이스)를 사용하여 Linux를 실행하는 사용자 지정 VM 만들기](virtual-machines-linux-create-custom.md)
 
 [Azure CLI를 사용하여 여러 VM 배포 만들기](virtual-machines-create-multi-vm-deployment-xplat-cli-install.md)
 
@@ -87,11 +87,13 @@
 
 [가상 컴퓨터에 끝점을 설정하는 방법](virtual-machines-set-up-endpoints.md)
 
+[Mac, Linux 및 Windows용 Azure CLI를 사용하여 가상 컴퓨터 관리](virtual-machines-manage-vms-azure-cli.md)
+
 ## 워크로드 만들기
 
-[Active Directory](https://msdn.microsoft.com/library/azure/jj156090.aspx)
+[Active Directory](../active-directory/active-directory-new-forest-virtual-machine.md)
 
-[BizTalk Server](https://msdn.microsoft.com/library/azure/jj248689)
+<!-- [BizTalk Server](https://msdn.microsoft.com/library/azure/jj248689) -->
 
 [Cassandra](virtual-machines-linux-nodejs-running-cassandra.md)
 
@@ -99,11 +101,11 @@
 
 [Exchange Server](https://technet.microsoft.com/library/jj619301.aspx)
 
-[HPC 팩](https://msdn.microsoft.com/library/azure/dn518135.aspx)
+[HPC 팩](virtual-machines-hpcpack-cluster-options.md)
 
 [LAMP 스택](virtual-machines-linux-install-lamp-stack.md)
 
-[MSMQ(메시지 큐)](https://msdn.microsoft.com/library/azure/dn529082.aspx)
+<!-- [Message Queuing (MSMQ)](https://msdn.microsoft.com/library/azure/dn529082.aspx) -->
 
 [Microsoft Dynamics AX](https://technet.microsoft.com/library/dn741581.aspx)
 
@@ -115,7 +117,7 @@
 
 [Oracle](virtual-machines-oracle-azure-virtual-machines.md)
 
-[SAP](https://msdn.microsoft.com/library/azure/dn745892.aspx)
+<!-- [SAP](https://msdn.microsoft.com/library/azure/dn745892.aspx) -->
 
 [SharePoint Server](virtual-machines-workload-intranet-sharepoint-farm.md)
 
@@ -125,15 +127,15 @@
 
 [System Center Operations Manager](https://technet.microsoft.com/library/dn249696.aspx#BKMK_Azure)
 
-[Team Foundation Server](https://msdn.microsoft.com/library/azure/dn769056.aspx)
+<!-- [Team Foundation Server](https://msdn.microsoft.com/library/azure/dn769056.aspx) -->
 
-[Windows Server Essentials Experience](https://msdn.microsoft.com/library/azure/dn520827.aspx)
+<!-- [Windows Server Essentials Experience](https://msdn.microsoft.com/library/azure/dn520827.aspx) -->
 
 ## 모니터
 
 [Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 사용](../cloud-services/cloud-services-dotnet-diagnostics.md)
 
-[Visual Studio에서 클라우드 서비스 또는 가상 컴퓨터 디버깅(영문)](https://msdn.microsoft.com/library/azure/ff683670.aspx)
+<!-- [Debugging a cloud service or virtual machine in Visual Studio](https://msdn.microsoft.com/library/azure/ff683670.aspx) -->
 
 [Windows PowerShell 스크립트를 사용하여 개발 및 테스트 환경에 게시](https://msdn.microsoft.com/library/azure/dn642480.aspx)
 
@@ -147,8 +149,8 @@
 
 [Azure 서비스 관리 cmdlet](https://msdn.microsoft.com/library/azure/dn708504.aspx)
 
-[서비스 관리 REST API 참조](https://msdn.microsoft.com/library/azure/ee460799.aspx)
-
 [Azure 서비스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](virtual-machines-command-line-tools.md)
 
-<!---HONumber=Oct15_HO1-->
+[서비스 관리 REST API 참조](https://msdn.microsoft.com/library/azure/ee460799.aspx)
+
+<!---HONumber=Oct15_HO2-->

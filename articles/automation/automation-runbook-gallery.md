@@ -93,17 +93,17 @@ PowerShell 모듈에는 Runbook에 사용할 수 있는 cmdlet이 있으며, Azu
 6. Azure Preview 포털의 **사용자 지정 배포** 창으로 돌아갑니다. **새 또는 기존 자동화 계정** 및 **자동화 계정 이름**에서 모듈 설치 여부를 지정합니다. 기존 계정을 사용할 경우 **자동화 계정 위치**가 무시됩니다. 
 7. **리소스 그룹**을 선택하고 기존 리소스 그룹을 지정하거나 모듈에 대해 새 그룹을 만듭니다.
 6. **약관**을 선택하고 **구입**을 클릭해야 합니다. 이 단추의 이름과는 달리 모듈 설치에 실제 청구되는 비용은 없습니다.
-7. **만들기**를 클릭하여 모듈을 가져옵니다.  
+7. **만들기**를 클릭하여 모듈을 가져옵니다. 각 활동을 추출해야 하므로 몇 분이 걸릴 수 있습니다.  
 8. 모듈을 가져오는 도중과 완료 시점에 알림이 표시됩니다. 
 
 
 ## Runbook 또는 모듈 요청 중
 
-[사용자 음성]에 요청을 보낼 수 있습니다(http://feedback.azure.com/[forum](http://social.msdn.microsoft.com/Forums/windowsazure/ko-kr/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)s/246290-azure-automation). Runbook을 작성하는 데 도움이 필요하거나 PowerShell에 대한 질문이 있으면 [포럼](http://social.msdn.microsoft.com/Forums/windowsazure/ko-kr/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)에 게시하세요.
+[사용자 음성](http://feedback.azure.com/forums/246290-azure-automation)에 요청을 보낼 수 있습니다. Runbook을 작성하는 데 도움이 필요하거나 PowerShell에 대한 질문이 있으면 [포럼](http://social.msdn.microsoft.com/Forums/windowsazure/ko-KR/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)에 게시하세요.
 
 ## 관련된 문서
 
 - [Azure 자동화에서 Runbook 만들기 또는 가져오기](automation-creating-importing-runbook.md)
 - [PowerShell 워크플로 학습](automation-powershell-workflow.md)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

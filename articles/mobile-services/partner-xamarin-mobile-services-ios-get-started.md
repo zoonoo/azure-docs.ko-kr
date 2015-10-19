@@ -1,5 +1,5 @@
 <properties
-	pageTitle="Xamarin iOS 앱에 대해 모바일 서비스 시작"
+	pageTitle="Xamarin iOS 앱용 모바일 서비스 시작 | Microsoft Azure"
 	description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 Xamarin iOS 개발을 시작할 수 있습니다."
 	services="mobile-services"
 	documentationCenter="xamarin"
@@ -12,23 +12,23 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-xamarin-ios"
 	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/09/2015"
+	ms.topic="hero-article"
+	ms.date="10/06/2015"
 	ms.author="craig.dunn@xamarin.com"/>
 
 # <a name="getting-started"> </a>모바일 서비스 시작
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
-이 자습서에서는 Azure 모바일 서비스를 사용하여 Xamarin.iOS 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 이 자습서에서는 새 모바일 서비스와 새 모바일 서비스에 앱 데이터를 저장하는 간단한 <em>할 일 모음</em> 앱을 둘 다 만듭니다.
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
+
+이 자습서에서는 Azure 모바일 서비스를 사용하여 Xamarin.iOS 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 이 자습서에서는 새 모바일 서비스와 새 모바일 서비스에 앱 데이터를 저장하는 간단한 *할 일 모음* 앱을 둘 다 만듭니다.
 
 동영상을 시청하려는 경우 아래쪽의 클립은 이 자습서와 동일한 단계를 따릅니다.
 
 비디오: "Xamarin 및 Azure 모바일 서비스 시작". 진행: Craig Dunn, Xamarin 개발자(시간: 10:05분)
 
 > [AZURE.VIDEO getting-started-with-xamarin-and-mobile-services]
-
-
 
 완성된 앱의 스크린샷은 다음과 같습니다.
 
@@ -98,13 +98,16 @@
 ## 다음 단계
 이제 퀵 스타트를 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다.
 
-* [데이터 시작] <br/>모바일 서비스에 새 테이블을 추가한 다음 해당 테이블에 대해 읽고 쓰는 방법을 알아봅니다.
+* [오프라인 데이터 동기화 시작] 빠른 시작에서 오프라인 데이터 동기화를 활용하여 응답성과 견고성이 뛰어난 앱을 제작하는 방법을 알아봅니다.
 
-* [오프라인 데이터 동기화 시작] <br/>빠른 시작에서 오프라인 데이터 동기화를 활용하여 응답성과 견고성이 뛰어난 앱을 제작하는 방법을 알아봅니다.
+* [인증 시작] ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
-* [인증 시작] <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
+* [푸시 알림 시작] 기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
 
-* [푸시 알림 시작] <br/>기본적인 푸시 알림을 앱에 보내는 방법을 알아봅니다.
+* [Azure 모바일 서비스에 대해 Xamarin 구성 요소 클라이언트 사용 방법](partner-xamarin-mobile-services-how-to-use-client-library.md) 모바일 서비를 쿼리하고, 데이터로 작업하고, 사용자 지정 API에 액세스하는 방법을 알아봅니다.
+  
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -124,7 +127,6 @@
 
 
 <!-- URLs. -->
-[데이터 시작]: partner-xamarin-mobile-services-ios-get-started-data.md
 [오프라인 데이터 동기화 시작]: mobile-services-xamarin-ios-get-started-offline-data.md
 [인증 시작]: partner-xamarin-mobile-services-ios-get-started-users.md
 [푸시 알림 시작]: partner-xamarin-mobile-services-ios-get-started-push.md
@@ -134,4 +136,4 @@
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

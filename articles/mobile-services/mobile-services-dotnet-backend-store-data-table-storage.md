@@ -20,7 +20,7 @@
 
 이 항목에서는 .NET 백 엔드 모바일 서비스에 대한 비관계형 데이터 저장소를 사용하는 방법을 보여 줍니다. 이 자습서에서는 기본 Azure SQL 데이터베이스 데이터 저장소 대신 Azure 테이블 저장소를 사용하도록 Azure 모바일 서비스 빠른 시작 프로젝트를 수정합니다.
 
-이 자습서를 사용하려면 먼저 [모바일 서비스 시작] 또는 [기존 앱에 모바일 서비스 추가] 자습서를 완료해야 합니다. Azure 저장소 계정도 필요합니다.
+이 자습서를 사용하려면 [모바일 서비스 시작] 자습서를 완료해야 합니다. Azure 저장소 계정도 필요합니다.
 
 ##.NET 백 엔드 모바일 서비스에서 Azure 테이블 저장소 구성
 
@@ -101,7 +101,7 @@ TodoList 빠른 시작 프로젝트는 Entity Framework를 사용하여 SQL 데�
             return DomainManager.QueryAsync(options);
         } 
 
-	SQL 데이터베이스와 달리 이 버전은 IQueryable<TEntity>를 반환하지 않으므로 결과가 쿼리에 바인딩될 수 있지만 추가로 쿼리로 작성되지 않습니다.
+	SQL 데이터베이스와 달리 이 버전은 IQueryable<TEntity>을 반환하지 않으므로 결과가 쿼리에 바인딩될 수 있지만 추가로 쿼리로 작성되지 않습니다.
 
 ## 클라이언트 앱 업데이트
 
@@ -135,8 +135,6 @@ TodoList 빠른 시작 프로젝트는 Entity Framework를 사용하여 SQL 데�
 
 이제 간편하게 .NET 백 엔드와 함께 테이블 저장소를 사용하는 방법을 살펴보았으므로 몇 가지 다른 백 엔드 저장소 옵션을 살펴보겠습니다.
 
-+ [모바일 서비스 .NET 백 엔드에서 MongoDB를 데이터 저장소로 사용](mobile-services-dotnet-backend-use-non-relational-data-store.md)</br>방금 완료한 자습서처럼 이 항목에서는 모바일 서비스에 대해 비관계형 데이터 저장소를 사용하는 방법을 보여 줍니다. 이 자습서에서는 데이터 저장소로 SQL 데이터베이스 대신 MongoDB를 사용하도록 모바일 서비스 빠른 시작 프로젝트를 수정합니다.
- 
 + [하이브리드 연결을 사용하여 온-프레미스 SQL Server에 연결](mobile-services-dotnet-backend-hybrid-connections-get-started.md)</br>하이브리드 연결을 통해 모바일 서비스를 온-프레미스 자산에 안전하게 연결할 수 있습니다. 이러한 방식으로 Azure를 사용하여 온-프레미스 데이터를 모바일 클라이언트에 액세스할 수 있게 됩니다. 지원되는 자산에는 Microsoft SQL Server, MySQL, HTTP 웹 API, 대부분의 사용자 지정 웹 서비스를 비롯하여 정적 TCP 포트에서 실행되는 모든 리소스가 포함됩니다.
 
 + [모바일 서비스를 사용하여 Azure 저장소에 이미지 업로드](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md)</br>이미지를 앱에서 Azure Blob 저장소에 업로드할 수 있도록 TodoList 샘플 프로젝트를 확장하는 방법을 보여 줍니다.
@@ -152,10 +150,9 @@ TodoList 빠른 시작 프로젝트는 Entity Framework를 사용하여 SQL 데�
 
 <!-- URLs. -->
 [모바일 서비스 시작]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
-[기존 앱에 모바일 서비스 추가]: ../mobile-services-dotnet-backend-windows-store-dotnet-get-started-data.md
 [Azure Management Portal]: https://manage.windowsazure.com/
 [What is the Table Service]: ../storage-dotnet-how-to-use-tables.md#what-is
 [MongoLab Add-on Page]: /gallery/store/mongolab/mongolab
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

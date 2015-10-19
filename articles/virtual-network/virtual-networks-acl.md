@@ -99,4 +99,4 @@ LB 집합(부하 분산된 집합) 끝점에서 네트워크 ACL을 지정할 �
 
 [PowerShell을 사용하여 끝점에 대한 ACL(액세스 제어 목록)을 관리하는 방법](../virtual-networks-acl-powershell)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

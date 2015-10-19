@@ -58,8 +58,6 @@ Azure에서 실행 중인 모바일 서비스에 대해 새 클라이언트 앱�
 
 모바일 서비스에서 중요한 추가 작업을 수행하는 방법에 대해 알아봅니다.
 
-* [기존 앱에 모바일 서비스 추가] <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법을 자세히 알아봅니다.
-
 * [오프라인 데이터 동기화 시작] <br/>오프라인 데이터 동기화를 활용하여 응답성과 견고성이 뛰어난 앱을 제작하는 방법을 알아봅니다.
 
 * [기존 앱에 인증 추가] <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
@@ -88,7 +86,6 @@ Azure에서 실행 중인 모바일 서비스에 대해 새 클라이언트 앱�
 
 
 <!-- URLs. -->
-[기존 앱에 모바일 서비스 추가]: mobile-services-dotnet-backend-ios-get-started-data.md
 [오프라인 데이터 동기화 시작]: mobile-services-ios-get-started-offline-data.md
 [기존 앱에 인증 추가]: mobile-services-dotnet-backend-ios-get-started-users.md
 [기존 앱에 푸시 알림 추가]: mobile-services-dotnet-backend-ios-get-started-push.md
@@ -100,4 +97,4 @@ Azure에서 실행 중인 모바일 서비스에 대해 새 클라이언트 앱�
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [JavaScript 백 엔드 버전]: mobile-services-ios-get-started.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

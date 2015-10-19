@@ -1,5 +1,19 @@
-<properties pageTitle="자습서: Citrix GoToMeeting과 Azure Active Directory 통합 | Microsoft Azure" description="Azure Active Directory에서 Citrix GoToMeeting를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." services="active-directory" authors="MarkusVi"  documentationCenter="na" manager="stevenpo"/>
-<tags ms.service="active-directory" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="identity" ms.date="08/01/2015" ms.author="markvi" />
+<properties 
+    pageTitle="자습서: Citrix GoToMeeting과 Azure Active Directory 통합 | Microsoft Azure" 
+    description="Azure Active Directory에서 Citrix GoToMeeting를 사용하여 Single Sign-On, 자동화된 프로비전 등을 사용하도록 설정하는 방법을 알아봅니다." 
+    services="active-directory" 
+    authors="MarkusVi"  
+    documentationCenter="na" 
+    manager="stevenpo"/>
+
+<tags 
+    ms.service="active-directory" 
+    ms.devlang="na" ms.topic="article" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+    ms.date="10/01/2015" 
+    ms.author="markvi" />
+
 #자습서: Citrix GoToMeeting과 Azure Active Directory 통합  
 Azure에 적용합니다.
 
@@ -38,7 +52,7 @@ Azure에 적용합니다.
 
     ![응용 프로그램 추가](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC749321.png "응용 프로그램 추가")
 
-5.  **원하는 작업을 선택하십시오.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
+5.  **원하는 작업을 선택하세요.** 대화 상자에서 **갤러리에서 응용 프로그램 추가**를 클릭합니다.
 
     ![갤러리에서 응용 프로그램 추가](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC749322.png "갤러리에서 응용 프로그램 추가")
 
@@ -63,29 +77,40 @@ Azure에 적용합니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768998.png "Single Sign-On 구성")
 
-3.  **Citrix GoToMeeting에서 Single Sign-On 구성** 페이지에서 **인증서 다운로드**를 클릭한 다음 컴퓨터에 인증서 파일을 저장합니다.
+
+3. **응용 프로그램 설정 구성** 페이지에서 **다음**을 클릭합니다. <br><br>![Single Sign-On 사용](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689981.png "Single Sign-On 사용")
+
+4.  **Citrix GoToMeeting에서 Single Sign-On 구성** 페이지에서 **인증서 다운로드**를 클릭한 다음 컴퓨터에 인증서 파일을 저장합니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768999.png "Single Sign-On 구성")
 
-4.  다른 브라우저 창에서 관리자로 Citrix GoToMeeting 테넌트에 로그인합니다.
+5.  다른 브라우저 창에서 Citrix 조직 센터에 로그인합니다.([https://account.citrixonline.com/organization/administration/](https://account.citrixonline.com/organization/administration/))
 
-5.  [SAML 2.0 single sign on(SSO) 구성 설정](https://login.citrixonline.com/saml/settings.html) 페이지를 열고 다음 단계를 수행합니다.
+6. **ID 공급자** 탭을 클릭한 후에 다음 단계를 수행합니다. <br><br> ![SAML 설정](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC6892321.png "SAML 설정")
 
-    ![SAML 설정](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC689232.png "SAML 설정")
+     6\.1. **수동** 선택
 
-    1.  **수동으로 구성**을 선택합니다.
-    2.  Azure 포털의 **Citrix GoToMeeting에 대한 Single Sign-on 구성** 대화 상자 페이지에서 **Single Sign-Out 페이지 URL** 값을 복사한 다음 **로그아웃 페이지 URL** 텍스트 상자에 붙여넣습니다.
-    3.  Azure 포털의 **Citrix GoToMeeting에 대한 Single Sign-on 구성** 대화 상자 페이지에서 **Sign-In 페이지 URL** 값을 복사한 다음 **로그인 페이지 URL** 텍스트 상자에 붙여넣습니다.
-    4.  다운로드한 인증서에서 **Base-64로 인코딩된** 파일을 만듭니다.  
+     6\.2. Azure 포털의 **Citrix GoToMeeting에 대한 Single Sign-on 구성** 대화 상자 페이지에서 **Sign-In 페이지 URL** 값을 복사한 다음 **로그인 페이지 URL** 텍스트 상자에 붙여넣습니다.
 
-        >[AZURE.TIP]자세한 내용은 [이진 인증서를 텍스트 파일로 변환하는 방법](http://youtu.be/PlgrzUZ-Y1o)을 참조하십시오.
+     6\.3. Azure 포털의 **Citrix GoToMeeting에 대한 Single Sign-on 구성** 대화 상자 페이지에서 **로그아웃 페이지 URL** 값을 복사한 다음 **로그아웃 페이지 URL** 텍스트 상자에 붙여넣습니다.
 
-    5.  **인증서 교체**를 클릭한 다음 **base-64 인코딩된 인증서 파일**을 업로드합니다.
-    6.  **Save**를 클릭합니다.
+     6\.4. Azure 포털의 **Citrix GoToMeeting에 Single Sign-on 구성** 대화 상자 페이지에서 **엔터티 ID** 값을 복사한 다음 **ID 공급자 엔터티 ID** 텍스트 상자에 붙여넣습니다.
 
-6.  Azure AD 포털에서 Single Sign-on 구성 확인을 선택하고 **완료**를 클릭하여 **Single Sign-on 구성** 대화 상자를 닫습니다.
+     6\.5. 다운로드한 인증서를 업로드하려면 **인증서 업로드**를 클릭합니다.
+
+     6\.6. **Save**를 클릭합니다.
+
+6.  Azure AD 포털에서 Single Sign-On 구성 확인을 선택하고 **다음**을 클릭합니다.
 
     ![Single Sign-On 구성](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769000.png "Single Sign-On 구성")
+
+
+7. **Single Sign-on 확인** 페이지에서 **완료**를 클릭합니다. <br><br>![SAML 설정](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC7689982.png "SAML 설정")
+
+
+
+
+
 ##사용자 프로비전 구성
 
 이 섹션은 Citrix GoToMeeting에 Active Directory 사용자 계정을 프로비전할 수 있도록 설정하는 방법을 간략하게 설명하기 위한 것입니다.
@@ -94,11 +119,17 @@ Azure에 적용합니다.
 
 1.  Azure 관리 포털의 **Citrix GoToMeeting** 응용 프로그램 통합 페이지에서 **사용자 프로비저닝 구성**을 클릭하여 **사용자 프로비전 구성** 대화 상자를 엽니다.
 
-    ![사용자 프로비저닝 구성](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769001.png "사용자 프로비저닝 구성")
+    ![사용자 프로비전 구성](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769001.png "사용자 프로비전 구성")
 
-2.  **Citrix GotoMeeting 관리 사용자 이름** 페이지에서 Citrix GoToMeeting 테넌트에 관리 권한이 있는 Citrix GoToMeeting 계정 이름을 입력하고 **다음**을 클릭합니다.
+2.  **설정 및 관리자 자격 증명** 페이지에서 다음 단계를 수행합니다.
 
-    ![사용자 프로비저닝 구성](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769002.png "사용자 프로비저닝 구성")
+    ![사용자 프로비전 구성](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769002.png "사용자 프로비전 구성")
+
+     2\.1. **Citrix GoToMeeting 관리자 사용자 이름** 텍스트 상자에서 관리자의 사용자 이름을 입력합니다.
+
+     2\.2. **Citrix GoToMeeting 관리자 암호** 텍스트 상자에서 관리자의 암호입니다.
+
+     2\.3. **다음**을 클릭합니다.
 
 3.  **확인** 페이지에서 확인 표시를 클릭하여 구성을 저장합니다.
 
@@ -129,8 +160,8 @@ Azure에 적용합니다.
 
 ![통합 상태](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC769005.png "통합 상태")
 
-Single sign-on 설정을 테스트하려면 액세스 패널을 엽니다.
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다.
 
 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://msdn.microsoft.com/library/dn308586)를 참조하십시오.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

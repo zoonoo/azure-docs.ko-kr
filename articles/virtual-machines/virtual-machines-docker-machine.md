@@ -1,11 +1,12 @@
 <properties
-   pageTitle="Azure에서 docker-machine을 사용하는 방법"
-   description="Ubuntu의 docker-machine을 Azure에서 작동 및 실행하는 방법을 설명합니다."
+   pageTitle="Azure에서 docker-machine 사용 | Microsoft Azure"
+   description="클래식 배포 모델을 사용하여 Ubuntu의 Docker Machine을 Azure에서 작동 및 실행하는 방법을 설명합니다."
    services="virtual-machines"
    documentationCenter="virtual-machines"
    authors="squillace"
    manager="timlt"
-   editor="tysonn"/>
+   editor="tysonn"
+   tags="azure-service-management"/>
 
 <tags
    ms.service="virtual-machines"
@@ -211,6 +212,5 @@ Docker가 컨테이너 포트 80을 VM 포트 49153에 할당했음을 확인할
 [Link 1 to another azure.microsoft.com documentation topic]: virtual-machines-windows-tutorial.md
 [Link 2 to another azure.microsoft.com documentation topic]: ../web-sites-custom-domain-name.md
 [Link 3 to another azure.microsoft.com documentation topic]: ../storage-whatis-account.md
- 
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

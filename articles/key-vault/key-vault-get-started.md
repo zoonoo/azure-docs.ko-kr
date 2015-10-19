@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/22/2015"
+	ms.date="10/08/2015"
 	ms.author="cabailey"/>
 
 # Azure 주요 자격 증명 모음 시작 #
@@ -35,7 +35,7 @@ Azure 키 자격 증명 모음에 대한 개요는 [Azure 키 자격 증명 모�
 이 자습서를 완료하려면 다음이 필요합니다.
 
 - Microsoft Azure 구독. 아직 구독하지 않은 경우 [무료 평가판](../../../../pricing/free-trial)에 등록할 수 있습니다.
-- Azure PowerShell 버전 0.9.1 이상. 최신 버전을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
+- Azure PowerShell 버전 0.9.1에서 0.9.8까지 Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](../powershell-install-configure.md)을 참조하세요.
 - 이 자습서에서 만드는 키 또는 암호를 사용하여 구성되는 응용 프로그램입니다. 샘플 응용 프로그램은 [Microsoft 다운로드 센터](http://www.microsoft.com/ko-KR/download/details.aspx?id=45343)에서 사용할 수 있습니다. 자세한 내용은 해당 추가 정보 파일을 참조하세요.
 
 
@@ -244,4 +244,4 @@ Azure 키 자격 증명 모음에 대한 Windows PowerShell cmdlet의 목록은 
 
 프로그래밍 참조는 [Azure 주요 자격 증명 모음 개발자 가이드](key-vault-developers-guide.md)를 참조하세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

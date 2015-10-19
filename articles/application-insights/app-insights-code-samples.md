@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/04/2015" 
+	ms.date="10/05/2015" 
 	ms.author="awills"/>
 
 #  Application Insights: 코드 샘플 및 연습
@@ -35,7 +35,7 @@
 자체 도구를 사용하여 원격 분석 데이터를 분석하려면 해당 데이터를 구문 분석하고 처리할 수 있는 저장소로 [데이터를 내보내기](app-insights-export-telemetry.md)합니다.
 
 * [Power BI에 내보내기](app-insights-export-power-bi.md) 
-* [작업자 역할을 사용하여 SQL로 내보내기](app-insights-code-sample-export-telemetry-sql-database.md)
+* [작업자 역할을 사용하여 내보낸 데이터 구문 분석](app-insights-code-sample-export-telemetry-sql-database.md)
 * [스트림 분석을 사용하여 SQL로 내보내기](app-insights-code-sample-export-sql-stream-analytics.md)
 * [Microsoft CRM에 대한 원격 분석 사용](app-insights-sample-mscrm.md)
 
@@ -53,4 +53,4 @@
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

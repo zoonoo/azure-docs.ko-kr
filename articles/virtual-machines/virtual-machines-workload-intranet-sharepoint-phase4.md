@@ -102,6 +102,8 @@ Azure PowerShell 명령의 다음 블록을 사용하여 4개 SharePoint 서버�
 
 [연결을 테스트하려면](virtual-machines-workload-intranet-sharepoint-phase2.md#testconn) 절차를 네 번(각 SharePoint 서버에 대해 한 번씩) 수행하여 조직 네트워크의 위치에 대한 연결을 테스트합니다.
 
+> [AZURE.NOTE]SharePoint 서버는 SharePoint Server 2013 평가판 이미지에서 만들어집니다. SharePoint Server 2013의 Standard 또는 Enterprise 버전용 일반 정품 또는 볼륨 라이선스 키를 사용하도록 설치를 전환해야 합니다.
+
 ## SharePoint 팜 구성
 
 다음 단계를 수행하여 팜의 첫 번째 SharePoint 서버를 구성합니다.
@@ -195,4 +197,4 @@ SharePoint 팜으로의 클라이언트 트래픽이 두 프런트 엔드 웹 �
 
 [Azure 인프라 서비스 워크로드: 고가용성 LOB(기간 업무) 응용 프로그램](virtual-machines-workload-high-availability-lob-application.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

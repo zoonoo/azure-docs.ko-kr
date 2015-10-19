@@ -5,7 +5,8 @@
    documentationCenter="na"
    authors="YuriD"
    manager="swadhwa"
-   editor=""/>
+   editor=""
+   tags="azure-service-management,azure-resource-manager"/>
 
 <tags
    ms.service="azure-security"
@@ -17,7 +18,6 @@
    ms.author="yurid"/>
 
 #Microsoft Azure IaaS에서 소프트웨어 업데이트에 대한 모범 사례
-
 
 Azure IaaS 환경에 대한 모범 사례에서 토론의 종류를 구분하기 전에 소프트웨어 업데이트를 관리하는 시나리오의 정의를 이해해야 합니다. 아래 다이어그램은 여기에 도움이 됩니다.
 
@@ -71,7 +71,7 @@ PaaS 시나리오에서 운영 체제의 업데이트 관리가 Microsoft의 책
 
 엔터프라이즈에서 사용 중인 소프트웨어의 초기 감사를 수행한 후에 각 소프트웨어 제품 및 버전에 새 소프트웨어 업데이트의 알림을 수신하기 위한 최상의 방법을 결정해야 합니다. 소프트웨어 제품에 따라 최상의 알림 방법은 전자 메일 알림, 웹 사이트, 또는 컴퓨터 공지일 수 있습니다.
 
-예를 들어 Microsoft 보안 대응 센터(MSRC)는 Microsoft 제품에 대한 모든 보안 관련 문제에 응답하고 Microsoft 보안 게시판 서비스, 즉, 새로 식별된 취약점 및 취약점을 해결하기 위해 릴리스된 소프트웨어 업데이트에 대한 무료 전자 메일 알림을 제공합니다. <http://www.microsoft.com/technet/security/bulletin/notify.mspx>에서 이 서비스를 구독할 수 있습니다.
+예를 들어 Microsoft 보안 대응 센터(MSRC)는 Microsoft 제품에 대한 모든 보안 관련 문제에 응답하고 Microsoft 보안 게시판 서비스, 즉, 새로 식별된 취약점 및 취약점을 해결하기 위해 릴리스된 소프트웨어 업데이트에 대한 무료 전자 메일 알림을 제공합니다. http://www.microsoft.com/technet/security/bulletin/notify.mspx에서 이 서비스를 구독할 수 있습니다.
 
 ## 소프트웨어 업데이트 고려 사항
 
@@ -99,7 +99,7 @@ Azure IaaS에 대한 일부 백업 옵션은 다음과 같습니다.
 
 -   [데이터 보호 관리자를 사용하여 Azure IaaS 워크로드 보호](https://azure.microsoft.com/blog/2014/09/08/azure-iaas-workload-protection-using-data-protection-manager/)
 
--   [Azure 가상 컴퓨터 백업](https://azure.microsoft.com/ko-KR/documentation/articles/backup-azure-vms/)
+-   [Azure 가상 컴퓨터 백업](../backup/backup-azure-vms.md)
 
 ### 모니터링
 
@@ -119,4 +119,4 @@ Azure IaaS에 대한 일부 백업 옵션은 다음과 같습니다.
 
 Azure IaaS 내에서 이 문서에 설명된 지침을 사용하여 가상 컴퓨터에 대한 소프트웨어 업데이트에 가장 적합한 옵션을 결정하도록 지원합니다. 기존 데이터 센터 및 Azure IaaS에서 소프트웨어 업데이트 모범 사례 간의 많은 공통점이 있습니다. 따라서 현재 소프트웨어 업데이트 정책을 평가하여 Azure VM을 포함하고 전체 소프트웨어 업데이트 프로세스의 이 문서에서 관련된 모범 사례를 포함하는 것이 좋습니다
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

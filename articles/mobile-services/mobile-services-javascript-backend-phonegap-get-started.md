@@ -1,5 +1,5 @@
 <properties
-	pageTitle="PhoneGap/cordova 앱에 대해 Azure 모바일 서비스 시작"
+	pageTitle="PhoneGap/cordova 앱에 대한 Azure 모바일 서비스 시작 | Microsoft Azure"
 	description="이 자습서에 따라 Azure 모바일 서비스를 사용하여 iOS, Android 및 Windows Phone용 PhoneGap 개발을 시작할 수 있습니다."
 	services="mobile-services"
 	documentationCenter=""
@@ -12,13 +12,15 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-phonegap"
 	ms.devlang="multiple"
-	ms.topic="article" 
-	ms.date="07/21/2015"
+	ms.topic="get-started-article" 
+	ms.date="10/05/2015"
 	ms.author="ggailey777"/>
 
 # 모바일 서비스 시작
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 이 자습서에서는 Azure 모바일 서비스를 사용하는 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법에 대해 설명합니다. 이 자습서에서는 새 모바일 서비스와 새 모바일 서비스에 앱 데이터를 저장하는 간단한 _할 일 모음_ 앱을 둘 다 만듭니다.
 
@@ -151,9 +153,13 @@
 ## 다음 단계
 이제 퀵 스타트를 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다.
 
-* [앱에 인증 추가] <br/>ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
+* **[앱에 인증 추가]** ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.  
 
-* [앱에 푸시 알림 추가](https://msdn.microsoft.com/magazine/dn879353.aspx) <br/>앱에 등록하고 푸시 알림을 앱에 보내는 방법을 알아봅니다.
+* **[앱에 푸시 알림 추가](https://msdn.microsoft.com/magazine/dn879353.aspx)** 앱에 등록하고 푸시 알림을 앱에 보내는 방법을 알아봅니다.
+
+* **[모바일 서비스 HTML/JavaScript 사용 방법 개념 참조](mobile-services-html-how-to-use-client-library.md)** JavaScript 클라이언트 라이브러리를 사용하여 데이터에 액세스하고, 사용자 지정 API를 호출하고, 인증을 수행하는 방법에 대해 자세히 알아봅니다.
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Images. -->
 [0]: ./media/mobile-services-javascript-backend-phonegap-get-started/portal-screenshot1.png
@@ -163,7 +169,6 @@
 [4]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-android.png
 
 <!-- URLs. -->
-[Add Mobile Services to an existing app]: mobile-services-html-get-started-data.md
 [앱에 인증 추가]: mobile-services-html-get-started-users.md
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Management Portal]: https://manage.windowsazure.com/
@@ -171,4 +176,4 @@
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

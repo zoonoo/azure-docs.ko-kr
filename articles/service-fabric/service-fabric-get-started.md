@@ -13,7 +13,7 @@
    ms.topic="hero-article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="09/10/2015"
+   ms.date="10/07/2015"
    ms.author="seanmck"/>
 
 # 서비스 패브릭 개발 환경 설정
@@ -66,7 +66,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
     ```powershell
     cd "$env:ProgramW6432\Microsoft SDKs\Service Fabric\ClusterSetup"
     ```
-    
+
 3. 실행
 
     ```powershell
@@ -81,7 +81,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 
 SDK와 함께 제공되는 서비스 패브릭 탐색기 도구를 사용하여, 클러스터가 성공적으로 만들어졌는지 확인할 수 있습니다.
 
-1. 다음을 실행하여 서비스 패브릭 탐색기를 시작합니다. 
+1. 다음을 실행하여 서비스 패브릭 탐색기를 시작합니다.
 
     ```powershell
     . "$env:ProgramW6432\Microsoft SDKs\Service Fabric\Tools\ServiceFabricExplorer\ServiceFabricExplorer.exe"
@@ -106,4 +106,4 @@ SDK와 함께 제공되는 서비스 패브릭 탐색기 도구를 사용하여,
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "WebPI 링크"
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

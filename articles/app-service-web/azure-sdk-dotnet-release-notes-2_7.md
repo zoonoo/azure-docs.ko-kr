@@ -1,21 +1,21 @@
 
 <properties 
-   pageTitle="Azure SDK for .NET 2.7 및 .NET 2.7.1 릴리스 정보"
-	description="Azure SDK for .NET 2.7 및 .NET 2.7.1 릴리스 정보"
-	services="app-service\web"
-	documentationCenter=".net"
-	authors="Juliako"
-	manager="dwrede"
-	editor=""/>
+   pageTitle="Azure SDK for .NET 2.7 및 .NET 2.7.1 릴리스 정보" 
+   description="Azure SDK for .NET 2.7 및 .NET 2.7.1 릴리스 정보" 
+   services="app-service\web" 
+   documentationCenter=".net" 
+   authors="Juliako" 
+   manager="dwrede" 
+   editor=""/>
 
 <tags
    ms.service="app-service"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="integration"
-	ms.date="08/26/2015"
-	ms.author="juliako"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="na"
+   ms.workload="integration" 
+   ms.date="08/26/2015"
+   ms.author="juliako"/>
 
 
 # Azure SDK for .NET 2.7 및 .NET 2.7.1 릴리스 정보
@@ -150,6 +150,7 @@ HDInsight 도구 업데이트에 대한 자세한 내용은 [이 블로그](http
 
 영어 이외의 운영 체제에 Visual Studio Community 2013용 Azure SDK 2.6 또는 2.7.1을 설치하면 Visual Studio의 영어 리소스와 영어 이외의 리소스가 일치하지 않을 수 있다는 경고가 표시됩니다. 이 경고는 해제해도 됩니다. 컴퓨터에 Visual Studio Community 2013의 이전 설치가 포함되어 있지 않고 영어 이외의 운영 체제에 SDK를 설치하는 경우에만 발생합니다. 이 경고는 언어 팩이 Visual Studio에 RTM 리소스를 적용한 후, 업데이트 4를 적용하기 전에 표시됩니다. 경고를 해제하면 언어 팩이 계속해서 언어 팩 콘텐츠의 업데이트 4 버전 적용을 완료합니다.
 
+LightSwitch 프로젝트는 이 릴리스와 호환되지 않습니다. 이 문제는 다음 SDK 릴리스에서 해결됩니다.
 
 ##참고 항목
 [Azure SDK 2.7.1 발표 게시물](http://go.microsoft.com/fwlink/?LinkId=623850)
@@ -158,4 +159,4 @@ HDInsight 도구 업데이트에 대한 자세한 내용은 [이 블로그](http
 
 [.NET 및 API용 Azure SDK에 대한 지원 및 사용 중지 정보](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

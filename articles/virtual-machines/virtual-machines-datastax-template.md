@@ -5,7 +5,7 @@
 	documentationCenter=""
 	authors="scoriani"
 	manager="timlt"
-	editor="tysonn"/>
+	tags="azure-resource-manager"/>
 
 <tags
 	ms.service="virtual-machines"
@@ -18,6 +18,8 @@
 
 # 리소스 관리자 템플릿을 사용하는 Ubuntu의 DataStax
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다.
+
 DataStax는 항상 작동하고 민첩하며 원하는 규모로 예측 가능하게 확장할 수 있는 상업적으로 지원되며 엔터프라이즈 지원이 되는 NoSQL 분산 데이터베이스 기술인 Apache Cassandra를 기반으로 하는 솔루션을 개발 및 제공하는 업계 선도 업체입니다. DataStax는 Enterprise(DSE)와 Community(DSC) 유형을 모두 제공합니다. 메모리 내 컴퓨팅, 엔터프라이즈 수준의 보안, 빠르고 강력한 통합 분석 및 엔터프라이즈 검색 등의 기능도 제공합니다.
 
 Azure 마켓플레이스에서 이미 제공되는 것 외에도, 이제 [Azure PowerShell](../powershell-install-configure.md) 또는 [Azure CLI](../xplat-cli-install.md)를 통해 배포된 리소스 관리자 템플릿을 사용하여 Ubuntu VM에서 새 Datastax 클러스터를 쉽게 배포할 수도 있습니다.
@@ -28,9 +30,9 @@ Azure 마켓플레이스에서 이미 제공되는 것 외에도, 이제 [Azure 
 
 매개 변수를 사용하여 새 Apache Cassandra 카산드라에서 배포할 노드 수를 정의할 수 있습니다. DataStax Operation Center 서비스 인스턴스도 동일한 가상 네트워크 내의 독립 실행형 VM에 배포되므로 클러스터 및 모든 개별 노드의 상태를 모니터링하고, 노드를 추가/제거하고, 해당 클러스터와 관련된 모든 관리 작업을 수행할 수 있습니다.
 
-배포가 완료되면 구성된 DNS 주소를 사용하여 Datastax Operations Center VM 인스턴스에 액세스할 수 있습니다. OpsCenter VM에서는 SSH 포트 22와 HTTPS용 포트 8443을 사용합니다. 운영 센터의 DNS 주소는 `{dnsName}.{region}.cloudapp.azure.com` 형식의 매개 변수로 입력된 *dnsName* 및 *지역*을 포함합니다. “West US” 지역에서 “datastax”로 설정된 *dnsName* 매개 변수를 사용하여 배포를 만든 경우 `https://datastax.westus.cloudapp.azure.com:8443`에서 해당 배포를 위한 Datastax Operations Center VM에 액세스할 수 있습니다.
+배포가 완료되면 구성된 DNS 주소를 사용하여 Datastax Operations Center VM 인스턴스에 액세스할 수 있습니다. OpsCenter VM에서는 SSH 포트 22와 HTTPS용 포트 8443을 사용합니다. 운영 센터의 DNS 주소는 `{dnsName}.{region}.cloudapp.azure.com` 형식의 매개 변수로 입력된 *dnsName* 및 *지역*을 포함합니다. "West US" 지역에서 "datastax"로 설정된 *dnsName* 매개 변수를 사용하여 배포를 만든 경우 `https://datastax.westus.cloudapp.azure.com:8443`에서 해당 배포를 위한 DataStax Operations Center VM에 액세스할 수 있습니다.
 
-> [AZURE.NOTE]배포에 사용되는 인증서는 브라우저 경고를 생성하는 자체 서명된 인증서입니다. [Datastax](http://www.datastax.com/) 웹 사이트의 프로세스에 따라 인증서를 사용자 고유의 SSL 인증서로 대체할 수 있습니다.
+> [AZURE.NOTE]배포에 사용되는 인증서는 브라우저 경고를 생성하는 자체 서명된 인증서입니다. [DataStax](http://www.datastax.com/) 웹 사이트의 프로세스에 따라 인증서를 사용자 고유의 SSL 인증서로 대체할 수 있습니다.
 
 Azure 리소스 관리자 및 이 배포에 사용할 템플릿과 관련된 자세한 내용을 살펴보기 전에 Azure PowerShell 또는 Azure CLI가 올바르게 구성되어 있는지 확인해야 합니다.
 
@@ -233,7 +235,7 @@ Azure 배포 이름, 리소스 그룹 이름, Azure 위치 및 저장된 JSON �
 
 - 왼쪽 탐색 모음에서 **찾아보기**를 클릭한 다음 아래로 스크롤하여 **리소스 그룹**을 클릭합니다.  
 - 방금 만든 리소스 그룹을 클릭하면 “리소스 그룹" 블레이드가 나타납니다.  
-- "리소스 그룹” 블레이드의 **모니터링** 파트에서 "이벤트” 막대 그래프를 클릭하면 배포에 대한 이벤트를 확인할 수 있습니다.
+- "리소스 그룹" 블레이드의 **모니터링** 파트에서 "이벤트" 막대 그래프를 클릭하면 배포에 대한 이벤트를 확인할 수 있습니다.
 - 개별 이벤트를 클릭하면 템플릿을 대신해 수행된 각 개별 작업에 대한 세부 정보를 볼 수 있습니다.
 
 테스트 후 이 리소스 그룹과 모든 해당 리소스(저장소 계정, 가상 컴퓨터 및 가상 네트워크)를 제거해야 하는 경우 다음 단일 명령을 사용합니다.
@@ -310,7 +312,7 @@ azuredeploy.json의 "parameters" 섹션은 이 템플릿에 데이터를 입력�
 	"nodeList": "[concat(variables('networkSettings').statics.clusterRange.base, variables('networkSettings').statics.clusterRange.start, '-', parameters('clusterNodeCount'))]"
 	},
 
-이 예제를 자세히 살펴보면 두 가지 방법을 볼 수 있습니다. 이 첫 번째 조각에서 **osSettings** 변수는 4개의 키 값 쌍이 있는 중첩된 JSON 요소로 설정됩니다.
+이 예제를 자세히 살펴보면 두 가지 방법을 볼 수 있습니다. 이 첫 번째 조각에서 **osSettings** 변수는 4개의 키 값 쌍이 있는 중첩된 JSON 요소입니다.
 
 	"osSettings": {
 	      "imageReference": {
@@ -366,7 +368,7 @@ azuredeploy.json의 "parameters" 섹션은 이 템플릿에 데이터를 입력�
 -	**opscenter-install-resources.json**: 해당 VM 내에 OpsCenter 서비스를 설치하는 데 필요한 특정 bash 스크립트 파일(opscenter.sh)을 호출할 OpsCenter VM 확장(Linux용 사용자 지정 스크립트)을 배포합니다.
 -	**ephemeral-nodes-resources.json**: 모든 클러스터 노드 VM 및 연결된 리소스(네트워크 카드, 개인 IP 등)를 배포합니다. 또한 이 템플릿은 각 노드에 Apache Cassandra 비트를 물리적으로 설치하기 위해 VM 확장(Linux용 사용자 지정 스크립트)을 배포하고 bash 스크립트(dsenode.sh)를 호출합니다.
 
-이 마지막 템플릿은 템플릿 사용 방법은 템플릿 개발 관점에서 가장 흥미로운 것 중 하나이므로 좀 더 자세히 살펴보겠습니다. 한 가지 중요한 개념은 단일 템플릿 파일에서 단일 리소스 유형의 여러 복사본을 배포하고 각 인스턴스에 대해 필요한 설정의 고유 값을 설정하는 방법입니다. 이 개념을 **리소스 루핑**이라고 합니다.
+이 마지막 템플릿은 템플릿 사용 방법은 템플릿 개발 관점에서 가장 흥미로운 것 중 하나이므로 좀 더 자세히 살펴보겠습니다. 한 가지 중요한 개념은 단일 템플릿 파일에서 단일 리소스 유형의 여러 복사본을 배포하고 각 인스턴스에 대해 필요한 설정의 고유 값을 설정하는 방법입니다. 이 개념은 **리소스 루핑**이라고 합니다.
 
 기본 azuredeploy.json 파일 내에서 ephemeral-nodes-resources.json을 호출하면 *nodeCount*라는 매개 변수가 매개 변수 목록의 일부로 제공됩니다. 자식 템플릿 내에서 *nodeCount*(클러스터에 배포할 노드 수)는 아래 조각에 강조 표시된 것처럼 여러 복사본으로 배포해야 하는 각 리소스의 **copy** 요소 내에 사용됩니다. 배포된 리소스의 여러 인스턴스 간에 고유한 값을 지정하는 데 필요한 모든 설정의 경우 **copyindex()** 함수를 사용하여 해당 특정 리소스 루프 만들기에서 현재 인덱스를 나타내는 숫자 값을 가져올 수 있습니다. 다음 조각에서는 DataStax 클러스터 노드에 대해 작성되는 여러 VM에 이 개념이 적용됨을 확인할 수 있습니다.
 
@@ -477,4 +479,4 @@ vm-disk-utils-0.1.sh 파일은 azure-quickstart-tempates GitHub 리포지토리 
 
 자세한 내용은 [Azure 리소스 관리자 템플릿 언어](../resource-group-authoring-templates.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

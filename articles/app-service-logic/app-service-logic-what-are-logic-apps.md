@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/08/2015"
+	ms.date="10/08/2015"
 	ms.author="klam"/>
 
 #논리 앱이란 무엇인가요?
@@ -21,8 +21,8 @@
 | 빠른 참조 |
 | --------------- |
 | [논리 앱 정의 언어](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
-| [논리 앱 커넥터 문서](https://azure.microsoft.com/ko-kr/documentation/articles/app-service-logic-connectors-list/) |
-| [논리 앱 포럼](https://social.msdn.microsoft.com/Forums/ko-kr/home?forum=azurelogicapps) |
+| [논리 앱 커넥터 문서](https://azure.microsoft.com/KO-KR/documentation/articles/app-service-logic-connectors-list/) |
+| [논리 앱 포럼](https://social.msdn.microsoft.com/Forums/KO-KR/home?forum=azurelogicapps) |
 
 Azure 앱 서비스는 웹앱, 모바일 앱 및 통합 앱을 쉽게 빌드할 수 있게 해주는 완전히 관리되는 개발자용 PaaS(Platform as a Service)입니다. 논리 앱은 이 제품군의 일부로, 기술 사용자나 개발자가 사용하기 쉬운 시각적 디자이너를 통해 비즈니스 프로세스 실행 및 워크플로를 자동화할 수 있게 합니다.
 
@@ -75,4 +75,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [templates]: app-service-logic-use-logic-app-templates.md
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

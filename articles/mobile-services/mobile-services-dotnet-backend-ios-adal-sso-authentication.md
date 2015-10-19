@@ -36,7 +36,7 @@
 이 자습서를 사용하려면 다음이 필요합니다.
 
 * XCode 4.5 및 iOS 6.0(또는 이후 버전)
-* [모바일 서비스 시작] 또는 [데이터 시작] 자습서 완료
+* [모바일 서비스 시작] 자습서를 완료합니다.
 * Microsoft Azure 모바일 서비스 SDK
 * [iOS용 Active Directory 인증 라이브러리]
 
@@ -114,10 +114,9 @@
 
 
 <!-- URLs. -->
-[데이터 시작]: mobile-services-ios-get-started-data.md
 [모바일 서비스 시작]: mobile-services-dotnet-backend-ios-get-started.md
 [Azure Active Directory에 등록하는 방법]: mobile-services-how-to-register-active-directory-authentication.md
 [Azure 관리 포털]: https://manage.windowsazure.com/
 [iOS용 Active Directory 인증 라이브러리]: https://github.com/MSOpenTech/azure-activedirectory-library-for-ios
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

@@ -172,7 +172,7 @@
 	        "typeProperties": {
 	          "source": {
 	            "type": "SqlDWSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+	            "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
 	          },
 	          "sink": {
 	            "type": "BlobSink"
@@ -192,6 +192,12 @@
 	     ]
 	   }
 	}
+
+> [AZURE.NOTE]위의 예에서 **sqlReaderQuery**는 SqlDWSource에 지정됩니다. 복사 작업은 데이터를 가져오는 Azure SQL 데이터 웨어하우스 원본에 대해 이 쿼리를 실행합니다.
+>  
+> 또는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장된 프로시저를 지정할 수 있습니다.(저장된 프로시저가 매개 변수를 사용하는 경우)
+>  
+> sqlReaderQuery 또는 sqlReaderStoredProcedureName 중 하나를 지정하지 않으면 JSON 데이터 집합의 구조 섹션에 정의된 열은 쿼리를 작성하는 데 사용되어 Azure SQL 데이터 웨어하우스에 대해 실행합니다.(mytable에서 column1, column2 선택) 데이터 집합 정의에 구조가 없는 경우 모든 열은 테이블에서 선택됩니다.
 
 ## 샘플: Azure Blob에서 Azure SQL 데이터 웨어하우스에 데이터 복사
 
@@ -395,13 +401,20 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 반면 작업의 typeProperties 섹션에서 사용할 수 있는 속성은 각 작업 형식에 따라 다르며 복사 작업의 경우 속성은 원본 및 싱크의 형식에 따라 다릅니다.
 
 ### SqlDWSource
+
 원본이 **SqlDWSource** 형식인 복사 작업의 경우 **typeProperties** 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- |
-| sqlReaderQuery | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | SQL 쿼리 문자열. 예: select * from MyTable. 지정하지 않은 경우 SQL 문 실행: MyTable의 **JSON 테이블 구조 섹션에 정의된 열**을 선택합니다. | 아니요 |
+| sqlReaderQuery | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. | SQL 쿼리 문자열. 예: select * from MyTable. | 아니요 |
 | sqlReaderStoredProcedureName | 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. | 저장 프로시저의 이름입니다. | 아니요 |
-| sqlReaderStoredProcedureParameters | 저장 프로시저에 대한 매개 변수입니다. | 이름/값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아니요 |
+| storedProcedureParameters | 저장 프로시저에 대한 매개 변수입니다. | 이름/값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아니요 |
+
+**sqlReaderQuery**이 SqlDWSource에 지정되면 복사 작업은 데이터를 가져오는 Azure SQL 데이터 웨어하우스 원본에 대해 이 쿼리를 실행합니다.
+
+또는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장된 프로시저를 지정할 수 있습니다.(저장된 프로시저가 매개 변수를 사용하는 경우)
+
+sqlReaderQuery 또는 sqlReaderStoredProcedureName 중 하나를 지정하지 않으면 JSON 데이터 집합의 구조 섹션에 정의된 열은 쿼리를 작성하는 데 사용되어 Azure SQL 데이터 웨어하우스에 대해 실행합니다.(mytable에서 column1, column2 선택) 데이터 집합 정의에 구조가 없는 경우 모든 열은 테이블에서 선택됩니다.
 
 #### SqlDWSource 예제
 
@@ -465,7 +478,7 @@ typeProperties 섹션은 데이터 집합의 각 형식에 따라 다르며 데�
 
 SQL Azure, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식에서 .NET 유형에 그리고 그 반대로 다음 매핑을 사용합니다.
 
-매핑은 [MyTableADO.NET에 대한 SQL Server 데이터 형식](https://msdn.microsoft.com/library/cc716729.aspx) 매핑과 같습니다.
+매핑은 ADO.NET에 대한 [SQL Server 데이터 형식 매핑](https://msdn.microsoft.com/library/cc716729.aspx)과 같습니다.
 
 | SQL Server 데이터베이스 엔진 형식 | .NET Framework 형식 |
 | ------------------------------- | ------------------- |
@@ -508,4 +521,4 @@ SQL Azure, SQL server, Sybase에서 데이터를 이동하는 경우 SQL 형식�
 
 [AZURE.INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

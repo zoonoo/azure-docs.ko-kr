@@ -1,6 +1,7 @@
 <properties
 	pageTitle="기계 학습을 위한 R 언어의 빠른 시작 자습서 | Microsoft Azure"
 	description="이 R 프로그래밍 자습서를 사용하여 신속하게 Azure 기계 학습 스튜디오에서 R 언어를 사용하여 예측 솔루션을 만듭니다."
+	keywords="quickstart,r language,r programming language,r programming tutorial"
 	services="machine-learning"
 	documentationCenter=""
 	authors="Blackmist"
@@ -13,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="09/02/2015"
+	ms.date="10/08/2015"
 	ms.author="larryfr"/>
 
 # Azure 기계 학습에 대한 프로그래밍 언어는 R에 대한 빠른 시작 자습서
@@ -112,15 +113,13 @@ R 코드를 실행하는 동안 기계 학습 스튜디오에서 오류가 발�
 R 오류 메시지를 보려면 output.log에서 살펴봐야 할 것 같습니다. [R 스크립트 실행][execute-r-script]을 클릭한 다음 **속성 창** 오른쪽에서 **output.log** 보기 항목을 클릭하세요. 새 브라우저 창이 열리고 다음이 표시됩니다.
 
 
-	[ModuleOutput] [1] 14000
-	[ModuleOutput]
-	[ModuleOutput] Loading objects:
-	[ModuleOutput]
-	[ModuleOutput]   port1
-	[ModuleOutput]
-	[ModuleOutput] [1] "Loading variable port1..."
-	[ModuleOutput]
-	[ModuleOutput] Error in eval(expr, envir, enclos) : object 'y' not found
+    [Critical]     Error: Error 0063: The following error occurred during evaluation of R script:
+    ---------- Start of error message from R ----------
+    object 'y' not found
+    
+    
+    object 'y' not found
+    ----------- End of error message from R -----------
 
 이 오류 메시지는 특별한 사항 없이 명확하게 문제를 식별합니다.
 
@@ -161,7 +160,7 @@ RStudio에 대한 자습서는 https://support.rstudio.com/hc/sections/200107586
 
 - Azure 기계 학습 스튜디오 환경을 시작합니다.
 
-- 화면의 왼쪽 아래에 있는 더하기 기호(+)를 클릭하고 **데이터 집합**을 선택합니다.
+- 화면의 왼쪽 아래에 있는 __+ 새로 만들기__를 클릭하고 **데이터 집합**을 선택합니다.
 
 - **로컬 파일에서**를 선택한 다음 **찾아보기**를 선택하여 파일을 선택합니다.
 
@@ -175,7 +174,7 @@ RStudio에 대한 자습서는 https://support.rstudio.com/hc/sections/200107586
 
 이제 기계 학습 스튜디오에 일부 데이터가 있으므로 분석을 수행하기 위한 실험을 만들어야 합니다.
 
-- 왼쪽 아래에 있는 더하기 기호(+)를 클릭하고 **실험**, **빈 실험**을 차례로 선택합니다.
+- 왼쪽 아래에 있는 __+ 새로 만들기__를 클릭하고 **실험**, **빈 실험**을 차례로 선택합니다.
 
 - 페이지 위쪽에 있는 **Experiment created on ...(...에서 만든 실험)**을 선택하고 수정하여 실험의 이름을 지정할 수 있습니다. 예를 들어 **CA Dairy Analysis**로 변경합니다.
 
@@ -205,7 +204,7 @@ RStudio에 대한 자습서는 https://support.rstudio.com/hc/sections/200107586
 
 *그림 4. cadairydata.csv 데이터 집합 요약*
 
-여기에서 많은 유용한 정보를 볼 수 있습니다. **Feature Type** 행은 Azure 기계 학습 스튜디오가 데이터 집합 열에 할당하는 데이터 형식을 보여줍니다. 또한 해당 데이터 집합의 처음 몇 행도 볼 수 있습니다. 중요한 작업을 시작하기 전에 이렇게 빠르게 확인하면 온전성을 검사하는 데 좋습니다.
+여기에서 많은 유용한 정보를 볼 수 있습니다. 또한 해당 데이터 집합의 처음 몇 행도 볼 수 있습니다. 열을 선택하면 해당 열에 관한 추가 정보가 통계 섹션에 표시됩니다. 예를 들어 Feature Type 행은 Azure 기계 학습 스튜디오가 열에 할당된 데이터 형식을 보여줍니다. 중요한 작업을 시작하기 전에 이렇게 빠르게 확인하면 온전성을 검사하는 데 좋습니다.
 
 ###	첫 번째 R 스크립트
 
@@ -270,6 +269,17 @@ Dataset1 입력을 사용하여 사각형의 데이터 테이블을 R 코드에 
 	cadairydata <- maml.mapInputPort(1)
 
 **실행** 단추를 클릭하여 실험을 실행하세요. 실행이 끝나면 [R 스크립트 실행][execute-r-script] 모듈을 클릭한 후 속성 창에서 **출력 로그 보기**를 클릭하세요. Output.log 파일의 내용을 보여 주는 새 페이지가 브라우저에 표시됩니다. 아래로 스크롤하면 다음과 같이 표시됩니다.
+
+    [ModuleOutput] InputDataStructure
+    [ModuleOutput]
+    [ModuleOutput] {
+    [ModuleOutput]  "InputName":Dataset1
+    [ModuleOutput]  "Rows":228
+    [ModuleOutput]  "Cols":9
+    [ModuleOutput]  "ColumnTypes":System.Int32,3,System.Double,5,System.String,1
+    [ModuleOutput] }
+
+페이지를 두 번 클릭하면 추가 데이터가 로드되며, 이 데이터는 다음과 같아 보입니다.
 
 	[ModuleOutput] [1] "Loading variable port1..."
 	[ModuleOutput]
@@ -377,9 +387,33 @@ R은 동적으로 입력되는 언어이므로 필요에 따라 데이터 형식
 	## Azure Machine Learning Studio
 	maml.mapOutputPort('cadairydata')
 
-이 코드를 실행하고 출력을 살펴보겠습니다. 그림 9는 R 장치 메뉴에서 **시각화**를 클릭했을 때의 출력을 보여줍니다.
+이 코드를 실행하고 R 스크립트에 대한 출력 로그를 살펴보겠습니다. 로그의 관련 데이터는 그림 9와 같습니다.
 
-![요소 변수가 포함된 데이터 프레임 요약][10]
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] 
+    [ModuleOutput] 'data.frame':	228 obs. of  9 variables:
+    [ModuleOutput] 
+    [ModuleOutput]  $ Column 0         : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year.Month       : num  1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month            : Factor w/ 14 levels "Apr","April",..: 6 5 9 1 11 8 7 3 14 13 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Cotagecheese.Prod: num  4.37 3.69 4.54 4.28 4.47 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Icecream.Prod    : num  51.6 56.1 68.5 65.7 73.7 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Milk.Prod        : num  2.11 1.93 2.16 2.13 2.23 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ N.CA.Fat.Price   : num  0.98 0.892 0.892 0.897 0.897 ...
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving variable  cadairydata  ..."
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
 
 *그림 9. 요소 변수가 포함된 데이터 프레임 요약*
 
@@ -390,9 +424,33 @@ R은 동적으로 입력되는 언어이므로 필요에 따라 데이터 형식
 	## Ensure the coding is consistent and convert column to a factor
 	cadairydata$Month <- as.factor(substr(cadairydata$Month, 1, 3))
 
-실험을 다시 실행하고 R 장치 포트의 출력을 **시각화**하면 그림 10과 같은 결과가 표시됩니다.
+실험을 다시 실행하고 출력 로그를 봅니다. 예상 결과는 그림 10과 같습니다.
 
-![요소 수준의 개수가 올바른 데이터 프레임 요약][11]
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] 
+    [ModuleOutput] 'data.frame':	228 obs. of  9 variables:
+    [ModuleOutput] 
+    [ModuleOutput]  $ Column 0         : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year.Month       : num  1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Cotagecheese.Prod: num  4.37 3.69 4.54 4.28 4.47 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Icecream.Prod    : num  51.6 56.1 68.5 65.7 73.7 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Milk.Prod        : num  2.11 1.93 2.16 2.13 2.23 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ N.CA.Fat.Price   : num  0.98 0.892 0.892 0.897 0.897 ...
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving variable  cadairydata  ..."
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
 
 *그림 10. 요소 수준의 개수가 올바른 데이터 프레임 요약*
 
@@ -411,9 +469,29 @@ R 데이터 프레임은 강력한 필터링 기능을 지원합니다. 행이�
 	# Remove two columns we do not need
 	cadairydata <- cadairydata[, c(-1, -2)]
 
-자체 실험에서 이 코드를 실행하고 R 장치 포트에서 **시각화**를 클릭하여 결과를 확인하세요. 이러한 결과는 그림 11에 나와 있습니다.
+자체 실험에서 이 코드를 실행하고 출력 로그에서 결과를 확인하세요. 이러한 결과는 그림 11에 나와 있습니다.
 
-![두 개의 열을 제거한 데이터 프레임 요약][12]
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] 
+    [ModuleOutput] 'data.frame':	228 obs. of  7 variables:
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Cotagecheese.Prod: num  4.37 3.69 4.54 4.28 4.47 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Icecream.Prod    : num  51.6 56.1 68.5 65.7 73.7 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Milk.Prod        : num  2.11 1.93 2.16 2.13 2.23 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ N.CA.Fat.Price   : num  0.98 0.892 0.892 0.897 0.897 ...
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving variable  cadairydata  ..."
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
 
 *그림 11. 두 개의 열을 제거한 데이터 프레임 요약*
 
@@ -439,9 +517,31 @@ R 데이터 프레임은 강력한 필터링 기능을 지원합니다. 행이�
 	## Compute the new column for the dataframe
 	cadairydata$Month.Count <- num.month(cadairydata$Year, cadairydata$Month.Number)
 
-이제 업데이트된 실험을 실행하고 R 장치 포트에서 **시각화**를 사용하여 결과를 확인하세요. 이러한 결과는 그림 12에 나와 있습니다.
+이제 업데이트된 실험을 실행하고 출력 로그를 사용하여 결과를 보세요. 이러한 결과는 그림 12에 나와 있습니다.
 
-![열이 추가된 데이터 프레임 요약][13]
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] 
+    [ModuleOutput] 'data.frame':	228 obs. of  8 variables:
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Cotagecheese.Prod: num  4.37 3.69 4.54 4.28 4.47 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Icecream.Prod    : num  51.6 56.1 68.5 65.7 73.7 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Milk.Prod        : num  2.11 1.93 2.16 2.13 2.23 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ N.CA.Fat.Price   : num  0.98 0.892 0.892 0.897 0.897 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving variable  cadairydata  ..."
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
 
 *그림 12. 열이 추가된 데이터 프레임 요약*
 
@@ -502,9 +602,31 @@ R에서 방어적 프로그래밍이 익숙하지 않으면 이 코드가 모두
 
 4. 예외가 발생해 프로세스를 갑자기 중단하지 않도록 로그 계산이 `tryCatch()`로 래핑됩니다. `tryCatch()`가 없으면 R 함수에 의해 발생한 대부분의 오류는 중지 작업을 수행하는 중지 신호가 됩니다.
 
-자체 실험에서 이 R 코드를 실행하고 output.log 파일의 인쇄된 출력을 살펴보세요. 그림 13에서 볼 수 있듯이 이제 R 장치 메뉴에서 **시각화**를 사용하여 네 개의 열 값이 변환된 것을 확인할 수 있습니다.
+자체 실험에서 이 R 코드를 실행하고 output.log 파일의 인쇄된 출력을 살펴보세요. 그림 13에서 볼 수 있듯이 이제 로그에 있는 네 개의 열 값이 변환된 것을 확인할 수 있습니다.
 
-![데이터 프레임의 변환된 값 요약][14]
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] 
+    [ModuleOutput] 'data.frame':	228 obs. of  8 variables:
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Cotagecheese.Prod: num  1.47 1.31 1.51 1.45 1.5 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Icecream.Prod    : num  5.82 5.9 6.1 6.06 6.17 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Milk.Prod        : num  7.66 7.57 7.68 7.66 7.71 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ N.CA.Fat.Price   : num  6.89 6.79 6.79 6.8 6.8 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving variable  cadairydata  ..."
+    [ModuleOutput] 
+    [ModuleOutput] [1] "Saving the following item(s):  .maml.oport1"
 
 *그림 13. 데이터 프레임의 변환된 값 요약*
 
@@ -522,8 +644,7 @@ R에서 방어적 프로그래밍이 익숙하지 않으면 이 코드가 모두
 
 이미 언급했듯이 시계열은 시간으로 인덱싱된 일련의 데이터 값입니다. R 시계열 개체는 시간 인덱스를 만들고 관리하는 데 사용됩니다. 시계열 개체를 사용하면 다음과 같은 몇 가지 이점이 있습니다. 시계열 개체를 사용하면 개체에 캡슐화된 시계열 인덱스 값을 관리하지 않아도 됩니다. 또한 시계열 개체를 통해 그리기, 인쇄, 모델링을 위한 다양한 시계열 메서드를 사용할 수 있습니다.
 
-POSIXct 시계열 클래스가 일반적으로 사용되며 비교적 간단합니다. 이 시계열 클래스는 1970년 1월 1일 Epoch 시작부터 시간을 측정합니다. 이 예제에서는 POSIXct 시계열 개체를 사용합니다. 널리 사용되는 다른 R 시계열 개체 클래스에는 확장 가능한 시계열인 zoo와 xts가 있습니다. 
-<!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
+POSIXct 시계열 클래스가 일반적으로 사용되며 비교적 간단합니다. 이 시계열 클래스는 1970년 1월 1일 Epoch 시작부터 시간을 측정합니다. 이 예제에서는 POSIXct 시계열 개체를 사용합니다. 널리 사용되는 다른 R 시계열 개체 클래스에는 확장 가능한 시계열인 zoo와 xts가 있습니다. <!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
 
 ###	시계열 개체 예
 
@@ -539,9 +660,27 @@ POSIXct 시계열 클래스가 일반적으로 사용되며 비교적 간단합�
 	cadairydata <- maml.mapInputPort(1)
 	str(cadairydata) # Check the results
 
-이제 실험을 실행하면 R 장치 포트의 출력이 그림 14와 같이 표시됩니다.
+이제 실험을 실행하면 새 R 스크립트 실행 모양의 로그는 그림 14와 같아야 합니다.
 
-![R 스크립트 실행 모듈의 데이터 프레임 요약][15]
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] 
+    [ModuleOutput] 'data.frame':	228 obs. of  8 variables:
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Cotagecheese.Prod: num  1.47 1.31 1.51 1.45 1.5 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Icecream.Prod    : num  5.82 5.9 6.1 6.06 6.17 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Milk.Prod        : num  7.66 7.57 7.68 7.66 7.71 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ N.CA.Fat.Price   : num  6.89 6.79 6.79 6.8 6.8 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
 
 *(그림 14). R 스크립트 실행 모듈의 데이터 프레임 요약*
 
@@ -560,9 +699,29 @@ POSIXct 시계열 클래스가 일반적으로 사용되며 비교적 간단합�
 
 	str(cadairydata) # Check the results
 
-이제 R 장치 출력을 확인하세요. 그림 15와 같이 표시됩니다.
+이제 로그를 확인하세요. 그림 15와 같이 표시됩니다.
 
-![시계열 개체가 포함된 데이터 프레임 요약][16]
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] 
+    [ModuleOutput] 'data.frame':	228 obs. of  9 variables:
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Cotagecheese.Prod: num  1.47 1.31 1.51 1.45 1.5 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Icecream.Prod    : num  5.82 5.9 6.1 6.06 6.17 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Milk.Prod        : num  7.66 7.57 7.68 7.66 7.71 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ N.CA.Fat.Price   : num  6.89 6.79 6.79 6.8 6.8 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Time             : POSIXct, format: "1995-01-01" "1995-02-01" ...
 
 *그림 15. 시계열 개체가 포함된 데이터 프레임 요약*
 
@@ -663,9 +822,59 @@ R ccf 개체로서 상관관계를 계산할 코드는 다음과 같습니다.
 
 	cadairycorrelations
 
-이 코드를 실행하면 그림 18과 같이 출력됩니다.
+이 코드를 실행하면 그림 18과 같은 로그가 생성됩니다.
 
-![쌍별 상관관계를 분석하여 얻은 ccf 개체 목록][19]
+    [ModuleOutput] Loading objects:
+    [ModuleOutput]   port1
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] [[1]]
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] Autocorrelations of series 'X', by lag
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput]    -1     0     1 
+    [ModuleOutput] 0.148 0.358 0.317 
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] [[2]]
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] Autocorrelations of series 'X', by lag
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput]     -1      0      1 
+    [ModuleOutput] -0.395 -0.186 -0.238 
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] [[3]]
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] Autocorrelations of series 'X', by lag
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput]     -1      0      1 
+    [ModuleOutput] -0.059 -0.089 -0.127 
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] [[4]]
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] Autocorrelations of series 'X', by lag
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput]    -1     0     1 
+    [ModuleOutput] 0.140 0.294 0.293 
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] [[5]]
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput] Autocorrelations of series 'X', by lag
+    [ModuleOutput] 
+    [ModuleOutput] 
+    [ModuleOutput]     -1      0      1 
+    [ModuleOutput] -0.002 -0.074 -0.124 
 
 *그림 18. 쌍별 상관관계를 분석하여 얻은 ccf 개체 목록*
 
@@ -742,9 +951,29 @@ R ccf 개체로서 상관관계를 계산할 코드는 다음과 같습니다.
 
 	str(cadairydata)
 
-이 코드를 실행하고 R 장치 출력 포트를 살펴보세요. 결과는 그림 21과 같이 표시됩니다.
+이 코드를 실행하고 로그를 확인합니다. 결과는 그림 21과 같이 표시됩니다.
 
-![데이터 프레임 요약][22]
+    [ModuleOutput] [1] "Loading variable port1..."
+    [ModuleOutput] 
+    [ModuleOutput] 'data.frame':	228 obs. of  9 variables:
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Number     : int  1 2 3 4 5 6 7 8 9 10 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Year             : int  1995 1995 1995 1995 1995 1995 1995 1995 1995 1995 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month            : Factor w/ 12 levels "Apr","Aug","Dec",..: 5 4 8 1 9 7 6 2 12 11 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Cotagecheese.Prod: num  1.47 1.31 1.51 1.45 1.5 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Icecream.Prod    : num  5.82 5.9 6.1 6.06 6.17 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Milk.Prod        : num  7.66 7.57 7.68 7.66 7.71 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ N.CA.Fat.Price   : num  6.89 6.79 6.79 6.8 6.8 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
+    [ModuleOutput] 
+    [ModuleOutput]  $ Time             : POSIXct, format: "1995-01-01" "1995-02-01" ...
 
 *그림 21. 데이터 프레임 요약*
 
@@ -1117,4 +1346,4 @@ R 시계열 패키지 카탈로그는 다음 CRAN Task View for time series anal
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

@@ -30,7 +30,7 @@
 
 이 자습서에서는 Mac을 사용하여 빈 Cordova 앱을 만들고 Mobile Engagement SDK를 통합합니다. 기본 분석 데이터를 수집하고 iOS용 APNS(Apple 푸시 알림 시스템) 및 Android용 GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받습니다. 테스트를 위해 iOS 또는 Android 장치에 이 앱을 배포합니다.
 
-> [AZURE.IMPORTANT]이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+> [AZURE.IMPORTANT]이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-KR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
@@ -85,6 +85,10 @@
 	        --variable AZME_ANDROID_GOOGLE_PROJECT_NUMBER=... (From your Google Cloud console for sending push notifications) 
 	        --variable AZME_REDIRECT_URL=... (URL scheme which triggers the app for deep linking)
 	        --variable AZME_ENABLE_LOG=true|false
+
+*Android 도달률 아이콘*: 확장자 없고 그릴 수 있는 접두사도 없는 리소스 이름(예: mynotificationicon)이어야 하며 아이콘 파일을 사용자의 Android 프로젝트(platforms/android/res/drawable)에 복사해야 합니다.
+
+*iOS 도달률 아이콘*: 확장자가 있는 리소스 이름(예: mynotificationicon.png)이어야 하며 XCode를 사용하여 아이콘 파일을 사용자의 iOS 프로젝트에 추가해야 합니다(파일 추가 메뉴 사용).
 
 ##<a id="monitor"></a>실시간 모니터링 사용
 
@@ -191,7 +195,7 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
 
 3. 입력을 제공하여 캠페인을 만듭니다.**[Android]**
 	
-	- 캠페인에 **이름**을 입력합니다. 
+	- 캠페인에 **이름**을 제공합니다. 
 	- **전달 형식**을 *시스템 알림* *단순*으로 선택합니다.
 	- 전달 시간을 *"언제든지"*로 선택합니다.
 	- 푸시에서 첫째 줄에 있는 알림에 **제목**을 제공합니다.
@@ -201,7 +205,7 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
 
 4. 입력을 제공하여 캠페인을 만듭니다.**[iOS]**
 
-	- 캠페인에 **이름**을 입력합니다. 
+	- 캠페인에 **이름**을 제공합니다. 
 	- 배달 시간을 *"Out of app only(앱 외부에서만)"*으로 선택합니다.
 	- 푸시에서 첫째 줄에 있는 알림에 **제목**을 제공합니다.
 	- 메시지 본문으로 사용하는 알림에 **메시지**를 제공합니다. 
@@ -212,7 +216,7 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
 
 	![][8]
 
-6. [선택 사항] 작업 URL을 제공할 수도 있습니다. 플러그 인의 **AZME REDIRECT URL** 변수를 구성하는 동안 제공된 URL 체계가 사용되는지 확인합니다.(예: **myapp://test*).
+6. [선택 사항] 작업 URL을 제공할 수도 있습니다. 플러그 인의 **AZME REDIRECT URL** 변수를 구성하는 동안 제공된 URL 체계가 사용되는지 확인합니다(예: **myapp://test*).
 
 7. 가능한 가장 기본적인 캠페인 설정을 완료했습니다. 이제 다시 아래로 스크롤하고 **만들기** 단추를 클릭하여 캠페인을 저장합니다.
 
@@ -241,4 +245,4 @@ GCM 알림은 Android 에뮬레이터에서 지원되므로 에뮬레이터를 �
 [11]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-android.png
 [12]: ./media/mobile-engagement-cordova-get-started/campaign-first-params-ios.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

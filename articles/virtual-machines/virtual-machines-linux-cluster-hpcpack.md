@@ -1,6 +1,6 @@
 <properties
- pageTitle="HPC 팩 클러스터의 Linux 계산 VM 사용 | Microsoft Azure"
- description="Windows Server를 실행하는 헤드 노드와 Linux 계산 노드를 포함하는 HPC Pack 클러스터의 Azure 배포를 스크립팅하는 방법을 알아봅니다."
+ pageTitle="HPC 팩 클러스터의 Linux 계산 VM | Microsoft Azure"
+ description="Windows Server를 실행하는 헤드 노드와 Linux 계산 노드를 포함하는 HPC Pack 클러스터의 Azure 배포를 스크립팅하는 방법입니다."
  services="virtual-machines"
  documentationCenter=""
  authors="dlepow"
@@ -20,15 +20,17 @@
 
 이 문서에서는 Azure PowerShell 스크립트를 사용하여 Windows Server를 실행하는 헤드 노드 1개와 CentOS Linux 배포를 실행하는 여러 계산 노드를 포함하는 Microsoft HPC Pack 클러스터를 Azure에서 설정하는 방법을 보여 줍니다. 또한 데이터 파일을 Linux 계산 노드로 이동하는 여러 가지 방법을 살펴보겠습니다. 이 클러스터를 사용하여 Azure에서 Linux HPC 작업을 실행할 수 있습니다.
 
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 만든 리소스에 대해 설명합니다.
+
 다음 다이어그램은 만들려는 HPC Pack 클러스터를 개략적으로 보여 줍니다.
 
 ![Linux 노드가 포함된 HPC 클러스터][scenario]
 
 ## Linux 계산 노드가 포함된 HPC Pack 클러스터 배포
 
-Microsoft HPC Pack IaaS 배포 스크립트(**New-HpcIaaSCluster.ps1**)를 사용하여 IaaS(Azure 인프라 서비스)에서 클러스터 배포를 자동화합니다. 이 Azure PowerShell 스크립트는 빠른 배포를 위해 Azure 마켓플레이스의 HPC Pack VM 이미지를 사용하며 배포가 쉽고 유연하도록 포괄적인 구성 매개 변수 집합을 제공합니다. 스크립트는 Azure 가상 네트워크, 저장소 계정, 클라우드 서비스, 도메인 컨트롤러, 선택적 개별 SQL Server 데이터베이스 서버, 클러스터 헤드 노드, 계산 노드, 브로커 노드, Azure PaaS("버스트") 노드 및 Linux 계산 노드를 배포합니다(Linux 지원은 [HPC Pack 2012 R2 업데이트 2](https://technet.microsoft.com/library/mt269417.aspx)에서 도입됨).
+Microsoft HPC 팩 IaaS 배포 스크립트(**New-HpcIaaSCluster.ps1**)를 사용하여 IaaS(Azure 인프라 서비스)에서 클러스터 배포를 자동화합니다. 이 Azure PowerShell 스크립트는 빠른 배포를 위해 Azure 마켓플레이스의 HPC Pack VM 이미지를 사용하며 배포가 쉽고 유연하도록 포괄적인 구성 매개 변수 집합을 제공합니다. 스크립트는 Azure 가상 네트워크, 저장소 계정, 클라우드 서비스, 도메인 컨트롤러, 선택적 개별 SQL Server 데이터베이스 서버, 클러스터 헤드 노드, 계산 노드, 브로커 노드, Azure PaaS("버스트") 노드 및 Linux 계산 노드를 배포합니다(Linux 지원은 [HPC Pack 2012 R2 업데이트 2](https://technet.microsoft.com/library/mt269417.aspx)에서 도입됨).
 
-HPC Pack 클러스터 배포 옵션에 대한 개요는 [HPC Pack 2012 R2 및 HPC Pack 2012용 시작 가이드](https://technet.microsoft.com/library/jj884144.aspx)를 참조하세요.
+HPC 팩 클러스터 배포 옵션에 대한 개요는 [HPC 팩 2012 R2 및 HPC 팩 2012용 시작 가이드](https://technet.microsoft.com/library/jj884144.aspx)를 참조하세요.
 
 ### 필수 조건
 
@@ -36,7 +38,7 @@ HPC Pack 클러스터 배포 옵션에 대한 개요는 [HPC Pack 2012 R2 및 HP
 
 * **Azure PowerShell** - 클라이언트 컴퓨터에 [Azure PowerShell(버전 0.8.10 이상)을 설치 및 구성](../powershell-install-configure.md)합니다.
 
-* **HPC Pack IaaS 배포 스크립트** - [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=44949)에서 최신 버전의 스크립트를 다운로드하고 압축을 풉니다. `New-HPCIaaSCluster.ps1 –Version`을 실행하여 스크립트 버전을 확인할 수 있습니다. 이 문서는 4.4.0 이상 버전의 스크립트를 기반으로 합니다.
+* **HPC 팩 IaaS 배포 스크립트** - [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=44949)에서 최신 버전의 스크립트를 다운로드하고 압축을 풉니다. `New-HPCIaaSCluster.ps1 –Version`을 실행하여 스크립트 버전을 확인할 수 있습니다. 이 문서는 4.4.0 이상 버전의 스크립트를 기반으로 합니다.
 
 * **Azure 구독** - Azure Global 또는 Azure China 서비스의 구독을 사용할 수 있습니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
@@ -85,7 +87,7 @@ HPC Pack IaaS 배포 스크립트는 HPC 클러스터의 인프라를 설명하�
 
 * **IaaSClusterConfig** - 구성 파일의 루트 요소입니다.
 
-* **Subscription** - HPC Pack 클러스터를 배포하는 데 사용되는 Azure 구독입니다. 아래 명령을 사용하여 Azure 구독 이름이 구성되어 있고 클라이언트 컴퓨터에서 고유한지 확인합니다. 이 샘플에서는 Azure 구독 "Subscription-1"을 사용합니다.
+* **Subscription** - HPC 팩 클러스터를 배포하는 데 사용되는 Azure 구독입니다. 아래 명령을 사용하여 Azure 구독 이름이 구성되어 있고 클라이언트 컴퓨터에서 고유한지 확인합니다. 이 샘플에서는 Azure 구독 "Subscription-1"을 사용합니다.
 
     ```
     PS > Get-AzureSubscription –SubscriptionName <SubscriptionName>
@@ -93,19 +95,19 @@ HPC Pack IaaS 배포 스크립트는 HPC 클러스터의 인프라를 설명하�
 
     >[AZURE.NOTE]또는 사용하려는 구독을 구독 ID로 지정할 수 있습니다. 스크립트 폴더의 Manual.rtf 파일을 참조하세요.
 
-* **StorageAccount** - HPC Pack 클러스터에 대한 모든 영구적 데이터는 지정된 저장소 계정(이 예제에서는 allvhdsje)에 저장됩니다. 저장소 계정이 없으면 스크립트에서 **Location**에 지정된 지역에 만듭니다.
+* **StorageAccount** - HPC 팩 클러스터에 대한 모든 영구적 데이터는 지정된 저장소 계정(이 예제에서는 allvhdsje)에 저장됩니다. 저장소 계정이 없으면 스크립트에서 **Location**에 지정된 지역에 만듭니다.
 
-* **Location** - HPC Pack 클러스터를 배포할 Azure 지역(이 예제에서는 일본 동부)입니다.
+* **Location** - HPC 팩 클러스터를 배포할 Azure 지역(이 예제에서는 일본 동부)입니다.
 
 * **VNet** - HPC 클러스터를 만들 가상 네트워크 및 서브넷의 설정입니다. 이 스크립트를 실행하기 전에 가상 네트워크 및 서브넷을 직접 만들 수 있거나, 스크립트에서 주소 공간이 192.168.0.0/20인 가상 네트워크와 주소 공간이 192.168.0.0/23인 서브넷을 만듭니다. 이 예제에서는 스크립트가 가상 네트워크 centos7rdmavnetje 및 서브넷 CentOS7RDMACluster를 만듭니다.
 
-* **Domain** - HPC Pack 클러스터에 대한 Active Directory 도메인 설정입니다. 스크립트에서 만든 모든 Windows VM이 도메인에 가입합니다. 현재 스크립트는 ExistingDC, NewDC 및 HeadNodeAsDC의 세 가지 도메인 옵션을 지원합니다. 이 예제에서는 hpc.local의 정규화된 도메인 이름으로 헤드 노드를 도메인 컨트롤러로 구성합니다.
+* **Domain** - HPC 팩 클러스터에 대한 Active Directory 도메인 설정입니다. 스크립트에서 만든 모든 Windows VM이 도메인에 가입합니다. 현재 스크립트는 ExistingDC, NewDC 및 HeadNodeAsDC의 세 가지 도메인 옵션을 지원합니다. 이 예제에서는 hpc.local의 정규화된 도메인 이름으로 헤드 노드를 도메인 컨트롤러로 구성합니다.
 
-* **Database** - HPC Pack 클러스터에 대한 데이터베이스 설정입니다. 현재 스크립트는 ExistingDB, NewRemoteDB 및 LocalDB의 세 가지 데이터베이스 옵션을 지원합니다. 이 예제에서는 헤드 노드에 로컬 데이터베이스를 만듭니다.
+* **Database** - HPC 팩 클러스터에 대한 데이터베이스 설정입니다. 현재 스크립트는 ExistingDB, NewRemoteDB 및 LocalDB의 세 가지 데이터베이스 옵션을 지원합니다. 이 예제에서는 헤드 노드에 로컬 데이터베이스를 만듭니다.
 
-* **HeadNode** - HPC Pack 헤드 노드에 대한 설정입니다. 이 예제에서는 클라우드 서비스 centos7rdma-je에 CentOS7RDMA-HN이라는 크기 A7 헤드 노드를 만듭니다. 원격(도메인에 가입되지 않은) 클라이언트 컴퓨터에서 HPC 작업 제출을 지원하기 위해 스크립트에서 HPC 작업 스케줄러 REST API 및 HPC 웹 포털을 사용하도록 설정합니다.
+* **HeadNode** - HPC 팩 헤드 노드에 대한 설정입니다. 이 예제에서는 클라우드 서비스 centos7rdma-je에 CentOS7RDMA-HN이라는 크기 A7 헤드 노드를 만듭니다. 원격(도메인에 가입되지 않은) 클라이언트 컴퓨터에서 HPC 작업 제출을 지원하기 위해 스크립트에서 HPC 작업 스케줄러 REST API 및 HPC 웹 포털을 사용하도록 설정합니다.
 
-* **LinuxComputeNodes** - HPC Pack Linux 계산 노드에 대한 설정입니다. 이 예제에서는 클라우드 서비스 centos7rdma-je에 두 개의 크기 A7 CentOS 7 Linux 계산 노드(CentOS7RDMA-LN1 및 CentOS7RDMA-LN2)를 만듭니다.
+* **LinuxComputeNodes** - HPC 팩 Linux 계산 노드에 대한 설정입니다. 이 예제에서는 클라우드 서비스 centos7rdma-je에 두 개의 크기 A7 CentOS 7 Linux 계산 노드(CentOS7RDMA-LN1 및 CentOS7RDMA-LN2)를 만듭니다.
 
 ### Linux 계산 노드에 대한 추가 고려 사항
 
@@ -189,7 +191,7 @@ Azure 파일 공유를 만들려면 [Microsoft Azure 파일 서비스 소개](ht
 
 이 예제에서 allvhdsje는 저장소 계정 이름이고, storageaccountkey는 저장소 계정 키이고, rdma는 Azure 파일 공유 이름입니다. Azure 파일 공유는 헤드 노드의 Z:에 탑재됩니다.
 
-Linux 노드에 Azure 파일 공유를 탑재하려면 헤드 노드에서 **clusrun** 명령을 실행합니다. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)**은 여러 노드에서 관리 작업을 수행할 수 있는 유용한 HPC Pack 도구입니다. 이 문서의 [Linux 노드에 대한 CLusrun](#CLusrun-for-Linux-nodes)도 참조하세요.
+Linux 노드에 Azure 파일 공유를 탑재하려면 헤드 노드에서 **clusrun** 명령을 실행합니다. **[Clusrun](https://technet.microsoft.com/library/cc947685.aspx)**은 여러 노드에서 관리 작업을 수행할 수 있는 유용한 HPC 팩 도구입니다. 이 문서의 [Linux 노드에 대한 CLusrun](#CLusrun-for-Linux-nodes)도 참조하세요.
 
 Windows PowerShell 창을 열고 다음 명령을 입력합니다.
 
@@ -292,7 +294,7 @@ HPC Pack **clusrun** 도구를 사용하여 명령 창 또는 HPC 클러스터 �
 
 * 클러스터에서 Linux 워크로드를 실행합니다. 예제는 [Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 NAMD 실행](virtual-machines-linux-cluster-hpcpack-namd.md)을 참조하세요.
 
-* 클러스터를 더 많은 노드로 확장하거나 MPI 작업을 실행할 크기 [A8 또는 A9](virtual-machines-a8-a9-a10-a11-specs.md) 컴퓨터 노드를 배포합니다.
+* 클러스터를 더 많은 노드로 확장하거나 MPI 작업을 실행할 크기 [A8 또는 A9](virtual-machines-a8-a9-a10-a11-specs.md) 계산 노드를 배포합니다.
 
 * Azure 리소스 관리자로 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/)을 사용하여 많은 수의 Linux 계산 노드로 HPC 팩의 배포를 가속화합니다.
 
@@ -310,4 +312,4 @@ HPC Pack **clusrun** 도구를 사용하여 명령 창 또는 HPC 클러스터 �
 [nfsperm]: ./media/virtual-machines-linux-cluster-hpcpack/nfsperm.png
 [nfsmanage]: ./media/virtual-machines-linux-cluster-hpcpack/nfsmanage.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

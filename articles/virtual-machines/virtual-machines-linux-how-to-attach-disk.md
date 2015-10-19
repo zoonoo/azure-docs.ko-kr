@@ -1,6 +1,6 @@
 <properties
 	pageTitle="Linux VM에 디스크 연결 | Microsoft Azure"
-	description="Azure에서 실행되는 Linux 가상 컴퓨터에 데이터 디스크를 연결하고 사용 가능하도록 초기화하는 방법을 알아봅니다."
+	description="Linux를 실행하는 Azure 가상 컴퓨터에 데이터 디스크를 연결하고 사용 가능하도록 초기화하는 방법을 알아봅니다."
 	services="virtual-machines"
 	documentationCenter=""
 	authors="dsk-2015"
@@ -150,7 +150,7 @@
 
 	또는 SUSE Linux 기반 시스템에서는 약간 다른 형식을 사용해야 할 수 있습니다.
 
-		/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /   ext3   defaults   1   2
+		/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext3   defaults   1   2
 
 	이제 이전 단계에서 만든 예제 탑재 지점 `/datadrive`를 사용하여 파일 시스템을 탑재 해제했다가 다시 탑재하여 파일 시스템이 제대로 탑재되었는지 테스트할 수 있습니다.
 
@@ -173,4 +173,4 @@
 [Agent]: virtual-machines-linux-agent-user-guide.md
 [Logon]: virtual-machines-linux-how-to-log-on.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

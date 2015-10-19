@@ -1,19 +1,19 @@
 <properties 
    pageTitle="Visual Studio에서 Azure 클라우드 서비스 또는 가상 컴퓨터 디버깅 | Microsoft Azure"
-	description="Visual Studio에서 클라우드 서비스 또는 가상 컴퓨터 디버깅"
-	services="visual-studio-online"
-	documentationCenter="na"
-	authors="patshea123"
-	manager="douge"
-	editor="tlee"/>
+   description="Visual Studio에서 클라우드 서비스 또는 가상 컴퓨터 디버깅"
+   services="visual-studio-online"
+   documentationCenter="na"
+   authors="patshea123"
+   manager="douge"
+   editor="tlee" />
 <tags 
    ms.service="visual-studio-online"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/14/2015"
-	ms.author="patshea"/>
+   ms.devlang="multiple"
+   ms.topic="article"
+   ms.tgt_pltfrm="multiple"
+   ms.workload="na"
+   ms.date="08/14/2015"
+   ms.author="patshea" />
 
 # Visual Studio에서 Azure 클라우드 서비스 또는 가상 컴퓨터 디버깅
 
@@ -42,7 +42,7 @@ Azure 계산 에뮬레이터를 사용하여 로컬 컴퓨터에서 클라우드
     **참고:** 서비스 실행이나 디버깅을 중지해도 로컬 계산 에뮬레이터 및 저장소 에뮬레이터는 중지되지 않습니다. 알림 영역에서 이 에뮬레이터들을 명시적으로 중지해야 합니다.
 
 
-## Azure 내에서 클라우드 서비스 디버깅
+## Azure에서 클라우드 서비스 디버그
 
 원격 컴퓨터에서 클라우드 서비스를 디버그하려면, 클라우드 서비스를 배포할 때 명시적으로 이 기능을 사용할 수 있어야 역할 인스턴스에서 실행되는 서비스(예: msvsmon.exe)가 설치됩니다. 서비스를 게시할 때 원격 디버깅을 사용하지 않으면 원격 디버깅을 사용한 서비스를 다시 게시해야 합니다.
 
@@ -190,4 +190,4 @@ Visual Studio ASP.NET 프로젝트는 앱 테스트를 위해 사용할 수 있�
 - **Intellitrace**를 사용하여 릴리스 서버에서 호출 및 이벤트 로그를 수집합니다. [IntelliTrace 및 Visual Studio를 사용하여 게시된 클라우드 서비스 디버깅](http://go.microsoft.com/fwlink/?LinkID=623016)을 참조하세요.
 - **Azure 진단**을 이용하여 개발 환경 또는 Azure에서 실행되는 역할 내에서 실행되는 코드의 자세한 내용을 기록합니다. [Azure 진단을 사용하여 로깅 데이터 수집](http://go.microsoft.com/fwlink/p/?LinkId=400450)을 참조하세요.
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO2-->

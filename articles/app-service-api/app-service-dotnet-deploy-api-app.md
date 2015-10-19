@@ -50,7 +50,7 @@ API 앱이 웹앱을 기반으로 한다는 사실은 ASP.NET 이외의 플랫�
 
 	![URL을 클릭합니다.](./media/app-service-dotnet-deploy-api-app/clickurl.png)
 
-	"API app을 성공적으로 만들었습니다." 페이지가 나타납니다.
+	"API 앱을 성공적으로 만들었습니다." 페이지가 나타납니다.
 
 3. 브라우저 주소 표시줄에서 URL의 끝에 "swagger/"를 추가합니다.
 
@@ -78,8 +78,6 @@ API 앱이 웹앱을 기반으로 한다는 사실은 ASP.NET 이외의 플랫�
 			// todo: save the contact somewhere
 			return Request.CreateResponse(HttpStatusCode.Created);
 		}
-
-	![컨트롤러에 Post 메서드 추가](./media/app-service-dotnet-deploy-api-app/30-post-method-added-v3.png)
 
 	이 코드는 새 `Contact` 인스턴스를 API에 게시하는 데 사용할 수 있는 **Post** 메서드를 추가합니다.
 
@@ -126,4 +124,4 @@ API 앱이 웹앱을 기반으로 한다는 사실은 ASP.NET 이외의 플랫�
 Visual Studio의 직접 배포 기능을 통해 API를 빠르게 반복하고 배포하며 API가 올바르게 작동하는지 테스트하는 작업을 얼마나 쉽게 수행할 수 있는지 살펴봤습니다. [다음 자습서](../app-service-dotnet-remotely-debug-api-app.md)에서는 Azure에서 API 앱이 실행되는 동안 API 앱을 디버그하는 방법을 확인할 수 있습니다.
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/23/2015"
+	ms.date="10/04/2015"
 	ms.author="awills"/>
 
 
@@ -66,7 +66,7 @@ Azure에서 [리소스][roles]는 서비스의 인스턴스입니다. 이 리소
 
 Application Insights SDK의 설치 및 구성은 작업하는 플랫폼에 따라 달라 집니다. ASP.NET 앱의 경우, 쉽습니다.
 
-1. Visual Studio에서 데스크톱 앱 프로젝트의 NuGet 패키지를 편집합니다.
+1. Visual Studio에서 웹앱 프로젝트의 NuGet 패키지를 편집합니다.
 
     ![마우스 오른쪽 단추로 프로젝트 클릭 및 Nuget 패키지 관리 선택](./media/app-insights-start-monitoring-app-health-usage/03-nuget.png)
 
@@ -110,8 +110,8 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 #### 데이터가 없나요?
 
-* [검색][diagnostic] 타일을 열고 개별 이벤트를 봅니다.
 * 응용 프로그램을 사용하여 여러 페이지를 열어 원격 분석을 생성해 봅니다.
+* [검색][diagnostic] 타일을 열고 개별 이벤트를 봅니다. 경우에 따라 메트릭 파이프라인을 통해 들어오려면 이벤트가 약간 더 걸립니다.
 * 몇 초 정도 기다렸다가 **새로고침**을 클릭합니다. 차트는 주기적으로 새로 고쳐지지만 일부 데이터가 표시되기를 기다리는 경우에는 수동으로 새로 고칠 수 있습니다.
 * [문제 해결][qna]을 참조하세요.
 
@@ -119,7 +119,9 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 이제 응용 프로그램을 IIS 또는o Azure에 배포하고 누적되는 데이터를 관찰합니다.
 
-디버그 모드에서 실행할 때는 파이프라인을 통해 원격 분석이 신속하게 수행되므로 데이터가 몇 초 내에 표시됩니다. 앱을 배포할 때는 데이터가 더 천천히 누적됩니다.
+![Visual Studio를 사용하여 앱을 게시합니다.](./media/app-insights-start-monitoring-app-health-usage/15-publish.png)
+
+디버그 모드에서 실행할 때는 파이프라인을 통해 원격 분석이 신속하게 수행되므로 데이터가 몇 초 내에 표시됩니다. 릴리스 구성에서 앱을 배포할 때는 데이터가 더 천천히 누적됩니다.
 
 #### 서버에 게시한 후 데이터가 없나요?
 
@@ -133,19 +135,6 @@ Visual Studio에 전송한 이벤트 수가 표시됩니다.
 
 [이 문제 해결 항목](app-insights-troubleshoot-faq.md#NuGetBuild)을 참조하세요.
 
-
-## 응용 프로그램 버전 추적
-
-빌드 프로세스에서 `buildinfo.config`가 생성되었는지 확인합니다. .csproj 파일에서 다음을 추가합니다.
-
-```XML
-
-    <PropertyGroup>
-      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
-    </PropertyGroup> 
-```
-
-빌드 정보가 있는 경우 Application Insights 웹 모듈에서 원격 분석의 모든 항목에 **응용 프로그램 버전**을 속성으로 자동으로 추가합니다. 이렇게 하면 [진단 검색][diagnostic]을 수행하거나 [메트릭을 탐색][metrics]할 때 버전을 기준으로 필터링할 수 있습니다.
 
 
 ## 5\. 종속성 추적(및 IIS 성능 카운터 추가)
@@ -171,19 +160,16 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 #### Azure 클라우드 서비스 프로젝트 만들기인 경우
 
-[웹 및 작업자 역할에 스크립트 추가](app-insights-cloudservices.md)
+[웹 및 작업자 역할에 스크립트를 추가합니다](app-insights-cloudservices.md).
 
 
 
 ## 6\. 클라이언트쪽 모니터링을 추가 합니다.
 
-응용 프로그램의 서버(백엔드)에서 원격 분석 데이터를 보내는 SDK를 설치 했습니다. 이제 클라이언트쪽 모니터링을 추가할 수 있습니다. 이 사용자, 세션, 페이지 보기 및 모든 예외 또는 클라이언트에서 발생하는 충돌에 데이터를 제공합니다.
+응용 프로그램의 서버(백엔드)에서 원격 분석 데이터를 보내는 SDK를 설치 했습니다. 이제 클라이언트쪽 모니터링을 추가할 수 있습니다. 이 사용자, 세션, 페이지 보기 및 모든 예외 또는 브라우저에서 발생하는 충돌에 데이터를 제공합니다. 사용자는 응용 프로그램과 사용자의 고객이 함께 작동하는지 추적하는 코드를 오른쪽 아래의 클릭과 키 입력 세부 수준에서 작성할 수 있습니다.
 
-사용자는 응용 프로그램과 사용자의 고객이 함께 작동하는지 추적하는 코드를 오른쪽 아래의 클릭과 키 입력 세부 수준에서 작성할 수 있습니다.
 
-#### 클라이언트가 웹 브라우저인 경우
-
-앱을 웹 페이지에 표시하는 경우, 모든 페이지에 JavaScript 코드 조각을 추가합니다. Application Insights 리소스에서 코드를 가져옵니다.
+모든 페이지에 JavaScript 코드 조각을 추가합니다. Application Insights 리소스에서 코드를 가져옵니다.
 
 ![웹앱에서, 빠른 시작을 열고 '내 웹 페이지를 모니터링하는 코드를 얻기'를 클릭 합니다.](./media/app-insights-start-monitoring-app-health-usage/02-monitor-web-page.png)
 
@@ -191,12 +177,21 @@ Azure 웹앱의 제어판에서 Application Insights 확장을 추가합니다.
 
 [웹 페이지 추적에 대해 더 알아보기](app-insights-web-track-usage.md)
 
-#### 클라이언트가 장치 앱인 경우
 
-응용 프로그램이 휴대폰 또는 기타 장치 등의 클라이언트에 서비스를 제공하는 경우 사용자의 장치 앱에 [적절한 SDK](app-insights-platforms.md)를 추가하세요.
+## 응용 프로그램 버전 추적
 
-SDK 서버와 동일한 계측 키를 가진 SDK 클라이언트를 구성하는 경우 함께 볼 수 있도록 두 스트림은 통합 됩니다.
+MS 빌드 프로세스에서 `buildinfo.config`가 생성되었는지 확인합니다. .csproj 파일에서 다음을 추가합니다.
 
+```XML
+
+    <PropertyGroup>
+      <GenerateBuildInfoConfigFile>true</GenerateBuildInfoConfigFile>    <IncludeServerNameInBuildInfo>true</IncludeServerNameInBuildInfo>
+    </PropertyGroup> 
+```
+
+빌드 정보가 있는 경우 Application Insights 웹 모듈에서 원격 분석의 모든 항목에 **응용 프로그램 버전**을 속성으로 자동으로 추가합니다. 이렇게 하면 [진단 검색][diagnostic]을 수행하거나 [메트릭을 탐색][metrics]할 때 버전을 기준으로 필터링할 수 있습니다.
+
+그러나 빌드 버전 번호가 Visual Studio의 개발자 빌드가 아닌 MS 빌드에서 생성되도록 합니다.
 
 ## 7\. 설치 완료
 
@@ -237,7 +232,7 @@ Visual Studio는 Application Insights에서 리소스를 만들고, SDK를 프�
 
 프로젝트를 처음 만드는 경우 Microsoft Azure Preview에 로그인하거나 등록하라는 메시지가 표시됩니다.
 
-이 앱이 더 큰 응용 프로그램의 일부인 경우, **구성 설정**을 사용하여 다른 구성 요소와 동일한 리스소 그룹에 넣고자 할 수 있습니다.
+이 앱이 더 큰 응용 프로그램의 일부인 경우, **구성 설정**을 사용하여 다른 구성 요소와 동일한 리소스 그룹에 넣고자 할 수 있습니다.
 
 *Application Insights 옵션이 표시되지 않는 경우 Visual Studio 2013 업데이트 3 이상을 사용 중이고, 확장 및 업데이트에서 Application Insights Tools를 사용하도록 설정되어 있는지 확인합니다.*
 
@@ -273,4 +268,4 @@ Visual Studio는 Application Insights에서 리소스를 만들고, SDK를 프�
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-get-started.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

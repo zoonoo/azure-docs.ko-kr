@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="08/05/2015" 
+	ms.date="10/07/2015" 
 	ms.author="raynew"/>
 
 
@@ -51,10 +51,12 @@
 
 
 
+
+
 다음 표에서는 사이트 복구 배포에 SQL Server BCDR 기술을 통합하기 위한 권장 사항을 요약합니다.
 
 **버전** |**에디션** | **배포**웹사이트를 | **온-프레미스에서 온-프레미스로** | **온-프레미스에서 Azure로** 
----|---|---|---|
+---|---|---|---|---
 SQL Server 2014 또는 2012 | Enterprise | 장애 조치 클러스터 인스턴스 | AlwaysOn 가용성 그룹 | AlwaysOn 가용성 그룹
  | Enterprise | 고가용성을 위한 AlwaysOn 가용성 그룹 | AlwaysOn 가용성 그룹 | AlwaysOn 가용성 그룹
  | 표준 | 장애 조치 클러스터 인스턴스 | 로컬 미러를 사용하는 사이트 복구 복제 | 로컬 미러를 사용하는 사이트 복구 복제
@@ -362,4 +364,4 @@ SQL 표준 클러스터의 경우, 계획되지 않은 장애 조치 후의 장�
 
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

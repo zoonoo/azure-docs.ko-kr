@@ -1,26 +1,18 @@
-<properties 
-	pageTitle="Azure에서 Linux 환경의 Cassandra 실행"
-	description="Node.js 앱에서 Azure 가상 컴퓨터의 Linux에서 Cassandra 클러스터를 실행하는 방법에 대해 알아봅니다."
-	services="virtual-machines"
-	documentationCenter="nodejs"
-	authors="MikeWasson"
-	manager="wpickett"
-	editor=""/>
+<properties pageTitle="Azure에서 Linux 환경의 Cassandra 실행 | Microsoft Azure" description="Node.js 앱에서 Azure 가상 컴퓨터의 Linux에서 Cassandra 클러스터를 실행하는 방법" services="virtual-machines" documentationCenter="nodejs" authors="MikeWasson" manager="wpickett" editor="" azure-service-management"/>
 
 <tags 
-	ms.service="virtual-machines"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/30/2015"
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/30/2015" 
 	ms.author="mwasson"/>
 
 
-
-
-
 # Azure에서 Linux 환경의 Cassandra 실행 및 Node.js에서 Cassandra에 액세스 
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다. 템플릿을 사용하는 [리소스 관리자 배포 모델](virtual-machines-datastax-template.md)로 리소스를 만들 수도 있습니다.
 
 ## 개요
 Microsoft Azure는 운영 체제, 응용 프로그램 서버, 메시징 미들웨어뿐 아니라 상용 및 오픈 소스 모델의 SQL 및 NoSQL 데이터베이스를 포함하는 Microsoft 및 타사 소프트웨어를 실행하는 개방형 클라우드 플랫폼입니다. Azure를 비롯한 공용 클라우드에 복원 서비스를 빌드하려면 응용 프로그램 서버 및 저장소 계층 둘 다의 신중한 계획과 세밀한 아키텍처가 필요합니다. Cassandra의 분산 저장소 아키텍처는 클러스터 오류에 대한 내결함성이 있는 고가용성 시스템 빌드에 도움이 됩니다. Cassandra는 cassandra.apache.org에서 Apache Software Foundation에 의해 유지 관리되는 클라우드 규모의 NoSQL 데이터베이스입니다. Cassandra는 Java로 작성되었으므로 Windows 및 Linux 플랫폼에서 모두 실행됩니다.
@@ -71,7 +63,7 @@ Cassandra는 두 가지 유형의 데이터 무결성 모델, 즉 일관성과 �
 | 복제 계수(RF) | 3 |	지정된 행의 복제본 수 |
 | 일관성 수준(쓰기) | QUORUM [(RF/2) +1= 2] 공식 결과는 버림됨 | 응답이 호출자에게 전송되기 전에 최대 2개의 복제본에 씁니다. 세 번째 복제본은 최종 일관성 방식으로 작성됩니다. |
 | 일관성 수준(읽기) | QUORUM [(RF/2) +1= 2] 공식 결과는 버림됨 | 호출자에게 응답을 보내기 전에 2개의 복제본을 읽습니다. |
-| 복제 전략 | NetworkTopologyStrategy자세한 내용은 Cassandra 설명서의 [데이터 복제](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) 참조 | 배포 토폴로지를 이해하고 모든 복제본이 동일한 랙에 배포되지 않도록 노드에 복제본을 배치합니다. |
+| 복제 전략 | NetworkTopologyStrategy 자세한 내용은 Cassandra 설명서의 [데이터 복제](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html)를 참조 | 배포 토폴로지를 이해하고 모든 복제본이 동일한 랙에 배포되지 않도록 노드에 복제본을 배치합니다. |
 | Snitch | GossipingPropertyFileSnitch 자세한 내용은 Cassandra 설명서의 [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html)를 참조 | NetworkTopologyStrategy는 snitch 개념을 사용하여 토폴로지를 파악합니다. GossipingPropertyFileSnitch를 사용하면 데이터 센터 및 랙에 대한 각 노드의 매핑을 보다 잘 제어할 수 있습니다. 클러스터는 가십을 사용하여 이 정보를 전파합니다. PropertyFileSnitch에 비해 동적 IP 설정이 훨씬 간단합니다. |
 
 
@@ -124,7 +116,7 @@ Azure에 배포된 시스템에 고가용성(예: 8.76시간/년과 동등한 �
 
 JRE를 다운로드하려면 Oracle 라이선스를 수동으로 승인해야 하므로 배포를 간소화하려면 클러스터 배포 전에 만들려는 Ubuntu 템플릿 이미지에 나중에 업로드할 필수 소프트웨어를 데스크톱에 모두 다운로드합니다.
 
-로컬 데스크톱의 잘 알려진 downloads 디렉터리(예: Windows의 %TEMP%/downloads 또는 Linux/Mac의 ~/downloads)에 위 소프트웨어를 다운로드합니다.
+로컬 컴퓨터의 잘 알려진 download 디렉터리(예: Windows의 %TEMP%/downloads 또는 대부분의 Linux 배포나 Mac의 ~/downloads)에 위 소프트웨어를 다운로드합니다.
 
 ### UBUNTU VM 만들기
 이 프로세스 단계에서는 여러 개의 Cassandra 노드를 프로비전하는 데 이미지를 다시 사용할 수 있도록 필수 조건 소프트웨어로 Ubuntu 이미지를 만듭니다.
@@ -700,4 +692,4 @@ Microsoft Azure는 이 연습에서 알 수 있듯이 Microsoft 및 오픈 소�
 
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO2-->

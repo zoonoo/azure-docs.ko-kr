@@ -14,14 +14,14 @@
 	ms.tgt_pltfrm="Windows"
 	ms.devlang="na"
 	ms.topic="article"
-	ms.date="07/07/2015"
+	ms.date="10/05/2015"
 	ms.author="josephd"/>
 
 # 기본 구성 테스트 환경
 
 [AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 클래식 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다. [리소스 관리자 배포 모델](virtual-machines-base-configuration-test-environment-resource-manager.md)을 사용하여 이러한 리소스를 만들 수도 있습니다.
 
-이 문서는 서비스 관리에서 만든 가상 컴퓨터를 사용하여 Azure 가상 네트워크의 기본 구성 테스트 환경을 만드는 방법에 대한 단계별 지침을 제공합니다.
+이 문서는 Azure 가상 네트워크의 기본 구성 테스트 환경을 만드는 방법에 대한 단계별 지침을 제공합니다.
 
 결과 테스트 환경을 다음에 사용할 수 있습니다.
 
@@ -51,7 +51,7 @@ Azure에서 Windows Server 2012 R2 기본 구성 테스트 환경의 Corpnet 서
 3.	APP1 구성
 4.	CLIENT1 구성
 
-아직 Azure 계정이 없는 경우에는 [Azure 평가판 사용](http://azure.microsoft.com/pricing/free-trial/)에서 무료로 가입할 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
+아직 Azure 계정이 없는 경우에는 [1개월 무료 평가판](http://azure.microsoft.com/pricing/free-trial/)에서 무료로 가입할 수 있습니다. MSDN 구독이 있는 경우 [MSDN 구독자를 위한 Azure 혜택](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 참조하세요.
 
 > [AZURE.NOTE]Azure의 가상 컴퓨터는 실행 중인 동안 지속적인 비용이 부과됩니다. 이 비용은 무료 평가판, MSDN 구독 또는 유료 구독에 대해 청구됩니다. 실행 중인 Azure 가상 컴퓨터의 비용에 대한 자세한 내용은 [가상 컴퓨터 가격 정보](http://azure.microsoft.com/pricing/details/virtual-machines/) 및 [Azure 가격 계산기](http://azure.microsoft.com/pricing/calculator/)를 참조하세요. 비용을 절감하려면 [Azure에서 테스트 환경 가상 컴퓨터의 비용 최소화](#costs)를 참조하세요.
 
@@ -59,7 +59,7 @@ Azure에서 Windows Server 2012 R2 기본 구성 테스트 환경의 Corpnet 서
 
 먼저, 기본 구성의 Corpnet 서브넷을 호스팅하는 TestLab 가상 네트워크를 만듭니다.
 
-1.	Azure 관리 포털의 작업 표시줄에서 **새로 만들기 > 네트워크 서비스 > 가상 네트워크 > 사용자 지정 만들기**를 클릭합니다.
+1.	[Azure 포털](https://manage.windowsazure.com)의 작업 표시줄에서 **새로 만들기 > 네트워크 서비스 > 가상 네트워크 > 사용자 지정 만들기**를 클릭합니다.
 2.	가상 네트워크 세부 정보 페이지에서 **이름**에 **TestLab**을 입력합니다.
 3.	**위치**에서 적절한 지역을 선택합니다.
 4.	다음 화살표를 클릭합니다.
@@ -254,6 +254,8 @@ CLIENT1과 DC1 간의 이름 확인 및 네트워크 통신을 확인하려면 W
 
 ## 추가 리소스
 
+[Azure 테스트 랩](http://social.technet.microsoft.com/wiki/contents/articles/24092.azure-test-lab.aspx)
+
 [하이브리드 클라우드 테스트 환경](../virtual-network/virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
 [Azure 리소스 관리자를 사용하는 기본 구성 테스트 환경](virtual-machines-base-configuration-test-environment-resource-manager.md)
@@ -286,4 +288,4 @@ Azure PowerShell을 사용하여 가상 컴퓨터를 순서대로 시작하려�
 	Start-AzureVM -ServiceName $serviceName -Name "APP1"
 	Start-AzureVM -ServiceName $serviceName -Name "CLIENT1"
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

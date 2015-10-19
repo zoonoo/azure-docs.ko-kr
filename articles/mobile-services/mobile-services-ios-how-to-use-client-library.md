@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-client-library](../../includes/mobile-services-selector-client-library.md)]
 
-이 가이드에서는 Azure 모바일 서비스 [iOS SDK]를 사용하여 일반적인 시나리오를 수행하는 방법을 알려줍니다. 모바일 서비스를 처음 접하는 경우, 먼저 [모바일 서비스 퀵 스타트] 또는 [기존 앱에 모바일 서비스 추가]를 완료하여 계정을 구성하고, 테이블을 만들고, 모바일 서비스를 만듭니다.
+이 가이드에서는 Azure 모바일 서비스 [iOS SDK]를 사용하여 일반적인 시나리오를 수행하는 방법을 알려줍니다. 모바일 서비스를 처음 접하는 경우, 먼저 [모바일 서비스 퀵 스타트]를 완료하여 계정을 구성하고, 테이블을 만들고, 모바일 서비스를 만듭니다.
 
 > [AZURE.NOTE]이 가이드에서는 최신 [iOS 모바일 서비스 SDK](https://go.microsoft.com/fwLink/?LinkID=266533&clcid=0x409)를 사용합니다. 프로젝트에서 이전 버전의 SDK를 사용하는 경우 먼저 Xcode에서 프레임워크를 업그레이드합니다.
 
@@ -28,7 +28,7 @@
 
 ##<a name="Setup"></a>설정 및 필수 조건
 
-이 가이드에서는 이미 모바일 서비스 및 테이블을 만들었다고 가정합니다. 자세한 내용은 [테이블 만들기]를 참조하거나 [모바일 서비스 퀵 스타트] 또는 [기존 앱에 모바일 서비스 추가]에서 만든 `TodoItem` 테이블을 다시 사용합니다. 이 가이드에서는 해당 테이블에 이러한 자습서의 테이블과 동일한 스키마가 있다고 가정합니다. 또한 이 가이드에서는 Xcode가 `WindowsAzureMobileServices.framework`을(를) 참조하며 `WindowsAzureMobileServices/WindowsAzureMobileServices.h`을(를) 가져온다고 가정합니다.
+이 가이드에서는 이미 모바일 서비스 및 테이블을 만들었다고 가정합니다. 자세한 내용은 [테이블 만들기]를 참조하거나 [모바일 서비스 빠른 시작]에서 만든 `TodoItem` 테이블을 다시 사용하세요. 이 가이드에서는 해당 테이블에 이러한 자습서의 테이블과 동일한 스키마가 있다고 가정합니다. 또한 이 가이드에서는 Xcode가 `WindowsAzureMobileServices.framework`을(를) 참조하며 `WindowsAzureMobileServices/WindowsAzureMobileServices.h`을(를) 가져온다고 가정합니다.
 
 ##<a name="create-client"></a>방법: 모바일 서비스 클라이언트 만들기
 
@@ -311,10 +311,9 @@ Single Sign-On을 사용하도록 설정하거나 앱이 ID 공급자에게 직�
 <!-- Images. -->
 
 <!-- URLs. -->
-[기존 앱에 모바일 서비스 추가]: /develop/mobile/tutorials/get-started-data
-[모바일 서비스 퀵 스타트]: /develop/mobile/tutorials/get-started-ios
-[Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Validate and modify data in Mobile Services by using server scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-ios
+[모바일 서비스 빠른 시작]: mobile-services-ios-get-started.md
+[모바일 서비스 퀵 스타트]: mobile-services-ios-get-started.md
+[Get started with Mobile Services]: mobile-services-ios-get-started.md
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [인증]: /develop/mobile/tutorials/get-started-with-users-ios
 [iOS SDK]: https://developer.apple.com/xcode
@@ -323,13 +322,11 @@ Single Sign-On을 사용하도록 설정하거나 앱이 ID 공급자에게 직�
 [Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
 [권한]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
 [서비스 쪽 권한 부여]: mobile-services-javascript-backend-service-side-authorization.md
-[Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 [동적 스키마]: http://go.microsoft.com/fwlink/p/?LinkId=296271
-[How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
 [테이블 만들기]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
 [NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: ../virtual-machines-command-line-tools.md#Mobile_Tables
 [충돌 처리기]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

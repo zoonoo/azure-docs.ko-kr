@@ -25,7 +25,7 @@
 
 Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및 규모 확장 푸시 인프라에 액세스할 수 있어, 모바일 플랫폼용 소비자 응용 프로그램 및 엔터프라이즈 응용 프로그램 모두에 대한 푸시 알림을 매우 간단하게 구현할 수 있습니다. 이 자습서에서는 Azure 알림 허브를 사용하여 특정 장치에서 특정 앱 사용자에게 푸시 알림을 보내는 방법을 보여 줍니다. 지침 항목 [앱 백 엔드에서 등록](http://msdn.microsoft.com/library/dn743807.aspx)에 나와 있는 대로 ASP.NET WebAPI 백 엔드는 클라이언트를 인증하고 알림을 생성하는 데 사용됩니다. 이 자습서는 [알림 허브 시작(Android)](notification-hubs-android-get-started.md) 자습서에서 만든 알림 허브를 기반으로 합니다.
 
-> [AZURE.NOTE]이 자습서에서는 [알림 허브 시작(Android)](notification-hubs-android-get-started.md)에 설명된 대로 알림 허브를 만들고 구성했다고 가정합니다 모바일 서비스를 백 엔드 서비스로 사용 중인 경우 이 자습서의 [모바일 서비스 버전](../mobile-services-javascript-backend-android-push-notifications-app-users.md)을 참조하세요.
+> [AZURE.NOTE]이 자습서에서는 [알림 허브 시작(Android)](notification-hubs-android-get-started.md)에 설명된 대로 알림 허브를 만들고 구성했다고 가정합니다
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -432,4 +432,4 @@ Azure의 푸시 알림 지원을 통해 사용하기 쉬운 다중 플랫폼 및
 [A1]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users.png
 [A2]: ./media/notification-hubs-aspnet-backend-android-notify-users/android-notify-users-enter-password.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

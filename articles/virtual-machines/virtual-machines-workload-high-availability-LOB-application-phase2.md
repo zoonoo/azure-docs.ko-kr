@@ -53,6 +53,8 @@ Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤
 
 표 V, S, ST, A는 [1단계: Azure 구성](virtual-machines-workload-high-availability-LOB-application-phase1.md)에서 정의했습니다.
 
+> [AZURE.NOTE]이 문서에서는 Azure PowerShell 버전 1.0.0 *미만*의 명령을 포함합니다. **Get-Module azure | format-table version** 명령으로 Azure PowerShell의 버전을 확인할 수 있습니다. 이 문서의 Azure PowerShell 명령 블록은 Azure PowerShell 버전 1.0.0 이상에서 새 cmdlet을 지원하도록 테스트 및 업데이트 중입니다. 기다려 주셔서 감사합니다.
+
 적절한 값을 모두 입력한 후 Azure PowerShell 프롬프트에서 완성된 블록을 실행합니다.
 
 	# Set up subscription and key variables
@@ -210,4 +212,4 @@ Azure PowerShell 명령의 다음 블록을 사용하여 두 도메인 컨트롤
 
 [Azure 인프라 서비스 워크로드: SharePoint Server 2013 팜](virtual-machines-workload-intranet-sharepoint-farm.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

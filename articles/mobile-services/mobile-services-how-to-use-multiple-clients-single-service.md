@@ -42,7 +42,7 @@
 
 .NET 백 엔드 모바일 서비스에서는 [ApiServices.Push] 속성에서 가져온 [PushClient](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.pushclient.aspx) 개체에 [SendAsync](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.apiservices.push.aspx) 메서드를 호출함으로써 알림을 보냅니다. 보낸 푸시 알림(기본 또는 템플릿)은 다음 표에서와 같이 [SendAsync](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.notifications.ipushmessage.aspx) 메서드에 전달된 특정 [IPushMessage] 파생 개체에 따라 다릅니다.
 
-|플랫폼 |[APNS](mobile-services-dotnet-backend-ios-get-started-push.md)|[GCM](mobile-services-dotnet-backend-android-get-started-push.md) |[WNS](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) |[MPNS](mobile-services-dotnet-backend-windows-phone-get-started-push.md)|
+|플랫폼 |[APNS](mobile-services-dotnet-backend-ios-get-started-push.md)|[GCM](mobile-services-dotnet-backend-android-get-started-push.md) |[WNS](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md) | MPNS
 |-----|-----|----|----|-----|
 |기본|[ApplePushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.applepushmessage.aspx) |[GooglePushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.googlepushmessage.aspx) |[WindowsPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.windowspushmessage.aspx) | [MpnsPushMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.mpnspushmessage.aspx) |
 
@@ -133,15 +133,15 @@ JavaScript 백 엔드 모바일 서비스에서는 다음 표에서와 같이 �
 
 교차 플랫폼 도구는 단일 코드 기반(주로 JavaScript)을 공유하면서도 모바일 장치에 보다 풍부한 기본 환경을 제공합니다. 모바일 서비스를 사용하면 다음과 같은 개발 플랫폼에 대해 빠른 시작 자습서를 제공함으로써 교차 플랫폼 앱 개발 플랫폼의 백 엔드 서비스를 쉽게 만들고 관리할 수 있습니다.
 
-+ [**Appcelerator**](http://go.microsoft.com/fwlink/p/?LinkId=509987)<br/>Appcelerator는 JavaScript를 사용하여 모든 모바일 장치 플랫폼에서 기본 앱처럼 실행되도록 컴파일된 단일 앱을 개발할 수 있게 해 줍니다. 풍부한 UI 사용자 환경, 모든 기본 장치 리소스에 대한 액세스, 기본 앱 성능을 제공합니다. 자세한 내용은 [Appcelerator 자습서][Appcelerator]를 참조하세요.
++ [**Appcelerator**](http://go.microsoft.com/fwlink/p/?LinkId=509987)<br/>Appcelerator는 JavaScript를 사용하여 모든 모바일 장치 플랫폼에서 기본 앱처럼 실행되도록 컴파일된 단일 앱을 개발할 수 있게 해 줍니다. 풍부한 UI 사용자 환경, 모든 기본 장치 리소스에 대한 액세스, 기본 앱 성능을 제공합니다. 자세한 내용은 [Appcelerator 자습서][Appcelerator]를 참조하십시오.
 
-+ [**PhoneGap**](https://go.microsoft.com/fwLink/p/?LinkID=390707)**/**[**Cordova**](http://cordova.apache.org/)<br/>PhoneGap(Apache Cordova 프로젝트 배포)은 표준화된 웹 API, HTML 및 JavaScript를 사용하여 Android, iOS 및 Windows 장치에서 실행되는 단일 앱을 개발할 수 있도록 해주는 무료 오픈 소스 프레임워크입니다. PhoneGap은 웹 뷰 기반의 UI를 제공하지만 푸시 알림, 가속도계, 카메라, 저장소, 지리적 위치, 앱 내 브라우저 등 장치의 기본 리소스에 액세스함으로써 사용자 환경을 개선합니다. 자세한 내용은 [PhoneGap 빠른 시작 자습서][PhoneGap]를 참조하세요.
++ [**PhoneGap**](https://go.microsoft.com/fwLink/p/?LinkID=390707)**/**[**Cordova**](http://cordova.apache.org/)<br/>PhoneGap(Apache Cordova 프로젝트 배포)은 표준화된 웹 API, HTML 및 JavaScript를 사용하여 Android, iOS 및 Windows 장치에서 실행되는 단일 앱을 개발할 수 있도록 해주는 무료 오픈 소스 프레임워크입니다. PhoneGap은 웹 뷰 기반의 UI를 제공하지만 푸시 알림, 가속도계, 카메라, 저장소, 지리적 위치, 앱 내 브라우저 등 장치의 기본 리소스에 액세스함으로써 사용자 환경을 개선합니다. 자세한 내용은 [PhoneGap 빠른 시작 자습서][PhoneGap]를 참조하십시오.
 
-	이제 Visual Studio에서는 시험판 소프트웨어인 Visual Studio용 Multi-Device Hybrid Apps 확장을 사용하여 교차 플랫폼 Cordova 앱을 구축할 수 있습니다. 자세한 내용은 [HTML 및 JavaScript를 사용하여 Multi-Device Hybrid Apps 시작](http://msdn.microsoft.com/library/dn771545.aspx)(영문)을 참조하세요.
+	이제 Visual Studio에서는 시험판 소프트웨어인 Visual Studio용 Multi-Device Hybrid Apps 확장을 사용하여 교차 플랫폼 Cordova 앱을 구축할 수 있습니다. 자세한 내용은 [HTML 및 JavaScript를 사용하여 Multi-Device Hybrid Apps 시작](http://msdn.microsoft.com/library/dn771545.aspx)(영문)을 참조하십시오.
 
-+ [**Sencha Touch**](http://go.microsoft.com/fwlink/p/?LinkId=509988)<br/>Sencha Touch는 단일 HTML 및 JavaScript 코드 기반에서 다양한 모바일 장치에 기본 환경과 비슷한 환경을 제공하는 터치 스크린에 최적화된 다양한 컨트롤을 갖추고 있습니다. Sencha Touch를 PhoneGap 또는 Cordova 라이브러리와 함께 사용하여 기본 장치 리소스에 대한 사용자 액세스를 제공할 수 있습니다. 자세한 내용은 [Sencha Touch 빠른 시작 자습서][Sencha]를 참조하세요.
++ [**Sencha Touch**](http://go.microsoft.com/fwlink/p/?LinkId=509988)<br/>Sencha Touch는 단일 HTML 및 JavaScript 코드 기반에서 다양한 모바일 장치에 기본 환경과 비슷한 환경을 제공하는 터치 스크린에 최적화된 다양한 컨트롤을 갖추고 있습니다. Sencha Touch를 PhoneGap 또는 Cordova 라이브러리와 함께 사용하여 기본 장치 리소스에 대한 사용자 액세스를 제공할 수 있습니다. 자세한 내용은 [Sencha Touch 빠른 시작 자습서][Sencha]를 참조하십시오.
 
-+ [**Xamarin**](https://go.microsoft.com/fwLink/p/?LinkID=330242)<br/>Xamarin을 사용하면 iOS 및 Android 장치 모두에서 완전한 기본 UI를 갖추고 모든 장치 리소스에 액세스할 수 있는 완전한 기본 앱을 만들 수 있습니다. Xamarin 앱은 Objective-C 및 Java가 아니라 C#으로 코딩되어 있습니다. 따라서 .NET 개발자는 앱을 iOS 및 Android에 게시하고 Windows 프로젝트의 코드를 공유할 수 있습니다. Xamarin은 C# 코드에서 iOS 및 Android 장치 모두에 완전한 기본 사용자 환경을 제공합니다. 덕분에 iOS 및 Android 장치의 Windows 앱에서 일부 모바일 서비스 코드를 재사용할 수 있습니다. 자세한 내용은 아래의 [Xamarin 개발](#xamarin)을 참조하세요.
++ [**Xamarin**](https://go.microsoft.com/fwLink/p/?LinkID=330242)<br/>Xamarin을 사용하면 iOS 및 Android 장치 모두에서 완전한 기본 UI를 갖추고 모든 장치 리소스에 액세스할 수 있는 완전한 기본 앱을 만들 수 있습니다. Xamarin 앱은 Objective-C 및 Java가 아니라 C#으로 코딩되어 있습니다. 따라서 .NET 개발자는 앱을 iOS 및 Android에 게시하고 Windows 프로젝트의 코드를 공유할 수 있습니다. Xamarin은 C# 코드에서 iOS 및 Android 장치 모두에 완전한 기본 사용자 환경을 제공합니다. 덕분에 iOS 및 Android 장치의 Windows 앱에서 일부 모바일 서비스 코드를 재사용할 수 있습니다. 자세한 내용은 아래의 [Xamarin 개발](#xamarin)을 참조하십시오.
 
 
 <!-- URLs -->
@@ -171,4 +171,4 @@ JavaScript 백 엔드 모바일 서비스에서는 다음 표에서와 같이 �
 [Building universal Windows apps for all Windows devices]: http://go.microsoft.com/fwlink/p/?LinkId=509905
 [Universal Windows app project for Azure Mobile Services using MVVM]: http://code.msdn.microsoft.com/Universal-Windows-app-for-db3564de
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

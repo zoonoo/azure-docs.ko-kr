@@ -42,7 +42,7 @@ Azure IoT 라이브러리는 다음 OS 플랫폼에서 테스트되었습니다.
 
 |기타 플랫폼 | 버전|
 |:---------------|:------------:|
-|mbed OS| 2\.0 |
+|mbed | 2\.0 |
 |TI-RTOS | 2\.x |
 
 
@@ -125,7 +125,7 @@ IoT 장치에 대한 인증을 사용하여 솔루션을 개발하는 방법에 
 |TI CC3200 | TI-RTOS 2.x|C|
 |Intel Edison |Yocto |C, Javascript|
 |Minnowboard Max |Windows 7,8, 10 |C#|
-|Arrow Dragonboard |Windows 10 IoT 코어 | C#|
-|Freescale FRDM K64 |mbedOS | C|
+|Arrow DragonBoard 410c |Windows 10 IoT 코어 | C#|
+|Freescale FRDM K64 |mbed 2.0 | C|
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

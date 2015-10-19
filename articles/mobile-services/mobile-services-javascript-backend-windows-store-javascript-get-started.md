@@ -12,17 +12,17 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-windows-store"
 	ms.devlang="javascript"
-	ms.topic="article"
-	ms.date="09/16/2015"
+	ms.topic="get-started-article"
+	ms.date="10/06/2015"
 	ms.author="glenga"/>
 
 # 모바일 서비스 시작
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
 
-이 자습서에서는 Azure 모바일 서비스를 사용하여 Windows 스토어 JavaScript 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다.
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
-이 자습서에서는 새 모바일 서비스와 새 모바일 서비스에 앱 데이터를 저장하는 간단한 *할 일 모음* 앱을 둘 다 만듭니다. 만드는 모바일 서비스는 서버 쪽 비즈니스 논리에 JavaScript를 사용합니다. Visual Studio를 사용하여 지원되는 .NET 언어로 서버 쪽 비즈니스 논리를 작성할 수 있게 해주는 모바일 서비스를 만들려면 [이 항목의 .NET 백 엔드 버전](mobile-services-dotnet-backend-windows-store-dotnet-get-started.md)을 참조하세요.
+이 자습서에서는 Azure 모바일 서비스를 사용하여 Windows 스토어 JavaScript 앱에 클라우드 기반 백 엔드 서비스를 추가하는 방법을 보여 줍니다. 이 자습서에서는 새 모바일 서비스와 새 모바일 서비스에 앱 데이터를 저장하는 간단한 *할 일 모음* 앱을 둘 다 만듭니다. 만드는 모바일 서비스는 서버 쪽 비즈니스 논리에 JavaScript를 사용합니다.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -41,8 +41,6 @@
 
 
 2. 빠른 시작 탭에서 **플랫폼 선택** 아래의 **Windows**를 클릭하고 **새 Windows 스토어 앱 만들기**를 확장합니다.
-
-   	![](./media/mobile-services-javascript-backend-windows-store-javascript-get-started/mobile-portal-quickstart.png)
 
 3. 아직 수행하지 않은 경우 로컬 컴퓨터나 가상 컴퓨터에 [Visual Studio 2013][Visual Studio 2013 Express for Windows]을 다운로드하여 설치합니다.
 
@@ -72,6 +70,11 @@
 
 >[AZURE.NOTE]모바일 서비스에 액세스하는 코드를 검토하여 데이터를 쿼리 및 삽입할 수 있습니다(default.js 파일에 있음).
 
+## 다음 단계
+이제 빠른 시작을 완료했으므로 [HTML/JavaScript용 모바일 서비스 클라이언트](mobile-services-html-how-to-use-client-library.md)로 작업하는 방법을 알아보세요.
+
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
+
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
 [Create a new mobile service]: #create-new-service
@@ -81,11 +84,8 @@
 <!-- Images. -->
 
 <!-- URLs. -->
-[Get started with data]: ../mobile-services-javascript-backend-windows-universal-javascript-get-started-data.md
-[Get started with authentication]: mobile-services-windows-store-javascript-get-started-users.md
-[Get started with push notifications]: mobile-services-javascript-backend-windows-store-javascript-get-started-push.md
 [Visual Studio 2013 Express for Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

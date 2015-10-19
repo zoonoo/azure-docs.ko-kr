@@ -13,13 +13,13 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration" 
-   ms.date="07/01/2015"
+   ms.date="10/01/2015"
    ms.author="rajram"/>
 
 
 # 거래 업체 규약 만들기   
 
-거래 업체는 B2B(Business to Business) 통신과 관련된 엔터티입니다. 두 파트너가 관계를 설정하는 경우 이를 *규약*이라고 합니다. 정의된 규약은 두 파트너가 수행하려고 하는 통신을 기반으로 하며 특정 프로토콜 또는 전송입니다. 다양한 B2B 프로토콜 및 전송 지원 Azure 앱 서비스는 다음과 같습니다.
+거래 업체는 B2B(Business to Business) 통신과 관련된 엔터티입니다. 두 파트너가 관계를 설정하는 경우 이를 *규약*이라고 합니다. 정의된 규약은 두 파트너가 수행하려고 하는 통신을 기반으로 하며 특정 프로토콜 또는 전송입니다. Azure 앱 서비스가 지원하는 다양한 B2B 프로토콜 및 전송은 다음과 같습니다.
 
 - AS2(Applicability Statement 2)
 - EDIFACT(United Nations/Electronic Data Interchange For Administration, Commerce and Transport(UN/EDIFACT))
@@ -63,10 +63,10 @@
 거래 업체 규약을 만들려면:
 
 1. **BizTalk 거래 업체 관리** 커넥터의 인스턴스를 만듭니다. 그렇게 하려면 빈 SQL 데이터베이스가 기능해야 합니다. 시작하기 전에 사용 가능한 빈 데이터베이스가 있으며 바로 사용할 수 있는지 확인하세요.
-2. 규약에서 요구하는 대로 스키마 및 인증서를 업로드합니다. 이 작업은 생성된 TPM 인스턴스로 이동하여 'Schemas' 및/또는 'Certificates' 파트를 한 단계씩 코드 실행하여 수행합니다.
+2. 규약에서 요구하는 대로 스키마 및 인증서를 업로드합니다. 생성된 TPM 인스턴스로 이동하고 'Schemas' 및/또는 'Certificates' 파트를 한 단계씩 실행하여 수행합니다.
 3. 생성된 TPM 인스턴스로 이동하여 **Partners** 파트를 한 단계씩 코드 실행합니다.
 4. 필요에 따라 파트너를 만듭니다. 또한 프로필을 적절히 편집하고 필요한 ID를 추가합니다.
-5. 이제 **Agreements** 파트를 사용하여 규약을 만듭니다. 규약을 생성하는 동안 초기 단계 중 하나는 프로토콜을 선택하는 것입니다. 선택한 프로토콜에 따라 규약 구성의 나머지가 수행됩니다.
+5. 이제 **Agreements** 파트를 사용하여 규약을 만듭니다. 규약을 만들 때 사용되는 프로토콜을 선택해야 합니다. 나머지 구성 옵션은 선택한 프로토콜에 기반합니다.
 
 ![][2]
 
@@ -78,4 +78,4 @@
 [3]: ./media/app-service-logic-create-a-trading-partner-agreement/X12AgreementCreation.jpg
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

@@ -1,19 +1,19 @@
-<properties 
-	pageTitle="SAN을 사용하여 온-프레미스 VMM 사이트 간 보호 설정" 
-	description="Azure Site Recovery는 SAN 복제를 사용한 온-프레미스 사이트 간의 Hyper-V 가상 컴퓨터 복제, 장애 조치(Failover) 및 복구를 조정합니다." 
-	services="site-recovery" 
-	documentationCenter="" 
-	authors="rayne-wiselman" 
-	manager="jwhit" 
+<properties
+	pageTitle="SAN을 사용하여 온-프레미스 VMM 사이트 간 보호 설정"
+	description="Azure Site Recovery는 SAN 복제를 사용한 온-프레미스 사이트 간의 Hyper-V 가상 컴퓨터 복제, 장애 조치(Failover) 및 복구를 조정합니다."
+	services="site-recovery"
+	documentationCenter=""
+	authors="rayne-wiselman"
+	manager="jwhit"
 	editor="tysonn"/>
 
-<tags 
-	ms.service="site-recovery" 
-	ms.workload="backup-recovery" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/21/2015" 
+<tags
+	ms.service="site-recovery"
+	ms.workload="backup-recovery"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="09/21/2015"
 	ms.author="raynew"/>
 
 # SAN을 사용하여 온-프레미스 VMM 사이트 간 보호 설정
@@ -26,7 +26,7 @@ Azure Site Recovery는 가상 컴퓨터와 물리적 서버의 복제, 장애 �
 
 - 사이트 복구에 의해 자동화된 엔터프라이즈 확장 가능한 복제 솔루션을 제공합니다.
 - 파이버 채널 및 iSCSI 저장소에서 모두 엔터프라이즈 저장소 파트너를 통해 제공되는 SAN 복제 기능을 활용할 수 있습니다. [SAN 저장소 파트너](http://go.microsoft.com/fwlink/?LinkId=518669)를 참조하세요.
-- 기존 SAN 인프라를 활용하여 Hyper-V 클러스터에 배포된 중요 업무용 응용프로그램을 보호합니다. 
+- 기존 SAN 인프라를 활용하여 Hyper-V 클러스터에 배포된 중요 업무용 응용프로그램을 보호합니다.
 - 게스트 클러스터에 대한 지원을 제공합니다.
 - 저장소 배열 기능에 따라 낮은 RTO 및 RPO에 대해 동기화된 복제와 뛰어난 유연성을 위해 비동기화된 복제를 사용하여 다른 응용프로그램 계층 간의 복제 일관성을 보장합니다.  
 - VMM과의 통합은 기존 저장소를 검색하는 VMM의 VMM 콘솔 및 SMI-S 내에서 SAN 관리를 제공합니다.  
@@ -64,7 +64,7 @@ Azure Site Recovery는 가상 컴퓨터와 물리적 서버의 복제, 장애 �
 	- 하나 이상의 VMM 호스트 그룹
 	- 각 호스트 그룹에 있는 하나 이상의 Hyper-V 클러스터
 	- 클라우드의 원본 Hyper-V 서버에 위치한 하나 이상의 가상 컴퓨터
-		
+
 ### Hyper-V 요구 사항
 
 - Hyper-V 호스트 클러스터가 기본 및 보조 사이트에 배포되어 있고, 최신 업데이트가 설치된 Windows Server 2012 이상을 실행하고 있어야 합니다.
@@ -139,10 +139,10 @@ Azure Site Recovery는 가상 컴퓨터와 물리적 서버의 복제, 장애 �
 
 1. SAN 저장소가 VMM에 통합된 후 LUN(논리 단위)을 만듭니다(프로비전합니다).
 
-- [VMM에서 논리 단위를 만드는 방법을 선택하는 방법](http://go.microsoft.com/fwlink/?LinkId=518490)
-- [VMM에서 저장소 논리 단위를 프로비전하는 방법](http://go.microsoft.com/fwlink/?LinkId=518491)
+	- [VMM에서 논리 단위를 만드는 방법을 선택하는 방법](http://go.microsoft.com/fwlink/?LinkId=518490)
+	- [VMM에서 저장소 논리 단위를 프로비전하는 방법](http://go.microsoft.com/fwlink/?LinkId=518491)
 
-2. 그런 다음 VMM이 프로비전된 저장소에 가상 컴퓨터 데이터를 배포할 수 있도록 Hyper-V 호스트에 저장소 용량을 할당합니다. 
+2. 그런 다음 VMM이 프로비전된 저장소에 가상 컴퓨터 데이터를 배포할 수 있도록 Hyper-V 호스트에 저장소 용량을 할당합니다.
 
 	- 클러스터에 저장소를 할당하려면 먼저 클러스터가 있는 VMM 호스트 그룹에 저장소를 할당해야 합니다. [호스트 그룹에 저장소 논리 단위를 할당하는 방법](http://go.microsoft.com/fwlink/?LinkId=518493) 및 [호스트 그룹에 저장소 풀을 할당하는 방법](http://go.microsoft.com/fwlink/?LinkId=518492)을 참조하세요.</a>.
 	- 그런 다음 [VMM에서 Hyper-V 호스트 클러스터에 저장소를 구성하는 방법](http://go.microsoft.com/fwlink/?LinkId=513017)에 설명된 대로 클러스터에 저장소 용량을 할당합니다.</a>.
@@ -162,7 +162,7 @@ Azure Site Recovery는 가상 컴퓨터와 물리적 서버의 복제, 장애 �
 
 1. [네트워크 매핑](https://msdn.microsoft.com/library/azure/dn801052.aspx)에 대해 자세히 알아봅니다.
 2. VMM에서 VM 네트워크를 준비합니다.
- 
+
 	- [논리 네트워크 설정](http://go.microsoft.com/fwlink/?LinkId=386307)에 대해 자세히 알아봅니다. 논리 네트워크 설정—VMM 개요에서 논리 네트워킹 구성을 읽어봅니다.
 	- [VM 네트워크를 설정합니다](http://go.microsoft.com/fwlink/?LinkId=386308).
 
@@ -176,7 +176,7 @@ Azure Site Recovery는 가상 컴퓨터와 물리적 서버의 복제, 장애 �
 
 
 3. **새로 만들기** > **빠른 생성**을 클릭합니다.
-	
+
 4. **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다.
 
 5. **지역**에서 자격 증명 모음에 대한 지리적 지역을 선택합니다. 지원되는 지역을 확인하려면 [Azure 사이트 복구 가격 정보](href="http://go.microsoft.com/fwlink/?LinkId=389880)에서 지리적 가용성을 참조하십시오.
@@ -243,7 +243,7 @@ Azure Site Recovery는 가상 컴퓨터와 물리적 서버의 복제, 장애 �
 >
 >1. 공급자 설치 파일 및 등록 키를 폴더(예: C:\\ASR)로 다운로드합니다.
 >2. System Center Virtual Machine Manager 서비스 중지
->3. **관리자** 권한으로 명령 프롬프트에서 아래 명령을 실행하여 공급자 설치 관리자 추출 
+>3. **관리자** 권한으로 명령 프롬프트에서 아래 명령을 실행하여 공급자 설치 관리자 추출
 >
     	C:\Windows\System32> CD C:\ASR
     	C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
@@ -258,11 +258,11 @@ Azure Site Recovery는 가상 컴퓨터와 물리적 서버의 복제, 장애 �
 >
  - **/Credentials** : 등록 키 파일이 있는 위치를 지정하는 필수 매개 변수입니다.  
  - **/FriendlyName** : Azure Site Recovery 포털에 나타나는 Hyper-V 호스트 서버의 이름에 대한 필수 매개 변수입니다.
- - **/EncryptionEnabled** : Azure에서 미사용 중인 가상 컴퓨터의 암호화해야 하는 경우 VMM-Azure 시나리오에서만 사용해야 하는 선택적 매개 변수입니다. 제공한 파일의 이름에 **.pfx** 확장자가 있는지를 확인하십시오.
+ - **/EncryptionEnabled** : Azure에서 미사용 중인 가상 컴퓨터의 암호화해야 하는 경우 VMM-Azure 시나리오에서만 사용해야 하는 선택적 매개 변수입니다. 제공한 파일의 이름에 **.pfx** 확장자가 있는지를 확인하세요.
  - **/proxyAddress** : 프록시 서버의 주소를 지정하는 선택적 매개 변수입니다.
  - **/proxyport** : 프록시 서버의 포트를 지정하는 선택적 매개 변수입니다.
  - **/proxyUsername** : (프록시가 인증을 필요로 하는 경우) 프록시 사용자 이름을 지정하는 선택적 매개 변수입니다.
- - **/proxyPassword** : (프록시가 인증을 필요로 하는 경우) 프록시 서버를 인증하기 위한 암호를 지정하는 선택적 매개 변수입니다. 
+ - **/proxyPassword** : (프록시가 인증을 필요로 하는 경우) 프록시 서버를 인증하기 위한 암호를 지정하는 선택적 매개 변수입니다.
 
 
 ## 4단계: 저장소 배열과 풀 매핑
@@ -329,7 +329,7 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 
 
 	![보호 사용](./media/site-recovery-vmm-san/SRSAN_EnableProtection.png)
-	
+
 
 <P>보호를 사용하도록 설정한 가상 컴퓨터는 Azure Site Recovery 콘솔에 표시됩니다. 가상 컴퓨터 속성을 보고, 상태를 추적하고, 여러 가상 컴퓨터를 포함하는 복제 그룹을 장애 조치(Failover)할 수 있습니다. SAN 복제에서 복제 그룹과 연결된 모든 가상 컴퓨터는 함께 장애 조치(Failover)해야 합니다. 이는 장애 조치(Failover)가 먼저 저장소 계층에서 수행되기 때문입니다. 복제 그룹을 제대로 그룹화하고 연결된 가상 컴퓨터만 함께 배치하는 것이 중요합니다.</P>
 
@@ -344,8 +344,8 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 
 4. **가상 컴퓨터 선택**에서 복제 그룹을 선택합니다. 복제 그룹과 연관된 모든 가상 컴퓨터가 선택되고 복구 계획에 추가됩니다. 이러한 가상 컴퓨터는 복구 계획 기본 그룹인 그룹 1에 추가됩니다. 필요한 경우 그룹을 추가할 수 있습니다. 복제 후 가상 컴퓨터가 복구 계획 그룹의 순서에 따라 시작됩니다.
 
-	![가상 컴퓨터 추가](./media/site-recovery-vmm-san/SRSAN_RPlanVM.png)	
-5. 만든 복구 계획은 **복구 계획** 탭의 목록에 표시됩니다. 
+	![가상 컴퓨터 추가](./media/site-recovery-vmm-san/SRSAN_RPlanVM.png)
+5. 만든 복구 계획은 **복구 계획** 탭의 목록에 표시됩니다.
 6. **복구 계획** 탭에서 계획을 선택하고 **테스트 장애 조치**를 클릭합니다.
 7. **테스트 장애 조치(Failover) 확인** 페이지에서 **없음**을 선택합니다. 이 옵션을 사용하도록 설정하면 장애 조치(Failover)된 복제본 가상 컴퓨터가 네트워크에 연결되지 않습니다. 여기서는 가상 컴퓨터가 올바로 장애 조치(Failover)되는지 테스트하지만 복제 네트워크 환경을 테스트하지는 않습니다. 보다 포괄적인 테스트 장애 조치(Failover)를 실행하려는 경우 <a href="http://go.microsoft.com/fwlink/?LinkId=522291">MSDN에서 온-프레미스 배포 테스트</a>를 참조하세요.
 
@@ -381,7 +381,5 @@ VMM 서버가 등록되면 클라우드 보호 설정을 구성할 수 있습니
 **대시보드**에서는 최신 버전의 공급자 및 에이전트 설치 파일을 다운로드하고, 자격 증명 모음에 대한 구성 정보를 가져오고, 자격 증명 모음에서 보호를 관리하는 가상 컴퓨터의 수를 확인하고, 최근 작업을 보고, 자격 증명 모음 인증서를 관리하고, 가상 컴퓨터를 재동기화할 수 있습니다.
 
 작업 및 대시보드와의 상호 작용에 대한 자세한 내용은 [작업 및 모니터링](http://go.microsoft.com/fwlink/?LinkId=398534)을 참조하세요.
-	
- 
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

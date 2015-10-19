@@ -13,7 +13,7 @@
    ms.workload="search"
    ms.topic="article"
    ms.tgt_pltfrm="na"
-   ms.date="07/08/2015"
+   ms.date="10/06/2015"
    ms.author="brjohnst"/>
 
 # .NET 응용 프로그램에서 Azure 검색을 사용하는 방법 #
@@ -31,7 +31,7 @@ SDK는 클라이언트 라이브러리 `Microsoft.Azure.Search`로 구성되어 
 
 Azure 검색.NET SDK의 현재 버전은 시험판입니다. 첫 번째 안정적인 버전에 반영하기 위한 피드백을 제공하려는 경우 [피드백 페이지](http://feedback.azure.com/forums/263029-azure-search)를 방문하십시오.
 
-.NET SDK는 [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 문서화된 Azure 검색 REST API의 `2015-02-28` 버전을 지원합니다. Microsoft의 자연어 프로세서 또는 `moreLikeThis` 매개 변수 검색 등 이 버전의 일부가 *아닌* 새로운 기능들은 [미리 보기](search-api-2015-02-28-preview.md)에 있으나 SDK에서는 아직 사용할 수 없습니다. 기능에 대한 업데이트 여부는 [검색 서비스 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx) 또는 [Azure 검색의 최신 업데이트](search-latest-updates.md)에서 다시 확인할 수 있습니다
+.NET SDK는 [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)에서 문서화된 Azure 검색 REST API의 `2015-02-28` 버전을 지원합니다. 이 버전은 이제 Microsoft 언어 분석기에 대한 지원을 포함하고 있습니다. `moreLikeThis` 매개 변수 검색 등 이 버전의 일부가 *아닌* 새로운 기능은 [미리 보기](search-api-2015-02-28-preview.md)에 있으나 SDK에서는 아직 사용할 수 없습니다. 기능에 대한 업데이트 여부는 [검색 서비스 버전 관리](https://msdn.microsoft.com/library/azure/dn864560.aspx) 또는 [Azure 검색의 최신 업데이트](search-latest-updates.md)에서 다시 확인할 수 있습니다
 
 이 SDK에서 지원되지 않는 기타 기능에는
 
@@ -335,7 +335,9 @@ Azure 검색.NET SDK가 어떻게 `Hotel`와(과) 같은 사용자 정의 클래
 
 먼저 주목할 것은 `Hotel`의 각 공용 속성이 인덱스 정의의 필드와 일치하지만 한 가지 중요한 차이가 있습니다. 각 필드의 이름은 소문자("카멜식 대/소문자")로 시작하지만, `Hotel`의 각 공용 속성 이름은 대문자 문자("파스칼식 대/소문자")로 시작합니다. 이것은 대상 스키마가 응용 프로그램 개발자의 제어 범위를 벗어난 데이터 바인딩을 수행하는 .NET 응용 프로그램의 일반적인 시나리오입니다. 카멜식 대/소문자 속성으로 이름을 지정하면 .NET 이름 지정 지침을 위반하지 않고 속성 이름을 자동으로 `[SerializePropertyNamesAsCamelCase]` 특성을 지닌 카멜식 대/소문자에 매핑하도록 SDK에 명령할 수 있습니다.
 
-`Hotel` 클래스에 대해 두 번째로 중요한 부분은 공용 속성의 데이터 유형입니다. 이러한 속성의 .NET 유형은 인덱스 정의의 동등한 필드 유형에 매핑합니다. 예를 들어, `Category` 문자열 속성은 `Edm.String` 유형인 `category` 필드에 매핑됩니다. `bool?` 및 `Edm.Boolean`, `DateTimeOffset?` 및 `Edm.DateTimeOffset` 사이에는 유사한 유형 매핑이 있습니다. 유형 매핑에 대한 특정 규칙은 [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx)에 `Documents.Get` 메서드로 문서화됩니다. `bool` 및 `int` 등의 값 유형은 Azure 검색의 모든 기본 필드 유형이 null을 허용하기 때문에 `Hotel` 클래스에서 null을 허용합니다.
+`Hotel` 클래스에 대해 두 번째로 중요한 부분은 공용 속성의 데이터 유형입니다. 이러한 속성의 .NET 유형은 인덱스 정의의 동등한 필드 유형에 매핑합니다. 예를 들어, `Category` 문자열 속성은 `Edm.String` 유형인 `category` 필드에 매핑됩니다. `bool?` 및 `Edm.Boolean`, `DateTimeOffset?` 및 `Edm.DateTimeOffset` 사이에는 유사한 유형 매핑이 있습니다. 유형 매핑에 대한 특정 규칙은 [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx)에 `Documents.Get` 메서드로 문서화됩니다.
+ 
+> [AZURE.NOTE]사용자 고유의 모델 클래스를 Azure 검색 인덱스에 매핑하도록 설계하는 경우 `bool` 및 `int` 등과 같은 값 유형의 속성을 null이 허용되도록 선언해야 합니다(예: `bool?` 대신 `bool`). Azure 검색의 모든 기본 필드 형식에 null이 허용되기 때문에 이렇게 해야 합니다. Null이 허용되지 않는 형식을 사용하면 `0` 및 `false` 같은 기본값을 인덱싱할 때 예기치 않은 결과가 발생할 수 있습니다.
 
 사용자의 클래스를 문서로서 사용하는 이 능력은 양방향으로 사용 가능합니다. 또한 다음 섹션에서 확인할 수 있듯이 검색 결과를 검색하고 이 검색 결과를 SDK가 자동으로 사용자가 선택한 유형으로 역직렬화하도록 할 수도 있습니다.
 
@@ -625,4 +627,4 @@ Hotel.cs:
     }
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

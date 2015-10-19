@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="web" 
-	ms.date="07/07/2015" 
+	ms.date="09/29/2015" 
 	ms.author="cephalin"/>
 
 # Azure Active Directory 인증을 통해 Azure 앱 서비스에서 .NET MVC 웹 앱 만들기 #
@@ -376,4 +376,4 @@ public class GroupClaimContext : DbContext
 [AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

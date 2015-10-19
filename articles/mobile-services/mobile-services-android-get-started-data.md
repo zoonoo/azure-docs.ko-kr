@@ -13,12 +13,10 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="article"
-	ms.date="09/23/2015"
+	ms.date="10/05/2015"
 	ms.author="ricksal"/>
 
 # 기존 Android 앱에 모바일 서비스 추가(JavaScript 백 엔드)
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-data](../../includes/mobile-services-selector-get-started-data.md)]
 
 ## 요약
 
@@ -35,7 +33,7 @@
 </div>
 
 
-<p>이 자습서에서는 Azure 모바일 서비스가 Android 앱에서 데이터를 검색하고 저장할 수 있는 방법에 대해 자세히 설명합니다. 따라서 모바일 서비스 퀵 스타트 자습서에서 이미 완료한 여러 단계를 순서대로 안내합니다. 모바일 서비스를 처음 사용하는 경우 먼저 <a href="/ko-kr/develop/mobile/tutorials/get-started-android">모바일 서비스 시작</a> 자습서를 완료하는 것이 좋습니다.</p>
+<p>이 자습서에서는 Azure 모바일 서비스가 Android 앱에서 데이터를 검색하고 저장할 수 있는 방법에 대해 자세히 설명합니다. 따라서 모바일 서비스 퀵 스타트 자습서에서 이미 완료한 여러 단계를 순서대로 안내합니다. 모바일 서비스를 처음 사용하는 경우 먼저 <a href="/ko-KR/develop/mobile/tutorials/get-started-android">모바일 서비스 시작</a> 자습서를 완료하는 것이 좋습니다.</p>
 
 ## 필수 조건
 
@@ -151,4 +149,4 @@
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkID=282122
 [Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

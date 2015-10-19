@@ -1,0 +1,189 @@
+<properties
+  pageTitle="DocumentDB 커뮤니티 및 뉴스 | Microsoft Azure"
+  description="Azure DocumentDB 커뮤니티에 참여하여 관계를 빌드하고 작업을 보여주며 기술을 단련합니다."
+  services="documentdb"
+  documentationCenter=""
+  authors="aliuy"
+  manager="johnmac"
+  editor="mimig"/>
+
+<tags
+  ms.service="documentdb"
+  ms.devlang="na"
+  ms.topic="article"
+  ms.tgt_pltfrm="na"
+  ms.workload="data-services"
+  ms.date="10/07/2015"
+  ms.author="andrl"/>
+
+# 커뮤니티 포털
+
+<hr/>
+
+## 커뮤니티 스포트라이트
+
+<hr/>
+
+프로젝트의 수준을 올려보겠습니다. DocumentDB로 작업 중인 멋진 프로젝트를 보여주고 사용자의 재능을 다른 사람과 공유할 수 있도록 합니다. 프로젝트를 제출하려면 [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com)으로 메일을 보내세요.
+
+
+### documentdb-lumenize
+
+*Larry Maccherone 작성*
+
+DocumentDB의 저장 프로시저인 집계(Group-by, 피벗 테이블, 맟 N 차원 큐브) 및 시계열 변환입니다.
+
+[Github](https://github.com/lmaccherone/documentdb-lumenize) 및 [npm](https://www.npmjs.com/package/lumenize)에서 확인합니다.
+
+### DocumentDB 스튜디오
+
+*Ming Liu 작성*
+
+Microsoft Azure DocumentDB 서비스용 클라이언트 관리 뷰어/탐색기입니다.
+
+[GitHub](https://github.com/mingaliu/DocumentDBStudio)에서 확인합니다.
+
+<br/><br/>
+
+*[GitHub](https://github.com/search?p=4&q=documentdb&type=Repositories)에서 공개 소스 DocumentDB 프로젝트를 찾습니다.*
+
+<br/><br/>
+
+<hr/>
+
+## 뉴스, 블로그 및 문서
+
+<hr/>
+
+[블로그](https://azure.microsoft.com/blog/tag/documentdb/)를 팔로우하여 최신 DocumentDB 소식과 기능에 대한 최신 동향을 파악하세요.
+
+<br/>
+
+**커뮤니티 게시물:**
+
+* [**Azure DocumentDB의 RequestRateTooLarge 오류 처리 및 성능 테스트**](http://blogs.msdn.com/b/bigdatasupport/archive/2015/09/02/dealing-with-requestratetoolarge-errors-in-azure-documentdb-and-testing-documentdb-performance.aspx) - *Azim Uddin 작성*
+
+* [**Data Points - Microsoft Azure DocumentDB의 개요**](https://msdn.microsoft.com/magazine/mt147238.aspx) - *Julie Lerman 작성*
+
+* [**F #로 DocumentDB 사용**](https://jamessdixon.wordpress.com/2014/12/30/using-documentdb-with-f/) - *Jamie Dixon 작성*
+
+* [**DocumentDB로 응용 프로그램 로그 분석**](http://vincentlauzon.com/2015/09/06/analysing-application-logs-with-documentdb/) - *Vincent Philippe Lauzon 작성*
+
+* [**Azure DocumentDB – 백업 지 지점**](http://softwarejuancarlos.com/2015/09/06/azure-documentdb-point-in-time-backups/) - *Juan Carlos Sanchez 작성*
+
+<br/><br/>
+
+*공유하려는 블로그 게시물, 코드 샘플 또는 사례 연구가 있습니까? [알려주십시오](mailto:askdocdb@microsoft.com)!*
+
+<br/><br/>
+
+<hr/>
+
+## 이벤트 및 기록
+
+<hr/>
+
+### 최근 및 예정된 이벤트
+
+| 이벤트 이름 | 위치 | Date | 해시 태그 |
+| --------------------------------------------------------------- | ------------- | ------------------- | ------- |
+| [CloudDevelop 2015](http://www.clouddevelop.org/) | 콜롬버스, OH | 2015년 10월 23일 | [#CloudDevConf](https://twitter.com/hashtag/CloudDevConf) |
+| [PASS 회담 2015](http://www.sqlpass.org/summit/2015/Home.asp) | 시애틀, WA | 2015년 10월 27-30일 | [#Summit15](https://twitter.com/hashtag/Summit15) |
+| [통합 사용자 그룹](http://www.integrationusergroup.com/) | 가상 이벤트 | 2015년 11월 9일 | [#IntegrationMonday](https://twitter.com/hashtag/integrationmonday) |
+
+### 이전 이벤트 및 기록
+
+| 이벤트 이름 | 위치 | Date | 기록 |
+| ---------- | -------- | ---- | ------- |
+| [통합 사용자 그룹](http://www.integrationusergroup.com/?event=azure-documentdb-and-biztalk&event_date=2015-10-05) | 가상 이벤트 | 2015년 10월 5일 | [의료 서비스 통합을 위한 Azure DocumentDB](http://fast.wistia.net/embed/iframe/ee3b1nfe3o) |
+| [AzureCon](https://azure.microsoft.com/azurecon/) | 가상 이벤트 | 2015년 9월 29일 | [DocumentDB에서 NoSQL 데이터로 작업](https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON338) |
+| [@Scale Seattle](http://www.atscaleconference.com/) | 시애틀, WA | 2015년 6월 17일 | [Azure DocumentDB로 스키마 제약 없는 인덱싱](https://www.youtube.com/watch?v=VJQ_5qFFVP4) |
+| [메모리 내 기술 PASS 가상 장](http://imvc.sqlpass.org/) | 가상 이벤트 | 2015년 5월 25일 | [Hello DocumentDB](https://www.youtube.com/watch?v=itFXQCd9-dI) |
+| [데이터베이스 월](http://www.databasemonth.com/database/azure-documentdb) | 뉴욕, NY | 2015년 5월 19일 | [Azure DocumentDB: 대규모 확장 가능한 다중 테넌트 문서 데이터베이스 서비스](https://www.youtube.com/watch?v=iZsqBc3Dkbk) |
+| [Ignite](http://ignite.microsoft.com/) | 시카코, IL | 2015년 5월 4-8일 | [DocumentDB 비디오에서 최신 선택](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-select-latest-from-microsoft-azure-documentdb/)<br/>[DocumentDB 및 Azure HDInsight: 성능 향상 비디오](https://azure.microsoft.com/documentation/videos/microsoft-ignite-2015-microsoft-azure-documentdb-and-azure-hdinsight-better-together/) |
+| [빌드 2015](http://www.buildwindows.com/) | 샌프란시스코, CA | 2015년 4월 29일 - 5월 1일 | [Azure의 NoSQL 서비스로 향후 중대한 가치 빌드: DocumentDB](https://channel9.msdn.com/Events/Build/2015/2-729) |
+| [#DevHangout - devacademy.la](https://www.youtube.com/user/devacademyla) | 가상 이벤트 | 2015년 3월 11일 | [DocumentDB, la base de datos NoSql de Microsoft Azure](https://www.youtube.com/watch?v=8Ud3jB8KOBA) |
+| [데이터 아키텍처 가상 장 PASS](https://dataarch.sqlpass.org/) | 가상 이벤트 | 2015년 2월 25일 | [DocumentDB 소개](https://www.youtube.com/watch?v=7BQYdFUkz6s) |
+| [TechX Azure](https://www.youtube.com/channel/UCDRlI2E4z5qmHsBXTrFOE2Q) | 스톡홀름, 스웨덴 | 2015년 1월 28-29일 | [클라우드용 Azure 새 NoSQL 옵션의 DocumentDB](https://www.youtube.com/watch?v=Hw7hDYoChNI) |
+
+*이벤트를 호스팅하나요? 도울 방법을 [알려주십시오](mailto:askdocdb@microsoft.com)!*
+
+### 온라인 클래스
+
+| 학습 파트너 | 설명 |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| [![Microsoft Virtual Academy](./media/documentdb-community/mva.png)](https://www.microsoftvirtualacademy.com/ko-KR/training-courses/developing-solutions-with-azure-documentdb-10554)로 바꿉니다. | [**Microsoft Virtual Academy**](https://www.microsoftvirtualacademy.com/ko-KR/training-courses/developing-solutions-with-azure-documentdb-10554)<br/><br/>Microsoft Virtual Academy는 Azure DocumentDB 구축에 참여한 전문가의 교육 과정을 제공합니다. |
+| [![Pluralsight](./media/documentdb-community/pluralsight.png)](http://www.pluralsight.com/courses/azure-documentdb-introduction)로 바꿉니다. | [**Pluralsight**](http://www.pluralsight.com/courses/azure-documentdb-introduction)<br/><br/>Pluralsight는 Azure 교육을 제공하는 핵심 Microsoft 파트너입니다. MSDN 구독자의 경우 구독 혜택을 사용하여 Microsoft Azure 교육을 이용할 수 있습니다. |
+| [![OpsGility](./media/documentdb-community/opsgility.png)](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb)로 바꿉니다. | [**OpsGility**](https://www.opsgility.com/courses/player/introduction_to_azure_documentdb)<br/><br/>OpsGility는 Microsoft Azure에 대한 세부 기술 교육을 제공합니다. 현장에서 이뤄지는 강사 주도형 교육 또는 업계에서 인정받고 있는 전문 강사로 구성된 원격 강의를 받아 보세요. |
+
+<br/><br/>
+
+<hr/>
+
+## 토론
+
+<hr/>
+
+
+### Twitter
+
+Twitter [@DocumentDB](https://twitter.com/DocumentDB)를 팔로우하고 [#DocumentDB](https://twitter.com/hashtag/DocumentDB) 해시 태그에서 최신 대화를 통해 최신 정보를 얻으세요.
+
+<br/><br/>
+
+### 온라인 포럼
+
+| 포럼 공급자 | 설명 |
+| ------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| [![StackOverflow](./media/documentdb-community/stack-overflow.png)](http://stackoverflow.com/questions/tagged/azure-documentdb)로 바꿉니다. | 프로그래머를 위해 공동으로 언어 독립적이게 편집된 질문 및 답변 사이트입니다. 태그를 따라옵니다. [azure documentdb](http://stackoverflow.com/questions/tagged/azure-documentdb) |
+| [![MSDN](./media/documentdb-community/msdn.png)](http://go.microsoft.com/fwlink/?LinkId=631655)로 바꿉니다. | Microsoft Azure 기능 및 웹사이트, DocumentDB 등과 같은 서비스에 대한 지원 및 피드백을 할 수 있는 곳입니다. |
+
+<br/><br/>
+
+### 인터넷 릴레이 채팅 + 업무 시간
+
+[IRC 클라이언트](http://www.irchelp.org/)로 `#documentdb` 채널의 `chat.freenode.net`에서 또는 Freenode의 [웹 채팅](http://webchat.freenode.net/?channels=documentdb)을 사용하여 웹 채널에서 채널로 연결하여 IRC를 통해 실시간으로 채팅할 수 있습니다.
+
+태평양 표준시로 매주 금요일 오전 11에서 오후 12시까지 IRC에 업무 시간을 호스트합니다.
+
+<br/><br/>
+
+<hr/>
+
+## 팀에 문의
+
+<hr/>
+
+기술 지원이 필요합니까? 질문이 있으십니까? NoSQL이 적합한지 궁금하십니까?
+
+[DocumentDB 엔지니어링 팀에 직접 1:1 채팅을 예약](http://www.askdocdb.com/)할 수 있습니다.
+
+또한 [전자 메일](mailto:askdocdb@microsoft.com)을 보내거나 [@DocumentDB](https://twitter.com/DocumentDB)에 트윗할 수 있습니다.
+
+<br/><br/>
+
+<hr/>
+
+## 공개 소스 프로젝트
+
+<hr/>
+
+이러한 프로젝트는 공개 소스 커뮤니티와 협력하여 Azure DocumentDB 팀에서 적극적으로 개발됩니다.
+
+### SDK
+
+| 플랫폼 | Github | 패키지 |
+| -------- | --------------------------------------------------------------------------- | ------- |
+| Node.js | [azure-documentdb-node](https://github.com/Azure/azure-documentdb-node) | [npm](https://www.npmjs.com/package/documentdb) |
+| Java | [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java) | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb%22) |
+| Python | [azure-documentdb-python](https://github.com/Azure/azure-documentdb-python) | [PyPI](https://pypi.python.org/pypi/pydocumentdb) |
+
+### 다른 프로젝트
+
+| 이름 | Github | 웹 사이트 |
+| ------------------- | ------------------------------------------------------------------------------------------------- | ------- |
+| 설명서 | [azure-content](https://github.com/Azure/azure-content/tree/master/articles/documentdb) | [설명서 웹 사이트](https://azure.microsoft.com/documentation/services/documentdb/) |
+| Hadoop 커넥터 | [azure-documentdb-hadoop](https://github.com/Azure/azure-documentdb-hadoop) | [Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-documentdb-hadoop%22) |
+| 데이터 마이그레이션 도구 | [azure-documentdb-datamigrationtool](https://github.com/Azure/azure-documentdb-datamigrationtool) | [Microsoft 다운로드 센터](http://www.microsoft.com/ko-KR/download/details.aspx?id=46436) |
+
+<!---HONumber=Oct15_HO2-->

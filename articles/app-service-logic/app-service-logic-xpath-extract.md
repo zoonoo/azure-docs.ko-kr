@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="integration"
-   ms.date="07/01/2015"
+   ms.date="10/01/2015"
    ms.author="rajram"/>
 
 #BizTalk XPath 추출기
@@ -50,4 +50,4 @@ Input Xml|string|입력 Xml 내용
 <!-- Links -->
 [새 논리 앱 만들기]: app-service-logic-create-a-logic-app.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

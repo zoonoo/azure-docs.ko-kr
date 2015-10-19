@@ -22,9 +22,9 @@
 
    ![](./media/app-service-mobile-adal-register-app/aad-native-client-add-permissions.png)
 
-응용 프로그램은 이제 AAD에서 AAD SSO(Single Sign-On)을 사용하여 사용자가 로그온할 수 있도록 구성되었습니다.
+응용 프로그램은 이제 AAD에서 AAD 로그인을 사용하여 사용자가 로그온할 수 있도록 구성되었습니다.
 
 [Active Directory]: https://manage.windowsazure.com/
 [Azure Active Directory로 모바일 앱을 구성하는 방법]: ../articles/app-service-how-to-configure-active-directory-authentication-preview.md
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

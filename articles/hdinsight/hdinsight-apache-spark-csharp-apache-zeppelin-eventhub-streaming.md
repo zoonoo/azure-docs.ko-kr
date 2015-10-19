@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/23/2015" 
+	ms.date="09/30/2015" 
 	ms.author="nitinme"/>
 
 
@@ -90,17 +90,21 @@ Spark 클러스터의 리소스를 할당하는 방법에 대한 지침은 [HDIn
 
 ### Zeppelin을 사용하여 스트리밍 응용 프로그램 만들기
 
-1. [Azure Preview 포털](https://ms.portal.azure.com/)의 시작 보드에서 Spark 클러스터 타일을 클릭합니다(Spark 클러스터를 시작 보드에 고정한 경우). **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
+1. [Azure Preview 포털](https://portal.azure.com/)의 시작 보드에서 Spark 클러스터 타일을 클릭합니다.(Spark 클러스터를 시작 보드에 고정한 경우) **모두 찾아보기** > **HDInsight 클러스터**에서 클러스터로 이동할 수도 있습니다.   
 
-2. Zeppelin 노트북을 시작합니다. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Zeppelin 노트북**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다. 열리는 페이지의 지시에 따라 노트북을 시작합니다.
+2. Spark 클러스터 블레이드에서 **빠른 연결**을 클릭한 다음 **클러스터 대시보드** 블레이드에서 **Zeppelin 노트북**을 클릭합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다.
 
-2. 새 Notebook을 만듭니다. 헤더 창에서 **노트북**을 클릭하고 드롭다운에서 **새 메모 만들기**를 클릭합니다.
+	> [AZURE.NOTE]또한 브라우저에서 다음 URL을 열어 클러스터에 대한 Zeppelin Notebook에 도달할 수 있습니다. __CLUSTERNAME__을 클러스터의 이름으로 바꿉니다.
+	>
+	> `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
+
+2. 새 Notebook을 만듭니다. 헤더 창에서 **Notebook**을 클릭하고 드롭다운에서 **새 메모 만들기**를 클릭합니다.
 
 	![새 Zeppelin Notebook 만들기](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.CreateNewNote.png "새 Zeppelin 노트북 만들기")
 
-	같은 페이지의 **노트북** 제목 아래에 **Note XXXXXXXXX**로 시작하는 이름의 새 노트북이 표시됩니다. 새 노트북을 클릭합니다.
+	같은 페이지의 **Notebook** 제목 아래에 **Note XXXXXXXXX**로 시작하는 이름의 새 Notebook이 표시됩니다. 새 노트북을 클릭합니다.
 
-3. 새 노트북에 대한 웹 페이지에서 제목을 클릭하고 원하는 경우 노트북의 이름을 변경합니다. Enter 키를 눌러 변경된 이름을 저장합니다. 또한 노트북 헤더의 오른쪽 위 모서리에 **연결됨** 상태가 표시되는지 확인합니다.
+3. 새 노트북에 대한 웹 페이지에서 제목을 클릭하고 원하는 경우 노트북의 이름을 변경합니다. Enter 키를 눌러 변경된 이름을 저장합니다. 또한 Notebook 헤더의 오른쪽 위 모서리에 **연결됨** 상태가 표시되는지 확인합니다.
 
 	![Zeppelin 노트북 상태](./media/hdinsight-apache-spark-csharp-apache-zeppelin-eventhub-streaming/HDI.Spark.NewNote.Connected.png "Zeppelin Notebook 상태")
 
@@ -188,4 +192,4 @@ HDInsight에서 Spark 클러스터로 스트리밍 데이터를 받으려면 Zep
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->

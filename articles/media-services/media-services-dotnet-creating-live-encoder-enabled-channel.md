@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="ne" 
 	ms.topic="article" 
-	ms.date="09/29/2015"
+	ms.date="10/05/2015"
 	ms.author="juliako"/>
 
 
@@ -487,14 +487,17 @@ app.config 파일에 appSettings 섹션을 추가하고 미디어 서비스 계�
 	
 
 
+##다음 단계
 
-##미디어 서비스 학습 경로
+###미디어 서비스 학습 경로
 
 여기서 AMS 학습 경로를 볼 수 있습니다.
 
 - [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
- 
+### 다른 정보를 찾으시나요?
 
-<!---HONumber=Oct15_HO1-->
+이 항목이 예상했던 사항을 포함하지 않거나 누락한 경우 또는 일부가 사용자 요구를 충족하지 않은 경우 아래 Disqus 스레드를 사용하여 피드백을 주시기 바랍니다.
+
+<!---HONumber=Oct15_HO2-->

@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="castLabs를 사용하여 Azure 미디어 서비스에 DRM 라이선스 제공" 
+	pageTitle="castLabs를 사용하여 Azure 미디어 서비스에 Widevine 라이선스 제공" 
 	description="이 문서에서는 Azure 미디어 서비스(AMS)를 사용하여 PlayReady와 Widevine DRM이 모두 있는 AMS에서 동적으로 암호화된 스트림을 전달하는 방법을 설명합니다. PlayReady 라이선스는 미디어 서비스 PlayReady 라이선스 서버에서 제공되며 Widevine 라이선스는 castLabs 라이선스 서버에서 제공됩니다." 
 	services="media-services" 
 	documentationCenter="" 
@@ -13,11 +13,15 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/07/2015"  
+	ms.date="10/07/2015"  
 	ms.author="juliako"/>
 
 
-#castLabs를 사용하여 Azure 미디어 서비스에 DRM 라이선스 제공
+#castLabs를 사용하여 Azure 미디어 서비스에 Widevine 라이선스 제공
+
+> [AZURE.SELECTOR]
+- [Axinom](media-services-axinom-integration.md)
+- [castLabs](media-services-castlabs-integration.md)
 
 ##개요
 
@@ -120,4 +124,4 @@ Chrome에서 castLabs 플레이어를 사용하여 HTML5 형식의 보호된 비
 - [AMS 라이브 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
 - [AMS 주문형 스트리밍 워크플로](http://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

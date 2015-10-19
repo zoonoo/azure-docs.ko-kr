@@ -3,7 +3,7 @@
 	description="리소스 관리자 템플릿과 Azure 포털, Azure PowerShell 또는 Azure CLI를 사용하여 3대 서버 또는 9대 서버 SharePoint 팜을 쉽게 배포합니다."
 	services="virtual-machines"
 	documentationCenter=""
-	authors="davidmu1"
+	authors="JoeDavies-MSFT"
 	manager="timlt"
 	editor=""
 	tags="azure-resource-manager"/>
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="vm-windows-sharepoint"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/29/2015"
-	ms.author="davidmu"/>
+	ms.date="10/05/2015"
+	ms.author="josephd"/>
 
 # Azure 리소스 관리자 템플릿을 사용하여 SharePoint 팜 배포
 
@@ -37,17 +37,18 @@ Azure Preview 포털, Azure PowerShell 또는 Azure CLI에서 템플릿 파일�
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
-1.	**템플릿** 창에서 **저장**을 클릭합니다.
-2.	**매개 변수**를 클릭합니다. **매개 변수** 창에서 새 값을 입력하거나 허용되는 값에서 선택하거나 기본값을 그대로 적용한 다음 **확인**을 클릭합니다.
-3.	필요한 경우 **구독**을 클릭하고 올바른 Azure 구독을 선택합니다.
-4.	**리소스 그룹**을 클릭하고 기존 리소스 그룹을 선택합니다. 아니면 **또는 새로 만들기**를 클릭하여 이 작업에 대한 새 그룹을 만듭니다.
-5.	필요한 경우 **리소스 그룹 위치**를 클릭하고 올바른 Azure 위치를 선택합니다.
-6.	필요한 경우 **약관**을 클릭하여 템플릿 사용 조건 및 규약을 검토합니다.
+1.	**매개변수**를 클릭합니다. **매개변수** 창에서 새 값을 입력, 허용되는 값에서 선택, 또는 기본값을 그대로 선택한 다음 **확인**을 클릭합니다.
+2.	필요한 경우 **구독**을 클릭하고 올바른 Azure 구독을 선택합니다.
+3.	**리소스 그룹**을 클릭하고 기존 리소스 그룹을 선택합니다. 아니면 **또는 새로 만들기**를 클릭하여 이 워크로드에 대해 새 그룹을 만듭니다.
+4.	필요한 경우 **리소스 그룹 위치**를 클릭하고 올바른 Azure 위치를 선택합니다.
+6.	**약관**을 클릭하여 템플릿 사용 조건 및 규약을 검토합니다.
 7.	**만들기**를 클릭합니다.
 
 템플릿에 따라 Azure의 워크로드 빌드에 다소 시간이 걸릴 수 있습니다. 해당 작업이 완료되면 기존 또는 새 리소스 그룹에 3-서버 SharePoint 팜을 갖게 됩니다.
 
 ### Azure PowerShell
+
+> [AZURE.NOTE]이 문서에서는 Azure PowerShell 버전 1.0.0 *미만*의 명령을 포함합니다. **Get-Module azure | format-table version** 명령으로 Azure PowerShell의 버전을 확인할 수 있습니다. 이 문서의 Azure PowerShell 명령 블록은 Azure PowerShell 버전 1.0.0 이상에서 새 cmdlet을 지원하도록 테스트 및 업데이트 중입니다. 기다려 주셔서 감사합니다.
 
 시작하기 전에 올바른 버전의 Azure PowerShell이 설치되었는지, 로그인했는지, 새 리소스 관리자 모드로 전환했는지 확인해야 합니다. 자세한 내용을 보려면 [여기](virtual-machines-deploy-rmtemplates-powershell.md#setting-up-powershell-for-resource-manager-templates)를 클릭하세요.
 
@@ -105,17 +106,16 @@ Azure Preview 포털, Azure PowerShell 또는 Azure CLI에서 템플릿 파일�
 
 ### Azure Preview 포털
 
-리소스 관리자 템플릿과 Azure Preview 포털을 사용하여 이 작업을 배포하려면 [여기](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json)를 클릭합니다.
+리소스 관리자 템플릿과 Azure Preview 포털을 사용하여 이 워크로드를 배포하려면 [여기](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsharepoint-server-farm-ha%2Fazuredeploy.json)를 클릭합니다.
 
 ![](./media/virtual-machines-workload-template-sharepoint/azure-portal-template.png)
 
-1.	**템플릿** 창에서 **저장**을 클릭합니다.
-2.	**매개 변수**를 클릭합니다. **매개 변수** 창에서 새 값을 입력하거나 허용되는 값에서 선택하거나 기본값을 그대로 적용한 다음 **확인**을 클릭합니다.
-3.	필요한 경우 **구독**을 클릭하고 올바른 Azure 구독을 선택합니다.
-4.	**리소스 그룹**을 클릭하고 기존 리소스 그룹을 선택합니다. 아니면 **또는 새로 만들기**를 클릭하여 이 작업에 대한 새 그룹을 만듭니다.
-5.	필요한 경우 **리소스 그룹 위치**를 클릭하고 올바른 Azure 위치를 선택합니다.
-6.	필요한 경우 **약관**을 클릭하여 템플릿 사용 조건 및 규약을 검토합니다.
-7.	**만들기**를 클릭합니다.
+1.	**매개 변수**를 클릭합니다. **매개 변수** 창에서 새 값을 입력하거나 허용되는 값에서 선택하거나 기본값을 그대로 적용한 다음 **확인**을 클릭합니다.
+2.	필요한 경우 **구독**을 클릭하고 올바른 Azure 구독을 선택합니다.
+3.	**리소스 그룹**을 클릭하고 기존 리소스 그룹을 선택합니다. 아니면 **또는 새로 만들기**를 클릭하여 이 워크로드에 대해 새 그룹을 만듭니다.
+4.	필요한 경우 **리소스 그룹 위치**를 클릭하고 올바른 Azure 위치를 선택합니다.
+5.	**약관**을 클릭하여 템플릿 사용 조건 및 규약을 검토합니다.
+6.	**만들기**를 클릭합니다.
 
 템플릿에 따라 Azure의 워크로드 빌드에 다소 시간이 걸릴 수 있습니다. 해당 작업이 완료되면 기존 또는 새 리소스 그룹에 새로운 9-서버 SharePoint 팜을 갖게 됩니다.
 
@@ -172,6 +172,8 @@ Azure Preview 포털, Azure PowerShell 또는 Azure CLI에서 템플릿 파일�
 
 ## 추가 리소스
 
+[Azure 인프라 서비스에서 호스트되는 SharePoint 팜](virtual-machines-sharepoint-infrastructure-services.md)
+
 [Azure 리소스 관리자 템플릿 및 Azure PowerShell을 사용하여 가상 컴퓨터 배포 및 관리](virtual-machines-deploy-rmtemplates-powershell.md)
 
 [Azure 리소스 관리자의 Azure 계산, 네트워크 및 저장소 공급자](virtual-machines-azurerm-versus-azuresm.md)
@@ -184,4 +186,4 @@ Azure Preview 포털, Azure PowerShell 또는 Azure CLI에서 템플릿 파일�
 
 [Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

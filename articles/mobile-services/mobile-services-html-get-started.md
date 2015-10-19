@@ -1,5 +1,5 @@
 <properties
-	pageTitle="HTML 5 앱에 대해 Azure 모바일 서비스 시작"
+	pageTitle="HTML/JavaScript 앱용 Azure 모바일 서비스 시작 | Microsoft Azure"
 	description="이 자습서에 따라 HTML 개발을 위해 Azure 모바일 서비스 사용을 시작할 수 있습니다."
 	services="mobile-services"
 	documentationCenter=""
@@ -12,14 +12,16 @@
 	ms.workload="mobile"
 	ms.tgt_pltfrm="mobile-html5"
 	ms.devlang="javascript"
-	ms.topic="article" 
-	ms.date="07/25/2015"
+	ms.topic="get-started-article" 
+	ms.date="10/05/2015"
 	ms.author="glenga"/>
 
 
 # <a name="getting-started"> </a>모바일 서비스 시작
 
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]&nbsp;
+
+[AZURE.INCLUDE [mobile-services-hero-slug](../../includes/mobile-services-hero-slug.md)]
 
 ##개요 
 
@@ -46,7 +48,7 @@
 	앱을 호스트하기 위한 웹 서버로 어떤 것이든 사용할 수 있지만, 다운로드한 스크립트는 위의 웹 서버에서만 지원됩니다.
 
 + HTML5를 지원하는 웹 브라우저.
-+ Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank)을 참조하세요. 
++ Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F"%20target="_blank)을 참조하세요. 
 
 
 ## <a name="create-new-service"> </a>새 모바일 서비스 만들기
@@ -117,13 +119,12 @@
 ## <a name="next-steps"> </a>다음 단계
 이제 퀵 스타트를 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다.
 
-* **[데이터 시작하기]** <br/>모바일 서비스를 사용하여 데이터를 저장 및 쿼리하는 방법에 대해 자세히 알아보십시오.
+* **[앱에 인증 추가]** ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
 
-* **[HTML 응용 프로그램에서 사용자 지정 API 호출]** <br/>HTML 응용 프로그램을 모바일 서비스에서 호스트되는 사용자 지정 API와 연결하세요.
+* **[모바일 서비스 HTML/JavaScript 방법 개념 참조]** HTML/JavaScript와 함께 모바일 서비스를 사용하는 방법에 대해 자세히 알아보십시오.
 
-* **[인증 시작하기]** <br/>ID 공급자로 앱의 사용자를 인증하는 방법에 대해 알아보십시오.
 
-* **[모바일 서비스 HTML/JavaScript 방법 개념 참조]** <br/>HTML/JavaScript와 함께 모바일 서비스를 사용하는 방법에 대해 자세히 알아보십시오.
+[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started
@@ -144,9 +145,7 @@
 
 
 <!-- URLs. -->
-[데이터 시작하기]: mobile-services-html-get-started-data.md
-[인증 시작하기]: mobile-services-html-get-started-users.md
-[HTML 응용 프로그램에서 사용자 지정 API 호출]: mobile-services-html-call-custom-api.md
+[앱에 인증 추가]: mobile-services-html-get-started-users.md
 
 [Management Portal]: https://manage.windowsazure.com/
 [Microsoft 웹 플랫폼 설치 관리자]: http://go.microsoft.com/fwlink/p/?LinkId=286333
@@ -155,4 +154,4 @@
 [Cross-origin resource sharing]: http://msdn.microsoft.com/library/azure/dn155871.aspx
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO2-->

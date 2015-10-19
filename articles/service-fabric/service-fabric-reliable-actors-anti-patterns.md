@@ -3,7 +3,7 @@
    description="Azure 서비스 패브릭 행위자에 대해 배우는 중인 고객에게 해당되는 일부 잠재적인 문제"
    services="service-fabric"
    documentationCenter=".net"
-   authors="jessebenson"
+   authors="vturecek"
    manager="timlt"
    editor=""/>
 
@@ -14,7 +14,7 @@
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
    ms.date="08/11/2015"
-   ms.author="claudioc"/>
+   ms.author="vturecek"/>
 
 # 신뢰할 수 있는 행위자 디자인 패턴: 일부 안티패턴
 
@@ -30,4 +30,4 @@
 
 * 엔터티 모델을 무작정 매핑합니다. 이것은 문제가 엔터티 및 그 관계를 사용하여 모델링되는 관계형 환경의 개발자에게 해당됩니다. 이 방법은 주체 도메인을 이해하는 데 유용하지만 서비스 지향 사고와 결합하고 동작과 혼합되어야 합니다.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

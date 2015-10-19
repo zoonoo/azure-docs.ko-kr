@@ -44,8 +44,6 @@ RBAC(역할 기반 액세스 제어)는 사용자가 저장할 수 있는 역할
 
 [앱에 인증 추가] 자습서에서는 [Azure Active Directory 로그인 사용 등록] 단계를 완료할 때 통합 응용 프로그램에 대한 등록을 만들었습니다. 이 섹션에서는 해당 통합 응용 프로그램의 클라이언트 ID로 디렉터리 정보를 읽을 때 사용할 키를 생성합니다.
 
-[Azure Active Directory 그래프 정보 액세스] 자습서를 진행할 때 이미 이 단계를 완료했으며 이 섹션은 건너뛰어도 됩니다.
-
 [AZURE.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 
@@ -390,7 +388,6 @@ RBAC(역할 기반 액세스 제어)는 사용자가 저장할 수 있는 역할
 [Azure Active Directory 로그인 사용 등록]: mobile-services-how-to-register-active-directory-authentication.md
 [Graph REST API]: http://msdn.microsoft.com/library/azure/hh974478.aspx
 [IsMemberOf]: http://msdn.microsoft.com/library/azure/dn151601.aspx
-[Azure Active Directory 그래프 정보 액세스]: mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info.md
 [.NET용 ADAL]: https://msdn.microsoft.com/library/azure/jj573266.aspx
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO2-->

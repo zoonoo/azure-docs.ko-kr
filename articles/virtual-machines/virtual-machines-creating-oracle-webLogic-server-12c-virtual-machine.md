@@ -1,7 +1,25 @@
-<properties pageTitle="Azure에서 Oracle WebLogic Server 12c 가상 컴퓨터 만들기" description="Microsoft Azure에서 Windows Server 2012에서 실행 중인 Oracle WebLogic Server 12c 가상 컴퓨터를 만드는 예제를 단계별로 설명합니다." services="virtual-machines" authors="bbenz" documentationCenter=""/>
-<tags ms.service="virtual-machines" ms.devlang="na" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="infrastructure-services" ms.date="06/22/2015" ms.author="bbenz" />
+<properties
+	pageTitle="Oracle WebLogic Server 12c VM 만들기 | Microsoft Azure"
+	description="리소스 관리자 배포 모델을 사용하여 Microsoft Azure에서 Windows Server 2012를 실행하는 Oracle WebLogic Server 12c 가상 컴퓨터를 만듭니다."
+	services="virtual-machines"
+	authors="bbenz"
+	documentationCenter=""
+	tags="azure-resource-manager"/>
+
+<tags
+	ms.service="virtual-machines"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.tgt_pltfrm="na"
+	ms.workload="infrastructure-services"
+	ms.date="06/22/2015"
+	ms.author="bbenz" />
+
 #Azure에서 Oracle WebLogic Server 12c 가상 컴퓨터 만들기
 다음 예제에서는 Azure에서 Windows Server 2012에서 실행되는 Microsoft에서 제공한 Oracle WebLogic Server 12c 이미지에 따라 가상 컴퓨터를 만드는 방법을 보여줍니다.
+
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 Oracle WebLogic Server를 만드는 내용에 대해 설명합니다.
+
 
 ##Azure에서 Oracle WebLogic Server 12c 가상 컴퓨터 만들기
 
@@ -21,8 +39,8 @@
 
 8.	다음 사항을 고려하여 필요에 따라 선택적 구성을 설정합니다.
 	1. VM 이름으로 새 저장소 계정을 만들려면 **저장소 계정**을 그대로 둡니다.
-	2. **가용성 집합**을 “구성되지 않음“으로 둡니다.
-	3. 이때 **끝점**을 추가하지 마세요.
+	2. **가용성 집합**을 "구성되지 않음"으로 둡니다.
+	3. 이때 모든 **끝점**을 추가하지 마십시오.
 
 9.	[리소스 그룹](resource-group-portal.md)을 선택하거나 만듭니다.
 
@@ -140,19 +158,19 @@
 
 	1.	가상 컴퓨터에 로그인합니다.
 
-	2.	**Windows 시작**을 클릭하고 **고급 보안이 포함된 Windows 방화벽**를 입력한 다음 **고급 보안이 포함된 Windows 방화벽** 아이콘을 클릭합니다. 이렇게 하면 **고급 보안이 포함된 Windows 방화벽** 관리 콘솔이 열립니다.
+	2.	**Windows 시작**을 클릭하고 **고급 보안이 포함된 Windows 방화벽**을 입력한 다음 **고급 보안이 포함된 Windows 방화벽** 아이콘을 클릭합니다. 이렇게 하면 **고급 보안이 포함된 Windows 방화벽** 관리 콘솔이 열립니다.
 
 	3.	방화벽 관리 콘솔의 왼쪽 창에서 **인바운드 규칙**을 클릭한 다음(**인바운드 규칙**이 보이지 않는 경우 왼쪽 창의 맨 위에 있는 노드를 확장함) 오른쪽 창에서 새 규칙을 클릭합니다.
 
 	4.	**규칙 유형**에 대해 **포트**를 선택하고 **다음**을 클릭합니다.
 
-	5.	**프로토콜 및 포트**에 대해 **TCP**를 선택합니다. **특정 로컬 포트**를 선택하고 포트에 대해 **7001**을 입력한 후 **다음**을 클릭합니다.
+	5.	**프로토콜 및 포트**는 **TCP**를 선택하고 **특정 로컬 포트**를 선택하여 포트에 대해 **7001**을 입력하고 **다음**을 클릭합니다.
 
 	6.	**연결 허용**을 선택하고 **다음**을 클릭합니다.
 
 	7.	규칙이 적용되는 프로필에 대해 기본값을 적용하고 **다음**을 클릭합니다.
 
-	8.	규칙 이름 및 설명(선택 사항)을 지정하고 **마침**을 클릭합니다.
+	8.	규칙 이름 및 설명(선택 사항)을 지정한 다음 **마침**을 클릭합니다.
 
 12.	인터넷에서 실행 중인 쇼핑 카트 응용 프로그램을 보려면 브라우저에서 `http://<<unique_domain_name>>/shoppingcart` 형식의 URL을 엽니다. **가상 컴퓨터**를 클릭한 다음 Oracle WebLogic Server를 실행하기 위해 사용 중인 가상 컴퓨터를 선택하여 [Azure 포털](https://ms.portal.azure.com/) 내에서 <<*unique\_domain\_name*>>의 값을 확인할 수 있습니다.
 
@@ -168,4 +186,4 @@
 
 -	[Azure용 Oracle 가상 컴퓨터 이미지](virtual-machines-oracle-list-oracle-virtual-machine-images.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO2-->

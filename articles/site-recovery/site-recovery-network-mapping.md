@@ -13,7 +13,7 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="na"
 	ms.workload="storage-backup-recovery"
-	ms.date="08/05/2015"
+	ms.date="10/07/2015"
 	ms.author="raynew"/>
 
 
@@ -135,4 +135,4 @@ VMNetwork1-시카고의 네트워크 매핑이 변경됨 | VM-1이 현재 VMNetw
 
 네트워크 매핑을 자세히 살펴보았으므로 이제 배포 준비를 위해 [모범 사례](site-recovery-best-practices.md)를 읽어보세요.
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO2-->

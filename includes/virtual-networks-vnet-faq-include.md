@@ -58,7 +58,7 @@ VNet 내에서 사용하는 서브넷 수에는 제한이 없습니다. 모든 �
 
 ### 이러한 서브넷 내에서 IP 주소를 사용하는데 제한 사항이 있습니까?
 
-Azure는 각 서브넷 내의 일부 IP 주소를 예약합니다. 서브넷의 첫 번째 및 마지막 IP 주소는 Azure 서비스에 사용되는 두 개 이상의 주소와 함께 프로토콜 적합성을 위해 예약됩니다.
+Azure는 각 서브넷 내의 일부 IP 주소를 예약합니다. 서브넷의 첫 번째 및 마지막 IP 주소는 Azure 서비스에 사용되는 3개 이상의 주소와 함께 프로토콜 적합성을 위해 예약됩니다.
 
 ### VNet 및 서브넷은 얼마나 크고 얼마나 작을 수 있습니까?
 
@@ -221,7 +221,8 @@ VNet 내에서 계산 서비스만 사용할 수 있습니다. 계산 서비스�
 
 아니요. VNet에 Azure 웹앱을 배포할 수 없습니다. 그러나 VNet에 대해 지점 및 사이트 간 구성된 경우 Azure VNet에서 웹앱을 안전하게 연결하고 리소스에 액세스할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
-- [웹앱 가상 네트워크 통합](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)
+- [웹앱 가상 네트워크 통합](http://azure.microsoft.com/blog/
+- 014/09/15/azure-websites-virtual-network-integration/)
 
 - [웹앱을 통해 VNet 통합 및 하이브리드 연결 사용](http://azure.microsoft.com/blog/2014/10/30/using-vnet-or-hybrid-conn-with-websites/)
 
@@ -264,4 +265,4 @@ VNet은 다른 VNet 및 Azure 인프라에서 호스팅되는 다른 서비스�
 
 예. 다양한 플랫폼에 대해 PowerShell 및 명령줄 도구를 사용할 수 있습니다. 자세한 내용은 [여기](http://go.microsoft.com/fwlink/?LinkId=317721)를 참조하세요.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO2-->

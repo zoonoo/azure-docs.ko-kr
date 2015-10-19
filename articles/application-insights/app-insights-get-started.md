@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="ibiza"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="08/04/2015"
+	ms.date="10/05/2015"
 	ms.author="awills"/>
 
 # Visual Studio Application Insights 시작하기
@@ -46,14 +46,17 @@ Application Insights는 앱에 SDK를 추가하여 작동하며, [Azure 포털](
 
 ## 지원 및 피드백
 
+
 * 질문 및 문제:
  * [문제 해결][qna]
- * [MSDN 포럼](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+ * [MSDN 포럼](https://social.msdn.microsoft.com/Forums/vstudio/KO-KR/home?forum=ApplicationInsights)
  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 * 버그:
  * [연결](https://connect.microsoft.com/VisualStudio/Feedback/LoadSubmitFeedbackForm?FormID=6076)
 * 제안:
  * [사용자 음성](http://visualstudio.uservoice.com/forums/121579-visual-studio/category/77108-application-insights)
+* 코드 샘플
+ * [코드 샘플](app-insights-code-samples.md)
 
 
 
@@ -72,4 +75,4 @@ Application Insights는 앱에 SDK를 추가하여 작동하며, [Azure 포털](
 
 [qna]: app-insights-troubleshoot-faq.md
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO2-->

@@ -390,7 +390,7 @@
 
 	계정 테이블에서 사용자 로그인 정보를 유지할 뿐 아니라 지정된 사용자의 계정을 만들기 위해 **CustomRegistration** 끝점을 한 번 호출해야 합니다. 다양한 지원 클라이언트 플랫폼에서 사용자 지정 API를 호출하는 방법의 예시는 [Azure 모바일 서비스의 사용자 지정 API - 클라이언트 SDK](http://blogs.msdn.com/b/carlosfigueira/archive/2013/06/19/custom-api-in-azure-mobile-services-client-sdks.aspx) 문서를 참조하세요.
 	 
-	> [AZURE.IMPORTANT]이 사용자 프로비저닝 단계는 한 번만 발생하기 때문에 일부 대역 외 방식에서 사용자 계정 만들기를 고려해야 합니다. 공용 등록 끝점의 경우, SMS 기반 또는 이메일 기반 확인 프로세스 구현을 고려하거나 사기성 계정을 생성하지 않도록 다른 보호책을 고려해야 합니다. Twilio를 사용하여 모바일 서비스에서 SMS 메시지를 보낼 수 있습니다. 자세한 내용은 [방법: SMS 메시지 보내기](partner-twilio-mobile-services-how-to-use-voice-sms.md#howto_send_sms)를 참조하세요. 모바일 서비스에서 이메일을 보내려면 SendGrid를 사용할 수도 있습니다. 자세한 내용은 [SendGrid를 사용하여 모바일 서비스에서 메일 보내기](store-sendgrid-mobile-services-send-email-scripts.md)를 참조하세요.
+	> [AZURE.IMPORTANT]이 사용자 프로비저닝 단계는 한 번만 발생하기 때문에 일부 대역 외 방식에서 사용자 계정 만들기를 고려해야 합니다. 공용 등록 끝점의 경우, SMS 기반 또는 이메일 기반 확인 프로세스 구현을 고려하거나 사기성 계정을 생성하지 않도록 다른 보호책을 고려해야 합니다. Twilio를 사용하여 모바일 서비스에서 SMS 메시지를 보낼 수 있습니다. 모바일 서비스에서 이메일을 보내려면 SendGrid를 사용할 수도 있습니다. SendGrid 사용에 대한 자세한 내용은 [SendGrid로 모바일 서비스에서 전자 메일 보내기](store-sendgrid-mobile-services-send-email-scripts.md)를 참조하세요.
 	
 3. 이번에는 적합한 **invokeApi** 메서드를 다시 사용하여 메시지 본문에서 런타임 제공 사용자 이름 및 암호를 전달하는 **CustomLogin** 끝점을 호출합니다.
 
@@ -420,4 +420,4 @@
 [ProviderCredentials]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobile.service.security.providercredentials.aspx
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO2-->
