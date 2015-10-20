@@ -20,10 +20,8 @@
 	    <array>
 	    <string>remote-notification</string>
 	    </array>
-	    ...
-    
-7. **Xcode 7** 및 **iOS 9**를 사용하는 경우 다음 단계를 추가로 수행해야 합니다.
-	- 대상 > 빌드 설정에서 **Bitcode 사용**을 **아니요**로 설정합니다. 위쪽 막대에서 모두를 선택해야 합니다. 
+
+7. **Xcode 7+** 및 **iOS 9+**를 사용 중인 경우,
 	- 대상 > 대상 이름 > 기능에서 **푸시 알림**을 사용하도록 설정합니다.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

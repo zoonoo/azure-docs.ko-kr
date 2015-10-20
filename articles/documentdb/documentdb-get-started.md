@@ -19,6 +19,10 @@
 
 #DocumentDB .NET SDK 시작  
 
+> [AZURE.SELECTOR]
+- [.NET](documentdb-get-started.md)
+- [Node.js](documentdb-nodejs-get-started.md)
+
 DocumentDB .NET SDK 시작에 오신 것을 환영합니다. 이 자습서를 따라하면 DocumentDB 리소스를 만들고 쿼리하는 콘솔 응용 프로그램이 생깁니다.
 
 다음에 대해 설명합니다.
@@ -31,7 +35,7 @@ DocumentDB .NET SDK 시작에 오신 것을 환영합니다. 이 자습서를 �
 - 컬렉션 쿼리
 - 데이터베이스 삭제
 
-시간이 없으십니까? 염려하지 마십시오. [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started)에서 전체 솔루션을 사용할 수 있습니다. 빠른 지침은 [전체 솔루션 다운로드](#GetSolution)를 참조하세요.
+시간이 없으십니까? 염려하지 마십시오. [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started)에서 전체 솔루션을 사용할 수 있습니다. 빠른 지침은 [전체 솔루션 다운로드](#GetSolution)를 참조하세요.
 
 나중에 이 페이지 위쪽 또는 아래쪽에 있는 응답 단추를 통해 의견을 보내주세요. 직접 연락을 받고 싶은 경우 설명에 메일 주소를 포함하세요.
 
@@ -72,7 +76,7 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
     using Microsoft.Azure.Documents.Linq;
     using Newtonsoft.Json;
 
-다음으로 DocumentDB 계정 끝점과 기본 또는 보조 액세스 키를 저장합니다. [Azure Preview 포털](https://portal.azure.com)에서 확인할 수 있습니다.
+다음으로 DocumentDB 계정 끝점과 기본 또는 보조 선택키를 저장합니다. [Azure Preview 포털](https://portal.azure.com)에서 확인할 수 있습니다.
 
 ![활성 허브, DocumentDB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조키 값이 강조 표시된 DocumentDB 계정을 보여 주는 Azure Preview 포털의 스크린샷][keys]
 
@@ -102,7 +106,7 @@ DocumentDB 계정을 만들어 보겠습니다. 계정이 이미 있는 경우 [
 		}
 	}
 
-> [AZURE.WARNING]소스 코드에 자격 증명을 저장해서는 안 됩니다. 이 샘플을 단순하게 유지하기 위해 자격 증명이 소스 코드에 표시되어 있습니다. [Azure 웹 사이트: 응용 프로그램 문자열 및 연결 문자열 작동 방식](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)에서 프로덕션 환경에서 자격 증명을 저장하는 방법에 대한 자세한 내용을 참조하세요. 소스 코드 외부에 자격 증명을 저장하는 예제는 [GitHub](https://github.com/Azure/azure-documentdb-net/blob/master/tutorials/get-started/src/Program.cs)의 샘플 응용 프로그램에서 확인할 수 있습니다.
+> [AZURE.WARNING]소스 코드에 자격 증명을 저장해서는 안 됩니다. 이 샘플을 단순하게 유지하기 위해 자격 증명이 소스 코드에 표시되어 있습니다. [Azure 웹 사이트: 응용 프로그램 문자열 및 연결 문자열 작동 방식](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)에서 프로덕션 환경에서 자격 증명을 저장하는 방법에 대한 자세한 내용을 참조하세요. 소스 코드 외부에 자격 증명을 저장하는 예제는 [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs)의 샘플 응용 프로그램에서 확인할 수 있습니다.
 
 DocumentDB 계정에 연결하여 **DocumentClient** 클래스의 인스턴스를 만드는 방법을 알게 되었으므로 이제 DocumentDB 리소스에 대한 작업을 살펴보겠습니다.
 
@@ -456,7 +460,7 @@ DocumentDB 쿼리는 이미 단일 컬렉션으로 범위가 지정되었기 때
 이 문서의 모든 샘플을 포함하는 GetStarted 솔루션을 빌드하려면 다음이 필요합니다.
 
 -   [DocumentDB 계정][documentdb-create-account]
--   GitHub에서 제공하는 [GetStarted](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started) 솔루션
+-   GitHub에서 제공하는 [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-getting-started) 솔루션
 
 Visual Studio에서 DocumentDB .NET SDK에 대한 참조를 복원하려면 솔루션 탐색기에서 **GetStarted** 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **NuGet 패키지 복원 사용**을 클릭합니다. 다음으로, App.config 파일에서 EndpointUrl 및 AuthorizationKey 값을 [DocumentDB 계정에 연결](#Connect)에 설명된 대로 업데이트합니다.
 
@@ -474,4 +478,4 @@ Visual Studio에서 DocumentDB .NET SDK에 대한 참조를 복원하려면 솔�
 [keys]: media/documentdb-get-started/keys.png
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

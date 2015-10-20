@@ -78,4 +78,4 @@
 - 쿼리 탐색기에서 지원되는 DocumentDB SQL 문법에 대해 자세히 알아보려면 [여기](documentdb-sql-query.md)를 클릭하세요.
  
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

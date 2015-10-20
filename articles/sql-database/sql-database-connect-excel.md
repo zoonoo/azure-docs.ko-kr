@@ -4,8 +4,8 @@
 	services="sql-database"
 	documentationCenter=""
 	authors="joseidz"
-	manager="joseidz"
-	editor="joseidz"/>
+	manager="jeffreyg"
+	editor="jeffreyg"/>
 
 
 <tags
@@ -14,41 +14,52 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="07/09/2015"
+	ms.date="10/09/2015"
 	ms.author="joseidz"/>
 
 
 # Excel을 사용하여 Azure SQL 데이터베이스에 연결
-Excel을 Azure SQL 데이터베이스에 연결하고 데이터베이스의 데이터에 대해 보고서를 만듭니다.
 
-## 필수 조건
-- Azure SQL 데이터베이스가 프로비전되고 실행 중이어야 합니다. 새 SQL 데이터베이스를 만들려면 [Microsoft Azure SQL 데이터베이스 시작](sql-database-get-started.md)을 참조하세요.
-- [Microsoft Excel 2013](https://products.office.com/en-US/)(또는 Microsoft Excel 2010)
+> [AZURE.SELECTOR]
+- [C#](sql-database-connect-query.md)
+- [SSMS](sql-database-connect-query-ssms.md)
+- [Excel](sql-database-connect-excel.md)
 
-## SQL 데이터베이스에 연결 및 보고서 만들기
-1.	Excel을 엽니다.
-2.	페이지 상단에 있는 메뉴 모음에서 **데이터**를 클릭합니다.
-3.	**기타 원본**을 클릭하고 **SQL Server**를 클릭합니다. **데이터 연결 마법사**가 열립니다.
+이 문서는 Excel을 Azure SQL 데이터베이스에 연결하고 데이터베이스의 데이터에 대해 보고서를 만드는 방법을 보여줍니다. 먼저 SQL 데이터베이스가 필요합니다. SQL 데이터베이스가 없다면 [첫 번째 SQL 데이터베이스 만들기](sql-database-get-started.md)를 참조하여 몇 분 내에 샘플 데이터와 함께 실행되는 데이터베이스를 가져옵니다. 이 문서는 해당 문서의 예제 데이터를 기반으로 하지만 고유의 데이터에서 비슷한 단계를 따를 수 있습니다.
 
-	![데이터 연결 마법사][1]
-4.	**서버 이름** 상자에 Azure SQL 데이터베이스 서버 이름을 입력합니다. 예:
+또한 Excel의 사본이 필요합니다. 이 문서는 [Microsoft Excel 2016](https://products.office.com/ko-KR/)를 사용합니다.
 
-	 	adventureserver.database.windows.net
-5.	**로그온 자격 증명** 섹션에서 **다음 사용자 이름과 암호 사용**을 선택한 후 SQL 데이터베이스 서버에 대해 적절한 자격 증명을 입력합니다. 그런 후 **Next**를 클릭합니다.
+## 연결 및 보고서 만들기
 
-	참고: Excel에 대한 [PowerPivot](https://www.microsoft.com/download/details.aspx?id=102)및[Power Query](https://www.microsoft.com/download/details.aspx?id=39379) 추가 기능의 환경은 매우 유사합니다.
+1.	Excel을 열고 새 통합 문서를 만들거나 연결하려는 통합 문서를 엽니다.
 
-6. **데이터베이스 및 테이블 선택** 대화 상자의 풀 다운 메뉴에서 **AdventureWorks** 데이터베이스를 선택하고 테이블 및 뷰 목록에서 **vGetAllCategories**를 선택한 후 **다음**을 클릭합니다.
+2.	페이지 위쪽에 있는 메뉴 모음에서 **데이터**, **기타 원본에서** 및 **SQL Server에서**를 차례로 클릭합니다.
+	
+	![데이터 원본 선택](./media/sql-database-connect-excel/excel_data_source.png)
+
+	데이터 연결 마법사가 열립니다.
+
+3.	**데이터베이스 서버에 연결** 대화 상자에서 **<*servername*>.database.windows.net** 형식에서 연결하려는 논리 서버를 호스팅하는 **서버 이름**을 입력합니다. 예를 들어 **adventureserver.database.windows.net**입니다.
+
+4.	**로그온 자격 증명** 섹션에서 **다음 사용자 이름 및 암호 사용**을 클릭하고 SQL 데이터베이스 서버를 만들 때 설정한 **사용자 이름** 및 **암호**를 입력한 후 **다음**을 클릭합니다.
+
+	> [AZURE.TIP]Excel에 대한 [PowerPivot](https://www.microsoft.com/download/details.aspx?id=102)및[파워 쿼리](https://www.microsoft.com/download/details.aspx?id=39379) 추가 기능의 환경은 유사합니다.
+
+5. **데이터베이스 및 테이블 선택** 대화 상자의 풀 다운 메뉴에서 **AdventureWorks** 데이터베이스를 선택하고 테이블 및 뷰 목록에서 **vGetAllCategories**를 선택한 후 **다음**을 클릭합니다.
 
 	![데이터베이스 및 테이블 선택][5]
-7. **데이터 연결 파일 저장 및 마침** 대화 상자에서 **마침**을 클릭합니다.
-8. **데이터 가져오기** 대화 상자에서 **피벗 차트**를 선택하고 **확인**을 클릭합니다.
+
+6. **데이터 연결 파일 저장 및 마침** 대화 상자에서 **마침**을 클릭합니다.
+
+7. **데이터 가져오기** 대화 상자에서 **피벗 차트**를 선택하고 **확인**을 클릭합니다.
 
 	![데이터 가져오기 선택][2]
-9. **피벗 차트 필드** 대화 상자에서 다음 구성을 선택하여 범주별 제품 수에 대한 보고서를 만듭니다.
+
+8. **피벗 차트 필드** 대화 상자에서 다음 구성을 선택하여 범주별 제품 수에 대한 보고서를 만듭니다.
 
 	![구성][3]
-10.	성공 시 다음과 같이 표시됩니다.
+
+	성공 시 다음과 같이 표시됩니다.
 
 	![성공][4]
 
@@ -63,4 +74,4 @@ SaaS(Software as a Service) 개발자인 경우 [탄력적 데이터베이스 �
 [4]: ./media/sql-database-connect-excel/power-pivot-results.png
 [5]: ./media/sql-database-connect-excel/select-database-and-table.png
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

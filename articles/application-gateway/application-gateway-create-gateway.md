@@ -420,4 +420,4 @@ ILB에서 사용되도록 응용 프로그램 게이트웨이를 구성하려면
 - [Azure 부하 분산 장치](https://azure.microsoft.com/documentation/services/load-balancer/)
 - [Azure 트래픽 관리자](https://azure.microsoft.com/documentation/services/traffic-manager/)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

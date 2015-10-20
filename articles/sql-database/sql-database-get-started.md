@@ -3,7 +3,7 @@
 	description="클라우드에 제공되는 Microsoft의 RDBMS(관계형 데이터베이스 관리 서비스)인 Azure SQL 데이터베이스에서 Azure 포털 및 AdventureWorks 샘플 데이터베이스를 사용하면 불과 몇 분 안에 여러분의 첫 번째 클라우드 데이터베이스를 만들 수 있습니다."
 	services="sql-database"
 	documentationCenter=""
-	authors="MightyPen"
+	authors="jeffgoll"
 	manager="jeffreyg"
 	editor=""/>
 
@@ -14,8 +14,8 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/01/2015"
-	ms.author="genemi"/>
+	ms.date="10/09/2015"
+	ms.author="jeffreyg"/>
 
 # 첫 Azure SQL 데이터베이스 만들기
 
@@ -26,15 +26,17 @@
 - [C#](sql-database-get-started-csharp.md)
 - [PowerShell](sql-database-get-started-powershell.md)
 
-이 문서에서는 Azure 포털을 사용하여 몇 분 안에 샘플 SQL 데이터베이스를 만드는 방법을 보여줍니다. 이 문서에서 배울 내용은 다음과 같습니다.
+이 문서에서는 Azure Preview 포털을 사용하여 몇 분 안에 샘플 SQL 데이터베이스를 만드는 방법을 보여줍니다. 이 문서에서 배울 내용은 다음과 같습니다.
 
 - 만든 데이터베이스를 호스팅할 서버를 만든 후 방화벽 규칙을 설정합니다.
 - 데이터를 재생할 수 있는 AdventureWorks 샘플의 데이터베이스를 만듭니다.
 
 시작하려면 Azure 계정 및 구독이 필요합니다. 없는 경우 지금 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/)에 등록하세요.
 
+> [AZURE.NOTE]여기에서는 클라우드, Azure SQL 데이터베이스에서 Microsoft의 관계형 데이터베이스 서비스를 사용하여 데이터베이스를 설정하는 방법을 다룹니다. 다른 옵션은 Azure 가상 컴퓨터에서 SQL Server를 실행합니다. 빠른 비교를 위한 [Azure VM에서 Azure SQL 데이터베이스 및 SQL Server 이해](data-management-azure-sql-database-and-sql-server-iaas.md)를 참조하거나 [SQL Server 가상 컴퓨터 프로비전](virtual-machines-provision-sql-server.md)을 참조하여 가상 컴퓨터를 시작합니다.
+
 ## 1단계: 로그인 및 SQL 데이터베이스 설정 시작
-1. [Azure 포털](http://portal.azure.com/)에 로그인합니다.
+1. [Azure Preview 포털](http://portal.azure.com/)에 로그인합니다.
 2. **새로 만들기** > **데이터 + 저장소** > **SQL 데이터베이스**를 클릭합니다.
 
 	![새 SQL 데이터베이스 만들기](./media/sql-database-get-started/create-db.png)
@@ -64,7 +66,7 @@ Azure에서 SQL 데이터베이스는 데이터베이스 서버에 있습니다.
 
 데이터베이스와 서버가 아직 생성되지 않았습니다. 다음 단계에서 AdventureWorks 샘플에서 데이터베이스를 만들고 설정을 확인하도록 선택한 후에 생성됩니다.
 
-## 4단계: 데이터베이스 설정 및 만들기
+## 3단계: 데이터베이스 설정 및 만들기
 1. **SQL 데이터베이스** 블레이드에서 **소스 선택**을 클릭한 후 **샘플**을 클릭합니다. 
 
 	![샘플에서 데이터베이스 만들기](./media/sql-database-get-started/new-sample-db.png)
@@ -79,7 +81,7 @@ Azure 시작 보드로 돌아갑니다. 여기에는 데이터베이스가 생�
 	
 축하합니다. 이제 데이터베이스가 클라우드에서 실행됩니다. 이제 거의 끝났습니다. 한 가지 중요한 단계가 남아 있습니다. 데이터베이스에 연결할 수 있도록 데이터베이스 서버에서 규칙을 만들어야 합니다.
 
-## 5단계: 방화벽 구성
+## 4단계: 방화벽 구성
 
 서버에서 클라이언트 컴퓨터의 IP 주소로부터 연결을 허용하는 방화벽 규칙을 설정해야 데이터베이스로 작업할 수 있습니다. 이를 통해 연결이 가능한지 확인할 수 있을 뿐만 아니라 Azure에서 SQL 서버에 대한 기타 세부 정보를 얻을 수 있는 영역을 볼 수 있는 좋은 방법입니다.
 
@@ -114,4 +116,4 @@ Azure 시작 보드로 돌아갑니다. 여기에는 데이터베이스가 생�
 
 - 온-프레미스 SQL 서버 데이터베이스를 Azure로 이동하려면 [Azure SQL 데이터베이스로 데이터베이스 마이그레이션](sql-database-cloud-migrate.md)에서 자세히 알아보세요.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

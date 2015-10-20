@@ -259,4 +259,4 @@ Client.OnMessage((message) =>
   [Complete]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
   [Abandon]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

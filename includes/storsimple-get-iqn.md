@@ -10,4 +10,4 @@
 
 3. 이 문자열을 저장합니다.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

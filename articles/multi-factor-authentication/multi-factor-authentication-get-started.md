@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Multi-Factor Authentication - 시작"
-	description="보안을 유지하려는 대상과 사용자의 위치에 대한 질문에 답하여 적합한 다단계 인증 보안 솔루션을 선택합니다. 클라우드, MFA 서버 또는 AD FS를 선택합니다."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="Azure Multi-Factor Authentication - 시작" 
+	description="보안을 유지하려는 대상과 사용자의 위치에 대한 질문에 답하여 적합한 다단계 인증 보안 솔루션을 선택합니다. 클라우드, MFA 서버 또는 AD FS를 선택합니다." 
+	services="multi-factor-authentication" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtland"/>
 
 <tags 
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/24/2015"
+	ms.service="multi-factor-authentication" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="08/24/2015" 
 	ms.author="billmath"/>
 
 #다단계 보안 솔루션 선택
@@ -87,4 +87,4 @@ MFA 보고서 | ● | ●
 * [사용자](multi-factor-authentication-end-user.md)
 * [MSDN에서 Azure Multi-Factor Authentication](https://msdn.microsoft.com/library/azure/dn249471.aspx) 
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

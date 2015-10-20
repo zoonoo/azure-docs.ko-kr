@@ -91,4 +91,4 @@ Azure 포털의 관리 서비스에서 트래픽 관리자 프로필의 변경 �
 
 [웹사이트](http://go.microsoft.com/fwlink/p/?LinkId=393327)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

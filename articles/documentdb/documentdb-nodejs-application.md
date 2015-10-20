@@ -19,6 +19,12 @@
 
 # <a name="_Toc395783175"></a>DocumentDB를 사용하여 Node.js 응용 프로그램 빌드
 
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md)
+
 이 Node.js 자습서에서는 Azure DocumentDB 서비스를 사용하여 Azure 웹 사이트에 호스트된 Node.js Express 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 보여 줍니다.
 
 먼저 Azure DocumentDB 데이터베이스 계정을 프로비전하는 방법을 알아보는 다음 동영상을 보고 JSON 문서를 Node.js 응용 프로그램에 저장하는 것이 좋습니다.
@@ -563,4 +569,4 @@
 [Github]: https://github.com/Azure-Samples/documentdb-node-todo-app
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

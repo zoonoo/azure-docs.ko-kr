@@ -239,4 +239,4 @@ ASR의 배포를 시작하려면:
 - [단일 VMM 서버로 보호 설정](site-recovery-single-vmm)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

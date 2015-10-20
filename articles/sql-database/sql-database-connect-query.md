@@ -13,12 +13,16 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="get-started-article"
-	ms.date="09/09/2015"
+	ms.date="10/09/2015"
 	ms.author="genemi"/>
 
 
 # C&#x23;을 사용한 SQL 데이터베이스 연결 및 쿼리
 
+> [AZURE.SELECTOR]
+- [C#](sql-database-connect-query.md)
+- [SSMS](sql-database-connect-query-ssms.md)
+- [Excel](sql-database-connect-excel.md)
 
 클라우드에서 Azure SQL 데이터베이스 데이터베이스에 연결하기 위해 ADO.NET을 사용하는 C# 프로그램을 작성하려 합니다.
 
@@ -353,4 +357,4 @@ C# 샘플을 간단하게 하려고 합니다. 코드를 추가하여 사용자�
 
 [50-VSCopyToOutputDirectoryProperty]: ./media/sql-database-connect-query/connqry-vs-appconfig-copytoputputdir-h.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

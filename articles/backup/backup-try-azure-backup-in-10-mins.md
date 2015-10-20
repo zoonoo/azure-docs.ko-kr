@@ -46,4 +46,4 @@ Azure 백업 설치는 매우 쉬우며, 다음과 같은 방법 동영상도 �
 - [Windows 서버 백업](backup-azure-backup-windows-server.md)
 - [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)을 방문하세요.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

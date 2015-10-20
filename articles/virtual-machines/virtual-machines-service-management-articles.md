@@ -14,12 +14,13 @@
 	ms.topic="get-started-article"
 	ms.tgt_pltfrm="vm-multiple"
 	ms.workload="infrastructure-services"
-	ms.date="10/01/2015"
+	ms.date="10/07/2015"
 	ms.author="danlep"/>
 
 # 서비스 관리의 가상 컴퓨터 관련 문서
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]클래식 배포 모델을 사용하여 리소스를 만들고 관리하는 방법에 대한 문서 목록입니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]리소스 관리자 모델.
+
 
 ## 시작
 
@@ -87,8 +88,6 @@
 
 [가상 컴퓨터에 끝점을 설정하는 방법](virtual-machines-set-up-endpoints.md)
 
-[Mac, Linux 및 Windows용 Azure CLI를 사용하여 가상 컴퓨터 관리](virtual-machines-manage-vms-azure-cli.md)
-
 ## 워크로드 만들기
 
 [Active Directory](../active-directory/active-directory-new-forest-virtual-machine.md)
@@ -153,4 +152,4 @@
 
 [서비스 관리 REST API 참조](https://msdn.microsoft.com/library/azure/ee460799.aspx)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

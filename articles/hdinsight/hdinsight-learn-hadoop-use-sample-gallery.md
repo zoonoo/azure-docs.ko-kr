@@ -68,4 +68,4 @@ HDInsight에 대해 알아볼 수 있는 다른 방법은 다음과 같습니다
 [hdinsight.infographic]: http://go.microsoft.com/fwlink/?linkid=523960
 [azure.portal]: https://portal.azure.com
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

@@ -103,4 +103,4 @@ API 테스트 페이지를 보려면 다음 단계를 수행합니다.
 
 3. Visual Studio에서 **디버그 > 디버깅 중지**를 클릭합니다.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

@@ -65,7 +65,7 @@ Azure 저장소 사용 비용은 저장소 계정에 따라 청구됩니다. 저
 
 	>[AZURE.IMPORTANT]구독할 수 있는 위치를 확인하려면 [공급자 나열](https://msdn.microsoft.com/library/azure/dn790524.aspx) 작업을 호출하면 됩니다. PowerShell의 공급자를 나열하려면 [Get-AzureLocation](https://msdn.microsoft.com/library/azure/dn757693.aspx)을 호출합니다. .NET에서는 ProviderOperationsExtensions 클래스의 [List](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.provideroperationsextensions.list.aspx) 메서드를 사용합니다.
 	>
-	>또한 어떤 지역에서 어떤 서비스가 가능한지에 대한 자세한 정보는 [Azure 지역](https://azure.microsoft.com/ko-kr/regions/#services)을 참조하세요.
+	>또한 어떤 지역에서 어떤 서비스가 가능한지에 대한 자세한 정보는 [Azure 지역](https://azure.microsoft.com/ko-KR/regions/#services)을 참조하세요.
 
 
 5. Azure 구독이 두 개 이상인 경우 **구독** 필드가 표시됩니다. **구독**에서 저장소 계정을 사용할 Azure 구독을 입력합니다.
@@ -171,4 +171,4 @@ Azure 저장소에 저장되는 모든 개체에는 고유한 URL 주소가 있�
 
 - [Azure 저장소 팀 블로그](http://blogs.msdn.com/b/windowsazurestorage/)(영문)를 방문하세요.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -71,4 +71,4 @@ Office 365 요구 사항에 대한 자세한 내용은 다음 리소스를 검�
 	- [라우팅 구성](expressroute-howto-routing-classic.md)
 	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

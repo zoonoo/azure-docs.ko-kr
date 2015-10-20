@@ -31,7 +31,7 @@ Microsoft Azure StorSimple 장치 배포를 시작합니다. 이 배포 자습�
 
 설치 및 구성 프로세스를 완료하려면 관리자 권한이 필요합니다. 시작하기 전에 구성 검사 목록을 검토하는 것이 좋습니다. 배포 및 구성 프로세스는 완료하는 데 다소 시간이 걸릴 수 있습니다.
 
-> [AZURE.NOTE]Microsoft Azure 웹 사이트에 게시된 StorSimple 배포 정보는 StorSimple 8000 시리즈 장치에만 적용됩니다. 7000 시리즈 장치에 대한 자세한 내용은 [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com)으로 이동합니다. 7000 시리즈 배포 정보는 [StorSimple 시스템 퀵 스타트 가이드](http://onlinehelp.storsimple.com/111_Appliance/)를 참조하세요.
+> [AZURE.NOTE]Microsoft Azure 웹 사이트에 게시된 StorSimple 배포 정보는 StorSimple 8000 시리즈 장치에만 적용됩니다. 7000 시리즈 장치에 대한 자세한 내용은 [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com)으로 이동합니다. 7000 시리즈 배포 정보는 [StorSimple 시스템 빠른 시작 가이드](http://onlinehelp.storsimple.com/111_Appliance/)를 참조하세요.
 
 ## 배포 단계
 
@@ -290,4 +290,4 @@ StorSimple 장치에서 단일 볼륨에 대한 주문형 수동 백업을 만�
 
 - [StorSimple 관리자 서비스](https://msdn.microsoft.com/library/azure/dn772396.aspx)를 사용하여 StorSimple 장치를 관리할 수 있습니다.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

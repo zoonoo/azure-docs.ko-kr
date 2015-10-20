@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="10/05/2015"
+	ms.date="10/08/2015"
 	ms.author="ricksal"/>
 
 # Android에 대해 모바일 서비스 시작(JavaScript 백 엔드)
@@ -32,7 +32,7 @@
 
 ## 필수 조건
 
-이 자습서를 완료하려면 Android Studio 통합 개발 환경이 포함된 [Android 개발자 도구][Android Studio] 및 최신 Android 플랫폼이 필요합니다. Android 4.2 이상 버전이 필요합니다.
+이 자습서를 완료하려면 Android Studio 통합 개발 환경이 포함된 [Android 개발자 도구](https://developer.android.com/sdk/index.html) 및 최신 Android 플랫폼이 필요합니다. Android 4.2 이상 버전이 필요합니다.
 
 다운로드한 퀵 스타트 프로젝트에는 Android용 Azure 모바일 서비스 SDK가 포함되어 있습니다.
 
@@ -59,27 +59,17 @@
 
   	![](./media/mobile-services-android-get-started/mobile-quickstart-steps-android-AS.png)
 
-3. 아직 하지 않은 경우 로컬 컴퓨터나 가상 컴퓨터에서 [Android 개발자 도구][Android SDK]를 다운로드하여 설치합니다.
+3. 아직 하지 않은 경우 로컬 컴퓨터나 가상 컴퓨터에서 [Android 개발자 도구](https://go.microsoft.com/fwLink/p/?LinkID=280125)를 다운로드하여 설치합니다.
 
 4. **TodoItem 테이블 만들기**를 클릭하여 앱 데이터를 저장할 테이블을 만듭니다.
 
 
-5. 이제 앱을 다운로드합니다.
-	- 최신 앱 버전에서는 모바일 서비스 Android SDK 2.0을 사용합니다. <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures">여기</a>에서 해당 버전을 다운로드할 수 있습니다. **Zip 다운로드**를 클릭하고 압축을 풀면 Android 폴더 아래의 GettingStarted에 프로젝트가 추가됩니다.
-
-	- 이전 버전에서는 이전 버전의 SDK를 사용합니다. 이를 사용하려면 **앱 다운로드 및 실행** 아래에서 **다운로드**를 클릭합니다. 모바일 서비스에 연결된 샘플 _할 일 모음_ 응용 프로그램에 대한 프로젝트가 다운로드됩니다. 프로젝트 파일은 압축되므로 해당 위치로 이동한 후 컴퓨터에 파일 압축을 풉니다.
-
+5. 이제 **다운로드** 단추를 눌러 앱을 다운로드합니다.
 
 ## Android 앱 실행
 
 [AZURE.INCLUDE [mobile-services-run-your-app](../../includes/mobile-services-android-get-started.md)]
 
-### 코드 보기(선택 사항)
-
-완성된 앱의 소스 코드를 참조하려면 [여기](https://github.com/RickSaling/mobile-services-samples/tree/androidStudio/GettingStarted/AndroidStudio)로 이동하세요.
-
-
-이 자습서의 Eclipse 버전을 참조하려면 [시작(Eclipse)](mobile-services-android-get-started-ec.md)으로 이동하세요.
 
 ## <a name="next-steps"> </a>다음 단계
 이제 빠른 시작을 완료했으며 모바일 서비스에서 중요한 추가 작업을 수행하는 방법을 알아보겠습니다.
@@ -93,32 +83,14 @@
 
 [AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
-<!-- Anchors. -->
-[Getting started with Mobile Services]: #getting-started
-[Create a new mobile service]: #create-new-service
-[Define the mobile service instance]: #define-mobile-service-instance
-[Next Steps]: #next-steps
-
-<!-- Images. -->
-[0]: ./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png
-[6]: ./media/mobile-services-android-get-started/mobile-portal-quickstart-android.png
-[7]: ./media/mobile-services-android-get-started/mobile-quickstart-steps-android-AS.png
-[8]: ./media/mobile-services-android-get-started/mobile-eclipse-quickstart.png
-[10]: ./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png
-[11]: ./media/mobile-services-android-get-started/mobile-data-tab.png
-[12]: ./media/mobile-services-android-get-started/mobile-data-browse.png
-[14]: ./media/mobile-services-android-get-started/mobile-services-import-android-workspace.png
-[15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
 
 <!-- URLs. -->
 [Get started (Eclipse)]: mobile-services-android-get-started-ec.md
 [데이터 시작]: mobile-services-android-get-started-data.md
 [인증 시작]: mobile-services-android-get-started-users.md
 [푸시 알림 시작]: mobile-services-javascript-backend-android-get-started-push.md
-[Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-[Android Studio]: https://developer.android.com/sdk/index.html
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 
 [Management Portal]: https://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

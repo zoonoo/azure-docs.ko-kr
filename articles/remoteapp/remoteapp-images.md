@@ -1,19 +1,19 @@
 <properties
     pageTitle="Azure RemoteApp 템플릿 이미지에 있는 항목"
-	description="Azure RemoteApp에 포함된 템플릿 이미지에 대해 알아봅니다."
-	services="remoteapp"
-	documentationCenter=""
-	authors="lizap"
-	manager="mbaldwin"/>
+    description="Azure RemoteApp에 포함된 템플릿 이미지에 대해 알아봅니다."
+    services="remoteapp"
+    documentationCenter=""
+    authors="lizap"
+    manager="mbaldwin" />
 
 <tags
     ms.service="remoteapp"
-	ms.workload="compute"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/02/2015"
-	ms.author="elizapo"/>
+    ms.workload="compute"
+    ms.tgt_pltfrm="na"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="09/02/2015" 
+    ms.author="elizapo" />
 
 # Azure RemoteApp 템플릿 이미지에 있는 항목
 
@@ -105,4 +105,4 @@ Office 365 ProPlus, Visio Pro 및 Project Pro 라이선스를 별도로 구입�
 > [AZURE.IMPORTANT]**법적 정보:** 이 이미지에는 Microsoft Office 라이선스를 포함하지 않으며 *프로덕션에 사용할 수 없습니다*. Office 2013 Professional Plus 이미지는 평가 용도로만 사용됩니다. 프로덕션에 대해 Azure RemoteApp에서 Office 앱을 사용하려는 경우 Office 365 ProPlus 이미지를 사용해야 합니다. 라이선스 Office에 대한 자세한 내용은 [Azure RemoteApp과 함께 Office 365 사용](remoteapp-o365.md)을 참조하세요.
  
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

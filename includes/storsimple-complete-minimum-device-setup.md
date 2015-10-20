@@ -38,4 +38,4 @@
 
 최소 장치 설치를 완료하는 방법을 보여 주는 동영상을 시청하려면 [여기](http://azure.microsoft.com/documentation/videos/minimum-storsimple-device-setup/)를 클릭하세요.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

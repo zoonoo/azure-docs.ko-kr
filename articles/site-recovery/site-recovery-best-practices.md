@@ -82,7 +82,7 @@ System Center 2012 R2에서 VMM(권장) (클러스터 또는 독립 실행형) |
 - [System Center 2012 R2 VMM을 사용하는 사설 클라우드의 새로운 기능](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/MDC-B357#fbid=)
 - [VMM 2012 및 클라우드](http://www.server-log.com/blog/2011/8/26/vmm-2012-and-the-clouds.html).
 - [VMM 클라우드 패브릭 구성](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)
-- [VMM에서 사설 클라우드 만들기](https://technet.microsoft.com/ko-kr/library/jj860425.aspx)
+- [VMM에서 사설 클라우드 만들기](https://technet.microsoft.com/ko-KR/library/jj860425.aspx)
 - [연습: System Center 2012 SP1 VMM을 사용하여 사설 클라우드 만들기](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx).
 
 
@@ -157,7 +157,7 @@ System Center 2012 R2에서 VMM(권장) (클러스터 또는 독립 실행형) |
 ## 성능 최적화
 
 - **운영 체제 볼륨 크기**: Azure에 가상 컴퓨터를 복제하는 경우 운영 체제 볼륨이 1TB 미만이어야 합니다. 이것보다 더 많은 볼륨이 있는 경우 배포를 시작하기 전에 볼륨을 다른 디스크로 수동으로 이동할 수 있습니다.
-- **데이터 디스크 크기**: Azure에 복제하는 경우 최대 1TB의 각 가상 컴퓨터에서 최대 32 개의 데이터 디스크를 사용할 수 있습니다. \~32 TB 가상 컴퓨터를 효과적으로 복제 및 장애 조치할 수 있습니다.
+- **데이터 디스크 크기**: Azure에 복제하는 경우 최대 1TB의 각 가상 컴퓨터에서 최대 32 개의 데이터 디스크를 사용할 수 있습니다. ~32 TB 가상 컴퓨터를 효과적으로 복제 및 장애 조치할 수 있습니다.
 - **복구 계획 제한**: 사이트 복구는 수천 개의 가상 컴퓨터로 확장할 수 있습니다. 복구 계획은 다 함께 장애 조치되어야 하는 응용프로그램에 대한 모델로 설계되었으므로 복구 계획에서 컴퓨터의 수를 50으로 제한할 수 있습니다.
 - **Azure 서비스 제한**: 모든 Azure 구독은 코어, 클라우드 서비스 등에서 일련의 기본 제한값이 제공됩니다. 구독에서 리소스의 가용성을 확인하기 위해 테스트 장애 조치를 실행하는 것이 좋습니다. Azure 지원을 통해 이러한 제한을 수정할 수 있습니다.
 - **용량 계획**: 지침은 [Hyper-v 복제본을 위한 용량 플래너](http://www.microsoft.com/en-in/download/details.aspx?id=39057)를 참조하십시오.
@@ -194,4 +194,4 @@ System Center 2012 R2에서 VMM(권장) (클러스터 또는 독립 실행형) |
 - [단일 VMM 서버로 보호 설정](site-recovery-single-vmm.md)
  
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

@@ -172,4 +172,4 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [5]: ./media/mobile-engagement-windows-phone-get-started/reach-capabilities.png
 [6]: ./media/mobile-engagement-windows-phone-get-started/push-screenshot.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

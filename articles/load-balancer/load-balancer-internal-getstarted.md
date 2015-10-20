@@ -332,4 +332,4 @@ Visual Studio에서 클라우드 배포용 서비스 구성 파일(.cscfg)을 �
 
 [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -33,7 +33,7 @@
 + Android SDK(Android Studio를 사용한다고 가정). [여기](http://go.microsoft.com/fwlink/?LinkId=389797)에서 다운로드할 수 있습니다.
 + [Mobile Engagement Android SDK]
 
-> [AZURE.IMPORTANT]Android 앱의 다른 모든 Mobile Engagement 자습서를 사용하기 전에 이 자습서를 완료해야 하며, 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-kr%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
+> [AZURE.IMPORTANT]Android 앱의 다른 모든 Mobile Engagement 자습서를 사용하기 전에 이 자습서를 완료해야 하며, 이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fko-KR%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure 무료 평가판</a>을 참조하세요.
 
 ##<a id="setup-azme"></a>iOS 앱용 Mobile Engagement 설정
 
@@ -327,4 +327,4 @@ Mobile Engagement에서는 캠페인 컨텍스트에서 푸시 알림 및 앱 �
 [22]: ./media/mobile-engagement-android-get-started/campaign-content.png
 [24]: ./media/mobile-engagement-android-get-started/campaign-activate.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

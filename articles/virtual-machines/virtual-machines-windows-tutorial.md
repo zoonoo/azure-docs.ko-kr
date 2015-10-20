@@ -107,4 +107,4 @@
 * Azure PowerShell 및 Azure CLI를 사용하여 [가상 컴퓨터 이미지를 찾아서 선택](resource-groups-vm-searching.md)합니다.
 * [Azure 리소스 관리자](virtual-machines-how-to-automate-azure-resource-manager.md) 및 [Azure 리소스 관리자 템플릿](http://azure.microsoft.com/documentation/templates/)을 사용하여 가상 컴퓨터와 워크로드 배포 및 관리를 자동화합니다.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

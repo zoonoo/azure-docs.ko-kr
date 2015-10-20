@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="09/09/2015"
+	ms.date="10/13/2015"
 	ms.author="garye"/>
 
-#기계 학습 자습서: Azure 기계 학습 스튜디오에서 첫 번째 실험 만들기
+# 기계 학습 자습서: Azure 기계 학습 스튜디오에서 첫 번째 실험 만들기
 
 이 첫 번째 기계 학습 자습서에서는 제조업체 및 기술 사양과 같은 여러 변수에 따라 자동차 가격을 예측하는 선형 회귀 모델을 만듭니다. 이를 위해 Azure 기계 학습 스튜디오를 사용하여 간단한 예측 분석 실험을 개발하고 반복하겠습니다.
 
@@ -29,8 +29,10 @@
 
 기계 학습 스튜디오에 대한 일반적인 정보는 [기계 학습 스튜디오란 무엇인가요?](machine-learning-what-is-ml-studio.md)를 참조하세요.
 
+>[AZURE.TIP]기계 학습 스튜디오의 기능에 대한 개요를 설명하는 다이어그램을 다운로드 및 프린트하려면 [기계 학습 스튜디오의 기능 개요 다이어그램](machine-learning-studio-overview-diagram.md)을 참조하세요.
 
-##실험 만들기 5단계
+
+## 실험 만들기 5단계
 
 이 기계 학습 자습서에서 모델을 만들고 학습하고 점수를 매기도록 기계 학습 스튜디오에서 실험을 빌드하기 위해 따르는 5가지 기본 단계를 따릅니다.
 
@@ -232,4 +234,4 @@
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

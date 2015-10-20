@@ -396,4 +396,4 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-web-track-usage.md
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

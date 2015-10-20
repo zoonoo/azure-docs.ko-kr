@@ -1,19 +1,19 @@
 <properties
     pageTitle="Android 앱용 Application Insights | Microsoft Azure"
-	description="Application Insights를 사용하여 Android 앱의 사용 현황 및 성능을 분석할 수 있습니다."
-	services="application-insights"
-	documentationCenter="android"
-	authors="alancameronwills"
-	manager="ronmart"/>
+    description="Application Insights를 사용하여 Android 앱의 사용 현황 및 성능을 분석할 수 있습니다."
+    services="application-insights"
+    documentationCenter="android"
+    authors="alancameronwills"
+    manager="ronmart"/>
 
 <tags
     ms.service="application-insights"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-android"
-	ms.devlang="na"
-	ms.topic="get-started-article"
+    ms.workload="mobile"
+    ms.tgt_pltfrm="mobile-android"
+    ms.devlang="na"
+    ms.topic="get-started-article"
 	ms.date="04/28/2015"
-	ms.author="awills"/>
+    ms.author="awills"/>
 
 # Android 앱용 Application Insights
 
@@ -197,4 +197,4 @@ http://portal.azure.com으로 돌아가서 Application Insights 리소스를 찾
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-api-custom-events-metrics.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

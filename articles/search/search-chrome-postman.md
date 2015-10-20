@@ -118,4 +118,4 @@ REST API에 대한 설명서는 [MSDN](https://msdn.microsoft.com/library/azure/
 [5]: ./media/search-chrome-postman/upload_documents.png
 [6]: ./media/search-chrome-postman/query.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

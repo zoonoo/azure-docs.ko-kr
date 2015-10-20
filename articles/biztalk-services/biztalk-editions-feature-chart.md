@@ -256,4 +256,4 @@ Azure 포털에서 Azure BizTalk 서비스를 만들려면 [BizTalk 서비스: A
 - [BizTalk 서비스: 발급자 이름 및 발급자 키](biztalk-issuer-name-issuer-key.md)<br/>
 - [Azure BizTalk 서비스 SDK로 시작하는 방법](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

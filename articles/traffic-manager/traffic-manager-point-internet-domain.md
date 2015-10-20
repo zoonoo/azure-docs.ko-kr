@@ -1,19 +1,19 @@
 <properties
    pageTitle="회사 인터넷 도메인이 트래픽 관리자 도메인을 가리키도록 설정 | Microsoft Azure"
-	description="이 문서에서는 사용자의 회사 도메인 이름이 트래픽 관리자 도메인 이름을 가리킵니다."
-	services="traffic-manager"
-	documentationCenter=""
-	authors="joaoma"
-	manager="adinah"
-	editor="tysonn"/>
+   description="이 문서에서는 사용자의 회사 도메인 이름이 트래픽 관리자 도메인 이름을 가리킵니다."
+   services="traffic-manager"
+   documentationCenter=""
+   authors="joaoma"
+   manager="adinah"
+   editor="tysonn" />
 <tags
    ms.service="traffic-manager"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="na"
-	ms.workload="infrastructure-services"
-	ms.date="08/19/2015"
-	ms.author="joaoma"/>
+   ms.devlang="na"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="na"
+   ms.workload="infrastructure-services"
+   ms.date="08/19/2015"
+   ms.author="joaoma" />
 
 # 회사 인터넷 도메인이 트래픽 관리자 도메인을 가리키도록 설정
 
@@ -37,4 +37,4 @@
 
 [트래픽 관리자란?](traffic-manager-overview.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

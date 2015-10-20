@@ -1,6 +1,7 @@
 <properties
    pageTitle="Hadoop 자습서: Windows에서 Hadoop 시작 | Microsoft Azure"
    description="HDInsight에서 Hadoop을 시작합니다. Windows에서 Hadoop 클러스터를 프로비전하고, 데이터에 대해 Hive 쿼리를 실행하고 Excel에서 결과를 분석하는 방법을 알아봅니다."
+   keywords="hadoop tutorial,hadoop on windows,hadoop cluster,learn hadoop, hive query"
    services="hdinsight"
    documentationCenter=""
    authors="nitinme"
@@ -219,7 +220,7 @@ Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight의 작�
 - [HDInsight에서 Hive 사용][hdinsight-use-hive]
 - [HDInsight에서 Pig 사용][hdinsight-use-pig]
 - [HDInsight에서 Oozie 사용][hdinsight-use-oozie]
-- [HDInsight용 C#Hadoop 스트리밍 프로그램 개발][hdinsight-develop-streaming]
+- [HDInsight용 C# Hadoop 스트리밍 프로그램 개발][hdinsight-develop-streaming]
 - [HDInsight용 Java MapReduce 프로그램 개발][hdinsight-develop-mapreduce]
 
 
@@ -279,4 +280,4 @@ Microsoft Excel용 파워 쿼리 추가 기능을 사용하여 HDInsight의 작�
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-hadoop-tutorial-get-started-windows-v1/HDI.GettingStarted.PowerQuery.ImportData2.png
  
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

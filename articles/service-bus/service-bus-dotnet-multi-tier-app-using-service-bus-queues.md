@@ -545,4 +545,4 @@ Azure 웹 사이트에 프런트 엔드를 배포하는 방법에 대한 자세�
   [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

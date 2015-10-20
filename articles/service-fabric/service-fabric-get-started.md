@@ -106,4 +106,4 @@ SDK와 함께 제공되는 서비스 패브릭 탐색기 도구를 사용하여,
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
 [3]: http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric "WebPI 링크"
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

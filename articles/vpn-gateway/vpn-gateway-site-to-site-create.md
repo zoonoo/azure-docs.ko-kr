@@ -99,4 +99,4 @@
 
 클래식 가상 네트워크와 Azure 리소스 관리자 모드를 사용하여 만든 가상 네트워크 간의 연결을 구성하려는 경우 [Azure 리소스 관리자 VNet에 클래식 VNet 연결](../virtual-network/virtual-networks-arm-asm-s2s-howto.md)을 참조하세요.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

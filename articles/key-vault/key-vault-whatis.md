@@ -65,4 +65,4 @@ Azure 키 자격 증명 모음을 포함한 키 및 비밀을 사용하는 방�
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

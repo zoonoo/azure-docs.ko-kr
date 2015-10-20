@@ -5,7 +5,7 @@
 	documentationCenter="Mobile"
 	authors="piyushjo"
 	manager="dwrede"
-	editor=""/>
+	editor="" />
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/10/2015"
-	ms.author="piyushjo"/>
+	ms.author="piyushjo" />
 
 # Mobile Engagement 전략 정의
 
@@ -127,4 +127,4 @@ Mobile Engagement 전략을 구축하려면 먼저 앱의 목표 및 KPI(핵심 
 [Mobile Engagement 개념]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [자습서]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

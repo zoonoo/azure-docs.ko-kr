@@ -1,19 +1,19 @@
 <properties 
-	pageTitle="Azure Data Factory 소개"
-	description="Azure Data Factory 서비스를 통해 데이터 처리, 데이터 저장 및 데이터 이동 서비스를 구성하여 신뢰할 수 있는 정보를 생성하는 파이프라인을 만드는 방법을 알아봅니다."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
+	pageTitle="Azure Data Factory 소개" 
+	description="Azure Data Factory 서비스를 통해 데이터 처리, 데이터 저장 및 데이터 이동 서비스를 구성하여 신뢰할 수 있는 정보를 생성하는 파이프라인을 만드는 방법을 알아봅니다." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
 	editor="monicar"/>
 
 <tags 
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/05/2015"
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="08/05/2015" 
 	ms.author="spelluru"/>
 
 # Azure Data Factory 서비스 소개
@@ -58,4 +58,4 @@ Azure Data Factory에는 입력 및 출력 데이터, 처리 이벤트, 필요�
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-introduction.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

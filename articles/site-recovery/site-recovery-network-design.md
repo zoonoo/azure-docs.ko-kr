@@ -62,7 +62,7 @@ Hyper-V 복제본을 사용하여 VM에 단일 VMM을 배포하려면:
 ### 클러스터된 VMM 서버
 
 
-[클러스터에 VMM을 배포](https://technet.microsoft.com/ko-kr/library/gg610675.aspx)하면 하드웨어 장애 조치(failover)에 대해 고가용성 및 보호를 제공합니다. Site Recovery를 사용하여 VMM 클러스터를 배포하는 경우 다음 사항에 유의합니다.
+[클러스터에 VMM을 배포](https://technet.microsoft.com/ko-KR/library/gg610675.aspx)하면 하드웨어 장애 조치(failover)에 대해 고가용성 및 보호를 제공합니다. Site Recovery를 사용하여 VMM 클러스터를 배포하는 경우 다음 사항에 유의합니다.
 
 지리적으로 떨어져 있는 사이트에서는 VMM 서버가 늘어난(stretched) 클러스터에 배포되어야 합니다. VMM에서 사용하는 SQL Server 데이터베이스는 보조 사이트에서 복제를 통해 SQL Server AlwaysOn 가용성 그룹과 함께 보호되어야 합니다. 재해가 VMM 서버에서 발생하는 경우 그에 해당하는 SQL Server가 자동으로 복구 사이트에 장애 조치(failover)됩니다. 그런 다음 Site Recovery를 사용하여 작업을 장애 조치(failover)할 수 있습니다.
 
@@ -190,4 +190,4 @@ Woodgrove가 복제를 배포하고 IP 주소를 유지 관리하려면 다음�
 
 Site Recovery가 원본 및 대상 네트워크를 매핑하는 방법을 [알아봅니다.](site-recovery-network-mapping.md)
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

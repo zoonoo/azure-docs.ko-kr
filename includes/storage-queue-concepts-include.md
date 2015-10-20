@@ -27,4 +27,4 @@ Azure 큐 저장소는 HTTP 또는 HTTPS를 사용하여 인증된 호출을 통
 
 - **메시지:** 최대 64KB의 임의 형식의 메시지입니다.
 
-<!----HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

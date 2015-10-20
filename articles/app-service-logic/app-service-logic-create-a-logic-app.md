@@ -21,8 +21,8 @@
 | 빠른 참조 |
 | --------------- |
 | [논리 앱 정의 언어](https://msdn.microsoft.com/library/azure/dn948512.aspx?f=255&MSPPError=-2147217396) |
-| [논리 앱 커넥터 문서](https://azure.microsoft.com/ko-kr/documentation/articles/app-service-logic-connectors-list/) |
-| [논리 앱 포럼](https://social.msdn.microsoft.com/Forums/ko-kr/home?forum=azurelogicapps) |
+| [논리 앱 커넥터 문서](https://azure.microsoft.com/ko-KR/documentation/articles/app-service-logic-connectors-list/) |
+| [논리 앱 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=azurelogicapps) |
 
 이 항목에서는 단 몇 분 안에 [앱 서비스 논리 앱](app-service-logic-what-are-logic-apps.md)을 시작할 수 있는 방법을 보여줍니다. 관심이 있는 일련의 트윗을 Dropbox 폴더로 전달할 수 있는 워크플로 단계별로 안내합니다.
 
@@ -46,7 +46,7 @@
 4. **패키지 설정**을 선택합니다. 여기서 Twitter 응용 프로그램의 정보를 입력해야 합니다. 이러한 단계를 사용하여 무료 응용 프로그램을 설정할 수 있습니다.
 	1. [Twitter 앱 등록 페이지](http://apps.twitter.com)로 이동합니다.
 	2. 새 앱을 만듭니다.
-	3. 이름 및 설명을 지정합니다. 웹사이트에 대한 모든 URL을 입력 할 수 있으며 콜백 URL을 비워둘 수 있습니다.
+	3. 이름 및 설명을 지정합니다. 웹 사이트 및 콜백 URL에 URL을 입력할 수 있습니다.(비워두면 안됨)
 	4. 등록되면 Twitter의 **Consumer Key**를 Azure의 **clientId** 필드에 복사하고 Twitter의 **Consumer Secret**을 **clientSecret**에 복사합니다.
 	5. 다른 API 설정으로 돌아가려면 Azure 창에서 **확인**을 클릭합니다.
 
@@ -184,4 +184,4 @@ Twitter 커넥터는 이제 워크플로의 일부입니다.
 [Use logic app features]: app-service-logic-use-logic-app-features.md
 [논리 앱 기능 사용]: app-service-logic-use-logic-app-features.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -104,4 +104,4 @@ Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경�
 [Azure 앱 서비스 및 기존 Azure 서비스]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Azure 포털 탐색에 대한 참조]: http://go.microsoft.com/fwlink/?LinkId=529715
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

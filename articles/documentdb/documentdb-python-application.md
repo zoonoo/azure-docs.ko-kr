@@ -19,6 +19,12 @@
 
 # DocumentDB를 사용한 Python Flask 웹 응용 프로그램 개발
 
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md)
+
 고객이 Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼리할 수 있는 방법을 강조하기 위해 이 문서에서는 Azure DocumentDB를 사용하여 투표 웹 응용 프로그램을 빌드하는 방법을 보여 주는 종합적인 Python 웹 응용 프로그램 자습서를 제공합니다.
 
 이 자습서에서는 Azure가 제공하는 DocumentDB 서비스를 사용하여 Azure에 호스트된 Python 웹 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 보여 주며 이전에 Python 및 Azure 웹 사이트를 사용한 경험이 있다고 가정합니다.
@@ -40,10 +46,10 @@
 이 문서의 지침을 따르기 전에 다음이 설치되어 있는지 확인해야 합니다.
 
 - [Visual Studio 2013](http://www.visualstudio.com/) 이상 또는 Visual Studio Express(무료 버전)
-- Python Tools for Visual Studio([여기서][] 사용 가능)
-- Azure SDK for Visual Studio 2013 버전 2.4 이상([여기서][1] 사용 가능)
-- Python 2.7([여기서][2] 사용 가능)
-- Microsoft Visual C++ Compiler for Python 2.7([여기서][3] 사용 가능)
+- Python Tools for Visual Studio([여기서][] 사용 가능).
+- Azure SDK for Visual Studio 2013 버전 2.4 이상([여기서][1] 사용 가능).
+- Python 2.7([여기서][2] 사용 가능).
+- Microsoft Visual C++ Compiler for Python 2.7([여기서][3] 사용 가능).
 
 ## 1단계: DocumentDB 데이터베이스 계정 만들기
 
@@ -355,4 +361,4 @@ templates 폴더 아래에 다음 html 파일을 추가합니다. create.html, r
   [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
   [Azure portal]: http://portal.azure.com
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

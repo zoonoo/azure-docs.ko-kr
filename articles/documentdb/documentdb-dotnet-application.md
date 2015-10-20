@@ -20,6 +20,12 @@
 
 #<a name="_Toc395809351"></a>DocumentDB를 사용하여 ASP.NET MVC로 웹 응용 프로그램 개발
 
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md) 
+
 Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼리할 수 있는 방법을 강조하기 위해 이 문서에서는 Azure DocumentDB를 사용하여 todo 모음 웹 응용 프로그램을 빌드하는 방법을 보여 주는 종합적인 연습을 제공합니다. 작업은 Azure DocumentDB에 JSON 문서로 저장됩니다.
 
 ![이 자습서에서 만든 할 일 모음 웹 응용 프로그램의 스크린샷](./media/documentdb-dotnet-application/image1.png)
@@ -400,7 +406,7 @@ Azure DocumentDB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼�
     	<add key="database" value="ToDoList"/>
     	<add key="collection" value="Items"/>
 	
-4. 이제 Azure Preview 포털의 키 블레이드를 사용하여 *endpoint* 및 *authKey* 값을 업데이트합니다. 키 블레이드의 **URI**를 endpoint 설정 값으로 사용하고 키 블레이드의 **기본 키** 또는 **보조 키**를 authKey 설정 값으로 사용합니다.
+4. 이제 Azure Preview 포털의 키 블레이드를 사용하여 *끝점* 및 *authKey* 값을 업데이트합니다. 키 블레이드의 **URI**를 endpoint 설정 값으로 사용하고 키 블레이드의 **기본 키** 또는 **보조 키**를 authKey 설정 값으로 사용합니다.
 
 
     DocumentDB 리포지토리의 연결을 완료했으므로 이제 응용 프로그램 논리를 추가해 보겠습니다.
@@ -493,9 +499,9 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
 		}
 	이 코드는 DocumentDBRepository를 호출하고 CreateItemAsync 메서드를 사용하여 새로운 todo 항목을 데이터베이스에 유지합니다.
  
-	**보안 정보**: 여기서 **ValidateAntiForgeryToken** 특성은 교차 사이트 요청 위조 공격으로부터 이 응용 프로그램을 보호하는 데 사용됩니다. 이 특성을 추가하는 것 외에 뷰가 이 위조 방지 토큰과 작동하도록 해야 합니다. 이 주제에 대한 자세한 내용과 이를 올바르게 구현하는 방법의 예는 [교차 사이트 요청 위조 방지][]를 참조하세요. [GitHub][]에서 제공하는 소스 코드에는 완벽하게 구현되어 있습니다.
+	**보안 정보**: **ValidateAntiForgeryToken** 특성은 여기서 교차 사이트 요청 위조 공격으로부터 이 응용 프로그램을 보호하는 데 사용됩니다. 이 특성을 추가하는 것 외에 뷰가 이 위조 방지 토큰과 작동하도록 해야 합니다. 이 주제에 대한 자세한 내용과 이를 올바르게 구현하는 방법의 예는 [교차 사이트 요청 위조 방지(영문)][]를 참조하세요. [GitHub][]에서 제공하는 소스 코드에는 완벽하게 구현되어 있습니다.
 
-	**보안 정보**: 또한 메서드 매개 변수의 **Bind** 특성을 사용하여 과도한 게시 공격으로부터 보호할 수 있습니다. 자세한 내용은 [ASP.NET MVC의 기본 CRUD 작업][]을 참조하세요.
+	**보안 정보**: 또한 메서드 매개 변수에 **Bind** 특성을 사용하여 과도한 게시 공격으로부터 보호할 수 있습니다. 자세한 내용은 [ASP.NET MVC의 기본 CRUD 작업(영문)][]을 참조하세요.
 
 데이터베이스에 새 항목을 추가하는 데 필요한 코드가 완성되었습니다.
 
@@ -565,9 +571,9 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
 		}
 		
 	
-	첫 번째 메서드는 사용자가 **인덱스** 뷰에서 **편집** 링크를 클릭할 때 발생하는 Http Get을 처리합니다. 이 메서드는 DocumentDB에서 [**문서**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx)를 가져와 **편집** 뷰에 전달합니다.
+	첫 번째 메서드는 사용자가 **인덱스** 뷰에서 **편집** 링크를 클릭할 때 발생하는 Http Get을 처리합니다. 이 메서드는 DocumentDB에서 [**문서(영문)**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx)를 가져와 **편집** 뷰에 전달합니다.
 
-	그런 다음 **편집** 뷰가 **IndexController**에 Http POST를 수행합니다.
+	그런 다음 **편집** 뷰는 **IndexController**에 Http Post를 수행합니다.
 	
 	추가한 두 번째 메서드는 데이터베이스에 저장되도록 업데이트된 개체를 DocumentDB에 전달하는 작업을 처리합니다.
 
@@ -623,8 +629,8 @@ DocumentDB에 레코드를 저장하기 위해 DocumentDBRepository 및 ItemCont
 [*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft 웹 플랫폼 설치 관리자]: http://www.microsoft.com/web/downloads/platform.aspx
-[교차 사이트 요청 위조 방지]: http://go.microsoft.com/fwlink/?LinkID=517254
-[ASP.NET MVC의 기본 CRUD 작업]: http://go.microsoft.com/fwlink/?LinkId=317598
+[교차 사이트 요청 위조 방지(영문)]: http://go.microsoft.com/fwlink/?LinkID=517254
+[ASP.NET MVC의 기본 CRUD 작업(영문)]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

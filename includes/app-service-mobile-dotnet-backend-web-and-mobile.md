@@ -74,4 +74,4 @@
 [모바일 앱 만들기]: ../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 [모바일 앱을 만들기]: ../article/app-service-mobile/app-service-mobile-dotnet-backend-xamarin-ios-get-started-preview.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

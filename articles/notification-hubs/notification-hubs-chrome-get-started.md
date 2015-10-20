@@ -494,4 +494,4 @@ REST API를 사용하여 알림을 보내는 방법에 대한 예제는 **Java/P
 [Azure 알림 허브 알릴 사용자]: notification-hubs-aspnet-backend-windows-dotnet-notify-users.md
 [Azure 알림 허브 뉴스 속보]: notification-hubs-windows-store-dotnet-send-breaking-news.md
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

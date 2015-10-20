@@ -1,20 +1,20 @@
 
 <properties 
-	pageTitle="AD FS와 함께 Azure AD Connec Health 사용 | Microsoft Azure"
-	description="온-프레미스 AD FS 인프라를 모니터링하는 방법에 대한 Azure AD Connect Health 페이지입니다."
-	services="active-directory"
-	documentationCenter=""
-	authors="billmath"
-	manager="stevenpo"
+	pageTitle="AD FS와 함께 Azure AD Connec Health 사용 | Microsoft Azure" 
+	description="온-프레미스 AD FS 인프라를 모니터링하는 방법에 대한 Azure AD Connect Health 페이지입니다." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="billmath" 
+	manager="stevenpo" 
 	editor="curtand"/>
 
 <tags 
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/14/2015"
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="get-started-article" 
+	ms.date="08/14/2015" 
 	ms.author="billmath"/>
 
 # AD FS와 함께 Azure AD Connect Health 사용 
@@ -73,4 +73,4 @@ Azure AD Connect Health 성능 모니터링은 메트릭에 대한 모니터링 
 * [Azure AD Connect Health 작업](active-directory-aadconnect-health-operations.md)
 * [Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

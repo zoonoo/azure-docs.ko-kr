@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-ios"
 	ms.devlang="objective-c"
 	ms.topic="hero-article"
-	ms.date="09/03/2015"
+	ms.date="10/15/2015"
 	ms.author="wesmc"/>
 
 # iOS 앱에 대한 알림 허브 시작
@@ -26,12 +26,19 @@
 
 이 자습서에서는 알림 허브를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다.
 
+
+## 시작하기 전에
+
+[AZURE.INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
+
+이 자습서에 대해 완료된 코드는 GitHub의 [여기](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted)서 찾을 수 있습니다.
+
 ##필수 조건
 
 이 자습서를 사용하려면 다음이 필요합니다.
 
 + [모바일 서비스 iOS SDK]
-+ [Xcode 6][Install Xcode]
++ [Xcode 7][Install Xcode]
 + iOS 8(이상) 지원 장치
 + iOS 개발자 프로그램 멤버 자격
 
@@ -39,7 +46,7 @@
 
 이 자습서를 완료해야 다른 모든 iOS 앱용 알림 허브 자습서를 진행할 수 있습니다.
 
-> [AZURE.NOTE]이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started)을 참조하십시오.
+> [AZURE.NOTE]이 자습서를 완료하려면 활성 Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started)을 참조하세요.
 
 [AZURE.INCLUDE [알림 허브가 Apple 푸시 알림 사용](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
@@ -74,11 +81,13 @@
 
    	![][5]
 
-7. 위쪽의 **구성** 탭을 클릭하고 인증서 손도장 (thumbprint)을 업로드하는 Apple 알림 설정에서 **업로드** 단추를 클릭합니다. 그런 다음 앞서 내보낸 **.p12** 인증서 및 인증서의 암호를 선택합니다. **프로덕션**(스토어에서 앱을 구매한 사용자에게 푸시 알림을 보내려는 경우) 또는 **샌드박스**(개발 중에) 중 어떤 푸시 서비스를 사용할지를 선택해야 합니다.
+7. 위쪽의 **구성** 탭을 클릭하고 인증서 손도장 (thumbprint)을 업로드하는 Apple 알림 설정에서 **업로드** 단추를 클릭합니다. 그런 다음 앞서 내보낸 **.p12** 인증서 및 인증서의 암호를 선택합니다.
+ 
+	개발을 위한 것이기 때문에 **샌드박스** 모드를 선택합니다. 스토어에서 앱을 구매한 사용자에게 푸시 알림을 보내려는 경우 **프로덕션**을 사용합니다.
 
-   	![][6]
+   	![](./media/notification-hubs-ios-get-started/notification-hubs-configure-ios.png)
 
-8. 맨 위에 있는 **대시보드** 탭을 클릭한 후 **연결 문자열 보기**를 클릭합니다. 두 연결 문자열을 기록해 둡니다.
+8. 맨 위에 있는 **대시보드** 탭을 클릭한 후 **연결 문자열 보기**를 클릭합니다. 두 연결 문자열을 기록해 둡니다. 아래의 코딩 섹션에서 연결 문자열을 사용합니다.
 
    	![][7]
 
@@ -160,11 +169,17 @@
 ## 알림 보내기
 
 
-아래 화면과 같이 알림 허브의 디버그 탭을 통해 Azure 포털에서 알림을 보내서 앱의 알림 수신을 테스트할 수 있습니다.![][30]
+아래 화면과 같이 알림 허브의 디버그 탭을 통해 Azure 포털에서 알림을 보내서 앱의 알림 수신을 테스트할 수 있습니다.
+
+![][30]
 
 [AZURE.INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
-![][31]
+
+
+## (선택 사항) 앱에서 알림 보내기
+
+앱 내에서 알림을 보내려는 경우, 이 섹션에서는 REST 인터페이스를 사용하여 수행하는 방법의 예를 제공합니다.
 
 1. Xcode에서 Main.storyboard를 열고 개체 라이브러리에서 다음 UI 구성 요소를 추가하여 사용자가 앱에서 푸시 알림을 보낼 수 있습니다.
 
@@ -449,7 +464,7 @@ iOS에서 푸시 알림을 테스트하려면 장치에 앱을 배포해야 합�
 
 	![][33]
 
-2. 알림 메시지를 입력하려면 텍스트 필드에 터치합니다. 그런 다음 키보드에서 **보내기** 단추 또는 보기에서 **알림 보내기** 단추를 눌러서 알림 메시지를 보냅니다.
+2. Azure 포털에서 테스트 알림을 보낼 수 있습니다. 앱에서 알림을 보내기 위한 코드를 추가한 경우 텍스트 필드 안쪽을 클릭하여 알림 메시지를 입력합니다. 그런 다음 키보드에서 **보내기** 단추 또는 보기에서 **알림 보내기** 단추를 눌러서 알림 메시지를 보냅니다.
 
 	![][34]
 
@@ -462,7 +477,11 @@ iOS에서 푸시 알림을 테스트하려면 장치에 앱을 배포해야 합�
 
 ##다음 단계
 
-이 간단한 예제에서는 모든 iOS 장치로 알림을 브로드캐스트합니다. 특정 사용자를 대상으로 하려면 [알림 허브를 사용하여 사용자에게 알림 푸시](영문) 자습서를 참조하세요. 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기](영문)를 참조하세요. [알림 허브 지침]에서 알림 허브 사용 방법을 자세히 알아보세요.
+이 간단한 예제에서는 모든 iOS 장치로 알림을 브로드캐스트합니다. [알림 허브를 사용하여 사용자에게 알림 푸시] 자습서를 계속하려면 다음 단계를 배우는 것이 좋습니다. 해당 자습서는 태그를 사용하여 알림을 보내기 위해 백 엔드를 만드는 과정을 안내합니다.
+
+또한 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기]로 이동할 수 있습니다.
+
+알림 허브에 대한 더 일반적인 정보는 [알림 허브 지침]을 참조하세요.
 
 
 
@@ -503,9 +522,9 @@ iOS에서 푸시 알림을 테스트하려면 장치에 앱을 배포해야 합�
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [모바일 서비스에서 푸시 알림 시작]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[알림 허브를 사용하여 사용자에게 푸시 알림 보내기]: notification-hubs-aspnet-backend-ios-notify-users.md
+[알림 허브를 사용하여 사용자에게 알림 푸시]: notification-hubs-aspnet-backend-ios-notify-users.md
 [알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-ios-send-breaking-news.md
 
 [로컬 및 푸시 알림 프로그래밍 가이드]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

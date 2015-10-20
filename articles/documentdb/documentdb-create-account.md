@@ -41,9 +41,9 @@ DocumentDB를 처음 사용하세요? Scott Hanselman 씨가 나오는 [이](htt
 
 DocumentDB에 대해 자세히 알아보려면 다음 리소스를 참조하세요.
 
--	[DocumentDB 학습 지도](documentdb-learning-map.md)
+-	[DocumentDB 학습 경로](https://azure.microsoft.com/documentation/learning-paths/documentdb/)
 -	[DocumentDB 리소스 모델 및 개념](documentdb-resources.md)
 
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

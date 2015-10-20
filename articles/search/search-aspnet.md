@@ -462,4 +462,4 @@ Azure 검색 및 ASP.NET 통합을 이해하려면 다음 링크를 방문합니
 - [Azure 검색 개발자 사례 연구](search-dev-case-study-whattopedia.md)
 - [Azure 검색 개발을 위한 일반적인 워크플로](search-workflow.md) 
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

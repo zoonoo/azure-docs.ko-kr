@@ -232,4 +232,4 @@ Visual Studio를 사용하여 설치 단계를 수행하려면 Windows Phone, Wi
 [windowsCrash]: app-insights-windows-crashes.md
 [windowsUsage]: app-insights-windows-usage.md
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->
