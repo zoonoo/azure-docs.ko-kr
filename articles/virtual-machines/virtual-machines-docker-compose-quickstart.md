@@ -33,14 +33,14 @@ Docker 및 컨테이너를 처음 사용하는 경우는 [Docker 요약 화이�
 
 Linux VM이 Docker에서 실행된 후 SSH를 사용하여 클라이언트 컴퓨터에서 연결합니다. 필요한 경우 다음 두 명령을 실행하여 [Compose](https://github.com/docker/compose/blob/882dc673ce84b0b29cd59b6815cb93f74a6c4134/docs/install.md)를 설치합니다.
 
->[AZURE.TIP]Docker VM 확장을 사용하여 VM을 만든 경우 Compose은 이미 설치되어 있습니다. 이러한 명령을 건너뛰고 3단계로 이동합니다. VM에 직접 Docker를 설치한 경우에만 Compose를 설치해야 합니다.
+>[AZURE.TIP] Docker VM 확장을 사용하여 VM을 만든 경우 Compose은 이미 설치되어 있습니다. 이러한 명령을 건너뛰고 3단계로 이동합니다. VM에 직접 Docker를 설치한 경우에만 Compose를 설치해야 합니다.
 
 ```
 $ curl -L https://github.com/docker/compose/releases/download/1.1.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 
 $ chmod +x /usr/local/bin/docker-compose
 ```
->[AZURE.NOTE]"사용 권한이 거부 되었습니다" 오류가 발생하는 경우 VM의 usr/local/bin 디렉터리에 쓸 수 없을 수 있으므로 superuser로 Compose를 설치해야 합니다. `sudo -i`을 실행하고, 위의 두 명령을 실행한 다음 `exit`를 실행합니다.
+>[AZURE.NOTE] "사용 권한이 거부 되었습니다" 오류가 발생하는 경우 VM의 usr/local/bin 디렉터리에 쓸 수 없을 수 있으므로 superuser로 Compose를 설치해야 합니다. `sudo -i`을 실행하고, 위의 두 명령을 실행한 다음 `exit`를 실행합니다.
 
 Compose 설치를 테스트하려면 다음 명령을 실행합니다.
 
@@ -48,9 +48,10 @@ Compose 설치를 테스트하려면 다음 명령을 실행합니다.
 $ docker-compose --version
 ```
 
+와 같은 출력이 표시됩니다.
 ```
 docker-compose 1.3.2
-```와 같은 출력이 표시됩니다.
+```
 
 
 ## 3단계: docker-compose.yml 구성 파일 만들기
@@ -74,23 +75,23 @@ db:
 
 ```
 
-## Step 4: Start the containers with Compose
+## 4단계: 구성을 포함한 컨테이너를 시작
 
-In the working directory on your VM, simply run the following command.
+VM의 작업 디렉터리에서 다음 명령을 실행하면 됩니다.
 
 ```
 $ docker-compose up -d
 
 ```
 
-This starts the Docker containers specified in `docker-compose.yml`. You'll see output similar to:
+`docker-compose.yml`에서 지정된 Docker 컨테이너를 시작합니다. 다음과 유사한 출력이 표시됩니다.
 
 ```
 Creating wordpress_db_1...
 Creating wordpress_wordpress_1...
 ```
 
->[AZURE.NOTE]백그라운드에서 계속 실행되도록 **-d** 옵션을 시작에서 사용해야 합니다.
+>[AZURE.NOTE] 백그라운드에서 계속 실행되도록 **-d** 옵션을 시작에서 사용해야 합니다.
 
 컨테이너가 동작하는지 확인하려면 `docker-compose ps`를 입력합니다. 다음과 유사한 결과가 표시됩니다.
 
@@ -127,4 +128,4 @@ $ azure vm endpoint create <machine-name> 80 8080
 
 [wordpress_start]: ./media/virtual-machines-docker-compose-quickstart/WordPress.png
 
-<!---HONumber=Oct15_HO2-->
+<!----HONumber=Oct15_HO2-->
