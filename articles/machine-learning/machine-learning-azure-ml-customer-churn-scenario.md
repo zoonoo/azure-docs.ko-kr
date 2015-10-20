@@ -213,7 +213,7 @@ Azure 기계 학습에서 제공되는 또 다른 흥미로운 기능은 이미 
 ##참조
 [1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, July/August 2011, p.18-20.
 
-[2] Wikipedia의 [Accuracy and precision](http://en.wikipedia.org/wiki/Accuracy_and_precision)
+\[2] Wikipedia의 [Accuracy and precision](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
 [3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide](http://www.the-modeling-agency.com/crisp-dm.pdf)
 
@@ -238,4 +238,4 @@ Azure 기계 학습에서 제공되는 또 다른 흥미로운 기능은 이미 
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
 
-<!---HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO1-->
