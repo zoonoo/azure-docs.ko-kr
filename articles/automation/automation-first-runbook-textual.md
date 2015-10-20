@@ -122,4 +122,4 @@ Runbook이 Azure 구독에서 인증을 받으므로 리소스를 관리할 수 
 
 - [내 첫 번째 그래픽 Runbook](automation-first-runbook-graphical.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

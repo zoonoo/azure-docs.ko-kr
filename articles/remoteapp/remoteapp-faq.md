@@ -108,4 +108,4 @@ Azure RemoteApp과 관련된 질문은 다음과 같습니다. 다른 질문이 
 
  
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

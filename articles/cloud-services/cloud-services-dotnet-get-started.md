@@ -813,4 +813,4 @@ Azure 저장소 모범 사례 및 패턴에 대한 비디오 소개는 [Microsof
 * [클라우드 서비스를 관리하는 방법](cloud-services-how-to-manage.md)
 * [Azure 저장소](/documentation/services/storage/)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

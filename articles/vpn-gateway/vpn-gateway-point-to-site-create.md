@@ -162,4 +162,4 @@
 
 가상 네트워크에 가상 컴퓨터를 추가할 수 있습니다. [사용자 지정 가상 컴퓨터를 만드는 방법](../virtual-machines/virtual-machines-create-custom.md)을 참조하세요.
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

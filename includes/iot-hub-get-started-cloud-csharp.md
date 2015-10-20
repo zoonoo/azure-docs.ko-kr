@@ -4,15 +4,17 @@
 
 1. Visual Studio에서 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# 데스크톱 응용 프로그램 프로젝트를 새로 만듭니다. 프로젝트 **CreateDeviceIdentity**의 이름을 지정합니다.
 
-   	![][10]
+	![][10]
 
 2. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭한 후 **Manage NuGet Packages for Solution...(솔루션에 대한 NuGet 패키지 관리...)**을 클릭합니다.
 
-	그러면 NuGet 패키지 관리 창이 표시됩니다.
+	**NuGet 패키지 관리자** 창이 표시됩니다.
 
-3. `Microsoft Azure Devices`를 검색하고 **설치**를 클릭한 후 사용 약관에 동의합니다.
+3. **시험판 포함** 옵션을 선택합니다. 그런 다음 `Microsoft Azure Devices`를 검색하고 **설치**를 클릭한 후 사용 약관에 동의합니다.
 
-	그러면 [Azure IoT - 서비스 SDK NuGet 패키지]가 다운로드 및 설치되고 해당 참조가 추가됩니다.
+	![][11]
+
+4. 그러면 [Microsoft Azure 장치 SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/) NuGet 패키지가 다운로드 및 설치되고 해당 참조가 추가됩니다.
 
 4. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
 
@@ -56,6 +58,7 @@
 > [AZURE.NOTE]IoT Hub ID 레지스트리는 안전한 액세스를 위해 장치 ID를 저장하는 데만 사용된다는 것에 유의해야 합니다. 즉, 보안 자격 증명을 저장하고 개별 장치 액세스를 사용하거나 사용하지 않도록 설정하는 데만 사용됩니다. 장치 응용 프로그램 메타데이터는 응용 프로그램별 저장소에 저장되어야 합니다. 자세한 내용은 [IoT Hub 개발자 가이드][IoT Hub Developer Guide - Identity Registry]를 참조하세요.
 
 ## 장치-클라우드 메시지 받기
+
 이 섹션에서는 IoT Hub에서 장치-클라우드 메시지를 읽는 Windows 콘솔 앱을 만듭니다. IoT Hub가 [이벤트 허브][Event Hubs Overview]와 호환되는 끝점을 노출하여 장치-클라우드 메시지를 읽습니다. 간단히 하기 위해 이 자습서에서는 간소화된 판독기를 만들어 사용하며 이는 높은 처리량 배포에는 적합하지 않습니다. IoT Hub의 장치-클라우드 메시지를 처리하는 방법에 대한 자세한 내용은 [장치-클라우드 메시지 처리] 자습서에서 찾아볼 수 있습니다. 이벤트 허브에서 읽은 메시지를 처리하는 방법에 대한 자세한 내용은 [이벤트 허브 시작] 자습서를 참조하세요.
 
 1. 최신 Visual Studio 솔루션에서 **파일->추가->프로젝트**를 클릭하고 **콘솔 응용 프로그램** 프로젝트 템플릿을 사용하여 Visual C# 데스크톱 앱 프로젝트를 새로 만듭니다. 프로젝트 **ReadDeviceToCloudMessages**의 이름을 지정합니다.
@@ -72,7 +75,6 @@
 
 4. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
 
-        using Microsoft.Azure.Devices.Common;
         using Microsoft.ServiceBus.Messaging;
 
 5. **Program** 클래스에 다음 필드를 추가하고, 자리 표시자 값을 이전 섹션에서 만든 IoT Hub 이름과 해당 연결 문자열로 대체합니다.
@@ -114,7 +116,7 @@
 
 <!-- Links -->
 
-[Azure IoT - 서비스 SDK NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 
 [이벤트 허브 시작]: event-hubs-csharp-ephcs-getstarted.md
 [IoT Hub Developer Guide - Identity Registry]: iot-hub-devguide.md#identityregistry
@@ -129,6 +131,7 @@
 
 <!-- Images -->
 [10]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp1.png
+[11]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp2.png
 [12]: ./media/iot-hub-getstarted-cloud-csharp/create-identity-csharp3.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

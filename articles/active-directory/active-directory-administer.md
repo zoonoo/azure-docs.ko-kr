@@ -145,4 +145,4 @@ Azure AD에서 디렉터리를 삭제하려면 특정 조건을 충족해야 합
 [1]: ./media/active-directory-administer/aad_portals.png
 [2]: ./media/active-directory-administer/azure_tenants.png
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

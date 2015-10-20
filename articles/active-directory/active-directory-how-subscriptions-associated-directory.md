@@ -124,4 +124,4 @@ Azure에 등록하기 전에 Office 365에 등록했다고 가정해 보겠습�
 [2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
 [3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

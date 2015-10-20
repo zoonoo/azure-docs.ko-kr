@@ -246,7 +246,7 @@ Blob 저장소의 컨테이너가 없는 경우 아래 단계에 따라 만듭�
 ![사기 감지: 실시간으로 표시된 사기성 이벤트](./media/stream-analytics-get-started/stream-ananlytics-view-real-time-fraudent-events.png)
 
 ## 지원 받기
-추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/KO-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
+추가 지원이 필요한 경우 [Azure 스트림 분석 포럼](https://social.msdn.microsoft.com/Forums/ko-KR/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 
 ## 다음 단계
@@ -257,4 +257,4 @@ Blob 저장소의 컨테이너가 없는 경우 아래 단계에 따라 만듭�
 - [Azure 스트림 분석 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 - [Azure 스트림 분석 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

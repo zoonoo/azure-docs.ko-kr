@@ -479,4 +479,4 @@ Apple [Local and Push Notification Programming Guide]에서 가능한 모든 페
 [Xamarin.iOS]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -59,4 +59,4 @@ Azure VPN 게이트웨이를 재설정하기 위한 PowerShell cmdlet은 *Reset-
 	
 이 cmdlet에 대한 자세한 내용은 [PowerShell 참조](https://msdn.microsoft.com/library/azure/mt270366.aspx)를 참조하세요.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -92,4 +92,4 @@ Azure 포털을 통해 Azure 미디어 서비스 계정을 신속하게 만들 �
 
   [Azure 포털]: http://manage.windowsazure.com/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

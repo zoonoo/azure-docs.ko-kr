@@ -67,9 +67,9 @@
 <!-- Links -->
 
 [Azure IoT - 장치 SDK NuGet 패키지]: https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/
-[일시적인 오류 처리]: https://msdn.microsoft.com/ko-kr/library/hh680901(v=pandp.50).aspx
+[일시적인 오류 처리]: https://msdn.microsoft.com/ko-KR/library/hh680901(v=pandp.50).aspx
 
 <!-- Images -->
 [30]: ./media/iot-hub-getstarted-device-csharp/create-identity-csharp1.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

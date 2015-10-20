@@ -14,12 +14,12 @@
 	ms.tgt_pltfrm="vm-windows-sql-server"
 	ms.devlang="na"
 	ms.topic="hero-article"
-	ms.date="06/29/2015"
+	ms.date="10/08/2015"
 	ms.author="davidmu"/>
 
 # Azure 리소스 관리자 템플릿을 사용하여 SQL Server AlwaysOn 배포
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]이 문서에서는 리소스 관리자 배포 모델을 사용하여 리소스를 만드는 방법을 설명합니다. 클래식 배포 모델을 사용하여 이 리소스를 만들 수 없습니다.
+[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]클래식 배포 모델. 클래식 배포 모델을 사용하여 이 리소스를 만들 수 없습니다.
 
 Azure 리소스 관리자 템플릿을 사용하여 SQL Server AlwaysOn을 배포하려면 이 문서의 지침을 사용하세요. 이 템플릿은 두 개의 서로 다른 서브넷의 새로운 가상 네트워크에 5개의 가상 컴퓨터를 만듭니다.
 
@@ -36,7 +36,7 @@ Azure 리소스 관리자 템플릿과 Azure Preview 포털을 사용하여 이 
 1.	**템플릿** 창에서 **저장**을 클릭합니다.
 2.	**매개 변수**를 클릭합니다. **매개 변수** 창에서 새 값을 입력하거나 허용되는 값에서 선택하거나 기본값을 그대로 적용한 다음 **확인**을 클릭합니다.
 3.	필요한 경우 **구독**을 클릭하고 올바른 Azure 구독을 선택합니다.
-4.	**리소스 그룹**을 클릭하고 기존 리소스 그룹을 선택합니다. 아니면 **또는 새로 만들기**를 클릭하여 이 작업에 대한 새 그룹을 만듭니다.
+4.	**리소스 그룹**을 클릭하고 기존 리소스 그룹을 선택합니다. 아니면 **또는 새로 만들기**를 클릭하여 이 워크로드에 대해 새 그룹을 만듭니다.
 5.	필요한 경우 **리소스 그룹 위치**를 클릭하고 올바른 Azure 위치를 선택합니다.
 6.	필요한 경우 **약관**을 클릭하여 템플릿 사용 조건 및 규약을 검토합니다.
 7.	**만들기**를 클릭합니다.
@@ -53,8 +53,8 @@ Azure 리소스 관리자 템플릿과 Azure Preview 포털을 사용하여 이 
 	$RGName="<resource group name>"
 	$locName="<Azure location, such as West US>"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sql-server-2014-alwayson-dsc/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRmResourceGroup -Name $RGName -Location $locName
+	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 다음은 예제입니다.
 
@@ -62,12 +62,12 @@ Azure 리소스 관리자 템플릿과 Azure Preview 포털을 사용하여 이 
 	$RGName="TestRG"
 	$locname="West US"
 	$templateURI="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sql-server-2014-alwayson-dsc/azuredeploy.json"
-	New-AzureResourceGroup -Name $RGName -Location $locName
-	New-AzureResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
+	New-AzureRmResourceGroup -Name $RGName -Location $locName
+	New-AzureRmResourceGroupDeployment -Name $deployName -ResourceGroupName $RGName -TemplateUri $templateURI
 
 다음으로, Azure PowerShell 프롬프트에서 명령 블록을 실행합니다.
 
-**New-AzureResourceGroupDeployment** 명령을 실행하면 일련의 매개 변수 값을 제공하라는 메시지가 표시됩니다. 모든 매개 변수 값을 지정하면 **New-AzureResourceGroupDeployment**에서 가상 컴퓨터를 만들고 구성합니다.
+**New-AzureRmResourceGroupDeployment** 명령을 실행하면 일련의 매개 변수 값을 제공하라는 메시지가 표시됩니다. 모든 매개 변수 값을 지정하면 **New-AzureRmResourceGroupDeployment**에서 가상 컴퓨터를 만들고 구성합니다.
 
 템플릿 실행이 완료되면, 새로운 리소스 그룹에 새로운 5-서버 SQL Server AlwaysOn을 갖게 됩니다.
 
@@ -108,4 +108,4 @@ Azure 리소스 관리자 템플릿과 Azure Preview 포털을 사용하여 이 
 
 [Azure PowerShell을 설치 및 구성하는 방법](../install-configure-powershell.md)
 
-<!---HONumber=Sept15_HO4-->
+<!---HONumber=Oct15_HO3-->

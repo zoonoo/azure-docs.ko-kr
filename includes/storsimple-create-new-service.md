@@ -28,4 +28,4 @@
 
 새 StorSimple Manager 서비스를 만드는 방법을 보여 주는 동영상을 시청하려면 [여기](http://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/)를 클릭하세요.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

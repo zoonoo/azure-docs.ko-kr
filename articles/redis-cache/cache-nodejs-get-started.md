@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="08/25/2015"
+	ms.date="10/05/2015"
 	ms.author="sdanie"/>
 
 # Azure Redis Cache를 Node.js와 함께 사용하는 방법
@@ -91,4 +91,4 @@ DNS 호스트 이름을 입력합니다. 양식은 `<name>.redis.cache.windows.n
 
 [Azure 웹 사이트에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드]: ../app-service-web/web-sites-nodejs-chat-app-socketio.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

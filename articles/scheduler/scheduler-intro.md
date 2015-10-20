@@ -1,19 +1,19 @@
 <properties
  pageTitle="Azure 스케줄러 정의 | Microsoft Azure"
-	description="Azure 스케줄러를 사용하면 클라우드에서 실행할 작업을 선언적으로 설명할 수 있습니다. 그런 다음 해당 작업을 예약하고 자동으로 실행합니다."
-	services="scheduler"
-	documentationCenter=".NET"
-	authors="krisragh"
-	manager="dwrede"
-	editor=""/>
+ description="Azure 스케줄러를 사용하면 클라우드에서 실행할 작업을 선언적으로 설명할 수 있습니다. 그런 다음 해당 작업을 예약하고 자동으로 실행합니다."
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
+ editor=""/>
 <tags
  ms.service="scheduler"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="08/04/2015"
-	ms.author="krisragh"/>
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="get-started-article"
+ ms.date="08/04/2015"
+ ms.author="krisragh"/>
 
 # Azure 스케줄러 정의
 
@@ -50,4 +50,4 @@ Azure 스케줄러를 사용하면 클라우드에서 실행할 작업을 선언
 
  [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

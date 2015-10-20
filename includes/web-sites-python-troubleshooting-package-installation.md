@@ -68,4 +68,4 @@ easy\_install를 사용하여 exe 설치 파일에서 설치할 수도 있습니
 [Microsoft Visual C++ Compiler for Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

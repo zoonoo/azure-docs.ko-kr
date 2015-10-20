@@ -126,4 +126,4 @@
 [Xamarin for Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
 [Windows에서 Xamarin.iOS 설치]: http://developer.xamarin.com/guides/ios/getting_started/installation/windows/
 
-<!----HONumber=Oct15_HO1-->
+<!----HONumber=Oct15_HO3-->

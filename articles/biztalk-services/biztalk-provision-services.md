@@ -237,4 +237,4 @@ BizTalk 서비스를 만들었으므로 이제 다른 [BizTalk 서비스: 대시
 [ACSServiceIdentities]: ./media/biztalk-provision-services/WABS_ACSServiceIdentities.png
 [HybridConnectionTab]: ./media/biztalk-provision-services/WABS_HybridConnectionTab.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

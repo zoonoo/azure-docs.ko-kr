@@ -114,4 +114,4 @@ Azure 관리 포털 화면의 왼쪽 아래에서 **+새로 만들기** 단추�
 [4]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/BizTalkTransforms.PNG
 [5]: ./media/app-service-logic-create-EAI-logic-app-using-VETR/AzureServiceBus.PNG
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

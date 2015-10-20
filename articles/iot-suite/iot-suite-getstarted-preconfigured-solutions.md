@@ -1,8 +1,8 @@
 <properties
-	pageTitle="미리 구성된 Microsoft Azure IoT Suite 솔루션 시작 자습서 | Microsoft Azure"
+	pageTitle="미리 구성된 솔루션 시작 | Microsoft Azure"
 	description="미리 구성된 Azure IoT Suite 솔루션을 배포하는 방법을 알아보려면 이 자습서를 따릅니다."
 	services=""
-	documentationCenter=".net"
+	documentationCenter=""
 	authors="aguilaaj"
 	manager="timlt"
 	editor=""/>
@@ -12,11 +12,11 @@
      ms.devlang="na"
      ms.topic="hero-article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="araguila"/>
 
-# 미리 구성된 loT 솔루션 시작
+# 자습서: 미리 구성된 IoT 솔루션 시작
 
 ## 소개
 
@@ -115,4 +115,4 @@
 [미리 구성된 솔루션 사용자 지정에 대한 지침]: https://azure.microsoft.com/documentation/articles/iot-suite-guidance-on-customizing-preconfigured-solutions/
 [IoT Suite 개요]: https://azure.microsoft.com/documentation/articles/iot-suite-overview/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

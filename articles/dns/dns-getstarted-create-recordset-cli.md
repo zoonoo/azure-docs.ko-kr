@@ -37,7 +37,7 @@ _정규화된_ 이름은 영역 이름을 포함하는 반면 _상대_ 이름은
 
 레코드는 포함된 데이터에 따라 다양한 형식으로 제공됩니다. 가장 일반적인 형식은 'A' 레코드로, 이름을 IPv4 주소에 매핑합니다. 또 다른 형식은 'MX' 레코드로, 이름을 메일 서버에 매핑합니다.
 
-Azure DNS는 A, AAAA, CNAME, MX, NS, SOA, SRV, TXT 등 모든 일반적인 DNS 레코드 형식을 지원합니다.
+Azure DNS는 A, AAAA, CNAME, MX, NS, SOA, SRV, TXT 등 모든 일반적인 DNS 레코드 형식을 지원합니다. ([SPF 레코드는 TXT 레코드 형식을 사용하여 만들어야 함](http://tools.ietf.org/html/rfc7208#section-3.1)에 유의합니다.)
 
 지정된 이름 및 형식을 가진 DNS 레코드를 두 개 이상 만들어야 하는 경우도 있습니다. 예를 들어 www.contoso.com 웹 사이트가 서로 다른 두 IP 주소에서 호스트된다고 가정합니다. 이 경우 각 IP 주소마다 하나씩, 두 개의 A 레코드가 있어야 합니다.
 
@@ -122,4 +122,4 @@ nslookup 또는 다른 DNS 도구를 사용하여 새 레코드 집합을 쿼리
 [.NET SDK로 Azure 작업 자동화](dns-sdk.md)
  
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -39,4 +39,4 @@ GitHub에서 기존 ARM 템플릿을 다운로드한 후 수정하고 GitHub, Po
 
 [AZURE.INCLUDE [virtual-networks-create-vnet-arm-template-click-include](../../includes/virtual-networks-create-vnet-arm-template-click-include.md)]
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

@@ -292,4 +292,4 @@ API 관리의 제품은 보호되거나 개방될 수 있습니다. 사용하기
 [호출 속도 제한]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
 [사용 할당량 설정]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

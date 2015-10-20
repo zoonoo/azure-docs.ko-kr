@@ -1,6 +1,6 @@
 <properties
-	pageTitle="Apache Storm 자습서: 스톰 시작 | Microsoft Azure"
-	description="HDInsight에서 Storm Starter 샘플을 실행하여 Apache Storm을 사용한 빅 데이터 분석을 시작합니다. Storm을 사용하여 실시간으로 데이터를 처리하는 방법을 알아봅니다."
+	pageTitle="Apache Storm 자습서: HDInsight에서 Linux 기반 Storm 시작 | Microsoft Azure"
+	description="Linux 기반 HDInsight에서 Apache Storm 및 Storm Starter 샘플을 사용한 빅 데이터 분석을 시작합니다. Storm을 사용하여 실시간으로 데이터를 처리하는 방법을 알아봅니다."
 	keywords="apache storm,apache storm tutorial,big data analytics,storm starter"
 	services="hdinsight"
 	documentationCenter=""
@@ -14,7 +14,7 @@
    ms.topic="get-started-article"
    ms.tgt_pltfrm="na"
    ms.workload="big-data"
-   ms.date="08/18/2015"
+   ms.date="10/09/2015"
    ms.author="larryfr"/>
 
 
@@ -40,7 +40,7 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 
 HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에 제출된 토폴로지 및 로그 파일을 저장합니다. 다음 단계를 사용하여 클러스터에서 사용할 Azure 저장소 계정을 만들 수 있습니다.
 
-1. [Azure 미리 보기 포털][preview-portal]에 로그인합니다.
+1. [Azure Preview 포털][preview-portal]에 로그인합니다.
 
 2. **새로 만들기**를 선택하고 __데이터 분석__, __HDInsight__를 차례로 선택합니다.
 
@@ -116,7 +116,7 @@ HDInsight의 Storm에서는 Azure Blob 저장소를 사용하여 클러스터에
 		
 	Linux 기반 HDInsight에서 SSH를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 	
-	* [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH를 사용합니다.](hdinsight-hadoop-linux-use-ssh-unix.md)
+	* [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 	* [Windows의 HDInsight에서 Linux 기반 Hadoop과 SSH 사용](hdinsight-hadoop-linux-use-ssh-windows)
 
@@ -233,4 +233,4 @@ Storm UI는 토폴로지를 실행하여 함께 작업하기 위한 웹 인터�
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

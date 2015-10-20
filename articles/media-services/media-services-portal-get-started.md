@@ -261,4 +261,4 @@ Azure 포털에서는 비디오를 테스트하는 데 사용할 수 있는 콘�
 [encrypt]: ./media/media-services-manage-content/media-services-encrypt-content.png
 [AMSPlayer]: ./media/media-services-portal-get-started/media-services-portal-player.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -67,4 +67,4 @@ Runbook의 모든 [검사점](http://technet.microsoft.com/library/dn469257.aspx
 - [Azure 자동화: Azure Active Directory를 사용하여 Azure에 인증](http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/)
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

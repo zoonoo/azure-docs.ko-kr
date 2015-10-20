@@ -33,4 +33,4 @@ Django 응용 프로그램에 대한 정적 파일 수집을 건너뛰려는 경
 
 [Azure 명령줄 인터페이스]: http://azure.microsoft.com/downloads/
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

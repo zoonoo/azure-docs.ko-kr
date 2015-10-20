@@ -13,7 +13,7 @@
 	ms.topic="hero-article"
 	ms.tgt_pltfrm="cache-redis"
 	ms.workload="tbd"
-	ms.date="08/25/2015"
+	ms.date="10/05/2015"
 	ms.author="sdanie"/>
 
 # Azure Redis Cache를 Java와 함께 사용하는 방법
@@ -87,4 +87,4 @@ DNS 호스트 이름을 입력합니다. 양식은 `<name>.redis.cache.windows.n
 [3]: ./media/cache-java-get-started/cache03.png
 [4]: ./media/cache-java-get-started/cache04.png
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

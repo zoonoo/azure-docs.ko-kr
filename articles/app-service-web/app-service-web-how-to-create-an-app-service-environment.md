@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="get-started-article" 
-	ms.date="09/11/2015" 
+	ms.date="10/13/2015" 
 	ms.author="ccompy"/>
 
 # 앱 서비스 환경을 만드는 방법 #
@@ -39,12 +39,12 @@ ASE 기능은 기본적으로 고객의 VNET에 Azure 앱 서비스를 배포합
 ASE 만들기 UI에 액세스하는 방법에는 두 가지가 있습니다. Azure 마켓플레이스에서 ***앱 서비스 환경***을 검색하거나, 새로 만들기 -> 웹 + 모바일로 이동하여 찾을 수 있습니다.
 
 ### 빨리 만들기 ###
-만들기 UI를 시작한 후에는 배포 이름을 입력하는 것만으로 ASE를 신속하게 만들 수 있습니다. 그러면 512개의 주소가 있는 VNET, 해당 VNET 내에 256개의 주소가 있는 서브넷 및 2개의 프런트 엔드와 2개의 작업자가 포함된 작업자 풀 1로 구성된 ASE 환경이 만들어집니다. 시스템을 배치할 위치 및 구독을 선택해야 합니다. ASE를 사용하여 콘텐츠를 호스트할 수 있는 계정은 ASE를 만드는 데 사용된 구독 내의 계정이어야 합니다.
+만들기 UI를 시작한 후에는 배포 이름을 입력하는 것만으로 ASE를 신속하게 만들 수 있습니다. 그러면 512개의 주소가 있는 VNET, 해당 VNET 내에 256개의 주소가 있는 서브넷 및 2개의 프런트 엔드와 2개의 작업자가 포함된 작업자 풀 1로 구성된 ASE 환경이 만들어집니다. 새 *앱 서비스 계획*을 만들거나 들어가기를 원하는 기존 앱 서비스 계획 또는 구독을 선택합니다. ASE를 사용하여 콘텐츠를 호스트할 수 있는 계정은 ASE를 만드는 데 사용된 구독 내의 계정이어야 합니다.
 
 지정한 ASE 이름은 ASE에서 만드는 웹앱에 사용됩니다. ASE 이름이 appsvcenvdemo인 경우 도메인 이름은 .*appsvcenvdemo.p.azurewebsites.net*입니다. 따라서 mytestapp이라는 웹앱을 만든 경우 해당 주소는 *mytestapp.appsvcenvdemo.p.azurewebsites.net*으로 지정될 수 있습니다. 이름에 공백을 사용할 수 없습니다. 이름에 대문자를 사용한 경우 전체 도메인 이름은 해당 이름의 소문자 버전이 됩니다.
 
 
-![][1]
+![][1] ![][4]
 
 ### 계산 리소스 풀 ###
 
@@ -138,6 +138,7 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [1]: ./media/app-service-web-how-to-create-an-app-service-environment/createaseblade.png
 [2]: ./media/app-service-web-how-to-create-an-app-service-environment/createasenetwork.png
 [3]: ./media/app-service-web-how-to-create-an-app-service-environment/createasescale.png
+[4]: ./media/app-service-web-how-to-create-an-app-service-environment/createaseappserviceplan.png
 
 <!--Links-->
 [WhatisASE]: http://azure.microsoft.com/documentation/articles/app-service-app-service-environment-intro/
@@ -145,4 +146,4 @@ Azure 앱 서비스 플랫폼에 대한 자세한 내용은 [Azure 앱 서비스
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
 [AzureAppService]: http://azure.microsoft.com/documentation/articles/app-service-value-prop-what-is/
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

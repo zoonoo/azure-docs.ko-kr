@@ -478,4 +478,4 @@ Baidu 클라우드 푸시 프로젝트를 만들면 앱 ID, API 키 및 비밀 �
 [Azure 포털]: https://manage.windowsazure.com/
 [Baidu 포털]: http://www.baidu.com/
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

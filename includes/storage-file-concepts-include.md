@@ -36,4 +36,4 @@ Azure 가상 컴퓨터나 클라우드 서비스에서 실행되는 응용 프�
 
 [files-concepts]: ./media/storage-file-concepts-include/files-concepts.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

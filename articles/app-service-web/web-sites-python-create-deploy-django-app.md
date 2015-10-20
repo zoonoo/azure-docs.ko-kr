@@ -514,4 +514,4 @@ SQL 데이터베이스 및 MySQL 사용에 대한 자세한 정보:
 [Python Tools for Visual Studio 설명서]: http://aka.ms/ptvsdocs
 [Django 설명서]: https://www.djangoproject.com/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

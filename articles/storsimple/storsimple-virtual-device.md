@@ -388,4 +388,4 @@ StorSimple 가상 장치를 이전에 구성하고 사용했지만 이제 용도
 
 가상 장치를 관리하려면 [StorSimple Manager 서비스를 사용하여 StorSimple 장치 관리](storsimple-manager-service-administration.md#administer-storsimple-device-using-storsimple-manager-service)에서 자세한 워크플로 목록을 참조하세요.
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

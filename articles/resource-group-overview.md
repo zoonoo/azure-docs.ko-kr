@@ -131,4 +131,4 @@ REST API에 대한 정보는 [Azure 리소스 관리자 REST API 참조](https:/
 
 [AZURE.VIDEO azure-resource-manager-overview]
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->
