@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="mobile-windows"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="10/05/2015"
+	ms.date="10/11/2015"
 	ms.author="wesmc"/>
 
 # Windows 스토어 앱에 대한 알림 허브 시작
@@ -24,7 +24,10 @@
 
 이 자습서에서는 Azure 알림 허브를 사용하여 Windows 스토어 또는 Windows Phone 8.1(비 Silverlight) 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. Windows Phone 8.1 Silverlight를 대상으로 하는 경우 [Windows Phone](notification-hubs-windows-phone-get-started.md) 버전을 참조하세요. 이 자습서에서는 WNS(Windows 푸시 알림 서비스)를 사용하여 푸시 알림을 받는 새 Windows 스토어 앱을 만듭니다. 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다.
 
-이 자습서에서는 알림 허브를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다. 알림 허브를 사용하여 장치의 특정 사용자 및 그룹을 처리하는 방법을 알아보려면 다음 자습서도 함께 완료해야 합니다.
+
+## 시작하기 전에
+
+[AZURE.INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
 
 이 자습서에 대해 완료된 코드는 GitHub의 [여기](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/GetStartedWindowsUniversal)서 찾을 수 있습니다.
 
@@ -46,7 +49,7 @@
 
 Windows 스토어 앱으로 푸시 알림을 보내려면 앱을 Windows 스토어와 연결해야 합니다. 그런 다음 WNS와 통합되도록 알림 허브를 구성해야 합니다.
 
-1. 앱을 아직 등록하지 않은 경우 <a href="http://go.microsoft.com/fwlink/p/?LinkID=266582" target="_blank">Windows 개발자 센터</a>로 이동하여 Microsoft 계정으로 로그온한 후 **새 앱 만들기**를 클릭합니다.
+1. 앱을 아직 등록하지 않은 경우 <a href="http://go.microsoft.com/fwlink/p/?LinkID=266582" target="_blank">Windows 개발자 센터</a>로 이동하여 Microsoft 계정으로 로그인한 다음 **새 앱 만들기**를 클릭합니다.
 
 
 2. 앱의 이름을 입력하고 **앱 이름 예약**을 클릭합니다.
@@ -203,7 +206,7 @@ Windows 스토어 앱으로 푸시 알림을 보내려면 앱을 Windows 스토�
 * **Java / PHP**: REST API를 사용하여 알림을 보내는 방법에 대한 예는 "Java/PHP에서 알림 허브를 사용하는 방법"([Java](notification-hubs-java-backend-how-to.md) | [PHP](notification-hubs-php-backend-how-to.md))을 참조하세요.
 
 
-### 콘솔 앱에서 알림 보내기
+## (선택 사항) 콘솔 응용 프로그램에서 알림 보내기
 
 
 .NET 콘솔 응용 프로그램을 사용하여 알림을 보내려면 다음 단계를 수행합니다.
@@ -260,9 +263,11 @@ MSDN의 [알림 카탈로그], [타일 카탈로그] 및 [배지 개요] 항목�
 
 ##다음 단계
 
-이 간단한 예제에서는 포털 또는 콘솔 앱을 사용하여 모든 Windows 장치로 브로드캐스트 알림을 보냈습니다. 다음 단계로 [알림 허브를 사용하여 사용자에게 알림 푸시] 자습서를 수행하는 것이 좋습니다. 이 자습서는 특정 사용자를 대상으로 ASP.NET 백엔드에서 알림을 보내는 방법을 보여 줍니다.
+이 간단한 예제에서는 포털 또는 콘솔 앱을 사용하여 모든 Windows 장치로 브로드캐스트 알림을 보냈습니다. 다음 단계로 [알림 허브를 사용하여 사용자에게 알림 푸시] 자습서를 수행하는 것이 좋습니다. 특정 사용자를 대상으로 하는 태그를 사용하여 ASP.NET 백엔드에서 알림을 보내는 방법을 보여 줍니다.
 
-사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기](영문)를 참조하십시오. 알림 허브에 대한 더 일반적인 정보를 알아보려면 [알림 허브 지침]을 참조하세요.
+사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기](영문)를 참조하십시오.
+
+알림 허브에 대한 더 일반적인 정보를 알아보려면 [알림 허브 지침]을 참조하세요.
 
 
 
@@ -300,4 +305,4 @@ MSDN의 [알림 카탈로그], [타일 카탈로그] 및 [배지 개요] 항목�
 [타일 카탈로그]: http://msdn.microsoft.com/library/windows/apps/hh761491.aspx
 [배지 개요]: http://msdn.microsoft.com/library/windows/apps/hh779719.aspx
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

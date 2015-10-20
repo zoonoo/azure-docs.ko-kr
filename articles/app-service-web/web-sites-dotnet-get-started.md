@@ -37,11 +37,11 @@
 다음 내용을 배웁니다.
 
 * [Azure SDK for .NET](../dotnet-sdk/)을 설치하여 Azure 개발용 컴퓨터를 준비하는 방법
-* Visual Studio를 설정하여 앱 서비스 웹앱으로 웹 프로젝트를 만들면서 새 앱 서비스 웹앱을 만드는 방법
+* Visual Studio를 설정하여 앱 서비스 웹앱으로 ASP.NET MVC 5 웹 프로젝트를 만들면서 새 앱 서비스 웹앱을 만드는 방법
 * Visual Studio를 사용하여 앱 서비스 웹앱에 웹 프로젝트를 배포하는 방법
 * [Azure 포털](/overview/preview-portal/)을 사용하여 웹앱을 모니터링 및 관리하는 방법
 
-이 자습서는 웹 응용 프로그램을 사용자 지정하기 위한 코드를 쓰는 방법을 설명하지 않습니다. 데이터베이스 사용 및 사용자 인증 방법을 보여주는 고급 자습서는 [Azure 웹 사이트에 멤버 자격, OAuth 및 SQL 데이터베이스가 포함된 보안 ASP.NET MVC 앱 배포](/develop/net/tutorials/web-site-with-sql-database/)를 참조하세요.
+만들 웹 프로젝트를 사용자 지정하는 방법을 보여주지 않는 빠르고 간단한 자습서입니다. ASP.NET MVC 5 웹 응용 프로그램 개발에 대한 소개는 [ASP.NET](http://asp.net/) 사이트에서 [ASP.NET MVC 5 시작](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started)을 참조하세요. Azure 앱 서비스의 웹 응용 프로그램에 대해 더 심층적으로 살펴보는 다른 문서에 대한 링크는 [다음 단계](#next-steps) 섹션을 참조하세요.
 
 ##<a name="video"></a>Microsoft Azure 등록
 
@@ -50,7 +50,7 @@
 * [Azure 계정을 무료로 개설할 수 있습니다](/pricing/free-trial/?WT.mc_id=A261C142F). 유료 Azure 서비스를 사용해볼 수 있는 크레딧을 받게 됩니다. 크레딧을 모두 사용한 후에도 계정을 유지하고 무료 Azure 서비스 및 기능(예: Azure 앱 서비스의 웹앱 기능)을 사용할 수 있습니다.
 * [MSDN 구독자 혜택을 활성화할 수 있습니다](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다.
 
-> [AZURE.NOTE]Azure 계정에 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가로](http://go.microsoft.com/fwlink/?LinkId=523751) 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 웹앱을 즉시 만들 수 있습니다.
+> [AZURE.NOTE]Azure 계정을 등록하기 전에 Azure 앱 서비스를 시작하려는 경우 [앱 서비스 평가](http://go.microsoft.com/fwlink/?LinkId=523751)로 이동하세요. 여기서 신용 카드와 약정 없이 앱 서비스에서 수명이 짧은 스타터 웹앱을 즉시 만들 수 있습니다.
 
 이 비디오에서 Scott Hanselman은 Microsoft Azure의 무료 평가판 등록이 얼마나 쉬운지 보여 줍니다. (소요 시간: 1분 58초)
 
@@ -70,7 +70,7 @@
 
 	Visual Studio 2013을 사용할 경우 화면이 스크린샷과 약간 다르지만 기본적으로 절차는 동일합니다.
 
-2. **파일** 메뉴에서 **새 프로젝트**를 클릭합니다.
+2. **파일** 메뉴에서 **새로 만들기 > 프로젝트**를 클릭합니다.
 
 3. **새 프로젝트** 대화 상자에서 **C# > Web > ASP.NET 웹 응용 프로그램**을 클릭합니다. 원하는 경우 **Visual Basic**을 선택할 수 있습니다.
 
@@ -130,7 +130,7 @@
 
 5. **지역** 드롭다운 목록에서 가장 가까운 위치를 선택합니다.
 
-	이 설정은 웹 앱이 실행되는 Azure 데이터 센터를 지정합니다. 이 자습서에서는 어떤 지역이든 선택할 수 있으며 지역에 따른 뚜렷한 차이는 없습니다. 그러나 프로덕션 웹앱의 경우 [대기 시간](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090)을 최소화하기 위해 사용자 사이트에 액세스하는 브라우저와 최대한 가깝게 웹 서버를 배치할 수 있습니다.
+	이 설정은 웹앱이 실행되는 Azure 데이터 센터를 지정합니다. 이 자습서에서는 어떤 지역이든 선택할 수 있으며 지역에 따른 뚜렷한 차이는 없습니다. 그러나 프로덕션 웹앱의 경우 [대기 시간](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090)을 최소화하기 위해 사용자 사이트에 액세스하는 브라우저와 최대한 가깝게 웹 서버를 배치할 수 있습니다.
 
 5. 데이터베이스 필드를 변경하지 않고 그대로 둡니다.
 
@@ -228,7 +228,7 @@
 
 	![포털 웹앱 구성 탭](./media/web-sites-dotnet-get-started/portalconfigure2.png)
 
-이러한 기능은 포털의 일부에 지나지 않습니다. 또한 새 웹 응용 프로그램을 만들고, 기존 응용 프로그램을 삭제하고, 웹 응용 프로그램을 중지 및 다시 시작하고, 다른 Azure 서비스(예: 데이터베이스 및 가상 컴퓨터)를 관리할 수도 있습니다.
+이러한 기능은 포털의 일부에 지나지 않습니다. 또한 새 웹앱을 만들고, 기존 웹앱을 삭제하고, 웹앱을 중지 및 다시 시작하고, 다른 Azure 서비스(예: 데이터베이스 및 가상 컴퓨터)를 관리할 수도 있습니다.
 
 ## 다음 단계
 
@@ -236,7 +236,7 @@
 
 * 데이터베이스 및 권한 부여 기능을 추가하는 방법
 
-	데이터베이스에 액세스하는 방법과 일부 응용 프로그램 기능을 인증된 사용자만 사용할 수 있도록 제한하는 방법을 보여 주는 자습서는 [Azure 웹앱에 멤버 자격, OAuth 및 SQL 데이터베이스가 포함된 보안 ASP.NET MVC 앱 배포](/develop/net/tutorials/web-site-with-sql-database/)를 참조하세요.
+	데이터베이스에 액세스하는 방법과 일부 응용 프로그램 기능을 인증된 사용자만 사용할 수 있도록 제한하는 방법을 보여 주는 자습서는 [Azure 웹앱에 멤버 자격, OAuth 및 SQL 데이터베이스가 포함된 보안 ASP.NET MVC 앱 배포](/develop/net/tutorials/web-site-with-sql-database/)를 참조하세요. 이 자습서에서는 MVC 5에 대한 지식 일부를 가정합니다. MVC 5를 처음 접하는 경우 [ASP.NET MVC 5 시작](http://www.asp.net/mvc/overview/getting-started/introduction/getting-started)을 참조하세요.
 
 * 웹 프로젝트를 배포하는 다른 방법
 
@@ -271,4 +271,4 @@
 * 웹 사이트에서 앱 서비스로의 변경에 대한 지침은 [Azure 앱 서비스 및 기존 Azure 서비스](http://go.microsoft.com/fwlink/?LinkId=529714)를 참조하세요.
 * Azure 포털에서 Preview 포털로 변경하는 방법에 대한 지침은 [Azure 포털 탐색에 대한 참조](http://go.microsoft.com/fwlink/?LinkId=529715)를 참조하세요.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

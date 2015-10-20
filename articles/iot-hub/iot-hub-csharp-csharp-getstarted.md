@@ -1,22 +1,22 @@
 <properties
-	pageTitle="IoT Hub 시작 | Microsoft Azure"
+	pageTitle="Azure IoT Hub 시작 | Microsoft Azure"
 	description="이 자습서에 따라 C#로 Azure IoT Hub 사용을 시작할 수 있습니다."
 	services="iot-hub"
 	documentationCenter=".net"
 	authors="fsautomata"
-	manager="kevinmil"
+	manager="timlt"
 	editor=""/>
 
 <tags
      ms.service="iot-hub"
-     ms.devlang="csharp"
-     ms.topic="article"
+     ms.devlang="dotnet"
+     ms.topic="hero-article"
      ms.tgt_pltfrm="na"
-     ms.workload="tbd"
+     ms.workload="na"
      ms.date="09/29/2015"
      ms.author="elioda"/>
 
-# IoT Hub 시작
+# 자습서: IoT Hub 시작
 
 ## 소개
 
@@ -24,19 +24,19 @@ Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간�
 
 이 자습서에서는 Azure 포털을 사용하여 IoT Hub를 만드는 방법을 보여 줍니다. 또한 IoT Hub에 장치 ID를 만들고 장치-클라우드 메시지를 보내는 시뮬레이션된 장치를 만들며 클라우드 백 엔드에서 이러한 메시지를 수신하는 방법을 보여줍니다.
 
-이 자습서의 끝 부분에서 다음의 세 가지 Windows 콘솔 응용 프로그램을 만듭니다.
+이 자습서의 끝 부분에서 다음의 세 가지 Windows 콘솔 응용 프로그램이 만들어집니다.
 
 * **CreateDeviceIdentity**는 장치 ID 및 시뮬레이션된 보안 키를 만들어 시뮬레이션된 장치에 연결합니다.
 * **ReadDeviceToCloudMessages**는 장치-클라우드 메시지를 읽고 해당 콘텐츠를 표시하며
 * **SimulatedDevice**는 앞에서 만든 장치 ID로 IoT Hub에 연결하고 매초마다 장치-클라우드 메시지를 보냅니다.
 
-> [AZURE.NOTE]IoT Hub는 많은 장치 플랫폼 및 언어(C, Java 및 Javascript 포함)를 위해 비록 Azure IoT 장치 SDK이지만 SDK를 지원합니다. 이 자습서의 코드 및 일반적으로 Azure IoT Hub에 장치를 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터]를 참조하세요. Java 및 노드용 Azure IoT 서비스 SDK는 곧 제공됩니다.
+> [AZURE.NOTE]IoT Hub는 많은 장치 플랫폼 및 언어(C, Java 및 Javascript 포함)를 위해 비록 Azure IoT 장치 SDK이지만 SDK를 지원합니다. 이 자습서의 코드 및 일반적으로 Azure IoT Hub에 장치를 연결하는 방법에 대한 단계별 지침은 [Azure IoT 개발자 센터][]를 참조하세요. Java 및 노드용 Azure IoT 서비스 SDK는 출시 예정입니다.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 + Microsoft Visual Studio 2015
 
-+ 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-kr%2Fdevelop%2Fiot%2Ftutorials%2Fgetstarted%2F target="\_blank")을 참조하세요.
++ 활성 Azure 계정. <br/>계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fko-KR%2Fdevelop%2Fiot%2Ftutorials%2Fgetstarted%2F target="\_blank")을 참조하세요.
 
 ## IoT Hub 만들기
 
@@ -92,17 +92,17 @@ Azure IoT Hub는 수백만의 IoT 장치와 응용 프로그램 백 엔드 간�
 
 이 자습서에서 새 IoT Hub를 설정하며 이는 허브의 ID 레지스트리에 장치 ID를 만들고 이 ID를 사용하여 장치-클라우드 메시지를 보내는 시뮬레이션된 장치를 프로그래밍합니다. IoT Hub 기능 및 시나리오는 다음의 자습서와 함께 계속해서 탐색할 수 있습니다.
 
-- [IoT Hub를 사용하여 클라우드-장치 메시지 보내기]는 장치에 메시지를 보내고 IoT Hub에서 생성된 전달 피드백을 처리하는 방법을 보여줍니다.
-- [장치-클라우드 메시지 처리]\: 장치에서 들어오는 대화형 메시지 및 원격 분석을 안정적으로 처리하는 방법을 보여줍니다.
-- [장치에서 파일 업로드]\: 장치에서 파일을 쉽게 업로드하기 위해 클라우드-장치 메시지를 사용하는 패턴을 설명합니다.
+- [IoT Hub를 사용하여 클라우드-장치 메시지 보내기][]는 장치에 메시지를 보내고 IoT Hub에서 생성된 전달 피드백을 처리하는 방법을 보여줍니다.
+- [장치-클라우드 메시지 처리][]는 장치에서 들어오는 대화형 메시지 및 원격 분석을 안정적으로 처리하는 방법을 보여 줍니다.
+- [장치에서 파일 업로드][]는 장치에서 파일을 쉽게 업로드하기 위해 클라우드-장치 메시지를 사용하는 패턴을 설명합니다.
 
 IoT Hub에 대한 추가 정보:
 
-* [IoT Hub 개요]
-* [IoT Hub 개발자 가이드]
-* [IoT Hub 지침]
+* [IoT Hub 개요][]
+* [IoT Hub 개발자 가이드][]
+* [IoT Hub 지침][]
 * [지원하는 장치 플랫폼 및 언어][Supported devices]
-* [Azure IoT 개발자 센터]
+* [Azure IoT 개발자 센터][]
 
 <!-- Images. -->
 [1]: ./media/iot-hub-csharp-csharp-getstarted/create-iot-hub1.png
@@ -127,10 +127,6 @@ IoT Hub에 대한 추가 정보:
 [IoT Hub Supported Devices]: iot-hub-supported-devices.md
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Supported devices]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/tested_configurations.md
-[Azure IoT 개발자 센터]: http://www.azure.com/iotdev
+[Azure IoT 개발자 센터]: http://www.azure.com/develop/iot
 
-
-
- 
-
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

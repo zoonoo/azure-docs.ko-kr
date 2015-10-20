@@ -1,17 +1,18 @@
 
-APNS(Apple Push Notification Service)는 인증서를 사용하여 푸시 알림을 인증합니다. 알림을 보내고 받는 데 필요한 푸시 인증서를 만들려면 다음 지침을 따르세요. 공식 APNS 기능 설명서는 [Apple Push Notification Service](http://go.microsoft.com/fwlink/p/?LinkId=272584)(영문)를 참조하세요.
 
 ##인증서 서명 요청 파일 생성
 
-먼저, 서명된 푸시 인증서를 생성하기 위해 Apple에서 사용하는 CSR(인증서 서명 요청) 파일을 생성해야 합니다.
+APNS(Apple Push Notification Service)는 인증서를 사용하여 푸시 알림을 인증합니다. 알림을 보내고 받는 데 필요한 푸시 인증서를 만들려면 다음 지침을 따르세요. 이러한 개념에 대한 자세한 내용은 [Apple Push Notification Service](http://go.microsoft.com/fwlink/p/?LinkId=272584) 공식 설명서를 참조하세요.
 
-1. **Utilities** 폴더 또는 **Other** 폴더에서 키체인 접근 도구를 실행합니다.
+서명된 푸시 인증서를 생성하기 위해 Apple에서 사용하는 CSR(인증서 서명 요청) 파일을 생성합니다.
 
-2. **키체인 접근**를 클릭하고 **인증서 지원**를 확장한 다음 **인증 기관에서 인증서 요청…**를 클릭합니다.
+1. Mac에서 Keychain Access 도구를 실행합니다. **유틸리티** 폴더 또는 **다른** 폴더에서 Keychain Access 도구를 실행합니다.
+
+2. **Keychain Access**를 클릭하고 **Certificate Assistant**를 확장한 다음 **Request a Certificate from a Certificate Authority...**를 클릭합니다.
 
   	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-request-cert-from-ca.png)
 
-3. **User Email Address**와 **Common Name**을 선택하고, **디스크에 저장됨**가 선택되어 있는지 확인한 후 **Continue**를 클릭합니다. **CA 이메일 주소** 필드는 필요하지 않으므로 비워둡니다.
+3. **User Email Address**와 **Common Name**을 선택하고, **Saved to disk**가 선택되어 있는지 확인한 후 **Continue**를 클릭합니다. **CA Email Address** 필드는 필요하지 않으므로 비워둡니다.
 
   	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-csr-info.png)
 
@@ -32,11 +33,13 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등�
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
 
 
-2. **App ID Description** 이름에 설명이 포함된 앱 이름을 입력합니다.
+2. 새 앱에 다음과 같은 세 가지 필드를 업데이트한 다음 **계속**을 클릭합니다.
 
-	**Explicit App ID**에 [앱 배포 가이드](http://go.microsoft.com/fwlink/?LinkId=613485)에 설명된 대로 `<Organization Identifier>.<Product Name>` 형식으로 **Bundle Identifier**를 입력합니다. 사용하는 *Organization Identifier* 및 *Product Name*은 XCode 프로젝트를 만들 때 사용할 조직 식별자 및 제품 이름과 일치해야 합니다. 아래 스크린샷에서는 조직 식별자로 *NotificationHubs*가 사용되고 제품 이름으로 *GetStarted*가 사용되었습니다. 이 값이 XCode 프로젝트에서 사용할 값과 일치하면 XCode에서 올바른 게시 프로필을 사용할 수 있습니다.
+	* **이름**: **응용 프로그램 ID 설명** 섹션의 **이름** 필드에서 앱에 대한 설명이 포함된 이름을 입력합니다.
 	
-	App Services 섹션에서 **Push Notifications** 옵션을 선택하고 **Continue**를 클릭합니다.
+	* **번들 식별자**: **명시적 앱 ID**에 [앱 배포 가이드](http://go.microsoft.com/fwlink/?LinkId=613485)에 설명된 대로 `<Organization Identifier>.<Product Name>` 형식으로 **번들 식별자**를 입력합니다. 사용하는 *Organization Identifier* 및 *Product Name*은 XCode 프로젝트를 만들 때 사용할 조직 식별자 및 제품 이름과 일치해야 합니다. 아래 스크린샷에서는 조직 식별자로 *NotificationHubs*가 사용되고 제품 이름으로 *GetStarted*가 사용되었습니다. 이 값이 XCode 프로젝트에서 사용할 값과 일치하면 XCode에서 올바른 게시 프로필을 사용할 수 있습니다.
+	
+	* **푸시 알림**: **앱 서비스** 섹션에서 **푸시 알림** 옵션을 선택합니다.
 
 	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
 
@@ -52,19 +55,19 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등�
     ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
 
 
-3. 방금 만든 앱 ID를 찾아 해당 행을 클릭합니다.
+3. 개발자 센터의 앱 ID에서 방금 만든 앱 ID를 찾아 해당 행을 클릭합니다.
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids2.png)
 
-   	앱 ID를 클릭하면 앱 세부 정보가 표시됩니다. **Edit** 단추를 클릭합니다.
+   	앱 ID를 클릭하면 앱 세부 정보가 표시됩니다. 아래쪽에 있는 **편집** 단추를 클릭합니다.
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-edit-appid.png)
 
-4. 화면 아래로 스크롤하여 **개발 푸시 SSL 인증서** 섹션에서 **인증서 만들기…** 단추를 클릭합니다.
+4. 화면 아래로 스크롤하여 **Development Push SSL Certificate** 섹션에서 **Create Certificate...** 단추를 클릭합니다.
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-create-cert.png)
 
-   	"OS 인증서 추가" assistant가 표시됩니다.
+   	"Add iOS Certificate" assistant가 표시됩니다.
 
     > [AZURE.NOTE]이 자습서에서는 개발 인증서를 사용합니다. 프로덕션 인증서를 등록할 때에도 동일한 프로세스가 사용됩니다. 알림을 보낼 때 동일한 인증서 유형을 사용하는지만 확인하면 됩니다.
 
@@ -80,9 +83,9 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등�
 
   	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-downloaded.png)
 
-    > [AZURE.NOTE]기본적으로 다운로드된 개발 증명서 파일은 이름이 **aps_development.cer**로 지정됩니다.
+    > [AZURE.NOTE]기본적으로 다운로드된 개발 증명서 파일은 이름이 **aps\_development.cer**로 지정됩니다.
 
-7. 다운로드한 푸시 인증서 **aps_development.cer**을 두 번 클릭합니다.
+7. 다운로드한 푸시 인증서 **aps\_development.cer**을 두 번 클릭합니다.
 
    	아래와 같이 새 인증서가 Keychain에 설치됩니다.
 
@@ -98,7 +101,7 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등�
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
 
-2. **Development**에서 프로비저닝 프로필 유형으로 **iOS App 개발**를 선택하고 **Continue**를 클릭합니다.
+2. **Development**에서 프로비저닝 프로필 유형으로 **iOS App Development**를 선택하고 **Continue**를 클릭합니다.
 
 
 3. **App ID** 드롭다운 목록에서 방금 만든 앱 ID를 선택하고 **Continue**를 클릭합니다.
@@ -116,13 +119,13 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등�
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
 
 
-6. 마지막으로, **프로파일 이름**에서 프로필의 이름을 선택하고 **Generate**와 **Done**을 차례로 클릭합니다.
+6. 마지막으로, **Profile Name**에서 프로필의 이름을 선택하고 **Generate**와 **Done**을 차례로 클릭합니다.
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
 
 
-  	새 프로비저닝 프로필이 생성됩니다.
+7. 새 프로비전 프로필이 만들어질 때 다운로드를 클릭하고 Xcode 개발 컴퓨터에 설치합니다. **완료**를 클릭합니다.
 
    	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

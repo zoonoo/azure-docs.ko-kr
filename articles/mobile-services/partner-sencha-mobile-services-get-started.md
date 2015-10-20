@@ -716,4 +716,4 @@ Sencha Touch 시작에 대한 자세한 내용을 보려면 전체 [가이드](h
 <!-- images -->
 [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

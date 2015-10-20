@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="na"
 	ms.topic="get-started-article"
-	ms.date="09/08/2015"
+	ms.date="10/13/2015"
 	ms.author="garye"/>
 
 
@@ -30,6 +30,8 @@
 
 기계 학습 스튜디오를 엽니다. [https://studio.azureml.net/Home](https://studio.azureml.net/Home) 기계 학습 스튜디오를 시작하는 방법에 대한 자세한 내용은 [Microsoft Azure 기계 학습 스튜디오 홈](https://studio.azureml.net/)을 참조하세요.
 
+>[AZURE.TIP]기계 학습 스튜디오의 기능에 대한 개요를 설명하는 다이어그램을 다운로드 및 프린트하려면 [기계 학습 스튜디오의 기능 개요 다이어그램](machine-learning-studio-overview-diagram.md)을 참조하세요.
+
 신용 위험 평가 솔루션을 만들려면 다음 단계를 따릅니다.
 
 1.	[기계 학습 작업 영역 만들기](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -41,4 +43,4 @@
 
 이 연습은 기계 학습 스튜디오에 포함된 [신용 위험 예측 샘플 실험](../machine-learning-sample-credit-risk-prediction.md)의 간소화된 버전을 기반으로 합니다.
 
-<!---HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

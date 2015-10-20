@@ -1,19 +1,19 @@
 <properties
  pageTitle="스케줄러 개념, 용어 및 엔터티 | Microsoft Azure"
-	description="작업 및 작업 컬렉션을 포함하는 Azure 스케줄러 개념, 용어 및 엔터티 계층 구조입니다. 예약된 작업의 자세한 예를 보여줍니다."
-	services="scheduler"
-	documentationCenter=".NET"
-	authors="krisragh"
-	manager="dwrede"
-	editor=""/>
+ description="작업 및 작업 컬렉션을 포함하는 Azure 스케줄러 개념, 용어 및 엔터티 계층 구조입니다. 예약된 작업의 자세한 예를 보여줍니다."
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
+ editor=""/>
 <tags
  ms.service="scheduler"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="get-started-article"
-	ms.date="08/04/2015"
-	ms.author="krisragh"/>
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="get-started-article"
+ ms.date="08/04/2015"
+ ms.author="krisragh"/>
 
 # 스케줄러 개념, 용어 + 엔터티 계층 구조
 
@@ -207,4 +207,4 @@ JSON 정의에 지정된 되풀이 개체가 있으면 작업이 반복됩니다
 
  [Azure 스케줄러 아웃바운드 인증](scheduler-outbound-authentication.md)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

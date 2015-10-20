@@ -178,4 +178,4 @@ VMware 가상 컴퓨터 또는 물리적 서버에 설치합니다. 컴퓨터와
 
 배포 시나리오를 위한 구성 요소 구성 시작 [자세히 알아봅니다](site-recovery-overview.md).
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

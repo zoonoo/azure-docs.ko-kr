@@ -171,7 +171,7 @@
 
 이 섹션에서는 Azure 앱 서비스에서 실행되는 API 앱에 샘플 응용 프로그램을 배포하기 위해 로컬 Git 리포지토리를 만들고 해당 리포지토리에서 Azure에 푸시합니다.
 
-1. Git가 설치되지 않은 경우 [Git 다운로드 페이지](http://git-scm.com/download%20target="_blank")에서 설치합니다.
+1. Git가 설치되지 않은 경우 [Git 다운로드 페이지](http://git-scm.com/download)에서 설치합니다.
 
 1. 명령줄에서 샘플 응용 프로그램 디렉터리로 이동한 후 다음 명령을 입력하여 로컬 Git 리포지토리를 초기화합니다.
 
@@ -249,4 +249,4 @@ API 앱 백 엔드를 사용하는 Node.js 웹 응용 프로그램을 Azure에 �
 [sample-api-app-page]: ./media/app-service-api-nodejs-api-app/sample-api-app-page.png
 [browse-api-app-page]: ./media/app-service-api-nodejs-api-app/browse-api-app-page.png
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

@@ -19,6 +19,12 @@
 
 # DocumentDB를 사용하여 Java 웹 응용 프로그램 빌드
 
+> [AZURE.SELECTOR]
+- [.NET](documentdb-dotnet-application.md)
+- [Node.js](documentdb-nodejs-application.md)
+- [Java](documentdb-java-application.md)
+- [Python](documentdb-python-application.md)
+
 이 Java 웹 응용 프로그램 자습서에서는 [Microsoft Azure DocumentDB](https://portal.azure.com/#gallery/Microsoft.DocumentDB) 서비스를 사용하여 Azure 웹 사이트에서 호스트된 Java 응용 프로그램에서 데이터를 저장하고 액세스하는 방법을 보여 줍니다. 이 항목에서는 다음 내용을 배웁니다.
 
 - Eclipse에서 기본 JSP 응용 프로그램을 빌드하는 방법.
@@ -46,7 +52,7 @@ Azure에서 DocumentDB 데이터베이스 계정을 프로비전하려면 다음
 1. 데이터베이스 계정이 아직 없으면 [데이터베이스 계정 만들기](documentdb-create-account.md)의 지침에 따라 계정을 만듭니다. 이미 계정이 있으면 2단계를 계속합니다.
 2. 다음 그림에 표시된 **키** 블레이드를 사용해서 끝점 **URI** 및 **PRIMARY KEY**를 클립보드에 복사하고 다음에 만드는 웹 응용 프로그램에서 이러한 값을 사용할 수 있도록 잘 보관합니다.
 
-![DocumentDB 계정 만들기 – 데이터베이스 자습서 액티브 허브, DocumentDB 계정 블레이드의 키 단추 및 키 블레이드의 URI, PRIMARY KEY 및 SECONDARY KEY 값이 강조 표시된 DocumentDB 계정을 보여 주는 Azure Preview 포털의 스크린샷][1]
+![DocumentDB 계정 만들기 – 데이터베이스 자습서 활성 허브, DocumentDB 계정 블레이드의 키 단추 및 키 블레이드의 URI, 기본 키 및 보조키 값이 강조 표시된 DocumentDB 계정을 보여 주는 Azure Preview 포털의 스크린샷][1]
 
 
 ##<a id="CreateJSP"></a>2단계: Java JSP 응용 프로그램 만들기
@@ -780,4 +786,4 @@ Azure 웹 사이트에서는 Java 응용 프로그램을 간단히 배포할 수
 [1]: media/documentdb-java-application/keys.png
  
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

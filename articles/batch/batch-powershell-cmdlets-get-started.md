@@ -1,20 +1,20 @@
 <properties
    pageTitle="Azure 배치 PowerShell cmdlet 시작 | Microsoft Azure"
-	description="Azure 배치 서비스를 관리하는 데 사용되는 Azure PowerShell cmdlet을 소개합니다."
-	services="batch"
-	documentationCenter=""
-	authors="dlepow"
-	manager="timlt"
-	editor=""/>
+   description="Azure 배치 서비스를 관리하는 데 사용되는 Azure PowerShell cmdlet을 소개합니다."
+   services="batch"
+   documentationCenter=""
+   authors="dlepow"
+   manager="timlt"
+   editor=""/>
 
 <tags
    ms.service="batch"
-	ms.devlang="NA"
-	ms.topic="get-started-article"
-	ms.tgt_pltfrm="powershell"
-	ms.workload="big-compute"
-	ms.date="08/07/2015"
-	ms.author="danlep"/>
+   ms.devlang="NA"
+   ms.topic="get-started-article"
+   ms.tgt_pltfrm="powershell"
+   ms.workload="big-compute"
+   ms.date="08/07/2015"
+   ms.author="danlep"/>
 
 # Azure 배치 PowerShell Cmdlet 시작
 이 문서에서는 Batch 계정을 관리하고 배치 작업, 작업 및 기타 세부 정보에 대한 정보를 얻는 데 사용할 수 있는 Azure PowerShell cmdlet에 대해 간략히 소개합니다.
@@ -162,4 +162,4 @@ Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 * [Azure 배치 cmdlet 참조](https://msdn.microsoft.com/library/azure/mt125957.aspx)
 * [효율적인 목록 쿼리](batch-efficient-list-queries.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

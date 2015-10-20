@@ -4,7 +4,7 @@
 	services="active-directory"
 	documentationCenter=""
 	authors="curtand"
-	manager="msStevenPo"
+	manager="stevenpo"
 	editor=""/>
 
 <tags
@@ -212,4 +212,4 @@ Azure AD에 도메인 이름을 추가한 후 새 사용자 계정을 만들 때
 - [조직으로 Azure에 등록](sign-up-organization.md)
 - [Azure AD에서 도메인 관리](https://msdn.microsoft.com/library/azure/dn919677.aspx)
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

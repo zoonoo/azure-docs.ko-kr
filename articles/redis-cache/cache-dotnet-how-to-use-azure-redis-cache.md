@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="cache-redis" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="09/30/2015" 
+	ms.date="10/13/2015" 
 	ms.author="sdanie"/>
 
 # Azure Redis Cache 사용 방법
@@ -58,7 +58,7 @@ Azure Redis 캐시를 시작하기는 쉽습니다. 먼저 캐시를 프로비�
 
 **DNS 이름** - 캐시 끝점에 사용할 하위 도메인 이름을 입력합니다. 끝점은 6~20자 사이의 문자열이어야 하며, 소문자와 숫자만 포함할 수 있고, 문자로 시작해야 합니다.
 
-**가격 계층**을 사용하여 원하는 캐시 크기 및 기능을 선택합니다.
+**가격 책정 계층**을 사용하여 원하는 캐시 크기 및 기능을 선택합니다.
 
 **리소스 그룹**에서 캐시에 대한 리소스 그룹을 선택하거나 만듭니다.
 
@@ -208,7 +208,7 @@ Redis 캐시 세션 상태 NuGet 패키지를 사용하여 Visual Studio에서 �
 
 ![Redis 캐시 세션 상태 NuGet 패키지][SessionStateNuGet]
 
-NuGet 패키지는 필요한 어셈블리 참조를 다운로드 및 추가하고 ASP.NET 응용 프로그램이 Redis 캐시 세션 상태 제공자를 사용하는 데 필요한 구성이 포함된 web.config 파일에 다음 섹션을 추가합니다.
+NuGet 패키지는 필요한 어셈블리 참조를 다운로드 및 추가하고 ASP.NET 응용 프로그램에 필요한 구성이 포함된 web.config 파일에 다음 섹션을 추가하여 Redis 캐시 세션 상태 제공자를 사용합니다.
 
     <sessionState mode="Custom" customProvider="MySessionStateStore">
       <providers>
@@ -368,4 +368,4 @@ NuGet 패키지는 필요한 어셈블리 참조를 다운로드 및 추가하�
 
 [Azure 무료 체험]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

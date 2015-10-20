@@ -62,8 +62,8 @@ Hive 스크립트 실행 후에는 결과가 Azure Blob 저장소 컨테이너 *
 ## 자습서에 대한 Azure 저장소 준비
 자습서를 시작하기 전에 자습서에 필요한 파일을 Azure 저장소에 준비해야 합니다.
 
-1. 메모장을 시작하고 다음 텍스트를 붙여 넣은 다음 사용자 하드 드라이브의 C:\\adfgettingstarted 폴더 에 **partitionweblogs.hql**로 저장합니다. 이 Hive 스크립트는 **WebLogsRaw** 및 **WebLogsPartitioned**라는 두 개의 외부 테이블을 만듭니다.
-
+1. **메모장**을 시작하고 다음의 HQL 스크립트를 붙여넣습니다. 이 Hive 스크립트는 **WebLogsRaw** 및 **WebLogsPartitioned**라는 두 개의 외부 테이블을 만듭니다. 메뉴에서 **파일**을 클릭하고 **다른이름으로**를 선택합니다. 하드 드라이브의 **C:\\adfgettingstarted** 폴더로 전환합니다. **형식으로 저장** 필드에서 **모든 파일 (*.*)**을 선택합니다. **파일 이름**에 **partitionweblogs.hql**을 입력합니다. 대화 상자의 아래쪽에서 **인코딩** 필드가 **ANSI**로 설정된 것을 확인합니다. 그렇지 않은 경우 **ANSI**로 설정합니다.  
+	
 		set hive.exec.dynamic.partition.mode=nonstrict;
 		
 		DROP TABLE IF EXISTS WebLogsRaw; 
@@ -142,19 +142,18 @@ Hive 스크립트 실행 후에는 결과가 Azure Blob 저장소 컨테이너 *
 		  year(date),
 		  month(date)
 		FROM WebLogsRaw
-	
- 
+	 
 2. 자습서에 대한 Azure 저장소를 준비하려면:
 	1. [최신 버전의 **AzCopy**](http://aka.ms/downloadazcopy) 또는 [최신 미리 보기 버전](http://aka.ms/downloadazcopypr)을 다운로드합니다. 유틸리티 사용 지침은 [AzCopy 사용 방법](../storage/storage-use-azcopy.md)을 참조하세요.
 	2. AzCopy 설치 후에는 명령 프롬프트에서 다음 명령을 실행하여 시스템 경로에 AzCopy를 추가할 수 있습니다. 
 	
 			set path=%path%;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy			 
 
-	3. c:\\adfgettingstarted 폴더로 이동하고 다음 명령을 실행하여 Hive .HQL 파일을 저장소 계정에 업로드합니다. **StorageAccountName**을 해당 저장소 계정의 이름으로 바꾸고 **Storage Key**를 저장소 계정 키로 바꿉니다.
+	3. c:\\adfgettingstarted 폴더로 이동하고 다음 명령을 실행하여 Hive .HQL 파일을 저장소 계정에 업로드합니다. **StorageAccountName**을 해당 저장소 계정의 이름으로 바꾸고 **저장소 키**를 저장소 계정 키로 바꿉니다.
 
 			AzCopy /Source:. /Dest:https://<StorageAccountName>.blob.core.windows.net/script /DestKey:<Storage Key>
 
-		> [AZURE.NOTE]위의 명령은 Azure Blob 저장소에 이름이 **script**인 컨테이너를 만들고로컬 드라이브의 **partitionweblogs.hql** 파일을 BLOB 컨테이너에 복사합니다.
+		> [AZURE.NOTE]위의 명령은 Azure Blob 저장소에 이름이 **스크립트**인 컨테이너를 만들고로컬 드라이브의 **partitionweblogs.hql** 파일을 BLOB 컨테이너에 복사합니다.
 	>
 	5. 파일 업로드가 완료되면 AzCopy에서 다음과 같은 출력이 표시됩니다.
 	
@@ -176,4 +175,4 @@ Hive 스크립트 실행 후에는 결과가 Azure Blob 저장소 컨테이너 *
 ## 피드백 보내기
 이 문서에 대한 의견을 보내주시면 감사하겠습니다. 몇 분 정도 시간을 할애해서 [메일](mailto:adfdocfeedback@microsoft.com?subject=data-factory-build-your-first-pipeline.md)을 통해 의견을 보내주세요.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

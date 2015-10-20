@@ -25,4 +25,4 @@ HDInsight에서는 Hadoop, HBase, Apache Storm 및 사용자 지정된 클러스
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/HDI.Content.Flow.svg" width="100%" height="100%"> </object>
  
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

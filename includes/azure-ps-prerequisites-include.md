@@ -3,4 +3,4 @@
 
 > [AZURE.NOTE]Azure 계정이 없는 경우 계정이 필요합니다. [여기서 무료 평가판](sign-up-organization.md)에 등록합니다.
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

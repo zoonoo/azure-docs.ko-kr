@@ -58,4 +58,4 @@ github에서 VNet 및 두 개의 서브넷을 만들기 위한 기존 ARM 템플
 11. 파일을 저장합니다.
   
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

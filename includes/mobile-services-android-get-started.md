@@ -1,31 +1,31 @@
 이 자습서의 최종 단계는 새 앱을 빌드하고 실행하는 것입니다.
 
+### Android Studio에 프로젝트 로드 및 Gradle 동기화
+
 1. 압축된 프로젝트 파일을 저장한 위치로 이동한 후 컴퓨터에서 Android Studio 프로젝트 디렉터리에 파일 압축을 풉니다.
 
 2. Android Studio를 엽니다. 프로젝트로 작업 중인 경우 해당 프로젝트가 나타나면 프로젝트를 닫습니다(File => Close Project).
 
-3. **기존 Android Studio 프로젝트 열기**를 선택하고 프로젝트 위치를 찾은 후 **확인**을 클릭합니다.
+3. **기존 Android Studio 프로젝트 열기**를 선택하고 프로젝트 위치를 찾은 후 **확인**을 클릭합니다. 프로젝트를 로드하고 Gradle와 동기화를 시작합니다.
 
  	![](./media/mobile-services-android-get-started/android-studio-import-project.png)
 
-4. 왼쪽 **프로젝트 탐색기** 창에서 *프로젝트* 탭이 선택되어 있는지 확인하고 **app**, **src**, **java**를 연 후 **ToDoactivity**를 두 번 클릭합니다.
+4. Gradle 동기화 활동이 완료될 때까지 기다립니다. "찾을 대상 실패" 오류가 나타나면 Android Studio에서 사용되는 버전이 샘플과 일치하지 않기 때문입니다. 이 문제를 해결하는 가장 쉬운 방법은 오류 메시지에서 **누락된 플랫폼 설치 및 프로젝트 동기화** 링크를 클릭하는 것입니다. 추가 버전 오류 메시지를 받으면 오류가 나타나지 않을 때까지 이 과정을 반복합니다.
+    - "최신 및 가장 큰" 버전의 Android를 사용하여 실행하려는 경우 이 문제를 해결할 다른 방법이 있습니다. *앱* 디렉터리의 *build.gradle* 파일에서 **targetSdkVersion**를 업데이트하여 컴퓨터에 이미 설치된 버전과 일치시킬 수 있으며 이는 **SDK Manager** 아이콘을 클릭하고 어떤 버전이 나열되는지 확인하여 찾을 수 있습니다. 다음으로 **Gradle 파일과 프로젝트 동기화** 아이콘을 누릅니다. 빌드 도구의 버전에 대한 오류 메시지가 발생할 수 있고 동일한 방식으로 해결합니다.
 
-   	![](./media/mobile-services-android-get-started/Android-Studio-quickstart.png)
+### 앱 실행
 
+에뮬레이터를 사용하거나 실제 장치를 사용하여 앱을 실행할 수 있습니다.
 
-5. 2\.0 버전의 SDK를 다운로드한 경우 코드를 모바일 서비스의 URL 및 키로 업데이트해야 합니다.
-	- 	**TodoActivity.java**에서 **OnCreate** 메서드를 찾아 모바일 서비스 클라이언트를 인스턴스화하는 코드를 찾습니다. 이 코드는 이전 이미지에서 확인할 수 있습니다.
-	- 	"MobileServiceUrl"을 모바일 서비스의 실제 URL로 바꿉니다.
-	- 	"AppKey"를 모바일 서비스의 키로 바꿉니다.
-	- 	자세한 내용은 [기존 앱에 모바일 서비스 추가](../articles/mobile-services/mobile-services-android-get-started-data.md) 자습서를 참조하세요. 
+1. 장치를 실행하려면 USB 케이블로 컴퓨터에 연결합니다. [개발에 대한 장치를 설정](https://developer.android.com/training/basics/firstapp/running-app.html)해야 합니다. Windows 컴퓨터에서 개발하는 경우 USB 드라이버를 다운로드하고 설치해야 합니다.
 
-6. **Run** 메뉴에서 **Run**을 클릭하여 Android 에뮬레이터에서 프로젝트를 시작합니다.
+2. Android 에뮬레이터를 사용하여 실행하려면 AVD(Android Virtual Device)를 하나 이상 정의해야 합니다. AVD Manager 아이콘을 클릭하여 이러한 장치를 만들고 관리합니다.
 
-	> [AZURE.IMPORTANT]Android 에뮬레이터에서 프로젝트를 실행할 수 있으려면 AVD(Android Virtual Device)를 하나 이상 정의해야 합니다. AVD Manager를 사용하여 이러한 장치를 만들고 관리합니다.
+3. **실행** 메뉴에서 **실행**을 클릭하여 프로젝트를 시작하고 표시되는 대화 상자에서 장치 또는 에뮬레이터를 선택합니다.
 
-7. 앱에서 _Complete the tutorial_ 등의 의미 있는 텍스트를 입력하고 **Add**를 클릭합니다.
+4. 앱이 나타나면 _자습서 완료_ 등의 의미 있는 텍스트를 입력하고 **추가**를 클릭합니다.
 
-   	![][10]
+   	![](./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png)
 
    	Azure에 호스트된 새 모바일 서비스에 POST 요청이 전송됩니다. 요청에서 데이터가 TodoItem 테이블에 삽입됩니다. TodoItem 테이블에 저장된 항목이 모바일 서비스에서 반환된 후 데이터가 목록에 표시됩니다.
 
@@ -39,26 +39,4 @@
 
    	![](./media/mobile-services-android-get-started/mobile-data-browse.png)
 
-
-<!-- Images. -->
-[0]: ./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png
-[6]: ./media/mobile-services-android-get-started/mobile-portal-quickstart-android.png
-[7]: ./media/mobile-services-android-get-started/mobile-quickstart-steps-android.png
-[8]: ./media/mobile-services-android-get-started/Android-Studio-quickstart.png
-[10]: ./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png
-[11]: ./media/mobile-services-android-get-started/mobile-data-tab.png
-[12]: ./media/mobile-services-android-get-started/mobile-data-browse.png
-[14]: ./media/mobile-services-android-get-started/android-studio-import-project.png
-[15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
-
-<!-- URLs. -->
-[Add Mobile Services to an existing app]: ../articles/mobile-services/mobile-services-android-get-started-data.md
-[Get started with authentication]: ../articles/mobile-services/mobile-services-android-get-started-users.md
-[Get started with push notifications]: ../articles/mobile-services/mobile-services-javascript-backend-android-get-started-push.md
-[Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-[Android Studio]: https://developer.android.com/sdk/index.html
-[Mobile Services Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-
-[Management Portal]: https://manage.windowsazure.com/
-
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

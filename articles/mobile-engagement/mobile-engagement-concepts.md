@@ -5,7 +5,7 @@
 	documentationCenter="mobile"
 	authors="piyushjo"
 	manager="dwrede"
-	editor=""/>
+	editor="" />
 
 <tags
 	ms.service="mobile-engagement"
@@ -14,7 +14,7 @@
 	ms.devlang="na"
 	ms.topic="get-started-article"
 	ms.date="08/10/2015"
-	ms.author="piyushjo"/>
+	ms.author="piyushjo" />
 
 # Azure Mobile Engagement 개념
 
@@ -85,4 +85,4 @@ Mobile Engagement SDK의 API 또는 Mobile Engagement 플랫폼의 장치 API를
 - [Azure Mobile Engagement용 iOS SDK](mobile-engagement-ios-sdk-overview.md)
 - [Azure Mobile Engagement용 Android SDK](mobile-engagement-android-sdk-overview.md)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

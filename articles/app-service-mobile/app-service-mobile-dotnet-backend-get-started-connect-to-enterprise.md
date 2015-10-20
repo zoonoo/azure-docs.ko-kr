@@ -184,8 +184,8 @@ Word 문서를 만들려면 OpenXML NuGet 패키지를 사용합니다. NuGet �
 
 [Preview Azure Management Portal]: https://portal.azure.com/
 [Active Directory]: https://manage.windowsazure.com/
-[SharePoint Online]: http://office.microsoft.com/ko-kr/sharepoint/
+[SharePoint Online]: http://office.microsoft.com/ko-KR/sharepoint/
 [Active Directory 인증 라이브러리 Single Sign-On으로 앱 인증]: app-service-mobile-dotnet-backend-ios-aad-sso-preview.md
 [모바일 앱 .NET 백 엔드 앱 서비스 확장]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.AppService/
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

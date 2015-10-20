@@ -34,4 +34,4 @@ Windows Server에서 파일 및 데이터를 Azure에 백업하려면 먼저 다
 - [Azure 백업 - FAQ](backup-azure-backup-faq.md)
 - [Azure 백업 포럼](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

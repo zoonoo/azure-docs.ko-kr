@@ -87,4 +87,4 @@ Microsoft Azure Preview 포털은 클라우드에서 응용 프로그램을 빌�
 [CustomizeBlades]: ./media/azure-portal-how-to-use/azure_portal_5.png
 [HelpSupport]: ./media/azure-portal-how-to-use/azure_portal_6.png
 
-<!---HONumber=August15_HO7-->
+<!---HONumber=Oct15_HO3-->

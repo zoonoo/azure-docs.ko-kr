@@ -66,4 +66,4 @@ Microsoft 피어링 경로를 사용하면 Azure 공용 피어링 경로를 통�
 	- [라우팅 구성](expressroute-howto-routing-classic.md)
 	- [VNet을 Express 경로 회로에 연결](expressroute-howto-linkvnet-classic.md)
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

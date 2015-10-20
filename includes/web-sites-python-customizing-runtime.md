@@ -15,4 +15,4 @@ Azure는 다음 우선 순위에 따라 가상 환경에 사용할 Python 버전
 
 마이크로 버전(3번째 자릿수)이 지정된 경우 이는 무시됩니다.
 
-<!---HONumber=August15_HO6-->
+<!---HONumber=Oct15_HO3-->

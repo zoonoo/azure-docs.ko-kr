@@ -610,4 +610,4 @@ Azure는 사용된 서버 시간의 시간당 웹 역할 인스턴스 요금을 
   [sbwacomqhowto]: service-bus-dotnet-how-to-use-queues.md
   [executionmodels]: ../cloud-services/fundamentals-application-models.md
 
-<!---HONumber=Oct15_HO2-->
+<!---HONumber=Oct15_HO3-->

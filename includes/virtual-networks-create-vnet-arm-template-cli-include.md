@@ -89,4 +89,4 @@ Azure CLI를 사용하여 다운로드한 ARM 템플릿을 배포하려면 다�
 		data:
 		info:    network vnet show command OK
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

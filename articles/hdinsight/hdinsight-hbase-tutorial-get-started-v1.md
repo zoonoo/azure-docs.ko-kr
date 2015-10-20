@@ -1,6 +1,7 @@
 <properties
 	pageTitle="HBase 자습서: Hadoop 및 HBase로 시작 | Microsoft Azure"
 	description="HDInsight에서 Hadoop을 통해 Apache HBase 사용을 시작하려면 이 HBase 자습서를 따르세요. HBase 셸에서 테이블을 만들고 Hive를 사용하여 쿼리합니다."
+	keywords="apache hbase,hbase,hbase shell,hbase tutorial"
 	services="hdinsight"
 	documentationCenter=""
 	authors="mumian"
@@ -246,7 +247,7 @@ Hive를 사용하여 HBase 테이블의 데이터를 쿼리할 수 있습니다.
 
 GitHub에서 HBase REST API Client Library for .NET을 다운로드하고 HBase .NET SDK를 사용할 수 있도록 프로젝트를 빌드해야 합니다. 다음 절차에는 이 작업에 대한 지침이 있습니다.
 
-1. 새 C#Visual Studio Windows 데스크톱 콘솔 응용 프로그램을 만듭니다.
+1. 새 C# Visual Studio Windows 데스크톱 콘솔 응용 프로그램을 만듭니다.
 2. **도구** 메뉴 > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 클릭하여 NuGet 패키지 관리자 콘솔을 엽니다.
 3. 콘솔에서 다음 NuGet 명령을 실행합니다.
 
@@ -328,7 +329,7 @@ GitHub에서 HBase REST API Client Library for .NET을 다운로드하고 HBase 
 
 
 ## 다음 작업
-HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 프로비전하는 방법 및 테이블을 만들고 HBase 셸에서 가져온 데이터를 이 테이블에서 보는 방법을 알아보았습니다. 또한 HBase 테이블에서 데이터에 대해 Hive 쿼리를 사용하는 방법 및 HBase C#REST API를 사용하여 HBase 테이블을 만들고 이 테이블에서 데이터를 검색하는 방법도 알아보았습니다.
+HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 프로비전하는 방법 및 테이블을 만들고 HBase 셸에서 가져온 데이터를 이 테이블에서 보는 방법을 알아보았습니다. 또한 HBase 테이블에서 데이터에 대해 Hive 쿼리를 사용하는 방법 및 HBase C# REST API를 사용하여 HBase 테이블을 만들고 이 테이블에서 데이터를 검색하는 방법도 알아보았습니다.
 
 자세한 내용은 다음을 참조하세요.
 
@@ -364,4 +365,4 @@ HDInsight에 대한 이 HBase 자습서에서는 HBase 클러스터를 프로비
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

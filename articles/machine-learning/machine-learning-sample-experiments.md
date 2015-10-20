@@ -39,4 +39,4 @@
 - [웹 서비스 API 만들기](machine-learning-publish-a-machine-learning-web-service.md)
 - [바로 사용할 수 있는 응용 프로그램 찾아보기](https://datamarket.azure.com/browse?query=machine+learning)
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->

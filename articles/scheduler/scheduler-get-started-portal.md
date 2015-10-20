@@ -1,19 +1,19 @@
 <properties
  pageTitle="Azure 포털에서 Azure 스케줄러 사용 시작 | Microsoft Azure"
-	description=""
-	services="scheduler"
-	documentationCenter=".NET"
-	authors="krisragh"
-	manager="dwrede"
-	editor=""/>
+ description=""
+ services="scheduler"
+ documentationCenter=".NET"
+ authors="krisragh"
+ manager="dwrede"
+ editor=""/>
 <tags
  ms.service="scheduler"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="dotnet"
-	ms.topic="hero-article"
-	ms.date="08/18/2015"
-	ms.author="krisragh"/>
+ ms.workload="infrastructure-services"
+ ms.tgt_pltfrm="na"
+ ms.devlang="dotnet"
+ ms.topic="hero-article"
+ ms.date="08/18/2015"
+ ms.author="krisragh"/>
 
 # Azure 포털에서 Azure 스케줄러 사용 시작
 
@@ -261,4 +261,4 @@ Azure 스케줄러는 여러 조건에 따라 할당량을 구현 합니다. 이
 [14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
 [15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
 
-<!---HONumber=September15_HO1-->
+<!---HONumber=Oct15_HO3-->

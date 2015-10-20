@@ -43,4 +43,4 @@ LRS(로컬 중복 저장소)는 데이터의 복제본 3개를 유지 관리합�
 
 ![LRS](./media/backup-create-vault/lrs.png)
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -12,7 +12,7 @@
 	ms.tgt_pltfrm="mobile-android"
 	ms.devlang="java"
 	ms.topic="hero-article"
-	ms.date="09/03/2015"
+	ms.date="10/15/2015"
 	ms.author="wesmc"/>
 
 # Android 앱에 대한 알림 허브 시작
@@ -24,6 +24,13 @@
 이 자습서에서는 Azure 알림 허브를 사용하여 Android 응용 프로그램에 푸시 알림을 보내는 방법을 보여 줍니다. GCM(Google Cloud Messaging)을 사용하여 푸시 알림을 받는 빈 Android 앱을 만듭니다. 완료하면 알림 허브를 사용하여 앱을 실행하는 모든 장치로 푸시 알림을 브로드캐스트할 수 있습니다.
 
 이 자습서에서는 알림 허브를 사용하는 간단한 브로드캐스트 시나리오를 보여 줍니다. 알림 허브를 사용하여 장치의 특정 사용자 및 그룹을 처리하는 방법을 알아보려면 다음 자습서도 함께 완료해야 합니다.
+
+
+## 시작하기 전에
+
+[AZURE.INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
+
+이 자습서에 대해 완료된 코드는 GitHub의 [여기](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStarted)서 찾을 수 있습니다.
 
 
 ##필수 조건
@@ -62,17 +69,11 @@
 
 ###프로젝트에 Google Play Services 추가
 
-[AZURE.INCLUDE [Play 서비스 추가](../../includes/mobile-services-add-google-play-services.md)]
+[AZURE.INCLUDE [Play 서비스 추가](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
 
 ###코드 추가
 
-1. <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">알림 허브 Android SDK</a>를 다운로드합니다. .zip 파일의 압축을 풀고 **notificationhubs\\notification-hubs-0.4.jar** 및 **notifications\\notifications-1.0.1.jar**을 프로젝트의 **app\\libs** 디렉터리로 복사합니다. Android Studio의 Project View 창에서 **libs** 폴더로 파일을 직접 끌어올 수 있습니다. **libs** 폴더를 새로 고칩니다.
-
-
-
-	이 두 패키지에 대한 참조 설명서는 다음 링크에 있습니다.
-	* [com.microsoft.windowsazure.messaging](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/messaging/package-summary.html)
-	* [com.microsoft.windowsazure.notifications](http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/notifications/package-summary.html)
+1. <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">알림 허브 Android SDK</a>를 다운로드합니다. .zip 파일의 압축을 풀고 **notificationhubs\\notification-hubs-0.3.jar** 및 **notifications\\notifications-1.0.1.jar**을 프로젝트의 **app\\libs** 디렉터리로 복사합니다. Android Studio의 Project View 창에서 **libs** 폴더로 파일을 직접 끌어올 수 있습니다. **libs** 폴더를 새로 고칩니다.
 
 
     > [AZURE.NOTE]후속 SDK 릴리스에서는 파일 이름 끝에 있는 숫자가 변경될 수도 있습니다.
@@ -109,14 +110,11 @@
 	    private static Boolean isVisible = false;
 
 
-	자리 표시자 3개를 업데이트해야 합니다.
-	* **SENDER\_ID**: `SENDER_ID`를 이전에 [Google 클라우드 콘솔](http://cloud.google.com/console)에서 만든 프로젝트에서 얻은 프로젝트 번호로 설정합니다.
-	* **HubListenConnectionString**: `HubListenConnectionString`을 허브의 **DefaultListenAccessSignature** 연결 문자열로 설정합니다. [Azure 포털]에서 허브의 **대시보드** 탭에 있는 **연결 문자열 보기**를 클릭하여 이 연결 문자열을 복사할 수 있습니다.
-	* **HubName**: Azure의 허브 페이지 위쪽에 표시된 알림 허브의 이름(전체 URL이 **아님**)입니다. 예를 들면 `"myhub"`를 사용합니다.
+	세 개의 자리 표시자를 업데이트해야 합니다. * **SENDER\_ID**: `SENDER_ID`를 이전에 [Google 클라우드 콘솔](http://cloud.google.com/console)에서 만든 프로젝트에서 얻은 프로젝트 번호로 설정합니다. * **HubListenConnectionString**: `HubListenConnectionString`을 허브의 **DefaultListenAccessSignature** 연결 문자열로 설정합니다. [Azure 포털]에서 허브의 **대시보드** 탭에 있는 **연결 문자열 보기**를 클릭하여 이 연결 문자열을 복사할 수 있습니다. * **HubName**: Azure의 허브 페이지 위쪽에 표시된 알림 허브의 이름(전체 URL이 **아님**)입니다. 예를 들면 `"myhub"`를 사용합니다.
 
 
 
-5. **MainActivity** 클래스의 **OnCreate** 메서드에 다음 코드를 추가하여 활동 만들기에 대한 등록을 수행합니다.
+5. **MainActivity** 클래스의 **OnCreate** 메서드에 다음 코드를 추가하여 활동을 만들 때 알림 허브로 등록합니다.
 
         MyHandler.mainActivity = this;
         NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
@@ -281,7 +279,9 @@
 
 [AZURE.INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
-![][31]
+
+## (선택 사항) 앱에서 알림 보내기
+
 
 1. Android Studio Project View에서 **App** > **src** > **main** > **res** > **layout**을 확장합니다. **activity\_main.xml** 레이아웃 파일을 열고 **Text** 탭을 클릭하여 파일의 텍스트 내용을 업데이트합니다. 아래 코드로 업데이트하여 알림 허브에 알림 메시지를 보내는 새 `Button` 및 `EditText` 컨트롤을 추가합니다. 이 코드는 맨 아래의 `</RelativeLayout>` 바로 앞에 추가합니다.
 
@@ -328,7 +328,7 @@
 
 3. **MainActivity.java** 파일에서 다음 멤버를 `MainActivity` 클래스 위에 추가합니다.
 
-	`HubName`에 대한 허브 이름(네임스페이스가 아님)을 입력합니다. 예를 들어 "myhub"를 입력합니다. 또한 **DefaultFullSharedAccessSignature** 연결 문자열을 입력합니다. 알림 허브에 대한 **대시보드** 탭에서 **연결 문자열 보기**를 클릭하여 [Azure 포털]에서 이 연결 문자열을 복사할 수 있습니다.
+	허브에 **DefaultFullSharedAccessSignature** 연결 문자열을 사용하여 `HubFullAccess`을 업데이트합니다. 알림 허브에 대한 **대시보드** 탭에서 **연결 문자열 보기**를 클릭하여 [Azure 포털]에서 이 연결 문자열을 복사할 수 있습니다.
 
 	    private String HubEndpoint = null;
 	    private String HubSasKeyName = null;
@@ -493,7 +493,13 @@
 
 ##다음 단계
 
-이 간단한 예제에서는 모든 Android 장치로 알림을 브로드캐스트합니다. 특정 사용자를 대상으로 하려면 [알림 허브를 사용하여 사용자에게 알림 푸시](영문) 자습서를 참조하세요. 사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기](영문)를 참조하세요. [알림 허브 지침]에서 알림 허브 사용 방법을 자세히 알아보세요.
+이 간단한 예제에서는 포털 또는 콘솔 앱을 사용하여 모든 Windows 장치로 브로드캐스트 알림을 보냈습니다. 다음 단계로 [알림 허브를 사용하여 사용자에게 알림 푸시] 자습서를 수행하는 것이 좋습니다. 특정 사용자를 대상으로 하는 태그를 사용하여 ASP.NET 백엔드에서 알림을 보내는 방법을 보여 줍니다.
+
+사용자를 관심 그룹별로 분할하려면 [알림 허브를 사용하여 뉴스 속보 보내기](영문)를 참조하십시오.
+
+알림 허브에 대한 더 일반적인 정보를 알아보려면 [알림 허브 지침]을 참조하세요.
+
+
 
 
 <!-- Images. -->
@@ -527,12 +533,12 @@
 
 
 <!-- URLs. -->
-[모바일 서비스에서 푸시 알림 시작]: ../mobile-services-javascript-backend-android-get-started-push.md
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Azure 포털]: https://manage.windowsazure.com/
 [알림 허브 지침]: http://msdn.microsoft.com/library/jj927170.aspx
-[알림 허브를 사용하여 사용자에게 푸시 알림 보내기]: notification-hubs-aspnet-backend-android-notify-users.md
+[알림 허브를 사용하여 사용자에게 알림 푸시]: notification-hubs-aspnet-backend-android-notify-users.md
 [알림 허브를 사용하여 뉴스 속보 보내기]: notification-hubs-aspnet-backend-android-breaking-news.md
 
-<!----HONumber=Sept15_HO2-->
+<!---HONumber=Oct15_HO3-->

@@ -1,19 +1,19 @@
 <properties
     pageTitle="iOS 앱용 Application Insights | Microsoft Azure"
-	description="Application Insights를 사용하여 iOS 앱의 사용 현황 및 성능을 분석합니다."
-	services="application-insights"
-	documentationCenter="ios"
-	authors="alancameronwills"
-	manager="ronmart"/>
+    description="Application Insights를 사용하여 iOS 앱의 사용 현황 및 성능을 분석합니다."
+    services="application-insights"
+    documentationCenter="ios"
+    authors="alancameronwills"
+    manager="ronmart"/>
 
 <tags
     ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="04/27/2015"
-	ms.author="awills"/>
+    ms.workload="tbd"
+    ms.tgt_pltfrm="ibiza"
+    ms.devlang="na"
+    ms.topic="get-started-article"
+    ms.date="04/27/2015"
+    ms.author="awills"/>
 
 # iOS 앱용 Application Insights
 
@@ -137,4 +137,4 @@ http://portal.azure.com으로 돌아가서 Application Insights 리소스를 찾
 [qna]: app-insights-troubleshoot-faq.md
 [track]: app-insights-api-custom-events-metrics.md
 
-<!---HONumber=August15_HO9-->
+<!---HONumber=Oct15_HO3-->

@@ -35,4 +35,4 @@ StorSimple 볼륨을 탑재, 초기화 및 포맷하는 방법을 보여 주는 
 <!--Link references-->
 [1]: https://technet.microsoft.com/library/ee338480(WS.10).aspx
 
-<!---HONumber=Sept15_HO3-->
+<!---HONumber=Oct15_HO3-->

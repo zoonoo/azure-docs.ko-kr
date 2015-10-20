@@ -4,4 +4,4 @@
 
 Azure Preview 포털을 사용하는 이 문서의 버전은 다음 링크를 참조하세요.
 
-<!---HONumber=August15_HO8-->
+<!---HONumber=Oct15_HO3-->

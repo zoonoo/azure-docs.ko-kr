@@ -145,9 +145,9 @@ Express 경로에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 
 
 	다음 샘플(사용자 고유의 값으로 대체)을 사용합니다.
 
-	`New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <local-network- gateway-public-IP> -AddressSpace <local-network-address-space>`
+	`New-AzureLocalNetworkGateway -GatewayName MyLocalNetwork -IpAddress <MyLocalGatewayIp> -AddressSpace <MyLocalNetworkAddress>`
 
-	**참고:** 로컬 네트워크에 여러 경로가 있는 경우 모두 배열로 전달할 수 있습니다. $MyLocalNetworkAddress = @("10.1.2.0/24","10.1.3.0/24","10.2.1.0/24")
+	> [AZURE.NOTE]로컬 네트워크에 여러 경로가 있는 경우 모두 배열로 전달할 수 있습니다. $MyLocalNetworkAddress = @("10.1.2.0/24","10.1.3.0/24","10.2.1.0/24")
 
 
 	게이트웨이 ID와 공용 IP를 비롯한 가상 네트워크 게이트웨이 설정을 검색하려면 `Get-AzureVirtualNetworkGateway` cmdlet을 사용합니다. 다음 예제를 참조하세요.
@@ -210,4 +210,4 @@ Express 경로 또는 사이트 간 VPN 연결을 통해 연결된 기존 가상
 
 Express 경로에 대한 자세한 내용은 [Express 경로 FAQ](expressroute-faqs.md)를 참조하세요.
 
-<!---HONumber=Oct15_HO1-->
+<!---HONumber=Oct15_HO3-->
