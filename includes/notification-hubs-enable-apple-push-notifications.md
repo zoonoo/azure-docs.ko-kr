@@ -83,9 +83,9 @@ iOS 앱으로 푸시 알림을 보내려면 Apple에 응용 프로그램을 등�
 
   	![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-downloaded.png)
 
-    > [AZURE.NOTE]기본적으로 다운로드된 개발 증명서 파일은 이름이 **aps\_development.cer**로 지정됩니다.
+    > [AZURE.NOTE]기본적으로 다운로드된 개발 증명서 파일은 이름이 **aps_development.cer**로 지정됩니다.
 
-7. 다운로드한 푸시 인증서 **aps\_development.cer**을 두 번 클릭합니다.
+7. 다운로드한 푸시 인증서 **aps_development.cer**을 두 번 클릭합니다.
 
    	아래와 같이 새 인증서가 Keychain에 설치됩니다.
 

@@ -42,11 +42,16 @@ Azure에서 서비스 버스 큐 사용을 시작하려면 먼저 서비스 네�
 
 ###포털에서 관리 자격 증명을 가져오려면
 
-1.  왼쪽 탐색 창에서 **서비스 버스** 노드를 클릭하여 사용 가능한 네임스페이스 목록을 표시합니다. ![](./media/howto-service-bus-queues/sb-queues-13.png)
+1.  왼쪽 탐색 창에서 **서비스 버스** 노드를 클릭하여 사용 가능한 네임스페이스 목록을 표시합니다.
+	![](./media/howto-service-bus-queues/sb-queues-13.png)
 
-2.  표시된 목록에서 방금 만든 네임스페이스를 선택합니다. ![](./media/howto-service-bus-queues/sb-queues-09.png)
+2.  표시된 목록에서 방금 만든 네임스페이스를 선택합니다.
+	
+	![](./media/howto-service-bus-queues/sb-queues-09.png)
 
-3.  **연결 정보**를 클릭합니다. ![](./media/howto-service-bus-queues/sb-queues-06.png)
+3.  **연결 정보**를 클릭합니다.
+
+	![](./media/howto-service-bus-queues/sb-queues-06.png)
 
 4.  **Access 연결 정보** 창에서 SAS 키 및 키 이름이 포함된 연결 문자열을 찾습니다.
 

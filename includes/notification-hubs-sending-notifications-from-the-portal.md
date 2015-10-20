@@ -4,8 +4,8 @@
 
 알림을 보내기 위해 검토할 수 있는 다른 자습서 목록은 다음과 같습니다.
 
-- Azure 모바일 서비스: 알림 허브와 통합된 Azure 모바일 서비스 백 엔드에서 알림을 보내는 방법에 대한 예제는 [모바일 서비스에서 푸시 알림 시작]을 참조하세요.  
-- ASP.NET: [알림 허브를 사용하여 사용자에게 푸시 알림 보내기].
+- Azure 모바일 서비스: 알림 허브와 통합된 Azure 모바일 서비스 백 엔드에서 알림을 보내는 방법에 대한 예제는 [모바일 서비스에서 푸시 알림 시작](../mobile-services-javascript-backend-ios-get-started-push.md)을 참조하세요.  
+- ASP.NET: [알림 허브를 사용하여 사용자에게 푸시 알림 보내기](notification-hubs-aspnet-backend-ios-notify-users.md).
 - Azure 알림 허브 Java SDK: Java에서 알림을 보내는 방법은 [Java에서 알림 허브를 사용하는 방법](../articles/notification-hubs/notification-hubs-java-backend-how-to.md)을 참조하세요. 이는 Eclipse for Android Development에서 테스트되었습니다.
 - PHP: [PHP에서 알림 허브를 사용하는 방법](../articles/notification-hubs/notification-hubs-php-backend-how-to.md)을 참조하세요.
 
