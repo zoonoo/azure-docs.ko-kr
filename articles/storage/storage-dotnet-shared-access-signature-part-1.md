@@ -315,9 +315,11 @@ IP 범위|sip=168.1.5.60-168.1.5.70|요청을 수락할 IP 주소 범위입니�
 - [Windows에서 Azure 파일 저장소를 사용하는 방법](storage-dotnet-how-to-use-files.md)
 - [Azure 저장소 리소스에 대한 액세스 관리](storage-manage-access-to-resources.md)
 - [공유 액세스 서명을 사용하여 액세스 위임](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-- [테이블 및 큐 SAS 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx) [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
+- [테이블 및 큐 SAS 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+[sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
+[sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
 
  
 
-<!---HONumber=Oct15_HO2-->
+<!----HONumber=Oct15_HO2-->
